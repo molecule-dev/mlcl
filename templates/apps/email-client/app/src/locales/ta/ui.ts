@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'நாங்கள் வடிவமைப்பாளர்கள் மற்றும் பொறியாளர்கள் அடங்கிய ஒரு பரவலான குழு. ஒரு காலத்தில், நாங்கள் ஒவ்வொரு நாளும் அதிக நேரத்தை இரைச்சல் மிகுந்த அஞ்சல் பெட்டியில் செலவழித்தோம். மெரிடியன் என்பது நாங்கள் சுயமாகப் பயன்படுத்த விரும்பிய இன்பாக்ஸ் ஆகும்.',
   'about.title': 'கவனம் தேவைப்படும் பணிக்கான மின்னஞ்சல்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'help.cta.about': 'மெரிடியன் பற்றி',
   'help.cta.pricing': 'விலை விவரங்களைக் காண்க',
   'help.eyebrow': 'உதவி மையம்',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'நாங்கள் அடிக்கடி கேட்கும் கேள்விகளுக்கான விரைவான பதில்கள். ஏதேனும் விடுபட்டுள்ளதா? அமைப்புகளைத் திறந்து, செயலிக்குள் உள்ள பின்னூட்டப் படிவத்தைப் பயன்படுத்தவும் அல்லது support@courier.example என்ற முகவரிக்கு எழுதவும்.',
   'help.title': 'நாங்கள் எப்படி உதவ முடியும்?',
   'landing.brand.scrollTop': 'மீண்டும் மேலே',
+  'landing.copyright': '© {{year}} {{appName}} — கவனக்குவிப்பிற்காக உருவாக்கப்பட்டது.',
   'landing.ctaBody':
     'மதிய உணவிற்கு முன்பே தங்கள் இன்பாக்ஸை முடித்த ஆயிரக்கணக்கான தொழில் வல்லுநர்களுடன் நீங்களும் இணையுங்கள்.',
   'landing.ctaTitle': 'அதிகம் செயலாக்குங்கள், குறைவாக எதிர்வினையாற்றுங்கள்.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'டெமோவைப் பார்க்கவும்',
   'landing.heroSubtitle':
     'மெரிடியன் என்பது, தகவல்களுக்கு எதிர்வினையாற்றாமல் அவற்றைச் செயலாக்க விரும்பும் அறிவுசார் பணியாளர்களுக்காக உருவாக்கப்பட்ட ஒரு அமைதியான மூன்று-பலகை இன்பாக்ஸ் ஆகும்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'உலகெங்கிலும் உள்ள அர்ப்பணிப்புள்ள குழுக்களால் நம்பப்படுகிறது',
   'landing.signIn': 'உள்நுழை',
   'meridian.archive.empty': 'காப்பகம் காலியாக உள்ளது.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'வரைவு',
   'meridian.folder.count': '{{count}} செய்திகள்',
+  'meridian.folder.delete': 'நீக்கு',
   'meridian.folder.deleteForever': 'நிரந்தரமாக நீக்கு',
   'meridian.folder.restore': 'இன்பாக்ஸிற்கு நகர்த்தவும்',
   'meridian.forgot.subtitle':
@@ -88,7 +92,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'இன்னும் இங்கே செய்திகள் எதுவும் வரவில்லை.',
   'meridian.inbox.loading': 'ஏற்றப்படுகிறது…',
   'meridian.inbox.next': 'அடுத்து',
+  'meridian.inbox.noSender': '(அனுப்புநர் இல்லை)',
   'meridian.inbox.noSubject': '(பொருள் இல்லை)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'திறந்த கலவை',
   'meridian.inbox.previous': 'முந்தைய',
   'meridian.inbox.replyFailed': 'பதில் சேமிக்கப்பட்டது, ஆனால் அனுப்பத் தவறியது: {{error}}',
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'உங்களிடம் கணக்கு இல்லையா?',
   'meridian.login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'meridian.message.toLine': 'க்கு {{recipients}}',
+  'meridian.notFound.body':
+    'நீங்கள் தேடும் பக்கத்தைக் காண முடியவில்லை. உங்கள் {{appName}} இன்பாக்ஸிற்குத் திரும்பிச் செல்லுங்கள், நாங்கள் உங்களுக்கு சரியான வழியைக் காட்டுவோம்.',
   'meridian.notFound.eyebrow': 'பிழை 404',
   'meridian.notFound.title': 'இந்த உரையாடல் காப்பகப்படுத்தப்பட்டது.',
   'meridian.notFound.toInbox': 'எனது இன்பாக்ஸைத் திறக்கவும்',
@@ -137,18 +145,22 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'நட்சத்திரத்தைச் சேர்க்கவும்',
   'meridian.thread.unstar': 'நட்சத்திரத்தை அகற்று',
   'meridian.time.yesterday': 'நேற்று',
+  'meridian.topBar.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'meridian.topBar.searchPlaceholder': 'தேடல் அஞ்சல்',
   'meridian.trash.empty': 'குப்பைத்தொட்டி காலியாக உள்ளது.',
   'meridian.trash.title': 'குப்பை',
   'nav.legal': 'சட்டப்பூர்வமான',
   'planUpdated.description':
     'உங்கள் சந்தா இப்போது செயலில் உள்ளது மற்றும் உங்கள் கட்டண விவரங்கள் புதுப்பிக்கப்பட்டுள்ளன. புதுப்பிக்கப்பட்ட உங்கள் மெரிடியன் இன்பாக்ஸிற்கு வரவேற்கிறோம்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'வரைவுகள்',
   'pricing.limit.emails': 'மின்னஞ்சல்கள்',
   'pricing.limit.folders': 'கோப்புறைகள்',
   'pricing.limit.labels': 'லேபிள்கள்',
   'privacy.collect.account':
     'கணக்கு விவரங்கள்: பெயர், மின்னஞ்சல் முகவரி, ஹேஷ் செய்யப்பட்ட கடவுச்சொல் மற்றும் நீங்கள் பதிவுசெய்த தேதி.',
+  'privacy.contact':
+    'கேள்விகள் உள்ளதா? privacy@courier.example என்ற முகவரிக்கு மின்னஞ்சல் அனுப்பவும்.',
   'privacy.intro':
     'இந்தத் தனியுரிமைக் கொள்கையானது, மெரிடியன் என்னென்ன தரவுகளைச் சேகரிக்கிறது, அவற்றை ஏன் சேகரிக்கிறது, அவற்றை எவ்வாறு பாதுகாப்பாக வைத்திருக்கிறது, மற்றும் அவற்றின் மீது உங்களுக்கு உள்ள தெரிவுகள் என்னென்ன என்பதை விளக்குகிறது. நாங்கள் சட்டப்பூர்வமாக இல்லாமல், குறிப்பாக இருக்கவே விரும்புகிறோம்; ஏதேனும் தெளிவாக இல்லை என்றால், privacy@courier.example என்ற முகவரிக்கு எழுதவும்.',
   'privacy.lastUpdated': 'கடைசியாகப் புதுப்பிக்கப்பட்டது: ஏப்ரல் 1, 2026',
@@ -168,6 +180,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'இந்த விதிமுறைகள் மெரிடியனை நீங்கள் பயன்படுத்துவதை நிர்வகிக்கின்றன. எங்கள் மூலம் ஒரு கணக்கை உருவாக்குவதன் மூலமோ அல்லது மின்னஞ்சல் அனுப்புவதன் மூலமோ, நீங்கள் இந்த விதிமுறைகளுக்குக் கட்டுப்படுவதை ஒப்புக்கொள்கிறீர்கள். ஒருவரால் உண்மையில் பின்பற்றக்கூடிய விதிகளை எழுத நாங்கள் முயற்சிக்கிறோம்.',
   'terms.lastUpdated': 'நடைமுறைக்கு வரும் நாள்: ஏப்ரல் 1, 2026',
+  'terms.linkPrivacy': 'எங்கள் தனியுரிமைக் கொள்கையைப் படிக்கவும் →',
   'terms.termination.body':
     'உங்கள் கணக்கை நீங்கள் எப்போது வேண்டுமானாலும் நீக்கலாம். இந்த விதிமுறைகளை மீறும் கணக்கை நாங்கள் இடைநிறுத்தம் செய்யலாம்; அவ்வாறு செய்தால், அதற்கான காரணத்தை விளக்கி, முதலில் உங்கள் தரவுகளை ஏற்றுமதி செய்ய உங்களை அனுமதிப்போம்.',
   'terms.warranty.body':

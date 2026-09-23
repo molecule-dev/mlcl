@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': "Rhowch dip i'ch siopwr",
   'checkout.tipLabel': 'Awgrym',
   'checkout.zipPlaceholder': 'Cod Post',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'featuredProductsGrid.addAria': "Ychwanegu {{name}} i'r fasged",
   'featuredProductsGrid.outOfStock': 'Allan o stoc',
   'forgotPassword.emailLabel': 'Cyfeiriad E-bost',
   'forgotPassword.emailPlaceholder': 'siopwr@bushel.fresh',
   'forgotPassword.successBody':
     "Os yw'r e-bost hwnnw wedi'i gofrestru, mae dolen ailosod ar ei ffordd.",
+  'groceryDeliveryLayout.primaryNavLabel': 'Prif lywio',
   'landing.categoriesEyebrow': 'Eiliau',
   'landing.categoriesHeading': 'Siopa yn ôl categori',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Trefnwch ddanfoniadau wythnosol gydag ail-archebu staplau clyfar ac olrhain gyrwyr yn fyw.',
   'landing.heroTitle': 'Ffresni wrth eich drws, o fewn oriau.',
   'landing.howEyebrow': 'Tri cham',
+  'landing.howItWorksHeading': 'Sut mae {{app}} yn gweithio',
   'lists.addAllCta': 'Ychwanegu popeth at y fasged',
   'lists.createCta': 'Creu eich rhestr gyntaf',
   'lists.createError': 'Methwyd creu rhestr.',

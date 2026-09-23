@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
   'about.pageTitle': 'बद्दल {{name}}',
   'auth.footer.about': 'बद्दल {{name}}',
   'authHeader.subtitle': 'तुमची आकडेवारी अचूक ठेवण्यासाठी साइन इन करा.',
   'automations.action.email': 'ईमेल',
+  'automations.action.noop': 'नो-ऑप',
   'automations.action.webhook': 'वेबहुक',
   'automations.confirmDelete': 'हटवा {{name}} "?',
   'automations.empty.headline': 'अद्याप कोणतेही ऑटोमेशन नाही',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'प्रत्येक वर्कबुकमधील ट्रिगर्स आणि क्रिया. प्रत्येक रन एक ओळ लॉग करतो, जी तुम्ही नंतर तपासू शकता.',
   'automations.toggle': 'टॉगल {{name}}',
+  'automations.trigger.dailySchedule': 'दैनंदिन वेळापत्रक',
+  'automations.trigger.rowCreated': 'पंक्ती तयार केली',
+  'automations.trigger.rowUpdated': 'पंक्ती अद्यतनित केली',
   'billing.empty': 'कोणतीही योजना उपलब्ध नाही.',
   'billing.error.priceMissing':
     'या टियरसाठी कोणतीही स्ट्राइप किंमत कॉन्फिगर केलेली नाही. STRIPE_*_PRICE_ID env vars सेट करा.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'चार्ट्स',
   'charts.kpi.totalCharts': 'एकूण चार्ट',
   'charts.list.empty': 'अद्याप चार्ट नाहीत.',
+  'charts.namePlaceholder': 'महसूल कल',
   'charts.newChart': 'नवीन चार्ट',
   'charts.primary.eyebrow': 'प्रकारानुसार चार्ट',
   'charts.primary.headline': 'कार्यक्षेत्राचा आढावा',
   'charts.subhead':
     'तुमच्या ग्रिडशी जोडलेले थेट व्हिज्युअलायझेशन — प्रत्येक सेल एडिट केल्यावर पुन्हा रेंडर होतात.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'editor.addColumn': 'स्तंभ जोडा',
+  'editor.addDialogTitle': 'स्तंभ जोडा',
   'editor.addRow': 'पंक्ती जोडा',
   'editor.addSheet': 'शीट जोडा',
   'editor.back': 'कार्यपुस्तिकांकडे परत जा',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} कॅल्साइट हे फॉर्म्युला-फर्स्ट, मल्टी-व्ह्यू, रिअल-टाइम ग्रिड आहे, ज्याचा वापर विश्लेषक आणि वित्त संघ सर्वप्रथम करतात.',
   'landing.nav.formulas': 'सूत्रे',
+  'login.noAccount': 'तुम्ही {{name}} वर नवीन आहात का?',
+  'login.signIn': '{{name}} मध्ये साइन इन करा',
   'login.signUp': 'कार्यक्षेत्र तयार करा',
+  'nav.menu': 'मेनू',
+  'nav.openMenu': 'मेनू उघडा',
   'notFound.cellRef': '#संदर्भ!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'ही ओळ कधीच अस्तित्वात नव्हती.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'नेटिव्ह ऑटोमेशन · वेबहूक आणि क्रॉन ट्रिगर्स',
   'signup.creating': 'कार्यक्षेत्राची तरतूद करणे…',
   'signup.cta': 'माझी कार्यक्षेत्र तयार करा',
+  'signup.haveAccount': 'तुम्ही आधीच {{name}} वर आहात का?',
   'signup.namePlaceholder': 'एव्हरी चेन',
   'signup.tagline': '३० सेकंदात तुमची पहिली वर्कबुक सुरू करा.',
   'team.col.activity': 'आमंत्रित',

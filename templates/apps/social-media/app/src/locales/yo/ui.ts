@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'about.pageTitle': 'Nípa {{app}}',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'compose.cancel': 'Fagilee',
   'compose.captionPlaceholder': 'Ki o wa lokan re?',
   'compose.heading': 'Pin akoko kan',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Àkọọ́lẹ̀ tí a ti fìdí rẹ̀ múlẹ̀',
   'resetPassword.newPassword': 'Ọrọ aṣina Tuntun',
   'resetPassword.subheading': 'Yan ohun kan to lagbara — o kere ju awọn ohun kikọ 12 lọ.',
+  'search.clearAria': 'Parẹ́',
+  'search.error': 'Wíwá kò ṣiṣẹ́ dáadáa. Gbìyànjú lẹ́ẹ̀kan síi.',
   'search.noPeople': 'Kò sí àwọn olùdá tó bá ara wọn mu " {{q}} ".',
   'search.noPosts': 'Kò sí àwọn ìfiránṣẹ́ tó báramu " {{q}} ".',
   'search.noTags': 'Kò sí àwọn hashtag tó ń gbilẹ̀ sí i.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Fi ọrọ igbaniwọle pamọ',
   'signup.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'signup.subheading': 'Ṣẹ̀dá àkọọ́lẹ̀ kan láti bẹ̀rẹ̀ sí pínpín.',
+  'socialMediaLayout.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'socialMediaLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
+  'socialMediaLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'storyRail.heading': 'Àwọn ìtàn',
   'storyRail.label': 'Àwọn ìtàn',
   'storyRail.openAria': 'Ṣí sílẹ̀ {{handle}} Ìtàn rẹ̀',

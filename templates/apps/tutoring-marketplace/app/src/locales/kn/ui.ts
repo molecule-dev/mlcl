@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'ನಿಮ್ಮ ಪಾತ್ರ',
   'account.role.upgradeLink': 'ಪರಿಶೀಲಿಸಿದ ಬೋಧಕರಾಗಲು ಅರ್ಜಿ ಸಲ್ಲಿಸಿ →',
   'account.title': 'ಪ್ರೊಫೈಲ್, ಪಾವತಿ ಮತ್ತು ಆದ್ಯತೆಗಳು.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'ಚಾಕ್ ಮೇಲೆ ಕಲಿಸಿ',
   'becomeTutor.form.error': 'ಅರ್ಜಿಯನ್ನು ಸಲ್ಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'ವಿಷಯ',
   'bookingConfirm.title': 'ನೀವು ಬುಕ್ ಆಗಿದ್ದೀರಿ. ಉಳಿದದ್ದನ್ನು ನಾವು ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.',
   'bookingConfirm.with': 'ಬೋಧಕರೊಂದಿಗೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'earningsHero.eyebrow': 'ಗಳಿಕೆಗಳು • {{month}}',
   'forgotPassword.heading': 'ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಮರೆತಿರಾ?',
   'forgotPassword.subheading':
@@ -115,6 +117,7 @@ export const ui: UiTranslations = {
   'messages.send': 'ಸಂದೇಶ ಕಳುಹಿಸಿ',
   'messages.thread.empty': 'ಹಾಯ್ ಹೇಳಿ — ಸಂಭಾಷಣೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'messages.title': 'ನಿಮ್ಮ ಬೋಧಕರೊಂದಿಗೆ ಥ್ರೆಡ್‌ಗಳು.',
+  'nav.primary': 'ಪ್ರಾಥಮಿಕ',
   'pricing.dataExport': 'ಡೇಟಾ ರಫ್ತು:',
   'pricing.headingDefault': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು:',
   'resetPassword.heading': 'ಹೊಸ ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ.',

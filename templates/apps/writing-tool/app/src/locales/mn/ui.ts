@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.title': 'Халаасандаа хийж болох бичгийн өрөө',
   'billing.cancelConfirm': 'Идэвхтэй захиалгаа цуцлах уу?',
   'billing.cancelFailed': 'Цуцлах боломжгүй.',
   'billing.checkingOut': 'Төлбөр тооцоог нээж байна...',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Төлбөр тооцоог ачаалж чадсангүй.',
   'billing.loading': 'Төлбөр тооцоог ачаалж байна…',
   'billing.upgradeCta': 'Шинэчлэх {{name}}',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'editor.autosaveOn': 'Автоматаар хадгалах асаалттай',
   'editor.backToLibrary': 'Номын сан руу буцах',
   'editor.charCount': '{{count}} дүрүүд',
   'editor.confirmTrash': 'Энэ баримт бичгийг хогийн сав руу зөөх үү?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Бэхэлгээг болиулсан',
   'editor.unpublishCta': 'Ноорог руу шилжүүлэх',
   'editor.unpublished': 'Ноорог руу буцаасан',
+  'focus.autosaveOn': 'Автоматаар хадгалах асаалттай',
   'focus.backToLibrary': 'Номын сан руу буцах',
   'focus.bodyPlaceholder': 'Нэг удаад нэг дараалал. Өөр хэн ч энд алга.',
   'focus.exit': 'Фокусын горимоос гарах',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Нэгийг үүсгэх',
   'login.subline':
     'Таны гар бичмэлүүд, өдөр тутмын хуудсууд болон курсорын сүүлийн байрлал таны үлдээсэн газар байна.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'pricing.exports': 'экспорт',
   'pricing.folders': 'хавтаснууд',
   'pricing.heading': 'баримт бичиг',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Бидний танд имэйлээр илгээсэн кодыг оруулаад, мартагдашгүй зүйл сонгоно уу. Хадгалсны дараа бид таныг нэвтрүүлэх болно.',
   'reset.tokenHint': 'Таны ирсэн имэйлээс буулгасан.',
+  'settings.appearance.heading': 'Гэрэл эсвэл харанхуй',
   'settings.editor.${row.id}.description': 'Хэл',
   'settings.editor.description':
     'Бичгийн машины гүйлгэх, догол мөр бүдгэрэх, идэвхгүй горимд фокуслах — анхдагч тохиргоог урт хугацааны турш тохируулдаг.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Гуравдугаар бүлэг — Нар мандахаас өмнөх нам гүм цаг',
   'versalDocumentCard.pinned': 'Тэмдэглэгдсэн',
   'versalLayout.nav.stats': 'Статистик',
+  'versalLayout.primaryNavLabel': 'Үндсэн навигаци',
   'versalManuscriptHero.cta': 'Үргэлжлүүлэн бичих',
   'versalManuscriptHero.goalLabel': 'Өнөөдрийн үгийн зорилго',
   'versalManuscriptHero.inProgress': 'Замдаа',

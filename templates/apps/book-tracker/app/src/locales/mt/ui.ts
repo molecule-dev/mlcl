@@ -150,8 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Ibda mill-ġdid il-katina',
   'resetPassword.mismatchError': 'Il-passwords ma jaqblux.',
   'resetPassword.subheading': "Agħżel xi ħaġa b'saħħitha. Il-kotba tiegħek se jistennewk.",
-  'reviewCard.starsAria':
-    'Klassifikat<x> {{klassifikazzjoni}}</x> barra minn<x> {{ta&#39;}}</x> stilel',
+  'reviewCard.starsAria': 'Klassifikazzjoni ta {{rating}} minn {{of}} stilel',
   'reviewCard.unratedAria': 'Mhux ikklassifikat',
   'reviews.eyebrow': "X'baqa' miegħek",
   'reviews.heading': 'Ir-reviżjonijiet tiegħek',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': '관심 중',
   'auctionDetail.watchRemoved': '관심 목록에서 제거되었습니다.',
   'auctionDetail.watchRemoveLabel': '관심 목록에서 제거',
+  'auctionPlatformLayout.primaryNavLabel': '기본 탐색',
   'authShell.brandBody':
     '희귀 시계, 미술품, 단 하나뿐인 특별한 물품에 실시간으로 입찰하세요. 낙찰은 순식간에 결정됩니다.',
   'authShell.brandEyebrow': '현재 진행 중 · 경매 1,420건',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': '정렬 기준',
   'browseAuctions.subheading':
     '카테고리로 필터링하고, 원하는 기준으로 정렬한 뒤 낙찰 전에 입찰하세요.',
+  'common.goToDashboard': '대시보드로 이동',
   'countdownTimer.ended': '종료됨',
   'countdownTimer.endingSoon': '종료 임박',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': '비밀번호 숨기기',
   'login.showPassword': '비밀번호 표시',
   'login.subtext': '경매를 계속 확인하고 낙찰 전에 입찰하세요.',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'myBids.bidAgain': '다시 입찰',
   'myBids.browseCta': '라이브 경매 둘러보기 →',
   'myBids.checkoutCta': '지금 결제',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': '아직 알림이 없습니다.',
   'notificationsPage.eyebrow': '활동 센터',
   'notificationsPage.subheading': '읽지 않음 {{count}}건 · 경매 진행 상황 실시간 업데이트',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.bidsLabel': '입찰',
   'pricing.listingsLabel': '출품',
   'pricing.watchlistLabel': '관심 목록',

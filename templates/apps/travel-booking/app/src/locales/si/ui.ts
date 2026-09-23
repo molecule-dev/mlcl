@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.featureDiscover.title': 'ආශ්වාදයක්, අතින් තෝරාගත්',
   'account.addPaymentCta': 'ගෙවීමේ ක්‍රමය එක් කරන්න',
   'account.addPaymentError': 'ගෙවීමේ ක්‍රමය එක් කිරීමට නොහැකි විය.',
+  'account.confirmRemove': 'ඉවත් කිරීම තහවුරු කරන්න',
   'account.defaultBadge': 'පෙරනිමිය',
   'account.loyalty.pointsTowardNext': '{{ලකුණු}} වල {{ඊළඟ}} සැතපුම් {{ඊළඟ ස්ථරය}}',
   'account.loyalty.tier': 'වත්මන් ස්ථරය',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'සංචාර විස්තර',
   'booking.tripSummary': '{{nights}} රාත්‍රී · {{guests}} අමුත්තන්',
   'common.daysAgo': '{{count}} ඈට පෙර',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.hoursAgo': '{{count}} පැයකට පෙර',
   'common.minutesAgo': '{{count}} මීටරයකට පෙර',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'නීතිමය',
   'notifications.loading': 'පූරණය වෙමින්...',
   'notifications.subheading': '{{count}} නොකියවූ · සියල්ල එකම සන්සුන් එන ලිපි පෙට්ටියක',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.accommodationsLabel': 'නවාතැන්',
   'pricing.bookingsLabel': 'වෙන් කිරීම්',
   'pricing.destinationsLabel': 'සුරැකි ගමනාන්ත',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'ආශ්වාදයක්, විශ්වාසදායක නවාතැන් සහ දවල් සිහිනෙන් වෙන්කරවා ගත් ස්ථාන දක්වා ඝර්ෂණ රහිත මාර්ගයක් - රටවල් 14ක් සහ අතින් පරීක්ෂා කරන ලද දේපළ 200+ක් හරහා.',
   'sojournHeroSearchCard.trustProtected': 'නොමිලේ අවලංගු කිරීම, සම්පූර්ණයෙන්ම ආරක්ෂිතයි',
   'sojournHeroSearchCard.trustVetted': 'අතින් පරීක්ෂා කරන ලද දේපල පමණි',
+  'travelBookingLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'tripDetail.backLink': 'සංචාර වෙත ආපසු',
   'tripDetail.cancelCta': 'වෙන් කිරීම අවලංගු කරන්න',
   'tripDetail.cancelHeading': 'මෙම සංචාරය අවලංගු කරන්නද?',

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.logout': 'Phuma',
   'dailyStatsTriad.heartsLabel': 'Izinhliziyo',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Amaminithi namuhla',
   'dailyStatsTriad.minutesValue': '{{count}} umzuzu',
   'dailyStatsTriad.wordsLabel': 'Amagama aqondwe kahle',
+  'dailyStatsTriad.wordsMasteryHint': 'Amagama asezingeni eliphezulu 4+',
   'dashboard.continueHeading': 'Qhubeka lapho ugcine khona',
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Ayikwazanga ukulayisha izivivinyo.',
   'lessonDetail.loading': 'Ilayisha isifundo…',
   'lessonDetail.submitError': 'Ayikwazanga ukuthumela impendulo.',
+  'lessonDetail.translation': 'Humusha umusho',
   'lessonDetail.xpEarned': 'I-XP ezuziwe · {{xp}}',
   'lessons.empty': 'Azikho izifundo ezingeni {{level}} okwamanje — zama esinye isigaba.',
   'lessons.eyebrow': 'Umtapo wezifundo',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Usanda ku-Parlance?',
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.signUp': 'Qala mahhala →',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
+  'parlanceLayout.nav.profile': 'Iphrofayela',
   'parlanceLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'practice.empty': 'Azikho imisho etholakalayo okwamanje.',
   'practice.eyebrow': 'Ukuzijwayeza ukukhuluma',
   'practice.heading': 'Yifunde. Yirekhode. Yicwenge.',

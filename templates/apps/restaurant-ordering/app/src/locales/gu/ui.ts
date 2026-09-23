@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} વિશે',
   'analytics.avgCheckLabel': 'સરેરાશ ચેક',
   'analytics.busiestHour': 'સૌથી વ્યસ્ત સમય',
   'analytics.coversToday': 'આજના કવર',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'ટિપ્સ (સરેરાશ)',
   'analytics.topItems': 'આજની ટોચની વસ્તુઓ',
   'authShell.eyebrow': 'સેવામાં ફરી આપનું સ્વાગત છે',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'હોસ્પિટાલિટી ટીમો માટે એક ગરમ, ઝડપી પોઈન્ટ ઓફ સેલ. તમારા રસોડામાં સાઇન ઇન કરો અને જ્યાંથી છોડ્યું હતું ત્યાંથી શરૂ કરો.',
   'authShell.tip': 'પ્રો ટિપ: કીબોર્ડ શોર્ટકટ્સ દરેક જગ્યાએ કામ કરે છે — શોધવા માટે / દબાવો.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'અથવા {{price}}',
   'billing.priceUnavailable': 'આ પ્લાનમાં કોઈ નિર્ધારિત કિંમત નથી.',
   'billing.updated': 'યોજના અપડેટ કરી.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'customerDetail.book': 'રિઝર્વેશન ઉમેરો',
   'customerDetail.col.table': 'ટેબલ',
   'customerDetail.confirmDelete': 'આ મહેમાન રેકોર્ડ ડિલીટ કરીએ?',
@@ -124,6 +127,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ઉપલબ્ધતા',
   'menuItemDetail.available': 'આજે રાત્રે ઉપલબ્ધ',
   'menuItemDetail.backToMenu': 'મેનુ પર પાછા જાઓ',
+  'menuItemDetail.confirmDelete': 'આ મેનુ આઇટમ ડિલીટ કરીએ?',
   'menuItemDetail.delete': 'આઇટમ કાઢી નાખો',
   'menuItemDetail.deleteError': 'કાઢી નાખવામાં નિષ્ફળ. ફરી પ્રયાસ કરો.',
   'menuItemDetail.dietary': 'ડાયેટરી ટૅગ્સ',
@@ -134,9 +138,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'સાચવવામાં નિષ્ફળ. ફરી પ્રયાસ કરો.',
   'menuItemDetail.subheading': '{{category}} · ફોટો, મોડિફાયર, આહાર અને કિંમત સંપાદિત કરો.',
   'menuItemDetail.untitled': 'શીર્ષક વિનાની આઇટમ',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'notFound.heading': 'આ ટેબલ ફ્લોર પર નથી.',
   'notFound.subheading':
     'તમે જે પૃષ્ઠ શોધી રહ્યા હતા તે બીજે ક્યાંક સ્થિત છે - અથવા ક્યારેય અસ્તિત્વમાં નથી.',
+  'notFound.toLanding': '{{app}} હોમ',
   'notifications.markError': 'બધું વાંચેલું ચિહ્નિત કરી શકાયું નથી.',
   'orderDashboard.activeDelta': 'હમણાં જ જીવો',
   'orderDashboard.activeLabel': 'સક્રિય ઓર્ડર',
@@ -200,6 +207,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'પાસવર્ડ બતાવો',
   'resetPassword.subtitle': 'રસોડામાં ફરીથી પ્રવેશ મેળવવા માટે તમારો નવો પાસવર્ડ દાખલ કરો.',
   'resetPassword.tokenLabel': 'ટોકન રીસેટ કરો',
+  'restaurantOrderingLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'revenueHeroCard.activeOrders': '{{count}} સક્રિય',
   'revenueHeroCard.change': '{{sign}} {{amount}} ગઈકાલની સરખામણીમાં',
   'revenueHeroCard.title': 'આજની આવક',
@@ -218,6 +226,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'રેસ્ટોરન્ટનું નામ',
   'tableDetail.activeOrders': 'સક્રિય ઓર્ડર',
   'tableDetail.backToFloor': 'ફ્લોર પ્લાન',
+  'tableDetail.confirmDelete': 'આ કોષ્ટક કાઢી નાખીએ?',
   'tableDetail.delete': 'કાઢી નાખો',
   'tableDetail.deleteError': 'કોષ્ટક કાઢી શકાયું નથી.',
   'tableDetail.heading': 'ટેબલ {{label}}',

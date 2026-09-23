@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'about.pageTitle': 'Game da {{appName}}',
   'analytics.empty': 'Yi rikodin bidiyonka na farko don ganin bikin aure a nan.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'shirye-shiryen bidiyo',
   'billing.usage.views': "Ra'ayoyi",
   'billing.usage.views.unit': "ra'ayoyi",
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'landing.cta.title': "Aika mafi kyawun ra'ayoyi. Fara da Glint.",
   'landing.feature.capture.body':
     "Rikodin mai bincike, na'urar kwamfuta, da wayar hannu tare da makirufo, kyamara, da zane.",
   'landing.feature.capture.title': 'Kamawa sau ɗaya ta taɓawa',
+  'landing.footer.copy': '© {{year}} {{appName}} . An yi shi da sauƙi, an yi shi da haske.',
   'landing.hero.cardCaption': 'Samfurin bayanin wurin aiki - gwada shi kyauta.',
   'landing.hero.primaryCta': 'Fara yin rikodi kyauta',
   'landing.hero.proof.free': 'Kyauta har abada',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Bincika rikodin',
   'library.searchPlaceholder': 'Bincika rikodin…',
   'library.weeklyChange': '{{value}} % idan aka kwatanta da makon da ya gabata',
+  'nav.openMenu': 'Buɗe menu na kewayawa',
   'nav.record': 'Rikodi',
   'nav.shared': 'An raba ni da ni',
   'nav.startRecording': 'Fara rikodi',

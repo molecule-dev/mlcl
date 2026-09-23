@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'about.pageTitle': 'ගැන {{name}}',
   'auth.footer.about': 'ගැන {{name}}',
   'authHeader.subtitle': 'ඔබේ අංක අවංකව තබා ගැනීමට පුරනය වන්න.',
   'automations.action.email': 'විද්යුත් තැපෑල',
+  'automations.action.noop': 'නැත-විකල්පය',
   'automations.action.webhook': 'වෙබ්හුක්',
   'automations.confirmDelete': 'මකන්න " {{name}} "?',
   'automations.empty.headline': 'තවමත් ස්වයංක්‍රීයකරණයන් නොමැත',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'සෑම වැඩපොතකම ප්‍රේරක සහ ක්‍රියා. සෑම ධාවනයක්ම ඔබට පසුව විගණනය කළ හැකි පේළියක් ලොග් කරයි.',
   'automations.toggle': 'ටොගල් කරන්න {{name}}',
+  'automations.trigger.dailySchedule': 'දෛනික කාලසටහන',
+  'automations.trigger.rowCreated': 'පේළිය නිර්මාණය කරන ලදී',
+  'automations.trigger.rowUpdated': 'පේළිය යාවත්කාලීන කරන ලදී',
   'billing.empty': 'සැලසුම් නොමැත.',
   'billing.error.priceMissing':
     'මෙම ස්ථරය සඳහා තීරු මිලක් වින්‍යාස කර නොමැත. STRIPE_*_PRICE_ID env vars සකසන්න.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ප්‍රස්ථාර',
   'charts.kpi.totalCharts': 'මුළු ප්‍රස්ථාර',
   'charts.list.empty': 'තවමත් ප්‍රස්ථාර නොමැත.',
+  'charts.namePlaceholder': 'ආදායම් ප්‍රවණතාවය',
   'charts.newChart': 'නව ප්‍රස්තාරය',
   'charts.primary.eyebrow': 'වර්ගය අනුව ප්‍රස්ථාර',
   'charts.primary.headline': 'වැඩබිම් දළ විශ්ලේෂණය',
   'charts.subhead':
     'ඔබගේ ජාලයට බැඳී ඇති සජීවී දෘශ්‍යකරණයන් — සෑම සෛල සංස්කරණයකදීම නැවත විදැහුම් කරන්න.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'editor.addColumn': 'තීරුව එක් කරන්න',
+  'editor.addDialogTitle': 'තීරුව එක් කරන්න',
   'editor.addRow': 'පේළිය එක් කරන්න',
   'editor.addSheet': 'පත්‍රය එක් කරන්න',
   'editor.back': 'වැඩපොත් වෙත ආපසු',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . කැල්සයිට් යනු සූත්‍ර-පළමු, බහු-දර්ශන, තත්‍ය කාලීන ජාල විශ්ලේෂකයින් සහ මූල්‍ය කණ්ඩායම් මුලින්ම ළඟා වන සමාගමයි.',
   'landing.nav.formulas': 'සූත්‍ර',
+  'login.noAccount': '{{name}} ට අලුත්ද?',
+  'login.signIn': '{{name}} වෙත පුරනය වන්න',
   'login.signUp': 'වැඩබිමක් සාදන්න',
+  'nav.menu': 'මෙනුව',
+  'nav.openMenu': 'මෙනුව විවෘත කරන්න',
   'notFound.cellRef': '#රෙෆ්!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "මාර්ග", "පිටුව")',
   'notFound.headline': 'මෙම පේළිය කිසිදා නොතිබුණි.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ස්වදේශීය ස්වයංක්‍රීයකරණය · වෙබ්හුක් සහ ක්‍රෝන් ප්‍රේරක',
   'signup.creating': 'වැඩබිම සපයා ගනිමින්...',
   'signup.cta': 'මගේ වැඩබිම සාදන්න',
+  'signup.haveAccount': 'දැනටමත් {{name}} හි සිටිනවාද?',
   'signup.namePlaceholder': 'ඒවරි චෙන්',
   'signup.tagline': 'තත්පර 30 කින් ඔබේ පළමු වැඩපොත කරකවන්න',
   'team.col.activity': 'ආරාධනා කරන ලදී',

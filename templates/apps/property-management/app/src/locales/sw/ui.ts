@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.tagline': 'Kila kitengo, chini ya paa moja.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.addProperty': 'Ongeza sifa',
   'dashboard.empty.body':
     'Ukishakuwa na mali, vitengo, na malipo ya kodi, dashibodi hii inajaza maarifa ya kwingineko.',
@@ -85,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{mali}} · Kitengo {{kitengo}} · {{tarehe}}',
   'maintenanceQueueList.subtitle': '{{count}} maagizo ya kazi wazi, yaliyoagizwa kwa kipaumbele',
   'maintenanceQueueList.title': 'Foleni ya Matengenezo',
+  'nav.closeMenu': 'Funga menyu',
+  'nav.openMenu': 'Fungua menyu',
   'notFound.body':
     'Ukurasa uliokuwa ukiutafuta umehamishwa, umehifadhiwa kwenye kumbukumbu, au haujawahi kuwepo.',
   'notFound.title': 'Mlango huo haufunguki',

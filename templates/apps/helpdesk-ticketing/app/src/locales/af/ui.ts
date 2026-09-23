@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontak ons',
   'about.eyebrow': 'Oor',
+  'about.title': 'Oor {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     "Professionele kopfoto van 'n vroulike ondersteuningsagent met 'n vriendelike glimlag in 'n moderne kantoor",
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontak ondersteuning',
   'forgotPassword.error': 'Kon nie terugstel-e-pos stuur nie. Probeer asseblief weer.',
   'forgotPassword.rememberPassword': 'Onthou jy jou wagwoord?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Aanmeld — Zenith-ondersteuning',
   'login.showPassword': 'Wys wagwoord',
   'login.welcomeSubheading': 'Meld aan by jou ondersteuningsdashboard',
+  'mobileNav.closeMenu': 'Maak navigasie toe',
+  'mobileNav.menu': 'Navigasie',
+  'mobileNav.openMenu': 'Maak navigasie oop',
   'nav.legal': 'Regs',
   'nav.newTicket': 'Nuwe kaartjie',
   'notifications.loadError': "Kon nie kennisgewings laai nie. Probeer weer oor 'n oomblik.",
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Opdragsoektog',
   'operatorDock.newReport': 'Nuwe Verslag',
   'operatorDock.systemOnline': 'Stelsel Aanlyn',
+  'planUpdated.subtitle': 'Dankie',
   'planUpdated.title': 'Plan opgedateer',
   'pricing.agents': 'agente',
   'pricing.automation': 'Outomatiseringsreëls',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{naam}}',
   'ticketCustomerReply.avatarAlt': '{{naam}} se avatar',
   'ticketDetail.errorTitle': 'Iets het verkeerd geloop',
+  'ticketDetail.loadError': 'Kon nie kaartjie laai nie.',
+  'ticketDetail.notFound': 'Kaartjie nie gevind nie',
+  'ticketDetail.replyError': 'Kon nie antwoord stuur nie. Probeer asseblief weer.',
   'ticketDetail.retry': 'Probeer weer',
   'ticketDetail.statusUpdateError': 'Kon nie status opdateer nie. Probeer weer.',
   'ticketDetailsCard.assigneeLabel': 'Toegewysde',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{tyd}} links',
   'ticketRow.title': 'Databasisverbinding misluk tydens produksie {{node}}',
   'tickets.pageTitle': 'Kaartjies — Zenith-ondersteuning',
+  'ticketsFab.newTicket': 'Nuwe kaartjie',
   'ticketsFilterBar.assigneeLabel': 'Toegewysde:',
   'ticketsFilterBar.clearFilters': 'Vee filters uit',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Mūsų istorija',
   'aiSuggestionPanel.title': 'Signeto antrinis pilotas',
   'analytics.col.open': 'Atidarymo rodiklis',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Pradedamas atsiskaitymo procesas…',
   'billing.subheading': 'Pasirinkite planą, kuris atitinka jūsų siuntimo būdą.',
   'billing.unavailable': 'Susisiekite su pardavimų vadybininku',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.retry': 'Bandyti dar kartą',
   'compose.adjustingTone': 'Perrašoma pasirinktu tonu…',
   'compose.aiPromptPlaceholder':
     'pvz., „Mandagus tolesnis atsakymas po dviejų savaičių negavus atsakymo, trumpas.“',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
     'Reikia ką nors išsiųsti? „Signet“ gali paruošti juodraštį per kelias sekundes.',
   'dashboard.composeCtaLabel': 'Greitas rašymas',
   'dashboard.heading': 'Jūsų savaitė, susidėliojusi',
+  'dashboard.loadFailed': 'Nepavyko įkelti jūsų valdymo skydo.',
   'dashboard.manageLibrary': 'Tvarkyti biblioteką →',
   'dashboard.recentEmpty':
     'Kol kas nėra išsiųstų laiškų – čia bus rodomi jūsų išsiųsti el. laiškai.',
@@ -147,6 +151,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Numatytasis tonas',
   'settings.toneSubheading': '„Signet“ naudoja šį toną, nebent jį pakeistumėte juodraštyje.',
   'signetLayout.primaryNavLabel': 'Pagrindinė navigacija',
+  'signetLayout.toggleMenu': 'Perjungti meniu',
   'signup.emailLabel': 'El. pašto adresas',
   'signup.showPassword': 'Rodyti slaptažodį',
   'signup.tagline':

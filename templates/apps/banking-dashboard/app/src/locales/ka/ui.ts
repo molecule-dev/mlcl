@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'accountDetail.activeBadge': 'აქტიური',
   'accountDetail.availableLabel': '{{amount}} ხელმისაწვდომი',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'ანგარიშები',
   'accounts.loadError': 'ანგარიშების ჩატვირთვა ვერ მოხერხდა.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'გაყინული',
   'accounts.totalBalance': '{{თანხა}} სულ',
   'audit.empty': 'ღონისძიებები ჯერ არ არის.',
   'audit.eyebrow': 'უსაფრთხოება და წვდომა',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'ნაღდი ფული ხელთ',
   'cashCreditCard.creditLabel': 'გამოყენებული კრედიტი',
   'cashCreditCard.title': 'ნაღდი ფული და კრედიტი',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.accountsHeading': 'ანგარიშები',
   'dashboard.heading': 'მიმოხილვა',
   'dashboard.recentEmpty': 'ტრანზაქციები ჯერ არ არის.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'პაროლის ჩვენება',
   'login.signUp': 'რეგისტრაცია',
   'login.submit': 'შესვლა',
+  'meridianLayout.menu': 'მენიუ',
   'meridianLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'nav.legal': 'იურიდიული',
   'notifications.emptyHeading': 'ყველაფერი გასაგებია',
   'notifications.subheading':
     'რეალურ დროში შეტყობინებები ტრანზაქციების, უსაფრთხოებისა და ამონაწერების შესახებ.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'privacy.dataWeShare':
     'პირადი საბანკო მონაცემები არასდროს იყიდება. ჩვენ ინფორმაციას ვუზიარებთ გადახდის პროცესორებს, ბარათების ქსელებს და მარეგულირებლებს მხოლოდ საჭიროების შემთხვევაში, ტრანზაქციების მოსაგვარებლად ან სამართლებრივი ვალდებულებების შესასრულებლად.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'ორფაქტორიანი სისტემა ყოველი შესვლისას ავტორიზაციის აპლიკაციიდან ერთჯერად კოდს ამატებს.',
   'settings.security.twoFactorCta': 'ორფაქტორიანი ავტორიზაციის მართვა',
+  'settings.security.twoFactorOff': 'ორფაქტორიანი გამორთულია',
   'settings.signOutDevice': 'გასვლა',
   'settings.subheading': 'პროფილი, უსაფრთხოება და შეტყობინებები.',
+  'settings.twoFactorCode': 'ავტორიზაციის კოდი',
   'settings.twoFactorDisable': 'გამორთვა',
   'settings.twoFactorEnable': 'ჩართვა',
+  'settings.twoFactorInvalidCode': 'არასწორი კოდი',
+  'settings.twoFactorVerify': 'დადასტურება და ჩართვა',
   'signup.emailLabel': 'ელექტრონული ფოსტის მისამართი',
   'signup.fullName': 'როგორ უნდა მოგმართოთ?',
   'signup.showPassword': 'პაროლის ჩვენება',
@@ -106,7 +115,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ტრანზაქციები ჯერ არ არის.',
   'transactions.endDate': 'დასრულების თარიღი',
   'transactions.eyebrow': 'აქტივობა',
+  'transactions.loadError': 'ტრანზაქციების ჩატვირთვა ვერ მოხერხდა.',
   'transactions.merchant': 'ვაჭარი',
+  'transactions.subheading':
+    'თქვენს ანგარიშებზე განთავსებული და მოლოდინის რეჟიმში მყოფი ყველა ტრანზაქცია.',
   'transfers.availableHint': '{{amount}} ხელმისაწვდომი',
   'transfers.errorGeneric': 'გადაცემის გაგზავნა ვერ მოხერხდა.',
   'transfers.errorMissingFields': 'აირჩიეთ წყაროს ანგარიში და დანიშნულების ადგილი.',

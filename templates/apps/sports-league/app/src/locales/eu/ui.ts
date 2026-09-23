@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Buruz',
+  'appShell.closeNav': 'Itxi nabigazioa',
+  'appShell.openNav': 'Ireki nabigazioa',
+  'common.dashboard': 'Aginte-panela',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.eyebrow': 'Gaur liga osoan zehar',
   'dashboard.loading': 'Gaur gaueko emaitzak ateratzen…',
   'dashboard.scoringLeaders': 'Puntuazio liderrak',
@@ -147,4 +151,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} duela egun batzuk',
   'time.hoursAgo': '{{count}} duela ordu batzuk',
   'time.minutesAgo': '{{count}} duela m',
+  'time.secondsAgo': '{{count}} segundo',
 }

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.pageTitle': 'Giới thiệu {{app}}',
   'achievementBadgeCard.unlockedOn': 'Mở khóa vào {{date}}',
   'achievements.loadError': 'Không thể tải thành tựu.',
   'achievements.subheading': '{{unlocked}} trên {{total}} đã mở khóa',
   'achievements.unlockedOn': 'Mở khóa vào {{date}}',
+  'auth.legalConsent': 'Bằng việc tiếp tục, bạn đồng ý với',
   'calendar.empty': 'Tạo một thói quen để xem lịch của quý vị.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Thói quen',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Lưới thói quen',
   'category.${c.category}': '{{đếm}} thói quen',
   'common.and': 'và',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'consistencyHeatmap.ariaLabel': 'Bản đồ nhiệt độ nhất quán hàng ngày',
   'consistencyHeatmap.caption': '{{weeks}} tuần qua',
   'consistencyHeatmap.lessLabel': 'Ít hơn',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Xem trực tiếp',
   'landing.heroSubtitle':
     'Xây dựng thói quen theo cách chúng thực sự gắn bó: cam kết nhỏ, chuỗi hàng ngày và niềm vui hữu hình của một chuỗi dài không bị phá vỡ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Hé lộ bên trong Streak',
   'landing.previewMotivation': 'Chín chuỗi còn sống. Giữ tất cả chúng ấm áp.',
   'login.eyebrow': 'Nắm lấy chuỗi',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Làm nhỏ lại. Làm cụ thể. Xuất hiện vào ngày mai.',
   'newHabit.timeLabel': 'Thời gian nhắc',
   'notifications.markError': 'Không thể đánh dấu tất cả là đã đọc.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.entries': '{{count}} mục',
+  'pricing.heading': 'Chọn gói {{app}} của bạn',
   'profile.action.plan': 'Quản lý gói đăng ký',
   'profile.action.settings': 'Cài đặt tài khoản',
   'profile.bioEmpty': 'Thêm tiểu sử ngắn trong Cài đặt để giới thiệu bản thân.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Lời nhắc sáng hàng ngày (08:00)',
   'settings.reminders.heading': 'Lời nhắc',
   'settings.reminders.weekly': 'Tóm tắt hàng tuần (Chủ nhật buổi tối)',
+  'settings.revokeDeviceWarning': 'Quyền truy cập của thiết bị này sẽ bị thu hồi. Đăng xuất?',
   'settings.signOutDevice': 'Đăng xuất',
   'settings.streaks.freezesPerWeek': 'Đóng băng mỗi tuần',
   'settings.streaks.gracePeriod': 'Thời gian gia hạn 6 giờ sau nửa đêm',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} đang hoạt động',
   'streakHeroCard.daysSuffix': 'ngày',
   'streakHeroCard.title': 'Chuỗi hoạt động dài nhất',
+  'streakLayout.closeMenu': 'Đóng menu điều hướng',
+  'streakLayout.openMenu': 'Mở menu điều hướng',
   'streakLayout.primaryNavLabel': 'Điều hướng chính',
 }

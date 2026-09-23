@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Přejít na Dashboard',
   'forgot.eyebrow': 'Ztratil jsi cestu zpět?',
   'forgot.formSubtitle': 'Sdělte nám e-mailovou adresu, kterou máme v evidenci.',
   'forgot.headline': 'Obnovte si heslo.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Vytvořte si jeden',
   'login.subline':
     'Vaše poznámkové bloky, zpětné odkazy a denní stránky jsou přesně tam, kde jste je nechali.',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
   'noteEditor.backToNotes': 'Zpět k poznámkám',
   'noteEditor.bodyPlaceholder': 'Začněte psát – poznámka se bude během psaní automaticky ukládat.',
   'noteEditor.confirmTrash': 'Přesunout tuto poznámku do koše?',
@@ -54,6 +57,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Nový zápisník',
   'notes.newNotebookPrompt': 'Nový název poznámkového bloku',
   'notes.notebooksHeading': 'Notebooky',
+  'notes.subtitle':
+    'Vyberte si zápisník vlevo a poté stiskněte tlačítko Nová poznámka pro zahájení nového záznamu.',
   'planUpdated.confirmation': 'Váš tarif byl aktualizován',
   'pricing.heading': 'Vyberte si plán psaní poznámek',
   'reset.eyebrow': 'Téměř zpátky',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Aktualizováno',
   'versoLayout.nav.graph': 'Graf',
   'versoLayout.nav.home': 'Domov',
+  'versoLayout.primaryNavLabel': 'Primární navigace',
   'versoNoteCard.pinned': 'Připnuté',
   'versoTodayHero.continueCta': 'Pokračovat v psaní',
   'versoTodayHero.createCta': 'Začněte dnešní poznámku',

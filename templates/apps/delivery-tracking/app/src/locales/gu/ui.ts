@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'alerts.acknowledgeLabel': 'સ્વીકારો',
   'alerts.customerLabel': 'ગ્રાહક: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'કનેક્ટ કરી રહ્યું છે...',
   'carriers.requiredError': 'નામ અને કોડ જરૂરી છે.',
   'carriers.subheading': '{{count}} સંકલિત',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.no': '—',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'પરિવહનમાં + ચિહ્નિત કરેલ',
   'dashboard.activeShipmentsSubtitle':
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'શિપમેન્ટ',
   'pricing.trackingLabel': 'ઇવેન્ટ્સ ટ્રેકિંગ',
   'profile.dangerZone.title': 'જોખમ ક્ષેત્ર',
+  'profile.devices.signingOut': 'સાઇન આઉટ થઈ રહ્યું છે…',
+  'profile.devices.unnamed': 'નામ વગરનું ઉપકરણ',
+  'profile.security.disable2fa': '2FA અક્ષમ કરો',
   'profile.security.enable2fa': '2FA સક્ષમ કરો',
   'profile.security.pwChanged': 'પાસવર્ડ સફળતાપૂર્વક બદલાયો.',
   'profile.security.pwCurrent': 'હાલનો પાસવર્ડ',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA સક્રિય',
   'profile.security.twoFaCode': '6-અંકનો કોડ',
   'profile.security.twoFaDisable': 'અક્ષમ કરો',
+  'profile.security.twoFaDisabling': 'અક્ષમ કરી રહ્યું છે...',
   'profile.security.twoFaFailed': 'કોડ ચકાસી શકાયો નથી.',
   'profile.security.twoFaIntro':
     'તમારી પ્રમાણકર્તા એપ્લિકેશનમાં QR કોડ સ્કેન કરો, પછી ચકાસણી કરવા માટે નીચે આપેલ 6-અંકનો કોડ દાખલ કરો.',
   'profile.security.twoFaOn': 'આ એકાઉન્ટ પર ટુ-ફેક્ટર ઓથેન્ટિકેશન સક્ષમ છે.',
+  'profile.security.twoFaQrAlt': 'ટુ-ફેક્ટર QR કોડ',
   'profile.security.twoFaVerify': 'ચકાસો અને સક્ષમ કરો',
   'profile.security.twoFaVerifying': 'ચકાસી રહ્યું છે...',
   'profile.subheading': 'આ કાર્યસ્થળ માટે ઓળખ અને સુરક્ષા સેટિંગ્સ.',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'આ રહસ્ય સાચવો - તે ફરીથી બતાવવામાં આવશે નહીં.',
   'settings.api.webhookSecret': 'વેબહૂક પર સહી કરવાનું રહસ્ય',
   'settings.appearance.description': 'લાઇટ અને ડાર્ક મોડ વચ્ચે ટૉગલ કરો.',
+  'settings.deleteAccountConfirm': 'શું તમને ખાતરી છે? આ ક્રિયા પૂર્વવત્ કરી શકાતી નથી.',
   'settings.notifications.exceptions': 'જ્યારે શિપમેન્ટ અપવાદ થાય ત્યારે મને ઇમેઇલ કરો',
   'settings.notifications.heading': 'સૂચનાઓ',
   'settings.notifications.saveFailed': 'પસંદગીઓ સાચવી શકાઈ નથી.',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'શિપમેન્ટ મળ્યું નથી.',
   'shipmentDetail.originHeading': 'મૂળ',
   'shipmentDetail.shippedOn': 'મોકલેલ {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'હજુ સુધી કોઈ ટ્રેકિંગ ઇવેન્ટ્સ નથી — કેરિયર પાર્સલ સ્કેન કરે છે તેમ અપડેટ્સ અહીં દેખાય છે.',
   'shipmentDetail.weightLabel': '{{weight}} પાઉન્ડ',
   'shipments.col.carrier': 'વાહક',
   'shipments.col.eta': 'આગમન સમય',
@@ -173,6 +184,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'સાઇન ઇન કરો',
   'signup.submit': 'ખાતું બનાવો',
   'team.emailError': 'માન્ય ઇમેઇલ સરનામું જરૂરી છે.',
+  'team.empty': 'હજુ સુધી કોઈ ટીમ સભ્ય નથી. શિપમેન્ટ પર સહયોગ કરવા માટે ટીમના સાથીને આમંત્રિત કરો.',
   'team.eyebrow': 'સભ્યો અને પરવાનગીઓ',
   'team.inviteDialog.cancel': 'રદ કરો',
   'team.inviteDialog.heading': 'સાથીદારને આમંત્રણ આપો',
@@ -195,6 +207,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ટ્રેક',
   'waypointLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'webhooks.createFailed': 'વેબહૂક એન્ડપોઇન્ટ બનાવી શકાયું નથી.',
+  'webhooks.endpointsEmpty':
+    'હજુ સુધી કોઈ વેબહૂક એન્ડપોઇન્ટ નથી. શિપમેન્ટ સ્ટેટસ કૉલબેક્સ પ્રાપ્ત કરવા માટે એક બનાવો.',
   'webhooks.endpointsHeading': 'અંતિમ બિંદુઓ',
   'webhooks.eventCount': '{{count}} ઘટનાઓ',
   'webhooks.eventsHeading': 'તાજેતરના ડિલિવરી',

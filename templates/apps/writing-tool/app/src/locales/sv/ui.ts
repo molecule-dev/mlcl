@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
+  'about.title': 'Ett skrivrum du kan ha i fickan',
   'billing.cancelConfirm': 'Avsluta din aktiva prenumeration?',
   'billing.cancelFailed': 'Det gick inte att avsluta.',
   'billing.checkingOut': 'Öppnar kassan…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Det gick inte att läsa in faktureringen.',
   'billing.loading': 'Läser in fakturering…',
   'billing.upgradeCta': 'Uppgradera till {{name}}',
+  'common.goToDashboard': 'Gå till översikt',
+  'editor.autosaveOn': 'Automatisk sparning på',
   'editor.backToLibrary': 'Tillbaka till biblioteket',
   'editor.charCount': '{{count}} tecken',
   'editor.confirmTrash': 'Flytta detta dokument till papperskorgen?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Lossad',
   'editor.unpublishCta': 'Flytta till utkast',
   'editor.unpublished': 'Återställd till utkast',
+  'focus.autosaveOn': 'Automatisk sparning på',
   'focus.backToLibrary': 'Tillbaka till biblioteket',
   'focus.bodyPlaceholder': 'En rad i taget. Ingen annan är här.',
   'focus.exit': 'Avsluta fokusläget',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Skapa ett',
   'login.subline':
     'Dina manuskript, dagliga sidor och senaste markörposition finns där du lämnade dem.',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'pricing.exports': 'exporter',
   'pricing.folders': 'mappar',
   'pricing.heading': 'dokument',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Ange koden vi just har e-postat och välj något lätt att komma ihåg. Vi loggar in dig så snart det sparas.',
   'reset.tokenHint': 'Inklistrad från din inkorg.',
+  'settings.appearance.heading': 'Ljus eller mörk',
   'settings.editor.${row.id}.description': 'Språk',
   'settings.editor.description':
     'Skrivmaskinsrullning, stycketoning och fokus i viloläge – standardinställningarna är justerade för långa sessioner.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapitel tre — En stilla timme före soluppgången',
   'versalDocumentCard.pinned': 'Fäst',
   'versalLayout.nav.stats': 'Statistik',
+  'versalLayout.primaryNavLabel': 'Huvudnavigering',
   'versalManuscriptHero.cta': 'Fortsätt skriva',
   'versalManuscriptHero.goalLabel': 'Dagens ordmål',
   'versalManuscriptHero.inProgress': 'På väg',

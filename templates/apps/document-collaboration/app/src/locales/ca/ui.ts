@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.title': 'Sobre {{app}}',
   'comments.addFailed': "No s'ha pogut publicar el comentari.",
   'comments.backToDoc': 'Torna al manuscrit',
   'comments.deleteFailed': "No s'ha pogut suprimir.",
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Resol',
   'comments.resolveFailed': "No s'ha pogut resoldre.",
   'comments.subtitle': '{{open}} obert · {{resolved}} resolt',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.activityHeading': 'Què està passant?',
   'dashboard.createFailed': "No s'ha pogut crear un document.",
   'dashboard.empty': 'Encara no hi ha manuscrits; comença amb el botó Document nou.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': "No s'ha pogut moure a la paperera.",
   'editor.unpublish': 'Anul·la la publicació',
   'editor.untitled': 'Document sense títol',
+  'editor.updatedElsewhere':
+    'Aquest document ha estat actualitzat per algú altre; torna a carregar per veure la versió més recent.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Si existeix un compte per a {{email}} , un enllaç de restabliment està en camí.',
   'forgotPassword.subtitle': "T'enviarem un enllaç de restabliment per correu electrònic.",
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Construït amb Molecule.',
   'landing.ctaHeading': 'Obre la pàgina. Deixa que comenci el cursor.',
   'landing.ctaPrimary': 'Obre un estudi',
   'landing.eyebrow': 'Per a escriptors, editors i equips',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'editat {{when}}',
   'quillonDocumentCard.open': 'Obre →',
   'quillonKpiCard.trend': 'Tendència recent',
+  'quillonLayout.menu': 'Menú',
   'quillonLayout.primaryNavLabel': 'Navegació principal',
   'quillonStudioHero.collab': 'Col·laboradors',
   'quillonStudioHero.docs': 'Documents tocats',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ara mateix',
+  'trash.confirmDelete': "Confirma l'eliminació",
   'trash.deleteFailed': "No s'ha pogut suprimir.",
   'trash.deleteForever': 'Suprimeix per sempre',
   'trash.empty': 'Res a recuperar.',
+  'trash.emptyAll': 'Buida la paperera',
   'trash.eyebrow': 'Estudi',
   'trash.heading': 'Escombraries',
   'trash.loadFailed': "No s'ha pogut carregar la paperera.",

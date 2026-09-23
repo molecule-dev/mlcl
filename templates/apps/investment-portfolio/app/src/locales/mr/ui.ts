@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} बद्दल',
   'argentAuthShell.brandEyebrow': 'अर्जेंट · संपत्ती साधन',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . हा गुंतवणुकीचा सल्ला नाही.',
   'argentAuthShell.sampleChange': 'आज +$२,८४१ (+०.२८%)',
   'argentAuthShell.sampleValue': '$१,०३२,२५१',
   'argentLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'या टिकरसाठी कोणतेही व्यवहार झालेले नाहीत.',
   'assetDetail.txHeading': 'तुमचे व्यवहार',
   'common.and': 'आणि',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'पोर्टफोलिओचा आढावा',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'अद्याप कोणतीही मालमत्ता नाही.',
   'holdings.heading': 'होल्डिंग्ज',
   'holdings.loadError': 'होल्डिंग्ज लोड करण्यात अयशस्वी झाले.',
+  'landing.copyright':
+    '© {{year}} {{app}} . हा गुंतवणुकीचा सल्ला नाही. मागील कामगिरी भविष्यातील परिणामांची हमी देत नाही.',
   'landing.eyebrow': 'अर्जेंट · संपत्ती निर्माण करणारे व्यासपीठ',
   'landing.features.heading': 'एक सल्लागार स्वतःसाठी जे काही तयार करेल ते सर्व.',
   'landing.finalCta.heading': 'तुमच्या पोर्टफोलिओमध्ये पुन्हा शिस्त आणा.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} h पूर्वी',
   'news.justNow': 'आत्ताच',
   'news.loadError': 'बातमी लोड होण्यात अयशस्वी झाले.',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'portfolioHeroCard.label': 'पोर्टफोलिओ मूल्य',
   'pricing.holdingsLabel': 'मालमत्ता',
   'pricing.newsLabel': 'बातम्यांचे लेख',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'खाते हटवा',
   'settings.security.deleting': 'हटवत आहे…',
   'settings.security.heading': 'सुरक्षा',
+  'settings.security.newPassword': 'नवीन पासवर्ड',
   'settings.security.password': 'पासवर्ड',
   'settings.security.twoFactorEnable': 'सक्षम करा',
+  'settings.security.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.security.twoFactorVerify': 'पडताळणी करा आणि सक्षम करा',
   'settings.tax.error': 'कर पद्धत अद्ययावत करता आली नाही.',
   'settings.tax.heading': 'कर लॉट लेखांकन',
   'settings.tax.method': 'डीफॉल्ट पद्धत',

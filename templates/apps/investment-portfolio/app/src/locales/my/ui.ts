@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} အကြောင်း',
   'argentAuthShell.brandEyebrow': 'Argent · ချမ်းသာကြွယ်ဝမှု ကိရိယာတန်ဆာပလာများ',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ရင်းနှီးမြှုပ်နှံမှု အကြံဉာဏ် မဟုတ်ပါ။',
   'argentAuthShell.sampleChange': 'ယနေ့ +$၂,၈၄၁ (+၀.၂၈%)',
   'argentAuthShell.sampleValue': 'ဒေါ်လာ ၁,၀၃၂,၂၅၁',
   'argentLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ဤ ticker အတွက် ငွေပေးငွေယူ မရှိပါ။',
   'assetDetail.txHeading': 'သင့်ရဲ့ ငွေပေးငွေယူတွေ',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'အစုစုခြုံငုံသုံးသပ်ချက်',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ပိုင်ဆိုင်မှုမရှိသေးပါ။',
   'holdings.heading': 'ပိုင်ဆိုင်မှု',
   'holdings.loadError': 'ပိုင်ဆိုင်မှုများကို တင်၍မရပါ။',
+  'landing.copyright':
+    '© {{year}} {{app}} ။ ရင်းနှီးမြှုပ်နှံမှု အကြံဉာဏ် မဟုတ်ပါ။ ပြီးခဲ့သော စွမ်းဆောင်ရည်သည် အနာဂတ်ရလဒ်များကို အာမမခံနိုင်ပါ။',
   'landing.eyebrow': 'Argent · ချမ်းသာကြွယ်ဝမှုကို အထောက်အကူပြုသည့် ပလက်ဖောင်းတစ်ခု',
   'landing.features.heading': 'အကြံပေးတစ်ယောက်ဟာ သူတို့ကိုယ်တိုင် တည်ဆောက်မယ့် အရာအားလုံး။',
   'landing.finalCta.heading': 'သင့်ရဲ့ ရင်းနှီးမြှုပ်နှံမှု အစုစုထဲကို စည်းကမ်းပြန်လည်ယူဆောင်လာပါ။',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'news.justNow': 'ယခုပင်',
   'news.loadError': 'သတင်းများ တင်၍မရပါ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'portfolioHeroCard.label': 'ရင်းနှီးမြှုပ်နှံမှုတန်ဖိုး',
   'pricing.holdingsLabel': 'ပိုင်ဆိုင်မှု',
   'pricing.newsLabel': 'သတင်းဆောင်းပါးများ',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'အကောင့်ကို ဖျက်ပါ',
   'settings.security.deleting': 'ဖျက်နေသည်…',
   'settings.security.heading': 'လုံခြုံရေး',
+  'settings.security.newPassword': 'စကားဝှက်အသစ်',
   'settings.security.password': 'စကားဝှက်',
   'settings.security.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.security.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.security.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.tax.error': 'အခွန်နည်းလမ်းကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'settings.tax.heading': 'အခွန်စာရင်းကိုင်',
   'settings.tax.method': 'မူရင်းနည်းလမ်း',

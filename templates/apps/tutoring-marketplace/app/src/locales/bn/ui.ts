@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'আপনার ভূমিকা',
   'account.role.upgradeLink': 'যাচাইকৃত টিউটর হতে আবেদন করুন →',
   'account.title': 'প্রোফাইল, পেমেন্ট ও পছন্দসমূহ।',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'চক দিয়ে শেখান',
   'becomeTutor.form.error': 'আবেদন জমা দেওয়া সম্ভব হয়নি।',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'বিষয়',
   'bookingConfirm.title': 'আপনার বুকিং সম্পন্ন হয়েছে। বাকিটা আমরা সামলে নেব।',
   'bookingConfirm.with': 'শিক্ষকের সাথে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'earningsHero.eyebrow': 'আয় • {{month}}',
   'forgotPassword.heading': 'আপনার পাসওয়ার্ড ভুলে গেছেন?',
   'forgotPassword.subheading':
@@ -114,6 +116,7 @@ export const ui: UiTranslations = {
   'messages.send': 'বার্তা পাঠান',
   'messages.thread.empty': 'হাই বলুন — আলাপ শুরু করুন।',
   'messages.title': 'আপনার টিউটরদের সাথে থ্রেড।',
+  'nav.primary': 'প্রাথমিক',
   'pricing.dataExport': 'ডেটা রপ্তানি:',
   'pricing.headingDefault': 'উন্নত বৈশিষ্ট্য:',
   'resetPassword.heading': 'একটি শক্তিশালী নতুন পাসওয়ার্ড বেছে নিন।',
@@ -164,6 +167,7 @@ export const ui: UiTranslations = {
   'sessionDetail.start': 'সেশন শুরু করুন',
   'sessionDetail.startedFeedback': 'সেশন শুরু হলো — শুভকামনা।',
   'sessionDetail.startError': 'সেশনটি শুরু করা যায়নি।',
+  'sessionDetail.subtitle': '{{name}} এর সাথে • {{when}} • {{mins}} মিনিট',
   'sessionDetail.timeline.afterEnd': 'সেশন শেষ হওয়ার পর',
   'sessionDetail.timeline.auto': 'অটো',
   'sessionDetail.timeline.booked': 'বুক করা হয়েছে',

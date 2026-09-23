@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'authShell.brandHeading':
     'Многопользовательские рабочие площадки для дизайнерских команд, которые любят рассуждать вслух.',
   'billing.canceled': 'Подписка отменена.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Начните с шаблона',
   'boards.title': 'Ваши доски',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Перейти к панели',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Введите адрес электронной почты, привязанный к вашему рабочему пространству, и мы вышлем вам ссылку для сброса пароля.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Создано для нестандартного, продуктивного мышления в очном формате.',
   'landing.demoBoard.title': 'Семинар за 1 квартал · Голос бренда',
   'landing.featuresTitle': 'Быстрая обратная связь. Прекрасные полотна. Полное отсутствие трения.',
+  'landing.hero.body':
+    '{{appName}} — это многопользовательская интерактивная доска для дизайнерских команд, ведущих семинаров и преподавателей, которые проводят мозговые штурмы в режиме реального времени и которым необходимо собрать идеи в одном месте.',
   'landing.hero.primaryCta': 'Создайте доску бесплатно',
   'landing.hero.socialProof': 'Доверяют {{count}} команды дизайнеров по всему миру',
   'landing.hero.title': 'Холст, столь же быстрый, как ваши мысли.',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Создайте бесплатное рабочее пространство',
   'login.subheading':
     'Продолжайте с того места, где остановились на мастер-классе — доски, стикеры и курсоры синхронизируются в режиме реального времени.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.new': 'Новый',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'notifications.editTitle': 'Изменения в " {{board}} "',
   'notifications.empty.body':
     'Приглашения, сохраненные снимки экрана и последние изменения на форуме будут отображаться здесь по мере их появления.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'История версий',
   'versionHistory.untitledSnapshot': 'Фотография без названия',
   'whiteboardLayout.newBoard': 'Новая доска',
+  'whiteboardLayout.primaryNav': 'Основная навигация',
   'workspace.boardLabel': 'Доска',
   'workspace.eyebrow': '{{name}} · рабочее пространство',
   'workspace.invite': 'Пригласите сотрудников',

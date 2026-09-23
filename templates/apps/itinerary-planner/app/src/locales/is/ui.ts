@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Um {{app}}',
+  'auth.legalConsent': 'Með því að halda áfram samþykkir þú',
   'bookings.empty.body': 'Bættu við flugi, hóteli eða afþreyingu til að hefja pósthólfið.',
   'bookings.empty.heading': 'Engar bókanir ennþá.',
   'bookings.errors.create': 'Gat ekki búið til bókun.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Staðfest',
   'bookings.summary.pending': 'Bíður eftir staðfestingu',
   'bookings.summary.total': 'Heildarfjárhæð skuldbundin',
+  'bookings.type.car': 'Leigubíll',
+  'bookings.type.flight': 'Flug',
+  'bookings.type.hotel': 'Hótel',
   'bookings.type.other': 'Annað',
   'budgetSpendCard.budgetTotal': 'af {{total}} áætlað',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Finndu árekstra, skipuleggðu hvíldardaga milli ferða og sjáðu hvenær samstarfsaðilar ferðast með þér.',
   'common.and': 'og',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.budgetHeading': 'Fjárhagsáætlunarpúls',
   'dashboard.empty.heading': 'Engar ferðir ennþá — atlasinn þinn er tómur.',
   'dashboard.eyebrow': 'Leiðarstjórnun',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Ferðir í hreyfingu',
   'dashboard.viewAllExpenses': 'Skoða alla útgjöld',
   'dashboard.viewAllTrips': 'Sjá hverja ferð',
+  'dayTimelineRow.category.accommodation': 'Vertu',
   'dayTimelineRow.category.transport': 'Samgöngur',
   'destinationOrbCard.exploreCta': 'Bæta við ferð',
   'destinationOrbCard.tripCount': '{{count}} ferðir',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Enginn tölvupóstur ennþá? Athugaðu ruslpóstmöppuna þína eða reyndu aftur með öðru netfangi.',
   'forgotPassword.successSubheading':
     'Við sendum endurheimtartengil til {{email}} Tengillinn er gildur í 30 mínútur.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Stofna ókeypis aðgang',
+  'landing.cta.subheading':
+    'Allt að fimm ferðir, fimm samstarfsaðilar og fimm viðkomur með ókeypis áskriftinni — með samstillingu í rauntíma og Pro sem lyftir takmörkunum þegar áætlanir þínar stækka.',
   'landing.destinations.eyebrow': 'Hvert á að fara næst',
   'landing.destinations.heading': 'Áfangastaðir valdir af ritstjóra',
   'landing.features.eyebrow': 'Hvernig Waypoint virkar',
   'landing.features.heading': 'Hannað fyrir ferðalanga, ekki töflureikna.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Byrjaðu ókeypis ferð',
   'landing.hero.ctaSecondary': 'Sjáðu sýnishorn af ferð',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Íris Larsen',
   'signup.subheading':
     'Stofnaðu aðgang til að deila ferðum með allt að 5 samstarfsaðilum, samstilla bókanir og safna öllum staðfestingum á einn stað.',
+  'signup.termsPrefix': 'Með því að stofna aðgang samþykkir þú skilmála okkar',
   'tripCountdownHeroCard.budget': '{{used}} af {{total}} ( {{pct}} % af fjárhagsáætlun)',
   'tripCountdownHeroCard.collaborators': '{{count}} ferðalangar',
   'tripCountdownHeroCard.countdownLabel': 'Niðurtalning',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Engar ferðir ennþá.',
   'trips.pastHeading': 'Ævintýri í fortíðinni',
   'trips.subheading': '{{count}} Ferðaáætlanir — fortíð, nútíð og einhvern tímann.',
+  'waypointLayout.mobileNavClose': 'Loka flakkvalmynd',
   'waypointLayout.primaryNavLabel': 'Aðalflakk',
 }

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.logout': 'Deconectare',
   'dailyStatsTriad.heartsLabel': 'Inimi',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minute astăzi',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Cuvinte stăpânite',
+  'dailyStatsTriad.wordsMasteryHint': 'Cuvinte la nivel de stăpânire 4+',
   'dashboard.continueHeading': 'Continuă de unde ai rămas',
   'dashboard.heading': 'Bună ziua, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Nu s-au putut încărca exercițiile.',
   'lessonDetail.loading': 'Se încarcă lecția…',
   'lessonDetail.submitError': 'Nu s-a putut trimite răspunsul.',
+  'lessonDetail.translation': 'Traduceți fraza',
   'lessonDetail.xpEarned': 'XP câștigat · {{xp}}',
   'lessons.empty': 'Nicio lecție la nivel {{level}} totuși — încearcă un alt nivel.',
   'lessons.eyebrow': 'Bibliotecă de lecții',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ești nou în limbajul vorbitor?',
   'login.showPassword': 'Afișați parola',
   'login.signUp': 'Începeți gratuit →',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
+  'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Navigare principală',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'practice.empty': 'Nu sunt disponibile încă expresii.',
   'practice.eyebrow': 'Practică de vorbire',
   'practice.heading': 'Citește-l. Înregistrează-l. Rafinează-l.',

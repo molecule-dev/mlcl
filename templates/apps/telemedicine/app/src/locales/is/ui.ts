@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'Veldu tíma',
   'booking.title': 'Bóka tíma',
   'clinicalNotesEditorial.empty': 'Engir sjúklingar til að sýna.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'consult.backLink': 'Allar tímapantanir',
   'consult.captions': 'Textar',
   'consult.connected': 'Tengt · 720p · stöðugt',
@@ -127,6 +128,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Sjúklingar',
   'patientVitalsHero.scripts': 'Lyfseðilsskylt opið',
   'patientVitalsHero.subline': '{{count}} ráðgjöf á áætlun þinni í dag',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'prescriptions.empty': 'Engar lyfseðlar passa.',
   'prescriptions.eyebrow': 'Rafrænar lyfseðlar',
   'prescriptions.heading': 'Lyfseðlar',
@@ -142,6 +144,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Persónuverndaryfirlýsing',
   'privacy.use.body':
     'Til að veita umönnun, senda áminningar um tímapantanir, senda lyfseðla og bæta áreiðanleika þjónustunnar. Við seljum aldrei gögnin þín og deilum aldrei klínískum upplýsingum með auglýsendum.',
+  'providers.allSpecialties': 'Allar sérgreinar',
+  'providers.loadError': 'Mistókst að hlaða veitendum.',
+  'providers.loading': 'Hleður…',
   'providers.noResults': 'Engir þjónustuaðilar fundust.',
   'providers.searchPlaceholder': 'Leita eftir nafni, sérgrein...',
   'providers.title': 'Finndu þjónustuaðila',
@@ -161,6 +166,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Byrjun dags',
   'settings.availability.heading': 'Framboð',
   'settings.devices.thisDevice': 'Þetta tæki',
+  'settings.devices.unnamed': 'Nafnlaust tæki',
   'settings.eyebrow': 'Æfing og reikningur',
   'settings.loadError': 'Gat ekki hlaðið prófílnum þínum.',
   'settings.notifications.emailMessages':
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Slökkva',
   'settings.security.twoFactor.enable': 'Virkja',
   'settings.security.twoFactor.heading': 'Tvíþátta auðkenning',
+  'settings.security.twoFactor.invalidCode': 'Þessi kóði passaði ekki. Reyndu aftur.',
+  'settings.security.twoFactor.setupFailed':
+    'Gat ekki ræst tveggja þátta uppsetningu. Reyndu aftur.',
+  'settings.security.twoFactor.statusOn': 'Tvíþátta virkni er virk',
   'settings.signOutDevice': 'Skrá út',
   'settings.subheading': 'Upplýsingar um þjónustuaðila, starfsreglur og klínískar viðvaranir.',
   'signup.emailLabel': 'TÖLVUPÓST',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Stofna aðgang',
   'signupFooter.hipaa': 'HIPAA-samræmi',
   'solaceLayout.primaryNavLabel': 'Aðalflakk',
+  'solaceLayout.toggleMenu': 'Opna/loka valmynd',
   'terms.eligibility.body':
     'Þú verður að vera að minnsta kosti átján ára gamall, eða foreldri eða lögráðamaður ólögráða barns sem þú leitar umönnunar fyrir, og staðsettur í fylki í Bandaríkjunum þar sem læknar okkar eru með leyfi.',
   'terms.payment.body':

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'backlog.create.needBoard':
     'Δημιουργήστε πρώτα έναν πίνακα για να προσθέσετε στοιχεία εκκρεμότητας.',
   'backlog.create.placeholder': 'π.χ. Διερεύνηση του αργού ερωτήματος στον πίνακα ελέγχου',
@@ -12,6 +13,7 @@ export const ui: UiTranslations = {
   'backlog.eyebrow': 'Driftboard · Υπόλοιπο',
   'backlog.goToBoards': 'Μετάβαση στους πίνακες',
   'backlog.heading': 'Απόθεμα',
+  'backlog.loadError': 'Δεν ήταν δυνατή η φόρτωση του εκκρεμούς αρχείου.',
   'backlog.loading': 'Φόρτωση εκκρεμοτήτων…',
   'backlog.newItem': 'Νέο στοιχείο',
   'backlog.noBoards': 'Δημιουργήστε πρώτα έναν πίνακα για να χρησιμοποιήσετε το εκκρεμές.',
@@ -42,8 +44,10 @@ export const ui: UiTranslations = {
   'boardDetail.rename': 'Μετονομασία πίνακα',
   'boardDetail.renameDialog.label': 'Νέο όνομα',
   'boardDetail.renameDialog.title': 'Μετονομασία πίνακα',
+  'boardDetail.star': 'Αστεροειδής σανίδα',
   'boardDetail.totalCards': '{{count}} κάρτες',
   'boardDetail.totalLists': '{{count}} κονίστρα',
+  'boardDetail.unstar': 'Αφαίρεση αστεριού από τον πίνακα',
   'boardDetail.upgradeRequired': 'Έχετε φτάσει το όριο της λίστας του προγράμματός σας.',
   'boardHeroCard.completedLabel': 'Οι κάρτες αποστέλλονται',
   'boardHeroCard.due': 'Οφειλόμενος {{value}}',
@@ -89,6 +93,8 @@ export const ui: UiTranslations = {
   'cardDetail.noDescription': 'Δεν υπάρχει ακόμη περιγραφή.',
   'cardDetail.notFound': 'Η κάρτα δεν βρέθηκε.',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'dashboard.boards.heading': 'Οι πίνακές σας',
   'dashboard.boards.updated': 'Ενημερώθηκε {{ago}}',
   'dashboard.create.nameLabel': 'Όνομα συμβουλίου',
@@ -101,6 +107,7 @@ export const ui: UiTranslations = {
   'dashboard.kpis.cardsShipped': 'Οι κάρτες αποστέλλονται',
   'dashboard.kpis.highPriority': 'Υψηλή προτεραιότητα',
   'dashboard.kpis.openCards': 'Ανοιχτές κάρτες',
+  'dashboard.loadError': 'Δεν ήταν δυνατή η φόρτωση του πίνακα ελέγχου σας.',
   'dashboard.loading': 'Φόρτωση…',
   'dashboard.newBoardCta': 'Νέος πίνακας',
   'dashboard.recent.heading': 'Πρόσφατες κάρτες',
@@ -114,6 +121,7 @@ export const ui: UiTranslations = {
   'driftboardAuthShell.sample.title':
     'Μετεγκατάσταση γραφημάτων πίνακα ελέγχου στα νέα διακριτικά χρώματος',
   'driftboardKanbanCard.labelOverflow': '+{{count}}',
+  'driftboardLayout.closeNav': 'Κλείσιμο μενού πλοήγησης',
   'driftboardLayout.nav.backlog': 'Απόθεμα',
   'driftboardLayout.nav.boards': 'Πίνακες',
   'forgotPassword.continueCta': 'Έχω τον κωδικό επαναφοράς μου',
@@ -155,8 +163,10 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Αυτή η κάρτα μετακινήθηκε από το ταμπλό.',
   'notifications.eyebrow': 'Driftboard · Εισερχόμενα',
   'notifications.heading': 'Εισερχόμενα δραστηριότητας',
+  'notifications.loadError': 'Δεν ήταν δυνατή η φόρτωση των εισερχομένων σας.',
   'notifications.loading': 'Φόρτωση εισερχομένων…',
   'notifications.subline': '{{count}} μη αναγνωσμένες ενημερώσεις.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'resetPassword.eyebrow': 'Driftboard · Τελικό βήμα',
   'resetPassword.headline': 'Ορίστε έναν νέο κωδικό πρόσβασης.',
   'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
@@ -185,6 +195,7 @@ export const ui: UiTranslations = {
   'team.kpis.boards': 'Ενεργές πλακέτες',
   'team.kpis.open': 'Ανοιχτές κάρτες',
   'team.kpis.shipped': 'Οι κάρτες αποστέλλονται',
+  'team.kpis.total': 'Σύνολο μελών',
   'team.noEmail': 'Ιδιοκτήτης',
   'team.roleOwner': 'Ιδιοκτήτης',
   'team.subline':

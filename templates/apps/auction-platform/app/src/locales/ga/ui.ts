@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Ag faire',
   'auctionDetail.watchRemoved': 'Bainte den liosta faire.',
   'auctionDetail.watchRemoveLabel': 'Bain den liosta faire',
+  'auctionPlatformLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'authShell.brandBody':
     'Déan tairiscint i bhfíor-am ar uaireadóirí neamhchoitianta, ealaín bhreá, agus earraí speisialtachta uathúla. Titeann an urchar i gceann soicindí.',
   'authShell.brandEyebrow': 'Beo anois · 1,420 ceant',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sórtáil de réir',
   'browseAuctions.subheading':
     'Scag de réir catagóire, sórtáil de réir a bhfuil is tábhachtaí, agus cuir tairiscint isteach sula dtitfidh an t-ordú.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'countdownTimer.ended': 'Críochnaithe',
   'countdownTimer.endingSoon': 'Ag críochnú',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Taispeáin an focal faire',
   'login.subtext':
     'Lean ort ag rianú do cheantanna agus cuir tairiscintí isteach sula dtitfidh an t-am ar fad.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'myBids.bidAgain': 'Tairiscint arís',
   'myBids.browseCta': 'Brabhsáil ceantanna beo →',
   'myBids.checkoutCta': 'Íoc anois',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Ionad gníomhaíochta',
   'notificationsPage.subheading':
     '{{count}} gan léamh · nuashonruithe beo de réir mar a bhogann ceantanna',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.bidsLabel': 'tairiscintí',
   'pricing.listingsLabel': 'liostaí',
   'pricing.watchlistLabel': 'liosta faire',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.title': 'ඔබේ සාක්කුවේ තබා ගත හැකි ලිවීමේ කාමරයක්',
   'billing.cancelConfirm': 'ඔබගේ ක්‍රියාකාරී දායකත්වය අවලංගු කරන්නද?',
   'billing.cancelFailed': 'අවලංගු කිරීමට නොහැකි විය.',
   'billing.checkingOut': 'පිටවීම විවෘත කරමින්…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'බිල්පත් පූරණය කළ නොහැකි විය.',
   'billing.loading': 'බිල්පත් පූරණය වෙමින්…',
   'billing.upgradeCta': 'උත්ශ්‍රේණි කරන්න {{name}}',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'editor.autosaveOn': 'ස්වයංක්‍රීයව සුරැකීම ක්‍රියාත්මකයි',
   'editor.backToLibrary': 'පුස්තකාලයට ආපසු',
   'editor.charCount': '{{count}} චරිත',
   'editor.confirmTrash': 'මෙම ලේඛනය කුණු කූඩයට ගෙන යන්නද?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ඉවත් කරන ලදී',
   'editor.unpublishCta': 'කෙටුම්පතට ගෙන යන්න',
   'editor.unpublished': 'කෙටුම්පතට ප්‍රතිවර්තනය කරන ලදී',
+  'focus.autosaveOn': 'ස්වයංක්‍රීයව සුරැකීම ක්‍රියාත්මකයි',
   'focus.backToLibrary': 'පුස්තකාලයට ආපසු',
   'focus.bodyPlaceholder': 'එක එක පෝලිම. වෙන කවුරුත් මෙතන නෑ.',
   'focus.exit': 'අවධානය යොමු කිරීමේ ප්‍රකාරයෙන් ඉවත් වන්න',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.headline': 'ඔබ තැබූ රේඛාව ගන්න.',
   'login.signupLink': 'එකක් සාදන්න',
   'login.subline': 'ඔබේ අත්පිටපත්, දෛනික පිටු සහ අවසාන කර්සරය පිහිටීම ඔබ ඒවා තැබූ ස්ථානයේම ඇත.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'pricing.exports': 'අපනයන',
   'pricing.folders': 'ෆෝල්ඩර',
   'pricing.heading': 'ලේඛන',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'අපි ඔබට දැන් ඊමේල් කළ කේතය ඇතුළත් කර අමතක නොවන දෙයක් තෝරන්න. එය සුරැකුණු පසු අපි ඔබව පුරනය කරන්නෙමු.',
   'reset.tokenHint': 'ඔබගේ එන ලිපි වලින් අලවන ලදී.',
+  'settings.appearance.heading': 'ආලෝකය හෝ අඳුරු',
   'settings.editor.${row.id}.description': 'භාෂාව',
   'settings.editor.description':
     'යතුරු ලියන අනුචලනය, ඡේද මැකී යාම සහ නිෂ්ක්‍රීය අවධානය - පෙරනිමි දිගු සැසි සඳහා සුසර කර ඇත.',
@@ -136,6 +144,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'තුන්වන පරිච්ඡේදය — හිරු උදාවට පෙර නිහඬ හෝරාවක්',
   'versalDocumentCard.pinned': 'පින් කරන ලදී',
   'versalLayout.nav.stats': 'සංඛ්‍යාලේඛන',
+  'versalLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'versalManuscriptHero.cta': 'ලිවීම දිගටම කරගෙන යන්න',
   'versalManuscriptHero.goalLabel': 'අද දින වචන ඉලක්කය',
   'versalManuscriptHero.inProgress': 'මාර්ගයේ',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ਸੰਪਰਕ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'dashboard.connectRepoCta': 'ਰਿਪੋਜ਼ਟਰੀ ਕਨੈਕਟ ਕਰੋ',
   'dashboard.empty': 'ਅਜੇ ਤੱਕ ਕੋਈ ਪੁੱਲ ਬੇਨਤੀਆਂ ਨਹੀਂ ਹਨ — ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਰਿਪੋਜ਼ਟਰੀ ਨਾਲ ਜੁੜੋ।',
   'dashboard.eyebrow': 'ਰਿਫ੍ਰੈਕਟ · ਸਮੀਖਿਆ ਕਤਾਰ',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'ਅਪਟਾਈਮ',
   'pullRequestRow.files': '{{count}} ਐਫ',
   'pullRequestRow.scoreAria': 'ਏਆਈ ਕੁਆਲਿਟੀ ਸਕੋਰ {{score}} / 10',
+  'refractLayout.closeMenu': 'ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'refractLayout.openMenu': 'ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'refractLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'reports.cumulativeScoreLabel': 'ਸੰਚਤ ਸਕੋਰ',
   'reports.cumulativeScoreSubtitle': 'ਸਾਰੇ ਰਿਪੋਜ਼ · {{days}} ਡੀ',
@@ -174,11 +177,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'ਇੰਡੈਕਸਿੰਗ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਰਿਪੋਜ਼ਟਰੀ ਕਨੈਕਟ ਕਰੋ ਜਾਂ ਕਸਟਮ ਨਿਯਮ ਜੋੜੋ।',
   'search.loadError': 'ਖੋਜ ਇੰਡੈਕਸ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.apiKeys.description': 'ਉੱਪਰ-ਸੱਜੇ ਪਾਸੇ ਯੂਜ਼ਰ ਮੀਨੂ ਤੋਂ ਨਿੱਜੀ API ਕੁੰਜੀਆਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ।',
+  'settings.apiKeys.integrationsNote':
+    'ਪ੍ਰਦਾਤਾ ਪਹੁੰਚ ਟੋਕਨਾਂ ਨੂੰ ਉੱਪਰ ਦਿੱਤੇ ਏਕੀਕਰਨ ਭਾਗ ਵਿੱਚ ਪ੍ਰਬੰਧਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
   'settings.connectError': 'ਪ੍ਰਦਾਤਾ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.disconnectError': 'ਪ੍ਰਦਾਤਾ ਨੂੰ ਡਿਸਕਨੈਕਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.eyebrow': 'ਵਰਕਸਪੇਸ ਅਪਵਰਤਨ',
   'settings.integration.${provider}.label': 'ਸੇਵ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
   'settings.loadError': 'ਸੈਟਿੰਗਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'settings.notificationCenter': 'ਸੂਚਨਾ ਕੇਂਦਰ',
   'settings.notifications.description':
     "ਡਿਲੀਵਰੀ ਤਰਜੀਹਾਂ ਨੂੰ ਦੇਖਣ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਲਈ ਸੂਚਨਾਵਾਂ ਪੰਨੇ 'ਤੇ ਜਾਓ।",
   'settings.section.account': 'ਖਾਤਾ ਅਤੇ ਸੁਰੱਖਿਆ',

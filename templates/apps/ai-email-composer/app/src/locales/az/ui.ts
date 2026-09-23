@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Bizim hekayəmiz',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Açılış dərəcəsi',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Kassaya başlanılır...',
   'billing.subheading': 'Göndərmə üsulunuza uyğun planı seçin.',
   'billing.unavailable': 'Satışla əlaqə saxlayın',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'common.retry': 'Təkrar cəhd edin',
   'compose.adjustingTone': 'Seçilmiş tonda yenidən yazılır...',
   'compose.aiPromptPlaceholder':
     'məs. "İki həftə cavab verilmədikdən sonra nəzakətli şəkildə əlaqə saxlayın, qısa saxlayın."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Nəsə göndərmək lazımdır? Signet bir neçə saniyə ərzində qaralama hazırlaya bilər.',
   'dashboard.composeCtaLabel': 'Tez yazmaq',
   'dashboard.heading': 'Həftəniz, bəstələnmiş',
+  'dashboard.loadFailed': 'İdarəetmə panelinizi yükləmək mümkün olmadı.',
   'dashboard.manageLibrary': 'Kitabxananı idarə et →',
   'dashboard.recentEmpty': 'Hələ göndərilməyib — göndərdiyiniz e-poçtlar burada görünəcək.',
   'dashboard.recentHeading': 'Son göndərişlər',
@@ -144,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Qaralamada yenidən yazmadığınız təqdirdə Signet bu tondan istifadə edir.',
   'signetLayout.primaryNavLabel': 'Əsas naviqasiya',
+  'signetLayout.toggleMenu': 'Menyunu aç/bağla',
   'signup.emailLabel': 'E-poçt ünvanı',
   'signup.showPassword': 'Şifrəni göstər',
   'signup.tagline':

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} সম্পর্কে',
   'analytics.back': 'জরিপের সংক্ষিপ্ত বিবরণ',
   'analytics.kpiNps': 'এনপিএস স্কোর',
   'analytics.kpiNpsTrend': 'প্রবর্তকদের {{p}} % · নিন্দুক {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'বৈশিষ্ট্য',
   'builder.questionNumber': 'প্রশ্ন {{num}}',
   'builder.surveyTitle': 'জরিপের শিরোনাম',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'forgotPassword.failed': 'রিসেট ইমেল পাঠানো যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'forgotPassword.subheading': 'আপনার ইমেল দিন এবং আমরা আপনাকে একটি পুনরুদ্ধার লিঙ্ক পাঠিয়ে দেব।',
   'forgotPassword.successBody':
     'যদি একটি অ্যাকাউন্ট মিলে যায় {{email}} একটি রিসেট লিঙ্ক পাঠানো হচ্ছে। আপনার ইনবক্স ও স্প্যাম ফোল্ডার চেক করুন।',
+  'landing.footer.copyright': '© {{year}} {{app}} . সকলের মতামত সাদরে গৃহীত।',
   'landing.footer.startTrial': 'ট্রায়াল শুরু করুন',
   'landing.hero.badge': 'জরিপ, এনপিএস এবং মতামত এক জায়গায়',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'মূল্য নির্ধারণ',
   'landing.pricing.perMonth': '/মাস',
   'landing.pricing.popular': 'সবচেয়ে জনপ্রিয়',
+  'landing.pricing.subtitle':
+    'প্রতিটি প্ল্যানেই সার্ভে বিল্ডার, পাবলিক শেয়ার লিঙ্ক এবং এনপিএস অ্যানালিটিক্স অন্তর্ভুক্ত রয়েছে। শুরু করার জন্য কোনো ক্রেডিট কার্ডের প্রয়োজন নেই।',
+  'landing.pricing.title': 'বিনামূল্যে শুরু করুন, অভিজ্ঞতা বাড়ার সাথে সাথে পরিধি বাড়ান।',
   'landing.sample.eyebrow': 'এক নজরে এনপিএস',
   'landing.sample.title': 'নিন্দুক, নিষ্ক্রিয়, সমর্থক — এক নজরে পাঠযোগ্য।',
   'login.failed': 'লগইন ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'পাসওয়ার্ড দেখান',
   'login.signUpLink': 'বিনামূল্যে ট্রায়াল শুরু করুন',
   'login.subheading': 'আপনার শ্রোতাদের কথা শুনতে সাইন ইন করুন।',
+  'notFound.body':
+    'আপনি যে পৃষ্ঠাটি খুঁজছেন তা {{app}} -এ নেই। চলুন আপনাকে আপনার সমীক্ষাগুলোতে ফিরিয়ে নিয়ে যাই।',
   'notFound.cta': 'জরিপে ফিরে যান',
   'notFound.eyebrow': '৪০৪',
   'notFound.heading': 'এই সমীক্ষাটি তালিকা থেকে বাদ পড়ে যায়।',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': 'প্রোমোটার ৯–১০',
   'profile.identity.description':
     'আপনার দলের কাছে এবং আপনার তৈরি করা সমীক্ষাগুলিতে এটি সর্বজনীনভাবে প্রকাশ করা হবে।',
+  'profile.identity.emailRequired': 'একটি ইমেল ঠিকানা লিখুন।',
   'profile.identity.saveCta': 'নাম সংরক্ষণ করুন',
   'profile.password.current': 'বর্তমান পাসওয়ার্ড',
   'profile.password.fillFields': 'বর্তমান ও নতুন উভয় পাসওয়ার্ড প্রবেশ করান।',
@@ -180,6 +189,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} প্রশ্ন',
   'templates.subheading':
     'একটি পরীক্ষিত ও নির্ভরযোগ্য স্টার্টার বেছে নিন — প্রতিটি টেমপ্লেটই যুক্তিসঙ্গত ডিফল্ট, নমুনা লজিক এবং একটি পরিচ্ছন্ন মোবাইল লেআউট সহ পূর্ব-সমন্বিত থাকে।',
+  'thankYou.body':
+    'আপনার প্রতিক্রিয়া রেকর্ড করা হয়েছে। {{app}} পরবর্তী অ্যানালিটিক্স রিফ্রেশে এটি অন্তর্ভুক্ত করবে।',
   'thankYou.eyebrow': 'প্রতিক্রিয়া পাওয়া গেছে',
   'thankYou.heading': 'ধন্যবাদ — আপনার মতামতও গুরুত্বপূর্ণ।',
   'thankYou.home': 'মুরমুর পরিদর্শন করুন',

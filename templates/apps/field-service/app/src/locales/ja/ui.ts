@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': '顧客',
   'customers.loadError': '顧客の読み込みに失敗しました。',
   'customers.loading': '読み込み中…',
+  'customers.new.address': 'サービス住所',
   'customers.new.email': 'メールアドレス',
   'customers.new.error': '顧客の追加に失敗しました。',
   'customers.new.heading': '新規顧客',

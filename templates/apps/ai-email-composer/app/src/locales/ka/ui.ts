@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენი ისტორია',
   'aiSuggestionPanel.title': 'სიგნეტის თანაპილოტი',
   'analytics.col.open': 'გახსნის კურსი',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'შეკვეთის გაფორმება იწყება…',
   'billing.subheading': 'აირჩიეთ გეგმა, რომელიც შეესაბამება გაგზავნის წესს.',
   'billing.unavailable': 'დაუკავშირდით გაყიდვების განყოფილებას',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.retry': 'ხელახლა ცდა',
   'compose.adjustingTone': 'შერჩეული ტონით გადაწერა…',
   'compose.aiPromptPlaceholder':
     'მაგ. „ორი კვირის განმავლობაში პასუხის არარსებობის შემდეგ თავაზიანი და მოკლე კომუნიკაცია“.',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'რამის გაგზავნა გჭირდებათ? Signet-ს შეუძლია რამდენიმე წამში მოამზადოს ვერსია.',
   'dashboard.composeCtaLabel': 'სწრაფი შედგენა',
   'dashboard.heading': 'შენი კვირა, შედგენილი',
+  'dashboard.loadFailed': 'თქვენი საინფორმაციო დაფის ჩატვირთვა ვერ მოხერხდა.',
   'dashboard.manageLibrary': 'ბიბლიოთეკის მართვა →',
   'dashboard.recentEmpty':
     'გაგზავნილი ელფოსტები ჯერ არ არის — თქვენ მიერ გაგზავნილი ელფოსტები აქ გამოჩნდება.',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'ნაგულისხმევი ტონი',
   'settings.toneSubheading': 'სიგნეტი ამ ტონს იყენებს, თუ პროექტზე არ გადაფარავთ.',
   'signetLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'signetLayout.toggleMenu': 'მენიუს გადართვა',
   'signup.emailLabel': 'ელექტრონული ფოსტის მისამართი',
   'signup.showPassword': 'პაროლის ჩვენება',
   'signup.tagline':

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.tagline': 'Çdo njësi, nën një çati.',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.addProperty': 'Shto pronë',
   'dashboard.empty.body':
     'Pasi të keni pronat, njësitë dhe pagesat e qirasë, kjo tabelë do të mbushet me informacione të portofolit.',
@@ -89,6 +92,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} urdhra pune të hapura, të renditura sipas përparësisë',
   'maintenanceQueueList.title': 'Radha e Mirëmbajtjes',
+  'nav.closeMenu': 'Mbyll menynë',
+  'nav.openMenu': 'Hap menynë',
   'notFound.body': 'Faqja që po kërkonit është zhvendosur, arkivuar ose nuk ka ekzistuar kurrë.',
   'notFound.title': 'Ajo derë nuk hapet',
   'notifications.empty.body':

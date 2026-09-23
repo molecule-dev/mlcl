@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.eyebrow': 'Tietoa {{app}}sta',
+  'about.intro':
+    '{{app}} on meditaatiosovellus tosielämään – päivittäisiä ohjattuja meditaatioita, hengitysharjoituksia ja unitarinoita opettajien tahdissa, jotka tuntuvat ystäviltä, eivät valmentajilta. Ei syyllisyyttä, ei meluisaa ruokailua: vain hiljainen paikka palata hengitykseesi.',
+  'about.missionBody':
+    'Uskomme, että hiljaisuuden tulisi olla kaikkien ulottuvilla, kaikkina vuorokauden aikoina. {{app}} on olemassa tehdäkseen rauhallisesta ja johdonmukaisesta harjoituksesta vaivatonta – jotta kymmenen rehellistä minuuttia voi muuttaa tapasi viettää seuraavat kymmenen tuntia.',
+  'about.missionTitle': 'Missiomme',
+  'about.pageTitle': 'Rauhallisempi 10 minuuttia päivässä',
+  'breathingDial.seconds': 'sekuntia',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.logout': 'Kirjaudu ulos',
   'common.min': 'min',
   'common.relative.justNow': 'juuri nyt',
   'common.relative.now': 'nyt',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
+  'nav.secondaryNavigation': 'Tilin navigointi',
   'sessionCard.with': 'kanssa {{name}}',
   'stillpoint.billing.choose': 'Valita {{plan}}',
   'stillpoint.billing.currentPlan': 'Tällä hetkellä päällä {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Emme voineet ladata suunnitelmia.',
   'stillpoint.billing.opening': 'Avataan kassa…',
   'stillpoint.billing.perMonthShort': '/ kk',
+  'stillpoint.billing.perYearShort': '/v',
   'stillpoint.billing.unknownResult': 'Odottamaton laskutusvastaus.',
   'stillpoint.billing.yearly': 'Vuosittain · säästä 17 %',
   'stillpoint.courseDetail.back': 'Kurssit',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Ei vielä kursseja.',
   'stillpoint.courses.eyebrow': '{{count}} monipäiväiset matkat',
   'stillpoint.courses.heading': 'Kurssit',
+  'stillpoint.forgot.checkEmail': 'Tarkista sähköpostisi – linkki vanhenee 30 minuutin kuluttua.',
   'stillpoint.home.empty': 'Ei vielä sessioita – katso tilanne pian uudelleen.',
   'stillpoint.home.friend': 'ystävä',
   'stillpoint.home.heading': 'Tervetuloa takaisin, {{name}} 🪷',
@@ -47,6 +63,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Luo ilmainen tilisi',
   'stillpoint.landing.cta.title': 'Aloita hiljaisuutesi tänään',
   'stillpoint.landing.features.heading': 'Käytäntö, joka kasvaa kanssasi',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Päivittäisiä ohjattuja meditaatioita, hengitysharjoituksia ja unitarinoita – opettajien tahdissa, jotka tuntuvat ystäviltä, eivät valmentajilta.',
   'stillpoint.landing.hero.eyebrow': 'Rauhallisempi 10 minuuttia päivässä',
@@ -63,6 +80,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Selaa mielialan mukaan',
   'stillpoint.login.rememberMe': 'Pidä minut kirjautuneena',
   'stillpoint.login.subheading': 'Kirjaudu sisään jatkaaksesi harjoitteluasi.',
+  'stillpoint.nav.tagline': 'Löydä liikkumaton keskuksesi',
+  'stillpoint.notFound.body':
+    'Tämä sivu vetää syvää henkeä jossain. Etsitään sinulle hiljaisempi paikka sovelluksesta {{app}} .',
   'stillpoint.notFound.title': 'Kadonnut hiljaisuuteen',
   'stillpoint.notFound.toHome': 'Takaisin tähän päivään',
   'stillpoint.notFound.toLibrary': 'Selaa kirjastoa',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Siirry 15 sekuntia taaksepäin',
   'stillpoint.player.skipForward': 'Siirry 30 sekuntia eteenpäin',
   'stillpoint.player.with': 'kanssa {{name}}',
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'Käytäntösi tiivistettynä.',
   'stillpoint.profile.locked': 'Lukittu',
   'stillpoint.profile.member': 'Stillpointin jäsen',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.title': 'खिशात ठेवता येण्याजोगी लेखन खोली',
   'billing.cancelConfirm': 'तुमची सक्रिय सदस्यता रद्द करायची आहे का?',
   'billing.cancelFailed': 'रद्द करता आले नाही.',
   'billing.checkingOut': 'चेकआउट सुरू करत आहे…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'बिलिंग लोड होऊ शकले नाही.',
   'billing.loading': 'बिलिंग लोड होत आहे…',
   'billing.upgradeCta': 'अपग्रेड करा {{name}}',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'editor.autosaveOn': 'ऑटोसेव्ह चालू',
   'editor.backToLibrary': 'ग्रंथालयात परत जा',
   'editor.charCount': '{{count}} पात्र',
   'editor.confirmTrash': 'हा दस्तऐवज कचरापेटीत टाकायचा आहे का?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'अनपिन केलेले',
   'editor.unpublishCta': 'मसुद्याकडे जा',
   'editor.unpublished': 'मसुद्यावर परत पाठवले',
+  'focus.autosaveOn': 'ऑटोसेव्ह चालू',
   'focus.backToLibrary': 'ग्रंथालयात परत जा',
   'focus.bodyPlaceholder': 'एका वेळी एकच ओळ. इथे दुसरं कोणी नाही.',
   'focus.exit': 'फोकस मोडमधून बाहेर पडा',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'एक तयार करा',
   'login.subline':
     'तुमची हस्तलिखिते, दैनंदिन पृष्ठे आणि कर्सरची शेवटची स्थिती तुम्ही जिथे सोडली होती, तिथेच आहेत.',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'pricing.exports': 'निर्यात',
   'pricing.folders': 'फोल्डर्स',
   'pricing.heading': 'कागदपत्रे',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'आम्ही तुम्हाला नुकताच ईमेल केलेला कोड टाका आणि एखादा लक्षात राहण्यासारखा पर्याय निवडा. तो सेव्ह झाल्यावर आम्ही तुम्हाला साइन इन करू.',
   'reset.tokenHint': 'तुमच्या इनबॉक्समधून कॉपी केले आहे.',
+  'settings.appearance.heading': 'प्रकाश किंवा गडद',
   'settings.editor.${row.id}.description': 'भाषा',
   'settings.editor.description':
     'टाइपरायटर स्क्रोल, पॅराग्राफ फेड आणि आयडल फोकस — ही डीफॉल्ट सेटिंग्ज दीर्घकाळ चालणाऱ्या सेशन्ससाठी तयार केलेली आहेत.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'प्रकरण तीन — सूर्योदयापूर्वीचा एक शांत तास',
   'versalDocumentCard.pinned': 'पिन केलेले',
   'versalLayout.nav.stats': 'आकडेवारी',
+  'versalLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'versalManuscriptHero.cta': 'लिहीत रहा',
   'versalManuscriptHero.goalLabel': 'आजचे शब्द ध्येय',
   'versalManuscriptHero.inProgress': 'मार्गावर',

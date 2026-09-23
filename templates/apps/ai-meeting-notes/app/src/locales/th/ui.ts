@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับเรา',
   'actions.empty': 'ไม่มีรายการดำเนินการใดตรงกัน',
   'actions.heading': 'รายการดำเนินการ',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'เดือนก่อนหน้า',
   'calendar.recent': 'ล่าสุด',
   'common.daysAgo': '{{count}} หลายวันก่อน',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.hoursAgo': '{{count}} ฮ. ที่ผ่านมา',
   'common.no': '—',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} รายการดำเนินการ',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'โปรดตรวจสอบกล่องจดหมายของคุณเพื่อดูลิงก์สำหรับรีเซ็ต',
   'forgot.subheading': 'กรุณาป้อนอีเมลของคุณ แล้วเราจะส่งลิงก์สำหรับรีเซ็ตให้',
   'integrations.disconnected': 'ไม่ได้เชื่อมต่อ',
+  'integrations.loadError': 'ไม่สามารถโหลดการเชื่อมต่อได้',
   'integrations.notConnectedTag': 'ไม่ได้เชื่อมต่อ',
   'integrations.subheading':
     'เชื่อมต่อปฏิทินและแพลตฟอร์มวิดีโอเพื่อให้ Murmur เข้าร่วมโดยอัตโนมัติ',
+  'integrations.updateError': 'อัปเดตล้มเหลว',
   'landing.ctaButton': 'เริ่มเลย — ฟรี!',
   'landing.ctaHeading': 'เลิกจดบันทึก แล้วเริ่มตัดสินใจแทน',
   'landing.demo.aiLabel': 'สรุปโดยย่อเกี่ยวกับ AI ฉบับร่างสด',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'การติดตามผล',
   'meetingDetail.loadError': 'ไม่สามารถโหลดการประชุมได้',
   'meetingDetail.noActions': 'ไม่พบรายการดำเนินการใดๆ',
+  'meetingDetail.none': 'ไม่มี.',
   'meetingDetail.notFound': 'ไม่พบการประชุม',
+  'meetingDetail.speakerFallback': 'ผู้พูด {{id}}',
   'meetingDetail.summaryHeading': 'สรุป AI',
   'meetingDetail.transcriptHeading': 'ถอดความ',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'การประชุม',
   'meetings.loadError': 'ไม่สามารถโหลดการประชุมได้',
   'meetings.subheading': 'การประชุมทุกครั้งที่มีการบันทึก อัปโหลด และซิงค์ข้อมูล',
+  'murmurLayout.openMenu': 'เปิดเมนูนำทาง',
   'murmurLayout.primaryNavLabel': 'การนำทางหลัก',
   'nav.legal': 'ถูกกฎหมาย',
   'notifications.loadError': 'ไม่สามารถโหลดการแจ้งเตือนได้',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'ลักษณะที่คุณปรากฏบน Murmur',
   'record.error.empty': 'ไม่มีการบันทึกเสียงใดๆ',
   'record.error.permission': 'ไม่อนุญาตให้ใช้ไมโครโฟน',
+  'record.error.recorder': 'ข้อผิดพลาดในการบันทึก',
   'record.error.unsupported':
     'เบราว์เซอร์ของคุณไม่รองรับการบันทึก ลองใช้ Chrome, Edge หรือ Safari ดู',
   'record.error.upload': 'การอัปโหลดล้มเหลว โปรดลองอีกครั้ง',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'รหัสผ่านใหม่',
   'reset.subheading': 'เลือกใช้รหัสผ่านที่คุณไม่เคยใช้ที่อื่นมาก่อน',
   'search.empty': 'พิมพ์เพื่อค้นหาเอกสารถอดเสียง',
+  'search.loadError': 'การค้นหาล้มเหลว โปรดลองอีกครั้ง',
   'search.noResults': 'ไม่พบผลลัพธ์สำหรับ “ {{q}} ”.',
   'settings.appearance.description': 'สลับระหว่างโหมดสว่างและโหมดมืด',
   'settings.appearance.title': 'รูปร่าง',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ไม่สามารถโหลดการตั้งค่าได้',
   'settings.loading': 'กำลังโหลด…',
   'settings.push.heading': 'การแจ้งเตือนแบบพุช',
+  'settings.push.subheading':
+    'รับการแจ้งเตือนผ่านเบราว์เซอร์สำหรับข้อความที่กล่าวถึง รายการที่ต้องดำเนินการ และบทสรุป',
   'settings.retention.audio': 'เก็บไฟล์เสียงไว้สำหรับ',
   'settings.retention.heading': 'การรักษา',
   'settings.retention.transcript': 'เก็บสำเนาเอกสารไว้สำหรับ',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'เริ่มบันทึกรายละเอียดการประชุมได้ภายในไม่กี่นาที',
   'signup.terms':
     'การสร้างบัญชีหมายความว่าคุณยอมรับข้อกำหนดในการให้บริการและนโยบายความเป็นส่วนตัวของเรา',
+  'signup.termsPrefix': 'การสร้างบัญชีหมายความว่าคุณยอมรับข้อตกลงของเรา',
   'team.inviteCta': 'เชิญเพื่อนร่วมทีม',
   'team.invitedAs': 'ได้รับเชิญในฐานะ {{role}}',
   'team.inviteFailed': 'ไม่สามารถส่งคำเชิญได้',

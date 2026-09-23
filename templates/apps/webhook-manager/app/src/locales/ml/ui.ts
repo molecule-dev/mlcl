@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} നെ കുറിച്ച്',
+  'about.pageTitle': 'വെബ്‌ഹുക്ക് നിയന്ത്രണ വിമാനം',
+  'about.plansTitle': 'ഓരോ ഘട്ടത്തിലേക്കുമുള്ള പദ്ധതികൾ',
   'apiKeys.bestPractices': 'മികച്ച രീതികൾ',
   'apiKeys.body':
     'പ്രോഗ്രമാറ്റിക് ആക്സസ് ടോക്കണുകൾ. അവയെ പാസ്‌വേഡുകൾ പോലെ പരിഗണിക്കുക - env vars-ൽ സൂക്ഷിക്കുക, ഒരിക്കലും കമ്മിറ്റ് ചെയ്യരുത്.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'പദ്ധതിക്കുള്ളിൽ',
   'billing.usageWarning': 'തൊപ്പിക്ക് സമീപം',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.body':
     'നിങ്ങൾ പ്രവർത്തിക്കുന്ന എല്ലാ വർക്ക്‌സ്‌പെയ്‌സിലും തത്സമയ ത്രൂപുട്ട്, ഫ്ലൈറ്റിൽ വീണ്ടും ശ്രമിക്കൽ, തടസ്സങ്ങൾ നേരിട്ട അവസാന പോയിന്റുകൾ.',
   'dashboard.endpointsEmpty': 'ഇതുവരെ എൻഡ്‌പോയിന്റുകൾ ഇല്ല.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'എൻഡ്‌പോയിന്റുകൾ',
   'endpointDetail.deliveryTrendSub': 'ഡെലിവറികൾ / മണിക്കൂർ, ലോഗ് സ്കെയിൽ',
   'endpointDetail.hideSecret': 'രഹസ്യം മറയ്ക്കുക',
+  'endpointDetail.loading': 'എൻഡ്‌പോയിന്റ് ലോഡ് ചെയ്യുന്നു…',
   'endpointDetail.metric.delivered': '24 മണിക്കൂർ ഡെലിവർ ചെയ്തു',
   'endpointDetail.metric.deliveredCaption': 'നിന്ന് {{count}} ഇവന്റ് തരങ്ങൾ',
   'endpointDetail.metric.failuresCaption': 'വീണ്ടും ശ്രമിക്കുന്നു: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'ഗുരുതരം · 24 മണിക്കൂർ',
   'notifications.metric.totalCaption': 'എക്കാലത്തെയും മികച്ച ഇൻബോക്സ്',
   'payloadViewer.payload': '// പേലോഡ്',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'profile.avatarHeader': 'അവതാർ',
   'profile.avatarHint': 'ഇനീഷ്യലുകൾ കാണിച്ചിരിക്കുന്നു — അടുത്ത റിലീസിനൊപ്പം വരുന്ന അപ്‌ലോഡുകൾ.',
   'profile.body': 'നിങ്ങളുടെ അക്കൗണ്ട്, മുൻഗണനകൾ, സജീവ സെഷനുകൾ.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'നിങ്ങളുടെ നിലവിലെ സെഷൻ മാത്രമേ സജീവമായിട്ടുള്ളൂ. മറ്റ് ഉപകരണങ്ങളൊന്നും സൈൻ ഇൻ ചെയ്തിട്ടില്ല.',
   'profile.toggle': 'ടോഗിൾ ചെയ്യുക {{label}}',
+  'pylonShell.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'pylonShell.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'pylonShell.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'resetPassword.subtitle':
     'നിങ്ങൾ മുമ്പ് ഉപയോഗിച്ചിട്ടില്ലാത്ത ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',

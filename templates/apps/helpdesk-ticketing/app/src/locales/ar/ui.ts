@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
+  'about.title': 'حول {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'صورة شخصية احترافية لموظفة دعم ذات ابتسامة ودودة في مكتب حديث',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'تواصل مع الدعم',
   'forgotPassword.error': 'تعذَّر إرسال بريد إعادة التعيين. يُرجى المحاولة مرة أخرى.',
   'forgotPassword.rememberPassword': 'هل تتذكر كلمة المرور؟',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'تسجيل الدخول — دعم زينيث',
   'login.showPassword': 'إظهار كلمة المرور',
   'login.welcomeSubheading': 'سجّل الدخول إلى لوحة تحكم الدعم الخاصة بك',
+  'mobileNav.closeMenu': 'إغلاق شريط التنقل',
+  'mobileNav.menu': 'التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'nav.legal': 'قانوني',
   'nav.newTicket': 'تذكرة جديدة',
   'notifications.loadError': 'تعذر تحميل الإشعارات. حاول مرة أخرى بعد قليل.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'بحث الأوامر',
   'operatorDock.newReport': 'تقرير جديد',
   'operatorDock.systemOnline': 'النظام عبر الإنترنت',
+  'planUpdated.subtitle': 'شكراً لك',
   'planUpdated.title': 'تم تحديث الخطة',
   'pricing.agents': 'الوكلاء',
   'pricing.automation': 'قواعد الأتمتة',
@@ -246,6 +252,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{اسم}} صورة رمزية',
   'ticketDetail.errorTitle': 'حدث خطأ ما',
+  'ticketDetail.loadError': 'فشل تحميل التذكرة.',
+  'ticketDetail.notFound': 'لم يتم العثور على التذكرة',
+  'ticketDetail.replyError': 'فشل إرسال الرد. يرجى المحاولة مرة أخرى.',
   'ticketDetail.retry': 'حاول مرة أخرى',
   'ticketDetail.statusUpdateError': 'تعذر تحديث الحالة. حاول مرة أخرى.',
   'ticketDetailsCard.assigneeLabel': 'المُحال إليه',
@@ -297,6 +306,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{وقت}} غادر',
   'ticketRow.title': 'فشل الاتصال بقاعدة البيانات في بيئة الإنتاج {{العقدة}}',
   'tickets.pageTitle': 'التذاكر — دعم زينيث',
+  'ticketsFab.newTicket': 'تذكرة جديدة',
   'ticketsFilterBar.assigneeLabel': 'المُسند إليه:',
   'ticketsFilterBar.clearFilters': 'مسح الفلاتر',
   'ticketsFilterBar.dateRangeDemoHint': 'تصفية النطاق الزمني غير مفعّلة في هذه النسخة التجريبية.',

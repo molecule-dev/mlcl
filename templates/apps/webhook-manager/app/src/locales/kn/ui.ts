@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} ಬಗ್ಗೆ',
+  'about.pageTitle': 'ವೆಬ್‌ಹುಕ್ ನಿಯಂತ್ರಣ ವಿಮಾನ',
+  'about.plansTitle': 'ಪ್ರತಿ ಹಂತಕ್ಕೂ ಯೋಜನೆಗಳು',
   'apiKeys.bestPractices': 'ಅತ್ಯುತ್ತಮ ಅಭ್ಯಾಸಗಳು',
   'apiKeys.body':
     'ಪ್ರೋಗ್ರಾಮ್ಯಾಟಿಕ್ ಆಕ್ಸೆಸ್ ಟೋಕನ್‌ಗಳು. ಅವುಗಳನ್ನು ಪಾಸ್‌ವರ್ಡ್‌ಗಳಂತೆ ಪರಿಗಣಿಸಿ - env vars ನಲ್ಲಿ ಸಂಗ್ರಹಿಸಿ, ಎಂದಿಗೂ ಕಮಿಟ್ ಮಾಡಬೇಡಿ.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ಯೋಜನೆಯೊಳಗೆ',
   'billing.usageWarning': 'ಕ್ಯಾಪ್ ಹತ್ತಿರ',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.body':
     'ನೀವು ನಿರ್ವಹಿಸುವ ಪ್ರತಿಯೊಂದು ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿ ಲೈವ್ ಥ್ರೋಪುಟ್, ಹಾರಾಟದಲ್ಲಿ ಮರುಪ್ರಯತ್ನಗಳು ಮತ್ತು ಅಡಚಣೆ ಉಂಟಾದ ಅಂತಿಮ ಬಿಂದುಗಳು.',
   'dashboard.endpointsEmpty': 'ಇನ್ನೂ ಯಾವುದೇ ಅಂತ್ಯಬಿಂದುಗಳಿಲ್ಲ.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'ಅಂತ್ಯಬಿಂದುಗಳು',
   'endpointDetail.deliveryTrendSub': 'ವಿತರಣೆಗಳು / ಗಂಟೆ, ಲಾಗ್ ಮಾಪಕ',
   'endpointDetail.hideSecret': 'ರಹಸ್ಯವನ್ನು ಮರೆಮಾಡಿ',
+  'endpointDetail.loading': 'ಎಂಡ್‌ಪಾಯಿಂಟ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'endpointDetail.metric.delivered': '24 ಗಂಟೆಗಳಲ್ಲಿ ತಲುಪಿಸಲಾಗಿದೆ',
   'endpointDetail.metric.deliveredCaption': 'ನಿಂದ {{count}} ಈವೆಂಟ್ ಪ್ರಕಾರಗಳು',
   'endpointDetail.metric.failuresCaption': 'ಮರುಪ್ರಯತ್ನಗಳು: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'ಗಂಭೀರ · 24 ಗಂಟೆಗಳು',
   'notifications.metric.totalCaption': 'ಸರ್ವಕಾಲಿಕ ಇನ್‌ಬಾಕ್ಸ್',
   'payloadViewer.payload': '// ಪೇಲೋಡ್',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'profile.avatarHeader': 'ಅವತಾರ್',
   'profile.avatarHint': 'ತೋರಿಸಲಾದ ಮೊದಲಕ್ಷರಗಳು — ಮುಂದಿನ ಬಿಡುಗಡೆಯೊಂದಿಗೆ ಬರುವ ಅಪ್‌ಲೋಡ್‌ಗಳು.',
   'profile.body': 'ನಿಮ್ಮ ಖಾತೆ, ಆದ್ಯತೆಗಳು ಮತ್ತು ಸಕ್ರಿಯ ಅವಧಿಗಳು.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಸೆಷನ್ ಮಾತ್ರ ಸಕ್ರಿಯವಾಗಿದೆ. ಬೇರೆ ಯಾವುದೇ ಸಾಧನಗಳು ಸೈನ್ ಇನ್ ಆಗಿಲ್ಲ.',
   'profile.toggle': 'ಟಾಗಲ್ ಮಾಡಿ {{label}}',
+  'pylonShell.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'pylonShell.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'pylonShell.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'resetPassword.subtitle': 'ನೀವು ಮೊದಲು ಬಳಸದ ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ.',
   'resetPassword.tokenPlaceholder': 'ಇಮೇಲ್‌ನಿಂದ ಅಂಟಿಸಿ',

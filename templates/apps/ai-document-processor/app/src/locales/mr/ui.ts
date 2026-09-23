@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'संपर्क साधा',
+  'about.title': '{{app}} बद्दल',
   'authShell.backToLanding': '← लँडिंगकडे परत जा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.no': '—',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'common.yes': '✓',
   'dashboard.eyebrow': 'आज · कामकाजाचा आढावा',
   'dashboard.heading': 'दस्तऐवज बुद्धिमत्ता',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'सध्याच्या फिल्टरशी जुळणारे कोणतेही दस्तऐवज नाहीत.',
   'documents.heading': 'सर्व कागदपत्रे',
   'documents.loadError': 'कागदपत्रे लोड करण्यात अयशस्वी झाले.',
+  'documents.loading': 'लायब्ररी लोड होत आहे…',
   'documents.searchLabel': 'दस्तऐवज शोधा',
   'documents.searchPlaceholder': 'दस्तऐवज शोधा…',
   'documents.subheading':
@@ -63,8 +67,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'पासवर्ड लपवा',
   'login.showPassword': 'पासवर्ड दाखवा',
   'login.subtitle': 'आपल्या कागदपत्रांची देवाणघेवाण सुरळीत ठेवण्यासाठी साइन इन करा.',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'notFound.body':
     'तुम्ही उघडण्याचा प्रयत्न केलेला दस्तऐवज किंवा मार्ग आता उपलब्ध नाही. डॅशबोर्डवर परत जा किंवा साइडबारमधून एक विभाग निवडा.',
+  'notFound.eyebrow': '{{app}} · ४०४',
   'notFound.home': 'लँडिंग पेज उघडा',
   'notFound.title': 'ते पान फाईलमध्ये नाही.',
   'parcelaHeroCard.change': '{{sign}} {{amount}} कालच्या तुलनेत टक्केवारी',
@@ -80,6 +87,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'सक्रिय नियम',
   'rules.empty': "अद्याप कोणतेही फाइलिंग नियम नाहीत. नियम जोडण्यासाठी 'नवीन नियम' वापरा.",
   'rules.eyebrow': 'ऑटोमेशन',
+  'rules.fieldsCount': '{{count}} फील्ड्स',
   'rules.form.destination': 'फाइल करण्यासाठी',
   'rules.form.name': 'नियमाचे नाव',
   'rules.form.save': 'नियम जतन करा',

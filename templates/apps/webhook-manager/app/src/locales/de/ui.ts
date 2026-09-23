@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// Über {{app}}',
+  'about.pageTitle': 'Die Webhook-Steuerungsebene',
+  'about.plansTitle': 'Pläne für jede Phase',
   'apiKeys.bestPractices': 'Best Practices',
   'apiKeys.body':
     'Programmatische Zugriffstoken. Behandeln Sie sie wie Passwörter – speichern Sie sie in Umgebungsvariablen und committen Sie sie niemals.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'innerhalb des Tarifs',
   'billing.usageWarning': 'nahe am Limit',
   'billing.yearly': 'Jährlich',
+  'common.goToDashboard': 'Zum Dashboard',
   'dashboard.body':
     'Live-Durchsatz, laufende Wiederholungsversuche und die Endpunkte, die gerade kurzzeitig ausgefallen sind – in jedem Arbeitsbereich, den Sie nutzen.',
   'dashboard.endpointsEmpty': 'Noch keine Endpunkte.',
@@ -113,6 +117,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'Endpunkte',
   'endpointDetail.deliveryTrendSub': 'Zustellungen / Stunde, Log-Skala',
   'endpointDetail.hideSecret': 'Geheimnis verbergen',
+  'endpointDetail.loading': 'Endpunkt wird geladen…',
   'endpointDetail.metric.delivered': 'Zugestellt 24 h',
   'endpointDetail.metric.deliveredCaption': 'aus {{count}} Ereignistypen',
   'endpointDetail.metric.failuresCaption': 'Wiederholungen: {{retries}}',
@@ -218,6 +223,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritisch · 24 h',
   'notifications.metric.totalCaption': 'Posteingang gesamt',
   'payloadViewer.payload': '// Payload',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Initialen werden angezeigt – Uploads kommen mit der nächsten Version.',
   'profile.body': 'Ihr Konto, Ihre Einstellungen und Ihre aktiven Sitzungen.',
@@ -233,6 +239,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Nur Ihre aktuelle Sitzung ist aktiv. Keine anderen Geräte sind angemeldet.',
   'profile.toggle': 'Umschalten {{label}}',
+  'pylonShell.closeMenu': 'Navigationsmenü schließen',
+  'pylonShell.openMenu': 'Navigationsmenü öffnen',
   'pylonShell.primaryNavLabel': 'Hauptnavigation',
   'resetPassword.subtitle': 'Wählen Sie ein starkes Passwort, das Sie noch nicht verwendet haben.',
   'resetPassword.tokenPlaceholder': 'aus E-Mail einfügen',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Пра {{app}}',
   'analytics.back': 'Агляд апытання',
   'analytics.kpiNps': 'Бал NPS',
   'analytics.kpiNpsTrend': 'Прамоўтэры {{p}} % · Крытыкі {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Уласцівасці',
   'builder.questionNumber': 'Пытанне {{num}}',
   'builder.surveyTitle': 'Назва апытання',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'forgotPassword.failed': 'Не атрымалася адправіць ліст для скіду. Паўтарыце спробу.',
   'forgotPassword.subheading':
     'Увядзіце свой адрас электроннай пошты, і мы дашлем вам спасылку для аднаўлення.',
   'forgotPassword.successBody':
     'Калі ўліковы запіс супадае {{email}} Спасылка для скіду ўжо ў дарозе. Праверце паштовую скрыню і папкі са спамам.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Усе меркаванні вітаюцца.',
   'landing.footer.startTrial': 'Пачаць пробны перыяд',
   'landing.hero.badge': 'Апытанні, NPS і водгукі ў адным месцы',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Цэны',
   'landing.pricing.perMonth': '/мес.',
   'landing.pricing.popular': 'Найбольш папулярныя',
+  'landing.pricing.subtitle':
+    'Кожны план уключае канструктар апытанняў, спасылкі для публічнага доступу і аналітыку NPS. Для пачатку крэдытная карта не патрабуецца.',
+  'landing.pricing.title': 'Пачніце бясплатна, маштабуйце, калі захочаце.',
   'landing.sample.eyebrow': 'NPS з першага погляду',
   'landing.sample.title': 'Крытыкі, пасіўныя прыхільнікі, прыхільнікі — імгненна чытэльныя.',
   'login.failed': 'Памылка ўваходу. Паспрабуйце яшчэ раз.',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Паказаць пароль',
   'login.signUpLink': 'Пачаць бясплатную пробную версію',
   'login.subheading': 'Увайдзіце, каб працягваць слухаць сваю аўдыторыю.',
+  'notFound.body':
+    'Старонка, якую вы шукаеце, не існуе ў {{app}} . Давайце вернемся да вашых апытанняў.',
   'notFound.cta': 'Назад да апытанняў',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Гэтае апытанне знікла з чаргі.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Пасіўны 7–8',
   'npsDistributionBar.promoter': 'Прамоўтэр 9–10',
   'profile.identity.description': 'Публічна для вашай каманды і ў апытаннях, якія вы ствараеце.',
+  'profile.identity.emailRequired': 'Увядзіце адрас электроннай пошты.',
   'profile.identity.saveCta': 'Захаваць імя',
   'profile.password.current': 'Бягучы пароль',
   'profile.password.fillFields': 'Увядзіце як бягучы, так і новы пароль.',
@@ -180,6 +189,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} пытанні',
   'templates.subheading':
     'Выберыце правераны ў баі стартавы шаблон — кожны шаблон мае загадзя настроеныя налады па змаўчанні, прыкладную логіку і зразумелы мабільны макет.',
+  'thankYou.body': 'Ваш адказ запісаны. {{app}} уключыць яго ў наступнае абнаўленне аналітыкі.',
   'thankYou.eyebrow': 'Адказ атрыманы',
   'thankYou.heading': 'Дзякуй — ваш голас мае значэнне.',
   'thankYou.home': 'Наведайце Мурмур',

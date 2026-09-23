@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontakt aufnehmen',
   'about.eyebrow': 'Über',
+  'about.title': 'Über {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Professionelles Porträtfoto einer Kundendienstmitarbeiterin mit freundlichem Lächeln in einem modernen Büro',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontaktieren Sie den Support.',
   'forgotPassword.error':
     'Zurücksetzungs-E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es erneut.',
   'forgotPassword.rememberPassword': 'Erinnern Sie sich an Ihr Passwort?',
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Anmelden — Zenith-Support',
   'login.showPassword': 'Passwort anzeigen',
   'login.welcomeSubheading': 'Melden Sie sich in Ihrem Support-Dashboard an.',
+  'mobileNav.closeMenu': 'Navigation schließen',
+  'mobileNav.menu': 'Navigation',
+  'mobileNav.openMenu': 'Navigation öffnen',
   'nav.legal': 'Rechtliches',
   'nav.newTicket': 'Neues Ticket',
   'notifications.loadError':
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Befehlssuche',
   'operatorDock.newReport': 'Neuer Bericht',
   'operatorDock.systemOnline': 'System Online',
+  'planUpdated.subtitle': 'Vielen Dank',
   'planUpdated.title': 'Plan aktualisiert',
   'pricing.agents': 'Agenten',
   'pricing.automation': 'Automatisierungsregeln',
@@ -253,6 +259,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': "{{Name}} 's Avatar",
   'ticketDetail.errorTitle': 'Etwas ist schiefgelaufen',
+  'ticketDetail.loadError': 'Ticket konnte nicht geladen werden.',
+  'ticketDetail.notFound': 'Ticket nicht gefunden',
+  'ticketDetail.replyError': 'Antwort konnte nicht gesendet werden. Bitte versuchen Sie es erneut.',
   'ticketDetail.retry': 'Erneut versuchen',
   'ticketDetail.statusUpdateError':
     'Status konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut.',
@@ -305,6 +314,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{Zeit}} links',
   'ticketRow.title': 'Datenbankverbindungsfehler in der Produktionsumgebung {{Knoten}}',
   'tickets.pageTitle': 'Tickets — Zenith Support',
+  'ticketsFab.newTicket': 'Neues Ticket',
   'ticketsFilterBar.assigneeLabel': 'Beauftragter:',
   'ticketsFilterBar.clearFilters': 'Filter löschen',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

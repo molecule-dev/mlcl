@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
   'about.plansTitle': 'ແຜນການທີ່ຈະເຕີບໃຫຍ່ໄປພ້ອມກັບທ່ານ',
   'brand.tagline': 'ທຸກໆວິນາທີ',
   'clientDetail.back': 'ກັບໄປຫາລູກຄ້າ',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'ທຸກໆຄວາມສຳພັນຢູ່ໃນບ່ອນດຽວ - ໂຄງການ, ຊົ່ວໂມງເຮັດວຽກ, ໃບແຈ້ງໜີ້ທີ່ຄ້າງຊຳລະ.',
   'clients.title': 'ລູກຄ້າ',
   'common.and': 'ແລະ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.activeProjects': 'ໂຄງການທີ່ກຳລັງດຳເນີນຢູ່',
   'dashboard.empty': 'ຍັງບໍ່ມີລາຍການເທື່ອ. ເລີ່ມໂມງຈັບເວລາເພື່ອຕິດຕາມເຊດຊັນທຳອິດຂອງທ່ານ.',
   'dashboard.greeting': 'ສະບາຍດີ, {{name}}',
@@ -47,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.viewReports': 'ເບິ່ງລາຍງານ',
   'dashboard.viewTimesheet': 'ເບິ່ງຕາຕະລາງເວລາ',
   'durationKpiCard.label': '{{label}}',
+  'durationKpiCard.trend': '{{trend}}',
   'durationKpiCard.value': '{{value}}',
   'forgotPassword.sentBody': 'ພວກເຮົາໄດ້ສົ່ງລິ້ງຣີເຊັດໄປຫາແລ້ວ {{email}} ມັນຈະໝົດອາຍຸໃນ 60 ນາທີ.',
   'forgotPassword.subheading': 'ໃສ່ອີເມວຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງເພື່ອຕັ້ງລະຫັດຜ່ານໃໝ່ໃຫ້ທ່ານ.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
     'ບໍ່ມີຊົ່ວໂມງທີ່ສາມາດຮຽກເກັບເງິນໄດ້ເພື່ອອອກໃບແຈ້ງໜີ້ໃຫ້ລູກຄ້າຄົນນີ້. ຕິດຕາມເວລາກ່ອນ ຫຼື ມອບໝາຍລາຍການທີ່ມີຢູ່ແລ້ວໃຫ້ກັບໜຶ່ງໃນໂຄງການຂອງລູກຄ້າຄົນນີ້.',
   'invoices.save': 'ສ້າງໃບແຈ້ງໜີ້',
   'invoices.subtitle': 'ຊົ່ວໂມງທີ່ຕິດຕາມຈະຖືກລວມເຂົ້າເປັນໃບແຈ້ງໜີ້ໂດຍອັດຕະໂນມັດ.',
+  'landing.copyright': '© {{year}} {{app}} . ທຸກໆວິນາທີ, ຖືກຄິດໄລ່.',
   'landing.ctaBody': 'ຟຣີສຳລັບສູງສຸດ 3 ໂຄງການ. ອັບເກຣດເມື່ອລາຍຊື່ລູກຄ້າຂອງທ່ານມີ.',
   'landing.eyebrow': 'ການຕິດຕາມເວລາສຳລັບວຽກທີ່ສາມາດຮຽກເກັບເງິນໄດ້',
   'landing.featuresBody':
@@ -100,8 +104,11 @@ export const ui: UiTranslations = {
     'ເລືອກໂມງຈັບເວລາຈາກບ່ອນທີ່ທ່ານຢຸດໄວ້ - ທຸກໆນາທີໄດ້ຖືກກຳນົດໄວ້ແລ້ວສຳລັບໂຄງການ, ລູກຄ້າ, ຫຼືໃບແຈ້ງໜີ້.',
   'login.brand.tracking': 'ການຕິດຕາມ',
   'login.subheading': 'ເອົາໂມງຈັບເວລາຈາກບ່ອນທີ່ເຈົ້າຄ້າງໄວ້.',
+  'nav.closeMenu': 'ປິດເມນູນຳທາງ',
   'nav.insightsSection': 'ຂໍ້ມູນเชิงลึก',
   'nav.newEntry': 'ລາຍການໃໝ່',
+  'nav.openMenu': 'ເປີດເມນູນຳທາງ',
+  'nav.primary': 'ການນຳທາງຫຼັກ',
   'nav.workSection': 'ວຽກງານ',
   'notFound.body':
     'ເບິ່ງຄືວ່າລິ້ງທີ່ທ່ານໄດ້ຕິດຕາມໄດ້ຢຸດການຕິດຕາມແລ້ວ. ກັບໄປທີ່ແຜງຄວບຄຸມຂອງທ່ານ \\u2014 ພວກເຮົາຈະນັບຕໍ່ໄປຈາກບ່ອນນັ້ນ.',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'ສາມາດຮຽກເກັບເງິນໄດ້',
   'timer.descriptionPlaceholder': 'ເຈົ້າກຳລັງເຮັດວຽກຫຍັງຢູ່?',
   'timer.idle': 'ບໍ່ມີການເຄື່ອນໄຫວ — ເລີ່ມຕິດຕາມ',
+  'timer.noProject': 'ບໍ່ມີໂຄງການ',
   'timer.runningWithProject': 'ບໍ່ມີໂຄງການ',
   'timer.start': 'ເລີ່ມໂມງຈັບເວລາ',
   'timer.stop': 'ຢຸດໂມງຈັບເວລາ',

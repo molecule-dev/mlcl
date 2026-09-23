@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// mayelana ne {{app}}',
+  'about.pageTitle': 'Indiza yokulawula i-webhook',
+  'about.plansTitle': 'Izinhlelo zesigaba ngasinye',
   'apiKeys.bestPractices': 'Imikhuba emihle kakhulu',
   'apiKeys.body':
     'Amathokheni okufinyelela ahleliwe. Phatha njengamaphasiwedi — gcina kuma-env vars, ungalokothi uzibophezele.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ngaphakathi kohlelo',
   'billing.usageWarning': 'eduze kwesivalo',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.body':
     'Umphumela obukhoma, ukuzama kabusha endizeni, kanye nama-endpoints asanda kuphazamiseka — kuyo yonke indawo yokusebenza osebenza kuyo.',
   'dashboard.endpointsEmpty': 'Azikho iziphetho okwamanje.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'amaphoyinti okuphela',
   'endpointDetail.deliveryTrendSub': 'ukulethwa / ihora, isikali selogi',
   'endpointDetail.hideSecret': 'Fihla imfihlo',
+  'endpointDetail.loading': 'Ilayisha indawo yokugcina…',
   'endpointDetail.metric.delivered': 'Kulethwe amahora angama-24',
   'endpointDetail.metric.deliveredCaption': 'kusukela {{count}} izinhlobo zemicimbi',
   'endpointDetail.metric.failuresCaption': 'ukuzama kabusha: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Okubalulekile · amahora angu-24',
   'notifications.metric.totalCaption': 'ibhokisi lokungenayo laso sonke isikhathi',
   'payloadViewer.payload': '// umthwalo wokukhokha',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'profile.avatarHeader': 'Isithombe',
   'profile.avatarHint': 'Iziqalo ziyaboniswa — okulayishiwe kuza nokukhishwa okulandelayo.',
   'profile.body': 'I-akhawunti yakho, izintandokazi, kanye nezikhathi ezisebenzayo.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Iseshini yakho yamanje kuphela esebenzayo. Awekho amanye amadivayisi angene ngemvume.',
   'profile.toggle': 'Guqula {{label}}',
+  'pylonShell.closeMenu': 'Vala imenyu yokuzulazula',
+  'pylonShell.openMenu': 'Vula imenyu yokuzulazula',
   'pylonShell.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'resetPassword.subtitle': 'Khetha iphasiwedi eqinile ongakaze uyisebenzise ngaphambili.',
   'resetPassword.tokenPlaceholder': 'namathisela kusuka ku-imeyili',

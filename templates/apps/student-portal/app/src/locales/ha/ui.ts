@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'announcementsFeed.empty': 'Babu sanarwa tukuna.',
   'announcementsFeed.eyebrow': '{{count}} sabuntawa',
   'announcementsFeed.title': 'Sanarwa ta baya-bayan nan',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Canja matattara a sama don ganin ayyukan da ke cikin wani yanayi daban.',
   'assignments.eyebrow': 'Duk darussa · Wannan zangon karatu',
+  'assignments.loadError': 'Ba a iya loda ayyukan ba.',
   'assignments.loading': 'Ana loda ayyukan…',
   'assignments.subtitle':
     'Tace ta hanyar matsayi don ganin abin da ya dace, an gabatar, an yi maki, ko ya ɓace.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Bayani',
   'attendance.empty': 'Babu wani bayanin halarta tukuna.',
   'attendance.eyebrow': 'Lokacin bazara · Makonni 4 da suka gabata',
+  'attendance.loadError': 'Ba a iya loda bayanan halarta ba.',
   'attendance.loading': 'Ana loda halarta…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'An tsara jadawalin lokacin aiki a kan layin wata - jarrabawa ta yi fice a ja.',
   'calendar.title': '{{month}} abubuwan da suka faru',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
+  'common.retry': 'Gwada kuma',
   'common.yes': '✓',
   'courseDetail.backLink': 'Maki',
   'courseDetail.currentGrade': 'Matsayin yanzu',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Yanayin zamani',
   'grades.empty': 'Babu wani maki da aka buga tukuna.',
   'grades.eyebrow': 'Littafin maki',
+  'grades.loadError': 'Ba za a iya ɗora maki ba.',
   'grades.loading': 'Ana loda maki…',
   'grades.subtitle':
     'Haruffa kai tsaye da maki na kashi. Kibiyoyi masu tasowa suna nuna ko kuna hawa sama, mataki, ko zamewa.',
   'grades.title': 'Maki na, kwas-kwas naka',
   'grades.trendStable': 'Barga',
+  'landing.copyright': '© {{year}} {{app}} . An gina shi ne don ɗalibai, an yi shi ne don iyalai.',
   'landing.ctaHeading': 'Ranar makaranta mai natsuwa tana farawa cikin mintuna kaɗan',
   'landing.eyebrow': 'Ga ɗaliban makarantar tsakiya da sakandare',
   'landing.featuresHeading': 'An shirya ranar makaranta a kusa da ɗalibi',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Ayyuka',
   'nav.attendance': 'Halartar',
   'nav.calendar': 'Kalanda',
+  'nav.closeMenu': 'Rufe menu na kewayawa',
   'nav.grades': 'Maki',
+  'nav.openMenu': 'Buɗe menu na kewayawa',
   'nav.statusEyebrow': 'GPA na tsawon lokaci',
   'nav.statusSubtext': 'Nadin girmamawa · Lokacin bazara',
+  'nav.unreadMessages': 'Saƙonnin da ba a karanta ba',
   'notifications.eyebrow': '{{count}} sabuntawa',
   'notifications.subtitle':
     'Maki, tunatarwa, saƙonni, da sanarwar makaranta. Daidaita waɗanne tashoshi ne kowace sanarwa ke amfani da su a cikin Saituna.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.attendanceLabel': 'halarta',
   'pricing.gradesLabel': 'maki',
   'pricing.heading': 'sanarwa',

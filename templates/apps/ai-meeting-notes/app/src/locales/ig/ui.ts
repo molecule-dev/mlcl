@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Gbasara anyị',
   'actions.empty': 'Ọ dịghị ihe omume ọ bụla dakọtara.',
   'actions.heading': 'Ihe omume',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Ọnwa gara aga',
   'calendar.recent': 'Nso nso a',
   'common.daysAgo': '{{count}} gara aga',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.hoursAgo': '{{count}} awa gara aga',
   'common.no': '—',
+  'common.retry': 'Nwaa ọzọ',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ihe omume',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Lelee igbe mbata gị maka njikọ nrụpụta.',
   'forgot.subheading': 'Tinye ozi-e gị, anyị ga-ezitere gị njikọ nrụpụta.',
   'integrations.disconnected': 'Ekwusịrị njikọ',
+  'integrations.loadError': 'Ịbugo njikọ ndị ahụ agaghị arụ ọrụ.',
   'integrations.notConnectedTag': 'Ejikọghị ya',
   'integrations.subheading':
     'Jikọọ kalenda na ikpo okwu vidiyo ka Murmur wee sonyere na akpaghị aka.',
+  'integrations.updateError': 'Mmelite dara ada.',
   'landing.ctaButton': 'Malite — ọ bụ n’efu',
   'landing.ctaHeading': 'Kwụsị idetu ihe. Malite ime mkpebi.',
   'landing.demo.aiLabel': 'Nchịkọta AI, edebere ndụ',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Ndị na-esochi',
   'meetingDetail.loadError': 'Adịghị ebugo nzukọ ahụ.',
   'meetingDetail.noActions': 'Achọpụtaghị ihe omume ọ bụla.',
+  'meetingDetail.none': 'Ọ dịghị.',
   'meetingDetail.notFound': 'A hụghị nzukọ ahụ.',
+  'meetingDetail.speakerFallback': 'Ọkà okwu {{id}}',
   'meetingDetail.summaryHeading': 'Nchịkọta AI',
   'meetingDetail.transcriptHeading': 'Ndekọ',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Nzukọ',
   'meetings.loadError': 'Adịghị ebugo nzukọ.',
   'meetings.subheading': 'Nzukọ ọ bụla e dekọrọ, bugoro, ma mekọrịtara.',
+  'murmurLayout.openMenu': 'Mepee menu nsoroụzọ',
   'murmurLayout.primaryNavLabel': 'Ntugharị isi',
   'nav.legal': 'Iwu kwadoro',
   'notifications.loadError': 'Akwụsịghị ibu ọkwa.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Otú i si dị n’ime Murmur.',
   'record.error.empty': 'E dekọrọghị ọdịyo ọ bụla.',
   'record.error.permission': 'Ajụrụ ikike igwe okwu.',
+  'record.error.recorder': 'Njehie ndekọ',
   'record.error.unsupported':
     'Ihe nchọgharị gị anaghị akwado ndekọ. Nwaa Chrome, Edge, ma ọ bụ Safari.',
   'record.error.upload': 'Mbugo ahụ agaghị nke ọma. Nwaa ọzọ.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Okwuntughe Ọhụrụ',
   'reset.subheading': 'Họrọ paswọọdụ ị na-anaghị eji ebe ọzọ.',
   'search.empty': 'Pịnye iji chọọ ihe ndị e dere ede.',
+  'search.loadError': 'Nchọgharị ahụ agaghị nke ọma. Nwaa ọzọ.',
   'search.noResults': 'Enweghị nsonaazụ maka " {{q}} ".',
   'settings.appearance.description': "Gbanwee n'etiti ọnọdụ ìhè na ọnọdụ gbara ọchịchịrị.",
   'settings.appearance.title': 'Ọdịdị',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Ịbulighị ntọala.',
   'settings.loading': 'Na-ebugo…',
   'settings.push.heading': 'Ọkwa mkpali',
+  'settings.push.subheading':
+    'Nweta ịdọ aka ná ntị ihe nchọgharị maka ihe e kwuru, ihe omume, na nchịkọta.',
   'settings.retention.audio': 'Debe ọdịyo maka',
   'settings.retention.heading': 'Njide',
   'settings.retention.transcript': 'Debe ederede maka',
@@ -141,6 +153,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Enweghị ike ịmepụta akaụntụ. Biko nwaa ọzọ.',
   'signup.subheading': 'Malite ịdekọ ihe ndetu nzukọ n’ime nkeji ole na ole',
   'signup.terms': 'Site n’ịmepụta akaụntụ, ị kwenyere na Usoro Ọrụ na Amụma Nzuzo anyị.',
+  'signup.termsPrefix': "Site n'ịmepụta akaụntụ, ị kwenyere na anyị",
   'team.inviteCta': 'Kpọọ onye otu egwuregwu',
   'team.invitedAs': 'A kpọrọ oku dịka {{role}}',
   'team.inviteFailed': 'Enweghị m ike izipu oku.',

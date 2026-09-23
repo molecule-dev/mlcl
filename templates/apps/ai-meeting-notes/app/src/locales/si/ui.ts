@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'අපි ගැන',
   'actions.empty': 'ක්‍රියා අයිතම කිසිවක් ගැලපෙන්නේ නැත.',
   'actions.heading': 'ක්‍රියා අයිතම',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'පෙර මාසය',
   'calendar.recent': 'මෑත',
   'common.daysAgo': '{{count}} ඈට පෙර',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.hoursAgo': '{{count}} පැයකට පෙර',
   'common.no': '—',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ක්‍රියා අයිතම',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, එවිට අපි යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
   'integrations.disconnected': 'විසන්ධි විය',
+  'integrations.loadError': 'ඒකාබද්ධ කිරීම් පූරණය කිරීමට අසමත් විය.',
   'integrations.notConnectedTag': 'සම්බන්ධ වී නැත',
   'integrations.subheading':
     'මැසිවිලි ස්වයංක්‍රීයව සම්බන්ධ වන පරිදි දින දර්ශන සහ වීඩියෝ වේදිකා සම්බන්ධ කරන්න.',
+  'integrations.updateError': 'යාවත්කාලීනය අසාර්ථක විය.',
   'landing.ctaButton': 'ආරම්භ කරන්න — එය නොමිලේ',
   'landing.ctaHeading': 'සටහන් ගැනීම නවත්වන්න. තීරණ ගැනීම ආරම්භ කරන්න.',
   'landing.demo.aiLabel': 'සජීවීව කෙටුම්පත් කරන ලද AI සාරාංශය',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'පසු විපරම්',
   'meetingDetail.loadError': 'හමුව පූරණය කිරීමට අසමත් විය.',
   'meetingDetail.noActions': 'ක්‍රියා අයිතම කිසිවක් අනාවරණය නොවීය.',
+  'meetingDetail.none': 'කිසිවක් නැත.',
   'meetingDetail.notFound': 'හමුව හමු නොවීය.',
+  'meetingDetail.speakerFallback': 'කථිකයා {{id}}',
   'meetingDetail.summaryHeading': 'AI සාරාංශය',
   'meetingDetail.transcriptHeading': 'පිටපත',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'රැස්වීම්',
   'meetings.loadError': 'රැස්වීම් පූරණය කිරීමට අසමත් විය.',
   'meetings.subheading': 'පටිගත කරන ලද, උඩුගත කරන ලද සහ සමමුහුර්ත කරන ලද සෑම රැස්වීමක්ම.',
+  'murmurLayout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'murmurLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'nav.legal': 'නීතිමය',
   'notifications.loadError': 'දැනුම්දීම් පූරණය කිරීමට අසමත් විය.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'මැසිවිලි නඟන එක ඇතුලේ ඔයා පේන විදිහ.',
   'record.error.empty': 'කිසිදු ශ්‍රව්‍යයක් ග්‍රහණය කර නොමැත.',
   'record.error.permission': 'මයික්‍රෆෝන අවසරය ප්‍රතික්ෂේප කරන ලදී.',
+  'record.error.recorder': 'රෙකෝඩර දෝෂය',
   'record.error.unsupported':
     'ඔබගේ බ්‍රව්සරය පටිගත කිරීමට සහාය නොදක්වයි. Chrome, Edge, හෝ Safari උත්සාහ කරන්න.',
   'record.error.upload': 'උඩුගත කිරීම අසාර්ථක විය. නැවත උත්සාහ කරන්න.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'නව මුරපදය',
   'reset.subheading': 'ඔබ වෙනත් කොහේවත් භාවිතා නොකරන මුරපදයක් තෝරන්න.',
   'search.empty': 'පිටපත් සෙවීමට ටයිප් කරන්න.',
+  'search.loadError': 'සෙවීම අසාර්ථක විය. නැවත උත්සාහ කරන්න.',
   'search.noResults': '“ සඳහා ප්‍රතිඵල නොමැත {{q}} ”.',
   'settings.appearance.description': 'ආලෝකය සහ අඳුරු මාදිලිය අතර මාරු වන්න.',
   'settings.appearance.title': 'පෙනුම',
@@ -124,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'සැකසුම් පූරණය කිරීමට අසමත් විය.',
   'settings.loading': 'පූරණය වෙමින්...',
   'settings.push.heading': 'දැනුම්දීම් තල්ලු කරන්න',
+  'settings.push.subheading':
+    'සඳහන් කිරීම්, ක්‍රියා අයිතම සහ සාරාංශ සඳහා බ්‍රව්සර් ඇඟවීම් ලබා ගන්න.',
   'settings.retention.audio': 'ශ්‍රව්‍ය තබා ගන්න',
   'settings.retention.heading': 'රඳවා තබා ගැනීම',
   'settings.retention.transcript': 'පිටපත් තබා ගන්න',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'ගිණුමක් නිර්මාණය කිරීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'signup.subheading': 'රැස්වීම් සටහන් මිනිත්තු කිහිපයකින් ග්‍රහණය කර ගැනීම ආරම්භ කරන්න',
   'signup.terms': 'ගිණුමක් නිර්මාණය කිරීමෙන් ඔබ අපගේ සේවා නියම සහ රහස්‍යතා ප්‍රතිපත්තියට එකඟ වේ.',
+  'signup.termsPrefix': 'ගිණුමක් නිර්මාණය කිරීමෙන් ඔබ අපගේ',
   'team.inviteCta': 'කණ්ඩායම් සගයාට ආරාධනා කරන්න',
   'team.invitedAs': 'ආරාධනා කළේ {{role}}',
   'team.inviteFailed': 'ආරාධනාව යැවීමට නොහැකි විය.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'authShell.brandHeading':
     'Amakhanvasi abadlali abaningi amaqembu okuklama acabanga ngokuzwakalayo.',
   'billing.canceled': 'Ukubhalisa kukhanseliwe.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Qala kusukela kuthempulethi',
   'boards.title': 'Amabhodi akho',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Faka i-imeyili exhunywe endaweni yakho yokusebenza bese sizokuthumela isixhumanisi sokusetha kabusha.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'I-Workshop ye-Q1 · Izwi Lomkhiqizo',
   'landing.featuresEyebrow': 'Yini eyenza iSlate ibe yi-tessellate',
   'landing.featuresTitle': 'Impendulo esheshayo. Amakhanvasi amahle. Akukho ukungqubuzana.',
+  'landing.hero.body':
+    '{{appName}} iyibhodi elimhlophe labadlali abaningi lamaqembu okuklama, abagqugquzeli bemihlangano yokufundisa, kanye nabafundisi abaqhuba izingxoxo ezibukhoma futhi abadinga imibono yokuhlangana endaweni eyodwa.',
   'landing.hero.primaryCta': 'Qala ibhodi mahhala',
   'landing.hero.socialProof': 'Kuthenjwe ngu- {{count}} amaqembu okuklama emhlabeni jikelele',
   'landing.hero.title': 'Ikhanvasi esheshayo njengemicabango yakho',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Dala indawo yokusebenza yamahhala',
   'login.subheading':
     'Qhubeka lapho i-workshop igcine khona — amabhodi, amanothi anamathelayo, kanye nezikhombisi-ndlela konke kuvumelanisa ngesikhathi sangempela.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.new': 'Okusha',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'notifications.editTitle': 'Ukuhlelwa ku-" {{board}} "',
   'notifications.empty.body':
     'Izimemo, ukulondolozwa kwezithombe, kanye nokuhlelwa kwebhodi kwakamuva kuzovela lapha njengoba kwenzeka.',
@@ -177,6 +184,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Umlando wenguqulo',
   'versionHistory.untitledSnapshot': 'Isithombe esingenasihloko',
   'whiteboardLayout.newBoard': 'Ibhodi elisha',
+  'whiteboardLayout.primaryNav': 'Ukuzulazula okuyinhloko',
   'workspace.boardLabel': 'Ibhodi',
   'workspace.eyebrow': '{{name}} · indawo yokusebenza',
   'workspace.invite': 'Mema abahlanganyeli',

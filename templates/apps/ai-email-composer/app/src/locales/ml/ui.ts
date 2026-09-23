@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'നമ്മുടെ കഥ',
   'aiSuggestionPanel.title': 'സിഗ്നെറ്റ് കോപൈലറ്റ്',
   'analytics.col.open': 'ഓപ്പൺ റേറ്റ്',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ചെക്ക്ഔട്ട് ആരംഭിക്കുന്നു…',
   'billing.subheading': 'നിങ്ങൾ അയയ്ക്കുന്ന രീതിക്ക് അനുയോജ്യമായ പ്ലാൻ തിരഞ്ഞെടുക്കുക.',
   'billing.unavailable': 'വിൽപ്പന വിഭാഗവുമായി ബന്ധപ്പെടുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'compose.adjustingTone': 'തിരഞ്ഞെടുത്ത സ്വരത്തിൽ തിരുത്തിയെഴുതുന്നു...',
   'compose.aiPromptPlaceholder':
     'ഉദാ: "രണ്ടാഴ്ചത്തേക്ക് മറുപടി ലഭിക്കാത്തതിന് ശേഷം മാന്യമായ ഫോളോ-അപ്പ്, ചുരുക്കി പറയുക."',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
     'എന്തെങ്കിലും അയയ്ക്കണോ? സിഗ്നെറ്റിന് നിമിഷങ്ങൾക്കുള്ളിൽ ഒരു ഡ്രാഫ്റ്റ് തയ്യാറാക്കാൻ കഴിയും.',
   'dashboard.composeCtaLabel': 'ദ്രുത രചന',
   'dashboard.heading': 'നിങ്ങളുടെ ആഴ്ച, രചിച്ചത്',
+  'dashboard.loadFailed': 'നിങ്ങളുടെ ഡാഷ്‌ബോർഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'dashboard.manageLibrary': 'ലൈബ്രറി കൈകാര്യം ചെയ്യുക →',
   'dashboard.recentEmpty': 'ഇതുവരെ അയച്ചിട്ടില്ല — നിങ്ങളുടെ അയച്ച ഇമെയിലുകൾ ഇവിടെ ദൃശ്യമാകും.',
   'dashboard.recentHeading': 'അടുത്തിടെ അയച്ചവ',
@@ -146,6 +150,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'ഡ്രാഫ്റ്റിൽ നിങ്ങൾ ഓവർറൈഡ് ചെയ്തില്ലെങ്കിൽ സിഗ്നറ്റ് ഈ ടോൺ ഉപയോഗിക്കുന്നു.',
   'signetLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'signetLayout.toggleMenu': 'മെനു ടോഗിൾ ചെയ്യുക',
   'signup.emailLabel': 'ഇമെയിൽ വിലാസം',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'signup.tagline': 'ഒരു മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ ആദ്യത്തെ AI-ഡ്രാഫ്റ്റ് ചെയ്ത ഇമെയിൽ അയയ്ക്കൂ.',

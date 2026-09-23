@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.featureDiscover.title': 'ਪ੍ਰੇਰਨਾ, ਹੱਥੀਂ ਚੁਣਿਆ ਗਿਆ',
   'account.addPaymentCta': 'ਭੁਗਤਾਨ ਵਿਧੀ ਸ਼ਾਮਲ ਕਰੋ',
   'account.addPaymentError': 'ਭੁਗਤਾਨ ਵਿਧੀ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
+  'account.confirmRemove': 'ਹਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
   'account.defaultBadge': 'ਡਿਫਾਲਟ',
   'account.loyalty.pointsTowardNext': '{{ਅੰਕ}} ਦੇ {{ਅਗਲਾ}} ਮੀਲ ਤੱਕ {{ਅਗਲਾ ਪੜਾਅ}}',
   'account.loyalty.tier': 'ਮੌਜੂਦਾ ਟੀਅਰ',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ਯਾਤਰਾ ਦੇ ਵੇਰਵੇ',
   'booking.tripSummary': '{{nights}} ਰਾਤਾਂ · {{guests}} ਮਹਿਮਾਨ',
   'common.daysAgo': '{{count}} ਦਿਨ ਪਹਿਲਾਂ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.hoursAgo': '{{count}} ਘੰਟਾ ਪਹਿਲਾਂ',
   'common.minutesAgo': '{{count}} ਮਿੰਟ ਪਹਿਲਾਂ',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'notifications.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'notifications.subheading': '{{count}} ਨਾ ਪੜ੍ਹਿਆ · ਇੱਕ ਸ਼ਾਂਤ ਇਨਬਾਕਸ ਵਿੱਚ ਸਭ ਕੁਝ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.accommodationsLabel': 'ਰਿਹਾਇਸ਼ਾਂ',
   'pricing.bookingsLabel': 'ਬੁਕਿੰਗਾਂ',
   'pricing.destinationsLabel': 'ਰੱਖਿਅਤ ਕੀਤੀਆਂ ਮੰਜ਼ਿਲਾਂ',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'ਪ੍ਰੇਰਨਾ, ਭਰੋਸੇਮੰਦ ਠਹਿਰਾਅ, ਅਤੇ ਡੇਡ੍ਰੀਮ ਤੋਂ ਬੁੱਕ ਕੀਤੇ ਜਾਣ ਤੱਕ ਦਾ ਇੱਕ ਰਗੜ-ਰਹਿਤ ਰਸਤਾ — 14 ਦੇਸ਼ਾਂ ਅਤੇ 200+ ਹੱਥ-ਜਾਂਚ ਕੀਤੀਆਂ ਜਾਇਦਾਦਾਂ ਵਿੱਚ।',
   'sojournHeroSearchCard.trustProtected': 'ਮੁਫ਼ਤ ਰੱਦ ਕਰਨਾ, ਪੂਰੀ ਤਰ੍ਹਾਂ ਸੁਰੱਖਿਅਤ',
   'sojournHeroSearchCard.trustVetted': 'ਸਿਰਫ਼ ਹੱਥੀਂ ਜਾਂਚੀਆਂ ਗਈਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ',
+  'travelBookingLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'tripDetail.backLink': "ਯਾਤਰਾਵਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'tripDetail.cancelCta': 'ਬੁਕਿੰਗ ਰੱਦ ਕਰੋ',
   'tripDetail.cancelHeading': 'ਕੀ ਇਸ ਯਾਤਰਾ ਨੂੰ ਰੱਦ ਕਰਨਾ ਹੈ?',

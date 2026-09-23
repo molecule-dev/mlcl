@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Đang tải khóa học…',
   'browse.next': 'Trang tiếp theo',
   'browse.results': 'Đang hiển thị {{count}} khóa học',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Sắp xếp theo',
   'browse.subtitle':
     'Lọc kho lưu trữ biên tập theo chủ đề, cấp độ và giá. Mỗi khóa học đều được biên tập viên của chúng tôi tuyển chọn kỹ lưỡng.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Chứng chỉ của quý vị đã được ký và sẵn sàng. Hãy chia sẻ với thế giới hoặc giữ làm kỷ niệm về công sức đã bỏ ra để đạt được.',
   'certificate.copyLink': 'Sao chép liên kết chia sẻ',
+  'certificate.copyPrompt': 'Sao chép liên kết này:',
   'certificate.download': 'Tải PDF',
   'certificate.eyebrow': 'Đã đạt thành tựu',
   'certificate.linkCopied': 'Đã sao chép liên kết!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Quý vị đã ghi danh thành công!',
   'checkout.verifying': 'Đang xác minh việc ghi danh của quý vị…',
   'checkout.viewLibrary': 'Xem Khóa học của tôi',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.retry': 'Thử lại',
   'courseDetail.about': 'Về khóa học này',
   'courseDetail.checkoutPending': 'Đang bắt đầu thanh toán…',
   'courseDetail.continueLearning': 'Tiếp tục học',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Đảm bảo hoàn tiền trong 30 ngày',
   'courseDetail.includes.video': '{{hours}} giờ video theo yêu cầu',
   'courseDetail.instructor': 'Giảng viên',
+  'courseDetail.languageEnglish': 'Tiếng Anh',
   'courseDetail.lectures': 'Bài giảng',
   'courseDetail.level': 'Cấp độ',
   'courseDetail.loading': 'Đang tải khóa học…',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Chưa có đánh giá.',
   'instructorProfile.students': 'Học viên',
   'landing.categories.empty': 'Danh mục sẽ xuất hiện khi danh mục được điền dữ liệu.',
+  'landing.categories.heading': 'Khám phá kho lưu trữ',
   'landing.hero.eyebrow': 'Lectura · Kho lưu trữ biên tập về sự tinh thông',
   'landing.hero.proof': 'Được học viên tại Google, Meta và Adobe tin dùng.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Bắt đầu học hôm nay',
   'login.subheading': 'Truy cập kho lưu trữ học thuật của quý vị.',
   'myLearning.empty.title': 'Chưa có khóa học nào khớp với bộ lọc này',
+  'myLearning.error.title': 'Không thể tải thư viện của bạn',
   'myLearning.filter.notStarted': 'Chưa bắt đầu',
   'myLearning.hero.subtitle': '{{count}} các khóa học trong thư viện của bạn. Hãy duy trì đà này.',
   'myLearning.hero.title': 'Tiếp tục từ nơi quý vị đã dừng lại.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Không có hoạt động mới để xem xét. Các sự kiện mới sẽ xuất hiện ở đây.',
   'notifications.empty.title': 'Quý vị đã cập nhật mọi thứ',
+  'notifications.error.title': 'Không thể tải hoạt động',
   'privacy.title': 'Chính sách bảo mật',
   'reset.confirmPlaceholder': 'Nhập lại mật khẩu mới của quý vị',
   'reset.errorGeneric': 'Không thể đặt lại mật khẩu. Hãy yêu cầu liên kết mới.',
@@ -190,5 +198,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} ngày trước',
   'timeAgo.hours': '{{count}} giờ trước',
   'timeAgo.minutes': '{{count}} phút trước',
+  'timeAgo.months': '{{count}} tháng trước',
   'timeAgo.today': 'hôm nay',
+  'timeAgo.weeks': '{{count}} tuần trước',
 }

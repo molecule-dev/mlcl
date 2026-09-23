@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Adjon borravalót a vásárlónak',
   'checkout.tipLabel': 'Tipp',
   'checkout.zipPlaceholder': 'Irányítószám',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'featuredProductsGrid.addAria': 'Hozzáadás {{name}} kosárba tenni',
   'featuredProductsGrid.outOfStock': 'Nincs raktáron',
   'forgotPassword.emailLabel': 'E-mail cím',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Ha az e-mail cím regisztrálva van, akkor úton van egy visszaállító link.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Elsődleges navigáció',
   'landing.categoriesEyebrow': 'Folyosók',
   'landing.categoriesHeading': 'Vásárlás kategória szerint',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Heti kiszállítások ütemezése intelligens alapanyag-utánrendeléssel és élő sofőrkövetéssel.',
   'landing.heroTitle': 'Frissesség az ajtódnál, órákon belül.',
   'landing.howEyebrow': 'Három lépés',
+  'landing.howItWorksHeading': 'Hogyan működik {{app}} ?',
   'lists.addAllCta': 'Összes kosárba helyezés',
   'lists.createCta': 'Hozd létre az első listádat',
   'lists.createError': 'Nem sikerült létrehozni a listát.',

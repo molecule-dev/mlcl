@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.title': 'Game da {{app}}',
   'comments.addFailed': 'Ban iya saka sharhi ba.',
   'comments.backToDoc': 'Komawa ga rubutun hannu',
   'comments.deleteFailed': 'Ba za a iya gogewa ba.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Warwarewa',
   'comments.resolveFailed': 'Ba a iya warwarewa ba.',
   'comments.subtitle': '{{open}} a buɗe · {{resolved}} an warware',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.activityHeading': 'Me ke faruwa',
   'dashboard.createFailed': 'Ba a iya ƙirƙirar takarda ba.',
   'dashboard.empty': 'Babu rubuce-rubucen hannu tukuna — fara da maɓallin Sabon takarda.',
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Ba za a iya komawa shara ba.',
   'editor.unpublish': 'Cire Bugawa',
   'editor.untitled': 'Takardar Mara Lakabi',
+  'editor.updatedElsewhere':
+    'Wani ne ya sabunta wannan takarda — sake sake lodawa don ganin sabon abu.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Idan akwai asusu don {{email}} , hanyar haɗin sake saitawa tana kan hanya.',
   'forgotPassword.subtitle': 'Za mu aiko muku da hanyar haɗin sake saitawa ta imel.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . An gina shi da ƙwayoyin halitta.',
   'landing.ctaHeading': 'Buɗe shafin. Bari siginar ta fara.',
   'landing.ctaPrimary': 'Bude situdiyo',
   'landing.eyebrow': 'Ga marubuta, editoci, da ƙungiyoyi',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'an gyara {{when}}',
   'quillonDocumentCard.open': 'A buɗe →',
   'quillonKpiCard.trend': 'Yanayin kwanan nan',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Babban kewayawa',
   'quillonStudioHero.collab': 'Masu haɗin gwiwa',
   'quillonStudioHero.docs': 'Takardun da aka taɓa',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}} d da suka wuce',
   'time.hoursAgo': '{{hours}} h da ya wuce',
   'time.justNow': 'yanzu kawai',
+  'trash.confirmDelete': 'Tabbatar da gogewa',
   'trash.deleteFailed': 'Ba za a iya gogewa ba.',
   'trash.deleteForever': 'Share har abada',
   'trash.empty': 'Babu abin da zai warke.',
+  'trash.emptyAll': 'Zuba shara a cikin shara',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Shara',
   'trash.loadFailed': 'Ba a iya loda shara ba.',

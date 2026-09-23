@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
+  'appNav.mobileLabel': 'Navegação principal',
+  'appNav.primaryLabel': 'Navegação principal',
   'billing.actions.confirmCancel':
     'Cancelar sua assinatura? Você pode assinar novamente quando quiser.',
   'billing.actions.paused': 'Assinatura pausada.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Cada tier é uma pequena história. Adicione uma à sua fila ou troque pela do próximo mês.',
   'boxThemeCard.perMonth': '/ mês',
+  'common.goToDashboard': 'Ir para o Painel',
   'customize.eyebrow': 'Faça do seu jeito',
   'customize.heading': 'Personalize seu próximo Crate',
   'customize.items.exclude': 'Pular isto',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Esta temporada',
   'landing.editions.heading': 'Edições que nossos curadores adoram',
   'landing.footer.contact': 'Fale com um curador',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Comece sua caixa →',
   'landing.hero.ctaSecondary': 'Ver tiers',
   'landing.hero.eyebrow': 'Curado mensalmente. Sempre pessoal.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'SEU PRÓXIMO CRATE',
   'nextBoxHeroCard.itemsLabel': 'Itens curados',
   'nextBoxHeroCard.shipsOnLabel': 'Envia em',
+  'notFound.body':
+    'Não foi possível encontrar essa página no arquivo do {{app}} . Ela pode ter sido desativada ou simplesmente houve um erro de digitação.',
   'notFound.cta.dashboard': 'Ir ao painel',
   'notFound.eyebrow': 'Caixa vazia',
   'notFound.heading': 'Esta prateleira está vazia',

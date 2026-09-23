@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.pageTitle': '{{app}} વિશે',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'compose.cancel': 'રદ કરો',
   'compose.captionPlaceholder': 'તમારા મનમાં શું છે?',
   'compose.heading': 'એક ક્ષણ શેર કરો',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'ચકાસાયેલ એકાઉન્ટ',
   'resetPassword.newPassword': 'નવો પાસવર્ડ',
   'resetPassword.subheading': 'કંઈક મજબૂત પસંદ કરો — ઓછામાં ઓછા ૧૨ અક્ષરો.',
+  'search.clearAria': 'ચોખ્ખું',
+  'search.error': 'શોધ નિષ્ફળ ગઈ. ફરી પ્રયાસ કરો.',
   'search.noPeople': 'કોઈ સર્જકો મેળ ખાતા નથી " {{q}} ".',
   'search.noPosts': 'કોઈ પોસ્ટ્સ મેળ ખાતી નથી " {{q}} ".',
   'search.noTags': 'હજુ સુધી કોઈ ટ્રેન્ડિંગ હેશટેગ્સ નથી.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'પાસવર્ડ છુપાવો',
   'signup.showPassword': 'પાસવર્ડ બતાવો',
   'signup.subheading': 'શેર કરવાનું શરૂ કરવા માટે એક એકાઉન્ટ બનાવો.',
+  'socialMediaLayout.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'socialMediaLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
+  'socialMediaLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'storyRail.heading': 'વાર્તાઓ',
   'storyRail.label': 'વાર્તાઓ',
   'storyRail.openAria': 'ખુલ્લું {{handle}} ની વાર્તા',

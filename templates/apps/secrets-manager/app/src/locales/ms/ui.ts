@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'about.tagline': 'Rahsia mati di tempat terbuka.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Buat token',
   'apiTokens.kicker': 'Token API',
   'apiTokens.loading': 'Memuatkan token…',
+  'apiTokens.new': 'Token baharu',
   'apiTokens.revoke': 'Batalkan token',
   'apiTokens.subheading':
     'Token peribadi dan perkhidmatan untuk Arcanum CLI dan SDK. Teks biasa ditunjukkan sekali semasa penciptaan.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Kata Laluan',
   'authShell.zeroKnowledge': 'Penyulitan pengetahuan sifar',
   'common.connecting': 'Menyambung…',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.inviting': 'Menjemput…',
   'forgotPassword.checkInbox':
     'Jika {email} didaftarkan, pautan tetapan semula yang ditandatangani akan tiba dalam masa seminit.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Status putaran, amaran anomali dan permintaan kelulusan merentasi setiap peti besi.',
   'notifications.unreadEmpty': 'Peti masuk sifar — semuanya telah dikemas kini.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.heading': 'rahsia',
   'pricing.limits.accessPolicies': 'dasar akses',
   'pricing.limits.auditLog': 'entri log audit',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Akaun peribadi',
   'profile.plan.description': 'Urus langganan anda, lihat had dan tingkatkan.',
   'profile.subheading': 'Identiti, peranti faktor kedua dan sesi aktif.',
+  'profile.twoFactor.code': 'Kod pengesahan',
   'profile.twoFactor.disable': 'Lumpuhkan',
   'profile.twoFactor.enable': 'Aktifkan',
+  'profile.twoFactor.invalidCode': 'Kod tidak sah',
   'profile.twoFactor.kicker': 'Pengesahan dua faktor',
+  'profile.twoFactor.off': 'Tidak didayakan',
   'profile.twoFactor.on': 'Didayakan',
   'resetPassword.email': 'E-mel akaun',
   'resetPassword.heading': 'Tetapkan kelayakan baharu',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'arahan',
   'secretsManagerLayout.encrypted': 'AES-256 · DISULITKAN',
   'secretsManagerLayout.newVault': 'Peti besi baharu',
+  'secretsManagerLayout.newVaultShort': 'Baharu',
   'secretsManagerLayout.rotations': 'Putaran',
   'secretsManagerLayout.search': 'carian',
   'secretsManagerLayout.searchPlaceholder': 'Cari rahsia mengikut kunci, laluan atau tag…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Rahsia',
   'vaultCard.vaultLabel': 'Bilik Kebal',
   'vaultDetail.addSecret': 'Tambah rahsia',
+  'vaultDetail.back': 'Semua peti besi',
   'vaultDetail.col.key': 'Kunci',
   'vaultDetail.col.rotated': 'Diputar',
   'vaultDetail.col.value': 'Nilai',

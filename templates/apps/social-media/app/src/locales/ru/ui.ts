@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.pageTitle': 'О {{app}}',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Повторить попытку',
   'compose.cancel': 'Отмена',
   'compose.captionPlaceholder': 'Что у тебя на уме?',
   'compose.heading': 'Поделитесь моментом',
@@ -99,6 +103,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Подтвержденный аккаунт',
   'resetPassword.newPassword': 'Новый пароль',
   'resetPassword.subheading': 'Выберите что-нибудь убедительное — не менее 12 символов.',
+  'search.clearAria': 'Прозрачный',
+  'search.error': 'Поиск не удался. Попробуйте снова.',
   'search.noPeople': 'Нет равных среди создателей! {{q}} «.',
   'search.noPosts': 'Сообщений не найдено. {{q}} «.',
   'search.noTags': 'Пока нет популярных хэштегов.',
@@ -128,6 +134,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Скрыть пароль',
   'signup.showPassword': 'Показать пароль',
   'signup.subheading': 'Создайте учетную запись, чтобы начать делиться.',
+  'socialMediaLayout.closeMenu': 'Закрыть меню навигации',
+  'socialMediaLayout.openMenu': 'Открыть меню навигации',
+  'socialMediaLayout.primaryNavLabel': 'Основная навигация',
   'storyRail.heading': 'Истории',
   'storyRail.label': 'Истории',
   'storyRail.openAria': 'Открыть {{handle}} история',

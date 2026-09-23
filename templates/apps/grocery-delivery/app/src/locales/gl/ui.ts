@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Dá propina ao teu comprador',
   'checkout.tipLabel': 'Consello',
   'checkout.zipPlaceholder': 'Código postal',
+  'common.goToDashboard': 'Ir ao panel',
   'featuredProductsGrid.addAria': 'Engadir {{name}} ao carriño',
   'featuredProductsGrid.outOfStock': 'Esgotado',
   'forgotPassword.emailLabel': 'Enderezo de correo electrónico',
   'forgotPassword.emailPlaceholder': 'comprador@bushel.fresh',
   'forgotPassword.successBody':
     'Se ese correo electrónico está rexistrado, unha ligazón de restablecemento está en camiño.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Navegación principal',
   'landing.categoriesEyebrow': 'Corredores',
   'landing.categoriesHeading': 'Comprar por categoría',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Programa entregas semanais con reordenación intelixente de produtos básicos e seguimento de condutores en directo.',
   'landing.heroTitle': 'Frescura na túa porta, en horas.',
   'landing.howEyebrow': 'Tres pasos',
+  'landing.howItWorksHeading': 'Como funciona {{app}}',
   'lists.addAllCta': 'Engadir todo ao carriño',
   'lists.createCta': 'Crea a túa primeira lista',
   'lists.createError': 'Non se puido crear a lista.',

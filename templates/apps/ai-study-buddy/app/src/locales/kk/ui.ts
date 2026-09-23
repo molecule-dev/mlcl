@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Жоспар туралы ақпарат жүктелуде…',
   'billing.popular': 'Ең сүйікті',
   'billing.subtitle': 'Оқу ырғағыңызға сәйкес келетін жоспарды таңдаңыз.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.today': 'Бүгін',
   'common.yesterday': 'Кеше',
   'courseDetail.empty.body': 'Бұл тақырыпты меңгеруді бастау үшін оқу материалын қосыңыз.',
@@ -81,8 +82,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Палубаның атауы',
   'flashcards.subtitle': 'Қарқыныңызға бейімделетін аралықпен қайталау.',
   'flashcards.title': 'Флэшкарталар',
+  'footer.copyright': '© {{year}} {{app}} . Жақсы оқы, жақсы ұйықта.',
   'forgotPassword.subtitle':
     'Электрондық поштаңызды енгізіңіз, біз сізге қалпына келтіру сілтемесін жібереміз.',
+  'koanLayout.closeMenu': 'Мәзірді жабу',
+  'koanLayout.navLabel': 'Негізгі навигация',
+  'koanLayout.openMenu': 'Мәзірді ашу',
   'koanLayout.theme': 'Тақырып',
   'landing.featuresBody':
     'Алаңдауды жоюға және ұзақ мерзімді түсінік қалыптастыруға арналған құралдар.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Бұл URL мекенжайы белгісіз аумақ. Мүмкін қате жазылған шығар, мүмкін жойылған сабақ шығар — қалай болғанда да, оқуға қайта оралайық.',
   'notFound.heading': 'Бет табылмады.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Барлық жаңалықтарды қарап шықтыңыз',
   'notifications.filter.${opt}': 'Хабарландырулар жүктелуде…',
   'notifications.markAllError': 'Барлығын оқылған деп белгілеу мүмкін болмады.',
   'notifications.markError': 'Оқылған деп белгілеу мүмкін болмады.',
   'notifications.subtitle': '{{count}} оқылмаған жаңартулар',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.heading': 'викториналар',
   'pricing.limits.topics': 'тақырыптар',
   'privacy.collectBody':
@@ -186,6 +193,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Басқа кілт сөзді немесе сүзгіні қолданып көріңіз.',
   'search.empty.title': 'Ештеңе сәйкес келмеді.',
   'search.error': 'Нәтижелер жүктелмеді.',
+  'search.filters': 'Нәтиже түрінің сүзгілері',
   'search.go': 'Бар',
   'search.label.flashcard': 'Флэшкарта жиынтығы',
   'search.label.note': 'Ескерту',

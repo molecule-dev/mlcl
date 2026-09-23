@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'Mga Post',
   'categoryDetail.stat.threads': 'Mga Thread',
   'categoryDetail.threadCount': 'Ipinapakita {{count}} mga sinulid',
+  'categoryDetail.threadsFailed': 'Hindi ma-load ang mga thread.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'compose.bodyPlaceholder':
     'Ilatag ito. Gamitin ang ## para sa mga seksyon, > para sa mga panipi, ``` para sa mga bloke ng code.',
+  'compose.categoriesFailed': 'Hindi ma-load ang mga kategorya.',
   'compose.eyebrow': 'Bagong thread',
   'compose.failed': 'Hindi masimulan ang thread. Subukan muli.',
   'compose.field.body': 'Katawan ng mensahe',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Ipagpatuloy kung saan ka tumigil — naghihintay na ang mga hindi mo pa nababasang thread.',
   'login.twoFactor': 'Two-factor token (opsyonal)',
+  'moderationQueue.actionFailed': 'Nabigo ang aksyon. Subukan muli.',
   'moderationQueue.eyebrow': 'Lugar ng trabaho ng moderator',
   'moderationQueue.heading': 'Pila ng moderasyon · {{count}} mga bukas na bagay',
   'moderationQueue.kind.${item.kind}': '{{bilang}} mga bandila',
@@ -79,7 +84,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'Subukang makuha ang unang tawag nang wala pang dalawang oras. I-escalate sa admin@stoa para sa mga hindi malinaw na tawag.',
   'nav.browseHeader': 'Mag-browse',
+  'nav.closeMenu': 'Isara ang menu ng nabigasyon',
   'nav.communityGuidelinesTitle': 'Mga alituntunin ng komunidad',
+  'nav.drawerTitle': 'Menu',
+  'nav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'nav.primaryNavLabel': 'Pag-navigate sa forum',
   'notFound.body':
     'Maaaring naka-lock ito sa archive, o na-drift ang URL. Bumalik sa agora at magsimula ng isa pang usapan.',
   'notFound.browseCta': 'Mag-browse ng mga kategorya',
@@ -90,6 +99,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'Mga Abiso · {{count}} hindi pa nababasa',
   'postCard.edited': '(na-edit)',
   'postCard.flag': 'Bandila',
+  'postCard.flagged': 'Na-flag',
   'postCard.markSolution': 'Markahan ang solusyon',
   'postCard.originalPost': 'Orihinal na Post',
   'postCard.quote': 'Sipiin',
@@ -110,6 +120,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Maghanap ng thread, post, o tao.',
   'search.resultsCount': '{{count}} resulta',
   'search.searching': 'Naghahanap…',
+  'settings.currentPasswordHint':
+    'Ang pagpapalit ng iyong email ay nangangailangan ng iyong password. Pindutin ang Enter o umalis sa field upang kumpirmahin.',
+  'settings.currentPasswordLabel': 'Kasalukuyang password',
+  'settings.currentPasswordRequired':
+    'Kumpirmahin ang pagbabagong ito gamit ang iyong kasalukuyang password.',
+  'settings.failedToUpdateProfile': 'Nabigong i-update ang profile',
+  'settings.name': 'Pangalan',
+  'settings.saved': 'Nai-save.',
   'signup.confirm': 'Kumpirmahin',
   'signup.emailPlaceholder': 'you@stoa.community',
   'signup.eyebrow': 'Sumali sa Stoa',

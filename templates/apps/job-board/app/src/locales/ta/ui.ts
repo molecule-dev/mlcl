@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
   'applications.empty':
     'இன்னும் விண்ணப்பங்கள் வரவில்லை – ஒரு விண்ணப்பம் கொடுத்தால் போதும், உங்களுக்கான சரியான பணி காத்திருக்கிறது.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'நீங்கள் விண்ணப்பித்த ஒவ்வொரு பதவியும் செயல்பாட்டில் உள்ளது. கவனம் செலுத்த, நிலை வாரியாக வடிகட்டவும்.',
   'applications.untitledRole': 'பங்கு எண் {{id}}',
+  'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'companies.empty':
     'உங்கள் தேடலுக்குப் பொருத்தமான நிறுவனங்கள் எதுவும் இல்லை – வேறு சொல்லைப் பயன்படுத்திப் பாருங்கள்.',
   'companies.eyebrow': 'சிறப்பு முதலாளிகள்',
@@ -53,6 +56,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'இந்தப் பதவிக்கு இன்னும் விண்ணப்பங்கள் வரவில்லை.',
   'jobApplicants.eyebrow': 'முதலாளியின் பார்வை',
   'jobApplicants.loading': 'ஏற்றப்படுகிறது—',
+  'jobApplicants.statusUpdateFailed':
+    'அந்த நிலையைப் புதுப்பிக்க முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
+  'jobApplicants.subheading':
+    'சுயவிவரங்களை மதிப்பாய்வு செய்தல், விண்ணப்பதாரர்களை அடுத்த கட்டத்திற்கு உயர்த்துதல், பணி வாய்ப்புகளை அனுப்புதல் {{count}} பணிகள் செயல்பாட்டில் உள்ளன.',
   'jobDetail.applicantCount': '{{count}} இதுவரை விண்ணப்பித்தவர்கள்',
   'jobDetail.applied': 'விண்ணப்பம் அனுப்பப்பட்டது',
   'jobDetail.apply': 'இப்போதே விண்ணப்பிக்கவும்',
@@ -86,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'காலியாக உள்ள பதவிகளைப் பார்க்கவும் •',
   'landing.pricingEyebrow': 'விலை நிர்ணயம்',
   'landing.pricingHeading': 'அனைத்து அணி அளவுகளுக்கும் ஏற்ற எளிய திட்டங்கள்.',
+  'login.eyebrow': '{{app}} க்கு மீண்டும் வரவேற்கிறோம்',
   'login.heading': 'உங்கள் கணக்கில் உள்நுழையவும்',
   'login.noAccount': 'Nosh-க்கு புதியவரா?',
   'login.passwordPlaceholder':
@@ -94,6 +102,8 @@ export const ui: UiTranslations = {
   'login.signingIn': 'உள்நுழைதல்',
   'login.subheading':
     'உங்கள் தேடலைத் துரிதப்படுத்துங்கள், உங்கள் விண்ணப்பங்களை முன்னேற்றுங்கள், விரைவாகப் பதில் பெறுங்கள்.',
+  'loginBrandPanel.copyright':
+    '© {{year}} {{app}} . ஆட்சேர்ப்புக் குழுக்களுக்காக உருவாக்கப்பட்டது.',
   'loginBrandPanel.headline': 'திறமை சங்கமிக்கும் இடம்',
   'loginBrandPanel.headlineLine2': 'உந்தம்.',
   'loginBrandPanel.listing.recruiter': 'திறமை கூட்டாளர்',
@@ -110,6 +120,7 @@ export const ui: UiTranslations = {
     'விண்ணப்பப் புதுப்பிப்புகள், நேர்காணல் அழைப்புகள், புதிய பொருத்தங்கள் – புதியவை முதலில்.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} இந்த வாரம்',
   'opportunitiesHero.eyebrow': 'இன்று திறந்திருக்கும்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'postJob.addNewCompany': '+ ஒரு புதிய நிறுவனத்தைச் சேர்க்கவும்',
   'postJob.companyCreateFailed': 'நிறுவனத்தை உருவாக்க முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'postJob.companyNameLabel': 'உங்கள் நிறுவனத்தின் பெயர்',
@@ -171,10 +182,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'கணக்கை உருவாக்குதல்',
   'signup.ctaEmployer': 'முதலாளி கணக்கை உருவாக்கவும்',
   'signup.firstNamePlaceholder': 'மாயா',
+  'signup.lastNamePlaceholder': 'சென்',
   'signup.passwordMismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'signup.subheading':
     'தேடுபவர்களுக்கு என்றென்றும் இலவசம். வேலையளிப்பவர்கள் 30 நாள் சோதனைக் காலத்துடன் தொடங்கலாம்.',
   'timeAgo.days': '{{count}} டி நோ',
   'timeAgo.hours': '{{count}} எச் முன்பு',
   'timeAgo.justNow': 'இப்போதே',
+  'timeAgo.weeks': '{{count}} வாரம் முன்பு',
 }

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
   'about.pageTitle': 'Teave {{name}}',
   'auth.footer.about': 'Teave {{name}}',
   'authHeader.subtitle': 'Logi sisse, et oma numbrid ausad oleksid.',
   'automations.action.email': 'E-post',
+  'automations.action.noop': 'Ei mingit operatsiooni',
   'automations.action.webhook': 'Veebikonks',
   'automations.confirmDelete': 'Kustuta " {{name}} "?',
   'automations.empty.headline': 'Automaatilisi toiminguid veel pole',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Päästikud ja toimingud igas töövihikus. Iga käivitus logib rea, mida saate hiljem auditeerida.',
   'automations.toggle': 'Lülitage sisse/välja {{name}}',
+  'automations.trigger.dailySchedule': 'Päevakava',
+  'automations.trigger.rowCreated': 'Rida loodud',
+  'automations.trigger.rowUpdated': 'Rida on uuendatud',
   'billing.empty': 'Plaane pole saadaval.',
   'billing.error.priceMissing':
     "Sellele tasemele pole Stripe'i hinda konfigureeritud. Määrake STRIPE_*_PRICE_ID keskkonnamuutujad.",
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagrammid',
   'charts.kpi.totalCharts': 'Diagrammide koguarv',
   'charts.list.empty': 'Graafikuid veel pole.',
+  'charts.namePlaceholder': 'Tulude trend',
   'charts.newChart': 'Uus graafik',
   'charts.primary.eyebrow': 'Diagrammid tüübi järgi',
   'charts.primary.headline': 'Tööruumi ülevaade',
   'charts.subhead':
     'Sinu ruudustikuga seotud reaalajas visualiseeringud – renderda iga lahtri muutmisel uuesti.',
+  'common.goToDashboard': 'Mine töölauani',
   'editor.addColumn': 'Lisa veerg',
+  'editor.addDialogTitle': 'Lisa veerg',
   'editor.addRow': 'Lisa rida',
   'editor.addSheet': 'Lisa leht',
   'editor.back': 'Tagasi töövihikute juurde',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite on valemipõhine, mitme vaatega reaalajas võrguanalüütikute ja finantsmeeskondade esimene valik.',
   'landing.nav.formulas': 'Valemid',
+  'login.noAccount': 'Kas oled {{name}} kasutajaks uus?',
+  'login.signIn': 'Logi sisse kontole {{name}}',
   'login.signUp': 'Loo tööruum',
+  'nav.menu': 'Menüü',
+  'nav.openMenu': 'Ava menüü',
   'notFound.cellRef': '#VIIDE!',
   'notFound.formula': '=LOOKUP(PÄRING.url; "marsruudid"; "leht")',
   'notFound.headline': 'Seda rida pole kunagi eksisteerinud.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Natiivsed automatiseeringud · webhook ja cron päästikud',
   'signup.creating': 'Tööruumi ettevalmistamine…',
   'signup.cta': 'Loo minu tööruum',
+  'signup.haveAccount': 'Juba {{name}} lehel?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Laadi oma esimene töövihik 30 sekundiga alla',
   'team.col.activity': 'Kutsutud',

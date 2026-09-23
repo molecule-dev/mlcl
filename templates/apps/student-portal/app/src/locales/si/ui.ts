@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'announcementsFeed.empty': 'තවම නිවේදන නැත.',
   'announcementsFeed.eyebrow': '{{count}} යාවත්කාලීන කිරීම්',
   'announcementsFeed.title': 'නවතම නිවේදන',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'මෙහි කිසිවක් නැත',
   'assignments.emptyBody': 'වෙනස් තත්වයක පැවරුම් බැලීමට ඉහත පෙරහන් මාරු කරන්න.',
   'assignments.eyebrow': 'සියලුම පාඨමාලා · මෙම වාරය',
+  'assignments.loadError': 'පැවරුම් පූරණය කළ නොහැකි විය.',
   'assignments.loading': 'පැවරුම් පූරණය කරමින්…',
   'assignments.subtitle':
     'නියමිත, ඉදිරිපත් කළ, ශ්‍රේණිගත කළ හෝ නැති වූ දේ බැලීමට තත්ත්වය අනුව පෙරහන් කරන්න.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'සටහන',
   'attendance.empty': 'තවමත් පැමිණීමේ වාර්තා නොමැත.',
   'attendance.eyebrow': 'වසන්ත කාලය · පසුගිය සති 4',
+  'attendance.loadError': 'පැමිණීමේ වාර්තා පූරණය කළ නොහැකි විය.',
   'attendance.loading': 'පැමිණීම පූරණය වෙමින්…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'පැවරුම් නියමිත දිනයන් මාස ජාලයක සටහන් කර ඇත - විභාග රතු පැහැයෙන් කැපී පෙනේ.',
   'calendar.title': '{{month}} සිදුවීම්',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'common.yes': '✓',
   'courseDetail.backLink': 'ශ්‍රේණි',
   'courseDetail.currentGrade': 'වත්මන් ශ්‍රේණිය',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ප්‍රවණතාවය',
   'grades.empty': 'තවමත් ශ්‍රේණි පළ කර නැත.',
   'grades.eyebrow': 'ශ්‍රේණි පොත',
+  'grades.loadError': 'ඔබේ ශ්‍රේණි පූරණය කළ නොහැකි විය.',
   'grades.loading': 'ශ්‍රේණි පූරණය කරමින්…',
   'grades.subtitle':
     'සජීවී අකුර සහ ප්‍රතිශත ශ්‍රේණි. ප්‍රවණතා ඊතල මඟින් ඔබ ඉහළට යනවාද, මට්ටම් කරනවාද, නැතහොත් ලිස්සා යනවාද යන්න පෙන්වයි.',
   'grades.title': 'ඔබේ ශ්‍රේණි, පාඨමාලාවෙන් පාඨමාලාව',
   'grades.trendStable': 'ස්ථාවර',
+  'landing.copyright': '© {{year}} {{app}} . සිසුන් සඳහා ඉදිකරන ලද, පවුල් සඳහා ඉදිකරන ලද.',
   'landing.ctaHeading': 'සන්සුන් පාසල් දිනයක් මිනිත්තු කිහිපයකින් ආරම්භ වේ',
   'landing.eyebrow': 'මධ්‍යම හා උසස් පාසල් සිසුන් සඳහා',
   'landing.featuresHeading': 'ශිෂ්‍යයා වටා සංවිධානය කරන ලද පාසල් දිනයක්',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'පැවරුම්',
   'nav.attendance': 'පැමිණීම',
   'nav.calendar': 'දින දර්ශනය',
+  'nav.closeMenu': 'සංචාලන මෙනුව වසන්න',
   'nav.grades': 'ශ්‍රේණි',
+  'nav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'nav.statusEyebrow': 'වාර GPA',
   'nav.statusSubtext': 'ගෞරව නාමාවලිය · වසන්ත වාරය',
+  'nav.unreadMessages': 'නොකියවූ පණිවිඩ',
   'notifications.eyebrow': '{{count}} යාවත්කාලීන කිරීම්',
   'notifications.subtitle':
     'ශ්‍රේණි, සිහිකැඳවීම්, පණිවිඩ සහ පාසල් නිවේදන. සැකසීම් තුළ එක් එක් දැනුම්දීම භාවිතා කරන නාලිකා සීරුමාරු කරන්න.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.attendanceLabel': 'පැමිණීම',
   'pricing.gradesLabel': 'ශ්‍රේණි',
   'pricing.heading': 'නිවේදන',

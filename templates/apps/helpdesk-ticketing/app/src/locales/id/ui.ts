@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.title': 'Tentang {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Foto profil profesional seorang agen dukungan pelanggan wanita dengan senyum ramah di kantor modern.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Hubungi dukungan',
   'forgotPassword.error': 'Tidak dapat mengirim email setel ulang. Silakan coba lagi.',
   'forgotPassword.rememberPassword': 'Ingat kata sandi Anda?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Masuk — Dukungan Zenith',
   'login.showPassword': 'Tampilkan kata sandi',
   'login.welcomeSubheading': 'Masuk ke dasbor dukungan Anda',
+  'mobileNav.closeMenu': 'Tutup navigasi',
+  'mobileNav.menu': 'Navigasi',
+  'mobileNav.openMenu': 'Buka navigasi',
   'nav.legal': 'Hukum',
   'nav.newTicket': 'Tiket Baru',
   'notifications.loadError': 'Notifikasi tidak dapat dimuat. Coba lagi sebentar lagi.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Pencarian Perintah',
   'operatorDock.newReport': 'Laporan Baru',
   'operatorDock.systemOnline': 'Sistem Online',
+  'planUpdated.subtitle': 'Terima kasih',
   'planUpdated.title': 'Paket diperbarui',
   'pricing.agents': 'agen',
   'pricing.automation': 'Aturan otomatisasi',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{nama}} avatar',
   'ticketDetail.errorTitle': 'Ada yang salah',
+  'ticketDetail.loadError': 'Tiket gagal dimuat.',
+  'ticketDetail.notFound': 'Tiket tidak ditemukan',
+  'ticketDetail.replyError': 'Balasan gagal terkirim. Silakan coba lagi.',
   'ticketDetail.retry': 'Coba lagi',
   'ticketDetail.statusUpdateError': 'Status tidak dapat diperbarui. Coba lagi.',
   'ticketDetailsCard.assigneeLabel': 'Penerima tugas',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{waktu}} kiri',
   'ticketRow.title': 'Koneksi basis data gagal di lingkungan produksi. {{node}}',
   'tickets.pageTitle': 'Tiket — Zenith Support',
+  'ticketsFab.newTicket': 'Tiket baru',
   'ticketsFilterBar.assigneeLabel': 'Penerima tugas:',
   'ticketsFilterBar.clearFilters': 'Hapus Filter',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

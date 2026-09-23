@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontak ons',
   'about.eyebrow': 'Oor',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.connectRepoCta': 'Koppel bewaarplek',
   'dashboard.empty': "Geen pull-versoeke nog nie — koppel 'n bewaarplek om te begin.",
   'dashboard.eyebrow': 'Refraktuur · hersieningswaglys',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Uptyd',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'KI-kwaliteittelling {{score}} / 10',
+  'refractLayout.closeMenu': 'Maak spyskaart toe',
+  'refractLayout.openMenu': 'Maak spyskaart oop',
   'refractLayout.primaryNavLabel': 'Primêre navigasie',
   'reports.cumulativeScoreLabel': 'Kumulatiewe telling',
   'reports.cumulativeScoreSubtitle': 'alle bewaarplekke · {{days}} d',
@@ -174,11 +177,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Kon nie soekindeks laai nie.',
   'settings.apiKeys.description':
     'Bestuur persoonlike API-sleutels vanaf die gebruikerskieslys regs bo.',
+  'settings.apiKeys.integrationsNote':
+    'Verskaffertoegangstokens word in die Integrasies-afdeling hierbo bestuur.',
   'settings.connectError': 'Kon nie die verskaffer koppel nie.',
   'settings.disconnectError': 'Kon nie verskaffer ontkoppel nie.',
   'settings.eyebrow': 'Refraktasie · werkruimte',
   'settings.integration.${provider}.label': 'Stoor …',
   'settings.loadError': 'Kon nie instellings laai nie.',
+  'settings.notificationCenter': 'Kennisgewingsentrum',
   'settings.notifications.description':
     'Besoek die kennisgewingsbladsy om afleweringsvoorkeure te sien en te bestuur.',
   'settings.section.account': 'Rekening en sekuriteit',

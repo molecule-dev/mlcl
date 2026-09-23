@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'billing.canceled': 'Predplatné zrušené. Na konci obdobia sa vrátite k bezplatnému režimu.',
   'billing.contactSales': 'Kontaktujte predaj',
   'billing.free.1': '5 prekladov',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Žiadny limit uchovávania',
   'billing.upgradeHint': 'Inovujte a odomknite pokročilé funkcie umelej inteligencie.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.activityEmpty':
     'Zatiaľ žiadna aktivita – spustite projekt na naplnenie tohto informačného kanála.',
   'dashboard.eyebrow': 'Prehľad',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Znovu použite predchádzajúce preklady v každom projekte. Vyššie skóre zhody → menej prepracovania.',
   'memory.title': 'Pamäťová banka',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'nav.legal': 'Právne',
   'newProject.addLanguage': 'Pridať cieľ',
   'newProject.create': 'Vytvoriť projekt',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Označené {{count}} oznámenia ako prečítané.',
   'notifications.subtitle':
     'Zmienky, žiadosti o recenzie a udalosti umelej inteligencie z vašich pracovných priestorov.',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'privacy.collection.account': 'E-mailová adresa vášho účtu a zobrazované meno',
   'privacy.deletion.body':
     'Projekt, segment, glosárový výraz alebo záznam v pamäti môžete kedykoľvek odstrániť z príslušnej stránky. Odstránením účtu z nastavení sa z našej databázy vymažú všetky riadky v rozsahu pracovného priestoru.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Nepodarilo sa načítať projekty.',
   'projects.loading': 'Načítavanie projektov…',
   'projects.subtitle': 'Každý aktívny projekt naprieč všetkými lokalitami.',
+  'renditionLayout.primaryNavLabel': 'Hlavná navigácia',
   'reset.backToLogin': '\\u2190 Späť na prihlásenie',
   'reset.passwordLabel': 'Nové heslo',
   'review.activeEyebrow': 'Segment {{number}}',

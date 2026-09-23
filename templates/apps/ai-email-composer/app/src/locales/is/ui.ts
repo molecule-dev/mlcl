@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Sagan okkar',
   'aiSuggestionPanel.title': 'Signet aðstoðarflugmaður',
   'analytics.col.open': 'Opnunartíðni',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Byrjar greiðslu…',
   'billing.subheading': 'Veldu áætlun sem passar við hvernig þú sendir.',
   'billing.unavailable': 'Hafðu samband við sölu',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.retry': 'Reyna aftur',
   'compose.adjustingTone': 'Endurskrifa í völdum tóni…',
   'compose.aiPromptPlaceholder':
     't.d. „Kurteis eftirfylgni eftir ekkert svar í tvær vikur, stutt.“',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Þarftu að senda eitthvað? Signet getur búið til drög á nokkrum sekúndum.',
   'dashboard.composeCtaLabel': 'Fljótleg skrif',
   'dashboard.heading': 'Vikan þín, skipulögð',
+  'dashboard.loadFailed': 'Ekki tókst að hlaða mælaborðið.',
   'dashboard.manageLibrary': 'Stjórna bókasafni →',
   'dashboard.recentEmpty': 'Engar sendingar ennþá — sendir tölvupóstar þínir munu birtast hér.',
   'dashboard.recentHeading': 'Nýlegar sendingar',
@@ -135,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Sjálfgefinn tónn',
   'settings.toneSubheading': 'Signet notar þennan tón nema þú yfirskrifir í drögunum.',
   'signetLayout.primaryNavLabel': 'Aðalflakk',
+  'signetLayout.toggleMenu': 'Opna/loka valmynd',
   'signup.emailLabel': 'Netfang',
   'signup.showPassword': 'Sýna lykilorð',
   'signup.tagline':

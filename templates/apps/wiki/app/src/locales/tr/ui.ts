@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Çözülüyor…',
   'comments.subtitle':
     'Hâlâ yanıt veya çözüm bekleyen {{count}} başlık. Yaşa göre sıralı — önce en eskiler, böylece hiçbir şey çürümez.',
+  'common.goToDashboard': 'Panele Git',
   'forgotPassword.sentTo': 'Sıfırlama bağlantısı {{email}} adresine gönderildi',
   'forgotPassword.successSubheading':
     'Lütfen gelen kutunuzu kontrol edin — az önce bir sıfırlama bağlantısı gönderdik. 30 dakika içinde sona erer.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Yeni sayfa',
   'pageTreeSidebar.workspaceHeader': 'Çalışma alanı',
   'pageView.breadcrumb': 'Sayfa yolu',
+  'pageView.confirmTrash': 'Çöp kutusuna mı atayım?',
   'pageView.home': 'Ana sayfa',
   'pageView.lastEdited': '{{when}} güncellendi',
   'pageView.loading': 'Sayfa yükleniyor…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Özetleniyor…',
   'pageView.summaryUnavailable': 'Bu çalışma alanı için AI özeti yapılandırılmamış.',
   'pageView.tocTitle': 'Bu sayfada',
+  'pageView.trash': 'Çöp Kutusu',
+  'pageView.trashing': 'Çöpe atılıyor…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Rozetler',
   'profile.owned.title': 'Sahip olunan sayfalar',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Çalışma alanı, profil, bildirimler, entegrasyonlar — hepsi tek bir sakin kabukta.',
   'settingsPage.workspace.defaultLanding': 'Varsayılan açılış ekranı',
   'settingsPage.workspace.landingHome': 'Ev',
+  'settingsPage.workspace.landingSpaces': 'Alanlar',
   'settingsPage.workspace.subdomainLabel': 'Alt etki alanı',
   'settingsPage.workspace.title': 'Çalışma alanı',
   'signup.eyebrow': 'Yeni bir çalışma alanı başlat',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} dk',
   'templates.subtitle':
     'Boş bir tuvalden değil, bir şablondan bir sayfa başlatın. Her şablon biçimi sabitler, böylece öze odaklanabilirsiniz.',
+  'trash.confirmPurge': 'Sonsuza dek arındırmak mı?',
+  'trash.confirmPurgeAria': 'Onay: {{title}} kalıcı olarak silinsin',
   'trash.daysUntilPurge': '{{days}} gün kaldı',
   'trash.empty.body': 'Silinen sayfalar kalıcı olarak silinmeden önce 30 gün burada görünür.',
   'trash.empty.title': 'Çöp kutusu boş.',
@@ -146,5 +153,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Geri yükleniyor…',
   'versionHistory.subtitle': '{{count}} sürüm · farkı incelemek için bir satır seçin',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Gezinme menüsünü kapat',
+  'wikiLayout.menu': 'Gezinti',
+  'wikiLayout.openMenu': 'Gezinme menüsünü aç',
   'wikiLayout.searchPlaceholder': "Cairn'de ara — sayfalar, yorumlar…",
 }

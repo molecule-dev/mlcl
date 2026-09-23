@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.pageTitle': 'შესახებ {{appName}}',
   'analytics.error': 'ანალიტიკის ჩატვირთვა ვერ მოხერხდა.',
   'analytics.heading': 'მოძიების ანალიტიკა',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ფასების დონეები კონფიგურირებული არ არის.',
   'billing.plans.heading': 'გეგმები',
   'billing.subheading': 'გეგმა, გამოყენება და Stripe-ის მიერ მართული გადახდა.',
+  'common.confirm': 'დადასტურება',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.retry': 'ხელახლა ცდა',
   'documentCard.open': 'ღიაა \\u2192',
   'documentDetail.back': 'დოკუმენტებზე დაბრუნება',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'ინდექსის დოკუმენტი',
   'documents.composer.titlePlaceholder': 'დოკუმენტის სათაური',
   'documents.emptyAll': 'დოკუმენტები ჯერ არ არის. კითხვების დასმის დასაწყებად ატვირთეთ ერთი.',
+  'documents.error.load': 'დოკუმენტების ჩატვირთვა ვერ მოხერხდა.',
   'documents.heading': 'ინდექსირებული დოკუმენტები',
   'documents.loading': 'დოკუმენტები იტვირთება…',
   'documents.metric.chunks': 'სულ ნაჭრები',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'წაშლა\\u2026',
   'members.subheading': 'მოიწვიე თანაგუნდელები და დაავალეთ როლები.',
   'members.tableHeading': 'შემადგენლობა',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'notFound.askCta': 'ჰკითხეთ ცოდნის ბაზას',
+  'notFound.body':
+    '{{app}} მა ვერ იპოვა ეს გვერდი. შესაძლოა, ბმული დაზიანებულია, ან გვერდი ხელახალი ინდექსირების დროს წაიშალა.',
   'notFound.eyebrow': 'აღდგენა შეუძლებელია',
   'notFound.title': 'ინდექსში ასეთი ნაწილი არ არის',
   'notifications.dismiss': 'დახურვა',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'წყაროს URL',
   'sources.empty.body': 'პირველი კონექტორის შესაერთებლად დააწკაპუნეთ „წყაროს დამატება“.',
   'sources.empty.title': 'წყაროები ჯერ არ არის.',
+  'sources.error.add': 'წყაროს დამატება ვერ მოხერხდა.',
   'sources.error.labelRequired': 'ეტიკეტი აუცილებელია.',
   'sources.error.load': 'წყაროების ჩატვირთვა ვერ მოხერხდა.',
   'sources.error.urlRequired': 'ამ წყაროს ტიპისთვის URL აუცილებელია.',

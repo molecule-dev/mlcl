@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Reinicia la cadena',
   'resetPassword.mismatchError': 'Les contrasenyes no coincideixen.',
   'resetPassword.subheading': 'Tria alguna cosa forta. Els teus llibres esperaran.',
-  'reviewCard.starsAria': 'Classificat<x> {{qualificació}}</x> fora de<x> {{de}}</x> estrelles',
+  'reviewCard.starsAria': 'Valorat per {{rating}} de {{of}} estrelles',
   'reviewCard.unratedAria': 'Sense classificació',
   'reviews.eyebrow': 'Què va quedar amb tu',
   'reviews.heading': 'Les teves ressenyes',

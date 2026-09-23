@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
+  'about.eyebrow': 'Sobre {{app}}',
+  'about.intro':
+    '{{app}} é um aplicativo de meditação para a vida real — meditações guiadas diárias, exercícios de respiração e histórias para dormir, com instrutores que parecem amigos, não treinadores. Sem culpa por falta de prática, sem feed barulhento: apenas um lugar tranquilo para você se reconectar com a sua respiração.',
+  'about.missionBody':
+    'Acreditamos que a quietude deve ser acessível a todos, a qualquer momento do dia. {{app}} existe para tornar uma prática calma e consistente algo natural — para que dez minutos sinceros possam mudar a forma como você encara as próximas dez horas.',
+  'about.missionTitle': 'Nossa missão',
+  'about.pageTitle': 'Dez minutos mais tranquilos por dia.',
+  'breathingDial.seconds': 'segundos',
+  'common.goToDashboard': 'Ir para o Painel',
+  'common.logout': 'Terminar sessão',
   'common.min': 'min',
   'common.relative.justNow': 'agora mesmo',
   'common.relative.now': 'agora',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
+  'nav.secondaryNavigation': 'Navegação da conta',
   'sessionCard.with': 'com {{name}}',
   'stillpoint.billing.choose': 'Escolher {{plan}}',
   'stillpoint.billing.currentPlan': 'Plano atual: {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Não foi possível carregar os planos.',
   'stillpoint.billing.opening': 'Abrindo o checkout…',
   'stillpoint.billing.perMonthShort': '/ mês',
+  'stillpoint.billing.perYearShort': '/ano',
   'stillpoint.billing.unknownResult': 'Resposta de cobrança inesperada.',
   'stillpoint.billing.yearly': 'Anual · economize 17%',
   'stillpoint.courseDetail.back': 'Cursos',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Nenhum curso ainda.',
   'stillpoint.courses.eyebrow': '{{count}} jornadas de vários dias',
   'stillpoint.courses.heading': 'Cursos',
+  'stillpoint.forgot.checkEmail': 'Verifique sua caixa de entrada — o link expira em 30 minutos.',
   'stillpoint.forgot.success': 'Enviamos um link de redefinição para {{email}}.',
   'stillpoint.home.empty': 'Nenhuma sessão ainda — volte em breve.',
   'stillpoint.home.friend': 'amigo',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Crie sua conta grátis',
   'stillpoint.landing.cta.title': 'Comece sua calma hoje',
   'stillpoint.landing.features.heading': 'Uma prática que cresce com você',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditações guiadas diárias, respiração e histórias para dormir — no ritmo de professores que parecem amigos, não treinadores.',
   'stillpoint.landing.hero.eyebrow': '10 minutos mais calmos por dia',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Explore por humor',
   'stillpoint.login.rememberMe': 'Manter conectado',
   'stillpoint.login.subheading': 'Entre para continuar sua prática.',
+  'stillpoint.nav.tagline': 'Encontre seu centro de equilíbrio',
+  'stillpoint.notFound.body':
+    'Esta página está respirando fundo em algum lugar. Vamos encontrar um lugar mais tranquilo para você em {{app}} .',
   'stillpoint.notFound.title': 'Perdido no silêncio',
   'stillpoint.notFound.toHome': 'Voltar para hoje',
   'stillpoint.notFound.toLibrary': 'Explorar a biblioteca',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Voltar 15 s',
   'stillpoint.player.skipForward': 'Avançar 30 s',
   'stillpoint.player.with': 'com {{name}}',
+  'stillpoint.profile.defaultHandle': 'ponteiro estático',
   'stillpoint.profile.eyebrow': 'Sua prática, em resumo.',
   'stillpoint.profile.locked': 'Bloqueado',
   'stillpoint.profile.member': 'Membro do Stillpoint',

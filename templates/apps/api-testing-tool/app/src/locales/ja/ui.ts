@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
+  'about.pageTitle': '{{app}}について',
   'authShell.statusLabel': 'ランナーがオンライン',
   'collections.createError': 'コレクションを作成できませんでした。',
   'collections.defaultName': '無題のコレクション {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'リクエスト',
   'collections.newCollection': '新規コレクション',
   'collections.subheading': 'リクエストをグループ化し、チームと共有し、スイートとして実行します。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'environmentCard.inactive': 'アイドル',
   'environmentCard.more': '件',
   'environmentCard.variables': '変数',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': '無料でダウンロード',
   'landing.heroSubtitle':
     '端末を拠点とするエンジニア向けに構築された、超高速APIテストワークベンチ。',
+  'landing.heroTitleAccent': '火',
+  'landing.heroTitleLine2': '自信を築く。',
+  'landing.heroTitleRest': 'リクエスト、',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'シンプルで予測可能な価格',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': '初めての方ですか？',
   'login.showPassword': 'パスワードを表示',
   'login.subtitle': 'Pylonワークスペースへ進みます。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'mocks.createError': 'モックを作成できませんでした。',
   'mocks.defaultName': '無題のモック {{n}}',
   'mocks.deleteError': 'モックを削除できませんでした。',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'ワークスペースに戻る',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'ルートが見つかりません',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'privacy.collect.account':
     'アカウント: メール、ハッシュ化されたパスワード、表示名、最終サインインのタイムスタンプ。',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'このアカウントが現在所有しているデータの読み取り専用ビュー。',
   'settings.unset': '未設定',
   'signup.identityHint': '例：Alex',
+  'signup.statusLabel': '無料プラン・クレジットカード不要',
   'signup.subtitle': '数分でリクエストの発射を開始してください。',
   'terms.account.body':
     'パスワードの保護はお客様の責任です。1つのアカウントを複数人で共有することは、FreeまたはProプランでは許可されていません — 共有ワークスペースにはTeamサブスクリプションを購入してください。',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     '所有していない、または明示的なテスト許可のないサービスへのリクエスト発射にPylonを使用しないでください。レート制限を回避したり詐欺を行うためにPylonを使用しないでください。',
   'terms.warranty.body':
     'Pylonはいかなる種類の保証もなく「現状のまま」提供されます。99.9%の稼働率を目指していますが、FreeまたはProプランでは保証しません。',
+  'testRunner.assertionsCount': '{{count}} 主張',
   'testRunner.createError': 'テストを作成できませんでした。',
   'testRunner.cron':
     'アサーションは、このテストにリンクされたリクエストの最新の実行に対して評価されます。',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'スイート結果、アサーション差分、直近50回の実行。',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'サインイン中のユーザー',
+  'workspace.auth.keyName': 'ヘッダー名',
+  'workspace.auth.keyValue': 'キー値',
+  'workspace.auth.password': 'パスワード',
+  'workspace.auth.username': 'ユーザー名',
+  'workspace.authOption.apikey': 'APIキー',
+  'workspace.authOption.basic': 'Basic認証',
+  'workspace.authOption.bearer': '無記名トークン',
+  'workspace.authOption.none': 'なし',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'タイプ',
   'workspace.authTypeLabel': '認証タイプ',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'なし',
+  'workspace.body.text': '生テキスト',
+  'workspace.body.type': '種類',
   'workspace.environment': '環境なし',
   'workspace.envVar': '環境変数',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'ヘッダーを追加',
+  'workspace.kv.addParam': 'パラメータを追加',
+  'workspace.kv.headerKey': 'ヘッダー名',
+  'workspace.kv.headerValue': 'ヘッダー値',
+  'workspace.kv.key': 'キー',
+  'workspace.kv.paramKey': 'クエリパラメータのキー',
+  'workspace.kv.paramValue': 'クエリパラメータの値',
+  'workspace.kv.removeRow': '行を削除する',
+  'workspace.kv.value': '金額',
   'workspace.methodLabel': 'HTTPメソッド',
   'workspace.metric.latency': 'レイテンシ',
   'workspace.metric.latencyCaption': 'この実行のラウンドトリップ',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'リクエストを発射しました — 下のレスポンスを参照してください。',
   'workspace.subheading':
     'リクエストを作成し、発射し、レスポンスをアサートする — すべて1つのペインで。',
+  'workspace.testResults': '試験結果',
   'workspace.token': 'トークン',
   'workspace.tokenHint':
     'このコレクション内のすべてのリクエストでAuthorization: Bearer <token>として送信されます。',

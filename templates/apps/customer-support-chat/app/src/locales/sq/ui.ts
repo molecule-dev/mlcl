@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
   'authShell.samplePreview':
     '"Hej ekip, paneli i ri është i mrekullueshëm - pikërisht ajo që na duhej!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/shkurtore',
   'automations.subheading':
     'Rregulla, përgjigje të paracaktuara dhe chatbot — mbajeni hapësirën e punës aktiv ndërsa ekipi juaj përqendrohet në gjërat e vështira.',
+  'automations.trigger.inboundMessage': 'Mesazh hyrës',
   'automations.triggerLabel': 'Shkaktues',
   'chatBubble.internalNoteLabel': 'Shënim i brendshëm',
+  'common.confirmDelete': 'Konfirmo fshirjen',
+  'common.goToDashboard': 'Shko te paneli',
   'contactDetail.backToContacts': 'Të gjitha kontaktet',
   'contactDetail.contactFallback': 'Kontakti',
   'contactDetail.conversationFallback': 'Bisedë',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Parë për herë të fundit',
   'contacts.empty': 'Nuk ka ende kontakte. Shtoni kontaktin tuaj të parë më sipër.',
   'contacts.eyebrow': 'Drejtoria e klientëve',
+  'contacts.form.nameOrEmailRequired': 'Jepni të paktën një emër ose email',
   'contacts.form.save': 'Ruaj kontaktin',
   'contacts.heading': 'Kontaktet',
   'contacts.loading': 'Duke ngarkuar kontaktet…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Ruaj shënimin',
   'conversationDetail.tab.note': 'Shënim i brendshëm',
   'conversationDetail.threadAria': 'Mesazhet e bisedës',
+  'conversationDetail.visitorFallback': 'Vizitor',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Detajet e klientit',
   'customerProfilePanel.recentTitle': 'Bisedat e fundit',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Klientët po marrin përgjigjen e tyre të parë në {{time}} mesatarisht — mbajeni kadencën ndezur.',
   'inboxHeroCard.title': 'Biseda aktive',
+  'inboxLayout.navDrawerLabel': 'Navigimi',
+  'inboxLayout.openMenu': 'Hap menynë e navigimit',
   'inboxOverview.eyebrow': 'Sot me një vështrim',
   'inboxOverview.heroChange': '{{count}} hapur',
   'inboxOverview.kpiClosedTrend': 'të gjitha kohërave',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Vizito faqen kryesore',
   'notifications.subheading':
     'Detyrat, @përmendjet, rreziqet e SLA-së, reagimet e CSAT-it dhe aktiviteti i ekipit — të renditura sipas të rejave në fillim.',
+  'notifications.subjectFallback': 'një bisedë',
+  'notifications.visitorFallback': 'Një vizitor',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'I lartë',
   'priority.low': 'I ulët',
+  'priority.normal': 'Normale',
   'priority.urgent': 'Urgjente',
   'privacy.title': 'Politika e privatësisë',
   'reports.agentFallback': 'Agjent',

@@ -20,6 +20,7 @@ export const ui: UiTranslations = {
   'checkout.subtitle':
     'Kowanne abu yana buɗe nasa wurin biyan kuɗi wanda Stripe ke karɓar baƙunci. Ana bayar da maɓallan lasisi bayan an tabbatar.',
   'checkout.title': 'Mataki ɗaya daga cikin abubuwan da ka sauke',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'creatorStatGrid.label': 'Muhimman abubuwan da suka fi daukar hankali a cikin masu ƙirƙira',
   'dashboard.eyebrow': 'Dashboard na mai ƙirƙira',
   'dashboard.range30': '30d',
@@ -30,6 +31,8 @@ export const ui: UiTranslations = {
   'dashboard.subtitle':
     '{{count}} tallace-tallace a cikin kwanaki 30 da suka gabata. Ci gaba da jigilar kaya.',
   'dashboard.topProducts': 'Manyan samfura',
+  'dashboard.topProductsEmpty':
+    'Babu tallace-tallace tukuna — mafi kyawun siyarwar ku za su bayyana a nan.',
   'forgotPassword.emailPlaceholder': 'you@studio.co',
   'forgotPassword.subtitle':
     'Shigar da imel ɗinka — za mu aika hanyar haɗin sake saitawa sau ɗaya.',
@@ -94,11 +97,13 @@ export const ui: UiTranslations = {
   'orderHistory.downloadError': 'Saukewa ba ya samuwa a yanzu.',
   'orderHistory.downloading': 'Ana saukewa…',
   'orderHistory.empty': 'Babu oda tukuna',
+  'orderHistory.eyebrow': 'Rasidin kuɗi',
   'orderHistory.free': 'Kyauta',
   'orderHistory.title': 'Tarihin oda',
   'orderHistory.viewReceipt': 'Duba rasit',
   'planUpdated.settings': 'Buɗe saituna',
   'planUpdated.toDashboard': 'Je zuwa dashboard',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.feature.downloads': 'saukewa',
   'pricing.heading': 'samfurori',
   'product.notFound': 'Ba a samo samfurin ba',
@@ -122,9 +127,11 @@ export const ui: UiTranslations = {
   'productEditor.newTitle': 'Sabon samfur',
   'productEditor.notFound': 'Ba a sami samfurin ba.',
   'productEditor.pricing.price': 'Farashin (USD)',
+  'productEditor.published': 'An buga samfurin.',
   'productEditor.saved': 'An adana daftarin.',
   'products.col.sales': 'Tallace-tallace',
   'products.col.updated': 'An sabunta',
+  'products.emptyTitle': 'Babu samfura tukuna',
   'products.eyebrow': 'Kasida',
   'products.subtitle': '{{count}} jerin aiki',
   'products.title': 'Kayayyakinku',

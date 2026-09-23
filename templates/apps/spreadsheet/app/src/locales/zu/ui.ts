@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'about.pageTitle': 'Mayelana {{name}}',
   'auth.footer.about': 'Mayelana {{name}}',
   'authHeader.subtitle': 'Ngena ngemvume ukuze ugcine izinombolo zakho zithembekile.',
   'automations.action.email': 'I-imeyili',
+  'automations.action.noop': 'Akukho op',
   'automations.action.webhook': 'I-Webhook',
   'automations.confirmDelete': 'Susa " {{name}} "?',
   'automations.empty.headline': 'Azikho izinto ezenzakalelayo okwamanje',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Izimbangela nezenzo kuyo yonke incwadi yokusebenzela. Ukugijima ngakunye kubhala umugqa ongawuhlola kamuva.',
   'automations.toggle': 'Guqula {{name}}',
+  'automations.trigger.dailySchedule': 'Isimiso sansuku zonke',
+  'automations.trigger.rowCreated': 'Umugqa udaliwe',
+  'automations.trigger.rowUpdated': 'Umugqa ubuyekeziwe',
   'billing.empty': 'Azikho izinhlelo ezitholakalayo.',
   'billing.error.priceMissing':
     'Ayikho intengo ye-Stripe elungiselelwe lesi sigaba. Setha ama-vars e-STRIPE_*_PRICE_ID env.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Amashadi',
   'charts.kpi.totalCharts': 'Amashadi aphelele',
   'charts.list.empty': 'Awekho amashadi okwamanje.',
+  'charts.namePlaceholder': 'Umkhuba wemali engenayo',
   'charts.newChart': 'Ishadi elisha',
   'charts.primary.eyebrow': 'Amashadi ngohlobo',
   'charts.primary.headline': 'Ukubuka konke kwendawo yokusebenza',
   'charts.subhead':
     'Izithombe ezibukhoma eziboshelwe kugridi yakho — phinda ubonise kukho konke ukuhlela kweseli.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'editor.addColumn': 'Engeza ikholomu',
+  'editor.addDialogTitle': 'Engeza ikholomu',
   'editor.addRow': 'Engeza umugqa',
   'editor.addSheet': 'Engeza ishidi',
   'editor.back': 'Buyela ezincwadini zomsebenzi',
@@ -103,7 +111,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} I-Calcite iwuhlaziyi begridi yefomula-kuqala, enokubukwa okuningi, yesikhathi sangempela kanye namaqembu ezezimali afinyelela kuqala.',
   'landing.nav.formulas': 'Amafomula',
+  'login.noAccount': 'Umusha ku- {{name}} ?',
+  'login.signIn': 'Ngena ngemvume ku {{name}}',
   'login.signUp': 'Dala indawo yokusebenza',
+  'nav.menu': 'Imenyu',
+  'nav.openMenu': 'Vula imenyu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=BHEKA(REQUEST.url, "imizila", "ikhasi")',
   'notFound.headline': 'Lo mugqa awukaze ube khona.',
@@ -133,6 +145,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Okuzenzakalelayo komdabu · iziqalisi ze-webhook kanye ne-cron',
   'signup.creating': 'Ilungiselela indawo yokusebenza…',
   'signup.cta': 'Dala indawo yami yokusebenza',
+  'signup.haveAccount': 'Usuvele use- {{name}} ?',
   'signup.namePlaceholder': 'U-Avery Chen',
   'signup.tagline': 'Phendula incwadi yakho yokuqala yokusebenza ngemizuzwana engama-30',
   'team.col.activity': 'Umenyiwe',

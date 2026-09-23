@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
+  'about.title': 'Ein Schreibzimmer, das Sie in der Tasche mitnehmen können',
   'billing.cancelConfirm': 'Ihr aktives Abonnement kündigen?',
   'billing.cancelFailed': 'Kündigung nicht möglich.',
   'billing.checkingOut': 'Bezahlvorgang wird geöffnet…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Abrechnung konnte nicht geladen werden.',
   'billing.loading': 'Abrechnung wird geladen…',
   'billing.upgradeCta': 'Auf {{name}} upgraden',
+  'common.goToDashboard': 'Zum Dashboard',
+  'editor.autosaveOn': 'Automatisches Speichern aktiviert',
   'editor.backToLibrary': 'Zurück zur Bibliothek',
   'editor.charCount': '{{count}} Zeichen',
   'editor.confirmTrash': 'Dieses Dokument in den Papierkorb verschieben?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Gelöst',
   'editor.unpublishCta': 'Zurück zum Entwurf',
   'editor.unpublished': 'Auf Entwurf zurückgesetzt',
+  'focus.autosaveOn': 'Automatisches Speichern aktiviert',
   'focus.backToLibrary': 'Zurück zur Bibliothek',
   'focus.bodyPlaceholder': 'Eine Zeile nach der anderen. Sonst ist niemand hier.',
   'focus.exit': 'Fokusmodus verlassen',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Erstellen Sie eins',
   'login.subline':
     'Ihre Manuskripte, täglichen Seiten und die letzte Cursor-Position sind genau dort, wo Sie sie hinterlassen haben.',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'pricing.exports': 'Exporte',
   'pricing.folders': 'Ordner',
   'pricing.heading': 'Dokumente',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Geben Sie den soeben gesendeten Code ein und wählen Sie etwas Merkbares. Wir melden Sie nach dem Speichern an.',
   'reset.tokenHint': 'Aus Ihrem Posteingang eingefügt.',
+  'settings.appearance.heading': 'Hell oder dunkel',
   'settings.editor.${row.id}.description': 'Sprache',
   'settings.editor.description':
     'Scrollen wie bei einer Schreibmaschine, Ausblenden von Absätzen und Fokus im Leerlauf – die Standardeinstellungen sind auf lange Sitzungen optimiert.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapitel Drei — Eine stille Stunde vor Sonnenaufgang',
   'versalDocumentCard.pinned': 'Angeheftet',
   'versalLayout.nav.stats': 'Statistik',
+  'versalLayout.primaryNavLabel': 'Hauptnavigation',
   'versalManuscriptHero.cta': 'Weiterschreiben',
   'versalManuscriptHero.goalLabel': 'Heutiges Wortziel',
   'versalManuscriptHero.inProgress': 'Auf Kurs',

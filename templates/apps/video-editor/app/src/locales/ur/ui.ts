@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ایک بگ ملا ہے، فیچر کی درخواست ہے، یا آپ نے جو فلم کاٹی ہے اس کے بارے میں ہمیں بتانا چاہتے ہیں؟ ہر پیغام ٹیم کے ایک حقیقی فرد تک پہنچتا ہے — کسی بھی وقت اپنے اکاؤنٹ کی ترتیبات سے رابطہ کریں۔',
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.eyebrow': '// کٹ کے پیچھے سٹوڈیو',
   'about.pageTitle': 'کے بارے میں {{appName}}',
   'assetDetail.back': 'لائبریری پر واپس جائیں۔',
   'assetDetail.confirmDelete': 'حذف کریں" {{name}} "؟ اسے کالعدم نہیں کیا جا سکتا۔',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} کلپس، آڈیو بیڈز، اور گرافکس ٹائم لائن پر گرنے کے لیے تیار ہیں۔',
   'assetLibrary.title': 'اثاثے',
   'assetLibrary.upload': 'اثاثہ شامل کریں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.browseTemplates': 'ٹیمپلیٹس کو براؤز کریں →',
   'dashboard.loading': 'پروجیکٹس لوڈ ہو رہے ہیں…',
   'dashboard.noProjects': 'ابھی تک کوئی پروجیکٹ نہیں ہے - شروع کرنے کے لیے ایک بنائیں۔',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'کوئی ایسی چیز منتخب کریں جو صرف آپ کو یاد ہو گی۔',
   'rushesAuthShell.footer.copyright': '© رشز اسٹوڈیو',
   'rushesAuthShell.footer.privacy': 'رازداری',
+  'rushesLayout.closeMenu': 'نیویگیشن بند کریں۔',
   'rushesLayout.guest': 'ایڈیٹر',
+  'rushesLayout.navDialog': 'نیویگیشن',
+  'rushesLayout.openMenu': 'نیویگیشن کھولیں۔',
   'rushesLayout.planFree': 'مفت منصوبہ',
   'rushesLayout.tagline': 'سنیما کی ٹائم لائن',
   'settings.billing.confirmCancel': 'مدت کے اختتام پر سبسکرپشن منسوخ کریں؟',

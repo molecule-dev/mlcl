@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Решение…',
   'comments.subtitle':
     'Он {{count}} Темы, ожидающие ответа или решения. Отсортированы по возрасту — от самых старых к самым старым, чтобы ничего не залежалось.',
+  'common.goToDashboard': 'Перейти к панели',
   'forgotPassword.sentTo': 'Ссылка для сброса отправлена на {{email}}',
   'forgotPassword.successSubheading':
     'Проверьте свою почту — мы только что отправили ссылку для сброса пароля. Она действительна в течение 30 минут.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Новая страница',
   'pageTreeSidebar.workspaceHeader': 'Рабочее пространство',
   'pageView.breadcrumb': 'Хлебные крошки',
+  'pageView.confirmTrash': 'Выбросить?',
   'pageView.home': 'Дом',
   'pageView.lastEdited': 'Обновлено {{when}}',
   'pageView.loading': 'Загрузка страницы…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Подводя итог…',
   'pageView.summaryUnavailable': 'Функция сводки ИИ не настроена для этого рабочего пространства.',
   'pageView.tocTitle': 'На этой странице',
+  'pageView.trash': 'Корзина',
+  'pageView.trashing': 'Мусор...',
   'pageView.versionBadge': 'в{{version}}',
   'profile.badges.title': 'Значки',
   'profile.owned.title': 'Собственные страницы',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Рабочее пространство, профиль, уведомления, интеграции — все в одном спокойном интерфейсе.',
   'settingsPage.workspace.defaultLanding': 'Экран посадки по умолчанию',
   'settingsPage.workspace.landingHome': 'Дом',
+  'settingsPage.workspace.landingSpaces': 'Пространства',
   'settingsPage.workspace.subdomainLabel': 'Поддомен',
   'settingsPage.workspace.title': 'Рабочее пространство',
   'signup.eyebrow': 'Создать новое рабочее пространство',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин',
   'templates.subtitle':
     'Начинайте создавать страницу с трафарета, а не с чистого холста. Каждый шаблон жестко задает форму, чтобы вы могли сосредоточиться на содержании.',
+  'trash.confirmPurge': 'Очистить навсегда?',
+  'trash.confirmPurgeAria': 'Подтверждение: навсегда удалить {{title}}',
   'trash.daysUntilPurge': '{{days}} осталось дней',
   'trash.empty.body':
     'Удаленные страницы будут отображаться здесь в течение 30 дней, после чего будут удалены.',
@@ -151,5 +158,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Восстановление…',
   'versionHistory.subtitle': '{{count}} версии · выберите строку для просмотра различий',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Закрыть навигацию',
+  'wikiLayout.menu': 'Навигация',
+  'wikiLayout.openMenu': 'Открыть навигацию',
   'wikiLayout.searchPlaceholder': 'Поиск по сайту Cairn — страницы, комментарии…',
 }

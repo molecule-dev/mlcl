@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Біз бір кездері күн сайын шулы пошта жәшігінде тым көп сағат өткізген дизайнерлер мен инженерлердің таратылған командасымыз. Courier – біз өзіміз пайдаланғымыз келген пошта жәшігі.',
   'about.title': 'Мақсатты жұмысқа арналған электрондық пошта',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'help.cta.about': 'Меридиан туралы',
   'help.cta.pricing': 'Бағаларды қарау',
   'help.eyebrow': 'Анықтама орталығы',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Біз жиі еститін сұрақтарға жылдам жауаптар. Қандай да бір ақпарат жетіспейді ме? Параметрлерді ашып, қолданба ішіндегі кері байланыс формасын пайдаланыңыз немесе support@courier.example мекенжайына жазыңыз.',
   'help.title': 'Біз қалай көмектесе аламыз?',
   'landing.brand.scrollTop': 'Жоғарыға оралу',
+  'landing.copyright': '© {{year}} {{appName}} — Назар аудару үшін жасалған.',
   'landing.ctaBody': 'Түскі асқа дейін пошта жәшігін толтырған мыңдаған мамандарға қосылыңыз.',
   'landing.ctaTitle': 'Көбірек өңдеңіз, азырақ әрекет етіңіз.',
   'landing.eyebrow': 'Мақсатты жұмысқа арналған электрондық пошта',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Демонстрацияны көру',
   'landing.heroSubtitle':
     'Courier – ақпаратты өңдегісі келетін, оған жауап бергісі келмейтін білім қызметкерлеріне арналған тыныш үш панельді кіріс жәшігі.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Әлемдегі мақсатты топтар сенім артады',
   'landing.signIn': 'Кіру',
   'meridian.archive.empty': 'Мұрағат бос.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Жоба',
   'meridian.folder.count': '{{count}} хабарламалар',
+  'meridian.folder.delete': 'Жою',
   'meridian.folder.deleteForever': 'Біржола жою',
   'meridian.folder.restore': 'Кіріс жәшігіне жылжыту',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Мұнда әлі ешқандай хабарлама жоқ.',
   'meridian.inbox.loading': 'Жүктелуде…',
   'meridian.inbox.next': 'Келесі',
+  'meridian.inbox.noSender': '(жіберуші жоқ)',
   'meridian.inbox.noSubject': '(тақырыпсыз)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'Жазуды ашу',
   'meridian.inbox.previous': 'Алдыңғы',
   'meridian.inbox.replyFailed': 'Жауап сақталды, бірақ жеткізілмеді: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Тіркелгіңіз жоқ па?',
   'meridian.login.showPassword': 'Құпия сөзді көрсету',
   'meridian.message.toLine': '-ға {{recipients}}',
+  'meridian.notFound.body':
+    'Сіз іздеген бет табылмады. {{appName}} кіріс жәшігіне қайта оралыңыз, біз сізге дұрыс жолды көрсетеміз.',
   'meridian.notFound.eyebrow': '404 қатесі',
   'meridian.notFound.title': 'Бұл тақырып мұрағатталған.',
   'meridian.notFound.toInbox': 'Кіріс жәшігімді ашу',
@@ -135,18 +143,22 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Жұлдызша қосу',
   'meridian.thread.unstar': 'Жұлдызшаны алып тастаңыз',
   'meridian.time.yesterday': 'Кеше',
+  'meridian.topBar.openMenu': 'Навигация мәзірін ашу',
   'meridian.topBar.searchPlaceholder': 'Поштаны іздеу',
   'meridian.trash.empty': 'Себет бос.',
   'meridian.trash.title': 'Қоқыс',
   'nav.legal': 'Заңды',
   'planUpdated.description':
     'Жазылымыңыз енді белсенді және төлем жаңартылды. Жаңартылған Courier поштаңызға қош келдіңіз.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.heading': 'жобалар',
   'pricing.limit.emails': 'электрондық пошталар',
   'pricing.limit.folders': 'қалталар',
   'pricing.limit.labels': 'жапсырмалар',
   'privacy.collect.account':
     'Тіркелгі деректері: аты-жөні, электрондық пошта мекенжайы, хэштелген құпия сөз және тіркелген күні.',
+  'privacy.contact':
+    'Сұрақтарыңыз бар ма? privacy@courier.example электрондық поштасына хат жазыңыз.',
   'privacy.intro':
     'Бұл құпиялылық саясатында Courier қандай деректерді жинайтыны, не үшін жинайтыны, оны қалай қауіпсіз сақтайтынымыз және оған қатысты қандай таңдауыңыз бар екені түсіндіріледі. Біз заңдылыққа негізделудің орнына нақты болуға тырысамыз; егер бірдеңе түсініксіз болса, privacy@courier.example мекенжайына жазыңыз.',
   'privacy.lastUpdated': 'Соңғы жаңарту: 2026 жылғы 1 сәуір',
@@ -166,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Бұл шарттар сіздің Courier қызметін пайдалануыңызды реттейді. Біз арқылы тіркелгі жасау немесе электрондық пошта жіберу арқылы сіз оларды орындауға келісесіз. Біз адам шынымен орындай алатын ережелерді жазуға тырысамыз.',
   'terms.lastUpdated': 'Күшіне енуі: 2026 жылғы 1 сәуір',
+  'terms.linkPrivacy': 'Құпиялылық саясатымызды оқыңыз →',
   'terms.termination.body':
     'Сіз кез келген уақытта тіркелгіңізді жоя аласыз. Біз осы шарттарды бұзған тіркелгіні уақытша тоқтата аламыз; егер біз бұзсақ, себебін түсіндіреміз және алдымен деректеріңізді экспорттауға мүмкіндік береміз.',
   'terms.warranty.body':

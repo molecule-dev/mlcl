@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'O nás',
+  'appShell.closeNav': 'Zatvoriť navigáciu',
+  'appShell.openNav': 'Otvoriť navigáciu',
+  'common.dashboard': 'Prístrojová doska',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.eyebrow': 'Dnes v lige',
   'dashboard.loading': 'Vyhľadávanie výsledkov dnešného večera…',
   'dashboard.scoringLeaders': 'Lídri v bodovaní',
@@ -145,4 +149,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} pred d',
   'time.hoursAgo': '{{count}} pred hodinami',
   'time.minutesAgo': '{{count}} pred m',
+  'time.secondsAgo': 'pred {{count}} s',
 }

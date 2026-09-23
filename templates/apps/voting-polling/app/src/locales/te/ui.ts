@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'analytics.col.quorum': 'కోరం',
   'analytics.col.votes': 'ఓట్లు',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ఇంకా పెండింగ్‌లో ఉన్న ప్రశ్నలు ఏవీ లేవు.',
   'audienceQa.onStageEyebrow': 'ఇప్పుడు వేదికపై',
   'audienceQa.pollId': 'ప్రశ్నోత్తరాలు {{id}}',
+  'audienceQa.promote': 'ప్రోత్సహించండి',
   'audienceQa.queued': 'వరుసలో',
   'audienceQa.queueEyebrow': 'క్యూ',
   'ballot.eyebrow': 'మీ ఓటును వేయండి',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'మీరు ప్రస్తుతం దీనిపై ఉన్నారు {{plan}} ప్రణాళిక.',
   'billing.switch': 'స్విచ్',
   'billing.upgraded': 'నవీకరించబడింది {{plan}} పరిమితులు తక్షణమే వర్తింపజేయబడ్డాయి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'createPoll.addOption': 'ఎంపికను జోడించండి',
   'createPoll.anonymousHint':
     'ఆడిట్ లాగ్‌లో ఓటరు పేర్లు దాచబడ్డాయి; ఓట్ల లెక్కింపులు ప్రామాణికంగానే ఉన్నాయి.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.remember': '30 రోజుల పాటు నన్ను గుర్తుంచుకోండి',
   'login.subheading':
     'చర్చను ప్రారంభించండి, సమావేశాన్ని నిర్వహించండి మరియు ఫలితాన్ని ధృవీకరించండి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'notFound.body':
     'మీరు చేరుకోవడానికి ప్రయత్నించిన పేజీ మూసివేయబడింది లేదా తరలించబడింది. డాష్‌బోర్డ్‌కు తిరిగి వెళ్లండి లేదా కొత్త పోల్‌ను తెరవండి.',
   'notFound.eyebrow': 'ఈ మార్గంలో కోరం లేదు',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ఈ పోల్‌ను లోడ్ చేయలేకపోయాము.',
   'pollDetail.loading': 'పోల్ లోడ్ అవుతోంది…',
   'pollDetail.notFound': 'పోల్ కనుగొనబడలేదు.',
+  'pollDetail.openBallot': 'బహిరంగ బ్యాలెట్',
   'pollDetail.openLive': 'ప్రత్యక్ష ఫలితాలు',
   'pollDetail.pollId': 'పోల్ · {{id}}',
   'pollDetail.published':
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ఇమెయిల్ ద్వారా శోధించండి…',
   'voters.subheading':
     'అర్హుల జాబితాను క్రమబద్ధీకరించండి. వెయిటెడ్ బ్యాలెట్‌ల కోసం ఓటర్లను సంస్థల వారీగా వర్గీకరించండి.',
+  'votingPollingLayout.nav.analytics': 'విశ్లేషణలు',
+  'votingPollingLayout.nav.billing': 'బిల్లింగ్',
+  'votingPollingLayout.nav.createPoll': 'కొత్త పోల్',
+  'votingPollingLayout.nav.dashboard': 'డాష్‌బోర్డ్',
+  'votingPollingLayout.nav.notifications': 'నోటిఫికేషన్లు',
+  'votingPollingLayout.nav.settings': 'సెట్టింగ్‌లు',
+  'votingPollingLayout.nav.team': 'జట్టు',
+  'votingPollingLayout.nav.voters': 'ఓటర్లు',
+  'votingPollingLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
 }

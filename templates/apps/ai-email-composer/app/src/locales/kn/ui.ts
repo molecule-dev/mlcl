@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಕಥೆ',
   'aiSuggestionPanel.title': 'ಸಿಗ್ನೆಟ್ ಕೋಪಿಲಟ್',
   'analytics.col.open': 'ಮುಕ್ತ ದರ',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ಚೆಕ್ಔಟ್ ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…',
   'billing.subheading': 'ನೀವು ಕಳುಹಿಸುವ ವಿಧಾನಕ್ಕೆ ಹೊಂದಿಕೆಯಾಗುವ ಯೋಜನೆಯನ್ನು ಆರಿಸಿ.',
   'billing.unavailable': 'ಮಾರಾಟವನ್ನು ಸಂಪರ್ಕಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'compose.adjustingTone': 'ಆಯ್ದ ಸ್ವರದಲ್ಲಿ ಪುನಃ ಬರೆಯಲಾಗುತ್ತಿದೆ...',
   'compose.aiPromptPlaceholder':
     'ಉದಾ. "ಎರಡು ವಾರಗಳವರೆಗೆ ಯಾವುದೇ ಉತ್ತರವಿಲ್ಲದ ನಂತರ ಸಭ್ಯ ಅನುಸರಣೆ, ಅದನ್ನು ಚಿಕ್ಕದಾಗಿ ಇರಿಸಿ."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'ಏನನ್ನಾದರೂ ಕಳುಹಿಸಬೇಕೇ? ಸಿಗ್ನೆಟ್ ಕೆಲವೇ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಸಿದ್ಧಪಡಿಸಬಹುದು.',
   'dashboard.composeCtaLabel': 'ತ್ವರಿತ ಸಂಯೋಜನೆ',
   'dashboard.heading': 'ನಿಮ್ಮ ವಾರ, ಸಂಯೋಜಿಸಲಾಗಿದೆ',
+  'dashboard.loadFailed': 'ನಿಮ್ಮ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'dashboard.manageLibrary': 'ಲೈಬ್ರರಿಯನ್ನು ನಿರ್ವಹಿಸಿ →',
   'dashboard.recentEmpty':
     'ಇನ್ನೂ ಯಾವುದೇ ಕಳುಹಿಸಲಾಗಿಲ್ಲ — ನಿಮ್ಮ ಕಳುಹಿಸಿದ ಇಮೇಲ್‌ಗಳು ಇಲ್ಲಿ ಗೋಚರಿಸುತ್ತವೆ.',
@@ -146,6 +150,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'ನೀವು ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಅತಿಕ್ರಮಿಸದ ಹೊರತು ಸಿಗ್ನೆಟ್ ಈ ಟೋನ್ ಅನ್ನು ಬಳಸುತ್ತದೆ.',
   'signetLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'signetLayout.toggleMenu': 'ಮೆನು ಟಾಗಲ್ ಮಾಡಿ',
   'signup.emailLabel': 'ಇಮೇಲ್ ವಿಳಾಸ',
   'signup.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'signup.tagline':

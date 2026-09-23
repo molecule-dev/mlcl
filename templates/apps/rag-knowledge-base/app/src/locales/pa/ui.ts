@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.pageTitle': 'ਬਾਰੇ {{appName}}',
   'analytics.error': 'ਵਿਸ਼ਲੇਸ਼ਣ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'analytics.heading': 'ਪ੍ਰਾਪਤੀ ਵਿਸ਼ਲੇਸ਼ਣ',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ਕੋਈ ਕੀਮਤ ਪੱਧਰ ਸੰਰਚਿਤ ਨਹੀਂ ਕੀਤੇ ਗਏ।',
   'billing.plans.heading': 'ਯੋਜਨਾਵਾਂ',
   'billing.subheading': 'ਯੋਜਨਾ, ਵਰਤੋਂ, ਅਤੇ ਸਟ੍ਰਾਈਪ-ਪ੍ਰਬੰਧਿਤ ਚੈੱਕਆਉਟ।',
+  'common.confirm': 'ਪੁਸ਼ਟੀ ਕਰੋ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'documentCard.open': 'ਖੋਲ੍ਹੋ \\u2192',
   'documentDetail.back': "ਦਸਤਾਵੇਜ਼ਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'ਦਸਤਾਵੇਜ਼ ਸਿਰਲੇਖ',
   'documents.emptyAll':
     'ਹਾਲੇ ਕੋਈ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਹਨ। ਸਵਾਲ ਪੁੱਛਣਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਦਸਤਾਵੇਜ਼ ਅਪਲੋਡ ਕਰੋ।',
+  'documents.error.load': 'ਦਸਤਾਵੇਜ਼ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ।',
   'documents.heading': 'ਇੰਡੈਕਸ ਕੀਤੇ ਦਸਤਾਵੇਜ਼',
   'documents.loading': 'ਦਸਤਾਵੇਜ਼ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ...',
   'documents.metric.chunks': 'ਕੁੱਲ ਟੁਕੜੇ',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ...',
   'members.subheading': 'ਸਾਥੀਆਂ ਨੂੰ ਸੱਦਾ ਦਿਓ ਅਤੇ ਭੂਮਿਕਾਵਾਂ ਨਿਰਧਾਰਤ ਕਰੋ।',
   'members.tableHeading': 'ਰੋਸਟਰ',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'notFound.askCta': 'ਗਿਆਨ ਅਧਾਰ ਨੂੰ ਪੁੱਛੋ',
+  'notFound.body':
+    '{{app}} ਉਸ ਪੰਨੇ ਨੂੰ ਨਹੀਂ ਲੱਭ ਸਕਿਆ। ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਲਿੰਕ ਟੁੱਟ ਗਿਆ ਹੋਵੇ, ਜਾਂ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਪੰਨਾ ਰੀ-ਇੰਡੈਕਸ ਦੌਰਾਨ ਬੰਦ ਹੋ ਗਿਆ ਹੋਵੇ।',
   'notFound.eyebrow': 'ਪ੍ਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ',
   'notFound.title': 'ਸੂਚਕਾਂਕ ਵਿੱਚ ਅਜਿਹਾ ਕੋਈ ਹਿੱਸਾ ਨਹੀਂ ਹੈ।',
   'notifications.dismiss': 'ਖਾਰਜ ਕਰੋ',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'ਸਰੋਤ URL',
   'sources.empty.body': 'ਆਪਣੇ ਪਹਿਲੇ ਕਨੈਕਟਰ ਨੂੰ ਵਾਇਰ ਕਰਨ ਲਈ "ਸਰੋਤ ਸ਼ਾਮਲ ਕਰੋ" \'ਤੇ ਕਲਿੱਕ ਕਰੋ।',
   'sources.empty.title': 'ਅਜੇ ਕੋਈ ਸਰੋਤ ਨਹੀਂ।',
+  'sources.error.add': 'ਸਰੋਤ ਨਹੀਂ ਜੋੜਿਆ ਜਾ ਸਕਿਆ।',
   'sources.error.labelRequired': 'ਲੇਬਲ ਲੋੜੀਂਦਾ ਹੈ।',
   'sources.error.load': 'ਸਰੋਤ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ।',
   'sources.error.urlRequired': 'ਇਸ ਸਰੋਤ ਕਿਸਮ ਲਈ URL ਲੋੜੀਂਦਾ ਹੈ।',

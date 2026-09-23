@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '关于{{app}}',
   'about.plansTitle': '与你共同成长的计划',
   'brand.tagline': '每一秒',
   'clientDetail.back': '返回客户列表',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': '把每段合作关系都放在一处——项目、工时和未结发票。',
   'clients.title': '客户',
   'common.and': '和',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.activeProjects': '进行中项目',
   'dashboard.empty': '暂无记录。启动计时器以记录第一段会话。',
   'dashboard.greeting': '你好,{{name}}',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'invoices.noEntries': '该客户暂无可计费工时。先记录一些时间,或将现有记录分配给该客户的某个项目。',
   'invoices.save': '创建发票',
   'invoices.subtitle': '已记录工时会自动汇总为发票。',
+  'landing.copyright': '© {{year}} {{app}} 。每一秒，都经过精心安排。',
   'landing.ctaBody': '3 个项目以内永久免费。客户增加时再升级。',
   'landing.eyebrow': '为可计费工作而生的工时管理',
   'landing.featuresBody':
@@ -93,12 +96,16 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': '深受独立工作者信赖',
   'landing.testimonial.quote':
     '“我在 30 分钟内从 Toggl 迁移过来。仅预算消耗看板就已经让它物有所值——连续两周都没再低估报价。”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono。每一秒,皆有所记。',
   'login.brand.subtitle': '从你离开的地方继续计时——每一分钟都已对应到项目、客户和发票。',
   'login.brand.tracking': '计时中',
   'login.subheading': '从你离开的地方继续计时。',
+  'nav.closeMenu': '关闭导航菜单',
   'nav.insightsSection': '洞察',
   'nav.newEntry': '新建记录',
+  'nav.openMenu': '打开导航菜单',
+  'nav.primary': '主导航',
   'nav.workSection': '工作',
   'notFound.body': '看起来你点击的链接已经停止计时。返回控制台,我们将从那里继续计数。',
   'notFound.dashboard': '打开控制台',
@@ -196,6 +203,7 @@ export const ui: UiTranslations = {
   'timer.billable': '可计费',
   'timer.descriptionPlaceholder': '你正在处理什么?',
   'timer.idle': '空闲 — 开始计时',
+  'timer.noProject': '无项目',
   'timer.runningWithProject': '无项目',
   'timer.start': '开始计时',
   'timer.stop': '停止计时',

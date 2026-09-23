@@ -4,6 +4,7 @@ export const ui: UiTranslations = {
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
   'auth.signup.passwordsDoNotMatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'forgot.backToLogin': 'உள்நுழைவுக்குத் திரும்பு',
   'forgot.heading': 'மீட்பு கிட் தேடல்',
   'forgot.sending': 'அனுப்புகிறது...',
@@ -23,10 +24,18 @@ export const ui: UiTranslations = {
   'generator.historyLocal': 'வரலாறு இந்தச் சாதனத்தை விட்டு ஒருபோதும் நீங்காது.',
   'generator.length': 'நீளம்',
   'generator.metric.avgLen': 'சராசரி நீளம்',
+  'generator.metric.bits': 'பிட்கள்',
+  'generator.metric.chars': 'எழுத்துக்கள்',
   'generator.metric.currentEntropy': 'தற்போதைய என்ட்ரோபி',
   'generator.metric.last': 'மிக சமீபத்திய',
   'generator.metric.session': 'இந்த அமர்வில் உருவாக்கப்பட்டது',
+  'generator.passphraseHint':
+    'தொகுக்கப்பட்ட சொல் பட்டியலிலிருந்து இணைப்புக்கோடு மூலம் பிரிக்கப்பட்ட சொற்கள்.',
   'generator.pinLength': 'பின் நீளம்',
+  'generator.quality.fair': 'நியாயமான',
+  'generator.quality.strong': 'வலுவான',
+  'generator.quality.veryStrong': 'மிகவும் வலிமையான',
+  'generator.quality.weak': 'பலவீனமான',
   'generator.recent': 'சமீபத்தில் உருவாக்கப்பட்ட',
   'generator.subhead':
     'யூகிக்க முடியாத கடவுச்சொற்கள், ஒருமுறை பயன்படுத்தும் குறியீடுகள் மற்றும் கடவுச்சொற்றொடர்கள் ஆகிய அனைத்தையும் உங்கள் சாதனத்திலேயே உருவாக்கிக்கொள்ளுங்கள்.',
@@ -46,7 +55,11 @@ export const ui: UiTranslations = {
   'itemDetail.strengthHint': '{{length}} கதாபாத்திரங்கள்',
   'itemDetail.unfavorite': 'விருப்பமில்லாத',
   'landing.features.heading': 'மென்பொருளாக வெளிப்பட்ட படிகம் போன்ற பாதுகாப்பு.',
+  'landing.footer.copyright':
+    '© {{year}} {{appName}} பாதுகாப்பு. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
   'landing.footer.signIn': 'உள்நுழை',
+  'landing.hero.body':
+    'ஜீரோ-நாலேஜ் என்க்ரிப்ஷன் மூலம் உங்கள் டிஜிட்டல் வாழ்க்கையைப் பாதுகாத்துக் கொள்ளுங்கள். {{appName}} உங்கள் கடவுச்சொற்களை நீங்கள் கையில் வைத்திருக்காமலேயே, ஒவ்வொரு சாதனத்திலும் அவற்றை உருவாக்கி, சேமித்து, தானாகவே நிரப்புகிறது.',
   'landing.hero.eyebrow': 'நம்பிக்கைக்கு முன்னுரிமை அளிக்கும் கடவுச்சொல் பாதுகாப்பு',
   'landing.hero.headline.line1': 'உங்கள் ரகசியங்கள்,',
   'landing.hero.headline.line2': 'மூடப்பட்டது.',
@@ -54,7 +67,9 @@ export const ui: UiTranslations = {
     'கடைசியாக 2 நிமிடங்களுக்கு முன்பு ஒத்திசைக்கப்பட்டது · மேக், ஐபோன், இணையம்',
   'landing.hero.preview.title':
     'ஒவ்வொரு மாற்றத்தின் போதும் உள்ளூரில் மீண்டும் மறைகுறியாக்கம் செய்யப்படுகிறது',
+  'landing.hero.primaryCta': '{{appName}} இலவசமாகப் பெறுங்கள்',
   'landing.hero.secondaryCta': 'அது எப்படி வேலை செய்கிறது என்று பாருங்கள்',
+  'landing.nav.cta': '{{appName}} இலவசமாகப் பெறுங்கள்',
   'landing.nav.signIn': 'உள்நுழை',
   'landing.trust.heading': 'எண்களின் அடிப்படையில் நம்பிக்கை',
   'login.orContinue': 'அல்லது தொடரவும்',
@@ -66,6 +81,7 @@ export const ui: UiTranslations = {
   'newItem.breadcrumb.vault': 'பெட்டகம்',
   'newItem.encryptedHint':
     'இந்தச் சாதனத்தை விட்டு வெளியேறும் முன்பே உங்கள் முதன்மைத் திறவுகோலைக் கொண்டு குறியாக்கம் செய்யப்படும்.',
+  'newItem.eyebrow': 'பெட்டகம் · புதிய பதிவு',
   'newItem.folder': 'கோப்புறை',
   'newItem.folder.family': 'குடும்பம்',
   'newItem.folder.personal': 'தனிப்பட்ட',
@@ -79,6 +95,8 @@ export const ui: UiTranslations = {
   'newItem.subhead':
     'ஒரு வகையைத் தேர்ந்தெடுத்து, உங்களிடம் உள்ளதை நிரப்பவும், மீதமுள்ளவை உங்கள் சாதனத்திலிருந்து வெளியேறுவதற்கு முன்பு நாங்கள் அதை உங்கள் சாதனத்திலேயே குறியாக்கம் செய்வோம்.',
   'newItem.uri': 'தளம் / URI',
+  'notFound.body':
+    '{{appName}} அந்தப் பக்கத்தைக் கண்டுபிடிக்க முடியவில்லை. அது நகர்த்தப்பட்டிருக்கலாம், நீக்கப்பட்டிருக்கலாம், அல்லது இந்த வால்ட்டில் ஒருபோதும் இருந்திருக்காது.',
   'notFound.eyebrow': 'பெட்டகத்தில் தொலைந்து போனது',
   'notFound.heading': 'அந்த நுழைவாயில் இறுக்கமாக மூடப்பட்டுள்ளது.',
   'notFound.vault': 'பெட்டகத்தைத் திறக்கவும்',
@@ -86,6 +104,7 @@ export const ui: UiTranslations = {
   'notif.empty': 'இன்னும் எந்தச் செயல்பாடும் இல்லை — உங்கள் பெட்டகம் அமைதியாக உள்ளது.',
   'notif.finding.body': 'சிக்கல் கண்டறியப்பட்டது {{name}} இப்போதே அதைச் சரிசெய்யுங்கள்.',
   'notif.finding.title': 'பாதுகாப்பு கண்டறிதல்',
+  'notif.invite.body': 'நீங்கள் {{permission}} அணுகலுடன் அழைக்கப்பட்டீர்கள்.',
   'notif.invite.title': 'வால்ட் பகிர்வு அழைப்பு',
   'notif.old.title': 'காலாவதியான கடவுச்சொல்',
   'notif.reused.title': 'மீண்டும் பயன்படுத்தப்பட்ட கடவுச்சொல்',
@@ -110,11 +129,16 @@ export const ui: UiTranslations = {
   'profile.recoveryHeading': 'மீட்பு கிட்',
   'profile.recoveryNone': 'இன்னும் மீட்புத் தொகுப்பு இல்லை — கீழே ஒன்றை உருவாக்கவும்.',
   'profile.regenerate': 'புதிய சாவியை உருவாக்கு',
+  'profile.tier': '{{appName}} {{plan}}',
   'reset.confirm': 'புதிய முதன்மை கடவுச்சொல்லை உறுதிப்படுத்தவும்',
   'reset.encrypting': 'பெட்டகத்தை மீண்டும் குறியாக்கம் செய்தல்...',
   'reset.heading': 'புதிய முதன்மை கடவுச்சொல்லை அமைக்கவும்',
   'reset.signInLink': 'உள்நுழைவுக்குத் திரும்பு',
+  'reset.subhead':
+    'வால்ட்டில் உள்ள அனைத்து உருப்படிகளும் உள்ளூரிலேயே மீண்டும் மறைகுறியாக்கப்படும் — இதற்குச் சிறிது நேரம் ஆகலாம்.',
   'reset.submit': 'பெட்டகத்தை மீண்டும் குறியாக்கம் செய்யவும்',
+  'reset.warning':
+    'வால்ட்டில் உள்ள அனைத்து உருப்படிகளும் உள்ளூரிலேயே மீண்டும் மறைகுறியாக்கப்படும் — இதற்குச் சிறிது நேரம் ஆகலாம்.',
   'security.dismiss': 'நிராகரி',
   'security.empty':
     'செயலில் உள்ள கண்டறிதல்கள் எதுவும் இல்லை. வால்ட்டை மீண்டும் ஸ்கேன் செய்ய முயற்சிக்கவும்.',
@@ -178,6 +202,8 @@ export const ui: UiTranslations = {
   'signup.recoveryEmail': 'மீட்பு மின்னஞ்சல் (விருப்பத்திற்குரியது)',
   'signup.sealing': 'பெட்டகத்தை மூடுதல்...',
   'signup.signIn': 'உள்நுழை',
+  'signup.subhead':
+    'உங்கள் முதன்மைக் கடவுச்சொல் குறியாக்கத் திறவுகோலை உள்ளூரிலேயே பெறுகிறது — {{appName}} உங்கள் பெட்டகத்தை ஒருபோதும் படிக்க முடியாது.',
   'signup.submit': 'என் பெட்டகத்தை மூடு',
   'signup.warning':
     'உங்கள் முதன்மை கடவுச்சொல்லை மீட்டெடுக்க முடியாது — கவனமாகத் தேர்ந்தெடுக்கவும்.',
@@ -208,9 +234,14 @@ export const ui: UiTranslations = {
   'vaultHeroCard.title': 'சீல் செய்யப்பட்ட பொருட்கள்',
   'vaultItemRow.favorite': 'விருப்பமான',
   'vaultItemRow.shared': 'பகிரப்பட்டது',
+  'vaultItemRow.strengthNotApplicable': 'பொருந்தாது',
   'vaultSidebar.aria': 'பெட்டக வழிசெலுத்தல்',
   'vaultSidebar.categoriesHeading': 'பிரிவுகள்',
   'vaultSidebar.foldersHeading': 'கோப்புறைகள்',
+  'vaultSidebar.mobileNavClose': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'vaultSidebar.mobileNavOpen': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'vaultSidebar.searchAria': 'தேடல் பெட்டகம்',
   'vaultSidebar.searchPlaceholder': 'பெட்டகத்தைத் தேடு...',
   'vaultSidebar.secured': 'பெட்டகம் பாதுகாக்கப்பட்டது',
+  'vaultSidebar.strength': 'ஒட்டுமொத்த வலிமை {{strength}} %',
 }

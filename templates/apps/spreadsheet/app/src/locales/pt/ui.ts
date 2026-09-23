@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
   'about.pageTitle': 'Sobre {{name}}',
   'auth.footer.about': 'Sobre {{name}}',
   'authHeader.subtitle': 'Faça login para manter seus números em ordem.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Sem operação',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Excluir "{{name}}"?',
   'automations.empty.headline': 'Ainda não há automações',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Gatilhos e ações em todas as pastas. Cada execução registra uma linha auditável.',
   'automations.toggle': 'Alternar {{name}}',
+  'automations.trigger.dailySchedule': 'Horário diário',
+  'automations.trigger.rowCreated': 'Linha criada',
+  'automations.trigger.rowUpdated': 'Linha atualizada',
   'billing.empty': 'Nenhum plano disponível.',
   'billing.error.priceMissing':
     'Nenhum preço Stripe configurado para este nível. Defina as variáveis de ambiente STRIPE_*_PRICE_ID.',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'Gráficos',
   'charts.kpi.totalCharts': 'Total de gráficos',
   'charts.list.empty': 'Nenhum gráfico ainda.',
+  'charts.namePlaceholder': 'Tendência de receita',
   'charts.newChart': 'Novo gráfico',
   'charts.primary.eyebrow': 'Gráficos por tipo',
   'charts.primary.headline': 'Visão geral do espaço',
   'charts.subhead': 'Visualizações ao vivo ligadas à sua grade — re-renderizam a cada edição.',
+  'common.goToDashboard': 'Ir para o Painel',
   'editor.addColumn': 'Adicionar coluna',
+  'editor.addDialogTitle': 'Adicionar coluna',
   'editor.addRow': 'Adicionar linha',
   'editor.addSheet': 'Adicionar planilha',
   'editor.back': 'Voltar às pastas',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. O Calcite é a grade primeiro-fórmulas, multi-visão e em tempo real que analistas e times de finanças escolhem primeiro.',
   'landing.nav.formulas': 'Fórmulas',
+  'login.noAccount': 'É novo(a) em {{name}} ?',
+  'login.signIn': 'Faça login em {{name}}',
   'login.signUp': 'Criar um espaço',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Abrir menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Esta linha nunca existiu.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automações nativas · gatilhos por webhook e cron',
   'signup.creating': 'Provisionando espaço…',
   'signup.cta': 'Criar meu espaço',
+  'signup.haveAccount': 'Já está em {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Crie sua primeira pasta em 30 segundos',
   'team.col.activity': 'Convidado em',

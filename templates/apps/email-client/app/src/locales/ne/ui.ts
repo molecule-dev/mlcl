@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'हामी डिजाइनर र इन्जिनियरहरूको वितरित टोली हौं जसले एक पटक हरेक दिन धेरै घण्टा कोलाहलपूर्ण मेलबक्समा बिताउँथे। मेरिडियन भनेको हामीले आफैं प्रयोग गर्न चाहेको इनबक्स हो।',
   'about.title': 'केन्द्रित कामको लागि इमेल',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'help.cta.about': 'मेरिडियनको बारेमा',
   'help.cta.pricing': 'मूल्य निर्धारण हेर्नुहोस्',
   'help.eyebrow': 'मद्दत केन्द्र',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'हामीले धेरै सुन्ने प्रश्नहरूको द्रुत जवाफ। केही छुटेको छ? सेटिङहरू खोल्नुहोस् र इन-एप प्रतिक्रिया फारम प्रयोग गर्नुहोस्, वा support@courier.example मा लेख्नुहोस्।',
   'help.title': 'हामी कसरी मद्दत गर्न सक्छौं?',
   'landing.brand.scrollTop': 'माथि फर्कनुहोस्',
+  'landing.copyright': '© {{year}} {{appName}} — ध्यान केन्द्रित गर्नको लागि निर्मित।',
   'landing.ctaBody': 'खाजा अघि आफ्नो इनबक्स समाप्त गर्ने हजारौं पेशेवरहरूसँग सामेल हुनुहोस्।',
   'landing.ctaTitle': 'धेरै प्रशोधन गर्नुहोस्, कम प्रतिक्रिया दिनुहोस्।',
   'landing.eyebrow': 'केन्द्रित कामको लागि इमेल',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'डेमो हेर्नुहोस्',
   'landing.heroSubtitle':
     'मेरिडियन एक शान्त तीन-फलक इनबक्स हो जुन ज्ञानकर्मीहरूका लागि बनाइएको हो जो जानकारी प्रशोधन गर्न चाहन्छन्, प्रतिक्रिया दिन चाहँदैनन्।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'विश्वभरका केन्द्रित टोलीहरूद्वारा विश्वसनीय',
   'landing.signIn': 'नेप्बेमा साइन-इन गर्नुहोस्',
   'meridian.archive.empty': 'अभिलेख खाली छ।',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'मस्यौदा',
   'meridian.folder.count': '{{count}} सन्देशहरू',
+  'meridian.folder.delete': 'मेटाउनुहोस्',
   'meridian.folder.deleteForever': 'स्थायी रूपमा मेटाउनुहोस्',
   'meridian.folder.restore': 'इनबक्समा सार्नुहोस्',
   'meridian.forgot.subtitle':
@@ -84,7 +88,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'यहाँ अहिलेसम्म कुनै सन्देशहरू छैनन्।',
   'meridian.inbox.loading': 'लोड हुँदै...',
   'meridian.inbox.next': 'अर्को',
+  'meridian.inbox.noSender': '(प्रेषक छैन)',
   'meridian.inbox.noSubject': '(विषय छैन)',
+  'meridian.inbox.ofTotal': '{{total}} मध्ये {{current}}',
   'meridian.inbox.openCompose': 'रचना खोल्नुहोस्',
   'meridian.inbox.previous': 'अघिल्लो',
   'meridian.inbox.replyFailed': 'जवाफ सुरक्षित गरियो तर डेलिभरी असफल भयो: {{error}}',
@@ -97,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'खाता छैन?',
   'meridian.login.showPassword': 'पासवर्ड देखाउनुहोस्',
   'meridian.message.toLine': 'लाई {{recipients}}',
+  'meridian.notFound.body':
+    'तपाईंले खोजिरहनुभएको पृष्ठ फेला परेन। आफ्नो {{appName}} इनबक्समा फर्कनुहोस् र हामी तपाईंलाई सही बाटोमा ल्याउनेछौं।',
   'meridian.notFound.eyebrow': 'त्रुटि ४०४',
   'meridian.notFound.title': 'यो थ्रेड अभिलेखमा राखिएको थियो।',
   'meridian.notFound.toInbox': 'मेरो इनबक्स खोल्नुहोस्',
@@ -132,18 +140,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'तारा थप्नुहोस्',
   'meridian.thread.unstar': 'तारा हटाउनुहोस्',
   'meridian.time.yesterday': 'हिजो',
+  'meridian.topBar.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'meridian.topBar.searchPlaceholder': 'मेल खोज्नुहोस्',
   'meridian.trash.empty': 'रद्दीको टोकरी खाली छ।',
   'meridian.trash.title': 'रद्दीटोकरी',
   'nav.legal': 'कानुनी',
   'planUpdated.description':
     'तपाईंको सदस्यता अब सक्रिय छ र तपाईंको बिलिङ अद्यावधिक गरिएको छ। तपाईंको ताजा मेरिडियन इनबक्समा स्वागत छ।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.heading': 'मस्यौदाहरू',
   'pricing.limit.emails': 'इमेलहरू',
   'pricing.limit.folders': 'फोल्डरहरू',
   'pricing.limit.labels': 'लेबलहरू',
   'privacy.collect.account':
     'खाता डेटा: नाम, इमेल ठेगाना, ह्यास गरिएको पासवर्ड, र तपाईंले साइन अप गर्नुभएको मिति।',
+  'privacy.contact': 'प्रश्नहरू छन्? privacy@courier.example मा इमेल गर्नुहोस्।',
   'privacy.intro':
     'यो गोपनीयता नीतिले मेरिडियनले कुन डेटा सङ्कलन गर्छ, हामी किन सङ्कलन गर्छौं, हामी यसलाई कसरी सुरक्षित राख्छौं, र यसमाथि तपाईंसँग के विकल्पहरू छन् भनेर व्याख्या गर्दछ। हामी कानुनी हुनुको सट्टा विशिष्ट हुने लक्ष्य राख्छौं; यदि केहि अस्पष्ट छ भने, privacy@courier.example मा लेख्नुहोस्।',
   'privacy.lastUpdated': 'अन्तिम अपडेट: अप्रिल १, २०२६',
@@ -163,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'यी सर्तहरूले तपाईंको मेरिडियनको प्रयोगलाई नियन्त्रण गर्छन्। खाता सिर्जना गरेर वा हामी मार्फत इमेल पठाएर तपाईं तिनीहरूद्वारा बाध्य हुन सहमत हुनुहुन्छ। हामी कुनै व्यक्तिले वास्तवमा पालना गर्न सक्ने नियमहरू लेख्ने प्रयास गर्छौं।',
   'terms.lastUpdated': 'प्रभावकारी: अप्रिल १, २०२६',
+  'terms.linkPrivacy': 'हाम्रो गोपनीयता नीति पढ्नुहोस् →',
   'terms.termination.body':
     'तपाईंले जुनसुकै बेला आफ्नो खाता मेटाउन सक्नुहुन्छ। हामी यी सर्तहरू उल्लङ्घन गर्ने खातालाई निलम्बन गर्न सक्छौं; यदि हामीले त्यसो गर्यौं भने, हामी कारण व्याख्या गर्नेछौं र पहिले तपाईंलाई आफ्नो डेटा निर्यात गर्न दिनेछौं।',
   'terms.warranty.body':

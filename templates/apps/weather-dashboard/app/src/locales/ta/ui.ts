@@ -35,7 +35,9 @@ export const ui: UiTranslations = {
   'billing.kpi.retentionUnlimited': 'வரம்பற்ற',
   'billing.plansEyebrow': 'ஒரு திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'billing.plansHeading': 'இலவசம், புரோ மற்றும் குழு',
+  'billing.subheading': 'நீங்கள் தற்போது {{plan}} திட்டத்தில் இருக்கிறீர்கள்.',
   'billing.switch': 'சுவிட்ச்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'compare.activityHeading': 'செயல்பாட்டுத் தீர்ப்புகள்',
   'compare.empty.title': 'ஒப்பிடுவதற்கு குறைந்தபட்சம் இரண்டு இடங்களைச் சேர்க்கவும்.',
   'compare.eyebrow': 'அருகருகே',
@@ -137,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'உயர்',
   'trends.summary.low.label': 'குறைந்த',
   'trends.summary.points.label': 'நாட்கள்',
+  'weatherDashboardLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'weatherHeroCard.updated': 'புதுப்பிக்கப்பட்டது {{time}}',
 }

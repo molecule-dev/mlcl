@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'auth.fields.newPassword': 'Pasahitz berria',
   'collectionDetail.addImage': 'Bildumarako asmatu',
   'collectionDetail.backCta': 'Bildumetara itzuli',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood-boardak, laburpenak eta serie jarraituak',
   'collections.title': 'Bildumak',
   'collections.untitled': 'Izenbururik gabe · {{stamp}}',
+  'common.closeMenu': 'Itxi menua',
+  'common.dismiss': 'Baztertu',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.openMenu': 'Ireki nabigazio menua',
   'credits.eyebrow': '{{plan}} plana',
   'credits.renewsCopy': 'Plana berritzen da {{date}}',
   'credits.trail': 'Ametsaldia · {{plan}} maila',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Belaunaldiaren jarduera, partekatzea eta kreditu alertak hemen agertuko dira.',
   'notifications.empty.title': 'Ez dago ezer salatzeko',
   'notifications.subtitle': 'Belaunaldiko gertaerak egunaren arabera taldekatuta',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.limits.gallery': '{{count}} galeria',
   'privacy.collect.body':
     'Izena ematen duzunean, zure izena, helbide elektronikoa eta pasahitz hash bat biltzen ditugu. Reverie erabiltzen duzun bitartean, bidaltzen dituzun eskaerak, zuretzat sortzen ditugun irudiak, gordetzen dituzun estiloak eta bildumak, eta metadatuak gordetzen ditugu, hala nola erabilitako eredua, belaunaldiaren denbora-zigiluak eta kreditu saldoa.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Gorde pasahitz berria',
   'reset.submitting': 'Pasahitza eguneratzen…',
   'settings.account.handle': 'Heldulekua',
+  'settings.account.lastSaved': 'Profil aktiboa · {{name}}',
   'settings.account.saved': 'Profila gordeta',
   'settings.account.saveFailed': 'Ezin izan da profila gorde',
   'settings.account.title': 'Sortzailearen profila',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Irudi berria',
   'sidebar.secondary': 'Bigarren mailako nabigazioa',
   'signup.failed': 'Izen-ematea huts egin du. Saiatu berriro.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Hasi zure ametsaldia',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Sortu kontu bat eta erreklamatu 120 kreditu doan.',
   'styles.empty':
     'Ez dago estilo aurrezarpenik oraindik — lehen aldiz saioa hasi ondoren agertuko dira.',

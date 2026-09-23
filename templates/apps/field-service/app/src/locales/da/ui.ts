@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Kunder',
   'customers.loadError': 'Kunne ikke indlæse kunder.',
   'customers.loading': 'Indlæser…',
+  'customers.new.address': 'Serviceadresse',
   'customers.new.email': 'E-mail',
   'customers.new.error': 'Kunne ikke tilføje kunde.',
   'customers.new.heading': 'Ny kunde',

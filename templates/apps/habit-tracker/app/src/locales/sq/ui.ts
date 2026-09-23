@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.pageTitle': 'Rreth {{app}}',
   'achievementBadgeCard.unlockedOn': 'I zhbllokuar {{date}}',
   'achievements.loadError': 'Ngarkimi i arritjeve dështoi.',
   'achievements.subheading': '{{unlocked}} e {{total}} i hapur',
   'achievements.unlockedOn': 'I zhbllokuar {{date}}',
+  'auth.legalConsent': 'Duke vazhduar, ju pranoni',
   'calendar.empty': 'Krijo një zakon për të parë kalendarin tënd.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Zakon',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Rrjeti i zakoneve',
   'category.${c.category}': '{{count}} zakone',
   'common.and': 'dhe',
+  'common.goToDashboard': 'Shko te paneli',
   'consistencyHeatmap.ariaLabel': 'Harta e nxehtësisë së qëndrueshmërisë ditore',
   'consistencyHeatmap.caption': 'E fundit {{weeks}} javë',
   'consistencyHeatmap.lessLabel': 'Më pak',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Shikojeni drejtpërdrejt',
   'landing.heroSubtitle':
     'Ndërtoni zakone ashtu siç ato qëndrojnë në të vërtetë: angazhime të vogla, risi të përditshme dhe kënaqësia viscerale e një zinxhiri të gjatë të pandërprerë.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Një vështrim brenda Streak',
   'landing.previewMotivation': 'Nëntë vija të gjalla. Mbaji të gjitha ngrohtë.',
   'login.eyebrow': 'Merrni zinxhirin',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Bëje të vogël. Bëje specifike. Eja nesër.',
   'newHabit.timeLabel': 'Ora e kujtesës',
   'notifications.markError': 'Nuk mund të shënoheshin të gjitha si të lexuara.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.entries': '{{count}} hyrjet',
+  'pricing.heading': 'Zgjidhni planin tuaj {{app}}',
   'profile.action.plan': 'Menaxho abonimin',
   'profile.action.settings': 'Cilësimet e llogarisë',
   'profile.bioEmpty': 'Shto një biografi të shkurtër te Cilësimet për të prezantuar veten.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Njoftim i përditshëm në mëngjes (8:00)',
   'settings.reminders.heading': 'Kujtesa',
   'settings.reminders.weekly': 'Përmbledhje javore (mbrëmjet e së dielës)',
+  'settings.revokeDeviceWarning': 'Qasja e kësaj pajisjeje do të hiqet së shpejti. Të dilet?',
   'settings.signOutDevice': 'Dil nga llogaria',
   'settings.streaks.freezesPerWeek': 'Ngrirje në javë',
   'settings.streaks.gracePeriod': 'Periudhë hiri 6-orëshe pas mesnatës',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktiv',
   'streakHeroCard.daysSuffix': 'ditë',
   'streakHeroCard.title': 'Seria më e gjatë aktive',
+  'streakLayout.closeMenu': 'Mbyll menynë e navigimit',
+  'streakLayout.openMenu': 'Hap menynë e navigimit',
   'streakLayout.primaryNavLabel': 'Navigimi kryesor',
 }

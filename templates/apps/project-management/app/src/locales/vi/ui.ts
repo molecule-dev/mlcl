@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'accountSettings.confirmEmailLabel': 'Nhập DELETE để xác nhận',
   'accountSettings.deleteError': 'Không thể xóa tài khoản.',
   'accountSettings.passwordError': 'Không thể thay đổi mật khẩu.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Không có hạn chót nào sắp tới.',
   'dashboard.upcomingTitle': 'Các hạn chót sắp tới',
   'deviceSettings.unknownDevice': 'Thiết bị không xác định',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Hỗ trợ',
   'forgotPassword.error': 'Không thể gửi liên kết đặt lại.',
   'forgotPassword.subtitle': 'Vui lòng nhập email và chúng tôi sẽ gửi liên kết đặt lại.',
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Email hoặc mật khẩu không hợp lệ.',
   'login.pageTitle': 'Đăng nhập',
   'login.signIn': 'Đăng nhập vào Forge',
+  'login.subtitle': 'Đăng nhập để theo dõi tiến độ dự án của bạn.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'nav.calendar': 'Lịch',
   'nav.legal': 'Pháp lý',
   'nav.myTasks': 'My Tasks',

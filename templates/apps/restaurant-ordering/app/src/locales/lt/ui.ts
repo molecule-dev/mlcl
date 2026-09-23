@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Apie {{app}}',
   'analytics.avgCheckLabel': 'Vid. patikrinimas',
   'analytics.busiestHour': 'Užimčiausia valanda',
   'analytics.coversToday': 'Šiandienos viršeliai',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Arbatpinigiai (vid.)',
   'analytics.topItems': 'Šiandien populiariausios prekės',
   'authShell.eyebrow': 'Sveiki sugrįžę į tarnybą',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Šiltas ir greitas pardavimo taškas svetingumo komandoms. Prisijunkite prie savo virtuvės ir tęskite ten, kur baigėte.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'arba {{price}}',
   'billing.priceUnavailable': 'Šiam planui nėra sukonfigūruotos kainos.',
   'billing.updated': 'Planas atnaujintas.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'customerDetail.book': 'Pridėti rezervaciją',
   'customerDetail.col.table': 'Lentelė',
   'customerDetail.confirmDelete': 'Ištrinti šį svečio įrašą?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Prieinamumas',
   'menuItemDetail.available': 'Galimas šįvakar',
   'menuItemDetail.backToMenu': 'Atgal į meniu',
+  'menuItemDetail.confirmDelete': 'Ištrinti šį meniu elementą?',
   'menuItemDetail.delete': 'Ištrinti elementą',
   'menuItemDetail.deleteError': 'Ištrinti nepavyko. Bandykite dar kartą.',
   'menuItemDetail.dietary': 'Maistinės etiketės',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · Redaguoti nuotrauką, modifikatorius, dietą ir kainas.',
   'menuItemDetail.untitled': 'Be pavadinimo elementas',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'notFound.heading': 'Šis stalas nėra ant grindų.',
   'notFound.subheading': 'Puslapis, kurio ieškojote, yra kitur arba niekada neegzistavo.',
+  'notFound.toLanding': '{{app}} pagrindinis puslapis',
   'notifications.markError': 'Nepavyko pažymėti visų kaip perskaitytų.',
   'orderDashboard.activeDelta': 'Tiesiogiai dabar',
   'orderDashboard.activeLabel': 'Aktyvūs užsakymai',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Rodyti slaptažodį',
   'resetPassword.subtitle': 'Įveskite naują slaptažodį, kad atgautumėte prieigą prie virtuvės.',
   'resetPassword.tokenLabel': 'Atstatyti prieigos raktą',
+  'restaurantOrderingLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'revenueHeroCard.activeOrders': '{{count}} aktyvus',
   'revenueHeroCard.change': '{{sign}} {{amount}} palyginti su vakar',
   'revenueHeroCard.title': 'Šiandienos pajamos',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restorano pavadinimas',
   'tableDetail.activeOrders': 'Aktyvūs užsakymai',
   'tableDetail.backToFloor': 'Aukšto planas',
+  'tableDetail.confirmDelete': 'Ištrinti šią lentelę?',
   'tableDetail.delete': 'Ištrinti',
   'tableDetail.deleteError': 'Nepavyko ištrinti lentelės.',
   'tableDetail.heading': 'Lentelė {{label}}',

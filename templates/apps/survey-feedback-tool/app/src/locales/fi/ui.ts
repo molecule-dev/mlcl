@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tietoa {{app}}sta',
   'analytics.back': 'Kyselyn yleiskatsaus',
   'analytics.kpiNps': 'NPS-pisteet',
   'analytics.kpiNpsTrend': 'Promoottorit {{p}} % · Arvostelijat {{d}} %',
@@ -30,8 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Ominaisuudet',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Kyselyn otsikko',
+  'common.goToDashboard': 'Siirry etusivulle',
   'forgotPassword.failed': 'Palautussähköpostin lähettäminen epäonnistui. Yritä uudelleen.',
   'forgotPassword.subheading': 'Anna sähköpostiosoitteesi, niin lähetämme sinulle palautuslinkin.',
+  'forgotPassword.successBody':
+    'Jos tili vastaa sähköpostiosoitetta {{email}} , nollauslinkki on matkalla. Tarkista postilaatikkosi ja roskapostikansiosi.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Kaikki äänet ovat tervetulleita.',
   'landing.footer.startTrial': 'Aloita kokeilu',
   'landing.hero.badge': 'Kyselyt, NPS ja palaute yhdessä paikassa',
   'landing.hero.subtitle':
@@ -47,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Hinnoittelu',
   'landing.pricing.perMonth': '/kk',
   'landing.pricing.popular': 'Suosituin',
+  'landing.pricing.subtitle':
+    'Jokainen paketti sisältää kyselylomakkeen luontityökalun, julkiset jakolinkit ja NPS-analytiikan. Aloittamiseen ei tarvita luottokorttia.',
+  'landing.pricing.title': 'Aloita ilmaiseksi, skaalaa sitä mukaa, kun teet.',
   'landing.sample.eyebrow': 'NPS yhdellä silmäyksellä',
   'landing.sample.title': 'Arvostelijat, passiivit, kannattajat – heti luettavissa.',
   'login.failed': 'Kirjautuminen epäonnistui. Yritä uudelleen.',
@@ -54,6 +62,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Näytä salasana',
   'login.signUpLink': 'Aloita ilmainen kokeilujakso',
   'login.subheading': 'Kirjaudu sisään jatkaaksesi yleisösi kuuntelemista.',
+  'notFound.body': 'Etsimääsi sivua ei ole olemassa {{app}} -palvelussa. Palataanpa kyselyihisi.',
   'notFound.cta': 'Takaisin kyselyihin',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Tämä kysely ajautui jonosta pois.',
@@ -70,6 +79,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiivinen 7–8',
   'npsDistributionBar.promoter': 'Promoottori 9–10',
   'profile.identity.description': 'Julkinen tiimillesi ja laatimissasi kyselyissä.',
+  'profile.identity.emailRequired': 'Anna sähköpostiosoite.',
   'profile.identity.saveCta': 'Tallenna nimi',
   'profile.password.current': 'Nykyinen salasana',
   'profile.password.fillFields': 'Anna sekä nykyinen että uusi salasana.',
@@ -174,6 +184,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} kysymykset',
   'templates.subheading':
     'Valitse taisteluissa testattu aloitusversio — jokainen mallipohja on esisäädetty järkevillä oletusasetuksilla, esimerkkilogiikalla ja selkeällä mobiiliasettelulla.',
+  'thankYou.body':
+    'Vastauksesi on tallennettu. {{app}} lisää sen seuraavaan analytiikkapäivitykseen.',
   'thankYou.eyebrow': 'Vastaus vastaanotettu',
   'thankYou.heading': 'Kiitos – äänelläsi on väliä.',
   'thankYou.home': 'Käy Gaugeissa',

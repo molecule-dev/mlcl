@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O {{app}}',
+  'appNav.mobileLabel': 'Nawigacja główna',
+  'appNav.primaryLabel': 'Nawigacja główna',
   'billing.actions.confirmCancel':
     'Czy chce Pan/Pani anulować subskrypcję? Można ją wznowić w dowolnym momencie.',
   'billing.actions.paused': 'Subskrypcja wstrzymana.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Każdy poziom to historia w małym nakładzie. Proszę dodać jedną do kolejki lub wymienić ją w nadchodzącym miesiącu.',
   'boxThemeCard.perMonth': '/ miesiąc',
+  'common.goToDashboard': 'Przejdź do panelu',
   'customize.eyebrow': 'Niech będzie Pana/Pani',
   'customize.heading': 'Dostosuj swój następny Crate',
   'customize.items.exclude': 'Pomiń to',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'W tym sezonie',
   'landing.editions.heading': 'Edycje, które uwielbiają nasi kuratorzy',
   'landing.footer.contact': 'Porozmawiaj z kuratorem',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Rozpocznij swoje pudełko →',
   'landing.hero.ctaSecondary': 'Zobacz poziomy',
   'landing.hero.eyebrow': 'Wybierane co miesiąc. Zawsze osobiste.',
@@ -115,6 +120,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'PANA/PANI NASTĘPNY CRATE',
   'nextBoxHeroCard.itemsLabel': 'Wyselekcjonowane elementy',
   'nextBoxHeroCard.shipsOnLabel': 'Wysyłka',
+  'notFound.body':
+    'Nie znaleźliśmy tej strony w archiwum {{app}} . Mogła zostać wycofana lub po prostu wpisana błędnie.',
   'notFound.cta.dashboard': 'Przejdź do panelu',
   'notFound.eyebrow': 'Puste pudełko',
   'notFound.heading': 'Ta półka jest pusta',

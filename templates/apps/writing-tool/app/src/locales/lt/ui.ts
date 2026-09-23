@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.title': 'Rašymo kambarys, kurį galite laikyti kišenėje',
   'billing.cancelConfirm': 'Atšaukti aktyvią prenumeratą?',
   'billing.cancelFailed': 'Nepavyko atšaukti.',
   'billing.checkingOut': 'Atidaroma kasa…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nepavyko įkelti atsiskaitymo.',
   'billing.loading': 'Įkeliama sąskaita…',
   'billing.upgradeCta': 'Atnaujinti į {{name}}',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'editor.autosaveOn': 'Automatinis išsaugojimas įjungtas',
   'editor.backToLibrary': 'Atgal į biblioteką',
   'editor.charCount': '{{count}} simboliai',
   'editor.confirmTrash': 'Perkelti šį dokumentą į šiukšliadėžę?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Atsegta',
   'editor.unpublishCta': 'Perkelti į juodraštį',
   'editor.unpublished': 'Grąžinta į juodraštį',
+  'focus.autosaveOn': 'Automatinis išsaugojimas įjungtas',
   'focus.backToLibrary': 'Atgal į biblioteką',
   'focus.bodyPlaceholder': 'Po eilę. Daugiau čia nieko nėra.',
   'focus.exit': 'Išeiti iš fokusavimo režimo',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Sukurti vieną',
   'login.subline':
     'Jūsų rankraščiai, dienos puslapiai ir paskutinė žymeklio pozicija yra ten, kur juos palikote.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'pricing.exports': 'eksportas',
   'pricing.folders': 'aplankai',
   'pricing.heading': 'dokumentai',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Įveskite kodą, kurį ką tik atsiuntėte el. paštu, ir išsirinkite ką nors įsimintino. Kai tik jis bus išsaugotas, prijungsime jus.',
   'reset.tokenHint': 'Įklijuota iš jūsų pašto dėžutės.',
+  'settings.appearance.heading': 'Šviesi ar tamsi',
   'settings.editor.${row.id}.description': 'Kalba',
   'settings.editor.description':
     'Rašomosios mašinėlės slinktis, pastraipos išnykimas ir neveikimo fokusavimas – numatytieji nustatymai pritaikyti ilgiems seansams.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Trečias skyrius. Tyli valanda prieš saulėtekį',
   'versalDocumentCard.pinned': 'Prisegta',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'versalManuscriptHero.cta': 'Tęsti rašymą',
   'versalManuscriptHero.goalLabel': 'Šiandienos žodžių tikslas',
   'versalManuscriptHero.inProgress': 'Kelyje',

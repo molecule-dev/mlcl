@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'authShell.brandHeading':
     'Plátna s dokonalým pixelovým spracovaním pre dizajnérske tímy, ktoré spolupracujú.',
   'canvas.redirecting': 'Otváranie editora…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'a',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.retry': 'Skúsiť znova',
   'dashboard.activityEmpty': 'Zatiaľ žiadna nedávna aktivita – pozvite spoluhráča, aby začal.',
   'dashboard.activityTitle': 'Čo sa dnes zmenilo',
   'dashboard.activityViewAll': 'Zobraziť všetky upozornenia',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Pracovný priestor · Štúdio Northwind',
   'dashboard.foldersLabel': 'Priečinky',
   'dashboard.gridTitle': '{{count}} projekty',
+  'dashboard.heroActiveTool': 'Nástroj Pero',
   'dashboard.loadingTitle': 'Načítavanie projektov…',
   'dashboard.searchPlaceholder': 'Vyhľadávať projekty',
   'dashboard.startFromTemplate': 'Začať od šablóny',
   'dashboard.title': 'Vaše projekty',
   'dashboard.untitledProject': 'Projekt bez názvu',
   'designCanvasLayout.newProject': 'Nový projekt',
+  'designCanvasLayout.primaryNavLabel': 'Hlavná navigácia',
   'editor.backToProjects': 'Späť k projektom',
   'editor.deleteShape': 'Odstrániť tvar',
   'editor.errorBody': 'Tento projekt sa nám nepodarilo otvoriť.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Navrhnite nástroje, ktoré sa pohybujú rýchlosťou vašich rúk',
   'library.empty': 'V tejto sekcii zatiaľ nie sú žiadne tokeny.',
   'library.eyebrow': 'Pracovný priestor · Ateliérový dizajnový systém',
+  'library.loadFailed': 'Nepodarilo sa načítať dizajnové tokeny.',
   'library.systemMeta': 'Stav systému',
   'library.systemSummary': '{{tokeny}} žetóny · {{komponenty}} komponenty · {{efekty}} účinky',
   'login.emailPlaceholder': 'mara@studio.com',

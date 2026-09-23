@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.eyebrow': 'درباره {{app}}',
   'about.pageTitle': 'هر مسیر، یک جستجو.',
   'booking.backToDetail': 'بازگشت به جزئیات پرواز',
   'booking.continue': 'ادامه پرداخت',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'مالیات و هزینه‌ها',
   'booking.summary.travelers': 'مسافران',
   'common.about': 'درباره',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'flightDetail.backToResults': 'بازگشت به نتایج',
   'flightDetail.baseFare': 'کرایه پایه',
   'flightDetail.book': 'ادامه رزرو',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '۱ توقف',
   'flightResultCard.select': 'انتخاب کنید',
   'flightResultCard.totalLabel': 'کل زمان',
+  'flightSearchLayout.primaryNavLabel': 'ناوبری اولیه',
   'forgotPassword.subheading':
     'ایمیل حساب Skylark خود را وارد کنید، ما یک لینک بازنشانی امن ارسال خواهیم کرد.',
   'forgotPassword.successBody':
     'بررسی {{email}} برای لینک تنظیم رمز عبور جدید. لینک ظرف 30 دقیقه منقضی می‌شود.',
   'forgotPassword.successHeading': 'لینک دوباره ارسال شد',
   'landing.cta.explore': 'جستجو را امتحان کنید',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'قبل از هر کس دیگری، کرایه عالی بعدی را پیدا کنید.',
   'landing.cta.signup': 'شروع به پیگیری کرایه‌ها کنید',
   'landing.features.eyebrow': 'چرا اسکای‌لارک',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'اضافه کردن هشدار',
   'priceAlerts.deleteConfirm': 'این هشدار را حذف کنید؟',
   'priceAlerts.empty': 'هنوز هیچ مسیر ردیابی شده‌ای وجود ندارد.',
+  'priceAlerts.emptyCta': 'جستجوی مسیر برای ردیابی',
   'priceAlerts.errorMessage': 'نتوانست هشدارها را بارگیری کند.',
   'priceAlerts.eyebrow': 'فهرست پیگیری اسکای‌لارک',
   'priceAlerts.form.createError': 'نتوانست هشدار ایجاد کند.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'برنامه سفر چند شهری',
   'results.multiLegHeading': 'ساق پا {{n}} · {{از}} → {{به}} · {{تاریخ}}',
   'results.multiSummary': '{{count}} پاها · {{passengers}} مسافر',
+  'results.sortAriaLabel': 'مرتب سازی نتایج بر اساس',
   'results.sortLabel': 'مرتب سازی',
   'results.summary': '{{count}} پروازها · {{passengers}} مسافر',
   'settings.language.title': 'زبان',

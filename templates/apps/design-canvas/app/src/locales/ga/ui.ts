@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'authShell.brandHeading':
     'Canbháis foirfe ó thaobh picteilíní de do fhoirne dearaidh a sheolann le chéile.',
   'canvas.redirecting': 'Ag oscailt an eagarthóra…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'agus',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.retry': 'Déan iarracht eile',
   'dashboard.activityEmpty':
     'Gan aon ghníomhaíocht le déanaí fós — tabhair cuireadh do chomhghleacaí foirne tosú.',
   'dashboard.activityTitle': "Cad a d'athraigh inniu",
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Spás Oibre · Stiúideo Northwind',
   'dashboard.foldersLabel': 'Fillteáin',
   'dashboard.gridTitle': '{{count}} tionscadail',
+  'dashboard.heroActiveTool': 'Uirlis peann',
   'dashboard.loadingTitle': 'Ag lódáil tionscadal…',
   'dashboard.searchPlaceholder': 'Cuardaigh tionscadail',
   'dashboard.startFromTemplate': 'Tosaigh ón teimpléad',
   'dashboard.title': 'Do thionscadail',
   'dashboard.untitledProject': 'Tionscadal gan teideal',
   'designCanvasLayout.newProject': 'Tionscadal nua',
+  'designCanvasLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'editor.backToProjects': 'Ar ais chuig tionscadail',
   'editor.deleteShape': 'Scrios cruth',
   'editor.errorBody': 'Ní raibh muid in ann an tionscadal seo a oscailt.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Uirlisí dearaidh a ghluaiseann ag luas do lámha',
   'library.empty': 'Níl aon chomharthaí sa chuid seo go fóill.',
   'library.eyebrow': 'Spás Oibre · Córas Dearaidh Atelier',
+  'library.loadFailed': 'Níorbh fhéidir comharthaí dearaidh a luchtú.',
   'library.systemMeta': 'Sláinte an chórais',
   'library.systemSummary':
     '{{comharthaí}} comharthaí · {{comhpháirteanna}} comhpháirteanna · {{éifeachtaí}} éifeachtaí',

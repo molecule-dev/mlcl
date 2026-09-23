@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'about.pageTitle': 'Туралы {{appName}}',
   'analytics.empty': 'Осы жерден танысу үшін алғашқы бейнебаяныңызды жазып алыңыз.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'клиптер',
   'billing.usage.views': 'Көрулер',
   'billing.usage.views.unit': 'көріністер',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'landing.cta.title': 'Жақсырақ пікір қалдырыңыз. Glint-тен бастаңыз.',
   'landing.feature.capture.body':
     'Микрофон, камера және сурет салу мүмкіндігі бар браузер, жұмыс үстелі және мобильді құрылғыларға арналған жазба.',
   'landing.feature.capture.title': 'Бір рет түрту арқылы түсіру',
+  'landing.footer.copy': '© {{year}} {{appName}} . Асинхронды, жарқыраған.',
   'landing.hero.cardCaption': 'Жұмыс кеңістігіне шолу үлгісі — тегін сынап көріңіз.',
   'landing.hero.primaryCta': 'Тегін жазуды бастаңыз',
   'landing.hero.proof.free': 'Мәңгілік тегін деңгей',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Жазбаларды іздеу',
   'library.searchPlaceholder': 'Жазбаларды іздеу…',
   'library.weeklyChange': '{{value}} өткен аптамен салыстырғанда %',
+  'nav.openMenu': 'Навигация мәзірін ашу',
   'nav.record': 'Жазба',
   'nav.shared': 'Менімен бөлісті',
   'nav.startRecording': 'Жазуды бастау',

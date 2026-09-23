@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'article.notFound': 'Артыкул не знойдзены',
   'articleEditor.bodyPlaceholder': 'Увядзіце / для блокаў або проста пачніце пісаць.',
+  'articleEditor.loadFailed': 'Не атрымалася загрузіць артыкул',
   'articleEditor.publishing': 'Публікацыя\\u2026',
   'articleEditor.saveFailed': 'Захаванне не атрымалася',
   'articleEditor.saving': 'Захаванне\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Закладка',
   'articleView.bookmarkOn': 'Дададзена ў закладкі',
   'articleView.edit': 'Рэдагаваць артыкул',
+  'articleView.loading': 'Адкрыццё гэтага артыкула…',
   'articleView.readTime': '{{minutes}} хвіліна чытання',
   'articleView.spaces': 'Прасторы',
   'articleView.tocHeading': 'На гэтай старонцы',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Нядаўнія рэдагаванні, прачытанні і чарнавікі, якія ваша каманда ўсё яшчэ падбірае.',
   'cairnTrailHero.updated': 'Артыкулы абноўлены',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'drafts.eyebrow': 'Твая няскончаная праца',
   'drafts.heading': 'Чарнавікі',
+  'drafts.loadFailed': 'Не атрымалася загрузіць вашы чарнавікі.',
   'drafts.subtitle':
     'Артыкулы, якія вы пачалі пісаць, але яшчэ не апублікавалі. Вазьміце адзін і працягвайце.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Пакуль няма вольных месцаў. Адкрыйце адну, каб пачаць збіраць артыкулы.',
   'home.spacesHeading': 'Вашы прасторы',
   'home.subtitle': 'Нядаўнія артыкулы, вашы закладкі і тое, што пісала каманда.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Створана з дапамогай Molecule.',
   'landing.ctaBody':
     'Бясплатна для аўтараў-адзіночак. Камандныя планы для размеркаваных каманд, якія распаўсюджваюць наборы задач, рашэнні і адаптацыю.',
   'landing.ctaHeading': 'Сёння пакладзеце першы камень.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Стварыце працоўную прастору',
   'login.submitting': 'Уваход\\u2026',
   'login.subtitle': 'Працягвайце сцежку там, дзе вы яе пакінулі.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
+  'newSpace.colorAria': 'Выберыце колер {{color}}',
   'newSpace.colorLabel': 'Акцэнтны колер',
+  'newSpace.createFailed': 'Не атрымалася стварыць прастору',
   'newSpace.descriptionPlaceholder': 'Рубрыкі, дзяжурныя планы, аналізы пасля аперацыі...',
   'newSpace.eyebrow': 'Адкрыйце прастору ведаў',
   'newSpace.heading': 'Новая прастора',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Загрузка\\u2026',
   'notifications.subtitle':
     '{{count}} непрачытаныя і згадкі, каментарыі, змены старонкі і запыты на агляд.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.articles': 'артыкулы',
   'pricing.spaces': 'прасторы',
   'profile.eyebrow': 'Аўтарскі профіль',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Увядзіце новы пароль',
   'resetPassword.subtitle': 'Выберыце надзейны пароль — не менш за 12 сімвалаў.',
   'searchResults.eyebrow': 'Пошук працоўнай прасторы',
+  'searchResults.filter.all': 'Усе прасторы',
   'searchResults.heading': 'Пошук артыкулаў',
   'searchResults.placeholder': 'Пошук па наборах задач, RFC, палітыках, рашэннях',
   'searchResults.summary': '{{count}} вынікі для \\u201c {{query}} \\u201d',
@@ -131,15 +144,22 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Гэта выдаліць ваш уліковы запіс і ўсе артыкулы, напісаныя вамі. Націсніце DELETE для пацверджання.',
   'settings.danger.confirmInvalid': 'Націсніце DELETE для пацверджання.',
+  'settings.danger.deleteFailed': 'Не атрымалася выдаліць уліковы запіс',
   'settings.danger.deleting': 'Выдаленне\\u2026',
   'settings.danger.description':
     'Выдаленне працоўнай прасторы прывядзе да выдалення ўсіх артыкулаў, каментарыяў і гісторыі версій. Аднаўленне немагчымае.',
   'settings.danger.title': 'Выдаліць працоўную прастору',
+  'settings.email.confirm': 'Абнавіць адрас электроннай пошты',
+  'settings.email.confirmTitle': 'Пацвердзіць змену электроннай пошты',
   'settings.email.saved': 'Электронная пошта абноўлена.',
+  'settings.email.updateFailed': 'Не атрымалася абнавіць адрас электроннай пошты',
   'settings.language.title': 'Мова',
   'settings.name': 'Імя',
+  'settings.name.saved': 'Імя абноўлена.',
+  'settings.name.updateFailed': 'Не атрымалася абнавіць імя',
   'settings.notifications.description':
     'Выберыце, якія паведамленні будуць трапляць у вашу паштовую скрыню.',
+  'settings.password.changeFailed': 'Не атрымалася змяніць пароль',
   'settings.password.current': 'Бягучы пароль',
   'settings.password.new': 'Новы пароль',
   'settings.password.saving': 'Абнаўленне\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Як артыкулы адлюстроўваюцца для вас.',
   'settings.reading.title': 'Чытанне і пісьмо',
   'settings.subtitle': 'Наладзьце апавяшчэнні, палатно для чытання і свой уліковы запіс.',
+  'settings.twofa.code': 'Код аўтэнтыфікацыі',
   'settings.twofa.disable': 'Адключыць',
   'settings.twofa.disabled': 'Інвалід',
   'settings.twofa.enable': 'Уключыць',
   'settings.twofa.enabled': 'Уключана',
+  'settings.twofa.invalidCode': 'Няправільны код',
+  'settings.twofa.unavailable': 'Двухфактарная аўтэнтыфікацыя недаступная для гэтай праграмы.',
+  'settings.twofa.verify': 'Праверыць і ўключыць',
   'signup.brandQuote':
     'Запісаць гэта — першае абяцанне, якое мы даем наступнаму чалавеку, якому гэта спатрэбіцца.',
   'signup.eyebrow': 'Адкрыйце працоўную прастору',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'billing.canceled': 'Захиалга цуцлагдлаа. Та хугацааны төгсгөлд Үнэгүй рүү буцах болно.',
   'billing.contactSales': 'Борлуулалттай холбоо барих',
   'billing.free.1': '5 орчуулга',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Хадгалах хязгаарлалт байхгүй',
   'billing.upgradeHint': 'Дэвшилтэт хиймэл оюун ухааны функцуудыг нээхийн тулд шинэчилнэ үү.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.activityEmpty':
     'Одоогоор үйл ажиллагаа алга байна — энэ тэжээлийг дүүргэх төсөл эхлүүлнэ үү.',
   'dashboard.eyebrow': 'Тойм',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Төсөл бүрт өмнөх орчуулгыг дахин ашиглаарай. Тохирлын оноо өндөр → дахин ажил бага байна.',
   'memory.title': 'Санах ойн банк',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'nav.legal': 'Хууль эрх зүйн',
   'newProject.addLanguage': 'Бай нэмэх',
   'newProject.create': 'Төсөл үүсгэх',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Тэмдэглэгдсэн {{count}} мэдэгдлүүдийг уншсан байдлаар.',
   'notifications.subtitle':
     'Таны ажлын талбараас дурдсан зүйлс, шүүмжийн хүсэлтүүд болон хиймэл оюун ухааны арга хэмжээнүүд.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'privacy.collection.account': 'Таны бүртгэлийн имэйл хаяг болон дэлгэцийн нэр',
   'privacy.deletion.body':
     'Та төсөл, сегмент, нэр томьёоны нэр томьёо эсвэл санах ойн оруулгыг холбогдох хуудаснаас хүссэн үедээ устгаж болно. Тохиргооноос бүртгэлээ устгаснаар манай мэдээллийн сангаас ажлын талбарт хамаарах бүх мөрийг устгана.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Төслүүдийг ачаалж чадсангүй.',
   'projects.loading': 'Төслүүдийг ачаалж байна…',
   'projects.subtitle': 'Бүх орон нутгийн идэвхтэй төсөл бүр.',
+  'renditionLayout.primaryNavLabel': 'Үндсэн навигаци',
   'reset.backToLogin': '\\u2190 Нэвтрэхийн тулд буцах',
   'reset.passwordLabel': 'Шинэ нууц үг',
   'review.activeEyebrow': 'Сегмент {{number}}',

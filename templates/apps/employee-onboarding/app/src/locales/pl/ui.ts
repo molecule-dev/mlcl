@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'auth.forgotPassword.emailPlaceholder': 'imie@panskafirma.com',
   'auth.forgotPassword.heading': 'Proszę zresetować hasło.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Oznacz zadanie jako wykonane',
   'checklistTaskCard.markIncomplete': 'Oznacz zadanie jako niewykonane',
   'checklistTaskCard.openLabel': 'Otwórz zadanie',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Wszystko Pan/Pani nadrobił/-a',
@@ -53,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Na dobrej drodze',
   'dashboard.timelineHeading': 'Kamienie milowe 30/60/90',
   'dashboard.viewAllTasks': 'Wyświetl wszystkie zadania',
+  'dashboard.weekOne': 'Tydzień 1',
   'dashboard.yourCohort': 'Pana/Pani zespół',
   'documents.empty.body': 'Dokumenty dodane przez zespół pojawią się tutaj.',
   'documents.empty.title': 'Brak dokumentów',
@@ -110,7 +113,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 dni bezpłatnej wersji próbnej',
   'landing.subhead':
     'Embark prowadzi każdego nowego członka zespołu przez pierwsze 90 dni — papierkowa robota, szkolenia, kamienie milowe i znaczące przedstawienia, wszystko w jednym spokojnym, pewnym miejscu.',
+  'layout.openMenu': 'Otwórz menu nawigacyjne',
   'layout.search': 'Szukaj zadań, dokumentów, osób…',
+  'layout.searchTeammates': 'Wyszukaj członków drużyny według imienia lub roli…',
   'layout.section.onboarding': 'Wdrożenie',
   'layout.tagline': 'Pana/Pani podróż zaczyna się tutaj',
   'notifications.empty.body': 'Nowe aktywności pojawią się tutaj.',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Wczoraj',
   'planUpdated.message': 'Wszystko gotowe.',
   'planUpdated.preparing': 'Aktualizowanie planu…',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.documentsLabel': 'dokumenty',
   'pricing.onboardingsLabel': 'wdrożenia',
   'pricing.tasksLabel': 'zadania',

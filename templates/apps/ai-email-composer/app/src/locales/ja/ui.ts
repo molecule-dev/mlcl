@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '私たちの物語',
   'aiSuggestionPanel.title': 'Signet コパイロット',
   'analytics.col.open': '開封率',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': '決済を開始しています…',
   'billing.subheading': 'あなたの送信スタイルに合うプランを選びましょう。',
   'billing.unavailable': '営業に問い合わせる',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.retry': '再試行',
   'compose.adjustingTone': '選択したトーンで書き換えています…',
   'compose.aiPromptPlaceholder': '例: 「2 週間返信がない場合の丁寧なフォローアップ、短めに。」',
   'compose.aiReady': '下書きの準備ができました。内容を確認し、よろしければ送信してください。',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     '送りたいメッセージがありますか？Signet が数秒で下書きを用意します。',
   'dashboard.composeCtaLabel': 'クイック作成',
   'dashboard.heading': 'あなたの今週、まとまりました',
+  'dashboard.loadFailed': 'ダッシュボードを読み込めませんでした。',
   'dashboard.manageLibrary': 'ライブラリを管理 →',
   'dashboard.recentEmpty': 'まだ送信はありません。送信したメールはここに表示されます。',
   'dashboard.recentHeading': '最近の送信',
@@ -135,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'デフォルトのトーン',
   'settings.toneSubheading': '下書きで上書きしない限り、Signet はこのトーンを使用します。',
   'signetLayout.primaryNavLabel': 'メインナビゲーション',
+  'signetLayout.toggleMenu': 'メニューを切り替え',
   'signup.emailLabel': 'メールアドレス',
   'signup.showPassword': 'パスワードを表示',
   'signup.tagline': '1 分以内に AI が下書きした最初のメールを送信できます。',

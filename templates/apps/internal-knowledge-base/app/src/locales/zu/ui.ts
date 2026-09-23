@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'article.notFound': 'Isihloko asitholakalanga',
   'articleEditor.bodyPlaceholder': 'Thayipha / ukuze uthole amabhlogo, noma vele uqale ukubhala.',
+  'articleEditor.loadFailed': 'Ayikwazanga ukulayisha isihloko',
   'articleEditor.publishing': 'Ukushicilela...',
   'articleEditor.saveFailed': 'Ukulondoloza kwehlulekile',
   'articleEditor.saving': 'Ilondoloza...',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Ibhukhimakhi',
   'articleView.bookmarkOn': 'Kubhukimakishwe',
   'articleView.edit': 'Hlela isihloko',
+  'articleView.loading': 'Ivula lesi sihloko…',
   'articleView.readTime': '{{minutes}} ukufunda okuncane',
   'articleView.spaces': 'Izikhala',
   'articleView.tocHeading': 'Kuleli khasi',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Ukuhlelwa kwakamuva, ukufunda, kanye nokubhalwa kwemibhalo ithimba lakho elisaqhubeka nakho.',
   'cairnTrailHero.updated': 'Izihloko zibuyekeziwe',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'drafts.eyebrow': 'Umsebenzi wakho ongakaqedwa',
   'drafts.heading': 'Ama-draft',
+  'drafts.loadFailed': 'Ayikwazanga ukulayisha okusalungiswa kwakho.',
   'drafts.subtitle': 'Izihloko oziqalile kodwa ezingakashicilelwa. Khetha eyodwa bese uqhubeka.',
   'forgotPassword.sentBody':
     'Uma kukhona i-akhawunti ye- {{email}} , isixhumanisi sokusetha kabusha sisendleleni. Isixhumanisi siphelelwa yisikhathi ngemizuzu engama-30.',
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Azikho izikhala okwamanje. Vula eyodwa ukuze uqale ukuqoqa izihloko.',
   'home.spacesHeading': 'Izikhala zakho',
   'home.subtitle': 'Izihloko zakamuva, amabhukhimakhi akho, kanye nalokho ithimba elikubhalile.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Yakhiwe ngeMolekyuli.',
   'landing.ctaBody':
     'Kumahhala kubabhali abazimele. Ithimba lihlela amaqembu asatshalaliswayo athumela izincwadi, izinqumo, kanye nokubhalisa.',
   'landing.ctaHeading': 'Beka itshe lokuqala namuhla.',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Dala indawo yokusebenza',
   'login.submitting': 'Ukungena ngemvume\\u2026',
   'login.subtitle': 'Thatha umzila lapho uwushiye khona.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
+  'newSpace.colorAria': 'Khetha umbala {{color}}',
   'newSpace.colorLabel': 'Umbala we-Accent',
+  'newSpace.createFailed': 'Ayikwazanga ukudala isikhala',
   'newSpace.descriptionPlaceholder':
     'Ama-Runbook, izincwadi zokudlala ezisebenza ngesikhathi sokufona, ukuhlolwa kwezidumbu',
   'newSpace.eyebrow': 'Vula isikhala solwazi',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Iyalayisha...',
   'notifications.subtitle':
     '{{count}} okungafundiwe \\u2014 okukhulunywa ngakho, amazwana, izinguquko zekhasi, kanye nezicelo zokubuyekeza.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.articles': 'izihloko',
   'pricing.spaces': 'izikhala',
   'profile.eyebrow': 'Iphrofayela yombhali',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Faka iphasiwedi entsha',
   'resetPassword.subtitle': 'Khetha iphasiwedi eqinile — okungenani izinhlamvu ezingu-12.',
   'searchResults.eyebrow': 'Ukusesha indawo yokusebenza',
+  'searchResults.filter.all': 'Zonke izikhala',
   'searchResults.heading': 'Sesha izihloko',
   'searchResults.placeholder': 'Sesha ama-runbook, ama-RFC, izinqubomgomo, izinqumo\\u2026',
   'searchResults.summary': '{{count}} imiphumela ye-\\u201c {{query}} \\u201d',
@@ -132,15 +145,22 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Lokhu kususa i-akhawunti yakho kanye nayo yonke into oyibhalile. Thayipha okuthi DELETE ukuqinisekisa.',
   'settings.danger.confirmInvalid': 'Thayipha okuthi DELETE ukuze uqinisekise.',
+  'settings.danger.deleteFailed': 'Ayikwazanga ukususa i-akhawunti',
   'settings.danger.deleting': 'Iyasusa...',
   'settings.danger.description':
     'Ukususa indawo yakho yokusebenza kususa zonke izihloko, amazwana, kanye nomlando wenguqulo. Akukho ukubuyiselwa.',
   'settings.danger.title': 'Susa indawo yokusebenza',
+  'settings.email.confirm': 'Buyekeza i-imeyili',
+  'settings.email.confirmTitle': 'Qinisekisa ushintsho lwe-imeyili',
   'settings.email.saved': 'I-imeyili ibuyekeziwe.',
+  'settings.email.updateFailed': 'Ayikwazanga ukubuyekeza i-imeyili',
   'settings.language.title': 'Ulimi',
   'settings.name': 'Igama',
+  'settings.name.saved': 'Igama libuyekeziwe.',
+  'settings.name.updateFailed': 'Ayikwazanga ukubuyekeza igama',
   'settings.notifications.description':
     'Khetha ukuthi yini efinyelela ebhokisini lakho lokungenayo.',
+  'settings.password.changeFailed': 'Ayikwazanga ukushintsha iphasiwedi',
   'settings.password.current': 'I-password Yamanje',
   'settings.password.new': 'Iphasiwedi Entsha',
   'settings.password.saving': 'Iyabuyekeza...',
@@ -148,10 +168,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Indlela izihloko ezikunikeza ngayo.',
   'settings.reading.title': 'Ukufunda nokubhala',
   'settings.subtitle': 'Lungisa izaziso, ikhanvasi yokufunda, kanye ne-akhawunti yakho.',
+  'settings.twofa.code': 'Ikhodi yokuqinisekisa',
   'settings.twofa.disable': 'Khubaza',
   'settings.twofa.disabled': 'Kukhutshaziwe',
   'settings.twofa.enable': 'Nika amandla',
   'settings.twofa.enabled': 'Kunikwe amandla',
+  'settings.twofa.invalidCode': 'Ikhodi engavumelekile',
+  'settings.twofa.unavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
+  'settings.twofa.verify': 'Qinisekisa futhi unike amandla',
   'signup.brandQuote':
     '\\u201cUkukubhala phansi yisithembiso sokuqala esisenza kumuntu olandelayo osidingayo.\\u201d',
   'signup.eyebrow': 'Vula indawo yokusebenza',

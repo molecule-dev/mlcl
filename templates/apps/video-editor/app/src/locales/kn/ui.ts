@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿಯನ್ನು ಹೊಂದಿದ್ದೀರಾ ಅಥವಾ ನೀವು ಕತ್ತರಿಸಿದ ಚಿತ್ರದ ಬಗ್ಗೆ ನಮಗೆ ತಿಳಿಸಲು ಬಯಸುವಿರಾ? ಪ್ರತಿಯೊಂದು ಸಂದೇಶವು ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಯನ್ನು ತಲುಪುತ್ತದೆ — ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.eyebrow': '// ಕಟ್ ಹಿಂದಿನ ಸ್ಟುಡಿಯೋ',
   'about.pageTitle': 'ನಮ್ಮ ಬಗ್ಗೆ {{appName}}',
   'assetDetail.back': 'ಗ್ರಂಥಾಲಯಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'assetDetail.confirmDelete': 'ಅಳಿಸಿ" {{name}} "? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} ಕ್ಲಿಪ್‌ಗಳು, ಆಡಿಯೊ ಹಾಸಿಗೆಗಳು ಮತ್ತು ಗ್ರಾಫಿಕ್ಸ್ ಟೈಮ್‌ಲೈನ್‌ನಲ್ಲಿ ಬಿಡಲು ಸಿದ್ಧವಾಗಿವೆ.',
   'assetLibrary.title': 'ಸ್ವತ್ತುಗಳು',
   'assetLibrary.upload': 'ಸ್ವತ್ತನ್ನು ಸೇರಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.browseTemplates': 'ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
   'dashboard.loading': 'ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'dashboard.noProjects': 'ಇನ್ನೂ ಯಾವುದೇ ಯೋಜನೆಗಳಿಲ್ಲ — ಪ್ರಾರಂಭಿಸಲು ಒಂದನ್ನು ರಚಿಸಿ.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'ನಿಮಗೆ ಮಾತ್ರ ನೆನಪಿರುವಂತಹದ್ದನ್ನು ಆರಿಸಿ.',
   'rushesAuthShell.footer.copyright': '© ರಶಸ್ ಸ್ಟುಡಿಯೋ',
   'rushesAuthShell.footer.privacy': 'ಗೌಪ್ಯತೆ',
+  'rushesLayout.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮುಚ್ಚಿರಿ',
   'rushesLayout.guest': 'ಸಂಪಾದಕ',
+  'rushesLayout.navDialog': 'ಸಂಚರಣೆ',
+  'rushesLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ತೆರೆಯಿರಿ',
   'rushesLayout.planFree': 'ಉಚಿತ ಯೋಜನೆ',
   'rushesLayout.tagline': 'ಸಿನಿಮೀಯ ಕಾಲಮಾನ',
   'settings.billing.confirmCancel': 'ಅವಧಿಯ ಕೊನೆಯಲ್ಲಿ ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸುವುದೇ?',

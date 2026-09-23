@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqqında',
+  'appNav.mobileLabel': 'Əsas naviqasiya',
+  'appNav.primaryLabel': 'Əsas naviqasiya',
   'billing.actions.confirmCancel':
     'Abunəliyinizi ləğv etmək istəyirsiniz? İstənilən vaxt yenidən abunə ola bilərsiniz.',
   'billing.actions.paused': 'Abunəlik dayandırıldı.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Hər səviyyə kiçik bir hekayədən ibarətdir. Növbənizə birini əlavə edin və ya növbəti aya dəyişdirin.',
   'boxThemeCard.perMonth': '/ ay',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'customize.eyebrow': 'Özünüzə məxsus edin',
   'customize.heading': 'Növbəti xəzinənizi fərdiləşdirin',
   'customize.items.exclude': 'Bunu keçin',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Bu mövsüm',
   'landing.editions.heading': 'Kuratorlarımızın sevdiyi nəşrlər',
   'landing.footer.contact': 'Kuratorla danışın',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qutuya başlayın →',
   'landing.hero.ctaSecondary': 'Səviyyələrə baxın',
   'landing.hero.eyebrow': 'Aylıq olaraq seçilir. Həmişə fərdi.',
@@ -115,6 +120,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'NÖVBƏTİ SİZİN XƏZİNƏNİZ',
   'nextBoxHeroCard.itemsLabel': 'Seçilmiş elementlər',
   'nextBoxHeroCard.shipsOnLabel': 'Göndərmə tarixi',
+  'notFound.body':
+    'Həmin səhifəni {{app}} arxivində tapa bilmədik. Ola bilsin ki, o, silinib və ya sadəcə səhv yazılıb.',
   'notFound.cta.dashboard': 'İdarəetmə panelinə keçin',
   'notFound.eyebrow': 'Boş qutu',
   'notFound.heading': 'Bu rəf boşdur',

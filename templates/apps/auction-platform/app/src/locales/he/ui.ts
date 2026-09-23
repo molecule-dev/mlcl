@@ -30,6 +30,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'צפייה',
   'auctionDetail.watchRemoved': 'הוסר מרשימת המעקב.',
   'auctionDetail.watchRemoveLabel': 'הסר מרשימת המעקב',
+  'auctionPlatformLayout.primaryNavLabel': 'ניווט ראשי',
   'authShell.brandBody':
     'הגישו הצעות מחיר בזמן אמת על שעונים נדירים, אמנות יפה ופריטים ייחודיים. הפטיש נופל תוך שניות.',
   'authShell.brandEyebrow': 'בשידור חי · 1,420 מכירות פומביות',
@@ -48,6 +49,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'מיין לפי',
   'browseAuctions.subheading':
     'סנן לפי קטגוריה, מיין לפי מה שחשוב ביותר, והגש הצעה לפני שהפטיש ייפול.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'countdownTimer.ended': 'הסתיים',
   'countdownTimer.endingSoon': 'סִיוּם',
   'forgotPassword.checkEmailBody':
@@ -109,6 +111,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'הסתר סיסמה',
   'login.showPassword': 'הצג סיסמה',
   'login.subtext': 'המשיכו לעקוב אחר המכירות הפומביות שלכם והגישו הצעות לפני שהפטיש ייפול.',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'myBids.bidAgain': 'הגש הצעה נוספת',
   'myBids.browseCta': 'עיין במכירות פומביות חיות →',
   'myBids.checkoutCta': 'שלם עכשיו',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'מרכז פעילות',
   'notificationsPage.subheading':
     '{{count}} עדכונים חיים שלא נקראו · ככל שהמכירות הפומביות מתקדמות',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'pricing.bidsLabel': 'הצעות מחיר',
   'pricing.listingsLabel': 'רישומים',
   'pricing.watchlistLabel': 'רשימת המעקב',

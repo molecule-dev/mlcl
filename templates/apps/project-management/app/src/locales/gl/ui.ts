@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'accountSettings.confirmEmailLabel': 'Escribe SUPRIMIR para confirmar',
   'accountSettings.deleteError': 'Non se puido eliminar a conta.',
   'accountSettings.passwordError': 'Non se puido cambiar o contrasinal.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Sen prazos próximos.',
   'dashboard.upcomingTitle': 'Próximos prazos',
   'deviceSettings.unknownDevice': 'Dispositivo descoñecido',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Soporte',
   'forgotPassword.error': 'Non se puido enviar a ligazón de restablecemento.',
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'Correo electrónico ou contrasinal non válidos.',
   'login.pageTitle': 'Iniciar sesión',
   'login.signIn': 'Iniciar sesión en Forge',
+  'login.subtitle': 'Inicia sesión para manter os teus proxectos no camiño correcto',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'nav.calendar': 'Calendario',
   'nav.legal': 'Legal',
   'nav.myTasks': 'My Tasks',

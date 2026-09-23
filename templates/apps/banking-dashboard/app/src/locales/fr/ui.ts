@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'accountDetail.activeBadge': 'Actif',
   'accountDetail.availableLabel': '{{amount}} disponibles',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Comptes',
   'accounts.loadError': 'Échec du chargement des comptes.',
   'accounts.status.closed': 'Fermé',
+  'accounts.status.frozen': 'La Reine des neiges',
   'accounts.totalBalance': '{{amount}} au total',
   'audit.empty': 'Aucun événement pour le moment.',
   'audit.eyebrow': 'Sécurité et accès',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Liquidités',
   'cashCreditCard.creditLabel': 'Crédit utilisé',
   'cashCreditCard.title': 'Liquidités et crédit',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'dashboard.accountsHeading': 'Comptes',
   'dashboard.heading': "Vue d'ensemble",
   'dashboard.recentEmpty': 'Aucune transaction pour le moment.',
@@ -45,11 +48,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afficher le mot de passe',
   'login.signUp': "S'inscrire",
   'login.submit': 'Se connecter',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Navigation principale',
   'nav.legal': 'Mentions légales',
   'notifications.emptyHeading': 'Vous êtes à jour',
   'notifications.subheading':
     'Alertes en temps réel pour les transactions, la sécurité et les relevés.',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'privacy.dataWeShare':
     'Les données bancaires personnelles ne sont jamais vendues. Nous partageons les informations avec les processeurs de paiement, les réseaux de cartes et les régulateurs uniquement lorsque cela est nécessaire pour régler les transactions ou respecter les obligations légales.',
   'privacy.dataWeStore':
@@ -81,10 +86,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     "L'authentification à deux facteurs ajoute un code à usage unique d'une application d'authentification à chaque connexion.",
   'settings.security.twoFactorCta': "Gérer l'authentification à deux facteurs",
+  'settings.security.twoFactorOff': "L'authentification à deux facteurs est désactivée",
   'settings.signOutDevice': 'Se déconnecter',
   'settings.subheading': 'Profil, sécurité et notifications.',
+  'settings.twoFactorCode': "Code d'authentification",
   'settings.twoFactorDisable': 'Désactiver',
   'settings.twoFactorEnable': 'Activer',
+  'settings.twoFactorInvalidCode': 'Code non valide',
+  'settings.twoFactorVerify': 'Vérifier et activer',
   'signup.emailLabel': 'Adresse e-mail',
   'signup.fullName': 'Comment devons-nous vous appeler ?',
   'signup.showPassword': 'Afficher le mot de passe',
@@ -106,7 +115,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Aucune transaction pour le moment.',
   'transactions.endDate': 'Date de fin',
   'transactions.eyebrow': 'Activité',
+  'transactions.loadError': 'Échec du chargement des transactions.',
   'transactions.merchant': 'Commerçant',
+  'transactions.subheading':
+    "Toutes les opérations comptabilisées et en attente sur l'ensemble de vos comptes.",
   'transfers.availableHint': '{{amount}} disponibles',
   'transfers.errorGeneric': 'Impossible de soumettre le virement.',
   'transfers.errorMissingFields': 'Choisissez un compte source et une destination.',

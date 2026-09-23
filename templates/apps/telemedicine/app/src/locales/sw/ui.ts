@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Weka miadi',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Hakuna wagonjwa wa kuonyesha.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'consult.backLink': 'Miadi yote',
   'consult.captions': 'Manukuu',
   'consult.connected': 'Imeunganishwa · 720p · imara',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Wagonjwa',
   'patientVitalsHero.scripts': 'Rx imefunguliwa',
   'patientVitalsHero.subline': '{{count}} ushauri kuhusu ratiba yako ya leo',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'prescriptions.empty': 'Hakuna maagizo yanayolingana.',
   'prescriptions.eyebrow': 'Uagizaji wa kielektroniki',
   'prescriptions.heading': 'Maagizo ya daktari',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Ilani ya Faragha',
   'privacy.use.body':
     'Ili kutoa huduma, kutuma vikumbusho vya miadi, maagizo ya njia, na kuboresha uaminifu wa huduma. Hatuuzi kamwe data yako na hatushiriki kamwe taarifa za kimatibabu na watangazaji.',
+  'providers.allSpecialties': 'Utaalamu Wote',
+  'providers.loadError': 'Imeshindwa kupakia watoa huduma.',
+  'providers.loading': 'Inapakia…',
   'providers.noResults': 'Hakuna watoa huduma waliopatikana.',
   'providers.searchPlaceholder': 'Tafuta kwa jina, utaalamu...',
   'providers.title': 'Tafuta Mtoa Huduma',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Mwanzo wa siku',
   'settings.availability.heading': 'Upatikanaji',
   'settings.devices.thisDevice': 'Kifaa hiki',
+  'settings.devices.unnamed': 'Kifaa kisicho na jina',
   'settings.eyebrow': 'Mazoezi na hesabu',
   'settings.loadError': 'Haikuweza kupakia wasifu wako.',
   'settings.notifications.emailMessages': 'Nitumie barua pepe timu yangu ya utunzaji ikijibu',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Zima',
   'settings.security.twoFactor.enable': 'Washa',
   'settings.security.twoFactor.heading': 'Uthibitishaji wa vipengele viwili',
+  'settings.security.twoFactor.invalidCode': 'Nambari hiyo haikulingana. Jaribu tena.',
+  'settings.security.twoFactor.setupFailed':
+    'Haikuweza kuanzisha usanidi wa vipengele viwili. Jaribu tena.',
+  'settings.security.twoFactor.statusOn': 'Vipengele viwili vimewashwa',
   'settings.signOutDevice': 'Toka',
   'settings.subheading': 'Wasifu wa mtoa huduma, sheria za utendaji, na arifa za kimatibabu.',
   'signup.emailLabel': 'BARUA PEPE',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Fungua Akaunti',
   'signupFooter.hipaa': 'Inatii HIPAA',
   'solaceLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'solaceLayout.toggleMenu': 'Badilisha menyu',
   'terms.eligibility.body':
     'Lazima uwe na umri wa angalau miaka kumi na minane, au mzazi au mlezi halali wa mtoto mdogo ambaye unamtafutia huduma, na uwe katika jimbo la Marekani ambapo madaktari wetu wana leseni.',
   'terms.payment.body':

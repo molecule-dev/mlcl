@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'actions.empty': 'Nav atrastu atbilstošu uzdevumu.',
   'actions.heading': 'Veicamie pasākumi',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Iepriekšējais mēnesis',
   'calendar.recent': 'Jaunākie',
   'common.daysAgo': '{{count}} pirms dienas',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.hoursAgo': '{{count}} pirms stundām',
   'common.no': '—',
+  'common.retry': 'Mēģināt vēlreiz',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} veicamie pasākumi',
   'dashboard.empty.body':
@@ -42,9 +45,11 @@ export const ui: UiTranslations = {
     'Pārbaudi savu e-pasta pastkastīti, lai atrastu saiti par paroles atjaunošanu.',
   'forgot.subheading': 'Ievadiet savu e-pasta adresi, un mēs nosūtīsim saiti paroles atjaunošanai.',
   'integrations.disconnected': 'Atvienots',
+  'integrations.loadError': 'Neizdevās ielādēt integrācijas.',
   'integrations.notConnectedTag': 'Nav savienots',
   'integrations.subheading':
     'Savienojiet kalendārus un videoplatformas, lai Murmur pievienotos automātiski.',
+  'integrations.updateError': 'Atjaunināšana neizdevās.',
   'landing.ctaButton': 'Sāciet — tas ir bez maksas',
   'landing.ctaHeading': 'Pārstājiet veikt piezīmes. Sāciet pieņemt lēmumus.',
   'landing.demo.aiLabel': 'AI kopsavilkums, sagatavots reāllaikā',
@@ -63,7 +68,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Turpmākā rīcība',
   'meetingDetail.loadError': 'Neizdevās ielādēt sanāksmi.',
   'meetingDetail.noActions': 'Nav konstatēti veicamie pasākumi.',
+  'meetingDetail.none': 'Nav.',
   'meetingDetail.notFound': 'Sanāksme nav atrasta.',
+  'meetingDetail.speakerFallback': 'Referents{{id}}',
   'meetingDetail.summaryHeading': 'AI kopsavilkums',
   'meetingDetail.transcriptHeading': 'Transkripcija',
   'meetings.empty.body':
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Sanāksmes',
   'meetings.loadError': 'Neizdevās ielādēt sanāksmes.',
   'meetings.subheading': 'Katra ierakstītā, augšupielādētā un sinhronizētā sanāksme.',
+  'murmurLayout.openMenu': 'Atvērt navigācijas izvēlni',
   'murmurLayout.primaryNavLabel': 'Galvenā navigācija',
   'nav.legal': 'Juridiskā informācija',
   'notifications.loadError': 'Neizdevās ielādēt paziņojumus.',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Kā tu izskaties Murmur.',
   'record.error.empty': 'Skaņa netika ierakstīta.',
   'record.error.permission': 'Mikrofona atļauja atteikta.',
+  'record.error.recorder': 'Ierakstītāja kļūda',
   'record.error.unsupported':
     'Jūsu pārlūkprogramma neatbalsta ierakstīšanu. Izmēģiniet Chrome, Edge vai Safari.',
   'record.error.upload': 'Augšupielāde neizdevās. Mēģiniet vēlreiz.',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Jauna parole',
   'reset.subheading': 'Izvēlieties paroli, ko neizmantojat nekur citur.',
   'search.empty': 'Ierakstiet tekstu, lai meklētu transkripcijas.',
+  'search.loadError': 'Meklēšana neizdevās. Mēģiniet vēlreiz.',
   'search.noResults': 'Nav rezultātu par „{{q}}“.',
   'settings.appearance.description': 'Pārslēgties starp gaišo un tumšo režīmu.',
   'settings.appearance.title': 'Izskats',
@@ -127,6 +137,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Neizdevās ielādēt iestatījumus.',
   'settings.loading': 'Notiek ielāde…',
   'settings.push.heading': 'Push paziņojumi',
+  'settings.push.subheading':
+    'Saņemiet pārlūkprogrammas paziņojumus par pieminējumiem, veicamajiem uzdevumiem un kopsavilkumiem.',
   'settings.retention.audio': 'Saglabāt audio',
   'settings.retention.heading': 'Saglabāšana',
   'settings.retention.transcript': 'Saglabājiet izrakstus',
@@ -144,6 +156,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Sāciet veidot sanāksmes piezīmes jau pēc dažām minūtēm',
   'signup.terms':
     'Izveidojot kontu, jūs piekrītat mūsu lietošanas noteikumiem un privātuma politikai.',
+  'signup.termsPrefix': 'Izveidojot kontu, jūs piekrītat mūsu',
   'team.inviteCta': 'Uzaicināt komandas biedru',
   'team.invitedAs': 'Uzaicināts kā „{{role}}“',
   'team.inviteFailed': 'Neizdevās nosūtīt uzaicinājumu.',

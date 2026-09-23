@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'announcementsFeed.empty': 'Ez dago iragarpenik oraindik.',
   'announcementsFeed.eyebrow': '{{count}} eguneratzeak',
   'announcementsFeed.title': 'Azken iragarpenak',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Ezer ez hemen.',
   'assignments.emptyBody': 'Aldatu goiko iragazkiak egoera desberdinean dauden zereginak ikusteko.',
   'assignments.eyebrow': 'Ikastaro guztiak · Ikasturte honetan',
+  'assignments.loadError': 'Ezin izan dira zereginak kargatu.',
   'assignments.loading': 'Zereginak kargatzen…',
   'assignments.subtitle':
     'Iragazi egoeraren arabera zer dagoen entregatu, entregatu, kalifikatu edo falta den ikusteko.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Oharra',
   'attendance.empty': 'Ez dago bertaratze-erregistrorik oraindik.',
   'attendance.eyebrow': 'Udaberriko ikasturtea · Azken 4 asteak',
+  'attendance.loadError': 'Ezin izan dira bertaratze-erregistroak kargatu.',
   'attendance.loading': 'Bertaratzea kargatzen…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Hilabeteko sareta batean markatutako lanen entrega-datak — azterketak gorriz nabarmentzen dira.',
   'calendar.title': '{{month}} ekitaldiak',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
+  'common.retry': 'Saiatu berriro',
   'common.yes': '✓',
   'courseDetail.backLink': 'Notak',
   'courseDetail.currentGrade': 'Uneko maila',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Joera',
   'grades.empty': 'Ez da kalifikaziorik argitaratu oraindik.',
   'grades.eyebrow': 'Kalifikazio-liburua',
+  'grades.loadError': 'Ezin izan dira zure kalifikazioak kargatu.',
   'grades.loading': 'Notak kargatzen…',
   'grades.subtitle':
     'Zuzeneko letra eta ehuneko kalifikazioak. Joeren geziek gora, berdinduta edo behera egiten ari zaren erakusten dute.',
   'grades.title': 'Zure kalifikazioak, ikastaroz ikastaro',
   'grades.trendStable': 'Egonkorra',
+  'landing.copyright': '© {{year}} {{app}} . Ikasleentzat eraikia, familientzat egina.',
   'landing.ctaHeading': 'Eskola egun lasaiago bat minutu gutxitan hasten da',
   'landing.eyebrow': 'Erdi mailako eta goi mailako ikasleentzat',
   'landing.featuresHeading': 'Ikaslearen inguruan antolatutako eskola eguna',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Zereginak',
   'nav.attendance': 'Asistentzia',
   'nav.calendar': 'Egutegia',
+  'nav.closeMenu': 'Itxi nabigazio menua',
   'nav.grades': 'Notak',
+  'nav.openMenu': 'Ireki nabigazio menua',
   'nav.statusEyebrow': 'Hiruhileko GPA',
   'nav.statusSubtext': 'Ohorezko zerrenda · Udaberriko ikasturtea',
+  'nav.unreadMessages': 'Irakurri gabeko mezuak',
   'notifications.eyebrow': '{{count}} eguneratzeak',
   'notifications.subtitle':
     'Notak, abisuak, mezuak eta eskolako iragarpenak. Doitu jakinarazpen bakoitzak zein kanal erabiltzen dituen Ezarpenak atalean.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.attendanceLabel': 'asistentzia',
   'pricing.gradesLabel': 'kalifikazioak',
   'pricing.heading': 'iragarkiak',

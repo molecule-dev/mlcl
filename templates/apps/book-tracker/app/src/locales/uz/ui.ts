@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Zanjirni qayta boshlang',
   'resetPassword.mismatchError': 'Parollar mos kelmaydi.',
   'resetPassword.subheading': 'Kuchli narsa tanlang. Kitoblaringiz kutadi.',
-  'reviewCard.starsAria': 'Baholangan<x> {{reyting}}</x> tashqarida<x> {{of}}</x> yulduzlar',
+  'reviewCard.starsAria': '{{of}} yulduzdan {{rating}} bilan baholandi',
   'reviewCard.unratedAria': 'Reytingsiz',
   'reviews.eyebrow': 'Xotiringizda qolgan',
   'reviews.heading': 'Sizning sharhlaringiz',

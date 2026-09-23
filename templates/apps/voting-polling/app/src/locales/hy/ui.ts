@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'analytics.col.quorum': 'Քվորում',
   'analytics.col.votes': 'Քվեարկություններ',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Դեռևս չլուծված հարցեր չկան։',
   'audienceQa.onStageEyebrow': 'Հիմա բեմում',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Խթանել',
   'audienceQa.queued': 'հերթում',
   'audienceQa.queueEyebrow': 'Հերթ',
   'ballot.eyebrow': 'Քվեարկեք ձեր քվեարկության ժամանակ',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Դուք ներկայումս գտնվում եք {{plan}} պլան',
   'billing.switch': 'Փոխարկիչ',
   'billing.upgraded': 'Թարմացվել է {{plan}} — սահմանափակումները կիրառվում են անմիջապես։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'createPoll.addOption': 'Ավելացնել տարբերակ',
   'createPoll.anonymousHint':
     'Ընտրողների անունները թաքցված են աուդիտի գրանցամատյանում. հաշվարկները մնում են իսկական։',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Նորեկ եք Նոշում՞',
   'login.remember': 'Հիշել ինձ 30 օր',
   'login.subheading': 'Բացեք հատակը, աշխատեցրեք սենյակը և հավաստեք արդյունքը։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'notFound.body':
     'Էջը, որին փորձում էիք մուտք գործել, փակվել կամ տեղափոխվել է։ Վերադարձեք վահանակ կամ բացեք նոր հարցում։',
   'notFound.eyebrow': 'Այս երթուղում քվորում չկա',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Չհաջողվեց բեռնել այս հարցումը։',
   'pollDetail.loading': 'Հարցումը բեռնվում է…',
   'pollDetail.notFound': 'Հարցումը չի գտնվել։',
+  'pollDetail.openBallot': 'Բաց քվեարկություն',
   'pollDetail.openLive': 'Արդյունքներ ուղիղ եթերում',
   'pollDetail.pollId': 'հարցում · {{id}}',
   'pollDetail.published': 'Հարցումը հրապարակվել է. ընտրողներն այժմ կարող են քվեարկել։',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Որոնել էլ. փոստով…',
   'voters.subheading':
     'Կազմեք ընտրողների ցուցակը։ Խմբավորեք ընտրողներին ըստ կազմակերպությունների՝ կշռված քվեաթերթիկներ ստանալու համար։',
+  'votingPollingLayout.nav.analytics': 'Վերլուծություններ',
+  'votingPollingLayout.nav.billing': 'Հաշվառում',
+  'votingPollingLayout.nav.createPoll': 'Նոր հարցում',
+  'votingPollingLayout.nav.dashboard': 'Կառավարման վահանակ',
+  'votingPollingLayout.nav.notifications': 'Ծանուցումներ',
+  'votingPollingLayout.nav.settings': 'Կարգավորումներ',
+  'votingPollingLayout.nav.team': 'Թիմ',
+  'votingPollingLayout.nav.voters': 'Ընտրողներ',
+  'votingPollingLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
 }

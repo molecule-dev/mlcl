@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'U gebruikt momenteel het {{plan}}-plan.',
   'billing.switch': 'Wisselen',
   'billing.upgraded': 'Bijgewerkt naar {{plan}} — limieten direct toegepast.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'compare.activityHeading': 'Activiteitenoordeel',
   'compare.empty.title': 'Voeg ten minste twee locaties toe om te vergelijken',
   'compare.eyebrow': 'Naast elkaar',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Hoog',
   'trends.summary.low.label': 'Laag',
   'trends.summary.points.label': 'Dagen',
+  'weatherDashboardLayout.primaryNavLabel': 'Hoofdnavigatie',
   'weatherHeroCard.updated': 'Bijgewerkt {{time}}',
 }

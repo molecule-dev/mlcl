@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
+  'about.title': 'Acerca de {{app}}',
   'auth.login.noAccount': 'Novo en Sparq?',
   'auth.login.or': 'ou continuar con',
   'auth.signup.or': 'ou rexístrate con',
+  'common.confirm': 'Confirmar',
+  'common.goToDashboard': 'Ir ao panel',
+  'common.loadError': 'Algo fallou ao cargar este contido.',
+  'common.retry': 'Reintentar',
   'discover.collections.title': 'Navegar por categoría',
   'discover.collections.viewAll': 'Consulta a túa biblioteca →',
   'discover.empty.body': 'Proba cunha categoría diferente ou borra a busca.',
@@ -67,6 +73,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Inicia sesión para manter viva a túa racha, organizar partidas en directo e subir na clasificación.',
   'myQuizzes.createButton': 'Novo cuestionario',
+  'myQuizzes.deleteConfirm': 'Eliminar para sempre?',
   'myQuizzes.empty.createCta': 'Crea o teu primeiro cuestionario →',
   'myQuizzes.empty.created': 'Aínda non creaches un cuestionario.',
   'myQuizzes.empty.played': 'Aínda non hai cuestionarios publicados.',
@@ -82,7 +89,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Cargando…',
   'notifications.subhead':
     '{{count}} faíscas sen ler. Invitacións, movementos na táboa de clasificación e logros, todo nun só fluxo.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.checkoutError': 'Non se puido iniciar o proceso de compra. Téntao de novo.',
+  'pricing.heading': 'Elixe o teu plan de {{app}}',
   'pricing.included': 'Incluído',
   'pricing.loadError': 'Non se puideron cargar os planos.',
   'pricing.maxQuizzes': '{{count}} cuestionarios',
@@ -103,11 +112,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Aínda non hai nada publicado.',
   'profile.startBuilding': 'Comezar a construír →',
   'profile.tier': 'Xogador de Sparq',
+  'quizBuilder.addFailed': 'Non se puido engadir a pregunta. Téntao de novo.',
   'quizBuilder.addQuestion': 'Engadir pregunta',
   'quizBuilder.answerPlaceholder': 'Escribe unha opción…',
   'quizBuilder.answersLabel': 'Opcións de resposta',
   'quizBuilder.back': 'De volta aos meus cuestionarios',
   'quizBuilder.delete': 'Eliminar pregunta',
+  'quizBuilder.deleteFailed': 'Non se puido eliminar a pregunta.',
   'quizBuilder.firstQuestion': 'Engade a túa primeira pregunta para comezar.',
   'quizBuilder.idLabel': 'ID do cuestionario: {{id}}',
   'quizBuilder.loadError': 'Non se puido cargar o cuestionario.',
@@ -121,6 +132,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Engade polo menos dúas opcións de resposta e escolle a correcta para {{count}} pregunta(s) antes da publicación.',
   'quizBuilder.questionsTitle': 'Preguntas',
+  'quizBuilder.saveFailed': 'Non se puido gardar o título. Téntao de novo.',
   'quizBuilder.statusDraft': 'Borrador',
   'quizBuilder.subhead':
     'Edita o título, engade preguntas, define opcións e a resposta correcta. Os cambios gárdanse automaticamente.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Multixogador de anfitrións',
   'quizDetail.leaderboardEmpty': 'Aínda non hai xogadas. Sé o primeiro en marcar unha puntuación.',
+  'quizDetail.loadError': 'Non se puido cargar este cuestionario.',
   'quizDetail.loading': 'Cargando cuestionario…',
   'quizDetail.plays': '{{count}} obras de teatro',
   'quizDetail.playSolo': 'Xogar só',

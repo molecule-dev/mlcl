@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикириңиз, функция боюнча суроо-талабыңыз барбы же ката таптыңызбы? Аккаунтуңуздун менюсундагы колдоо шилтемеси аркылуу {{app}} командасына кайрылыңыз — ар бир билдирүү чыныгы адамга барат.',
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'agentDetail.back': 'Бардык агенттер',
   'agentDetail.capabilities': 'Мүмкүнчүлүктөр',
   'agentDetail.delete': 'Персонаны өчүрүү',
   'agentDetail.deleteConfirm': 'Бул персонаны өчүрөсүзбү? Муну артка кайтаруу мүмкүн эмес.',
+  'agentDetail.deleteError': 'Персона өчүрүлгөн жок.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Персона жүктөлбөй койду.',
   'agentDetail.save': 'Персонажды сактоо',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Которулууда…',
   'billing.updateError': 'Жаңыртуу башталган жок.',
   'billing.usageHeading': 'Бул циклде үндүн колдонулушу',
+  'chatBubble.source.text': 'текст',
+  'chatBubble.source.voice': 'үн',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'conversation.defaultTitle': 'Жаңы сүйлөшүү',
   'conversation.empty': 'Азырынча билдирүү жок. Алгач бир нерсе айтыңыз же төмөндө териңиз.',
   'conversation.eyebrow': 'Түз эфирдеги сессия',
@@ -97,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Сүйлөгөн акылмандык.',
   'landing.heroSubtitle':
     'Сиздин табигый агымыңызды түшүнгөн жасалма интеллект үн жардамчысы. Сүйлөшүңүз, ойлоруңузду түзүңүз жана буйрук бериңиз — кемчиликсиз.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Угулуп жатат…',
   'landing.naturallyBody':
     'Эч кандай триггер сөздөрү жок. Катуу буйруктар жок. Vox контекстти, үзгүлтүккө учураган сөздөрдү жана адамдын сүйлөө нюанстарын түшүнөт — кесиптеши менен баарлашкандай.',
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Сессияны ачуу',
   'notFound.home': 'Үйгө кайтуу',
   'notFound.title': 'Биз ал баракты уга алган жокпуз.',
+  'parlanceLayout.closeMenu': 'Менюну жабуу',
+  'parlanceLayout.openMenu': 'Навигация менюсун ачуу',
   'parlanceLayout.primaryNavLabel': 'Негизги навигация',
   'pricing.conversations': '{{count}} сүйлөшүүлөр',
   'pricing.cta.startFree': 'Акысыз баштаңыз',
@@ -152,6 +162,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Дал келүүлөр жок',
   'search.eyebrow': 'Буйрук палитрасы',
   'search.fetchError': 'Издөө индекси жүктөлбөй койду.',
+  'search.static.profile.preview': 'Көрсөтүлүүчү аты-жөнү, дареги, өмүр баяны',
   'search.static.voice.title': 'Үн',
   'search.title': 'Vox издөө',
   'search.transcriptPreview': 'Ачык транскрипция',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Gure istorioa',
   'aiSuggestionPanel.title': 'Signet kopilotoa',
   'analytics.col.open': 'Irekitze-tasa',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Ordainketa hasten…',
   'billing.subheading': 'Aukeratu bidaltzeko moduari dagokion plana.',
   'billing.unavailable': 'Jarri harremanetan salmenta-zerbitzuarekin',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.retry': 'Saiatu berriro',
   'compose.adjustingTone': 'Hautatutako tonuan berridazten…',
   'compose.aiPromptPlaceholder':
     'Adibidez, "Bi astez erantzunik jaso ez ondoren, jarraipen-mezua eman laburra izan dadin."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Zerbait bidali behar duzu? Signet-ek zirriborro bat prest izan dezake segundo gutxitan.',
   'dashboard.composeCtaLabel': 'Idazketa azkarra',
   'dashboard.heading': 'Zure astea, osatuta',
+  'dashboard.loadFailed': 'Ezin izan da aginte-panela kargatu.',
   'dashboard.manageLibrary': 'Liburutegia kudeatu →',
   'dashboard.recentEmpty':
     'Ez da bidalketarik egin oraindik — bidalitako mezu elektronikoak hemen agertuko dira.',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet-ek tonu hau erabiltzen du zirriborroa gainidazten ez baduzu behintzat.',
   'signetLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'signetLayout.toggleMenu': 'Menua aldatu/erakutsi',
   'signup.emailLabel': 'Helbide elektronikoa',
   'signup.showPassword': 'Erakutsi pasahitza',
   'signup.tagline':

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Giới thiệu {{app}}',
+  'auth.legalConsent': 'Bằng việc tiếp tục, bạn đồng ý với',
   'bookings.empty.body': 'Thêm một chuyến bay, khách sạn hoặc hoạt động để bắt đầu hộp thư.',
   'bookings.empty.heading': 'Chưa có đặt chỗ nào.',
   'bookings.errors.create': 'Không thể tạo đặt chỗ.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Đã xác nhận',
   'bookings.summary.pending': 'Đang chờ xác nhận',
   'bookings.summary.total': 'Tổng đã cam kết',
+  'bookings.type.car': 'Xe thuê',
+  'bookings.type.flight': 'Chuyến bay',
+  'bookings.type.hotel': 'Khách sạn',
   'bookings.type.other': 'Khác',
   'budgetSpendCard.budgetTotal': 'trên {{total}} đã dự tính',
   'budgetSpendCard.pct': '{{pct}}%',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Phát hiện xung đột, lên kế hoạch ngày nghỉ giữa các chuyến đi và xem khi nào người cộng tác cùng đi với quý vị.',
   'common.and': 'và',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.budgetHeading': 'Nhịp đập ngân sách',
   'dashboard.empty.heading': 'Chưa có chuyến đi nào — bản đồ của quý vị còn trống.',
   'dashboard.eyebrow': 'Trung tâm điều khiển',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Các chuyến đi đang vận hành',
   'dashboard.viewAllExpenses': 'Xem mọi chi tiêu',
   'dashboard.viewAllTrips': 'Xem mọi chuyến đi',
+  'dayTimelineRow.category.accommodation': 'Ở lại',
   'dayTimelineRow.category.transport': 'Chuyên chở',
   'destinationOrbCard.exploreCta': 'Thêm vào chuyến đi',
   'destinationOrbCard.tripCount': '{{count}} chuyến đi',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Chưa thấy email? Hãy kiểm tra thư mục spam, hoặc thử lại với địa chỉ khác.',
   'forgotPassword.successSubheading':
     'Chúng tôi đã gửi liên kết khôi phục đến {{email}}. Liên kết có hiệu lực trong 30 phút.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Tạo tài khoản miễn phí',
+  'landing.cta.subheading':
+    'Gói miễn phí cho phép tối đa năm chuyến đi, năm cộng tác viên và năm điểm dừng — bao gồm tính năng đồng bộ hóa thời gian thực, và gói Pro sẽ bỏ giới hạn khi kế hoạch của bạn tăng lên.',
   'landing.destinations.eyebrow': 'Tiếp theo đi đâu',
   'landing.destinations.heading': 'Điểm đến do biên tập viên tuyển chọn',
   'landing.features.eyebrow': 'Waypoint hoạt động như thế nào',
   'landing.features.heading': 'Được tạo cho người du lịch, không phải bảng tính.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bắt đầu chuyến đi miễn phí',
   'landing.hero.ctaSecondary': 'Xem chuyến đi mẫu',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Tạo tài khoản để chia sẻ các chuyến đi với tối đa 5 cộng tác viên, đồng bộ đặt chỗ và đưa mọi xác nhận về một nơi.',
+  'signup.termsPrefix': 'Bằng cách tạo tài khoản, bạn đồng ý với các điều khoản của chúng tôi.',
   'tripCountdownHeroCard.budget': '{{used}} trên {{total}} ({{pct}}% ngân sách)',
   'tripCountdownHeroCard.collaborators': '{{count}} người du hành',
   'tripCountdownHeroCard.countdownLabel': 'Đếm ngược',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Chưa có chuyến đi nào.',
   'trips.pastHeading': 'Cuộc phiêu lưu trước đây',
   'trips.subheading': '{{count}} lịch trình — quá khứ, hiện tại và một ngày nào đó.',
+  'waypointLayout.mobileNavClose': 'Đóng menu điều hướng',
   'waypointLayout.primaryNavLabel': 'Điều hướng chính',
 }

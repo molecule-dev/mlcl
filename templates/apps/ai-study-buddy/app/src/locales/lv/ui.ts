@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Notiek plāna informācijas ielāde…',
   'billing.popular': 'Visvairāk mīlētais',
   'billing.subtitle': 'Izvēlieties plānu, kas atbilst jūsu mācību ritmam.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.today': 'Šodien',
   'common.yesterday': 'Vakar',
   'courseDetail.empty.body': 'Pievienojiet mācību materiālu, lai sāktu apgūt šo tēmu.',
@@ -82,8 +83,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Klāja nosaukums',
   'flashcards.subtitle': 'Atkārtošana ar intervāliem, kas pielāgojas jūsu tempam.',
   'flashcards.title': 'Kartiņas',
+  'footer.copyright': '© {{year}} {{app}}. Mācies labi, guļ labi.',
   'forgotPassword.subtitle':
     'Ievadiet savu e-pasta adresi, un mēs nosūtīsim jums atiestatīšanas saiti.',
+  'koanLayout.closeMenu': 'Aizvērt izvēlni',
+  'koanLayout.navLabel': 'Galvenā navigācija',
+  'koanLayout.openMenu': 'Atvērt izvēlni',
   'koanLayout.theme': 'Tēma',
   'landing.featuresBody':
     'Rīki, kas paredzēti, lai novērstu uzmanības novēršanu un veidotu ilgstošu izpratni.',
@@ -118,11 +123,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Šis URL ir neizpētīta teritorija. Varbūt drukas kļūda, varbūt izdzēsta nodarbība — jebkurā gadījumā atgriezīsimies pie mācībām.',
   'notFound.heading': 'Lapa nav atrasta.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Jūs visu esat iepazinies',
   'notifications.filter.${opt}': 'Notiek paziņojumu ielāde…',
   'notifications.markAllError': 'Neizdevās atzīmēt visus kā izlasītus.',
   'notifications.markError': 'Nevarēja atzīmēt kā izlasītu.',
   'notifications.subtitle': '{{count}} nelasīti atjauninājumi',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.heading': 'viktorīnas',
   'pricing.limits.topics': 'tēmas',
   'privacy.collectBody':
@@ -186,6 +193,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Izmēģiniet citu atslēgvārdu vai filtru.',
   'search.empty.title': 'Nekas neatbilda.',
   'search.error': 'Nevarēja ielādēt rezultātus.',
+  'search.filters': 'Rezultātu tipa filtri',
   'search.go': 'Ej',
   'search.label.flashcard': 'Atmiņas kāršu komplekts',
   'search.label.note': 'Piezīme',

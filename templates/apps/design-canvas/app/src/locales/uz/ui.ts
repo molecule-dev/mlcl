@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'authShell.brandHeading':
     'Birgalikda yetkazib beradigan dizayn guruhlari uchun pikselga mos keladigan mukammal kanvaslar.',
   'canvas.redirecting': 'Muharrir ochilmoqda…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'va',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.retry': 'Qayta urinish',
   'dashboard.activityEmpty':
     'Hali soʻnggi faollik yoʻq — jamoadoshingizni boshlashga taklif qiling.',
   'dashboard.activityTitle': "Bugun nima o'zgardi",
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Ish maydoni · Northwind Studio',
   'dashboard.foldersLabel': 'Papkalar',
   'dashboard.gridTitle': '{{count}} loyihalar',
+  'dashboard.heroActiveTool': 'Qalam vositasi',
   'dashboard.loadingTitle': 'Loyihalar yuklanmoqda…',
   'dashboard.searchPlaceholder': 'Loyihalarni qidirish',
   'dashboard.startFromTemplate': 'Shablondan boshlang',
   'dashboard.title': 'Sizning loyihalaringiz',
   'dashboard.untitledProject': 'Nomsiz loyiha',
   'designCanvasLayout.newProject': 'Yangi loyiha',
+  'designCanvasLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'editor.backToProjects': 'Loyihalarga qaytish',
   'editor.deleteShape': "Shaklni o'chirish",
   'editor.errorBody': 'Biz bu loyihani ocha olmadik.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': "Qo'llaringiz tezligida harakatlanadigan dizayn vositalari",
   'library.empty': "Bu bo'limda hali tokenlar yo'q.",
   'library.eyebrow': 'Ish maydoni · Atelier Design System',
+  'library.loadFailed': "Dizayn tokenlarini yuklab bo'lmadi.",
   'library.systemMeta': 'Tizim salomatligi',
   'library.systemSummary':
     '{{tokenlar}} tokenlar · {{komponentlar}} komponentlar · {{effektlar}} effektlar',

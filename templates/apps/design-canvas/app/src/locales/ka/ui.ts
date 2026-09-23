@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'authShell.brandHeading':
     'პიქსელურად იდეალური ტილოები დიზაინის გუნდებისთვის, რომლებიც ერთად აგზავნიან პროდუქციას.',
   'canvas.redirecting': 'რედაქტორის გახსნა…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'და',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.retry': 'ხელახლა ცდა',
   'dashboard.activityEmpty': 'ბოლო აქტივობა ჯერ არ არის — დასაწყებად მოიწვიეთ თანაგუნდელი.',
   'dashboard.activityTitle': 'რა შეიცვალა დღეს',
   'dashboard.activityViewAll': 'ყველა შეტყობინების ნახვა',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'სამუშაო სივრცე · Northwind Studio',
   'dashboard.foldersLabel': 'საქაღალდეები',
   'dashboard.gridTitle': '{{count}} პროექტები',
+  'dashboard.heroActiveTool': 'კალმის ინსტრუმენტი',
   'dashboard.loadingTitle': 'პროექტები იტვირთება…',
   'dashboard.searchPlaceholder': 'პროექტების ძიება',
   'dashboard.startFromTemplate': 'შაბლონიდან დაწყება',
   'dashboard.title': 'თქვენი პროექტები',
   'dashboard.untitledProject': 'უსათაურო პროექტი',
   'designCanvasLayout.newProject': 'ახალი პროექტი',
+  'designCanvasLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'editor.backToProjects': 'პროექტებზე დაბრუნება',
   'editor.deleteShape': 'ფორმის წაშლა',
   'editor.errorBody': 'ამ პროექტის გახსნა ვერ შევძელით.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'დიზაინის ხელსაწყოები, რომლებიც თქვენი ხელების სიჩქარით მოძრაობენ',
   'library.empty': 'ამ განყოფილებაში ჯერ არ არის ტოკენები.',
   'library.eyebrow': 'სამუშაო სივრცე · ატელიეს დიზაინის სისტემა',
+  'library.loadFailed': 'დიზაინის ტოკენების ჩატვირთვა ვერ მოხერხდა.',
   'library.systemMeta': 'სისტემის მდგომარეობა',
   'library.systemSummary':
     '{{ტოკენები}} ჟეტონები · {{კომპონენტები}} კომპონენტები · {{ეფექტები}} ეფექტები',

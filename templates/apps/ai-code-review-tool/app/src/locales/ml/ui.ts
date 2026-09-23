@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.connectRepoCta': 'റിപ്പോസിറ്ററി ബന്ധിപ്പിക്കുക',
   'dashboard.empty':
     'ഇതുവരെ പുൾ അഭ്യർത്ഥനകളൊന്നുമില്ല — ആരംഭിക്കുന്നതിന് ഒരു റിപ്പോസിറ്ററി ബന്ധിപ്പിക്കുക.',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'അപ്ടൈം',
   'pullRequestRow.files': '{{count}} എഫ്',
   'pullRequestRow.scoreAria': 'AI ഗുണനിലവാര സ്കോർ {{score}} / 10',
+  'refractLayout.closeMenu': 'മെനു അടയ്ക്കുക',
+  'refractLayout.openMenu': 'മെനു തുറക്കുക',
   'refractLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'reports.cumulativeScoreLabel': 'സഞ്ചിത സ്കോർ',
   'reports.cumulativeScoreSubtitle': 'എല്ലാ സംഭരണികളും · {{days}} ഡി',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'തിരയൽ സൂചിക ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.apiKeys.description':
     'മുകളിൽ വലതുവശത്തുള്ള ഉപയോക്തൃ മെനുവിൽ നിന്ന് വ്യക്തിഗത API കീകൾ കൈകാര്യം ചെയ്യുക.',
+  'settings.apiKeys.integrationsNote':
+    'മുകളിലുള്ള ഇന്റഗ്രേഷൻ വിഭാഗത്തിലാണ് ദാതാവിന്റെ ആക്‌സസ് ടോക്കണുകൾ കൈകാര്യം ചെയ്യുന്നത്.',
   'settings.connectError': 'ദാതാവിനെ ബന്ധിപ്പിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.disconnectError': 'ദാതാവിനെ വിച്ഛേദിക്കാനായില്ല.',
   'settings.eyebrow': 'റിഫ്രാക്റ്റ് · വർക്ക്‌സ്‌പെയ്‌സ്',
   'settings.integration.${provider}.label': 'സംരക്ഷിക്കുന്നു...',
   'settings.loadError': 'ക്രമീകരണങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'settings.notificationCenter': 'അറിയിപ്പ് കേന്ദ്രം',
   'settings.notifications.description':
     'ഡെലിവറി മുൻഗണനകൾ കാണാനും നിയന്ത്രിക്കാനും അറിയിപ്പുകൾ പേജ് സന്ദർശിക്കുക.',
   'settings.section.account': 'അക്കൗണ്ടും സുരക്ഷയും',

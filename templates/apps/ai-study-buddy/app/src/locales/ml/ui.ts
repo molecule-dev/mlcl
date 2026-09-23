@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'പ്ലാൻ വിവരങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'billing.popular': 'ഏറ്റവും പ്രിയപ്പെട്ടത്',
   'billing.subtitle': 'നിങ്ങളുടെ പഠന നിലവാരത്തിന് അനുയോജ്യമായ പ്ലാൻ തിരഞ്ഞെടുക്കുക.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.today': 'ഇന്ന്',
   'common.yesterday': 'ഇന്നലെ',
   'courseDetail.empty.body': 'ഈ വിഷയത്തിൽ പ്രാവീണ്യം നേടാൻ ഒരു പഠന സാമഗ്രി ചേർക്കുക.',
@@ -84,8 +85,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'ഡെക്കിന്റെ പേര്',
   'flashcards.subtitle': 'നിങ്ങളുടെ വേഗതയ്ക്ക് അനുയോജ്യമായ ഇടവേളയുള്ള ആവർത്തനം.',
   'flashcards.title': 'ഫ്ലാഷ് കാർഡുകൾ',
+  'footer.copyright': '© {{year}} {{app}} . നന്നായി പഠിക്കൂ, നന്നായി ഉറങ്ങൂ.',
   'forgotPassword.subtitle':
     'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
+  'koanLayout.closeMenu': 'മെനു അടയ്ക്കുക',
+  'koanLayout.navLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'koanLayout.openMenu': 'മെനു തുറക്കുക',
   'koanLayout.theme': 'തീം',
   'landing.featuresBody':
     'ശ്രദ്ധ വ്യതിചലനം ഇല്ലാതാക്കാനും നിലനിൽക്കുന്ന ഗ്രാഹ്യം വർദ്ധിപ്പിക്കാനും രൂപകൽപ്പന ചെയ്‌തിരിക്കുന്ന ഉപകരണങ്ങൾ.',
@@ -120,11 +125,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ആ URL അടയാളപ്പെടുത്താത്ത പ്രദേശമാണ്. ഒരുപക്ഷേ ഒരു അക്ഷരത്തെറ്റ് ആയിരിക്കാം, ഒരുപക്ഷേ പാഠം ഇല്ലാതാക്കിയിരിക്കാം - എന്തായാലും, നമുക്ക് നിങ്ങളെ പഠനത്തിലേക്ക് തിരികെ കൊണ്ടുപോകാം.',
   'notFound.heading': 'പേജ് കണ്ടെത്തിയില്ല.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'നിങ്ങൾ എല്ലാം പൂർത്തിയാക്കി.',
   'notifications.filter.${opt}': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നു...',
   'notifications.markAllError': 'എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്താൻ കഴിഞ്ഞില്ല.',
   'notifications.markError': 'വായിച്ചതായി അടയാളപ്പെടുത്താൻ കഴിഞ്ഞില്ല.',
   'notifications.subtitle': '{{count}} വായിക്കാത്ത അപ്‌ഡേറ്റുകൾ',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.heading': 'ക്വിസുകൾ',
   'pricing.limits.topics': 'വിഷയങ്ങൾ',
   'privacy.collectBody':
@@ -190,6 +197,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'മറ്റൊരു കീവേഡോ ഫിൽട്ടറോ പരീക്ഷിച്ചുനോക്കൂ.',
   'search.empty.title': 'ഒന്നും പൊരുത്തപ്പെട്ടില്ല.',
   'search.error': 'ഫലങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'search.filters': 'ഫല തരം ഫിൽട്ടറുകൾ',
   'search.go': 'പോകൂ',
   'search.label.flashcard': 'ഫ്ലാഷ്കാർഡ് ഡെക്ക്',
   'search.label.note': 'കുറിപ്പ്',

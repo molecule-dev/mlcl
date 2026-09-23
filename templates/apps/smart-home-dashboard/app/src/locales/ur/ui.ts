@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.pageTitle': '{{app}} کے بارے میں',
   'activity.empty': 'ابھی تک کوئی سرگرمی نہیں — ایک آلہ پلٹائیں یا منظر کو چالو کریں۔',
   'activity.eyebrow': 'ٹائم لائن',
   'activity.loadError': 'سرگرمی فیڈ لوڈ نہیں ہو سکی۔',
   'activity.subheading': 'ہر ڈیوائس، آٹومیشن، اور سیکیورٹی ایونٹ تاریخ کی ترتیب میں۔',
+  'addDevice.error.failed': 'آلہ شامل نہیں کیا جا سکا۔ دوبارہ کوشش کریں۔',
   'addDevice.error.nameRequired': 'جاری رکھنے کے لیے اس آلے کو ایک نام دیں۔',
   'addDevice.field.firmware': 'فرم ویئر ورژن',
   'addDevice.field.manufacturer': 'کارخانہ دار',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'جانچ ہو رہی ہے…',
   'automationEditor.testNew': 'اسے جانچنے کے لیے پہلے آٹومیشن کو محفوظ کریں۔',
   'automationRow.lastRun': 'آخری {{date}} · {{count}} چلتا ہے',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'دوڑو {{name}} اب',
   'automations.empty': 'ابھی تک کوئی آٹومیشن نہیں ہے — اپنا پہلا معمول بنائیں۔',
   'automations.eyebrow': 'معمولات',
@@ -50,6 +54,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'آٹومیشنز لوڈ ہو رہی ہیں…',
   'automations.newAutomation': '+ نیا',
   'automations.subheading': 'جب ایسا ہوتا ہے، ایسا کریں — بغیر YAML کے۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'آلہ لوڈ کرنے میں ناکام۔',
@@ -69,6 +74,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'کام کر رہا ہے…',
   'deviceDetail.unnamed': 'ڈیوائس',
   'deviceStatusRow.on': 'پر',
+  'deviceStatusRow.turnOff': 'بند کر دیں۔',
+  'deviceStatusRow.turnOn': 'آن کریں۔',
   'deviceStatusRow.watts': '{{watts}} ڈبلیو',
   'energy.eyebrow': 'طاقت',
   'energy.heading': 'توانائی',
@@ -172,4 +179,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'منصوبے دیکھیں',
   'settings.security.heading': 'سیکورٹی',
   'settings.subheading': 'منصوبہ، مرکز، اور اکاؤنٹ کی ترجیحات۔',
+  'smartHomeDashboardLayout.openMenu': 'نیویگیشن مینو کھولیں۔',
+  'smartHomeDashboardLayout.primaryNavLabel': 'بنیادی نیویگیشن',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'analytics.channels.empty': 'Δεν υπάρχουν ακόμη δεδομένα καναλιών.',
   'analytics.channels.title': 'Ανά κανάλι',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Συνομιλίες ανά ημέρα',
   'chatBubble.avatarAlt': 'Άβαταρ {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'confidenceMeter.label': 'Αξιοπιστία',
   'conversationDetail.agentName': 'Πράκτορας',
   'conversationDetail.aiReplyButton': 'Απάντηση bot',
   'conversationDetail.aiReplyError': 'Δεν ήταν δυνατή η δημιουργία απάντησης ΤΝ',
   'conversationDetail.aiReplyLoading': 'Σύνταξη…',
+  'conversationDetail.aiReplySourceFallback': 'εναλλακτική λύση (χωρίς κλειδί AI)',
   'conversationDetail.backAria': 'Επιστροφή στις συνομιλίες',
   'conversationDetail.composerPlaceholder': 'Απάντηση στον πελάτη…',
   'conversationDetail.context.channel': 'Κανάλι',
@@ -159,8 +162,13 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Ορίστε νέο κωδικό πρόσβασης για τον λογαριασμό σας',
   'resetPassword.toggleConfirm': 'Εναλλαγή ορατότητας κωδικού επιβεβαίωσης',
   'resetPassword.togglePassword': 'Εναλλαγή ορατότητας κωδικού πρόσβασης',
+  'settings.account.emailError':
+    'Δεν κατέστη δυνατή η ενημέρωση της διεύθυνσης ηλεκτρονικού ταχυδρομείου',
   'settings.account.emailLabel': 'Διεύθυνση email',
+  'settings.account.emailSaved': 'Ενημέρωση διεύθυνσης ηλεκτρονικού ταχυδρομείου',
+  'settings.account.nameError': 'Δεν κατέστη δυνατή η ενημέρωση του ονόματος',
   'settings.account.nameLabel': 'Εμφανιζόμενο όνομα',
+  'settings.account.nameSaved': 'Ενημέρωση ονόματος',
   'settings.account.title': 'Λογαριασμός',
   'settings.api.createCta': 'Δημιουργία token',
   'settings.api.description':
@@ -173,10 +181,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Αυτόματη κλιμάκωση όταν το συναίσθημα πέφτει',
   'settings.bot.greetingLabel': 'Χαιρετισμός πρώτου μηνύματος',
   'settings.bot.title': 'Διαμόρφωση bot',
+  'settings.bot.toneFormal': 'Επίσημη',
   'settings.bot.toneLabel': 'Φωνή και τόνος',
   'settings.danger.deleteAccount': 'Διαγραφή λογαριασμού',
+  'settings.danger.deleteError': 'Δεν κατέστη δυνατή η διαγραφή του λογαριασμού',
+  'settings.danger.deleteWarning':
+    'Αυτή η ενέργεια διαγράφει οριστικά τον λογαριασμό σας και όλα τα σχετικά δεδομένα. Η ενέργεια αυτή δεν μπορεί να ανακληθεί.',
   'settings.danger.deleting': 'Διαγραφή…',
+  'settings.danger.passwordLabel': 'Επιβεβαιώστε τον κωδικό πρόσβασής σας',
   'settings.danger.title': 'Επικίνδυνη ζώνη',
+  'settings.devices.empty': 'Δεν έχουν καταχωρηθεί συσκευές.',
+  'settings.devices.revokeWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
+  'settings.devices.signingOut': 'Αποσύνδεση…',
   'settings.devices.signOut': 'Αποσύνδεση',
   'settings.devices.thisDevice': 'Αυτή η συσκευή',
   'settings.devices.title': 'Συσκευές',
@@ -189,9 +206,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Αποτυχία αλλαγής κωδικού πρόσβασης',
   'settings.security.currentPassword': 'Τρέχων κωδικός',
   'settings.security.newPassword': 'Νέος κωδικός πρόσβασης',
+  'settings.security.oauthManaged':
+    'Ο κωδικός πρόσβασής σας διαχειρίζεται ο πάροχος υπηρεσιών σύνδεσης.',
   'settings.security.title': 'Ασφάλεια',
   'settings.security.twoFactorDisable': 'Απενεργοποίηση',
   'settings.security.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.security.twoFactorInvalid': 'Μη έγκυρος κώδικας',
   'settings.subtitle':
     'Ρυθμίστε τη φωνή του Rapport, τις πηγές γνώσης και τα εργαλεία με τα οποία επικοινωνεί.',
   'settings.tokenCreateError': 'Αποτυχία δημιουργίας token',

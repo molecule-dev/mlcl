@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Na-ekiri',
   'auctionDetail.watchRemoved': 'Ewepụrụ na ndepụta ihe nlele.',
   'auctionDetail.watchRemoveLabel': 'Wepụ na ndepụta ihe nlele',
+  'auctionPlatformLayout.primaryNavLabel': 'Ntugharị isi',
   'authShell.brandBody':
     "Ịzụta elekere ndị a na-adịghị ahụkebe, ihe osise mara mma, na ihe pụrụ iche pụrụ iche n'oge a. Ihe mkpuchi ahụ na-ada n'ime sekọnd ole na ole.",
   'authShell.brandEyebrow': 'Dị ndụ ugbu a · Ọrịre ahịa 1,420',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Hazie site na',
   'browseAuctions.subheading':
     'Nyochaa site na otu, hazie site na ihe kacha mkpa, ma tinye ego tupu gavel ahụ ada.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'countdownTimer.ended': 'Emechara',
   'countdownTimer.endingSoon': 'Ọgwụgwụ',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Zoo paswọọdụ',
   'login.showPassword': 'Gosi paswọọdụ',
   'login.subtext': "Gaa n'ihu na-enyocha ahịa ị na-ere ma na-etinye ọnụahịa tupu gavel ada.",
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'myBids.bidAgain': 'Ịkwụ ụgwọ ọzọ',
   'myBids.browseCta': 'Chọgharịa ahịa dị ndụ →',
   'myBids.checkoutCta': 'Kwụọ ụgwọ ugbu a',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Enwebeghị ọkwa ọ bụla.',
   'notificationsPage.eyebrow': 'Ebe mmemme',
   'notificationsPage.subheading': "{{count}} agụghị · mmelite ndụ ka ọrịre ahịa na-aga n'ihu",
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.bidsLabel': 'ọnụahịa',
   'pricing.listingsLabel': 'ndepụta',
   'pricing.watchlistLabel': 'ndepụta ihe nlele',

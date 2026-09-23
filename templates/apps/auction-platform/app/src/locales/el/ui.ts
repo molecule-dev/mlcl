@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Παρακολουθώντας',
   'auctionDetail.watchRemoved': 'Αφαιρέθηκε από τη λίστα παρακολούθησης.',
   'auctionDetail.watchRemoveLabel': 'Αφαίρεση από τη λίστα παρακολούθησης',
+  'auctionPlatformLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'authShell.brandBody':
     'Κάντε προσφορές σε πραγματικό χρόνο σε σπάνια ρολόγια, εικαστικές τέχνες και μοναδικά ειδικά αντικείμενα. Η σφύρα πέφτει σε δευτερόλεπτα.',
   'authShell.brandEyebrow': 'Live τώρα · 1.420 δημοπρασίες',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ταξινόμηση κατά',
   'browseAuctions.subheading':
     'Φιλτράρετε ανά κατηγορία, ταξινομήστε κατά αυτό που έχει σημασία και υποβάλτε προσφορά πριν πέσει η σφύρα.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'countdownTimer.ended': 'Έληξε',
   'countdownTimer.endingSoon': 'Λήγει',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.subtext':
     'Συνεχίστε να παρακολουθείτε τις δημοπρασίες σας και να υποβάλλετε προσφορές πριν πέσει η σφύρα.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'myBids.bidAgain': 'Νέα προσφορά',
   'myBids.browseCta': 'Περιήγηση σε ζωντανές δημοπρασίες →',
   'myBids.checkoutCta': 'Πληρωμή τώρα',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Κέντρο δραστηριότητας',
   'notificationsPage.subheading':
     '{{count}} αδιάβαστα · ζωντανές ενημερώσεις καθώς εξελίσσονται οι δημοπρασίες',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.bidsLabel': 'προσφορές',
   'pricing.listingsLabel': 'καταχωρήσεις',
   'pricing.watchlistLabel': 'λίστα παρακολούθησης',

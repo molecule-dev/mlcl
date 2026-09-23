@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Mēs esam izkliedēta dizaineru un inženieru komanda, kas kādreiz katru dienu pavadīja pārāk daudz laika trokšņainā e-pasta kastē. Courier ir tā e-pasta kastīte, ko mēs paši gribējām lietot.',
   'about.title': 'E-pasts koncentrētam darbam',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'help.cta.about': 'Par Courier',
   'help.cta.pricing': 'Skatīt cenas',
   'help.eyebrow': 'Palīdzības centrs',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Ātrās atbildes uz visbiežāk uzdotajiem jautājumiem. Kaut kas trūkst? Atveriet iestatījumus un izmantojiet lietotnē pieejamo atsauksmju veidlapu vai rakstiet uz support@courier.example.',
   'help.title': 'Kā mēs varam palīdzēt?',
   'landing.brand.scrollTop': 'Atgriezties uz sākumu',
+  'landing.copyright': '© {{year}} {{appName}} — Radīts koncentrēšanās vajadzībām.',
   'landing.ctaBody':
     'Pievienojies tūkstošiem profesionāļu, kuri savu e-pasta pastkastīti iztīra jau pirms pusdienām.',
   'landing.ctaTitle': 'Rīkojies vairāk, reaģē mazāk.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Noskatīties demonstrāciju',
   'landing.heroSubtitle':
     '„Courier“ ir vienkārša trīslogu iesūtņu kastīte, kas izstrādāta zināšanu darbiniekiem, kuri vēlas apstrādāt informāciju, nevis tikai reaģēt uz to.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'To uzticas specializētas komandas visā pasaulē',
   'landing.signIn': 'Pierakstīties',
   'meridian.archive.empty': 'Arhīvs ir tukšs.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Projekts',
   'meridian.folder.count': '{{count}} ziņojumi',
+  'meridian.folder.delete': 'Dzēst',
   'meridian.folder.deleteForever': 'Dzēst neatgriezeniski',
   'meridian.folder.restore': 'Pārvietot uz iesūtni',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Šeit vēl nav ziņojumu.',
   'meridian.inbox.loading': 'Notiek ielāde…',
   'meridian.inbox.next': 'Nākamais',
+  'meridian.inbox.noSender': '(nav sūtītāja)',
   'meridian.inbox.noSubject': '(bez tēmas)',
+  'meridian.inbox.ofTotal': '{{current}} no {{total}}',
   'meridian.inbox.openCompose': 'Atvērt rakstīšanas logu',
   'meridian.inbox.previous': 'Iepriekšējais',
   'meridian.inbox.replyFailed': 'Atbilde saglabāta, bet nosūtīšana neizdevās: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Jums vēl nav konta?',
   'meridian.login.showPassword': 'Rādīt paroli',
   'meridian.message.toLine': 'uz {{recipients}}',
+  'meridian.notFound.body':
+    'Meklētā lapa netika atrasta. Dodieties atpakaļ uz savu {{appName}} iesūtni, un mēs palīdzēsim jums atrast pareizo lapu.',
   'meridian.notFound.eyebrow': 'Kļūda 404',
   'meridian.notFound.title': 'Šī tēma ir arhivēta.',
   'meridian.notFound.toInbox': 'Atvērt manu iesūtņu pastu',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Pievienot zvaigznīti',
   'meridian.thread.unstar': 'Noņemt zvaigznīti',
   'meridian.time.yesterday': 'Vakar',
+  'meridian.topBar.openMenu': 'Atvērt navigācijas izvēlni',
   'meridian.topBar.searchPlaceholder': 'Meklēt e-pastu',
   'meridian.trash.empty': 'Atkritumu grozs ir tukšs.',
   'meridian.trash.title': 'Atkritumi',
   'nav.legal': 'Juridiskā informācija',
   'planUpdated.description':
     'Jūsu abonements tagad ir aktīvs, un rēķina informācija ir atjaunināta. Laipni lūdzam atjauninātajā Courier pastkastē!',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.heading': 'caurvēji',
   'pricing.limit.emails': 'e-pasti',
   'pricing.limit.folders': 'mapes',
   'pricing.limit.labels': 'etiķetes',
   'privacy.collect.account':
     'Konta dati: vārds, e-pasta adrese, hashēta parole un reģistrācijas datums.',
+  'privacy.contact': 'Jautājumi? Vai jums ir e-pasts uz privacy@courier.example?',
   'privacy.intro':
     'Šajā privātuma politikā ir izskaidrots, kādus datus Courier vāc, kāpēc mēs tos vācam, kā mēs nodrošinām to drošību un kādas izvēles iespējas jums ir saistībā ar šiem datiem. Mēs cenšamies izteikties konkrēti, nevis juridiski; ja kaut kas nav skaidrs, rakstiet uz privacy@courier.example.',
   'privacy.lastUpdated': 'Pēdējā atjaunināšana: 2026. gada 1. aprīlis',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Šie noteikumi reglamentē jūsu Courier lietošanu. Izveidojot kontu vai nosūtot e-pastu ar mūsu starpniecību, jūs piekrītat ievērot šos noteikumus. Mēs cenšamies izstrādāt noteikumus, kurus cilvēks patiešām var ievērot.',
   'terms.lastUpdated': 'Spēkā no 2026. gada 1. aprīļa',
+  'terms.linkPrivacy': 'Izlasiet mūsu Privātuma politiku →',
   'terms.termination.body':
     'Jūs varat dzēst savu kontu jebkurā brīdī. Mēs varam bloķēt kontu, kas neatbilst šiem noteikumiem; ja to darīsim, mēs paskaidrosim iemeslu un ļausim jums vispirms eksportēt savus datus.',
   'terms.warranty.body':

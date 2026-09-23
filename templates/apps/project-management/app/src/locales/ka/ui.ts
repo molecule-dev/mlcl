@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'accountSettings.confirmEmailLabel': 'დასადასტურებლად აკრიფეთ DELETE',
   'accountSettings.deleteError': 'ანგარიშის წაშლა ვერ მოხერხდა.',
   'accountSettings.passwordError': 'პაროლის შეცვლა ვერ მოხერხდა.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'უახლოესი ვადები არ არის.',
   'dashboard.upcomingTitle': 'მომავალი ვადები',
   'deviceSettings.unknownDevice': 'უცნობი მოწყობილობა',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'მხარდაჭერა',
   'forgotPassword.error': 'გადატვირთვის ბმულის გაგზავნა ვერ მოხერხდა.',
   'forgotPassword.subtitle': 'შეიყვანეთ თქვენი ელ. ფოსტა და ჩვენ გამოგიგზავნით გადატვირთვის ბმულს.',
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'არასწორი ელ. ფოსტა ან პაროლი.',
   'login.pageTitle': 'შესვლა',
   'login.signIn': 'შედით Forge-ში',
+  'login.subtitle': 'შედით სისტემაში, რათა თქვენი პროექტები გეგმის მიხედვით წარიმართოს',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'nav.calendar': 'კალენდარი',
   'nav.legal': 'იურიდიული',
   'nav.myTasks': 'ჩემი დავალებები',

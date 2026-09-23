@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.pageTitle': '{{app}} туралы',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.retry': 'Қайталап көру',
   'compose.cancel': 'Бас тарту',
   'compose.captionPlaceholder': 'Ойында не бар?',
   'compose.heading': 'Бір сәтпен бөлісіңіз',
@@ -99,6 +103,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Расталған аккаунт',
   'resetPassword.newPassword': 'Жаңа құпия сөз',
   'resetPassword.subheading': 'Күшті нәрсені таңдаңыз — кемінде 12 таңба.',
+  'search.clearAria': 'Таза',
+  'search.error': 'Іздеу сәтсіз аяқталды. Қайталап көріңіз.',
   'search.noPeople': 'Сәйкес келетін жасаушылар жоқ» {{q}} ".',
   'search.noPosts': 'Сәйкес келетін жазбалар жоқ" {{q}} ".',
   'search.noTags': 'Әзірге трендтегі хэштегтер жоқ.',
@@ -128,6 +134,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Құпия сөзді жасыру',
   'signup.showPassword': 'Құпия сөзді көрсету',
   'signup.subheading': 'Бөлісуді бастау үшін тіркелгі жасаңыз.',
+  'socialMediaLayout.closeMenu': 'Навигация мәзірін жабу',
+  'socialMediaLayout.openMenu': 'Навигация мәзірін ашу',
+  'socialMediaLayout.primaryNavLabel': 'Негізгі навигация',
   'storyRail.heading': 'Әңгімелер',
   'storyRail.label': 'Әңгімелер',
   'storyRail.openAria': 'Ашық {{handle}} әңгімесі',

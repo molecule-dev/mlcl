@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.title': '{{app}}(r)i buruz',
   'auth.login.noAccount': 'Sparq-en berria zara?',
   'auth.login.or': 'edo jarraitu honekin',
   'auth.signup.or': 'edo eman izena honekin',
+  'common.confirm': 'Berretsi',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.loadError': 'Zerbait gaizki joan da edukia kargatzean.',
+  'common.retry': 'Saiatu berriro',
   'discover.collections.title': 'Arakatu kategoriaren arabera',
   'discover.collections.viewAll': 'Ikusi zure liburutegia →',
   'discover.empty.body': 'Saiatu beste kategoria batekin edo garbitu bilaketa.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Hasi saioa zure bolada bizirik mantentzeko, zuzeneko partidak antolatzeko eta sailkapenean igotzeko.',
   'myQuizzes.createButton': 'Galdetegi berria',
+  'myQuizzes.deleteConfirm': 'Betiko ezabatu?',
   'myQuizzes.empty.createCta': 'Sortu zure lehen galdetegia →',
   'myQuizzes.empty.created': 'Oraindik ez duzu galdetegirik sortu.',
   'myQuizzes.empty.played': 'Ez dago argitaratutako galdetegirik oraindik.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Kargatzen…',
   'notifications.subhead':
     '{{count}} Irakurri gabeko txinpartak. Gonbidapenak, sailkapeneko mugimenduak eta lorpenak, dena korronte bakarrean.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.checkoutError': 'Ezin izan da ordainketa hasi. Saiatu berriro.',
+  'pricing.heading': 'Aukeratu zure {{app}} plana',
   'pricing.included': 'Barne',
   'pricing.loadError': 'Ezin izan dira planoak kargatu.',
   'pricing.maxQuizzes': '{{count}} galdetegiak',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Ez da ezer argitaratu oraindik.',
   'profile.startBuilding': 'Eraikitzen hasi →',
   'profile.tier': 'Sparq jokalaria',
+  'quizBuilder.addFailed': 'Ezin izan da galdera gehitu. Saiatu berriro.',
   'quizBuilder.addQuestion': 'Gehitu galdera',
   'quizBuilder.answerPlaceholder': 'Idatzi aukera bat…',
   'quizBuilder.answersLabel': 'Erantzun aukerak',
   'quizBuilder.back': 'Nire galdetegietara itzuli',
   'quizBuilder.delete': 'Ezabatu galdera',
+  'quizBuilder.deleteFailed': 'Ezin izan da galdera ezabatu.',
   'quizBuilder.firstQuestion': 'Gehitu zure lehen galdera hasteko.',
   'quizBuilder.idLabel': 'Galdetegiaren IDa: {{id}}',
   'quizBuilder.loadError': 'Ezin izan da galdetegia kargatu.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Gehitu gutxienez bi erantzun aukera eta aukeratu zuzena {{count}} galdera(k) argitaratu aurretik.',
   'quizBuilder.questionsTitle': 'Galderak',
+  'quizBuilder.saveFailed': 'Ezin izan da izenburua gorde. Saiatu berriro.',
   'quizBuilder.statusDraft': 'Zirriborroa',
   'quizBuilder.subhead':
     'Editatu izenburua, gehitu galderak, ezarri aukerak eta erantzun zuzena. Aldaketak automatikoki gordetzen dira.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'Antolatzaile jokalari anitzekoa',
   'quizDetail.leaderboardEmpty':
     'Oraindik ez da jokaldirik egin — izan zaitez lehena puntuazioa ezartzen.',
+  'quizDetail.loadError': 'Ezin izan da galdetegi hau kargatu.',
   'quizDetail.loading': 'Galdetegia kargatzen…',
   'quizDetail.plays': '{{count}} antzezlanak',
   'quizDetail.playSolo': 'Bakarrik jolastu',

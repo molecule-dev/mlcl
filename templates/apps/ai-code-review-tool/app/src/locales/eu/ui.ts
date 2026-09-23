@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Jarri gurekin harremanetan',
   'about.eyebrow': 'Buruz',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.connectRepoCta': 'Konektatu biltegia',
   'dashboard.empty': 'Ez dago oraindik eskaerarik — konektatu biltegi batera hasteko.',
   'dashboard.eyebrow': 'Errefraktatu · berrikuspen ilara',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Aktibotasun-denbora',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI kalitate puntuazioa {{score}} / 10',
+  'refractLayout.closeMenu': 'Itxi menua',
+  'refractLayout.openMenu': 'Ireki menua',
   'refractLayout.primaryNavLabel': 'Nabigazio nagusia',
   'reports.cumulativeScoreLabel': 'Puntuazio metatua',
   'reports.cumulativeScoreSubtitle': 'biltegi guztiak · {{days}} d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Bilaketa-indizea kargatzea huts egin du.',
   'settings.apiKeys.description':
     'Kudeatu API gako pertsonalak goiko eskuineko erabiltzailearen menutik.',
+  'settings.apiKeys.integrationsNote':
+    'Hornitzaileen sarbide-tokenak goiko Integrazioen atalean kudeatzen dira.',
   'settings.connectError': 'Ezin izan da hornitzailea konektatu.',
   'settings.disconnectError': 'Ezin izan da hornitzailea deskonektatu.',
   'settings.eyebrow': 'Errefraktatu · lan-eremua',
   'settings.integration.${provider}.label': 'Gordetzen…',
   'settings.loadError': 'Ezarpenak kargatzea huts egin da.',
+  'settings.notificationCenter': 'Jakinarazpen-zentroa',
   'settings.notifications.description':
     'Bisitatu jakinarazpenen orria bidalketa-lehentasunak ikusteko eta kudeatzeko.',
   'settings.section.account': 'Kontua eta segurtasuna',

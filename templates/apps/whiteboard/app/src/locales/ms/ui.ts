@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'authShell.brandHeading':
     'Kanvas berbilang pemain untuk pasukan reka bentuk yang berfikir secara lantang.',
   'billing.canceled': 'Langganan dibatalkan.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Mulakan daripada templat',
   'boards.title': 'Papan anda',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Masukkan e-mel yang dikaitkan dengan ruang kerja anda dan kami akan menghantar pautan tetapan semula.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Bengkel Q1 · Suara Jenama',
   'landing.featuresEyebrow': 'Apa yang menjadikan Slate tessellate',
   'landing.featuresTitle': 'Maklum balas yang pantas. Kanvas yang cantik. Tiada geseran.',
+  'landing.hero.body':
+    '{{appName}} ialah papan putih berbilang pemain untuk pasukan reka bentuk, fasilitator bengkel dan pendidik yang menjalankan sumbang saran secara langsung dan memerlukan idea untuk disatukan di satu tempat.',
   'landing.hero.primaryCta': 'Mulakan papan secara percuma',
   'landing.hero.socialProof': 'Dipercayai oleh {{count}} pasukan reka bentuk di seluruh dunia',
   'landing.hero.title': 'Kanvas sepantas fikiran anda',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Cipta ruang kerja percuma',
   'login.subheading':
     'Teruskan dari tempat bengkel berhenti — papan, nota lekit dan kursor semuanya disegerakkan dalam masa nyata.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.new': 'Baharu',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notifications.editTitle': 'Suntingan pada " {{board}} "',
   'notifications.empty.body':
     'Jemputan, simpanan gambar dan suntingan papan terkini akan dipaparkan di sini apabila ia berlaku.',
@@ -177,6 +184,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Sejarah versi',
   'versionHistory.untitledSnapshot': 'Gambaran ringkas tanpa tajuk',
   'whiteboardLayout.newBoard': 'Papan baharu',
+  'whiteboardLayout.primaryNav': 'Navigasi utama',
   'workspace.boardLabel': 'Lembaga',
   'workspace.eyebrow': '{{name}} · ruang kerja',
   'workspace.invite': 'Jemput rakan usaha sama',

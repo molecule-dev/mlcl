@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Контактирајте нас',
   'about.eyebrow': 'О нама',
+  'about.title': 'O aplikaciji {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Професионална фотографија женског агента за подршку са пријатељским осмехом у модерној канцеларији',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Контактирајте подршку',
   'forgotPassword.error': 'Није могуће послати имејл за ресетовање. Молимо покушајте поново.',
   'forgotPassword.rememberPassword': 'Сећате се лозинке?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Пријавите се — Zenith подршка',
   'login.showPassword': 'Прикажи лозинку',
   'login.welcomeSubheading': 'Пријавите се на контролну таблу за подршку',
+  'mobileNav.closeMenu': 'Затвори навигацију',
+  'mobileNav.menu': 'Навигација',
+  'mobileNav.openMenu': 'Отвори навигацију',
   'nav.legal': 'Правни',
   'nav.newTicket': 'Нова карта',
   'notifications.loadError': 'Није могуће учитати обавештења. Покушајте поново за тренутак.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Претрага команди',
   'operatorDock.newReport': 'Нови извештај',
   'operatorDock.systemOnline': 'Систем на мрежи',
+  'planUpdated.subtitle': 'Хвала вам',
   'planUpdated.title': 'План је ажуриран',
   'pricing.agents': 'агенти',
   'pricing.automation': 'Правила аутоматизације',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{име}}',
   'ticketCustomerReply.avatarAlt': '{{име}} аватар корисника',
   'ticketDetail.errorTitle': 'Нешто је пошло наопако',
+  'ticketDetail.loadError': 'Учитавање карте није успело.',
+  'ticketDetail.notFound': 'Карта није пронађена',
+  'ticketDetail.replyError': 'Слање одговора није успело. Молимо покушајте поново.',
   'ticketDetail.retry': 'Покушај поново',
   'ticketDetail.statusUpdateError': 'Није могуће ажурирати статус. Покушајте поново.',
   'ticketDetailsCard.assigneeLabel': 'Додељеник',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{време}} лево',
   'ticketRow.title': 'Неуспех везе до базе података у продукцији {{чвор}}',
   'tickets.pageTitle': 'Улазнице — Подршка Зенита',
+  'ticketsFab.newTicket': 'Нова карта',
   'ticketsFilterBar.assigneeLabel': 'Додељени:',
   'ticketsFilterBar.clearFilters': 'Обриши филтере',
   'ticketsFilterBar.dateRangeDemoHint':

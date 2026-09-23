@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ის შესახებ',
+  'appNav.mobileLabel': 'ძირითადი ნავიგაცია',
+  'appNav.primaryLabel': 'ძირითადი ნავიგაცია',
   'billing.actions.confirmCancel':
     'გსურთ გამოწერის გაუქმება? შეგიძლიათ ხელახლა გამოიწეროთ ნებისმიერ დროს.',
   'billing.actions.paused': 'გამოწერა შეჩერებულია.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'თითოეული დონე მცირე პარტიული ისტორიაა. დაამატეთ ერთი თქვენს რიგში ან შეცვალეთ იგი შემდეგ თვეში.',
   'boxThemeCard.perMonth': '/ თვე',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'customize.eyebrow': 'გახადე შენი',
   'customize.heading': 'თქვენი შემდეგი Crate-ის პერსონალიზება',
   'customize.items.exclude': 'გამოტოვეთ ეს',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'ამ სეზონში',
   'landing.editions.heading': 'გამოცემები, რომლებიც ჩვენს კურატორებს უყვართ',
   'landing.footer.contact': 'ესაუბრეთ კურატორს',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'დაიწყეთ თქვენი ყუთი →',
   'landing.hero.ctaSecondary': 'იხილეთ იარუსები',
   'landing.hero.eyebrow': 'ყოველთვიურად შერჩეული. ყოველთვის პერსონალური.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'შენი შემდეგი საგანძური',
   'nextBoxHeroCard.itemsLabel': 'შერჩეული ნივთები',
   'nextBoxHeroCard.shipsOnLabel': 'იგზავნება',
+  'notFound.body':
+    'ეს გვერდი {{app}} არქივში ვერ ვიპოვეთ. შესაძლოა, ის აღარ არსებობს ან უბრალოდ არასწორად არის აკრეფილი.',
   'notFound.cta.dashboard': 'გადადით დაფაზე',
   'notFound.eyebrow': 'ცარიელი ყუთი',
   'notFound.heading': 'ეს თარო ცარიელია',

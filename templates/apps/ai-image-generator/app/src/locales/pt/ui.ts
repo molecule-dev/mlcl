@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'auth.fields.newPassword': 'Nova senha',
   'collectionDetail.addImage': 'Conjurar para a coleção',
   'collectionDetail.backCta': 'Voltar para coleções',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, briefings e séries em andamento',
   'collections.title': 'Coleções',
   'collections.untitled': 'Sem título · {{stamp}}',
+  'common.closeMenu': 'Fechar menu',
+  'common.dismiss': 'Dispensar',
+  'common.goToDashboard': 'Ir para o Painel',
+  'common.openMenu': 'Abrir menu de navegação',
   'credits.eyebrow': 'Plano {{plan}}',
   'credits.renewsCopy': 'Plano renova em {{date}}',
   'credits.trail': 'Devaneio · {{plan}} nível',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'A atividade de geração, compartilhamentos e alertas de créditos aparecerão aqui.',
   'notifications.empty.title': 'Nada a relatar',
   'notifications.subtitle': 'Eventos de geração agrupados por dia',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.limits.gallery': 'Galeria de {{count}}',
   'privacy.collect.body':
     'Ao se cadastrar, coletamos seu nome, e-mail e uma senha com hash. Conforme você usa o Reverie, armazenamos os prompts que envia, as imagens geradas, os estilos e coleções salvos, e metadados como o modelo usado, horários de geração e saldo de créditos.',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Salvar nova senha',
   'reset.submitting': 'Atualizando senha…',
   'settings.account.handle': 'Usuário',
+  'settings.account.lastSaved': 'Perfil ativo · {{name}}',
   'settings.account.saved': 'Perfil salvo',
   'settings.account.saveFailed': 'Não foi possível salvar o perfil',
   'settings.account.title': 'Perfil de criador',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nova imagem',
   'sidebar.secondary': 'Navegação secundária',
   'signup.failed': 'Falha ao se cadastrar. Tente novamente.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Comece sua reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crie uma conta e ganhe 120 créditos grátis.',
   'styles.empty': 'Sem presets de estilo ainda — aparecerão após o primeiro login.',
   'styles.eyebrow': 'Curado',

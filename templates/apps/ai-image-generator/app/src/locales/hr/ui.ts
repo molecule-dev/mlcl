@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'auth.fields.newPassword': 'Nova lozinka',
   'collectionDetail.addImage': 'Prizovi za kolekciju',
   'collectionDetail.backCta': 'Natrag na kolekcije',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Ploče raspoloženja, kratki sažeci i tekuće serije',
   'collections.title': 'Zbirke',
   'collections.untitled': 'Bez naslova · {{stamp}}',
+  'common.closeMenu': 'Zatvori izbornik',
+  'common.dismiss': 'Odbaciti',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
+  'common.openMenu': 'Otvori navigacijski izbornik',
   'credits.eyebrow': '{{plan}} plan',
   'credits.renewsCopy': 'Plan se obnavlja {{date}}',
   'credits.trail': 'Sanjarenje · {{plan}} sloj',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Ovdje će se prikazivati upozorenja o aktivnosti generiranja, dijeljenju i kreditima.',
   'notifications.empty.title': 'Nema ništa za prijaviti',
   'notifications.subtitle': 'Događaji generacije grupirani po danu',
+  'planUpdated.verifying': 'Potvrda vaše uplate…',
   'pricing.limits.gallery': '{{count}} galerija',
   'privacy.collect.body':
     'Kada se registrirate, prikupljamo vaše ime, adresu e-pošte i hashiranu lozinku. Dok koristite Reverie, pohranjujemo upite koje pošaljete, slike koje generiramo za vas, stilove i kolekcije koje spremate te metapodatke kao što su korišteni model, vremenske oznake generiranja i stanje kredita.',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Spremi novu lozinku',
   'reset.submitting': 'Ažuriranje lozinke…',
   'settings.account.handle': 'Ručka',
+  'settings.account.lastSaved': 'Aktivni profil · {{name}}',
   'settings.account.saved': 'Profil spremljen',
   'settings.account.saveFailed': 'Nije moguće spremiti profil',
   'settings.account.title': 'Profil autora',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nova slika',
   'sidebar.secondary': 'Sekundarna navigacija',
   'signup.failed': 'Prijava nije uspjela. Pokušajte ponovno.',
+  'signup.firstNamePlaceholder': 'Arija',
   'signup.heading': 'Započni svoje sanjarenje',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Kreirajte račun i zatražite 120 besplatnih kredita.',
   'styles.empty': 'Još nema unaprijed postavljenih stilova — pojavit će se nakon prve prijave.',
   'styles.eyebrow': 'Odabrano',

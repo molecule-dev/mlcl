@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Vi är ett distribuerat team av designers och ingenjörer som en gång tillbringade alldeles för många timmar varje dag i en bullrig brevlåda. Courier är inkorgen vi själva ville använda.',
   'about.title': 'E-post för fokuserat arbete',
+  'common.goToDashboard': 'Gå till översikt',
   'help.cta.about': 'Om Courier',
   'help.cta.pricing': 'Visa priser',
   'help.eyebrow': 'Hjälpcenter',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Snabba svar på de frågor vi hör oftast. Saknas något? Öppna Inställningar och använd feedbackformuläret i appen, eller skriv till support@courier.example.',
   'help.title': 'Hur kan vi hjälpa till?',
   'landing.brand.scrollTop': 'Tillbaka till toppen',
+  'landing.copyright': '© {{year}} {{appName}} — Byggd för fokus.',
   'landing.ctaBody': 'Anslut dig till tusentals proffs som tömde inkorgen före lunch.',
   'landing.ctaTitle': 'Bearbeta mer, reagera mindre.',
   'landing.eyebrow': 'E-post för fokuserat arbete',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Se demo',
   'landing.heroSubtitle':
     'Courier är en lugn inkorg i tre paneler byggd för kunskapsarbetare som vill bearbeta information, inte reagera på den.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Litas på av fokuserade team över hela världen',
   'landing.signIn': 'Logga in',
   'meridian.archive.empty': 'Arkivet är tomt.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Till',
   'meridian.drafts.watermark': 'Utkast',
   'meridian.folder.count': '{{count}} meddelanden',
+  'meridian.folder.delete': 'Ta bort',
   'meridian.folder.deleteForever': 'Ta bort permanent',
   'meridian.folder.restore': 'Flytta till inkorg',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Inga meddelanden här ännu.',
   'meridian.inbox.loading': 'Laddar…',
   'meridian.inbox.next': 'Nästa',
+  'meridian.inbox.noSender': '(ingen avsändare)',
   'meridian.inbox.noSubject': '(inget ämne)',
+  'meridian.inbox.ofTotal': '{{current}} av {{total}}',
   'meridian.inbox.openCompose': 'Öppna skrivläge',
   'meridian.inbox.previous': 'Föregående',
   'meridian.inbox.replyFailed': 'Svar sparat men leverans misslyckades: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Har du inget konto?',
   'meridian.login.showPassword': 'Visa lösenord',
   'meridian.message.toLine': 'till {{recipients}}',
+  'meridian.notFound.body':
+    'Sidan du letar efter hittades inte. Gå tillbaka till din inkorg i {{appName}} så hjälper vi dig på rätt spår.',
   'meridian.notFound.eyebrow': 'Fel 404',
   'meridian.notFound.title': 'Den här tråden arkiverades.',
   'meridian.notFound.toInbox': 'Öppna min inkorg',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Lägg till stjärna',
   'meridian.thread.unstar': 'Ta bort stjärna',
   'meridian.time.yesterday': 'Igår',
+  'meridian.topBar.openMenu': 'Öppna navigeringsmenyn',
   'meridian.topBar.searchPlaceholder': 'Sök i e-post',
   'meridian.trash.empty': 'Papperskorgen är tom.',
   'meridian.trash.title': 'Papperskorg',
   'nav.legal': 'Juridiskt',
   'planUpdated.description':
     'Din prenumeration är nu aktiv och din fakturering har uppdaterats. Välkommen till din uppdaterade Courier-inkorg.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.heading': 'utkast',
   'pricing.limit.emails': 'e-postmeddelanden',
   'pricing.limit.folders': 'mappar',
   'pricing.limit.labels': 'etiketter',
   'privacy.collect.account':
     'Kontodata: namn, e-postadress, hashat lösenord och datumet då du registrerade dig.',
+  'privacy.contact': 'Frågor? Maila privacy@courier.example.',
   'privacy.intro':
     'Denna integritetspolicy förklarar vilka data Courier samlar in, varför vi samlar in dem, hur vi håller dem säkra och vilka val du har över dem. Vi strävar efter att vara specifika istället för juridiska; om något är oklart, skriv till privacy@courier.example.',
   'privacy.lastUpdated': 'Senast uppdaterad: 1 april 2026',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Dessa villkor styr din användning av Courier. Genom att skapa ett konto eller skicka e-post via oss godkänner du att vara bunden av dem. Vi försöker skriva regler en person faktiskt kan följa.',
   'terms.lastUpdated': 'Gäller från: 1 april 2026',
+  'terms.linkPrivacy': 'Läs vår integritetspolicy →',
   'terms.termination.body':
     'Du kan ta bort ditt konto när som helst. Vi kan stänga av ett konto som bryter mot dessa villkor; om vi gör det förklarar vi orsaken och låter dig exportera dina data först.',
   'terms.warranty.body':

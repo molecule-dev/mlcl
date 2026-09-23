@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'accountDetail.activeBadge': 'Идэвхтэй',
   'accountDetail.availableLabel': '{{amount}} боломжтой',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Бүртгэлүүдийг ачаалж чадсангүй.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Хөлдөөсөн',
   'accounts.totalBalance': '{{мөнгөн дүн}} нийт',
   'audit.empty': 'Одоогоор арга хэмжээ алга.',
   'audit.eyebrow': 'Аюулгүй байдал ба хандалт',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Гар дээрх бэлэн мөнгө',
   'cashCreditCard.creditLabel': 'Ашигласан зээл',
   'cashCreditCard.title': 'Бэлэн мөнгө ба зээл',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Тойм',
   'dashboard.recentEmpty': 'Одоогоор гүйлгээ хийгдээгүй байна.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.signUp': 'Бүртгүүлэх',
   'login.submit': 'Нэвтрэх',
+  'meridianLayout.menu': 'Цэс',
   'meridianLayout.primaryNavLabel': 'Үндсэн навигаци',
   'nav.legal': 'Хууль эрх зүйн',
   'notifications.emptyHeading': 'Та бүгдийг нь дуусгалаа',
   'notifications.subheading': 'Гүйлгээ, аюулгүй байдал болон тайлангийн бодит цагийн сэрэмжлүүлэг.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'privacy.dataWeShare':
     'Хувийн банкны мэдээллийг хэзээ ч зардаггүй. Бид мэдээллийг төлбөрийн боловсруулагчид, картын сүлжээ болон зохицуулагч байгууллагуудтай зөвхөн гүйлгээ хийх эсвэл хууль ёсны үүргээ биелүүлэх шаардлагатай үед л хуваалцдаг.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Хоёр хүчин зүйлтэй горим нь нэвтрэх бүрт баталгаажуулагч апп-аас нэг удаагийн кодыг нэмдэг.',
   'settings.security.twoFactorCta': 'Хоёр хүчин зүйлийн баталгаажуулалтыг удирдах',
+  'settings.security.twoFactorOff': 'Хоёр хүчин зүйлийн горим идэвхгүй байна',
   'settings.signOutDevice': 'Гарах',
   'settings.subheading': 'Профайл, аюулгүй байдал болон мэдэгдэл.',
+  'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorInvalidCode': 'Буруу код',
+  'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'signup.emailLabel': 'И-мэйл хаяг',
   'signup.fullName': 'Бид танд хэрхэн хандах ёстой вэ?',
   'signup.showPassword': 'Нууц үгийг харуулах',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Одоогоор гүйлгээ хийгдээгүй байна.',
   'transactions.endDate': 'Дуусах огноо',
   'transactions.eyebrow': 'Үйл ажиллагаа',
+  'transactions.loadError': 'Гүйлгээг ачаалж чадсангүй.',
   'transactions.merchant': 'Худалдаачин',
+  'transactions.subheading': 'Таны дансууд дээрх нийтлэгдсэн болон хүлээгдэж буй гүйлгээ бүр.',
   'transfers.availableHint': '{{amount}} боломжтой',
   'transfers.errorGeneric': 'Шилжүүлэг илгээж чадсангүй.',
   'transfers.errorMissingFields': 'Эх бүртгэл болон очих газрыг сонгоно уу.',

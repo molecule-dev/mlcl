@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'analytics.col.quorum': 'Korum',
   'analytics.col.votes': 'Mga boto',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Wala pang mga nakabinbing tanong.',
   'audienceQa.onStageEyebrow': 'Nasa entablado ngayon',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'I-promote',
   'audienceQa.queued': 'nakapila',
   'audienceQa.queueEyebrow': 'Pila',
   'ballot.eyebrow': 'Iboto ang iyong balota',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Kasalukuyan kang nasa {{plan}} plano.',
   'billing.switch': 'Palitan',
   'billing.upgraded': 'Na-update sa {{plan}} — mga limitasyong agad na inilalapat.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'createPoll.addOption': 'Magdagdag ng opsyon',
   'createPoll.anonymousHint':
     'Nakatago ang mga pangalan ng botante sa audit log; nananatiling authenticated ang mga bilang.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Bago sa Nosh?',
   'login.remember': 'Tandaan ako sa loob ng 30 araw',
   'login.subheading': 'Buksan ang sahig, patakbuhin ang silid, at patunayan ang resulta.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'notFound.body':
     'Ang pahinang sinubukan mong puntahan ay isinara o inilipat na. Bumalik sa dashboard o magbukas ng bagong poll.',
   'notFound.eyebrow': 'Walang korum sa rutang ito',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Hindi ma-load ang poll na ito.',
   'pollDetail.loading': 'Naglo-load ng poll…',
   'pollDetail.notFound': 'Hindi natagpuan ang botohan.',
+  'pollDetail.openBallot': 'Bukas na balota',
   'pollDetail.openLive': 'Mga live na resulta',
   'pollDetail.pollId': 'botohan · {{id}}',
   'pollDetail.published': 'Na-publish na ang botohan — maaari nang bumoto ang mga botante.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Maghanap gamit ang email…',
   'voters.subheading':
     'Ayusin ang mga kwalipikadong botante. Pangkatin ang mga botante ayon sa organisasyon para sa mga balotang may timbang.',
+  'votingPollingLayout.nav.analytics': 'Analitika',
+  'votingPollingLayout.nav.billing': 'Pagsingil',
+  'votingPollingLayout.nav.createPoll': 'Bagong botohan',
+  'votingPollingLayout.nav.dashboard': 'Dashboard',
+  'votingPollingLayout.nav.notifications': 'Mga Notification',
+  'votingPollingLayout.nav.settings': 'Mga Setting',
+  'votingPollingLayout.nav.team': 'Koponan',
+  'votingPollingLayout.nav.voters': 'Mga botante',
+  'votingPollingLayout.primaryNavLabel': 'Pangunahing navigation',
 }

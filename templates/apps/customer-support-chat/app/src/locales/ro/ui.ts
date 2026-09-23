@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
   'authShell.samplePreview':
     '„Salut, echipă, noul tablou de bord arată superb — exact ce ne trebuia!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/comandă rapidă',
   'automations.subheading':
     'Reguli, răspunsuri prestabilite și chatboți — asigură buna funcționare a spațiului de lucru, în timp ce echipa ta se concentrează pe sarcinile dificile.',
+  'automations.trigger.inboundMessage': 'Mesaj primit',
   'automations.triggerLabel': 'Declanșator',
   'chatBubble.internalNoteLabel': 'Notă internă',
+  'common.confirmDelete': 'Confirmă ștergerea',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'contactDetail.backToContacts': 'Toate contactele',
   'contactDetail.contactFallback': 'Contact',
   'contactDetail.conversationFallback': 'Conversaţie',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Văzut ultima dată',
   'contacts.empty': 'Nu ai încă niciun contact. Adaugă primul tău contact mai sus.',
   'contacts.eyebrow': 'Lista clienților',
+  'contacts.form.nameOrEmailRequired': 'Introduceți cel puțin un nume sau o adresă de e-mail',
   'contacts.form.save': 'Salvează contactul',
   'contacts.heading': 'Contacte',
   'contacts.loading': 'Se încarcă contactele…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Salvează nota',
   'conversationDetail.tab.note': 'Notă internă',
   'conversationDetail.threadAria': 'Mesaje de conversație',
+  'conversationDetail.visitorFallback': 'Vizitator',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Datele clientului',
   'customerProfilePanel.recentTitle': 'Discuții recente',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'În medie, clienții primesc primul răspuns în termen de {{time}} — mențineți acest ritm.',
   'inboxHeroCard.title': 'Conversații active',
+  'inboxLayout.navDrawerLabel': 'Navigare',
+  'inboxLayout.openMenu': 'Deschide meniul de navigare',
   'inboxOverview.eyebrow': 'Pe scurt, astăzi',
   'inboxOverview.heroChange': '{{count}} deschis',
   'inboxOverview.kpiClosedTrend': 'din toate timpurile',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Accesați pagina principală',
   'notifications.subheading':
     'Sarcini, mențiuni, riscuri legate de SLA, feedback privind satisfacția clienților și activitatea echipei — sortate în ordine cronologică, de la cele mai recente la cele mai vechi.',
+  'notifications.subjectFallback': 'o conversație',
+  'notifications.visitorFallback': 'Un vizitator',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Înaltă',
   'priority.low': 'Scăzută',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Urgentă',
   'privacy.title': 'Politică de confidențialitate',
   'reports.agentFallback': 'Agent',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'activityFeed.empty': 'Zatím žádná aktivita – odešlete svou první fakturu.',
   'authShell.sample.paid': 'Zaplaceno před 2 minutami',
@@ -29,6 +30,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Přidat nového klienta',
   'clients.search': 'Hledat podle jména, firmy, e-mailu',
   'clients.title': 'Klienti',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Nový klient',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Zapomenuté heslo',
   'forgotPassword.successBody':
     'Pokyny pro reset jsme zaslali na adresu {{email}} Platnost odkazu vyprší za 30 minut.',
+  'invoiceDetail.action.confirmVoid': 'Potvrdit neplatnost?',
   'invoiceDetail.action.download': 'Stáhnout PDF',
   'invoiceDetail.action.duplicate': 'Duplikát',
   'invoiceDetail.action.edit': 'Upravit',
@@ -73,9 +76,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Faktura zrušena.',
   'invoiceDetail.issued': 'Vydáno {{date}}',
   'invoiceDetail.loading': 'Načítání faktury…',
+  'invoiceDetail.paidInFull': 'Zaplaceno v plné výši',
   'invoiceDetail.summary': '{{client}} · odesláno {{date}}',
   'invoiceDetail.tax': 'Daň ({{rate}}%)',
   'invoiceDetail.timeline': 'Časová osa',
+  'invoiceDetail.voided': 'Zrušeno',
   'invoiceEditor.addItem': 'Přidat položku',
   'invoiceEditor.back': '← Zpět na faktury',
   'invoiceEditor.col.qty': 'Mn.',
@@ -120,6 +125,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Odešlete svou první fakturu',
   'landing.hero.eyebrow': 'Fakturace pro malé firmy',
   'landing.hero.secondary': 'Zobrazit vzorovou fakturu',
+  'landing.hero.subtitle':
+    '{{appName}} kombinuje propracované faktury s integrovanými platbami, opakovanou fakturací a daňově zvýhodněnými reporty. Bez nutnosti vedení účetnictví.',
   'landing.hero.title': 'Posílejte faktury. Získejte platby rychleji.',
   'login.signupLink': 'Vytvořte si jeden',
   'login.submitting': 'Přihlašování…',
@@ -141,6 +148,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'platby',
   'pricing.recurringLabel': 'opakující se rozvrhy',
   'remitLayout.newInvoice': 'Nová faktura',
+  'remitLayout.openMenu': 'Otevřít navigační menu',
   'remitLayout.searchPlaceholder': 'Vyhledávání faktur, klientů...',
   'remitLayout.tagline': 'Získejte zaplaceno rychleji',
   'reports.chart.aging': 'Stáří faktur',
@@ -150,6 +158,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Obdobné příjmy',
   'reports.chart.topClients': 'Nejlepší klienti',
   'reports.chart.topClientsCaption': 'Celoživotní tržby, top 5',
+  'reports.empty.aging': 'Žádné neuhrazené faktury.',
+  'reports.empty.methods': 'Zatím žádné údaje o platbě.',
+  'reports.empty.revenue': 'Zatím žádné údaje o tržbách.',
+  'reports.empty.topClients': 'Zatím nejsou k dispozici žádná data o tržbách klientů.',
   'reports.exporting': 'Exportování…',
   'reports.exportRequiresPaid':
     'Export je placená funkce – upgradujte ji, abyste ji mohli aktivovat.',
@@ -190,6 +202,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Přidat daňovou sazbu',
   'settings.tax.added': 'Přidána daňová sazba.',
   'settings.tax.adding': 'Přidávání…',
+  'settings.tax.addRate': 'Přidat sazbu',
   'settings.tax.col.region': 'Region',
   'settings.tax.delete': 'Smazat daňovou sazbu',
   'settings.tax.deleted': 'Daňová sazba odstraněna.',

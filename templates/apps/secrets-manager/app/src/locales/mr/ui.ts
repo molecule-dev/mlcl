@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
   'about.tagline': 'रहस्यं उघडकीस आल्यावर नष्ट होतात.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'टोकन तयार करा',
   'apiTokens.kicker': 'एपीआय टोकन',
   'apiTokens.loading': 'टोकन लोड होत आहेत…',
+  'apiTokens.new': 'नवीन टोकन',
   'apiTokens.revoke': 'टोकन रद्द करा',
   'apiTokens.subheading':
     'आर्केनम सीएलआय (CLI) आणि एसडीके (SDK) साठी वैयक्तिक आणि सेवा टोकन्स. निर्मितीच्या वेळी एकदाच मूळ मजकूर (प्लेनटेक्स्ट) दाखवला जातो.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'एसएसओ + पासकी',
   'authShell.zeroKnowledge': 'शून्य-ज्ञान एन्क्रिप्शन',
   'common.connecting': 'जोडत आहे…',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.inviting': 'आमंत्रित करणारे…',
   'forgotPassword.checkInbox':
     'जर {email} नोंदणीकृत असेल, तर एका मिनिटात स्वाक्षरी केलेली रीसेट लिंक मिळेल.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'प्रत्येक व्हॉल्टमधील रोटेशन स्थिती, विसंगती सूचना आणि मंजुरी विनंत्या.',
   'notifications.unreadEmpty': 'इनबॉक्स झिरो — सर्व काम पूर्ण झाले.',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'pricing.heading': 'रहस्ये',
   'pricing.limits.accessPolicies': 'प्रवेश धोरणे',
   'pricing.limits.auditLog': 'ऑडिट-लॉग नोंदी',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'वैयक्तिक खाते',
   'profile.plan.description': 'तुमचे सदस्यत्व व्यवस्थापित करा, मर्यादा पहा आणि श्रेणीसुधारित करा.',
   'profile.subheading': 'ओळख, द्वितीय-घटक उपकरणे आणि सक्रिय सत्रे.',
+  'profile.twoFactor.code': 'प्रमाणीकरण कोड',
   'profile.twoFactor.disable': 'अक्षम करा',
   'profile.twoFactor.enable': 'सक्षम करा',
+  'profile.twoFactor.invalidCode': 'अवैध कोड',
   'profile.twoFactor.kicker': 'द्वि-घटक प्रमाणीकरण',
+  'profile.twoFactor.off': 'सक्षम केलेले नाही',
   'profile.twoFactor.on': 'सक्षम केले',
   'resetPassword.email': 'खाते ईमेल',
   'resetPassword.heading': 'नवीन क्रेडेन्शियल्स सेट करा',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'आदेश',
   'secretsManagerLayout.encrypted': 'एईएस-२५६ · एनक्रिप्टेड',
   'secretsManagerLayout.newVault': 'नवीन तिजोरी',
+  'secretsManagerLayout.newVaultShort': 'नवीन',
   'secretsManagerLayout.rotations': 'रोटेशन्स',
   'secretsManagerLayout.search': 'शोध',
   'secretsManagerLayout.searchPlaceholder': 'की, पाथ किंवा टॅग वापरून सिक्रेट्स शोधा…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'रहस्ये',
   'vaultCard.vaultLabel': 'तिजोरी',
   'vaultDetail.addSecret': 'गुप्त जोडा',
+  'vaultDetail.back': 'सर्व तिजोरी',
   'vaultDetail.col.key': 'मुख्य',
   'vaultDetail.col.rotated': 'फिरवलेले',
   'vaultDetail.col.value': 'मूल्य',

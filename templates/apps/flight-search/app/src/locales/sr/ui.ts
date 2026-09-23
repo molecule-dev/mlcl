@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.eyebrow': 'O aplikaciji {{app}}',
   'about.pageTitle': 'Свака рута, једна претрага.',
   'booking.backToDetail': 'Назад на детаље лета',
   'booking.continue': 'Наставите са плаћањем',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Порези и таксе',
   'booking.summary.travelers': 'Путници',
   'common.about': 'О нама',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'flightDetail.backToResults': 'Назад на резултате',
   'flightDetail.baseFare': 'Основна цена',
   'flightDetail.book': 'Наставите са резервацијом',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 станица',
   'flightResultCard.select': 'Изаберите',
   'flightResultCard.totalLabel': 'Укупно време',
+  'flightSearchLayout.primaryNavLabel': 'Примарна навигација',
   'forgotPassword.subheading':
     'Унесите имејл адресу са вашег Skylark налога и послаћемо вам безбедан линк за ресетовање.',
   'forgotPassword.successBody':
     'Провери {{email}} за линк за подешавање нове лозинке. Линк истиче за 30 минута.',
   'forgotPassword.successHeading': 'Линк за ресетовање је послат',
   'landing.cta.explore': 'Покушајте претрагу',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Пронађите следећу одличну храну пре свих осталих.',
   'landing.cta.signup': 'Почните да пратите цене карата',
   'landing.features.eyebrow': 'Зашто Скајларк',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Додај упозорење',
   'priceAlerts.deleteConfirm': 'Уклонити ово упозорење?',
   'priceAlerts.empty': 'Још увек нема праћених рута.',
+  'priceAlerts.emptyCta': 'Претражите руту за праћење',
   'priceAlerts.errorMessage': 'Није могуће учитати обавештења.',
   'priceAlerts.eyebrow': 'Листа праћења Skylark-а',
   'priceAlerts.form.createError': 'Није могуће креирати упозорење.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'План путовања за више градова',
   'results.multiLegHeading': 'Нога {{n}} · {{од}} → {{до}} · {{датум}}',
   'results.multiSummary': '{{count}} ноге · {{passengers}} путник',
+  'results.sortAriaLabel': 'Сортирај резултате по',
   'results.sortLabel': 'Сортирај',
   'results.summary': '{{count}} летови · {{passengers}} путник',
   'settings.language.title': 'Језик',

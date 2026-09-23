@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Gbasara {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Ngwá ọrụ akụnụba',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ọ bụghị ndụmọdụ itinye ego.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) taa',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Ntugharị isi',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Enweghị azụmahịa maka tiker a.',
   'assetDetail.txHeading': 'Azụmahịa gị',
   'common.and': 'na',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Nchịkọta Pọtụfoliyo',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Enweghị njide ugbu a.',
   'holdings.heading': 'Ojiji',
   'holdings.loadError': 'Enweghị ike ibu ihe ndị e ji ejide.',
+  'landing.copyright':
+    "© {{year}} {{app}} . Ọ bụghị ndụmọdụ itinye ego. Arụmọrụ gara aga anaghị ekwe nkwa ihe ga-esi na ya pụta n'ọdịnihu.",
   'landing.eyebrow': 'Argent · Ikpo okwu eji arụ ọrụ akụnụba',
   'landing.features.heading': 'Ihe niile onye ndụmọdụ ga-ewulite maka onwe ya.',
   'landing.finalCta.heading': 'Weghachite ọzụzụ na akwụkwọ ọrụ gị.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} awa gara aga',
   'news.justNow': 'naanị ugbu a',
   'news.loadError': 'Ebulighị ozi ọma.',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'portfolioHeroCard.label': 'Uru Pọtụfoliyo',
   'pricing.holdingsLabel': 'njide',
   'pricing.newsLabel': 'akụkọ',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Hichapụ akaụntụ',
   'settings.security.deleting': 'Na-ehichapụ…',
   'settings.security.heading': 'Nchekwa',
+  'settings.security.newPassword': 'Okwuntughe Ọhụrụ',
   'settings.security.password': 'Okwuntughe',
   'settings.security.twoFactorEnable': 'Mee ka ọ rụọ ọrụ',
+  'settings.security.twoFactorInvalidCode': 'Koodu na-ezighi ezi',
+  'settings.security.twoFactorVerify': 'Nyochaa ma mee ka ọ rụọ ọrụ',
   'settings.tax.error': 'Enweghị ike imelite usoro ụtụ isi.',
   'settings.tax.heading': 'Akaụntụ ụtụ isi',
   'settings.tax.method': 'Usoro ndabara',

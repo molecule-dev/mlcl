@@ -16,6 +16,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     '我們是一支由設計師和工程師組成的分散式團隊，過去每天都要在嘈雜的收件匣中耗費過多時間。Courier 正是我們自己一直想使用的收件匣。',
   'about.title': '專注工作的電子郵件',
+  'common.goToDashboard': '前往主控台',
   'help.cta.about': '關於 Courier',
   'help.cta.pricing': '查看價格',
   'help.eyebrow': '說明中心',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
     '以下是針對我們最常收到問題的快速解答。若有遺漏之處，請開啟「設定」並使用應用程式內的回饋表單，或寄信至 support@courier.example。',
   'help.title': '我們能幫上什麼忙？',
   'landing.brand.scrollTop': '返回頁首',
+  'landing.copyright': '© {{year}} {{appName}} — 專為專注而打造。',
   'landing.ctaBody': '加入數千名在午餐前就處理完收件匣的專業人士行列。',
   'landing.ctaTitle': '多思考，少反應。',
   'landing.eyebrow': '專注工作的電子郵件',
@@ -45,6 +47,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': '觀看示範',
   'landing.heroSubtitle':
     'Courier 是一款簡潔的三欄收件匣，專為希望主動處理資訊、而非被動回應資訊的知識工作者所設計。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': '深受全球各領域專業團隊的信賴',
   'landing.signIn': '登入',
   'meridian.archive.empty': '存檔為空。',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': '草稿',
   'meridian.folder.count': '{{count}} 訊息',
+  'meridian.folder.delete': '刪除',
   'meridian.folder.deleteForever': '永久刪除',
   'meridian.folder.restore': '移至收件匣',
   'meridian.forgot.subtitle': '請輸入與您的收件匣綁定的電子郵件地址，我們將寄送重設連結。',
@@ -80,7 +84,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': '這裡還沒有任何訊息。',
   'meridian.inbox.loading': '載入中…',
   'meridian.inbox.next': '下一個',
+  'meridian.inbox.noSender': '（無寄件人）',
   'meridian.inbox.noSubject': '（無主題）',
+  'meridian.inbox.ofTotal': '{{current}}共{{total}}',
   'meridian.inbox.openCompose': '開啟撰寫',
   'meridian.inbox.previous': '以前的',
   'meridian.inbox.replyFailed': '回覆已儲存但傳送失敗：{{error}}',
@@ -93,6 +99,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': '還沒有帳號嗎？',
   'meridian.login.showPassword': '顯示密碼',
   'meridian.message.toLine': '寄至 {{recipients}}',
+  'meridian.notFound.body':
+    '您要尋找的頁面無法找到。請返回您的{{appName}}收件箱，我們會幫您解決問題。',
   'meridian.notFound.eyebrow': '錯誤 404',
   'meridian.notFound.title': '此討論串已歸檔。',
   'meridian.notFound.toInbox': '開啟我的收件匣',
@@ -128,17 +136,20 @@ export const ui: UiTranslations = {
   'meridian.thread.star': '加入星標',
   'meridian.thread.unstar': '取消標記',
   'meridian.time.yesterday': '昨天',
+  'meridian.topBar.openMenu': '開啟導覽選單',
   'meridian.topBar.searchPlaceholder': '搜尋郵件',
   'meridian.trash.empty': '垃圾桶已清空。',
   'meridian.trash.title': '垃圾',
   'nav.legal': '合法的',
   'planUpdated.description':
     '您的訂閱現已啟用，帳單資訊也已更新。歡迎使用全新改版的 Courier 收件匣。',
+  'planUpdated.verifying': '確認您的付款中…',
   'pricing.heading': '草稿',
   'pricing.limit.emails': '電子郵件',
   'pricing.limit.folders': '資料夾',
   'pricing.limit.labels': '標籤',
   'privacy.collect.account': '帳戶資料：姓名、電子郵件地址、經雜湊處理的密碼，以及您的註冊日期。',
+  'privacy.contact': '如有疑問？請發送電子郵件至 privacy@courier.example。',
   'privacy.intro':
     '本隱私權政策說明 Courier 收集哪些資料、為何收集、如何保障資料安全，以及您對這些資料有哪些選擇權。我們致力於提供具體說明，而非僅採用法律術語；若對任何內容有疑問，請來信至 privacy@courier.example。',
   'privacy.lastUpdated': '最後更新日期：2026年4月1日',
@@ -158,6 +169,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     '本條款規範您使用 Courier 的相關事項。只要您建立帳戶或透過我們發送電子郵件，即表示您同意受本條款約束。我們致力於制定人們實際能夠遵守的規則。',
   'terms.lastUpdated': '生效日期：2026年4月1日',
+  'terms.linkPrivacy': '閱讀我們的隱私權政策 →',
   'terms.termination.body':
     '您可以隨時刪除您的帳戶。若帳戶違反本條款，我們可能會暫停該帳戶；若採取此措施，我們將說明原因，並讓您先匯出您的資料。',
   'terms.warranty.body':

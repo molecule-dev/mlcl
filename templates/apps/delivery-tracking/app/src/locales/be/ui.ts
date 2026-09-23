@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'alerts.acknowledgeLabel': 'Пацвердзіць',
   'alerts.customerLabel': 'Кліент: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Падключэнне…',
   'carriers.requiredError': 'Патрабуюцца імя і код.',
   'carriers.subheading': '{{count}} інтэграваны',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
+  'common.retry': 'Паўтарыць',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'У транспарце + пазначана',
   'dashboard.activeShipmentsSubtitle': '{{count}} грузы патрабуюць увагі або знаходзяцца ў руху',
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'адгрузкі',
   'pricing.trackingLabel': 'адсочванне падзей',
   'profile.dangerZone.title': 'Небяспечная зона',
+  'profile.devices.signingOut': 'Выхад…',
+  'profile.devices.unnamed': 'Безыменная прылада',
+  'profile.security.disable2fa': 'Адключыць 2FA',
   'profile.security.enable2fa': 'Уключыць 2FA',
   'profile.security.pwChanged': 'Пароль паспяхова зменены.',
   'profile.security.pwCurrent': 'Бягучы пароль',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'Актыўная 2FA',
   'profile.security.twoFaCode': '6-значны код',
   'profile.security.twoFaDisable': 'Адключыць',
+  'profile.security.twoFaDisabling': 'Адключэнне…',
   'profile.security.twoFaFailed': 'Не атрымалася праверыць код.',
   'profile.security.twoFaIntro':
     'Адсканіруйце QR-код у праграме аўтэнтыфікацыі, а затым увядзіце 6-значны код ніжэй для праверкі.',
   'profile.security.twoFaOn': 'Двухфактарная аўтэнтыфікацыя ўключана на гэтым акаўнце.',
+  'profile.security.twoFaQrAlt': 'QR-код двухфактарнай аўтэнтыфікацыі',
   'profile.security.twoFaVerify': 'Праверыць і ўключыць',
   'profile.security.twoFaVerifying': 'Праверка…',
   'profile.subheading': 'Налады ідэнтыфікацыі і бяспекі для гэтай працоўнай прасторы.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Захавайце гэты сакрэт — ён больш не будзе паказаны.',
   'settings.api.webhookSecret': 'Сакрэт падпісання вэбхука',
   'settings.appearance.description': 'Пераключэнне паміж светлым і цёмным рэжымамі.',
+  'settings.deleteAccountConfirm': 'Вы ўпэўненыя? Гэта дзеянне нельга адмяніць.',
   'settings.notifications.exceptions': 'Паведаміць мне, калі ўзнікне адхіленне ад дастаўкі',
   'settings.notifications.heading': 'Апавяшчэнні',
   'settings.notifications.saveFailed': 'Не ўдалося захаваць налады.',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Пасылка не знойдзена.',
   'shipmentDetail.originHeading': 'Паходжанне',
   'shipmentDetail.shippedOn': 'Адпраўлена {{date}}',
+  'shipmentDetail.timelineEmpty':
+    "Падзеі адсочвання пакуль няма — абнаўленні з'яўляюцца тут, калі перавозчык скануе пасылку.",
   'shipments.col.carrier': 'Перавозчык',
   'shipments.col.eta': 'Прыблізны час прыбыцця',
   'shipments.col.route': 'Маршрут',
@@ -175,6 +186,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Увайсці',
   'signup.submit': 'Стварыць уліковы запіс',
   'team.emailError': 'Патрабуецца сапраўдны адрас электроннай пошты.',
+  'team.empty':
+    'Пакуль няма ўдзельнікаў каманды. Запрасіце калегу па камандзе да супрацоўніцтва над дастаўкамі.',
   'team.eyebrow': 'Удзельнікі і дазволы',
   'team.inviteDialog.cancel': 'Адмена',
   'team.inviteDialog.heading': 'Запрасіць таварыша па камандзе',
@@ -197,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Трэк',
   'waypointLayout.primaryNavLabel': 'Асноўная навігацыя',
   'webhooks.createFailed': 'Не атрымалася стварыць канчатковую кропку вэбхука.',
+  'webhooks.endpointsEmpty':
+    'Пакуль няма канчатковых кропак вэбхука. Стварыце адну, каб атрымліваць зваротныя выклікі статусу адпраўкі.',
   'webhooks.endpointsHeading': 'Канчатковыя кропкі',
   'webhooks.eventCount': '{{count}} падзеі',
   'webhooks.eventsHeading': 'Нядаўнія дастаўкі',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'auth.fields.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
   'collectionDetail.addImage': 'ប្រឌិតសម្រាប់ការប្រមូល',
   'collectionDetail.backCta': 'ត្រឡប់ទៅបណ្តុំវិញ',
@@ -16,6 +17,11 @@ export const ui: UiTranslations = {
   'collections.loading': 'កំពុងផ្ទុកបណ្តុំ…',
   'collections.subtitle': 'ក្ដារអារម្មណ៍ សេចក្ដីសង្ខេប និងស៊េរីដែលកំពុងដំណើរការ',
   'collections.title': 'ការប្រមូលផ្ដុំ',
+  'collections.untitled': 'គ្មានចំណងជើង · {{stamp}}',
+  'common.closeMenu': 'បិទម៉ឺនុយ',
+  'common.dismiss': 'បដិសេធ',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.openMenu': 'បើកម៉ឺនុយរុករក',
   'credits.eyebrow': '{{plan}} ផែនការ',
   'credits.renewsCopy': 'ផែនការបន្តនៅថ្ងៃទី {{date}}',
   'credits.trail': 'វិវរណៈ · {{plan}} ថ្នាក់',
@@ -131,6 +137,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'សកម្មភាពបង្កើត ការចែករំលែក និងការជូនដំណឹងអំពីឥណទាននឹងបង្ហាញនៅទីនេះ។',
   'notifications.empty.title': 'គ្មានអ្វីត្រូវរាយការណ៍ទេ',
   'notifications.subtitle': 'ព្រឹត្តិការណ៍ជំនាន់ដែលត្រូវបានដាក់ជាក្រុមតាមថ្ងៃ',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.limits.gallery': '{{count}} វិចិត្រសាល',
   'privacy.collect.body':
     'នៅពេលអ្នកចុះឈ្មោះ យើងប្រមូលឈ្មោះ អាសយដ្ឋានអ៊ីមែល និងពាក្យសម្ងាត់ដែលបានអ៊ិនគ្រីបរបស់អ្នក។ នៅពេលអ្នកប្រើប្រាស់ Reverie យើងរក្សាទុកការជំរុញដែលអ្នកដាក់ស្នើ រូបភាពដែលយើងបង្កើតសម្រាប់អ្នក រចនាប័ទ្ម និងការប្រមូលដែលអ្នករក្សាទុក និងទិន្នន័យមេតាដូចជាគំរូដែលបានប្រើ ត្រាពេលវេលាបង្កើត និងសមតុល្យឥណទាន។',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'រក្សាទុកពាក្យសម្ងាត់ថ្មី',
   'reset.submitting': 'កំពុងធ្វើបច្ចុប្បន្នភាពពាក្យសម្ងាត់…',
   'settings.account.handle': 'ចំណុចទាញ',
+  'settings.account.lastSaved': 'ប្រវត្តិរូបសកម្ម · {{name}}',
   'settings.account.saved': 'បានរក្សាទុកប្រវត្តិរូប',
   'settings.account.saveFailed': 'មិនអាចរក្សាទុកប្រវត្តិរូបបានទេ',
   'settings.account.title': 'ប្រវត្តិរូបអ្នកបង្កើត',
@@ -187,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'រូបភាពថ្មី',
   'sidebar.secondary': 'ការរុករកបន្ទាប់បន្សំ',
   'signup.failed': 'ការចុះឈ្មោះបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
+  'signup.firstNamePlaceholder': 'អារីយ៉ា',
   'signup.heading': 'ចាប់ផ្តើមការស្រមើស្រមៃរបស់អ្នក',
+  'signup.lastNamePlaceholder': 'លីន',
   'signup.subheading': 'បង្កើតគណនីមួយ ហើយទាមទារឥណទានឥតគិតថ្លៃចំនួន 120។',
   'styles.empty':
     'មិនទាន់មានការកំណត់រចនាប័ទ្មជាមុននៅឡើយទេ — ពួកវានឹងបង្ហាញបន្ទាប់ពីការចូលលើកដំបូង។',

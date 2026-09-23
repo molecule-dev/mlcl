@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.eyebrow': '{{app}}-ийн тухай',
+  'about.intro':
+    '{{app}} бол бодит амьдралд зориулсан бясалгалын апп юм — дасгалжуулагч биш, харин найз шигээ санагддаг багш нарын өдөр тутмын удирдлагатай бясалгал, амьсгалын дасгал, нойрны түүхүүд. Гэм буруугийн мэдрэмж, чимээ шуугиангүй хооллолт байхгүй: зүгээр л амьсгалаа сэргээх чимээгүй газар.',
+  'about.missionBody':
+    'Бид өдрийн аль ч мөчид хүн бүрт амар амгалан байх ёстой гэж үздэг. {{app}} нь тайван, тууштай бясалгалыг хялбар болгохын тулд оршдог бөгөөд ингэснээр арван чин сэтгэлийн минут таны дараагийн арван цагийг хэрхэн өнгөрүүлэхийг өөрчилж чадна.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'about.pageTitle': 'Өдөрт 10 минут илүү тайван',
+  'breathingDial.seconds': 'секунд',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.logout': 'Гарах',
   'common.min': 'мин',
   'common.relative.justNow': 'дөнгөж сая',
   'common.relative.now': 'одоо',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
+  'nav.secondaryNavigation': 'Бүртгэлийн навигаци',
   'sessionCard.with': '-тай {{name}}',
   'stillpoint.billing.choose': 'Сонгох {{plan}}',
   'stillpoint.billing.currentPlan': 'Одоогоор асаалттай байна {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Бид төлөвлөгөөг ачаалж чадсангүй.',
   'stillpoint.billing.opening': 'Төлбөр тооцоог нээж байна...',
   'stillpoint.billing.perMonthShort': '/ сар',
+  'stillpoint.billing.perYearShort': '/жил',
   'stillpoint.billing.unknownResult': 'Төлбөрийн хариу гэнэтийн ирлээ.',
   'stillpoint.billing.yearly': 'Жил бүр · 17% хэмнээрэй',
   'stillpoint.courseDetail.back': 'Сургалтууд',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Одоогоор сургалт байхгүй байна.',
   'stillpoint.courses.eyebrow': '{{count}} олон өдрийн аялал',
   'stillpoint.courses.heading': 'Сургалтууд',
+  'stillpoint.forgot.checkEmail':
+    'Ирсэн имэйлээ шалгана уу - холбоос 30 минутын дараа хүчингүй болно.',
   'stillpoint.forgot.success': 'Бид дахин тохируулах холбоосыг илгээсэн {{email}} .',
   'stillpoint.home.empty': 'Одоогоор хичээл алга байна — удахгүй дахин шалгана уу.',
   'stillpoint.home.friend': 'найз',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Үнэгүй бүртгэлээ үүсгээрэй',
   'stillpoint.landing.cta.title': 'Өнөөдрөөс эхлэн тайван байдлаа хадгалаарай',
   'stillpoint.landing.features.heading': 'Тантай хамт өсөн дэвжих дадал',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Өдөр тутмын бясалгал, амьсгалын дасгал, нойрны түүхүүд — дасгалжуулагч биш, харин найз мэт санагддаг багш нарын хэмнэлээр.',
   'stillpoint.landing.hero.eyebrow': 'Өдөрт 10 минут илүү тайван',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Сэтгэл санаагаар нь хайх',
   'stillpoint.login.rememberMe': 'Намайг нэвтэрсэн хэвээр байлгах',
   'stillpoint.login.subheading': 'Дасгалаа үргэлжлүүлэхийн тулд нэвтэрнэ үү.',
+  'stillpoint.nav.tagline': 'Хөдөлгөөнгүй төвөө олоорой',
+  'stillpoint.notFound.body':
+    'Энэ хуудас хаа нэгтээ урт, гүнзгий амьсгаа авч байна. {{app}} дотор танд илүү чимээгүй газар олцгооё.',
   'stillpoint.notFound.title': 'Чимээгүйд төөрсөн',
   'stillpoint.notFound.toHome': 'Өнөөдөр рүү буцах',
   'stillpoint.notFound.toLibrary': 'Номын санг үзэх',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 секундын дараа алгасах',
   'stillpoint.player.skipForward': '30 секунд урагш алгасах',
   'stillpoint.player.with': '-тай {{name}}',
+  'stillpoint.profile.defaultHandle': 'хөдөлгөөнгүй заагч',
   'stillpoint.profile.eyebrow': 'Таны дадлагыг нэгтгэн дүгнэв.',
   'stillpoint.profile.locked': 'Түгжээтэй',
   'stillpoint.profile.member': 'Stillpoint гишүүн',

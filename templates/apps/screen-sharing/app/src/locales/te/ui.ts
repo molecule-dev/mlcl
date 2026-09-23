@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'about.pageTitle': 'గురించి {{appName}}',
   'analytics.empty': 'ఇక్కడ స్పందనను చూడటానికి మీ మొదటి క్లిప్‌ను రికార్డ్ చేయండి.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'క్లిప్‌లు',
   'billing.usage.views': 'వీక్షణలు',
   'billing.usage.views.unit': 'వీక్షణలు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'landing.cta.title': 'మెరుగైన ఫీడ్‌బ్యాక్ పంపండి. గ్లింట్‌తో ప్రారంభించండి.',
   'landing.feature.capture.body':
     'మైక్, కెమెరా మరియు డ్రాయింగ్‌తో బ్రౌజర్, డెస్క్‌టాప్ మరియు మొబైల్ రికార్డింగ్.',
   'landing.feature.capture.title': 'ఒకే ట్యాప్‌తో క్యాప్చర్',
+  'landing.footer.copy': '© {{year}} {{appName}} . అసింక్, ప్రకాశవంతంగా చేయబడింది.',
   'landing.hero.cardCaption': 'నమూనా వర్క్‌స్పేస్ అవలోకనం — ఉచితంగా ప్రయత్నించండి.',
   'landing.hero.primaryCta': 'ఉచితంగా రికార్డింగ్ ప్రారంభించండి',
   'landing.hero.proof.free': 'ఎప్పటికీ ఉచిత శ్రేణి',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'రికార్డింగ్‌లను శోధించండి',
   'library.searchPlaceholder': 'రికార్డింగ్‌లను శోధించండి…',
   'library.weeklyChange': '{{value}} గత వారంతో పోలిస్తే శాతం',
+  'nav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'nav.record': 'రికార్డ్',
   'nav.shared': 'నాతో పంచుకున్నారు',
   'nav.startRecording': 'రికార్డింగ్ ప్రారంభించండి',

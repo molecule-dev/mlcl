@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.pageTitle': 'Oor {{appName}}',
   'analytics.error': 'Kon nie ontledings laai nie.',
   'analytics.heading': 'Herwinningsanalise',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Geen prysvlakke is gekonfigureer nie.',
   'billing.plans.heading': 'Planne',
   'billing.subheading': 'Beplanning, gebruik en Stripe-bestuurde afhandeling.',
+  'common.confirm': 'Bevestig',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.retry': 'Probeer weer',
   'documentCard.open': 'Oopmaak \\u2192',
   'documentDetail.back': 'Terug na dokumente',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksdokument',
   'documents.composer.titlePlaceholder': 'Dokumenttitel',
   'documents.emptyAll': 'Geen dokumente nog nie. Laai een op om vrae te begin vra.',
+  'documents.error.load': 'Kon nie dokumente laai nie.',
   'documents.heading': 'Geïndekseerde dokumente',
   'documents.loading': 'Laai dokumente…',
   'documents.metric.chunks': 'Totale stukke',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Verwyder\\u2026',
   'members.subheading': 'Nooi spanmaats uit en stel rolle vas.',
   'members.tableHeading': 'Rooster',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'notFound.askCta': 'Vra die kennisbasis',
+  'notFound.body':
+    "{{app}} kon nie daardie bladsy opspoor nie. Die skakel is dalk gebreek, of die bladsy is dalk tydens 'n herindeksering onttrek.",
   'notFound.eyebrow': 'Kan nie herwin nie',
   'notFound.title': 'Geen sodanige deel in die indeks nie',
   'notifications.dismiss': 'Maak toe',
@@ -202,6 +211,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Bron-URL',
   'sources.empty.body': 'Klik \\u201cVoeg bron by\\u201d om jou eerste konnektor te bedraad.',
   'sources.empty.title': 'Geen bronne nog nie.',
+  'sources.error.add': 'Kon nie bron byvoeg nie.',
   'sources.error.labelRequired': 'Etiket word vereis.',
   'sources.error.load': 'Kon nie bronne laai nie.',
   'sources.error.urlRequired': 'URL word vereis vir hierdie brontipe.',

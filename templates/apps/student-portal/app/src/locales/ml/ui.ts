@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'announcementsFeed.empty': 'ഇതുവരെ പ്രഖ്യാപനങ്ങളൊന്നുമില്ല.',
   'announcementsFeed.eyebrow': '{{count}} അപ്‌ഡേറ്റുകൾ',
   'announcementsFeed.title': 'ഏറ്റവും പുതിയ പ്രഖ്യാപനങ്ങൾ',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'വ്യത്യസ്ത അവസ്ഥയിലുള്ള അസൈൻമെന്റുകൾ കാണാൻ മുകളിലുള്ള ഫിൽട്ടറുകൾ മാറ്റുക.',
   'assignments.eyebrow': 'എല്ലാ കോഴ്സുകളും · ഈ ടേം',
+  'assignments.loadError': 'അസൈൻമെന്റുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'assignments.loading': 'അസൈൻമെന്റുകൾ ലോഡ് ചെയ്യുന്നു…',
   'assignments.subtitle':
     'എന്താണ് നൽകാനുള്ളത്, സമർപ്പിച്ചത്, ഗ്രേഡ് ചെയ്തത് അല്ലെങ്കിൽ നഷ്‌ടമായത് എന്നിവ കാണാൻ സ്റ്റാറ്റസ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക.',
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'കുറിപ്പ്',
   'attendance.empty': 'ഇതുവരെ ഹാജർ രേഖകളൊന്നുമില്ല.',
   'attendance.eyebrow': 'വസന്തകാല അവധി · കഴിഞ്ഞ 4 ആഴ്ച',
+  'attendance.loadError': 'ഹാജർ രേഖകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'attendance.loading': 'ഹാജർ വിവരങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -47,7 +50,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'അസൈൻമെന്റ് അവസാന തീയതികൾ ഒരു മാസത്തെ ഗ്രിഡിൽ പ്ലോട്ട് ചെയ്തിട്ടുണ്ട് - പരീക്ഷകൾ ചുവപ്പ് നിറത്തിൽ വേറിട്ടുനിൽക്കുന്നു.',
   'calendar.title': '{{month}} ഇവന്റുകൾ',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'common.yes': '✓',
   'courseDetail.backLink': 'ഗ്രേഡുകളും',
   'courseDetail.currentGrade': 'നിലവിലെ ഗ്രേഡ്',
@@ -75,11 +80,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ട്രെൻഡ്',
   'grades.empty': 'ഇതുവരെ ഗ്രേഡുകളൊന്നും പോസ്റ്റ് ചെയ്തിട്ടില്ല.',
   'grades.eyebrow': 'ഗ്രേഡ് ബുക്ക്',
+  'grades.loadError': 'നിങ്ങളുടെ ഗ്രേഡുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'grades.loading': 'ഗ്രേഡുകൾ ലോഡ് ചെയ്യുന്നു…',
   'grades.subtitle':
     'ലൈവ് ലെറ്ററും ശതമാന ഗ്രേഡുകളും. നിങ്ങൾ മുകളിലേക്ക് നീങ്ങുകയാണോ, ലെവലിലേക്ക് നീങ്ങുകയാണോ അതോ വഴുതി വീഴുകയാണോ എന്ന് ട്രെൻഡ് അമ്പടയാളങ്ങൾ കാണിക്കുന്നു.',
   'grades.title': 'നിങ്ങളുടെ ഗ്രേഡുകൾ, ഓരോ കോഴ്സും',
   'grades.trendStable': 'സ്ഥിരതയുള്ളത്',
+  'landing.copyright':
+    '© {{year}} {{app}} . വിദ്യാർത്ഥികൾക്കായി നിർമ്മിച്ചത്, കുടുംബങ്ങൾക്കായി നിർമ്മിച്ചത്.',
   'landing.ctaHeading': 'ശാന്തമായ ഒരു സ്കൂൾ ദിനം മിനിറ്റുകൾക്കുള്ളിൽ ആരംഭിക്കുന്നു',
   'landing.eyebrow': 'മിഡിൽ & ഹൈസ്കൂൾ വിദ്യാർത്ഥികൾക്ക്',
   'landing.featuresHeading': 'വിദ്യാർത്ഥിയെ ചുറ്റിപ്പറ്റി സംഘടിപ്പിച്ച ഒരു സ്കൂൾ ദിനം',
@@ -115,12 +123,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'അസൈൻമെന്റുകൾ',
   'nav.attendance': 'ഹാജർ',
   'nav.calendar': 'കലണ്ടർ',
+  'nav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'nav.grades': 'ഗ്രേഡുകളും',
+  'nav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'nav.statusEyebrow': 'ടേം ജിപിഎ',
   'nav.statusSubtext': 'ഓണർ റോൾ · വസന്തകാല അവാർഡ്',
+  'nav.unreadMessages': 'വായിക്കാത്ത സന്ദേശങ്ങൾ',
   'notifications.eyebrow': '{{count}} അപ്‌ഡേറ്റുകൾ',
   'notifications.subtitle':
     'ഗ്രേഡുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ, സന്ദേശങ്ങൾ, സ്കൂൾ അറിയിപ്പുകൾ. ഓരോ അറിയിപ്പും ഏതൊക്കെ ചാനലുകളാണ് ഉപയോഗിക്കുന്നതെന്ന് ക്രമീകരണത്തിൽ ക്രമീകരിക്കുക.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.attendanceLabel': 'ഹാജർ',
   'pricing.gradesLabel': 'ഗ്രേഡുകൾ',
   'pricing.heading': 'പ്രഖ്യാപനങ്ങൾ',

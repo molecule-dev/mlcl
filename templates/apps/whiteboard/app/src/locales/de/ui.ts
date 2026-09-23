@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'authShell.brandHeading': 'Multiplayer-Canvases für Design-Teams, die laut nachdenken.',
   'billing.canceled': 'Abonnement gekündigt.',
   'billing.cancelPlan': 'Tarif kündigen',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Von Vorlage starten',
   'boards.title': 'Ihre Boards',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Zum Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Geben Sie die mit Ihrem Workspace verknüpfte E-Mail ein und wir senden Ihnen einen Reset-Link.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1-Workshop · Markenstimme',
   'landing.featuresEyebrow': 'Was Slate zusammenfügt',
   'landing.featuresTitle': 'Schnelles Feedback. Wunderschöne Canvases. Null Reibung.',
+  'landing.hero.body':
+    '{{appName}} ist ein Multiplayer-Whiteboard für Designteams, Workshop-Moderatoren und Pädagogen, die Live-Brainstormings durchführen und Ideen an einem Ort zusammenführen müssen.',
   'landing.hero.primaryCta': 'Starten Sie ein Board kostenlos',
   'landing.hero.socialProof': 'Vertrauen von {{count}} Design-Teams weltweit',
   'landing.hero.title': 'Ein Canvas so schnell wie Ihre Gedanken',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Kostenlosen Workspace erstellen',
   'login.subheading':
     'Knüpfen Sie dort an, wo der Workshop endete – Boards, Klebezettel und Cursor synchronisieren in Echtzeit.',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.new': 'Neu',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'notifications.editTitle': 'Bearbeitungen an „{{board}}“',
   'notifications.empty.body':
     'Einladungen, gespeicherte Momentaufnahmen und kürzlich vorgenommene Änderungen am Board werden hier in Echtzeit angezeigt.',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versionsverlauf',
   'versionHistory.untitledSnapshot': 'Unbenannter Snapshot',
   'whiteboardLayout.newBoard': 'Neues Board',
+  'whiteboardLayout.primaryNav': 'Hauptnavigation',
   'workspace.boardLabel': 'Board',
   'workspace.eyebrow': '{{name}} · Workspace',
   'workspace.invite': 'Mitwirkende einladen',

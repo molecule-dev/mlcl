@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
+  'appNav.mobileLabel': 'Peamine navigeerimine',
+  'appNav.primaryLabel': 'Peamine navigeerimine',
   'billing.actions.confirmCancel':
     'Kas tühistada tellimus? Saate igal ajal uuesti tellimuse vormistada.',
   'billing.actions.paused': 'Tellimus on peatatud.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Iga tasand on väikeseeria lugu. Lisa üks oma järjekorda või kanna see järgmisse kuusse.',
   'boxThemeCard.perMonth': '/ kuus',
+  'common.goToDashboard': 'Mine töölauani',
   'customize.eyebrow': 'Tee see enda omaks',
   'customize.heading': 'Kohanda oma järgmist aardet',
   'customize.items.exclude': 'Jäta see vahele',
@@ -91,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Sel hooajal',
   'landing.editions.heading': 'Meie kuraatoritele meeldivad väljaanded',
   'landing.footer.contact': 'Räägi kuraatoriga',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Alusta oma kasti →',
   'landing.hero.ctaSecondary': 'Vaata tasemeid',
   'landing.hero.eyebrow': 'Igakuiselt kureeritud. Alati isiklik.',
@@ -108,6 +113,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'SINU JÄRGMINE LEID',
   'nextBoxHeroCard.itemsLabel': 'Kureeritud üksused',
   'nextBoxHeroCard.shipsOnLabel': 'Saadetakse',
+  'notFound.body':
+    'Me ei leidnud seda lehte rakenduse {{app}} arhiivist. See võib olla eemaldatud või lihtsalt valesti kirjutatud.',
   'notFound.cta.dashboard': 'Mine armatuurlauale',
   'notFound.eyebrow': 'Tühi kast',
   'notFound.heading': 'See riiul on tühi',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Beobachtet',
   'auctionDetail.watchRemoved': 'Von der Beobachtungsliste entfernt.',
   'auctionDetail.watchRemoveLabel': 'Von der Beobachtungsliste entfernen',
+  'auctionPlatformLayout.primaryNavLabel': 'Hauptnavigation',
   'authShell.brandBody':
     'Bieten Sie in Echtzeit auf seltene Uhren, schöne Kunst und einzigartige Spezialartikel. Der Hammer fällt in Sekunden.',
   'authShell.brandEyebrow': 'Live · 1.420 Auktionen',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sortieren nach',
   'browseAuctions.subheading':
     'Nach Kategorie filtern, nach dem Wichtigsten sortieren und ein Gebot abgeben, bevor der Hammer fällt.',
+  'common.goToDashboard': 'Zum Dashboard',
   'countdownTimer.ended': 'Beendet',
   'countdownTimer.endingSoon': 'Endet',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Passwort anzeigen',
   'login.subtext':
     'Verfolgen Sie weiter Ihre Auktionen und geben Sie Gebote ab, bevor der Hammer fällt.',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'myBids.bidAgain': 'Erneut bieten',
   'myBids.browseCta': 'Live-Auktionen durchsuchen →',
   'myBids.checkoutCta': 'Jetzt bezahlen',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Noch keine Benachrichtigungen.',
   'notificationsPage.eyebrow': 'Aktivitätszentrum',
   'notificationsPage.subheading': '{{count}} ungelesen · Live-Updates während Auktionen laufen',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.bidsLabel': 'Gebote',
   'pricing.listingsLabel': 'Einträge',
   'pricing.watchlistLabel': 'Beobachtungsliste',

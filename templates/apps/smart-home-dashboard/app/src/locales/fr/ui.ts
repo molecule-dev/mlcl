@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.pageTitle': 'À propos de {{app}}',
   'activity.empty': "Aucune activité pour l'instant — allumez un appareil ou activez une scène.",
   'activity.eyebrow': 'Chronologie',
   'activity.loadError': "Impossible de charger le fil d'activité.",
   'activity.subheading':
     "Chaque appareil, automatisation et événement de sécurité dans l'ordre chronologique.",
+  'addDevice.error.failed': "Impossible d'ajouter le périphérique. Veuillez réessayer.",
   'addDevice.error.nameRequired': 'Donnez un nom à cet appareil pour continuer.',
   'addDevice.field.firmware': 'Version du firmware',
   'addDevice.field.manufacturer': 'Fabricant',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Test en cours…',
   'automationEditor.testNew': "Enregistrez d'abord l'automatisation pour la tester.",
   'automationRow.lastRun': 'Dernière {{date}} · {{count}} exécutions',
+  'automationRow.on': 'Le',
   'automationRow.runNowAria': 'Exécuter {{name}} maintenant',
   'automations.empty': 'Aucune automatisation pour le moment ? Créez votre première routine.',
   'automations.eyebrow': 'Routines',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Chargement des automatisations…',
   'automations.newAutomation': '+ Nouvelle',
   'automations.subheading': 'Quand ceci se produit, faites cela — sans YAML.',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': "Impossible de charger l'appareil.",
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Traitement…',
   'deviceDetail.unnamed': 'Appareil',
   'deviceStatusRow.on': 'Allumé',
+  'deviceStatusRow.turnOff': 'Désactiver',
+  'deviceStatusRow.turnOn': 'Activer',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Énergie',
   'energy.heading': 'Énergie',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Voir les forfaits',
   'settings.security.heading': 'Sécurité',
   'settings.subheading': 'Forfait, hubs et préférences du compte.',
+  'smartHomeDashboardLayout.openMenu': 'Ouvrir le menu de navigation',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigation principale',
 }

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.title': '{{app}} туралы',
   'auth.login.noAccount': 'Sparq-қа жаңадан келдіңіз бе?',
   'auth.login.or': 'немесе жалғастырыңыз',
   'auth.signup.or': 'немесе тіркеліңіз',
+  'common.confirm': 'Растау',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.loadError': 'Бұл мазмұнды жүктеу кезінде бірдеңе дұрыс болмады.',
+  'common.retry': 'Қайталап көру',
   'discover.collections.title': 'Санат бойынша шолу',
   'discover.collections.viewAll': 'Кітапханаңызды қараңыз →',
   'discover.empty.body': 'Басқа санатты қолданып көріңіз немесе іздеуді тазалаңыз.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Серияңызды жалғастыру, тікелей эфирдегі ойындарды өткізу және көшбасшылар тақтасына көтерілу үшін жүйеге кіріңіз.',
   'myQuizzes.createButton': 'Жаңа викторина',
+  'myQuizzes.deleteConfirm': 'Мәңгілікке жою керек пе?',
   'myQuizzes.empty.createCta': 'Алғашқы викторинаңызды құрастырыңыз →',
   'myQuizzes.empty.created': 'Сіз әлі викторина құрастырған жоқсыз.',
   'myQuizzes.empty.played': 'Әлі жарияланған викториналар жоқ.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Жүктелуде…',
   'notifications.subhead':
     '{{count}} оқылмаған ұшқындар. Шақырулар, көшбасшылар тақтасындағы қозғалыстар және жетістіктердің барлығы бір ағында.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.checkoutError': 'Төлемді бастау мүмкін болмады. Қайталап көріңіз.',
+  'pricing.heading': '{{app}} жоспарын таңдаңыз',
   'pricing.included': 'Қосылған',
   'pricing.loadError': 'Жоспарлар жүктелмеді.',
   'pricing.maxQuizzes': '{{count}} викториналар',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Әлі ештеңе жарияланбаған.',
   'profile.startBuilding': 'Құрылысты бастау →',
   'profile.tier': 'Sparq ойыншысы',
+  'quizBuilder.addFailed': 'Сұрақты қосу мүмкін болмады. Қайталап көріңіз.',
   'quizBuilder.addQuestion': 'Сұрақ қосу',
   'quizBuilder.answerPlaceholder': 'Опцияны теріңіз…',
   'quizBuilder.answersLabel': 'Жауап нұсқалары',
   'quizBuilder.back': 'Менің викториналарыма оралу',
   'quizBuilder.delete': 'Сұрақты жою',
+  'quizBuilder.deleteFailed': 'Сұрақты жою мүмкін болмады.',
   'quizBuilder.firstQuestion': 'Бастау үшін бірінші сұрағыңызды қосыңыз.',
   'quizBuilder.idLabel': 'Викторина идентификаторы: {{id}}',
   'quizBuilder.loadError': 'Викторина жүктелмеді.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Кем дегенде екі жауап нұсқасын қосып, дұрысын таңдаңыз {{count}} жарияламас бұрын қойылатын сұрақтар.',
   'quizBuilder.questionsTitle': 'Сұрақтар',
+  'quizBuilder.saveFailed': 'Тақырып сақталмады. Қайталап көріңіз.',
   'quizBuilder.statusDraft': 'Жоба',
   'quizBuilder.subhead':
     'Тақырыпты өңдеңіз, сұрақтар қосыңыз, таңдау нұсқаларын және дұрыс жауапты орнатыңыз. Өзгерістер автоматты түрде сақталады.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Көп ойыншылы хостинг ойыншысы',
   'quizDetail.leaderboardEmpty': 'Әлі ойын жоқ — бірінші болып есеп ашыңыз.',
+  'quizDetail.loadError': 'Бұл викторина жүктелмеді.',
   'quizDetail.loading': 'Викторина жүктелуде…',
   'quizDetail.plays': '{{count}} пьесалар',
   'quizDetail.playSolo': 'Жеке ойнау',

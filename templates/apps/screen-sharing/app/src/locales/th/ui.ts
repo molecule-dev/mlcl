@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'about.pageTitle': 'เกี่ยวกับ {{appName}}',
   'analytics.empty': 'บันทึกคลิปแรกของคุณเพื่อดูการมีส่วนร่วมได้ที่นี่',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'คลิป',
   'billing.usage.views': 'มุมมอง',
   'billing.usage.views.unit': 'มุมมอง',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'landing.cta.title': 'ส่งผลตอบรับที่ดีขึ้น เริ่มต้นด้วย Glint',
   'landing.feature.capture.body':
     'การบันทึกผ่านเบราว์เซอร์ เดสก์ท็อป และมือถือ พร้อมไมโครโฟน กล้อง และฟังก์ชันวาดภาพ',
   'landing.feature.capture.title': 'การจับภาพด้วยการแตะเพียงครั้งเดียว',
+  'landing.footer.copy': '© {{year}} {{appName}} . แบบอะซิงโครนัสที่สว่างไสว',
   'landing.hero.cardCaption': 'ภาพรวมพื้นที่ทำงานตัวอย่าง — ทดลองใช้ฟรี',
   'landing.hero.primaryCta': 'เริ่มบันทึกฟรี',
   'landing.hero.proof.free': 'ระดับฟรีตลอดไป',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ค้นหาบันทึก',
   'library.searchPlaceholder': 'ค้นหาบันทึก...',
   'library.weeklyChange': '{{value}} เทียบกับสัปดาห์ที่แล้ว (%)',
+  'nav.openMenu': 'เปิดเมนูนำทาง',
   'nav.record': 'บันทึก',
   'nav.shared': 'แชร์กับฉัน',
   'nav.startRecording': 'เริ่มบันทึก',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Mi smo distribuirani tim dizajnera i inženjera koji je nekada provodio previše sati svakog dana u bučnom poštanskom sandučiću. Courier je inbox koji smo i sami željeli koristiti.',
   'about.title': 'E-pošta za fokusiran rad',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'help.cta.about': 'O Courieru',
   'help.cta.pricing': 'Pogledajte cijene',
   'help.eyebrow': 'Centar za pomoć',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Brzi odgovori na pitanja koja najčešće čujemo. Da li nešto nedostaje? Otvorite Postavke i koristite obrazac za povratne informacije u aplikaciji ili pišite na support@courier.example.',
   'help.title': 'Kako vam možemo pomoći?',
   'landing.brand.scrollTop': 'Nazad na vrh',
+  'landing.copyright': '© {{year}} {{appName}} — Napravljeno za fokus.',
   'landing.ctaBody':
     'Pridružite se hiljadama profesionalaca koji su završili s pristiglom poštom prije ručka.',
   'landing.ctaTitle': 'Više obrađujte, manje reagirajte.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Pogledajte demo',
   'landing.heroSubtitle':
     'Courier je smireni inbox s tri panela napravljen za radnike koji rade sa znanjem i koji žele obrađivati informacije, a ne reagovati na njih.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Vjeruju nam fokusirani timovi širom svijeta',
   'landing.signIn': 'Prijava',
   'meridian.archive.empty': 'Arhiva je prazna.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Nacrt',
   'meridian.folder.count': '{{count}} poruke',
+  'meridian.folder.delete': 'Izbriši',
   'meridian.folder.deleteForever': 'Trajno izbriši',
   'meridian.folder.restore': 'Premjesti u pristiglu poštu',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Ovdje još nema poruka.',
   'meridian.inbox.loading': 'Učitavanje…',
   'meridian.inbox.next': 'Sljedeće',
+  'meridian.inbox.noSender': '(nema pošiljatelja)',
   'meridian.inbox.noSubject': '(bez predmeta)',
+  'meridian.inbox.ofTotal': '{{current}} od {{total}}',
   'meridian.inbox.openCompose': 'Otvori pisanje',
   'meridian.inbox.previous': 'Prethodno',
   'meridian.inbox.replyFailed': 'Odgovor sačuvan, ali dostava nije uspjela: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Nemate račun?',
   'meridian.login.showPassword': 'Prikaži lozinku',
   'meridian.message.toLine': 'do {{recipients}}',
+  'meridian.notFound.body':
+    'Stranica koju tražite nije pronađena. Vratite se u pristiglu poštu vaše {{appName}} i mi ćemo vas uputiti na pravi put.',
   'meridian.notFound.eyebrow': 'Greška 404',
   'meridian.notFound.title': 'Ova tema je arhivirana.',
   'meridian.notFound.toInbox': 'Otvori moj inbox',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Dodaj zvjezdicu',
   'meridian.thread.unstar': 'Ukloni zvjezdicu',
   'meridian.time.yesterday': 'Jučer',
+  'meridian.topBar.openMenu': 'Otvori navigacijski meni',
   'meridian.topBar.searchPlaceholder': 'Pretraži poštu',
   'meridian.trash.empty': 'Smeće je prazno.',
   'meridian.trash.title': 'Smeće',
   'nav.legal': 'Pravno',
   'planUpdated.description':
     'Vaša pretplata je sada aktivna i vaša naplata je ažurirana. Dobrodošli u vašu osvježenu Courier pristiglu poštu.',
+  'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'pricing.heading': 'nacrti',
   'pricing.limit.emails': 'e-poruke',
   'pricing.limit.folders': 'mape',
   'pricing.limit.labels': 'oznake',
   'privacy.collect.account':
     'Podaci o računu: ime, adresa e-pošte, heširana lozinka i datum registracije.',
+  'privacy.contact': 'Imate pitanja? Pošaljite e-mail na privacy@courier.example.',
   'privacy.intro':
     'Ova politika privatnosti objašnjava koje podatke Courier prikuplja, zašto ih prikupljamo, kako ih čuvamo na sigurnom i koje izbore imate u vezi s njima. Cilj nam je biti konkretniji, a ne pravnički; ako nešto nije jasno, pišite na privacy@courier.example.',
   'privacy.lastUpdated': 'Posljednje ažuriranje: 1. april 2026.',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ovi uslovi regulišu vaše korištenje Couriera. Kreiranjem računa ili slanjem e-pošte putem nas, slažete se da ćete biti obavezani njima. Trudimo se da napišemo pravila kojih se osoba može zaista pridržavati.',
   'terms.lastUpdated': 'Stupa na snagu: 1. aprila 2026.',
+  'terms.linkPrivacy': 'Pročitajte našu Politiku privatnosti →',
   'terms.termination.body':
     'Svoj račun možete izbrisati u bilo kojem trenutku. Možemo suspendirati račun koji krši ove uvjete; ako to učinimo, objasnit ćemo razlog i prvo vam omogućiti izvoz podataka.',
   'terms.warranty.body':

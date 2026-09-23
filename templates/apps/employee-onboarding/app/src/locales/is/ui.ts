@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'auth.forgotPassword.emailPlaceholder': 'nafn@þittfyrirtæki.com',
   'auth.forgotPassword.heading': 'Endurstilla lykilorðið þitt.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Merkja verkefni lokið',
   'checklistTaskCard.markIncomplete': 'Merkja verkefni ólokið',
   'checklistTaskCard.openLabel': 'Opna verkefni',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Þið eruð öll með í ráðum',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Á réttri leið',
   'dashboard.timelineHeading': '30/60/90 áfangar',
   'dashboard.viewAllTasks': 'Skoða öll verkefni',
+  'dashboard.weekOne': 'Vika 1',
   'dashboard.yourCohort': 'Teymið þitt',
   'documents.empty.body': 'Skjöl sem teymið þitt hefur bætt við birtast hér.',
   'documents.empty.title': 'Engin skjöl ennþá',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 daga ókeypis prufuáskrift',
   'landing.subhead':
     'Embark leiðbeinir hverjum nýjum liðsfélaga í gegnum fyrstu 90 dagana — pappírsvinnu, þjálfun, áfanga og innihaldsríkar kynningar, allt á einum rólegum og öruggum stað.',
+  'layout.openMenu': 'Opna flakkvalmynd',
   'layout.search': 'Leita að verkefnum, skjölum, liðsfélögum…',
+  'layout.searchTeammates': 'Leita að liðsfélögum eftir nafni eða hlutverki…',
   'layout.section.onboarding': 'Aðlögun',
   'layout.tagline': 'Ferðalag þitt byrjar hér',
   'notifications.empty.body': 'Ný virkni mun birtast hér.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Þú ert tilbúinn.',
   'planUpdated.preparing': 'Uppfærir áætlunina þína…',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.documentsLabel': 'skjöl',
   'pricing.onboardingsLabel': 'innleiðingar',
   'pricing.tasksLabel': 'verkefni',

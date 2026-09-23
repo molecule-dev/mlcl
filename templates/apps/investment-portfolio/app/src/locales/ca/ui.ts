@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Eines de riquesa',
+  'argentAuthShell.brandFootnote': "© {{year}} {{app}} . No és assessorament d'inversions.",
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) avui',
   'argentAuthShell.sampleValue': '1.032.251 dòlars',
   'argentLayout.primaryNavLabel': 'Navegació principal',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'No hi ha transaccions per a aquest ticker.',
   'assetDetail.txHeading': 'Les teves transaccions',
   'common.and': 'i',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Visió general de la cartera',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Encara no hi ha cap patrimoni.',
   'holdings.heading': 'Explotacions',
   'holdings.loadError': 'No s’han pogut carregar les reserves.',
+  'landing.copyright':
+    "© {{year}} {{app}} . No és assessorament d'inversions. El rendiment passat no garanteix els resultats futurs.",
   'landing.eyebrow': 'Argent · Una plataforma d’eines per a la riquesa',
   'landing.features.heading': 'Tot el que un assessor construiria per si mateix.',
   'landing.finalCta.heading': 'Retorna la disciplina al teu portafoli.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} fa h',
   'news.justNow': 'ara mateix',
   'news.loadError': 'No s’han pogut carregar les notícies.',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'portfolioHeroCard.label': 'Valor de la cartera',
   'pricing.holdingsLabel': 'participacions',
   'pricing.newsLabel': 'articles de notícies',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Suprimeix el compte',
   'settings.security.deleting': "S'està suprimint…",
   'settings.security.heading': 'Seguretat',
+  'settings.security.newPassword': 'Nova contrasenya',
   'settings.security.password': 'Contrasenya',
   'settings.security.twoFactorEnable': 'Activa',
+  'settings.security.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.security.twoFactorVerify': 'Verifica i activa',
   'settings.tax.error': 'No s’ha pogut actualitzar el mètode impositiu.',
   'settings.tax.heading': 'Comptabilitat de lots d’impostos',
   'settings.tax.method': 'Mètode per defecte',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Nous contacter',
+  'about.title': 'À propos de {{app}}',
   'authShell.backToLanding': "← Retour à l'accueil",
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.no': '—',
+  'common.retry': 'Réessayer',
   'common.yes': '✓',
   'dashboard.eyebrow': "Aujourd'hui · Aperçu des opérations",
   'dashboard.heading': 'Intelligence documentaire',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Aucun document ne correspond aux filtres actuels.',
   'documents.heading': 'Tous les documents',
   'documents.loadError': 'Échec du chargement des documents.',
+  'documents.loading': 'Chargement de la bibliothèque…',
   'documents.searchLabel': 'Rechercher des documents',
   'documents.searchPlaceholder': 'Rechercher des documents…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Masquer le mot de passe',
   'login.showPassword': 'Afficher le mot de passe',
   'login.subtitle': 'Connectez-vous pour garder vos documents en mouvement.',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'notFound.body':
     "Le document ou la route que vous avez essayé d'ouvrir n'est plus ici. Retournez au tableau de bord ou choisissez une section dans la barre latérale.",
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': "Ouvrir la page d'accueil",
   'notFound.title': "Cette page n'est pas au dossier",
   'parcelaHeroCard.change': '{{sign}}{{amount}} % vs hier',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Règles actives',
   'rules.empty': 'Pas encore de règles de classement. Utilisez Nouvelle règle pour en ajouter une.',
   'rules.eyebrow': 'Automatisation',
+  'rules.fieldsCount': '{{count}} champs',
   'rules.form.destination': 'Classer dans',
   'rules.form.name': 'Nom de la règle',
   'rules.form.save': 'Enregistrer la règle',

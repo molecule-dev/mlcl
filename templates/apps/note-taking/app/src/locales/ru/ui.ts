@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Перейти к панели',
   'forgot.eyebrow': 'Заблудились и не смогли вернуться обратно?',
   'forgot.formSubtitle': 'Сообщите нам адрес электронной почты, который у нас есть.',
   'forgot.headline': 'Сбросить пароль.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Создайте один',
   'login.subline':
     'Ваши блокноты, обратные ссылки и ежедневные записи находятся именно там, где вы их оставили.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'noteEditor.backToNotes': 'Вернуться к заметкам',
   'noteEditor.bodyPlaceholder':
     'Начните писать — ваша заметка будет автоматически сохраняться по мере ввода.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Новый ноутбук',
   'notes.newNotebookPrompt': 'Новое название блокнота',
   'notes.notebooksHeading': 'Тетради',
+  'notes.subtitle':
+    'Выберите блокнот слева, затем нажмите кнопку «Новая заметка», чтобы начать новую запись.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Выберите свой план ведения записей.',
   'reset.eyebrow': 'Почти вернулся',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Обновлено',
   'versoLayout.nav.graph': 'График',
   'versoLayout.nav.home': 'Дом',
+  'versoLayout.primaryNavLabel': 'Основная навигация',
   'versoNoteCard.pinned': 'Закреплено',
   'versoTodayHero.continueCta': 'Продолжить написание',
   'versoTodayHero.createCta': 'Начните сегодняшнюю заметку',

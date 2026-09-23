@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'auditLog.empty':
     'Ez dago zure iragazkiekin bat datorren auditoria-gertaerarik oraindik. Editatu langile bat edo prozesatu ordainketa-exekuzio bat eta hemen agertuko dira.',
   'auditLog.eyebrow': 'Betetzea',
+  'auditLog.loadError': 'Ezin izan da auditoria-erregistroa kargatu.',
   'auditLog.searchPlaceholder': 'Bilatu aktorearen, ekintzaren edo deskribapenaren arabera',
   'auditLog.subheading':
     'Baimen, edizio eta zerga-aurkezpen guztiak — eragilearekin, denbora-zigiluarekin eta aldatutako eremuekin.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Konfiguratu gabe',
   'billing.plansHeading': 'Planak',
   'billing.subheading': 'Kudeatu zure plana eta aldatu mailak Stripe bidez.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Saiatu berriro',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Betetze-argazkia',
   'dashboard.compliance.title': 'Kontrol guztiak gaindituta',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Ez dago kenkaririk artxibatuta.',
   'employeeDetail.notFound': 'Langilea ez da aurkitu.',
   'employeeDetail.payFrequency': 'Ordainketa-maiztasuna',
+  'employeeDetail.postTax': 'Zerga osteko',
+  'employeeDetail.preTax': 'Zerga aurretik',
   'employeeDetail.salary': 'Urteko soldata',
   'employeeDetail.ssn': 'Gizarte Segurantzako Zenbakia',
   'employeeDetail.startedOn': 'Hasi da {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Ordainketa-maiztasuna',
   'employeeForm.salary': 'Urteko soldata (USD)',
   'employeeForm.salaryInvalid': 'Soldata zenbaki ez-negatiboa izan behar da.',
+  'employeeForm.saveError': 'Ezin izan da langilea salbatu.',
   'employeeForm.semimonthly': 'Hilero behin',
   'employeeForm.single': 'Bakarra',
   'employeeForm.ssn': 'Gizarte Segurantzako Zenbakia',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Soldata',
   'forgotPassword.subtitle':
     'Sartu zure laneko helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
+  'landing.copyright': '© {{year}} {{app}} . Zehatza, fidagarria, konposatua.',
   'landing.ctaBody':
     'Doan 30 egunez. Kreditu txartelik gabe. Aldatu edozein unetan zure auditoria-aztarna galdu gabe.',
   'landing.ctaHeading': 'Exekutatu zure hurrengo zikloa Stipend-en',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Sarrerak',
   'payRunDetail.noActivity': 'Ez dago oraindik ordainsari honen auditoria-sarrerarik.',
   'payRunDetail.noStubs': 'Oraindik ez dago soldata-agiririk — onartu eta sortzeko prozesua egin.',
+  'payRunDetail.notFound': 'Ordainketa-eskema hau ezin izan da aurkitu.',
   'payRunDetail.statDeductions': 'Kenkariak',
   'payRunDetail.statHeadcount': 'Langileak',
   'payRunDetail.statTaxes': 'Atxikitako zergak',
@@ -220,7 +229,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Hilero behin',
   'settings.signOutDevice': 'Saioa itxi',
   'settings.subheading': 'Enpresaren profila, ordainketa-egutegia eta integrazioak.',
+  'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'settings.weekly': 'Astero',
   'taxCenter.bucket.federal': 'Diru-sarrera federalak',
   'taxCenter.bucket.fica': 'Gizarte Segurantza',

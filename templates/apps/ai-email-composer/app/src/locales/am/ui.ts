@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'የእኛ ታሪክ',
   'aiSuggestionPanel.title': 'ሲግኔት ኮፓይለት',
   'analytics.col.open': 'ክፍት ተመን',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ክፍያ በመጀመር ላይ…',
   'billing.subheading': 'ከሚልኩበት መንገድ ጋር የሚስማማውን ዕቅድ ይምረጡ።',
   'billing.unavailable': 'ሽያጮችን ያግኙን',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
+  'common.retry': 'እንደገና ሞክር',
   'compose.adjustingTone': 'በተመረጠው ቃና እንደገና መጻፍ…',
   'compose.aiPromptPlaceholder': 'ለምሳሌ "ለሁለት ሳምንታት ምላሽ ሳይሰጥ በትህትና የሚደረግ ክትትል፣ አጭር ያድርጉት።"',
   'compose.aiReady': 'ድራፍት ዝግጁ ነው - ሲረኩበት ይገምግሙና ይላኩት።',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'የሆነ ነገር መላክ ይፈልጋሉ? ሲግኔት በሰከንዶች ውስጥ ረቂቅ ሊዘጋጅ ይችላል።',
   'dashboard.composeCtaLabel': 'ፈጣን ጻፍ',
   'dashboard.heading': 'የእርስዎ ሳምንት፣ የተፃፈ',
+  'dashboard.loadFailed': 'ዳሽቦርድዎን መጫን አልተቻለም።',
   'dashboard.manageLibrary': 'ቤተ-መጽሐፍትን ያቀናብሩ →',
   'dashboard.recentEmpty': 'እስካሁን ምንም የተላኩ መልዕክቶች የሉም - የተላኩ ኢሜይሎችዎ እዚህ ይታያሉ።',
   'dashboard.recentHeading': 'የቅርብ ጊዜ የተላኩ መልዕክቶች',
@@ -130,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'ነባሪ ቃና',
   'settings.toneSubheading': 'ሲግኔት ረቂቁን ካልቀየሩ በስተቀር ይህንን ቃና ይጠቀማል።',
   'signetLayout.primaryNavLabel': 'ዋና አሰሳ',
+  'signetLayout.toggleMenu': 'ምናሌውን ቀያይር',
   'signup.emailLabel': 'የኢሜይል አድራሻ',
   'signup.showPassword': 'የይለፍ ቃል አሳይ',
   'signup.tagline': 'የመጀመሪያውን በAI የተቀረጸ ኢሜይልዎን በአንድ ደቂቃ ውስጥ ይላኩ።',

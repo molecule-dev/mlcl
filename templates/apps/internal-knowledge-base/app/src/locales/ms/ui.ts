@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'article.notFound': 'Artikel tidak ditemui',
   'articleEditor.bodyPlaceholder': 'Taip / untuk blok, atau mula menulis sahaja.',
+  'articleEditor.loadFailed': 'Tidak dapat memuatkan artikel',
   'articleEditor.publishing': 'Penerbitan\\u2026',
   'articleEditor.saveFailed': 'Simpan gagal',
   'articleEditor.saving': 'Menyimpan…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Penanda buku',
   'articleView.bookmarkOn': 'Ditanda buku',
   'articleView.edit': 'Sunting artikel',
+  'articleView.loading': 'Membuka artikel ini…',
   'articleView.readTime': '{{minutes}} min baca',
   'articleView.spaces': 'Ruang',
   'articleView.tocHeading': 'Di halaman ini',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Suntingan, bacaan dan draf terkini yang masih diproses oleh pasukan anda.',
   'cairnTrailHero.updated': 'Artikel dikemas kini',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'drafts.eyebrow': 'Kerja anda yang belum selesai',
   'drafts.heading': 'Draf',
+  'drafts.loadFailed': 'Tidak dapat memuatkan draf anda.',
   'drafts.subtitle':
     'Artikel yang telah anda mulakan tetapi belum diterbitkan. Ambil satu dan teruskan.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Tiada ruang lagi. Buka satu untuk mula mengumpul artikel.',
   'home.spacesHeading': 'Ruang anda',
   'home.subtitle': 'Artikel terkini, penanda buku anda dan apa yang telah ditulis oleh pasukan.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Dibina dengan Molekul.',
   'landing.ctaBody':
     'Percuma untuk penulis solo. Pelan pasukan untuk pasukan teragih yang menghantar buku panduan, keputusan dan onboarding.',
   'landing.ctaHeading': 'Susun batu pertama hari ini.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Cipta ruang kerja',
   'login.submitting': 'Melog masuk\\u2026',
   'login.subtitle': 'Ambil jejak di mana anda meninggalkannya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
+  'newSpace.colorAria': 'Pilih warna {{color}}',
   'newSpace.colorLabel': 'Warna aksen',
+  'newSpace.createFailed': 'Tidak dapat mencipta ruang',
   'newSpace.descriptionPlaceholder':
     'Buku panduan, buku panduan semasa panggilan, postmortem\\u2026',
   'newSpace.eyebrow': 'Buka ruang ilmu',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Memuatkan…',
   'notifications.subtitle':
     '{{count}} sebutan, komen, perubahan halaman dan permintaan ulasan yang belum dibaca.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.articles': 'artikel',
   'pricing.spaces': 'ruang',
   'profile.eyebrow': 'Profil pengarang',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Masukkan kata laluan baharu',
   'resetPassword.subtitle': 'Pilih kata laluan yang kukuh — sekurang-kurangnya 12 aksara.',
   'searchResults.eyebrow': 'Carian ruang kerja',
+  'searchResults.filter.all': 'Semua ruang',
   'searchResults.heading': 'Cari artikel',
   'searchResults.placeholder': 'Cari buku panduan, RFC, dasar, keputusan\\u2026',
   'searchResults.summary': '{{count}} keputusan untuk \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Ini akan memadamkan akaun anda dan setiap artikel yang anda tulis. Taip DELETE untuk mengesahkan.',
   'settings.danger.confirmInvalid': 'Taip DELETE untuk mengesahkan.',
+  'settings.danger.deleteFailed': 'Tidak dapat memadam akaun',
   'settings.danger.deleting': 'Memadam\\u2026',
   'settings.danger.description':
     'Memadam ruang kerja anda akan mengalih keluar semua artikel, komen dan sejarah versi. Tiada pemulihan.',
   'settings.danger.title': 'Hapuskan ruang kerja',
+  'settings.email.confirm': 'Kemas kini e-mel',
+  'settings.email.confirmTitle': 'Sahkan perubahan e-mel',
   'settings.email.saved': 'E-mel telah dikemas kini.',
+  'settings.email.updateFailed': 'Tidak dapat mengemas kini e-mel',
   'settings.language.title': 'Bahasa',
   'settings.name': 'Nama',
+  'settings.name.saved': 'Nama dikemas kini.',
+  'settings.name.updateFailed': 'Tidak dapat mengemas kini nama',
   'settings.notifications.description': 'Pilih apa yang sampai ke peti masuk anda.',
+  'settings.password.changeFailed': 'Tidak dapat menukar kata laluan',
   'settings.password.current': 'Kata laluan semasa',
   'settings.password.new': 'Kata laluan baharu',
   'settings.password.saving': 'Mengemas kini\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Bagaimana artikel dipaparkan untuk anda.',
   'settings.reading.title': 'Membaca & menulis',
   'settings.subtitle': 'Notifikasi lagu, kanvas bacaan dan akaun anda.',
+  'settings.twofa.code': 'Kod pengesahan',
   'settings.twofa.disable': 'Lumpuhkan',
   'settings.twofa.disabled': 'Orang Kurang Upaya',
   'settings.twofa.enable': 'Aktifkan',
   'settings.twofa.enabled': 'Didayakan',
+  'settings.twofa.invalidCode': 'Kod tidak sah',
+  'settings.twofa.unavailable': 'Pengesahan dua faktor tidak tersedia untuk aplikasi ini.',
+  'settings.twofa.verify': 'Sahkan & dayakan',
   'signup.brandQuote':
     'Menuliskannya adalah janji pertama yang kita buat kepada orang seterusnya yang memerlukannya.',
   'signup.eyebrow': 'Buka ruang kerja',

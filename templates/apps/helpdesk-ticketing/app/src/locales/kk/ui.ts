@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Байланыс',
   'about.eyebrow': 'Туралы',
+  'about.title': '{{app}} туралы',
   'activeAgentsCard.agent1AvatarAlt':
     'заманауи кеңседегі достық күлімсіреген әйел қолдау агентінің кәсіби фотосуреті',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Қолдау қызметіне хабарласыңыз',
   'forgotPassword.error':
     'Қалпына келтіру электрондық поштасын жіберу мүмкін болмады. Қайталап көріңіз.',
   'forgotPassword.rememberPassword': 'Құпия сөзіңізді есіңізде ме?',
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Кіру — Zenith Support',
   'login.showPassword': 'Құпия сөзді көрсету',
   'login.welcomeSubheading': 'Қолдау көрсету басқару тақтасына кіріңіз',
+  'mobileNav.closeMenu': 'Навигацияны жабу',
+  'mobileNav.menu': 'Навигация',
+  'mobileNav.openMenu': 'Навигацияны ашу',
   'nav.legal': 'Заңды',
   'nav.newTicket': 'Жаңа билет',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Команда іздеуі',
   'operatorDock.newReport': 'Жаңа есеп',
   'operatorDock.systemOnline': 'Жүйе онлайн',
+  'planUpdated.subtitle': 'Рахмет',
   'planUpdated.title': 'Жоспар жаңартылды',
   'pricing.agents': 'агенттер',
   'pricing.automation': 'Автоматтандыру ережелері',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{name}} аватары',
   'ticketDetail.errorTitle': 'Бірдеңе дұрыс болмады',
+  'ticketDetail.loadError': 'Билет жүктелмеді.',
+  'ticketDetail.notFound': 'Билет табылмады',
+  'ticketDetail.replyError': 'Жауап жіберу сәтсіз аяқталды. Қайталап көріңіз.',
   'ticketDetail.retry': 'Қайтадан байқап көріңіз',
   'ticketDetail.statusUpdateError': 'Күйді жаңарту мүмкін болмады. Қайталап көріңіз.',
   'ticketDetailsCard.assigneeLabel': 'Тапсырыс беруші',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{уақыт}} солға',
   'ticketRow.title': 'Өндірісте дерекқорға қосылу сәтсіз аяқталды {{node}}',
   'tickets.pageTitle': 'Билеттер — Зенит қолдау қызметі',
+  'ticketsFab.newTicket': 'Жаңа билет',
   'ticketsFilterBar.assigneeLabel': 'Тапсырыс беруші:',
   'ticketsFilterBar.clearFilters': 'Сүзгілерді тазалау',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

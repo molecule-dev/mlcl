@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Đang giải quyết…',
   'comments.subtitle':
     '{{count}} chủ đề vẫn đang chờ phản hồi hoặc giải quyết. Sắp xếp theo thời gian — cũ nhất trước, để không có gì bị lãng quên.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'forgotPassword.sentTo': 'Đã gửi liên kết đặt lại tới {{email}}',
   'forgotPassword.successSubheading':
     'Vui lòng kiểm tra hộp thư đến — chúng tôi vừa gửi liên kết đặt lại. Liên kết hết hạn sau 30 phút.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Trang mới',
   'pageTreeSidebar.workspaceHeader': 'Không gian làm việc',
   'pageView.breadcrumb': 'Đường dẫn',
+  'pageView.confirmTrash': 'Vứt bỏ nó đi à?',
   'pageView.home': 'Trang chủ',
   'pageView.lastEdited': 'Cập nhật {{when}}',
   'pageView.loading': 'Đang tải trang…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Đang tóm tắt…',
   'pageView.summaryUnavailable': 'Tóm tắt AI chưa được cấu hình cho không gian làm việc này.',
   'pageView.tocTitle': 'Trong trang này',
+  'pageView.trash': 'Thùng rác',
+  'pageView.trashing': 'Đang chuyển vào thùng rác…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Huy hiệu',
   'profile.owned.title': 'Trang sở hữu',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Không gian làm việc, hồ sơ, thông báo, tích hợp — tất cả trong một vỏ bọc tĩnh lặng.',
   'settingsPage.workspace.defaultLanding': 'Màn hình mặc định khi đăng nhập',
   'settingsPage.workspace.landingHome': 'Nhà',
+  'settingsPage.workspace.landingSpaces': 'Không gian',
   'settingsPage.workspace.subdomainLabel': 'Tên miền phụ',
   'settingsPage.workspace.title': 'Không gian làm việc',
   'signup.eyebrow': 'Khởi tạo không gian làm việc mới',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} phút',
   'templates.subtitle':
     'Vui lòng bắt đầu một trang từ khuôn mẫu, không phải từ tấm canvas trắng. Mỗi mẫu cố định hình thức để quý vị có thể tập trung vào nội dung.',
+  'trash.confirmPurge': 'Xóa sổ vĩnh viễn?',
+  'trash.confirmPurgeAria': 'Xác nhận: xóa vĩnh viễn {{title}}',
   'trash.daysUntilPurge': 'Còn {{days}} ngày',
   'trash.empty.body':
     'Các trang bị xoá sẽ hiển thị ở đây trong 30 ngày trước khi bị xoá vĩnh viễn.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Đang khôi phục…',
   'versionHistory.subtitle': '{{count}} phiên bản · chọn một dòng để xem khác biệt',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Đóng điều hướng',
+  'wikiLayout.menu': 'Điều hướng',
+  'wikiLayout.openMenu': 'Mở điều hướng',
   'wikiLayout.searchPlaceholder': 'Tìm trong Cairn — trang, bình luận…',
 }

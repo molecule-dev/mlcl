@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.pageTitle': '{{app}} பற்றி',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'compose.cancel': 'ரத்துசெய்',
   'compose.captionPlaceholder': 'உங்கள் மனதில் என்ன ஓடிக்கொண்டிருக்கிறது?',
   'compose.heading': 'ஒரு தருணத்தைப் பகிரவும்',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'சரிபார்க்கப்பட்ட கணக்கு',
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading': 'வலுவான ஒன்றைத் தேர்ந்தெடுங்கள் — குறைந்தபட்சம் 12 எழுத்துக்கள்.',
+  'search.clearAria': 'தெளிவான',
+  'search.error': 'தேடல் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
   'search.noPeople': 'படைப்பாளிகள் யாரும் பொருந்தவில்லை {{q}} .',
   'search.noPosts': 'பதிவுகள் எதுவும் பொருந்தவில்லை {{q}} .',
   'search.noTags': 'இன்னும் பிரபலமான ஹேஷ்டேக்குகள் எதுவும் இல்லை.',
@@ -129,6 +135,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.subheading': 'பகிரத் தொடங்க ஒரு கணக்கை உருவாக்கவும்.',
+  'socialMediaLayout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'socialMediaLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'socialMediaLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'storyRail.heading': 'கதைகள்',
   'storyRail.label': 'கதைகள்',
   'storyRail.openAria': 'திறந்த {{handle}} கதை',

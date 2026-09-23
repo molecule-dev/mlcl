@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'alerts.acknowledgeLabel': 'ஒப்புக்கொள்',
   'alerts.customerLabel': 'வாடிக்கையாளர்: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'இணைக்கிறது…',
   'carriers.requiredError': 'பெயரும் குறியீடும் தேவை.',
   'carriers.subheading': '{{count}} ஒருங்கிணைந்த',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
+  'common.retry': 'மீண்டும் முயற்சி',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'பயணத்தில் உள்ளது + குறியிடப்பட்டது',
   'dashboard.activeShipmentsSubtitle':
@@ -88,6 +91,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'நேரடி சரக்கு அனுப்புதல் நிகழ்வுகள், விதிவிலக்குகள் மற்றும் வெப்ஹூக் செயல்பாடு.',
   'ordersFeed.empty': 'தற்போது எந்த சரக்கு அனுப்புதலும் செயல்பாட்டில் இல்லை.',
+  'ordersFeed.etaLabel': 'ETA {{eta}}',
   'orderTrackingHero.commandLabel': 'வழிப்புள்ளி · {{count}} கேரியர்கள் இணைக்கப்பட்டன',
   'orderTrackingHero.delivered': 'இன்று வழங்கப்பட்டது',
   'orderTrackingHero.exceptions': 'விதிவிலக்குகள்',
@@ -102,6 +106,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'சரக்குகள்',
   'pricing.trackingLabel': 'நிகழ்வுகளைக் கண்காணித்தல்',
   'profile.dangerZone.title': 'அபாய மண்டலம்',
+  'profile.devices.signingOut': 'வெளியேறுகிறது…',
+  'profile.devices.unnamed': 'பெயரிடப்படாத சாதனம்',
+  'profile.security.disable2fa': '2FA-ஐ முடக்கு',
   'profile.security.enable2fa': '2FA-ஐ இயக்கு',
   'profile.security.pwChanged': 'கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது.',
   'profile.security.pwCurrent': 'தற்போதைய கடவுச்சொல்',
@@ -112,10 +119,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA செயலில் உள்ளது',
   'profile.security.twoFaCode': '6-இலக்க குறியீடு',
   'profile.security.twoFaDisable': 'முடக்கு',
+  'profile.security.twoFaDisabling': 'செயலிழக்கச் செய்தல்…',
   'profile.security.twoFaFailed': 'குறியீட்டைச் சரிபார்க்க முடியவில்லை.',
   'profile.security.twoFaIntro':
     'உங்கள் அங்கீகாரச் செயலியில் QR குறியீட்டை ஸ்கேன் செய்த பிறகு, சரிபார்ப்பதற்காகக் கீழே உள்ள 6-இலக்கக் குறியீட்டை உள்ளிடவும்.',
   'profile.security.twoFaOn': 'இந்தக் கணக்கில் இரு காரணி அங்கீகாரம் செயல்படுத்தப்பட்டுள்ளது.',
+  'profile.security.twoFaQrAlt': 'இரு-காரணி QR குறியீடு',
   'profile.security.twoFaVerify': 'சரிபார்த்து இயக்கு',
   'profile.security.twoFaVerifying': 'சரிபார்க்கப்படுகிறது…',
   'profile.subheading': 'இந்தப் பணிச்சூழலுக்கான அடையாளம் மற்றும் பாதுகாப்பு அமைப்புகள்.',
@@ -134,6 +143,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'இந்த இரகசியத்தைச் சேமித்து வை — இது மீண்டும் காட்டப்படாது.',
   'settings.api.webhookSecret': 'வெப்ஹூக் கையொப்பமிடும் இரகசியம்',
   'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
+  'settings.deleteAccountConfirm': 'உங்களுக்கு உறுதியாகத் தெரியுமா? இந்தச் செயலை மாற்ற முடியாது.',
   'settings.notifications.exceptions':
     'சரக்கு அனுப்புதலில் விதிவிலக்கு ஏற்படும்போது எனக்கு மின்னஞ்சல் அனுப்பவும்.',
   'settings.notifications.heading': 'அறிவிப்புகள்',
@@ -149,6 +159,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'சரக்கு காணப்படவில்லை.',
   'shipmentDetail.originHeading': 'தோற்றம்',
   'shipmentDetail.shippedOn': 'அனுப்பப்பட்டது {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'இதுவரை எந்தக் கண்காணிப்பு நிகழ்வுகளும் இல்லை — விநியோகஸ்தர் பார்சலை ஸ்கேன் செய்யும்போது புதுப்பிப்புகள் இங்கே தோன்றும்.',
   'shipmentDetail.weightLabel': '{{weight}} எல்பி',
   'shipments.col.carrier': 'கேரியர்',
   'shipments.col.eta': 'ETA',
@@ -178,6 +190,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'உள்நுழை',
   'signup.submit': 'கணக்கை உருவாக்கு',
   'team.emailError': 'சரியான மின்னஞ்சல் முகவரி தேவை.',
+  'team.empty':
+    'இன்னும் குழு உறுப்பினர்கள் இல்லை. சரக்கு அனுப்புதலில் இணைந்து பணியாற்ற ஒரு குழு உறுப்பினரை அழைக்கவும்.',
   'team.eyebrow': 'உறுப்பினர்கள் மற்றும் அனுமதிகள்',
   'team.inviteDialog.cancel': 'ரத்துசெய்',
   'team.inviteDialog.heading': 'ஒரு அணி வீரரை அழைக்கவும்',
@@ -200,6 +214,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'தடம்',
   'waypointLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'webhooks.createFailed': 'வெப்ஹூக் எண்ட்பாயிண்ட்டை உருவாக்க முடியவில்லை.',
+  'webhooks.endpointsEmpty':
+    'இன்னும் வெப்ஹூக் எண்ட்பாயிண்ட்கள் இல்லை. சரக்கு அனுப்பீட்டு நிலை குறித்த தகவல்களைப் பெற ஒன்றை உருவாக்கவும்.',
   'webhooks.endpointsHeading': 'இறுதிப்புள்ளிகள்',
   'webhooks.eventCount': '{{count}} நிகழ்வுகள்',
   'webhooks.eventsHeading': 'சமீபத்திய விநியோகங்கள்',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'auth.fields.newPassword': 'Nuova password',
   'collectionDetail.addImage': 'Evoca per la raccolta',
   'collectionDetail.backCta': 'Torna alle raccolte',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood-board, brief e serie in corso',
   'collections.title': 'Raccolte',
   'collections.untitled': 'Senza titolo · {{stamp}}',
+  'common.closeMenu': 'Chiudi il menu',
+  'common.dismiss': 'Chiudi',
+  'common.goToDashboard': 'Vai alla Dashboard',
+  'common.openMenu': 'Apri il menu di navigazione',
   'credits.eyebrow': 'Piano {{plan}}',
   'credits.renewsCopy': 'Il piano si rinnova il {{date}}',
   'credits.trail': 'Sogno · {{plan}} livello',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     "L'attività di generazione, la condivisione e gli avvisi sui crediti appariranno qui.",
   'notifications.empty.title': 'Nulla da segnalare',
   'notifications.subtitle': 'Eventi di generazione raggruppati per giorno',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.limits.gallery': 'Galleria {{count}}',
   'privacy.collect.body':
     "Quando si registra raccogliamo il Suo nome, l'indirizzo email e una password hash. Mentre usa Reverie conserviamo i prompt che invia, le immagini che generiamo per Lei, gli stili e le raccolte che salva, oltre a metadati come il modello usato, i timestamp di generazione e il saldo crediti.",
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Salva nuova password',
   'reset.submitting': 'Aggiornamento password…',
   'settings.account.handle': 'Handle',
+  'settings.account.lastSaved': 'Profilo attivo · {{name}}',
   'settings.account.saved': 'Profilo salvato',
   'settings.account.saveFailed': 'Impossibile salvare il profilo',
   'settings.account.title': 'Profilo creatore',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nuova immagine',
   'sidebar.secondary': 'Navigazione secondaria',
   'signup.failed': 'Iscrizione fallita. Riprovi.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Inizi la Sua reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crei un account e ottenga 120 crediti gratuiti.',
   'styles.empty': 'Nessun preset di stile ancora — appariranno dopo il primo accesso.',
   'styles.eyebrow': 'Curato',

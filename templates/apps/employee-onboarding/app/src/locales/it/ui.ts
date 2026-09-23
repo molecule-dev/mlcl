@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'auth.forgotPassword.emailPlaceholder': 'nome@suaazienda.com',
   'auth.forgotPassword.heading': 'Reimposti la sua password.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Segna attività come completata',
   'checklistTaskCard.markIncomplete': 'Segna attività come incompleta',
   'checklistTaskCard.openLabel': 'Apri attività',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'È perfettamente in pari',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'In linea',
   'dashboard.timelineHeading': 'Tappe 30/60/90',
   'dashboard.viewAllTasks': 'Visualizza tutte le attività',
+  'dashboard.weekOne': 'Settimana 1',
   'dashboard.yourCohort': 'Il suo team',
   'documents.empty.body': 'I documenti aggiunti dal suo team appariranno qui.',
   'documents.empty.title': 'Nessun documento ancora',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Prova gratuita di 14 giorni',
   'landing.subhead':
     'Embark guida ogni nuovo collega nei suoi primi 90 giorni — documenti, formazione, tappe e presentazioni significative, tutto in un unico luogo calmo e sicuro.',
+  'layout.openMenu': 'Apri il menu di navigazione',
   'layout.search': 'Cerca attività, documenti, colleghi…',
+  'layout.searchTeammates': 'Cerca i compagni di squadra per nome o ruolo…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Il suo percorso inizia qui',
   'notifications.empty.body': 'La nuova attività apparirà qui.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Ieri',
   'planUpdated.message': 'È tutto pronto.',
   'planUpdated.preparing': 'Aggiornamento del suo piano…',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.documentsLabel': 'documenti',
   'pricing.onboardingsLabel': 'onboarding',
   'pricing.tasksLabel': 'attività',

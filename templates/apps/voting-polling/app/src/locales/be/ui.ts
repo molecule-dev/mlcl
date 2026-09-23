@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Галасы',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Пакуль няма пытанняў, якія чакаюць вырашэння.',
   'audienceQa.onStageEyebrow': 'Зараз на сцэне',
   'audienceQa.pollId': 'якасць · {{id}}',
+  'audienceQa.promote': 'Рэкламуйце',
   'audienceQa.queued': 'у чарзе',
   'audienceQa.queueEyebrow': 'Чарга',
   'ballot.eyebrow': 'Аддайце свой голас',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Вы зараз знаходзіцеся на {{plan}} план.',
   'billing.switch': 'Пераключальнік',
   'billing.upgraded': 'Абноўлена да {{plan}} — абмежаванні ўжытыя неадкладна.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'createPoll.addOption': 'Дадаць опцыю',
   'createPoll.anonymousHint':
     'Імёны выбаршчыкаў схаваныя ў журнале аўдыту; падлік галасоў застаецца аўтэнтычным.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Вы ўпершыню ў Ношы?',
   'login.remember': 'Запомніць мяне на працягу 30 дзён',
   'login.subheading': 'Адкрыйце падлогу, прабегчы па пакоі і сертыфікуйце вынік.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'notFound.body':
     'Старонка, на якую вы спрабавалі зайсці, была закрыта або перамешчана. Вярніцеся на панэль кіравання або адкрыйце новае апытанне.',
   'notFound.eyebrow': 'Няма кворуму на гэтым маршруце',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Не атрымалася загрузіць гэтае апытанне.',
   'pollDetail.loading': 'Загрузка апытання…',
   'pollDetail.notFound': 'Апытанне не знойдзена.',
+  'pollDetail.openBallot': 'Адкрытае галасаванне',
   'pollDetail.openLive': 'Вынікі ў рэжыме рэальнага часу',
   'pollDetail.pollId': 'апытанне · {{id}}',
   'pollDetail.published': 'Апытанне апублікавана — выбаршчыкі цяпер могуць галасаваць.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Пошук па электроннай пошце…',
   'voters.subheading':
     'Сфармуйце спіс выбаршчыкаў, якія маюць права галасаваць. Групуйце выбаршчыкаў па арганізацыях для атрымання ўзважаных бюлетэняў.',
+  'votingPollingLayout.nav.analytics': 'Аналітыка',
+  'votingPollingLayout.nav.billing': 'Аплата',
+  'votingPollingLayout.nav.createPoll': 'Новае апытанне',
+  'votingPollingLayout.nav.dashboard': 'Панэль кіравання',
+  'votingPollingLayout.nav.notifications': 'Апавяшчэнні',
+  'votingPollingLayout.nav.settings': 'Налады',
+  'votingPollingLayout.nav.team': 'Каманда',
+  'votingPollingLayout.nav.voters': 'Выбаршчыкі',
+  'votingPollingLayout.primaryNavLabel': 'Асноўная навігацыя',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'alerts.acknowledgeLabel': 'Təsdiq et',
   'alerts.customerLabel': 'Müştəri: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Qoşulma…',
   'carriers.requiredError': 'Ad və kod tələb olunur.',
   'carriers.subheading': '{{count}} inteqrasiya olunmuş',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
+  'common.retry': 'Təkrar cəhd edin',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Tranzitdə + işarələnib',
   'dashboard.activeShipmentsSubtitle': '{{count}} göndərişlər diqqət tələb edir və ya hərəkətdədir',
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'göndərişlər',
   'pricing.trackingLabel': 'hadisələri izləmək',
   'profile.dangerZone.title': 'Təhlükə zonası',
+  'profile.devices.signingOut': 'Çıxış edilir…',
+  'profile.devices.unnamed': 'Adsız cihaz',
+  'profile.security.disable2fa': '2FA-nı deaktiv edin',
   'profile.security.enable2fa': '2FA-nı aktivləşdirin',
   'profile.security.pwChanged': 'Şifrə uğurla dəyişdirildi.',
   'profile.security.pwCurrent': 'Cari parol',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktivdir',
   'profile.security.twoFaCode': '6 rəqəmli kod',
   'profile.security.twoFaDisable': 'Deaktiv edin',
+  'profile.security.twoFaDisabling': 'Deaktiv edilir…',
   'profile.security.twoFaFailed': 'Kodu təsdiqləmək mümkün olmadı.',
   'profile.security.twoFaIntro':
     'Doğrulama tətbiqinizdə QR kodunu skan edin, sonra doğrulamaq üçün aşağıdakı 6 rəqəmli kodu daxil edin.',
   'profile.security.twoFaOn': 'Bu hesabda iki faktorlu identifikasiya aktivdir.',
+  'profile.security.twoFaQrAlt': 'İki faktorlu QR kodu',
   'profile.security.twoFaVerify': 'Təsdiqləyin və aktivləşdirin',
   'profile.security.twoFaVerifying': 'Doğrulanır…',
   'profile.subheading': 'Bu iş sahəsi üçün şəxsiyyət və təhlükəsizlik parametrləri.',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Bu sirri saxla — bir daha göstərilməyəcək.',
   'settings.api.webhookSecret': 'Webhook imza sirri',
   'settings.appearance.description': 'İşıq və qaranlıq rejim arasında keçid edin.',
+  'settings.deleteAccountConfirm': 'Əminsiniz? Bu əməliyyat geri qaytarıla bilməz.',
   'settings.notifications.exceptions': 'Göndərmə istisnası baş verdikdə mənə e-poçt göndərin',
   'settings.notifications.heading': 'Bildirişlər',
   'settings.notifications.saveFailed': 'Tərcihləri yadda saxlamaq mümkün olmadı.',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Göndərmə tapılmadı.',
   'shipmentDetail.originHeading': 'Mənşəyi',
   'shipmentDetail.shippedOn': 'Göndərilib {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Hələ ki, izləmə tədbirləri yoxdur — daşıyıcı bağlamanı skan etdikcə yeniləmələr burada görünür.',
   'shipmentDetail.weightLabel': '{{weight}} funt',
   'shipments.col.carrier': 'Daşıyıcı',
   'shipments.col.eta': 'ETA',
@@ -173,6 +184,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Daxil ol',
   'signup.submit': 'Hesab Yarat',
   'team.emailError': 'Etibarlı bir e-poçt ünvanı tələb olunur.',
+  'team.empty':
+    'Hələlik komanda üzvü yoxdur. Göndərmələrdə əməkdaşlıq etmək üçün komanda yoldaşınızı dəvət edin.',
   'team.eyebrow': 'Üzvlər və icazələr',
   'team.inviteDialog.cancel': 'Ləğv et',
   'team.inviteDialog.heading': 'Komanda yoldaşını dəvət et',
@@ -195,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'İzləmə',
   'waypointLayout.primaryNavLabel': 'Əsas naviqasiya',
   'webhooks.createFailed': 'Vebhook son nöqtəsi yaradıla bilmədi.',
+  'webhooks.endpointsEmpty':
+    'Hələ ki, vebhook son nöqtələri yoxdur. Göndərmə statusu ilə bağlı geri zənglər almaq üçün birini yaradın.',
   'webhooks.endpointsHeading': 'Son Nöqtələr',
   'webhooks.eventCount': '{{count}} tədbirlər',
   'webhooks.eventsHeading': 'Son çatdırılmalar',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.pageTitle': 'Teave {{appName}}',
   'analytics.error': 'Analüütikat ei õnnestunud laadida.',
   'analytics.heading': 'Otsingu analüüs',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Hinnatasemeid pole konfigureeritud.',
   'billing.plans.heading': 'Plaanid',
   'billing.subheading': "Plaan, kasutus ja Stripe'i hallatav kassasüsteem.",
+  'common.confirm': 'Kinnita',
+  'common.goToDashboard': 'Mine töölauani',
+  'common.retry': 'Proovi uuesti',
   'documentCard.open': 'Avatud \\u2192',
   'documentDetail.back': 'Tagasi dokumentide juurde',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksdokument',
   'documents.composer.titlePlaceholder': 'Dokumendi pealkiri',
   'documents.emptyAll': 'Dokumente veel pole. Küsimuste esitamiseks laadige üks üles.',
+  'documents.error.load': 'Dokumente ei õnnestunud laadida.',
   'documents.heading': 'Indekseeritud dokumendid',
   'documents.loading': 'Dokumentide laadimine…',
   'documents.metric.chunks': 'Kogusumma',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Eemaldamine',
   'members.subheading': 'Kutsu meeskonnakaaslasi ja määra rollid.',
   'members.tableHeading': 'Nimekiri',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'notFound.askCta': 'Küsi teadmusbaasist',
+  'notFound.body':
+    '{{app}} ei leidnud seda lehte. Link võib olla katki või leht võidi uuesti indekseerimise käigus eemaldada.',
   'notFound.eyebrow': 'Ei saa kätte',
   'notFound.title': 'Indeksis sellist tükki pole',
   'notifications.dismiss': 'Jäta vahele',
@@ -201,6 +210,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Allika URL',
   'sources.empty.body': 'Esimese pistiku ühendamiseks klõpsake nuppu \\u201cLisa allikas\\u201d.',
   'sources.empty.title': 'Allikad pole veel olemas.',
+  'sources.error.add': 'Allika lisamine ebaõnnestus.',
   'sources.error.labelRequired': 'Silt on kohustuslik.',
   'sources.error.load': 'Allikaid ei õnnestunud laadida.',
   'sources.error.urlRequired': 'Selle allika tüübi jaoks on URL nõutav.',

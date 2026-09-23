@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.featureDiscover.title': 'Innblástur, handvalinn',
   'account.addPaymentCta': 'Bæta við greiðslumáta',
   'account.addPaymentError': 'Ekki var hægt að bæta við greiðslumáta.',
+  'account.confirmRemove': 'Staðfesta fjarlægingu',
   'account.defaultBadge': 'Sjálfgefið',
   'account.loyalty.pointsTowardNext': '{{stig}} af {{næsti}} mílur til {{næsta stig}}',
   'account.loyalty.tier': 'Núverandi stig',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Upplýsingar um ferðina',
   'booking.tripSummary': '{{nights}} nætur · {{guests}} gestir',
   'common.daysAgo': '{{count}} fyrir dögum',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.hoursAgo': '{{count}} fyrir klst.',
   'common.minutesAgo': '{{count}} fyrir mínútum',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Löglegt',
   'notifications.loading': 'Hleður…',
   'notifications.subheading': '{{count}} ólesið · allt í einum rólegum pósthólfi',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.accommodationsLabel': 'gisting',
   'pricing.bookingsLabel': 'bókanir',
   'pricing.destinationsLabel': 'vistaðir áfangastaðir',
@@ -92,6 +97,7 @@ export const ui: UiTranslations = {
   'propertyDetail.freeCancellation': 'Ókeypis afpöntun',
   'propertyDetail.heroImageAlt': '{{name}} hetjuljósmynd',
   'propertyDetail.lineCleaning': 'Þrifgjald',
+  'propertyDetail.lineRate': '{{price}} × {{nights}} nætur',
   'propertyDetail.lineTaxes': 'Skattar og gjöld',
   'propertyDetail.loadError': 'Mistókst að hlaða inn eiginleika.',
   'propertyDetail.night': 'nótt',
@@ -129,6 +135,7 @@ export const ui: UiTranslations = {
     'Innblástur, traustar gistingar og einföld leið frá dagdraumum til bókar — í 14 löndum og yfir 200 handprófuðum gististaðum.',
   'sojournHeroSearchCard.trustProtected': 'Ókeypis afpöntun, full vernd',
   'sojournHeroSearchCard.trustVetted': 'Aðeins handskoðaðar eignir',
+  'travelBookingLayout.primaryNavLabel': 'Aðalflakk',
   'tripDetail.backLink': 'Til baka í ferðir',
   'tripDetail.cancelCta': 'Hætta við bókun',
   'tripDetail.cancelHeading': 'Hætta við þessa ferð?',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
+  'appNav.mobileLabel': 'Primær navigasjon',
+  'appNav.primaryLabel': 'Primær navigasjon',
   'billing.actions.confirmCancel':
     'Vil du si opp abonnementet ditt? Du kan når som helst abonnere på nytt.',
   'billing.actions.paused': 'Abonnementet er satt på pause.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Hvert nivå er en liten historie. Legg til en i køen din, eller bytt den til neste måned.',
   'boxThemeCard.perMonth': '/ måned',
+  'common.goToDashboard': 'Gå til oversikt',
   'customize.eyebrow': 'Gjør det til ditt eget',
   'customize.heading': 'Tilpass din neste Crate',
   'customize.items.exclude': 'Hopp over dette',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Denne sesongen',
   'landing.editions.heading': 'Utgaver kuratorene våre elsker',
   'landing.footer.contact': 'Snakk med en kurator',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start boksen din →',
   'landing.hero.ctaSecondary': 'Se nivåer',
   'landing.hero.eyebrow': 'Kuratert månedlig. Alltid personlig.',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'DIN NESTE FIKK',
   'nextBoxHeroCard.itemsLabel': 'Utvalgte elementer',
   'nextBoxHeroCard.shipsOnLabel': 'Sendes på',
+  'notFound.body':
+    'Vi fant ikke den siden i {{app}} -arkivet. Den kan ha blitt utgått eller rett og slett vært feilstavet.',
   'notFound.cta.dashboard': 'Gå til dashbordet',
   'notFound.eyebrow': 'Tom boks',
   'notFound.heading': 'Denne hyllen er tom',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'વિશે',
   'alertConditionCard.condition.${alert.condition}': 'ટ્રિગર થયું {{ક્યારે}}',
+  'alertConditionCard.confirmDelete': 'કાઢી નાખવાની પુષ્ટિ કરો',
   'alertConditionCard.pauseAriaLabel': 'ચેતવણી થોભાવો',
   'alertConditionCard.resumeAriaLabel': 'ચેતવણી ફરી શરૂ કરો',
   'alertNew.condition': 'સ્થિતિ',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'સંપૂર્ણપણે પાતળું મૂલ્યાંકન',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'વેબસાઇટ',
+  'coinDetail.links.whitepaper': 'શ્વેતપત્ર',
   'coinDetail.loadError': 'સિક્કો લોડ કરવામાં નિષ્ફળ.',
   'coinDetail.marketCap': 'માર્કેટ કેપ',
   'coinDetail.maxSupply': 'મહત્તમ પુરવઠો',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'તમે જે રૂટ સ્કેન કર્યો છે તે કોઈ જાણીતા સિક્કા કે પૃષ્ઠ પર પહોંચતો નથી. પ્રતીક ફરીથી તપાસો અને ફરી પ્રયાસ કરો.',
   'notFound.browseMarkets': 'બજારો બ્રાઉઝ કરો',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'portfolio.addError': 'પ્રતીક, ધન રકમ અને કિંમત દાખલ કરો.',
   'portfolio.addHoldingCta': '+ હોલ્ડિંગ ઉમેરો',
   'portfolio.addModal.cost': 'કિંમતનો આધાર (USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'પાસવર્ડ અને ટુ-ફેક્ટર સેટિંગ્સ તમારા એકાઉન્ટ દ્વારા મેનેજ કરવામાં આવે છે.',
   'settings.signOutDevice': 'સાઇન આઉટ કરો',
+  'settings.twoFactorCode': 'પ્રમાણીકરણ કોડ',
   'settings.twoFactorDisable': 'અક્ષમ કરો',
   'settings.twoFactorEnable': 'સક્ષમ કરો',
+  'settings.twoFactorInvalidCode': 'અમાન્ય કોડ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'ચકાસો અને સક્ષમ કરો',
   'sigilAuthShell.backHomeCta': '← સિગિલ પર પાછા જાઓ',
   'sigilLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'signup.eyebrow': 'ટર્મિનલ ખોલો',

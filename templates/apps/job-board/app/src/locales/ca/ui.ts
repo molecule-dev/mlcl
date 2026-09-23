@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
   'applications.empty':
     'Encara no hi ha sol·licituds \\2014 El lloc de treball adequat està a una sol·licitud de distància.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Tots els rols als quals has sol·licitat, en moviment. Filtra per etapa per centrar-te.',
   'applications.untitledRole': 'Rol núm. {{id}}',
+  'auth.legalConsent': 'En continuar, acceptes les nostres',
   'common.and': 'i',
+  'common.goToDashboard': 'Anar al panell',
   'companies.empty':
     'No hi ha empreses que coincideixin amb la teva cerca. Prova un terme diferent.',
   'companies.eyebrow': 'Empresaris destacats',
@@ -53,6 +56,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Encara no hi ha sol·licituds per a aquest càrrec.',
   'jobApplicants.eyebrow': 'Vista de l’empresari',
   'jobApplicants.loading': 'S’està carregant\\u2026',
+  'jobApplicants.statusUpdateFailed':
+    "No s'ha pogut actualitzar aquesta etapa; torna-ho a intentar.",
+  'jobApplicants.subheading':
+    'Revisar currículums, presentar candidats, enviar ofertes \\u2014 {{count}} en moviment.',
   'jobDetail.applicantCount': '{{count}} sol·licitants fins ara',
   'jobDetail.applied': 'Sol·licitud enviada',
   'jobDetail.apply': 'Sol·licita ara',
@@ -86,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Navega per les ofertes de treball disponibles \\u2192',
   'landing.pricingEyebrow': 'Preus',
   'landing.pricingHeading': 'Plans senzills per a equips de totes les mides.',
+  'login.eyebrow': 'Benvingut/da a {{app}}',
   'login.heading': 'Inicia la sessió al teu compte',
   'login.noAccount': 'Ets nou a Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -93,6 +101,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Inici de sessió\\u2026',
   'login.subheading':
     'Repreneu la cerca, avanceu amb les sol·licituds i rebeu una resposta més ràpida.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Creat per a equips de contractació.',
   'loginBrandPanel.headline': 'On el talent es troba',
   'loginBrandPanel.headlineLine2': 'impuls.',
   'loginBrandPanel.listing.recruiter': 'Soci de talent',
@@ -109,6 +118,7 @@ export const ui: UiTranslations = {
     'Actualitzacions de sol·licituds, invitacions a entrevistes, coincidències noves i les més noves primer.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} aquesta setmana',
   'opportunitiesHero.eyebrow': 'Obert avui',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'postJob.addNewCompany': '+ Afegeix una nova empresa',
   'postJob.companyCreateFailed': 'No s’ha pogut crear l’empresa. Torna-ho a intentar.',
   'postJob.companyNameLabel': 'Nom de la vostra empresa',
@@ -167,10 +177,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Creant compte\\u2026',
   'signup.ctaEmployer': 'Crea un compte d’empresari',
   'signup.firstNamePlaceholder': 'Maia',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Les contrasenyes no coincideixen.',
   'signup.subheading':
     'Gratuït per als sol·licitants, per sempre. Les empreses comencen amb una prova de 30 dies.',
   'timeAgo.days': '{{count}} fa uns dies',
   'timeAgo.hours': '{{count}} fa h',
   'timeAgo.justNow': 'ara mateix',
+  'timeAgo.weeks': '{{count}} setmanes',
 }

@@ -9,6 +9,7 @@ export const ui: UiTranslations = {
   'auditLog.filter.maintenance': 'תַחזוּקָה',
   'auditLog.subheading':
     'כל פעולה לשינוי מצב - על ידי בני אדם ומכונות - מתועדת לצורך ניתוחים שלאחר המוות ותאימות לדרישות.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'componentDetail.back': 'כל הרכיבים',
   'componentDetail.history': 'היסטוריית זמן פעולה של 90 יום',
   'componentDetail.historyHeading': 'ציר זמן לבדיקה יומית',
@@ -128,6 +129,8 @@ export const ui: UiTranslations = {
   'maintenanceList.scheduling': 'מתזמן...',
   'maintenanceList.subheading':
     'תחזוקה מתוזמנת, תחזוקה תוך כדי טיסות ותחזוקה היסטורית - תפורסם מראש למנויים.',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'notFound.dashboard': 'לוח המחוונים של המפעיל',
   'notFound.eyebrow': '$ ויגיל וואמי --מסלול',
   'notFound.message':
@@ -136,6 +139,7 @@ export const ui: UiTranslations = {
   'notifications.filter.incident': 'תקריות',
   'notifications.filter.maintenance': 'תַחזוּקָה',
   'notifications.subheading': 'דפים, אירועי ביקורת ופעילות מנויים עבור חשבון המפעיל שלך.',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'pricing.heading': 'רכיבים',
   'pricing.limits.incidents': 'אירועים',
   'pricing.limits.subscribers': 'מנויים',
@@ -149,6 +153,7 @@ export const ui: UiTranslations = {
   'publicStatus.activeEyebrow': 'לחיות · לחקור',
   'publicStatus.group.${group}': '{{count}} ',
   'publicStatus.loading': 'טוען את תקינות השירות...',
+  'publicStatus.pageTitle': 'דף הסטטוס {{app}}',
   'publicStatus.recentHeading': 'נפתר לאחרונה',
   'publicStatus.servicesEyebrow': '// תקינות השירות',
   'publicStatus.servicesHeading': 'רכיבים ושירותים',
@@ -187,8 +192,10 @@ export const ui: UiTranslations = {
   'statusOverviewCard.maintenance': 'תחזוקה מתוכננת בתהליך',
   'statusOverviewCard.servicesUp': 'שירותים עולים',
   'statusOverviewCard.uptime90': 'זמן פעולה של 90 יום',
+  'statusPageLayout.profile': 'פּרוֹפִיל',
   'subscribers.allComponents': 'כל הרכיבים',
   'subscribers.channel.email': 'אֶלֶקטרוֹנִי',
+  'subscribers.channel.rss': 'RSS',
   'subscribers.channel.slack': 'רָפוּי',
   'subscribers.channel.sms': 'SMS',
   'subscribers.channel.webhook': 'וובהוק',

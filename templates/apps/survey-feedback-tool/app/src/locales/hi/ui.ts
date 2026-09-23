@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} के बारे में',
   'analytics.back': 'सर्वेक्षण अवलोकन',
   'analytics.kpiNps': 'NPS स्कोर',
   'analytics.kpiNpsTrend': 'प्रमोटर्स {{p}}% · डिट्रैक्टर्स {{d}}%',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'विशेषताएँ',
   'builder.questionNumber': 'प्र{{num}}',
   'builder.surveyTitle': 'सर्वेक्षण शीर्षक',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'forgotPassword.failed': 'रीसेट ईमेल नहीं भेजा जा सका। कृपया पुनः प्रयास करें।',
   'forgotPassword.subheading': 'अपना ईमेल दर्ज करें और हम आपको पुनर्प्राप्ति लिंक भेजेंगे।',
   'forgotPassword.successBody':
     'यदि कोई खाता {{email}} से मेल खाता है, तो रीसेट लिंक भेजा जा रहा है। अपना इनबॉक्स और स्पैम फ़ोल्डर देखें।',
+  'landing.footer.copyright': '© {{year}} {{app}} . सभी की राय का स्वागत है।',
   'landing.footer.startTrial': 'ट्रायल शुरू करें',
   'landing.hero.badge': 'सर्वेक्षण, NPS और फ़ीडबैक एक ही स्थान पर',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'मूल्य निर्धारण',
   'landing.pricing.perMonth': '/माह',
   'landing.pricing.popular': 'सबसे लोकप्रिय',
+  'landing.pricing.subtitle':
+    'प्रत्येक प्लान में सर्वे बिल्डर, सार्वजनिक शेयर लिंक और एनपीएस एनालिटिक्स शामिल हैं। शुरू करने के लिए क्रेडिट कार्ड की आवश्यकता नहीं है।',
+  'landing.pricing.title': 'मुफ्त में शुरू करें, और जब चाहें तब इसका विस्तार करें।',
   'landing.sample.eyebrow': 'एक नज़र में NPS',
   'landing.sample.title': 'डिट्रैक्टर्स, पैसिव, प्रमोटर्स — तुरंत पठनीय।',
   'login.failed': 'लॉगिन विफल। कृपया पुनः प्रयास करें।',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'पासवर्ड दिखाएँ',
   'login.signUpLink': 'मुफ़्त ट्रायल शुरू करें',
   'login.subheading': 'अपने दर्शकों को सुनते रहने के लिए साइन इन करें।',
+  'notFound.body':
+    'आप जिस पेज को खोज रहे हैं वह {{app}} पर मौजूद नहीं है। चलिए आपको वापस आपके सर्वे पेज पर ले चलते हैं।',
   'notFound.cta': 'सर्वेक्षणों पर वापस जाएँ',
   'notFound.eyebrow': '404',
   'notFound.heading': 'यह सर्वेक्षण कतार से हट गया।',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'पैसिव 7–8',
   'npsDistributionBar.promoter': 'प्रमोटर 9–10',
   'profile.identity.description': 'आपकी टीम और आपके द्वारा बनाए गए सर्वेक्षणों पर सार्वजनिक।',
+  'profile.identity.emailRequired': 'कोई ईमेल पता डालें।',
   'profile.identity.saveCta': 'नाम सहेजें',
   'profile.password.current': 'वर्तमान पासवर्ड',
   'profile.password.fillFields': 'वर्तमान और नया दोनों पासवर्ड दर्ज करें।',
@@ -177,6 +186,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} प्रश्न',
   'templates.subheading':
     'एक परखा हुआ स्टार्टर चुनें — हर टेम्पलेट समझदार डिफ़ॉल्ट, नमूना लॉजिक और साफ़ मोबाइल लेआउट के साथ पहले से ट्यून किया गया आता है।',
+  'thankYou.body':
+    'आपका जवाब रिकॉर्ड कर लिया गया है। {{app}} इसे अगले एनालिटिक्स अपडेट में शामिल करेगा।',
   'thankYou.eyebrow': 'प्रतिक्रिया प्राप्त हुई',
   'thankYou.heading': 'धन्यवाद — आपकी आवाज़ मायने रखती है।',
   'thankYou.home': 'Gauge पर जाएँ',

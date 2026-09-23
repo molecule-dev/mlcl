@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'article.notFound': 'Makale bulunamadı.',
   'articleEditor.bodyPlaceholder': 'Bloklar için / yazın veya doğrudan yazmaya başlayın.',
+  'articleEditor.loadFailed': 'Makale yüklenemedi.',
   'articleEditor.publishing': 'Yayımlanıyor…',
   'articleEditor.saveFailed': 'Kaydetme başarısız',
   'articleEditor.saving': 'Kaydediliyor…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Yer işareti ekle',
   'articleView.bookmarkOn': 'Yer işareti eklendi',
   'articleView.edit': 'Makaleyi düzenle',
+  'articleView.loading': 'Bu makaleyi açtığınızda…',
   'articleView.readTime': '{{minutes}} dk okuma',
   'articleView.spaces': 'Alanlar',
   'articleView.tocHeading': 'Bu sayfada',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Ekibinizin hâlâ üzerinde çalıştığı son düzenlemeler, okumalar ve taslaklar.',
   'cairnTrailHero.updated': 'Güncellenen makaleler',
+  'common.goToDashboard': 'Panele Git',
   'drafts.eyebrow': 'Bitmemiş işiniz',
   'drafts.heading': 'Taslaklar',
+  'drafts.loadFailed': 'Taslaklarınız yüklenemedi.',
   'drafts.subtitle':
     'Başlattığınız ama henüz yayımlamadığınız makaleler. Birini ele alıp devam edin.',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Henüz alan yok. Makale toplamaya başlamak için bir tane açın.',
   'home.spacesHeading': 'Alanlarınız',
   'home.subtitle': 'Son makaleler, yer işaretleriniz ve ekibin neler yazdığı.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Molecule ile oluşturulmuştur.',
   'landing.ctaBody':
     'Tek başına çalışan yazarlar için ücretsiz. Dağıtılmış ekipler için çalışma kılavuzları, kararlar ve işe alım süreçleri içeren ekip planları.',
   'landing.ctaHeading': 'İlk taşı bugün koyun.',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Bir çalışma alanı oluşturun',
   'login.submitting': 'Oturum açılıyor…',
   'login.subtitle': 'Patikaya bıraktığınız yerden devam edin.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
+  'newSpace.colorAria': 'Renk seçin {{color}}',
   'newSpace.colorLabel': 'Vurgu rengi',
+  'newSpace.createFailed': 'Alan oluşturulamadı.',
   'newSpace.descriptionPlaceholder': 'Çalıştırma kılavuzları, nöbet senaryoları, postmortemler…',
   'newSpace.eyebrow': 'Bir bilgi alanı açın',
   'newSpace.heading': 'Yeni alan',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yükleniyor…',
   'notifications.subtitle':
     '{{count}} okunmamış — bahsetmeler, yorumlar, sayfa değişiklikleri ve inceleme istekleri.',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.articles': 'makaleler',
   'pricing.spaces': 'alan',
   'profile.eyebrow': 'Yazar profili',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Yeni bir parola girin',
   'resetPassword.subtitle': 'Güçlü bir parola seçin — en az 12 karakter.',
   'searchResults.eyebrow': 'Çalışma alanı araması',
+  'searchResults.filter.all': 'Tüm alanlar',
   'searchResults.heading': 'Makalelerde ara',
   'searchResults.placeholder': "Çalıştırma kılavuzları, RFC'ler, politikalar, kararlar ara…",
   'searchResults.summary': '“{{count}}” için {{query}} sonuç',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Bu işlem hesabınızı ve yazdığınız tüm makaleleri siler. Onaylamak için DELETE yazın.',
   'settings.danger.confirmInvalid': 'Onaylamak için DELETE yazın.',
+  'settings.danger.deleteFailed': 'Hesap silinemedi.',
   'settings.danger.deleting': 'Siliniyor…',
   'settings.danger.description':
     'Çalışma alanınızı silmek tüm makaleleri, yorumları ve sürüm geçmişini kaldırır. Kurtarma yoktur.',
   'settings.danger.title': 'Tehlikeli bölge',
+  'settings.email.confirm': 'E-postayı güncelle',
+  'settings.email.confirmTitle': 'E-posta değişikliğini onaylayın',
   'settings.email.saved': 'E-posta güncellendi.',
+  'settings.email.updateFailed': 'E-posta güncellenemedi.',
   'settings.language.title': 'Dil',
   'settings.name': 'Ad',
+  'settings.name.saved': 'İsim güncellendi.',
+  'settings.name.updateFailed': 'İsim güncellenemedi.',
   'settings.notifications.description': 'Gelen kutunuza nelerin ulaşacağını seçin.',
+  'settings.password.changeFailed': 'Şifre değiştirilemedi.',
   'settings.password.current': 'Mevcut parola',
   'settings.password.new': 'Yeni parola',
   'settings.password.saving': 'Güncelleniyor…',
@@ -146,10 +166,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Makalelerin sizin için nasıl görüntüleneceği.',
   'settings.reading.title': 'Okuma ve yazma',
   'settings.subtitle': 'Bildirimleri, okuma alanını ve hesabınızı ayarlayın.',
+  'settings.twofa.code': 'Doğrulama kodu',
   'settings.twofa.disable': 'Devre dışı bırak',
   'settings.twofa.disabled': 'Devre dışı',
   'settings.twofa.enable': 'Etkinleştir',
   'settings.twofa.enabled': 'Etkin',
+  'settings.twofa.invalidCode': 'Geçersiz kod',
+  'settings.twofa.unavailable':
+    'Bu uygulama için iki faktörlü kimlik doğrulama özelliği mevcut değil.',
+  'settings.twofa.verify': 'Doğrula ve etkinleştir',
   'signup.brandQuote':
     '“Yazıya dökmek, buna sonradan ihtiyaç duyacak kişiye verdiğimiz ilk sözdür.”',
   'signup.eyebrow': 'Bir çalışma alanı açın',

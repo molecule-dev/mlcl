@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'billing.canceled':
     'Η συνδρομή ακυρώθηκε. Θα επιστρέψετε στο δωρεάν πλάνο στο τέλος της περιόδου.',
   'billing.contactSales': 'Επικοινωνία με την ομάδα πωλήσεων',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Χωρίς όριο διατήρησης',
   'billing.upgradeHint': 'Αναβαθμίστε για να ξεκλειδώσετε τις προηγμένες λειτουργίες AI.',
   'billing.yearly': 'Ετήσιο',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.activityEmpty':
     'Δεν υπάρχει δραστηριότητα ακόμα — ξεκινήστε ένα έργο για να γεμίσει αυτή η ροή.',
   'dashboard.eyebrow': 'Επισκόπηση',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Επαναχρησιμοποιήστε παλιές μεταφράσεις σε όλα τα έργα. Υψηλότερο ποσοστό αντιστοίχισης → λιγότερη επαναλαμβανόμενη εργασία.',
   'memory.title': 'Τράπεζα μνήμης',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'nav.legal': 'Νομικά',
   'newProject.addLanguage': 'Προσθήκη στόχου',
   'newProject.create': 'Δημιουργία έργου',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Επισημάνθηκαν {{count}} ειδοποιήσεις ως αναγνωσμένες.',
   'notifications.subtitle':
     'Αναφορές, αιτήματα αναθεώρησης και συμβάντα AI από όλους τους χώρους εργασίας σας.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'privacy.collection.account': 'Το email και το εμφανιζόμενο όνομά σας',
   'privacy.deletion.body':
     'Μπορείτε να διαγράψετε ένα έργο, τμήμα, όρο γλωσσαρίου ή καταχώριση μνήμης οποτεδήποτε από τη σχετική σελίδα. Η διαγραφή λογαριασμού από τις Ρυθμίσεις διαγράφει κάθε σειρά εντός χώρου εργασίας από τη βάση δεδομένων μας.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Αποτυχία φόρτωσης έργων.',
   'projects.loading': 'Φόρτωση έργων…',
   'projects.subtitle': 'Κάθε ενεργό έργο σε όλες τις τοπικές ρυθμίσεις.',
+  'renditionLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'reset.backToLogin': '← Επιστροφή στη σύνδεση',
   'reset.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'review.activeEyebrow': 'Τμήμα {{number}}',

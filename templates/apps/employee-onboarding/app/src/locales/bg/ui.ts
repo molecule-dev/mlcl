@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'auth.forgotPassword.emailPlaceholder': 'име@вашатакомпания.com',
   'auth.forgotPassword.heading': 'Възстановете паролата си.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Маркиране на задачата като завършена',
   'checklistTaskCard.markIncomplete': 'Маркиране на задачата като незавършена',
   'checklistTaskCard.openLabel': 'Отворена задача',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Вече сте наваксали',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'На път',
   'dashboard.timelineHeading': '30/60/90 етапа',
   'dashboard.viewAllTasks': 'Преглед на всички задачи',
+  'dashboard.weekOne': 'Седмица 1',
   'dashboard.yourCohort': 'Вашият екип',
   'documents.empty.body': 'Документите, добавени от вашия екип, ще се показват тук.',
   'documents.empty.title': 'Все още няма документи',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-дневен безплатен пробен период',
   'landing.subhead':
     'Embark ще ви помогне да преведете всеки нов съотборник през първите му 90 дни – документи, обучение, важни етапи и смислени запознанства, всичко това на едно спокойно и уверено място.',
+  'layout.openMenu': 'Отвори менюто за навигация',
   'layout.search': 'Търсене на задачи, документи, съотборници…',
+  'layout.searchTeammates': 'Търсене на съотборници по име или роля…',
   'layout.section.onboarding': 'Включване',
   'layout.tagline': 'Вашето пътуване започва тук',
   'notifications.empty.body': 'Нова активност ще се показва тук.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'вчера',
   'planUpdated.message': 'Готови сте.',
   'planUpdated.preparing': 'Актуализиране на плана ви…',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.documentsLabel': 'документи',
   'pricing.onboardingsLabel': 'адаптации',
   'pricing.tasksLabel': 'задачи',

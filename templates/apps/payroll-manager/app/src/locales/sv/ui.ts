@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'auditLog.empty':
     'Inga revisionshändelser matchar dina filter än. Redigera en anställd eller bearbeta en lönekörning så dyker de upp här.',
   'auditLog.eyebrow': 'Efterlevnad',
+  'auditLog.loadError': 'Kunde inte läsa in granskningsloggen.',
   'auditLog.searchPlaceholder': 'Sök efter aktör, åtgärd eller beskrivning',
   'auditLog.subheading':
     'Varje godkännande, redigering och skattedeklaration — med aktör, tidsstämpel och ändrade fält.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Inte konfigurerad',
   'billing.plansHeading': 'Planer',
   'billing.subheading': 'Hantera din plan och byt nivåer via Stripe.',
+  'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Försök igen',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Efterlevnadsöversikt',
   'dashboard.compliance.title': 'Alla kontroller godkända',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Inga avdrag registrerade.',
   'employeeDetail.notFound': 'Anställd hittades inte.',
   'employeeDetail.payFrequency': 'Löneperiod',
+  'employeeDetail.postTax': 'Efter skatt',
+  'employeeDetail.preTax': 'Före skatt',
   'employeeDetail.salary': 'Årslön',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Började {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Löneperiod',
   'employeeForm.salary': 'Årslön (USD)',
   'employeeForm.salaryInvalid': 'Lönen måste vara ett icke-negativt tal.',
+  'employeeForm.saveError': 'Kunde inte spara medarbetaren.',
   'employeeForm.semimonthly': 'Halvmånadsvis',
   'employeeForm.single': 'Ogift',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Anställd',
   'employeesTable.col.salary': 'Lön',
   'forgotPassword.subtitle': 'Ange din jobb-e-post så skickar vi en återställningslänk.',
+  'landing.copyright': '© {{year}} {{app}} . Precis, pålitlig, samlad.',
   'landing.ctaBody':
     'Gratis i 30 dagar. Inget kreditkort. Byt när som helst utan att förlora ditt revisionsspår.',
   'landing.ctaHeading': 'Kör din nästa cykel på Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Poster',
   'payRunDetail.noActivity': 'Inga revisionsposter för denna lönekörning än.',
   'payRunDetail.noStubs': 'Inga lönebesked än — godkänn och bearbeta för att generera dem.',
+  'payRunDetail.notFound': 'Denna lönekörning kunde inte hittas.',
   'payRunDetail.statDeductions': 'Avdrag',
   'payRunDetail.statHeadcount': 'Anställda',
   'payRunDetail.statTaxes': 'Innehållen skatt',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Halvmånadsvis',
   'settings.signOutDevice': 'Logga ut',
   'settings.subheading': 'Företagsprofil, löneschema och integrationer.',
+  'settings.twoFactorCode': 'Autentiseringskod',
   'settings.twoFactorDisable': 'Inaktivera',
+  'settings.twoFactorInvalidCode': 'Ogiltig kod',
+  'settings.twoFactorVerify': 'Kontrollera och aktivera',
   'settings.weekly': 'Veckovis',
   'taxCenter.bucket.federal': 'Federal inkomst',
   'taxCenter.bucket.fica': 'Social trygghet',

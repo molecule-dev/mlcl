@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.title': 'Despre {{app}}',
   'auth.login.noAccount': 'Ești nou pe Sparq?',
   'auth.login.or': 'sau continuați cu',
   'auth.signup.or': 'sau înscrie-te cu',
+  'common.confirm': 'Confirma',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.loadError': 'Ceva nu a mers bine la încărcarea acestui conținut.',
+  'common.retry': 'Reîncearcă',
   'discover.collections.title': 'Răsfoiți după categorie',
   'discover.collections.viewAll': 'Vezi biblioteca ta →',
   'discover.empty.body': 'Încearcă o altă categorie sau șterge căutarea.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Conectează-te pentru a-ți menține seria de succese, a găzdui meciuri live și a urca în clasament.',
   'myQuizzes.createButton': 'Test nou',
+  'myQuizzes.deleteConfirm': 'Ștergeți definitiv?',
   'myQuizzes.empty.createCta': 'Creează-ți primul test →',
   'myQuizzes.empty.created': 'Nu ai creat încă un test.',
   'myQuizzes.empty.played': 'Încă nu există chestionare publicate.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Se încarcă…',
   'notifications.subhead':
     '{{count}} Scântei necitite. Invitații, mutări în clasament și realizări, toate într-un singur flux.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.checkoutError': 'Nu s-a putut iniția casa de plată. Vă rugăm să încercați din nou.',
+  'pricing.heading': 'Alege planul {{app}}',
   'pricing.included': 'Inclus',
   'pricing.loadError': 'Nu s-au putut încărca planurile.',
   'pricing.maxQuizzes': '{{count}} chestionare',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Nimic publicat încă.',
   'profile.startBuilding': 'Începeți să construiți →',
   'profile.tier': 'Jucător Sparq',
+  'quizBuilder.addFailed': 'Nu s-a putut adăuga întrebarea. Încercați din nou.',
   'quizBuilder.addQuestion': 'Adăugați o întrebare',
   'quizBuilder.answerPlaceholder': 'Tastați o opțiune…',
   'quizBuilder.answersLabel': 'Opțiuni de răspuns',
   'quizBuilder.back': 'Înapoi la testele mele',
   'quizBuilder.delete': 'Ștergeți întrebarea',
+  'quizBuilder.deleteFailed': 'Nu s-a putut șterge întrebarea.',
   'quizBuilder.firstQuestion': 'Adăugați prima întrebare pentru început.',
   'quizBuilder.idLabel': 'ID-ul testului: {{id}}',
   'quizBuilder.loadError': 'Nu s-a putut încărca quiz-ul.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Adăugați cel puțin două variante de răspuns și alegeți varianta corectă pentru {{count}} întrebare(i) înainte de publicare.',
   'quizBuilder.questionsTitle': 'Întrebări',
+  'quizBuilder.saveFailed': 'Nu s-a putut salva titlul. Încercați din nou.',
   'quizBuilder.statusDraft': 'Ciornă',
   'quizBuilder.subhead':
     'Editați titlul, adăugați întrebări, setați opțiunile și răspunsul corect. Modificările se salvează automat.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Multiplayer gazdă',
   'quizDetail.leaderboardEmpty': 'Nicio acțiune încă — fii primul care stabilește un scor.',
+  'quizDetail.loadError': 'Nu s-a putut încărca acest test.',
   'quizDetail.loading': 'Se încarcă testul…',
   'quizDetail.plays': '{{count}} piese de teatru',
   'quizDetail.playSolo': 'Joacă solo',

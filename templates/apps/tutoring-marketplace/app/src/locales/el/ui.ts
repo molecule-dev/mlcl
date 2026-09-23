@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ο ρόλος σας',
   'account.role.upgradeLink': 'Κάντε αίτηση για να γίνετε πιστοποιημένος καθηγητής →',
   'account.title': 'Προφίλ, πληρωμή και προτιμήσεις.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Διδάξτε με κιμωλία',
   'becomeTutor.form.error': 'Δεν ήταν δυνατή η υποβολή της αίτησης.',
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Θέμα',
   'bookingConfirm.title': 'Έχετε κάνει κράτηση. Θα αναλάβουμε τα υπόλοιπα.',
   'bookingConfirm.with': 'Με καθηγητή',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'earningsHero.eyebrow': 'Κέρδη • {{month}}',
   'forgotPassword.heading': 'Ξεχάσατε τον κωδικό πρόσβασής σας;',
   'forgotPassword.subheading':
@@ -116,6 +118,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Αποστολή μηνύματος',
   'messages.thread.empty': 'Πείτε γεια — ξεκινήστε τη συζήτηση.',
   'messages.title': 'Θέματα με τους καθηγητές σας.',
+  'nav.primary': 'Κύριο',
   'pricing.dataExport': 'Εξαγωγή δεδομένων:',
   'pricing.headingDefault': 'Προηγμένες λειτουργίες:',
   'resetPassword.heading': 'Επιλέξτε έναν ισχυρό νέο κωδικό πρόσβασης.',

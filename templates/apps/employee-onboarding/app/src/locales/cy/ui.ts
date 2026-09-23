@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'auth.forgotPassword.emailPlaceholder': 'enw@eichcwmni.com',
   'auth.forgotPassword.heading': 'Ailosod eich cyfrinair.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': "Marcio tasg wedi'i chwblhau",
   'checklistTaskCard.markIncomplete': 'Marcio tasg yn anghyflawn',
   'checklistTaskCard.openLabel': 'Tasg agored',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Rydych chi i gyd wedi dal i fyny',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Ar y trywydd iawn',
   'dashboard.timelineHeading': 'Cerrig milltir 30/60/90',
   'dashboard.viewAllTasks': 'Gweld pob tasg',
+  'dashboard.weekOne': 'Wythnos 1',
   'dashboard.yourCohort': 'Eich tîm',
   'documents.empty.body': 'Bydd dogfennau a ychwanegwyd gan eich tîm yn ymddangos yma.',
   'documents.empty.title': 'Dim dogfennau eto',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Treial am ddim 14 diwrnod',
   'landing.subhead':
     'Mae Embark yn tywys pob cyd-aelod tîm newydd trwy eu 90 diwrnod cyntaf — gwaith papur, hyfforddiant, cerrig milltir, a chyflwyniadau ystyrlon, i gyd mewn un lle tawel a hyderus.',
+  'layout.openMenu': 'Agor y ddewislen lywio',
   'layout.search': 'Chwilio am dasgau, dogfennau, tîm…',
+  'layout.searchTeammates': 'Chwiliwch am dîm tîm yn ôl enw neu rôl…',
   'layout.section.onboarding': 'Ymsefydlu',
   'layout.tagline': 'Mae eich taith yn dechrau yma',
   'notifications.empty.body': 'Bydd gweithgaredd newydd yn ymddangos yma.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': "Rydych chi'n barod.",
   'planUpdated.preparing': 'Yn diweddaru eich cynllun…',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.documentsLabel': 'dogfennau',
   'pricing.onboardingsLabel': 'ymsefydliadau',
   'pricing.tasksLabel': 'tasgau',

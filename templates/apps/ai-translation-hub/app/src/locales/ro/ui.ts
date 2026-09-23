@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'billing.canceled': 'Abonament anulat. Veți reveni la Free la sfârșitul perioadei.',
   'billing.contactSales': 'Contactați vânzările',
   'billing.free.1': '5 traduceri',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Fără limită de retenție',
   'billing.upgradeHint': 'Actualizați pentru a debloca funcțiile AI avansate.',
   'billing.yearly': 'Anual',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.activityEmpty':
     'Nicio activitate încă — porniți un proiect pentru a popula acest flux.',
   'dashboard.eyebrow': 'Prezentare generală',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Reutilizați traducerile anterioare din toate proiectele. Scor de potrivire mai mare → mai puțin lucru repetat.',
   'memory.title': 'Bancă de memorie',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'nav.legal': 'Legal',
   'newProject.addLanguage': 'Adăugați țintă',
   'newProject.create': 'Creați proiectul',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} notificări marcate ca citite.',
   'notifications.subtitle':
     'Mențiuni, cereri de recenzie și evenimente AI din toate spațiile dvs. de lucru.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'privacy.collection.account': 'E-mailul și numele de afișare al contului dvs.',
   'privacy.deletion.body':
     'Puteți șterge un proiect, segment, termen de glosar sau intrare de memorie oricând din pagina relevantă. Ștergerea contului dvs. din Setări elimină fiecare rând legat de spațiul de lucru din baza noastră de date.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Încărcarea proiectelor a eșuat.',
   'projects.loading': 'Se încarcă proiectele…',
   'projects.subtitle': 'Fiecare proiect activ din toate limbile.',
+  'renditionLayout.primaryNavLabel': 'Navigare principală',
   'reset.backToLogin': '← Înapoi la autentificare',
   'reset.passwordLabel': 'Parolă nouă',
   'review.activeEyebrow': 'Segment {{number}}',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}}について',
+  'auth.legalConsent': '続行することで、以下に同意したことになります',
   'bookings.empty.body': 'フライト、ホテル、アクティビティを追加して受信箱を始めましょう。',
   'bookings.empty.heading': 'まだ予約はありません。',
   'bookings.errors.create': '予約を作成できませんでした。',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': '確認済み',
   'bookings.summary.pending': '確認待ち',
   'bookings.summary.total': '確定合計',
+  'bookings.type.car': 'レンタカー',
+  'bookings.type.flight': 'フライト',
+  'bookings.type.hotel': 'ホテル',
   'bookings.type.other': '他の',
   'budgetSpendCard.budgetTotal': '予定 {{total}} のうち',
   'budgetSpendCard.pct': '{{pct}}%',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     '重複を見つけ、旅程の合間の休息日を計画し、同行者がいつ一緒に旅するかを確認できます。',
   'common.and': 'および',
+  'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.budgetHeading': '予算の状況',
   'dashboard.empty.heading': 'まだ旅程はありません — アトラスは真っさらです。',
   'dashboard.eyebrow': '管制センター',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': '進行中の旅程',
   'dashboard.viewAllExpenses': 'すべての支出を見る',
   'dashboard.viewAllTrips': 'すべての旅程を見る',
+  'dayTimelineRow.category.accommodation': '滞在する',
   'dayTimelineRow.category.transport': '輸送',
   'destinationOrbCard.exploreCta': '旅程に追加',
   'destinationOrbCard.tripCount': '{{count}} 件の旅程',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'メールが届かない場合は、迷惑メールフォルダを確認するか、別のアドレスでお試しください。',
   'forgotPassword.successSubheading':
     '{{email}} に復元リンクを送信しました。リンクの有効期限は30分です。',
+  'landing.cta.heading': '{{tagline}}。',
   'landing.cta.signup': '無料アカウントを作成',
+  'landing.cta.subheading':
+    '無料プランでは、最大5回の旅行、5人の共同作業者、5か所の立ち寄り場所が利用可能で、リアルタイム同期機能も含まれています。プランが増えた場合は、Proプランにアップグレードすることで制限が解除されます。',
   'landing.destinations.eyebrow': '次はどこへ',
   'landing.destinations.heading': '編集部おすすめの目的地',
   'landing.features.eyebrow': 'Waypoint の使い方',
   'landing.features.heading': 'スプレッドシートではなく、旅人のために。',
+  'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': '無料で旅程を始める',
   'landing.hero.ctaSecondary': 'サンプル旅程を見る',
   'landing.hero.subtitle':
@@ -125,6 +137,8 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'アカウントを作成すると、最大5人の同行者と旅程を共有し、予約を同期し、すべての確認をひとつにまとめられます。',
+  'signup.termsPrefix':
+    'アカウントを作成することにより、お客様は当社の規約に同意するものとします。',
   'tripCountdownHeroCard.budget': '{{used}} のうち {{total}} ({{pct}}%)',
   'tripCountdownHeroCard.collaborators': '{{count}} 名の旅人',
   'tripCountdownHeroCard.countdownLabel': 'カウントダウン',
@@ -197,5 +211,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'まだ旅程はありません。',
   'trips.pastHeading': '過去の冒険',
   'trips.subheading': '{{count}} 件の旅程 — 過去・現在・これから。',
+  'waypointLayout.mobileNavClose': 'ナビゲーションメニューを閉じる',
   'waypointLayout.primaryNavLabel': 'メインナビゲーション',
 }

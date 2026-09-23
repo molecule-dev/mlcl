@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'alerts.acknowledgeLabel': 'ទទួលស្គាល់',
   'alerts.customerLabel': 'អតិថិជន៖ {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'កំពុងភ្ជាប់…',
   'carriers.requiredError': 'តម្រូវឲ្យមានឈ្មោះ និងលេខកូដ។',
   'carriers.subheading': '{{count}} រួមបញ្ចូលគ្នា',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'កំពុងធ្វើដំណើរ + បានសម្គាល់',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'ការដឹកជញ្ជូន',
   'pricing.trackingLabel': 'តាមដានព្រឹត្តិការណ៍',
   'profile.dangerZone.title': 'តំបន់គ្រោះថ្នាក់',
+  'profile.devices.signingOut': 'កំពុងចាកចេញ…',
+  'profile.devices.unnamed': 'ឧបករណ៍​ដែល​មិន​មាន​ឈ្មោះ',
+  'profile.security.disable2fa': 'បិទ 2FA',
   'profile.security.enable2fa': 'បើកដំណើរការ 2FA',
   'profile.security.pwChanged': 'បានផ្លាស់ប្តូរពាក្យសម្ងាត់ដោយជោគជ័យ។',
   'profile.security.pwCurrent': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA សកម្ម',
   'profile.security.twoFaCode': 'លេខកូដ ៦ខ្ទង់',
   'profile.security.twoFaDisable': 'បិទ',
+  'profile.security.twoFaDisabling': 'កំពុងបិទ...',
   'profile.security.twoFaFailed': 'មិនអាចផ្ទៀងផ្ទាត់លេខកូដបានទេ។',
   'profile.security.twoFaIntro':
     'ស្កេនលេខកូដ QR នៅក្នុងកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នក បន្ទាប់មកបញ្ចូលលេខកូដ 6 ខ្ទង់ខាងក្រោមដើម្បីផ្ទៀងផ្ទាត់។',
   'profile.security.twoFaOn': 'ការផ្ទៀងផ្ទាត់ពីរកត្តាត្រូវបានបើកនៅលើគណនីនេះ។',
+  'profile.security.twoFaQrAlt': 'កូដ QR ការផ្ទៀងផ្ទាត់ពីរកត្តា',
   'profile.security.twoFaVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'profile.security.twoFaVerifying': 'កំពុងផ្ទៀងផ្ទាត់…',
   'profile.subheading': 'ការកំណត់អត្តសញ្ញាណ និងសុវត្ថិភាពសម្រាប់កន្លែងធ្វើការនេះ។',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'រក្សាទុក​អាថ៌កំបាំង​នេះ — វានឹងមិនត្រូវបានបង្ហាញម្តងទៀតទេ។',
   'settings.api.webhookSecret': 'អាថ៌កំបាំងនៃការចុះហត្ថលេខាលើ Webhook',
   'settings.appearance.description': 'ប្តូររវាងរបៀបភ្លឺ និងងងឹត។',
+  'settings.deleteAccountConfirm': 'តើអ្នកប្រាកដទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។',
   'settings.notifications.exceptions': 'ផ្ញើអ៊ីមែលមកខ្ញុំនៅពេលដែលមានករណីលើកលែងនៃការដឹកជញ្ជូនកើតឡើង',
   'settings.notifications.heading': 'ការជូនដំណឹង',
   'settings.notifications.saveFailed': 'មិនអាចរក្សាទុកចំណូលចិត្តបានទេ។',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'រកមិនឃើញការដឹកជញ្ជូនទេ។',
   'shipmentDetail.originHeading': 'ប្រភពដើម',
   'shipmentDetail.shippedOn': 'បានដឹកជញ្ជូន {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'មិនទាន់មានព្រឹត្តិការណ៍តាមដាននៅឡើយទេ — ព័ត៌មានថ្មីៗនឹងលេចឡើងនៅទីនេះ នៅពេលដែលក្រុមហ៊ុនដឹកជញ្ជូនស្កេនកញ្ចប់។',
   'shipments.col.carrier': 'ក្រុមហ៊ុនដឹកជញ្ជូន',
   'shipments.col.eta': 'ពេលវេលាប៉ាន់ស្មាន',
   'shipments.col.route': 'ផ្លូវ',
@@ -174,6 +185,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'ចូល',
   'signup.submit': 'បង្កើតគណនី',
   'team.emailError': 'តម្រូវ​ឱ្យ​មាន​អាសយដ្ឋាន​អ៊ីមែល​ដែល​ត្រឹមត្រូវ។',
+  'team.empty': 'មិនទាន់មានសមាជិកក្រុមនៅឡើយទេ។ សូមអញ្ជើញមិត្តរួមក្រុមម្នាក់ឱ្យសហការលើការដឹកជញ្ជូន។',
   'team.eyebrow': 'សមាជិក និងការអនុញ្ញាត',
   'team.inviteDialog.cancel': 'បោះបង់',
   'team.inviteDialog.heading': 'អញ្ជើញមិត្តរួមក្រុមម្នាក់',
@@ -196,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'តាមដាន',
   'waypointLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'webhooks.createFailed': 'មិនអាចបង្កើតចំណុចបញ្ចប់ webhook បានទេ។',
+  'webhooks.endpointsEmpty':
+    'មិនទាន់មានចំណុចបញ្ចប់ webhook នៅឡើយទេ។ បង្កើតមួយដើម្បីទទួលបានការហៅត្រឡប់ស្ថានភាពដឹកជញ្ជូន។',
   'webhooks.endpointsHeading': 'ចំណុចបញ្ចប់',
   'webhooks.eventCount': '{{count}} ព្រឹត្តិការណ៍',
   'webhooks.eventsHeading': 'ការដឹកជញ្ជូនថ្មីៗ',

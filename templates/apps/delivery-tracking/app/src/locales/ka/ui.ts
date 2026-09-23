@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'alerts.acknowledgeLabel': 'დადასტურება',
   'alerts.customerLabel': 'მომხმარებელი: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'დაკავშირება…',
   'carriers.requiredError': 'სახელი და კოდი აუცილებელია.',
   'carriers.subheading': '{{count}} ინტეგრირებული',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
+  'common.retry': 'ხელახლა ცდა',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ტრანზიტში + დროშით მონიშნული',
   'dashboard.activeShipmentsSubtitle': '{{count}} ტვირთებს ყურადღება სჭირდებათ ან გადაადგილებაშია',
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'გადაზიდვები',
   'pricing.trackingLabel': 'მოვლენების თვალყურის დევნება',
   'profile.dangerZone.title': 'საფრთხის ზონა',
+  'profile.devices.signingOut': 'გამოდის…',
+  'profile.devices.unnamed': 'უსახელო მოწყობილობა',
+  'profile.security.disable2fa': '2FA-ს გამორთვა',
   'profile.security.enable2fa': '2FA-ს ჩართვა',
   'profile.security.pwChanged': 'პაროლი წარმატებით შეიცვალა.',
   'profile.security.pwCurrent': 'მიმდინარე პაროლი',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA აქტიურია',
   'profile.security.twoFaCode': '6-ნიშნა კოდი',
   'profile.security.twoFaDisable': 'გამორთვა',
+  'profile.security.twoFaDisabling': 'გამორთვა…',
   'profile.security.twoFaFailed': 'კოდის დადასტურება ვერ მოხერხდა.',
   'profile.security.twoFaIntro':
     'დაასკანირეთ QR კოდი თქვენს ავტორიზაციის აპლიკაციაში, შემდეგ კი შეიყვანეთ ქვემოთ მოცემული 6-ნიშნა კოდი დასადასტურებლად.',
   'profile.security.twoFaOn': 'ამ ანგარიშზე ორფაქტორიანი ავთენტიფიკაცია ჩართულია.',
+  'profile.security.twoFaQrAlt': 'ორფაქტორიანი QR კოდი',
   'profile.security.twoFaVerify': 'დადასტურება და ჩართვა',
   'profile.security.twoFaVerifying': 'დადასტურება…',
   'profile.subheading': 'ამ სამუშაო სივრცის იდენტობისა და უსაფრთხოების პარამეტრები.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'შეინახეთ ეს საიდუმლო — ის აღარ გამოჩნდება.',
   'settings.api.webhookSecret': 'Webhook-ის ხელმოწერის საიდუმლო',
   'settings.appearance.description': 'გადართვა ღია და ბნელ რეჟიმებს შორის.',
+  'settings.deleteAccountConfirm': 'დარწმუნებული ხართ? ამ მოქმედების გაუქმება შეუძლებელია.',
   'settings.notifications.exceptions':
     'მომწერეთ ელ. ფოსტით, როდესაც გადაზიდვის გამონაკლისი მოხდება, როდესაც ის გამოდგება.',
   'settings.notifications.heading': 'შეტყობინებები',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'ტვირთი ვერ მოიძებნა.',
   'shipmentDetail.originHeading': 'წარმოშობა',
   'shipmentDetail.shippedOn': 'გაიგზავნა {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'თვალთვალის მოვლენები ჯერ არ არის — განახლებები აქ ჩნდება, როდესაც გადამზიდავი ამანათს სკანირებას უკეთებს.',
   'shipmentDetail.weightLabel': '{{weight}} ფუნტი',
   'shipments.col.carrier': 'გადამზიდავი',
   'shipments.col.eta': 'სავარაუდო დრო',
@@ -175,6 +186,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'შესვლა',
   'signup.submit': 'ანგარიშის შექმნა',
   'team.emailError': 'საჭიროა მოქმედი ელექტრონული ფოსტის მისამართი.',
+  'team.empty':
+    'გუნდის წევრები ჯერ არ არიან. მოიწვიეთ თანაგუნდელი გადაზიდვებზე თანამშრომლობისთვის.',
   'team.eyebrow': 'წევრები და ნებართვები',
   'team.inviteDialog.cancel': 'გაუქმება',
   'team.inviteDialog.heading': 'მოიწვიე თანაგუნდელი',
@@ -197,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ტრეკი',
   'waypointLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'webhooks.createFailed': 'ვებჰუკის საბოლოო წერტილის შექმნა ვერ მოხერხდა.',
+  'webhooks.endpointsEmpty':
+    'ვებჰუკის საბოლოო წერტილები ჯერ არ არის. შექმენით ერთი, რათა მიიღოთ გადაზიდვის სტატუსის შესახებ უკუკავშირის შეტყობინებები.',
   'webhooks.endpointsHeading': 'საბოლოო წერტილები',
   'webhooks.eventCount': '{{count}} ღონისძიებები',
   'webhooks.eventsHeading': 'ბოლოდროინდელი მიწოდებები',

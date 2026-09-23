@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
+  'ascentSideNav.nav.notifications': 'Tilkynningar',
   'ascentSideNav.newObjective': 'Nýtt markmið',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Settu tindinn. Gefðu einkunn fyrir klifrið. Þjálfaðu liðið.',
   'authShell.eyebrow': 'OKR sem færa lið',
   'authShell.samplePeriod': '2. ársfjórðungur 2026 · sýnishorn af markmiði',
@@ -19,6 +22,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Vinnusvæði · Reikningur',
   'billing.heading': 'Áætlun og reikningar',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'Gagnaútflutningur + aðgangur að API',
+  'billing.perk.inApp': 'Skýrslugerð í forriti',
+  'billing.perk.standard': 'Staðlaðar umsagnir',
+  'billing.perk.unlimitedObjectives': 'Ótakmörkuð markmið',
+  'billing.perk.unlimitedRetention': 'Ótakmörkuð varðveisla',
   'billing.subheading':
     'Þú ert á {{name}} áætlun. Berðu saman þjónustustig og uppfærðu hér að neðan.',
   'billing.tier.unavailable': 'Ekki í boði',
@@ -41,11 +49,13 @@ export const ui: UiTranslations = {
     'Uppfærðu núverandi gildi fyrir hvert KR, merktu við traust, slepptu einni athugasemd og sendu inn.',
   'checkIn.submit': 'Senda inn innritun',
   'checkIn.submittedMessage': 'Innskráning vistuð. Framvinda og tímalína uppfærð.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': 'Nei',
   'common.relative.daysAgo': '{{count}} fyrir dögum',
   'common.relative.hoursAgo': '{{count}} hr ago',
   'common.relative.justNow': 'rétt í þessu',
   'common.relative.minutesAgo': '{{count}} min ago',
+  'common.retry': 'Reyna aftur',
   'common.yes': 'Já',
   'common.you': 'Þú',
   'dashboard.allActivity': 'Sjá alla virkni →',
@@ -89,6 +99,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Við sendum endurstillingarhlekk til {{email}} Það rennur út eftir klukkustund — gefðu pósthólfinu smá stund.',
   'forgotPassword.successHeading': 'Kíktu á pósthólfið þitt.',
+  'keyResult.metrics.boolean': 'Já / Nei',
+  'keyResult.metrics.currency': 'Gjaldmiðill $',
+  'keyResult.metrics.number': 'Fjöldi',
+  'keyResult.metrics.percent': '% prósenta',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Settu þér fyrsta markmið, bjóddu þremur liðsfélögum og haltu fyrstu vikulegu innskráninguna þína fyrir föstudag.',
@@ -101,6 +115,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle':
     'Þjálfara- og þjálfunarhæfar OKR-skýrslur, án þess að töflureiknin sé of útbreidd.',
   'landing.footerBuiltOn': 'Byggt á Molecule.dev',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Ascent gefur hverju liði mælanlega leið upp fjallið — settu þér markmið, skoraðu lykilniðurstöður vikulega og farðu yfir klifrið á hverjum ársfjórðungi.',
   'landing.heroProgressLabel': 'Áætlun fyrirtækisins á öðrum ársfjórðungi',
@@ -110,6 +125,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'eða halda áfram með',
   'login.subheading':
     'Haltu áfram þar sem frá var horfið — innskráningar, KR-ar og umsagnir bíða þín.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.mainNavigation': 'Aðalflakk',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'newObjective.addKr': 'Bæta við KR',
   'newObjective.coachLabel': 'Áminningar fyrir þjálfara',
   'newObjective.descriptionPlaceholder': 'Útskýrðu stefnumótandi samhengið í 2–3 setningum.',
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Afþreyingarmiðstöð',
   'notifications.markRead': '● Merkja sem lesið',
   'objective.scopes.company': 'Fyrirtæki',
+  'objective.scopes.individual': 'Einstaklingur',
   'objective.scopes.team': 'Lið',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Til baka að markmiðum',
@@ -156,11 +175,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Rekja spor {{count}} markmið. Síaðu eftir stöðu til að finna það sem þarfnast athygli.',
   'profile.achievementCheckInsMany': '{{count}} innskráningar skráðar',
+  'profile.achievementCheckInsOne': '1 innritun skráð',
+  'profile.achievementCompletedMany': 'Lokið {{count}} markmiðum',
+  'profile.achievementCompletedOne': 'Kláraði 1 markmið',
+  'profile.achievementOnTrackMany': '{{count}} markmið á réttri leið',
+  'profile.achievementOnTrackOne': '1 markmið á réttri leið',
   'profile.activeHeading': 'Virk markmið',
   'profile.allObjectives': 'Öll markmið →',
   'profile.empty': 'Engin virk markmið ennþá — búðu til þitt fyrsta til að byrja.',
   'profile.eyebrow': 'Klifurprófíll',
   'profile.guestName': 'Klifurmaður',
+  'profile.loadError': 'Ekki tókst að hlaða markmiðunum þínum.',
   'profile.loading': 'Hleður markmið…',
   'profile.noAchievements': 'Ljúktu innskráningu til að opna fyrsta afrekið þitt.',
   'profile.statCheckIns': 'Innritun',

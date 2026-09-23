@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Megoldás folyamatban…',
   'comments.subtitle':
     'A {{count}} Válaszra vagy megoldásra váró témák. Kor szerint rendezve – a legrégebbiek előre, így semmi sem romlik el.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'forgotPassword.sentTo': 'A link visszaállítása elküldve a címzettnek {{email}}',
   'forgotPassword.successSubheading':
     'Nézd meg a postaládádat – küldtünk egy visszaállító linket. 30 perc múlva lejár.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Új oldal',
   'pageTreeSidebar.workspaceHeader': 'Munkaterület',
   'pageView.breadcrumb': 'Útvonal',
+  'pageView.confirmTrash': 'Kidobod a kukába?',
   'pageView.home': 'Otthon',
   'pageView.lastEdited': 'Frissítve {{when}}',
   'pageView.loading': 'Oldal betöltése…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Összefoglalás…',
   'pageView.summaryUnavailable': 'Az AI-összefoglaló nincs konfigurálva ehhez a munkaterülethez.',
   'pageView.tocTitle': 'Ezen az oldalon',
+  'pageView.trash': 'Kuka',
+  'pageView.trashing': 'Szemétszállítás…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Jelvények',
   'profile.owned.title': 'Saját tulajdonú oldalak',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Munkaterület, profil, értesítések, integrációk – mindezt egyetlen nyugodt felületen.',
   'settingsPage.workspace.defaultLanding': 'Alapértelmezett kezdőképernyő',
   'settingsPage.workspace.landingHome': 'Otthon',
+  'settingsPage.workspace.landingSpaces': 'Terek',
   'settingsPage.workspace.subdomainLabel': 'Aldomain',
   'settingsPage.workspace.title': 'Munkaterület',
   'signup.eyebrow': 'Új munkaterület indítása',
@@ -130,6 +135,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} perc',
   'templates.subtitle':
     'Kezdj egy oldalt egy sablonnal, ne egy üres vászonnal. Minden sablon előre kódolja a formát, így a lényegre koncentrálhatsz.',
+  'trash.confirmPurge': 'Végleges megtisztulás?',
+  'trash.confirmPurgeAria': 'Megerősítés: {{title}} végleges törlése',
   'trash.daysUntilPurge': '{{days}} nap van hátra',
   'trash.empty.body':
     'A törölt oldalak 30 napig jelennek meg itt, mielőtt véglegesen törlésre kerülnek.',
@@ -151,5 +158,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} verziók · válasszon ki egy sort a különbségek vizsgálatához',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Navigáció bezárása',
+  'wikiLayout.menu': 'Navigáció',
+  'wikiLayout.openMenu': 'Navigáció megnyitása',
   'wikiLayout.searchPlaceholder': 'Keresés a Cairnben — oldalak, hozzászólások…',
 }

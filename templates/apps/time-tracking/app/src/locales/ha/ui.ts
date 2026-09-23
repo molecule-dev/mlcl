@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Game da {{app}}',
   'about.plansTitle': 'Shirye-shiryen da ke girma tare da ku',
   'brand.tagline': 'Kowace daƙiƙa',
   'clientDetail.back': 'Komawa ga abokan ciniki',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     "Kowace dangantaka a wuri guda — ayyuka, sa'o'i, da kuma takardun kuɗi da ba a biya ba.",
   'clients.title': 'Abokan ciniki',
   'common.and': 'kuma',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.activeProjects': 'Ayyukan da ke aiki',
   'dashboard.empty':
     "Babu shigarwar da aka shigar tukuna. Fara na'urar ƙidayar lokaci don bin diddigin zaman farko.",
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     "Babu sa'o'in da za a iya biyan kuɗi don biyan kuɗi ga wannan abokin ciniki. Bi diddigin wani lokaci da farko ko sanya shigarwar da ke akwai ga ɗaya daga cikin ayyukan wannan abokin ciniki.",
   'invoices.save': 'Ƙirƙiri takardar lissafin kuɗi',
   'invoices.subtitle': "Sa'o'in da aka bi diddigin suna komawa cikin takardar kuɗi ta atomatik.",
+  'landing.copyright': '© {{year}} {{app}} . Kowace daƙiƙa, an yi lissafinta.',
   'landing.ctaBody':
     'Kyauta ga har zuwa ayyuka 3. Haɓaka lokacin da jerin abokan cinikin ku ya yi.',
   'landing.eyebrow': 'Tsarin lokaci don aikin da za a iya kashe kuɗi',
@@ -101,13 +104,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Masu zaman kansu sun amince da su',
   'landing.testimonial.quote':
     '\\u201cNa ƙaura daga Toggl cikin mintuna 30. Konewar kasafin kuɗi kaɗai ta biya wa kanta \\u2014 Na daina yin watsi da ambaton makonni biyu a jere.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Kowace daƙiƙa, ta yi daidai.',
   'login.brand.subtitle':
     'Ɗauki agogon da ka tsaya - kowane minti da aka riga aka tsara shi zuwa ga aiki, abokin ciniki, daftari.',
   'login.brand.tracking': 'Bin-sawu',
   'login.subheading': 'Ɗauki agogon da ka tsaya.',
+  'nav.closeMenu': 'Rufe menu na kewayawa',
   'nav.insightsSection': 'Fahimta',
   'nav.newEntry': 'Sabuwar Shigarwa',
+  'nav.openMenu': 'Buɗe menu na kewayawa',
+  'nav.primary': 'Babban kewayawa',
   'nav.workSection': 'Aiki',
   'notFound.body':
     'Da alama hanyar haɗin da kuka bi ta daina bin diddigin abin da ke ciki. Komawa zuwa dashboard ɗinku za mu ci gaba da ƙidaya daga nan.',
@@ -208,6 +215,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Ana iya biyan kuɗi',
   'timer.descriptionPlaceholder': 'Me kake aiki a kai?',
   'timer.idle': 'Rashin aiki — fara bin diddigi',
+  'timer.noProject': 'Babu aiki',
   'timer.runningWithProject': 'Babu aiki',
   'timer.start': 'Fara ƙidayar lokaci',
   'timer.stop': 'Mai ƙidayar lokaci na dakatarwa',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'alerts.acknowledgeLabel': 'පිළිගන්න',
   'alerts.customerLabel': 'පාරිභෝගික: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'සම්බන්ධ වෙමින්...',
   'carriers.requiredError': 'නම සහ කේතය අවශ්‍ය වේ.',
   'carriers.subheading': '{{count}} ඒකාබද්ධ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ගමනාගමනයේ + සලකුණු කර ඇත',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'නැව්ගත කිරීම්',
   'pricing.trackingLabel': 'සිදුවීම් නිරීක්ෂණය කිරීම',
   'profile.dangerZone.title': 'අවදානම් කලාපය',
+  'profile.devices.signingOut': 'ඉවත් වෙමින්…',
+  'profile.devices.unnamed': 'නම් නොකළ උපාංගය',
+  'profile.security.disable2fa': '2FA අක්‍රීය කරන්න',
   'profile.security.enable2fa': '2FA සක්‍රීය කරන්න',
   'profile.security.pwChanged': 'මුරපදය සාර්ථකව වෙනස් කරන ලදී.',
   'profile.security.pwCurrent': 'වත්මන් මුර පදය',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA ක්‍රියාකාරීයි',
   'profile.security.twoFaCode': 'ඉලක්කම්-6 කේතය',
   'profile.security.twoFaDisable': 'අබල කරන්න',
+  'profile.security.twoFaDisabling': 'අබල කරමින්...',
   'profile.security.twoFaFailed': 'කේතය සත්‍යාපනය කිරීමට නොහැකි විය.',
   'profile.security.twoFaIntro':
     'ඔබගේ සත්‍යාපක යෙදුමේ QR කේතය ස්කෑන් කරන්න, ඉන්පසු සත්‍යාපනය කිරීමට පහත ඉලක්කම් 6 කින් යුත් කේතය ඇතුළත් කරන්න.',
   'profile.security.twoFaOn': 'මෙම ගිණුමේ ද්වි-සාධක සත්‍යාපනය සක්‍රීය කර ඇත.',
+  'profile.security.twoFaQrAlt': 'ද්වි-සාධක QR කේතය',
   'profile.security.twoFaVerify': 'සත්‍යාපනය කර සක්‍රීය කරන්න',
   'profile.security.twoFaVerifying': 'සත්‍යාපනය කරමින්...',
   'profile.subheading': 'මෙම වැඩබිම සඳහා අනන්‍යතාවය සහ ආරක්ෂක සැකසුම්.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'මෙම රහස සුරකින්න — එය නැවත නොපෙන්වයි.',
   'settings.api.webhookSecret': 'වෙබ්හුක් අත්සන් කිරීමේ රහස',
   'settings.appearance.description': 'ආලෝකය සහ අඳුරු මාදිලිය අතර මාරු වන්න.',
+  'settings.deleteAccountConfirm': 'ඔබට විශ්වාසද? මෙම ක්‍රියාව අහෝසි කළ නොහැක.',
   'settings.notifications.exceptions':
     'නැව්ගත කිරීමේ ව්‍යතිරේකයක් ඇති වූ විට මට විද්‍යුත් තැපැල් කරන්න.',
   'settings.notifications.heading': 'දැනුම්දීම්',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'නැව්ගත කිරීම හමු නොවීය.',
   'shipmentDetail.originHeading': 'සම්භවය',
   'shipmentDetail.shippedOn': 'නැව්ගත කරන ලදී {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'තවම සිදුවීම් නිරීක්ෂණය කර නැත — වාහකයා පාර්සලය පරිලෝකනය කරන විට යාවත්කාලීන කිරීම් මෙහි දිස්වේ.',
   'shipmentDetail.weightLabel': '{{weight}} රාත්තල්',
   'shipments.col.carrier': 'වාහකයා',
   'shipments.col.eta': 'ETA',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'පුරන්න',
   'signup.submit': 'ගිණුම තනන්න',
   'team.emailError': 'වලංගු විද්‍යුත් තැපැල් ලිපිනයක් අවශ්‍යයි.',
+  'team.empty':
+    'තවමත් කණ්ඩායම් සාමාජිකයන් නැත. නැව්ගත කිරීම් සඳහා සහයෝගයෙන් කටයුතු කිරීමට කණ්ඩායම් සගයෙකුට ආරාධනා කරන්න.',
   'team.eyebrow': 'සාමාජිකයින් සහ අවසර',
   'team.inviteDialog.cancel': 'අවලංගු කරන්න',
   'team.inviteDialog.heading': 'කණ්ඩායම් සගයෙකුට ආරාධනා කරන්න',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ධාවන පථය',
   'waypointLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'webhooks.createFailed': 'වෙබ් හුක් අන්ත ලක්ෂ්‍යය නිර්මාණය කිරීමට නොහැකි විය.',
+  'webhooks.endpointsEmpty':
+    'තවමත් වෙබ් හුක් අන්ත ලක්ෂ්‍ය නොමැත. නැව්ගත කිරීමේ තත්ත්ව ආපසු ඇමතුම් ලබා ගැනීමට එකක් සාදන්න.',
   'webhooks.endpointsHeading': 'අන්ත ලක්ෂ්‍ය',
   'webhooks.eventCount': '{{count}} සිදුවීම්',
   'webhooks.eventsHeading': 'මෑත කාලීන බෙදාහැරීම්',

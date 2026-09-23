@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'about.tagline': 'Os segredos morren ao descuberto.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Crear token',
   'apiTokens.kicker': 'Tokens da API',
   'apiTokens.loading': 'Cargando tokens…',
+  'apiTokens.new': 'Novo token',
   'apiTokens.revoke': 'Revogar token',
   'apiTokens.subheading':
     'Tokens persoais e de servizo para a CLI e o SDK de Arcanum. Texto sen formato móstrase unha vez na creación.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Contrasinal',
   'authShell.zeroKnowledge': 'Cifrado de coñecemento cero',
   'common.connecting': 'Conectando…',
+  'common.goToDashboard': 'Ir ao panel',
   'common.inviting': 'Convidando…',
   'forgotPassword.checkInbox':
     'Se {email} está rexistrado, chegará unha ligazón de restablecemento asinada nun minuto.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Estado da rotación, alertas de anomalías e solicitudes de aprobación en cada bóveda.',
   'notifications.unreadEmpty': 'Caixa de entrada cero: todo posto ao día.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.heading': 'segredos',
   'pricing.limits.accessPolicies': 'políticas de acceso',
   'pricing.limits.auditLog': 'entradas do rexistro de auditoría',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Conta persoal',
   'profile.plan.description': 'Xestiona a túa subscrición, consulta os límites e actualiza.',
   'profile.subheading': 'Identidade, dispositivos de segundo factor e sesións activas.',
+  'profile.twoFactor.code': 'Código de autenticación',
   'profile.twoFactor.disable': 'Desactivar',
   'profile.twoFactor.enable': 'Activar',
+  'profile.twoFactor.invalidCode': 'Código non válido',
   'profile.twoFactor.kicker': 'Autenticación de dous factores',
+  'profile.twoFactor.off': 'Non activado',
   'profile.twoFactor.on': 'Activado',
   'resetPassword.email': 'Correo electrónico da conta',
   'resetPassword.heading': 'Definir novas credenciais',
@@ -130,6 +137,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'comandos',
   'secretsManagerLayout.encrypted': 'AES-256 · CIFRADO',
   'secretsManagerLayout.newVault': 'Nova bóveda',
+  'secretsManagerLayout.newVaultShort': 'Novo',
   'secretsManagerLayout.rotations': 'Rotacións',
   'secretsManagerLayout.search': 'busca',
   'secretsManagerLayout.searchPlaceholder': 'Buscar segredos por clave, ruta ou etiqueta…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Segredos',
   'vaultCard.vaultLabel': 'Bóveda',
   'vaultDetail.addSecret': 'Engadir segredo',
+  'vaultDetail.back': 'Todas as bóvedas',
   'vaultDetail.col.key': 'Clave',
   'vaultDetail.col.rotated': 'Rotado',
   'vaultDetail.col.value': 'Valor',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'auth.fields.newPassword': 'Nenosiri jipya',
   'collectionDetail.addImage': 'Conjure kwa ajili ya ukusanyaji',
   'collectionDetail.backCta': 'Rudi kwenye mikusanyiko',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Vibao vya hisia, muhtasari na mfululizo unaoendelea',
   'collections.title': 'Mikusanyiko',
   'collections.untitled': 'Isiyo na Jina · {{stamp}}',
+  'common.closeMenu': 'Funga menyu',
+  'common.dismiss': 'Ondoa',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.openMenu': 'Fungua menyu ya kusogeza',
   'credits.eyebrow': '{{plan}} mpango',
   'credits.renewsCopy': 'Mpango unasasishwa tarehe {{date}}',
   'credits.trail': 'Reverie · {{plan}} daraja',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Arifa za shughuli za uzalishaji, kushiriki na mikopo zitaonekana hapa.',
   'notifications.empty.title': 'Hakuna cha kuripoti',
   'notifications.subtitle': 'Matukio ya kizazi yamepangwa kwa siku',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.limits.gallery': '{{count}} ghala',
   'privacy.collect.body':
     'Unapojisajili tunakusanya jina lako, anwani ya barua pepe, na nenosiri lililoharakishwa. Unapotumia Reverie tunahifadhi vidokezo unavyowasilisha, picha tunazozalisha kwa ajili yako, mitindo na mikusanyiko unayohifadhi, na metadata kama vile modeli iliyotumika, mihuri ya muda ya uzalishaji, na salio la mkopo.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Hifadhi nenosiri jipya',
   'reset.submitting': 'Inasasisha nenosiri…',
   'settings.account.handle': 'Kipini',
+  'settings.account.lastSaved': 'Wasifu unaotumika · {{name}}',
   'settings.account.saved': 'Wasifu umehifadhiwa',
   'settings.account.saveFailed': 'Haikuweza kuhifadhi wasifu',
   'settings.account.title': 'Wasifu wa muundaji',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Picha mpya',
   'sidebar.secondary': 'Usogezaji wa pili',
   'signup.failed': 'Usajili umeshindwa. Jaribu tena.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Anza marejeo yako',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Fungua akaunti na udai salio 120 bila malipo.',
   'styles.empty':
     'Hakuna mipangilio ya mtindo iliyopangwa tayari — itaonekana baada ya kuingia kwa mara ya kwanza.',

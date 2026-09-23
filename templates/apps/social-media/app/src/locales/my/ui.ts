@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.pageTitle': '{{app}} အကြောင်း',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'compose.cancel': 'ပယ်ဖျက်ရန်',
   'compose.captionPlaceholder': 'သင်ဘာတွေစဥ်းစားနေလဲ?',
   'compose.heading': 'ခဏတာ မျှဝေပါ',
@@ -99,6 +103,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'အတည်ပြုထားသော အကောင့်',
   'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.subheading': 'အနည်းဆုံး စာလုံး ၁၂ လုံးပါ — ခိုင်မာတဲ့ တစ်ခုခုကို ရွေးချယ်ပါ။',
+  'search.clearAria': 'ရှင်းလင်းပါ',
+  'search.error': 'ရှာဖွေမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။',
   'search.noPeople': 'ကိုက်ညီသော ဖန်တီးသူ မရှိပါ။ {{q}} " .',
   'search.noPosts': '" ကိုက်ညီသော ပို့စ်များ မရှိပါ။ {{q}} " .',
   'search.noTags': 'ခေတ်စားနေတဲ့ hashtag တွေ မရှိသေးပါဘူး။',
@@ -129,6 +135,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'signup.showPassword': 'စကားဝှက်ပြပါ',
   'signup.subheading': 'မျှဝေမှုစတင်ရန် အကောင့်တစ်ခု ဖန်တီးပါ။',
+  'socialMediaLayout.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'socialMediaLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'socialMediaLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'storyRail.heading': 'ဇာတ်လမ်းများ',
   'storyRail.label': 'ဇာတ်လမ်းများ',
   'storyRail.openAria': 'ဖွင့်ပါ {{handle}} ရဲ့ ဇာတ်လမ်း',

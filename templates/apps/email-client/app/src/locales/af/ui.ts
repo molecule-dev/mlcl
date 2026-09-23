@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Ons is 'n verspreide span ontwerpers en ingenieurs wat eens te veel ure van elke dag in 'n raserige posbus deurgebring het. Courier is die posbus wat ons self wou gebruik.",
   'about.title': 'E-pos vir gefokusde werk',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'help.cta.about': 'Oor Meridiaan',
   'help.cta.pricing': 'Bekyk pryse',
   'help.eyebrow': 'Hulpsentrum',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Vinnige antwoorde op die vrae wat ons die meeste hoor. Enigiets ontbreek? Maak Instellings oop en gebruik die terugvoervorm in die toepassing, of skryf aan support@courier.example.',
   'help.title': 'Hoe kan ons help?',
   'landing.brand.scrollTop': 'Terug na bo',
+  'landing.copyright': '© {{year}} {{appName}} — Gebou vir fokus.',
   'landing.ctaBody':
     'Sluit aan by duisende professionele persone wat hul inboks voor middagete klaargemaak het.',
   'landing.ctaTitle': 'Verwerk meer, reageer minder.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Kyk demonstrasie',
   'landing.heroSubtitle':
     "Courier is 'n kalm driepaneel-inboks wat gebou is vir kenniswerkers wat inligting wil verwerk, nie daarop wil reageer nie.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Vertrou deur gefokusde spanne wêreldwyd',
   'landing.signIn': 'Teken aan',
   'meridian.archive.empty': 'Argief is leeg.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Konsep',
   'meridian.folder.count': '{{count}} boodskappe',
+  'meridian.folder.delete': 'Vee uit',
   'meridian.folder.deleteForever': 'Vee permanent uit',
   'meridian.folder.restore': 'Skuif na inboks',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Geen boodskappe hier nog nie.',
   'meridian.inbox.loading': 'Laai tans…',
   'meridian.inbox.next': 'Volgende',
+  'meridian.inbox.noSender': '(geen sender nie)',
   'meridian.inbox.noSubject': '(geen onderwerp nie)',
+  'meridian.inbox.ofTotal': '{{current}} van {{total}}',
   'meridian.inbox.openCompose': 'Maak skryf oop',
   'meridian.inbox.previous': 'Vorige',
   'meridian.inbox.replyFailed': 'Antwoord gestoor, maar aflewering het misluk: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': "Het jy nie 'n rekening nie?",
   'meridian.login.showPassword': 'Wys wagwoord',
   'meridian.message.toLine': 'om {{recipients}}',
+  'meridian.notFound.body':
+    'Die bladsy waarna jy soek, kon nie gevind word nie. Gaan terug na jou {{appName}} inkassie en ons sal jou op koers kry.',
   'meridian.notFound.eyebrow': 'Fout 404',
   'meridian.notFound.title': 'Hierdie draad is geargiveer.',
   'meridian.notFound.toInbox': 'Maak my inboks oop',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Voeg ster by',
   'meridian.thread.unstar': 'Verwyder ster',
   'meridian.time.yesterday': 'Gister',
+  'meridian.topBar.openMenu': 'Maak navigasiekieslys oop',
   'meridian.topBar.searchPlaceholder': 'Soek e-pos',
   'meridian.trash.empty': 'Asblik is leeg.',
   'meridian.trash.title': 'Asblik',
   'nav.legal': 'Regs',
   'planUpdated.description':
     'Jou intekening is nou aktief en jou fakturering is opgedateer. Welkom by jou verfrisde Courier-inboks.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.heading': 'konsepte',
   'pricing.limit.emails': 'e-posse',
   'pricing.limit.folders': 'lêers',
   'pricing.limit.labels': 'etikette',
   'privacy.collect.account':
     'Rekeningdata: naam, e-posadres, gehashte wagwoord en die datum waarop jy aangemeld het.',
+  'privacy.contact': "Vrae? Stuur 'n e-pos na privacy@courier.example.",
   'privacy.intro':
     'Hierdie privaatheidsbeleid verduidelik watter data Courier insamel, waarom ons dit insamel, hoe ons dit veilig hou, en watter keuses u daaroor het. Ons streef daarna om spesifiek te wees in plaas van wetties; indien enigiets onduidelik is, skryf aan privacy@courier.example.',
   'privacy.lastUpdated': 'Laas opgedateer: 1 April 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Hierdie bepalings beheer jou gebruik van Courier. Deur 'n rekening te skep of 'n e-pos deur ons te stuur, stem jy in om daaraan gebonde te wees. Ons probeer reëls skryf wat 'n persoon eintlik kan volg.",
   'terms.lastUpdated': 'Effektief: 1 April 2026',
+  'terms.linkPrivacy': 'Lees ons Privaatheidsbeleid →',
   'terms.termination.body':
     "Jy kan jou rekening te eniger tyd verwyder. Ons kan 'n rekening opskort wat hierdie bepalings oortree; indien wel, sal ons die rede verduidelik en jou eers toelaat om jou data uit te voer.",
   'terms.warranty.body':

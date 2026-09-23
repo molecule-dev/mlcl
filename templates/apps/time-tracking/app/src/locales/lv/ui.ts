@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Par {{app}}',
   'about.plansTitle': 'Plāni, kas aug kopā ar jums',
   'brand.tagline': 'Katru sekundi',
   'clientDetail.back': 'Atpakaļ pie klientiem',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Visas attiecības vienuviet — projekti, stundas, neapmaksāti rēķini.',
   'clients.title': 'Klienti',
   'common.and': 'un',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.activeProjects': 'Aktīvie projekti',
   'dashboard.empty': 'Vēl nav ierakstu. Ieslēdziet taimeri, lai izsekotu savu pirmo sesiju.',
   'dashboard.greeting': 'Labdien, {{name}}',
@@ -82,6 +84,7 @@ export const ui: UiTranslations = {
     'Šim klientam nav apmaksājamu stundu, ko izrakstīt rēķinā. Vispirms izsekojiet kādu laiku vai piešķiriet esošos ierakstus kādam no šī klienta projektiem.',
   'invoices.save': 'Izveidot rēķinu',
   'invoices.subtitle': 'Izsekotās stundas automātiski tiek iekļautas rēķinos.',
+  'landing.copyright': '© {{year}} {{app}} . Katra sekunde ir uzskaitīta.',
   'landing.ctaBody':
     'Bez maksas līdz 3 projektiem. Jauniniet uz augstāku līmeni, kad tas notiek jūsu klientu sarakstā.',
   'landing.eyebrow': 'Laika uzskaite apmaksājamam darbam',
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Neatkarīgo uzticēšanās',
   'landing.testimonial.quote':
     'Es pārvietojos no Toggl 30 minūtēs. Jau pats budžeta izšķērdējums ir atmaksājies. Esmu pārtraucis norādīt nepietiekamas cenas divas nedēļas pēc kārtas.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Hrono. Katra sekunde, uzskaitīta.',
   'login.brand.subtitle':
     'Atsāciet taimera darbību no vietas, kur pārtraucāt — katra minūte jau ir piesaistīta projektam, klientam, rēķinam.',
   'login.brand.tracking': 'Izsekošana',
   'login.subheading': 'Atsāciet taimera darbību no vietas, kur pārtraucāt.',
+  'nav.closeMenu': 'Aizvērt navigācijas izvēlni',
   'nav.insightsSection': 'Ieskats',
   'nav.newEntry': 'Jauns ieraksts',
+  'nav.openMenu': 'Atvērt navigācijas izvēlni',
+  'nav.primary': 'Galvenā navigācija',
   'nav.workSection': 'Darbs',
   'notFound.body':
     'Izskatās, ka saite, kurai sekojāt, vairs netiek izsekota. Atgriezieties savā informācijas panelī — mēs turpināsim skaitīt no turienes.',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Apmaksājams',
   'timer.descriptionPlaceholder': 'Pie kā jūs strādājat?',
   'timer.idle': 'Dīkstāve — sākt izsekošanu',
+  'timer.noProject': 'Nav projekta',
   'timer.runningWithProject': 'Nav projekta',
   'timer.start': 'Ieslēgt taimeri',
   'timer.stop': 'Apturēt taimeri',

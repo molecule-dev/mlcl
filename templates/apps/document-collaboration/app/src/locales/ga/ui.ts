@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.title': 'Faoi {{app}}',
   'comments.addFailed': 'Níorbh fhéidir trácht a phostáil.',
   'comments.backToDoc': 'Ar ais chuig an lámhscríbhinn',
   'comments.deleteFailed': 'Níorbh fhéidir a scriosadh.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Réitigh',
   'comments.resolveFailed': 'Níorbh fhéidir an fhadhb a réiteach.',
   'comments.subtitle': '{{open}} oscailte · {{resolved}} réitithe',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.activityHeading': 'Cad atá ag tarlú',
   'dashboard.createFailed': 'Níorbh fhéidir doiciméad a chruthú.',
   'dashboard.empty': 'Gan aon lámhscríbhinní fós — tosaigh leis an gcnaipe Doiciméad nua.',
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Níorbh fhéidir é a bhogadh chuig an mbruscar.',
   'editor.unpublish': 'Dífhoilsiú',
   'editor.untitled': 'Doiciméad Gan Teideal',
+  'editor.updatedElsewhere':
+    'Nuashonraíodh an doiciméad seo ag duine eile — athlódáil chun an ceann is déanaí a fheiceáil.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'scríbhneoir@stiúideo.com',
   'forgotPassword.sentBody':
     'Má tá cuntas ann do {{email}} , tá nasc athshocraithe ar an mbealach.',
   'forgotPassword.subtitle': 'Seolfaimid nasc athshocraithe chugat i ríomhphost.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Tógtha le Molecule.',
   'landing.ctaHeading': 'Oscail an leathanach. Lig don chúrsóir tosú.',
   'landing.ctaPrimary': 'Oscail stiúideo',
   'landing.eyebrow': 'Do scríbhneoirí, eagarthóirí agus foirne',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'eagarthóireacht déanta {{when}}',
   'quillonDocumentCard.open': 'Oscail →',
   'quillonKpiCard.trend': 'Treocht le déanaí',
+  'quillonLayout.menu': 'Roghchlár',
   'quillonLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'quillonStudioHero.collab': 'Comhoibritheoirí',
   'quillonStudioHero.docs': 'Doiciméid a ndearnadh teagmháil leo',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'díreach anois',
+  'trash.confirmDelete': 'Deimhnigh scriosadh',
   'trash.deleteFailed': 'Níorbh fhéidir a scriosadh.',
   'trash.deleteForever': 'Scrios go deo',
   'trash.empty': 'Ní raibh aon rud le téarnamh.',
+  'trash.emptyAll': 'Folmhaigh an bruscar',
   'trash.eyebrow': 'Stiúideo',
   'trash.heading': 'Bruscar',
   'trash.loadFailed': 'Níorbh fhéidir an bruscar a luchtú.',

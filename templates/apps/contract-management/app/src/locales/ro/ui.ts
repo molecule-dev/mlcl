@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
   'authBrandPanel.quote':
     '„Vellum este acum sistemul de înregistrare pentru fiecare acord semnat pe care îl deținem.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'contractDetail.amount': 'Valoare',
   'contractDetail.back': 'Toate contractele',
   'contractDetail.downloadCta': 'Descărcați PDF',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Dacă există un cont pentru adresa {{email}}, îți vom trimite în curând un link de resetare.',
   'forgotPassword.subtitle': 'Îți vom trimite un link de resetare la adresa de e-mail de serviciu.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Realizat cu Molecule.',
   'landing.ctaHeading': 'Vezi cum portofoliul tău se închide în prima zi.',
   'landing.ctaPrimary': 'Începeți un spațiu de lucru',
   'landing.eyebrow': 'Pentru Operațiuni Juridice și Achiziții',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Numele contrapartidei este obligatoriu.',
   'newContract.errEmail': 'Este obligatorie adresa de e-mail a semnatarului.',
   'newContract.expires': 'Data expirării',
+  'newContract.failed': 'Nu s-a putut crea contractul.',
   'newContract.heading': 'Contract nou',
   'newContract.nextCta': 'Următorul',
   'newContract.review.counterparty': 'Contraparte',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Titlul contractului',
   'newContract.titlePlaceholder': 'Acordul Cadru de Servicii',
   'newContract.variablesHeading': 'Variabile contractuale',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.dataExport': 'Export date',
   'pricing.disabled': 'Nu',
   'pricing.enabled': 'Da',
@@ -146,15 +152,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Nu s-a putut șterge contul.',
   'settings.security.deleting': 'Se șterge…',
   'settings.security.newPassword': 'Parolă nouă',
+  'settings.security.noDevices': 'Nu există dispozitive înregistrate.',
   'settings.security.twoFactor': 'Autentificare cu doi factori',
   'settings.security.twoFactorDisable': 'Dezactivați',
   'settings.security.twoFactorEnable': 'Activați',
+  'settings.security.twoFactorInvalidCode': 'Cod invalid.',
   'settings.signatures.body':
     'Numele tău tastat apare pe linia de semnătură a fiecărui contract pe care îl semnezi. Setează-l o dată și se va afișa automat de acum înainte.',
   'settings.signatures.heading': 'Bloc de semnătură',
   'settings.signatures.save': 'Salvați semnătura',
+  'sign.action': 'Semnează acest document',
+  'sign.eyebrow': 'Se solicită semnătura',
+  'sign.for': 'Pentru „{{name}}”',
+  'sign.loadError': 'Acest link de semnare nu este valabil sau a expirat.',
   'sign.loading': 'Se încarcă…',
   'sign.signing': 'Semnare…',
+  'sign.submitError':
+    'Nu s-a putut înregistra semnătura dumneavoastră — este posibil ca linkul să fi expirat.',
   'signup.brandQuote':
     'Am migrat 8 ani de hârtie în Vellum într-o săptămână. Numai pista de audit justifică schimbarea.',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -189,6 +203,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Contract deschis →',
   'vellumKpiCard.trend': 'Tendința actuală',
+  'vellumLayout.closeMenu': 'Închide meniul de navigare',
+  'vellumLayout.openMenu': 'Deschide meniul de navigare',
   'vellumLayout.primaryNavLabel': 'Navigare principală',
   'vellumPortfolioHero.expiring': 'Expiră în 30 de zile',
   'vellumPortfolioHero.label': 'Valoarea portofoliului',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} පිළිබඳව',
+  'appNav.mobileLabel': 'ප්‍රාථමික සංචාලනය',
+  'appNav.primaryLabel': 'ප්‍රාථමික සංචාලනය',
   'billing.actions.confirmCancel': 'ඔබේ දායකත්වය අවලංගු කරන්නද? ඔබට ඕනෑම වේලාවක නැවත දායක විය හැක.',
   'billing.actions.paused': 'දායකත්වය විරාම කරන ලදී.',
   'billing.actions.resumed': 'දායකත්වය නැවත ආරම්භ කරන ලදී.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'සෑම ස්ථරයක්ම කුඩා කණ්ඩායම් කතාවකි. ඔබේ පෝලිමට එකක් එක් කරන්න හෝ එය ඔබේ ඊළඟ මාසයට මාරු කරන්න.',
   'boxThemeCard.perMonth': '/ මස',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'customize.eyebrow': 'එය ඔබේ කරගන්න.',
   'customize.heading': 'ඔබේ ඊළඟ ට්‍රෝව් එක අභිරුචිකරණය කරන්න',
   'customize.items.exclude': 'මෙය මඟ හරින්න',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'මෙම කන්නයේ',
   'landing.editions.heading': 'අපගේ භාරකරුවන් ප්‍රිය කරන සංස්කරණ',
   'landing.footer.contact': 'භාරකරුවෙකු සමඟ කතා කරන්න',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ඔබේ පෙට්ටිය ආරම්භ කරන්න →',
   'landing.hero.ctaSecondary': 'ස්ථර බලන්න',
   'landing.hero.eyebrow': 'මාසිකව තෝරා ගනු ලැබේ. සැමවිටම පුද්ගලිකයි.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ඔබේ ඊළඟ ගමන',
   'nextBoxHeroCard.itemsLabel': 'තෝරාගත් අයිතම',
   'nextBoxHeroCard.shipsOnLabel': 'නැව්ගත කරනු ලබන්නේ',
+  'notFound.body':
+    'අපට එම පිටුව {{app}} ලේඛනාගාරයේ සොයාගත නොහැකි විය. එය ඉවත් කර හෝ වැරදි ලෙස ටයිප් කර තිබිය හැකිය.',
   'notFound.cta.dashboard': 'උපකරණ පුවරුවට යන්න',
   'notFound.eyebrow': 'හිස් පෙට්ටිය',
   'notFound.heading': 'මේ රාක්කය හිස්.',

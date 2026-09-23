@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.pageTitle': 'Despre {{appName}}',
   'analytics.error': 'Nu s-au putut încărca analizele.',
   'analytics.heading': 'Analiza recuperării',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nu au fost configurate niveluri de preț.',
   'billing.plans.heading': 'Planuri',
   'billing.subheading': 'Planificare, utilizare și finalizare a comenzii gestionate prin Stripe.',
+  'common.confirm': 'Confirma',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.retry': 'Reîncearcă',
   'documentCard.open': 'Deschis \\u2192',
   'documentDetail.back': 'Înapoi la documente',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Index document',
   'documents.composer.titlePlaceholder': 'Titlul documentului',
   'documents.emptyAll': 'Încă nu există documente. Încarcă unul pentru a începe să pui întrebări.',
+  'documents.error.load': 'Nu s-au putut încărca documentele.',
   'documents.heading': 'Documente indexate',
   'documents.loading': 'Se încarcă documentele…',
   'documents.metric.chunks': 'Total bucăți',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Se elimină\\u2026',
   'members.subheading': 'Invită-i pe colegii de echipă și stabilește rolurile.',
   'members.tableHeading': 'Listă de membri',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'notFound.askCta': 'Întreabă baza de cunoștințe',
+  'notFound.body':
+    '{{app}} nu a putut localiza pagina respectivă. Este posibil ca linkul să fie nefuncțional sau pagina să fi fost retrasă în timpul unei reindexări.',
   'notFound.eyebrow': 'Nu se poate recupera',
   'notFound.title': 'Nu există un astfel de fragment în index',
   'notifications.dismiss': 'Închide',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL-ul sursă',
   'sources.empty.body': 'Faceți clic pe „Adăugați sursă” pentru a conecta primul conector.',
   'sources.empty.title': 'Încă nu există surse.',
+  'sources.error.add': 'Nu s-a putut adăuga sursa.',
   'sources.error.labelRequired': 'Eticheta este obligatorie.',
   'sources.error.load': 'Nu s-au putut încărca sursele.',
   'sources.error.urlRequired': 'URL-ul este obligatoriu pentru acest tip de sursă.',

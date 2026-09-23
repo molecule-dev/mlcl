@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
+  'about.pageTitle': 'ስለ {{app}}',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
+  'common.retry': 'እንደገና ሞክር',
   'compose.cancel': 'ሰርዝ',
   'compose.captionPlaceholder': 'ምን እያሰብክ ነው?',
   'compose.heading': 'አንድ አፍታ አጋራ',
@@ -92,6 +96,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'የተረጋገጠ መለያ',
   'resetPassword.newPassword': 'አዲስ የይለፍ ቃል',
   'resetPassword.subheading': 'ጠንካራ የሆነ ነገር ይምረጡ - ቢያንስ 12 ቁምፊዎች።',
+  'search.clearAria': 'አጽዳ',
+  'search.error': 'ፍለጋው አልተሳካም። እንደገና ይሞክሩ።',
   'search.noPeople': 'ምንም ፈጣሪዎች አይመሳሰሉም " {{q}} ".',
   'search.noPosts': 'ምንም ልጥፎች አይዛመዱም " {{q}} ".',
   'search.noTags': 'እስካሁን ምንም በመታየት ላይ ያሉ ሃሽታጎች የሉም።',
@@ -118,6 +124,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'የይለፍ ቃል ደብቅ',
   'signup.showPassword': 'የይለፍ ቃል አሳይ',
   'signup.subheading': 'ማጋራት ለመጀመር መለያ ይፍጠሩ።',
+  'socialMediaLayout.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'socialMediaLayout.openMenu': 'የአሰሳ ምናሌን ክፈት',
+  'socialMediaLayout.primaryNavLabel': 'ዋና አሰሳ',
   'storyRail.heading': 'ታሪኮች',
   'storyRail.label': 'ታሪኮች',
   'storyRail.openAria': 'ክፈት {{handle}} የሱ ታሪክ',

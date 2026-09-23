@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'announcementsFeed.empty': 'Hakuna matangazo bado.',
   'announcementsFeed.eyebrow': '{{count}} masasisho',
   'announcementsFeed.title': 'Matangazo ya hivi karibuni',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Hakuna kitu hapa',
   'assignments.emptyBody': 'Badilisha vichujio hapo juu ili kuona kazi katika hali tofauti.',
   'assignments.eyebrow': 'Kozi zote · Muhula huu',
+  'assignments.loadError': 'Haikuweza kupakia kazi.',
   'assignments.loading': 'Inapakia kazi…',
   'assignments.subtitle':
     'Chuja kwa hali ili kuona kinachostahili, kilichowasilishwa, kilichopewa alama, au kinachokosekana.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Dokezo',
   'attendance.empty': 'Hakuna rekodi za mahudhurio bado.',
   'attendance.eyebrow': 'Muhula wa majira ya kuchipua · Wiki 4 zilizopita',
+  'attendance.loadError': 'Haikuweza kupakia rekodi za mahudhurio.',
   'attendance.loading': 'Inapakia mahudhurio…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Tarehe za mwisho za kazi zimepangwa kwenye gridi ya mwezi — mitihani inaonekana wazi kwa rangi nyekundu.',
   'calendar.title': '{{month}} matukio',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
+  'common.retry': 'Jaribu tena',
   'common.yes': '✓',
   'courseDetail.backLink': 'Daraja',
   'courseDetail.currentGrade': 'Daraja la sasa',
@@ -73,11 +78,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Mwenendo',
   'grades.empty': 'Hakuna alama zilizochapishwa bado.',
   'grades.eyebrow': 'Kitabu cha daraja',
+  'grades.loadError': 'Haikuweza kupakia alama zako.',
   'grades.loading': 'Inapakia alama…',
   'grades.subtitle':
     'Herufi moja kwa moja na alama za asilimia. Mishale ya mitindo inaonyesha kama unapanda juu, unapanda ngazi, au unateleza.',
   'grades.title': 'Daraja zako, kozi kwa kozi',
   'grades.trendStable': 'Imara',
+  'landing.copyright':
+    '© {{year}} {{app}} . Imeundwa kwa ajili ya wanafunzi, iliyoundwa kwa ajili ya familia.',
   'landing.ctaHeading': 'Siku tulivu ya shule huanza kwa dakika chache',
   'landing.eyebrow': 'Kwa wanafunzi wa shule ya kati na ya upili',
   'landing.featuresHeading': 'Siku ya shule iliyopangwa kumzunguka mwanafunzi',
@@ -112,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Kazi',
   'nav.attendance': 'Mahudhurio',
   'nav.calendar': 'Kalenda',
+  'nav.closeMenu': 'Funga menyu ya kusogeza',
   'nav.grades': 'Daraja',
+  'nav.openMenu': 'Fungua menyu ya kusogeza',
   'nav.statusEyebrow': 'GPA ya Muhula',
   'nav.statusSubtext': 'Orodha ya heshima · Muhula wa majira ya kuchipua',
+  'nav.unreadMessages': 'Ujumbe ambao haujasomwa',
   'notifications.eyebrow': '{{count}} masasisho',
   'notifications.subtitle':
     'Daraja, vikumbusho, ujumbe, na matangazo ya shule. Rekebisha ni njia zipi kila arifa hutumia katika Mipangilio.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.attendanceLabel': 'mahudhurio',
   'pricing.gradesLabel': 'alama',
   'pricing.heading': 'matangazo',

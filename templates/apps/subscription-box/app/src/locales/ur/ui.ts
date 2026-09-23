@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} کے بارے میں',
+  'appNav.mobileLabel': 'بنیادی نیویگیشن',
+  'appNav.primaryLabel': 'بنیادی نیویگیشن',
   'billing.actions.confirmCancel':
     'اپنی سبسکرپشن منسوخ کریں؟ آپ کسی بھی وقت دوبارہ سبسکرائب کر سکتے ہیں۔',
   'billing.actions.paused': 'سبسکرپشن روک دی گئی۔',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'ہر درجے کی ایک چھوٹی بیچ کی کہانی ہے۔ ایک کو اپنی قطار میں شامل کریں یا اسے اپنے اگلے مہینے میں تبدیل کریں۔',
   'boxThemeCard.perMonth': '/ مہینہ',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'customize.eyebrow': 'اسے اپنا بنائیں',
   'customize.heading': 'اپنی اگلی ٹرو کو حسب ضرورت بنائیں',
   'customize.items.exclude': 'اس کو چھوڑ دیں۔',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'اس موسم میں',
   'landing.editions.heading': 'ایڈیشن جو ہمارے کیوریٹر کو پسند ہے۔',
   'landing.footer.contact': 'کیوریٹر سے بات کریں۔',
+  'landing.footer.tagline': '{{tagline}}۔',
   'landing.hero.ctaPrimary': 'اپنا باکس شروع کریں →',
   'landing.hero.ctaSecondary': 'درجات دیکھیں',
   'landing.hero.eyebrow': 'کیوریٹ شدہ ماہانہ۔ ہمیشہ ذاتی۔',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'آپ کا اگلا سفر',
   'nextBoxHeroCard.itemsLabel': 'تیار شدہ اشیاء',
   'nextBoxHeroCard.shipsOnLabel': 'جہاز پر',
+  'notFound.body':
+    'ہمیں وہ صفحہ {{app}} آرکائیو میں نہیں مل سکا۔ ہو سکتا ہے اسے ریٹائر کیا گیا ہو یا محض غلط ٹائپ کیا گیا ہو۔',
   'notFound.cta.dashboard': 'ڈیش بورڈ پر جائیں۔',
   'notFound.eyebrow': 'خالی ڈبہ',
   'notFound.heading': 'یہ شیلف ننگی ہے۔',

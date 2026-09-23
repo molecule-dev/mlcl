@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'authShell.brandHeading':
     'Des canevas au pixel près pour les équipes de design qui livrent ensemble.',
   'canvas.redirecting': "Ouverture de l'éditeur…",
   'collaboratorStack.overflow': '+{{count}}',
   'common.and': 'et',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'common.retry': 'Réessayer',
   'dashboard.activityEmpty': 'Aucune activité récente — invitez un coéquipier pour commencer.',
   'dashboard.activityTitle': "Ce qui a changé aujourd'hui",
   'dashboard.activityViewAll': 'Voir toutes les notifications',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Espace de travail · Northwind Studio',
   'dashboard.foldersLabel': 'Dossiers',
   'dashboard.gridTitle': '{{count}} projets',
+  'dashboard.heroActiveTool': 'Outil Plume',
   'dashboard.loadingTitle': 'Chargement des projets…',
   'dashboard.searchPlaceholder': 'Rechercher des projets',
   'dashboard.startFromTemplate': 'Commencer depuis un modèle',
   'dashboard.title': 'Vos projets',
   'dashboard.untitledProject': 'Projet sans titre',
   'designCanvasLayout.newProject': 'Nouveau projet',
+  'designCanvasLayout.primaryNavLabel': 'Navigation principale',
   'editor.backToProjects': 'Retour aux projets',
   'editor.deleteShape': 'Supprimer la forme',
   'editor.errorBody': "Nous n'avons pas pu ouvrir ce projet.",
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Des outils de design à la vitesse de vos mains',
   'library.empty': 'Aucun jeton dans cette section pour le moment.',
   'library.eyebrow': 'Espace de travail · Système de design Atelier',
+  'library.loadFailed': 'Impossible de charger les jetons de conception.',
   'library.systemMeta': 'Santé du système',
   'library.systemSummary': '{{tokens}} jetons · {{components}} composants · {{effects}} effets',
   'login.emailPlaceholder': 'mara@studio.com',

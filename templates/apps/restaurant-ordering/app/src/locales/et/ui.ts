@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'analytics.avgCheckLabel': 'Keskmise kontrolli',
   'analytics.busiestHour': 'Kõige tihedam tund',
   'analytics.coversToday': 'Kaaned täna',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Jootraha (keskmine)',
   'analytics.topItems': 'Tänased populaarseimad tooted',
   'authShell.eyebrow': 'Tere tulemast tagasi teenindusse',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Soe ja kiire müügipunkt külalislahkuse meeskondadele. Logige sisse oma kööki ja jätkake sealt, kus pooleli jäite.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'või {{price}}',
   'billing.priceUnavailable': 'Sellel paketil pole konfigureeritud hinda.',
   'billing.updated': 'Kava on uuendatud.',
+  'common.goToDashboard': 'Mine töölauani',
   'customerDetail.book': 'Lisa broneering',
   'customerDetail.col.table': 'Tabel',
   'customerDetail.confirmDelete': 'Kas kustutada see külalise kirje?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Saadavus',
   'menuItemDetail.available': 'Saadaval täna õhtul',
   'menuItemDetail.backToMenu': 'Tagasi menüüsse',
+  'menuItemDetail.confirmDelete': 'Kas kustutada see menüü-üksus?',
   'menuItemDetail.delete': 'Kustuta üksus',
   'menuItemDetail.deleteError': 'Kustutamine ebaõnnestus. Proovige uuesti.',
   'menuItemDetail.dietary': 'Toitumissildid',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · Redigeeri fotot, modifikaatoreid, dieeti ja hinnakujundust.',
   'menuItemDetail.untitled': 'Pealkirjata üksus',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'notFound.heading': 'See laud ei ole põrandal.',
   'notFound.subheading': 'Leht, mida otsisid, on juba mujal – või pole seda kunagi olemas olnud.',
+  'notFound.toLanding': '{{app}} avaleht',
   'notifications.markError': 'Kõiki loetuks ei saanud märkida.',
   'orderDashboard.activeDelta': 'Otseülekanne nüüd',
   'orderDashboard.activeLabel': 'Aktiivsed tellimused',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Näita parooli',
   'resetPassword.subtitle': 'Köögile juurdepääsu taastamiseks sisestage oma uus parool.',
   'resetPassword.tokenLabel': 'Lähtesta token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Peamine navigeerimine',
   'revenueHeroCard.activeOrders': '{{count}} aktiivne',
   'revenueHeroCard.change': '{{sign}} {{amount}} võrreldes eilsega',
   'revenueHeroCard.title': 'Tänane tulu',
@@ -220,6 +228,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restorani nimi',
   'tableDetail.activeOrders': 'Aktiivsed tellimused',
   'tableDetail.backToFloor': 'Põrandaplaan',
+  'tableDetail.confirmDelete': 'Kas kustutada see tabel?',
   'tableDetail.delete': 'Kustuta',
   'tableDetail.deleteError': 'Tabelit ei saanud kustutada.',
   'tableDetail.heading': 'Tabel {{label}}',

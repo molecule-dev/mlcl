@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da mu',
   'actions.empty': 'Babu wani abu da ya dace da aikin.',
   'actions.heading': 'Abubuwan aiki',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Watan da ya gabata',
   'calendar.recent': 'Kwanan nan',
   'common.daysAgo': '{{count}} d da suka wuce',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.hoursAgo': '{{count}} h da ya wuce',
   'common.no': '—',
+  'common.retry': 'Sake gwadawa',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} abubuwan aiki',
   'dashboard.empty.body':
@@ -40,8 +43,10 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Duba akwatin saƙonka don hanyar haɗin sake saitawa.',
   'forgot.subheading': 'Shigar da imel ɗinka kuma za mu aika hanyar haɗin sake saitawa.',
   'integrations.disconnected': 'An yanke haɗi',
+  'integrations.loadError': 'An kasa loda haɗin kai.',
   'integrations.notConnectedTag': 'Ba a haɗa ba',
   'integrations.subheading': 'Haɗa kalanda da dandamalin bidiyo don Murmur ya shiga ta atomatik.',
+  'integrations.updateError': 'Sabuntawa ya gaza.',
   'landing.ctaButton': 'Fara — kyauta ne',
   'landing.ctaHeading': 'Ka daina rubuta bayanai. Ka fara yanke shawara.',
   'landing.demo.aiLabel': 'Takaitaccen Bayani game da AI, an tsara shi kai tsaye',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Masu bibiya',
   'meetingDetail.loadError': 'An kasa loda taron.',
   'meetingDetail.noActions': 'Ba a gano wani abu da aka yi ba.',
+  'meetingDetail.none': 'Babu.',
   'meetingDetail.notFound': 'Ba a sami taron ba.',
+  'meetingDetail.speakerFallback': 'Lasifika {{id}}',
   'meetingDetail.summaryHeading': 'Takaitaccen Bayani game da AI',
   'meetingDetail.transcriptHeading': 'Kwafi',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Taro',
   'meetings.loadError': 'An kasa loda tarurruka.',
   'meetings.subheading': 'Kowace taro da aka yi rikodi, aka loda, kuma aka daidaita.',
+  'murmurLayout.openMenu': 'Buɗe menu na kewayawa',
   'murmurLayout.primaryNavLabel': 'Babban kewayawa',
   'nav.legal': "Shari'a",
   'notifications.loadError': 'An kasa loda sanarwar.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Yadda kake bayyana a cikin Murmur.',
   'record.error.empty': 'Ba a ɗauki wani sauti ba.',
   'record.error.permission': 'An hana izinin makirufo.',
+  'record.error.recorder': 'Kuskuren mai rikodin',
   'record.error.unsupported':
     'Mai bincikenka ba ya goyon bayan yin rikodi. Gwada Chrome, Edge, ko Safari.',
   'record.error.upload': 'Lodawa ya gaza. Gwada kuma.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Sabuwar kalmar sirri',
   'reset.subheading': 'Zaɓi kalmar sirri da ba za ka yi amfani da ita a wani wuri ba.',
   'search.empty': 'Rubuta don bincika rubutun.',
+  'search.loadError': 'Bincike ya gaza. Gwada kuma.',
   'search.noResults': 'Babu sakamako ga " {{q}} ".',
   'settings.appearance.description': 'Canja tsakanin yanayin haske da duhu.',
   'settings.appearance.title': 'Bayyanar',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'An kasa loda saituna.',
   'settings.loading': 'Ana lodawa…',
   'settings.push.heading': 'Sanarwar turawa',
+  'settings.push.subheading':
+    'Sami faɗakarwar mai bincike don ambato, abubuwan aiki, da taƙaitawa.',
   'settings.retention.audio': 'Ajiye sauti don',
   'settings.retention.heading': 'Riƙewa',
   'settings.retention.transcript': 'Ajiye rubuce-rubuce don',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Ba za a iya ƙirƙirar asusu ba. Da fatan za a sake gwadawa.',
   'signup.subheading': 'Fara ɗaukar bayanan taro cikin mintuna',
   'signup.terms': 'Ta hanyar ƙirƙirar asusu, kun yarda da Sharuɗɗan Sabis ɗinmu da Dokar Sirri.',
+  'signup.termsPrefix': 'Ta hanyar ƙirƙirar asusu, kun yarda da mu',
   'team.inviteCta': 'Gayyaci abokin aiki',
   'team.invitedAs': 'An gayyace shi azaman {{role}}',
   'team.inviteFailed': 'An kasa aika gayyata.',

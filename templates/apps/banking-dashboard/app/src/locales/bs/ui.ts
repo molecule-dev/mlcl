@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'O nama',
   'accountDetail.activeBadge': 'Aktivno',
   'accountDetail.availableLabel': '{{amount}} dostupno',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Učitavanje računa nije uspjelo.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Zamrznuto',
   'accounts.totalBalance': '{{iznos}} ukupno',
   'audit.empty': 'Još nema događaja.',
   'audit.eyebrow': 'Sigurnost i pristup',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Gotovina pri ruci',
   'cashCreditCard.creditLabel': 'Iskorišten kredit',
   'cashCreditCard.title': 'Gotovina i kredit',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Pregled',
   'dashboard.recentEmpty': 'Još nema transakcija.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Prikaži lozinku',
   'login.signUp': 'Registrujte se',
   'login.submit': 'Prijava',
+  'meridianLayout.menu': 'Meni',
   'meridianLayout.primaryNavLabel': 'Primarna navigacija',
   'nav.legal': 'Pravno',
   'notifications.emptyHeading': 'Sve ste pročitali/sagledali',
   'notifications.subheading': 'Obavještenja u realnom vremenu za transakcije, sigurnost i izvode.',
+  'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'privacy.dataWeShare':
     'Lični bankarski podaci se nikada ne prodaju. Dijelimo informacije s procesorima plaćanja, mrežama kartica i regulatorima samo ako je potrebno za poravnanje transakcija ili ispunjavanje zakonskih obaveza.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Dvofaktorska autentifikacija dodaje jednokratni kod iz aplikacije za autentifikaciju pri svakoj prijavi.',
   'settings.security.twoFactorCta': 'Upravljanje dvofaktorskom autentifikacijom',
+  'settings.security.twoFactorOff': 'Dvofaktorski način rada je isključen',
   'settings.signOutDevice': 'Odjava',
   'settings.subheading': 'Profil, sigurnost i obavještenja.',
+  'settings.twoFactorCode': 'Autentifikacijski kod',
   'settings.twoFactorDisable': 'Onemogući',
   'settings.twoFactorEnable': 'Omogući',
+  'settings.twoFactorInvalidCode': 'Nevažeći kod',
+  'settings.twoFactorVerify': 'Potvrdi i omogući',
   'signup.emailLabel': 'Adresa e-pošte',
   'signup.fullName': 'Kako bismo vam se trebali obraćati?',
   'signup.showPassword': 'Prikaži lozinku',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Još nema transakcija.',
   'transactions.endDate': 'Datum završetka',
   'transactions.eyebrow': 'Aktivnost',
+  'transactions.loadError': 'Učitavanje transakcija nije uspjelo.',
   'transactions.merchant': 'Trgovac',
+  'transactions.subheading': 'Svaka proknjižena i transakcija na čekanju na vašim računima.',
   'transfers.availableHint': '{{amount}} dostupno',
   'transfers.errorGeneric': 'Transfer nije moguće poslati.',
   'transfers.errorMissingFields': 'Odaberite izvorni račun i odredišni račun.',

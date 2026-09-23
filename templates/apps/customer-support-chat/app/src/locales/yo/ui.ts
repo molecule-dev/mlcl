@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nipa re',
   'authShell.samplePreview': '“Ẹgbẹ́ mi, dasibodu tuntun náà dára gan-an — ohun tí a nílò gan-an!”',
   'authShell.tagline': 'Gbogbo ifiranṣẹ ni o ṣe pataki. Gbogbo alabara ranti.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ọ̀nà àbùjá',
   'automations.subheading':
     'Àwọn òfin, àwọn ìdáhùn tí a fi sínú àpò àti àwọn chatbot — jẹ́ kí ibi iṣẹ́ máa dún kíkankíkan nígbà tí ẹgbẹ́ rẹ bá dojúkọ àwọn nǹkan líle.',
+  'automations.trigger.inboundMessage': 'Ifiranṣẹ ti nwọle',
   'automations.triggerLabel': 'Ohun tí ó ń fa ìṣòro',
   'chatBubble.internalNoteLabel': 'Àkọsílẹ̀ inú',
+  'common.confirmDelete': 'Jẹ́rìí sí píparẹ́',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'contactDetail.backToContacts': 'Gbogbo àwọn olùbáṣepọ̀',
   'contactDetail.contactFallback': 'Olùbáṣepọ̀',
   'contactDetail.conversationFallback': 'Ìjíròrò',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Ri kẹhin',
   'contacts.empty': 'Kò sí àwọn olùbáṣepọ̀ kankan síbẹ̀. Fi olùbáṣepọ̀ àkọ́kọ́ rẹ kún lókè yìí.',
   'contacts.eyebrow': 'Àkójọ ìtọ́sọ́nà oníbàárà',
+  'contacts.form.nameOrEmailRequired': 'Pese o kere ju orukọ tabi imeeli kan',
   'contacts.form.save': 'Fipamọ olubasọrọ',
   'contacts.heading': 'Àwọn olùbáṣepọ̀',
   'contacts.loading': 'N n gbe awọn olubasọrọ soke…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Fi akọsilẹ pamọ',
   'conversationDetail.tab.note': 'Àkọsílẹ̀ inú',
   'conversationDetail.threadAria': 'Àwọn ìránṣẹ́ ìjíròrò',
+  'conversationDetail.visitorFallback': 'Àlejò',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Àwọn àlàyé oníbàárà',
   'customerProfilePanel.recentTitle': 'Àwọn ìjíròrò tuntun',
@@ -70,6 +76,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Àwọn oníbàárà ń gba ìdáhùn àkọ́kọ́ wọn ní {{time}} ni apapọ - jẹ ki cadence naa tẹsiwaju.',
   'inboxHeroCard.title': 'Awọn ibaraẹnisọrọ ti nṣiṣe lọwọ',
+  'inboxLayout.navDrawerLabel': 'Lilọ kiri',
+  'inboxLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'inboxOverview.eyebrow': 'Lónìí ní ojú kan',
   'inboxOverview.heroChange': '{{count}} ṣii',
   'inboxOverview.kpiClosedTrend': 'ní gbogbo ìgbà',
@@ -115,10 +123,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Ṣabẹwo si oju-iwe akọkọ',
   'notifications.subheading':
     'Àwọn iṣẹ́ àyànfúnni, àwọn ìdámọ̀ràn, ewu SLA, èsì CSAT àti ìgbòkègbodò ẹgbẹ́ — a kọ́kọ́ ṣètò àwọn iṣẹ́ tuntun jùlọ.',
+  'notifications.subjectFallback': 'ìjíròrò kan',
+  'notifications.visitorFallback': 'Àlejò kan',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Gíga',
   'priority.low': 'Kekere',
+  'priority.normal': 'Deede',
   'priority.urgent': 'Àkíyèsí',
   'privacy.title': 'Ètò ìpamọ́',
   'reports.agentFallback': 'Aṣoju',

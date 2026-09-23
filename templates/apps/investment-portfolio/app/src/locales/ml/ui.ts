@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'argentAuthShell.brandEyebrow': 'അർജന്റ് · വെൽത്ത് ടൂളിംഗ്',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . നിക്ഷേപ ഉപദേശമല്ല.',
   'argentAuthShell.sampleChange': 'ഇന്ന് +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ഈ ടിക്കറിന് ഇടപാടുകളൊന്നുമില്ല.',
   'assetDetail.txHeading': 'നിങ്ങളുടെ ഇടപാടുകൾ',
   'common.and': 'ഒപ്പം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'പോർട്ട്ഫോളിയോ അവലോകനം',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ഇതുവരെ ഹോൾഡിംഗുകളൊന്നുമില്ല.',
   'holdings.heading': 'ഹോൾഡിംഗ്സ്',
   'holdings.loadError': 'ഹോൾഡിംഗുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'landing.copyright':
+    '© {{year}} {{app}} . നിക്ഷേപ ഉപദേശമല്ല. മുൻകാല പ്രകടനം ഭാവി ഫലങ്ങൾ ഉറപ്പുനൽകുന്നില്ല.',
   'landing.eyebrow': 'അർജന്റ് · ഒരു സമ്പത്ത് ഉപകരണ പ്ലാറ്റ്‌ഫോം',
   'landing.features.heading': 'ഒരു ഉപദേഷ്ടാവ് സ്വയം നിർമ്മിക്കുന്നതെല്ലാം.',
   'landing.finalCta.heading': 'നിങ്ങളുടെ പോർട്ട്‌ഫോളിയോയിൽ അച്ചടക്കം തിരികെ കൊണ്ടുവരിക.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'news.justNow': 'ഇപ്പോൾ തന്നെ',
   'news.loadError': 'വാർത്തകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'portfolioHeroCard.label': 'പോർട്ട്ഫോളിയോ മൂല്യം',
   'pricing.holdingsLabel': 'ഹോൾഡിംഗുകൾ',
   'pricing.newsLabel': 'വാർത്താ ലേഖനങ്ങൾ',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'അക്കൗണ്ട് ഇല്ലാതാക്കുക',
   'settings.security.deleting': 'ഇല്ലാതാക്കുന്നു...',
   'settings.security.heading': 'സുരക്ഷ',
+  'settings.security.newPassword': 'പുതിയ പാസ്വേഡ്',
   'settings.security.password': 'പാസ്‌വേഡ്',
   'settings.security.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.security.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.security.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.tax.error': 'നികുതി രീതി അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.tax.heading': 'നികുതി ലോട്ട് അക്കൗണ്ടിംഗ്',
   'settings.tax.method': 'ഡിഫോൾട്ട് രീതി',

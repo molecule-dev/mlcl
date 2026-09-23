@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
   'about.pageTitle': 'O nas {{name}}',
   'auth.footer.about': 'O nas {{name}}',
   'authHeader.subtitle': 'Prijavite se, da bodo vaše številke poštene.',
   'automations.action.email': 'E-pošta',
+  'automations.action.noop': 'Brez operacije',
   'automations.action.webhook': 'Spletni kavelj',
   'automations.confirmDelete': 'Izbriši " {{name}} "?',
   'automations.empty.headline': 'Še ni avtomatizacije',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Sprožilci in dejanja v vsakem delovnem zvezku. Vsak zagon zabeleži vrstico, ki jo lahko pozneje pregledate.',
   'automations.toggle': 'Preklopi {{name}}',
+  'automations.trigger.dailySchedule': 'Dnevni urnik',
+  'automations.trigger.rowCreated': 'Vrstica ustvarjena',
+  'automations.trigger.rowUpdated': 'Vrstica posodobljena',
   'billing.empty': 'Ni na voljo nobenih načrtov.',
   'billing.error.priceMissing':
     'Za to raven ni konfigurirana nobena cena Stripe. Nastavi spremenljivke okolja STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafikoni',
   'charts.kpi.totalCharts': 'Skupni grafikoni',
   'charts.list.empty': 'Še ni grafikonov.',
+  'charts.namePlaceholder': 'Trend prihodkov',
   'charts.newChart': 'Nov grafikon',
   'charts.primary.eyebrow': 'Grafikoni po vrsti',
   'charts.primary.headline': 'Pregled delovnega prostora',
   'charts.subhead':
     'Vizualizacije v živo, vezane na vašo mrežo – ponovno upodobite ob vsakem urejanju celic.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'editor.addColumn': 'Dodaj stolpec',
+  'editor.addDialogTitle': 'Dodaj stolpec',
   'editor.addRow': 'Dodaj vrstico',
   'editor.addSheet': 'Dodaj list',
   'editor.back': 'Nazaj na delovne zvezke',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite je prvi, ki uporablja formule, večpogledne mreže v realnem času, analitiki in finančne ekipe pa se najprej osredotočajo nanje.',
   'landing.nav.formulas': 'Formule',
+  'login.noAccount': 'Ste novi na {{name}} ?',
+  'login.signIn': 'Prijava v {{name}}',
   'login.signUp': 'Ustvarite delovni prostor',
+  'nav.menu': 'Meni',
+  'nav.openMenu': 'Odpri meni',
   'notFound.cellRef': '#SODB!',
   'notFound.formula': '=LOOKUP(ZAHTEVEK.url; "poti"; "stran")',
   'notFound.headline': 'Ta vrstica ni nikoli obstajala.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Izvorne avtomatizacije · sprožilci spletnega kavlja in crona',
   'signup.creating': 'Omogočanje delovnega prostora …',
   'signup.cta': 'Ustvari moj delovni prostor',
+  'signup.haveAccount': 'Že uporabljate {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Zaženite svoj prvi delovni zvezek v 30 sekundah',
   'team.col.activity': 'Povabljeni',

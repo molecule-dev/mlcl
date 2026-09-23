@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Užsisakyti susitikimą',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Nėra pacientų, kuriuos būtų galima parodyti.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'consult.backLink': 'Visi susitikimai',
   'consult.captions': 'Subtitrai',
   'consult.connected': 'Prisijungta · 720p · stabili',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacientai',
   'patientVitalsHero.scripts': 'Receptas atidarytas',
   'patientVitalsHero.subline': '{{count}} konsultacijos pagal jūsų tvarkaraštį šiandien',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'prescriptions.empty': 'Jokių receptų nesutampa.',
   'prescriptions.eyebrow': 'Elektroninis receptas',
   'prescriptions.heading': 'Receptai',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Privatumo pranešimas',
   'privacy.use.body':
     'Teikti priežiūrą, siųsti priminimus apie susitikimus, skirti receptus ir gerinti paslaugų patikimumą. Mes niekada neparduodame jūsų duomenų ir niekada nesidalijame klinikine informacija su reklamuotojais.',
+  'providers.allSpecialties': 'Visos specialybės',
+  'providers.loadError': 'Nepavyko įkelti tiekėjų.',
+  'providers.loading': 'Kraunama…',
   'providers.noResults': 'Nerasta jokių tiekėjų.',
   'providers.searchPlaceholder': 'Ieškoti pagal pavadinimą, specialybę...',
   'providers.title': 'Rasti tiekėją',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Dienos pradžia',
   'settings.availability.heading': 'Prieinamumas',
   'settings.devices.thisDevice': 'Šis įrenginys',
+  'settings.devices.unnamed': 'Neįvardytas įrenginys',
   'settings.eyebrow': 'Praktika ir paskyra',
   'settings.loadError': 'Nepavyko įkelti jūsų profilio.',
   'settings.notifications.emailMessages': 'Rašykite man, kai mano priežiūros komanda atsakys',
@@ -178,6 +184,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Išjungti',
   'settings.security.twoFactor.enable': 'Įjungti',
   'settings.security.twoFactor.heading': 'Dviejų veiksnių autentifikavimas',
+  'settings.security.twoFactor.invalidCode': 'Kodas neatitiko. Bandykite dar kartą.',
+  'settings.security.twoFactor.setupFailed':
+    'Nepavyko pradėti dviejų veiksnių sąrankos. Bandykite dar kartą.',
+  'settings.security.twoFactor.statusOn': 'Įjungtas dviejų veiksnių režimas',
   'settings.signOutDevice': 'Atsijungti',
   'settings.subheading': 'Paslaugų teikėjo profilis, praktikos taisyklės ir klinikiniai įspėjimai.',
   'signup.emailLabel': 'EL. PAŠTAS',
@@ -188,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Sukurti paskyrą',
   'signupFooter.hipaa': 'Atitinka HIPAA reikalavimus',
   'solaceLayout.primaryNavLabel': 'Pagrindinė navigacija',
+  'solaceLayout.toggleMenu': 'Perjungti meniu',
   'terms.eligibility.body':
     'Jums turi būti ne mažiau kaip aštuoniolika metų arba esate nepilnamečio, kuriam siekiate priežiūros, tėvas ar teisėtas globėjas ir turite būti fiziškai įsikūręs JAV valstijoje, kurioje mūsų klinikų specialistai turi licenciją.',
   'terms.payment.body':

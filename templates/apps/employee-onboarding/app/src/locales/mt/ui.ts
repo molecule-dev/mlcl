@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'auth.forgotPassword.emailPlaceholder': 'isem@il-kumpanija tiegħek.com',
   'auth.forgotPassword.heading': 'Irrisettja l-password tiegħek.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Immarka l-kompitu komplut',
   'checklistTaskCard.markIncomplete': 'Immarka l-kompitu mhux komplut',
   'checklistTaskCard.openLabel': 'Iftaħ il-kompitu',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Intom kollha maqbudin',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Fit-triq it-tajba',
   'dashboard.timelineHeading': '30/60/90 tragwardi',
   'dashboard.viewAllTasks': 'Ara l-kompiti kollha',
+  'dashboard.weekOne': 'Ġimgħa 1',
   'dashboard.yourCohort': 'It-tim tiegħek',
   'documents.empty.body': 'Id-dokumenti miżjuda mit-tim tiegħek se jidhru hawn.',
   'documents.empty.title': "Għad m'hemm l-ebda dokumenti",
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': "Prova bla ħlas ta' 14-il jum",
   'landing.subhead':
     "Embark jiggwida lil kull membru ġdid tat-tim matul l-ewwel 90 jum tagħhom — burokrazija, taħriġ, tragwardi, u introduzzjonijiet sinifikanti, kollox f'post wieħed kalm u kunfidenti.",
+  'layout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'layout.search': 'Fittex kompiti, dokumenti, sħab tat-tim...',
+  'layout.searchTeammates': 'Fittex sħabek tat-tim skont isimhom jew ir-rwol...',
   'layout.section.onboarding': 'Inkorporazzjoni',
   'layout.tagline': 'Il-vjaġġ tiegħek jibda hawn',
   'notifications.empty.body': 'Attività ġdida se tidher hawn.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Lest kollox.',
   'planUpdated.preparing': 'Qed taġġorna l-pjan tiegħek…',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'kompiti',

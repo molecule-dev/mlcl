@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
   'activityFeed.empty': 'Hakuna shughuli bado — tuma ankara yako ya kwanza.',
   'authShell.sample.paid': 'Imelipwa dakika 2 zilizopita',
@@ -29,6 +30,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Ongeza mteja mpya',
   'clients.search': 'Tafuta kwa jina, kampuni, barua pepe',
   'clients.title': 'Wateja',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Mteja mpya',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Umesahau nenosiri',
   'forgotPassword.successBody':
     'Tumetuma maagizo ya kuweka upya kwa {{email}} Kiungo kinaisha baada ya dakika 30.',
+  'invoiceDetail.action.confirmVoid': 'Thibitisha batili?',
   'invoiceDetail.action.download': 'Pakua PDF',
   'invoiceDetail.action.duplicate': 'Nakala',
   'invoiceDetail.action.edit': 'Hariri',
@@ -73,9 +76,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Ankara imebatilishwa.',
   'invoiceDetail.issued': 'Imetolewa {{date}}',
   'invoiceDetail.loading': 'Inapakia ankara…',
+  'invoiceDetail.paidInFull': 'Imelipwa kikamilifu',
   'invoiceDetail.summary': '{{client}} · imetumwa {{date}}',
   'invoiceDetail.tax': 'Kodi ( {{rate}} %)',
   'invoiceDetail.timeline': 'Orodha ya matukio',
+  'invoiceDetail.voided': 'Imefutwa',
   'invoiceEditor.addItem': 'Ongeza kipengee',
   'invoiceEditor.back': '← Rudi kwenye ankara',
   'invoiceEditor.col.qty': 'Kiasi',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Tuma ankara yako ya kwanza',
   'landing.hero.eyebrow': 'Uwasilishaji wa ankara kwa biashara ndogo ndogo',
   'landing.hero.secondary': 'Tazama ankara ya mfano',
+  'landing.hero.subtitle':
+    '{{appName}} huunganisha ankara zilizosafishwa zenye malipo yaliyojengewa ndani, bili zinazojirudia, na ripoti zilizo tayari kwa kodi. Haina uwekaji wa hesabu.',
   'landing.hero.title': 'Tuma ankara. Lipa haraka zaidi.',
   'login.signupLink': 'Unda moja',
   'login.submitting': 'Inakuingiza katika akaunti…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'malipo',
   'pricing.recurringLabel': 'ratiba zinazojirudia',
   'remitLayout.newInvoice': 'Ankara Mpya',
+  'remitLayout.openMenu': 'Fungua menyu ya kusogeza',
   'remitLayout.searchPlaceholder': 'Tafuta ankara, wateja...',
   'remitLayout.tagline': 'Lipa haraka zaidi',
   'reports.chart.aging': 'Uzeekaji wa ankara',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Mapato ya kipindi',
   'reports.chart.topClients': 'Wateja wakuu',
   'reports.chart.topClientsCaption': 'Mapato ya maisha yote, 5 bora',
+  'reports.empty.aging': 'Hakuna ankara zilizosalia.',
+  'reports.empty.methods': 'Hakuna data ya malipo bado.',
+  'reports.empty.revenue': 'Hakuna data ya mapato bado.',
+  'reports.empty.topClients': 'Hakuna data ya mapato ya mteja bado.',
   'reports.exporting': 'Inahamisha…',
   'reports.exportRequiresPaid':
     'Usafirishaji nje ni kipengele cha kulipia — sasisha ili kuwezesha.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Ongeza kiwango cha kodi',
   'settings.tax.added': 'Kiwango cha kodi kimeongezwa.',
   'settings.tax.adding': 'Inaongeza…',
+  'settings.tax.addRate': 'Ongeza kiwango',
   'settings.tax.col.region': 'Eneo',
   'settings.tax.delete': 'Futa kiwango cha kodi',
   'settings.tax.deleted': 'Kiwango cha kodi kimeondolewa.',

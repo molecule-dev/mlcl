@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}}-ის შესახებ',
+  'auth.legalConsent': 'გაგრძელებით, თქვენ ეთანხმებით ჩვენს',
   'bookings.empty.body': 'შემოსულების საქაღალდის დასაწყებად დაამატეთ ფრენა, სასტუმრო ან აქტივობა.',
   'bookings.empty.heading': 'ჯერ არ არის დაჯავშნა.',
   'bookings.errors.create': 'დაჯავშნის შექმნა ვერ მოხერხდა.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'დადასტურებულია',
   'bookings.summary.pending': 'დადასტურების მოლოდინში',
   'bookings.summary.total': 'სულ ჩარიცხული',
+  'bookings.type.car': 'დაქირავებული მანქანა',
+  'bookings.type.flight': 'ფრენა',
+  'bookings.type.hotel': 'სასტუმრო',
   'bookings.type.other': 'Skhva',
   'budgetSpendCard.budgetTotal': '-ის {{total}} დაგეგმილი',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'აღმოაჩინეთ კონფლიქტები, დაგეგმეთ მოგზაურობებს შორის აღდგენის დღეები და ნახეთ, როდის მოგზაურობენ თქვენთან ერთად თანამშრომლები.',
   'common.and': 'და',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.budgetHeading': 'ბიუჯეტის პულსი',
   'dashboard.empty.heading': 'ჯერ მოგზაურობები არ არის — თქვენი ატლასი ცარიელია.',
   'dashboard.eyebrow': 'მისიის კონტროლი',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'მოგზაურობები მოძრაობაში',
   'dashboard.viewAllExpenses': 'ნახეთ ყველა ხარჯი',
   'dashboard.viewAllTrips': 'იხილეთ ყველა მოგზაურობა',
+  'dayTimelineRow.category.accommodation': 'დარჩი',
   'dayTimelineRow.category.transport': 'ტრანსპორტი',
   'destinationOrbCard.exploreCta': 'მოგზაურობაში დამატება',
   'destinationOrbCard.tripCount': '{{count}} მოგზაურობები',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'ელ.ფოსტა ჯერ არ გაქვთ? შეამოწმეთ სპამის საქაღალდე ან სცადეთ ხელახლა სხვა მისამართით.',
   'forgotPassword.successSubheading':
     'აღდგენის ბმული გავუგზავნეთ {{email}} ბმული ძალაშია 30 წუთის განმავლობაში.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'შექმენით უფასო ანგარიში',
+  'landing.cta.subheading':
+    'უფასო გეგმაში ხუთამდე მგზავრობა, ხუთი თანამშრომლობა და ხუთი გაჩერება — რეალურ დროში სინქრონიზაციის ფუნქციით და Pro-ს მიერ ლიმიტების მოხსნით, როდესაც თქვენი გეგმები გაიზრდება.',
   'landing.destinations.eyebrow': 'სად წავიდეთ შემდეგ',
   'landing.destinations.heading': 'რედაქტორის მიერ შერჩეული დანიშნულების ადგილები',
   'landing.features.eyebrow': 'როგორ მუშაობს Waypoint',
   'landing.features.heading': 'შექმნილია მოგზაურებისთვის და არა ცხრილებისთვის.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'დაიწყეთ უფასო მოგზაურობა',
   'landing.hero.ctaSecondary': 'იხილეთ მოგზაურობის ნიმუში',
   'landing.hero.subtitle':
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ირის ლარსენი',
   'signup.subheading':
     'შექმენით ანგარიში, რათა გაუზიაროთ მოგზაურობები 5-მდე თანამშრომელს, სინქრონიზოთ ჯავშნები და ყველა დადასტურება ერთ ადგილას მოათავსოთ.',
+  'signup.termsPrefix': 'ანგარიშის შექმნით თქვენ ეთანხმებით ჩვენს',
   'tripCountdownHeroCard.budget': '{{used}} -ის {{total}} ( {{pct}} ბიუჯეტის %)',
   'tripCountdownHeroCard.collaborators': '{{count}} მოგზაურები',
   'tripCountdownHeroCard.countdownLabel': 'უკუთვლა',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ჯერ მოგზაურობები არ არის.',
   'trips.pastHeading': 'წარსული თავგადასავლები',
   'trips.subheading': '{{count}} მარშრუტები - წარსული, აწმყო და ოდესმე.',
+  'waypointLayout.mobileNavClose': 'ნავიგაციის მენიუს დახურვა',
   'waypointLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
 }

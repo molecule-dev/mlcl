@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.pageTitle': 'Tietoa {{app}}sta',
   'activity.empty': 'Ei vielä toimintaa — käännä laite ympäri tai aktivoi tilanne.',
   'activity.eyebrow': 'Aikajana',
   'activity.loadError': 'Aktiviteettisyötettä ei voitu ladata.',
   'activity.subheading': 'Jokainen laite-, automaatio- ja tietoturvatapahtuma aikajärjestyksessä.',
+  'addDevice.error.failed': 'Laitteen lisääminen epäonnistui. Yritä uudelleen.',
   'addDevice.error.nameRequired': 'Anna tälle laitteelle nimi jatkaaksesi.',
   'addDevice.field.firmware': 'Laiteohjelmistoversio',
   'addDevice.field.manufacturer': 'Valmistaja',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testausta…',
   'automationEditor.testNew': 'Tallenna automaatio ensin testataksesi sitä.',
   'automationRow.lastRun': 'Last {{date}} · {{count}} runs',
+  'automationRow.on': 'Päivämäärä',
   'automationRow.runNowAria': 'Juokse {{name}} nyt',
   'automations.empty': 'Ei vielä automaatioita — luo ensimmäinen rutiinisi.',
   'automations.eyebrow': 'Rutiinit',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Ladataan automaatioita…',
   'automations.newAutomation': '+ Uusi',
   'automations.subheading': 'Kun näin tapahtuu, tee niin – ilman YAML:ää.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Laitteen lataus epäonnistui.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Työstetään…',
   'deviceDetail.unnamed': 'Laite',
   'deviceStatusRow.on': 'Päällä',
+  'deviceStatusRow.turnOff': 'Sammuta',
+  'deviceStatusRow.turnOn': 'Ota käyttöön',
   'deviceStatusRow.watts': '{{watts}} Länsi',
   'energy.eyebrow': 'Voima',
   'energy.heading': 'Energia',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Katso suunnitelmat',
   'settings.security.heading': 'Turvallisuus',
   'settings.subheading': 'Sopimus-, keskus- ja tiliasetukset.',
+  'smartHomeDashboardLayout.openMenu': 'Avaa navigointivalikko',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Päänavigaatio',
 }

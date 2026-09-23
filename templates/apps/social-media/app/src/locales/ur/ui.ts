@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.pageTitle': '{{app}} کے بارے میں',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'compose.cancel': 'منسوخ کریں۔',
   'compose.captionPlaceholder': 'آپ کے دماغ میں کیا ہے؟',
   'compose.heading': 'ایک لمحہ شیئر کریں۔',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'تصدیق شدہ اکاؤنٹ',
   'resetPassword.newPassword': 'نیا پاس ورڈ',
   'resetPassword.subheading': 'کوئی مضبوط چیز منتخب کریں — کم از کم 12 حروف۔',
+  'search.clearAria': 'صاف',
+  'search.error': 'تلاش ناکام ہوگئی۔ دوبارہ کوشش کریں۔',
   'search.noPeople': 'کوئی تخلیق کار مماثل نہیں ہے" {{q}} "',
   'search.noPosts': 'کوئی پوسٹ مماثل نہیں ہے" {{q}} "',
   'search.noTags': 'ابھی تک کوئی ٹرینڈنگ ہیش ٹیگ نہیں۔',
@@ -123,6 +129,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'پاس ورڈ چھپائیں۔',
   'signup.showPassword': 'پاس ورڈ دکھائیں۔',
   'signup.subheading': 'اشتراک شروع کرنے کے لیے ایک اکاؤنٹ بنائیں۔',
+  'socialMediaLayout.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'socialMediaLayout.openMenu': 'نیویگیشن مینو کھولیں۔',
+  'socialMediaLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'storyRail.heading': 'کہانیاں',
   'storyRail.label': 'کہانیاں',
   'storyRail.openAria': 'کھولیں۔ {{handle}} کی کہانی',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Jarri gurekin harremanetan',
+  'about.title': '{{app}}(r)i buruz',
   'authShell.backToLanding': '← Lurreratzera itzuli',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
+  'common.retry': 'Saiatu berriro',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Gaur · Eragiketen ikuspegi orokorra',
   'dashboard.heading': 'Dokumentuen adimena',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Ez dago uneko iragazkiekin bat datorren dokumenturik.',
   'documents.heading': 'Dokumentu guztiak',
   'documents.loadError': 'Dokumentuak kargatzea huts egin da.',
+  'documents.loading': 'Liburutegia kargatzen…',
   'documents.searchLabel': 'Bilatu dokumentuak',
   'documents.searchPlaceholder': 'Bilatu dokumentuak…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ezkutatu pasahitza',
   'login.showPassword': 'Erakutsi pasahitza',
   'login.subtitle': 'Hasi saioa zure dokumentuak etengabe bidaltzen jarraitzeko.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'notFound.body':
     'Irekitzen saiatu zaren dokumentua edo ibilbidea ez dago hemen. Itzuli kontrol-panelera edo aukeratu atal bat alboko barratik.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Ireki hasierako orria',
   'notFound.title': 'Orrialde hori ez dago artxibatuta',
   'parcelaHeroCard.change': '{{sign}} {{amount}} Atzokoaren aldean ehunekoa',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Arau aktiboak',
   'rules.empty': 'Ez dago artxibatzeko araurik oraindik. Erabili Arau berria bat gehitzeko.',
   'rules.eyebrow': 'Automatizazioa',
+  'rules.fieldsCount': '{{count}} eremu',
   'rules.form.destination': 'Fitxategia honera',
   'rules.form.name': 'Arauaren izena',
   'rules.form.save': 'Gorde araua',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'alerts.acknowledgeLabel': 'Потвърждаване',
   'alerts.customerLabel': 'Клиент: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Свързване…',
   'carriers.requiredError': 'Име и код са задължителни.',
   'carriers.subheading': '{{count}} интегриран',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
+  'common.retry': 'Опитай отново',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'В движение + маркирано',
   'dashboard.activeShipmentsSubtitle':
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'пратки',
   'pricing.trackingLabel': 'проследяване на събития',
   'profile.dangerZone.title': 'Опасна зона',
+  'profile.devices.signingOut': 'Излизане…',
+  'profile.devices.unnamed': 'Устройство без име',
+  'profile.security.disable2fa': 'Деактивиране на двуфакторната автентификация (2FA)',
   'profile.security.enable2fa': 'Активиране на 2FA',
   'profile.security.pwChanged': 'Паролата е променена успешно.',
   'profile.security.pwCurrent': 'Текуща парола',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA активен',
   'profile.security.twoFaCode': '6-цифрен код',
   'profile.security.twoFaDisable': 'Деактивирай',
+  'profile.security.twoFaDisabling': 'Деактивиране…',
   'profile.security.twoFaFailed': 'Кодът не можа да бъде потвърден.',
   'profile.security.twoFaIntro':
     'Сканирайте QR кода в приложението си за удостоверяване, след което въведете 6-цифрения код по-долу, за да потвърдите.',
   'profile.security.twoFaOn': 'Двуфакторното удостоверяване е активирано за този акаунт.',
+  'profile.security.twoFaQrAlt': 'QR код за двуфакторна автентикация',
   'profile.security.twoFaVerify': 'Проверка и активиране',
   'profile.security.twoFaVerifying': 'Проверка…',
   'profile.subheading': 'Настройки за самоличност и сигурност за това работно пространство.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Запазете тази тайна — тя няма да бъде показвана отново.',
   'settings.api.webhookSecret': 'Тайна за подписване на уебкука',
   'settings.appearance.description': 'Превключване между светъл и тъмен режим.',
+  'settings.deleteAccountConfirm': 'Сигурен ли си? Това действие не може да бъде отменено.',
   'settings.notifications.exceptions': 'Изпращай ми имейл, когато възникне изключение при доставка',
   'settings.notifications.heading': 'Известия',
   'settings.notifications.saveFailed': 'Не е възможно да се запазят настройките.',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Пратката не е намерена.',
   'shipmentDetail.originHeading': 'Произход',
   'shipmentDetail.shippedOn': 'Изпратено {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Все още няма събития за проследяване — актуализациите се появяват тук, когато куриерът сканира пратката.',
   'shipmentDetail.weightLabel': '{{weight}} фунт',
   'shipments.col.carrier': 'Превозвач',
   'shipments.col.eta': 'Очаквано време',
@@ -176,6 +187,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Вход',
   'signup.submit': 'Създай профил',
   'team.emailError': 'Изисква се валиден имейл адрес.',
+  'team.empty': 'Все още няма членове на екипа. Поканете колега да сътрудничи по пратките.',
   'team.eyebrow': 'Членове и разрешения',
   'team.inviteDialog.cancel': 'Отказ',
   'team.inviteDialog.heading': 'Покани съотборник',
@@ -198,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Проследяване',
   'waypointLayout.primaryNavLabel': 'Основна навигация',
   'webhooks.createFailed': 'Не можа да се създаде крайна точка на уеб кукичката.',
+  'webhooks.endpointsEmpty':
+    'Все още няма крайни точки за уебхук. Създайте такава, за да получавате обратни известия за състоянието на пратките.',
   'webhooks.endpointsHeading': 'Крайни точки',
   'webhooks.eventCount': '{{count}} събития',
   'webhooks.eventsHeading': 'Последни доставки',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.pageTitle': 'ስለ {{appName}}',
   'analytics.error': 'ትንታኔዎችን መጫን አልተቻለም።',
   'analytics.heading': 'የማግኛ ትንታኔዎች',
@@ -48,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ምንም የዋጋ ደረጃዎች አልተዋቀሩም።',
   'billing.plans.heading': 'ዕቅዶች',
   'billing.subheading': 'እቅድ፣ አጠቃቀም እና በስትሪፕ የሚተዳደር የክፍያ ማዘዣ።',
+  'common.confirm': 'አረጋግጥ',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
+  'common.retry': 'እንደገና ሞክር',
   'documentCard.open': 'ክፍት \\u2192',
   'documentDetail.back': 'ወደ ሰነዶች ተመለስ',
   'documentDetail.chunks.empty': 'ለዚህ ሰነድ እስካሁን ምንም ቁርጥራጮች አልተጠቆሙም - መመገብ ለመጀመር አንዳንድ ይዘቶችን ይለጥፉ።',
@@ -66,6 +70,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'የመረጃ ጠቋሚ ሰነድ',
   'documents.composer.titlePlaceholder': 'የሰነድ ርዕስ',
   'documents.emptyAll': 'እስካሁን ምንም ሰነዶች የሉም። ጥያቄዎችን መጠየቅ ለመጀመር አንድ ይስቀሉ።',
+  'documents.error.load': 'ሰነዶችን መጫን አልተቻለም።',
   'documents.heading': 'በመረጃ ጠቋሚ የተመዘገቡ ሰነዶች',
   'documents.loading': 'ሰነዶችን በመጫን ላይ…',
   'documents.metric.chunks': 'ጠቅላላ ቁርጥራጮች',
@@ -132,7 +137,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'በማስወገድ ላይ\\u2026',
   'members.subheading': 'የቡድን አጋሮችን ይጋብዙ እና ሚናዎችን ያዘጋጁ።',
   'members.tableHeading': 'ዝርዝር',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'notFound.askCta': 'የእውቀት መሰረትን ጠይቅ',
+  'notFound.body':
+    '{{app}} ያንን ገጽ ማግኘት አልቻለም። አገናኙ ተሰብሮ ሊሆን ይችላል፣ ወይም ገጹ በድጋሚ ማውጫ ወቅት ተቋርጦ ሊሆን ይችላል።',
   'notFound.eyebrow': 'መልሶ ማግኘት አይቻልም',
   'notFound.title': 'በመረጃ ጠቋሚው ውስጥ እንደዚህ አይነት ክፍል የለም',
   'notifications.dismiss': 'አሰናብት',
@@ -197,6 +206,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'የምንጭ ዩአርኤል',
   'sources.empty.body': 'የመጀመሪያውን ማገናኛዎን ለማገናኘት \\u201cምንጭ አክል\\u201d የሚለውን ጠቅ ያድርጉ።',
   'sources.empty.title': 'እስካሁን ምንም ምንጮች የሉም።',
+  'sources.error.add': 'ምንጭ ማከል አልተቻለም።',
   'sources.error.labelRequired': 'መለያ ያስፈልጋል።',
   'sources.error.load': 'ምንጮችን መጫን አልተቻለም።',
   'sources.error.urlRequired': 'ለዚህ የምንጭ አይነት ዩአርኤል ያስፈልጋል።',

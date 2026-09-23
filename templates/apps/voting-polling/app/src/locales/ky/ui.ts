@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Добуштар',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Азырынча күтүүдөгү суроолор жок.',
   'audienceQa.onStageEyebrow': 'Азыр сахнада',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Жарнамалоо',
   'audienceQa.queued': 'кезекте турган',
   'audienceQa.queueEyebrow': 'Кезек',
   'ballot.eyebrow': 'Добушуңузду бериңиз',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Сиз учурда төмөнкүдөсүз {{plan}} план.',
   'billing.switch': 'Которгуч',
   'billing.upgraded': 'Жаңыртылды {{plan}} — чектөөлөр дароо колдонулат.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'createPoll.addOption': 'Опция кошуу',
   'createPoll.anonymousHint':
     'Шайлоочулардын аттары аудит журналында жашырылган; эсептөөлөр анык бойдон калууда.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ношко жаңы келдиңизби?',
   'login.remember': 'Мени 30 күнгө эстеп кал',
   'login.subheading': 'Полду ачып, бөлмөнү иштетип, натыйжасын тастыктаңыз.',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'notFound.body':
     'Сиз кирүүгө аракет кылган баракча жабылган же жылдырылган. Башкаруу панелине кайтыңыз же жаңы сурамжылоо ачыңыз.',
   'notFound.eyebrow': 'Бул жолдо кворум жок',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Бул сурамжылоо жүктөлбөй койду.',
   'pollDetail.loading': 'Сурамжылоо жүктөлүүдө…',
   'pollDetail.notFound': 'Сурамжылоо табылган жок.',
+  'pollDetail.openBallot': 'Ачык добуш берүү',
   'pollDetail.openLive': 'Түз эфирдеги жыйынтыктар',
   'pollDetail.pollId': 'сурамжылоо · {{id}}',
   'pollDetail.published': 'Сурамжылоо жарыяланды — шайлоочулар эми добуш бере алышат.',
@@ -268,4 +274,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Электрондук почта аркылуу издөө…',
   'voters.subheading':
     'Шайлоочулардын тизмесин түзүңүз. Салмакталган бюллетендер үчүн шайлоочуларды уюм боюнча топтоштуруңуз.',
+  'votingPollingLayout.nav.analytics': 'Аналитика',
+  'votingPollingLayout.nav.billing': 'Төлөм',
+  'votingPollingLayout.nav.createPoll': 'Жаңы сурамжылоо',
+  'votingPollingLayout.nav.dashboard': 'Башкаруу панели',
+  'votingPollingLayout.nav.notifications': 'Билдирмелер',
+  'votingPollingLayout.nav.settings': 'Орнотуулар',
+  'votingPollingLayout.nav.team': 'Команда',
+  'votingPollingLayout.nav.voters': 'Шайлоочулар',
+  'votingPollingLayout.primaryNavLabel': 'Негизги навигация',
 }

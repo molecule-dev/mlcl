@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
   'activityFeed.empty': 'Wala pang aktibidad — ipadala ang iyong unang invoice.',
   'authShell.sample.paid': 'Bayad 2 minuto ang nakalipas',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Magdagdag ng bagong kliyente',
   'clients.search': 'Maghanap ayon sa pangalan, kumpanya, email',
   'clients.title': 'Mga Kliyente',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Bagong kliyente',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Nakalimutang password',
   'forgotPassword.successBody':
     'Nagpadala na kami ng mga tagubilin sa pag-reset sa {{email}} Mag-e-expire ang link sa loob ng 30 minuto.',
+  'invoiceDetail.action.confirmVoid': 'Kumpirmahin ang kawalan ng bisa?',
   'invoiceDetail.action.download': 'I-download ang PDF',
   'invoiceDetail.action.duplicate': 'Duplikado',
   'invoiceDetail.action.edit': 'I-edit',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Nawalang-bisa ang invoice.',
   'invoiceDetail.issued': 'Inilabas {{date}}',
   'invoiceDetail.loading': 'Naglo-load ng invoice…',
+  'invoiceDetail.paidInFull': 'Bayad nang buo',
   'invoiceDetail.summary': '{{client}} · ipinadala {{date}}',
   'invoiceDetail.tax': 'Buwis ({{rate}}%)',
   'invoiceDetail.timeline': 'Takdang Panahon',
+  'invoiceDetail.voided': 'Walang bisa',
   'invoiceEditor.addItem': 'Magdagdag ng item',
   'invoiceEditor.back': '← Balik sa mga invoice',
   'invoiceEditor.col.qty': 'Dami',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Ipadala ang iyong unang invoice',
   'landing.hero.eyebrow': 'Pag-invoice para sa maliliit na negosyo',
   'landing.hero.secondary': 'Tingnan ang isang halimbawang invoice',
+  'landing.hero.subtitle':
+    'Pinagsasama ng {{appName}} ang mga pinakintab na invoice na may mga built-in na pagbabayad, paulit-ulit na pagsingil, at mga ulat na handa nang magbuwis. Walang bookkeeping.',
   'landing.hero.title': 'Magpadala ng mga invoice. Mas mabilis na mabayaran.',
   'login.signupLink': 'Gumawa ng isa',
   'login.submitting': 'Sina-sign in ka…',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'mga bayad',
   'pricing.recurringLabel': 'mga paulit-ulit na iskedyul',
   'remitLayout.newInvoice': 'Bagong Invoice',
+  'remitLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'remitLayout.searchPlaceholder': 'Maghanap ng mga invoice, kliyente...',
   'remitLayout.tagline': 'Mas mabilis na mabayaran',
   'reports.chart.aging': 'Pagtanda ng invoice',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Kita sa panahon',
   'reports.chart.topClients': 'Mga nangungunang kliyente',
   'reports.chart.topClientsCaption': 'Panghabambuhay na kita, nangungunang 5',
+  'reports.empty.aging': 'Walang mga natitirang invoice.',
+  'reports.empty.methods': 'Wala pang datos ng pagbabayad.',
+  'reports.empty.revenue': 'Wala pang datos ng kita.',
+  'reports.empty.topClients': 'Wala pang datos ng kita ng kliyente.',
   'reports.exporting': 'Ine-export…',
   'reports.exportRequiresPaid':
     'Ang mga pag-export ay isang bayad na tampok — mag-upgrade para paganahin.',
@@ -195,6 +207,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Magdagdag ng rate ng buwis',
   'settings.tax.added': 'Idinagdag ang rate ng buwis.',
   'settings.tax.adding': 'Idinaragdag…',
+  'settings.tax.addRate': 'Magdagdag ng rate',
   'settings.tax.col.region': 'Rehiyon',
   'settings.tax.delete': 'Burahin ang rate ng buwis',
   'settings.tax.deleted': 'Inalis ang rate ng buwis.',

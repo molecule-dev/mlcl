@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.tagline': 'Semua unit, di bawah satu atap.',
+  'common.goToDashboard': 'Ke Dashboard',
   'dashboard.addProperty': 'Tambah properti',
   'dashboard.empty.body':
     'Setelah Anda memiliki properti, unit, dan pembayaran sewa, dasbor ini akan terisi dengan wawasan portofolio.',
@@ -85,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · Unit {{unit}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}} perintah kerja terbuka, diurutkan menurut prioritas',
   'maintenanceQueueList.title': 'Antrean pemeliharaan',
+  'nav.closeMenu': 'Tutup menu',
+  'nav.openMenu': 'Buka menu',
   'notFound.body': 'Halaman yang Anda cari telah dipindahkan, diarsipkan, atau tidak pernah ada.',
   'notFound.title': 'Pintu itu tidak terbuka',
   'notifications.empty.body':

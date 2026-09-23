@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.title': 'Teave rakenduse {{app}} kohta',
   'comments.addFailed': 'Kommentaari ei õnnestunud postitada.',
   'comments.backToDoc': 'Tagasi käsikirja juurde',
   'comments.deleteFailed': 'Kustutamine ebaõnnestus.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Lahendus',
   'comments.resolveFailed': 'Ei õnnestunud lahendada.',
   'comments.subtitle': '{{open}} avatud · „{{resolved}}“ lahendatud',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.activityHeading': 'Mis toimub',
   'dashboard.createFailed': 'Dokumenti ei õnnestunud luua.',
   'dashboard.empty': 'Käsikirju pole veel – alusta nupuga „Uus dokument“.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Ei õnnestunud prügikasti viia.',
   'editor.unpublish': 'Avaldamine tühistada',
   'editor.untitled': 'Nimetu dokument',
+  'editor.updatedElsewhere':
+    'Seda dokumenti uuendas keegi teine – laadige uuesti, et näha uusimat.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Kui kasutajale {{email}} on konto olemas, saadetakse talle varsti parooli taastamise link.',
   'forgotPassword.subtitle': 'Saadame sulle e-postiga parooli taastamise lingi.',
+  'landing.copyright': "\\u00a9 {{year}} {{app}} . Ehitatud Molecule'i abil.",
   'landing.ctaHeading': 'Ava leht. Alusta kirjutamist.',
   'landing.ctaPrimary': 'Avada stuudio',
   'landing.eyebrow': 'Kirjanikele, toimetajatele ja meeskondadele',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'muudetud {{when}}',
   'quillonDocumentCard.open': 'Ava →',
   'quillonKpiCard.trend': 'Viimase aja suundumus',
+  'quillonLayout.menu': 'Menüü',
   'quillonLayout.primaryNavLabel': 'Peamine navigeerimine',
   'quillonStudioHero.collab': 'Kaastöötajad',
   'quillonStudioHero.docs': 'Muudetud dokumendid',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'just praegu',
+  'trash.confirmDelete': 'Kinnita kustutamine',
   'trash.deleteFailed': 'Kustutamine ebaõnnestus.',
   'trash.deleteForever': 'Kustuta lõplikult',
   'trash.empty': 'Ei ole midagi taastada.',
+  'trash.emptyAll': 'Tühjenda prügikast',
   'trash.eyebrow': 'Stuudio',
   'trash.heading': 'Prügikast',
   'trash.loadFailed': 'Prügikasti ei õnnestunud laadida.',

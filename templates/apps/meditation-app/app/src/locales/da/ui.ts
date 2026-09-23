@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
+  'about.eyebrow': 'Om {{app}}',
+  'about.intro':
+    '{{app}} er en meditationsapp til det virkelige liv — daglige guidede meditationer, åndedrætsøvelser og søvnhistorier, der ledes af lærere, der føles som en ven, ikke en coach. Ingen skyldfølelse, ingen støjende fodring: bare et roligt sted at vende tilbage til dit åndedræt.',
+  'about.missionBody':
+    'Vi mener, at stilhed bør være tilgængelig for alle, på ethvert tidspunkt af dagen. {{app}} eksisterer for at gøre en rolig, konsekvent praksis ubesværet - så ti ærlige minutter kan ændre, hvordan du møder de næste ti timer.',
+  'about.missionTitle': 'Vores mission',
+  'about.pageTitle': '10 roligere minutter om dagen',
+  'breathingDial.seconds': 'sekunder',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.logout': 'Log ud',
   'common.min': 'min.',
   'common.relative.justNow': 'lige nu',
   'common.relative.now': 'nu',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
+  'nav.secondaryNavigation': 'Kontonavigation',
   'sessionCard.with': 'med {{name}}',
   'stillpoint.billing.choose': 'Vælge {{plan}}',
   'stillpoint.billing.currentPlan': 'I øjeblikket aktiv {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Vi kunne ikke indlæse planerne.',
   'stillpoint.billing.opening': 'Åbner kassen…',
   'stillpoint.billing.perMonthShort': '/ mdr.',
+  'stillpoint.billing.perYearShort': '/år',
   'stillpoint.billing.unknownResult': 'Uventet svar på faktura.',
   'stillpoint.billing.yearly': 'Årligt · spar 17%',
   'stillpoint.courseDetail.back': 'Kurser',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Ingen kurser endnu.',
   'stillpoint.courses.eyebrow': '{{count}} flerdagesrejser',
   'stillpoint.courses.heading': 'Kurser',
+  'stillpoint.forgot.checkEmail': 'Tjek din indbakke – linket udløber om 30 minutter.',
   'stillpoint.forgot.success': 'Vi har sendt et nulstillingslink til {{email}} .',
   'stillpoint.home.empty': 'Ingen sessioner endnu — tjek tilbage snart.',
   'stillpoint.home.friend': 'ven',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Opret din gratis konto',
   'stillpoint.landing.cta.title': 'Begynd din stilhed i dag',
   'stillpoint.landing.features.heading': 'En praksis der vokser med dig',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Daglige guidede meditationer, åndedrætsøvelser og søvnhistorier — med lærere, der føles som en ven, ikke en coach.',
   'stillpoint.landing.hero.eyebrow': '10 roligere minutter om dagen',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Gennemse efter humør',
   'stillpoint.login.rememberMe': 'Hold mig logget ind',
   'stillpoint.login.subheading': 'Log ind for at fortsætte din øvelse.',
+  'stillpoint.nav.tagline': 'Find dit stille center',
+  'stillpoint.notFound.body':
+    'Denne side tager en lang, dyb indånding et sted. Lad os finde et roligere sted til dig i {{app}} .',
   'stillpoint.notFound.title': 'Fortabt i stilheden',
   'stillpoint.notFound.toHome': 'Tilbage til i dag',
   'stillpoint.notFound.toLibrary': 'Gennemse biblioteket',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Spring 15 sekunder tilbage',
   'stillpoint.player.skipForward': 'Spring 30 sekunder frem',
   'stillpoint.player.with': 'med {{name}}',
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'Din praksis, opsummeret.',
   'stillpoint.profile.locked': 'Låst',
   'stillpoint.profile.member': 'Stillpoint-medlem',

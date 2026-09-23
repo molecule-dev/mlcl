@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.pageTitle': '{{app}} haqida',
   'authShell.statusLabel': 'onlayn yuguruvchilar',
   'collections.createError': "To'plam yaratib bo'lmadi.",
   'collections.defaultName': "Nomsiz to'plam {{n}}",
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': "Yangi to'plam",
   'collections.subheading':
     "Guruh so'rovlarini bajaring, jamoangiz bilan baham ko'ring va ularni to'plam sifatida boshqaring.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'environmentCard.inactive': "Bo'sh rejim",
   'environmentCard.more': "Ko'proq",
   'environmentCard.variables': "O'zgaruvchilar",
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Bepul yuklab oling',
   'landing.heroSubtitle':
     'Terminallarda yashovchi muhandislar uchun yaratilgan chaqmoq tezligidagi API sinov ish stoli.',
+  'landing.heroTitleAccent': "Yong'in",
+  'landing.heroTitleLine2': 'ishonchni mustahkamlang.',
+  'landing.heroTitleRest': "so'rovlar,",
   'landing.kicker': '$ pylon yuborish --watch',
   'landing.pricingEyebrow': '// $ narxlash --oddiy',
   'landing.pricingHeading': "Oddiy, oldindan aytib bo'ladigan narxlash",
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Bu yerda yangimisiz?',
   'login.showPassword': "Parolni ko'rsatish",
   'login.subtitle': "Pylon ish joyingizga o'ting.",
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'mocks.createError': "Soxta nusxa yaratib bo'lmadi.",
   'mocks.defaultName': 'Nomsiz masxara {{n}}',
   'mocks.deleteError': "Soxta nusxani o'chirib bo'lmadi.",
@@ -115,6 +123,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Ish joyiga qaytish',
   'notFound.eyebrow': '$ pylon rezolyutsiyasi --strict',
   'notFound.title': "Yo'nalish topilmadi",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'privacy.collect.account':
     "Hisob: elektron pochta manzilingiz, xeshlangan parolingiz, ko'rsatiladigan ismingiz va oxirgi marta kirgan vaqtingiz belgisi.",
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.subheading': "Ushbu hisobga tegishli ma'lumotlarning faqat o'qish uchun ko'rinishi.",
   'settings.unset': "o'rnatilmagan",
   'signup.identityHint': 'masalan, Aleks',
+  'signup.statusLabel': 'bepul daraja · kredit kartasiz',
   'signup.subtitle': "Bir necha daqiqada so'rovlarni ishga tushirishni boshlang.",
   'terms.account.body':
     'Parolingizni himoya qilish uchun siz javobgarsiz. Bepul yoki Pro rejalarida bitta hisobni bir nechta odam bilan ulashishga ruxsat berilmaydi — umumiy ish joylari uchun Team obunasini sotib oling.',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     "Sizga tegishli bo'lmagan yoki sinovdan o'tkazish uchun aniq ruxsatnomangiz bo'lmagan xizmatlarga so'rov yuborish uchun Pylondan foydalanmang. Pylondan tarif cheklovlarini chetlab o'tish yoki firibgarlik qilish uchun foydalanmang.",
   'terms.warranty.body':
     'Pylon hech qanday kafolatsiz "boricha" taqdim etiladi. Biz 99,9% ish vaqtini ta\'minlashga intilamiz, ammo bepul yoki professional rejalarda bunga kafolat bermaymiz.',
+  'testRunner.assertionsCount': "{{count}} ta'kidlar",
   'testRunner.createError': "Sinov yaratib bo'lmadi.",
   'testRunner.cron':
     "Tasdiqlar ushbu testning bog'langan so'rovining eng so'nggi bajarilishiga nisbatan baholanadi.",
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite natijalari, tasdiqlash farqlari va oxirgi 50 ta yugurish.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Tizimga kirgan:',
+  'workspace.auth.keyName': 'Sarlavha nomi',
+  'workspace.auth.keyValue': 'Kalit qiymati',
+  'workspace.auth.password': 'Parol',
+  'workspace.auth.username': 'Foydalanuvchi nomi',
+  'workspace.authOption.apikey': 'API kaliti',
+  'workspace.authOption.basic': 'Asosiy autentifikatsiya',
+  'workspace.authOption.bearer': 'Tashuvchi Token',
+  'workspace.authOption.none': 'Hech biri',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Turi',
   'workspace.authTypeLabel': 'Avtorizatsiya turi',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Hech biri',
+  'workspace.body.text': 'Xom matn',
+  'workspace.body.type': 'Turi',
   'workspace.environment': "Konvert yo'q",
   'workspace.envVar': "muhit o'zgaruvchisi",
   'workspace.eyebrow': '$ pylon ish maydoni --pane split',
+  'workspace.kv.addHeader': "Sarlavha qo'shish",
+  'workspace.kv.addParam': "Parametr qo'shish",
+  'workspace.kv.headerKey': 'Sarlavha nomi',
+  'workspace.kv.headerValue': 'Sarlavha qiymati',
+  'workspace.kv.key': 'Kalit',
+  'workspace.kv.paramKey': "So'rov parametr kaliti",
+  'workspace.kv.paramValue': "So'rov parametr qiymati",
+  'workspace.kv.removeRow': 'Qatorni olib tashlash',
+  'workspace.kv.value': 'Qiymat',
   'workspace.methodLabel': 'HTTP usuli',
   'workspace.metric.latency': 'Kechikish',
   'workspace.metric.latencyCaption': 'Ushbu yugurishdan keyin ikki tomonga sayohat',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Soʻrov qabul qilindi — quyidagi javobga qarang.',
   'workspace.subheading':
     "So'rov yozing, uni ishga tushiring va keyin javobni tasdiqlang - barchasi bitta panelda.",
+  'workspace.testResults': 'Sinov natijalari',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     "Avtorizatsiya sifatida yuborildi: Tashuvchi<token> ushbu to'plamdagi har bir so'rov bo'yicha.",

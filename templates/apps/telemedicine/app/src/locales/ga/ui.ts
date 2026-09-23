@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'Roghnaigh Am',
   'booking.title': 'Coinne a Chur in Áirithe',
   'clinicalNotesEditorial.empty': 'Gan aon othair le taispeáint.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'consult.backLink': 'Gach ceapachán',
   'consult.captions': 'Fotheidil',
   'consult.connected': 'Ceangailte · 720p · cobhsaí',
@@ -127,6 +128,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Othair',
   'patientVitalsHero.scripts': 'Oideas oscailte',
   'patientVitalsHero.subline': '{{count}} comhairliúcháin ar do sceideal inniu',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'prescriptions.empty': 'Ní hionann aon oidis.',
   'prescriptions.eyebrow': 'Ríomh-oideas',
   'prescriptions.heading': 'Oidis',
@@ -142,6 +144,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Fógra Príobháideachais',
   'privacy.use.body':
     'Chun cúram a sholáthar, meabhrúcháin coinní a sheoladh, oidis a threorú, agus iontaofacht na seirbhíse a fheabhsú. Ní dhíolaimid do shonraí riamh agus ní roinnimid faisnéis chliniciúil le fógróirí riamh.',
+  'providers.allSpecialties': 'Gach Speisialtacht',
+  'providers.loadError': 'Theip ar sholáthraithe a lódáil.',
+  'providers.loading': 'Ag lódáil…',
   'providers.noResults': 'Níor aimsíodh aon soláthraithe.',
   'providers.searchPlaceholder': 'Cuardaigh de réir ainm, speisialtachta...',
   'providers.title': 'Aimsigh Soláthraí',
@@ -161,6 +166,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Tús an lae',
   'settings.availability.heading': 'Infhaighteacht',
   'settings.devices.thisDevice': 'An gléas seo',
+  'settings.devices.unnamed': 'Gléas gan ainm',
   'settings.eyebrow': 'Cleachtadh & cuntas',
   'settings.loadError': 'Níorbh fhéidir do phróifíl a lódáil.',
   'settings.notifications.emailMessages':
@@ -175,6 +181,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Díchumasaigh',
   'settings.security.twoFactor.enable': 'Cumasaigh',
   'settings.security.twoFactor.heading': 'Fíordheimhniú dhá fhachtóir',
+  'settings.security.twoFactor.invalidCode': 'Níor chomhlíon an cód sin. Déan iarracht eile.',
+  'settings.security.twoFactor.setupFailed':
+    'Níorbh fhéidir an socrú dhá fhachtóir a thosú. Déan iarracht eile.',
+  'settings.security.twoFactor.statusOn': 'Tá dhá fhachtóir ar siúl',
   'settings.signOutDevice': 'Sínigh amach',
   'settings.subheading': 'Próifíl sholáthraí, rialacha cleachtais, agus foláirimh chliniciúla.',
   'signup.emailLabel': 'RÍOMHPHOST',
@@ -185,6 +195,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Cruthaigh Cuntas',
   'signupFooter.hipaa': 'Comhlíontach le HIPAA',
   'solaceLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'solaceLayout.toggleMenu': 'Roghchlár scoránaigh',
   'terms.eligibility.body':
     "Ní mór duit a bheith ocht mbliana déag d'aois ar a laghad, nó tuismitheoir nó caomhnóir dlíthiúil mionaoisigh a bhfuil cúram á lorg agat dó, agus lonnaithe go fisiciúil i stát SAM ina bhfuil ceadúnas ag ár gcliniceoirí.",
   'terms.payment.body':

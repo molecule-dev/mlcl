@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.title': '{{app}} ಬಗ್ಗೆ',
   'activeAgentsCard.agent1AvatarAlt':
     'ಆಧುನಿಕ ಕಚೇರಿಯಲ್ಲಿ ಸ್ನೇಹಪರ ನಗುವಿನೊಂದಿಗೆ ಮಹಿಳಾ ಬೆಂಬಲ ಏಜೆಂಟ್‌ನ ವೃತ್ತಿಪರ ಹೆಡ್‌ಶಾಟ್',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ಬೆಂಬಲವನ್ನು ಸಂಪರ್ಕಿಸಿ',
   'forgotPassword.error': 'ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'forgotPassword.rememberPassword': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ನೆನಪಿದೆಯೇ?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'ಸೈನ್ ಇನ್ ಮಾಡಿ — ಜೆನಿತ್ ಬೆಂಬಲ',
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.welcomeSubheading': 'ನಿಮ್ಮ ಬೆಂಬಲ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮುಚ್ಚಿರಿ',
+  'mobileNav.menu': 'ಸಂಚರಣೆ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ತೆರೆಯಿರಿ',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'nav.newTicket': 'ಹೊಸ ಟಿಕೆಟ್',
   'notifications.loadError':
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'ಆಜ್ಞೆ ಹುಡುಕಾಟ',
   'operatorDock.newReport': 'ಹೊಸ ವರದಿ',
   'operatorDock.systemOnline': 'ಸಿಸ್ಟಮ್ ಆನ್‌ಲೈನ್',
+  'planUpdated.subtitle': 'ಧನ್ಯವಾದಗಳು',
   'planUpdated.title': 'ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ',
   'pricing.agents': 'ಏಜೆಂಟ್‌ಗಳು',
   'pricing.automation': 'ಆಟೋಮೇಷನ್ ನಿಯಮಗಳು',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{ಹೆಸರು}}',
   'ticketCustomerReply.avatarAlt': '{{ಹೆಸರು}} ಅವತಾರ',
   'ticketDetail.errorTitle': 'ಏನೋ ತಪ್ಪಾಗಿದೆ.',
+  'ticketDetail.loadError': 'ಟಿಕೆಟ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'ticketDetail.notFound': 'ಟಿಕೆಟ್ ಸಿಗಲಿಲ್ಲ.',
+  'ticketDetail.replyError': 'ಪ್ರತ್ಯುತ್ತರ ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'ticketDetail.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
   'ticketDetail.statusUpdateError': 'ಸ್ಥಿತಿಯನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'ticketDetailsCard.assigneeLabel': 'ನಿಯೋಜಿತರು',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{ಸಮಯ}} ಎಡ',
   'ticketRow.title': 'ಉತ್ಪಾದನೆಯಲ್ಲಿ ಡೇಟಾಬೇಸ್ ಸಂಪರ್ಕ ವಿಫಲವಾಗಿದೆ {{ನೋಡ್}}',
   'tickets.pageTitle': 'ಟಿಕೆಟ್‌ಗಳು — ಜೆನಿತ್ ಸಪೋರ್ಟ್',
+  'ticketsFab.newTicket': 'ಹೊಸ ಟಿಕೆಟ್',
   'ticketsFilterBar.assigneeLabel': 'ನಿಯೋಜಿತರು:',
   'ticketsFilterBar.clearFilters': 'ಫಿಲ್ಟರ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ',
   'ticketsFilterBar.dateRangeDemoHint':

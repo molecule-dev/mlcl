@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.pageTitle': 'Om {{appName}}',
   'analytics.error': 'Kunne ikke indlæse analyser.',
   'analytics.heading': 'Hentningsanalyse',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ingen prisniveauer konfigureret.',
   'billing.plans.heading': 'Planer',
   'billing.subheading': 'Plan, brug og Stripe-administreret betaling.',
+  'common.confirm': 'Bekræfte',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.retry': 'Prøv igen',
   'documentCard.open': 'Åbn \\u2192',
   'documentDetail.back': 'Tilbage til dokumenter',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksdokument',
   'documents.composer.titlePlaceholder': 'Dokumenttitel',
   'documents.emptyAll': 'Ingen dokumenter endnu. Upload et for at begynde at stille spørgsmål.',
+  'documents.error.load': 'Dokumenter kunne ikke indlæses.',
   'documents.heading': 'Indekserede dokumenter',
   'documents.loading': 'Indlæser dokumenter…',
   'documents.metric.chunks': 'Samlede bidder',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Fjerner\\u2026',
   'members.subheading': 'Inviter holdkammerater og fastsæt roller.',
   'members.tableHeading': 'Holdliste',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'notFound.askCta': 'Spørg vidensbasen',
+  'notFound.body':
+    '{{app}} kunne ikke finde siden. Linket er muligvis ødelagt, eller siden er muligvis blevet fjernet under en reindeksering.',
   'notFound.eyebrow': 'Kan ikke hentes',
   'notFound.title': 'Ingen sådan del i indekset',
   'notifications.dismiss': 'Afvis',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Kilde-URL',
   'sources.empty.body': 'Klik på \\u201cTilføj kilde\\u201d for at tilslutte dit første stik.',
   'sources.empty.title': 'Ingen kilder endnu.',
+  'sources.error.add': 'Kunne ikke tilføje kilde.',
   'sources.error.labelRequired': 'Etiket er påkrævet.',
   'sources.error.load': 'Kunne ikke indlæse kilder.',
   'sources.error.urlRequired': 'URL er påkrævet for denne kildetype.',

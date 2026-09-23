@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'about.pageTitle': 'Dwar {{appName}}',
   'analytics.empty': 'Irrekordja l-ewwel klipp tiegħek biex tara l-involviment hawn.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipps',
   'billing.usage.views': 'Veduti',
   'billing.usage.views.unit': 'veduti',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'landing.cta.title': "Ibgħat feedback aħjar. Ibda b'Glint.",
   'landing.feature.capture.body':
     'Reġistrazzjoni fuq browser, desktop, u mobbli bil-mikrofonu, kamera, u tpinġija.',
   'landing.feature.capture.title': "Qbid b'vit wieħed",
+  'landing.footer.copy': '© {{year}} {{appName}} . Async, magħmul luminuż.',
   'landing.hero.cardCaption': "Ħarsa ġenerali lejn l-ispazju tax-xogħol kampjun — ipprovah b'xejn.",
   'landing.hero.primaryCta': "Ibda r-reġistrazzjoni b'xejn",
   'landing.hero.proof.free': 'Livell bla ħlas għal dejjem',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Fittex reġistrazzjonijiet',
   'library.searchPlaceholder': 'Fittex reġistrazzjonijiet…',
   'library.weeklyChange': '{{value}} % meta mqabbel mal-ġimgħa li għaddiet',
+  'nav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'nav.record': 'Rekord',
   'nav.shared': 'Maqsum miegħi',
   'nav.startRecording': 'Ibda r-reġistrazzjoni',

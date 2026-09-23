@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
+  'about.pageTitle': 'Dwar {{app}}',
   'achievementBadgeCard.unlockedOn': 'Miftuħ {{date}}',
   'achievements.loadError': 'Ma rnexxiex jitgħabbew il-kisbiet.',
   'achievements.subheading': "{{unlocked}} ta' {{total}} miftuħ",
   'achievements.unlockedOn': 'Miftuħ {{date}}',
+  'auth.legalConsent': 'Billi tkompli, taqbel mal-',
   'calendar.empty': 'Oħloq id-drawwa li tara l-kalendarju tiegħek.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Vizzju',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Grilja tad-drawwiet',
   'category.${c.category}': '{{għadd}} drawwiet',
   'common.and': 'u',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'consistencyHeatmap.ariaLabel': "Mappa tas-sħana tal-konsistenza ta' kuljum",
   'consistencyHeatmap.caption': 'L-aħħar {{weeks}} ġimgħat',
   'consistencyHeatmap.lessLabel': 'Inqas',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Araha live',
   'landing.heroSubtitle':
     "Ibni drawwiet bil-mod li fil-fatt jibqgħu: impenji żgħar, sensiliet ta' kuljum, u l-pjaċir viżċerali ta' katina twila u bla interruzzjoni.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Ħarsa ġewwa Streak',
   'landing.previewMotivation': "Disa' strixxi ħajjin. Żommhom kollha sħan.",
   'login.eyebrow': 'Aqbad il-katina',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': "Agħmilha żgħira. Agħmilha speċifika. Erġa' ejja għada.",
   'newHabit.timeLabel': "Ħin ta' tfakkira",
   'notifications.markError': 'Ma stajtx immarka kollox bħala moqri.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.entries': '{{count}} entrati',
+  'pricing.heading': 'Agħżel il-pjan {{app}} tiegħek',
   'profile.action.plan': 'Immaniġġja l-abbonament',
   'profile.action.settings': 'Is-settings tal-kont',
   'profile.bioEmpty': 'Żid bijografija qasira fis-Settings biex tintroduċi lilek innifsek.',
@@ -126,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': "Suġġeriment ta' kuljum filgħodu (8:00am)",
   'settings.reminders.heading': 'Tifkiriet',
   'settings.reminders.weekly': "Sommarju ta' kull ġimgħa (il-Ħadd filgħaxija)",
+  'settings.revokeDeviceWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.signOutDevice': 'Oħroġ',
   'settings.streaks.freezesPerWeek': 'Jiffriża kull ġimgħa',
   'settings.streaks.gracePeriod': "Perjodu ta' grazzja ta' 6 sigħat wara nofsillejl",
@@ -152,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} attiv',
   'streakHeroCard.daysSuffix': 'jiem',
   'streakHeroCard.title': 'L-itwal sensiela attiva',
+  'streakLayout.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'streakLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'streakLayout.primaryNavLabel': 'Navigazzjoni primarja',
 }

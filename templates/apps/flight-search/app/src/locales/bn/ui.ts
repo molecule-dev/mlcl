@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.eyebrow': '{{app}} সম্পর্কে',
   'about.pageTitle': 'প্রতিটি রুটে, একটিই অনুসন্ধান।',
   'booking.backToDetail': 'ফ্লাইটের বিবরণে ফিরে যান',
   'booking.continue': 'পেমেন্ট চালিয়ে যান',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'কর ও ফি',
   'booking.summary.travelers': 'ভ্রমণকারীরা',
   'common.about': 'সম্পর্কে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'flightDetail.backToResults': 'ফলাফলে ফিরে যান',
   'flightDetail.baseFare': 'মূল ভাড়া',
   'flightDetail.book': 'বুকিং চালিয়ে যান',
@@ -52,12 +55,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '১ স্টপ',
   'flightResultCard.select': 'নির্বাচন করুন',
   'flightResultCard.totalLabel': 'মোট সময়',
+  'flightSearchLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'forgotPassword.subheading':
     'আপনার Skylark অ্যাকাউন্টে থাকা ইমেলটি প্রবেশ করান এবং আমরা একটি সুরক্ষিত রিসেট লিঙ্ক পাঠিয়ে দেব।',
   'forgotPassword.successBody':
     'চেক {{email}} নতুন পাসওয়ার্ড সেট করার লিঙ্কের জন্য। লিঙ্কটির মেয়াদ ৩০ মিনিটে শেষ হয়ে যাবে।',
   'forgotPassword.successHeading': 'রিসেট লিঙ্ক পাঠানো হয়েছে',
   'landing.cta.explore': 'অনুসন্ধান করে দেখুন',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'সবার আগে পরবর্তী সেরা অফারটি খুঁজে নিন।',
   'landing.cta.signup': 'ভাড়া ট্র্যাক করা শুরু করুন',
   'landing.features.eyebrow': 'কেন স্কাইলার্ক',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'priceAlertCard.cities': '{{o}} → {{d}}',
   'priceAlertCard.currentLabel': 'এখন',
   'priceAlertCard.deleteAria': 'সতর্কতা মুছুন',
+  'priceAlertCard.gapLabel': 'লক্ষ্যমাত্রার উপরে {{amount}}',
   'priceAlertCard.hitTarget': 'লক্ষ্য পূরণ হয়েছে · এখনই বুক করুন',
   'priceAlertCard.target': 'লক্ষ্য {{price}}',
   'priceAlerts.addAlert': 'সতর্কতা যোগ করুন',
   'priceAlerts.deleteConfirm': 'এই সতর্কতাটি সরাবেন?',
   'priceAlerts.empty': 'এখনো কোনো ট্র্যাক করা রুট নেই।',
+  'priceAlerts.emptyCta': 'ট্র্যাক করার জন্য একটি রুট অনুসন্ধান করুন',
   'priceAlerts.errorMessage': 'অ্যালার্টগুলো লোড করা যায়নি।',
   'priceAlerts.eyebrow': 'স্কাইলার্ক ওয়াচলিস্ট',
   'priceAlerts.form.createError': 'অ্যালার্ট তৈরি করা যায়নি।',
@@ -108,6 +115,7 @@ export const ui: UiTranslations = {
   'results.loading': 'সরাসরি ভাড়া খোঁজা হচ্ছে…',
   'results.multiEyebrow': 'বহু-শহর ভ্রমণসূচী',
   'results.multiLegHeading': 'পা {{n}} · {{থেকে}} → {{প্রতি}} · {{তারিখ}}',
+  'results.sortAriaLabel': 'ফলাফল অনুসারে সাজান',
   'results.sortLabel': 'সাজান',
   'settings.language.title': 'ভাষা',
   'settings.profile.currency': 'মুদ্রা',

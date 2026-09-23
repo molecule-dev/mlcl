@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'កំពុងមើល',
   'auctionDetail.watchRemoved': 'បានលុបចេញពីបញ្ជីតាមដាន។',
   'auctionDetail.watchRemoveLabel': 'ដកចេញពីបញ្ជីតាមដាន',
+  'auctionPlatformLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'authShell.brandBody':
     'ដេញថ្លៃ​ភ្លាមៗ​លើ​នាឡិកា​កម្រ ស្នាដៃ​សិល្បៈ​ល្អៗ និង​វត្ថុ​ពិសេស​ប្លែកៗ។ ញញួរ​ធ្លាក់​ក្នុង​រយៈពេល​ប៉ុន្មាន​វិនាទី។',
   'authShell.brandEyebrow': 'ផ្សាយផ្ទាល់ឥឡូវនេះ · ការដេញថ្លៃចំនួន 1,420',
@@ -48,6 +49,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'តម្រៀបតាម',
   'browseAuctions.subheading':
     'ត្រងតាមប្រភេទ តម្រៀបតាមអ្វីដែលសំខាន់បំផុត ហើយដាក់ការដេញថ្លៃមុនពេលញញួរធ្លាក់។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'countdownTimer.ended': 'បានបញ្ចប់',
   'countdownTimer.endingSoon': 'បញ្ចប់',
   'forgotPassword.checkEmailBody':
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'login.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'login.subtext': 'បន្តតាមដានការដេញថ្លៃរបស់អ្នក ហើយដាក់ការដេញថ្លៃមុនពេលញញួរធ្លាក់។',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'myBids.bidAgain': 'ដេញថ្លៃម្តងទៀត',
   'myBids.browseCta': 'រកមើលការដេញថ្លៃផ្ទាល់ →',
   'myBids.checkoutCta': 'បង់ប្រាក់ឥឡូវនេះ',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'មជ្ឈមណ្ឌលសកម្មភាព',
   'notificationsPage.subheading':
     '{{count}} មិនទាន់អាន · ការអាប់ដេតផ្ទាល់នៅពេលការដេញថ្លៃផ្លាស់ប្តូរ',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.bidsLabel': 'ការដេញថ្លៃ',
   'pricing.listingsLabel': 'បញ្ជី',
   'pricing.watchlistLabel': 'បញ្ជីតាមដាន',

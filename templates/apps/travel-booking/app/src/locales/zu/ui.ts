@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.featureDiscover.title': 'Ugqozi, olukhethwe ngesandla',
   'account.addPaymentCta': 'Engeza indlela yokukhokha',
   'account.addPaymentError': 'Ayikwazanga ukwengeza indlela yokukhokha.',
+  'account.confirmRemove': 'Qinisekisa ukususa',
   'account.defaultBadge': 'Okuzenzakalelayo',
   'account.loyalty.pointsTowardNext':
     '{{amaphuzu}} kwe {{Olandelayo}} amamayela ukuya {{Isigaba esilandelayo}}',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Imininingwane yohambo',
   'booking.tripSummary': '{{nights}} ubusuku · {{guests}} izivakashi',
   'common.daysAgo': '{{count}} kudala',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.hoursAgo': '{{count}} edlule',
   'common.minutesAgo': '{{count}} eminyakeni edlule',
   'common.no': '—',
@@ -84,6 +88,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Iyalayisha…',
   'notifications.subheading':
     '{{count}} akufundiwe · konke ebhokisini lokungenayo elilodwa elizolile',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.accommodationsLabel': 'izindawo zokuhlala',
   'pricing.bookingsLabel': 'ukubhukha',
   'pricing.destinationsLabel': 'izindawo ezigciniwe',
@@ -135,6 +140,7 @@ export const ui: UiTranslations = {
     'Ugqozi, ukuhlala okuthembekile, kanye nendlela engenakuphikiswana kusukela ephusheni kuya ekubhukheni — emazweni angu-14 kanye nezindawo ezingaphezu kuka-200 ezihlolwe ngesandla.',
   'sojournHeroSearchCard.trustProtected': 'Ukukhansela kwamahhala, kuvikelwe ngokuphelele',
   'sojournHeroSearchCard.trustVetted': 'Izakhiwo ezihlolwe ngesandla kuphela',
+  'travelBookingLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'tripDetail.backLink': 'Buyela ohambweni',
   'tripDetail.cancelCta': 'Khansela ukubhukha',
   'tripDetail.cancelHeading': 'Khansela lolu hambo?',

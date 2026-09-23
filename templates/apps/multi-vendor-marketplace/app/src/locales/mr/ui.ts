@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'चाचणी मोड: ऑर्डरची नोंद केली जाते आणि शिल्लक रक्कम चुकती केली जाते, परंतु कोणत्याही प्रत्यक्ष कार्डमधून शुल्क आकारले जात नाही.',
   'checkout.placeOrderCta': 'ऑर्डर द्या',
+  'checkout.placeOrderError': 'तुमची ऑर्डर नोंदवता आली नाही.',
   'checkout.placingOrder': 'ऑर्डर देत आहे…',
   'checkout.review.shipTo': 'शिपिंग',
   'checkout.review.subtotal': 'विक्रेता उपएकूण',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'विक्रेता बना',
   'landing.footer.copyright': '© {{year}} {{name}} — प्रत्येक उत्पादक, एक बाजारपेठ.',
   'landing.footer.help': 'मदत केंद्र',
+  'landing.nav.keepShopping': 'खरेदी सुरू ठेवा',
   'landing.nav.sell': 'व्हेंड्रीवर विक्री करा',
   'landing.nav.shop': 'दुकान',
   'landing.nav.signUp': 'सामील व्हा',
@@ -65,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'ग्राहकांना काय आवडत आहे',
   'login.accountTypeAria': 'खाते प्रकार',
   'login.heading': 'वेंड्रीमध्ये तुमचे पुन्हा स्वागत आहे',
+  'login.legalPrefix': 'लॉग इन करून, तुम्ही आमच्या अटी व शर्तींना सहमती देत आहात.',
   'login.subheading': 'खरेदी सुरू ठेवण्यासाठी साइन इन करा किंवा तुमच्या दुकानात परत जा.',
   'login.submitShopper': 'खरेदी करण्यासाठी साइन इन करा',
   'login.submitVendor': 'माझ्या दुकानात साइन इन करा',
@@ -87,10 +90,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'ठेवले {{date}} · {{vendorCount}} विक्रेता(विक्रेते) · बहु-विक्रेता पूर्तता',
   'orders.empty': 'या फिल्टरशी जुळणारी कोणतीही ऑर्डर अद्याप नाही.',
+  'orders.emptyTitle': 'येथे अद्याप कोणतीही ऑर्डर आलेली नाही.',
   'orders.eyebrow': 'तुमच्या खरेदी',
   'orders.subtitle':
     'कोणी काय पाठवले ते पहा, प्रत्येक विक्रेत्यानुसार ट्रॅकिंगचा मागोवा घ्या आणि पुन्हा कधीही पार्सल गमावू नका.',
   'orders.title': 'विक्रेत्यानुसार गटबद्ध केलेल्या ऑर्डर',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'productDetail.addToCart': 'कार्टमध्ये जोडा',
   'productDetail.addToCartError': 'कार्टमध्ये जोडता आले नाही.',
   'productDetail.addToCartSuccess': '" {{name}} तुमच्या कार्टमध्ये जोडले आहे.',
@@ -131,12 +136,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'तुम्ही खरेदी कशी करता, विक्रेते तुमच्यापर्यंत कसे पोहोचतात आणि पैसा कुठे खर्च होतो, याचे व्यवस्थापन करा.',
   'signup.heading': 'मार्केटप्लेसमध्ये सामील व्हा',
+  'signup.legalPrefix': 'सामील होऊन, तुम्ही आमच्या अटी व शर्तींना सहमती देता.',
   'signup.mismatch': 'पासवर्ड अजून जुळलेले नाहीत.',
   'signup.subheading':
     '४,००० हून अधिक स्वतंत्र निर्मात्यांचे उत्पादन पहा, किंवा स्वतःचे दुकान उघडा.',
   'status.delivered': 'वितरित केले',
   'status.refunded': 'परतावा दिला',
+  'userMenu.marketplaceSettings': 'मार्केटप्लेस सेटिंग्ज',
   'vendor.memberSince': 'सदस्य झाल्यापासून {{date}}',
+  'vendorDashboard.defaultShop': 'तुमचे दुकान',
   'vendorDashboard.eyebrow': 'विक्रेता प्रशासक · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} वेंड्री कमिशननंतर रक्कम मंजूर झाली आहे. पुढील पैसे शुक्रवारी मिळतील.',
@@ -155,12 +163,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'तुम्ही कुठे बनवता, काय बनवता, आणि ते का महत्त्वाचे आहे.',
   'vendorOnboarding.currencyLabel': 'चलनात सेटल करा',
   'vendorOnboarding.errors.shopName': 'दुकानाचे नाव आवश्यक आहे.',
+  'vendorOnboarding.errors.submit': 'आपला अर्ज सादर करता आला नाही.',
   'vendorOnboarding.exit': 'जतन करा आणि नंतर सुरू ठेवा',
   'vendorOnboarding.eyebrow': 'Vendry वर विक्रीसाठी अर्ज करा',
+  'vendorOnboarding.field.shopName': 'दुकानाचे नाव',
   'vendorOnboarding.heroBody':
     'सरळ ८% कमिशन, दर शुक्रवारी पैसे मिळतील, तुमचे दुकान, तुमची कहाणी. आम्हाला तुमच्या दुकानाबद्दल थोडक्यात सांगा आणि आम्ही ४८ तासांच्या आत तुमच्याशी संपर्क साधू.',
   'vendorOnboarding.review.contact': 'संपर्क',
   'vendorOnboarding.review.currency': 'चलन',
+  'vendorOnboarding.review.tagline': 'टॅगलाइन',
+  'vendorOnboarding.review.website': 'वेबसाइट',
   'vendorOnboarding.reviewBody':
     'उत्तम. आम्ही ४८ तासांच्या आत तुमच्या दुकानाचा आढावा घेऊ आणि तुमच्या पहिल्या विक्रीनंतरच्या शुक्रवारी तुम्हाला पहिला परतावा पाठवू.',
   'vendorOnboarding.samplesLabel': 'कामाचे नमुने — इन्स्टाग्राम, पोर्टफोलिओ, फोटो',
@@ -169,11 +181,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'अर्ज सादर झाला आहे! आम्ही तुमच्या दुकानाचे पुनरावलोकन करून ४८ तासांच्या आत तुम्हाला ईमेल पाठवू.',
   'vendorOnboarding.taxIdLabel': 'कर ओळखपत्र',
+  'vendorOrders.emptyTitle': 'अद्याप पूर्ण करण्यासाठी कोणतीही ऑर्डर नाही',
   'vendorOrders.eyebrow': 'विक्रेता प्रशासक',
+  'vendorOrders.kpi.awaiting': 'पूर्ततेची प्रतीक्षा आहे',
   'vendorOrders.kpi.inTransit': 'वाहतुकीत',
   'vendorOrders.subtitle':
     'लेबल प्रिंट करा, पूर्तता झाली म्हणून चिन्हांकित करा आणि प्रश्नांना प्रतिसाद द्या — हे सर्व Vendry न सोडता करा.',
   'vendorOrders.title': 'येणाऱ्या ऑर्डर',
+  'vendorPayouts.emptyTitle': 'अद्याप कोणतेही पेमेंट झालेले नाही.',
   'vendorPayouts.eyebrow': 'विक्रेता वित्तपुरवठा',
   'vendorPayouts.heroCaption': 'बँको बीपीआयला नुकसान भरपाई दिली {{account}} · १-२ कामकाजाचे दिवस',
   'vendorPayouts.history': 'पेमेंटचा इतिहास',
@@ -192,7 +207,9 @@ export const ui: UiTranslations = {
     'ते कुठे बनवले जाते? त्याच्याशी कोणती कथा जोडलेली आहे?',
   'vendorProductForm.error.name': 'उत्पादनाचे नाव आवश्यक आहे',
   'vendorProductForm.error.price': 'सकारात्मक किंमत प्रविष्ट करा',
+  'vendorProductForm.error.publish': 'प्रकाशित करण्यात अयशस्वी',
   'vendorProductForm.eyebrow': 'नवीन सूची',
+  'vendorProductForm.eyebrowEdit': 'सूची संपादित करा',
   'vendorProductForm.images.body':
     'जास्तीत जास्त ८ प्रतिमा ड्रॅग-अँड-ड्रॉप करा. पहिला फोटो दुकानाचे मुखपृष्ठ बनेल.',
   'vendorProductForm.images.cta': 'येथे फोटो ड्रॅग करा किंवा ब्राउझ करा',
@@ -204,6 +221,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'बदल जतन करा',
   'vendorProductForm.title': 'तुमच्या उत्पादनाबद्दल खरेदीदारांना सांगा',
   'vendorProductForm.variants.colInventory': 'इन्व्हेंटरी',
+  'vendorProductForm.variants.colVariant': 'व्हेरिएंट',
   'vendorProducts.eyebrow': 'विक्रेता प्रशासक',
   'vendorProducts.kpi.draft': 'मसुदे',
   'vendorProducts.kpi.lowStock': 'कमी साठा',

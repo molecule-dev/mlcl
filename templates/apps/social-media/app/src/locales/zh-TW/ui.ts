@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
+  'about.pageTitle': '關於 {{app}}',
+  'common.goToDashboard': '前往主控台',
+  'common.retry': '重試',
   'compose.cancel': '取消',
   'compose.captionPlaceholder': '你在想什麼？',
   'compose.heading': '分享片刻',
@@ -92,6 +96,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': '已驗證帳戶',
   'resetPassword.newPassword': '新密碼',
   'resetPassword.subheading': '選擇一個醒目的單字——至少 12 個字元。',
+  'search.clearAria': '清除',
+  'search.error': '搜尋失敗。請重試。',
   'search.noPeople': '沒有創作者匹配“ {{q}} “。”',
   'search.noPosts': '沒有帖子匹配“ {{q}} “。”',
   'search.noTags': '目前還沒有熱門話題標籤。',
@@ -118,6 +124,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': '隱藏密碼',
   'signup.showPassword': '顯示密碼',
   'signup.subheading': '建立帳戶即可開始分享。',
+  'socialMediaLayout.closeMenu': '關閉導覽選單',
+  'socialMediaLayout.openMenu': '開啟導覽選單',
+  'socialMediaLayout.primaryNavLabel': '主導航',
   'storyRail.heading': '故事',
   'storyRail.label': '故事',
   'storyRail.openAria': '打開{{handle}}的故事',

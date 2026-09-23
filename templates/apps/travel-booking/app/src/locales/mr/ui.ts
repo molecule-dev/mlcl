@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.featureDiscover.title': 'निवडक प्रेरणा',
   'account.addPaymentCta': 'पेमेंट पद्धत जोडा',
   'account.addPaymentError': 'पेमेंट पद्धत जोडता आली नाही.',
+  'account.confirmRemove': 'काढण्याची पुष्टी करा',
   'account.defaultBadge': 'डीफॉल्ट',
   'account.loyalty.pointsTowardNext': '{{points}} च्या पुढील मैल पर्यंत {{पुढील स्तर}}',
   'account.loyalty.tier': 'वर्तमान स्तर',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'सहलीचा तपशील',
   'booking.tripSummary': '{{nights}} रात्री · {{guests}} पाहुणे',
   'common.daysAgo': '{{count}} डी पूर्वी',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.hoursAgo': '{{count}} h पूर्वी',
   'common.minutesAgo': '{{count}} मी पूर्वी',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'कायदेशीर',
   'notifications.loading': 'लोडिंग…',
   'notifications.subheading': '{{count}} न वाचलेले · सर्वकाही एका शांत इनबॉक्समध्ये',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'pricing.accommodationsLabel': 'निवास व्यवस्था',
   'pricing.bookingsLabel': 'बुकिंग',
   'pricing.destinationsLabel': 'जतन केलेली ठिकाणे',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'प्रेरणा, विश्वासार्ह निवास व्यवस्था, आणि स्वप्नापासून ते प्रत्यक्ष बुकिंगपर्यंतचा सुलभ प्रवास — १४ देशांमधील २०० हून अधिक काळजीपूर्वक निवडलेल्या मालमत्तांमध्ये.',
   'sojournHeroSearchCard.trustProtected': 'मोफत रद्द करण्याची सोय, संपूर्ण संरक्षण',
   'sojournHeroSearchCard.trustVetted': 'केवळ हाताने तपासलेल्या मालमत्ता',
+  'travelBookingLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'tripDetail.backLink': 'प्रवासांकडे परत',
   'tripDetail.cancelCta': 'बुकिंग रद्द करा',
   'tripDetail.cancelHeading': 'ही सहल रद्द करायची आहे का?',

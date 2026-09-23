@@ -34,6 +34,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Bandomasis režimas: užsakymai registruojami ir likučiai apmokami, bet iš tikros kortelės pinigai nenuskaitomi.',
   'checkout.placeOrderCta': 'Pateikti užsakymą',
+  'checkout.placeOrderError': 'Nepavyko pateikti užsakymo.',
   'checkout.placingOrder': 'Pateikiamas užsakymas…',
   'checkout.review.shipTo': 'Pristatymas į',
   'checkout.review.subtotal': 'Tiekėjo tarpinė suma',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Tapkite pardavėju',
   'landing.footer.copyright': '© {{year}} {{name}} – kiekvienas gamintojas, viena rinka.',
   'landing.footer.help': 'Pagalbos centras',
+  'landing.nav.keepShopping': 'Toliau apsipirkinėkite',
   'landing.nav.sell': 'Parduokite Vendry svetainėje',
   'landing.nav.shop': 'Parduotuvė',
   'landing.nav.signUp': 'Prisijunkite',
@@ -65,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Kas patinka pirkėjams',
   'login.accountTypeAria': 'Paskyros tipas',
   'login.heading': 'Sveiki sugrįžę į Vendrį',
+  'login.legalPrefix': 'Prisijungdami jūs sutinkate su mūsų',
   'login.subheading':
     'Prisijunkite, kad galėtumėte tęsti apsipirkimą arba grįžti į savo parduotuvę.',
   'login.submitShopper': 'Prisijunkite, kad galėtumėte apsipirkti',
@@ -87,10 +90,12 @@ export const ui: UiTranslations = {
   'orderDetail.helpBody': '„Vendry“ palaikymo komanda atsako per 4 valandas, net savaitgaliais.',
   'orderDetail.helpTitle': 'Ar kažkas negerai su šiuo užsakymu?',
   'orders.empty': 'Šiuo filtru dar nėra atitinkamų užsakymų.',
+  'orders.emptyTitle': 'Čia dar nėra užsakymų',
   'orders.eyebrow': 'Jūsų pirkiniai',
   'orders.subtitle':
     'Matykite, kas ką išsiuntė, sekite siuntos sekimą pagal tiekėją ir niekada daugiau nepameskite siuntos.',
   'orders.title': 'Užsakymai, sugrupuoti pagal tiekėją',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'productDetail.addToCart': 'Į krepšelį',
   'productDetail.addToCartError': 'Nepavyko įdėti į krepšelį.',
   'productDetail.addToCartSuccess': '„ {{name}} “ įdėta į jūsų krepšelį.',
@@ -131,12 +136,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Valdykite, kaip apsiperkate, kaip jus pasiekia pardavėjai ir kur eina pinigai.',
   'signup.heading': 'Prisijunkite prie prekyvietės',
+  'signup.legalPrefix': 'Prisijungdami jūs sutinkate su mūsų',
   'signup.mismatch': 'Slaptažodžiai dar nesutampa.',
   'signup.subheading':
     'Naršykite daugiau nei 4000 nepriklausomų gamintojų arba atidarykite savo parduotuvę.',
   'status.delivered': 'Pristatyta',
   'status.refunded': 'Grąžinta',
+  'userMenu.marketplaceSettings': 'Prekyvietės nustatymai',
   'vendor.memberSince': 'Narys nuo {{date}}',
+  'vendorDashboard.defaultShop': 'jūsų parduotuvė',
   'vendorDashboard.eyebrow': 'Pardavėjo administratorius · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Įskaityta po „Vendry“ komisinių. Kitas išmokėjimas penktadienį.',
@@ -155,12 +163,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Kur gaminate, ką gaminate ir kodėl tai svarbu.',
   'vendorOnboarding.currencyLabel': 'Atsiskaityti valiuta',
   'vendorOnboarding.errors.shopName': 'Parduotuvės pavadinimas būtinas.',
+  'vendorOnboarding.errors.submit': 'Nepavyko pateikti jūsų paraiškos.',
   'vendorOnboarding.exit': 'Išsaugoti ir tęsti vėliau',
   'vendorOnboarding.eyebrow': 'Pateikite paraišką parduoti Vendry platformoje',
+  'vendorOnboarding.field.shopName': 'Parduotuvės pavadinimas',
   'vendorOnboarding.heroBody':
     'Fiksuotas 8 % komisinis mokestis, išmokėjimai kiekvieną penktadienį, jūsų vitrina, jūsų istorija. Papasakokite mums šiek tiek apie savo parduotuvę ir mes su jumis susisieksime per 48 valandas.',
   'vendorOnboarding.review.contact': 'Kontaktas',
   'vendorOnboarding.review.currency': 'Valiuta',
+  'vendorOnboarding.review.tagline': 'Reklaminis šūkis',
+  'vendorOnboarding.review.website': 'Svetainė',
   'vendorOnboarding.reviewBody':
     'Atrodo gerai. Jūsų parduotuvę peržiūrėsime per 48 valandas ir pirmąjį mokėjimą išsiųsime penktadienį po pirmojo pardavimo.',
   'vendorOnboarding.samplesLabel': 'Pavyzdiniai darbai — Instagram, portfolio, nuotraukos',
@@ -169,11 +181,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Paraiška pateikta! Peržiūrėsime jūsų parduotuvę ir susisieksime su jumis el. paštu per 48 valandas.',
   'vendorOnboarding.taxIdLabel': 'Mokesčių mokėtojo kodas',
+  'vendorOrders.emptyTitle': 'Dar nėra užsakymų, kuriuos reikėtų įvykdyti',
   'vendorOrders.eyebrow': 'Pardavėjo administratorius',
+  'vendorOrders.kpi.awaiting': 'Laukiama išsipildymo',
   'vendorOrders.kpi.inTransit': 'Tranzitu',
   'vendorOrders.subtitle':
     'Spausdinkite etiketes, pažymėkite kaip įvykdytą ir atsakykite į klausimus – visa tai neišeidami iš „Vendry“.',
   'vendorOrders.title': 'Gaunami užsakymai',
+  'vendorPayouts.emptyTitle': 'Išmokų dar nėra',
   'vendorPayouts.eyebrow': 'Pardavėjų finansavimas',
   'vendorPayouts.heroCaption': 'Atsiskaito su „Banco BPI“ {{account}} · 1–2 darbo dienos',
   'vendorPayouts.history': 'Išmokėjimų istorija',
@@ -191,7 +206,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Kur jis pagamintas? Kokią istoriją jis neša?',
   'vendorProductForm.error.name': 'Būtina nurodyti produkto pavadinimą',
   'vendorProductForm.error.price': 'Įveskite teigiamą kainą',
+  'vendorProductForm.error.publish': 'Nepavyko paskelbti',
   'vendorProductForm.eyebrow': 'Naujas skelbimas',
+  'vendorProductForm.eyebrowEdit': 'Redaguoti įrašą',
   'vendorProductForm.images.body':
     'Nuvilkite iki 8 nuotraukų. Pirmoji nuotrauka taps vitrinos viršeliu.',
   'vendorProductForm.images.cta': 'Nuvilkite nuotraukas čia arba naršykite',
@@ -203,6 +220,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Išsaugoti pakeitimus',
   'vendorProductForm.title': 'Papasakokite pirkėjams apie savo kūrinį',
   'vendorProductForm.variants.colInventory': 'Inventorius',
+  'vendorProductForm.variants.colVariant': 'Variantas',
   'vendorProducts.eyebrow': 'Pardavėjo administratorius',
   'vendorProducts.kpi.draft': 'Juodraščiai',
   'vendorProducts.kpi.lowStock': 'Mažas kiekis sandėlyje',

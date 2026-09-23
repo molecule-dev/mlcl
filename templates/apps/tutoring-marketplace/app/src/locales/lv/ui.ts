@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Jūsu loma',
   'account.role.upgradeLink': 'Piesakieties, lai kļūtu par verificētu pasniedzēju →',
   'account.title': 'Profils, maksājums un preferences.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mācīt uz krīta',
   'becomeTutor.form.error': 'Nevarēja iesniegt pieteikumu.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Tēma',
   'bookingConfirm.title': 'Jūs esat rezervēts. Mēs parūpēsimies par pārējo.',
   'bookingConfirm.with': 'Ar pasniedzēju',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'earningsHero.eyebrow': 'Ieņēmumi • {{month}}',
   'forgotPassword.heading': 'Aizmirsāt paroli?',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Sūtīt ziņojumu',
   'messages.thread.empty': 'Sasveicinies — sāc sarunu.',
   'messages.title': 'Tēmas ar jūsu pasniedzējiem.',
+  'nav.primary': 'Primārā',
   'pricing.dataExport': 'Datu eksports:',
   'pricing.headingDefault': 'Paplašinātās funkcijas:',
   'resetPassword.heading': 'Izvēlieties jaunu, spēcīgu paroli.',

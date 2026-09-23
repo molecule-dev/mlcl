@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'പോസ്റ്റുകൾ',
   'categoryDetail.stat.threads': 'ത്രെഡുകൾ',
   'categoryDetail.threadCount': 'കാണിക്കുന്നു {{count}} ത്രെഡുകൾ',
+  'categoryDetail.threadsFailed': 'ത്രെഡുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'compose.bodyPlaceholder':
     'ഇത് ലേ ഔട്ട് ചെയ്യുക. വിഭാഗങ്ങൾക്ക് ## ഉം ഉദ്ധരണികൾക്ക് > ഉം കോഡ് ബ്ലോക്കുകൾക്ക് ``` ഉം ഉപയോഗിക്കുക.',
+  'compose.categoriesFailed': 'വിഭാഗങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'compose.eyebrow': 'പുതിയ ത്രെഡ്',
   'compose.failed': 'ത്രെഡ് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'compose.field.body': 'ശരീരം',
@@ -74,6 +78,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങൂ — വായിക്കാത്ത ത്രെഡുകൾ നിങ്ങൾക്കായി കാത്തിരിക്കുന്നു.',
   'login.twoFactor': 'ടു-ഫാക്ടർ ടോക്കൺ (ഓപ്ഷണൽ)',
+  'moderationQueue.actionFailed': 'പ്രവർത്തനം പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'moderationQueue.eyebrow': 'മോഡറേറ്റർ വർക്ക്‌സ്‌പെയ്‌സ്',
   'moderationQueue.heading': 'മോഡറേഷൻ ക്യൂ · {{count}} തുറന്ന ഇനങ്ങൾ',
   'moderationQueue.kind.${item.kind}': '{{എണ്ണം}} പതാകകൾ',
@@ -81,7 +86,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'രണ്ട് മണിക്കൂറിനുള്ളിൽ ഫസ്റ്റ്-ടച്ച് ലക്ഷ്യമിടുക. അവ്യക്തമായ കോളുകൾക്ക് admin@stoa എന്ന വിലാസത്തിൽ അറിയിക്കുക.',
   'nav.browseHeader': 'ബ്രൗസ് ചെയ്യുക',
+  'nav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'nav.communityGuidelinesTitle': 'കമ്മ്യൂണിറ്റി മാർഗ്ഗനിർദ്ദേശങ്ങൾ',
+  'nav.drawerTitle': 'മെനു',
+  'nav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'nav.primaryNavLabel': 'ഫോറം നാവിഗേഷൻ',
   'notFound.body':
     'അത് ആർക്കൈവിൽ ലോക്ക് ചെയ്‌തിരിക്കാം, അല്ലെങ്കിൽ URL വഴിതിരിച്ചുവിട്ടിരിക്കാം. അഗോറയിലേക്ക് തിരികെ പോയി മറ്റൊരു സംഭാഷണം ആരംഭിക്കുക.',
   'notFound.browseCta': 'വിഭാഗങ്ങൾ ബ്രൗസ് ചെയ്യുക',
@@ -92,6 +101,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'അറിയിപ്പുകൾ · {{count}} വായിക്കാത്തത്',
   'postCard.edited': '(എഡിറ്റ് ചെയ്തത്)',
   'postCard.flag': 'പതാക',
+  'postCard.flagged': 'ഫ്ലാഗ് ചെയ്‌തു',
   'postCard.markSolution': 'ലായനി അടയാളപ്പെടുത്തുക',
   'postCard.originalPost': 'ഒറിജിനൽ പോസ്റ്റ്',
   'postCard.quote': 'ഉദ്ധരണി',
@@ -113,6 +123,14 @@ export const ui: UiTranslations = {
   'search.heading': 'ഒരു ത്രെഡ്, ഒരു പോസ്റ്റ്, ഒരു വ്യക്തിയെ കണ്ടെത്തുക.',
   'search.resultsCount': '{{count}} ഫലങ്ങൾ',
   'search.searching': 'തിരയുന്നു...',
+  'settings.currentPasswordHint':
+    'നിങ്ങളുടെ ഇമെയിൽ വിലാസം മാറ്റുന്നതിന് നിങ്ങളുടെ പാസ്‌വേഡ് ആവശ്യമാണ്. സ്ഥിരീകരിക്കാൻ എന്റർ അമർത്തുക അല്ലെങ്കിൽ ഫീൽഡ് വിടുക.',
+  'settings.currentPasswordLabel': 'നിലവിലെ പാസ്വേഡ്',
+  'settings.currentPasswordRequired':
+    'നിങ്ങളുടെ നിലവിലുള്ള പാസ്‌വേഡ് ഉപയോഗിച്ച് ഈ മാറ്റം സ്ഥിരീകരിക്കുക.',
+  'settings.failedToUpdateProfile': 'പ്രൊഫൈൽ അപ്ഡേറ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു',
+  'settings.name': 'പേര്',
+  'settings.saved': 'സംരക്ഷിച്ചു.',
   'signup.confirm': 'സ്ഥിരീകരിക്കുക',
   'signup.emailPlaceholder':
     'you@stoa.community (@stoa.community) എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക.',

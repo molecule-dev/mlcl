@@ -171,8 +171,7 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'Əlavə olunur…',
   'seating.form.submit': 'Masa əlavə et',
   'seating.poolTitle': 'Oturmamış qonaqlar',
-  'seating.subtitle':
-    '{{oturmuş}} oturmuş<x> {{tutumun}}</x> oturacaqlar ·<x> {{pool}}</x> Hovuzda qonaqlar gözləyir',
+  'seating.subtitle': 'Hovuzda gözləyən {{seated}} qonaq və {{capacity}} {{pool}} oturacaq',
   'seating.title': 'Oturacaq planı',
   'settings.billing': 'Ödəniş',
   'settings.changePassword': 'Şifrəni dəyişdir',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'about.tagline': 'Secrets sterven in het open.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Token aanmaken',
   'apiTokens.kicker': 'API-tokens',
   'apiTokens.loading': 'Tokens laden…',
+  'apiTokens.new': 'Nieuw token',
   'apiTokens.revoke': 'Token intrekken',
   'apiTokens.subheading':
     'Persoonlijke en service-tokens voor de Arcanum CLI en SDK. Platte tekst wordt eenmalig getoond bij aanmaak.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Zero-knowledge-encryptie',
   'common.connecting': 'Verbinden…',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.inviting': 'Uitnodigen…',
   'forgotPassword.checkInbox':
     'Als {email} geregistreerd is, ontvangt u binnen een minuut een ondertekende resetlink.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotatiestatus, anomalie-waarschuwingen en goedkeuringsverzoeken voor elke vault.',
   'notifications.unreadEmpty': 'Inbox leeg — alles bijgewerkt.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.heading': 'geheimen',
   'pricing.limits.accessPolicies': 'toegangsbeleid',
   'pricing.limits.auditLog': 'audit-logboekvermeldingen',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Persoonlijk account',
   'profile.plan.description': 'Beheer uw abonnement, bekijk limieten en upgrade.',
   'profile.subheading': 'Identiteit, tweedefactorapparaten en actieve sessies.',
+  'profile.twoFactor.code': 'Verificatiecode',
   'profile.twoFactor.disable': 'Uitschakelen',
   'profile.twoFactor.enable': 'Inschakelen',
+  'profile.twoFactor.invalidCode': 'Ongeldige code',
   'profile.twoFactor.kicker': 'Tweestapsverificatie',
+  'profile.twoFactor.off': 'Niet ingeschakeld',
   'profile.twoFactor.on': 'Ingeschakeld',
   'resetPassword.email': 'Account-e-mail',
   'resetPassword.heading': 'Nieuwe inloggegevens instellen',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': "commando's",
   'secretsManagerLayout.encrypted': 'AES-256 · VERSLEUTELD',
   'secretsManagerLayout.newVault': 'Nieuwe vault',
+  'secretsManagerLayout.newVaultShort': 'Nieuw',
   'secretsManagerLayout.rotations': 'Rotaties',
   'secretsManagerLayout.search': 'zoeken',
   'secretsManagerLayout.searchPlaceholder': 'Zoek secrets op sleutel, pad of tag…',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Secrets',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Secret toevoegen',
+  'vaultDetail.back': 'Alle kluizen',
   'vaultDetail.col.key': 'Sleutel',
   'vaultDetail.col.rotated': 'Geroteerd',
   'vaultDetail.col.value': 'Waarde',

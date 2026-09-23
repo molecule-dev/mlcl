@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'A {{app}} névjegye',
+  'appNav.mobileLabel': 'Elsődleges navigáció',
+  'appNav.primaryLabel': 'Elsődleges navigáció',
   'billing.actions.confirmCancel': 'Lemondja az előfizetését? Bármikor újra előfizethet.',
   'billing.actions.paused': 'Előfizetés szünetel.',
   'billing.actions.resumed': 'Az előfizetés újraindult.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Minden szint egy kis tételben megjelenő történet. Adj hozzá egyet a várólistádhoz, vagy vidd át a következő hónapba.',
   'boxThemeCard.perMonth': '/ hónap',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'customize.eyebrow': 'Tedd a magadévá',
   'customize.heading': 'Szabd testre a következő Crate-odat',
   'customize.items.exclude': 'Kihagyás',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Ebben a szezonban',
   'landing.editions.heading': 'Kiadások, amiket kurátoraink imádnak',
   'landing.footer.contact': 'Beszéljen egy kurátorral',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Indítsd el a dobozodat →',
   'landing.hero.ctaSecondary': 'Lásd a szinteket',
   'landing.hero.eyebrow': 'Havonta frissülő válogatások. Mindig személyesek.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'A KÖVETKEZŐ LELÉSED',
   'nextBoxHeroCard.itemsLabel': 'Válogatott elemek',
   'nextBoxHeroCard.shipsOnLabel': 'Szállítás dátuma',
+  'notFound.body':
+    'Nem találtuk meg az oldalt a {{app}} archívumában. Lehet, hogy már nem elérhető, vagy egyszerűen csak elgépelték.',
   'notFound.cta.dashboard': 'Ugrás az irányítópultra',
   'notFound.eyebrow': 'Üres doboz',
   'notFound.heading': 'Ez a polc üres',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'auth.fields.newPassword': 'Neues Passwort',
   'collectionDetail.addImage': 'Für die Sammlung erschaffen',
   'collectionDetail.backCta': 'Zurück zu den Sammlungen',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, Briefings und laufende Serien',
   'collections.title': 'Sammlungen',
   'collections.untitled': 'Ohne Titel · {{stamp}}',
+  'common.closeMenu': 'Menü schließen',
+  'common.dismiss': 'Verwerfen',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.openMenu': 'Navigationsmenü öffnen',
   'credits.eyebrow': '{{plan}}-Plan',
   'credits.renewsCopy': 'Plan erneuert sich am {{date}}',
   'credits.trail': 'Träumerei · {{plan}} Stufe',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Generierungsaktivitäten, Freigaben und Credit-Hinweise erscheinen hier.',
   'notifications.empty.title': 'Nichts zu melden',
   'notifications.subtitle': 'Generierungsereignisse nach Tag gruppiert',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.limits.gallery': '{{count}}-Galerie',
   'privacy.collect.body':
     'Bei der Registrierung erfassen wir Ihren Namen, Ihre E-Mail-Adresse und ein gehashtes Passwort. Während Sie Reverie nutzen, speichern wir die von Ihnen eingereichten Prompts, die für Sie generierten Bilder, die gespeicherten Stile und Sammlungen sowie Metadaten wie das verwendete Modell, Zeitstempel der Generierung und den Credit-Saldo.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Neues Passwort speichern',
   'reset.submitting': 'Passwort wird aktualisiert…',
   'settings.account.handle': 'Handle',
+  'settings.account.lastSaved': 'Aktives Profil · {{name}}',
   'settings.account.saved': 'Profil gespeichert',
   'settings.account.saveFailed': 'Profil konnte nicht gespeichert werden',
   'settings.account.title': 'Kreativprofil',
@@ -190,7 +197,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Neues Bild',
   'sidebar.secondary': 'Sekundäre Navigation',
   'signup.failed': 'Registrierung fehlgeschlagen. Bitte erneut versuchen.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Beginnen Sie Ihre Reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Erstellen Sie ein Konto und sichern Sie sich 120 Gratis-Credits.',
   'styles.empty': 'Noch keine Style-Presets — sie erscheinen nach der ersten Anmeldung.',
   'styles.eyebrow': 'Kuratiert',

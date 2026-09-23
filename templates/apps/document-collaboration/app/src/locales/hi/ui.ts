@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
+  'about.title': '{{app}} के बारे में',
   'comments.addFailed': 'टिप्पणी पोस्ट नहीं की जा सकी।',
   'comments.backToDoc': 'पांडुलिपि पर वापस जाएं',
   'comments.deleteFailed': 'हटाया नहीं जा सका।',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'सुलझाएं',
   'comments.resolveFailed': 'सुलझाया नहीं जा सका।',
   'comments.subtitle': '{{open}} खुले · {{resolved}} सुलझाए गए',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.activityHeading': 'क्या हो रहा है',
   'dashboard.createFailed': 'दस्तावेज़ नहीं बनाया जा सका।',
   'dashboard.empty': 'अभी कोई पांडुलिपि नहीं है — नया दस्तावेज़ बटन से शुरू करें।',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'ट्रैश में नहीं डाला जा सका।',
   'editor.unpublish': 'प्रकाशन रद्द करें',
   'editor.untitled': 'बिना शीर्षक दस्तावेज़',
+  'editor.updatedElsewhere':
+    'इस दस्तावेज़ को किसी और ने अपडेट किया है — नवीनतम संस्करण देखने के लिए रीलोड करें।',
   'editor.version': 'सं {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'यदि {{email}} के लिए कोई खाता मौजूद है, तो रीसेट लिंक भेजा जा रहा है।',
   'forgotPassword.subtitle': 'हम आपको रीसेट लिंक ईमेल करेंगे।',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . मॉलिक्यूल के साथ निर्मित।',
   'landing.ctaHeading': 'पृष्ठ खोलें। कर्सर को शुरू होने दें।',
   'landing.ctaPrimary': 'एक स्टूडियो खोलें',
   'landing.eyebrow': 'लेखकों, संपादकों और टीमों के लिए',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': '{{when}} संपादित किया गया',
   'quillonDocumentCard.open': 'खोलें →',
   'quillonKpiCard.trend': 'हाल का रुझान',
+  'quillonLayout.menu': 'मेनू',
   'quillonLayout.primaryNavLabel': 'मुख्य नेविगेशन',
   'quillonStudioHero.collab': 'सहयोगी',
   'quillonStudioHero.docs': 'स्पर्श किए गए दस्तावेज़',
@@ -156,9 +163,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}दि पहले',
   'time.hoursAgo': '{{hours}}घं पहले',
   'time.justNow': 'अभी',
+  'trash.confirmDelete': 'हटाने की पुष्टि करें',
   'trash.deleteFailed': 'हटाया नहीं जा सका।',
   'trash.deleteForever': 'हमेशा के लिए हटाएं',
   'trash.empty': 'पुनर्प्राप्त करने के लिए कुछ नहीं।',
+  'trash.emptyAll': 'ट्रैश खाली करें',
   'trash.eyebrow': 'स्टूडियो',
   'trash.heading': 'ट्रैश',
   'trash.loadFailed': 'ट्रैश लोड नहीं हो सका।',

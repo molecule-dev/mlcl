@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'billing.canceled': 'Tellimus tühistati. Perioodi lõpus naasete tasuta tellimusse.',
   'billing.contactSales': 'Võtke ühendust müügiga',
   'billing.free.1': '5 tõlget',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Säilituspiirangut pole',
   'billing.upgradeHint': 'Täiustatud tehisintellekti funktsioonide avamiseks uuenda.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.activityEmpty': 'Aktiivsust veel pole — alusta projekti selle voo täitmiseks.',
   'dashboard.eyebrow': 'Ülevaade',
   'dashboard.projectsEmpty': 'Projekte veel pole – alustage ühte, et seda siin näha.',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Kasuta varasemaid tõlkeid igas projektis uuesti. Kõrgem vaste skoor → vähem ümbertööd.',
   'memory.title': 'Mälupank',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'nav.legal': 'Õiguslik',
   'newProject.addLanguage': 'Lisa sihtmärk',
   'newProject.create': 'Loo projekt',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Märgitud {{count}} teated loetuks.',
   'notifications.subtitle':
     'Mainimised, arvustustaotlused ja tehisintellekti sündmused kõigist teie tööruumidest.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'privacy.collection.account': 'Teie konto e-posti aadress ja kuvatav nimi',
   'privacy.deletion.body':
     'Saate projekti, segmendi, sõnastiku termini või mälukirje igal ajal vastavalt lehelt kustutada. Konto kustutamine seadetest tühjendab meie andmebaasist kõik tööruumi ulatusega read.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Projektide laadimine ebaõnnestus.',
   'projects.loading': 'Projekte laaditakse…',
   'projects.subtitle': 'Kõik aktiivsed projektid kõigis lokaatides.',
+  'renditionLayout.primaryNavLabel': 'Peamine navigeerimine',
   'reset.backToLogin': '\\u2190 Tagasi sisselogimise juurde',
   'reset.passwordLabel': 'Uus parool',
   'review.activeEyebrow': 'Segment {{number}}',

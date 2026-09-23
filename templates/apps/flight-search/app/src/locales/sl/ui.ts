@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.eyebrow': 'O aplikaciji {{app}}',
   'about.pageTitle': 'Vsaka pot, eno iskanje.',
   'booking.backToDetail': 'Nazaj na podrobnosti o letu',
   'booking.continue': 'Nadaljuj s plačilom',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Davki in pristojbine',
   'booking.summary.travelers': 'Popotniki',
   'common.about': 'O nas',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'flightDetail.backToResults': 'Nazaj na rezultate',
   'flightDetail.baseFare': 'Osnovna cena',
   'flightDetail.book': 'Nadaljuj z rezervacijo',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 postajališče',
   'flightResultCard.select': 'Izberite',
   'flightResultCard.totalLabel': 'Skupni čas',
+  'flightSearchLayout.primaryNavLabel': 'Primarna navigacija',
   'forgotPassword.subheading':
     'Vnesite e-poštni naslov svojega računa Skylark in poslali vam bomo varno povezavo za ponastavitev.',
   'forgotPassword.successBody':
     'Preveri {{email}} za povezavo za nastavitev novega gesla. Povezava poteče čez 30 minut.',
   'forgotPassword.successHeading': 'Povezava za ponastavitev je bila poslana',
   'landing.cta.explore': 'Poskusite z iskanjem',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Poiščite naslednjo odlično ceno pred vsemi ostalimi.',
   'landing.cta.signup': 'Začnite spremljati cene vozovnic',
   'landing.features.eyebrow': 'Zakaj Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Dodaj opozorilo',
   'priceAlerts.deleteConfirm': 'Odstraniti to opozorilo?',
   'priceAlerts.empty': 'Še ni sledenih poti.',
+  'priceAlerts.emptyCta': 'Iskanje poti za sledenje',
   'priceAlerts.errorMessage': 'Opozoril ni bilo mogoče naložiti.',
   'priceAlerts.eyebrow': 'Seznam za opazovanje Skylarka',
   'priceAlerts.form.createError': 'Opozorila ni bilo mogoče ustvariti.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Načrt potovanja za več mest',
   'results.multiLegHeading': 'Noga {{n}} · {{od}} → {{do}} · {{datum}}',
   'results.multiSummary': '{{count}} noge · {{passengers}} popotnik',
+  'results.sortAriaLabel': 'Razvrsti rezultate po',
   'results.sortLabel': 'Razvrsti',
   'results.summary': '{{count}} leti · {{passengers}} popotnik',
   'settings.language.title': 'Jezik',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// пра {{app}}',
+  'about.pageTitle': 'Плоскасць кіравання вэб-хукам',
+  'about.plansTitle': 'Планы на кожны этап',
   'apiKeys.bestPractices': 'Найлепшыя практыкі',
   'apiKeys.body':
     'Праграмныя токены доступу. Разглядайце іх як паролі — захоўвайце ў зменных асяроддзя, ніколі не фіксуйце.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'у рамках плана',
   'billing.usageWarning': 'каля ліміту',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.body':
     'Прапускная здольнасць у рэжыме рэальнага часу, паўторныя спробы ў рэжыме рэальнага часу і канчатковыя кропкі, якія толькі што завіслі — ва ўсіх вашых працоўных месцах.',
   'dashboard.endpointsEmpty': 'Пакуль няма канчатковых кропак.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'канчатковыя кропкі',
   'endpointDetail.deliveryTrendSub': 'дастаўкі/гадзіну, лагарыфмічны маштаб',
   'endpointDetail.hideSecret': 'Схаваць сакрэт',
+  'endpointDetail.loading': 'Загрузка канцавой кропкі…',
   'endpointDetail.metric.delivered': 'Дастаўка на працягу 24 гадзін',
   'endpointDetail.metric.deliveredCaption': 'з {{count}} тыпы падзей',
   'endpointDetail.metric.failuresCaption': 'паўторныя спробы: {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Крытычна · 24 гадзіны',
   'notifications.metric.totalCaption': 'паштовая скрыня за ўвесь час',
   'payloadViewer.payload': '// карысная нагрузка',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint': "Паказаны ініцыялы — загрузкі, якія з'явяцца ў наступным рэлізе.",
   'profile.body': 'Ваш уліковы запіс, налады і актыўныя сесіі.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ захавана',
   'profile.sessionsEmpty': 'Актыўны толькі ваш бягучы сеанс. Іншыя прылады не ўвайшлі ў сістэму.',
   'profile.toggle': 'Пераключыць {{label}}',
+  'pylonShell.closeMenu': 'Закрыць меню навігацыі',
+  'pylonShell.openMenu': 'Адкрыць меню навігацыі',
   'pylonShell.primaryNavLabel': 'Асноўная навігацыя',
   'resetPassword.subtitle': 'Выберыце надзейны пароль, якім вы раней не карысталіся.',
   'resetPassword.tokenPlaceholder': 'уставіць з электроннай пошты',

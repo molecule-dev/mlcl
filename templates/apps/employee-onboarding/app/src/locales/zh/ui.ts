@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': '重置你的密码。',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': '标记任务为完成',
   'checklistTaskCard.markIncomplete': '标记任务为未完成',
   'checklistTaskCard.openLabel': '打开任务',
+  'common.goToDashboard': '前往仪表盘',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': '你已全部跟上',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': '进展顺利',
   'dashboard.timelineHeading': '30 / 60 / 90 里程碑',
   'dashboard.viewAllTasks': '查看所有任务',
+  'dashboard.weekOne': '第一周',
   'dashboard.yourCohort': '你的团队',
   'documents.empty.body': '团队添加的文档会出现在这里。',
   'documents.empty.title': '暂无文档',
@@ -97,7 +100,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 天免费试用',
   'landing.subhead':
     'Embark 引导每位新同事走过前 90 天——文书、培训、里程碑与有意义的介绍,都在一个安静而值得信赖的地方。',
+  'layout.openMenu': '打开导航菜单',
   'layout.search': '搜索任务、文档、队友…',
+  'layout.searchTeammates': '按姓名或角色搜索队友……',
   'layout.section.onboarding': '入职',
   'layout.tagline': '你的旅程从这里开始',
   'notifications.empty.body': '新动态会出现在这里。',
@@ -106,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': '昨天',
   'planUpdated.message': '一切就绪。',
   'planUpdated.preparing': '正在更新你的套餐…',
+  'planUpdated.verifying': '确认您的付款中…',
   'pricing.documentsLabel': '文档',
   'pricing.onboardingsLabel': '入职流程',
   'pricing.tasksLabel': '任务',

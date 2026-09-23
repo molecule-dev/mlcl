@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.title': 'Про {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'професійний портрет жінки-агента служби підтримки з привітною посмішкою в сучасному офісі',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Зверніться до служби підтримки',
   'forgotPassword.error': 'Не вдалося надіслати лист для скидання пароля. Спробуй ще раз.',
   'forgotPassword.rememberPassword': "Пам'ятаєте свій пароль?",
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Увійти — Підтримка Zenith',
   'login.showPassword': 'Показати пароль',
   'login.welcomeSubheading': 'Увійдіть до панелі підтримки',
+  'mobileNav.closeMenu': 'Закрити навігацію',
+  'mobileNav.menu': 'Навігація',
+  'mobileNav.openMenu': 'Відкрити навігацію',
   'nav.legal': 'Юридична інформація',
   'nav.newTicket': 'Новий квиток',
   'notifications.loadError': 'Не вдалося завантажити сповіщення. Спробуйте ще раз за мить.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Пошук команд',
   'operatorDock.newReport': 'Новий звіт',
   'operatorDock.systemOnline': 'Система онлайн',
+  'planUpdated.subtitle': 'Дякуємо',
   'planUpdated.title': 'План оновлено',
   'pricing.agents': 'агенти',
   'pricing.automation': 'Правила автоматизації',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': "{{ім'я}} аватар користувача",
   'ticketDetail.errorTitle': 'Щось пішло не так',
+  'ticketDetail.loadError': 'Не вдалося завантажити квиток.',
+  'ticketDetail.notFound': 'Квиток не знайдено',
+  'ticketDetail.replyError': 'Не вдалося надіслати відповідь. Спробуйте ще раз.',
   'ticketDetail.retry': 'Спробувати ще раз',
   'ticketDetail.statusUpdateError': 'Не вдалося оновити статус. Спробуйте ще раз.',
   'ticketDetailsCard.assigneeLabel': 'Правонаступник',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{час}} ліворуч',
   'ticketRow.title': 'Помилка підключення до бази даних у робочому середовищі {{вузол}}',
   'tickets.pageTitle': 'Квитки — Підтримка Zenith',
+  'ticketsFab.newTicket': 'Новий квиток',
   'ticketsFilterBar.assigneeLabel': 'Правоодержувач:',
   'ticketsFilterBar.clearFilters': 'Очистити фільтри',
   'ticketsFilterBar.dateRangeDemoHint':

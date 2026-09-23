@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Kami ay isang pangkat ng mga designer at engineer na minsang gumugol ng napakaraming oras araw-araw sa isang maingay na mailbox. Ang Courier ang inbox na gusto naming gamitin mismo.',
   'about.title': 'Email para sa nakapokus na trabaho',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'help.cta.about': 'Tungkol sa Courier',
   'help.cta.pricing': 'Tingnan ang pagpepresyo',
   'help.eyebrow': 'Help center',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Mabilisang mga sagot sa mga tanong na madalas naming marinig. May kulang ba? Buksan ang Mga Setting at gamitin ang in-app feedback form, o sumulat sa support@courier.example.',
   'help.title': 'Paano tayo makakatulong?',
   'landing.brand.scrollTop': 'Balik sa itaas',
+  'landing.copyright': '© {{year}} {{appName}} — Ginawa para sa pokus.',
   'landing.ctaBody':
     'Samahan ang libu-libong propesyonal na natapos ang kanilang inbox bago mananghalian.',
   'landing.ctaTitle': 'Mas maraming proseso, mas kaunting reaksyon.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Manood ng demo',
   'landing.heroSubtitle':
     'Ang Courier ay isang tahimik na three-pane inbox na ginawa para sa mga knowledge worker na gustong magproseso ng impormasyon, hindi mag-react dito.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Pinagkakatiwalaan ng mga nakatutok na koponan sa buong mundo',
   'landing.signIn': 'Mag-sign in',
   'meridian.archive.empty': 'Walang laman ang arkibos.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Para kay',
   'meridian.drafts.watermark': 'Draft',
   'meridian.folder.count': '{{count}} mga mensahe',
+  'meridian.folder.delete': 'Burahin',
   'meridian.folder.deleteForever': 'Permanenteng burahin',
   'meridian.folder.restore': 'Ilipat sa inbox',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Wala pang mga mensahe rito.',
   'meridian.inbox.loading': 'Naglo-load…',
   'meridian.inbox.next': 'Susunod',
+  'meridian.inbox.noSender': '(walang nagpadala)',
   'meridian.inbox.noSubject': '(walang paksa)',
+  'meridian.inbox.ofTotal': '{{current}} ng {{total}}',
   'meridian.inbox.openCompose': 'Buksan ang pagsulat',
   'meridian.inbox.previous': 'Nakaraan',
   'meridian.inbox.replyFailed': 'Na-save ang tugon ngunit nabigo ang paghahatid: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Wala pang account?',
   'meridian.login.showPassword': 'Ipakita ang password',
   'meridian.message.toLine': 'sa {{recipients}}',
+  'meridian.notFound.body':
+    'Hindi mahanap ang pahinang hinahanap mo. Bumalik sa iyong inbox na {{appName}} at tutulungan ka namin.',
   'meridian.notFound.eyebrow': 'Error 404',
   'meridian.notFound.title': 'Na-archive na ang thread na ito.',
   'meridian.notFound.toInbox': 'Buksan ang aking inbox',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Magdagdag ng bituin',
   'meridian.thread.unstar': 'Alisin ang bituin',
   'meridian.time.yesterday': 'Kahapon',
+  'meridian.topBar.openMenu': 'Buksan ang menu ng nabigasyon',
   'meridian.topBar.searchPlaceholder': 'Maghanap ng mail',
   'meridian.trash.empty': 'Walang laman ang basurahan.',
   'meridian.trash.title': 'Basurahan',
   'nav.legal': 'Legal',
   'planUpdated.description':
     'Aktibo na ngayon ang iyong subscription at na-update na ang iyong billing. Maligayang pagdating sa iyong na-refresh na Courier inbox.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.heading': 'mga draft',
   'pricing.limit.emails': 'mga email',
   'pricing.limit.folders': 'mga folder',
   'pricing.limit.labels': 'mga label',
   'privacy.collect.account':
     'Data ng account: pangalan, email address, na-hash na password, at ang petsa ng iyong pag-sign up.',
+  'privacy.contact': 'May mga tanong? Mag-email sa privacy@courier.example.',
   'privacy.intro':
     'Ipinapaliwanag ng patakaran sa privacy na ito kung anong data ang kinokolekta ng Courier, bakit namin ito kinokolekta, paano namin ito pinapanatiling ligtas, at kung ano ang mga pagpipilian mo rito. Layunin naming maging tiyak sa halip na legalistiko; kung may anumang hindi malinaw, sumulat sa privacy@courier.example.',
   'privacy.lastUpdated': 'Huling na-update: Abril 1, 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ang mga tuntuning ito ang namamahala sa iyong paggamit ng Courier. Sa pamamagitan ng paggawa ng account o pagpapadala ng email sa pamamagitan namin, sumasang-ayon kang sumunod sa mga ito. Sinusubukan naming sumulat ng mga tuntunin na maaaring sundin ng isang tao.',
   'terms.lastUpdated': 'Epektibo: Abril 1, 2026',
+  'terms.linkPrivacy': 'Basahin ang aming Patakaran sa Pagkapribado →',
   'terms.termination.body':
     'Maaari mong burahin ang iyong account anumang oras. Maaari naming suspindihin ang isang account na lumalabag sa mga tuntuning ito; kung gagawin namin, ipapaliwanag namin ang dahilan at hahayaan ka munang i-export ang iyong data.',
   'terms.warranty.body':

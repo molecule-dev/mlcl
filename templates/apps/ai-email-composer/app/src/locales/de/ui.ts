@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Unsere Geschichte',
   'aiSuggestionPanel.title': 'Signet-Copilot',
   'analytics.col.open': 'Öffnungsrate',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Bezahlvorgang wird gestartet…',
   'billing.subheading': 'Wählen Sie den Tarif, der zu Ihrem Sendeverhalten passt.',
   'billing.unavailable': 'Vertrieb kontaktieren',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.retry': 'Erneut versuchen',
   'compose.adjustingTone': 'Wird im gewählten Ton umgeschrieben…',
   'compose.aiPromptPlaceholder':
     'z. B. „Höfliches Nachfassen nach zwei Wochen ohne Antwort, knapp halten.“',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Müssen Sie etwas senden? Signet hat in Sekunden einen Entwurf bereit.',
   'dashboard.composeCtaLabel': 'Schnell verfassen',
   'dashboard.heading': 'Ihre Woche, verfasst',
+  'dashboard.loadFailed': 'Ihr Dashboard konnte nicht geladen werden.',
   'dashboard.manageLibrary': 'Bibliothek verwalten →',
   'dashboard.recentEmpty': 'Noch keine Sendungen – Ihre gesendeten E-Mails erscheinen hier.',
   'dashboard.recentHeading': 'Zuletzt gesendet',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet verwendet diesen Ton, sofern Sie ihn im Entwurf nicht überschreiben.',
   'signetLayout.primaryNavLabel': 'Hauptnavigation',
+  'signetLayout.toggleMenu': 'Menü umschalten',
   'signup.emailLabel': 'E-Mail-Adresse',
   'signup.showPassword': 'Passwort anzeigen',
   'signup.tagline': 'Senden Sie Ihre erste KI-verfasste E-Mail in weniger als einer Minute.',

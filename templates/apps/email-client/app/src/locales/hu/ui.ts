@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Egy elszórtan dolgozó tervezői és mérnöki csapat vagyunk, akik egykor naponta túl sok órát töltöttünk egy zajos levelezőprogramban. A Courier az a beérkező levelek mappája, amelyet mi magunk is szívesen használnánk.',
   'about.title': 'E-mail a koncentrált munkavégzéshez',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'help.cta.about': 'A Courierról',
   'help.cta.pricing': 'Árak megtekintése',
   'help.eyebrow': 'Súgóközpont',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Gyors válaszok a leggyakrabban feltett kérdésekre. Hiányzik valami? Nyisd meg a Beállítások menüpontot, és használd az alkalmazáson belüli visszajelzési űrlapot, vagy írj a support@courier.example címre.',
   'help.title': 'Hogyan segíthetünk?',
   'landing.brand.scrollTop': 'Vissza az oldal tetejére',
+  'landing.copyright': '© {{year}} {{appName}} — Koncentrációra tervezve.',
   'landing.ctaBody':
     'Csatlakozz azokhoz a több ezer szakemberhez, akik már ebéd előtt elintézték a beérkező leveleiket.',
   'landing.ctaTitle': 'Többet cselekedj, kevesebbet reagálj.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Demo megtekintése',
   'landing.heroSubtitle':
     'A Courier egy letisztult, három ablakszemes beérkező levelek mappa, amelyet azoknak a tudásalapú munkavállalóknak fejlesztettek ki, akik az információkat feldolgozni szeretnék, nem pedig csak reagálni rájuk.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Világszerte számos elkötelezett csapat bizalmát élvezi',
   'landing.signIn': 'Bejelentkezés',
   'meridian.archive.empty': 'Az archívum üres.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Címzett',
   'meridian.drafts.watermark': 'Tervezet',
   'meridian.folder.count': '{{count}} üzenetek',
+  'meridian.folder.delete': 'Törlés',
   'meridian.folder.deleteForever': 'Véglegesen törölni',
   'meridian.folder.restore': 'Áthelyezés a beérkező levelekbe',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Még nincs üzenet.',
   'meridian.inbox.loading': 'Betöltés…',
   'meridian.inbox.next': 'Következő',
+  'meridian.inbox.noSender': '(nincs feladó)',
   'meridian.inbox.noSubject': '(tárgy nélkül)',
+  'meridian.inbox.ofTotal': '{{current}} / {{total}}',
   'meridian.inbox.openCompose': 'Írás megnyitása',
   'meridian.inbox.previous': 'Előző',
   'meridian.inbox.replyFailed': 'A válasz elmentve, de a kézbesítés sikertelen volt: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Nincs fiókja?',
   'meridian.login.showPassword': 'Jelszó megjelenítése',
   'meridian.message.toLine': '{{recipients}} címre',
+  'meridian.notFound.body':
+    'A keresett oldal nem található. Lépjen vissza {{appName}} postaládájába, és mi segítünk a keresésben.',
   'meridian.notFound.eyebrow': '404-es hiba',
   'meridian.notFound.title': 'Ez a téma archiválásra került.',
   'meridian.notFound.toInbox': 'Nyisd meg a beérkező leveleimet',
@@ -136,18 +144,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Csillaggal jelölés',
   'meridian.thread.unstar': 'Csillag eltávolítása',
   'meridian.time.yesterday': 'Tegnap',
+  'meridian.topBar.openMenu': 'Navigációs menü megnyitása',
   'meridian.topBar.searchPlaceholder': 'E-mail keresés',
   'meridian.trash.empty': 'A kukában nincs semmi.',
   'meridian.trash.title': 'Kuka',
   'nav.legal': 'Jogi',
   'planUpdated.description':
     'Előfizetése már aktív, és a számlázási adatai is frissültek. Üdvözöljük a megújult Courier beérkező levelek mappájában!',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.heading': 'tervezetek',
   'pricing.limit.emails': 'e-mailek',
   'pricing.limit.folders': 'mappák',
   'pricing.limit.labels': 'címkék',
   'privacy.collect.account':
     'Fiókadatok: név, e-mail-cím, hash-elt jelszó és a regisztráció dátuma.',
+  'privacy.contact': 'Kérdése van? Írjon e-mailt a privacy@courier.example címre.',
   'privacy.intro':
     'Ez az adatvédelmi nyilatkozat ismerteti, hogy a Courier milyen adatokat gyűjt, miért gyűjtjük azokat, hogyan biztosítjuk azok biztonságát, és milyen választási lehetőségei vannak Önnek ezekkel kapcsolatban. Célunk, hogy a jogi zsargon helyett érthetően fogalmazzunk; ha bármilyen kérdése lenne, írjon nekünk a privacy@courier.example címre.',
   'privacy.lastUpdated': 'Utolsó frissítés: 2026. április 1.',
@@ -167,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ezek a feltételek szabályozzák a Courier használatát. Fiók létrehozásával vagy e-mail küldésével a szolgáltatásunkon keresztül Ön elfogadja, hogy ezek a feltételek rá nézve kötelezőek. Igyekszünk olyan szabályokat megfogalmazni, amelyeket az ember valóban be is tud tartani.',
   'terms.lastUpdated': 'Hatálybalépés: 2026. április 1.',
+  'terms.linkPrivacy': 'Adatvédelmi irányelveink →',
   'terms.termination.body':
     'Fiókját bármikor törölheti. A jelen feltételeket megsértő fiókokat felfüggeszthetjük; ilyen esetben megindokoljuk a döntésünket, és lehetőséget biztosítunk az adatok exportálására.',
   'terms.warranty.body':

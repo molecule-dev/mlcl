@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'L-istorja tagħna',
   'aiSuggestionPanel.title': 'Kopilota tas-Signet',
   'analytics.col.open': 'Rata miftuħa',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Nibdew il-ħlas…',
   'billing.subheading': 'Agħżel il-pjan li jaqbel mal-mod kif tibgħat.',
   'billing.unavailable': 'Ikkuntattja l-bejgħ',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.retry': "Erġa' pprova",
   'compose.adjustingTone': 'Kitba mill-ġdid fit-ton magħżul…',
   'compose.aiPromptPlaceholder':
     'eż. "Segwitu edukat wara li ma tingħata l-ebda tweġiba għal ġimagħtejn, żommu fil-qosor."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Trid tibgħat xi ħaġa? Signet jista’ jkollu abbozz lest f’sekondi.',
   'dashboard.composeCtaLabel': 'Kompożizzjoni rapida',
   'dashboard.heading': 'Il-ġimgħa tiegħek, komposta',
+  'dashboard.loadFailed': 'Ma stajtx nitgħabba d-dashboard tiegħek.',
   'dashboard.manageLibrary': 'Immaniġġja l-librerija →',
   'dashboard.recentEmpty': "Għad m'hemm l-ebda bgħit — l-emails li ntbagħtu se jidhru hawn.",
   'dashboard.recentHeading': 'Tibgħat riċenti',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ton awtomatiku',
   'settings.toneSubheading': 'Signet juża dan it-ton sakemm ma tegħlibx l-abbozz.',
   'signetLayout.primaryNavLabel': 'Navigazzjoni primarja',
+  'signetLayout.toggleMenu': 'Aqleb il-menù',
   'signup.emailLabel': 'Indirizz tal-Email',
   'signup.showPassword': 'Uri l-password',
   'signup.tagline': "Ibgħat l-ewwel email tiegħek abbozzata bl-AI f'inqas minn minuta.",

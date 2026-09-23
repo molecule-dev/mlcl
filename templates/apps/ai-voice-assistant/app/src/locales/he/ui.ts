@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'יש לכם משוב, בקשת תכונה או שמצאתם באג? צרו קשר עם צוות {{app}} דרך קישור התמיכה בתפריט החשבון שלכם - כל הודעה מגיעה לאדם אמיתי.',
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
   'agentDetail.back': 'כל הסוכנים',
   'agentDetail.capabilities': 'יכולות',
   'agentDetail.delete': 'מחיקת פרסונה',
   'agentDetail.deleteConfirm': 'למחוק את הפרסונה הזו? לא ניתן לבטל פעולה זו.',
+  'agentDetail.deleteError': 'לא ניתן היה למחוק את הפרסונה.',
   'agentDetail.eyebrow': 'אִישִׁיוּת',
   'agentDetail.fetchError': 'לא ניתן היה לטעון את הפרסונה.',
   'agentDetail.save': 'שמור פרסונה',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'מעבר…',
   'billing.updateError': 'לא ניתן היה להתחיל את העדכון.',
   'billing.usageHeading': 'שימוש בקול במחזור זה',
+  'chatBubble.source.text': 'טֶקסט',
+  'chatBubble.source.voice': 'קוֹל',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'conversation.defaultTitle': 'שיחה חדשה',
   'conversation.empty': 'אין עדיין הודעות. התחל על ידי אמירת משהו או הקלדה למטה.',
   'conversation.eyebrow': 'מפגש חי',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'אינטליגנציה שמדברת.',
   'landing.heroSubtitle':
     'עוזר קולי מבוסס בינה מלאכותית שמבין את הזרימה הטבעית שלך. שוחח, חשב רעיונות ופקד - בצורה חלקה.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'הַקשָׁבָה…',
   'landing.naturallyBody':
     'בלי מילות טריגר. בלי פקודות נוקשות. שפת השפה מבינה הקשר, הפרעות ואת הניואנסים של דיבור אנושי - כמו שיחה עם עמית לעבודה.',
@@ -108,6 +116,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'פתח סשן',
   'notFound.home': 'בחזרה הביתה',
   'notFound.title': 'לא הצלחנו לשמוע את הדף הזה.',
+  'parlanceLayout.closeMenu': 'סגור תפריט',
+  'parlanceLayout.openMenu': 'פתח את תפריט הניווט',
   'parlanceLayout.primaryNavLabel': 'ניווט ראשי',
   'pricing.conversations': '{{count}} שיחות',
   'pricing.cta.startFree': 'התחל בחינם',
@@ -146,6 +156,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'אין התאמות',
   'search.eyebrow': 'לוח פקודות',
   'search.fetchError': 'לא ניתן היה לטעון את אינדקס החיפוש.',
+  'search.static.profile.preview': 'שם תצוגה, שם משתמש, ביוגרפיה',
   'search.static.voice.title': 'קוֹל',
   'search.title': 'חיפוש שפה',
   'search.transcriptPreview': 'פתח את התמליל',

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ คำขอคุณสมบัติใหม่ หรือพบข้อผิดพลาด? ติดต่อทีมงาน {{app}} ผ่านลิงก์การสนับสนุนในเมนูบัญชีของคุณ — ทุกข้อความจะส่งถึงเจ้าหน้าที่จริง ๆ',
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'agentDetail.back': 'ตัวแทนทั้งหมด',
   'agentDetail.capabilities': 'ความสามารถ',
   'agentDetail.delete': 'ลบตัวตน',
   'agentDetail.deleteConfirm': 'ลบโปรไฟล์นี้? ไม่สามารถย้อนกลับได้',
+  'agentDetail.deleteError': 'ไม่สามารถลบข้อมูลบุคคลได้',
   'agentDetail.eyebrow': 'เพอร์โซน่า',
   'agentDetail.fetchError': 'ไม่สามารถโหลดข้อมูลบุคคลได้',
   'agentDetail.save': 'บันทึกตัวตน',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'กำลังสลับ…',
   'billing.updateError': 'ไม่สามารถเริ่มการอัปเดตได้',
   'billing.usageHeading': 'การใช้งานเสียงในรอบนี้',
+  'chatBubble.source.text': 'ข้อความ',
+  'chatBubble.source.voice': 'เสียง',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'conversation.defaultTitle': 'บทสนทนาใหม่',
   'conversation.empty': 'ยังไม่มีข้อความใดๆ เริ่มด้วยการพูดอะไรสักอย่างหรือพิมพ์ข้อความด้านล่าง',
   'conversation.eyebrow': 'เซสชั่นสด',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'สติปัญญาที่พูดได้',
   'landing.heroSubtitle':
     'ผู้ช่วยเสียง AI ที่เข้าใจสัญชาตญาณของคุณ พูดคุย ระดมความคิด และสั่งการได้อย่างราบรื่น',
+  'landing.heroTitle': '{{tagline}}',
   'landing.listening': 'การฟัง…',
   'landing.naturallyBody':
     'ไม่มีคำกระตุ้น ไม่มีคำสั่งที่ตายตัว Vox เข้าใจบริบท การขัดจังหวะ และความละเอียดอ่อนของภาษาพูดของมนุษย์ เหมือนกับการสนทนากับเพื่อนร่วมงาน',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'เปิดเซสชั่น',
   'notFound.home': 'กลับบ้านแล้ว',
   'notFound.title': 'เราไม่ได้ยินเสียงในหน้าเว็บนั้น',
+  'parlanceLayout.closeMenu': 'ปิดเมนู',
+  'parlanceLayout.openMenu': 'เปิดเมนูนำทาง',
   'parlanceLayout.primaryNavLabel': 'การนำทางหลัก',
   'pricing.conversations': '{{count}} การสนทนา',
   'pricing.cta.startFree': 'เริ่มต้นใช้งานฟรี',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ไม่พบผลลัพธ์ใดๆ',
   'search.eyebrow': 'พาเลทคำสั่ง',
   'search.fetchError': 'ไม่สามารถโหลดดัชนีการค้นหาได้',
+  'search.static.profile.preview': 'ชื่อที่แสดง, ชื่อผู้ใช้, ประวัติส่วนตัว',
   'search.static.voice.title': 'เสียง',
   'search.title': 'ค้นหา Vox',
   'search.transcriptPreview': 'เปิดเอกสารถอดเสียง',

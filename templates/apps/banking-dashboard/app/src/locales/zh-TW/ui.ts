@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
   'accountDetail.activeBadge': '積極的',
   'accountDetail.availableLabel': '{{amount}}可用的',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': '帳戶',
   'accounts.loadError': '無法載入帳戶。',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': '《冰雪奇緣》',
   'accounts.totalBalance': '{{數量}}全部的',
   'audit.empty': '目前還沒有活動。',
   'audit.eyebrow': '安全與訪問',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': '現金',
   'cashCreditCard.creditLabel': '信用額度已用',
   'cashCreditCard.title': '現金及信用卡',
+  'common.goToDashboard': '前往主控台',
   'dashboard.accountsHeading': '帳戶',
   'dashboard.heading': '概述',
   'dashboard.recentEmpty': '目前尚無交易紀錄。',
@@ -42,10 +45,12 @@ export const ui: UiTranslations = {
   'login.showPassword': '顯示密碼',
   'login.signUp': '註冊',
   'login.submit': '登入',
+  'meridianLayout.menu': '選單',
   'meridianLayout.primaryNavLabel': '主導航',
   'nav.legal': '合法的',
   'notifications.emptyHeading': '你已經全部了解狀況了。',
   'notifications.subheading': '即時提醒交易、安全和報表資訊。',
+  'planUpdated.verifying': '確認您的付款中…',
   'privacy.dataWeShare':
     '我們絕不出售個人銀行資料。我們僅在結算交易或履行法律義務的必要情況下，才會與支付處理機構、卡片組織和監管機構分享資訊。',
   'privacy.dataWeStore':
@@ -77,10 +82,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     '雙重認證會在每次登入時新增來自身份驗證器應用程式的一次性代碼。',
   'settings.security.twoFactorCta': '管理雙重認證',
+  'settings.security.twoFactorOff': '雙因素驗證已關閉',
   'settings.signOutDevice': '登出',
   'settings.subheading': '個人資料、安全和通知。',
+  'settings.twoFactorCode': '驗證碼',
   'settings.twoFactorDisable': '停用',
   'settings.twoFactorEnable': '啟用',
+  'settings.twoFactorInvalidCode': '無效的程式碼',
+  'settings.twoFactorVerify': '驗證並啟用',
   'signup.emailLabel': '電子郵件',
   'signup.fullName': '我們該如何稱呼您？',
   'signup.showPassword': '顯示密碼',
@@ -102,7 +111,9 @@ export const ui: UiTranslations = {
   'transactions.empty': '目前尚無交易紀錄。',
   'transactions.endDate': '結束日期',
   'transactions.eyebrow': '活動',
+  'transactions.loadError': '無法載入交易紀錄。',
   'transactions.merchant': '商人',
+  'transactions.subheading': '您所有帳戶中所有已入帳及待處理的交易。',
   'transfers.availableHint': '{{amount}}可用的',
   'transfers.errorGeneric': '轉帳失敗。',
   'transfers.errorMissingFields': '選擇來源帳戶和目標帳戶。',

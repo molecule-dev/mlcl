@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Алдаа олсон уу, функцийн хүсэлт гаргасан уу, эсвэл хийсэн киноныхоо талаар бидэнд хэлэхийг хүсэж байна уу? Мессеж бүр багийнхаа жинхэнэ хүнд хүрдэг — бүртгэлийн тохиргооноосоо хүссэн үедээ холбогдоно уу.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.eyebrow': '// тайралтын ард байгаа студи',
   'about.pageTitle': 'Тухай {{appName}}',
   'assetDetail.back': 'Номын сан руу буцах',
   'assetDetail.confirmDelete': 'Устгах " {{name}} "? Үүнийг буцаах боломжгүй.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} клип, аудио бичлэг, графикууд цагийн шугам дээр байршуулахад бэлэн байна.',
   'assetLibrary.title': 'Хөрөнгө',
   'assetLibrary.upload': 'Өмч нэмэх',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.browseTemplates': 'Загваруудыг үзэх →',
   'dashboard.loading': 'Төслүүдийг ачаалж байна…',
   'dashboard.noProjects': 'Төсөл хараахан алга — эхлүүлэхийн тулд нэгийг үүсгэнэ үү.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Зөвхөн өөрийнхөө санаж байгаа зүйлийг сонгоорой.',
   'rushesAuthShell.footer.copyright': '© Рашес Студио',
   'rushesAuthShell.footer.privacy': 'Нууцлал',
+  'rushesLayout.closeMenu': 'Навигацийг хаах',
   'rushesLayout.guest': 'Редактор',
+  'rushesLayout.navDialog': 'Навигаци',
+  'rushesLayout.openMenu': 'Навигацийг нээх',
   'rushesLayout.planFree': 'Үнэгүй төлөвлөгөө',
   'rushesLayout.tagline': 'Киноны цагийн хуваарь',
   'settings.billing.confirmCancel': 'Хугацаа дуусахад захиалгаа цуцлах уу?',

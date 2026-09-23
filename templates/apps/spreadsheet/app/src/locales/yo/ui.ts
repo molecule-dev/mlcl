@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'about.pageTitle': 'Nípa {{name}}',
   'auth.footer.about': 'Nípa {{name}}',
   'authHeader.subtitle': 'Wọlé láti jẹ́ kí àwọn nọ́mbà rẹ jẹ́ òótọ́.',
   'automations.action.email': 'Imeeli',
+  'automations.action.noop': 'Kò sí ìṣẹ́',
   'automations.action.webhook': 'Wẹ́bùkì Wẹ́bùkì',
   'automations.confirmDelete': 'Paarẹ " {{name}} "?',
   'automations.empty.headline': 'Ko si adaṣiṣẹ sibẹsibẹ',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Àwọn ohun tó ń fa ìdàgbàsókè àti ìgbésẹ̀ jákèjádò gbogbo ìwé iṣẹ́. Ìṣiṣẹ́ kọ̀ọ̀kan ń ṣe àkọsílẹ̀ ìlà kan tí o lè ṣe àyẹ̀wò rẹ̀ nígbà tó bá yá.',
   'automations.toggle': 'Yípadà {{name}}',
+  'automations.trigger.dailySchedule': 'Ètò ojoojúmọ́',
+  'automations.trigger.rowCreated': 'A ṣẹ̀dá ìlà',
+  'automations.trigger.rowUpdated': 'Tí a ti ṣe àtúnṣe ìlà',
   'billing.empty': 'Ko si awọn eto ti o wa.',
   'billing.error.priceMissing':
     'Kò sí iye owó Stripe tí a ṣètò fún ìpele yìí. Ṣètò STRIPE_*_PRICE_ID env vars.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Àwọn àtẹ àwòrán',
   'charts.kpi.totalCharts': 'Àpapọ̀ àwọn àtẹ àwòrán',
   'charts.list.empty': 'Kò sí àwọn àtẹ ìṣàfihàn síbẹ̀.',
+  'charts.namePlaceholder': 'Ìṣàpẹẹrẹ owó tí a ń gbà',
   'charts.newChart': 'Àtẹ àwòrán tuntun',
   'charts.primary.eyebrow': 'Àwọn àtẹ nípa irú',
   'charts.primary.headline': 'Àkópọ̀ Ààyè Iṣẹ́',
   'charts.subhead':
     'Àwọn àwòrán tó wà lójú ayé tí a so mọ́ àkójọpọ̀ rẹ — tún ṣe àtúnṣe sí gbogbo àtúnṣe sẹ́ẹ̀lì.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'editor.addColumn': 'Fi ọ̀wọ́n kún un',
+  'editor.addDialogTitle': 'Fi ọ̀wọ́n kún un',
   'editor.addRow': 'Fi ìlà kún un',
   'editor.addSheet': 'Fi ìwé kún un',
   'editor.back': 'Pada si awọn iwe iṣẹ',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite ni agbekalẹ—àwọn onímọ̀ nípa àkójọpọ̀ ọjà àkọ́kọ́, oníwò-púpọ̀, àti àwọn ẹgbẹ́ ìṣúná owó tí wọ́n ń ṣe àkójọpọ̀ ọjà gidi.',
   'landing.nav.formulas': 'Àwọn Fọ́múlá',
+  'login.noAccount': 'Tuntun sí {{name}} ?',
+  'login.signIn': 'Wọlé sí {{name}}',
   'login.signUp': 'Ṣẹda aaye iṣẹ kan',
+  'nav.menu': 'Àtòjọ oúnjẹ',
+  'nav.openMenu': 'Ṣí àkójọ oúnjẹ',
   'notFound.cellRef': '#Àtúnṣe!',
   'notFound.formula': '=WÁ(REQUEST.url, "ipa ọ̀nà", "ojú ìwé")',
   'notFound.headline': 'Ìlà yìí kò sí rí.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Àwọn ìdámọ̀ràn ìbílẹ̀ · àwọn ohun tí ń fa ìwádìí webhook àti cron',
   'signup.creating': 'Ipese ibi iṣẹ…',
   'signup.cta': 'Ṣẹ̀dá ibi iṣẹ́ mi',
+  'signup.haveAccount': 'Ti wa lori {{name}} tẹlẹ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Ṣe àtúnṣe ìwé iṣẹ́ àkọ́kọ́ rẹ ní ìṣẹ́jú-àáyá 30',
   'team.col.activity': 'Ti a pe',

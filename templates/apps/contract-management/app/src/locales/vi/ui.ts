@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Về chúng tôi',
   'authBrandPanel.quote':
     '“Vellum hiện là hệ thống ghi nhận chính thức cho mọi thỏa thuận đã ký mà chúng tôi sở hữu.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'contractDetail.amount': 'Giá trị',
   'contractDetail.back': 'Tất cả hợp đồng',
   'contractDetail.downloadCta': 'Tải xuống PDF',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Nếu tài khoản tồn tại cho {{email}}, liên kết đặt lại đang được gửi đi.',
   'forgotPassword.subtitle': 'Chúng tôi sẽ gửi liên kết đặt lại đến email công việc của quý vị.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Được xây dựng bằng Molecule.',
   'landing.ctaHeading': 'Theo dõi danh mục của quý vị đóng ngay từ ngày đầu.',
   'landing.ctaPrimary': 'Bắt đầu một không gian làm việc',
   'landing.eyebrow': 'Dành cho Hoạt động Pháp lý & Mua sắm',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Tên đối tác là bắt buộc.',
   'newContract.errEmail': 'Email người ký là bắt buộc.',
   'newContract.expires': 'Ngày hết hạn',
+  'newContract.failed': 'Không thể tạo hợp đồng.',
   'newContract.heading': 'Hợp đồng mới',
   'newContract.nextCta': 'Tiếp theo',
   'newContract.review.counterparty': 'Đối tác',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Tiêu đề hợp đồng',
   'newContract.titlePlaceholder': 'Thỏa thuận Dịch vụ Tổng thể',
   'newContract.variablesHeading': 'Biến số hợp đồng',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.dataExport': 'Xuất dữ liệu',
   'pricing.disabled': 'Không',
   'pricing.enabled': 'Có',
@@ -145,15 +151,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Không thể xóa tài khoản.',
   'settings.security.deleting': 'Đang xóa…',
   'settings.security.newPassword': 'Mật khẩu mới',
+  'settings.security.noDevices': 'Chưa có thiết bị nào được đăng ký.',
   'settings.security.twoFactor': 'Xác thực hai yếu tố',
   'settings.security.twoFactorDisable': 'Vô hiệu hóa',
   'settings.security.twoFactorEnable': 'Kích hoạt',
+  'settings.security.twoFactorInvalidCode': 'Mã không hợp lệ.',
   'settings.signatures.body':
     'Tên đã nhập của quý vị xuất hiện trên dòng chữ ký của mọi hợp đồng quý vị ký. Đặt một lần và nó sẽ tự động hiển thị sau này.',
   'settings.signatures.heading': 'Khối chữ ký',
   'settings.signatures.save': 'Lưu chữ ký',
+  'sign.action': 'Ký vào tài liệu này',
+  'sign.eyebrow': 'Yêu cầu chữ ký',
+  'sign.for': 'Dành cho {{name}}',
+  'sign.loadError': 'Liên kết ký này không hợp lệ hoặc đã hết hạn.',
   'sign.loading': 'Đang tải…',
   'sign.signing': 'Đang ký…',
+  'sign.submitError': 'Không thể ghi lại chữ ký của bạn — liên kết có thể đã hết hạn.',
   'signup.brandQuote':
     '“Chúng tôi đã chuyển 8 năm giấy tờ vào Vellum trong một tuần. Chỉ riêng dấu vết kiểm tra đã biện minh cho việc chuyển đổi.”',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -186,6 +199,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Mở hợp đồng →',
   'vellumKpiCard.trend': 'Xu hướng gần đây',
+  'vellumLayout.closeMenu': 'Đóng menu điều hướng',
+  'vellumLayout.openMenu': 'Mở menu điều hướng',
   'vellumLayout.primaryNavLabel': 'Điều hướng chính',
   'vellumPortfolioHero.expiring': 'Hết hạn 30 ngày',
   'vellumPortfolioHero.label': 'Giá trị danh mục',

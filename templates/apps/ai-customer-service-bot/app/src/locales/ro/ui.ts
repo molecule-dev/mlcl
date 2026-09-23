@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'analytics.channels.empty': 'Nu există încă date despre canale.',
   'analytics.channels.title': 'Pe canal',
   'analytics.empty': 'Nu există încă conversații — analiza va apărea odată ce porniți un fir.',
@@ -17,11 +18,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Conversații pe zi',
   'chatBubble.avatarAlt': 'Avatar {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'confidenceMeter.label': 'Încredere',
   'conversationDetail.agentName': 'Agent',
   'conversationDetail.aiReplyButton': 'Răspuns bot',
   'conversationDetail.aiReplyError': 'Nu s-a putut genera un răspuns AI',
   'conversationDetail.aiReplyLoading': 'Se redactează…',
+  'conversationDetail.aiReplySourceFallback': 'opțiune de rezervă (fără cheie AI)',
   'conversationDetail.backAria': 'Înapoi la conversații',
   'conversationDetail.composerPlaceholder': 'Răspundeți clientului…',
   'conversationDetail.context.channel': 'Canal',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Setați o nouă parolă pentru contul dvs.',
   'resetPassword.toggleConfirm': 'Comutați vizibilitatea parolei de confirmare',
   'resetPassword.togglePassword': 'Comutați vizibilitatea parolei',
+  'settings.account.emailError': 'Nu s-a putut actualiza adresa de e-mail',
   'settings.account.emailLabel': 'Adresă de e-mail',
+  'settings.account.emailSaved': 'Adresa de e-mail a fost actualizată',
+  'settings.account.nameError': 'Nu s-a putut actualiza numele',
   'settings.account.nameLabel': 'Nume afișat',
+  'settings.account.nameSaved': 'Numele a fost actualizat',
   'settings.account.title': 'Cont',
   'settings.api.createCta': 'Creați token',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Escaladare automată când sentimentul scade',
   'settings.bot.greetingLabel': 'Mesaj de salut inițial',
   'settings.bot.title': 'Configurare bot',
+  'settings.bot.toneFormal': 'Formal',
   'settings.bot.toneLabel': 'Voce și ton',
   'settings.danger.deleteAccount': 'Șterge contul',
+  'settings.danger.deleteError': 'Nu s-a putut șterge contul',
+  'settings.danger.deleteWarning':
+    'Această acțiune va șterge definitiv contul tău și toate datele asociate. Această acțiune nu poate fi anulată.',
   'settings.danger.deleting': 'Se șterge…',
+  'settings.danger.passwordLabel': 'Confirmă-ți parola',
   'settings.danger.title': 'Zonă periculoasă',
+  'settings.devices.empty': 'Nu există dispozitive înregistrate.',
+  'settings.devices.revokeWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
+  'settings.devices.signingOut': 'Se deconectează…',
   'settings.devices.signOut': 'Deconectați-vă',
   'settings.devices.thisDevice': 'Acest dispozitiv',
   'settings.devices.title': 'Dispozitive',
@@ -186,9 +202,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Parola nu a putut fi schimbată',
   'settings.security.currentPassword': 'Parola actuală',
   'settings.security.newPassword': 'Parolă nouă',
+  'settings.security.oauthManaged':
+    'Parola dumneavoastră este gestionată de furnizorul serviciului de autentificare.',
   'settings.security.title': 'Securitate',
   'settings.security.twoFactorDisable': 'Dezactivați',
   'settings.security.twoFactorEnable': 'Activați',
+  'settings.security.twoFactorInvalid': 'Cod nevalid',
   'settings.subtitle':
     'Ajustați vocea Rapport, sursele de cunoștințe și instrumentele cu care comunică.',
   'settings.tokenCreateError': 'Crearea tokenului a eșuat',

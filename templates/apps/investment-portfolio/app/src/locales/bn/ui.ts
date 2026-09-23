@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} সম্পর্কে',
   'argentAuthShell.brandEyebrow': 'আর্জেন্ট · সম্পদ সরঞ্জাম',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . এটি কোনো বিনিয়োগ পরামর্শ নয়।',
   'argentAuthShell.sampleChange': 'আজ +$২,৮৪১ (+০.২৮%)',
   'argentAuthShell.sampleValue': '$১,০৩২,২৫১',
   'argentLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'এই টিকারে কোনো লেনদেন হয়নি।',
   'assetDetail.txHeading': 'আপনার লেনদেন',
   'common.and': 'এবং',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'পোর্টফোলিওর সংক্ষিপ্ত বিবরণ',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'এখনো কোনো মালিকানা নেই।',
   'holdings.heading': 'হোল্ডিংস',
   'holdings.loadError': 'হোল্ডিং লোড করা সম্ভব হয়নি।',
+  'landing.copyright':
+    '© {{year}} {{app}} । এটি কোনো বিনিয়োগ পরামর্শ নয়। অতীতের কর্মক্ষমতা ভবিষ্যতের ফলাফলের নিশ্চয়তা দেয় না।',
   'landing.eyebrow': 'আর্জেন্ট · সম্পদ গড়ার একটি প্ল্যাটফর্ম',
   'landing.features.heading': 'একজন উপদেষ্টা নিজের জন্য যা কিছু তৈরি করে নেন।',
   'landing.finalCta.heading': 'আপনার পোর্টফোলিওতে শৃঙ্খলা ফিরিয়ে আনুন।',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} কয়েক ঘন্টা আগে',
   'news.justNow': 'এইমাত্র',
   'news.loadError': 'সংবাদ লোড করা সম্ভব হয়নি।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'portfolioHeroCard.label': 'পোর্টফোলিও মূল্য',
   'pricing.holdingsLabel': 'হোল্ডিং',
   'pricing.newsLabel': 'সংবাদ নিবন্ধ',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'অ্যাকাউন্ট মুছে ফেলুন',
   'settings.security.deleting': 'মুছে ফেলা হচ্ছে…',
   'settings.security.heading': 'নিরাপত্তা',
+  'settings.security.newPassword': 'নতুন পাসওয়ার্ড',
   'settings.security.password': 'পাসওয়ার্ড',
   'settings.security.twoFactorEnable': 'সক্ষম করুন',
+  'settings.security.twoFactorInvalidCode': 'অবৈধ কোড',
+  'settings.security.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'settings.tax.error': 'কর পদ্ধতি হালনাগাদ করা সম্ভব হয়নি।',
   'settings.tax.heading': 'ট্যাক্স লট অ্যাকাউন্টিং',
   'settings.tax.method': 'ডিফল্ট পদ্ধতি',

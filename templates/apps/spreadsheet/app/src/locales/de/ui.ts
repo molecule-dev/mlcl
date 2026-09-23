@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
   'about.pageTitle': 'Über {{name}}',
   'auth.footer.about': 'Über {{name}}',
   'authHeader.subtitle': 'Melden Sie sich an, um Ihre Zahlen sauber zu halten.',
   'automations.action.email': 'E-Mail',
+  'automations.action.noop': 'Keine Operation',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': '„{{name}}“ löschen?',
   'automations.empty.headline': 'Noch keine Automatisierungen',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Auslöser und Aktionen über alle Arbeitsmappen. Jeder Lauf protokolliert eine prüfbare Zeile.',
   'automations.toggle': '{{name}} umschalten',
+  'automations.trigger.dailySchedule': 'Tagesplan',
+  'automations.trigger.rowCreated': 'Zeile erstellt',
+  'automations.trigger.rowUpdated': 'Zeile aktualisiert',
   'billing.empty': 'Keine Tarife verfügbar.',
   'billing.error.priceMissing':
     'Kein Stripe-Preis für diese Stufe konfiguriert. Setzen Sie die Umgebungsvariablen STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagramme',
   'charts.kpi.totalCharts': 'Diagramme gesamt',
   'charts.list.empty': 'Noch keine Diagramme.',
+  'charts.namePlaceholder': 'Umsatzentwicklung',
   'charts.newChart': 'Neues Diagramm',
   'charts.primary.eyebrow': 'Diagramme nach Typ',
   'charts.primary.headline': 'Workspace-Überblick',
   'charts.subhead':
     'Live-Visualisierungen, an Ihre Tabelle gebunden — bei jeder Bearbeitung neu gerendert.',
+  'common.goToDashboard': 'Zum Dashboard',
   'editor.addColumn': 'Spalte hinzufügen',
+  'editor.addDialogTitle': 'Spalte hinzufügen',
   'editor.addRow': 'Zeile hinzufügen',
   'editor.addSheet': 'Blatt hinzufügen',
   'editor.back': 'Zurück zu den Arbeitsmappen',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite ist die formelorientierte, mehransichtige Echtzeit-Tabelle, zu der Analysten und Finanzteams zuerst greifen.',
   'landing.nav.formulas': 'Formeln',
+  'login.noAccount': 'Neu bei {{name}} ?',
+  'login.signIn': 'Melden Sie sich bei {{name}} an.',
   'login.signUp': 'Workspace erstellen',
+  'nav.menu': 'Menü',
+  'nav.openMenu': 'Menü öffnen',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Diese Zeile hat es nie gegeben.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Native Automatisierungen · Webhook- und Cron-Auslöser',
   'signup.creating': 'Workspace wird bereitgestellt…',
   'signup.cta': 'Workspace erstellen',
+  'signup.haveAccount': 'Bereits bei {{name}} registriert?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Starten Sie Ihre erste Arbeitsmappe in 30 Sekunden',
   'team.col.activity': 'Eingeladen',

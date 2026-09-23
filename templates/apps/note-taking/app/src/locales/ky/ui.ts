@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'forgot.eyebrow': 'Кайра кирүү жолун жоготуп алдыңызбы?',
   'forgot.formSubtitle': 'Файлдагы электрондук почтаны бизге айтыңыз.',
   'forgot.headline': 'Сырсөзүңүздү баштапкы абалга келтириңиз.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Бирди түзүңүз',
   'login.subline':
     'Дептерлериңиз, шилтемелериңиз жана күнүмдүк баракчаларыңыз сиз калтырган жерде.',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'noteEditor.backToNotes': 'Эскертүүлөргө кайтуу',
   'noteEditor.bodyPlaceholder':
     'Жазууну баштаңыз — жазууңуз терип жатканда автоматтык түрдө сакталат.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Жаңы дептер',
   'notes.newNotebookPrompt': 'Жаңы дептердин аталышы',
   'notes.notebooksHeading': 'Дептерлер',
+  'notes.subtitle':
+    'Сол жактагы дептерди тандап, андан кийин жаңы жазууну баштоо үчүн "Жаңы жазуу" баскычын басыңыз.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Эскертүү алуу планыңызды тандаңыз',
   'reset.eyebrow': 'Дээрлик кайра кирем',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Жаңыртылды',
   'versoLayout.nav.graph': 'График',
   'versoLayout.nav.home': 'Үй',
+  'versoLayout.primaryNavLabel': 'Негизги навигация',
   'versoNoteCard.pinned': 'Кадалган',
   'versoTodayHero.continueCta': 'Жазууну улантуу',
   'versoTodayHero.createCta': 'Бүгүнкү жазууну баштоо',

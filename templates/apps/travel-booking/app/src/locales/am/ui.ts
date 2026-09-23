@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
+  'about.featureDiscover.title': 'መነሳሻ፣ በእጅ የተመረጠ',
   'account.addPaymentCta': 'የክፍያ ዘዴ ያክሉ',
   'account.addPaymentError': 'የክፍያ ዘዴ ማከል አልተቻለም።',
+  'account.confirmRemove': 'ማስወገድን ያረጋግጡ',
   'account.defaultBadge': 'ነባሪ',
   'account.loyalty.pointsTowardNext': '{{ነጥቦች}} የ {{ቀጣይ}} ማይል ወደ {{nextTier}}',
   'account.loyalty.tier': 'የአሁኑ ደረጃ',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'የጉዞ ዝርዝሮች',
   'booking.tripSummary': '{{nights}} ሌሊቶች · {{guests}} እንግዶች',
   'common.daysAgo': '{{count}} ከ d በፊት',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'common.hoursAgo': '{{count}} ከሰዓታት በፊት',
   'common.minutesAgo': '{{count}} ከወራት በፊት',
   'common.no': '—',
@@ -74,6 +78,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'ሕጋዊ',
   'notifications.loading': 'በመጫን ላይ…',
   'notifications.subheading': '{{count}} ያልተነበበ · ሁሉም ነገር በአንድ ጸጥ ያለ የገቢ መልዕክት ሳጥን ውስጥ',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'pricing.accommodationsLabel': 'ማረፊያዎች',
   'pricing.bookingsLabel': 'ቦታ ማስያዝ',
   'pricing.destinationsLabel': 'የተቀመጡ መድረሻዎች',
@@ -123,6 +128,7 @@ export const ui: UiTranslations = {
     'መነሳሻ፣ አስተማማኝ ቆይታዎች እና ከቀን ህልም እስከ ቦታ የተያዘ - በ14 አገሮች እና ከ200 በላይ በእጅ የተረጋገጡ ንብረቶች ላይ ያለ ግጭት የሌለበት መንገድ።',
   'sojournHeroSearchCard.trustProtected': 'ነፃ ስረዛ፣ ሙሉ በሙሉ የተጠበቀ',
   'sojournHeroSearchCard.trustVetted': 'በእጅ የተረጋገጡ ንብረቶች ብቻ',
+  'travelBookingLayout.primaryNavLabel': 'ዋና አሰሳ',
   'tripDetail.backLink': 'ወደ ጉዞዎች ተመለስ',
   'tripDetail.cancelCta': 'ቦታ ማስያዝ ሰርዝ',
   'tripDetail.cancelHeading': 'ይህን ጉዞ ሰርዝ?',

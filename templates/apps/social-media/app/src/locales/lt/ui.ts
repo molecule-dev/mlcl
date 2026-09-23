@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.pageTitle': 'Apie {{app}}',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.retry': 'Bandyti dar kartą',
   'compose.cancel': 'Atšaukti',
   'compose.captionPlaceholder': 'Kas tau galvoje?',
   'compose.heading': 'Pasidalinkite akimirka',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Patvirtinta paskyra',
   'resetPassword.newPassword': 'Naujas slaptažodis',
   'resetPassword.subheading': 'Pasirinkite ką nors stipraus – bent 12 simbolių.',
+  'search.clearAria': 'Išvalyti',
+  'search.error': 'Paieška nepavyko. Bandykite dar kartą.',
   'search.noPeople': 'Nėra atitikmenų kūrėjų. {{q}} ".',
   'search.noPosts': 'Nėra atitinkančių įrašų " {{q}} ".',
   'search.noTags': 'Kol kas nėra populiarių grotažymių.',
@@ -128,6 +134,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Paslėpti slaptažodį',
   'signup.showPassword': 'Rodyti slaptažodį',
   'signup.subheading': 'Sukurkite paskyrą, kad pradėtumėte bendrinti.',
+  'socialMediaLayout.closeMenu': 'Uždaryti navigacijos meniu',
+  'socialMediaLayout.openMenu': 'Atidaryti navigacijos meniu',
+  'socialMediaLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'storyRail.heading': 'Istorijos',
   'storyRail.label': 'Istorijos',
   'storyRail.openAria': 'Atidaryti {{handle}} istorija',

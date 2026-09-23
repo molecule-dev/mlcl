@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'सुलझा रहे हैं…',
   'comments.subtitle':
     'ये {{count}} थ्रेड अभी भी उत्तर या समाधान की प्रतीक्षा में हैं। आयु के अनुसार क्रमबद्ध — सबसे पुराने पहले, ताकि कुछ भी विस्मृत न हो।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'forgotPassword.sentTo': '{{email}} पर रीसेट लिंक भेजा गया',
   'forgotPassword.successSubheading':
     'कृपया अपना इनबॉक्स देखें — हमने अभी एक रीसेट लिंक भेजा है। यह 30 मिनट में समाप्त हो जाएगा।',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'नया पृष्ठ',
   'pageTreeSidebar.workspaceHeader': 'कार्यक्षेत्र',
   'pageView.breadcrumb': 'ब्रेडक्रंब',
+  'pageView.confirmTrash': 'यह कचरा है?',
   'pageView.home': 'होम',
   'pageView.lastEdited': '{{when}} अद्यतन किया गया',
   'pageView.loading': 'पृष्ठ लोड हो रहा है…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'सारांश बना रहे हैं…',
   'pageView.summaryUnavailable': 'इस कार्यक्षेत्र के लिए AI सारांश कॉन्फ़िगर नहीं किया गया है।',
   'pageView.tocTitle': 'इस पृष्ठ पर',
+  'pageView.trash': 'ट्रैश',
+  'pageView.trashing': 'ट्रैश किया जा रहा है…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'बैज',
   'profile.owned.title': 'स्वामित्व वाले पृष्ठ',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'कार्यक्षेत्र, प्रोफ़ाइल, सूचनाएँ, इंटीग्रेशन — सब एक शांत आवरण में।',
   'settingsPage.workspace.defaultLanding': 'डिफ़ॉल्ट लैंडिंग स्क्रीन',
   'settingsPage.workspace.landingHome': 'घर',
+  'settingsPage.workspace.landingSpaces': 'स्पेस',
   'settingsPage.workspace.subdomainLabel': 'उपडोमेन',
   'settingsPage.workspace.title': 'कार्यक्षेत्र',
   'signup.eyebrow': 'एक नया कार्यक्षेत्र आरंभ करें',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} मिनट',
   'templates.subtitle':
     'रिक्त कैनवास से नहीं, साँचे से पृष्ठ आरंभ करें। प्रत्येक साँचा आकार को निश्चित करता है ताकि आप सार पर ध्यान केंद्रित कर सकें।',
+  'trash.confirmPurge': 'क्या इसे हमेशा के लिए हटा देना चाहिए?',
+  'trash.confirmPurgeAria': 'पुष्टि करें: {{title}} को स्थायी रूप से हटा दें',
   'trash.daysUntilPurge': '{{days}} दिन शेष',
   'trash.empty.body': 'हटाए गए पृष्ठ स्थायी रूप से हटाए जाने से पहले 30 दिनों तक यहाँ दिखाई देंगे।',
   'trash.empty.title': 'ट्रैश ख़ाली है।',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'पुनर्स्थापित कर रहे हैं…',
   'versionHistory.subtitle': '{{count}} संस्करण · diff देखने के लिए एक पंक्ति चुनें',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'नेविगेशन बंद करें',
+  'wikiLayout.menu': 'मार्गदर्शन',
+  'wikiLayout.openMenu': 'नेविगेशन खोलें',
   'wikiLayout.searchPlaceholder': 'Cairn में खोजें — पृष्ठ, टिप्पणियाँ…',
 }

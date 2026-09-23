@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'ഓരോ കടിയും, സമതുലിതമായി',
   'auth.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'auth.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'nav.legal': 'നിയമപരമായ',
+  'nosh.auth.legalPrefix': 'തുടരുന്നതിലൂടെ നിങ്ങൾ ഞങ്ങളുടെ നിബന്ധനകളോട് യോജിക്കുന്നു',
   'nosh.foodDetail.add': 'ഡയറിയിലേക്ക് ചേർക്കുക',
   'nosh.foodDetail.added': 'ചേർത്തു {{ഭക്ഷണം}} .',
   'nosh.foodDetail.addError': 'ഡയറിയിൽ ചേർക്കാൻ കഴിഞ്ഞില്ല.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'ഫൈബർ',
   'nosh.foodDetail.micros.sodium': 'സോഡിയം',
   'nosh.foodDetail.micros.sugar': 'പഞ്ചസാര',
+  'nosh.foodDetail.percentDv': '{{pct}} % ഡിവി',
   'nosh.foodDetail.protein': 'പ്രോട്ടീൻ',
   'nosh.foodDetail.serving.count': 'സെർവിംഗ്സ്',
   'nosh.foodDetail.serving.meal': 'ഇതിലേക്ക് ചേർക്കുക',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'കൂടുതൽ സ്മാർട്ടായി ഇന്ധനം നിറയ്ക്കാൻ തുടങ്ങൂ',
   'nosh.landing.features.heading': 'നിങ്ങൾക്ക് ആവശ്യമുള്ളതെല്ലാം, ആവശ്യമില്ലാത്തതൊന്നുമില്ല',
   'nosh.landing.features.smartRing.title': 'സ്മാർട്ട് കലോറി റിംഗ്',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'കുറ്റബോധമില്ലാതെ നിങ്ങളുടെ ലക്ഷ്യങ്ങൾ കൈവരിക്കാൻ സഹായിക്കുന്ന ഒരു സൗഹൃദ ഭക്ഷണ ലോഗ്. എണ്ണത്തിൽ മാത്രമല്ല, പോഷകാഹാരത്തിലും ശ്രദ്ധ കേന്ദ്രീകരിക്കുക.',
   'nosh.landing.hero.eyebrow': 'സൗഹൃദപരമായ കലോറി ട്രാക്കിംഗ്',
@@ -84,6 +89,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'നിങ്ങൾ എത്രത്തോളം സജീവമാണ്?',
   'nosh.onboarding.back': 'തിരികെ',
   'nosh.onboarding.macros.heading': 'നിങ്ങളുടെ ദൈനംദിന ലക്ഷ്യം ഇതാ',
+  'nosh.onboarding.saveError': 'നിങ്ങളുടെ ലക്ഷ്യങ്ങൾ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
   'nosh.onboarding.start': 'നമുക്ക് പോകാം',
   'nosh.progress.calorieChart.title': 'ദിവസം അനുസരിച്ചുള്ള കലോറികൾ',
   'nosh.progress.empty':
@@ -148,6 +154,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'ശാശ്വതമായി ഇല്ലാതാക്കുക',
   'nosh.settings.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'nosh.settings.export.cta': 'CSV ഡൗൺലോഡ് ചെയ്യുക',
+  'nosh.settings.export.description': 'നിങ്ങളുടെ മുഴുവൻ ഭക്ഷണ ലോഗ് CSV ആയി ഡൗൺലോഡ് ചെയ്യുക.',
   'nosh.settings.export.label': 'ഡാറ്റ എക്സ്പോർട്ട് ചെയ്യുക',
   'nosh.settings.export.preparing': 'തയ്യാറാക്കുന്നു...',
   'nosh.settings.eyebrow': 'അക്കൗണ്ട് · അറിയിപ്പുകൾ · സ്വകാര്യത',
@@ -159,6 +166,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'സൗഹൃദപരമായ ട്രാക്കിംഗ്, കുറ്റബോധമില്ല.',
   'nosh.today.${mealKey}Empty': 'ലോഗ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക',
   'nosh.today.addFood': 'ഭക്ഷണം ചേർക്കുക',
+  'nosh.today.backToToday': 'ഇന്നത്തേക്ക് മടങ്ങുക',
+  'nosh.today.dateNavLabel': 'ഡയറി ദിവസം മാറ്റുക',
   'nosh.today.loadError': 'ഇന്ന് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'nosh.today.macros.carbs': 'കാർബോഹൈഡ്രേറ്റുകൾ',
   'nosh.today.macros.fat': 'കൊഴുപ്പ്',
@@ -166,6 +175,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'പ്രോട്ടീൻ',
   'nosh.today.macroTitle': 'മാക്രോ ന്യൂട്രിയന്റുകൾ',
   'nosh.today.meal.${mealKey}': 'കലോറി',
+  'nosh.today.nextDay': 'അടുത്ത ദിവസം',
+  'nosh.today.pastPill': 'കഴിഞ്ഞ ദിവസം',
+  'nosh.today.prevDay': 'കഴിഞ്ഞ ദിവസം',
   'nosh.today.quickAddError': 'ദ്രുത ഇനം ലോഗ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'nosh.today.remaining': 'ശേഷിക്കുന്ന കലോറികൾ',
   'nosh.today.streakHeadline': '{{count}} -ദിവസങ്ങളുടെ പരമ്പര',

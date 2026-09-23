@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
+  'about.eyebrow': 'ስለ {{app}}',
+  'about.intro':
+    '{{app}} ለእውነተኛ ህይወት የማሰላሰል መተግበሪያ ነው - በየቀኑ የሚመሩ ማሰላሰሎች፣ የመተንፈስ ስራዎች እና የእንቅልፍ ታሪኮች እንደ ጓደኛ እንጂ እንደ አሰልጣኝ ሳይሆኑ በሚሰማቸው አስተማሪዎች ይዳሰሳሉ። ምንም አይነት የጥፋተኝነት ስሜት የለም፣ ምንም አይነት ጫጫታ የለም፡ ወደ ትንፋሽዎ ለመመለስ ጸጥ ያለ ቦታ ብቻ።',
+  'about.missionBody':
+    'ጸጥታ ለሁሉም ሰው ተደራሽ መሆን እንዳለበት እናምናለን። {{app}} የተረጋጋና ወጥ የሆነ ልምምድ ቀላል እንዳይመስል ለማድረግ ነው -- ስለዚህ አስር ሐቀኛ ደቂቃዎች የሚቀጥሉትን አስር ሰዓታት እንዴት እንደሚገናኙ ሊለውጡ ይችላሉ።',
+  'about.missionTitle': 'የእኛ ተልዕኮ',
+  'about.pageTitle': 'በቀን ለ10 ደቂቃ ዘና የሚያደርግ',
+  'breathingDial.seconds': 'ሰከንዶች',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
+  'common.logout': 'ውጣ',
   'common.min': 'ደቂቃ',
   'common.relative.justNow': 'አሁን',
   'common.relative.now': 'አሁን',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
+  'nav.secondaryNavigation': 'የመለያ አሰሳ',
   'sessionCard.with': 'ከ ጋር {{name}}',
   'stillpoint.billing.choose': 'ይምረጡ {{plan}}',
   'stillpoint.billing.currentPlan': 'በአሁኑ ጊዜ በ {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'ዕቅዶችን መጫን አልቻልንም።',
   'stillpoint.billing.opening': 'ክፍያ በመክፈት ላይ…',
   'stillpoint.billing.perMonthShort': '/ ወር',
+  'stillpoint.billing.perYearShort': '/ዓመት',
   'stillpoint.billing.unknownResult': 'ያልተጠበቀ የክፍያ ምላሽ።',
   'stillpoint.billing.yearly': 'ዓመታዊ · 17% ይቆጥቡ',
   'stillpoint.courseDetail.back': 'ኮርሶች',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'እስካሁን ምንም ኮርሶች የሉም።',
   'stillpoint.courses.eyebrow': '{{count}} የብዙ ቀን ጉዞዎች',
   'stillpoint.courses.heading': 'ኮርሶች',
+  'stillpoint.forgot.checkEmail': 'የገቢ መልእክት ሳጥንዎን ይመልከቱ - አገናኙ በ30 ደቂቃዎች ውስጥ ያበቃል።',
   'stillpoint.forgot.success': 'የዳግም ማስጀመሪያ አገናኝ ልከናል ወደ {{email}} .',
   'stillpoint.home.empty': 'እስካሁን ምንም ክፍለ ጊዜዎች የሉም - በቅርቡ ተመልሰው ይመልከቱ።',
   'stillpoint.home.friend': 'ጓደኛ',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'ነፃ መለያ ይፍጠሩ',
   'stillpoint.landing.cta.title': 'ዛሬውኑ ጸጥታህን ጀምር',
   'stillpoint.landing.features.heading': 'ከእርስዎ ጋር የሚያድግ ልምምድ',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}።',
   'stillpoint.landing.hero.body':
     'በየቀኑ የሚመሩ ማሰላሰሎች፣ የመተንፈስ ስራዎች እና የእንቅልፍ ታሪኮች - እንደ ጓደኛ የሚሰማቸው አስተማሪዎች እንጂ እንደ አሰልጣኝ አይደሉም።',
   'stillpoint.landing.hero.eyebrow': 'በቀን ለ10 ደቂቃ ዘና የሚያደርግ',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'በስሜት ያስሱ',
   'stillpoint.login.rememberMe': 'በመለያ እንደገባሁ አቆየኝ',
   'stillpoint.login.subheading': 'ልምምድዎን ለመቀጠል ይግቡ።',
+  'stillpoint.nav.tagline': 'የቁም ማዕከልዎን ያግኙ',
+  'stillpoint.notFound.body':
+    'ይህ ገጽ የሆነ ቦታ ረጅምና ጥልቅ ትንፋሽ እየወሰደ ነው። በ {{app}} ውስጥ ለእርስዎ የበለጠ ጸጥ ያለ ቦታ እናግኝ።',
   'stillpoint.notFound.title': 'በዝምታ ውስጥ የጠፋ',
   'stillpoint.notFound.toHome': 'ወደ ዛሬው ተመለስ',
   'stillpoint.notFound.toLibrary': 'ቤተ-መጽሐፍትን ያስሱ',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'ወደ ኋላ 15 ይዝለሉ',
   'stillpoint.player.skipForward': 'ወደ ፊት 30ዎችን ዝለል',
   'stillpoint.player.with': 'ከ ጋር {{name}}',
+  'stillpoint.profile.defaultHandle': 'ስቲልፖይንተር',
   'stillpoint.profile.eyebrow': 'ልምምድህ፣ ጠቅለል አድርገህ አቅርበነዋል።',
   'stillpoint.profile.locked': 'ተቆልፏል',
   'stillpoint.profile.member': 'የስቲልፖይንት አባል',

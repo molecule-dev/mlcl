@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.eyebrow': 'Gbasara {{app}}',
+  'about.intro':
+    "{{app}} bụ ngwa ntụgharị uche maka ndụ n'ezie — ntụgharị uche kwa ụbọchị, ume iku ume, na akụkọ ụra nke ndị nkuzi na-eme, ndị na-eche na ha bụ enyi, ọ bụghị onye nkuzi. Enweghị obi amamikpe, enweghị nri mkpọtụ: naanị ebe dị jụụ iji laghachi n'ime ume gị.",
+  'about.missionBody':
+    "Anyị kwenyere na ịnọ jụụ kwesịrị ịdị mfe ịnweta onye ọ bụla, n'oge ọ bụla n'ụbọchị. {{app}} dị iji mee ka omume dị jụụ, nke na-aga n'ihu dị ka ihe na-enweghị mgbalị — ka nkeji iri nke eziokwu wee nwee ike ịgbanwe otu ị ga-esi zute awa iri na-abịa.",
+  'about.missionTitle': 'Ọrụ anyị',
+  'about.pageTitle': 'Nkeji iri dị jụụ kwa ụbọchị',
+  'breathingDial.seconds': 'sekọnd',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.logout': 'Pụọ',
   'common.min': 'nkeji',
   'common.relative.justNow': 'naanị ugbu a',
   'common.relative.now': 'ugbu a',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
+  'nav.secondaryNavigation': 'Ịnyagharịa akaụntụ',
   'sessionCard.with': 'na {{name}}',
   'stillpoint.billing.choose': 'Họrọ {{plan}}',
   'stillpoint.billing.currentPlan': 'Ugbu a na-adị {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Anyị enweghị ike ibuli atụmatụ.',
   'stillpoint.billing.opening': 'Ebe a na-akwụ ụgwọ…',
   'stillpoint.billing.perMonthShort': '/ ọnwa',
+  'stillpoint.billing.perYearShort': '/afọ',
   'stillpoint.billing.unknownResult': 'Nzaghachi ịkwụ ụgwọ a na-atụghị anya ya.',
   'stillpoint.billing.yearly': 'Kwa afọ · chekwaa 17%',
   'stillpoint.courseDetail.back': 'Ọmụmụ ihe',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Enwebeghị usoro ọmụmụ ihe.',
   'stillpoint.courses.eyebrow': '{{count}} njem ọtụtụ ụbọchị',
   'stillpoint.courses.heading': 'Ọmụmụ ihe',
+  'stillpoint.forgot.checkEmail': "Lelee igbe mbata gị — njikọ ahụ ga-agwụ n'ime nkeji iri atọ.",
   'stillpoint.forgot.success': 'Anyị ezipụla njikọ nrụpụta na {{email}} .',
   'stillpoint.home.empty': "Enweghị nnọkọ ọ bụla — lelee anya n'oge na-adịghị anya.",
   'stillpoint.home.friend': 'enyi',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Mepụta akaụntụ efu gị',
   'stillpoint.landing.cta.title': 'Malite ịnọ jụụ gị taa',
   'stillpoint.landing.features.heading': 'Omume nke na-eto eto na gị',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Ntụgharị uche kwa ụbọchị, ume iku ume, na akụkọ ụra — nke ndị nkuzi na-eche dị ka enyi, ọ bụghị onye nkuzi na-eme.',
   'stillpoint.landing.hero.eyebrow': 'Nkeji iri dị jụụ kwa ụbọchị',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Chọgharịa site na ọnọdụ',
   'stillpoint.login.rememberMe': 'Debe m ka m banye na akaụntụ',
   'stillpoint.login.subheading': "Banye iji gaa n'ihu na omume gị.",
+  'stillpoint.nav.tagline': 'Chọta ebe etiti ihe nkiri gị',
+  'stillpoint.notFound.body':
+    "Peeji a na-eku ume miri emi n'ebe dị anya. Ka anyị chọta ebe dị jụụ karịa maka gị na {{app}} .",
   'stillpoint.notFound.title': "Fufuru n'ime mkpọtụ",
   'stillpoint.notFound.toHome': 'Laghachi na taa',
   'stillpoint.notFound.toLibrary': 'Chọgharịa ọbá akwụkwọ',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Gaa azụ mgbe afọ 15 gachara',
   'stillpoint.player.skipForward': "Gaa n'ihu n'afọ 30",
   'stillpoint.player.with': 'na {{name}}',
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'A chịkọtara omume gị.',
   'stillpoint.profile.locked': 'Akpọchiri akpọchi',
   'stillpoint.profile.member': 'Onye otu Stillpoint',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Rreth {{app}}',
+  'auth.legalConsent': 'Duke vazhduar, ju pranoni',
   'bookings.empty.body': 'Shtoni një fluturim, hotel ose aktivitet për të filluar kutinë hyrëse.',
   'bookings.empty.heading': 'Nuk ka ende rezervime.',
   'bookings.errors.create': 'Nuk mund të krijohej rezervim.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Konfirmuar',
   'bookings.summary.pending': 'Në pritje të konfirmimit',
   'bookings.summary.total': 'Totali i angazhuar',
+  'bookings.type.car': 'Makinë me qira',
+  'bookings.type.flight': 'Fluturim',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Tjeter',
   'budgetSpendCard.budgetTotal': 'e {{total}} planifikuar',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Gjeni konflikte, planifikoni ditët e rikuperimit midis udhëtimeve dhe shikoni kur bashkëpunëtorët udhëtojnë me ju.',
   'common.and': 'dhe',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.budgetHeading': 'Pulsi i buxhetit',
   'dashboard.empty.heading': 'Ende nuk ka udhëtime — atlasi juaj është bosh.',
   'dashboard.eyebrow': 'Kontrolli i misionit',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Udhëtime në lëvizje',
   'dashboard.viewAllExpenses': 'Shikoni çdo shpenzim',
   'dashboard.viewAllTrips': 'Shih çdo udhëtim',
+  'dayTimelineRow.category.accommodation': 'Qëndro',
   'dayTimelineRow.category.transport': 'Transporti',
   'destinationOrbCard.exploreCta': 'Shto në një udhëtim',
   'destinationOrbCard.tripCount': '{{count}} udhëtime',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Nuk keni ende email? Kontrolloni dosjen e spamit ose provoni përsëri me një adresë tjetër.',
   'forgotPassword.successSubheading':
     'Ne dërguam një lidhje rikuperimi te {{email}} Lidhja është e vlefshme për 30 minuta.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Krijo një llogari falas',
+  'landing.cta.subheading':
+    'Deri në pesë udhëtime, pesë bashkëpunëtorë dhe pesë ndalesa në planin falas — me sinkronizim në kohë reale të përfshirë, dhe Pro që heq kufijtë kur planet tuaja rriten.',
   'landing.destinations.eyebrow': 'Ku të shkosh më pas',
   'landing.destinations.heading': 'Destinacione të përzgjedhura nga redaktori',
   'landing.features.eyebrow': 'Si funksionon Waypoint',
   'landing.features.heading': 'Ndërtuar për udhëtarët, jo për fletëllogaritëse.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Filloni një udhëtim falas',
   'landing.hero.ctaSecondary': 'Shikoni një shembull udhëtimi',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Krijo një llogari për të ndarë udhëtimet me deri në 5 bashkëpunëtorë, sinkroni rezervimet dhe mblidh çdo konfirmim në një vend.',
+  'signup.termsPrefix': 'Duke krijuar një llogari, ju pranoni tonën',
   'tripCountdownHeroCard.budget': '{{used}} e {{total}} ( {{pct}} % e buxhetit)',
   'tripCountdownHeroCard.collaborators': '{{count}} udhëtarët',
   'tripCountdownHeroCard.countdownLabel': 'Numërimi mbrapsht',
@@ -202,5 +215,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ende nuk ka udhëtime.',
   'trips.pastHeading': 'Aventurat e kaluara',
   'trips.subheading': '{{count}} itinerare — e kaluara, e tashmja dhe një ditë.',
+  'waypointLayout.mobileNavClose': 'Mbyll menynë e navigimit',
   'waypointLayout.primaryNavLabel': 'Navigimi kryesor',
 }

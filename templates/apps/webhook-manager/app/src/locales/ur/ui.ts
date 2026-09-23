@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} کے بارے میں',
+  'about.pageTitle': 'ویب ہک کنٹرول ہوائی جہاز',
+  'about.plansTitle': 'ہر مرحلے کے لیے منصوبہ بندی',
   'apiKeys.bestPractices': 'بہترین طریقے',
   'apiKeys.body':
     'پروگرامیٹک رسائی ٹوکنز۔ ان کے ساتھ پاس ورڈ کی طرح برتاؤ کریں — env vars میں اسٹور کریں، کبھی کمٹ نہ کریں۔',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'منصوبہ بندی کے اندر',
   'billing.usageWarning': 'ٹوپی کے قریب',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.body':
     'لائیو تھرو پٹ، پرواز میں دوبارہ کوششیں، اور اختتامی پوائنٹس جو ابھی ہچکیاں لے رہے ہیں — ہر اس کام کی جگہ پر جو آپ چلاتے ہیں۔',
   'dashboard.endpointsEmpty': 'ابھی تک کوئی اینڈ پوائنٹ نہیں ہے۔',
@@ -109,6 +113,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'اختتامی پوائنٹس',
   'endpointDetail.deliveryTrendSub': 'ڈیلیوری / گھنٹہ، لاگ اسکیل',
   'endpointDetail.hideSecret': 'راز چھپائیں۔',
+  'endpointDetail.loading': 'اختتامی نقطہ لوڈ ہو رہا ہے…',
   'endpointDetail.metric.delivered': '24 گھنٹے ڈیلیور کیا گیا۔',
   'endpointDetail.metric.deliveredCaption': 'سے {{count}} واقعہ کی اقسام',
   'endpointDetail.metric.failuresCaption': 'دوبارہ کوشش کریں: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'اہم · 24 گھنٹے',
   'notifications.metric.totalCaption': 'ہر وقت ان باکس',
   'payloadViewer.payload': '// پے لوڈ',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'profile.avatarHeader': 'اوتار',
   'profile.avatarHint': 'ابتدائیے دکھائے گئے ہیں - اگلی ریلیز کے ساتھ آنے والے اپ لوڈز۔',
   'profile.body': 'آپ کا اکاؤنٹ، ترجیحات، اور فعال سیشنز۔',
@@ -227,6 +233,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ محفوظ کیا گیا۔',
   'profile.sessionsEmpty': 'صرف آپ کا موجودہ سیشن فعال ہے۔ کوئی دیگر آلات سائن ان نہیں ہیں۔',
   'profile.toggle': 'ٹوگل کریں۔ {{label}}',
+  'pylonShell.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'pylonShell.openMenu': 'نیویگیشن مینو کھولیں۔',
   'pylonShell.primaryNavLabel': 'بنیادی نیویگیشن',
   'resetPassword.subtitle': 'ایک مضبوط پاس ورڈ کا انتخاب کریں جو آپ نے پہلے استعمال نہیں کیا ہے۔',
   'resetPassword.tokenPlaceholder': 'ای میل سے پیسٹ کریں۔',

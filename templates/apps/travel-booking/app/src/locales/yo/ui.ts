@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.featureDiscover.title': 'Ìmísí, tí a yàn ní ọwọ́',
   'account.addPaymentCta': 'Fi ọ̀nà ìsanwó kún un',
   'account.addPaymentError': 'A ko le fi ọna isanwo kun.',
+  'account.confirmRemove': 'Jẹ́rìísí pé a yọ ọ́ kúrò',
   'account.defaultBadge': 'Aiyipada',
   'account.loyalty.pointsTowardNext': '{{awọn aaye}} ti {{Itele}} maili si {{NextTier}}',
   'account.loyalty.tier': 'Ipele lọwọlọwọ',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Àwọn àlàyé ìrìnàjò',
   'booking.tripSummary': '{{nights}} àwọn alẹ́ · {{guests}} àwọn àlejò',
   'common.daysAgo': '{{count}} ọdun sẹyin',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.hoursAgo': '{{count}} h ti o ti kọja',
   'common.minutesAgo': '{{count}} ní agogo méjì sẹ́yìn',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'N n gbe…',
   'notifications.subheading':
     '{{count}} a kò kà · ohun gbogbo nínú àpótí ìforúkọsílẹ̀ kan ṣoṣo tó dákẹ́ jẹ́ẹ́',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.accommodationsLabel': 'awọn ile ibugbe',
   'pricing.bookingsLabel': 'àwọn ìforúkọsílẹ̀',
   'pricing.destinationsLabel': 'àwọn ibi tí a ti fipamọ́',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Ìmísí, ìdúró tí ó ṣeé gbẹ́kẹ̀lé, àti ọ̀nà tí kò ní ìjàkadì láti àlá ọ̀sán sí ìgbà tí a ti fipamọ́ — jákèjádò orílẹ̀-èdè mẹ́rìnlá àti àwọn ilé tí a ti fi ọwọ́ ṣe àyẹ̀wò wọn ju 200 lọ.',
   'sojournHeroSearchCard.trustProtected': 'Fagilee ọfẹ, ni aabo patapata',
   'sojournHeroSearchCard.trustVetted': 'Àwọn dúkìá tí a fi ọwọ́ ṣe àyẹ̀wò nìkan',
+  'travelBookingLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'tripDetail.backLink': 'Pada si awọn irin-ajo',
   'tripDetail.cancelCta': 'Fagilee ifiṣura',
   'tripDetail.cancelHeading': 'Fagilé ìrìn àjò yìí?',

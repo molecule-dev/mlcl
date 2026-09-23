@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.title': 'O aplikaciji {{app}}',
   'auth.login.noAccount': 'Ste novi pri Sparqu?',
   'auth.login.or': 'ali nadaljujte z',
   'auth.signup.or': 'ali se prijavite z',
+  'common.confirm': 'Potrdi',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
+  'common.loadError': 'Pri nalaganju te vsebine je prišlo do napake.',
+  'common.retry': 'Poskusi znova',
   'discover.collections.title': 'Brskaj po kategorijah',
   'discover.collections.viewAll': 'Oglejte si svojo knjižnico →',
   'discover.empty.body': 'Poskusi z drugo kategorijo ali izbriši iskanje.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Prijavite se, da ohranite svoj niz zmag, gostite igre v živo in se povzpnete na lestvici najboljših.',
   'myQuizzes.createButton': 'Nov kviz',
+  'myQuizzes.deleteConfirm': 'Izbrisati za vedno?',
   'myQuizzes.empty.createCta': 'Sestavite svoj prvi kviz →',
   'myQuizzes.empty.created': 'Še nisi ustvaril/a kviza.',
   'myQuizzes.empty.played': 'Še ni objavljenih kvizov.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Nalaganje …',
   'notifications.subhead':
     '{{count}} neprebrane iskre. Povabila, premiki na lestvici najboljših in dosežki – vse v enem toku.',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.checkoutError': 'Blagajne ni bilo mogoče začeti. Poskusite znova.',
+  'pricing.heading': 'Izberite svoj paket {{app}}',
   'pricing.included': 'Vključeno',
   'pricing.loadError': 'Načrtov ni bilo mogoče naložiti.',
   'pricing.maxQuizzes': '{{count}} kvizi',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Še nič objavljenega.',
   'profile.startBuilding': 'Začni graditi →',
   'profile.tier': 'Igralec Sparqa',
+  'quizBuilder.addFailed': 'Vprašanja ni bilo mogoče dodati. Poskusite znova.',
   'quizBuilder.addQuestion': 'Dodaj vprašanje',
   'quizBuilder.answerPlaceholder': 'Vnesite možnost …',
   'quizBuilder.answersLabel': 'Možnosti odgovorov',
   'quizBuilder.back': 'Nazaj k mojim kvizom',
   'quizBuilder.delete': 'Izbriši vprašanje',
+  'quizBuilder.deleteFailed': 'Vprašanja ni bilo mogoče izbrisati.',
   'quizBuilder.firstQuestion': 'Za začetek dodajte prvo vprašanje.',
   'quizBuilder.idLabel': 'ID kviza: {{id}}',
   'quizBuilder.loadError': 'Kviza ni bilo mogoče naložiti.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Dodajte vsaj dva možna odgovora in izberite pravilnega {{count}} vprašanje(-a) pred objavo.',
   'quizBuilder.questionsTitle': 'Vprašanja',
+  'quizBuilder.saveFailed': 'Naslova ni bilo mogoče shraniti. Poskusite znova.',
   'quizBuilder.statusDraft': 'Osnutek',
   'quizBuilder.subhead':
     'Uredite naslov, dodajte vprašanja, nastavite izbire in pravilen odgovor. Spremembe se shranijo samodejno.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Gosti večigralski način',
   'quizDetail.leaderboardEmpty': 'Še ni iger – bodite prvi, ki bo postavil rezultat.',
+  'quizDetail.loadError': 'Tega kviza ni bilo mogoče naložiti.',
   'quizDetail.loading': 'Nalaganje kviza …',
   'quizDetail.plays': '{{count}} predstave',
   'quizDetail.playSolo': 'Igraj solo',

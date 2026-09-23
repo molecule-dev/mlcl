@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Байланышка чыгыңыз',
   'about.eyebrow': 'Жөнүндө',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.connectRepoCta': 'Репозиторду туташтыруу',
   'dashboard.empty': 'Азырынча тартуу сурамдары жок — баштоо үчүн репозиторийин туташтырыңыз.',
   'dashboard.eyebrow': 'Refract · карап чыгуу кезеги',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Иштөө убактысы',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI сапаттык көрсөткүчү {{score}} / 10',
+  'refractLayout.closeMenu': 'Менюну жабуу',
+  'refractLayout.openMenu': 'Менюну ачуу',
   'refractLayout.primaryNavLabel': 'Негизги навигация',
   'reports.cumulativeScoreLabel': 'Топтолгон упай',
   'reports.cumulativeScoreSubtitle': 'бардык репозиторийлер · {{days}} д',
@@ -182,11 +185,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Издөө индекси жүктөлбөй калды.',
   'settings.apiKeys.description':
     'Жеке API ачкычтарын жогорку оң жактагы колдонуучу менюсунан башкарыңыз.',
+  'settings.apiKeys.integrationsNote':
+    'Провайдерге кирүү токендери жогорудагы Интеграциялар бөлүмүндө башкарылат.',
   'settings.connectError': 'Провайдерге туташуу ишке ашкан жок.',
   'settings.disconnectError': 'Провайдерден ажыратуу ишке ашкан жок.',
   'settings.eyebrow': 'Рефракт · жумуш орду',
   'settings.integration.${provider}.label': 'Сакталууда…',
   'settings.loadError': 'Жөндөөлөр жүктөлбөй калды.',
+  'settings.notificationCenter': 'Билдирүү борбору',
   'settings.notifications.description':
     'Жеткирүү параметрлерин көрүү жана башкаруу үчүн эскертмелер барагына өтүңүз.',
   'settings.section.account': 'Аккаунт жана коопсуздук',

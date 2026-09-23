@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
   'activityFeed.empty': 'ఇంకా ఏ కార్యకలాపం జరగలేదు — మీ మొదటి ఇన్‌వాయిస్‌ను పంపండి.',
   'authShell.sample.paid': 'రెండు నిమిషాల క్రితం చెల్లించబడింది',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'కొత్త క్లయింట్‌ను జోడించండి',
   'clients.search': 'పేరు, కంపెనీ, ఇమెయిల్ ద్వారా శోధించండి',
   'clients.title': 'క్లయింట్లు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'కొత్త క్లయింట్',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
     'మీ రెమిట్ ఖాతాకు అనుసంధానించబడిన ఇమెయిల్‌ను నమోదు చేయండి, మేము రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody':
     'మేము రీసెట్ సూచనలను పంపాము {{email}} ఈ లింక్ 30 నిమిషాలలో గడువు ముగుస్తుంది.',
+  'invoiceDetail.action.confirmVoid': 'రద్దు అని నిర్ధారించాలా?',
   'invoiceDetail.action.download': 'PDFని డౌన్‌లోడ్ చేయండి',
   'invoiceDetail.action.duplicate': 'నకిలీ',
   'invoiceDetail.action.edit': 'సవరించు',
@@ -76,9 +79,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'ఇన్‌వాయిస్ రద్దు చేయబడింది.',
   'invoiceDetail.issued': 'జారీ చేయబడింది {{date}}',
   'invoiceDetail.loading': 'ఇన్‌వాయిస్ లోడ్ అవుతోంది…',
+  'invoiceDetail.paidInFull': 'పూర్తిగా చెల్లించబడింది',
   'invoiceDetail.summary': '{{client}} · పంపబడింది {{date}}',
   'invoiceDetail.tax': 'పన్ను ( {{rate}} %)',
   'invoiceDetail.timeline': 'కాలక్రమం',
+  'invoiceDetail.voided': 'రద్దు చేయబడింది',
   'invoiceEditor.addItem': 'అంశాన్ని జోడించండి',
   'invoiceEditor.back': '← ఇన్వాయిస్‌లకు తిరిగి వెళ్లండి',
   'invoiceEditor.col.qty': 'పరిమాణం',
@@ -124,6 +129,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'మీ మొదటి ఇన్‌వాయిస్‌ను పంపండి',
   'landing.hero.eyebrow': 'చిన్న వ్యాపారాల కోసం ఇన్‌వాయిసింగ్',
   'landing.hero.secondary': 'నమూనా ఇన్వాయిస్‌ను చూడండి',
+  'landing.hero.subtitle':
+    '{{appName}} చక్కటి ఇన్వాయిస్‌లను అంతర్నిర్మిత చెల్లింపులు, పునరావృత బిల్లింగ్ మరియు పన్నులకు సిద్ధంగా ఉన్న నివేదికలతో జత చేస్తుంది. బుక్‌కీపింగ్ అవసరం లేదు.',
   'landing.hero.title': 'ఇన్‌వాయిస్‌లు పంపండి. వేగంగా చెల్లింపులు పొందండి.',
   'login.signupLink': 'ఒకటి సృష్టించండి',
   'login.submitting': 'మిమ్మల్ని లాగిన్ చేస్తున్నాను…',
@@ -145,6 +152,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'చెల్లింపులు',
   'pricing.recurringLabel': 'పునరావృత షెడ్యూల్‌లు',
   'remitLayout.newInvoice': 'కొత్త ఇన్వాయిస్',
+  'remitLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'remitLayout.searchPlaceholder': 'ఇన్‌వాయిస్‌లు, క్లయింట్‌లను శోధించండి...',
   'remitLayout.tagline': 'వేగంగా డబ్బు పొందండి',
   'reports.chart.aging': 'ఇన్‌వాయిస్ కాలపరిమితి',
@@ -154,6 +162,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'కాలపు ఆదాయం',
   'reports.chart.topClients': 'అగ్రశ్రేణి క్లయింట్లు',
   'reports.chart.topClientsCaption': 'జీవితకాల ఆదాయం, టాప్ 5',
+  'reports.empty.aging': 'చెల్లించని ఇన్‌వాయిస్‌లు లేవు.',
+  'reports.empty.methods': 'ఇంకా చెల్లింపు డేటా లేదు.',
+  'reports.empty.revenue': 'ఇంకా ఆదాయ సమాచారం లేదు.',
+  'reports.empty.topClients': 'ఇంకా క్లయింట్ ఆదాయ డేటా లేదు.',
   'reports.exporting': 'ఎగుమతి…',
   'reports.exportRequiresPaid':
     'ఎగుమతులు అనేవి చెల్లింపుతో కూడిన ఫీచర్ — దీన్ని ఎనేబుల్ చేయడానికి అప్‌గ్రేడ్ చేయండి.',
@@ -195,6 +207,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ పన్ను రేటును జోడించండి',
   'settings.tax.added': 'పన్ను రేటు జోడించబడింది.',
   'settings.tax.adding': 'జోడిస్తూ…',
+  'settings.tax.addRate': 'రేటును జోడించండి',
   'settings.tax.col.region': 'ప్రాంతం',
   'settings.tax.delete': 'పన్ను రేటును తొలగించండి',
   'settings.tax.deleted': 'పన్ను రేటు తొలగించబడింది.',

@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May nakitang bug, may request para sa feature, o gusto mo bang sabihin sa amin ang tungkol sa pelikulang ginawa mo? Ang bawat mensahe ay nakakarating sa isang totoong tao sa team — makipag-ugnayan anumang oras mula sa mga setting ng iyong account.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.eyebrow': '// ang studio sa likod ng cut',
   'about.pageTitle': 'Tungkol sa {{appName}}',
   'assetDetail.back': 'Balik sa aklatan',
   'assetDetail.confirmDelete': 'Burahin ang " {{name}} "? Hindi na ito maaaring bawiin.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} mga clip, audio bed, at graphics na handa nang ilabas sa timeline.',
   'assetLibrary.title': 'Mga asset',
   'assetLibrary.upload': 'Magdagdag ng asset',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.browseTemplates': 'Mag-browse ng mga template →',
   'dashboard.loading': 'Naglo-load ng mga proyekto…',
   'dashboard.noProjects': 'Wala pang mga proyekto — gumawa ng isa para makapagsimula.',
@@ -164,7 +169,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Pumili ng isang bagay na ikaw lang ang makakaalala.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Pagkapribado',
+  'rushesLayout.closeMenu': 'Isara ang nabigasyon',
   'rushesLayout.guest': 'Patnugot',
+  'rushesLayout.navDialog': 'Nabigasyon',
+  'rushesLayout.openMenu': 'Buksan ang nabigasyon',
   'rushesLayout.planFree': 'Libreng plano',
   'rushesLayout.tagline': 'Timeline ng sinematikong',
   'settings.billing.confirmCancel': 'Kanselahin ang subscription sa katapusan ng panahon?',

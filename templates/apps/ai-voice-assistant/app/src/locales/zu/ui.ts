@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unempendulo, isicelo sesici, noma uthole iphutha? Xhumana nethimba le {{app}} ngesixhumanisi sokusekela kumenyu ye-akhawunti yakho — yonke imilayezo iya kumuntu wangempela.',
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'agentDetail.back': 'Bonke abameli',
   'agentDetail.capabilities': 'Amakhono',
   'agentDetail.delete': 'Susa umuntu',
   'agentDetail.deleteConfirm': 'Susa lo muntu? Lokhu akukwazi ukuhlehliswa.',
+  'agentDetail.deleteError': 'Ayikwazanga ukususa umuntu.',
   'agentDetail.eyebrow': 'Umuntu',
   'agentDetail.fetchError': 'Ayikwazanga ukulayisha umuntu.',
   'agentDetail.save': 'Londoloza umuntu',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Ukushintsha…',
   'billing.updateError': 'Ayikwazanga ukuqala isibuyekezo.',
   'billing.usageHeading': 'Ukusetshenziswa kwezwi kulo mjikelezo',
+  'chatBubble.source.text': 'umbhalo',
+  'chatBubble.source.voice': 'izwi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'conversation.defaultTitle': 'Ingxoxo entsha',
   'conversation.empty':
     'Azikho imilayezo okwamanje. Qala ngokusho okuthile noma ngokuthayipha ngezansi.',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Ukuhlakanipha okukhulumayo.',
   'landing.heroSubtitle':
     'Umsizi wezwi we-AI oqonda ukugeleza kwakho kwemvelo. Xoxa, ucabange kahle, futhi uyale — kalula.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Ukulalela…',
   'landing.naturallyBody':
     'Awekho amagama aqalayo. Awekho imiyalo eqinile. Inkulumo iyaqonda umongo, ukuphazamiseka, kanye nomqondo wenkulumo yomuntu — njengokuxoxa nosebenza naye.',
@@ -114,6 +122,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Vula iseshini',
   'notFound.home': 'Ekhaya',
   'notFound.title': 'Asikwazanga ukuzwa lelo khasi.',
+  'parlanceLayout.closeMenu': 'Vala imenyu',
+  'parlanceLayout.openMenu': 'Vula imenyu yokuzulazula',
   'parlanceLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'pricing.conversations': '{{count}} izingxoxo',
   'pricing.cta.startFree': 'Qalisa mahhala',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Akukho okufanayo',
   'search.eyebrow': 'Iphalethi yomyalo',
   'search.fetchError': 'Ayikwazanga ukulayisha inkomba yokusesha.',
+  'search.static.profile.preview': 'Igama lokubonisa, isibambo, i-bio',
   'search.static.voice.title': 'Izwi',
   'search.title': 'Sesha Inkulumo',
   'search.transcriptPreview': 'Vula umbhalo obhaliwe',

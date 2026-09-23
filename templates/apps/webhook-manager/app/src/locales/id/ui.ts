@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// tentang {{app}}',
+  'about.pageTitle': 'Bidang kendali webhook',
+  'about.plansTitle': 'Rencana untuk setiap tahap',
   'apiKeys.bestPractices': 'Praktik terbaik',
   'apiKeys.body':
     'Token akses programatik. Perlakukan seperti kata sandi — simpan di variabel env, jangan pernah commit.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'dalam paket',
   'billing.usageWarning': 'mendekati batas',
   'billing.yearly': 'Tahunan',
+  'common.goToDashboard': 'Ke Dashboard',
   'dashboard.body':
     'Throughput langsung, percobaan ulang yang sedang berlangsung, dan titik akhir yang baru saja mengalami gangguan — di setiap ruang kerja yang Anda operasikan.',
   'dashboard.endpointsEmpty': 'Belum ada titik akhir.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endpoint',
   'endpointDetail.deliveryTrendSub': 'pengiriman / jam, skala log',
   'endpointDetail.hideSecret': 'Sembunyikan secret',
+  'endpointDetail.loading': 'Memuat titik akhir…',
   'endpointDetail.metric.delivered': 'Terkirim 24j',
   'endpointDetail.metric.deliveredCaption': 'dari {{count}} jenis kejadian',
   'endpointDetail.metric.failuresCaption': 'percobaan ulang: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritis · 24j',
   'notifications.metric.totalCaption': 'kotak masuk sepanjang waktu',
   'payloadViewer.payload': '// payload',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Inisial ditampilkan — unggahan akan datang di rilis berikutnya.',
   'profile.body': 'Akun, preferensi, dan sesi aktif Anda.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Hanya sesi Anda saat ini yang aktif. Tidak ada perangkat lain yang masuk.',
   'profile.toggle': 'Alihkan {{label}}',
+  'pylonShell.closeMenu': 'Tutup menu navigasi',
+  'pylonShell.openMenu': 'Buka menu navigasi',
   'pylonShell.primaryNavLabel': 'Navigasi utama',
   'resetPassword.subtitle': 'Silakan pilih kata sandi kuat yang belum pernah Anda gunakan.',
   'resetPassword.tokenPlaceholder': 'tempel dari email',

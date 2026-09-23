@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Şu anda {{plan}} planını kullanıyorsunuz.',
   'billing.switch': 'Değiştir',
   'billing.upgraded': '{{plan}} planına güncellendi — sınırlar hemen uygulandı.',
+  'common.goToDashboard': 'Panele Git',
   'compare.activityHeading': 'Etkinlik kararları',
   'compare.empty.title': 'Karşılaştırmak için en az iki konum ekleyin',
   'compare.eyebrow': 'Yan yana',
@@ -136,5 +137,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Yüksek',
   'trends.summary.low.label': 'Düşük',
   'trends.summary.points.label': 'Gün',
+  'weatherDashboardLayout.primaryNavLabel': 'Birincil gezinme',
   'weatherHeroCard.updated': '{{time}} güncellendi',
 }

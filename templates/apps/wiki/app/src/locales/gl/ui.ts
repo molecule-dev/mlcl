@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Resolvendo…',
   'comments.subtitle':
     'O/A {{count}} Fíos que aínda agardan unha resposta ou unha resolución. Ordenados por idade: os máis antigos primeiro, para que non se podreza nada.',
+  'common.goToDashboard': 'Ir ao panel',
   'forgotPassword.sentTo': 'Ligazón de restablecemento enviada a {{email}}',
   'forgotPassword.successSubheading':
     'Consulta a túa caixa de entrada: acabamos de enviarche unha ligazón de restablecemento. Caduca en 30 minutos.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nova páxina',
   'pageTreeSidebar.workspaceHeader': 'Espazo de traballo',
   'pageView.breadcrumb': 'Ruta de pan',
+  'pageView.confirmTrash': 'Botalo á basura?',
   'pageView.home': 'Inicio',
   'pageView.lastEdited': 'Actualizado {{when}}',
   'pageView.loading': 'Cargando páxina…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'O resumo da IA non está configurado para este espazo de traballo.',
   'pageView.tocTitle': 'Nesta páxina',
+  'pageView.trash': 'Lixo',
+  'pageView.trashing': 'Destruíndo…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Insignias',
   'profile.owned.title': 'Páxinas propias',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Espazo de traballo, perfil, notificacións, integracións: todo nunha soa consola tranquila.',
   'settingsPage.workspace.defaultLanding': 'Pantalla de destino predeterminada',
   'settingsPage.workspace.landingHome': 'Inicio',
+  'settingsPage.workspace.landingSpaces': 'Espazos',
   'settingsPage.workspace.subdomainLabel': 'Subdominio',
   'settingsPage.workspace.title': 'Espazo de traballo',
   'signup.eyebrow': 'Comezar un novo espazo de traballo',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Comeza unha páxina desde un estarcido, non desde un lenzo en branco. Cada modelo codifica a forma para que poidas centrarte no contido.',
+  'trash.confirmPurge': 'Purgar para sempre?',
+  'trash.confirmPurgeAria': 'Confirmar: eliminar permanentemente {{title}}',
   'trash.daysUntilPurge': '{{days}} días restantes',
   'trash.empty.body':
     'As páxinas eliminadas aparecerán aquí durante 30 días antes de ser purgadas.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} versións · selecciona unha fila para inspeccionar a diferenza',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Pechar navegación',
+  'wikiLayout.menu': 'Navegación',
+  'wikiLayout.openMenu': 'Abrir navegación',
   'wikiLayout.searchPlaceholder': 'Buscar en Cairn: páxinas, comentarios…',
 }

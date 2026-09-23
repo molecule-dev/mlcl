@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'about.plansTitle': 'Planos que crescem com você',
   'brand.tagline': 'Cada segundo',
   'clientDetail.back': 'Voltar para clientes',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Cada relacionamento em um só lugar — projetos, horas e faturas em aberto.',
   'clients.title': 'Clientes',
   'common.and': 'e',
+  'common.goToDashboard': 'Ir para o Painel',
   'dashboard.activeProjects': 'Projetos ativos',
   'dashboard.empty':
     'Ainda não há entradas. Inicie o cronômetro para registrar sua primeira sessão.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Não há horas faturáveis para este cliente. Registre tempo ou associe entradas existentes a um dos projetos deste cliente.',
   'invoices.save': 'Criar fatura',
   'invoices.subtitle': 'Horas registradas viram faturas automaticamente.',
+  'landing.copyright': '© {{year}} {{app}} . Cada segundo, contabilizado.',
   'landing.ctaBody':
     'Grátis para até 3 projetos. Faça upgrade quando sua lista de clientes crescer.',
   'landing.eyebrow': 'Controle de tempo para trabalho faturável',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Confiado por independentes',
   'landing.testimonial.quote':
     '“Migrei do Toggl em 30 minutos. Só o acompanhamento de consumo do orçamento já se pagou — faz duas semanas que parei de cobrar abaixo do que devia.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Cada segundo, contabilizado.',
   'login.brand.subtitle':
     'Retome o cronômetro de onde parou — cada minuto já ligado a um projeto, um cliente, uma fatura.',
   'login.brand.tracking': 'Registrando',
   'login.subheading': 'Retome o cronômetro de onde parou.',
+  'nav.closeMenu': 'Fechar menu de navegação',
   'nav.insightsSection': 'Insights',
   'nav.newEntry': 'Nova entrada',
+  'nav.openMenu': 'Abrir menu de navegação',
+  'nav.primary': 'Navegação principal',
   'nav.workSection': 'Trabalho',
   'notFound.body':
     'Parece que o link que você seguiu parou de marcar tempo. Volte ao seu painel — continuaremos contando a partir de lá.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Faturável',
   'timer.descriptionPlaceholder': 'No que você está trabalhando?',
   'timer.idle': 'Parado — comece a registrar',
+  'timer.noProject': 'Sem projeto',
   'timer.runningWithProject': 'Sem projeto',
   'timer.start': 'Iniciar cronômetro',
   'timer.stop': 'Parar cronômetro',

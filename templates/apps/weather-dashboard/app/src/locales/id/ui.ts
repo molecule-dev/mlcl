@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Anda saat ini berada di paket {{plan}}.',
   'billing.switch': 'Ganti',
   'billing.upgraded': 'Diperbarui ke {{plan}} — batasan langsung diterapkan.',
+  'common.goToDashboard': 'Ke Dashboard',
   'compare.activityHeading': 'Penilaian aktivitas',
   'compare.empty.title': 'Tambahkan setidaknya dua lokasi untuk dibandingkan',
   'compare.eyebrow': 'Berdampingan',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Tinggi',
   'trends.summary.low.label': 'Rendah',
   'trends.summary.points.label': 'Hari',
+  'weatherDashboardLayout.primaryNavLabel': 'Navigasi utama',
   'weatherHeroCard.updated': 'Diperbarui {{time}}',
 }

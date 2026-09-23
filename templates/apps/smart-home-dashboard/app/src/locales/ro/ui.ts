@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.pageTitle': 'Despre {{app}}',
   'activity.empty': 'Nicio activitate încă — întoarceți un dispozitiv sau activați o scenă.',
   'activity.eyebrow': 'Cronologie',
   'activity.loadError': 'Nu s-a putut încărca fluxul de activități.',
   'activity.subheading':
     'Fiecare dispozitiv, automatizare și eveniment de securitate în ordine cronologică.',
+  'addDevice.error.failed': 'Nu s-a putut adăuga dispozitivul. Încercați din nou.',
   'addDevice.error.nameRequired': 'Dați un nume acestui dispozitiv pentru a continua.',
   'addDevice.field.firmware': 'Versiune firmware',
   'addDevice.field.manufacturer': 'Producător',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testare…',
   'automationEditor.testNew': 'Salvați mai întâi automatizarea pentru a o testa.',
   'automationRow.lastRun': 'Dura {{date}} · {{count}} alergări',
+  'automationRow.on': 'Pe',
   'automationRow.runNowAria': 'Aleargă {{name}} acum',
   'automations.empty': 'Încă nu există automatizări — creează-ți prima rutină.',
   'automations.eyebrow': 'Rutine',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Se încarcă automatizările…',
   'automations.newAutomation': '+ Nou',
   'automations.subheading': 'Când se întâmplă asta, fă asta — fără YAML.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Nu s-a putut încărca dispozitivul.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Se lucrează…',
   'deviceDetail.unnamed': 'Dispozitiv',
   'deviceStatusRow.on': 'Pe',
+  'deviceStatusRow.turnOff': 'Opriți',
+  'deviceStatusRow.turnOn': 'Porniți',
   'deviceStatusRow.watts': '{{watts}} V',
   'energy.eyebrow': 'Putere',
   'energy.heading': 'Energie',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Vezi planuri',
   'settings.security.heading': 'Securitate',
   'settings.subheading': 'Preferințe pentru planuri, hub-uri și conturi.',
+  'smartHomeDashboardLayout.openMenu': 'Deschide meniul de navigare',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigare principală',
 }

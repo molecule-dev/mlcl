@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Σχετικά με το {{app}}',
+  'authShell.encryptionBadge': 'Οι καταχωρίσεις σας είναι κρυπτογραφημένες από άκρο σε άκρο.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'Ημέρα {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Αυτός ο μήνας με μια ματιά',
   'calendar.eyebrow': 'Η διάθεση με μια ματιά',
@@ -10,6 +13,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'Επόμενος μήνας',
   'calendar.prev': 'Προηγούμενος μήνας',
   'calendar.subheading': 'Παρακολουθήθηκε {{tracked}} του {{total}} ημέρες αυτόν τον μήνα.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.tryAgain': 'Δοκιμάστε ξανά',
   'entryComposer.cancel': 'Επιστροφή στο ημερολόγιο',
   'entryComposer.heading': 'Η σημερινή ανασκόπηση',
   'entryComposer.moodLabel': 'Πώς αισθάνεσαι;',
@@ -20,7 +25,14 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'Δεν ήταν δυνατή η αποθήκευση της καταχώρισής σας.',
   'entryComposer.titlePlaceholder': 'Δώστε ένα όνομα σε αυτήν την αντανάκλαση…',
   'entryDetail.back': 'Επιστροφή στο ημερολόγιο',
+  'entryDetail.delete': 'Διαγραφή αυτής της καταχώρησης',
+  'entryDetail.deleteConfirm':
+    'Διαγραφή αυτής της αντανάκλασης; Δεν είναι δυνατή η αναίρεση αυτής της ενέργειας.',
+  'entryDetail.deleteConfirmTitle': 'Διαγραφή καταχώρησης',
+  'entryDetail.deleteError': 'Δεν ήταν δυνατή η διαγραφή αυτής της καταχώρησης.',
+  'entryDetail.deleteForever': 'Οριστική διαγραφή',
   'entryDetail.encryptedBadge': 'Κρυπτογράφηση από άκρο σε άκρο',
+  'entryDetail.keepEntry': 'Κράτα το',
   'entryDetail.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτής της καταχώρησης.',
   'entryDetail.loading': 'Φόρτωση αντανάκλασης…',
   'entryDetail.notFound': 'Η καταχώρηση δεν βρέθηκε.',
@@ -43,6 +55,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Δεν ήταν δυνατή η φόρτωση των πληροφοριών.',
   'insights.subheading':
     'Μοτίβα διάθεσης, θέματα και ερεθίσματα — συλλέχθηκαν σταδιακά από τις τελευταίες 30 ημέρες.',
+  'insights.themesEmpty':
+    'Δεν υπάρχουν ακόμη θέματα — προσθέστε μία ή δύο ετικέτες στις καταχωρίσεις σας και θα συγκεντρωθούν εδώ.',
   'insights.themesHeading': 'Κορυφαία θέματα',
   'insights.triggerFrequency': 'παρατήρησα {{count}} × αυτόν τον μήνα',
   'insights.triggersHeading': 'Μοτίβα που αλλάζουν τη διάθεσή σας',
@@ -61,11 +75,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'Έναρξη καταγραφής σε ημερολόγιο',
   'landing.heroCta': 'Ξεκινήστε την πρώτη σας καταχώρηση',
   'landing.heroCtaSecondary': 'Δείτε το σε δράση',
+  'landing.heroSubtitle':
+    '{{app}} είναι ένα διακριτικό, ιδιωτικό ημερολόγιο για καθημερινή περισυλλογή, παρακολούθηση της διάθεσης και ευγνωμοσύνη — με στοχαστικές προτροπές και ήσυχα μοτίβα που θα σας βοηθήσουν να κατανοήσετε καλύτερα τον εαυτό σας.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewLabel': 'Μια ματιά στο εσωτερικό του Lucid',
   'landing.previewPrompt': 'Για ποιο μικρό πράγμα είσαι ευγνώμων σήμερα;',
   'login.heading': 'Συνδεθείτε στο ημερολόγιό σας',
   'login.signupLink': 'Δημιουργήστε το ημερολόγιό σας',
   'login.subheading': 'Ένας ήπιος χώρος για καθημερινή περισυλλογή.',
+  'mentalHealthJournalLayout.closeMenu': 'Κλείσιμο μενού',
+  'mentalHealthJournalLayout.openMenu': 'Άνοιγμα μενού',
   'moodHeroCard.streakSuffix': 'ημερήσια σειρά',
   'moodHeroCard.title': 'Η σημερινή ανασκόπηση',
   'moodTrendChart.aiBadge': 'Έτοιμο για AI insight',
@@ -79,6 +98,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'Μεγαλύτερο σερί',
   'profile.memberSince': 'Αντανακλώντας από τότε {{date}}',
   'profile.milestones': 'Ορόσημα',
+  'profile.milestonesEmpty':
+    'Το πρώτο σας ορόσημο απέχει μία μόνο συμμετοχή — γράψτε όποτε νιώσετε έτοιμοι.',
   'profile.streakValue': '{{days}}η',
   'profile.totalEntries': 'Αντανακλάσεις',
   'profile.totalWords': 'Λέξεις γραμμένες',
@@ -107,10 +128,10 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Ο χώρος σου, οι κανόνες σου',
   'settings.languageHeading': 'Γλώσσα',
   'settings.privacyHeading': 'Απόρρητο και κρυπτογράφηση',
+  'settings.remindersHeading': 'Ημερήσια υπενθύμιση',
   'settings.reminderToggleDescription':
     'Μία μόνο ήρεμη υπενθύμιση τη στιγμή που θα επιλέξετε. Χωρίς κονκάρδες ή ενοχές.',
   'settings.reminderToggleLabel': 'Στείλτε ένα απαλό σκούντημα',
-  'settings.remindersHeading': 'Ημερήσια υπενθύμιση',
   'settings.saveError': 'Δεν ήταν δυνατή η αποθήκευση.',
   'signup.eyebrow': 'Ξεκινήστε τον προβληματισμό σας',
   'signup.firstNamePlaceholder': 'Σαμ',

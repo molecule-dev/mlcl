@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.title': 'Miestnosť na písanie, ktorú si môžete nechať vo vrecku',
   'billing.cancelConfirm': 'Zrušiť aktívne predplatné?',
   'billing.cancelFailed': 'Nepodarilo sa zrušiť.',
   'billing.checkingOut': 'Otváranie pokladne…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nepodarilo sa načítať fakturáciu.',
   'billing.loading': 'Načítavanie faktúry…',
   'billing.upgradeCta': 'Inovovať na {{name}}',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'editor.autosaveOn': 'Automatické ukladanie zapnuté',
   'editor.backToLibrary': 'Späť do knižnice',
   'editor.charCount': '{{count}} postavy',
   'editor.confirmTrash': 'Presunúť tento dokument do koša?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Odopnuté',
   'editor.unpublishCta': 'Presunúť do konceptu',
   'editor.unpublished': 'Vrátené do konceptu',
+  'focus.autosaveOn': 'Automatické ukladanie zapnuté',
   'focus.backToLibrary': 'Späť do knižnice',
   'focus.bodyPlaceholder': 'Riadok po riadku. Nikto iný tu nie je.',
   'focus.exit': 'Ukončiť režim zaostrenia',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Vytvorte si jeden',
   'login.subline':
     'Vaše rukopisy, denné stránky a posledná pozícia kurzora sú presne tam, kde ste ich nechali.',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'pricing.exports': 'vývoz',
   'pricing.folders': 'zložky',
   'pricing.heading': 'dokumenty',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Zadajte kód, ktorý sme vám práve poslali e-mailom, a vyberte si niečo nezabudnuteľné. Prihlásime vás po uložení.',
   'reset.tokenHint': 'Vložené z vašej doručenej pošty.',
+  'settings.appearance.heading': 'Svetlé alebo tmavé',
   'settings.editor.${row.id}.description': 'Jazyk',
   'settings.editor.description':
     'Posúvanie písacieho stroja, stlmenie odsekov a nečinný fokus – predvolené nastavenia sú vyladené pre dlhé relácie.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Tretia kapitola — Tichá hodina pred východom slnka',
   'versalDocumentCard.pinned': 'Pripnuté',
   'versalLayout.nav.stats': 'Štatistiky',
+  'versalLayout.primaryNavLabel': 'Hlavná navigácia',
   'versalManuscriptHero.cta': 'Pokračovať v písaní',
   'versalManuscriptHero.goalLabel': 'Dnešný slovný cieľ',
   'versalManuscriptHero.inProgress': 'Na dobrej ceste',

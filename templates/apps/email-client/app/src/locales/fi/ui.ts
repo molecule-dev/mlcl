@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Olemme hajautettu suunnittelijoiden ja insinöörien tiimi, joka aikoinaan vietti liian monta tuntia päivässä meluisassa sähköpostilaatikossa. Courier on juuri sellainen postilaatikko, jota halusimme itse käyttää.',
   'about.title': 'Sähköposti keskittyneeseen työskentelyyn',
+  'common.goToDashboard': 'Siirry etusivulle',
   'help.cta.about': 'Tietoa Courierista',
   'help.cta.pricing': 'Näytä hinnoittelu',
   'help.eyebrow': 'Tukikeskus',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Nopeat vastaukset yleisimpiin kysymyksiin. Puuttuuko jotain? Avaa Asetukset ja käytä sovelluksen sisäistä palautelomaketta tai lähetä sähköpostia osoitteeseen support@courier.example.',
   'help.title': 'Kuinka voimme auttaa?',
   'landing.brand.scrollTop': 'Takaisin alkuun',
+  'landing.copyright': '© {{year}} {{appName}} — Tehty keskittymistä varten.',
   'landing.ctaBody':
     'Liity tuhansien ammattilaisten joukkoon, jotka ovat hoitaneet sähköpostinsa kuntoon jo ennen lounasta.',
   'landing.ctaTitle': 'Toimi enemmän, reagoi vähemmän.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Katso demo',
   'landing.heroSubtitle':
     'Courier on selkeä, kolmesta ruudusta koostuva postilaatikko, joka on suunniteltu tietotyöläisille, jotka haluavat käsitellä tietoa sen sijaan, että vain reagoisivat siihen.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Luotettu valikoituneiden tiimien keskuudessa ympäri maailmaa',
   'landing.signIn': 'Kirjaudu sisään',
   'meridian.archive.empty': 'Arkisto on tyhjä.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Vastaanottaja',
   'meridian.drafts.watermark': 'Luonnos',
   'meridian.folder.count': '{{count}} viestit',
+  'meridian.folder.delete': 'Poista',
   'meridian.folder.deleteForever': 'Poista lopullisesti',
   'meridian.folder.restore': 'Siirrä postilaatikkoon',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Täällä ei ole vielä viestejä.',
   'meridian.inbox.loading': 'Ladataan…',
   'meridian.inbox.next': 'Seuraava',
+  'meridian.inbox.noSender': '(ei lähettäjää)',
   'meridian.inbox.noSubject': '(ei aihetta)',
+  'meridian.inbox.ofTotal': '{{current}} / {{total}}',
   'meridian.inbox.openCompose': 'Avaa kirjoitusikkuna',
   'meridian.inbox.previous': 'Edellinen',
   'meridian.inbox.replyFailed': 'Vastaus tallennettu, mutta lähetys epäonnistui: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Eikö sinulla ole tiliä?',
   'meridian.login.showPassword': 'Näytä salasana',
   'meridian.message.toLine': 'osoitteeseen {{recipients}}',
+  'meridian.notFound.body':
+    'Etsimääsi sivua ei löytynyt. Palaa {{appName}} -postilaatikkoosi, niin autamme sinut eteenpäin.',
   'meridian.notFound.eyebrow': 'Virhe 404',
   'meridian.notFound.title': 'Tämä ketju on arkistoitu.',
   'meridian.notFound.toInbox': 'Avaa saapuneet-kansi',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Lisää tähti',
   'meridian.thread.unstar': 'Poista tähti',
   'meridian.time.yesterday': 'Eilen',
+  'meridian.topBar.openMenu': 'Avaa navigointivalikko',
   'meridian.topBar.searchPlaceholder': 'Hae sähköpostia',
   'meridian.trash.empty': 'Roskakori on tyhjä.',
   'meridian.trash.title': 'Roskakori',
   'nav.legal': 'Lainsäädäntö',
   'planUpdated.description':
     'Tilauksesi on nyt voimassa ja laskutus tietosi on päivitetty. Tervetuloa uudistettuun Courier-postilaatikkoosi.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.heading': 'luonnokset',
   'pricing.limit.emails': 'sähköpostit',
   'pricing.limit.folders': 'kansiot',
   'pricing.limit.labels': 'tarrat',
   'privacy.collect.account':
     'Tilitiedot: nimi, sähköpostiosoite, salasanahash ja rekisteröitymispäivä.',
+  'privacy.contact': 'Kysymyksiä? Lähetä sähköpostia osoitteeseen privacy@courier.example.',
   'privacy.intro':
     'Tässä tietosuojakäytännössä selitetään, mitä tietoja Courier kerää, miksi niitä keräämme, miten varmistamme niiden turvallisuuden ja mitä valinnanmahdollisuuksia sinulla on niiden suhteen. Pyrimme olemaan konkreettisia eikä juridisia; jos jokin asia on epäselvä, ota yhteyttä osoitteeseen privacy@courier.example.',
   'privacy.lastUpdated': 'Viimeksi päivitetty: 1. huhtikuuta 2026',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Nämä ehdot säätelevät Courierin käyttöäsi. Luomalla tilin tai lähettämällä sähköpostia palvelumme kautta sitoudut noudattamaan näitä ehtoja. Pyrimme laatimaan sääntöjä, joita on mahdollista noudattaa käytännössä.',
   'terms.lastUpdated': 'Voimassa: 1. huhtikuuta 2026',
+  'terms.linkPrivacy': 'Lue tietosuojakäytäntömme →',
   'terms.termination.body':
     'Voit poistaa tilisi milloin tahansa. Voimme sulkea tilin, joka rikkoo näitä ehtoja; jos teemme niin, kerromme syyn ja annamme sinun ensin viedä tietosi.',
   'terms.warranty.body':

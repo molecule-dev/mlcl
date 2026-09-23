@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
   'analytics.col.quorum': 'Kvorum',
   'analytics.col.votes': 'Stemmer',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Ingen ventende spørsmål ennå.',
   'audienceQa.onStageEyebrow': 'På scenen nå',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Reklamere',
   'audienceQa.queued': 'i kø',
   'audienceQa.queueEyebrow': 'Kø',
   'ballot.eyebrow': 'Avgi stemmen din',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Du er for øyeblikket på {{plan}} plan.',
   'billing.switch': 'Bytt',
   'billing.upgraded': 'Oppdatert til {{plan}} — grenser iverksatt umiddelbart.',
+  'common.goToDashboard': 'Gå til oversikt',
   'createPoll.addOption': 'Legg til alternativ',
   'createPoll.anonymousHint':
     'Velgernavn skjult i revisjonsloggen; opptellingene forblir autentiserte.',
@@ -161,6 +164,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ny i Nosh?',
   'login.remember': 'Husk meg i 30 dager',
   'login.subheading': 'Åpne gulvet, kjør rommet og sertifiser resultatet.',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'notFound.body':
     'Siden du prøvde å nå er stengt eller flyttet. Gå tilbake til dashbordet eller åpne en ny avstemning.',
   'notFound.eyebrow': 'Ikke noe quorum på denne ruten',
@@ -187,6 +192,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Kunne ikke laste inn denne avstemningen.',
   'pollDetail.loading': 'Laster inn avstemning …',
   'pollDetail.notFound': 'Avstemningen ble ikke funnet.',
+  'pollDetail.openBallot': 'Åpen avstemning',
   'pollDetail.openLive': 'Live-resultater',
   'pollDetail.pollId': 'avstemning · {{id}}',
   'pollDetail.published': 'Meningsmåling publisert – velgerne kan nå avgi stemme.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Søk via e-post…',
   'voters.subheading':
     'Kurater den kvalifiserte velgerlisten. Grupper velgerne etter organisasjon for vektede stemmesedler.',
+  'votingPollingLayout.nav.analytics': 'Analyse',
+  'votingPollingLayout.nav.billing': 'Fakturering',
+  'votingPollingLayout.nav.createPoll': 'Ny avstemning',
+  'votingPollingLayout.nav.dashboard': 'Dashbord',
+  'votingPollingLayout.nav.notifications': 'Varsler',
+  'votingPollingLayout.nav.settings': 'Innstillinger',
+  'votingPollingLayout.nav.team': 'Team',
+  'votingPollingLayout.nav.voters': 'Velgere',
+  'votingPollingLayout.primaryNavLabel': 'Primær navigasjon',
 }

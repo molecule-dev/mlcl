@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om oss',
   'authBrandPanel.quote':
     '«Vellum er nå systemet for registrering av alle signerte avtaler vi eier.»',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Gå til oversikt',
   'contractDetail.amount': 'Verdi',
   'contractDetail.back': 'Alle kontrakter',
   'contractDetail.downloadCta': 'Last ned PDF',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Hvis det finnes en konto for {{email}}, er en tilbakestillingslenke på vei.',
   'forgotPassword.subtitle': 'Vi sender en tilbakestillingslenke til jobb-e-postadressen din.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Laget med Molecule.',
   'landing.ctaHeading': 'Se porteføljen din lukket på dag én.',
   'landing.ctaPrimary': 'Start et arbeidsområde',
   'landing.eyebrow': 'For juridisk drift og anskaffelser',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Motpartsnavn er obligatorisk.',
   'newContract.errEmail': 'E-postadresse for underskriver er påkrevd.',
   'newContract.expires': 'Utløpsdato',
+  'newContract.failed': 'Det var ikke mulig å opprette kontrakten.',
   'newContract.heading': 'Ny kontrakt',
   'newContract.nextCta': 'Neste',
   'newContract.review.counterparty': 'Motpart',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Kontrakttittel',
   'newContract.titlePlaceholder': 'Hovedavtale for tjenester',
   'newContract.variablesHeading': 'Kontraktvariabler',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.dataExport': 'Dataeksport',
   'pricing.disabled': 'Ingen',
   'pricing.enabled': 'Ja',
@@ -146,15 +152,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Kunne ikke slette konto.',
   'settings.security.deleting': 'Sletter…',
   'settings.security.newPassword': 'Nytt passord',
+  'settings.security.noDevices': 'Ingen enheter er registrert.',
   'settings.security.twoFactor': 'Tofaktorautentisering',
   'settings.security.twoFactorDisable': 'Deaktiver',
   'settings.security.twoFactorEnable': 'Aktiver',
+  'settings.security.twoFactorInvalidCode': 'Ugyldig kode.',
   'settings.signatures.body':
     'Navnet du har skrevet inn vises på signaturlinjen i hver kontrakt du signerer. Angi det én gang, og det gjengis automatisk fra nå av.',
   'settings.signatures.heading': 'Signaturblokk',
   'settings.signatures.save': 'Lagre signatur',
+  'sign.action': 'Undertegn dette dokumentet',
+  'sign.eyebrow': 'Signatur kreves',
+  'sign.for': 'For {{name}}',
+  'sign.loadError': 'Denne påmeldingslenken er ugyldig eller har utløpt.',
   'sign.loading': 'Laster…',
   'sign.signing': 'Signerer…',
+  'sign.submitError': 'Det var ikke mulig å registrere signaturen din — lenken kan ha gått ut.',
   'signup.brandQuote':
     'Vi migrerte åtte år med papir til pergament på en uke. Bare revisjonssporet rettferdiggjør byttet.',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -187,6 +200,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Åpen kontrakt →',
   'vellumKpiCard.trend': 'Den siste trenden',
+  'vellumLayout.closeMenu': 'Lukk navigasjonsmenyen',
+  'vellumLayout.openMenu': 'Åpne navigasjonsmenyen',
   'vellumLayout.primaryNavLabel': 'Primær navigasjon',
   'vellumPortfolioHero.expiring': 'Utløper om 30 dager',
   'vellumPortfolioHero.label': 'Porteføljeverdi',

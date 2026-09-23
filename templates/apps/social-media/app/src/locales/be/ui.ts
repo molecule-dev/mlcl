@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.pageTitle': 'Пра {{app}}',
+  'common.goToDashboard': 'Перайсці да панэлі',
+  'common.retry': 'Паўтарыць',
   'compose.cancel': 'Адмена',
   'compose.captionPlaceholder': 'Што ў цябе на ўвазе?',
   'compose.heading': 'Падзяліцеся момантам',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Правераны ўліковы запіс',
   'resetPassword.newPassword': 'Новы пароль',
   'resetPassword.subheading': 'Выберыце нешта моцнае — не менш за 12 сімвалаў.',
+  'search.clearAria': 'Ачысціць',
+  'search.error': 'Пошук не ўдаўся. Паспрабуйце яшчэ раз.',
   'search.noPeople': 'Няма супадзенняў паміж стваральнікамі {{q}} «.',
   'search.noPosts': 'Няма адпаведных паведамленняў " {{q}} «.',
   'search.noTags': 'Пакуль няма папулярных хэштэгаў.',
@@ -129,6 +135,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Схаваць пароль',
   'signup.showPassword': 'Паказаць пароль',
   'signup.subheading': 'Стварыце ўліковы запіс, каб пачаць дзяліцца.',
+  'socialMediaLayout.closeMenu': 'Закрыць меню навігацыі',
+  'socialMediaLayout.openMenu': 'Адкрыць меню навігацыі',
+  'socialMediaLayout.primaryNavLabel': 'Асноўная навігацыя',
   'storyRail.heading': 'Гісторыі',
   'storyRail.label': 'Гісторыі',
   'storyRail.openAria': 'Адкрыта {{handle}} гісторыя',

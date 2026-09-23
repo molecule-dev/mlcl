@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.pageTitle': 'Faoi {{app}}',
   'activity.empty': 'Gan aon ghníomhaíocht fós — cas gléas nó gníomhaigh radharc.',
   'activity.eyebrow': 'Amlíne',
   'activity.loadError': 'Níorbh fhéidir fotha na gníomhaíochta a lódáil.',
   'activity.subheading': 'Gach gléas, uathoibriú, agus imeacht slándála in ord croineolaíoch.',
+  'addDevice.error.failed': 'Níorbh fhéidir an gléas a chur leis. Déan iarracht eile.',
   'addDevice.error.nameRequired': 'Tabhair ainm don ghléas seo le leanúint ar aghaidh.',
   'addDevice.field.firmware': 'Leagan Firmware',
   'addDevice.field.manufacturer': 'Monaróir',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Tástáil…',
   'automationEditor.testNew': 'Sábháil an uathoibriú ar dtús le tástáil a dhéanamh air.',
   'automationRow.lastRun': 'Deireanach {{date}} · {{count}} ritheann',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Rith {{name}} anois',
   'automations.empty': 'Gan aon uathoibriú fós — cruthaigh do chéad ghnáthamh.',
   'automations.eyebrow': 'Gnáthaimh',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Ag lódáil uathoibrithe…',
   'automations.newAutomation': '+ Nua',
   'automations.subheading': 'Nuair a tharlaíonn sé seo, déan é sin - gan an YAML.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Theip ar an ngléas a lódáil.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Ag obair…',
   'deviceDetail.unnamed': 'Gléas',
   'deviceStatusRow.on': 'Ar siúl',
+  'deviceStatusRow.turnOff': 'Múch',
+  'deviceStatusRow.turnOn': 'Cas air',
   'deviceStatusRow.watts': '{{watts}} Thiar',
   'energy.eyebrow': 'Cumhacht',
   'energy.heading': 'Fuinneamh',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Féach pleananna',
   'settings.security.heading': 'Slándáil',
   'settings.subheading': 'Plean, moil, agus roghanna cuntais.',
+  'smartHomeDashboardLayout.openMenu': 'Oscail an roghchlár nascleanúna',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Príomh-loingseoireacht',
 }

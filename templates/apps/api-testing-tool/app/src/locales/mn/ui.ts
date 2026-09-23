@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.pageTitle': '{{app}}-ийн тухай',
   'authShell.statusLabel': 'онлайн гүйгчид',
   'collections.createError': 'Цуглуулга үүсгэж чадсангүй.',
   'collections.defaultName': 'Гарчиггүй цуглуулга {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Хүсэлтүүд',
   'collections.newCollection': 'Шинэ цуглуулга',
   'collections.subheading': 'Бүлэглэж хүсэлт гаргаж, багтайгаа хуваалцаж, багц болгон ажиллуул.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'environmentCard.inactive': 'Сул зогсолт',
   'environmentCard.more': 'илүү их',
   'environmentCard.variables': 'Хувьсагч',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Үнэгүй татаж авах',
   'landing.heroSubtitle':
     'Терминалуудад амьдардаг инженерүүдэд зориулан бүтээгдсэн аянга мэт хурдан API туршилтын ажлын ширээ.',
+  'landing.heroTitleAccent': 'Гал түймэр',
+  'landing.heroTitleLine2': 'итгэлийг бий болгох.',
+  'landing.heroTitleRest': 'хүсэлтүүд,',
   'landing.kicker': '$ пилон илгээх --watch',
   'landing.pricingEyebrow': '// $ үнэ --plain',
   'landing.pricingHeading': 'Энгийн, урьдчилан таамаглах боломжтой үнэ',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Шинээр энд байна уу?',
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.subtitle': 'Пилон ажлын талбар руугаа үргэлжлүүлнэ үү.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'mocks.createError': 'Хуурамч код үүсгэж чадсангүй.',
   'mocks.defaultName': 'Гарчиггүй дуураймал {{n}}',
   'mocks.deleteError': 'Хуурамч хувилбарыг устгаж чадсангүй.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Ажлын талбар руу буцах',
   'notFound.eyebrow': '$ пилон шийдвэр --strict',
   'notFound.title': 'Маршрут олдсонгүй',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'privacy.collect.account':
     'Бүртгэл: таны имэйл хаяг, хэшлэгдсэн нууц үг, дэлгэцийн нэр болон таны сүүлд нэвтэрсэн цагийн тэмдэг.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Энэ бүртгэлийн одоогоор эзэмшиж буй өгөгдлийн зөвхөн унших горимтой харагдац.',
   'settings.unset': 'тохируулаагүй',
   'signup.identityHint': 'жишээ нь Алекс',
+  'signup.statusLabel': 'үнэгүй түвшин · зээлийн картгүй',
   'signup.subtitle': 'Хүсэлтүүдийг хэдхэн минутын дотор эхлүүлнэ үү.',
   'terms.account.body':
     'Та нууц үгээ хамгаалах үүрэгтэй. Үнэгүй эсвэл Pro төлөвлөгөөнд нэг бүртгэлийг олон хүнтэй хуваалцахыг зөвшөөрдөггүй — хуваалцсан ажлын талбарт Team захиалга худалдаж аваарай.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Өөрийн эзэмшдэггүй эсвэл шалгах зөвшөөрөлгүй үйлчилгээнүүд рүү хүсэлт илгээхэд Pylon-г бүү ашиглаарай. Үнийн хязгаарыг тойрч гарах эсвэл залилан мэхлэхийн тулд Pylon-г бүү ашиглаарай.',
   'terms.warranty.body':
     'Pylon нь ямар ч баталгаагүйгээр "байгаагаар нь" хангагдана. Бид 99.9% ажиллах хугацааг хангахыг зорьдог боловч үнэгүй эсвэл мэргэжлийн төлөвлөгөөнд үүнийг баталгаажуулдаггүй.',
+  'testRunner.assertionsCount': '{{count}} баталгаа',
   'testRunner.createError': 'Тест үүсгэж чадсангүй.',
   'testRunner.cron':
     'Энэхүү туршилтын холбогдсон хүсэлтийн хамгийн сүүлийн үеийн гүйцэтгэлтэй харьцуулан баталгааг үнэлнэ.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite-ийн үр дүн, баталгааны зөрүү болон сүүлийн 50 гүйлт.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Нэвтэрсэн нэр',
+  'workspace.auth.keyName': 'Толгой хэсгийн нэр',
+  'workspace.auth.keyValue': 'Түлхүүр утга',
+  'workspace.auth.password': 'Нууц үг',
+  'workspace.auth.username': 'Хэрэглэгчийн нэр',
+  'workspace.authOption.apikey': 'API түлхүүр',
+  'workspace.authOption.basic': 'Үндсэн баталгаажуулалт',
+  'workspace.authOption.bearer': 'Эзэмшигчийн Токен',
+  'workspace.authOption.none': 'Байхгүй',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Төрөл',
   'workspace.authTypeLabel': 'Баталгаажуулах төрөл',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Байхгүй',
+  'workspace.body.text': 'Түүхий текст',
+  'workspace.body.type': 'Төрөл',
   'workspace.environment': 'Хүрээ байхгүй',
   'workspace.envVar': 'орчны хувьсагч',
   'workspace.eyebrow': '$ пилон ажлын талбар --pane хуваах',
+  'workspace.kv.addHeader': 'Толгой хэсэг нэмэх',
+  'workspace.kv.addParam': 'Параметр нэмэх',
+  'workspace.kv.headerKey': 'Толгой хэсгийн нэр',
+  'workspace.kv.headerValue': 'Толгой хэсгийн утга',
+  'workspace.kv.key': 'Түлхүүр',
+  'workspace.kv.paramKey': 'Асуулгын параметрийн түлхүүр',
+  'workspace.kv.paramValue': 'Асуулгын параметрийн утга',
+  'workspace.kv.removeRow': 'Мөрийг устгах',
+  'workspace.kv.value': 'Үнэ цэнэ',
   'workspace.methodLabel': 'HTTP арга',
   'workspace.metric.latency': 'Хоцрогдол',
   'workspace.metric.latencyCaption': 'Энэ гүйлтээс хойш хоёр талын аялал',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Хүсэлтийг хүлээн авсан — доорх хариултыг үзнэ үү.',
   'workspace.subheading':
     'Хүсэлт бичиж, ажиллуулаад, дараа нь хариултыг баталгаажуулна уу - бүгдийг нь нэг цонхонд хийнэ үү.',
+  'workspace.testResults': 'Туршилтын үр дүн',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Зөвшөөрөл болгон илгээсэн: Эзэмшигч<token> энэ цуглуулга дахь бүх хүсэлт дээр.',

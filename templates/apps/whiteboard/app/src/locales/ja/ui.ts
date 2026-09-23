@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'authShell.brandHeading': '声に出して考えるデザインチームのためのマルチプレイヤーキャンバス。',
   'billing.canceled': 'サブスクリプションを解約しました。',
   'billing.cancelPlan': 'プランを解約',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'テンプレートから開始',
   'boards.title': 'あなたのボード',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'ダッシュボードへ',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'ワークスペースに紐付いたメールを入力すると、リセットリンクをお送りします。',
   'forgot.success.body':
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1ワークショップ · ブランドボイス',
   'landing.featuresEyebrow': 'Slateを際立たせるもの',
   'landing.featuresTitle': '素早いフィードバック。美しいキャンバス。摩擦ゼロ。',
+  'landing.hero.body':
+    '{{appName}}は、ライブブレインストーミングを実施し、アイデアを1か所に集約する必要があるデザインチーム、ワークショップファシリテーター、教育者向けのマルチプレイヤーホワイトボードです。',
   'landing.hero.primaryCta': '無料でボードを始める',
   'landing.hero.socialProof': '世界中の{{count}}のデザインチームに信頼されています',
   'landing.hero.title': '思考と同じ速度のキャンバス',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': '無料ワークスペースを作成',
   'login.subheading':
     'ワークショップで残したところから再開できます。ボード、付箋、カーソルがすべてリアルタイムで同期します。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.new': '新規',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'notifications.editTitle': '「{{board}}」への編集',
   'notifications.empty.body':
     '招待状、スナップショットの保存、最近のボード編集は、発生次第ここに表示されます。',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'バージョン履歴',
   'versionHistory.untitledSnapshot': '無題のスナップショット',
   'whiteboardLayout.newBoard': '新しいボード',
+  'whiteboardLayout.primaryNav': 'メインナビゲーション',
   'workspace.boardLabel': 'ボード',
   'workspace.eyebrow': '{{name}} · ワークスペース',
   'workspace.invite': 'コラボレーターを招待',

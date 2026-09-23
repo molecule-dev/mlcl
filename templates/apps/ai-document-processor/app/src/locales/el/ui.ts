@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.title': 'Σχετικά με το {{app}}',
   'authShell.backToLanding': '← Επιστροφή στην αρχική',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
+  'common.retry': 'Επανάληψη',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Σήμερα · Επισκόπηση λειτουργιών',
   'dashboard.heading': 'Νοημοσύνη εγγράφων',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Κανένα έγγραφο δεν ταιριάζει με τα τρέχοντα φίλτρα.',
   'documents.heading': 'Όλα τα έγγραφα',
   'documents.loadError': 'Αποτυχία φόρτωσης εγγράφων.',
+  'documents.loading': 'Φόρτωση βιβλιοθήκης…',
   'documents.searchLabel': 'Αναζήτηση εγγράφων',
   'documents.searchPlaceholder': 'Αναζήτηση εγγράφων…',
   'documents.subheading': '{{count}} έγγραφα στη βιβλιοθήκη σας, ταξινομημένα από τα νεότερα.',
@@ -63,8 +67,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Απόκρυψη κωδικού',
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.subtitle': 'Συνδεθείτε για να συνεχίσουν να ρέουν τα έγγραφά σας.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'notFound.body':
     'Το έγγραφο ή η διαδρομή που προσπαθήσατε να ανοίξετε δεν είναι πλέον εδώ. Επιστρέψτε στον πίνακα ελέγχου ή επιλέξτε μια ενότητα από την πλαϊνή στήλη.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Άνοιγμα αρχικής σελίδας',
   'notFound.title': 'Αυτή η σελίδα δεν είναι στο αρχείο',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % σε σχέση με χθες',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Δεν υπάρχουν ακόμη κανόνες αρχειοθέτησης. Χρησιμοποιήστε Νέος κανόνας για να προσθέσετε έναν.',
   'rules.eyebrow': 'Αυτοματισμός',
+  'rules.fieldsCount': '{{count}} πεδία',
   'rules.form.destination': 'Αρχειοθέτηση σε',
   'rules.form.name': 'Όνομα κανόνα',
   'rules.form.save': 'Αποθήκευση κανόνα',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} жөнүндө',
   'argentAuthShell.brandEyebrow': 'Аргент · Байлыкты камсыздоочу куралдар',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Инвестициялык кеңеш эмес.',
   'argentAuthShell.sampleChange': 'Бүгүн +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Негизги навигация',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Бул тикер боюнча эч кандай транзакциялар жок.',
   'assetDetail.txHeading': 'Сиздин транзакцияларыңыз',
   'common.and': 'жана',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Портфолиого сереп',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Азырынча эч кандай мүлк жок.',
   'holdings.heading': 'Холдингдер',
   'holdings.loadError': 'Фонддор жүктөлбөй калды.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Инвестициялык кеңеш эмес. Мурдагы көрсөткүчтөр келечектеги натыйжаларга кепилдик бербейт.',
   'landing.eyebrow': 'Argent · Байлыкты топтоо платформасы',
   'landing.features.heading': 'Кеңешчи өзү үчүн кура турган нерселердин баарын.',
   'landing.finalCta.heading': 'Портфолиоңузга тартипти кайтарып алыңыз.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} саат мурун',
   'news.justNow': 'азыр эле',
   'news.loadError': 'Жаңылыктар жүктөлбөй калды.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'portfolioHeroCard.label': 'Портфелдин баасы',
   'pricing.holdingsLabel': 'холдингдер',
   'pricing.newsLabel': 'жаңылык макалалары',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Аккаунтту өчүрүү',
   'settings.security.deleting': 'Жок кылынууда…',
   'settings.security.heading': 'Коопсуздук',
+  'settings.security.newPassword': 'Жаңы сыр сөз',
   'settings.security.password': 'Сырсөз',
   'settings.security.twoFactorEnable': 'Иштетүү',
+  'settings.security.twoFactorInvalidCode': 'Жараксыз код',
+  'settings.security.twoFactorVerify': 'Текшерүү жана иштетүү',
   'settings.tax.error': 'Салык төлөө ыкмасы жаңыртылган жок.',
   'settings.tax.heading': 'Салык участогун эсепке алуу',
   'settings.tax.method': 'Демейки ыкма',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '關於 {{app}}',
   'about.plansTitle': '與你一同成長的計劃',
   'brand.tagline': '每秒鐘',
   'clientDetail.back': '返回客戶',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': '所有關係集中在一個地方——專案、工時、未結帳發票。',
   'clients.title': '客戶',
   'common.and': '以及',
+  'common.goToDashboard': '前往主控台',
   'dashboard.activeProjects': '進行中的項目',
   'dashboard.empty': '暫無記錄。開始計時，記錄您的第一次訓練。',
   'dashboard.greeting': '您好，{{name}}',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
     '該客戶目前沒有可計費工時，請先記錄一些工時，或將現有工時記錄指派到該客戶的某個專案。',
   'invoices.save': '建立發票',
   'invoices.subtitle': '追蹤工時會自動匯總到發票中。',
+  'landing.copyright': '© {{year}} {{app}} 。每一秒，都經過精心安排。',
   'landing.ctaBody': '免費版最多支援 3 個項目。當您的客戶數量增加時，即可升級。',
   'landing.eyebrow': '計費工作的時間跟踪',
   'landing.featuresBody':
@@ -94,13 +97,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': '受獨立人士信賴',
   'landing.testimonial.quote':
     '“我30分鐘就從Toggl平台撤下來了。光是預算削減就足以收回成本——我已經連續兩週不再低估報價了。”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}}計時。每一秒，都記錄在案。',
   'login.brand.subtitle':
     '從上次中斷的地方繼續計時－每一分鐘都已與一個專案、一個客戶或一張發票對應。',
   'login.brand.tracking': '追蹤',
   'login.subheading': '繼續計時，從上次中斷的地方開始。',
+  'nav.closeMenu': '關閉導覽選單',
   'nav.insightsSection': '洞見',
   'nav.newEntry': '新條目',
+  'nav.openMenu': '開啟導覽選單',
+  'nav.primary': '主導航',
   'nav.workSection': '工作',
   'notFound.body': '您點擊的連結似乎已停止追蹤。請返回您的控制面板—我們將從那裡繼續追蹤。',
   'notFound.dashboard': '開啟儀表板',
@@ -198,6 +205,7 @@ export const ui: UiTranslations = {
   'timer.billable': '可計費',
   'timer.descriptionPlaceholder': '你在忙什麼？',
   'timer.idle': '空閒 — 開始跟踪',
+  'timer.noProject': '無專案',
   'timer.runningWithProject': '無專案',
   'timer.start': '啟動計時器',
   'timer.stop': '停止計時器',

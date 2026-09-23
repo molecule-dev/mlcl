@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'article.notFound': 'Artikulli nuk u gjet',
   'articleEditor.bodyPlaceholder': 'Shkruani / për blloqe, ose thjesht filloni të shkruani.',
+  'articleEditor.loadFailed': 'Artikulli nuk mund të ngarkohej',
   'articleEditor.publishing': 'Publikim\\u2026',
   'articleEditor.saveFailed': 'Ruajtja dështoi',
   'articleEditor.saving': 'Duke u ruajtur\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Shënues',
   'articleView.bookmarkOn': 'U shënua',
   'articleView.edit': 'Redakto artikullin',
+  'articleView.loading': 'Duke hapur këtë artikull…',
   'articleView.readTime': '{{minutes}} minuta leximi',
   'articleView.spaces': 'Hapësira',
   'articleView.tocHeading': 'Në këtë faqe',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Redaktimet, leximet dhe draftet e fundit që ekipi juaj po vazhdon të përmirësojë.',
   'cairnTrailHero.updated': 'Artikujt u përditësuan',
+  'common.goToDashboard': 'Shko te paneli',
   'drafts.eyebrow': 'Puna juaj e papërfunduar',
   'drafts.heading': 'Draftet',
+  'drafts.loadFailed': 'Nuk mund të ngarkoheshin draftet tuaja.',
   'drafts.subtitle':
     'Artikuj që i keni filluar, por që nuk i keni publikuar ende. Merrni një dhe vazhdoni.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Nuk ka ende hapësira. Hap një për të filluar mbledhjen e artikujve.',
   'home.spacesHeading': 'Hapësirat tuaja',
   'home.subtitle': 'Artikujt e fundit, faqeshënuesit tuaj dhe çfarë ka shkruar ekipi.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Ndërtuar me Molecule.',
   'landing.ctaBody':
     'Falas për autorë solo. Plane ekipore për ekipe të shpërndara që dërgojnë libra ekzekutimi, vendime dhe integrim.',
   'landing.ctaHeading': 'Vendos gurin e parë sot.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Krijo një hapësirë pune',
   'login.submitting': 'Duke u identifikuar\\u2026',
   'login.subtitle': 'Merr gjurmën aty ku e ke lënë.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
+  'newSpace.colorAria': 'Zgjidh ngjyrën {{color}}',
   'newSpace.colorLabel': 'Ngjyrë theksi',
+  'newSpace.createFailed': 'Nuk mund të krijohej hapësirë',
   'newSpace.descriptionPlaceholder':
     'Librat e ekzekutimit, librat e kujdestarisë, analizat pas vdekjes\\u2026',
   'newSpace.eyebrow': 'Hapni një hapësirë njohurish',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Duke u ngarkuar\\u2026',
   'notifications.subtitle':
     '{{count}} përmendjet e palexuara, komentet, ndryshimet e faqes dhe kërkesat për rishikim.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.articles': 'artikuj',
   'pricing.spaces': 'hapësira',
   'profile.eyebrow': 'Profili i autorit',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Fut një fjalëkalim të ri',
   'resetPassword.subtitle': 'Zgjidhni një fjalëkalim të fortë - të paktën 12 karaktere.',
   'searchResults.eyebrow': 'Kërkimi i hapësirës së punës',
+  'searchResults.filter.all': 'Të gjitha hapësirat',
   'searchResults.heading': 'Kërko artikuj',
   'searchResults.placeholder': 'Kërko në runbooks, RFC, politika, vendime\\u2026',
   'searchResults.summary': '{{count}} rezultatet për \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Kjo fshin llogarinë tuaj dhe çdo artikull që keni shkruar. Shtypni DELETE për të konfirmuar.',
   'settings.danger.confirmInvalid': 'Shtypni DELETE për të konfirmuar.',
+  'settings.danger.deleteFailed': 'Nuk mundi të fshijë llogarinë',
   'settings.danger.deleting': 'Duke fshirë\\u2026',
   'settings.danger.description':
     'Fshirja e hapësirës së punës fshin të gjitha artikujt, komentet dhe historikun e versioneve. Nuk ka mundësi rikuperimi.',
   'settings.danger.title': 'Fshi hapësirën e punës',
+  'settings.email.confirm': 'Përditëso email-in',
+  'settings.email.confirmTitle': 'Konfirmo ndryshimin e email-it',
   'settings.email.saved': 'Email-i u përditësua.',
+  'settings.email.updateFailed': 'Email-i nuk mund të përditësohej',
   'settings.language.title': 'Gjuha',
   'settings.name': 'Emri',
+  'settings.name.saved': 'Emri u përditësua.',
+  'settings.name.updateFailed': 'Emri nuk mund të përditësohej',
   'settings.notifications.description': 'Zgjidhni atë që arrin në kutinë tuaj postare.',
+  'settings.password.changeFailed': 'Nuk mund të ndryshohej fjalëkalimi',
   'settings.password.current': 'Fjalëkalimi aktual',
   'settings.password.new': 'Fjalëkalim i ri',
   'settings.password.saving': 'Duke u përditësuar\\u2026',
@@ -148,10 +168,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Si shfaqen artikujt për ju.',
   'settings.reading.title': 'Lexim dhe shkrim',
   'settings.subtitle': 'Akordoni njoftimet, kanavacën e leximit dhe llogarinë tuaj.',
+  'settings.twofa.code': 'Kodi i vërtetimit',
   'settings.twofa.disable': 'Çaktivizo',
   'settings.twofa.disabled': 'I paaftë',
   'settings.twofa.enable': 'Aktivizo',
   'settings.twofa.enabled': 'Aktivizuar',
+  'settings.twofa.invalidCode': 'Kod i pavlefshëm',
+  'settings.twofa.unavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
+  'settings.twofa.verify': 'Verifiko dhe aktivizo',
   'signup.brandQuote':
     '\\u201cShkrimi i tij është premtimi i parë që i bëjmë personit tjetër që ka nevojë për të.\\u201d',
   'signup.eyebrow': 'Hap një hapësirë pune',

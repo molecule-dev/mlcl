@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
+  'appNav.mobileLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
+  'appNav.primaryLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'billing.actions.confirmCancel':
     'ਕੀ ਆਪਣੀ ਗਾਹਕੀ ਰੱਦ ਕਰਨੀ ਹੈ? ਤੁਸੀਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਦੁਬਾਰਾ ਗਾਹਕੀ ਲੈ ਸਕਦੇ ਹੋ।',
   'billing.actions.paused': 'ਗਾਹਕੀ ਰੋਕੀ ਗਈ।',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'ਹਰੇਕ ਟੀਅਰ ਇੱਕ ਛੋਟੀ ਜਿਹੀ ਕਹਾਣੀ ਹੈ। ਆਪਣੀ ਕਤਾਰ ਵਿੱਚ ਇੱਕ ਸ਼ਾਮਲ ਕਰੋ ਜਾਂ ਇਸਨੂੰ ਅਗਲੇ ਮਹੀਨੇ ਵਿੱਚ ਬਦਲੋ।',
   'boxThemeCard.perMonth': '/ ਮਹੀਨਾ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'customize.eyebrow': 'ਇਸਨੂੰ ਆਪਣਾ ਬਣਾਓ',
   'customize.heading': 'ਆਪਣੇ ਅਗਲੇ ਟ੍ਰੌਵ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰੋ',
   'customize.items.exclude': 'ਇਸਨੂੰ ਛੱਡੋ',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'ਇਸ ਸੀਜ਼ਨ ਵਿੱਚ',
   'landing.editions.heading': 'ਸਾਡੇ ਕਿਊਰੇਟਰ ਪਸੰਦ ਕਰ ਰਹੇ ਐਡੀਸ਼ਨ',
   'landing.footer.contact': 'ਕਿਸੇ ਕਿਊਰੇਟਰ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ਆਪਣਾ ਡੱਬਾ ਸ਼ੁਰੂ ਕਰੋ →',
   'landing.hero.ctaSecondary': 'ਟੀਅਰ ਦੇਖੋ',
   'landing.hero.eyebrow': 'ਹਰ ਮਹੀਨੇ ਕਿਊਰੇਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਹਮੇਸ਼ਾ ਨਿੱਜੀ।',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ਤੁਹਾਡਾ ਅਗਲਾ ਸਫ਼ਰ',
   'nextBoxHeroCard.itemsLabel': 'ਚੁਣੇ ਹੋਏ ਆਈਟਮਾਂ',
   'nextBoxHeroCard.shipsOnLabel': 'ਭੇਜੀ ਜਾਵੇਗੀ',
+  'notFound.body':
+    'ਸਾਨੂੰ ਉਹ ਪੰਨਾ {{app}} ਪੁਰਾਲੇਖ ਵਿੱਚ ਨਹੀਂ ਮਿਲਿਆ। ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੋਵੇ ਜਾਂ ਗਲਤ ਟਾਈਪ ਕੀਤਾ ਗਿਆ ਹੋਵੇ।',
   'notFound.cta.dashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'notFound.eyebrow': 'ਖਾਲੀ ਡੱਬਾ',
   'notFound.heading': 'ਇਹ ਸ਼ੈਲਫ਼ ਖਾਲੀ ਹੈ।',

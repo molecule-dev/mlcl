@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
   'analytics.empty': 'നിങ്ങളുടെ ആദ്യ ക്ലിപ്പ് റെക്കോർഡ് ചെയ്ത് വിവാഹനിശ്ചയം ഇവിടെ കാണുക.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ക്ലിപ്പുകൾ',
   'billing.usage.views': 'കാഴ്ചകൾ',
   'billing.usage.views.unit': 'കാഴ്ചകൾ',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'landing.cta.title': 'മികച്ച ഫീഡ്‌ബാക്ക് അയയ്ക്കൂ. ഗ്ലിന്റ് ഉപയോഗിച്ച് ആരംഭിക്കൂ.',
   'landing.feature.capture.body':
     'മൈക്ക്, ക്യാം, ഡ്രോയിംഗ് എന്നിവ ഉപയോഗിച്ച് ബ്രൗസർ, ഡെസ്ക്ടോപ്പ്, മൊബൈൽ റെക്കോർഡിംഗ്.',
   'landing.feature.capture.title': 'ഒറ്റ-ടാപ്പ് ക്യാപ്‌ചർ',
+  'landing.footer.copy': '© {{year}} {{appName}} . അസിൻക്, തിളക്കമുള്ളതാക്കി.',
   'landing.hero.cardCaption': 'സാമ്പിൾ വർക്ക്‌സ്‌പെയ്‌സ് അവലോകനം — സൗജന്യമായി പരീക്ഷിച്ചുനോക്കൂ.',
   'landing.hero.primaryCta': 'സൗജന്യമായി റെക്കോർഡിംഗ് ആരംഭിക്കൂ',
   'landing.hero.proof.free': 'സൗജന്യ ഫോറെവർ ടയർ',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'റെക്കോർഡിംഗുകൾ തിരയുക',
   'library.searchPlaceholder': 'റെക്കോർഡിംഗുകൾ തിരയുക...',
   'library.weeklyChange': '{{value}} കഴിഞ്ഞ ആഴ്ചയുമായി താരതമ്യം ചെയ്യുമ്പോൾ %',
+  'nav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'nav.record': 'റെക്കോർഡ് ചെയ്യുക',
   'nav.shared': 'എന്നോട് പങ്കിട്ടത്',
   'nav.startRecording': 'റെക്കോർഡിംഗ് ആരംഭിക്കുക',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Tempah Temujanji',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Tiada pesakit untuk ditunjukkan.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'consult.backLink': 'Semua temu janji',
   'consult.captions': 'Kapsyen',
   'consult.connected': 'Bersambung · 720p · stabil',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pesakit',
   'patientVitalsHero.scripts': 'Rx terbuka',
   'patientVitalsHero.subline': '{{count}} berunding mengikut jadual anda hari ini',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'prescriptions.empty': 'Tiada preskripsi yang sepadan.',
   'prescriptions.eyebrow': 'E-preskripsi',
   'prescriptions.heading': 'Preskripsi',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Notis Privasi',
   'privacy.use.body':
     'Untuk memberikan penjagaan, menghantar peringatan temu janji, menetapkan preskripsi laluan dan meningkatkan kebolehpercayaan perkhidmatan. Kami tidak pernah menjual data anda dan tidak pernah berkongsi maklumat klinikal dengan pengiklan.',
+  'providers.allSpecialties': 'Semua Kepakaran',
+  'providers.loadError': 'Gagal memuatkan penyedia.',
+  'providers.loading': 'Memuatkan…',
   'providers.noResults': 'Tiada penyedia ditemui.',
   'providers.searchPlaceholder': 'Cari mengikut nama, kepakaran...',
   'providers.title': 'Cari Pembekal',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Permulaan hari',
   'settings.availability.heading': 'Ketersediaan',
   'settings.devices.thisDevice': 'Peranti ini',
+  'settings.devices.unnamed': 'Peranti tanpa nama',
   'settings.eyebrow': 'Amalan & akaun',
   'settings.loadError': 'Tidak dapat memuatkan profil anda.',
   'settings.notifications.emailMessages': 'Emel saya apabila pasukan penjagaan saya membalas',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Lumpuhkan',
   'settings.security.twoFactor.enable': 'Aktifkan',
   'settings.security.twoFactor.heading': 'Pengesahan dua faktor',
+  'settings.security.twoFactor.invalidCode': 'Kod itu tidak sepadan. Cuba lagi.',
+  'settings.security.twoFactor.setupFailed':
+    'Tidak dapat memulakan persediaan dua faktor. Cuba lagi.',
+  'settings.security.twoFactor.statusOn': 'Dua faktor dihidupkan',
   'settings.signOutDevice': 'Log keluar',
   'settings.subheading': 'Profil penyedia, peraturan amalan dan makluman klinikal.',
   'signup.emailLabel': 'E-MEL',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Buat Akaun',
   'signupFooter.hipaa': 'Patuh HIPAA',
   'solaceLayout.primaryNavLabel': 'Navigasi utama',
+  'solaceLayout.toggleMenu': 'Togol menu',
   'terms.eligibility.body':
     'Anda mestilah berumur sekurang-kurangnya lapan belas tahun, atau ibu bapa atau penjaga sah kanak-kanak bawah umur yang anda ingin dapatkan rawatan, dan berada secara fizikal di negeri AS di mana doktor kami dilesenkan.',
   'terms.payment.body':

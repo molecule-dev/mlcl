@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពីយើង',
   'authShell.samplePreview':
     '"សួស្តីក្រុមទាំងអស់គ្នា ផ្ទាំងគ្រប់គ្រងថ្មីពិតជាស្រស់ស្អាតណាស់ — ពិតជាអ្វីដែលយើងត្រូវការ!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ផ្លូវកាត់',
   'automations.subheading':
     'ច្បាប់ ការឆ្លើយតបដែលបានរៀបចំទុកជាមុន និង chatbots — រក្សាកន្លែងធ្វើការឱ្យមានសំឡេងរោទ៍ ខណៈពេលដែលក្រុមរបស់អ្នកផ្តោតលើរឿងលំបាកៗ។',
+  'automations.trigger.inboundMessage': 'សារចូល',
   'automations.triggerLabel': 'គន្លឹះ',
   'chatBubble.internalNoteLabel': 'កំណត់ចំណាំផ្ទៃក្នុង',
+  'common.confirmDelete': 'បញ្ជាក់ការលុប',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'contactDetail.backToContacts': 'ទំនាក់ទំនងទាំងអស់',
   'contactDetail.contactFallback': 'ទំនាក់ទំនង',
   'contactDetail.conversationFallback': 'ការសន្ទនា',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'បានឃើញចុងក្រោយ',
   'contacts.empty': 'មិនទាន់មានទំនាក់ទំនងនៅឡើយទេ។ សូមបន្ថែមទំនាក់ទំនងដំបូងរបស់អ្នកនៅខាងលើ។',
   'contacts.eyebrow': 'បញ្ជីអតិថិជន',
+  'contacts.form.nameOrEmailRequired': 'សូមផ្តល់យ៉ាងហោចណាស់ឈ្មោះ ឬអ៊ីមែល',
   'contacts.form.save': 'រក្សាទុកទំនាក់ទំនង',
   'contacts.heading': 'ទំនាក់ទំនង',
   'contacts.loading': 'កំពុងផ្ទុកទំនាក់ទំនង…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'រក្សាទុកកំណត់ចំណាំ',
   'conversationDetail.tab.note': 'កំណត់ចំណាំផ្ទៃក្នុង',
   'conversationDetail.threadAria': 'សារសន្ទនា',
+  'conversationDetail.visitorFallback': 'អ្នកទស្សនា',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'ព័ត៌មានលម្អិតរបស់អតិថិជន',
   'customerProfilePanel.recentTitle': 'ការសន្ទនាថ្មីៗ',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'អតិថិជនកំពុងទទួលបានការឆ្លើយតបដំបូងរបស់ពួកគេនៅក្នុង {{time}} ជាមធ្យម — រក្សាចង្វាក់ឲ្យបន្ត។',
   'inboxHeroCard.title': 'ការសន្ទនាសកម្ម',
+  'inboxLayout.navDrawerLabel': 'ការរុករក',
+  'inboxLayout.openMenu': 'បើកម៉ឺនុយរុករក',
   'inboxOverview.eyebrow': 'ថ្ងៃនេះដោយសង្ខេប',
   'inboxOverview.heroChange': '{{count}} បើក',
   'inboxOverview.kpiClosedTrend': 'គ្រប់ពេលវេលា',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ចូលមើលទំព័រដើម',
   'notifications.subheading':
     'កិច្ចការផ្ទះ, @mentions, ហានិភ័យ SLA, មតិកែលម្អ CSAT និងសកម្មភាពក្រុម — តម្រៀបថ្មីបំផុតមុន។',
+  'notifications.subjectFallback': 'ការសន្ទនាមួយ',
+  'notifications.visitorFallback': 'អ្នកទស្សនាម្នាក់',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ខ្ពស់',
   'priority.low': 'ទាប',
+  'priority.normal': 'ធម្មតា',
   'priority.urgent': 'បន្ទាន់',
   'privacy.title': 'គោលការណ៍ឯកជនភាព',
   'reports.agentFallback': 'ភ្នាក់ងារ',

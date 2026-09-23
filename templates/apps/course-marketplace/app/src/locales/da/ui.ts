@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Indlæser kurser…',
   'browse.next': 'Næste side',
   'browse.results': 'Visning af kurser på {{count}}',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Sorter efter',
   'browse.subtitle':
     'Filtrer redaktionens arkiv efter emne, niveau og pris. Alle kurser er nøje udvalgt af vores redaktører.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Dit certifikat er underskrevet og klar. Del det med omverdenen, eller gem det som et minde om det arbejde, det har krævet at opnå det.',
   'certificate.copyLink': 'Kopier delingslink',
+  'certificate.copyPrompt': 'Kopier dette link:',
   'certificate.download': 'Download PDF',
   'certificate.eyebrow': 'Præstation låst op',
   'certificate.linkCopied': 'Linket er kopieret!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Du er tilmeldt!',
   'checkout.verifying': 'Vi tjekker din tilmelding…',
   'checkout.viewLibrary': 'Se min læring',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.retry': 'Prøv igen',
   'courseDetail.about': 'Om dette kursus',
   'courseDetail.checkoutPending': 'Starter betaling…',
   'courseDetail.continueLearning': 'Fortsæt med at lære',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 dages pengene-tilbage-garanti',
   'courseDetail.includes.video': '{{hours}} timer med video på forespørgsel',
   'courseDetail.instructor': 'Underviser',
+  'courseDetail.languageEnglish': 'Engelsk',
   'courseDetail.lectures': 'Forelæsninger',
   'courseDetail.level': 'Niveau',
   'courseDetail.loading': 'Indlæser kursus…',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Der er endnu ingen anmeldelser.',
   'instructorProfile.students': 'Studerende',
   'landing.categories.empty': 'Kategorierne vises, når kataloget er udfyldt.',
+  'landing.categories.heading': 'Udforsk arkivet',
   'landing.hero.eyebrow': 'Lectura · Forlagsarkiv om mestring',
   'landing.hero.proof': 'Anbefalet af studerende hos Google, Meta og Adobe.',
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Kom i gang med at lære i dag',
   'login.subheading': 'Få adgang til dit videnskabelige arkiv.',
   'myLearning.empty.title': 'Der er endnu ingen kurser, der matcher dette filter',
+  'myLearning.error.title': 'Det var ikke muligt at indlæse dit bibliotek',
   'myLearning.filter.notStarted': 'Ikke påbegyndt',
   'myLearning.hero.subtitle': '{{count}} kurser i dit bibliotek. Hold momentumet i gang.',
   'myLearning.hero.title': 'Fortsæt hvor du slap.',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Der er ingen nye aktiviteter at gennemgå. Nye begivenheder vises her.',
   'notifications.empty.title': 'Du er helt opdateret',
+  'notifications.error.title': 'Det var ikke muligt at indlæse aktiviteten',
   'privacy.title': 'Privatlivspolitik',
   'reset.confirmPlaceholder': 'Indtast din nye adgangskode igen',
   'reset.errorGeneric': 'Det var ikke muligt at nulstille adgangskoden. Anmod om et nyt link.',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}d siden',
   'timeAgo.hours': '{{count}}t siden',
   'timeAgo.minutes': '{{count}} min siden',
+  'timeAgo.months': '{{count}} for nogle måneder siden',
   'timeAgo.today': 'i dag',
+  'timeAgo.weeks': '{{count}} for nogle uger siden',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'analytics.col.quorum': 'Quórum',
   'analytics.col.votes': 'Votos',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Aínda non hai preguntas pendentes.',
   'audienceQa.onStageEyebrow': 'No escenario agora',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promover',
   'audienceQa.queued': 'en cola',
   'audienceQa.queueEyebrow': 'Fila',
   'ballot.eyebrow': 'Vota',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Actualmente estás no {{plan}} plan.',
   'billing.switch': 'Interruptor',
   'billing.upgraded': 'Actualizado a {{plan}} — límites aplicados inmediatamente.',
+  'common.goToDashboard': 'Ir ao panel',
   'createPoll.addOption': 'Engadir opción',
   'createPoll.anonymousHint':
     'Nomes dos votantes ocultos no rexistro de auditoría; os recontos permanecen autenticados.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Novo en Nosh?',
   'login.remember': 'Lémbrame durante 30 días',
   'login.subheading': 'Abre a planta, dirixe a sala e certifica o resultado.',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'notFound.body':
     'A páxina á que intentaches acceder foi pechada ou movida. Volve ao panel ou abre unha nova enquisa.',
   'notFound.eyebrow': 'Non hai quórum nesta ruta',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Non se puido cargar esta enquisa.',
   'pollDetail.loading': 'Cargando a enquisa…',
   'pollDetail.notFound': 'Non se atopou a enquisa.',
+  'pollDetail.openBallot': 'Votación aberta',
   'pollDetail.openLive': 'Resultados en directo',
   'pollDetail.pollId': 'enquisa · {{id}}',
   'pollDetail.published': 'Enquisa publicada: os votantes xa poden emitir o seu voto.',
@@ -270,4 +276,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Buscar por correo electrónico…',
   'voters.subheading':
     'Selecciona a lista de votantes elixibles. Agrupa os votantes por organización para obter papeletas ponderadas.',
+  'votingPollingLayout.nav.analytics': 'Analítica',
+  'votingPollingLayout.nav.billing': 'Facturación',
+  'votingPollingLayout.nav.createPoll': 'Nova enquisa',
+  'votingPollingLayout.nav.dashboard': 'Panel de control',
+  'votingPollingLayout.nav.notifications': 'Notificacións',
+  'votingPollingLayout.nav.settings': 'Configuración',
+  'votingPollingLayout.nav.team': 'Equipo',
+  'votingPollingLayout.nav.voters': 'Votantes',
+  'votingPollingLayout.primaryNavLabel': 'Navegación principal',
 }

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureDiscover.title': 'Вдохновение, отобранное вручную',
   'account.addPaymentCta': 'Добавить способ оплаты',
   'account.addPaymentError': 'Не удалось добавить способ оплаты.',
+  'account.confirmRemove': 'Подтвердить удаление',
   'account.defaultBadge': 'По умолчанию',
   'account.loyalty.pointsTowardNext': '{{points}} из {{следующий}} мили до {{nextTier}}',
   'account.loyalty.tier': 'Текущий уровень',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Детали поездки',
   'booking.tripSummary': '{{nights}} ночи · {{guests}} гости',
   'common.daysAgo': '{{count}} д назад',
+  'common.goToDashboard': 'Перейти к панели',
   'common.hoursAgo': '{{count}} х назад',
   'common.minutesAgo': '{{count}} м назад',
   'common.no': '—',
@@ -84,6 +88,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Юридические',
   'notifications.loading': 'Загрузка…',
   'notifications.subheading': '{{count}} непрочитанное · все в одном спокойном почтовом ящике',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.accommodationsLabel': 'размещение',
   'pricing.bookingsLabel': 'бронирования',
   'pricing.destinationsLabel': 'сохраненные пункты назначения',
@@ -136,6 +141,7 @@ export const ui: UiTranslations = {
     'Вдохновение, надежное размещение и беспроблемный путь от мечты до бронирования — в 14 странах и более чем 200 тщательно отобранных объектах размещения.',
   'sojournHeroSearchCard.trustProtected': 'Бесплатная отмена, полная защита',
   'sojournHeroSearchCard.trustVetted': 'Только тщательно отобранные объекты недвижимости.',
+  'travelBookingLayout.primaryNavLabel': 'Основная навигация',
   'tripDetail.backLink': 'Вернуться к поездкам',
   'tripDetail.cancelCta': 'Отменить бронирование',
   'tripDetail.cancelHeading': 'Отменить эту поездку?',

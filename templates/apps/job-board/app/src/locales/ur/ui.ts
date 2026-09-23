@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'ہمارے بارے میں',
   'applications.empty': 'ابھی تک کوئی درخواست نہیں ہے \\u2014 صحیح کردار صرف ایک درخواست دینا ہے۔',
   'applications.eyebrow': 'آپ کی پائپ لائن',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ہر وہ کردار جس کے لیے آپ نے درخواست دی ہے، حرکت میں۔ توجہ مرکوز کرنے کے لیے اسٹیج کے لحاظ سے فلٹر کریں۔',
   'applications.untitledRole': 'کردار # {{id}}',
+  'auth.legalConsent': 'جاری رکھ کر، آپ ہماری شرائط سے اتفاق کرتے ہیں',
   'common.and': 'اور',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'companies.empty': 'کوئی کمپنی آپ کی تلاش سے مماثل نہیں ہے اور کوئی مختلف اصطلاح آزمائیں۔',
   'companies.eyebrow': 'نمایاں آجر',
   'companies.searchPlaceholder': 'نام، صنعت، مقام کے لحاظ سے تلاش کریں۔',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'اس کردار کے لیے ابھی تک کوئی درخواستیں نہیں ہیں۔',
   'jobApplicants.eyebrow': 'آجر کا نظارہ',
   'jobApplicants.loading': 'لوڈ ہو رہا ہے\\u2026',
+  'jobApplicants.statusUpdateFailed': 'اس مرحلے کو اپ ڈیٹ نہیں کیا جا سکا — دوبارہ کوشش کریں۔',
+  'jobApplicants.subheading':
+    'ریزیوموں کا جائزہ لیں، امیدواروں کو آگے بڑھائیں، پیشکشیں بھیجیں \\u2014 {{count}} حرکت میں ہیں۔',
   'jobDetail.applicantCount': '{{count}} اب تک درخواست دہندگان',
   'jobDetail.applied': 'درخواست بھیج دی گئی۔',
   'jobDetail.apply': 'ابھی اپلائی کریں۔',
@@ -81,12 +87,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'کھلے کرداروں کو براؤز کریں \\u2192',
   'landing.pricingEyebrow': 'قیمتوں کا تعین',
   'landing.pricingHeading': 'ہر ٹیم کے سائز کے لیے آسان منصوبے۔',
+  'login.eyebrow': '{{app}} میں خوش آمدید',
   'login.heading': 'اپنے اکاؤنٹ میں سائن ان کریں۔',
   'login.noAccount': 'نوش میں نئے؟',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'مجھے 30 دن تک یاد رکھنا',
   'login.signingIn': 'سائن ان ہو رہا ہے\\u2026',
   'login.subheading': 'اپنی تلاش شروع کریں، اپنی درخواستوں کو آگے بڑھائیں، تیزی سے سنیں۔',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . ٹیموں کی خدمات حاصل کرنے کے لیے بنایا گیا ہے۔',
   'loginBrandPanel.headline': 'جہاں ٹیلنٹ ملتے ہیں۔',
   'loginBrandPanel.headlineLine2': 'رفتار',
   'loginBrandPanel.listing.recruiter': 'ٹیلنٹ پارٹنر',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
     'ایپلیکیشن اپ ڈیٹس، انٹرویو کے دعوت نامے، تازہ میچز اور سب سے پہلے تازہ ترین۔',
   'opportunitiesHero.delta': '{{sign}} {{amount}} اس ہفتے',
   'opportunitiesHero.eyebrow': 'آج کھولیں۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'postJob.addNewCompany': '+ ایک نئی کمپنی شامل کریں۔',
   'postJob.companyCreateFailed': 'کمپنی نہیں بن سکی — دوبارہ کوشش کریں۔',
   'postJob.companyNameLabel': 'آپ کی کمپنی کا نام',
@@ -160,10 +169,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'اکاؤنٹ بنانا\\u2026',
   'signup.ctaEmployer': 'آجر کا اکاؤنٹ بنائیں',
   'signup.firstNamePlaceholder': 'مایا',
+  'signup.lastNamePlaceholder': 'چن',
   'signup.passwordMismatch': 'پاس ورڈز مماثل نہیں ہیں۔',
   'signup.subheading':
     'متلاشیوں کے لیے مفت، ہمیشہ کے لیے۔ آجر 30 دن کی آزمائش کے ساتھ شروع کرتے ہیں۔',
   'timeAgo.days': '{{count}} ڈی پہلے',
   'timeAgo.hours': '{{count}} گھنٹہ پہلے',
   'timeAgo.justNow': 'ابھی ابھی',
+  'timeAgo.weeks': '{{count}} ہفتہ پہلے',
 }

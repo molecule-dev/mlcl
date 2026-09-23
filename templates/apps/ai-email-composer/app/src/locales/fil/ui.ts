@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Ang aming kwento',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Rate ng pagbubukas',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Sinisimulan ang checkout…',
   'billing.subheading': 'Pumili ng plano na angkop sa paraan ng inyong pagpapadala.',
   'billing.unavailable': 'Makipag-ugnayan sa sales',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'compose.adjustingTone': 'Isinusulat muli sa piniling tono…',
   'compose.aiPromptPlaceholder':
     'hal. "Magalang na follow-up pagkatapos ng dalawang linggong walang tugon, panatilihing maikli."',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
     'Kailangan bang magpadala? Maaaring maghanda ang Signet ng draft sa loob ng ilang segundo.',
   'dashboard.composeCtaLabel': 'Mabilis na pagsulat',
   'dashboard.heading': 'Ang inyong linggo, binuo',
+  'dashboard.loadFailed': 'Hindi ma-load ang iyong dashboard.',
   'dashboard.manageLibrary': 'Pamahalaan ang library →',
   'dashboard.recentEmpty': 'Wala pang mga pagpapadala — lilitaw dito ang inyong mga naipadala.',
   'dashboard.recentHeading': 'Mga kamakailang pagpapadala',
@@ -144,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Ginagamit ng Signet ang tonong ito maliban kung ino-override Kayo sa draft.',
   'signetLayout.primaryNavLabel': 'Pangunahing navigation',
+  'signetLayout.toggleMenu': 'I-toggle ang menu',
   'signup.emailLabel': 'Email address',
   'signup.showPassword': 'Ipakita ang password',
   'signup.tagline': 'Ipadala ang inyong unang email na ginawa ng AI sa loob ng isang minuto.',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.title': 'Über „{{app}}“',
   'comments.addFailed': 'Kommentar konnte nicht veröffentlicht werden.',
   'comments.backToDoc': 'Zurück zum Manuskript',
   'comments.deleteFailed': 'Konnte nicht gelöscht werden.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Erledigen',
   'comments.resolveFailed': 'Konnte nicht erledigt werden.',
   'comments.subtitle': '{{open}} offen · {{resolved}} erledigt',
+  'common.goToDashboard': 'Zum Dashboard',
   'dashboard.activityHeading': 'Was läuft',
   'dashboard.createFailed': 'Dokument konnte nicht erstellt werden.',
   'dashboard.empty': 'Noch keine Manuskripte — beginnen Sie mit der Schaltfläche „Neues Dokument“.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Konnte nicht in den Papierkorb verschoben werden.',
   'editor.unpublish': 'Veröffentlichung aufheben',
   'editor.untitled': 'Unbenanntes Dokument',
+  'editor.updatedElsewhere':
+    'Dieses Dokument wurde von jemand anderem aktualisiert – laden Sie es neu, um die neueste Version zu sehen.',
   'editor.version': 'v{{v}}',
   'forgotPassword.emailPlaceholder': 'autor@studio.com',
   'forgotPassword.sentBody':
     'Wenn ein Konto für {{email}} existiert, ist ein Link zum Zurücksetzen unterwegs.',
   'forgotPassword.subtitle': 'Wir senden Ihnen einen Link zum Zurücksetzen per E-Mail.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Erstellt mit Molecule.',
   'landing.ctaHeading': 'Öffnen Sie die Seite. Lassen Sie den Cursor beginnen.',
   'landing.ctaPrimary': 'Studio öffnen',
   'landing.eyebrow': 'Für Autorinnen, Lektoren und Teams',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'bearbeitet {{when}}',
   'quillonDocumentCard.open': 'Öffnen →',
   'quillonKpiCard.trend': 'Aktueller Trend',
+  'quillonLayout.menu': 'Menü',
   'quillonLayout.primaryNavLabel': 'Hauptnavigation',
   'quillonStudioHero.collab': 'Mitwirkende',
   'quillonStudioHero.docs': 'Bearbeitete Dokumente',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': 'vor {{days}} Tg.',
   'time.hoursAgo': 'vor {{hours}} Std.',
   'time.justNow': 'gerade eben',
+  'trash.confirmDelete': 'Löschen bestätigen',
   'trash.deleteFailed': 'Konnte nicht gelöscht werden.',
   'trash.deleteForever': 'Endgültig löschen',
   'trash.empty': 'Nichts zum Wiederherstellen.',
+  'trash.emptyAll': 'Papierkorb leeren',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Papierkorb',
   'trash.loadFailed': 'Papierkorb konnte nicht geladen werden.',

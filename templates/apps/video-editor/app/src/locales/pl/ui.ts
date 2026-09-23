@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Znalazłeś błąd, masz prośbę o funkcję lub chcesz nam opowiedzieć o filmie, który zmontowałeś? Każda wiadomość trafia do prawdziwej osoby w zespole — możesz się z nami skontaktować w dowolnym momencie za pośrednictwem ustawień konta.',
+  'about.contactTitle': 'Skontaktuj się z nami',
+  'about.eyebrow': '// studio, które stoi za cięciem',
   'about.pageTitle': 'O {{appName}}',
   'assetDetail.back': 'Wróć do biblioteki',
   'assetDetail.confirmDelete': 'Usunąć „{{name}}”? Tej operacji nie można cofnąć.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipów, podkładów audio i grafik gotowych do umieszczenia na osi czasu.',
   'assetLibrary.title': 'Zasoby',
   'assetLibrary.upload': 'Dodaj zasób',
+  'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.browseTemplates': 'Przeglądaj szablony →',
   'dashboard.loading': 'Wczytywanie projektów…',
   'dashboard.noProjects': 'Brak projektów — proszę utworzyć jeden, aby rozpocząć.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Proszę wybrać coś, co tylko Państwo zapamiętają.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Prywatność',
+  'rushesLayout.closeMenu': 'Zamknij menu nawigacyjne',
   'rushesLayout.guest': 'Edytor',
+  'rushesLayout.navDialog': 'Nawigacja',
+  'rushesLayout.openMenu': 'Otwórz menu nawigacyjne',
   'rushesLayout.planFree': 'Plan darmowy',
   'rushesLayout.tagline': 'Filmowa oś czasu',
   'settings.billing.confirmCancel': 'Anulować subskrypcję na koniec okresu?',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'about.pageTitle': 'Tietoja {{appName}}',
   'analytics.empty': 'Tallenna ensimmäinen videosi nähdäksesi sitoutumisen täällä.',
@@ -40,10 +41,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipsit',
   'billing.usage.views': 'Näyttökerrat',
   'billing.usage.views.unit': 'näkymät',
+  'common.goToDashboard': 'Siirry etusivulle',
   'landing.cta.title': 'Lähetä parempaa palautetta. Aloita Glintillä.',
   'landing.feature.capture.body':
     'Tallennus selain-, tietokone- ja mobiililaitteilla mikrofonilla, kameralla ja piirtotoiminnolla.',
   'landing.feature.capture.title': 'Yhden napautuksen kuvaus',
+  'landing.footer.copy': '© {{year}} {{appName}} . Async, tehty hohtavaksi.',
   'landing.hero.cardCaption': 'Näytetyötilan yleiskatsaus – kokeile ilmaiseksi',
   'landing.hero.primaryCta': 'Aloita tallennus ilmaiseksi',
   'landing.hero.proof.free': 'Ilmainen ikuinen taso',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Hae tallenteita',
   'library.searchPlaceholder': 'Hae tallenteita…',
   'library.weeklyChange': '{{value}} % viime viikkoon verrattuna',
+  'nav.openMenu': 'Avaa navigointivalikko',
   'nav.record': 'Tallenna',
   'nav.shared': 'Jaettu minulle',
   'nav.startRecording': 'Aloita tallennus',

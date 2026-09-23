@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'about.pageTitle': 'Tentang {{appName}}',
   'analytics.empty': 'Rekam klip pertama Anda untuk melihat keterlibatan di sini.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klip',
   'billing.usage.views': 'Tayangan',
   'billing.usage.views.unit': 'tayangan',
+  'common.goToDashboard': 'Ke Dashboard',
   'landing.cta.title': 'Kirim umpan balik yang lebih baik. Mulai dengan Glint.',
   'landing.feature.capture.body':
     'Perekaman browser, desktop, dan seluler dengan mikrofon, kamera, dan gambar.',
   'landing.feature.capture.title': 'Perekaman satu ketukan',
+  'landing.footer.copy': '© {{year}} {{appName}} . Async, dibuat bercahaya.',
   'landing.hero.cardCaption': 'Ikhtisar ruang kerja contoh — coba gratis.',
   'landing.hero.primaryCta': 'Mulai merekam gratis',
   'landing.hero.proof.free': 'Tingkat gratis selamanya',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Cari rekaman',
   'library.searchPlaceholder': 'Cari rekaman…',
   'library.weeklyChange': '{{value}}% vs minggu lalu',
+  'nav.openMenu': 'Buka menu navigasi',
   'nav.record': 'Rekam',
   'nav.shared': 'Dibagikan kepada saya',
   'nav.startRecording': 'Mulai merekam',

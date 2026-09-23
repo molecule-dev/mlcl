@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
+  'ascentSideNav.nav.notifications': 'Notificări',
   'ascentSideNav.newObjective': 'Obiectiv nou',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'Stabilește vârful. Puncte de punctaj pentru ascensiune. Antrenează echipa.',
   'authShell.eyebrow': 'OKR-uri care mișcă echipele',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Spațiu de lucru · Facturare',
   'billing.heading': 'Plan și facturi',
   'billing.period.year': 'Anual',
+  'billing.perk.export': 'Export de date + acces API',
+  'billing.perk.inApp': 'Raportare în aplicație',
+  'billing.perk.standard': 'Recenzii standard',
+  'billing.perk.unlimitedObjectives': 'Obiective nelimitate',
+  'billing.perk.unlimitedRetention': 'Retenție nelimitată',
   'billing.subheading': 'Ești pe {{name}} plan. Comparați nivelurile și faceți upgrade mai jos.',
   'billing.tier.unavailable': 'Nu este disponibil',
   'billing.tier.upgrade': 'Actualizați la {{name}}',
@@ -42,11 +50,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'Trimiteți check-in-ul',
   'checkIn.submittedMessage':
     'Înregistrarea a fost salvată. Progresul și cronologia au fost actualizate.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': 'Nu',
   'common.relative.daysAgo': 'acum {{count}}z',
   'common.relative.hoursAgo': '{{count}} acum o oră',
   'common.relative.justNow': 'chiar acum',
   'common.relative.minutesAgo': 'acum {{count}} min',
+  'common.retry': 'Reîncearcă',
   'common.yes': 'Da',
   'common.you': 'Dvs.',
   'dashboard.allActivity': 'Vezi toată activitatea →',
@@ -90,6 +100,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Am trimis un link de resetare către {{email}} Expiră într-o oră — așteaptă puțin căsuța poștală.',
   'forgotPassword.successHeading': 'Verificați căsuța de e-mail.',
+  'keyResult.metrics.boolean': 'Da / Nu',
+  'keyResult.metrics.currency': 'Monedă $',
+  'keyResult.metrics.number': 'Număr',
+  'keyResult.metrics.percent': 'procentaj',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Stabilește-ți primul obiectiv, invită trei coechipieri și efectuează prima verificare săptămânală până vineri.',
@@ -101,6 +115,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Cum urcă echipele',
   'landing.featuresTitle': 'OKR-uri de nivel de coaching, fără întinderea foilor de calcul.',
   'landing.footerBuiltOn': 'Construit pe Molecule.dev',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Ascent oferă fiecărei echipe o cale măsurabilă spre munte - stabilește obiective, înregistrează rezultatele cheie săptămânal și analizează ascensiunea în fiecare trimestru.',
   'landing.heroProgressLabel': 'Planul companiei pentru trimestrul 2',
@@ -110,6 +125,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'sau continuați cu',
   'login.subheading':
     'Reia de unde ai rămas — check-in-urile, răspunsurile cheie și recenziile te așteaptă.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.mainNavigation': 'Navigare principală',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'newObjective.addKr': 'Adăugați KR',
   'newObjective.coachLabel': 'Mementouri pentru antrenori',
   'newObjective.descriptionPlaceholder': 'Explică contextul strategic în 2-3 propoziții.',
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Centru de activitate',
   'notifications.markRead': '● Marchează ca citit',
   'objective.scopes.company': 'Companie',
+  'objective.scopes.individual': 'Individual',
   'objective.scopes.team': 'Echipă',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Înapoi la obiective',
@@ -156,11 +175,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Urmărire {{count}} obiective. Filtrați după stare pentru a găsi ce necesită atenție.',
   'profile.achievementCheckInsMany': '{{count}} înregistrări înregistrate',
+  'profile.achievementCheckInsOne': '1 check-in înregistrat',
+  'profile.achievementCompletedMany': 'Obiective finalizate {{count}}',
+  'profile.achievementCompletedOne': 'Ai finalizat 1 obiectiv',
+  'profile.achievementOnTrackMany': '{{count}} obiective pe drumul cel bun',
+  'profile.achievementOnTrackOne': '1 obiectiv pe drumul cel bun',
   'profile.activeHeading': 'Obiective active',
   'profile.allObjectives': 'Toate obiectivele →',
   'profile.empty': 'Încă nu există obiective active — creează-ți primul pentru a începe.',
   'profile.eyebrow': 'Profilul alpinistului',
   'profile.guestName': 'Alpinist',
+  'profile.loadError': 'Nu s-au putut încărca obiectivele.',
   'profile.loading': 'Se încarcă obiectivele…',
   'profile.noAchievements': 'Finalizați o înregistrare pentru a debloca prima realizare.',
   'profile.statCheckIns': 'Check-in-uri',

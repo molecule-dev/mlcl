@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Kami adalah tim desainer dan insinyur terdistribusi yang dulunya menghabiskan terlalu banyak jam setiap hari di kotak surat yang berisik. Courier adalah kotak masuk yang ingin kami gunakan sendiri.',
   'about.title': 'Email untuk pekerjaan yang fokus',
+  'common.goToDashboard': 'Ke Dashboard',
   'help.cta.about': 'Tentang Courier',
   'help.cta.pricing': 'Lihat harga',
   'help.eyebrow': 'Pusat bantuan',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Jawaban cepat untuk pertanyaan yang paling sering kami dengar. Ada yang kurang? Buka Pengaturan dan gunakan formulir umpan balik dalam aplikasi, atau tulis ke support@courier.example.',
   'help.title': 'Bagaimana kami bisa membantu?',
   'landing.brand.scrollTop': 'Kembali ke atas',
+  'landing.copyright': '© {{year}} {{appName}} — Dibuat untuk fokus.',
   'landing.ctaBody':
     'Bergabunglah dengan ribuan profesional yang menyelesaikan kotak masuk mereka sebelum makan siang.',
   'landing.ctaTitle': 'Proses lebih banyak, reaksi lebih sedikit.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Tonton demo',
   'landing.heroSubtitle':
     'Courier adalah kotak masuk tiga panel yang tenang, dibangun untuk pekerja pengetahuan yang ingin memproses informasi, bukan bereaksi terhadapnya.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Dipercaya oleh tim yang fokus di seluruh dunia',
   'landing.signIn': 'Masuk',
   'meridian.archive.empty': 'Arsip kosong.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Kepada',
   'meridian.drafts.watermark': 'Draf',
   'meridian.folder.count': '{{count}} pesan',
+  'meridian.folder.delete': 'Hapus',
   'meridian.folder.deleteForever': 'Hapus permanen',
   'meridian.folder.restore': 'Pindahkan ke kotak masuk',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Belum ada pesan di sini.',
   'meridian.inbox.loading': 'Memuat…',
   'meridian.inbox.next': 'Berikutnya',
+  'meridian.inbox.noSender': '(tidak ada pengirim)',
   'meridian.inbox.noSubject': '(tanpa subjek)',
+  'meridian.inbox.ofTotal': '{{current}} dari {{total}}',
   'meridian.inbox.openCompose': 'Buka tulis',
   'meridian.inbox.previous': 'Sebelumnya',
   'meridian.inbox.replyFailed': 'Balasan disimpan tetapi pengiriman gagal: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Belum punya akun?',
   'meridian.login.showPassword': 'Tampilkan kata sandi',
   'meridian.message.toLine': 'kepada {{recipients}}',
+  'meridian.notFound.body':
+    'Halaman yang Anda cari tidak dapat ditemukan. Silakan kembali ke kotak masuk {{appName}} Anda dan kami akan membantu Anda.',
   'meridian.notFound.eyebrow': 'Galat 404',
   'meridian.notFound.title': 'Utas ini telah diarsipkan.',
   'meridian.notFound.toInbox': 'Buka kotak masuk saya',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Tambah bintang',
   'meridian.thread.unstar': 'Hapus bintang',
   'meridian.time.yesterday': 'Kemarin',
+  'meridian.topBar.openMenu': 'Buka menu navigasi',
   'meridian.topBar.searchPlaceholder': 'Cari surat',
   'meridian.trash.empty': 'Sampah kosong.',
   'meridian.trash.title': 'Sampah',
   'nav.legal': 'Hukum',
   'planUpdated.description':
     'Langganan Anda sekarang aktif dan tagihan Anda telah diperbarui. Selamat datang di kotak masuk Courier Anda yang diperbarui.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.heading': 'draf',
   'pricing.limit.emails': 'email',
   'pricing.limit.folders': 'folder',
   'pricing.limit.labels': 'label',
   'privacy.collect.account':
     'Data akun: nama, alamat email, kata sandi yang di-hash, dan tanggal Anda mendaftar.',
+  'privacy.contact': 'Ada pertanyaan? Kirim email ke privacy@courier.example.',
   'privacy.intro':
     'Kebijakan privasi ini menjelaskan data apa yang dikumpulkan Courier, mengapa kami mengumpulkannya, bagaimana kami menjaganya tetap aman, dan pilihan apa yang Anda miliki atasnya. Kami berusaha untuk spesifik daripada legalistik; jika ada yang tidak jelas, tulis ke privacy@courier.example.',
   'privacy.lastUpdated': 'Terakhir diperbarui: 1 April 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ketentuan ini mengatur penggunaan Courier oleh Anda. Dengan membuat akun atau mengirim email melalui kami, Anda setuju untuk terikat olehnya. Kami berusaha menulis aturan yang benar-benar dapat diikuti oleh seseorang.',
   'terms.lastUpdated': 'Berlaku: 1 April 2026',
+  'terms.linkPrivacy': 'Baca Kebijakan Privasi kami →',
   'terms.termination.body':
     'Anda dapat menghapus akun Anda kapan saja. Kami dapat menangguhkan akun yang melanggar ketentuan ini; jika kami melakukannya, kami akan menjelaskan alasannya dan membiarkan Anda mengekspor data Anda terlebih dahulu.',
   'terms.warranty.body':

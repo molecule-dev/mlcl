@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Agħti tip lix-xerrej tiegħek',
   'checkout.tipLabel': 'Ponta',
   'checkout.zipPlaceholder': 'Kodiċi Postali',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'featuredProductsGrid.addAria': 'Żid {{name}} għall-karrettun',
   'featuredProductsGrid.outOfStock': 'Mhux fl-istokk',
   'forgotPassword.emailLabel': 'Indirizz tal-Email',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     "Jekk dik l-email hija rreġistrata, link ta' reset jinsab fi triqtu.",
+  'groceryDeliveryLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'landing.categoriesEyebrow': 'Passaġġi',
   'landing.categoriesHeading': 'Ixtri skont il-kategorija',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     "Skeda kunsinni ta' kull ġimgħa b'ordni mill-ġdid intelliġenti ta' prodotti bażiċi u traċċar dirett tas-sewwieqa.",
   'landing.heroTitle': 'Friskità fuq l-għatba tiegħek, fi ftit sigħat.',
   'landing.howEyebrow': 'Tliet passi',
+  'landing.howItWorksHeading': 'Kif jaħdem {{app}}',
   'lists.addAllCta': 'Żid kollox mal-karrettun',
   'lists.createCta': 'Oħloq l-ewwel lista tiegħek',
   'lists.createError': 'Ma setgħetx tinħoloq lista.',

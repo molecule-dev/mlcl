@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ийн тухай',
   'argentAuthShell.brandEyebrow': 'Аргент · Баялгийн хэрэгсэл',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Хөрөнгө оруулалтын зөвлөгөө биш.',
   'argentAuthShell.sampleChange': 'Өнөөдөр +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Үндсэн навигаци',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Энэ тикерээр гүйлгээ хийгдээгүй байна.',
   'assetDetail.txHeading': 'Таны гүйлгээ',
   'common.and': 'мөн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Портфолиогийн тойм',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Одоогоор эзэмшил газар байхгүй.',
   'holdings.heading': 'Холдингууд',
   'holdings.loadError': 'Эзэмшлийн мэдээллийг ачаалж чадсангүй.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Хөрөнгө оруулалтын зөвлөгөө биш. Өнгөрсөн үеийн гүйцэтгэл нь ирээдүйн үр дүнг баталгаажуулахгүй.',
   'landing.eyebrow': 'Argent · Баялгийн хэрэгслийн платформ',
   'landing.features.heading': 'Зөвлөх хүн өөртөө зориулж бүтээх бүх зүйл.',
   'landing.finalCta.heading': 'Сахилга батыг портфолиодоо буцааж авчир.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} цагийн өмнө',
   'news.justNow': 'дөнгөж сая',
   'news.loadError': 'Мэдээг ачаалж чадсангүй.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'portfolioHeroCard.label': 'Портфолиогийн үнэ цэнэ',
   'pricing.holdingsLabel': 'эзэмшил газрууд',
   'pricing.newsLabel': 'мэдээний нийтлэлүүд',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Бүртгэл устгах',
   'settings.security.deleting': 'Устгаж байна…',
   'settings.security.heading': 'Аюулгүй байдал',
+  'settings.security.newPassword': 'Шинэ нууц үг',
   'settings.security.password': 'Нууц үг',
   'settings.security.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.security.twoFactorInvalidCode': 'Буруу код',
+  'settings.security.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'settings.tax.error': 'Татварын аргыг шинэчилж чадсангүй.',
   'settings.tax.heading': 'Татварын талбайн нягтлан бодох бүртгэл',
   'settings.tax.method': 'Анхдагч арга',

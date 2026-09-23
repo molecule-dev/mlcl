@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.pageTitle': 'గురించి {{appName}}',
   'analytics.error': 'విశ్లేషణలను లోడ్ చేయలేకపోయింది.',
   'analytics.heading': 'పునరుద్ధరణ విశ్లేషణలు',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ధరల శ్రేణులు ఏవీ కాన్ఫిగర్ చేయబడలేదు.',
   'billing.plans.heading': 'ప్రణాళికలు',
   'billing.subheading': 'ప్లాన్, వినియోగం మరియు స్ట్రైప్ ద్వారా నిర్వహించబడే చెక్అవుట్.',
+  'common.confirm': 'నిర్ధారించండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'documentCard.open': 'తెరవండి ➡',
   'documentDetail.back': 'పత్రాలకు తిరిగి వెళ్లండి',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'పత్రం శీర్షిక',
   'documents.emptyAll':
     'ఇంకా పత్రాలు ఏవీ లేవు. ప్రశ్నలు అడగడం ప్రారంభించడానికి ఒక పత్రాన్ని అప్‌లోడ్ చేయండి.',
+  'documents.error.load': 'పత్రాలను లోడ్ చేయలేకపోయాము.',
   'documents.heading': 'సూచిక చేయబడిన పత్రాలు',
   'documents.loading': 'పత్రాలు లోడ్ అవుతున్నాయి…',
   'documents.metric.chunks': 'మొత్తం ముక్కలు',
@@ -143,7 +148,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'తొలగిస్తోంది™',
   'members.subheading': 'సహచరులను ఆహ్వానించి, పాత్రలను నిర్దేశించండి.',
   'members.tableHeading': 'జాబితా',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'notFound.askCta': 'నాలెడ్జ్ బేస్‌ను అడగండి',
+  'notFound.body':
+    '{{app}} ఆ పేజీని గుర్తించలేకపోయింది. లింక్ పాడైపోయి ఉండవచ్చు, లేదా రీ-ఇండెక్స్ సమయంలో ఆ పేజీని తొలగించి ఉండవచ్చు.',
   'notFound.eyebrow': 'తిరిగి పొందలేము',
   'notFound.title': 'సూచికలో అలాంటి భాగం లేదు',
   'notifications.dismiss': 'కొట్టివేయండి',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'మూల URL',
   'sources.empty.body': 'మీ మొదటి కనెక్టర్‌ను వైర్ చేయడానికి ‘మూలాన్ని జోడించు’ పై క్లిక్ చేయండి.',
   'sources.empty.title': 'ఇంకా ఆధారాలు లేవు.',
+  'sources.error.add': 'మూలాన్ని జోడించలేకపోయాను.',
   'sources.error.labelRequired': 'లేబుల్ అవసరం.',
   'sources.error.load': 'మూలాలను లోడ్ చేయలేకపోయింది.',
   'sources.error.urlRequired': 'ఈ రకమైన మూలానికి URL అవసరం.',

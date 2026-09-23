@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.pageTitle': 'Пра {{app}}',
   'authShell.statusLabel': 'бегуны онлайн',
   'collections.createError': 'Не атрымалася стварыць калекцыю.',
   'collections.defaultName': 'Калекцыя без назвы {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Новая калекцыя',
   'collections.subheading':
     'Групуйце запыты, дзяліцеся імі са сваёй камандай і запускайце іх як адзіны пакет.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'environmentCard.inactive': 'Бяздзейнасць',
   'environmentCard.more': 'больш',
   'environmentCard.variables': 'Зменныя',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Спампаваць бясплатна',
   'landing.heroSubtitle':
     'Маланкава хуткі працоўны стол для тэсціравання API, створаны для інжынераў, якія працуюць у тэрміналах.',
+  'landing.heroTitleAccent': 'Агонь',
+  'landing.heroTitleLine2': 'выпрацаваць упэўненасць.',
+  'landing.heroTitleRest': 'запыты,',
   'landing.kicker': '$pylon адправіць --watch',
   'landing.pricingEyebrow': '// $ цэнаўтварэнне --plain',
   'landing.pricingHeading': 'Простае, прадказальнае цэнаўтварэнне',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Новы тут?',
   'login.showPassword': 'Паказаць пароль',
   'login.subtitle': 'Перайдзіце ў сваю працоўную прастору Pylon.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'mocks.createError': 'Не атрымалася стварыць макет.',
   'mocks.defaultName': 'Безназоўны макет {{n}}',
   'mocks.deleteError': 'Не атрымалася выдаліць макет.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Назад да працоўнай прасторы',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрут не знойдзены',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'privacy.collect.account':
     'Уліковы запіс: ваш адрас электроннай пошты, хэшаваны пароль, імя карыстальніка і часовая метка вашага апошняга ўваходу ў сістэму.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Прагляд дадзеных, якія належаць гэтаму ўліковаму запісу, толькі для чытання.',
   'settings.unset': 'не ўстаноўлена',
   'signup.identityHint': 'напрыклад, Алекс',
+  'signup.statusLabel': 'бясплатны ўзровень · без крэдытнай карты',
   'signup.subtitle': 'Пачніце выконваць запыты праз некалькі хвілін.',
   'terms.account.body':
     'Вы нясеце адказнасць за абарону свайго пароля. Сумеснае выкарыстанне аднаго ўліковага запісу з некалькімі людзьмі не дазваляецца на бясплатных або прафесійных тарыфных планах — купіце падпіску Team для агульных працоўных прастор.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Не выкарыстоўвайце Pylon для адпраўкі запытаў у сэрвісы, якімі вы не валодаеце або на якія не маеце відавочнага дазволу на тэставанне. Не выкарыстоўвайце Pylon для абыходу абмежаванняў хуткасці або здзяйснення махлярства.',
   'terms.warranty.body':
     'Pylon прадастаўляецца «як ёсць» без якіх-небудзь гарантый. Мы імкнемся да бесперабойнай працы 99,9%, але не гарантуем гэтага на бясплатных або прафесійных тарыфных планах.',
+  'testRunner.assertionsCount': 'сцвярджэнняў {{count}}',
   'testRunner.createError': 'Не атрымалася стварыць тэст.',
   'testRunner.cron':
     'Сцвярджэнні ацэньваюцца ў адпаведнасці з апошнім запускам звязанага запыту гэтага тэсту.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Вынікі набору, адрозненні ў сцвярджэннях і апошнія 50 прагонаў.',
   'userMenu.shortcut': '⌘Л',
   'userMenu.signedInAs': 'Увайшоў як',
+  'workspace.auth.keyName': 'Назва загалоўка',
+  'workspace.auth.keyValue': 'Ключавое значэнне',
+  'workspace.auth.password': 'Пароль',
+  'workspace.auth.username': 'Імя карыстальніка',
+  'workspace.authOption.apikey': 'Ключ API',
+  'workspace.authOption.basic': 'Базавая аўтэнтыфікацыя',
+  'workspace.authOption.bearer': "Токен на прад'яўніка",
+  'workspace.authOption.none': 'Няма',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тып',
   'workspace.authTypeLabel': 'Тып аўтарызацыі',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Няма',
+  'workspace.body.text': 'Неапрацаваны тэкст',
+  'workspace.body.type': 'Тып',
   'workspace.environment': 'Няма асяроддзя',
   'workspace.envVar': 'зменная асяроддзя',
   'workspace.eyebrow': '$ pylon workspace --pane падзяліць',
+  'workspace.kv.addHeader': 'Дадаць загаловак',
+  'workspace.kv.addParam': 'Дадаць параметр',
+  'workspace.kv.headerKey': 'Назва загалоўка',
+  'workspace.kv.headerValue': 'Значэнне загалоўка',
+  'workspace.kv.key': 'Ключ',
+  'workspace.kv.paramKey': 'Ключ параметра запыту',
+  'workspace.kv.paramValue': 'Значэнне параметра запыту',
+  'workspace.kv.removeRow': 'Выдаліць радок',
+  'workspace.kv.value': 'Значэнне',
   'workspace.methodLabel': 'Метад HTTP',
   'workspace.metric.latency': 'Затрымка',
   'workspace.metric.latencyCaption': 'Паездка туды і назад з гэтага маршруту',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Запыт адхілены — гл. адказ ніжэй.',
   'workspace.subheading':
     'Складзіце запыт, запусціце яго, а затым пацвердзіце адказ — усё ў адной панэлі.',
+  'workspace.testResults': 'Вынікі тэстаў',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     "Адпраўлена як аўтарызацыя: На прад'яўніка<token> па кожным запыце ў гэтай калекцыі.",

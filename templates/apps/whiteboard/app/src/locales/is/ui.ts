@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'authShell.brandHeading': 'Fjölspilunarverk fyrir hönnunarteymi sem hugsa upphátt.',
   'billing.canceled': 'Áskrift hætt.',
   'billing.cancelPlan': 'Hætta við áætlun',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'billing.usage.collaborators': 'Samstarfsaðilar',
   'billing.usageOf': 'af {{max}} innifalið',
   'boardCanvas.backToBoards': 'Allar spjöld',
+  'boardCanvas.changeColor': 'Breyta {{color}}',
   'boardCanvas.deleteElement': 'Eyða frumefni',
   'boardCanvas.deselect': 'Afvelja',
   'boardCanvas.elementsCount': '{{count}} frumefni',
@@ -70,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Byrjaðu frá sniðmáti',
   'boards.title': 'Spjöldin þín',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Fara á yfirlit',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Sláðu inn netfangið sem tengist vinnusvæðinu þínu og við sendum þér endurstillingarhlekk.',
@@ -81,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Vinnustofa fyrir 1. ársfjórðung · Rödd vörumerkisins',
   'landing.featuresEyebrow': 'Hvað gerir Slate tessellað',
   'landing.featuresTitle': 'Hröð endurgjöf. Falleg strigamál. Engin núningur.',
+  'landing.hero.body':
+    '{{appName}} er fjölspilunar hvítt tafla fyrir hönnunarteymi, leiðbeinendur vinnustofa og kennara sem halda hugmyndavinnu og þurfa að sameina hugmyndir á einum stað.',
   'landing.hero.primaryCta': 'Byrjaðu borð ókeypis',
   'landing.hero.socialProof': 'Treyst af {{count}} hönnunarteymi um allan heim',
   'landing.hero.title': 'Striga jafn hröð og hugsanir þínar',
@@ -91,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Búðu til ókeypis vinnusvæði',
   'login.subheading':
     'Taktu upp þar sem frá var horfið í vinnustofunni — taflur, minnismiðar og bendlar samstillast öll í rauntíma.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.new': 'Nýtt',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'notifications.editTitle': 'Breytingar á " {{board}} "',
   'notifications.empty.body':
     'Boð, vistaðar skyndimyndir og nýlegar breytingar á spjallborði birtast hér um leið og þær gerast.',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Útgáfusaga',
   'versionHistory.untitledSnapshot': 'Ónefnd myndataka',
   'whiteboardLayout.newBoard': 'Ný stjórn',
+  'whiteboardLayout.primaryNav': 'Aðalflakk',
   'workspace.boardLabel': 'Stjórn',
   'workspace.eyebrow': '{{name}} · vinnusvæði',
   'workspace.invite': 'Bjóða samstarfsaðilum',

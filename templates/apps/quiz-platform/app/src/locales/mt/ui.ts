@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.title': 'Dwar {{app}}',
   'auth.login.noAccount': 'Ġdid għal Sparq?',
   'auth.login.or': "jew kompli b'",
   'auth.signup.or': "jew irreġistra ma'",
+  'common.confirm': 'Ikkonferma',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.loadError': 'Xi ħaġa marret ħażin waqt li kien qed jitgħabba dan il-kontenut.',
+  'common.retry': "Erġa' pprova",
   'discover.collections.title': 'Fittex skont il-kategorija',
   'discover.collections.viewAll': 'Ara l-librerija tiegħek →',
   'discover.empty.body': 'Ipprova kategorija differenti jew neħħi t-tfittxija.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     "Idħol biex iżżomm is-sensiela tiegħek ħajja, tospita logħob live, u titla' fil-klassifika.",
   'myQuizzes.createButton': 'Kwizz ġdid',
+  'myQuizzes.deleteConfirm': 'Tħassar għal dejjem?',
   'myQuizzes.empty.createCta': 'Ibni l-ewwel kwizz tiegħek →',
   'myQuizzes.empty.created': 'Għadek ma bnejt l-ebda kwizz.',
   'myQuizzes.empty.played': "Għad m'hemm l-ebda kwizzijiet ippubblikati.",
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Qed jitgħabba…',
   'notifications.subhead':
     "{{count}} xrar mhux moqrija. Stediniet, movimenti fil-klassifika, u kisbiet kollha f'fluss wieħed.",
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.checkoutError': "Ma stajtx nibda l-ħlas. Jekk jogħġbok erġa' pprova.",
+  'pricing.heading': 'Agħżel il-pjan {{app}} tiegħek',
   'pricing.included': 'Inkluż',
   'pricing.loadError': 'Ma setgħux jitgħabbew il-pjanijiet.',
   'pricing.maxQuizzes': '{{count}} kwizzijiet',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Għadu ma ġie ppubblikat xejn.',
   'profile.startBuilding': 'Ibda l-bini →',
   'profile.tier': "Plejer ta' Sparq",
+  'quizBuilder.addFailed': "Ma stajtx inżid il-mistoqsija. Erġa' pprova.",
   'quizBuilder.addQuestion': 'Żid mistoqsija',
   'quizBuilder.answerPlaceholder': 'Ittajpja għażla…',
   'quizBuilder.answersLabel': "Għażliet ta' tweġibiet",
   'quizBuilder.back': 'Lura għall-kwizzijiet tiegħi',
   'quizBuilder.delete': 'Ħassar il-mistoqsija',
+  'quizBuilder.deleteFailed': 'Ma stajtx inħassar il-mistoqsija.',
   'quizBuilder.firstQuestion': 'Żid l-ewwel mistoqsija tiegħek biex tibda.',
   'quizBuilder.idLabel': 'ID tal-kwiżż: {{id}}',
   'quizBuilder.loadError': 'Ma setax jitgħabba l-kwizz.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     "Żid mill-inqas żewġ għażliet ta' tweġibiet u agħżel dik korretta għal {{count}} mistoqsija/mistoqsijiet qabel il-pubblikazzjoni.",
   'quizBuilder.questionsTitle': 'Mistoqsijiet',
+  'quizBuilder.saveFailed': "Ma setax jiġi salvat it-titlu. Erġa' pprova.",
   'quizBuilder.statusDraft': 'Abbozz',
   'quizBuilder.subhead':
     'Editja t-titlu, żid mistoqsijiet, issettja l-għażliet u t-tweġiba korretta. Il-bidliet jiġu ssejvjati awtomatikament.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} minuta',
   'quizDetail.hostMultiplayer': 'Ospitanti tal-multiplayer',
   'quizDetail.leaderboardEmpty': "Għad m'hemm l-ebda daqq — kun l-ewwel li tistabbilixxi skor.",
+  'quizDetail.loadError': 'Ma stajtx nitgħabba dan il-kwizz.',
   'quizDetail.loading': 'Qed jitgħabba l-kwizz…',
   'quizDetail.plays': '{{count}} daqq',
   'quizDetail.playSolo': 'Ilgħab waħdek',

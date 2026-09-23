@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'alerts.acknowledgeLabel': 'Recunoaște',
   'alerts.customerLabel': 'Client: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Se conectează…',
   'carriers.requiredError': 'Numele și codul sunt obligatorii.',
   'carriers.subheading': '{{count}} integrat',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
+  'common.retry': 'Reîncearcă',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'În tranzit + semnalizat',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'livrări',
   'pricing.trackingLabel': 'urmărirea evenimentelor',
   'profile.dangerZone.title': 'Zonă periculoasă',
+  'profile.devices.signingOut': 'Se deconectează…',
+  'profile.devices.unnamed': 'Dispozitiv fără nume',
+  'profile.security.disable2fa': 'Dezactivează autentificarea în doi pași (2FA)',
   'profile.security.enable2fa': 'Activează 2FA',
   'profile.security.pwChanged': 'Parola a fost schimbată cu succes.',
   'profile.security.pwCurrent': 'Parola actuală',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA activ',
   'profile.security.twoFaCode': 'Cod de 6 cifre',
   'profile.security.twoFaDisable': 'Dezactivați',
+  'profile.security.twoFaDisabling': 'Se dezactivează…',
   'profile.security.twoFaFailed': 'Nu s-a putut verifica codul.',
   'profile.security.twoFaIntro':
     'Scanați codul QR în aplicația de autentificare, apoi introduceți codul de 6 cifre de mai jos pentru verificare.',
   'profile.security.twoFaOn': 'Autentificarea cu doi factori este activată pe acest cont.',
+  'profile.security.twoFaQrAlt': 'Cod QR pentru autentificare în doi pași',
   'profile.security.twoFaVerify': 'Verificați și activați',
   'profile.security.twoFaVerifying': 'Se verifică…',
   'profile.subheading': 'Setări de identitate și securitate pentru acest spațiu de lucru.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Salvează acest secret — nu va mai fi arătat.',
   'settings.api.webhookSecret': 'Secretul de semnare a Webhook-ului',
   'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
+  'settings.deleteAccountConfirm': 'Ești sigur? Această acțiune nu poate fi anulată.',
   'settings.notifications.exceptions': 'Trimiteți-mi un e-mail când apare o excepție la livrare',
   'settings.notifications.heading': 'Notificări',
   'settings.notifications.saveFailed': 'Preferințele nu au putut fi salvate.',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Expedierea nu a fost găsită.',
   'shipmentDetail.originHeading': 'Origine',
   'shipmentDetail.shippedOn': 'Expediat {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Nu există încă evenimente de urmărire — actualizările vor apărea aici pe măsură ce transportatorul scanează coletul.',
   'shipmentDetail.weightLabel': '{{weight}} livre',
   'shipments.col.carrier': 'Purtător',
   'shipments.col.eta': 'Ora estimată de sosire',
@@ -175,6 +186,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Conectați-vă',
   'signup.submit': 'Creați cont',
   'team.emailError': 'Este necesară o adresă de e-mail validă.',
+  'team.empty':
+    'Nu există încă membri ai echipei. Invită un coleg de echipă să colaboreze la gestionarea livrărilor.',
   'team.eyebrow': 'Membri și permisiuni',
   'team.inviteDialog.cancel': 'Anulați',
   'team.inviteDialog.heading': 'Invitați un coleg',
@@ -197,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Urmări',
   'waypointLayout.primaryNavLabel': 'Navigare principală',
   'webhooks.createFailed': 'Nu s-a putut crea punctul final webhook.',
+  'webhooks.endpointsEmpty':
+    'Nu există încă puncte finale pentru webhook. Creați unul pentru a primi notificări privind starea expedierilor.',
   'webhooks.endpointsHeading': 'Endpoints',
   'webhooks.eventCount': '{{count}} evenimente',
   'webhooks.eventsHeading': 'Livrări recente',

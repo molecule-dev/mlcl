@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენს შესახებ',
   'actions.empty': 'არცერთი მოქმედების ერთეული არ ემთხვევა.',
   'actions.heading': 'მოქმედების ელემენტები',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'წინა თვე',
   'calendar.recent': 'ბოლო',
   'common.daysAgo': '{{count}} დღის წინ',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.hoursAgo': '{{count}} საათის წინ',
   'common.no': '—',
+  'common.retry': 'ხელახლა ცდა',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} მოქმედების ელემენტები',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'გადატვირთვის ბმულისთვის შეამოწმეთ თქვენი შემოსულები.',
   'forgot.subheading': 'შეიყვანეთ თქვენი ელ. ფოსტა და ჩვენ გამოგიგზავნით გადატვირთვის ბმულს.',
   'integrations.disconnected': 'Gathishuli',
+  'integrations.loadError': 'ინტეგრაციების ჩატვირთვა ვერ მოხერხდა.',
   'integrations.notConnectedTag': 'დაკავშირებული არ არის',
   'integrations.subheading':
     'დააკავშირეთ კალენდრები და ვიდეო პლატფორმები, რათა Murmur ავტომატურად შეუერთდეს.',
+  'integrations.updateError': 'განახლება ვერ მოხერხდა.',
   'landing.ctaButton': 'დაიწყეთ — ეს უფასოა',
   'landing.ctaHeading': 'შეწყვიტე ჩანაწერების გაკეთება. დაიწყე გადაწყვეტილებების მიღება.',
   'landing.demo.aiLabel': 'ხელოვნური ინტელექტის შეჯამება, დრაფტი პირდაპირ ეთერში',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'შემდგომი ქმედებები',
   'meetingDetail.loadError': 'შეხვედრის ჩატვირთვა ვერ მოხერხდა.',
   'meetingDetail.noActions': 'მოქმედების ელემენტები არ არის აღმოჩენილი.',
+  'meetingDetail.none': 'არცერთი.',
   'meetingDetail.notFound': 'შეხვედრა ვერ მოიძებნა.',
+  'meetingDetail.speakerFallback': 'სპიკერი {{id}}',
   'meetingDetail.summaryHeading': 'ხელოვნური ინტელექტის შეჯამება',
   'meetingDetail.transcriptHeading': 'ტრანსკრიპტი',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'შეხვედრები',
   'meetings.loadError': 'შეხვედრების ჩატვირთვა ვერ მოხერხდა.',
   'meetings.subheading': 'ყველა ჩაწერილი, ატვირთული და სინქრონიზებული შეხვედრა.',
+  'murmurLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'murmurLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'nav.legal': 'იურიდიული',
   'notifications.loadError': 'შეტყობინებების ჩატვირთვა ვერ მოხერხდა.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'როგორ ჩანხარ მურმურში.',
   'record.error.empty': 'აუდიოჩანაწერი არ ჩაწერილა.',
   'record.error.permission': 'მიკროფონის ნებართვა უარყოფილია.',
+  'record.error.recorder': 'ჩამწერის შეცდომა',
   'record.error.unsupported':
     'თქვენი ბრაუზერი ჩაწერას არ უჭერს მხარს. სცადეთ Chrome, Edge ან Safari.',
   'record.error.upload': 'ატვირთვა ვერ მოხერხდა. სცადეთ ხელახლა.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'ახალი პაროლი',
   'reset.subheading': 'აირჩიეთ პაროლი, რომელსაც სხვაგან არსად იყენებთ.',
   'search.empty': 'ტრანსკრიპტების მოსაძებნად აკრიფეთ.',
+  'search.loadError': 'ძიება ვერ მოხერხდა. სცადეთ ხელახლა.',
   'search.noResults': '„“-სთვის შედეგები არ არის {{q}} „.',
   'settings.appearance.description': 'გადართვა ღია და ბნელ რეჟიმებს შორის.',
   'settings.appearance.title': 'გარეგნობა',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'პარამეტრების ჩატვირთვა ვერ მოხერხდა.',
   'settings.loading': 'იტვირთება…',
   'settings.push.heading': 'push-შეტყობინებები',
+  'settings.push.subheading':
+    'მიიღეთ ბრაუზერის შეტყობინებები ხსენებების, მოქმედების ელემენტებისა და შეჯამებების შესახებ.',
   'settings.retention.audio': 'აუდიოს შენახვა',
   'settings.retention.heading': 'შენარჩუნება',
   'settings.retention.transcript': 'ტრანსკრიპტების შენახვა',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'დაიწყეთ შეხვედრის ჩანაწერების ჩაწერა წუთებში',
   'signup.terms':
     'ანგარიშის შექმნით თქვენ ეთანხმებით ჩვენს მომსახურების პირობებს და კონფიდენციალურობის პოლიტიკას.',
+  'signup.termsPrefix': 'ანგარიშის შექმნით თქვენ ეთანხმებით ჩვენს',
   'team.inviteCta': 'მოიწვიე თანაგუნდელი',
   'team.invitedAs': 'მოწვეული, როგორც {{role}}',
   'team.inviteFailed': 'მოწვევის გაგზავნა ვერ მოხერხდა.',

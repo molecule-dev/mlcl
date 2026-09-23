@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'about.pageTitle': 'பற்றி {{appName}}',
   'analytics.empty': 'ஈடுபாட்டைக் காண உங்கள் முதல் காணொளியை இங்கே பதிவு செய்யுங்கள்.',
@@ -39,10 +40,13 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'கிளிப்புகள்',
   'billing.usage.views': 'பார்வைகள்',
   'billing.usage.views.unit': 'பார்வைகள்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'landing.cta.title': 'சிறந்த பின்னூட்டத்தை அனுப்புங்கள். கிளின்ட்டுடன் தொடங்குங்கள்.',
   'landing.feature.capture.body':
     'மைக், கேமரா மற்றும் வரைதல் வசதிகளுடன் உலாவி, டெஸ்க்டாப் மற்றும் மொபைலில் பதிவு செய்தல்.',
   'landing.feature.capture.title': 'ஒரே தட்டலில் பதிவு',
+  'landing.footer.copy':
+    '© {{year}} {{appName}} . ஒத்திசைவற்றது, ஒளிரும் தன்மையுடையதாக மாற்றப்பட்டது.',
   'landing.hero.cardCaption': 'மாதிரிப் பணிச்சூழல் கண்ணோட்டம் — இலவசமாக முயற்சித்துப் பாருங்கள்.',
   'landing.hero.primaryCta': 'இலவசமாகப் பதிவு செய்யத் தொடங்குங்கள்',
   'landing.hero.proof.free': 'நிரந்தர இலவச அடுக்கு',
@@ -63,6 +67,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'பதிவுகளைத் தேடு',
   'library.searchPlaceholder': 'பதிவுகளைத் தேடுங்கள்…',
   'library.weeklyChange': '{{value}} கடந்த வாரத்துடன் ஒப்பிடுகையில் சதவீதம்',
+  'nav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'nav.record': 'பதிவு',
   'nav.shared': 'என்னுடன் பகிரப்பட்டது',
   'nav.startRecording': 'பதிவைத் தொடங்கவும்',

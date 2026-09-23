@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'analytics.back': 'Pregled ankete',
   'analytics.kpiNps': 'Rezultat NPS',
   'analytics.kpiNpsTrend': 'Promotorji {{p}} % · Kritiki {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Nepremičnine',
   'builder.questionNumber': 'V {{num}}',
   'builder.surveyTitle': 'Naslov ankete',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'forgotPassword.failed':
     'E-poštnega sporočila za ponastavitev ni bilo mogoče poslati. Poskusite znova.',
   'forgotPassword.subheading':
     'Vnesite svoj e-poštni naslov in poslali vam bomo povezavo za obnovitev.',
   'forgotPassword.successBody':
     'Če se račun ujema {{email}} , povezava za ponastavitev je na poti. Preverite mapo »Prejeto« in »Neželena pošta«.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Vsi glasovi so dobrodošli.',
   'landing.footer.startTrial': 'Začni preizkus',
   'landing.hero.badge': 'Ankete, NPS in povratne informacije na enem mestu',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Cenik',
   'landing.pricing.perMonth': '/mesec',
   'landing.pricing.popular': 'Najbolj priljubljeno',
+  'landing.pricing.subtitle':
+    'Vsak paket vključuje graditelj anket, povezave za javno deljenje in analitiko NPS. Za začetek ni potrebna kreditna kartica.',
+  'landing.pricing.title': 'Začnite svobodno, prilagajajte se, ko boste to želeli.',
   'landing.sample.eyebrow': 'NPS na prvi pogled',
   'landing.sample.title': 'Kritiki, pasivni privrženci, promotorji – takoj berljivo.',
   'login.failed': 'Prijava ni uspela. Poskusite znova.',
@@ -58,6 +64,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Pokaži geslo',
   'login.signUpLink': 'Začnite brezplačno preizkusno obdobje',
   'login.subheading': 'Prijavite se, če želite še naprej poslušati svoje občinstvo.',
+  'notFound.body': 'Stran, ki jo iščete, ne obstaja v {{app}} . Vrnimo se k vašim anketam.',
   'notFound.cta': 'Nazaj na ankete',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Ta anketa je zašla iz čakalne vrste.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasivno 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Javno za vašo ekipo in v anketah, ki jih avtorite.',
+  'profile.identity.emailRequired': 'Vnesite e-poštni naslov.',
   'profile.identity.saveCta': 'Shrani ime',
   'profile.password.current': 'Trenutno geslo',
   'profile.password.fillFields': 'Vnesite trenutno in novo geslo.',
@@ -177,6 +185,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} vprašanja',
   'templates.subheading':
     'Izberite preizkušeno začetno predlogo – vsaka predloga je vnaprej nastavljena s smiselnimi privzetimi nastavitvami, vzorčno logiko in čisto postavitvijo za mobilne naprave.',
+  'thankYou.body':
+    'Vaš odgovor je bil zabeležen. {{app}} ga bo vključila v naslednjo osvežitev analitike.',
   'thankYou.eyebrow': 'Prejet odgovor',
   'thankYou.heading': 'Hvala – vaš glas je pomemben.',
   'thankYou.home': 'Obiščite Gauge',

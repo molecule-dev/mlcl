@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'authShell.brandHeading': 'Lienzos multijugador para equipos de diseño que piensan en voz alta.',
   'billing.canceled': 'Suscripción cancelada.',
   'billing.cancelPlan': 'Cancelar plan',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Comenzar desde plantilla',
   'boards.title': 'Tus tableros',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Ir al panel',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Introduce el correo asociado a tu espacio de trabajo y te enviaremos un enlace de restablecimiento.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Taller Q1 · Voz de marca',
   'landing.featuresEyebrow': 'Lo que hace que Slate encaje',
   'landing.featuresTitle': 'Comentarios rápidos. Lienzos hermosos. Cero fricción.',
+  'landing.hero.body':
+    '{{appName}} es una pizarra interactiva multijugador para equipos de diseño, facilitadores de talleres y educadores que realizan sesiones de lluvia de ideas en directo y necesitan que las ideas converjan en un solo lugar.',
   'landing.hero.primaryCta': 'Empieza un tablero gratis',
   'landing.hero.socialProof': 'Confían en nosotros {{count}} equipos de diseño en todo el mundo',
   'landing.hero.title': 'Un lienzo tan rápido como tus pensamientos',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Crear un espacio de trabajo gratuito',
   'login.subheading':
     'Retoma donde lo dejaste en el taller: tableros, notas adhesivas y cursores se sincronizan en tiempo real.',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.new': 'Nuevo',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'notifications.editTitle': 'Ediciones en "{{board}}"',
   'notifications.empty.body':
     'Las invitaciones, las capturas de pantalla y las ediciones recientes del tablero aparecerán aquí a medida que se produzcan.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historial de versiones',
   'versionHistory.untitledSnapshot': 'Instantánea sin título',
   'whiteboardLayout.newBoard': 'Nuevo tablero',
+  'whiteboardLayout.primaryNav': 'Navegación principal',
   'workspace.boardLabel': 'Tablero',
   'workspace.eyebrow': '{{name}} · espacio de trabajo',
   'workspace.invite': 'Invitar colaboradores',

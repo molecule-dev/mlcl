@@ -4,6 +4,7 @@ export const ui: UiTranslations = {
   'about.eyebrow': 'Über',
   'approvals.approve': 'Genehmigen',
   'approvals.approving': 'Genehmigen…',
+  'approvals.confirmReject': 'Ablehnung bestätigen',
   'approvals.eyebrow': 'Manager-Warteschlange',
   'approvals.kpi.flaggedLabel': 'Richtlinienverstoß markiert',
   'approvals.kpi.totalLabel': 'Ausstehender Wert',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'approvals.review': 'Prüfen',
   'approvals.title': 'Ausstehende Genehmigungen',
   'approvalTimeline.actor': 'von {{actor}}',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addExpense': 'Neue Ausgabe',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
     'Erstattung in den letzten 12 Wochen über 17 genehmigte Berichte ausgegeben.',
   'landing.sampleCardLabel': 'Erstattung zurückerhalten · Q2',
   'landing.socialProof': 'Vertraut von Finanzteams bei',
+  'layout.openMenu': 'Navigationsmenü öffnen',
   'layout.workspace': 'Finanz-Arbeitsbereich',
   'login.hidePassword': 'Passwort ausblenden',
   'login.noAccount': 'Neu bei Recoup?',
@@ -78,6 +81,8 @@ export const ui: UiTranslations = {
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Verfügbare Ausgaben',
   'newReport.createFailed': 'Bericht konnte nicht erstellt werden. Bitte erneut versuchen.',
+  'newReport.draftsFallback':
+    'Live-Ausgabenliste nicht verfügbar – es werden ausgewählte Demodaten angezeigt.',
   'newReport.includedCount': '{{count}} enthalten',
   'newReport.purposeLabel': 'Geschäftszweck',
   'newReport.purposePlaceholder':
@@ -90,6 +95,7 @@ export const ui: UiTranslations = {
     '{{count}} Ausgaben enthalten. Die Genehmigung läuft über Ihren Manager und dann über die Finanzabteilung.',
   'newReport.title': 'Neue Spesenabrechnung',
   'newReport.titleLabel': 'Berichtstitel',
+  'newReport.titlePlaceholder': 'Berlin-Verkaufsveranstaltung',
   'newReport.toggleAria': '{{merchant}} einschließen',
   'notifications.eyebrow': 'Arbeitsbereichsaktivität',
   'notifications.feedFallback':
@@ -133,10 +139,13 @@ export const ui: UiTranslations = {
   'settings.policies.empty': 'Noch keine Richtlinien.',
   'settings.policies.error':
     'Richtlinien konnten nicht geladen werden – bitte aktualisieren Sie die Seite.',
+  'settings.policies.managerApproval': 'Genehmigung durch den Manager',
   'settings.policies.receipt': 'Beleg erforderlich über',
   'settings.policies.scope': 'Arbeitsbereichsweit · nur Administratoren',
   'settings.policies.title': 'Genehmigungsrichtlinien',
   'settings.policies.unnamed': 'Politik',
+  'settings.prefsSaveFailed':
+    'Die Einstellungen konnten nicht gespeichert werden. Bitte versuchen Sie es erneut.',
   'settings.profile.saved': 'Gespeichert ✓',
   'settings.profileSaveFailed': 'Profil konnte nicht aktualisiert werden. Bitte erneut versuchen.',
   'signup.heading': 'Erstellen Sie Ihr Recoup-Konto',

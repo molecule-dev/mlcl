@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Na kontaktoni',
   'about.eyebrow': 'Rreth',
+  'about.title': 'Rreth {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'foto profesionale e një agjenteje mbështetëse femër me një buzëqeshje miqësore në një zyrë moderne',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontaktoni mbështetjen',
   'forgotPassword.error':
     'Nuk mundi të dërgonte email-in e rivendosjes. Ju lutemi provoni përsëri.',
   'forgotPassword.rememberPassword': 'A e mbani mend fjalëkalimin tuaj?',
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Hyr — Ndihma Zenith',
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.welcomeSubheading': 'Hyni në panelin tuaj të mbështetjes',
+  'mobileNav.closeMenu': 'Mbyll navigimin',
+  'mobileNav.menu': 'Navigimi',
+  'mobileNav.openMenu': 'Hap navigimin',
   'nav.legal': 'Ligjore',
   'nav.newTicket': 'Biletë e re',
   'notifications.loadError': 'Nuk mund të ngarkoheshin njoftimet. Provo përsëri pas pak.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Kërkimi i komandës',
   'operatorDock.newReport': 'Raport i Ri',
   'operatorDock.systemOnline': 'Sistemi Online',
+  'planUpdated.subtitle': 'Faleminderit',
   'planUpdated.title': 'Plani u përditësua',
   'pricing.agents': 'agjentë',
   'pricing.automation': 'Rregullat e automatizimit',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{emri}}',
   'ticketCustomerReply.avatarAlt': '{{emri}} avatari i',
   'ticketDetail.errorTitle': 'Diçka shkoi keq',
+  'ticketDetail.loadError': 'Dështoi në ngarkimin e biletës.',
+  'ticketDetail.notFound': 'Bileta nuk u gjet',
+  'ticketDetail.replyError': 'Dërgimi i përgjigjes dështoi. Ju lutemi provoni përsëri.',
   'ticketDetail.retry': 'Provo përsëri',
   'ticketDetail.statusUpdateError': 'Statusi nuk mund të përditësohej. Provo përsëri.',
   'ticketDetailsCard.assigneeLabel': 'Caktuesi',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{kohë}} majtas',
   'ticketRow.title': 'Lidhja e bazës së të dhënave dështoi në prodhim {{nyja}}',
   'tickets.pageTitle': 'Biletat — Mbështetja e Zenith',
+  'ticketsFab.newTicket': 'Biletë e re',
   'ticketsFilterBar.assigneeLabel': 'Caktuesi:',
   'ticketsFilterBar.clearFilters': 'Pastro Filtrat',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'analytics.col.quorum': 'Kworum',
   'analytics.col.votes': 'Głosy',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Brak oczekujących pytań.',
   'audienceQa.onStageEyebrow': 'Teraz na scenie',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promować',
   'audienceQa.queued': 'w kolejce',
   'audienceQa.queueEyebrow': 'Kolejka',
   'ballot.eyebrow': 'Oddaj głos',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Obecnie korzystają Państwo z planu {{plan}}.',
   'billing.switch': 'Przełącz',
   'billing.upgraded': 'Zaktualizowano do {{plan}} — limity zastosowane natychmiast.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'createPoll.addOption': 'Dodaj opcję',
   'createPoll.anonymousHint':
     'Nazwiska głosujących ukryte w dzienniku audytu; podliczenia pozostają uwierzytelnione.',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Pierwszy raz w Nosh?',
   'login.remember': 'Zapamiętaj mnie na 30 dni',
   'login.subheading': 'Proszę otworzyć sesję, prowadzić salę i certyfikować wynik.',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'notFound.body':
     'Strona, którą Państwo próbowali odwiedzić, została zamknięta lub przeniesiona. Proszę wrócić do pulpitu lub otworzyć nowe głosowanie.',
   'notFound.eyebrow': 'Brak kworum na tej trasie',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Nie udało się załadować tego głosowania.',
   'pollDetail.loading': 'Ładowanie głosowania…',
   'pollDetail.notFound': 'Nie znaleziono głosowania.',
+  'pollDetail.openBallot': 'Otwarte głosowanie',
   'pollDetail.openLive': 'Wyniki na żywo',
   'pollDetail.pollId': 'głosowanie · {{id}}',
   'pollDetail.published': 'Głosowanie opublikowane — głosujący mogą teraz oddawać głosy.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Wyszukaj po e-mailu…',
   'voters.subheading':
     'Proszę zarządzać listą uprawnionych. Grupować głosujących według organizacji dla głosowań ważonych.',
+  'votingPollingLayout.nav.analytics': 'Analityka',
+  'votingPollingLayout.nav.billing': 'Rozliczenia',
+  'votingPollingLayout.nav.createPoll': 'Nowa ankieta',
+  'votingPollingLayout.nav.dashboard': 'Pulpit',
+  'votingPollingLayout.nav.notifications': 'Powiadomienia',
+  'votingPollingLayout.nav.settings': 'Ustawienia',
+  'votingPollingLayout.nav.team': 'Zespół',
+  'votingPollingLayout.nav.voters': 'Wyborcy',
+  'votingPollingLayout.primaryNavLabel': 'Nawigacja główna',
 }

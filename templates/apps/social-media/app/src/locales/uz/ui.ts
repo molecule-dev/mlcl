@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.pageTitle': '{{app}} haqida',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.retry': 'Qayta urinish',
   'compose.cancel': 'Bekor qilish',
   'compose.captionPlaceholder': 'Nimalarni xayol qilyapsiz?',
   'compose.heading': "Bir lahzani baham ko'ring",
@@ -100,6 +104,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Tasdiqlangan hisob',
   'resetPassword.newPassword': 'Yangi parol',
   'resetPassword.subheading': 'Kuchli narsani tanlang — kamida 12 ta belgi.',
+  'search.clearAria': 'Toza',
+  'search.error': "Qidiruv amalga oshmadi. Qaytadan urinib ko'ring.",
   'search.noPeople': 'Hech qanday ijodkor mos kelmaydi " {{q}} ".',
   'search.noPosts': 'Hech qanday post mos kelmaydi " {{q}} ".',
   'search.noTags': "Hali trenddagi heshteglar yo'q.",
@@ -129,6 +135,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Parolni yashirish',
   'signup.showPassword': "Parolni ko'rsatish",
   'signup.subheading': 'Ulashishni boshlash uchun hisob yarating.',
+  'socialMediaLayout.closeMenu': 'Navigatsiya menyusini yopish',
+  'socialMediaLayout.openMenu': 'Navigatsiya menyusini ochish',
+  'socialMediaLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'storyRail.heading': 'Hikoyalar',
   'storyRail.label': 'Hikoyalar',
   'storyRail.openAria': 'Ochiq {{handle}} ning hikoyasi',

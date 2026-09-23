@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da mu',
   'authShell.samplePreview':
     '"Kai ƙungiya, sabon dashboard ɗin yana da kyau sosai - ainihin abin da muke buƙata!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/gajeren hanya',
   'automations.subheading':
     'Dokoki, amsoshi a cikin gwangwani da kuma chatbots - ci gaba da aiki a wurin aiki yayin da ƙungiyar ku ke mai da hankali kan abubuwa masu wahala.',
+  'automations.trigger.inboundMessage': 'Saƙon shigowa',
   'automations.triggerLabel': 'Abin kunna',
   'chatBubble.internalNoteLabel': 'Bayanin ciki',
+  'common.confirmDelete': 'Tabbatar da gogewa',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'contactDetail.backToContacts': 'Duk lambobin sadarwa',
   'contactDetail.contactFallback': 'Tuntuɓi',
   'contactDetail.conversationFallback': 'Hira',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'An gani na ƙarshe',
   'contacts.empty': 'Babu lambobin sadarwa tukuna. Ƙara lambar sadarwarka ta farko a sama.',
   'contacts.eyebrow': 'Jagorar abokin ciniki',
+  'contacts.form.nameOrEmailRequired': 'A bayar da aƙalla suna ko imel',
   'contacts.form.save': 'Ajiye lambar sadarwa',
   'contacts.heading': 'Lambobin Sadarwa',
   'contacts.loading': 'Ana loda lambobin sadarwa…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Ajiye bayanin kula',
   'conversationDetail.tab.note': 'Bayanin ciki',
   'conversationDetail.threadAria': 'Saƙonnin tattaunawa',
+  'conversationDetail.visitorFallback': 'Baƙo',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Bayanan abokin ciniki',
   'customerProfilePanel.recentTitle': 'Tattaunawar da aka yi kwanan nan',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Abokan ciniki suna samun amsar farko a cikin {{time}} a matsakaici - ci gaba da ci gaba da kasancewa cikin tsari.',
   'inboxHeroCard.title': 'Tattaunawa masu aiki',
+  'inboxLayout.navDrawerLabel': 'Kewaya',
+  'inboxLayout.openMenu': 'Buɗe menu na kewayawa',
   'inboxOverview.eyebrow': 'A yau a kallo',
   'inboxOverview.heroChange': '{{count}} a buɗe',
   'inboxOverview.kpiClosedTrend': 'kowane lokaci',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Ziyarci shafin farko',
   'notifications.subheading':
     "Ayyuka, ambaton @mentions, haɗarin SLA, ra'ayoyin CSAT da ayyukan ƙungiya — an fara tsara su sabo.",
+  'notifications.subjectFallback': 'tattaunawa',
+  'notifications.visitorFallback': 'Baƙo',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Babban',
   'priority.low': 'Ƙasa',
+  'priority.normal': "Na al'ada",
   'priority.urgent': 'Gaggawa',
   'privacy.title': 'Takardar kebantawa',
   'reports.agentFallback': 'Wakili',

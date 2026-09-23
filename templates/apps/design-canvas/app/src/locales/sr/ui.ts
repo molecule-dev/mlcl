@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
   'authShell.brandHeading':
     'Платна савршена до пиксела за дизајнерске тимове који заједно испоручују.',
   'canvas.redirecting': 'Отварање уређивача…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'и',
+  'common.goToDashboard': 'Иди на контролну таблу',
+  'common.retry': 'Покушај поново',
   'dashboard.activityEmpty': 'Још увек нема скорашњих активности — позовите саиграча да почне.',
   'dashboard.activityTitle': 'Шта се променило данас',
   'dashboard.activityViewAll': 'Погледајте сва обавештења',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Радни простор · Студио Нортвинд',
   'dashboard.foldersLabel': 'Фасцикле',
   'dashboard.gridTitle': '{{count}} пројекти',
+  'dashboard.heroActiveTool': 'Алат за оловку',
   'dashboard.loadingTitle': 'Учитавање пројеката…',
   'dashboard.searchPlaceholder': 'Претражи пројекте',
   'dashboard.startFromTemplate': 'Почни од шаблона',
   'dashboard.title': 'Ваши пројекти',
   'dashboard.untitledProject': 'Пројекат без имена',
   'designCanvasLayout.newProject': 'Нови пројекат',
+  'designCanvasLayout.primaryNavLabel': 'Примарна навигација',
   'editor.backToProjects': 'Назад на пројекте',
   'editor.deleteShape': 'Обриши облик',
   'editor.errorBody': 'Нисмо могли да отворимо овај пројекат.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Дизајнирајте алате који се крећу брзином ваших руку',
   'library.empty': 'Још увек нема токена у овом одељку.',
   'library.eyebrow': 'Радни простор · Систем дизајна атељеа',
+  'library.loadFailed': 'Није могуће учитати токене дизајна.',
   'library.systemMeta': 'Здравље система',
   'library.systemSummary': '{{токени}} токени · {{компоненте}} компоненте · {{ефекти}} ефекти',
   'login.emailPlaceholder': 'mara@studio.com',

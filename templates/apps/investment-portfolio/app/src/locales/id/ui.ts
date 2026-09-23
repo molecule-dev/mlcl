@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tentang {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Perangkat manajemen kekayaan',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Bukan saran investasi.',
   'argentAuthShell.sampleChange': '+$2,841 (+0,28%) hari ini',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Navigasi utama',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Tidak ada transaksi untuk ticker ini.',
   'assetDetail.txHeading': 'Transaksi Anda',
   'common.and': 'dan',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Gambaran portofolio',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Belum ada kepemilikan.',
   'holdings.heading': 'Kepemilikan',
   'holdings.loadError': 'Gagal memuat kepemilikan.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Bukan saran investasi. Kinerja masa lalu tidak menjamin hasil di masa mendatang.',
   'landing.eyebrow': 'Argent · Platform perangkat kekayaan',
   'landing.features.heading': 'Semua yang akan dibangun penasihat untuk diri mereka sendiri.',
   'landing.finalCta.heading': 'Kembalikan disiplin ke portofolio Anda.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}j lalu',
   'news.justNow': 'baru saja',
   'news.loadError': 'Gagal memuat berita.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'portfolioHeroCard.label': 'Nilai Portofolio',
   'pricing.holdingsLabel': 'saham',
   'pricing.newsLabel': 'artikel berita',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Hapus akun',
   'settings.security.deleting': 'Menghapus…',
   'settings.security.heading': 'Keamanan',
+  'settings.security.newPassword': 'Kata sandi baru',
   'settings.security.password': 'Kata sandi',
   'settings.security.twoFactorEnable': 'Aktifkan',
+  'settings.security.twoFactorInvalidCode': 'Kode tidak valid',
+  'settings.security.twoFactorVerify': 'Verifikasi & aktifkan',
   'settings.tax.error': 'Tidak dapat memperbarui metode pajak.',
   'settings.tax.heading': 'Akuntansi lot pajak',
   'settings.tax.method': 'Metode default',

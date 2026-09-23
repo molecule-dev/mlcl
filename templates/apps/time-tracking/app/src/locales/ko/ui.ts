@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} 소개',
   'about.plansTitle': '함께 성장하는 요금제',
   'brand.tagline': '매 순간을',
   'clientDetail.back': '고객 목록으로 돌아가기',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': '모든 관계를 한곳에서 — 프로젝트, 시간, 미수금 청구서까지.',
   'clients.title': '고객',
   'common.and': '및',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.activeProjects': '진행 중인 프로젝트',
   'dashboard.empty': '아직 기록이 없습니다. 타이머를 시작하여 첫 세션을 기록하세요.',
   'dashboard.greeting': '안녕하세요, {{name}}님',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
     '이 고객의 청구 가능한 시간이 없습니다. 먼저 시간을 기록하거나 기존 기록을 이 고객의 프로젝트에 할당하세요.',
   'invoices.save': '청구서 만들기',
   'invoices.subtitle': '추적한 시간이 자동으로 청구서로 정리됩니다.',
+  'landing.copyright': '© {{year}} {{app}} . 매 순간이 기록됩니다.',
   'landing.ctaBody': '프로젝트 3개까지 무료. 고객 목록이 늘어나면 업그레이드하세요.',
   'landing.eyebrow': '청구 가능한 업무를 위한 시간 추적',
   'landing.featuresBody':
@@ -95,13 +98,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': '독립 전문가들이 신뢰합니다',
   'landing.testimonial.quote':
     '“30분 만에 Toggl에서 이동했습니다. 예산 번다운 하나만으로도 본전을 뽑았어요 — 2주 연속 과소 견적을 멈췄습니다.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. 매 순간을 기록합니다.',
   'login.brand.subtitle':
     '타이머를 멈춘 곳에서 다시 시작하세요 — 모든 분은 이미 프로젝트, 고객, 청구서에 연결되어 있습니다.',
   'login.brand.tracking': '추적 중',
   'login.subheading': '타이머를 멈춘 곳에서 다시 시작하세요.',
+  'nav.closeMenu': '탐색 메뉴 닫기',
   'nav.insightsSection': '인사이트',
   'nav.newEntry': '새 기록',
+  'nav.openMenu': '탐색 메뉴 열기',
+  'nav.primary': '기본 탐색',
   'nav.workSection': '업무',
   'notFound.body':
     '따라가신 링크가 추적을 멈춘 것 같습니다. 대시보드로 돌아가세요 — 거기서부터 계속 기록하겠습니다.',
@@ -200,6 +207,7 @@ export const ui: UiTranslations = {
   'timer.billable': '청구 가능',
   'timer.descriptionPlaceholder': '무엇을 작업 중이신가요?',
   'timer.idle': '대기 중 — 추적 시작',
+  'timer.noProject': '프로젝트 없음',
   'timer.runningWithProject': '프로젝트 없음',
   'timer.start': '타이머 시작',
   'timer.stop': '타이머 중지',

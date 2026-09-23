@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'forgot.eyebrow': 'Tlift it-triq lura?',
   'forgot.formSubtitle': 'Għidilna l-email li għandna fil-fajl.',
   'forgot.headline': 'Irrisettja l-password tiegħek.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Oħloq waħda',
   'login.subline':
     "In-notebooks, il-backlinks, u l-paġni ta' kuljum tiegħek huma eżatt fejn ħallejthom.",
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'noteEditor.backToNotes': 'Lura għan-noti',
   'noteEditor.bodyPlaceholder':
     'Ibda ikteb — in-nota tiegħek tiġi ssejvjata awtomatikament hekk kif tittajpja.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Notebook ġdid',
   'notes.newNotebookPrompt': 'Isem ġdid tan-notebook',
   'notes.notebooksHeading': 'Notebooks',
+  'notes.subtitle':
+    'Agħżel notebook fuq ix-xellug, imbagħad agħfas il-buttuna Nota ġdida biex tibda entrata ġdida.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Agħżel il-pjan tiegħek għat-Teħid tan-Noti',
   'reset.eyebrow': 'Kważi lura ġewwa',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Aġġornat',
   'versoLayout.nav.graph': 'Grafika',
   'versoLayout.nav.home': 'Dar',
+  'versoLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'versoNoteCard.pinned': 'Imwaħħal',
   'versoTodayHero.continueCta': 'Kompli ikteb',
   'versoTodayHero.createCta': 'Ibda n-nota tal-lum',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'billing.canceled': 'Ukubhalisa kukhanseliwe. Uzobuyela ku-Free ekupheleni kwesikhathi.',
   'billing.contactSales': 'Xhumana nokuthengisa',
   'billing.free.1': 'Izinguqulo ezi-5',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Akukho mkhawulo wokugcina',
   'billing.upgradeHint': 'Thuthukisa ukuze uvule izici ze-AI ezithuthukisiwe.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.activityEmpty':
     'Akukho msebenzi okwamanje — qala iphrojekthi yokugcwalisa lokhu okuphakelayo.',
   'dashboard.eyebrow': 'Ukubuka konke',
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Sebenzisa kabusha ukuhumusha kwangaphambilini kuyo yonke iphrojekthi. Amaphuzu aphezulu afanayo → ukuphinda usebenze kancane.',
   'memory.title': 'Ibhange lememori',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'nav.legal': 'Ezomthetho',
   'newProject.addLanguage': 'Engeza ithagethi',
   'newProject.create': 'Dala iphrojekthi',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Kumakwe {{count}} izaziso njengoba zifundiwe.',
   'notifications.subtitle':
     'Ukukhuluma, izicelo zokubuyekeza, kanye nemicimbi ye-AI evela kuzo zonke izindawo zakho zokusebenza.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'privacy.collection.account': 'I-imeyili ye-akhawunti yakho kanye negama lokubonisa',
   'privacy.deletion.body':
     'Ungasusa iphrojekthi, ingxenye, igama lesichazamazwi, noma ukufakwa kwememori nganoma yisiphi isikhathi ekhasini elifanele. Ukususa i-akhawunti yakho kuzilungiselelo kususa yonke imigqa enesikhala sendawo yokusebenza kusizindalwazi sethu.',
@@ -178,6 +183,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Yehlulekile ukulayisha amaphrojekthi.',
   'projects.loading': 'Ilayisha amaphrojekthi…',
   'projects.subtitle': 'Yonke iphrojekthi esebenzayo kuzo zonke izindawo.',
+  'renditionLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'reset.backToLogin': '\\u2190 Buyela emuva ukuze ungene ngemvume',
   'reset.passwordLabel': 'Iphasiwedi Entsha',
   'review.activeEyebrow': 'Ingxenye {{number}}',

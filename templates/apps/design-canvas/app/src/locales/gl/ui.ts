@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'authShell.brandHeading':
     'Lenzos perfectos para píxeles para equipos de deseño que envían xuntos.',
   'canvas.redirecting': 'Abrindo o editor…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'e',
+  'common.goToDashboard': 'Ir ao panel',
+  'common.retry': 'Reintentar',
   'dashboard.activityEmpty':
     'Aínda non hai actividade recente. Invita a un compañeiro de equipo a comezar.',
   'dashboard.activityTitle': 'Que cambiou hoxe',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Espazo de traballo · Northwind Studio',
   'dashboard.foldersLabel': 'Cartafoles',
   'dashboard.gridTitle': '{{count}} proxectos',
+  'dashboard.heroActiveTool': 'Ferramenta Pluma',
   'dashboard.loadingTitle': 'Cargando proxectos…',
   'dashboard.searchPlaceholder': 'Buscar proxectos',
   'dashboard.startFromTemplate': 'Comezar desde o modelo',
   'dashboard.title': 'Os teus proxectos',
   'dashboard.untitledProject': 'Proxecto sen título',
   'designCanvasLayout.newProject': 'Novo proxecto',
+  'designCanvasLayout.primaryNavLabel': 'Navegación principal',
   'editor.backToProjects': 'Volver aos proxectos',
   'editor.deleteShape': 'Eliminar forma',
   'editor.errorBody': 'Non puidemos abrir este proxecto.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Deseña ferramentas que se movan á velocidade das túas mans',
   'library.empty': 'Aínda non hai fichas nesta sección.',
   'library.eyebrow': 'Espazo de traballo · Sistema de deseño de taller',
+  'library.loadFailed': 'Non se puideron cargar os tokens de deseño.',
   'library.systemMeta': 'Saúde do sistema',
   'library.systemSummary': '{{fichas}} fichas · {{compoñentes}} compoñentes · {{efectos}} efectos',
   'login.emailPlaceholder': 'mara@estudio.com',

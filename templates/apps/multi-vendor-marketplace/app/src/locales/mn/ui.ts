@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Туршилтын горим: захиалгыг бүртгэж, үлдэгдлийг барагдуулдаг боловч бодит картаас төлбөр авдаггүй.',
   'checkout.placeOrderCta': 'Захиалга өгөх',
+  'checkout.placeOrderError': 'Таны захиалгыг хийж чадсангүй.',
   'checkout.placingOrder': 'Захиалга өгч байна...',
   'checkout.review.shipTo': 'Хүргэлт',
   'checkout.review.subtotal': 'Нийлүүлэгчийн нийлбэр дүн',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Худалдагч болох',
   'landing.footer.copyright': '© {{year}} {{name}} — үйлдвэрлэгч бүр, нэг зах зээл.',
   'landing.footer.help': 'Тусламжийн төв',
+  'landing.nav.keepShopping': 'Худалдан авалтаа үргэлжлүүлээрэй',
   'landing.nav.sell': 'Vendry дээр зарах',
   'landing.nav.shop': 'Дэлгүүр',
   'landing.nav.signUp': 'Нэгдэх',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Худалдан авагчид юунд дуртай вэ',
   'login.accountTypeAria': 'Дансны төрөл',
   'login.heading': 'Vendry-д дахин тавтай морилно уу',
+  'login.legalPrefix': 'Нэвтрэн орсноор та манайхыг зөвшөөрч байна',
   'login.subheading':
     'Худалдан авалтаа үргэлжлүүлэхийн тулд нэвтэрнэ үү эсвэл дэлгүүртээ буцаж орно уу.',
   'login.submitShopper': 'Дэлгүүр хэсэхийн тулд нэвтэрнэ үү',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Байршуулсан {{date}} · {{vendorCount}} борлуулагч(ууд) · олон борлуулагчийн гүйцэтгэл',
   'orders.empty': 'Энэ шүүлтүүртэй тохирох захиалга одоогоор алга байна.',
+  'orders.emptyTitle': 'Энд одоогоор захиалга алга',
   'orders.eyebrow': 'Таны худалдан авалтууд',
   'orders.subtitle':
     'Хэн юу илгээснийг харж, борлуулагч бүрийн хяналтыг дагаж, дахин хэзээ ч илгээмжийг алдахгүй.',
   'orders.title': 'Захиалгыг нийлүүлэгчээр бүлэглэсэн',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'productDetail.addToCart': 'Сагсанд нэмэх',
   'productDetail.addToCartError': 'Сагсанд нэмж чадсангүй.',
   'productDetail.addToCartSuccess': '" {{name}} "Таны сагсанд нэмэгдлээ."',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Хэрхэн худалдан авалт хийх, худалдагчид танд хэрхэн хүрэх, мөнгө хаашаа явахаа удирдаарай.',
   'signup.heading': 'Зах зээлд нэгдээрэй',
+  'signup.legalPrefix': 'Та манайд нэгдснээр зөвшөөрч байна',
   'signup.mismatch': 'Нууц үгнүүд хараахан таарахгүй байна.',
   'signup.subheading':
     '4000+ бие даасан үйлдвэрлэгчдийг үзэх эсвэл өөрийн гэсэн дэлгүүр нээгээрэй.',
   'status.delivered': 'Хүргэгдсэн',
   'status.refunded': 'Буцаан олголт',
+  'userMenu.marketplaceSettings': 'Зах зээлийн тохиргоо',
   'vendor.memberSince': 'Гишүүн болсон цагаас хойш {{date}}',
+  'vendorDashboard.defaultShop': 'таны дэлгүүр',
   'vendorDashboard.eyebrow': 'Худалдагчийн админ · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Вендригийн комиссын дараа төлбөрийг барагдуулна. Дараагийн төлбөр Баасан гарагт болно.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Та хаана хийдэг вэ, юу хийдэг вэ, яагаад чухал вэ.',
   'vendorOnboarding.currencyLabel': 'Валютаар тооцоо хийх',
   'vendorOnboarding.errors.shopName': 'Дэлгүүрийн нэр шаардлагатай.',
+  'vendorOnboarding.errors.submit': 'Таны өргөдлийг илгээж чадсангүй.',
   'vendorOnboarding.exit': 'Хадгалаад дараа үргэлжлүүлэх',
   'vendorOnboarding.eyebrow': 'Vendry дээр борлуулах хүсэлт гаргах',
+  'vendorOnboarding.field.shopName': 'Дэлгүүрийн нэр',
   'vendorOnboarding.heroBody':
     '8%-ийн тогтмол шимтгэл, Баасан гараг бүр төлбөр, танай дэлгүүрийн лангуу, танай түүх. Дэлгүүрийнхээ талаар бага зэрэг яриач, бид 48 цагийн дотор тантай холбогдох болно.',
   'vendorOnboarding.review.contact': 'Холбоо барих',
   'vendorOnboarding.review.currency': 'Валют',
+  'vendorOnboarding.review.tagline': 'уриа лоозон',
+  'vendorOnboarding.review.website': 'Вэбсайт',
   'vendorOnboarding.reviewBody':
     'Сайн харагдаж байна. Бид таны дэлгүүрийг 48 цагийн дотор хянаж үзээд, анхны борлуулалтын дараах Баасан гарагт анхны төлбөрийг тань илгээнэ.',
   'vendorOnboarding.samplesLabel': 'Ажлын жишээ — Инстаграм, портфолио, зураг',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Өргөдлийг илгээлээ! Бид танай дэлгүүрийг хянаж үзээд 48 цагийн дотор танд имэйл илгээх болно.',
   'vendorOnboarding.taxIdLabel': 'Татварын дугаар',
+  'vendorOrders.emptyTitle': 'Одоогоор биелүүлэх захиалга алга',
   'vendorOrders.eyebrow': 'Худалдагчийн админ',
+  'vendorOrders.kpi.awaiting': 'Биелэлтийг хүлээж байна',
   'vendorOrders.kpi.inTransit': 'Тээвэрт байна',
   'vendorOrders.subtitle':
     'Вендригээс гаралгүйгээр шошго хэвлэж, биелсэн гэж тэмдэглэж, асуултанд хариулна уу.',
   'vendorOrders.title': 'Ирж буй захиалга',
+  'vendorPayouts.emptyTitle': 'Төлбөр хараахан хийгдээгүй байна',
   'vendorPayouts.eyebrow': 'Нийлүүлэгчийн санхүү',
   'vendorPayouts.heroCaption': 'Banco BPI-д суурьшсан {{account}} · 1–2 ажлын өдөр',
   'vendorPayouts.history': 'Төлбөрийн түүх',
@@ -195,7 +210,9 @@ export const ui: UiTranslations = {
     'Үүнийг хаана хийдэг вэ? Энэ нь ямар түүхийг агуулдаг вэ?',
   'vendorProductForm.error.name': 'Бүтээгдэхүүний нэр шаардлагатай',
   'vendorProductForm.error.price': 'Эерэг үнэ оруулна уу',
+  'vendorProductForm.error.publish': 'Нийтэлж чадсангүй',
   'vendorProductForm.eyebrow': 'Шинэ жагсаалт',
+  'vendorProductForm.eyebrowEdit': 'Жагсаалтыг засах',
   'vendorProductForm.images.body':
     '8 хүртэлх зургийг чирж тавина уу. Эхний зураг нь дэлгүүрийн нүүр хуудас болно.',
   'vendorProductForm.images.cta': 'Зургуудыг энд чирэх эсвэл үзэх',
@@ -207,6 +224,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Өөрчлөлтүүдийг хадгалах',
   'vendorProductForm.title': 'Худалдан авагчдад өөрийн бүтээгдэхүүний талаар хэлээрэй',
   'vendorProductForm.variants.colInventory': 'Бараа материал',
+  'vendorProductForm.variants.colVariant': 'Хувилбар',
   'vendorProducts.eyebrow': 'Худалдагчийн админ',
   'vendorProducts.kpi.draft': 'Ноорог',
   'vendorProducts.kpi.lowStock': 'Бага нөөцтэй',

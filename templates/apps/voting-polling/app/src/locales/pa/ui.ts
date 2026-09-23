@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'analytics.col.quorum': 'ਕੋਰਮ',
   'analytics.col.votes': 'ਵੋਟਾਂ',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ਹਾਲੇ ਕੋਈ ਸਵਾਲ ਵਿਚਾਰ-ਅਧੀਨ ਨਹੀਂ ਹਨ।',
   'audienceQa.onStageEyebrow': "ਹੁਣ ਸਟੇਜ 'ਤੇ",
   'audienceQa.pollId': 'ਕਿਊ · {{id}}',
+  'audienceQa.promote': 'ਪ੍ਰਚਾਰ ਕਰੋ',
   'audienceQa.queued': 'ਕਤਾਰਬੱਧ',
   'audienceQa.queueEyebrow': 'ਕਤਾਰ',
   'ballot.eyebrow': 'ਆਪਣੀ ਵੋਟ ਪਾਓ',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': "ਤੁਸੀਂ ਇਸ ਵੇਲੇ ਇਸ 'ਤੇ ਹੋ {{plan}} ਯੋਜਨਾ।",
   'billing.switch': 'ਸਵਿੱਚ ਕਰੋ',
   'billing.upgraded': 'ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ {{plan}} — ਸੀਮਾਵਾਂ ਤੁਰੰਤ ਲਾਗੂ ਹੁੰਦੀਆਂ ਹਨ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'createPoll.addOption': 'ਵਿਕਲਪ ਸ਼ਾਮਲ ਕਰੋ',
   'createPoll.anonymousHint':
     'ਵੋਟਰਾਂ ਦੇ ਨਾਮ ਆਡਿਟ ਲੌਗ ਵਿੱਚ ਲੁਕੇ ਹੋਏ ਹਨ; ਗਿਣਤੀਆਂ ਪ੍ਰਮਾਣਿਤ ਰਹਿੰਦੀਆਂ ਹਨ।',
@@ -158,6 +161,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ਨੋਸ਼ ਲਈ ਨਵੇਂ ਹੋ?',
   'login.remember': 'ਮੈਨੂੰ 30 ਦਿਨਾਂ ਲਈ ਯਾਦ ਰੱਖੋ',
   'login.subheading': 'ਫਰਸ਼ ਖੋਲ੍ਹੋ, ਕਮਰਾ ਚਲਾਓ, ਅਤੇ ਨਤੀਜੇ ਨੂੰ ਪ੍ਰਮਾਣਿਤ ਕਰੋ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'notFound.body':
     "ਜਿਸ ਪੰਨੇ 'ਤੇ ਤੁਸੀਂ ਪਹੁੰਚਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਸੀ, ਉਸਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ ਜਾਂ ਬਦਲ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਵਾਪਸ ਜਾਓ ਜਾਂ ਇੱਕ ਤਾਜ਼ਾ ਪੋਲ ਖੋਲ੍ਹੋ।",
   'notFound.eyebrow': "ਇਸ ਰਸਤੇ 'ਤੇ ਕੋਈ ਕੋਰਮ ਨਹੀਂ ਹੈ।",
@@ -184,6 +189,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ਇਸ ਪੋਲ ਨੂੰ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'pollDetail.loading': 'ਪੋਲ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'pollDetail.notFound': 'ਪੋਲ ਨਹੀਂ ਮਿਲਿਆ।',
+  'pollDetail.openBallot': 'ਖੁੱਲ੍ਹਾ ਵੋਟ ਪੱਤਰ',
   'pollDetail.openLive': 'ਲਾਈਵ ਨਤੀਜੇ',
   'pollDetail.pollId': 'ਪੋਲ · {{id}}',
   'pollDetail.published': 'ਪੋਲ ਪ੍ਰਕਾਸ਼ਿਤ - ਵੋਟਰ ਹੁਣ ਵੋਟ ਪਾ ਸਕਦੇ ਹਨ।',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ਈਮੇਲ ਰਾਹੀਂ ਖੋਜ ਕਰੋ...',
   'voters.subheading':
     'ਯੋਗ ਸੂਚੀ ਨੂੰ ਸਹੀ ਕਰੋ। ਭਾਰ ਵਾਲੀਆਂ ਵੋਟਾਂ ਲਈ ਵੋਟਰਾਂ ਨੂੰ ਸੰਗਠਨ ਅਨੁਸਾਰ ਸਮੂਹਬੱਧ ਕਰੋ।',
+  'votingPollingLayout.nav.analytics': 'ਵਿਸ਼ਲੇਸ਼ਣ',
+  'votingPollingLayout.nav.billing': 'ਬਿਲਿੰਗ',
+  'votingPollingLayout.nav.createPoll': 'ਨਵਾਂ ਪੋਲ',
+  'votingPollingLayout.nav.dashboard': 'ਡੈਸ਼ਬੋਰਡ',
+  'votingPollingLayout.nav.notifications': 'ਸੂਚਨਾਵਾਂ',
+  'votingPollingLayout.nav.settings': 'ਸੈਟਿੰਗਾਂ',
+  'votingPollingLayout.nav.team': 'ਟੀਮ',
+  'votingPollingLayout.nav.voters': 'ਵੋਟਰ',
+  'votingPollingLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
+  'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'bookings.empty.body':
     'Προσθέστε μια πτήση, ένα ξενοδοχείο ή μια δραστηριότητα για να ξεκινήσετε τα εισερχόμενα.',
   'bookings.empty.heading': 'Δεν υπάρχουν ακόμη κρατήσεις.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Επιβεβαιωμένος',
   'bookings.summary.pending': 'Αναμονή επιβεβαίωσης',
   'bookings.summary.total': 'Σύνολο δεσμεύσεων',
+  'bookings.type.car': 'Ενοικίαση αυτοκινήτου',
+  'bookings.type.flight': 'Πτήση',
+  'bookings.type.hotel': 'Ξενοδοχείο',
   'bookings.type.other': 'Αλλος',
   'budgetSpendCard.budgetTotal': 'του {{total}} σχεδιασμένος',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Εντοπίστε συγκρούσεις, προγραμματίστε ημέρες ανάρρωσης μεταξύ των ταξιδιών και δείτε πότε οι συνεργάτες σας ταξιδεύουν μαζί σας.',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.budgetHeading': 'Παλμός προϋπολογισμού',
   'dashboard.empty.heading': 'Δεν υπάρχουν ακόμη ταξίδια — ο άτλας σας είναι κενός.',
   'dashboard.eyebrow': 'Έλεγχος αποστολής',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Ταξίδια εν κινήσει',
   'dashboard.viewAllExpenses': 'Δείτε κάθε έξοδο',
   'dashboard.viewAllTrips': 'Δείτε κάθε ταξίδι',
+  'dayTimelineRow.category.accommodation': 'Διαμονή',
   'dayTimelineRow.category.transport': 'Μεταφορά',
   'destinationOrbCard.exploreCta': 'Προσθήκη σε ένα ταξίδι',
   'destinationOrbCard.tripCount': '{{count}} ταξίδια',
@@ -83,11 +91,15 @@ export const ui: UiTranslations = {
     'Δεν έχετε λάβει ακόμα email; Ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας ή δοκιμάστε ξανά με διαφορετική διεύθυνση.',
   'forgotPassword.successSubheading':
     'Στείλαμε έναν σύνδεσμο ανάκτησης στο {{email}} Ο σύνδεσμος ισχύει για 30 λεπτά.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Δημιουργήστε δωρεάν λογαριασμό',
+  'landing.cta.subheading':
+    'Έως πέντε ταξίδια, πέντε συνεργάτες και πέντε στάσεις στο δωρεάν πρόγραμμα — με συγχρονισμό σε πραγματικό χρόνο και το Pro να ανεβάζει τα όρια όταν τα προγράμματά σας μεγαλώνουν.',
   'landing.destinations.eyebrow': 'Πού θα πάμε στη συνέχεια',
   'landing.destinations.heading': 'Προορισμοί που επιμελήθηκαν οι συντάκτες',
   'landing.features.eyebrow': 'Πώς λειτουργεί το Waypoint',
   'landing.features.heading': 'Σχεδιασμένο για ταξιδιώτες, όχι για υπολογιστικά φύλλα.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ξεκινήστε ένα δωρεάν ταξίδι',
   'landing.hero.ctaSecondary': 'Δείτε ένα δείγμα εκδρομής',
   'landing.hero.subtitle':
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Ίρις Λάρσεν',
   'signup.subheading':
     'Δημιουργήστε έναν λογαριασμό για να μοιράζεστε ταξίδια με έως και 5 συνεργάτες, να συγχρονίζετε κρατήσεις και να συγκεντρώνετε κάθε επιβεβαίωση σε ένα μέρος.',
+  'signup.termsPrefix': 'Δημιουργώντας έναν λογαριασμό, συμφωνείτε με τους όρους μας',
   'tripCountdownHeroCard.budget': '{{used}} του {{total}} ( {{pct}} % του προϋπολογισμού)',
   'tripCountdownHeroCard.collaborators': '{{count}} ταξιδιώτες',
   'tripCountdownHeroCard.countdownLabel': 'Αντίστροφη μέτρηση',
@@ -205,5 +218,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Δεν υπάρχουν ακόμη ταξίδια.',
   'trips.pastHeading': 'Προηγούμενες περιπέτειες',
   'trips.subheading': '{{count}} δρομολόγια — παρελθόν, παρόν και κάποια μέρα.',
+  'waypointLayout.mobileNavClose': 'Κλείσιμο μενού πλοήγησης',
   'waypointLayout.primaryNavLabel': 'Κύρια πλοήγηση',
 }

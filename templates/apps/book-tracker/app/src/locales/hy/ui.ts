@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Վերսկսեք շղթան',
   'resetPassword.mismatchError': 'Գաղտնաբառերը չեն համընկնում։',
   'resetPassword.subheading': 'Ընտրեք ուժեղ մեկը։ Ձեր գրքերը կսպասեն։',
-  'reviewCard.starsAria': 'Գնահատված<x> {{վարկանիշ}}</x> դուրս<x> {{ի}}</x> աստղեր',
+  'reviewCard.starsAria': 'Գնահատական՝ {{rating}} աստղ {{of}} -ից',
   'reviewCard.unratedAria': 'Չգնահատված',
   'reviews.eyebrow': 'Ինչն է մնացել ձեզ հետ',
   'reviews.heading': 'Ձեր կարծիքները',

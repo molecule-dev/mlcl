@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
+  'about.pageTitle': '關於 {{app}}',
   'activity.empty': '暫無活動－翻轉設備或啟動場景。',
   'activity.eyebrow': '時間軸',
   'activity.loadError': '無法載入活動動態。',
   'activity.subheading': '按時間順序記錄所有設備、自動化和安全事件。',
+  'addDevice.error.failed': '無法新增設備。請重試。',
   'addDevice.error.nameRequired': '請為該設備命名以繼續。',
   'addDevice.field.firmware': '韌體版本',
   'addDevice.field.manufacturer': '製造商',
@@ -41,6 +44,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': '測試中……',
   'automationEditor.testNew': '請先儲存自動化流程進行測試。',
   'automationRow.lastRun': '最後的{{date}} · {{count}}跑步',
+  'automationRow.on': '於',
   'automationRow.runNowAria': '跑步{{name}}現在',
   'automations.empty': '暫無自動化流程－創建你的第一個流程。',
   'automations.eyebrow': '日常活動',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'automations.loading': '正在加載自動化流程…',
   'automations.newAutomation': '+ 新增',
   'automations.subheading': '如果發生這種情況，請執行此操作—無需 YAML。',
+  'common.goToDashboard': '前往主控台',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': '設備加載失敗。',
@@ -67,6 +72,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': '在職的…',
   'deviceDetail.unnamed': '裝置',
   'deviceStatusRow.on': '在',
+  'deviceStatusRow.turnOff': '關',
+  'deviceStatusRow.turnOn': '打開',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': '力量',
   'energy.heading': '活力',
@@ -168,4 +175,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': '查看計劃',
   'settings.security.heading': '安全',
   'settings.subheading': '計劃、中心和帳戶偏好。',
+  'smartHomeDashboardLayout.openMenu': '開啟導覽選單',
+  'smartHomeDashboardLayout.primaryNavLabel': '主導航',
 }

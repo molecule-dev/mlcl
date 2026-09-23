@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Apie {{app}}',
   'argentAuthShell.brandEyebrow': 'Argentas · Turto įrankiai',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ne investavimo patarimas.',
   'argentAuthShell.sampleChange': '+2 841 USD (+0,28 %) šiandien',
   'argentAuthShell.sampleValue': '1 032 251 USD',
   'argentLayout.primaryNavLabel': 'Pagrindinė navigacija',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Šiai biržai netaikoma jokių operacijų.',
   'assetDetail.txHeading': 'Jūsų operacijos',
   'common.and': 'ir',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfelio apžvalga',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Kol kas nėra jokių fondų.',
   'holdings.heading': 'Valdos',
   'holdings.loadError': 'Nepavyko įkelti saugyklų.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Tai ne investavimo patarimas. Ankstesni rezultatai negarantuoja būsimų rezultatų.',
   'landing.eyebrow': 'Argent · Turto valdymo platforma',
   'landing.features.heading': 'Viskas, ką patarėjas pats sukurtų.',
   'landing.finalCta.heading': 'Grąžinkite discipliną į savo portfelį.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} prieš val.',
   'news.justNow': 'ką tik',
   'news.loadError': 'Nepavyko įkelti naujienų.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'portfolioHeroCard.label': 'Portfelio vertė',
   'pricing.holdingsLabel': 'valdos',
   'pricing.newsLabel': 'naujienų straipsniai',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Ištrinti paskyrą',
   'settings.security.deleting': 'Ištrinama…',
   'settings.security.heading': 'Saugumas',
+  'settings.security.newPassword': 'Naujas slaptažodis',
   'settings.security.password': 'Slaptažodis',
   'settings.security.twoFactorEnable': 'Įjungti',
+  'settings.security.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.security.twoFactorVerify': 'Patikrinti ir įjungti',
   'settings.tax.error': 'Nepavyko atnaujinti mokesčių metodo.',
   'settings.tax.heading': 'Mokesčių sklypų apskaita',
   'settings.tax.method': 'Numatytasis metodas',

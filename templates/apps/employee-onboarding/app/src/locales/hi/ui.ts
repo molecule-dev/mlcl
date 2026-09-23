@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'अपना पासवर्ड रीसेट करें।',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'कार्य पूर्ण के रूप में चिह्नित करें',
   'checklistTaskCard.markIncomplete': 'कार्य अपूर्ण के रूप में चिह्नित करें',
   'checklistTaskCard.openLabel': 'कार्य खोलें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'आप सब कुछ पूरा कर चुके हैं',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'सही दिशा में',
   'dashboard.timelineHeading': '30/60/90 माइलस्टोन',
   'dashboard.viewAllTasks': 'सभी कार्य देखें',
+  'dashboard.weekOne': 'सप्ताह 1',
   'dashboard.yourCohort': 'आपकी टीम',
   'documents.empty.body': 'आपकी टीम द्वारा जोड़े गए दस्तावेज़ यहाँ दिखाई देंगे।',
   'documents.empty.title': 'अभी कोई दस्तावेज़ नहीं',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-दिन का निःशुल्क परीक्षण',
   'landing.subhead':
     'Embark हर नए साथी को उनके पहले 90 दिनों में मार्गदर्शन करता है — दस्तावेज़, प्रशिक्षण, माइलस्टोन और सार्थक परिचय, सब एक शांत, आत्मविश्वासी जगह पर।',
+  'layout.openMenu': 'नेविगेशन मेनू खोलें',
   'layout.search': 'कार्य, दस्तावेज़, साथी खोजें…',
+  'layout.searchTeammates': 'टीम के सदस्यों को नाम या भूमिका के आधार पर खोजें…',
   'layout.section.onboarding': 'ऑनबोर्डिंग',
   'layout.tagline': 'आपकी यात्रा यहाँ से शुरू होती है',
   'notifications.empty.body': 'नई गतिविधि यहाँ दिखाई देगी।',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'कल',
   'planUpdated.message': 'तुम सब सेट हो।',
   'planUpdated.preparing': 'आपकी योजना अपडेट हो रही है…',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.documentsLabel': 'दस्तावेज़',
   'pricing.onboardingsLabel': 'ऑनबोर्डिंग',
   'pricing.tasksLabel': 'कार्य',

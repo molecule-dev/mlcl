@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'analytics.back': 'გამოკითხვის მიმოხილვა',
   'analytics.kpiNps': 'NPS ქულა',
   'analytics.kpiNpsTrend': 'პრომოუტერები {{p}} % · კრიტიკოსები {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'თვისებები',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'გამოკითხვის სათაური',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'forgotPassword.failed': 'გადატვირთვის ელფოსტის გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'forgotPassword.subheading': 'შეიყვანეთ თქვენი ელ. ფოსტა და ჩვენ გამოგიგზავნით აღდგენის ბმულს.',
   'forgotPassword.successBody':
     'თუ ანგარიში ემთხვევა {{email}} , გადატვირთვის ბმული მოდის. შეამოწმეთ თქვენი შემოსულები და სპამის საქაღალდეები.',
+  'landing.footer.copyright': '© {{year}} {{app}} . ყველა ხმა მისასალმებელია.',
   'landing.footer.startTrial': 'საცდელი პერიოდის დაწყება',
   'landing.hero.badge': 'გამოკითხვები, NPS და უკუკავშირი ერთ ადგილას',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'ფასები',
   'landing.pricing.perMonth': '/თვე',
   'landing.pricing.popular': 'ყველაზე პოპულარული',
+  'landing.pricing.subtitle':
+    'ყველა გეგმა მოიცავს გამოკითხვის შემქმნელს, საჯაროდ გაზიარების ბმულებს და NPS ანალიტიკას. დასაწყებად საკრედიტო ბარათი არ არის საჭირო.',
+  'landing.pricing.title': 'დაიწყეთ თავისუფლად, გაზარდეთ მასშტაბები, როცა შეძლებთ.',
   'landing.sample.eyebrow': 'NPS ერთი შეხედვით',
   'landing.sample.title': 'კრიტიკოსები, პასიურები, პრომოუტერები — მყისიერად წასაკითხი.',
   'login.failed': 'შესვლა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'პაროლის ჩვენება',
   'login.signUpLink': 'დაიწყეთ უფასო საცდელი პერიოდი',
   'login.subheading': 'შედით სისტემაში, რათა გააგრძელოთ თქვენი აუდიტორიის მოსმენა.',
+  'notFound.body':
+    'გვერდი, რომელსაც ეძებთ {{app}} -ზე არ არსებობს. მოდით, დავუბრუნდეთ თქვენს გამოკითხვებს.',
   'notFound.cta': 'გამოკითხვებზე დაბრუნება',
   'notFound.eyebrow': '404',
   'notFound.heading': 'ეს გამოკითხვა რიგიდან ამოვარდა.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'პასიური 7–8',
   'npsDistributionBar.promoter': 'პრომოუტერი 9–10',
   'profile.identity.description': 'საჯაროა თქვენი გუნდისთვის და თქვენს მიერ ავტორ გამოკითხვებში.',
+  'profile.identity.emailRequired': 'შეიყვანეთ ელექტრონული ფოსტის მისამართი.',
   'profile.identity.saveCta': 'სახელის შენახვა',
   'profile.password.current': 'მიმდინარე პაროლი',
   'profile.password.fillFields': 'შეიყვანეთ როგორც მიმდინარე, ასევე ახალი პაროლი.',
@@ -178,6 +187,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} კითხვები',
   'templates.subheading':
     'აირჩიეთ გამოცდილი სტარტერი — ყველა შაბლონი მოყვება წინასწარ დაყენებული გონივრული ნაგულისხმევი პარამეტრებით, ნიმუშის ლოგიკით და სუფთა მობილური განლაგებით.',
+  'thankYou.body': 'თქვენი პასუხი ჩაიწერა. {{app}} მას შემდეგ ანალიტიკურ განახლებაში ჩართავს.',
   'thankYou.eyebrow': 'პასუხი მიღებულია',
   'thankYou.heading': 'გმადლობთ - თქვენს ხმას მნიშვნელობა აქვს.',
   'thankYou.home': 'ეწვიეთ მურმურს',

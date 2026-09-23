@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Votre rôle',
   'account.role.upgradeLink': 'Postulez pour devenir un tuteur vérifié →',
   'account.title': 'Profil, paiement et préférences.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Enseignez sur Mentor',
   'becomeTutor.form.error': "Impossible d'envoyer la candidature.",
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Matière',
   'bookingConfirm.title': "Vous êtes réservé. On s'occupe du reste.",
   'bookingConfirm.with': 'Avec le tuteur',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'earningsHero.eyebrow': 'Revenus • {{month}}',
   'forgotPassword.heading': 'Mot de passe oublié ?',
   'forgotPassword.subheading':
@@ -116,6 +118,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Envoyer le message',
   'messages.thread.empty': 'Dites bonjour — lancez la conversation.',
   'messages.title': 'Fils avec vos tuteurs.',
+  'nav.primary': 'Principal',
   'pricing.dataExport': 'Export des données :',
   'pricing.headingDefault': 'Fonctionnalités avancées :',
   'resetPassword.heading': 'Choisissez un nouveau mot de passe robuste.',

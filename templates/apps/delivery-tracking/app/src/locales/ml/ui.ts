@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'alerts.acknowledgeLabel': 'അംഗീകരിക്കുക',
   'alerts.customerLabel': 'ഉപഭോക്താവ്: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'കണക്റ്റ് ചെയ്യുന്നു...',
   'carriers.requiredError': 'പേരും കോഡും ആവശ്യമാണ്.',
   'carriers.subheading': '{{count}} സംയോജിത',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'യാത്രയിലാണ് + ഫ്ലാഗ് ചെയ്‌തത്',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'കയറ്റുമതികൾ',
   'pricing.trackingLabel': 'ഇവന്റുകൾ ട്രാക്ക് ചെയ്യുന്നു',
   'profile.dangerZone.title': 'അപകട മേഖല',
+  'profile.devices.signingOut': 'സൈൻ ഔട്ട് ചെയ്യുന്നു…',
+  'profile.devices.unnamed': 'പേരില്ലാത്ത ഉപകരണം',
+  'profile.security.disable2fa': '2FA പ്രവർത്തനരഹിതമാക്കുക',
   'profile.security.enable2fa': '2FA പ്രാപ്തമാക്കുക',
   'profile.security.pwChanged': 'പാസ്‌വേഡ് വിജയകരമായി മാറ്റി.',
   'profile.security.pwCurrent': 'നിലവിലെ പാസ്വേഡ്',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA സജീവം',
   'profile.security.twoFaCode': '6-അക്ക കോഡ്',
   'profile.security.twoFaDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'profile.security.twoFaDisabling': 'പ്രവർത്തനരഹിതമാക്കുന്നു...',
   'profile.security.twoFaFailed': 'കോഡ് പരിശോധിക്കാൻ കഴിഞ്ഞില്ല.',
   'profile.security.twoFaIntro':
     'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പിലെ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് പരിശോധിച്ചുറപ്പിക്കാൻ താഴെയുള്ള 6 അക്ക കോഡ് നൽകുക.',
   'profile.security.twoFaOn': 'ഈ അക്കൗണ്ടിൽ രണ്ട്-ഘടക പ്രാമാണീകരണം പ്രാപ്തമാക്കിയിട്ടുണ്ട്.',
+  'profile.security.twoFaQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
   'profile.security.twoFaVerify': 'പരിശോധിച്ചുറപ്പിച്ച് പ്രാപ്തമാക്കുക',
   'profile.security.twoFaVerifying': 'പരിശോധിച്ചുറപ്പിക്കുന്നു...',
   'profile.subheading': 'ഈ വർക്ക്‌സ്‌പെയ്‌സിനായുള്ള ഐഡന്റിറ്റി, സുരക്ഷാ ക്രമീകരണങ്ങൾ.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'ഈ രഹസ്യം സൂക്ഷിക്കുക — ഇത് വീണ്ടും കാണിക്കില്ല.',
   'settings.api.webhookSecret': 'വെബ്‌ഹുക്ക് സൈനിംഗ് രഹസ്യം',
   'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
+  'settings.deleteAccountConfirm': 'നിങ്ങൾക്ക് ഉറപ്പാണോ? ഈ പ്രവർത്തനം പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'settings.notifications.exceptions':
     'ഒരു ഷിപ്പ്‌മെന്റ് ഒഴിവാക്കൽ സംഭവിക്കുമ്പോൾ എനിക്ക് ഇമെയിൽ അയയ്ക്കുക',
   'settings.notifications.heading': 'അറിയിപ്പുകൾ',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'ഷിപ്പ്മെന്റ് കണ്ടെത്തിയില്ല.',
   'shipmentDetail.originHeading': 'ഉത്ഭവം',
   'shipmentDetail.shippedOn': 'ഷിപ്പ് ചെയ്തു {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'ഇതുവരെ ട്രാക്കിംഗ് ഇവന്റുകളൊന്നുമില്ല — കാരിയർ പാഴ്സൽ സ്കാൻ ചെയ്യുമ്പോൾ അപ്‌ഡേറ്റുകൾ ഇവിടെ ദൃശ്യമാകും.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'കാരിയർ',
   'shipments.col.eta': 'എത്തിച്ചേരൽ സമയം (ETA)',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'സൈൻ ഇൻ',
   'signup.submit': 'അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'team.emailError': 'സാധുവായ ഒരു ഇമെയിൽ വിലാസം ആവശ്യമാണ്.',
+  'team.empty':
+    'ഇതുവരെ ടീം അംഗങ്ങളൊന്നുമില്ല. ഷിപ്പ്‌മെന്റുകളിൽ സഹകരിക്കാൻ ഒരു സഹപ്രവർത്തകനെ ക്ഷണിക്കുക.',
   'team.eyebrow': 'അംഗങ്ങളും അനുമതികളും',
   'team.inviteDialog.cancel': 'റദ്ദാക്കുക',
   'team.inviteDialog.heading': 'ഒരു സഹതാരത്തെ ക്ഷണിക്കുക',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ട്രാക്ക്',
   'waypointLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'webhooks.createFailed': 'വെബ്‌ഹുക്ക് എൻഡ്‌പോയിന്റ് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
+  'webhooks.endpointsEmpty':
+    'ഇതുവരെ വെബ്‌ഹുക്ക് എൻഡ്‌പോയിന്റുകൾ ഒന്നുമില്ല. ഷിപ്പ്മെന്റ് സ്റ്റാറ്റസ് കോൾബാക്കുകൾ സ്വീകരിക്കാൻ ഒന്ന് സൃഷ്ടിക്കുക.',
   'webhooks.endpointsHeading': 'എൻഡ്‌പോയിന്റുകൾ',
   'webhooks.eventCount': '{{count}} ഇവന്റുകൾ',
   'webhooks.eventsHeading': 'സമീപകാല ഡെലിവറികൾ',

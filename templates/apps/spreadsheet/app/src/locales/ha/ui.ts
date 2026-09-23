@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'about.pageTitle': 'Game da {{name}}',
   'auth.footer.about': 'Game da {{name}}',
   'authHeader.subtitle': 'Shiga don kiyaye lambobinka su kasance masu gaskiya.',
   'automations.action.email': 'Imel',
+  'automations.action.noop': 'Babu-op',
   'automations.action.webhook': 'Ƙungiya ta Yanar Gizo',
   'automations.confirmDelete': 'Share " {{name}} "?',
   'automations.empty.headline': 'Babu sarrafa kansa tukuna',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Abubuwan da ke haifar da abubuwa da ayyuka a cikin kowane littafin aiki. Kowace gudu tana yin rikodin layi ɗaya da za ku iya duba daga baya.',
   'automations.toggle': 'Maɓalli {{name}}',
+  'automations.trigger.dailySchedule': 'Jadawalin yau da kullun',
+  'automations.trigger.rowCreated': 'An ƙirƙiri layi',
+  'automations.trigger.rowUpdated': 'An sabunta layuka',
   'billing.empty': 'Babu tsare-tsare da ake da su.',
   'billing.error.priceMissing':
     'Babu farashin Stripe da aka saita don wannan matakin. Saita STRIPE_*_PRICE_ID env vars.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Jadawalin',
   'charts.kpi.totalCharts': 'Jimlar jadawali',
   'charts.list.empty': 'Babu jadawalin tukuna.',
+  'charts.namePlaceholder': 'Yanayin samun kudin shiga',
   'charts.newChart': 'Sabon jadawalin',
   'charts.primary.eyebrow': "Jadawalin da aka yi amfani da su ta nau'in",
   'charts.primary.headline': 'Bayanin Wurin Aiki',
   'charts.subhead':
     'Zane-zane kai tsaye da aka haɗa zuwa grid ɗinku - sake nunawa akan kowane gyara tantanin halitta.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'editor.addColumn': 'Ƙara ginshiƙi',
+  'editor.addDialogTitle': 'Ƙara ginshiƙi',
   'editor.addRow': 'Ƙara layi',
   'editor.addSheet': 'Ƙara takardar',
   'editor.back': 'Koma zuwa littattafan aiki',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite ita ce dabarar farko, mai hangen nesa da yawa, masu nazarin hanyoyin sadarwa na ainihin lokaci da ƙungiyoyin kuɗi ke isa ga farko.',
   'landing.nav.formulas': 'Dabarori',
+  'login.noAccount': 'Sabo ne ga {{name}} ?',
+  'login.signIn': 'Shiga zuwa {{name}}',
   'login.signUp': 'Ƙirƙiri wurin aiki',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Buɗe menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=NEWA(REQUEST.url, "hanyoyi", "shafi")',
   'notFound.headline': 'Wannan layin bai taɓa wanzuwa ba.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': "Na'urorin sarrafa kansa na asali · webhook & cron triggers",
   'signup.creating': 'Samar da wurin aiki…',
   'signup.cta': 'Ƙirƙiri wurin aiki na',
+  'signup.haveAccount': 'Ya riga ya kasance a {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Rubuta littafin aikinka na farko cikin daƙiƙa 30',
   'team.col.activity': 'An gayyata',

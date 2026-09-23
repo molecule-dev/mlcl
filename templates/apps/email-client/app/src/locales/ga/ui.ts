@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Is foireann scaipthe dearthóirí agus innealtóirí muid a chaith an iomarca uaireanta an chloig gach lá i mbosca poist glórach tráth. Is é Courier an bosca isteach a theastaigh uainn féin a úsáid.',
   'about.title': 'Ríomhphost le haghaidh oibre dírithe',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'help.cta.about': 'Maidir le Courier',
   'help.cta.pricing': 'Féach ar phraghsáil',
   'help.eyebrow': 'Ionad cabhrach',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Freagraí gasta ar na ceisteanna is mó a chloisimid. An bhfuil aon rud ar iarraidh? Oscail Socruithe agus bain úsáid as an bhfoirm aiseolais san aip, nó scríobh chuig support@courier.example.',
   'help.title': 'Conas is féidir linn cabhrú?',
   'landing.brand.scrollTop': 'Ar ais go barr',
+  'landing.copyright': '© {{year}} {{appName}} — Tógtha le haghaidh fócas.',
   'landing.ctaBody':
     'Bí i do bhall de na mílte gairmí a chríochnaigh a mbosca isteach roimh an lón.',
   'landing.ctaTitle': 'Próiseáil níos mó, imoibrigh níos lú.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Féach ar an taispeántas',
   'landing.heroSubtitle':
     'Is bosca isteach socair trí phainéal é Courier atá deartha d’oibrithe eolais ar mian leo faisnéis a phróiseáil, ní freagairt di.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Muinín ag foirne dírithe ar fud an domhain',
   'landing.signIn': 'Sínigh isteach',
   'meridian.archive.empty': 'Tá an chartlann folamh.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Dréacht',
   'meridian.folder.count': '{{count}} teachtaireachtaí',
+  'meridian.folder.delete': 'Scrios',
   'meridian.folder.deleteForever': 'Scrios go buan',
   'meridian.folder.restore': 'Bog chuig an mbosca isteach',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Níl aon teachtaireachtaí anseo go fóill.',
   'meridian.inbox.loading': 'Ag lódáil…',
   'meridian.inbox.next': 'Ar Aghaidh',
+  'meridian.inbox.noSender': '(gan seoltóir)',
   'meridian.inbox.noSubject': '(gan ábhar)',
+  'meridian.inbox.ofTotal': '{{current}} de {{total}}',
   'meridian.inbox.openCompose': 'Oscail an chumadóireacht',
   'meridian.inbox.previous': 'Roimhe Seo',
   'meridian.inbox.replySent': 'Freagra seolta.',
@@ -97,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Nach bhfuil cuntas agat?',
   'meridian.login.showPassword': 'Taispeáin an focal faire',
   'meridian.message.toLine': 'go {{recipients}}',
+  'meridian.notFound.body':
+    'Ní bhfuarthas an leathanach atá á lorg agat. Téigh ar ais chuig do bhosca isteach {{appName}} agus cuirfimid ar an mbóthar ceart thú.',
   'meridian.notFound.eyebrow': 'Earráid 404',
   'meridian.notFound.title': 'Cartlannaíodh an snáithe seo.',
   'meridian.notFound.toInbox': 'Oscail mo bhosca isteach',
@@ -132,18 +140,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Cuir réalta leis',
   'meridian.thread.unstar': 'Bain réalta',
   'meridian.time.yesterday': 'Inné',
+  'meridian.topBar.openMenu': 'Oscail an roghchlár nascleanúna',
   'meridian.topBar.searchPlaceholder': 'Cuardaigh ríomhphost',
   'meridian.trash.empty': 'Tá an bruscar folamh.',
   'meridian.trash.title': 'Bruscar',
   'nav.legal': 'Dlíthiúil',
   'planUpdated.description':
     'Tá do shíntiús gníomhach anois agus tá do bhilleáil nuashonraithe. Fáilte romhat chuig do bhosca isteach Courier athnuaite.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.heading': 'dréachtaí',
   'pricing.limit.emails': 'ríomhphoist',
   'pricing.limit.folders': 'fillteáin',
   'pricing.limit.labels': 'lipéid',
   'privacy.collect.account':
     'Sonraí cuntais: ainm, seoladh ríomhphoist, pasfhocal hasháilte, agus an dáta ar chláraigh tú.',
+  'privacy.contact': 'Ceisteanna? Seol ríomhphost chuig privacy@courier.example.',
   'privacy.intro':
     'Míníonn an polasaí príobháideachais seo na sonraí a bhailíonn Courier, cén fáth a bhailímid iad, conas a choinnímid slán iad, agus na roghanna atá agat maidir leo. Tá sé mar aidhm againn a bheith sonrach seachas dlíthiúil; mura bhfuil aon rud soiléir, scríobh chuig privacy@courier.example.',
   'privacy.lastUpdated': 'Nuashonraithe go deireanach: 1 Aibreán, 2026',
@@ -163,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Rialaíonn na téarmaí seo d’úsáid Courier. Trí chuntas a chruthú nó ríomhphost a sheoladh chugainn, aontaíonn tú a bheith faoi cheangal acu. Déanaimid iarracht rialacha a scríobh ar féidir le duine a leanúint i ndáiríre.',
   'terms.lastUpdated': 'Éifeachtach: 1 Aibreán, 2026',
+  'terms.linkPrivacy': 'Léigh ár mBeartas Príobháideachais →',
   'terms.termination.body':
     'Féadfaidh tú do chuntas a scriosadh tráth ar bith. Féadfaimid cuntas a sháraíonn na téarmaí seo a chur ar fionraí; má dhéanaimid amhlaidh, míneoimid an chúis agus ligfimid duit do shonraí a easpórtáil ar dtús.',
   'terms.warranty.body':

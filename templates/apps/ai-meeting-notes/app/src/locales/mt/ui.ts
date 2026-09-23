@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwarna',
   'actions.empty': 'L-ebda azzjoni ma taqbel.',
   'actions.heading': 'Oġġetti ta’ azzjoni',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': "Xahar ta' qabel",
   'calendar.recent': 'Riċenti',
   'common.daysAgo': '{{count}} jum ilu',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.hoursAgo': '{{count}} siegħa ilu',
   'common.no': '—',
+  'common.retry': "Erġa' pprova",
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} punti ta’ azzjoni',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Iċċekkja l-inbox tiegħek għal-link tar-reset.',
   'forgot.subheading': 'Daħħal l-email tiegħek u aħna nibagħtulek link ta’ reset.',
   'integrations.disconnected': 'Diskonness',
+  'integrations.loadError': 'Ma rnexxilniex ingħabbu l-integrazzjonijiet.',
   'integrations.notConnectedTag': 'Mhux konness',
   'integrations.subheading':
     'Qabbad il-kalendarji u l-pjattaformi tal-vidjow sabiex Murmur jingħaqad awtomatikament.',
+  'integrations.updateError': 'Aġġornament falla.',
   'landing.ctaButton': 'Ibda — huwa b’xejn',
   'landing.ctaHeading': 'Ieqaf tieħu noti. Ibda ħu deċiżjonijiet.',
   'landing.demo.aiLabel': 'Sommarju tal-AI, abbozzat live',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Segwiti',
   'meetingDetail.loadError': 'Ma rnexxiex titgħabba l-laqgħa.',
   'meetingDetail.noActions': 'Ma nstabu l-ebda elementi ta’ azzjoni.',
+  'meetingDetail.none': 'Xejn.',
   'meetingDetail.notFound': 'Laqgħa ma nstabitx.',
+  'meetingDetail.speakerFallback': 'Kelliem {{id}}',
   'meetingDetail.summaryHeading': 'Sommarju tal-AI',
   'meetingDetail.transcriptHeading': 'Traskrizzjoni',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Laqgħat',
   'meetings.loadError': 'Ma rnexxilniex intella’ l-laqgħat.',
   'meetings.subheading': 'Kull laqgħa rreġistrata, imtella’, u sinkronizzata.',
+  'murmurLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'murmurLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'nav.legal': 'Legali',
   'notifications.loadError': 'Ma rnexxilniex in-notifiki jitgħabbew.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Kif tidher ġewwa Murmur.',
   'record.error.empty': 'Ma nqabad l-ebda awdjo.',
   'record.error.permission': 'Permess tal-mikrofonu miċħud.',
+  'record.error.recorder': 'Żball fir-reġistratur',
   'record.error.unsupported':
     'Il-brawżer tiegħek ma jappoġġjax ir-reġistrazzjoni. Ipprova Chrome, Edge, jew Safari.',
   'record.error.upload': 'It-tlugħ falla. Erġa’ pprova.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Password ġdida',
   'reset.subheading': 'Agħżel password li ma tuża mkien ieħor.',
   'search.empty': 'Ittajpja biex tfittex traskrizzjonijiet.',
+  'search.loadError': "It-tfittxija falliet. Erġa' pprova.",
   'search.noResults': 'L-ebda riżultat għal “ {{q}} ".',
   'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
   'settings.appearance.title': 'Dehra',
@@ -124,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Ma rnexxiex it-tagħbija tas-settings.',
   'settings.loading': 'Qed jitgħabba…',
   'settings.push.heading': 'Notifiki push',
+  'settings.push.subheading':
+    "Ikseb allerti tal-browser għal menzjonijiet, punti ta' azzjoni, u sommarji.",
   'settings.retention.audio': 'Żomm l-awdjo għal',
   'settings.retention.heading': 'Żamma',
   'settings.retention.transcript': 'Żomm it-traskrizzjonijiet għal',
@@ -141,6 +153,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Ibda aqbad noti tal-laqgħa fi ftit minuti',
   'signup.terms':
     'Billi toħloq kont inti taqbel mat-Termini ta’ Servizz u l-Politika ta’ Privatezza tagħna.',
+  'signup.termsPrefix': "Billi toħloq kont inti taqbel ma' tagħna",
   'team.inviteCta': 'Stieden lil sieħeb fit-tim',
   'team.invitedAs': 'Mistieden bħala {{role}}',
   'team.inviteFailed': 'Ma stajtx nibgħat l-istedina.',

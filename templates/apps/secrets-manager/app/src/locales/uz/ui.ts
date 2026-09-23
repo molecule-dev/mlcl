@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'about.tagline': "Sirlar ochiqda o'ladi.",
   'apiTokens.col.actions': '',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Token yarating',
   'apiTokens.kicker': 'API tokenlari',
   'apiTokens.loading': 'Tokenlar yuklanmoqda…',
+  'apiTokens.new': 'Yangi token',
   'apiTokens.revoke': 'Tokenni bekor qilish',
   'apiTokens.subheading':
     "Arcanum CLI va SDK uchun shaxsiy va xizmat ko'rsatish tokenlari. Oddiy matn yaratilish vaqtida bir marta ko'rsatiladi.",
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Parol',
   'authShell.zeroKnowledge': 'Nol bilimli shifrlash',
   'common.connecting': 'Ulanmoqda…',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.inviting': 'Taklif qilinmoqda…',
   'forgotPassword.checkInbox':
     "Agar {email} ro'yxatdan o'tgan bo'lsa, imzolangan qayta tiklash havolasi bir daqiqa ichida keladi.",
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     "Har bir omborda aylanish holati, anomaliya haqida ogohlantirishlar va tasdiqlash so'rovlari.",
   'notifications.unreadEmpty': 'Kiruvchi xabarlar qutisi nol — barchasi ushlandi.',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.heading': 'sirlar',
   'pricing.limits.accessPolicies': 'kirish siyosati',
   'pricing.limits.auditLog': 'audit jurnali yozuvlari',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Shaxsiy hisob',
   'profile.plan.description': "Obunangizni boshqaring, limitlarni ko'ring va yangilang.",
   'profile.subheading': 'Identifikatsiya, ikkinchi darajali qurilmalar va faol sessiyalar.',
+  'profile.twoFactor.code': 'Autentifikatsiya kodi',
   'profile.twoFactor.disable': "O'chirish",
   'profile.twoFactor.enable': 'Yoqish',
+  'profile.twoFactor.invalidCode': "Noto'g'ri kod",
   'profile.twoFactor.kicker': 'Ikki faktorli autentifikatsiya',
+  'profile.twoFactor.off': 'Yoqilmagan',
   'profile.twoFactor.on': 'Yoqilgan',
   'resetPassword.email': 'Hisob elektron pochtasi',
   'resetPassword.heading': "Yangi hisob ma'lumotlarini o'rnating",
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'buyruqlar',
   'secretsManagerLayout.encrypted': 'AES-256 · Shifrlangan',
   'secretsManagerLayout.newVault': 'Yangi ombor',
+  'secretsManagerLayout.newVaultShort': 'Yangi',
   'secretsManagerLayout.rotations': 'Aylanishlar',
   'secretsManagerLayout.search': 'qidiruv',
   'secretsManagerLayout.searchPlaceholder': "Kalit, yo'l yoki teg bo'yicha sirlarni qidiring...",
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sirlar',
   'vaultCard.vaultLabel': 'Saqlash joyi',
   'vaultDetail.addSecret': "Maxfiylik qo'shish",
+  'vaultDetail.back': 'Barcha omborlar',
   'vaultDetail.col.key': 'Kalit',
   'vaultDetail.col.rotated': 'Aylangan',
   'vaultDetail.col.value': 'Qiymat',

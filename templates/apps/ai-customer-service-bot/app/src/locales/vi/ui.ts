@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'analytics.channels.empty': 'Chưa có dữ liệu kênh.',
   'analytics.channels.title': 'Theo kênh',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Cuộc trò chuyện mỗi ngày',
   'chatBubble.avatarAlt': 'Ảnh đại diện của {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'confidenceMeter.label': 'Độ tin cậy',
   'conversationDetail.agentName': 'Đại lý',
   'conversationDetail.aiReplyButton': 'Bot trả lời',
   'conversationDetail.aiReplyError': 'Không thể tạo câu trả lời AI',
   'conversationDetail.aiReplyLoading': 'Đang soạn thảo…',
+  'conversationDetail.aiReplySourceFallback': 'phương án dự phòng (không có khóa AI)',
   'conversationDetail.backAria': 'Quay lại các cuộc trò chuyện',
   'conversationDetail.composerPlaceholder': 'Trả lời khách hàng…',
   'conversationDetail.context.channel': 'Kênh',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Đặt mật khẩu mới cho tài khoản của quý vị',
   'resetPassword.toggleConfirm': 'Bật/tắt hiển thị xác nhận mật khẩu',
   'resetPassword.togglePassword': 'Bật/tắt hiển thị mật khẩu',
+  'settings.account.emailError': 'Không thể cập nhật email',
   'settings.account.emailLabel': 'Địa chỉ email',
+  'settings.account.emailSaved': 'Email đã được cập nhật',
+  'settings.account.nameError': 'Không thể cập nhật tên',
   'settings.account.nameLabel': 'Tên hiển thị',
+  'settings.account.nameSaved': 'Tên đã được cập nhật',
   'settings.account.title': 'Tài khoản',
   'settings.api.createCta': 'Tạo mã thông báo',
   'settings.api.description':
@@ -170,10 +177,18 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Tự động chuyển cấp khi cảm xúc giảm',
   'settings.bot.greetingLabel': 'Lời chào tin nhắn đầu tiên',
   'settings.bot.title': 'Cấu hình bot',
+  'settings.bot.toneFormal': 'Chính thức',
   'settings.bot.toneLabel': 'Giọng & tông',
   'settings.danger.deleteAccount': 'Xóa tài khoản',
+  'settings.danger.deleteError': 'Không thể xóa tài khoản',
+  'settings.danger.deleteWarning':
+    'Thao tác này sẽ xóa vĩnh viễn tài khoản của bạn và tất cả dữ liệu liên quan. Không thể hoàn tác.',
   'settings.danger.deleting': 'Đang xóa…',
+  'settings.danger.passwordLabel': 'Xác nhận mật khẩu của bạn',
   'settings.danger.title': 'Vùng nguy hiểm',
+  'settings.devices.empty': 'Chưa có thiết bị nào được đăng ký.',
+  'settings.devices.revokeWarning': 'Quyền truy cập của thiết bị này sẽ bị thu hồi. Đăng xuất?',
+  'settings.devices.signingOut': 'Đang đăng xuất…',
   'settings.devices.signOut': 'Đăng xuất',
   'settings.devices.thisDevice': 'Thiết bị này',
   'settings.devices.title': 'Thiết bị',
@@ -186,9 +201,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Không thể thay đổi mật khẩu.',
   'settings.security.currentPassword': 'Mật khẩu hiện tại',
   'settings.security.newPassword': 'Mật khẩu mới',
+  'settings.security.oauthManaged':
+    'Mật khẩu của bạn được quản lý bởi nhà cung cấp dịch vụ đăng nhập.',
   'settings.security.title': 'Bảo mật',
   'settings.security.twoFactorDisable': 'Vô hiệu hóa',
   'settings.security.twoFactorEnable': 'Kích hoạt',
+  'settings.security.twoFactorInvalid': 'Mã không hợp lệ',
   'settings.subtitle':
     'Điều chỉnh giọng nói của Rapport, nguồn kiến thức và các công cụ mà nó giao tiếp.',
   'settings.tokenCreateError': 'Không thể tạo mã thông báo',

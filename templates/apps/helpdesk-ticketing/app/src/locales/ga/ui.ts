@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Maidir',
+  'about.title': 'Faoi {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'grianghraf gairmiúil de ghníomhaire tacaíochta baineann le gáire cairdiúil in oifig nua-aimseartha',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Déan teagmháil leis an tacaíocht',
   'forgotPassword.error': 'Níorbh fhéidir ríomhphost athshocraithe a sheoladh. Déan iarracht arís.',
   'forgotPassword.rememberPassword': 'An cuimhin leat do phasfhocal?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Sínigh isteach — Tacaíocht Zenith',
   'login.showPassword': 'Taispeáin an focal faire',
   'login.welcomeSubheading': 'Sínigh isteach i do phainéal tacaíochta',
+  'mobileNav.closeMenu': 'Dún nascleanúint',
+  'mobileNav.menu': 'Loingseoireacht',
+  'mobileNav.openMenu': 'Oscail nascleanúint',
   'nav.legal': 'Dlíthiúil',
   'nav.newTicket': 'Ticéad Nua',
   'notifications.loadError': 'Níorbh fhéidir fógraí a lódáil. Déan iarracht eile i gceann nóiméid.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Cuardach Ordú',
   'operatorDock.newReport': 'Tuarascáil Nua',
   'operatorDock.systemOnline': 'Córas Ar Líne',
+  'planUpdated.subtitle': 'Go raibh maith agat',
   'planUpdated.title': 'Plean nuashonraithe',
   'pricing.agents': 'gníomhairí',
   'pricing.automation': 'Rialacha uathoibrithe',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{ainm}}',
   'ticketCustomerReply.avatarAlt': '{{ainm}} avatár',
   'ticketDetail.errorTitle': 'Chuaigh rud éigin mícheart',
+  'ticketDetail.loadError': 'Theip ar an ticéad a lódáil.',
+  'ticketDetail.notFound': 'Níor aimsíodh an ticéad',
+  'ticketDetail.replyError': 'Theip ar an freagra a sheoladh. Déan iarracht arís.',
   'ticketDetail.retry': 'Déan iarracht arís',
   'ticketDetail.statusUpdateError': 'Níorbh fhéidir an stádas a nuashonrú. Déan iarracht eile.',
   'ticketDetailsCard.assigneeLabel': 'Sannaí',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{am}} ar chlé',
   'ticketRow.title': 'Teip ar nasc bunachar sonraí le linn táirgeachta {{nód}}',
   'tickets.pageTitle': 'Ticéid — Tacaíocht Zenith',
+  'ticketsFab.newTicket': 'Ticéad nua',
   'ticketsFilterBar.assigneeLabel': 'Sannaí:',
   'ticketsFilterBar.clearFilters': 'Glan na Scagairí',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

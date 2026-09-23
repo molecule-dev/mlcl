@@ -2,6 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.pageTitle': 'Apie {{appName}}',
+  'alertBanner.expires': 'Iki {{time}}',
   'alerts.activeCount': '{{count}} aktyvus',
   'alerts.activeHeading': 'Aktyvūs įspėjimai',
   'alerts.empty': 'Visos išsaugotos vietos švarios.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Šiuo metu esate {{plan}} planas.',
   'billing.switch': 'Jungiklis',
   'billing.upgraded': 'Atnaujinta iki {{plan}} — nedelsiant taikomi apribojimai.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'compare.activityHeading': 'Veiklos verdiktai',
   'compare.empty.title': 'Pridėkite bent dvi vietas, kad palygintumėte',
   'compare.eyebrow': 'Greta',
@@ -135,4 +137,5 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Aukštas',
   'trends.summary.low.label': 'Žemas',
   'trends.summary.points.label': 'Dienos',
+  'weatherDashboardLayout.primaryNavLabel': 'Pagrindinė navigacija',
 }

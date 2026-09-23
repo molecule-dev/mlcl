@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ir-rwol tiegħek',
   'account.role.upgradeLink': 'Applika biex issir tutur verifikat →',
   'account.title': 'Profil, ħlas u preferenzi.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Għallem fuq il-Ġibs',
   'becomeTutor.form.error': 'Ma stajtx nissottometti l-applikazzjoni.',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Suġġett',
   'bookingConfirm.title': 'Int ibbukkjat. Aħna nieħdu ħsieb il-bqija.',
   'bookingConfirm.with': 'Mat-tutur',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'earningsHero.eyebrow': 'Qligħ • {{month}}',
   'forgotPassword.heading': 'Insejt il-password tiegħek?',
   'forgotPassword.subheading':
@@ -115,6 +117,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Ibgħat messaġġ',
   'messages.thread.empty': 'Għid bonjour — ibda l-konverżazzjoni.',
   'messages.title': 'Suġġetti mat-tuturi tiegħek.',
+  'nav.primary': 'Primarja',
   'pricing.dataExport': 'Esportazzjoni tad-dejta:',
   'pricing.headingDefault': 'Karatteristiċi avvanzati:',
   'resetPassword.heading': "Agħżel password ġdida b'saħħitha.",

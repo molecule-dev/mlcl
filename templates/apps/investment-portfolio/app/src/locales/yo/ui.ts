@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Nípa {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Irinṣẹ́ Ọrọ̀',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Kì í ṣe ìmọ̀ràn nípa ìdókòwò.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) lónìí',
   'argentAuthShell.sampleValue': 'Dọ́là 1,032,251',
   'argentLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Ko si awọn iṣowo fun tiker yii.',
   'assetDetail.txHeading': 'Àwọn ìṣòwò rẹ',
   'common.and': 'àti',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Àkópọ̀ àkójọpọ̀ ọjà',
@@ -50,6 +53,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Ko si awọn ohun ini sibẹsibẹ.',
   'holdings.heading': 'Àwọn ìdádúró',
   'holdings.loadError': 'Kò ṣeé ṣe láti kó àwọn ohun tí a fi pamọ́ sínú àpótí.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Kì í ṣe ìmọ̀ràn nípa ìdókòwò. Iṣẹ́ tó ti kọjá kò ṣe ìdánilójú àbájáde ọjọ́ iwájú.',
   'landing.eyebrow': 'Argent · Pẹpẹ irinṣẹ́ ọrọ̀ kan',
   'landing.features.heading': 'Gbogbo ohun tí olùdámọ̀ràn bá kọ́ fún ara wọn.',
   'landing.finalCta.heading': 'Mu ibawi pada si apo-iṣẹ rẹ.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} h ti o ti kọja',
   'news.justNow': 'ni bayi',
   'news.loadError': 'Kò ṣeé ṣe láti gbé ìròyìn jáde.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'portfolioHeroCard.label': 'Iye Ifiweranṣẹ',
   'pricing.holdingsLabel': 'àwọn ohun ìní',
   'pricing.newsLabel': 'àwọn àpilẹ̀kọ ìròyìn',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Pa àkàùntì rẹ́',
   'settings.security.deleting': 'Npaarẹ…',
   'settings.security.heading': 'Ààbò',
+  'settings.security.newPassword': 'Ọrọ aṣina Tuntun',
   'settings.security.password': 'Ọ̀rọ̀ aṣínà',
   'settings.security.twoFactorEnable': 'Mu ṣiṣẹ',
+  'settings.security.twoFactorInvalidCode': 'Kóòdù tí kò tọ́',
+  'settings.security.twoFactorVerify': 'Ṣàyẹ̀wò kí o sì mú un ṣiṣẹ́',
   'settings.tax.error': 'Kò le ṣe àtúnṣe ọ̀nà owó-orí.',
   'settings.tax.heading': 'Iṣiro owo-ori pupọ',
   'settings.tax.method': 'Ọ̀nà àìyípadà',

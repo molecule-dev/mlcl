@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'about.pageTitle': 'Om {{name}}',
   'auth.footer.about': 'Om {{name}}',
   'authHeader.subtitle': 'Logga in för att hålla dina siffror korrekta.',
   'automations.action.email': 'E-post',
+  'automations.action.noop': 'Ingen operation',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Ta bort "{{name}}"?',
   'automations.empty.headline': 'Inga automatiseringar ännu',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Utlösare och åtgärder i varje arbetsbok. Varje körning loggar en rad du kan granska senare.',
   'automations.toggle': 'Växla {{name}}',
+  'automations.trigger.dailySchedule': 'Dagligt schema',
+  'automations.trigger.rowCreated': 'Rad skapad',
+  'automations.trigger.rowUpdated': 'Rad uppdaterad',
   'billing.empty': 'Inga planer tillgängliga.',
   'billing.error.priceMissing':
     'Inget Stripe-pris konfigurerat för denna nivå. Ange STRIPE_*_PRICE_ID-miljövariabler.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagram',
   'charts.kpi.totalCharts': 'Totalt diagram',
   'charts.list.empty': 'Inga diagram ännu.',
+  'charts.namePlaceholder': 'Intäktstrend',
   'charts.newChart': 'Nytt diagram',
   'charts.primary.eyebrow': 'Diagram efter typ',
   'charts.primary.headline': 'Översikt över arbetsyta',
   'charts.subhead':
     'Liveuppdaterade visualiseringar kopplade till ditt rutnät — renderas om vid varje cellredigering.',
+  'common.goToDashboard': 'Gå till översikt',
   'editor.addColumn': 'Lägg till kolumn',
+  'editor.addDialogTitle': 'Lägg till kolumn',
   'editor.addRow': 'Lägg till rad',
   'editor.addSheet': 'Lägg till blad',
   'editor.back': 'Tillbaka till arbetsböcker',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite är det formelfokuserade, multi-vy, realtidsrutnät som analytiker och ekonomiteam väljer först.',
   'landing.nav.formulas': 'Formler',
+  'login.noAccount': 'Ny hos {{name}} ?',
+  'login.signIn': 'Logga in på {{name}}',
   'login.signUp': 'Skapa en arbetsyta',
+  'nav.menu': 'Meny',
+  'nav.openMenu': 'Öppna meny',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Den här raden har aldrig funnits.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Inbyggda automatiseringar · webhook- och cron-utlösare',
   'signup.creating': 'Förbereder arbetsyta…',
   'signup.cta': 'Skapa min arbetsyta',
+  'signup.haveAccount': 'Redan på {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Starta din första arbetsbok på 30 sekunder',
   'team.col.activity': 'Inbjuden',

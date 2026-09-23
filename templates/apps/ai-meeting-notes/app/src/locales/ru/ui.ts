@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
   'actions.empty': 'Соответствующих задач не найдено.',
   'actions.heading': 'Задачи',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Предыдущий месяц',
   'calendar.recent': 'Недавний',
   'common.daysAgo': '{{count}} д назад',
+  'common.goToDashboard': 'Перейти к панели',
   'common.hoursAgo': '{{count}} х назад',
   'common.no': '—',
+  'common.retry': 'Повторить попытку',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} задачи',
   'dashboard.empty.body':
@@ -43,9 +46,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.',
   'integrations.disconnected': 'Отключено',
+  'integrations.loadError': 'Не удалось загрузить интеграции.',
   'integrations.notConnectedTag': 'Нет подключения',
   'integrations.subheading':
     'Свяжите календари и видеоплатформы, чтобы Murmur подключался автоматически.',
+  'integrations.updateError': 'Не удалось обновить.',
   'landing.ctaButton': 'Начните прямо сейчас — это бесплатно',
   'landing.ctaHeading': 'Хватит делать заметки. Начинайте принимать решения.',
   'landing.demo.aiLabel':
@@ -65,7 +70,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Дальнейшие действия',
   'meetingDetail.loadError': 'Не удалось загрузить встречу.',
   'meetingDetail.noActions': 'Задач на выполнение не обнаружено.',
+  'meetingDetail.none': 'Нет.',
   'meetingDetail.notFound': 'Встреча не найдена.',
+  'meetingDetail.speakerFallback': 'Докладчик{{id}}',
   'meetingDetail.summaryHeading': 'Резюме с использованием ИИ',
   'meetingDetail.transcriptHeading': 'Стенограмма',
   'meetings.empty.body':
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Встречи',
   'meetings.loadError': 'Не удалось загрузить встречи.',
   'meetings.subheading': 'Каждая записанная, загруженная и синхронизированная встреча.',
+  'murmurLayout.openMenu': 'Открыть меню навигации',
   'murmurLayout.primaryNavLabel': 'Основная навигация',
   'nav.legal': 'Юридические',
   'notifications.loadError': 'Не удалось загрузить уведомления.',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Как вы выглядите в Murmur.',
   'record.error.empty': 'Звук не был записан.',
   'record.error.permission': 'Доступ к микрофону запрещен.',
+  'record.error.recorder': 'Ошибка регистратора',
   'record.error.unsupported':
     'Ваш браузер не поддерживает запись. Попробуйте Chrome, Edge или Safari.',
   'record.error.upload': 'Загрузка не удалась. Попробуйте ещё раз.',
@@ -121,6 +130,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Новый пароль',
   'reset.subheading': 'Выберите пароль, который вы нигде больше не используете.',
   'search.empty': 'Введите текст для поиска в стенограммах.',
+  'search.loadError': 'Поиск не удался. Попробуйте ещё раз.',
   'search.noResults': 'Результаты по запросу «{{q}}» не найдены.',
   'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
   'settings.appearance.title': 'Появление',
@@ -129,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Не удалось загрузить настройки.',
   'settings.loading': 'Загрузка…',
   'settings.push.heading': 'Push-уведомления',
+  'settings.push.subheading': 'Получайте уведомления в браузере об упоминаниях, задачах и сводках.',
   'settings.retention.audio': 'Сохранить звук для',
   'settings.retention.heading': 'Удержание',
   'settings.retention.transcript': 'Храните транскрипты для',
@@ -146,6 +157,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Начните вести записи с совещаний уже через несколько минут',
   'signup.terms':
     'Создавая учетную запись, вы соглашаетесь с нашими Условиями предоставления услуг и Политикой конфиденциальности.',
+  'signup.termsPrefix': 'Создавая учётную запись, вы соглашаетесь с нашими',
   'team.inviteCta': 'Пригласить товарища по команде',
   'team.invitedAs': 'Приглашен в качестве «{{role}}»',
   'team.inviteFailed': 'Не удалось отправить приглашение.',

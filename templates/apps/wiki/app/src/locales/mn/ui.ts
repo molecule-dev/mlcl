@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Шийдвэрлэж байна…',
   'comments.subtitle':
     'нь {{count}} Хариулт эсвэл шийдэл хүлээгдэж буй сэдвүүд. Насаар нь эрэмбэлсэн — хамгийн эртнийх нь эхэнд, тиймээс юу ч мууддаггүй.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'forgotPassword.sentTo': 'Дахин тохируулах холбоос илгээгдсэн {{email}}',
   'forgotPassword.successSubheading':
     'Ирсэн имэйлээ шалгана уу — бид дөнгөж сая дахин тохируулах холбоос илгээлээ. Энэ нь 30 минутын дараа хүчингүй болно.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Шинэ хуудас',
   'pageTreeSidebar.workspaceHeader': 'Ажлын талбар',
   'pageView.breadcrumb': 'Талхны үйрмэг',
+  'pageView.confirmTrash': 'Хогийн саванд хаях уу?',
   'pageView.home': 'Гэр',
   'pageView.lastEdited': 'Шинэчлэгдсэн {{when}}',
   'pageView.loading': 'Хуудсыг ачаалж байна…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Хиймэл оюун ухааны хураангуйг энэ ажлын талбарт тохируулаагүй байна.',
   'pageView.tocTitle': 'Энэ хуудсан дээр',
+  'pageView.trash': 'Хогийн сав',
+  'pageView.trashing': 'Хогийн саванд хийж байна…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Тэмдэг',
   'profile.owned.title': 'Эзэмшлийн хуудсууд',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Ажлын талбар, профайл, мэдэгдэл, интеграцчлал — бүгд нэг тайван бүрхүүлд.',
   'settingsPage.workspace.defaultLanding': 'Анхдагч буух дэлгэц',
   'settingsPage.workspace.landingHome': 'Гэр',
+  'settingsPage.workspace.landingSpaces': 'Орон зай',
   'settingsPage.workspace.subdomainLabel': 'Дэд домэйн',
   'settingsPage.workspace.title': 'Ажлын талбар',
   'signup.eyebrow': 'Шинэ ажлын талбар эхлүүлэх',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин',
   'templates.subtitle':
     'Хуудсыг хоосон даавуунаас биш, харин трафаретаар эхлүүлээрэй. Загвар бүр хэлбэрийг нь хатуу кодчилдог тул та агуулга дээр анхаарлаа төвлөрүүлж чадна.',
+  'trash.confirmPurge': 'Үүрд цэвэрлэх үү?',
+  'trash.confirmPurgeAria': 'Баталгаажуулах: {{title}} г бүрмөсөн устгах',
   'trash.daysUntilPurge': '{{days}} үлдсэн өдрүүд',
   'trash.empty.body': 'Устгасан хуудсууд устгагдахаас өмнө 30 хоногийн турш энд харагдах болно.',
   'trash.empty.title': 'Хогийн сав хоосон байна.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Сэргээж байна…',
   'versionHistory.subtitle': '{{count}} хувилбарууд · ялгааг шалгах мөр сонгоно уу',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Навигацийг хаах',
+  'wikiLayout.menu': 'Навигаци',
+  'wikiLayout.openMenu': 'Навигацийг нээх',
   'wikiLayout.searchPlaceholder': 'Кэрнийг хайх — хуудаснууд, сэтгэгдэлүүд...',
 }

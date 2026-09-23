@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'क्या आपको कोई बग मिला, कोई फ़ीचर रिक्वेस्ट है, या आप हमें उस फ़िल्म के बारे में बताना चाहते हैं जिसे आपने एडिट किया है? आपका हर मैसेज टीम के किसी असली सदस्य तक पहुँचता है — अपने अकाउंट सेटिंग से कभी भी हमसे संपर्क करें।',
+  'about.contactTitle': 'हमसे बात करें',
+  'about.eyebrow': '// कट के पीछे का स्टूडियो',
   'about.pageTitle': '{{appName}} के बारे में',
   'assetDetail.back': 'लाइब्रेरी पर वापस जाएँ',
   'assetDetail.confirmDelete': '"{{name}}" को हटाएँ? इस क्रिया को पूर्ववत नहीं किया जा सकता।',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     'टाइमलाइन पर डालने के लिए {{count}} क्लिप, ऑडियो बेड और ग्राफ़िक्स तैयार हैं।',
   'assetLibrary.title': 'एसेट',
   'assetLibrary.upload': 'एसेट जोड़ें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.browseTemplates': 'टेम्पलेट देखें →',
   'dashboard.loading': 'प्रोजेक्ट लोड हो रहे हैं…',
   'dashboard.noProjects': 'अभी तक कोई प्रोजेक्ट नहीं — शुरू करने के लिए एक बनाएँ।',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'ऐसा चुनें जो केवल आप ही याद रखें।',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'गोपनीयता',
+  'rushesLayout.closeMenu': 'नेविगेशन बंद करें',
   'rushesLayout.guest': 'संपादक',
+  'rushesLayout.navDialog': 'मार्गदर्शन',
+  'rushesLayout.openMenu': 'नेविगेशन खोलें',
   'rushesLayout.planFree': 'निःशुल्क प्लान',
   'rushesLayout.tagline': 'सिनेमाई टाइमलाइन',
   'settings.billing.confirmCancel': 'अवधि के अंत में सदस्यता रद्द करें?',

@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Momentálně se nacházíte na {{plan}} plán.',
   'billing.switch': 'Přepnout',
   'billing.upgraded': 'Aktualizováno na {{plan}} — limity uplatněné okamžitě.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'compare.activityHeading': 'Verdikty o aktivitě',
   'compare.empty.title': 'Přidejte alespoň dvě lokality k porovnání',
   'compare.eyebrow': 'Bok po boku',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Vysoká',
   'trends.summary.low.label': 'Nízká',
   'trends.summary.points.label': 'Dny',
+  'weatherDashboardLayout.primaryNavLabel': 'Primární navigace',
   'weatherHeroCard.updated': 'Aktualizováno {{time}}',
 }

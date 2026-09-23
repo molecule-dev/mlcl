@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'alerts.acknowledgeLabel': 'Accuser réception',
   'alerts.customerLabel': 'Client : {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Connexion…',
   'carriers.requiredError': 'Le nom et le code sont obligatoires.',
   'carriers.subheading': '{{count}} intégrés',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.no': '—',
+  'common.retry': 'Réessayer',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'En transit + signalés',
   'dashboard.activeShipmentsSubtitle':
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'expéditions',
   'pricing.trackingLabel': 'événements de suivi',
   'profile.dangerZone.title': 'Zone dangereuse',
+  'profile.devices.signingOut': 'Déconnexion…',
+  'profile.devices.unnamed': 'Appareil sans nom',
+  'profile.security.disable2fa': "Désactiver l'authentification à deux facteurs (2FA)",
   'profile.security.enable2fa': 'Activer la 2FA',
   'profile.security.pwChanged': 'Mot de passe modifié avec succès.',
   'profile.security.pwCurrent': 'Mot de passe actuel',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA active',
   'profile.security.twoFaCode': 'Code à 6 chiffres',
   'profile.security.twoFaDisable': 'Désactiver',
+  'profile.security.twoFaDisabling': 'Désactivation…',
   'profile.security.twoFaFailed': 'Impossible de vérifier le code.',
   'profile.security.twoFaIntro':
     'Scannez le code QR dans votre application d’authentification, puis saisissez le code à 6 chiffres ci-dessous pour vérifier.',
   'profile.security.twoFaOn': 'L’authentification à deux facteurs est activée sur ce compte.',
+  'profile.security.twoFaQrAlt': "QR code d'authentification à deux facteurs",
   'profile.security.twoFaVerify': 'Vérifier et activer',
   'profile.security.twoFaVerifying': 'Vérification…',
   'profile.subheading': 'Paramètres d’identité et de sécurité pour cet espace de travail.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Conservez ce secret — il ne sera plus affiché.',
   'settings.api.webhookSecret': 'Secret de signature du webhook',
   'settings.appearance.description': 'Basculer entre le mode clair et le mode sombre.',
+  'settings.deleteAccountConfirm': 'Êtes-vous sûr ? Cette action ne peut pas être annulée.',
   'settings.notifications.exceptions': 'M’envoyer un e-mail en cas d’exception d’expédition',
   'settings.notifications.heading': 'Notifications',
   'settings.notifications.saveFailed': 'Impossible d’enregistrer les préférences.',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Expédition introuvable.',
   'shipmentDetail.originHeading': 'Origine',
   'shipmentDetail.shippedOn': 'Expédié le {{date}}',
+  'shipmentDetail.timelineEmpty':
+    "Aucun événement de suivi pour l'instant — les mises à jour s'afficheront ici dès que le transporteur aura scanné le colis.",
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Transporteur',
   'shipments.col.eta': 'ETA',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Se connecter',
   'signup.submit': 'Créer un compte',
   'team.emailError': 'Une adresse e-mail valide est requise.',
+  'team.empty':
+    "Il n'y a encore aucun membre dans l'équipe. Invitez un collègue à collaborer sur les expéditions.",
   'team.eyebrow': 'Membres et permissions',
   'team.inviteDialog.cancel': 'Annuler',
   'team.inviteDialog.heading': 'Inviter un coéquipier',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Suivre',
   'waypointLayout.primaryNavLabel': 'Navigation principale',
   'webhooks.createFailed': 'Impossible de créer le point de terminaison du webhook.',
+  'webhooks.endpointsEmpty':
+    "Il n'y a pas encore de points de terminaison Webhook. Créez-en un pour recevoir des notifications concernant le statut des expéditions.",
   'webhooks.endpointsHeading': 'Points de terminaison',
   'webhooks.eventCount': '{{count}} événements',
   'webhooks.eventsHeading': 'Livraisons récentes',

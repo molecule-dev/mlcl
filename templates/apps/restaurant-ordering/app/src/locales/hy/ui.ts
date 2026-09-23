@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ի մասին',
   'analytics.avgCheckLabel': 'Միջին ստուգում',
   'analytics.busiestHour': 'Ամենածանրաբեռնված ժամը',
   'analytics.coversToday': 'Այսօրվա շապիկները',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Թեյավճարներ (միջին)',
   'analytics.topItems': 'Այսօրվա լավագույն ապրանքները',
   'authShell.eyebrow': 'Բարի վերադարձ ծառայությանը',
+  'authShell.heading': '{{tagline}}։',
   'authShell.subheading':
     'Ջերմ, արագ վաճառքի կետ հյուրընկալության թիմերի համար: Մուտք գործեք ձեր խոհանոց և շարունակեք այնտեղից, որտեղ կանգ եք առել:',
   'authShell.tip':
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'կամ {{price}}',
   'billing.priceUnavailable': 'Այս պլանը կարգավորված գին չունի։',
   'billing.updated': 'Պլանը թարմացված է։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'customerDetail.book': 'Ավելացնել ամրագրում',
   'customerDetail.col.table': 'Սեղան',
   'customerDetail.confirmDelete': 'Ջնջե՞լ այս հյուրի գրառումը։',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Հասանելիություն',
   'menuItemDetail.available': 'Հասանելի է այսօր երեկոյան',
   'menuItemDetail.backToMenu': 'Վերադառնալ մենյու',
+  'menuItemDetail.confirmDelete': 'Ջնջե՞լ այս ընտրացանկի տարրը։',
   'menuItemDetail.delete': 'Ջնջել տարրը',
   'menuItemDetail.deleteError': 'Ջնջումը ձախողվեց։ Փորձեք կրկին։',
   'menuItemDetail.dietary': 'Սննդային պիտակներ',
@@ -140,8 +144,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · խմբագրել լուսանկարը, մոդիֆիկատորները, սննդակարգը և գնագոյացումը:',
   'menuItemDetail.untitled': 'Անվերնագիր տարր',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'notFound.heading': 'Այս սեղանը հատակին չէ։',
   'notFound.subheading': 'Ձեր որոնած էջը գտնվել է այլ տեղում կամ երբեք գոյություն չի ունեցել։',
+  'notFound.toLanding': '{{app}} գլխավոր էջ',
   'notifications.markError': 'Չհաջողվեց նշել բոլորը որպես կարդացված։',
   'orderDashboard.activeDelta': 'Ուղիղ եթեր հիմա',
   'orderDashboard.activeLabel': 'Ակտիվ պատվերներ',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Ցուցադրել գաղտնաբառը',
   'resetPassword.subtitle': 'Մուտքագրեք ձեր նոր գաղտնաբառը՝ խոհանոց մուտք գործելու համար։',
   'resetPassword.tokenLabel': 'Վերագործարկեք տոկենը',
+  'restaurantOrderingLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'revenueHeroCard.activeOrders': '{{count}} ակտիվ',
   'revenueHeroCard.change': '{{sign}} {{amount}} երեկվա համեմատ',
   'revenueHeroCard.title': 'Այսօրվա եկամուտը',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Ռեստորանի անվանումը',
   'tableDetail.activeOrders': 'Ակտիվ պատվերներ',
   'tableDetail.backToFloor': 'Հարկաբաժին',
+  'tableDetail.confirmDelete': 'Ջնջե՞լ այս աղյուսակը։',
   'tableDetail.delete': 'Ջնջել',
   'tableDetail.deleteError': 'Չհաջողվեց ջնջել աղյուսակը։',
   'tableDetail.heading': 'Սեղան {{label}}',

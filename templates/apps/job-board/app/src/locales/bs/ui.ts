@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'O nama',
   'applications.empty': 'Još nema prijava \\u2014 prava pozicija je udaljena samo jednu prijavu.',
   'applications.eyebrow': 'Vaš cjevovod',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Svaka uloga za koju ste se prijavili, u toku. Filtrirajte po fazi da biste se fokusirali.',
   'applications.untitledRole': 'Uloga # {{id}}',
+  'auth.legalConsent': 'Nastavljajući, slažete se s našim',
   'common.and': 'i',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'companies.empty':
     'Nijedna kompanija ne odgovara vašoj pretrazi \\u2014 pokušajte s drugim pojmom.',
   'companies.eyebrow': 'Istaknuti poslodavci',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Još nema prijava za ovu ulogu.',
   'jobApplicants.eyebrow': 'Mišljenje poslodavca',
   'jobApplicants.loading': 'Učitavanje\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Nije moguće ažurirati tu fazu - pokušajte ponovo.',
+  'jobApplicants.subheading':
+    'Pregledajte životopise, unaprijedite kandidate, pošaljite ponude \\u2014 {{count}} u toku.',
   'jobDetail.applicantCount': '{{count}} prijavljenih do sada',
   'jobDetail.applied': 'Prijava poslana',
   'jobDetail.apply': 'Prijavi se odmah',
@@ -83,6 +89,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Pregledajte otvorene pozicije \\u2192',
   'landing.pricingEyebrow': 'Cijene',
   'landing.pricingHeading': 'Jednostavni planovi za timove svih veličina.',
+  'login.eyebrow': 'Dobrodošli nazad u {{app}}',
   'login.heading': 'Prijavite se na svoj račun',
   'login.noAccount': 'Novi ste u Noshu?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -90,6 +97,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Prijava\\u2026',
   'login.subheading':
     'Poboljšajte pretragu, unaprijedite svoje prijave i brže ćete dobiti odgovor.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Napravljeno za timove za zapošljavanje.',
   'loginBrandPanel.headline': 'Gdje se susreću talenti',
   'loginBrandPanel.headlineLine2': 'zamah.',
   'loginBrandPanel.listing.recruiter': 'Partner za talente',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Ažuriranja prijava, pozivi na intervjue, nova podudaranja - prvo najnovije.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ove sedmice',
   'opportunitiesHero.eyebrow': 'Otvoreno danas',
+  'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'postJob.addNewCompany': '+ Dodaj novu kompaniju',
   'postJob.companyCreateFailed': 'Nije moguće kreirati kompaniju - pokušajte ponovo.',
   'postJob.companyNameLabel': 'Naziv vaše kompanije',
@@ -165,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Kreiranje računa\\u2026',
   'signup.ctaEmployer': 'Kreirajte račun poslodavca',
   'signup.firstNamePlaceholder': 'Maja',
+  'signup.lastNamePlaceholder': 'Čen',
   'signup.passwordMismatch': 'Lozinke se ne podudaraju.',
   'signup.subheading':
     'Besplatno za one koji traže, zauvijek. Poslodavci počinju s 30-dnevnom probnom verzijom.',
   'timeAgo.days': '{{count}} prije d',
   'timeAgo.hours': '{{count}} prije h',
   'timeAgo.justNow': 'upravo sada',
+  'timeAgo.weeks': 'prije {{count}} sedmica',
 }

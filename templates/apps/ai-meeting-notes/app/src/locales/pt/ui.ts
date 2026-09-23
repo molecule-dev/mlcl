@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre nós',
   'actions.empty': 'Nenhum item de ação corresponde.',
   'actions.heading': 'Itens de ação',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Mês anterior',
   'calendar.recent': 'Recentes',
   'common.daysAgo': 'há {{count}} d',
+  'common.goToDashboard': 'Ir para o Painel',
   'common.hoursAgo': 'há {{count}} h',
   'common.no': '—',
+  'common.retry': 'Tentar novamente',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} itens de ação',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Verifique sua caixa de entrada para o link de redefinição.',
   'forgot.subheading': 'Informe seu e-mail e enviaremos um link de redefinição.',
   'integrations.disconnected': 'Desconectado',
+  'integrations.loadError': 'Não foi possível carregar as integrações.',
   'integrations.notConnectedTag': 'Não conectado',
   'integrations.subheading':
     'Conecte calendários e plataformas de vídeo para o Murmur entrar automaticamente.',
+  'integrations.updateError': 'Falha na atualização.',
   'landing.ctaButton': 'Começar — é grátis',
   'landing.ctaHeading': 'Pare de tomar notas. Comece a tomar decisões.',
   'landing.demo.aiLabel': 'Resumo de IA, redigido ao vivo',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Acompanhamentos',
   'meetingDetail.loadError': 'Falha ao carregar a reunião.',
   'meetingDetail.noActions': 'Nenhum item de ação detectado.',
+  'meetingDetail.none': 'Nenhum.',
   'meetingDetail.notFound': 'Reunião não encontrada.',
+  'meetingDetail.speakerFallback': 'Palestrante{{id}}',
   'meetingDetail.summaryHeading': 'Resumo de IA',
   'meetingDetail.transcriptHeading': 'Transcrição',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Reuniões',
   'meetings.loadError': 'Falha ao carregar reuniões.',
   'meetings.subheading': 'Todas as reuniões gravadas, enviadas e sincronizadas.',
+  'murmurLayout.openMenu': 'Abrir menu de navegação',
   'murmurLayout.primaryNavLabel': 'Navegação principal',
   'nav.legal': 'Jurídico',
   'notifications.loadError': 'Falha ao carregar notificações.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Como você aparece dentro do Murmur.',
   'record.error.empty': 'Nenhum áudio foi capturado.',
   'record.error.permission': 'Permissão de microfone negada.',
+  'record.error.recorder': 'Erro no gravador',
   'record.error.unsupported':
     'Seu navegador não oferece suporte a gravação. Tente Chrome, Edge ou Safari.',
   'record.error.upload': 'Falha no envio. Tente novamente.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nova senha',
   'reset.subheading': 'Escolha uma senha que você não use em outros lugares.',
   'search.empty': 'Digite para buscar nas transcrições.',
+  'search.loadError': 'A pesquisa falhou. Tente novamente.',
   'search.noResults': 'Sem resultados para “{{q}}”.',
   'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
   'settings.appearance.title': 'Aparência',
@@ -124,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Falha ao carregar as configurações.',
   'settings.loading': 'Carregando…',
   'settings.push.heading': 'Notificações push',
+  'settings.push.subheading':
+    'Receba alertas no navegador sobre menções, tarefas pendentes e resumos.',
   'settings.retention.audio': 'Reter áudio por',
   'settings.retention.heading': 'Retenção',
   'settings.retention.transcript': 'Reter transcrições por',
@@ -141,6 +153,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Comece a capturar notas de reunião em minutos',
   'signup.terms':
     'Ao criar uma conta você concorda com nossos Termos de Serviço e Política de Privacidade.',
+  'signup.termsPrefix': 'Ao criar uma conta, você concorda com nossos',
   'team.inviteCta': 'Convidar colega',
   'team.invitedAs': 'Convidado como {{role}}',
   'team.inviteFailed': 'Não foi possível enviar o convite.',

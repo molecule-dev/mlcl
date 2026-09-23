@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Kurslar yuklanmoqda…',
   'browse.next': 'Keyingi sahifa',
   'browse.results': "Ko'rsatilmoqda {{count}} kurslar",
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Saralash turi',
   'browse.subtitle':
     "Tahririyat arxivini mavzu, daraja va narx bo'yicha filtrlang. Har bir kurs muharrirlarimiz tomonidan qo'lda tuziladi.",
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     "Sertifikatingiz imzolandi va tayyor. Uni dunyo bilan baham ko'ring yoki uni topish uchun sarflangan mehnatni eslatish uchun saqlang.",
   'certificate.copyLink': 'Ulashish havolasini nusxalash',
+  'certificate.copyPrompt': 'Ushbu havolani nusxalash:',
   'certificate.download': 'PDF yuklab olish',
   'certificate.eyebrow': 'Yutuq ochildi',
   'certificate.linkCopied': 'Havola nusxalandi!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': "Siz ro'yxatdan o'tdingiz!",
   'checkout.verifying': "Ro'yxatdan o'tishingiz tasdiqlanmoqda…",
   'checkout.viewLibrary': "Mening o'rganishimni ko'rish",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.retry': 'Qayta urinib ko’ring',
   'courseDetail.about': 'Ushbu kurs haqida',
   'courseDetail.checkoutPending': "To'lov boshlanmoqda…",
   'courseDetail.continueLearning': "O'rganishni davom eting",
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 kunlik pulni qaytarish kafolati',
   'courseDetail.includes.video': "{{hours}} soatlab talab bo'yicha video",
   'courseDetail.instructor': "O'qituvchi",
+  'courseDetail.languageEnglish': 'Inglizcha',
   'courseDetail.lectures': "Ma'ruzalar",
   'courseDetail.level': 'Daraja',
   'courseDetail.loading': 'Kurs yuklanmoqda…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': "Hali sharhlar yo'q.",
   'instructorProfile.students': 'Talabalar',
   'landing.categories.empty': "Katalog to'ldirilgandan so'ng, kategoriyalar paydo bo'ladi.",
+  'landing.categories.heading': "Arxivni o'rganing",
   'landing.hero.eyebrow': 'Lektura · Mahoratning tahririyat arxivi',
   'landing.hero.proof': "Google, Meta va Adobe o'quvchilari tomonidan ishonchli.",
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': "Bugun o'rganishni boshlang",
   'login.subheading': 'Ilmiy arxivingizga kiring.',
   'myLearning.empty.title': 'Bu filtrga hali hech qanday kurs mos kelmaydi',
+  'myLearning.error.title': "Kutubxonangizni yuklab bo'lmadi",
   'myLearning.filter.notStarted': 'Boshlanmagan',
   'myLearning.hero.subtitle': '{{count}} Kutubxonangizdagi kurslar. Tezlikni davom ettiring.',
   'myLearning.hero.title': 'To’xtagan joyingizdan davom eting.',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     "Ko'rib chiqish uchun yangi faoliyat yo'q. Yangi tadbirlar bu yerda ko'rsatiladi.",
   'notifications.empty.title': 'Hammangiz yetib keldingiz',
+  'notifications.error.title': "Harakatni yuklab bo'lmadi",
   'privacy.title': 'Maxfiylik siyosati',
   'reset.confirmPlaceholder': 'Yangi parolingizni qayta kiriting',
   'reset.errorGeneric': "Parolni qayta tiklab bo'lmadi. Yangi havola so'rang.",
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} kun oldin',
   'timeAgo.hours': '{{count}} soat oldin',
   'timeAgo.minutes': '{{count}} daqiqa oldin',
+  'timeAgo.months': '{{count}} oy oldin',
   'timeAgo.today': 'bugun',
+  'timeAgo.weeks': '{{count}} hafta oldin',
 }

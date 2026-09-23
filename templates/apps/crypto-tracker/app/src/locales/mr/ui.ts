@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'बद्दल',
   'alertConditionCard.condition.${alert.condition}': 'ट्रिगर झाले जेव्हा',
+  'alertConditionCard.confirmDelete': 'हटवण्याची पुष्टी करा',
   'alertConditionCard.pauseAriaLabel': 'सूचना थांबवा',
   'alertConditionCard.resumeAriaLabel': 'पुन्हा सुरू करण्याची सूचना',
   'alertNew.condition': 'अट',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'पूर्णपणे सौम्य केलेले मूल्यांकन',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'वेबसाइट',
+  'coinDetail.links.whitepaper': 'श्वेतपत्र',
   'coinDetail.loadError': 'नाणे लोड करण्यात अयशस्वी झाले.',
   'coinDetail.marketCap': 'बाजार भांडवल',
   'coinDetail.maxSupply': 'कमाल पुरवठा',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'तुम्ही स्कॅन केलेला मार्ग ज्ञात नाण्याशी किंवा पानाशी जुळत नाही. चिन्ह पुन्हा तपासा आणि पुन्हा प्रयत्न करा.',
   'notFound.browseMarkets': 'बाजारपेठा शोधा',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'portfolio.addError': 'चिन्ह, धन रक्कम आणि किंमत प्रविष्ट करा.',
   'portfolio.addHoldingCta': '+ होल्डिंग जोडा',
   'portfolio.addModal.cost': 'खरेदी किंमत (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'पासवर्ड आणि टू-फॅक्टर सेटिंग्ज तुमच्या खात्याद्वारे व्यवस्थापित केली जातात.',
   'settings.signOutDevice': 'साइन आउट',
+  'settings.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.twoFactorDisable': 'अक्षम करा',
   'settings.twoFactorEnable': 'सक्षम करा',
+  'settings.twoFactorInvalidCode': 'अवैध कोड',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'पडताळणी करा आणि सक्षम करा',
   'sigilAuthShell.backHomeCta': '← सिगिलकडे परत जा',
   'sigilLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'signup.eyebrow': 'टर्मिनल उघडा',

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'auditLog.empty':
     'હજુ સુધી કોઈ ઑડિટ ઇવેન્ટ તમારા ફિલ્ટર્સ સાથે મેળ ખાતી નથી. કર્મચારીને સંપાદિત કરો અથવા પગાર પ્રક્રિયા કરો અને તે અહીં દેખાશે.',
   'auditLog.eyebrow': 'પાલન',
+  'auditLog.loadError': 'ઑડિટ લોગ લોડ કરી શકાયો નથી.',
   'auditLog.searchPlaceholder': 'અભિનેતા, ક્રિયા અથવા વર્ણન દ્વારા શોધો',
   'auditLog.subheading':
     'દરેક મંજૂરી, સંપાદન અને ટેક્સ ફાઇલિંગ - અભિનેતા, ટાઇમસ્ટેમ્પ અને બદલાયેલા ક્ષેત્રો સાથે.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ગોઠવેલ નથી',
   'billing.plansHeading': 'યોજનાઓ',
   'billing.subheading': 'સ્ટ્રાઇપ દ્વારા તમારા પ્લાનનું સંચાલન કરો અને ટાયર સ્વિચ કરો.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'પાલન સ્નેપશોટ',
   'dashboard.compliance.title': 'બધા ચેક પાસ થઈ રહ્યા છે',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ફાઇલ પર કોઈ કપાત નથી.',
   'employeeDetail.notFound': 'કર્મચારી મળ્યો નથી.',
   'employeeDetail.payFrequency': 'ચુકવણી આવર્તન',
+  'employeeDetail.postTax': 'કરવેરા પછી',
+  'employeeDetail.preTax': 'કરવેરા પહેલા',
   'employeeDetail.salary': 'વાર્ષિક પગાર',
   'employeeDetail.ssn': 'એસએસએન',
   'employeeDetail.startedOn': 'શરૂ કર્યું {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ચુકવણી આવર્તન',
   'employeeForm.salary': 'વાર્ષિક પગાર (USD)',
   'employeeForm.salaryInvalid': 'પગાર બિન-ઋણ સંખ્યા હોવો જોઈએ.',
+  'employeeForm.saveError': 'કર્મચારીને બચાવી શકાયો નહીં.',
   'employeeForm.semimonthly': 'અર્ધ-માસિક',
   'employeeForm.single': 'સિંગલ',
   'employeeForm.ssn': 'એસએસએન',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'કર્મચારી',
   'employeesTable.col.salary': 'પગાર',
   'forgotPassword.subtitle': 'તમારા કાર્યાલયનું ઇમેઇલ દાખલ કરો અને અમે તમને રીસેટ લિંક મોકલીશું.',
+  'landing.copyright': '© {{year}} {{app}} . ચોક્કસ, વિશ્વસનીય, રચાયેલ.',
   'landing.ctaBody':
     '૩૦ દિવસ માટે મફત. ક્રેડિટ કાર્ડ નહીં. તમારું ઓડિટ ટ્રેલ ગુમાવ્યા વિના ગમે ત્યારે સ્વિચ કરો.',
   'landing.ctaHeading': 'Stipend પર તમારું આગલું ચક્ર ચલાવો',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'આ પે-રન માટે હજુ સુધી કોઈ ઓડિટ એન્ટ્રીઓ નથી.',
   'payRunDetail.noStubs':
     'હજુ સુધી કોઈ પે-સ્ટબ્સ નથી - તેમને જનરેટ કરવા માટે મંજૂરી આપો અને પ્રક્રિયા કરો.',
+  'payRunDetail.notFound': 'આ પગારનો રસ્તો શોધી શકાયો નથી.',
   'payRunDetail.statDeductions': 'કપાત',
   'payRunDetail.statHeadcount': 'કર્મચારીઓ',
   'payRunDetail.statTaxes': 'કરવેરા રોકી દેવામાં આવ્યા',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'અર્ધ-માસિક',
   'settings.signOutDevice': 'સાઇન આઉટ કરો',
   'settings.subheading': 'કંપની પ્રોફાઇલ, પગાર શેડ્યૂલ અને એકીકરણ.',
+  'settings.twoFactorCode': 'પ્રમાણીકરણ કોડ',
   'settings.twoFactorDisable': 'અક્ષમ કરો',
+  'settings.twoFactorInvalidCode': 'અમાન્ય કોડ',
+  'settings.twoFactorVerify': 'ચકાસો અને સક્ષમ કરો',
   'settings.weekly': 'સાપ્તાહિક',
   'taxCenter.bucket.federal': 'ફેડરલ આવક',
   'taxCenter.bucket.fica': 'સામાજિક સુરક્ષા',

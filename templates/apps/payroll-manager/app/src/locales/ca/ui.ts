@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'auditLog.empty':
     "Encara no hi ha cap esdeveniment d'auditoria que coincideixi amb els vostres filtres. Editeu un empleat o processeu una nòmina i apareixeran aquí.",
   'auditLog.eyebrow': 'Compliment',
+  'auditLog.loadError': "No s'ha pogut carregar el registre d'auditoria.",
   'auditLog.searchPlaceholder': 'Cerca per actor, acció o descripció',
   'auditLog.subheading':
     "Cada aprovació, edició i declaració d'impostos, amb l'actor, la marca de temps i els camps modificats.",
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'No configurat',
   'billing.plansHeading': 'Plans',
   'billing.subheading': 'Gestiona el teu pla i canvia de nivell a través de Stripe.',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Torna-ho a intentar',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Instantània de compliment',
   'dashboard.compliance.title': 'Tots els controls passen',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'No hi ha deduccions registrades.',
   'employeeDetail.notFound': "No s'ha trobat l'empleat.",
   'employeeDetail.payFrequency': 'Freqüència de pagament',
+  'employeeDetail.postTax': "Després d'impostos",
+  'employeeDetail.preTax': "Abans d'impostos",
   'employeeDetail.salary': 'Salari anual',
   'employeeDetail.ssn': 'Número de la Seguretat Social',
   'employeeDetail.startedOn': 'Iniciat {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Freqüència de pagament',
   'employeeForm.salary': 'Salari anual (USD)',
   'employeeForm.salaryInvalid': 'El salari ha de ser un nombre no negatiu.',
+  'employeeForm.saveError': "No s'ha pogut salvar l'empleat.",
   'employeeForm.semimonthly': 'Quinzenal',
   'employeeForm.single': 'Solter/a',
   'employeeForm.ssn': 'Número de la Seguretat Social',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Salari',
   'forgotPassword.subtitle':
     "Introdueix el teu correu electrònic de la feina i t'enviarem un enllaç de restabliment.",
+  'landing.copyright': '© {{year}} {{app}} . Precís, fiable, compost.',
   'landing.ctaBody':
     "Gratuït durant 30 dies. Sense targeta de crèdit. Canvia quan vulguis sense perdre el teu registre d'auditoria.",
   'landing.ctaHeading': 'Executa el teu proper cicle amb Stipend',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': "Encara no hi ha entrades d'auditoria per a aquesta nòmina.",
   'payRunDetail.noStubs':
     'Encara no hi ha rebuts de nòmina: aprovar-los i processar-los per generar-los.',
+  'payRunDetail.notFound': "No s'ha pogut trobar aquesta tirada de pagament.",
   'payRunDetail.statDeductions': 'Deduccions',
   'payRunDetail.statHeadcount': 'empleats',
   'payRunDetail.statTaxes': 'Impostos retinguts',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Quinzenal',
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.subheading': "Perfil de l'empresa, calendari salarial i integracions.",
+  'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.twoFactorVerify': 'Verifica i activa',
   'settings.weekly': 'Setmanal',
   'taxCenter.bucket.federal': 'Ingressos federals',
   'taxCenter.bucket.fica': 'Seguretat Social',

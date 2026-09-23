@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'about.pageTitle': 'ກ່ຽວກັບ {{name}}',
   'auth.footer.about': 'ກ່ຽວກັບ {{name}}',
   'authHeader.subtitle': 'ເຂົ້າສູ່ລະບົບເພື່ອຮັກສາເບີໂທລະສັບຂອງທ່ານໃຫ້ຊື່ສັດ.',
   'automations.action.email': 'ອີເມວ',
+  'automations.action.noop': 'ບໍ່ຕ້ອງປະຕິບັດການ',
   'automations.action.webhook': 'ເວັບຮຸກ',
   'automations.confirmDelete': 'ລຶບ " {{name}} "?',
   'automations.empty.headline': 'ຍັງບໍ່ມີລະບົບອັດຕະໂນມັດເທື່ອ',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ຕົວກະຕຸ້ນ ແລະ ການກະທຳໃນທົ່ວປຶ້ມວຽກທຸກອັນ. ແຕ່ລະການແລ່ນຈະບັນທຶກແຖວທີ່ທ່ານສາມາດກວດສອບໄດ້ໃນພາຍຫຼັງ.',
   'automations.toggle': 'ສະຫຼັບ {{name}}',
+  'automations.trigger.dailySchedule': 'ຕາຕະລາງເວລາປະຈຳວັນ',
+  'automations.trigger.rowCreated': 'ສ້າງແຖວແລ້ວ',
+  'automations.trigger.rowUpdated': 'ອັບເດດແຖວແລ້ວ',
   'billing.empty': 'ບໍ່ມີແຜນການໃດໆ.',
   'billing.error.priceMissing':
     'ບໍ່ມີລາຄາ Stripe ທີ່ຕັ້ງຄ່າໄວ້ສຳລັບລະດັບນີ້. ຕັ້ງຄ່າຕົວແປ env STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ຕາຕະລາງ',
   'charts.kpi.totalCharts': 'ຕາຕະລາງທັງໝົດ',
   'charts.list.empty': 'ຍັງບໍ່ມີຕາຕະລາງເທື່ອ.',
+  'charts.namePlaceholder': 'ແນວໂນ້ມລາຍຮັບ',
   'charts.newChart': 'ຕາຕະລາງໃໝ່',
   'charts.primary.eyebrow': 'ຕາຕະລາງຕາມປະເພດ',
   'charts.primary.headline': 'ພາບລວມພື້ນທີ່ເຮັດວຽກ',
   'charts.subhead':
     'ການເບິ່ງເຫັນພາບສົດທີ່ຜູກມັດກັບຕາຂ່າຍໄຟຟ້າຂອງທ່ານ — ສະແດງຄືນໃໝ່ໃນທຸກໆການແກ້ໄຂຂອງເຊວ.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'editor.addColumn': 'ເພີ່ມຖັນ',
+  'editor.addDialogTitle': 'ເພີ່ມຖັນ',
   'editor.addRow': 'ເພີ່ມແຖວ',
   'editor.addSheet': 'ເພີ່ມຊີດ',
   'editor.back': 'ກັບໄປຫາປຶ້ມວຽກ',
@@ -94,8 +102,14 @@ export const ui: UiTranslations = {
   'landing.hero.socialProof':
     'ໄດ້ຮັບຄວາມໄວ້ວາງໃຈຈາກນັກວິເຄາະຫຼາຍກວ່າ 14,000 ຄົນ · ໄດ້ຮັບການອະນຸມັດຈາກ CFO · SOC 2 ປະເພດ II',
   'landing.hero.startCta': 'ເປີດສະໝຸດວຽກ',
+  'landing.hero.subhead':
+    '{{tagline}} . {{name}} ແມ່ນນັກວິເຄາະຕາຂ່າຍໄຟຟ້າແບບໃຊ້ສູດກ່ອນ, ຫຼາຍມຸມມອງ, ແລະ ເວລາຈິງ ທີ່ທີມງານການເງິນ ແລະ ທີມງານການເງິນເອື້ອມເຖິງກ່ອນ.',
   'landing.nav.formulas': 'ສູດ',
+  'login.noAccount': 'ຫາກໍ່ຮູ້ຈັກ {{name}} ບໍ?',
+  'login.signIn': 'ເຂົ້າສູ່ລະບົບ {{name}}',
   'login.signUp': 'ສ້າງພື້ນທີ່ເຮັດວຽກ',
+  'nav.menu': 'ເມນູ',
+  'nav.openMenu': 'ເປີດເມນູ',
   'notFound.cellRef': '#ອ້າງອີງ!',
   'notFound.formula': '=LOOKUP(ຄຳຮ້ອງຂໍ.url, "ເສັ້ນທາງ", "ໜ້າ")',
   'notFound.headline': 'ແຖວນີ້ບໍ່ເຄີຍມີມາກ່ອນ.',
@@ -123,6 +137,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ລະບົບອັດຕະໂນມັດແບບພື້ນເມືອງ · ຕົວກະຕຸ້ນ webhook ແລະ cron',
   'signup.creating': 'ກຳລັງຈັດສັນພື້ນທີ່ເຮັດວຽກ…',
   'signup.cta': 'ສ້າງພື້ນທີ່ເຮັດວຽກຂອງຂ້ອຍ',
+  'signup.haveAccount': 'ຢູ່ໃນ {{name}} ແລ້ວບໍ?',
   'signup.namePlaceholder': 'ອາເວີຣີ ເຊນ',
   'signup.tagline': 'ໝຸນປຶ້ມແບບຮຽນເຫຼັ້ມທຳອິດຂອງເຈົ້າພາຍໃນ 30 ວິນາທີ',
   'team.col.activity': 'ເຊີນແລ້ວ',

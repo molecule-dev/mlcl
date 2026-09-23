@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'О {{app}}',
   'analytics.back': 'Обзор опроса',
   'analytics.kpiNps': 'оценка NPS',
   'analytics.kpiNpsTrend': 'Организаторы {{p}} % · Недоброжелатели {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Характеристики',
   'builder.questionNumber': 'В {{num}}',
   'builder.surveyTitle': 'Название опроса',
+  'common.goToDashboard': 'Перейти к панели',
   'forgotPassword.failed':
     'Не удалось отправить письмо для сброса пароля. Пожалуйста, попробуйте еще раз.',
   'forgotPassword.subheading':
     'Введите свой адрес электронной почты, и мы вышлем вам ссылку для восстановления.',
   'forgotPassword.successBody':
     'Если учетная запись совпадает {{email}} Ссылка для сброса настроек уже в пути. Проверьте папку «Входящие» и папку «Спам».',
+  'landing.footer.copyright': '© {{year}} {{app}} . Приветствуются все мнения.',
   'landing.footer.startTrial': 'Начать пробный период',
   'landing.hero.badge': 'Опросы, NPS и обратная связь в одном месте.',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Цены',
   'landing.pricing.perMonth': '/м',
   'landing.pricing.popular': 'Самые популярные',
+  'landing.pricing.subtitle':
+    'В каждый тарифный план входит конструктор опросов, публичные ссылки для обмена информацией и аналитика NPS. Для начала работы кредитная карта не требуется.',
+  'landing.pricing.title': 'Начните бесплатно, масштабируйте по мере необходимости.',
   'landing.sample.eyebrow': 'Краткий обзор показателя NPS',
   'landing.sample.title': 'Критики, пассивные критики, сторонники — текст читается мгновенно.',
   'login.failed': 'Не удалось войти в систему. Попробуйте ещё раз.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Показать пароль',
   'login.signUpLink': 'Начните бесплатную пробную версию',
   'login.subheading': 'Войдите в систему, чтобы продолжать слушать свою аудиторию.',
+  'notFound.body':
+    'Страница, которую вы ищете, отсутствует в {{app}} . Давайте вернёмся к вашим опросам.',
   'notFound.cta': 'Вернуться к опросам',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Этот опрос выпал из очереди.',
@@ -75,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Пассивный 7–8',
   'npsDistributionBar.promoter': 'Промотор 9–10',
   'profile.identity.description': 'Доступно для вашей команды и в опросах, которые вы составляете.',
+  'profile.identity.emailRequired': 'Введите адрес электронной почты.',
   'profile.identity.saveCta': 'Сохранить имя',
   'profile.password.current': 'Текущий пароль',
   'profile.password.fillFields': 'Введите текущий и новый пароль.',
@@ -181,6 +190,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} вопросы',
   'templates.subheading':
     'Выберите проверенный временем стартовый шаблон — каждый шаблон поставляется с предварительно настроенными параметрами по умолчанию, примерами логики и удобным интерфейсом для мобильных устройств.',
+  'thankYou.body': 'Ваш ответ записан. {{app}} включит его в следующее обновление аналитики.',
   'thankYou.eyebrow': 'Получен ответ',
   'thankYou.heading': 'Спасибо — ваш голос имеет значение.',
   'thankYou.home': 'Посетите Gauge',

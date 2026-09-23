@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.pageTitle': 'Giới thiệu {{app}}',
   'authShell.statusLabel': 'runner trực tuyến',
   'collections.createError': 'Không thể tạo bộ sưu tập.',
   'collections.defaultName': 'Bộ sưu tập chưa đặt tên {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Yêu cầu',
   'collections.newCollection': 'Bộ sưu tập mới',
   'collections.subheading': 'Nhóm các yêu cầu, chia sẻ với nhóm của bạn và chạy chúng như một bộ.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'environmentCard.inactive': 'Nhàn rỗi',
   'environmentCard.more': 'khác',
   'environmentCard.variables': 'Biến',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Tải xuống miễn phí',
   'landing.heroSubtitle':
     'Công cụ kiểm thử API siêu tốc được xây dựng dành riêng cho các kỹ sư thường xuyên làm việc trên giao diện dòng lệnh.',
+  'landing.heroTitleAccent': 'Ngọn lửa',
+  'landing.heroTitleLine2': 'Rèn luyện sự tự tin.',
+  'landing.heroTitleRest': 'yêu cầu,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Giá đơn giản, có thể dự đoán',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Mới ở đây?',
   'login.showPassword': 'Hiện mật khẩu',
   'login.subtitle': 'Tiếp tục đến workspace Pylon của bạn.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'mocks.createError': 'Không thể tạo mock.',
   'mocks.defaultName': 'Mock chưa đặt tên {{n}}',
   'mocks.deleteError': 'Không thể xóa mock.',
@@ -112,6 +120,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Quay lại workspace',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Không tìm thấy đường dẫn',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'privacy.collect.account':
     'Tài khoản: email, mật khẩu đã băm, tên hiển thị và thời điểm đăng nhập gần nhất của bạn.',
   'privacy.rights.body':
@@ -137,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Chế độ xem chỉ đọc của dữ liệu mà tài khoản này hiện sở hữu.',
   'settings.unset': 'chưa đặt',
   'signup.identityHint': 'ví dụ: Alex',
+  'signup.statusLabel': 'gói miễn phí · không cần thẻ tín dụng',
   'signup.subtitle': 'Bắt đầu gửi yêu cầu chỉ trong vài phút.',
   'terms.account.body':
     'Bạn chịu trách nhiệm bảo vệ mật khẩu của mình. Không được chia sẻ một tài khoản giữa nhiều người trên gói Free hoặc Pro — xin mua gói Team cho workspace dùng chung.',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
     'Xin không dùng Pylon để gửi yêu cầu đến các dịch vụ mà bạn không sở hữu hoặc không có phép kiểm thử rõ ràng. Xin không dùng Pylon để vượt giới hạn tốc độ hoặc thực hiện hành vi gian lận.',
   'terms.warranty.body':
     'Pylon được cung cấp "nguyên trạng" mà không có bất kỳ bảo đảm nào. Chúng tôi đặt mục tiêu 99,9% thời gian hoạt động nhưng không cam kết trên gói Free hoặc Pro.',
+  'testRunner.assertionsCount': '{{count}} khẳng định',
   'testRunner.createError': 'Không thể tạo kiểm thử.',
   'testRunner.cron':
     'Các khẳng định được đánh giá dựa trên lần chạy gần nhất của yêu cầu liên kết với kiểm thử này.',
@@ -168,11 +179,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Kết quả bộ kiểm thử, khác biệt khẳng định và 50 lần chạy gần nhất.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Đã đăng nhập với tư cách',
+  'workspace.auth.keyName': 'Tên tiêu đề',
+  'workspace.auth.keyValue': 'Giá trị khóa',
+  'workspace.auth.password': 'Mật khẩu',
+  'workspace.auth.username': 'Tên người dùng',
+  'workspace.authOption.apikey': 'Khóa API',
+  'workspace.authOption.basic': 'Xác thực cơ bản',
+  'workspace.authOption.bearer': 'Mã thông báo người mang',
+  'workspace.authOption.none': 'Không có',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Loại',
   'workspace.authTypeLabel': 'Loại xác thực',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Không có',
+  'workspace.body.text': 'Văn bản thô',
+  'workspace.body.type': 'Loại',
   'workspace.environment': 'Không có môi trường',
   'workspace.envVar': 'biến env',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Thêm tiêu đề',
+  'workspace.kv.addParam': 'Thêm tham số',
+  'workspace.kv.headerKey': 'Tên tiêu đề',
+  'workspace.kv.headerValue': 'Giá trị tiêu đề',
+  'workspace.kv.key': 'Khóa',
+  'workspace.kv.paramKey': 'Khóa tham số truy vấn',
+  'workspace.kv.paramValue': 'Giá trị tham số truy vấn',
+  'workspace.kv.removeRow': 'Xóa hàng',
+  'workspace.kv.value': 'Giá trị',
   'workspace.methodLabel': 'Phương thức HTTP',
   'workspace.metric.latency': 'Độ trễ',
   'workspace.metric.latencyCaption': 'Thời gian khứ hồi của lần chạy này',
@@ -189,6 +222,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Yêu cầu đã gửi — xin xem phản hồi bên dưới.',
   'workspace.subheading':
     'Soạn một yêu cầu, gửi đi, rồi xác nhận phản hồi — tất cả trong một bảng.',
+  'workspace.testResults': 'Kết quả kiểm tra',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Được gửi dưới dạng Authorization: Bearer <token> trên mọi yêu cầu trong bộ sưu tập này.',

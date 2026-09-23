@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Dwar {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Għodda tal-ġid',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Mhux parir dwar l-investiment.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) illum',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Navigazzjoni primarja',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'L-ebda tranżazzjonijiet għal dan it-ticker.',
   'assetDetail.txHeading': 'It-tranżazzjonijiet tiegħek',
   'common.and': 'u',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Ħarsa ġenerali lejn il-portafoll',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Għad m’hemm l-ebda ishma.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Ma rnexxiex it-tagħbija tal-ishma.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Mhux parir dwar l-investiment. Il-prestazzjoni tal-passat ma tiggarantixxix riżultati futuri.',
   'landing.eyebrow': 'Argent · Pjattaforma ta’ għodda għall-ġid',
   'landing.features.heading': 'Dak kollu li konsulent jibni għalih innifsu.',
   'landing.finalCta.heading': 'Ġib lura d-dixxiplina fil-portafoll tiegħek.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} siegħa ilu',
   'news.justNow': 'issa stess',
   'news.loadError': 'Ma rnexxiex ittella’ l-aħbarijiet.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'portfolioHeroCard.label': 'Valur tal-Portafoll',
   'pricing.holdingsLabel': 'azjendi',
   'pricing.newsLabel': 'artikli tal-aħbarijiet',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Ħassar il-kont',
   'settings.security.deleting': 'Qed tħassar…',
   'settings.security.heading': 'Sigurtà',
+  'settings.security.newPassword': 'Password ġdida',
   'settings.security.password': 'Password',
   'settings.security.twoFactorEnable': 'Ippermetti',
+  'settings.security.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.security.twoFactorVerify': 'Ivverifika u attiva',
   'settings.tax.error': 'Ma setax jiġi aġġornat il-metodu tat-taxxa.',
   'settings.tax.heading': 'Kontabilità tal-lott tat-taxxa',
   'settings.tax.method': 'Metodu awtomatiku',

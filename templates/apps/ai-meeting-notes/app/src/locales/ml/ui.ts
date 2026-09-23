@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
   'actions.empty': 'ഒരു പ്രവർത്തന ഇനവും പൊരുത്തപ്പെടുന്നില്ല.',
   'actions.heading': 'പ്രവർത്തന ഇനങ്ങൾ',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'കഴിഞ്ഞ മാസം',
   'calendar.recent': 'സമീപകാലം',
   'common.daysAgo': '{{count}} ഡി മുമ്പ്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'common.no': '—',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ആക്ഷൻ ഇനങ്ങൾ',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'റീസെറ്റ് ലിങ്കിനായി നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
   'forgot.subheading': 'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'integrations.disconnected': 'വിച്ഛേദിച്ചു',
+  'integrations.loadError': 'സംയോജനങ്ങൾ ലോഡ് ചെയ്യാനായില്ല.',
   'integrations.notConnectedTag': 'കണക്റ്റ് ചെയ്തിട്ടില്ല',
   'integrations.subheading':
     'കലണ്ടറുകളും വീഡിയോ പ്ലാറ്റ്‌ഫോമുകളും ബന്ധിപ്പിക്കുന്നതിലൂടെ മുറുമുറുപ്പ് യാന്ത്രികമായി ചേരും.',
+  'integrations.updateError': 'അപ്ഡേറ്റ് പരാജയപ്പെട്ടു.',
   'landing.ctaButton': 'ആരംഭിക്കൂ — ഇത് സൗജന്യമാണ്',
   'landing.ctaHeading': 'കുറിപ്പുകൾ എടുക്കുന്നത് നിർത്തൂ. തീരുമാനങ്ങൾ എടുക്കാൻ തുടങ്ങൂ.',
   'landing.demo.aiLabel': 'AI സംഗ്രഹം, തത്സമയം തയ്യാറാക്കിയത്',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ഫോളോ-അപ്പുകൾ',
   'meetingDetail.loadError': 'മീറ്റിംഗ് ലോഡ് ചെയ്യാനായില്ല.',
   'meetingDetail.noActions': 'പ്രവർത്തന ഇനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.',
+  'meetingDetail.none': 'ഒന്നുമില്ല.',
   'meetingDetail.notFound': 'മീറ്റിംഗ് കണ്ടെത്തിയില്ല.',
+  'meetingDetail.speakerFallback': 'സ്പീക്കർ {{id}}',
   'meetingDetail.summaryHeading': 'AI സംഗ്രഹം',
   'meetingDetail.transcriptHeading': 'ട്രാൻസ്ക്രിപ്റ്റ്',
   'meetings.empty.body':
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'meetings.loadError': 'മീറ്റിംഗുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'meetings.subheading':
     'റെക്കോർഡുചെയ്‌തതും അപ്‌ലോഡുചെയ്‌തതും സമന്വയിപ്പിച്ചതുമായ എല്ലാ മീറ്റിംഗും.',
+  'murmurLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'murmurLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'nav.legal': 'നിയമപരമായ',
   'notifications.loadError': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'പിറുപിറുക്കലിൽ നീ എങ്ങനെ പ്രത്യക്ഷപ്പെടുന്നു.',
   'record.error.empty': 'ഓഡിയോ ഒന്നും പകർത്തിയില്ല.',
   'record.error.permission': 'മൈക്രോഫോൺ അനുമതി നിരസിച്ചു.',
+  'record.error.recorder': 'റെക്കോർഡർ പിശക്',
   'record.error.unsupported':
     'നിങ്ങളുടെ ബ്രൗസർ റെക്കോർഡിംഗ് പിന്തുണയ്ക്കുന്നില്ല. Chrome, Edge, അല്ലെങ്കിൽ Safari എന്നിവ പരീക്ഷിച്ചുനോക്കൂ.',
   'record.error.upload': 'അപ്‌ലോഡ് പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
@@ -120,6 +129,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'പുതിയ പാസ്വേഡ്',
   'reset.subheading': 'മറ്റെവിടെയും ഉപയോഗിക്കാത്ത ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
   'search.empty': 'ട്രാൻസ്ക്രിപ്റ്റുകൾ തിരയാൻ ടൈപ്പ് ചെയ്യുക.',
+  'search.loadError': 'തിരയൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'search.noResults': '“എന്നതിന് ഫലങ്ങളൊന്നുമില്ല. {{q}} ”.',
   'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
@@ -128,6 +138,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ക്രമീകരണങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'settings.push.heading': 'പുഷ് അറിയിപ്പുകൾ',
+  'settings.push.subheading':
+    'പരാമർശങ്ങൾ, പ്രവർത്തന ഇനങ്ങൾ, സംഗ്രഹങ്ങൾ എന്നിവയ്‌ക്കുള്ള ബ്രൗസർ അലേർട്ടുകൾ നേടുക.',
   'settings.retention.audio': 'ഓഡിയോ സൂക്ഷിക്കുക',
   'settings.retention.heading': 'നിലനിർത്തൽ',
   'settings.retention.transcript': 'ട്രാൻസ്ക്രിപ്റ്റുകൾ സൂക്ഷിക്കുക',
@@ -145,6 +157,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'മീറ്റിംഗ് കുറിപ്പുകൾ മിനിറ്റുകൾക്കുള്ളിൽ പകർത്താൻ തുടങ്ങൂ',
   'signup.terms':
     'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ ഞങ്ങളുടെ സേവന നിബന്ധനകളും സ്വകാര്യതാ നയവും അംഗീകരിക്കുന്നു.',
+  'signup.termsPrefix': 'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ ഞങ്ങളുടെ',
   'team.inviteCta': 'സഹതാരത്തെ ക്ഷണിക്കുക',
   'team.invitedAs': 'ക്ഷണിച്ചു {{role}}',
   'team.inviteFailed': 'ക്ഷണം അയയ്ക്കാൻ കഴിഞ്ഞില്ല.',

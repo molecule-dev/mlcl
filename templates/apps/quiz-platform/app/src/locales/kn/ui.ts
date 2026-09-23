@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.title': '{{app}} ಬಗ್ಗೆ',
   'auth.login.noAccount': 'ಸ್ಪಾರ್ಕ್‌ಗೆ ಹೊಸಬರೇ?',
   'auth.login.or': 'ಅಥವಾ ಮುಂದುವರಿಸಿ',
   'auth.signup.or': 'ಅಥವಾ ಸೈನ್ ಅಪ್ ಮಾಡಿ',
+  'common.confirm': 'ದೃಢೀಕರಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.loadError': 'ಈ ವಿಷಯವನ್ನು ಲೋಡ್ ಮಾಡುವಾಗ ಏನೋ ತಪ್ಪಾಗಿದೆ.',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'discover.collections.title': 'ವರ್ಗದ ಪ್ರಕಾರ ಬ್ರೌಸ್ ಮಾಡಿ',
   'discover.collections.viewAll': 'ನಿಮ್ಮ ಲೈಬ್ರರಿಯನ್ನು ನೋಡಿ →',
   'discover.empty.body': 'ಬೇರೆ ವರ್ಗವನ್ನು ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಹುಡುಕಾಟವನ್ನು ತೆರವುಗೊಳಿಸಿ.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'ನಿಮ್ಮ ಯಶಸ್ಸಿನ ಹಾದಿಯನ್ನು ಜೀವಂತವಾಗಿಡಲು, ಲೈವ್ ಆಟಗಳನ್ನು ಆಯೋಜಿಸಲು ಮತ್ತು ಲೀಡರ್‌ಬೋರ್ಡ್‌ನಲ್ಲಿ ಏರಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'myQuizzes.createButton': 'ಹೊಸ ರಸಪ್ರಶ್ನೆ',
+  'myQuizzes.deleteConfirm': 'ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುವುದೇ?',
   'myQuizzes.empty.createCta': 'ನಿಮ್ಮ ಮೊದಲ ರಸಪ್ರಶ್ನೆಯನ್ನು ನಿರ್ಮಿಸಿ →',
   'myQuizzes.empty.created': 'ನೀವು ಇನ್ನೂ ರಸಪ್ರಶ್ನೆಯನ್ನು ನಿರ್ಮಿಸಿಲ್ಲ.',
   'myQuizzes.empty.played': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಕಟಿತ ರಸಪ್ರಶ್ನೆಗಳಿಲ್ಲ.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'notifications.subhead':
     '{{count}} ಓದದ ಸ್ಪಾರ್ಕ್‌ಗಳು. ಆಹ್ವಾನಗಳು, ಲೀಡರ್‌ಬೋರ್ಡ್ ಚಲನೆಗಳು ಮತ್ತು ಸಾಧನೆಗಳು ಎಲ್ಲವೂ ಒಂದೇ ಸ್ಟ್ರೀಮ್‌ನಲ್ಲಿ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.checkoutError': 'ಚೆಕ್ಔಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'pricing.heading': 'ನಿಮ್ಮ {{app}} ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ',
   'pricing.included': 'ಸೇರಿಸಲಾಗಿದೆ',
   'pricing.loadError': 'ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'pricing.maxQuizzes': '{{count}} ರಸಪ್ರಶ್ನೆಗಳು',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ಇನ್ನೂ ಏನೂ ಪ್ರಕಟವಾಗಿಲ್ಲ.',
   'profile.startBuilding': 'ನಿರ್ಮಾಣ ಪ್ರಾರಂಭಿಸಿ →',
   'profile.tier': 'ಸ್ಪಾರ್ಕ್ ಆಟಗಾರ',
+  'quizBuilder.addFailed': 'ಪ್ರಶ್ನೆಯನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'quizBuilder.addQuestion': 'ಪ್ರಶ್ನೆಯನ್ನು ಸೇರಿಸಿ',
   'quizBuilder.answerPlaceholder': 'ಆಯ್ಕೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ...',
   'quizBuilder.answersLabel': 'ಉತ್ತರ ಆಯ್ಕೆಗಳು',
   'quizBuilder.back': 'ನನ್ನ ರಸಪ್ರಶ್ನೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'quizBuilder.delete': 'ಪ್ರಶ್ನೆಯನ್ನು ಅಳಿಸಿ',
+  'quizBuilder.deleteFailed': 'ಪ್ರಶ್ನೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'quizBuilder.firstQuestion': 'ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲ ಪ್ರಶ್ನೆಯನ್ನು ಸೇರಿಸಿ.',
   'quizBuilder.idLabel': 'ರಸಪ್ರಶ್ನೆ ಐಡಿ: {{id}}',
   'quizBuilder.loadError': 'ರಸಪ್ರಶ್ನೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'ಕನಿಷ್ಠ ಎರಡು ಉತ್ತರ ಆಯ್ಕೆಗಳನ್ನು ಸೇರಿಸಿ ಮತ್ತು ಸರಿಯಾದದನ್ನು ಆರಿಸಿ. {{count}} ಪ್ರಕಟಿಸುವ ಮೊದಲು ಪ್ರಶ್ನೆ(ಗಳು).',
   'quizBuilder.questionsTitle': 'ಪ್ರಶ್ನೆಗಳು',
+  'quizBuilder.saveFailed': 'ಶೀರ್ಷಿಕೆಯನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'quizBuilder.statusDraft': 'ಡ್ರಾಫ್ಟ್',
   'quizBuilder.subhead':
     'ಶೀರ್ಷಿಕೆಯನ್ನು ಸಂಪಾದಿಸಿ, ಪ್ರಶ್ನೆಗಳನ್ನು ಸೇರಿಸಿ, ಆಯ್ಕೆಗಳನ್ನು ಹೊಂದಿಸಿ ಮತ್ತು ಸರಿಯಾದ ಉತ್ತರವನ್ನು ನೀಡಿ. ಬದಲಾವಣೆಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಉಳಿಸಲ್ಪಡುತ್ತವೆ.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} ನಿಮಿಷ',
   'quizDetail.hostMultiplayer': 'ಹೋಸ್ಟ್ ಮಲ್ಟಿಪ್ಲೇಯರ್',
   'quizDetail.leaderboardEmpty': 'ಇನ್ನೂ ಆಟಗಳಿಲ್ಲ — ಸ್ಕೋರ್ ಹೊಂದಿಸುವವರಲ್ಲಿ ಮೊದಲಿಗರಾಗಿರಿ.',
+  'quizDetail.loadError': 'ಈ ರಸಪ್ರಶ್ನೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'quizDetail.loading': 'ರಸಪ್ರಶ್ನೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'quizDetail.plays': '{{count}} ನಾಟಕಗಳು',
   'quizDetail.playSolo': 'ಸೋಲೋ ನುಡಿಸಿ',

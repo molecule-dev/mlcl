@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ਅਸੀਂ ਡਿਜ਼ਾਈਨਰਾਂ ਅਤੇ ਇੰਜੀਨੀਅਰਾਂ ਦੀ ਇੱਕ ਵੰਡੀ ਹੋਈ ਟੀਮ ਹਾਂ ਜੋ ਕਦੇ ਹਰ ਦਿਨ ਦੇ ਬਹੁਤ ਸਾਰੇ ਘੰਟੇ ਇੱਕ ਰੌਲੇ-ਰੱਪੇ ਵਾਲੇ ਮੇਲਬਾਕਸ ਵਿੱਚ ਬਿਤਾਉਂਦੇ ਸਨ। ਮੈਰੀਡੀਅਨ ਉਹ ਇਨਬਾਕਸ ਹੈ ਜਿਸਨੂੰ ਅਸੀਂ ਖੁਦ ਵਰਤਣਾ ਚਾਹੁੰਦੇ ਸੀ।',
   'about.title': 'ਕੇਂਦ੍ਰਿਤ ਕੰਮ ਲਈ ਈਮੇਲ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'help.cta.about': 'ਮੈਰੀਡੀਅਨ ਬਾਰੇ',
   'help.cta.pricing': 'ਕੀਮਤ ਵੇਖੋ',
   'help.eyebrow': 'ਮਦਦ ਕੇਂਦਰ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "ਉਹਨਾਂ ਸਵਾਲਾਂ ਦੇ ਤੁਰੰਤ ਜਵਾਬ ਜੋ ਅਸੀਂ ਸਭ ਤੋਂ ਵੱਧ ਸੁਣਦੇ ਹਾਂ। ਕੀ ਕੁਝ ਗੁੰਮ ਹੈ? ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ ਅਤੇ ਐਪ-ਵਿੱਚ ਫੀਡਬੈਕ ਫਾਰਮ ਦੀ ਵਰਤੋਂ ਕਰੋ, ਜਾਂ support@courier.example 'ਤੇ ਲਿਖੋ।",
   'help.title': 'ਅਸੀਂ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੇ ਹਾਂ?',
   'landing.brand.scrollTop': "ਵਾਪਸ ਸਿਖਰ 'ਤੇ",
+  'landing.copyright': '© {{year}} {{appName}} — ਫੋਕਸ ਲਈ ਬਣਾਇਆ ਗਿਆ।',
   'landing.ctaBody':
     'ਉਨ੍ਹਾਂ ਹਜ਼ਾਰਾਂ ਪੇਸ਼ੇਵਰਾਂ ਨਾਲ ਜੁੜੋ ਜਿਨ੍ਹਾਂ ਨੇ ਦੁਪਹਿਰ ਦੇ ਖਾਣੇ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣਾ ਇਨਬਾਕਸ ਪੂਰਾ ਕਰ ਲਿਆ ਹੈ।',
   'landing.ctaTitle': 'ਜ਼ਿਆਦਾ ਪ੍ਰਕਿਰਿਆ ਕਰੋ, ਘੱਟ ਪ੍ਰਤੀਕਿਰਿਆ ਕਰੋ।',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'ਡੈਮੋ ਦੇਖੋ',
   'landing.heroSubtitle':
     "ਮੈਰੀਡੀਅਨ ਇੱਕ ਸ਼ਾਂਤ ਤਿੰਨ-ਪੈਨ ਇਨਬਾਕਸ ਹੈ ਜੋ ਗਿਆਨ ਵਰਕਰਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ ਜੋ ਜਾਣਕਾਰੀ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹਨ, ਨਾ ਕਿ ਇਸ 'ਤੇ ਪ੍ਰਤੀਕਿਰਿਆ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹਨ।",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ਦੁਨੀਆ ਭਰ ਵਿੱਚ ਕੇਂਦ੍ਰਿਤ ਟੀਮਾਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ',
   'landing.signIn': 'ਸਾਈਨ - ਇਨ',
   'meridian.archive.empty': 'ਪੁਰਾਲੇਖ ਖਾਲੀ ਹੈ।',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ਡਰਾਫਟ',
   'meridian.folder.count': '{{count}} ਸੁਨੇਹੇ',
+  'meridian.folder.delete': 'ਮਿਟਾਓ',
   'meridian.folder.deleteForever': "ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾਓ",
   'meridian.folder.restore': 'ਇਨਬਾਕਸ ਵਿੱਚ ਭੇਜੋ',
   'meridian.forgot.subtitle': 'ਆਪਣੇ ਇਨਬਾਕਸ ਨਾਲ ਜੁੜੀ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।',
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ਇੱਥੇ ਅਜੇ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ।',
   'meridian.inbox.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'meridian.inbox.next': 'ਅਗਲਾ',
+  'meridian.inbox.noSender': '(ਕੋਈ ਭੇਜਣ ਵਾਲਾ ਨਹੀਂ)',
   'meridian.inbox.noSubject': '(ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'ਕੰਪੋਜ਼ ਖੋਲ੍ਹੋ',
   'meridian.inbox.previous': 'ਪਿਛਲਾ',
   'meridian.inbox.replyFailed': 'ਜਵਾਬ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਪਰ ਡਿਲੀਵਰੀ ਅਸਫਲ ਰਹੀ: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'ਕੀ ਤੁਹਾਡਾ ਕੋਈ ਖਾਤਾ ਨਹੀਂ ਹੈ?',
   'meridian.login.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'meridian.message.toLine': 'ਨੂੰ {{recipients}}',
+  'meridian.notFound.body':
+    "ਜਿਸ ਪੰਨੇ ਦੀ ਤੁਸੀਂ ਭਾਲ ਕਰ ਰਹੇ ਹੋ ਉਹ ਨਹੀਂ ਮਿਲਿਆ। ਆਪਣੇ {{appName}} ਇਨਬਾਕਸ ਵਿੱਚ ਵਾਪਸ ਜਾਓ ਅਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਹੀ ਰਾਹ 'ਤੇ ਲੈ ਜਾਵਾਂਗੇ।",
   'meridian.notFound.eyebrow': 'ਗਲਤੀ 404',
   'meridian.notFound.title': 'ਇਸ ਥ੍ਰੈੱਡ ਨੂੰ ਪੁਰਾਲੇਖਬੱਧ ਕੀਤਾ ਗਿਆ ਸੀ।',
   'meridian.notFound.toInbox': 'ਮੇਰਾ ਇਨਬਾਕਸ ਖੋਲ੍ਹੋ',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ਤਾਰਾ ਸ਼ਾਮਲ ਕਰੋ',
   'meridian.thread.unstar': 'ਤਾਰਾ ਹਟਾਓ',
   'meridian.time.yesterday': 'ਕੱਲ੍ਹ',
+  'meridian.topBar.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'meridian.topBar.searchPlaceholder': 'ਮੇਲ ਖੋਜੋ',
   'meridian.trash.empty': 'ਰੱਦੀ ਖਾਲੀ ਹੈ।',
   'meridian.trash.title': 'ਰੱਦੀ',
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'planUpdated.description':
     'ਤੁਹਾਡੀ ਗਾਹਕੀ ਹੁਣ ਕਿਰਿਆਸ਼ੀਲ ਹੈ ਅਤੇ ਤੁਹਾਡੀ ਬਿਲਿੰਗ ਅੱਪਡੇਟ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ। ਤੁਹਾਡੇ ਤਾਜ਼ਾ ਕੀਤੇ ਮੈਰੀਡੀਅਨ ਇਨਬਾਕਸ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.heading': 'ਡਰਾਫਟ',
   'pricing.limit.emails': 'ਈਮੇਲਾਂ',
   'pricing.limit.folders': 'ਫੋਲਡਰ',
   'pricing.limit.labels': 'ਲੇਬਲ',
   'privacy.collect.account':
     'ਖਾਤਾ ਡੇਟਾ: ਨਾਮ, ਈਮੇਲ ਪਤਾ, ਹੈਸ਼ ਕੀਤਾ ਪਾਸਵਰਡ, ਅਤੇ ਤੁਹਾਡੇ ਸਾਈਨ ਅੱਪ ਕਰਨ ਦੀ ਮਿਤੀ।',
+  'privacy.contact': "ਕੋਈ ਸਵਾਲ ਹੈ? privacy@courier.example 'ਤੇ ਈਮੇਲ ਕਰੋ।",
   'privacy.intro':
     "ਇਹ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਦੱਸਦੀ ਹੈ ਕਿ ਮੈਰੀਡੀਅਨ ਕਿਹੜਾ ਡੇਟਾ ਇਕੱਠਾ ਕਰਦਾ ਹੈ, ਅਸੀਂ ਇਸਨੂੰ ਕਿਉਂ ਇਕੱਠਾ ਕਰਦੇ ਹਾਂ, ਅਸੀਂ ਇਸਨੂੰ ਕਿਵੇਂ ਸੁਰੱਖਿਅਤ ਰੱਖਦੇ ਹਾਂ, ਅਤੇ ਇਸ ਬਾਰੇ ਤੁਹਾਡੇ ਕੋਲ ਕਿਹੜੇ ਵਿਕਲਪ ਹਨ। ਸਾਡਾ ਉਦੇਸ਼ ਕਾਨੂੰਨੀ ਹੋਣ ਦੀ ਬਜਾਏ ਖਾਸ ਹੋਣਾ ਹੈ; ਜੇਕਰ ਕੁਝ ਵੀ ਅਸਪਸ਼ਟ ਹੈ, ਤਾਂ privacy@courier.example 'ਤੇ ਲਿਖੋ।",
   'privacy.lastUpdated': 'ਆਖਰੀ ਵਾਰ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ: 1 ਅਪ੍ਰੈਲ, 2026',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ਇਹ ਸ਼ਰਤਾਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਮੈਰੀਡੀਅਨ ਦੀ ਵਰਤੋਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦੀਆਂ ਹਨ। ਇੱਕ ਖਾਤਾ ਬਣਾ ਕੇ ਜਾਂ ਸਾਡੇ ਰਾਹੀਂ ਈਮੇਲ ਭੇਜ ਕੇ ਤੁਸੀਂ ਇਹਨਾਂ ਨਾਲ ਬੰਨ੍ਹੇ ਰਹਿਣ ਲਈ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ। ਅਸੀਂ ਉਹਨਾਂ ਨਿਯਮਾਂ ਨੂੰ ਲਿਖਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ ਜਿਨ੍ਹਾਂ ਦੀ ਪਾਲਣਾ ਕੋਈ ਵਿਅਕਤੀ ਅਸਲ ਵਿੱਚ ਕਰ ਸਕਦਾ ਹੈ।',
   'terms.lastUpdated': 'ਪ੍ਰਭਾਵੀ: 1 ਅਪ੍ਰੈਲ, 2026',
+  'terms.linkPrivacy': 'ਸਾਡੀ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਪੜ੍ਹੋ →',
   'terms.termination.body':
     'ਤੁਸੀਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਆਪਣਾ ਖਾਤਾ ਮਿਟਾ ਸਕਦੇ ਹੋ। ਅਸੀਂ ਕਿਸੇ ਅਜਿਹੇ ਖਾਤੇ ਨੂੰ ਮੁਅੱਤਲ ਕਰ ਸਕਦੇ ਹਾਂ ਜੋ ਇਹਨਾਂ ਸ਼ਰਤਾਂ ਦੀ ਉਲੰਘਣਾ ਕਰਦਾ ਹੈ; ਜੇਕਰ ਅਸੀਂ ਅਜਿਹਾ ਕਰਦੇ ਹਾਂ, ਤਾਂ ਅਸੀਂ ਕਾਰਨ ਦੱਸਾਂਗੇ ਅਤੇ ਤੁਹਾਨੂੰ ਪਹਿਲਾਂ ਆਪਣਾ ਡੇਟਾ ਨਿਰਯਾਤ ਕਰਨ ਦੇਵਾਂਗੇ।',
   'terms.warranty.body':

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Nanonood',
   'auctionDetail.watchRemoved': 'Natanggal sa watchlist.',
   'auctionDetail.watchRemoveLabel': 'Tanggalin sa watchlist',
+  'auctionPlatformLayout.primaryNavLabel': 'Pangunahing navigation',
   'authShell.brandBody':
     'Mag-bid nang real-time sa mga bihirang relo, pinong sining, at natatanging espesyal na bagay. Nahuhulog ang martilyo sa ilang segundo.',
   'authShell.brandEyebrow': 'Live ngayon · 1,420 na auction',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ayusin ayon sa',
   'browseAuctions.subheading':
     'Mag-filter ayon sa kategorya, mag-ayos ayon sa pinaka-mahalaga, at mag-bid bago mahulog ang martilyo.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'countdownTimer.ended': 'Natapos na',
   'countdownTimer.endingSoon': 'Malapit nang matapos',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ipakita ang password',
   'login.subtext':
     'Ipagpatuloy ang pagsubaybay sa iyong mga auction at mag-bid bago mahulog ang martilyo.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'myBids.bidAgain': 'Mag-bid muli',
   'myBids.browseCta': 'I-browse ang mga live na auction →',
   'myBids.checkoutCta': 'Bayaran ngayon',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Activity center',
   'notificationsPage.subheading':
     '{{count}} hindi pa nabasa · mga live na update habang gumagalaw ang mga auction',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.bidsLabel': 'mga bid',
   'pricing.listingsLabel': 'na listing',
   'pricing.watchlistLabel': 'watchlist',

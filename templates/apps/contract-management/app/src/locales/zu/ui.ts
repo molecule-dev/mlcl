@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
   'authBrandPanel.quote':
     '"I-Vellum manje isiyindlela yokugcina yonke irekhodi yesivumelwano esisayiniwe esinaso."',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'contractDetail.amount': 'Inani',
   'contractDetail.back': 'Zonke izinkontileka',
   'contractDetail.downloadCta': 'Landa i-PDF',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'Iphelelwa yisikhathi',
   'contracts.col.owner': 'Umnikazi',
   'contracts.empty': 'Azikho izinkontileka ezifanayo.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'Izinkontileka',
   'contracts.loadError': 'Yehlulekile ukulayisha izinkontileka.',
   'contracts.newCta': 'Inkontileka entsha',
@@ -74,6 +78,7 @@ export const ui: UiTranslations = {
     'Uma kukhona i-akhawunti ye- {{email}} , isixhumanisi sokusetha kabusha sisendleleni.',
   'forgotPassword.subtitle':
     'Sizothumela isixhumanisi sokusetha kabusha ku-imeyili yakho yomsebenzi.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Yakhiwe ngeMolekyuli.',
   'landing.ctaHeading': 'Bona iphothifoliyo yakho ivala ngosuku lokuqala.',
   'landing.ctaPrimary': 'Qala indawo yokusebenza',
   'landing.eyebrow': 'Kwemisebenzi Yezomthetho Nokuthengwa Kwempahla',
@@ -100,6 +105,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Kudingeka igama leqembu eliphikisayo.',
   'newContract.errEmail': 'I-imeyili yomsayini iyadingeka.',
   'newContract.expires': 'Usuku lokuphelelwa isikhathi',
+  'newContract.failed': 'Ayikwazanga ukudala inkontileka.',
   'newContract.heading': 'Inkontileka entsha',
   'newContract.nextCta': 'Olandelayo',
   'newContract.review.counterparty': 'Iqembu Eliphikisayo',
@@ -115,6 +121,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Isihloko senkontileka',
   'newContract.titlePlaceholder': 'Isivumelwano Sezinsizakalo Eziyinhloko',
   'newContract.variablesHeading': 'Izinguquko zenkontileka',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.dataExport': 'Ukuthunyelwa kwedatha',
   'pricing.disabled': 'Cha',
   'pricing.enabled': 'Yebo',
@@ -147,15 +154,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Ayikwazanga ukususa i-akhawunti.',
   'settings.security.deleting': 'Iyasusa…',
   'settings.security.newPassword': 'Iphasiwedi Entsha',
+  'settings.security.noDevices': 'Awekho amadivayisi abhalisiwe.',
   'settings.security.twoFactor': 'Ukuqinisekiswa kwezinto ezimbili',
   'settings.security.twoFactorDisable': 'Khubaza',
   'settings.security.twoFactorEnable': 'Nika amandla',
+  'settings.security.twoFactorInvalidCode': 'Ikhodi engavumelekile.',
   'settings.signatures.body':
     'Igama lakho elithayishiwe livela emgqeni wesiginesha wenkontileka ngayinye oyisayinayo. Lisethe kanye bese lizibonakalisa ngokuzenzakalelayo kusukela phambili.',
   'settings.signatures.heading': 'Ibhulokhi yesiginesha',
   'settings.signatures.save': 'Londoloza isiginesha',
+  'sign.action': 'Sayina le dokhumenti',
+  'sign.eyebrow': 'Kucelwe isiginesha',
+  'sign.for': 'Nge {{name}}',
+  'sign.loadError': 'Lesi sixhumanisi sokusayina asivumelekile noma siphelelwe yisikhathi.',
   'sign.loading': 'Iyalayisha…',
   'sign.signing': 'Kusayinwa…',
+  'sign.submitError':
+    'Ayikwazanga ukurekhoda isiginesha yakho — kungenzeka ukuthi isixhumanisi sesiphelelwe yisikhathi.',
   'signup.brandQuote':
     '\\u201cSithuthele iminyaka engu-8 yephepha eVellum ngesonto elilodwa. Umzila wokuhlola wodwa uqinisekisa ukushintshana.\\u201d',
   'signup.companyPlaceholder': 'Abahwebi baseNorthwind',
@@ -191,6 +206,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Inkontileka evulekile →',
   'vellumKpiCard.trend': 'Ithrendi yakamuva',
+  'vellumLayout.closeMenu': 'Vala imenyu yokuzulazula',
+  'vellumLayout.openMenu': 'Vula imenyu yokuzulazula',
   'vellumLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'vellumPortfolioHero.expiring': 'Iphelelwa yisikhathi ngo-30d',
   'vellumPortfolioHero.label': 'Inani lephothifoliyo',

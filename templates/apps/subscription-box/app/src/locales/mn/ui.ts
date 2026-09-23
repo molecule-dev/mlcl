@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ийн тухай',
+  'appNav.mobileLabel': 'Үндсэн навигаци',
+  'appNav.primaryLabel': 'Үндсэн навигаци',
   'billing.actions.confirmCancel': 'Захиалгаа цуцлах уу? Та хүссэн үедээ дахин захиалж болно.',
   'billing.actions.paused': 'Захиалгыг түр зогсоосон.',
   'billing.actions.resumed': 'Захиалгыг үргэлжлүүлэв.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Түвшин бүр нь жижиг багцтай түүх юм. Дараалалдаа нэгийг нэмэх эсвэл дараагийн сар руугаа шилжүүлээрэй.',
   'boxThemeCard.perMonth': '/ сар',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'customize.eyebrow': 'Өөрийн болго',
   'customize.heading': 'Дараагийн олзоо тохируулна уу',
   'customize.items.exclude': 'Үүнийг алгасах',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Энэ улиралд',
   'landing.editions.heading': 'Манай кураторуудын дуртай хэвлэлүүд',
   'landing.footer.contact': 'Куратортой ярилцах',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Хайрцагаа эхлүүл →',
   'landing.hero.ctaSecondary': 'Түвшинг харах',
   'landing.hero.eyebrow': 'Сар бүр зохион байгуулдаг. Үргэлж хувийн шинж чанартай.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ТАНЫ ДАРААГИЙН СҮНС',
   'nextBoxHeroCard.itemsLabel': 'Сонгосон зүйлс',
   'nextBoxHeroCard.shipsOnLabel': 'Хүргэлт',
+  'notFound.body':
+    'Бид энэ хуудсыг {{app}} архиваас олж чадсангүй. Энэ нь ашиглалтаас гарсан эсвэл зүгээр л буруу бичсэн байж магадгүй.',
   'notFound.cta.dashboard': 'Хяналтын самбар руу очих',
   'notFound.eyebrow': 'Хоосон хайрцаг',
   'notFound.heading': 'Энэ тавиур хоосон байна',

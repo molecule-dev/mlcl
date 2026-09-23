@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'analytics.channels.empty': 'Dim data sianel eto.',
   'analytics.channels.title': 'Yn ôl sianel',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': "Sgyrsiau'r dydd",
   'chatBubble.avatarAlt': '{{speaker}} avatar',
   'common.appName': 'Cydberthynas',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'confidenceMeter.label': 'Hyder',
   'conversationDetail.agentName': 'Asiant',
   'conversationDetail.aiReplyButton': 'Ateb bot',
   'conversationDetail.aiReplyError': 'Methu cynhyrchu ateb AI',
   'conversationDetail.aiReplyLoading': 'Drafftio…',
+  'conversationDetail.aiReplySourceFallback': 'wrth gefn (dim allwedd AI)',
   'conversationDetail.backAria': 'Yn ôl i sgyrsiau',
   'conversationDetail.composerPlaceholder': "Ateb i'r cwsmer…",
   'conversationDetail.context.channel': 'Sianel',
@@ -155,8 +158,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Gosod cyfrinair newydd ar gyfer eich cyfrif',
   'resetPassword.toggleConfirm': 'Togglo cadarnhau gwelededd cyfrinair',
   'resetPassword.togglePassword': 'Togglo gwelededd cyfrinair',
+  'settings.account.emailError': "Methwyd diweddaru'r e-bost",
   'settings.account.emailLabel': 'Cyfeiriad e-bost',
+  'settings.account.emailSaved': "E-bost wedi'i ddiweddaru",
+  'settings.account.nameError': "Methwyd diweddaru'r enw",
   'settings.account.nameLabel': 'Enw arddangos',
+  'settings.account.nameSaved': "Enw wedi'i ddiweddaru",
   'settings.account.title': 'Cyfrif',
   'settings.api.createCta': 'Creu tocyn',
   'settings.api.description':
@@ -169,10 +176,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': "Uwchraddio'n awtomatig pan fydd teimlad yn gostwng",
   'settings.bot.greetingLabel': 'Cyfarchiad neges gyntaf',
   'settings.bot.title': 'Ffurfweddiad bot',
+  'settings.bot.toneFormal': 'Ffurfiol',
   'settings.bot.toneLabel': 'Llais a thôn',
   'settings.danger.deleteAccount': 'Dileu cyfrif',
+  'settings.danger.deleteError': 'Methwyd dileu cyfrif',
+  'settings.danger.deleteWarning':
+    "Mae hyn yn dileu eich cyfrif a'r holl ddata cysylltiedig yn barhaol. Ni ellir dadwneud hyn.",
   'settings.danger.deleting': 'Yn dileu…',
+  'settings.danger.passwordLabel': 'Cadarnhewch eich cyfrinair',
   'settings.danger.title': 'Parth perygl',
+  'settings.devices.empty': "Dim dyfeisiau wedi'u cofrestru.",
+  'settings.devices.revokeWarning':
+    'Bydd mynediad y ddyfais hon yn cael ei ddirwyn yn fuan. Ei allgofnodi?',
+  'settings.devices.signingOut': 'Yn allgofnodi…',
   'settings.devices.signOut': 'Allgofnodi',
   'settings.devices.thisDevice': 'Y ddyfais hon',
   'settings.devices.title': 'Dyfeisiau',
@@ -185,9 +201,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Methwyd newid y cyfrinair',
   'settings.security.currentPassword': 'Cyfrinair cyfredol',
   'settings.security.newPassword': 'Cyfrinair newydd',
+  'settings.security.oauthManaged':
+    'Mae eich cyfrinair yn cael ei reoli gan eich darparwr mewngofnodi.',
   'settings.security.title': 'Diogelwch',
   'settings.security.twoFactorDisable': 'Analluogi',
   'settings.security.twoFactorEnable': 'Galluogi',
+  'settings.security.twoFactorInvalid': 'Cod annilys',
   'settings.subtitle':
     "Addaswch lais Rapport, ffynonellau gwybodaeth, a'r offer y mae'n siarad â nhw.",
   'settings.tokenCreateError': 'Methwyd creu tocyn',

@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Jepini bakshish blerësit tuaj',
   'checkout.tipLabel': 'Bakshish',
   'checkout.zipPlaceholder': 'Kodi Postar',
+  'common.goToDashboard': 'Shko te paneli',
   'featuredProductsGrid.addAria': 'Shto {{name}} në shportë',
   'featuredProductsGrid.outOfStock': 'Nuk është në dispozicion',
   'forgotPassword.emailLabel': 'Adresa e email-it',
   'forgotPassword.emailPlaceholder': 'blerës@bushel.fresh',
   'forgotPassword.successBody':
     'Nëse ajo email është e regjistruar, një lidhje rivendosjeje është duke ardhur.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Navigimi kryesor',
   'landing.categoriesEyebrow': 'Korridore',
   'landing.categoriesHeading': 'Bleni sipas kategorisë',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Planifikoni dërgesat javore me riporositje inteligjente të artikujve kryesorë dhe gjurmim të drejtpërdrejtë të shoferëve.',
   'landing.heroTitle': 'Freski në derën tuaj, brenda pak orësh.',
   'landing.howEyebrow': 'Tre hapa',
+  'landing.howItWorksHeading': 'Si funksionon {{app}}',
   'lists.addAllCta': 'Shto të gjitha në shportë',
   'lists.createCta': 'Krijo listën tënde të parë',
   'lists.createError': 'Nuk mundi të krijonte listë.',

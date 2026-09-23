@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.title': "Una sala d'escriptura que pots portar a la butxaca",
   'billing.cancelConfirm': 'Vols cancel·lar la teva subscripció activa?',
   'billing.cancelFailed': "No s'ha pogut cancel·lar.",
   'billing.checkingOut': 'Obrint la caixa…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': "No s'ha pogut carregar la facturació.",
   'billing.loading': "S'està carregant la facturació…",
   'billing.upgradeCta': 'Actualitza a {{name}}',
+  'common.goToDashboard': 'Anar al panell',
+  'editor.autosaveOn': 'Desament automàtic activat',
   'editor.backToLibrary': 'Torna a la biblioteca',
   'editor.charCount': '{{count}} personatges',
   'editor.confirmTrash': 'Voleu moure aquest document a la paperera?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Sense fixar',
   'editor.unpublishCta': 'Mou a esborrany',
   'editor.unpublished': 'Revertit a esborrany',
+  'focus.autosaveOn': 'Desament automàtic activat',
   'focus.backToLibrary': 'Torna a la biblioteca',
   'focus.bodyPlaceholder': 'Una cua a la vegada. No hi ha ningú més aquí.',
   'focus.exit': "Surt del mode d'enfocament",
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': "Crea'n un",
   'login.subline':
     "Els vostres manuscrits, les pàgines diàries i l'última posició del cursor són just on els vau deixar.",
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'pricing.exports': 'exportacions',
   'pricing.folders': 'carpetes',
   'pricing.heading': 'documents',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     "Introdueix el codi que t'hem enviat per correu electrònic i tria'n un que et recordi. Iniciarem la sessió un cop s'hagi desat.",
   'reset.tokenHint': "Enganxat des de la safata d'entrada.",
+  'settings.appearance.heading': 'Clar o fosc',
   'settings.editor.${row.id}.description': 'Llengua',
   'settings.editor.description':
     "Desplaçament a màquina d'escriure, esvaïment de paràgraf i focus inactiu: els valors predeterminats estan ajustats per a sessions llargues.",
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Capítol tres: Una hora tranquil·la abans de la sortida del sol',
   'versalDocumentCard.pinned': 'Fixat',
   'versalLayout.nav.stats': 'Estadístiques',
+  'versalLayout.primaryNavLabel': 'Navegació principal',
   'versalManuscriptHero.cta': 'Continua escrivint',
   'versalManuscriptHero.goalLabel': "L'objectiu de paraules d'avui",
   'versalManuscriptHero.inProgress': 'En camí',

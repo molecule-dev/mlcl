@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'forgot.eyebrow': 'Буцаж орох замаа алдчихсан уу?',
   'forgot.formSubtitle': 'Файл дээрх имэйл хаягийг бидэнд мэдэгдээрэй.',
   'forgot.headline': 'Нууц үгээ дахин тохируулна уу.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Нэгийг үүсгэх',
   'login.subline':
     'Таны тэмдэглэлийн дэвтэр, буцах холбоос болон өдөр тутмын хуудсууд таны үлдээсэн газар байна.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'noteEditor.backToNotes': 'Тэмдэглэл рүү буцах',
   'noteEditor.bodyPlaceholder':
     'Бичиж эхлэх — та бичиж байх үед тэмдэглэл автоматаар хадгалагдана.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Шинэ дэвтэр',
   'notes.newNotebookPrompt': 'Шинэ дэвтрийн нэр',
   'notes.notebooksHeading': 'Дэвтэр',
+  'notes.subtitle':
+    'Зүүн талд байгаа тэмдэглэлийн дэвтэр сонгоод, шинээр тэмдэглэл эхлүүлэхийн тулд Шинэ тэмдэглэл товчийг дарна уу.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Тэмдэглэл хөтлөх төлөвлөгөөгөө сонгоно уу',
   'reset.eyebrow': 'Бараг л буцаж орлоо',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Шинэчлэгдсэн',
   'versoLayout.nav.graph': 'График',
   'versoLayout.nav.home': 'Гэр',
+  'versoLayout.primaryNavLabel': 'Үндсэн навигаци',
   'versoNoteCard.pinned': 'Тэмдэглэгдсэн',
   'versoTodayHero.continueCta': 'Үргэлжлүүлэн бичих',
   'versoTodayHero.createCta': 'Өнөөдрийн тэмдэглэлийг эхлүүлнэ үү',

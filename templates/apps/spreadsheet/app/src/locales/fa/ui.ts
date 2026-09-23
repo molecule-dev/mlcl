@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'about.pageTitle': 'درباره {{name}}',
   'auth.footer.about': 'درباره {{name}}',
   'authHeader.subtitle': 'برای حفظ صداقت در اعداد، وارد سیستم شوید.',
   'automations.action.email': 'ایمیل',
+  'automations.action.noop': 'بدون عملیات',
   'automations.action.webhook': 'وب‌هوک',
   'automations.confirmDelete': 'حذف " {{name}} «؟',
   'automations.empty.headline': 'هنوز اتوماسیونی وجود ندارد',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'تریگرها و اقدامات در هر ورک‌بوک. هر اجرا یک ردیف را ثبت می‌کند که می‌توانید بعداً آن را بررسی کنید.',
   'automations.toggle': 'ضامن {{name}}',
+  'automations.trigger.dailySchedule': 'برنامه روزانه',
+  'automations.trigger.rowCreated': 'ردیف ایجاد شد',
+  'automations.trigger.rowUpdated': 'ردیف به‌روزرسانی شد',
   'billing.empty': 'هیچ طرحی موجود نیست.',
   'billing.error.priceMissing':
     'هیچ قیمت Stripe برای این سطح پیکربندی نشده است. متغیرهای محیطی STRIPE_*_PRICE_ID را تنظیم کنید.',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'نمودارها',
   'charts.kpi.totalCharts': 'نمودارهای کل',
   'charts.list.empty': 'هنوز نموداری وجود ندارد.',
+  'charts.namePlaceholder': 'روند درآمد',
   'charts.newChart': 'نمودار جدید',
   'charts.primary.eyebrow': 'نمودارها بر اساس نوع',
   'charts.primary.headline': 'نمای کلی فضای کاری',
   'charts.subhead': 'تجسم‌های زنده متصل به شبکه شما - در هر ویرایش سلول، دوباره رندر می‌شوند.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'editor.addColumn': 'اضافه کردن ستون',
+  'editor.addDialogTitle': 'اضافه کردن ستون',
   'editor.addRow': 'اضافه کردن ردیف',
   'editor.addSheet': 'اضافه کردن برگه',
   'editor.back': 'بازگشت به کتاب‌های کار',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} کلسیت، فرمول‌محور، چندنمایی و بلادرنگ است که تحلیلگران شبکه و تیم‌های مالی برای رسیدن به آن تلاش می‌کنند.',
   'landing.nav.formulas': 'فرمول‌ها',
+  'login.noAccount': 'آیا در {{name}} تازه‌کار هستید؟',
+  'login.signIn': 'وارد {{name}} شوید',
   'login.signUp': 'ایجاد یک فضای کاری',
+  'nav.menu': 'منو',
+  'nav.openMenu': 'منوی باز',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "مسیرها", "صفحه")',
   'notFound.headline': 'این ردیف هرگز وجود نداشته است.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'اتوماسیون‌های بومی · تریگرهای وب‌هوک و کرون',
   'signup.creating': 'تجهیز فضای کاری…',
   'signup.cta': 'ایجاد فضای کاری من',
+  'signup.haveAccount': 'قبلاً در {{name}} هستید؟',
   'signup.namePlaceholder': 'آوری چن',
   'signup.tagline': 'اولین کتاب کار خود را در 30 ثانیه ورق بزنید',
   'team.col.activity': 'دعوت شده',

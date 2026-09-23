@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.pageTitle': '{{app}}-ийн тухай',
   'activity.empty': 'Одоогоор үйлдэл алга — төхөөрөмжийг эргүүлэх эсвэл үзэгдлийг идэвхжүүлнэ үү.',
   'activity.eyebrow': 'Цаг хугацааны шугам',
   'activity.loadError': 'Үйл ажиллагааны тэжээлийг ачаалж чадсангүй.',
   'activity.subheading':
     'Төхөөрөмж, автоматжуулалт болон аюулгүй байдлын үйл явдал бүрийг он цагийн дарааллаар.',
+  'addDevice.error.failed': 'Төхөөрөмжийг нэмж чадсангүй. Дахин оролдоно уу.',
   'addDevice.error.nameRequired': 'Үргэлжлүүлэхийн тулд энэ төхөөрөмжид нэр өгнө үү.',
   'addDevice.field.firmware': 'Програм хангамжийн хувилбар',
   'addDevice.field.manufacturer': 'Үйлдвэрлэгч',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Туршилт…',
   'automationEditor.testNew': 'Автоматжуулалтыг эхлээд туршихын тулд хадгална уу.',
   'automationRow.lastRun': 'Сүүлийн {{date}} · {{count}} гүйлт',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Гүйх {{name}} одоо',
   'automations.empty': 'Автоматжуулалт хараахан байхгүй байна — анхны хэв маягаа үүсгээрэй.',
   'automations.eyebrow': 'Хэвшлүүд',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Автоматжуулалтыг ачаалж байна…',
   'automations.newAutomation': '+ Шинэ',
   'automations.subheading': 'Ийм зүйл тохиолдвол YAML-гүйгээр үүнийг хий.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Төхөөрөмжийг ачаалж чадсангүй.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Ажиллаж байна...',
   'deviceDetail.unnamed': 'Төхөөрөмж',
   'deviceStatusRow.on': 'Асаалттай',
+  'deviceStatusRow.turnOff': 'Унтраах',
+  'deviceStatusRow.turnOn': 'Асаах',
   'deviceStatusRow.watts': '{{watts}} Б',
   'energy.eyebrow': 'Хүч чадал',
   'energy.heading': 'Эрчим хүч',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Төлөвлөгөөг харах',
   'settings.security.heading': 'Аюулгүй байдал',
   'settings.subheading': 'Төлөвлөгөө, төвүүд болон бүртгэлийн тохиргоо.',
+  'smartHomeDashboardLayout.openMenu': 'Навигацийн цэсийг нээх',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Үндсэн навигаци',
 }

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
+  'ascentSideNav.nav.notifications': 'నోటిఫికేషన్లు',
   'ascentSideNav.newObjective': 'కొత్త లక్ష్యం',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'శిఖరాన్ని నిర్దేశించండి. అధిరోహణకు స్కోరు ఇవ్వండి. జట్టుకు శిక్షణ ఇవ్వండి.',
   'authShell.eyebrow': 'జట్లను కదిలించే OKRలు',
@@ -21,6 +24,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'వర్క్‌స్పేస్ · బిల్లింగ్',
   'billing.heading': 'ప్రణాళిక & ఇన్‌వాయిస్‌లు',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'డేటా ఎగుమతి + API యాక్సెస్',
+  'billing.perk.inApp': 'యాప్‌లో రిపోర్టింగ్',
+  'billing.perk.standard': 'ప్రామాణిక సమీక్షలు',
+  'billing.perk.unlimitedObjectives': 'అపరిమిత లక్ష్యాలు',
+  'billing.perk.unlimitedRetention': 'అపరిమిత నిలుపుదల',
   'billing.subheading':
     'మీరు ఉన్నారు {{name}} ప్లాన్. శ్రేణులను పోల్చి, క్రింద అప్‌గ్రేడ్ చేసుకోండి.',
   'billing.tier.unavailable': 'అందుబాటులో లేదు',
@@ -42,11 +50,13 @@ export const ui: UiTranslations = {
     'ప్రతి KR కోసం ప్రస్తుత విలువను అప్‌డేట్ చేయండి, కాన్ఫిడెన్స్‌ను మార్క్ చేయండి, ఒక నోట్‌ను డ్రాప్ చేసి, సబ్మిట్ చేయండి.',
   'checkIn.submit': 'చెక్-ఇన్ సమర్పించండి',
   'checkIn.submittedMessage': 'చెక్-ఇన్ సేవ్ చేయబడింది. పురోగతి మరియు కాలక్రమం నవీకరించబడ్డాయి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': 'లేదు',
   'common.relative.daysAgo': '{{count}} డి క్రితం',
   'common.relative.hoursAgo': '{{count}} గంట క్రితం',
   'common.relative.justNow': 'ఇప్పుడే',
   'common.relative.minutesAgo': '{{count}} నిమిషాల క్రితం',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.yes': 'అవును',
   'common.you': 'మీరు',
   'dashboard.allActivity': 'అన్ని కార్యకలాపాలను చూడండి →',
@@ -90,6 +100,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'మేము రీసెట్ లింక్‌ను పంపాము {{email}} ఇది ఒక గంటలో గడువు ముగుస్తుంది — ఇన్‌బాక్స్‌కు ఒక్క క్షణం సమయం ఇవ్వండి.',
   'forgotPassword.successHeading': 'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
+  'keyResult.metrics.boolean': 'అవును / కాదు',
+  'keyResult.metrics.currency': 'కరెన్సీ $',
+  'keyResult.metrics.number': 'సంఖ్య',
+  'keyResult.metrics.percent': '% శాతం',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'మీ మొదటి లక్ష్యాన్ని నిర్దేశించుకోండి, ముగ్గురు సహచరులను ఆహ్వానించండి మరియు శుక్రవారం నాటికి మీ మొదటి వారపు చెక్-ఇన్‌ను నిర్వహించండి.',
@@ -101,6 +115,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'జట్లు ఎలా ఎక్కుతాయి',
   'landing.featuresTitle': 'స్ప్రెడ్‌షీట్ వంటి అనవసరమైన విస్తరణ లేకుండా, కోచింగ్-స్థాయి OKRలు.',
   'landing.footerBuiltOn': 'Molecule.dev పై నిర్మించబడింది',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'అసెంట్ ప్రతి బృందానికి పర్వతం పైకి చేరుకోవడానికి కొలవగలిగే మార్గాన్ని అందిస్తుంది — లక్ష్యాలను నిర్దేశించుకోండి, వారానికోసారి కీలక ఫలితాలను నమోదు చేయండి మరియు ప్రతి త్రైమాసికంలో అధిరోహణను సమీక్షించండి.',
   'landing.heroProgressLabel': 'Q2 కంపెనీ ప్రణాళిక',
@@ -110,6 +125,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'లేదా కొనసాగించండి',
   'login.subheading':
     'మీరు ఆపివేసిన చోటి నుండే కొనసాగించండి — మీ చెక్-ఇన్‌లు, KRలు మరియు సమీక్షలు సిద్ధంగా ఉన్నాయి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.mainNavigation': 'ప్రధాన నావిగేషన్',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'newObjective.addKr': 'KRని జోడించండి',
   'newObjective.coachLabel': 'కోచ్ రిమైండర్లు',
   'newObjective.descriptionPlaceholder': 'వ్యూహాత్మక సందర్భాన్ని 2–3 వాక్యాలలో వివరించండి.',
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'కార్యకలాపాల కేంద్రం',
   'notifications.markRead': '● చదివినట్లుగా గుర్తించండి',
   'objective.scopes.company': 'కంపెనీ',
+  'objective.scopes.individual': 'వ్యక్తిగత',
   'objective.scopes.team': 'జట్టు',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'లక్ష్యాలకు తిరిగి వెళ్లండి',
@@ -156,12 +175,18 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'ట్రాకింగ్ {{count}} లక్ష్యాలు. శ్రద్ధ అవసరమైన వాటిని కనుగొనడానికి స్థితిని బట్టి ఫిల్టర్ చేయండి.',
   'profile.achievementCheckInsMany': '{{count}} చెక్-ఇన్‌లు నమోదు చేయబడ్డాయి',
+  'profile.achievementCheckInsOne': '1 చెక్-ఇన్ నమోదు చేయబడింది',
+  'profile.achievementCompletedMany': '{{count}} లక్ష్యాలు పూర్తి చేయబడ్డాయి',
+  'profile.achievementCompletedOne': '1 లక్ష్యం పూర్తి చేయబడింది',
+  'profile.achievementOnTrackMany': '{{count}} లక్ష్యాలు సరైన మార్గంలో ఉన్నాయి',
+  'profile.achievementOnTrackOne': '1 లక్ష్యం సరైన మార్గంలో ఉంది',
   'profile.activeHeading': 'క్రియాశీల లక్ష్యాలు',
   'profile.allObjectives': 'అన్ని లక్ష్యాలు →',
   'profile.empty':
     'ఇంకా క్రియాశీల లక్ష్యాలు ఏవీ లేవు — ప్రారంభించడానికి మీ మొదటి లక్ష్యాన్ని సృష్టించుకోండి.',
   'profile.eyebrow': 'అధిరోహకుడి ప్రొఫైల్',
   'profile.guestName': 'పర్వతారోహకుడు',
+  'profile.loadError': 'మీ లక్ష్యాలను లోడ్ చేయలేకపోయాము.',
   'profile.loading': 'లక్ష్యాలను లోడ్ చేస్తోంది…',
   'profile.noAchievements': 'మీ మొదటి విజయాన్ని సాధించడానికి చెక్-ఇన్ పూర్తి చేయండి.',
   'profile.statCheckIns': 'చెక్-ఇన్‌లు',

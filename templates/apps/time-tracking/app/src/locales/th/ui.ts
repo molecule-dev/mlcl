@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'about.plansTitle': 'แผนงานที่เติบโตไปพร้อมกับคุณ',
   'brand.tagline': 'ทุกวินาที',
   'clientDetail.back': 'กลับไปยังลูกค้า',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'รวมทุกความสัมพันธ์ไว้ในที่เดียว — โครงการ ชั่วโมงทำงาน ใบแจ้งหนี้ค้างชำระ',
   'clients.title': 'ลูกค้า',
   'common.and': 'และ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.activeProjects': 'โครงการที่กำลังดำเนินการ',
   'dashboard.empty': 'ยังไม่มีผู้เข้าใช้งาน เริ่มจับเวลาเพื่อบันทึกการเข้าใช้งานครั้งแรกของคุณ',
   'dashboard.greeting': 'สวัสดีครับ/ค่ะ {{name}}',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
     'ไม่มีชั่วโมงทำงานที่สามารถเรียกเก็บเงินได้สำหรับลูกค้ารายนี้ กรุณาบันทึกเวลาทำงานก่อน หรือกำหนดรายการเวลาทำงานที่มีอยู่แล้วให้กับโครงการใดโครงการหนึ่งของลูกค้ารายนี้',
   'invoices.save': 'สร้างใบแจ้งหนี้',
   'invoices.subtitle': 'ชั่วโมงการทำงานที่บันทึกไว้จะถูกรวมเข้ากับใบแจ้งหนี้โดยอัตโนมัติ',
+  'landing.copyright': '© {{year}} {{app}} ทุกวินาที ถูกบันทึกไว้',
   'landing.ctaBody': 'ใช้งานฟรีสูงสุด 3 โปรเจกต์ อัปเกรดเมื่อรายชื่อลูกค้าของคุณเพิ่มขึ้น',
   'landing.eyebrow': 'การบันทึกเวลาสำหรับการทำงานที่คิดค่าบริการ',
   'landing.featuresBody':
@@ -94,13 +97,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'ได้รับความไว้วางใจจากผู้ประกอบการอิสระ',
   'landing.testimonial.quote':
     '“ผมย้ายออกจาก Toggl ภายใน 30 นาที การลดงบประมาณอย่างเดียวก็คุ้มค่าแล้ว ผมหยุดเสนอราคาต่ำกว่าความเป็นจริงมาสองสัปดาห์ติดต่อกันแล้ว”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} นาฬิกาจับเวลา ทุกวินาที ถูกบันทึกไว้อย่างแม่นยำ',
   'login.brand.subtitle':
     'เริ่มจับเวลาต่อจากจุดที่คุณหยุดไว้ — ทุกนาทีถูกกำหนดไว้แล้วสำหรับโครงการ ลูกค้า หรือใบแจ้งหนี้',
   'login.brand.tracking': 'การติดตาม',
   'login.subheading': 'เริ่มจับเวลาต่อจากจุดที่คุณหยุดไว้',
+  'nav.closeMenu': 'ปิดเมนูนำทาง',
   'nav.insightsSection': 'ข้อมูลเชิงลึก',
   'nav.newEntry': 'รายการใหม่',
+  'nav.openMenu': 'เปิดเมนูนำทาง',
+  'nav.primary': 'การนำทางหลัก',
   'nav.workSection': 'งาน',
   'notFound.body':
     'ดูเหมือนว่าลิงก์ที่คุณคลิกได้หยุดการติดตามแล้ว โปรดกลับไปที่แดชบอร์ดของคุณ – เราจะนับต่อจากตรงนั้น',
@@ -200,6 +207,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'เรียกเก็บเงินได้',
   'timer.descriptionPlaceholder': 'คุณกำลังทำงานอะไรอยู่?',
   'timer.idle': 'สถานะไม่ได้ใช้งาน — เริ่มติดตาม',
+  'timer.noProject': 'ไม่มีโครงการ',
   'timer.runningWithProject': 'ไม่มีโครงการ',
   'timer.start': 'เริ่มจับเวลา',
   'timer.stop': 'หยุดตัวจับเวลา',

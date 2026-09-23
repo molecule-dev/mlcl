@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'billing.canceled': 'Előfizetés lemondva. Az időszak végén visszaállít a Free-re.',
   'billing.contactSales': 'Kapcsolatfelvétel az értékesítéssel',
   'billing.free.1': '5 fordítás',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Nincs megőrzési korlát',
   'billing.upgradeHint': 'Frissítsen a fejlett AI funkciók feloldásához.',
   'billing.yearly': 'Éves',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.activityEmpty':
     'Még nincs tevékenység — indítson projektet a hírfolyam feltöltéséhez.',
   'dashboard.eyebrow': 'Áttekintés',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Használja fel újra a korábbi fordításokat az összes projektben. Magasabb egyezési pontszám → kevesebb ismételt munka.',
   'memory.title': 'Memóriabank',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'nav.legal': 'Jogi',
   'newProject.addLanguage': 'Cél hozzáadása',
   'newProject.create': 'Projekt létrehozása',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} értesítés olvasottnak jelölve.',
   'notifications.subtitle':
     'Megemlítések, lektorálási kérések és AI-események az összes munkaterületről.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'privacy.collection.account': 'Fiókja e-mail-je és megjelenített neve',
   'privacy.deletion.body':
     'Projektet, szegmenst, szójegyzékkifejezést vagy memóriabejegyzést bármikor törölhet a megfelelő oldalon. A fiók törlése a Beállításokban eltávolítja a munkaterülethez kapcsolódó összes sort adatbázisunkból.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'A projektek betöltése sikertelen.',
   'projects.loading': 'Projektek betöltése…',
   'projects.subtitle': 'Minden aktív projekt az összes nyelven.',
+  'renditionLayout.primaryNavLabel': 'Elsődleges navigáció',
   'reset.backToLogin': '← Vissza a bejelentkezéshez',
   'reset.passwordLabel': 'Új jelszó',
   'review.activeEyebrow': 'Szegmens {{number}}',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': "Bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.title': '{{app}} haqida',
   'activeAgentsCard.agent1AvatarAlt':
     "Zamonaviy ofisda do'stona tabassum bilan ayol yordam agentining professional surati",
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': "Qo'llab-quvvatlash xizmatiga murojaat qiling",
   'forgotPassword.error':
     "Qayta tiklash elektron pochtasini yuborib bo'lmadi. Iltimos, qayta urinib ko'ring.",
   'forgotPassword.rememberPassword': 'Parolingizni eslaysizmi?',
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Kirish — Zenith Support',
   'login.showPassword': "Parolni ko'rsatish",
   'login.welcomeSubheading': "Qo'llab-quvvatlash boshqaruv paneliga kiring",
+  'mobileNav.closeMenu': 'Navigatsiyani yopish',
+  'mobileNav.menu': 'Navigatsiya',
+  'mobileNav.openMenu': 'Navigatsiyani ochish',
   'nav.legal': 'Huquqiy',
   'nav.newTicket': 'Yangi chipta',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Buyruq qidiruvi',
   'operatorDock.newReport': 'Yangi hisobot',
   'operatorDock.systemOnline': 'Tizim Onlayn',
+  'planUpdated.subtitle': 'Rahmat',
   'planUpdated.title': 'Reja yangilandi',
   'pricing.agents': 'agentlar',
   'pricing.automation': 'Avtomatlashtirish qoidalari',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{nom}}',
   'ticketCustomerReply.avatarAlt': '{{nom}} ning avatari',
   'ticketDetail.errorTitle': "Nimadir noto'g'ri ketdi",
+  'ticketDetail.loadError': 'Chipta yuklanmadi.',
+  'ticketDetail.notFound': 'Chipta topilmadi',
+  'ticketDetail.replyError': "Javob yuborilmadi. Qaytadan urinib ko'ring.",
   'ticketDetail.retry': 'Qayta urinib ko’ring',
   'ticketDetail.statusUpdateError': "Holatni yangilab bo'lmadi. Qaytadan urinib ko'ring.",
   'ticketDetailsCard.assigneeLabel': 'Topshiruvchi',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.title':
     "Ma'lumotlar bazasiga ulanish ishlab chiqarishda muvaffaqiyatsiz tugadi {{tugun}}",
   'tickets.pageTitle': 'Chiptalar — Zenith Support',
+  'ticketsFab.newTicket': 'Yangi chipta',
   'ticketsFilterBar.assigneeLabel': 'Topshiriq beruvchi:',
   'ticketsFilterBar.clearFilters': 'Filtrlarni tozalash',
   'ticketsFilterBar.dateRangeDemoHint':

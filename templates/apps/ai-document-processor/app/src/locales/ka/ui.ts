@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'დაგვიკავშირდით',
+  'about.title': '{{app}}-ის შესახებ',
   'authShell.backToLanding': '← დაბრუნება დაშვებაზე',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
+  'common.retry': 'ხელახლა ცდა',
   'common.yes': '✓',
   'dashboard.eyebrow': 'დღეს · ოპერაციების მიმოხილვა',
   'dashboard.heading': 'დოკუმენტის ინტელექტი',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'მიმდინარე ფილტრებს არცერთი დოკუმენტი არ შეესაბამება.',
   'documents.heading': 'ყველა დოკუმენტი',
   'documents.loadError': 'დოკუმენტების ჩატვირთვა ვერ მოხერხდა.',
+  'documents.loading': 'ბიბლიოთეკა იტვირთება…',
   'documents.searchLabel': 'დოკუმენტების ძიება',
   'documents.searchPlaceholder': 'დოკუმენტების ძიება…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'პაროლის დამალვა',
   'login.showPassword': 'პაროლის ჩვენება',
   'login.subtitle': 'შედით სისტემაში, რათა თქვენი დოკუმენტები გამართულად მუშაობდეს.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'notFound.body':
     'დოკუმენტი ან მარშრუტი, რომლის გახსნაც სცადეთ, აღარ არის აქ. დაბრუნდით დაფაზე ან აირჩიეთ სექცია გვერდითი ზოლიდან.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'გახსენით სადესანტო გვერდი',
   'notFound.title': 'ეს გვერდი ფაილში არ არის',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % გუშინდელთან შედარებით',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'აქტიური წესები',
   'rules.empty': 'ჯერ არ არის შეტანის წესები. დასამატებლად გამოიყენეთ „ახალი წესი“.',
   'rules.eyebrow': 'ავტომატიზაცია',
+  'rules.fieldsCount': '{{count}} ველი',
   'rules.form.destination': 'ფაილის მისამართი',
   'rules.form.name': 'წესის სახელი',
   'rules.form.save': 'წესის შენახვა',

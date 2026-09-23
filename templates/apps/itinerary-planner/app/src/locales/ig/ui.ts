@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Gbasara {{app}}',
+  'auth.legalConsent': "Site n'ịga n'ihu, ị kwenyere n'usoro anyị",
   'bookings.empty.body': 'Tinye ụgbọelu, họtel, ma ọ bụ ihe omume iji malite igbe mbata.',
   'bookings.empty.heading': 'Enweghị ndoputa ugbua.',
   'bookings.errors.create': 'Enweghị ike ịmepụta ndoputa.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Ekwenyere na',
   'bookings.summary.pending': 'Na-eche nkwenye',
   'bookings.summary.total': "Mkpokọta e tinyere n'ọrụ",
+  'bookings.type.car': 'Ụgbọ ala mgbazinye',
+  'bookings.type.flight': 'Ụgbọ elu',
+  'bookings.type.hotel': 'Họtel',
   'bookings.type.other': 'Nke ọzọ',
   'budgetSpendCard.budgetTotal': 'nke {{total}} atụmatụ',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     "Chọpụta esemokwu, hazie ụbọchị mgbake n'etiti njem, ma hụ mgbe ndị ọrụ ibe gị na-eme njem.",
   'common.and': 'na',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.budgetHeading': 'Mmefu ego na-akpali akpali',
   'dashboard.empty.heading': 'Enweghị njem ọ bụla — atlas gị efuola.',
   'dashboard.eyebrow': 'Njikwa ozi',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': "Njem ndị na-aga n'ihu",
   'dashboard.viewAllExpenses': 'Lelee mmefu ọ bụla',
   'dashboard.viewAllTrips': 'Lee njem ọ bụla',
+  'dayTimelineRow.category.accommodation': 'Nọrọnụ',
   'dayTimelineRow.category.transport': 'Njem',
   'destinationOrbCard.exploreCta': 'Tinye na njem',
   'destinationOrbCard.tripCount': '{{count}} njem',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Ị nwebeghị ozi email? Lelee folda spam gị, ma ọ bụ nwaa ọzọ site na adreesị ọzọ.',
   'forgotPassword.successSubheading':
     'Anyị zigara njikọ mgbake na {{email}} Njikọ ahụ dị irè maka nkeji iri atọ.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Mepụta akaụntụ efu',
+  'landing.cta.subheading':
+    'Ruo njem ise, ndị ọrụ ise, na nkwụsị ise na atụmatụ efu — yana mmekọrịta oge niile, yana Pro na-ebuli oke mgbe atụmatụ gị toro.',
   'landing.destinations.eyebrow': 'Ebee ka ị ga-esote',
   'landing.destinations.heading': 'Ebe ndị nchịkọta akụkọ họpụtara',
   'landing.features.eyebrow': 'Otu Waypoint si arụ ọrụ',
   'landing.features.heading': 'E wuru ya maka ndị njem, ọ bụghị maka mpempe akwụkwọ.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Malite njem efu',
   'landing.hero.ctaSecondary': 'Lee ihe atụ njem',
   'landing.hero.subtitle':
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     "Mepụta akaụntụ iji kesaa njem na ndị ọrụ ruru mmadụ ise, mee ka ndebanye aha dị iche iche kwekọọ, ma dọpụta nkwenye niile n'otu ebe.",
+  'signup.termsPrefix': "Site n'ịmepụta akaụntụ, ị kwenyere na anyị",
   'tripCountdownHeroCard.budget': '{{used}} nke {{total}} ( {{pct}} Pasentị nke mmefu ego)',
   'tripCountdownHeroCard.collaborators': '{{count}} ndị njem',
   'tripCountdownHeroCard.countdownLabel': 'Ngụta oge',
@@ -198,5 +211,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Enweghị njem ugbua.',
   'trips.pastHeading': 'Njem ndị gara aga',
   'trips.subheading': '{{count}} usoro njem — gara aga, ugbu a, na otu ụbọchị.',
+  'waypointLayout.mobileNavClose': 'Mechie menu nsoroụzọ',
   'waypointLayout.primaryNavLabel': 'Ntugharị isi',
 }

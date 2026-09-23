@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Inatatua…',
   'comments.subtitle':
     'Ya {{count}} Mijadala bado inasubiri jibu au azimio. Imepangwa kwa umri — mkubwa zaidi kwanza, kwa hivyo hakuna kinachooza.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'forgotPassword.sentTo': 'Weka upya kiungo kilichotumwa kwa {{email}}',
   'forgotPassword.successSubheading':
     'Angalia kikasha chako cha barua pepe — tumetuma kiungo cha kuweka upya. Muda wake utaisha baada ya dakika 30.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ukurasa mpya',
   'pageTreeSidebar.workspaceHeader': 'Nafasi ya kazi',
   'pageView.breadcrumb': 'Kipande cha mkate',
+  'pageView.confirmTrash': 'Utaitupa?',
   'pageView.home': 'Nyumbani',
   'pageView.lastEdited': 'Imesasishwa {{when}}',
   'pageView.loading': 'Inapakia ukurasa…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Inafupisha…',
   'pageView.summaryUnavailable': 'Muhtasari wa AI haujasanidiwa kwa nafasi hii ya kazi.',
   'pageView.tocTitle': 'Kwenye ukurasa huu',
+  'pageView.trash': 'Takataka',
+  'pageView.trashing': 'Utupaji takataka…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Beji',
   'profile.owned.title': 'Kurasa zinazomilikiwa',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Nafasi ya kazi, wasifu, arifa, miunganisho — yote katika ganda moja tulivu.',
   'settingsPage.workspace.defaultLanding': 'Skrini chaguomsingi ya kutua',
   'settingsPage.workspace.landingHome': 'Nyumbani',
+  'settingsPage.workspace.landingSpaces': 'Nafasi',
   'settingsPage.workspace.subdomainLabel': 'Kikoa kidogo',
   'settingsPage.workspace.title': 'Nafasi ya kazi',
   'signup.eyebrow': 'Anza nafasi mpya ya kazi',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} dakika',
   'templates.subtitle':
     'Anza ukurasa kutoka kwa stencil, si turubai tupu. Kila kiolezo huweka umbo kwa ukali ili uweze kuzingatia dutu hiyo.',
+  'trash.confirmPurge': 'Kusafisha milele?',
+  'trash.confirmPurgeAria': 'Thibitisha: futa kabisa {{title}}',
   'trash.daysUntilPurge': '{{days}} siku zilizobaki',
   'trash.empty.body': 'Kurasa zilizofutwa zitaonekana hapa kwa siku 30 kabla ya kusafishwa.',
   'trash.empty.title': 'Taka ni tupu.',
@@ -146,5 +153,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Inarejesha…',
   'versionHistory.subtitle': '{{count}} matoleo · chagua safu mlalo ili kukagua tofauti',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Funga urambazaji',
+  'wikiLayout.menu': 'Urambazaji',
+  'wikiLayout.openMenu': 'Fungua urambazaji',
   'wikiLayout.searchPlaceholder': 'Tafuta Cairn — kurasa, maoni…',
 }

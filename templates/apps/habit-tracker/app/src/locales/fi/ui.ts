@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.pageTitle': 'Tietoa {{app}}sta',
+  'achievementBadgeCard.unlockedOn': 'Lukitsematon {{date}}',
   'achievements.loadError': 'Saavutusten lataaminen epäonnistui.',
   'achievements.subheading': '{{unlocked}} jostakin {{total}} lukitsematon',
+  'auth.legalConsent': 'Jatkamalla hyväksyt',
   'calendar.empty': 'Luo tapa katsoa kalenteriasi.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Tapa',
@@ -18,6 +22,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Tapa-ruudukko',
   'category.${c.category}': '{{laskea}} tavat',
   'common.and': 'ja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'consistencyHeatmap.ariaLabel': 'Päivittäinen johdonmukaisuuden lämpökartta',
   'consistencyHeatmap.caption': 'Kestää {{weeks}} viikkoja',
   'consistencyHeatmap.lessLabel': 'Vähemmän',
@@ -76,6 +81,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Näe se livenä',
   'landing.heroSubtitle':
     'Rakenna tapoja sellaisina kuin ne oikeasti pysyvät: pieniä sitoumuksia, päivittäisiä onnistumisia ja pitkän, katkeamattoman ketjun tuomaa viskeraalista nautintoa.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Kurkistus Streakin sisälle',
   'landing.previewMotivation': 'Yhdeksän viirua elossa. Pidä ne kaikki lämpiminä.',
   'login.eyebrow': 'Nosta ketju',
@@ -93,7 +99,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Tee siitä pieni. Tee siitä konkreettinen. Tule huomenna paikalle.',
   'newHabit.timeLabel': 'Muistutusaika',
   'notifications.markError': 'Kaikkia ei voitu merkitä luetuiksi.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.entries': '{{count}} merkinnät',
+  'pricing.heading': 'Valitse {{app}}-pakettisi',
   'profile.action.plan': 'Hallinnoi tilausta',
   'profile.action.settings': 'Tilin asetukset',
   'profile.bioEmpty': 'Lisää lyhyt esittelyteksti asetuksiin.',
@@ -121,6 +129,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Päivittäinen aamukehote (klo 8.00)',
   'settings.reminders.heading': 'Muistutukset',
   'settings.reminders.weekly': 'Viikon yhteenveto (sunnuntai-iltaisin)',
+  'settings.revokeDeviceWarning': 'Tämän laitteen pääsy peruutetaan pian. Kirjaudu ulos?',
   'settings.signOutDevice': 'Kirjaudu ulos',
   'settings.streaks.freezesPerWeek': 'Jäätymisiä viikossa',
   'settings.streaks.gracePeriod': '6 tunnin lisäaika keskiyön jälkeen',
@@ -147,5 +156,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktiivinen',
   'streakHeroCard.daysSuffix': 'päivää',
   'streakHeroCard.title': 'Pisin aktiivinen putki',
+  'streakLayout.closeMenu': 'Sulje navigointivalikko',
+  'streakLayout.openMenu': 'Avaa navigointivalikko',
   'streakLayout.primaryNavLabel': 'Päänavigaatio',
 }

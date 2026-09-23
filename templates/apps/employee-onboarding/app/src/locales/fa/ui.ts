@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'auth.forgotPassword.emailPlaceholder': 'نام@yourcompany.com',
   'auth.forgotPassword.heading': 'رمز عبور خود را بازنشانی کنید.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'علامت گذاری وظیفه تکمیل شده',
   'checklistTaskCard.markIncomplete': 'علامت گذاری کار ناتمام',
   'checklistTaskCard.openLabel': 'وظیفه باز',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'همه شما گرفتار هستید',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'در مسیر درست',
   'dashboard.timelineHeading': 'نقاط عطف ۳۰/۶۰/۹۰',
   'dashboard.viewAllTasks': 'مشاهده همه وظایف',
+  'dashboard.weekOne': 'هفته ۱',
   'dashboard.yourCohort': 'تیم شما',
   'documents.empty.body': 'اسناد اضافه شده توسط تیم شما در اینجا نمایش داده می‌شوند.',
   'documents.empty.title': 'هنوز هیچ سندی وجود ندارد',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'دوره آزمایشی رایگان ۱۴ روزه',
   'landing.subhead':
     'امبارک هر هم‌تیمی جدید را در ۹۰ روز اول - کارهای اداری، آموزش، مراحل مهم و معرفی‌های معنادار - در مکانی آرام و مطمئن راهنمایی می‌کند.',
+  'layout.openMenu': 'منوی ناوبری را باز کنید',
   'layout.search': 'جستجوی وظایف، اسناد، هم‌تیمی‌ها…',
+  'layout.searchTeammates': 'جستجوی هم‌تیمی‌ها بر اساس نام یا نقش…',
   'layout.section.onboarding': 'استخدام',
   'layout.tagline': 'سفر شما از اینجا شروع می‌شود',
   'notifications.empty.body': 'فعالیت جدید در اینجا نمایش داده خواهد شد.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'دیروز',
   'planUpdated.message': 'همه چیز آماده است.',
   'planUpdated.preparing': 'در حال به‌روزرسانی طرح شما…',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.documentsLabel': 'اسناد',
   'pricing.onboardingsLabel': 'ورود به سیستم',
   'pricing.tasksLabel': 'وظایف',

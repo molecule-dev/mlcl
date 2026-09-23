@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.featureDiscover.title': 'Özenle seçilmiş ilham kaynakları',
   'account.addPaymentCta': 'Ödeme yöntemi ekle',
   'account.addPaymentError': 'Ödeme yöntemi eklenemedi.',
+  'account.confirmRemove': 'Silme işlemini onayla',
   'account.defaultBadge': 'Varsayılan',
   'account.loyalty.pointsTowardNext':
     '{{nextTier}} seviyesine kadar {{next}} milin {{points}} mili',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Seyahat ayrıntıları',
   'booking.tripSummary': '{{nights}} gece · {{guests}} misafir',
   'common.daysAgo': '{{count}}g önce',
+  'common.goToDashboard': 'Panele Git',
   'common.hoursAgo': '{{count}}s önce',
   'common.minutesAgo': '{{count}}dk önce',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Hukuki',
   'notifications.loading': 'Yükleniyor…',
   'notifications.subheading': '{{count}} okunmamış · her şey tek ve sakin bir gelen kutusunda',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.accommodationsLabel': 'konaklama',
   'pricing.bookingsLabel': 'rezervasyon',
   'pricing.destinationsLabel': 'kayıtlı destinasyon',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     "İlham, güvenilir konaklamalar ve hayalden rezervasyona pürüzsüz bir yol — 14 ülkede ve 200'den fazla elden seçilmiş mülk.",
   'sojournHeroSearchCard.trustProtected': 'Ücretsiz iptal, tamamen korumalı',
   'sojournHeroSearchCard.trustVetted': 'Yalnızca elden seçilmiş mülkler',
+  'travelBookingLayout.primaryNavLabel': 'Birincil gezinme',
   'tripDetail.backLink': 'Seyahatlere geri dön',
   'tripDetail.cancelCta': 'Rezervasyonu iptal et',
   'tripDetail.cancelHeading': 'Bu seyahat iptal edilsin mi?',

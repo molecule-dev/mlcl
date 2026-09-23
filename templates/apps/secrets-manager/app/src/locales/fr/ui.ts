@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'about.tagline': 'Les secrets meurent à la lumière.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Créer un jeton',
   'apiTokens.kicker': "Jetons d'API",
   'apiTokens.loading': 'Chargement des jetons…',
+  'apiTokens.new': 'Nouveau jeton',
   'apiTokens.revoke': 'Révoquer le jeton',
   'apiTokens.subheading':
     "Jetons personnels et de service pour la CLI et le SDK Arcanum. Le texte clair n'est affiché qu'une fois, à la création.",
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Chiffrement zero-knowledge',
   'common.connecting': 'Connexion…',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.inviting': 'Invitation…',
   'forgotPassword.checkInbox':
     "Si {email} est enregistré, un lien de réinitialisation signé vous sera envoyé d'ici une minute.",
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     "Statut des rotations, alertes d'anomalies et demandes d'approbation pour tous les coffres.",
   'notifications.unreadEmpty': 'Boîte vide — vous êtes à jour.',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.heading': 'secrets',
   'pricing.limits.accessPolicies': "politiques d'accès",
   'pricing.limits.auditLog': "entrées du journal d'audit",
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Compte personnel',
   'profile.plan.description': 'Gérez votre abonnement, consultez les limites et mettez à niveau.',
   'profile.subheading': 'Identité, dispositifs de second facteur et sessions actives.',
+  'profile.twoFactor.code': "Code d'authentification",
   'profile.twoFactor.disable': 'Désactiver',
   'profile.twoFactor.enable': 'Activer',
+  'profile.twoFactor.invalidCode': 'Code non valide',
   'profile.twoFactor.kicker': 'Authentification à deux facteurs',
+  'profile.twoFactor.off': 'Non activé',
   'profile.twoFactor.on': 'Activée',
   'resetPassword.email': 'E-mail du compte',
   'resetPassword.heading': 'Définir de nouveaux identifiants',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'commandes',
   'secretsManagerLayout.encrypted': 'AES-256 · CHIFFRÉ',
   'secretsManagerLayout.newVault': 'Nouveau coffre',
+  'secretsManagerLayout.newVaultShort': 'Nouveau',
   'secretsManagerLayout.rotations': 'Rotations',
   'secretsManagerLayout.search': 'rechercher',
   'secretsManagerLayout.searchPlaceholder': 'Rechercher des secrets par clé, chemin ou étiquette…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Secrets',
   'vaultCard.vaultLabel': 'Coffre',
   'vaultDetail.addSecret': 'Ajouter un secret',
+  'vaultDetail.back': 'Tous les coffres-forts',
   'vaultDetail.col.key': 'Clé',
   'vaultDetail.col.rotated': 'Roté',
   'vaultDetail.col.value': 'Valeur',

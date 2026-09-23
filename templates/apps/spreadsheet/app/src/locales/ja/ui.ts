@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
   'about.pageTitle': '{{name}}について',
   'auth.footer.about': '{{name}}について',
   'authHeader.subtitle': 'サインインして数字を正確に保ちましょう。',
   'automations.action.email': 'メールアドレス',
+  'automations.action.noop': 'ノーオプト',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': '「{{name}}」を削除しますか?',
   'automations.empty.headline': 'オートメーションはまだありません',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'すべてのワークブックにわたるトリガーとアクション。実行ごとに監査可能な行が記録されます。',
   'automations.toggle': '{{name}} を切り替え',
+  'automations.trigger.dailySchedule': '日々のスケジュール',
+  'automations.trigger.rowCreated': '行が作成されました',
+  'automations.trigger.rowUpdated': '行が更新されました',
   'billing.empty': '利用可能なプランがありません。',
   'billing.error.priceMissing':
     'このティアの Stripe 価格が設定されていません。STRIPE_*_PRICE_ID の環境変数を設定してください。',
@@ -43,11 +48,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'チャート',
   'charts.kpi.totalCharts': 'チャート総数',
   'charts.list.empty': 'チャートはまだありません。',
+  'charts.namePlaceholder': '収益動向',
   'charts.newChart': '新規チャート',
   'charts.primary.eyebrow': '種類別チャート',
   'charts.primary.headline': 'ワークスペース概要',
   'charts.subhead': 'グリッドに連動するライブビジュアル — セル編集のたびに再描画されます。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'editor.addColumn': '列を追加',
+  'editor.addDialogTitle': '列を追加',
   'editor.addRow': '行を追加',
   'editor.addSheet': 'シートを追加',
   'editor.back': 'ワークブックに戻る',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}。Calcite は、アナリストや財務チームが最初に手に取る、数式優先・マルチビュー・リアルタイムのグリッドです。',
   'landing.nav.formulas': '数式',
+  'login.noAccount': '{{name}}は初めてですか？',
+  'login.signIn': '{{name}}にサインインしてください',
   'login.signUp': 'ワークスペースを作成',
+  'nav.menu': 'メニュー',
+  'nav.openMenu': 'メニューを開く',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'この行はもともと存在しません。',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ネイティブのオートメーション · Webhook と cron トリガー',
   'signup.creating': 'ワークスペースをプロビジョニング中…',
   'signup.cta': 'ワークスペースを作成',
+  'signup.haveAccount': '既に{{name}}に登録済みですか？',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': '30秒で最初のワークブックを立ち上げましょう',
   'team.col.activity': '招待日',

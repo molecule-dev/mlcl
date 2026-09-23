@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Um',
   'alertConditionCard.condition.${alert.condition}': 'Virkjað {{þegar}}',
+  'alertConditionCard.confirmDelete': 'Staðfesta eyðingu',
   'alertConditionCard.pauseAriaLabel': 'Gera hlé á viðvörun',
   'alertConditionCard.resumeAriaLabel': 'Viðvörun um að halda áfram',
   'alertNew.condition': 'Ástand',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Fullþynnt verðmat',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Vefsíða',
+  'coinDetail.links.whitepaper': 'Hvítbók',
   'coinDetail.loadError': 'Mistókst að hlaða mynt.',
   'coinDetail.marketCap': 'Markaðsvirði',
   'coinDetail.maxSupply': 'Hámarks framboð',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Leiðin sem þú skannaðir finnur ekki þekkta mynt eða síðu. Athugaðu táknið aftur og reyndu aftur.',
   'notFound.browseMarkets': 'Skoða markaði',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'portfolio.addError': 'Sláðu inn tákn, jákvæða upphæð og kostnað.',
   'portfolio.addHoldingCta': '+ Bæta við eignarhlut',
   'portfolio.addModal.cost': 'Kostnaðargrundvöllur (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Lykilorð og tveggja þátta stillingar eru stjórnað af reikningnum þínum.',
   'settings.signOutDevice': 'Skrá út',
+  'settings.twoFactorCode': 'Auðkenningarkóði',
   'settings.twoFactorDisable': 'Slökkva',
   'settings.twoFactorEnable': 'Virkja',
+  'settings.twoFactorInvalidCode': 'Ógildur kóði',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Staðfesta og virkja',
   'sigilAuthShell.backHomeCta': '← Til baka til Bourse',
   'sigilLayout.primaryNavLabel': 'Aðalflakk',
   'signup.eyebrow': 'Opna flugstöð',

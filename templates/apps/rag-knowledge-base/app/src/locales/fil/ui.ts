@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.pageTitle': 'Tungkol sa {{appName}}',
   'analytics.error': 'Hindi ma-load ang analytics.',
   'analytics.heading': 'Pagsusuri ng pagkuha',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Walang naka-configure na mga antas ng pagpepresyo.',
   'billing.plans.heading': 'Mga plano',
   'billing.subheading': 'Plano, paggamit, at checkout na pinamamahalaan ng Stripe.',
+  'common.confirm': 'Kumpirmahin',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'documentCard.open': 'Buksan',
   'documentDetail.back': 'Balik sa mga dokumento',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Dokumento ng indeks',
   'documents.composer.titlePlaceholder': 'Pamagat ng dokumento',
   'documents.emptyAll': 'Wala pang mga dokumento. Mag-upload ng isa para magsimulang magtanong.',
+  'documents.error.load': 'Hindi ma-load ang mga dokumento.',
   'documents.heading': 'Mga dokumentong naka-index',
   'documents.loading': 'Naglo-load ng mga dokumento…',
   'documents.metric.chunks': 'Kabuuang mga tipak',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Pag-aalis',
   'members.subheading': 'Mag-imbita ng mga kasamahan sa koponan at magtakda ng mga tungkulin.',
   'members.tableHeading': 'Listahan',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'notFound.askCta': 'Magtanong sa knowledge base',
+  'notFound.body':
+    'Hindi mahanap {{app}} ang pahinang iyon. Maaaring sira ang link, o maaaring tinanggal na ang pahina habang isinasagawa ang muling pag-index.',
   'notFound.eyebrow': 'Hindi mabawi',
   'notFound.title': 'Walang ganoong bahagi sa index',
   'notifications.dismiss': 'Isara',
@@ -209,6 +218,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'I-click ang \\u201cMagdagdag ng pinagmulan\\u201d para ikonekta ang iyong unang konektor.',
   'sources.empty.title': 'Wala pang mga mapagkukunan.',
+  'sources.error.add': 'Hindi maidagdag ang pinagmulan.',
   'sources.error.labelRequired': 'Kinakailangan ang etiketa.',
   'sources.error.load': 'Hindi ma-load ang mga source.',
   'sources.error.urlRequired': 'Kinakailangan ang URL para sa ganitong uri ng pinagmulan.',

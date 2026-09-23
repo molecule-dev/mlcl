@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
+  'about.title': 'Um escritório que você pode levar no bolso.',
   'billing.cancelConfirm': 'Cancelar sua assinatura ativa?',
   'billing.cancelFailed': 'Não foi possível cancelar.',
   'billing.checkingOut': 'Abrindo o checkout…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Não foi possível carregar o faturamento.',
   'billing.loading': 'Carregando faturamento…',
   'billing.upgradeCta': 'Fazer upgrade para {{name}}',
+  'common.goToDashboard': 'Ir para o Painel',
+  'editor.autosaveOn': 'Salvamento automático ativado',
   'editor.backToLibrary': 'Voltar à biblioteca',
   'editor.charCount': '{{count}} caracteres',
   'editor.confirmTrash': 'Mover este documento para a lixeira?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Desafixado',
   'editor.unpublishCta': 'Voltar para rascunho',
   'editor.unpublished': 'Revertido para rascunho',
+  'focus.autosaveOn': 'Salvamento automático ativado',
   'focus.backToLibrary': 'Voltar à biblioteca',
   'focus.bodyPlaceholder': 'Uma linha por vez. Ninguém mais está aqui.',
   'focus.exit': 'Sair do modo foco',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Crie uma',
   'login.subline':
     'Seus manuscritos, páginas diárias e a última posição do cursor estão exatamente onde você os deixou.',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'pricing.exports': 'exportações',
   'pricing.folders': 'pastas',
   'pricing.heading': 'documentos',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Informe o código que acabamos de enviar por e-mail e escolha algo memorável. Vamos te autenticar assim que salvar.',
   'reset.tokenHint': 'Colado da sua caixa de entrada.',
+  'settings.appearance.heading': 'Claro ou escuro',
   'settings.editor.${row.id}.description': 'Idioma',
   'settings.editor.description':
     'Rolagem tipo máquina de escrever, efeito de fade nos parágrafos e foco ocioso — as configurações padrão são otimizadas para sessões prolongadas.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Capítulo Três — Uma hora silenciosa antes do nascer do sol',
   'versalDocumentCard.pinned': 'Fixado',
   'versalLayout.nav.stats': 'Estatísticas',
+  'versalLayout.primaryNavLabel': 'Navegação principal',
   'versalManuscriptHero.cta': 'Continuar escrevendo',
   'versalManuscriptHero.goalLabel': 'Meta de palavras de hoje',
   'versalManuscriptHero.inProgress': 'No ritmo',

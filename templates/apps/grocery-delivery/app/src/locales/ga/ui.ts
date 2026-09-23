@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Tabhair leid do do cheannaitheoir',
   'checkout.tipLabel': 'Leid',
   'checkout.zipPlaceholder': 'Cód Poist',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'featuredProductsGrid.addAria': 'Cuir leis {{name}} chuig an gcairt',
   'featuredProductsGrid.outOfStock': 'As stoc',
   'forgotPassword.emailLabel': 'Seoladh Ríomhphoist',
   'forgotPassword.emailPlaceholder': 'siopadóir@bushel.fresh',
   'forgotPassword.successBody':
     'Má tá an ríomhphost sin cláraithe, tá nasc athshocraithe ar an mbealach.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'landing.categoriesEyebrow': 'Pasáistí',
   'landing.categoriesHeading': 'Siopa de réir catagóire',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Sceideal seachadtaí seachtainiúla le hathordú cliste stáplaí agus rianú beo tiománaithe.',
   'landing.heroTitle': 'Úire ag do dhoras, i gceann uaireanta an chloig.',
   'landing.howEyebrow': 'Trí chéim',
+  'landing.howItWorksHeading': 'Conas a oibríonn {{app}}',
   'lists.addAllCta': 'Cuir gach rud leis an gcairt',
   'lists.createCta': 'Cruthaigh do chéad liosta',
   'lists.createError': 'Níorbh fhéidir liosta a chruthú.',

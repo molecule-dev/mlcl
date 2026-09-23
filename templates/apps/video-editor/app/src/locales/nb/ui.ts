@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du funnet en feil, har du et ønske om en funksjon, eller vil du fortelle oss om filmen du klippet? Hver melding når en ekte person i teamet – ta kontakt når som helst fra kontoinnstillingene dine.',
+  'about.contactTitle': 'Snakk med oss',
+  'about.eyebrow': '// studioet bak klippet',
   'about.pageTitle': 'Om {{appName}}',
   'assetDetail.back': 'Tilbake til biblioteket',
   'assetDetail.confirmDelete': 'Slett {{name}} "? Dette kan ikke angres.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} klipp, lydbilder og grafikk klare til å legges på tidslinjen.',
   'assetLibrary.title': 'Eiendeler',
   'assetLibrary.upload': 'Legg til ressurs',
+  'common.goToDashboard': 'Gå til oversikt',
   'dashboard.browseTemplates': 'Bla gjennom maler →',
   'dashboard.loading': 'Laster prosjekter…',
   'dashboard.noProjects': 'Ingen prosjekter ennå – opprett et for å komme i gang.',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Velg noe bare du ville husket.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Personvern',
+  'rushesLayout.closeMenu': 'Lukk navigasjonen',
   'rushesLayout.guest': 'Redaktør',
+  'rushesLayout.navDialog': 'Navigasjon',
+  'rushesLayout.openMenu': 'Åpne navigasjon',
   'rushesLayout.planFree': 'Gratisplan',
   'rushesLayout.tagline': 'Filmatisk tidslinje',
   'settings.billing.confirmCancel': 'Kansellere abonnementet ved periodens slutt?',

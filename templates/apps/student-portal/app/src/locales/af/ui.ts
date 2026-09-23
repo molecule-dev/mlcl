@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'announcementsFeed.empty': 'Geen aankondigings nog nie.',
   'announcementsFeed.eyebrow': '{{count}} opdaterings',
   'announcementsFeed.title': 'Nuutste aankondigings',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Niks hier nie',
   'assignments.emptyBody': "Wissel filters hierbo om toewysings in 'n ander toestand te sien.",
   'assignments.eyebrow': 'Alle kursusse · Hierdie kwartaal',
+  'assignments.loadError': 'Kon nie opdragte laai nie.',
   'assignments.loading': 'Laai opdragte…',
   'assignments.subtitle':
     'Filtreer volgens status om te sien wat verskuldig, ingedien, gegradeer of ontbreek.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': 'Geen bywoningsrekords nog nie.',
   'attendance.eyebrow': 'Lentetermyn · Laaste 4 weke',
+  'attendance.loadError': 'Kon nie bywoningsrekords laai nie.',
   'attendance.loading': 'Laai bywoning…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     "Opdragte se sperdatums word op 'n maandrooster aangedui — eksamens word in rooi uitgedruk.",
   'calendar.title': '{{month}} geleenthede',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
+  'common.retry': 'Probeer weer',
   'common.yes': '✓',
   'courseDetail.backLink': 'Grade',
   'courseDetail.currentGrade': 'Huidige graad',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendens',
   'grades.empty': 'Geen punte nog geplaas nie.',
   'grades.eyebrow': 'Graadboek',
+  'grades.loadError': 'Kon nie jou punte laai nie.',
   'grades.loading': 'Laai grade…',
   'grades.subtitle':
     'Lewendige letter- en persentasiegrade. Tendenspyle wys of jy opwaarts, gelyk of gly.',
   'grades.title': 'Jou punte, kursus vir kursus',
   'grades.trendStable': 'Stal',
+  'landing.copyright': '© {{year}} {{app}} . Gebou vir studente, gemaak vir gesinne.',
   'landing.ctaHeading': "'n Kalmer skooldag begin binne minute",
   'landing.eyebrow': 'Vir middel- en hoërskoolleerlinge',
   'landing.featuresHeading': "'n Skooldag wat rondom die leerder georganiseer is",
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Opdragte',
   'nav.attendance': 'Bywoning',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Maak navigasiekieslys toe',
   'nav.grades': 'Grade',
+  'nav.openMenu': 'Maak navigasiekieslys oop',
   'nav.statusEyebrow': 'Termyn GPA',
   'nav.statusSubtext': 'Ererol · Lentetermyn',
+  'nav.unreadMessages': 'Ongeleesde boodskappe',
   'notifications.eyebrow': '{{count}} opdaterings',
   'notifications.subtitle':
     'Punte, herinnerings, boodskappe en skoolaankondigings. Pas aan watter kanale elke kennisgewing gebruik in Instellings.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.attendanceLabel': 'bywoning',
   'pricing.gradesLabel': 'grade',
   'pricing.heading': 'aankondigings',

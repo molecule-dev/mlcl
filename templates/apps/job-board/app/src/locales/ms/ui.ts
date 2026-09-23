@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
   'applications.empty':
     'Tiada permohonan lagi \\u2014 peranan yang betul hanya perlu satu permohonan sahaja.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Setiap peranan yang telah anda pohon, sedang dijalankan. Tapis mengikut peringkat untuk fokus.',
   'applications.untitledRole': 'Peranan # {{id}}',
+  'auth.legalConsent': 'Dengan meneruskan, anda bersetuju dengan',
   'common.and': 'dan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'companies.empty': 'Tiada syarikat yang sepadan dengan carian anda \\u2014 cuba istilah lain.',
   'companies.eyebrow': 'Majikan pilihan',
   'companies.searchPlaceholder': 'Cari mengikut nama, industri, lokasi',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Tiada permohonan lagi untuk peranan ini.',
   'jobApplicants.eyebrow': 'Pandangan majikan',
   'jobApplicants.loading': 'Memuatkan…',
+  'jobApplicants.statusUpdateFailed': 'Tidak dapat mengemas kini peringkat itu — cuba lagi.',
+  'jobApplicants.subheading':
+    'Semak resume, majukan calon, hantar tawaran \\u2014 {{count}} secara aktif.',
   'jobDetail.applicantCount': '{{count}} pemohon setakat ini',
   'jobDetail.applied': 'Permohonan dihantar',
   'jobDetail.apply': 'Mohon sekarang',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Layari peranan terbuka \\u2192',
   'landing.pricingEyebrow': 'Harga',
   'landing.pricingHeading': 'Pelan mudah untuk setiap saiz pasukan.',
+  'login.eyebrow': 'Selamat kembali ke {{app}}',
   'login.heading': 'Log masuk ke akaun anda',
   'login.noAccount': 'Baru dalam Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,8 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Melog masuk\\u2026',
   'login.subheading':
     'Mulakan carian anda, majukan permohonan anda, dapatkan maklum balas dengan lebih pantas.',
+  'loginBrandPanel.copyright':
+    '© {{year}} {{app}} . Dibina untuk pasukan yang sedang mengambil pekerja.',
   'loginBrandPanel.headline': 'Di mana bakat bertemu',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Rakan Bakat',
@@ -107,6 +116,7 @@ export const ui: UiTranslations = {
     'Kemas kini permohonan, jemputan temu duga, padanan baharu \\u2014 terbaharu dahulu.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} minggu ini',
   'opportunitiesHero.eyebrow': 'Buka hari ini',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'postJob.addNewCompany': '+ Tambah syarikat baharu',
   'postJob.companyCreateFailed': 'Tidak dapat mencipta syarikat — cuba lagi.',
   'postJob.companyNameLabel': 'Nama syarikat anda',
@@ -165,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Mencipta akaun\\u2026',
   'signup.ctaEmployer': 'Cipta akaun majikan',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Kata laluan tidak sepadan.',
   'signup.subheading':
     'Percuma untuk pencari, selama-lamanya. Majikan bermula dengan percubaan selama 30 hari.',
   'timeAgo.days': '{{count}}h lalu',
   'timeAgo.hours': '{{count}}j lalu',
   'timeAgo.justNow': 'baru sahaja',
+  'timeAgo.weeks': '{{count}} minggu yang lalu',
 }

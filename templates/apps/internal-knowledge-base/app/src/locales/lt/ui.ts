@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'article.notFound': 'Straipsnis nerastas',
   'articleEditor.bodyPlaceholder':
     'Įveskite /, jei norite rasti blokų, arba tiesiog pradėkite rašyti.',
+  'articleEditor.loadFailed': 'Nepavyko įkelti straipsnio',
   'articleEditor.publishing': 'Leidyba\\u2026',
   'articleEditor.saveFailed': 'Išsaugoti nepavyko',
   'articleEditor.saving': 'Išsaugoma\\u2026',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Žymė',
   'articleView.bookmarkOn': 'Įtraukta į žymes',
   'articleView.edit': 'Redaguoti straipsnį',
+  'articleView.loading': 'Atidarant šį straipsnį…',
   'articleView.readTime': '{{minutes}} min. skaitymo',
   'articleView.spaces': 'Erdvės',
   'articleView.tocHeading': 'Šiame puslapyje',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Naujausi redagavimai, skaitymai ir juodraščiai, kuriuos jūsų komanda vis dar tobulina.',
   'cairnTrailHero.updated': 'Straipsniai atnaujinti',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'drafts.eyebrow': 'Jūsų nebaigti darbai',
   'drafts.heading': 'Juodraščiai',
+  'drafts.loadFailed': 'Nepavyko įkelti jūsų juodraščių.',
   'drafts.subtitle':
     'Pradėjote rašyti, bet dar nepublikuotus straipsnius. Pasirinkite vieną ir tęskite.',
   'forgotPassword.sentBody':
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
     'Kol kas laisvų vietų nėra. Atidarykite vieną, kad pradėtumėte rinkti straipsnius.',
   'home.spacesHeading': 'Jūsų erdvės',
   'home.subtitle': 'Naujausi straipsniai, jūsų žymės ir tai, ką rašė komanda.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Sukurta naudojant „Molecule“.',
   'landing.ctaBody':
     'Nemokama individualiems autoriams. Komandos planai paskirstytoms komandoms, kurios teikia vykdymo knygas, sprendimus ir adaptacijos instrukcijas.',
   'landing.ctaHeading': 'Šiandien sudėkite pirmąjį akmenį.',
@@ -84,7 +91,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Sukurkite darbo sritį',
   'login.submitting': 'Prisijungimas...',
   'login.subtitle': 'Tęsk taką ten, kur jį palikai.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
+  'newSpace.colorAria': 'Pasirinkite spalvą {{color}}',
   'newSpace.colorLabel': 'Akcentinė spalva',
+  'newSpace.createFailed': 'Nepavyko sukurti erdvės',
   'newSpace.descriptionPlaceholder':
     'Veiklos schemos, budėjimo taktikos, pooperacinės analizės\\u2026',
   'newSpace.eyebrow': 'Atidarykite žinių erdvę',
@@ -109,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Kraunama\\u2026',
   'notifications.subtitle':
     '{{count}} neskaityti paminėjimai, komentarai, puslapio pakeitimai ir peržiūros užklausos.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.articles': 'straipsniai',
   'pricing.spaces': 'erdvės',
   'profile.eyebrow': 'Kūrimo profilis',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Įveskite naują slaptažodį',
   'resetPassword.subtitle': 'Pasirinkite saugų slaptažodį – ne trumpesnį kaip 12 simbolių.',
   'searchResults.eyebrow': 'Darbo srities paieška',
+  'searchResults.filter.all': 'Visos erdvės',
   'searchResults.heading': 'Ieškoti straipsnių',
   'searchResults.placeholder': 'Ieškoti vykdymo rinkinių, RFC, politikų, sprendimų\\u2026',
   'searchResults.summary': '{{count}} rezultatai pagal užklausą \\u201c {{query}} \\u201d',
@@ -136,14 +149,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Tai ištrina jūsų paskyrą ir visus jūsų parašytus straipsnius. Patvirtinkite paspausdami IŠTRINTI.',
   'settings.danger.confirmInvalid': 'Norėdami patvirtinti, įveskite DELETE.',
+  'settings.danger.deleteFailed': 'Nepavyko ištrinti paskyros',
   'settings.danger.deleting': 'Ištrinama\\u2026',
   'settings.danger.description':
     'Ištrynus darbo sritį, pašalinami visi straipsniai, komentarai ir versijų istorija. Atkurti negalima.',
   'settings.danger.title': 'Ištrinti darbo sritį',
+  'settings.email.confirm': 'Atnaujinti el. pašto adresą',
+  'settings.email.confirmTitle': 'Patvirtinkite el. pašto adreso pakeitimą',
   'settings.email.saved': 'El. paštas atnaujintas.',
+  'settings.email.updateFailed': 'Nepavyko atnaujinti el. pašto adreso',
   'settings.language.title': 'Kalba',
   'settings.name': 'Vardas',
+  'settings.name.saved': 'Vardas atnaujintas.',
+  'settings.name.updateFailed': 'Nepavyko atnaujinti pavadinimo',
   'settings.notifications.description': 'Pasirinkite, kas pateks į jūsų pašto dėžutę.',
+  'settings.password.changeFailed': 'Nepavyko pakeisti slaptažodžio',
   'settings.password.current': 'Dabartinis slaptažodis',
   'settings.password.new': 'Naujas slaptažodis',
   'settings.password.saving': 'Atnaujinama\\u2026',
@@ -151,10 +171,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Kaip jums pateikiami straipsniai.',
   'settings.reading.title': 'Skaitymas ir rašymas',
   'settings.subtitle': 'Derinkite pranešimus, skaitymo sritį ir savo paskyrą.',
+  'settings.twofa.code': 'Autentifikavimo kodas',
   'settings.twofa.disable': 'Išjungti',
   'settings.twofa.disabled': 'Neįgalus',
   'settings.twofa.enable': 'Įjungti',
   'settings.twofa.enabled': 'Įjungta',
+  'settings.twofa.invalidCode': 'Neteisingas kodas',
+  'settings.twofa.unavailable': 'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
+  'settings.twofa.verify': 'Patvirtinti ir įgalinti',
   'signup.brandQuote':
     'Užrašyti tai yra pirmas pažadas, kurį duodame kitam žmogui, kuriam to reikia.',
   'signup.eyebrow': 'Atidaryti darbo sritį',

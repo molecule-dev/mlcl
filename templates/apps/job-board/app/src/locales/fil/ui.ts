@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
   'applications.empty': 'Wala pang aplikasyon \\u2014 ang tamang posisyon ay isang apply na lang.',
   'applications.eyebrow': 'Ang iyong tubo',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Bawat tungkuling inaplayan mo, gumagana. I-filter ayon sa yugto para makapag-focus.',
   'applications.untitledRole': 'Tungkulin # {{id}}',
+  'auth.legalConsent': 'Sa pagpapatuloy, sumasang-ayon ka sa aming',
   'common.and': 'at',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'companies.empty':
     'Walang mga kumpanyang tumutugma sa iyong paghahanap \\u2014 subukan ang ibang termino.',
   'companies.eyebrow': 'Mga itinatampok na employer',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Wala pang mga aplikasyon para sa tungkuling ito.',
   'jobApplicants.eyebrow': 'Pananaw ng employer',
   'jobApplicants.loading': 'Naglo-load…',
+  'jobApplicants.statusUpdateFailed': 'Hindi ma-update ang yugtong iyon — subukan muli.',
+  'jobApplicants.subheading':
+    'Suriin ang mga resume, isulong ang mga kandidato, magpadala ng mga alok \\u2014 {{count}} nang walang tigil.',
   'jobDetail.applicantCount': '{{count}} mga aplikante sa ngayon',
   'jobDetail.applied': 'Naipadala na ang aplikasyon',
   'jobDetail.apply': 'Mag-apply ngayon',
@@ -85,6 +91,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Mag-browse ng mga bukas na tungkulin',
   'landing.pricingEyebrow': 'Presyo',
   'landing.pricingHeading': 'Mga simpleng plano para sa bawat laki ng koponan.',
+  'login.eyebrow': 'Maligayang pagbabalik sa {{app}}',
   'login.heading': 'Mag-sign in sa iyong account',
   'login.noAccount': 'Bago sa Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -92,6 +99,8 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Nagsa-sign in',
   'login.subheading':
     'Simulan ang iyong paghahanap, isulong ang iyong mga aplikasyon, at mas mabilis na makatanggap ng tugon.',
+  'loginBrandPanel.copyright':
+    '© {{year}} {{app}} . Ginawa para sa mga pangkat na kumukuha ng empleyado.',
   'loginBrandPanel.headline': 'Kung saan nagtatagpo ang talento',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Kasosyo sa Talento',
@@ -108,6 +117,7 @@ export const ui: UiTranslations = {
     'Mga update sa aplikasyon, imbitasyon sa panayam, mga bagong tugma \\u2014 pinakabago muna.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ngayong linggo',
   'opportunitiesHero.eyebrow': 'Bukas ngayon',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'postJob.addNewCompany': '+ Magdagdag ng bagong kumpanya',
   'postJob.companyCreateFailed': 'Hindi makagawa ng kumpanya — subukan muli.',
   'postJob.companyNameLabel': 'Pangalan ng iyong kumpanya',
@@ -166,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Gumagawa ng account\\u2026',
   'signup.ctaEmployer': 'Gumawa ng account ng employer',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Hindi magkatugma ang mga password.',
   'signup.subheading':
     'Libre para sa mga naghahanap, magpakailanman. Nagsisimula ang mga employer sa 30-araw na pagsubok.',
   'timeAgo.days': '{{count}}a nakalipas',
   'timeAgo.hours': '{{count}}o nakalipas',
   'timeAgo.justNow': 'ngayon lang',
+  'timeAgo.weeks': '{{count}} linggo na ang nakalipas',
 }

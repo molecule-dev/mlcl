@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'บทบาทของคุณ',
   'account.role.upgradeLink': 'สมัครเพื่อเป็นติวเตอร์ที่ได้รับการรับรอง →',
   'account.title': 'ข้อมูลส่วนตัว การชำระเงิน และการตั้งค่า',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'สอนโดยใช้ชอล์ก',
   'becomeTutor.form.error': 'ไม่สามารถส่งใบสมัครได้',
   'becomeTutor.form.pitchPlaceholder':
@@ -70,6 +71,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'เรื่อง',
   'bookingConfirm.title': 'การจองของคุณเรียบร้อยแล้ว ที่เหลือเราจะจัดการเอง',
   'bookingConfirm.with': 'กับติวเตอร์',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'earningsHero.eyebrow': 'รายได้ • {{month}}',
   'forgotPassword.heading': 'ลืมรหัสผ่านใช่ไหม?',
   'forgotPassword.subheading':
@@ -110,6 +112,7 @@ export const ui: UiTranslations = {
   'messages.send': 'ส่งข้อความ',
   'messages.thread.empty': 'ทักทาย — เริ่มต้นบทสนทนา',
   'messages.title': 'ติดต่อพูดคุยกับอาจารย์ผู้สอนของคุณ',
+  'nav.primary': 'หลัก',
   'pricing.dataExport': 'การส่งออกข้อมูล:',
   'pricing.headingDefault': 'คุณสมบัติขั้นสูง:',
   'resetPassword.heading': 'เลือกใช้รหัสผ่านใหม่ที่ปลอดภัย',

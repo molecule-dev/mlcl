@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'announcementsFeed.empty': 'Hələlik heç bir elan yoxdur.',
   'announcementsFeed.eyebrow': '{{count}} yeniləmələr',
   'announcementsFeed.title': 'Son elanlar',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Tapşırıqları fərqli vəziyyətdə görmək üçün yuxarıdakı filtrləri dəyişdirin.',
   'assignments.eyebrow': 'Bütün kurslar · Bu semestr',
+  'assignments.loadError': 'Tapşırıqları yükləmək mümkün olmadı.',
   'assignments.loading': 'Tapşırıqlar yüklənir…',
   'assignments.subtitle':
     'Nəyin ödənilməli olduğunu, təqdim edildiyini, qiymətləndirildiyini və ya çatışmadığını görmək üçün statusa görə filtrləyin.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Qeyd',
   'attendance.empty': 'Hələ ki, iştirak qeydləri yoxdur.',
   'attendance.eyebrow': 'Yaz semestri · Son 4 həftə',
+  'attendance.loadError': 'Davamiyyət qeydlərini yükləmək mümkün olmadı.',
   'attendance.loading': 'İştirakçı sayı yüklənir…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Tapşırıqların son tarixləri aylıq cədvəldə göstərilib — imtahanlar qırmızı rənglə vurğulanıb.',
   'calendar.title': '{{month}} tədbirlər',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
+  'common.retry': 'Yenidən cəhd edin',
   'common.yes': '✓',
   'courseDetail.backLink': 'Qiymətlər',
   'courseDetail.currentGrade': 'Cari dərəcə',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Hələ heç bir qiymət paylaşılmayıb.',
   'grades.eyebrow': 'Qiymət kitabçası',
+  'grades.loadError': 'Qiymətlərinizi yükləmək mümkün olmadı.',
   'grades.loading': 'Qiymətlər yüklənir…',
   'grades.subtitle':
     'Canlı hərf və faiz dərəcələri. Trend oxları yuxarı, səviyyə və ya sürüşmə hərəkətinizi göstərir.',
   'grades.title': 'Qiymətləriniz, kurs üzrə',
   'grades.trendStable': 'Tövlə',
+  'landing.copyright': '© {{year}} {{app}} . Tələbələr üçün, ailələr üçün hazırlanmışdır.',
   'landing.ctaHeading': 'Daha sakit bir məktəb günü bir neçə dəqiqədən sonra başlayır',
   'landing.eyebrow': 'Orta və ali məktəb şagirdləri üçün',
   'landing.featuresHeading': 'Tələbə ətrafında təşkil olunmuş məktəb günü',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tapşırıqlar',
   'nav.attendance': 'Davamiyyət',
   'nav.calendar': 'Təqvim',
+  'nav.closeMenu': 'Naviqasiya menyusunu bağlayın',
   'nav.grades': 'Qiymətlər',
+  'nav.openMenu': 'Naviqasiya menyusunu açın',
   'nav.statusEyebrow': 'Semestr GPA',
   'nav.statusSubtext': 'Fəxri lövhə · Yaz semestri',
+  'nav.unreadMessages': 'Oxunmamış mesajlar',
   'notifications.eyebrow': '{{count}} yeniləmələr',
   'notifications.subtitle':
     'Qiymətlər, xatırlatmalar, mesajlar və məktəb elanları. Hər bildirişin hansı kanallardan istifadə etdiyini Parametrlərdə tənzimləyin.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.attendanceLabel': 'iştirak',
   'pricing.gradesLabel': 'qiymətlər',
   'pricing.heading': 'elanlar',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'billing.canceled': 'Жазылуу жокко чыгарылды. Мөөнөттүн аягында акысыз версияга кайтып келесиз.',
   'billing.contactSales': 'Сатуу бөлүмүнө кайрылыңыз',
   'billing.free.1': '5 котормо',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Сактоо чеги жок',
   'billing.upgradeHint': 'Өркүндөтүлгөн AI функцияларынын кулпусун ачуу үчүн жаңыртыңыз.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.activityEmpty':
     'Азырынча эч кандай аракет жок — бул түрмөктү толтуруу үчүн долбоорду баштаңыз.',
   'dashboard.eyebrow': 'Жалпы маалымат',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Ар бир долбоордо мурунку котормолорду кайра колдонуңуз. Дал келүү упайы жогору → кайра иштөө азыраак болот.',
   'memory.title': 'Эстутум банкы',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'nav.legal': 'Юридикалык',
   'newProject.addLanguage': 'Максат кошуу',
   'newProject.create': 'Долбоор түзүү',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Белгиленген {{count}} окулган катары эскертмелер.',
   'notifications.subtitle':
     'Жумуш мейкиндигиңиздеги ар кандай сунуштар, сын-пикирлер жана жасалма интеллект боюнча иш-чаралар.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'privacy.collection.account': 'Аккаунтуңуздун электрондук почтасы жана көрсөтүлүүчү аты-жөнүңүз',
   'privacy.deletion.body':
     'Сиз долбоорду, сегментти, глоссарий терминин же эс тутум жазуусун каалаган убакта тиешелүү баракчадан өчүрө аласыз. Жөндөөлөрдөн аккаунтуңузду жок кылуу биздин маалымат базабыздан жумуш мейкиндигинин бардык чектелген саптарын жок кылат.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Долбоорлор жүктөлбөй калды.',
   'projects.loading': 'Долбоорлор жүктөлүүдө…',
   'projects.subtitle': 'Бардык аймактардагы ар бир активдүү долбоор.',
+  'renditionLayout.primaryNavLabel': 'Негизги навигация',
   'reset.backToLogin': '\\u2190 Кирүү үчүн кайтуу',
   'reset.passwordLabel': 'Жаңы сыр сөз',
   'review.activeEyebrow': 'Сегмент {{number}}',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'رابطہ کریں۔',
   'about.eyebrow': 'کے بارے میں',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.connectRepoCta': 'مخزن کو مربوط کریں۔',
   'dashboard.empty':
     'ابھی تک کوئی پل کی درخواستیں نہیں ہیں - شروع کرنے کے لیے ایک ریپوزٹری کو جوڑیں۔',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'اپ ٹائم',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI کوالٹی سکور {{score}} / 10',
+  'refractLayout.closeMenu': 'مینو بند کریں۔',
+  'refractLayout.openMenu': 'مینو کھولیں۔',
   'refractLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'reports.cumulativeScoreLabel': 'مجموعی سکور',
   'reports.cumulativeScoreSubtitle': 'تمام ریپوز · {{days}} d',
@@ -175,11 +178,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'انڈیکسنگ شروع کرنے کے لیے ریپوزٹری کو جوڑیں یا حسب ضرورت اصول شامل کریں۔',
   'search.loadError': 'سرچ انڈیکس لوڈ کرنے میں ناکام۔',
   'settings.apiKeys.description': 'اوپری دائیں جانب صارف مینو سے ذاتی API کیز کا نظم کریں۔',
+  'settings.apiKeys.integrationsNote':
+    'فراہم کنندہ تک رسائی کے ٹوکنز کا انتظام اوپر انٹیگریشن سیکشن میں کیا جاتا ہے۔',
   'settings.connectError': 'فراہم کنندہ کو منسلک کرنے میں ناکام۔',
   'settings.disconnectError': 'فراہم کنندہ کو منقطع کرنے میں ناکام۔',
   'settings.eyebrow': 'ریفریکٹ · ورک اسپیس',
   'settings.integration.${provider}.label': 'محفوظ ہو رہا ہے…',
   'settings.loadError': 'ترتیبات لوڈ کرنے میں ناکام۔',
+  'settings.notificationCenter': 'اطلاع مرکز',
   'settings.notifications.description':
     'ڈیلیوری کی ترجیحات دیکھنے اور ان کا نظم کرنے کے لیے اطلاعات کا صفحہ دیکھیں۔',
   'settings.section.account': 'اکاؤنٹ اور سیکیورٹی',

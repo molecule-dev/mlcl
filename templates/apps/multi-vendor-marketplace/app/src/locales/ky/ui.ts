@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Сыноо режими: буйрутмалар жазылып, калдыктар эсептелинет, бирок чыныгы картадан акча алынбайт.',
   'checkout.placeOrderCta': 'Буйрутма берүү',
+  'checkout.placeOrderError': 'Буйрутмаңызды жайгаштыра алган жокмун.',
   'checkout.placingOrder': 'Буйрутма берүү…',
   'checkout.review.shipTo': 'Жеткирүү дареги',
   'checkout.review.subtotal': 'Сатуучунун жалпы суммасы',
@@ -57,6 +58,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Сатуучу болуңуз',
   'landing.footer.copyright': '© {{year}} {{name}} — ар бир өндүрүүчү, бир базар.',
   'landing.footer.help': 'Жардам борбору',
+  'landing.nav.keepShopping': 'Соода кыла бериңиз',
   'landing.nav.sell': "Vendry'де сатуу",
   'landing.nav.shop': 'Дүкөн',
   'landing.nav.signUp': 'Кошулуу',
@@ -67,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Сатып алуучулар эмнени жакшы көрүшөт',
   'login.accountTypeAria': 'Аккаунттун түрү',
   'login.heading': 'Vendryге кайрадан кош келиңиз',
+  'login.legalPrefix': 'Кирүү менен сиз биздин шарттарыбызга макул болосуз',
   'login.subheading': 'Соода кылууну улантуу үчүн кириңиз же дүкөнүңүзгө кайра кириңиз.',
   'login.submitShopper': 'Дүкөнгө кирүү',
   'login.submitVendor': 'Менин дүкөнүмө кириңиз',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Жайгаштырылган {{date}} · {{vendorCount}} сатуучу(лар) · көп сатуучу менен аткаруу',
   'orders.empty': 'Бул чыпкага азырынча эч кандай буйрутма дал келе элек.',
+  'orders.emptyTitle': 'Бул жерде азырынча буйрутмалар жок',
   'orders.eyebrow': 'Сатып алган нерселериңиз',
   'orders.subtitle':
     'Ким эмне жөнөткөнүн көрүңүз, ар бир жеткирүүчү ар биринин көзөмөлүн ээрчиңиз жана эч качан посылканы жоготпоңуз.',
   'orders.title': 'Сатуучу боюнча топтолгон буйрутмалар',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'productDetail.addToCart': 'Себетке кошуу',
   'productDetail.addToCartError': 'Себетке кошуу мүмкүн болгон жок.',
   'productDetail.addToCartSuccess': '" {{name}} "себетке кошулду."',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Кантип соода кыларыңызды, сатуучулар сизге кантип жетерин жана акча кайда кетерин башкарыңыз.',
   'signup.heading': 'Базарга кошулуңуз',
+  'signup.legalPrefix': 'Кошулуу менен сиз биздин келишимге макул болосуз',
   'signup.mismatch': 'Сырсөздөр азырынча дал келе элек.',
   'signup.subheading':
     '4000ден ашык көз карандысыз өндүрүүчүлөрдү карап чыгыңыз же өзүңүздүн дүкөнүңүздү ачыңыз.',
   'status.delivered': 'Жеткирилди',
   'status.refunded': 'Кайтарылган акча',
+  'userMenu.marketplaceSettings': 'Базардын жөндөөлөрү',
   'vendor.memberSince': 'Мүчө болгондон бери {{date}}',
+  'vendorDashboard.defaultShop': 'сиздин дүкөнүңүз',
   'vendorDashboard.eyebrow': 'Сатуучу администратору · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Vendry комиссиясынан кийин тазаланды. Кийинки төлөм жума күнү.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Кайда жасайсыз, эмне жасайсыз жана эмне үчүн маанилүү.',
   'vendorOnboarding.currencyLabel': 'Валюта менен эсептешүү',
   'vendorOnboarding.errors.shopName': 'Дүкөндүн аталышы талап кылынат.',
+  'vendorOnboarding.errors.submit': 'Арызыңыз тапшырылган жок.',
   'vendorOnboarding.exit': 'Сактап, кийинчерээк улантуу',
   'vendorOnboarding.eyebrow': "Vendry'де сатуу үчүн кайрылыңыз",
+  'vendorOnboarding.field.shopName': 'Дүкөндүн аталышы',
   'vendorOnboarding.heroBody':
     '8% комиссия, ар жума сайын төлөмдөр, сиздин дүкөнүңүз, сиздин окуяңыз. Дүкөнүңүз жөнүндө бир аз айтып бериңиз, биз сиз менен 48 сааттын ичинде байланышабыз.',
   'vendorOnboarding.review.contact': 'Байланыш',
   'vendorOnboarding.review.currency': 'Валюта',
+  'vendorOnboarding.review.tagline': 'Ураан',
+  'vendorOnboarding.review.website': 'Веб-сайт',
   'vendorOnboarding.reviewBody':
     'Жакшы көрүнөт. Биз сиздин дүкөнүңүздү 48 сааттын ичинде карап чыгып, биринчи төлөмүңүздү биринчи сатуудан кийинки жума күнү жөнөтөбүз.',
   'vendorOnboarding.samplesLabel': 'Үлгү иш — Instagram, портфолио, сүрөттөр',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Арыз тапшырылды! Биз сиздин дүкөнүңүздү карап чыгып, 48 сааттын ичинде сизге электрондук кат жөнөтөбүз.',
   'vendorOnboarding.taxIdLabel': 'Салык төлөөчүнүн идентификациялык номери',
+  'vendorOrders.emptyTitle': 'Азырынча аткарыла турган буйрутмалар жок',
   'vendorOrders.eyebrow': 'Сатуучу администратору',
+  'vendorOrders.kpi.awaiting': 'Аткарылышын күтүп жатам',
   'vendorOrders.kpi.inTransit': 'Транспортто',
   'vendorOrders.subtitle':
     'Вендриден чыкпай туруп, этикеткаларды басып чыгарыңыз, аткарылды деп белгилеңиз жана суроолорго жооп бериңиз.',
   'vendorOrders.title': 'Кирүүчү буйрутмалар',
+  'vendorPayouts.emptyTitle': 'Азырынча төлөмдөр жок',
   'vendorPayouts.eyebrow': 'Сатуучуларды каржылоо',
   'vendorPayouts.heroCaption': 'Banco BPI менен келишим түзөт {{account}} · 1–2 жумушчу күн',
   'vendorPayouts.history': 'Төлөм тарыхы',
@@ -194,7 +209,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Ал кайда жасалган? Ал кандай окуяны камтыйт?',
   'vendorProductForm.error.name': 'Продукциянын аталышы талап кылынат',
   'vendorProductForm.error.price': 'Оң баа киргизиңиз',
+  'vendorProductForm.error.publish': 'Жарыяланган жок',
   'vendorProductForm.eyebrow': 'Жаңы тизме',
+  'vendorProductForm.eyebrowEdit': 'Тизмени түзөтүү',
   'vendorProductForm.images.body':
     '8 сүрөткө чейин сүйрөп барып таштаңыз. Биринчи сүрөт дүкөндүн мукабасына айланат.',
   'vendorProductForm.images.cta': 'Сүрөттөрдү бул жерге сүйрөңүз же карап чыгыңыз',
@@ -206,6 +223,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Өзгөрүүлөрдү сактоо',
   'vendorProductForm.title': 'Сатып алуучуларга өз буюмуңуз жөнүндө айтып бериңиз',
   'vendorProductForm.variants.colInventory': 'Инвентаризация',
+  'vendorProductForm.variants.colVariant': 'Вариант',
   'vendorProducts.eyebrow': 'Сатуучу администратору',
   'vendorProducts.kpi.draft': 'Долбоорлор',
   'vendorProducts.kpi.lowStock': 'Аз запас',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'about.pageTitle': 'Về {{appName}}',
   'analytics.empty': 'Hãy ghi lại clip đầu tiên của quý vị để xem mức độ tương tác tại đây.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'clip',
   'billing.usage.views': 'Lượt xem',
   'billing.usage.views.unit': 'lượt xem',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'landing.cta.title': 'Gửi phản hồi tốt hơn. Bắt đầu với Glint.',
   'landing.feature.capture.body':
     'Ghi hình trình duyệt, máy tính và di động với micrô, máy ảnh và vẽ.',
   'landing.feature.capture.title': 'Ghi hình một chạm',
+  'landing.footer.copy': '© {{year}} {{appName}} . Async, được làm sáng tỏ.',
   'landing.hero.cardCaption': 'Tổng quan không gian làm việc mẫu — dùng thử miễn phí.',
   'landing.hero.primaryCta': 'Bắt đầu ghi hình miễn phí',
   'landing.hero.proof.free': 'Gói miễn phí vĩnh viễn',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Tìm bản ghi',
   'library.searchPlaceholder': 'Tìm bản ghi…',
   'library.weeklyChange': '{{value}}% so với tuần trước',
+  'nav.openMenu': 'Mở menu điều hướng',
   'nav.record': 'Ghi hình',
   'nav.shared': 'Đã chia sẻ với tôi',
   'nav.startRecording': 'Bắt đầu ghi hình',

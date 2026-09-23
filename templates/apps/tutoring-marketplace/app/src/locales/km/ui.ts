@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'តួនាទីរបស់អ្នក',
   'account.role.upgradeLink': 'ដាក់ពាក្យស្នើសុំក្លាយជាគ្រូបង្រៀនដែលបានផ្ទៀងផ្ទាត់ →',
   'account.title': 'ប្រវត្តិរូប ការទូទាត់ និងចំណូលចិត្ត។',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'បង្រៀនលើដីស',
   'becomeTutor.form.error': 'មិនអាចដាក់ពាក្យស្នើសុំបានទេ។',
   'becomeTutor.form.pitchPlaceholder':
@@ -70,6 +71,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'ប្រធានបទ',
   'bookingConfirm.title': 'អ្នក​បាន​កក់​រួចរាល់​ហើយ។ យើង​នឹង​ដោះស្រាយ​អ្វី​ដែល​នៅ​សល់។',
   'bookingConfirm.with': 'ជាមួយគ្រូបង្ហាត់',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'earningsHero.eyebrow': 'ប្រាក់ចំណូល • {{month}}',
   'forgotPassword.heading': 'ភ្លេចពាក្យសម្ងាត់របស់អ្នក?',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'ផ្ញើសារ',
   'messages.thread.empty': 'និយាយថាសួស្តី - ចាប់ផ្តើមការសន្ទនា។',
   'messages.title': 'ប្រធានបទជាមួយគ្រូរបស់អ្នក។',
+  'nav.primary': 'បឋម',
   'pricing.dataExport': 'ការនាំចេញទិន្នន័យ៖',
   'pricing.headingDefault': 'លក្ខណៈពិសេសកម្រិតខ្ពស់៖',
   'resetPassword.heading': 'ជ្រើសរើសពាក្យសម្ងាត់ថ្មីដែលរឹងមាំ។',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'applications.empty':
     'Пакуль няма заявак \\u2014 патрэбная вакансія знаходзіцца ўсяго ў адной заяве.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Кожная пасада, на якую вы падалі заяўку, у працэсе. Фільтруйце па этапах, каб засяродзіцца.',
   'applications.untitledRole': 'Роля № {{id}}',
+  'auth.legalConsent': 'Працягваючы, вы згаджаецеся з нашымі',
   'common.and': 'і',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'companies.empty':
     'Няма кампаній, якія адпавядаюць вашаму пошуку \\u2014 паспрабуйце іншы тэрмін.',
   'companies.eyebrow': 'Рэкамендаваныя працадаўцы',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Пакуль няма заявак на гэтую пасаду.',
   'jobApplicants.eyebrow': 'Меркаванне працадаўцы',
   'jobApplicants.loading': 'Загрузка\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Не атрымалася абнавіць гэты этап — паспрабуйце яшчэ раз.',
+  'jobApplicants.subheading':
+    'Праглядайце рэзюмэ, прасоўвайце кандыдатаў, адпраўляйце прапановы \\u2014 {{count}} у руху.',
   'jobDetail.applicantCount': '{{count}} заяўнікаў пакуль',
   'jobDetail.applied': 'Заяўка адпраўлена',
   'jobDetail.apply': 'Падаць заяўку зараз',
@@ -84,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Праглядзець вакансіі \\u2192',
   'landing.pricingEyebrow': 'Цэны',
   'landing.pricingHeading': 'Простыя планы для каманды любога памеру.',
+  'login.eyebrow': 'Сардэчна запрашаем назад у {{app}}',
   'login.heading': 'Увайдзіце ў свой уліковы запіс',
   'login.noAccount': 'Вы ўпершыню ў Ношы?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Запомніць мяне на працягу 30 дзён',
   'login.signingIn': 'Уваход\\u2026',
   'login.subheading': 'Пашырыце пошук, прасуньце свае заяўкі, атрымлівайце адказы хутчэй.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Створана для каманд па найму.',
   'loginBrandPanel.headline': 'Дзе сустракаюцца таленты',
   'loginBrandPanel.headlineLine2': 'імпульс.',
   'loginBrandPanel.listing.recruiter': 'Партнёр па талентах',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Абнаўленні заявак, запрашэнні на сумоўі, новыя супадзенні і спачатку найноўшыя.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} на гэтым тыдні',
   'opportunitiesHero.eyebrow': 'Адкрыта сёння',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'postJob.addNewCompany': '+ Дадаць новую кампанію',
   'postJob.companyCreateFailed': 'Не атрымалася стварыць кампанію — паспрабуйце яшчэ раз.',
   'postJob.companyNameLabel': 'Назва вашай кампаніі',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Стварэнне ўліковага запісу\\u2026',
   'signup.ctaEmployer': 'Стварыць уліковы запіс працадаўцы',
   'signup.firstNamePlaceholder': 'Мая',
+  'signup.lastNamePlaceholder': 'Чэнь',
   'signup.passwordMismatch': 'Паролі не супадаюць.',
   'signup.subheading':
     'Бясплатна для тых, хто шукае працу, назаўжды. Працадаўцы пачынаюць з 30-дзённай пробнай версіі.',
   'timeAgo.days': '{{count}} д. таму',
   'timeAgo.hours': '{{count}} г. таму',
   'timeAgo.justNow': 'толькі што',
+  'timeAgo.weeks': '{{count}} тыдняў таму',
 }

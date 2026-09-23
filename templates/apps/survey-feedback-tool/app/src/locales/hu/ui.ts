@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'A {{app}} névjegye',
   'analytics.back': 'Felmérés áttekintése',
   'analytics.kpiNps': 'NPS-pontszám',
   'analytics.kpiNpsTrend': 'Szervezők {{p}} % · Ellenzők {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Tulajdonságok',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Felmérés címe',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'forgotPassword.failed': 'Az visszaállítási e-mail küldése nem sikerült. Próbáld újra.',
   'forgotPassword.subheading':
     'Add meg az e-mail címed, és küldünk neked egy helyreállítási linket.',
   'forgotPassword.successBody':
     'Ha egy fiók egyezik {{email}} , egy visszaállító link úton van. Ellenőrizd a beérkező levelek és a spam mappádat is.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Minden véleményt szívesen látunk.',
   'landing.footer.startTrial': 'Próbaidőszak indítása',
   'landing.hero.badge': 'Felmérések, NPS és visszajelzések egy helyen',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Árazás',
   'landing.pricing.perMonth': '/hó',
   'landing.pricing.popular': 'Legnépszerűbb',
+  'landing.pricing.subtitle':
+    'Minden csomag tartalmazza a kérdőívkészítőt, a nyilvános megosztási linkeket és az NPS elemzéseket. A kezdéshez nincs szükség hitelkártyára.',
+  'landing.pricing.title': 'Kezdj ingyen, és bővítsd, amikor csak akarod.',
   'landing.sample.eyebrow': 'NPS áttekintés',
   'landing.sample.title': 'Ellenzők, passzívak, támogatók – azonnal olvashatók.',
   'login.failed': 'A bejelentkezés nem sikerült. Kérjük, próbálja meg újra.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Jelszó megjelenítése',
   'login.signUpLink': 'Kezdje el az ingyenes próbaidőszakot',
   'login.subheading': 'Jelentkezz be, hogy továbbra is hallhasd a közönséged.',
+  'notFound.body': 'A keresett oldal nem létezik {{app}} oldalon. Térjünk vissza a kérdőívekhez.',
   'notFound.cta': 'Vissza a felmérésekhez',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Ez a felmérés lecsúszott a sorról.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': '9–10. számú promóter',
   'profile.identity.description':
     'Nyilvános a csapatod számára és az általad készített felmérésekben.',
+  'profile.identity.emailRequired': 'Adjon meg egy e-mail címet.',
   'profile.identity.saveCta': 'Név mentése',
   'profile.password.current': 'Jelenlegi jelszó',
   'profile.password.fillFields': 'Írja be a jelenlegi és az új jelszót is.',
@@ -180,6 +188,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} kérdések',
   'templates.subheading':
     'Válassz egy csatában tesztelt kezdő sablont – minden sablon előre beállított, értelmes alapértelmezett beállításokkal, minta logikával és letisztult mobil elrendezéssel érkezik.',
+  'thankYou.body':
+    'A válaszát rögzítettük. {{app}} a következő elemzési frissítés során belefoglalja.',
   'thankYou.eyebrow': 'Válasz érkezett',
   'thankYou.heading': 'Köszönöm – a hangod számít.',
   'thankYou.home': 'Látogassa meg Gauget',

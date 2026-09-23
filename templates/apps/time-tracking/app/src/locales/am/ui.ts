@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ስለ {{app}}',
   'about.plansTitle': 'ከእርስዎ ጋር የሚያድጉ ዕቅዶች',
   'brand.tagline': 'በየሰከንዱ',
   'clientDetail.back': 'ወደ ደንበኞች ተመለስ',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'እያንዳንዱ ግንኙነት በአንድ ቦታ - ፕሮጀክቶች፣ ሰዓቶች፣ ያልተከፈሉ ደረሰኞች።',
   'clients.title': 'ደንበኞች',
   'common.and': 'እና',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.activeProjects': 'ንቁ ፕሮጀክቶች',
   'dashboard.empty': 'እስካሁን ምንም ግቤቶች የሉም። የመጀመሪያ ክፍለ ጊዜዎን ለመከታተል ሰዓት ቆጣሪውን ያስጀምሩ።',
   'dashboard.greeting': 'እንደምን ዋልክ፣ {{name}}',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
     'ለዚህ ደንበኛ የክፍያ መጠየቂያ ሰዓት የለም። መጀመሪያ የተወሰነ ጊዜን ይከታተሉ ወይም ነባር ግቤቶችን ከዚህ ደንበኛ ፕሮጀክቶች ውስጥ ለአንዱ ይመድቡ።',
   'invoices.save': 'ደረሰኝ ይፍጠሩ',
   'invoices.subtitle': 'የተከታተሉ ሰዓቶች በራስ-ሰር ወደ ደረሰኞች ይመለሳሉ።',
+  'landing.copyright': '© {{year}} {{app}} . በእያንዳንዱ ሰከንድ፣ ተቆጥሯል።',
   'landing.ctaBody': 'እስከ 3 ፕሮጀክቶች ድረስ ነፃ። የደንበኛ ዝርዝርዎ ሲሰራ ያሻሽሉ።',
   'landing.eyebrow': 'ሊከፈልበት ለሚችል ሥራ የጊዜ ክትትል',
   'landing.featuresBody':
@@ -94,13 +97,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'በገለልተኛ ወገኖች የሚታመን',
   'landing.testimonial.quote':
     '\\u201cከቶግል በ30 ደቂቃ ውስጥ ወጣሁ። የበጀት ቃጠሎው ብቻውን ዋጋ አስከፍሏል \\u2014 ለሁለት ሳምንታት ያህል ዋጋ አለመስጠቴን አቁሜያለሁ።\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ክሮኖ። በእያንዳንዱ ሰከንድ፣ ተካቷል።',
   'login.brand.subtitle':
     'ሰዓት ቆጣሪውን ካቆሙበት ቦታ ይውሰዱት - እያንዳንዱ ደቂቃ አስቀድሞ ከፕሮጀክት፣ ከደንበኛ ወይም ከደረሰኝ ጋር የተሳሰረ።',
   'login.brand.tracking': 'ክትትል',
   'login.subheading': 'ሰዓት ቆጣሪውን ካቆሙበት ቦታ ይውሰዱት።',
+  'nav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
   'nav.insightsSection': 'ግንዛቤዎች',
   'nav.newEntry': 'አዲስ ግቤት',
+  'nav.openMenu': 'የአሰሳ ምናሌን ክፈት',
+  'nav.primary': 'ዋና አሰሳ',
   'nav.workSection': 'ስራ',
   'notFound.body': 'የተከተሉት አገናኝ መከታተል ያቆመ ይመስላል። ወደ ዳሽቦርድዎ ይመለሱ እና ከዚያ እንቆጠራለን።',
   'notFound.dashboard': 'ዳሽቦርድን ክፈት',
@@ -198,6 +205,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'ሊከፈል የሚችል',
   'timer.descriptionPlaceholder': 'በምን ላይ ነው የምትሰራው?',
   'timer.idle': 'ስራ ፈት — መከታተል ጀምር',
+  'timer.noProject': 'ምንም ፕሮጀክት የለም',
   'timer.runningWithProject': 'ምንም ፕሮጀክት የለም',
   'timer.start': 'ሰዓት ቆጣሪ ጀምር',
   'timer.stop': 'ሰዓት ቆጣሪ አቁም',

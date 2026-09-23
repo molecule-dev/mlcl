@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'billing.canceled': 'Nakansela na ang subscription. Babalik ka sa Libre sa katapusan ng panahon.',
   'billing.contactSales': 'Makipag-ugnayan sa sales',
   'billing.free.1': '5 pagsasalin',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Walang limitasyon sa pagpapanatili',
   'billing.upgradeHint': 'Mag-upgrade para ma-unlock ang mga advanced na feature ng AI.',
   'billing.yearly': 'Taon-taon',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.activityEmpty':
     'Wala pang aktibidad — magsimula ng proyekto para mapuno ang feed na ito.',
   'dashboard.eyebrow': 'Pangkalahatang-tingin',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Muling gamitin ang mga nakaraang pagsasalin sa bawat proyekto. Mas mataas na match score → mas kaunting ulit na trabaho.',
   'memory.title': 'Memory bank',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'nav.legal': 'Legal',
   'newProject.addLanguage': 'Magdagdag ng target',
   'newProject.create': 'Lumikha ng proyekto',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} notipikasyon ang minarkahan bilang nabasa.',
   'notifications.subtitle':
     'Mga mention, kahilingan sa review, at mga kaganapan ng AI mula sa lahat ng iyong workspace.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'privacy.collection.account': 'Ang iyong email at display name ng account',
   'privacy.deletion.body':
     'Maaari mong tanggalin ang isang proyekto, segment, termino sa glossary, o entry sa memory kahit kailan mula sa kaugnay na pahina. Ang pagtanggal ng iyong account mula sa Mga Setting ay nagtatanggal ng bawat row na may kaugnayan sa workspace mula sa aming database.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Nabigo ang pag-load ng mga proyekto.',
   'projects.loading': 'Naglo-load ng mga proyekto…',
   'projects.subtitle': 'Bawat aktibong proyekto sa lahat ng locale.',
+  'renditionLayout.primaryNavLabel': 'Pangunahing navigation',
   'reset.backToLogin': '← Bumalik sa pag-sign in',
   'reset.passwordLabel': 'Bagong password',
   'review.activeEyebrow': 'Segment {{number}}',

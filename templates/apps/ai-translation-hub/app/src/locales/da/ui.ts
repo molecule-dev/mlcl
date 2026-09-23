@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'billing.canceled': 'Abonnement annulleret. Du vender tilbage til Free ved periodens udgang.',
   'billing.contactSales': 'Kontakt salg',
   'billing.free.1': '5 oversættelser',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Ingen opbevaringsgrænse',
   'billing.upgradeHint': 'Opgrader for at låse op for avancerede AI-funktioner.',
   'billing.yearly': 'Årlig',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.activityEmpty': 'Ingen aktivitet endnu — start et projekt for at udfylde dette feed.',
   'dashboard.eyebrow': 'Oversigt',
   'dashboard.projectsEmpty': 'Ingen projekter endnu — start et for at se det her.',
@@ -109,6 +111,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Genbrug tidligere oversættelser på tværs af alle projekter. Højere matchscore → mindre genarbejde.',
   'memory.title': 'Hukommelsesbank',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'nav.legal': 'Juridisk',
   'newProject.addLanguage': 'Tilføj mål',
   'newProject.create': 'Opret projekt',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} notifikationer markeret som læst.',
   'notifications.subtitle':
     'Omtaler, review-anmodninger og AI-hændelser fra alle dine arbejdsområder.',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'privacy.collection.account': 'Din konto-e-mail og visningsnavn',
   'privacy.deletion.body':
     'Du kan slette et projekt, segment, ordlisteterm eller hukommelsespost til enhver tid fra den relevante side. Sletning af din konto fra Indstillinger fjerner alle arbejdsområde-tilknyttede rækker fra vores database.',
@@ -172,6 +177,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Kunne ikke indlæse projekter.',
   'projects.loading': 'Indlæser projekter…',
   'projects.subtitle': 'Hvert aktivt projekt på tværs af alle sprog.',
+  'renditionLayout.primaryNavLabel': 'Primær navigation',
   'reset.backToLogin': '← Tilbage til log ind',
   'reset.passwordLabel': 'Nyt kodeord',
   'review.activeEyebrow': 'Segment {{number}}',

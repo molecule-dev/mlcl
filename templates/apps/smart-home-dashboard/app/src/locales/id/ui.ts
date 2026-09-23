@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.pageTitle': 'Tentang {{app}}',
   'activity.empty': 'Belum ada aktivitas — nyalakan perangkat atau aktifkan scene.',
   'activity.eyebrow': 'Lini masa',
   'activity.loadError': 'Tidak dapat memuat feed aktivitas.',
   'activity.subheading':
     'Setiap perangkat, otomatisasi, dan kejadian keamanan dalam urutan kronologis.',
+  'addDevice.error.failed': 'Perangkat tidak dapat ditambahkan. Coba lagi.',
   'addDevice.error.nameRequired': 'Beri perangkat ini nama untuk melanjutkan.',
   'addDevice.field.firmware': 'Versi firmware',
   'addDevice.field.manufacturer': 'Produsen',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Menguji…',
   'automationEditor.testNew': 'Simpan otomatisasi terlebih dahulu untuk mengujinya.',
   'automationRow.lastRun': 'Terakhir {{date}} · {{count}} kali dijalankan',
+  'automationRow.on': 'Pada',
   'automationRow.runNowAria': 'Jalankan {{name}} sekarang',
   'automations.empty': 'Belum ada otomatisasi — buat rutinitas pertama Anda.',
   'automations.eyebrow': 'Rutinitas',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Memuat otomatisasi…',
   'automations.newAutomation': '+ Baru',
   'automations.subheading': 'Ketika ini terjadi, lakukan itu — tanpa YAML.',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Gagal memuat perangkat.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Memproses…',
   'deviceDetail.unnamed': 'Perangkat',
   'deviceStatusRow.on': 'Nyala',
+  'deviceStatusRow.turnOff': 'Matikan',
+  'deviceStatusRow.turnOn': 'Aktifkan',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Daya',
   'energy.heading': 'Energi',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Lihat paket',
   'settings.security.heading': 'Keamanan',
   'settings.subheading': 'Paket, hub, dan preferensi akun.',
+  'smartHomeDashboardLayout.openMenu': 'Buka menu navigasi',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigasi utama',
 }

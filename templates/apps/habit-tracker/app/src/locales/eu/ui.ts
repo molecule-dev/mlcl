@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.pageTitle': '{{app}}(r)i buruz',
   'achievementBadgeCard.unlockedOn': 'Desblokeatuta {{date}}',
   'achievements.loadError': 'Lorpenak kargatzea huts egin da.',
   'achievements.subheading': '{{unlocked}} -ren {{total}} desblokeatuta',
   'achievements.unlockedOn': 'Desblokeatuta {{date}}',
+  'auth.legalConsent': 'Jarraituz gero, onartzen dituzu gure',
   'calendar.empty': 'Sortu ohitura zure egutegia ikusteko.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Ohitura',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Ohitura-sareta',
   'category.${c.category}': '{{kopurua}} ohiturak',
   'common.and': 'eta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'consistencyHeatmap.ariaLabel': 'Eguneroko koherentzia-mapa termikoa',
   'consistencyHeatmap.caption': 'Azkena {{weeks}} asteak',
   'consistencyHeatmap.lessLabel': 'Gutxiago',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Ikusi zuzenean.',
   'landing.heroSubtitle':
     'Eraiki ohiturak benetan irauten duten moduan: konpromiso txikiak, eguneroko bolada onak eta kate luze eta etenik gabeko baten plazer biszerala.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Begirada bat Streak barrura',
   'landing.previewMotivation': 'Bederatzi marra bizirik. Mantendu itzazu guztiak bero.',
   'login.eyebrow': 'Hartu katea.',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Txikia egin. Zehatza egin. Bihar agertu.',
   'newHabit.timeLabel': 'Gogorarazteko ordua',
   'notifications.markError': 'Ezin izan da guztia irakurrita markatu.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.entries': '{{count}} sarrerak',
+  'pricing.heading': 'Aukeratu zure {{app}} plana',
   'profile.action.plan': 'Kudeatu harpidetza',
   'profile.action.settings': 'Kontuaren ezarpenak',
   'profile.bioEmpty': 'Gehitu biografia labur bat Ezarpenetan zeure burua aurkezteko.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Goizeko eguneroko gonbidapena (8:00etan)',
   'settings.reminders.heading': 'Gogorarazleak',
   'settings.reminders.weekly': 'Asteko laburpena (igande arratsaldetan)',
+  'settings.revokeDeviceWarning': 'Gailu honen sarbidea laster kendu egingo da. Itxi saioa?',
   'settings.signOutDevice': 'Saioa itxi',
   'settings.streaks.freezesPerWeek': 'Astean izoztu egiten da',
   'settings.streaks.gracePeriod': 'Gauerditik aurrera 6 orduko epea',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktibo',
   'streakHeroCard.daysSuffix': 'egunak',
   'streakHeroCard.title': 'Aktibotasun-bolada luzeena',
+  'streakLayout.closeMenu': 'Itxi nabigazio menua',
+  'streakLayout.openMenu': 'Ireki nabigazio menua',
   'streakLayout.primaryNavLabel': 'Nabigazio nagusia',
 }

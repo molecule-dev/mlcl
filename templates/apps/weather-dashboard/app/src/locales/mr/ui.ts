@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'तुम्ही सध्या यावर आहात {{plan}} योजना.',
   'billing.switch': 'स्विच',
   'billing.upgraded': 'अद्यतनित केले {{plan}} मर्यादा तात्काळ लागू झाल्या.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'compare.activityHeading': 'क्रियाकलाप निकाल',
   'compare.empty.title': 'तुलना करण्यासाठी किमान दोन ठिकाणे जोडा',
   'compare.eyebrow': 'शेजारी शेजारी',
@@ -139,5 +140,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'उच्च',
   'trends.summary.low.label': 'कमी',
   'trends.summary.points.label': 'दिवस',
+  'weatherDashboardLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'weatherHeroCard.updated': 'अपडेट केले {{time}}',
 }

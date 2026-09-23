@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} အကြောင်း',
+  'auth.legalConsent': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းမျဉ်းများကို သဘောတူပါသည်',
   'bookings.empty.body':
     'ဝင်စာပုံးစတင်ရန် လေယာဉ်ခရီးစဉ်၊ ဟိုတယ် သို့မဟုတ် လှုပ်ရှားမှုတစ်ခု ထည့်ပါ။',
   'bookings.empty.heading': 'ဘွတ်ကင်များ မရှိသေးပါ။',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'အတည်ပြုပြီးပါပြီ',
   'bookings.summary.pending': 'အတည်ပြုချက်ကို စောင့်ဆိုင်းနေသည်',
   'bookings.summary.total': 'စုစုပေါင်း ကတိကဝတ်',
+  'bookings.type.car': 'ကားငှားခြင်း',
+  'bookings.type.flight': 'လေယာဉ်ခရီးစဉ်',
+  'bookings.type.hotel': 'ဟိုတယ်',
   'bookings.type.other': 'အခြား',
   'budgetSpendCard.budgetTotal': '၏ {{total}} စီစဉ်ထားသော',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ပဋိပက္ခများကို ရှာဖွေပါ၊ ခရီးစဉ်များအကြား ပြန်လည်ကောင်းမွန်လာစေရန် ရက်များကို စီစဉ်ပါ၊ ထို့နောက် ပူးပေါင်းဆောင်ရွက်သူများ သင်နှင့်အတူ ခရီးသွားနေသည့်အချိန်ကို ကြည့်ပါ။',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.budgetHeading': 'ဘတ်ဂျက်လှိုင်း',
   'dashboard.empty.heading': 'ခရီးစဉ်များ မရှိသေးပါ — သင့်မြေပုံတွင် ဗလာဖြစ်နေပါသည်။',
   'dashboard.eyebrow': 'မစ်ရှင်ထိန်းချုပ်မှု',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'ရွေ့လျားနေသော ခရီးများ',
   'dashboard.viewAllExpenses': 'ကုန်ကျစရိတ်တိုင်းကိုကြည့်ပါ',
   'dashboard.viewAllTrips': 'ခရီးစဉ်တိုင်းကိုကြည့်ပါ',
+  'dayTimelineRow.category.accommodation': 'နေပါ',
   'dayTimelineRow.category.transport': 'သယ်ယူပို့ဆောင်ရေး',
   'destinationOrbCard.exploreCta': 'ခရီးစဉ်တစ်ခုထဲသို့ ထည့်ပါ',
   'destinationOrbCard.tripCount': '{{count}} ခရီးများ',
@@ -82,11 +90,15 @@ export const ui: UiTranslations = {
     'အီးမေးလ် မရှိသေးဘူးလား။ သင့်ရဲ့ spam folder ကို စစ်ဆေးကြည့်ပါ၊ ဒါမှမဟုတ် တခြားလိပ်စာနဲ့ ထပ်ကြိုးစားကြည့်ပါ။',
   'forgotPassword.successSubheading':
     'ပြန်လည်ရယူရေးလင့်ခ်တစ်ခု ကျွန်ုပ်တို့ပေးပို့လိုက်ပါပြီ {{email}} ။ လင့်ခ်သည် မိနစ် ၃၀ အတွင်းသာ အကျုံးဝင်ပါသည်။',
+  'landing.cta.heading': '{{tagline}}။',
   'landing.cta.signup': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
+  'landing.cta.subheading':
+    'အခမဲ့အစီအစဉ်တွင် ခရီးစဉ်ငါးခုအထိ၊ ပူးပေါင်းဆောင်ရွက်သူငါးဦးနှင့် ရပ်နားမှုငါးကြိမ်အထိ — အချိန်နှင့်တပြေးညီ ထပ်တူပြုခြင်းပါဝင်ပြီး၊ သင့်အစီအစဉ်များ ကြီးထွားလာသည်နှင့်အမျှ Pro သည် ကန့်သတ်ချက်များကို ရုပ်သိမ်းပေးပါသည်။',
   'landing.destinations.eyebrow': 'နောက်ဘယ်ကိုသွားမလဲ',
   'landing.destinations.heading': 'အယ်ဒီတာရွေးချယ်ထားသော နေရာများ',
   'landing.features.eyebrow': 'Waypoint ဘယ်လိုအလုပ်လုပ်လဲ',
   'landing.features.heading': 'စာရင်းဇယားများအတွက်မဟုတ်ဘဲ ခရီးသွားများအတွက် တည်ဆောက်ထားသည်။',
+  'landing.footer.tagline': '{{tagline}}။',
   'landing.hero.ctaPrimary': 'အခမဲ့ခရီးစဉ်တစ်ခုစတင်ပါ',
   'landing.hero.ctaSecondary': 'ခရီးစဉ်နမူနာကိုကြည့်ပါ',
   'landing.hero.subtitle':
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'အိုင်းရစ် လာဆန်',
   'signup.subheading':
     'ပူးပေါင်းဆောင်ရွက်သူ ၅ ဦးအထိ ခရီးစဉ်များကို မျှဝေရန်၊ ဘွတ်ကင်များကို ထပ်တူပြုရန်နှင့် အတည်ပြုချက်တိုင်းကို တစ်နေရာတည်းတွင် စုစည်းရန် အကောင့်တစ်ခု ဖန်တီးပါ။',
+  'signup.termsPrefix': 'အကောင့်တစ်ခုဖန်တီးခြင်းဖြင့် သင်သည် ကျွန်ုပ်တို့၏',
   'tripCountdownHeroCard.budget': '{{used}} ၏ {{total}} ( {{pct}} ဘတ်ဂျက်၏ ရာခိုင်နှုန်း)',
   'tripCountdownHeroCard.collaborators': '{{count}} ခရီးသွားများ',
   'tripCountdownHeroCard.countdownLabel': 'ရေတွက်ချိန်',
@@ -206,5 +219,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ခရီးစဉ်တွေ မရှိသေးပါဘူး။',
   'trips.pastHeading': 'အတိတ်က စွန့်စားခန်းများ',
   'trips.subheading': '{{count}} ခရီးစဉ်များ — အတိတ်၊ ပစ္စုပ္ပန်နှင့် တစ်နေ့နေ့။',
+  'waypointLayout.mobileNavClose': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'waypointLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
 }

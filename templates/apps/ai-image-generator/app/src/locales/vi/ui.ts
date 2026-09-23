@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'auth.fields.newPassword': 'Mật khẩu mới',
   'collectionDetail.addImage': 'Sáng tạo cho bộ sưu tập',
   'collectionDetail.backCta': 'Quay lại bộ sưu tập',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Bảng cảm hứng, bản tóm tắt và chuỗi đang diễn ra',
   'collections.title': 'Bộ sưu tập',
   'collections.untitled': 'Không tên · {{stamp}}',
+  'common.closeMenu': 'Đóng menu',
+  'common.dismiss': 'Bỏ qua',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.openMenu': 'Mở menu điều hướng',
   'credits.eyebrow': 'Gói {{plan}}',
   'credits.renewsCopy': 'Gói sẽ gia hạn vào {{date}}',
   'credits.trail': 'Mơ mộng · {{plan}} cấp',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Hoạt động tạo, chia sẻ và cảnh báo tín dụng sẽ xuất hiện tại đây.',
   'notifications.empty.title': 'Không có gì để báo cáo',
   'notifications.subtitle': 'Sự kiện tạo được nhóm theo ngày',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.limits.gallery': '{{count}} phòng trưng bày',
   'privacy.collect.body':
     'Khi quý vị đăng ký, chúng tôi thu thập tên, địa chỉ email và mật khẩu được băm. Khi quý vị sử dụng Reverie, chúng tôi lưu trữ các lời nhắc quý vị gửi, các hình ảnh chúng tôi tạo cho quý vị, các phong cách và bộ sưu tập quý vị lưu, và siêu dữ liệu như mô hình đã sử dụng, dấu thời gian tạo và số dư tín dụng.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Lưu mật khẩu mới',
   'reset.submitting': 'Đang cập nhật mật khẩu…',
   'settings.account.handle': 'Tên định danh',
+  'settings.account.lastSaved': 'Hồ sơ hoạt động · {{name}}',
   'settings.account.saved': 'Đã lưu hồ sơ',
   'settings.account.saveFailed': 'Không thể lưu hồ sơ',
   'settings.account.title': 'Hồ sơ người sáng tạo',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Hình ảnh mới',
   'sidebar.secondary': 'Điều hướng phụ',
   'signup.failed': 'Đăng ký thất bại. Hãy thử lại.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Bắt đầu reverie của quý vị',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Tạo tài khoản và nhận 120 tín dụng miễn phí.',
   'styles.empty': 'Chưa có cài đặt sẵn phong cách nào — sẽ xuất hiện sau lần đăng nhập đầu tiên.',
   'styles.eyebrow': 'Đã tuyển chọn',

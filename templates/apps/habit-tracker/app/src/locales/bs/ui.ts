@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
+  'about.pageTitle': 'O {{app}}',
   'achievementBadgeCard.unlockedOn': 'Otključano {{date}}',
   'achievements.loadError': 'Učitavanje dostignuća nije uspjelo.',
   'achievements.subheading': '{{unlocked}} od {{total}} otključan',
   'achievements.unlockedOn': 'Otključano {{date}}',
+  'auth.legalConsent': 'Nastavljajući, slažete se s našim',
   'calendar.empty': 'Stvorite naviku da pregledavate svoj kalendar.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Navika',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Mreža navika',
   'category.${c.category}': '{{broj}} navike',
   'common.and': 'i',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'consistencyHeatmap.ariaLabel': 'Dnevna mapa topline konzistentnosti',
   'consistencyHeatmap.caption': 'Posljednji {{weeks}} sedmice',
   'consistencyHeatmap.lessLabel': 'Manje',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Pogledajte uživo',
   'landing.heroSubtitle':
     'Izgradite navike onako kako se one zaista i održavaju: male obaveze, svakodnevni nizovi i visceralno zadovoljstvo dugog neprekinutog lanca.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Pogled u Streak',
   'landing.previewMotivation': 'Devet živih pruga. Neka budu sve tople.',
   'login.eyebrow': 'Podigni lanac',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Neka bude kratko. Neka bude konkretno. Pojavite se sutra.',
   'newHabit.timeLabel': 'Vrijeme podsjetnika',
   'notifications.markError': 'Nije moguće označiti sve kao pročitano.',
+  'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'pricing.entries': '{{count}} unosi',
+  'pricing.heading': 'Odaberite svoj {{app}} plan',
   'profile.action.plan': 'Upravljaj pretplatom',
   'profile.action.settings': 'Postavke računa',
   'profile.bioEmpty': 'Dodajte kratku biografiju u Postavkama da biste se predstavili.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Dnevni jutarnji upit (8:00 ujutro)',
   'settings.reminders.heading': 'Podsjetnici',
   'settings.reminders.weekly': 'Sedmični sažetak (nedjeljom navečer)',
+  'settings.revokeDeviceWarning': 'Pristup ovog uređaja će uskoro biti ukinut. Odjaviti ga?',
   'settings.signOutDevice': 'Odjava',
   'settings.streaks.freezesPerWeek': 'Zamrzavanja sedmično',
   'settings.streaks.gracePeriod': 'Šestosatni period odgode nakon ponoći',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktivan',
   'streakHeroCard.daysSuffix': 'dana',
   'streakHeroCard.title': 'Najduži aktivni niz',
+  'streakLayout.closeMenu': 'Zatvori navigacijski meni',
+  'streakLayout.openMenu': 'Otvori navigacijski meni',
   'streakLayout.primaryNavLabel': 'Primarna navigacija',
 }

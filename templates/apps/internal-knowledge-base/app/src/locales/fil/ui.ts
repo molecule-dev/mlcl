@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'article.notFound': 'Hindi natagpuan ang artikulo',
   'articleEditor.bodyPlaceholder':
     'I-type ang / para sa mga bloke, o simulan na lang ang pagsusulat.',
+  'articleEditor.loadFailed': 'Hindi ma-load ang artikulo',
   'articleEditor.publishing': 'Paglalathala\\u2026',
   'articleEditor.saveFailed': 'Nabigo ang pag-save',
   'articleEditor.saving': 'Sine-save…',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'I-bookmark',
   'articleView.bookmarkOn': 'Na-bookmark',
   'articleView.edit': 'I-edit ang artikulo',
+  'articleView.loading': 'Binubuksan ang artikulong ito…',
   'articleView.readTime': '{{minutes}} minutong pagbasa',
   'articleView.spaces': 'Mga Espasyo',
   'articleView.tocHeading': 'Sa pahinang ito',
@@ -39,8 +43,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Mga kamakailang pag-edit, pagbasa, at draft na kinukuha pa rin ng iyong team.',
   'cairnTrailHero.updated': 'Mga artikulo na na-update',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'drafts.eyebrow': 'Ang iyong hindi natapos na trabaho',
   'drafts.heading': 'Mga draft',
+  'drafts.loadFailed': 'Hindi ma-load ang iyong mga draft.',
   'drafts.subtitle':
     'Mga artikulong nasimulan mo na ngunit hindi pa nailalathala. Pumili ng isa at ipagpatuloy.',
   'forgotPassword.sentBody':
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
     'Wala pang espasyo. Magbukas ng isa para simulan ang pagkolekta ng mga artikulo.',
   'home.spacesHeading': 'Ang iyong mga espasyo',
   'home.subtitle': 'Mga kamakailang artikulo, mga bookmark mo, at kung ano ang isinusulat ng team.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Ginawa gamit ang Molecule.',
   'landing.ctaBody':
     'Libre para sa mga solo author. Mga team plan para sa mga distributed team na nagpapadala ng mga runbook, desisyon, at onboarding.',
   'landing.ctaHeading': 'Isalansan ang unang bato ngayon.',
@@ -85,7 +92,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Gumawa ng workspace',
   'login.submitting': 'Nagsa-sign in',
   'login.subtitle': 'Balikan ang landas kung saan mo ito iniwan.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'newSpace.colorAria': 'Pumili ng kulay {{color}}',
   'newSpace.colorLabel': 'Kulay ng diin',
+  'newSpace.createFailed': 'Hindi makagawa ng espasyo',
   'newSpace.descriptionPlaceholder': 'Mga runbook, mga playbook na on-call, mga postmortem\\u2026',
   'newSpace.eyebrow': 'Magbukas ng espasyo ng kaalaman',
   'newSpace.heading': 'Bagong espasyo',
@@ -109,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Naglo-load…',
   'notifications.subtitle':
     '{{count}} mga hindi pa nababasang pagbanggit, komento, pagbabago ng pahina, at mga kahilingan sa pagsusuri.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.articles': 'mga artikulo',
   'pricing.spaces': 'mga espasyo',
   'profile.eyebrow': 'Profile ng awtor',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Maglagay ng bagong password',
   'resetPassword.subtitle': 'Pumili ng matibay na password — hindi bababa sa 12 karakter.',
   'searchResults.eyebrow': 'Paghahanap sa workspace',
+  'searchResults.filter.all': 'Lahat ng espasyo',
   'searchResults.heading': 'Maghanap ng mga artikulo',
   'searchResults.placeholder': 'Maghanap ng mga runbook, RFC, patakaran, desisyon\\u2026',
   'searchResults.summary': '{{count}} mga resulta para sa \\u201c {{query}} \\u201d',
@@ -135,14 +148,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Buburahin nito ang iyong account at ang bawat artikulong isinulat mo. I-type ang DELETE para kumpirmahin.',
   'settings.danger.confirmInvalid': 'I-type ang DELETE para kumpirmahin.',
+  'settings.danger.deleteFailed': 'Hindi mabura ang account',
   'settings.danger.deleting': 'Tinatanggal',
   'settings.danger.description':
     'Ang pagbura sa iyong workspace ay mag-aalis ng lahat ng artikulo, komento, at history ng bersyon. Walang recovery.',
   'settings.danger.title': 'Tanggalin ang workspace',
+  'settings.email.confirm': 'I-update ang email',
+  'settings.email.confirmTitle': 'Kumpirmahin ang pagbabago sa email',
   'settings.email.saved': 'Na-update na ang email.',
+  'settings.email.updateFailed': 'Hindi ma-update ang email',
   'settings.language.title': 'Wika',
   'settings.name': 'Pangalan',
+  'settings.name.saved': 'Na-update na ang pangalan.',
+  'settings.name.updateFailed': 'Hindi ma-update ang pangalan',
   'settings.notifications.description': 'Piliin kung ano ang makakarating sa iyong inbox.',
+  'settings.password.changeFailed': 'Hindi mabago ang password',
   'settings.password.current': 'Kasalukuyang password',
   'settings.password.new': 'Bagong password',
   'settings.password.saving': 'Ina-update',
@@ -150,10 +170,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Paano maipapakita ang husay ng mga artikulo para sa iyo.',
   'settings.reading.title': 'Pagbasa at pagsusulat',
   'settings.subtitle': 'Mga notification sa pag-tune, ang reading canvas, at ang iyong account.',
+  'settings.twofa.code': 'Kodigo ng pagpapatunay',
   'settings.twofa.disable': 'I-disable',
   'settings.twofa.disabled': 'May kapansanan',
   'settings.twofa.enable': 'I-enable',
   'settings.twofa.enabled': 'Pinagana',
+  'settings.twofa.invalidCode': 'Hindi wastong code',
+  'settings.twofa.unavailable': 'Hindi available ang two-factor authentication para sa app na ito.',
+  'settings.twofa.verify': 'I-verify at paganahin',
   'signup.brandQuote':
     'Ang pagsulat nito ang unang pangakong ginagawa natin sa susunod na taong nangangailangan nito.',
   'signup.eyebrow': 'Magbukas ng workspace',

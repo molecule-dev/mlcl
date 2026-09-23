@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'article.notFound': 'Artikel niet gevonden',
   'articleEditor.bodyPlaceholder': 'Typ / voor blokken, of begin gewoon met schrijven.',
+  'articleEditor.loadFailed': 'Het artikel kon niet worden geladen.',
   'articleEditor.publishing': 'Bezig met publiceren…',
   'articleEditor.saveFailed': 'Opslaan mislukt',
   'articleEditor.saving': 'Bezig met opslaan…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Bladwijzer',
   'articleView.bookmarkOn': 'Bladwijzer toegevoegd',
   'articleView.edit': 'Artikel bewerken',
+  'articleView.loading': 'Dit artikel openen…',
   'articleView.readTime': '{{minutes}} min leestijd',
   'articleView.spaces': 'Ruimtes',
   'articleView.tocHeading': 'Op deze pagina',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Recente wijzigingen, gelezen artikelen en concepten waar uw team nog mee bezig is.',
   'cairnTrailHero.updated': 'Bijgewerkte artikelen',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'drafts.eyebrow': 'Uw onvoltooide werk',
   'drafts.heading': 'Concepten',
+  'drafts.loadFailed': 'Uw concepten konden niet worden geladen.',
   'drafts.subtitle':
     'Artikelen die u bent begonnen maar nog niet hebt gepubliceerd. Pak er één op en ga door.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Nog geen ruimtes. Open er een om artikelen te verzamelen.',
   'home.spacesHeading': 'Uw ruimtes',
   'home.subtitle': 'Recente artikelen, uw bladwijzers en wat het team heeft geschreven.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Gebouwd met Molecule.',
   'landing.ctaBody':
     'Gratis voor individuele auteurs. Teamabonnementen voor gedistribueerde teams die runbooks, besluitvorming en onboarding verzorgen.',
   'landing.ctaHeading': 'Leg vandaag de eerste steen.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Een werkruimte maken',
   'login.submitting': 'Bezig met aanmelden…',
   'login.subtitle': 'Pak het pad op waar u het hebt verlaten.',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
+  'newSpace.colorAria': 'Kies een kleur {{color}}',
   'newSpace.colorLabel': 'Accentkleur',
+  'newSpace.createFailed': 'Er kon geen ruimte worden gecreëerd.',
   'newSpace.descriptionPlaceholder': 'Runbooks, on-call playbooks, postmortems…',
   'newSpace.eyebrow': 'Een kennisruimte openen',
   'newSpace.heading': 'Nieuwe ruimte',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Bezig met laden…',
   'notifications.subtitle':
     '{{count}} ongelezen — vermeldingen, opmerkingen, paginawijzigingen en revisieverzoeken.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.articles': 'artikelen',
   'pricing.spaces': 'ruimtes',
   'profile.eyebrow': 'Auteursprofiel',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Voer een nieuw wachtwoord in',
   'resetPassword.subtitle': 'Kies een sterk wachtwoord — minimaal 12 tekens.',
   'searchResults.eyebrow': 'Werkruimtezoekopdracht',
+  'searchResults.filter.all': 'Alle ruimtes',
   'searchResults.heading': 'Artikelen zoeken',
   'searchResults.placeholder': 'Zoek runbooks, RFC’s, beleid, besluiten…',
   'searchResults.summary': '{{count}} resultaten voor “{{query}}”',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Hiermee worden uw account en elk artikel dat u hebt geschreven verwijderd. Typ DELETE om te bevestigen.',
   'settings.danger.confirmInvalid': 'Typ DELETE om te bevestigen.',
+  'settings.danger.deleteFailed': 'Account kon niet worden verwijderd.',
   'settings.danger.deleting': 'Bezig met verwijderen…',
   'settings.danger.description':
     'Het verwijderen van uw werkruimte verwijdert alle artikelen, opmerkingen en versiegeschiedenis. Er is geen herstel mogelijk.',
   'settings.danger.title': 'Gevarenzone',
+  'settings.email.confirm': 'E-mail bijwerken',
+  'settings.email.confirmTitle': 'E-mailwijziging bevestigen',
   'settings.email.saved': 'E-mail bijgewerkt.',
+  'settings.email.updateFailed': 'E-mail kon niet worden bijgewerkt',
   'settings.language.title': 'Taal',
   'settings.name': 'Naam',
+  'settings.name.saved': 'Naam bijgewerkt.',
+  'settings.name.updateFailed': 'Kon naam niet bijwerken',
   'settings.notifications.description': 'Kies wat uw inbox bereikt.',
+  'settings.password.changeFailed': 'Wachtwoord kon niet worden gewijzigd',
   'settings.password.current': 'Huidig wachtwoord',
   'settings.password.new': 'Nieuw wachtwoord',
   'settings.password.saving': 'Bezig met bijwerken…',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Hoe artikelen voor u worden weergegeven.',
   'settings.reading.title': 'Lezen en schrijven',
   'settings.subtitle': 'Stem meldingen, het leescanvas en uw account af.',
+  'settings.twofa.code': 'Authenticatiecode',
   'settings.twofa.disable': 'Uitschakelen',
   'settings.twofa.disabled': 'Uitgeschakeld',
   'settings.twofa.enable': 'Inschakelen',
   'settings.twofa.enabled': 'Ingeschakeld',
+  'settings.twofa.invalidCode': 'Ongeldige code',
+  'settings.twofa.unavailable': 'Tweefactorauthenticatie is niet beschikbaar voor deze app.',
+  'settings.twofa.verify': 'Verifiëren en inschakelen',
   'signup.brandQuote':
     '“Het opschrijven is de eerste belofte die we doen aan de volgende persoon die het nodig heeft.”',
   'signup.eyebrow': 'Een werkruimte openen',

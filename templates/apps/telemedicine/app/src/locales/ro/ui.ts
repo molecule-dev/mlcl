@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Programează o întâlnire',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Niciun pacient de arătat.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'consult.backLink': 'Toate programările',
   'consult.captions': 'Subtitrări',
   'consult.connected': 'Conectat · 720p · stabil',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacienți',
   'patientVitalsHero.scripts': 'Rețetă deschisă',
   'patientVitalsHero.subline': '{{count}} consultații conform programului dumneavoastră de astăzi',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'prescriptions.empty': 'Nicio rețetă nu se potrivește.',
   'prescriptions.eyebrow': 'Rețete electronice',
   'prescriptions.heading': 'Rețete',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Notificare privind confidențialitatea',
   'privacy.use.body':
     'Pentru a oferi îngrijire, a trimite mementouri pentru programări, a programa rețete și a îmbunătăți fiabilitatea serviciilor. Nu vindem niciodată datele dvs. și nu partajăm niciodată informații clinice cu agenții de publicitate.',
+  'providers.allSpecialties': 'Toate specialitățile',
+  'providers.loadError': 'Furnizorii nu au putut fi încărcați.',
+  'providers.loading': 'Se încarcă…',
   'providers.noResults': 'Nu s-au găsit furnizori.',
   'providers.searchPlaceholder': 'Caută după nume, specialitate...',
   'providers.title': 'Găsiți un furnizor',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Începutul zilei',
   'settings.availability.heading': 'Disponibilitate',
   'settings.devices.thisDevice': 'Acest dispozitiv',
+  'settings.devices.unnamed': 'Dispozitiv fără nume',
   'settings.eyebrow': 'Practică și cont',
   'settings.loadError': 'Nu s-a putut încărca profilul tău.',
   'settings.notifications.emailMessages':
@@ -180,6 +186,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Dezactivați',
   'settings.security.twoFactor.enable': 'Activați',
   'settings.security.twoFactor.heading': 'Autentificare cu doi factori',
+  'settings.security.twoFactor.invalidCode': 'Codul respectiv nu se potrivește. Încearcă din nou.',
+  'settings.security.twoFactor.setupFailed':
+    'Nu s-a putut începe configurarea cu doi factori. Încercați din nou.',
+  'settings.security.twoFactor.statusOn': 'Factorul doi este activat',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.subheading': 'Profilul furnizorului, regulile de practică și alertele clinice.',
   'signup.emailLabel': 'E-MAIL',
@@ -190,6 +200,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Creați cont',
   'signupFooter.hipaa': 'Conform cu HIPAA',
   'solaceLayout.primaryNavLabel': 'Navigare principală',
+  'solaceLayout.toggleMenu': 'Comutare meniu',
   'terms.eligibility.body':
     'Trebuie să aveți cel puțin optsprezece ani sau să fiți părintele sau tutorele legal al unui minor pentru care solicitați îngrijire și să vă aflați fizic într-un stat din SUA în care medicii noștri sunt autorizați.',
   'terms.payment.body':

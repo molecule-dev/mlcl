@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Тұтынушылар',
   'customers.loadError': 'Тұтынушыларды жүктеу сәтсіз аяқталды.',
   'customers.loading': 'Жүктелуде…',
+  'customers.new.address': 'Қызмет мекенжайы',
   'customers.new.email': 'Электрондық пошта',
   'customers.new.error': 'Тұтынушыны қосу сәтсіз аяқталды.',
   'customers.new.heading': 'Жаңа тұтынушы',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'ਆਪਣਾ ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰੋ।',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ਕਾਰਜ ਨੂੰ ਪੂਰਾ ਨਿਸ਼ਾਨਦੇਹੀ ਕਰੋ',
   'checklistTaskCard.markIncomplete': 'ਕਾਰਜ ਨੂੰ ਅਧੂਰਾ ਵਜੋਂ ਨਿਸ਼ਾਨਦੇਹੀ ਕਰੋ',
   'checklistTaskCard.openLabel': 'ਕੰਮ ਖੋਲ੍ਹੋ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'ਤੁਸੀਂ ਸਭ ਕੁਝ ਪੜ੍ਹ ਲਿਆ ਹੈ',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': "ਟਰੈਕ 'ਤੇ",
   'dashboard.timelineHeading': '30/60/90 ਮੀਲ ਪੱਥਰ',
   'dashboard.viewAllTasks': 'ਸਾਰੇ ਕਾਰਜ ਵੇਖੋ',
+  'dashboard.weekOne': 'ਹਫ਼ਤਾ 1',
   'dashboard.yourCohort': 'ਤੁਹਾਡੀ ਟੀਮ',
   'documents.empty.body': 'ਤੁਹਾਡੀ ਟੀਮ ਦੁਆਰਾ ਜੋੜੇ ਗਏ ਦਸਤਾਵੇਜ਼ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'documents.empty.title': 'ਅਜੇ ਕੋਈ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਹਨ',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-ਦਿਨਾਂ ਦੀ ਮੁਫ਼ਤ ਪਰਖ',
   'landing.subhead':
     "ਐਂਬਾਰਕ ਹਰ ਨਵੇਂ ਸਾਥੀ ਨੂੰ ਉਨ੍ਹਾਂ ਦੇ ਪਹਿਲੇ 90 ਦਿਨਾਂ ਵਿੱਚ ਮਾਰਗਦਰਸ਼ਨ ਕਰਦਾ ਹੈ - ਕਾਗਜ਼ੀ ਕਾਰਵਾਈ, ਸਿਖਲਾਈ, ਮੀਲ ਪੱਥਰ, ਅਤੇ ਅਰਥਪੂਰਨ ਜਾਣ-ਪਛਾਣ, ਸਭ ਇੱਕ ਸ਼ਾਂਤ, ਭਰੋਸੇਮੰਦ ਜਗ੍ਹਾ 'ਤੇ।",
+  'layout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'layout.search': 'ਕੰਮ, ਦਸਤਾਵੇਜ਼, ਟੀਮ ਦੇ ਸਾਥੀ ਖੋਜੋ...',
+  'layout.searchTeammates': 'ਟੀਮ ਦੇ ਸਾਥੀਆਂ ਨੂੰ ਨਾਮ ਜਾਂ ਭੂਮਿਕਾ ਦੁਆਰਾ ਖੋਜੋ...',
   'layout.section.onboarding': 'ਆਨਬੋਰਡਿੰਗ',
   'layout.tagline': 'ਤੁਹਾਡੀ ਯਾਤਰਾ ਇੱਥੋਂ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ।',
   'notifications.empty.body': 'ਨਵੀਂ ਗਤੀਵਿਧੀ ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗੀ।',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ਕੱਲ੍ਹ',
   'planUpdated.message': 'ਤੁਸੀਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਤਿਆਰ ਹੋ।',
   'planUpdated.preparing': 'ਤੁਹਾਡੀ ਯੋਜਨਾ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.documentsLabel': 'ਦਸਤਾਵੇਜ਼',
   'pricing.onboardingsLabel': 'ਆਨਬੋਰਡਿੰਗ',
   'pricing.tasksLabel': 'ਕੰਮ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'हमारी कहानी',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'ओपन दर',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'चेकआउट शुरू हो रहा है…',
   'billing.subheading': 'वह योजना चुनें जो आपकी भेजने की शैली से मेल खाए।',
   'billing.unavailable': 'बिक्री से संपर्क करें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.retry': 'पुनः प्रयास करें',
   'compose.adjustingTone': 'चयनित स्वर में पुनर्लेखन हो रहा है…',
   'compose.aiPromptPlaceholder':
     'उदा. "दो सप्ताह तक कोई उत्तर न मिलने पर विनम्र अनुवर्ती, संक्षिप्त रखें।"',
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'कुछ भेजना है? Signet सेकंडों में मसौदा तैयार कर सकता है।',
   'dashboard.composeCtaLabel': 'त्वरित कंपोज़',
   'dashboard.heading': 'आपका सप्ताह, सुंदर ढंग से लिखा',
+  'dashboard.loadFailed': 'आपका डैशबोर्ड लोड नहीं हो सका।',
   'dashboard.manageLibrary': 'लाइब्रेरी प्रबंधित करें →',
   'dashboard.recentEmpty': 'अभी तक कुछ नहीं भेजा — आपके भेजे गए ईमेल यहाँ दिखाई देंगे।',
   'dashboard.recentHeading': 'हाल ही में भेजे गए',
@@ -135,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet इस स्वर का उपयोग करता है जब तक आप मसौदे में इसे ओवरराइड न करें।',
   'signetLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
+  'signetLayout.toggleMenu': 'मेनू टॉगल करें',
   'signup.emailLabel': 'ईमेल पता',
   'signup.showPassword': 'पासवर्ड दिखाएँ',
   'signup.tagline': 'एक मिनट से कम में अपना पहला AI द्वारा लिखा ईमेल भेजें।',

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'திட்டத் தகவல்கள் ஏற்றப்படுகின்றன…',
   'billing.popular': 'மிகவும் விரும்பப்பட்ட',
   'billing.subtitle': 'உங்கள் படிப்பு வேகத்திற்குப் பொருந்தும் திட்டத்தைத் தேர்ந்தெடுங்கள்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.today': 'இன்று',
   'common.yesterday': 'நேற்று',
   'courseDetail.empty.body':
@@ -87,8 +88,12 @@ export const ui: UiTranslations = {
   'flashcards.subtitle':
     'உங்கள் வேகத்திற்கு ஏற்றவாறு மாறும் இடைவெளி விட்டு மீண்டும் மீண்டும் செய்தல்.',
   'flashcards.title': 'ஃபிளாஷ் கார்டுகள்',
+  'footer.copyright': '© {{year}} {{app}} . நன்கு கற்று, நிம்மதியாக உறங்குங்கள்.',
   'forgotPassword.subtitle':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
+  'koanLayout.closeMenu': 'மெனுவை மூடுக',
+  'koanLayout.navLabel': 'முதன்மை வழிசெலுத்தல்',
+  'koanLayout.openMenu': 'மெனுவைத் திறக்கவும்',
   'koanLayout.theme': 'தீம்',
   'landing.featuresBody': 'கவனச்சிதறலை நீக்கி, நீடித்த புரிதலை வளர்க்க வடிவமைக்கப்பட்ட கருவிகள்.',
   'landing.featuresHeading': 'ஆழ்ந்த கவனம், சிறந்த முடிவுகள்',
@@ -123,11 +128,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'அந்த இணையதள முகவரி இதுவரை அறியப்படாத ஒன்று. ஒருவேளை அது தட்டச்சுப் பிழையாக இருக்கலாம், அல்லது நீக்கப்பட்ட பாடமாக இருக்கலாம் — எதுவாக இருந்தாலும், உங்களை மீண்டும் படிப்பிற்கு அழைத்துச் செல்வோம்.',
   'notFound.heading': 'பக்கம் காணப்படவில்லை.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்',
   'notifications.filter.${opt}': 'அறிவிப்புகள் ஏற்றப்படுகின்றன…',
   'notifications.markAllError': 'அனைத்தையும் படித்ததாகக் குறிக்க முடியவில்லை.',
   'notifications.markError': 'படித்ததாகக் குறிக்க முடியவில்லை.',
   'notifications.subtitle': '{{count}} படிக்கப்படாத புதுப்பிப்புகள்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'வினாடி வினாக்கள்',
   'pricing.limits.topics': 'தலைப்புகள்',
   'privacy.collectBody':
@@ -194,6 +201,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'வேறு முக்கியச்சொல் அல்லது வடிகட்டியைப் பயன்படுத்திப் பாருங்கள்.',
   'search.empty.title': 'எதுவும் பொருந்தவில்லை.',
   'search.error': 'முடிவுகளை ஏற்ற முடியவில்லை.',
+  'search.filters': 'முடிவு வகை வடிப்பான்கள்',
   'search.go': 'போ',
   'search.label.flashcard': 'ஃபிளாஷ்கார்டு டெக்',
   'search.label.note': 'குறிப்பு',

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'auditLog.empty':
     "Babu wani taron binciken kuɗi da ya dace da matatun ku tukuna. Gyara ma'aikaci ko aiwatar da tsarin biyan kuɗi kuma za su bayyana a nan.",
   'auditLog.eyebrow': "Bin ƙa'ida",
+  'auditLog.loadError': 'An kasa loda bayanan binciken.',
   'auditLog.searchPlaceholder': 'Bincika ta hanyar ɗan wasan kwaikwayo, aiki, ko bayanin',
   'auditLog.subheading':
     'Kowace amincewa, gyarawa, da kuma shigar da haraji — tare da mai wasan kwaikwayo, tambarin lokaci, da kuma canje-canjen filayen.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Ba a saita ba',
   'billing.plansHeading': 'Tsare-tsare',
   'billing.subheading': 'Sarrafa tsarin ku kuma canza matakai ta hanyar Stripe.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Sake gwadawa',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': "Hoton bin ƙa'ida",
   'dashboard.compliance.title': 'Duk takardun da aka bayar',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Babu cire kuɗi a fayil ɗin.',
   'employeeDetail.notFound': "Ba a sami ma'aikaci ba.",
   'employeeDetail.payFrequency': 'Mitar biya',
+  'employeeDetail.postTax': 'Bayan haraji',
+  'employeeDetail.preTax': 'Kafin haraji',
   'employeeDetail.salary': 'Albashin shekara-shekara',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'An fara {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Mitar biya',
   'employeeForm.salary': 'Albashin shekara-shekara (USD)',
   'employeeForm.salaryInvalid': 'Albashi dole ne ya zama lamba mara tantanin halitta.',
+  'employeeForm.saveError': "Ba a iya ceton ma'aikaci ba.",
   'employeeForm.semimonthly': 'Rabin wata-wata',
   'employeeForm.single': 'Guda ɗaya',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Albashi',
   'forgotPassword.subtitle':
     'Shigar da imel ɗin aikinka kuma za mu aika hanyar haɗin sake saitawa.',
+  'landing.copyright': '© {{year}} {{app}} . Daidaitacce, abin dogaro, an tsara shi.',
   'landing.ctaBody':
     'Kyauta na tsawon kwanaki 30. Babu katin kiredit. Canja a kowane lokaci ba tare da rasa hanyar binciken ku ba.',
   'landing.ctaHeading': 'Gudanar da zagaye na gaba akan Stipend',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Babu shigarwar bincike na wannan aikin biyan kuɗi tukuna.',
   'payRunDetail.noStubs':
     'Babu takardar biyan kuɗi tukuna — a amince kuma a aiwatar da su don samar da su.',
+  'payRunDetail.notFound': 'Ba a sami wannan tsarin albashi ba.',
   'payRunDetail.statDeductions': 'Ragewa',
   'payRunDetail.statHeadcount': "Ma'aikata",
   'payRunDetail.statTaxes': 'An hana haraji',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Rabin wata-wata',
   'settings.signOutDevice': 'Fita',
   'settings.subheading': 'Bayanin kamfani, jadawalin albashi, da haɗin kai.',
+  'settings.twoFactorCode': 'Lambar tabbatarwa',
   'settings.twoFactorDisable': 'A kashe',
+  'settings.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
+  'settings.twoFactorVerify': 'Tabbatar & kunna',
   'settings.weekly': 'mako-mako',
   'taxCenter.bucket.federal': 'Kudin shiga na tarayya',
   'taxCenter.bucket.fica': "Tsaron Jama'a",

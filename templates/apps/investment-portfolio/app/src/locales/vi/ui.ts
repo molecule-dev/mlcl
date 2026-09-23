@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Giới thiệu {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Công cụ quản lý tài sản',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Không phải lời khuyên đầu tư.',
   'argentAuthShell.sampleChange': '+$2,841 (+0,28%) hôm nay',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Điều hướng chính',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Không có giao dịch cho mã này.',
   'assetDetail.txHeading': 'Giao dịch của quý vị',
   'common.and': 'và',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Tổng quan danh mục',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Chưa có khoản nắm giữ nào.',
   'holdings.heading': 'Khoản nắm giữ',
   'holdings.loadError': 'Không tải được khoản nắm giữ.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Không phải lời khuyên đầu tư. Hiệu suất trong quá khứ không đảm bảo kết quả trong tương lai.',
   'landing.eyebrow': 'Argent · Nền tảng công cụ tài sản',
   'landing.features.heading': 'Mọi thứ một cố vấn sẽ tự xây dựng cho mình.',
   'landing.finalCta.heading': 'Mang tính kỷ luật trở lại danh mục của quý vị.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} giờ trước',
   'news.justNow': 'vừa xong',
   'news.loadError': 'Không tải được tin tức.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'portfolioHeroCard.label': 'Giá trị Danh mục',
   'pricing.holdingsLabel': 'tài sản nắm giữ',
   'pricing.newsLabel': 'bài tin tức',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Xóa tài khoản',
   'settings.security.deleting': 'Đang xóa…',
   'settings.security.heading': 'Bảo mật',
+  'settings.security.newPassword': 'Mật khẩu mới',
   'settings.security.password': 'Mật khẩu',
   'settings.security.twoFactorEnable': 'Kích hoạt',
+  'settings.security.twoFactorInvalidCode': 'Mã không hợp lệ',
+  'settings.security.twoFactorVerify': 'Xác minh và kích hoạt',
   'settings.tax.error': 'Không cập nhật được phương pháp thuế.',
   'settings.tax.heading': 'Kế toán lô thuế',
   'settings.tax.method': 'Phương pháp mặc định',

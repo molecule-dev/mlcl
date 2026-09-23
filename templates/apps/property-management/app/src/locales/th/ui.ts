@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.tagline': 'ทุกยูนิต รวมอยู่ภายใต้หลังคาเดียวกัน',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.addProperty': 'เพิ่มคุณสมบัติ',
   'dashboard.empty.body':
     'เมื่อคุณมีข้อมูลอสังหาริมทรัพย์ จำนวนยูนิต และค่าเช่าแล้ว แดชบอร์ดนี้จะแสดงข้อมูลเชิงลึกเกี่ยวกับพอร์ตโฟลิโอของคุณโดยอัตโนมัติ',
@@ -83,6 +86,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{คุณสมบัติ}} · หน่วย {{หน่วย}} · {{วันที่}}',
   'maintenanceQueueList.subtitle': '{{count}} ใบสั่งงานที่เปิดอยู่ เรียงลำดับตามลำดับความสำคัญ',
   'maintenanceQueueList.title': 'คิวการบำรุงรักษา',
+  'nav.closeMenu': 'ปิดเมนู',
+  'nav.openMenu': 'เปิดเมนู',
   'notFound.body': 'หน้าที่คุณกำลังมองหาถูกย้าย ถูกเก็บถาวร หรืออาจไม่เคยมีอยู่จริง',
   'notFound.title': 'ประตูนั้นเปิดไม่ได้',
   'notifications.empty.body':

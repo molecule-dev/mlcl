@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'forgot.eyebrow': 'ආපහු එන්න පාර වැරදුනාද?',
   'forgot.formSubtitle': 'ගොනුවේ ඇති විද්‍යුත් තැපෑල අපට කියන්න.',
   'forgot.headline': 'ඔබගේ මුරපදය නැවත සකසන්න.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.headline': 'පිටුව විරාමයක් තැබූ තැනින් අරගන්න.',
   'login.signupLink': 'එකක් සාදන්න',
   'login.subline': 'ඔබේ සටහන් පොත්, පසු සබැඳි සහ දෛනික පිටු ඔබ ඒවා තැබූ තැනම තිබේ.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'noteEditor.backToNotes': 'සටහන් වෙත ආපසු',
   'noteEditor.bodyPlaceholder':
     'ලිවීම ආරම්භ කරන්න — ඔබ ටයිප් කරන විට ඔබේ සටහන ස්වයංක්‍රීයව සුරැකේ.',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'නව සටහන් පොත',
   'notes.newNotebookPrompt': 'නව සටහන් පොතේ නම',
   'notes.notebooksHeading': 'සටහන් පොත්',
+  'notes.subtitle': 'වම් පස ඇති සටහන් පොතක් තෝරාගෙන, නව සටහනක් ආරම්භ කිරීමට නව සටහන් බොත්තම ඔබන්න.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'ඔබගේ සටහන් ගැනීමේ සැලැස්ම තෝරන්න',
   'reset.eyebrow': 'ආපසු එන්න ආසන්නයි',
@@ -114,6 +118,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'යාවත්කාලීන කරන ලදී',
   'versoLayout.nav.graph': 'ප්‍රස්තාරය',
   'versoLayout.nav.home': 'මුල් පිටුව',
+  'versoLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'versoNoteCard.pinned': 'පින් කරන ලදී',
   'versoTodayHero.continueCta': 'ලිවීම දිගටම කරගෙන යන්න',
   'versoTodayHero.createCta': 'අද සටහන ආරම්භ කරන්න',

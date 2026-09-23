@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'analytics.channels.empty': 'अहिलेसम्म कुनै च्यानल डेटा छैन।',
   'analytics.channels.title': 'च्यानल अनुसार',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'प्रति दिन कुराकानीहरू',
   'chatBubble.avatarAlt': '{{speaker}} अवतार',
   'common.appName': 'रिपोर्ट',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'confidenceMeter.label': 'आत्मविश्वास',
   'conversationDetail.agentName': 'एजेन्ट',
   'conversationDetail.aiReplyButton': 'बटको जवाफ',
   'conversationDetail.aiReplyError': 'AI जवाफ उत्पन्न गर्न सकिएन',
   'conversationDetail.aiReplyLoading': 'मस्यौदा तयार पार्दै…',
+  'conversationDetail.aiReplySourceFallback': 'फलब्याक (एआई कुञ्जी छैन)',
   'conversationDetail.backAria': 'कुराकानीहरूमा फर्कनुहोस्',
   'conversationDetail.composerPlaceholder': 'ग्राहकलाई जवाफ दिनुहोस्...',
   'conversationDetail.context.channel': 'च्यानल',
@@ -155,8 +158,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'आफ्नो खाताको लागि नयाँ पासवर्ड सेट गर्नुहोस्',
   'resetPassword.toggleConfirm': 'पासवर्डको दृश्यता पुष्टि गर्नुहोस् टगल गर्नुहोस्',
   'resetPassword.togglePassword': 'पासवर्डको दृश्यता टगल गर्नुहोस्',
+  'settings.account.emailError': 'इमेल अद्यावधिक गर्न असफल भयो',
   'settings.account.emailLabel': 'इमेल ठेगाना',
+  'settings.account.emailSaved': 'इमेल अद्यावधिक गरियो',
+  'settings.account.nameError': 'नाम अद्यावधिक गर्न असफल भयो',
   'settings.account.nameLabel': 'प्रदर्शन नाम',
+  'settings.account.nameSaved': 'नाम अद्यावधिक गरियो',
   'settings.account.title': 'खाता',
   'settings.api.createCta': 'टोकन सिर्जना गर्नुहोस्',
   'settings.api.description':
@@ -169,10 +176,18 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'भावना घट्दा स्वतः बढ्छ',
   'settings.bot.greetingLabel': 'पहिलो सन्देशको अभिवादन',
   'settings.bot.title': 'बट कन्फिगरेसन',
+  'settings.bot.toneFormal': 'औपचारिक',
   'settings.bot.toneLabel': 'आवाज र स्वर',
   'settings.danger.deleteAccount': 'खाता मेटाउनुहोस्',
+  'settings.danger.deleteError': 'खाता मेटाउन असफल भयो',
+  'settings.danger.deleteWarning':
+    'यसले तपाईंको खाता र सम्बन्धित सबै डेटा स्थायी रूपमा मेटाउँछ। यसलाई पूर्ववत गर्न सकिँदैन।',
   'settings.danger.deleting': 'मेटाउँदै...',
+  'settings.danger.passwordLabel': 'आफ्नो पासवर्ड पुष्टि गर्नुहोस्',
   'settings.danger.title': 'खतरा क्षेत्र',
+  'settings.devices.empty': 'कुनै पनि यन्त्र दर्ता गरिएको छैन।',
+  'settings.devices.revokeWarning': 'यो उपकरणको पहुँच छिट्टै रद्द हुनेछ। यसलाई साइन आउट गर्ने?',
+  'settings.devices.signingOut': 'साइन आउट हुँदैछ…',
   'settings.devices.signOut': 'साइन आउट गर्नुहोस्',
   'settings.devices.thisDevice': 'यो उपकरण',
   'settings.devices.title': 'उपकरणहरू',
@@ -185,9 +200,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'पासवर्ड परिवर्तन गर्न असफल भयो',
   'settings.security.currentPassword': 'हालको पासवर्ड',
   'settings.security.newPassword': 'नयाँ पासवर्ड',
+  'settings.security.oauthManaged':
+    'तपाईंको पासवर्ड तपाईंको साइन-इन प्रदायकद्वारा व्यवस्थापन गरिन्छ।',
   'settings.security.title': 'सुरक्षा',
   'settings.security.twoFactorDisable': 'असक्षम पार्नुहोस्',
   'settings.security.twoFactorEnable': 'सक्षम पार्नुहोस्',
+  'settings.security.twoFactorInvalid': 'अमान्य कोड',
   'settings.subtitle':
     'र्‍यापोर्टको आवाज, ज्ञानका स्रोतहरू, र यसले कुरा गर्ने उपकरणहरूलाई ट्युन गर्नुहोस्।',
   'settings.tokenCreateError': 'टोकन सिर्जना गर्न असफल भयो',

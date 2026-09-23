@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.pageTitle': 'O aplikaci {{app}}',
   'activity.empty': 'Zatím žádná aktivita – otočte zařízení nebo aktivujte scénu.',
   'activity.eyebrow': 'Časová osa',
   'activity.loadError': 'Nepodařilo se načíst informační kanál o aktivitách.',
   'activity.subheading':
     'Každé zařízení, automatizace a bezpečnostní událost v chronologickém pořadí.',
+  'addDevice.error.failed': 'Zařízení se nepodařilo přidat. Zkuste to znovu.',
   'addDevice.error.nameRequired': 'Chcete-li pokračovat, pojmenujte toto zařízení.',
   'addDevice.field.firmware': 'Verze firmwaru',
   'addDevice.field.manufacturer': 'Výrobce',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testování…',
   'automationEditor.testNew': 'Nejprve uložte automatizaci, abyste ji mohli otestovat.',
   'automationRow.lastRun': 'Poslední {{date}} · {{count}} běhy',
+  'automationRow.on': 'Dne',
   'automationRow.runNowAria': 'Běh {{name}} teď',
   'automations.empty': 'Zatím žádné automatizace – vytvořte si svou první rutinu.',
   'automations.eyebrow': 'Rutiny',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Načítání automatizací…',
   'automations.newAutomation': '+ Nové',
   'automations.subheading': 'Když se to stane, udělejte to – bez YAML.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Nepodařilo se načíst zařízení.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Pracuji…',
   'deviceDetail.unnamed': 'Zařízení',
   'deviceStatusRow.on': 'Na',
+  'deviceStatusRow.turnOff': 'Vypnout',
+  'deviceStatusRow.turnOn': 'Zapnout',
   'deviceStatusRow.watts': '{{watts}} Z',
   'energy.eyebrow': 'Moc',
   'energy.heading': 'Energie',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Zobrazit plány',
   'settings.security.heading': 'Zabezpečení',
   'settings.subheading': 'Předvolby plánu, center a účtu.',
+  'smartHomeDashboardLayout.openMenu': 'Otevřít navigační menu',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Primární navigace',
 }

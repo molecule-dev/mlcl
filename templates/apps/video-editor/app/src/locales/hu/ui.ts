@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hibát találtál, van egy funkciókérésed, vagy szeretnél mesélni nekünk a megvágott filmről? Minden üzeneted eljut egy valódi személyhez a csapatban – bármikor kapcsolatba léphetsz velünk a fiókbeállításaidból.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.eyebrow': '// a stúdió a vágás mögött',
   'about.pageTitle': 'A {{appName}}-ről',
   'assetDetail.back': 'Vissza a könyvtárba',
   'assetDetail.confirmDelete': 'Törlés " {{name}} "? Ez nem vonható vissza.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipek, hanganyagok és grafikák, amelyek készen állnak az idővonalra helyezésre.',
   'assetLibrary.title': 'Eszközök',
   'assetLibrary.upload': 'Eszköz hozzáadása',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.browseTemplates': 'Sablonok böngészése →',
   'dashboard.loading': 'Projektek betöltése…',
   'dashboard.noProjects': 'Még nincsenek projektek – hozzon létre egyet a kezdéshez.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Válassz olyat, amire csak te fogsz emlékezni.',
   'rushesAuthShell.footer.copyright': '© Rushes Stúdió',
   'rushesAuthShell.footer.privacy': 'Adatvédelem',
+  'rushesLayout.closeMenu': 'Navigáció bezárása',
   'rushesLayout.guest': 'Szerkesztő',
+  'rushesLayout.navDialog': 'Navigáció',
+  'rushesLayout.openMenu': 'Navigáció megnyitása',
   'rushesLayout.planFree': 'Ingyenes csomag',
   'rushesLayout.tagline': 'Filmes idővonal',
   'settings.billing.confirmCancel': 'Lemondja az előfizetést az időszak végén?',

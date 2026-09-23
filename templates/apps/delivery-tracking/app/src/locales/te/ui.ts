@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'alerts.acknowledgeLabel': 'అంగీకరించండి',
   'alerts.customerLabel': 'కస్టమర్: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'కనెక్ట్ అవుతోంది…',
   'carriers.requiredError': 'పేరు మరియు కోడ్ అవసరం.',
   'carriers.subheading': '{{count}} సమీకృత',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'రవాణాలో ఉంది + ఫ్లాగ్ చేయబడింది',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'రవాణా',
   'pricing.trackingLabel': 'ఈవెంట్‌లను ట్రాక్ చేయడం',
   'profile.dangerZone.title': 'ప్రమాదకర ప్రాంతం',
+  'profile.devices.signingOut': 'సైన్ అవుట్ అవుతోంది…',
+  'profile.devices.unnamed': 'పేరులేని పరికరం',
+  'profile.security.disable2fa': '2FAను నిలిపివేయండి',
   'profile.security.enable2fa': '2FAను ప్రారంభించండి',
   'profile.security.pwChanged': 'పాస్‌వర్డ్ విజయవంతంగా మార్చబడింది.',
   'profile.security.pwCurrent': 'ప్రస్తుత పాస్‌వర్డ్',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA యాక్టివ్‌గా ఉంది',
   'profile.security.twoFaCode': '6-అంకెల కోడ్',
   'profile.security.twoFaDisable': 'నిలిపివేయండి',
+  'profile.security.twoFaDisabling': 'నిలిపివేస్తోంది…',
   'profile.security.twoFaFailed': 'కోడ్‌ను ధృవీకరించలేకపోయాము.',
   'profile.security.twoFaIntro':
     'మీ అథెంటికేటర్ యాప్‌లో QR కోడ్‌ను స్కాన్ చేసి, ఆపై ధృవీకరించడానికి క్రింద ఉన్న 6-అంకెల కోడ్‌ను నమోదు చేయండి.',
   'profile.security.twoFaOn': 'ఈ ఖాతాలో రెండు-కారకాల ప్రమాణీకరణ ప్రారంభించబడింది.',
+  'profile.security.twoFaQrAlt': 'రెండు-కారకాల QR కోడ్',
   'profile.security.twoFaVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'profile.security.twoFaVerifying': 'ధృవీకరిస్తోంది…',
   'profile.subheading': 'ఈ వర్క్‌స్పేస్ కోసం గుర్తింపు మరియు భద్రతా సెట్టింగ్‌లు.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'ఈ రహస్యాన్ని భద్రపరచండి — ఇది మళ్ళీ బయటపెట్టబడదు.',
   'settings.api.webhookSecret': 'వెబ్‌హుక్ సంతకం రహస్యం',
   'settings.appearance.description': 'లైట్ మరియు డార్క్ మోడ్‌ల మధ్య మారండి.',
+  'settings.deleteAccountConfirm': 'మీరు ఖచ్చితంగా ఉన్నారా? ఈ చర్యను వెనక్కి తీసుకోలేము.',
   'settings.notifications.exceptions': 'షిప్‌మెంట్ మినహాయింపు సంభవించినప్పుడు నాకు ఇమెయిల్ చేయండి',
   'settings.notifications.heading': 'నోటిఫికేషన్లు',
   'settings.notifications.saveFailed': 'ప్రాధాన్యతలను సేవ్ చేయలేకపోయాను.',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'రవాణా కనుగొనబడలేదు.',
   'shipmentDetail.originHeading': 'మూలం',
   'shipmentDetail.shippedOn': 'రవాణా చేయబడింది {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'ఇంకా ట్రాకింగ్ ఈవెంట్‌లు ఏవీ లేవు — క్యారియర్ పార్సెల్‌ను స్కాన్ చేసినప్పుడు అప్‌డేట్‌లు ఇక్కడ కనిపిస్తాయి.',
   'shipmentDetail.weightLabel': '{{weight}} పౌండ్లు',
   'shipments.col.carrier': 'క్యారియర్',
   'shipments.col.eta': 'అంచనా సమయం',
@@ -175,6 +186,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'సైన్ ఇన్',
   'signup.submit': 'ఖాతాను సృష్టించండి',
   'team.emailError': 'చెల్లుబాటు అయ్యే ఇమెయిల్ చిరునామా అవసరం.',
+  'team.empty':
+    'ఇంకా జట్టు సభ్యులు ఎవరూ లేరు. రవాణా పనులలో సహకరించడానికి మీ జట్టు సభ్యుడిని ఆహ్వానించండి.',
   'team.eyebrow': 'సభ్యులు & అనుమతులు',
   'team.inviteDialog.cancel': 'రద్దు చేయండి',
   'team.inviteDialog.heading': 'సహచరుడిని ఆహ్వానించండి',
@@ -197,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ట్రాక్',
   'waypointLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'webhooks.createFailed': 'వెబ్‌హుక్ ఎండ్‌పాయింట్‌ను సృష్టించలేకపోయాము.',
+  'webhooks.endpointsEmpty':
+    'ఇంకా వెబ్‌హుక్ ఎండ్‌పాయింట్‌లు లేవు. షిప్‌మెంట్ స్టేటస్ కాల్‌బ్యాక్‌లను స్వీకరించడానికి ఒకదాన్ని సృష్టించండి.',
   'webhooks.endpointsHeading': 'ముగింపు పాయింట్లు',
   'webhooks.eventCount': '{{count}} ఈవెంట్లు',
   'webhooks.eventsHeading': 'ఇటీవలి డెలివరీలు',

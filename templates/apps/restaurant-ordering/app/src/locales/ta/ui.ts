@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} பற்றி',
   'analytics.avgCheckLabel': 'சராசரி சரிபார்ப்பு',
   'analytics.busiestHour': 'மிகவும் பரபரப்பான நேரம்',
   'analytics.coversToday': 'இன்றைய அட்டைகள்',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'டிப்ஸ் (சராசரி)',
   'analytics.topItems': 'இன்றைய முக்கிய அம்சங்கள்',
   'authShell.eyebrow': 'சேவைக்கு மீண்டும் வருக',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'விருந்தோம்பல் குழுக்களுக்கான ஒரு வசதியான, வேகமான விற்பனைத் தளம். உங்கள் சமையலறையில் உள்நுழைந்து, நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள்.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'அல்லது {{price}}',
   'billing.priceUnavailable': 'இந்தத் திட்டத்திற்கு விலை நிர்ணயிக்கப்படவில்லை.',
   'billing.updated': 'திட்டம் புதுப்பிக்கப்பட்டது.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'customerDetail.book': 'முன்பதிவைச் சேர்க்கவும்',
   'customerDetail.col.table': 'அட்டவணை',
   'customerDetail.confirmDelete': 'இந்த விருந்தினர் பதிவை நீக்கவா?',
@@ -134,6 +137,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'கிடைக்கும் தன்மை',
   'menuItemDetail.available': 'இன்றிரவு கிடைக்கும்',
   'menuItemDetail.backToMenu': 'மெனுவிற்குத் திரும்பு',
+  'menuItemDetail.confirmDelete': 'இந்த மெனு உருப்படியை நீக்கவா?',
   'menuItemDetail.delete': 'உருப்படியை நீக்கு',
   'menuItemDetail.deleteError': 'நீக்குதல் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
   'menuItemDetail.dietary': 'உணவு குறிச்சொற்கள்',
@@ -145,9 +149,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · புகைப்படம், மாற்றியமைப்பிகள், உணவுமுறை மற்றும் விலை நிர்ணயம் ஆகியவற்றைத் திருத்தவும்.',
   'menuItemDetail.untitled': 'தலைப்பிடப்படாத உருப்படி',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'notFound.heading': 'இந்த மேசை தரையில் இல்லை.',
   'notFound.subheading':
     'நீங்கள் தேடிய பக்கம் வேறு இடத்தில் வைக்கப்பட்டுள்ளது — அல்லது அது ஒருபோதும் இருந்ததில்லை.',
+  'notFound.toLanding': '{{app}} முகப்பு',
   'notifications.markError': 'அனைத்தையும் படித்ததாகக் குறிக்க முடியவில்லை.',
   'orderDashboard.activeDelta': 'இப்போது நேரலையில்',
   'orderDashboard.activeLabel': 'செயலில் உள்ள ஆர்டர்கள்',
@@ -212,6 +219,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'resetPassword.subtitle': 'சமையலறையை மீண்டும் அணுக, உங்கள் புதிய கடவுச்சொல்லை உள்ளிடவும்.',
   'resetPassword.tokenLabel': 'மீட்டமைப்பு டோக்கன்',
+  'restaurantOrderingLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'revenueHeroCard.activeOrders': '{{count}} செயலில்',
   'revenueHeroCard.change': '{{sign}} {{amount}} நேற்றைய போட்டிக்கு எதிராக',
   'revenueHeroCard.title': 'இன்றைய வருவாய்',
@@ -231,6 +239,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'உணவகத்தின் பெயர்',
   'tableDetail.activeOrders': 'செயலில் உள்ள ஆர்டர்கள்',
   'tableDetail.backToFloor': 'தள வரைபடம்',
+  'tableDetail.confirmDelete': 'இந்த அட்டவணையை நீக்கவா?',
   'tableDetail.delete': 'நீக்கு',
   'tableDetail.deleteError': 'அட்டவணையை நீக்க முடியவில்லை.',
   'tableDetail.heading': 'அட்டவணை {{label}}',
@@ -254,4 +263,5 @@ export const ui: UiTranslations = {
   'tables.loading': 'சரக்கு ஏற்றும் தளம்…',
   'tables.subheading':
     'ஒரு மேசையைச் சுத்தம் செய்வதாகக் குறிக்க, பயன்பாட்டிற்கு உள்ளதாகக் குறிக்க அல்லது அதன் நிலையை மாற்ற, அதனைத் தட்டவும்.',
+  'tableTile.seats': '{{guests}} / {{seats}}',
 }

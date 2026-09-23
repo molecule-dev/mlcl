@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Про {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Інструменти для багатства',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Не є інвестиційною порадою.',
   'argentAuthShell.sampleChange': '+$2 841 (+0,28%) сьогодні',
   'argentAuthShell.sampleValue': '1 032 251 дол. США',
   'argentLayout.primaryNavLabel': 'Основна навігація',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Для цього тікера немає транзакцій.',
   'assetDetail.txHeading': 'Ваші транзакції',
   'common.and': 'та',
+  'common.goToDashboard': 'До панелі',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Огляд портфоліо',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Поки що немає активів.',
   'holdings.heading': 'Холдинги',
   'holdings.loadError': 'Не вдалося завантажити колекції.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Не є інвестиційною порадою. Минулі результати не гарантують майбутніх результатів.',
   'landing.eyebrow': 'Argent · Платформа для залучення капіталу',
   'landing.features.heading': 'Все, що радник збудував би для себе.',
   'landing.finalCta.heading': 'Поверніть дисципліну у своє портфоліо.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}г тому',
   'news.justNow': 'щойно',
   'news.loadError': 'Не вдалося завантажити новини.',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'portfolioHeroCard.label': 'Вартість портфеля',
   'pricing.holdingsLabel': 'холдинги',
   'pricing.newsLabel': 'новинні статті',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Видалити рахунок',
   'settings.security.deleting': 'Видалення…',
   'settings.security.heading': 'Безпека',
+  'settings.security.newPassword': 'Новий пароль',
   'settings.security.password': 'Пароль',
   'settings.security.twoFactorEnable': 'Увімкнути',
+  'settings.security.twoFactorInvalidCode': 'Неправильний код',
+  'settings.security.twoFactorVerify': 'Перевірити та ввімкнути',
   'settings.tax.error': 'Не вдалося оновити метод оподаткування.',
   'settings.tax.heading': 'Податковий облік лотів',
   'settings.tax.method': 'Метод за замовчуванням',

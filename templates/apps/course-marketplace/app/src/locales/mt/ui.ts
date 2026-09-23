@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Qed jitgħabbew il-korsijiet…',
   'browse.next': 'Paġna li jmiss',
   'browse.results': 'Wirja {{count}} korsijiet',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Issortja skont',
   'browse.subtitle':
     'Iffiltra l-arkivju editorjali skont is-suġġett, il-livell, u l-prezz. Kull kors huwa kkurat bl-idejn mill-edituri tagħna.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Iċ-ċertifikat tiegħek huwa ffirmat u lest. Aqsamha mad-dinja jew żommha bħala tfakkira tax-xogħol li ħadt biex tikseb dan.',
   'certificate.copyLink': 'Ikkopja l-link tal-qsim',
+  'certificate.copyPrompt': 'Ikkopja din il-link:',
   'certificate.download': 'Niżżel il-PDF',
   'certificate.eyebrow': 'Kisba miftuħa',
   'certificate.linkCopied': 'Il-link ġie kkupjat!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Int irreġistrat/a!',
   'checkout.verifying': 'Qed tivverifika r-reġistrazzjoni tiegħek…',
   'checkout.viewLibrary': 'Ara t-Tagħlim Tiegħi',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.retry': 'Erġa’ pprova',
   'courseDetail.about': 'Dwar dan il-kors',
   'courseDetail.checkoutPending': 'Nibdew il-ħlas…',
   'courseDetail.continueLearning': 'Kompli tgħallem',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': "Garanzija ta' flus lura fi żmien 30 jum",
   'courseDetail.includes.video': '{{hours}} sigħat ta’ vidjow on-demand',
   'courseDetail.instructor': 'Għalliem',
+  'courseDetail.languageEnglish': 'Ingliż',
   'courseDetail.lectures': 'Lekċers',
   'courseDetail.level': 'Livell',
   'courseDetail.loading': 'Qed jitgħabba l-kors…',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': "Għad m'hemm l-ebda reviżjoni.",
   'instructorProfile.students': 'Studenti',
   'landing.categories.empty': 'Il-kategoriji se jidhru ladarba l-katalgu jimtela.',
+  'landing.categories.heading': 'Esplora l-arkivju',
   'landing.hero.eyebrow': 'Lectura · Arkivju editorjali tal-ħakma',
   'landing.hero.proof': "Fdat minn studenti f'Google, Meta, u Adobe.",
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Ibda titgħallem illum',
   'login.subheading': 'Aċċessa l-arkivju akkademiku tiegħek.',
   'myLearning.empty.title': "Għad m'hemm l-ebda kors li jaqbel ma' dan il-filtru",
+  'myLearning.error.title': 'Ma stajtx intgħabbi l-librerija tiegħek',
   'myLearning.filter.notStarted': 'Mhux mibdi',
   'myLearning.hero.subtitle':
     '{{count}} korsijiet fil-librerija tiegħek. Żomm il-momentum għaddej.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     "M'hemm l-ebda attività ġdida x'tirrevedi. Avvenimenti ġodda se jidhru hawn.",
   'notifications.empty.title': 'Intom kollha maqbudin',
+  'notifications.error.title': 'Ma setgħetx titgħabba l-attività',
   'privacy.title': 'Politika tal-privatezza',
   'reset.confirmPlaceholder': "Erġa' daħħal il-password il-ġdida tiegħek",
   'reset.errorGeneric': 'Ma setgħetx tiġi rrisettjata l-password. Itlob link ġdid.',
@@ -190,5 +198,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} jum ilu',
   'timeAgo.hours': '{{count}} siegħa ilu',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} xhur ilu',
   'timeAgo.today': 'illum',
+  'timeAgo.weeks': '{{count}} ġimgħat ilu',
 }

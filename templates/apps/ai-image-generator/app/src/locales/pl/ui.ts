@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'auth.fields.newPassword': 'Nowe hasło',
   'collectionDetail.addImage': 'Wyczaruj dla kolekcji',
   'collectionDetail.backCta': 'Powrót do kolekcji',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboardy, briefy i serie w toku',
   'collections.title': 'Kolekcje',
   'collections.untitled': 'Bez tytułu · {{stamp}}',
+  'common.closeMenu': 'Zamknij menu',
+  'common.dismiss': 'Odrzuć',
+  'common.goToDashboard': 'Przejdź do panelu',
+  'common.openMenu': 'Otwórz menu nawigacyjne',
   'credits.eyebrow': 'Plan {{plan}}',
   'credits.renewsCopy': 'Plan odnawia się {{date}}',
   'credits.trail': 'Marzenie senne {{plan}} szczebel',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Aktywność generowania, udostępnianie i powiadomienia o kredytach pojawią się tutaj.',
   'notifications.empty.title': 'Nic do zgłoszenia',
   'notifications.subtitle': 'Zdarzenia generowania zgrupowane według dni',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.limits.gallery': 'Galeria {{count}}',
   'privacy.collect.body':
     'Podczas rejestracji zbieramy Pana/Pani imię, adres e-mail i zaszyfrowane hasło. Korzystając z Reverie przechowujemy prompty, które Pan/Pani wysyła, obrazy, które dla Pana/Pani generujemy, style i kolekcje, które Pan/Pani zapisuje, oraz metadane takie jak użyty model, znaczniki czasu generowania i saldo kredytów.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Zapisz nowe hasło',
   'reset.submitting': 'Aktualizowanie hasła…',
   'settings.account.handle': 'Nick',
+  'settings.account.lastSaved': 'Aktywny profil · {{name}}',
   'settings.account.saved': 'Profil zapisany',
   'settings.account.saveFailed': 'Nie udało się zapisać profilu',
   'settings.account.title': 'Profil twórcy',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nowy obraz',
   'sidebar.secondary': 'Nawigacja dodatkowa',
   'signup.failed': 'Rejestracja nie powiodła się. Proszę spróbować ponownie.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Rozpocznij swoją reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Proszę utworzyć konto i odebrać 120 darmowych kredytów.',
   'styles.empty': 'Brak presetów stylu — pojawią się po pierwszym logowaniu.',
   'styles.eyebrow': 'Wyselekcjonowane',

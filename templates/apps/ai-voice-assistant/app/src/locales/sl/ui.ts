@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, predlog za novo funkcijo ali ste odkrili napako? Obrnite se na ekipo {{app}} prek povezave za podporo v meniju vašega računa – vsako sporočilo prejme pravi človek.',
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
   'agentDetail.back': 'Vsi agenti',
   'agentDetail.capabilities': 'Zmogljivosti',
   'agentDetail.delete': 'Izbriši persono',
   'agentDetail.deleteConfirm': 'Želite izbrisati to osebo? Tega ni mogoče razveljaviti.',
+  'agentDetail.deleteError': 'Osebnosti ni bilo mogoče izbrisati.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Persone ni bilo mogoče naložiti.',
   'agentDetail.save': 'Shrani persono',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Preklapljanje …',
   'billing.updateError': 'Posodobitve ni bilo mogoče začeti.',
   'billing.usageHeading': 'Uporaba glasu v tem ciklu',
+  'chatBubble.source.text': 'besedilo',
+  'chatBubble.source.voice': 'glas',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'conversation.defaultTitle': 'Nova pogovorna nit',
   'conversation.empty':
     'Še ni sporočil. Začnite tako, da nekaj poveste ali vnesete besedilo spodaj.',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligenca, ki govori.',
   'landing.heroSubtitle':
     'Glasovni asistent z umetno inteligenco, ki razume vaš naravni tok. Pogovarjajte se, razmišljajte in ukazujte – brezhibno.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Poslušanje …',
   'landing.naturallyBody':
     'Brez sprožilnih besed. Brez togih ukazov. Žargonija razume kontekst, prekinitve in nianse človeškega govora – kot bi klepetali s sodelavcem.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Odpri sejo',
   'notFound.home': 'Nazaj doma',
   'notFound.title': 'Te strani nismo mogli slišati.',
+  'parlanceLayout.closeMenu': 'Zapri meni',
+  'parlanceLayout.openMenu': 'Odpri navigacijski meni',
   'parlanceLayout.primaryNavLabel': 'Primarna navigacija',
   'pricing.conversations': '{{count}} pogovori',
   'pricing.cta.startFree': 'Začnite brezplačno',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Ni zadetkov',
   'search.eyebrow': 'Paleta ukazov',
   'search.fetchError': 'Iskalnega indeksa ni bilo mogoče naložiti.',
+  'search.static.profile.preview': 'Prikazno ime, vzdevek, opis',
   'search.static.voice.title': 'Glas',
   'search.title': 'Iskanje po jeziku',
   'search.transcriptPreview': 'Odpri prepis',

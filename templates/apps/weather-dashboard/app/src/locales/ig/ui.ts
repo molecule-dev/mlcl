@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'billing.subheading': "Ị nọ n'ọnọdụ ugbu a {{plan}} atụmatụ.",
   'billing.switch': 'Mgbanwe',
   'billing.upgraded': 'Emelitere na {{plan}} — a na-etinye oke ozugbo.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'compare.activityHeading': 'Mkpebi ihe omume',
   'compare.empty.title': 'Tinye opekempe ebe abụọ iji tụnyere',
   'compare.eyebrow': "Akụkụ n'akụkụ",
@@ -135,5 +136,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Elu',
   'trends.summary.low.label': 'Dị ala',
   'trends.summary.points.label': 'Ụbọchị',
+  'weatherDashboardLayout.primaryNavLabel': 'Ntugharị isi',
   'weatherHeroCard.updated': 'Emelitere {{time}}',
 }

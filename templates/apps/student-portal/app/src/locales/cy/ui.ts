@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'announcementsFeed.empty': 'Dim cyhoeddiadau eto.',
   'announcementsFeed.eyebrow': '{{count}} diweddariadau',
   'announcementsFeed.title': 'Cyhoeddiadau diweddaraf',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Dim byd yma',
   'assignments.emptyBody': 'Newidiwch hidlwyr uchod i weld aseiniadau mewn cyflwr gwahanol.',
   'assignments.eyebrow': 'Pob cwrs · Y tymor hwn',
+  'assignments.loadError': 'Methwyd llwytho aseiniadau.',
   'assignments.loading': "Wrthi'n llwytho aseiniadau…",
   'assignments.subtitle':
     "Hidlo yn ôl statws i weld beth sy'n ddyledus, wedi'i gyflwyno, wedi'i raddio, neu ar goll.",
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nodyn',
   'attendance.empty': 'Dim cofnodion presenoldeb eto.',
   'attendance.eyebrow': 'Tymor y gwanwyn · 4 wythnos olaf',
+  'attendance.loadError': 'Methwyd llwytho cofnodion presenoldeb.',
   'attendance.loading': "Wrthi'n llwytho presenoldeb…",
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     "Dyddiadau cau aseiniadau wedi'u plotio ar grid misol — mae arholiadau'n sefyll allan mewn coch.",
   'calendar.title': '{{month}} digwyddiadau',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
+  'common.retry': 'Rhowch gynnig arall arni',
   'common.yes': '✓',
   'courseDetail.backLink': 'Graddau',
   'courseDetail.currentGrade': 'Gradd gyfredol',
@@ -74,11 +79,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tuedd',
   'grades.empty': "Dim graddau wedi'u postio eto.",
   'grades.eyebrow': 'Llyfr graddau',
+  'grades.loadError': 'Methwyd llwytho eich graddau.',
   'grades.loading': "Wrthi'n llwytho graddau…",
   'grades.subtitle':
     "Graddau llythyren a chanran byw. Mae saethau tuedd yn dangos a ydych chi'n symud i fyny, yn lefel, neu'n llithro.",
   'grades.title': 'Eich graddau, cwrs wrth gwrs',
   'grades.trendStable': 'Sefydlog',
+  'landing.copyright':
+    "© {{year}} {{app}} . Wedi'i adeiladu ar gyfer myfyrwyr, wedi'i wneud ar gyfer teuluoedd.",
   'landing.ctaHeading': 'Mae diwrnod ysgol tawelach yn dechrau mewn munudau',
   'landing.eyebrow': 'Ar gyfer disgyblion ysgol ganol ac uwchradd',
   'landing.featuresHeading': "Diwrnod ysgol wedi'i drefnu o amgylch y myfyriwr",
@@ -113,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Aseiniadau',
   'nav.attendance': 'Presenoldeb',
   'nav.calendar': 'Calendr',
+  'nav.closeMenu': "Cau'r ddewislen lywio",
   'nav.grades': 'Graddau',
+  'nav.openMenu': 'Agor y ddewislen lywio',
   'nav.statusEyebrow': 'GPA tymor',
   'nav.statusSubtext': 'Rhestr anrhydedd · Tymor y gwanwyn',
+  'nav.unreadMessages': 'Negeseuon heb eu darllen',
   'notifications.eyebrow': '{{count}} diweddariadau',
   'notifications.subtitle':
     'Graddau, atgofion, negeseuon, a chyhoeddiadau ysgol. Addaswch pa sianeli y mae pob hysbysiad yn eu defnyddio yn y Gosodiadau.',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.attendanceLabel': 'presenoldeb',
   'pricing.gradesLabel': 'graddau',
   'pricing.heading': 'cyhoeddiadau',

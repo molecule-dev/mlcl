@@ -39,6 +39,7 @@ export const ui: UiTranslations = {
     '{{уласнасць}} у {{горад}} , {{краіна}} Да сустрэчы {{рэгістрацыя}} .',
   'bookingConfirmation.total': 'Усяго {{total}}',
   'bookingConfirmation.viewTripCta': 'Праглядзець паездку',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'destinationDiscoveryCard.exploreCta': 'Азнаёмцеся з пражываннем',
   'favorites.empty': 'Пакуль няма захаваных уласцівасцей.',
   'favorites.heading': 'Захаваныя ўласцівасці',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Увайдзіце, каб кіраваць сваімі паездкамі, праглядаць пацверджанні і працягваць з таго месца, дзе вы спыніліся.',
   'planUpdated.heading': 'План абноўлены',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.limit.advancedFeatures': 'Пашыраныя функцыі:',
   'pricing.limit.canExport': 'Экспарт дадзеных:',
   'pricing.limit.hotels': 'гатэлі',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'propertyDetail.bookCta': 'Рэзерв',
   'propertyDetail.bookmarkAriaSaved': 'Выдаліць з захаваных уласцівасцей',
   'propertyDetail.heroImageAlt': '{{name}} фатаграфія героя',
+  'propertyDetail.hidePhotos': 'Схаваць фатаграфіі',
   'propertyDetail.lineCleaning': 'Плата за ўборку',
   'propertyDetail.lineRate': '{{price}} × {{nights}} ночы',
   'propertyDetail.lineTaxes': 'Падаткі і зборы',
@@ -105,6 +108,7 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Курыраваныя пражыванні',
   'searchResults.headingForQuery': 'Застаецца на " {{q}} "',
   'searchResults.loadError': 'Не атрымалася загрузіць уласцівасці.',
+  'searchResults.mapPinAria': '{{name}} — {{price}} за ноч',
   'searchResults.sortLabel': 'Сартаваць па',
   'signup.eyebrow': 'Станьце ўдзельнікам',
   'signup.subheading':

@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'authShell.brandHeading':
     'Kanvasijiet perfetti għall-pixel għal timijiet tad-disinn li jibagħtu l-prodotti flimkien.',
   'canvas.redirecting': 'Ftuħ tal-editur…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'u',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.retry': "Erġa' pprova",
   'dashboard.activityEmpty':
     "Għad m'hemm l-ebda attività reċenti — stieden membru tat-tim biex jibda.",
   'dashboard.activityTitle': "X'inbidel illum",
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Spazju tax-Xogħol · Northwind Studio',
   'dashboard.foldersLabel': 'Folders',
   'dashboard.gridTitle': '{{count}} proġetti',
+  'dashboard.heroActiveTool': 'Għodda tal-pinna',
   'dashboard.loadingTitle': 'Qed jitgħabbew il-proġetti…',
   'dashboard.searchPlaceholder': 'Fittex proġetti',
   'dashboard.startFromTemplate': 'Ibda mit-template',
   'dashboard.title': 'Il-proġetti tiegħek',
   'dashboard.untitledProject': 'Proġett bla titlu',
   'designCanvasLayout.newProject': 'Proġett ġdid',
+  'designCanvasLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'editor.backToProjects': 'Lura għall-proġetti',
   'editor.deleteShape': 'Ħassar il-forma',
   'editor.errorBody': 'Ma stajniex niftħu dan il-proġett.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': "Iddisinja għodod li jiċċaqalqu bil-veloċità ta' idejk",
   'library.empty': "Għad m'hemm l-ebda tokens f'din it-taqsima.",
   'library.eyebrow': "Spazju tax-Xogħol · Sistema ta' Disinn tal-Atelier",
+  'library.loadFailed': 'Ma setgħux jitgħabbew it-tokens tad-disinn.',
   'library.systemMeta': 'Saħħa tas-sistema',
   'library.systemSummary': '{{tokens}} tokens · {{komponenti}} komponenti · {{effetti}} effetti',
   'login.emailPlaceholder': 'mara@studio.com',

@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Testni način rada: narudžbe se bilježe i stanja se podmiruju, ali se ne tereti stvarna kartica.',
   'checkout.placeOrderCta': 'Naruči',
+  'checkout.placeOrderError': 'Nije moguće izvršiti vašu narudžbu.',
   'checkout.placingOrder': 'Naručivanje…',
   'checkout.review.shipTo': 'Dostava u',
   'checkout.review.subtotal': 'Međuzbroj dobavljača',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Postanite prodavač',
   'landing.footer.copyright': '© {{year}} {{name}} — svaki proizvođač, jedno tržište.',
   'landing.footer.help': 'Centar za pomoć',
+  'landing.nav.keepShopping': 'Nastavite kupovati',
   'landing.nav.sell': 'Prodajte na Vendryju',
   'landing.nav.shop': 'Dućan',
   'landing.nav.signUp': 'Pridruži se',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Što kupci vole',
   'login.accountTypeAria': 'Vrsta računa',
   'login.heading': 'Dobrodošli natrag u Vendry',
+  'login.legalPrefix': 'Prijavom prihvaćate naše',
   'login.subheading': 'Prijavite se za nastavak kupovine ili se vratite u svoju trgovinu.',
   'login.submitShopper': 'Prijavite se za kupovinu',
   'login.submitVendor': 'Prijavi se u moju trgovinu',
@@ -89,10 +92,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Postavljeno {{date}} · {{vendorCount}} dobavljač(i) · ispunjavanje narudžbi od više dobavljača',
   'orders.empty': 'Još nema narudžbi koje odgovaraju ovom filteru.',
+  'orders.emptyTitle': 'Ovdje još nema narudžbi',
   'orders.eyebrow': 'Vaše kupnje',
   'orders.subtitle':
     'Pogledajte tko je što poslao, pratite pošiljku po dobavljaču i nikada više ne izgubite paket.',
   'orders.title': 'Narudžbe, grupirane po dobavljaču',
+  'planUpdated.verifying': 'Potvrda vaše uplate…',
   'productDetail.addToCart': 'Dodaj u košaricu',
   'productDetail.addToCartError': 'Nije moguće dodati u košaricu.',
   'productDetail.addToCartSuccess': '" {{name}} "dodano u vašu košaricu."',
@@ -133,12 +138,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Upravljajte načinom kupnje, načinom na koji vas prodavači kontaktiraju i kamo ide novac.',
   'signup.heading': 'Pridružite se tržištu',
+  'signup.legalPrefix': 'Pridruživanjem se slažete s našim',
   'signup.mismatch': 'Lozinke se još ne podudaraju.',
   'signup.subheading':
     'Pregledajte više od 4000 neovisnih proizvođača ili otvorite vlastitu trgovinu.',
   'status.delivered': 'Dostavljeno',
   'status.refunded': 'Povrat novca',
+  'userMenu.marketplaceSettings': 'Postavke tržišta',
   'vendor.memberSince': 'Član od {{date}}',
+  'vendorDashboard.defaultShop': 'vaša trgovina',
   'vendorDashboard.eyebrow': 'Administrator dobavljača · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Obračunato nakon Vendry provizije. Sljedeća isplata u petak.',
@@ -157,12 +165,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Gdje proizvodite, što proizvodite, zašto je to važno.',
   'vendorOnboarding.currencyLabel': 'Podmiri u valuti',
   'vendorOnboarding.errors.shopName': 'Naziv trgovine je obavezan.',
+  'vendorOnboarding.errors.submit': 'Nije moguće poslati vašu prijavu.',
   'vendorOnboarding.exit': 'Spremi i nastavi kasnije',
   'vendorOnboarding.eyebrow': 'Prijavite se za prodaju na Vendryju',
+  'vendorOnboarding.field.shopName': 'Naziv trgovine',
   'vendorOnboarding.heroBody':
     'Fiksna provizija od 8%, isplate svakog petka, vaš izlog, vaša priča. Recite nam nešto o svojoj trgovini i mi ćemo vas kontaktirati u roku od 48 sati.',
   'vendorOnboarding.review.contact': 'Kontakt',
   'vendorOnboarding.review.currency': 'Valuta',
+  'vendorOnboarding.review.tagline': 'Slogan',
+  'vendorOnboarding.review.website': 'Web-mjesto',
   'vendorOnboarding.reviewBody':
     'Izgleda dobro. Pregledat ćemo vašu trgovinu u roku od 48 sati i poslati vam prvu isplatu u petak nakon vaše prve prodaje.',
   'vendorOnboarding.samplesLabel': 'Primjeri radova — Instagram, portfolio, fotografije',
@@ -171,11 +183,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Prijava poslana! Pregledat ćemo vašu trgovinu i poslati vam e-poštu u roku od 48 sati.',
   'vendorOnboarding.taxIdLabel': 'Porezni broj',
+  'vendorOrders.emptyTitle': 'Još nema narudžbi za ispuniti',
   'vendorOrders.eyebrow': 'Administrator dobavljača',
+  'vendorOrders.kpi.awaiting': 'Čeka ispunjenje',
   'vendorOrders.kpi.inTransit': 'U tranzitu',
   'vendorOrders.subtitle':
     'Ispisujte naljepnice, označite ispunjeno i odgovorite na pitanja - sve bez napuštanja Vendryja.',
   'vendorOrders.title': 'Dolazne narudžbe',
+  'vendorPayouts.emptyTitle': 'Još nema isplata',
   'vendorPayouts.eyebrow': 'Financiranje dobavljača',
   'vendorPayouts.heroCaption': 'Nagodba Banco BPI-ju {{account}} · 1-2 radna dana',
   'vendorPayouts.history': 'Povijest isplata',
@@ -193,7 +208,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Gdje je napravljen? Koju priču nosi?',
   'vendorProductForm.error.name': 'Naziv proizvoda je obavezan',
   'vendorProductForm.error.price': 'Unesite pozitivnu cijenu',
+  'vendorProductForm.error.publish': 'Objavljivanje nije uspjelo',
   'vendorProductForm.eyebrow': 'Novi oglas',
+  'vendorProductForm.eyebrowEdit': 'Uredi oglas',
   'vendorProductForm.images.body':
     'Povucite i ispustite do 8 slika. Prva fotografija postaje naslovnica trgovine.',
   'vendorProductForm.images.cta': 'Povucite fotografije ovdje ili pregledajte',
@@ -205,6 +222,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Spremi promjene',
   'vendorProductForm.title': 'Recite kupcima o svom artiklu',
   'vendorProductForm.variants.colInventory': 'Inventar',
+  'vendorProductForm.variants.colVariant': 'Varijanta',
   'vendorProducts.eyebrow': 'Administrator dobavljača',
   'vendorProducts.kpi.draft': 'Nacrti',
   'vendorProducts.kpi.lowStock': 'Niska zaliha',

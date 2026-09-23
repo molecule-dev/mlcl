@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'analytics.col.quorum': 'კვორუმი',
   'analytics.col.votes': 'ხმები',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ჯერ არ არის მოუგვარებელი კითხვები.',
   'audienceQa.onStageEyebrow': 'ახლა სცენაზე',
   'audienceQa.pollId': 'კა · {{id}}',
+  'audienceQa.promote': 'დაწინაურება',
   'audienceQa.queued': 'რიგში მყოფი',
   'audienceQa.queueEyebrow': 'რიგი',
   'ballot.eyebrow': 'მიეცით თქვენი ხმა',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ამჟამად თქვენ იმყოფებით {{plan}} გეგმა.',
   'billing.switch': 'გადამრთველი',
   'billing.upgraded': 'განახლებულია {{plan}} — ლიმიტები დაუყოვნებლივ გამოიყენება.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'createPoll.addOption': 'ვარიანტის დამატება',
   'createPoll.anonymousHint':
     'ამომრჩევლის სახელები დამალულია აუდიტის ჟურნალში; დათვლები დადასტურებული რჩება.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ნოშში ახალი ხართ?',
   'login.remember': 'დამიმახსოვრე 30 დღის განმავლობაში',
   'login.subheading': 'გახსენით იატაკი, გაუშვით ოთახი და დაადასტურეთ შედეგი.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'notFound.body':
     'გვერდი, რომელზეც შესვლას ცდილობდით, დაიხურა ან გადატანილია. დაბრუნდით დაფაზე ან გახსენით ახალი გამოკითხვა.',
   'notFound.eyebrow': 'ამ მარშრუტზე კვორუმი არ არის',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ამ გამოკითხვის ჩატვირთვა ვერ მოხერხდა.',
   'pollDetail.loading': 'გამოკითხვა იტვირთება…',
   'pollDetail.notFound': 'გამოკითხვა ვერ მოიძებნა.',
+  'pollDetail.openBallot': 'ღია კენჭისყრა',
   'pollDetail.openLive': 'პირდაპირი შედეგები',
   'pollDetail.pollId': 'გამოკითხვა · {{id}}',
   'pollDetail.published': 'გამოკითხვა გამოქვეყნდა — ამომრჩევლებს ახლა შეუძლიათ ხმის მიცემა.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ძიება ელექტრონული ფოსტით…',
   'voters.subheading':
     'შეადგინეთ კვალიფიციური ამომრჩევლების სია. დააჯგუფეთ ამომრჩევლები ორგანიზაციების მიხედვით შეწონილი ბიულეტენების მისაღებად.',
+  'votingPollingLayout.nav.analytics': 'ანალიტიკა',
+  'votingPollingLayout.nav.billing': 'ანგარიშსწორება',
+  'votingPollingLayout.nav.createPoll': 'ახალი გამოკითხვა',
+  'votingPollingLayout.nav.dashboard': 'დეშბორდი',
+  'votingPollingLayout.nav.notifications': 'შეტყობინებები',
+  'votingPollingLayout.nav.settings': 'პარამეტრები',
+  'votingPollingLayout.nav.team': 'გუნდი',
+  'votingPollingLayout.nav.voters': 'ამომრჩევლები',
+  'votingPollingLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
 }

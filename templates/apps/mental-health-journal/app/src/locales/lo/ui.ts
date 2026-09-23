@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
+  'authShell.encryptionBadge': 'ລາຍການຂອງທ່ານຖືກເຂົ້າລະຫັດແບບຕົ້ນທາງຮອດປາຍທາງ.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'ມື້ {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ພາບລວມຂອງເດືອນນີ້',
   'calendar.eyebrow': 'ພາບລວມຂອງອາລົມ',
@@ -10,6 +13,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'ເດືອນໜ້າ',
   'calendar.prev': 'ເດືອນກ່ອນໜ້ານີ້',
   'calendar.subheading': 'ຕິດຕາມແລ້ວ {{tracked}} ຂອງ {{total}} ມື້ໃນເດືອນນີ້.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.tryAgain': 'ລອງໃໝ່ອີກຄັ້ງ',
   'entryComposer.cancel': 'ກັບໄປທີ່ບັນທຶກປະຈຳວັນ',
   'entryComposer.heading': 'ການສະທ້ອນໃນມື້ນີ້',
   'entryComposer.moodLabel': 'ເຈົ້າຮູ້ສຶກແນວໃດ?',
@@ -20,7 +25,13 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'ບໍ່ສາມາດບັນທຶກລາຍການຂອງທ່ານໄດ້.',
   'entryComposer.titlePlaceholder': 'ຕັ້ງຊື່ໃຫ້ພາບສະທ້ອນນີ້...',
   'entryDetail.back': 'ກັບໄປທີ່ບັນທຶກປະຈຳວັນ',
+  'entryDetail.delete': 'ລຶບລາຍການນີ້',
+  'entryDetail.deleteConfirm': 'ລຶບການສະທ້ອນນີ້ບໍ? ສິ່ງນີ້ບໍ່ສາມາດຍົກເລີກໄດ້.',
+  'entryDetail.deleteConfirmTitle': 'ລຶບລາຍການ',
+  'entryDetail.deleteError': 'ບໍ່ສາມາດລຶບລາຍການນີ້ໄດ້.',
+  'entryDetail.deleteForever': 'ລຶບອອກຖາວອນ',
   'entryDetail.encryptedBadge': 'ເຂົ້າລະຫັດແບບຕົ້ນທາງຮອດປາຍທາງ',
+  'entryDetail.keepEntry': 'ຮັກສາມັນໄວ້',
   'entryDetail.loadError': 'ບໍ່ສາມາດໂຫຼດລາຍການນີ້ໄດ້.',
   'entryDetail.loading': 'ກຳລັງໂຫຼດການສະທ້ອນ…',
   'entryDetail.notFound': 'ບໍ່ພົບລາຍການ.',
@@ -42,6 +53,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ບໍ່ສາມາດໂຫຼດຂໍ້ມູນເຊີງເລິກໄດ້.',
   'insights.subheading':
     'ຮູບແບບອາລົມ, ຫົວຂໍ້ ແລະ ສິ່ງກະຕຸ້ນຕ່າງໆ — ລວບລວມມາຢ່າງຄ່ອຍໆຈາກ 30 ມື້ທີ່ຜ່ານມາຂອງເຈົ້າ.',
+  'insights.themesEmpty':
+    'ຍັງບໍ່ມີຫົວຂໍ້ເທື່ອ — ຕື່ມແທັກໜຶ່ງຫຼືສອງແທັກໃສ່ລາຍການຂອງເຈົ້າ ແລະ ພວກມັນຈະມາລວມກັນຢູ່ທີ່ນີ້.',
   'insights.themesHeading': 'ຫົວຂໍ້ຍອດນິຍົມ',
   'insights.triggerFrequency': 'ສັງເກດເຫັນ {{count}} × ເດືອນນີ້',
   'insights.triggersHeading': 'ຮູບແບບທີ່ກະຕຸ້ນອາລົມຂອງເຈົ້າ',
@@ -60,12 +73,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'ເລີ່ມການຂຽນບັນທຶກປະຈຳວັນ',
   'landing.heroCta': 'ເລີ່ມຕົ້ນລາຍການທຳອິດຂອງທ່ານ',
   'landing.heroCtaSecondary': 'ເບິ່ງມັນໃນການປະຕິບັດ',
+  'landing.heroSubtitle':
+    '{{app}} ເປັນບັນທຶກສ່ວນຕົວທີ່ອ່ອນໂຍນສຳລັບການສະທ້ອນຄືນປະຈຳວັນ, ການຕິດຕາມອາລົມ, ແລະ ຄວາມກະຕັນຍູ — ພ້ອມດ້ວຍການກະຕຸ້ນທີ່ຄິດຢ່າງລະອຽດ ແລະ ຮູບແບບທີ່ງຽບສະຫງົບເພື່ອຊ່ວຍໃຫ້ທ່ານເຂົ້າໃຈຕົວເອງດີຂຶ້ນ.',
   'landing.heroTitle': 'ຄຳເວົ້າ .',
   'landing.previewLabel': 'ແນມເບິ່ງພາຍໃນ Lucid',
   'landing.previewPrompt': 'ສິ່ງເລັກໆນ້ອຍໆອັນໜຶ່ງທີ່ເຈົ້າຮູ້ສຶກຂອບໃຈໃນມື້ນີ້ແມ່ນຫຍັງ?',
   'login.heading': 'ເຂົ້າສູ່ລະບົບບັນທຶກຂອງທ່ານ',
   'login.signupLink': 'ສ້າງວາລະສານຂອງທ່ານ',
   'login.subheading': 'ພື້ນທີ່ທີ່ອ່ອນໂຍນສຳລັບການສະທ້ອນຄວາມຄິດປະຈຳວັນ.',
+  'mentalHealthJournalLayout.closeMenu': 'ປິດເມນູ',
+  'mentalHealthJournalLayout.openMenu': 'ເປີດເມນູ',
   'moodHeroCard.streakSuffix': 'ຊ່ວງເວລາປະຈຳວັນ',
   'moodHeroCard.title': 'ການສະທ້ອນໃນມື້ນີ້',
   'moodTrendChart.aiBadge': 'ຄວາມເຂົ້າໃຈກ່ຽວກັບ AI ພ້ອມແລ້ວ',
@@ -79,6 +96,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'ເສັ້ນທາງຍາວທີ່ສຸດ',
   'profile.memberSince': 'ສະທ້ອນເຖິງຕັ້ງແຕ່ {{date}}',
   'profile.milestones': 'ເຫດການສຳຄັນ',
+  'profile.milestonesEmpty':
+    'ຈຸດໝາຍສຳຄັນທຳອິດຂອງເຈົ້າຢູ່ອີກພຽງໜຶ່ງບາດກ້າວເທົ່ານັ້ນ - ຂຽນທຸກຄັ້ງທີ່ເຈົ້າຮູ້ສຶກວ່າພ້ອມແລ້ວ.',
   'profile.streakValue': '{{days}} ງ',
   'profile.totalEntries': 'ການສະທ້ອນ',
   'profile.totalWords': 'ຄຳສັບທີ່ຂຽນ',

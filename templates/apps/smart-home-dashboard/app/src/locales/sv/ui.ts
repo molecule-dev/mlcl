@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.pageTitle': 'Om {{app}}',
   'activity.empty': 'Ingen aktivitet ännu — slå på en enhet eller aktivera en scen.',
   'activity.eyebrow': 'Tidslinje',
   'activity.loadError': 'Kunde inte ladda aktivitetsflödet.',
   'activity.subheading': 'Varje enhet, automatisering och säkerhetshändelse i kronologisk ordning.',
+  'addDevice.error.failed': 'Kunde inte lägga till enheten. Försök igen.',
   'addDevice.error.nameRequired': 'Ge enheten ett namn för att fortsätta.',
   'addDevice.field.firmware': 'Firmware-version',
   'addDevice.field.manufacturer': 'Tillverkare',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testar…',
   'automationEditor.testNew': 'Spara automatiseringen först för att testa den.',
   'automationRow.lastRun': 'Senast {{date}} · {{count}} körningar',
+  'automationRow.on': 'Den',
   'automationRow.runNowAria': 'Kör {{name}} nu',
   'automations.empty': 'Inga automatiseringar ännu – skapa din första rutin.',
   'automations.eyebrow': 'Rutiner',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Laddar automatiseringar…',
   'automations.newAutomation': '+ Ny',
   'automations.subheading': 'När detta händer, gör det — utan YAML.',
+  'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Det gick inte att ladda enheten.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Arbetar…',
   'deviceDetail.unnamed': 'Enhet',
   'deviceStatusRow.on': 'På',
+  'deviceStatusRow.turnOff': 'Stäng av',
+  'deviceStatusRow.turnOn': 'Slå på',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Effekt',
   'energy.heading': 'Energi',
@@ -172,4 +179,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Visa planer',
   'settings.security.heading': 'Säkerhet',
   'settings.subheading': 'Plan, hubbar och kontoinställningar.',
+  'smartHomeDashboardLayout.openMenu': 'Öppna navigeringsmenyn',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Huvudnavigering',
 }

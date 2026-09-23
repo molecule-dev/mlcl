@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'about.pageTitle': 'ನಮ್ಮ ಬಗ್ಗೆ {{name}}',
   'auth.footer.about': 'ನಮ್ಮ ಬಗ್ಗೆ {{name}}',
   'authHeader.subtitle': 'ನಿಮ್ಮ ಸಂಖ್ಯೆಗಳನ್ನು ಪ್ರಾಮಾಣಿಕವಾಗಿಡಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'automations.action.email': 'ಇಮೇಲ್',
+  'automations.action.noop': 'ಯಾವುದೇ ಕಾರ್ಯಾಚರಣೆ ಇಲ್ಲ',
   'automations.action.webhook': 'ವೆಬ್‌ಹುಕ್',
   'automations.confirmDelete': 'ಅಳಿಸಿ" {{name}} "?',
   'automations.empty.headline': 'ಇನ್ನೂ ಯಾವುದೇ ಆಟೋಮೇಷನ್‌ಗಳಿಲ್ಲ',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ಪ್ರತಿಯೊಂದು ವರ್ಕ್‌ಬುಕ್‌ನಲ್ಲಿ ಟ್ರಿಗ್ಗರ್‌ಗಳು ಮತ್ತು ಕ್ರಿಯೆಗಳು. ಪ್ರತಿ ರನ್ ನೀವು ನಂತರ ಆಡಿಟ್ ಮಾಡಬಹುದಾದ ಸಾಲನ್ನು ಲಾಗ್ ಮಾಡುತ್ತದೆ.',
   'automations.toggle': 'ಟಾಗಲ್ ಮಾಡಿ {{name}}',
+  'automations.trigger.dailySchedule': 'ದೈನಂದಿನ ವೇಳಾಪಟ್ಟಿ',
+  'automations.trigger.rowCreated': 'ಸಾಲು ರಚಿಸಲಾಗಿದೆ',
+  'automations.trigger.rowUpdated': 'ಸಾಲು ನವೀಕರಿಸಲಾಗಿದೆ',
   'billing.empty': 'ಯಾವುದೇ ಯೋಜನೆಗಳು ಲಭ್ಯವಿಲ್ಲ.',
   'billing.error.priceMissing':
     'ಈ ಶ್ರೇಣಿಗೆ ಯಾವುದೇ ಸ್ಟ್ರೈಪ್ ಬೆಲೆಯನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ. STRIPE_*_PRICE_ID env vars ಅನ್ನು ಹೊಂದಿಸಿ.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ಪಟ್ಟಿಯಲ್ಲಿ',
   'charts.kpi.totalCharts': 'ಒಟ್ಟು ಚಾರ್ಟ್‌ಗಳು',
   'charts.list.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಚಾರ್ಟ್‌ಗಳಿಲ್ಲ.',
+  'charts.namePlaceholder': 'ಆದಾಯದ ಪ್ರವೃತ್ತಿ',
   'charts.newChart': 'ಹೊಸ ಚಾರ್ಟ್',
   'charts.primary.eyebrow': 'ಪ್ರಕಾರದ ಪ್ರಕಾರ ಚಾರ್ಟ್‌ಗಳು',
   'charts.primary.headline': 'ಕಾರ್ಯಸ್ಥಳದ ಅವಲೋಕನ',
   'charts.subhead':
     'ನಿಮ್ಮ ಗ್ರಿಡ್‌ಗೆ ಬದ್ಧವಾಗಿರುವ ಲೈವ್ ದೃಶ್ಯೀಕರಣಗಳು — ಪ್ರತಿ ಸೆಲ್ ಸಂಪಾದನೆಯಲ್ಲಿ ಮರು-ರೆಂಡರ್ ಮಾಡಿ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'editor.addColumn': 'ಕಾಲಮ್ ಸೇರಿಸಿ',
+  'editor.addDialogTitle': 'ಕಾಲಮ್ ಸೇರಿಸಿ',
   'editor.addRow': 'ಸಾಲನ್ನು ಸೇರಿಸಿ',
   'editor.addSheet': 'ಹಾಳೆಯನ್ನು ಸೇರಿಸಿ',
   'editor.back': 'ಕಾರ್ಯಪುಸ್ತಕಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . ಕ್ಯಾಲ್ಸೈಟ್ ಸೂತ್ರ-ಮೊದಲ, ಬಹು-ವೀಕ್ಷಣೆ, ನೈಜ-ಸಮಯದ ಗ್ರಿಡ್ ವಿಶ್ಲೇಷಕರು ಮತ್ತು ಹಣಕಾಸು ತಂಡಗಳು ಮೊದಲು ತಲುಪುವ ಸಂಸ್ಥೆಯಾಗಿದೆ.',
   'landing.nav.formulas': 'ಸೂತ್ರಗಳು',
+  'login.noAccount': '{{name}} ಗೆ ಹೊಸಬರೇ?',
+  'login.signIn': '{{name}} ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'login.signUp': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ರಚಿಸಿ',
+  'nav.menu': 'ಮೆನು',
+  'nav.openMenu': 'ಮೆನು ತೆರೆಯಿರಿ',
   'notFound.cellRef': '#ಉಲ್ಲೇಖ!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "ಮಾರ್ಗಗಳು", "ಪುಟ")',
   'notFound.headline': 'ಈ ಸಾಲು ಎಂದಿಗೂ ಅಸ್ತಿತ್ವದಲ್ಲಿರಲಿಲ್ಲ.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ಸ್ಥಳೀಯ ಯಾಂತ್ರೀಕರಣಗಳು · ವೆಬ್‌ಹುಕ್ ಮತ್ತು ಕ್ರಾನ್ ಟ್ರಿಗ್ಗರ್‌ಗಳು',
   'signup.creating': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ಒದಗಿಸಲಾಗುತ್ತಿದೆ...',
   'signup.cta': 'ನನ್ನ ಕಾರ್ಯಸ್ಥಳವನ್ನು ರಚಿಸಿ',
+  'signup.haveAccount': 'ಈಗಾಗಲೇ {{name}} ನಲ್ಲಿ ಇದ್ದೀರಾ?',
   'signup.namePlaceholder': 'ಅವೆರಿ ಚೆನ್',
   'signup.tagline': 'ನಿಮ್ಮ ಮೊದಲ ಕಾರ್ಯಪುಸ್ತಕವನ್ನು 30 ಸೆಕೆಂಡುಗಳಲ್ಲಿ ತಿರುಗಿಸಿ',
   'team.col.activity': 'ಆಹ್ವಾನಿಸಲಾಗಿದೆ',

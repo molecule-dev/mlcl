@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'analytics.col.quorum': 'Kvorum',
   'analytics.col.votes': 'Səslər',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Hələ ki, gözlənilən sual yoxdur.',
   'audienceQa.onStageEyebrow': 'İndi səhnədə',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Təşviq et',
   'audienceQa.queued': 'növbəyə düzülmüş',
   'audienceQa.queueEyebrow': 'Növbə',
   'ballot.eyebrow': 'Səs verin',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Hazırda buradasınız {{plan}} plan.',
   'billing.switch': 'Keçid',
   'billing.upgraded': 'Yeniləndi {{plan}} — məhdudiyyətlər dərhal tətbiq olunur.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'createPoll.addOption': 'Seçim əlavə edin',
   'createPoll.anonymousHint':
     'Seçici adları audit jurnalında gizlədilib; saymalar təsdiqlənmiş olaraq qalır.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh-da yenisiniz?',
   'login.remember': 'Məni 30 gün yadda saxla',
   'login.subheading': 'Döşəməni açın, otağı işlədin və nəticəni təsdiqləyin.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'notFound.body':
     'Daxil olmağa çalışdığınız səhifə bağlanıb və ya başqa yerə köçürülüb. İdarəetmə panelinə qayıdın və ya yeni bir sorğu açın.',
   'notFound.eyebrow': 'Bu marşrutda kvorum yoxdur',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Bu sorğunu yükləmək mümkün olmadı.',
   'pollDetail.loading': 'Sorğu yüklənir…',
   'pollDetail.notFound': 'Sorğu tapılmadı.',
+  'pollDetail.openBallot': 'Açıq səsvermə',
   'pollDetail.openLive': 'Canlı nəticələr',
   'pollDetail.pollId': 'sorğu · {{id}}',
   'pollDetail.published': 'Sorğu dərc edilib — seçicilər artıq səs verə bilərlər.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'E-poçtla axtarın...',
   'voters.subheading':
     'Uyğun olanların siyahısını tərtib edin. Çəkili bülletenlər üçün seçiciləri təşkilatlara görə qruplaşdırın.',
+  'votingPollingLayout.nav.analytics': 'Analitika',
+  'votingPollingLayout.nav.billing': 'Faktura',
+  'votingPollingLayout.nav.createPoll': 'Yeni sorğu',
+  'votingPollingLayout.nav.dashboard': 'İdarəetmə paneli',
+  'votingPollingLayout.nav.notifications': 'Bildirişlər',
+  'votingPollingLayout.nav.settings': 'Parametrlər',
+  'votingPollingLayout.nav.team': 'Komanda',
+  'votingPollingLayout.nav.voters': 'Seçicilər',
+  'votingPollingLayout.primaryNavLabel': 'Əsas naviqasiya',
 }

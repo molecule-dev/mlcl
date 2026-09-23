@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'about.tagline': 'രഹസ്യങ്ങൾ പരസ്യമായി മരിക്കുന്നു.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ടോക്കൺ സൃഷ്ടിക്കുക',
   'apiTokens.kicker': 'API ടോക്കണുകൾ',
   'apiTokens.loading': 'ടോക്കണുകൾ ലോഡ് ചെയ്യുന്നു...',
+  'apiTokens.new': 'പുതിയ ടോക്കൺ',
   'apiTokens.revoke': 'ടോക്കൺ പിൻവലിക്കുക',
   'apiTokens.subheading':
     'ആർക്കാനം CLI, SDK എന്നിവയ്‌ക്കുള്ള വ്യക്തിഗത, സേവന ടോക്കണുകൾ. സൃഷ്ടിക്കുമ്പോൾ ഒരിക്കൽ കാണിക്കുന്ന പ്ലെയിൻ‌ടെക്സ്റ്റ്.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + പാസ്‌കീ',
   'authShell.zeroKnowledge': 'സീറോ-നോളജ് എൻക്രിപ്ഷൻ',
   'common.connecting': 'കണക്റ്റ് ചെയ്യുന്നു...',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.inviting': 'ക്ഷണിക്കുന്നു...',
   'forgotPassword.checkInbox':
     '{email} രജിസ്റ്റർ ചെയ്തിട്ടുണ്ടെങ്കിൽ, ഒരു മിനിറ്റിനുള്ളിൽ ഒപ്പിട്ട ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കും.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'എല്ലാ വോൾട്ടുകളിലുമുള്ള റൊട്ടേഷൻ സ്റ്റാറ്റസ്, അനോമലി അലേർട്ടുകൾ, അംഗീകാര അഭ്യർത്ഥനകൾ.',
   'notifications.unreadEmpty': 'ഇൻബോക്സ് പൂജ്യം — എല്ലാം കഴിഞ്ഞു.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.heading': 'രഹസ്യങ്ങൾ',
   'pricing.limits.accessPolicies': 'ആക്‌സസ് നയങ്ങൾ',
   'pricing.limits.auditLog': 'ഓഡിറ്റ്-ലോഗ് എൻട്രികൾ',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'നിങ്ങളുടെ സബ്‌സ്‌ക്രിപ്‌ഷൻ മാനേജ് ചെയ്യുക, പരിധികൾ കാണുക, അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'profile.subheading': 'ഐഡന്റിറ്റി, സെക്കൻഡ്-ഫാക്ടർ ഉപകരണങ്ങൾ, സജീവ സെഷനുകൾ.',
+  'profile.twoFactor.code': 'പ്രാമാണീകരണ കോഡ്',
   'profile.twoFactor.disable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'profile.twoFactor.enable': 'പ്രാപ്തമാക്കുക',
+  'profile.twoFactor.invalidCode': 'കോഡ് അസാധുവാണ്',
   'profile.twoFactor.kicker': 'രണ്ട്-ഘടക പ്രാമാണീകരണം',
+  'profile.twoFactor.off': 'പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല',
   'profile.twoFactor.on': 'പ്രവർത്തനക്ഷമമാക്കി',
   'resetPassword.email': 'അക്കൗണ്ട് ഇമെയിൽ',
   'resetPassword.heading': 'പുതിയ ക്രെഡൻഷ്യലുകൾ സജ്ജമാക്കുക',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'കമാൻഡുകൾ',
   'secretsManagerLayout.encrypted': 'AES-256 · എൻക്രിപ്റ്റ് ചെയ്തത്',
   'secretsManagerLayout.newVault': 'പുതിയ വോൾട്ട്',
+  'secretsManagerLayout.newVaultShort': 'പുതിയത്',
   'secretsManagerLayout.rotations': 'ഭ്രമണങ്ങൾ',
   'secretsManagerLayout.search': 'തിരയൽ',
   'secretsManagerLayout.searchPlaceholder':
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'രഹസ്യങ്ങൾ',
   'vaultCard.vaultLabel': 'വോൾട്ട്',
   'vaultDetail.addSecret': 'രഹസ്യം ചേർക്കുക',
+  'vaultDetail.back': 'എല്ലാ വോൾട്ടുകളും',
   'vaultDetail.col.key': 'താക്കോൽ',
   'vaultDetail.col.rotated': 'തിരിച്ചത്',
   'vaultDetail.col.value': 'വില',

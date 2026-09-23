@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'about.pageTitle': 'Maka {{appName}}',
   'analytics.empty': 'Detuo vidiyo mbụ gị iji hụ njikọ aka ebe a.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'mkpachị',
   'billing.usage.views': 'Echiche',
   'billing.usage.views.unit': 'echiche',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'landing.cta.title': 'Zipu nzaghachi ka mma. Malite na Glint.',
   'landing.feature.capture.body':
     'Ndekọ ihe nchọgharị, desktọpụ, na ekwentị mkpanaaka nwere igwe okwu, kamera, na eserese.',
   'landing.feature.capture.title': 'Njide otu-mkpọtụ',
+  'landing.footer.copy': '© {{year}} {{appName}} . A na-agbanwe agbanwe, e mere ka ọ na-enwu gbaa.',
   'landing.hero.cardCaption': "Ihe atụ nke nchịkọta ebe ọrụ — nwaa ya n'efu.",
   'landing.hero.primaryCta': "Malite ndekọ n'efu",
   'landing.hero.proof.free': "Ọkwa ebighi ebi n'efu",
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Chọọ ndekọ',
   'library.searchPlaceholder': 'Chọọ ndekọ…',
   'library.weeklyChange': '{{value}} % megide izu gara aga',
+  'nav.openMenu': 'Mepee menu nsoroụzọ',
   'nav.record': 'Ndekọ',
   'nav.shared': 'Ekekọrịtara m',
   'nav.startRecording': 'Malite ndekọ',

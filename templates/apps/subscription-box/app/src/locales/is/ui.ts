@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Um {{app}}',
+  'appNav.mobileLabel': 'Aðalflakk',
+  'appNav.primaryLabel': 'Aðalflakk',
   'billing.actions.confirmCancel':
     'Viltu hætta við áskriftina? Þú getur enduráskrift hvenær sem er.',
   'billing.actions.paused': 'Áskrift sett í bið.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Hvert stig er saga í litlum hópi. Bættu einni við biðröðina þína eða skiptu henni yfir í næsta mánuð.',
   'boxThemeCard.perMonth': '/ mánuði',
+  'common.goToDashboard': 'Fara á yfirlit',
   'customize.eyebrow': 'Gerðu það að þínu',
   'customize.heading': 'Sérsníddu næsta Crate þinn',
   'customize.items.exclude': 'Sleppa þessu',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Þessi árstíð',
   'landing.editions.heading': 'Útgáfur sem sýningarstjórar okkar elska',
   'landing.footer.contact': 'Talaðu við sýningarstjóra',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Byrjaðu kassann þinn →',
   'landing.hero.ctaSecondary': 'Sjá stig',
   'landing.hero.eyebrow': 'Mánaðarlega valið. Alltaf persónulegt.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'NÆSTA VERSLUN ÞÍN',
   'nextBoxHeroCard.itemsLabel': 'Valdar vörur',
   'nextBoxHeroCard.shipsOnLabel': 'Sendir á',
+  'notFound.body':
+    'Við fundum ekki þessa síðu í skjalasafni {{app}} . Hún gæti hafa verið hætt eða einfaldlega verið slegin rangt inn.',
   'notFound.cta.dashboard': 'Fara á mælaborðið',
   'notFound.eyebrow': 'Tómur kassi',
   'notFound.heading': 'Þessi hilla er tóm',

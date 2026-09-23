@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Дайте чайові своєму покупцеві',
   'checkout.tipLabel': 'Чайові',
   'checkout.zipPlaceholder': 'Поштовий індекс',
+  'common.goToDashboard': 'До панелі',
   'featuredProductsGrid.addAria': 'Додати {{name}} до кошика',
   'featuredProductsGrid.outOfStock': 'Немає в наявності',
   'forgotPassword.emailLabel': 'Адреса електронної пошти',
   'forgotPassword.emailPlaceholder': 'покупець@bushel.fresh',
   'forgotPassword.successBody':
     'Якщо ця електронна адреса зареєстрована, посилання для скидання вже в дорозі.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Основна навігація',
   'landing.categoriesEyebrow': 'Проходи',
   'landing.categoriesHeading': 'Купуйте за категоріями',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Плануйте щотижневі доставки за допомогою розумного перезамовлення основних продуктів та відстеження водіїв у реальному часі.',
   'landing.heroTitle': 'Свіжість у ваших дверях за лічені години.',
   'landing.howEyebrow': 'Три кроки',
+  'landing.howItWorksHeading': 'Як працює {{app}}',
   'lists.addAllCta': 'Додати все до кошика',
   'lists.createCta': 'Створіть свій перший список',
   'lists.createError': 'Не вдалося створити список.',

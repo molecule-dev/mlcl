@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'alerts.acknowledgeLabel': 'Сознавать',
   'alerts.customerLabel': 'Клиент: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Подключение…',
   'carriers.requiredError': 'Имя и код обязательны для ввода.',
   'carriers.subheading': '{{count}} интегрированный',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
+  'common.retry': 'Повторить попытку',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'В пути + отмечено',
   'dashboard.activeShipmentsSubtitle': '{{count}} Грузы требуют внимания или находятся в пути.',
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'поставки',
   'pricing.trackingLabel': 'отслеживание событий',
   'profile.dangerZone.title': 'Опасная зона',
+  'profile.devices.signingOut': 'Выход…',
+  'profile.devices.unnamed': 'Устройство без названия',
+  'profile.security.disable2fa': 'Отключить двухфакторную аутентификацию',
   'profile.security.enable2fa': 'Включить двухфакторную аутентификацию',
   'profile.security.pwChanged': 'Пароль успешно сменён.',
   'profile.security.pwCurrent': 'Текущий пароль',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'Двухфакторная аутентификация активна',
   'profile.security.twoFaCode': '6-значный код',
   'profile.security.twoFaDisable': 'Отключить',
+  'profile.security.twoFaDisabling': 'Отключение…',
   'profile.security.twoFaFailed': 'Не удалось проверить код.',
   'profile.security.twoFaIntro':
     'Отсканируйте QR-код в приложении-аутентификаторе, затем введите указанный ниже 6-значный код для подтверждения.',
   'profile.security.twoFaOn': 'Для этой учетной записи включена двухфакторная аутентификация.',
+  'profile.security.twoFaQrAlt': 'QR-код для двухфакторной аутентификации',
   'profile.security.twoFaVerify': 'Проверить и включить',
   'profile.security.twoFaVerifying': 'Проверка…',
   'profile.subheading': 'Настройки идентификации и безопасности для этого рабочего пространства.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Сохраните этот секрет — он больше никогда не будет раскрыт.',
   'settings.api.webhookSecret': 'Секрет подписи вебхука',
   'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
+  'settings.deleteAccountConfirm': 'Вы уверены? Это действие нельзя отменить.',
   'settings.notifications.exceptions':
     'Сообщите мне по электронной почте, если возникнет ошибка при отправке.',
   'settings.notifications.heading': 'Уведомления',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Отправление не найдено.',
   'shipmentDetail.originHeading': 'Источник',
   'shipmentDetail.shippedOn': 'Отправленный {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Событий отслеживания пока нет — обновления будут появляться здесь по мере сканирования посылки перевозчиком.',
   'shipmentDetail.weightLabel': '{{weight}} фунт',
   'shipments.col.carrier': 'Перевозчик',
   'shipments.col.eta': 'ЭТА',
@@ -177,6 +188,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Войти',
   'signup.submit': 'Создать аккаунт',
   'team.emailError': 'Необходимо указать действующий адрес электронной почты.',
+  'team.empty':
+    'Пока нет участников команды. Пригласите коллегу для совместной работы над отправками.',
   'team.eyebrow': 'Участники и разрешения',
   'team.inviteDialog.cancel': 'Отмена',
   'team.inviteDialog.heading': 'Пригласить товарища по команде',
@@ -199,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Отслеживать',
   'waypointLayout.primaryNavLabel': 'Основная навигация',
   'webhooks.createFailed': 'Не удалось создать конечную точку веб-перехватчика.',
+  'webhooks.endpointsEmpty':
+    'Пока нет конечных точек веб-хуков. Создайте одну, чтобы получать уведомления о статусе отправлений.',
   'webhooks.endpointsHeading': 'Конечные точки',
   'webhooks.eventCount': '{{count}} события',
   'webhooks.eventsHeading': 'Недавние поставки',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'auth.fields.newPassword': 'Шинэ нууц үг',
   'collectionDetail.addImage': 'Цуглуулгын төлөө ид шид',
   'collectionDetail.backCta': 'Цуглуулга руу буцах',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Сэтгэл санааны самбар, товч мэдээлэл болон үргэлжилж буй цувралууд',
   'collections.title': 'Цуглуулга',
   'collections.untitled': 'Гарчиггүй · {{stamp}}',
+  'common.closeMenu': 'Цэсийг хаах',
+  'common.dismiss': 'Хаах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.openMenu': 'Навигацийн цэсийг нээх',
   'credits.eyebrow': '{{plan}} төлөвлөгөө',
   'credits.renewsCopy': 'Төлөвлөгөө шинэчлэгдэх огноо {{date}}',
   'credits.trail': 'Ревери · {{plan}} шатлал',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     'Үе үеийн үйл ажиллагаа, хуваалцах болон зээлийн мэдэгдэл энд гарч ирнэ.',
   'notifications.empty.title': 'Мэдээлэх зүйл алга',
   'notifications.subtitle': 'Үе үеийн үйл явдлуудыг өдрөөр нь бүлэглэсэн',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.limits.gallery': '{{count}} галерей',
   'privacy.collect.body':
     'Та бүртгүүлэх үед бид таны нэр, имэйл хаяг, хэшлэгдсэн нууц үгийг цуглуулдаг. Та Reverie-г ашиглах үед бид таны илгээсэн заавар, танд зориулж үүсгэсэн зургууд, таны хадгалсан хэв маяг, цуглуулга, ашигласан загвар, үүсгэсэн хугацааны тэмдэг, зээлийн үлдэгдэл зэрэг мета өгөгдлийг хадгалдаг.',
@@ -170,6 +176,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Шинэ нууц үг хадгалах',
   'reset.submitting': 'Нууц үгийг шинэчилж байна…',
   'settings.account.handle': 'Бариул',
+  'settings.account.lastSaved': 'Идэвхтэй профайл · {{name}}',
   'settings.account.saved': 'Профайлыг хадгалсан',
   'settings.account.saveFailed': 'Профайлыг хадгалж чадсангүй',
   'settings.account.title': 'Бүтээгчийн профайл',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Шинэ зураг',
   'sidebar.secondary': 'Хоёрдогч навигаци',
   'signup.failed': 'Бүртгүүлж чадсангүй. Дахин оролдоно уу.',
+  'signup.firstNamePlaceholder': 'Ариа',
   'signup.heading': 'Мөрөөдлөө эхлүүлээрэй',
+  'signup.lastNamePlaceholder': 'Лин',
   'signup.subheading': 'Бүртгэл үүсгээд 120 үнэгүй кредит аваарай.',
   'styles.empty':
     'Загварын урьдчилсан тохиргоо хараахан байхгүй байна — тэдгээр нь анх нэвтэрсний дараа гарч ирнэ.',

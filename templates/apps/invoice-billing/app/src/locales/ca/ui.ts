@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
   'activityFeed.empty': 'Encara no hi ha activitat: envia la teva primera factura.',
   'authShell.sample.paid': 'Pagat fa 2 minuts',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Afegeix un client nou',
   'clients.search': 'Cerca per nom, empresa, correu electrònic',
   'clients.title': 'Clients',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Nou client',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'He oblidat la contrasenya?',
   'forgotPassword.successBody':
     "Hem enviat instruccions de restabliment a {{email}} L'enllaç caduca en 30 minuts.",
+  'invoiceDetail.action.confirmVoid': 'Confirmar nul?',
   'invoiceDetail.action.download': 'Descarrega el PDF',
   'invoiceDetail.action.duplicate': 'Duplicat',
   'invoiceDetail.action.edit': 'Edita',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Factura anul·lada.',
   'invoiceDetail.issued': 'Emès {{date}}',
   'invoiceDetail.loading': "S'està carregant la factura…",
+  'invoiceDetail.paidInFull': 'Pagat íntegrament',
   'invoiceDetail.summary': '{{client}} · enviat {{date}}',
   'invoiceDetail.tax': 'Impost ( {{rate}} %)',
   'invoiceDetail.timeline': 'Cronologia',
+  'invoiceDetail.voided': 'Anul·lat',
   'invoiceEditor.addItem': 'Afegeix un element',
   'invoiceEditor.back': '← Torna a les factures',
   'invoiceEditor.col.qty': 'Quantitat',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Envia la teva primera factura',
   'landing.hero.eyebrow': 'Facturació per a petites empreses',
   'landing.hero.secondary': 'Veure una factura de mostra',
+  'landing.hero.subtitle':
+    '{{appName}} combina factures impecables amb pagaments integrats, facturació recurrent i informes fiscals. Sense necessitat de comptabilitat.',
   'landing.hero.title': 'Envia factures. Cobra més ràpid.',
   'login.signupLink': "Crea'n un",
   'login.submitting': 'Iniciant la sessió…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'pagaments',
   'pricing.recurringLabel': 'horaris recurrents',
   'remitLayout.newInvoice': 'Nova factura',
+  'remitLayout.openMenu': 'Obre el menú de navegació',
   'remitLayout.searchPlaceholder': 'Cerca factures, clients...',
   'remitLayout.tagline': 'Cobra, més ràpid',
   'reports.chart.aging': 'Envelliment de la factura',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Ingressos del període',
   'reports.chart.topClients': 'Clients principals',
   'reports.chart.topClientsCaption': 'Ingressos al llarg del cicle de vida, els 5 primers',
+  'reports.empty.aging': 'Sense factures pendents.',
+  'reports.empty.methods': 'Encara no hi ha dades de pagament.',
+  'reports.empty.revenue': "Encara no hi ha dades d'ingressos.",
+  'reports.empty.topClients': "Encara no hi ha dades d'ingressos dels clients.",
   'reports.exporting': 'Exportant…',
   'reports.exportRequiresPaid':
     'Les exportacions són una funció de pagament; actualitza-la per activar-les.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Afegeix el tipus impositiu',
   'settings.tax.added': 'Tipus impositiu afegit.',
   'settings.tax.adding': 'Afegint…',
+  'settings.tax.addRate': 'Afegeix tarifa',
   'settings.tax.col.region': 'Regió',
   'settings.tax.delete': 'Suprimeix el tipus impositiu',
   'settings.tax.deleted': 'Tipus impositiu eliminat.',

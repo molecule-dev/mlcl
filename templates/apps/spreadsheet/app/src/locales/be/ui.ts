@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'about.pageTitle': 'Пра нас {{name}}',
   'auth.footer.about': 'Пра нас {{name}}',
   'authHeader.subtitle': 'Увайдзіце, каб вашы лічбы былі праўдзівымі.',
   'automations.action.email': 'Электронная пошта',
+  'automations.action.noop': 'Без аперацыі',
   'automations.action.webhook': 'Вэбхук',
   'automations.confirmDelete': 'Выдаліць " {{name}} "?',
   'automations.empty.headline': 'Аўтаматызацыі пакуль няма',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Трыгеры і дзеянні ў кожнай кнізе. Кожны запуск запісвае радок, які можна праверыць пазней.',
   'automations.toggle': 'Пераключыць {{name}}',
+  'automations.trigger.dailySchedule': 'Штодзённы расклад',
+  'automations.trigger.rowCreated': 'Радок створаны',
+  'automations.trigger.rowUpdated': 'Радок абноўлены',
   'billing.empty': 'Няма даступных планаў.',
   'billing.error.priceMissing':
     'Для гэтага ўзроўню цана Stripe не настроена. Усталюйце зменныя асяроддзя STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Дыяграмы',
   'charts.kpi.totalCharts': 'Агульная колькасць дыяграм',
   'charts.list.empty': 'Пакуль няма дыяграм.',
+  'charts.namePlaceholder': 'Тэндэнцыя даходаў',
   'charts.newChart': 'Новы графік',
   'charts.primary.eyebrow': 'Дыяграмы па тыпу',
   'charts.primary.headline': 'Агляд працоўнай прасторы',
   'charts.subhead':
     'Жывыя візуалізацыі, прывязаныя да вашай сеткі — перарэндэрынг пры кожным рэдагаванні ячэйкі.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'editor.addColumn': 'Дадаць слупок',
+  'editor.addDialogTitle': 'Дадаць слупок',
   'editor.addRow': 'Дадаць радок',
   'editor.addSheet': 'Дадаць аркуш',
   'editor.back': 'Вярнуцца да працоўных сшыткаў',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'formulaPlayground.headline': 'Формулы, якія чытаюцца як англійская мова',
   'gridPreview.emptyFormula': '— выберыце ячэйку, каб праглядзець яе формулу',
   'history.backToGrid': 'Назад да сеткі',
+  'history.composition': '{{sheets}} · {{cols}} {{rows}} радкі',
   'history.confirmRestore': 'Аднавіць гэтую версію? Жывыя ячэйкі будуць заменены.',
   'history.empty.headline': 'Пакуль няма здымкаў',
   'history.empty.subhead': 'Зрабіце здымак працоўнай кнігі, каб убачыць яе версіі тут.',
@@ -98,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite — гэта першы ў свеце аналітык сетак з некалькімі праглядамі ў рэжыме рэальнага часу, які выкарыстоўвае формулы, і фінансавыя каманды імкнуцца да гэтага першымі.',
   'landing.nav.formulas': 'Формулы',
+  'login.noAccount': 'Вы ўпершыню на {{name}} ?',
+  'login.signIn': 'Увайсці ў {{name}}',
   'login.signUp': 'Стварыце працоўную прастору',
+  'nav.menu': 'Меню',
+  'nav.openMenu': 'Адкрыць меню',
   'notFound.cellRef': '#СПАСЫЛКА!',
   'notFound.formula': '=LOOKUP(ЗАПЫТ.url; "маршруты"; "старонка")',
   'notFound.headline': 'Гэтага радка ніколі не існавала.',
@@ -127,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Убудаваныя аўтаматызацыі · вэб-хукі і трыгеры cron',
   'signup.creating': 'Падрыхтоўка працоўнай прасторы…',
   'signup.cta': 'Стварыць маю працоўную прастору',
+  'signup.haveAccount': 'Ужо карыстаецеся {{name}} ?',
   'signup.namePlaceholder': 'Эверы Чэн',
   'signup.tagline': 'Запусціце сваю першую кнігу за 30 секунд',
   'team.col.activity': 'Запрошаны',

@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Wedi dod o hyd i nam, cais am nodwedd, neu eisiau dweud wrthym am y ffilm a dorrwyd gennych? Mae pob neges yn cyrraedd person go iawn yn y tîm — cysylltwch â ni unrhyw bryd o osodiadau eich cyfrif.',
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.eyebrow': "// y stiwdio y tu ôl i'r toriad",
   'about.pageTitle': 'Ynglŷn â {{appName}}',
   'assetDetail.back': "Yn ôl i'r llyfrgell",
   'assetDetail.confirmDelete': 'Dileu " {{name}} "? Ni ellir dadwneud hyn.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     "{{count}} clipiau, gwelyau sain, a graffeg yn barod i'w gollwng ar y llinell amser.",
   'assetLibrary.title': 'Asedau',
   'assetLibrary.upload': 'Ychwanegu ased',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.browseTemplates': 'Pori templedi →',
   'dashboard.loading': "Wrthi'n llwytho prosiectau…",
   'dashboard.noProjects': 'Dim prosiectau eto — crëwch un i ddechrau.',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'newProject.subhead':
     'Dewiswch ragosodiad, enwch y prosiect, ac rydych chi yn y golygydd mewn eiliadau.',
   'newProject.summary': '// {{aspect}} · {{fps}} fps',
+  'notFound.body':
+    "Nid yw'r llwybr “ {{path}} ” yn y prosiect hwn. Gwiriwch yr URL neu ewch yn ôl i'r dangosfwrdd.",
   'notFound.dashboard': 'Agor y dangosfwrdd',
   'notFound.eyebrow': "// 404 — nid yw'r clip ar y llinell amser",
   'notFound.heading': 'Ni lwyddodd y ffrâm hon erioed i gyrraedd y safon.',
@@ -159,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': "Dewiswch rywbeth dim ond chi fyddech chi'n ei gofio.",
   'rushesAuthShell.footer.copyright': '© Stiwdio Rushes',
   'rushesAuthShell.footer.privacy': 'Preifatrwydd',
+  'rushesLayout.closeMenu': 'Cau llywio',
   'rushesLayout.guest': 'Golygydd',
+  'rushesLayout.navDialog': 'Mordwyo',
+  'rushesLayout.openMenu': 'Agor llywio',
   'rushesLayout.planFree': 'Cynllun am ddim',
   'rushesLayout.tagline': 'Llinell amser sinematig',
   'settings.billing.confirmCancel': "Canslo'r tanysgrifiad ar ddiwedd y cyfnod?",

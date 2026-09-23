@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Ikastaroak kargatzen…',
   'browse.next': 'Hurrengo orrialdea',
   'browse.results': 'Erakusten {{count}} ikastaroak',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Ordenatu honen arabera',
   'browse.subtitle':
     'Iragazi erredakzio-artxiboa gaiaren, mailaren eta prezioaren arabera. Ikastaro guztiak gure editoreek eskuz aukeratzen dituzte.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Zure ziurtagiria sinatuta eta prest dago. Partekatu munduarekin edo gorde ezazu lortzeko behar izan duzun lanaren oroigarri gisa.',
   'certificate.copyLink': 'Kopiatu partekatzeko esteka',
+  'certificate.copyPrompt': 'Kopiatu esteka hau:',
   'certificate.download': 'Deskargatu PDFa',
   'certificate.eyebrow': 'Lorpena desblokeatu da',
   'certificate.linkCopied': 'Esteka kopiatu da!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Izena eman duzu!',
   'checkout.verifying': 'Izen-ematea egiaztatzen…',
   'checkout.viewLibrary': 'Ikusi Nire Ikaskuntza',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.retry': 'Saiatu berriro',
   'courseDetail.about': 'Ikastaro honi buruz',
   'courseDetail.checkoutPending': 'Ordainketa hasten…',
   'courseDetail.continueLearning': 'Jarraitu ikasten',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 eguneko dirua itzultzeko bermea',
   'courseDetail.includes.video': '{{hours}} eskaeraren araberako bideo orduak',
   'courseDetail.instructor': 'Irakaslea',
+  'courseDetail.languageEnglish': 'Ingelesa',
   'courseDetail.lectures': 'Hitzaldiak',
   'courseDetail.level': 'Maila',
   'courseDetail.loading': 'Ikastaroa kargatzen…',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Oraindik ez dago iritzirik.',
   'instructorProfile.students': 'Ikasleak',
   'landing.categories.empty': 'Kategoriak katalogoa bete ondoren agertuko dira.',
+  'landing.categories.heading': 'Arakatu artxiboa',
   'landing.hero.eyebrow': 'Irakurketa · Maisutasunaren argitalpen-artxiboa',
   'landing.hero.proof': 'Google, Meta eta Adobeko ikasleek konfiantza dute.',
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Hasi ikasten gaur.',
   'login.subheading': 'Sartu zure artxibo akademikora.',
   'myLearning.empty.title': 'Ez dago iragazki honekin bat datorren ikastarorik oraindik',
+  'myLearning.error.title': 'Ezin izan da zure liburutegia kargatu',
   'myLearning.filter.notStarted': 'Ez hasi',
   'myLearning.hero.subtitle': '{{count}} Zure liburutegiko ikastaroak. Jarrai ezazu bultzadari.',
   'myLearning.hero.title': 'Jarraitu utzi zenuen tokitik.',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Ez dago berrikusteko jarduera berririk. Gertaera berriak hemen agertuko dira.',
   'notifications.empty.title': 'Guztiok harrapatuta zaudete.',
+  'notifications.error.title': 'Ezin izan da jarduera kargatu',
   'privacy.title': 'Pribatutasun politika',
   'reset.confirmPlaceholder': 'Sartu berriro pasahitz berria',
   'reset.errorGeneric': 'Ezin izan da pasahitza berrezarri. Eskatu esteka berri bat.',
@@ -193,5 +201,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} duela egun batzuk',
   'timeAgo.hours': '{{count}} duela ordu batzuk',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': 'Duela {{count}} hilabete',
   'timeAgo.today': 'gaur',
+  'timeAgo.weeks': 'Duela {{count}} aste',
 }

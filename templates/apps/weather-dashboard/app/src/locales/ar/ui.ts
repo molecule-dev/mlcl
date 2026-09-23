@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'أنت تستخدم حاليًا خطة {{plan}}.',
   'billing.switch': 'تبديل',
   'billing.upgraded': 'تم التحديث إلى {{plan}} — تم تطبيق الحدود فورًا.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'compare.activityHeading': 'أحكام الأنشطة',
   'compare.empty.title': 'أضف موقعين على الأقل للمقارنة',
   'compare.eyebrow': 'جنبًا إلى جنب',
@@ -132,5 +133,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'العليا',
   'trends.summary.low.label': 'الدنيا',
   'trends.summary.points.label': 'الأيام',
+  'weatherDashboardLayout.primaryNavLabel': 'التنقل الرئيسي',
   'weatherHeroCard.updated': 'تم التحديث {{time}}',
 }

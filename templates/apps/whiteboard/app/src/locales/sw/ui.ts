@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'authShell.brandHeading':
     'Turubai za wachezaji wengi kwa timu za wabunifu wanaofikiria kwa sauti.',
   'billing.canceled': 'Usajili umeghairiwa.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Anza kutoka kwa kiolezo',
   'boards.title': 'Mabao yako',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Ingiza barua pepe iliyounganishwa na nafasi yako ya kazi nasi tutakutumia kiungo cha kuweka upya.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Warsha ya Q1 · Sauti ya Chapa',
   'landing.featuresEyebrow': 'Ni nini hufanya Slate ibadilike',
   'landing.featuresTitle': 'Maoni ya haraka. Turubai nzuri. Hakuna msuguano.',
+  'landing.hero.body':
+    '{{appName}} ni ubao mweupe wa wachezaji wengi kwa timu za wabunifu, wawezeshaji wa warsha, na waelimishaji wanaoendesha mawazo ya moja kwa moja na wanahitaji mawazo ya kuungana katika sehemu moja.',
   'landing.hero.primaryCta': 'Anzisha ubao bila malipo',
   'landing.hero.socialProof': 'Inaaminika na {{count}} timu za usanifu duniani kote',
   'landing.hero.title': 'Turubai haraka kama mawazo yako',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Unda nafasi ya kazi bila malipo',
   'login.subheading':
     'Endelea pale warsha ilipoishia — mbao, madokezo yanayonata, na vielekezi vyote vinasawazishwa kwa wakati halisi.',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.new': 'Mpya',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'notifications.editTitle': 'Marekebisho ya " {{board}} "',
   'notifications.empty.body':
     'Mialiko, hifadhi za picha, na marekebisho ya hivi karibuni ya ubao yataonekana hapa yanapotokea.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historia ya toleo',
   'versionHistory.untitledSnapshot': 'Picha isiyo na kichwa',
   'whiteboardLayout.newBoard': 'Ubao mpya',
+  'whiteboardLayout.primaryNav': 'Usogezaji mkuu',
   'workspace.boardLabel': 'Ubao',
   'workspace.eyebrow': '{{name}} · nafasi ya kazi',
   'workspace.invite': 'Waalike washirika',

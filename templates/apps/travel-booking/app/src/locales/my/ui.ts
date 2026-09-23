@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureDiscover.title': 'လှုံ့ဆော်မှု၊ လက်ဖြင့်ရွေးချယ်ထားသော',
   'account.addPaymentCta': 'ငွေပေးချေမှုနည်းလမ်းထည့်ပါ',
   'account.addPaymentError': 'ငွေပေးချေမှုနည်းလမ်းကို ထည့်၍မရပါ။',
+  'account.confirmRemove': 'ဖယ်ရှားရန် အတည်ပြုပါ',
   'account.defaultBadge': 'မူရင်း',
   'account.loyalty.pointsTowardNext': '{{အမှတ်များ}} ၏ {{နောက်တစ်ခု}} မိုင်များသို့ {{nextTier}}',
   'account.loyalty.tier': 'လက်ရှိအဆင့်',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ခရီးစဉ်အသေးစိတ်',
   'booking.tripSummary': '{{nights}} ညများ · {{guests}} ဧည့်သည်များ',
   'common.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'common.minutesAgo': '{{count}} လွန်ခဲ့တဲ့ နှစ်',
   'common.no': '—',
@@ -83,6 +87,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'တင်နေသည်…',
   'notifications.subheading':
     '{{count}} မဖတ်ရသေးသော · အရာအားလုံးကို တည်ငြိမ်သော inbox တစ်ခုတည်းတွင်',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.accommodationsLabel': 'နေရာထိုင်ခင်းများ',
   'pricing.bookingsLabel': 'ဘွတ်ကင်များ',
   'pricing.destinationsLabel': 'သိမ်းဆည်းထားသော ခရီးစဉ်များ',
@@ -135,6 +140,7 @@ export const ui: UiTranslations = {
     'နိုင်ငံပေါင်း ၁၄ နိုင်ငံတွင် လက်ဖြင့်စစ်ဆေးထားသော အိမ်ခြံမြေ ၂၀၀ ကျော်တွင် လှုံ့ဆော်မှု၊ ယုံကြည်စိတ်ချရသော တည်းခိုမှုများနှင့် အိပ်မက်မှ ကြိုတင်မှာယူထားသည့်နေရာအထိ ချောမွေ့သောလမ်းကြောင်း။',
   'sojournHeroSearchCard.trustProtected': 'အခမဲ့ပယ်ဖျက်ခြင်း၊ အပြည့်အဝကာကွယ်ခြင်း',
   'sojournHeroSearchCard.trustVetted': 'လက်ဖြင့်စစ်ဆေးထားသော အိမ်ခြံမြေများသာ',
+  'travelBookingLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'tripDetail.backLink': 'ခရီးစဉ်များသို့ ပြန်သွားပါ',
   'tripDetail.cancelCta': 'ဘွတ်ကင် ပယ်ဖျက်ပါ',
   'tripDetail.cancelHeading': 'ဒီခရီးစဉ်ကို ဖျက်သိမ်းမလား။',

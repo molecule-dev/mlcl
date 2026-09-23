@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
   'applications.empty': 'Hakuna programu bado \\u2014 jukumu sahihi ni moja tu.',
   'applications.eyebrow': 'Bomba lako',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Kila jukumu ulilotumia, likiwa katika mwendo. Chuja kwa hatua ili kuzingatia.',
   'applications.untitledRole': 'Jukumu # {{id}}',
+  'auth.legalConsent': 'Kwa kuendelea, unakubali',
   'common.and': 'na',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'companies.empty': 'Hakuna kampuni zinazolingana na utafutaji wako \\u2014 jaribu neno tofauti.',
   'companies.eyebrow': 'Waajiri walioangaziwa',
   'companies.searchPlaceholder': 'Tafuta kwa jina, sekta, eneo',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Hakuna maombi bado kwa jukumu hili.',
   'jobApplicants.eyebrow': 'Mtazamo wa mwajiri',
   'jobApplicants.loading': 'Inapakia\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Haikuweza kusasisha hatua hiyo — jaribu tena.',
+  'jobApplicants.subheading':
+    'Kagua wasifu, endeleza wagombea, tuma ofa \\u2014 {{count}} zinazoendelea.',
   'jobDetail.applicantCount': '{{count}} waombaji hadi sasa',
   'jobDetail.applied': 'Maombi yametumwa',
   'jobDetail.apply': 'Tuma maombi sasa',
@@ -82,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Vinjari majukumu yaliyo wazi \\u2192',
   'landing.pricingEyebrow': 'Bei',
   'landing.pricingHeading': 'Mipango rahisi kwa kila ukubwa wa timu.',
+  'login.eyebrow': 'Karibu tena kwenye {{app}}',
   'login.heading': 'Ingia katika akaunti yako',
   'login.noAccount': 'Mgeni kwa Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Nikumbuke kwa siku 30',
   'login.signingIn': 'Kuingia\\u2026',
   'login.subheading': 'Anza utafutaji wako, endeleza maombi yako, sikia haraka zaidi.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Imeundwa kwa ajili ya kuajiri timu.',
   'loginBrandPanel.headline': 'Ambapo talanta hukutana',
   'loginBrandPanel.headlineLine2': 'kasi.',
   'loginBrandPanel.listing.recruiter': 'Mshirika wa Vipaji',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
     'Masasisho ya maombi, mialiko ya mahojiano, mechi mpya \\u2014 mpya zaidi kwanza.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} wiki hii',
   'opportunitiesHero.eyebrow': 'Imefunguliwa leo',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'postJob.addNewCompany': '+ Ongeza kampuni mpya',
   'postJob.companyCreateFailed': 'Haikuweza kuanzisha kampuni — jaribu tena.',
   'postJob.companyNameLabel': 'Jina la kampuni yako',
@@ -162,9 +171,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'Kufungua akaunti\\u2026',
   'signup.ctaEmployer': 'Fungua akaunti ya mwajiri',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Manenosiri hayalingani.',
   'signup.subheading': 'Bure kwa wanaotafuta, milele. Waajiri huanza na jaribio la siku 30.',
   'timeAgo.days': '{{count}} siku iliyopita',
   'timeAgo.hours': '{{count}} h iliyopita',
   'timeAgo.justNow': 'sasa hivi',
+  'timeAgo.weeks': '{{count}} iliyopita',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.pageTitle': 'O nas {{appName}}',
   'analytics.error': 'Analitike ni bilo mogoče naložiti.',
   'analytics.heading': 'Analitika iskanja',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ni konfiguriranih cenovnih stopenj.',
   'billing.plans.heading': 'Načrti',
   'billing.subheading': 'Načrt, uporaba in blagajna, ki jo upravlja Stripe.',
+  'common.confirm': 'Potrdi',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
+  'common.retry': 'Poskusi znova',
   'documentCard.open': 'Odprto \\u2192',
   'documentDetail.back': 'Nazaj na dokumente',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Kazalo dokumentov',
   'documents.composer.titlePlaceholder': 'Naslov dokumenta',
   'documents.emptyAll': 'Še ni dokumentov. Naložite enega, da začnete postavljati vprašanja.',
+  'documents.error.load': 'Dokumentov ni bilo mogoče naložiti.',
   'documents.heading': 'Indeksirani dokumenti',
   'documents.loading': 'Nalaganje dokumentov …',
   'documents.metric.chunks': 'Skupaj kosov',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Odstranjevanje\\u2026',
   'members.subheading': 'Povabite soigralce in določite vloge.',
   'members.tableHeading': 'Seznam igralcev',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'notFound.askCta': 'Vprašajte bazo znanja',
+  'notFound.body':
+    '{{app}} ni mogla najti te strani. Povezava morda ne deluje ali pa je bila stran med ponovnim indeksiranjem umaknjena.',
   'notFound.eyebrow': 'Ni mogoče pridobiti',
   'notFound.title': 'Takšnega dela v indeksu ni',
   'notifications.dismiss': 'Zavrzi',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL vira',
   'sources.empty.body': 'Kliknite \\u201cDodaj vir\\u201d, da povežete prvi konektor.',
   'sources.empty.title': 'Virov še ni.',
+  'sources.error.add': 'Vira ni bilo mogoče dodati.',
   'sources.error.labelRequired': 'Oznaka je obvezna.',
   'sources.error.load': 'Virov ni bilo mogoče naložiti.',
   'sources.error.urlRequired': 'Za to vrsto vira je potreben URL.',

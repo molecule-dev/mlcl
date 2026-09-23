@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'achievementBadgeCard.unlockedOn': 'അൺലോക്ക് ചെയ്തു {{date}}',
   'achievements.loadError': 'നേട്ടങ്ങൾ ലോഡ് ചെയ്യാനായില്ല.',
   'achievements.subheading': '{{unlocked}} യുടെ {{total}} അൺലോക്ക് ചെയ്തു',
   'achievements.unlockedOn': 'അൺലോക്ക് ചെയ്തു {{date}}',
+  'auth.legalConsent': 'തുടരുന്നതിലൂടെ, ഞങ്ങളുടെ നിബന്ധനകൾ അംഗീകരിക്കുന്നു',
   'calendar.empty': 'നിങ്ങളുടെ കലണ്ടർ കാണുന്ന ഒരു ശീലം ഉണ്ടാക്കുക.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ശീലം',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ഹാബിറ്റ് ഗ്രിഡ്',
   'category.${c.category}': '{{എണ്ണം}} ശീലങ്ങൾ',
   'common.and': 'ഒപ്പം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'consistencyHeatmap.ariaLabel': 'ദൈനംദിന സ്ഥിരത ഹീറ്റ്‌മാപ്പ്',
   'consistencyHeatmap.caption': 'അവസാനത്തെ {{weeks}} ആഴ്ചകൾ',
   'consistencyHeatmap.lessLabel': 'കുറവ്',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'ഇത് തത്സമയം കാണുക',
   'landing.heroSubtitle':
     'ചെറിയ പ്രതിബദ്ധതകൾ, ദൈനംദിന അനുഭവങ്ങൾ, ഒരു നീണ്ട, പൊട്ടാത്ത ശൃംഖലയുടെ ആന്തരിക ആനന്ദം എന്നിങ്ങനെ ശീലങ്ങൾ യഥാർത്ഥത്തിൽ പറ്റിനിൽക്കുന്ന രീതിയിൽ വളർത്തിയെടുക്കുക.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'സ്ട്രീക്കിനുള്ളിലേക്ക് ഒരു എത്തിനോട്ടം',
   'landing.previewMotivation': 'ഒമ്പത് സ്ട്രീക്കുകൾ സജീവമാണ്. അവയെല്ലാം ഊഷ്മളമായി നിലനിർത്തുക.',
   'login.eyebrow': 'ചെയിൻ എടുക്കൂ',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ചെറുതാക്കുക. വ്യക്തമാക്കുക. നാളെ കാണിക്കൂ.',
   'newHabit.timeLabel': 'ഓർമ്മപ്പെടുത്തൽ സമയം',
   'notifications.markError': 'എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്താൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.entries': '{{count}} എൻട്രികൾ',
+  'pricing.heading': 'നിങ്ങളുടെ {{app}} പ്ലാൻ തിരഞ്ഞെടുക്കുക',
   'profile.action.plan': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ മാനേജ് ചെയ്യുക',
   'profile.action.settings': 'അക്കൗണ്ട് ക്രമീകരണങ്ങൾ',
   'profile.bioEmpty': 'സ്വയം പരിചയപ്പെടുത്താൻ ക്രമീകരണങ്ങളിൽ ഒരു ചെറിയ ബയോ ചേർക്കുക.',
@@ -128,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'ദിവസേനയുള്ള പ്രഭാത പ്രോംപ്റ്റ് (രാവിലെ 8:00)',
   'settings.reminders.heading': 'ഓർമ്മപ്പെടുത്തലുകൾ',
   'settings.reminders.weekly': 'ആഴ്ചതോറുമുള്ള സംഗ്രഹം (ഞായറാഴ്ച വൈകുന്നേരങ്ങളിൽ)',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.streaks.freezesPerWeek': 'ആഴ്ചതോറും മരവിക്കുന്നു',
   'settings.streaks.gracePeriod': 'അർദ്ധരാത്രിക്ക് ശേഷം 6 മണിക്കൂർ ഗ്രേസ് പിരീഡ്',
@@ -154,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} സജീവം',
   'streakHeroCard.daysSuffix': 'ദിവസങ്ങൾ',
   'streakHeroCard.title': 'ഏറ്റവും ദൈർഘ്യമേറിയ സജീവ സ്ട്രീക്ക്',
+  'streakLayout.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'streakLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'streakLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
 }

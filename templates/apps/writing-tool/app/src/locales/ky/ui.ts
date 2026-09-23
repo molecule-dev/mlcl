@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.title': 'Чөнтөгүңүзгө салып коё турган жазуу бөлмөсү',
   'billing.cancelConfirm': 'Активдүү жазылууңузду жокко чыгарасызбы?',
   'billing.cancelFailed': 'Жокко чыгаруу мүмкүн болгон жок.',
   'billing.checkingOut': 'Касса ачылууда…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Эсеп-фактура жүктөлбөй койду.',
   'billing.loading': 'Эсеп-фактура жүктөлүүдө…',
   'billing.upgradeCta': 'Жаңыртуу {{name}}',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'editor.autosaveOn': 'Автоматтык түрдө сактоо күйүк',
   'editor.backToLibrary': 'Китепканага кайтуу',
   'editor.charCount': '{{count}} каармандар',
   'editor.confirmTrash': 'Бул документ таштандыга жылдырылсынбы?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Кадоодон бошотулду',
   'editor.unpublishCta': 'Долбоорго жылдыруу',
   'editor.unpublished': 'Долбоорго кайтарылды',
+  'focus.autosaveOn': 'Автоматтык түрдө сактоо күйүк',
   'focus.backToLibrary': 'Китепканага кайтуу',
   'focus.bodyPlaceholder': 'Кезек кезекте. Бул жерде башка эч ким жок.',
   'focus.exit': 'Фокустоо режиминен чыгуу',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Бирди түзүңүз',
   'login.subline':
     'Кол жазмаларыңыз, күнүмдүк барактарыңыз жана курсордун акыркы абалы сиз калтырган жерде.',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'pricing.exports': 'экспорт',
   'pricing.folders': 'папкалар',
   'pricing.heading': 'документтер',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Биз сизге электрондук почта аркылуу жөнөткөн кодду киргизип, эсте каларлык нерсени тандаңыз. Ал сакталгандан кийин сизди каттоого киргизебиз.',
   'reset.tokenHint': 'Келген каттар кутучаңыздан чапталды.',
+  'settings.appearance.heading': 'Жарык же караңгы',
   'settings.editor.${row.id}.description': 'Тил',
   'settings.editor.description':
     'Жазуу машинкасында жылдыруу, абзацтын өчүшү жана бош фокустоо — демейки жөндөөлөр узак сеанстар үчүн туураланган.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Үчүнчү бөлүм — Күн чыга электеги тынч саат',
   'versalDocumentCard.pinned': 'Кадалган',
   'versalLayout.nav.stats': 'Статистика',
+  'versalLayout.primaryNavLabel': 'Негизги навигация',
   'versalManuscriptHero.cta': 'Жазууну улантуу',
   'versalManuscriptHero.goalLabel': 'Бүгүнкү сөз максаты',
   'versalManuscriptHero.inProgress': 'Жолдо',

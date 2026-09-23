@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Um {{app}}',
   'analytics.avgCheckLabel': 'Meðaltal athugun',
   'analytics.busiestHour': 'Annasamasti tími',
   'analytics.coversToday': 'Forsíður í dag',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Þjórfé (meðaltal)',
   'analytics.topItems': 'Vinsælustu atriðin í dag',
   'authShell.eyebrow': 'Velkomin aftur í þjónustuna',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Hlýleg og fljótleg söluaðstaða fyrir veitingateymi. Skráðu þig inn í eldhúsið þitt og byrjaðu þar sem frá var horfið.',
   'authShell.tip': 'Ráðlegging: flýtilyklar virka alls staðar — ýttu á / til að leita.',
@@ -28,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.loadError': 'Ekki tókst að hlaða inn reikning.',
   'billing.noPlans': 'Engar áætlanir stilltar. Stilltu verðkenni Stripe í umhverfi þínu.',
   'billing.notConfigured': 'Verð á Stripe ekki stillt',
+  'billing.orYearly': 'eða {{price}}',
   'billing.priceUnavailable': 'Þessi áætlun hefur ekki stillt verð.',
   'billing.updated': 'Áætlun uppfærð.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'customerDetail.book': 'Bæta við bókun',
   'customerDetail.col.table': 'Tafla',
   'customerDetail.confirmDelete': 'Eyða þessari gestafærslu?',
@@ -123,6 +127,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Framboð',
   'menuItemDetail.available': 'Fáanlegt í kvöld',
   'menuItemDetail.backToMenu': 'Til baka í valmyndina',
+  'menuItemDetail.confirmDelete': 'Eyða þessum atriði í valmyndinni?',
   'menuItemDetail.delete': 'Eyða hlut',
   'menuItemDetail.deleteError': 'Eyðing mistókst. Reyndu aftur.',
   'menuItemDetail.dietary': 'Mataræðismerki',
@@ -134,9 +139,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · breyta mynd, breyta efnum, mataræði og verðlagningu.',
   'menuItemDetail.untitled': 'Ónefndur hlutur',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'notFound.heading': 'Þetta borð er ekki á gólfinu.',
   'notFound.subheading':
     'Síðan sem þú varst að leita að hefur verið staðsett annars staðar — eða hefur aldrei verið til.',
+  'notFound.toLanding': 'Heimili {{app}}',
   'notifications.markError': 'Gat ekki merkt allt sem lesið.',
   'orderDashboard.activeDelta': 'Lifðu núna',
   'orderDashboard.activeLabel': 'Virkar pantanir',
@@ -200,6 +208,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Sýna lykilorð',
   'resetPassword.subtitle': 'Sláðu inn nýja lykilorðið þitt til að fá aftur aðgang að eldhúsinu.',
   'resetPassword.tokenLabel': 'Endurstilla auðkenni',
+  'restaurantOrderingLayout.primaryNavLabel': 'Aðalflakk',
   'revenueHeroCard.activeOrders': '{{count}} virkur',
   'revenueHeroCard.change': '{{sign}} {{amount}} á móti í gær',
   'revenueHeroCard.title': 'Tekjur í dag',
@@ -218,6 +227,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nafn veitingastaðar',
   'tableDetail.activeOrders': 'Virkar pantanir',
   'tableDetail.backToFloor': 'Gólfplan',
+  'tableDetail.confirmDelete': 'Eyða þessari töflu?',
   'tableDetail.delete': 'Eyða',
   'tableDetail.deleteError': 'Gat ekki eytt töflu.',
   'tableDetail.heading': 'Tafla {{label}}',

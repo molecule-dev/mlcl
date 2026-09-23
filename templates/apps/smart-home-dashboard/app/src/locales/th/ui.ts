@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'activity.empty': 'ยังไม่มีการทำงานใดๆ — พลิกอุปกรณ์หรือเปิดใช้งานฉาก',
   'activity.eyebrow': 'ไทม์ไลน์',
   'activity.loadError': 'ไม่สามารถโหลดฟีดกิจกรรมได้',
   'activity.subheading':
     'อุปกรณ์ ระบบอัตโนมัติ และเหตุการณ์ด้านความปลอดภัยทั้งหมดเรียงตามลำดับเวลา',
+  'addDevice.error.failed': 'ไม่สามารถเพิ่มอุปกรณ์ได้ โปรดลองอีกครั้ง',
   'addDevice.error.nameRequired': 'ตั้งชื่อให้กับอุปกรณ์นี้เพื่อดำเนินการต่อ',
   'addDevice.field.firmware': 'เวอร์ชั่นเฟิร์มแวร์',
   'addDevice.field.manufacturer': 'ผู้ผลิต',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'กำลังทดสอบ…',
   'automationEditor.testNew': 'บันทึกการทำงานอัตโนมัติก่อนเพื่อทดสอบ',
   'automationRow.lastRun': 'ล่าสุด {{date}} · {{count}} วิ่ง',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'วิ่ง {{name}} ตอนนี้',
   'automations.empty': 'ยังไม่ได้ตั้งค่าระบบอัตโนมัติใดๆ — สร้างกิจวัตรประจำวันของคุณก่อน',
   'automations.eyebrow': 'กิจวัตรประจำวัน',
@@ -53,6 +57,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'กำลังโหลดระบบอัตโนมัติ…',
   'automations.newAutomation': '+ ใหม่',
   'automations.subheading': 'เมื่อเกิดเหตุการณ์เช่นนี้ ให้ทำตามนั้น โดยไม่ต้องใช้ไฟล์ YAML',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ไม่สามารถโหลดอุปกรณ์ได้',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'การทำงาน…',
   'deviceDetail.unnamed': 'อุปกรณ์',
   'deviceStatusRow.on': 'บน',
+  'deviceStatusRow.turnOff': 'ปิด',
+  'deviceStatusRow.turnOn': 'เปิดใช้งาน',
   'deviceStatusRow.watts': '{{watts}} ว',
   'energy.eyebrow': 'พลัง',
   'energy.heading': 'พลังงาน',
@@ -178,4 +185,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ดูแผนงาน',
   'settings.security.heading': 'ความปลอดภัย',
   'settings.subheading': 'แผน, ศูนย์กลาง และการตั้งค่าบัญชี',
+  'smartHomeDashboardLayout.openMenu': 'เปิดเมนูนำทาง',
+  'smartHomeDashboardLayout.primaryNavLabel': 'การนำทางหลัก',
 }

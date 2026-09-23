@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.eyebrow': 'ກ່ຽວກັບ {{app}}',
+  'about.intro':
+    '{{app}} ເປັນແອັບສະມາທິສຳລັບຊີວິດຈິງ — ການສະມາທິແບບມີການແນະນຳປະຈຳວັນ, ການຝຶກລົມຫາຍໃຈ, ແລະ ເລື່ອງລາວການນອນຫຼັບ ໂດຍຄູສອນຜູ້ທີ່ຮູ້ສຶກຄືກັບເພື່ອນ, ບໍ່ແມ່ນຄູຝຶກ. ບໍ່ມີຄວາມຮູ້ສຶກຜິດຕິດຕໍ່ກັນ, ບໍ່ມີສຽງລົບກວນ: ພຽງແຕ່ເປັນບ່ອນທີ່ງຽບສະຫງົບເພື່ອກັບຄືນສູ່ລົມຫາຍໃຈຂອງເຈົ້າ.',
+  'about.missionBody':
+    'ພວກເຮົາເຊື່ອວ່າຄວາມສະຫງົບຄວນຈະສາມາດເຂົ້າເຖິງໄດ້ສຳລັບທຸກຄົນ, ໃນທຸກຊ່ວງເວລາຂອງມື້. {{app}} ມີຢູ່ເພື່ອເຮັດໃຫ້ການປະຕິບັດທີ່ສະຫງົບ ແລະ ສະໝໍ່າສະເໝີຮູ້ສຶກວ່າບໍ່ຫຍຸ້ງຍາກ — ດັ່ງນັ້ນສິບນາທີທີ່ຊື່ສັດສາມາດປ່ຽນແປງວິທີທີ່ເຈົ້າຕອບສະໜອງຕໍ່ສິບຊົ່ວໂມງຕໍ່ໄປ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
+  'about.pageTitle': 'ສະຫງົບລົງ 10 ນາທີຕໍ່ມື້',
+  'breathingDial.seconds': 'ວິນາທີ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.logout': 'ອອກຈາກລະບົບ',
   'common.min': 'ນາທີ',
   'common.relative.justNow': 'ຫາກໍ່',
   'common.relative.now': 'ຕອນນີ້',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
+  'nav.secondaryNavigation': 'ການນຳທາງບັນຊີ',
   'sessionCard.with': 'ດ້ວຍ {{name}}',
   'stillpoint.billing.choose': 'ເລືອກ {{plan}}',
   'stillpoint.billing.currentPlan': 'ປັດຈຸບັນເປີດຢູ່ {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'ພວກເຮົາບໍ່ສາມາດໂຫຼດແຜນການໄດ້.',
   'stillpoint.billing.opening': 'ກຳລັງເປີດການຈ່າຍເງິນ…',
   'stillpoint.billing.perMonthShort': '/ ເດືອນ',
+  'stillpoint.billing.perYearShort': '/ປີ',
   'stillpoint.billing.unknownResult': 'ການຕອບກັບການຮຽກເກັບເງິນທີ່ບໍ່ຄາດຄິດ.',
   'stillpoint.billing.yearly': 'ປະຈຳປີ · ປະຢັດ 17%',
   'stillpoint.courseDetail.back': 'ຫຼັກສູດ',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'ຍັງບໍ່ມີຫຼັກສູດເທື່ອ.',
   'stillpoint.courses.eyebrow': '{{count}} ການເດີນທາງຫຼາຍມື້',
   'stillpoint.courses.heading': 'ຫຼັກສູດ',
+  'stillpoint.forgot.checkEmail': 'ກວດສອບກ່ອງຈົດໝາຍຂອງທ່ານ — ລິ້ງຈະໝົດອາຍຸພາຍໃນ 30 ນາທີ.',
   'stillpoint.forgot.success': 'ພວກເຮົາໄດ້ສົ່ງລິ້ງຣີເຊັດໄປຫາ {{email}} .',
   'stillpoint.home.empty': 'ຍັງບໍ່ມີກອງປະຊຸມເທື່ອ — ກະລຸນາກວດສອບອີກຄັ້ງໃນໄວໆນີ້.',
   'stillpoint.home.friend': 'ເພື່ອນ',
@@ -65,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'ເລືອກເບິ່ງຕາມອາລົມ',
   'stillpoint.login.rememberMe': 'ໃຫ້ຂ້ອຍເຂົ້າສູ່ລະບົບໄວ້',
   'stillpoint.login.subheading': 'ເຂົ້າສູ່ລະບົບເພື່ອສືບຕໍ່ການປະຕິບັດຂອງທ່ານ.',
+  'stillpoint.nav.tagline': 'ຊອກຫາສູນກາງນິ້ງຂອງທ່ານ',
+  'stillpoint.notFound.body':
+    'ໜ້ານີ້ກຳລັງຫາຍໃຈເຂົ້າເລິກໆຍາວໆຢູ່ບ່ອນໃດບ່ອນໜຶ່ງ. ໄປຊອກຫາສະຖານທີ່ທີ່ງຽບສະຫງົບກວ່ານີ້ໃຫ້ເຈົ້າໃນ {{app}} .',
   'stillpoint.notFound.title': 'ຫຼົງທາງໄປໃນຄວາມງຽບ',
   'stillpoint.notFound.toHome': 'ກັບໄປມື້ນີ້',
   'stillpoint.notFound.toLibrary': 'ເບິ່ງຫ້ອງສະໝຸດ',
@@ -81,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'ຂ້າມກັບໄປ 15 ວິນາທີ',
   'stillpoint.player.skipForward': 'ຂ້າມໄປໜ້າ 30 ວິນາທີ',
   'stillpoint.player.with': 'ດ້ວຍ {{name}}',
+  'stillpoint.profile.defaultHandle': 'ຕົວຊີ້ຢຸດນິ້ງ',
   'stillpoint.profile.eyebrow': 'ການປະຕິບັດຂອງທ່ານ, ສະຫຼຸບແລ້ວ.',
   'stillpoint.profile.locked': 'ລັອກແລ້ວ',
   'stillpoint.profile.member': 'ສະມາຊິກ Stillpoint',

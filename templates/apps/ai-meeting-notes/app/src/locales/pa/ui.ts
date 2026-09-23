@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਸਾਡੇ ਬਾਰੇ',
   'actions.empty': 'ਕੋਈ ਐਕਸ਼ਨ ਆਈਟਮ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ।',
   'actions.heading': 'ਕਾਰਵਾਈ ਆਈਟਮਾਂ',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'ਪਿਛਲਾ ਮਹੀਨਾ',
   'calendar.recent': 'ਹਾਲੀਆ',
   'common.daysAgo': '{{count}} ਦਿਨ ਪਹਿਲਾਂ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.hoursAgo': '{{count}} ਘੰਟਾ ਪਹਿਲਾਂ',
   'common.no': '—',
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ਐਕਸ਼ਨ ਆਈਟਮਾਂ',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'ਰੀਸੈਟ ਲਿੰਕ ਲਈ ਆਪਣੇ ਇਨਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ।',
   'forgot.subheading': 'ਆਪਣਾ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।',
   'integrations.disconnected': 'ਡਿਸਕਨੈਕਟ',
+  'integrations.loadError': 'ਏਕੀਕਰਨ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'integrations.notConnectedTag': 'ਕਨੈਕਟ ਨਹੀਂ ਹੈ',
   'integrations.subheading':
     'ਕੈਲੰਡਰਾਂ ਅਤੇ ਵੀਡੀਓ ਪਲੇਟਫਾਰਮਾਂ ਨੂੰ ਕਨੈਕਟ ਕਰੋ ਤਾਂ ਜੋ ਮਰਮਰ ਆਪਣੇ ਆਪ ਜੁੜ ਜਾਵੇ।',
+  'integrations.updateError': 'ਅੱਪਡੇਟ ਅਸਫਲ ਰਿਹਾ।',
   'landing.ctaButton': 'ਸ਼ੁਰੂਆਤ ਕਰੋ — ਇਹ ਮੁਫ਼ਤ ਹੈ',
   'landing.ctaHeading': 'ਨੋਟਸ ਲੈਣਾ ਬੰਦ ਕਰੋ। ਫੈਸਲੇ ਲੈਣੇ ਸ਼ੁਰੂ ਕਰੋ।',
   'landing.demo.aiLabel': 'AI ਸੰਖੇਪ, ਲਾਈਵ ਡਰਾਫਟ ਕੀਤਾ ਗਿਆ',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ਫਾਲੋ-ਅੱਪ',
   'meetingDetail.loadError': 'ਮੀਟਿੰਗ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'meetingDetail.noActions': 'ਕੋਈ ਕਾਰਵਾਈ ਆਈਟਮ ਨਹੀਂ ਮਿਲੀ।',
+  'meetingDetail.none': 'ਕੋਈ ਨਹੀਂ।',
   'meetingDetail.notFound': 'ਮੀਟਿੰਗ ਨਹੀਂ ਮਿਲੀ।',
+  'meetingDetail.speakerFallback': 'ਸਪੀਕਰ {{id}}',
   'meetingDetail.summaryHeading': 'AI ਸੰਖੇਪ',
   'meetingDetail.transcriptHeading': 'ਟ੍ਰਾਂਸਕ੍ਰਿਪਟ',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'ਮੀਟਿੰਗਾਂ',
   'meetings.loadError': 'ਮੀਟਿੰਗਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'meetings.subheading': 'ਹਰ ਰਿਕਾਰਡ ਕੀਤੀ, ਅੱਪਲੋਡ ਕੀਤੀ ਅਤੇ ਸਿੰਕ ਕੀਤੀ ਮੀਟਿੰਗ।',
+  'murmurLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'murmurLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'notifications.loadError': 'ਸੂਚਨਾਵਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'ਤੁਸੀਂ ਬੁੜਬੁੜਾਉਣ ਦੇ ਅੰਦਰ ਕਿਵੇਂ ਦਿਖਾਈ ਦਿੰਦੇ ਹੋ।',
   'record.error.empty': 'ਕੋਈ ਆਡੀਓ ਰਿਕਾਰਡ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।',
   'record.error.permission': 'ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਇਜਾਜ਼ਤ ਅਸਵੀਕਾਰ ਕੀਤੀ ਗਈ।',
+  'record.error.recorder': 'ਰਿਕਾਰਡਰ ਗਲਤੀ',
   'record.error.unsupported':
     'ਤੁਹਾਡਾ ਬ੍ਰਾਊਜ਼ਰ ਰਿਕਾਰਡਿੰਗ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। Chrome, Edge, ਜਾਂ Safari ਅਜ਼ਮਾਓ।',
   'record.error.upload': 'ਅੱਪਲੋਡ ਅਸਫਲ ਰਿਹਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'reset.subheading': 'ਅਜਿਹਾ ਪਾਸਵਰਡ ਚੁਣੋ ਜੋ ਤੁਸੀਂ ਹੋਰ ਕਿਤੇ ਨਾ ਵਰਤੋ।',
   'search.empty': 'ਟ੍ਰਾਂਸਕ੍ਰਿਪਟਾਂ ਖੋਜਣ ਲਈ ਟਾਈਪ ਕਰੋ।',
+  'search.loadError': 'ਖੋਜ ਅਸਫਲ ਰਹੀ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'search.noResults': '"" ਲਈ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਹਨ {{q}} ”।',
   'settings.appearance.description': 'ਲਾਈਟ ਅਤੇ ਡਾਰਕ ਮੋਡ ਵਿਚਕਾਰ ਟੌਗਲ ਕਰੋ।',
   'settings.appearance.title': 'ਦਿੱਖ',
@@ -124,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ਸੈਟਿੰਗਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'settings.push.heading': 'ਪੁਸ਼ ਸੂਚਨਾਵਾਂ',
+  'settings.push.subheading': 'ਜ਼ਿਕਰਾਂ, ਐਕਸ਼ਨ ਆਈਟਮਾਂ ਅਤੇ ਸਾਰਾਂਸ਼ਾਂ ਲਈ ਬ੍ਰਾਊਜ਼ਰ ਅਲਰਟ ਪ੍ਰਾਪਤ ਕਰੋ।',
   'settings.retention.audio': 'ਆਡੀਓ ਇਸ ਲਈ ਰੱਖੋ',
   'settings.retention.heading': 'ਧਾਰਨ',
   'settings.retention.transcript': 'ਟ੍ਰਾਂਸਕ੍ਰਿਪਟਾਂ ਨੂੰ ਇਹਨਾਂ ਲਈ ਰੱਖੋ',
@@ -140,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'ਖਾਤਾ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'signup.subheading': 'ਮਿੰਟਾਂ ਵਿੱਚ ਮੀਟਿੰਗ ਦੇ ਨੋਟਸ ਕੈਪਚਰ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ',
   'signup.terms': 'ਖਾਤਾ ਬਣਾ ਕੇ ਤੁਸੀਂ ਸਾਡੀ ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ ਅਤੇ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ।',
+  'signup.termsPrefix': 'ਖਾਤਾ ਬਣਾ ਕੇ ਤੁਸੀਂ ਸਾਡੇ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'team.inviteCta': 'ਸਾਥੀ ਨੂੰ ਸੱਦਾ ਦਿਓ',
   'team.invitedAs': 'ਵਜੋਂ ਸੱਦਾ ਦਿੱਤਾ ਗਿਆ {{role}}',
   'team.inviteFailed': 'ਸੱਦਾ ਨਹੀਂ ਭੇਜਿਆ ਜਾ ਸਕਿਆ।',

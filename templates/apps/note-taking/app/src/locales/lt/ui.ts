@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Eiti į suvestinę',
   'forgot.eyebrow': 'Pametėte kelią atgal?',
   'forgot.formSubtitle': 'Nurodykite mums el. pašto adresą, esantį byloje.',
   'forgot.headline': 'Atkurkite slaptažodį.',
@@ -41,6 +42,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Sukurti vieną',
   'login.subline':
     'Jūsų užrašų knygelės, atgalinės nuorodos ir dienos puslapiai yra ten, kur juos palikote.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'noteEditor.backToNotes': 'Atgal į užrašus',
   'noteEditor.bodyPlaceholder':
     'Pradėkite rašyti – jūsų užrašas automatiškai išsaugomas jums rašant.',
@@ -57,6 +60,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Naujas užrašų knygelė',
   'notes.newNotebookPrompt': 'Naujas užrašinės pavadinimas',
   'notes.notebooksHeading': 'Užrašinės',
+  'notes.subtitle':
+    'Kairėje pasirinkite užrašų knygelę ir paspauskite mygtuką „Nauja pastaba“, kad pradėtumėte naują įrašą.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Pasirinkite savo užrašų darymo planą',
   'reset.eyebrow': 'Beveik grįžęs',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Atnaujinta',
   'versoLayout.nav.graph': 'Grafikas',
   'versoLayout.nav.home': 'Pradžia',
+  'versoLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'versoNoteCard.pinned': 'Prisegta',
   'versoTodayHero.continueCta': 'Tęsti rašymą',
   'versoTodayHero.createCta': 'Pradėkite šiandienos užrašą',

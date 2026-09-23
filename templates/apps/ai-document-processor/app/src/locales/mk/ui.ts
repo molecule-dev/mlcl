@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Стапете во контакт',
+  'about.title': 'За {{app}}',
   'authShell.backToLanding': '← Назад кон слетувањето',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
+  'common.retry': 'Обидете се повторно',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Денес · Преглед на операциите',
   'dashboard.heading': 'Документарна интелигенција',
@@ -48,6 +51,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Нема документи што се совпаѓаат со тековните филтри.',
   'documents.heading': 'Сите документи',
   'documents.loadError': 'Не успеа да се вчитаат документите.',
+  'documents.loading': 'Се вчитува библиотеката…',
   'documents.searchLabel': 'Пребарување документи',
   'documents.searchPlaceholder': 'Пребарувај документи…',
   'documents.subheading': '{{count}} документи во вашата библиотека, сортирани прво најновите.',
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Сокриј ја лозинката',
   'login.showPassword': 'Прикажи лозинка',
   'login.subtitle': 'Најавете се за вашите документи да бидат безгрижни.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'notFound.body':
     'Документот или рутата што се обидовте да ја отворите повеќе не е тука. Вратете се на контролната табла или изберете дел од страничната лента.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Отвори целна страница',
   'notFound.title': 'Таа страница не е во архивата',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % во споредба со вчера',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Сè уште нема правила за поднесување. Користете го „Ново правило“ за да додадете едно.',
   'rules.eyebrow': 'Автоматизација',
+  'rules.fieldsCount': '{{count}} полиња',
   'rules.form.destination': 'Датотека во',
   'rules.form.name': 'Име на правило',
   'rules.form.save': 'Зачувај правило',

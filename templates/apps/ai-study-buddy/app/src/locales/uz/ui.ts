@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': "Reja ma'lumotlari yuklanmoqda…",
   'billing.popular': 'Eng sevimli',
   'billing.subtitle': "O'qish ritmingizga mos keladigan rejani tanlang.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.today': 'Bugun',
   'common.yesterday': 'Kecha',
   'courseDetail.empty.body':
@@ -85,8 +86,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Palata nomi',
   'flashcards.subtitle': 'Tezligingizga moslashadigan oraliq takrorlash.',
   'flashcards.title': 'Flashkartalar',
+  'footer.copyright': "© {{year}} {{app}} . Yaxshi o'rganing, yaxshi uxlang.",
   'forgotPassword.subtitle':
     'Elektron pochtangizni kiriting va biz sizga qayta tiklash havolasini yuboramiz.',
+  'koanLayout.closeMenu': 'Menyuni yopish',
+  'koanLayout.navLabel': 'Asosiy navigatsiya',
+  'koanLayout.openMenu': 'Menyuni ochish',
   'koanLayout.theme': 'Mavzu',
   'landing.featuresBody':
     "Chalg'itishni bartaraf etish va uzoq muddatli tushunishni rivojlantirish uchun mo'ljallangan vositalar.",
@@ -121,11 +126,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Bu URL manzili aniqlanmagan hudud. Balki xato yozilgandir, balki o'chirilgan darsdir — qanday bo'lmasin, keling, sizni o'rganishga qaytaraylik.",
   'notFound.heading': 'Sahifa topilmadi.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Hammasi joyida',
   'notifications.filter.${opt}': 'Bildirishnomalar yuklanmoqda…',
   'notifications.markAllError': "Hammasini o'qilgan deb belgilash imkoni bo'lmadi.",
   'notifications.markError': "O'qilgan deb belgilab bo'lmadi.",
   'notifications.subtitle': "{{count}} o'qilmagan yangilanishlar",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.heading': 'viktorinalar',
   'pricing.limits.topics': 'mavzular',
   'privacy.collectBody':
@@ -193,6 +200,7 @@ export const ui: UiTranslations = {
   'search.empty.body': "Boshqa kalit so'z yoki filtrni sinab ko'ring.",
   'search.empty.title': 'Hech narsa mos kelmadi.',
   'search.error': 'Natijalar yuklanmadi.',
+  'search.filters': 'Natija turi filtrlari',
   'search.go': 'Boring',
   'search.label.flashcard': "Flashcard to'plami",
   'search.label.note': 'Eslatma',

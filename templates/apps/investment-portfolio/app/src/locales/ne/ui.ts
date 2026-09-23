@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} बारे',
   'argentAuthShell.brandEyebrow': 'पैसा · सम्पत्ति उपकरण',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} । लगानी सल्लाह होइन।',
   'argentAuthShell.sampleChange': 'आज +$२,८४१ (+०.२८%)',
   'argentAuthShell.sampleValue': '$१,०३२,२५१',
   'argentLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'यो टिकरको लागि कुनै लेनदेन छैन।',
   'assetDetail.txHeading': 'तपाईंको कारोबारहरू',
   'common.and': 'र',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'पोर्टफोलियो सिंहावलोकन',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'अहिलेसम्म कुनै होल्डिङ छैन।',
   'holdings.heading': 'होल्डिंग्स',
   'holdings.loadError': 'होल्डिङहरू लोड गर्न असफल भयो।',
+  'landing.copyright':
+    '© {{year}} {{app}} । लगानी सल्लाह होइन। विगतको कार्यसम्पादनले भविष्यको नतिजाको ग्यारेन्टी गर्दैन।',
   'landing.eyebrow': 'अर्जेन्ट · सम्पत्ति-उपकरण प्लेटफर्म',
   'landing.features.heading': 'सल्लाहकारले आफ्नै लागि बनाउने सबै कुरा।',
   'landing.finalCta.heading': 'आफ्नो पोर्टफोलियोमा अनुशासन फिर्ता ल्याउनुहोस्।',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} घण्टा अघि',
   'news.justNow': 'भर्खरै',
   'news.loadError': 'समाचार लोड गर्न असफल भयो।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'portfolioHeroCard.label': 'पोर्टफोलियो मूल्य',
   'pricing.holdingsLabel': 'होल्डिंग्स',
   'pricing.newsLabel': 'समाचार लेखहरू',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'खाता मेटाउनुहोस्',
   'settings.security.deleting': 'मेटाउँदै...',
   'settings.security.heading': 'सुरक्षा',
+  'settings.security.newPassword': 'नयाँ पासवर्ड',
   'settings.security.password': 'पासवर्ड',
   'settings.security.twoFactorEnable': 'सक्षम पार्नुहोस्',
+  'settings.security.twoFactorInvalidCode': 'अमान्य कोड',
+  'settings.security.twoFactorVerify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
   'settings.tax.error': 'कर विधि अद्यावधिक गर्न सकिएन।',
   'settings.tax.heading': 'कर लट लेखा',
   'settings.tax.method': 'पूर्वनिर्धारित विधि',

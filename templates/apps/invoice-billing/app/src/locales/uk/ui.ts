@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'activityFeed.empty': 'Поки що немає активності — надішліть свій перший рахунок-фактуру.',
   'authShell.sample.paid': 'Оплачено 2 хвилини тому',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Додати нового клієнта',
   'clients.search': 'Пошук за іменем, компанією, електронною поштою',
   'clients.title': 'Клієнти',
+  'common.goToDashboard': 'До панелі',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Новий клієнт',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Забули пароль',
   'forgotPassword.successBody':
     'Ми надіслали інструкції щодо скидання налаштувань {{email}} Термін дії посилання закінчується через 30 хвилин.',
+  'invoiceDetail.action.confirmVoid': 'Підтвердити недійсність?',
   'invoiceDetail.action.download': 'Завантажити PDF',
   'invoiceDetail.action.duplicate': 'Дублікат',
   'invoiceDetail.action.edit': 'Редагувати',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Рахунок-фактуру анульовано.',
   'invoiceDetail.issued': 'Видано {{date}}',
   'invoiceDetail.loading': 'Завантаження рахунку-фактури…',
+  'invoiceDetail.paidInFull': 'Оплачено повністю',
   'invoiceDetail.summary': '{{client}} · надіслано {{date}}',
   'invoiceDetail.tax': 'Податок ({{rate}}%)',
   'invoiceDetail.timeline': 'Хронологія',
+  'invoiceDetail.voided': 'Анульовано',
   'invoiceEditor.addItem': 'Додати елемент',
   'invoiceEditor.back': '← Назад до рахунків-фактур',
   'invoiceEditor.col.qty': 'К-сть',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Надішліть свій перший рахунок-фактуру',
   'landing.hero.eyebrow': 'Виставлення рахунків-фактур для малого бізнесу',
   'landing.hero.secondary': 'Дивіться зразок рахунку-фактури',
+  'landing.hero.subtitle':
+    '{{appName}} поєднує в собі відшліфовані рахунки-фактури з вбудованими платежами, періодичним виставленням рахунків та звітами, готовими до сплати податків. Без необхідності вести бухгалтерський облік.',
   'landing.hero.title': 'Надсилайте рахунки-фактури. Отримуйте оплату швидше.',
   'login.signupLink': 'Створіть один',
   'login.submitting': 'Вхід…',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'платежі',
   'pricing.recurringLabel': 'повторювані розклади',
   'remitLayout.newInvoice': 'Новий рахунок-фактура',
+  'remitLayout.openMenu': 'Відкрити меню навігації',
   'remitLayout.searchPlaceholder': 'Пошук рахунків-фактур, клієнтів...',
   'remitLayout.tagline': 'Отримуйте оплату швидше',
   'reports.chart.aging': 'Старіння рахунків-фактур',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Дохід за період',
   'reports.chart.topClients': 'Найкращі клієнти',
   'reports.chart.topClientsCaption': 'Дохід за весь період, топ-5',
+  'reports.empty.aging': 'Немає неоплачених рахунків-фактур.',
+  'reports.empty.methods': 'Даних про оплату поки що немає.',
+  'reports.empty.revenue': 'Даних про доходи поки що немає.',
+  'reports.empty.topClients': 'Даних про доходи клієнтів поки що немає.',
   'reports.exporting': 'Експорт…',
   'reports.exportRequiresPaid':
     'Експорт – це платна функція, яку потрібно увімкнути, скориставшись оновленням.',
@@ -194,6 +206,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Додати ставку податку',
   'settings.tax.added': 'Додано ставку податку.',
   'settings.tax.adding': 'Додавання…',
+  'settings.tax.addRate': 'Додати тариф',
   'settings.tax.col.region': 'Регіон',
   'settings.tax.delete': 'Видалити податкову ставку',
   'settings.tax.deleted': 'Ставку податку скасовано.',

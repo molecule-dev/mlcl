@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບພວກເຮົາ',
   'authShell.samplePreview': '"ສະບາຍດີທີມງານ, ແຜງໜ້າປັດໃໝ່ງາມຫຼາຍ — ຄືກັນກັບທີ່ພວກເຮົາຕ້ອງການ!"',
   'authShell.tagline': 'ທຸກໆຂໍ້ຄວາມມີຄວາມໝາຍ. ລູກຄ້າທຸກຄົນຈື່ໄດ້.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ທາງລັດ',
   'automations.subheading':
     'ກົດລະບຽບ, ການຕອບກັບແບບສຳເລັດຮູບ ແລະ chatbots — ເຮັດໃຫ້ພື້ນທີ່ເຮັດວຽກມີສຽງດັງຂຶ້ນ ໃນຂະນະທີ່ທີມງານຂອງທ່ານສຸມໃສ່ສິ່ງທີ່ຍາກ.',
+  'automations.trigger.inboundMessage': 'ຂໍ້ຄວາມຂາເຂົ້າ',
   'automations.triggerLabel': 'ຕົວກະຕຸ້ນ',
   'chatBubble.internalNoteLabel': 'ໝາຍເຫດພາຍໃນ',
+  'common.confirmDelete': 'ຢືນຢັນການລຶບ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'contactDetail.backToContacts': 'ລາຍຊື່ຜູ້ຕິດຕໍ່ທັງໝົດ',
   'contactDetail.contactFallback': 'ຕິດຕໍ່',
   'contactDetail.conversationFallback': 'ການສົນທະນາ',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.empty':
     'ຍັງບໍ່ມີລາຍຊື່ຜູ້ຕິດຕໍ່ເທື່ອ. ກະລຸນາເພີ່ມລາຍຊື່ຜູ້ຕິດຕໍ່ຄົນທຳອິດຂອງທ່ານຂ້າງເທິງ.',
   'contacts.eyebrow': 'ລາຍຊື່ລູກຄ້າ',
+  'contacts.form.nameOrEmailRequired': 'ໃຫ້ຢ່າງໜ້ອຍຊື່ ຫຼື ອີເມວ',
   'contacts.form.save': 'ບັນທຶກລາຍຊື່ຜູ້ຕິດຕໍ່',
   'contacts.heading': 'ລາຍຊື່ຜູ້ຕິດຕໍ່',
   'contacts.loading': 'ກຳລັງໂຫຼດລາຍຊື່ຜູ້ຕິດຕໍ່…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'ບັນທຶກບັນທຶກ',
   'conversationDetail.tab.note': 'ໝາຍເຫດພາຍໃນ',
   'conversationDetail.threadAria': 'ຂໍ້ຄວາມສົນທະນາ',
+  'conversationDetail.visitorFallback': 'ຜູ້ມາຢ້ຽມຢາມ',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'ລາຍລະອຽດລູກຄ້າ',
   'customerProfilePanel.recentTitle': 'ການສົນທະນາຫຼ້າສຸດ',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ລູກຄ້າກຳລັງໄດ້ຮັບການຕອບກັບຄັ້ງທຳອິດໃນ {{time}} ໂດຍສະເລ່ຍແລ້ວ — ຮັກສາຈັງຫວະໃຫ້ດຳເນີນຕໍ່ໄປ.',
   'inboxHeroCard.title': 'ການສົນທະນາທີ່ມີການເຄື່ອນໄຫວ',
+  'inboxLayout.navDrawerLabel': 'ການນຳທາງ',
+  'inboxLayout.openMenu': 'ເປີດເມນູນຳທາງ',
   'inboxOverview.eyebrow': 'ພາບລວມມື້ນີ້',
   'inboxOverview.heroChange': '{{count}} ເປີດ',
   'inboxOverview.kpiClosedTrend': 'ຕະຫຼອດເວລາ',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ເຂົ້າເບິ່ງໜ້າຫຼັກ',
   'notifications.subheading':
     'ວຽກມອບໝາຍ, @mention, ຄວາມສ່ຽງຂອງ SLA, ຄຳຕິຊົມ CSAT ແລະ ກິດຈະກຳຂອງທີມ — ຈັດຮຽງໃໝ່ສຸດກ່ອນ.',
+  'notifications.subjectFallback': 'ການສົນທະນາ',
+  'notifications.visitorFallback': 'ຜູ້ມາຢ້ຽມຢາມ',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ສູງ',
   'priority.low': 'ຕ່ຳ',
+  'priority.normal': 'ປົກກະຕິ',
   'priority.urgent': 'ດ່ວນ',
   'privacy.title': 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ',
   'reports.agentFallback': 'ຕົວແທນ',

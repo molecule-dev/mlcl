@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé o ti rí àṣìṣe kan, ṣé o ní ìbéèrè fún fíìmù tí o gé, tàbí o fẹ́ sọ fún wa nípa fíìmù tí o gé? Gbogbo ìránṣẹ́ kan dé ọ̀dọ̀ ẹni gidi nínú ẹgbẹ́ náà — kàn sí wa nígbàkúgbà láti inú ètò àkọọ́lẹ̀ rẹ.',
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.eyebrow': '// ile-iṣẹ lẹhin gige naa',
   'about.pageTitle': 'Nípa {{appName}}',
   'assetDetail.back': 'Pada si ile-ikawe',
   'assetDetail.confirmDelete': 'Paarẹ " {{name}} "? A kò le ṣe àtúnṣe èyí."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} Àwọn fídíò, àwọn ibùsùn ohùn, àti àwọn àwòrán tí ó ti ṣetán láti fi sílẹ̀ lórí àkójọ àkókò.',
   'assetLibrary.title': 'Àwọn dúkìá',
   'assetLibrary.upload': 'Fi ohun ìní kún un',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.browseTemplates': 'Ṣawari awọn awoṣe →',
   'dashboard.loading': 'N n gbe awọn iṣẹ akanṣe…',
   'dashboard.noProjects': 'Kò sí iṣẹ́ àgbékalẹ̀ kankan síbẹ̀ — ṣẹ̀dá ọ̀kan láti bẹ̀rẹ̀.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Yan ohun kan ti iwọ nikan yoo ranti.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Ìpamọ́',
+  'rushesLayout.closeMenu': 'Ti lilọ kiri pa',
   'rushesLayout.guest': 'Olóòtú',
+  'rushesLayout.navDialog': 'Lilọ kiri',
+  'rushesLayout.openMenu': 'Ṣí ìlọ kiri',
   'rushesLayout.planFree': 'Ètò ọ̀fẹ́',
   'rushesLayout.tagline': 'Àkókò àkókò fíìmù',
   'settings.billing.confirmCancel': 'Fagilee iforukọsilẹ ni opin akoko?',

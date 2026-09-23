@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.pageTitle': 'Dwar {{app}}',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.retry': "Erġa' pprova",
   'compose.cancel': 'Ikkanċella',
   'compose.captionPlaceholder': "X'għandek f'moħħok?",
   'compose.heading': 'Aqsam mument',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Kont verifikat',
   'resetPassword.newPassword': 'Password ġdida',
   'resetPassword.subheading': "Agħżel xi ħaġa b'saħħitha — mill-inqas 12-il karattru.",
+  'search.clearAria': 'Ċar',
+  'search.error': "It-tfittxija falliet. Erġa' pprova.",
   'search.noPeople': 'L-ebda kreatur ma jaqbel " {{q}} ".',
   'search.noPosts': 'L-ebda post ma jaqbel ma\' " {{q}} ".',
   'search.noTags': "Għad m'hemm l-ebda hashtags trending.",
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Aħbi l-password',
   'signup.showPassword': 'Uri l-password',
   'signup.subheading': 'Oħloq kont biex tibda taqsam.',
+  'socialMediaLayout.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'socialMediaLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
+  'socialMediaLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'storyRail.heading': 'Stejjer',
   'storyRail.label': 'Stejjer',
   'storyRail.openAria': "Miftuħ {{handle}} l-istorja ta'",

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Tọgharịa paswọọdụ gị.',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Kaa ọrụ ahụ akara emechaala',
   'checklistTaskCard.markIncomplete': 'Mee ka ọrụ ahụ ezughị ezu',
   'checklistTaskCard.openLabel': 'Mepee ọrụ',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Unu niile ejidela',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': "N'ụzọ na-aga",
   'dashboard.timelineHeading': 'Ihe ngosi 30/60/90',
   'dashboard.viewAllTasks': 'Lee ọrụ niile',
+  'dashboard.weekOne': 'Izu nke Mbụ',
   'dashboard.yourCohort': 'Ndị otu gị',
   'documents.empty.body': 'Akwụkwọ ndị otu gị tinyere ga-apụta ebe a.',
   'documents.empty.title': 'Enwebeghị akwụkwọ ọ bụla',
@@ -104,7 +107,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': "Nnwale ụbọchị iri na anọ n'efu",
   'landing.subhead':
     "Embark na-eduzi onye otu ọhụrụ ọ bụla n'ime ụbọchị iri itoolu mbụ ha - akwụkwọ, ọzụzụ, ihe ndị dị mkpa, na okwu mmeghe bara uru, niile n'otu ebe dị jụụ na obi ike.",
+  'layout.openMenu': 'Mepee menu nsoroụzọ',
   'layout.search': 'Chọọ ọrụ, akwụkwọ, na ndị otu egwuregwu…',
+  'layout.searchTeammates': 'Chọọ ndị otu egwuregwu site na aha ma ọ bụ ọrụ ha…',
   'layout.section.onboarding': "Ịbanye n'ime",
   'layout.tagline': 'Njem gị na-amalite ebe a',
   'notifications.empty.body': 'Ihe omume ọhụrụ ga-apụta ebe a.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Ị emechaala ihe niile.',
   'planUpdated.preparing': 'Na-emelite atụmatụ gị…',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.documentsLabel': 'akwụkwọ',
   'pricing.onboardingsLabel': 'ntinye',
   'pricing.tasksLabel': 'ọrụ',

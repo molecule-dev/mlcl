@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Пра {{app}}',
   'about.plansTitle': 'Планы, якія растуць разам з вамі',
   'brand.tagline': 'Кожную секунду',
   'clientDetail.back': 'Назад да кліентаў',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Усе адносіны ў адным месцы — праекты, гадзіны, неаплачаныя рахункі-фактуры.',
   'clients.title': 'Кліенты',
   'common.and': 'і',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.activeProjects': 'Актыўныя праекты',
   'dashboard.empty': 'Пакуль няма запісаў. Уключыце таймер, каб адсачыць свой першы сеанс.',
   'dashboard.greeting': 'Добры дзень, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'Няма аплачваемых гадзін для гэтага кліента. Спачатку адсачыце час або прызначце існуючыя запісы аднаму з праектаў гэтага кліента.',
   'invoices.save': 'Стварыць рахунак-фактуру',
   'invoices.subtitle': "Адсочаныя гадзіны аўтаматычна аб'ядноўваюцца ў рахункі-фактуры.",
+  'landing.copyright': '© {{year}} {{app}} . Кожная секунда ўлічана.',
   'landing.ctaBody':
     'Бясплатна для максімум 3 праектаў. Абнавіце падпіску, калі ваш спіс кліентаў пачне працаваць.',
   'landing.eyebrow': 'Адсочванне часу для аплачваемай працы',
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Давяраюць незалежныя',
   'landing.testimonial.quote':
     'Я сышоў з Toggl за 30 хвілін. Адно толькі скарачэнне бюджэту акупілася. Я перастаў заніжаць кошт ужо два тыдні запар.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Хранаграфія. Кожная секунда ўлічана.',
   'login.brand.subtitle':
     'Працягвайце адлічваць час з таго месца, дзе спыніліся — кожная хвіліна ўжо адлічаная для праекта, кліента, рахунку-фактуры.',
   'login.brand.tracking': 'Адсочванне',
   'login.subheading': 'Працягніце таймер з таго месца, дзе спыніліся.',
+  'nav.closeMenu': 'Закрыць меню навігацыі',
   'nav.insightsSection': 'Інфармацыя',
   'nav.newEntry': 'Новы запіс',
+  'nav.openMenu': 'Адкрыць меню навігацыі',
+  'nav.primary': 'Асноўная навігацыя',
   'nav.workSection': 'Праца',
   'notFound.body':
     'Здаецца, спасылка, па якой вы перайшлі, перастала адсочвацца. Вярніцеся ў сваю панэль кіравання — мы працягнем адлік адтуль.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Аплачваецца',
   'timer.descriptionPlaceholder': 'Над чым вы працуеце?',
   'timer.idle': 'Бяздзейнасць — пачатак адсочвання',
+  'timer.noProject': 'Няма праекта',
   'timer.runningWithProject': 'Няма праекта',
   'timer.start': 'Запусціць таймер',
   'timer.stop': 'Спыніць таймер',

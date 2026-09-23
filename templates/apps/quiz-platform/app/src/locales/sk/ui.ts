@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.title': 'O aplikácii {{app}}',
   'auth.login.noAccount': 'Ste v Sparqu noví?',
   'auth.login.or': 'alebo pokračovať v',
   'auth.signup.or': 'alebo sa zaregistrujte u',
+  'common.confirm': 'Potvrdiť',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.loadError': 'Pri načítavaní tohto obsahu sa vyskytla chyba.',
+  'common.retry': 'Skúsiť znova',
   'discover.collections.title': 'Prehľadávať podľa kategórie',
   'discover.collections.viewAll': 'Pozrite si svoju knižnicu →',
   'discover.empty.body': 'Skúste inú kategóriu alebo vymažte vyhľadávanie.',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Prihláste sa a udržte si sériu úspechov, hostte živé hry a stúpajte v rebríčku.',
   'myQuizzes.createButton': 'Nový kvíz',
+  'myQuizzes.deleteConfirm': 'Vymazať navždy?',
   'myQuizzes.empty.createCta': 'Vytvorte si svoj prvý kvíz →',
   'myQuizzes.empty.created': 'Ešte ste nevytvorili kvíz.',
   'myQuizzes.empty.played': 'Zatiaľ neboli zverejnené žiadne kvízy.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Načítava sa…',
   'notifications.subhead':
     '{{count}} neprečítané iskry. Pozvánky, postupy v rebríčku a úspechy, všetko v jednom streame.',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.checkoutError': 'Nepodarilo sa spustiť platbu. Skúste to znova.',
+  'pricing.heading': 'Vyberte si svoj {{app}} plán',
   'pricing.included': 'Zahrnuté',
   'pricing.loadError': 'Plány sa nepodarilo načítať.',
   'pricing.maxQuizzes': '{{count}} kvízy',
@@ -99,11 +108,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Zatiaľ nič nebolo zverejnené.',
   'profile.startBuilding': 'Začnite stavať →',
   'profile.tier': 'Hráč Sparq',
+  'quizBuilder.addFailed': 'Otázku sa nepodarilo pridať. Skúste to znova.',
   'quizBuilder.addQuestion': 'Pridať otázku',
   'quizBuilder.answerPlaceholder': 'Zadajte možnosť…',
   'quizBuilder.answersLabel': 'Možnosti odpovedí',
   'quizBuilder.back': 'Späť k mojim kvízom',
   'quizBuilder.delete': 'Odstrániť otázku',
+  'quizBuilder.deleteFailed': 'Otázku sa nepodarilo odstrániť.',
   'quizBuilder.firstQuestion': 'Na začiatok pridajte svoju prvú otázku.',
   'quizBuilder.idLabel': 'ID kvízu: {{id}}',
   'quizBuilder.loadError': 'Kvíz sa nepodarilo načítať.',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Pridajte aspoň dve možnosti odpovede a vyberte tú správnu {{count}} otázka(y) pred publikovaním.',
   'quizBuilder.questionsTitle': 'Otázky',
+  'quizBuilder.saveFailed': 'Názov sa nepodarilo uložiť. Skúste to znova.',
   'quizBuilder.statusDraft': 'Návrh',
   'quizBuilder.subhead':
     'Upravte názov, pridajte otázky, nastavte možnosti a správnu odpoveď. Zmeny sa uložia automaticky.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min.',
   'quizDetail.hostMultiplayer': 'Hostiteľ pre viacerých hráčov',
   'quizDetail.leaderboardEmpty': 'Zatiaľ žiadne hry – buďte prvý, kto stanoví skóre.',
+  'quizDetail.loadError': 'Tento kvíz sa nepodarilo načítať.',
   'quizDetail.loading': 'Načítava sa kvíz…',
   'quizDetail.plays': '{{count}} hry',
   'quizDetail.playSolo': 'Hrať sólo',

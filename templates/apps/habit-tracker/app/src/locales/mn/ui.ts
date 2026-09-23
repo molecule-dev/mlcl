@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.pageTitle': '{{app}}-ийн тухай',
   'achievementBadgeCard.unlockedOn': 'Түгжээгүй {{date}}',
   'achievements.loadError': 'Амжилтуудыг ачаалж чадсангүй.',
   'achievements.subheading': '{{unlocked}} -ын {{total}} түгжээгүй',
   'achievements.unlockedOn': 'Түгжээгүй {{date}}',
+  'auth.legalConsent': 'Үргэлжлүүлснээр та манай',
   'calendar.empty': 'Хуанлигаа харах зуршил бий болго.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Зуршил',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Зуршлын сүлжээ',
   'category.${c.category}': '{{count}} зуршил',
   'common.and': 'мөн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'consistencyHeatmap.ariaLabel': 'Өдөр тутмын тогтвортой байдлын дулааны зураглал',
   'consistencyHeatmap.caption': 'Сүүлийн {{weeks}} долоо хоног',
   'consistencyHeatmap.lessLabel': 'Бага',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Шууд үзэх',
   'landing.heroSubtitle':
     'Дадал зуршлуудаа бодитоор нь баримталдаг байдлаар нь хөгжүүл: жижиг үүрэг амлалтууд, өдөр тутмын ажлууд, урт, тасралтгүй гинжин хэлхээний дотоод таашаал.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Стрийкийн дотор талыг харах',
   'landing.previewMotivation': 'Есөн судал амьд байна. Бүгдийг нь дулаан байлгаарай.',
   'login.eyebrow': 'Гинжийг ав',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Жижиг болго. Тодорхой болго. Маргааш ирээрэй.',
   'newHabit.timeLabel': 'Сануулах цаг',
   'notifications.markError': 'Бүгдийг нь уншсан гэж тэмдэглэж чадсангүй.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.entries': '{{count}} оруулгууд',
+  'pricing.heading': '{{app}}-ийн төлөвлөгөө сонгох',
   'profile.action.plan': 'Захиалгыг удирдах',
   'profile.action.settings': 'Бүртгэлийн тохиргоо',
   'profile.bioEmpty': 'Өөрийгөө танилцуулахын тулд Тохиргоо хэсэгт товч намтар нэмнэ үү.',
@@ -127,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Өдөр бүр өглөөний заавар (8:00 цагт)',
   'settings.reminders.heading': 'Сануулга',
   'settings.reminders.weekly': 'Долоо хоногийн тойм (Ням гарагийн орой)',
+  'settings.revokeDeviceWarning': 'Энэ төхөөрөмжийн хандалт удахгүй хаагдана. Гаргах уу?',
   'settings.signOutDevice': 'Гарах',
   'settings.streaks.freezesPerWeek': 'Долоо хоног бүр хөлддөг',
   'settings.streaks.gracePeriod': 'Шөнө дундын дараа 6 цагийн хөнгөлөлтийн хугацаа',
@@ -153,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} идэвхтэй',
   'streakHeroCard.daysSuffix': 'өдрүүд',
   'streakHeroCard.title': 'Хамгийн урт идэвхтэй цуврал',
+  'streakLayout.closeMenu': 'Навигацийн цэсийг хаах',
+  'streakLayout.openMenu': 'Навигацийн цэсийг нээх',
   'streakLayout.primaryNavLabel': 'Үндсэн навигаци',
 }

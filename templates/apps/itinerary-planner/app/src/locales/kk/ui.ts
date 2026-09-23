@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} туралы',
+  'auth.legalConsent': 'Жалғастыра отырып, сіз біздің келісесіз',
   'bookings.empty.body': 'Кіріс жәшігін бастау үшін рейс, қонақ үй немесе әрекет қосыңыз.',
   'bookings.empty.heading': 'Әзірге брондау жоқ.',
   'bookings.errors.create': 'Брондау жасалмады.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Расталды',
   'bookings.summary.pending': 'Растау күтілуде',
   'bookings.summary.total': 'Барлығы міндеттелген',
+  'bookings.type.car': 'Жалға берілетін көлік',
+  'bookings.type.flight': 'Ұшу',
+  'bookings.type.hotel': 'Қонақ үй',
   'bookings.type.other': 'Басқа',
   'budgetSpendCard.budgetTotal': '-ның {{total}} жоспарланған',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Қақтығыстарды анықтаңыз, сапарлар арасында қалпына келтіру күндерін жоспарлаңыз және серіктестеріңіздің сізбен бірге сапар шегетінін көріңіз.',
   'common.and': 'және',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.budgetHeading': 'Бюджеттік импульс',
   'dashboard.empty.heading': 'Әлі сапарлар жоқ — сіздің атласыңыз бос.',
   'dashboard.eyebrow': 'Миссияны басқару',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Қозғалыстағы сапарлар',
   'dashboard.viewAllExpenses': 'Әрбір шығынды қарау',
   'dashboard.viewAllTrips': 'Әр сапарды көру',
+  'dayTimelineRow.category.accommodation': 'Қалу',
   'dayTimelineRow.category.transport': 'Көлік',
   'destinationOrbCard.exploreCta': 'Сапарға қосу',
   'destinationOrbCard.tripCount': '{{count}} сапарлар',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Әлі электрондық пошта жоқ па? Спам қалтаңызды тексеріңіз немесе басқа мекенжаймен қайталап көріңіз.',
   'forgotPassword.successSubheading':
     'Біз қалпына келтіру сілтемесін жібердік {{email}} Сілтеме 30 минут бойы жарамды.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Тегін аккаунт жасау',
+  'landing.cta.subheading':
+    'Тегін жоспарда бес сапарға дейін, бес серіктес және бес аялдама бар — нақты уақыттағы синхрондау кіреді және жоспарларыңыз өскен кезде Pro шектеулерді көтереді.',
   'landing.destinations.eyebrow': 'Келесі қайда',
   'landing.destinations.heading': 'Редактор таңдаған бағыттар',
   'landing.features.eyebrow': 'Waypoint қалай жұмыс істейді',
   'landing.features.heading': 'Электрондық кестелер үшін емес, саяхатшылар үшін жасалған.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Тегін саяхатты бастаңыз',
   'landing.hero.ctaSecondary': 'Сапар үлгісін қараңыз',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
     'Сапарларды 5 серіктеспен бөлісу, брондауларды синхрондау және әрбір растауды бір жерге жинау үшін тіркелгі жасаңыз.',
+  'signup.termsPrefix': 'Тіркелгі жасау арқылы сіз біздің келісімімізді аласыз',
   'tripCountdownHeroCard.budget': '{{used}} -ның {{total}} ( {{pct}} бюджеттің пайызы)',
   'tripCountdownHeroCard.collaborators': '{{count}} саяхатшылар',
   'tripCountdownHeroCard.countdownLabel': 'Кері санақ',
@@ -204,5 +217,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Әзірге сапарлар жоқ.',
   'trips.pastHeading': 'Өткен оқиғалар',
   'trips.subheading': '{{count}} маршруттар — өткен, қазіргі және бір кездері.',
+  'waypointLayout.mobileNavClose': 'Навигация мәзірін жабу',
   'waypointLayout.primaryNavLabel': 'Негізгі навигация',
 }

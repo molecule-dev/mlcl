@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'اگر بازخوردی دارید، درخواست ویژگی جدیدی دارید یا باگی پیدا کرده‌اید؟ از طریق لینک پشتیبانی در منوی حساب کاربری خود با تیم {{app}} تماس بگیرید - هر پیام به یک انسان واقعی ارسال می‌شود.',
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'agentDetail.back': 'همه نمایندگان',
   'agentDetail.capabilities': 'قابلیت‌ها',
   'agentDetail.delete': 'حذف شخصیت',
   'agentDetail.deleteConfirm': 'این پرسونا را حذف کنید؟ این کار قابل بازگشت نیست.',
+  'agentDetail.deleteError': 'نتونستم شخصیت رو حذف کنم.',
   'agentDetail.eyebrow': 'پرسونا',
   'agentDetail.fetchError': 'بارگذاری پرسونا امکان‌پذیر نیست.',
   'agentDetail.save': 'ذخیره شخصیت',
@@ -44,6 +48,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'تعویض…',
   'billing.updateError': 'نتوانستم به‌روزرسانی را شروع کنم.',
   'billing.usageHeading': 'استفاده از صدا در این چرخه',
+  'chatBubble.source.text': 'متن',
+  'chatBubble.source.voice': 'صدا',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'conversation.defaultTitle': 'مکالمه جدید',
   'conversation.empty': 'هنوز پیامی ارسال نشده است. با گفتن چیزی یا تایپ کردن در زیر شروع کنید.',
   'conversation.eyebrow': 'جلسه زنده',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'هوشی که حرف می‌زند.',
   'landing.heroSubtitle':
     'دستیار صوتی هوش مصنوعی که جریان طبیعی شما را درک می‌کند. مکالمه، ایده‌پردازی و دستور دادن — به طور یکپارچه.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'گوش دادن…',
   'landing.naturallyBody':
     'بدون کلمات تحریک‌آمیز. بدون دستورات سفت و سخت. پارلنس زمینه، وقفه‌ها و ظرافت‌های گفتار انسان را درک می‌کند - مانند گپ زدن با یک همکار.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'باز کردن یک جلسه',
   'notFound.home': 'برگشت به خانه',
   'notFound.title': 'ما نتوانستیم آن صفحه را بشنویم.',
+  'parlanceLayout.closeMenu': 'بستن منو',
+  'parlanceLayout.openMenu': 'منوی ناوبری را باز کنید',
   'parlanceLayout.primaryNavLabel': 'ناوبری اولیه',
   'pricing.conversations': '{{count}} مکالمات',
   'pricing.cta.startFree': 'رایگان شروع کنید',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'بدون تطابق',
   'search.eyebrow': 'پالت فرمان',
   'search.fetchError': 'نتوانست فهرست جستجو را بارگیری کند.',
+  'search.static.profile.preview': 'نام نمایشی، شناسه کاربری، بیوگرافی',
   'search.static.voice.title': 'صدا',
   'search.title': 'جستجو در اصطلاحات',
   'search.transcriptPreview': 'متن را باز کنید',

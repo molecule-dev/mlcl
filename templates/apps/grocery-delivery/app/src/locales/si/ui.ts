@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'ඔබේ සාප්පු සවාරි යන්නාට ඉඟි කරන්න',
   'checkout.tipLabel': 'ඉඟිය',
   'checkout.zipPlaceholder': 'තැපැල්',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'featuredProductsGrid.addAria': 'එකතු කරන්න {{name}} කරත්තයට',
   'featuredProductsGrid.outOfStock': 'තොග නැති',
   'forgotPassword.emailLabel': 'ඊතැපැල් ලිපිනය',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'එම විද්‍යුත් තැපෑල ලියාපදිංචි කර ඇත්නම්, යළි පිහිටුවීමේ සබැඳියක් පැමිණෙමින් තිබේ.',
+  'groceryDeliveryLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'landing.categoriesEyebrow': 'අන්තරාල',
   'landing.categoriesHeading': 'කාණ්ඩය අනුව සාප්පු යන්න',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'ප්‍රධාන ද්‍රව්‍යවල ස්මාර්ට් නැවත ඇණවුම් කිරීම සහ සජීවී රියදුරු ලුහුබැඳීම සමඟ සතිපතා බෙදාහැරීම් කාලසටහන්ගත කරන්න.',
   'landing.heroTitle': 'පැය කිහිපයකින් ඔබේ දොරකඩට නැවුම් බවක්.',
   'landing.howEyebrow': 'පියවර තුනක්',
+  'landing.howItWorksHeading': '{{app}} ක්‍රියා කරන ආකාරය',
   'lists.addAllCta': 'සියල්ල කරත්තයට එක් කරන්න',
   'lists.createCta': 'ඔබේ පළමු ලැයිස්තුව සාදන්න',
   'lists.createError': 'ලැයිස්තුවක් නිර්මාණය කිරීමට නොහැකි විය.',

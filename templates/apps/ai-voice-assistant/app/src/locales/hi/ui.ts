@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'क्या आपके पास कोई प्रतिक्रिया, फ़ीचर अनुरोध या कोई बग है? अपने अकाउंट मेनू में दिए गए सपोर्ट लिंक के ज़रिए {{app}} टीम से संपर्क करें — हर संदेश सीधे किसी असली व्यक्ति तक पहुँचता है।',
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'agentDetail.back': 'सभी एजेंट',
   'agentDetail.capabilities': 'क्षमताएँ',
   'agentDetail.delete': 'व्यक्तित्व हटाएँ',
   'agentDetail.deleteConfirm':
     'क्या आप इस व्यक्तित्व को हटाना चाहते हैं? यह कार्य वापस नहीं लिया जा सकता।',
+  'agentDetail.deleteError': 'पर्सोना को डिलीट नहीं किया जा सका।',
   'agentDetail.eyebrow': 'व्यक्तित्व',
   'agentDetail.fetchError': 'व्यक्तित्व लोड नहीं हो सका।',
   'agentDetail.save': 'व्यक्तित्व सहेजें',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'बदला जा रहा है…',
   'billing.updateError': 'अपडेट शुरू नहीं हो सका।',
   'billing.usageHeading': 'इस चक्र में आवाज़ का उपयोग',
+  'chatBubble.source.text': 'मूलपाठ',
+  'chatBubble.source.voice': 'आवाज़',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'conversation.defaultTitle': 'नई बातचीत',
   'conversation.empty': 'अभी कोई संदेश नहीं है। कुछ कह कर या नीचे लिख कर शुरू कीजिए।',
   'conversation.eyebrow': 'लाइव सत्र',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'बुद्धिमत्ता जो बोलती है।',
   'landing.heroSubtitle':
     'वह AI आवाज़ सहायक जो आपके स्वाभाविक प्रवाह को समझता है। बातचीत, विचार और आदेश — बिना किसी रुकावट के।',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'सुन रहा हूँ…',
   'landing.naturallyBody':
     'कोई ट्रिगर शब्द नहीं। कोई कठोर आदेश नहीं। Vox संदर्भ, व्यवधान और मानवीय वाणी की बारीकियों को समझता है — जैसे किसी सहकर्मी से बातचीत।',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'सत्र खोलिए',
   'notFound.home': 'घर वापस',
   'notFound.title': 'हम वह पृष्ठ सुन नहीं सके।',
+  'parlanceLayout.closeMenu': 'मेनू बंद करें',
+  'parlanceLayout.openMenu': 'नेविगेशन मेनू खोलें',
   'parlanceLayout.primaryNavLabel': 'मुख्य नेविगेशन',
   'pricing.conversations': '{{count}} बातचीतें',
   'pricing.cta.startFree': 'मुफ़्त में शुरू कीजिए',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'कोई मेल नहीं',
   'search.eyebrow': 'कमांड पैलेट',
   'search.fetchError': 'खोज सूचकांक लोड नहीं हो सका।',
+  'search.static.profile.preview': 'नाम, हैंडल, बायो प्रदर्शित करें',
   'search.static.voice.title': 'आवाज़',
   'search.title': 'Vox खोजिए',
   'search.transcriptPreview': 'प्रतिलेख खोलिए',

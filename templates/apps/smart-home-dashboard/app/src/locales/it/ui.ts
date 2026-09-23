@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
+  'about.pageTitle': 'Info su {{app}}',
   'activity.empty': 'Ancora nessuna attività — accenda un dispositivo o attivi una scena.',
   'activity.eyebrow': 'Cronologia',
   'activity.loadError': 'Impossibile caricare il feed delle attività.',
   'activity.subheading':
     'Ogni dispositivo, automazione ed evento di sicurezza in ordine cronologico.',
+  'addDevice.error.failed': 'Impossibile aggiungere il dispositivo. Riprova.',
   'addDevice.error.nameRequired': 'Assegni un nome a questo dispositivo per continuare.',
   'addDevice.field.firmware': 'Versione firmware',
   'addDevice.field.manufacturer': 'Produttore',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Prova in corso…',
   'automationEditor.testNew': "Prima di procedere, salva l'automazione per testarla.",
   'automationRow.lastRun': 'Ultima {{date}} · {{count}} esecuzioni',
+  'automationRow.on': 'Il',
   'automationRow.runNowAria': 'Esegui {{name}} ora',
   'automations.empty': 'Nessuna automazione ancora attiva: crea la tua prima routine.',
   'automations.eyebrow': 'Routine',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Caricamento automazioni…',
   'automations.newAutomation': '+ Nuova',
   'automations.subheading': 'Quando succede questo, fai quello — senza YAML.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Impossibile caricare il dispositivo.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'In corso…',
   'deviceDetail.unnamed': 'Dispositivo',
   'deviceStatusRow.on': 'Acceso',
+  'deviceStatusRow.turnOff': 'Disattiva',
+  'deviceStatusRow.turnOn': 'Attiva',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Energia',
   'energy.heading': 'Energia',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Vedi piani',
   'settings.security.heading': 'Sicurezza',
   'settings.subheading': "Piano, hub e preferenze dell'account.",
+  'smartHomeDashboardLayout.openMenu': 'Apri il menu di navigazione',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigazione principale',
 }

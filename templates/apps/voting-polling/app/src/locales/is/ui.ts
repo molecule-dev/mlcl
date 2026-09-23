@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'analytics.col.quorum': 'Sveitarvald',
   'analytics.col.votes': 'Atkvæði',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Engar spurningar í bið ennþá.',
   'audienceQa.onStageEyebrow': 'Á sviðinu núna',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Kynna',
   'audienceQa.queued': 'í biðröð',
   'audienceQa.queueEyebrow': 'Biðröð',
   'ballot.eyebrow': 'Greiðið atkvæði',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Þú ert núna á {{plan}} áætlun.',
   'billing.switch': 'Skipta',
   'billing.upgraded': 'Uppfært í {{plan}} — takmörkunum beitt þegar í stað.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'createPoll.addOption': 'Bæta við valkosti',
   'createPoll.anonymousHint':
     'Nöfn kjósenda falin í endurskoðunarskrá; talningar eru áfram staðfestar.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nýr í Nosh?',
   'login.remember': 'Mundu eftir mér í 30 daga',
   'login.subheading': 'Opnaðu gólfið, keyrðu herbergið og staðfestu niðurstöðuna.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'notFound.body':
     'Síðan sem þú reyndir að komast á hefur verið lokuð eða færð. Farðu aftur á stjórnborðið eða opnaðu nýja könnun.',
   'notFound.eyebrow': 'Enginn lögmætur fundur á þessari leið',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Gat ekki hlaðið þessari könnun.',
   'pollDetail.loading': 'Hleður könnun…',
   'pollDetail.notFound': 'Könnun fannst ekki.',
+  'pollDetail.openBallot': 'Opin atkvæðagreiðsla',
   'pollDetail.openLive': 'Lifandi niðurstöður',
   'pollDetail.pollId': 'könnun · {{id}}',
   'pollDetail.published': 'Kosning birt — kjósendur geta nú greitt atkvæði.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Leita með tölvupósti…',
   'voters.subheading':
     'Safnaðu saman kjörgengum kjörseðlum. Flokkaðu kjósendur eftir stofnunum til að fá vigtaða kjörseðla.',
+  'votingPollingLayout.nav.analytics': 'Greiningar',
+  'votingPollingLayout.nav.billing': 'Reikningur',
+  'votingPollingLayout.nav.createPoll': 'Ný könnun',
+  'votingPollingLayout.nav.dashboard': 'Mælaborð',
+  'votingPollingLayout.nav.notifications': 'Tilkynningar',
+  'votingPollingLayout.nav.settings': 'Stillingar',
+  'votingPollingLayout.nav.team': 'Lið',
+  'votingPollingLayout.nav.voters': 'Kjósendur',
+  'votingPollingLayout.primaryNavLabel': 'Aðalflakk',
 }

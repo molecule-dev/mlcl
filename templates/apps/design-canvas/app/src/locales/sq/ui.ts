@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'authShell.brandHeading':
     'Kanavaca perfekte për piksel për ekipet e dizajnit që dërgojnë së bashku.',
   'canvas.redirecting': 'Duke hapur redaktorin…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'dhe',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.retry': 'Riprovo',
   'dashboard.activityEmpty':
     'Nuk ka ende aktivitet të kohëve të fundit — ftoni një shok skuadre për të filluar.',
   'dashboard.activityTitle': 'Çfarë ndryshoi sot',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Hapësira e punës · Northwind Studio',
   'dashboard.foldersLabel': 'Dosjet',
   'dashboard.gridTitle': '{{count}} projekte',
+  'dashboard.heroActiveTool': 'Mjet stilolapsi',
   'dashboard.loadingTitle': 'Duke ngarkuar projektet…',
   'dashboard.searchPlaceholder': 'Kërko projekte',
   'dashboard.startFromTemplate': 'Filloni nga shablloni',
   'dashboard.title': 'Projektet tuaja',
   'dashboard.untitledProject': 'Projekt pa titull',
   'designCanvasLayout.newProject': 'Projekt i ri',
+  'designCanvasLayout.primaryNavLabel': 'Navigimi kryesor',
   'editor.backToProjects': 'Kthehu te projektet',
   'editor.deleteShape': 'Fshi formën',
   'editor.errorBody': 'Nuk mundëm ta hapnim këtë projekt.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Mjete dizajni që lëvizin me shpejtësinë e duarve tuaja',
   'library.empty': 'Nuk ka ende asnjë token në këtë seksion.',
   'library.eyebrow': 'Hapësira e punës · Sistemi i dizajnit të atelierit',
+  'library.loadFailed': 'Nuk mund të ngarkoheshin tokenët e dizajnit.',
   'library.systemMeta': 'Gjendja e sistemit',
   'library.systemSummary': '{{tokens}} tokena · {{komponentë}} komponentët · {{efektet}} efektet',
   'login.emailPlaceholder': 'mara@studio.com',

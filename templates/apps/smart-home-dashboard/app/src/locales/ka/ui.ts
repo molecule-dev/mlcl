@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'activity.empty': 'აქტივობა ჯერ არ არის — გადაატრიალეთ მოწყობილობა ან გაააქტიურეთ სცენა.',
   'activity.eyebrow': 'ქრონოლოგია',
   'activity.loadError': 'აქტივობის არხის ჩატვირთვა ვერ მოხერხდა.',
   'activity.subheading':
     'ყველა მოწყობილობა, ავტომატიზაცია და უსაფრთხოების მოვლენა ქრონოლოგიური თანმიმდევრობით.',
+  'addDevice.error.failed': 'მოწყობილობის დამატება ვერ მოხერხდა. სცადეთ ხელახლა.',
   'addDevice.error.nameRequired': 'გასაგრძელებლად, ამ მოწყობილობას სახელი მიანიჭეთ.',
   'addDevice.field.firmware': 'პროგრამული უზრუნველყოფის ვერსია',
   'addDevice.field.manufacturer': 'მწარმოებელი',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'ტესტირება…',
   'automationEditor.testNew': 'ჯერ ავტომატიზაცია შეინახეთ მის შესამოწმებლად.',
   'automationRow.lastRun': 'ბოლო {{date}} · {{count}} დარბის',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'სირბილი {{name}} ახლა',
   'automations.empty': 'ავტომატიზაცია ჯერ არ არის — შექმენით თქვენი პირველი რუტინა.',
   'automations.eyebrow': 'რუტინები',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ავტომატიზაციის ჩატვირთვა…',
   'automations.newAutomation': '+ ახალი',
   'automations.subheading': 'როდესაც ეს მოხდება, გააკეთეთ ეს — YAML-ის გარეშე.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'მოწყობილობის ჩატვირთვა ვერ მოხერხდა.',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'ვმუშაობ…',
   'deviceDetail.unnamed': 'მოწყობილობა',
   'deviceStatusRow.on': 'ჩართულია',
+  'deviceStatusRow.turnOff': 'გამორთვა',
+  'deviceStatusRow.turnOn': 'ჩართვა',
   'deviceStatusRow.watts': '{{watts}} დას.',
   'energy.eyebrow': 'სიმძლავრე',
   'energy.heading': 'ენერგია',
@@ -179,4 +186,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'გეგმების ნახვა',
   'settings.security.heading': 'უსაფრთხოება',
   'settings.subheading': 'გეგმა, ჰაბები და ანგარიშის პარამეტრები.',
+  'smartHomeDashboardLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
 }

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Si metta in contatto',
   'about.eyebrow': 'Informazioni',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.connectRepoCta': 'Connetti repository',
   'dashboard.empty': 'Nessuna pull request ancora — connetta un repository per iniziare.',
   'dashboard.eyebrow': 'Refract · coda di revisione',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Uptime',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Punteggio qualità AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Chiudi il menu',
+  'refractLayout.openMenu': 'Apri menu',
   'refractLayout.primaryNavLabel': 'Navigazione principale',
   'reports.cumulativeScoreLabel': 'Punteggio cumulativo',
   'reports.cumulativeScoreSubtitle': 'tutti i repo · {{days}}g',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': "Impossibile caricare l'indice di ricerca.",
   'settings.apiKeys.description':
     'Gestisca le chiavi API personali dal menu utente in alto a destra.',
+  'settings.apiKeys.integrationsNote':
+    'I token di accesso dei provider vengono gestiti nella sezione “Integrazioni” qui sopra.',
   'settings.connectError': 'Impossibile connettere il fornitore.',
   'settings.disconnectError': 'Impossibile disconnettere il fornitore.',
   'settings.eyebrow': 'Refract · workspace',
   'settings.integration.${provider}.label': 'Salvataggio…',
   'settings.loadError': 'Impossibile caricare le impostazioni.',
+  'settings.notificationCenter': 'Centro notifiche',
   'settings.notifications.description':
     'Visiti la pagina delle notifiche per visualizzare e gestire le preferenze di consegna.',
   'settings.section.account': 'Account e sicurezza',

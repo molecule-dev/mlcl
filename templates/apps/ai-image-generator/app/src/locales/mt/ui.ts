@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'auth.fields.newPassword': 'Password ġdida',
   'collectionDetail.addImage': 'Ikkonġura għall-ġbir',
   'collectionDetail.backCta': 'Lura għall-kollezzjonijiet',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood-boards, briefs u serje li għaddejjin bħalissa',
   'collections.title': 'Kollezzjonijiet',
   'collections.untitled': 'Bla Titlu · {{stamp}}',
+  'common.closeMenu': 'Agħlaq il-menù',
+  'common.dismiss': 'Ċaħad',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'credits.eyebrow': '{{plan}} pjan',
   'credits.renewsCopy': 'Il-pjan jiġġedded fi {{date}}',
   'credits.trail': 'Reverie · {{plan}} livell',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     'L-attività tal-ġenerazzjoni, il-kondiviżjoni u t-twissijiet tal-kreditu se jidhru hawn.',
   'notifications.empty.title': "Xejn x'jirrapporta",
   'notifications.subtitle': "Avvenimenti ta' ġenerazzjoni miġbura skont il-jum",
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.limits.gallery': '{{count}} gallerija',
   'privacy.collect.body':
     'Meta tirreġistra niġbru ismek, l-indirizz elettroniku tiegħek, u password hashed. Hekk kif tuża Reverie naħżnu l-prontijiet li tissottometti, l-immaġini li niġġeneraw għalik, l-istili u l-kollezzjonijiet li ssalva, u metadata bħall-mudell użat, timestamps tal-ġenerazzjoni, u l-bilanċ tal-kreditu.',
@@ -169,6 +175,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Issejvja l-password il-ġdida',
   'reset.submitting': 'Qed taġġorna l-password…',
   'settings.account.handle': 'Immaniġġja',
+  'settings.account.lastSaved': 'Profil attiv · {{name}}',
   'settings.account.saved': 'Profil salvat',
   'settings.account.saveFailed': 'Ma setax jiġi salvat il-profil',
   'settings.account.title': 'Profil tal-kreatur',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Immaġni ġdida',
   'sidebar.secondary': 'Navigazzjoni sekondarja',
   'signup.failed': "Ir-reġistrazzjoni falliet. Erġa' pprova.",
+  'signup.firstNamePlaceholder': 'Arija',
   'signup.heading': 'Ibda r-reverie tiegħek',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': "Oħloq kont u itlob 120 kreditu b'xejn.",
   'styles.empty': "Għad m'hemm l-ebda presets tal-istil — dawn se jidhru wara l-ewwel login.",
   'styles.eyebrow': 'Kurat',

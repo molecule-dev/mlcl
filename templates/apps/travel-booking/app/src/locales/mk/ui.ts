@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
+  'about.featureDiscover.title': 'Инспирација, рачно избрана',
   'account.addPaymentCta': 'Додајте начин на плаќање',
   'account.addPaymentError': 'Не може да се додаде начин на плаќање.',
+  'account.confirmRemove': 'Потврди отстранување',
   'account.defaultBadge': 'Стандардно',
   'account.loyalty.pointsTowardNext': '{{поени}} од {{следно}} милји до {{следно ниво}}',
   'account.loyalty.tier': 'Тековно ниво',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Детали за патувањето',
   'booking.tripSummary': '{{nights}} ноќи · {{guests}} гости',
   'common.daysAgo': '{{count}} пред еден ден',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.hoursAgo': '{{count}} пред неколку часа',
   'common.minutesAgo': '{{count}} пред м',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Правни',
   'notifications.loading': 'Се вчитува…',
   'notifications.subheading': '{{count}} непрочитано · сè во едно мирно сандаче',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.accommodationsLabel': 'сместување',
   'pricing.bookingsLabel': 'резервации',
   'pricing.destinationsLabel': 'зачувани дестинации',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Инспирација, доверлив престој и лесен пат од мечтаење до резервирање — низ 14 земји и над 200 рачно проверени имоти.',
   'sojournHeroSearchCard.trustProtected': 'Бесплатно откажување, целосно заштитено',
   'sojournHeroSearchCard.trustVetted': 'Само рачно проверени имоти',
+  'travelBookingLayout.primaryNavLabel': 'Примарна навигација',
   'tripDetail.backLink': 'Назад кон патувањата',
   'tripDetail.cancelCta': 'Откажи резервација',
   'tripDetail.cancelHeading': 'Да се откаже ова патување?',

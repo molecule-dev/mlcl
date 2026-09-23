@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Εργαλεία πλούτου',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Δεν αποτελεί επενδυτική συμβουλή.',
   'argentAuthShell.sampleChange': '+2.841$ (+0,28%) σήμερα',
   'argentAuthShell.sampleValue': '1.032.251 δολάρια',
   'argentLayout.primaryNavLabel': 'Κύρια πλοήγηση',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Δεν υπάρχουν συναλλαγές για αυτό το ticker.',
   'assetDetail.txHeading': 'Οι συναλλαγές σας',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Επισκόπηση χαρτοφυλακίου',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Δεν υπάρχουν ακόμη συμμετοχές.',
   'holdings.heading': 'Συμμετοχές',
   'holdings.loadError': 'Αποτυχία φόρτωσης συμμετοχών.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Δεν αποτελεί επενδυτική συμβουλή. Οι προηγούμενες αποδόσεις δεν εγγυώνται μελλοντικά αποτελέσματα.',
   'landing.eyebrow': 'Argent · Μια πλατφόρμα εργαλείων πλούτου',
   'landing.features.heading': 'Όλα όσα θα κατασκεύαζε ένας σύμβουλος για τον εαυτό του.',
   'landing.finalCta.heading': 'Επαναφέρετε την πειθαρχία στο χαρτοφυλάκιό σας.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}ω πριν',
   'news.justNow': 'μόλις τώρα',
   'news.loadError': 'Αποτυχία φόρτωσης ειδήσεων.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'portfolioHeroCard.label': 'Αξία Χαρτοφυλακίου',
   'pricing.holdingsLabel': 'εκμεταλλεύσεις',
   'pricing.newsLabel': 'άρθρα ειδήσεων',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Διαγραφή λογαριασμού',
   'settings.security.deleting': 'Διαγραφή…',
   'settings.security.heading': 'Ασφάλεια',
+  'settings.security.newPassword': 'Νέος κωδικός πρόσβασης',
   'settings.security.password': 'Κωδικός πρόσβασης',
   'settings.security.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.security.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.security.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.tax.error': 'Δεν ήταν δυνατή η ενημέρωση της μεθόδου φορολόγησης.',
   'settings.tax.heading': 'Φορολογική λογιστική παρτίδας',
   'settings.tax.method': 'Προεπιλεγμένη μέθοδος',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.pageTitle': '{{app}}-ийн тухай',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.retry': 'Дахин оролдох',
   'compose.cancel': 'Цуцлах',
   'compose.captionPlaceholder': 'Чи юу бодож байна вэ?',
   'compose.heading': 'Нэг мөчийг хуваалцаарай',
@@ -99,6 +103,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Баталгаажсан бүртгэл',
   'resetPassword.newPassword': 'Шинэ нууц үг',
   'resetPassword.subheading': 'Хүчтэй зүйл сонгоорой - дор хаяж 12 тэмдэгт.',
+  'search.clearAria': 'Цэвэрлэгээ',
+  'search.error': 'Хайлт амжилтгүй боллоо. Дахин оролдоно уу.',
   'search.noPeople': '"Тохирох бүтээгчид байхгүй" {{q}} ".',
   'search.noPosts': 'Таарах бичлэг алга " {{q}} ".',
   'search.noTags': 'Одоогоор трэнд болж буй hashtag алга байна.',
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Нууц үгийг нуух',
   'signup.showPassword': 'Нууц үгийг харуулах',
   'signup.subheading': 'Хуваалцаж эхлэхийн тулд бүртгэл үүсгэнэ үү.',
+  'socialMediaLayout.closeMenu': 'Навигацийн цэсийг хаах',
+  'socialMediaLayout.openMenu': 'Навигацийн цэсийг нээх',
+  'socialMediaLayout.primaryNavLabel': 'Үндсэн навигаци',
   'storyRail.heading': 'Түүхүүд',
   'storyRail.label': 'Түүхүүд',
   'storyRail.openAria': 'Нээлттэй {{handle}} -ийн түүх',

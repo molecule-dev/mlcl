@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'ہمارے بارے میں',
   'authShell.samplePreview': '"ارے ٹیم، نیا ڈیش بورڈ بہت خوبصورت ہے — بالکل وہی جو ہمیں چاہیے!"',
   'authShell.tagline': 'ہر پیغام اہمیت رکھتا ہے۔ ہر گاہک کو یاد تھا۔',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/شارٹ کٹ',
   'automations.subheading':
     'قواعد، ڈبہ بند جوابات اور چیٹ بوٹس — جب آپ کی ٹیم مشکل چیزوں پر توجہ مرکوز کرتی ہے تو ورک اسپیس کو گنگناتے رہیں۔',
+  'automations.trigger.inboundMessage': 'ان باؤنڈ پیغام',
   'automations.triggerLabel': 'محرک',
   'chatBubble.internalNoteLabel': 'اندرونی نوٹ',
+  'common.confirmDelete': 'حذف کی تصدیق کریں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'contactDetail.backToContacts': 'تمام رابطے',
   'contactDetail.contactFallback': 'رابطہ کریں۔',
   'contactDetail.conversationFallback': 'بات چیت',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'آخری بار دیکھا گیا۔',
   'contacts.empty': 'ابھی تک کوئی رابطہ نہیں ہے۔ اوپر اپنا پہلا رابطہ شامل کریں۔',
   'contacts.eyebrow': 'کسٹمر ڈائریکٹری',
+  'contacts.form.nameOrEmailRequired': 'کم از کم ایک نام یا ای میل فراہم کریں۔',
   'contacts.form.save': 'رابطہ محفوظ کریں۔',
   'contacts.heading': 'رابطے',
   'contacts.loading': 'رابطے لوڈ ہو رہے ہیں…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'نوٹ محفوظ کریں۔',
   'conversationDetail.tab.note': 'اندرونی نوٹ',
   'conversationDetail.threadAria': 'گفتگو کے پیغامات',
+  'conversationDetail.visitorFallback': 'وزیٹر',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'کسٹمر کی تفصیلات',
   'customerProfilePanel.recentTitle': 'حالیہ گفتگو',
@@ -70,6 +76,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'صارفین کو ان کا پہلا جواب مل رہا ہے۔ {{time}} اوسطا - کیڈنس کو جاری رکھیں۔',
   'inboxHeroCard.title': 'فعال گفتگو',
+  'inboxLayout.navDrawerLabel': 'نیویگیشن',
+  'inboxLayout.openMenu': 'نیویگیشن مینو کھولیں۔',
   'inboxOverview.eyebrow': 'آج ایک نظر میں',
   'inboxOverview.heroChange': '{{count}} کھلا',
   'inboxOverview.kpiClosedTrend': 'ہر وقت',
@@ -115,10 +123,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ہوم پیج پر جائیں۔',
   'notifications.subheading':
     'اسائنمنٹس، @ تذکرہ، SLA خطرات، CSAT فیڈ بیک اور ٹیم کی سرگرمی — سب سے پہلے ترتیب دی گئی۔',
+  'notifications.subjectFallback': 'ایک بات چیت',
+  'notifications.visitorFallback': 'ایک وزیٹر',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'اعلی',
   'priority.low': 'کم',
+  'priority.normal': 'نارمل',
   'priority.urgent': 'ارجنٹ',
   'privacy.title': 'رازداری کی پالیسی',
   'reports.agentFallback': 'ایجنٹ',

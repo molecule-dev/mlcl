@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'auth.fields.newPassword': '新密码',
   'collectionDetail.addImage': '为收藏集创作',
   'collectionDetail.backCta': '返回收藏集',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': '灵感板、需求简报和进行中的系列',
   'collections.title': '收藏集',
   'collections.untitled': '未命名 · {{stamp}}',
+  'common.closeMenu': '关闭菜单',
+  'common.dismiss': '关闭',
+  'common.goToDashboard': '前往仪表盘',
+  'common.openMenu': '打开导航菜单',
   'credits.eyebrow': '{{plan}} 套餐',
   'credits.renewsCopy': '套餐将于 {{date}} 续订',
   'credits.trail': '遐想{{plan}}层级',
@@ -126,6 +131,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': '生成活动、共享和积分提醒将在此处出现。',
   'notifications.empty.title': '暂无新动态',
   'notifications.subtitle': '按日期分组的生成事件',
+  'planUpdated.verifying': '确认您的付款中…',
   'pricing.limits.gallery': '{{count}} 画廊',
   'privacy.collect.body':
     '注册时，我们会收集你的姓名、电子邮件地址以及哈希处理后的密码。在使用 Reverie 期间，我们会保存你提交的提示词、为你生成的图片、你保存的风格与收藏集，以及所用模型、生成时间戳和积分余额等元数据。',
@@ -161,6 +167,7 @@ export const ui: UiTranslations = {
   'reset.submit': '保存新密码',
   'reset.submitting': '正在更新密码……',
   'settings.account.handle': '用户名',
+  'settings.account.lastSaved': '活跃个人资料 · {{name}}',
   'settings.account.saved': '资料已保存',
   'settings.account.saveFailed': '无法保存资料',
   'settings.account.title': '创作者资料',
@@ -182,7 +189,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': '新建图像',
   'sidebar.secondary': '次级导航',
   'signup.failed': '注册失败，请重试。',
+  'signup.firstNamePlaceholder': '阿丽亚',
   'signup.heading': '开启你的 Reverie',
+  'signup.lastNamePlaceholder': '林',
   'signup.subheading': '创建账户并领取 120 个免费积分。',
   'styles.empty': '尚无样式预设——首次登录后将出现。',
   'styles.eyebrow': '精选',

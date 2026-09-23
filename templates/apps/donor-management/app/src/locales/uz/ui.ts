@@ -56,7 +56,7 @@ export const ui: UiTranslations = {
   'donors.col.lifetime': 'Jami xayriya',
   'donors.col.tags': 'Teglar',
   'donors.empty': 'Hech qanday donor mos kelmadi.',
-  'donors.emptyNoDonors': 'Hozircha donorlar ro&#39;yxatida yo&#39;q.',
+  'donors.emptyNoDonors': "Hozircha donorlar ro'yxatida yo'q.",
   'donors.filterByTag': "Teg bo'yicha filtrlash",
   'donors.firstGift': "Birinchi sovg'a",
   'donors.giftCount': "({{count}} sovg'a)",

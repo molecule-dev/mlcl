@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'authShell.brandHeading':
     'Birlikte yayına alan tasarım ekipleri için piksel mükemmelliğinde tuvaller.',
   'canvas.redirecting': 'Düzenleyici açılıyor…',
   'collaboratorStack.overflow': '+{{count}}',
   'common.and': 've',
+  'common.goToDashboard': 'Panele Git',
+  'common.retry': 'Tekrar dene',
   'dashboard.activityEmpty':
     'Henüz son etkinlik yok — başlamak için bir takım arkadaşı davet edin.',
   'dashboard.activityTitle': 'Bugün neler değişti',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Çalışma alanı · Northwind Studio',
   'dashboard.foldersLabel': 'Klasörler',
   'dashboard.gridTitle': '{{count}} proje',
+  'dashboard.heroActiveTool': 'Kalem aracı',
   'dashboard.loadingTitle': 'Projeler yükleniyor…',
   'dashboard.searchPlaceholder': 'Projelerde ara',
   'dashboard.startFromTemplate': 'Şablondan başla',
   'dashboard.title': 'Projeleriniz',
   'dashboard.untitledProject': 'Başlıksız proje',
   'designCanvasLayout.newProject': 'Yeni proje',
+  'designCanvasLayout.primaryNavLabel': 'Birincil gezinme',
   'editor.backToProjects': 'Projelere geri dön',
   'editor.deleteShape': 'Şekli sil',
   'editor.errorBody': 'Bu projeyi açamadık.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Ellerinizin hızında çalışan tasarım araçları',
   'library.empty': 'Bu bölümde henüz token yok.',
   'library.eyebrow': 'Çalışma alanı · Atelier Design System',
+  'library.loadFailed': 'Tasarım belirteçleri yüklenemedi.',
   'library.systemMeta': 'Sistem sağlığı',
   'library.systemSummary': '{{tokens}} token · {{components}} bileşen · {{effects}} efekt',
   'login.emailPlaceholder': 'mara@studio.com',

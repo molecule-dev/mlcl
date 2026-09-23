@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.pageTitle': 'बारेमा {{appName}}',
   'analytics.error': 'एनालिटिक्स लोड गर्न सकिएन।',
   'analytics.heading': 'पुनःप्राप्ति विश्लेषण',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'कुनै मूल्य निर्धारण तहहरू कन्फिगर गरिएको छैन।',
   'billing.plans.heading': 'योजनाहरू',
   'billing.subheading': 'योजना, प्रयोग, र स्ट्राइप-व्यवस्थित चेकआउट।',
+  'common.confirm': 'पुष्टि गर्नुहोस्',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'documentCard.open': 'खोल्नुहोस् \\u2192',
   'documentDetail.back': 'कागजातहरूमा फर्कनुहोस्',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'कागजात अनुक्रमणिका गर्नुहोस्',
   'documents.composer.titlePlaceholder': 'कागजात शीर्षक',
   'documents.emptyAll': 'अहिलेसम्म कुनै कागजात छैन। प्रश्न सोध्न सुरु गर्न एउटा अपलोड गर्नुहोस्।',
+  'documents.error.load': 'कागजातहरू लोड गर्न सकिएन।',
   'documents.heading': 'अनुक्रमित कागजातहरू',
   'documents.loading': 'कागजातहरू लोड गर्दै...',
   'documents.metric.chunks': 'कुल भागहरू',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'हटाउँदै\\u2026',
   'members.subheading': 'टोलीका साथीहरूलाई आमन्त्रित गर्नुहोस् र भूमिकाहरू सेट गर्नुहोस्।',
   'members.tableHeading': 'रोस्टर',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'notFound.askCta': 'ज्ञानको आधारलाई सोध्नुहोस्',
+  'notFound.body':
+    '{{app}} ले त्यो पृष्ठ पत्ता लगाउन सकेन। लिङ्क बिग्रिएको हुन सक्छ, वा पुन: अनुक्रमणिकाको क्रममा पृष्ठ बन्द गरिएको हुन सक्छ।',
   'notFound.eyebrow': 'पुन: प्राप्त गर्न सकिँदैन',
   'notFound.title': 'अनुक्रमणिकामा त्यस्तो कुनै भाग छैन',
   'notifications.dismiss': 'खारेज गर्नुहोस्',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'स्रोत URL',
   'sources.empty.body': 'आफ्नो पहिलो कनेक्टरलाई तार गर्न "स्रोत थप्नुहोस्" मा क्लिक गर्नुहोस्।',
   'sources.empty.title': 'अहिलेसम्म कुनै स्रोत छैन।',
+  'sources.error.add': 'स्रोत थप्न सकिएन।',
   'sources.error.labelRequired': 'लेबल आवश्यक छ।',
   'sources.error.load': 'स्रोतहरू लोड गर्न सकिएन।',
   'sources.error.urlRequired': 'यस प्रकारको स्रोतको लागि URL आवश्यक छ।',

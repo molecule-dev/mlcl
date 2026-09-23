@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureDiscover.title': 'Inspiració, seleccionada a mà',
   'account.addPaymentCta': 'Afegeix un mètode de pagament',
   'account.addPaymentError': "No s'ha pogut afegir el mètode de pagament.",
+  'account.confirmRemove': "Confirma l'eliminació",
   'account.defaultBadge': 'Per defecte',
   'account.loyalty.pointsTowardNext': '{{punts}} de {{següent}} milles a {{nextTier}}',
   'account.loyalty.tier': 'Nivell actual',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Detalls del viatge',
   'booking.tripSummary': '{{nights}} nits · {{guests}} convidats',
   'common.daysAgo': '{{count}} fa uns dies',
+  'common.goToDashboard': 'Anar al panell',
   'common.hoursAgo': '{{count}} fa h',
   'common.minutesAgo': '{{count}} fa m',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Legal',
   'notifications.loading': "S'està carregant…",
   'notifications.subheading': "{{count}} sense llegir · tot en una safata d'entrada tranquil·la",
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.accommodationsLabel': 'allotjaments',
   'pricing.bookingsLabel': 'reserves',
   'pricing.destinationsLabel': 'destinacions desades',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Inspiració, estades de confiança i un camí sense friccions des del somni fins a la reserva, a 14 països i més de 200 allotjaments acuradament revisats.',
   'sojournHeroSearchCard.trustProtected': 'Cancel·lació gratuïta, totalment protegida',
   'sojournHeroSearchCard.trustVetted': 'Només propietats revisades manualment',
+  'travelBookingLayout.primaryNavLabel': 'Navegació principal',
   'tripDetail.backLink': 'Tornar als viatges',
   'tripDetail.cancelCta': 'Cancel·la la reserva',
   'tripDetail.cancelHeading': 'Voleu cancel·lar aquest viatge?',

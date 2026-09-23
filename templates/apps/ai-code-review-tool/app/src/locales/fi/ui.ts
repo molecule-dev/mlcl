@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.connectRepoCta': 'Yhdistä repositorio',
   'dashboard.empty': 'Ei pull requesteja vielä — yhdistä repositorio päästäksesi alkuun.',
   'dashboard.eyebrow': 'Refract · tarkistusjono',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Käyttöaika',
   'pullRequestRow.files': '{{count}} t',
   'pullRequestRow.scoreAria': 'Tekoälyn laatupisteet {{score}} / 10',
+  'refractLayout.closeMenu': 'Sulje valikko',
+  'refractLayout.openMenu': 'Avaa valikko',
   'refractLayout.primaryNavLabel': 'Päänavigaatio',
   'reports.cumulativeScoreLabel': 'Kumulatiiviset pisteet',
   'reports.cumulativeScoreSubtitle': 'kaikki repot · {{days}}pv',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Hakuindeksin lataus epäonnistui.',
   'settings.apiKeys.description':
     'Hallinnoi henkilökohtaisia API-avaimia oikean yläkulman käyttäjävalikosta.',
+  'settings.apiKeys.integrationsNote':
+    'Palveluntarjoajien pääsytunnuksia hallitaan yllä olevassa ”Integraatiot”-osiossa.',
   'settings.connectError': 'Tarjoajan yhdistäminen epäonnistui.',
   'settings.disconnectError': 'Tarjoajan yhteyden katkaisu epäonnistui.',
   'settings.eyebrow': 'Refract · työtila',
   'settings.integration.${provider}.label': 'Tallennetaan…',
   'settings.loadError': 'Asetusten lataus epäonnistui.',
+  'settings.notificationCenter': 'Ilmoituskeskus',
   'settings.notifications.description':
     'Käy ilmoitussivulla nähdäksesi ja hallitaksesi toimitusasetuksia.',
   'settings.section.account': 'Tili ja turvallisuus',

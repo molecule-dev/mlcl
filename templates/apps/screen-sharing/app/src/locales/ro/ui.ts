@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'about.pageTitle': 'Despre {{appName}}',
   'analytics.empty': 'Înregistrează primul tău videoclip pentru a vedea implicarea aici.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'clipuri',
   'billing.usage.views': 'Vizualizări',
   'billing.usage.views.unit': 'vizualizări',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'landing.cta.title': 'Trimite feedback mai bun. Începe cu Glint.',
   'landing.feature.capture.body':
     'Înregistrare în browser, desktop și mobil cu microfon, cameră și desen.',
   'landing.feature.capture.title': 'Captură cu o singură atingere',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asincron, făcut luminos.',
   'landing.hero.cardCaption':
     'Prezentare generală a spațiului de lucru exemplu — încercați gratuit.',
   'landing.hero.primaryCta': 'Începeți înregistrarea gratuit',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Căutați înregistrări',
   'library.searchPlaceholder': 'Căutați înregistrări…',
   'library.weeklyChange': '{{value}} % față de săptămâna trecută',
+  'nav.openMenu': 'Deschide meniul de navigare',
   'nav.record': 'Înregistrare',
   'nav.shared': 'Mi-a fost trimis',
   'nav.startRecording': 'Începeți înregistrarea',

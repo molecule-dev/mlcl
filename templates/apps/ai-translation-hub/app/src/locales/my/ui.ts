@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'billing.canceled':
     'စာရင်းသွင်းမှုကို ပယ်ဖျက်လိုက်ပါပြီ။ ကာလကုန်ဆုံးချိန်တွင် အခမဲ့သို့ ပြန်ပြောင်းပါမည်။',
   'billing.contactSales': 'အရောင်းဌာနကို ဆက်သွယ်ပါ',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'ထိန်းသိမ်းမှုကန့်သတ်ချက်မရှိပါ',
   'billing.upgradeHint': 'အဆင့်မြင့် AI အင်္ဂါရပ်များကို လော့ခ်ဖွင့်ရန် အဆင့်မြှင့်တင်ပါ။',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.activityEmpty': 'လုပ်ဆောင်ချက် မရှိသေးပါ — ဤ feed ကို ဖြည့်ရန် ပရောဂျက်တစ်ခု စတင်ပါ။',
   'dashboard.eyebrow': 'ခြုံငုံသုံးသပ်ချက်',
   'dashboard.projectsEmpty': 'ပရောဂျက်များ မရှိသေးပါ — ဤနေရာတွင်ကြည့်ရှုရန် တစ်ခုစတင်ပါ။',
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ပရောဂျက်တိုင်းတွင် ယခင်ဘာသာပြန်ဆိုချက်များကို ပြန်လည်အသုံးပြုပါ။ ကိုက်ညီမှုရမှတ် မြင့်မားခြင်း → ပြန်လည်လုပ်ဆောင်ခြင်း နည်းပါးခြင်း။',
   'memory.title': 'မှတ်ဉာဏ်ဘဏ်',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'nav.legal': 'ဥပဒေရေးရာ',
   'newProject.addLanguage': 'ပစ်မှတ်ထည့်ပါ',
   'newProject.create': 'ပရောဂျက် ဖန်တီးပါ',
@@ -144,6 +148,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'အမှတ်အသားပြုထားသည် {{count}} ဖတ်ပြီးသကဲ့သို့ အသိပေးချက်များ။',
   'notifications.subtitle':
     'သင့်အလုပ်ခွင်တစ်လျှောက်မှ ဖော်ပြချက်များ၊ ပြန်လည်သုံးသပ်ချက်တောင်းဆိုမှုများနှင့် AI ပွဲများ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'privacy.collection.account': 'သင့်အကောင့် အီးမေးလ်နှင့် ပြသထားသောအမည်',
   'privacy.deletion.body':
     'သက်ဆိုင်ရာစာမျက်နှာမှ ပရောဂျက်၊ အပိုင်း၊ ဝေါဟာရအသုံးအနှုန်း သို့မဟုတ် မှတ်ဉာဏ်မှတ်တမ်းကို အချိန်မရွေး ဖျက်နိုင်ပါသည်။ သင့်အကောင့်ကို ဆက်တင်များမှ ဖျက်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ဒေတာဘေ့စ်မှ workspace-scoped row တိုင်းကို ဖျက်ပစ်ပါသည်။',
@@ -179,6 +184,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ပရောဂျက်များကို တင်၍မရပါ။',
   'projects.loading': 'ပရောဂျက်များကို တင်နေသည်…',
   'projects.subtitle': 'ဒေသအားလုံးတွင် လှုပ်ရှားနေသော ပရောဂျက်တိုင်း။',
+  'renditionLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'reset.backToLogin': '\\u2190 လက်မှတ်ထိုးဝင်ရန် ပြန်သွားပါ',
   'reset.passwordLabel': 'စကားဝှက်အသစ်',
   'review.activeEyebrow': 'အပိုင်း {{number}}',

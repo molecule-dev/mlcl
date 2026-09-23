@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'auth.fields.newPassword': 'نیا پاس ورڈ',
   'collectionDetail.addImage': 'جمع کرنے کے لئے کنجور',
   'collectionDetail.backCta': 'مجموعوں پر واپس جائیں۔',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'موڈ بورڈز، مختصر اور جاری سیریز',
   'collections.title': 'مجموعے',
   'collections.untitled': 'بلا عنوان · {{stamp}}',
+  'common.closeMenu': 'مینو بند کریں۔',
+  'common.dismiss': 'برطرف کرنا',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.openMenu': 'نیویگیشن مینو کھولیں۔',
   'credits.eyebrow': '{{plan}} منصوبہ',
   'credits.renewsCopy': 'پلان کی تجدید آن ہے۔ {{date}}',
   'credits.trail': 'Reverie · {{plan}} درجے',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'جنریشن کی سرگرمی، اشتراک اور کریڈٹ الرٹس یہاں ظاہر ہوں گے۔',
   'notifications.empty.title': 'رپورٹ کرنے کے لیے کچھ نہیں۔',
   'notifications.subtitle': 'جنریشن ایونٹس کو دن کے لحاظ سے گروپ کیا گیا ہے۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.limits.gallery': '{{count}} گیلری',
   'privacy.collect.body':
     'جب آپ سائن اپ کرتے ہیں تو ہم آپ کا نام، ای میل پتہ، اور ہیش شدہ پاس ورڈ جمع کرتے ہیں۔ جب آپ Reverie کا استعمال کرتے ہیں تو ہم آپ کے جمع کرائے جانے والے پرامپٹس، جو تصاویر ہم آپ کے لیے تخلیق کرتے ہیں، جو اسٹائلز اور کلیکشنز آپ محفوظ کرتے ہیں، اور میٹا ڈیٹا جیسے کہ استعمال شدہ ماڈل، جنریشن ٹائم اسٹیمپ، اور کریڈٹ بیلنس اسٹور کرتے ہیں۔',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'نیا پاس ورڈ محفوظ کریں۔',
   'reset.submitting': 'پاس ورڈ اپ ڈیٹ ہو رہا ہے…',
   'settings.account.handle': 'سنبھالنا',
+  'settings.account.lastSaved': 'فعال پروفائل · {{name}}',
   'settings.account.saved': 'پروفائل محفوظ ہو گیا۔',
   'settings.account.saveFailed': 'پروفائل محفوظ نہیں ہو سکا',
   'settings.account.title': 'تخلیق کار پروفائل',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'نئی تصویر',
   'sidebar.secondary': 'ثانوی نیویگیشن',
   'signup.failed': 'سائن اپ ناکام ہو گیا۔ دوبارہ کوشش کریں۔',
+  'signup.firstNamePlaceholder': 'آریہ',
   'signup.heading': 'اپنی ریوری شروع کریں۔',
+  'signup.lastNamePlaceholder': 'لن',
   'signup.subheading': 'ایک اکاؤنٹ بنائیں اور 120 مفت کریڈٹس کا دعوی کریں۔',
   'styles.empty': 'ابھی تک کوئی اسٹائل پیش سیٹ نہیں ہے — وہ پہلے سائن ان کے بعد ظاہر ہوں گے۔',
   'styles.eyebrow': 'کیوریٹڈ',

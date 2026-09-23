@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.eyebrow': '{{app}} നെക്കുറിച്ച്',
+  'about.intro':
+    '{{app}} എന്നത് യഥാർത്ഥ ജീവിതത്തിനായുള്ള ഒരു ധ്യാന ആപ്പാണ് — ദിവസേനയുള്ള ഗൈഡഡ് ധ്യാനങ്ങൾ, ശ്വസന വ്യായാമങ്ങൾ, പരിശീലകനെപ്പോലെയല്ല, സുഹൃത്തിനെപ്പോലെ തോന്നുന്ന അധ്യാപകർ നയിക്കുന്ന ഉറക്ക കഥകൾ. കുറ്റബോധമില്ല, ശബ്ദായമാനമായ ഫീഡില്ല: നിങ്ങളുടെ ശ്വാസം തിരികെ കൊണ്ടുവരാൻ ഒരു ശാന്തമായ സ്ഥലം.',
+  'about.missionBody':
+    'ദിവസത്തിലെ ഏത് നിമിഷവും നിശ്ചലത എല്ലാവർക്കും പ്രാപ്യമായിരിക്കണമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. ശാന്തവും സ്ഥിരതയുള്ളതുമായ ഒരു പരിശീലനം അനായാസമായി തോന്നിപ്പിക്കുന്നതിനാണ് {{app}} നിലവിലുള്ളത് - അങ്ങനെ പത്ത് സത്യസന്ധമായ മിനിറ്റുകൾക്ക് അടുത്ത പത്ത് മണിക്കൂർ നിങ്ങൾ എങ്ങനെ ചെലവഴിക്കുന്നു എന്നതിനെ മാറ്റാൻ കഴിയും.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.pageTitle': 'ഒരു ദിവസം 10 മിനിറ്റ് ശാന്തത',
+  'breathingDial.seconds': 'സെക്കൻഡുകൾ',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.logout': 'ലോഗ് ഔട്ട്',
   'common.min': 'മിനിറ്റ്',
   'common.relative.justNow': 'ഇപ്പോൾ തന്നെ',
   'common.relative.now': 'ഇപ്പോൾ',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'nav.secondaryNavigation': 'അക്കൗണ്ട് നാവിഗേഷൻ',
   'sessionCard.with': 'കൂടെ {{name}}',
   'stillpoint.billing.choose': 'തിരഞ്ഞെടുക്കുക {{plan}}',
   'stillpoint.billing.currentPlan': 'നിലവിൽ ഓണാണ് {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'ഞങ്ങൾക്ക് പ്ലാനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'stillpoint.billing.opening': 'ചെക്ക്ഔട്ട് തുറക്കുന്നു…',
   'stillpoint.billing.perMonthShort': '/ മാസം',
+  'stillpoint.billing.perYearShort': '/വർഷം',
   'stillpoint.billing.unknownResult': 'അപ്രതീക്ഷിത ബില്ലിംഗ് പ്രതികരണം.',
   'stillpoint.billing.yearly': 'വാർഷിക · 17% ലാഭം',
   'stillpoint.courseDetail.back': 'കോഴ്സുകൾ',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'ഇതുവരെ കോഴ്സുകളൊന്നുമില്ല.',
   'stillpoint.courses.eyebrow': '{{count}} ഒന്നിലധികം ദിവസത്തെ യാത്രകൾ',
   'stillpoint.courses.heading': 'കോഴ്സുകൾ',
+  'stillpoint.forgot.checkEmail':
+    'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക — ലിങ്ക് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'stillpoint.forgot.success': 'ഞങ്ങൾ ഒരു പുനഃസജ്ജീകരണ ലിങ്ക് ഇതിലേക്ക് അയച്ചു {{email}} .',
   'stillpoint.home.empty': 'ഇതുവരെ സെഷനുകളൊന്നുമില്ല - ഉടൻ വീണ്ടും പരിശോധിക്കുക.',
   'stillpoint.home.friend': 'സുഹൃത്ത്',
@@ -49,6 +66,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'നിങ്ങളുടെ സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'stillpoint.landing.cta.title': 'ഇന്ന് തന്നെ നിങ്ങളുടെ നിശബ്ദത ആരംഭിക്കൂ',
   'stillpoint.landing.features.heading': 'നിങ്ങളോടൊപ്പം വളരുന്ന ഒരു പരിശീലനം',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'ദിവസേനയുള്ള ഗൈഡഡ് ധ്യാനങ്ങൾ, ശ്വസന വ്യായാമങ്ങൾ, ഉറക്ക കഥകൾ - ഒരു പരിശീലകനെപ്പോലെയല്ല, ഒരു സുഹൃത്തിനെപ്പോലെ തോന്നുന്ന അധ്യാപകരുടെ വേഗതയിൽ.',
   'stillpoint.landing.hero.eyebrow': 'ഒരു ദിവസം 10 മിനിറ്റ് ശാന്തത',
@@ -65,6 +83,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'മാനസികാവസ്ഥ അനുസരിച്ച് ബ്രൗസ് ചെയ്യുക',
   'stillpoint.login.rememberMe': 'എന്നെ സൈൻ ഇൻ ചെയ്‌ത നിലയിൽ നിലനിർത്തുക',
   'stillpoint.login.subheading': 'നിങ്ങളുടെ പരിശീലനം തുടരാൻ സൈൻ ഇൻ ചെയ്യുക.',
+  'stillpoint.nav.tagline': 'നിങ്ങളുടെ സ്റ്റിൽ സെന്റർ കണ്ടെത്തുക',
+  'stillpoint.notFound.body':
+    'ഈ പേജ് എവിടെയോ ഒരു ദീർഘവും ആഴത്തിലുള്ളതുമായ ശ്വാസം എടുക്കുകയാണ്. {{app}} -ൽ നിങ്ങൾക്കായി ഒരു ശാന്തമായ സ്ഥലം കണ്ടെത്താം.',
   'stillpoint.notFound.title': 'നിശബ്ദതയിൽ നഷ്ടപ്പെട്ടു',
   'stillpoint.notFound.toHome': 'ഇന്നത്തേക്ക് മടങ്ങുക',
   'stillpoint.notFound.toLibrary': 'ലൈബ്രറി ബ്രൗസ് ചെയ്യുക',
@@ -82,6 +103,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 സെക്കൻഡ് പിന്നോട്ട് പോകൂ',
   'stillpoint.player.skipForward': '30 സെക്കൻഡ് മുന്നോട്ട് പോകൂ',
   'stillpoint.player.with': 'കൂടെ {{name}}',
+  'stillpoint.profile.defaultHandle': 'സ്റ്റിൽപോയിന്റർ',
   'stillpoint.profile.eyebrow': 'നിങ്ങളുടെ പ്രാക്ടീസ്, ചുരുക്കിപ്പറഞ്ഞാൽ.',
   'stillpoint.profile.locked': 'ലോക്ക് ചെയ്‌തു',
   'stillpoint.profile.member': 'സ്റ്റിൽപോയിന്റ് അംഗം',

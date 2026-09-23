@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'article.notFound': 'Artiklit ei leitud',
   'articleEditor.bodyPlaceholder': 'Tippige plokkide jaoks / või hakake lihtsalt kirjutama.',
+  'articleEditor.loadFailed': 'Artiklit ei õnnestunud laadida',
   'articleEditor.publishing': 'Avaldamine\\u2026',
   'articleEditor.saveFailed': 'Salvestamine ebaõnnestus',
   'articleEditor.saving': 'Salvestamine\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Järjehoidja',
   'articleView.bookmarkOn': 'Järjehoidjatesse lisatud',
   'articleView.edit': 'Artikli muutmine',
+  'articleView.loading': 'Selle artikli avamine…',
   'articleView.readTime': '{{minutes}} minuti lugemine',
   'articleView.spaces': 'Ruumid',
   'articleView.tocHeading': 'Sellel lehel',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Hiljutised muudatused, lugemised ja mustandid, millega teie meeskond alles tegeleb.',
   'cairnTrailHero.updated': 'Artiklid on uuendatud',
+  'common.goToDashboard': 'Mine töölauani',
   'drafts.eyebrow': 'Sinu lõpetamata töö',
   'drafts.heading': 'Kavandid',
+  'drafts.loadFailed': 'Mustandeid ei õnnestunud laadida.',
   'drafts.subtitle':
     'Artiklid, mille oled alustanud, aga pole veel avaldanud. Võta üks kätte ja jätka.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Kohti veel pole. Ava üks, et artikleid koguma hakata.',
   'home.spacesHeading': 'Teie ruumid',
   'home.subtitle': 'Hiljutised artiklid, teie järjehoidjad ja meeskonna kirjutatu.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Loodud Molecule’i abil.',
   'landing.ctaBody':
     'Üksikautoritele tasuta. Hajutatud meeskondadele mõeldud meeskonnatöö plaanid, mis pakuvad käitusraamatuid, otsuseid ja sisseelamisvõimalusi.',
   'landing.ctaHeading': 'Lao esimene kivi täna.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Loo tööruum',
   'login.submitting': 'Sisselogimine\\u2026',
   'login.subtitle': 'Jätka rada sealt, kus sa selle jätsid.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
+  'newSpace.colorAria': 'Vali värv {{color}}',
   'newSpace.colorLabel': 'Aktsentvärv',
+  'newSpace.createFailed': 'Ruumi loomine ebaõnnestus',
   'newSpace.descriptionPlaceholder':
     'Juhendraamatud, valvekorras olevad käsiraamatud, lahkamised\\u2026',
   'newSpace.eyebrow': 'Ava teadmiste ruum',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laadimine\\u2026',
   'notifications.subtitle':
     '{{count}} lugemata mainimised, kommentaarid, lehe muudatused ja arvustustaotlused.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.articles': 'artiklid',
   'pricing.spaces': 'tühikud',
   'profile.eyebrow': 'Autoriprofiil',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Sisesta uus parool',
   'resetPassword.subtitle': 'Vali tugev parool – vähemalt 12 tähemärki.',
   'searchResults.eyebrow': 'Tööruumi otsing',
+  'searchResults.filter.all': 'Kõik ruumid',
   'searchResults.heading': 'Otsi artikleid',
   'searchResults.placeholder': 'Otsi käitusraamatuid, RFC-sid, poliitikaid, otsuseid\\u2026',
   'searchResults.summary': '{{count}} tulemused päringule \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'See kustutab teie konto ja kõik teie kirjutatud artiklid. Kinnitamiseks vajutage nuppu KUSTUTA.',
   'settings.danger.confirmInvalid': 'Kinnitamiseks tippige DELETE.',
+  'settings.danger.deleteFailed': 'Konto kustutamine ebaõnnestus',
   'settings.danger.deleting': 'Kustutatakse',
   'settings.danger.description':
     'Tööruumi kustutamisel eemaldatakse kõik artiklid, kommentaarid ja versiooniajalugu. Taastamist ei toimu.',
   'settings.danger.title': 'Kustuta tööruum',
+  'settings.email.confirm': 'Värskenda e-posti aadressi',
+  'settings.email.confirmTitle': 'Kinnitage e-posti aadressi muutmine',
   'settings.email.saved': 'Meiliaadress uuendatud.',
+  'settings.email.updateFailed': 'E-posti aadressi ei õnnestunud uuendada',
   'settings.language.title': 'Keel',
   'settings.name': 'Nimi',
+  'settings.name.saved': 'Nimi uuendatud.',
+  'settings.name.updateFailed': 'Nime ei saanud uuendada',
   'settings.notifications.description': 'Vali, millised kirjad jõuavad sinu postkasti.',
+  'settings.password.changeFailed': 'Parooli ei saanud muuta',
   'settings.password.current': 'Praegune parool',
   'settings.password.new': 'Uus parool',
   'settings.password.saving': 'Värskendatakse\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Kuidas artikleid teile kuvatakse.',
   'settings.reading.title': 'Lugemine ja kirjutamine',
   'settings.subtitle': 'Häälesta märguandeid, lugemisala ja oma kontot.',
+  'settings.twofa.code': 'Autentimiskood',
   'settings.twofa.disable': 'Keela',
   'settings.twofa.disabled': 'Puudega',
   'settings.twofa.enable': 'Luba',
   'settings.twofa.enabled': 'Lubatud',
+  'settings.twofa.invalidCode': 'Kehtetu kood',
+  'settings.twofa.unavailable': 'Kahefaktoriline autentimine pole selle rakenduse jaoks saadaval.',
+  'settings.twofa.verify': 'Kontrolli ja aktiveeri',
   'signup.brandQuote':
     'Selle üleskirjutamine on esimene lubadus, mille anname järgmisele inimesele, kes seda vajab.',
   'signup.eyebrow': 'Ava tööruum',

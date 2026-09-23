@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'О {{app}}',
   'about.plansTitle': 'Планы, которые растут вместе с вами',
   'brand.tagline': 'Каждую секунду',
   'clientDetail.back': 'Вернуться к клиентам',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Все данные об отношениях в одном месте — проекты, рабочее время, неоплаченные счета.',
   'clients.title': 'Клиенты',
   'common.and': 'и',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.activeProjects': 'Активные проекты',
   'dashboard.empty': 'Записей пока нет. Запустите таймер, чтобы отследить вашу первую сессию.',
   'dashboard.greeting': 'Добрый день, {{name}}',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Для этого клиента нет оплачиваемых часов для выставления счетов. Сначала учтите отработанное время или присвойте существующие записи одному из проектов этого клиента.',
   'invoices.save': 'Создать счет-фактуру',
   'invoices.subtitle': 'Отсчитанное рабочее время автоматически включается в счета-фактуры.',
+  'landing.copyright': '© {{year}} {{app}} . Каждая секунда учтена.',
   'landing.ctaBody':
     'Бесплатно для до 3 проектов. Переход на платный тариф возможен, когда увеличится список ваших клиентов.',
   'landing.eyebrow': 'Учет рабочего времени по оплачиваемым проектам',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Независимым компаниям доверяют.',
   'landing.testimonial.quote':
     '«Я отказался от Toggl за 30 минут. Один только расчет расходов бюджета окупился — я перестал занижать цены две недели подряд».',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Хроно. Каждая секунда учтена.',
   'login.brand.subtitle':
     'Продолжите отсчет с того места, где остановились — каждая минута уже отведена под проект, клиента, счет-фактуру.',
   'login.brand.tracking': 'Отслеживание',
   'login.subheading': 'Продолжите отсчет времени с того места, где остановились.',
+  'nav.closeMenu': 'Закрыть меню навигации',
   'nav.insightsSection': 'Аналитика',
   'nav.newEntry': 'Новая запись',
+  'nav.openMenu': 'Открыть меню навигации',
+  'nav.primary': 'Основная навигация',
   'nav.workSection': 'Работа',
   'notFound.body':
     'Похоже, ссылка, по которой вы перешли, перестала отслеживать действия. Вернитесь на свою панель управления — мы продолжим подсчет оттуда.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Подлежит оплате',
   'timer.descriptionPlaceholder': 'Над чем вы работаете?',
   'timer.idle': 'Режим ожидания — начать отслеживание',
+  'timer.noProject': 'Нет проекта',
   'timer.runningWithProject': 'Нет проекта',
   'timer.start': 'Запуск таймера',
   'timer.stop': 'Остановить таймер',

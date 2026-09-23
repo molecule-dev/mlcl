@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'authShell.brandHeading':
     'తమ ఆలోచనలను స్వేచ్ఛగా వ్యక్తపరిచే డిజైన్ బృందాల కోసం మల్టీప్లేయర్ కాన్వాస్‌లు.',
   'billing.canceled': 'సభ్యత్వం రద్దు చేయబడింది.',
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'టెంప్లేట్ నుండి ప్రారంభించండి',
   'boards.title': 'మీ బోర్డులు',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'మీ వర్క్‌స్పేస్‌కు అనుసంధానించబడిన ఇమెయిల్‌ను నమోదు చేయండి, మేము రీసెట్ లింక్‌ను పంపుతాము.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'అస్తవ్యస్తమైన, సృజనాత్మకమైన, ముఖాముఖి ఆలోచనల కోసం నిర్మించబడింది.',
   'landing.demoBoard.title': 'Q1 వర్క్‌షాప్ · బ్రాండ్ వాయిస్',
   'landing.featuresTitle': 'వేగవంతమైన స్పందన. అందమైన కాన్వాసులు. ఎటువంటి ఆటంకాలు లేవు.',
+  'landing.hero.body':
+    '{{appName}} అనేది డిజైన్ బృందాలు, వర్క్‌షాప్ నిర్వాహకులు మరియు విద్యావేత్తల కోసం రూపొందించిన ఒక మల్టీప్లేయర్ వైట్‌బోర్డ్. వీరు ప్రత్యక్షంగా మేధోమథనం నిర్వహించి, తమ ఆలోచనలన్నింటినీ ఒకే చోట కేంద్రీకరించాల్సి ఉంటుంది.',
   'landing.hero.primaryCta': 'ఉచితంగా బోర్డును ప్రారంభించండి',
   'landing.hero.socialProof': 'విశ్వసించబడినది {{count}} ప్రపంచవ్యాప్తంగా ఉన్న డిజైన్ బృందాలు',
   'landing.hero.title': 'మీ ఆలోచనలంత వేగవంతమైన కాన్వాస్',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ఉచిత కార్యస్థలాన్ని సృష్టించండి',
   'login.subheading':
     'వర్క్‌షాప్ ఎక్కడ ఆగిపోయిందో అక్కడి నుండే కొనసాగించండి — బోర్డులు, స్టిక్కీ నోట్స్ మరియు కర్సర్‌లు అన్నీ రియల్ టైమ్‌లో సింక్ అవుతాయి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.new': 'కొత్త',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'notifications.editTitle': 'సవరణలు {{board}} "',
   'notifications.empty.body':
     'ఆహ్వానాలు, స్నాప్‌షాట్ సేవ్‌లు మరియు ఇటీవలి బోర్డ్ సవరణలు జరిగిన వెంటనే ఇక్కడ కనిపిస్తాయి.',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'వెర్షన్ చరిత్ర',
   'versionHistory.untitledSnapshot': 'పేరులేని స్నాప్‌షాట్',
   'whiteboardLayout.newBoard': 'కొత్త బోర్డు',
+  'whiteboardLayout.primaryNav': 'ప్రాథమిక నావిగేషన్',
   'workspace.boardLabel': 'బోర్డు',
   'workspace.eyebrow': '{{name}} · కార్యస్థలం',
   'workspace.invite': 'సహకారులను ఆహ్వానించండి',

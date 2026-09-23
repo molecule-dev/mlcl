@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkımızda',
   'authShell.samplePreview':
     '“Merhaba ekip, yeni gösterge paneli muhteşem — tam olarak ihtiyacımız olan şey!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/kısayol',
   'automations.subheading':
     'Kurallar, hazır yanıtlar ve sohbet botları — ekibiniz zor işlere odaklanırken çalışma alanını canlı tutun.',
+  'automations.trigger.inboundMessage': 'Gelen mesaj',
   'automations.triggerLabel': 'Tetikleyici',
   'chatBubble.internalNoteLabel': 'Dahili not',
+  'common.confirmDelete': 'Silme işlemini onayla',
+  'common.goToDashboard': 'Panele Git',
   'contactDetail.backToContacts': 'Tüm kişiler',
   'contactDetail.contactFallback': 'İletişim',
   'contactDetail.conversationFallback': 'Konuşma',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Son görülme',
   'contacts.empty': 'Henüz kişi yok. Yukarıdan ilk kişinizi ekleyin.',
   'contacts.eyebrow': 'Müşteri dizini',
+  'contacts.form.nameOrEmailRequired': 'En azından bir isim veya e-posta adresi girin',
   'contacts.form.save': 'Kişiyi kaydet',
   'contacts.heading': 'Kişiler',
   'contacts.loading': 'Kişiler yükleniyor…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Notu kaydet',
   'conversationDetail.tab.note': 'Dahili not',
   'conversationDetail.threadAria': 'Konuşma mesajları',
+  'conversationDetail.visitorFallback': 'Ziyaretçi',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Müşteri ayrıntıları',
   'customerProfilePanel.recentTitle': 'Son konuşmalar',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Müşteriler ortalama {{time}} içinde ilk yanıtlarını alıyor — bu tempoyu sürdürün.',
   'inboxHeroCard.title': 'Aktif konuşmalar',
+  'inboxLayout.navDrawerLabel': 'Gezinti',
+  'inboxLayout.openMenu': 'Gezinti menüsünü aç',
   'inboxOverview.eyebrow': 'Bugüne kısa bakış',
   'inboxOverview.heroChange': '{{count}} açık',
   'inboxOverview.kpiClosedTrend': 'tüm zamanlar',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Ana sayfayı ziyaret edin',
   'notifications.subheading':
     'Atamalar, @bahsetmeler, SLA riskleri, CSAT geri bildirimleri ve ekip etkinliği — en yeniler önce sıralanır.',
+  'notifications.subjectFallback': 'bir sohbet',
+  'notifications.visitorFallback': 'Bir ziyaretçi',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Yüksek',
   'priority.low': 'Düşük',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Acil',
   'privacy.title': 'Gizlilik politikası',
   'reports.agentFallback': 'Ajan',

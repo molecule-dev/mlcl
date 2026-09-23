@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'analytics.col.quorum': 'Kworum',
   'analytics.col.votes': 'Voti',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': "Għad m'hemm l-ebda mistoqsijiet pendenti.",
   'audienceQa.onStageEyebrow': 'Fuq il-palk issa',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Ippromwovi',
   'audienceQa.queued': 'fil-kju',
   'audienceQa.queueEyebrow': 'Kju',
   'ballot.eyebrow': "Itfa' l-vot tiegħek",
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Bħalissa inti fuq {{plan}} pjan.',
   'billing.switch': 'Swiċċ',
   'billing.upgraded': 'Aġġornat għal {{plan}} — limiti applikati immedjatament.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'createPoll.addOption': 'Żid l-għażla',
   'createPoll.anonymousHint':
     "L-ismijiet tal-votanti huma moħbija fil-log tal-awditjar; l-għadd jibqa' awtentikat.",
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': "Ġdid f'Nosh?",
   'login.remember': 'Ftakar fija għal 30 jum',
   'login.subheading': 'Iftaħ l-art, imxi fil-kamra, u ċċertifika r-riżultat.',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'notFound.body':
     'Il-paġna li ppruvajt tilħaq ingħalqet jew ġiet imċaqalqa. Mur lura fid-dashboard jew iftaħ stħarriġ ġdid.',
   'notFound.eyebrow': 'L-ebda kworum fuq din ir-rotta',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Ma stajtx nitgħabba din il-votazzjoni.',
   'pollDetail.loading': 'Qed jitgħabba l-istħarriġ…',
   'pollDetail.notFound': 'Sondaġġ ma nstabx.',
+  'pollDetail.openBallot': 'Votazzjoni miftuħa',
   'pollDetail.openLive': 'Riżultati diretti',
   'pollDetail.pollId': 'stħarriġ · {{id}}',
   'pollDetail.published': 'Stħarriġ ippubblikat — il-votanti issa jistgħu jivvutaw.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Fittex bl-email…',
   'voters.subheading':
     'Ikkura r-reġistru eliġibbli. Iġbor il-votanti skont l-organizzazzjoni għal karti tal-vot ponderati.',
+  'votingPollingLayout.nav.analytics': 'Analitika',
+  'votingPollingLayout.nav.billing': 'Fatturazzjoni',
+  'votingPollingLayout.nav.createPoll': 'Stħarriġ ġdid',
+  'votingPollingLayout.nav.dashboard': 'Dashboard',
+  'votingPollingLayout.nav.notifications': 'Notifiki',
+  'votingPollingLayout.nav.settings': 'Issettjar',
+  'votingPollingLayout.nav.team': 'Tim',
+  'votingPollingLayout.nav.voters': 'Votanti',
+  'votingPollingLayout.primaryNavLabel': 'Navigazzjoni primarja',
 }

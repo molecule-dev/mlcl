@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, пропозицію щодо функціоналу або виявили помилку? Зв’яжіться з командою {{app}} за посиланням на службу підтримки в меню вашого облікового запису — кожне повідомлення потрапляє до реальної людини.',
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'agentDetail.back': 'Усі агенти',
   'agentDetail.capabilities': 'Можливості',
   'agentDetail.delete': 'Видалити персону',
   'agentDetail.deleteConfirm': 'Видалити цю персону? Цю дію не можна скасувати.',
+  'agentDetail.deleteError': 'Не вдалося видалити персону.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Не вдалося завантажити персону.',
   'agentDetail.save': 'Зберегти персону',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Перемикання…',
   'billing.updateError': 'Не вдалося розпочати оновлення.',
   'billing.usageHeading': 'Використання голосу в цьому циклі',
+  'chatBubble.source.text': 'текст',
+  'chatBubble.source.voice': 'голос',
+  'common.goToDashboard': 'До панелі',
   'conversation.defaultTitle': 'Нова розмова',
   'conversation.empty': 'Повідомлень поки немає. Почніть щось сказати або напишіть нижче.',
   'conversation.eyebrow': 'Жива сесія',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Інтелект, який говорить.',
   'landing.heroSubtitle':
     'Голосовий AI-асистент, який розуміє ваш природний потік. Спілкуйтесь, генеруйте ідеї та віддавайте команди — без перешкод.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Слухаю…',
   'landing.naturallyBody':
     'Жодних активаційних слів. Жодних жорстких команд. Vox розуміє контекст, перебивання та нюанси людського мовлення — як розмова з колегою.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Відкрити сесію',
   'notFound.home': 'На головну',
   'notFound.title': 'Ми не почули цю сторінку.',
+  'parlanceLayout.closeMenu': 'Закрити меню',
+  'parlanceLayout.openMenu': 'Відкрити меню навігації',
   'parlanceLayout.primaryNavLabel': 'Основна навігація',
   'pricing.conversations': '{{count}} розмов',
   'pricing.cta.startFree': 'Почати безкоштовно',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Збігів немає',
   'search.eyebrow': 'Палітра команд',
   'search.fetchError': 'Не вдалося завантажити пошуковий індекс.',
+  'search.static.profile.preview': "Ім'я для відображення, нік, коротка біографія",
   'search.static.voice.title': 'Голос',
   'search.title': 'Пошук у Vox',
   'search.transcriptPreview': 'Відкрити транскрипт',

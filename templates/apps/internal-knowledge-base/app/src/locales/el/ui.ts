@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'article.notFound': 'Το άρθρο δεν βρέθηκε',
   'articleEditor.bodyPlaceholder': 'Πληκτρολογήστε / για μπλοκ ή απλώς ξεκινήστε να γράφετε.',
+  'articleEditor.loadFailed': 'Δεν ήταν δυνατή η φόρτωση του άρθρου',
   'articleEditor.publishing': 'Δημοσίευση\\u2026',
   'articleEditor.saveFailed': 'Αποτυχία αποθήκευσης',
   'articleEditor.saving': 'Αποθήκευση…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Σελιδοδείκτης',
   'articleView.bookmarkOn': 'Προστέθηκε στους σελιδοδείκτες',
   'articleView.edit': 'Επεξεργασία άρθρου',
+  'articleView.loading': 'Άνοιγμα αυτού του άρθρου…',
   'articleView.readTime': '{{minutes}} λεπτά ανάγνωσης',
   'articleView.spaces': 'Χώροι',
   'articleView.tocHeading': 'Σε αυτήν τη σελίδα',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Πρόσφατες επεξεργασίες, αναγνώσεις και προσχέδια που η ομάδα σας εξακολουθεί να αναβαθμίζει.',
   'cairnTrailHero.updated': 'Τα άρθρα ενημερώθηκαν',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'drafts.eyebrow': 'Η ημιτελής δουλειά σου',
   'drafts.heading': 'Προσχέδια',
+  'drafts.loadFailed': 'Δεν ήταν δυνατή η φόρτωση των προσχεδίων σας.',
   'drafts.subtitle':
     'Άρθρα που έχετε ξεκινήσει αλλά δεν έχουν δημοσιευτεί ακόμα. Διαλέξτε ένα και συνεχίστε.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Δεν υπάρχουν ακόμη χώροι. Ανοίξτε έναν για να ξεκινήσετε τη συλλογή άρθρων.',
   'home.spacesHeading': 'Οι χώροι σας',
   'home.subtitle': 'Πρόσφατα άρθρα, τα σελιδοδείκτες σας και τι έχει γράψει η ομάδα.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Δημιουργήθηκε με το Molecule.',
   'landing.ctaBody':
     'Δωρεάν για μεμονωμένους συγγραφείς. Ομαδικά σχέδια για κατανεμημένες ομάδες που αποστέλλουν βιβλία εκτέλεσης, αποφάσεις και ενσωμάτωση.',
   'landing.ctaHeading': 'Στοιβάζετε την πρώτη πέτρα σήμερα.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Δημιουργήστε έναν χώρο εργασίας',
   'login.submitting': 'Σύνδεση...',
   'login.subtitle': 'Συνέχισε το μονοπάτι από εκεί που το άφησες.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'newSpace.colorAria': 'Επιλέξτε χρώμα {{color}}',
   'newSpace.colorLabel': 'Χρώμα έμφασης',
+  'newSpace.createFailed': 'Δεν ήταν δυνατή η δημιουργία χώρου',
   'newSpace.descriptionPlaceholder':
     'Βιβλία εκτέλεσης, βιβλία playbook εφημερίας, νεκροψίες\\u2026',
   'newSpace.eyebrow': 'Άνοιγμα ενός χώρου γνώσης',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Φόρτωση…',
   'notifications.subtitle':
     '{{count}} μη αναγνωσμένες αναφορές, σχόλια, αλλαγές σελίδας και αιτήματα αξιολόγησης.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.articles': 'άρθρα',
   'pricing.spaces': 'χώροι',
   'profile.eyebrow': 'Προφίλ σύνταξης',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Εισάγετε έναν νέο κωδικό πρόσβασης',
   'resetPassword.subtitle': 'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης — τουλάχιστον 12 χαρακτήρες.',
   'searchResults.eyebrow': 'Αναζήτηση χώρου εργασίας',
+  'searchResults.filter.all': 'Όλοι οι χώροι',
   'searchResults.heading': 'Αναζήτηση άρθρων',
   'searchResults.placeholder': 'Αναζήτηση runbooks, RFCs, πολιτικών, αποφάσεων\\u2026',
   'searchResults.summary': '{{count}} αποτελέσματα για \\u201c {{query}} \\u201d',
@@ -134,14 +147,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Αυτό διαγράφει τον λογαριασμό σας και κάθε άρθρο που έχετε συντάξει. Πληκτρολογήστε DELETE για επιβεβαίωση.',
   'settings.danger.confirmInvalid': 'Πληκτρολογήστε DELETE για επιβεβαίωση.',
+  'settings.danger.deleteFailed': 'Δεν ήταν δυνατή η διαγραφή του λογαριασμού',
   'settings.danger.deleting': 'Διαγραφή\\u2026',
   'settings.danger.description':
     'Η διαγραφή του χώρου εργασίας σας καταργεί όλα τα άρθρα, τα σχόλια και το ιστορικό εκδόσεων. Δεν υπάρχει δυνατότητα ανάκτησης.',
   'settings.danger.title': 'Διαγραφή χώρου εργασίας',
+  'settings.email.confirm': 'Ενημέρωση ηλεκτρονικού ταχυδρομείου',
+  'settings.email.confirmTitle': 'Επιβεβαίωση αλλαγής email',
   'settings.email.saved': 'Το email ενημερώθηκε.',
+  'settings.email.updateFailed': 'Δεν ήταν δυνατή η ενημέρωση του ηλεκτρονικού ταχυδρομείου',
   'settings.language.title': 'Γλώσσα',
   'settings.name': 'Όνομα',
+  'settings.name.saved': 'Το όνομα ενημερώθηκε.',
+  'settings.name.updateFailed': 'Δεν ήταν δυνατή η ενημέρωση του ονόματος',
   'settings.notifications.description': 'Επιλέξτε τι θα λαμβάνετε στο inbox σας.',
+  'settings.password.changeFailed': 'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης',
   'settings.password.current': 'Τρέχων κωδικός',
   'settings.password.new': 'Νέος κωδικός πρόσβασης',
   'settings.password.saving': 'Ενημέρωση\\u2026',
@@ -149,10 +169,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Πώς αποδίδονται τα άρθρα για εσάς.',
   'settings.reading.title': 'Ανάγνωση και γραφή',
   'settings.subtitle': 'Ρυθμίστε τις ειδοποιήσεις, τον καμβά ανάγνωσης και τον λογαριασμό σας.',
+  'settings.twofa.code': 'Κωδικός επαλήθευσης',
   'settings.twofa.disable': 'Απενεργοποίηση',
   'settings.twofa.disabled': 'Άτομα με αναπηρία',
   'settings.twofa.enable': 'Ενεργοποίηση',
   'settings.twofa.enabled': 'Ενεργοποιημένο',
+  'settings.twofa.invalidCode': 'Μη έγκυρος κώδικας',
+  'settings.twofa.unavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
+  'settings.twofa.verify': 'Επαλήθευση και ενεργοποίηση',
   'signup.brandQuote':
     '\\u201cΤο να το γράψουμε είναι η πρώτη υπόσχεση που δίνουμε στον επόμενο άνθρωπο που το χρειάζεται.\\u201d',
   'signup.eyebrow': 'Άνοιγμα χώρου εργασίας',

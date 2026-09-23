@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
+  'about.pageTitle': 'ስለ {{app}}',
   'activity.empty': 'እስካሁን ምንም እንቅስቃሴ የለም - መሳሪያን ገልብጠው ወይም ትዕይንትን ያግብሩ።',
   'activity.eyebrow': 'የጊዜ መስመር',
   'activity.loadError': 'የእንቅስቃሴ ምግብን መጫን አልተቻለም።',
   'activity.subheading': 'እያንዳንዱ መሳሪያ፣ አውቶሜሽን እና የደህንነት ክስተት በጊዜ ቅደም ተከተል።',
+  'addDevice.error.failed': 'መሣሪያውን ማከል አልተቻለም። እንደገና ይሞክሩ።',
   'addDevice.error.nameRequired': 'ለመቀጠል ለዚህ መሣሪያ ስም ይስጡት።',
   'addDevice.field.firmware': 'የጽኑ ትዕዛዝ ስሪት',
   'addDevice.field.manufacturer': 'አምራች',
@@ -41,6 +44,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'በመሞከር ላይ…',
   'automationEditor.testNew': 'ለመሞከር መጀመሪያ አውቶሜሽን ያስቀምጡ።',
   'automationRow.lastRun': 'የመጨረሻ {{date}} · {{count}} ሩጫዎች',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ሩጫ {{name}} አሁን',
   'automations.empty': 'እስካሁን ምንም አውቶሜሽን የለም - የመጀመሪያዎን የዕለት ተዕለት ተግባር ይፍጠሩ።',
   'automations.eyebrow': 'የዕለት ተዕለት ተግባራት',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'አውቶሜሽኖችን በመጫን ላይ…',
   'automations.newAutomation': '+ አዲስ',
   'automations.subheading': 'ይህ በሚሆንበት ጊዜ ያንን ያድርጉ - ያለ YAML።',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'መሳሪያውን መጫን አልተሳካም።',
@@ -67,6 +72,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'በመስራት ላይ…',
   'deviceDetail.unnamed': 'መሣሪያ',
   'deviceStatusRow.on': 'በርቷል',
+  'deviceStatusRow.turnOff': 'አጥፋ',
+  'deviceStatusRow.turnOn': 'ማዞር',
   'deviceStatusRow.watts': '{{watts}} ደብሊው',
   'energy.eyebrow': 'ኃይል',
   'energy.heading': 'ጉልበት',
@@ -168,4 +175,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ዕቅዶችን ይመልከቱ',
   'settings.security.heading': 'ደህንነት',
   'settings.subheading': 'እቅድ፣ ማዕከሎች እና የመለያ ምርጫዎች።',
+  'smartHomeDashboardLayout.openMenu': 'የአሰሳ ምናሌን ክፈት',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ዋና አሰሳ',
 }

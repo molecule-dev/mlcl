@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'auth.legalConsent': 'En continuant, vous acceptez nos',
   'authShell.brandSubtitle': 'Contrôle des stocks',
   'authShell.eyebrow': 'Bienvenue chez Locus',
   'authShell.pitch':
@@ -9,8 +11,10 @@ export const ui: UiTranslations = {
   'authShell.sampleCaption': 'unités · 1 284 SKU · 6 entrepôts',
   'authShell.sampleEyebrow': "Aujourd'hui sur l'ensemble du réseau",
   'common.and': 'et',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.next': 'Suivant',
   'common.previous': 'Précédent',
+  'common.retry': 'Réessayer',
   'dashboard.actions.scan': 'Scanner un SKU',
   'dashboard.actions.transfer': 'Nouveau transfert',
   'dashboard.alerts.empty':
@@ -66,6 +70,7 @@ export const ui: UiTranslations = {
   'inventoryHeroCard.subtitle': 'À travers {{count}} UGS actives',
   'inventoryManagementLayout.brandSubtitle': 'Contrôle des stocks',
   'inventoryManagementLayout.defaultUser': 'Opérations',
+  'inventoryManagementLayout.menu': 'Menu',
   'inventoryManagementLayout.notificationsAria': 'Ouvrir les notifications',
   'inventoryManagementLayout.role': 'Responsable des opérations',
   'inventoryManagementLayout.searchAria': 'Rechercher des SKU, produits, entrepôts',
@@ -149,12 +154,15 @@ export const ui: UiTranslations = {
   'orders.eyebrow': 'Mouvement',
   'orders.filter.${option}': 'Référence',
   'orders.filter.inbound': 'Entrant',
+  'orders.filter.outbound': 'Départ',
   'orders.form.eta': 'Attendue le',
   'orders.form.partner': 'Partenaire',
   'orders.form.productPh': 'Choisissez un produit',
   'orders.form.quantity': 'Quantité',
   'orders.form.reference': 'Référence',
   'orders.form.submit': 'Créer la commande',
+  'orders.form.typeInbound': 'Entrée (PO)',
+  'orders.form.typeOutbound': 'Sortie (SO)',
   'orders.form.unitCost': 'Coût unitaire ($)',
   'orders.form.warehouse': 'Entrepôt',
   'orders.form.warehousePh': 'Choisissez un entrepôt',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'orders.subtitle': "PO entrantes et SO sortantes sur l'ensemble du réseau.",
   'orders.title': 'Commandes',
   'planUpdated.pageTitle': 'Plan mis à jour',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'productDetail.back': "Retour à l'inventaire",
   'productDetail.barcode': 'Code-barres',
   'productDetail.cost': 'Coût',

@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Sizin rolunuz',
   'account.role.upgradeLink': 'Təsdiqlənmiş repetitor olmaq üçün müraciət edin →',
   'account.title': 'Profil, ödəniş və seçimlər.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Təbaşir üzərində dərs deyin',
   'becomeTutor.form.error': 'Ərizə təqdim edilə bilmədi.',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Mövzu',
   'bookingConfirm.title': 'Sifarişiniz var. Qalanını biz həll edəcəyik.',
   'bookingConfirm.with': 'Repetitorla',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'earningsHero.eyebrow': 'Qazanc • {{month}}',
   'forgotPassword.heading': 'Şifrənizi unutmusunuz?',
   'forgotPassword.subheading':
@@ -114,6 +116,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Mesaj göndərin',
   'messages.thread.empty': 'Salam deyin - söhbətə başlayın.',
   'messages.title': 'Müəllimlərinizlə mövzular.',
+  'nav.primary': 'Əsas',
   'pricing.dataExport': 'Məlumat ixracı:',
   'pricing.headingDefault': 'Qabaqcıl xüsusiyyətlər:',
   'resetPassword.heading': 'Güclü yeni bir parol seçin.',

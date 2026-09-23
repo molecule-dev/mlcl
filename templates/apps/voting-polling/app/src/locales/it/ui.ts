@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'analytics.col.quorum': 'Quorum',
   'analytics.col.votes': 'Voti',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Nessuna domanda in attesa ancora.',
   'audienceQa.onStageEyebrow': 'Sul palco ora',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promuovere',
   'audienceQa.queued': 'in coda',
   'audienceQa.queueEyebrow': 'Coda',
   'ballot.eyebrow': 'Esprima il Suo voto',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Attualmente è sul piano {{plan}}.',
   'billing.switch': 'Cambia',
   'billing.upgraded': 'Aggiornato a {{plan}} — limiti applicati immediatamente.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'createPoll.addOption': 'Aggiungi opzione',
   'createPoll.anonymousHint':
     'Nomi degli elettori nascosti nel registro di audit; i conteggi rimangono autenticati.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nuovo su Nosh?',
   'login.remember': 'Ricordami per 30 giorni',
   'login.subheading': 'Apra la seduta, gestisca la sala e certifichi il risultato.',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'notFound.body':
     'La pagina che ha cercato di raggiungere è stata chiusa o spostata. Torni alla dashboard o apra un nuovo sondaggio.',
   'notFound.eyebrow': 'Nessun quorum su questa rotta',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Impossibile caricare questo sondaggio.',
   'pollDetail.loading': 'Caricamento sondaggio…',
   'pollDetail.notFound': 'Sondaggio non trovato.',
+  'pollDetail.openBallot': 'Voto aperto',
   'pollDetail.openLive': 'Risultati in diretta',
   'pollDetail.pollId': 'sondaggio · {{id}}',
   'pollDetail.published': 'Sondaggio pubblicato — gli elettori possono ora votare.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Cerca per email…',
   'voters.subheading':
     "Curi l'elenco degli idonei. Raggruppi gli elettori per organizzazione per votazioni pesate.",
+  'votingPollingLayout.nav.analytics': 'Analisi',
+  'votingPollingLayout.nav.billing': 'Fatturazione',
+  'votingPollingLayout.nav.createPoll': 'Nuovo sondaggio',
+  'votingPollingLayout.nav.dashboard': 'Pannello di controllo',
+  'votingPollingLayout.nav.notifications': 'Notifiche',
+  'votingPollingLayout.nav.settings': 'Impostazioni',
+  'votingPollingLayout.nav.team': 'Squadra',
+  'votingPollingLayout.nav.voters': 'Elettori',
+  'votingPollingLayout.primaryNavLabel': 'Navigazione principale',
 }

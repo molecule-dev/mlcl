@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'අපි ඝෝෂාකාරී තැපැල් පෙට්ටියක දිනකට පැය ගණනක් ගත කළ නිර්මාණකරුවන් සහ ඉංජිනේරුවන්ගෙන් සැදුම්ලත් බෙදා හරින ලද කණ්ඩායමකි. මෙරිඩියන් යනු අපට භාවිතා කිරීමට අවශ්‍ය වූ එන ලිපි පෙට්ටියයි.',
   'about.title': 'අවධානය යොමු කළ වැඩ සඳහා විද්‍යුත් තැපෑල',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'help.cta.about': 'මෙරිඩියන් ගැන',
   'help.cta.pricing': 'මිල ගණන් බලන්න',
   'help.eyebrow': 'උදව් මධ්‍යස්ථානය',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'අපට වැඩිපුරම ඇසෙන ප්‍රශ්නවලට ඉක්මන් පිළිතුරු. යමක් අස්ථානගත වී තිබේද? සැකසීම් විවෘත කර යෙදුම තුළ ප්‍රතිපෝෂණ පෝරමය භාවිතා කරන්න, නැතහොත් support@courier.example වෙත ලියන්න.',
   'help.title': 'අපට උදව් කළ හැක්කේ කෙසේද?',
   'landing.brand.scrollTop': 'ඉහළට ආපසු',
+  'landing.copyright': '© {{year}} {{appName}} — අවධානය යොමු කිරීම සඳහා ගොඩනගා ඇත.',
   'landing.ctaBody': 'දිවා ආහාරයට පෙර තම එන ලිපි අවසන් කළ දහස් ගණනක් වෘත්තිකයන් හා එක්වන්න.',
   'landing.ctaTitle': 'වැඩිපුර සකසන්න, අඩුවෙන් ප්‍රතික්‍රියා කරන්න.',
   'landing.eyebrow': 'අවධානය යොමු කළ වැඩ සඳහා විද්‍යුත් තැපෑල',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'නිරූපණය නරඹන්න',
   'landing.heroSubtitle':
     'මෙරිඩියන් යනු තොරතුරු සැකසීමට කැමති, ඒවාට ප්‍රතිචාර දැක්වීමට කැමති නොවන දැනුම සේවකයින් සඳහා ගොඩනගා ඇති සන්සුන්, පුවරු තුනකින් යුත් එන ලිපි පෙට්ටියකි.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ලොව පුරා අවධානය යොමු කළ කණ්ඩායම් විසින් විශ්වාස කරන ලදී',
   'landing.signIn': 'පුරන්න',
   'meridian.archive.empty': 'සංරක්ෂිතය හිස්ය.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'කෙටුම්පත',
   'meridian.folder.count': '{{count}} පණිවිඩ',
+  'meridian.folder.delete': 'මකන්න',
   'meridian.folder.deleteForever': 'ස්ථිරවම මකන්න',
   'meridian.folder.restore': 'එන ලිපි වෙත ගෙන යන්න',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'මෙහි තවමත් පණිවිඩ නොමැත.',
   'meridian.inbox.loading': 'පූරණය වෙමින්...',
   'meridian.inbox.next': 'ඊළඟ',
+  'meridian.inbox.noSender': '(යවන්නෙකු නැත)',
   'meridian.inbox.noSubject': '(විෂයයක් නැත)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'රචනා කිරීම විවෘත කරන්න',
   'meridian.inbox.previous': 'පෙර',
   'meridian.inbox.replyFailed': 'පිළිතුර සුරකින ලද නමුත් බෙදා හැරීම අසාර්ථක විය: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'ගිණුමක් නැද්ද?',
   'meridian.login.showPassword': 'මුරපදය පෙන්වන්න',
   'meridian.message.toLine': 'දක්වා {{recipients}}',
+  'meridian.notFound.body':
+    'ඔබ සොයන පිටුව සොයාගත නොහැකි විය. ඔබගේ {{appName}} එන ලිපි පෙට්ටියට ආපසු යන්න, එවිට අපි ඔබව නිවැරදි මාර්ගයට ගෙන යන්නෙමු.',
   'meridian.notFound.eyebrow': '404 දෝෂය',
   'meridian.notFound.title': 'මෙම නූල සංරක්ෂණය කර ඇත.',
   'meridian.notFound.toInbox': 'මගේ එන ලිපි විවෘත කරන්න',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'තරුවක් එක් කරන්න',
   'meridian.thread.unstar': 'තරුව ඉවත් කරන්න',
   'meridian.time.yesterday': 'ඊයේ',
+  'meridian.topBar.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'meridian.topBar.searchPlaceholder': 'තැපෑල සොයන්න',
   'meridian.trash.empty': 'කුණු කූඩය හිස්ය.',
   'meridian.trash.title': 'කුණු කූඩය',
   'nav.legal': 'නීතිමය',
   'planUpdated.description':
     'ඔබගේ දායකත්වය දැන් සක්‍රිය වන අතර ඔබගේ බිල්පත් යාවත්කාලීන කර ඇත. ඔබගේ නැවුම් කළ Courier එන ලිපි වෙත සාදරයෙන් පිළිගනිමු.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.heading': 'කෙටුම්පත්',
   'pricing.limit.emails': 'ඊමේල්',
   'pricing.limit.folders': 'ෆෝල්ඩර',
   'pricing.limit.labels': 'ලේබල්',
   'privacy.collect.account':
     'ගිණුම් දත්ත: නම, විද්‍යුත් තැපැල් ලිපිනය, හැෂ් මුරපදය සහ ඔබ ලියාපදිංචි වූ දිනය.',
+  'privacy.contact': 'ප්‍රශ්න තිබේද? privacy@courier.example වෙත ඊමේල් කරන්න.',
   'privacy.intro':
     'මෙම රහස්‍යතා ප්‍රතිපත්තිය මගින් Courier විසින් රැස් කරන දත්ත මොනවාද, අපි එය රැස් කරන්නේ ඇයි, අපි එය ආරක්ෂිතව තබා ගන්නේ කෙසේද සහ ඔබට ඒ සම්බන්ධයෙන් ඇති තේරීම් මොනවාද යන්න පැහැදිලි කරයි. නීතිමය වශයෙන් නොව නිශ්චිත වීමට අපි ඉලක්ක කරමු; යමක් අපැහැදිලි නම්, privacy@courier.example වෙත ලියන්න.',
   'privacy.lastUpdated': 'අවසන් වරට යාවත්කාලීන කළේ: 2026 අප්‍රේල් 1',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'මෙම නියමයන් ඔබේ මෙරිඩියන් භාවිතය පාලනය කරයි. ගිණුමක් නිර්මාණය කිරීමෙන් හෝ අප හරහා විද්‍යුත් තැපෑලක් යැවීමෙන් ඔබ ඒවාට බැඳී සිටීමට එකඟ වේ. පුද්ගලයෙකුට සැබවින්ම අනුගමනය කළ හැකි නීති ලිවීමට අපි උත්සාහ කරමු.',
   'terms.lastUpdated': 'බලාත්මක වන දිනය: 2026 අප්‍රේල් 1',
+  'terms.linkPrivacy': 'අපගේ රහස්‍යතා ප්‍රතිපත්තිය කියවන්න →',
   'terms.termination.body':
     'ඔබට ඕනෑම අවස්ථාවක ඔබගේ ගිණුම මකා දැමිය හැකිය. මෙම නියමයන් උල්ලංඝනය කරන ගිණුමක් අපට අත්හිටුවිය හැකිය; අපි එසේ කළහොත්, අපි හේතුව පැහැදිලි කර ඔබේ දත්ත පළමුව අපනයනය කිරීමට ඔබට ඉඩ දෙන්නෙමු.',
   'terms.warranty.body':

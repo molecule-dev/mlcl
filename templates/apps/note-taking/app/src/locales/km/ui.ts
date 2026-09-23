@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'forgot.eyebrow': 'វង្វេងផ្លូវត្រឡប់មកវិញ?',
   'forgot.formSubtitle': 'សូមប្រាប់យើងពីអ៊ីមែលដែលមានក្នុងឯកសារ។',
   'forgot.headline': 'កំណត់ពាក្យសម្ងាត់របស់អ្នកឡើងវិញ។',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'បង្កើតមួយ',
   'login.subline':
     'សៀវភៅកត់ត្រា តំណភ្ជាប់ និងទំព័រប្រចាំថ្ងៃរបស់អ្នក គឺនៅត្រង់កន្លែងដែលអ្នកបានទុកវា។',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'noteEditor.backToNotes': 'ត្រឡប់ទៅកំណត់ចំណាំវិញ',
   'noteEditor.bodyPlaceholder':
     'ចាប់ផ្តើមសរសេរ — កំណត់ចំណាំរបស់អ្នកនឹងរក្សាទុកដោយស្វ័យប្រវត្តិនៅពេលអ្នកវាយបញ្ចូល។',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'សៀវភៅកត់ត្រាថ្មី',
   'notes.newNotebookPrompt': 'ឈ្មោះ​សៀវភៅ​កត់ត្រា​ថ្មី',
   'notes.notebooksHeading': 'សៀវភៅកត់ត្រា',
+  'notes.subtitle':
+    'ជ្រើសរើសសៀវភៅកត់ត្រាមួយនៅខាងឆ្វេង បន្ទាប់មកចុចប៊ូតុង កំណត់ចំណាំថ្មី ដើម្បីចាប់ផ្តើមធាតុថ្មី។',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'ជ្រើសរើសផែនការកត់ចំណាំរបស់អ្នក',
   'reset.eyebrow': 'ជិតចូលវិញហើយ',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'បានធ្វើបច្ចុប្បន្នភាព',
   'versoLayout.nav.graph': 'ក្រាហ្វ',
   'versoLayout.nav.home': 'ផ្ទះ',
+  'versoLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'versoNoteCard.pinned': 'បានខ្ទាស់',
   'versoTodayHero.continueCta': 'បន្តសរសេរ',
   'versoTodayHero.createCta': 'ចាប់ផ្តើមកំណត់ចំណាំថ្ងៃនេះ',

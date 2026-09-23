@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.title': 'A {{app}} névjegye',
   'auth.login.noAccount': 'Új vagy a Sparq-ban?',
   'auth.login.or': 'vagy folytassa ezzel:',
   'auth.signup.or': 'vagy regisztrálj',
+  'common.confirm': 'Megerősítés',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.loadError': 'Hiba történt a tartalom betöltése során.',
+  'common.retry': 'Újra',
   'discover.collections.title': 'Böngészés kategória szerint',
   'discover.collections.viewAll': 'Nézd meg a könyvtáradat →',
   'discover.empty.body': 'Próbáljon ki egy másik kategóriát, vagy törölje a keresést.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Jelentkezz be, hogy életben tartsd a győzelmi sorozatodat, élő meccseket rendezhess, és feljebb kerülhess a ranglistán.',
   'myQuizzes.createButton': 'Új kvíz',
+  'myQuizzes.deleteConfirm': 'Végleges törlés?',
   'myQuizzes.empty.createCta': 'Készítsd el az első kvízedet →',
   'myQuizzes.empty.created': 'Még nem állítottál össze kvízt.',
   'myQuizzes.empty.played': 'Még nincsenek közzétett kvízek.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Betöltés…',
   'notifications.subhead':
     '{{count}} Olvasatlan szikrák. Meghívók, ranglistalépések és eredmények egyetlen streamben.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.checkoutError': 'Nem sikerült elindítani a pénztárat. Kérjük, próbálja újra.',
+  'pricing.heading': 'Válaszd ki {{app}} csomagod',
   'pricing.included': 'Tartalmazza',
   'pricing.loadError': 'Nem sikerült betölteni a terveket.',
   'pricing.maxQuizzes': '{{count}} kvízek',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Még semmi sem jelent meg.',
   'profile.startBuilding': 'Építés megkezdése →',
   'profile.tier': 'Sparq játékos',
+  'quizBuilder.addFailed': 'Nem sikerült hozzáadni a kérdést. Próbáld újra.',
   'quizBuilder.addQuestion': 'Kérdés hozzáadása',
   'quizBuilder.answerPlaceholder': 'Írjon be egy lehetőséget…',
   'quizBuilder.answersLabel': 'Válaszlehetőségek',
   'quizBuilder.back': 'Vissza a kvízeimhez',
   'quizBuilder.delete': 'Kérdés törlése',
+  'quizBuilder.deleteFailed': 'Nem sikerült törölni a kérdést.',
   'quizBuilder.firstQuestion': 'Kezdésként add hozzá az első kérdésedet.',
   'quizBuilder.idLabel': 'Kvíz azonosító: {{id}}',
   'quizBuilder.loadError': 'Nem sikerült betölteni a kvízt.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Adjon meg legalább két válaszlehetőséget, és válassza ki a helyeset {{count}} kérdés(ek) a közzététel előtt.',
   'quizBuilder.questionsTitle': 'Kérdések',
+  'quizBuilder.saveFailed': 'Nem sikerült menteni a címet. Próbáld újra.',
   'quizBuilder.statusDraft': 'Tervezet',
   'quizBuilder.subhead':
     'Szerkeszd a címet, adj hozzá kérdéseket, add meg a választási lehetőségeket és a helyes választ. A változtatások automatikusan mentésre kerülnek.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} perc',
   'quizDetail.hostMultiplayer': 'Többjátékos mód szervezése',
   'quizDetail.leaderboardEmpty': 'Még nincsenek játékok — légy az első, aki pontot állít fel.',
+  'quizDetail.loadError': 'Nem sikerült betölteni ezt a kvízt.',
   'quizDetail.loading': 'Kvíz betöltése…',
   'quizDetail.plays': '{{count}} színdarabok',
   'quizDetail.playSolo': 'Játssz egyedül',

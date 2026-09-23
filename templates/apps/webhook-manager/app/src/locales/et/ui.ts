@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// umbes {{app}}',
+  'about.pageTitle': 'Webhooki juhtimistasandi',
+  'about.plansTitle': 'Plaanid igaks etapiks',
   'apiKeys.bestPractices': 'Parimad tavad',
   'apiKeys.body':
     'Programmilised ligipääsutunnused. Käsitle neid nagu paroole – salvesta keskkonna muutujates, ära kunagi kinnita neid.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'plaani piires',
   'billing.usageWarning': 'korgi lähedal',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.body':
     'Reaalajas läbilaskevõime, uuestikatsetused töö käigus ja äsja katkenud lõpp-punktid – igas teie hallatavas tööruumis.',
   'dashboard.endpointsEmpty': 'Lõpp-punkte veel pole.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'lõpp-punktid',
   'endpointDetail.deliveryTrendSub': 'tarned tunnis, logi skaalal',
   'endpointDetail.hideSecret': 'Peida saladus',
+  'endpointDetail.loading': 'Lõpp-punkti laadimine…',
   'endpointDetail.metric.delivered': 'Kohaletoimetamine 24 tunni jooksul',
   'endpointDetail.metric.deliveredCaption': 'alates {{count}} sündmuste tüübid',
   'endpointDetail.metric.failuresCaption': 'uuesti proovimised: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kriitiline · 24 tundi',
   'notifications.metric.totalCaption': 'kõigi aegade postkast',
   'payloadViewer.payload': '// kasulik koormus',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Näidatud initsiaalid – järgmise väljalaskega kaasnevad üleslaadimised.',
   'profile.body': 'Teie konto, eelistused ja aktiivsed seansid.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Ainult teie praegune seanss on aktiivne. Ühtegi teist seadet pole sisse logitud.',
   'profile.toggle': 'Lülitage sisse/välja {{label}}',
+  'pylonShell.closeMenu': 'Sulge navigeerimismenüü',
+  'pylonShell.openMenu': 'Ava navigeerimismenüü',
   'pylonShell.primaryNavLabel': 'Peamine navigeerimine',
   'resetPassword.subtitle': 'Vali tugev parool, mida sa varem kasutanud pole.',
   'resetPassword.tokenPlaceholder': 'kopeeritud e-kirjast',

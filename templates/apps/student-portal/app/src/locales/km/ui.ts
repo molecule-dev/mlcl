@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'announcementsFeed.empty': 'មិនទាន់មានការប្រកាសនៅឡើយទេ។',
   'announcementsFeed.eyebrow': '{{count}} ការអាប់ដេត',
   'announcementsFeed.title': 'ការប្រកាសថ្មីៗបំផុត',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'គ្មានអ្វីនៅទីនេះទេ',
   'assignments.emptyBody': 'ប្តូរតម្រងខាងលើដើម្បីមើលការចាត់តាំងក្នុងស្ថានភាពផ្សេង។',
   'assignments.eyebrow': 'វគ្គសិក្សាទាំងអស់ · ឆមាសនេះ',
+  'assignments.loadError': 'មិនអាចផ្ទុកកិច្ចការបានទេ។',
   'assignments.loading': 'កំពុងផ្ទុកកិច្ចការ…',
   'assignments.subtitle':
     'ត្រងតាមស្ថានភាព ដើម្បីមើលអ្វីដែលដល់កំណត់ បានដាក់ស្នើ បានដាក់ពិន្ទុ ឬបាត់។',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'កំណត់ចំណាំ',
   'attendance.empty': 'មិនទាន់មានកំណត់ត្រាចូលរួមនៅឡើយទេ។',
   'attendance.eyebrow': 'ឆមាសនិទាឃរដូវ · ៤ សប្តាហ៍ចុងក្រោយ',
+  'attendance.loadError': 'មិនអាចផ្ទុកកំណត់ត្រាចូលរួមបានទេ។',
   'attendance.loading': 'កំពុងផ្ទុកការចូលរួម…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'ថ្ងៃផុតកំណត់នៃកិច្ចការដែលបានគ្រោងទុកនៅលើក្រឡាចត្រង្គខែ — ការប្រឡងលេចធ្លោជាពណ៌ក្រហម។',
   'calendar.title': '{{month}} ព្រឹត្តិការណ៍',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
+  'common.retry': 'ព្យាយាមម្តងទៀត',
   'common.yes': '✓',
   'courseDetail.backLink': 'ថ្នាក់',
   'courseDetail.currentGrade': 'ថ្នាក់បច្ចុប្បន្ន',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'និន្នាការ',
   'grades.empty': 'មិនទាន់មានចំណាត់ថ្នាក់ណាមួយត្រូវបានបង្ហោះនៅឡើយទេ។',
   'grades.eyebrow': 'សៀវភៅ​ថ្នាក់',
+  'grades.loadError': 'មិនអាចផ្ទុកចំណាត់ថ្នាក់របស់អ្នកបានទេ។',
   'grades.loading': 'កំពុងផ្ទុកចំណាត់ថ្នាក់…',
   'grades.subtitle':
     'ពិន្ទុ​លិខិត​ផ្ទាល់ និង​ភាគរយ។ ព្រួញ​និន្នាការ​បង្ហាញ​ថា​តើ​អ្នក​កំពុង​ឡើង​លើ កម្រិត ឬ​រអិល។',
   'grades.title': 'ពិន្ទុរបស់អ្នក វគ្គសិក្សានីមួយៗ',
   'grades.trendStable': 'ស្ថិរភាព',
+  'landing.copyright': '© {{year}} {{app}} ។ បង្កើតឡើងសម្រាប់សិស្ស បង្កើតឡើងសម្រាប់គ្រួសារ។',
   'landing.ctaHeading': 'ថ្ងៃសិក្សាដ៏ស្ងប់ស្ងាត់ចាប់ផ្តើមក្នុងរយៈពេលប៉ុន្មាននាទី',
   'landing.eyebrow': 'សម្រាប់សិស្សវិទ្យាល័យ និងមធ្យមសិក្សា',
   'landing.featuresHeading': 'ថ្ងៃសិក្សាដែលរៀបចំឡើងជុំវិញសិស្ស',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'កិច្ចការ',
   'nav.attendance': 'ការចូលរួម',
   'nav.calendar': 'ប្រតិទិន',
+  'nav.closeMenu': 'បិទម៉ឺនុយរុករក',
   'nav.grades': 'ថ្នាក់',
+  'nav.openMenu': 'បើកម៉ឺនុយរុករក',
   'nav.statusEyebrow': 'មធ្យមភាគ​ឆមាស',
   'nav.statusSubtext': 'បញ្ជីកិត្តិយស · ឆមាសនិទាឃរដូវ',
+  'nav.unreadMessages': 'សារដែលមិនទាន់អាន',
   'notifications.eyebrow': '{{count}} ការអាប់ដេត',
   'notifications.subtitle':
     'ថ្នាក់ ការរំលឹក សារ និងការប្រកាសរបស់សាលា។ កែសម្រួលឆានែលដែលការជូនដំណឹងនីមួយៗប្រើនៅក្នុងការកំណត់។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.attendanceLabel': 'ការចូលរួម',
   'pricing.gradesLabel': 'ថ្នាក់',
   'pricing.heading': 'ការប្រកាស',

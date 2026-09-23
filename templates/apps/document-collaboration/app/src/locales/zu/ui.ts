@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.title': 'Mayelana ne-{{app}}',
   'comments.addFailed': 'Ayikwazanga ukuthumela amazwana.',
   'comments.backToDoc': 'Buyela kumbhalo wesandla',
   'comments.deleteFailed': 'Ayikwazanga ukususa.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Xazulula',
   'comments.resolveFailed': 'Ayikwazanga ukuxazulula.',
   'comments.subtitle': '{{open}} vula · {{resolved}} kuxazululiwe',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.activityHeading': 'Kwenzekani',
   'dashboard.createFailed': 'Ayikwazanga ukudala idokhumenti.',
   'dashboard.empty':
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Ayikwazanga ukuthuthwa iye kudoti.',
   'editor.unpublish': 'Susa ukushicilela',
   'editor.untitled': 'Idokhumenti Engenasihloko',
+  'editor.updatedElsewhere':
+    'Le dokhumenti ibuyekezwe ngomunye umuntu — layisha kabusha ukuze ubone okwakamuva.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'umbhali@studio.com',
   'forgotPassword.sentBody':
     'Uma kukhona i-akhawunti ye- {{email}} , isixhumanisi sokusetha kabusha sisendleleni.',
   'forgotPassword.subtitle': 'Sizokuthumelela isixhumanisi sokusetha kabusha nge-imeyili.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Yakhiwe ngeMolekyuli.',
   'landing.ctaHeading': 'Vula ikhasi. Vumela ikhesa liqale.',
   'landing.ctaPrimary': 'Vula isitudiyo',
   'landing.eyebrow': 'Kwababhali, abahleli, kanye namaqembu',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'kuhleliwe {{when}}',
   'quillonDocumentCard.open': 'Vula →',
   'quillonKpiCard.trend': 'Ithrendi yakamuva',
+  'quillonLayout.menu': 'Imenyu',
   'quillonLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'quillonStudioHero.collab': 'Abahlanganyeli',
   'quillonStudioHero.docs': 'Amadokhumenti athintiwe',
@@ -161,9 +168,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'khona manje',
+  'trash.confirmDelete': 'Qinisekisa ukususa',
   'trash.deleteFailed': 'Ayikwazanga ukususa.',
   'trash.deleteForever': 'Susa unomphela',
   'trash.empty': 'Akukho lutho oluzolulama.',
+  'trash.emptyAll': 'Thulula udoti',
   'trash.eyebrow': 'Isitudiyo',
   'trash.heading': 'Udoti',
   'trash.loadFailed': 'Ayikwazanga ukulayisha udoti.',

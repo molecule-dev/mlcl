@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'article.notFound': 'Článek nenalezen',
   'articleEditor.bodyPlaceholder': 'Pro bloky napište / nebo prostě začněte psát.',
+  'articleEditor.loadFailed': 'Článek se nepodařilo načíst',
   'articleEditor.publishing': 'Publikování\\u2026',
   'articleEditor.saveFailed': 'Uložení se nezdařilo',
   'articleEditor.saving': 'Ukládám…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Záložka',
   'articleView.bookmarkOn': 'Uloženo do záložek',
   'articleView.edit': 'Upravit článek',
+  'articleView.loading': 'Otevření tohoto článku…',
   'articleView.readTime': '{{minutes}} minutové čtení',
   'articleView.spaces': 'Prostory',
   'articleView.tocHeading': 'Na této stránce',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Nedávné úpravy, přečtení a koncepty, které váš tým stále shromažďuje.',
   'cairnTrailHero.updated': 'Články aktualizovány',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'drafts.eyebrow': 'Tvoje nedokončená práce',
   'drafts.heading': 'Koncepty',
+  'drafts.loadFailed': 'Nepodařilo se načíst vaše koncepty.',
   'drafts.subtitle':
     'Články, které jste začali psát, ale ještě jste je nepublikovali. Vezměte si jeden a pokračujte.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Zatím žádná volná místa. Otevřete jedno a začněte sbírat články.',
   'home.spacesHeading': 'Vaše prostory',
   'home.subtitle': 'Nedávné články, vaše záložky a co tým psal.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Vytvořeno pomocí Molecule.',
   'landing.ctaBody':
     'Zdarma pro samostatné autory. Týmové plány pro distribuované týmy, které dodávají runbooky, rozhodování a onboarding.',
   'landing.ctaHeading': 'Dnes naskládejte první kámen.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Vytvořte pracovní prostor',
   'login.submitting': 'Přihlášení\\u2026',
   'login.subtitle': 'Pokračujte po stezce tam, kde jste ji opustili.',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
+  'newSpace.colorAria': 'Vyberte barvu {{color}}',
   'newSpace.colorLabel': 'Akcentová barva',
+  'newSpace.createFailed': 'Nepodařilo se vytvořit prostor',
   'newSpace.descriptionPlaceholder': 'Runbooky, pohotovostní playbooky, pitvy\\u2026',
   'newSpace.eyebrow': 'Otevřete prostor znalostí',
   'newSpace.heading': 'Nový prostor',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Načítám…',
   'notifications.subtitle':
     '{{count}} nepřečtené \\u2014 zmínky, komentáře, změny stránek a žádosti o kontrolu.',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.articles': 'články',
   'pricing.spaces': 'prostory',
   'profile.eyebrow': 'Profil autora',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Zadejte nové heslo',
   'resetPassword.subtitle': 'Zvolte si silné heslo – alespoň 12 znaků.',
   'searchResults.eyebrow': 'Vyhledávání pracovního prostoru',
+  'searchResults.filter.all': 'Všechny prostory',
   'searchResults.heading': 'Hledat články',
   'searchResults.placeholder': 'Vyhledávání v runbookech, RFC, zásadách a rozhodnutích',
   'searchResults.summary': '{{count}} výsledky pro \\u201c {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Tímto smažete svůj účet a všechny články, které jste napsali. Potvrďte stisknutím klávesy SMAZAT.',
   'settings.danger.confirmInvalid': 'Potvrďte stisknutím klávesy DELETE.',
+  'settings.danger.deleteFailed': 'Nepodařilo se smazat účet',
   'settings.danger.deleting': 'Mazání\\u2026',
   'settings.danger.description':
     'Smazáním pracovního prostoru se odstraní všechny články, komentáře a historie verzí. Obnovení není možné.',
   'settings.danger.title': 'Smazat pracovní prostor',
+  'settings.email.confirm': 'Aktualizovat e-mail',
+  'settings.email.confirmTitle': 'Potvrdit změnu e-mailu',
   'settings.email.saved': 'E-mail aktualizován.',
+  'settings.email.updateFailed': 'Nepodařilo se aktualizovat e-mail',
   'settings.language.title': 'Jazyk',
   'settings.name': 'Název',
+  'settings.name.saved': 'Jméno aktualizováno.',
+  'settings.name.updateFailed': 'Nepodařilo se aktualizovat jméno',
   'settings.notifications.description': 'Vyberte si, co se vám bude zobrazovat ve schránce.',
+  'settings.password.changeFailed': 'Heslo se nepodařilo změnit',
   'settings.password.current': 'Aktuální heslo',
   'settings.password.new': 'Nové heslo',
   'settings.password.saving': 'Aktualizace\\u2026',
@@ -146,10 +166,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Jak se vám články vykreslují.',
   'settings.reading.title': 'Čtení a psaní',
   'settings.subtitle': 'Nalaďte si oznámení, čtecí plátno a svůj účet.',
+  'settings.twofa.code': 'Ověřovací kód',
   'settings.twofa.disable': 'Zakázat',
   'settings.twofa.disabled': 'Nezpůsobilý',
   'settings.twofa.enable': 'Povolit',
   'settings.twofa.enabled': 'Povoleno',
+  'settings.twofa.invalidCode': 'Neplatný kód',
+  'settings.twofa.unavailable': 'Dvoufázové ověřování není pro tuto aplikaci k dispozici.',
+  'settings.twofa.verify': 'Ověřit a povolit',
   'signup.brandQuote':
     '\\u201cZapsání je první slib, který dáme další osobě, která to bude potřebovat.\\u201d',
   'signup.eyebrow': 'Otevření pracovního prostoru',

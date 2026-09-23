@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du hittat en bugg, har du en funktionsförfrågan eller vill du berätta om filmen du klippte? Varje meddelande når en riktig person i teamet – kontakta oss när som helst från dina kontoinställningar.',
+  'about.contactTitle': 'Kontakta oss',
+  'about.eyebrow': '// studion bakom klippningen',
   'about.pageTitle': 'Om {{appName}}',
   'assetDetail.back': 'Tillbaka till biblioteket',
   'assetDetail.confirmDelete': 'Ta bort "{{name}}"? Detta kan inte ångras.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} klipp, ljudbäddar och grafik redo att släppas på tidslinjen.',
   'assetLibrary.title': 'Tillgångar',
   'assetLibrary.upload': 'Lägg till tillgång',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.browseTemplates': 'Bläddra bland mallar →',
   'dashboard.loading': 'Läser in projekt…',
   'dashboard.noProjects': 'Inga projekt än — skapa ett för att komma igång.',
@@ -159,7 +164,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Välj något som bara du skulle komma ihåg.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Integritet',
+  'rushesLayout.closeMenu': 'Stäng navigering',
   'rushesLayout.guest': 'Redigerare',
+  'rushesLayout.navDialog': 'Navigering',
+  'rushesLayout.openMenu': 'Öppna navigering',
   'rushesLayout.planFree': 'Gratisplan',
   'rushesLayout.tagline': 'Filmisk tidslinje',
   'settings.billing.confirmCancel': 'Avsluta prenumerationen vid periodens slut?',

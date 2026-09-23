@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'authShell.brandHeading': 'सँगै पठाउने डिजाइन टोलीहरूको लागि पिक्सेल-उत्तम क्यानभासहरू।',
   'canvas.redirecting': 'सम्पादक खोल्दै...',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'र',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'dashboard.activityEmpty':
     'हालसालै कुनै गतिविधि छैन — सुरु गर्न एक जना साथीलाई आमन्त्रित गर्नुहोस्।',
   'dashboard.activityTitle': 'आज के परिवर्तन भयो?',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'कार्यस्थल · नर्थविन्ड स्टुडियो',
   'dashboard.foldersLabel': 'फोल्डरहरू',
   'dashboard.gridTitle': '{{count}} परियोजनाहरू',
+  'dashboard.heroActiveTool': 'कलम औजार',
   'dashboard.loadingTitle': 'परियोजनाहरू लोड गर्दै...',
   'dashboard.searchPlaceholder': 'परियोजनाहरू खोज्नुहोस्',
   'dashboard.startFromTemplate': 'टेम्प्लेटबाट सुरु गर्नुहोस्',
   'dashboard.title': 'तपाईंका परियोजनाहरू',
   'dashboard.untitledProject': 'शीर्षकविहीन परियोजना',
   'designCanvasLayout.newProject': 'नयाँ परियोजना',
+  'designCanvasLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'editor.backToProjects': 'परियोजनाहरूमा फर्कनुहोस्',
   'editor.deleteShape': 'आकार मेटाउनुहोस्',
   'editor.errorBody': 'हामीले यो परियोजना खोल्न सकेनौं।',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'तपाईंको हातको गतिमा चल्ने उपकरणहरू डिजाइन गर्नुहोस्',
   'library.empty': 'यस खण्डमा अहिलेसम्म कुनै टोकन छैन।',
   'library.eyebrow': 'कार्यस्थल · एटेलियर डिजाइन प्रणाली',
+  'library.loadFailed': 'डिजाइन टोकनहरू लोड गर्न सकिएन।',
   'library.systemMeta': 'प्रणाली स्वास्थ्य',
   'library.systemSummary': '{{टोकनहरू}} टोकनहरू · {{घटकहरू}} अवयवहरू · {{प्रभाव}} प्रभावहरू',
   'login.emailPlaceholder': 'mara@studio.com मा इमेल गर्नुहोस्',

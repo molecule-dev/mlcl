@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.title': 'Rreth {{app}}',
   'auth.login.noAccount': 'I ri në Sparq?',
   'auth.login.or': 'ose vazhdo me',
   'auth.signup.or': 'ose regjistrohuni me',
+  'common.confirm': 'Konfirmo',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.loadError': 'Diçka shkoi keq gjatë ngarkimit të kësaj përmbajtjeje.',
+  'common.retry': 'Riprovo',
   'discover.collections.title': 'Shfleto sipas kategorisë',
   'discover.collections.viewAll': 'Shihni bibliotekën tuaj →',
   'discover.empty.body': 'Provo një kategori tjetër ose pastro kërkimin.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     "Kyçu për të mbajtur gjallë serinë tënde, për të organizuar ndeshje live dhe për t'u ngjitur në tabelën e renditjes.",
   'myQuizzes.createButton': 'Kuiz i ri',
+  'myQuizzes.deleteConfirm': 'Të fshihet përgjithmonë?',
   'myQuizzes.empty.createCta': 'Ndërtoni kuizin tuaj të parë →',
   'myQuizzes.empty.created': 'Nuk ke ndërtuar ende një kuiz.',
   'myQuizzes.empty.played': 'Ende nuk ka kuize të publikuara.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Duke u ngarkuar…',
   'notifications.subhead':
     '{{count}} shkëndija të palexuara. Ftesa, lëvizje në tabelën e renditjes dhe arritje, të gjitha në një transmetim të vetëm.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.checkoutError': 'Nuk mund të fillohej pagesa. Ju lutemi provoni përsëri.',
+  'pricing.heading': 'Zgjidhni planin tuaj {{app}}',
   'pricing.included': 'Përfshirë',
   'pricing.loadError': 'Planet nuk mund të ngarkoheshin.',
   'pricing.maxQuizzes': '{{count}} kuize',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Asgjë nuk është publikuar ende.',
   'profile.startBuilding': 'Filloni ndërtimin →',
   'profile.tier': 'Lojtar i Sparq',
+  'quizBuilder.addFailed': 'Pyetja nuk mund të shtohej. Provo përsëri.',
   'quizBuilder.addQuestion': 'Shto pyetje',
   'quizBuilder.answerPlaceholder': 'Shkruaj një opsion…',
   'quizBuilder.answersLabel': 'Zgjedhjet e përgjigjeve',
   'quizBuilder.back': 'Kthehem te kuizet e mia',
   'quizBuilder.delete': 'Fshi pyetjen',
+  'quizBuilder.deleteFailed': 'Pyetja nuk mund të fshihej.',
   'quizBuilder.firstQuestion': 'Shtoni pyetjen tuaj të parë për të filluar.',
   'quizBuilder.idLabel': 'ID-ja e kuizit: {{id}}',
   'quizBuilder.loadError': 'Nuk mundi të ngarkonte kuizin.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Shtoni të paktën dy alternativa përgjigjeje dhe zgjidhni atë të saktën për {{count}} pyetje(a) para publikimit.',
   'quizBuilder.questionsTitle': 'Pyetje',
+  'quizBuilder.saveFailed': 'Titulli nuk mund të ruhej. Provo përsëri.',
   'quizBuilder.statusDraft': 'Draft',
   'quizBuilder.subhead':
     'Modifiko titullin, shto pyetje, cakto zgjedhjet dhe përgjigjen e saktë. Ndryshimet ruhen automatikisht.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Lojëra shumëlojtarëshe pritëse',
   'quizDetail.leaderboardEmpty': 'Ende pa shfaqje — ji i pari që vendos një rezultat.',
+  'quizDetail.loadError': 'Nuk mundi ta ngarkonte këtë kuiz.',
   'quizDetail.loading': 'Duke ngarkuar kuizin…',
   'quizDetail.plays': '{{count}} luan',
   'quizDetail.playSolo': 'Luaj solo',

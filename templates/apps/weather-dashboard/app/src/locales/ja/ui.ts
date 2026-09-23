@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'billing.subheading': '現在ご利用中のプランは{{plan}}です。',
   'billing.switch': '切り替え',
   'billing.upgraded': '{{plan}}に更新しました——上限は即時に適用されます。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'compare.activityHeading': 'アクティビティ判定',
   'compare.empty.title': '比較するには地点を2つ以上追加してください',
   'compare.eyebrow': '並列で比較',
@@ -135,5 +136,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': '最高',
   'trends.summary.low.label': '最低',
   'trends.summary.points.label': '日数',
+  'weatherDashboardLayout.primaryNavLabel': 'メインナビゲーション',
   'weatherHeroCard.updated': '{{time}}に更新',
 }

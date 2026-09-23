@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.pageTitle': 'Nípa {{app}}',
   'authShell.statusLabel': 'àwọn olùsáré lórí ayélujára',
   'collections.createError': 'Kò le ṣẹ̀dá àkójọpọ̀.',
   'collections.defaultName': 'Àkójọpọ̀ tí kò ní àkọlé {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Àkójọ tuntun',
   'collections.subheading':
     'Àwọn ìbéèrè ẹgbẹ́, pín pẹ̀lú ẹgbẹ́ rẹ, kí o sì ṣiṣẹ́ wọn gẹ́gẹ́ bí suite kan.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'environmentCard.inactive': 'Láìṣiṣẹ́',
   'environmentCard.more': 'jù bẹ́ẹ̀ lọ',
   'environmentCard.variables': 'Àwọn oníyípadà',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Ṣe igbasilẹ ọfẹ',
   'landing.heroSubtitle':
     'Iṣẹ́ ìdánwò API tó yára tó sì yára tó ṣe fún àwọn onímọ̀ ẹ̀rọ tó ń gbé ní àwọn ẹ̀rọ ìtẹ̀sí.',
+  'landing.heroTitleAccent': 'Iná',
+  'landing.heroTitleLine2': 'gbé ìgbẹ́kẹ̀lé kalẹ̀.',
+  'landing.heroTitleRest': 'awọn ibeere,',
   'landing.kicker': '$ pylon firanṣẹ --wo',
   'landing.pricingEyebrow': '// $ idiyele --pípé',
   'landing.pricingHeading': 'Iye owo ti o rọrun ati asọtẹlẹ',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Tuntun níbí?',
   'login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'login.subtitle': 'Tẹsiwaju si aaye iṣẹ Pylon rẹ.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'mocks.createError': 'Kò le ṣẹ̀dá àwòkọ́ṣe.',
   'mocks.defaultName': 'Àwòrán tí kò ní àkọlé {{n}}',
   'mocks.deleteError': 'Kò le pa àwòkọ́ náà rẹ́.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Pada si ibi iṣẹ',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'A ko ri ipa-ọna',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'privacy.collect.account':
     'Àkọọ́lẹ̀: ìmeeli rẹ, ọ̀rọ̀ìpamọ́ tí a fi hashed, orúkọ ìfihàn, àti àmì àkókò ìwọlé ìkẹyìn rẹ.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Ìwòye kíkà-nìkan ti dátà tí àkọọ́lẹ̀ yìí ní lọ́wọ́lọ́wọ́.',
   'settings.unset': 'kò ṣètò',
   'signup.identityHint': 'fún àpẹẹrẹ Alex',
+  'signup.statusLabel': 'ipele ọfẹ · ko si kaadi kirẹditi',
   'signup.subtitle': 'Bẹ̀rẹ̀ sí í fi àwọn ìbéèrè ìbọn sílẹ̀ ní ìṣẹ́jú díẹ̀.',
   'terms.account.body':
     'Ojúṣe rẹ ni láti dáàbò bo ọ̀rọ̀ìpamọ́ rẹ. Kò sí àkọọ́lẹ̀ kan tí a gbà láyè láti pínpín pẹ̀lú ọ̀pọ̀ ènìyàn lórí àwọn ètò Ọ̀fẹ́ tàbí Pro — ra ìforúkọsílẹ̀ Ẹgbẹ́ fún àwọn ibi iṣẹ́ tí a pín.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'Má ṣe lo Pylon láti fi ẹ̀bẹ̀ sí àwọn iṣẹ́ tí o kò ní tàbí tí o ní àṣẹ láti dán wò. Má ṣe lo Pylon láti yẹra fún ààlà owó oṣù tàbí láti ṣe jìbìtì.',
   'terms.warranty.body':
     'A pese Pylon “gẹ́gẹ́ bí ó ti rí” láìsí ìdánilójú èyíkéyìí. A fẹ́ kí àkókò ìṣiṣẹ́ wa jẹ́ 99.9% ṣùgbọ́n a kò ṣe ìdánilójú rẹ̀ lórí àwọn ètò ọ̀fẹ́ tàbí Pro.',
+  'testRunner.assertionsCount': 'Àwọn gbólóhùn {{count}}',
   'testRunner.createError': 'Kò le ṣẹ̀dá ìdánwò.',
   'testRunner.cron':
     'A ṣe àyẹ̀wò àwọn ìjẹ́wọ́ ní ìbámu pẹ̀lú ìbéèrè tí a so mọ́ ìdánwò yìí tí ó ṣẹ̀ṣẹ̀ wáyé.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Àwọn àbájáde Suite, ìyàtọ̀ ìjẹ́rìí, àti àwọn ìṣẹ́ 50 tó kẹ́yìn.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Wọlé gẹ́gẹ́ bí',
+  'workspace.auth.keyName': 'Orúkọ àkọlé',
+  'workspace.auth.keyValue': 'Iye pataki',
+  'workspace.auth.password': 'Ọ̀rọ̀ aṣínà',
+  'workspace.auth.username': 'Orúkọ orúkọ',
+  'workspace.authOption.apikey': 'Kọ́kọ́rọ́ API',
+  'workspace.authOption.basic': 'Ìfọwọ́sí Àkọ́kọ́',
+  'workspace.authOption.bearer': 'Àmì Olùgbé',
+  'workspace.authOption.none': 'Kò sí',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Irú',
   'workspace.authTypeLabel': 'Irú ìfọwọ́sí',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Kò sí',
+  'workspace.body.text': 'Ọ̀rọ̀ tí kò wọ́pọ̀',
+  'workspace.body.type': 'Irú',
   'workspace.environment': 'Ko si env',
   'workspace.envVar': 'ayípadà env',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Fi àkọlé kún un',
+  'workspace.kv.addParam': 'Fi paramita kun',
+  'workspace.kv.headerKey': 'Orúkọ àkọlé',
+  'workspace.kv.headerValue': 'Iye akọsori',
+  'workspace.kv.key': 'Kọ́kọ́rọ́',
+  'workspace.kv.paramKey': 'Kọ́kọ́rọ́ ìbéèrè param',
+  'workspace.kv.paramValue': 'Iye iye ìbéèrè',
+  'workspace.kv.removeRow': 'Yọ ìlà kúrò',
+  'workspace.kv.value': 'Iye',
   'workspace.methodLabel': 'Ọ̀nà HTTP',
   'workspace.metric.latency': 'Àìfaradà',
   'workspace.metric.latencyCaption': 'Ìrìn-àjò àtẹ̀gùn láti ibi ìsáré yìí',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Ìbéèrè tí a fi lé wọn lọ́wọ́ — wo ìdáhùn ní ìsàlẹ̀.',
   'workspace.subheading':
     'Kọ ìbéèrè kan, fi iná sun ún, lẹ́yìn náà kí o fi ìdáhùn náà hàn — gbogbo rẹ̀ ní ojú ìwé kan.',
+  'workspace.testResults': 'Àwọn èsì ìdánwò',
   'workspace.token': 'Àmì-ìdámọ̀ràn',
   'workspace.tokenHint': 'Ti firanṣẹ gẹ́gẹ́ bí àṣẹ: Olùgbà<token> lórí gbogbo ìbéèrè nínú àkójọ yìí.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

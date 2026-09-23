@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.title': 'உங்கள் பாக்கெட்டில் வைத்துக்கொள்ளக்கூடிய ஓர் எழுதும் அறை.',
   'billing.cancelConfirm': 'உங்கள் செயலில் உள்ள சந்தாவை ரத்து செய்யவா?',
   'billing.cancelFailed': 'ரத்து செய்ய முடியவில்லை.',
   'billing.checkingOut': 'பணம் செலுத்தும் இடம் திறக்கப்படுகிறது…',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'கட்டண விவரங்களை ஏற்ற முடியவில்லை.',
   'billing.loading': 'கட்டணம் ஏற்றப்படுகிறது…',
   'billing.upgradeCta': 'மேம்படுத்த {{name}}',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'editor.autosaveOn': 'தானாகச் சேமித்தல்',
   'editor.backToLibrary': 'நூலகத்திற்குத் திரும்பு',
   'editor.charCount': '{{count}} கதாபாத்திரங்கள்',
   'editor.confirmTrash': 'இந்த ஆவணத்தைக் குப்பைக்கு நகர்த்தவா?',
@@ -37,6 +41,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'அவிழ்க்கப்பட்டது',
   'editor.unpublishCta': 'வரைவுக்கு நகர்த்தவும்',
   'editor.unpublished': 'வரைவு நிலைக்குத் திரும்பியது',
+  'focus.autosaveOn': 'தானாகச் சேமித்தல்',
   'focus.backToLibrary': 'நூலகத்திற்குத் திரும்பு',
   'focus.bodyPlaceholder': 'ஒரு நேரத்தில் ஒரு வரி. இங்கே வேறு யாரும் இல்லை.',
   'focus.exit': 'கவனப் பயன்முறையிலிருந்து வெளியேறு',
@@ -83,6 +88,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ஒன்றை உருவாக்கு',
   'login.subline':
     'உங்கள் கையெழுத்துப் பிரதிகள், தினசரிப் பக்கங்கள் மற்றும் கடைசி கர்சர் நிலை ஆகியவை நீங்கள் விட்டுச்சென்ற இடத்திலேயே இருக்கின்றன.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'pricing.exports': 'ஏற்றுமதிகள்',
   'pricing.folders': 'கோப்புறைகள்',
   'pricing.heading': 'ஆவணங்கள்',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'நாங்கள் உங்களுக்கு இப்போது மின்னஞ்சல் அனுப்பிய குறியீட்டை உள்ளிட்டு, நினைவில் நிற்கும் ஒன்றைத் தேர்ந்தெடுக்கவும். அது சேமிக்கப்பட்டவுடன் நாங்கள் உங்களை உள்நுழையச் செய்வோம்.',
   'reset.tokenHint': 'உங்கள் இன்பாக்ஸிலிருந்து ஒட்டப்பட்டது.',
+  'settings.appearance.heading': 'ஒளி அல்லது இருள்',
   'settings.editor.${row.id}.description': 'மொழி',
   'settings.editor.description':
     'தட்டச்சு இயந்திரச் சுருள், பத்தி மங்கல் மற்றும் செயலற்ற குவியம் — — இயல்புநிலைகள் நீண்ட நேரப் பயன்பாடுகளுக்காகச் சரிசெய்யப்பட்டுள்ளன.',
@@ -141,6 +149,7 @@ export const ui: UiTranslations = {
     'அத்தியாயம் மூன்று — சூரிய உதயத்திற்கு முந்தைய ஓர் அமைதியான நேரம்',
   'versalDocumentCard.pinned': 'பின் செய்யப்பட்டது',
   'versalLayout.nav.stats': 'புள்ளிவிவரங்கள்',
+  'versalLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'versalManuscriptHero.cta': 'தொடர்ந்து எழுதவும்',
   'versalManuscriptHero.goalLabel': 'இன்றைய வார்த்தை இலக்கு',
   'versalManuscriptHero.inProgress': 'சரியான பாதையில்',

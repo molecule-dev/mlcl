@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.logout': 'လော့ဂ်အောက်',
   'dailyStatsTriad.heartsLabel': 'နှလုံးသားများ',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'ယနေ့ မိနစ်',
   'dailyStatsTriad.minutesValue': '{{count}} မိနစ်',
   'dailyStatsTriad.wordsLabel': 'စကားလုံးတွေကို ကျွမ်းကျင်အောင် လုပ်တတ်လာတယ်',
+  'dailyStatsTriad.wordsMasteryHint': 'ကျွမ်းကျင်ပိုင်နိုင်သော စကားလုံးများ ၄+',
   'dashboard.continueHeading': 'သင်ထားခဲ့သည့်နေရာမှ ဆက်လုပ်ပါ',
   'dashboard.heading': 'ဘူအီနိုဒီယာစ်၊ {{name}} ။',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'လေ့ကျင့်ခန်းများကို တင်၍မရပါ။',
   'lessonDetail.loading': 'သင်ခန်းစာကို တင်နေသည်…',
   'lessonDetail.submitError': 'အဖြေတင်သွင်း၍မရပါ။',
+  'lessonDetail.translation': 'စကားစုကို ဘာသာပြန်ပါ',
   'lessonDetail.xpEarned': 'ရရှိထားသော XP · {{xp}}',
   'lessons.empty': 'အဆင့်မှာ သင်ခန်းစာတွေ မရှိဘူး {{level}} ဒါပေမယ့် - တခြားအဆင့်ကို စမ်းကြည့်ပါ။',
   'lessons.eyebrow': 'သင်ခန်းစာစာကြည့်တိုက်',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Parlance မှာ အသစ်လား။',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.signUp': 'အခမဲ့စတင်ပါ →',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'parlanceLayout.nav.profile': 'ပရိုဖိုင်',
   'parlanceLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'practice.empty': 'လောလောဆယ်တွင် မည်သည့်စကားစုမျှ မရှိသေးပါ။',
   'practice.eyebrow': 'စကားပြောလေ့ကျင့်ခန်း',
   'practice.heading': 'ဖတ်ပါ။ မှတ်တမ်းတင်ပါ။ ပြုပြင်ပါ။',

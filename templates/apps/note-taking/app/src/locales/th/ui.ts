@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'forgot.eyebrow': 'หลงทางกลับเข้าไปหรือเปล่า?',
   'forgot.formSubtitle': 'โปรดแจ้งอีเมลที่ลงทะเบียนไว้ให้เราทราบ',
   'forgot.headline': 'รีเซ็ตรหัสผ่านของคุณ',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.headline': 'อ่านต่อจากจุดที่หน้าเว็บหยุดไว้',
   'login.signupLink': 'สร้างหนึ่งรายการ',
   'login.subline': 'สมุดบันทึก ลิงก์ และหน้าบันทึกประจำวันของคุณยังคงอยู่ที่เดิม',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'noteEditor.backToNotes': 'กลับไปที่บันทึก',
   'noteEditor.bodyPlaceholder': 'เริ่มเขียนได้เลย — บันทึกของคุณจะบันทึกอัตโนมัติขณะที่คุณพิมพ์',
   'noteEditor.confirmTrash': 'ย้ายบันทึกนี้ไปที่ถังขยะ?',
@@ -54,6 +57,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'สมุดบันทึกเล่มใหม่',
   'notes.newNotebookPrompt': 'ชื่อสมุดบันทึกใหม่',
   'notes.notebooksHeading': 'สมุดบันทึก',
+  'notes.subtitle': 'เลือกสมุดบันทึกทางด้านซ้าย จากนั้นกดปุ่ม "บันทึกใหม่" เพื่อเริ่มบันทึกใหม่',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'เลือกแผนการจดบันทึกของคุณ',
   'reset.eyebrow': 'เกือบกลับมาแล้ว',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'อัปเดตแล้ว',
   'versoLayout.nav.graph': 'กราฟ',
   'versoLayout.nav.home': 'บ้าน',
+  'versoLayout.primaryNavLabel': 'การนำทางหลัก',
   'versoNoteCard.pinned': 'ปักหมุด',
   'versoTodayHero.continueCta': 'เขียนต่อไป',
   'versoTodayHero.createCta': 'เริ่มบันทึกประจำวันนี้',

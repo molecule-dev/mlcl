@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.pageTitle': 'Sobre {{app}}',
   'authShell.statusLabel': 'corredors en línia',
   'collections.createError': "No s'ha pogut crear la col·lecció.",
   'collections.defaultName': 'Col·lecció sense títol {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Nova col·lecció',
   'collections.subheading':
     'Agrupa les sol·licituds, comparteix-les amb el teu equip i executa-les com un conjunt.',
+  'common.goToDashboard': 'Anar al panell',
   'environmentCard.inactive': 'Inactiu',
   'environmentCard.more': 'més',
   'environmentCard.variables': 'Variables',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Descarrega gratuïtament',
   'landing.heroSubtitle':
     "El banc de treball de proves d'API ultraràpid creat per a enginyers que viuen en terminals.",
+  'landing.heroTitleAccent': 'Foc',
+  'landing.heroTitleLine2': 'forjar confiança.',
+  'landing.heroTitleRest': 'sol·licituds,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// Preu de $ --plain',
   'landing.pricingHeading': 'Preus simples i predictibles',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ets nou aquí?',
   'login.showPassword': 'Mostra la contrasenya',
   'login.subtitle': 'Continua fins al teu espai de treball de Pylon.',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'mocks.createError': "No s'ha pogut crear una simulació.",
   'mocks.defaultName': 'Simulacre sense títol {{n}}',
   'mocks.deleteError': "No s'ha pogut suprimir el simulacre.",
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': "Torna a l'espai de treball",
   'notFound.eyebrow': '$ pylon resolue --strict',
   'notFound.title': 'Ruta no trobada',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'privacy.collect.account':
     'Compte: el vostre correu electrònic, la contrasenya codificada, el nom de visualització i la marca de temps del vostre darrer inici de sessió.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Una vista de només lectura de les dades que actualment posseeix aquest compte.',
   'settings.unset': 'no definit',
   'signup.identityHint': 'p. ex. Àlex',
+  'signup.statusLabel': 'nivell gratuït · sense targeta de crèdit',
   'signup.subtitle': 'Comença a activar sol·licituds en qüestió de minuts.',
   'terms.account.body':
     'Ets responsable de protegir la teva contrasenya. No es permet compartir un compte amb diverses persones en els plans gratuït o Pro; compra una subscripció a Team per a espais de treball compartits.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'No utilitzeu Pylon per generar sol·licituds a serveis que no sigueu propietaris o que no tingueu permís explícit per provar. No utilitzeu Pylon per eludir els límits de velocitat ni cometre frau.',
   'terms.warranty.body':
     'Pylon es proporciona "tal qual" sense cap mena de garantia. Aspirem a un temps de funcionament del 99,9%, però no ho garantim en els plans gratuït o professional.',
+  'testRunner.assertionsCount': '{{count}} assercions',
   'testRunner.createError': "No s'ha pogut crear la prova.",
   'testRunner.cron':
     "Les assercions s'avaluen en relació amb l'execució més recent de la sol·licitud enllaçada d'aquesta prova.",
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     "Resultats de la suite, diferències d'assercions i les últimes 50 execucions.",
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Has iniciat la sessió com a',
+  'workspace.auth.keyName': 'Nom de la capçalera',
+  'workspace.auth.keyValue': 'Valor clau',
+  'workspace.auth.password': 'Contrasenya',
+  'workspace.auth.username': "Nom d'usuari",
+  'workspace.authOption.apikey': 'Clau API',
+  'workspace.authOption.basic': 'Autenticació bàsica',
+  'workspace.authOption.bearer': 'Token del portador',
+  'workspace.authOption.none': 'Cap',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipus',
   'workspace.authTypeLabel': "Tipus d'autorització",
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Cap',
+  'workspace.body.text': 'Text sense processar',
+  'workspace.body.type': 'Tipus',
   'workspace.environment': 'Sense entorn',
   'workspace.envVar': "variable d'entorn",
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Afegeix una capçalera',
+  'workspace.kv.addParam': 'Afegeix un paràmetre',
+  'workspace.kv.headerKey': 'Nom de la capçalera',
+  'workspace.kv.headerValue': 'Valor de la capçalera',
+  'workspace.kv.key': 'Clau',
+  'workspace.kv.paramKey': 'Clau de paràmetre de consulta',
+  'workspace.kv.paramValue': 'Valor del paràmetre de consulta',
+  'workspace.kv.removeRow': 'Elimina la fila',
+  'workspace.kv.value': 'Valor',
   'workspace.methodLabel': 'Mètode HTTP',
   'workspace.metric.latency': 'Latència',
   'workspace.metric.latencyCaption': "Anada i tornada des d'aquesta cursa",
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Sol·licitud rebutjada; vegeu la resposta a continuació.',
   'workspace.subheading':
     'Redacta una sol·licitud, envia-la i després confirma la resposta, tot en un sol panell.',
+  'workspace.testResults': 'Resultats de les proves',
   'workspace.token': 'testimoni',
   'workspace.tokenHint':
     "Enviat com a autorització: Portador<token> a cada sol·licitud d'aquesta col·lecció.",

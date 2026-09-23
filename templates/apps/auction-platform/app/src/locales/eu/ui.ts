@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Behatzen',
   'auctionDetail.watchRemoved': 'Jarraipen-zerrendatik kendu da.',
   'auctionDetail.watchRemoveLabel': 'Kendu jarraipen-zerrendatik',
+  'auctionPlatformLayout.primaryNavLabel': 'Nabigazio nagusia',
   'authShell.brandBody':
     'Egin eskaintzak denbora errealean erloju arraroetan, artelanetan eta elementu berezi eta bakarrak lortzeko. Mailua segundo gutxitan erortzen da.',
   'authShell.brandEyebrow': 'Zuzenean orain · 1.420 enkante',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ordenatu honen arabera',
   'browseAuctions.subheading':
     'Iragazi kategoriaren arabera, ordenatu garrantzitsuenaren arabera eta egin eskaintza mailua erori baino lehen.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'countdownTimer.ended': 'Amaitu da',
   'countdownTimer.endingSoon': 'Amaiera',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Erakutsi pasahitza',
   'login.subtext':
     'Jarrai ezazu zure enkanteak jarraitzen eta egin eskaintzak mailua erori baino lehen.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'myBids.bidAgain': 'Berriro eskaintza egin',
   'myBids.browseCta': 'Arakatu zuzeneko enkanteak →',
   'myBids.checkoutCta': 'Ordaindu orain',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Jarduera-zentroa',
   'notificationsPage.subheading':
     '{{count}} irakurri gabe · zuzeneko eguneraketak enkanteak mugitzen diren heinean',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.bidsLabel': 'eskaintzak',
   'pricing.listingsLabel': 'zerrendak',
   'pricing.watchlistLabel': 'jarraipen-zerrenda',

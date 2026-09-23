@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'ስለ {{app}}',
+  'auth.legalConsent': 'በመቀጠል የእኛን ተቀብለዋል',
   'bookings.empty.body': 'የገቢ መልእክት ሳጥኑን ለመጀመር በረራ፣ ሆቴል ወይም እንቅስቃሴ ያክሉ።',
   'bookings.empty.heading': 'እስካሁን ምንም ቦታ ማስያዝ የለም።',
   'bookings.errors.create': 'ቦታ ማስያዝ መፍጠር አልተቻለም።',
@@ -21,6 +24,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'የተረጋገጠ',
   'bookings.summary.pending': 'ማረጋገጫ በመጠባበቅ ላይ',
   'bookings.summary.total': 'ጠቅላላ ቁርጠኛ',
+  'bookings.type.car': 'የኪራይ መኪና',
+  'bookings.type.flight': 'በረራ',
+  'bookings.type.hotel': 'ሆቴል',
   'bookings.type.other': 'ሌላ',
   'budgetSpendCard.budgetTotal': 'የ {{total}} የታቀደ',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -32,6 +38,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ግጭቶችን ለይተው ይወቁ፣ በጉዞዎች መካከል የማገገሚያ ቀናትን ያቅዱ፣ እና ተባባሪዎች ከእርስዎ ጋር የሚጓዙበትን ጊዜ ይመልከቱ።',
   'common.and': 'እና',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.budgetHeading': 'የበጀት ምት',
   'dashboard.empty.heading': 'እስካሁን ምንም ጉዞ የለም — አትላስህ ባዶ ነው።',
   'dashboard.eyebrow': 'የሚስዮን ቁጥጥር',
@@ -40,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'በእንቅስቃሴ ላይ ያሉ ጉዞዎች',
   'dashboard.viewAllExpenses': 'እያንዳንዱን ወጪ ይመልከቱ',
   'dashboard.viewAllTrips': 'እያንዳንዱን ጉዞ ይመልከቱ',
+  'dayTimelineRow.category.accommodation': 'ይቆዩ',
   'dayTimelineRow.category.transport': 'ትራንስፖርት',
   'destinationOrbCard.exploreCta': 'ወደ ጉዞ ያክሉ',
   'destinationOrbCard.tripCount': '{{count}} ጉዞዎች',
@@ -75,11 +83,15 @@ export const ui: UiTranslations = {
   'forgotPassword.submitPending': 'የመልሶ ማግኛ ኢሜይል በመላክ ላይ…',
   'forgotPassword.successHint': 'እስካሁን ኢሜይል የለም? የአይፈለጌ መልዕክት አቃፊዎን ይፈትሹ ወይም በተለየ አድራሻ እንደገና ይሞክሩ።',
   'forgotPassword.successSubheading': 'የመልሶ ማግኛ አገናኝ ልከናል ወደ {{email}} አገናኙ ለ30 ደቂቃዎች የሚሰራ ነው።',
+  'landing.cta.heading': '{{tagline}}።',
   'landing.cta.signup': 'ነፃ መለያ ይፍጠሩ',
+  'landing.cta.subheading':
+    'እስከ አምስት ጉዞዎች፣ አምስት ተባባሪዎች እና አምስት ማቆሚያዎች በነጻ ፕላኑ ላይ - በእውነተኛ ጊዜ ማመሳሰልን ጨምሮ፣ እና እቅዶችዎ ሲያድጉ ፕሮፌሽናል ገደቡን ያነሳል።',
   'landing.destinations.eyebrow': 'ቀጥሎ የት መሄድ ይቻላል',
   'landing.destinations.heading': 'በአርታዒ የተመረጡ መድረሻዎች',
   'landing.features.eyebrow': 'ዌይፖይንት እንዴት እንደሚሰራ',
   'landing.features.heading': 'ለተጓዦች የተሰራ ነው፣ ለተመን ሉሆች አይደለም።',
+  'landing.footer.tagline': '{{tagline}}።',
   'landing.hero.ctaPrimary': 'ነፃ ጉዞ ይጀምሩ',
   'landing.hero.ctaSecondary': 'የጉዞ ናሙና ይመልከቱ',
   'landing.hero.subtitle':
@@ -119,6 +131,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'አይሪስ ላርሰን',
   'signup.subheading':
     'እስከ 5 ከሚደርሱ ተባባሪዎች ጋር ጉዞዎችን ለማጋራት፣ ቦታ ማስያዝን ለማመሳሰል እና እያንዳንዱን ማረጋገጫ ወደ አንድ ቦታ ለመሳብ መለያ ይፍጠሩ።',
+  'signup.termsPrefix': 'መለያ በመፍጠር ከእኛ ጋር ተስማምተዋል',
   'tripCountdownHeroCard.budget': '{{used}} የ {{total}} ( {{pct}} % የበጀት)',
   'tripCountdownHeroCard.collaborators': '{{count}} ተጓዦች',
   'tripCountdownHeroCard.countdownLabel': 'ወደኋላ ቆጠራ',
@@ -191,5 +204,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'እስካሁን ምንም ጉዞዎች የሉም።',
   'trips.pastHeading': 'ያለፉ ጀብዱዎች',
   'trips.subheading': '{{count}} የጉዞ መርሃ ግብሮች - ያለፈው፣ የአሁን እና የአንድ ቀን።',
+  'waypointLayout.mobileNavClose': 'የአሰሳ ምናሌን ዝጋ',
   'waypointLayout.primaryNavLabel': 'ዋና አሰሳ',
 }

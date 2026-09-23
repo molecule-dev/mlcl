@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Acerca de {{app}}',
   'argentAuthShell.brandEyebrow': 'Prata · Ferramentas de riqueza',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Non é asesoramento sobre investimentos.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) hoxe',
   'argentAuthShell.sampleValue': '1.032.251 dólares',
   'argentLayout.primaryNavLabel': 'Navegación principal',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Non hai transaccións para este ticker.',
   'assetDetail.txHeading': 'As túas transaccións',
   'common.and': 'e',
+  'common.goToDashboard': 'Ir ao panel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Visión xeral da carteira',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Aínda non hai existencias.',
   'holdings.heading': 'Explotacións',
   'holdings.loadError': 'Non se puideron cargar as existencias.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Non é asesoramento sobre investimentos. A rendibilidade pasada non garante os resultados futuros.',
   'landing.eyebrow': 'Argent · Unha plataforma de ferramentas para a obtención de riqueza',
   'landing.features.heading': 'Todo o que un asesor construiría para si mesmo.',
   'landing.finalCta.heading': 'Devolve a disciplina ao teu portfolio.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} hai horas',
   'news.justNow': 'agora mesmo',
   'news.loadError': 'Non se puideron cargar as noticias.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'portfolioHeroCard.label': 'Valor da carteira',
   'pricing.holdingsLabel': 'explotacións',
   'pricing.newsLabel': 'artigos de noticias',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Eliminar conta',
   'settings.security.deleting': 'Eliminando…',
   'settings.security.heading': 'Seguridade',
+  'settings.security.newPassword': 'Novo contrasinal',
   'settings.security.password': 'Contrasinal',
   'settings.security.twoFactorEnable': 'Activar',
+  'settings.security.twoFactorInvalidCode': 'Código non válido',
+  'settings.security.twoFactorVerify': 'Verificar e activar',
   'settings.tax.error': 'Non se puido actualizar o método tributario.',
   'settings.tax.heading': 'Contabilidade de lotes fiscais',
   'settings.tax.method': 'Método predeterminado',

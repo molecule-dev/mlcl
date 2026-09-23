@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रतिक्रिया छ, सुविधा अनुरोध छ, वा बग फेला पार्नुभएको छ? आफ्नो खाता मेनुमा रहेको समर्थन लिङ्क मार्फत {{app}} टोलीमा पुग्नुहोस् — हरेक सन्देश वास्तविक मानिसकहाँ जान्छ।',
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'agentDetail.back': 'सबै एजेन्टहरू',
   'agentDetail.capabilities': 'क्षमताहरू',
   'agentDetail.delete': 'व्यक्तित्व मेटाउनुहोस्',
   'agentDetail.deleteConfirm': 'यो व्यक्तित्व मेटाउने हो? यसलाई पूर्ववत गर्न सकिँदैन।',
+  'agentDetail.deleteError': 'व्यक्तित्व मेटाउन सकिएन।',
   'agentDetail.eyebrow': 'व्यक्तित्व',
   'agentDetail.fetchError': 'व्यक्तित्व लोड गर्न सकिएन।',
   'agentDetail.save': 'व्यक्तित्व सेभ गर्नुहोस्',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'स्विच गर्दै...',
   'billing.updateError': 'अद्यावधिक सुरु गर्न सकिएन।',
   'billing.usageHeading': 'यस चक्रमा आवाजको प्रयोग',
+  'chatBubble.source.text': 'पाठ',
+  'chatBubble.source.voice': 'आवाज',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'conversation.defaultTitle': 'नयाँ कुराकानी',
   'conversation.empty': 'अहिलेसम्म कुनै सन्देश छैन। केही भनेर वा तल टाइप गरेर सुरु गर्नुहोस्।',
   'conversation.eyebrow': 'प्रत्यक्ष सत्र',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'बोल्ने बुद्धिमत्ता।',
   'landing.heroSubtitle':
     'तपाईंको प्राकृतिक प्रवाह बुझ्ने एआई भ्वाइस सहायक। कुराकानी गर्नुहोस्, विचार गर्नुहोस्, र आदेश दिनुहोस् - निर्बाध रूपमा।',
+  'landing.heroTitle': '{{tagline}}।',
   'landing.listening': 'सुन्दै...',
   'landing.naturallyBody':
     'कुनै ट्रिगर शब्दहरू छैनन्। कुनै कठोर आदेशहरू छैनन्। बोलीचालीले सन्दर्भ, अवरोधहरू, र मानव बोलीको सूक्ष्मता बुझ्छ — जस्तै सहकर्मीसँग कुराकानी गर्नु।',
@@ -114,6 +122,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'सत्र खोल्नुहोस्',
   'notFound.home': 'घर फर्कनुहोस्',
   'notFound.title': 'हामीले त्यो पृष्ठ सुन्न सकेनौं।',
+  'parlanceLayout.closeMenu': 'मेनु बन्द गर्नुहोस्',
+  'parlanceLayout.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'parlanceLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'pricing.conversations': '{{count}} कुराकानीहरू',
   'pricing.cta.startFree': 'नि:शुल्क सुरु गर्नुहोस्',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'कुनै पनि मिल्दोजुल्दो छैन',
   'search.eyebrow': 'आदेश प्यालेट',
   'search.fetchError': 'खोज अनुक्रमणिका लोड गर्न सकिएन।',
+  'search.static.profile.preview': 'प्रदर्शन नाम, ह्यान्डल, बायो',
   'search.static.voice.title': 'आवाज',
   'search.title': 'खोज भाषा',
   'search.transcriptPreview': 'ट्रान्सक्रिप्ट खोल्नुहोस्',

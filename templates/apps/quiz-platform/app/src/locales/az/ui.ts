@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.title': '{{app}} haqqında',
   'auth.login.noAccount': 'Sparq-da yenisiniz?',
   'auth.login.or': 'və ya davam edin',
   'auth.signup.or': 'və ya qeydiyyatdan keçin',
+  'common.confirm': 'Təsdiqləyin',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'common.loadError': 'Bu məzmunu yükləyərkən xəta baş verdi.',
+  'common.retry': 'Təkrar cəhd edin',
   'discover.collections.title': 'Kateqoriyaya görə axtarış',
   'discover.collections.viewAll': 'Kitabxananıza baxın →',
   'discover.empty.body': 'Fərqli bir kateqoriya sınayın və ya axtarışı təmizləyin.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Seriyanızı davam etdirmək, canlı oyunlara ev sahibliyi etmək və liderlik siyahısına yüksəlmək üçün hesaba daxil olun.',
   'myQuizzes.createButton': 'Yeni viktorina',
+  'myQuizzes.deleteConfirm': 'Birdəfəlik silinsin?',
   'myQuizzes.empty.createCta': 'İlk viktorina hazırlayın →',
   'myQuizzes.empty.created': 'Hələ viktorina yaratmamısınız.',
   'myQuizzes.empty.played': 'Hələ ki, heç bir viktorina dərc olunmayıb.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yüklənir…',
   'notifications.subhead':
     '{{count}} Oxunmamış qığılcımlar. Dəvətnamələr, liderlik lövhəsindəki hərəkətlər və nailiyyətlər hamısı bir axında.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.checkoutError': 'Ödəniş başlaya bilmədi. Zəhmət olmasa, yenidən cəhd edin.',
+  'pricing.heading': '{{app}} planınızı seçin',
   'pricing.included': 'Daxildir',
   'pricing.loadError': 'Planları yükləmək mümkün olmadı.',
   'pricing.maxQuizzes': '{{count}} viktorinalar',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Hələ heç nə dərc olunmayıb.',
   'profile.startBuilding': 'Tikintiyə başlayın →',
   'profile.tier': 'Sparq oyunçusu',
+  'quizBuilder.addFailed': 'Sualı əlavə etmək mümkün olmadı. Yenidən cəhd edin.',
   'quizBuilder.addQuestion': 'Sual əlavə edin',
   'quizBuilder.answerPlaceholder': 'Seçim yazın...',
   'quizBuilder.answersLabel': 'Cavab seçimləri',
   'quizBuilder.back': 'Testlərimə qayıdın',
   'quizBuilder.delete': 'Sualı silin',
+  'quizBuilder.deleteFailed': 'Sualı silmək mümkün olmadı.',
   'quizBuilder.firstQuestion': 'Başlamaq üçün ilk sualınızı əlavə edin.',
   'quizBuilder.idLabel': 'Test identifikatoru: {{id}}',
   'quizBuilder.loadError': 'Viktorina yüklənə bilmədi.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Ən azı iki cavab variantı əlavə edin və düzgün olanı seçin {{count}} Dərc etməzdən əvvəl sual(lar).',
   'quizBuilder.questionsTitle': 'Suallar',
+  'quizBuilder.saveFailed': 'Başlığı yadda saxlamaq mümkün olmadı. Yenidən cəhd edin.',
   'quizBuilder.statusDraft': 'Qaralama',
   'quizBuilder.subhead':
     'Başlığı redaktə edin, suallar əlavə edin, seçimləri və düzgün cavabı təyin edin. Dəyişikliklər avtomatik olaraq yadda saxlanılır.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} dəq',
   'quizDetail.hostMultiplayer': 'Çoxlu oyunçu qəbul edir',
   'quizDetail.leaderboardEmpty': 'Hələ oyun yoxdur — hesabı ilk qoyan siz olun.',
+  'quizDetail.loadError': 'Bu testi yükləmək mümkün olmadı.',
   'quizDetail.loading': 'Viktorina yüklənir…',
   'quizDetail.plays': '{{count}} tamaşalar',
   'quizDetail.playSolo': 'Təkbaşına çalın',

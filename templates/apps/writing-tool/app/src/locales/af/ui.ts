@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.title': "'n Skryfkamer wat jy in jou sak kan hou",
   'billing.cancelConfirm': 'Kanselleer jou aktiewe intekening?',
   'billing.cancelFailed': 'Kon nie kanselleer nie.',
   'billing.checkingOut': 'Maak afhandeling oop…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Kon nie fakturering laai nie.',
   'billing.loading': 'Laai fakturering…',
   'billing.upgradeCta': 'Gradeer op na {{name}}',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'editor.autosaveOn': 'Outomaties stoor aan',
   'editor.backToLibrary': 'Terug na die biblioteek',
   'editor.charCount': '{{count}} karakters',
   'editor.confirmTrash': 'Skuif hierdie dokument na die asblik?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Ontspeld',
   'editor.unpublishCta': 'Skuif na konsep',
   'editor.unpublished': 'Teruggekeer na konsep',
+  'focus.autosaveOn': 'Outomaties stoor aan',
   'focus.backToLibrary': 'Terug na die biblioteek',
   'focus.bodyPlaceholder': "Een ry op 'n slag. Niemand anders is hier nie.",
   'focus.exit': 'Verlaat fokusmodus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Skep een',
   'login.subline':
     'Jou manuskripte, daaglikse bladsye en laaste wyserposisie is presies waar jy hulle gelos het.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'pricing.exports': 'uitvoere',
   'pricing.folders': 'lêers',
   'pricing.heading': 'dokumente',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Voer die kode in wat ons so pas per e-pos aan jou gestuur het en kies iets onvergeetliks. Ons sal jou aanmeld sodra dit gestoor is.',
   'reset.tokenHint': 'Geplak uit jou inboks.',
+  'settings.appearance.heading': 'Lig of donker',
   'settings.editor.${row.id}.description': 'Taal',
   'settings.editor.description':
     'Tikmasjienblaai, paragraafvervaag en onaktiewe fokus — verstekwaardes is ingestel vir lang sessies.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': "Hoofstuk Drie — 'n Stil Uur Voor Sonsopkoms",
   'versalDocumentCard.pinned': 'Vasgepen',
   'versalLayout.nav.stats': 'Statistiek',
+  'versalLayout.primaryNavLabel': 'Primêre navigasie',
   'versalManuscriptHero.cta': 'Gaan voort met skryf',
   'versalManuscriptHero.goalLabel': 'Vandag se woorddoelwit',
   'versalManuscriptHero.inProgress': 'Op koers',

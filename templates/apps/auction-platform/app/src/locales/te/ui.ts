@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'చూడటం',
   'auctionDetail.watchRemoved': 'వాచ్‌లిస్ట్ నుండి తొలగించబడింది.',
   'auctionDetail.watchRemoveLabel': 'వాచ్‌లిస్ట్ నుండి తొలగించండి',
+  'auctionPlatformLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'authShell.brandBody':
     'అరుదైన వాచీలు, లలిత కళలు మరియు అద్వితీయమైన ప్రత్యేక వస్తువులపై నిజ సమయంలో వేలం వేయండి. క్షణాల్లో సుత్తి పడుతుంది.',
   'authShell.brandEyebrow': 'ప్రస్తుతం ప్రత్యక్ష ప్రసారం · 1,420 వేలంపాటలు',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'క్రమబద్ధీకరించు',
   'browseAuctions.subheading':
     'వర్గం వారీగా ఫిల్టర్ చేయండి, అత్యంత ముఖ్యమైన వాటి ప్రకారం క్రమబద్ధీకరించండి మరియు సుత్తి పడేలోపు బిడ్ వేయండి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'countdownTimer.ended': 'ముగిసింది',
   'countdownTimer.endingSoon': 'ముగింపు',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.subtext': 'మీ వేలంపాటలను ట్రాక్ చేస్తూ ఉండండి మరియు సుత్తి పడేలోపు బిడ్లు వేయండి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'myBids.bidAgain': 'మళ్ళీ బిడ్ చేయండి',
   'myBids.browseCta': 'ప్రత్యక్ష వేలంపాటలను చూడండి →',
   'myBids.checkoutCta': 'ఇప్పుడే చెల్లించండి',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'కార్యకలాపాల కేంద్రం',
   'notificationsPage.subheading':
     '{{count}} చదవనివి · వేలం ముందుకు సాగుతున్న కొద్దీ ప్రత్యక్ష నవీకరణలు',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.bidsLabel': 'బిడ్లు',
   'pricing.listingsLabel': 'జాబితాలు',
   'pricing.watchlistLabel': 'వాచ్‌లిస్ట్',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
   'authShell.samplePreview':
     '«Салам команда, жаңы башкаруу панели сонун экен — бизге дал ушул керек болчу!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/кыска жол',
   'automations.subheading':
     'Эрежелер, даяр жооптор жана чатботтор — командаңыз татаал иштерге көңүл буруп жатканда, жумуш ордун ызы-чуу менен иштетип туруңуз.',
+  'automations.trigger.inboundMessage': 'Кирүүчү билдирүү',
   'automations.triggerLabel': 'Триггер',
   'chatBubble.internalNoteLabel': 'Ички эскертүү',
+  'common.confirmDelete': 'Өчүрүүнү ырастоо',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'contactDetail.backToContacts': 'Бардык байланыштар',
   'contactDetail.contactFallback': 'Байланыш',
   'contactDetail.conversationFallback': 'Сүйлөшүү',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Акыркы жолу көрүлгөн',
   'contacts.empty': 'Азырынча байланыштар жок. Жогоруда биринчи байланышыңызды кошуңуз.',
   'contacts.eyebrow': 'Кардарлардын каталогу',
+  'contacts.form.nameOrEmailRequired': 'Жок дегенде аты-жөнүн же электрондук почта дарегин бериңиз',
   'contacts.form.save': 'Байланышты сактоо',
   'contacts.heading': 'Байланыштар',
   'contacts.loading': 'Байланыштар жүктөлүүдө…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Эскертүүнү сактоо',
   'conversationDetail.tab.note': 'Ички эскертүү',
   'conversationDetail.threadAria': 'Сүйлөшүү билдирүүлөрү',
+  'conversationDetail.visitorFallback': 'Конок',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Кардардын маалыматтары',
   'customerProfilePanel.recentTitle': 'Акыркы сүйлөшүүлөр',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Кардарлар биринчи жоопторун алышат {{time}} орточо эсеп менен — ыргакты сактаңыз.',
   'inboxHeroCard.title': 'Активдүү сүйлөшүүлөр',
+  'inboxLayout.navDrawerLabel': 'Навигация',
+  'inboxLayout.openMenu': 'Навигация менюсун ачуу',
   'inboxOverview.eyebrow': 'Бүгүн бир көз карашта',
   'inboxOverview.heroChange': '{{count}} ачык',
   'inboxOverview.kpiClosedTrend': 'бардык убактагы',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Башкы бетке өтүңүз',
   'notifications.subheading':
     'Тапшырмалар, @эскерүүлөр, SLA тобокелдиктери, CSAT пикири жана командалык иш-аракеттер — эң жаңысынан баштап иреттелген.',
+  'notifications.subjectFallback': 'сүйлөшүү',
+  'notifications.visitorFallback': 'Конок',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Жогорку',
   'priority.low': 'Төмөн',
+  'priority.normal': 'Нормалдуу',
   'priority.urgent': 'Шашылыш',
   'privacy.title': 'Купуялык саясаты',
   'reports.agentFallback': 'Агент',

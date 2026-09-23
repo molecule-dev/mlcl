@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.title': 'Perihal {{app}}',
   'comments.addFailed': 'Tidak dapat menyiarkan komen.',
   'comments.backToDoc': 'Kembali ke manuskrip',
   'comments.deleteFailed': 'Tidak dapat memadam.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Selesaikan',
   'comments.resolveFailed': 'Tidak dapat diselesaikan.',
   'comments.subtitle': '{{open}} buka · {{resolved}} diselesaikan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.activityHeading': 'Apa yang sedang berlaku',
   'dashboard.createFailed': 'Tidak dapat membuat dokumen.',
   'dashboard.empty': 'Tiada manuskrip lagi — mulakan dengan butang Dokumen baharu.',
@@ -54,12 +57,15 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Tidak dapat mengalihkan ke sampah.',
   'editor.unpublish': 'Nyahterbitkan',
   'editor.untitled': 'Dokumen Tanpa Tajuk',
+  'editor.updatedElsewhere':
+    'Dokumen ini telah dikemas kini oleh orang lain — muat semula untuk melihat yang terkini.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'penulis@studio.com',
   'forgotPassword.sentBody':
     'Jika akaun wujud untuk {{email}} , pautan tetapan semula sedang dalam proses.',
   'forgotPassword.subtitle':
     'Kami akan menghantar pautan tetapan semula melalui e-mel kepada anda.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Dibina dengan Molekul.',
   'landing.ctaHeading': 'Buka halaman. Biarkan kursor bermula.',
   'landing.ctaPrimary': 'Buka studio',
   'landing.eyebrow': 'Untuk penulis, editor dan pasukan',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'disunting {{when}}',
   'quillonDocumentCard.open': 'Buka →',
   'quillonKpiCard.trend': 'Trend terkini',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Navigasi utama',
   'quillonStudioHero.collab': 'Kolaborator',
   'quillonStudioHero.docs': 'Dokumen yang disentuh',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}h lalu',
   'time.hoursAgo': '{{hours}}j lalu',
   'time.justNow': 'baru sahaja',
+  'trash.confirmDelete': 'Sahkan pemadaman',
   'trash.deleteFailed': 'Tidak dapat memadam.',
   'trash.deleteForever': 'Padam selamanya',
   'trash.empty': 'Tiada apa yang perlu dipulihkan.',
+  'trash.emptyAll': 'Kosongkan tong sampah',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Tong Sampah',
   'trash.loadFailed': 'Gagal memuatkan tong sampah.',

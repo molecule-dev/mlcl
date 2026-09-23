@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}(r)i buruz',
   'analytics.back': 'Inkestaren ikuspegi orokorra',
   'analytics.kpiNps': 'NPS puntuazioa',
   'analytics.kpiNpsTrend': 'Sustatzaileak {{p}} % · Detraktoreak {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Ezaugarriak',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Inkestaren izenburua',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'forgotPassword.failed': 'Ezin izan da berrezartzeko mezu elektronikoa bidali. Saiatu berriro.',
   'forgotPassword.subheading':
     'Sartu zure helbide elektronikoa eta berreskuratzeko esteka bat bidaliko dizugu.',
   'forgotPassword.successBody':
     'Kontu bat bat badator {{email}} , berrezartzeko esteka bidean da. Begiratu zure sarrera-ontzia eta spam karpetak.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Ahots guztiak ongi etorriak dira.',
   'landing.footer.startTrial': 'Hasi probaldia',
   'landing.hero.badge': 'Inkestak, NPS eta iritziak leku bakarrean',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Prezioak',
   'landing.pricing.perMonth': '/hilean',
   'landing.pricing.popular': 'Ezagunenak',
+  'landing.pricing.subtitle':
+    'Plan guztiek inkesta sortzailea, partekatzeko estekak publikoki eta NPS analisiak barne hartzen dituzte. Ez da kreditu txartelik behar hasteko.',
+  'landing.pricing.title': 'Hasi doan, eskalatu ahala.',
   'landing.sample.eyebrow': 'NPS begirada batean',
   'landing.sample.title': 'Detraktoreak, pasiboak, sustatzaileak — berehala irakurtzeko modukoa.',
   'login.failed': 'Saioa hastea huts egin du. Saiatu berriro.',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Erakutsi pasahitza',
   'login.signUpLink': 'Hasi doako proba bat',
   'login.subheading': 'Hasi saioa zure publikoari entzuten jarraitzeko.',
+  'notFound.body':
+    'Bilatzen ari zaren orrialdea ez dago {{app}} en. Itzul gaitezen zure inkestetara.',
   'notFound.cta': 'Inkestetara itzuli',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Inkesta hau ilaratik kanpo geratu da.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasiboa 7–8',
   'npsDistributionBar.promoter': '9–10 sustatzailea',
   'profile.identity.description': 'Publikoa zure taldearentzat eta zuk idatzitako inkestetan.',
+  'profile.identity.emailRequired': 'Sartu helbide elektroniko bat.',
   'profile.identity.saveCta': 'Gorde izena',
   'profile.password.current': 'Uneko pasahitza',
   'profile.password.fillFields': 'Sartu uneko pasahitz-a eta pasahitz berria.',
@@ -179,6 +188,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} galderak',
   'templates.subheading':
     'Aukeratu guduan probatutako hasierako txantiloi bat — txantiloi guztiak aurrez doitutako lehenetsi zentzuzkoekin, logika eredugarriarekin eta mugikorrerako diseinu garbi batekin datoz.',
+  'thankYou.body':
+    'Zure erantzuna grabatu da. {{app}} -k hurrengo analisi-freskapenean sartuko du.',
   'thankYou.eyebrow': 'Jasotako erantzuna',
   'thankYou.heading': 'Eskerrik asko — zure ahotsak axola du.',
   'thankYou.home': 'Bisitatu Gauge',

@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'نقش شما',
   'account.role.upgradeLink': 'برای تبدیل شدن به یک مدرس تأیید شده درخواست دهید →',
   'account.title': 'مشخصات، پرداخت و تنظیمات برگزیده.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'تدریس روی گچ',
   'becomeTutor.form.error': 'نتوانست درخواست ارسال کند.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'موضوع',
   'bookingConfirm.title': 'وقتت تمومه. بقیه‌اش رو خودمون انجام می‌دیم.',
   'bookingConfirm.with': 'با معلم خصوصی',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'earningsHero.eyebrow': 'درآمدها • {{month}}',
   'forgotPassword.heading': 'رمز عبور خود را فراموش کرده‌اید؟',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'ارسال پیام',
   'messages.thread.empty': 'سلام کن - مکالمه را شروع کن.',
   'messages.title': 'گفتگو با اساتید شما.',
+  'nav.primary': 'اولیه',
   'pricing.dataExport': 'صادرات داده:',
   'pricing.headingDefault': 'ویژگی‌های پیشرفته:',
   'resetPassword.heading': 'یک رمز عبور جدید و قوی انتخاب کنید.',

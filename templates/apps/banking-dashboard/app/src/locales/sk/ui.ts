@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'accountDetail.activeBadge': 'Aktívne',
   'accountDetail.availableLabel': '{{amount}} k dispozícii',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Načítanie účtov sa nepodarilo.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Frozen',
   'accounts.totalBalance': '{{suma}} spolu',
   'audit.empty': 'Zatiaľ žiadne udalosti.',
   'audit.eyebrow': 'Zabezpečenie a prístup',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Hotovosť na ruke',
   'cashCreditCard.creditLabel': 'Použitý kredit',
   'cashCreditCard.title': 'Hotovosť a úver',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Prehľad',
   'dashboard.recentEmpty': 'Zatiaľ neboli vykonané žiadne transakcie.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Zobraziť heslo',
   'login.signUp': 'Zaregistrovať sa',
   'login.submit': 'Prihlásiť sa',
+  'meridianLayout.menu': 'Ponuka',
   'meridianLayout.primaryNavLabel': 'Hlavná navigácia',
   'nav.legal': 'Právne',
   'notifications.emptyHeading': 'Všetko máte prehľad',
   'notifications.subheading': 'Upozornenia v reálnom čase na transakcie, zabezpečenie a výpisy.',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'privacy.dataWeShare':
     'Osobné bankové údaje sa nikdy nepredávajú. Informácie zdieľame so spracovateľmi platieb, sieťami kariet a regulačnými orgánmi iba v prípade potreby na vyrovnanie transakcií alebo splnenie zákonných povinností.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Dvojfaktorová kontrola pri každom prihlásení pridá jednorazový kód z overovacej aplikácie.',
   'settings.security.twoFactorCta': 'Spravovať dvojfaktorové overenie',
+  'settings.security.twoFactorOff': 'Dvojfaktorová autentifikácia je vypnutá',
   'settings.signOutDevice': 'Odhlásiť sa',
   'settings.subheading': 'Profil, zabezpečenie a upozornenia.',
+  'settings.twoFactorCode': 'Overovací kód',
   'settings.twoFactorDisable': 'Vypnúť',
   'settings.twoFactorEnable': 'Zapnúť',
+  'settings.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.twoFactorVerify': 'Overiť a aktivovať',
   'signup.emailLabel': 'E-mailová adresa',
   'signup.fullName': 'Ako vás máme oslovovať?',
   'signup.showPassword': 'Zobraziť heslo',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Zatiaľ neboli vykonané žiadne transakcie.',
   'transactions.endDate': 'Dátum ukončenia',
   'transactions.eyebrow': 'Aktivita',
+  'transactions.loadError': 'Načítanie transakcií sa nepodarilo.',
   'transactions.merchant': 'Obchodník',
+  'transactions.subheading': 'Všetky zaúčtované a nevybavené transakcie na všetkých vašich účtoch.',
   'transfers.availableHint': '{{amount}} k dispozícii',
   'transfers.errorGeneric': 'Prevod sa nepodarilo odoslať.',
   'transfers.errorMissingFields': 'Vyberte zdrojový účet a cieľový účet.',

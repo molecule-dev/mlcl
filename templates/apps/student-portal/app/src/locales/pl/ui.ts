@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'announcementsFeed.empty': 'Brak ogłoszeń.',
   'announcementsFeed.eyebrow': '{{count}} aktualizacji',
   'announcementsFeed.title': 'Najnowsze ogłoszenia',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Nic tutaj nie ma',
   'assignments.emptyBody': 'Proszę zmienić filtry powyżej, aby zobaczyć zadania w innym stanie.',
   'assignments.eyebrow': 'Wszystkie przedmioty · Ten semestr',
+  'assignments.loadError': 'Nie udało się załadować zadań.',
   'assignments.loading': 'Ładowanie zadań…',
   'assignments.subtitle':
     'Filtrowanie według statusu pokaże, co jest do oddania, oddane, ocenione lub brakujące.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Notatka',
   'attendance.empty': 'Brak zapisów obecności.',
   'attendance.eyebrow': 'Semestr wiosenny · Ostatnie 4 tygodnie',
+  'attendance.loadError': 'Nie udało się załadować rejestrów obecności.',
   'attendance.loading': 'Ładowanie obecności…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': 'Rok szkolny · {{year}}',
   'calendar.subtitle': 'Terminy zadań na miesięcznej siatce — egzaminy wyróżnione na czerwono.',
   'calendar.title': 'Wydarzenia w miesiącu {{month}}',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
+  'common.retry': 'Spróbuj ponownie',
   'common.yes': '✓',
   'courseDetail.backLink': 'Oceny',
   'courseDetail.currentGrade': 'Bieżąca ocena',
@@ -71,11 +76,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendencja',
   'grades.empty': 'Brak wystawionych ocen.',
   'grades.eyebrow': 'Dziennik ocen',
+  'grades.loadError': 'Nie udało się załadować ocen.',
   'grades.loading': 'Ładowanie ocen…',
   'grades.subtitle':
     'Oceny literowe i procentowe na żywo. Strzałki tendencji pokazują, czy Pan/Pani idzie w górę, utrzymuje poziom, czy spada.',
   'grades.title': 'Oceny, przedmiot po przedmiocie',
   'grades.trendStable': 'Stabilna',
+  'landing.copyright': '© {{year}} {{app}} . Stworzone dla studentów, stworzone dla rodzin.',
   'landing.ctaHeading': 'Spokojniejszy dzień szkolny zaczyna się w kilka minut',
   'landing.eyebrow': 'Dla uczniów gimnazjum i liceum',
   'landing.featuresHeading': 'Dzień szkolny zorganizowany wokół ucznia',
@@ -110,12 +117,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Zadania',
   'nav.attendance': 'Obecność',
   'nav.calendar': 'Kalendarz',
+  'nav.closeMenu': 'Zamknij menu nawigacyjne',
   'nav.grades': 'Oceny',
+  'nav.openMenu': 'Otwórz menu nawigacyjne',
   'nav.statusEyebrow': 'GPA semestru',
   'nav.statusSubtext': 'Lista wzorowych · Semestr wiosenny',
+  'nav.unreadMessages': 'Nieprzeczytane wiadomości',
   'notifications.eyebrow': '{{count}} aktualizacji',
   'notifications.subtitle':
     'Oceny, przypomnienia, wiadomości i ogłoszenia szkolne. Proszę dostosować w Ustawieniach, których kanałów używa każde powiadomienie.',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.attendanceLabel': 'obecność',
   'pricing.gradesLabel': 'oceny',
   'pricing.heading': 'ogłoszeń',

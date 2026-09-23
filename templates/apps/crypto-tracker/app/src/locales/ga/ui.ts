@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Maidir',
   'alertConditionCard.condition.${alert.condition}': 'Spreagtha {{nuair}}',
+  'alertConditionCard.confirmDelete': 'Deimhnigh scriosadh',
   'alertConditionCard.pauseAriaLabel': 'Cuir foláireamh ar sos',
   'alertConditionCard.resumeAriaLabel': 'Foláireamh atosú',
   'alertNew.condition': 'Coinníoll',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Luacháil lánchaolaithe',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Suíomh gréasáin',
+  'coinDetail.links.whitepaper': 'Páipéar Bán',
   'coinDetail.loadError': 'Theip ar an mbonn a luchtú.',
   'coinDetail.marketCap': 'Caipitil mhargaidh',
   'coinDetail.maxSupply': 'Uasmhéid soláthair',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ní réitíonn an bealach a scanadh tú le mona nó leathanach aitheanta. Athsheiceáil an tsiombail agus déan iarracht eile.',
   'notFound.browseMarkets': 'Brabhsáil margaí',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'portfolio.addError': 'Cuir isteach siombail, méid dearfach, agus costas.',
   'portfolio.addHoldingCta': '+ Cuir sealbhaíocht leis',
   'portfolio.addModal.cost': 'Bunús costais (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Déanann do chuntas bainistíocht ar phasfhocail agus ar shocruithe dhá fhachtóir.',
   'settings.signOutDevice': 'Sínigh amach',
+  'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'sigilAuthShell.backHomeCta': '← Ar ais go Bourse',
   'sigilLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'signup.eyebrow': 'Oscail críochfort',

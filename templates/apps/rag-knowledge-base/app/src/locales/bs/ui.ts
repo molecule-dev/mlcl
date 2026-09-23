@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.pageTitle': 'O nama {{appName}}',
   'analytics.error': 'Nije moguće učitati analitiku.',
   'analytics.heading': 'Analitika preuzimanja',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nisu konfigurirani cjenovni nivoi.',
   'billing.plans.heading': 'Planovi',
   'billing.subheading': 'Plan, korištenje i naplata kojom upravlja Stripe.',
+  'common.confirm': 'Potvrdi',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
+  'common.retry': 'Pokušaj ponovo',
   'documentCard.open': 'Otvori \\u2192',
   'documentDetail.back': 'Nazad na dokumente',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksni dokument',
   'documents.composer.titlePlaceholder': 'Naziv dokumenta',
   'documents.emptyAll': 'Još nema dokumenata. Otpremite jedan da biste počeli postavljati pitanja.',
+  'documents.error.load': 'Nije moguće učitati dokumente.',
   'documents.heading': 'Indeksirani dokumenti',
   'documents.loading': 'Učitavanje dokumenata…',
   'documents.metric.chunks': 'Ukupan broj dijelova',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Uklanjanje\\u2026',
   'members.subheading': 'Pozovite saigrače i odredite uloge.',
   'members.tableHeading': 'Spisak igrača',
+  'mobileNav.closeMenu': 'Zatvori navigacijski meni',
+  'mobileNav.openMenu': 'Otvori navigacijski meni',
   'notFound.askCta': 'Pitajte bazu znanja',
+  'notFound.body':
+    '{{app}} nije mogao/mogla pronaći tu stranicu. Link možda ne radi ili je stranica možda uklonjena tokom ponovnog indeksiranja.',
   'notFound.eyebrow': 'Nije moguće preuzeti',
   'notFound.title': 'Nema takvog dijela u indeksu',
   'notifications.dismiss': 'Odbaci',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Kliknite na \\u201cDodaj izvor\\u01d da biste povezali svoj prvi konektor.',
   'sources.empty.title': 'Još nema izvora.',
+  'sources.error.add': 'Nije moguće dodati izvor.',
   'sources.error.labelRequired': 'Oznaka je obavezna.',
   'sources.error.load': 'Nije moguće učitati izvore.',
   'sources.error.urlRequired': 'Za ovu vrstu izvora potreban je URL.',

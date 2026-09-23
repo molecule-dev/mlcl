@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
+  'about.title': '주머니 속에 넣어 다닐 수 있는 글쓰기 공간',
   'billing.cancelConfirm': '활성 구독을 취소하시겠습니까?',
   'billing.cancelFailed': '취소할 수 없습니다.',
   'billing.checkingOut': '결제 화면을 여는 중…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': '결제 정보를 불러올 수 없습니다.',
   'billing.loading': '결제 정보를 불러오는 중…',
   'billing.upgradeCta': '{{name}}(으)로 업그레이드',
+  'common.goToDashboard': '대시보드로 이동',
+  'editor.autosaveOn': '자동 저장 켜짐',
   'editor.backToLibrary': '라이브러리로 돌아가기',
   'editor.charCount': '{{count}}자',
   'editor.confirmTrash': '이 문서를 휴지통으로 이동하시겠습니까?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': '고정 해제됨',
   'editor.unpublishCta': '초안으로 이동',
   'editor.unpublished': '초안으로 되돌렸습니다',
+  'focus.autosaveOn': '자동 저장 켜짐',
   'focus.backToLibrary': '라이브러리로 돌아가기',
   'focus.bodyPlaceholder': '한 줄씩. 여기에는 아무도 없습니다.',
   'focus.exit': '집중 모드 종료',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.headline': '내려놓았던 줄을 다시 잡으세요.',
   'login.signupLink': '만들기',
   'login.subline': '원고, 일일 작업, 그리고 마지막 커서 위치가 그대로 남아 있습니다.',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'pricing.exports': '내보내기',
   'pricing.folders': '폴더',
   'pricing.heading': '문서',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     '방금 이메일로 보낸 코드를 입력하고 기억하기 쉬운 비밀번호를 선택하세요. 저장되는 즉시 로그인됩니다.',
   'reset.tokenHint': '받은편지함에서 붙여넣으세요.',
+  'settings.appearance.heading': '밝거나 어둡거나',
   'settings.editor.${row.id}.description': '언어',
   'settings.editor.description':
     '타자기 스크롤, 단락 페이드 효과, 유휴 포커스 효과 등은 장시간 사용에 최적화되어 있습니다.',
@@ -136,6 +144,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': '3장 — 해 뜨기 전 조용한 한 시간',
   'versalDocumentCard.pinned': '고정됨',
   'versalLayout.nav.stats': '통계',
+  'versalLayout.primaryNavLabel': '기본 탐색',
   'versalManuscriptHero.cta': '계속 쓰기',
   'versalManuscriptHero.goalLabel': '오늘의 단어 목표',
   'versalManuscriptHero.inProgress': '순조롭게 진행 중',

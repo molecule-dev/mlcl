@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.title': 'O aplikaci {{app}}',
   'comments.addFailed': 'Nepodařilo se odeslat komentář.',
   'comments.backToDoc': 'Zpět k rukopisu',
   'comments.deleteFailed': 'Odstranění se nezdařilo.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Vyřešit',
   'comments.resolveFailed': 'Nelze vyřešit.',
   'comments.subtitle': '{{open}} otevřít · problém „{{resolved}}“ vyřešen',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.activityHeading': 'Co se děje',
   'dashboard.createFailed': 'Nelze vytvořit dokument.',
   'dashboard.empty': 'Zatím žádné rukopisy – začněte kliknutím na tlačítko Nový dokument.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Nepodařilo se přesunout do koše.',
   'editor.unpublish': 'Zrušit zveřejnění',
   'editor.untitled': 'Dokument bez názvu',
+  'editor.updatedElsewhere':
+    'Tento dokument byl aktualizován někým jiným – pro zobrazení nejnovějších aktualizací jej znovu načtěte.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Pokud existuje účet s adresou {{email}}, odesíláme vám odkaz pro resetování hesla.',
   'forgotPassword.subtitle': 'Zašleme vám e-mailem odkaz pro obnovení hesla.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Vytvořeno pomocí Molecule.',
   'landing.ctaHeading': 'Otevřete stránku. Nechte kurzor začít.',
   'landing.ctaPrimary': 'Otevřít studio',
   'landing.eyebrow': 'Pro autory, redaktory a týmy',
@@ -107,6 +113,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'upraveno {{when}}',
   'quillonDocumentCard.open': 'Otevřít →',
   'quillonKpiCard.trend': 'Současný trend',
+  'quillonLayout.menu': 'Nabídka',
   'quillonLayout.primaryNavLabel': 'Primární navigace',
   'quillonStudioHero.collab': 'Spolupracovníci',
   'quillonStudioHero.docs': 'Dokumenty, s nimiž se pracovalo',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': 'před {{days}}d',
   'time.hoursAgo': 'před {{hours}}h',
   'time.justNow': 'právě teď',
+  'trash.confirmDelete': 'Potvrdit smazání',
   'trash.deleteFailed': 'Odstranění se nezdařilo.',
   'trash.deleteForever': 'Trvale smazat',
   'trash.empty': 'Není co obnovit.',
+  'trash.emptyAll': 'Vyprázdnit koš',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Koš',
   'trash.loadFailed': 'Koš se nepodařilo načíst.',

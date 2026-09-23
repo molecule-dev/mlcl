@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'ടെസ്റ്റ് മോഡ്: ഓർഡറുകൾ രേഖപ്പെടുത്തുകയും ബാലൻസുകൾ തീർക്കുകയും ചെയ്യുന്നു, പക്ഷേ യഥാർത്ഥ കാർഡിൽ നിന്ന് പണം ഈടാക്കില്ല.',
   'checkout.placeOrderCta': 'ഓർഡർ നൽകുക',
+  'checkout.placeOrderError': 'നിങ്ങളുടെ ഓർഡർ നൽകാൻ കഴിഞ്ഞില്ല.',
   'checkout.placingOrder': 'ഓർഡർ നൽകുന്നു…',
   'checkout.review.shipTo': 'ഷിപ്പ് ചെയ്യുന്നത്',
   'checkout.review.subtotal': 'വെണ്ടർ ഉപവിഭാഗത്തിന്റെ ആകെത്തുക',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'ഒരു വെണ്ടർ ആകുക',
   'landing.footer.copyright': '© {{year}} {{name}} — ഓരോ നിർമ്മാതാവും, ഒരു വിപണി.',
   'landing.footer.help': 'സഹായ കേന്ദ്രം',
+  'landing.nav.keepShopping': 'ഷോപ്പിംഗ് തുടരുക',
   'landing.nav.sell': 'വെൻഡ്രിയിൽ വിൽക്കുക',
   'landing.nav.shop': 'ഷോപ്പ്',
   'landing.nav.signUp': 'ചേരുക',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'ഷോപ്പർമാർ ഇഷ്ടപ്പെടുന്നത് എന്താണ്?',
   'login.accountTypeAria': 'അക്കൗണ്ട് തരം',
   'login.heading': 'വെൻഡ്രിയിലേക്ക് വീണ്ടും സ്വാഗതം.',
+  'login.legalPrefix': 'സൈൻ ഇൻ ചെയ്യുന്നതിലൂടെ, നിങ്ങൾ ഞങ്ങളുടെ',
   'login.subheading':
     'ഷോപ്പിംഗ് തുടരാൻ സൈൻ ഇൻ ചെയ്യുക അല്ലെങ്കിൽ നിങ്ങളുടെ കടയിലേക്ക് തിരികെ പോകുക.',
   'login.submitShopper': 'ഷോപ്പുചെയ്യാൻ സൈൻ ഇൻ ചെയ്യുക',
@@ -91,10 +94,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'സ്ഥാപിച്ചു {{date}} · {{vendorCount}} വെണ്ടർ(മാർ) · മൾട്ടി-വെണ്ടർ പൂർത്തീകരണം',
   'orders.empty': 'ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഓർഡറുകളൊന്നും ഇതുവരെയില്ല.',
+  'orders.emptyTitle': 'ഇവിടെ ഇതുവരെ ഓർഡറുകളൊന്നുമില്ല.',
   'orders.eyebrow': 'നിങ്ങളുടെ വാങ്ങലുകൾ',
   'orders.subtitle':
     'ആരാണ് എന്താണ് ഷിപ്പ് ചെയ്തതെന്ന് കാണുക, ഓരോ വെണ്ടറുടെയും ട്രാക്കിംഗ് പിന്തുടരുക, ഇനി ഒരിക്കലും ഒരു പാഴ്സൽ പോലും നഷ്ടപ്പെടുത്തരുത്.',
   'orders.title': 'ഓർഡറുകൾ, വെണ്ടർ അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'productDetail.addToCart': 'കാർട്ടിലേക്ക് ചേർക്കുക',
   'productDetail.addToCartError': 'കാർട്ടിലേക്ക് ചേർക്കാൻ കഴിഞ്ഞില്ല.',
   'productDetail.addToCartSuccess': '" {{name}} ” നിങ്ങളുടെ കാർട്ടിലേക്ക് ചേർത്തു.',
@@ -135,12 +140,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'നിങ്ങൾ എങ്ങനെ ഷോപ്പിംഗ് നടത്തുന്നു, വിൽപ്പനക്കാർ നിങ്ങളെ എങ്ങനെ സമീപിക്കുന്നു, പണം എവിടേക്കാണ് പോകുന്നത് എന്നിവ നിയന്ത്രിക്കുക.',
   'signup.heading': 'മാർക്കറ്റിൽ ചേരുക',
+  'signup.legalPrefix': 'ചേരുന്നതിലൂടെ, നിങ്ങൾ ഞങ്ങളുടെ',
   'signup.mismatch': 'പാസ്‌വേഡുകൾ ഇതുവരെ പൊരുത്തപ്പെടുന്നില്ല.',
   'signup.subheading':
     '4,000+ സ്വതന്ത്ര നിർമ്മാതാക്കളെ ബ്രൗസ് ചെയ്യുക, അല്ലെങ്കിൽ സ്വന്തമായി ഒരു ഷോപ്പ് തുറക്കുക.',
   'status.delivered': 'എത്തിച്ചു',
   'status.refunded': 'റീഫണ്ട് ചെയ്തു',
+  'userMenu.marketplaceSettings': 'മാർക്കറ്റ്പ്ലേസ് ക്രമീകരണങ്ങൾ',
   'vendor.memberSince': 'അംഗം മുതൽ {{date}}',
+  'vendorDashboard.defaultShop': 'നിങ്ങളുടെ കട',
   'vendorDashboard.eyebrow': 'വെണ്ടർ അഡ്മിൻ · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} വെൻഡ്രി കമ്മീഷനു ശേഷം അനുമതി ലഭിച്ചു. അടുത്ത പേഔട്ട് വെള്ളിയാഴ്ച.',
@@ -160,12 +168,16 @@ export const ui: UiTranslations = {
     'നിങ്ങൾ എവിടെയാണ് ഉണ്ടാക്കുന്നത്, എന്ത് ഉണ്ടാക്കുന്നു, എന്തുകൊണ്ട് അത് പ്രധാനമാണ്.',
   'vendorOnboarding.currencyLabel': 'കറൻസിയിൽ പണമടയ്ക്കുക',
   'vendorOnboarding.errors.shopName': 'കടയുടെ പേര് ആവശ്യമാണ്.',
+  'vendorOnboarding.errors.submit': 'നിങ്ങളുടെ അപേക്ഷ സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല.',
   'vendorOnboarding.exit': 'സംരക്ഷിച്ച് പിന്നീട് തുടരുക',
   'vendorOnboarding.eyebrow': 'വെൻഡ്രിയിൽ വിൽക്കാൻ അപേക്ഷിക്കുക',
+  'vendorOnboarding.field.shopName': 'കടയുടെ പേര്',
   'vendorOnboarding.heroBody':
     '8% കമ്മീഷൻ, എല്ലാ വെള്ളിയാഴ്ചയും പേഔട്ടുകൾ, നിങ്ങളുടെ കടയുടെ മുൻഭാഗം, നിങ്ങളുടെ കഥ. നിങ്ങളുടെ കടയെക്കുറിച്ച് ഞങ്ങളോട് കുറച്ച് പറയൂ, 48 മണിക്കൂറിനുള്ളിൽ ഞങ്ങൾ നിങ്ങളെ ബന്ധപ്പെടും.',
   'vendorOnboarding.review.contact': 'ബന്ധപ്പെടുക',
   'vendorOnboarding.review.currency': 'കറൻസി',
+  'vendorOnboarding.review.tagline': 'ടാഗ്‌ലൈൻ',
+  'vendorOnboarding.review.website': 'വെബ്സൈറ്റ്',
   'vendorOnboarding.reviewBody':
     'നന്നായിട്ടുണ്ട്. 48 മണിക്കൂറിനുള്ളിൽ ഞങ്ങൾ നിങ്ങളുടെ കട അവലോകനം ചെയ്യുകയും ആദ്യ വിൽപ്പനയ്ക്ക് ശേഷം വെള്ളിയാഴ്ച നിങ്ങളുടെ ആദ്യ പേഔട്ട് അയയ്ക്കുകയും ചെയ്യും.',
   'vendorOnboarding.samplesLabel': 'സാമ്പിൾ വർക്ക് — ഇൻസ്റ്റാഗ്രാം, പോർട്ട്‌ഫോളിയോ, ഫോട്ടോകൾ',
@@ -174,11 +186,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'അപേക്ഷ സമർപ്പിച്ചു! ഞങ്ങൾ നിങ്ങളുടെ കട അവലോകനം ചെയ്ത് 48 മണിക്കൂറിനുള്ളിൽ നിങ്ങൾക്ക് ഇമെയിൽ അയയ്ക്കും.',
   'vendorOnboarding.taxIdLabel': 'ടാക്സ് ഐഡി',
+  'vendorOrders.emptyTitle': 'ഇതുവരെ പൂർത്തിയാക്കാൻ ഓർഡറുകളൊന്നുമില്ല.',
   'vendorOrders.eyebrow': 'വെണ്ടർ അഡ്മിൻ',
+  'vendorOrders.kpi.awaiting': 'പൂർത്തീകരണത്തിനായി കാത്തിരിക്കുന്നു',
   'vendorOrders.kpi.inTransit': 'യാത്രയിൽ',
   'vendorOrders.subtitle':
     'ലേബലുകൾ പ്രിന്റ് ചെയ്യുക, പൂർത്തിയായതായി അടയാളപ്പെടുത്തുക, ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകുക - എല്ലാം വെൻഡ്രിയെ വിട്ടുപോകാതെ തന്നെ.',
   'vendorOrders.title': 'ഇൻകമിംഗ് ഓർഡറുകൾ',
+  'vendorPayouts.emptyTitle': 'ഇതുവരെ പേഔട്ടുകളൊന്നുമില്ല',
   'vendorPayouts.eyebrow': 'വെണ്ടർ ഫിനാൻസ്',
   'vendorPayouts.heroCaption': 'ബാൻകോ ബിപിഐയിൽ ഒത്തുതീർപ്പ്. {{account}} · 1–2 പ്രവൃത്തി ദിവസങ്ങൾ',
   'vendorPayouts.history': 'പേഔട്ട് ചരിത്രം',
@@ -197,7 +212,9 @@ export const ui: UiTranslations = {
     'ഇത് എവിടെയാണ് നിർമ്മിച്ചിരിക്കുന്നത്? എന്ത് കഥയാണ് ഇതിലൂടെ ഉൾക്കൊള്ളുന്നത്?',
   'vendorProductForm.error.name': 'ഉൽപ്പന്ന നാമം ആവശ്യമാണ്',
   'vendorProductForm.error.price': 'ഒരു പോസിറ്റീവ് വില നൽകുക',
+  'vendorProductForm.error.publish': 'പ്രസിദ്ധീകരിക്കാനായില്ല',
   'vendorProductForm.eyebrow': 'പുതിയ ലിസ്റ്റിംഗ്',
+  'vendorProductForm.eyebrowEdit': 'ലിസ്റ്റിംഗ് എഡിറ്റ് ചെയ്യുക',
   'vendorProductForm.images.body':
     '8 ചിത്രങ്ങൾ വരെ വലിച്ചിടുക. ആദ്യ ഫോട്ടോ സ്റ്റോർഫ്രണ്ട് കവറായി മാറുന്നു.',
   'vendorProductForm.images.cta': 'ഫോട്ടോകൾ ഇവിടേക്ക് വലിച്ചിടുക അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യുക',
@@ -209,6 +226,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'മാറ്റങ്ങൾ സംരക്ഷിക്കുക',
   'vendorProductForm.title': 'നിങ്ങളുടെ ഉൽപ്പന്നത്തെക്കുറിച്ച് ഷോപ്പർമാരോട് പറയുക.',
   'vendorProductForm.variants.colInventory': 'ഇൻവെന്ററി',
+  'vendorProductForm.variants.colVariant': 'വേരിയന്റ്',
   'vendorProducts.eyebrow': 'വെണ്ടർ അഡ്മിൻ',
   'vendorProducts.kpi.draft': 'ഡ്രാഫ്റ്റുകൾ',
   'vendorProducts.kpi.lowStock': 'കുറഞ്ഞ സ്റ്റോക്ക്',

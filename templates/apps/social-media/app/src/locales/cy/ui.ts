@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.pageTitle': 'Ynghylch {{app}}',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.retry': 'Ail-geisio',
   'compose.cancel': 'Canslo',
   'compose.captionPlaceholder': 'Beth sydd ar eich meddwl?',
   'compose.heading': 'Rhannwch eiliad',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': "Cyfrif wedi'i wirio",
   'resetPassword.newPassword': 'Cyfrinair newydd',
   'resetPassword.subheading': 'Dewiswch rywbeth cryf — o leiaf 12 cymeriad.',
+  'search.clearAria': 'Clirio',
+  'search.error': 'Methodd y chwiliad. Rhowch gynnig arall arni.',
   'search.noPeople': 'Dim crewyr yn cyfateb " {{q}} ".',
   'search.noPosts': 'Dim postiadau\'n cyfateb " {{q}} ".',
   'search.noTags': 'Dim hashnodau poblogaidd eto.',
@@ -125,6 +131,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': "Cuddio'r cyfrinair",
   'signup.showPassword': 'Dangos cyfrinair',
   'signup.subheading': 'Crëwch gyfrif i ddechrau rhannu.',
+  'socialMediaLayout.closeMenu': "Cau'r ddewislen lywio",
+  'socialMediaLayout.openMenu': 'Agor y ddewislen lywio',
+  'socialMediaLayout.primaryNavLabel': 'Prif lywio',
   'storyRail.heading': 'Straeon',
   'storyRail.label': 'Straeon',
   'storyRail.openAria': 'Agor {{handle}} stori',

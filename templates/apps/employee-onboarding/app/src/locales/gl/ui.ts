@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'auth.forgotPassword.emailPlaceholder': 'nome@a súaempresa.com',
   'auth.forgotPassword.heading': 'Restablecer o contrasinal.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marcar tarefa completada',
   'checklistTaskCard.markIncomplete': 'Marcar tarefa incompleta',
   'checklistTaskCard.openLabel': 'Abrir tarefa',
+  'common.goToDashboard': 'Ir ao panel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Estades todos ao día',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'No camiño correcto',
   'dashboard.timelineHeading': 'Fitos de 30/60/90',
   'dashboard.viewAllTasks': 'Ver todas as tarefas',
+  'dashboard.weekOne': 'Semana 1',
   'dashboard.yourCohort': 'O teu equipo',
   'documents.empty.body': 'Os documentos engadidos polo teu equipo aparecerán aquí.',
   'documents.empty.title': 'Aínda non hai documentos',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Proba gratuíta de 14 días',
   'landing.subhead':
     'Embark guía a cada novo compañeiro de equipo durante os seus primeiros 90 días: papeleo, formación, fitos e presentacións significativas, todo nun só lugar tranquilo e seguro.',
+  'layout.openMenu': 'Abrir menú de navegación',
   'layout.search': 'Buscar tarefas, documentos, compañeiros de equipo…',
+  'layout.searchTeammates': 'Buscar compañeiros de equipo por nome ou función…',
   'layout.section.onboarding': 'Incorporación',
   'layout.tagline': 'A túa viaxe comeza aquí',
   'notifications.empty.body': 'A nova actividade aparecerá aquí.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Estás listo/a.',
   'planUpdated.preparing': 'Actualizando o teu plan…',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.documentsLabel': 'documentos',
   'pricing.onboardingsLabel': 'incorporacións',
   'pricing.tasksLabel': 'tarefas',

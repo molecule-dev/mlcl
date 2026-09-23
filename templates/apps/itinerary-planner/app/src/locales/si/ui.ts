@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} පිළිබඳව',
+  'auth.legalConsent': 'ඉදිරියට යාමෙන්, ඔබ අපගේ කොන්දේසි වලට එකඟ වේ',
   'bookings.empty.body': 'එන ලිපි ආරම්භ කිරීමට ගුවන් ගමනක්, හෝටලයක් හෝ ක්‍රියාකාරකමක් එක් කරන්න.',
   'bookings.empty.heading': 'තවමත් වෙන් කිරීම් නොමැත.',
   'bookings.errors.create': 'වෙන් කිරීම නිර්මාණය කිරීමට නොහැකි විය.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'තහවුරු කරන ලදී',
   'bookings.summary.pending': 'තහවුරු කිරීම බලාපොරොත්තුවෙන්',
   'bookings.summary.total': 'මුළු කැපකිරීම්',
+  'bookings.type.car': 'කුලියට දෙන කාර්',
+  'bookings.type.flight': 'ගුවන් ගමන',
+  'bookings.type.hotel': 'හෝටල්',
   'bookings.type.other': 'වෙනත්',
   'budgetSpendCard.budgetTotal': 'වල {{total}} සැලසුම් කර ඇත',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ගැටුම් හඳුනා ගන්න, සංචාර අතර ප්‍රතිසාධන දින සැලසුම් කරන්න, සහ සහයෝගිතාකරුවන් ඔබ සමඟ ගමන් කරන විට බලන්න.',
   'common.and': 'සහ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.budgetHeading': 'අයවැය ස්පන්දනය',
   'dashboard.empty.heading': 'තවම චාරිකා නැත — ඔබේ සිතියම හිස්.',
   'dashboard.eyebrow': 'මෙහෙයුම් පාලනය',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'චලනය වන චාරිකා',
   'dashboard.viewAllExpenses': 'සෑම වියදමක්ම බලන්න',
   'dashboard.viewAllTrips': 'සෑම සංචාරයක්ම බලන්න',
+  'dayTimelineRow.category.accommodation': 'ඉන්න',
   'dayTimelineRow.category.transport': 'ප්‍රවාහනය',
   'destinationOrbCard.exploreCta': 'සංචාරයකට එක් කරන්න',
   'destinationOrbCard.tripCount': '{{count}} චාරිකා',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'තවම ඊමේල් එකක් නැද්ද? ඔබේ ස්පෑම් ෆෝල්ඩරය පරීක්ෂා කරන්න, නැතහොත් වෙනත් ලිපිනයකින් නැවත උත්සාහ කරන්න.',
   'forgotPassword.successSubheading':
     'අපි ප්‍රතිසාධන සබැඳියක් යැව්වා {{email}} . සබැඳිය විනාඩි 30 ක් සඳහා වලංගු වේ.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'නොමිලේ ගිණුමක් සාදන්න',
+  'landing.cta.subheading':
+    'නොමිලේ සැලැස්මේ සංචාර පහක් දක්වා, සහයෝගිතාකරුවන් පස් දෙනෙකු සහ නැවතුම් පහක් දක්වා - තත්‍ය කාලීන සමමුහුර්තකරණය ඇතුළත් වන අතර, ඔබේ සැලසුම් වර්ධනය වන විට Pro සීමාවන් ඉහළ නංවයි.',
   'landing.destinations.eyebrow': 'ඊළඟට කොහෙද?',
   'landing.destinations.heading': 'සංස්කාරක-තේරූ ගමනාන්ත',
   'landing.features.eyebrow': 'වේපොයින්ට් ක්‍රියා කරන ආකාරය',
   'landing.features.heading': 'පැතුරුම්පත් සඳහා නොව සංචාරකයින් සඳහා ගොඩනගා ඇත.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'නොමිලේ ගමනක් ආරම්භ කරන්න',
   'landing.hero.ctaSecondary': 'ආදර්ශ චාරිකාවක් බලන්න',
   'landing.hero.subtitle':
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'අයිරිස් ලාර්සන්',
   'signup.subheading':
     'සහයෝගිතාකරුවන් 5 දෙනෙකු දක්වා සමඟ සංචාර බෙදා ගැනීමට, වෙන් කිරීම් සමමුහුර්ත කිරීමට සහ සෑම තහවුරු කිරීමක්ම එක තැනකට ඇද ගැනීමට ගිණුමක් සාදන්න.',
+  'signup.termsPrefix': 'ගිණුමක් නිර්මාණය කිරීමෙන් ඔබ අපගේ',
   'tripCountdownHeroCard.budget': '{{used}} වල {{total}} ( {{pct}} අයවැයෙන් %)',
   'tripCountdownHeroCard.collaborators': '{{count}} සංචාරකයින්',
   'tripCountdownHeroCard.countdownLabel': 'ගණන් කිරීම',
@@ -199,5 +212,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'තවම චාරිකා නැත.',
   'trips.pastHeading': 'අතීත වික්‍රමාන්විතයන්',
   'trips.subheading': '{{count}} ගමන් විස්තර - අතීතය, වර්තමානය සහ යම් දිනක.',
+  'waypointLayout.mobileNavClose': 'සංචාලන මෙනුව වසන්න',
   'waypointLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
 }

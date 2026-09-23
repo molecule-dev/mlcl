@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'আমাদের গল্প',
   'aiSuggestionPanel.title': 'সিগনেট কোপাইলট',
   'analytics.col.open': 'ওপেন রেট',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'চেকআউট শুরু হচ্ছে…',
   'billing.subheading': 'আপনার পাঠানোর পদ্ধতির সাথে মেলে এমন প্ল্যানটি বেছে নিন।',
   'billing.unavailable': 'বিক্রয় প্রতিনিধির সাথে যোগাযোগ করুন',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'compose.adjustingTone': 'নির্বাচিত সুরে পুনর্লিখন…',
   'compose.aiPromptPlaceholder':
     'যেমন, "দুই সপ্তাহ ধরে কোনো উত্তর না পেলে ভদ্রভাবে সংক্ষিপ্ত উত্তর দিন।"',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'কিছু পাঠাতে হবে? সিগনেট কয়েক সেকেন্ডের মধ্যেই একটি খসড়া তৈরি করে দিতে পারে।',
   'dashboard.composeCtaLabel': 'দ্রুত রচনা করুন',
   'dashboard.heading': 'আপনার সপ্তাহটি সাজানো হোক',
+  'dashboard.loadFailed': 'আপনার ড্যাশবোর্ড লোড করা যায়নি।',
   'dashboard.manageLibrary': 'লাইব্রেরি পরিচালনা করুন →',
   'dashboard.recentEmpty': 'এখনো কোনো ইমেল পাঠানো হয়নি — আপনার পাঠানো ইমেলগুলো এখানে দেখা যাবে।',
   'dashboard.recentHeading': 'সাম্প্রতিক প্রেরণ',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'ডিফল্ট টোন',
   'settings.toneSubheading': 'ড্রাফটে আপনি ওভাররাইড না করলে সিগনেট এই টোনটি ব্যবহার করে।',
   'signetLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
+  'signetLayout.toggleMenu': 'মেনু টগল করুন',
   'signup.emailLabel': 'ইমেইল ঠিকানা',
   'signup.showPassword': 'পাসওয়ার্ড দেখান',
   'signup.tagline': 'এক মিনিটেরও কম সময়ে আপনার প্রথম এআই-নির্মিত ইমেলটি পাঠান।',

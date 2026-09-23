@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գործառույթի հարցում կամ գտե՞լ եք սխալ: Կապվեք {{app}} թիմի հետ ձեր հաշվի ցանկում գտնվող աջակցության հղման միջոցով. յուրաքանչյուր հաղորդագրություն հասնում է իրական մարդու:',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'agentDetail.back': 'Բոլոր գործակալները',
   'agentDetail.capabilities': 'Հնարավորություններ',
   'agentDetail.delete': 'Ջնջել կերպարը',
   'agentDetail.deleteConfirm': 'Ջնջե՞լ այս անձը։ Սա հնարավոր չէ հետարկել։',
+  'agentDetail.deleteError': 'Անձը չհաջողվեց ջնջել։',
   'agentDetail.eyebrow': 'Պերսոնա',
   'agentDetail.fetchError': 'Անհնար էր բեռնել կերպարը։',
   'agentDetail.save': 'Պահպանել կերպարը',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Փոխարկում…',
   'billing.updateError': 'Հնարավոր չէ սկսել թարմացումը։',
   'billing.usageHeading': 'Ձայնի օգտագործումը այս ցիկլում',
+  'chatBubble.source.text': 'տեքստ',
+  'chatBubble.source.voice': 'ձայն',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'conversation.defaultTitle': 'Նոր զրույց',
   'conversation.empty':
     'Դեռևս հաղորդագրություններ չկան։ Սկսեք՝ ինչ-որ բան ասելով կամ ներքևում մուտքագրելով։',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Խոսող ինտելեկտ։',
   'landing.heroSubtitle':
     'Արհեստական բանականության ձայնային օգնական, որը հասկանում է ձեր բնական հոսքը։ Զրուցեք, գաղափարներ կազմեք և հրամայեք՝ անխափան։',
+  'landing.heroTitle': '{{tagline}}։',
   'landing.listening': 'Լսում եմ…',
   'landing.naturallyBody':
     'Առանց ազդակային բառերի։ Առանց կոշտ հրամանների։ Խոսքի ոճը հասկանում է համատեքստը, ընդհատումները և մարդկային խոսքի նրբերանգները՝ ինչպես գործընկերոջ հետ զրուցելը։',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Բացել նիստ',
   'notFound.home': 'Վերադարձ տուն',
   'notFound.title': 'Մենք չէինք լսում այդ էջը։',
+  'parlanceLayout.closeMenu': 'Փակել ընտրացանկը',
+  'parlanceLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'parlanceLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'pricing.conversations': '{{count}} զրույցներ',
   'pricing.cta.startFree': 'Սկսեք անվճար',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Համընկնումներ չկան',
   'search.eyebrow': 'Հրամանների պալիտրա',
   'search.fetchError': 'Հնարավոր չէ բեռնել որոնման ինդեքսը։',
+  'search.static.profile.preview': 'Ցուցադրվող անուն, դիմային նշան, կենսագրություն',
   'search.static.voice.title': 'Ձայն',
   'search.title': 'Որոնել բառապաշար',
   'search.transcriptPreview': 'Բացել տառադարձումը',

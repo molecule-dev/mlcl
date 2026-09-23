@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} વિશે',
+  'auth.legalConsent': 'ચાલુ રાખીને, તમે અમારી સાથે સંમત થાઓ છો',
   'bookings.empty.body': 'ઇનબોક્સ શરૂ કરવા માટે ફ્લાઇટ, હોટેલ અથવા પ્રવૃત્તિ ઉમેરો.',
   'bookings.empty.heading': 'હજુ સુધી કોઈ બુકિંગ નથી.',
   'bookings.errors.create': 'બુકિંગ બનાવી શકાયું નથી.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'પુષ્ટિ થયેલ',
   'bookings.summary.pending': 'પુષ્ટિની રાહ જોઈ રહ્યા છીએ',
   'bookings.summary.total': 'કુલ પ્રતિબદ્ધતા',
+  'bookings.type.car': 'ભાડાની કાર',
+  'bookings.type.flight': 'ફ્લાઇટ',
+  'bookings.type.hotel': 'હોટેલ',
   'bookings.type.other': 'અન્ય',
   'budgetSpendCard.budgetTotal': 'ના {{total}} આયોજન કરેલ',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'તકરાર શોધો, ટ્રિપ્સ વચ્ચે પુનઃપ્રાપ્તિ દિવસોની યોજના બનાવો અને જુઓ કે સહયોગીઓ ક્યારે તમારી સાથે મુસાફરી કરી રહ્યા છે.',
   'common.and': 'અને',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.budgetHeading': 'બજેટ પલ્સ',
   'dashboard.empty.heading': 'હજુ સુધી કોઈ ટ્રિપ નથી — તમારો એટલાસ ખાલી છે.',
   'dashboard.eyebrow': 'મિશન નિયંત્રણ',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'ગતિશીલ પ્રવાસો',
   'dashboard.viewAllExpenses': 'દરેક ખર્ચ જુઓ',
   'dashboard.viewAllTrips': 'દરેક ટ્રિપ જુઓ',
+  'dayTimelineRow.category.accommodation': 'રહો',
   'dayTimelineRow.category.transport': 'પરિવહન',
   'destinationOrbCard.exploreCta': 'ટ્રિપમાં ઉમેરો',
   'destinationOrbCard.tripCount': '{{count}} પ્રવાસો',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'હજુ સુધી કોઈ ઇમેઇલ નથી? તમારું સ્પામ ફોલ્ડર તપાસો, અથવા બીજા સરનામાં સાથે ફરી પ્રયાસ કરો.',
   'forgotPassword.successSubheading':
     'અમે રિકવરી લિંક મોકલી છે {{email}} . આ લિંક 30 મિનિટ માટે માન્ય છે.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'મફત ખાતું બનાવો',
+  'landing.cta.subheading':
+    'મફત પ્લાનમાં પાંચ ટ્રિપ્સ, પાંચ સહયોગીઓ અને પાંચ સ્ટોપ - રીઅલ-ટાઇમ સિંક સહિત, અને જ્યારે તમારી યોજનાઓ વધે છે ત્યારે પ્રો મર્યાદાઓ વધારી દે છે.',
   'landing.destinations.eyebrow': 'આગળ ક્યાં જવું?',
   'landing.destinations.heading': 'સંપાદક દ્વારા પસંદ કરાયેલા સ્થળો',
   'landing.features.eyebrow': 'વેપોઇન્ટ કેવી રીતે કાર્ય કરે છે',
   'landing.features.heading': 'સ્પ્રેડશીટ્સ માટે નહીં, પરંતુ મુસાફરો માટે બનાવેલ છે.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'મફત ટ્રિપ શરૂ કરો',
   'landing.hero.ctaSecondary': 'એક નમૂનાની સફર જુઓ',
   'landing.hero.subtitle':
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'આઇરિસ લાર્સન',
   'signup.subheading':
     '5 જેટલા સહયોગીઓ સાથે ટ્રિપ્સ શેર કરવા, બુકિંગ સિંક કરવા અને દરેક પુષ્ટિકરણને એક જ જગ્યાએ ખેંચવા માટે એક એકાઉન્ટ બનાવો.',
+  'signup.termsPrefix': 'ખાતું બનાવીને તમે અમારી સાથે સંમત થાઓ છો',
   'tripCountdownHeroCard.budget': '{{used}} ના {{total}} ( {{pct}} બજેટના %)',
   'tripCountdownHeroCard.collaborators': '{{count}} પ્રવાસીઓ',
   'tripCountdownHeroCard.countdownLabel': 'કાઉન્ટડાઉન',
@@ -198,5 +211,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'હજુ સુધી કોઈ ટ્રિપ નથી.',
   'trips.pastHeading': 'ભૂતકાળના સાહસો',
   'trips.subheading': '{{count}} પ્રવાસ યોજનાઓ - ભૂતકાળ, વર્તમાન અને કોઈ દિવસ.',
+  'waypointLayout.mobileNavClose': 'નેવિગેશન મેનૂ બંધ કરો',
   'waypointLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
 }

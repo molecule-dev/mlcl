@@ -25,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.viewPricing': 'விலை விவரங்களைக் காண்க',
   'billing.workflowsCaption': '{{total}} பணியிடத்தில் மொத்தம்',
   'billing.workflowsLabel': 'செயலில் உள்ள பணிப்பாய்வுகள்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'connections.count': '{{n}} ஒருங்கிணைப்புகள்',
   'connections.description':
     'உங்கள் குழு ஏற்கனவே பயன்படுத்தும் கணினி அமைப்புகளுடன் உங்கள் பணிப்பாய்வுகளை இணைக்கவும். வழங்குநர் சாவிகள் `api/.env` கோப்பில் உள்ளன.',
@@ -130,6 +131,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subhead': 'உங்கள் தானியக்கங்கள் தடையின்றி நடைபெற உள்நுழையுங்கள்.',
+  'mobileNav.drawerLabel': 'முதன்மை வழிசெலுத்தல்',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'notFound.body':
     'நீங்கள் முயன்ற பாதை, இந்தப் பணிவெளியில் உள்ள எந்த பணிப்பாய்வுடனும் இணைக்கப்படவில்லை. ஒருவேளை ஏதேனும் ஒரு கணுவின் பெயர் மாற்றப்பட்டிருக்கலாம்?',
@@ -141,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'இந்த ஊட்டத்தை நிரப்பத் தொடங்க ஒரு பணிப்பாய்வை இயக்கவும்.',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்து கொண்டீர்கள்',
   'notifications.eyebrow': '{{n}} படிக்காத',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'ஓட்டங்கள்',
   'pricing.workflowsSuffix': 'பணிப்பாய்வுகள்',
   'privacy.collect.body':
@@ -188,8 +192,11 @@ export const ui: UiTranslations = {
     'ஒவ்வொரு செயலையும் வெப்ஹூக் வழியாக உங்கள் SIEM-க்கு அனுப்புங்கள்.',
   'settings.security.description': 'இரு காரணி அங்கீகாரம், SSO மற்றும் செயலில் உள்ள அமர்வுகள்.',
   'settings.security.sso.hint': 'ஸ்கேல் மற்றும் என்டர்பிரைஸ் திட்டங்களில் கிடைக்கும்.',
+  'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.workspace.description':
     'உங்கள் குழுவிற்கான பகிரப்பட்ட அடையாளம், பிராந்தியம் மற்றும் இயக்க இயல்புநிலைகள்.',
   'settings.workspace.maxRuns': 'ஒரே நேரத்தில் இயங்கும் ஓட்டங்களின் வரம்பு',
@@ -237,6 +244,7 @@ export const ui: UiTranslations = {
     'சேவையானது உள்ளபடியே வழங்கப்படுகிறது. பணிப்பாய்வுச் செயலாக்கத்தின் பின்விளைவுகளுக்கு நாங்கள் பொறுப்பல்ல; உங்கள் தானியக்கங்களைச் சோதித்துக் கண்காணிப்பது உங்கள் பொறுப்பாகும். மொத்தப் பொறுப்பானது, கடந்த பன்னிரண்டு மாதங்களில் செலுத்தப்பட்ட கட்டணங்களுக்கு மட்டுமே வரையறுக்கப்பட்டுள்ளது.',
   'terms.title': 'சேவை விதிமுறைகள்',
   'workflowAppShell.newWorkflow': 'புதிய பணிப்பாய்வு',
+  'workflowAppShell.newWorkflowShort': 'புதிய',
   'workflowAppShell.searchPlaceholder':
     'பணிப்பாய்வுகள், செயல்பாடுகள், வார்ப்புருக்கள் போன்றவற்றைத் தேடுங்கள்…',
   'workflowBuilder.backToList': 'பணிப்பாய்வுகளுக்குத் திரும்பு',
@@ -244,6 +252,7 @@ export const ui: UiTranslations = {
   'workflowBuilder.enable': 'இயக்கு',
   'workflowBuilder.error': 'பணிப்பாய்வுகளை ஏற்ற முடியவில்லை.',
   'workflowBuilder.inspector.enabled': 'இயக்கப்பட்டது — தூண்டப்படும்போது இயங்கும்.',
+  'workflowBuilder.inspector.eyebrow': 'ஆய்வாளர்',
   'workflowBuilder.inspector.id': 'ஐடி',
   'workflowBuilder.inspector.status': 'பணிப்பாய்வு நிலை',
   'workflowBuilder.inspector.trigger': 'தூண்டுதல் வகை',
@@ -259,6 +268,7 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggled': 'பணிப்பாய்வு நிலை புதுப்பிக்கப்பட்டது.',
   'workflowBuilder.toggleFailed': 'நிலைமாற்றம் தோல்வியடைந்தது.',
   'workflowBuilder.workflow': 'பணிப்பாய்வு · v {{v}}',
+  'workflowBuilder.zoom.in': 'பெரிதாக்கு',
   'workflowCard.lastRun': 'கடைசி ஓட்டம் {{when}}',
   'workflowCard.runs': '{{count}} ஓட்டங்கள்',
   'workflowHeroCard.last24h': 'கடந்த 24 மணி நேரம்',

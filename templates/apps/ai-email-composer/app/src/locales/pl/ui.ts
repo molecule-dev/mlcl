@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'Nasza historia',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Wskaźnik otwarć',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Uruchamianie płatności…',
   'billing.subheading': 'Proszę wybrać plan dopasowany do sposobu wysyłania.',
   'billing.unavailable': 'Kontakt z działem sprzedaży',
+  'common.goToDashboard': 'Przejdź do panelu',
+  'common.retry': 'Spróbuj ponownie',
   'compose.adjustingTone': 'Przepisywanie w wybranym tonie…',
   'compose.aiPromptPlaceholder':
     'np. "Uprzejme przypomnienie po dwóch tygodniach bez odpowiedzi, krótko."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'Musi Pan/Pani coś wysłać? Signet przygotuje wersję w sekundach.',
   'dashboard.composeCtaLabel': 'Szybkie pisanie',
   'dashboard.heading': 'Pana/Pani tydzień, dopracowany',
+  'dashboard.loadFailed': 'Nie można załadować pulpitu.',
   'dashboard.manageLibrary': 'Zarządzaj biblioteką →',
   'dashboard.recentEmpty': 'Brak wysłanych — wysłane e-maile pojawią się tutaj.',
   'dashboard.recentHeading': 'Ostatnie wysyłki',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet używa tego tonu, chyba że Pan/Pani go zmieni w wersji roboczej.',
   'signetLayout.primaryNavLabel': 'Nawigacja główna',
+  'signetLayout.toggleMenu': 'Przełącz menu',
   'signup.emailLabel': 'Adres e-mail',
   'signup.showPassword': 'Pokaż hasło',
   'signup.tagline': 'Proszę wysłać pierwszego e-maila napisanego przez AI w mniej niż minutę.',

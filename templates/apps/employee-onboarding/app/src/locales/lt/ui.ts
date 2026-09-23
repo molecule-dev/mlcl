@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'auth.forgotPassword.emailPlaceholder': 'vardas@jūsųįmonė.com',
   'auth.forgotPassword.heading': 'Atkurkite slaptažodį.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Pažymėti užduotį atliktą',
   'checklistTaskCard.markIncomplete': 'Pažymėti užduotį kaip nebaigtą',
   'checklistTaskCard.openLabel': 'Atidaryti užduotį',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Jūs jau viską žinote',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Kelyje',
   'dashboard.timelineHeading': '30/60/90 etapai',
   'dashboard.viewAllTasks': 'Peržiūrėti visas užduotis',
+  'dashboard.weekOne': '1 savaitė',
   'dashboard.yourCohort': 'Jūsų komanda',
   'documents.empty.body': 'Jūsų komandos pridėti dokumentai bus rodomi čia.',
   'documents.empty.title': 'Dar nėra dokumentų',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 dienų nemokamas bandomasis laikotarpis',
   'landing.subhead':
     '„Embark“ padeda kiekvienam naujam komandos nariui per pirmąsias 90 dienų – dokumentai, mokymai, etapai ir prasmingi prisistatymai vienoje ramioje ir užtikrintoje vietoje.',
+  'layout.openMenu': 'Atidaryti navigacijos meniu',
   'layout.search': 'Ieškoti užduočių, dokumentų, komandos draugų…',
+  'layout.searchTeammates': 'Ieškoti komandos draugų pagal vardą arba vaidmenį…',
   'layout.section.onboarding': 'Įdarbinimas',
   'layout.tagline': 'Jūsų kelionė prasideda čia',
   'notifications.empty.body': 'Čia bus rodoma nauja veikla.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Viskas paruošta.',
   'planUpdated.preparing': 'Atnaujinamas jūsų planas…',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.documentsLabel': 'dokumentai',
   'pricing.onboardingsLabel': 'įdarbinimo',
   'pricing.tasksLabel': 'užduotys',

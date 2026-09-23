@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.logout': 'Гарах',
   'dailyStatsTriad.heartsLabel': 'Зүрхнүүд',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Өнөөдрийн минут',
   'dailyStatsTriad.minutesValue': '{{count}} мин',
   'dailyStatsTriad.wordsLabel': 'Эзэмшсэн үгс',
+  'dailyStatsTriad.wordsMasteryHint': '4+ түвшний үгс',
   'dashboard.continueHeading': 'Орхисон газраасаа үргэлжлүүлээрэй',
   'dashboard.heading': 'Буэнос-Диас, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Дасгалуудыг ачаалж чадсангүй.',
   'lessonDetail.loading': 'Хичээлийг ачаалж байна…',
   'lessonDetail.submitError': 'Хариулт илгээж чадсангүй.',
+  'lessonDetail.translation': 'Хэллэгийг орчуулна уу',
   'lessonDetail.xpEarned': 'XP цуглуулсан · {{xp}}',
   'lessons.empty': 'Түвшинд хичээл байхгүй {{level}} гэхдээ - өөр түвшинг туршаад үзээрэй.',
   'lessons.eyebrow': 'Хичээлийн номын сан',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Parlance-д шинээр орж байна уу?',
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.signUp': 'Үнэгүй эхлэх →',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
+  'parlanceLayout.nav.profile': 'Профайл',
   'parlanceLayout.primaryNavLabel': 'Үндсэн навигаци',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'practice.empty': 'Одоогоор хэллэг байхгүй байна.',
   'practice.eyebrow': 'Ярианы дадлага',
   'practice.heading': 'Унш. Бичиж ав. Цэвэршүүл.',

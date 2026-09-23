@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'analytics.col.quorum': 'Số đại biểu',
   'analytics.col.votes': 'Phiếu',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Chưa có câu hỏi nào đang chờ.',
   'audienceQa.onStageEyebrow': 'Trên sân khấu bây giờ',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Khuyến khích',
   'audienceQa.queued': 'đang chờ',
   'audienceQa.queueEyebrow': 'Hàng đợi',
   'ballot.eyebrow': 'Bỏ phiếu của quý vị',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Hiện quý vị đang ở gói {{plan}}.',
   'billing.switch': 'Chuyển đổi',
   'billing.upgraded': 'Đã cập nhật lên {{plan}} — giới hạn áp dụng ngay lập tức.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'createPoll.addOption': 'Thêm tùy chọn',
   'createPoll.anonymousHint': 'Tên cử tri ẩn trong nhật ký kiểm toán; số liệu vẫn được xác thực.',
   'createPoll.anonymousLabel': 'Cho phép bỏ phiếu ẩn danh',
@@ -158,6 +161,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Mới đến với Nosh?',
   'login.remember': 'Ghi nhớ tôi trong 30 ngày',
   'login.subheading': 'Mở phiên họp, điều hành căn phòng và xác nhận kết quả.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'notFound.body':
     'Trang quý vị đang cố truy cập đã bị đóng hoặc di chuyển. Quay lại bảng điều khiển hoặc mở cuộc thăm dò mới.',
   'notFound.eyebrow': 'Không có số đại biểu trên tuyến này',
@@ -184,6 +189,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Không thể tải cuộc thăm dò này.',
   'pollDetail.loading': 'Đang tải cuộc thăm dò…',
   'pollDetail.notFound': 'Không tìm thấy cuộc thăm dò.',
+  'pollDetail.openBallot': 'Bầu cử công khai',
   'pollDetail.openLive': 'Kết quả trực tiếp',
   'pollDetail.pollId': 'thăm dò · {{id}}',
   'pollDetail.published': 'Cuộc thăm dò đã công bố — cử tri giờ có thể bỏ phiếu.',
@@ -262,4 +268,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Tìm theo email…',
   'voters.subheading':
     'Quản lý danh sách đủ điều kiện. Nhóm cử tri theo tổ chức cho phiếu bầu có trọng số.',
+  'votingPollingLayout.nav.analytics': 'Phân tích',
+  'votingPollingLayout.nav.billing': 'Thanh toán',
+  'votingPollingLayout.nav.createPoll': 'Cuộc thăm dò mới',
+  'votingPollingLayout.nav.dashboard': 'Bảng điều khiển',
+  'votingPollingLayout.nav.notifications': 'Thông báo',
+  'votingPollingLayout.nav.settings': 'Cài đặt',
+  'votingPollingLayout.nav.team': 'Nhóm',
+  'votingPollingLayout.nav.voters': 'Cử tri',
+  'votingPollingLayout.primaryNavLabel': 'Điều hướng chính',
 }

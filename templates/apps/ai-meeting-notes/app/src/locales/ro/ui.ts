@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
   'actions.empty': 'Niciun element de acțiune nu corespunde.',
   'actions.heading': 'Elemente de acțiune',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Luna anterioară',
   'calendar.recent': 'Recente',
   'common.daysAgo': 'acum {{count}}z',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.hoursAgo': 'acum {{count}}h',
   'common.no': '—',
+  'common.retry': 'Reîncearcă',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} elemente de acțiune',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Verificați căsuța de e-mail pentru linkul de resetare.',
   'forgot.subheading': 'Introduceți adresa de e-mail și vă vom trimite un link de resetare.',
   'integrations.disconnected': 'Deconectat',
+  'integrations.loadError': 'Nu s-au putut încărca integrările.',
   'integrations.notConnectedTag': 'Neconectat',
   'integrations.subheading':
     'Conectați calendare și platforme video pentru ca Murmur să participe automat.',
+  'integrations.updateError': 'Actualizarea a eșuat.',
   'landing.ctaButton': 'Începeți – este gratuit',
   'landing.ctaHeading': 'Nu mai luați notițe. Începeți să luați decizii.',
   'landing.demo.aiLabel': 'Rezumat AI, redactat live',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Acțiuni ulterioare',
   'meetingDetail.loadError': 'Întâlnirea nu a putut fi încărcată.',
   'meetingDetail.noActions': 'Niciun element de acțiune detectat.',
+  'meetingDetail.none': 'Niciuna.',
   'meetingDetail.notFound': 'Întâlnirea nu a fost găsită.',
+  'meetingDetail.speakerFallback': 'Prezentator{{id}}',
   'meetingDetail.summaryHeading': 'Rezumat AI',
   'meetingDetail.transcriptHeading': 'Transcriere',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Întâlniri',
   'meetings.loadError': 'Întâlnirile nu au putut fi încărcate.',
   'meetings.subheading': 'Fiecare întâlnire înregistrată, încărcată și sincronizată.',
+  'murmurLayout.openMenu': 'Deschide meniul de navigare',
   'murmurLayout.primaryNavLabel': 'Navigare principală',
   'nav.legal': 'Legal',
   'notifications.loadError': 'Notificările nu au putut fi încărcate.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Cum apăreți în Murmur.',
   'record.error.empty': 'Nu a fost captat niciun sunet.',
   'record.error.permission': 'Permisiunea microfonului a fost refuzată.',
+  'record.error.recorder': 'Eroare la înregistrare',
   'record.error.unsupported':
     'Browserul dvs. nu acceptă înregistrarea. Încercați Chrome, Edge sau Safari.',
   'record.error.upload': 'Încărcarea a eșuat. Încercați din nou.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Parolă nouă',
   'reset.subheading': 'Alegeți o parolă pe care nu o folosiți în altă parte.',
   'search.empty': 'Tastați pentru a căuta în transcrieri.',
+  'search.loadError': 'Căutarea a eșuat. Încercați din nou.',
   'search.noResults': 'Niciun rezultat pentru „ {{q}} „”.',
   'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
   'settings.appearance.title': 'Aspect',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nu s-au putut încărca setările.',
   'settings.loading': 'Se încarcă…',
   'settings.push.heading': 'Notificări push',
+  'settings.push.subheading':
+    'Primiți alerte în browser pentru mențiuni, sarcini de îndeplinit și rezumate.',
   'settings.retention.audio': 'Păstrați sunetul pentru',
   'settings.retention.heading': 'Retenție',
   'settings.retention.transcript': 'Păstrați transcrierile pentru',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Începeți să capturați notițe de la întâlniri în câteva minute',
   'signup.terms':
     'Prin crearea unui cont, sunteți de acord cu Termenii noștri de serviciu și Politica de confidențialitate.',
+  'signup.termsPrefix': 'Prin crearea unui cont, sunteți de acord cu',
   'team.inviteCta': 'Invitați un coleg',
   'team.invitedAs': 'Invitat ca {{role}}',
   'team.inviteFailed': 'Invitația nu a putut fi trimisă.',

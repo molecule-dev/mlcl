@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.connectRepoCta': 'Pripojiť repozitár',
   'dashboard.empty':
     'Zatiaľ neboli odoslané žiadne žiadosti o začlenenie – pre začatie pripojte repozitár.',
@@ -82,6 +83,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Doba prevádzky',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Hodnotenie kvality AI: {{score}} / 10',
+  'refractLayout.closeMenu': 'Zatvoriť ponuku',
+  'refractLayout.openMenu': 'Otvoriť ponuku',
   'refractLayout.primaryNavLabel': 'Hlavná navigácia',
   'reports.cumulativeScoreLabel': 'Celkové skóre',
   'reports.cumulativeScoreSubtitle': 'všetky repozitáre · {{days}} d',
@@ -183,11 +186,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Načítanie vyhľadávacieho indexu sa nepodarilo.',
   'settings.apiKeys.description':
     'Osobné kľúče API môžete spravovať v používateľskom menu v pravom hornom rohu.',
+  'settings.apiKeys.integrationsNote':
+    'Prístupové tokeny poskytovateľov sa spravujú v sekcii „Integrácie“ vyššie.',
   'settings.connectError': 'Nepodarilo sa pripojiť k poskytovateľovi.',
   'settings.disconnectError': 'Nepodarilo sa odpojiť od poskytovateľa.',
   'settings.eyebrow': 'Refract · pracovný priestor',
   'settings.integration.${provider}.label': 'Ukladá sa…',
   'settings.loadError': 'Načítanie nastavení sa nepodarilo.',
+  'settings.notificationCenter': 'Centrum upozornení',
   'settings.notifications.description':
     'Prejdite na stránku s oznámeniami, kde si môžete prezrieť a spravovať nastavenia doručovania.',
   'settings.section.account': 'Účet a zabezpečenie',

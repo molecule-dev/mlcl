@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} туралы',
+  'about.pageTitle': 'Веб-ілмек басқару жазықтығы',
+  'about.plansTitle': 'Әр кезеңге арналған жоспарлар',
   'apiKeys.bestPractices': 'Ең жақсы тәжірибелер',
   'apiKeys.body':
     'Бағдарламалық қатынау токендері. Оларды құпия сөздер сияқты қарастырыңыз — env vars ішінде сақтаңыз, ешқашан commit жасамаңыз.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'жоспар шеңберінде',
   'billing.usageWarning': 'қақпақтың жанында',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.body':
     'Тікелей эфирдегі өткізу қабілеті, ұшу кезіндегі қайталаулар және жаңа ғана істен шыққан соңғы нүктелер — сіз басқаратын әрбір жұмыс кеңістігінде.',
   'dashboard.endpointsEmpty': 'Әлі соңғы нүктелер жоқ.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'соңғы нүктелер',
   'endpointDetail.deliveryTrendSub': 'жеткізу / сағат, журнал шкаласы',
   'endpointDetail.hideSecret': 'Құпияны жасыру',
+  'endpointDetail.loading': 'Соңғы нүкте жүктелуде…',
   'endpointDetail.metric.delivered': '24 сағат ішінде жеткізілді',
   'endpointDetail.metric.deliveredCaption': '-дан {{count}} іс-шара түрлері',
   'endpointDetail.metric.failuresCaption': 'қайталаулар: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Маңызды · 24 сағат',
   'notifications.metric.totalCaption': 'барлық уақыттағы кіріс жәшігі',
   'payloadViewer.payload': '// пайдалы жүктеме',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint': 'Көрсетілген бас әріптер — келесі шығарылыммен бірге жүктелетіндер.',
   'profile.body': 'Тіркелгіңіз, параметрлеріңіз және белсенді сеанстарыңыз.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ сақталды',
   'profile.sessionsEmpty': 'Тек ағымдағы сеансыңыз ғана белсенді. Басқа құрылғылар кірмеген.',
   'profile.toggle': 'Ауыстырып қосу/өшіру {{label}}',
+  'pylonShell.closeMenu': 'Навигация мәзірін жабу',
+  'pylonShell.openMenu': 'Навигация мәзірін ашу',
   'pylonShell.primaryNavLabel': 'Негізгі навигация',
   'resetPassword.subtitle': 'Бұрын қолданбаған күшті құпия сөзді таңдаңыз.',
   'resetPassword.tokenPlaceholder': 'электрондық поштадан қою',

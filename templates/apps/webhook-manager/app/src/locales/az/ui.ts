@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} haqqında',
+  'about.pageTitle': 'Veb qarmaq idarəetmə müstəvisi',
+  'about.plansTitle': 'Hər mərhələ üçün planlar',
   'apiKeys.bestPractices': 'Ən yaxşı təcrübələr',
   'apiKeys.body':
     'Proqramlı giriş tokenləri. Onlara parol kimi yanaşın — env vars-da saxlayın, heç vaxt commit etməyin.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'plan daxilində',
   'billing.usageWarning': 'qapaq yaxınlığında',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.body':
     'Canlı ötürmə qabiliyyəti, uçuşda təkrar cəhdlər və sadəcə maneə törədən son nöqtələr — işlətdiyiniz hər iş sahəsində.',
   'dashboard.endpointsEmpty': 'Hələ ki, son nöqtələr yoxdur.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'son nöqtələr',
   'endpointDetail.deliveryTrendSub': 'çatdırılma / saat, jurnal miqyası',
   'endpointDetail.hideSecret': 'Sirri gizlət',
+  'endpointDetail.loading': 'Son nöqtə yüklənir…',
   'endpointDetail.metric.delivered': '24 saat ərzində çatdırılır',
   'endpointDetail.metric.deliveredCaption': '-dan {{count}} tədbir növləri',
   'endpointDetail.metric.failuresCaption': 'təkrar cəhdlər: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritik · 24 saat',
   'notifications.metric.totalCaption': 'bütün zamanların gələnlər qutusu',
   'payloadViewer.payload': '// faydalı yük',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Göstərilən baş hərflər — növbəti buraxılışla birlikdə yüklənənlər.',
   'profile.body': 'Hesabınız, seçimləriniz və aktiv sessiyalarınız.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ xilas edildi',
   'profile.sessionsEmpty': 'Yalnız cari sessiyanız aktivdir. Başqa heç bir cihaz daxil edilməyib.',
   'profile.toggle': 'Aç/bağla {{label}}',
+  'pylonShell.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'pylonShell.openMenu': 'Naviqasiya menyusunu açın',
   'pylonShell.primaryNavLabel': 'Əsas naviqasiya',
   'resetPassword.subtitle': 'Əvvəllər istifadə etmədiyiniz güclü bir parol seçin.',
   'resetPassword.tokenPlaceholder': 'e-poçtdan yapışdırın',

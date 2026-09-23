@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.tagline': 'ప్రతి యూనిట్, ఒకే గొడుగు కింద.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.addProperty': 'ప్రాపర్టీని జోడించండి',
   'dashboard.empty.body':
     'మీకు ఆస్తులు, యూనిట్లు మరియు అద్దె చెల్లింపులు ఉన్న తర్వాత, ఈ డాష్‌బోర్డ్ పోర్ట్‌ఫోలియో అంతర్దృష్టులతో నిండిపోతుంది.',
@@ -42,6 +45,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'అద్దెదారుని ఎంచుకోండి…',
   'leases.new.unit': 'యూనిట్',
   'leases.new.unitPlaceholder': 'యూనిట్‌ను ఎంచుకోండి…',
+  'leases.subheading':
+    '{{count}} క్రియాశీల లీజులు · {{expiring}} త్వరలో గడువు ముగియనున్నవి · {{monthly}} / నెల మొత్తం',
   'login.emailLabel': 'ఇమెయిల్ చిరునామా',
   'login.noAccount': 'హర్త్‌స్టోన్‌కు కొత్తగా వచ్చారా?',
   'login.passwordPlaceholder': '••••••••',
@@ -85,6 +90,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · యూనిట్ {{యూనిట్}} · {{తేదీ}}',
   'maintenanceQueueList.subtitle': '{{count}} ప్రాధాన్యత క్రమంలో అమర్చబడిన ఓపెన్ వర్క్ ఆర్డర్‌లు',
   'maintenanceQueueList.title': 'నిర్వహణ క్యూ',
+  'nav.closeMenu': 'మెనూను మూసివేయండి',
+  'nav.openMenu': 'మెనూ తెరవండి',
   'notFound.body': 'మీరు వెతుకుతున్న పేజీ తరలించబడింది, ఆర్కైవ్ చేయబడింది లేదా అసలు ఉనికిలో లేదు.',
   'notFound.title': 'ఆ తలుపు తెరుచుకోదు',
   'notifications.empty.body':

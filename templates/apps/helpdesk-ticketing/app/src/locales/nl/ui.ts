@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Neem contact op',
   'about.eyebrow': 'Over',
+  'about.title': 'Over {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Professionele portretfoto van een vrouwelijke klantenservicemedewerker met een vriendelijke glimlach in een modern kantoor.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Neem contact op met de ondersteuning.',
   'forgotPassword.error': 'Kan reset-e-mail niet verzenden. Probeer het opnieuw.',
   'forgotPassword.rememberPassword': 'Weet u uw wachtwoord weer?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Aanmelden — Zenith-ondersteuning',
   'login.showPassword': 'Wachtwoord tonen',
   'login.welcomeSubheading': 'Meld u aan bij uw ondersteuningsdashboard',
+  'mobileNav.closeMenu': 'Navigatie sluiten',
+  'mobileNav.menu': 'Navigatie',
+  'mobileNav.openMenu': 'Navigatie openen',
   'nav.legal': 'Juridisch',
   'nav.newTicket': 'Nieuw ticket',
   'notifications.loadError': 'Kon de meldingen niet laden. Probeer het over een moment opnieuw.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Opdracht zoeken',
   'operatorDock.newReport': 'Nieuw rapport',
   'operatorDock.systemOnline': 'Systeem Online',
+  'planUpdated.subtitle': 'Bedankt',
   'planUpdated.title': 'Pakket bijgewerkt',
   'pricing.agents': 'agents',
   'pricing.automation': 'Automatiseringsregels',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{naam}} avatar van',
   'ticketDetail.errorTitle': 'Er is iets misgegaan',
+  'ticketDetail.loadError': 'Het laden van het ticket is mislukt.',
+  'ticketDetail.notFound': 'Ticket niet gevonden',
+  'ticketDetail.replyError': 'Het verzenden van het antwoord is mislukt. Probeer het opnieuw.',
   'ticketDetail.retry': 'Opnieuw proberen',
   'ticketDetail.statusUpdateError': 'Status kon niet worden bijgewerkt. Probeer het opnieuw.',
   'ticketDetailsCard.assigneeLabel': 'Cessionaris',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{tijd}} links',
   'ticketRow.title': 'Databaseverbinding mislukt in de productieomgeving. {{knooppunt}}',
   'tickets.pageTitle': 'Tickets — Zenith Support',
+  'ticketsFab.newTicket': 'Nieuw ticket',
   'ticketsFilterBar.assigneeLabel': 'Cessionaris:',
   'ticketsFilterBar.clearFilters': 'Filters wissen',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

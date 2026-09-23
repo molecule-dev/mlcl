@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'billing.canceled': '订阅已取消。您将在周期结束时恢复到免费版。',
   'billing.contactSales': '联系销售',
   'billing.free.1': '5个翻译',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': '无保留期限制',
   'billing.upgradeHint': '升级以解锁高级AI功能。',
   'billing.yearly': '按年',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.activityEmpty': '暂无活动——启动一个项目来填充此动态。',
   'dashboard.eyebrow': '概览',
   'dashboard.projectsEmpty': '暂无项目——启动一个即可在此查看。',
@@ -106,6 +108,8 @@ export const ui: UiTranslations = {
   'memory.submit': '保存条目',
   'memory.subtitle': '在每个项目中重复使用过去的翻译。匹配分数越高 → 返工越少。',
   'memory.title': '记忆库',
+  'mobileNav.closeMenu': '关闭导航菜单',
+  'mobileNav.openMenu': '打开导航菜单',
   'nav.legal': '法律',
   'newProject.addLanguage': '添加目标',
   'newProject.create': '创建项目',
@@ -131,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': '更早',
   'notifications.markedAllRead': '已将 {{count}} 条通知标记为已读。',
   'notifications.subtitle': '您所有工作区的提及、审阅请求和AI事件。',
+  'planUpdated.verifying': '确认您的付款中…',
   'privacy.collection.account': '您的账户邮箱和显示名称',
   'privacy.deletion.body':
     '您可以随时在相应页面删除项目、段落、术语表术语或记忆条目。从“设置”删除账户会从我们的数据库中清除每一行工作区相关数据。',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'projects.loadError': '加载项目失败。',
   'projects.loading': '正在加载项目…',
   'projects.subtitle': '所有语言区域的每个活动项目。',
+  'renditionLayout.primaryNavLabel': '主导航',
   'reset.backToLogin': '\\u2190 返回登录',
   'reset.passwordLabel': '新密码',
   'review.activeEyebrow': '段 {{number}}',

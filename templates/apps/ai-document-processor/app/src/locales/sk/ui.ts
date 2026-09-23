@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktujte nás',
+  'about.title': 'O aplikácii {{app}}',
   'authShell.backToLanding': '← Späť na úvodnú stránku',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.no': '—',
+  'common.retry': 'Skúsiť znova',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Dnes · Prehľad prevádzky',
   'dashboard.heading': 'Inteligentné spracovanie dokumentov',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Žiadne dokumenty nezodpovedajú aktuálnym filtrom.',
   'documents.heading': 'Všetky dokumenty',
   'documents.loadError': 'Načítanie dokumentov sa nepodarilo.',
+  'documents.loading': 'Načítava sa knižnica…',
   'documents.searchLabel': 'Vyhľadávať dokumenty',
   'documents.searchPlaceholder': 'Vyhľadávať dokumenty…',
   'documents.subheading':
@@ -66,8 +70,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Skryť heslo',
   'login.showPassword': 'Zobraziť heslo',
   'login.subtitle': 'Prihláste sa, aby ste mohli naďalej pracovať so svojimi dokumentmi.',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'notFound.body':
     'Dokument alebo trasa, ktorú ste sa pokúsili otvoriť, tu už nie je. Vráťte sa na hlavnú obrazovku alebo si vyberte sekciu z bočného panela.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Otvoriť vstupnú stránku',
   'notFound.title': 'Táto stránka nie je v archíve',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % oproti včerajšku',
@@ -84,6 +91,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Zatiaľ neexistujú žiadne pravidlá pre ukladanie súborov. Použite možnosť „Nové pravidlo“, aby ste jedno pridali.',
   'rules.eyebrow': 'Automatizácia',
+  'rules.fieldsCount': '{{count}} polia',
   'rules.form.destination': 'Súbor do',
   'rules.form.name': 'Názov pravidla',
   'rules.form.save': 'Uložiť pravidlo',

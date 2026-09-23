@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
+  'about.pageTitle': 'Om {{app}}',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'Samlingen kunne ikke oprettes.',
   'collections.defaultName': 'Unavngivet samling {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Forespørgsler',
   'collections.newCollection': 'Ny samling',
   'collections.subheading': 'Gruppér forespørgsler, del dem med dit team, og kør dem som en suite.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'environmentCard.inactive': 'Inaktiv',
   'environmentCard.more': 'mere',
   'environmentCard.variables': 'Variabler',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Download gratis',
   'landing.heroSubtitle':
     'Den lynhurtige API-testbænk bygget til ingeniører, der bor i terminaler.',
+  'landing.heroTitleAccent': 'Brand',
+  'landing.heroTitleLine2': 'opbygge tillid.',
+  'landing.heroTitleRest': 'anmodninger,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Enkel, forudsigelig prissætning',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ny her?',
   'login.showPassword': 'Vis adgangskode',
   'login.subtitle': 'Fortsæt til dit Pylon-arbejdsområde.',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'mocks.createError': "Mock'en kunne ikke oprettes.",
   'mocks.defaultName': 'Unavngivet mock {{n}}',
   'mocks.deleteError': "Mock'en kunne ikke slettes.",
@@ -112,6 +120,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Tilbage til arbejdsområdet',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Rute ikke fundet',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'privacy.collect.account':
     'Konto: din e-mail, hashede adgangskode, visningsnavn og tidsstempel for din seneste login.',
   'privacy.rights.body':
@@ -137,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'En skrivebeskyttet visning af de data, denne konto aktuelt ejer.',
   'settings.unset': 'ikke angivet',
   'signup.identityHint': 'f.eks. Alex',
+  'signup.statusLabel': 'gratis abonnement · intet kreditkort krævet',
   'signup.subtitle': 'Begynd at sende forespørgsler på få minutter.',
   'terms.account.body':
     'Du er ansvarlig for at beskytte din adgangskode. Det er ikke tilladt at dele én konto med flere personer på Free- eller Pro-planer — køb et Team-abonnement til delte arbejdsområder.',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
     'Brug ikke Pylon til at sende forespørgsler til tjenester, du ikke ejer eller har udtrykkelig tilladelse til at teste. Brug ikke Pylon til at omgå hastighedsbegrænsninger eller begå svindel.',
   'terms.warranty.body':
     'Pylon leveres "som det er" uden nogen form for garanti. Vi tilstræber 99,9 % oppetid, men garanterer det ikke på Free- eller Pro-planer.',
+  'testRunner.assertionsCount': '{{count}} påstande',
   'testRunner.createError': 'Testen kunne ikke oprettes.',
   'testRunner.cron':
     'Påstande evalueres mod den seneste kørsel af denne tests tilknyttede forespørgsel.',
@@ -169,11 +180,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite-resultater, påstandsdiffs og de seneste 50 kørsler.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Logget ind som',
+  'workspace.auth.keyName': 'Overskriftsnavn',
+  'workspace.auth.keyValue': 'Nøgleværdi',
+  'workspace.auth.password': 'Adgangskode',
+  'workspace.auth.username': 'Brugernavn',
+  'workspace.authOption.apikey': 'API-nøgle',
+  'workspace.authOption.basic': 'Grundlæggende autentificering',
+  'workspace.authOption.bearer': 'Bærertoken',
+  'workspace.authOption.none': 'Ingen',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Type',
   'workspace.authTypeLabel': 'Godkendelsestype',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Ingen',
+  'workspace.body.text': 'Rå tekst',
+  'workspace.body.type': 'Type',
   'workspace.environment': 'Intet miljø',
   'workspace.envVar': 'miljøvariabel',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Tilføj overskrift',
+  'workspace.kv.addParam': 'Tilføj parameter',
+  'workspace.kv.headerKey': 'Overskriftsnavn',
+  'workspace.kv.headerValue': 'Værdi i overskriften',
+  'workspace.kv.key': 'Nøgle',
+  'workspace.kv.paramKey': 'Nøgle til forespørgselsparameter',
+  'workspace.kv.paramValue': 'Værdi af forespørgselsparameter',
+  'workspace.kv.removeRow': 'Fjern række',
+  'workspace.kv.value': 'Værdi',
   'workspace.methodLabel': 'HTTP-method',
   'workspace.metric.latency': 'Latenstid',
   'workspace.metric.latencyCaption': 'Tur-retur fra denne kørsel',
@@ -190,6 +223,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Forespørgsel afsendt — se response nedenfor.',
   'workspace.subheading':
     'Sammensæt en forespørgsel, send den, og bekræft responset — alt i én rude.',
+  'workspace.testResults': 'Testresultater',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Sendes som Authorization: Bearer <token> på alle forespørgsler i denne samling.',

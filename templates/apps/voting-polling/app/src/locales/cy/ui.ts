@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'analytics.col.quorum': 'Cworwm',
   'analytics.col.votes': 'Pleidleisiau',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Dim cwestiynau yn yr arfaeth eto.',
   'audienceQa.onStageEyebrow': 'Ar y llwyfan nawr',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Hyrwyddo',
   'audienceQa.queued': "wedi'i giwio",
   'audienceQa.queueEyebrow': 'Ciw',
   'ballot.eyebrow': 'Bwrwch eich pleidlais',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Rydych chi ar hyn o bryd ar y {{plan}} cynllun.',
   'billing.switch': 'Newid',
   'billing.upgraded': "Wedi'i ddiweddaru i {{plan}} — terfynau'n cael eu cymhwyso ar unwaith.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'createPoll.addOption': 'Ychwanegu opsiwn',
   'createPoll.anonymousHint':
     "Enwau pleidleiswyr wedi'u cuddio yn y log archwilio; mae'r cyfrifon yn parhau i fod wedi'u dilysu.",
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Newydd i Nosh?',
   'login.remember': 'Cofiwch fi am 30 diwrnod',
   'login.subheading': 'Agorwch y llawr, rhedegwch yr ystafell, ac ardystiwch y canlyniad.',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'notFound.body':
     "Mae'r dudalen y ceisiasoch ei chyrraedd wedi'i chau neu ei symud. Ewch yn ôl i'r dangosfwrdd neu agorwch arolwg barn newydd.",
   'notFound.eyebrow': 'Dim cworwm ar y llwybr hwn',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': "Methwyd llwytho'r arolwg barn hwn.",
   'pollDetail.loading': "Wrthi'n llwytho'r arolwg…",
   'pollDetail.notFound': 'Ni chanfuwyd yr arolwg barn.',
+  'pollDetail.openBallot': 'Pleidlais agored',
   'pollDetail.openLive': 'Canlyniadau byw',
   'pollDetail.pollId': 'pôl · {{id}}',
   'pollDetail.published': 'Cyhoeddwyd yr arolwg barn — gall pleidleiswyr nawr fwrw pleidlais.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Chwilio drwy e-bost…',
   'voters.subheading':
     'Curadwch y gofrestr gymwys. Grwpiwch bleidleiswyr yn ôl sefydliad ar gyfer pleidleisiau pwysol.',
+  'votingPollingLayout.nav.analytics': 'Dadansoddeg',
+  'votingPollingLayout.nav.billing': 'Bilio',
+  'votingPollingLayout.nav.createPoll': 'Pôl newydd',
+  'votingPollingLayout.nav.dashboard': 'Dangosfwrdd',
+  'votingPollingLayout.nav.notifications': 'Hysbysiadau',
+  'votingPollingLayout.nav.settings': 'Gosodiadau',
+  'votingPollingLayout.nav.team': 'Tîm',
+  'votingPollingLayout.nav.voters': 'Pleidleiswyr',
+  'votingPollingLayout.primaryNavLabel': 'Prif lywio',
 }

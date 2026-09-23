@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.pageTitle': 'Game da {{app}}',
   'authShell.statusLabel': 'masu gudu akan layi',
   'collections.createError': 'Ba za a iya ƙirƙirar tarin ba.',
   'collections.defaultName': 'Tarin mara suna {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Sabuwar tarin',
   'collections.subheading':
     'Buƙatun rukuni, raba tare da ƙungiyar ku, kuma ku gudanar da su a matsayin suite.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'environmentCard.inactive': 'Rashin aiki',
   'environmentCard.more': 'Kara',
   'environmentCard.variables': 'Masu Canji',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Saukewa kyauta',
   'landing.heroSubtitle':
     'An gina benci mai sauri na gwajin API don injiniyoyin da ke zaune a tashoshin.',
+  'landing.heroTitleAccent': 'Wuta',
+  'landing.heroTitleLine2': 'ƙirƙira amincewa.',
+  'landing.heroTitleRest': 'buƙatun,',
   'landing.kicker': '$ pylon aika --watch',
   'landing.pricingEyebrow': '// $ farashin --a bayyane',
   'landing.pricingHeading': 'Farashi mai sauƙi, mai iya faɗi',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Sabo a nan?',
   'login.showPassword': 'Nuna kalmar sirri',
   'login.subtitle': 'Ci gaba zuwa wurin aikin Pylon ɗinka.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'mocks.createError': 'Ba za a iya ƙirƙirar mock ba.',
   'mocks.defaultName': 'Alamar da ba ta da lakabi {{n}}',
   'mocks.deleteError': 'Ba za a iya goge abin da aka yi ba.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Komawa wurin aiki',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Ba a sami hanyar ba',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'privacy.collect.account':
     'Asusu: imel ɗinka, kalmar sirri mai hashed, sunan nuni, da kuma tambarin lokacin shiga ta ƙarshe.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Duba bayanai da wannan asusun ke da su a halin yanzu ta hanyar karantawa kawai.',
   'settings.unset': 'ba a saita ba',
   'signup.identityHint': 'misali Alex',
+  'signup.statusLabel': 'matakin kyauta · babu katin kiredit',
   'signup.subtitle': 'Fara buƙatun korarwa cikin mintuna.',
   'terms.account.body':
     'Kai ne ke da alhakin kare kalmar sirrinka. Ba a yarda da raba asusu ɗaya da mutane da yawa a kan tsare-tsaren Kyauta ko na Pro ba - sayi biyan kuɗin Ƙungiya don wuraren aiki da aka raba.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Kada ku yi amfani da Pylon don korar buƙatun ayyukan da ba ku da su ko kuma ba ku da izini na musamman don gwadawa. Kada ku yi amfani da Pylon don kauce wa iyakokin farashi ko aikata zamba.',
   'terms.warranty.body':
     'Ana samar da Pylon "kamar yadda yake" ba tare da garantin kowane iri ba. Muna da burin samun kashi 99.9% na lokacin aiki amma ba mu ba da garantin sa akan tsare-tsaren Kyauta ko na Pro ba.',
+  'testRunner.assertionsCount': '{{count}} iƙirari',
   'testRunner.createError': 'Ba za a iya ƙirƙirar gwaji ba.',
   'testRunner.cron':
     'Ana kimanta hujjojin da aka gabatar dangane da sabon binciken da aka yi kan wannan gwaji.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     'Sakamakon suite, bambance-bambancen da aka bayar, da kuma sakamakon ƙarshe na 50.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'An shiga kamar yadda',
+  'workspace.auth.keyName': 'Sunan kanun labarai',
+  'workspace.auth.keyValue': 'Maɓallin ƙima',
+  'workspace.auth.password': 'Kalmar sirri',
+  'workspace.auth.username': 'Sunan mai amfani',
+  'workspace.authOption.apikey': 'Maɓallin API',
+  'workspace.authOption.basic': 'Asali Izini',
+  'workspace.authOption.bearer': 'Alamar Mai Ɗauki',
+  'workspace.authOption.none': 'Babu',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': "Nau'i",
   'workspace.authTypeLabel': "Nau'in izini",
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Babu',
+  'workspace.body.text': 'Rubutu mara tushe',
+  'workspace.body.type': "Nau'i",
   'workspace.environment': 'Babu env',
   'workspace.envVar': 'canjin env',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Ƙara kan kai',
+  'workspace.kv.addParam': 'Ƙara sirara',
+  'workspace.kv.headerKey': 'Sunan kanun labarai',
+  'workspace.kv.headerValue': 'Darajar kanun labarai',
+  'workspace.kv.key': 'Maɓalli',
+  'workspace.kv.paramKey': 'Maɓallin sigar tambaya',
+  'workspace.kv.paramValue': 'Ƙimar sigar tambaya',
+  'workspace.kv.removeRow': 'Cire layi',
+  'workspace.kv.value': 'darajar',
   'workspace.methodLabel': 'Hanyar HTTP',
   'workspace.metric.latency': 'Latsawa',
   'workspace.metric.latencyCaption': 'Tafiya da dawowa daga wannan gudu',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Buƙatar korarwa — duba martanin da ke ƙasa.',
   'workspace.subheading':
     'Rubuta buƙata, a jefa ta a wuta, sannan a tabbatar da amsar — duk a cikin shafi ɗaya.',
+  'workspace.testResults': 'Sakamakon gwaji',
   'workspace.token': 'Alamar Token',
   'workspace.tokenHint':
     'An aika a matsayin Izini: Mai ɗaukar kaya<token> akan kowace buƙata a cikin wannan tarin.',

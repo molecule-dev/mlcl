@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Кардарлар',
   'customers.loadError': 'Кардарларды жүктөө мүмкүн эмес.',
   'customers.loading': 'Жүктөлүүдө…',
+  'customers.new.address': 'Тейлөө дареги',
   'customers.new.email': 'Электрондук почта',
   'customers.new.error': 'Кардарды кошуу мүмкүн эмес.',
   'customers.new.heading': 'Жаңы кардар',

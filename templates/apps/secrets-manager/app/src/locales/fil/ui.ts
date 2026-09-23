@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'about.tagline': 'Ang mga sikreto ay namamatay nang hayag.',
   'apiTokens.col.actions': '',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Gumawa ng token',
   'apiTokens.kicker': 'Mga token ng API',
   'apiTokens.loading': 'Nilo-load ang mga token…',
+  'apiTokens.new': 'Bagong token',
   'apiTokens.revoke': 'Bawiin ang token',
   'apiTokens.subheading':
     'Mga personal at service token para sa Arcanum CLI at SDK. Ipinapakita ang plaintext nang isang beses sa paggawa.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Pag-encrypt na walang kaalaman',
   'common.connecting': 'Kumokonekta…',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.inviting': 'Nag-iimbita…',
   'forgotPassword.checkInbox':
     'Kung nakarehistro ang {email}, darating ang isang nilagdaang link sa pag-reset sa loob ng isang minuto.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Katayuan ng pag-ikot, mga alerto sa anomalya, at mga kahilingan sa pag-apruba sa bawat vault.',
   'notifications.unreadEmpty': 'Inbox zero — naabutan na ang lahat.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.heading': 'mga lihim',
   'pricing.limits.accessPolicies': 'mga patakaran sa pag-access',
   'pricing.limits.auditLog': 'mga entry sa audit log',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'Pamahalaan ang iyong subscription, tingnan ang mga limitasyon, at mag-upgrade.',
   'profile.subheading': 'Pagkakakilanlan, mga aparatong pangalawang salik, at mga aktibong sesyon.',
+  'profile.twoFactor.code': 'Kodigo ng pagpapatunay',
   'profile.twoFactor.disable': 'I-disable',
   'profile.twoFactor.enable': 'I-enable',
+  'profile.twoFactor.invalidCode': 'Hindi wastong code',
   'profile.twoFactor.kicker': 'Dalawang-factor na pagpapatotoo',
+  'profile.twoFactor.off': 'Hindi pinagana',
   'profile.twoFactor.on': 'Pinagana',
   'resetPassword.email': 'Email ng account',
   'resetPassword.heading': 'Magtakda ng mga bagong kredensyal',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'mga utos',
   'secretsManagerLayout.encrypted': 'AES-256 · NA-ENKRIPTA',
   'secretsManagerLayout.newVault': 'Bagong vault',
+  'secretsManagerLayout.newVaultShort': 'Bago',
   'secretsManagerLayout.rotations': 'Mga Pag-ikot',
   'secretsManagerLayout.search': 'paghahanap',
   'secretsManagerLayout.searchPlaceholder': 'Maghanap ng mga sikreto ayon sa key, path, o tag...',
@@ -173,6 +181,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Mga Lihim',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Magdagdag ng lihim',
+  'vaultDetail.back': 'Lahat ng mga vault',
   'vaultDetail.col.key': 'Key',
   'vaultDetail.col.rotated': 'Pinaikot',
   'vaultDetail.col.value': 'Halaga',

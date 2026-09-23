@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'authShell.brandHeading': 'Večigralska platna za oblikovalske ekipe, ki razmišljajo na glas.',
   'billing.canceled': 'Naročnina je bila preklicana.',
   'billing.cancelPlan': 'Prekliči naročnino',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Začni s predlogo',
   'boards.title': 'Vaše deske',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Vnesite e-poštni naslov, povezan z vašim delovnim prostorom, in poslali vam bomo povezavo za ponastavitev.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Zasnovan za neurejeno, generativno razmišljanje v živo.',
   'landing.demoBoard.title': 'Delavnica za 1. četrtletje · Glas blagovne znamke',
   'landing.featuresTitle': 'Hitre povratne informacije. Čudovita platna. Brez trenja.',
+  'landing.hero.body':
+    '{{appName}} je večigralska bela tabla za oblikovalske ekipe, moderatorje delavnic in vzgojitelje, ki izvajajo možganske nevihte v živo in potrebujejo zbrane ideje na enem mestu.',
   'landing.hero.primaryCta': 'Začnite brezplačno tablo',
   'landing.hero.socialProof': 'Zaupajo mu {{count}} oblikovalske ekipe po vsem svetu',
   'landing.hero.title': 'Platno, hitro kot vaše misli',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Ustvarite brezplačen delovni prostor',
   'login.subheading':
     'Nadaljujte tam, kjer ste delavnico končali – table, lepljivi listki in kazalci se sinhronizirajo v realnem času.',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.new': 'Novo',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'notifications.editTitle': 'Spremembe za " {{board}} "',
   'notifications.empty.body':
     'Povabila, shranjeni posnetki in nedavne spremembe foruma bodo prikazane tukaj sproti.',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Zgodovina različic',
   'versionHistory.untitledSnapshot': 'Neimenovan posnetek',
   'whiteboardLayout.newBoard': 'Nova tabla',
+  'whiteboardLayout.primaryNav': 'Primarna navigacija',
   'workspace.boardLabel': 'Odbor',
   'workspace.eyebrow': '{{name}} · delovni prostor',
   'workspace.invite': 'Povabi sodelavce',

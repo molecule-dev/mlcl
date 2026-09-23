@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'შეხვედრის დაჯავშნა',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'პაციენტები არ არიან მოსაჩვენებლად.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'consult.backLink': 'ყველა დანიშვნა',
   'consult.captions': 'სუბტიტრები',
   'consult.connected': 'დაკავშირებული · 720p · სტაბილური',
@@ -133,6 +134,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.scripts': 'რეცეპტები ღიაა',
   'patientVitalsHero.subline':
     '{{count}} დღეს თქვენს გრაფიკთან დაკავშირებით კონსულტაციებს გაგიწევთ',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'prescriptions.empty': 'არცერთი რეცეპტი არ ემთხვევა.',
   'prescriptions.eyebrow': 'ელექტრონული რეცეპტი',
   'prescriptions.heading': 'რეცეპტები',
@@ -148,6 +150,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'კონფიდენციალურობის შეტყობინება',
   'privacy.use.body':
     'მომსახურების გასაწევად, ვიზიტების შეხსენებების გასაგზავნად, რეცეპტების დასანიშნად და მომსახურების საიმედოობის გასაუმჯობესებლად. ჩვენ არასდროს ვყიდით თქვენს მონაცემებს და არასდროს ვუზიარებთ კლინიკურ ინფორმაციას რეკლამის განმთავსებლებს.',
+  'providers.allSpecialties': 'ყველა სპეციალობა',
+  'providers.loadError': 'პროვაიდერების ჩატვირთვა ვერ მოხერხდა.',
+  'providers.loading': 'იტვირთება…',
   'providers.noResults': 'პროვაიდერები ვერ მოიძებნა.',
   'providers.searchPlaceholder': 'მოძებნეთ სახელით, სპეციალობით...',
   'providers.title': 'პროვაიდერის პოვნა',
@@ -167,6 +172,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'დღის დასაწყისი',
   'settings.availability.heading': 'ხელმისაწვდომობა',
   'settings.devices.thisDevice': 'ეს მოწყობილობა',
+  'settings.devices.unnamed': 'უსახელო მოწყობილობა',
   'settings.eyebrow': 'ვარჯიში და ანგარიში',
   'settings.loadError': 'თქვენი პროფილის ჩატვირთვა ვერ მოხერხდა.',
   'settings.notifications.emailMessages':
@@ -181,6 +187,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'გამორთვა',
   'settings.security.twoFactor.enable': 'ჩართვა',
   'settings.security.twoFactor.heading': 'ორფაქტორიანი ავთენტიფიკაცია',
+  'settings.security.twoFactor.invalidCode': 'ეს კოდი არ ემთხვევა. სცადეთ ხელახლა.',
+  'settings.security.twoFactor.setupFailed':
+    'ორფაქტორიანი დაყენების დაწყება ვერ მოხერხდა. სცადეთ ხელახლა.',
+  'settings.security.twoFactor.statusOn': 'ორი ფაქტორი ჩართულია',
   'settings.signOutDevice': 'გასვლა',
   'settings.subheading': 'პროვაიდერის პროფილი, პრაქტიკის წესები და კლინიკური შეტყობინებები.',
   'signup.emailLabel': 'ელ. ფოსტა',
@@ -191,6 +201,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'ანგარიშის შექმნა',
   'signupFooter.hipaa': 'HIPAA-ს შესაბამისი',
   'solaceLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'solaceLayout.toggleMenu': 'მენიუს გადართვა',
   'terms.eligibility.body':
     'თქვენ უნდა იყოთ მინიმუმ თვრამეტი წლის, ან იყოთ იმ არასრულწლოვნის მშობელი ან კანონიერი მეურვე, რომლისთვისაც მკურნალობას ითხოვთ და ფიზიკურად იმყოფებოდეთ აშშ-ის იმ შტატში, სადაც ჩვენს კლინიცისტებს აქვთ ლიცენზია.',
   'terms.payment.body':

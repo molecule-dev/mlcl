@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, ფუნქციის მოთხოვნა ან შეცდომა იპოვეთ? დაუკავშირდით {{app}} გუნდს თქვენი ანგარიშის მენიუში არსებული მხარდაჭერის ბმულის საშუალებით — ყველა შეტყობინება რეალურ ადამიანამდე მიდის.',
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'agentDetail.back': 'ყველა აგენტი',
   'agentDetail.capabilities': 'შესაძლებლობები',
   'agentDetail.delete': 'პიროვნების წაშლა',
   'agentDetail.deleteConfirm': 'წაიშალოს ეს პერსონა? ამის გაუქმება შეუძლებელია.',
+  'agentDetail.deleteError': 'პერსონის წაშლა ვერ მოხერხდა.',
   'agentDetail.eyebrow': 'პერსონა',
   'agentDetail.fetchError': 'პერსონას ჩატვირთვა ვერ მოხერხდა.',
   'agentDetail.save': 'პერსონას შენახვა',
@@ -44,6 +48,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'გადართვა…',
   'billing.updateError': 'განახლების დაწყება ვერ მოხერხდა.',
   'billing.usageHeading': 'ხმის გამოყენება ამ ციკლში',
+  'chatBubble.source.text': 'ტექსტი',
+  'chatBubble.source.voice': 'ხმა',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'conversation.defaultTitle': 'ახალი საუბარი',
   'conversation.empty': 'შეტყობინებები ჯერ არ არის. დაიწყეთ ქვემოთ რაღაცის თქმით ან აკრეფით.',
   'conversation.eyebrow': 'პირდაპირი სესია',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'ინტელექტი, რომელიც ლაპარაკობს.',
   'landing.heroSubtitle':
     'ხელოვნური ინტელექტის ხმოვანი ასისტენტი, რომელიც ესმის თქვენი ბუნებრივი მოძრაობები. ისაუბრეთ, იდეები გამოიტანეთ და ბრძანებები - შეუფერხებლად.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'მოსმენა…',
   'landing.naturallyBody':
     'არანაირი გამშვები სიტყვები. არანაირი მკაცრი ბრძანებები. ჟარგონი ესმის კონტექსტი, შეფერხებები და ადამიანური მეტყველების ნიუანსები — როგორც კოლეგასთან საუბარი.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'სესიის გახსნა',
   'notFound.home': 'სახლში დაბრუნება',
   'notFound.title': 'ეს გვერდი ვერ გავიგეთ.',
+  'parlanceLayout.closeMenu': 'მენიუს დახურვა',
+  'parlanceLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'parlanceLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'pricing.conversations': '{{count}} საუბრები',
   'pricing.cta.startFree': 'დაიწყეთ უფასოდ',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'დამთხვევები არ არის',
   'search.eyebrow': 'ბრძანებების პალიტრა',
   'search.fetchError': 'ძიების ინდექსის ჩატვირთვა ვერ მოხერხდა.',
+  'search.static.profile.preview': 'საჩვენებელი სახელი, სახელური, ბიოგრაფია',
   'search.static.voice.title': 'ხმა',
   'search.title': 'პარლანსის ძიება',
   'search.transcriptPreview': 'ტრანსკრიპტის გახსნა',

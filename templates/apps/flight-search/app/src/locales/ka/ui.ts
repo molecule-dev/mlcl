@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.eyebrow': '{{app}}-ის შესახებ',
   'about.pageTitle': 'ყველა მარშრუტი, ერთი ძებნა.',
   'booking.backToDetail': 'ფრენის დეტალებზე დაბრუნება',
   'booking.continue': 'გადახდაზე გადასვლა',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'გადასახადები და მოსაკრებლები',
   'booking.summary.travelers': 'მოგზაურები',
   'common.about': 'შესახებ',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'flightDetail.backToResults': 'შედეგებზე დაბრუნება',
   'flightDetail.baseFare': 'ძირითადი ტარიფი',
   'flightDetail.book': 'დაჯავშნის გაგრძელება',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 გაჩერება',
   'flightResultCard.select': 'არჩევა',
   'flightResultCard.totalLabel': 'საერთო დრო',
+  'flightSearchLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'forgotPassword.subheading':
     'შეიყვანეთ თქვენს Skylark ანგარიშზე მითითებული ელ. ფოსტა და ჩვენ გამოგიგზავნით უსაფრთხო გადატვირთვის ბმულს.',
   'forgotPassword.successBody':
     'შემოწმება {{email}} ახალი პაროლის დასაყენებელი ბმულისთვის. ბმული 30 წუთში იწურება.',
   'forgotPassword.successHeading': 'გადაყენების ბმული გაიგზავნა',
   'landing.cta.explore': 'სცადეთ ძიება',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'იპოვეთ შემდეგი შესანიშნავი ტარიფი ყველაზე ადრე.',
   'landing.cta.signup': 'დაიწყეთ ტარიფების თვალყურის დევნება',
   'landing.features.eyebrow': 'რატომ სკაილარკი',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'შეტყობინების დამატება',
   'priceAlerts.deleteConfirm': 'გსურთ ამ შეტყობინების წაშლა?',
   'priceAlerts.empty': 'თვალყურის დევნების მარშრუტები ჯერ არ არის.',
+  'priceAlerts.emptyCta': 'თვალყურისდევნების მარშრუტის ძიება',
   'priceAlerts.errorMessage': 'შეტყობინებების ჩატვირთვა ვერ მოხერხდა.',
   'priceAlerts.eyebrow': 'Skylark-ის სათვალთვალო სია',
   'priceAlerts.form.createError': 'შეტყობინების შექმნა ვერ მოხერხდა.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'მრავალქალაქიანი მარშრუტი',
   'results.multiLegHeading': 'ფეხი {{n}} · {{საიდან}} → {{მდე}} · {{თარიღი}}',
   'results.multiSummary': '{{count}} ფეხები · {{passengers}} მოგზაური',
+  'results.sortAriaLabel': 'შედეგების დალაგება',
   'results.sortLabel': 'დახარისხება',
   'results.summary': '{{count}} ფრენები · {{passengers}} მოგზაური',
   'settings.language.title': 'ენა',

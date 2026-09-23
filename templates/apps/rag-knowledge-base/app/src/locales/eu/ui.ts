@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.pageTitle': 'Buruz {{appName}}',
   'analytics.error': 'Ezin izan dira analisiak kargatu.',
   'analytics.heading': 'Berreskuratze-analisiak',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ez dago prezio mailarik konfiguratuta.',
   'billing.plans.heading': 'Planak',
   'billing.subheading': 'Plana, erabilera eta Stripe bidez kudeatutako ordainketa.',
+  'common.confirm': 'Berretsi',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.retry': 'Saiatu berriro',
   'documentCard.open': 'Ireki \\u2192',
   'documentDetail.back': 'Dokumentuetara itzuli',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indize dokumentua',
   'documents.composer.titlePlaceholder': 'Dokumentuaren izenburua',
   'documents.emptyAll': 'Oraindik ez dago dokumenturik. Igo bat galderak egiten hasteko.',
+  'documents.error.load': 'Ezin izan dira dokumentuak kargatu.',
   'documents.heading': 'Indexatutako dokumentuak',
   'documents.loading': 'Dokumentuak kargatzen…',
   'documents.metric.chunks': 'Zati guztiak',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Kentzen\\u2026',
   'members.subheading': 'Taldekideak gonbidatu eta rolak ezarri.',
   'members.tableHeading': 'Zerrenda',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'notFound.askCta': 'Galdetu ezagutza-baseari',
+  'notFound.body':
+    '{{app}} k ezin izan du orrialde hori aurkitu. Baliteke esteka hautsita egotea, edo orrialdea berriro indexatu bitartean kendu izana.',
   'notFound.eyebrow': 'Ezin da berreskuratu',
   'notFound.title': 'Ez dago halako zatirik indizean',
   'notifications.dismiss': 'Baztertu',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Iturburu URLa',
   'sources.empty.body': 'Sakatu \\u201cGehitu iturria\\u201d lehen konektorea kableatzeko.',
   'sources.empty.title': 'Oraindik ez dago iturririk.',
+  'sources.error.add': 'Ezin izan da iturria gehitu.',
   'sources.error.labelRequired': 'Etiketa beharrezkoa da.',
   'sources.error.load': 'Ezin izan dira iturriak kargatu.',
   'sources.error.urlRequired': 'URLa beharrezkoa da iturri mota honetarako.',

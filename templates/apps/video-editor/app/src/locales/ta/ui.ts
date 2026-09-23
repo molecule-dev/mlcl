@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ஒரு பிழையைக் கண்டறிந்தீர்களா, ஒரு புதிய அம்சத்தைக் கோர விரும்புகிறீர்களா, அல்லது நீங்கள் படத்தொகுப்பு செய்த திரைப்படம் பற்றி எங்களிடம் கூற விரும்புகிறீர்களா? ஒவ்வொரு செய்தியும் எங்கள் குழுவில் உள்ள ஒரு உண்மையான நபரைச் சென்றடையும் — உங்கள் கணக்கு அமைப்புகளிலிருந்து எப்போது வேண்டுமானாலும் எங்களைத் தொடர்புகொள்ளுங்கள்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.eyebrow': '// கட்-க்கு பின்னால் உள்ள ஸ்டுடியோ',
   'about.pageTitle': 'பற்றி {{appName}}',
   'assetDetail.back': 'நூலகத்திற்குத் திரும்பு',
   'assetDetail.confirmDelete': 'நீக்கு {{name}} இதை மாற்ற முடியாது.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} கிளிப்புகள், ஆடியோ பின்னணிகள் மற்றும் கிராபிக்ஸ் ஆகியவை டைம்லைனில் பதிவேற்றத் தயாராக உள்ளன.',
   'assetLibrary.title': 'சொத்துக்கள்',
   'assetLibrary.upload': 'சொத்தை சேர்க்கவும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.browseTemplates': 'வார்ப்புருக்களை உலாவுக →',
   'dashboard.loading': 'திட்டங்கள் ஏற்றப்படுகின்றன…',
   'dashboard.noProjects': 'இன்னும் திட்டங்கள் எதுவும் இல்லை — தொடங்குவதற்கு ஒன்றை உருவாக்குங்கள்.',
@@ -35,6 +40,7 @@ export const ui: UiTranslations = {
   'dashboard.statCompleted': 'முடிக்கப்பட்ட ரெண்டர்கள்',
   'dashboard.statTotalExports': 'மொத்த ஏற்றுமதிகள்',
   'dashboard.statTotalProjects': 'மொத்த திட்டங்கள்',
+  'dashboard.subtitle': '{{projects}} திட்டம்(கள்) · {{renders}} செயலில் உள்ள ரெண்டர்(கள்)',
   'dashboard.timelineCaption': 'கடைசியாக திறக்கப்பட்டது — {{name}}',
   'dashboard.tip1Body': 'டெம்ப்ளேட்கள் நூலகத்தில் கைமுறையாகச் சரிசெய்யப்பட்ட ஷெல்களை உலாவுக.',
   'dashboard.tip1Title': 'ஒரு வார்ப்புருவைத் தேர்ந்தெடுக்கவும்',
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'projectThumbCard.untitledClient': 'தனிப்பட்ட திட்டம்',
   'renderJobCard.empty':
     'வரிசை காலியாக உள்ளது. புதிய ரெண்டரிங்கைத் தொடங்க, ஒரு ப்ராஜெக்டை எக்ஸ்போர்ட் செய்யவும்.',
+  'renderJobCard.eta': 'Est. {{eta}}',
   'renderJobCard.jobCount': '{{count}} செயலில்',
   'renderJobCard.title': 'ரெண்டர் வரிசை',
   'renderJobCard.viewAll': 'ஏற்றுமதி வரிசையைத் திறக்கவும் →',
@@ -163,7 +170,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'உங்களுக்கு மட்டுமே நினைவில் இருக்கும் ஒன்றைத் தேர்ந்தெடுங்கள்.',
   'rushesAuthShell.footer.copyright': '© ரஷஸ் ஸ்டுடியோ',
   'rushesAuthShell.footer.privacy': 'தனியுரிமை',
+  'rushesLayout.closeMenu': 'நெருக்கமான வழிசெலுத்தல்',
   'rushesLayout.guest': 'ஆசிரியர்',
+  'rushesLayout.navDialog': 'வழிசெலுத்தல்',
+  'rushesLayout.openMenu': 'வழிசெலுத்தலைத் திறக்கவும்',
   'rushesLayout.planFree': 'இலவச திட்டம்',
   'rushesLayout.tagline': 'சினிமா காலவரிசை',
   'settings.billing.confirmCancel': 'காலக்கெடுவின் முடிவில் சந்தாவை ரத்து செய்யவா?',

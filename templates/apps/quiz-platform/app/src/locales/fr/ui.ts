@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.title': 'À propos de {{app}}',
   'auth.login.noAccount': 'Nouveau sur Sparq ?',
   'auth.login.or': 'ou continuez avec',
   'auth.signup.or': 'ou inscrivez-vous avec',
+  'common.confirm': 'Confirmer',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'common.loadError': "Une erreur s'est produite lors du chargement de ce contenu.",
+  'common.retry': 'Réessayer',
   'discover.collections.title': 'Parcourir par catégorie',
   'discover.collections.viewAll': 'Voir votre bibliothèque →',
   'discover.empty.body': 'Essayez une autre catégorie ou effacez la recherche.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Connectez-vous pour maintenir votre série, héberger des parties en direct et grimper au classement.',
   'myQuizzes.createButton': 'Nouveau quiz',
+  'myQuizzes.deleteConfirm': 'Supprimer définitivement ?',
   'myQuizzes.empty.createCta': 'Créez votre premier quiz →',
   'myQuizzes.empty.created': "Vous n'avez pas encore créé de quiz.",
   'myQuizzes.empty.played': 'Aucun quiz publié pour le moment.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Chargement…',
   'notifications.subhead':
     '{{count}} étincelles non lues. Invitations, mouvements de classement et réussites dans un seul flux.',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.checkoutError': 'Impossible de démarrer le paiement. Veuillez réessayer.',
+  'pricing.heading': 'Choisissez votre forfait {{app}}',
   'pricing.included': 'Inclus',
   'pricing.loadError': 'Impossible de charger les plans.',
   'pricing.maxQuizzes': '{{count}} quiz',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Rien de publié pour le moment.',
   'profile.startBuilding': 'Commencer à créer →',
   'profile.tier': 'Joueur Sparq',
+  'quizBuilder.addFailed': "Impossible d'ajouter la question. Veuillez réessayer.",
   'quizBuilder.addQuestion': 'Ajouter une question',
   'quizBuilder.answerPlaceholder': 'Tapez une option…',
   'quizBuilder.answersLabel': 'Choix de réponse',
   'quizBuilder.back': 'Retour à mes quiz',
   'quizBuilder.delete': 'Supprimer la question',
+  'quizBuilder.deleteFailed': 'Impossible de supprimer la question.',
   'quizBuilder.firstQuestion': 'Ajoutez votre première question pour commencer.',
   'quizBuilder.idLabel': 'ID du quiz : {{id}}',
   'quizBuilder.loadError': 'Impossible de charger le quiz.',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Ajoutez au moins deux choix de réponse et choisissez la bonne pour {{count}} question(s) avant de publier.',
   'quizBuilder.questionsTitle': 'Questions',
+  'quizBuilder.saveFailed': "Impossible d'enregistrer le titre. Veuillez réessayer.",
   'quizBuilder.statusDraft': 'Brouillon',
   'quizBuilder.subhead':
     'Modifiez le titre, ajoutez des questions, définissez les choix et la bonne réponse. Les modifications sont enregistrées automatiquement.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'Héberger en multijoueur',
   'quizDetail.leaderboardEmpty':
     'Aucune partie pour le moment, soyez le premier à établir un score.',
+  'quizDetail.loadError': 'Impossible de charger ce questionnaire.',
   'quizDetail.loading': 'Chargement du quiz…',
   'quizDetail.plays': '{{count}} parties',
   'quizDetail.playSolo': 'Jouer en solo',

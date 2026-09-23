@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບພວກເຮົາ',
   'actions.empty': 'ບໍ່ມີລາຍການການດຳເນີນການທີ່ກົງກັນ.',
   'actions.heading': 'ລາຍການການກະທຳ',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'ເດືອນກ່ອນໜ້ານີ້',
   'calendar.recent': 'ບໍ່ດົນມານີ້',
   'common.daysAgo': '{{count}} ມື້ກ່ອນ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.hoursAgo': '{{count}} ຊົ່ວໂມງກ່ອນ',
   'common.no': '—',
+  'common.retry': 'ລອງໃໝ່',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ລາຍການການກະທຳ',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'ກວດສອບກ່ອງຈົດໝາຍຂອງທ່ານສຳລັບລິ້ງຣີເຊັດ.',
   'forgot.subheading': 'ໃສ່ອີເມວຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່.',
   'integrations.disconnected': 'ຕັດການເຊື່ອມຕໍ່',
+  'integrations.loadError': 'ໂຫຼດການເຊື່ອມໂຍງບໍ່ສຳເລັດ.',
   'integrations.notConnectedTag': 'ບໍ່ໄດ້ເຊື່ອມຕໍ່',
   'integrations.subheading':
     'ເຊື່ອມຕໍ່ປະຕິທິນ ແລະ ແພລດຟອມວິດີໂອເພື່ອໃຫ້ Murmur ເຂົ້າຮ່ວມໂດຍອັດຕະໂນມັດ.',
+  'integrations.updateError': 'ອັບເດດລົ້ມເຫຼວ.',
   'landing.ctaButton': 'ເລີ່ມຕົ້ນເລີຍ — ມັນບໍ່ເສຍຄ່າ',
   'landing.ctaHeading': 'ຢຸດຈົດບັນທຶກ. ເລີ່ມຕັດສິນໃຈ.',
   'landing.demo.aiLabel': 'ສະຫຼຸບ AI, ຮ່າງສົດ',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ການຕິດຕາມຜົນ',
   'meetingDetail.loadError': 'ໂຫຼດການປະຊຸມບໍ່ສຳເລັດ.',
   'meetingDetail.noActions': 'ບໍ່ພົບລາຍການການດຳເນີນການ.',
+  'meetingDetail.none': 'ບໍ່ມີ.',
   'meetingDetail.notFound': 'ບໍ່ພົບການປະຊຸມ.',
+  'meetingDetail.speakerFallback': 'ຜູ້ບັນຍາຍ {{id}}',
   'meetingDetail.summaryHeading': 'ສະຫຼຸບໂດຍຫຍໍ້ກ່ຽວກັບ AI',
   'meetingDetail.transcriptHeading': 'ບົດບັນທຶກສຽງ',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'ກອງປະຊຸມ',
   'meetings.loadError': 'ໂຫຼດການປະຊຸມບໍ່ສຳເລັດ.',
   'meetings.subheading': 'ທຸກໆການປະຊຸມທີ່ບັນທຶກໄວ້, ອັບໂຫຼດ ແລະ ຊິ້ງຂໍ້ມູນ.',
+  'murmurLayout.openMenu': 'ເປີດເມນູນຳທາງ',
   'murmurLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'notifications.loadError': 'ໂຫຼດການແຈ້ງເຕືອນບໍ່ສຳເລັດ.',
@@ -99,6 +107,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'ເຈົ້າປະກົດຕົວແນວໃດພາຍໃນ Murmur.',
   'record.error.empty': 'ບໍ່ມີສຽງຖືກບັນທຶກ.',
   'record.error.permission': 'ການອະນຸຍາດເຂົ້າໃຊ້ໄມໂຄຣໂຟນຖືກປະຕິເສດ.',
+  'record.error.recorder': 'ຄວາມຜິດພາດຂອງເຄື່ອງບັນທຶກ',
   'record.error.unsupported':
     'ໂປຣແກຣມທ່ອງເວັບຂອງທ່ານບໍ່ຮອງຮັບການບັນທຶກສຽງ. ລອງໃຊ້ Chrome, Edge ຫຼື Safari.',
   'record.error.upload': 'ອັບໂຫລດບໍ່ສຳເລັດ. ລອງໃໝ່ອີກຄັ້ງ.',
@@ -113,6 +122,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'ລະຫັດຜ່ານໃໝ່',
   'reset.subheading': 'ເລືອກລະຫັດຜ່ານທີ່ທ່ານບໍ່ໄດ້ໃຊ້ຢູ່ບ່ອນອື່ນ.',
   'search.empty': 'ພິມເພື່ອຄົ້ນຫາບົດບັນທຶກສຽງ.',
+  'search.loadError': 'ການຄົ້ນຫາລົ້ມເຫລວ. ລອງໃໝ່ອີກຄັ້ງ.',
   'search.noResults': 'ບໍ່ມີຜົນໄດ້ຮັບສຳລັບ " {{q}} ".',
   'settings.appearance.description': 'ສະຫຼັບລະຫວ່າງໂໝດສະຫວ່າງ ແລະ ໂໝດມືດ.',
   'settings.appearance.title': 'ຮູບລັກສະນະ',
@@ -121,6 +131,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ໂຫຼດການຕັ້ງຄ່າບໍ່ສຳເລັດ.',
   'settings.loading': 'ກຳລັງໂຫຼດ…',
   'settings.push.heading': 'ການແຈ້ງເຕືອນ',
+  'settings.push.subheading':
+    'ຮັບການແຈ້ງເຕືອນຂອງໂປຣແກຣມທ່ອງເວັບສຳລັບການກ່າວເຖິງ, ລາຍການການດຳເນີນການ ແລະ ສະຫຼຸບ.',
   'settings.retention.audio': 'ເກັບຮັກສາສຽງໄວ້ເປັນເວລາ',
   'settings.retention.heading': 'ການຮັກສາໄວ້',
   'settings.retention.transcript': 'ເກັບຮັກສາບົດບັນທຶກສຳລັບ',
@@ -138,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'ເລີ່ມການບັນທຶກບັນທຶກການປະຊຸມໃນເວລາບໍ່ເທົ່າໃດນາທີ',
   'signup.terms':
     'ໂດຍການສ້າງບັນຊີ ທ່ານຕົກລົງເຫັນດີກັບເງື່ອນໄຂການໃຫ້ບໍລິການ ແລະ ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວຂອງພວກເຮົາ.',
+  'signup.termsPrefix': 'ໂດຍການສ້າງບັນຊີ ທ່ານຕົກລົງເຫັນດີກັບພວກເຮົາ',
   'team.inviteCta': 'ເຊີນເພື່ອນຮ່ວມທີມ',
   'team.invitedAs': 'ໄດ້ຮັບເຊີນເປັນ {{role}}',
   'team.inviteFailed': 'ບໍ່ສາມາດສົ່ງຄຳເຊີນໄດ້.',

@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Mode ng Pagsubok: naitala ang mga order at nababayaran ang mga balanse, ngunit walang totoong card na sinisingil.',
   'checkout.placeOrderCta': 'Maglagay ng order',
+  'checkout.placeOrderError': 'Hindi mailagay ang iyong order.',
   'checkout.placingOrder': 'Naglalagay ng order…',
   'checkout.review.shipTo': 'Pagpapadala sa',
   'checkout.review.subtotal': 'Subtotal ng Nagbebenta',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Maging isang tindero',
   'landing.footer.copyright': '© {{year}} {{name}} — bawat tagagawa, iisang pamilihan.',
   'landing.footer.help': 'Help center',
+  'landing.nav.keepShopping': 'Patuloy na mamili',
   'landing.nav.sell': 'Ibenta sa Vendry',
   'landing.nav.shop': 'Tindahan',
   'landing.nav.signUp': 'Sumali',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Ang mga bagay na gustong-gusto ng mga mamimili',
   'login.accountTypeAria': 'Uri ng account',
   'login.heading': 'Maligayang pagbabalik sa Vendry',
+  'login.legalPrefix': 'Sa pamamagitan ng pag-sign in, sumasang-ayon ka sa aming',
   'login.subheading': 'Mag-sign in para makapagpatuloy sa pamimili o bumalik sa iyong tindahan.',
   'login.submitShopper': 'Mag-sign in para mamili',
   'login.submitVendor': 'Mag-sign in sa aking tindahan',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Inilagay {{date}} · {{vendorCount}} vendor(s) · katuparan ng maraming vendor',
   'orders.empty': 'Wala pang mga order na tumutugma sa filter na ito.',
+  'orders.emptyTitle': 'Wala pang mga order dito',
   'orders.eyebrow': 'Ang iyong mga binili',
   'orders.subtitle':
     'Tingnan kung sino ang nagpadala ng ano, sundan ang pagsubaybay sa bawat vendor, at huwag nang mawalan ng parsela muli.',
   'orders.title': 'Mga order, naka-grupo ayon sa vendor',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'productDetail.addToCart': 'Idagdag sa cart',
   'productDetail.addToCartError': 'Hindi maidagdag sa cart.',
   'productDetail.addToCartSuccess': '" {{name}} "idinagdag sa iyong cart.',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Pamahalaan kung paano ka namimili, kung paano ka naaabot ng mga nagtitinda, at kung saan napupunta ang pera.',
   'signup.heading': 'Sumali sa pamilihan',
+  'signup.legalPrefix': 'Sa pagsali, sumasang-ayon ka sa aming',
   'signup.mismatch': 'Hindi pa magkatugma ang mga password.',
   'signup.subheading':
     'Mag-browse ng mahigit 4,000 independiyenteng tagagawa, o magbukas ng sarili mong tindahan.',
   'status.delivered': 'Naihatid',
   'status.refunded': 'Naibalik',
+  'userMenu.marketplaceSettings': 'Mga setting ng Marketplace',
   'vendor.memberSince': 'Miyembro simula noong {{date}}',
+  'vendorDashboard.defaultShop': 'ang iyong tindahan',
   'vendorDashboard.eyebrow': 'Administrator ng Nagtitinda · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} na-clear pagkatapos ng komisyon ni Vendry. Susunod na payout sa Biyernes.',
@@ -159,12 +167,16 @@ export const ui: UiTranslations = {
     'Saan ka gumagawa, ano ang ginagawa mo, at bakit ito mahalaga.',
   'vendorOnboarding.currencyLabel': 'Mag-ayos sa pera',
   'vendorOnboarding.errors.shopName': 'Kinakailangan ang pangalan ng tindahan.',
+  'vendorOnboarding.errors.submit': 'Hindi maisumite ang iyong aplikasyon.',
   'vendorOnboarding.exit': 'I-save at magpatuloy mamaya',
   'vendorOnboarding.eyebrow': 'Mag-apply para magbenta sa Vendry',
+  'vendorOnboarding.field.shopName': 'Pangalan ng tindahan',
   'vendorOnboarding.heroBody':
     'Isang patag na 8% na komisyon, mga payout tuwing Biyernes, ang iyong tindahan, ang iyong kwento. Magkwento ka ng kaunti tungkol sa iyong tindahan at makikipag-ugnayan kami sa iyo sa loob ng 48 oras.',
   'vendorOnboarding.review.contact': 'Makipag-ugnayan',
   'vendorOnboarding.review.currency': 'Pera',
+  'vendorOnboarding.review.tagline': 'Tagline',
+  'vendorOnboarding.review.website': 'Website',
   'vendorOnboarding.reviewBody':
     'Mukhang maganda. Susuriin namin ang iyong tindahan sa loob ng 48 oras at ipapadala ang iyong unang payout sa Biyernes pagkatapos ng iyong unang benta.',
   'vendorOnboarding.samplesLabel': 'Halimbawang gawain — Instagram, portfolio, mga larawan',
@@ -173,11 +185,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Naisumite na ang aplikasyon! Susuriin namin ang iyong tindahan at mag-e-email sa iyo sa loob ng 48 oras.',
   'vendorOnboarding.taxIdLabel': 'ID ng Buwis',
+  'vendorOrders.emptyTitle': 'Wala pang mga order na kailangang gawin',
   'vendorOrders.eyebrow': 'Admin ng nagtitinda',
+  'vendorOrders.kpi.awaiting': 'Naghihintay ng katuparan',
   'vendorOrders.kpi.inTransit': 'Nasa biyahe',
   'vendorOrders.subtitle':
     'Mag-print ng mga label, markahan ang mga natapos, at sagutin ang mga tanong — lahat nang hindi umaalis sa Vendry.',
   'vendorOrders.title': 'Mga papasok na order',
+  'vendorPayouts.emptyTitle': 'Wala pang mga payout',
   'vendorPayouts.eyebrow': 'Pananalapi ng vendor',
   'vendorPayouts.heroCaption': 'Nag-ayos sa Banco BPI {{account}} · 1–2 araw ng negosyo',
   'vendorPayouts.history': 'Kasaysayan ng pagbabayad',
@@ -195,7 +210,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Saan ito ginawa? Anong kwento ang dala nito?',
   'vendorProductForm.error.name': 'Kinakailangan ang pangalan ng produkto',
   'vendorProductForm.error.price': 'Maglagay ng positibong presyo',
+  'vendorProductForm.error.publish': 'Nabigong i-publish',
   'vendorProductForm.eyebrow': 'Bagong listing',
+  'vendorProductForm.eyebrowEdit': 'I-edit ang listahan',
   'vendorProductForm.images.body':
     'Mag-drag-and-drop ng hanggang 8 na larawan. Ang unang larawan ang magiging pabalat ng tindahan.',
   'vendorProductForm.images.cta': 'I-drag ang mga larawan dito o mag-browse',
@@ -207,6 +224,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'I-save ang mga pagbabago',
   'vendorProductForm.title': 'Ipaalam sa mga mamimili ang tungkol sa iyong produkto',
   'vendorProductForm.variants.colInventory': 'Imbentaryo',
+  'vendorProductForm.variants.colVariant': 'Baryante',
   'vendorProducts.eyebrow': 'Admin ng nagtitinda',
   'vendorProducts.kpi.draft': 'Mga draft',
   'vendorProducts.kpi.lowStock': 'Mababang stock',

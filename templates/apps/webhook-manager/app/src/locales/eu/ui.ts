@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} ri buruz',
+  'about.pageTitle': 'Webhook kontrol-planoa',
+  'about.plansTitle': 'Etapa bakoitzerako planak',
   'apiKeys.bestPractices': 'Praktika onenak',
   'apiKeys.body':
     'Programaziorako sarbide-tokenak. Pasahitz gisa tratatu itzazu — ingurune-aldagaietan gorde, ez egin inoiz commit.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'planaren barruan',
   'billing.usageWarning': 'txapelaren ondoan',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.body':
     'Zuzeneko errendimendua, hegaldian dauden berriro saiakerak eta oztopoak izan dituzten amaiera-puntuak — erabiltzen duzun lan-eremu guztietan.',
   'dashboard.endpointsEmpty': 'Amaiera-punturik ez oraindik.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'amaiera-puntuak',
   'endpointDetail.deliveryTrendSub': 'entregak / ordu, eskala logaritmikoa',
   'endpointDetail.hideSecret': 'Ezkutatu sekretua',
+  'endpointDetail.loading': 'Amaiera-puntua kargatzen…',
   'endpointDetail.metric.delivered': '24 ordutan entregatua',
   'endpointDetail.metric.deliveredCaption': '-tik {{count}} ekitaldi motak',
   'endpointDetail.metric.failuresCaption': 'berriro saiakerak: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritikoa · 24 ordu',
   'notifications.metric.totalCaption': 'sarrera-ontzi osoa',
   'payloadViewer.payload': '// karga',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'profile.avatarHeader': 'Avatarra',
   'profile.avatarHint': 'Hasierakoak erakusten dira — hurrengo bertsioarekin batera igoko dira.',
   'profile.body': 'Zure kontua, lehentasunak eta saio aktiboak.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Zure uneko saioa bakarrik dago aktibo. Ez dago beste gailurik saioa hasita.',
   'profile.toggle': 'Txandakatu {{label}}',
+  'pylonShell.closeMenu': 'Itxi nabigazio menua',
+  'pylonShell.openMenu': 'Ireki nabigazio menua',
   'pylonShell.primaryNavLabel': 'Nabigazio nagusia',
   'resetPassword.subtitle': 'Aukeratu lehenago erabili ez duzun pasahitz sendo bat.',
   'resetPassword.tokenPlaceholder': 'itsatsi mezu elektroniko batetik',

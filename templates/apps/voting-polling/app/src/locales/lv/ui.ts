@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'analytics.col.quorum': 'Kvorums',
   'analytics.col.votes': 'Balsis',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Vēl nav neatbildētu jautājumu.',
   'audienceQa.onStageEyebrow': 'Uz skatuves tagad',
   'audienceQa.pollId': 'jautājums · {{id}}',
+  'audienceQa.promote': 'Veicināt',
   'audienceQa.queued': 'rindā',
   'audienceQa.queueEyebrow': 'Rinda',
   'ballot.eyebrow': 'Nodod savu balsi',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Jūs pašlaik atrodaties sadaļā {{plan}} plāns.',
   'billing.switch': 'Slēdzis',
   'billing.upgraded': 'Atjaunināts uz {{plan}} — nekavējoties piemērojamie ierobežojumi.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'createPoll.addOption': 'Pievienot opciju',
   'createPoll.anonymousHint':
     'Vēlētāju vārdi ir paslēpti audita žurnālā; skaitīšanas rezultāti paliek autentificēti.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Vai esi jauns Nosh lietotājs?',
   'login.remember': 'Atcerēties mani 30 dienas',
   'login.subheading': 'Atveriet grīdu, izpētiet istabu un apstipriniet rezultātu.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'notFound.body':
     'Lapa, kuru mēģinājāt sasniegt, ir slēgta vai pārvietota. Atgriezieties informācijas panelī vai atveriet jaunu aptauju.',
   'notFound.eyebrow': 'Šajā maršrutā nav kvoruma',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Nevarēja ielādēt šo aptauju.',
   'pollDetail.loading': 'Notiek aptaujas ielāde…',
   'pollDetail.notFound': 'Aptauja nav atrasta.',
+  'pollDetail.openBallot': 'Atklāta balsošana',
   'pollDetail.openLive': 'Tiešraides rezultāti',
   'pollDetail.pollId': 'aptauja · {{id}}',
   'pollDetail.published': 'Publicēta aptauja — vēlētāji tagad var nodot balsis.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Meklēt pēc e-pasta…',
   'voters.subheading':
     'Izveidojiet balsošanas tiesīgo sarakstu. Grupējiet vēlētājus pēc organizācijas, lai iegūtu svērtās vēlēšanu zīmes.',
+  'votingPollingLayout.nav.analytics': 'Analītika',
+  'votingPollingLayout.nav.billing': 'Norēķini',
+  'votingPollingLayout.nav.createPoll': 'Jauna aptauja',
+  'votingPollingLayout.nav.dashboard': 'Informācijas panelis',
+  'votingPollingLayout.nav.notifications': 'Paziņojumi',
+  'votingPollingLayout.nav.settings': 'Iestatījumi',
+  'votingPollingLayout.nav.team': 'Komanda',
+  'votingPollingLayout.nav.voters': 'Vēlētāji',
+  'votingPollingLayout.primaryNavLabel': 'Galvenā navigācija',
 }

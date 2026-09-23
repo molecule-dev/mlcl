@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
   'authShell.samplePreview':
     '“Haigh a fhoireann, tá an painéal nua go hálainn — go díreach a bhí ag teastáil uainn!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/aicearra',
   'automations.subheading':
     'Rialacha, freagraí réamhdhéanta agus comhrábots — coinnigh an spás oibre ag bualadh agus do fhoireann ag díriú ar na rudaí deacra.',
+  'automations.trigger.inboundMessage': 'Teachtaireacht isteach',
   'automations.triggerLabel': 'Spriocdhíriú',
   'chatBubble.internalNoteLabel': 'Nóta inmheánach',
+  'common.confirmDelete': 'Deimhnigh scriosadh',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'contactDetail.backToContacts': 'Gach teagmháil',
   'contactDetail.contactFallback': 'Teagmháil',
   'contactDetail.conversationFallback': 'Comhrá',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Chonaic mé an uair dheireanach',
   'contacts.empty': 'Gan aon teagmhálaithe fós. Cuir do chéad teagmhálaí leis thuas.',
   'contacts.eyebrow': 'Eolaire custaiméirí',
+  'contacts.form.nameOrEmailRequired': 'Cuir ainm nó ríomhphost ar fáil ar a laghad',
   'contacts.form.save': 'Sábháil teagmhálaí',
   'contacts.heading': 'Teagmhálacha',
   'contacts.loading': 'Teagmhálacha á lódáil…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Sábháil nóta',
   'conversationDetail.tab.note': 'Nóta inmheánach',
   'conversationDetail.threadAria': 'Teachtaireachtaí comhrá',
+  'conversationDetail.visitorFallback': 'Cuairteoir',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Sonraí an chustaiméara',
   'customerProfilePanel.recentTitle': 'Comhráite le déanaí',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Tá custaiméirí ag fáil a gcéad fhreagra i {{time}} ar an meán — coinnigh an cadans ag dul.',
   'inboxHeroCard.title': 'Comhráite gníomhacha',
+  'inboxLayout.navDrawerLabel': 'Loingseoireacht',
+  'inboxLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'inboxOverview.eyebrow': 'Sracfhéachaint ar an lá inniu',
   'inboxOverview.heroChange': '{{count}} oscailte',
   'inboxOverview.kpiClosedTrend': 'i gcónaí',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Tabhair cuairt ar an leathanach baile',
   'notifications.subheading':
     'Sannta, @tráchtanna, rioscaí SLA, aiseolas CSAT agus gníomhaíocht foirne — sórtáilte de réir na cinn is nuaí ar dtús.',
+  'notifications.subjectFallback': 'comhrá',
+  'notifications.visitorFallback': 'Cuairteoir',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Ard',
   'priority.low': 'Íseal',
+  'priority.normal': 'Gnáth',
   'priority.urgent': 'Práinneach',
   'privacy.title': 'Polasaí príobháideachta',
   'reports.agentFallback': 'Gníomhaire',

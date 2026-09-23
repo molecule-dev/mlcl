@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'billing.canceled': 'An soke biyan kuɗi. Za ku koma Kyauta a ƙarshen lokacin.',
   'billing.contactSales': 'Tuntuɓi tallace-tallace',
   'billing.free.1': 'Fassarori 5',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Babu iyaka riƙewa',
   'billing.upgradeHint': 'Haɓakawa don buɗe fasalolin AI na ci gaba.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.activityEmpty': 'Babu wani aiki tukuna — fara aiki don cike wannan shafin.',
   'dashboard.eyebrow': 'Bayani',
   'dashboard.projectsEmpty': 'Babu wasu ayyuka tukuna — fara ɗaya don ganin sa a nan.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Sake amfani da fassarar da ta gabata a cikin kowane aiki. Mafi girman maki daidai → ƙarancin sake aiki.',
   'memory.title': 'Bankin ƙwaƙwalwa',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'nav.legal': "Shari'a",
   'newProject.addLanguage': 'Ƙara manufa',
   'newProject.create': 'Ƙirƙiri aiki',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'An yi alama {{count}} sanarwa kamar yadda aka karanta.',
   'notifications.subtitle':
     "Ambato, buƙatun bita, da abubuwan da suka faru na AI daga ko'ina cikin wuraren aikinku.",
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'privacy.collection.account': 'Imel ɗin asusunka da sunan nuni',
   'privacy.deletion.body':
     'Za ka iya share wani aiki, sashe, kalmar ƙamus, ko shigarwar ƙwaƙwalwa a kowane lokaci daga shafin da ya dace. Share asusunka daga Saituna yana share kowane layi da aka auna ta hanyar wurin aiki daga bayanan mu.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'An kasa loda ayyukan.',
   'projects.loading': 'Ana loda ayyukan…',
   'projects.subtitle': 'Kowane aiki mai aiki a duk yankuna.',
+  'renditionLayout.primaryNavLabel': 'Babban kewayawa',
   'reset.backToLogin': '\\u2190 Komawa don shiga',
   'reset.passwordLabel': 'Sabuwar kalmar sirri',
   'review.activeEyebrow': 'Sashe {{number}}',

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.title': '{{app}} haqida',
   'auth.login.noAccount': 'Sparqda yangimisiz?',
   'auth.login.or': 'yoki davom eting',
   'auth.signup.or': "yoki ro'yxatdan o'ting",
+  'common.confirm': 'Tasdiqlash',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.loadError': 'Ushbu kontentni yuklashda xatolik yuz berdi.',
+  'common.retry': 'Qayta urinish',
   'discover.collections.title': "Kategoriya bo'yicha ko'rib chiqish",
   'discover.collections.viewAll': "Kutubxonangizni ko'ring →",
   'discover.empty.body': "Boshqa kategoriyani sinab ko'ring yoki qidiruvni tozalang.",
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Seriyangizni davom ettirish, jonli oʻyinlarni oʻtkazish va reytingda yuqori oʻrinlarni egallash uchun tizimga kiring.',
   'myQuizzes.createButton': 'Yangi viktorina',
+  'myQuizzes.deleteConfirm': 'Butunlay oʻchirib tashlansinmi?',
   'myQuizzes.empty.createCta': 'Birinchi viktorinangizni yarating →',
   'myQuizzes.empty.created': 'Siz hali viktorina yaratmadingiz.',
   'myQuizzes.empty.played': "Hali nashr etilgan viktorinalar yo'q.",
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.subhead':
     "{{count}} o'qilmagan uchqunlar. Taklifnomalar, peshqadamlar jadvalidagi o'zgarishlar va yutuqlarning barchasi bitta oqimda.",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.checkoutError': "To'lovni boshlash imkoni bo'lmadi. Qaytadan urinib ko'ring.",
+  'pricing.heading': '{{app}} rejasini tanlang',
   'pricing.included': 'Kiritilgan',
   'pricing.loadError': 'Rejalar yuklanmadi.',
   'pricing.maxQuizzes': '{{count}} viktorinalar',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Hali hech narsa chop etilmagan.',
   'profile.startBuilding': 'Qurilishni boshlang →',
   'profile.tier': "Sparq o'yinchisi",
+  'quizBuilder.addFailed': "Savol qo'shib bo'lmadi. Qaytadan urinib ko'ring.",
   'quizBuilder.addQuestion': "Savol qo'shish",
   'quizBuilder.answerPlaceholder': 'Variantni kiriting…',
   'quizBuilder.answersLabel': 'Javob variantlari',
   'quizBuilder.back': 'Viktorinalarimga qaytish',
   'quizBuilder.delete': "Savolni o'chirish",
+  'quizBuilder.deleteFailed': "Savolni o'chirib bo'lmadi.",
   'quizBuilder.firstQuestion': "Boshlash uchun birinchi savolingizni qo'shing.",
   'quizBuilder.idLabel': 'Viktorina identifikatori: {{id}}',
   'quizBuilder.loadError': "Viktorinani yuklab bo'lmadi.",
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     "Kamida ikkita javob variantini qo'shing va to'g'ri variantni tanlang {{count}} nashr etishdan oldin savol(lar).",
   'quizBuilder.questionsTitle': 'Savollar',
+  'quizBuilder.saveFailed': "Sarlavhani saqlab bo'lmadi. Qaytadan urinib ko'ring.",
   'quizBuilder.statusDraft': 'Qoralama',
   'quizBuilder.subhead':
     "Sarlavhani tahrirlang, savollar qo'shing, variantlarni va to'g'ri javobni o'rnating. O'zgarishlar avtomatik ravishda saqlanadi.",
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} daqiqa',
   'quizDetail.hostMultiplayer': "Ko'p o'yinchi o'yinchisi sifatida mezbonlik qilish",
   'quizDetail.leaderboardEmpty': "Hali o'yinlar yo'q — birinchi bo'lib hisobni oching.",
+  'quizDetail.loadError': "Bu viktorinani yuklab bo'lmadi.",
   'quizDetail.loading': 'Viktorina yuklanmoqda…',
   'quizDetail.plays': '{{count}} spektakllar',
   'quizDetail.playSolo': 'Yakkaxon ijro etish',

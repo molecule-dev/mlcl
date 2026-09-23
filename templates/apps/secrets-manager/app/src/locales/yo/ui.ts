@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'about.tagline': 'Àṣírí kú ní gbangba.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Ṣẹ̀dá àmì ìdámọ̀ràn',
   'apiTokens.kicker': 'Àwọn àmì API',
   'apiTokens.loading': 'N n gbe awọn ami si…',
+  'apiTokens.new': 'Àmì tuntun',
   'apiTokens.revoke': 'Fagilé àmì náà',
   'apiTokens.subheading':
     'Àwọn àmì ìṣẹ́ ti ara ẹni àti ti iṣẹ́ fún Arcanum CLI àti SDK. Ọ̀rọ̀ lásán ni a fi hàn nígbà tí a ń ṣẹ̀dá rẹ̀.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Ọrọigbaniwọle',
   'authShell.zeroKnowledge': 'Ìfipamọ́ àìmọ̀-òdo',
   'common.connecting': 'N sopọ̀ mọ́…',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.inviting': 'Pípè…',
   'forgotPassword.checkInbox':
     'Tí a bá forúkọ sílẹ̀ {email}, ìjápọ̀ àtúntò tí a fọwọ́ sí yóò dé láàrín ìṣẹ́jú kan.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Ipo iyipo, awọn itaniji aiṣedeede, ati awọn ibeere ifọwọsi kọja gbogbo ibi ipamọ.',
   'notifications.unreadEmpty': 'Àpótí ìforúkọsílẹ̀ òdo — gbogbo rẹ̀ ti parí.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.heading': 'awọn aṣiri',
   'pricing.limits.accessPolicies': 'awọn ilana iwọle',
   'pricing.limits.auditLog': 'Àwọn ìkọsílẹ̀ àyẹ̀wò-àkọọ́lẹ̀',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Àkọọ́lẹ̀ ti ara ẹni',
   'profile.plan.description': 'Ṣàkóso ìforúkọsílẹ̀ rẹ, wo àwọn ààlà, kí o sì ṣe àtúnṣe.',
   'profile.subheading': 'Idanimọ, awọn ẹrọ ifosiwewe keji, ati awọn akoko ti nṣiṣe lọwọ.',
+  'profile.twoFactor.code': 'Kóòdù ìfàṣẹsí',
   'profile.twoFactor.disable': 'Mu ṣiṣẹ',
   'profile.twoFactor.enable': 'Mu ṣiṣẹ',
+  'profile.twoFactor.invalidCode': 'Kóòdù tí kò tọ́',
   'profile.twoFactor.kicker': 'Ìfọwọ́sí onífekítọ̀ méjì',
+  'profile.twoFactor.off': 'A ko muu ṣiṣẹ',
   'profile.twoFactor.on': 'Ti mu ṣiṣẹ',
   'resetPassword.email': 'Imeeli àkọọ́lẹ̀',
   'resetPassword.heading': 'Ṣeto awọn iwe-ẹri tuntun',
@@ -130,6 +137,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'awọn aṣẹ',
   'secretsManagerLayout.encrypted': 'AES-256 · A FI ṢE ÀKỌSÍLẸ̀',
   'secretsManagerLayout.newVault': 'Àgọ́ tuntun',
+  'secretsManagerLayout.newVaultShort': 'Tuntun',
   'secretsManagerLayout.rotations': 'Àwọn ìyípo',
   'secretsManagerLayout.search': 'ṣe àwárí',
   'secretsManagerLayout.searchPlaceholder': 'Wa awọn aṣiri nipasẹ bọtini, ipa ọna, tabi tag…',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Àwọn àṣírí',
   'vaultCard.vaultLabel': 'Àkójọ ìpamọ́',
   'vaultDetail.addSecret': 'Fi àṣírí kún un',
+  'vaultDetail.back': 'Gbogbo àwọn àpótí ìpamọ́',
   'vaultDetail.col.key': 'Kọ́kọ́rọ́',
   'vaultDetail.col.rotated': 'Yíyípo',
   'vaultDetail.col.value': 'Iye',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.title': 'Kirjutusruum, mida saate taskus hoida',
   'billing.cancelConfirm': 'Kas tühistada oma aktiivne tellimus?',
   'billing.cancelFailed': 'Tühistamine ebaõnnestus.',
   'billing.checkingOut': 'Kassa avamine…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Arveldust ei õnnestunud laadida.',
   'billing.loading': 'Arve laadimine…',
   'billing.upgradeCta': 'Uuenda versioonile {{name}}',
+  'common.goToDashboard': 'Mine töölauani',
+  'editor.autosaveOn': 'Automaatne salvestamine sees',
   'editor.backToLibrary': 'Tagasi raamatukokku',
   'editor.charCount': '{{count}} märgid',
   'editor.confirmTrash': 'Kas teisaldada see dokument prügikasti?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Vabastatud',
   'editor.unpublishCta': 'Teisalda mustandisse',
   'editor.unpublished': 'Ennistati mustandiks',
+  'focus.autosaveOn': 'Automaatne salvestamine sees',
   'focus.backToLibrary': 'Tagasi raamatukokku',
   'focus.bodyPlaceholder': 'Üks rida korraga. Kedagi teist siin pole.',
   'focus.exit': 'Välju fookusrežiimist',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Loo üks',
   'login.subline':
     'Sinu käsikirjad, päevaleheküljed ja kursori viimane asukoht on täpselt seal, kus sa need jätsid.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'pricing.exports': 'eksport',
   'pricing.folders': 'kaustad',
   'pricing.heading': 'dokumendid',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Sisesta kood, mille me sulle just e-postiga saatsime, ja vali midagi meeldejäävat. Logime sind sisse, kui see on salvestatud.',
   'reset.tokenHint': 'Kleebitud teie postkastist.',
+  'settings.appearance.heading': 'Hele või tume',
   'settings.editor.${row.id}.description': 'Keel',
   'settings.editor.description':
     'Kirjutusmasina kerimine, lõigu hääbumine ja jõudeoleku fookus – vaikesätted on häälestatud pikkade seansside jaoks.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kolmas peatükk — Vaikne tund enne päikesetõusu',
   'versalDocumentCard.pinned': 'Kinnitatud',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Peamine navigeerimine',
   'versalManuscriptHero.cta': 'Jätka kirjutamist',
   'versalManuscriptHero.goalLabel': 'Tänane sõnaline eesmärk',
   'versalManuscriptHero.inProgress': 'Õigekirja järgi',

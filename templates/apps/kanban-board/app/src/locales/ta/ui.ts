@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'backlog.create.needBoard':
     'நிலுவையில் உள்ள பணிகளைச் சேர்ப்பதற்கு முதலில் ஒரு பலகையை உருவாக்கவும்.',
   'backlog.create.placeholder': 'எடுத்துக்காட்டாக, டாஷ்போர்டில் உள்ள மெதுவான வினவலை ஆராயுங்கள்.',
@@ -12,6 +13,7 @@ export const ui: UiTranslations = {
   'backlog.eyebrow': 'Driftboard · பின்தங்கிய பட்டியல்',
   'backlog.goToBoards': 'பலகைகளுக்குச் செல்லவும்',
   'backlog.heading': 'நிலுவை',
+  'backlog.loadError': 'நிலுவையை ஏற்ற முடியவில்லை.',
   'backlog.loading': 'நிலுவை ஏற்றுகிறது...',
   'backlog.newItem': 'புதிய பொருள்',
   'backlog.noBoards': 'நிலுவையில் உள்ள பணிகளைப் பயன்படுத்த, முதலில் ஒரு பலகையை உருவாக்கவும்.',
@@ -42,8 +44,10 @@ export const ui: UiTranslations = {
   'boardDetail.rename': 'மறுபெயரிடப்பட்ட குழு',
   'boardDetail.renameDialog.label': 'புதிய பெயர்',
   'boardDetail.renameDialog.title': 'மறுபெயரிடப்பட்ட குழு',
+  'boardDetail.star': 'ஸ்டார் போர்டு',
   'boardDetail.totalCards': '{{count}} அட்டைகள்',
   'boardDetail.totalLists': '{{count}} பட்டியல்கள்',
+  'boardDetail.unstar': 'அன்ஸ்டார் போர்டு',
   'boardDetail.upgradeRequired': 'உங்கள் திட்டத்தின் பட்டியல் வரம்பை நீங்கள் அடைந்துவிட்டீர்கள்.',
   'boardHeroCard.completedLabel': 'அனுப்பப்பட்ட அட்டைகள்',
   'boardHeroCard.due': 'காரணமாக {{value}}',
@@ -88,6 +92,8 @@ export const ui: UiTranslations = {
   'cardDetail.noDescription': 'இன்னும் விளக்கம் இல்லை.',
   'cardDetail.notFound': 'அட்டை காணப்படவில்லை.',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'dashboard.boards.heading': 'உங்கள் பலகைகள்',
   'dashboard.boards.updated': 'புதுப்பிக்கப்பட்டது {{ago}}',
   'dashboard.create.nameLabel': 'வாரியத்தின் பெயர்',
@@ -99,6 +105,7 @@ export const ui: UiTranslations = {
   'dashboard.kpis.cardsShipped': 'அனுப்பப்பட்ட அட்டைகள்',
   'dashboard.kpis.highPriority': 'உயர் முன்னுரிமை',
   'dashboard.kpis.openCards': 'திறந்த அட்டைகள்',
+  'dashboard.loadError': 'உங்கள் டாஷ்போர்டை ஏற்ற முடியவில்லை.',
   'dashboard.loading': 'ஏற்றப்படுகிறது—',
   'dashboard.newBoardCta': 'புதிய வாரியம்',
   'dashboard.recent.heading': 'சமீபத்திய அட்டைகள்',
@@ -112,6 +119,7 @@ export const ui: UiTranslations = {
   'driftboardAuthShell.sample.title':
     'டாஷ்போர்டு விளக்கப்படங்களை புதிய வண்ண டோக்கன்களுக்கு மாற்றவும்',
   'driftboardKanbanCard.labelOverflow': '+{{count}}',
+  'driftboardLayout.closeNav': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'driftboardLayout.nav.backlog': 'நிலுவை',
   'driftboardLayout.nav.boards': 'வாரியங்கள்',
   'forgotPassword.continueCta': 'என்னுடைய மீட்டமைப்பு குறியீடு என்னிடம் உள்ளது',
@@ -152,8 +160,10 @@ export const ui: UiTranslations = {
   'notFound.heading': 'இந்த அட்டை பலகையிலிருந்து அகற்றப்பட்டது.',
   'notifications.eyebrow': 'Driftboard · இன்பாக்ஸ்',
   'notifications.heading': 'செயல்பாட்டு இன்பாக்ஸ்',
+  'notifications.loadError': 'உங்கள் இன்பாக்ஸை ஏற்ற முடியவில்லை.',
   'notifications.loading': 'இன்பாக்ஸ் ஏற்றப்படுகிறது...',
   'notifications.subline': '{{count}} படிக்கப்படாத புதுப்பிப்புகள்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'resetPassword.eyebrow': 'Driftboard · இறுதிக் கட்டம்',
   'resetPassword.headline': 'புதிய கடவுச்சொல்லை அமைக்கவும்.',
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
@@ -181,6 +191,7 @@ export const ui: UiTranslations = {
   'team.kpis.boards': 'செயலில் உள்ள வாரியங்கள்',
   'team.kpis.open': 'திறந்த அட்டைகள்',
   'team.kpis.shipped': 'அனுப்பப்பட்ட அட்டைகள்',
+  'team.kpis.total': 'மொத்த உறுப்பினர்கள்',
   'team.noEmail': 'உரிமையாளர்',
   'team.roleOwner': 'உரிமையாளர்',
   'team.subline':

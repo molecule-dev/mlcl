@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'រាល់ខាំ មានតុល្យភាព',
   'auth.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'auth.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'nav.legal': 'ផ្នែកច្បាប់',
+  'nosh.auth.legalPrefix': 'ដោយបន្តអ្នកយល់ព្រមតាម',
   'nosh.foodDetail.add': 'បន្ថែមទៅក្នុងកំណត់ហេតុប្រចាំថ្ងៃ',
   'nosh.foodDetail.added': 'បានបន្ថែមទៅ {{អាហារ}} ។',
   'nosh.foodDetail.addError': 'មិនអាចបន្ថែមទៅក្នុងកំណត់ហេតុប្រចាំថ្ងៃបានទេ។',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'ជាតិសរសៃ',
   'nosh.foodDetail.micros.sodium': 'សូដ្យូម',
   'nosh.foodDetail.micros.sugar': 'ស្ករ',
+  'nosh.foodDetail.percentDv': '% នៃ {{pct}} ប្រចាំថ្ងៃ (DV)',
   'nosh.foodDetail.protein': 'ប្រូតេអ៊ីន',
   'nosh.foodDetail.serving.count': 'ចំនួនដង',
   'nosh.foodDetail.serving.meal': 'បន្ថែមទៅ',
@@ -47,6 +51,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'ចាប់ផ្តើមចាក់សាំងឲ្យកាន់តែឆ្លាតវៃ',
   'nosh.landing.features.heading': 'អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការ គ្មានអ្វីដែលអ្នកមិនត្រូវការ',
   'nosh.landing.features.smartRing.title': 'ចិញ្ចៀនកាឡូរីឆ្លាតវៃ',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}។',
   'nosh.landing.hero.body':
     'កំណត់ហេតុអាហារដែលងាយស្រួលប្រើ ដែលជួយអ្នកឱ្យសម្រេចគោលដៅរបស់អ្នកដោយមិនមានកំហុស។ ផ្តោតលើអាហារូបត្ថម្ភ មិនមែនគ្រាន់តែចំនួននោះទេ។',
   'nosh.landing.hero.eyebrow': 'ការតាមដានកាឡូរីដែលងាយស្រួល',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'តើអ្នកសកម្មប៉ុណ្ណា?',
   'nosh.onboarding.back': 'ថយក្រោយ',
   'nosh.onboarding.macros.heading': 'នេះជាគោលដៅប្រចាំថ្ងៃរបស់អ្នក',
+  'nosh.onboarding.saveError': 'មិនអាចរក្សាទុកគោលដៅរបស់អ្នកបានទេ។',
   'nosh.onboarding.start': 'តោះទៅ',
   'nosh.progress.calorieChart.title': 'កាឡូរីតាមថ្ងៃ',
   'nosh.progress.empty':
@@ -143,6 +149,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'លុប​ជា​អចិន្ត្រៃយ៍',
   'nosh.settings.deleteError': 'មិនអាចលុបគណនីបានទេ។',
   'nosh.settings.export.cta': 'ទាញយក CSV',
+  'nosh.settings.export.description': 'ទាញយកកំណត់ហេតុអាហារពេញលេញរបស់អ្នកជា CSV។',
   'nosh.settings.export.label': 'នាំចេញទិន្នន័យ',
   'nosh.settings.export.preparing': 'កំពុងរៀបចំ…',
   'nosh.settings.eyebrow': 'គណនី · ការជូនដំណឹង · ភាពឯកជន',
@@ -154,6 +161,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'ការតាមដានដោយរួសរាយរាក់ទាក់ គ្មានកំហុសអ្វីទាំងអស់។',
   'nosh.today.${mealKey}Empty': 'ប៉ះដើម្បីកត់ត្រា',
   'nosh.today.addFood': 'បន្ថែមអាហារ',
+  'nosh.today.backToToday': 'ត្រឡប់ទៅថ្ងៃនេះវិញ',
+  'nosh.today.dateNavLabel': 'ផ្លាស់ប្តូរថ្ងៃកំណត់ហេតុប្រចាំថ្ងៃ',
   'nosh.today.loadError': 'មិនអាចផ្ទុកថ្ងៃនេះបានទេ។',
   'nosh.today.macros.carbs': 'កាបូអ៊ីដ្រាត',
   'nosh.today.macros.fat': 'ខ្លាញ់',
@@ -161,6 +170,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'ប្រូតេអ៊ីន',
   'nosh.today.macroTitle': 'សារធាតុចិញ្ចឹម​សំខាន់ៗ',
   'nosh.today.meal.${mealKey}': 'កាឡូរី',
+  'nosh.today.nextDay': 'ថ្ងៃបន្ទាប់',
+  'nosh.today.pastPill': 'ថ្ងៃកន្លងមក',
+  'nosh.today.prevDay': 'ថ្ងៃមុន',
   'nosh.today.quickAddError': 'មិនអាចកត់ត្រាធាតុរហ័សបានទេ។',
   'nosh.today.remaining': 'កាឡូរីដែលនៅសល់',
   'nosh.today.streakHeadline': '{{count}} - ស្ទ្រីមប្រចាំថ្ងៃ',

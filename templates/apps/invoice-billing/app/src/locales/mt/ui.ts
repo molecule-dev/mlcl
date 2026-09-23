@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwarna',
   'activityFeed.empty': "Għad m'hemm l-ebda attività — ibgħat l-ewwel fattura tiegħek.",
   'authShell.sample.paid': 'Imħallas 2 minuti ilu',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Żid klijent ġdid',
   'clients.search': 'Fittex skont l-isem, il-kumpanija, l-email',
   'clients.title': 'Klijenti',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Klijent ġdid',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Insejt il-password',
   'forgotPassword.successBody':
     "Bagħtejna struzzjonijiet ta' reset lil {{email}} Il-link jiskadi fi żmien 30 minuta.",
+  'invoiceDetail.action.confirmVoid': 'Ikkonferma null?',
   'invoiceDetail.action.download': 'Niżżel il-PDF',
   'invoiceDetail.action.duplicate': 'Duplikat',
   'invoiceDetail.action.edit': 'Editja',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Fattura annullata.',
   'invoiceDetail.issued': 'Maħruġ {{date}}',
   'invoiceDetail.loading': 'Qed tiċċarġja l-fattura…',
+  'invoiceDetail.paidInFull': 'Imħallas kollu kemm hu',
   'invoiceDetail.summary': '{{client}} · mibgħuta {{date}}',
   'invoiceDetail.tax': 'Taxxa ( {{rate}} %)',
   'invoiceDetail.timeline': 'Kronoloġija',
+  'invoiceDetail.voided': 'Imħassar',
   'invoiceEditor.addItem': 'Żid oġġett',
   'invoiceEditor.back': '← Lura għall-fatturi',
   'invoiceEditor.col.qty': 'Kwantità',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Ibgħat l-ewwel fattura tiegħek',
   'landing.hero.eyebrow': 'Fatturazzjoni għal negozji żgħar',
   'landing.hero.secondary': 'Ara fattura kampjun',
+  'landing.hero.subtitle':
+    "{{appName}} tgħaqqad fatturi raffinati ma' ħlasijiet integrati, kontijiet rikorrenti, u rapporti lesti għat-taxxa. Mingħajr żamma tal-kotba.",
   'landing.hero.title': 'Ibgħat fatturi. Ħlas aktar malajr.',
   'login.signupLink': 'Oħloq waħda',
   'login.submitting': 'Qed nidħol...',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'pagamenti',
   'pricing.recurringLabel': 'skedi rikorrenti',
   'remitLayout.newInvoice': 'Fattura Ġdida',
+  'remitLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'remitLayout.searchPlaceholder': 'Fittex fatturi, klijenti...',
   'remitLayout.tagline': 'Ikseb il-ħlas, aktar malajr',
   'reports.chart.aging': 'Tixjiħ tal-fattura',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Dħul tal-perjodu',
   'reports.chart.topClients': 'Klijenti ewlenin',
   'reports.chart.topClientsCaption': 'Dħul tul il-ħajja, l-aqwa 5',
+  'reports.empty.aging': 'L-ebda fattura pendenti.',
+  'reports.empty.methods': "Għad m'hemm l-ebda dejta dwar il-ħlas.",
+  'reports.empty.revenue': "Għad m'hemm l-ebda dejta dwar id-dħul.",
+  'reports.empty.topClients': "Għad m'hemm l-ebda dejta dwar id-dħul tal-klijenti.",
   'reports.exporting': 'Esportazzjoni…',
   'reports.exportRequiresPaid':
     'L-esportazzjonijiet huma karatteristika bi ħlas — aġġorna biex tattivahom.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Żid ir-rata tat-taxxa',
   'settings.tax.added': 'Rata tat-taxxa miżjuda.',
   'settings.tax.adding': 'Qed inżidu…',
+  'settings.tax.addRate': 'Żid ir-rata',
   'settings.tax.col.region': 'Reġjun',
   'settings.tax.delete': 'Ħassar ir-rata tat-taxxa',
   'settings.tax.deleted': 'Ir-rata tat-taxxa tneħħiet.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Vai alla Dashboard',
   'forgot.eyebrow': 'Ha perso la strada per rientrare?',
   'forgot.formSubtitle': "Ci indichi l'email registrata.",
   'forgot.headline': 'Reimposti la Sua password.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ne crei uno',
   'login.subline':
     'I tuoi quaderni, i link e le pagine giornaliere sono esattamente dove li hai lasciati.',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'noteEditor.backToNotes': 'Torna agli appunti',
   'noteEditor.bodyPlaceholder':
     'Inizia a scrivere: la tua nota verrà salvata automaticamente mentre digiti.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Nuovo notebook',
   'notes.newNotebookPrompt': 'Nuovo nome del notebook',
   'notes.notebooksHeading': 'Notebook',
+  'notes.subtitle':
+    'Seleziona un quaderno a sinistra, quindi premi il pulsante Nuova nota per iniziare una nuova voce.',
   'planUpdated.confirmation': 'Il Suo piano è stato aggiornato',
   'pricing.heading': 'Scegli il tuo metodo per prendere appunti',
   'reset.eyebrow': 'Quasi tornato',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Aggiornato',
   'versoLayout.nav.graph': 'Grafico',
   'versoLayout.nav.home': 'Casa',
+  'versoLayout.primaryNavLabel': 'Navigazione principale',
   'versoNoteCard.pinned': 'Fissate',
   'versoTodayHero.continueCta': 'Continua a scrivere',
   'versoTodayHero.createCta': 'Inizia la nota di oggi',

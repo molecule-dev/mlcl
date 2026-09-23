@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Apie {{app}}',
   'analytics.back': 'Apklausos apžvalga',
   'analytics.kpiNps': 'NPS balas',
   'analytics.kpiNpsTrend': 'Organizatoriai {{p}} % · Nekentėjai {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Ypatybės',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Apklausos pavadinimas',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'forgotPassword.failed':
     'Nepavyko išsiųsti el. laiško, kurio reikia iš naujo nustatyti. Bandykite dar kartą.',
   'forgotPassword.subheading':
     'Įveskite savo el. pašto adresą ir mes atsiųsime jums atkūrimo nuorodą.',
   'forgotPassword.successBody':
     'Jei paskyra sutampa {{email}} , atnaujinimo nuoroda jau pakeliui. Patikrinkite gautuosius ir šlamšto aplankus.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Laukiami visi balsai.',
   'landing.footer.startTrial': 'Pradėti bandomąjį laikotarpį',
   'landing.hero.badge': 'Apklausos, NPS ir atsiliepimai vienoje vietoje',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Kainodara',
   'landing.pricing.perMonth': '/mėn.',
   'landing.pricing.popular': 'Populiariausi',
+  'landing.pricing.subtitle':
+    'Į kiekvieną planą įeina apklausų kūrimo priemonė, viešo bendrinimo nuorodos ir NPS analizė. Pradžiai kreditinės kortelės nereikia.',
+  'landing.pricing.title': 'Pradėkite nemokamai, o tada plėskitės.',
   'landing.sample.eyebrow': 'NPS trumpai',
   'landing.sample.title': 'Kritikai, pasyvieji, šalininkai – akimirksniu įskaitoma.',
   'login.failed': 'Prisijungti nepavyko. Prašome bandyti dar kartą.',
@@ -58,6 +64,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Rodyti slaptažodį',
   'login.signUpLink': 'Pradėkite nemokamą bandomąją versiją',
   'login.subheading': 'Prisijunkite, kad galėtumėte toliau klausytis savo auditorijos.',
+  'notFound.body': 'Puslapio, kurio ieškote, nėra {{app}} programoje. Grįžkime prie jūsų apklausų.',
   'notFound.cta': 'Grįžti į apklausas',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Ši apklausa nukrypo nuo eilės.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasyvus 7–8',
   'npsDistributionBar.promoter': '9–10 renginio organizatorius',
   'profile.identity.description': 'Vieša jūsų komandai ir jūsų kuriamose apklausose.',
+  'profile.identity.emailRequired': 'Įveskite el. pašto adresą.',
   'profile.identity.saveCta': 'Išsaugoti vardą',
   'profile.password.current': 'Dabartinis slaptažodis',
   'profile.password.fillFields': 'Įveskite ir dabartinį, ir naują slaptažodį.',
@@ -119,6 +127,8 @@ export const ui: UiTranslations = {
   'responses.tableMeta': 'Rodoma {{count}}',
   'responses.tableTitle': 'Naujausi atsakymai',
   'responsesHeroCard.npsLabel': 'Vidutinis NPS',
+  'responsesHeroCard.subtitle':
+    'Vidutinis atsakymas trunka {{time}} – kad išlaikytumėte pagreitį, klausimus rinkitės glaustus.',
   'responsesHeroCard.title': 'Šią savaitę užfiksuoti atsakymai',
   'settings.billing.canceled': 'Prenumerata atšaukta.',
   'settings.billing.description': 'Pasirinkite planą, kuris atitiktų jūsų darbo būdą.',
@@ -177,6 +187,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} klausimai',
   'templates.subheading':
     'Pasirinkite išbandytą pradinį šabloną – kiekvienas šablonas pateikiamas su iš anksto suderintais numatytaisiais nustatymais, pavyzdine logika ir tvarkingu mobiliuoju išdėstymu.',
+  'thankYou.body': 'Jūsų atsakymas įrašytas. {{app}} įtrauks jį į kitą analizės atnaujinimą.',
   'thankYou.eyebrow': 'Gautas atsakymas',
   'thankYou.heading': 'Ačiū – jūsų balsas svarbus.',
   'thankYou.home': 'Apsilankykite Gauge',

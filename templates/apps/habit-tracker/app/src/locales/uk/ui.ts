@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.pageTitle': 'Про {{app}}',
   'achievementBadgeCard.unlockedOn': 'Розблоковано {{date}}',
   'achievements.loadError': 'Не вдалося завантажити досягнення.',
   'achievements.subheading': '{{unlocked}} з {{total}} розблоковано',
   'achievements.unlockedOn': 'Розблоковано {{date}}',
+  'auth.legalConsent': 'Продовжуючи, ви погоджуєтеся з нашими',
   'calendar.empty': 'Виробіть звичку переглядати свій календар.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Звичка',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Сітка звичок',
   'category.${c.category}': '{{кількість}} звички',
   'common.and': 'та',
+  'common.goToDashboard': 'До панелі',
   'consistencyHeatmap.ariaLabel': 'Щоденна теплова карта узгодженості',
   'consistencyHeatmap.caption': 'Останній {{weeks}} тижні',
   'consistencyHeatmap.lessLabel': 'Менше',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Дивіться наживо',
   'landing.heroSubtitle':
     "Вибудовуйте звички такими, якими вони справді залишаються: невеликі зобов'язання, щоденні смуги успіхів та інтуїтивне задоволення від довгого нерозривного ланцюга.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Зазирнути всередину Streak',
   'landing.previewMotivation': "Дев'ять смуг живих. Зберігайте їх усі в теплі.",
   'login.eyebrow': 'Візьміть ланцюг.',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Зробіть це коротким. Зробіть це конкретним. Приходьте завтра.',
   'newHabit.timeLabel': 'Час нагадування',
   'notifications.markError': 'Не вдалося позначити все як прочитане.',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.entries': '{{count}} записи',
+  'pricing.heading': 'Оберіть тариф {{app}}',
   'profile.action.plan': 'Керування підпискою',
   'profile.action.settings': 'Налаштування облікового запису',
   'profile.bioEmpty': 'Додайте коротку біографію в налаштуваннях, щоб представитися.',
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Щоденна ранкова підказка (8:00 ранку)',
   'settings.reminders.heading': 'Нагадування',
   'settings.reminders.weekly': 'Щотижневий збірник (недільні вечори)',
+  'settings.revokeDeviceWarning':
+    'Доступ цього пристрою буде скасовано найближчим часом. Вийти з нього?',
   'settings.signOutDevice': 'Вийти',
   'settings.streaks.freezesPerWeek': 'Заморожування на тиждень',
   'settings.streaks.gracePeriod': '6-годинний пільговий період після півночі',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} активний',
   'streakHeroCard.daysSuffix': 'днів',
   'streakHeroCard.title': 'Найдовша активна серія',
+  'streakLayout.closeMenu': 'Закрити меню навігації',
+  'streakLayout.openMenu': 'Відкрити меню навігації',
   'streakLayout.primaryNavLabel': 'Основна навігація',
 }

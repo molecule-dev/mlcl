@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'forgot.eyebrow': 'തിരിച്ചു പോകാനുള്ള വഴി തെറ്റിയോ?',
   'forgot.formSubtitle': 'ഫയലിലുള്ള ഇമെയിൽ വിലാസം ഞങ്ങളോട് പറയൂ.',
   'forgot.headline': 'നിങ്ങളുടെ പാസ്‌വേഡ് പുനഃസജ്ജമാക്കുക.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ഒന്ന് സൃഷ്ടിക്കുക',
   'login.subline':
     'നിങ്ങളുടെ നോട്ട്ബുക്കുകൾ, ബാക്ക്‌ലിങ്കുകൾ, ദൈനംദിന പേജുകൾ എന്നിവ നിങ്ങൾ ഉപേക്ഷിച്ചിടത്ത് തന്നെയാണ്.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'noteEditor.backToNotes': 'കുറിപ്പുകളിലേക്ക് മടങ്ങുക',
   'noteEditor.bodyPlaceholder':
     'എഴുതാൻ തുടങ്ങുക — നിങ്ങൾ ടൈപ്പ് ചെയ്യുമ്പോൾ നിങ്ങളുടെ കുറിപ്പ് യാന്ത്രികമായി സംരക്ഷിക്കപ്പെടും.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'പുതിയ നോട്ട്ബുക്ക്',
   'notes.newNotebookPrompt': 'പുതിയ നോട്ട്ബുക്കിന്റെ പേര്',
   'notes.notebooksHeading': 'നോട്ട്ബുക്കുകൾ',
+  'notes.subtitle':
+    'ഇടതുവശത്തുള്ള ഒരു നോട്ട്ബുക്ക് തിരഞ്ഞെടുക്കുക, തുടർന്ന് പുതിയ കുറിപ്പ് ബട്ടൺ അമർത്തി പുതിയ എൻട്രി ആരംഭിക്കുക.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'നിങ്ങളുടെ കുറിപ്പെടുക്കൽ പദ്ധതി തിരഞ്ഞെടുക്കുക.',
   'reset.eyebrow': 'ഏതാണ്ട് തിരിച്ചെത്തി',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'അപ്‌ഡേറ്റുചെയ്‌തു',
   'versoLayout.nav.graph': 'ഗ്രാഫ്',
   'versoLayout.nav.home': 'വീട്',
+  'versoLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'versoNoteCard.pinned': 'പിൻ ചെയ്‌തു',
   'versoTodayHero.continueCta': 'എഴുത്ത് തുടരുക',
   'versoTodayHero.createCta': 'ഇന്നത്തെ കുറിപ്പ് ആരംഭിക്കൂ',

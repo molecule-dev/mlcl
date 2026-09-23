@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'รีเซ็ตรหัสผ่านของคุณ',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ทำเครื่องหมายว่างานเสร็จสมบูรณ์',
   'checklistTaskCard.markIncomplete': 'ทำเครื่องหมายว่างานไม่เสร็จสมบูรณ์',
   'checklistTaskCard.openLabel': 'งานที่เปิดอยู่',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'คุณตามทันทุกอย่างแล้ว',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ถูกต้อง',
   'dashboard.timelineHeading': 'เป้าหมาย 30/60/90',
   'dashboard.viewAllTasks': 'ดูงานทั้งหมด',
+  'dashboard.weekOne': 'สัปดาห์ที่ 1',
   'dashboard.yourCohort': 'ทีมของคุณ',
   'documents.empty.body': 'เอกสารที่ทีมของคุณเพิ่มเข้ามาจะปรากฏที่นี่',
   'documents.empty.title': 'ยังไม่มีเอกสารใดๆ',
@@ -105,7 +108,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'ทดลองใช้งานฟรี 14 วัน',
   'landing.subhead':
     'Embark จะคอยแนะนำเพื่อนร่วมทีมใหม่ทุกคนตลอด 90 วันแรก ตั้งแต่เรื่องเอกสาร การฝึกอบรม เป้าหมาย และการแนะนำตัวอย่างมีความหมาย โดยทั้งหมดนี้จะดำเนินการในที่เดียวอย่างราบรื่นและมั่นใจ',
+  'layout.openMenu': 'เปิดเมนูนำทาง',
   'layout.search': 'ค้นหางาน เอกสาร เพื่อนร่วมทีม…',
+  'layout.searchTeammates': 'ค้นหาเพื่อนร่วมทีมตามชื่อหรือบทบาท…',
   'layout.section.onboarding': 'การเริ่มต้นใช้งาน',
   'layout.tagline': 'การเดินทางของคุณเริ่มต้นที่นี่',
   'notifications.empty.body': 'กิจกรรมใหม่จะปรากฏขึ้นที่นี่',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'เมื่อวาน',
   'planUpdated.message': 'คุณพร้อมแล้ว',
   'planUpdated.preparing': 'กำลังอัปเดตแผนของคุณ…',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.documentsLabel': 'เอกสาร',
   'pricing.onboardingsLabel': 'การปฐมนิเทศพนักงานใหม่',
   'pricing.tasksLabel': 'งาน',

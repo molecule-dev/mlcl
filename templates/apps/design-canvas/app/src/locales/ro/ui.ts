@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'authShell.brandHeading':
     'Pânze perfecte la nivel de pixel pentru echipele de design care livrează împreună.',
   'canvas.redirecting': 'Se deschide editorul…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'și',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.retry': 'Reîncearcă',
   'dashboard.activityEmpty': 'Nicio activitate recentă încă — invită un coechipier să înceapă.',
   'dashboard.activityTitle': 'Ce s-a schimbat astăzi',
   'dashboard.activityViewAll': 'Vedeți toate notificările',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Spațiu de lucru · Northwind Studio',
   'dashboard.foldersLabel': 'Foldere',
   'dashboard.gridTitle': '{{count}} proiecte',
+  'dashboard.heroActiveTool': 'Instrumentul stilou',
   'dashboard.loadingTitle': 'Se încarcă proiectele…',
   'dashboard.searchPlaceholder': 'Căutare proiecte',
   'dashboard.startFromTemplate': 'Începeți de la șablon',
   'dashboard.title': 'Proiectele dumneavoastră',
   'dashboard.untitledProject': 'Proiect fără titlu',
   'designCanvasLayout.newProject': 'Proiect nou',
+  'designCanvasLayout.primaryNavLabel': 'Navigare principală',
   'editor.backToProjects': 'Înapoi la proiecte',
   'editor.deleteShape': 'Ștergeți forma',
   'editor.errorBody': 'Nu am putut deschide acest proiect.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Instrumente de proiectare care se mișcă cu viteza mâinilor tale',
   'library.empty': 'Nu există încă tokenuri în această secțiune.',
   'library.eyebrow': 'Spațiu de lucru · Sistem de design Atelier',
+  'library.loadFailed': 'Nu s-au putut încărca token-urile de design.',
   'library.systemMeta': 'Sănătatea sistemului',
   'library.systemSummary': '{{jetoane}} jetoane · {{componente}} componente · {{efecte}} efecte',
   'login.emailPlaceholder': 'mara@studio.com',

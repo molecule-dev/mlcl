@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За нас',
   'actions.empty': 'Нема совпаѓања на ставки за дејство.',
   'actions.heading': 'Акциски ставки',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Претходен месец',
   'calendar.recent': 'Неодамнешни',
   'common.daysAgo': '{{count}} пред еден ден',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.hoursAgo': '{{count}} пред неколку часа',
   'common.no': '—',
+  'common.retry': 'Обидете се повторно',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ставки за акција',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Проверете го вашето сандаче за линкот за ресетирање.',
   'forgot.subheading': 'Внесете ја вашата е-пошта и ние ќе ви испратиме линк за ресетирање.',
   'integrations.disconnected': 'Исклучено',
+  'integrations.loadError': 'Не успеаја да се вчитаат интеграциите.',
   'integrations.notConnectedTag': 'Не е поврзано',
   'integrations.subheading':
     'Поврзете календари и видео платформи за да се придружи Murmur автоматски.',
+  'integrations.updateError': 'Ажурирањето не успеа.',
   'landing.ctaButton': 'Започнете — бесплатно е',
   'landing.ctaHeading': 'Престани да си запишуваш белешки. Почни да донесуваш одлуки.',
   'landing.demo.aiLabel': 'Резиме на вештачката интелигенција, изготвено во живо',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Следење',
   'meetingDetail.loadError': 'Не успеа да се вчита состанокот.',
   'meetingDetail.noActions': 'Не се откриени ставки за дејство.',
+  'meetingDetail.none': 'Ништо.',
   'meetingDetail.notFound': 'Состанокот не е пронајден.',
+  'meetingDetail.speakerFallback': 'Говорник {{id}}',
   'meetingDetail.summaryHeading': 'Резиме на вештачката интелигенција',
   'meetingDetail.transcriptHeading': 'Транскрипт',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Состаноци',
   'meetings.loadError': 'Не успеа да се вчитаат состаноците.',
   'meetings.subheading': 'Секој снимен, прикачен и синхронизиран состанок.',
+  'murmurLayout.openMenu': 'Отвори мени за навигација',
   'murmurLayout.primaryNavLabel': 'Примарна навигација',
   'nav.legal': 'Правни',
   'notifications.loadError': 'Неуспешно вчитување на известувањата.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Како изгледаш во Мурмур.',
   'record.error.empty': 'Не е снимен аудио.',
   'record.error.permission': 'Дозволата за микрофон е одбиена.',
+  'record.error.recorder': 'Грешка во снимачот',
   'record.error.unsupported':
     'Вашиот прелистувач не поддржува снимање. Обидете се со Chrome, Edge или Safari.',
   'record.error.upload': 'Поставувањето не успеа. Обидете се повторно.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Нова лозинка',
   'reset.subheading': 'Изберете лозинка што не ја користите никаде на друго место.',
   'search.empty': 'Пишувајте за да пребарувате транскрипти.',
+  'search.loadError': 'Пребарувањето не успеа. Обидете се повторно.',
   'search.noResults': 'Нема резултати за „ {{q}} „.“',
   'settings.appearance.description': 'Префрлувајте помеѓу светлиот и темниот режим.',
   'settings.appearance.title': 'Изглед',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Неуспешно вчитување на поставките.',
   'settings.loading': 'Се вчитува…',
   'settings.push.heading': 'Push известувања',
+  'settings.push.subheading':
+    'Добивајте известувања од прелистувачот за споменувања, ставки за акција и резимеа.',
   'settings.retention.audio': 'Задржи го аудиото за',
   'settings.retention.heading': 'Задржување',
   'settings.retention.transcript': 'Чувајте ги транскриптите за',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Започнете со снимање белешки од состаноци за неколку минути',
   'signup.terms':
     'Со креирање на сметка, се согласувате со нашите Услови за користење и Политика за приватност.',
+  'signup.termsPrefix': 'Со креирање на сметка, се согласувате со нашите',
   'team.inviteCta': 'Покани соиграч',
   'team.invitedAs': 'Поканет како {{role}}',
   'team.inviteFailed': 'Не можеше да се испрати покана.',

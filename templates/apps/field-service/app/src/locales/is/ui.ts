@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Viðskiptavinir',
   'customers.loadError': 'Mistókst að hlaða viðskiptavinum.',
   'customers.loading': 'Hleður…',
+  'customers.new.address': 'Þjónustuheimilisfang',
   'customers.new.email': 'Tölvupóstur',
   'customers.new.error': 'Mistókst að bæta við viðskiptavini.',
   'customers.new.heading': 'Nýr viðskiptavinur',

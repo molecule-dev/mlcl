@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'announcementsFeed.empty': 'ابھی تک کوئی اعلانات نہیں ہیں۔',
   'announcementsFeed.eyebrow': '{{count}} اپ ڈیٹس',
   'announcementsFeed.title': 'تازہ ترین اعلانات',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'اسائنمنٹس کو مختلف حالت میں دیکھنے کے لیے اوپر والے فلٹرز کو سوئچ کریں۔',
   'assignments.eyebrow': 'تمام کورسز · یہ اصطلاح',
+  'assignments.loadError': 'اسائنمنٹس کو لوڈ نہیں کیا جا سکا۔',
   'assignments.loading': 'اسائنمنٹس لوڈ ہو رہی ہیں…',
   'assignments.subtitle':
     'یہ دیکھنے کے لیے اسٹیٹس کے لحاظ سے فلٹر کریں کہ کیا واجب الادا ہے، کیا جمع کرایا گیا ہے، درجہ بندی کیا گیا ہے یا غائب ہے۔',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'نوٹ',
   'attendance.empty': 'ابھی تک کوئی حاضری کا ریکارڈ نہیں ہے۔',
   'attendance.eyebrow': 'موسم بہار کی مدت · آخری 4 ہفتے',
+  'attendance.loadError': 'حاضری کا ریکارڈ لوڈ نہیں کیا جا سکا۔',
   'attendance.loading': 'حاضری لوڈ ہو رہی ہے…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'اسائنمنٹ کی مقررہ تاریخیں ایک مہینے کے گرڈ پر تیار کی گئی ہیں - امتحانات سرخ رنگ میں کھڑے ہیں۔',
   'calendar.title': '{{month}} واقعات',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'common.yes': '✓',
   'courseDetail.backLink': 'درجات',
   'courseDetail.currentGrade': 'موجودہ گریڈ',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'رجحان',
   'grades.empty': 'ابھی تک کوئی گریڈ پوسٹ نہیں ہوا۔',
   'grades.eyebrow': 'گریڈ بک',
+  'grades.loadError': 'آپ کے درجات لوڈ نہیں ہو سکے۔',
   'grades.loading': 'گریڈز لوڈ ہو رہے ہیں…',
   'grades.subtitle':
     'براہ راست خط اور فیصد گریڈ۔ رجحان کے تیر دکھاتے ہیں کہ آیا آپ اوپر جا رہے ہیں، لیول کر رہے ہیں یا پھسل رہے ہیں۔',
   'grades.title': 'آپ کے درجات، کورس کی طرف سے',
   'grades.trendStable': 'مستحکم',
+  'landing.copyright': '© {{year}} {{app}} . طلباء کے لیے بنایا گیا، خاندانوں کے لیے بنایا گیا۔',
   'landing.ctaHeading': 'ایک پرسکون اسکول کا دن منٹوں میں شروع ہوتا ہے۔',
   'landing.eyebrow': 'مڈل اور ہائی اسکول والوں کے لیے',
   'landing.featuresHeading': 'طالب علم کے ارد گرد منظم اسکول کے دن',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'اسائنمنٹس',
   'nav.attendance': 'حاضری',
   'nav.calendar': 'کیلنڈر',
+  'nav.closeMenu': 'نیویگیشن مینو بند کریں۔',
   'nav.grades': 'درجات',
+  'nav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'nav.statusEyebrow': 'ٹرم GPA',
   'nav.statusSubtext': 'آنر رول · بہار کی اصطلاح',
+  'nav.unreadMessages': 'بغیر پڑھے ہوئے پیغامات',
   'notifications.eyebrow': '{{count}} اپ ڈیٹس',
   'notifications.subtitle':
     'گریڈز، یاد دہانیاں، پیغامات، اور اسکول کے اعلانات۔ ترتیبات میں ایڈجسٹ کریں کہ ہر اطلاع کن چینلز کا استعمال کرتی ہے۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.attendanceLabel': 'حاضری',
   'pricing.gradesLabel': 'درجات',
   'pricing.heading': 'اعلانات',

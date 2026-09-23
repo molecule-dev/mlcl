@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Tungkol Sa Amin',
+  'appShell.closeNav': 'Isara ang nabigasyon',
+  'appShell.openNav': 'Buksan ang nabigasyon',
+  'common.dashboard': 'Dashboard',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.eyebrow': 'Ngayon sa paligid ng liga',
   'dashboard.loading': 'Kinukuha ko ang mga iskor ngayong gabi…',
   'dashboard.scoringLeaders': 'Mga nangungunang tagapuntos',
@@ -148,4 +152,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}}a nakalipas',
   'time.hoursAgo': '{{count}}o nakalipas',
   'time.minutesAgo': '{{count}} buwan ang nakalipas',
+  'time.secondsAgo': '{{count}} na) segundo ang nakalipas',
 }

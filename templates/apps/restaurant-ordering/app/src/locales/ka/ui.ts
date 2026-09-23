@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'analytics.avgCheckLabel': 'საშუალო შემოწმება',
   'analytics.busiestHour': 'ყველაზე დატვირთული საათი',
   'analytics.coversToday': 'დღევანდელი გარეკანები',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'რჩევები (საშუალოდ)',
   'analytics.topItems': 'დღეს ყველაზე პოპულარული ნივთები',
   'authShell.eyebrow': 'კეთილი იყოს თქვენი დაბრუნება სერვისში',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'თბილი და სწრაფი გაყიდვების წერტილი სტუმართმოყვარეობის გუნდებისთვის. შედით თქვენს სამზარეულოში და გააგრძელეთ იქიდან, სადაც შეწყვიტეთ.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ან {{price}}',
   'billing.priceUnavailable': 'ამ გეგმას არ აქვს კონფიგურირებული ფასი.',
   'billing.updated': 'გეგმა განახლებულია.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'customerDetail.book': 'ჯავშნის დამატება',
   'customerDetail.col.table': 'მაგიდა',
   'customerDetail.confirmDelete': 'წაიშალოს ეს სტუმრის ჩანაწერი?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ხელმისაწვდომობა',
   'menuItemDetail.available': 'ხელმისაწვდომია დღეს ღამით',
   'menuItemDetail.backToMenu': 'მენიუში დაბრუნება',
+  'menuItemDetail.confirmDelete': 'წაიშალოს ეს მენიუს ერთეული?',
   'menuItemDetail.delete': 'ერთეულის წაშლა',
   'menuItemDetail.deleteError': 'წაშლა ვერ მოხერხდა. სცადეთ ხელახლა.',
   'menuItemDetail.dietary': 'დიეტური ტეგები',
@@ -139,9 +143,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ფოტოს, მოდიფიკატორების, დიეტისა და ფასების რედაქტირება.',
   'menuItemDetail.untitled': 'უსათაურო ერთეული',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'notFound.heading': 'ეს მაგიდა იატაკზე არ დევს.',
   'notFound.subheading':
     'გვერდი, რომელსაც ეძებდით, სხვაგან იყო განთავსებული — ან საერთოდ არ არსებობდა.',
+  'notFound.toLanding': '{{app}} მთავარი',
   'notifications.markError': 'ყველას წაკითხულად მონიშვნა ვერ მოხერხდა.',
   'orderDashboard.activeDelta': 'პირდაპირ ეთერში ახლა',
   'orderDashboard.activeLabel': 'აქტიური შეკვეთები',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'პაროლის ჩვენება',
   'resetPassword.subtitle': 'სამზარეულოში წვდომის აღსადგენად შეიყვანეთ თქვენი ახალი პაროლი.',
   'resetPassword.tokenLabel': 'ტოკენის გადატვირთვა',
+  'restaurantOrderingLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'revenueHeroCard.activeOrders': '{{count}} აქტიური',
   'revenueHeroCard.change': '{{sign}} {{amount}} გუშინდელთან შედარებით',
   'revenueHeroCard.title': 'დღევანდელი შემოსავალი',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'რესტორნის სახელი',
   'tableDetail.activeOrders': 'აქტიური შეკვეთები',
   'tableDetail.backToFloor': 'სართულის გეგმა',
+  'tableDetail.confirmDelete': 'წაიშალოს ეს ცხრილი?',
   'tableDetail.delete': 'წაშლა',
   'tableDetail.deleteError': 'ცხრილის წაშლა ვერ მოხერხდა.',
   'tableDetail.heading': 'მაგიდა {{label}}',

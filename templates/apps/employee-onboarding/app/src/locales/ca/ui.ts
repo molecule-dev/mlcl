@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'auth.forgotPassword.emailPlaceholder': 'nom@latevaempresa.com',
   'auth.forgotPassword.heading': 'Restableix la teva contrasenya.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marca la tasca completada',
   'checklistTaskCard.markIncomplete': 'Marca la tasca com a incompleta',
   'checklistTaskCard.openLabel': 'Obre la tasca',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Esteu tots atrapats',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'En camí',
   'dashboard.timelineHeading': '30/60/90 fites',
   'dashboard.viewAllTasks': 'Veure totes les tasques',
+  'dashboard.weekOne': 'Setmana 1',
   'dashboard.yourCohort': 'El vostre equip',
   'documents.empty.body': 'Els documents afegits pel vostre equip apareixeran aquí.',
   'documents.empty.title': 'Encara no hi ha documents',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Prova gratuïta de 14 dies',
   'landing.subhead':
     "Embark guia cada nou company d'equip durant els seus primers 90 dies: tràmits, formació, fites i presentacions significatives, tot en un lloc tranquil i segur.",
+  'layout.openMenu': 'Obre el menú de navegació',
   'layout.search': "Cerca tasques, documents, companys d'equip...",
+  'layout.searchTeammates': "Cerca companys d'equip per nom o rol…",
   'layout.section.onboarding': 'Incorporació',
   'layout.tagline': 'El teu viatge comença aquí',
   'notifications.empty.body': 'La nova activitat apareixerà aquí.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Ja està tot a punt.',
   'planUpdated.preparing': 'Actualitzant el teu pla…',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.documentsLabel': 'documents',
   'pricing.onboardingsLabel': 'incorporacions',
   'pricing.tasksLabel': 'tasques',

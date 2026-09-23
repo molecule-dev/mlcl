@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Vai trò của quý vị',
   'account.role.upgradeLink': 'Nộp đơn để trở thành gia sư đã xác minh →',
   'account.title': 'Hồ sơ, thanh toán và tuỳ chọn.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Giảng dạy trên Mentor',
   'becomeTutor.form.error': 'Không thể gửi đơn ứng tuyển.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Môn học',
   'bookingConfirm.title': 'Quý vị đã đặt xong. Phần còn lại để chúng tôi lo.',
   'bookingConfirm.with': 'Với gia sư',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'earningsHero.eyebrow': 'Thu nhập • {{month}}',
   'forgotPassword.heading': 'Quên mật khẩu?',
   'forgotPassword.subheading':
@@ -111,6 +113,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Gửi tin nhắn',
   'messages.thread.empty': 'Hãy chào hỏi — bắt đầu cuộc trò chuyện.',
   'messages.title': 'Cuộc trò chuyện với gia sư của quý vị.',
+  'nav.primary': 'Chính',
   'pricing.dataExport': 'Xuất dữ liệu:',
   'pricing.headingDefault': 'Tính năng nâng cao:',
   'resetPassword.heading': 'Chọn một mật khẩu mới mạnh.',

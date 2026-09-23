@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
+  'about.title': 'Pokój do pisania, który możesz trzymać w kieszeni',
   'billing.cancelConfirm': 'Anulować aktywną subskrypcję?',
   'billing.cancelFailed': 'Nie można anulować.',
   'billing.checkingOut': 'Otwieranie płatności…',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nie można załadować rozliczeń.',
   'billing.loading': 'Ładowanie rozliczeń…',
   'billing.upgradeCta': 'Przejdź na {{name}}',
+  'common.goToDashboard': 'Przejdź do panelu',
+  'editor.autosaveOn': 'Automatyczne zapisywanie włączone',
   'editor.backToLibrary': 'Wróć do biblioteki',
   'editor.charCount': '{{count}} znaków',
   'editor.confirmTrash': 'Przenieść ten dokument do kosza?',
@@ -37,6 +41,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Odpięto',
   'editor.unpublishCta': 'Przenieś do szkiców',
   'editor.unpublished': 'Przywrócono do szkicu',
+  'focus.autosaveOn': 'Automatyczne zapisywanie włączone',
   'focus.backToLibrary': 'Wróć do biblioteki',
   'focus.bodyPlaceholder': 'Wiersz po wierszu. Nikogo innego tu nie ma.',
   'focus.exit': 'Wyjdź z trybu skupienia',
@@ -82,6 +87,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Proszę utworzyć',
   'login.subline':
     'Rękopisy, codzienne strony i ostatnia pozycja kursora są tam, gdzie je Pan/Pani zostawił/a.',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'pricing.exports': 'eksportów',
   'pricing.folders': 'folderów',
   'pricing.heading': 'dokumenty',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Proszę wpisać kod, który właśnie wysłaliśmy e-mailem, i wybrać coś łatwego do zapamiętania. Zalogujemy Pana/Panią, gdy tylko hasło zostanie zapisane.',
   'reset.tokenHint': 'Wklejony ze skrzynki odbiorczej.',
+  'settings.appearance.heading': 'Jasny czy ciemny',
   'settings.editor.${row.id}.description': 'Język',
   'settings.editor.description':
     'Przewijanie jak w maszynie do pisania, wygaszanie akapitów i ustawianie ostrości w stanie bezczynności — ustawienia domyślne są dostosowane do długich sesji.',
@@ -139,6 +147,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Rozdział trzeci — Cicha godzina przed wschodem słońca',
   'versalDocumentCard.pinned': 'Przypięto',
   'versalLayout.nav.stats': 'Statystyki',
+  'versalLayout.primaryNavLabel': 'Nawigacja główna',
   'versalManuscriptHero.cta': 'Pisz dalej',
   'versalManuscriptHero.goalLabel': 'Dzisiejszy cel słów',
   'versalManuscriptHero.inProgress': 'Na dobrej drodze',

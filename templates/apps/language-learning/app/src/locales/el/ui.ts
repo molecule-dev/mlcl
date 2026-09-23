@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.logout': 'Αποσύνδεση',
   'dailyStatsTriad.heartsLabel': 'Καρδιές',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Λεπτά σήμερα',
   'dailyStatsTriad.minutesValue': '{{count}} λεπτά',
   'dailyStatsTriad.wordsLabel': 'Κατακτημένες λέξεις',
+  'dailyStatsTriad.wordsMasteryHint': 'Λέξεις στην εξειδίκευση 4+',
   'dashboard.continueHeading': 'Συνεχίστε από εκεί που σταματήσατε',
   'dashboard.heading': 'Μπουένος Ντίας, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Δεν ήταν δυνατή η φόρτωση ασκήσεων.',
   'lessonDetail.loading': 'Φόρτωση μαθήματος…',
   'lessonDetail.submitError': 'Δεν ήταν δυνατή η υποβολή της απάντησης.',
+  'lessonDetail.translation': 'Μεταφράστε τη φράση',
   'lessonDetail.xpEarned': 'XP που κερδίσατε · {{xp}}',
   'lessons.empty': 'Δεν υπάρχουν μαθήματα στο επίπεδο {{level}} όμως — δοκιμάστε μια άλλη βαθμίδα.',
   'lessons.eyebrow': 'Βιβλιοθήκη μαθημάτων',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Νέος/η στο Parlance;',
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.signUp': 'Ξεκινήστε δωρεάν →',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'parlanceLayout.nav.profile': 'Προφίλ',
   'parlanceLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'practice.empty': 'Δεν υπάρχουν ακόμη διαθέσιμες φράσεις.',
   'practice.eyebrow': 'Πρακτική ομιλίας',
   'practice.heading': 'Διαβάστε το. Καταγράψτε το. Βελτιώστε το.',

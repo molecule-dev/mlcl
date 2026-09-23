@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'argentAuthShell.brandEyebrow': 'Võlaraha · Varanduse tööriistad',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Mitte investeerimisnõustamine.',
   'argentAuthShell.sampleChange': '+2841 dollarit (+0,28%) täna',
   'argentAuthShell.sampleValue': '1 032 251 dollarit',
   'argentLayout.primaryNavLabel': 'Peamine navigeerimine',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Selle börsikoodiga tehinguid ei tehtud.',
   'assetDetail.txHeading': 'Teie tehingud',
   'common.and': 'ja',
+  'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfelli ülevaade',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Osalusi veel pole.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Hoiuste laadimine ebaõnnestus.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Mitte investeerimisnõuanne. Varasem tootlus ei garanteeri tulevasi tulemusi.',
   'landing.eyebrow': 'Argent · Rikkuskasvu soodustav platvorm',
   'landing.features.heading': 'Kõik, mida nõustaja endale ise ehitaks.',
   'landing.finalCta.heading': 'Too distsipliin oma portfooliosse tagasi.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} tund aega tagasi',
   'news.justNow': 'just praegu',
   'news.loadError': 'Uudiste laadimine ebaõnnestus.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'portfolioHeroCard.label': 'Portfelli väärtus',
   'pricing.holdingsLabel': 'osalused',
   'pricing.newsLabel': 'uudised',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Kustuta konto',
   'settings.security.deleting': 'Kustutatakse…',
   'settings.security.heading': 'Turvalisus',
+  'settings.security.newPassword': 'Uus parool',
   'settings.security.password': 'Parool',
   'settings.security.twoFactorEnable': 'Luba',
+  'settings.security.twoFactorInvalidCode': 'Kehtetu kood',
+  'settings.security.twoFactorVerify': 'Kinnita ja luba',
   'settings.tax.error': 'Maksumeetodit ei õnnestunud uuendada.',
   'settings.tax.heading': 'Maksupartii arvestus',
   'settings.tax.method': 'Vaikimisi meetod',

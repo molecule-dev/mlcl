@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.title': '{{app}} жөнүндө',
   'auth.login.noAccount': "Sparq'та жаңысызбы?",
   'auth.login.or': 'же улантуу',
   'auth.signup.or': 'же катталыңыз',
+  'common.confirm': 'Ырастоо',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.loadError': 'Бул мазмун жүктөлүп жатканда бир нерсе туура эмес кетти.',
+  'common.retry': 'Кайра аракет',
   'discover.collections.title': 'Категория боюнча карап чыгуу',
   'discover.collections.viewAll': 'Китепканаңызды караңыз →',
   'discover.empty.body': 'Башка категорияны колдонуп көрүңүз же издөөнү тазалаңыз.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Серияңызды улантуу, түз эфирдеги оюндарды өткөрүү жана лидер тактасына чыгуу үчүн аккаунтуңузга кириңиз.',
   'myQuizzes.createButton': 'Жаңы викторина',
+  'myQuizzes.deleteConfirm': 'Түбөлүккө жок кылынсынбы?',
   'myQuizzes.empty.createCta': 'Биринчи викторинаңызды түзүңүз →',
   'myQuizzes.empty.created': 'Сиз али викторина түзө элексиз.',
   'myQuizzes.empty.played': 'Азырынча жарыяланган викториналар жок.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Жүктөлүүдө…',
   'notifications.subhead':
     '{{count}} окула элек учкундар. Чакыруулар, лидер тактасындагы жылдыруулар жана жетишкендиктердин баары бир агымда.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.checkoutError': 'Төлөм башталган жок. Кайра аракет кылып көрүңүз.',
+  'pricing.heading': '{{app}} тарифиңизди тандаңыз',
   'pricing.included': 'Киргизилген',
   'pricing.loadError': 'Пландар жүктөлбөй койду.',
   'pricing.maxQuizzes': '{{count}} викториналар',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Азырынча эч нерсе жарыялана элек.',
   'profile.startBuilding': 'Курулушту баштоо →',
   'profile.tier': 'Sparq оюнчусу',
+  'quizBuilder.addFailed': 'Суроо кошулган жок. Кайра аракет кылыңыз.',
   'quizBuilder.addQuestion': 'Суроо кошуу',
   'quizBuilder.answerPlaceholder': 'Вариантты териңиз…',
   'quizBuilder.answersLabel': 'Жооптордун варианттары',
   'quizBuilder.back': 'Менин викториналарыма кайтуу',
   'quizBuilder.delete': 'Суроо жок кылуу',
+  'quizBuilder.deleteFailed': 'Суроо өчүрүлгөн жок.',
   'quizBuilder.firstQuestion': 'Баштоо үчүн биринчи сурооңузду кошуңуз.',
   'quizBuilder.idLabel': 'Викторинанын идентификатору: {{id}}',
   'quizBuilder.loadError': 'Викторина жүктөлбөй койду.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Жок дегенде эки жооп вариантын кошуп, туурасын тандаңыз {{count}} жарыялоодон мурун берилген суроолор.',
   'quizBuilder.questionsTitle': 'Суроолор',
+  'quizBuilder.saveFailed': 'Аталышын сактай алган жок. Кайра аракет кылыңыз.',
   'quizBuilder.statusDraft': 'Долбоор',
   'quizBuilder.subhead':
     'Аталышын түзөтүңүз, суроолорду кошуңуз, тандоолорду жана туура жоопту коюңуз. Өзгөртүүлөр автоматтык түрдө сакталат.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Көп оюнчу режиминде ойной турган кожоюн.',
   'quizDetail.leaderboardEmpty': 'Азырынча оюн жок — биринчи болуп эсепти коюңуз.',
+  'quizDetail.loadError': 'Бул викторина жүктөлбөй койду.',
   'quizDetail.loading': 'Викторина жүктөлүүдө…',
   'quizDetail.plays': '{{count}} пьесалар',
   'quizDetail.playSolo': 'Жалгыз ойноңуз',

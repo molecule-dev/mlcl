@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Leidsid vea, sul on soov mõne funktsiooni kohta või soovid meile rääkida filmist, mille sa monteerisid? Iga sõnum jõuab meeskonna päris inimeseni – võta meiega igal ajal ühendust oma konto seadete kaudu.',
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.eyebrow': '// stuudio võtteplatsi taga',
   'about.pageTitle': 'Teave {{appName}}',
   'assetDetail.back': 'Tagasi raamatukokku',
   'assetDetail.confirmDelete': 'Kustuta " {{name}} "? Seda ei saa tagasi võtta.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipid, helisalvestised ja graafika, mis on valmis ajajoonele asetamiseks.',
   'assetLibrary.title': 'Varad',
   'assetLibrary.upload': 'Lisa vara',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.browseTemplates': 'Sirvi malle →',
   'dashboard.loading': 'Projekte laaditakse…',
   'dashboard.noProjects': 'Projekte veel pole – alustamiseks loo üks.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Vali midagi, mida mäletaksid ainult sina ise.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privaatsus',
+  'rushesLayout.closeMenu': 'Sule navigeerimine',
   'rushesLayout.guest': 'Toimetaja',
+  'rushesLayout.navDialog': 'Navigatsioon',
+  'rushesLayout.openMenu': 'Ava navigeerimine',
   'rushesLayout.planFree': 'Tasuta pakett',
   'rushesLayout.tagline': 'Filmiline ajajoon',
   'settings.billing.confirmCancel': 'Kas tühistada tellimus perioodi lõpus?',

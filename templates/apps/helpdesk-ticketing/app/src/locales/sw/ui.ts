@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.title': 'Kuhusu {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Picha ya kitaalamu ya wakala wa usaidizi wa kike akiwa na tabasamu la kirafiki katika ofisi ya kisasa',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Wasiliana na usaidizi',
   'forgotPassword.error': 'Haikuweza kutuma barua pepe ya kuweka upya. Tafadhali jaribu tena.',
   'forgotPassword.rememberPassword': 'Unakumbuka nenosiri lako?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Ingia — Usaidizi wa Zenith',
   'login.showPassword': 'Onyesha nenosiri',
   'login.welcomeSubheading': 'Ingia kwenye dashibodi yako ya usaidizi',
+  'mobileNav.closeMenu': 'Funga urambazaji',
+  'mobileNav.menu': 'Urambazaji',
+  'mobileNav.openMenu': 'Fungua urambazaji',
   'nav.legal': 'Kisheria',
   'nav.newTicket': 'Tiketi Mpya',
   'notifications.loadError': 'Haikuweza kupakia arifa. Jaribu tena baada ya muda mfupi.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Utafutaji wa Amri',
   'operatorDock.newReport': 'Ripoti Mpya',
   'operatorDock.systemOnline': 'Mfumo Mtandaoni',
+  'planUpdated.subtitle': 'Asante',
   'planUpdated.title': 'Mpango umesasishwa',
   'pricing.agents': 'mawakala',
   'pricing.automation': 'Sheria za otomatiki',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{jina}}',
   'ticketCustomerReply.avatarAlt': '{{jina}} Ishara ya',
   'ticketDetail.errorTitle': 'Kuna kitu kimeenda vibaya',
+  'ticketDetail.loadError': 'Imeshindwa kupakia tiketi.',
+  'ticketDetail.notFound': 'Tiketi haipatikani',
+  'ticketDetail.replyError': 'Imeshindwa kutuma jibu. Tafadhali jaribu tena.',
   'ticketDetail.retry': 'Jaribu tena',
   'ticketDetail.statusUpdateError': 'Haikuweza kusasisha hali. Jaribu tena.',
   'ticketDetailsCard.assigneeLabel': 'Mkabidhiwa',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{wakati}} kushoto',
   'ticketRow.title': 'Muunganisho wa hifadhidata unashindwa katika uzalishaji {{nodi}}',
   'tickets.pageTitle': 'Tikiti — Usaidizi wa Zenith',
+  'ticketsFab.newTicket': 'Tikiti mpya',
   'ticketsFilterBar.assigneeLabel': 'Mkabidhiwa:',
   'ticketsFilterBar.clearFilters': 'Futa Vichujio',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

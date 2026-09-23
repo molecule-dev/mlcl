@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'billing.canceled': 'सदस्यता रद्द गरियो। अवधिको अन्त्यमा तपाईं नि:शुल्कमा फर्कनुहुनेछ।',
   'billing.contactSales': 'बिक्री सम्पर्क गर्नुहोस्',
   'billing.free.1': '५ अनुवादहरू',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'कुनै अवधारण सीमा छैन',
   'billing.upgradeHint': 'उन्नत AI सुविधाहरू अनलक गर्न अपग्रेड गर्नुहोस्।',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'dashboard.activityEmpty':
     'अहिलेसम्म कुनै गतिविधि छैन — यो फिड भर्नको लागि एउटा परियोजना सुरु गर्नुहोस्।',
   'dashboard.eyebrow': 'अवलोकन',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'प्रत्येक परियोजनामा विगतका अनुवादहरू पुन: प्रयोग गर्नुहोस्। उच्च मिलान स्कोर → कम पुन: कार्य।',
   'memory.title': 'मेमोरी बैंक',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'nav.legal': 'कानुनी',
   'newProject.addLanguage': 'लक्ष्य थप्नुहोस्',
   'newProject.create': 'परियोजना सिर्जना गर्नुहोस्',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'पहिले',
   'notifications.markedAllRead': 'चिन्ह लगाइएको {{count}} पढिएको रूपमा सूचनाहरू।',
   'notifications.subtitle': 'तपाईंको कार्यस्थानहरूबाट उल्लेख, समीक्षा अनुरोध, र AI कार्यक्रमहरू।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'privacy.collection.account': 'तपाईंको खाताको इमेल र प्रदर्शन नाम',
   'privacy.deletion.body':
     'तपाईंले सम्बन्धित पृष्ठबाट कुनै पनि समयमा परियोजना, खण्ड, शब्दावली शब्द, वा मेमोरी प्रविष्टि मेटाउन सक्नुहुन्छ। सेटिङहरूबाट तपाईंको खाता मेटाउनाले हाम्रो डाटाबेसबाट प्रत्येक कार्यस्थान-स्कोप पङ्क्ति हटाउँछ।',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'परियोजनाहरू लोड गर्न असफल भयो।',
   'projects.loading': 'परियोजनाहरू लोड गर्दै...',
   'projects.subtitle': 'सबै स्थानहरूमा प्रत्येक सक्रिय परियोजना।',
+  'renditionLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'reset.backToLogin': '\\u2190 साइन इनमा फर्कनुहोस्',
   'reset.passwordLabel': 'नयाँ पासवर्ड',
   'review.activeEyebrow': 'खण्ड {{number}}',

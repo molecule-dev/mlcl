@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
+  'about.tagline': '所有单元，都在同一屋檐下。',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.addProperty': '添加物业',
   'dashboard.empty.body': '一旦您拥有物业、单元和租金支付,此仪表盘将充满投资组合洞察。',
   'dashboard.empty.cta': '添加物业',
@@ -79,6 +82,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · 单元 {{unit}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}} 个未完成工单,按优先级排序',
   'maintenanceQueueList.title': '维护队列',
+  'nav.closeMenu': '关闭菜单',
+  'nav.openMenu': '打开菜单',
   'notFound.body': '您查找的页面已被移动、归档或从未存在。',
   'notFound.title': '那扇门打不开',
   'notifications.empty.body': '新的租金支付、维护更新和租约提醒将显示在此处。',

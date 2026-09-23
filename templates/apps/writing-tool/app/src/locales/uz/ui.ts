@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.title': "Cho'ntagingizda saqlashingiz mumkin bo'lgan yozuv xonasi",
   'billing.cancelConfirm': 'Faol obunangiz bekor qilinsinmi?',
   'billing.cancelFailed': "Bekor qilib bo'lmadi.",
   'billing.checkingOut': 'Kassa ochilmoqda…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Hisob-faktura yuklanmadi.',
   'billing.loading': 'Hisob-kitob yuklanmoqda…',
   'billing.upgradeCta': 'Yangilash {{name}}',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'editor.autosaveOn': 'Avtomatik saqlash yoqilgan',
   'editor.backToLibrary': 'Kutubxonaga qaytish',
   'editor.charCount': '{{count}} qahramonlar',
   'editor.confirmTrash': 'Ushbu hujjat chiqindixonaga tashlansinmi?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Olib tashlandi',
   'editor.unpublishCta': "Qoralamaga o'tish",
   'editor.unpublished': 'Qoralamaga qaytarildi',
+  'focus.autosaveOn': 'Avtomatik saqlash yoqilgan',
   'focus.backToLibrary': 'Kutubxonaga qaytish',
   'focus.bodyPlaceholder': "Navbatma-navbat. Bu yerda boshqa hech kim yo'q.",
   'focus.exit': 'Fokus rejimidan chiqish',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Bittasini yarating',
   'login.subline':
     "Qo'lyozmalaringiz, kundalik sahifalaringiz va kursorning oxirgi holati siz qoldirgan joyda.",
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'pricing.exports': 'eksport',
   'pricing.folders': 'papkalar',
   'pricing.heading': 'hujjatlar',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     "Sizga hozirgina elektron pochta orqali yuborgan kodni kiriting va esda qolarli narsani tanlang. U saqlangandan so'ng, biz sizni tizimga kiritamiz.",
   'reset.tokenHint': 'Kiruvchi xabarlar qutingizdan joylandi.',
+  'settings.appearance.heading': "Yengil yoki qorong'u",
   'settings.editor.${row.id}.description': 'Til',
   'settings.editor.description':
     "Yozuv mashinkasida aylantirish, paragraflarning yo'qolishi va bo'sh fokus — standart sozlamalar uzoq sessiyalar uchun sozlangan.",
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Uchinchi bob — Quyosh chiqishidan oldingi sokin bir soat',
   'versalDocumentCard.pinned': 'Mahkamlangan',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'versalManuscriptHero.cta': 'Yozishni davom eting',
   'versalManuscriptHero.goalLabel': "Bugungi so'z maqsadi",
   'versalManuscriptHero.inProgress': "Yo'lda",

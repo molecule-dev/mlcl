@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
   'about.pageTitle': 'Sobre {{name}}',
   'auth.footer.about': 'Sobre {{name}}',
   'authHeader.subtitle': 'Inicia sesión para mantener tus números en orden.',
   'automations.action.email': 'Correo electrónico',
+  'automations.action.noop': 'No funciona',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': '¿Eliminar "{{name}}"?',
   'automations.empty.headline': 'Aún no hay automatizaciones',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Disparadores y acciones en cada libro. Cada ejecución registra una fila auditable.',
   'automations.toggle': 'Alternar {{name}}',
+  'automations.trigger.dailySchedule': 'Horario diario',
+  'automations.trigger.rowCreated': 'Fila creada',
+  'automations.trigger.rowUpdated': 'Fila actualizada',
   'billing.empty': 'No hay planes disponibles.',
   'billing.error.priceMissing':
     'No hay precio de Stripe configurado para este nivel. Define las variables de entorno STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Gráficos',
   'charts.kpi.totalCharts': 'Total de gráficos',
   'charts.list.empty': 'Aún no hay gráficos.',
+  'charts.namePlaceholder': 'Tendencia de los ingresos',
   'charts.newChart': 'Nuevo gráfico',
   'charts.primary.eyebrow': 'Gráficos por tipo',
   'charts.primary.headline': 'Resumen del espacio',
   'charts.subhead':
     'Visualizaciones en vivo vinculadas a tu cuadrícula — se recalculan con cada edición.',
+  'common.goToDashboard': 'Ir al panel',
   'editor.addColumn': 'Añadir columna',
+  'editor.addDialogTitle': 'Añadir columna',
   'editor.addRow': 'Añadir fila',
   'editor.addSheet': 'Añadir hoja',
   'editor.back': 'Volver a libros',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite es la cuadrícula primero-fórmulas, multi-vista y en tiempo real a la que analistas y finanzas acuden primero.',
   'landing.nav.formulas': 'Fórmulas',
+  'login.noAccount': '¿Eres nuevo en {{name}} ?',
+  'login.signIn': 'Inicia sesión en {{name}}',
   'login.signUp': 'Crear un espacio',
+  'nav.menu': 'Menú',
+  'nav.openMenu': 'Abrir menú',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Esta fila nunca existió.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatizaciones nativas · disparadores por webhook y cron',
   'signup.creating': 'Provisionando espacio…',
   'signup.cta': 'Crear mi espacio',
+  'signup.haveAccount': '¿Ya estás en {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Crea tu primer libro en 30 segundos',
   'team.col.activity': 'Invitado',

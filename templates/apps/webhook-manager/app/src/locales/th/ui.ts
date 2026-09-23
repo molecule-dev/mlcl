@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// เกี่ยวกับ {{app}}',
+  'about.pageTitle': 'ระนาบควบคุมเว็บฮุค',
+  'about.plansTitle': 'วางแผนสำหรับทุกขั้นตอน',
   'apiKeys.bestPractices': 'แนวปฏิบัติที่ดีที่สุด',
   'apiKeys.body':
     'โทเค็นการเข้าถึงแบบโปรแกรม ควรปฏิบัติต่อมันเหมือนรหัสผ่าน — เก็บไว้ในตัวแปรสภาพแวดล้อม อย่าบันทึกในโค้ดโดยตรง',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ภายในแผน',
   'billing.usageWarning': 'ใกล้หมวก',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.body':
     'ตรวจสอบอัตราการรับส่งข้อมูลแบบเรียลไทม์ การลองส่งซ้ำระหว่างการส่ง และปลายทางที่เกิดปัญหาขึ้น ในทุกพื้นที่ทำงานที่คุณใช้งาน',
   'dashboard.endpointsEmpty': 'ยังไม่มีจุดเชื่อมต่อใดๆ',
@@ -108,6 +112,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'จุดสิ้นสุด',
   'endpointDetail.deliveryTrendSub': 'จำนวนการส่งมอบต่อชั่วโมง (มาตราส่วนลอการิทึม)',
   'endpointDetail.hideSecret': 'ซ่อนความลับ',
+  'endpointDetail.loading': 'กำลังโหลดจุดเชื่อมต่อ…',
   'endpointDetail.metric.delivered': 'จัดส่งภายใน 24 ชั่วโมง',
   'endpointDetail.metric.deliveredCaption': 'จาก {{count}} ประเภทกิจกรรม',
   'endpointDetail.metric.failuresCaption': 'การลองใหม่: {{retries}}',
@@ -211,6 +216,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'วิกฤต · 24 ชั่วโมง',
   'notifications.metric.totalCaption': 'กล่องจดหมายเข้าตลอดเวลา',
   'payloadViewer.payload': '// เพย์โหลด',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'profile.avatarHeader': 'อวตาร',
   'profile.avatarHint': 'แสดงเฉพาะอักษรย่อ — ไฟล์อัปโหลดจะมาพร้อมกับการอัปเดตครั้งต่อไป',
   'profile.body': 'บัญชีของคุณ การตั้งค่า และเซสชันที่ใช้งานอยู่',
@@ -226,6 +232,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'ขณะนี้มีเพียงเซสชันปัจจุบันของคุณเท่านั้นที่ใช้งานอยู่ ไม่มีอุปกรณ์อื่นลงชื่อเข้าใช้',
   'profile.toggle': 'สลับ {{label}}',
+  'pylonShell.closeMenu': 'ปิดเมนูนำทาง',
+  'pylonShell.openMenu': 'เปิดเมนูนำทาง',
   'pylonShell.primaryNavLabel': 'การนำทางหลัก',
   'resetPassword.subtitle': 'เลือกใช้รหัสผ่านที่ปลอดภัยและไม่เคยใช้มาก่อน',
   'resetPassword.tokenPlaceholder': 'คัดลอกจากอีเมล',

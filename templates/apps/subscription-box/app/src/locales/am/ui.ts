@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ስለ {{app}}',
+  'appNav.mobileLabel': 'ዋና አሰሳ',
+  'appNav.primaryLabel': 'ዋና አሰሳ',
   'billing.actions.confirmCancel': 'የደንበኝነት ምዝገባዎን ሰርዝ? በማንኛውም ጊዜ እንደገና መመዝገብ ይችላሉ።',
   'billing.actions.paused': 'የደንበኝነት ምዝገባ ለአፍታ ቆሟል።',
   'billing.actions.resumed': 'የደንበኝነት ምዝገባው ከቆመበት ቀጥሏል።',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'boxes.search.placeholder': 'እትሞችን ፈልግ…',
   'boxes.subtitle': 'እያንዳንዱ ደረጃ ትንሽ ክፍል ያለው ታሪክ ነው። አንዱን ወደ ወረፋዎ ያክሉ ወይም በሚቀጥለው ወርዎ ይቀይሩት።',
   'boxThemeCard.perMonth': '/ ወር',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'customize.eyebrow': 'የእርስዎ ያድርጉት',
   'customize.heading': 'የሚቀጥለውን ትሮቭዎን ያብጁ',
   'customize.items.exclude': 'ይህንን ዝለል',
@@ -90,6 +94,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'በዚህ ወቅት',
   'landing.editions.heading': 'አስተባባሪዎቻችን አፍቃሪ ናቸው',
   'landing.footer.contact': 'ከተቆጣጣሪ ጋር ይነጋገሩ',
+  'landing.footer.tagline': '{{tagline}}።',
   'landing.hero.ctaPrimary': 'ሳጥንዎን ይጀምሩ →',
   'landing.hero.ctaSecondary': 'ደረጃዎችን ይመልከቱ',
   'landing.hero.eyebrow': 'በየወሩ የሚመረጥ። ሁልጊዜም የግል።',
@@ -107,6 +112,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'የሚቀጥለው ጉዞዎ',
   'nextBoxHeroCard.itemsLabel': 'የተመረጡ እቃዎች',
   'nextBoxHeroCard.shipsOnLabel': 'የሚላከው በ',
+  'notFound.body':
+    'ያንን ገጽ በ {{app}} ማህደር ውስጥ ማግኘት አልቻልንም። ምናልባት ጡረታ ወጥቶ ወይም በቀላሉ በስህተት ተጽፎ ሊሆን ይችላል።',
   'notFound.cta.dashboard': 'ወደ ዳሽቦርድ ይሂዱ',
   'notFound.eyebrow': 'ባዶ ሳጥን',
   'notFound.heading': 'ይህ መደርደሪያ ባዶ ነው',

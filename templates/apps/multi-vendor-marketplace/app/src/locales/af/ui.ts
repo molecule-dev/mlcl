@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     "Toetsmodus: bestellings word aangeteken en saldo's word vereffen, maar geen regte kaart word gehef nie.",
   'checkout.placeOrderCta': 'Plaas bestelling',
+  'checkout.placeOrderError': 'Kon nie jou bestelling plaas nie.',
   'checkout.placingOrder': 'Plaas bestelling…',
   'checkout.review.shipTo': 'Versending na',
   'checkout.review.subtotal': 'Subtotaal van verkoper',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': "Word 'n verkoper",
   'landing.footer.copyright': '© {{year}} {{name}} — elke vervaardiger, een markplek.',
   'landing.footer.help': 'Hulpsentrum',
+  'landing.nav.keepShopping': 'Hou aan inkopies doen',
   'landing.nav.sell': 'Verkoop op Vendry',
   'landing.nav.shop': 'Winkel',
   'landing.nav.signUp': 'Sluit aan',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Waarvan kopers hou',
   'login.accountTypeAria': 'Rekeningtipe',
   'login.heading': 'Welkom terug by Vendry',
+  'login.legalPrefix': 'Deur aan te meld, stem jy in tot ons',
   'login.subheading': 'Meld aan om aan te hou inkopies doen of spring terug na jou winkel.',
   'login.submitShopper': 'Teken aan om te koop',
   'login.submitVendor': 'Teken aan by my winkel',
@@ -89,10 +92,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Geplaas {{date}} · {{vendorCount}} verskaffer(s) · multi-verskaffer vervulling',
   'orders.empty': 'Geen bestellings stem nog ooreen met hierdie filter nie.',
+  'orders.emptyTitle': 'Geen bestellings hier nog nie',
   'orders.eyebrow': 'Jou aankope',
   'orders.subtitle':
     "Sien wie wat gestuur het, volg die dophou per verskaffer en verloor nooit weer 'n pakkie nie.",
   'orders.title': 'Bestellings, gegroepeer volgens verskaffer',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'productDetail.addToCart': 'Voeg by mandjie',
   'productDetail.addToCartError': 'Kon nie by mandjie voeg nie.',
   'productDetail.addToCartSuccess': '" {{name}} "by jou mandjie gevoeg."',
@@ -133,12 +138,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Bestuur hoe jy inkopies doen, hoe verkopers jou bereik en waarheen geld gaan.',
   'signup.heading': 'Sluit aan by die markplek',
+  'signup.legalPrefix': 'Deur aan te sluit, stem jy in tot ons',
   'signup.mismatch': 'Wagwoorde stem nog nie ooreen nie.',
   'signup.subheading':
     'Blaai deur meer as 4 000 onafhanklike vervaardigers, of maak jou eie winkel oop.',
   'status.delivered': 'Afgelewer',
   'status.refunded': 'Terugbetaal',
+  'userMenu.marketplaceSettings': 'Markplek-instellings',
   'vendor.memberSince': 'Lid sedert {{date}}',
+  'vendorDashboard.defaultShop': 'jou winkel',
   'vendorDashboard.eyebrow': 'Verskaffersadministrateur · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Vereffen na Vendry-kommissie. Volgende uitbetaling Vrydag.',
@@ -157,12 +165,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Waar jy maak, wat jy maak, hoekom dit saak maak.',
   'vendorOnboarding.currencyLabel': 'Vereffen in geldeenheid',
   'vendorOnboarding.errors.shopName': 'Winkelnaam word vereis.',
+  'vendorOnboarding.errors.submit': 'Kon nie jou aansoek indien nie.',
   'vendorOnboarding.exit': 'Stoor en gaan later voort',
   'vendorOnboarding.eyebrow': 'Doen aansoek om op Vendry te verkoop',
+  'vendorOnboarding.field.shopName': 'Winkelnaam',
   'vendorOnboarding.heroBody':
     "'n Vaste kommissie van 8%, uitbetalings elke Vrydag, jou winkelvenster, jou storie. Vertel ons 'n bietjie oor jou winkel en ons sal binne 48 uur met jou in verbinding tree.",
   'vendorOnboarding.review.contact': 'Kontak',
   'vendorOnboarding.review.currency': 'Geldeenheid',
+  'vendorOnboarding.review.tagline': 'Slagspreuk',
+  'vendorOnboarding.review.website': 'Webwerf',
   'vendorOnboarding.reviewBody':
     'Lyk goed. Ons sal jou winkel binne 48 uur hersien en jou eerste uitbetaling die Vrydag na jou eerste verkoop stuur.',
   'vendorOnboarding.samplesLabel': "Voorbeeldwerk — Instagram, portefeulje, foto's",
@@ -171,11 +183,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Aansoek ingedien! Ons sal jou winkel hersien en jou binne 48 uur per e-pos kontak.',
   'vendorOnboarding.taxIdLabel': 'Belasting-ID',
+  'vendorOrders.emptyTitle': 'Geen bestellings om nog te vervul nie',
   'vendorOrders.eyebrow': 'Verskafferadministrateur',
+  'vendorOrders.kpi.awaiting': 'Wag op vervulling',
   'vendorOrders.kpi.inTransit': 'In transito',
   'vendorOrders.subtitle':
     'Druk etikette, merk as vervuld en beantwoord vrae – alles sonder om Vendry te verlaat.',
   'vendorOrders.title': 'Inkomende bestellings',
+  'vendorPayouts.emptyTitle': 'Geen uitbetalings nog nie',
   'vendorPayouts.eyebrow': 'Verskafferfinansiering',
   'vendorPayouts.heroCaption': 'Skik na Banco BPI {{account}} · 1–2 werksdae',
   'vendorPayouts.history': 'Uitbetalingsgeskiedenis',
@@ -192,7 +207,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Waar word dit gemaak? Watter storie dra dit?',
   'vendorProductForm.error.name': 'Produknaam word vereis',
   'vendorProductForm.error.price': "Voer 'n positiewe prys in",
+  'vendorProductForm.error.publish': 'Kon nie publiseer nie',
   'vendorProductForm.eyebrow': 'Nuwe lys',
+  'vendorProductForm.eyebrowEdit': 'Wysig lysinskrywing',
   'vendorProductForm.images.body':
     'Sleep-en-los tot 8 beelde. Die eerste foto word die winkelvoorblad.',
   'vendorProductForm.images.cta': "Sleep foto's hierheen of blaai",
@@ -204,6 +221,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Stoor veranderinge',
   'vendorProductForm.title': 'Vertel kopers van jou stuk',
   'vendorProductForm.variants.colInventory': 'Voorraad',
+  'vendorProductForm.variants.colVariant': 'Variant',
   'vendorProducts.eyebrow': 'Verskafferadministrateur',
   'vendorProducts.kpi.draft': 'Konsepte',
   'vendorProducts.kpi.lowStock': 'Lae voorraad',

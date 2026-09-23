@@ -1,15 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.eyebrow': '{{app}} பற்றி',
+  'about.intro':
+    '{{app}} என்பது நிஜ வாழ்க்கைக்கான ஒரு தியானச் செயலியாகும் — இதில், ஒரு பயிற்சியாளராக அல்லாமல் நண்பரைப் போல உணரும் ஆசிரியர்களால் வழிநடத்தப்படும் தினசரி வழிகாட்டப்பட்ட தியானங்கள், மூச்சுப் பயிற்சிகள் மற்றும் உறக்கக் கதைகள் உள்ளன. தொடர்ச்சியாகப் பயிற்சி செய்த குற்றவுணர்வில்லை, இரைச்சலான பதிவுகளும் இல்லை: உங்கள் சுவாசத்திற்குத் திரும்புவதற்கான ஓர் அமைதியான இடம் மட்டுமே.',
+  'about.missionBody':
+    'அமைதி என்பது ஒவ்வொருவருக்கும், நாளின் எந்த நேரத்திலும் கிடைக்கக்கூடியதாக இருக்க வேண்டும் என்று நாங்கள் நம்புகிறோம். அமைதியான, தொடர்ச்சியான ஒரு பயிற்சியை சிரமமின்றி மேற்கொள்ளச் செய்வதற்காகவே இந்தச் {{app}} உள்ளது — இதன் மூலம், நேர்மையான பத்து நிமிடங்கள், அடுத்த பத்து மணி நேரத்தை நீங்கள் எதிர்கொள்ளும் விதத்தை மாற்றும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.pageTitle': 'ஒரு நாளைக்கு 10 நிமிடங்கள் அமைதியாக இருங்கள்',
+  'breathingDial.seconds': 'வினாடிகள்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.logout': 'வெளியேறவும்',
   'common.min': 'நிமிடம்',
   'common.relative.justNow': 'இப்போதே',
   'common.relative.now': 'இப்போது',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'nav.secondaryNavigation': 'கணக்கு வழிசெலுத்தல்',
   'sessionCard.with': 'உடன் {{name}}',
+  'stillpoint.billing.currentPlan': 'தற்போது {{plan}} உள்ளது',
   'stillpoint.billing.empty': 'இதுவரை கட்டணத் திட்டங்கள் எதுவும் அமைக்கப்படவில்லை.',
   'stillpoint.billing.heading': 'திட்டங்கள் மற்றும் கட்டணம்',
   'stillpoint.billing.loadError': 'எங்களால் திட்டங்களை ஏற்ற முடியவில்லை.',
   'stillpoint.billing.opening': 'பணம் செலுத்தும் இடம் திறக்கப்படுகிறது…',
   'stillpoint.billing.perMonthShort': '/ மாதம்',
+  'stillpoint.billing.perYearShort': '/ஆண்டு',
   'stillpoint.billing.unknownResult': 'எதிர்பாராத கட்டணப் பதில்.',
   'stillpoint.billing.yearly': 'ஆண்டுதோறும் · 17% சேமிப்பு',
   'stillpoint.courseDetail.back': 'படிப்புகள்',
@@ -22,6 +38,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'இன்னும் வகுப்புகள் இல்லை.',
   'stillpoint.courses.eyebrow': '{{count}} பல நாள் பயணங்கள்',
   'stillpoint.courses.heading': 'படிப்புகள்',
+  'stillpoint.forgot.checkEmail':
+    'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும் — இந்த இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'stillpoint.forgot.success': 'நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்பியுள்ளோம் {{email}} .',
   'stillpoint.home.empty': 'இன்னும் அமர்வுகள் இல்லை — விரைவில் மீண்டும் பார்க்கவும்.',
   'stillpoint.home.friend': 'நண்பர்',
@@ -47,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'உங்கள் இலவச கணக்கை உருவாக்கவும்',
   'stillpoint.landing.cta.title': 'உங்கள் அமைதியை இன்றே தொடங்குங்கள்',
   'stillpoint.landing.features.heading': 'உங்களுடன் சேர்ந்து வளரும் ஒரு பயிற்சி',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'பயிற்சியாளரைப் போல் அல்லாமல், நண்பரைப் போல் உணரும் ஆசிரியர்களால் வழிநடத்தப்படும் தினசரி தியானங்கள், மூச்சுப் பயிற்சிகள் மற்றும் உறக்கக் கதைகள்.',
   'stillpoint.landing.hero.eyebrow': 'ஒரு நாளைக்கு 10 நிமிடங்கள் அமைதியாக இருங்கள்',
@@ -63,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'மனநிலை வாரியாக உலாவுக',
   'stillpoint.login.rememberMe': 'என்னை உள்நுழைந்த நிலையிலேயே வைத்திருக்கவும்',
   'stillpoint.login.subheading': 'உங்கள் பயிற்சியைத் தொடர உள்நுழையவும்.',
+  'stillpoint.nav.tagline': 'உங்கள் அமைதியான மையத்தைக் கண்டறியவும்',
+  'stillpoint.notFound.body':
+    'இந்தப் பக்கம் எங்கோ ஒரு மூலையில் ஆழ்ந்து மூச்சு விடுகிறது. {{app}} இல் உங்களுக்காக ஒரு அமைதியான இடத்தைக் கண்டுபிடிப்போம்.',
   'stillpoint.notFound.title': 'அமைதியில் தொலைந்து போன',
   'stillpoint.notFound.toHome': 'இன்றைய தினத்திற்குத் திரும்பு',
   'stillpoint.notFound.toLibrary': 'நூலகத்தை உலாவுக',
@@ -80,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 வினாடிகள் பின்னோக்கிச் செல்லவும்',
   'stillpoint.player.skipForward': '30 வினாடிகள் முன்னோக்கிச் செல்லவும்',
   'stillpoint.player.with': 'உடன் {{name}}',
+  'stillpoint.profile.defaultHandle': 'ஸ்டில்பாயிண்டர்',
   'stillpoint.profile.eyebrow': 'உங்கள் செயல்முறை, சுருக்கமாக.',
   'stillpoint.profile.locked': 'பூட்டப்பட்டது',
   'stillpoint.profile.member': 'ஸ்டில்பாயிண்ட் உறுப்பினர்',

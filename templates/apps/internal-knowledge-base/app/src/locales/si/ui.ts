@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'article.notFound': 'ලිපිය හමු නොවීය.',
   'articleEditor.bodyPlaceholder': 'බ්ලොක් සඳහා / ටයිප් කරන්න, නැතහොත් ලිවීම ආරම්භ කරන්න.',
+  'articleEditor.loadFailed': 'ලිපිය පූරණය කළ නොහැකි විය.',
   'articleEditor.publishing': 'ප්‍රකාශනය\\u2026',
   'articleEditor.saveFailed': 'සුරැකීම අසාර්ථක විය.',
   'articleEditor.saving': 'සුරකිමින්\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'පිටු සලකුණ',
   'articleView.bookmarkOn': 'පිටු සලකුණු කරන ලදී',
   'articleView.edit': 'ලිපිය සංස්කරණය කරන්න',
+  'articleView.loading': 'මෙම ලිපිය විවෘත කරමින්...',
   'articleView.readTime': '{{minutes}} අවම කියවීම',
   'articleView.spaces': 'අවකාශ',
   'articleView.tocHeading': 'මෙම පිටුවේ',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'ඔබේ කණ්ඩායම තවමත් ලබා ගනිමින් සිටින මෑත සංස්කරණ, කියවීම් සහ කෙටුම්පත්.',
   'cairnTrailHero.updated': 'ලිපි යාවත්කාලීන කරන ලදී',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'drafts.eyebrow': 'ඔබේ නිම නොකළ වැඩ',
   'drafts.heading': 'කෙටුම්පත්',
+  'drafts.loadFailed': 'ඔබගේ කෙටුම්පත් පූරණය කිරීමට නොහැකි විය.',
   'drafts.subtitle':
     'ඔබ ආරම්භ කර ඇති නමුත් තවමත් ප්‍රකාශයට පත් කර නොමැති ලිපි. එකක් ගෙන ඉදිරියට යන්න.',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'තවම හිස්තැන් නොමැත. ලිපි එකතු කිරීම ආරම්භ කිරීමට එකක් විවෘත කරන්න.',
   'home.spacesHeading': 'ඔබේ අවකාශයන්',
   'home.subtitle': 'මෑත ලිපි, ඔබේ පිටු සලකුණු සහ කණ්ඩායම ලියමින් සිටි දේ.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . අණු සමඟ ගොඩනගා ඇත.',
   'landing.ctaBody':
     'ඒකල කතුවරුන් සඳහා නොමිලේ. ධාවන පොත්, තීරණ සහ ඇතුළත් කිරීම් නැව්ගත කරන බෙදා හරින ලද කණ්ඩායම් සඳහා කණ්ඩායම් සැලසුම්.',
   'landing.ctaHeading': 'අදම පළවෙනි ගල ගොඩගහන්න.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'වැඩබිමක් සාදන්න',
   'login.submitting': 'පුරනය වෙමින්...',
   'login.subtitle': 'ඔබ තැබූ තැනින් මංපෙත ගන්න.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
+  'newSpace.colorAria': 'වර්ණය තෝරන්න {{color}}',
   'newSpace.colorLabel': 'උච්චාරණ වර්ණය',
+  'newSpace.createFailed': 'අවකාශය නිර්මාණය කිරීමට නොහැකි විය.',
   'newSpace.descriptionPlaceholder': 'ධාවන පොත්, ඇමතුම් ක්‍රීඩා පොත්, පශ්චාත් මරණ පරීක්ෂණ\\u2026',
   'newSpace.eyebrow': 'දැනුම අවකාශයක් විවෘත කරන්න',
   'newSpace.heading': 'නව අවකාශය',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'පූරණය වෙමින්...',
   'notifications.subtitle':
     '{{count}} නොකියවූ \\u2014 සඳහන් කිරීම්, අදහස්, පිටු වෙනස්කම් සහ සමාලෝචන ඉල්ලීම්.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.articles': 'ලිපි',
   'pricing.spaces': 'අවකාශයන්',
   'profile.eyebrow': 'කර්තෘ පැතිකඩ',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'නව මුරපදයක් ඇතුළත් කරන්න',
   'resetPassword.subtitle': 'ශක්තිමත් මුරපදයක් තෝරන්න - අවම වශයෙන් අක්ෂර 12 ක්.',
   'searchResults.eyebrow': 'වැඩබිම් සෙවීම',
+  'searchResults.filter.all': 'සියලු අවකාශයන්',
   'searchResults.heading': 'ලිපි සොයන්න',
   'searchResults.placeholder': 'ධාවන පොත්, RFC, ප්‍රතිපත්ති, තීරණ සොයන්න\\u2026',
   'searchResults.summary': '{{count}} \\u201c සඳහා ප්‍රතිඵල {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'මෙය ඔබගේ ගිණුම සහ ඔබ රචනා කළ සෑම ලිපියක්ම මකා දමයි. තහවුරු කිරීමට DELETE ටයිප් කරන්න.',
   'settings.danger.confirmInvalid': 'තහවුරු කිරීමට DELETE ටයිප් කරන්න.',
+  'settings.danger.deleteFailed': 'ගිණුම මැකීමට නොහැකි විය.',
   'settings.danger.deleting': 'මකා දමමින්\\u2026',
   'settings.danger.description':
     'ඔබගේ වැඩබිම මකා දැමීමෙන් සියලුම ලිපි, අදහස් සහ අනුවාද ඉතිහාසය ඉවත් වේ. ප්‍රතිසාධනයක් නොමැත.',
   'settings.danger.title': 'වැඩබිම මකන්න',
+  'settings.email.confirm': 'ඊමේල් යාවත්කාලීන කරන්න',
+  'settings.email.confirmTitle': 'ඊමේල් වෙනස තහවුරු කරන්න',
   'settings.email.saved': 'විද්‍යුත් තැපෑල යාවත්කාලීන කරන ලදී.',
+  'settings.email.updateFailed': 'ඊමේල් යාවත්කාලීන කිරීමට නොහැකි විය.',
   'settings.language.title': 'භාෂාව',
   'settings.name': 'නම',
+  'settings.name.saved': 'නම යාවත්කාලීන කරන ලදී.',
+  'settings.name.updateFailed': 'නම යාවත්කාලීන කළ නොහැකි විය.',
   'settings.notifications.description': 'ඔබගේ එන ලිපි පෙට්ටියට ළඟා වන දේ තෝරන්න.',
+  'settings.password.changeFailed': 'මුරපදය වෙනස් කිරීමට නොහැකි විය.',
   'settings.password.current': 'වත්මන් මුර පදය',
   'settings.password.new': 'නව මුරපදය',
   'settings.password.saving': 'යාවත්කාලීන කරමින්\\u2026',
@@ -146,10 +166,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'ලිපි ඔබ වෙනුවෙන් ඉදිරිපත් කරන ආකාරය.',
   'settings.reading.title': 'කියවීම සහ ලිවීම',
   'settings.subtitle': 'දැනුම්දීම්, කියවීමේ කැන්වසය සහ ඔබේ ගිණුම සුසර කරන්න.',
+  'settings.twofa.code': 'සත්‍යාපන කේතය',
   'settings.twofa.disable': 'අබල කරන්න',
   'settings.twofa.disabled': 'අබලයි',
   'settings.twofa.enable': 'සක්‍රීය කරන්න',
   'settings.twofa.enabled': 'සබල කරන ලදී',
+  'settings.twofa.invalidCode': 'අවලංගු කේතයකි',
+  'settings.twofa.unavailable': 'මෙම යෙදුම සඳහා ද්වි-සාධක සත්‍යාපනය ලබා ගත නොහැක.',
+  'settings.twofa.verify': 'සත්‍යාපනය කර සබල කරන්න',
   'signup.brandQuote':
     '\\u201cඑය ලිවීම යනු එය අවශ්‍ය ඊළඟ පුද්ගලයාට අප දෙන පළමු පොරොන්දුවයි.\\u201d',
   'signup.eyebrow': 'වැඩබිමක් විවෘත කරන්න',

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.pageTitle': 'Ynghylch {{app}}',
   'achievementBadgeCard.unlockedOn': 'Datgloi {{date}}',
   'achievements.loadError': 'Methwyd llwytho cyflawniadau.',
   'achievements.subheading': '{{unlocked}} o {{total}} datgloi',
   'achievements.unlockedOn': 'Datgloi {{date}}',
+  'auth.legalConsent': "Wrth barhau, rydych yn cytuno i'n",
   'calendar.empty': 'Creu arfer o weld eich calendr.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Arferiad',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Grid arferion',
   'category.${c.category}': '{{cyfrif}} arferion',
   'common.and': 'a',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'consistencyHeatmap.ariaLabel': 'Map gwres cysondeb dyddiol',
   'consistencyHeatmap.caption': 'Diwethaf {{weeks}} wythnosau',
   'consistencyHeatmap.lessLabel': 'Llai',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Gweld yn fyw',
   'landing.heroSubtitle':
     "Adeiladwch arferion yn y ffordd maen nhw'n glynu mewn gwirionedd: ymrwymiadau bach, cyfnodau dyddiol, a phleser visceral cadwyn hir ddi-dor.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Cipolwg y tu mewn i Streak',
   'landing.previewMotivation': 'Naw streipen yn fyw. Cadwch nhw i gyd yn gynnes.',
   'login.eyebrow': 'Codwch y gadwyn',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': "Gwnewch hi'n fach. Gwnewch hi'n benodol. Dewch i'r amlwg yfory.",
   'newHabit.timeLabel': 'Amser atgoffa',
   'notifications.markError': "Methwyd marcio popeth wedi'i ddarllen.",
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.entries': '{{count}} cofnodion',
+  'pricing.heading': 'Dewis eich cynllun {{app}}',
   'profile.action.plan': 'Rheoli tanysgrifiad',
   'profile.action.settings': 'Gosodiadau cyfrif',
   'profile.bioEmpty': "Ychwanegwch fywgraffiad byr yn y Gosodiadau i gyflwyno'ch hun.",
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Anogwr boreol dyddiol (8:00am)',
   'settings.reminders.heading': 'Atgofion',
   'settings.reminders.weekly': 'Crynodeb wythnosol (nosweithiau Sul)',
+  'settings.revokeDeviceWarning':
+    'Bydd mynediad y ddyfais hon yn cael ei ddirwyn yn fuan. Ei allgofnodi?',
   'settings.signOutDevice': 'Allgofnodi',
   'settings.streaks.freezesPerWeek': "Rhewi'r wythnos",
   'settings.streaks.gracePeriod': 'Cyfnod gras o 6 awr ar ôl hanner nos',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} gweithredol',
   'streakHeroCard.daysSuffix': 'dyddiau',
   'streakHeroCard.title': 'Y gyfres weithredol hiraf',
+  'streakLayout.closeMenu': "Cau'r ddewislen lywio",
+  'streakLayout.openMenu': 'Agor y ddewislen lywio',
   'streakLayout.primaryNavLabel': 'Prif lywio',
 }

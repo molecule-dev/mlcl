@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'common.goToDashboard': 'Přejít na Dashboard',
+  'common.logout': 'Odhlásit se',
   'dailyStatsTriad.heartsLabel': 'Srdce',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minuty dnes',
   'dailyStatsTriad.minutesValue': '{{count}} min.',
   'dailyStatsTriad.wordsLabel': 'Slova zvládnutá',
+  'dailyStatsTriad.wordsMasteryHint': 'Slova na úrovni mistrovství 4+',
   'dashboard.continueHeading': 'Pokračujte tam, kde jste skončili',
   'dashboard.heading': 'Dobré dny, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Cvičení se nepodařilo načíst.',
   'lessonDetail.loading': 'Načítání lekce…',
   'lessonDetail.submitError': 'Odpověď se nepodařilo odeslat.',
+  'lessonDetail.translation': 'Přeložte frázi',
   'lessonDetail.xpEarned': 'Získané zkušenosti · {{xp}}',
   'lessons.empty': 'Žádné lekce na dané úrovni {{level}} přesto – zkuste jinou úroveň.',
   'lessons.eyebrow': 'Knihovna lekcí',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nováček v jazyce Parlance?',
   'login.showPassword': 'Zobrazit heslo',
   'login.signUp': 'Začněte zdarma →',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
+  'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Primární navigace',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'practice.empty': 'Zatím nejsou k dispozici žádné fráze.',
   'practice.eyebrow': 'Procvičování mluvení',
   'practice.heading': 'Přečtěte si to. Zaznamenejte si to. Upřesněte to.',

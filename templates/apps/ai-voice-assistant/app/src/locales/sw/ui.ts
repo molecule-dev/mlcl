@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Je, una maoni, ombi la kipengele, au umepata hitilafu? Wasiliana na timu ya {{app}} kupitia kiungo cha usaidizi kwenye menyu ya akaunti yako — kila ujumbe huenda kwa mwanadamu halisi.',
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'agentDetail.back': 'Mawakala wote',
   'agentDetail.capabilities': 'Uwezo',
   'agentDetail.delete': 'Futa utu',
   'agentDetail.deleteConfirm': 'Ungependa kufuta utu huu? Hili haliwezi kutenduliwa.',
+  'agentDetail.deleteError': 'Haikuweza kufuta utu.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Haikuweza kupakia mtu binafsi.',
   'agentDetail.save': 'Hifadhi utu',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Inabadilisha…',
   'billing.updateError': 'Haikuweza kuanza kusasisha.',
   'billing.usageHeading': 'Matumizi ya sauti katika mzunguko huu',
+  'chatBubble.source.text': 'maandishi',
+  'chatBubble.source.voice': 'sauti',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'conversation.defaultTitle': 'Mazungumzo mapya',
   'conversation.empty': 'Hakuna ujumbe bado. Anza kwa kusema kitu au kuandika hapa chini.',
   'conversation.eyebrow': 'Kipindi cha moja kwa moja',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Akili inayozungumza.',
   'landing.heroSubtitle':
     'Msaidizi wa sauti wa AI anayeelewa mtiririko wako wa asili. Zungumza, fikiria, na amri — kwa urahisi.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Kusikiliza…',
   'landing.naturallyBody':
     'Hakuna maneno ya kuchochea. Hakuna amri ngumu. Msemo unaelewa muktadha, kukatizwa, na uelewa wa usemi wa binadamu — kama vile kuzungumza na mwenzako.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Fungua kipindi',
   'notFound.home': 'Kurudi nyumbani',
   'notFound.title': 'Hatukuweza kusikia ukurasa huo.',
+  'parlanceLayout.closeMenu': 'Funga menyu',
+  'parlanceLayout.openMenu': 'Fungua menyu ya kusogeza',
   'parlanceLayout.primaryNavLabel': 'Usogezaji mkuu',
   'pricing.conversations': '{{count}} mazungumzo',
   'pricing.cta.startFree': 'Anza bila malipo',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Hakuna mechi',
   'search.eyebrow': 'Paleti ya amri',
   'search.fetchError': 'Haikuweza kupakia faharasa ya utafutaji.',
+  'search.static.profile.preview': 'Jina la onyesho, mpini, wasifu',
   'search.static.voice.title': 'Sauti',
   'search.title': 'Tafuta kwa Lugha',
   'search.transcriptPreview': 'Fungua nakala',

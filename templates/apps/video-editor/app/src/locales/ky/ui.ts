@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ката таптыңызбы, функция сурадыңызбы же тартылган тасмаңыз тууралуу айтып бергиңиз келеби? Ар бир билдирүү командадагы чыныгы адамга жетет — аккаунтуңуздун жөндөөлөрүнөн каалаган убакта байланышыңыз.',
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.eyebrow': '// клиптин артындагы студия',
   'about.pageTitle': '{{appName}} жөнүндө',
   'assetDetail.back': 'Китепканага кайтуу',
   'assetDetail.confirmDelete': 'Өчүрүү " {{name}} "? Муну кайтарып алуу мүмкүн эмес.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} клиптер, аудио жаздыкчалар жана графика убакыт тилкесине коюуга даяр.',
   'assetLibrary.title': 'Активдер',
   'assetLibrary.upload': 'Актив кошуу',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.browseTemplates': 'Шаблондорду карап чыгуу →',
   'dashboard.loading': 'Долбоорлор жүктөлүүдө…',
   'dashboard.noProjects': 'Азырынча долбоорлор жок — баштоо үчүн бирөөсүн түзүңүз.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Эсиңизде кала турган нерсени гана тандаңыз.',
   'rushesAuthShell.footer.copyright': '© Рашес студиясы',
   'rushesAuthShell.footer.privacy': 'Купуялык',
+  'rushesLayout.closeMenu': 'Навигацияны жабуу',
   'rushesLayout.guest': 'Редактор',
+  'rushesLayout.navDialog': 'Навигация',
+  'rushesLayout.openMenu': 'Навигацияны ачуу',
   'rushesLayout.planFree': 'Акысыз план',
   'rushesLayout.tagline': 'Кинематографиялык убакыт тилкеси',
   'settings.billing.confirmCancel': 'Жазылуу мезгилдин аягында жокко чыгарылсынбы?',

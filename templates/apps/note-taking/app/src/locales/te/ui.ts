@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'forgot.eyebrow': 'తిరిగి లోపలికి వెళ్లే దారి తప్పిపోయారా?',
   'forgot.formSubtitle': 'ఫైల్‌లో ఉన్న ఇమెయిల్‌ను మాకు తెలియజేయండి.',
   'forgot.headline': 'మీ పాస్‌వర్డ్‌ను రీసెట్ చేసుకోండి.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ఒకటి సృష్టించండి',
   'login.subline':
     'మీ నోట్‌బుక్‌లు, బ్యాక్‌లింక్‌లు మరియు రోజువారీ పేజీలు మీరు వదిలిపెట్టిన చోటే ఉన్నాయి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'noteEditor.backToNotes': 'గమనికలకు తిరిగి వెళ్లండి',
   'noteEditor.bodyPlaceholder':
     'రాయడం ప్రారంభించండి — మీరు టైప్ చేస్తుండగానే మీ నోట్ ఆటోమేటిక్‌గా సేవ్ అవుతుంది.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'కొత్త నోట్‌బుక్',
   'notes.newNotebookPrompt': 'కొత్త నోట్‌బుక్ పేరు',
   'notes.notebooksHeading': 'నోట్‌బుక్‌లు',
+  'notes.subtitle':
+    'ఎడమవైపున ఉన్న నోట్‌బుక్‌ను ఎంచుకుని, కొత్త ఎంట్రీని ప్రారంభించడానికి ‘New note’ బటన్‌ను నొక్కండి.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'మీ నోట్ టేకింగ్ ప్లాన్‌ను ఎంచుకోండి',
   'reset.eyebrow': 'దాదాపు తిరిగి వచ్చేసాను',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'నవీకరించబడింది',
   'versoLayout.nav.graph': 'గ్రాఫ్',
   'versoLayout.nav.home': 'హోమ్',
+  'versoLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'versoNoteCard.pinned': 'పిన్ చేయబడింది',
   'versoTodayHero.continueCta': 'రాయడం కొనసాగించండి',
   'versoTodayHero.createCta': 'నేటి నోట్‌ను ప్రారంభించండి',

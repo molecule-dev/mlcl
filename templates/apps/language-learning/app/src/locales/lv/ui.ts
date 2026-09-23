@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'common.logout': 'Izrakstīties',
   'dailyStatsTriad.heartsLabel': 'Sirdis',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minūtes šodien',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Apgūti vārdi',
+  'dailyStatsTriad.wordsMasteryHint': 'Vārdi meistarības līmenī 4+',
   'dashboard.continueHeading': 'Turpiniet tur, kur pārtraucāt',
   'dashboard.heading': 'Buenosairesa, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Nevarēja ielādēt vingrinājumus.',
   'lessonDetail.loading': 'Tiek ielādēta nodarbība…',
   'lessonDetail.submitError': 'Nevarēja iesniegt atbildi.',
+  'lessonDetail.translation': 'Tulkojiet frāzi',
   'lessonDetail.xpEarned': 'Nopelnītā pieredze · {{xp}}',
   'lessons.empty': 'Nav stundu līmenī {{level}} tomēr — izmēģiniet citu līmeni.',
   'lessons.eyebrow': 'Nodarbību bibliotēka',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Vai esat jauns valodas apguvējs?',
   'login.showPassword': 'Rādīt paroli',
   'login.signUp': 'Sākt bez maksas →',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
+  'parlanceLayout.nav.profile': 'Profils',
   'parlanceLayout.primaryNavLabel': 'Galvenā navigācija',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'practice.empty': 'Vēl nav pieejamas frāzes.',
   'practice.eyebrow': 'Runāšanas prakse',
   'practice.heading': 'Izlasi to. Pieraksti to. Pilnveido.',
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.tagline':
     '{{totalXp}} Nopelnītie XP. Saglabājiet ritmu — vēl trīs dienas līdz nedēļas nozīmītei.',
   'streakHeroCard.xpToday': '+ {{xp}} XP šodien',
+  'vocabReviewCard.due': 'Avots: {{date}}',
   'vocabReviewCard.dueUnknown': 'Pārskatīšanas termiņš',
   'vocabReviewCard.forgot': 'Aizmirsu',
   'vocabReviewCard.gotIt': 'Sapratu',

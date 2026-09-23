@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
   'actions.empty': 'Níl aon mhíreanna gníomhaíochta ag teacht le chéile.',
   'actions.heading': 'Míreanna gníomhaíochta',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'An mhí roimhe sin',
   'calendar.recent': 'Le déanaí',
   'common.daysAgo': '{{count}} lá ó shin',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.hoursAgo': '{{count}} uair an chloig ó shin',
   'common.no': '—',
+  'common.retry': 'Déan iarracht eile',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} míreanna gníomhaíochta',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc athshocraithe chugat.',
   'integrations.disconnected': 'Dícheangailte',
+  'integrations.loadError': 'Theip ar chomhtháthú a lódáil.',
   'integrations.notConnectedTag': 'Gan cheangal',
   'integrations.subheading':
     'Ceangail féilirí agus ardáin físe ionas go mbeidh Murmur páirteach go huathoibríoch.',
+  'integrations.updateError': 'Theip ar nuashonrú.',
   'landing.ctaButton': 'Tosaigh — tá sé saor in aisce',
   'landing.ctaHeading': 'Stop ag glacadh nótaí. Tosaigh ag déanamh cinntí.',
   'landing.demo.aiLabel': 'Achoimre ar AI, dréachtaithe beo',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Leanúnachas',
   'meetingDetail.loadError': 'Theip ar an gcruinniú a lódáil.',
   'meetingDetail.noActions': 'Níor braitheadh aon mhíreanna gníomhaíochta.',
+  'meetingDetail.none': 'Dada.',
   'meetingDetail.notFound': 'Níor aimsíodh an cruinniú.',
+  'meetingDetail.speakerFallback': 'Cainteoir {{id}}',
   'meetingDetail.summaryHeading': 'Achoimre ar an Intleacht Shaorga',
   'meetingDetail.transcriptHeading': 'Tras-scríbhinn',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Cruinnithe',
   'meetings.loadError': 'Theip ar lódáil cruinnithe.',
   'meetings.subheading': 'Gach cruinniú taifeadta, uaslódáilte agus sioncronaithe.',
+  'murmurLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'murmurLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'nav.legal': 'Dlíthiúil',
   'notifications.loadError': 'Theip ar fhógraí a lódáil.',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'An chuma atá ort taobh istigh de Murmur.',
   'record.error.empty': 'Níor gabhadh aon fhuaim.',
   'record.error.permission': 'Cead micreafóin diúltaithe.',
+  'record.error.recorder': 'Earráid taifeadta',
   'record.error.unsupported':
     'Ní thacaíonn do bhrabhsálaí le taifeadadh. Bain triail as Chrome, Edge, nó Safari.',
   'record.error.upload': 'Theip ar an uaslódáil. Déan iarracht eile.',
@@ -118,6 +127,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Pasfhocal nua',
   'reset.subheading': 'Roghnaigh pasfhocal nach n-úsáideann tú in áit ar bith eile.',
   'search.empty': 'Clóscríobh chun trascríbhinní a chuardach.',
+  'search.loadError': 'Theip ar an gcuardach. Déan iarracht eile.',
   'search.noResults': 'Gan aon torthaí le haghaidh “ {{q}} ".',
   'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
   'settings.appearance.title': 'Dealramh',
@@ -126,6 +136,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Theip ar na socruithe a lódáil.',
   'settings.loading': 'Ag lódáil…',
   'settings.push.heading': 'Fógraí brú',
+  'settings.push.subheading':
+    'Faigh foláirimh brabhsálaí le haghaidh tráchtanna, míreanna gníomhaíochta agus achoimrí.',
   'settings.retention.audio': 'Coinnigh fuaim ar feadh',
   'settings.retention.heading': 'Coinneáil',
   'settings.retention.transcript': 'Coinnigh trascríbhinní le haghaidh',
@@ -143,6 +155,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Tosaigh ag glacadh nótaí cruinnithe i gceann nóiméad',
   'signup.terms':
     'Trí chuntas a chruthú aontaíonn tú lenár dTéarmaí Seirbhíse agus lenár mBeartas Príobháideachais.',
+  'signup.termsPrefix': 'Trí chuntas a chruthú aontaíonn tú lenár',
   'team.inviteCta': 'Tabhair cuireadh do chomhghleacaí foirne',
   'team.invitedAs': 'Tugadh cuireadh dó mar {{role}}',
   'team.inviteFailed': 'Níorbh fhéidir an cuireadh a sheoladh.',

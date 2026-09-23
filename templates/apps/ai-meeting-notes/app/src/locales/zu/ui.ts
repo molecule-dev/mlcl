@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
   'actions.empty': 'Azikho izinto zesenzo ezifanayo.',
   'actions.heading': 'Izinto zesenzo',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Inyanga edlule',
   'calendar.recent': 'Okwakamuva',
   'common.daysAgo': '{{count}} kudala',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.hoursAgo': '{{count}} edlule',
   'common.no': '—',
+  'common.retry': 'Zama futhi',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} izinto zesenzo',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
     'Hlola ibhokisi lakho lokungenayo ukuze uthole isixhumanisi sokusetha kabusha.',
   'forgot.subheading': 'Faka i-imeyili yakho bese sizokuthumela isixhumanisi sokusetha kabusha.',
   'integrations.disconnected': 'Inqanyuliwe',
+  'integrations.loadError': 'Yehlulekile ukulayisha ukuhlanganiswa.',
   'integrations.notConnectedTag': 'Akuxhunyiwe',
   'integrations.subheading':
     'Xhuma amakhalenda namapulatifomu evidiyo ukuze uMurmur ajoyine ngokuzenzakalelayo.',
+  'integrations.updateError': 'Ukubuyekeza kuhlulekile.',
   'landing.ctaButton': 'Qala — kumahhala',
   'landing.ctaHeading': 'Yeka ukubhala amanothi. Qala ukwenza izinqumo.',
   'landing.demo.aiLabel': 'Isifinyezo se-AI, okubhalwe bukhoma',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Ukulandelela',
   'meetingDetail.loadError': 'Yehlulekile ukulayisha umhlangano.',
   'meetingDetail.noActions': 'Azikho izinto zesenzo ezitholiwe.',
+  'meetingDetail.none': 'Akukho.',
   'meetingDetail.notFound': 'Umhlangano awutholakalanga.',
+  'meetingDetail.speakerFallback': 'Isipikha {{id}}',
   'meetingDetail.summaryHeading': 'Isifinyezo se-AI',
   'meetingDetail.transcriptHeading': 'Umbhalo oqoshiwe',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Imihlangano',
   'meetings.loadError': 'Yehlulekile ukulayisha imihlangano.',
   'meetings.subheading': 'Yonke imihlangano eqoshiwe, elayishiwe, nevumelanisiwe.',
+  'murmurLayout.openMenu': 'Vula imenyu yokuzulazula',
   'murmurLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'nav.legal': 'Ezomthetho',
   'notifications.loadError': 'Yehlulekile ukulayisha izaziso.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Indlela obonakala ngayo ngaphakathi kwe-Murmur.',
   'record.error.empty': 'Akukho msindo othathwe.',
   'record.error.permission': 'Imvume yemakrofoni yenqatshiwe.',
+  'record.error.recorder': 'Iphutha lokurekhoda',
   'record.error.unsupported':
     'Isiphequluli sakho asisekeli ukurekhoda. Zama i-Chrome, i-Edge, noma i-Safari.',
   'record.error.upload': 'Ukulayisha kuhlulekile. Zama futhi.',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Iphasiwedi Entsha',
   'reset.subheading': 'Khetha iphasiwedi ongayisebenzisi kwenye indawo.',
   'search.empty': 'Thayipha ukuze useshe imibhalo eqoshiwe.',
+  'search.loadError': 'Ukusesha kuhlulekile. Zama futhi.',
   'search.noResults': 'Ayikho imiphumela ye-“ {{q}} ".',
   'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
   'settings.appearance.title': 'Ukubukeka',
@@ -127,6 +137,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Yehlulekile ukulayisha izilungiselelo.',
   'settings.loading': 'Iyalayisha…',
   'settings.push.heading': 'Izaziso ze-Push',
+  'settings.push.subheading':
+    'Thola izexwayiso zesiphequluli zokukhulunywa ngakho, izinto zesenzo, kanye nezifinyezo.',
   'settings.retention.audio': 'Gcina umsindo ukuze',
   'settings.retention.heading': 'Ukugcinwa',
   'settings.retention.transcript': 'Gcina okubhaliwe ukuze',
@@ -144,6 +156,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Qala ukuthatha amanothi omhlangano ngemizuzu',
   'signup.terms':
     'Ngokudala i-akhawunti uvumelana neMigomo Yesevisi kanye neNqubomgomo Yobumfihlo.',
+  'signup.termsPrefix': 'Ngokudala i-akhawunti uyavuma ukuthi',
   'team.inviteCta': 'Mema osebenza naye eqenjini',
   'team.invitedAs': 'Umenywe njengo {{role}}',
   'team.inviteFailed': 'Ayikwazanga ukuthumela isimemo.',

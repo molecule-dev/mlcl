@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'billing.canceled': 'تم إلغاء الاشتراك. ستعود إلى الخطة المجانية في نهاية الفترة.',
   'billing.contactSales': 'التواصل مع المبيعات',
   'billing.free.1': '٥ ترجمات',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'بدون حد للاحتفاظ',
   'billing.upgradeHint': 'قم بالترقية لإلغاء قفل ميزات الذكاء الاصطناعي المتقدمة.',
   'billing.yearly': 'سنوي',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'dashboard.activityEmpty': 'لا يوجد نشاط بعد — ابدأ مشروعًا لملء هذا الموجز.',
   'dashboard.eyebrow': 'نظرة عامة',
   'dashboard.projectsEmpty': 'لا توجد مشاريع بعد — ابدأ واحدًا لرؤيته هنا.',
@@ -109,6 +111,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'أعد استخدام الترجمات السابقة عبر كل مشروع. درجة المطابقة الأعلى ← عمل إعادة أقل.',
   'memory.title': 'بنك الذاكرة',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'nav.legal': 'قانوني',
   'newProject.addLanguage': 'إضافة هدف',
   'newProject.create': 'إنشاء مشروع',
@@ -136,6 +140,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'سابقًا',
   'notifications.markedAllRead': 'تم وضع علامة على {{count}} إشعار كمقروء.',
   'notifications.subtitle': 'الإشارات وطلبات المراجعة وأحداث الذكاء الاصطناعي من جميع مساحات عملك.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'privacy.collection.account': 'البريد الإلكتروني لحسابك والاسم المعروض',
   'privacy.deletion.body':
     'يمكنك حذف مشروع أو جزء أو مصطلح مسرد أو إدخال ذاكرة في أي وقت من الصفحة ذات الصلة. حذف حسابك من الإعدادات يطهّر كل صف بنطاق مساحة العمل من قاعدة بياناتنا.',
@@ -170,6 +175,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'فشل تحميل المشاريع.',
   'projects.loading': 'جارٍ تحميل المشاريع…',
   'projects.subtitle': 'كل مشروع نشط عبر جميع اللغات.',
+  'renditionLayout.primaryNavLabel': 'التنقل الرئيسي',
   'reset.backToLogin': '\\u2190 العودة إلى تسجيل الدخول',
   'reset.passwordLabel': 'كلمة مرور جديدة',
   'review.activeEyebrow': 'الجزء {{number}}',

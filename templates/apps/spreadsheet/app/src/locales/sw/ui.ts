@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'about.pageTitle': 'Kuhusu {{name}}',
   'auth.footer.about': 'Kuhusu {{name}}',
   'authHeader.subtitle': 'Ingia ili kuweka nambari zako kuwa za kweli.',
   'automations.action.email': 'Barua pepe',
+  'automations.action.noop': 'Hakuna op',
   'automations.action.webhook': 'Mtandao',
   'automations.confirmDelete': 'Futa " {{name}} "?',
   'automations.empty.headline': 'Hakuna otomatiki bado',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Vichochezi na vitendo katika kila kitabu cha kazi. Kila utekelezaji hurekodi safu mlalo unayoweza kukagua baadaye.',
   'automations.toggle': 'Badilisha {{name}}',
+  'automations.trigger.dailySchedule': 'Ratiba ya kila siku',
+  'automations.trigger.rowCreated': 'Safu mlalo imeundwa',
+  'automations.trigger.rowUpdated': 'Safu mlalo imesasishwa',
   'billing.empty': 'Hakuna mipango inayopatikana.',
   'billing.error.priceMissing':
     'Hakuna bei ya Stripe iliyosanidiwa kwa daraja hili. Weka visanduku vya env vya STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Chati',
   'charts.kpi.totalCharts': 'Jumla ya chati',
   'charts.list.empty': 'Hakuna chati bado.',
+  'charts.namePlaceholder': 'Mwenendo wa mapato',
   'charts.newChart': 'Chati mpya',
   'charts.primary.eyebrow': 'Chati kwa aina',
   'charts.primary.headline': 'Muhtasari wa nafasi ya kazi',
   'charts.subhead':
     'Taswira za moja kwa moja zilizounganishwa na gridi yako — onyesha upya kila wakati wa kubadilisha seli.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'editor.addColumn': 'Ongeza safu wima',
+  'editor.addDialogTitle': 'Ongeza safu wima',
   'editor.addRow': 'Ongeza safu mlalo',
   'editor.addSheet': 'Ongeza laha',
   'editor.back': 'Rudi kwenye vitabu vya kazi',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite ni wachambuzi wa gridi ya taifa wa fomula-kwanza, wenye mitazamo mingi, na wa muda halisi na timu za fedha zinazofikia kwanza.',
   'landing.nav.formulas': 'Fomula',
+  'login.noAccount': 'Mgeni kwa {{name}} ?',
+  'login.signIn': 'Ingia katika {{name}}',
   'login.signUp': 'Unda nafasi ya kazi',
+  'nav.menu': 'Menyu',
+  'nav.openMenu': 'Fungua menyu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=TAFUTA(REQUEST.url, "njia", "ukurasa")',
   'notFound.headline': 'Mstari huu haujawahi kuwepo.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Otomatiki asilia · vichochezi vya wavuti na cron',
   'signup.creating': 'Inaandaa nafasi ya kazi…',
   'signup.cta': 'Unda nafasi yangu ya kazi',
+  'signup.haveAccount': 'Tayari umefika {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Zungusha kitabu chako cha kwanza cha mazoezi ndani ya sekunde 30',
   'team.col.activity': 'Alialikwa',

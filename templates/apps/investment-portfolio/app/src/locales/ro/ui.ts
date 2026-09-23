@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Despre {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Unelte pentru bogăție',
+  'argentAuthShell.brandFootnote':
+    '© {{year}} {{app}} . Nu este vorba de consultanță în investiții.',
   'argentAuthShell.sampleChange': '+2.841 USD (+0,28%) astăzi',
   'argentAuthShell.sampleValue': '1.032.251 USD',
   'argentLayout.primaryNavLabel': 'Navigare principală',
@@ -25,6 +28,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Nicio tranzacție pentru acest simbol bursier.',
   'assetDetail.txHeading': 'Tranzacțiile dumneavoastră',
   'common.and': 'și',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Prezentare generală a portofoliului',
@@ -51,6 +55,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Încă nu există active.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Nu s-au putut încărca stocurile.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nu este vorba de consultanță în investiții. Performanțele trecute nu garantează rezultatele viitoare.',
   'landing.eyebrow': 'Argent · O platformă de instrumente pentru generarea de avere',
   'landing.features.heading': 'Tot ce și-ar construi un consilier pentru sine.',
   'landing.finalCta.heading': 'Readuceți disciplina în portofoliul dumneavoastră.',
@@ -71,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'acum {{count}}h',
   'news.justNow': 'chiar acum',
   'news.loadError': 'Nu s-a putut încărca știrile.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'portfolioHeroCard.label': 'Valoarea portofoliului',
   'pricing.holdingsLabel': 'dețineri',
   'pricing.newsLabel': 'articole de știri',
@@ -133,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Șterge contul',
   'settings.security.deleting': 'Se șterge…',
   'settings.security.heading': 'Securitate',
+  'settings.security.newPassword': 'Parolă nouă',
   'settings.security.password': 'Parolă',
   'settings.security.twoFactorEnable': 'Activați',
+  'settings.security.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.security.twoFactorVerify': 'Verificați și activați',
   'settings.tax.error': 'Nu s-a putut actualiza metoda de impozitare.',
   'settings.tax.heading': 'Contabilitatea loturilor fiscale',
   'settings.tax.method': 'Metodă implicită',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
   'about.tagline': 'Hemmeligheter dør i det fri.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Opprett token',
   'apiTokens.kicker': 'API-tokener',
   'apiTokens.loading': 'Laster tokens…',
+  'apiTokens.new': 'Ny token',
   'apiTokens.revoke': 'Tilbakekalling av token',
   'apiTokens.subheading':
     'Personlige tokener og tjenestetokener for Arcanum CLI og SDK. Klartekst vises én gang ved opprettelse.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Tilgangsnøkkel',
   'authShell.zeroKnowledge': 'Nullkunnskapskryptering',
   'common.connecting': 'Kobler til…',
+  'common.goToDashboard': 'Gå til oversikt',
   'common.inviting': 'Inviterer…',
   'forgotPassword.checkInbox':
     'Hvis {email} er registrert, vil en signert tilbakestillingslenke mottas innen et minutt.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotasjonsstatus, avviksvarsler og godkjenningsforespørsler på tvers av alle hvelv.',
   'notifications.unreadEmpty': 'Innboks null – alt er i orden.',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.heading': 'hemmeligheter',
   'pricing.limits.accessPolicies': 'tilgangsregler',
   'pricing.limits.auditLog': 'oppføringer i revisjonsloggen',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Personlig konto',
   'profile.plan.description': 'Administrer abonnementet ditt, se grenser og oppgrader.',
   'profile.subheading': 'Identitet, andrefaktorenheter og aktive økter.',
+  'profile.twoFactor.code': 'Autentiseringskode',
   'profile.twoFactor.disable': 'Deaktiver',
   'profile.twoFactor.enable': 'Aktiver',
+  'profile.twoFactor.invalidCode': 'Ugyldig kode',
   'profile.twoFactor.kicker': 'Tofaktorautentisering',
+  'profile.twoFactor.off': 'Ikke aktivert',
   'profile.twoFactor.on': 'Aktivert',
   'resetPassword.email': 'Konto-e-postadresse',
   'resetPassword.heading': 'Angi ny legitimasjon',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'kommandoer',
   'secretsManagerLayout.encrypted': 'AES-256 · KRYPTERT',
   'secretsManagerLayout.newVault': 'Nytt hvelv',
+  'secretsManagerLayout.newVaultShort': 'Ny',
   'secretsManagerLayout.rotations': 'Rotasjoner',
   'secretsManagerLayout.search': 'søk',
   'secretsManagerLayout.searchPlaceholder':
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Hemmeligheter',
   'vaultCard.vaultLabel': 'Hvelv',
   'vaultDetail.addSecret': 'Legg til hemmelighet',
+  'vaultDetail.back': 'Alle hvelv',
   'vaultDetail.col.key': 'Nøkkel',
   'vaultDetail.col.rotated': 'Rotert',
   'vaultDetail.col.value': 'Verdi',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'authShell.statusLabel': 'mga runner online',
   'collections.createError': 'Hindi nagawa ang koleksyon.',
   'collections.defaultName': 'Walang pangalang koleksyon {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Bagong koleksyon',
   'collections.subheading':
     'I-grupo ang mga kahilingan, ibahagi sa iyong koponan, at patakbuhin bilang isang suite.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'environmentCard.inactive': 'Hindi aktibo',
   'environmentCard.more': 'higit pa',
   'environmentCard.variables': 'Mga Variable',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'I-download nang libre',
   'landing.heroSubtitle':
     'Ang napakabilis na API testing workbench na ginawa para sa mga inhinyero na nakatira sa mga terminal.',
+  'landing.heroTitleAccent': 'Sunog',
+  'landing.heroTitleLine2': 'bumuo ng tiwala sa sarili.',
+  'landing.heroTitleRest': 'mga kahilingan,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Simple, malinaw na presyo',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Bago dito?',
   'login.showPassword': 'Ipakita ang password',
   'login.subtitle': 'Magpatuloy sa iyong Pylon workspace.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'mocks.createError': 'Hindi nagawa ang mock.',
   'mocks.defaultName': 'Walang pangalang mock {{n}}',
   'mocks.deleteError': 'Hindi na-delete ang mock.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Bumalik sa workspace',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Hindi nahanap ang ruta',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'privacy.collect.account':
     'Account: ang iyong email, naka-hash na password, display name, at timestamp ng iyong huling pag-sign in.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Read-only na view ng data na pag-aari ng account na ito.',
   'settings.unset': 'hindi nakatakda',
   'signup.identityHint': 'hal. Alex',
+  'signup.statusLabel': 'libreng antas · walang credit card',
   'signup.subtitle': 'Magsimulang magpadala ng mga kahilingan sa loob ng ilang minuto.',
   'terms.account.body':
     'Responsable kang pangalagaan ang iyong password. Ang pagbabahagi ng isang account sa maraming tao ay hindi pinahihintulutan sa mga Free o Pro na plano — bumili ng Team subscription para sa mga shared na workspace.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Huwag gamitin ang Pylon para magpadala ng mga kahilingan sa mga serbisyong hindi mo pag-aari o wala kang malinaw na pahintulot na subukan. Huwag gamitin ang Pylon para mag-bypass ng mga rate limit o magsagawa ng panloloko.',
   'terms.warranty.body':
     'Ibinibigay ang Pylon "as is" nang walang anumang warranty. Naglalayong mapanatili ang 99.9% uptime ngunit hindi ito garantisado sa mga Free o Pro na plano.',
+  'testRunner.assertionsCount': 'mga pahayag na {{count}}',
   'testRunner.createError': 'Hindi nagawa ang pagsubok.',
   'testRunner.cron':
     'Ang mga assertion ay sinusuri laban sa pinakabagong takbo ng linked na kahilingan ng pagsubok na ito.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     'Mga resulta ng suite, mga pagkakaiba ng assertion, at ang huling 50 na takbo.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Naka-sign in bilang',
+  'workspace.auth.keyName': 'Pangalan ng header',
+  'workspace.auth.keyValue': 'Pangunahing halaga',
+  'workspace.auth.password': 'Password',
+  'workspace.auth.username': 'Pangalan ng Gumagamit',
+  'workspace.authOption.apikey': 'Susi ng API',
+  'workspace.authOption.basic': 'Pangunahing Awtorisasyon',
+  'workspace.authOption.bearer': 'Token ng Maydala',
+  'workspace.authOption.none': 'Wala',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Uri',
   'workspace.authTypeLabel': 'Uri ng auth',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Wala',
+  'workspace.body.text': 'Hilaw na teksto',
+  'workspace.body.type': 'Uri',
   'workspace.environment': 'Walang env',
   'workspace.envVar': 'env variable',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Magdagdag ng header',
+  'workspace.kv.addParam': 'Magdagdag ng parametro',
+  'workspace.kv.headerKey': 'Pangalan ng header',
+  'workspace.kv.headerValue': 'Halaga ng header',
+  'workspace.kv.key': 'Key',
+  'workspace.kv.paramKey': 'Key ng parameter ng query',
+  'workspace.kv.paramValue': 'Halaga ng parameter ng query',
+  'workspace.kv.removeRow': 'Alisin ang hilera',
+  'workspace.kv.value': 'Halaga',
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Latency',
   'workspace.metric.latencyCaption': 'Round-trip mula sa takbong ito',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Ipinadala ang kahilingan — tingnan ang response sa ibaba.',
   'workspace.subheading':
     'Mag-compose ng kahilingan, ipadala ito, at suriin ang response — lahat sa isang pane.',
+  'workspace.testResults': 'Mga resulta ng pagsubok',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Ipinapadala bilang Authorization: Bearer <token> sa bawat kahilingan sa koleksyong ito.',

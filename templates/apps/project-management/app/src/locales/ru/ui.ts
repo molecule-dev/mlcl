@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'accountSettings.confirmEmailLabel': 'Для подтверждения введите DELETE.',
   'accountSettings.deleteError': 'Не удалось удалить учетную запись.',
   'accountSettings.passwordError': 'Не удалось изменить пароль.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Нет предстоящих сроков.',
   'dashboard.upcomingTitle': 'Предстоящие сроки',
   'deviceSettings.unknownDevice': 'Неизвестное устройство',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Поддержка',
   'forgotPassword.error': 'Не удалось отправить ссылку для сброса настроек.',
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'Неверный адрес электронной почты или пароль.',
   'login.pageTitle': 'Войти',
   'login.signIn': 'Войдите в Forge',
+  'login.subtitle': 'Войдите в систему, чтобы отслеживать ход выполнения ваших проектов.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'nav.calendar': 'Календарь',
   'nav.legal': 'Юридические',
   'nav.myTasks': 'Мои задачи',

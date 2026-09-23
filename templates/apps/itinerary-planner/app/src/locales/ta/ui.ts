@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} பற்றி',
+  'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'bookings.empty.body':
     'இன்பாக்ஸைத் தொடங்க, ஒரு விமானம், ஹோட்டல் அல்லது செயல்பாட்டைச் சேர்க்கவும்.',
   'bookings.empty.heading': 'இன்னும் முன்பதிவுகள் எதுவும் இல்லை.',
@@ -24,6 +27,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'உறுதிப்படுத்தப்பட்டது',
   'bookings.summary.pending': 'உறுதிப்படுத்தலுக்காக காத்திருக்கிறது',
   'bookings.summary.total': 'மொத்த அர்ப்பணிப்பு',
+  'bookings.type.car': 'வாடகை கார்',
+  'bookings.type.flight': 'விமானம்',
+  'bookings.type.hotel': 'ஹோட்டல்',
   'bookings.type.other': 'மற்றவை',
   'budgetSpendCard.budgetTotal': 'இன் {{total}} திட்டமிடப்பட்டது',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -35,6 +41,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'முரண்பாடுகளைக் கண்டறியுங்கள், பயணங்களுக்கு இடையில் ஓய்வு நாட்களைத் திட்டமிடுங்கள், மேலும் உடன் பணியாற்றுபவர்கள் உங்களுடன் எப்போது பயணிக்கிறார்கள் என்பதைக் கவனியுங்கள்.',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.budgetHeading': 'பட்ஜெட் துடிப்பு',
   'dashboard.empty.heading':
     'இன்னும் பயணங்கள் எதுவும் இல்லை — உங்கள் நிலப்படப் புத்தகம் காலியாக உள்ளது.',
@@ -44,6 +51,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'இயக்கத்தில் பயணங்கள்',
   'dashboard.viewAllExpenses': 'ஒவ்வொரு செலவையும் பார்க்கவும்',
   'dashboard.viewAllTrips': 'ஒவ்வொரு பயணத்தையும் பாருங்கள்',
+  'dayTimelineRow.category.accommodation': 'தங்கு',
   'dayTimelineRow.category.transport': 'போக்குவரத்து',
   'destinationOrbCard.exploreCta': 'ஒரு பயணத்தில் சேர்க்கவும்',
   'destinationOrbCard.tripCount': '{{count}} பயணங்கள்',
@@ -64,6 +72,7 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'செலவு துடிப்பு',
   'expenses.field.amount': 'தொகை (அமெரிக்க டாலர்)',
   'expenses.field.vendor': 'விற்பனையாளர்',
+  'expenses.formHeading': '{{trip}} க்கான செலவைப் பதிவு செய்க',
   'expenses.heading': 'பயணத்திற்கான பட்ஜெட் உண்மையில் எங்கே செலவாகிறது.',
   'expenses.noTrips.body':
     'முதலில் ஒரு பயணத்தைத் திட்டமிடுங்கள் – செலவுகள் பயணத்தின் வரவுசெலவுத் திட்டத்துடன் இணைந்தே வரும்.',
@@ -83,11 +92,15 @@ export const ui: UiTranslations = {
     'இன்னும் மின்னஞ்சல் வரவில்லையா? உங்கள் ஸ்பேம் கோப்புறையைச் சரிபார்க்கவும், அல்லது வேறு முகவரியுடன் மீண்டும் முயற்சிக்கவும்.',
   'forgotPassword.successSubheading':
     'நாங்கள் ஒரு மீட்பு இணைப்பை அனுப்பினோம் {{email}} இந்த இணைப்பு 30 நிமிடங்களுக்குச் செல்லுபடியாகும்.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'இலவச கணக்கை உருவாக்கவும்',
+  'landing.cta.subheading':
+    'இலவசத் திட்டத்தில் ஐந்து பயணங்கள், ஐந்து கூட்டாளிகள் மற்றும் ஐந்து நிறுத்தங்கள் வரை — நிகழ்நேர ஒத்திசைவுடன், உங்கள் திட்டங்கள் விரிவடையும்போது ப்ரோ திட்டம் வரம்புகளைத் தளர்த்தும்.',
   'landing.destinations.eyebrow': 'அடுத்து எங்கே',
   'landing.destinations.heading': 'ஆசிரியர் தேர்ந்தெடுத்த இடங்கள்',
   'landing.features.eyebrow': 'வேபாயிண்ட் எவ்வாறு செயல்படுகிறது',
   'landing.features.heading': 'பயணிகளுக்காக உருவாக்கப்பட்டது, விரிதாள்களுக்காக அல்ல.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'இலவசப் பயணத்தைத் தொடங்குங்கள்',
   'landing.hero.ctaSecondary': 'ஒரு மாதிரிப் பயணத்தைப் பாருங்கள்',
   'landing.hero.subtitle':
@@ -131,6 +144,8 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ஐரிஸ் லார்சன்',
   'signup.subheading':
     '5 கூட்டாளிகள் வரை பயணங்களைப் பகிரவும், முன்பதிவுகளை ஒத்திசைக்கவும், அனைத்து உறுதிப்படுத்தல்களையும் ஒரே இடத்தில் பெறவும் ஒரு கணக்கை உருவாக்கவும்.',
+  'signup.termsPrefix':
+    'கணக்கை உருவாக்குவதன் மூலம் நீங்கள் எங்கள் விதிமுறைகளுக்கு ஒப்புக்கொள்கிறீர்கள்.',
   'tripCountdownHeroCard.budget': '{{used}} இன் {{total}} ( {{pct}} பட்ஜெட்டின் %',
   'tripCountdownHeroCard.collaborators': '{{count}} பயணிகள்',
   'tripCountdownHeroCard.countdownLabel': 'கவுண்ட்டவுன்',
@@ -209,5 +224,6 @@ export const ui: UiTranslations = {
   'trips.pastHeading': 'கடந்த கால சாகசங்கள்',
   'trips.subheading':
     '{{count}} பயணத் திட்டங்கள் — கடந்த காலம், நிகழ்காலம், மற்றும் எதிர்காலத்திற்கானவை.',
+  'waypointLayout.mobileNavClose': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'waypointLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
 }

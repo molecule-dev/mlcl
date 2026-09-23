@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.pageTitle': '{{app}}-ի մասին',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.retry': 'Կրկին փորձել',
   'compose.cancel': 'Չեղարկել',
   'compose.captionPlaceholder': 'Ի՞նչ կա մտքումդ։',
   'compose.heading': 'Կիսվեք մի պահով',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Հաստատված հաշիվ',
   'resetPassword.newPassword': 'Նոր գաղտնաբառ',
   'resetPassword.subheading': 'Ընտրեք ինչ-որ ուժեղ բան՝ առնվազն 12 նիշ։',
+  'search.clearAria': 'Մաքրել',
+  'search.error': 'Որոնումը ձախողվեց։ Փորձեք կրկին։',
   'search.noPeople': 'Համապատասխանող ստեղծողներ չկան " {{q}} «.',
   'search.noPosts': 'Համապատասխան գրառումներ չկան " {{q}} «.',
   'search.noTags': 'Դեռևս թրենդային հեշթեգեր չկան։',
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Թաքցնել գաղտնաբառը',
   'signup.showPassword': 'Ցուցադրել գաղտնաբառը',
   'signup.subheading': 'Ստեղծեք հաշիվ՝ կիսվելու համար։',
+  'socialMediaLayout.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'socialMediaLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
+  'socialMediaLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'storyRail.heading': 'Պատմություններ',
   'storyRail.label': 'Պատմություններ',
   'storyRail.openAria': 'Բացել {{handle}} -ի պատմությունը',

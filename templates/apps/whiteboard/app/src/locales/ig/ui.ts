@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'authShell.brandHeading': 'Ọrụ dị iche iche maka ndị otu imewe na-eche echiche nke ọma.',
   'billing.canceled': 'Kagburu ndenye aha.',
   'billing.cancelPlan': 'Kagbuo atụmatụ',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Malite site na ndebiri',
   'boards.title': 'Bọọdụ gị',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'Tinye ozi-e ejikọtara na ebe ọrụ gị, anyị ga-ezitere gị njikọ nrụpụta.',
   'forgot.success.body':
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Ọgbakọ Q1 · Olu Akara',
   'landing.featuresEyebrow': 'Gịnị na-eme ka Slate tessellate',
   'landing.featuresTitle': 'Nzaghachi ngwa ngwa. Kanvas mara mma. Enweghị esemokwu.',
+  'landing.hero.body':
+    "{{appName}} bụ bọọdụ ọcha ọtụtụ mmadụ maka ndị otu imewe, ndị na-ahazi ogbako, na ndị nkuzi bụ ndị na-agba ọsọ echiche ndụ ma chọọ echiche iji zukọta n'otu ebe.",
   'landing.hero.primaryCta': "Malite bọọdụ n'efu",
   'landing.hero.socialProof': 'Ndị tụkwasịrị obi {{count}} ndị otu nhazi gburugburu ụwa',
   'landing.hero.title': 'Kansụl dị ngwa ngwa dịka echiche gị si dị',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': "Mepụta ebe ọrụ n'efu",
   'login.subheading':
     "Malite ebe ọ kwụsịrị na ogbako ahụ — bọọdụ, ihe ndetu na-arapara arapara, na kọsọ niile na-arụkọ ọrụ n'oge ahụ.",
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.new': 'Ọhụrụ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'notifications.editTitle': 'Na-edezi na " {{board}} "',
   'notifications.empty.body':
     "Ịkpọ òkù, nchekwa foto, na ndezi bọọdụ ndị e degharịrị n'oge na-adịbeghị anya ga-apụta ebe a ka ha na-eme.",
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Akụkọ ihe mere eme nke ụdị ahụ',
   'versionHistory.untitledSnapshot': 'Foto na-enweghị aha',
   'whiteboardLayout.newBoard': 'Ogbe ọhụrụ',
+  'whiteboardLayout.primaryNav': 'Ntugharị isi',
   'workspace.boardLabel': 'Ogbe',
   'workspace.eyebrow': '{{name}} · ebe ọrụ',
   'workspace.invite': 'Kpọọ ndị ọrụ aka',

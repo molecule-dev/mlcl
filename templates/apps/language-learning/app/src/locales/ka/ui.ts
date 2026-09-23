@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენს შესახებ',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.logout': 'გასვლა',
   'dailyStatsTriad.heartsLabel': 'გულები',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'დღევანდელი წუთები',
   'dailyStatsTriad.minutesValue': '{{count}} წთ',
   'dailyStatsTriad.wordsLabel': 'სიტყვების ათვისება',
+  'dailyStatsTriad.wordsMasteryHint': 'სიტყვების ოსტატობა 4+',
   'dashboard.continueHeading': 'გააგრძელეთ იქიდან, სადაც შეწყვიტეთ',
   'dashboard.heading': 'ბუენოს დიასი, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'ვარჯიშების ჩატვირთვა ვერ მოხერხდა.',
   'lessonDetail.loading': 'გაკვეთილის ჩატვირთვა…',
   'lessonDetail.submitError': 'პასუხის გაგზავნა ვერ მოხერხდა.',
+  'lessonDetail.translation': 'თარგმნეთ ფრაზა',
   'lessonDetail.xpEarned': 'მიღებული XP · {{xp}}',
   'lessons.empty': 'დონეზე გაკვეთილები არ არის {{level}} მაინც - სცადეთ სხვა დონე.',
   'lessons.eyebrow': 'გაკვეთილების ბიბლიოთეკა',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ახალი ხართ პარლანსში?',
   'login.showPassword': 'პაროლის ჩვენება',
   'login.signUp': 'დაიწყეთ უფასოდ →',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'parlanceLayout.nav.profile': 'პროფილი',
   'parlanceLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'practice.empty': 'ფრაზები ჯერ არ არის ხელმისაწვდომი.',
   'practice.eyebrow': 'მეტყველების პრაქტიკა',
   'practice.heading': 'წაიკითხეთ. ჩაიწერეთ. დახვეწეთ.',

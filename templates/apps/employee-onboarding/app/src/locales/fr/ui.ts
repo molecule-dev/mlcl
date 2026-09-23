@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'auth.forgotPassword.emailPlaceholder': 'nom@votreentreprise.com',
   'auth.forgotPassword.heading': 'Réinitialisez votre mot de passe.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marquer la tâche comme terminée',
   'checklistTaskCard.markIncomplete': 'Marquer la tâche comme incomplète',
   'checklistTaskCard.openLabel': 'Ouvrir la tâche',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Vous êtes à jour',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Sur la bonne voie',
   'dashboard.timelineHeading': 'Étapes à 30/60/90 jours',
   'dashboard.viewAllTasks': 'Afficher toutes les tâches',
+  'dashboard.weekOne': 'Semaine 1',
   'dashboard.yourCohort': 'Votre équipe',
   'documents.empty.body': 'Les documents ajoutés par votre équipe apparaîtront ici.',
   'documents.empty.title': "Aucun document pour l'instant",
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Essai gratuit de 14 jours',
   'landing.subhead':
     'Embark guide chaque nouvelle recrue tout au long de ses 90 premiers jours — paperasse, formation, étapes clés et présentations significatives, le tout au même endroit, calme et rassurant.',
+  'layout.openMenu': 'Ouvrir le menu de navigation',
   'layout.search': 'Rechercher des tâches, documents, coéquipiers…',
+  'layout.searchTeammates': 'Rechercher des coéquipiers par nom ou par rôle…',
   'layout.section.onboarding': 'Intégration',
   'layout.tagline': 'Votre parcours commence ici',
   'notifications.empty.body': "L'activité récente s'affichera ici.",
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'hier',
   'planUpdated.message': 'Tout est prêt.',
   'planUpdated.preparing': 'Mise à jour de votre forfait…',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.documentsLabel': 'documents',
   'pricing.onboardingsLabel': 'intégrations',
   'pricing.tasksLabel': 'tâches',

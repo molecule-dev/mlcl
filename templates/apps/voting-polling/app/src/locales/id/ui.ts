@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'analytics.col.quorum': 'Kuorum',
   'analytics.col.votes': 'Suara',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Belum ada pertanyaan tertunda.',
   'audienceQa.onStageEyebrow': 'Di panggung sekarang',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Mendorong',
   'audienceQa.queued': 'dalam antrian',
   'audienceQa.queueEyebrow': 'Antrian',
   'ballot.eyebrow': 'Berikan suara Anda',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Saat ini Anda berada di paket {{plan}}.',
   'billing.switch': 'Beralih',
   'billing.upgraded': 'Diperbarui ke {{plan}} — batas diterapkan segera.',
+  'common.goToDashboard': 'Ke Dashboard',
   'createPoll.addOption': 'Tambah opsi',
   'createPoll.anonymousHint':
     'Nama pemilih disembunyikan di log audit; perhitungan tetap diautentikasi.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Baru di Nosh?',
   'login.remember': 'Ingat saya selama 30 hari',
   'login.subheading': 'Buka sidang, jalankan ruangan, dan sertifikasi hasilnya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notFound.body':
     'Halaman yang Anda coba akses telah ditutup atau dipindahkan. Kembali ke dasbor atau buka jajak pendapat baru.',
   'notFound.eyebrow': 'Tidak ada kuorum di rute ini',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Tidak dapat memuat jajak pendapat ini.',
   'pollDetail.loading': 'Memuat jajak pendapat…',
   'pollDetail.notFound': 'Jajak pendapat tidak ditemukan.',
+  'pollDetail.openBallot': 'Pemungutan suara terbuka',
   'pollDetail.openLive': 'Hasil langsung',
   'pollDetail.pollId': 'jajak pendapat · {{id}}',
   'pollDetail.published':
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Cari berdasarkan email…',
   'voters.subheading':
     'Kelola daftar yang memenuhi syarat. Kelompokkan pemilih berdasarkan organisasi untuk surat suara berbobot.',
+  'votingPollingLayout.nav.analytics': 'Analitik',
+  'votingPollingLayout.nav.billing': 'Penagihan',
+  'votingPollingLayout.nav.createPoll': 'Jajak pendapat baru',
+  'votingPollingLayout.nav.dashboard': 'Dasbor',
+  'votingPollingLayout.nav.notifications': 'Notifikasi',
+  'votingPollingLayout.nav.settings': 'Pengaturan',
+  'votingPollingLayout.nav.team': 'Tim',
+  'votingPollingLayout.nav.voters': 'Pemilih',
+  'votingPollingLayout.primaryNavLabel': 'Navigasi utama',
 }

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqqında',
   'argentAuthShell.brandEyebrow': 'Argent · Sərvət alətləri',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . İnvestisiya məsləhəti deyil.',
   'argentAuthShell.sampleChange': 'Bu gün +2841$ (+0.28%)',
   'argentAuthShell.sampleValue': '1,032,251 dollar',
   'argentLayout.primaryNavLabel': 'Əsas naviqasiya',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Bu bilet üçün heç bir əməliyyat yoxdur.',
   'assetDetail.txHeading': 'Əməliyyatlarınız',
   'common.and': 'və',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfolioya ümumi baxış',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Hələlik heç bir mülkiyyət yoxdur.',
   'holdings.heading': 'Holdinqlər',
   'holdings.loadError': 'Holdinqləri yükləmək alınmadı.',
+  'landing.copyright':
+    '© {{year}} {{app}} . İnvestisiya məsləhəti deyil. Keçmiş fəaliyyət gələcək nəticələrə zəmanət vermir.',
   'landing.eyebrow': 'Argent · Sərvət alətləri platforması',
   'landing.features.heading': 'Məsləhətçinin özü üçün quracağı hər şey.',
   'landing.finalCta.heading': 'Portfelinizə intizamı qaytarın.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} saat əvvəl',
   'news.justNow': 'elə indicə',
   'news.loadError': 'Xəbərləri yükləmək alınmadı.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'portfolioHeroCard.label': 'Portfel Dəyəri',
   'pricing.holdingsLabel': 'holdinqlər',
   'pricing.newsLabel': 'xəbər məqalələri',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Hesabı silin',
   'settings.security.deleting': 'Silinir…',
   'settings.security.heading': 'Təhlükəsizlik',
+  'settings.security.newPassword': 'Yeni parol',
   'settings.security.password': 'Şifrə',
   'settings.security.twoFactorEnable': 'Aktivləşdirin',
+  'settings.security.twoFactorInvalidCode': 'Yanlış kod',
+  'settings.security.twoFactorVerify': 'Təsdiqləyin və aktivləşdirin',
   'settings.tax.error': 'Vergi metodunu yeniləmək mümkün olmadı.',
   'settings.tax.heading': 'Vergi lotunun uçotu',
   'settings.tax.method': 'Standart metod',

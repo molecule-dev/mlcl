@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.featureDiscover.title': 'Inspiratie, zorgvuldig geselecteerd',
   'account.addPaymentCta': 'Betaalmethode toevoegen',
   'account.addPaymentError': 'Kan betaalmethode niet toevoegen.',
+  'account.confirmRemove': 'Bevestig verwijderen',
   'account.defaultBadge': 'Standaard',
   'account.loyalty.pointsTowardNext': '{{points}} van {{next}} mijlen tot {{nextTier}}',
   'account.loyalty.tier': 'Huidig niveau',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Reisgegevens',
   'booking.tripSummary': '{{nights}} nachten · {{guests}} gasten',
   'common.daysAgo': '{{count}}d geleden',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.hoursAgo': '{{count}}u geleden',
   'common.minutesAgo': '{{count}}m geleden',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Juridisch',
   'notifications.loading': 'Laden…',
   'notifications.subheading': '{{count}} ongelezen · alles in één rustige inbox',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.accommodationsLabel': 'accommodaties',
   'pricing.bookingsLabel': 'boekingen',
   'pricing.destinationsLabel': 'opgeslagen bestemmingen',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Inspiratie, betrouwbare verblijven en een soepele weg van dagdroom naar geboekt — in 14 landen en meer dan 200 handgekozen accommodaties.',
   'sojournHeroSearchCard.trustProtected': 'Gratis annulering, volledig beschermd',
   'sojournHeroSearchCard.trustVetted': 'Alleen handgekozen accommodaties',
+  'travelBookingLayout.primaryNavLabel': 'Hoofdnavigatie',
   'tripDetail.backLink': 'Terug naar reizen',
   'tripDetail.cancelCta': 'Boeking annuleren',
   'tripDetail.cancelHeading': 'Deze reis annuleren?',

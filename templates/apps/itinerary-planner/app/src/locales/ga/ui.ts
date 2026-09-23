@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Faoi {{app}}',
+  'auth.legalConsent': 'Trí leanúint ar aghaidh, aontaíonn tú lenár',
   'bookings.empty.body': 'Cuir eitilt, óstán, nó gníomhaíocht leis chun an bosca isteach a thosú.',
   'bookings.empty.heading': 'Gan aon áirithintí fós.',
   'bookings.errors.create': 'Níorbh fhéidir áirithint a chruthú.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Deimhnithe',
   'bookings.summary.pending': 'Ag fanacht le deimhniú',
   'bookings.summary.total': 'Iomlán geallta',
+  'bookings.type.car': 'Carr ar cíos',
+  'bookings.type.flight': 'Eitilt',
+  'bookings.type.hotel': 'Óstán',
   'bookings.type.other': 'Eile',
   'budgetSpendCard.budgetTotal': 'de {{total}} pleanáilte',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Aimsigh coinbhleachtaí, pleanáil laethanta téarnaimh idir turais, agus féach cathain a bhíonn comhoibritheoirí ag taisteal leat.',
   'common.and': 'agus',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.budgetHeading': 'Cuisle buiséid',
   'dashboard.empty.heading': "Gan aon turais fós — tá d'atlas bán.",
   'dashboard.eyebrow': 'Rialú misean',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Turais i ngluaiseacht',
   'dashboard.viewAllExpenses': 'Féach ar gach costas',
   'dashboard.viewAllTrips': 'Féach ar gach turas',
+  'dayTimelineRow.category.accommodation': 'Fan',
   'dayTimelineRow.category.transport': 'Iompar',
   'destinationOrbCard.exploreCta': 'Cuir le turas',
   'destinationOrbCard.tripCount': '{{count}} turais',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     "Gan ríomhphost fós? Seiceáil d'fhillteán turscair, nó déan iarracht arís le seoladh difriúil.",
   'forgotPassword.successSubheading':
     'Chuireamar nasc aisghabhála chuig {{email}} Tá an nasc bailí ar feadh 30 nóiméad.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Cruthaigh cuntas saor in aisce',
+  'landing.cta.subheading':
+    'Suas le cúig thuras, cúig chomhoibrí, agus cúig stad ar an bplean saor in aisce — le sioncrónú fíor-ama san áireamh, agus Pro ag ardú na dteorainneacha nuair a fhásann do phleananna.',
   'landing.destinations.eyebrow': 'Cá háit le dul ina dhiaidh seo',
   'landing.destinations.heading': 'Ceann scríbe arna gcoimeád ag eagarthóirí',
   'landing.features.eyebrow': 'Conas a oibríonn Waypoint',
   'landing.features.heading': 'Tógtha do thaistealaithe, ní do scarbhileoga.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Tosaigh turas saor in aisce',
   'landing.hero.ctaSecondary': 'Féach ar thuras samplach',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Íris Larsen',
   'signup.subheading':
     'Cruthaigh cuntas chun turais a roinnt le suas le 5 chomhoibrí, áirithintí a shioncronú, agus gach dearbhú a bhailiú in aon áit amháin.',
+  'signup.termsPrefix': 'Trí chuntas a chruthú aontaíonn tú lenár',
   'tripCountdownHeroCard.budget': '{{used}} de {{total}} ({{pct}}% den bhuiséad)',
   'tripCountdownHeroCard.collaborators': '{{count}} taistealaithe',
   'tripCountdownHeroCard.countdownLabel': 'Comhaireamh síos',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.pastHeading': 'Eachtraí san am atá thart',
   'trips.subheading':
     '{{count}} cláir taistil — san am atá thart, san am i láthair, agus lá éigin.',
+  'waypointLayout.mobileNavClose': 'Dún an roghchlár nascleanúna',
   'waypointLayout.primaryNavLabel': 'Príomh-loingseoireacht',
 }

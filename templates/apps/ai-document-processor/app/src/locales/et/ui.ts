@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Võtke ühendust',
+  'about.title': 'Teave rakenduse {{app}} kohta',
   'authShell.backToLanding': '← Tagasi avalehele',
+  'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
+  'common.retry': 'Proovi uuesti',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Täna · Tegevuse ülevaade',
   'dashboard.heading': 'Dokumentide analüüs',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Praegustele filtritele vastavaid dokumente ei leitud.',
   'documents.heading': 'Kõik dokumendid',
   'documents.loadError': 'Dokumente ei õnnestunud laadida.',
+  'documents.loading': 'Teegi laadimine…',
   'documents.searchLabel': 'Otsi dokumente',
   'documents.searchPlaceholder': 'Otsi dokumente…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Peida parool',
   'login.showPassword': 'Näita parooli',
   'login.subtitle': 'Logi sisse, et su dokumentide voog ei katke.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'notFound.body':
     'Dokument või marsruut, mida sa avada püüdsid, ei ole enam siin. Mine tagasi juhtpaneelile või vali külgribalt mõni rubriik.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Ava sihtleht',
   'notFound.title': 'Seda lehekülge pole andmebaasis',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % võrreldes eilsete näitajatega',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Kehtivad reeglid',
   'rules.empty': 'Esitamise eeskirju pole veel olemas. Kasuta nuppu „Uus eeskiri“, et neid lisada.',
   'rules.eyebrow': 'Automatiseerimine',
+  'rules.fieldsCount': '{{count}} väljad',
   'rules.form.destination': 'Saada fail',
   'rules.form.name': 'Reegli nimi',
   'rules.form.save': 'Salvesta reegel',

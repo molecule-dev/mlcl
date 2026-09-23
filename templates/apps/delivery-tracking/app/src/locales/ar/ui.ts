@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'about.eyebrow': 'حول',
   'alerts.acknowledgeLabel': 'إقرار',
   'alerts.customerLabel': 'العميل: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'جارٍ الربط…',
   'carriers.requiredError': 'الاسم والرمز مطلوبان.',
   'carriers.subheading': 'تم دمج {{count}}',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.no': '—',
+  'common.retry': 'إعادة المحاولة',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'قيد العبور + المُعلَّمة',
   'dashboard.activeShipmentsSubtitle': '{{count}} شحنة تحتاج إلى انتباه أو في طريقها',
@@ -98,6 +101,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'الشحنات',
   'pricing.trackingLabel': 'أحداث التتبّع',
   'profile.dangerZone.title': 'منطقة الخطر',
+  'profile.devices.signingOut': 'جارٍ تسجيل الخروج…',
+  'profile.devices.unnamed': 'جهاز غير محدد الاسم',
+  'profile.security.disable2fa': 'تعطيل المصادقة الثنائية (2FA)',
   'profile.security.enable2fa': 'تفعيل المصادقة الثنائية',
   'profile.security.pwChanged': 'تم تغيير كلمة المرور بنجاح.',
   'profile.security.pwCurrent': 'كلمة المرور الحالية',
@@ -107,10 +113,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'المصادقة الثنائية نشطة',
   'profile.security.twoFaCode': 'رمز من 6 أرقام',
   'profile.security.twoFaDisable': 'تعطيل',
+  'profile.security.twoFaDisabling': 'جاري التعطيل…',
   'profile.security.twoFaFailed': 'تعذّر التحقّق من الرمز.',
   'profile.security.twoFaIntro':
     'امسح رمز QR في تطبيق المصادقة، ثم أدخل الرمز المكوّن من ٦ أرقام أدناه للتحقّق.',
   'profile.security.twoFaOn': 'المصادقة الثنائية مفعّلة على هذا الحساب.',
+  'profile.security.twoFaQrAlt': 'رمز QR للمصادقة الثنائية',
   'profile.security.twoFaVerify': 'التحقّق والتفعيل',
   'profile.security.twoFaVerifying': 'جارٍ التحقّق…',
   'profile.subheading': 'إعدادات الهوية والأمان لمساحة العمل هذه.',
@@ -129,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'احفظ هذا السرّ — لن يُعرض مرة أخرى.',
   'settings.api.webhookSecret': 'سرّ توقيع الـ webhook',
   'settings.appearance.description': 'بدّل بين الوضع الفاتح والداكن.',
+  'settings.deleteAccountConfirm': 'هل أنت متأكد؟ لا يمكن التراجع عن هذه الخطوة.',
   'settings.notifications.exceptions': 'أرسل لي بريدًا إلكترونيًا عند حدوث استثناء في الشحنة',
   'settings.notifications.heading': 'الإشعارات',
   'settings.notifications.saveFailed': 'تعذّر حفظ التفضيلات.',
@@ -143,6 +152,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'لم يتم العثور على الشحنة.',
   'shipmentDetail.originHeading': 'المنشأ',
   'shipmentDetail.shippedOn': 'شُحنت في {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'لا توجد أحداث تتبع حتى الآن — ستظهر التحديثات هنا فور قيام شركة الشحن بمسح الطرد ضوئيًا.',
   'shipmentDetail.weightLabel': '{{weight}} رطل',
   'shipments.col.carrier': 'شركة الشحن',
   'shipments.col.eta': 'وقت الوصول المتوقع',
@@ -171,6 +182,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'تسجيل الدخول',
   'signup.submit': 'إنشاء حساب',
   'team.emailError': 'يلزم إدخال عنوان بريد إلكتروني صالح.',
+  'team.empty':
+    'لا يوجد أعضاء في الفريق حتى الآن. قم بدعوة زميل في الفريق للتعاون في عمليات الشحن.',
   'team.eyebrow': 'الأعضاء والصلاحيات',
   'team.inviteDialog.cancel': 'إلغاء',
   'team.inviteDialog.heading': 'دعوة زميل',
@@ -193,6 +206,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'تتبّع',
   'waypointLayout.primaryNavLabel': 'التنقّل الرئيسي',
   'webhooks.createFailed': 'تعذّر إنشاء نقطة نهاية الـ webhook.',
+  'webhooks.endpointsEmpty':
+    'لا توجد نقاط نهاية لـ Webhook حتى الآن. قم بإنشاء واحدة لتلقي إشعارات حالة الشحن.',
   'webhooks.endpointsHeading': 'نقاط النهاية',
   'webhooks.eventCount': '{{count}} حدث',
   'webhooks.eventsHeading': 'آخر عمليات التسليم',

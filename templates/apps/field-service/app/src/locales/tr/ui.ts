@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Müşteriler',
   'customers.loadError': 'Müşteriler yüklenemedi.',
   'customers.loading': 'Yükleniyor…',
+  'customers.new.address': 'Servis adresi',
   'customers.new.email': 'E-posta',
   'customers.new.error': 'Müşteri eklenemedi.',
   'customers.new.heading': 'Yeni müşteri',

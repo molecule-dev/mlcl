@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Jou rol',
   'account.role.upgradeLink': "Doen aansoek om 'n geverifieerde tutor te word →",
   'account.title': 'Profiel, betaling en voorkeure.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Leer op Kryt',
   'becomeTutor.form.error': 'Kon nie aansoek indien nie.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Onderwerp',
   'bookingConfirm.title': 'Jy is bespreek. Ons sal die res hanteer.',
   'bookingConfirm.with': 'Met tutor',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'earningsHero.eyebrow': 'Verdienste • {{month}}',
   'forgotPassword.heading': 'Wagwoord vergeet?',
   'forgotPassword.subheading':
@@ -111,6 +113,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Stuur boodskap',
   'messages.thread.empty': 'Sê hallo – begin die gesprek.',
   'messages.title': 'Drade met jou tutors.',
+  'nav.primary': 'Primêr',
   'pricing.dataExport': 'Data-uitvoer:',
   'pricing.headingDefault': 'Gevorderde kenmerke:',
   'resetPassword.heading': "Kies 'n sterk nuwe wagwoord.",

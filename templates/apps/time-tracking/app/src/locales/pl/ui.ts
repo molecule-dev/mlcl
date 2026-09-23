@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O {{app}}',
   'about.plansTitle': 'Plany, które rosną razem z Panem/Panią',
   'brand.tagline': 'Każda sekunda',
   'clientDetail.back': 'Powrót do klientów',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Każda relacja w jednym miejscu — projekty, godziny, zaległe faktury.',
   'clients.title': 'Klienci',
   'common.and': 'i',
+  'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.activeProjects': 'Aktywne projekty',
   'dashboard.empty': 'Brak wpisów. Proszę uruchomić licznik, aby zarejestrować pierwszą sesję.',
   'dashboard.greeting': 'Dzień dobry, {{name}}',
@@ -82,6 +84,7 @@ export const ui: UiTranslations = {
     'Brak rozliczeniowych godzin do zafakturowania dla tego klienta. Proszę najpierw zarejestrować czas lub przypisać istniejące wpisy do jednego z projektów tego klienta.',
   'invoices.save': 'Utwórz fakturę',
   'invoices.subtitle': 'Śledzone godziny są automatycznie agregowane w faktury.',
+  'landing.copyright': '© {{year}} {{app}} . Każda sekunda jest uwzględniona.',
   'landing.ctaBody':
     'Bezpłatnie dla maks. 3 projektów. Proszę przejść na wyższy plan, gdy lista klientów się powiększy.',
   'landing.eyebrow': 'Rejestracja czasu dla pracy rozliczeniowej',
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Zaufany przez niezależnych',
   'landing.testimonial.quote':
     '“Przeniosłem się z Toggla w 30 minut. Sam wskaźnik wykorzystania budżetu się zwrócił — przestałem zaniżać wyceny przez dwa tygodnie z rzędu.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Każda sekunda zarejestrowana.',
   'login.brand.subtitle':
     'Proszę kontynuować licznik tam, gdzie się skończyło — każda minuta już przypisana do projektu, klienta, faktury.',
   'login.brand.tracking': 'Śledzenie',
   'login.subheading': 'Proszę kontynuować licznik tam, gdzie się skończyło.',
+  'nav.closeMenu': 'Zamknij menu nawigacyjne',
   'nav.insightsSection': 'Statystyki',
   'nav.newEntry': 'Nowy wpis',
+  'nav.openMenu': 'Otwórz menu nawigacyjne',
+  'nav.primary': 'Nawigacja główna',
   'nav.workSection': 'Praca',
   'notFound.body':
     'Wygląda na to, że link, który Pan/Pani kliknęła, przestał śledzić. Proszę wrócić do pulpitu — będziemy liczyć dalej stamtąd.',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Rozliczeniowy',
   'timer.descriptionPlaceholder': 'Nad czym Pan/Pani pracuje?',
   'timer.idle': 'Bezczynny — rozpocznij śledzenie',
+  'timer.noProject': 'Brak projektu',
   'timer.runningWithProject': 'Brak projektu',
   'timer.start': 'Uruchom licznik',
   'timer.stop': 'Zatrzymaj licznik',

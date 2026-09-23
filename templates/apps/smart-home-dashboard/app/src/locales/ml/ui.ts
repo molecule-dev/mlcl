@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'activity.empty':
     'ഇതുവരെ ഒരു പ്രവർത്തനവുമില്ല — ഒരു ഉപകരണം ഫ്ലിപ്പ് ചെയ്യുക അല്ലെങ്കിൽ ഒരു രംഗം സജീവമാക്കുക.',
   'activity.eyebrow': 'ടൈംലൈൻ',
   'activity.loadError': 'ആക്റ്റിവിറ്റി ഫീഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'activity.subheading': 'ഓരോ ഉപകരണവും, ഓട്ടോമേഷനും, സുരക്ഷാ പരിപാടിയും കാലക്രമത്തിൽ.',
+  'addDevice.error.failed': 'ഉപകരണം ചേർക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'addDevice.error.nameRequired': 'തുടരാൻ ഈ ഉപകരണത്തിന് ഒരു പേര് നൽകുക.',
   'addDevice.field.firmware': 'ഫേംവെയർ പതിപ്പ്',
   'addDevice.field.manufacturer': 'നിർമ്മാതാവ്',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'പരിശോധിക്കുന്നു...',
   'automationEditor.testNew': 'ആദ്യം ഓട്ടോമേഷൻ പരിശോധിച്ച് ഉറപ്പുവരുത്തുക.',
   'automationRow.lastRun': 'അവസാനത്തെ {{date}} · {{count}} ഓടുന്നു',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ഓടുക {{name}} ഇപ്പോൾ',
   'automations.empty': 'ഇതുവരെ ഓട്ടോമേഷനുകളൊന്നുമില്ല — നിങ്ങളുടെ ആദ്യ ദിനചര്യ സൃഷ്ടിക്കുക.',
   'automations.eyebrow': 'ദിനചര്യകൾ',
@@ -53,6 +57,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ഓട്ടോമേഷനുകൾ ലോഡ് ചെയ്യുന്നു…',
   'automations.newAutomation': '+ പുതിയത്',
   'automations.subheading': 'ഇത് സംഭവിക്കുമ്പോൾ, അത് ചെയ്യുക - YAML ഇല്ലാതെ.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ഉപകരണം ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'പ്രവർത്തിക്കുന്നു...',
   'deviceDetail.unnamed': 'ഉപകരണം',
   'deviceStatusRow.on': 'ഓൺ',
+  'deviceStatusRow.turnOff': 'ഓഫ് ചെയ്യുക',
+  'deviceStatusRow.turnOn': 'ഓൺ ചെയ്യുക',
   'deviceStatusRow.watts': '{{watts}} വ',
   'energy.eyebrow': 'പവർ',
   'energy.heading': 'ഊർജ്ജം',
@@ -181,4 +188,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'പ്ലാനുകൾ കാണുക',
   'settings.security.heading': 'സുരക്ഷ',
   'settings.subheading': 'പ്ലാൻ, ഹബ്ബുകൾ, അക്കൗണ്ട് മുൻഗണനകൾ.',
+  'smartHomeDashboardLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'smartHomeDashboardLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
 }

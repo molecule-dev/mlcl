@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'हाम्रो बारेमा',
   'authShell.samplePreview':
     '"हे टोली, नयाँ ड्यासबोर्ड एकदमै राम्रो छ - हामीलाई चाहिएको कुरा यही हो!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/सर्टकट',
   'automations.subheading':
     'नियमहरू, क्यान्ड प्रतिक्रियाहरू र च्याटबटहरू - तपाईंको टोलीले कठिन कामहरूमा ध्यान केन्द्रित गर्दा कार्यस्थान गुनगुनाउँदै राख्नुहोस्।',
+  'automations.trigger.inboundMessage': 'आगमन सन्देश',
   'automations.triggerLabel': 'ट्रिगर',
   'chatBubble.internalNoteLabel': 'आन्तरिक नोट',
+  'common.confirmDelete': 'मेटाउने पुष्टि गर्नुहोस्',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'contactDetail.backToContacts': 'सबै सम्पर्कहरू',
   'contactDetail.contactFallback': 'सम्पर्क गर्नुहोस्',
   'contactDetail.conversationFallback': 'कुराकानी',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'अन्तिम पटक देखिएको',
   'contacts.empty': 'अहिलेसम्म कुनै सम्पर्क छैन। माथि आफ्नो पहिलो सम्पर्क थप्नुहोस्।',
   'contacts.eyebrow': 'ग्राहक निर्देशिका',
+  'contacts.form.nameOrEmailRequired': 'कम्तिमा एउटा नाम वा इमेल प्रदान गर्नुहोस्',
   'contacts.form.save': 'सम्पर्क सेभ गर्नुहोस्',
   'contacts.heading': 'सम्पर्कहरू',
   'contacts.loading': 'सम्पर्कहरू लोड गर्दै...',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'नोट सेभ गर्नुहोस्',
   'conversationDetail.tab.note': 'आन्तरिक नोट',
   'conversationDetail.threadAria': 'कुराकानी सन्देशहरू',
+  'conversationDetail.visitorFallback': 'आगन्तुक',
   'customerProfilePanel.csatLabel': 'CSAT ले',
   'customerProfilePanel.propertiesTitle': 'ग्राहक विवरणहरू',
   'customerProfilePanel.recentTitle': 'हालसालैका कुराकानीहरू',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ग्राहकहरूले आफ्नो पहिलो जवाफ निम्नानुसार पाइरहेका छन्: {{time}} औसतमा — तालमेल जारी राख्नुहोस्।',
   'inboxHeroCard.title': 'सक्रिय कुराकानीहरू',
+  'inboxLayout.navDrawerLabel': 'नेभिगेसन',
+  'inboxLayout.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'inboxOverview.eyebrow': 'आज एक नजरमा',
   'inboxOverview.heroChange': '{{count}} खुला',
   'inboxOverview.kpiClosedTrend': 'सबै समय',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'गृहपृष्ठमा जानुहोस्',
   'notifications.subheading':
     'असाइनमेन्टहरू, @mentions, SLA जोखिमहरू, CSAT प्रतिक्रिया र टोली गतिविधि — सबैभन्दा नयाँ पहिले क्रमबद्ध गरिएको।',
+  'notifications.subjectFallback': 'कुराकानी',
+  'notifications.visitorFallback': 'एक आगन्तुक',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'उच्च',
   'priority.low': 'कम',
+  'priority.normal': 'सामान्य',
   'priority.urgent': 'जरुरी',
   'privacy.title': 'गोपनीयता नीति',
   'reports.agentFallback': 'एजेन्ट',

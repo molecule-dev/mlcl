@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Našli ste chybu, máte požiadavku na funkciu alebo nám chcete povedať o filme, ktorý ste strihali? Každá správa sa dostane k skutočnej osobe v tíme – kontaktujte nás kedykoľvek z nastavení vášho účtu.',
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.eyebrow': '// štúdio stojúce za strihom',
   'about.pageTitle': 'O nás {{appName}}',
   'assetDetail.back': 'Späť do knižnice',
   'assetDetail.confirmDelete': 'Odstrániť " {{name}} „? Toto sa nedá vrátiť späť.“',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipy, zvukové podložky a grafika pripravené na umiestnenie na časovú os.',
   'assetLibrary.title': 'Aktíva',
   'assetLibrary.upload': 'Pridať aktívum',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.browseTemplates': 'Prehliadať šablóny →',
   'dashboard.loading': 'Načítavanie projektov…',
   'dashboard.noProjects': 'Zatiaľ žiadne projekty – vytvorte si jeden a začnite.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Vyber si niečo, na čo si spomenieš len ty.',
   'rushesAuthShell.footer.copyright': '© Štúdio Rushes',
   'rushesAuthShell.footer.privacy': 'Súkromie',
+  'rushesLayout.closeMenu': 'Zatvoriť navigáciu',
   'rushesLayout.guest': 'Redaktor',
+  'rushesLayout.navDialog': 'Navigácia',
+  'rushesLayout.openMenu': 'Otvoriť navigáciu',
   'rushesLayout.planFree': 'Bezplatný plán',
   'rushesLayout.tagline': 'Filmová časová os',
   'settings.billing.confirmCancel': 'Zrušiť predplatné na konci obdobia?',

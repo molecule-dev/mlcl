@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}(r)i buruz',
   'about.plansTitle': 'Zurekin batera hazten diren planak',
   'brand.tagline': 'Segundo oro',
   'clientDetail.back': 'Bezeroetara itzuli',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Harreman guztiak leku bakarrean — proiektuak, orduak, ordaindu gabeko fakturak.',
   'clients.title': 'Bezeroak',
   'common.and': 'eta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.activeProjects': 'Proiektu aktiboak',
   'dashboard.empty':
     'Oraindik ez dago sarrerarik. Hasi tenporizadorea zure lehen saioa jarraitzeko.',
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     'Ez dago fakturatzeko faktura daitekeen ordurik bezero honentzat. Jarrai ezazu denbora pixka bat lehenik edo esleitu dauden sarrerak bezero honen proiektuetako bati.',
   'invoices.save': 'Sortu faktura',
   'invoices.subtitle': 'Jarraitutako orduak automatikoki gehitzen dira fakturetan.',
+  'landing.copyright': '© {{year}} {{app}} . Segundo oro, kontuan hartuta.',
   'landing.ctaBody':
     'Doan gehienez 3 proiektutarako. Eguneratu zure bezeroen zerrendak egiten duenean.',
   'landing.eyebrow': 'Fakturagarria den lanaren denboraren jarraipena',
@@ -101,13 +104,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Independenteen konfiantza',
   'landing.testimonial.quote':
     '\\u201cToggl utzi dut 30 minututan. Aurrekontuaren errekuntza bakarrik ordaindu dut \\u2014 Bi astez jarraian gutxiegi aurrekontua jartzeari utzi diot.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Segundo oro, kontuan hartuta.',
   'login.brand.subtitle':
     'Jarraitu tenporizadorea utzi zenuen tokitik — minutu guztiak dagoeneko proiektu, bezero edo faktura bati lotuta.',
   'login.brand.tracking': 'Jarraipena',
   'login.subheading': 'Hartu tenporizadorea utzi zenuen tokitik.',
+  'nav.closeMenu': 'Itxi nabigazio menua',
   'nav.insightsSection': 'Informazio gehiago',
   'nav.newEntry': 'Sarrera berria',
+  'nav.openMenu': 'Ireki nabigazio menua',
+  'nav.primary': 'Nabigazio nagusia',
   'nav.workSection': 'Lana',
   'notFound.body':
     'Badirudi jarraitu duzun estekak jarraipena egiteari utzi diola. Itzuli zure kontrol-panelera eta handik aurrera kontatzen jarraituko dugu.',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Fakturagarria',
   'timer.descriptionPlaceholder': 'Zertan ari zara lanean?',
   'timer.idle': 'Inaktibo — jarraipena hasi',
+  'timer.noProject': 'Proiekturik ez',
   'timer.runningWithProject': 'Proiekturik ez',
   'timer.start': 'Hasi tenporizadorea',
   'timer.stop': 'Gelditu tenporizadorea',

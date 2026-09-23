@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Klientai',
   'customers.loadError': 'Nepavyko įkelti klientų.',
   'customers.loading': 'Kraunama…',
+  'customers.new.address': 'Paslaugos adresas',
   'customers.new.email': 'El. paštas',
   'customers.new.error': 'Nepavyko pridėti kliento.',
   'customers.new.heading': 'Naujas klientas',

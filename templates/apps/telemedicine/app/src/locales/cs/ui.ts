@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Rezervace schůzky',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Žádní pacienti k ukázání.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'consult.backLink': 'Všechny schůzky',
   'consult.captions': 'Titulky',
   'consult.connected': 'Připojeno · 720p · stabilní',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacienti',
   'patientVitalsHero.scripts': 'Otevřený předpis',
   'patientVitalsHero.subline': '{{count}} konzultace dle vašeho dnešního rozvrhu',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'prescriptions.empty': 'Žádné recepty se neshodují.',
   'prescriptions.eyebrow': 'Elektronické předepisování',
   'prescriptions.heading': 'Recepty',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Oznámení o ochraně osobních údajů',
   'privacy.use.body':
     'Abychom vám mohli poskytovat péči, zasílat připomenutí schůzek, směrovat léky na předpis a zlepšovat spolehlivost služeb, nikdy neprodáváme vaše data a nikdy nesdílíme klinické informace s inzerenty.',
+  'providers.allSpecialties': 'Všechny specializace',
+  'providers.loadError': 'Načtení poskytovatelů se nezdařilo.',
+  'providers.loading': 'Načítání…',
   'providers.noResults': 'Nenalezeny žádné poskytovatele.',
   'providers.searchPlaceholder': 'Hledat podle jména, specializace...',
   'providers.title': 'Najít poskytovatele',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Začátek dne',
   'settings.availability.heading': 'Dostupnost',
   'settings.devices.thisDevice': 'Toto zařízení',
+  'settings.devices.unnamed': 'Neoznačené zařízení',
   'settings.eyebrow': 'Cvičení a účet',
   'settings.loadError': 'Váš profil se nepodařilo načíst.',
   'settings.notifications.emailMessages': 'Dostávat e-mail, až mi můj tým péče odpoví',
@@ -178,6 +184,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Zakázat',
   'settings.security.twoFactor.enable': 'Povolit',
   'settings.security.twoFactor.heading': 'Dvoufaktorové ověřování',
+  'settings.security.twoFactor.invalidCode': 'Kód se neshoduje. Zkuste to znovu.',
+  'settings.security.twoFactor.setupFailed':
+    'Nepodařilo se spustit dvoufaktorové nastavení. Zkuste to znovu.',
+  'settings.security.twoFactor.statusOn': 'Dvoufaktorový systém je zapnutý',
   'settings.signOutDevice': 'Odhlásit se',
   'settings.subheading': 'Profil poskytovatele, pravidla praxe a klinická upozornění.',
   'signup.emailLabel': 'E-MAIL',
@@ -188,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Vytvořit účet',
   'signupFooter.hipaa': 'V souladu s HIPAA',
   'solaceLayout.primaryNavLabel': 'Primární navigace',
+  'solaceLayout.toggleMenu': 'Přepnout nabídku',
   'terms.eligibility.body':
     'Musíte být starší osmnácti let nebo být rodičem či zákonným zástupcem nezletilé osoby, o kterou hledáte péči, a fyzicky se nacházet ve státě USA, kde mají naši kliničtí lékaři licenci.',
   'terms.payment.body':

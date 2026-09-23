@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Faoi {{app}}',
+  'appNav.mobileLabel': 'Príomh-loingseoireacht',
+  'appNav.primaryLabel': 'Príomh-loingseoireacht',
   'billing.actions.confirmCancel':
     'Ar mhaith leat do shíntiús a chealú? Is féidir leat athliostáil am ar bith.',
   'billing.actions.paused': 'Síntiús curtha ar sos.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Is scéal beag-bhaisc gach sraith. Cuir ceann le do scuaine nó malartaigh é chuig do chéad mhí eile.',
   'boxThemeCard.perMonth': '/ mí',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'customize.eyebrow': 'Déan leatsa é',
   'customize.heading': 'Saincheap do chéad Crate eile',
   'customize.items.exclude': 'Seachain seo',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'An séasúr seo',
   'landing.editions.heading': 'Eagráin is breá lenár gcoimeádaithe',
   'landing.footer.contact': 'Labhair le coimeádaí',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Tosaigh do bhosca →',
   'landing.hero.ctaSecondary': 'Féach ar na sraitheanna',
   'landing.hero.eyebrow': 'Curtha i dtoll a chéile go míosúil. Pearsanta i gcónaí.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'DO CHÉAD THÓGÁN EILE',
   'nextBoxHeroCard.itemsLabel': 'Míreanna coimeádta',
   'nextBoxHeroCard.shipsOnLabel': 'Seoltar ar',
+  'notFound.body':
+    'Ní raibh muid in ann an leathanach sin a aimsiú i gcartlann {{app}} . B’fhéidir gur cuireadh as feidhm é nó gur clóscríobhadh go mícheart é.',
   'notFound.cta.dashboard': 'Téigh go dtí an painéal rialaithe',
   'notFound.eyebrow': 'Bosca folamh',
   'notFound.heading': 'Tá an tseilf seo lom',

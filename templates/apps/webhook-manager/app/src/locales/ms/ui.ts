@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// tentang {{app}}',
+  'about.pageTitle': 'Satah kawalan webhook',
+  'about.plansTitle': 'Rancangan untuk setiap peringkat',
   'apiKeys.bestPractices': 'Amalan terbaik',
   'apiKeys.body':
     'Token akses programatik. Anggap ia seperti kata laluan — simpan dalam env vars, jangan sekali-kali komit.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'dalam pelan',
   'billing.usageWarning': 'berhampiran penutup',
   'billing.yearly': 'Tahunan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.body':
     'Daya pemprosesan langsung, percubaan semula dalam penerbangan dan titik akhir yang baru sahaja tergendala — merentasi setiap ruang kerja yang anda kendalikan.',
   'dashboard.endpointsEmpty': 'Tiada titik akhir lagi.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'titik akhir',
   'endpointDetail.deliveryTrendSub': 'penghantaran / jam, skala log',
   'endpointDetail.hideSecret': 'Sembunyikan rahsia',
+  'endpointDetail.loading': 'Memuatkan titik akhir…',
   'endpointDetail.metric.delivered': 'Dihantar 24 jam',
   'endpointDetail.metric.deliveredCaption': 'dari {{count}} jenis acara',
   'endpointDetail.metric.failuresCaption': 'percubaan semula: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritikal · 24 jam',
   'notifications.metric.totalCaption': 'peti masuk sepanjang masa',
   'payloadViewer.payload': '// muatan',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Inisial ditunjukkan — muat naik akan datang dengan keluaran seterusnya.',
   'profile.body': 'Akaun, pilihan dan sesi aktif anda.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Hanya sesi semasa anda yang aktif. Tiada peranti lain yang dilog masuk.',
   'profile.toggle': 'Togol {{label}}',
+  'pylonShell.closeMenu': 'Tutup menu navigasi',
+  'pylonShell.openMenu': 'Buka menu navigasi',
   'pylonShell.primaryNavLabel': 'Navigasi utama',
   'resetPassword.subtitle':
     'Pilih kata laluan yang kuat yang belum pernah anda gunakan sebelum ini.',

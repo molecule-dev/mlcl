@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'analytics.channels.empty': 'ချန်နယ်ဒေတာ မရှိသေးပါ။',
   'analytics.channels.title': 'ချန်နယ်အလိုက်',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'တစ်နေ့တာ စကားပြောဆိုမှုများ',
   'chatBubble.avatarAlt': '{{speaker}} ကိုယ်ပွား',
   'common.appName': 'ဆက်ဆံရေး',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'confidenceMeter.label': 'ယုံကြည်မှု',
   'conversationDetail.agentName': 'အေးဂျင့်',
   'conversationDetail.aiReplyButton': 'ဘော့တ်ပြန်ကြားချက်',
   'conversationDetail.aiReplyError': 'AI အကြောင်းပြန်မှု မပြုလုပ်နိုင်ခဲ့ပါ',
   'conversationDetail.aiReplyLoading': 'ရေးဆွဲနေသည်…',
+  'conversationDetail.aiReplySourceFallback': 'နောက်ကျောဘက် (AI ခလုတ် မရှိပါ)',
   'conversationDetail.backAria': 'စကားဝိုင်းများသို့ ပြန်သွားရန်',
   'conversationDetail.composerPlaceholder': 'ဖောက်သည်ထံ ပြန်ကြားချက်…',
   'conversationDetail.context.channel': 'ချန်နယ်',
@@ -160,8 +163,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'သင့်အကောင့်အတွက် စကားဝှက်အသစ်တစ်ခု သတ်မှတ်ပါ',
   'resetPassword.toggleConfirm': 'စကားဝှက်မြင်နိုင်မှုကို အတည်ပြုရန် ပြောင်းရန်',
   'resetPassword.togglePassword': 'စကားဝှက် မြင်နိုင်စွမ်းကို ပြောင်းပါ',
+  'settings.account.emailError': 'အီးမေးလ်ကို အပ်ဒိတ်လုပ်၍မရပါ',
   'settings.account.emailLabel': 'အီးမေးလ်လိပ်စာ',
+  'settings.account.emailSaved': 'အီးမေးလ်ကို အပ်ဒိတ်လုပ်ထားသည်',
+  'settings.account.nameError': 'အမည်ကို အပ်ဒိတ်လုပ်၍မရပါ',
   'settings.account.nameLabel': 'ဖော်ပြမည့်အမည်',
+  'settings.account.nameSaved': 'အမည်ကို အပ်ဒိတ်လုပ်ထားသည်',
   'settings.account.title': 'အကောင့်',
   'settings.api.createCta': 'တိုကင်ဖန်တီးပါ',
   'settings.api.description':
@@ -174,10 +181,18 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'ခံစားချက်ကျဆင်းသွားသောအခါ အလိုအလျောက် မြှင့်တင်ပါ',
   'settings.bot.greetingLabel': 'ပထမဆုံး နှုတ်ခွန်းဆက်စကား',
   'settings.bot.title': 'ဘော့တ် စီစဉ်သတ်မှတ်ခြင်း',
+  'settings.bot.toneFormal': 'တရားဝင်',
   'settings.bot.toneLabel': 'အသံနှင့် လေသံ',
   'settings.danger.deleteAccount': 'အကောင့်ကို ဖျက်ပါ',
+  'settings.danger.deleteError': 'အကောင့်ကို ဖျက်၍မရပါ',
+  'settings.danger.deleteWarning':
+    '၎င်းသည် သင့်အကောင့်နှင့် ဆက်စပ်ဒေတာအားလုံးကို အပြီးအပိုင်ဖျက်ပစ်ပါမည်။ ၎င်းကို ပြန်ပြင်၍မရပါ။',
   'settings.danger.deleting': 'ဖျက်နေသည်…',
+  'settings.danger.passwordLabel': 'သင့်စကားဝှက်ကို အတည်ပြုပါ',
   'settings.danger.title': 'အန္တရာယ်ဇုန်',
+  'settings.devices.empty': 'မှတ်ပုံတင်ထားသော စက်ပစ္စည်းများ မရှိပါ။',
+  'settings.devices.revokeWarning': 'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
+  'settings.devices.signingOut': 'ထွက်နေသည်…',
   'settings.devices.signOut': 'ဆိုင်းအောက်',
   'settings.devices.thisDevice': 'ဒီကိရိယာ',
   'settings.devices.title': 'စက်ပစ္စည်းများ',
@@ -190,9 +205,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'စကားဝှက်ပြောင်း၍မရပါ',
   'settings.security.currentPassword': 'လက်ရှိစကားဝှက်',
   'settings.security.newPassword': 'စကားဝှက်အသစ်',
+  'settings.security.oauthManaged':
+    'သင့်စကားဝှက်ကို သင်၏ဝင်ရောက်မှုဝန်ဆောင်မှုပေးသူမှ စီမံခန့်ခွဲပါသည်။',
   'settings.security.title': 'လုံခြုံရေး',
   'settings.security.twoFactorDisable': 'ပိတ်ရန်',
   'settings.security.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.security.twoFactorInvalid': 'ကုဒ် မမှန်ကန်ပါ',
   'settings.subtitle':
     'Tune Rapport ရဲ့ အသံ၊ ဗဟုသုတရင်းမြစ်တွေနဲ့ ၎င်းနဲ့ စကားပြောတဲ့ tools တွေကို အသုံးပြုပါ။',
   'settings.tokenCreateError': 'တိုကင်ဖန်တီး၍မရပါ',

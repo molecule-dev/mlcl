@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// பற்றி {{app}}',
+  'about.pageTitle': 'வெப்ஹூக் கட்டுப்பாட்டு தளம்',
+  'about.plansTitle': 'ஒவ்வொரு கட்டத்திற்குமான திட்டங்கள்',
   'apiKeys.bestPractices': 'சிறந்த நடைமுறைகள்',
   'apiKeys.body':
     'நிரல்வழி அணுகல் டோக்கன்கள். இவற்றை கடவுச்சொற்களைப் போலக் கருதுங்கள் — சூழல் மாறிகளில் சேமித்து வையுங்கள், ஒருபோதும் கமிட் செய்யாதீர்கள்.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'திட்டத்திற்குள்',
   'billing.usageWarning': 'தொப்பிக்கு அருகில்',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.body':
     'நீங்கள் இயக்கும் ஒவ்வொரு பணிச்சூழலிலும், நிகழ்நேர செயல்திறன், நடந்துகொண்டிருக்கும் மறுமுயற்சிகள் மற்றும் சற்றுமுன் தடுமாறிய முனையங்கள்.',
   'dashboard.endpointsEmpty': 'இன்னும் இறுதிப்புள்ளிகள் இல்லை.',
@@ -113,6 +117,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'இறுதிப்புள்ளிகள்',
   'endpointDetail.deliveryTrendSub': 'ஒரு மணி நேரத்திற்கு வழங்கப்படும் சேவைகள், மடக்கை அளவுகோல்',
   'endpointDetail.hideSecret': 'ரகசியத்தை மறை',
+  'endpointDetail.loading': 'முனையம் ஏற்றப்படுகிறது…',
   'endpointDetail.metric.delivered': '24 மணி நேரத்தில் டெலிவரி செய்யப்படும்',
   'endpointDetail.metric.deliveredCaption': 'இருந்து {{count}} நிகழ்வு வகைகள்',
   'endpointDetail.metric.lastDeliveryCaption.none': 'முதல் நிகழ்வுக்காக காத்திருக்கிறது',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'முக்கியமானது · 24 மணிநேரம்',
   'notifications.metric.totalCaption': 'எல்லா நேர இன்பாக்ஸ்',
   'payloadViewer.payload': '// பேலோட்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'profile.avatarHeader': 'அவதார்',
   'profile.avatarHint':
     'முதலெழுத்துக்கள் காட்டப்பட்டுள்ளன — அடுத்த வெளியீட்டில் பதிவேற்றங்கள் வரும்.',
@@ -223,6 +229,8 @@ export const ui: UiTranslations = {
   'profile.confirmRevokeSession': 'இந்தச் சாதனத்திலிருந்து வெளியேறவா?',
   'profile.dangerBody':
     'உங்கள் கணக்கை நீக்குவது உங்களை அனைத்துப் பணிவெளிகளிலிருந்தும் அகற்றிவிடும். உங்கள் தணிக்கைப் பதிவு உள்ளீடுகள் தக்கவைக்கப்படும், ஆனால் அவை அடையாளம் மறைக்கப்பட்டிருக்கும்.',
+  'profile.deleteConfirmPrompt':
+    'இது நிரந்தரமானது. உறுதிப்படுத்த {{confirm}} எனத் தட்டச்சு செய்யவும்:',
   'profile.deleteConfirmText': 'நீக்கு',
   'profile.email': 'மின்னஞ்சல் (படிக்க மட்டும்)',
   'profile.eyebrow': 'நீங்கள் · தனிப்பட்ட கணக்கு',
@@ -231,6 +239,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'உங்கள் தற்போதைய அமர்வு மட்டுமே செயலில் உள்ளது. வேறு எந்த சாதனங்களும் உள்நுழையவில்லை.',
   'profile.toggle': 'நிலைமாற்று {{label}}',
+  'pylonShell.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'pylonShell.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'pylonShell.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'resetPassword.subtitle':
     'நீங்கள் இதற்கு முன் பயன்படுத்தாத, வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',

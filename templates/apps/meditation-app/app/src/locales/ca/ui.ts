@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.eyebrow': 'Sobre {{app}}',
+  'about.intro':
+    '{{app}} és una aplicació de meditació per a la vida real: meditacions guiades diàries, treballs de respiració i històries de son al ritme de professors que es senten com un amic, no com un entrenador. Sense culpabilitat per ratxa, sense sorolls: només un lloc tranquil per tornar a la teva respiració.',
+  'about.missionBody':
+    'Creiem que la quietud hauria de ser accessible a tothom, en qualsevol moment del dia. {{app}} existeix per fer que una pràctica tranquil·la i constant sembli sense esforç, de manera que deu minuts honestos puguin canviar la manera com afrontes les properes deu hores.',
+  'about.missionTitle': 'La nostra missió',
+  'about.pageTitle': '10 minuts més tranquils al dia',
+  'breathingDial.seconds': 'segons',
+  'common.goToDashboard': 'Anar al panell',
+  'common.logout': 'Tancar sessió',
   'common.min': 'min',
   'common.relative.justNow': 'ara mateix',
   'common.relative.now': 'ara',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
+  'nav.secondaryNavigation': 'Navegació del compte',
   'sessionCard.with': 'amb {{name}}',
   'stillpoint.billing.choose': 'Tria {{plan}}',
   'stillpoint.billing.currentPlan': 'Actualment en {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'No hem pogut carregar els plans.',
   'stillpoint.billing.opening': 'Obrint la caixa…',
   'stillpoint.billing.perMonthShort': '/ mes',
+  'stillpoint.billing.perYearShort': '/any',
   'stillpoint.billing.unknownResult': 'Resposta de facturació inesperada.',
   'stillpoint.billing.yearly': 'Anual · estalvia un 17%',
   'stillpoint.courseDetail.back': 'Cursos',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Encara no hi ha cursos.',
   'stillpoint.courses.eyebrow': '{{count}} viatges de diversos dies',
   'stillpoint.courses.heading': 'Cursos',
+  'stillpoint.forgot.checkEmail': "Revisa la teva safata d'entrada: l'enllaç caduca en 30 minuts.",
   'stillpoint.forgot.success': 'Hem enviat un enllaç de restabliment a {{email}} .',
   'stillpoint.home.empty': 'Encara no hi ha sessions. Torna aviat.',
   'stillpoint.home.friend': 'amic',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Crea el teu compte gratuït',
   'stillpoint.landing.cta.title': 'Comença la teva quietud avui',
   'stillpoint.landing.features.heading': 'Una pràctica que creix amb tu',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditacions guiades diàries, treballs de respiració i històries sobre el son, a ritme de professors que es senten com un amic, no com un entrenador.',
   'stillpoint.landing.hero.eyebrow': '10 minuts més tranquils al dia',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': "Navega per estat d'ànim",
   'stillpoint.login.rememberMe': 'Mantén-me connectat',
   'stillpoint.login.subheading': 'Inicia la sessió per continuar la teva pràctica.',
+  'stillpoint.nav.tagline': 'Troba el teu centre quiet',
+  'stillpoint.notFound.body':
+    'Aquesta pàgina respira profundament en algun lloc. Busquem un lloc més tranquil per a tu a {{app}} .',
   'stillpoint.notFound.title': 'Perdut en el silenci',
   'stillpoint.notFound.toHome': 'Tornant a avui',
   'stillpoint.notFound.toLibrary': 'Navega per la biblioteca',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Retrocedir 15 segons',
   'stillpoint.player.skipForward': 'Avançar 30 segons',
   'stillpoint.player.with': 'amb {{name}}',
+  'stillpoint.profile.defaultHandle': 'punter fix',
   'stillpoint.profile.eyebrow': 'La teva pràctica, resumida.',
   'stillpoint.profile.locked': 'Bloquejat',
   'stillpoint.profile.member': 'Membre de Stillpoint',

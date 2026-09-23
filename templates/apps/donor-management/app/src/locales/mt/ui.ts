@@ -56,7 +56,7 @@ export const ui: UiTranslations = {
   'donors.col.lifetime': 'Tgħotija totali',
   'donors.col.tags': 'Tikketti',
   'donors.empty': 'Ebda donatur ma jaqbel.',
-  'donors.emptyNoDonors': 'Għad m&#39;hemm l-ebda donatur irreġistrat.',
+  'donors.emptyNoDonors': "Għad m'hemm l-ebda donatur irreġistrat.",
   'donors.filterByTag': 'Iffiltra skont it-tikkett',
   'donors.firstGift': 'L-ewwel rigal',
   'donors.giftCount': '({{count}} rigali)',

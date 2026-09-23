@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '发现漏洞、有功能建议，或者想告诉我们您剪辑的影片？每条消息都会直接发送给团队中的真人——您可以随时通过帐户设置联系我们。',
+  'about.contactTitle': '联系我们',
+  'about.eyebrow': '// 幕后工作室',
   'about.pageTitle': '关于 {{appName}}',
   'assetDetail.back': '返回素材库',
   'assetDetail.confirmDelete': '确定删除“{{name}}”吗？此操作无法撤销。',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} 个片段、音轨和图形可拖放至时间线。',
   'assetLibrary.title': '素材',
   'assetLibrary.upload': '添加素材',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.browseTemplates': '浏览模板 →',
   'dashboard.loading': '正在加载项目…',
   'dashboard.noProjects': '尚无项目——创建一个开始吧。',
@@ -154,7 +159,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': '选择只有你能记住的内容。',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': '隐私',
+  'rushesLayout.closeMenu': '关闭导航',
   'rushesLayout.guest': '编辑器',
+  'rushesLayout.navDialog': '导航',
+  'rushesLayout.openMenu': '打开导航',
   'rushesLayout.planFree': '免费套餐',
   'rushesLayout.tagline': '电影级时间线',
   'settings.billing.confirmCancel': '在当前周期结束时取消订阅吗？',

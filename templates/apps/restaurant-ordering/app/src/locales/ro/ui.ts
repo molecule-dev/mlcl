@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Despre {{app}}',
   'analytics.avgCheckLabel': 'Verificare medie',
   'analytics.busiestHour': 'Cea mai aglomerată oră',
   'analytics.coversToday': 'Acoperă astăzi',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Bacșișuri (medie)',
   'analytics.topItems': 'Articole de top astăzi',
   'authShell.eyebrow': 'Bine ați revenit la serviciu',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Un punct de vânzare rapid și cald pentru echipele de ospitalitate. Conectați-vă la bucătărie și continuați de unde ați rămas.',
   'authShell.tip':
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'sau {{price}}',
   'billing.priceUnavailable': 'Acest plan nu are un preț configurat.',
   'billing.updated': 'Planul a fost actualizat.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'customerDetail.book': 'Adăugați rezervare',
   'customerDetail.col.table': 'Masă',
   'customerDetail.confirmDelete': 'Ștergeți această înregistrare a oaspetelui?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponibilitate',
   'menuItemDetail.available': 'Disponibil în seara asta',
   'menuItemDetail.backToMenu': 'Înapoi la meniu',
+  'menuItemDetail.confirmDelete': 'Ștergeți acest element de meniu?',
   'menuItemDetail.delete': 'Șterge elementul',
   'menuItemDetail.deleteError': 'Ștergerea nu a reușit. Încercați din nou.',
   'menuItemDetail.dietary': 'Etichete dietetice',
@@ -139,9 +143,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · editează fotografii, modificatori, dietă și prețuri.',
   'menuItemDetail.untitled': 'Element fără titlu',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'notFound.heading': 'Această masă nu este pe podea.',
   'notFound.subheading':
     'Pagina pe care o căutai a fost plasată în altă parte — sau nu a existat niciodată.',
+  'notFound.toLanding': 'Acasă {{app}}',
   'notifications.markError': 'Nu s-au putut marca toate ca citite.',
   'orderDashboard.activeDelta': 'Live acum',
   'orderDashboard.activeLabel': 'Comenzi active',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Afișați parola',
   'resetPassword.subtitle': 'Introduceți noua parolă pentru a recâștiga accesul la bucătărie.',
   'resetPassword.tokenLabel': 'Token de resetare',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigare principală',
   'revenueHeroCard.activeOrders': '{{count}} activ',
   'revenueHeroCard.change': '{{sign}} {{amount}} față de ieri',
   'revenueHeroCard.title': 'Veniturile de astăzi',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Numele restaurantului',
   'tableDetail.activeOrders': 'Comenzi active',
   'tableDetail.backToFloor': 'Planul etajului',
+  'tableDetail.confirmDelete': 'Ștergeți acest tabel?',
   'tableDetail.delete': 'Ștergeți',
   'tableDetail.deleteError': 'Nu s-a putut șterge tabelul.',
   'tableDetail.heading': 'Masă {{label}}',

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'auditLog.empty':
     'Ձեր ֆիլտրերին դեռևս ոչ մի աուդիտի իրադարձություն չի համապատասխանում։ Խմբագրեք աշխատակցին կամ մշակեք վճարման գործընթացը, և դրանք կհայտնվեն այստեղ։',
   'auditLog.eyebrow': 'Համապատասխանություն',
+  'auditLog.loadError': 'Հնարավոր չէ բեռնել աուդիտի գրանցամատյանը։',
   'auditLog.searchPlaceholder': 'Որոնել ըստ դերասանի, գործողության կամ նկարագրության',
   'auditLog.subheading':
     'Յուրաքանչյուր հաստատում, խմբագրում և հարկային հայտարարագրում՝ գործող անձի, ժամանակային նշման և փոփոխված դաշտերի հետ միասին։',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Կարգավորված չէ',
   'billing.plansHeading': 'Պլաններ',
   'billing.subheading': 'Կառավարեք ձեր պլանը և փոխեք մակարդակները Stripe-ի միջոցով։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Կրկին փորձել',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Համապատասխանության համառոտ նկարագրություն',
   'dashboard.compliance.title': 'Բոլոր ստուգումները հաջողությամբ անցան',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Ֆայլում պահումներ չկան։',
   'employeeDetail.notFound': 'Աշխատակիցը չի գտնվել։',
   'employeeDetail.payFrequency': 'Վճարման հաճախականությունը',
+  'employeeDetail.postTax': 'Հարկից հետո',
+  'employeeDetail.preTax': 'Հարկումից առաջ',
   'employeeDetail.salary': 'Տարեկան աշխատավարձ',
   'employeeDetail.ssn': 'Սոցիալական ապահովագրության համարանիշ',
   'employeeDetail.startedOn': 'Սկսվել է {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Վճարման հաճախականությունը',
   'employeeForm.salary': 'Տարեկան աշխատավարձ (ԱՄՆ դոլար)',
   'employeeForm.salaryInvalid': 'Աշխատավարձը պետք է լինի ոչ բացասական թիվ։',
+  'employeeForm.saveError': 'Աշխատակցին փրկել չհաջողվեց։',
   'employeeForm.semimonthly': 'Կիսամսյա',
   'employeeForm.single': 'Միայնակ',
   'employeeForm.ssn': 'Սոցիալական ապահովագրության համարանիշ',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Աշխատավարձ',
   'forgotPassword.subtitle':
     'Մուտքագրեք ձեր աշխատանքային էլ․ հասցեն, և մենք կուղարկենք վերականգնման հղում։',
+  'landing.copyright': '© {{year}} {{app}} . Ճշգրիտ, հուսալի, կազմակերպված։',
   'landing.ctaBody':
     'Անվճար 30 օր։ Վարկային քարտ չի պահանջվում։ Փոխարկեք ցանկացած պահի՝ առանց կորցնելու ձեր աուդիտի հետքը։',
   'landing.ctaHeading': 'Հաջորդ ցիկլը անցկացրեք Stipend-ում',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Այս վճարման համար դեռևս աուդիտի գրառումներ չկան։',
   'payRunDetail.noStubs':
     'Դեռևս աշխատավարձի կտրոններ չկան. հաստատեք և մշակեք դրանք ստեղծելու համար։',
+  'payRunDetail.notFound': 'Այս վճարման հոսքը չի գտնվել։',
   'payRunDetail.statDeductions': 'Զեղչեր',
   'payRunDetail.statHeadcount': 'Աշխատակիցներ',
   'payRunDetail.statTaxes': 'Պահված հարկեր',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Կիսամսյա',
   'settings.signOutDevice': 'Ելք',
   'settings.subheading': 'Ընկերության պրոֆիլ, վճարման գրաֆիկ և ինտեգրացիաներ։',
+  'settings.twoFactorCode': 'Հաստատման կոդ',
   'settings.twoFactorDisable': 'Անջատել',
+  'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.twoFactorVerify': 'Հաստատել և միացնել',
   'settings.weekly': 'Շաբաթական',
   'taxCenter.bucket.federal': 'Դաշնային եկամուտ',
   'taxCenter.bucket.fica': 'Սոցիալական ապահովագրություն',

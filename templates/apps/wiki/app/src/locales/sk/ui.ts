@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Riešenie…',
   'comments.subtitle':
     'Ten/Tá/To {{count}} Vlákna stále čakajú na odpoveď alebo vyriešenie. Zoradené podľa veku – najstaršie ako prvé, aby sa nič nepokazilo.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'forgotPassword.sentTo': 'Odkaz na obnovenie bol odoslaný na {{email}}',
   'forgotPassword.successSubheading':
     'Skontrolujte si doručenú poštu – práve sme vám poslali resetovací odkaz. Jeho platnosť vyprší o 30 minút.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nová stránka',
   'pageTreeSidebar.workspaceHeader': 'Pracovný priestor',
   'pageView.breadcrumb': 'Strúhanka',
+  'pageView.confirmTrash': 'Zlikvidovať to?',
   'pageView.home': 'Domov',
   'pageView.lastEdited': 'Aktualizované {{when}}',
   'pageView.loading': 'Načítava sa stránka…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Súhrn umelej inteligencie nie je pre tento pracovný priestor nakonfigurovaný.',
   'pageView.tocTitle': 'Na tejto stránke',
+  'pageView.trash': 'Koš',
+  'pageView.trashing': 'Vyhadzovanie…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Odznaky',
   'profile.owned.title': 'Vlastnené stránky',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
     'Pracovný priestor, profil, upozornenia, integrácie – všetko v jednom pokojnom prostredí.',
   'settingsPage.workspace.defaultLanding': 'Predvolená vstupná obrazovka',
   'settingsPage.workspace.landingHome': 'Domov',
+  'settingsPage.workspace.landingSpaces': 'Priestory',
   'settingsPage.workspace.subdomainLabel': 'Subdoména',
   'settingsPage.workspace.title': 'Pracovný priestor',
   'signup.eyebrow': 'Vytvorte nový pracovný priestor',
@@ -126,6 +131,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min.',
   'templates.subtitle':
     'Začnite stránku zo šablóny, nie z prázdneho plátna. Každá šablóna má pevne zakódovaný tvar, aby ste sa mohli sústrediť na podstatu.',
+  'trash.confirmPurge': 'Očistiť navždy?',
+  'trash.confirmPurgeAria': 'Potvrdiť: natrvalo odstrániť {{title}}',
   'trash.daysUntilPurge': '{{days}} zostávajúce dni',
   'trash.empty.body': 'Odstránené stránky sa tu zobrazia 30 dní, potom budú vymazané.',
   'trash.empty.title': 'Koš je prázdny.',
@@ -145,5 +152,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Obnovuje sa…',
   'versionHistory.subtitle': '{{count}} verzie · vyberte riadok na kontrolu rozdielov',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Zatvoriť navigáciu',
+  'wikiLayout.menu': 'Navigácia',
+  'wikiLayout.openMenu': 'Otvoriť navigáciu',
   'wikiLayout.searchPlaceholder': 'Hľadať v Cairn — stránky, komentáre…',
 }

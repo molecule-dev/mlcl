@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
+  'about.title': 'Om {{app}}',
   'comments.addFailed': 'Det var ikke muligt at skrive en kommentar.',
   'comments.backToDoc': 'Tilbage til manuskriptet',
   'comments.deleteFailed': 'Det var ikke muligt at slette.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Løsning',
   'comments.resolveFailed': 'Kunne ikke finde.',
   'comments.subtitle': '{{open}} åben · {{resolved}} løst',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.activityHeading': 'Hvad sker der?',
   'dashboard.createFailed': 'Det var ikke muligt at oprette et dokument.',
   'dashboard.empty': 'Der er endnu ingen manuskripter — start med knappen »Nyt dokument«.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Det var ikke muligt at flytte til papirkurven.',
   'editor.unpublish': 'Fjern fra offentliggørelse',
   'editor.untitled': 'Dokument uden titel',
+  'editor.updatedElsewhere':
+    'Dette dokument blev opdateret af en anden — genindlæs for at se det seneste.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Hvis der findes en konto til {{email}}, er der et link til nulstilling på vej.',
   'forgotPassword.subtitle': 'Vi sender dig et link til at nulstille adgangskoden via e-mail.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Bygget med Molecule.',
   'landing.ctaHeading': 'Åbn siden. Lad markøren komme i gang.',
   'landing.ctaPrimary': 'Åbn et studie',
   'landing.eyebrow': 'Til forfattere, redaktører og teams',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'redigeret {{when}}',
   'quillonDocumentCard.open': 'Åbn →',
   'quillonKpiCard.trend': 'Den seneste tendens',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Primær navigation',
   'quillonStudioHero.collab': 'Medarbejdere',
   'quillonStudioHero.docs': 'Dokumenter, der er blevet åbnet',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d siden',
   'time.hoursAgo': '{{hours}}t siden',
   'time.justNow': 'lige nu',
+  'trash.confirmDelete': 'Bekræft sletning',
   'trash.deleteFailed': 'Det var ikke muligt at slette.',
   'trash.deleteForever': 'Slet for altid',
   'trash.empty': 'Der er intet at gendanne.',
+  'trash.emptyAll': 'Tøm papirkurv',
   'trash.eyebrow': 'Studie',
   'trash.heading': 'Papirkurv',
   'trash.loadFailed': 'Kunne ikke indlæse papirkurven.',

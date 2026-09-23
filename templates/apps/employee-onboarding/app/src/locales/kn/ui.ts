@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'auth.forgotPassword.emailPlaceholder': 'ಹೆಸರು@ನಿಮ್ಮಕಂಪನಿ.ಕಾಮ್',
   'auth.forgotPassword.heading': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ಕಾರ್ಯ ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಿ',
   'checklistTaskCard.markIncomplete': 'ಕಾರ್ಯ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ ಎಂದು ಗುರುತಿಸಿ',
   'checklistTaskCard.openLabel': 'ಕಾರ್ಯವನ್ನು ತೆರೆಯಿರಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'ನೀವು ಎಲ್ಲವನ್ನೂ ಓದಿದ್ದೀರಿ.',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ಹಾದಿಯಲ್ಲಿದೆ',
   'dashboard.timelineHeading': '30/60/90 ಮೈಲಿಗಲ್ಲುಗಳು',
   'dashboard.viewAllTasks': 'ಎಲ್ಲಾ ಕಾರ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಿ',
+  'dashboard.weekOne': 'ವಾರ 1',
   'dashboard.yourCohort': 'ನಿಮ್ಮ ತಂಡ',
   'documents.empty.body': 'ನಿಮ್ಮ ತಂಡವು ಸೇರಿಸಿದ ದಾಖಲೆಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.',
   'documents.empty.title': 'ಇನ್ನೂ ಯಾವುದೇ ದಾಖಲೆಗಳಿಲ್ಲ',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-ದಿನಗಳ ಉಚಿತ ಪ್ರಯೋಗ',
   'landing.subhead':
     'ಎಂಬಾರ್ಕ್ ಪ್ರತಿ ಹೊಸ ತಂಡದ ಆಟಗಾರನಿಗೆ ಅವರ ಮೊದಲ 90 ದಿನಗಳಲ್ಲಿ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ - ಕಾಗದಪತ್ರಗಳ ಕೆಲಸ, ತರಬೇತಿ, ಮೈಲಿಗಲ್ಲುಗಳು ಮತ್ತು ಅರ್ಥಪೂರ್ಣ ಪರಿಚಯಗಳು, ಇವೆಲ್ಲವನ್ನೂ ಒಂದೇ ಶಾಂತ, ಆತ್ಮವಿಶ್ವಾಸದ ಸ್ಥಳದಲ್ಲಿ.',
+  'layout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'layout.search': 'ಕಾರ್ಯಗಳು, ದಾಖಲೆಗಳು, ತಂಡದ ಸದಸ್ಯರನ್ನು ಹುಡುಕಿ...',
+  'layout.searchTeammates': 'ಹೆಸರು ಅಥವಾ ಪಾತ್ರದ ಮೂಲಕ ತಂಡದ ಸದಸ್ಯರನ್ನು ಹುಡುಕಿ...',
   'layout.section.onboarding': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್',
   'layout.tagline': 'ನಿಮ್ಮ ಪ್ರಯಾಣ ಇಲ್ಲಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ',
   'notifications.empty.body': 'ಹೊಸ ಚಟುವಟಿಕೆ ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ನಿನ್ನೆ',
   'planUpdated.message': 'ನೀವು ಸಿದ್ಧರಾಗಿದ್ದೀರಿ.',
   'planUpdated.preparing': 'ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ...',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.documentsLabel': 'ದಾಖಲೆಗಳು',
   'pricing.onboardingsLabel': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್‌ಗಳು',
   'pricing.tasksLabel': 'ಕಾರ್ಯಗಳು',

@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'about.pageTitle': 'За {{app}}',
   'activity.empty': 'Сè уште нема активност — превртете уред или активирајте сцена.',
   'activity.eyebrow': 'Временска линија',
   'activity.loadError': 'Не можеше да се вчита каналот за активности.',
   'activity.subheading': 'Секој уред, автоматизација и безбедносен настан по хронолошки редослед.',
+  'addDevice.error.failed': 'Не може да се додаде уредот. Обидете се повторно.',
   'addDevice.error.nameRequired': 'Дајте му име на овој уред за да продолжите.',
   'addDevice.field.firmware': 'Верзија на фирмверот',
   'addDevice.field.manufacturer': 'Производител',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тестирање…',
   'automationEditor.testNew': 'Прво зачувајте ја автоматизацијата за да ја тестирате.',
   'automationRow.lastRun': 'Последно {{date}} · {{count}} трча',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Стартувај {{name}} сега',
   'automations.empty': 'Сè уште нема автоматизации — креирајте ја вашата прва рутина.',
   'automations.eyebrow': 'Рутини',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Се вчитуваат автоматизации…',
   'automations.newAutomation': '+ Ново',
   'automations.subheading': 'Кога ова ќе се случи, направете го тоа — без YAML.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Не успеа да се вчита уредот.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Работам…',
   'deviceDetail.unnamed': 'Уред',
   'deviceStatusRow.on': 'Вклучено',
+  'deviceStatusRow.turnOff': 'Исклучи',
+  'deviceStatusRow.turnOn': 'Вклучи',
   'deviceStatusRow.watts': '{{watts}} З',
   'energy.eyebrow': 'Моќ',
   'energy.heading': 'Енергија',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Види планови',
   'settings.security.heading': 'Безбедност',
   'settings.subheading': 'План, хабови и преференции за сметка.',
+  'smartHomeDashboardLayout.openMenu': 'Отвори мени за навигација',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Примарна навигација',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'billing.canceled': 'સબ્સ્ક્રિપ્શન રદ થયું. સમયગાળાના અંતે તમે મફતમાં પાછા ફરશો.',
   'billing.contactSales': 'વેચાણનો સંપર્ક કરો',
   'billing.free.1': '5 અનુવાદો',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'કોઈ રીટેન્શન મર્યાદા નથી',
   'billing.upgradeHint': 'અદ્યતન AI સુવિધાઓને અનલૉક કરવા માટે અપગ્રેડ કરો.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.activityEmpty': 'હજુ સુધી કોઈ પ્રવૃત્તિ નથી — આ ફીડ ભરવા માટે એક પ્રોજેક્ટ શરૂ કરો.',
   'dashboard.eyebrow': 'ઝાંખી',
   'dashboard.projectsEmpty': 'હજુ સુધી કોઈ પ્રોજેક્ટ નથી — અહીં જોવા માટે એક શરૂ કરો.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'દરેક પ્રોજેક્ટમાં ભૂતકાળના અનુવાદોનો ફરીથી ઉપયોગ કરો. વધુ મેચ સ્કોર → ઓછું ફરીથી કાર્ય.',
   'memory.title': 'મેમરી બેંક',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'nav.legal': 'કાનૂની',
   'newProject.addLanguage': 'લક્ષ્ય ઉમેરો',
   'newProject.create': 'પ્રોજેક્ટ બનાવો',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'અગાઉ',
   'notifications.markedAllRead': 'ચિહ્નિત {{count}} વાંચેલી સૂચનાઓ.',
   'notifications.subtitle': 'તમારા કાર્યસ્થળોમાંથી ઉલ્લેખો, સમીક્ષા વિનંતીઓ અને AI ઇવેન્ટ્સ.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'privacy.collection.account': 'તમારા એકાઉન્ટનું ઇમેઇલ અને ડિસ્પ્લે નામ',
   'privacy.deletion.body':
     'તમે સંબંધિત પૃષ્ઠમાંથી કોઈપણ સમયે પ્રોજેક્ટ, સેગમેન્ટ, ગ્લોસરી શબ્દ અથવા મેમરી એન્ટ્રી કાઢી શકો છો. સેટિંગ્સમાંથી તમારા એકાઉન્ટને કાઢી નાખવાથી અમારા ડેટાબેઝમાંથી દરેક વર્કસ્પેસ-સ્કોપવાળી પંક્તિ દૂર થાય છે.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'પ્રોજેક્ટ લોડ કરવામાં નિષ્ફળ થયાં.',
   'projects.loading': 'પ્રોજેક્ટ્સ લોડ કરી રહ્યાં છીએ…',
   'projects.subtitle': 'બધા સ્થળોએ દરેક સક્રિય પ્રોજેક્ટ.',
+  'renditionLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'reset.backToLogin': '\\u2190 સાઇન ઇન પર પાછા જાઓ',
   'reset.passwordLabel': 'નવો પાસવર્ડ',
   'review.activeEyebrow': 'સેગમેન્ટ {{number}}',

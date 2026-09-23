@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'ກຳລັງແກ້ໄຂ…',
   'comments.subtitle':
     'ເທ {{count}} ກະທູ້ຍັງລໍຖ້າຄຳຕອບ ຫຼື ການແກ້ໄຂ. ຈັດຮຽງຕາມອາຍຸ - ເກົ່າທີ່ສຸດກ່ອນ, ສະນັ້ນບໍ່ມີຫຍັງເນົ່າເປື່ອຍ.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'forgotPassword.sentTo': 'ຣີເຊັດລິ້ງຖືກສົ່ງໄປທີ່ {{email}}',
   'forgotPassword.successSubheading':
     'ກະລຸນາກວດສອບກ່ອງຈົດໝາຍຂອງທ່ານ — ພວກເຮົາຫາກໍ່ສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່. ມັນຈະໝົດອາຍຸໃນ 30 ນາທີ.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'ໜ້າໃໝ່',
   'pageTreeSidebar.workspaceHeader': 'ພື້ນທີ່ເຮັດວຽກ',
   'pageView.breadcrumb': 'ເຂົ້າຈີ່ປັ້ນ',
+  'pageView.confirmTrash': 'ຖິ້ມມັນໄປຖິ້ມບໍ?',
   'pageView.home': 'ບ້ານ',
   'pageView.lastEdited': 'ອັບເດດແລ້ວ {{when}}',
   'pageView.loading': 'ກຳລັງໂຫຼດໜ້າ…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'ກຳລັງສະຫຼຸບ...',
   'pageView.summaryUnavailable': 'ສະຫຼຸບ AI ບໍ່ໄດ້ຖືກຕັ້ງຄ່າສຳລັບພື້ນທີ່ເຮັດວຽກນີ້.',
   'pageView.tocTitle': 'ໃນໜ້ານີ້',
+  'pageView.trash': 'ຂີ້ເຫຍື້ອ',
+  'pageView.trashing': 'ການຖິ້ມຂີ້ເຫຍື້ອ…',
   'pageView.versionBadge': 'ວີ{{version}}',
   'profile.badges.title': 'ປ້າຍ',
   'profile.owned.title': 'ໜ້າທີ່ເປັນເຈົ້າຂອງ',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'ພື້ນທີ່ເຮັດວຽກ, ໂປຣໄຟລ໌, ການແຈ້ງເຕືອນ, ການເຊື່ອມໂຍງ — ທັງໝົດຢູ່ໃນ calm shell ດຽວ.',
   'settingsPage.workspace.defaultLanding': 'ໜ້າຈໍເລີ່ມຕົ້ນ',
   'settingsPage.workspace.landingHome': 'ບ້ານ',
+  'settingsPage.workspace.landingSpaces': 'ພື້ນທີ່',
   'settingsPage.workspace.subdomainLabel': 'ໂດເມນຍ່ອຍ',
   'settingsPage.workspace.title': 'ພື້ນທີ່ເຮັດວຽກ',
   'signup.eyebrow': 'ເລີ່ມພື້ນທີ່ເຮັດວຽກໃໝ່',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} ນາທີ',
   'templates.subtitle':
     'ເລີ່ມໜ້າຈາກແມ່ແບບ, ບໍ່ແມ່ນຜ້າໃບເປົ່າ. ແມ່ແບບແຕ່ລະອັນຈະລະຫັດຮູບຮ່າງຢ່າງເຂັ້ມງວດເພື່ອໃຫ້ທ່ານສາມາດສຸມໃສ່ເນື້ອໃນໄດ້.',
+  'trash.confirmPurge': 'ລ້າງອອກຕະຫຼອດໄປບໍ?',
+  'trash.confirmPurgeAria': 'ຢືນຢັນ: ລຶບ {{title}} ອອກຢ່າງຖາວອນ',
   'trash.daysUntilPurge': '{{days}} ມື້ທີ່ເຫຼືອ',
   'trash.empty.body': 'ໜ້າເວັບທີ່ຖືກລຶບຈະປາກົດຢູ່ບ່ອນນີ້ເປັນເວລາ 30 ມື້ກ່ອນທີ່ຈະຖືກລຶບອອກ.',
   'trash.empty.title': 'ຖັງຂີ້ເຫຍື້ອຫວ່າງເປົ່າ.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'ກຳລັງກູ້ຄືນ…',
   'versionHistory.subtitle': '{{count}} ລຸ້ນ · ເລືອກແຖວເພື່ອກວດສອບຄວາມແຕກຕ່າງ',
   'versionHistory.versionLabel': 'ວີ{{v}}',
+  'wikiLayout.closeMenu': 'ປິດການນຳທາງ',
+  'wikiLayout.menu': 'ການນຳທາງ',
+  'wikiLayout.openMenu': 'ເປີດການນຳທາງ',
   'wikiLayout.searchPlaceholder': 'ຄົ້ນຫາ Cairn — ໜ້າ, ຄຳເຫັນ…',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Game da {{app}}',
+  'appNav.mobileLabel': 'Babban kewayawa',
+  'appNav.primaryLabel': 'Babban kewayawa',
   'billing.actions.confirmCancel':
     'Soke biyan kuɗinka? Za ka iya sake yin rijista a kowane lokaci.',
   'billing.actions.paused': 'An dakatar da biyan kuɗi.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Kowane mataki ƙaramin labari ne na rukuni. Ƙara ɗaya a cikin jerin sunayenka ko kuma a mayar da shi zuwa watanka na gaba.',
   'boxThemeCard.perMonth': '/ wata',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'customize.eyebrow': 'Ka sanya shi naka',
   'customize.heading': 'Keɓance Crate na gaba',
   'customize.items.exclude': 'Tsallake wannan',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Wannan kakar',
   'landing.editions.heading': 'Buga-buga masu kula da mu suna da ƙauna',
   'landing.footer.contact': 'Yi magana da mai kula da kayan aiki',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Fara akwatinka →',
   'landing.hero.ctaSecondary': 'Duba matakai',
   'landing.hero.eyebrow': 'Ana tsara shi kowane wata. Kullum na sirri ne.',
@@ -115,6 +120,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'CRATE NA GABA',
   'nextBoxHeroCard.itemsLabel': 'Abubuwan da aka tsara',
   'nextBoxHeroCard.shipsOnLabel': 'Ana jigilar kaya a kan',
+  'notFound.body':
+    'Ba mu sami wannan shafin a cikin tarihin {{app}} ba. Wataƙila an yi watsi da shi ko kuma kawai an yi kuskuren buga shi.',
   'notFound.cta.dashboard': 'Je zuwa dashboard',
   'notFound.eyebrow': 'Akwati babu komai',
   'notFound.heading': 'Wannan shiryayye babu komai a ciki',

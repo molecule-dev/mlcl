@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Przejdź do panelu',
   'forgot.eyebrow': 'Zgubił/a Pan/Pani drogę powrotną?',
   'forgot.formSubtitle': 'Proszę podać e-mail z konta.',
   'forgot.headline': 'Niech Pan/Pani zresetuje hasło.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Utwórz konto',
   'login.subline':
     'Twoje notatniki, linki i strony z zadaniami dziennymi są dokładnie tam, gdzie je zostawiłeś.',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'noteEditor.backToNotes': 'Powrót do notatek',
   'noteEditor.bodyPlaceholder':
     'Zacznij pisać — Twoja notatka zapisuje się automatycznie w trakcie pisania.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Nowy notatnik',
   'notes.newNotebookPrompt': 'Nowa nazwa notatnika',
   'notes.notebooksHeading': 'Notatniki',
+  'notes.subtitle':
+    'Wybierz notatnik po lewej stronie, a następnie naciśnij przycisk Nowa notatka, aby rozpocząć nowy wpis.',
   'planUpdated.confirmation': 'Pana/Pani plan został zaktualizowany',
   'pricing.heading': 'Wybierz swój plan robienia notatek',
   'reset.eyebrow': 'Już prawie z powrotem',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Zaktualizowano',
   'versoLayout.nav.graph': 'Wykres',
   'versoLayout.nav.home': 'Dom',
+  'versoLayout.primaryNavLabel': 'Nawigacja główna',
   'versoNoteCard.pinned': 'Przypięte',
   'versoTodayHero.continueCta': 'Kontynuuj pisanie',
   'versoTodayHero.createCta': 'Rozpocznij dzisiejszą notatkę',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
+  'about.title': 'Om {{app}}',
   'comments.addFailed': 'Det gikk ikke å legge inn kommentar.',
   'comments.backToDoc': 'Tilbake til manuskriptet',
   'comments.deleteFailed': 'Kunne ikke slette.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Løsning',
   'comments.resolveFailed': 'Kunne ikke finne.',
   'comments.subtitle': '{{open}} åpen · «{{resolved}}» løst',
+  'common.goToDashboard': 'Gå til oversikt',
   'dashboard.activityHeading': 'Hva skjer?',
   'dashboard.createFailed': 'Det var ikke mulig å opprette et dokument.',
   'dashboard.empty': 'Ingen manuskripter ennå – start med knappen «Nytt dokument».',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Kunne ikke flyttes til papirkurven.',
   'editor.unpublish': 'Fjern publisering',
   'editor.untitled': 'Dokument uten tittel',
+  'editor.updatedElsewhere':
+    'Dette dokumentet ble oppdatert av noen andre – last inn på nytt for å se det nyeste.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Hvis det finnes en konto for {{email}}, er en tilbakestillingslenke på vei.',
   'forgotPassword.subtitle': 'Vi sender deg en e-post med en lenke for å tilbakestille passordet.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Laget med Molecule.',
   'landing.ctaHeading': 'Åpne siden. La markøren komme i gang.',
   'landing.ctaPrimary': 'Åpne et studio',
   'landing.eyebrow': 'For forfattere, redaktører og team',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'redigert {{when}}',
   'quillonDocumentCard.open': 'Åpne →',
   'quillonKpiCard.trend': 'Den siste trenden',
+  'quillonLayout.menu': 'Meny',
   'quillonLayout.primaryNavLabel': 'Primær navigasjon',
   'quillonStudioHero.collab': 'Medarbeidere',
   'quillonStudioHero.docs': 'Dokumenter som er åpnet',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d siden',
   'time.hoursAgo': '{{hours}}t siden',
   'time.justNow': 'akkurat nå',
+  'trash.confirmDelete': 'Bekreft sletting',
   'trash.deleteFailed': 'Kunne ikke slette.',
   'trash.deleteForever': 'Slett for alltid',
   'trash.empty': 'Ingenting å gjenopprette.',
+  'trash.emptyAll': 'Tøm papirkurv',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Papirkurv',
   'trash.loadFailed': 'Kunne ikke laste inn papirkurven.',

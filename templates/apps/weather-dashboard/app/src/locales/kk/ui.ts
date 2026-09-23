@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Сіз қазіргі уақытта мына жердесіз: {{plan}} жоспар.',
   'billing.switch': 'Ауыстыру',
   'billing.upgraded': 'Жаңартылды {{plan}} — шектеулер дереу қолданылады.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'compare.activityHeading': 'Әрекет туралы шешімдер',
   'compare.empty.title': 'Салыстыру үшін кемінде екі орын қосыңыз',
   'compare.eyebrow': 'Қатар-қатар',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Жоғары',
   'trends.summary.low.label': 'Төмен',
   'trends.summary.points.label': 'Күндер',
+  'weatherDashboardLayout.primaryNavLabel': 'Негізгі навигация',
   'weatherHeroCard.updated': 'Жаңартылды {{time}}',
 }

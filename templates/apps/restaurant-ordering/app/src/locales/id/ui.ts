@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tentang {{app}}',
   'analytics.avgCheckLabel': 'Rata-rata bon',
   'analytics.busiestHour': 'Jam tersibuk',
   'analytics.coversToday': 'Tamu hari ini',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Tip (rata-rata)',
   'analytics.topItems': 'Item terlaris hari ini',
   'authShell.eyebrow': 'Selamat datang kembali ke layanan',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Titik penjualan yang hangat dan cepat untuk tim perhotelan. Masuk ke dapur Anda dan lanjutkan dari tempat Anda berhenti.',
   'authShell.tip': 'Tip ahli: pintasan keyboard berfungsi di mana saja — tekan / untuk mencari.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'atau {{price}}',
   'billing.priceUnavailable': 'Paket ini tidak memiliki harga yang dikonfigurasi.',
   'billing.updated': 'Paket diperbarui.',
+  'common.goToDashboard': 'Ke Dashboard',
   'customerDetail.book': 'Tambah reservasi',
   'customerDetail.col.table': 'Meja',
   'customerDetail.confirmDelete': 'Hapus catatan tamu ini?',
@@ -124,6 +127,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Ketersediaan',
   'menuItemDetail.available': 'Tersedia malam ini',
   'menuItemDetail.backToMenu': 'Kembali ke menu',
+  'menuItemDetail.confirmDelete': 'Hapus item menu ini?',
   'menuItemDetail.delete': 'Hapus item',
   'menuItemDetail.deleteError': 'Penghapusan gagal. Coba lagi.',
   'menuItemDetail.dietary': 'Tag diet',
@@ -134,9 +138,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Penyimpanan gagal. Coba lagi.',
   'menuItemDetail.subheading': '{{category}} · edit foto, modifier, diet, dan harga.',
   'menuItemDetail.untitled': 'Item tanpa judul',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notFound.heading': 'Meja ini tidak ada di lantai.',
   'notFound.subheading':
     'Halaman yang Anda cari telah dipindahkan ke tempat lain — atau tidak pernah ada.',
+  'notFound.toLanding': 'Beranda {{app}}',
   'notifications.markError': 'Tidak dapat menandai semua dibaca.',
   'orderDashboard.activeDelta': 'Langsung sekarang',
   'orderDashboard.activeLabel': 'Pesanan aktif',
@@ -200,6 +207,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Tampilkan kata sandi',
   'resetPassword.subtitle': 'Masukkan kata sandi baru Anda untuk mendapatkan akses ke dapur.',
   'resetPassword.tokenLabel': 'Token Reset',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigasi utama',
   'revenueHeroCard.activeOrders': '{{count}} aktif',
   'revenueHeroCard.change': '{{sign}}{{amount}} vs kemarin',
   'revenueHeroCard.title': 'Pendapatan hari ini',
@@ -218,6 +226,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nama restoran',
   'tableDetail.activeOrders': 'Pesanan aktif',
   'tableDetail.backToFloor': 'Denah lantai',
+  'tableDetail.confirmDelete': 'Hapus tabel ini?',
   'tableDetail.delete': 'Hapus',
   'tableDetail.deleteError': 'Tidak dapat menghapus meja.',
   'tableDetail.heading': 'Meja {{label}}',

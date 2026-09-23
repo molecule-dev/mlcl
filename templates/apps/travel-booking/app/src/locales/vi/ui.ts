@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.featureDiscover.title': 'Nguồn cảm hứng được chọn lọc kỹ lưỡng.',
   'account.addPaymentCta': 'Thêm phương thức thanh toán',
   'account.addPaymentError': 'Không thể thêm phương thức thanh toán.',
+  'account.confirmRemove': 'Xác nhận xóa',
   'account.defaultBadge': 'Mặc định',
   'account.loyalty.pointsTowardNext': '{{points}} trong {{next}} dặm để đạt {{nextTier}}',
   'account.loyalty.tier': 'Cấp hiện tại',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Chi tiết chuyến đi',
   'booking.tripSummary': '{{nights}} đêm · {{guests}} khách',
   'common.daysAgo': '{{count}} ngày trước',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.hoursAgo': '{{count}} giờ trước',
   'common.minutesAgo': '{{count}} phút trước',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Pháp lý',
   'notifications.loading': 'Đang tải…',
   'notifications.subheading': '{{count}} chưa đọc · mọi thứ trong một hộp thư yên tĩnh',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.accommodationsLabel': 'chỗ ở',
   'pricing.bookingsLabel': 'lần đặt',
   'pricing.destinationsLabel': 'điểm đến đã lưu',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Cảm hứng, chỗ ở đáng tin cậy và con đường mượt mà từ mơ mộng đến đã đặt phòng — trên 14 quốc gia và hơn 200 bất động sản được tuyển chọn thủ công.',
   'sojournHeroSearchCard.trustProtected': 'Hủy miễn phí, được bảo vệ hoàn toàn',
   'sojournHeroSearchCard.trustVetted': 'Chỉ bất động sản được tuyển chọn thủ công',
+  'travelBookingLayout.primaryNavLabel': 'Điều hướng chính',
   'tripDetail.backLink': 'Quay lại chuyến đi',
   'tripDetail.cancelCta': 'Hủy đặt phòng',
   'tripDetail.cancelHeading': 'Hủy chuyến đi này?',

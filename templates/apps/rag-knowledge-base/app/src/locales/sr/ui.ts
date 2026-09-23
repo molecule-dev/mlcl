@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.pageTitle': 'О нама {{appName}}',
   'analytics.error': 'Није могуће учитати аналитику.',
   'analytics.heading': 'Аналитика претраживања',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Није конфигурисан ниједан ценовни ниво.',
   'billing.plans.heading': 'Планови',
   'billing.subheading': 'План, коришћење и плаћање којим управља Stripe.',
+  'common.confirm': 'Потврди',
+  'common.goToDashboard': 'Иди на контролну таблу',
+  'common.retry': 'Покушај поново',
   'documentCard.open': 'Отвори \\u2192',
   'documentDetail.back': 'Назад на документе',
   'documentDetail.chunks.empty':
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Наслов документа',
   'documents.emptyAll':
     'Још нема докумената. Отпремите један да бисте почели да постављате питања.',
+  'documents.error.load': 'Није могуће учитати документе.',
   'documents.heading': 'Индексирани документи',
   'documents.loading': 'Учитавање докумената…',
   'documents.metric.chunks': 'Укупан број делова',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Уклањање\\u2026',
   'members.subheading': 'Позовите саиграче и поставите улоге.',
   'members.tableHeading': 'Списак играча',
+  'mobileNav.closeMenu': 'Затвори мени за навигацију',
+  'mobileNav.openMenu': 'Отвори мени за навигацију',
   'notFound.askCta': 'Питајте базу знања',
+  'notFound.body':
+    '{{app}} није могао/могла да пронађе ту страницу. Линк је можда неисправан или је страница можда повучена током поновног индексирања.',
   'notFound.eyebrow': 'Није могуће преузети',
   'notFound.title': 'Нема таквог дела у индексу',
   'notifications.dismiss': 'Одбаци',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Кликните на \\u201cДодај извор\\u201d да бисте повезали свој први конектор.',
   'sources.empty.title': 'Још нема извора.',
+  'sources.error.add': 'Додавање извора није успело.',
   'sources.error.labelRequired': 'Ознака је обавезна.',
   'sources.error.load': 'Није могуће учитати изворе.',
   'sources.error.urlRequired': 'За ову врсту извора потребан је URL.',

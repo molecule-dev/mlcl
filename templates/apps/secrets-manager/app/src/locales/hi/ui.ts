@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'about.tagline': 'सीक्रेट्स खुले में मरते हैं।',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'टोकन बनाएँ',
   'apiTokens.kicker': 'API टोकन',
   'apiTokens.loading': 'टोकन लोड हो रहे हैं…',
+  'apiTokens.new': 'नया टोकन',
   'apiTokens.revoke': 'टोकन रद्द करें',
   'apiTokens.subheading':
     'Arcanum CLI और SDK के लिए व्यक्तिगत और सेवा टोकन। प्लेनटेक्स्ट केवल निर्माण के समय एक बार दिखाया जाता है।',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'शून्य-ज्ञान एन्क्रिप्शन',
   'common.connecting': 'कनेक्ट हो रहा है…',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.inviting': 'आमंत्रण भेजा जा रहा है…',
   'forgotPassword.checkInbox':
     'यदि {email} पंजीकृत है, तो एक मिनट के भीतर एक हस्ताक्षरित रीसेट लिंक पहुँचेगा।',
@@ -74,6 +77,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': 'इनबॉक्स',
   'notifications.subheading': 'हर वॉल्ट के लिए रोटेशन स्थिति, विसंगति अलर्ट और अनुमोदन अनुरोध।',
   'notifications.unreadEmpty': 'इनबॉक्स ज़ीरो — सब पकड़ लिया।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.heading': 'रहस्य',
   'pricing.limits.accessPolicies': 'एक्सेस नीतियाँ',
   'pricing.limits.auditLog': 'ऑडिट-लॉग प्रविष्टियाँ',
@@ -82,9 +86,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'व्यक्तिगत खाता',
   'profile.plan.description': 'अपनी सदस्यता प्रबंधित करें, सीमाएँ देखें और अपग्रेड करें।',
   'profile.subheading': 'पहचान, दूसरे-कारक उपकरण और सक्रिय सत्र।',
+  'profile.twoFactor.code': 'प्रमाणीकरण कोड',
   'profile.twoFactor.disable': 'अक्षम करें',
   'profile.twoFactor.enable': 'सक्षम करें',
+  'profile.twoFactor.invalidCode': 'अवैध कोड',
   'profile.twoFactor.kicker': 'दो-कारक प्रमाणीकरण',
+  'profile.twoFactor.off': 'सक्षम नहीं है',
   'profile.twoFactor.on': 'सक्षम',
   'resetPassword.email': 'खाता ईमेल',
   'resetPassword.heading': 'नई क्रेडेंशियल सेट करें',
@@ -128,6 +135,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'कमांड',
   'secretsManagerLayout.encrypted': 'AES-256 · ENCRYPTED',
   'secretsManagerLayout.newVault': 'नया वॉल्ट',
+  'secretsManagerLayout.newVaultShort': 'नया',
   'secretsManagerLayout.rotations': 'रोटेशन',
   'secretsManagerLayout.search': 'खोज',
   'secretsManagerLayout.searchPlaceholder': 'कुंजी, पथ, या टैग द्वारा सीक्रेट्स खोजें…',
@@ -163,6 +171,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'सीक्रेट्स',
   'vaultCard.vaultLabel': 'वॉल्ट',
   'vaultDetail.addSecret': 'सीक्रेट जोड़ें',
+  'vaultDetail.back': 'सभी तिजोरियाँ',
   'vaultDetail.col.key': 'कुंजी',
   'vaultDetail.col.rotated': 'रोटेट किया गया',
   'vaultDetail.col.value': 'मान',

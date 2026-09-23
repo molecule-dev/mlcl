@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'about.tagline': '시크릿은 공개된 곳에서 사라집니다.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': '토큰 만들기',
   'apiTokens.kicker': 'API 토큰',
   'apiTokens.loading': '토큰을 불러오는 중…',
+  'apiTokens.new': '새 토큰',
   'apiTokens.revoke': '토큰 취소',
   'apiTokens.subheading':
     'Arcanum CLI 및 SDK용 개인 및 서비스 토큰. 평문은 생성 시 한 번만 표시됩니다.',
@@ -29,6 +31,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + 패스키',
   'authShell.zeroKnowledge': '제로 지식 암호화',
   'common.connecting': '연결하는 중…',
+  'common.goToDashboard': '대시보드로 이동',
   'common.inviting': '초대하는 중…',
   'forgotPassword.checkInbox':
     '{email} 이(가) 등록되어 있다면 서명된 재설정 링크가 1분 이내에 도착합니다.',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': '받은편지함',
   'notifications.subheading': '모든 볼트의 회전 상태, 이상 알림 및 승인 요청.',
   'notifications.unreadEmpty': '받은 편지함이 비었습니다 — 모두 처리되었습니다.',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.heading': '기미',
   'pricing.limits.accessPolicies': '접근 정책',
   'pricing.limits.auditLog': '감사 로그 항목',
@@ -81,9 +85,12 @@ export const ui: UiTranslations = {
   'profile.kicker': '개인 계정',
   'profile.plan.description': '구독을 관리하고, 한도를 확인하고, 업그레이드하세요.',
   'profile.subheading': '신원, 2단계 인증 기기 및 활성 세션.',
+  'profile.twoFactor.code': '인증 코드',
   'profile.twoFactor.disable': '비활성화',
   'profile.twoFactor.enable': '활성화',
+  'profile.twoFactor.invalidCode': '잘못된 코드',
   'profile.twoFactor.kicker': '2단계 인증',
+  'profile.twoFactor.off': '비활성화됨',
   'profile.twoFactor.on': '사용 중',
   'resetPassword.email': '계정 이메일',
   'resetPassword.heading': '새 자격 증명 설정',
@@ -127,6 +134,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': '명령',
   'secretsManagerLayout.encrypted': 'AES-256 · 암호화됨',
   'secretsManagerLayout.newVault': '새 볼트',
+  'secretsManagerLayout.newVaultShort': '신규',
   'secretsManagerLayout.rotations': '회전',
   'secretsManagerLayout.search': '검색',
   'secretsManagerLayout.searchPlaceholder': '키, 경로 또는 태그로 시크릿 검색…',
@@ -161,6 +169,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': '시크릿',
   'vaultCard.vaultLabel': '볼트',
   'vaultDetail.addSecret': '시크릿 추가',
+  'vaultDetail.back': '모든 금고',
   'vaultDetail.col.key': '키',
   'vaultDetail.col.rotated': '회전됨',
   'vaultDetail.col.value': '값',

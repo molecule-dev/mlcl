@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'auth.fields.newPassword': 'નવો પાસવર્ડ',
   'collectionDetail.addImage': 'સંગ્રહ માટે જાદુ કરો',
   'collectionDetail.backCta': 'સંગ્રહો પર પાછા જાઓ',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'મૂડ-બોર્ડ્સ, સંક્ષિપ્ત વાર્તાઓ અને ચાલુ શ્રેણી',
   'collections.title': 'સંગ્રહો',
   'collections.untitled': 'શીર્ષક વિનાનું · {{stamp}}',
+  'common.closeMenu': 'મેનૂ બંધ કરો',
+  'common.dismiss': 'કાઢી નાખો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'credits.eyebrow': '{{plan}} યોજના',
   'credits.renewsCopy': 'યોજના રિન્યૂ થાય છે {{date}}',
   'credits.trail': 'રેવરી · {{plan}} સ્તર',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'જનરેશન પ્રવૃત્તિ, શેરિંગ અને ક્રેડિટ ચેતવણીઓ અહીં દેખાશે.',
   'notifications.empty.title': 'જાણ કરવા માટે કંઈ નથી',
   'notifications.subtitle': 'દિવસ પ્રમાણે જૂથબદ્ધ પેઢીની ઘટનાઓ',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.limits.gallery': '{{count}} ગેલેરી',
   'privacy.collect.body':
     'જ્યારે તમે સાઇન અપ કરો છો ત્યારે અમે તમારું નામ, ઇમેઇલ સરનામું અને હેશ કરેલ પાસવર્ડ એકત્રિત કરીએ છીએ. જેમ જેમ તમે રેવરીનો ઉપયોગ કરો છો તેમ અમે તમારા દ્વારા સબમિટ કરાયેલા પ્રોમ્પ્ટ, અમે તમારા માટે જનરેટ કરેલી છબીઓ, તમે સાચવેલી શૈલીઓ અને સંગ્રહો અને વપરાયેલ મોડેલ, જનરેશન ટાઇમસ્ટેમ્પ અને ક્રેડિટ બેલેન્સ જેવા મેટાડેટા સંગ્રહિત કરીએ છીએ.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'નવો પાસવર્ડ સાચવો',
   'reset.submitting': 'પાસવર્ડ અપડેટ કરી રહ્યું છે…',
   'settings.account.handle': 'હેન્ડલ',
+  'settings.account.lastSaved': 'સક્રિય પ્રોફાઇલ · {{name}}',
   'settings.account.saved': 'પ્રોફાઇલ સાચવી',
   'settings.account.saveFailed': 'પ્રોફાઇલ સાચવી શકાઈ નથી',
   'settings.account.title': 'સર્જક પ્રોફાઇલ',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'નવી છબી',
   'sidebar.secondary': 'ગૌણ નેવિગેશન',
   'signup.failed': 'સાઇન અપ નિષ્ફળ ગયું. ફરી પ્રયાસ કરો.',
+  'signup.firstNamePlaceholder': 'એરિયા',
   'signup.heading': 'તમારી મનોકામના શરૂ કરો',
+  'signup.lastNamePlaceholder': 'લિન',
   'signup.subheading': 'એક એકાઉન્ટ બનાવો અને 120 મફત ક્રેડિટનો દાવો કરો.',
   'styles.empty': 'હજુ સુધી કોઈ સ્ટાઇલ પ્રીસેટ્સ નથી — તે પ્રથમ સાઇન-ઇન પછી દેખાશે.',
   'styles.eyebrow': 'ક્યુરેટ કરેલ',

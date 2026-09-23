@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.featureDiscover.title': 'Inspirazioa, eskuz hautatua',
   'account.addPaymentCta': 'Gehitu ordainketa-metodoa',
   'account.addPaymentError': 'Ezin izan da ordainketa-metodoa gehitu.',
+  'account.confirmRemove': 'Berretsi kentzea',
   'account.defaultBadge': 'Lehenetsia',
   'account.loyalty.pointsTowardNext': '{{puntuak}} -ren {{hurrengoa}} miliara {{hurrengo maila}}',
   'account.loyalty.tier': 'Uneko maila',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Bidaiaren xehetasunak',
   'booking.tripSummary': '{{nights}} gauak · {{guests}} gonbidatuak',
   'common.daysAgo': '{{count}} duela egun batzuk',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.hoursAgo': '{{count}} duela ordu batzuk',
   'common.minutesAgo': '{{count}} duela m',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Legezko',
   'notifications.loading': 'Kargatzen…',
   'notifications.subheading': '{{count}} irakurri gabe · dena sarrera-ontzi lasai batean',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.accommodationsLabel': 'ostatuak',
   'pricing.bookingsLabel': 'erreserbak',
   'pricing.destinationsLabel': 'gordetako helmugak',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Inspirazioa, egonaldi fidagarriak eta amets-egunera arteko bide erraz bat — 14 herrialdetan eta 200 baino gehiagotan egiaztatutako ostatuetan.',
   'sojournHeroSearchCard.trustProtected': 'Doako ezeztapena, guztiz babestuta',
   'sojournHeroSearchCard.trustVetted': 'Eskuz egiaztatutako propietateak soilik',
+  'travelBookingLayout.primaryNavLabel': 'Nabigazio nagusia',
   'tripDetail.backLink': 'Bidaietara itzuli',
   'tripDetail.cancelCta': 'Erreserba bertan behera utzi',
   'tripDetail.cancelHeading': 'Bidaia hau bertan behera utzi nahi duzu?',

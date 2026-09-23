@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Faoi {{app}}',
   'analytics.back': 'Forbhreathnú ar an suirbhé',
   'analytics.kpiNps': 'Scór NPS',
   'analytics.kpiNpsTrend': 'Promóiseoirí {{p}} % · Cáinteoirí {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Airíonna',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Teideal an tsuirbhé',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'forgotPassword.failed':
     'Níorbh fhéidir ríomhphost athshocraithe a sheoladh. Déan iarracht arís.',
   'forgotPassword.subheading':
     'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc téarnaimh chugat.',
   'forgotPassword.successBody':
     'Má tá cuntas ag teacht le chéile {{email}} , tá nasc athshocraithe ar an mbealach. Seiceáil do bhosca isteach agus do fhillteáin turscair.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Fáilte roimh gach guth.',
   'landing.footer.startTrial': 'Tosaigh an triail',
   'landing.hero.badge': 'Suirbhéanna, NPS & aiseolas in aon áit amháin',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Praghsáil',
   'landing.pricing.perMonth': '/mí',
   'landing.pricing.popular': 'Is mó tóir',
+  'landing.pricing.subtitle':
+    'Áirítear le gach plean an tógálaí suirbhé, naisc chomhroinnte poiblí, agus anailísíocht NPS. Níl cárta creidmheasa ag teastáil le tosú.',
+  'landing.pricing.title': 'Tosaigh saor in aisce, scálú nuair a bheidh sé éasca duit.',
   'landing.sample.eyebrow': 'NPS go hachomair',
   'landing.sample.title': 'Cáinteoirí, éighníomhacha, tionscnóirí — inléite láithreach.',
   'login.failed': 'Theip ar an logáil isteach. Déan iarracht arís.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Taispeáin an focal faire',
   'login.signUpLink': 'Tosaigh triail saor in aisce',
   'login.subheading': 'Sínigh isteach le leanúint ar aghaidh ag éisteacht le do lucht féachana.',
+  'notFound.body':
+    'Níl an leathanach atá á lorg agat ar fáil ar {{app}} . Lig dúinn tú a thabhairt ar ais chuig do shuirbhéanna.',
   'notFound.cta': 'Ar ais chuig na suirbhéanna',
   'notFound.eyebrow': '404',
   'notFound.heading': 'D’imigh an suirbhé seo den scuaine.',
@@ -75,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Éighníomhach 7–8',
   'npsDistributionBar.promoter': 'Promóiseoir 9–10',
   'profile.identity.description': "Poiblí do d'fhoireann agus ar na suirbhéanna a scríobhann tú.",
+  'profile.identity.emailRequired': 'Cuir isteach seoladh ríomhphoist.',
   'profile.identity.saveCta': 'Sábháil ainm',
   'profile.password.current': 'Focal faire reatha',
   'profile.password.fillFields':
@@ -183,6 +192,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ceisteanna',
   'templates.subheading':
     'Roghnaigh tosaitheoir atá tástáilte i gcath — tagann gach teimpléad réamhshocraithe le réamhshocruithe réasúnta, loighic shamplach, agus leagan amach soghluaiste glan.',
+  'thankYou.body':
+    'Tá do fhreagra taifeadta. Cuirfidh {{app}} san áireamh é sa chéad athnuachan anailísíochta eile.',
   'thankYou.eyebrow': 'Freagra faighte',
   'thankYou.heading': 'Go raibh maith agat - tá do ghlór tábhachtach.',
   'thankYou.home': 'Tabhair cuairt ar Gauge',

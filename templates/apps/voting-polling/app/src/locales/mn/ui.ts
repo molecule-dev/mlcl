@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'analytics.col.quorum': 'Чуулга',
   'analytics.col.votes': 'Саналууд',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Одоогоор хүлээгдэж буй асуулт алга.',
   'audienceQa.onStageEyebrow': 'Одоо тайзан дээр',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Сурталчлах',
   'audienceQa.queued': 'дараалалд орсон',
   'audienceQa.queueEyebrow': 'Дараалал',
   'ballot.eyebrow': 'Саналаа өгнө үү',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Та одоогоор дараах дээр байна {{plan}} төлөвлөгөө.',
   'billing.switch': 'Сэлгүүр',
   'billing.upgraded': 'Шинэчлэгдсэн {{plan}} — хязгаарлалтыг нэн даруй хэрэгжүүлнэ.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'createPoll.addOption': 'Сонголт нэмэх',
   'createPoll.anonymousHint':
     'Сонгогчдын нэрсийг аудитын бүртгэлд нуусан; тооллого баталгаажсан хэвээр байна.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ношд шинээр орж байна уу?',
   'login.remember': 'Намайг 30 хоногийн турш санаарай',
   'login.subheading': 'Шалыг нээж, өрөөг ажиллуулж, үр дүнг нь баталгаажуулна уу.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'notFound.body':
     'Таны хүрэхийг оролдсон хуудас хаагдсан эсвэл зөөгдсөн байна. Хяналтын самбар руу буцах эсвэл шинэ санал асуулга нээнэ үү.',
   'notFound.eyebrow': 'Энэ зам дээр ирц байхгүй',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Энэ санал асуулгыг ачаалж чадсангүй.',
   'pollDetail.loading': 'Санал асуулгыг ачаалж байна…',
   'pollDetail.notFound': 'Санал асуулга олдсонгүй.',
+  'pollDetail.openBallot': 'Нээлттэй санал хураалт',
   'pollDetail.openLive': 'Шууд үр дүн',
   'pollDetail.pollId': 'санал асуулга · {{id}}',
   'pollDetail.published': 'Санал асуулга нийтлэгдсэн — сонгогчид одоо санал өгөх боломжтой боллоо.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Имэйлээр хайх...',
   'voters.subheading':
     'Сонгогчдын нэрсийн жагсаалтыг гарга. Жинлэсэн саналын хуудсыг авахын тулд сонгогчдыг байгууллагаар нь бүлэглэнэ үү.',
+  'votingPollingLayout.nav.analytics': 'Аналитик',
+  'votingPollingLayout.nav.billing': 'Төлбөр тооцоо',
+  'votingPollingLayout.nav.createPoll': 'Шинэ санал асуулга',
+  'votingPollingLayout.nav.dashboard': 'Хяналтын самбар',
+  'votingPollingLayout.nav.notifications': 'Мэдэгдэл',
+  'votingPollingLayout.nav.settings': 'Тохиргоо',
+  'votingPollingLayout.nav.team': 'Баг',
+  'votingPollingLayout.nav.voters': 'Сонгогчид',
+  'votingPollingLayout.primaryNavLabel': 'Үндсэн навигаци',
 }

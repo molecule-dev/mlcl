@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'સંપર્કમાં રહો',
   'about.eyebrow': 'વિશે',
+  'about.title': '{{app}} વિશે',
   'activeAgentsCard.agent1AvatarAlt':
     'આધુનિક ઓફિસમાં મૈત્રીપૂર્ણ સ્મિત સાથે મહિલા સપોર્ટ એજન્ટનો વ્યાવસાયિક હેડશોટ',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'સપોર્ટનો સંપર્ક કરો',
   'forgotPassword.error': 'રીસેટ ઇમેઇલ મોકલી શકાયો નથી. કૃપા કરીને ફરી પ્રયાસ કરો.',
   'forgotPassword.rememberPassword': 'તમારો પાસવર્ડ યાદ છે?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'સાઇન ઇન કરો — ઝેનિથ સપોર્ટ',
   'login.showPassword': 'પાસવર્ડ બતાવો',
   'login.welcomeSubheading': 'તમારા સપોર્ટ ડેશબોર્ડમાં સાઇન ઇન કરો',
+  'mobileNav.closeMenu': 'નેવિગેશન બંધ કરો',
+  'mobileNav.menu': 'નેવિગેશન',
+  'mobileNav.openMenu': 'નેવિગેશન ખોલો',
   'nav.legal': 'કાનૂની',
   'nav.newTicket': 'નવી ટિકિટ',
   'notifications.loadError': 'સૂચનાઓ લોડ કરી શકાઈ નથી. થોડીવારમાં ફરી પ્રયાસ કરો.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'આદેશ શોધ',
   'operatorDock.newReport': 'નવો રિપોર્ટ',
   'operatorDock.systemOnline': 'સિસ્ટમ ઓનલાઇન',
+  'planUpdated.subtitle': 'આભાર',
   'planUpdated.title': 'પ્લાન અપડેટ કર્યો',
   'pricing.agents': 'એજન્ટો',
   'pricing.automation': 'ઓટોમેશન નિયમો',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{નામ}}',
   'ticketCustomerReply.avatarAlt': '{{નામ}} નો અવતાર',
   'ticketDetail.errorTitle': 'કંઈક ખોટું થયું.',
+  'ticketDetail.loadError': 'ટિકિટ લોડ કરવામાં નિષ્ફળ.',
+  'ticketDetail.notFound': 'ટિકિટ મળી નથી',
+  'ticketDetail.replyError': 'જવાબ મોકલવામાં નિષ્ફળ. કૃપા કરીને ફરી પ્રયાસ કરો.',
   'ticketDetail.retry': 'ફરી પ્રયાસ કરો',
   'ticketDetail.statusUpdateError': 'સ્થિતિ અપડેટ કરી શકાઈ નથી. ફરી પ્રયાસ કરો.',
   'ticketDetailsCard.assigneeLabel': 'સોંપણી કરનાર',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{સમય}} ડાબી બાજુ',
   'ticketRow.title': 'ઉત્પાદનમાં ડેટાબેઝ કનેક્શન નિષ્ફળ રહ્યું છે {{નોડ}}',
   'tickets.pageTitle': 'ટિકિટ — ઝેનિથ સપોર્ટ',
+  'ticketsFab.newTicket': 'નવી ટિકિટ',
   'ticketsFilterBar.assigneeLabel': 'સોંપનાર:',
   'ticketsFilterBar.clearFilters': 'ફિલ્ટર્સ સાફ કરો',
   'ticketsFilterBar.dateRangeDemoHint': 'આ ડેમો બિલ્ડમાં તારીખ શ્રેણી ફિલ્ટરિંગ સક્ષમ નથી.',

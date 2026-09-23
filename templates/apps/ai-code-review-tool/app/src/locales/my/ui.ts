@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.connectRepoCta': 'သိုလှောင်ရုံကို ချိတ်ဆက်ပါ',
   'dashboard.empty': 'pull request မရှိသေးပါ — စတင်ရန် repository တစ်ခု ချိတ်ဆက်ပါ။',
   'dashboard.eyebrow': 'ရောင်ပြန်ဟပ်မှု · ပြန်လည်သုံးသပ်ရန် တန်းစီခြင်း',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'အလုပ်လုပ်ချိန်',
   'pullRequestRow.files': '{{count}} စ',
   'pullRequestRow.scoreAria': 'AI အရည်အသွေးရမှတ် {{score}} / ၁၀',
+  'refractLayout.closeMenu': 'မီနူးကို ပိတ်ပါ',
+  'refractLayout.openMenu': 'မီနူးဖွင့်ပါ',
   'refractLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'reports.cumulativeScoreLabel': 'စုစုပေါင်းရမှတ်',
   'reports.cumulativeScoreSubtitle': 'သိုလှောင်ရုံအားလုံး · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'ရှာဖွေမှုအညွှန်းကို တင်၍မရပါ။',
   'settings.apiKeys.description':
     'ညာဘက်အပေါ်ထောင့်ရှိ အသုံးပြုသူမီနူးမှ ကိုယ်ပိုင် API သော့များကို စီမံခန့်ခွဲပါ။',
+  'settings.apiKeys.integrationsNote':
+    'အထက်ဖော်ပြပါ ပေါင်းစပ်မှုကဏ္ဍတွင် ပံ့ပိုးပေးသူ ဝင်ရောက်ခွင့် တိုကင်များကို စီမံခန့်ခွဲပါသည်။',
   'settings.connectError': 'ဝန်ဆောင်မှုပေးသူနှင့် ချိတ်ဆက်၍မရပါ။',
   'settings.disconnectError': 'ဝန်ဆောင်မှုပေးသူ ချိတ်ဆက်မှု ဖြတ်တောက်ခြင်း မအောင်မြင်ပါ။',
   'settings.eyebrow': 'ရောင်ပြန်ဟပ်မှု · အလုပ်ခွင်',
   'settings.integration.${provider}.label': 'သိမ်းဆည်းနေသည်…',
   'settings.loadError': 'ဆက်တင်များကို တင်၍မရပါ။',
+  'settings.notificationCenter': 'အသိပေးချက်စင်တာ',
   'settings.notifications.description':
     'ပို့ဆောင်မှု ဦးစားပေးမှုများကို ကြည့်ရှုပြီး စီမံခန့်ခွဲရန် အကြောင်းကြားချက်များ စာမျက်နှာသို့ ဝင်ရောက်ကြည့်ရှုပါ။',
   'settings.section.account': 'အကောင့်နှင့် လုံခြုံရေး',

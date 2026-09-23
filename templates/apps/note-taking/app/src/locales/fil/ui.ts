@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'forgot.eyebrow': 'Nawala ang daan pabalik?',
   'forgot.formSubtitle': 'Sabihin sa amin ang email na naka-file.',
   'forgot.headline': 'I-reset ang iyong password.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Gumawa ng isa',
   'login.subline':
     'Ang iyong mga notebook, backlink, at pang-araw-araw na pahina ay nasa mismong lugar kung saan mo iniwan ang mga ito.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'noteEditor.backToNotes': 'Balik sa mga tala',
   'noteEditor.bodyPlaceholder':
     'Simulan ang pagsusulat — awtomatikong sine-save ang iyong tala habang nagta-type ka.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Bagong kuwaderno',
   'notes.newNotebookPrompt': 'Bagong pangalan ng kuwaderno',
   'notes.notebooksHeading': 'Mga Notebook',
+  'notes.subtitle':
+    'Pumili ng notebook sa kaliwa, pagkatapos ay pindutin ang button na Bagong tala para magsimula ng panibagong entry.',
   'planUpdated.confirmation': 'Na-update na ang iyong plano',
   'pricing.heading': 'Piliin ang iyong plano sa pagkuha ng tala',
   'reset.eyebrow': 'Malapit nang bumalik',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Na-update',
   'versoLayout.nav.graph': 'Graph',
   'versoLayout.nav.home': 'Tahanan',
+  'versoLayout.primaryNavLabel': 'Pangunahing navigation',
   'versoNoteCard.pinned': 'Naka-pin',
   'versoTodayHero.continueCta': 'Ipagpatuloy ang pagsulat',
   'versoTodayHero.createCta': 'Simulan ang tala ngayon',

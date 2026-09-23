@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
   'auth.forgotPassword.emailPlaceholder': 'nimi@teieettevõte.com',
   'auth.forgotPassword.heading': 'Taasta oma parool.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Märgi ülesanne täidetuks',
   'checklistTaskCard.markIncomplete': 'Märgi ülesanne lõpetamata',
   'checklistTaskCard.openLabel': 'Ava ülesanne',
+  'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Olete nüüd kõigega kursis',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Õigekirja järgi',
   'dashboard.timelineHeading': '30/60/90 verstapostid',
   'dashboard.viewAllTasks': 'Kuva kõik ülesanded',
+  'dashboard.weekOne': '1. nädal',
   'dashboard.yourCohort': 'Sinu meeskond',
   'documents.empty.body': 'Teie meeskonna lisatud dokumendid kuvatakse siin.',
   'documents.empty.title': 'Dokumente pole veel',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-päevane tasuta prooviperiood',
   'landing.subhead':
     'Embark juhendab iga uut meeskonnakaaslast tema esimese 90 päeva jooksul – paberimajandus, koolitus, verstapostid ja sisukad tutvustused – kõik ühes rahulikus ja enesekindlas kohas.',
+  'layout.openMenu': 'Ava navigeerimismenüü',
   'layout.search': 'Otsi ülesandeid, dokumente, meeskonnakaaslasi…',
+  'layout.searchTeammates': 'Otsi meeskonnakaaslasi nime või rolli järgi…',
   'layout.section.onboarding': 'Sisseelamine',
   'layout.tagline': 'Sinu teekond algab siit',
   'notifications.empty.body': 'Uus tegevus kuvatakse siin.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Oled valmis.',
   'planUpdated.preparing': 'Teie plaani värskendamine…',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.documentsLabel': 'dokumendid',
   'pricing.onboardingsLabel': 'sisseelamised',
   'pricing.tasksLabel': 'ülesanded',

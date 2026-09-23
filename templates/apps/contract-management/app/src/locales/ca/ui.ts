@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
   'authBrandPanel.quote':
     '«El sistema de registre de tots els acords signats que tenim és Vellum.»',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Anar al panell',
   'contractDetail.amount': 'Valor',
   'contractDetail.back': 'Tots els contractes',
   'contractDetail.downloadCta': 'Descarrega el PDF',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'Caduca',
   'contracts.col.owner': 'propietari',
   'contracts.empty': 'No hi ha contractes coincidents.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'Contractes',
   'contracts.loadError': "No s'han pogut carregar els contractes.",
   'contracts.newCta': 'Nou contracte',
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
     'Si existeix un compte per a {{email}} , un enllaç de restabliment està en camí.',
   'forgotPassword.subtitle':
     "T'enviarem un enllaç de restabliment al teu correu electrònic de la feina.",
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Construït amb Molecule.',
   'landing.ctaHeading': 'Veure com es tanca la teva cartera el primer dia.',
   'landing.ctaPrimary': 'Inicia un espai de treball',
   'landing.eyebrow': 'Per a Operacions Legals i Compres',
@@ -99,6 +104,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Cal introduir el nom de la contrapart.',
   'newContract.errEmail': 'Cal el correu electrònic del signant.',
   'newContract.expires': 'Data de caducitat',
+  'newContract.failed': "No s'ha pogut crear el contracte.",
   'newContract.heading': 'Nou contracte',
   'newContract.nextCta': 'Següent',
   'newContract.review.counterparty': 'Contrapart',
@@ -114,6 +120,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Títol del contracte',
   'newContract.titlePlaceholder': 'Acord principal de serveis',
   'newContract.variablesHeading': 'Variables contractuals',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.dataExport': 'Exportació de dades',
   'pricing.disabled': 'No',
   'pricing.enabled': 'Sí',
@@ -146,15 +153,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': "No s'ha pogut eliminar el compte.",
   'settings.security.deleting': "S'està suprimint…",
   'settings.security.newPassword': 'Nova contrasenya',
+  'settings.security.noDevices': 'No hi ha cap dispositiu registrat.',
   'settings.security.twoFactor': 'Autenticació de dos factors',
   'settings.security.twoFactorDisable': 'Desactiva',
   'settings.security.twoFactorEnable': 'Activa',
+  'settings.security.twoFactorInvalidCode': 'Codi no vàlid.',
   'settings.signatures.body':
     "El nom que has escrit apareix a la línia de signatura de cada contracte que signes. Si el defineixes una vegada, es renderitzarà automàticament a partir d'ara.",
   'settings.signatures.heading': 'Bloc de signatura',
   'settings.signatures.save': 'Desa la signatura',
+  'sign.action': 'Signa aquest document',
+  'sign.eyebrow': 'Signatura sol·licitada',
+  'sign.for': 'Per a {{name}}',
+  'sign.loadError': 'Aquest enllaç de signatura no és vàlid o ha caducat.',
   'sign.loading': "S'està carregant…",
   'sign.signing': 'Signant…',
+  'sign.submitError':
+    "No s'ha pogut enregistrar la vostra signatura; és possible que l'enllaç hagi caducat.",
   'signup.brandQuote':
     "Vam migrar 8 anys de paper a Vellum en una setmana. Només la pista d'auditoria justifica el canvi.",
   'signup.companyPlaceholder': 'Comerciants del Nordvent',
@@ -188,6 +203,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Contracte obert →',
   'vellumKpiCard.trend': 'Tendència recent',
+  'vellumLayout.closeMenu': 'Tanca el menú de navegació',
+  'vellumLayout.openMenu': 'Obre el menú de navegació',
   'vellumLayout.primaryNavLabel': 'Navegació principal',
   'vellumPortfolioHero.expiring': 'Caduca en 30 dies',
   'vellumPortfolioHero.label': 'Valor de la cartera',

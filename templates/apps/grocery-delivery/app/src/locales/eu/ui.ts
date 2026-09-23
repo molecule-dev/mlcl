@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Eman propina zure erosleari',
   'checkout.tipLabel': 'aholkua',
   'checkout.zipPlaceholder': 'Posta kodea',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'featuredProductsGrid.addAria': 'Gehitu {{name}} saskira',
   'featuredProductsGrid.outOfStock': 'Stockik gabe',
   'forgotPassword.emailLabel': 'Helbide elektronikoa',
   'forgotPassword.emailPlaceholder': 'erosle@bushel.fresh',
   'forgotPassword.successBody':
     'Mezu elektroniko hori erregistratuta badago, berrezartzeko esteka bidean dago.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Nabigazio nagusia',
   'landing.categoriesEyebrow': 'Pasabideak',
   'landing.categoriesHeading': 'Kategoriaren arabera erosi',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Antolatu asteroko bidalketak oinarrizko produktuen berreskaera adimendunarekin eta gidarien jarraipenarekin.',
   'landing.heroTitle': 'Freskotasuna zure atean, ordu gutxitan.',
   'landing.howEyebrow': 'Hiru urrats',
+  'landing.howItWorksHeading': 'Nola funtzionatzen duen {{app}}',
   'lists.addAllCta': 'Gehitu dena saskira',
   'lists.createCta': 'Sortu zure lehen zerrenda',
   'lists.createError': 'Ezin izan da zerrenda sortu.',

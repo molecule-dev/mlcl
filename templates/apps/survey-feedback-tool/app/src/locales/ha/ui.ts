@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Game da {{app}}',
   'analytics.back': 'Bayanin bincike',
   'analytics.kpiNps': 'Maki na NPS',
   'analytics.kpiNpsTrend': 'Masu tallata {{p}} % · Masu cirewa {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Kadarorin',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Sunan bincike',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'forgotPassword.failed': 'Ba za a iya aika sake saita imel ba. Da fatan za a sake gwadawa.',
   'forgotPassword.subheading':
     'Shigar da imel ɗinka kuma za mu aiko maka da hanyar haɗin murmurewa.',
   'forgotPassword.successBody':
     'Idan asusu ya dace {{email}} , hanyar sake saitawa tana kan hanya. Duba akwatin saƙonka da manyan fayilolin spam ɗinka.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Ana maraba da dukkan muryoyi.',
   'landing.footer.startTrial': 'Fara gwaji',
   'landing.hero.badge': "Bincike, NPS & ra'ayoyi a wuri guda",
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Farashi',
   'landing.pricing.perMonth': '/wata',
   'landing.pricing.popular': 'Mafi shahara',
+  'landing.pricing.subtitle':
+    "Kowane shiri ya haɗa da mai gina binciken, hanyoyin haɗin raba hannun jari na jama'a, da kuma nazarin NPS. Ba a buƙatar katin kiredit don farawa.",
+  'landing.pricing.title': 'Fara kyauta, sikelin lokacin da kake yi.',
   'landing.sample.eyebrow': 'Kallon NPS a takaice',
   'landing.sample.title':
     'Masu hana aiki, masu wuce gona da iri, masu tallatawa — ana iya karantawa nan take.',
@@ -58,6 +64,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Nuna kalmar sirri',
   'login.signUpLink': 'Fara gwaji kyauta',
   'login.subheading': 'Shiga don ci gaba da sauraron masu sauraronka.',
+  'notFound.body': 'Shafin da kake nema babu shi a {{app}} . Bari mu mayar da kai ga bincikenka.',
   'notFound.cta': 'Komawa ga binciken bincike',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Wannan binciken ya kauce daga layin.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': "Na'urar da ba ta aiki ba 7–8",
   'npsDistributionBar.promoter': 'Mai Tallafawa 9–10',
   'profile.identity.description': "Ga jama'a ga ƙungiyar ku da kuma kan binciken da kuka rubuta.",
+  'profile.identity.emailRequired': 'Shigar da adireshin imel.',
   'profile.identity.saveCta': 'Ajiye suna',
   'profile.password.current': 'Kalmar shiga na halin yanzu',
   'profile.password.fillFields': 'Shigar da kalmar sirri ta yanzu da kuma sabuwar.',
@@ -179,6 +187,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} tambayoyi',
   'templates.subheading':
     "Zaɓi wanda ya fara gwada gwagwarmaya — kowane samfuri ya zo an riga an daidaita shi tare da daidaitattun sigogi masu ma'ana, dabarun samfurin, da kuma tsari mai tsabta na wayar hannu.",
+  'thankYou.body': 'An yi rikodin amsarka. {{app}} zai haɗa shi a cikin sabuntawar nazari na gaba.',
   'thankYou.eyebrow': 'An karɓi martanin',
   'thankYou.heading': 'Na gode — muryarka tana da muhimmanci.',
   'thankYou.home': 'Ziyarci Gauge',

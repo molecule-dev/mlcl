@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
   'authShell.statusLabel': 'ਦੌੜਾਕ ਔਨਲਾਈਨ',
   'collections.createError': 'ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ।',
   'collections.defaultName': 'ਬਿਨਾਂ ਸਿਰਲੇਖ ਵਾਲਾ ਸੰਗ੍ਰਹਿ {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'ਨਵਾਂ ਸੰਗ੍ਰਹਿ',
   'collections.subheading':
     'ਬੇਨਤੀਆਂ ਨੂੰ ਸਮੂਹ ਕਰੋ, ਆਪਣੀ ਟੀਮ ਨਾਲ ਸਾਂਝਾ ਕਰੋ, ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਇੱਕ ਸੂਟ ਦੇ ਰੂਪ ਵਿੱਚ ਚਲਾਓ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'environmentCard.inactive': 'ਵਿਹਲਾ',
   'environmentCard.more': 'ਹੋਰ',
   'environmentCard.variables': 'ਵੇਰੀਏਬਲ',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'ਮੁਫ਼ਤ ਡਾਊਨਲੋਡ ਕਰੋ',
   'landing.heroSubtitle':
     'ਟਰਮੀਨਲਾਂ ਵਿੱਚ ਰਹਿਣ ਵਾਲੇ ਇੰਜੀਨੀਅਰਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਬਿਜਲੀ-ਤੇਜ਼ API ਟੈਸਟਿੰਗ ਵਰਕਬੈਂਚ।',
+  'landing.heroTitleAccent': 'ਅੱਗ',
+  'landing.heroTitleLine2': 'ਆਤਮਵਿਸ਼ਵਾਸ ਪੈਦਾ ਕਰੋ।',
+  'landing.heroTitleRest': 'ਬੇਨਤੀਆਂ,',
   'landing.kicker': '$ ਪਾਈਲਨ ਭੇਜੋ --ਵਾਚ',
   'landing.pricingEyebrow': '// $ ਕੀਮਤ --ਸਾਦਾ',
   'landing.pricingHeading': 'ਸਰਲ, ਅਨੁਮਾਨਯੋਗ ਕੀਮਤ',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ਕੀ ਤੁਸੀਂ ਇੱਥੇ ਨਵੇਂ ਹੋ?',
   'login.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'login.subtitle': "ਆਪਣੇ ਪਾਈਲੋਨ ਵਰਕਸਪੇਸ 'ਤੇ ਜਾਰੀ ਰੱਖੋ।",
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'mocks.createError': 'ਮਖੌਲ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ।',
   'mocks.defaultName': 'ਬਿਨਾਂ ਸਿਰਲੇਖ ਵਾਲਾ ਮਖੌਲ {{n}}',
   'mocks.deleteError': 'ਮੌਕ ਮਿਟਾ ਨਹੀਂ ਸਕਿਆ।',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': "ਵਰਕਸਪੇਸ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'notFound.eyebrow': '$ ਪਾਈਲਨ ਰੈਜ਼ੋਲਵ --ਸਖ਼ਤ',
   'notFound.title': 'ਰਸਤਾ ਨਹੀਂ ਮਿਲਿਆ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'privacy.collect.account':
     'ਖਾਤਾ: ਤੁਹਾਡੀ ਈਮੇਲ, ਹੈਸ਼ ਕੀਤਾ ਪਾਸਵਰਡ, ਡਿਸਪਲੇ ਨਾਮ, ਅਤੇ ਤੁਹਾਡੇ ਆਖਰੀ ਸਾਈਨ-ਇਨ ਦਾ ਟਾਈਮਸਟੈਂਪ।',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'ਇਸ ਖਾਤੇ ਕੋਲ ਮੌਜੂਦ ਡੇਟਾ ਦਾ ਸਿਰਫ਼-ਪੜ੍ਹਨਯੋਗ ਦ੍ਰਿਸ਼।',
   'settings.unset': 'ਸੈੱਟ ਨਹੀਂ ਹੈ',
   'signup.identityHint': 'ਜਿਵੇਂ ਕਿ ਐਲੇਕਸ',
+  'signup.statusLabel': 'ਮੁਫ਼ਤ ਟੀਅਰ · ਕੋਈ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨਹੀਂ',
   'signup.subtitle': 'ਮਿੰਟਾਂ ਵਿੱਚ ਬੇਨਤੀਆਂ ਨੂੰ ਫਾਇਰ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ।',
   'terms.account.body':
     "ਤੁਸੀਂ ਆਪਣੇ ਪਾਸਵਰਡ ਦੀ ਸੁਰੱਖਿਆ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਹੋ। ਮੁਫ਼ਤ ਜਾਂ ਪ੍ਰੋ ਯੋਜਨਾਵਾਂ 'ਤੇ ਇੱਕ ਖਾਤੇ ਨੂੰ ਕਈ ਮਨੁੱਖਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ — ਸਾਂਝੇ ਵਰਕਸਪੇਸਾਂ ਲਈ ਇੱਕ ਟੀਮ ਗਾਹਕੀ ਖਰੀਦੋ।",
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     "ਉਹਨਾਂ ਸੇਵਾਵਾਂ 'ਤੇ ਬੇਨਤੀਆਂ ਨੂੰ ਖਤਮ ਕਰਨ ਲਈ ਪਾਈਲੋਨ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ ਜਿਨ੍ਹਾਂ ਦੇ ਤੁਸੀਂ ਮਾਲਕ ਨਹੀਂ ਹੋ ਜਾਂ ਜਿਨ੍ਹਾਂ ਕੋਲ ਜਾਂਚ ਕਰਨ ਦੀ ਸਪੱਸ਼ਟ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ। ਦਰ ਸੀਮਾਵਾਂ ਨੂੰ ਤੋੜਨ ਜਾਂ ਧੋਖਾਧੜੀ ਕਰਨ ਲਈ ਪਾਈਲੋਨ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ।",
   'terms.warranty.body':
     'ਪਾਈਲਨ ਕਿਸੇ ਵੀ ਕਿਸਮ ਦੀ ਵਾਰੰਟੀ ਤੋਂ ਬਿਨਾਂ "ਜਿਵੇਂ ਹੈ" ਪ੍ਰਦਾਨ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਅਸੀਂ 99.9% ਅਪਟਾਈਮ ਦਾ ਟੀਚਾ ਰੱਖਦੇ ਹਾਂ ਪਰ ਮੁਫਤ ਜਾਂ ਪ੍ਰੋ ਯੋਜਨਾਵਾਂ \'ਤੇ ਇਸਦੀ ਗਰੰਟੀ ਨਹੀਂ ਦਿੰਦੇ।',
+  'testRunner.assertionsCount': '{{count}} ਦਾਅਵੇ',
   'testRunner.createError': 'ਟੈਸਟ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ।',
   'testRunner.cron':
     'ਇਸ ਟੈਸਟ ਦੀ ਲਿੰਕ ਕੀਤੀ ਬੇਨਤੀ ਦੇ ਸਭ ਤੋਂ ਹਾਲੀਆ ਰਨ ਦੇ ਵਿਰੁੱਧ ਦਾਅਵਿਆਂ ਦਾ ਮੁਲਾਂਕਣ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'ਸੂਟ ਨਤੀਜੇ, ਦਾਅਵੇ ਦੇ ਅੰਤਰ, ਅਤੇ ਆਖਰੀ 50 ਦੌੜਾਂ।',
   'userMenu.shortcut': '⌘ਐਲ',
   'userMenu.signedInAs': 'ਇਸ ਵਜੋਂ ਸਾਈਨ ਇਨ ਕੀਤਾ',
+  'workspace.auth.keyName': 'ਸਿਰਲੇਖ ਦਾ ਨਾਮ',
+  'workspace.auth.keyValue': 'ਕੁੰਜੀ ਮੁੱਲ',
+  'workspace.auth.password': 'ਪਾਸਵਰਡ',
+  'workspace.auth.username': 'ਯੂਜ਼ਰਨੇਮ',
+  'workspace.authOption.apikey': 'API ਕੁੰਜੀ',
+  'workspace.authOption.basic': 'ਮੁੱਢਲੀ ਪ੍ਰਮਾਣਿਕਤਾ',
+  'workspace.authOption.bearer': 'ਬੇਅਰਰ ਟੋਕਨ',
+  'workspace.authOption.none': 'ਕੋਈ ਨਹੀਂ',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'ਦੀ ਕਿਸਮ',
   'workspace.authTypeLabel': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕਿਸਮ',
+  'workspace.body.json': 'JSONLanguage',
+  'workspace.body.none': 'ਕੋਈ ਨਹੀਂ',
+  'workspace.body.text': 'ਕੱਚਾ ਟੈਕਸਟ',
+  'workspace.body.type': 'ਦੀ ਕਿਸਮ',
   'workspace.environment': 'ਕੋਈ env ਨਹੀਂ',
   'workspace.envVar': 'env ਵੇਰੀਏਬਲ',
   'workspace.eyebrow': '$ ਪਾਈਲਨ ਵਰਕਸਪੇਸ --ਪੇਨ ਸਪਲਿਟ',
+  'workspace.kv.addHeader': 'ਸਿਰਲੇਖ ਸ਼ਾਮਲ ਕਰੋ',
+  'workspace.kv.addParam': 'ਪੈਰਾਮੀਟਰ ਸ਼ਾਮਲ ਕਰੋ',
+  'workspace.kv.headerKey': 'ਸਿਰਲੇਖ ਦਾ ਨਾਮ',
+  'workspace.kv.headerValue': 'ਸਿਰਲੇਖ ਮੁੱਲ',
+  'workspace.kv.key': 'ਕੁੰਜੀ',
+  'workspace.kv.paramKey': 'ਪੁੱਛਗਿੱਛ ਪੈਰਾਮੀਟਰ ਕੁੰਜੀ',
+  'workspace.kv.paramValue': 'ਪੁੱਛਗਿੱਛ ਪੈਰਾਮੀਟਰ ਮੁੱਲ',
+  'workspace.kv.removeRow': 'ਕਤਾਰ ਹਟਾਓ',
+  'workspace.kv.value': 'ਮੁੱਲ',
   'workspace.methodLabel': 'HTTP ਵਿਧੀ',
   'workspace.metric.latency': 'ਲੇਟੈਂਸੀ',
   'workspace.metric.latencyCaption': 'ਇਸ ਦੌੜ ਤੋਂ ਆਉਣ-ਜਾਣ ਦਾ ਸਫ਼ਰ',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'ਬੇਨਤੀ ਨੂੰ ਖਾਰਜ ਕਰ ਦਿੱਤਾ ਗਿਆ — ਹੇਠਾਂ ਜਵਾਬ ਵੇਖੋ।',
   'workspace.subheading':
     'ਇੱਕ ਬੇਨਤੀ ਲਿਖੋ, ਇਸਨੂੰ ਫਾਇਰ ਕਰੋ, ਫਿਰ ਜਵਾਬ ਦਾ ਦਾਅਵਾ ਕਰੋ - ਸਭ ਕੁਝ ਇੱਕ ਪੈਨ ਵਿੱਚ।',
+  'workspace.testResults': 'ਟੈਸਟ ਦੇ ਨਤੀਜੇ',
   'workspace.token': 'ਟੋਕਨ',
   'workspace.tokenHint': "ਅਧਿਕਾਰ ਵਜੋਂ ਭੇਜਿਆ ਗਿਆ: ਧਾਰਕ<token> ਇਸ ਸੰਗ੍ਰਹਿ ਵਿੱਚ ਹਰ ਬੇਨਤੀ 'ਤੇ।",
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

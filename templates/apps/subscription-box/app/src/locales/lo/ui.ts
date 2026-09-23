@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
+  'appNav.mobileLabel': 'ການນຳທາງຫຼັກ',
+  'appNav.primaryLabel': 'ການນຳທາງຫຼັກ',
   'billing.actions.confirmCancel':
     'ຍົກເລີກການສະໝັກໃຊ້ຂອງທ່ານບໍ? ທ່ານສາມາດສະໝັກໃຊ້ຄືນໃໝ່ໄດ້ທຸກເວລາ.',
   'billing.actions.paused': 'ການສະໝັກໃຊ້ຖືກຢຸດໄວ້ຊົ່ວຄາວ.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'ແຕ່ລະຊັ້ນແມ່ນເລື່ອງລາວກຸ່ມນ້ອຍໆ. ເພີ່ມອັນໜຶ່ງໃສ່ຄິວຂອງທ່ານ ຫຼື ປ່ຽນມັນໃສ່ເດືອນຕໍ່ໄປ.',
   'boxThemeCard.perMonth': '/ ເດືອນ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'customize.eyebrow': 'ເຮັດໃຫ້ມັນເປັນຂອງເຈົ້າ',
   'customize.heading': 'ປັບແຕ່ງ Crate ຕໍ່ໄປຂອງທ່ານ',
   'customize.items.exclude': 'ຂ້າມອັນນີ້',
@@ -110,6 +114,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ປຶ້ມບັນທຶກຕໍ່ໄປຂອງເຈົ້າ',
   'nextBoxHeroCard.itemsLabel': 'ລາຍການທີ່ຄັດສັນມາ',
   'nextBoxHeroCard.shipsOnLabel': 'ສົ່ງໃນວັນທີ',
+  'notFound.body':
+    'ພວກເຮົາບໍ່ສາມາດຊອກຫາໜ້ານັ້ນໃນບ່ອນເກັບມ້ຽນ {{app}} ໄດ້. ມັນອາດຈະຖືກຍົກເລີກ ຫຼື ພຽງແຕ່ພິມຜິດ.',
   'notFound.cta.dashboard': 'ໄປທີ່ແຜງຄວບຄຸມ',
   'notFound.eyebrow': 'ກ່ອງເປົ່າ',
   'notFound.heading': 'ຊັ້ນວາງນີ້ເປົ່າຫວ່າງ',

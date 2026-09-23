@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Testmodus: Bestellungen werden erfasst und Salden ausgeglichen, aber keine echte Karte wird belastet.',
   'checkout.placeOrderCta': 'Bestellung aufgeben',
+  'checkout.placeOrderError': 'Ihre Bestellung konnte nicht aufgegeben werden.',
   'checkout.placingOrder': 'Bestellung wird aufgegeben…',
   'checkout.review.shipTo': 'Versand an',
   'checkout.review.subtotal': 'Verkäufer-Zwischensumme',
@@ -57,6 +58,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Verkäufer werden',
   'landing.footer.copyright': '© {{year}} {{name}} — jeder Hersteller, ein Marktplatz.',
   'landing.footer.help': 'Hilfecenter',
+  'landing.nav.keepShopping': 'Weiter einkaufen',
   'landing.nav.sell': 'Auf Vendry verkaufen',
   'landing.nav.shop': 'Einkaufen',
   'landing.nav.signUp': 'Beitreten',
@@ -67,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Was Käufer lieben',
   'login.accountTypeAria': 'Kontotyp',
   'login.heading': 'Willkommen zurück bei Vendry',
+  'login.legalPrefix': 'Mit Ihrer Anmeldung stimmen Sie unseren Nutzungsbedingungen zu.',
   'login.subheading':
     'Melden Sie sich an, um weiter einzukaufen oder zu Ihrem Shop zurückzukehren.',
   'login.submitShopper': 'Anmelden zum Einkaufen',
@@ -92,10 +95,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Aufgegeben {{date}} · {{vendorCount}} Verkäufer · Multi-Verkäufer-Versand',
   'orders.empty': 'Noch keine Bestellungen entsprechen diesem Filter.',
+  'orders.emptyTitle': 'Hier liegen noch keine Bestellungen vor.',
   'orders.eyebrow': 'Ihre Käufe',
   'orders.subtitle':
     'Sehen Sie, wer was versendet hat, verfolgen Sie pro Verkäufer und verlieren Sie nie wieder ein Paket.',
   'orders.title': 'Bestellungen, gruppiert nach Verkäufer',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'productDetail.addToCart': 'In den Warenkorb',
   'productDetail.addToCartError': 'Konnte nicht in den Warenkorb gelegt werden.',
   'productDetail.addToCartSuccess': '„{{name}}“ in Ihren Warenkorb gelegt.',
@@ -137,12 +142,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Verwalten Sie, wie Sie einkaufen, wie Verkäufer Sie erreichen und wohin das Geld fließt.',
   'signup.heading': 'Treten Sie dem Marktplatz bei',
+  'signup.legalPrefix': 'Mit Ihrer Anmeldung stimmen Sie unseren Bedingungen zu',
   'signup.mismatch': 'Die Passwörter stimmen noch nicht überein.',
   'signup.subheading':
     'Durchsuchen Sie über 4.000 unabhängige Hersteller oder eröffnen Sie Ihren eigenen Shop.',
   'status.delivered': 'Geliefert',
   'status.refunded': 'Erstattet',
+  'userMenu.marketplaceSettings': 'Marketplace-Einstellungen',
   'vendor.memberSince': 'Mitglied seit {{date}}',
+  'vendorDashboard.defaultShop': 'Ihr Geschäft',
   'vendorDashboard.eyebrow': 'Verkäufer-Admin · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} nach Vendry-Provision abgerechnet. Nächste Auszahlung am Freitag.',
@@ -161,12 +169,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Wo Sie fertigen, was Sie fertigen, warum es wichtig ist.',
   'vendorOnboarding.currencyLabel': 'In Währung abrechnen',
   'vendorOnboarding.errors.shopName': 'Shop-Name ist erforderlich.',
+  'vendorOnboarding.errors.submit': 'Ihre Bewerbung konnte nicht übermittelt werden.',
   'vendorOnboarding.exit': 'Speichern & später fortsetzen',
   'vendorOnboarding.eyebrow': 'Bewerben, um auf Vendry zu verkaufen',
+  'vendorOnboarding.field.shopName': 'Geschäftsname',
   'vendorOnboarding.heroBody':
     'Eine pauschale Provision von 8%, Auszahlungen jeden Freitag, Ihre Storefront, Ihre Geschichte. Erzählen Sie uns ein wenig über Ihren Shop, und wir melden uns innerhalb von 48 Stunden.',
   'vendorOnboarding.review.contact': 'Kontakt',
   'vendorOnboarding.review.currency': 'Währung',
+  'vendorOnboarding.review.tagline': 'Slogan',
+  'vendorOnboarding.review.website': 'Webseite',
   'vendorOnboarding.reviewBody':
     'Sieht gut aus. Wir prüfen Ihren Shop innerhalb von 48 Stunden und senden Ihre erste Auszahlung am Freitag nach Ihrem ersten Verkauf.',
   'vendorOnboarding.samplesLabel': 'Arbeitsproben — Instagram, Portfolio, Fotos',
@@ -175,11 +187,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Bewerbung eingereicht! Wir prüfen Ihren Shop und senden Ihnen innerhalb von 48 Stunden eine E-Mail.',
   'vendorOnboarding.taxIdLabel': 'Steuer-ID',
+  'vendorOrders.emptyTitle': 'Noch keine Bestellungen zu bearbeiten',
   'vendorOrders.eyebrow': 'Verkäufer-Admin',
+  'vendorOrders.kpi.awaiting': 'Erfüllt wird noch.',
   'vendorOrders.kpi.inTransit': 'In Transit',
   'vendorOrders.subtitle':
     'Drucken Sie Etiketten, markieren Sie als erledigt und beantworten Sie Fragen — alles, ohne Vendry zu verlassen.',
   'vendorOrders.title': 'Eingehende Bestellungen',
+  'vendorPayouts.emptyTitle': 'Bisher keine Auszahlungen.',
   'vendorPayouts.eyebrow': 'Verkäufer-Finanzen',
   'vendorPayouts.heroCaption': 'Wird an Banco BPI {{account}} überwiesen · 1–2 Werktage',
   'vendorPayouts.history': 'Auszahlungshistorie',
@@ -197,7 +212,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Wo wird es hergestellt? Welche Geschichte trägt es?',
   'vendorProductForm.error.name': 'Produktname ist erforderlich',
   'vendorProductForm.error.price': 'Geben Sie einen positiven Preis ein',
+  'vendorProductForm.error.publish': 'Veröffentlichung fehlgeschlagen',
   'vendorProductForm.eyebrow': 'Neue Auflistung',
+  'vendorProductForm.eyebrowEdit': 'Eintrag bearbeiten',
   'vendorProductForm.images.body':
     'Ziehen Sie bis zu 8 Bilder per Drag-and-Drop. Das erste Foto wird zum Storefront-Cover.',
   'vendorProductForm.images.cta': 'Fotos hierher ziehen oder durchsuchen',
@@ -209,6 +226,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Änderungen speichern',
   'vendorProductForm.title': 'Erzählen Sie Käufern von Ihrem Stück',
   'vendorProductForm.variants.colInventory': 'Bestand',
+  'vendorProductForm.variants.colVariant': 'Variante',
   'vendorProducts.eyebrow': 'Verkäufer-Admin',
   'vendorProducts.kpi.draft': 'Entwürfe',
   'vendorProducts.kpi.lowStock': 'Niedriger Bestand',

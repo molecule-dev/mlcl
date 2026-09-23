@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.pageTitle': 'সম্পর্কে {{appName}}',
   'analytics.error': 'অ্যানালিটিক্স লোড করা যায়নি।',
   'analytics.heading': 'পুনরুদ্ধার বিশ্লেষণ',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'কোনো মূল্যস্তর কনফিগার করা হয়নি।',
   'billing.plans.heading': 'পরিকল্পনা',
   'billing.subheading': 'প্ল্যান, ব্যবহার এবং স্ট্রাইপ-পরিচালিত চেকআউট।',
+  'common.confirm': 'নিশ্চিত করুন',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'documentCard.open': 'খোলা \\u2192',
   'documentDetail.back': 'নথিপত্রে ফিরে যান',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'সূচী নথি',
   'documents.composer.titlePlaceholder': 'নথির শিরোনাম',
   'documents.emptyAll': 'এখনো কোনো নথি নেই। প্রশ্ন করা শুরু করতে একটি নথি আপলোড করুন।',
+  'documents.error.load': 'নথিগুলো লোড করা যায়নি।',
   'documents.heading': 'সূচীবদ্ধ নথি',
   'documents.loading': 'নথি লোড হচ্ছে…',
   'documents.metric.chunks': 'মোট খণ্ড',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'অপসারণ করা হচ্ছে',
   'members.subheading': 'সহকর্মীদের আমন্ত্রণ জানান এবং ভূমিকা নির্ধারণ করুন।',
   'members.tableHeading': 'রোস্টার',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'notFound.askCta': 'জ্ঞানভান্ডারে জিজ্ঞাসা করুন',
+  'notFound.body':
+    '{{app}} সেই পৃষ্ঠাটি খুঁজে পায়নি। লিঙ্কটি হয়তো অকার্যকর, অথবা পুনঃসূচীকরণের সময় পৃষ্ঠাটি সরিয়ে ফেলা হয়েছে।',
   'notFound.eyebrow': 'পুনরুদ্ধার করা যাচ্ছে না',
   'notFound.title': 'সূচীতে এমন কোনো খণ্ড নেই',
   'notifications.dismiss': 'খারিজ করুন',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'উৎস ইউআরএল',
   'sources.empty.body': 'আপনার প্রথম কানেক্টরটি ওয়্যারিং করতে “Add source”-এ ক্লিক করুন।',
   'sources.empty.title': 'এখনো কোনো সূত্র পাওয়া যায়নি।',
+  'sources.error.add': 'উৎস যোগ করা যায়নি।',
   'sources.error.labelRequired': 'লেবেল আবশ্যক।',
   'sources.error.load': 'উৎস লোড করা যায়নি।',
   'sources.error.urlRequired': 'এই ধরনের উৎসের জন্য URL প্রয়োজন।',

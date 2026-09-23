@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Shko te paneli',
   'forgot.eyebrow': 'Ke humbur rrugën e kthimit?',
   'forgot.formSubtitle': 'Na tregoni email-in në dosje.',
   'forgot.headline': 'Rivendos fjalëkalimin tënd.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Krijo një',
   'login.subline':
     'Fletoret, lidhjet e prapme dhe faqet e përditshme janë pikërisht aty ku i latë.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'noteEditor.backToNotes': 'Kthehu te shënimet',
   'noteEditor.bodyPlaceholder':
     'Filloni të shkruani — shënimi juaj ruhet automatikisht ndërsa shkruani.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Fletore e re',
   'notes.newNotebookPrompt': 'Emri i ri i fletores së shënimeve',
   'notes.notebooksHeading': 'Fletore',
+  'notes.subtitle':
+    'Zgjidh një fletore në të majtë, pastaj shtyp butonin Shënim i ri për të filluar një hyrje të re.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Zgjidhni planin tuaj të marrjes së shënimeve',
   'reset.eyebrow': 'Pothuajse përsëri brenda',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Përditësuar',
   'versoLayout.nav.graph': 'Grafik',
   'versoLayout.nav.home': 'Shtëpi',
+  'versoLayout.primaryNavLabel': 'Navigimi kryesor',
   'versoNoteCard.pinned': 'I fiksuar',
   'versoTodayHero.continueCta': 'Vazhdo të shkruash',
   'versoTodayHero.createCta': 'Filloni shënimin e sotëm',

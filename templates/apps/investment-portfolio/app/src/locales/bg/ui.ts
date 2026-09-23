@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Инструменти за богатство',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Не е инвестиционен съвет.',
   'argentAuthShell.sampleChange': '+$2 841 (+0,28%) днес',
   'argentAuthShell.sampleValue': '1 032 251 долара',
   'argentLayout.primaryNavLabel': 'Основна навигация',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Няма транзакции за този тикер.',
   'assetDetail.txHeading': 'Вашите транзакции',
   'common.and': 'и',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Преглед на портфолиото',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Все още няма активи.',
   'holdings.heading': 'Холдинги',
   'holdings.loadError': 'Зареждането на фондовете не бе успешно.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Не е инвестиционен съвет. Минали резултати не гарантират бъдещи резултати.',
   'landing.eyebrow': 'Argent · Платформа за инструменти за богатство',
   'landing.features.heading': 'Всичко, което един съветник би изградил за себе си.',
   'landing.finalCta.heading': 'Върнете дисциплината в портфолиото си.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} преди ч',
   'news.justNow': 'току-що',
   'news.loadError': 'Зареждането на новините не бе успешно.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'portfolioHeroCard.label': 'Стойност на портфолиото',
   'pricing.holdingsLabel': 'стопанства',
   'pricing.newsLabel': 'новинарски статии',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Изтриване на акаунт',
   'settings.security.deleting': 'Изтриване…',
   'settings.security.heading': 'Сигурност',
+  'settings.security.newPassword': 'Нова парола',
   'settings.security.password': 'Парола',
   'settings.security.twoFactorEnable': 'Активирай',
+  'settings.security.twoFactorInvalidCode': 'Невалиден код',
+  'settings.security.twoFactorVerify': 'Проверка и активиране',
   'settings.tax.error': 'Не можа да се актуализира методът на данъчно облагане.',
   'settings.tax.heading': 'Данъчно счетоводство',
   'settings.tax.method': 'Метод по подразбиране',

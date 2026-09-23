@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
   'authBrandPanel.quote':
     '«Эми бизде кол коюлган ар бир келишим үчүн жазуу системасы болуп саналат.»',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'contractDetail.amount': 'Баалуулук',
   'contractDetail.back': 'Бардык келишимдер',
   'contractDetail.downloadCta': 'PDF жүктөп алуу',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
     'Эгерде аккаунт бар болсо {{email}} , баштапкы абалга келтирүү шилтемеси жакында чыгат.',
   'forgotPassword.subtitle':
     'Жумуш электрондук почтаңызга баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule менен курулган.',
   'landing.ctaHeading': 'Портфолиоңузду биринчи күнү эле жабык көрүңүз.',
   'landing.ctaPrimary': 'Жумуш ордун баштоо',
   'landing.eyebrow': 'Юридикалык операциялар жана сатып алуулар үчүн',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Контрагенттин аты-жөнү талап кылынат.',
   'newContract.errEmail': 'Кол коюучунун электрондук почтасы талап кылынат.',
   'newContract.expires': 'Жарамдык датасы',
+  'newContract.failed': 'Келишим түзө алган жок.',
   'newContract.heading': 'Жаңы келишим',
   'newContract.nextCta': 'Кийинки',
   'newContract.review.counterparty': 'Контрагент',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Келишимдин аталышы',
   'newContract.titlePlaceholder': 'Негизги кызмат көрсөтүү келишими',
   'newContract.variablesHeading': 'Келишимдик өзгөрмөлөр',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.dataExport': 'Маалыматтарды экспорттоо',
   'pricing.disabled': 'Жок',
   'pricing.enabled': 'Ооба',
@@ -146,15 +152,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Аккаунт өчүрүлгөн жок.',
   'settings.security.deleting': 'Жок кылынууда…',
   'settings.security.newPassword': 'Жаңы сыр сөз',
+  'settings.security.noDevices': 'Катталган түзмөктөр жок.',
   'settings.security.twoFactor': 'Эки факторлуу аутентификация',
   'settings.security.twoFactorDisable': 'Өчүрүү',
   'settings.security.twoFactorEnable': 'Иштетүү',
+  'settings.security.twoFactorInvalidCode': 'Жараксыз код.',
   'settings.signatures.body':
     'Терилген аты-жөнүңүз кол койгон ар бир келишимдин кол коюу сабында көрсөтүлөт. Аны бир жолу орнотсоңуз, ал мындан ары автоматтык түрдө көрсөтүлөт.',
   'settings.signatures.heading': 'Кол тамга блогу',
   'settings.signatures.save': 'Кол тамганы сактоо',
+  'sign.action': 'Бул документке кол коюңуз',
+  'sign.eyebrow': 'Кол коюу суралды',
+  'sign.for': '{{name}} үчүн',
+  'sign.loadError': 'Бул кол коюу шилтемеси жараксыз же мөөнөтү бүткөн.',
   'sign.loading': 'Жүктөлүүдө…',
   'sign.signing': 'Кол коюлууда…',
+  'sign.submitError':
+    'Кол тамгаңыз жаздырылган жок — шилтеменин мөөнөтү бүтүп калган болушу мүмкүн.',
   'signup.brandQuote':
     '\\u201cБиз 8 жылдык кагазды бир жуманын ичинде Vellumга көчүрдүк. Аудиттин жыйынтыгы гана алмашууну актайт.\\u201d',
   'signup.companyPlaceholder': 'Нортвинд соодагерлери',
@@ -188,6 +202,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Ачык келишим →',
   'vellumKpiCard.trend': 'Акыркы тенденция',
+  'vellumLayout.closeMenu': 'Навигация менюсун жабуу',
+  'vellumLayout.openMenu': 'Навигация менюсун ачуу',
   'vellumLayout.primaryNavLabel': 'Негизги навигация',
   'vellumPortfolioHero.expiring': '30 күндөн кийин бүтөт',
   'vellumPortfolioHero.label': 'Портфелдин баасы',

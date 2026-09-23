@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'お問い合わせ',
+  'about.title': '{{app}}について',
   'authShell.backToLanding': '← ランディングに戻る',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.no': '—',
+  'common.retry': '再試行',
   'common.yes': '✓',
   'dashboard.eyebrow': '今日 · 業務概要',
   'dashboard.heading': 'ドキュメントインテリジェンス',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': '現在のフィルターに一致するドキュメントはありません。',
   'documents.heading': 'すべてのドキュメント',
   'documents.loadError': 'ドキュメントの読み込みに失敗しました。',
+  'documents.loading': 'ライブラリを読み込み中…',
   'documents.searchLabel': 'ドキュメントを検索',
   'documents.searchPlaceholder': 'ドキュメントを検索…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'パスワードを隠す',
   'login.showPassword': 'パスワードを表示',
   'login.subtitle': 'サインインしてドキュメントの流れを維持しましょう。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'notFound.body':
     '開こうとしたドキュメントまたはルートはこちらにはありません。ダッシュボードに戻るか、サイドバーからセクションを選択してください。',
+  'notFound.eyebrow': '{{app}} ・404',
   'notFound.home': 'ランディングページを開く',
   'notFound.title': 'そのページはファイルにありません',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% 昨日比',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'アクティブなルール',
   'rules.empty': '振り分けルールはまだありません。新規ルールから追加してください。',
   'rules.eyebrow': '自動化',
+  'rules.fieldsCount': '{{count}} フィールド',
   'rules.form.destination': '振り分け先',
   'rules.form.name': 'ルール名',
   'rules.form.save': 'ルールを保存',

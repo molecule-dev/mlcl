@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
   'actions.empty': 'Walang aksiyon na nagtugma.',
   'actions.heading': 'Mga Aksiyon',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Nakaraang buwan',
   'calendar.recent': 'Pinakabago',
   'common.daysAgo': '{{count}}a nakalipas',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.hoursAgo': '{{count}}o nakalipas',
   'common.no': '—',
+  'common.retry': 'Subukan muli',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} aksiyong dapat gawin',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Tingnan ang Inyong inbox para sa reset link.',
   'forgot.subheading': 'Ilagay ang Inyong email at magpapadala kami ng reset link.',
   'integrations.disconnected': 'Nadiskonekta',
+  'integrations.loadError': 'Nabigong i-load ang mga integrasyon.',
   'integrations.notConnectedTag': 'Hindi nakakonekta',
   'integrations.subheading':
     'Ikonekta ang mga kalendaryo at video platform para awtomatikong sumali ang Murmur.',
+  'integrations.updateError': 'Nabigo ang pag-update.',
   'landing.ctaButton': 'Magsimula — libre ito',
   'landing.ctaHeading': 'Tigilan ang pagsulat ng notes. Simulan ang paggawa ng desisyon.',
   'landing.demo.aiLabel': 'AI summary, isinagawa nang live',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Mga Follow-up',
   'meetingDetail.loadError': 'Nabigo ang pag-load ng pulong.',
   'meetingDetail.noActions': 'Walang natuklasang aksiyong dapat gawin.',
+  'meetingDetail.none': 'Wala.',
   'meetingDetail.notFound': 'Hindi nahanap ang pulong.',
+  'meetingDetail.speakerFallback': 'Tagapagsalita {{id}}',
   'meetingDetail.summaryHeading': 'AI Summary',
   'meetingDetail.transcriptHeading': 'Transcript',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Mga Pulong',
   'meetings.loadError': 'Nabigo ang pag-load ng mga pulong.',
   'meetings.subheading': 'Bawat naitala, na-upload, at na-sync na pulong.',
+  'murmurLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'murmurLayout.primaryNavLabel': 'Pangunahing nabigasyon',
   'nav.legal': 'Legal',
   'notifications.loadError': 'Nabigo ang pag-load ng mga notification.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Paano Kayo lumitaw sa Murmur.',
   'record.error.empty': 'Walang audio na natala.',
   'record.error.permission': 'Tinanggihan ang pahintulot ng mikropono.',
+  'record.error.recorder': 'Error sa pagrerekord',
   'record.error.unsupported':
     'Hindi sinusuportahan ng Inyong browser ang pagtatala. Subukan ang Chrome, Edge, o Safari.',
   'record.error.upload': 'Nabigo ang pag-upload. Subukan muli.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Bagong password',
   'reset.subheading': 'Pumili ng password na hindi Ninyo ginagamit kahit saan.',
   'search.empty': 'Mag-type para maghanap ng mga transcript.',
+  'search.loadError': 'Nabigo ang paghahanap. Subukan muli.',
   'search.noResults': 'Walang resulta para sa "{{q}}".',
   'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
   'settings.appearance.title': 'Hitsura',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nabigo ang pag-load ng mga setting.',
   'settings.loading': 'Naglo-load…',
   'settings.push.heading': 'Mga push notification',
+  'settings.push.subheading':
+    'Kumuha ng mga alerto sa browser para sa mga pagbanggit, mga item ng aksyon, at mga buod.',
   'settings.retention.audio': 'Panatilihin ang audio sa loob ng',
   'settings.retention.heading': 'Pagpapanatili',
   'settings.retention.transcript': 'Panatilihin ang mga transcript sa loob ng',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Simulan ang pagtala ng mga tala ng pulong sa loob ng ilang minuto',
   'signup.terms':
     'Sa paggawa ng account, sumasang-ayon Kayo sa aming Mga Tuntunin ng Serbisyo at Patakaran sa Privacy.',
+  'signup.termsPrefix': 'Sa pamamagitan ng paggawa ng account, sumasang-ayon ka sa aming',
   'team.inviteCta': 'Mag-imbita ng miyembro ng koponan',
   'team.invitedAs': 'Inimbitahan bilang {{role}}',
   'team.inviteFailed': 'Hindi makapagpadala ng imbitasyon.',

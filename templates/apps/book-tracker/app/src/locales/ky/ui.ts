@@ -151,7 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Чынжырды кайра баштоо',
   'resetPassword.mismatchError': 'Сырсөздөр дал келбейт.',
   'resetPassword.subheading': 'Күчтүү бир нерсе тандаңыз. Китептериңиз күтөт.',
-  'reviewCard.starsAria': 'Бааланган<x> {{рейтинг}}</x> ичинен<x> {{of}}</x> жылдыздар',
+  'reviewCard.starsAria': '{{of}} жылдыздын ичинен {{rating}} жылдыз деп бааланды',
   'reviewCard.unratedAria': 'Бааланбаган',
   'reviews.eyebrow': 'Сизге эмне эсиңизде калды',
   'reviews.heading': 'Сиздин сындарыңыз',

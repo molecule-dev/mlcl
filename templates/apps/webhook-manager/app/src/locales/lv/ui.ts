@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// par {{app}}',
+  'about.pageTitle': 'Webhook vadības plakne',
+  'about.plansTitle': 'Plāni katram posmam',
   'apiKeys.bestPractices': 'Labākā prakse',
   'apiKeys.body':
     'Programmatiskās piekļuves pilnvaras. Apstrādājiet tās kā paroles — glabājiet tās vidē (env vars), nekad neveiciet izmaiņu.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'plāna ietvaros',
   'billing.usageWarning': 'netālu no vāciņa',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.body':
     'Tiešraides caurlaidspēja, atkārtoti mēģinājumi darbības laikā un galapunkti, kas tikko apstājās — katrā jūsu pārvaldītajā darbvietā.',
   'dashboard.endpointsEmpty': 'Vēl nav galapunktu.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'galapunkti',
   'endpointDetail.deliveryTrendSub': 'piegādes stundā, baļķu mērogā',
   'endpointDetail.hideSecret': 'Slēpt noslēpumu',
+  'endpointDetail.loading': 'Notiek galapunkta ielāde…',
   'endpointDetail.metric.delivered': 'Piegāde 24 stundu laikā',
   'endpointDetail.metric.deliveredCaption': 'no {{count}} notikumu veidi',
   'endpointDetail.metric.failuresCaption': 'atkārtoti mēģinājumi: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritiski svarīgs · 24 stundas',
   'notifications.metric.totalCaption': 'visu laiku iesūtne',
   'payloadViewer.payload': '// lietderīgā slodze',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'profile.avatarHeader': 'Avatars',
   'profile.avatarHint': 'Redzami iniciāļi — augšupielādes, kas gaidāmas nākamajā laidienā.',
   'profile.body': 'Jūsu konts, preferences un aktīvās sesijas.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ saglabāts',
   'profile.sessionsEmpty': 'Aktīva ir tikai jūsu pašreizējā sesija. Nav pierakstīta cita ierīce.',
   'profile.toggle': 'Pārslēgt {{label}}',
+  'pylonShell.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'pylonShell.openMenu': 'Atvērt navigācijas izvēlni',
   'pylonShell.primaryNavLabel': 'Galvenā navigācija',
   'resetPassword.subtitle': 'Izvēlieties drošu paroli, kuru iepriekš neesat izmantojis.',
   'resetPassword.tokenPlaceholder': 'teksts no e-pasta',

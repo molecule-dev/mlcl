@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'Нашата приказна',
   'aiSuggestionPanel.title': 'Сигнет Копилот',
   'analytics.col.open': 'Отворена стапка',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Започнува наплатата…',
   'billing.subheading': 'Изберете го планот што одговара на начинот на кој испраќате.',
   'billing.unavailable': 'Контактирајте ја продажбата',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'common.retry': 'Обидете се повторно',
   'compose.adjustingTone': 'Препишување во избраниот тон…',
   'compose.aiPromptPlaceholder':
     'на пр. „Љубезен коментар откако нема одговор две недели, нека биде краток.“',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
     'Треба да испратите нешто? Signet може да има готов нацрт за неколку секунди.',
   'dashboard.composeCtaLabel': 'Брзо пишување',
   'dashboard.heading': 'Вашата недела, составена',
+  'dashboard.loadFailed': 'Не можеше да се вчита вашата контролна табла.',
   'dashboard.manageLibrary': 'Управување со библиотека →',
   'dashboard.recentEmpty':
     'Сè уште нема испратени е-пораки — вашите испратени е-пораки ќе се појават тука.',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Стандарден тон',
   'settings.toneSubheading': 'Signet го користи овој тон освен ако не го замените нацртот.',
   'signetLayout.primaryNavLabel': 'Примарна навигација',
+  'signetLayout.toggleMenu': 'Вклучи/исклучи мени',
   'signup.emailLabel': 'Е-адреса',
   'signup.showPassword': 'Прикажи лозинка',
   'signup.tagline':

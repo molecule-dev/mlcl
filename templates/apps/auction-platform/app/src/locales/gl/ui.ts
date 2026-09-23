@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Observando',
   'auctionDetail.watchRemoved': 'Eliminado da lista de vixilancia.',
   'auctionDetail.watchRemoveLabel': 'Eliminar da lista de vixilancia',
+  'auctionPlatformLayout.primaryNavLabel': 'Navegación principal',
   'authShell.brandBody':
     'Licita en tempo real por reloxos raros, obras de arte e artigos especiais únicos. O martelo cae en segundos.',
   'authShell.brandEyebrow': 'En directo agora · 1.420 poxas',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ordenar por',
   'browseAuctions.subheading':
     'Filtra por categoría, ordena polo que máis importa e fai unha oferta antes de que caia o martelo.',
+  'common.goToDashboard': 'Ir ao panel',
   'countdownTimer.ended': 'Rematado',
   'countdownTimer.endingSoon': 'Fin',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostrar contrasinal',
   'login.subtext':
     'Continúa facendo un seguimento das túas poxas e fai ofertas antes de que caia o martelo.',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'myBids.bidAgain': 'Volver a licitar',
   'myBids.browseCta': 'Explorar poxas en directo →',
   'myBids.checkoutCta': 'Pagar agora',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centro de actividades',
   'notificationsPage.subheading':
     '{{count}} sen ler · actualizacións en directo a medida que avanzan as poxas',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.bidsLabel': 'ofertas',
   'pricing.listingsLabel': 'listaxes',
   'pricing.watchlistLabel': 'lista de vixilancia',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.connectRepoCta': 'ເຊື່ອມຕໍ່ບ່ອນເກັບຂໍ້ມູນ',
   'dashboard.empty': 'ຍັງບໍ່ມີການຮ້ອງຂໍດຶງຂໍ້ມູນເທື່ອ — ເຊື່ອມຕໍ່ບ່ອນເກັບຂໍ້ມູນເພື່ອເລີ່ມຕົ້ນ.',
   'dashboard.eyebrow': 'ການຫັກເຫ · ຄິວການທົບທວນຄືນ',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'ເວລາເຮັດວຽກ',
   'pullRequestRow.files': '{{count}} ສ',
   'pullRequestRow.scoreAria': 'ຄະແນນຄຸນນະພາບ AI {{score}} / 10',
+  'refractLayout.closeMenu': 'ປິດເມນູ',
+  'refractLayout.openMenu': 'ເປີດເມນູ',
   'refractLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'reports.cumulativeScoreLabel': 'ຄະແນນສະສົມ',
   'reports.cumulativeScoreSubtitle': 'ຄັງທັງໝົດ · {{days}} ງ',
@@ -176,11 +179,14 @@ export const ui: UiTranslations = {
     'ເຊື່ອມຕໍ່ບ່ອນເກັບຂໍ້ມູນ ຫຼື ເພີ່ມກົດລະບຽບທີ່ກຳນົດເອງເພື່ອເລີ່ມຕົ້ນການຈັດດັດສະນີ.',
   'search.loadError': 'ໂຫຼດດັດຊະນີການຄົ້ນຫາບໍ່ສຳເລັດ.',
   'settings.apiKeys.description': 'ຈັດການລະຫັດ API ສ່ວນຕົວຈາກເມນູຜູ້ໃຊ້ຢູ່ເບື້ອງຂວາເທິງ.',
+  'settings.apiKeys.integrationsNote':
+    'ໂທເຄັນການເຂົ້າເຖິງຂອງຜູ້ໃຫ້ບໍລິການແມ່ນຖືກຈັດການໃນພາກສ່ວນການເຊື່ອມໂຍງຂ້າງເທິງ.',
   'settings.connectError': 'ເຊື່ອມຕໍ່ຜູ້ໃຫ້ບໍລິການບໍ່ສຳເລັດ.',
   'settings.disconnectError': 'ຕັດການເຊື່ອມຕໍ່ຜູ້ໃຫ້ບໍລິການບໍ່ສຳເລັດ.',
   'settings.eyebrow': 'ການຫັກເຫ · ພື້ນທີ່ເຮັດວຽກ',
   'settings.integration.${provider}.label': 'ກຳລັງບັນທຶກ...',
   'settings.loadError': 'ໂຫຼດການຕັ້ງຄ່າບໍ່ສຳເລັດ.',
+  'settings.notificationCenter': 'ສູນແຈ້ງເຕືອນ',
   'settings.notifications.description':
     'ເຂົ້າເບິ່ງໜ້າການແຈ້ງເຕືອນເພື່ອເບິ່ງ ແລະ ຈັດການການຕັ້ງຄ່າການຈັດສົ່ງ.',
   'settings.section.account': 'ບັນຊີ ແລະ ຄວາມປອດໄພ',

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ግብረመልስ፣ የባህሪ ጥያቄ አለዎት ወይስ ሳንካ አግኝተዋል? በመለያ ምናሌዎ ውስጥ ባለው የድጋፍ አገናኝ በኩል {{app}} ቡድኑን ያግኙ - እያንዳንዱ መልእክት ወደ እውነተኛ ሰው ይሄዳል።',
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
   'agentDetail.back': 'ሁሉም ወኪሎች',
   'agentDetail.capabilities': 'ችሎታዎች',
   'agentDetail.delete': 'የግል ባህሪን ሰርዝ',
   'agentDetail.deleteConfirm': 'ይህ የግል ባህሪ ይሰረዝ? ይህ ሊቀለበስ አይችልም።',
+  'agentDetail.deleteError': 'የግል መለያን መሰረዝ አልተቻለም።',
   'agentDetail.eyebrow': 'ፐርሶና',
   'agentDetail.fetchError': 'persona መጫን አልተቻለም።',
   'agentDetail.save': 'የግል ምስልን አስቀምጥ',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'በመቀየር ላይ…',
   'billing.updateError': 'ማዘመን መጀመር አልተቻለም።',
   'billing.usageHeading': 'የድምፅ አጠቃቀም በዚህ ዑደት',
+  'chatBubble.source.text': 'ጽሑፍ',
+  'chatBubble.source.voice': 'ድምፅ',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'conversation.defaultTitle': 'አዲስ ውይይት',
   'conversation.empty': 'እስካሁን ምንም መልዕክቶች የሉም። የሆነ ነገር በመናገር ወይም ከታች በመተየብ ይጀምሩ።',
   'conversation.eyebrow': 'የቀጥታ ክፍለ ጊዜ',
@@ -90,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.featuresSubtitle': 'ለተፈጥሮ ውይይት የተገነባ - ከእርስዎ ፍጥነት፣ ቃና እና አውድ ጋር የሚስማማ።',
   'landing.featuresTitle': 'የሚናገር ብልህነት።',
   'landing.heroSubtitle': 'ተፈጥሯዊ ፍሰትዎን የሚረዳ የAI ድምጽ ረዳት። ይነጋገሩ፣ ሀሳብ ይስጡ እና ያዛዙ - ያለምንም እንከን።',
+  'landing.heroTitle': '{{tagline}}።',
   'landing.listening': 'በማዳመጥ ላይ…',
   'landing.naturallyBody':
     'ምንም አይነት ቀስቅሴ ቃላት የሉም። ጥብቅ ትዕዛዞች የሉም። ፓርላንስ እንደ ባልደረባ ጋር እንደመወያየት ያሉ የሰውን ንግግር አውድ፣ መቆራረጦችን እና ልዩነትን ይረዳል።',
@@ -107,6 +115,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ክፍለ ጊዜ ይክፈቱ',
   'notFound.home': 'ወደ ቤት ተመለስ',
   'notFound.title': 'ያንን ገጽ መስማት አልቻልንም።',
+  'parlanceLayout.closeMenu': 'ምናሌን ዝጋ',
+  'parlanceLayout.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'parlanceLayout.primaryNavLabel': 'ዋና አሰሳ',
   'pricing.conversations': '{{count}} ውይይቶች',
   'pricing.cta.startFree': 'በነፃ ይጀምሩ',
@@ -143,6 +153,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ምንም ተዛማጆች የሉም',
   'search.eyebrow': 'የትእዛዝ ቤተ-ስዕል',
   'search.fetchError': 'የፍለጋ ኢንዴክስ መጫን አልተቻለም።',
+  'search.static.profile.preview': 'የማሳያ ስም፣ እጀታ፣ የህይወት ታሪክ',
   'search.static.voice.title': 'ድምጽ',
   'search.title': 'የቋንቋ ፍለጋ',
   'search.transcriptPreview': 'ክፍት ግልባጭ',

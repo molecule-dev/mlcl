@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'За нас',
   'applications.empty':
     'Все още няма кандидатури \\u2014 правилната позиция е само на една кандидатура разстояние.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Всяка позиция, за която сте кандидатствали, е в действие. Филтрирайте по етап, за да се фокусирате.',
   'applications.untitledRole': 'Роля № {{id}}',
+  'auth.legalConsent': 'Продължавайки, вие се съгласявате с нашите',
   'common.and': 'и',
+  'common.goToDashboard': 'Към таблото',
   'companies.empty':
     'Няма фирми, които да отговарят на вашето търсене \\u2014 опитайте с друг термин.',
   'companies.eyebrow': 'Препоръчани работодатели',
@@ -53,6 +56,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Все още няма кандидатури за тази позиция.',
   'jobApplicants.eyebrow': 'Гледна точка на работодателя',
   'jobApplicants.loading': 'Зареждане\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Не можах да актуализирам този етап — опитайте отново.',
+  'jobApplicants.subheading':
+    'Преглеждайте автобиографии, насърчавайте кандидати, изпращайте оферти \\u2014 {{count}} в действие.',
   'jobDetail.applicantCount': '{{count}} кандидати досега',
   'jobDetail.applied': 'Заявлението е изпратено',
   'jobDetail.apply': 'Кандидатствайте сега',
@@ -86,6 +92,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Разгледайте отворените позиции \\u2192',
   'landing.pricingEyebrow': 'Ценообразуване',
   'landing.pricingHeading': 'Прости планове за екип от всякакъв размер.',
+  'login.eyebrow': 'Добре дошли обратно в {{app}}',
   'login.heading': 'Влезте в профила си',
   'login.noAccount': 'Нови ли сте в Нош?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Вход...',
   'login.subheading':
     'Продължете търсенето си, придвижете приложенията си, получавайте отговор по-бързо.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Създадено за екипи, които наемат персонал.',
   'loginBrandPanel.headline': 'Където талантът се среща',
   'loginBrandPanel.headlineLine2': 'инерция.',
   'loginBrandPanel.listing.recruiter': 'Партньор за таланти',
@@ -109,6 +117,7 @@ export const ui: UiTranslations = {
     'Актуализации на кандидатури, покани за интервюта, нови съвпадения \\u2014 първо най-новите.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} тази седмица',
   'opportunitiesHero.eyebrow': 'Отворено днес',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'postJob.addNewCompany': '+ Добавяне на нова компания',
   'postJob.companyCreateFailed': 'Не можах да създам компания — опитайте отново.',
   'postJob.companyNameLabel': 'Името на вашата компания',
@@ -167,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Създаване на акаунт\\u2026',
   'signup.ctaEmployer': 'Създаване на работодателски акаунт',
   'signup.firstNamePlaceholder': 'Мая',
+  'signup.lastNamePlaceholder': 'Чен',
   'signup.passwordMismatch': 'Паролите не съвпадат.',
   'signup.subheading':
     'Безплатно за търсещите, завинаги. Работодателите започват с 30-дневен пробен период.',
   'timeAgo.days': '{{count}} преди дни',
   'timeAgo.hours': '{{count}} преди ч',
   'timeAgo.justNow': 'току-що',
+  'timeAgo.weeks': 'преди {{count}} седмици',
 }

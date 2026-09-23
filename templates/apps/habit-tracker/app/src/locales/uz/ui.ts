@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.pageTitle': '{{app}} haqida',
   'achievementBadgeCard.unlockedOn': 'Qulflanmagan {{date}}',
   'achievements.loadError': "Yutuqlarni yuklab bo'lmadi.",
   'achievements.subheading': '{{unlocked}} ning {{total}} qulflanmagan',
   'achievements.unlockedOn': 'Qulflanmagan {{date}}',
+  'auth.legalConsent': 'Davom etish orqali siz bizning',
   'calendar.empty': "Taqvimingizni ko'rish odatini yarating.",
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Odat',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Odatlar jadvali',
   'category.${c.category}': '{{count}} odatlar',
   'common.and': 'va',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'consistencyHeatmap.ariaLabel': 'Kundalik izchillik issiqlik xaritasi',
   'consistencyHeatmap.caption': 'Oxirgi {{weeks}} haftalar',
   'consistencyHeatmap.lessLabel': 'Ozroq',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': "Jonli efirda ko'ring",
   'landing.heroSubtitle':
     'Odatlarni ular amalda qoladigan tarzda shakllantiring: kichik majburiyatlar, kundalik ishlar va uzoq, uzluksiz zanjirning ichki zavqi.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak ichiga bir qarash',
   'landing.previewMotivation': "To'qqizta chiziq tirik. Ularning barchasini issiq tuting.",
   'login.eyebrow': 'Zanjirni oling',
@@ -99,7 +104,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Kichikroq qiling. Aniqroq qiling. Ertaga keling.',
   'newHabit.timeLabel': 'Eslatma vaqti',
   'notifications.markError': "Hammasini o'qilgan deb belgilash imkoni bo'lmadi.",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.entries': '{{count}} yozuvlar',
+  'pricing.heading': '{{app}} rejasini tanlang',
   'profile.action.plan': 'Obunani boshqarish',
   'profile.action.settings': 'Hisob sozlamalari',
   'profile.bioEmpty': "O'zingizni tanishtirish uchun Sozlamalarga qisqacha tarjimai hol qo'shing.",
@@ -128,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': "Har kuni ertalabki so'rov (soat 8:00)",
   'settings.reminders.heading': 'Eslatmalar',
   'settings.reminders.weekly': 'Haftalik xulosa (yakshanba oqshomlari)',
+  'settings.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.streaks.freezesPerWeek': 'Haftada muzlaydi',
   'settings.streaks.gracePeriod': 'Yarim tundan keyin 6 soatlik imtiyozli davr',
@@ -154,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} faol',
   'streakHeroCard.daysSuffix': 'kunlar',
   'streakHeroCard.title': 'Eng uzun faol seriya',
+  'streakLayout.closeMenu': 'Navigatsiya menyusini yopish',
+  'streakLayout.openMenu': 'Navigatsiya menyusini ochish',
   'streakLayout.primaryNavLabel': 'Asosiy navigatsiya',
 }

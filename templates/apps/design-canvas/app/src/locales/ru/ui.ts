@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'authShell.brandHeading':
     'Идеально выверенные по пикселям полотна для команд дизайнеров, которые совместно выпускают продукты.',
   'canvas.redirecting': 'Вступительный редактор…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'и',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Повторить попытку',
   'dashboard.activityEmpty':
     'Пока нет никакой активности — пригласите товарища по команде начать игру.',
   'dashboard.activityTitle': 'Что изменилось сегодня?',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Рабочее пространство · Студия Northwind',
   'dashboard.foldersLabel': 'Папки',
   'dashboard.gridTitle': '{{count}} проекты',
+  'dashboard.heroActiveTool': 'Инструмент «Перо»',
   'dashboard.loadingTitle': 'Загрузка проектов…',
   'dashboard.searchPlaceholder': 'Поиск проектов',
   'dashboard.startFromTemplate': 'Начните с шаблона',
   'dashboard.title': 'Ваши проекты',
   'dashboard.untitledProject': 'Проект без названия',
   'designCanvasLayout.newProject': 'Новый проект',
+  'designCanvasLayout.primaryNavLabel': 'Основная навигация',
   'editor.backToProjects': 'Вернуться к проектам',
   'editor.deleteShape': 'Удалить форму',
   'editor.errorBody': 'Мы не смогли запустить этот проект.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Создавайте инструменты, которые работают со скоростью ваших рук.',
   'library.empty': 'В этом разделе пока нет токенов.',
   'library.eyebrow': 'Рабочее пространство · Система проектирования мастерской',
+  'library.loadFailed': 'Не удалось загрузить токены дизайна.',
   'library.systemMeta': 'Здоровье системы',
   'library.systemSummary': '{{токены}} токены · {{компоненты}} компоненты · {{effects}} эффекты',
   'login.emailPlaceholder': 'mara@studio.com',

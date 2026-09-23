@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'about.tagline': 'ರಹಸ್ಯಗಳು ಬಯಲಲ್ಲೇ ಸಾಯುತ್ತವೆ.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ಟೋಕನ್ ರಚಿಸಿ',
   'apiTokens.kicker': 'API ಟೋಕನ್‌ಗಳು',
   'apiTokens.loading': 'ಟೋಕನ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'apiTokens.new': 'ಹೊಸ ಟೋಕನ್',
   'apiTokens.revoke': 'ಟೋಕನ್ ಹಿಂತೆಗೆದುಕೊಳ್ಳಿ',
   'apiTokens.subheading':
     'ಅರ್ಕಾನಮ್ CLI ಮತ್ತು SDK ಗಾಗಿ ವೈಯಕ್ತಿಕ ಮತ್ತು ಸೇವಾ ಟೋಕನ್‌ಗಳು. ರಚನೆಯ ಸಮಯದಲ್ಲಿ ಒಮ್ಮೆ ತೋರಿಸಲಾದ ಸರಳ ಪಠ್ಯ.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + ಪಾಸ್‌ಕೀ',
   'authShell.zeroKnowledge': 'ಶೂನ್ಯ-ಜ್ಞಾನ ಗೂಢಲಿಪೀಕರಣ',
   'common.connecting': 'ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ...',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.inviting': 'ಆಹ್ವಾನಿಸಲಾಗುತ್ತಿದೆ...',
   'forgotPassword.checkInbox':
     '{email} ನೋಂದಾಯಿಸಿದ್ದರೆ, ಸಹಿ ಮಾಡಿದ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಒಂದು ನಿಮಿಷದೊಳಗೆ ಬರುತ್ತದೆ.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ಪ್ರತಿ ವಾಲ್ಟ್‌ನಾದ್ಯಂತ ತಿರುಗುವಿಕೆಯ ಸ್ಥಿತಿ, ಅಸಂಗತತೆ ಎಚ್ಚರಿಕೆಗಳು ಮತ್ತು ಅನುಮೋದನೆ ವಿನಂತಿಗಳು.',
   'notifications.unreadEmpty': 'ಇನ್‌ಬಾಕ್ಸ್ ಶೂನ್ಯ — ಎಲ್ಲವೂ ಮುಗಿದಿದೆ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.heading': 'ರಹಸ್ಯಗಳು',
   'pricing.limits.accessPolicies': 'ಪ್ರವೇಶ ನೀತಿಗಳು',
   'pricing.limits.auditLog': 'ಆಡಿಟ್-ಲಾಗ್ ನಮೂದುಗಳು',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯನ್ನು ನಿರ್ವಹಿಸಿ, ಮಿತಿಗಳನ್ನು ನೋಡಿ ಮತ್ತು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
   'profile.subheading': 'ಗುರುತು, ಎರಡನೇ ಅಂಶದ ಸಾಧನಗಳು ಮತ್ತು ಸಕ್ರಿಯ ಅವಧಿಗಳು.',
+  'profile.twoFactor.code': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'profile.twoFactor.disable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'profile.twoFactor.enable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'profile.twoFactor.invalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
   'profile.twoFactor.kicker': 'ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ',
+  'profile.twoFactor.off': 'ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ',
   'profile.twoFactor.on': 'ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ',
   'resetPassword.email': 'ಖಾತೆ ಇಮೇಲ್',
   'resetPassword.heading': 'ಹೊಸ ರುಜುವಾತುಗಳನ್ನು ಹೊಂದಿಸಿ',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ಆಜ್ಞೆಗಳು',
   'secretsManagerLayout.encrypted': 'AES-256 · ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ',
   'secretsManagerLayout.newVault': 'ಹೊಸ ವಾಲ್ಟ್',
+  'secretsManagerLayout.newVaultShort': 'ಹೊಸದು',
   'secretsManagerLayout.rotations': 'ತಿರುಗುವಿಕೆಗಳು',
   'secretsManagerLayout.search': 'ಹುಡುಕಾಟ',
   'secretsManagerLayout.searchPlaceholder': 'ಕೀ, ಮಾರ್ಗ ಅಥವಾ ಟ್ಯಾಗ್ ಮೂಲಕ ರಹಸ್ಯಗಳನ್ನು ಹುಡುಕಿ...',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'ರಹಸ್ಯಗಳು',
   'vaultCard.vaultLabel': 'ವಾಲ್ಟ್',
   'vaultDetail.addSecret': 'ರಹಸ್ಯವನ್ನು ಸೇರಿಸಿ',
+  'vaultDetail.back': 'ಎಲ್ಲಾ ವಾಲ್ಟ್‌ಗಳು',
   'vaultDetail.col.key': 'ಕೀ',
   'vaultDetail.col.rotated': 'ತಿರುಗಿಸಲಾಗಿದೆ',
   'vaultDetail.col.value': 'ಮೌಲ್ಯ',

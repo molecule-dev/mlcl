@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'የእርስዎ ሚና',
   'account.role.upgradeLink': 'የተረጋገጠ ሞግዚት ለመሆን ያመልክቱ →',
   'account.title': 'መገለጫ፣ ክፍያ እና ምርጫዎች።',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'በኖራ ላይ አስተምሩ',
   'becomeTutor.form.error': 'ማመልከቻ ማስገባት አልተቻለም።',
   'becomeTutor.form.pitchPlaceholder':
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'ርዕሰ ጉዳይ',
   'bookingConfirm.title': 'ተይዘዋል። የቀረውን እኛ እንይዛለን።',
   'bookingConfirm.with': 'ከአስተማሪ ጋር',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'earningsHero.eyebrow': 'ገቢዎች • {{month}}',
   'forgotPassword.heading': 'የይለፍ ቃልህን ረሳህ?',
   'forgotPassword.subheading': 'ከመለያዎ ጋር የተያያዘውን ኢሜይል ያስገቡ እና የመልሶ ማስጀመሪያ አገናኝ እንልካለን።',
@@ -104,6 +106,7 @@ export const ui: UiTranslations = {
   'messages.send': 'መልእክት ላክ',
   'messages.thread.empty': 'ሰላም በሉ - ውይይቱን ጀምሩ።',
   'messages.title': 'ከአስተማሪዎችዎ ጋር የሚደረጉ ክርኮች።',
+  'nav.primary': 'ዋና',
   'pricing.dataExport': 'የውሂብ ወደ ውጭ መላክ፡',
   'pricing.headingDefault': 'የላቁ ባህሪያት፡',
   'resetPassword.heading': 'ጠንካራ አዲስ የይለፍ ቃል ይምረጡ።',

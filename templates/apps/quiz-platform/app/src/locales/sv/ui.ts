@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.title': 'Om {{app}}',
   'auth.login.noAccount': 'Ny på Sparq?',
   'auth.login.or': 'eller fortsätt med',
   'auth.signup.or': 'eller registrera dig med',
+  'common.confirm': 'Bekräfta',
+  'common.goToDashboard': 'Gå till översikt',
+  'common.loadError': 'Något gick fel när innehållet laddades.',
+  'common.retry': 'Försök igen',
   'discover.collections.title': 'Bläddra efter kategori',
   'discover.collections.viewAll': 'Se ditt bibliotek →',
   'discover.empty.body': 'Prova en annan kategori eller rensa sökningen.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Logga in för att hålla din streak vid liv, vara värd för livespel och klättra på topplistan.',
   'myQuizzes.createButton': 'Nytt quiz',
+  'myQuizzes.deleteConfirm': 'Radera för alltid?',
   'myQuizzes.empty.createCta': 'Bygg ditt första quiz →',
   'myQuizzes.empty.created': 'Du har inte byggt ett quiz ännu.',
   'myQuizzes.empty.played': 'Inga publicerade quiz ännu.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laddar…',
   'notifications.subhead':
     '{{count}} olästa gnistor. Inbjudningar, topplisteförändringar och prestationer i en ström.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.checkoutError': 'Kunde inte starta utcheckning. Försök igen.',
+  'pricing.heading': 'Välj din {{app}}-plan',
   'pricing.included': 'Ingår',
   'pricing.loadError': 'Kunde inte ladda planer.',
   'pricing.maxQuizzes': '{{count}} quiz',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Inget publicerat ännu.',
   'profile.startBuilding': 'Börja bygga →',
   'profile.tier': 'Sparq-spelare',
+  'quizBuilder.addFailed': 'Kunde inte lägga till frågan. Försök igen.',
   'quizBuilder.addQuestion': 'Lägg till fråga',
   'quizBuilder.answerPlaceholder': 'Skriv ett alternativ…',
   'quizBuilder.answersLabel': 'Svarsalternativ',
   'quizBuilder.back': 'Tillbaka till mina quiz',
   'quizBuilder.delete': 'Ta bort fråga',
+  'quizBuilder.deleteFailed': 'Kunde inte ta bort frågan.',
   'quizBuilder.firstQuestion': 'Lägg till din första fråga för att börja.',
   'quizBuilder.idLabel': 'Quiz-id: {{id}}',
   'quizBuilder.loadError': 'Kunde inte ladda quiz.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Lägg till minst två svarsalternativ och välj det korrekta för {{count}} fråga/frågor innan du publicerar.',
   'quizBuilder.questionsTitle': 'Frågor',
+  'quizBuilder.saveFailed': 'Kunde inte spara titeln. Försök igen.',
   'quizBuilder.statusDraft': 'Utkast',
   'quizBuilder.subhead':
     'Redigera titeln, lägg till frågor, ange val och rätt svar. Ändringar sparas automatiskt.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} min',
   'quizDetail.hostMultiplayer': 'Var värd för flerspelare',
   'quizDetail.leaderboardEmpty': 'Inga spel ännu — bli först med att sätta poäng.',
+  'quizDetail.loadError': 'Kunde inte ladda det här quizet.',
   'quizDetail.loading': 'Laddar quiz…',
   'quizDetail.plays': '{{count}} spel',
   'quizDetail.playSolo': 'Spela solo',

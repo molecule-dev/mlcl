@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε σχόλια, κάποια πρόταση για νέα λειτουργία ή εντοπίσατε κάποιο σφάλμα; Επικοινωνήστε με την ομάδα του {{app}} μέσω του συνδέσμου υποστήριξης στο μενού του λογαριασμού σας — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'agentDetail.back': 'Όλοι οι πράκτορες',
   'agentDetail.capabilities': 'Δυνατότητες',
   'agentDetail.delete': 'Διαγραφή προσωπικότητας',
   'agentDetail.deleteConfirm':
     'Να διαγραφεί αυτή η προσωπικότητα; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.',
+  'agentDetail.deleteError': 'Δεν ήταν δυνατή η διαγραφή του προφίλ.',
   'agentDetail.eyebrow': 'Προσωπικότητα',
   'agentDetail.fetchError': 'Δεν ήταν δυνατή η φόρτωση της προσωπικότητας.',
   'agentDetail.save': 'Αποθήκευση προσωπικότητας',
@@ -48,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Εναλλαγή…',
   'billing.updateError': 'Δεν ήταν δυνατή η έναρξη ενημέρωσης.',
   'billing.usageHeading': 'Χρήση φωνής αυτόν τον κύκλο',
+  'chatBubble.source.text': 'κείμενο',
+  'chatBubble.source.voice': 'φωνή',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'conversation.defaultTitle': 'Νέα συνομιλία',
   'conversation.empty':
     'Δεν υπάρχουν ακόμη μηνύματα. Ξεκινήστε λέγοντας κάτι ή πληκτρολογώντας παρακάτω.',
@@ -99,6 +106,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Νοημοσύνη που μιλά.',
   'landing.heroSubtitle':
     'Ο φωνητικός βοηθός AI που κατανοεί τη φυσική ροή σας. Συνομιλήστε, δημιουργήστε ιδέες και δώστε εντολές — αδιάλειπτα.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Ακούω…',
   'landing.naturallyBody':
     'Χωρίς λέξεις ενεργοποίησης. Χωρίς άκαμπτες εντολές. Το Vox κατανοεί το πλαίσιο, τις διακοπές και τις αποχρώσεις της ανθρώπινης ομιλίας — όπως μια κουβέντα με συνάδελφο.',
@@ -117,6 +125,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Άνοιγμα συνεδρίας',
   'notFound.home': 'Επιστροφή στην αρχική',
   'notFound.title': 'Δεν ακούσαμε αυτή τη σελίδα.',
+  'parlanceLayout.closeMenu': 'Κλείσιμο μενού',
+  'parlanceLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'parlanceLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'pricing.conversations': '{{count}} συνομιλίες',
   'pricing.cta.startFree': 'Ξεκινήστε δωρεάν',
@@ -154,6 +164,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Δεν βρέθηκαν αποτελέσματα',
   'search.eyebrow': 'Παλέτα εντολών',
   'search.fetchError': 'Δεν ήταν δυνατή η φόρτωση του ευρετηρίου αναζήτησης.',
+  'search.static.profile.preview': 'Όνομα εμφάνισης, ψευδώνυμο, βιογραφικό',
   'search.static.voice.title': 'Φωνή',
   'search.title': 'Αναζήτηση στο Vox',
   'search.transcriptPreview': 'Άνοιγμα μεταγραφής',

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
+  'about.featureDiscover.title': '엄선된 영감',
   'account.addPaymentCta': '결제 수단 추가',
   'account.addPaymentError': '결제 수단을 추가할 수 없습니다.',
+  'account.confirmRemove': '삭제 확인',
   'account.defaultBadge': '기본',
   'account.loyalty.pointsTowardNext': '{{nextTier}}까지 {{next}}마일 중 {{points}}마일',
   'account.loyalty.tier': '현재 등급',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': '여행 세부 정보',
   'booking.tripSummary': '{{nights}}박 · {{guests}}명',
   'common.daysAgo': '{{count}}일 전',
+  'common.goToDashboard': '대시보드로 이동',
   'common.hoursAgo': '{{count}}시간 전',
   'common.minutesAgo': '{{count}}분 전',
   'common.no': '—',
@@ -76,6 +80,7 @@ export const ui: UiTranslations = {
   'nav.legal': '법적 고지',
   'notifications.loading': '불러오는 중…',
   'notifications.subheading': '{{count}}건의 읽지 않은 알림 · 모든 알림을 한 곳에서',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.accommodationsLabel': '숙박 시설',
   'pricing.bookingsLabel': '예약',
   'pricing.destinationsLabel': '저장한 여행지',
@@ -127,6 +132,7 @@ export const ui: UiTranslations = {
     '영감, 신뢰할 수 있는 숙소, 꿈에서 예약까지 막힘없는 여정 — 14개국 200곳 이상의 엄선된 숙소.',
   'sojournHeroSearchCard.trustProtected': '무료 취소와 완벽한 보호',
   'sojournHeroSearchCard.trustVetted': '엄선된 숙소만 제공',
+  'travelBookingLayout.primaryNavLabel': '기본 탐색',
   'tripDetail.backLink': '여행 목록으로 돌아가기',
   'tripDetail.cancelCta': '예약 취소',
   'tripDetail.cancelHeading': '이 여행을 취소하시겠습니까?',

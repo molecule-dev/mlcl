@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'auth.forgotPassword.emailPlaceholder': 'pangalan@iyongkumpanya.com',
   'auth.forgotPassword.heading': 'I-reset ang iyong password.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Markahan ang gawain na tapos na',
   'checklistTaskCard.markIncomplete': 'Markahan ang gawain na hindi pa tapos',
   'checklistTaskCard.openLabel': 'Buksan ang gawain',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Wala kang napalampas',
@@ -53,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Nasa track',
   'dashboard.timelineHeading': '30/60/90 na mga milestone',
   'dashboard.viewAllTasks': 'Tingnan ang lahat ng gawain',
+  'dashboard.weekOne': 'Linggo 1',
   'dashboard.yourCohort': 'Ang iyong koponan',
   'documents.empty.body': 'Lalabas dito ang mga dokumentong idinagdag ng iyong koponan.',
   'documents.empty.title': 'Wala pang mga dokumento',
@@ -111,7 +114,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-araw na libreng pagsubok',
   'landing.subhead':
     'Ginagabayan ng Embark ang bawat bagong kasamahan sa koponan sa kanilang unang 90 araw — mga papeles, pagsasanay, mga milestone, at makabuluhang pagpapakilala, lahat sa iisang kalmado at may kumpiyansang lugar.',
+  'layout.openMenu': 'Buksan ang menu ng nabigasyon',
   'layout.search': 'Maghanap ng mga gawain, dokumento, mga kasamahan sa koponan...',
+  'layout.searchTeammates': 'Maghanap ng mga kasamahan sa koponan ayon sa pangalan o tungkulin...',
   'layout.section.onboarding': 'Pag-onboard',
   'layout.tagline': 'Dito nagsisimula ang iyong paglalakbay',
   'notifications.empty.body': 'May lalabas na bagong aktibidad dito.',
@@ -120,6 +125,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'kahapon',
   'planUpdated.message': 'Handa ka na.',
   'planUpdated.preparing': 'Ina-update ang iyong plano…',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.documentsLabel': 'mga dokumento',
   'pricing.onboardingsLabel': 'mga onboarding',
   'pricing.tasksLabel': 'mga gawain',

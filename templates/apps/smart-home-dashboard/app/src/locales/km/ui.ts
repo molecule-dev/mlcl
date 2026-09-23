@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.pageTitle': 'អំពី {{app}}',
   'activity.empty': 'មិនទាន់មានសកម្មភាពនៅឡើយទេ — ត្រឡប់ឧបករណ៍ ឬធ្វើឱ្យឈុតឆាកសកម្ម។',
   'activity.eyebrow': 'ពេលវេលា',
   'activity.loadError': 'មិនអាចផ្ទុកព័ត៌មានសកម្មភាពបានទេ។',
   'activity.subheading':
     'ព្រឹត្តិការណ៍ឧបករណ៍ ស្វ័យប្រវត្តិកម្ម និងសុវត្ថិភាពនីមួយៗ តាមលំដាប់លំដោយនៃពេលវេលា។',
+  'addDevice.error.failed': 'មិនអាចបន្ថែមឧបករណ៍បានទេ។ សូមព្យាយាមម្តងទៀត។',
   'addDevice.error.nameRequired': 'ដាក់ឈ្មោះឱ្យឧបករណ៍នេះដើម្បីបន្ត។',
   'addDevice.field.firmware': 'កំណែកម្មវិធីបង្កប់',
   'addDevice.field.manufacturer': 'ក្រុមហ៊ុនផលិត',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'កំពុងធ្វើតេស្ត…',
   'automationEditor.testNew': 'រក្សាទុក​ប្រព័ន្ធ​ស្វ័យប្រវត្តិកម្ម​ជាមុនសិន ដើម្បី​សាកល្បង​វា។',
   'automationRow.lastRun': 'ចុងក្រោយ {{date}} · {{count}} រត់',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'រត់ {{name}} ឥឡូវនេះ',
   'automations.empty': 'មិនទាន់មានស្វ័យប្រវត្តិកម្មនៅឡើយទេ — បង្កើតទម្លាប់ដំបូងរបស់អ្នក។',
   'automations.eyebrow': 'ទម្លាប់',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'កំពុងផ្ទុក​ប្រព័ន្ធ​ស្វ័យប្រវត្តិកម្ម…',
   'automations.newAutomation': '+ ថ្មី',
   'automations.subheading': 'នៅពេលរឿងនេះកើតឡើង សូមធ្វើវា — ដោយមិនប្រើ YAML។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'បរាជ័យក្នុងការផ្ទុកឧបករណ៍។',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'កំពុងធ្វើការ…',
   'deviceDetail.unnamed': 'ឧបករណ៍',
   'deviceStatusRow.on': 'បើក',
+  'deviceStatusRow.turnOff': 'បិទ',
+  'deviceStatusRow.turnOn': 'បើក',
   'deviceStatusRow.watts': '{{watts}} ខាងលិច',
   'energy.eyebrow': 'ថាមពល',
   'energy.heading': 'ថាមពល',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'មើលផែនការ',
   'settings.security.heading': 'សន្តិសុខ',
   'settings.subheading': 'ចំណូលចិត្ត​ផែនការ មជ្ឈមណ្ឌល និង​គណនី។',
+  'smartHomeDashboardLayout.openMenu': 'បើកម៉ឺនុយរុករក',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ការរុករកចម្បង',
 }

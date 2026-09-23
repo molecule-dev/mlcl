@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'À propos de {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Outils de gestion de patrimoine',
+  'argentAuthShell.brandFootnote':
+    '© {{year}} {{app}} . Ceci ne constitue pas un conseil en investissement.',
   'argentAuthShell.sampleChange': "+2 841 $ (+0,28 %) aujourd'hui",
   'argentAuthShell.sampleValue': '1 032 251 $',
   'argentLayout.primaryNavLabel': 'Navigation principale',
@@ -25,6 +28,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Aucune transaction pour ce ticker.',
   'assetDetail.txHeading': 'Vos transactions',
   'common.and': 'et',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': "Vue d'ensemble du portefeuille",
@@ -51,6 +55,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Aucune position pour le moment.',
   'holdings.heading': 'Positions',
   'holdings.loadError': 'Échec du chargement des positions.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ceci ne constitue pas un conseil en investissement. Les performances passées ne préjugent pas des performances futures.',
   'landing.eyebrow': 'Argent · Une plateforme de gestion de patrimoine',
   'landing.features.heading': "Tout ce qu'un conseiller construirait pour lui-même.",
   'landing.finalCta.heading': 'Redonnez de la discipline à votre portefeuille.',
@@ -71,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'il y a {{count}} h',
   'news.justNow': "tout à l' heure",
   'news.loadError': 'Échec du chargement des actualités.',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'portfolioHeroCard.label': 'Valeur du portefeuille',
   'pricing.holdingsLabel': 'avoirs',
   'pricing.newsLabel': "articles d'actualité",
@@ -134,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Supprimer le compte',
   'settings.security.deleting': 'Suppression…',
   'settings.security.heading': 'Sécurité',
+  'settings.security.newPassword': 'Nouveau mot de passe',
   'settings.security.password': 'Mot de passe',
   'settings.security.twoFactorEnable': 'Activer',
+  'settings.security.twoFactorInvalidCode': 'Code non valide',
+  'settings.security.twoFactorVerify': 'Vérifier et activer',
   'settings.tax.error': 'Impossible de mettre à jour la méthode fiscale.',
   'settings.tax.heading': 'Comptabilité des lots fiscaux',
   'settings.tax.method': 'Méthode par défaut',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}(r)i buruz',
   'analytics.avgCheckLabel': 'Batez besteko egiaztapena',
   'analytics.busiestHour': 'Ordu jendetsuena',
   'analytics.coversToday': 'Gaurko azalak',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Aholkuak (batez beste)',
   'analytics.topItems': 'Gaurko elementu nagusiak',
   'authShell.eyebrow': 'Ongi etorri berriro zerbitzura',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Salmenta puntu bero eta azkarra ostalaritza taldeentzat. Hasi saioa zure sukaldean eta jarraitu utzi zenuen tokitik.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'edo {{price}}',
   'billing.priceUnavailable': 'Plan honek ez du konfiguratutako preziorik.',
   'billing.updated': 'Plana eguneratuta.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'customerDetail.book': 'Gehitu erreserba',
   'customerDetail.col.table': 'Taula',
   'customerDetail.confirmDelete': 'Gonbidatu honen erregistroa ezabatu?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Eskuragarritasuna',
   'menuItemDetail.available': 'Gaur gauean eskuragarri',
   'menuItemDetail.backToMenu': 'Itzuli menura',
+  'menuItemDetail.confirmDelete': 'Menu-elementu hau ezabatu?',
   'menuItemDetail.delete': 'Ezabatu elementua',
   'menuItemDetail.deleteError': 'Ezabatzeak huts egin du. Saiatu berriro.',
   'menuItemDetail.dietary': 'Dieta-etiketak',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · editatu argazkiak, aldatzaileak, dieta eta prezioak.',
   'menuItemDetail.untitled': 'Izenik gabeko elementua',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'notFound.heading': 'Mahai hau ez dago lurrean.',
   'notFound.subheading':
     'Bilatzen ari zinen orrialdea beste nonbait egon da — edo ez da inoiz existitu.',
+  'notFound.toLanding': '{{app}} hasiera',
   'notifications.markError': 'Ezin izan da guztia irakurrita markatu.',
   'orderDashboard.activeDelta': 'Zuzeneko unea',
   'orderDashboard.activeLabel': 'Eskaera aktiboak',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Erakutsi pasahitza',
   'resetPassword.subtitle': 'Idatzi zure pasahitz berria sukaldera berriro sartzeko.',
   'resetPassword.tokenLabel': 'Berrezarri tokena',
+  'restaurantOrderingLayout.primaryNavLabel': 'Nabigazio nagusia',
   'revenueHeroCard.activeOrders': '{{count}} aktibo',
   'revenueHeroCard.change': '{{sign}} {{amount}} atzokoaren aldean',
   'revenueHeroCard.title': 'Gaurko diru-sarrerak',
@@ -224,6 +232,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Jatetxearen izena',
   'tableDetail.activeOrders': 'Eskaera aktiboak',
   'tableDetail.backToFloor': 'Oinplanoa',
+  'tableDetail.confirmDelete': 'Taula hau ezabatu?',
   'tableDetail.delete': 'Ezabatu',
   'tableDetail.deleteError': 'Ezin izan da taula ezabatu.',
   'tableDetail.heading': 'Taula {{label}}',

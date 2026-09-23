@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'activityFeed.empty': 'Hələlik heç bir fəaliyyət yoxdur — ilk fakturanı göndərin.',
   'authShell.sample.paid': '2 dəqiqə əvvəl ödənilib',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Yeni müştəri əlavə edin',
   'clients.search': 'Ad, şirkət, e-poçt üzrə axtarış',
   'clients.title': 'Müştərilər',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Yeni müştəri',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Şifrəni unutdum',
   'forgotPassword.successBody':
     'Sıfırlama təlimatlarını göndərdik {{email}} Link 30 dəqiqədən sonra bitir.',
+  'invoiceDetail.action.confirmVoid': 'Boşluğu təsdiqləyin?',
   'invoiceDetail.action.download': 'PDF yükləyin',
   'invoiceDetail.action.duplicate': 'Dublikat',
   'invoiceDetail.action.edit': 'Redaktə edin',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Faktura ləğv edildi.',
   'invoiceDetail.issued': 'Buraxılış tarixi {{date}}',
   'invoiceDetail.loading': 'Faktura yüklənir…',
+  'invoiceDetail.paidInFull': 'Tam ödənilib',
   'invoiceDetail.summary': '{{client}} · göndərildi {{date}}',
   'invoiceDetail.tax': 'Vergi ( {{rate}} %',
   'invoiceDetail.timeline': 'Xronologiya',
+  'invoiceDetail.voided': 'Ləğv edildi',
   'invoiceEditor.addItem': 'Element əlavə edin',
   'invoiceEditor.back': '← Fakturalara qayıt',
   'invoiceEditor.col.qty': 'Miqdar',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'İlk fakturanı göndərin',
   'landing.hero.eyebrow': 'Kiçik müəssisələr üçün faktura',
   'landing.hero.secondary': 'Nümunə fakturaya baxın',
+  'landing.hero.subtitle':
+    '{{appName}} cilalanmış fakturaları daxili ödənişlər, təkrarlanan faktura və vergiyə hazır hesabatlarla birləşdirir. Mühasibat uçotu tələb olunmur.',
   'landing.hero.title': 'Faktura göndərin. Daha sürətli ödəniş alın.',
   'login.signupLink': 'Birini yaradın',
   'login.submitting': 'Daxil olursunuz…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'ödənişlər',
   'pricing.recurringLabel': 'təkrarlanan cədvəllər',
   'remitLayout.newInvoice': 'Yeni Faktura',
+  'remitLayout.openMenu': 'Naviqasiya menyusunu açın',
   'remitLayout.searchPlaceholder': 'Faktura və müştəriləri axtarın...',
   'remitLayout.tagline': 'Daha sürətli ödəniş alın',
   'reports.chart.aging': 'Faktura yaşlanması',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Dövr gəliri',
   'reports.chart.topClients': 'Ən yaxşı müştərilər',
   'reports.chart.topClientsCaption': 'Ömürlük gəlir, ilk 5',
+  'reports.empty.aging': 'Ödənilməmiş faktura yoxdur.',
+  'reports.empty.methods': 'Hələlik ödəniş məlumatları yoxdur.',
+  'reports.empty.revenue': 'Hələ ki, gəlir məlumatları yoxdur.',
+  'reports.empty.topClients': 'Hələ ki, müştəri gəlirləri barədə məlumat yoxdur.',
   'reports.exporting': 'İxrac olunur…',
   'reports.exportRequiresPaid':
     'İxraclar pullu bir xüsusiyyətdir — aktivləşdirmək üçün təkmilləşdirin.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Vergi dərəcəsi əlavə edin',
   'settings.tax.added': 'Vergi dərəcəsi əlavə edildi.',
   'settings.tax.adding': 'Əlavə olunur…',
+  'settings.tax.addRate': 'Qiymət əlavə edin',
   'settings.tax.col.region': 'Region',
   'settings.tax.delete': 'Vergi dərəcəsini silin',
   'settings.tax.deleted': 'Vergi dərəcəsi silindi.',

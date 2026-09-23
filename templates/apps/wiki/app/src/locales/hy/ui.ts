@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Լուծում…',
   'comments.subtitle':
     'The {{count}} թեմաները դեռ սպասում են պատասխանի կամ որոշման: Դասակարգված են ըստ տարիքի՝ սկզբում ամենատարեցները, այնպես որ ոչինչ չի փչանում:',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'forgotPassword.sentTo': 'Վերագործարկման հղումն ուղարկվել է {{email}}',
   'forgotPassword.successSubheading':
     'Ստուգեք ձեր էլ. փոստարկղը. մենք հենց նոր ուղարկեցինք վերակայման հղումը: Այն կսպառվի 30 րոպեից:',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Նոր էջ',
   'pageTreeSidebar.workspaceHeader': 'Աշխատանքային տարածք',
   'pageView.breadcrumb': 'Հացի փշրանք',
+  'pageView.confirmTrash': 'Աղբարկղ նետե՞լ։',
   'pageView.home': 'Տուն',
   'pageView.lastEdited': 'Թարմացված է {{when}}',
   'pageView.loading': 'Էջը բեռնվում է…',
@@ -78,6 +80,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Արհեստական բանականության ամփոփումը կարգավորված չէ այս աշխատանքային տարածքի համար։',
   'pageView.tocTitle': 'Այս էջում',
+  'pageView.trash': 'Աղբարկղ',
+  'pageView.trashing': 'Աղբարկղում…',
   'pageView.versionBadge': 'վ{{version}}',
   'profile.badges.title': 'Նշաններ',
   'profile.owned.title': 'Սեփական էջեր',
@@ -103,6 +107,7 @@ export const ui: UiTranslations = {
     'Աշխատանքային տարածք, պրոֆիլ, ծանուցումներ, ինտեգրացիաներ՝ բոլորը մեկ խաղաղ կճեպում։',
   'settingsPage.workspace.defaultLanding': 'Լռելյայն վայրէջքի էկրան',
   'settingsPage.workspace.landingHome': 'Տուն',
+  'settingsPage.workspace.landingSpaces': 'Տարածքներ',
   'settingsPage.workspace.subdomainLabel': 'Ենթադոմեյն',
   'settingsPage.workspace.title': 'Աշխատանքային տարածք',
   'signup.eyebrow': 'Սկսեք նոր աշխատանքային տարածք',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} րոպե',
   'templates.subtitle':
     'Սկսեք էջը շաբլոնից, այլ ոչ թե դատարկ կտավից: Յուրաքանչյուր շաբլոն կոդավորում է ձևը, որպեսզի կարողանաք կենտրոնանալ նյութի վրա:',
+  'trash.confirmPurge': 'Մաքրե՞լ ընդմիշտ։',
+  'trash.confirmPurgeAria': 'Հաստատել՝ ընդմիշտ ջնջել {{title}}',
   'trash.daysUntilPurge': '{{days}} մնացած օրերը',
   'trash.empty.body': 'Ջնջված էջերը կհայտնվեն այստեղ 30 օր, նախքան դրանք մաքրելը։',
   'trash.empty.title': 'Աղբարկղը դատարկ է։',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Վերականգնվում է…',
   'versionHistory.subtitle': '{{count}} տարբերակներ · ընտրեք տող՝ տարբերությունը ստուգելու համար',
   'versionHistory.versionLabel': 'վ{{v}}',
+  'wikiLayout.closeMenu': 'Փակել նավիգացիան',
+  'wikiLayout.menu': 'Նավիգացիա',
+  'wikiLayout.openMenu': 'Բացել նավիգացիան',
   'wikiLayout.searchPlaceholder': 'Որոնել Cairn-ում՝ էջեր, մեկնաբանություններ…',
 }

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': "Wrthi'n llwytho cyrsiau…",
   'browse.next': 'Tudalen nesaf',
   'browse.results': 'Yn dangos {{count}} cyrsiau',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'Trefnu yn ôl',
   'browse.subtitle':
     "Hidlo'r archif olygyddol yn ôl pwnc, lefel a phris. Mae pob cwrs wedi'i guradu â llaw gan ein golygyddion.",
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     "Mae eich tystysgrif wedi'i llofnodi ac yn barod. Rhannwch hi gyda'r byd neu cadwch hi fel atgof o'r gwaith a gymerodd i ennill.",
   'certificate.copyLink': 'Copïo dolen rhannu',
+  'certificate.copyPrompt': 'Copïwch y ddolen hon:',
   'certificate.download': 'Lawrlwytho PDF',
   'certificate.eyebrow': "Cyflawniad wedi'i ddatgloi",
   'certificate.linkCopied': 'Copïwyd y ddolen!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Rydych chi wedi cofrestru!',
   'checkout.verifying': 'Yn gwirio eich cofrestru…',
   'checkout.viewLibrary': 'Gweld Fy Dysgu',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.retry': 'Rhowch gynnig arall arni',
   'courseDetail.about': "Ynglŷn â'r cwrs hwn",
   'courseDetail.checkoutPending': 'Dechrau talu…',
   'courseDetail.continueLearning': 'Parhau i ddysgu',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Gwarant arian yn ôl 30 diwrnod',
   'courseDetail.includes.video': '{{hours}} oriau o fideo ar alw',
   'courseDetail.instructor': 'Hyfforddwr',
+  'courseDetail.languageEnglish': 'Saesneg',
   'courseDetail.lectures': 'Darlithoedd',
   'courseDetail.level': 'Lefel',
   'courseDetail.loading': "Wrthi'n llwytho cwrs…",
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Dim adolygiadau eto.',
   'instructorProfile.students': 'Myfyrwyr',
   'landing.categories.empty': "Bydd categorïau'n ymddangos unwaith y bydd y catalog wedi'i lenwi.",
+  'landing.categories.heading': 'Archwiliwch yr archif',
   'landing.hero.eyebrow': 'Darlith · Archif olygyddol meistrolaeth',
   'landing.hero.proof': 'Yn cael ymddiriedaeth dysgwyr yn Google, Meta, ac Adobe.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Dechreuwch ddysgu heddiw',
   'login.subheading': "Mynediad i'ch archif ysgolheigaidd.",
   'myLearning.empty.title': "Does dim cyrsiau'n cyfateb i'r hidlydd hwn eto",
+  'myLearning.error.title': 'Methu llwytho eich llyfrgell',
   'myLearning.filter.notStarted': 'Heb ei ddechrau',
   'myLearning.hero.subtitle': '{{count}} cyrsiau yn eich llyfrgell. Cadwch y momentwm i fynd.',
   'myLearning.hero.title': 'Parhewch lle gwnaethoch chi adael.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     "Dim gweithgaredd newydd i'w adolygu. Bydd digwyddiadau newydd yn ymddangos yma.",
   'notifications.empty.title': 'Rydych chi i gyd wedi dal i fyny',
+  'notifications.error.title': 'Methu llwytho gweithgaredd',
   'privacy.title': 'Polisi preifatrwydd',
   'reset.confirmPlaceholder': 'Ail-nodwch eich cyfrinair newydd',
   'reset.errorGeneric': 'Methwyd ailosod y cyfrinair. Gofynnwch am ddolen newydd.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} d yn ôl',
   'timeAgo.hours': '{{count}} awr yn ôl',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} mis yn ôl',
   'timeAgo.today': 'heddiw',
+  'timeAgo.weeks': '{{count}} wythnos yn ôl',
 }

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
+  'about.title': 'Om {{app}}',
   'auth.login.noAccount': 'Ny hos Sparq?',
   'auth.login.or': 'eller fortsett med',
   'auth.signup.or': 'eller registrer deg med',
+  'common.confirm': 'Bekrefte',
+  'common.goToDashboard': 'Gå til oversikt',
+  'common.loadError': 'Noe gikk galt under lasting av dette innholdet.',
+  'common.retry': 'Prøv igjen',
   'discover.collections.title': 'Bla gjennom etter kategori',
   'discover.collections.viewAll': 'Se biblioteket ditt →',
   'discover.empty.body': 'Prøv en annen kategori, eller fjern søkeordene.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Logg inn for å holde rekken din i live, være vert for live-kamper og klatre på ledertavlen.',
   'myQuizzes.createButton': 'Ny quiz',
+  'myQuizzes.deleteConfirm': 'Slette for alltid?',
   'myQuizzes.empty.createCta': 'Lag din første quiz →',
   'myQuizzes.empty.created': 'Du har ikke laget en quiz ennå.',
   'myQuizzes.empty.played': 'Ingen publiserte quizer ennå.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laster…',
   'notifications.subhead':
     '{{count}} Uleste gnister. Invitasjoner, bevegelser på ledertavlen og prestasjoner, alt i én strøm.',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.checkoutError': 'Kunne ikke starte kassen. Prøv igjen.',
+  'pricing.heading': 'Velg ditt {{app}}-abonnement',
   'pricing.included': 'Inkludert',
   'pricing.loadError': 'Kunne ikke laste inn planene.',
   'pricing.maxQuizzes': '{{count}} quizer',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Ingenting publisert ennå.',
   'profile.startBuilding': 'Begynn å bygge →',
   'profile.tier': 'Sparq-spiller',
+  'quizBuilder.addFailed': 'Kunne ikke legge til spørsmålet. Prøv på nytt.',
   'quizBuilder.addQuestion': 'Legg til spørsmål',
   'quizBuilder.answerPlaceholder': 'Skriv inn et alternativ…',
   'quizBuilder.answersLabel': 'Svaralternativer',
   'quizBuilder.back': 'Tilbake til quizene mine',
   'quizBuilder.delete': 'Slett spørsmål',
+  'quizBuilder.deleteFailed': 'Kunne ikke slette spørsmålet.',
   'quizBuilder.firstQuestion': 'Legg til ditt første spørsmål for å begynne.',
   'quizBuilder.idLabel': 'Quiz-ID: {{id}}',
   'quizBuilder.loadError': 'Kunne ikke laste quiz.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Legg til minst to svaralternativer og velg det riktige for {{count}} spørsmål(er) før publisering.',
   'quizBuilder.questionsTitle': 'Spørsmål',
+  'quizBuilder.saveFailed': 'Kunne ikke lagre tittelen. Prøv på nytt.',
   'quizBuilder.statusDraft': 'Utkast',
   'quizBuilder.subhead':
     'Rediger tittelen, legg til spørsmål, angi valg og riktig svar. Endringer lagres automatisk.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Vertskap for flerspiller',
   'quizDetail.leaderboardEmpty': 'Ingen spill ennå – vær den første til å sette en poengsum.',
+  'quizDetail.loadError': 'Kunne ikke laste inn denne quizen.',
   'quizDetail.loading': 'Laster inn quiz …',
   'quizDetail.plays': '{{count}} skuespill',
   'quizDetail.playSolo': 'Spill alene',

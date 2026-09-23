@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'À propos de {{app}}',
   'analytics.avgCheckLabel': 'Ticket moyen',
   'analytics.busiestHour': 'Heure de pointe',
   'analytics.coversToday': "Couverts aujourd'hui",
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Pourboires (moy.)',
   'analytics.topItems': "Meilleurs plats aujourd'hui",
   'authShell.eyebrow': 'Bon retour au service',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Un point de vente chaleureux et rapide pour les équipes hôtelières. Connectez-vous à votre cuisine et reprenez là où vous vous êtes arrêté.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ou {{price}}',
   'billing.priceUnavailable': "Ce forfait n'a pas de prix configuré.",
   'billing.updated': 'Forfait mis à jour.',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'customerDetail.book': 'Ajouter une réservation',
   'customerDetail.col.table': 'Table',
   'customerDetail.confirmDelete': 'Supprimer cette fiche convive ?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponibilité',
   'menuItemDetail.available': 'Disponible ce soir',
   'menuItemDetail.backToMenu': 'Retour au menu',
+  'menuItemDetail.confirmDelete': 'Supprimer cet élément de menu ?',
   'menuItemDetail.delete': 'Supprimer le plat',
   'menuItemDetail.deleteError': 'Suppression échouée. Réessayez.',
   'menuItemDetail.dietary': 'Étiquettes diététiques',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': "Échec de l'enregistrement. Réessayez.",
   'menuItemDetail.subheading': '{{category}} · modifiez photo, options, régimes et prix.',
   'menuItemDetail.untitled': 'Plat sans titre',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'notFound.heading': "Cette table n'est pas en salle.",
   'notFound.subheading': "La page que vous cherchiez a été placée ailleurs — ou n'a jamais existé.",
+  'notFound.toLanding': '{{app}} Accueil',
   'notifications.markError': 'Impossible de tout marquer comme lu.',
   'orderDashboard.activeDelta': 'Actifs en ce moment',
   'orderDashboard.activeLabel': 'Commandes actives',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     "Saisissez votre nouveau mot de passe pour retrouver l'accès à la cuisine.",
   'resetPassword.tokenLabel': 'Jeton de réinitialisation',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigation principale',
   'revenueHeroCard.activeOrders': '{{count}} actives',
   'revenueHeroCard.change': '{{sign}}{{amount}} vs hier',
   'revenueHeroCard.title': 'Recettes du jour',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nom du restaurant',
   'tableDetail.activeOrders': 'Commandes actives',
   'tableDetail.backToFloor': 'Plan de salle',
+  'tableDetail.confirmDelete': 'Supprimer ce tableau ?',
   'tableDetail.delete': 'Supprimer',
   'tableDetail.deleteError': 'Impossible de supprimer la table.',
   'tableDetail.heading': 'Table {{label}}',

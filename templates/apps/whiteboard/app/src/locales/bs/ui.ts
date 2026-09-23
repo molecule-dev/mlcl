@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'authShell.brandHeading': 'Platna za više igrača za dizajnerske timove koji razmišljaju naglas.',
   'billing.canceled': 'Pretplata otkazana.',
   'billing.cancelPlan': 'Otkaži plan',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Počni od predloška',
   'boards.title': 'Vaše ploče',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Unesite e-mail adresu povezanu s vašim radnim prostorom i poslat ćemo vam link za resetiranje.',
@@ -81,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Napravljeno za neuredno, generativno razmišljanje uživo.',
   'landing.demoBoard.title': 'Radionica za prvi kvartal · Glas brenda',
   'landing.featuresTitle': 'Brze povratne informacije. Prekrasna platna. Bez ikakvog trenja.',
+  'landing.hero.body':
+    '{{appName}} je multiplayer whiteboard za dizajnerske timove, voditelje radionica i edukatore koji provode brainstorming uživo i trebaju ideje koje će se objediniti na jednom mjestu.',
   'landing.hero.primaryCta': 'Besplatno pokrenite ploču',
   'landing.hero.socialProof': 'Pouzdano od strane {{count}} dizajnerski timovi širom svijeta',
   'landing.hero.title': 'Platno brzo kao i vaše misli',
@@ -91,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Kreirajte besplatan radni prostor',
   'login.subheading':
     'Nastavite tamo gdje je radionica stala — table, ljepljive bilješke i kursori se sinhronizuju u realnom vremenu.',
+  'mobileNav.closeMenu': 'Zatvori navigacijski meni',
+  'mobileNav.new': 'Novo',
+  'mobileNav.openMenu': 'Otvori navigacijski meni',
   'notifications.editTitle': 'Izmjene za " {{board}} "',
   'notifications.empty.body':
     'Pozivnice, spremanja snimaka i nedavne izmjene ploče će se ovdje pojavljivati čim se dese.',
@@ -171,6 +178,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historija verzija',
   'versionHistory.untitledSnapshot': 'Neimenovani snimak',
   'whiteboardLayout.newBoard': 'Nova ploča',
+  'whiteboardLayout.primaryNav': 'Primarna navigacija',
   'workspace.boardLabel': 'Odbor',
   'workspace.eyebrow': '{{name}} · radni prostor',
   'workspace.invite': 'Pozovi saradnike',

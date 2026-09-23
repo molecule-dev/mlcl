@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Löysitkö virheen, onko sinulla ominaisuuspyyntö tai haluatko kertoa meille leikkaamastasi elokuvasta? Jokainen viesti tavoittaa oikean henkilön tiimissä – voit ottaa yhteyttä milloin tahansa tilisi asetuksista.',
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.eyebrow': '// studio leikkauksen takana',
   'about.pageTitle': 'Tietoja {{appName}}',
   'assetDetail.back': 'Takaisin kirjastoon',
   'assetDetail.confirmDelete': 'Poista " {{name}} "? Tätä ei voi perua.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} leikkeitä, äänikertoja ja grafiikkaa valmiina pudotettavaksi aikajanalle.',
   'assetLibrary.title': 'Varat',
   'assetLibrary.upload': 'Lisää resurssi',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.browseTemplates': 'Selaa malleja →',
   'dashboard.loading': 'Ladataan projekteja…',
   'dashboard.noProjects': 'Ei vielä projekteja – luo yksi aloittaaksesi.',
@@ -159,7 +164,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Valitse jotain, jonka vain sinä muistat.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Tietosuoja',
+  'rushesLayout.closeMenu': 'Sulje navigointi',
   'rushesLayout.guest': 'Toimittaja',
+  'rushesLayout.navDialog': 'Navigointi',
+  'rushesLayout.openMenu': 'Avaa navigointi',
   'rushesLayout.planFree': 'Ilmainen paketti',
   'rushesLayout.tagline': 'Elokuvallinen aikajana',
   'settings.billing.confirmCancel': 'Perutaanko tilaus kauden lopussa?',

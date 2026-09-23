@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'auth.forgotPassword.emailPlaceholder': 'namn@dittforetag.se',
   'auth.forgotPassword.heading': 'Återställ ditt lösenord.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Markera uppgift som klar',
   'checklistTaskCard.markIncomplete': 'Markera uppgift som ej klar',
   'checklistTaskCard.openLabel': 'Öppna uppgift',
+  'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Du är helt i kapp',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'På rätt spår',
   'dashboard.timelineHeading': '30/60/90-milstolpar',
   'dashboard.viewAllTasks': 'Visa alla uppgifter',
+  'dashboard.weekOne': 'Vecka 1',
   'dashboard.yourCohort': 'Ditt team',
   'documents.empty.body': 'Dokument som ditt team lägger till visas här.',
   'documents.empty.title': 'Inga dokument ännu',
@@ -105,7 +108,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 dagars gratis provperiod',
   'landing.subhead':
     'Embark guidar varje ny kollega genom deras första 90 dagar — papper, utbildning, milstolpar och meningsfulla introduktioner, allt på ett lugnt och tryggt ställe.',
+  'layout.openMenu': 'Öppna navigeringsmenyn',
   'layout.search': 'Sök uppgifter, dokument, kollegor…',
+  'layout.searchTeammates': 'Sök lagkamrater efter namn eller roll…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Din resa börjar här',
   'notifications.empty.body': 'Ny aktivitet dyker upp här.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'i går',
   'planUpdated.message': 'Du är klar.',
   'planUpdated.preparing': 'Uppdaterar din plan…',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.documentsLabel': 'dokument',
   'pricing.onboardingsLabel': 'onboardingar',
   'pricing.tasksLabel': 'uppgifter',

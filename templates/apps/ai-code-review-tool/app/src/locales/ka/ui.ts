@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.connectRepoCta': 'რეპოზიტორის დაკავშირება',
   'dashboard.empty': 'ჯერ არ არის pull requests — დასაწყებად დააკავშირეთ საცავი.',
   'dashboard.eyebrow': 'რეფრაქცია · განხილვის რიგი',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'მუშაობის დრო',
   'pullRequestRow.files': '{{count}} ვ',
   'pullRequestRow.scoreAria': 'ხელოვნური ინტელექტის ხარისხის ქულა {{score}} / 10',
+  'refractLayout.closeMenu': 'მენიუს დახურვა',
+  'refractLayout.openMenu': 'მენიუს გახსნა',
   'refractLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'reports.cumulativeScoreLabel': 'კუმულაციური ქულა',
   'reports.cumulativeScoreSubtitle': 'ყველა საცავი · {{days}} დ',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'ძიების ინდექსის ჩატვირთვა ვერ მოხერხდა.',
   'settings.apiKeys.description':
     'პერსონალური API გასაღებების მართვა ზედა მარჯვენა კუთხეში მდებარე მომხმარებლის მენიუდან შეგიძლიათ.',
+  'settings.apiKeys.integrationsNote':
+    'პროვაიდერის წვდომის ტოკენების მართვა ხდება ზემოთ მოცემულ ინტეგრაციების განყოფილებაში.',
   'settings.connectError': 'პროვაიდერთან დაკავშირება ვერ მოხერხდა.',
   'settings.disconnectError': 'პროვაიდერის გათიშვა ვერ მოხერხდა.',
   'settings.eyebrow': 'რეფრაქცია · სამუშაო სივრცე',
   'settings.integration.${provider}.label': 'შენახვა…',
   'settings.loadError': 'პარამეტრების ჩატვირთვა ვერ მოხერხდა.',
+  'settings.notificationCenter': 'შეტყობინებების ცენტრი',
   'settings.notifications.description':
     'მიწოდების პარამეტრების სანახავად და სამართავად ეწვიეთ შეტყობინებების გვერდს.',
   'settings.section.account': 'ანგარიში და უსაფრთხოება',

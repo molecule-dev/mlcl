@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.tagline': 'هر واحد، زیر یک سقف.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.addProperty': 'افزودن ملک',
   'dashboard.empty.body':
     'وقتی ملک، واحد و اجاره بها را مشخص کردید، این داشبورد پر از اطلاعات مربوط به نمونه کارها می‌شود.',
@@ -85,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{املاک}} · واحد {{واحد}} · {{تاریخ}}',
   'maintenanceQueueList.subtitle': '{{count}} دستور کارهای باز، مرتب شده بر اساس اولویت',
   'maintenanceQueueList.title': 'صف تعمیر و نگهداری',
+  'nav.closeMenu': 'بستن منو',
+  'nav.openMenu': 'منوی باز',
   'notFound.body': 'صفحه‌ای که به دنبالش بودید منتقل شده، بایگانی شده یا اصلاً وجود نداشته است.',
   'notFound.title': 'آن در باز نمی‌شود',
   'notifications.empty.body':

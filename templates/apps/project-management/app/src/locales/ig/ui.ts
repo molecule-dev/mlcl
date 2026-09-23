@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'accountSettings.confirmEmailLabel': 'Pịnye DELETE iji gosi na ọ dị mma',
   'accountSettings.deleteError': 'Enweghị ike ihichapụ akaụntụ.',
   'accountSettings.passwordError': 'Enweghị ike ịgbanwe paswọọdụ.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Enweghị oge njedebe na-abịa.',
   'dashboard.upcomingTitle': 'Oge njedebe na-abịa',
   'deviceSettings.unknownDevice': 'Ngwaọrụ amaghị ama',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Nkwado',
   'forgotPassword.error': 'Izipu njikọ nrụpụta agaghị arụ ọrụ.',
   'forgotPassword.subtitle': 'Tinye ozi-e gị, anyị ga-ezitere gị njikọ nrụpụta.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ozi email ma ọ bụ paswọọdụ na-ezighi ezi.',
   'login.pageTitle': 'Banye',
   'login.signIn': 'Banye na Forge',
+  'login.subtitle': 'Banye iji mee ka ọrụ gị na-aga nke ọma',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'nav.calendar': 'Kalenda',
   'nav.legal': 'Iwu kwadoro',
   'nav.myTasks': 'Ọrụ M',

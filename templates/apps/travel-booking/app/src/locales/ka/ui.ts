@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.featureDiscover.title': 'შთაგონება, ხელით შერჩეული',
   'account.addPaymentCta': 'გადახდის მეთოდის დამატება',
   'account.addPaymentError': 'გადახდის მეთოდის დამატება ვერ მოხერხდა.',
+  'account.confirmRemove': 'დაადასტურეთ წაშლა',
   'account.defaultBadge': 'ნაგულისხმევი',
   'account.loyalty.pointsTowardNext': '{{პუნქტები}} -ის {{შემდეგი}} მილისკენ {{შემდეგი დონე}}',
   'account.loyalty.tier': 'მიმდინარე დონე',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'მოგზაურობის დეტალები',
   'booking.tripSummary': '{{nights}} ღამეები · {{guests}} სტუმრები',
   'common.daysAgo': '{{count}} დღის წინ',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.hoursAgo': '{{count}} საათის წინ',
   'common.minutesAgo': '{{count}} ერთი წუთის წინ',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'იურიდიული',
   'notifications.loading': 'იტვირთება…',
   'notifications.subheading': '{{count}} წაუკითხავი · ყველაფერი ერთ მშვიდ შემოსულებში',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.accommodationsLabel': 'საცხოვრებელი',
   'pricing.bookingsLabel': 'დაჯავშნები',
   'pricing.destinationsLabel': 'შენახული დანიშნულების ადგილები',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'შთაგონება, სანდო სტუმრობა და უპრობლემო გზა ოცნებიდან დაჯავშნილამდე — 14 ქვეყანაში და 200-ზე მეტ ხელით შემოწმებულ ქონებაში.',
   'sojournHeroSearchCard.trustProtected': 'უფასო გაუქმება, სრულად დაცული',
   'sojournHeroSearchCard.trustVetted': 'მხოლოდ ხელით შემოწმებული ქონება',
+  'travelBookingLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'tripDetail.backLink': 'დაბრუნება მოგზაურობებზე',
   'tripDetail.cancelCta': 'დაჯავშნის გაუქმება',
   'tripDetail.cancelHeading': 'გსურთ ამ მოგზაურობის გაუქმება?',

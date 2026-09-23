@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.pageTitle': 'Туралы {{appName}}',
   'analytics.error': 'Аналитика жүктелмеді.',
   'analytics.heading': 'Іздеу аналитикасы',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Баға деңгейлері конфигурацияланбаған.',
   'billing.plans.heading': 'Жоспарлар',
   'billing.subheading': 'Жоспар, пайдалану және Stripe басқаратын төлем.',
+  'common.confirm': 'Растау',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.retry': 'Қайталап көру',
   'documentCard.open': 'Ашу \\u2192',
   'documentDetail.back': 'Құжаттарға оралу',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Индекс құжаты',
   'documents.composer.titlePlaceholder': 'Құжат атауы',
   'documents.emptyAll': 'Әлі ешқандай құжат жоқ. Сұрақтар қоюды бастау үшін біреуін жүктеңіз.',
+  'documents.error.load': 'Құжаттарды жүктеу мүмкін болмады.',
   'documents.heading': 'Индекстелген құжаттар',
   'documents.loading': 'Құжаттар жүктелуде…',
   'documents.metric.chunks': 'Жалпы кесектер',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Жойылуда\\u2026',
   'members.subheading': 'Командаластарды шақырып, рөлдерді белгілеңіз.',
   'members.tableHeading': 'Құрамы',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'notFound.askCta': 'Білім қорынан сұраңыз',
+  'notFound.body':
+    '{{app}} сол бетті таба алмады. Сілтеме үзілген болуы мүмкін немесе бет қайта индекстеу кезінде өшірілген болуы мүмкін.',
   'notFound.eyebrow': 'Алынып алынбайды',
   'notFound.title': 'Индексте мұндай бөлік жоқ',
   'notifications.dismiss': 'Жабу',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Дереккөз URL мекенжайы',
   'sources.empty.body': 'Бірінші қосқышты қосу үшін "Дереккөзді қосу" түймесін басыңыз.',
   'sources.empty.title': 'Әзірге дереккөздер жоқ.',
+  'sources.error.add': 'Дереккөзді қосу мүмкін болмады.',
   'sources.error.labelRequired': 'Белгі қажет.',
   'sources.error.load': 'Дереккөздерді жүктеу мүмкін болмады.',
   'sources.error.urlRequired': 'Бұл дереккөз түрі үшін URL мекенжайы қажет.',

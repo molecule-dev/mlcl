@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.pageTitle': 'Dwar {{appName}}',
   'analytics.error': 'Ma setgħetx titgħabba l-analitika.',
   'analytics.heading': 'Analitika tal-irkupru',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': "L-ebda livell ta' prezzijiet ma ġie kkonfigurat.",
   'billing.plans.heading': 'Pjanijiet',
   'billing.subheading': 'Pjan, użu, u checkout immaniġġjat minn Stripe.',
+  'common.confirm': 'Ikkonferma',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.retry': "Erġa' pprova",
   'documentCard.open': 'Miftuħ \\u2192',
   'documentDetail.back': 'Lura għad-dokumenti',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Titlu tad-dokument',
   'documents.emptyAll':
     "Għad m'hemm l-ebda dokumenti. Tella' wieħed biex tibda tistaqsi mistoqsijiet.",
+  'documents.error.load': 'Ma stajtx nitgħabba d-dokumenti.',
   'documents.heading': 'Dokumenti indiċjati',
   'documents.loading': 'Qed jitgħabbew id-dokumenti…',
   'documents.metric.chunks': 'Biċċiet totali',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'It-tneħħija\\u2026',
   'members.subheading': 'Stieden lil sħabek fit-tim u iffissa r-rwoli.',
   'members.tableHeading': 'Lista',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'notFound.askCta': 'Staqsi lill-bażi tal-għarfien',
+  'notFound.body':
+    "{{app}} ma setgħetx issib dik il-paġna. Il-link jista' jkun li mhux jaħdem, jew il-paġna setgħet ġiet irtirata waqt indiċjar mill-ġdid.",
   'notFound.eyebrow': 'Ma nistax nirkupra',
   'notFound.title': 'L-ebda biċċa bħal din fl-indiċi',
   'notifications.dismiss': 'Ċaħad',
@@ -208,6 +217,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Ikklikkja fuq \\u201cŻid sors\\u201d biex tqabbad l-ewwel konnettur tiegħek.',
   'sources.empty.title': "Għad m'hemm l-ebda sorsi.",
+  'sources.error.add': 'Ma stajtx inżid is-sors.',
   'sources.error.labelRequired': 'It-tikketta hija meħtieġa.',
   'sources.error.load': 'Ma setgħux jitgħabbew is-sorsi.',
   'sources.error.urlRequired': "Il-URL huwa meħtieġ għal dan it-tip ta' sors.",

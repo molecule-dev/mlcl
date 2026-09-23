@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Acerca de {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Herramientas de gestión patrimonial',
+  'argentAuthShell.brandFootnote':
+    '© {{year}} {{app}} . Esto no constituye asesoramiento de inversión.',
   'argentAuthShell.sampleChange': '+$2,841 (+0,28 %) hoy',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Navegación principal',
@@ -25,6 +28,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'No hay transacciones para este símbolo.',
   'assetDetail.txHeading': 'Tus transacciones',
   'common.and': 'y',
+  'common.goToDashboard': 'Ir al panel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Resumen de cartera',
@@ -51,6 +55,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Aún no hay posiciones.',
   'holdings.heading': 'Posiciones',
   'holdings.loadError': 'No se pudieron cargar las posiciones.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Esto no constituye asesoramiento de inversión. El rendimiento pasado no garantiza resultados futuros.',
   'landing.eyebrow': 'Argent · Una plataforma de gestión patrimonial',
   'landing.features.heading': 'Todo lo que un asesor crearía para sí mismo.',
   'landing.finalCta.heading': 'Devuelve la disciplina a tu cartera.',
@@ -71,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'hace {{count}} h',
   'news.justNow': 'ahora mismo',
   'news.loadError': 'No se pudieron cargar las noticias.',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'portfolioHeroCard.label': 'Valor de la cartera',
   'pricing.holdingsLabel': 'valores en cartera',
   'pricing.newsLabel': 'artículos de noticias',
@@ -135,8 +142,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Eliminar cuenta',
   'settings.security.deleting': 'Eliminando…',
   'settings.security.heading': 'Seguridad',
+  'settings.security.newPassword': 'Nueva contraseña',
   'settings.security.password': 'Contraseña',
   'settings.security.twoFactorEnable': 'Activar',
+  'settings.security.twoFactorInvalidCode': 'Código no válido',
+  'settings.security.twoFactorVerify': 'Verificar y habilitar',
   'settings.tax.error': 'No se pudo actualizar el método fiscal.',
   'settings.tax.heading': 'Contabilidad de lotes fiscales',
   'settings.tax.method': 'Método predeterminado',

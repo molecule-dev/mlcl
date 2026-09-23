@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
+  'about.eyebrow': '{{app}} के बारे में',
   'about.pageTitle': 'हर मार्ग, एक खोज।',
   'booking.backToDetail': 'उड़ान विवरण पर वापस जाएँ',
   'booking.continue': 'भुगतान पर जारी रखें',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'कर और शुल्क',
   'booking.summary.travelers': 'यात्री',
   'common.about': 'परिचय',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'flightDetail.backToResults': 'परिणामों पर वापस जाएँ',
   'flightDetail.baseFare': 'मूल किराया',
   'flightDetail.book': 'बुकिंग पर जारी रखें',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 स्टॉप',
   'flightResultCard.select': 'चुनें',
   'flightResultCard.totalLabel': 'कुल समय',
+  'flightSearchLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'forgotPassword.subheading':
     'अपने Skylark खाते का ईमेल दर्ज करें और हम आपको एक सुरक्षित रीसेट लिंक भेज देंगे।',
   'forgotPassword.successBody':
     'नया पासवर्ड सेट करने के लिए लिंक हेतु {{email}} देखें। लिंक 30 मिनट में समाप्त हो जाएगा।',
   'forgotPassword.successHeading': 'रीसेट लिंक भेजा गया',
   'landing.cta.explore': 'खोज आज़माएँ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'अगला बेहतरीन किराया सबसे पहले खोजें।',
   'landing.cta.signup': 'किराये ट्रैक करना शुरू करें',
   'landing.features.eyebrow': 'Skylark क्यों',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'अलर्ट जोड़ें',
   'priceAlerts.deleteConfirm': 'इस अलर्ट को हटाएँ?',
   'priceAlerts.empty': 'अभी तक कोई ट्रैक किया गया मार्ग नहीं।',
+  'priceAlerts.emptyCta': 'ट्रैक करने के लिए मार्ग खोजें',
   'priceAlerts.errorMessage': 'अलर्ट लोड नहीं हो सके।',
   'priceAlerts.eyebrow': 'Skylark वॉचलिस्ट',
   'priceAlerts.form.createError': 'अलर्ट नहीं बनाया जा सका।',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'मल्टी-सिटी यात्रा कार्यक्रम',
   'results.multiLegHeading': 'चरण {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} चरण · {{passengers}} यात्री',
+  'results.sortAriaLabel': 'द्वारा परिणामों को छांटें',
   'results.sortLabel': 'क्रमबद्ध करें',
   'results.summary': '{{count}} उड़ानें · {{passengers}} यात्री',
   'settings.language.title': 'भाषा',

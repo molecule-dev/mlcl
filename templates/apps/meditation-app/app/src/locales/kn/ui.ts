@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.eyebrow': '{{app}} ಬಗ್ಗೆ',
+  'about.intro':
+    '{{app}} ಎಂಬುದು ನಿಜ ಜೀವನಕ್ಕಾಗಿ ಧ್ಯಾನ ಅಪ್ಲಿಕೇಶನ್ ಆಗಿದೆ — ದೈನಂದಿನ ಮಾರ್ಗದರ್ಶಿ ಧ್ಯಾನಗಳು, ಉಸಿರಾಟದ ವ್ಯಾಯಾಮ ಮತ್ತು ನಿದ್ರೆಯ ಕಥೆಗಳನ್ನು ತರಬೇತುದಾರನಂತೆ ಅಲ್ಲ, ಸ್ನೇಹಿತರಂತೆ ಭಾವಿಸುವ ಶಿಕ್ಷಕರು ನಡೆಸುತ್ತಾರೆ. ಯಾವುದೇ ಅಪರಾಧ ಪ್ರಜ್ಞೆ ಇಲ್ಲ, ಗದ್ದಲದ ಆಹಾರವಿಲ್ಲ: ನಿಮ್ಮ ಉಸಿರಿಗೆ ಮರಳಲು ಕೇವಲ ಶಾಂತ ಸ್ಥಳ.',
+  'about.missionBody':
+    'ದಿನದ ಯಾವುದೇ ಕ್ಷಣದಲ್ಲಿ, ಎಲ್ಲರಿಗೂ ನಿಶ್ಚಲತೆ ಲಭ್ಯವಿರಬೇಕು ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ. {{app}} ಶಾಂತ, ಸ್ಥಿರವಾದ ಅಭ್ಯಾಸವನ್ನು ಸುಲಭವೆಂದು ಭಾಸವಾಗುವಂತೆ ಮಾಡುತ್ತದೆ - ಇದರಿಂದ ಹತ್ತು ಪ್ರಾಮಾಣಿಕ ನಿಮಿಷಗಳು ಮುಂದಿನ ಹತ್ತು ಗಂಟೆಗಳನ್ನು ನೀವು ಹೇಗೆ ಪೂರೈಸುತ್ತೀರಿ ಎಂಬುದನ್ನು ಬದಲಾಯಿಸಬಹುದು.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.pageTitle': 'ದಿನಕ್ಕೆ 10 ನಿಮಿಷ ಶಾಂತವಾಗಿರಿ',
+  'breathingDial.seconds': 'ಸೆಕೆಂಡುಗಳು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.logout': 'ಲಾಗ್ ಔಟ್',
   'common.min': 'ನಿಮಿಷ',
   'common.relative.justNow': 'ಈಗ ತಾನೇ',
   'common.relative.now': 'ಈಗ',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
+  'nav.secondaryNavigation': 'ಖಾತೆ ಸಂಚರಣೆ',
   'sessionCard.with': 'ಜೊತೆಗೆ {{name}}',
   'stillpoint.billing.choose': 'ಆಯ್ಕೆಮಾಡಿ {{plan}}',
   'stillpoint.billing.currentPlan': 'ಪ್ರಸ್ತುತ ಆನ್ ಆಗಿದೆ {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'ನಮಗೆ ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'stillpoint.billing.opening': 'ಚೆಕ್ಔಟ್ ತೆರೆಯಲಾಗುತ್ತಿದೆ…',
   'stillpoint.billing.perMonthShort': '/ ತಿಂಗಳು',
+  'stillpoint.billing.perYearShort': '/ವರ್ಷ',
   'stillpoint.billing.unknownResult': 'ಅನಿರೀಕ್ಷಿತ ಬಿಲ್ಲಿಂಗ್ ಪ್ರತಿಕ್ರಿಯೆ.',
   'stillpoint.billing.yearly': 'ವಾರ್ಷಿಕ · 17% ಉಳಿತಾಯ',
   'stillpoint.courseDetail.back': 'ಕೋರ್ಸ್‌ಗಳು',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಕೋರ್ಸ್‌ಗಳಿಲ್ಲ.',
   'stillpoint.courses.eyebrow': '{{count}} ಬಹು ದಿನಗಳ ಪ್ರಯಾಣಗಳು',
   'stillpoint.courses.heading': 'ಕೋರ್ಸ್‌ಗಳು',
+  'stillpoint.forgot.checkEmail':
+    'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ — ಲಿಂಕ್ 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
   'stillpoint.forgot.success': 'ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} .',
   'stillpoint.home.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಸೆಷನ್‌ಗಳಿಲ್ಲ - ಶೀಘ್ರದಲ್ಲೇ ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.',
   'stillpoint.home.friend': 'ಸ್ನೇಹಿತ',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'ನಿಮ್ಮ ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'stillpoint.landing.cta.title': 'ನಿಮ್ಮ ಮೌನವನ್ನು ಇಂದೇ ಪ್ರಾರಂಭಿಸಿ',
   'stillpoint.landing.features.heading': 'ನಿಮ್ಮೊಂದಿಗೆ ಬೆಳೆಯುವ ಅಭ್ಯಾಸ',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'ದೈನಂದಿನ ಮಾರ್ಗದರ್ಶಿ ಧ್ಯಾನಗಳು, ಉಸಿರಾಟದ ವ್ಯಾಯಾಮ ಮತ್ತು ನಿದ್ರೆಯ ಕಥೆಗಳು — ತರಬೇತುದಾರನಂತೆ ಅಲ್ಲ, ಸ್ನೇಹಿತರಂತೆ ಭಾವಿಸುವ ಶಿಕ್ಷಕರಿಂದ ವೇಗಗೊಳಿಸಲಾಗಿದೆ.',
   'stillpoint.landing.hero.eyebrow': 'ದಿನಕ್ಕೆ 10 ನಿಮಿಷ ಶಾಂತವಾಗಿರಿ',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'ಮನಸ್ಥಿತಿಯ ಪ್ರಕಾರ ಬ್ರೌಸ್ ಮಾಡಿ',
   'stillpoint.login.rememberMe': 'ನನ್ನನ್ನು ಸೈನ್ ಇನ್ ಆಗಿ ಇರಿಸಿ',
   'stillpoint.login.subheading': 'ನಿಮ್ಮ ಅಭ್ಯಾಸವನ್ನು ಮುಂದುವರಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
+  'stillpoint.nav.tagline': 'ನಿಮ್ಮ ಸ್ಟಿಲ್ ಸೆಂಟರ್ ಅನ್ನು ಹುಡುಕಿ',
+  'stillpoint.notFound.body':
+    'ಈ ಪುಟವು ಎಲ್ಲೋ ದೀರ್ಘ, ಆಳವಾದ ಉಸಿರನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತಿದೆ. {{app}} ನಲ್ಲಿ ನಿಮಗಾಗಿ ಒಂದು ನಿಶ್ಯಬ್ದ ಸ್ಥಳವನ್ನು ಹುಡುಕೋಣ.',
   'stillpoint.notFound.title': 'ಮೌನದಲ್ಲಿ ಕಳೆದುಹೋಗಿದೆ',
   'stillpoint.notFound.toHome': 'ಇಂದಿನ ದಿನಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'stillpoint.notFound.toLibrary': 'ಲೈಬ್ರರಿಯನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 ಸೆಕೆಂಡುಗಳ ಹಿಂದೆ ಬಿಟ್ಟುಬಿಡಿ',
   'stillpoint.player.skipForward': '30 ಸೆಕೆಂಡುಗಳನ್ನು ಮುಂದಕ್ಕೆ ಸ್ಕಿಪ್ ಮಾಡಿ',
   'stillpoint.player.with': 'ಜೊತೆಗೆ {{name}}',
+  'stillpoint.profile.defaultHandle': 'ಸ್ಟಿಲ್‌ಪಾಯಿಂಟರ್',
   'stillpoint.profile.eyebrow': 'ನಿಮ್ಮ ಅಭ್ಯಾಸ, ಸಂಕ್ಷಿಪ್ತವಾಗಿ.',
   'stillpoint.profile.locked': 'ಲಾಕ್ ಮಾಡಲಾಗಿದೆ',
   'stillpoint.profile.member': 'ಸ್ಟಿಲ್‌ಪಾಯಿಂಟ್ ಸದಸ್ಯ',

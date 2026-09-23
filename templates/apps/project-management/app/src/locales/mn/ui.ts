@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'accountSettings.confirmEmailLabel': 'Баталгаажуулахын тулд DELETE гэж бичнэ үү',
   'accountSettings.deleteError': 'Бүртгэлийг устгаж чадсангүй.',
   'accountSettings.passwordError': 'Нууц үгийг өөрчилж чадсангүй.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Ойрын хугацаанд хугацаа байхгүй.',
   'dashboard.upcomingTitle': 'Удахгүй болох хугацаа',
   'deviceSettings.unknownDevice': 'Үл мэдэгдэх төхөөрөмж',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Дэмжлэг',
   'forgotPassword.error': 'Дахин тохируулах холбоосыг илгээж чадсангүй.',
   'forgotPassword.subtitle':
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Хүчингүй имэйл хаяг эсвэл нууц үг.',
   'login.pageTitle': 'Нэвтрэх',
   'login.signIn': 'Forge руу нэвтрэх',
+  'login.subtitle': 'Төслүүдээ зөв чиглүүлэхийн тулд нэвтэрнэ үү',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'nav.calendar': 'Хуанли',
   'nav.legal': 'Хууль эрх зүйн',
   'nav.myTasks': 'My Tasks',

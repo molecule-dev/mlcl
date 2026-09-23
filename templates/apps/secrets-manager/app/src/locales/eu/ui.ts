@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'about.tagline': 'Sekretuak argitara hiltzen dira.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Sortu tokena',
   'apiTokens.kicker': 'API tokenak',
   'apiTokens.loading': 'Tokenak kargatzen…',
+  'apiTokens.new': 'Token berria',
   'apiTokens.revoke': 'Ezeztatu tokena',
   'apiTokens.subheading':
     'Arcanum CLI eta SDKrako token pertsonalak eta zerbitzu-tokenak. Testu arrunta behin erakusten da sortzean.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Pasahitza',
   'authShell.zeroKnowledge': 'Zero-ezagutza enkriptatzea',
   'common.connecting': 'Konektatzen…',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.inviting': 'Gonbidatzen…',
   'forgotPassword.checkInbox':
     '{email} erregistratuta badago, berrezartzeko esteka sinatua minutu baten barruan iritsiko da.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Txandakatze egoera, anomalia alertak eta onarpen eskaerak biltegi guztietan.',
   'notifications.unreadEmpty': 'Sarrerako ontzia zero — dena harrapatuta.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.heading': 'sekretuak',
   'pricing.limits.accessPolicies': 'sarbide-politikak',
   'pricing.limits.auditLog': 'auditoria-erregistroko sarrerak',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Kontu pertsonala',
   'profile.plan.description': 'Kudeatu zure harpidetza, ikusi mugak eta berritu.',
   'profile.subheading': 'Identitatea, bigarren faktoreko gailuak eta saio aktiboak.',
+  'profile.twoFactor.code': 'Autentifikazio kodea',
   'profile.twoFactor.disable': 'Desgaitu',
   'profile.twoFactor.enable': 'Gaitu',
+  'profile.twoFactor.invalidCode': 'Kode baliogabea',
   'profile.twoFactor.kicker': 'Bi faktoreko autentifikazioa',
+  'profile.twoFactor.off': 'Gaituta ez',
   'profile.twoFactor.on': 'Gaituta',
   'resetPassword.email': 'Kontuaren helbide elektronikoa',
   'resetPassword.heading': 'Ezarri kredentzial berriak',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'komandoak',
   'secretsManagerLayout.encrypted': 'AES-256 · ENKRIPTATUA',
   'secretsManagerLayout.newVault': 'Ganbera berria',
+  'secretsManagerLayout.newVaultShort': 'Berria',
   'secretsManagerLayout.rotations': 'Errotazioak',
   'secretsManagerLayout.search': 'bilaketa',
   'secretsManagerLayout.searchPlaceholder':
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sekretuak',
   'vaultCard.vaultLabel': 'Ganga',
   'vaultDetail.addSecret': 'Gehitu sekretua',
+  'vaultDetail.back': 'Ganga guztiak',
   'vaultDetail.col.key': 'Giltza',
   'vaultDetail.col.rotated': 'Biratuta',
   'vaultDetail.col.value': 'Balioa',

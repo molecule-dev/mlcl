@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'دیکھ رہا ہے۔',
   'auctionDetail.watchRemoved': 'واچ لسٹ سے ہٹا دیا گیا۔',
   'auctionDetail.watchRemoveLabel': 'واچ لسٹ سے ہٹا دیں۔',
+  'auctionPlatformLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'authShell.brandBody':
     'نایاب گھڑیاں، فائن آرٹ، اور ایک قسم کی خصوصی اشیاء پر اصل وقت میں بولی لگائیں۔ گیول سیکنڈوں میں گرتا ہے۔',
   'authShell.brandEyebrow': 'ابھی لائیو · 1,420 نیلامی',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'ترتیب دیں',
   'browseAuctions.subheading':
     'زمرہ کے لحاظ سے فلٹر کریں، سب سے اہم چیز کے مطابق ترتیب دیں، اور گیول گرنے سے پہلے بولی لگائیں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'countdownTimer.ended': 'ختم ہوا۔',
   'countdownTimer.endingSoon': 'ختم ہونے والا',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'پاس ورڈ چھپائیں۔',
   'login.showPassword': 'پاس ورڈ دکھائیں۔',
   'login.subtext': 'اپنی نیلامیوں کا سراغ لگانا جاری رکھیں اور گیول گرنے سے پہلے بولیاں لگائیں۔',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'myBids.bidAgain': 'دوبارہ بولی۔',
   'myBids.browseCta': 'لائیو نیلامیوں کو براؤز کریں →',
   'myBids.checkoutCta': 'ابھی ادائیگی کریں۔',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'ابھی تک کوئی اطلاع نہیں ہے۔',
   'notificationsPage.eyebrow': 'سرگرمی کا مرکز',
   'notificationsPage.subheading': '{{count}} بغیر پڑھے · لائیو اپ ڈیٹس جیسے ہی نیلامی چلتی ہے۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.bidsLabel': 'بولیاں',
   'pricing.listingsLabel': 'فہرستیں',
   'pricing.watchlistLabel': 'واچ لسٹ',

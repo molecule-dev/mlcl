@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Olet tällä hetkellä {{plan}} suunnitelma.',
   'billing.switch': 'Vaihda',
   'billing.upgraded': 'Päivitetty {{plan}} — rajoitukset sovelletaan välittömästi.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'compare.activityHeading': 'Aktiivisuustuomiot',
   'compare.empty.title': 'Lisää vähintään kaksi sijaintia vertailua varten',
   'compare.eyebrow': 'Rinnakkain',
@@ -135,5 +136,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Korkea',
   'trends.summary.low.label': 'Matala',
   'trends.summary.points.label': 'Päivät',
+  'weatherDashboardLayout.primaryNavLabel': 'Päänavigaatio',
   'weatherHeroCard.updated': 'Päivitetty {{time}}',
 }

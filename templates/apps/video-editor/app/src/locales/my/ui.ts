@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'bug တစ်ခုတွေ့တယ်၊ feature request လုပ်စရာရှိလား၊ ဒါမှမဟုတ် သင်ဖြတ်တောက်လိုက်တဲ့ ရုပ်ရှင်အကြောင်း ပြောပြချင်လား။ မက်ဆေ့ချ်တိုင်းဟာ အဖွဲ့ထဲက တကယ့်လူတစ်ယောက်ဆီ ရောက်ပါတယ် — သင့်အကောင့် setting ကနေ အချိန်မရွေး ဆက်သွယ်နိုင်ပါတယ်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.eyebrow': '// ဖြတ်တောက်မှုနောက်ကွယ်က စတူဒီယို',
   'about.pageTitle': 'အကြောင်း {{appName}}',
   'assetDetail.back': 'စာကြည့်တိုက်သို့ ပြန်သွားပါ',
   'assetDetail.confirmDelete': 'ဖျက်ပစ်ပါ" {{name}} "? ဒါကို ပြန်ပြင်လို့ မရပါဘူး။',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} ဗီဒီယိုအပိုင်းအစများ၊ အသံဖိုင်များနှင့် ဂရပ်ဖစ်များသည် အချိန်ဇယားပေါ်တွင် တင်ရန် အသင့်ဖြစ်နေပါပြီ။',
   'assetLibrary.title': 'ပိုင်ဆိုင်မှုများ',
   'assetLibrary.upload': 'ပိုင်ဆိုင်မှုထည့်ပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.browseTemplates': 'တင်းပလိတ်များကို ကြည့်ရှုပါ →',
   'dashboard.loading': 'ပရောဂျက်များကို တင်နေသည်…',
   'dashboard.noProjects': 'ပရောဂျက်များ မရှိသေးပါ — စတင်ရန် တစ်ခု ဖန်တီးပါ။',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'သင်တစ်ယောက်တည်းသာ မှတ်မိမယ့်အရာကို ရွေးချယ်ပါ။',
   'rushesAuthShell.footer.copyright': '© Rushes စတူဒီယို',
   'rushesAuthShell.footer.privacy': 'ကိုယ်ရေးကိုယ်တာ',
+  'rushesLayout.closeMenu': 'လမ်းညွှန်ချက်ကို ပိတ်ပါ',
   'rushesLayout.guest': 'အယ်ဒီတာ',
+  'rushesLayout.navDialog': 'လမ်းညွှန်',
+  'rushesLayout.openMenu': 'လမ်းညွှန်ချက်ဖွင့်ပါ',
   'rushesLayout.planFree': 'အခမဲ့အစီအစဉ်',
   'rushesLayout.tagline': 'ရုပ်ရှင်ဆိုင်ရာ အချိန်ဇယား',
   'settings.billing.confirmCancel': 'ကာလကုန်ဆုံးချိန်တွင် စာရင်းသွင်းမှုကို ပယ်ဖျက်မလား။',

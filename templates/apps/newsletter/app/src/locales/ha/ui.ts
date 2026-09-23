@@ -164,7 +164,7 @@ export const ui: UiTranslations = {
     'Yanke shawarar lokacin da kuke son a katse ku da sabuntawa.',
   'settingsPageHeader.title': 'Saitunan Asusu',
   'settingsPrivacySection.description': 'Sarrafa ganin bayanan ku da kasancewa.',
-  'settingsPrivacySection.profileVisibilityLabel': 'Ganuwa ga Bayanan Jama&#39;a',
+  'settingsPrivacySection.profileVisibilityLabel': "Ganuwa ga Bayanan Jama'a",
   'settingsProfileSection.profileImage': 'Hoton bayanan martaba',
   'settingsProfileSection.sectionDescription':
     'Bayanan sirri da aka nuna a matsayin layin marubucin wallafe-wallafe.',

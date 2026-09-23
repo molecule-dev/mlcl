@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਕੀ ਤੁਹਾਨੂੰ ਫੀਡਬੈਕ ਹੈ, ਕੋਈ ਵਿਸ਼ੇਸ਼ਤਾ ਬੇਨਤੀ ਹੈ, ਜਾਂ ਕੋਈ ਬੱਗ ਮਿਲਿਆ ਹੈ? ਆਪਣੇ ਖਾਤਾ ਮੀਨੂ ਵਿੱਚ ਸਹਾਇਤਾ ਲਿੰਕ ਰਾਹੀਂ {{app}} ਟੀਮ ਤੱਕ ਪਹੁੰਚੋ — ਹਰ ਸੁਨੇਹਾ ਇੱਕ ਅਸਲੀ ਮਨੁੱਖ ਨੂੰ ਜਾਂਦਾ ਹੈ।',
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'agentDetail.back': 'ਸਾਰੇ ਏਜੰਟ',
   'agentDetail.capabilities': 'ਸਮਰੱਥਾਵਾਂ',
   'agentDetail.delete': 'ਵਿਅਕਤੀ ਮਿਟਾਓ',
   'agentDetail.deleteConfirm': 'ਕੀ ਇਸ ਵਿਅਕਤੀ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ? ਇਸਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।',
+  'agentDetail.deleteError': 'ਵਿਅਕਤੀ ਨੂੰ ਮਿਟਾ ਨਹੀਂ ਸਕਿਆ।',
   'agentDetail.eyebrow': 'ਪਰਸੋਨਾ',
   'agentDetail.fetchError': 'ਪਰਸੋਨਾ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'agentDetail.save': 'ਵਿਅਕਤੀ ਨੂੰ ਰੱਖਿਅਤ ਕਰੋ',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'ਬਦਲਿਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'billing.updateError': 'ਅੱਪਡੇਟ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'billing.usageHeading': 'ਇਸ ਚੱਕਰ ਵਿੱਚ ਆਵਾਜ਼ ਦੀ ਵਰਤੋਂ',
+  'chatBubble.source.text': 'ਟੈਕਸਟ',
+  'chatBubble.source.voice': 'ਆਵਾਜ਼',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'conversation.defaultTitle': 'ਨਵੀਂ ਗੱਲਬਾਤ',
   'conversation.empty': 'ਹਾਲੇ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ। ਕੁਝ ਕਹਿ ਕੇ ਜਾਂ ਹੇਠਾਂ ਟਾਈਪ ਕਰਕੇ ਸ਼ੁਰੂਆਤ ਕਰੋ।',
   'conversation.eyebrow': 'ਲਾਈਵ ਸੈਸ਼ਨ',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'ਬੁੱਧੀ ਜੋ ਬੋਲਦੀ ਹੈ।',
   'landing.heroSubtitle':
     'ਏਆਈ ਵੌਇਸ ਅਸਿਸਟੈਂਟ ਜੋ ਤੁਹਾਡੇ ਕੁਦਰਤੀ ਪ੍ਰਵਾਹ ਨੂੰ ਸਮਝਦਾ ਹੈ। ਗੱਲਬਾਤ ਕਰੋ, ਵਿਚਾਰ ਕਰੋ, ਅਤੇ ਹੁਕਮ ਦਿਓ - ਬਿਨਾਂ ਕਿਸੇ ਰੁਕਾਵਟ ਦੇ।',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'ਸੁਣ ਰਿਹਾ ਹੈ...',
   'landing.naturallyBody':
     'ਕੋਈ ਟਰਿੱਗਰ ਸ਼ਬਦ ਨਹੀਂ। ਕੋਈ ਸਖ਼ਤ ਹੁਕਮ ਨਹੀਂ। ਭਾਸ਼ਾ ਸੰਦਰਭ, ਰੁਕਾਵਟਾਂ ਅਤੇ ਮਨੁੱਖੀ ਭਾਸ਼ਣ ਦੀ ਸੂਖਮਤਾ ਨੂੰ ਸਮਝਦੀ ਹੈ — ਜਿਵੇਂ ਕਿਸੇ ਸਾਥੀ ਨਾਲ ਗੱਲਬਾਤ ਕਰਨਾ।',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ਇੱਕ ਸੈਸ਼ਨ ਖੋਲ੍ਹੋ',
   'notFound.home': 'ਘਰ ਵਾਪਸ',
   'notFound.title': 'ਅਸੀਂ ਉਸ ਪੰਨੇ ਨੂੰ ਸੁਣ ਨਹੀਂ ਸਕੇ।',
+  'parlanceLayout.closeMenu': 'ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'parlanceLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'parlanceLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'pricing.conversations': '{{count}} ਗੱਲਬਾਤਾਂ',
   'pricing.cta.startFree': 'ਮੁਫ਼ਤ ਵਿੱਚ ਸ਼ੁਰੂਆਤ ਕਰੋ',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ਕੋਈ ਮੇਲ ਨਹੀਂ',
   'search.eyebrow': 'ਕਮਾਂਡ ਪੈਲੇਟ',
   'search.fetchError': 'ਖੋਜ ਇੰਡੈਕਸ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
+  'search.static.profile.preview': 'ਡਿਸਪਲੇ ਨਾਮ, ਹੈਂਡਲ, ਬਾਇਓ',
   'search.static.voice.title': 'ਆਵਾਜ਼',
   'search.title': 'ਖੋਜ ਭਾਸ਼ਾ',
   'search.transcriptPreview': 'ਟ੍ਰਾਂਸਕ੍ਰਿਪਟ ਖੋਲ੍ਹੋ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'about.pageTitle': 'সম্পর্কে {{appName}}',
   'analytics.empty': 'আপনার প্রথম ক্লিপটি রেকর্ড করে এখানে এনগেজমেন্ট দেখুন।',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ক্লিপ',
   'billing.usage.views': 'মতামত',
   'billing.usage.views.unit': 'মতামত',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'landing.cta.title': 'আরও ভালো ফিডব্যাক পাঠান। গ্লিন্ট দিয়ে শুরু করুন।',
   'landing.feature.capture.body':
     'মাইক্রোফোন, ক্যামেরা ও ড্রয়িং সহ ব্রাউজার, ডেস্কটপ এবং মোবাইলে রেকর্ডিং।',
   'landing.feature.capture.title': 'এক-ট্যাপ ক্যাপচার',
+  'landing.footer.copy': '© {{year}} {{appName}} . অ্যাসিঙ্ক, আলোকিত হয়ে উঠেছে।',
   'landing.hero.cardCaption': 'নমুনা কর্মক্ষেত্রের সংক্ষিপ্ত বিবরণ — বিনামূল্যে ব্যবহার করে দেখুন।',
   'landing.hero.primaryCta': 'বিনামূল্যে রেকর্ডিং শুরু করুন',
   'landing.hero.proof.free': 'চিরস্থায়ী বিনামূল্যের স্তর',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'রেকর্ডিং অনুসন্ধান করুন',
   'library.searchPlaceholder': 'রেকর্ডিংগুলো অনুসন্ধান করুন…',
   'library.weeklyChange': '{{value}} গত সপ্তাহের তুলনায় %',
+  'nav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'nav.record': 'রেকর্ড',
   'nav.shared': 'আমার সাথে শেয়ার করা হয়েছে',
   'nav.startRecording': 'রেকর্ডিং শুরু করুন',

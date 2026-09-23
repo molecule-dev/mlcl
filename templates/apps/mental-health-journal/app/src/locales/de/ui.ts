@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Über „{{app}}“',
+  'authShell.encryptionBadge': 'Ihre Eingaben sind Ende-zu-Ende-verschlüsselt.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'Tag {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Dieser Monat im Überblick',
   'calendar.eyebrow': 'Stimmung auf einen Blick',
@@ -10,6 +13,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'Nächster Monat',
   'calendar.prev': 'Vorheriger Monat',
   'calendar.subheading': '{{tracked}} von {{total}} Tagen in diesem Monat erfasst.',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.tryAgain': 'Erneut versuchen',
   'entryComposer.cancel': 'Zurück zum Journal',
   'entryComposer.heading': 'Reflexion von heute',
   'entryComposer.moodLabel': 'Wie fühlen Sie sich?',
@@ -20,7 +25,14 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'Ihr Eintrag konnte nicht gespeichert werden.',
   'entryComposer.titlePlaceholder': 'Geben Sie dieser Reflexion einen Namen…',
   'entryDetail.back': 'Zurück zum Journal',
+  'entryDetail.delete': 'Diesen Eintrag löschen',
+  'entryDetail.deleteConfirm':
+    'Diese Spiegelung löschen? Das kann nicht rückgängig gemacht werden.',
+  'entryDetail.deleteConfirmTitle': 'Eintrag löschen',
+  'entryDetail.deleteError': 'Dieser Eintrag konnte nicht gelöscht werden.',
+  'entryDetail.deleteForever': 'Endgültig löschen',
   'entryDetail.encryptedBadge': 'Ende-zu-Ende-verschlüsselt',
+  'entryDetail.keepEntry': 'Behalte es',
   'entryDetail.loadError': 'Dieser Eintrag konnte nicht geladen werden.',
   'entryDetail.loading': 'Reflexion wird geladen…',
   'entryDetail.notFound': 'Eintrag nicht gefunden.',
@@ -44,6 +56,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Erkenntnisse konnten nicht geladen werden.',
   'insights.subheading':
     'Stimmungsmuster, Themen und Auslöser — sanft aus Ihren letzten 30 Tagen gesammelt.',
+  'insights.themesEmpty':
+    'Noch keine Themen – füge deinen Einträgen ein oder zwei Schlagwörter hinzu, und sie werden hier zusammengeführt.',
   'insights.themesHeading': 'Top-Themen',
   'insights.triggerFrequency': '{{count}}× in diesem Monat bemerkt',
   'insights.triggersHeading': 'Muster, die Ihre Stimmung beeinflussen',
@@ -62,11 +76,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'Mit Journaling beginnen',
   'landing.heroCta': 'Beginnen Sie Ihren ersten Eintrag',
   'landing.heroCtaSecondary': 'In Aktion sehen',
+  'landing.heroSubtitle':
+    '{{app}} ist ein sanftes, privates Tagebuch für tägliche Reflexion, Stimmungsverfolgung und Dankbarkeit – mit nachdenklichen Anregungen und ruhigen Mustern, die Ihnen helfen, sich selbst besser zu verstehen.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewLabel': 'Ein Blick in Lucid',
   'landing.previewPrompt': 'Wofür sind Sie heute, und sei es noch so klein, dankbar?',
   'login.heading': 'Bei Ihrem Journal anmelden',
   'login.signupLink': 'Journal erstellen',
   'login.subheading': 'Ein sanfter Raum für tägliche Reflexion.',
+  'mentalHealthJournalLayout.closeMenu': 'Menü schließen',
+  'mentalHealthJournalLayout.openMenu': 'Menü öffnen',
   'moodHeroCard.streakSuffix': 'Tage in Folge',
   'moodHeroCard.title': 'Reflexion von heute',
   'moodTrendChart.aiBadge': 'KI-Erkenntnis bereit',
@@ -80,6 +99,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'Längste Serie',
   'profile.memberSince': 'Reflektiert seit {{date}}',
   'profile.milestones': 'Meilensteine',
+  'profile.milestonesEmpty':
+    'Ihr erster Meilenstein ist nur noch einen Eintrag entfernt – schreiben Sie, wann immer Sie sich bereit fühlen.',
   'profile.streakValue': '{{days}}T',
   'profile.totalEntries': 'Reflexionen',
   'profile.totalWords': 'Geschriebene Wörter',
@@ -108,10 +129,10 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Ihr Raum, Ihre Regeln',
   'settings.languageHeading': 'Sprache',
   'settings.privacyHeading': 'Datenschutz und Verschlüsselung',
+  'settings.remindersHeading': 'Tägliche Erinnerung',
   'settings.reminderToggleDescription':
     'Eine einzige ruhige Erinnerung zur von Ihnen gewählten Zeit. Keine Abzeichen oder Schuldgefühle wegen Serien.',
   'settings.reminderToggleLabel': 'Sanften Hinweis senden',
-  'settings.remindersHeading': 'Tägliche Erinnerung',
   'settings.saveError': 'Konnte nicht gespeichert werden.',
   'signup.eyebrow': 'Beginnen Sie Ihre Reflexion',
   'signup.firstNamePlaceholder': 'Sam',

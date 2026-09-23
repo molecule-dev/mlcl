@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.pageTitle': 'Oor {{app}}',
   'achievementBadgeCard.unlockedOn': 'Ontsluit {{date}}',
   'achievements.loadError': 'Kon nie prestasies laai nie.',
   'achievements.subheading': '{{unlocked}} van {{total}} ontsluit',
   'achievements.unlockedOn': 'Ontsluit {{date}}',
+  'auth.legalConsent': 'Deur voort te gaan, stem jy in tot ons',
   'calendar.empty': "Skep 'n gewoonte om jou kalender te sien.",
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Gewoonte',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Gewoonterooster',
   'category.${c.category}': '{{telling}} gewoontes',
   'common.and': 'en',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'consistencyHeatmap.ariaLabel': 'Daaglikse konsekwentheidshittekaart',
   'consistencyHeatmap.caption': 'Laaste {{weeks}} weke',
   'consistencyHeatmap.lessLabel': 'Minder',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Sien dit regstreeks',
   'landing.heroSubtitle':
     "Bou gewoontes soos hulle werklik vassteek: klein verpligtinge, daaglikse reekse en die viscerale plesier van 'n lang ononderbroke ketting.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': "'n Kykie binne Streak",
   'landing.previewMotivation': 'Nege strepe lewendig. Hou hulle almal warm.',
   'login.eyebrow': 'Tel die ketting op',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Maak dit klein. Maak dit spesifiek. Daag môre op.',
   'newHabit.timeLabel': 'Herinneringtyd',
   'notifications.markError': 'Kon nie alles as gelees merk nie.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.entries': '{{count}} inskrywings',
+  'pricing.heading': 'Kies jou {{app}} plan',
   'profile.action.plan': 'Bestuur intekening',
   'profile.action.settings': 'Rekeninginstellings',
   'profile.bioEmpty': "Voeg 'n kort biografie in Instellings by om jouself voor te stel.",
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Daaglikse oggendprompt (8:00 vm.)',
   'settings.reminders.heading': 'Herinneringe',
   'settings.reminders.weekly': 'Weeklikse opsomming (Sondagaande)',
+  'settings.revokeDeviceWarning':
+    'Hierdie toestel se toegang sal binnekort herroep word. Teken dit uit?',
   'settings.signOutDevice': 'Teken uit',
   'settings.streaks.freezesPerWeek': 'Vries per week',
   'settings.streaks.gracePeriod': '6-uur grasietydperk na middernag',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktief',
   'streakHeroCard.daysSuffix': 'dae',
   'streakHeroCard.title': 'Langste aktiewe reeks',
+  'streakLayout.closeMenu': 'Maak navigasiekieslys toe',
+  'streakLayout.openMenu': 'Maak navigasiekieslys oop',
   'streakLayout.primaryNavLabel': 'Primêre navigasie',
 }

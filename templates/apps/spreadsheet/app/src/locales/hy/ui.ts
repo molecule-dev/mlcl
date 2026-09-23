@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'about.pageTitle': 'Մասին {{name}}',
   'auth.footer.about': 'Մասին {{name}}',
   'authHeader.subtitle': 'Մուտք գործեք՝ ձեր թվերը ազնիվ պահելու համար։',
   'automations.action.email': 'Էլ․ փոստ',
+  'automations.action.noop': 'Առանց գործողության',
   'automations.action.webhook': 'Վեբհուկ',
   'automations.confirmDelete': 'Ջնջել " {{name}} «?»',
   'automations.empty.headline': 'Ավտոմատացումներ դեռ չկան',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Յուրաքանչյուր աշխատանքային գրքում արձանագրվում են ակտիվացուցիչներ և գործողություններ: Յուրաքանչյուր գործարկում գրանցում է տող, որը կարող եք ավելի ուշ աուդիտի ենթարկել:',
   'automations.toggle': 'Անջատել/անջատել {{name}}',
+  'automations.trigger.dailySchedule': 'Օրական գրաֆիկ',
+  'automations.trigger.rowCreated': 'Տողը ստեղծվել է',
+  'automations.trigger.rowUpdated': 'Շարքը թարմացվեց',
   'billing.empty': 'Պլաններ հասանելի չեն։',
   'billing.error.priceMissing':
     'Այս մակարդակի համար Stripe գին կարգավորված չէ: Սահմանեք STRIPE_*_PRICE_ID միջավայրի փոփոխականները:',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Դիագրամներ',
   'charts.kpi.totalCharts': 'Ընդհանուր գծապատկերներ',
   'charts.list.empty': 'Դեռևս գծապատկերներ չկան։',
+  'charts.namePlaceholder': 'Եկամտի միտումը',
   'charts.newChart': 'Նոր գծապատկեր',
   'charts.primary.eyebrow': 'Դիագրամներ ըստ տեսակի',
   'charts.primary.headline': 'Աշխատանքային տարածքի ակնարկ',
   'charts.subhead':
     'Ձեր ցանցին կապված կենդանի վիզուալիզացիաներ՝ վերարտադրել յուրաքանչյուր բջջի խմբագրման ժամանակ։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'editor.addColumn': 'Ավելացնել սյունակ',
+  'editor.addDialogTitle': 'Ավելացնել սյունակ',
   'editor.addRow': 'Ավելացնել տող',
   'editor.addSheet': 'Ավելացնել թերթիկ',
   'editor.back': 'Վերադառնալ աշխատանքային գրքերին',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite-ը բանաձևին առաջինը հետևող, բազմադիտարկումային, իրական ժամանակի ցանցային վերլուծաբանների և ֆինանսական թիմերի համար նախատեսված առաջին քայլն է։',
   'landing.nav.formulas': 'Բանաձևեր',
+  'login.noAccount': 'Նորեկ եք {{name}} -ում՞',
+  'login.signIn': 'Մուտք գործեք {{name}}',
   'login.signUp': 'Ստեղծեք աշխատանքային տարածք',
+  'nav.menu': 'Մենյու',
+  'nav.openMenu': 'Բացել ընտրացանկը',
   'notFound.cellRef': '#Հղում!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "երթուղիներ", "էջ")',
   'notFound.headline': 'Այս շարքը երբեք գոյություն չի ունեցել։',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Բնիկ ավտոմատացումներ · վեբհուկներ և քրոնային ակտիվացուցիչներ',
   'signup.creating': 'Աշխատանքային տարածքի նախապատրաստում…',
   'signup.cta': 'Ստեղծել իմ աշխատանքային տարածքը',
+  'signup.haveAccount': 'Արդեն {{name}} -ում եք՞',
   'signup.namePlaceholder': 'Էյվերի Չեն',
   'signup.tagline': 'Պտտեք ձեր առաջին աշխատանքային գիրքը 30 վայրկյանում',
   'team.col.activity': 'Հրավիրված է',

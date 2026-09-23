@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'about.pageTitle': 'Maidir {{appName}}',
   'analytics.empty': 'Taifead do chéad ghearrthóg chun rannpháirtíocht a fheiceáil anseo.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'gearrthóga',
   'billing.usage.views': 'Radharcanna',
   'billing.usage.views.unit': 'radhairc',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'landing.cta.title': 'Seol aiseolas níos fearr. Tosaigh le Glint.',
   'landing.feature.capture.body':
     'Taifeadadh brabhsálaí, deisce agus soghluaiste le micreafón, ceamara agus líníocht.',
   'landing.feature.capture.title': 'Gabháil le sconna amháin',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asyncrónach, déanta lonrúil.',
   'landing.hero.cardCaption': 'Forbhreathnú ar spás oibre samplach — bain triail as saor in aisce.',
   'landing.hero.primaryCta': 'Tosaigh ag taifeadadh saor in aisce',
   'landing.hero.proof.free': 'Leibhéal saor in aisce go deo',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Cuardaigh taifeadtaí',
   'library.searchPlaceholder': 'Cuardaigh taifeadtaí…',
   'library.weeklyChange': '{{value}} % i gcomparáid leis an tseachtain seo caite',
+  'nav.openMenu': 'Oscail an roghchlár nascleanúna',
   'nav.record': 'Taifead',
   'nav.shared': 'Roinnte liom',
   'nav.startRecording': 'Tosaigh ag taifeadadh',

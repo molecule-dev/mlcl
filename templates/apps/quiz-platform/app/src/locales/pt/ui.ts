@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.title': 'Sobre {{app}}',
   'auth.login.noAccount': 'Novo no Sparq?',
   'auth.login.or': 'ou continue com',
   'auth.signup.or': 'ou cadastre-se com',
+  'common.confirm': 'Confirmar',
+  'common.goToDashboard': 'Ir para o Painel',
+  'common.loadError': 'Ocorreu um erro ao carregar este conteúdo.',
+  'common.retry': 'Tentar novamente',
   'discover.collections.title': 'Explorar por categoria',
   'discover.collections.viewAll': 'Ver sua biblioteca →',
   'discover.empty.body': 'Tente outra categoria ou limpe a busca.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Entre para manter sua sequência viva, hospedar jogos ao vivo e subir no placar.',
   'myQuizzes.createButton': 'Novo quiz',
+  'myQuizzes.deleteConfirm': 'Apagar para sempre?',
   'myQuizzes.empty.createCta': 'Crie seu primeiro quiz →',
   'myQuizzes.empty.created': 'Você ainda não criou nenhum quiz.',
   'myQuizzes.empty.played': 'Nenhum quiz publicado ainda.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Carregando…',
   'notifications.subhead':
     '{{count}} faíscas não lidas. Convites, mudanças no placar e conquistas em um único fluxo.',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.checkoutError': 'Não foi possível iniciar o checkout. Tente novamente.',
+  'pricing.heading': 'Escolha o seu plano {{app}}',
   'pricing.included': 'Incluído',
   'pricing.loadError': 'Não foi possível carregar os planos.',
   'pricing.maxQuizzes': '{{count}} quizzes',
@@ -99,11 +108,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Nada publicado ainda.',
   'profile.startBuilding': 'Começar a criar →',
   'profile.tier': 'Jogador do Sparq',
+  'quizBuilder.addFailed': 'Não foi possível adicionar a pergunta. Tente novamente.',
   'quizBuilder.addQuestion': 'Adicionar pergunta',
   'quizBuilder.answerPlaceholder': 'Digite uma opção…',
   'quizBuilder.answersLabel': 'Opções de resposta',
   'quizBuilder.back': 'Voltar aos meus quizzes',
   'quizBuilder.delete': 'Excluir pergunta',
+  'quizBuilder.deleteFailed': 'Não foi possível excluir a pergunta.',
   'quizBuilder.firstQuestion': 'Adicione sua primeira pergunta para começar.',
   'quizBuilder.idLabel': 'ID do quiz: {{id}}',
   'quizBuilder.loadError': 'Não foi possível carregar o quiz.',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Adicione pelo menos duas opções de resposta e escolha a correta para {{count}} pergunta(s) antes de publicar.',
   'quizBuilder.questionsTitle': 'Perguntas',
+  'quizBuilder.saveFailed': 'Não foi possível salvar o título. Tente novamente.',
   'quizBuilder.statusDraft': 'Rascunho',
   'quizBuilder.subhead':
     'Edite o título, adicione perguntas, defina opções e a resposta correta. As alterações são salvas automaticamente.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} min',
   'quizDetail.hostMultiplayer': 'Hospedar multijogador',
   'quizDetail.leaderboardEmpty': 'Ainda sem partidas — seja o primeiro a definir uma pontuação.',
+  'quizDetail.loadError': 'Não foi possível carregar este questionário.',
   'quizDetail.loading': 'Carregando quiz…',
   'quizDetail.plays': '{{count}} partidas',
   'quizDetail.playSolo': 'Jogar solo',

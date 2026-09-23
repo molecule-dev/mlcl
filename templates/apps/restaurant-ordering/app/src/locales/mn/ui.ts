@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ийн тухай',
   'analytics.avgCheckLabel': 'Дундаж шалгалт',
   'analytics.busiestHour': 'Хамгийн их ачаалалтай цаг',
   'analytics.coversToday': 'Өнөөдрийн коверууд',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Зөвлөгөө (дундаж)',
   'analytics.topItems': 'Өнөөдрийн шилдэг бараа',
   'authShell.eyebrow': 'Үйлчилгээнд дахин тавтай морилно уу',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Зочид буудлын багуудад зориулсан дулаан, хурдан борлуулалтын цэг. Гал тогоондоо нэвтэрч, зогссон газраасаа үргэлжлүүлээрэй.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'эсвэл {{price}}',
   'billing.priceUnavailable': 'Энэ төлөвлөгөөнд тохируулсан үнэ байхгүй байна.',
   'billing.updated': 'Төлөвлөгөөг шинэчилсэн.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'customerDetail.book': 'Захиалга нэмэх',
   'customerDetail.col.table': 'Ширээ',
   'customerDetail.confirmDelete': 'Энэ зочны бүртгэлийг устгах уу?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Бэлэн байдал',
   'menuItemDetail.available': 'Өнөө орой боломжтой',
   'menuItemDetail.backToMenu': 'Цэс рүү буцах',
+  'menuItemDetail.confirmDelete': 'Энэ цэсний зүйлийг устгах уу?',
   'menuItemDetail.delete': 'Зүйлийг устгах',
   'menuItemDetail.deleteError': 'Устгах амжилтгүй боллоо. Дахин оролдоно уу.',
   'menuItemDetail.dietary': 'Хоолны дэглэмийн шошго',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Хадгалах амжилтгүй боллоо. Дахин оролдоно уу.',
   'menuItemDetail.subheading': '{{category}} · Зураг, өөрчлөгч, хоолны дэглэм болон үнийг засах.',
   'menuItemDetail.untitled': 'Гарчиггүй зүйл',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'notFound.heading': 'Энэ ширээ шалан дээр биш байна.',
   'notFound.subheading': 'Таны хайж байсан хуудас өөр газар байрласан эсвэл огт байгаагүй байна.',
+  'notFound.toLanding': '{{app}} нүүр хуудас',
   'notifications.markError': 'Бүгдийг нь уншсан гэж тэмдэглэж чадсангүй.',
   'orderDashboard.activeDelta': 'Одоо шууд дамжуулалт',
   'orderDashboard.activeLabel': 'Идэвхтэй захиалга',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Нууц үгийг харуулах',
   'resetPassword.subtitle': 'Гал тогоонд дахин нэвтрэхийн тулд шинэ нууц үгээ оруулна уу.',
   'resetPassword.tokenLabel': 'Токеныг дахин тохируулах',
+  'restaurantOrderingLayout.primaryNavLabel': 'Үндсэн навигаци',
   'revenueHeroCard.activeOrders': '{{count}} идэвхтэй',
   'revenueHeroCard.change': '{{sign}} {{amount}} өчигдөртэй харьцуулахад',
   'revenueHeroCard.title': 'Өнөөдрийн орлого',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Рестораны нэр',
   'tableDetail.activeOrders': 'Идэвхтэй захиалга',
   'tableDetail.backToFloor': 'Давхрын төлөвлөгөө',
+  'tableDetail.confirmDelete': 'Энэ хүснэгтийг устгах уу?',
   'tableDetail.delete': 'Устгах',
   'tableDetail.deleteError': 'Хүснэгтийг устгаж чадсангүй.',
   'tableDetail.heading': 'Ширээ {{label}}',

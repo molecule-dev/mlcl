@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
+  'about.eyebrow': 'O {{app}}',
   'about.pageTitle': 'Każda trasa, jedno wyszukiwanie.',
   'booking.backToDetail': 'Powrót do szczegółów lotu',
   'booking.continue': 'Przejdź do płatności',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Podatki i opłaty',
   'booking.summary.travelers': 'Podróżujący',
   'common.about': 'O nas',
+  'common.goToDashboard': 'Przejdź do panelu',
   'flightDetail.backToResults': 'Powrót do wyników',
   'flightDetail.baseFare': 'Taryfa podstawowa',
   'flightDetail.book': 'Przejdź do rezerwacji',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 przesiadka',
   'flightResultCard.select': 'Wybierz',
   'flightResultCard.totalLabel': 'Czas łączny',
+  'flightSearchLayout.primaryNavLabel': 'Nawigacja główna',
   'forgotPassword.subheading':
     'Proszę podać adres e-mail konta Skylark, a wyślemy bezpieczny link resetujący.',
   'forgotPassword.successBody':
     'Proszę sprawdzić {{email}} w poszukiwaniu linku do ustawienia nowego hasła. Link traci ważność po 30 minutach.',
   'forgotPassword.successHeading': 'Link resetujący wysłany',
   'landing.cta.explore': 'Wypróbuj wyszukiwarkę',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Znajdź najlepszą taryfę przed innymi.',
   'landing.cta.signup': 'Śledź taryfy',
   'landing.features.eyebrow': 'Dlaczego Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Dodaj alert',
   'priceAlerts.deleteConfirm': 'Usunąć ten alert?',
   'priceAlerts.empty': 'Brak śledzonych tras.',
+  'priceAlerts.emptyCta': 'Wyszukaj trasę do śledzenia',
   'priceAlerts.errorMessage': 'Nie udało się wczytać alertów.',
   'priceAlerts.eyebrow': 'Lista obserwowanych Skylark',
   'priceAlerts.form.createError': 'Nie udało się utworzyć alertu.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Plan multi-city',
   'results.multiLegHeading': 'Etap {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} etapów · {{passengers}} podróżny',
+  'results.sortAriaLabel': 'Sortuj wyniki według',
   'results.sortLabel': 'Sortuj',
   'results.summary': '{{count}} lotów · {{passengers}} podróżny',
   'settings.language.title': 'Język',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Despre {{app}}',
   'about.plansTitle': 'Planuri care cresc odată cu tine',
   'brand.tagline': 'În fiecare secundă',
   'clientDetail.back': 'Înapoi la clienți',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Fiecare relație într-un singur loc — proiecte, ore lucrate, facturi restante.',
   'clients.title': 'Clienți',
   'common.and': 'și',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.activeProjects': 'Proiecte active',
   'dashboard.empty': 'Nicio intrare încă. Pornește cronometrul pentru a urmări prima sesiune.',
   'dashboard.greeting': 'Bună ziua, {{name}}',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Nu există ore facturabile pentru acest client. Urmăriți mai întâi o parte din timp sau atribuiți intrări existente unuia dintre proiectele acestui client.',
   'invoices.save': 'Creați factură',
   'invoices.subtitle': 'Orele urmărite sunt înscrise automat în facturi.',
+  'landing.copyright': '© {{year}} {{app}} . Fiecare secundă, contabilizată.',
   'landing.ctaBody':
     'Gratuit pentru maximum 3 proiecte. Actualizați abonamentul când lista dvs. de clienți face același lucru.',
   'landing.eyebrow': 'Urmărirea timpului pentru lucrări facturabile',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Încredere acordată de independenți',
   'landing.testimonial.quote':
     '„Am renunțat la Toggl în 30 de minute. Numai consumul excesiv de bani s-a amortizat. Am încetat să mai subestimez prețurile două săptămâni la rând.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Fiecare secundă, contabilizată.',
   'login.brand.subtitle':
     'Reia cronometrul de unde ai rămas — fiecare minut este deja mapat la un proiect, un client, o factură.',
   'login.brand.tracking': 'Urmărire',
   'login.subheading': 'Reia cronometrul de unde ai rămas.',
+  'nav.closeMenu': 'Închide meniul de navigare',
   'nav.insightsSection': 'Perspective',
   'nav.newEntry': 'Intrare nouă',
+  'nav.openMenu': 'Deschide meniul de navigare',
+  'nav.primary': 'Navigare principală',
   'nav.workSection': 'Lucru',
   'notFound.body':
     'Se pare că linkul pe care l-ai accesat nu mai este urmărit. Revino la tabloul de bord și vom continua să numărăm de acolo.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Facturabil',
   'timer.descriptionPlaceholder': 'La ce lucrezi?',
   'timer.idle': 'Inactiv — începeți urmărirea',
+  'timer.noProject': 'Niciun proiect',
   'timer.runningWithProject': 'Niciun proiect',
   'timer.start': 'Pornire cronometru',
   'timer.stop': 'Opriți cronometrul',

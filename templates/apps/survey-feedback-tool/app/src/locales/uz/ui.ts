@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqida',
   'analytics.back': "So'rovnoma haqida umumiy ma'lumot",
   'analytics.kpiNps': 'NPS balli',
   'analytics.kpiNpsTrend': "Targ'ibotchilar {{p}} % · Tanqidchilar {{d}} %",
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Mulklar',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': "So'rovnoma sarlavhasi",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'forgotPassword.failed':
     "Qayta tiklash elektron pochtasini yuborib bo'lmadi. Iltimos, qayta urinib ko'ring.",
   'forgotPassword.subheading':
     'Elektron pochtangizni kiriting va biz sizga tiklash havolasini yuboramiz.',
   'forgotPassword.successBody':
     "Agar hisob mos kelsa {{email}} , asl holatini tiklash havolasi yo'lda. Kiruvchi xabarlar qutingizni va spam papkalarini tekshiring.",
+  'landing.footer.copyright': '© {{year}} {{app}} . Barcha ovozlar qabul qilinadi.',
   'landing.footer.startTrial': 'Sinov muddatini boshlash',
   'landing.hero.badge': "So'rovnomalar, NPS va fikr-mulohazalar bir joyda",
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Narxlar',
   'landing.pricing.perMonth': '/oy',
   'landing.pricing.popular': 'Eng mashhur',
+  'landing.pricing.subtitle':
+    "Har bir reja so'rovnoma tuzuvchisi, ommaviy ulashish havolalari va NPS tahlilini o'z ichiga oladi. Boshlash uchun kredit karta talab qilinmaydi.",
+  'landing.pricing.title': 'Bepul boshlang, xohlaganingizda miqyoslang.',
   'landing.sample.eyebrow': "NPS haqida qisqacha ma'lumot",
   'landing.sample.title': "Tanqidchilar, passivlar, targ'ibotchilar — darhol o'qilishi mumkin.",
   'login.failed': "Kirish amalga oshmadi. Qaytadan urinib ko'ring.",
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': "Parolni ko'rsatish",
   'login.signUpLink': 'Bepul sinov muddatini boshlang',
   'login.subheading': 'Tinglovchilaringizni tinglashda davom etish uchun tizimga kiring.',
+  'notFound.body':
+    "Siz izlayotgan sahifa {{app}} da mavjud emas. Keling, so'rovnomalaringizga qaytaylik.",
   'notFound.cta': "So'rovnomalarga qaytish",
   'notFound.eyebrow': '404',
   'notFound.heading': "Ushbu so'rovnoma navbatdan chiqib ketdi.",
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiv 7–8',
   'npsDistributionBar.promoter': "9–10-sonli targ'ibotchi",
   'profile.identity.description': "Jamoangiz va siz yozgan so'rovnomalarda ommaga ochiq.",
+  'profile.identity.emailRequired': 'Elektron pochta manzilini kiriting.',
   'profile.identity.saveCta': 'Ismni saqlash',
   'profile.password.current': 'Joriy parol',
   'profile.password.fillFields': 'Joriy va yangi parolni kiriting.',
@@ -180,6 +189,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} savollar',
   'templates.subheading':
     "Jangda sinovdan o'tgan boshlang'ichni tanlang — har bir shablon oldindan sozlangan bo'lib, oqilona standart sozlamalar, namunaviy mantiq va toza mobil maket bilan birga keladi.",
+  'thankYou.body': "Javobingiz yozib olindi. {{app}} uni keyingi tahlil yangilanishiga qo'shadi.",
   'thankYou.eyebrow': 'Javob olindi',
   'thankYou.heading': 'Rahmat - ovozingiz muhim.',
   'thankYou.home': 'Gaugega tashrif buyuring',

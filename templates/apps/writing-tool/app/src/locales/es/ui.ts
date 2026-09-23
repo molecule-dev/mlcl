@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
+  'about.title': 'Un espacio para escribir que puedes llevar en el bolsillo',
   'billing.cancelConfirm': '¿Cancelar tu suscripción activa?',
   'billing.cancelFailed': 'No se pudo cancelar.',
   'billing.checkingOut': 'Abriendo el pago…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'No se pudo cargar la facturación.',
   'billing.loading': 'Cargando facturación…',
   'billing.upgradeCta': 'Mejorar a {{name}}',
+  'common.goToDashboard': 'Ir al panel',
+  'editor.autosaveOn': 'Guardado automático en',
   'editor.backToLibrary': 'Volver a la biblioteca',
   'editor.charCount': '{{count}} caracteres',
   'editor.confirmTrash': '¿Mover este documento a la papelera?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Desfijado',
   'editor.unpublishCta': 'Pasar a borrador',
   'editor.unpublished': 'Revertido a borrador',
+  'focus.autosaveOn': 'Guardado automático en',
   'focus.backToLibrary': 'Volver a la biblioteca',
   'focus.bodyPlaceholder': 'Una línea cada vez. Aquí no hay nadie más.',
   'focus.exit': 'Salir del modo enfoque',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Crea una',
   'login.subline':
     'Tus manuscritos, páginas diarias y la última posición del cursor están justo donde los dejaste.',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'pricing.exports': 'exportaciones',
   'pricing.folders': 'carpetas',
   'pricing.heading': 'documentos',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Introduce el código que te enviamos y elige algo memorable. Iniciaremos tu sesión en cuanto se guarde.',
   'reset.tokenHint': 'Pegado desde tu bandeja de entrada.',
+  'settings.appearance.heading': 'Claro u oscuro',
   'settings.editor.${row.id}.description': 'Idioma',
   'settings.editor.description':
     'Desplazamiento tipo máquina de escribir, desvanecimiento de párrafos y enfoque en reposo: la configuración predeterminada está optimizada para sesiones largas.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Capítulo Tres — Una hora tranquila antes del amanecer',
   'versalDocumentCard.pinned': 'Fijado',
   'versalLayout.nav.stats': 'Estadísticas',
+  'versalLayout.primaryNavLabel': 'Navegación principal',
   'versalManuscriptHero.cta': 'Seguir escribiendo',
   'versalManuscriptHero.goalLabel': 'Meta de palabras de hoy',
   'versalManuscriptHero.inProgress': 'En curso',

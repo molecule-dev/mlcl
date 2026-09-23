@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'about.tagline': 'Нууцууд ил задгайд үхдэг.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Токен үүсгэх',
   'apiTokens.kicker': 'API токенууд',
   'apiTokens.loading': 'Токенуудыг ачаалж байна…',
+  'apiTokens.new': 'Шинэ токен',
   'apiTokens.revoke': 'Токеныг хүчингүй болгох',
   'apiTokens.subheading':
     'Arcanum CLI болон SDK-д зориулсан хувийн болон үйлчилгээний жетонууд. Бүтээх үед энгийн текстийг нэг удаа харуулна.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Нууц үг',
   'authShell.zeroKnowledge': 'Тэг мэдлэггүй шифрлэлт',
   'common.connecting': 'Холбогдож байна…',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.inviting': 'Урьж байна…',
   'forgotPassword.checkInbox':
     'Хэрэв {email} бүртгэлтэй бол гарын үсэг зурсан дахин тохируулах холбоос нэг минутын дотор ирнэ.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Эргэлтийн төлөв, аномалийн мэдэгдэл болон бүх агуулах дахь зөвшөөрлийн хүсэлтүүд.',
   'notifications.unreadEmpty': 'Ирсэн имэйл тэг — бүгдийг нь гүйцээсэн.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.heading': 'нууцууд',
   'pricing.limits.accessPolicies': 'хандалтын бодлого',
   'pricing.limits.auditLog': 'аудитын бүртгэлийн оруулгууд',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Хувийн бүртгэл',
   'profile.plan.description': 'Захиалгаа удирдаж, хязгаарыг харж, шинэчлээрэй.',
   'profile.subheading': 'Хувь хүн, хоёрдогч хүчин зүйлийн төхөөрөмжүүд болон идэвхтэй сессүүд.',
+  'profile.twoFactor.code': 'Баталгаажуулах код',
   'profile.twoFactor.disable': 'Идэвхгүй болгох',
   'profile.twoFactor.enable': 'Идэвхжүүлэх',
+  'profile.twoFactor.invalidCode': 'Буруу код',
   'profile.twoFactor.kicker': 'Хоёр хүчин зүйлийн баталгаажуулалт',
+  'profile.twoFactor.off': 'Идэвхгүй байна',
   'profile.twoFactor.on': 'Идэвхжүүлсэн',
   'resetPassword.email': 'Бүртгэлийн имэйл',
   'resetPassword.heading': 'Шинэ итгэмжлэл тохируулах',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'тушаалууд',
   'secretsManagerLayout.encrypted': 'AES-256 · Шифрлэгдсэн',
   'secretsManagerLayout.newVault': 'Шинэ сейф',
+  'secretsManagerLayout.newVaultShort': 'Шинэ',
   'secretsManagerLayout.rotations': 'Эргэлтүүд',
   'secretsManagerLayout.search': 'хайлт',
   'secretsManagerLayout.searchPlaceholder': 'Түлхүүр, зам эсвэл шошгоор нууцыг хайх...',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Нууцууд',
   'vaultCard.vaultLabel': 'Агуулах',
   'vaultDetail.addSecret': 'Нууц нэмэх',
+  'vaultDetail.back': 'Бүх сейфүүд',
   'vaultDetail.col.key': 'Түлхүүр',
   'vaultDetail.col.rotated': 'Эргэлдсэн',
   'vaultDetail.col.value': 'Үнэ цэнэ',

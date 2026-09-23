@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'article.notFound': 'Raksts nav atrasts',
   'articleEditor.bodyPlaceholder': 'Ievadiet / blokiem vai vienkārši sāciet rakstīt.',
+  'articleEditor.loadFailed': 'Nevarēja ielādēt rakstu',
   'articleEditor.publishing': 'Publicēšana\\u2026',
   'articleEditor.saveFailed': 'Saglabāšana neizdevās',
   'articleEditor.saving': 'Saglabāšana\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Grāmatzīme',
   'articleView.bookmarkOn': 'Pievienots grāmatzīmēm',
   'articleView.edit': 'Rediģēt rakstu',
+  'articleView.loading': 'Atverot šo rakstu…',
   'articleView.readTime': '{{minutes}} min lasīšanas laiks',
   'articleView.spaces': 'Telpas',
   'articleView.tocHeading': 'Šajā lapā',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Jaunākie labojumi, lasījumi un melnraksti, ko jūsu komanda joprojām apgūst.',
   'cairnTrailHero.updated': 'Raksti atjaunināti',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'drafts.eyebrow': 'Tavs nepabeigtais darbs',
   'drafts.heading': 'Priekšlikumi',
+  'drafts.loadFailed': 'Nevarēja ielādēt jūsu melnrakstus.',
   'drafts.subtitle':
     'Raksti, ko esat iesākuši, bet vēl neesat publicējuši. Izvēlieties vienu un turpiniet.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Vēl nav brīvu vietu. Atveriet vienu, lai sāktu vākt rakstus.',
   'home.spacesHeading': 'Jūsu telpas',
   'home.subtitle': 'Jaunākie raksti, jūsu grāmatzīmes un komandas rakstītais.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Izveidots ar Molecule.',
   'landing.ctaBody':
     'Bez maksas individuāliem autoriem. Komandas plāni izkliedētām komandām, kas nodrošina izpildes grāmatas, lēmumus un apmācību.',
   'landing.ctaHeading': 'Sakraujiet pirmo akmeni šodien.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Izveidojiet darba vietu',
   'login.submitting': 'Pieslēgties\\u2026',
   'login.subtitle': 'Turpini taku tur, kur to atstāji.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
+  'newSpace.colorAria': 'Izvēlieties krāsu {{color}}',
   'newSpace.colorLabel': 'Akcenta krāsa',
+  'newSpace.createFailed': 'Nevarēja izveidot telpu',
   'newSpace.descriptionPlaceholder':
     'Izpildes ceļveži, dežūras scenāriju grāmatas, pēcoperācijas analīzes\\u2026',
   'newSpace.eyebrow': 'Atveriet zināšanu telpu',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Notiek ielāde\\u2026',
   'notifications.subtitle':
     '{{count}} nelasītie pieminējumi, komentāri, lapas izmaiņas un pārskatīšanas pieprasījumi.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.articles': 'raksti',
   'pricing.spaces': 'atstarpes',
   'profile.eyebrow': 'Autorēšanas profils',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Ievadiet jaunu paroli',
   'resetPassword.subtitle': 'Izvēlieties drošu paroli — vismaz 12 rakstzīmes.',
   'searchResults.eyebrow': 'Darba vietas meklēšana',
+  'searchResults.filter.all': 'Visas telpas',
   'searchResults.heading': 'Meklēt rakstus',
   'searchResults.placeholder': 'Meklēt izpildes grāmatas, RFC, politikas, lēmumus\\u2026',
   'searchResults.summary': '{{count}} rezultāti vaicājumam \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Tas izdzēsīs jūsu kontu un visus jūsu rakstītos rakstus. Ievadiet DZĒST, lai apstiprinātu.',
   'settings.danger.confirmInvalid': 'Lai apstiprinātu, ierakstiet DZĒST.',
+  'settings.danger.deleteFailed': 'Nevarēja izdzēst kontu',
   'settings.danger.deleting': 'Dzēš\\u2026',
   'settings.danger.description':
     'Dzēšot darba vietu, tiek noņemti visi raksti, komentāri un versiju vēsture. Atkopšana nav iespējama.',
   'settings.danger.title': 'Dzēst darbvietu',
+  'settings.email.confirm': 'Atjaunināt e-pastu',
+  'settings.email.confirmTitle': 'Apstiprināt e-pasta adreses maiņu',
   'settings.email.saved': 'E-pasts atjaunināts.',
+  'settings.email.updateFailed': 'Nevarēja atjaunināt e-pastu',
   'settings.language.title': 'Valoda',
   'settings.name': 'Vārds',
+  'settings.name.saved': 'Nosaukums atjaunināts.',
+  'settings.name.updateFailed': 'Nevarēja atjaunināt nosaukumu',
   'settings.notifications.description': 'Izvēlieties, kas nonāk jūsu pastkastē.',
+  'settings.password.changeFailed': 'Nevarēja mainīt paroli',
   'settings.password.current': 'Pašreizējais paroles',
   'settings.password.new': 'Jauna parole',
   'settings.password.saving': 'Notiek atjaunināšana\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Kā raksti tiek attēloti jums.',
   'settings.reading.title': 'Lasīšana un rakstīšana',
   'settings.subtitle': 'Pielāgojiet paziņojumus, lasīšanas audeklu un savu kontu.',
+  'settings.twofa.code': 'Autentifikācijas kods',
   'settings.twofa.disable': 'Atspējot',
   'settings.twofa.disabled': 'Invalīdi',
   'settings.twofa.enable': 'Ieslēgt',
   'settings.twofa.enabled': 'Iespējots',
+  'settings.twofa.invalidCode': 'Nepareizs kods',
+  'settings.twofa.unavailable': 'Divfaktoru autentifikācija šai lietotnei nav pieejama.',
+  'settings.twofa.verify': 'Verificēt un iespējot',
   'signup.brandQuote':
     'Pierakstīt to ir pirmais solījums, ko dodam nākamajai personai, kurai tas ir nepieciešams.',
   'signup.eyebrow': 'Atveriet darbvietu',

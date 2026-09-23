@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.eyebrow': '{{app}} کے بارے میں',
   'about.pageTitle': 'ہر راستہ، ایک تلاش۔',
   'booking.backToDetail': 'پرواز کی تفصیلات پر واپس جائیں۔',
   'booking.continue': 'ادائیگی جاری رکھیں',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ٹیکس اور فیس',
   'booking.summary.travelers': 'مسافر',
   'common.about': 'کے بارے میں',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'flightDetail.backToResults': 'نتائج پر واپس جائیں۔',
   'flightDetail.baseFare': 'بنیادی کرایہ',
   'flightDetail.book': 'بکنگ جاری رکھیں',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 سٹاپ',
   'flightResultCard.select': 'منتخب کریں۔',
   'flightResultCard.totalLabel': 'کل وقت',
+  'flightSearchLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'forgotPassword.subheading':
     'اپنے Skylark اکاؤنٹ پر ای میل درج کریں اور ہم ایک محفوظ ری سیٹ لنک بھیجیں گے۔',
   'forgotPassword.successBody':
     'چیک کریں۔ {{email}} نیا پاس ورڈ سیٹ کرنے کے لیے لنک کے لیے۔ لنک 30 منٹ میں ختم ہو جائے گا۔',
   'forgotPassword.successHeading': 'ری سیٹ لنک بھیج دیا گیا۔',
   'landing.cta.explore': 'تلاش کرنے کی کوشش کریں۔',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'سب سے پہلے اگلا زبردست کرایہ تلاش کریں۔',
   'landing.cta.signup': 'کرایوں کا سراغ لگانا شروع کریں۔',
   'landing.features.eyebrow': 'کیوں Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'الرٹ شامل کریں۔',
   'priceAlerts.deleteConfirm': 'اس الرٹ کو ہٹائیں؟',
   'priceAlerts.empty': 'ابھی تک کوئی ٹریک شدہ راستے نہیں ہیں۔',
+  'priceAlerts.emptyCta': 'ٹریک کرنے کے لیے کوئی راستہ تلاش کریں۔',
   'priceAlerts.errorMessage': 'الرٹس لوڈ نہیں ہو سکے۔',
   'priceAlerts.eyebrow': 'Skylark واچ لسٹ',
   'priceAlerts.form.createError': 'الرٹ نہیں بنایا جا سکا۔',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'کثیر شہر کا سفر نامہ',
   'results.multiLegHeading': 'ٹانگ {{n}} · {{منجانب}} → {{to}} · {{تاریخ}}',
   'results.multiSummary': '{{count}} ٹانگیں · {{passengers}} مسافر',
+  'results.sortAriaLabel': 'نتائج کو ترتیب دیں۔',
   'results.sortLabel': 'چھانٹنا',
   'results.summary': '{{count}} پروازیں {{passengers}} مسافر',
   'settings.language.title': 'زبان',

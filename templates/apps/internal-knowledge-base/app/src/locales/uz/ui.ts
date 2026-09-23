@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'article.notFound': 'Maqola topilmadi',
   'articleEditor.bodyPlaceholder': 'Bloklar uchun / ni yozing yoki shunchaki yozishni boshlang.',
+  'articleEditor.loadFailed': "Maqolani yuklab bo'lmadi",
   'articleEditor.publishing': 'Nashriyot\\u2026',
   'articleEditor.saveFailed': 'Saqlash amalga oshmadi',
   'articleEditor.saving': 'Saqlanmoqda\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': "Xatcho'p",
   'articleView.bookmarkOn': "Xatcho'plangan",
   'articleView.edit': 'Maqolani tahrirlash',
+  'articleView.loading': 'Ushbu maqolani ochish…',
   'articleView.readTime': "{{minutes}} minimal o'qish",
   'articleView.spaces': "Bo'shliqlar",
   'articleView.tocHeading': 'Ushbu sahifada',
@@ -39,8 +43,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     "Jamoangiz hali ham so'nggi tahrirlar, o'qishlar va qoralamalarni davom ettirmoqda.",
   'cairnTrailHero.updated': 'Maqolalar yangilandi',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'drafts.eyebrow': 'Sizning tugallanmagan ishingiz',
   'drafts.heading': 'Qoralamalar',
+  'drafts.loadFailed': "Qoralamalaringizni yuklab bo'lmadi.",
   'drafts.subtitle':
     'Siz boshlagan, ammo hali nashr etilmagan maqolalar. Bittasini tanlang va davom eting.',
   'forgotPassword.sentBody':
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': "Hali joy yo'q. Maqolalarni to'plashni boshlash uchun bittasini oching.",
   'home.spacesHeading': "Sizning bo'sh joylaringiz",
   'home.subtitle': "So'nggi maqolalar, xatcho'plaringiz va jamoa nima yozayotgani.",
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule yordamida yaratilgan.',
   'landing.ctaBody':
     'Yakkaxon mualliflar uchun bepul. Ish daftarchalarini, qarorlarni va ishga qabul qilishni yetkazib beradigan tarqatilgan jamoalar uchun jamoaviy rejalar.',
   'landing.ctaHeading': "Bugun birinchi toshni qo'ying.",
@@ -84,7 +91,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Ish maydoni yarating',
   'login.submitting': 'Kirish\\u2026',
   'login.subtitle': "Yo'lni qoldirgan joyingizdan oling.",
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
+  'newSpace.colorAria': '{{color}} rangini tanlang',
   'newSpace.colorLabel': "Urg'u rangi",
+  'newSpace.createFailed': "Bo'sh joy yaratib bo'lmadi",
   'newSpace.descriptionPlaceholder':
     "Ish daftarchalari, navbatchilik daftarchalari, o'limdan keyingi holatlar haqida ma'lumot\\u2026",
   'newSpace.eyebrow': 'Bilim maydonini oching',
@@ -109,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.subtitle':
     '{{count}} oʻqilmagan \\u2014 eslatmalar, sharhlar, sahifa oʻzgarishlari va koʻrib chiqish soʻrovlari.',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.articles': 'maqolalar',
   'pricing.spaces': "bo'shliqlar",
   'profile.eyebrow': 'Mualliflik profili',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Yangi parolni kiriting',
   'resetPassword.subtitle': 'Kuchli parol tanlang — kamida 12 ta belgidan iborat.',
   'searchResults.eyebrow': 'Ish joyini qidirish',
+  'searchResults.filter.all': "Barcha bo'sh joylar",
   'searchResults.heading': 'Maqolalarni qidirish',
   'searchResults.placeholder': 'Ish daftarchalari, RFClar, siyosatlar, qarorlarni qidirish\\u2026',
   'searchResults.summary': '{{count}} natijalar \\u201c uchun {{query}} \\u201d',
@@ -136,14 +149,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     "Bu sizning hisobingizni va siz yozgan barcha maqolalarni o'chiradi. Tasdiqlash uchun DELETE tugmasini bosing.",
   'settings.danger.confirmInvalid': 'Tasdiqlash uchun DELETE deb yozing.',
+  'settings.danger.deleteFailed': "Hisobni o'chirib bo'lmadi",
   'settings.danger.deleting': "O'chirilmoqda\\u2026",
   'settings.danger.description':
     "Ish joyingizni o'chirish barcha maqolalar, sharhlar va versiyalar tarixini o'chiradi. Tiklash imkoni yo'q.",
   'settings.danger.title': "Ish maydonini o'chirish",
+  'settings.email.confirm': 'Elektron pochtani yangilash',
+  'settings.email.confirmTitle': "Elektron pochta o'zgarishini tasdiqlang",
   'settings.email.saved': 'Elektron pochta yangilandi.',
+  'settings.email.updateFailed': "Elektron pochtani yangilab bo'lmadi",
   'settings.language.title': 'Til',
   'settings.name': 'Ism',
+  'settings.name.saved': 'Nom yangilandi.',
+  'settings.name.updateFailed': "Ismni yangilab bo'lmadi",
   'settings.notifications.description': 'Pochta qutingizga nima yetib borishini tanlang.',
+  'settings.password.changeFailed': "Parolni o'zgartirib bo'lmadi",
   'settings.password.current': 'Joriy parol',
   'settings.password.new': 'Yangi parol',
   'settings.password.saving': 'Yangilanmoqda…',
@@ -151,10 +171,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Maqolalar siz uchun qanday taqdim etiladi.',
   'settings.reading.title': "O'qish va yozish",
   'settings.subtitle': "Bildirishnomalarni, o'qish panelini va hisobingizni sozlang.",
+  'settings.twofa.code': 'Autentifikatsiya kodi',
   'settings.twofa.disable': "O'chirish",
   'settings.twofa.disabled': 'Nogiron',
   'settings.twofa.enable': 'Yoqish',
   'settings.twofa.enabled': 'Yoqilgan',
+  'settings.twofa.invalidCode': "Noto'g'ri kod",
+  'settings.twofa.unavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
+  'settings.twofa.verify': 'Tasdiqlash va yoqish',
   'signup.brandQuote':
     "Uni yozib qo'yish - bu unga muhtoj bo'lgan keyingi odamga beradigan birinchi va'damiz.",
   'signup.eyebrow': 'Ish maydonini oching',

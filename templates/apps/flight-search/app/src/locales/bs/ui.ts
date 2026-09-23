@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
+  'about.eyebrow': 'O {{app}}',
   'about.pageTitle': 'Svaka ruta, jedna pretraga.',
   'booking.backToDetail': 'Nazad na detalje leta',
   'booking.continue': 'Nastavite na plaćanje',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Porezi i naknade',
   'booking.summary.travelers': 'Putnici',
   'common.about': 'O nama',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'flightDetail.backToResults': 'Nazad na rezultate',
   'flightDetail.baseFare': 'Osnovna cijena',
   'flightDetail.book': 'Nastavite s rezervacijom',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stanica',
   'flightResultCard.select': 'Odaberite',
   'flightResultCard.totalLabel': 'Ukupno vrijeme',
+  'flightSearchLayout.primaryNavLabel': 'Primarna navigacija',
   'forgotPassword.subheading':
     'Unesite e-mail adresu sa vašeg Skylark računa i poslat ćemo vam siguran link za resetiranje.',
   'forgotPassword.successBody':
     'Provjeri {{email}} za link za postavljanje nove lozinke. Link ističe za 30 minuta.',
   'forgotPassword.successHeading': 'Link za resetiranje poslan',
   'landing.cta.explore': 'Pokušajte pretragu',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Pronađite sljedeću odličnu kartu prije svih ostalih.',
   'landing.cta.signup': 'Počni pratiti cijene',
   'landing.features.eyebrow': 'Zašto Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Dodaj upozorenje',
   'priceAlerts.deleteConfirm': 'Ukloniti ovo upozorenje?',
   'priceAlerts.empty': 'Još nema praćenih ruta.',
+  'priceAlerts.emptyCta': 'Pretražite rutu za praćenje',
   'priceAlerts.errorMessage': 'Nije moguće učitati obavještenja.',
   'priceAlerts.eyebrow': 'Lista za praćenje Skylarka',
   'priceAlerts.form.createError': 'Nije moguće kreirati upozorenje.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.loading': 'Pretraga cijena u realnom vremenu…',
   'results.multiEyebrow': 'Plan putovanja za više gradova',
   'results.multiLegHeading': 'Noga {{n}} · {{from}} → {{do}} · {{datum}}',
+  'results.sortAriaLabel': 'Sortiraj rezultate po',
   'results.sortLabel': 'Sortiraj',
   'settings.language.title': 'Jezik',
   'settings.profile.currency': 'Valuta',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.pageTitle': '{{app}} সম্পর্কে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'compose.cancel': 'বাতিল করুন',
   'compose.captionPlaceholder': 'তোমার মনে কী চলছে?',
   'compose.heading': 'এক মুহূর্ত ভাগ করে নিন',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'যাচাইকৃত অ্যাকাউন্ট',
   'resetPassword.newPassword': 'নতুন পাসওয়ার্ড',
   'resetPassword.subheading': 'শক্তিশালী কিছু বেছে নিন — কমপক্ষে ১২ অক্ষরের।',
+  'search.clearAria': 'পরিষ্কার',
+  'search.error': 'অনুসন্ধান ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
   'search.noPeople': 'কোন স্রষ্টা মেলে না " {{q}} ".',
   'search.noPosts': 'কোন পোস্ট মেলে না " {{q}} ".',
   'search.noTags': 'এখনো কোনো ট্রেন্ডিং হ্যাশট্যাগ নেই।',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'পাসওয়ার্ড লুকান',
   'signup.showPassword': 'পাসওয়ার্ড দেখান',
   'signup.subheading': 'শেয়ার করা শুরু করতে একটি অ্যাকাউন্ট তৈরি করুন।',
+  'socialMediaLayout.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'socialMediaLayout.openMenu': 'নেভিগেশন মেনু খুলুন',
+  'socialMediaLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'storyRail.heading': 'গল্প',
   'storyRail.label': 'গল্প',
   'storyRail.openAria': 'খোলা {{handle}} তার গল্প',

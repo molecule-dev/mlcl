@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Про нас',
   'alertConditionCard.condition.${alert.condition}': 'Запущено {{коли}}',
+  'alertConditionCard.confirmDelete': 'Підтвердити видалення',
   'alertConditionCard.pauseAriaLabel': 'Призупинити сповіщення',
   'alertConditionCard.resumeAriaLabel': 'Сповіщення про відновлення',
   'alertNew.condition': 'Хвороба',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Повністю розбавлена оцінка',
   'coinDetail.links.twitter': 'Твіттер',
   'coinDetail.links.website': 'Вебсайт',
+  'coinDetail.links.whitepaper': 'Технічний документ',
   'coinDetail.loadError': 'Не вдалося завантажити монету.',
   'coinDetail.marketCap': 'Ринкова капіталізація',
   'coinDetail.maxSupply': 'Максимальна пропозиція',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Відсканований вами маршрут не відповідає відомій монеті чи сторінці. Перевірте символ ще раз і спробуйте ще раз.',
   'notFound.browseMarkets': 'Переглянути ринки',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'portfolio.addError': 'Введіть символ, додатну суму та вартість.',
   'portfolio.addHoldingCta': '+ Додати холдинг',
   'portfolio.addModal.cost': 'Вартість (дол. США)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Пароль та налаштування двофакторної перевірки контролюються вашим обліковим записом.',
   'settings.signOutDevice': 'Вийти',
+  'settings.twoFactorCode': 'Код аутентифікації',
   'settings.twoFactorDisable': 'Вимкнути',
   'settings.twoFactorEnable': 'Увімкнути',
+  'settings.twoFactorInvalidCode': 'Неправильний код',
   'settings.twoFactorOn': 'Про',
+  'settings.twoFactorVerify': 'Перевірити та увімкнути',
   'sigilAuthShell.backHomeCta': '← Назад до Сигіла',
   'sigilLayout.primaryNavLabel': 'Основна навігація',
   'signup.eyebrow': 'Відкрийте термінал',

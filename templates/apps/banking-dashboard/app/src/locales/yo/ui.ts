@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'accountDetail.activeBadge': 'Ti nṣiṣe lọwọ',
   'accountDetail.availableLabel': '{{amount}} wà',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Àwọn Àkọọ́lẹ̀',
   'accounts.loadError': 'Kò ṣeé ṣe láti gbé àwọn àkọọ́lẹ̀ sórí ayélujára.',
   'accounts.status.closed': 'Ti pa',
+  'accounts.status.frozen': 'Dídì',
   'accounts.totalBalance': '{{iye}} apapọ',
   'audit.empty': 'Kò sí ìṣẹ̀lẹ̀ kankan síbẹ̀.',
   'audit.eyebrow': 'Ààbò àti ìwọlé',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Owó tó wà lọ́wọ́',
   'cashCreditCard.creditLabel': 'Kirẹditi ti a lo',
   'cashCreditCard.title': 'Owó àti Kírédíìtì',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.accountsHeading': 'Àwọn Àkọọ́lẹ̀',
   'dashboard.heading': 'Àkótán Àkótán',
   'dashboard.recentEmpty': 'Kò sí ìṣòwò kankan síbẹ̀.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'login.signUp': 'Forukọsilẹ',
   'login.submit': 'Wọle',
+  'meridianLayout.menu': 'Àtòjọ oúnjẹ',
   'meridianLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'nav.legal': 'Ofin',
   'notifications.emptyHeading': 'Gbogbo yín ti parí',
   'notifications.subheading': 'Àwọn ìkìlọ̀ àkókò gidi fún àwọn ìṣòwò, ààbò, àti àwọn gbólóhùn.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'privacy.dataWeShare':
     'A kì í ta àwọn ìwífún nípa ìfowópamọ́ ara ẹni. A máa ń pín ìwífún pẹ̀lú àwọn olùṣe ìsanwó, àwọn nẹ́tíwọ́ọ̀kì káàdì, àti àwọn olùṣàkóso kìkì bí ó ṣe yẹ kí a ṣe àtúnṣe àwọn ìṣòwò tàbí láti ṣe àwọn ojúṣe òfin.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Two-factor n fi koodu akoko kan kun lati inu ohun elo olufisi ni gbogbo igba ti a ba wọle.',
   'settings.security.twoFactorCta': 'Ṣàkóso olùkọ̀wé ìfàsẹ́yìn méjì',
+  'settings.security.twoFactorOff': 'Meji-ifosiwewe ti wa ni pipa',
   'settings.signOutDevice': 'Jáde',
   'settings.subheading': 'Profaili, aabo, ati awọn iwifunni.',
+  'settings.twoFactorCode': 'Kóòdù ìfàṣẹsí',
   'settings.twoFactorDisable': 'Mu ṣiṣẹ',
   'settings.twoFactorEnable': 'Mu ṣiṣẹ',
+  'settings.twoFactorInvalidCode': 'Kóòdù tí kò tọ́',
+  'settings.twoFactorVerify': 'Ṣàyẹ̀wò kí o sì mú un ṣiṣẹ́',
   'signup.emailLabel': 'Adirẹsi imeeli',
   'signup.fullName': 'Báwo ló ṣe yẹ kí a máa bá yín sọ̀rọ̀?',
   'signup.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Kò sí ìṣòwò kankan síbẹ̀.',
   'transactions.endDate': 'Ọjọ́ ìparí',
   'transactions.eyebrow': 'Ìgbòkègbodò',
+  'transactions.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìṣòwò sókè.',
   'transactions.merchant': 'Oníṣòwò',
+  'transactions.subheading': 'Gbogbo iṣowo ti a fiweranṣẹ ati ti n duro de kọja awọn akọọlẹ rẹ.',
   'transfers.availableHint': '{{amount}} wà',
   'transfers.errorGeneric': 'Kò le fi gbigbe naa ranṣẹ.',
   'transfers.errorMissingFields': 'Yan akọọlẹ orisun kan ati ibi ti o nlo.',

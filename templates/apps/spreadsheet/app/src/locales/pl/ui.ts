@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'about.pageTitle': 'O {{name}}',
   'auth.footer.about': 'O {{name}}',
   'authHeader.subtitle': 'Proszę się zalogować, aby utrzymać swoje liczby uczciwymi.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Brak operacji',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Usunąć "{{name}}"?',
   'automations.empty.headline': 'Brak automatyzacji',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Wyzwalacze i akcje we wszystkich skoroszytach. Każde uruchomienie zapisuje wiersz, który Pan/Pani może później sprawdzić.',
   'automations.toggle': 'Przełącz {{name}}',
+  'automations.trigger.dailySchedule': 'Codzienny harmonogram',
+  'automations.trigger.rowCreated': 'Utworzono wiersz',
+  'automations.trigger.rowUpdated': 'Zaktualizowano wiersz',
   'billing.empty': 'Brak dostępnych planów.',
   'billing.error.priceMissing':
     'Brak skonfigurowanej ceny Stripe dla tego poziomu. Proszę ustawić zmienne środowiskowe STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Wykresy',
   'charts.kpi.totalCharts': 'Łącznie wykresów',
   'charts.list.empty': 'Brak wykresów.',
+  'charts.namePlaceholder': 'Trend przychodów',
   'charts.newChart': 'Nowy wykres',
   'charts.primary.eyebrow': 'Wykresy według typu',
   'charts.primary.headline': 'Przegląd obszaru roboczego',
   'charts.subhead':
     'Wizualizacje na żywo powiązane z Pana/Pani siatką — renderowane ponownie przy każdej edycji komórki.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'editor.addColumn': 'Dodaj kolumnę',
+  'editor.addDialogTitle': 'Dodaj kolumnę',
   'editor.addRow': 'Dodaj wiersz',
   'editor.addSheet': 'Dodaj arkusz',
   'editor.back': 'Powrót do skoroszytów',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite to siatka z priorytetem formuł, wielowidokowa, w czasie rzeczywistym, po którą analitycy i zespoły finansowe sięgają jako pierwsze.',
   'landing.nav.formulas': 'Formuły',
+  'login.noAccount': 'Nowy w {{name}} ?',
+  'login.signIn': 'Zaloguj się do {{name}}',
   'login.signUp': 'Utwórz obszar roboczy',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Otwórz menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Ten wiersz nigdy nie istniał.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Natywne automatyzacje · wyzwalacze webhook i cron',
   'signup.creating': 'Inicjowanie obszaru roboczego…',
   'signup.cta': 'Utwórz mój obszar roboczy',
+  'signup.haveAccount': 'Już jesteś na {{name}} ?',
   'signup.namePlaceholder': 'Jan Kowalski',
   'signup.tagline': 'Proszę uruchomić swój pierwszy skoroszyt w 30 sekund',
   'team.col.activity': 'Zaproszono',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
   'authShell.samplePreview':
     '"Salom jamoa, yangi boshqaruv paneli ajoyib — aynan bizga kerak bo\'lgan narsa!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/yorliq',
   'automations.subheading':
     "Qoidalar, tayyor javoblar va chatbotlar — jamoangiz qiyin ishlarga e'tibor qaratayotgan bir paytda ish maydonini g'uvullatib turing.",
+  'automations.trigger.inboundMessage': 'Kiruvchi xabar',
   'automations.triggerLabel': 'Trigger',
   'chatBubble.internalNoteLabel': 'Ichki eslatma',
+  'common.confirmDelete': "O'chirishni tasdiqlang",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'contactDetail.backToContacts': 'Barcha kontaktlar',
   'contactDetail.contactFallback': 'Aloqa',
   'contactDetail.conversationFallback': 'Suhbat',
@@ -41,6 +45,8 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': "Oxirgi marta ko'rilgan",
   'contacts.empty': "Hali kontaktlar yo'q. Yuqoridagi birinchi kontaktingizni qo'shing.",
   'contacts.eyebrow': 'Mijozlar katalogi',
+  'contacts.form.nameOrEmailRequired':
+    "Hech bo'lmaganda ism yoki elektron pochta manzilini kiriting",
   'contacts.form.save': 'Kontaktni saqlash',
   'contacts.heading': 'Kontaktlar',
   'contacts.loading': 'Kontaktlar yuklanmoqda…',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Qaydni saqlash',
   'conversationDetail.tab.note': 'Ichki eslatma',
   'conversationDetail.threadAria': 'Suhbat xabarlari',
+  'conversationDetail.visitorFallback': 'Mehmon',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Mijoz tafsilotlari',
   'customerProfilePanel.recentTitle': "So'nggi suhbatlar",
@@ -72,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     "Mijozlar birinchi javobni olishmoqda {{time}} o'rtacha hisobda — kadansni davom ettiring.",
   'inboxHeroCard.title': 'Faol suhbatlar',
+  'inboxLayout.navDrawerLabel': 'Navigatsiya',
+  'inboxLayout.openMenu': 'Navigatsiya menyusini ochish',
   'inboxOverview.eyebrow': 'Bugun bir qarashda',
   'inboxOverview.heroChange': '{{count}} ochiq',
   'inboxOverview.kpiClosedTrend': 'barcha davrlardagi',
@@ -117,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Bosh sahifaga tashrif buyuring',
   'notifications.subheading':
     "Topshiriqlar, @zikrlar, SLA xatarlari, CSAT fikr-mulohazalari va jamoaviy faoliyat — eng yangisi birinchi bo'lib saralangan.",
+  'notifications.subjectFallback': 'suhbat',
+  'notifications.visitorFallback': 'Mehmon',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Yuqori',
   'priority.low': 'Past',
+  'priority.normal': 'Oddiy',
   'priority.urgent': 'Shoshilinch',
   'privacy.title': 'Maxfiylik siyosati',
   'reports.agentFallback': 'Agent',

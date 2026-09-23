@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Mod de testare: comenzile sunt înregistrate și soldurile sunt decontate, dar nu se debitează niciun card real.',
   'checkout.placeOrderCta': 'Plasați comanda',
+  'checkout.placeOrderError': 'Nu s-a putut plasa comanda.',
   'checkout.placingOrder': 'Plasarea comenzii…',
   'checkout.review.shipTo': 'Livrare către',
   'checkout.review.subtotal': 'Subtotal furnizor',
@@ -57,6 +58,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Devino furnizor',
   'landing.footer.copyright': '© {{year}} {{name}} — fiecare producător, o singură piață.',
   'landing.footer.help': 'Centru de ajutor',
+  'landing.nav.keepShopping': 'Continuă cumpărăturile',
   'landing.nav.sell': 'Vindeți pe Vendry',
   'landing.nav.shop': 'Magazin',
   'landing.nav.signUp': 'Alăturați-vă',
@@ -67,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Ceea ce le place cumpărătorilor',
   'login.accountTypeAria': 'Tipul contului',
   'login.heading': 'Bine ați revenit la Vendry',
+  'login.legalPrefix': 'Prin conectare, sunteți de acord cu',
   'login.subheading':
     'Conectați-vă pentru a continua cumpărăturile sau pentru a reveni la magazinul dvs.',
   'login.submitShopper': 'Conectați-vă pentru a cumpăra',
@@ -92,10 +95,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Plasat {{date}} · {{vendorCount}} furnizor(i) · îndeplinire a comenzilor cu mai mulți furnizori',
   'orders.empty': 'Nicio comandă nu corespunde încă acestui filtru.',
+  'orders.emptyTitle': 'Nu există încă comenzi aici',
   'orders.eyebrow': 'Achizițiile dumneavoastră',
   'orders.subtitle':
     'Vezi cine a expediat ce, urmărește urmărirea în funcție de furnizor și nu mai pierde niciodată un colet.',
   'orders.title': 'Comenzi, grupate după furnizor',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'productDetail.addToCart': 'Adaugă in coş',
   'productDetail.addToCartError': 'Nu s-a putut adăuga în coș.',
   'productDetail.addToCartSuccess': '„ {{name}} „adăugat în coșul tău.”',
@@ -136,12 +141,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Gestionează modul în care cumperi, cum te contactează furnizorii și unde se duc banii.',
   'signup.heading': 'Alătură-te pieței',
+  'signup.legalPrefix': 'Prin înscriere, sunteți de acord cu',
   'signup.mismatch': 'Parolele nu se potrivesc încă.',
   'signup.subheading':
     'Răsfoiește peste 4.000 de producători independenți sau deschide-ți propriul magazin.',
   'status.delivered': 'Livrat',
   'status.refunded': 'Rambursat',
+  'userMenu.marketplaceSettings': 'Setările Marketplace',
   'vendor.memberSince': 'Membru din{{date}}',
+  'vendorDashboard.defaultShop': 'magazinul tău',
   'vendorDashboard.eyebrow': 'Administrator furnizor · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Plata este valabilă după comisionul de vânzare. Următoarea plată este vineri.',
@@ -160,12 +168,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Unde produci, ce produci, de ce contează.',
   'vendorOnboarding.currencyLabel': 'Decontare în valută',
   'vendorOnboarding.errors.shopName': 'Numele magazinului este obligatoriu.',
+  'vendorOnboarding.errors.submit': 'Nu s-a putut trimite aplicația.',
   'vendorOnboarding.exit': 'Salvați și continuați mai târziu',
   'vendorOnboarding.eyebrow': 'Aplică pentru a vinde pe Vendry',
+  'vendorOnboarding.field.shopName': 'Numele magazinului',
   'vendorOnboarding.heroBody':
     'Un comision fix de 8%, plăți în fiecare vineri, vitrina ta, povestea ta. Spune-ne puțin despre magazinul tău și te vom contacta în termen de 48 de ore.',
   'vendorOnboarding.review.contact': 'Contact',
   'vendorOnboarding.review.currency': 'Monedă',
+  'vendorOnboarding.review.tagline': 'Slogan',
+  'vendorOnboarding.review.website': 'Site web',
   'vendorOnboarding.reviewBody':
     'Arată bine. Vom analiza magazinul tău în termen de 48 de ore și îți vom trimite prima plată vinerea de după prima vânzare.',
   'vendorOnboarding.samplesLabel': 'Exemple de lucrări — Instagram, portofoliu, fotografii',
@@ -174,11 +186,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Cerere trimisă! Vom analiza magazinul dvs. și vă vom trimite un e-mail în termen de 48 de ore.',
   'vendorOnboarding.taxIdLabel': 'Cod fiscal',
+  'vendorOrders.emptyTitle': 'Nicio comandă de îndeplinit încă',
   'vendorOrders.eyebrow': 'Administrator furnizor',
+  'vendorOrders.kpi.awaiting': 'În așteptarea împlinirii',
   'vendorOrders.kpi.inTransit': 'În tranzit',
   'vendorOrders.subtitle':
     'Imprimați etichete, marcați comenzile finalizate și răspundeți la întrebări — toate fără a părăsi Vendry.',
   'vendorOrders.title': 'Comenzi primite',
+  'vendorPayouts.emptyTitle': 'Nicio plată încă',
   'vendorPayouts.eyebrow': 'Finanțarea furnizorilor',
   'vendorPayouts.heroCaption': 'Se decontează către Banco BPI {{account}} · 1–2 zile lucrătoare',
   'vendorPayouts.history': 'Istoricul plăților',
@@ -196,7 +211,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Unde este fabricat? Ce poveste transmite?',
   'vendorProductForm.error.name': 'Numele produsului este obligatoriu',
   'vendorProductForm.error.price': 'Introduceți un preț pozitiv',
+  'vendorProductForm.error.publish': 'Publicarea nu a reușit',
   'vendorProductForm.eyebrow': 'Anunț nou',
+  'vendorProductForm.eyebrowEdit': 'Editează listarea',
   'vendorProductForm.images.body':
     'Trageți și plasați până la 8 imagini. Prima fotografie devine coperta magazinului.',
   'vendorProductForm.images.cta': 'Trageți fotografiile aici sau răsfoiți',
@@ -208,6 +225,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Salvați modificările',
   'vendorProductForm.title': 'Spune-le cumpărătorilor despre piesa ta',
   'vendorProductForm.variants.colInventory': 'Inventar',
+  'vendorProductForm.variants.colVariant': 'Variantă',
   'vendorProducts.eyebrow': 'Administrator furnizor',
   'vendorProducts.kpi.draft': 'Schițe',
   'vendorProducts.kpi.lowStock': 'Stoc redus',

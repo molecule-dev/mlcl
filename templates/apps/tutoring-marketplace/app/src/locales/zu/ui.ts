@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Indima yakho',
   'account.role.upgradeLink': 'Faka isicelo sokuba ngumfundisi oqinisekisiwe →',
   'account.title': 'Iphrofayela, inkokhelo kanye nezintandokazi.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Fundisa nge-Mentor',
   'becomeTutor.form.error': 'Ayikwazanga ukuthumela isicelo.',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Isihloko',
   'bookingConfirm.title': 'Ubhukhile. Sizobhekana nokunye.',
   'bookingConfirm.with': 'Nomfundisi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'earningsHero.eyebrow': 'Imali engenayo • {{month}}',
   'forgotPassword.heading': 'Ukhohlwe iphasiwedi yakho?',
   'forgotPassword.subheading':
@@ -116,6 +118,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Thumela umlayezo',
   'messages.thread.empty': 'Sawubona — qala ingxoxo.',
   'messages.title': 'Izingxoxo nabafundisi bakho.',
+  'nav.primary': 'Okuyinhloko',
   'pricing.dataExport': 'Ukuthunyelwa kwedatha:',
   'pricing.headingDefault': 'Izici ezithuthukisiwe:',
   'resetPassword.heading': 'Khetha iphasiwedi entsha eqinile.',

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'about.pageTitle': 'Tungkol sa {{name}}',
   'auth.footer.about': 'Tungkol sa {{name}}',
   'authHeader.subtitle': 'Mag-sign in para manatiling tapat ang iyong mga numero.',
   'automations.action.email': 'I-email',
+  'automations.action.noop': 'Walang opsyon',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Burahin ang " {{name}} "? / "',
   'automations.empty.headline': 'Wala pang mga automation',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Mga trigger at aksyon sa bawat workbook. Ang bawat run ay nagla-log ng isang row na maaari mong i-audit sa ibang pagkakataon.',
   'automations.toggle': 'I-toggle {{name}}',
+  'automations.trigger.dailySchedule': 'Pang-araw-araw na iskedyul',
+  'automations.trigger.rowCreated': 'Nalikha na ang hilera',
+  'automations.trigger.rowUpdated': 'Na-update ang hilera',
   'billing.empty': 'Walang mga planong magagamit.',
   'billing.error.priceMissing':
     'Walang naka-configure na presyo ng Stripe para sa tier na ito. Itakda ang STRIPE_*_PRICE_ID env vars.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Mga Tsart',
   'charts.kpi.totalCharts': 'Kabuuang mga tsart',
   'charts.list.empty': 'Wala pang mga tsart.',
+  'charts.namePlaceholder': 'Trend ng kita',
   'charts.newChart': 'Bagong tsart',
   'charts.primary.eyebrow': 'Mga tsart ayon sa uri',
   'charts.primary.headline': 'Pangkalahatang-ideya ng lugar ng trabaho',
   'charts.subhead':
     'Mga live na visualization na naka-attach sa iyong grid — muling i-render sa bawat pag-edit ng cell.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'editor.addColumn': 'Magdagdag ng kolum',
+  'editor.addDialogTitle': 'Magdagdag ng kolum',
   'editor.addRow': 'Magdagdag ng hilera',
   'editor.addSheet': 'Magdagdag ng sheet',
   'editor.back': 'Balik sa mga workbook',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Ang Calcite ang formula-first, multi-view, real-time grid analysts at finance teams na unang inaabot.',
   'landing.nav.formulas': 'Mga Formula',
+  'login.noAccount': 'Bago sa {{name}} ?',
+  'login.signIn': 'Mag-sign in sa {{name}}',
   'login.signUp': 'Gumawa ng workspace',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Buksan ang menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "mga ruta", "pahina")',
   'notFound.headline': 'Hindi kailanman umiral ang ganitong usapin.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Mga katutubong automation · mga webhook at cron trigger',
   'signup.creating': 'Naglalaan ng workspace…',
   'signup.cta': 'Gumawa ng aking workspace',
+  'signup.haveAccount': 'Nasa {{name}} ka na ba?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Paikutin ang iyong unang workbook sa loob ng 30 segundo',
   'team.col.activity': 'Inimbitahan',

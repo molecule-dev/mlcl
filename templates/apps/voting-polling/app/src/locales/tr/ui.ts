@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'analytics.col.quorum': 'Yeter sayı',
   'analytics.col.votes': 'Oylar',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Henüz bekleyen soru yok.',
   'audienceQa.onStageEyebrow': 'Şu an sahnede',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Terfi',
   'audienceQa.queued': 'sırada',
   'audienceQa.queueEyebrow': 'Sıra',
   'ballot.eyebrow': 'Oyunuzu kullanın',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Şu anda {{plan}} planındasınız.',
   'billing.switch': 'Geçiş yap',
   'billing.upgraded': '{{plan}} planına güncellendi — sınırlar hemen uygulandı.',
+  'common.goToDashboard': 'Panele Git',
   'createPoll.addOption': 'Seçenek ekle',
   'createPoll.anonymousHint':
     'Seçmen adları denetim günlüğünde gizlenir; sayımlar doğrulanmış kalır.',
@@ -158,6 +161,8 @@ export const ui: UiTranslations = {
   'login.noAccount': "Nosh'ta yeni misiniz?",
   'login.remember': 'Beni 30 gün hatırla',
   'login.subheading': 'Kürsüyü açın, salonu yönetin ve sonucu onaylayın.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'notFound.body':
     'Ulaşmaya çalıştığınız sayfa kapatıldı veya taşındı. Panoya dönün ya da yeni bir anket açın.',
   'notFound.eyebrow': 'Bu rotada yeter sayı yok',
@@ -184,6 +189,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Bu anket yüklenemedi.',
   'pollDetail.loading': 'Anket yükleniyor…',
   'pollDetail.notFound': 'Anket bulunamadı.',
+  'pollDetail.openBallot': 'Açık oylama',
   'pollDetail.openLive': 'Canlı sonuçlar',
   'pollDetail.pollId': 'anket · {{id}}',
   'pollDetail.published': 'Anket yayımlandı — seçmenler artık oy kullanabilir.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'E-postaya göre ara…',
   'voters.subheading':
     'Uygun listeyi yönetin. Ağırlıklı oylamalar için seçmenleri organizasyona göre gruplandırın.',
+  'votingPollingLayout.nav.analytics': 'Analitik',
+  'votingPollingLayout.nav.billing': 'Faturalandırma',
+  'votingPollingLayout.nav.createPoll': 'Yeni anket',
+  'votingPollingLayout.nav.dashboard': 'Pano',
+  'votingPollingLayout.nav.notifications': 'Bildirimler',
+  'votingPollingLayout.nav.settings': 'Ayarlar',
+  'votingPollingLayout.nav.team': 'Ekip',
+  'votingPollingLayout.nav.voters': 'Seçmenler',
+  'votingPollingLayout.primaryNavLabel': 'Birincil gezinme',
 }

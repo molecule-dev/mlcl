@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'О {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Инструменты управления капиталом',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Не является инвестиционной рекомендацией.',
   'argentAuthShell.sampleChange': '+2 841 долл. США (+0,28%) сегодня',
   'argentAuthShell.sampleValue': '1 032 251 долл. США',
   'argentLayout.primaryNavLabel': 'Основная навигация',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'По данному тикеру нет транзакций.',
   'assetDetail.txHeading': 'Ваши транзакции',
   'common.and': 'и',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Обзор портфолио',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Владений пока нет.',
   'holdings.heading': 'Холдинги',
   'holdings.loadError': 'Не удалось загрузить данные о запасах.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Не является инвестиционной рекомендацией. Результаты прошлых лет не гарантируют результатов будущих лет.',
   'landing.eyebrow': 'Argent · Платформа для управления капиталом',
   'landing.features.heading': 'Всё то, что консультант мог бы построить для себя сам.',
   'landing.finalCta.heading': 'Верните дисциплину в управление своим инвестиционным портфелем.',
@@ -72,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} х назад',
   'news.justNow': 'только что',
   'news.loadError': 'Не удалось загрузить новости.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'portfolioHeroCard.label': 'Стоимость портфеля',
   'pricing.holdingsLabel': 'владения',
   'pricing.newsLabel': 'новостные статьи',
@@ -136,8 +142,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Удалить аккаунт',
   'settings.security.deleting': 'Удаление…',
   'settings.security.heading': 'Безопасность',
+  'settings.security.newPassword': 'Новый пароль',
   'settings.security.password': 'Пароль',
   'settings.security.twoFactorEnable': 'Включить',
+  'settings.security.twoFactorInvalidCode': 'Неверный код',
+  'settings.security.twoFactorVerify': 'Проверить и включить',
   'settings.tax.error': 'Не удалось обновить метод расчета налога.',
   'settings.tax.heading': 'Учет налоговых лотов',
   'settings.tax.method': 'Метод по умолчанию',

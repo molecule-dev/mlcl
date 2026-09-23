@@ -1,13 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.pageTitle': '{{app}} туралы',
   'activity.empty':
     'Әзірге ешқандай әрекет жоқ — құрылғыны аударыңыз немесе көріністі белсендіріңіз.',
   'activity.eyebrow': 'Уақыт шкаласы',
   'activity.loadError': 'Белсенділік ағынын жүктеу мүмкін болмады.',
   'activity.subheading':
     'Әрбір құрылғы, автоматика және қауіпсіздік оқиғасы хронологиялық тәртіппен.',
+  'addDevice.error.failed': 'Құрылғыны қосу мүмкін болмады. Қайталап көріңіз.',
   'addDevice.error.nameRequired': 'Жалғастыру үшін құрылғыға атау беріңіз.',
   'addDevice.field.firmware': 'Микробағдарлама нұсқасы',
   'addDevice.field.manufacturer': 'Өндіруші',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тестілеу…',
   'automationEditor.testNew': 'Алдымен автоматиканы сынап көру үшін сақтаңыз.',
   'automationRow.lastRun': 'Соңғы {{date}} · {{count}} жүгірулер',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Жүгіру {{name}} қазір',
   'automations.empty': 'Әлі автоматтандыру жоқ — алғашқы жоспарыңызды жасаңыз.',
   'automations.eyebrow': 'Күн тәртібі',
@@ -53,6 +57,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Автоматтандырулар жүктелуде…',
   'automations.newAutomation': '+ Жаңа',
   'automations.subheading': 'Мұндай жағдай орын алғанда, YAML-сіз жасаңыз.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Құрылғы жүктелмеді.',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Жұмыс істеп тұр…',
   'deviceDetail.unnamed': 'Құрылғы',
   'deviceStatusRow.on': 'Қосулы',
+  'deviceStatusRow.turnOff': 'Өшіру',
+  'deviceStatusRow.turnOn': 'Қосу',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Қуат',
   'energy.heading': 'Энергия',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Жоспарларды қараңыз',
   'settings.security.heading': 'Қауіпсіздік',
   'settings.subheading': 'Жоспар, хабтар және тіркелгі параметрлері.',
+  'smartHomeDashboardLayout.openMenu': 'Навигация мәзірін ашу',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Негізгі навигация',
 }

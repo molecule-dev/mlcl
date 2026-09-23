@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.eyebrow': 'O aplikaci {{app}}',
+  'about.intro':
+    '{{app}} je meditační aplikace pro skutečný život – denní meditace s průvodcem, dechová cvičení a příběhy o spánku vedené učiteli, kteří se cítí jako přítel, ne jako kouč. Žádné výčitky svědomí, žádný hlučný přenos: jen klidné místo, kde se můžete vrátit ke svému dechu.',
+  'about.missionBody':
+    'Věříme, že klid by měl být dostupný každému, v kteroukoli denní dobu. {{app}} existuje proto, aby klidná a důsledná praxe působila bez námahy – aby deset minut poctivosti mohlo změnit to, jak se vypořádáte s dalšími deseti hodinami.',
+  'about.missionTitle': 'Naše poslání',
+  'about.pageTitle': 'Klidnějších 10 minut denně',
+  'breathingDial.seconds': 'sekundy',
+  'common.goToDashboard': 'Přejít na Dashboard',
+  'common.logout': 'Odhlásit se',
   'common.min': 'min.',
   'common.relative.justNow': 'právě teď',
   'common.relative.now': 'teď',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
+  'nav.secondaryNavigation': 'Navigace v účtu',
   'sessionCard.with': 's {{name}}',
   'stillpoint.billing.choose': 'Vybrat {{plan}}',
   'stillpoint.billing.currentPlan': 'Aktuálně zapnuto {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Plány se nepodařilo načíst.',
   'stillpoint.billing.opening': 'Otevírání pokladny…',
   'stillpoint.billing.perMonthShort': '/ měsíc',
+  'stillpoint.billing.perYearShort': '/rok',
   'stillpoint.billing.unknownResult': 'Neočekávaná fakturační odpověď.',
   'stillpoint.billing.yearly': 'Ročně · ušetřete 17 %',
   'stillpoint.courseDetail.back': 'Kurzy',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Zatím žádné kurzy.',
   'stillpoint.courses.eyebrow': '{{count}} vícedenní cesty',
   'stillpoint.courses.heading': 'Kurzy',
+  'stillpoint.forgot.checkEmail': 'Zkontrolujte si doručenou poštu – odkaz vyprší za 30 minut.',
   'stillpoint.forgot.success': 'Odeslali jsme odkaz pro resetování na {{email}} .',
   'stillpoint.home.empty': 'Zatím žádné sezení – zkuste to znovu později.',
   'stillpoint.home.friend': 'přítel',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Vytvořte si bezplatný účet',
   'stillpoint.landing.cta.title': 'Začněte svůj klid ještě dnes',
   'stillpoint.landing.features.heading': 'Praxe, která s vámi roste',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Denní meditace s průvodcem, dechová cvičení a příběhy o spánku – vedené učiteli, kteří se cítí jako přítel, ne jako kouč.',
   'stillpoint.landing.hero.eyebrow': 'Klidnějších 10 minut denně',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Procházet podle nálady',
   'stillpoint.login.rememberMe': 'Zůstat přihlášen',
   'stillpoint.login.subheading': 'Přihlaste se a pokračujte ve svém cvičení.',
+  'stillpoint.nav.tagline': 'Najděte si své klidné centrum',
+  'stillpoint.notFound.body':
+    'Tato stránka si někde zhluboka oddechuje. Najdeme pro vás klidnější místo v {{app}} .',
   'stillpoint.notFound.title': 'Ztraceni v tichu',
   'stillpoint.notFound.toHome': 'Zpátky k dnešku',
   'stillpoint.notFound.toLibrary': 'Procházet knihovnu',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Přeskočit o 15 sekund zpět',
   'stillpoint.player.skipForward': 'Přeskočit o 30 s vpřed',
   'stillpoint.player.with': 's {{name}}',
+  'stillpoint.profile.defaultHandle': 'ukazatel staticpointeru',
   'stillpoint.profile.eyebrow': 'Vaše praxe, shrnuto.',
   'stillpoint.profile.locked': 'Zamčeno',
   'stillpoint.profile.member': 'Člen Stillpointu',

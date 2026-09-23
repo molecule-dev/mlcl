@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Dwar {{app}}',
   'about.plansTitle': 'Pjanijiet li jikbru miegħek',
   'brand.tagline': 'Kull sekonda',
   'clientDetail.back': 'Lura għall-klijenti',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': "Kull relazzjoni f'post wieħed — proġetti, sigħat, fatturi pendenti.",
   'clients.title': 'Klijenti',
   'common.and': 'u',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.activeProjects': 'Proġetti attivi',
   'dashboard.empty':
     "Għad m'hemm l-ebda daħliet. Ibda t-tajmer biex issegwi l-ewwel sessjoni tiegħek.",
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     "M'hemm l-ebda sigħat fatturabbli għal dan il-klijent. L-ewwel traċċa xi ħin jew assenja entrati eżistenti għal wieħed mill-proġetti ta' dan il-klijent.",
   'invoices.save': 'Oħloq fattura',
   'invoices.subtitle': 'Is-sigħat traċċati jiġu inklużi fil-fatturi, awtomatikament.',
+  'landing.copyright': '© {{year}} {{app}} . Kull sekonda, meqjusa.',
   'landing.ctaBody':
     "B'xejn għal sa 3 proġetti. Aġġorna meta l-lista tal-klijenti tiegħek tagħmel dan.",
   'landing.eyebrow': 'Traċċar tal-ħin għal xogħol fatturabbli',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Fdat mill-indipendenti',
   'landing.testimonial.quote':
     '\\u201cĦriġt minn Toggl fi 30 minuta. Il-ħela fil-baġit waħedha ħallset għaliha nnifisha \\u2014 Waqaft nikkwota inqas milli suppost għal żewġ ġimgħat konsekuttivi.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Kull sekonda, meqjusa.',
   'login.brand.subtitle':
     "Erġa' ibda t-tajmer minn fejn ħallejt — kull minuta diġà mmappjata ma' proġett, klijent, fattura.",
   'login.brand.tracking': 'Traċċar',
   'login.subheading': "Erġa' kompli t-tajmer minn fejn ħallejt.",
+  'nav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
   'nav.insightsSection': 'Għarfien',
   'nav.newEntry': 'Dħul Ġdid',
+  'nav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
+  'nav.primary': 'Navigazzjoni primarja',
   'nav.workSection': 'Xogħol',
   'notFound.body':
     'Jidher li l-link li segwejt waqaf jiġi traċċat. Mur lura fid-dashboard tiegħek \\u2014 aħna se nkomplu ngħoddu minn hemm.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Fatturabbli',
   'timer.descriptionPlaceholder': 'Fuq xiex qed taħdem?',
   'timer.idle': 'Inattiv — ibda t-traċċar',
+  'timer.noProject': 'L-ebda proġett',
   'timer.runningWithProject': 'L-ebda proġett',
   'timer.start': 'Ibda t-tajmer',
   'timer.stop': 'Waqqaf it-tajmer',

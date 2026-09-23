@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.pageTitle': 'Giới thiệu {{app}}',
   'activity.empty': 'Chưa có hoạt động nào — hãy bật một thiết bị hoặc kích hoạt một cảnh.',
   'activity.eyebrow': 'Dòng thời gian',
   'activity.loadError': 'Không thể tải nguồn cấp hoạt động.',
   'activity.subheading': 'Mọi thiết bị, tự động hóa và sự kiện an ninh theo thứ tự thời gian.',
+  'addDevice.error.failed': 'Không thể thêm thiết bị. Vui lòng thử lại.',
   'addDevice.error.nameRequired': 'Vui lòng đặt tên cho thiết bị này để tiếp tục.',
   'addDevice.field.firmware': 'Phiên bản firmware',
   'addDevice.field.manufacturer': 'Nhà sản xuất',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Đang kiểm tra…',
   'automationEditor.testNew': 'Hãy lưu lại quy trình tự động hóa trước để kiểm tra.',
   'automationRow.lastRun': 'Lần cuối {{date}} · {{count}} lần chạy',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Chạy {{name}} ngay',
   'automations.empty': 'Chưa có quy trình tự động nào — hãy tạo quy trình đầu tiên của bạn.',
   'automations.eyebrow': 'Thói quen',
@@ -50,6 +54,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Đang tải tự động hóa…',
   'automations.newAutomation': '+ Mới',
   'automations.subheading': 'Khi điều này xảy ra, hãy làm điều đó — không cần YAML.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Không thể tải thiết bị.',
@@ -69,6 +74,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Đang xử lý…',
   'deviceDetail.unnamed': 'Thiết bị',
   'deviceStatusRow.on': 'Bật',
+  'deviceStatusRow.turnOff': 'Tắt',
+  'deviceStatusRow.turnOn': 'Bật',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Năng lượng',
   'energy.heading': 'Điện năng',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Xem các gói',
   'settings.security.heading': 'Bảo mật',
   'settings.subheading': 'Gói, hub và tùy chọn tài khoản.',
+  'smartHomeDashboardLayout.openMenu': 'Mở menu điều hướng',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Điều hướng chính',
 }

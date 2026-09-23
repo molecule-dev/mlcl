@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.eyebrow': 'Nípa {{app}}',
+  'about.intro':
+    '{{app}} jẹ́ àpù ìṣàrò fún ìgbésí ayé gidi — àwọn ìṣàrò ojoojúmọ́, ìmí àti ìtàn oorun tí àwọn olùkọ́ ń rìn tí wọ́n rò pé wọ́n jẹ́ ọ̀rẹ́, kì í ṣe olùkọ́. Kò sí ẹ̀bi, kò sí oúnjẹ ariwo: ó jẹ́ ibi ìdákẹ́jẹ́ẹ́ láti padà sí ẹ̀mí rẹ.',
+  'about.missionBody':
+    'A gbàgbọ́ pé ìdákẹ́jẹ́ẹ́ yẹ kí ó wà fún gbogbo ènìyàn, ní àkókò èyíkéyìí nínú ọjọ́ náà. {{app}} wà láti jẹ́ kí ìdánrawò ìparọ́rọ́ àti ìdúróṣinṣin dàbí èyí tí kò ní ìsapá — kí ìṣẹ́jú mẹ́wàá òótọ́ lè yí bí a ṣe ń pàdé wákàtí mẹ́wàá tó ń bọ̀ padà.',
+  'about.missionTitle': 'Iṣẹ́ wa',
+  'about.pageTitle': 'Irọrun iṣẹju mẹwa lojumọ',
+  'breathingDial.seconds': 'awọn iṣẹju-aaya',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.logout': 'Jáde',
   'common.min': 'iṣẹ́jú',
   'common.relative.justNow': 'ni bayi',
   'common.relative.now': 'nisinsinyi',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
+  'nav.secondaryNavigation': 'Lilọ kiri lori akọọlẹ',
   'sessionCard.with': 'pẹlu {{name}}',
   'stillpoint.billing.choose': 'Yan {{plan}}',
   'stillpoint.billing.currentPlan': 'Lọ́wọ́lọ́wọ́ báyìí {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'A ko le gbe awọn ero sori ẹrọ.',
   'stillpoint.billing.opening': 'Ṣíṣí ìsanwó…',
   'stillpoint.billing.perMonthShort': '/ oṣù',
+  'stillpoint.billing.perYearShort': '/ọdún',
   'stillpoint.billing.unknownResult': 'Ìdáhùn ìsanwó tí a kò retí.',
   'stillpoint.billing.yearly': 'Lododun · fipamọ́ 17%',
   'stillpoint.courseDetail.back': 'Àwọn ẹ̀kọ́',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Kò sí àwọn ìkọ́ni kankan síbẹ̀.',
   'stillpoint.courses.eyebrow': '{{count}} irin-ajo ọpọ ọjọ',
   'stillpoint.courses.heading': 'Àwọn ẹ̀kọ́',
+  'stillpoint.forgot.checkEmail': 'Ṣàyẹ̀wò àpótí ìforúkọsílẹ̀ rẹ — ìjápọ̀ náà yóò parí ní ìṣẹ́jú 30.',
   'stillpoint.forgot.success': 'A ti fi ọna asopọ atunto ranṣẹ si {{email}} .',
   'stillpoint.home.empty': 'Kò sí àwọn ìpàdé kankan síbẹ̀ — ẹ padà wá láìpẹ́.',
   'stillpoint.home.friend': 'ọ̀rẹ́',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Ṣẹ̀dá àkọọ́lẹ̀ ọ̀fẹ́ rẹ',
   'stillpoint.landing.cta.title': 'Bẹ̀rẹ̀ ìdúróṣinṣin rẹ lónìí',
   'stillpoint.landing.features.heading': 'Àṣà kan tí ó ń dàgbà pẹ̀lú rẹ',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Àṣàrò ojoojúmọ́, ìmòye, àti ìtàn oorun — tí àwọn olùkọ́ tí wọ́n nímọ̀lára bí ọ̀rẹ́, kì í ṣe olùkọ́ ń ṣe.',
   'stillpoint.landing.hero.eyebrow': 'Irọrun iṣẹju mẹwa lojumọ',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Ṣawari nipasẹ iṣesi',
   'stillpoint.login.rememberMe': 'Jẹ́ kí n wọlé kí n sì wọlé',
   'stillpoint.login.subheading': 'Wọlé láti tẹ̀síwájú nínú ìṣe rẹ.',
+  'stillpoint.nav.tagline': 'Wa ibi tí o dúró sí títì rẹ',
+  'stillpoint.notFound.body':
+    'Ojú ìwé yìí ń mí ẹ̀mí gígùn, ó sì jinlẹ̀ níbì kan. Ẹ jẹ́ kí a wá ibi tí ó dákẹ́ jẹ́ẹ́ fún yín nínú {{app}} .',
   'stillpoint.notFound.title': 'Sọnu ninu ipalọlọ',
   'stillpoint.notFound.toHome': 'Pada si oni',
   'stillpoint.notFound.toLibrary': 'Ṣe àwárí ibi ìkàwé',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Fo pada sẹhin ni ọdun 15',
   'stillpoint.player.skipForward': 'Fò síwájú ní 30s',
   'stillpoint.player.with': 'pẹlu {{name}}',
+  'stillpoint.profile.defaultHandle': 'olùtọ́kasí stillpointer',
   'stillpoint.profile.eyebrow': 'Àkópọ̀ ìṣe rẹ.',
   'stillpoint.profile.locked': 'Ti tì',
   'stillpoint.profile.member': 'Ọmọ ẹgbẹ́ Stillpoint',

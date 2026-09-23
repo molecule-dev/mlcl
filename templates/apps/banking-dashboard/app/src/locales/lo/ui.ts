@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'accountDetail.activeBadge': 'ເຄື່ອນໄຫວ',
   'accountDetail.availableLabel': '{{amount}} ມີ',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'ບັນຊີ',
   'accounts.loadError': 'ໂຫຼດບັນຊີບໍ່ສຳເລັດ.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'ແຊ່ແຂງ',
   'accounts.totalBalance': '{{ຈຳນວນເງິນ}} ລວມທັງໝົດ',
   'audit.empty': 'ຍັງບໍ່ມີກິດຈະກຳໃດໆເທື່ອ.',
   'audit.eyebrow': 'ຄວາມປອດໄພ ແລະ ການເຂົ້າເຖິງ',
@@ -20,10 +22,12 @@ export const ui: UiTranslations = {
   'audit.subheading':
     'ທຸກໆການເຂົ້າສູ່ລະບົບ, ການໂອນຍ້າຍ ແລະ ການປ່ຽນແປງບັນຊີ. ມີໃຫ້ໃຊ້ເປັນເວລາ 24 ເດືອນ.',
   'audit.successCount': '{{count}} ປະສົບຜົນສຳເລັດ',
+  'balanceHeroCard.change': '{{sign}} {{amount}}',
   'balanceHeroCard.title': 'ຍອດເງິນທັງໝົດ',
   'cashCreditCard.cashLabel': 'ເງິນສົດໃນມື',
   'cashCreditCard.creditLabel': 'ເຄຣດິດທີ່ໃຊ້ແລ້ວ',
   'cashCreditCard.title': 'ເງິນສົດ ແລະ ເຄຣດິດ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.accountsHeading': 'ບັນຊີ',
   'dashboard.heading': 'ພາບລວມ',
   'dashboard.recentEmpty': 'ຍັງບໍ່ມີທຸລະກຳເທື່ອ.',
@@ -43,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'login.signUp': 'ລົງທະບຽນ',
   'login.submit': 'ເຂົ້າສູ່ລະບົບ',
+  'meridianLayout.menu': 'ເມນູ',
   'meridianLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'notifications.emptyHeading': 'ທ່ານອ່ານໝົດແລ້ວ',
   'notifications.subheading': 'ການແຈ້ງເຕືອນແບບເວລາຈິງສຳລັບທຸລະກຳ, ຄວາມປອດໄພ ແລະ ລາຍງານ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'privacy.dataWeShare':
     'ຂໍ້ມູນທະນາຄານສ່ວນຕົວຈະບໍ່ຖືກຂາຍ. ພວກເຮົາແບ່ງປັນຂໍ້ມູນກັບຜູ້ປະມວນຜົນການຈ່າຍເງິນ, ເຄືອຂ່າຍບັດ, ແລະ ຜູ້ຄວບຄຸມຕາມຄວາມຕ້ອງການເພື່ອຊຳລະທຸລະກຳ ຫຼື ປະຕິບັດພັນທະທາງກົດໝາຍເທົ່ານັ້ນ.',
   'privacy.dataWeStore':
@@ -78,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Two-factor ເພີ່ມລະຫັດຄັ້ງດຽວຈາກແອັບ authenticator ໃນທຸກໆຄັ້ງທີ່ເຂົ້າສູ່ລະບົບ.',
   'settings.security.twoFactorCta': 'ຈັດການການກວດສອບສອງປັດໄຈ',
+  'settings.security.twoFactorOff': 'ສອງປັດໄຈປິດຢູ່',
   'settings.signOutDevice': 'ອອກຈາກລະບົບ',
   'settings.subheading': 'ໂປຣໄຟລ໌, ຄວາມປອດໄພ ແລະ ການແຈ້ງເຕືອນ.',
+  'settings.twoFactorCode': 'ລະຫັດການພິສູດຢືນຢັນຕົວຕົນ',
   'settings.twoFactorDisable': 'ປິດການໃຊ້ງານ',
   'settings.twoFactorEnable': 'ເປີດໃຊ້',
+  'settings.twoFactorInvalidCode': 'ລະຫັດບໍ່ຖືກຕ້ອງ',
+  'settings.twoFactorVerify': 'ຢືນຢັນ ແລະ ເປີດໃຊ້',
   'signup.emailLabel': 'ທີ່ຢູ່ອີເມວ',
   'signup.fullName': 'ພວກເຮົາຄວນຕິດຕໍ່ທ່ານແນວໃດ?',
   'signup.showPassword': 'ສະແດງລະຫັດຜ່ານ',
@@ -103,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ຍັງບໍ່ມີທຸລະກຳເທື່ອ.',
   'transactions.endDate': 'ວັນທີສິ້ນສຸດ',
   'transactions.eyebrow': 'ກິດຈະກຳ',
+  'transactions.loadError': 'ໂຫຼດທຸລະກຳບໍ່ສຳເລັດ.',
   'transactions.merchant': 'ພໍ່ຄ້າ',
+  'transactions.subheading': 'ທຸກໆທຸລະກຳທີ່ລົງໃນບັນຊີຂອງທ່ານ ແລະ ທີ່ຍັງຄ້າງຢູ່.',
   'transfers.availableHint': '{{amount}} ມີ',
   'transfers.errorGeneric': 'ບໍ່ສາມາດສົ່ງການໂອນໄດ້.',
   'transfers.errorMissingFields': 'ເລືອກບັນຊີຕົ້ນທາງ ແລະ ປາຍທາງ.',

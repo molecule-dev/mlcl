@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'about.pageTitle': 'Sobre {{name}}',
   'auth.footer.about': 'Sobre {{name}}',
   'authHeader.subtitle': 'Inicia la sessió per mantenir les teves xifres honestes.',
   'automations.action.email': 'Correu electrònic',
+  'automations.action.noop': 'Sense opció',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Suprimeix " {{name}} "?',
   'automations.empty.headline': 'Encara no hi ha automatitzacions',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Activadors i accions a tots els llibres de treball. Cada execució registra una fila que podeu auditar més tard.',
   'automations.toggle': 'Activa/desactiva {{name}}',
+  'automations.trigger.dailySchedule': 'Horari diari',
+  'automations.trigger.rowCreated': 'Fila creada',
+  'automations.trigger.rowUpdated': 'Fila actualitzada',
   'billing.empty': 'No hi ha plans disponibles.',
   'billing.error.priceMissing':
     "No hi ha cap preu de Stripe configurat per a aquest nivell. Defineu les variables d'entorn STRIPE_*_PRICE_ID.",
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Gràfics',
   'charts.kpi.totalCharts': 'Total de gràfics',
   'charts.list.empty': 'Encara no hi ha gràfics.',
+  'charts.namePlaceholder': 'Tendència dels ingressos',
   'charts.newChart': 'Nou gràfic',
   'charts.primary.eyebrow': 'Gràfics per tipus',
   'charts.primary.headline': "Visió general de l'espai de treball",
   'charts.subhead':
     'Visualitzacions en directe vinculades a la vostra quadrícula: es tornen a renderitzar en cada edició de cel·la.',
+  'common.goToDashboard': 'Anar al panell',
   'editor.addColumn': 'Afegeix una columna',
+  'editor.addDialogTitle': 'Afegeix una columna',
   'editor.addRow': 'Afegeix una fila',
   'editor.addSheet': 'Afegeix un full',
   'editor.back': 'Torna als llibres de treball',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite és la fórmula principal, multivista i la xarxa en temps real que els analistes i els equips financers utilitzen primer.',
   'landing.nav.formulas': 'Fórmules',
+  'login.noAccount': 'Ets nou a {{name}} ?',
+  'login.signIn': 'Inicia la sessió a {{name}}',
   'login.signUp': 'Crea un espai de treball',
+  'nav.menu': 'Menú',
+  'nav.openMenu': 'Obre el menú',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=CERCA(SOL·LICITUD.url, "rutes", "pàgina")',
   'notFound.headline': 'Aquesta fila no va existir mai.',
@@ -132,6 +144,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatitzacions natives · webhook i activadors de cron',
   'signup.creating': "Provisionant l'espai de treball…",
   'signup.cta': 'Crea el meu espai de treball',
+  'signup.haveAccount': 'Ja ets a {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Fes girar el teu primer llibre de treball en 30 segons',
   'team.col.activity': 'Convidat/da',

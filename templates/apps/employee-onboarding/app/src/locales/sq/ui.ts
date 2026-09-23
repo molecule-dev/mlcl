@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'auth.forgotPassword.emailPlaceholder': 'emri@kompaniajuaj.com',
   'auth.forgotPassword.heading': 'Rivendos fjalëkalimin tënd.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Shëno detyrën të përfunduar',
   'checklistTaskCard.markIncomplete': 'Shëno detyrën të papërfunduar',
   'checklistTaskCard.openLabel': 'Hap detyrën',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Je i informuar plotësisht',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Në rrugën e duhur',
   'dashboard.timelineHeading': '30/60/90 momente kyçe',
   'dashboard.viewAllTasks': 'Shiko të gjitha detyrat',
+  'dashboard.weekOne': 'Java 1',
   'dashboard.yourCohort': 'Ekipi juaj',
   'documents.empty.body': 'Dokumentet e shtuara nga ekipi juaj do të shfaqen këtu.',
   'documents.empty.title': 'Ende nuk ka dokumente',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Provë falas 14-ditore',
   'landing.subhead':
     'Embark udhëzon çdo shok të ri skuadre gjatë 90 ditëve të para — dokumente, trajnime, momente të rëndësishme dhe prezantime kuptimplote, të gjitha në një vend të qetë dhe të sigurt.',
+  'layout.openMenu': 'Hap menynë e navigimit',
   'layout.search': 'Kërko detyra, dokumente, shokë skuadre…',
+  'layout.searchTeammates': 'Kërko shokët e ekipit sipas emrit ose rolit…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Udhëtimi juaj fillon këtu',
   'notifications.empty.body': 'Aktiviteti i ri do të shfaqet këtu.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Je gati.',
   'planUpdated.preparing': 'Duke përditësuar planin tuaj…',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.documentsLabel': 'dokumente',
   'pricing.onboardingsLabel': 'integrime',
   'pricing.tasksLabel': 'detyrat',

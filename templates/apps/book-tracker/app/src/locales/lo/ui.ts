@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'ເລີ່ມສາຍໂສ້ໃໝ່',
   'resetPassword.mismatchError': 'ລະຫັດຜ່ານບໍ່ກົງກັນ.',
   'resetPassword.subheading': 'ເລືອກລະຫັດທີ່ເຂັ້ມແຂງ. ໜັງສືຂອງທ່ານຈະລໍຖ້າຢູ່.',
-  'reviewCard.starsAria': 'ໄດ້ຮັບການຈັດອັນດັບ<x> {{ການຈັດອັນດັບ}}</x> ອອກຈາກ<x> {{ຂອງ}}</x> ດວງດາວ',
+  'reviewCard.starsAria': 'ຄະແນນ {{rating}} ຈາກ {{of}} ດາວ',
   'reviewCard.unratedAria': 'ບໍ່ໄດ້ຈັດອັນດັບ',
   'reviews.eyebrow': 'ສິ່ງທີ່ຢູ່ກັບທ່ານ',
   'reviews.heading': 'ການທົບທວນຂອງທ່ານ',

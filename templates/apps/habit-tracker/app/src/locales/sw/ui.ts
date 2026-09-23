@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.pageTitle': 'Kuhusu {{app}}',
   'achievementBadgeCard.unlockedOn': 'Imefunguliwa {{date}}',
   'achievements.loadError': 'Imeshindwa kupakia mafanikio.',
   'achievements.subheading': '{{unlocked}} ya {{total}} imefunguliwa',
   'achievements.unlockedOn': 'Imefunguliwa {{date}}',
+  'auth.legalConsent': 'Kwa kuendelea, unakubali',
   'calendar.empty': 'Unda tabia ya kuona kalenda yako.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Tabia',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Gridi ya tabia',
   'category.${c.category}': '{{hesabu}} tabia',
   'common.and': 'na',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'consistencyHeatmap.ariaLabel': 'Ramani ya joto ya kila siku',
   'consistencyHeatmap.caption': 'Mwisho {{weeks}} wiki',
   'consistencyHeatmap.lessLabel': 'Kidogo',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Ione moja kwa moja',
   'landing.heroSubtitle':
     'Jenga tabia jinsi zinavyoshikilia: ahadi ndogo, mifuatano ya kila siku, na raha ya ndani ya mnyororo mrefu usiovunjika.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Kuchungulia ndani ya Streak',
   'landing.previewMotivation': 'Mistari tisa hai. Ifanye yote iwe na joto.',
   'login.eyebrow': 'Chukua mnyororo',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Ifanye iwe ndogo. Ifanye iwe maalum. Onyesha kesho.',
   'newHabit.timeLabel': 'Muda wa ukumbusho',
   'notifications.markError': 'Haikuweza kutia alama kwenye usomaji wote.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.entries': '{{count}} maingizo',
+  'pricing.heading': 'Chagua mpango wako wa {{app}}',
   'profile.action.plan': 'Dhibiti usajili',
   'profile.action.settings': 'Mipangilio ya akaunti',
   'profile.bioEmpty': 'Ongeza wasifu mfupi katika Mipangilio ili ujitambulishe.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Onyo la asubuhi la kila siku (8:00 asubuhi)',
   'settings.reminders.heading': 'Vikumbusho',
   'settings.reminders.weekly': 'Muhtasari wa kila wiki (Jumapili jioni)',
+  'settings.revokeDeviceWarning': 'Ufikiaji wa kifaa hiki utabatilishwa hivi karibuni. Kiondoe?',
   'settings.signOutDevice': 'Toka',
   'settings.streaks.freezesPerWeek': 'Huganda kwa wiki',
   'settings.streaks.gracePeriod': 'Kipindi cha neema cha saa 6 baada ya usiku wa manane',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} hai',
   'streakHeroCard.daysSuffix': 'siku',
   'streakHeroCard.title': 'Mfululizo mrefu zaidi wa shughuli',
+  'streakLayout.closeMenu': 'Funga menyu ya kusogeza',
+  'streakLayout.openMenu': 'Fungua menyu ya kusogeza',
   'streakLayout.primaryNavLabel': 'Usogezaji mkuu',
 }

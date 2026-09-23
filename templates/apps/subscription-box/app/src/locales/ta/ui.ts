@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} பற்றி',
+  'appNav.mobileLabel': 'முதன்மை வழிசெலுத்தல்',
+  'appNav.primaryLabel': 'முதன்மை வழிசெலுத்தல்',
   'billing.actions.confirmCancel':
     'உங்கள் சந்தாவை ரத்துசெய்தீர்களா? நீங்கள் எப்போது வேண்டுமானாலும் மீண்டும் சந்தா செலுத்தலாம்.',
   'billing.actions.paused': 'சந்தா இடைநிறுத்தப்பட்டது.',
@@ -48,6 +51,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'ஒவ்வொரு படிநிலையும் ஒரு சிறிய தொகுதி கதையாகும். ஒன்றை உங்கள் வரிசையில் சேர்க்கவும் அல்லது அடுத்த மாதத்திற்கு மாற்றிக்கொள்ளவும்.',
   'boxThemeCard.perMonth': '/மாதம்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'customize.eyebrow': 'இதை உங்களுடையதாக்கிக் கொள்ளுங்கள்',
   'customize.heading': 'உங்கள் அடுத்த புதையலைத் தனிப்பயனாக்குங்கள்',
   'customize.items.exclude': 'இதைத் தவிர்க்கவும்',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'இந்த சீசனில்',
   'landing.editions.heading': 'எங்கள் தொகுப்பாளர்கள் விரும்பும் பதிப்புகள்',
   'landing.footer.contact': 'ஒரு கண்காணிப்பாளரிடம் பேசுங்கள்',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'உங்கள் பெட்டியைத் தொடங்குங்கள் →',
   'landing.hero.ctaSecondary': 'படிநிலைகளைப் பார்க்கவும்',
   'landing.hero.eyebrow': 'மாதந்தோறும் தொகுக்கப்படுகிறது. எப்போதும் தனிப்பட்ட முறையில்.',
@@ -118,6 +123,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'உங்கள் அடுத்த புதையல்',
   'nextBoxHeroCard.itemsLabel': 'தேர்ந்தெடுக்கப்பட்ட பொருட்கள்',
   'nextBoxHeroCard.shipsOnLabel': 'கப்பல்கள் மீது',
+  'notFound.body':
+    '{{app}} காப்பகத்தில் அந்தப் பக்கத்தை எங்களால் கண்டுபிடிக்க முடியவில்லை. அது பயன்பாட்டிலிருந்து நீக்கப்பட்டிருக்கலாம் அல்லது தட்டச்சுப் பிழை ஏற்பட்டிருக்கலாம்.',
   'notFound.cta.dashboard': 'டாஷ்போர்டுக்குச் செல்லவும்',
   'notFound.eyebrow': 'வெற்றுப் பெட்டி',
   'notFound.heading': 'இந்த அலமாரி காலியாக உள்ளது',
@@ -176,4 +183,5 @@ export const ui: UiTranslations = {
   'signup.submitting': 'தொகுத்து வழங்குகையில்…',
   'signup.subtitle':
     'நீண்ட படிவங்கள் இல்லை. எப்போது வேண்டுமானாலும் ரத்து செய்யலாம் — அபராதமின்றி இடைநிறுத்தலாம்.',
+  'tierPlanCard.savingsBadge': '{{savings}}',
 }

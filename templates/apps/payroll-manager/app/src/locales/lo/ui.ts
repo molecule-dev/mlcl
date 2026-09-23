@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'auditLog.empty':
     'ຍັງບໍ່ມີເຫດການການກວດສອບທີ່ກົງກັບຕົວກອງຂອງທ່ານເທື່ອ. ແກ້ໄຂພະນັກງານ ຫຼື ປະມວນຜົນການຈ່າຍເງິນເດືອນ ແລະ ພວກເຂົາຈະສະແດງຢູ່ທີ່ນີ້.',
   'auditLog.eyebrow': 'ການປະຕິບັດຕາມ',
+  'auditLog.loadError': 'ບໍ່ສາມາດໂຫຼດບັນທຶກການກວດສອບໄດ້.',
   'auditLog.searchPlaceholder': 'ຄົ້ນຫາຕາມນັກສະແດງ, ການກະທຳ ຫຼື ຄຳອະທິບາຍ',
   'auditLog.subheading':
     'ທຸກໆການອະນຸມັດ, ການແກ້ໄຂ ແລະ ການຍື່ນພາສີ — ພ້ອມດ້ວຍຜູ້ກະທຳ, ປະທັບເວລາ ແລະ ຊ່ອງຂໍ້ມູນທີ່ປ່ຽນແປງ.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ບໍ່ໄດ້ຕັ້ງຄ່າ',
   'billing.plansHeading': 'ແຜນການ',
   'billing.subheading': 'ຈັດການແຜນການຂອງທ່ານ ແລະ ປ່ຽນລະດັບຜ່ານ Stripe.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ລອງໃໝ່',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'ພາບລວມການປະຕິບັດຕາມ',
   'dashboard.compliance.title': 'ການກວດສອບທັງໝົດຜ່ານ',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ບໍ່ມີການຫັກລົບໃດໆຢູ່ໃນເອກະສານ.',
   'employeeDetail.notFound': 'ບໍ່ພົບພະນັກງານ.',
   'employeeDetail.payFrequency': 'ຄວາມຖີ່ຂອງການຈ່າຍເງິນ',
+  'employeeDetail.postTax': 'ຫຼັງຫັກພາສີ',
+  'employeeDetail.preTax': 'ກ່ອນພາສີ',
   'employeeDetail.salary': 'ເງິນເດືອນປະຈຳປີ',
   'employeeDetail.ssn': 'ເລກປະກັນສັງຄົມ',
   'employeeDetail.taxes': 'ການຫັກພາສີຢູ່ຈຸດຈ່າຍ',
@@ -51,6 +57,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ຄວາມຖີ່ຂອງການຈ່າຍເງິນ',
   'employeeForm.salary': 'ເງິນເດືອນປະຈຳປີ (ໂດລາສະຫະລັດ)',
   'employeeForm.salaryInvalid': 'ເງິນເດືອນຕ້ອງເປັນຕົວເລກທີ່ບໍ່ຕິດລົບ.',
+  'employeeForm.saveError': 'ບໍ່ສາມາດຊ່ວຍພະນັກງານໄດ້.',
   'employeeForm.semimonthly': 'ເຄິ່ງເດືອນ',
   'employeeForm.single': 'ໂສດ',
   'employeeForm.ssn': 'ເລກປະກັນສັງຄົມ',
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'ພະນັກງານ',
   'employeesTable.col.salary': 'ເງິນເດືອນ',
   'forgotPassword.subtitle': 'ໃສ່ອີເມວບ່ອນເຮັດວຽກຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່ໃຫ້.',
+  'landing.copyright': '© {{year}} {{app}} . ຊັດເຈນ, ໜ້າເຊື່ອຖື, ມີລະບຽບ.',
   'landing.ctaBody':
     'ຟຣີ 30 ມື້. ບໍ່ຕ້ອງມີບັດເຄຣດິດ. ປ່ຽນໄດ້ທຸກເວລາໂດຍບໍ່ສູນເສຍຮ່ອງຮອຍການກວດສອບຂອງທ່ານ.',
   'landing.ctaHeading': 'ໃຊ້ຮອບວຽນຕໍ່ໄປຂອງທ່ານໃນ Stipend',
@@ -87,8 +95,10 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ການອະນຸມັດ, ກຳນົດເວລາ, ການແຈ້ງເຕືອນການເຊື່ອມໂຍງ ແລະ ການກ່າວເຖິງໃນບ່ອນດຽວ.',
   'notifications.view': 'ເບິ່ງ',
+  'payrollHeroCard.change': '{{sign}} {{amount}} ທຽບກັບຮອບວຽນກ່ອນໜ້ານີ້',
   'payrollHeroCard.cta': 'ກວດສອບ ແລະ ດຳເນີນການ',
   'payrollHeroCard.employees': '{{count}} ພະນັກງານ',
+  'payrollHeroCard.eyebrow': 'ການຈ່າຍເງິນຄັ້ງຕໍ່ໄປ · {{date}}',
   'payrollKpiTriad.annualSub': 'ລວມຍອດ, ປີງົບປະມານປັດຈຸບັນ',
   'payrollKpiTriad.employeesSub': 'ໃນການຈ່າຍຄັ້ງຕໍ່ໄປ',
   'payrollKpiTriad.nextPayNone': '—',
@@ -104,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ຍັງບໍ່ມີລາຍການກວດສອບສຳລັບການເບີກເງິນເດືອນນີ້ເທື່ອ.',
   'payRunDetail.noStubs':
     'ຍັງບໍ່ທັນມີໃບຮັບເງິນເດືອນເທື່ອ — ອະນຸມັດ ແລະ ດຳເນີນການເພື່ອສ້າງໃບຮັບເງິນ.',
+  'payRunDetail.notFound': 'ບໍ່ພົບການຈ່າຍເງິນນີ້.',
   'payRunDetail.statDeductions': 'ການຫັກລົບ',
   'payRunDetail.statHeadcount': 'ພະນັກງານ',
   'payRunDetail.statTaxes': 'ພາສີທີ່ຖືກຫັກໄວ້',
@@ -111,6 +122,7 @@ export const ui: UiTranslations = {
   'payRuns.eyebrow': 'ປະຫວັດວົງຈອນ',
   'payRuns.heading': 'ການຈ່າຍເງິນ',
   'payRuns.runNow': 'ດໍາເນີນການຄິດໄລ່ເງິນເດືອນ',
+  'payRuns.subheading': '{{processed}} ປະມວນຜົນແລ້ວ · {{pending}} ຍັງຄ້າງຢູ່ · {{total}} ມຸມມອງນີ້',
   'payRunsList.employeeCount': '{{count}}',
   'payRunsList.empty': 'ຍັງບໍ່ມີການຈ່າຍເງິນເທື່ອ. ກຳນົດເວລາຮອບວຽນທຳອິດຂອງທ່ານ.',
   'payRunsList.viewAll': 'ເບິ່ງການແລ່ນເງິນທັງໝົດ →',
@@ -212,7 +224,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'ເຄິ່ງເດືອນ',
   'settings.signOutDevice': 'ອອກຈາກລະບົບ',
   'settings.subheading': 'ຂໍ້ມູນບໍລິສັດ, ຕາຕະລາງການຈ່າຍເງິນ, ແລະການເຊື່ອມໂຍງ.',
+  'settings.twoFactorCode': 'ລະຫັດການພິສູດຢືນຢັນຕົວຕົນ',
   'settings.twoFactorDisable': 'ປິດການໃຊ້ງານ',
+  'settings.twoFactorInvalidCode': 'ລະຫັດບໍ່ຖືກຕ້ອງ',
+  'settings.twoFactorVerify': 'ຢືນຢັນ ແລະ ເປີດໃຊ້',
   'settings.weekly': 'ປະຈຳອາທິດ',
   'taxCenter.bucket.federal': 'ລາຍຮັບຂອງລັດຖະບານກາງ',
   'taxCenter.bucket.fica': 'ປະກັນສັງຄົມ',

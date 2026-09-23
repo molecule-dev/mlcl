@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'auth.fields.newPassword': 'Novo contrasinal',
   'collectionDetail.addImage': 'Conxuro para colección',
   'collectionDetail.backCta': 'Volver ás coleccións',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Taboleiros de inspiración, resumos e series en curso',
   'collections.title': 'Coleccións',
   'collections.untitled': 'Sen título · {{stamp}}',
+  'common.closeMenu': 'Pechar menú',
+  'common.dismiss': 'Rexeitar',
+  'common.goToDashboard': 'Ir ao panel',
+  'common.openMenu': 'Abrir menú de navegación',
   'credits.eyebrow': '{{plan}} plan',
   'credits.renewsCopy': 'O plan renóvase o {{date}}',
   'credits.trail': 'Ensoñación · {{plan}} nivel',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     'Aquí aparecerán alertas de actividade xeradora, compartición e crédito.',
   'notifications.empty.title': 'Nada que informar',
   'notifications.subtitle': 'Eventos de xeración agrupados por día',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.limits.gallery': '{{count}} galería',
   'privacy.collect.body':
     'Cando te rexistras, recompilamos o teu nome, enderezo de correo electrónico e un contrasinal con hash. Mentres usas Reverie, almacenamos as solicitudes que envías, as imaxes que xeramos para ti, os estilos e coleccións que gardas e metadatos como o modelo utilizado, as marcas de tempo da xeración e o saldo de crédito.',
@@ -170,6 +176,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Gardar o novo contrasinal',
   'reset.submitting': 'Actualizando o contrasinal…',
   'settings.account.handle': 'Manexo',
+  'settings.account.lastSaved': 'Perfil activo · {{name}}',
   'settings.account.saved': 'Perfil gardado',
   'settings.account.saveFailed': 'Non se puido gardar o perfil',
   'settings.account.title': 'Perfil do creador',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nova imaxe',
   'sidebar.secondary': 'Navegación secundaria',
   'signup.failed': 'Fallou o rexistro. Téntao de novo.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Comeza a túa ensoñación',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crea unha conta e obtén 120 créditos gratuítos.',
   'styles.empty':
     'Aínda non hai predefinicións de estilo; aparecerán despois do primeiro inicio de sesión.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'analytics.channels.empty': 'এখনো কোনো চ্যানেল ডেটা নেই।',
   'analytics.channels.title': 'চ্যানেল দ্বারা',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'প্রতিদিনের কথোপকথন',
   'chatBubble.avatarAlt': '{{speaker}} অবতার',
   'common.appName': 'সদ্ভাব',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'confidenceMeter.label': 'আত্মবিশ্বাস',
   'conversationDetail.agentName': 'এজেন্ট',
   'conversationDetail.aiReplyButton': 'বট উত্তর',
   'conversationDetail.aiReplyError': 'এআই উত্তর তৈরি করা যায়নি',
   'conversationDetail.aiReplyLoading': 'খসড়া তৈরি…',
+  'conversationDetail.aiReplySourceFallback': 'ফলব্যাক (কোন এআই কী নেই)',
   'conversationDetail.backAria': 'কথোপকথনে ফিরে যান',
   'conversationDetail.composerPlaceholder': 'গ্রাহককে উত্তর দিন…',
   'conversationDetail.context.channel': 'চ্যানেল',
@@ -157,8 +160,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'আপনার অ্যাকাউন্টের জন্য একটি নতুন পাসওয়ার্ড সেট করুন।',
   'resetPassword.toggleConfirm': 'পাসওয়ার্ড নিশ্চিতকরণের দৃশ্যমানতা টগল করুন',
   'resetPassword.togglePassword': 'পাসওয়ার্ডের দৃশ্যমানতা টগল করুন',
+  'settings.account.emailError': 'ইমেল আপডেট করতে ব্যর্থ হয়েছে',
   'settings.account.emailLabel': 'ইমেইল ঠিকানা',
+  'settings.account.emailSaved': 'ইমেল আপডেট করা হয়েছে',
+  'settings.account.nameError': 'নাম আপডেট করতে ব্যর্থ হয়েছে',
   'settings.account.nameLabel': 'প্রদর্শনের নাম',
+  'settings.account.nameSaved': 'নাম আপডেট করা হয়েছে',
   'settings.account.title': 'অ্যাকাউন্ট',
   'settings.api.createCta': 'টোকেন তৈরি করুন',
   'settings.api.description':
@@ -172,10 +179,19 @@ export const ui: UiTranslations = {
     'মনোভাব খারাপ হলে স্বয়ংক্রিয়ভাবে বিষয়টি ঊর্ধ্বতন কর্তৃপক্ষের কাছে জানানো হবে।',
   'settings.bot.greetingLabel': 'প্রথম বার্তার অভিবাদন',
   'settings.bot.title': 'বট কনফিগারেশন',
+  'settings.bot.toneFormal': 'আনুষ্ঠানিক',
   'settings.bot.toneLabel': 'কণ্ঠস্বর ও সুর',
   'settings.danger.deleteAccount': 'অ্যাকাউন্ট মুছে ফেলুন',
+  'settings.danger.deleteError': 'অ্যাকাউন্ট মুছে ফেলতে ব্যর্থ হয়েছে',
+  'settings.danger.deleteWarning':
+    'এর ফলে আপনার অ্যাকাউন্ট এবং এর সাথে যুক্ত সমস্ত ডেটা স্থায়ীভাবে মুছে যাবে। এটি আর পূর্বাবস্থায় ফেরানো যাবে না।',
   'settings.danger.deleting': 'মুছে ফেলা হচ্ছে…',
+  'settings.danger.passwordLabel': 'আপনার পাসওয়ার্ড নিশ্চিত করুন',
   'settings.danger.title': 'বিপদজনক এলাকা',
+  'settings.devices.empty': 'কোনো ডিভাইস নিবন্ধিত নেই।',
+  'settings.devices.revokeWarning':
+    'এই ডিভাইসের অ্যাক্সেস শীঘ্রই প্রত্যাহার করা হবে। এটি সাইন আউট করবেন?',
+  'settings.devices.signingOut': 'সাইন আউট হচ্ছে…',
   'settings.devices.signOut': 'সাইন আউট',
   'settings.devices.thisDevice': 'এই ডিভাইসটি',
   'settings.devices.title': 'ডিভাইস',
@@ -188,9 +204,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'পাসওয়ার্ড পরিবর্তন করতে ব্যর্থ হয়েছে',
   'settings.security.currentPassword': 'বর্তমান পাসওয়ার্ড',
   'settings.security.newPassword': 'নতুন পাসওয়ার্ড',
+  'settings.security.oauthManaged':
+    'আপনার পাসওয়ার্ড আপনার সাইন-ইন প্রদানকারী দ্বারা পরিচালিত হয়।',
   'settings.security.title': 'নিরাপত্তা',
   'settings.security.twoFactorDisable': 'অক্ষম করুন',
   'settings.security.twoFactorEnable': 'সক্ষম করুন',
+  'settings.security.twoFactorInvalid': 'অবৈধ কোড',
   'settings.subtitle':
     'টিউন র‍্যাপোর্টের বাচনভঙ্গি, জ্ঞানের উৎস এবং এটি যে সরঞ্জামগুলোর সাথে যোগাযোগ করে।',
   'settings.tokenCreateError': 'টোকেন তৈরি করতে ব্যর্থ হয়েছে',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} को बारेमा',
+  'about.pageTitle': 'वेबहुक नियन्त्रण विमान',
+  'about.plansTitle': 'प्रत्येक चरणको लागि योजनाहरू',
   'apiKeys.bestPractices': 'उत्तम अभ्यासहरू',
   'apiKeys.body':
     'प्रोग्रामेटिक पहुँच टोकनहरू। तिनीहरूलाई पासवर्ड जस्तै व्यवहार गर्नुहोस् — env vars मा भण्डार गर्नुहोस्, कहिल्यै कमिट नगर्नुहोस्।',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'योजना भित्र',
   'billing.usageWarning': 'क्याप नजिक',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'dashboard.body':
     'तपाईंले सञ्चालन गर्ने हरेक कार्यस्थानमा लाइभ थ्रुपुट, उडानमा पुन: प्रयासहरू, र भर्खरै हिच्किचाएका अन्तिम बिन्दुहरू।',
   'dashboard.endpointsEmpty': 'अहिलेसम्म कुनै अन्तिम बिन्दु छैन।',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'अन्त्यबिन्दुहरू',
   'endpointDetail.deliveryTrendSub': 'डेलिभरी / घण्टा, लग स्केल',
   'endpointDetail.hideSecret': 'गोप्य कुरा लुकाउनुहोस्',
+  'endpointDetail.loading': 'अन्तिम बिन्दु लोड गर्दै...',
   'endpointDetail.metric.delivered': '२४ घण्टामा डेलिभरी गरियो',
   'endpointDetail.metric.deliveredCaption': 'बाट {{count}} कार्यक्रमका प्रकारहरू',
   'endpointDetail.metric.failuresCaption': 'पुन: प्रयासहरू: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': '२४ घण्टा · महत्वपूर्ण',
   'notifications.metric.totalCaption': 'सबै समयको इनबक्स',
   'payloadViewer.payload': '// पेलोड',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'profile.avatarHeader': 'अवतार',
   'profile.avatarHint': 'आद्याक्षरहरू देखाइएका छन् — अर्को रिलीजसँगै अपलोडहरू आउँदैछन्।',
   'profile.body': 'तपाईंको खाता, प्राथमिकताहरू, र सक्रिय सत्रहरू।',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'तपाईंको हालको सत्र मात्र सक्रिय छ। अन्य कुनै पनि उपकरणहरू साइन इन गरिएका छैनन्।',
   'profile.toggle': 'टगल गर्नुहोस् {{label}}',
+  'pylonShell.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'pylonShell.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'pylonShell.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'resetPassword.subtitle': 'तपाईंले पहिले प्रयोग नगरेको बलियो पासवर्ड छान्नुहोस्।',
   'resetPassword.tokenPlaceholder': 'इमेलबाट टाँस्नुहोस्',

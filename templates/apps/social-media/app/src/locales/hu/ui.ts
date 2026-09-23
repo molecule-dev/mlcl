@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.pageTitle': 'A {{app}} névjegye',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.retry': 'Újra',
   'compose.cancel': 'Mégse',
   'compose.captionPlaceholder': 'Mi jár a fejedben?',
   'compose.heading': 'Ossz meg egy pillanatot',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Ellenőrzött fiók',
   'resetPassword.newPassword': 'Új jelszó',
   'resetPassword.subheading': 'Válassz valami erőset – legalább 12 karaktert.',
+  'search.clearAria': 'Törlés',
+  'search.error': 'A keresés sikertelen volt. Próbálja meg újra.',
   'search.noPeople': 'Nincsenek találatot hozó alkotók. {{q}} ".',
   'search.noPosts': 'Nincsenek találatokat tartalmazó bejegyzések. {{q}} ".',
   'search.noTags': 'Még nincsenek trendi hashtagek.',
@@ -126,6 +132,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Jelszó elrejtése',
   'signup.showPassword': 'Jelszó megjelenítése',
   'signup.subheading': 'Hozz létre egy fiókot a megosztás megkezdéséhez.',
+  'socialMediaLayout.closeMenu': 'A navigációs menü bezárása',
+  'socialMediaLayout.openMenu': 'Navigációs menü megnyitása',
+  'socialMediaLayout.primaryNavLabel': 'Elsődleges navigáció',
   'storyRail.heading': 'Történetek',
   'storyRail.label': 'Történetek',
   'storyRail.openAria': 'Nyitott {{handle}} története',

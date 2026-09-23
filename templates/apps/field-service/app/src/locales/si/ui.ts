@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'පාරිභෝගිකයන්',
   'customers.loadError': 'පාරිභෝගිකයන් පූරණය කිරීමට අසමත් විය.',
   'customers.loading': 'පූරණය වෙමින්...',
+  'customers.new.address': 'සේවා ලිපිනය',
   'customers.new.email': 'විද්යුත් තැපෑල',
   'customers.new.error': 'පාරිභෝගිකයා එකතු කිරීමට අසමත් විය.',
   'customers.new.heading': 'නව පාරිභෝගිකයා',

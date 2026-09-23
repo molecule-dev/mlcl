@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// σχετικά με {{app}}',
+  'about.pageTitle': 'Το επίπεδο ελέγχου webhook',
+  'about.plansTitle': 'Σχέδια για κάθε στάδιο',
   'apiKeys.bestPractices': 'Βέλτιστες πρακτικές',
   'apiKeys.body':
     'Προγραμματικά διακριτικά πρόσβασης. Αντιμετωπίστε τα σαν κωδικούς πρόσβασης — αποθηκεύστε τα σε μεταβλητές περιβάλλοντος, μην τα υποβάλλετε ποτέ.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'εντός σχεδίου',
   'billing.usageWarning': 'κοντά στο ανώτατο όριο',
   'billing.yearly': 'Ετήσιο',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.body':
     'Ζωντανή απόδοση, επαναλήψεις εν πτήσει και τα τελικά σημεία που μόλις παρουσίασαν πρόβλημα — σε κάθε χώρο εργασίας που λειτουργείτε.',
   'dashboard.endpointsEmpty': 'Δεν υπάρχουν ακόμη τελικά σημεία.',
@@ -113,6 +117,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'τελικά σημεία',
   'endpointDetail.deliveryTrendSub': 'παραδόσεις / ώρα, λογαριθμική κλίμακα',
   'endpointDetail.hideSecret': 'Απόκρυψη μυστικού',
+  'endpointDetail.loading': 'Φόρτωση τελικού σημείου…',
   'endpointDetail.metric.delivered': 'Παραδίδεται 24 ώρες',
   'endpointDetail.metric.deliveredCaption': 'από {{count}} τύποι συμβάντων',
   'endpointDetail.metric.failuresCaption': 'επαναλήψεις: {{retries}}',
@@ -219,6 +224,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Κρίσιμο · 24 ώρες',
   'notifications.metric.totalCaption': 'εισερχόμενα όλων των εποχών',
   'payloadViewer.payload': '// ωφέλιμο φορτίο',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'profile.avatarHeader': 'Άβαταρ',
   'profile.avatarHint':
     'Εμφανίζονται τα αρχικά — οι μεταφορτώσεις θα γίνουν με την επόμενη έκδοση.',
@@ -235,6 +241,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Μόνο η τρέχουσα συνεδρία σας είναι ενεργή. Δεν υπάρχουν άλλες συνδεδεμένες συσκευές.',
   'profile.toggle': 'Μπαρέτα {{label}}',
+  'pylonShell.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'pylonShell.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'pylonShell.primaryNavLabel': 'Κύρια πλοήγηση',
   'resetPassword.subtitle': 'Επιλέξτε έναν ισχυρό κωδικό που δεν έχετε χρησιμοποιήσει ξανά.',
   'resetPassword.tokenPlaceholder': 'επικολλήστε από το email',

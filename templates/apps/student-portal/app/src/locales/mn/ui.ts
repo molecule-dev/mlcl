@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'announcementsFeed.empty': 'Одоогоор ямар ч мэдэгдэл алга.',
   'announcementsFeed.eyebrow': '{{count}} шинэчлэлтүүд',
   'announcementsFeed.title': 'Хамгийн сүүлийн үеийн зарлалууд',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Энд юу ч алга',
   'assignments.emptyBody': 'Даалгавруудыг өөр төлөвт харахын тулд дээрх шүүлтүүрийг сольно уу.',
   'assignments.eyebrow': 'Бүх хичээлүүд · Энэ улирал',
+  'assignments.loadError': 'Даалгавруудыг ачаалж чадсангүй.',
   'assignments.loading': 'Даалгавруудыг ачаалж байна…',
   'assignments.subtitle':
     'Юу төлөх ёстой, илгээсэн, дүн тавьсан эсвэл дутуу байгааг харахын тулд төлөвөөр нь шүүнэ үү.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Тэмдэглэл',
   'attendance.empty': 'Ирцийн бүртгэл хараахан гараагүй байна.',
   'attendance.eyebrow': 'Хаврын улирал · Сүүлийн 4 долоо хоног',
+  'attendance.loadError': 'Ирцийн бүртгэлийг ачаалж чадсангүй.',
   'attendance.loading': 'Ирц ачаалагдаж байна…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Даалгаврын хугацаа нь сарын хүснэгтэд бичигдсэн бөгөөд шалгалтууд улаанаар тэмдэглэгдсэн байна.',
   'calendar.title': '{{month}} үйл явдлууд',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
+  'common.retry': 'Дахин оролдоно уу',
   'common.yes': '✓',
   'courseDetail.backLink': 'Дүн',
   'courseDetail.currentGrade': 'Одоогийн дүн',
@@ -74,11 +79,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Чиг хандлага',
   'grades.empty': 'Одоогоор дүн байршуулагдаагүй байна.',
   'grades.eyebrow': 'Дүнгийн дэвтэр',
+  'grades.loadError': 'Таны дүнг ачаалж чадсангүй.',
   'grades.loading': 'Дүнг ачаалж байна…',
   'grades.subtitle':
     'Шууд захидал болон хувийн дүн. Чиг хандлагын сумнууд нь таны дээшээ, түвшиндээ шилжиж эсвэл доошоо бууж байгааг харуулна.',
   'grades.title': 'Таны дүн, хичээл бүрээр',
   'grades.trendStable': 'Жүчээ',
+  'landing.copyright':
+    '© {{year}} {{app}} . Оюутнуудад зориулан бүтээгдсэн, гэр бүлд зориулагдсан.',
   'landing.ctaHeading': 'Хичээлийн илүү тайван өдөр хэдхэн минутын дотор эхэлнэ',
   'landing.eyebrow': 'Дунд болон ахлах сургуулийн сурагчдад зориулсан',
   'landing.featuresHeading': 'Сурагчийг тойрон зохион байгуулагдсан сургуулийн өдөр',
@@ -114,12 +122,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Даалгаварууд',
   'nav.attendance': 'Ирц',
   'nav.calendar': 'Хуанли',
+  'nav.closeMenu': 'Навигацийн цэсийг хаах',
   'nav.grades': 'Дүн',
+  'nav.openMenu': 'Навигацийн цэсийг нээх',
   'nav.statusEyebrow': 'Улирлын голч дүн',
   'nav.statusSubtext': 'Хүндэтгэлийн жагсаалт · Хаврын улирал',
+  'nav.unreadMessages': 'Уншаагүй мессежүүд',
   'notifications.eyebrow': '{{count}} шинэчлэлтүүд',
   'notifications.subtitle':
     'Дүн, сануулга, мессеж болон сургуулийн зарлалууд. Тохиргоо хэсэгт мэдэгдэл бүр ямар сувгуудыг ашиглахыг тохируулна уу.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.attendanceLabel': 'ирц',
   'pricing.gradesLabel': 'дүн',
   'pricing.heading': 'зарлалууд',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tarinamme',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Avausprosentti',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Aloitetaan kassaistunto…',
   'billing.subheading': 'Valitse tilaus, joka vastaa lähetystyyliäsi.',
   'billing.unavailable': 'Ota yhteyttä myyntiin',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.retry': 'Yritä uudelleen',
   'compose.adjustingTone': 'Kirjoitetaan uudelleen valitulla sävyllä…',
   'compose.aiPromptPlaceholder':
     'esim. "Kohtelias seuranta kahden viikon hiljaisuuden jälkeen, pidä se lyhyenä."',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
     'Tarvitsetko lähettää jotain? Signet voi olla luonnos valmiina sekunneissa.',
   'dashboard.composeCtaLabel': 'Pikakirjoitus',
   'dashboard.heading': 'Viikkosi, koostettuna',
+  'dashboard.loadFailed': 'Kojelautaasi ei voitu ladata.',
   'dashboard.manageLibrary': 'Hallinnoi kirjastoa →',
   'dashboard.recentEmpty': 'Ei vielä lähetyksiä — lähetetyt sähköpostisi ilmestyvät tähän.',
   'dashboard.recentHeading': 'Viimeisimmät lähetykset',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Oletussävy',
   'settings.toneSubheading': 'Signet käyttää tätä sävyä, ellei sitä ohiteta luonnoksessa.',
   'signetLayout.primaryNavLabel': 'Ensisijainen navigaatio',
+  'signetLayout.toggleMenu': 'Valikko',
   'signup.emailLabel': 'Sähköpostiosoite',
   'signup.showPassword': 'Näytä salasana',
   'signup.tagline': 'Lähetä ensimmäinen tekoälykirjoittamasi sähköposti alle minuutissa.',

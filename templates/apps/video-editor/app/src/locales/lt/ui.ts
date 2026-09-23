@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Radote klaidą, turite funkcijų užklausą ar norite papasakoti apie sumontuotą filmą? Kiekviena žinutė pasiekia realų komandos narį – susisiekite su mumis bet kuriuo metu per savo paskyros nustatymus.',
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.eyebrow': '// studija už montažo',
   'about.pageTitle': 'Apie {{appName}}',
   'assetDetail.back': 'Atgal į biblioteką',
   'assetDetail.confirmDelete': 'Ištrinti " {{name}} "? To negalima atšaukti.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipai, garso įrašai ir grafika, paruošti paskelbti laiko juostoje.',
   'assetLibrary.title': 'Turtas',
   'assetLibrary.upload': 'Pridėti išteklių',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.browseTemplates': 'Naršyti šablonus →',
   'dashboard.loading': 'Įkeliami projektai…',
   'dashboard.noProjects': 'Kol kas nėra projektų – sukurkite vieną, kad pradėtumėte.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Pasirinkite tai, ką prisimintumėte tik jūs.',
   'rushesAuthShell.footer.copyright': '© „Rushes Studio“',
   'rushesAuthShell.footer.privacy': 'Privatumas',
+  'rushesLayout.closeMenu': 'Uždaryti navigaciją',
   'rushesLayout.guest': 'Redaktorius',
+  'rushesLayout.navDialog': 'Navigacija',
+  'rushesLayout.openMenu': 'Atidaryti navigaciją',
   'rushesLayout.planFree': 'Nemokamas planas',
   'rushesLayout.tagline': 'Kinematografinė laiko juosta',
   'settings.billing.confirmCancel': 'Atšaukti prenumeratą laikotarpio pabaigoje?',

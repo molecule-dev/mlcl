@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Quý vị hiện đang dùng gói {{plan}}.',
   'billing.switch': 'Đổi',
   'billing.upgraded': 'Đã cập nhật sang {{plan}} — giới hạn được áp dụng ngay lập tức.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'compare.activityHeading': 'Đánh giá hoạt động',
   'compare.empty.title': 'Thêm ít nhất hai vị trí để so sánh',
   'compare.eyebrow': 'Song song',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Cao',
   'trends.summary.low.label': 'Thấp',
   'trends.summary.points.label': 'Ngày',
+  'weatherDashboardLayout.primaryNavLabel': 'Điều hướng chính',
   'weatherHeroCard.updated': 'Cập nhật {{time}}',
 }

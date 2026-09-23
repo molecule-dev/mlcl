@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.eyebrow': '{{app}}-ის შესახებ',
+  'about.intro':
+    '{{app}} არის მედიტაციის აპლიკაცია რეალური ცხოვრებისთვის — ყოველდღიური მედიტაციები, სუნთქვის ვარჯიშები და ძილის ისტორიები, რომლებსაც მასწავლებლები ატარებენ, რომლებიც თავს მეგობრად გრძნობენ და არა მწვრთნელად. არანაირი დანაშაულის გრძნობა, არანაირი ხმაურიანი კვება: უბრალოდ მშვიდი ადგილი, სადაც შეგიძლიათ დაუბრუნდეთ თქვენს სუნთქვას.',
+  'about.missionBody':
+    'ჩვენ გვჯერა, რომ სიმშვიდე ყველასთვის ხელმისაწვდომი უნდა იყოს, დღის ნებისმიერ მომენტში. {{app}} არსებობს იმისთვის, რომ მშვიდი, თანმიმდევრული პრაქტიკა ძალისხმევის გარეშე იგრძნობოდეს — რათა ათმა გულწრფელმა წუთმა შეცვალოს ის, თუ როგორ შეხვდებით მომდევნო ათი საათის განმავლობაში.',
+  'about.missionTitle': 'ჩვენი მისია',
+  'about.pageTitle': 'უფრო მშვიდი 10 წუთი დღეში',
+  'breathingDial.seconds': 'წამები',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.logout': 'გასვლა',
   'common.min': 'წთ',
   'common.relative.justNow': 'ახლახან',
   'common.relative.now': 'ახლა',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'nav.secondaryNavigation': 'ანგარიშის ნავიგაცია',
   'sessionCard.with': 'თან {{name}}',
   'stillpoint.billing.choose': 'არჩევა {{plan}}',
   'stillpoint.billing.currentPlan': 'ამჟამად ჩართულია {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'გეგმების ჩატვირთვა ვერ მოხერხდა.',
   'stillpoint.billing.opening': 'გადახდის გახსნა…',
   'stillpoint.billing.perMonthShort': '/ თვე',
+  'stillpoint.billing.perYearShort': '/წელი',
   'stillpoint.billing.unknownResult': 'მოულოდნელი პასუხი ანგარიშსწორებაზე.',
   'stillpoint.billing.yearly': 'წლიური · დაზოგეთ 17%',
   'stillpoint.courseDetail.back': 'კურსები',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'კურსები ჯერ არ არის.',
   'stillpoint.courses.eyebrow': '{{count}} მრავალდღიანი მოგზაურობები',
   'stillpoint.courses.heading': 'კურსები',
+  'stillpoint.forgot.checkEmail': 'შეამოწმეთ თქვენი შემოსული წერილები — ბმული 30 წუთში იწურება.',
   'stillpoint.forgot.success': 'ჩვენ გამოგიგზავნეთ გადატვირთვის ბმული {{email}} .',
   'stillpoint.home.empty': 'სესიები ჯერ არ არის — შეამოწმეთ მალე.',
   'stillpoint.home.friend': 'მეგობარი',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'შექმენით თქვენი უფასო ანგარიში',
   'stillpoint.landing.cta.title': 'დაიწყეთ თქვენი სიმშვიდე დღესვე',
   'stillpoint.landing.features.heading': 'პრაქტიკა, რომელიც თქვენთან ერთად იზრდება',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'ყოველდღიური მედიტაციები, სუნთქვითი ვარჯიშები და ძილის ისტორიები — მასწავლებლების მიერ ტემპით შესრულებული, რომლებიც თავს მეგობრად გრძნობენ და არა მწვრთნელად.',
   'stillpoint.landing.hero.eyebrow': 'უფრო მშვიდი 10 წუთი დღეში',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'განწყობის მიხედვით დათვალიერება',
   'stillpoint.login.rememberMe': 'შესული დამტოვე',
   'stillpoint.login.subheading': 'შედით სისტემაში თქვენი პრაქტიკის გასაგრძელებლად.',
+  'stillpoint.nav.tagline': 'იპოვეთ თქვენი უმოძრაო ცენტრი',
+  'stillpoint.notFound.body':
+    'ეს გვერდი სადღაც ღრმად და ხანგრძლივად სუნთქავს. მოდით, უფრო მშვიდი ადგილი ვიპოვოთ {{app}} ში.',
   'stillpoint.notFound.title': 'სიჩუმეში დაკარგული',
   'stillpoint.notFound.toHome': 'დღევანდელ დღეს დავუბრუნდეთ',
   'stillpoint.notFound.toLibrary': 'ბიბლიოთეკის დათვალიერება',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 წამით უკან გადახტომა',
   'stillpoint.player.skipForward': '30 წამით წინ გადახტომა',
   'stillpoint.player.with': 'თან {{name}}',
+  'stillpoint.profile.defaultHandle': 'სტილპოინტერი',
   'stillpoint.profile.eyebrow': 'თქვენი პრაქტიკა, შეჯამებული.',
   'stillpoint.profile.locked': 'დაბლოკილია',
   'stillpoint.profile.member': 'სტილპოინტის წევრი',

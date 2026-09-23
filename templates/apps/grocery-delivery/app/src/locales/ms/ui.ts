@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Tip kepada pembeli anda',
   'checkout.tipLabel': 'Petua',
   'checkout.zipPlaceholder': 'Poskod',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'featuredProductsGrid.addAria': 'Tambah {{name}} ke troli',
   'featuredProductsGrid.outOfStock': 'Kehabisan stok',
   'forgotPassword.emailLabel': 'Alamat e-mel',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Jika e-mel itu didaftarkan, pautan tetapan semula sedang dalam proses penghantaran.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Navigasi utama',
   'landing.categoriesEyebrow': 'Lorong',
   'landing.categoriesHeading': 'Beli-belah mengikut kategori',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Jadualkan penghantaran mingguan dengan pesanan semula stok pintar dan penjejakan pemandu secara langsung.',
   'landing.heroTitle': 'Kesegaran di depan pintu anda, dalam beberapa jam.',
   'landing.howEyebrow': 'Tiga langkah',
+  'landing.howItWorksHeading': 'Cara {{app}} berfungsi',
   'lists.addAllCta': 'Tambahkan semua ke troli',
   'lists.createCta': 'Cipta senarai pertama anda',
   'lists.createError': 'Tidak dapat membuat senarai.',

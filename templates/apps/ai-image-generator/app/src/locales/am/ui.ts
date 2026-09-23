@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'auth.fields.newPassword': 'አዲስ የይለፍ ቃል',
   'collectionDetail.addImage': 'ለመሰብሰብ ኮንጁር',
   'collectionDetail.backCta': 'ወደ ስብስቦች ተመለስ',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'የስሜት ሰሌዳዎች፣ አጭር መግለጫዎች እና ቀጣይ ተከታታይ ድራማዎች',
   'collections.title': 'ስብስቦች',
   'collections.untitled': 'ርዕስ አልባ · {{stamp}}',
+  'common.closeMenu': 'ምናሌን ዝጋ',
+  'common.dismiss': 'አሰናብት',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
+  'common.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'credits.eyebrow': '{{plan}} እቅድ',
   'credits.renewsCopy': 'ዕቅዱ የሚታደስበት ቀን {{date}}',
   'credits.trail': 'ሬቨሪ · {{plan}} ደረጃ',
@@ -126,6 +131,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'የማመንጨት እንቅስቃሴ፣ የማጋራት እና የክሬዲት ማንቂያዎች እዚህ ይታያሉ።',
   'notifications.empty.title': 'ሪፖርት የሚደረግ ነገር የለም',
   'notifications.subtitle': 'የትውልድ ክስተቶች በቀን ተመድበዋል',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'pricing.limits.gallery': '{{count}} ጋለሪ',
   'privacy.collect.body':
     'ሲመዘገቡ ስምዎን፣ የኢሜይል አድራሻዎን እና የተሰረዘ የይለፍ ቃልዎን እንሰበስባለን። ሬቬሪን ሲጠቀሙ የሚያስገቧቸውን ጥያቄዎች፣ ለእርስዎ የምናመነጫቸውን ምስሎች፣ የሚያስቀምጧቸውን ቅጦች እና ስብስቦች፣ እና እንደ ጥቅም ላይ የዋለው ሞዴል፣ የጊዜ ማህተሞችን ማመንጨት እና የብድር ቀሪ ሂሳብ ያሉ ሜታዳታዎችን እናከማቻለን።',
@@ -161,6 +167,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'አዲሱን የይለፍ ቃል ያስቀምጡ',
   'reset.submitting': 'የይለፍ ቃልን በማዘመን ላይ…',
   'settings.account.handle': 'እጀታ',
+  'settings.account.lastSaved': 'ንቁ መገለጫ · {{name}}',
   'settings.account.saved': 'መገለጫ ተቀምጧል',
   'settings.account.saveFailed': 'መገለጫ ማስቀመጥ አልተቻለም',
   'settings.account.title': 'የፈጣሪ መገለጫ',
@@ -182,7 +189,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'አዲስ ምስል',
   'sidebar.secondary': 'ሁለተኛ ደረጃ አሰሳ',
   'signup.failed': 'መመዝገብ አልተሳካም። እንደገና ይሞክሩ።',
+  'signup.firstNamePlaceholder': 'አሪያ',
   'signup.heading': 'ሪቬሪዎን ይጀምሩ',
+  'signup.lastNamePlaceholder': 'ሊን',
   'signup.subheading': 'መለያ ይፍጠሩ እና 120 ነፃ ክሬዲቶችን ይጠይቁ።',
   'styles.empty': 'እስካሁን ምንም የቅጥ ቅድመ-ቅምጦች የሉም - ከመጀመሪያው በመለያ ከገቡ በኋላ ይታያሉ።',
   'styles.eyebrow': 'ተመርጦ የቀረበ',

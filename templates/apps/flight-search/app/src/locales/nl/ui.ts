@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.eyebrow': 'Over {{app}}',
   'about.pageTitle': 'Elke route, één zoekopdracht.',
   'booking.backToDetail': 'Terug naar vluchtdetails',
   'booking.continue': 'Doorgaan naar betaling',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Belastingen en toeslagen',
   'booking.summary.travelers': 'Reizigers',
   'common.about': 'Over',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'flightDetail.backToResults': 'Terug naar resultaten',
   'flightDetail.baseFare': 'Basistarief',
   'flightDetail.book': 'Doorgaan naar boeking',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 tussenstop',
   'flightResultCard.select': 'Selecteer',
   'flightResultCard.totalLabel': 'Totale duur',
+  'flightSearchLayout.primaryNavLabel': 'Hoofdnavigatie',
   'forgotPassword.subheading':
     'Vul het e-mailadres van uw Skylark-account in en wij sturen u een beveiligde link om het wachtwoord opnieuw in te stellen.',
   'forgotPassword.successBody':
     'Controleer {{email}} voor een link om een nieuw wachtwoord in te stellen. De link verloopt na 30 minuten.',
   'forgotPassword.successHeading': 'Resetlink verzonden',
   'landing.cta.explore': 'Probeer zoeken',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Vind het volgende toptarief vóór iedereen.',
   'landing.cta.signup': 'Tarieven volgen',
   'landing.features.eyebrow': 'Waarom Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Waarschuwing toevoegen',
   'priceAlerts.deleteConfirm': 'Deze waarschuwing verwijderen?',
   'priceAlerts.empty': 'Nog geen routes gevolgd.',
+  'priceAlerts.emptyCta': 'Zoek een route om te volgen',
   'priceAlerts.errorMessage': 'Waarschuwingen konden niet worden geladen.',
   'priceAlerts.eyebrow': 'Skylark-volglijst',
   'priceAlerts.form.createError': 'Waarschuwing kon niet worden aangemaakt.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Multi-city routeplan',
   'results.multiLegHeading': 'Traject {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} trajecten · {{passengers}} reiziger',
+  'results.sortAriaLabel': 'Resultaten sorteren op',
   'results.sortLabel': 'Sorteren',
   'results.summary': '{{count}} vluchten · {{passengers}} reiziger',
   'settings.language.title': 'Taal',

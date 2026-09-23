@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'authShell.brandHeading': 'ጮክ ብለው ለሚያስቡ የዲዛይን ቡድኖች ባለብዙ ተጫዋች ሸራዎች።',
   'billing.canceled': 'የደንበኝነት ምዝገባ ተሰርዟል።',
   'billing.cancelPlan': 'ዕቅድ ሰርዝ',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ከአብነት ጀምር',
   'boards.title': 'የእርስዎ ሰሌዳዎች',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'ከስራ ቦታዎ ጋር የተያያዘውን ኢሜይል ያስገቡ እና የመልሶ ማስጀመሪያ አገናኝ እንልካለን።',
   'forgot.success.body': 'መለያ ካለ ለ {{email}} ዳግም ማስጀመሪያ አገናኝ እየመጣ ነው። አገናኙ በ30 ደቂቃዎች ውስጥ ያበቃል።',
@@ -79,6 +81,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'ለተዝረከረከ፣ ለፈጠራ እና ለግል አስተሳሰብ የተገነባ።',
   'landing.demoBoard.title': 'ሩብ 1 ወርክሾፕ · የምርት ስም ድምጽ',
   'landing.featuresTitle': 'ፈጣን ግብረመልስ። የሚያምሩ ሸራዎች። ምንም ግጭት የለም።',
+  'landing.hero.body':
+    '{{appName}} ለዲዛይን ቡድኖች፣ ለዎርክሾፕ አመቻቾች እና ለአስተማሪዎች የቀጥታ ሀሳቦችን የሚያስተዳድሩ እና በአንድ ቦታ ለመሰብሰብ ሀሳቦችን የሚያስፈልጋቸው ባለብዙ ተጫዋች ነጭ ሰሌዳ ነው።',
   'landing.hero.primaryCta': 'ሰሌዳ በነፃ ይጀምሩ',
   'landing.hero.socialProof': 'የታመነው በ {{count}} በዓለም ዙሪያ ያሉ የዲዛይን ቡድኖች',
   'landing.hero.title': 'እንደ ሀሳብዎ በፍጥነት የተሰራ ሸራ',
@@ -88,6 +92,9 @@ export const ui: UiTranslations = {
   'login.signIn': 'ወደ Nimbus ይግቡ',
   'login.signupCta': 'ነፃ የስራ ቦታ ይፍጠሩ',
   'login.subheading': 'አውደ ጥናቱ ካቆመበት ይቀጥሉ - ሰሌዳዎች፣ ተለጣፊ ማስታወሻዎች እና ጠቋሚዎች በእውነተኛ ጊዜ ይመሳሰላሉ',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.new': 'አዲስ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'notifications.editTitle': 'ወደ "አርትዖቶች {{board}} "',
   'notifications.empty.body':
     'ግብዣዎች፣ የቅጽበታዊ ገጽ እይታ ማስቀመጫዎች እና የቅርብ ጊዜ የቦርድ ማስተካከያዎች እንደተከሰቱ እዚህ ይታያሉ።',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'የስሪት ታሪክ',
   'versionHistory.untitledSnapshot': 'ርዕስ-አልባ ቅጽበተ-ፎቶ',
   'whiteboardLayout.newBoard': 'አዲስ ሰሌዳ',
+  'whiteboardLayout.primaryNav': 'ዋና አሰሳ',
   'workspace.boardLabel': 'ቦርድ',
   'workspace.eyebrow': '{{name}} · የስራ ቦታ',
   'workspace.invite': 'ተባባሪዎችን ይጋብዙ',

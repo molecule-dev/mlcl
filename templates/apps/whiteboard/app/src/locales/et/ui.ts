@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'authShell.brandHeading':
     'Mitme mängijaga mänguväljakud disainimeeskondadele, kes valjusti mõtlevad.',
   'billing.canceled': 'Tellimus on tühistatud.',
@@ -15,7 +16,9 @@ export const ui: UiTranslations = {
   'billing.upgradeTitle': 'Saadaval olevad paketid',
   'billing.usage.boards': 'Aktiivsed lauad',
   'billing.usage.collaborators': 'Kaastöötajad',
+  'billing.usageOf': '{{max}} -st kaasa arvatud',
   'boardCanvas.backToBoards': 'Kõik lauad',
+  'boardCanvas.changeColor': 'Muuda värvi {{color}}',
   'boardCanvas.deleteElement': 'Kustuta element',
   'boardCanvas.deselect': 'Tühista valik',
   'boardCanvas.elementsCount': '{{count}} elemendid',
@@ -70,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Alusta mallist',
   'boards.title': 'Teie lauad',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Mine töölauani',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Sisesta oma tööruumiga seotud e-posti aadress ja me saadame sulle lähtestamislingi.',
@@ -81,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1. kvartali töötuba · Brändi hääl',
   'landing.featuresEyebrow': 'Mis teeb Slate mosaiigiks',
   'landing.featuresTitle': 'Kiire tagasiside. Kaunid lõuendid. Null hõõrdumist.',
+  'landing.hero.body':
+    '{{appName}} on mitme mängijaga tahvel disainimeeskondadele, töötubade juhendajatele ja õpetajatele, kes viivad läbi reaalajas ajurünnakuid ja vajavad ideede koondamist ühte kohta.',
   'landing.hero.primaryCta': 'Loo tasuta tahvel',
   'landing.hero.socialProof': 'Usaldusväärne {{count}} disainimeeskonnad üle maailma',
   'landing.hero.title': 'Lõuend sama kiire kui teie mõtted',
@@ -91,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Loo tasuta tööruum',
   'login.subheading':
     'Jätka sealt, kus töötuba pooleli jäi – tahvlid, märkmepaberid ja kursorid sünkroonivad reaalajas.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.new': 'Uus',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'notifications.editTitle': 'Muudatused jaotises " {{board}} "',
   'notifications.empty.body':
     'Kutsed, hetktõmmiste salvestamised ja hiljutised tahvli muudatused kuvatakse siin kohe, kui need toimuvad.',
@@ -170,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versioonide ajalugu',
   'versionHistory.untitledSnapshot': 'Pealkirjata hetktõmmis',
   'whiteboardLayout.newBoard': 'Uus juhatus',
+  'whiteboardLayout.primaryNav': 'Peamine navigeerimine',
   'workspace.boardLabel': 'Juhatus',
   'workspace.eyebrow': '{{name}} · tööruum',
   'workspace.invite': 'Kutsu kaastöötajaid',

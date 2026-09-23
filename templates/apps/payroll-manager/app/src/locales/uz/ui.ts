@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'auditLog.empty':
     "Filtrlaringizga hali hech qanday audit hodisasi mos kelmadi. Xodimni tahrirlang yoki ish haqi jadvalini qayta ishlang, shunda ular bu yerda ko'rsatiladi.",
   'auditLog.eyebrow': 'Muvofiqlik',
+  'auditLog.loadError': "Audit jurnalini yuklab bo'lmadi.",
   'auditLog.searchPlaceholder': "Aktyor, harakat yoki tavsif bo'yicha qidiruv",
   'auditLog.subheading':
     "Har bir tasdiqlash, tahrirlash va soliq deklaratsiyasi — aktyor, vaqt belgisi va o'zgartirilgan maydonlar bilan.",
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Konfiguratsiya qilinmagan',
   'billing.plansHeading': 'Rejalar',
   'billing.subheading': "Rejangizni boshqaring va Stripe orqali darajalarni o'zgartiring.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Qayta urinish',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': "Muvofiqlik haqidagi qisqacha ma'lumot",
   'dashboard.compliance.title': "Barcha tekshiruvlar o'tmoqda",
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': "Hech qanday chegirmalar yo'q.",
   'employeeDetail.notFound': 'Xodim topilmadi.',
   'employeeDetail.payFrequency': "To'lov chastotasi",
+  'employeeDetail.postTax': 'Soliqdan keyingi',
+  'employeeDetail.preTax': 'Soliqdan oldingi',
   'employeeDetail.salary': 'Yillik ish haqi',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Boshlandi {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': "To'lov chastotasi",
   'employeeForm.salary': 'Yillik ish haqi (AQSh dollari)',
   'employeeForm.salaryInvalid': "Ish haqi manfiy bo'lmagan raqam bo'lishi kerak.",
+  'employeeForm.saveError': "Xodimni saqlab bo'lmadi.",
   'employeeForm.semimonthly': 'Yarim oylik',
   'employeeForm.single': 'Yagona',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Ish haqi',
   'forgotPassword.subtitle':
     'Ish elektron pochtangizni kiriting, shunda biz sizga qayta tiklash havolasini yuboramiz.',
+  'landing.copyright': '© {{year}} {{app}} . Aniq, ishonchli, tuzilgan.',
   'landing.ctaBody':
     "30 kun bepul. Kredit karta yo'q. Audit izingizni yo'qotmasdan istalgan vaqtda o'zgartiring.",
   'landing.ctaHeading': 'Keyingi siklingizni Stipendda ishga tushiring',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': "Ushbu to'lov jarayoni uchun hali audit yozuvlari yo'q.",
   'payRunDetail.noStubs':
     "Hali ish haqi to'g'risidagi ma'lumotlar yo'q — ularni tasdiqlash va yaratish uchun ishlov berish.",
+  'payRunDetail.notFound': "Bu to'lov jarayoni topilmadi.",
   'payRunDetail.statDeductions': 'Chegirmalar',
   'payRunDetail.statHeadcount': 'Xodimlar',
   'payRunDetail.statTaxes': 'Soliqlar ushlab qolingan',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Yarim oylik',
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.subheading': 'Kompaniya profili, ish haqi jadvali va integratsiyalar.',
+  'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'settings.weekly': 'Haftalik',
   'taxCenter.bucket.federal': 'Federal daromad',
   'taxCenter.bucket.fica': 'Ijtimoiy Havfsizlik',

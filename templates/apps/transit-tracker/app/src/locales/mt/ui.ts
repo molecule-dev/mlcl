@@ -97,7 +97,7 @@ export const ui: UiTranslations = {
   'routeDetail.stopsHeading': 'Waqfiet',
   'routeDetail.towards': 'Lejn',
   'savedStops.emptyTitle': 'L-ebda waqfiet issalvati għadek',
-  'savedStops.error': 'Ma setgħux jitgħabbew il-waqfiet salvati. Jekk jogħġbok erġa&#39; pprova.',
+  'savedStops.error': "Ma setgħux jitgħabbew il-waqfiet salvati. Jekk jogħġbok erġa' pprova.",
   'savedStops.eyebrow': 'In-netwerk tiegħek',
   'savedStops.loading': 'Qed jitgħabbew il-waqfiet salvati…',
   'savedStops.title': 'Waqfiet issalvati',

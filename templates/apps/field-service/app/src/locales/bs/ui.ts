@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Klijenti',
   'customers.loadError': 'Učitavanje klijenata nije uspjelo.',
   'customers.loading': 'Učitavanje…',
+  'customers.new.address': 'Adresa usluge',
   'customers.new.email': 'E-pošta',
   'customers.new.error': 'Dodavanje klijenta nije uspjelo.',
   'customers.new.heading': 'Novi klijent',

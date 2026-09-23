@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Ние сме разпръснат екип от дизайнери и инженери, които някога прекарваха прекалено много часове всеки ден в шумна пощенска кутия. Courier е пощенската кутия, която ние самите искахме да използваме.',
   'about.title': 'Имейл за концентрирана работа',
+  'common.goToDashboard': 'Към таблото',
   'help.cta.about': 'За Courier',
   'help.cta.pricing': 'Виж цените',
   'help.eyebrow': 'Център за помощ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Кратко отговори на най-често задаваните въпроси. Липсва ли нещо? Отворете „Настройки“ и използвайте формуляра за обратна връзка в приложението или пишете на support@courier.example.',
   'help.title': 'Как можем да помогнем?',
   'landing.brand.scrollTop': 'Назад към началото',
+  'landing.copyright': '© {{year}} {{appName}} — Създадено за фокус.',
   'landing.ctaBody':
     'Присъединете се към хилядите професионалисти, които са се справили с пощата си още преди обяд.',
   'landing.ctaTitle': 'Действай повече, реагирай по-малко.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Гледайте демонстрацията',
   'landing.heroSubtitle':
     'Courier е изчистена пощенска кутия с три панела, създадена за специалисти, които искат да обработват информация, а не просто да реагират на нея.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Избирана от целенасочени екипи по целия свят',
   'landing.signIn': 'Вход',
   'meridian.archive.empty': 'Архивът е празен.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Проект',
   'meridian.folder.count': '{{count}} съобщения',
+  'meridian.folder.delete': 'Изтриване',
   'meridian.folder.deleteForever': 'Изтрий завинаги',
   'meridian.folder.restore': 'Премести в папката „Входящи“',
   'meridian.forgot.subtitle':
@@ -88,7 +92,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Все още няма съобщения.',
   'meridian.inbox.loading': 'Зареждане…',
   'meridian.inbox.next': 'Следващо',
+  'meridian.inbox.noSender': '(без подател)',
   'meridian.inbox.noSubject': '(без тема)',
+  'meridian.inbox.ofTotal': '{{current}} от {{total}}',
   'meridian.inbox.openCompose': 'Отвори прозореца за създаване на съобщение',
   'meridian.inbox.previous': 'Предишен',
   'meridian.inbox.replyFailed': 'Отговорът е запазен, но изпращането се провали: {{error}}',
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Нямате профил?',
   'meridian.login.showPassword': 'Покажи паролата',
   'meridian.message.toLine': 'към {{recipients}}',
+  'meridian.notFound.body':
+    'Страницата, която търсите, не можа да бъде намерена. Върнете се във входящата си поща на {{appName}} и ние ще ви помогнем да се справите.',
   'meridian.notFound.eyebrow': 'Грешка 404',
   'meridian.notFound.title': 'Тази тема беше архивирана.',
   'meridian.notFound.toInbox': 'Отвори входящата ми поща',
@@ -136,18 +144,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Добави звездичка',
   'meridian.thread.unstar': 'Премахване на звездичката',
   'meridian.time.yesterday': 'Вчера',
+  'meridian.topBar.openMenu': 'Отвори менюто за навигация',
   'meridian.topBar.searchPlaceholder': 'Търсене в пощата',
   'meridian.trash.empty': 'Кошчето е празно.',
   'meridian.trash.title': 'Кошче',
   'nav.legal': 'Правни',
   'planUpdated.description':
     'Абонаментът Ви вече е активен, а данните Ви за фактуриране са актуализирани. Добре дошли в обновената си пощенска кутия в Courier.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.heading': 'чернови',
   'pricing.limit.emails': 'имейли',
   'pricing.limit.folders': 'папки',
   'pricing.limit.labels': 'етикети',
   'privacy.collect.account':
     'Данни за профила: име, имейл адрес, хеширана парола и датата на регистрация.',
+  'privacy.contact': 'Въпроси? Изпратете имейл на privacy@courier.example.',
   'privacy.intro':
     'Настоящата политика за поверителност обяснява какви данни събира Courier, защо ги събираме, как ги съхраняваме в безопасност и какви възможности за избор имате по този въпрос. Стремим се да бъдем конкретни, а не да използваме юридически термини; ако нещо не ви е ясно, пишете ни на privacy@courier.example.',
   'privacy.lastUpdated': 'Последно актуализирано: 1 април 2026 г.',
@@ -167,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Настоящите условия уреждат ползването на Courier. Създавайки профил или изпращайки имейл чрез нас, Вие се съгласявате да се съобразявате с тях. Ние се стремим да изготвяме правила, които човек може реално да спазва.',
   'terms.lastUpdated': 'В сила от: 1 април 2026 г.',
+  'terms.linkPrivacy': 'Прочетете нашата Политика за поверителност →',
   'terms.termination.body':
     'Можете да изтриете профила си по всяко време. Ние имаме право да блокираме профил, който нарушава настоящите условия; в такъв случай ще ви обясним причината и ще ви дадем възможност първо да изтеглите данните си.',
   'terms.warranty.body':

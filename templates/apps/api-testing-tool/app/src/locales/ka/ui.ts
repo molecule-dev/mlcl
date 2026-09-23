@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'authShell.statusLabel': 'მორბენლები ონლაინ',
   'collections.createError': 'კოლექციის შექმნა ვერ მოხერხდა.',
   'collections.defaultName': 'უსათაურო კოლექცია {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'ახალი კოლექცია',
   'collections.subheading':
     'ჯგუფური მოთხოვნები, გაუზიარეთ თქვენს გუნდს და გაუშვით ისინი პაკეტის სახით.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'environmentCard.inactive': 'უმოქმედო',
   'environmentCard.more': 'მეტი',
   'environmentCard.variables': 'ცვლადები',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'ჩამოტვირთეთ უფასოდ',
   'landing.heroSubtitle':
     'ელვისებურად სწრაფი API ტესტირების სამუშაო მაგიდა, რომელიც შექმნილია ტერმინალებში მცხოვრები ინჟინრებისთვის.',
+  'landing.heroTitleAccent': 'ცეცხლი',
+  'landing.heroTitleLine2': 'თავდაჯერებულობის გაღვივება.',
+  'landing.heroTitleRest': 'მოთხოვნები,',
   'landing.kicker': '$ პილონის გაგზავნა --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'მარტივი, პროგნოზირებადი ფასები',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ახალი ხარ აქ?',
   'login.showPassword': 'პაროლის ჩვენება',
   'login.subtitle': 'გააგრძელეთ თქვენი Pylon-ის სამუშაო სივრცეზე.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'mocks.createError': 'იმიტაციის შექმნა ვერ მოხერხდა.',
   'mocks.defaultName': 'უსათაურო იმიტაცია {{n}}',
   'mocks.deleteError': 'იმიტაციის წაშლა ვერ მოხერხდა.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'სამუშაო სივრცეში დაბრუნება',
   'notFound.eyebrow': '$ პილონის გადაწყვეტა --strict',
   'notFound.title': 'მარშრუტი ვერ მოიძებნა',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'privacy.collect.account':
     'ანგარიში: თქვენი ელ. ფოსტა, ჰეშირებული პაროლი, საჩვენებელი სახელი და თქვენი ბოლო შესვლის დროის ნიშნული.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'ამ ანგარიშის ამჟამად საკუთრებაში არსებული მონაცემების მხოლოდ წაკითხვის ნებართვის მქონე ხედი.',
   'settings.unset': 'არ არის დაყენებული',
   'signup.identityHint': 'მაგ. ალექსი',
+  'signup.statusLabel': 'უფასო დონე · საკრედიტო ბარათის გარეშე',
   'signup.subtitle': 'დაიწყეთ მოთხოვნების გაშვება წუთებში.',
   'terms.account.body':
     'თქვენი პაროლის დაცვაზე პასუხისმგებლობა თქვენ გეკისრებათ. ერთი ანგარიშის რამდენიმე ადამიანთან გაზიარება უფასო ან Pro გეგმებზე დაუშვებელია — საერთო სამუშაო სივრცეებისთვის შეიძინეთ Team-ის გამოწერა.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'არ გამოიყენოთ Pylon იმ სერვისებისთვის მოთხოვნების გასაგზავნად, რომელთა მფლობელობა ან ტესტირების ნებართვა არ გაქვთ. არ გამოიყენოთ Pylon ტარიფების ლიმიტების გვერდის ავლით ან თაღლითობის ჩასადენად.',
   'terms.warranty.body':
     'Pylon მოწოდებულია „როგორც არის“ ყოველგვარი გარანტიის გარეშე. ჩვენი მიზანია 99.9%-იანი უწყვეტი მუშაობა, მაგრამ არ ვიძლევით გარანტიას უფასო ან Pro გეგმებზე.',
+  'testRunner.assertionsCount': '{{count}} მტკიცება',
   'testRunner.createError': 'ტესტის შექმნა ვერ მოხერხდა.',
   'testRunner.cron':
     'მტკიცებები ფასდება ამ ტესტის დაკავშირებული მოთხოვნის უახლესი გაშვების მიხედვით.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'სუიტის შედეგები, მტკიცების განსხვავებები და ბოლო 50 გაშვება.',
   'userMenu.shortcut': '⌘ლ',
   'userMenu.signedInAs': 'შესულია, როგორც',
+  'workspace.auth.keyName': 'სათაურის სახელი',
+  'workspace.auth.keyValue': 'გასაღების მნიშვნელობა',
+  'workspace.auth.password': 'პაროლი',
+  'workspace.auth.username': 'მომხმარებლის სახელი',
+  'workspace.authOption.apikey': 'API გასაღები',
+  'workspace.authOption.basic': 'ძირითადი ავტორიზაცია',
+  'workspace.authOption.bearer': 'მატარებლის ტოკენი',
+  'workspace.authOption.none': 'არცერთი',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'ტიპი',
   'workspace.authTypeLabel': 'ავტორიზაციის ტიპი',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'არცერთი',
+  'workspace.body.text': 'ნედლი ტექსტი',
+  'workspace.body.type': 'ტიპი',
   'workspace.environment': 'გარემოს გარეშე',
   'workspace.envVar': 'env ცვლადი',
   'workspace.eyebrow': '$ პილონის სამუშაო სივრცე --პანელის გაყოფა',
+  'workspace.kv.addHeader': 'სათაურის დამატება',
+  'workspace.kv.addParam': 'პარამეტრის დამატება',
+  'workspace.kv.headerKey': 'სათაურის სახელი',
+  'workspace.kv.headerValue': 'სათაურის მნიშვნელობა',
+  'workspace.kv.key': 'გასაღები',
+  'workspace.kv.paramKey': 'მოთხოვნის პარამეტრის გასაღები',
+  'workspace.kv.paramValue': 'მოთხოვნის პარამეტრის მნიშვნელობა',
+  'workspace.kv.removeRow': 'რიგის წაშლა',
+  'workspace.kv.value': 'ღირებულება',
   'workspace.methodLabel': 'HTTP მეთოდი',
   'workspace.metric.latency': 'შეყოვნება',
   'workspace.metric.latencyCaption': 'ორმხრივი მგზავრობა ამ მარშრუტიდან',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'მოთხოვნა დაკმაყოფილებულია — იხილეთ პასუხი ქვემოთ.',
   'workspace.subheading':
     'შეადგინეთ მოთხოვნა, გაააქტიურეთ და შემდეგ დაადასტურეთ პასუხი — ყველაფერი ერთ პანელში.',
+  'workspace.testResults': 'ტესტის შედეგები',
   'workspace.token': 'ჟეტონი',
   'workspace.tokenHint':
     'ავტორიზაციის სახით გაგზავნილია: მატარებელი<token> ამ კოლექციის ყველა მოთხოვნაზე.',

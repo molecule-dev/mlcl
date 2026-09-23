@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'auditLog.empty':
     'Még nincsenek a szűrőknek megfelelő audit események. Szerkesszen egy alkalmazottat, vagy dolgozzon fel egy fizetési folyamatot, és ezek itt fognak megjelenni.',
   'auditLog.eyebrow': 'Megfelelőség',
+  'auditLog.loadError': 'Nem sikerült betölteni az auditnaplót.',
   'auditLog.searchPlaceholder': 'Keresés színész, akció vagy leírás alapján',
   'auditLog.subheading':
     'Minden jóváhagyás, szerkesztés és adóbevallás – a szereplővel, az időbélyeggel és a módosított mezőkkel együtt.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nincs beállítva',
   'billing.plansHeading': 'Csomagok',
   'billing.subheading': 'Kezeld a csomagodat és válts a csomagok között a Stripe-on keresztül.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Újra',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Megfelelőségi pillanatkép',
   'dashboard.compliance.title': 'Minden ellenőrzés sikeres',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Nincsenek levonások a nyilvántartásban.',
   'employeeDetail.notFound': 'Az alkalmazott nem található.',
   'employeeDetail.payFrequency': 'Fizetési gyakoriság',
+  'employeeDetail.postTax': 'Adózás utáni',
+  'employeeDetail.preTax': 'Adózás előtti',
   'employeeDetail.salary': 'Éves fizetés',
   'employeeDetail.ssn': 'társadalombiztosítási szám',
   'employeeDetail.startedOn': 'Elindítva {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Fizetési gyakoriság',
   'employeeForm.salary': 'Éves fizetés (USD)',
   'employeeForm.salaryInvalid': 'A fizetésnek nem negatív számnak kell lennie.',
+  'employeeForm.saveError': 'Nem sikerült megmenteni az alkalmazottat.',
   'employeeForm.semimonthly': 'Félhavi',
   'employeeForm.single': 'Egyetlen',
   'employeeForm.ssn': 'társadalombiztosítási szám',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Fizetés',
   'forgotPassword.subtitle':
     'Add meg a munkahelyi e-mail címedet, és küldünk egy visszaállítási linket.',
+  'landing.copyright': '© {{year}} {{app}} . Precíz, megbízható, higgadt.',
   'landing.ctaBody':
     '30 napig ingyenes. Nincs szükség hitelkártyára. Bármikor válthat anélkül, hogy elveszítené az auditnaplóját.',
   'landing.ctaHeading': 'Futtassa a következő ciklusát Stipendrel',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Ehhez a fizetési futamhoz még nincsenek auditbejegyzések.',
   'payRunDetail.noStubs':
     'Még nincsenek fizetési jegyzékek – jóváhagyás és feldolgozás szükséges a létrehozásukhoz.',
+  'payRunDetail.notFound': 'Ez a fizetési folyamat nem található.',
   'payRunDetail.statDeductions': 'Levonások',
   'payRunDetail.statHeadcount': 'Alkalmazottak',
   'payRunDetail.statTaxes': 'Visszatartott adók',
@@ -220,7 +229,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Félhavi',
   'settings.signOutDevice': 'Kijelentkezés',
   'settings.subheading': 'Cégprofil, fizetési ütemterv és integrációk.',
+  'settings.twoFactorCode': 'Hitelesítési kód',
   'settings.twoFactorDisable': 'Letiltás',
+  'settings.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'settings.weekly': 'Heti',
   'taxCenter.bucket.federal': 'Szövetségi jövedelem',
   'taxCenter.bucket.fica': 'Társadalombiztosítás',

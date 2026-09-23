@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.title': "Ụlọ ide ihe ị nwere ike itinye n'akpa gị",
   'billing.cancelConfirm': 'Kagbuo ndenye aha gị na-arụ ọrụ?',
   'billing.cancelFailed': 'Enweghị ike ịkagbu.',
   'billing.checkingOut': 'Ebe a na-akwụ ụgwọ…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Enweghị ike ibuli ụgwọ.',
   'billing.loading': 'Na-ebugo ụgwọ…',
   'billing.upgradeCta': 'Kwalite na {{name}}',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'editor.autosaveOn': 'Chekwaa onwe gị na akpaghị aka',
   'editor.backToLibrary': 'Laghachi na ọbá akwụkwọ',
   'editor.charCount': '{{count}} ndị odide',
   'editor.confirmTrash': 'Bugharịa akwụkwọ a gaa na ihe mkpofu?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'E wepụrụ ya',
   'editor.unpublishCta': 'Bugharịa na draft',
   'editor.unpublished': 'Aghọrọ m na draft',
+  'focus.autosaveOn': 'Chekwaa onwe gị na akpaghị aka',
   'focus.backToLibrary': 'Laghachi na ọbá akwụkwọ',
   'focus.bodyPlaceholder': "Ahịrị n'otu oge. Ọ dịghị onye ọzọ nọ ebe a.",
   'focus.exit': 'Wepụ ọnọdụ nlekwasị anya',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Mepụta otu',
   'login.subline':
     'Akwụkwọ edemede gị, peeji kwa ụbọchị, na ọnọdụ kọsọ ikpeazụ dị kpọmkwem ebe ị hapụrụ ha.',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'pricing.exports': 'mbupụ',
   'pricing.folders': 'folda',
   'pricing.heading': 'akwụkwọ',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Tinye koodu anyị zitere gị ozi-e wee họrọ ihe a na-agaghị echefu echefu. Anyị ga-abanye gị ozugbo echekwara ya.',
   'reset.tokenHint': 'E tinyere ya na igbe mbata gị.',
+  'settings.appearance.heading': 'Ìhè ma ọ bụ ọchịchịrị',
   'settings.editor.${row.id}.description': 'Asụsụ',
   'settings.editor.description':
     'Mpịakọta typewriter, iwepụ paragraf, na itinye uche efu — a na-ahazi ndabara maka oge dị ogologo.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Isi nke Atọ — Awa Dị Njọ Tupu Anyanwụ Apụta',
   'versalDocumentCard.pinned': 'A tụnyere ya',
   'versalLayout.nav.stats': 'Ọnụọgụgụ',
+  'versalLayout.primaryNavLabel': 'Ntugharị isi',
   'versalManuscriptHero.cta': "Gaa n'ihu na-ede ihe",
   'versalManuscriptHero.goalLabel': 'Ebumnuche okwu nke taa',
   'versalManuscriptHero.inProgress': "N'ụzọ na-aga",

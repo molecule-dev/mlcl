@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
   'actions.empty': 'Тохирох үйлдлийн зүйл алга.',
   'actions.heading': 'Үйлдлийн зүйлс',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Өмнөх сар',
   'calendar.recent': 'Саяхны',
   'common.daysAgo': '{{count}} өдрийн өмнө',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.hoursAgo': '{{count}} цагийн өмнө',
   'common.no': '—',
+  'common.retry': 'Дахин оролдох',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} үйлдлийн зүйлс',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Дахин тохируулах холбоосыг ирсэн имэйл хаягаасаа шалгана уу.',
   'forgot.subheading': 'Имэйл хаягаа оруулна уу, бид дахин тохируулах холбоос илгээх болно.',
   'integrations.disconnected': 'Салгагдсан',
+  'integrations.loadError': 'Интеграцийг ачаалж чадсангүй.',
   'integrations.notConnectedTag': 'Холбогдоогүй байна',
   'integrations.subheading':
     'Murmur автоматаар нэгдэхийн тулд хуанли болон видео платформуудыг холбоно уу.',
+  'integrations.updateError': 'Шинэчлэлт амжилтгүй.',
   'landing.ctaButton': 'Эхлээрэй - энэ үнэгүй',
   'landing.ctaHeading': 'Тэмдэглэл хөтлөхөө боль. Шийдвэр гаргаж эхэл.',
   'landing.demo.aiLabel': 'Хиймэл оюун ухааны хураангуй, шууд хувилбар',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Дараагийн үйлдлүүд',
   'meetingDetail.loadError': 'Уулзалтыг ачаалж чадсангүй.',
   'meetingDetail.noActions': 'Үйлдлийн зүйл илэрсэнгүй.',
+  'meetingDetail.none': 'Байхгүй.',
   'meetingDetail.notFound': 'Уулзалт олдсонгүй.',
+  'meetingDetail.speakerFallback': 'Чанга яригч {{id}}',
   'meetingDetail.summaryHeading': 'Хиймэл оюун ухааны хураангуй',
   'meetingDetail.transcriptHeading': 'Хуулбар',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Уулзалтууд',
   'meetings.loadError': 'Уулзалтуудыг ачаалж чадсангүй.',
   'meetings.subheading': 'Бичсэн, байршуулсан, синк хийсэн бүх уулзалт.',
+  'murmurLayout.openMenu': 'Навигацийн цэсийг нээх',
   'murmurLayout.primaryNavLabel': 'Үндсэн навигаци',
   'nav.legal': 'Хууль эрх зүйн',
   'notifications.loadError': 'Мэдэгдлийг ачаалж чадсангүй.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Чи Мурмурын дотор хэрхэн харагдаж байна вэ.',
   'record.error.empty': 'Аудио бичигдээгүй.',
   'record.error.permission': 'Микрофоны зөвшөөрөл олгохоос татгалзсан.',
+  'record.error.recorder': 'Бичлэгийн алдаа',
   'record.error.unsupported':
     'Таны хөтөч бичлэг хийхийг дэмждэггүй. Chrome, Edge эсвэл Safari-г туршаад үзээрэй.',
   'record.error.upload': 'Байршуулалт амжилтгүй боллоо. Дахин оролдоно уу.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Шинэ нууц үг',
   'reset.subheading': 'Өөр хаана ч ашиглахгүй нууц үгээ сонгоно уу.',
   'search.empty': 'Бичлэгийг хайхын тулд бичнэ үү.',
+  'search.loadError': 'Хайлт амжилтгүй боллоо. Дахин оролдоно уу.',
   'search.noResults': '""-д ямар ч үр дүн алга {{q}} ".',
   'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
   'settings.appearance.title': 'Гадаад төрх',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Тохиргоог ачаалж чадсангүй.',
   'settings.loading': 'Ачааллаж байна…',
   'settings.push.heading': 'Түлхэх мэдэгдэл',
+  'settings.push.subheading':
+    'Дурдалт, үйлдлийн зүйлс болон хураангуйн талаар хөтчийн сэрэмжлүүлэг аваарай.',
   'settings.retention.audio': 'Аудиог хадгалах',
   'settings.retention.heading': 'Хадгалалт',
   'settings.retention.transcript': 'Транскриптийг хадгалах',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Уулзалтын тэмдэглэлийг хэдхэн минутын дотор бичиж эхлээрэй',
   'signup.terms':
     'Та бүртгэл үүсгэснээр манай Үйлчилгээний нөхцөл болон Нууцлалын бодлогыг зөвшөөрч байна.',
+  'signup.termsPrefix': 'Бүртгэл үүсгэснээр та манайхыг зөвшөөрч байна',
   'team.inviteCta': 'Багийн гишүүнээ урих',
   'team.invitedAs': 'Уригдсан {{role}}',
   'team.inviteFailed': 'Урилга илгээж чадсангүй.',

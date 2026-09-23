@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'authShell.brandHeading':
     'Mga canvas na perpektong pixel para sa mga design team na nagtutulungan.',
   'canvas.redirecting': 'Pambungad na editor…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'at',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'dashboard.activityEmpty':
     'Wala pang kamakailang aktibidad — imbitahan ang isang kasamahan sa koponan na magsimula.',
   'dashboard.activityTitle': 'Ano ang nagbago ngayon',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Lugar ng Trabaho · Northwind Studio',
   'dashboard.foldersLabel': 'Mga folder',
   'dashboard.gridTitle': '{{count}} proyekto',
+  'dashboard.heroActiveTool': 'Kagamitan sa panulat',
   'dashboard.loadingTitle': 'Naglo-load ng mga proyekto…',
   'dashboard.searchPlaceholder': 'Maghanap ng mga proyekto',
   'dashboard.startFromTemplate': 'Magsimula sa template',
   'dashboard.title': 'Ang iyong mga proyekto',
   'dashboard.untitledProject': 'Proyektong walang titulo',
   'designCanvasLayout.newProject': 'Bagong proyekto',
+  'designCanvasLayout.primaryNavLabel': 'Pangunahing navigation',
   'editor.backToProjects': 'Bumalik sa mga proyekto',
   'editor.deleteShape': 'Burahin ang hugis',
   'editor.errorBody': 'Hindi namin mabuksan ang proyektong ito.',
@@ -65,6 +70,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Magdisenyo ng mga kagamitang gumagalaw sa bilis ng iyong mga kamay',
   'library.empty': 'Wala pang mga token sa seksyong ito.',
   'library.eyebrow': 'Lugar ng Trabaho · Sistema ng Disenyo ng Atelier',
+  'library.loadFailed': 'Hindi ma-load ang mga design token.',
   'library.systemMeta': 'Kalusugan ng sistema',
   'library.systemSummary':
     '{{mga token}} mga token · {{mga bahagi}} mga bahagi · {{mga epekto}} mga epekto',

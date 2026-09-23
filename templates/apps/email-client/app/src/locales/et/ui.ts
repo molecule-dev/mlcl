@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Oleme laialipaisatud disainerite ja inseneride meeskond, kes veetsid kunagi iga päev liiga palju aega mürarikkas postkastis. Courier on just selline postkast, mida me ise kasutada soovisime.',
   'about.title': 'E-post keskendunud töö jaoks',
+  'common.goToDashboard': 'Mine töölauani',
   'help.cta.about': 'Courierist',
   'help.cta.pricing': 'Vaata hindu',
   'help.eyebrow': 'Abi',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Kiired vastused kõige sagedamini esitatavatele küsimustele. Kas midagi puudub? Ava seaded ja kasuta rakenduses olevat tagasisidevormi või kirjuta aadressile support@courier.example.',
   'help.title': 'Kuidas me saame aidata?',
   'landing.brand.scrollTop': 'Tagasi üles',
+  'landing.copyright': '© {{year}} {{appName}} — Loodud keskendumiseks.',
   'landing.ctaBody':
     'Liitu tuhandete spetsialistidega, kes said oma postkasti korda juba enne lõunat.',
   'landing.ctaTitle': 'Tee rohkem, reageeri vähem.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Vaata tutvustusvideot',
   'landing.heroSubtitle':
     'Courier on rahulik kolmekordne postkast, mis on loodud teadustöötajatele, kes soovivad teavet töödelda, mitte sellele lihtsalt reageerida.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Meid usaldavad spetsialiseerunud meeskonnad üle kogu maailma',
   'landing.signIn': 'Logi sisse',
   'meridian.archive.empty': 'Arhiiv on tühi.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Eelnõu',
   'meridian.folder.count': '{{count}} sõnumid',
+  'meridian.folder.delete': 'Kustuta',
   'meridian.folder.deleteForever': 'Lõplikult kustutada',
   'meridian.folder.restore': 'Liiguta postkasti',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Siin pole veel ühtegi sõnumit.',
   'meridian.inbox.loading': 'Laadimine…',
   'meridian.inbox.next': 'Järgmine',
+  'meridian.inbox.noSender': '(saatjat pole)',
   'meridian.inbox.noSubject': '(teema puudub)',
+  'meridian.inbox.ofTotal': '{{current}} kokku {{total}}',
   'meridian.inbox.openCompose': 'Ava kirjutamine',
   'meridian.inbox.previous': 'Eelmine',
   'meridian.inbox.replyFailed': 'Vastus salvestati, kuid saatmine ebaõnnestus: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Kas sul pole veel kontot?',
   'meridian.login.showPassword': 'Näita parooli',
   'meridian.message.toLine': '{{recipients}}',
+  'meridian.notFound.body':
+    'Otsitavat lehte ei leitud. Mine tagasi oma {{appName}} postkasti ja me aitame sul edasi liikuda.',
   'meridian.notFound.eyebrow': 'Viga 404',
   'meridian.notFound.title': 'See teema on arhiveeritud.',
   'meridian.notFound.toInbox': 'Ava minu postkast',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Lisa täht',
   'meridian.thread.unstar': 'Tähe eemaldamine',
   'meridian.time.yesterday': 'Eile',
+  'meridian.topBar.openMenu': 'Ava navigeerimismenüü',
   'meridian.topBar.searchPlaceholder': 'Otsi kirju',
   'meridian.trash.empty': 'Prügikast on tühi.',
   'meridian.trash.title': 'Prügikast',
   'nav.legal': 'Õiguslik',
   'planUpdated.description':
     'Teie tellimus on nüüd aktiivne ja arveldusandmed on uuendatud. Tere tulemast uuendatud Courier-postkasti.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.heading': 'tuulehoovused',
   'pricing.limit.emails': 'e-kirjad',
   'pricing.limit.folders': 'kaustad',
   'pricing.limit.labels': 'sildid',
   'privacy.collect.account':
     'Kontoandmed: nimi, e-posti aadress, räsitud parool ja registreerumise kuupäev.',
+  'privacy.contact': 'Küsimused? Saatke e-kiri aadressile privacy@courier.example.',
   'privacy.intro':
     'Käesolevas privaatsuspoliitikas selgitatakse, milliseid andmeid Courier kogub, miks me neid kogume, kuidas me neid kaitsevad ja millised valikuvõimalused teil nende suhtes on. Püüame olla pigem konkreetsed kui juriidilised; kui midagi jääb ebaselgeks, kirjutage aadressile privacy@courier.example.',
   'privacy.lastUpdated': 'Viimati uuendatud: 1. aprill 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Need tingimused reguleerivad teie Courier kasutamist. Konto loomise või meie kaudu e-kirja saatmisega nõustute nende tingimustega. Püüame koostada reegleid, mida on tegelikult võimalik järgida.',
   'terms.lastUpdated': 'Jõustub: 1. aprill 2026',
+  'terms.linkPrivacy': 'Lugege meie privaatsuspoliitikat →',
   'terms.termination.body':
     'Võite oma konto igal ajal kustutada. Meil on õigus peatada konto, mis rikub käesolevaid tingimusi; sel juhul selgitame põhjuse ja anname teile võimaluse oma andmed esmalt eksportida.',
   'terms.warranty.body':

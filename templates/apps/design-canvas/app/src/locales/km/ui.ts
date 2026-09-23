@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'authShell.brandHeading': 'ផ្ទាំងក្រណាត់ដ៏ល្អឥតខ្ចោះសម្រាប់ក្រុមរចនាដែលដឹកជញ្ជូនជាមួយគ្នា។',
   'canvas.redirecting': 'កំពុងបើកកម្មវិធីនិពន្ធ…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'និង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'dashboard.activityEmpty':
     'មិនទាន់មានសកម្មភាពថ្មីៗនៅឡើយទេ — សូមអញ្ជើញមិត្តរួមក្រុមម្នាក់ឱ្យចាប់ផ្តើម។',
   'dashboard.activityTitle': 'អ្វីដែលបានផ្លាស់ប្តូរនៅថ្ងៃនេះ',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'កន្លែងធ្វើការ · ស្ទូឌីយោ Northwind',
   'dashboard.foldersLabel': 'ថតឯកសារ',
   'dashboard.gridTitle': '{{count}} គម្រោង',
+  'dashboard.heroActiveTool': 'ឧបករណ៍​ប៊ិច',
   'dashboard.loadingTitle': 'កំពុងផ្ទុកគម្រោង…',
   'dashboard.searchPlaceholder': 'ស្វែងរកគម្រោង',
   'dashboard.startFromTemplate': 'ចាប់ផ្តើមពីគំរូ',
   'dashboard.title': 'គម្រោងរបស់អ្នក',
   'dashboard.untitledProject': 'គម្រោងគ្មានចំណងជើង',
   'designCanvasLayout.newProject': 'គម្រោងថ្មី',
+  'designCanvasLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'editor.backToProjects': 'ត្រឡប់ទៅគម្រោងវិញ',
   'editor.deleteShape': 'លុបរូបរាង',
   'editor.errorBody': 'យើងមិនអាចបើកគម្រោងនេះបានទេ។',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'រចនាឧបករណ៍ដែលផ្លាស់ទីក្នុងល្បឿនដូចដៃរបស់អ្នក',
   'library.empty': 'មិនទាន់មានសញ្ញាសម្គាល់នៅក្នុងផ្នែកនេះនៅឡើយទេ។',
   'library.eyebrow': 'កន្លែងធ្វើការ · ប្រព័ន្ធរចនាអាតេលីយ៉េ',
+  'library.loadFailed': 'មិនអាចផ្ទុកសញ្ញាសម្គាល់ការរចនាបានទេ។',
   'library.systemMeta': 'សុខភាពប្រព័ន្ធ',
   'library.systemSummary':
     '{{ថូខឹន}} សញ្ញាសម្គាល់ · {{សមាសធាតុ}} សមាសធាតុ · {{ផលប៉ះពាល់}} ផលប៉ះពាល់',

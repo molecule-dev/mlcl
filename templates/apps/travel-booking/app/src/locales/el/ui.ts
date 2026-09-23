@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureDiscover.title': 'Έμπνευση, επιλεγμένη με το χέρι',
   'account.addPaymentCta': 'Προσθήκη μεθόδου πληρωμής',
   'account.addPaymentError': 'Δεν ήταν δυνατή η προσθήκη μεθόδου πληρωμής.',
+  'account.confirmRemove': 'Επιβεβαίωση διαγραφής',
   'account.defaultBadge': 'Αθέτηση',
   'account.loyalty.pointsTowardNext': '{{πόντοι}} του {{επόμενος}} μίλια προς {{επόμενη βαθμίδα}}',
   'account.loyalty.tier': 'Τρέχουσα βαθμίδα',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Λεπτομέρειες ταξιδιού',
   'booking.tripSummary': '{{nights}} νύχτες · {{guests}} επισκέπτες',
   'common.daysAgo': '{{count}}η πριν',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.hoursAgo': '{{count}}ω πριν',
   'common.minutesAgo': '{{count}} πριν από μ.',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Νομικά',
   'notifications.loading': 'Φόρτωση…',
   'notifications.subheading': '{{count}} αδιάβαστα · όλα σε ένα ήρεμο φάκελο εισερχομένων',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.accommodationsLabel': 'καταλύματα',
   'pricing.bookingsLabel': 'κρατήσεις',
   'pricing.destinationsLabel': 'αποθηκευμένοι προορισμοί',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Έμπνευση, αξιόπιστες διαμονές και μια απρόσκοπτη διαδρομή από το όνειρο στο να έχετε κάνει κράτηση — σε 14 χώρες και πάνω από 200 ελεγμένα καταλύματα.',
   'sojournHeroSearchCard.trustProtected': 'Δωρεάν ακύρωση, πλήρως προστατευμένη',
   'sojournHeroSearchCard.trustVetted': 'Μόνο ακίνητα που έχουν ελεγχθεί χειροκίνητα',
+  'travelBookingLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'tripDetail.backLink': 'Επιστροφή στα ταξίδια',
   'tripDetail.cancelCta': 'Ακύρωση κράτησης',
   'tripDetail.cancelHeading': 'Ακύρωση αυτού του ταξιδιού;',

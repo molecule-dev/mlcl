@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ikkuntattjana',
   'about.eyebrow': 'Dwar',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.connectRepoCta': 'Qabbad ir-repożitorju',
   'dashboard.empty': "Għad m'hemm l-ebda pull requests — qabbad repożitorju biex tibda.",
   'dashboard.eyebrow': 'Rifratt · kju tar-reviżjoni',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Hin tat-thadim',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Punteġġ tal-kwalità tal-AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Agħlaq il-menù',
+  'refractLayout.openMenu': 'Iftaħ il-menù',
   'refractLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'reports.cumulativeScoreLabel': 'Punteġġ kumulattiv',
   'reports.cumulativeScoreSubtitle': 'ir-repożitorji kollha · {{days}} d',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Ma rnexxiex jitgħabba l-indiċi tat-tfittxija.',
   'settings.apiKeys.description':
     "Immaniġġja ċ-ċwievet personali tal-API mill-menù tal-utent fin-naħa ta' fuq tal-lemin.",
+  'settings.apiKeys.integrationsNote':
+    'It-tokens tal-aċċess tal-fornitur huma ġestiti fit-taqsima tal-Integrazzjonijiet hawn fuq.',
   'settings.connectError': 'Ma rnexxiex nikkonnettja mal-fornitur.',
   'settings.disconnectError': 'Ma rnexxiex niskonnettja l-fornitur.',
   'settings.eyebrow': 'Rifratt · spazju tax-xogħol',
   'settings.integration.${provider}.label': 'Iffrankar…',
   'settings.loadError': 'Ma rnexxiex it-tagħbija tas-settings.',
+  'settings.notificationCenter': 'Ċentru tan-notifiki',
   'settings.notifications.description':
     'Żur il-paġna tan-notifiki biex tara u timmaniġġja l-preferenzi tal-kunsinna.',
   'settings.section.account': 'Kont u sigurtà',

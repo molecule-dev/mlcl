@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
   'actions.empty': 'Ei vastaavia toimintopisteitä.',
   'actions.heading': 'Toimintopisteet',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Edellinen kuukausi',
   'calendar.recent': 'Viimeisimmät',
   'common.daysAgo': '{{count}}pv sitten',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.hoursAgo': '{{count}}t sitten',
   'common.no': '—',
+  'common.retry': 'Yritä uudelleen',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} toimintopistettä',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Tarkista sähköpostisi palautuslinkkiä varten.',
   'forgot.subheading': 'Syötä sähköpostisi, niin lähetämme palautuslinkin.',
   'integrations.disconnected': 'Yhteys katkaistu',
+  'integrations.loadError': 'Integraatioiden lataaminen epäonnistui.',
   'integrations.notConnectedTag': 'Ei yhdistetty',
   'integrations.subheading':
     'Yhdistä kalenterit ja videoalustat, jotta Murmur liittyy automaattisesti.',
+  'integrations.updateError': 'Päivitys epäonnistui.',
   'landing.ctaButton': 'Aloita – se on ilmainen',
   'landing.ctaHeading': 'Lopeta muistiinpanojen tekeminen. Ala tehdä päätöksiä.',
   'landing.demo.aiLabel': 'AI-yhteenveto, laadittu livenä',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Jatkotoimenpiteet',
   'meetingDetail.loadError': 'Kokouksen lataaminen epäonnistui.',
   'meetingDetail.noActions': 'Ei havaittuja toimintopisteitä.',
+  'meetingDetail.none': 'Ei mitään.',
   'meetingDetail.notFound': 'Kokousta ei löydy.',
+  'meetingDetail.speakerFallback': 'Puhuja{{id}}',
   'meetingDetail.summaryHeading': 'AI-yhteenveto',
   'meetingDetail.transcriptHeading': 'Litterointi',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Kokoukset',
   'meetings.loadError': 'Kokousten lataaminen epäonnistui.',
   'meetings.subheading': 'Kaikki tallennetut, ladatut ja synkronoidut kokoukset.',
+  'murmurLayout.openMenu': 'Avaa navigointivalikko',
   'murmurLayout.primaryNavLabel': 'Ensisijainen navigointi',
   'nav.legal': 'Lainsäädäntö',
   'notifications.loadError': 'Ilmoitusten lataaminen epäonnistui.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Miten näyt Murmurissa.',
   'record.error.empty': 'Ääntä ei tallennettu.',
   'record.error.permission': 'Mikrofonin käyttöoikeus evätty.',
+  'record.error.recorder': 'Tallennuslaitteen virhe',
   'record.error.unsupported': 'Selaimesi ei tue tallennusta. Kokeile Chromea, Edgeä tai Safaria.',
   'record.error.upload': 'Lataus epäonnistui. Yritä uudelleen.',
   'record.heading': 'Tallenna',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Uusi salasana',
   'reset.subheading': 'Valitse salasana, jota et käytä muualla.',
   'search.empty': 'Kirjoita etsiäksesi litteroinneista.',
+  'search.loadError': 'Haku epäonnistui. Yritä uudelleen.',
   'search.noResults': 'Ei tuloksia haulle "{{q}}".',
   'settings.appearance.description': 'Vaihda vaalean ja tumman tilan välillä.',
   'settings.appearance.title': 'Ulkoasu',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Asetusten lataus epäonnistui.',
   'settings.loading': 'Ladataan…',
   'settings.push.heading': 'Push-ilmoitukset',
+  'settings.push.subheading':
+    'Vastaanota selaimessa ilmoituksia maininnoista, tehtävistä ja yhteenvedoista.',
   'settings.retention.audio': 'Säilytä ääni',
   'settings.retention.heading': 'Säilytys',
   'settings.retention.transcript': 'Säilytä litteroinnit',
@@ -138,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Tilin luominen epäonnistui. Yritä uudelleen.',
   'signup.subheading': 'Aloita kokousmuistiinpanojen tallentaminen minuuteissa',
   'signup.terms': 'Luomalla tilin hyväksyt palveluehtomme ja tietosuojakäytäntömme.',
+  'signup.termsPrefix': 'Luomalla tilin hyväksyt käyttöehdot',
   'team.inviteCta': 'Kutsu tiimiläinen',
   'team.invitedAs': 'Kutsuttu roolilla {{role}}',
   'team.inviteFailed': 'Kutsun lähettäminen epäonnistui.',

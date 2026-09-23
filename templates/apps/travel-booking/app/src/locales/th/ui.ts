@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.featureDiscover.title': 'แรงบันดาลใจที่คัดสรรมาอย่างพิถีพิถัน',
   'account.addPaymentCta': 'เพิ่มวิธีการชำระเงิน',
   'account.addPaymentError': 'ไม่สามารถเพิ่มวิธีการชำระเงินได้',
+  'account.confirmRemove': 'ยืนยันการลบ',
   'account.defaultBadge': 'ค่าเริ่มต้น',
   'account.loyalty.pointsTowardNext': '{{คะแนน}} ของ {{ต่อไป}} ไมล์ถึง {{nextTier}}',
   'account.loyalty.tier': 'ระดับปัจจุบัน',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'รายละเอียดการเดินทาง',
   'booking.tripSummary': '{{nights}} กลางคืน · {{guests}} แขก',
   'common.daysAgo': '{{count}} หลายวันก่อน',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.hoursAgo': '{{count}} ฮ. ที่ผ่านมา',
   'common.minutesAgo': '{{count}} ม.ที่แล้ว',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'กำลังโหลด…',
   'notifications.subheading':
     '{{count}} ยังไม่ได้อ่าน · ทุกอย่างอยู่ในกล่องจดหมายเข้าที่เป็นระเบียบเรียบร้อย',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.accommodationsLabel': 'ที่พัก',
   'pricing.bookingsLabel': 'การจอง',
   'pricing.destinationsLabel': 'จุดหมายปลายทางที่บันทึกไว้',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'แรงบันดาลใจ ที่พักที่น่าเชื่อถือ และเส้นทางที่ราบรื่นจากความฝันสู่การจอง — ครอบคลุม 14 ประเทศ และที่พักกว่า 200 แห่งที่คัดสรรมาอย่างพิถีพิถัน',
   'sojournHeroSearchCard.trustProtected': 'ยกเลิกได้ฟรี พร้อมการคุ้มครองอย่างเต็มที่',
   'sojournHeroSearchCard.trustVetted': 'คัดสรรเฉพาะที่พักที่ผ่านการตรวจสอบอย่างละเอียดเท่านั้น',
+  'travelBookingLayout.primaryNavLabel': 'การนำทางหลัก',
   'tripDetail.backLink': 'กลับสู่หน้าการเดินทาง',
   'tripDetail.cancelCta': 'ยกเลิกการจอง',
   'tripDetail.cancelHeading': 'ยกเลิกการเดินทางครั้งนี้?',

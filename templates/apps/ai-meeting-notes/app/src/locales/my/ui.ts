@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
   'actions.empty': 'ကိုက်ညီသော လုပ်ဆောင်ချက်များ မရှိပါ။',
   'actions.heading': 'လုပ်ဆောင်ချက်ပစ္စည်းများ',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'ယခင်လ',
   'calendar.recent': 'မကြာသေးမီက',
   'common.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'common.no': '—',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} လုပ်ဆောင်ချက်ပစ္စည်းများ',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်အတွက် သင့် inbox ကို စစ်ဆေးပါ။',
   'forgot.subheading': 'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က reset link ပို့ပေးပါမည်။',
   'integrations.disconnected': 'ချိတ်ဆက်မှု ပြတ်တောက်သည်',
+  'integrations.loadError': 'ပေါင်းစပ်မှုများကို ဖွင့်၍မရပါ။',
   'integrations.notConnectedTag': 'ချိတ်ဆက်မထားပါ',
   'integrations.subheading':
     'Murmur အလိုအလျောက် ပါဝင်လာစေရန်အတွက် ပြက္ခဒိန်များနှင့် ဗီဒီယိုပလက်ဖောင်းများကို ချိတ်ဆက်ပါ။',
+  'integrations.updateError': 'အပ်ဒိတ် မအောင်မြင်ပါ။',
   'landing.ctaButton': 'စတင်လိုက်ပါ — အခမဲ့ပါ',
   'landing.ctaHeading': 'မှတ်စုယူတာ ရပ်လိုက်ပါ။ ဆုံးဖြတ်ချက်တွေ ချတာကို စလုပ်ပါ။',
   'landing.demo.aiLabel': 'AI အကျဉ်းချုပ်၊ တိုက်ရိုက်ရေးဆွဲခြင်း',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'နောက်ဆက်တွဲများ',
   'meetingDetail.loadError': 'အစည်းအဝေးကို ဖွင့်၍မရပါ။',
   'meetingDetail.noActions': 'လုပ်ဆောင်ချက်တစ်ခုမျှ မတွေ့ရှိပါ။',
+  'meetingDetail.none': 'တစ်ခုမှ မရှိပါ။',
   'meetingDetail.notFound': 'အစည်းအဝေးကို ရှာမတွေ့ပါ။',
+  'meetingDetail.speakerFallback': 'စပီကာ {{id}}',
   'meetingDetail.summaryHeading': 'AI အကျဉ်းချုပ်',
   'meetingDetail.transcriptHeading': 'မှတ်တမ်း',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.loadError': 'အစည်းအဝေးများကို တင်၍မရပါ။',
   'meetings.subheading':
     'မှတ်တမ်းတင်ထားသော၊ အပ်လုဒ်လုပ်ထားသော နှင့် စင့်ခ်လုပ်ထားသော အစည်းအဝေးတိုင်း။',
+  'murmurLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'murmurLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'nav.legal': 'ဥပဒေရေးရာ',
   'notifications.loadError': 'အကြောင်းကြားချက်များကို တင်၍မရပါ။',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmur ထဲမှာ မင်းဘယ်လိုပေါ်လာလဲ။',
   'record.error.empty': 'အသံဖမ်းယူထားခြင်း မရှိပါ။',
   'record.error.permission': 'မိုက်ခရိုဖုန်းခွင့်ပြုချက်ကို ငြင်းပယ်ထားသည်။',
+  'record.error.recorder': 'မှတ်တမ်းတင်ကိရိယာ အမှားအယွင်း',
   'record.error.unsupported':
     'သင့်ဘရောက်ဆာသည် မှတ်တမ်းတင်ခြင်းကို မပံ့ပိုးပါ။ Chrome၊ Edge သို့မဟုတ် Safari ကို စမ်းကြည့်ပါ။',
   'record.error.upload': 'အပ်လုဒ်လုပ်၍မရပါ။ ထပ်ကြိုးစားပါ။',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'စကားဝှက်အသစ်',
   'reset.subheading': 'အခြားနေရာတွင် အသုံးမပြုသော စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
   'search.empty': 'မှတ်တမ်းများကို ရှာဖွေရန် စာရိုက်ပါ။',
+  'search.loadError': 'ရှာဖွေမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။',
   'search.noResults': '"အတွက် ရလဒ်မရှိပါ {{q}} "။',
   'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.title': 'အသွင်အပြင်',
@@ -127,6 +137,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ဆက်တင်များကို တင်၍မရပါ။',
   'settings.loading': 'တင်နေသည်…',
   'settings.push.heading': 'တွန်းပို့အကြောင်းကြားချက်များ',
+  'settings.push.subheading':
+    'ဖော်ပြချက်များ၊ လုပ်ဆောင်ချက်အရာများနှင့် အကျဉ်းချုပ်များအတွက် ဘရောက်ဆာသတိပေးချက်များ ရယူပါ။',
   'settings.retention.audio': 'အသံဖိုင်ကို သိမ်းဆည်းထားပါ',
   'settings.retention.heading': 'ထိန်းသိမ်းမှု',
   'settings.retention.transcript': 'မှတ်တမ်းများကို သိမ်းဆည်းထားပါ',
@@ -144,6 +156,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'မိနစ်ပိုင်းအတွင်း အစည်းအဝေးမှတ်စုများကို မှတ်တမ်းတင်ခြင်း စတင်ပါ',
   'signup.terms':
     'အကောင့်တစ်ခု ဖန်တီးခြင်းဖြင့် ကျွန်ုပ်တို့၏ ဝန်ဆောင်မှုစည်းမျဉ်းများနှင့် ကိုယ်ရေးကိုယ်တာမူဝါဒကို သင်သဘောတူပါသည်။',
+  'signup.termsPrefix': 'အကောင့်တစ်ခုဖန်တီးခြင်းဖြင့် သင်သည် ကျွန်ုပ်တို့၏',
   'team.inviteCta': 'အသင်းဖော်ကို ဖိတ်ခေါ်ပါ',
   'team.invitedAs': 'ဖိတ်ကြားခံရသည့်အနေဖြင့် {{role}}',
   'team.inviteFailed': 'ဖိတ်ကြားချက် ပို့၍မရပါ။',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.pageTitle': 'Oor {{app}}',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.retry': 'Probeer weer',
   'compose.cancel': 'Kanselleer',
   'compose.captionPlaceholder': 'Wat is op jou gedagtes?',
   'compose.heading': "Deel 'n oomblik",
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Geverifieerde rekening',
   'resetPassword.newPassword': 'Nuwe wagwoord',
   'resetPassword.subheading': 'Kies iets sterks – ten minste 12 karakters.',
+  'search.clearAria': 'Duidelik',
+  'search.error': 'Soektog het misluk. Probeer weer.',
   'search.noPeople': 'Geen skeppers pas nie " {{q}} ".',
   'search.noPosts': 'Geen plasings stem ooreen nie " {{q}} ".',
   'search.noTags': 'Geen gewilde hutsmerke nog nie.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Versteek wagwoord',
   'signup.showPassword': 'Wys wagwoord',
   'signup.subheading': "Skep 'n rekening om te begin deel.",
+  'socialMediaLayout.closeMenu': 'Maak navigasiekieslys toe',
+  'socialMediaLayout.openMenu': 'Maak navigasiekieslys oop',
+  'socialMediaLayout.primaryNavLabel': 'Primêre navigasie',
   'storyRail.heading': 'Stories',
   'storyRail.label': 'Stories',
   'storyRail.openAria': 'Oop {{handle}} se storie',

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.pageTitle': 'អំពី {{app}}',
   'achievementBadgeCard.unlockedOn': 'បានដោះសោ {{date}}',
   'achievements.loadError': 'មិនអាចផ្ទុកសមិទ្ធផលបានទេ។',
   'achievements.subheading': '{{unlocked}} នៃ {{total}} ដោះសោ',
   'achievements.unlockedOn': 'បានដោះសោ {{date}}',
+  'auth.legalConsent': 'តាមរយៈការបន្ត អ្នកយល់ព្រមទៅនឹង',
   'calendar.empty': 'បង្កើតទម្លាប់មើលប្រតិទិនរបស់អ្នក។',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ទម្លាប់',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ក្រឡាចត្រង្គទម្លាប់',
   'category.${c.category}': '{{រាប់}} ទម្លាប់',
   'common.and': 'និង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'consistencyHeatmap.ariaLabel': 'ផែនទីកំដៅភាពស៊ីសង្វាក់គ្នាប្រចាំថ្ងៃ',
   'consistencyHeatmap.caption': 'ចុងក្រោយ {{weeks}} សប្តាហ៍',
   'consistencyHeatmap.lessLabel': 'តិចជាង',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'មើលវាផ្ទាល់',
   'landing.heroSubtitle':
     'បង្កើតទម្លាប់តាមរបៀបដែលវាប្រកាន់ខ្ជាប់៖ ការប្តេជ្ញាចិត្តតូចៗ ទម្លាប់ប្រចាំថ្ងៃ និងសេចក្តីរីករាយដ៏ជ្រាលជ្រៅនៃខ្សែសង្វាក់វែងមួយដែលមិនដាច់។',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'ក្រឡេកមើលខាងក្នុង Streak',
   'landing.previewMotivation': 'ឆ្នូតប្រាំបួននៅរស់។ រក្សាវាឱ្យក្តៅទាំងអស់។',
   'login.eyebrow': 'លើកខ្សែសង្វាក់ឡើង',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ធ្វើវាឱ្យតូច។ ធ្វើវាឱ្យជាក់លាក់។ បង្ហាញខ្លួននៅថ្ងៃស្អែក។',
   'newHabit.timeLabel': 'ពេលវេលារំលឹក',
   'notifications.markError': 'មិនអាចសម្គាល់ថាបានអានទាំងអស់ទេ។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.entries': '{{count}} ធាតុចូល',
+  'pricing.heading': 'ជ្រើសរើសគម្រោង {{app}} របស់អ្នក',
   'profile.action.plan': 'គ្រប់គ្រងការជាវ',
   'profile.action.settings': 'ការកំណត់គណនី',
   'profile.bioEmpty': 'បន្ថែមជីវប្រវត្តិខ្លីមួយនៅក្នុងការកំណត់ដើម្បីណែនាំខ្លួនអ្នក។',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'សេចក្តីជូនដំណឹងពេលព្រឹកប្រចាំថ្ងៃ (ម៉ោង ៨:០០ ព្រឹក)',
   'settings.reminders.heading': 'ការរំលឹក',
   'settings.reminders.weekly': 'សេចក្តីសង្ខេបប្រចាំសប្តាហ៍ (ល្ងាចថ្ងៃអាទិត្យ)',
+  'settings.revokeDeviceWarning': 'ការចូលប្រើរបស់ឧបករណ៍នេះនឹងត្រូវបានដកហូតក្នុងពេលឆាប់ៗ។ ចាកចេញវា?',
   'settings.signOutDevice': 'ចាកចេញ',
   'settings.streaks.freezesPerWeek': 'បង្កកក្នុងមួយសប្តាហ៍',
   'settings.streaks.gracePeriod': 'រយៈពេលអនុគ្រោះ ៦ ម៉ោងបន្ទាប់ពីពាក់កណ្តាលអធ្រាត្រ',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} សកម្ម',
   'streakHeroCard.daysSuffix': 'ថ្ងៃ',
   'streakHeroCard.title': 'ស្ទ្រីមសកម្មវែងបំផុត',
+  'streakLayout.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'streakLayout.openMenu': 'បើកម៉ឺនុយរុករក',
   'streakLayout.primaryNavLabel': 'ការរុករកចម្បង',
 }

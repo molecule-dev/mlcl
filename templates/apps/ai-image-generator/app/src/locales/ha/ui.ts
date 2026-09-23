@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'auth.fields.newPassword': 'Sabuwar kalmar sirri',
   'collectionDetail.addImage': 'Conjure don tattarawa',
   'collectionDetail.backCta': 'Komawa ga tarin abubuwa',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
     'Allon yanayi, taƙaitaccen bayani da kuma jerin shirye-shirye masu gudana',
   'collections.title': 'Tarin abubuwa',
   'collections.untitled': 'Ba shi da lakabi · {{stamp}}',
+  'common.closeMenu': 'Rufe menu',
+  'common.dismiss': 'Kore',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.openMenu': 'Buɗe menu na kewayawa',
   'credits.eyebrow': '{{plan}} shiri',
   'credits.renewsCopy': 'Tsarin zai sabunta a ranar {{date}}',
   'credits.trail': 'Reverie · {{plan}} matakin',
@@ -135,6 +140,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Ayyukan samarwa, rabawa da faɗakarwar bashi za su bayyana a nan.',
   'notifications.empty.title': 'Babu abin da za a bayar da rahoto',
   'notifications.subtitle': 'An tsara abubuwan da suka faru na tsarawa ta rana',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.limits.gallery': '{{count}} gidan hotuna',
   'privacy.collect.body':
     "Idan ka yi rajista, za mu tattara sunanka, adireshin imel, da kalmar sirri mai hashed. Yayin da kake amfani da Reverie, muna adana tambayoyin da ka gabatar, hotunan da muke samarwa a gare ka, salo da tarin bayanai da kake adanawa, da kuma bayanai kamar samfurin da aka yi amfani da shi, tambarin lokaci na samarwa, da kuma ma'aunin bashi.",
@@ -170,6 +176,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Ajiye sabuwar kalmar sirri',
   'reset.submitting': 'Ana sabunta kalmar sirri…',
   'settings.account.handle': 'Rike',
+  'settings.account.lastSaved': 'Bayanin martaba mai aiki · {{name}}',
   'settings.account.saved': 'An adana bayanin martaba',
   'settings.account.saveFailed': 'Ba za a iya adana bayanin martaba ba',
   'settings.account.title': 'Bayanin mai ƙirƙira',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Sabon hoto',
   'sidebar.secondary': 'Kewaya ta biyu',
   'signup.failed': 'Rijista ta gaza. Gwada kuma.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Fara tunaninka',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Ƙirƙiri asusu kuma ku nemi maki 120 kyauta.',
   'styles.empty': 'Babu saitattun salo tukuna — za su bayyana bayan shiga ta farko.',
   'styles.eyebrow': 'An shirya',

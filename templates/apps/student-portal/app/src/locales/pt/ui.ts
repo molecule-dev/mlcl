@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'announcementsFeed.empty': 'Ainda não há comunicados.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Últimos comunicados',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Nada por aqui',
   'assignments.emptyBody': 'Alterne os filtros acima para ver tarefas em outro estado.',
   'assignments.eyebrow': 'Todos os cursos · Este bimestre',
+  'assignments.loadError': 'Não foi possível carregar as tarefas.',
   'assignments.loading': 'Carregando tarefas…',
   'assignments.subtitle':
     'Filtre por status para ver o que está pendente, entregue, avaliado ou faltando.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Observação',
   'attendance.empty': 'Ainda não há registros de presença.',
   'attendance.eyebrow': 'Bimestre de primavera · Últimas 4 semanas',
+  'attendance.loadError': 'Não foi possível carregar os registros de presença.',
   'attendance.loading': 'Carregando presença…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Datas de entrega plotadas em uma grade mensal — provas se destacam em vermelho.',
   'calendar.title': 'Eventos de {{month}}',
+  'common.goToDashboard': 'Ir para o Painel',
   'common.no': '—',
+  'common.retry': 'Tentar novamente',
   'common.yes': '✓',
   'courseDetail.backLink': 'Notas',
   'courseDetail.currentGrade': 'Nota atual',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendência',
   'grades.empty': 'Nenhuma nota publicada ainda.',
   'grades.eyebrow': 'Caderneta de notas',
+  'grades.loadError': 'Não foi possível carregar suas notas.',
   'grades.loading': 'Carregando notas…',
   'grades.subtitle':
     'Notas em letras e porcentagem ao vivo. As setas de tendência mostram se você está subindo, estável ou caindo.',
   'grades.title': 'Suas notas, curso por curso',
   'grades.trendStable': 'Estável',
+  'landing.copyright': '© {{year}} {{app}} . Desenvolvido para estudantes, feito para famílias.',
   'landing.ctaHeading': 'Um dia de escola mais tranquilo começa em minutos',
   'landing.eyebrow': 'Para alunos do ensino fundamental II e médio',
   'landing.featuresHeading': 'Um dia de escola organizado em torno do aluno',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tarefas',
   'nav.attendance': 'Presença',
   'nav.calendar': 'Calendário',
+  'nav.closeMenu': 'Fechar menu de navegação',
   'nav.grades': 'Notas',
+  'nav.openMenu': 'Abrir menu de navegação',
   'nav.statusEyebrow': 'MGA do bimestre',
   'nav.statusSubtext': 'Quadro de honra · Bimestre de primavera',
+  'nav.unreadMessages': 'Mensagens não lidas',
   'notifications.eyebrow': '{{count}} updates',
   'notifications.subtitle':
     'Notas, lembretes, mensagens e comunicados da escola. Ajuste os canais em Configurações.',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.attendanceLabel': 'presença',
   'pricing.gradesLabel': 'notas',
   'pricing.heading': 'comunicados',

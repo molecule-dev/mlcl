@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Atradāt kļūdu, vēlaties pieprasīt jaunu funkciju vai pastāstīt mums par filmu, ko samontējāt? Katrs ziņojums sasniedz īstu komandas locekli — sazinieties ar mums jebkurā laikā, izmantojot sava konta iestatījumus.',
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.eyebrow': '// studija aiz montāžas',
   'about.pageTitle': 'Par mums {{appName}}',
   'assetDetail.back': 'Atpakaļ uz bibliotēku',
   'assetDetail.confirmDelete': 'Dzēst " {{name}} "? To nevar atsaukt.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipi, audio ieraksti un grafika, kas ir gatavi ievietošanai laika joslā.',
   'assetLibrary.title': 'Aktīvi',
   'assetLibrary.upload': 'Pievienot līdzekli',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.browseTemplates': 'Pārlūkot veidnes →',
   'dashboard.loading': 'Ielādē projektus…',
   'dashboard.noProjects': 'Vēl nav projektu — izveidojiet vienu, lai sāktu.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Izvēlies kaut ko tādu, ko atcerēsies tikai tu pats.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privātums',
+  'rushesLayout.closeMenu': 'Aizvērt navigāciju',
   'rushesLayout.guest': 'Redaktors',
+  'rushesLayout.navDialog': 'Navigācija',
+  'rushesLayout.openMenu': 'Atvērt navigāciju',
   'rushesLayout.planFree': 'Bezmaksas plāns',
   'rushesLayout.tagline': 'Kinematogrāfiskā laika skala',
   'settings.billing.confirmCancel': 'Vai atcelt abonementu perioda beigās?',

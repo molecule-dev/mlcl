@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.title': 'ਇੱਕ ਲਿਖਣ ਵਾਲਾ ਕਮਰਾ ਜਿਸਨੂੰ ਤੁਸੀਂ ਆਪਣੀ ਜੇਬ ਵਿੱਚ ਰੱਖ ਸਕਦੇ ਹੋ',
   'billing.cancelConfirm': 'ਕੀ ਆਪਣੀ ਕਿਰਿਆਸ਼ੀਲ ਗਾਹਕੀ ਰੱਦ ਕਰਨੀ ਹੈ?',
   'billing.cancelFailed': 'ਰੱਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'billing.checkingOut': 'ਚੈੱਕਆਉਟ ਖੋਲ੍ਹਿਆ ਜਾ ਰਿਹਾ ਹੈ…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ਬਿਲਿੰਗ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
   'billing.loading': 'ਬਿਲਿੰਗ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'billing.upgradeCta': 'ਇਸ ਵਿੱਚ ਅੱਪਗ੍ਰੇਡ ਕਰੋ {{name}}',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'editor.autosaveOn': 'ਆਟੋਸੇਵ ਚਾਲੂ',
   'editor.backToLibrary': "ਲਾਇਬ੍ਰੇਰੀ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'editor.charCount': '{{count}} ਅੱਖਰ',
   'editor.confirmTrash': 'ਕੀ ਇਸ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣਾ ਹੈ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ਅਨਪਿੰਨ ਕੀਤਾ ਗਿਆ',
   'editor.unpublishCta': 'ਡਰਾਫਟ ਵਿੱਚ ਭੇਜੋ',
   'editor.unpublished': 'ਡਰਾਫਟ ਵਿੱਚ ਵਾਪਸ ਭੇਜਿਆ ਗਿਆ',
+  'focus.autosaveOn': 'ਆਟੋਸੇਵ ਚਾਲੂ',
   'focus.backToLibrary': "ਲਾਇਬ੍ਰੇਰੀ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'focus.bodyPlaceholder': 'ਇੱਕ ਵਾਰ ਵਿੱਚ ਇੱਕ ਲਾਈਨ। ਇੱਥੇ ਹੋਰ ਕੋਈ ਨਹੀਂ ਹੈ।',
   'focus.exit': 'ਫੋਕਸ ਮੋਡ ਤੋਂ ਬਾਹਰ ਜਾਓ',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ਇੱਕ ਬਣਾਓ',
   'login.subline':
     'ਤੁਹਾਡੀਆਂ ਹੱਥ-ਲਿਖਤਾਂ, ਰੋਜ਼ਾਨਾ ਪੰਨੇ, ਅਤੇ ਆਖਰੀ ਕਰਸਰ ਸਥਿਤੀ ਉੱਥੇ ਹੀ ਹੈ ਜਿੱਥੇ ਤੁਸੀਂ ਉਨ੍ਹਾਂ ਨੂੰ ਛੱਡਿਆ ਸੀ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'pricing.exports': 'ਨਿਰਯਾਤ',
   'pricing.folders': 'ਫੋਲਡਰ',
   'pricing.heading': 'ਦਸਤਾਵੇਜ਼',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     "ਸਾਡੇ ਵੱਲੋਂ ਤੁਹਾਨੂੰ ਈਮੇਲ ਕੀਤਾ ਗਿਆ ਕੋਡ ਦਰਜ ਕਰੋ ਅਤੇ ਕੁਝ ਯਾਦਗਾਰ ਚੁਣੋ। ਇਸਦੇ ਸੇਵ ਹੋਣ 'ਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਾਈਨ ਇਨ ਕਰਾਂਗੇ।",
   'reset.tokenHint': 'ਤੁਹਾਡੇ ਇਨਬਾਕਸ ਤੋਂ ਪੇਸਟ ਕੀਤਾ ਗਿਆ।',
+  'settings.appearance.heading': 'ਹਲਕਾ ਜਾਂ ਹਨੇਰਾ',
   'settings.editor.${row.id}.description': 'ਭਾਸ਼ਾ',
   'settings.editor.description':
     'ਟਾਈਪਰਾਈਟਰ ਸਕ੍ਰੌਲ, ਪੈਰਾਗ੍ਰਾਫ ਫੇਡ, ਅਤੇ ਆਈਡਲ ਫੋਕਸ — ਡਿਫਾਲਟ ਲੰਬੇ ਸੈਸ਼ਨਾਂ ਲਈ ਟਿਊਨ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'ਤੀਜਾ ਅਧਿਆਇ - ਸੂਰਜ ਚੜ੍ਹਨ ਤੋਂ ਪਹਿਲਾਂ ਦਾ ਇੱਕ ਸ਼ਾਂਤ ਸਮਾਂ',
   'versalDocumentCard.pinned': 'ਪਿੰਨ ਕੀਤਾ ਗਿਆ',
   'versalLayout.nav.stats': 'ਅੰਕੜੇ',
+  'versalLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'versalManuscriptHero.cta': 'ਲਿਖਣਾ ਜਾਰੀ ਰੱਖੋ',
   'versalManuscriptHero.goalLabel': 'ਅੱਜ ਦਾ ਸ਼ਬਦ ਟੀਚਾ',
   'versalManuscriptHero.inProgress': "ਟਰੈਕ 'ਤੇ",

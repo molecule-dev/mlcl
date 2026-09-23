@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'analytics.avgCheckLabel': 'Μέσος όρος ελέγχου',
   'analytics.busiestHour': 'Η πιο πολυάσχολη ώρα',
   'analytics.coversToday': 'Καλύπτει σήμερα',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Φιλοδωρήματα (μέσος όρος)',
   'analytics.topItems': 'Κορυφαία είδη σήμερα',
   'authShell.eyebrow': 'Καλώς ήρθατε πίσω στην υπηρεσία',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Ένα ζεστό, γρήγορο σημείο πώλησης για ομάδες φιλοξενίας. Συνδεθείτε στην κουζίνα σας και συνεχίστε από εκεί που το αφήσατε.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ή {{price}}',
   'billing.priceUnavailable': 'Αυτό το πρόγραμμα δεν έχει καθορισμένη τιμή.',
   'billing.updated': 'Το σχέδιο ενημερώθηκε.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'customerDetail.book': 'Προσθήκη κράτησης',
   'customerDetail.col.table': 'Τραπέζι',
   'customerDetail.confirmDelete': 'Διαγραφή αυτής της εγγραφής επισκέπτη;',
@@ -132,6 +135,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Διαθεσιμότητα',
   'menuItemDetail.available': 'Διαθέσιμο απόψε',
   'menuItemDetail.backToMenu': 'Επιστροφή στο μενού',
+  'menuItemDetail.confirmDelete': 'Διαγραφή αυτού του στοιχείου μενού;',
   'menuItemDetail.delete': 'Διαγραφή στοιχείου',
   'menuItemDetail.deleteError': 'Η διαγραφή απέτυχε. Δοκιμάστε ξανά.',
   'menuItemDetail.dietary': 'Διατροφικές ετικέτες',
@@ -143,8 +147,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · επεξεργασία φωτογραφίας, τροποποιητών, διατροφής και τιμολόγησης.',
   'menuItemDetail.untitled': 'Στοιχείο χωρίς τίτλο',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'notFound.heading': 'Αυτό το τραπέζι δεν είναι στο πάτωμα.',
   'notFound.subheading': 'Η σελίδα που αναζητούσατε βρισκόταν αλλού — ή δεν υπήρχε ποτέ.',
+  'notFound.toLanding': '{{app}} αρχική σελίδα',
   'notifications.markError': 'Δεν ήταν δυνατή η επισήμανση όλων ως αναγνωσμένων.',
   'orderDashboard.activeDelta': 'Live τώρα',
   'orderDashboard.activeLabel': 'Ενεργές παραγγελίες',
@@ -210,6 +217,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'Εισαγάγετε τον νέο σας κωδικό πρόσβασης για να αποκτήσετε ξανά πρόσβαση στην κουζίνα.',
   'resetPassword.tokenLabel': 'Διακριτικό επαναφοράς',
+  'restaurantOrderingLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'revenueHeroCard.activeOrders': '{{count}} ενεργός',
   'revenueHeroCard.change': '{{sign}} {{amount}} σε σχέση με χθες',
   'revenueHeroCard.title': 'Τα σημερινά έσοδα',
@@ -228,6 +236,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Όνομα εστιατορίου',
   'tableDetail.activeOrders': 'Ενεργές παραγγελίες',
   'tableDetail.backToFloor': 'Κάτοψη',
+  'tableDetail.confirmDelete': 'Διαγραφή αυτού του πίνακα;',
   'tableDetail.delete': 'Διαγραφή',
   'tableDetail.deleteError': 'Δεν ήταν δυνατή η διαγραφή του πίνακα.',
   'tableDetail.heading': 'Τραπέζι {{label}}',

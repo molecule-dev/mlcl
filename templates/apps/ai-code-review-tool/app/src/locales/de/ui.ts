@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontakt aufnehmen',
   'about.eyebrow': 'Über',
+  'common.goToDashboard': 'Zum Dashboard',
   'dashboard.connectRepoCta': 'Repository verbinden',
   'dashboard.empty': 'Noch keine Pull Requests — verbinden Sie ein Repository, um zu starten.',
   'dashboard.eyebrow': 'Refract · Review-Warteschlange',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Verfügbarkeit',
   'pullRequestRow.files': '{{count}} D',
   'pullRequestRow.scoreAria': 'KI-Qualitätsscore {{score}} / 10',
+  'refractLayout.closeMenu': 'Menü schließen',
+  'refractLayout.openMenu': 'Menü öffnen',
   'refractLayout.primaryNavLabel': 'Hauptnavigation',
   'reports.cumulativeScoreLabel': 'Kumulierter Score',
   'reports.cumulativeScoreSubtitle': 'alle Repos · {{days}} T',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Suchindex konnte nicht geladen werden.',
   'settings.apiKeys.description':
     'Verwalten Sie persönliche API-Schlüssel im Benutzermenü oben rechts.',
+  'settings.apiKeys.integrationsNote':
+    'Die Zugriffstoken für Anbieter werden im obigen Abschnitt „Integrationen“ verwaltet.',
   'settings.connectError': 'Anbieter konnte nicht verbunden werden.',
   'settings.disconnectError': 'Anbieter konnte nicht getrennt werden.',
   'settings.eyebrow': 'Refract · Workspace',
   'settings.integration.${provider}.label': 'Wird gespeichert…',
   'settings.loadError': 'Einstellungen konnten nicht geladen werden.',
+  'settings.notificationCenter': 'Benachrichtigungscenter',
   'settings.notifications.description':
     'Besuchen Sie die Benachrichtigungsseite, um Zustellpräferenzen einzusehen und zu verwalten.',
   'settings.section.account': 'Konto & Sicherheit',

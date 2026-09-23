@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     '私たちは、かつて毎日多くの時間を騒がしい受信箱で過ごしていたデザイナーとエンジニアからなる分散チームです。Courierは、私たち自身が使いたいと思った受信トレイです。',
   'about.title': '集中して働くためのメール',
+  'common.goToDashboard': 'ダッシュボードへ',
   'help.cta.about': 'Courierについて',
   'help.cta.pricing': '料金を見る',
   'help.eyebrow': 'ヘルプセンター',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'よく寄せられる質問への簡単な回答です。見当たらない場合は、設定からアプリ内フィードバックフォームをご利用いただくか、support@courier.example までご連絡ください。',
   'help.title': 'どのようにお手伝いできますか？',
   'landing.brand.scrollTop': 'トップに戻る',
+  'landing.copyright': '© {{year}} {{appName}} — 集中力を高めるために作られました。',
   'landing.ctaBody': 'ランチ前に受信トレイを片付けた数千人のプロフェッショナルに加わりましょう。',
   'landing.ctaTitle': 'もっと処理し、もっと反応を減らしましょう。',
   'landing.eyebrow': '集中して働くためのメール',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'デモを見る',
   'landing.heroSubtitle':
     'Courierは、情報に反応するのではなく処理したいナレッジワーカーのために設計された、穏やかな3ペイン構成の受信トレイです。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': '世界中の集中して働くチームから信頼されています',
   'landing.signIn': 'サインイン',
   'meridian.archive.empty': 'アーカイブは空です。',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': '宛先',
   'meridian.drafts.watermark': '下書き',
   'meridian.folder.count': '{{count}} 件のメッセージ',
+  'meridian.folder.delete': '削除',
   'meridian.folder.deleteForever': '完全に削除',
   'meridian.folder.restore': '受信トレイへ移動',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ここにはまだメッセージがありません。',
   'meridian.inbox.loading': '読み込み中…',
   'meridian.inbox.next': '次へ',
+  'meridian.inbox.noSender': '（送信者なし）',
   'meridian.inbox.noSubject': '(件名なし)',
+  'meridian.inbox.ofTotal': '{{current}} / {{total}}',
   'meridian.inbox.openCompose': '作成を開く',
   'meridian.inbox.previous': '前へ',
   'meridian.inbox.replyFailed': '返信は保存しましたが、配信に失敗しました：{{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'アカウントをお持ちでないですか？',
   'meridian.login.showPassword': 'パスワードを表示',
   'meridian.message.toLine': '宛先：{{recipients}}',
+  'meridian.notFound.body':
+    'お探しのページは見つかりませんでした。 {{appName}}の受信トレイに戻ってください。解決策をご案内いたします。',
   'meridian.notFound.eyebrow': 'エラー 404',
   'meridian.notFound.title': 'このスレッドはアーカイブされています。',
   'meridian.notFound.toInbox': '受信トレイを開く',
@@ -133,18 +141,22 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'スターを追加',
   'meridian.thread.unstar': 'スターを外す',
   'meridian.time.yesterday': '昨日',
+  'meridian.topBar.openMenu': 'ナビゲーションメニューを開く',
   'meridian.topBar.searchPlaceholder': 'メールを検索',
   'meridian.trash.empty': 'ゴミ箱は空です。',
   'meridian.trash.title': 'ゴミ箱',
   'nav.legal': '法的事項',
   'planUpdated.description':
     'サブスクリプションが有効になり、請求も更新されました。新しくなった Courier の受信トレイをお楽しみください。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.heading': '草稿',
   'pricing.limit.emails': 'メール',
   'pricing.limit.folders': 'フォルダ',
   'pricing.limit.labels': 'ラベル',
   'privacy.collect.account':
     'アカウントデータ：氏名、メールアドレス、ハッシュ化されたパスワード、登録日。',
+  'privacy.contact':
+    'ご質問はありますか？ privacy@courier.example までメールでお問い合わせください。',
   'privacy.intro':
     'このプライバシーポリシーは、Courier が収集するデータ、その理由、保護方法、そしてお客様が選べる選択肢について説明します。法律用語ではなく具体的であることを心がけています。不明な点があれば privacy@courier.example までご連絡ください。',
   'privacy.lastUpdated': '最終更新日：2026年4月1日',
@@ -164,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     '本規約は、お客様による Courier のご利用を規定するものです。アカウントの作成または本サービスを介したメールの送信により、本規約に同意したものとみなします。実際に守れるルールであることを目指して書いています。',
   'terms.lastUpdated': '発効日：2026年4月1日',
+  'terms.linkPrivacy': 'プライバシーポリシーをお読みください →',
   'terms.termination.body':
     'お客様はいつでもアカウントを削除できます。本規約に違反するアカウントは当社が停止することがあります。その場合は理由をお伝えし、まずデータをエクスポートしていただけます。',
   'terms.warranty.body':

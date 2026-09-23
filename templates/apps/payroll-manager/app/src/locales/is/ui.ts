@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'auditLog.empty':
     'Engir endurskoðunarviðburðir passa við síurnar þínar ennþá. Breyttu starfsmanni eða vinndu launakeyrslu og þeir munu birtast hér.',
   'auditLog.eyebrow': 'Fylgni',
+  'auditLog.loadError': 'Ekki tókst að hlaða endurskoðunarskránni.',
   'auditLog.searchPlaceholder': 'Leita eftir leikara, aðgerð eða lýsingu',
   'auditLog.subheading':
     'Sérhver samþykki, breyting og skattframtal — með aðila, tímastimpli og breyttum reitum.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Ekki stillt',
   'billing.plansHeading': 'Áætlanir',
   'billing.subheading': 'Stjórnaðu áætlun þinni og skiptu um þjónustustig í gegnum Stripe.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Reyna aftur',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Yfirlit yfir reglufylgni',
   'dashboard.compliance.title': 'Allar ávísanir ganga í gegn',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Engir frádráttarliðir á skrá.',
   'employeeDetail.notFound': 'Starfsmaður fannst ekki.',
   'employeeDetail.payFrequency': 'Greiðslutíðni',
+  'employeeDetail.postTax': 'Eftir skatt',
+  'employeeDetail.preTax': 'Fyrir skatta',
   'employeeDetail.salary': 'Árslaun',
   'employeeDetail.ssn': 'Kennitala',
   'employeeDetail.startedOn': 'Byrjaði {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Greiðslutíðni',
   'employeeForm.salary': 'Árslaun (USD)',
   'employeeForm.salaryInvalid': 'Laun verða að vera ekki neikvæð tala.',
+  'employeeForm.saveError': 'Gat ekki vistað starfsmann.',
   'employeeForm.semimonthly': 'Tvö mánaðarlega',
   'employeeForm.single': 'Einhleypur',
   'employeeForm.ssn': 'Kennitala',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Laun',
   'forgotPassword.subtitle':
     'Sláðu inn vinnunetfangið þitt og við sendum þér endurstillingarhlekk.',
+  'landing.copyright': '© {{year}} {{app}} . Nákvæmur, áreiðanlegur, yfirvegaður.',
   'landing.ctaBody':
     'Ókeypis í 30 daga. Engin kreditkortaþörf. Skiptu hvenær sem er án þess að missa endurskoðunarslóðina þína.',
   'landing.ctaHeading': 'Keyrðu næsta hringrás á Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Færslur',
   'payRunDetail.noActivity': 'Engar endurskoðunarfærslur fyrir þessa launakeyrslu ennþá.',
   'payRunDetail.noStubs': 'Engir launaseðlar ennþá — samþykktu þá og vinndu til að búa þá til.',
+  'payRunDetail.notFound': 'Þessi launakeyrsla fannst ekki.',
   'payRunDetail.statDeductions': 'Frádráttur',
   'payRunDetail.statHeadcount': 'Starfsmenn',
   'payRunDetail.statTaxes': 'Skattar sem dreginn er frá',
@@ -217,7 +226,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Tvö mánaðarlega',
   'settings.signOutDevice': 'Skrá út',
   'settings.subheading': 'Fyrirtækjaupplýsingar, launaáætlun og samþættingar.',
+  'settings.twoFactorCode': 'Auðkenningarkóði',
   'settings.twoFactorDisable': 'Slökkva',
+  'settings.twoFactorInvalidCode': 'Ógildur kóði',
+  'settings.twoFactorVerify': 'Staðfesta og virkja',
   'settings.weekly': 'Vikulega',
   'taxCenter.bucket.federal': 'Tekjur alríkisins',
   'taxCenter.bucket.fica': 'almannatryggingar',

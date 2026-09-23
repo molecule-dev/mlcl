@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.pageTitle': 'Về {{appName}}',
   'analytics.error': 'Không thể tải phân tích.',
   'analytics.heading': 'Phân tích truy xuất',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Chưa cấu hình cấp giá nào.',
   'billing.plans.heading': 'Gói',
   'billing.subheading': 'Gói, sử dụng và thanh toán do Stripe quản lý.',
+  'common.confirm': 'Xác nhận',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.retry': 'Thử lại',
   'documentCard.open': 'Mở →',
   'documentDetail.back': 'Quay lại tài liệu',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Lập chỉ mục tài liệu',
   'documents.composer.titlePlaceholder': 'Tiêu đề tài liệu',
   'documents.emptyAll': 'Chưa có tài liệu nào. Hãy tải lên một tài liệu để bắt đầu đặt câu hỏi.',
+  'documents.error.load': 'Không thể tải tài liệu.',
   'documents.heading': 'Tài liệu đã lập chỉ mục',
   'documents.loading': 'Đang tải tài liệu…',
   'documents.metric.chunks': 'Tổng số đoạn',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Đang xóa…',
   'members.subheading': 'Mời đồng đội và đặt vai trò.',
   'members.tableHeading': 'Danh sách',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'notFound.askCta': 'Hỏi cơ sở kiến thức',
+  'notFound.body':
+    '{{app}} không thể tìm thấy trang đó. Liên kết có thể bị hỏng hoặc trang đó có thể đã bị loại bỏ trong quá trình lập chỉ mục lại.',
   'notFound.eyebrow': 'Không thể truy xuất',
   'notFound.title': 'Không có đoạn nào như vậy trong chỉ mục',
   'notifications.dismiss': 'Bỏ qua',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL nguồn',
   'sources.empty.body': 'Nhấn “Thêm nguồn” để kết nối bộ kết nối đầu tiên của quý vị.',
   'sources.empty.title': 'Chưa có nguồn nào.',
+  'sources.error.add': 'Không thể thêm nguồn.',
   'sources.error.labelRequired': 'Nhãn là bắt buộc.',
   'sources.error.load': 'Không thể tải nguồn.',
   'sources.error.urlRequired': 'URL là bắt buộc cho loại nguồn này.',

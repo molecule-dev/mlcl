@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Perihal {{app}}',
+  'auth.legalConsent': 'Dengan meneruskan, anda bersetuju dengan',
   'bookings.empty.body': 'Tambahkan penerbangan, hotel atau aktiviti untuk memulakan peti masuk.',
   'bookings.empty.heading': 'Tiada tempahan lagi.',
   'bookings.errors.create': 'Tidak dapat membuat tempahan.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Disahkan',
   'bookings.summary.pending': 'Menunggu pengesahan',
   'bookings.summary.total': 'Jumlah komitmen',
+  'bookings.type.car': 'Kereta sewa',
+  'bookings.type.flight': 'Penerbangan',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Lain-lain',
   'budgetSpendCard.budgetTotal': 'daripada {{total}} dirancang',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Kenal pasti konflik, rancang hari pemulihan antara perjalanan dan lihat bila rakan usaha sama melancong bersama anda.',
   'common.and': 'dan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.budgetHeading': 'Nadi bajet',
   'dashboard.empty.heading': 'Tiada perjalanan lagi — atlas anda kosong.',
   'dashboard.eyebrow': 'Kawalan misi',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Perjalanan dalam gerakan',
   'dashboard.viewAllExpenses': 'Lihat setiap perbelanjaan',
   'dashboard.viewAllTrips': 'Lihat setiap perjalanan',
+  'dayTimelineRow.category.accommodation': 'Tinggal',
   'dayTimelineRow.category.transport': 'Pengangkutan',
   'destinationOrbCard.exploreCta': 'Tambahkan pada perjalanan',
   'destinationOrbCard.tripCount': '{{count}} perjalanan',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Tiada e-mel lagi? Semak folder spam anda atau cuba lagi dengan alamat yang berbeza.',
   'forgotPassword.successSubheading':
     'Kami telah menghantar pautan pemulihan kepada {{email}} Pautan ini sah selama 30 minit.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Cipta akaun percuma',
+  'landing.cta.subheading':
+    'Sehingga lima perjalanan, lima kolaborator dan lima perhentian pada pelan percuma — dengan penyegerakan masa nyata disertakan, dan Pro menambah had apabila rancangan anda berkembang.',
   'landing.destinations.eyebrow': 'Ke mana seterusnya',
   'landing.destinations.heading': 'Destinasi yang dipilih oleh editor',
   'landing.features.eyebrow': 'Cara Titik Laluan berfungsi',
   'landing.features.heading': 'Dibina untuk pengembara, bukan hamparan.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Mulakan perjalanan percuma',
   'landing.hero.ctaSecondary': 'Lihat contoh perjalanan',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Cipta akaun untuk berkongsi perjalanan dengan sehingga 5 kolaborator, segerakkan tempahan dan tarik setiap pengesahan ke satu tempat.',
+  'signup.termsPrefix': 'Dengan membuat akaun, anda bersetuju dengan kami',
   'tripCountdownHeroCard.budget': '{{used}} daripada {{total}} ( {{pct}} % daripada bajet)',
   'tripCountdownHeroCard.collaborators': '{{count}} pelancong',
   'tripCountdownHeroCard.countdownLabel': 'Undur',
@@ -204,5 +217,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Tiada perjalanan lagi.',
   'trips.pastHeading': 'Pengembaraan lalu',
   'trips.subheading': '{{count}} jadual perjalanan — masa lalu, sekarang dan suatu hari nanti.',
+  'waypointLayout.mobileNavClose': 'Tutup menu navigasi',
   'waypointLayout.primaryNavLabel': 'Navigasi utama',
 }

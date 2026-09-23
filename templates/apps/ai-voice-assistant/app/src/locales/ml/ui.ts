@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്‌ബാക്ക് ഉണ്ടോ, ഫീച്ചർ അഭ്യർത്ഥനയുണ്ടോ, അല്ലെങ്കിൽ ഒരു ബഗ് കണ്ടെത്തിയോ? നിങ്ങളുടെ അക്കൗണ്ട് മെനുവിലെ പിന്തുണ ലിങ്ക് വഴി {{app}} ടീമിനെ ബന്ധപ്പെടുക — എല്ലാ സന്ദേശങ്ങളും ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്ക് പോകുന്നു.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'agentDetail.back': 'എല്ലാ ഏജന്റുമാരും',
   'agentDetail.capabilities': 'ശേഷികൾ',
   'agentDetail.delete': 'വ്യക്തിത്വം ഇല്ലാതാക്കുക',
   'agentDetail.deleteConfirm': 'ഈ വ്യക്തിത്വം ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
+  'agentDetail.deleteError': 'വ്യക്തിത്വം ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'agentDetail.eyebrow': 'പെർസോണ',
   'agentDetail.fetchError': 'പേഴ്‌സണ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'agentDetail.save': 'വ്യക്തിത്വം സംരക്ഷിക്കുക',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'മാറുന്നു...',
   'billing.updateError': 'അപ്ഡേറ്റ് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
   'billing.usageHeading': 'ഈ സൈക്കിളിൽ ശബ്‌ദ ഉപയോഗം',
+  'chatBubble.source.text': 'വാചകം',
+  'chatBubble.source.voice': 'ശബ്ദം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'conversation.defaultTitle': 'പുതിയ സംഭാഷണം',
   'conversation.empty':
     'ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല. എന്തെങ്കിലും പറഞ്ഞുകൊണ്ടോ താഴെ ടൈപ്പ് ചെയ്തുകൊണ്ടോ ആരംഭിക്കുക.',
@@ -98,6 +105,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'സംസാരിക്കുന്ന ബുദ്ധിശക്തി.',
   'landing.heroSubtitle':
     'നിങ്ങളുടെ സ്വാഭാവിക ഒഴുക്ക് മനസ്സിലാക്കുന്ന AI വോയ്‌സ് അസിസ്റ്റന്റ്. സംഭാഷണം നടത്തുക, ആശയരൂപീകരണം നടത്തുക, ആജ്ഞാപിക്കുക - തടസ്സമില്ലാതെ.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'കേൾക്കുന്നു...',
   'landing.naturallyBody':
     'ട്രിഗർ വാക്കുകളില്ല. കർശനമായ കമാൻഡുകളില്ല. ഒരു സഹപ്രവർത്തകനുമായി ചാറ്റ് ചെയ്യുന്നതുപോലെ, സന്ദർഭം, തടസ്സങ്ങൾ, മനുഷ്യന്റെ സംസാരത്തിന്റെ സൂക്ഷ്മത എന്നിവ പാരലൻസ് മനസ്സിലാക്കുന്നു.',
@@ -116,6 +124,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ഒരു സെഷൻ തുറക്കുക',
   'notFound.home': 'വീട്ടിലേക്ക് മടങ്ങുക',
   'notFound.title': 'ഞങ്ങൾക്ക് ആ പേജ് കേൾക്കാൻ കഴിഞ്ഞില്ല.',
+  'parlanceLayout.closeMenu': 'മെനു അടയ്ക്കുക',
+  'parlanceLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'parlanceLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'pricing.conversations': '{{count}} സംഭാഷണങ്ങൾ',
   'pricing.cta.startFree': 'സൗജന്യമായി ആരംഭിക്കൂ',
@@ -153,6 +163,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'പൊരുത്തങ്ങളൊന്നുമില്ല',
   'search.eyebrow': 'കമാൻഡ് പാലറ്റ്',
   'search.fetchError': 'തിരയൽ സൂചിക ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'search.static.profile.preview': 'പ്രദർശന നാമം, ഹാൻഡിൽ, ബയോ',
   'search.static.voice.title': 'ശബ്ദം',
   'search.title': 'തിരയൽ പദാവലി',
   'search.transcriptPreview': 'ട്രാൻസ്ക്രിപ്റ്റ് തുറക്കുക',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ikkuntattjana',
   'about.eyebrow': 'Dwar',
+  'about.title': 'Dwar {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     "Ritratt professjonali ta' aġent ta' appoġġ mara bi tbissima ta' ħbiberija f'uffiċċju modern",
   'activeAgentsCard.agent2AvatarAlt':
@@ -62,6 +63,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Ikkuntattja l-appoġġ',
   'forgotPassword.error': "Ma stajtx nibgħat email ta' reset. Jekk jogħġbok erġa' pprova.",
   'forgotPassword.rememberPassword': 'Tiftakar il-password tiegħek?',
   'forgotPassword.subheading':
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': "Idħol — Appoġġ ta' Zenith",
   'login.showPassword': 'Uri l-password',
   'login.welcomeSubheading': 'Idħol fid-dashboard tal-appoġġ tiegħek',
+  'mobileNav.closeMenu': 'Agħlaq in-navigazzjoni',
+  'mobileNav.menu': 'Navigazzjoni',
+  'mobileNav.openMenu': 'Navigazzjoni miftuħa',
   'nav.legal': 'Legali',
   'nav.newTicket': 'Biljett Ġdid',
   'notifications.loadError': "Ma stajtx nitgħabba n-notifiki. Erġa' pprova fi ftit ħin.",
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Tiftix tal-Kmand',
   'operatorDock.newReport': 'Rapport Ġdid',
   'operatorDock.systemOnline': 'Sistema Online',
+  'planUpdated.subtitle': 'Grazzi',
   'planUpdated.title': 'Pjan aġġornat',
   'pricing.agents': 'aġenti',
   'pricing.automation': 'Regoli tal-awtomazzjoni',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{isem}}',
   'ticketCustomerReply.avatarAlt': "{{isem}} l-avatar ta'",
   'ticketDetail.errorTitle': 'Xi ħaġa marret ħażin',
+  'ticketDetail.loadError': 'Ma rnexxiex it-tagħbija tal-biljett.',
+  'ticketDetail.notFound': 'Biljett ma nstabx',
+  'ticketDetail.replyError': "Ma rnexxiliex tintbagħat it-tweġiba. Jekk jogħġbok erġa' pprova.",
   'ticketDetail.retry': 'Erġa’ pprova',
   'ticketDetail.statusUpdateError': "Ma setax jiġi aġġornat l-istatus. Erġa' pprova.",
   'ticketDetailsCard.assigneeLabel': 'Assenjatarju',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{ħin}} xellug',
   'ticketRow.title': 'Il-konnessjoni tad-database qed tfalli fil-produzzjoni {{node}}',
   'tickets.pageTitle': "Biljetti — Appoġġ ta' Zenith",
+  'ticketsFab.newTicket': 'Biljett ġdid',
   'ticketsFilterBar.assigneeLabel': 'Assenjatarju:',
   'ticketsFilterBar.clearFilters': 'Neħħi l-Filtri',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

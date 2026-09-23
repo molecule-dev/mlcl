@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.eyebrow': 'Tentang {{app}}',
+  'about.intro':
+    '{{app}} adalah aplikasi meditasi untuk kehidupan nyata — meditasi terpandu harian, latihan pernapasan, dan cerita pengantar tidur yang dipandu oleh instruktur yang terasa seperti teman, bukan pelatih. Tidak ada rasa bersalah karena tidak menyelesaikan meditasi, tidak ada gangguan di beranda: hanya tempat yang tenang untuk kembali fokus pada napas Anda.',
+  'about.missionBody':
+    'Kami percaya ketenangan harus dapat diakses oleh semua orang, kapan pun sepanjang hari. {{app}} hadir untuk membuat praktik ketenangan dan konsistensi terasa mudah — sehingga sepuluh menit yang jujur dapat mengubah cara Anda menghadapi sepuluh jam berikutnya.',
+  'about.missionTitle': 'Misi kami',
+  'about.pageTitle': '10 menit yang lebih tenang setiap hari',
+  'breathingDial.seconds': 'detik',
+  'common.goToDashboard': 'Ke Dashboard',
+  'common.logout': 'Keluar',
   'common.min': 'mnt',
   'common.relative.justNow': 'baru saja',
   'common.relative.now': 'sekarang',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
+  'nav.secondaryNavigation': 'Navigasi akun',
   'sessionCard.with': 'dengan {{name}}',
   'stillpoint.billing.choose': 'Pilih {{plan}}',
   'stillpoint.billing.currentPlan': 'Anda saat ini di {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Kami tidak dapat memuat paket.',
   'stillpoint.billing.opening': 'Membuka pembayaran…',
   'stillpoint.billing.perMonthShort': '/ bln',
+  'stillpoint.billing.perYearShort': '/thn',
   'stillpoint.billing.unknownResult': 'Respons penagihan tak terduga.',
   'stillpoint.billing.yearly': 'Tahunan · hemat 17%',
   'stillpoint.courseDetail.back': 'Kursus',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Belum ada kursus.',
   'stillpoint.courses.eyebrow': '{{count}} perjalanan beberapa hari',
   'stillpoint.courses.heading': 'Kursus',
+  'stillpoint.forgot.checkEmail':
+    'Periksa kotak masuk Anda — tautan akan kedaluwarsa dalam 30 menit.',
   'stillpoint.forgot.success': 'Kami telah mengirim tautan atur ulang ke {{email}}.',
   'stillpoint.home.empty': 'Belum ada sesi — silakan kembali lagi nanti.',
   'stillpoint.home.friend': 'teman',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Buat akun gratis Anda',
   'stillpoint.landing.cta.title': 'Mulailah ketenangan Anda hari ini',
   'stillpoint.landing.features.heading': 'Latihan yang tumbuh bersama Anda',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditasi terpandu harian, latihan pernapasan, dan cerita tidur — dipandu oleh guru yang terasa seperti teman, bukan pelatih.',
   'stillpoint.landing.hero.eyebrow': '10 menit lebih tenang sehari',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Jelajahi berdasarkan suasana hati',
   'stillpoint.login.rememberMe': 'Tetap masuk',
   'stillpoint.login.subheading': 'Masuk untuk melanjutkan latihan Anda.',
+  'stillpoint.nav.tagline': 'Temukan titik tenang Anda.',
+  'stillpoint.notFound.body':
+    'Halaman ini sedang mengambil napas panjang dan dalam di suatu tempat. Mari kita temukan tempat yang lebih tenang untuk Anda di {{app}} .',
   'stillpoint.notFound.title': 'Hilang dalam keheningan',
   'stillpoint.notFound.toHome': 'Kembali ke hari ini',
   'stillpoint.notFound.toLibrary': 'Jelajahi pustaka',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Mundur 15 dtk',
   'stillpoint.player.skipForward': 'Maju 30 dtk',
   'stillpoint.player.with': 'dengan {{name}}',
+  'stillpoint.profile.defaultHandle': 'penunjuk diam',
   'stillpoint.profile.eyebrow': 'Latihan Anda, dirangkum.',
   'stillpoint.profile.locked': 'Terkunci',
   'stillpoint.profile.member': 'Anggota Stillpoint',

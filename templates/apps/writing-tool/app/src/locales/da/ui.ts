@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
+  'about.title': 'Et skriverum du kan have i lommen',
   'billing.cancelConfirm': 'Opsige dit aktive abonnement?',
   'billing.cancelFailed': 'Kunne ikke annullere.',
   'billing.checkingOut': 'Åbner kassen…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Fakturering kunne ikke indlæses.',
   'billing.loading': 'Indlæser fakturering…',
   'billing.upgradeCta': 'Opgrader til {{name}}',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'editor.autosaveOn': 'Automatisk lagring aktiveret',
   'editor.backToLibrary': 'Tilbage til biblioteket',
   'editor.charCount': '{{count}} tegn',
   'editor.confirmTrash': 'Flytte dette dokument til papirkurven?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Frigjort',
   'editor.unpublishCta': 'Flyt til kladde',
   'editor.unpublished': 'Tilbageført til kladde',
+  'focus.autosaveOn': 'Automatisk lagring aktiveret',
   'focus.backToLibrary': 'Tilbage til biblioteket',
   'focus.bodyPlaceholder': 'En linje ad gangen. Der er ingen andre her.',
   'focus.exit': 'Afslut fokustilstand',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Opret en',
   'login.subline':
     'Dine manuskripter, daglige sider og sidste markørposition er præcis, hvor du efterlod dem.',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'pricing.exports': 'eksport',
   'pricing.folders': 'mapper',
   'pricing.heading': 'dokumenter',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Indtast den kode, vi lige har sendt dig via e-mail, og vælg noget, du husker. Vi logger dig ind, når den er gemt.',
   'reset.tokenHint': 'Indsat fra din indbakke.',
+  'settings.appearance.heading': 'Lys eller mørk',
   'settings.editor.${row.id}.description': 'Sprog',
   'settings.editor.description':
     'Skrivemaskinerulning, afsnitsudtoning og fokus i inaktiv tilstand – standardindstillingerne er justeret til lange sessioner.',
@@ -136,6 +144,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapitel tre — En stille time før solopgang',
   'versalDocumentCard.pinned': 'Fastgjort',
   'versalLayout.nav.stats': 'Statistik',
+  'versalLayout.primaryNavLabel': 'Primær navigation',
   'versalManuscriptHero.cta': 'Fortsæt med at skrive',
   'versalManuscriptHero.goalLabel': 'Dagens ordmål',
   'versalManuscriptHero.inProgress': 'På rette spor',

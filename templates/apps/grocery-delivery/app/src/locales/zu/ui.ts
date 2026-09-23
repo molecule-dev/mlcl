@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Nika umthengi wakho ithiphu',
   'checkout.tipLabel': 'Ithiphu',
   'checkout.zipPlaceholder': 'I-ZIP',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'featuredProductsGrid.addAria': 'Engeza {{name}} enqoleni',
   'featuredProductsGrid.outOfStock': 'Kuphelile',
   'forgotPassword.emailLabel': 'Ikheli le-imeyili',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Uma leyo imeyili ibhalisiwe, isixhumanisi sokusetha kabusha sisendleleni.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'landing.categoriesEyebrow': 'Imigwaqo',
   'landing.categoriesHeading': 'Thenga ngesigaba',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Hlela ukulethwa kwamasonto onke ngokuhlela kabusha okuhlakaniphile kwezinto eziyisisekelo kanye nokulandelela abashayeli bukhoma.',
   'landing.heroTitle': 'Ukusha emnyango wakho, emahoreni ambalwa.',
   'landing.howEyebrow': 'Izinyathelo ezintathu',
+  'landing.howItWorksHeading': 'Indlela {{app}} esebenza ngayo',
   'lists.addAllCta': 'Faka konke enqoleni',
   'lists.createCta': 'Dala uhlu lwakho lokuqala',
   'lists.createError': 'Ayikwazanga ukudala uhlu.',

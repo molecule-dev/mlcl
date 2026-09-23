@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'О {{app}}',
+  'auth.legalConsent': 'Продолжая, вы соглашаетесь с нашими',
   'bookings.empty.body': 'Добавьте рейс, отель или мероприятие, чтобы начать получать уведомления.',
   'bookings.empty.heading': 'Бронирований пока нет.',
   'bookings.errors.create': 'Не удалось создать бронирование.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Подтвержденный',
   'bookings.summary.pending': 'Ожидается подтверждение',
   'bookings.summary.total': 'Полностью предан делу',
+  'bookings.type.car': 'Прокат автомобилей',
+  'bookings.type.flight': 'Полет',
+  'bookings.type.hotel': 'Отель',
   'bookings.type.other': 'Другое',
   'budgetSpendCard.budgetTotal': 'из {{total}} запланировано',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Выявляйте конфликтные ситуации, планируйте дни отдыха между поездками и отслеживайте, когда ваши коллеги путешествуют вместе с вами.',
   'common.and': 'и',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.budgetHeading': 'Бюджетный импульс',
   'dashboard.empty.heading': 'Пока никаких поездок нет — ваш атлас пуст.',
   'dashboard.eyebrow': 'Центр управления полетами',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Путешествия в движении',
   'dashboard.viewAllExpenses': 'Просмотрите все расходы',
   'dashboard.viewAllTrips': 'Посмотреть все поездки',
+  'dayTimelineRow.category.accommodation': 'Оставаться',
   'dayTimelineRow.category.transport': 'Транспорт',
   'destinationOrbCard.exploreCta': 'Добавить в поездку',
   'destinationOrbCard.tripCount': '{{count}} поездки',
@@ -82,11 +90,15 @@ export const ui: UiTranslations = {
     'Письмо так и не пришло? Проверьте папку «Спам» или попробуйте еще раз, указав другой адрес.',
   'forgotPassword.successSubheading':
     'Мы отправили ссылку для восстановления на {{email}} Ссылка действительна в течение 30 минут.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Создать бесплатный аккаунт',
+  'landing.cta.subheading':
+    'В бесплатном плане до пяти поездок, пяти участников и пяти остановок — с синхронизацией в реальном времени, а в плане Pro лимиты снимаются по мере расширения вашего тарифного плана.',
   'landing.destinations.eyebrow': 'Куда дальше?',
   'landing.destinations.heading': 'Места назначения, отобранные редактором',
   'landing.features.eyebrow': 'Как работает Waypoint',
   'landing.features.heading': 'Создано для путешественников, а не для электронных таблиц.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Начните бесплатное путешествие',
   'landing.hero.ctaSecondary': 'Посмотрите пример поездки',
   'landing.hero.subtitle':
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
     'Создайте учетную запись, чтобы делиться поездками с пятью другими участниками, синхронизировать бронирования и объединять все подтверждения в одном месте.',
+  'signup.termsPrefix': 'Создавая учётную запись, вы соглашаетесь с нашими',
   'tripCountdownHeroCard.budget': '{{used}} из {{total}} ( {{pct}} % от бюджета)',
   'tripCountdownHeroCard.collaborators': '{{count}} путешественники',
   'tripCountdownHeroCard.countdownLabel': 'Обратный отсчет',
@@ -206,5 +219,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Пока никаких поездок не было.',
   'trips.pastHeading': 'Прошлые приключения',
   'trips.subheading': '{{count}} маршруты — прошлые, настоящие и будущие.',
+  'waypointLayout.mobileNavClose': 'Закрыть меню навигации',
   'waypointLayout.primaryNavLabel': 'Основная навигация',
 }

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'auditLog.empty':
     'Brak zdarzeń audytowych pasujących do filtrów. Edytuj pracownika lub przetwórz cykl płacowy, a pojawią się tutaj.',
   'auditLog.eyebrow': 'Zgodność',
+  'auditLog.loadError': 'Nie można załadować dziennika kontroli.',
   'auditLog.searchPlaceholder': 'Szukaj według aktora, akcji lub opisu',
   'auditLog.subheading':
     'Każde zatwierdzenie, edycja i deklaracja podatkowa — z aktorem, znacznikiem czasu i zmienionymi polami.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nie skonfigurowano',
   'billing.plansHeading': 'Plany',
   'billing.subheading': 'Zarządzaj planem i zmieniaj poziomy przez Stripe.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Spróbuj ponownie',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Migawka zgodności',
   'dashboard.compliance.title': 'Wszystkie kontrole zaliczone',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Brak zarejestrowanych potrąceń.',
   'employeeDetail.notFound': 'Nie znaleziono pracownika.',
   'employeeDetail.payFrequency': 'Częstotliwość wypłat',
+  'employeeDetail.postTax': 'Po opodatkowaniu',
+  'employeeDetail.preTax': 'Przed opodatkowaniem',
   'employeeDetail.salary': 'Wynagrodzenie roczne',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Rozpoczął/Rozpoczęła {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Częstotliwość wypłat',
   'employeeForm.salary': 'Wynagrodzenie roczne (USD)',
   'employeeForm.salaryInvalid': 'Wynagrodzenie musi być liczbą nieujemną.',
+  'employeeForm.saveError': 'Nie udało się zapisać pracownika.',
   'employeeForm.semimonthly': 'Dwa razy w miesiącu',
   'employeeForm.single': 'Stanu wolnego',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Pracownik',
   'employeesTable.col.salary': 'Wynagrodzenie',
   'forgotPassword.subtitle': 'Proszę podać służbowy e-mail, a wyślemy link do resetu.',
+  'landing.copyright': '© {{year}} {{app}} . Precyzyjny, niezawodny, opanowany.',
   'landing.ctaBody':
     '30 dni za darmo. Bez karty kredytowej. Zmiana planu w dowolnym momencie bez utraty śladu audytowego.',
   'landing.ctaHeading': 'Uruchom następny cykl w Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Brak pozycji audytowych dla tego cyklu płacowego.',
   'payRunDetail.noStubs':
     'Brak pasków wypłat — proszę zatwierdzić i przetworzyć, aby je wygenerować.',
+  'payRunDetail.notFound': 'Nie można znaleźć tej wypłaty.',
   'payRunDetail.statDeductions': 'Potrącenia',
   'payRunDetail.statHeadcount': 'Pracownicy',
   'payRunDetail.statTaxes': 'Pobrane podatki',
@@ -224,7 +233,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Dwa razy w miesiącu',
   'settings.signOutDevice': 'Wyloguj się',
   'settings.subheading': 'Profil firmy, harmonogram wypłat i integracje.',
+  'settings.twoFactorCode': 'Kod uwierzytelniający',
   'settings.twoFactorDisable': 'Wyłącz',
+  'settings.twoFactorInvalidCode': 'Nieprawidłowy kod',
+  'settings.twoFactorVerify': 'Zweryfikuj i włącz',
   'settings.weekly': 'Tygodniowo',
   'taxCenter.bucket.federal': 'Dochód federalny',
   'taxCenter.bucket.fica': 'Ubezpieczenie społeczne',

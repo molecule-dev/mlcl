@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Hlutverk þitt',
   'account.role.upgradeLink': 'Sækja um að verða löggiltur einkakennari →',
   'account.title': 'Prófíll, greiðsla og óskir.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Kenna á krít',
   'becomeTutor.form.error': 'Gat ekki sent inn umsókn.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Efni',
   'bookingConfirm.title': 'Þú ert bókaður. Við sjáum um restina.',
   'bookingConfirm.with': 'Með leiðbeinanda',
+  'common.goToDashboard': 'Fara á yfirlit',
   'earningsHero.eyebrow': 'Tekjur • {{month}}',
   'forgotPassword.heading': 'Gleymdirðu lykilorðinu þínu?',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Senda skilaboð',
   'messages.thread.empty': 'Segðu hæ — byrjaðu samtalið.',
   'messages.title': 'Þræðir með kennurum þínum.',
+  'nav.primary': 'Aðal',
   'pricing.dataExport': 'Útflutningur gagna:',
   'pricing.headingDefault': 'Ítarlegri eiginleikar:',
   'resetPassword.heading': 'Veldu nýtt sterkt lykilorð.',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Neem contact op',
   'about.eyebrow': 'Over',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'dashboard.connectRepoCta': 'Repository verbinden',
   'dashboard.empty': 'Nog geen pull requests — verbind een repository om te beginnen.',
   'dashboard.eyebrow': 'Refract · reviewwachtrij',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Uptime',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI-kwaliteitsscore {{score}} / 10',
+  'refractLayout.closeMenu': 'Menu sluiten',
+  'refractLayout.openMenu': 'Menu openen',
   'refractLayout.primaryNavLabel': 'Primaire navigatie',
   'reports.cumulativeScoreLabel': 'Cumulatieve score',
   'reports.cumulativeScoreSubtitle': 'alle repos · {{days}}d',
@@ -176,11 +179,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Kon zoekindex niet laden.',
   'settings.apiKeys.description':
     'Beheer persoonlijke API-sleutels vanuit het gebruikersmenu rechtsboven.',
+  'settings.apiKeys.integrationsNote':
+    'Toegangstokens voor providers worden beheerd in het gedeelte ‘Integraties’ hierboven.',
   'settings.connectError': 'Kon aanbieder niet verbinden.',
   'settings.disconnectError': 'Kon aanbieder niet ontkoppelen.',
   'settings.eyebrow': 'Refract · workspace',
   'settings.integration.${provider}.label': 'Opslaan…',
   'settings.loadError': 'Kon instellingen niet laden.',
+  'settings.notificationCenter': 'Meldingscentrum',
   'settings.notifications.description':
     'Bezoek de meldingenpagina om bezorgingsvoorkeuren te bekijken en beheren.',
   'settings.section.account': 'Account en beveiliging',

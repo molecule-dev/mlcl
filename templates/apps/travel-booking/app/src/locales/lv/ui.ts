@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.featureDiscover.title': 'Iedvesma, rūpīgi atlasīta',
   'account.addPaymentCta': 'Pievienot maksājuma veidu',
   'account.addPaymentError': 'Nevarēja pievienot maksājuma veidu.',
+  'account.confirmRemove': 'Apstiprināt dzēšanu',
   'account.defaultBadge': 'Noklusējuma',
   'account.loyalty.pointsTowardNext': '{{punkti}} no {{nākamais}} jūdzes līdz {{nākamāLīmeņa}}',
   'account.loyalty.tier': 'Pašreizējais līmenis',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Ceļojuma informācija',
   'booking.tripSummary': '{{nights}} naktis · {{guests}} viesi',
   'common.daysAgo': '{{count}} pirms dienas',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.hoursAgo': '{{count}} pirms stundām',
   'common.minutesAgo': '{{count}} pirms min',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Juridiskā informācija',
   'notifications.loading': 'Notiek ielāde…',
   'notifications.subheading': '{{count}} nelasīts · viss vienā mierīgā iesūtnē',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.accommodationsLabel': 'naktsmītnes',
   'pricing.bookingsLabel': 'rezervācijas',
   'pricing.destinationsLabel': 'saglabātie galamērķi',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Iedvesma, uzticamas uzturēšanās un ērts ceļš no sapņa līdz rezervētam mājoklim — 14 valstīs un vairāk nekā 200 rūpīgi pārbaudītās naktsmītnēs.',
   'sojournHeroSearchCard.trustProtected': 'Bezmaksas atcelšana, pilnībā aizsargāta',
   'sojournHeroSearchCard.trustVetted': 'Tikai manuāli pārbaudītas īpašības',
+  'travelBookingLayout.primaryNavLabel': 'Galvenā navigācija',
   'tripDetail.backLink': 'Atpakaļ pie ceļojumiem',
   'tripDetail.cancelCta': 'Atcelt rezervāciju',
   'tripDetail.cancelHeading': 'Atcelt šo braucienu?',

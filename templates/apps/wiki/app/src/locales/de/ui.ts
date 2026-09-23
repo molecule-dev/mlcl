@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Wird gelöst…',
   'comments.subtitle':
     'Die {{count}} Threads, die noch auf eine Antwort oder Lösung warten. Sortiert nach Alter — älteste zuerst, damit nichts verrottet.',
+  'common.goToDashboard': 'Zum Dashboard',
   'forgotPassword.sentTo': 'Reset-Link an {{email}} gesendet',
   'forgotPassword.successSubheading':
     'Prüfen Sie Ihren Posteingang — wir haben gerade einen Reset-Link gesendet. Er läuft in 30 Minuten ab.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Neue Seite',
   'pageTreeSidebar.workspaceHeader': 'Bereich',
   'pageView.breadcrumb': 'Brotkrumen-Navigation',
+  'pageView.confirmTrash': 'Wegwerfen?',
   'pageView.home': 'Startseite',
   'pageView.lastEdited': 'Aktualisiert {{when}}',
   'pageView.loading': 'Seite wird geladen…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Die KI-Zusammenfassung ist für diesen Bereich nicht konfiguriert.',
   'pageView.tocTitle': 'Auf dieser Seite',
+  'pageView.trash': 'Papierkorb',
+  'pageView.trashing': 'Wird in den Papierkorb verschoben…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Abzeichen',
   'profile.owned.title': 'Eigene Seiten',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Workspace, Profil, Benachrichtigungen, Integrationen — alles in einer ruhigen Hülle.',
   'settingsPage.workspace.defaultLanding': 'Standard-Startbildschirm',
   'settingsPage.workspace.landingHome': 'Zuhause',
+  'settingsPage.workspace.landingSpaces': 'Bereiche',
   'settingsPage.workspace.subdomainLabel': 'Subdomain',
   'settingsPage.workspace.title': 'Workspace',
   'signup.eyebrow': 'Einen neuen Workspace starten',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} Min.',
   'templates.subtitle':
     'Starten Sie eine Seite aus einer Vorlage, nicht aus einem leeren Blatt. Jede Vorlage gibt die Form vor, damit Sie sich auf den Inhalt konzentrieren können.',
+  'trash.confirmPurge': 'Für immer säubern?',
+  'trash.confirmPurgeAria': 'Bestätigen: {{title}} endgültig löschen',
   'trash.daysUntilPurge': '{{days}} Tage übrig',
   'trash.empty.body':
     'Gelöschte Seiten erscheinen hier 30 Tage lang, bevor sie endgültig entfernt werden.',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Wird wiederhergestellt…',
   'versionHistory.subtitle': '{{count}} Versionen · wählen Sie eine Zeile, um den Diff zu prüfen',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Navigation schließen',
+  'wikiLayout.menu': 'Navigation',
+  'wikiLayout.openMenu': 'Navigation öffnen',
   'wikiLayout.searchPlaceholder': 'Cairn durchsuchen — Seiten, Kommentare…',
 }

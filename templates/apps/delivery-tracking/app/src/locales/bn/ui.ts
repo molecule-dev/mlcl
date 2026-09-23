@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'alerts.acknowledgeLabel': 'স্বীকার করুন',
   'alerts.customerLabel': 'গ্রাহক: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'সংযোগ স্থাপন…',
   'carriers.requiredError': 'নাম ও কোড আবশ্যক।',
   'carriers.subheading': '{{count}} সমন্বিত',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ট্রানজিটে + চিহ্নিত',
   'dashboard.activeShipmentsSubtitle':
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'চালান',
   'pricing.trackingLabel': 'ট্র্যাকিং ইভেন্ট',
   'profile.dangerZone.title': 'বিপদজনক এলাকা',
+  'profile.devices.signingOut': 'সাইন আউট হচ্ছে…',
+  'profile.devices.unnamed': 'নামবিহীন ডিভাইস',
+  'profile.security.disable2fa': '2FA নিষ্ক্রিয় করুন',
   'profile.security.enable2fa': '2FA সক্রিয় করুন',
   'profile.security.pwChanged': 'পাসওয়ার্ড সফলভাবে পরিবর্তন করা হয়েছে।',
   'profile.security.pwCurrent': 'বর্তমান পাসওয়ার্ড',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA সক্রিয়',
   'profile.security.twoFaCode': '৬-সংখ্যার কোড',
   'profile.security.twoFaDisable': 'অক্ষম করুন',
+  'profile.security.twoFaDisabling': 'অক্ষম করা…',
   'profile.security.twoFaFailed': 'কোডটি যাচাই করা যায়নি।',
   'profile.security.twoFaIntro':
     'আপনার অথেন্টিকেটর অ্যাপে থাকা QR কোডটি স্ক্যান করুন, তারপর যাচাই করার জন্য নিচের ৬-সংখ্যার কোডটি প্রবেশ করান।',
   'profile.security.twoFaOn': 'এই অ্যাকাউন্টে দ্বি-স্তর প্রমাণীকরণ সক্রিয় করা আছে।',
+  'profile.security.twoFaQrAlt': 'টু-ফ্যাক্টর QR কোড',
   'profile.security.twoFaVerify': 'যাচাই করুন এবং সক্রিয় করুন',
   'profile.security.twoFaVerifying': 'যাচাই করা হচ্ছে…',
   'profile.subheading': 'এই ওয়ার্কস্পেসের জন্য পরিচয় ও নিরাপত্তা সেটিংস।',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'এই গোপন কথাটি সংরক্ষণ করুন — এটি আর প্রকাশ করা হবে না।',
   'settings.api.webhookSecret': 'ওয়েবহুক স্বাক্ষর গোপনীয়তা',
   'settings.appearance.description': 'লাইট ও ডার্ক মোডের মধ্যে পরিবর্তন করুন।',
+  'settings.deleteAccountConfirm': 'আপনি কি নিশ্চিত? এই কাজটি আর পূর্বাবস্থায় ফেরানো যাবে না।',
   'settings.notifications.exceptions': 'চালানে কোনো ব্যতিক্রম ঘটলে আমাকে ইমেল করুন।',
   'settings.notifications.heading': 'বিজ্ঞপ্তি',
   'settings.notifications.saveFailed': 'পছন্দগুলি সংরক্ষণ করা যায়নি।',
@@ -145,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'চালানটি খুঁজে পাওয়া যায়নি।',
   'shipmentDetail.originHeading': 'উৎপত্তি',
   'shipmentDetail.shippedOn': 'পাঠানো হয়েছে {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'এখনও কোনো ট্র্যাকিং ইভেন্ট নেই — ক্যুরিয়ার পার্সেলটি স্ক্যান করার সাথে সাথে এখানে আপডেট দেখা যাবে।',
   'shipmentDetail.weightLabel': '{{weight}} পাউন্ড',
   'shipments.col.carrier': 'বাহক',
   'shipments.col.eta': 'আনুমানিক সময়',
@@ -174,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'সাইন ইন করুন',
   'signup.submit': 'অ্যাকাউন্ট তৈরি করুন',
   'team.emailError': 'একটি বৈধ ইমেল ঠিকানা প্রয়োজন।',
+  'team.empty':
+    'এখনো কোনো টিম সদস্য নেই। পণ্য প্রেরণে সহযোগিতা করার জন্য একজন টিমমেটকে আমন্ত্রণ জানান।',
   'team.eyebrow': 'সদস্য ও অনুমতি',
   'team.inviteDialog.cancel': 'বাতিল করুন',
   'team.inviteDialog.heading': 'একজন সতীর্থকে আমন্ত্রণ জানান',
@@ -196,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ট্র্যাক',
   'waypointLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'webhooks.createFailed': 'ওয়েবহুক এন্ডপয়েন্ট তৈরি করা যায়নি।',
+  'webhooks.endpointsEmpty':
+    'এখনো কোনো ওয়েবহুক এন্ডপয়েন্ট নেই। চালানের অবস্থা সম্পর্কিত কলব্যাক পেতে একটি তৈরি করুন।',
   'webhooks.endpointsHeading': 'এন্ডপয়েন্ট',
   'webhooks.eventCount': '{{count}} ঘটনাগুলি',
   'webhooks.eventsHeading': 'সাম্প্রতিক ডেলিভারি',

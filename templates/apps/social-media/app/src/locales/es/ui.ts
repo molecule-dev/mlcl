@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
+  'about.pageTitle': 'Acerca de «{{app}}»',
+  'common.goToDashboard': 'Ir al panel',
+  'common.retry': 'Reintentar',
   'compose.cancel': 'Cancelar',
   'compose.captionPlaceholder': '¿Qué tienes en mente?',
   'compose.heading': 'Comparte un momento',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Cuenta verificada',
   'resetPassword.newPassword': 'Nueva contraseña',
   'resetPassword.subheading': 'Elige una contraseña fuerte — al menos 12 caracteres.',
+  'search.clearAria': 'Borrar',
+  'search.error': 'La búsqueda no se ha realizado correctamente. Inténtalo de nuevo.',
   'search.noPeople': 'Ningún creador coincide con "{{q}}".',
   'search.noPosts': 'Ninguna publicación coincide con "{{q}}".',
   'search.noTags': 'Aún no hay hashtags en tendencia.',
@@ -126,6 +132,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ocultar contraseña',
   'signup.showPassword': 'Mostrar contraseña',
   'signup.subheading': 'Crea una cuenta para empezar a compartir.',
+  'socialMediaLayout.closeMenu': 'Cerrar el menú de navegación',
+  'socialMediaLayout.openMenu': 'Abrir el menú de navegación',
+  'socialMediaLayout.primaryNavLabel': 'Navegación principal',
   'storyRail.heading': 'Historias',
   'storyRail.label': 'Historias',
   'storyRail.openAria': 'Abrir la historia de {{handle}}',

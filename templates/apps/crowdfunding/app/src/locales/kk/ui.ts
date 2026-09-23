@@ -53,6 +53,7 @@ export const ui: UiTranslations = {
   'campaignEditor.rewards.descPlaceholder':
     'Бұл деңгейде демеушілер қандай мүмкіндіктерге ие болады',
   'campaignEditor.rewards.etaLabel': 'Болжамды жеткізу',
+  'campaignEditor.rewards.etaPlaceholder': '2027 жылғы наурыз',
   'campaignEditor.rewards.maxLabel': 'Максималды қолдаушылар (міндетті емес)',
   'campaignEditor.rewards.tier': 'Деңгей {{n}}',
   'campaignEditor.step.basics': 'Негізгі мәліметтер',
@@ -93,6 +94,7 @@ export const ui: UiTranslations = {
   'campaignProgressBar.pledged': 'Уәде етілді',
   'categoryFilterBar.label': 'Санат бойынша сүзгілеу',
   'common.daysAgo': '{{count}} күн бұрын',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.hoursAgo': '{{count}} сағат бұрын',
   'common.minutesAgo': '{{count}} м бұрын',
   'common.no': '—',
@@ -101,6 +103,7 @@ export const ui: UiTranslations = {
   'creatorSidebar.guest': 'Жаратушы',
   'creatorSidebar.label': 'Автор навигациясы',
   'creatorSidebar.role': 'Жаратушы',
+  'creatorSidebar.viewProfile': 'Профиліңізді қараңыз',
   'dashboard.active.title': 'Менің науқандарым',
   'dashboard.active.viewAll': 'Көбірек біліңіз',
   'dashboard.activity.empty':
@@ -215,10 +218,15 @@ export const ui: UiTranslations = {
   'settings.saved': 'Профиль жаңартылды',
   'settings.saveError': 'Өзгертулер сақталмады',
   'settings.section.payouts': 'Төлемдер',
+  'settings.security.body':
+    'Тіркелгіңізге аутентификация қолданбасы арқылы қосымша қорғаныс қабатын қосыңыз.',
   'settings.security.title': 'Қауіпсіздік',
+  'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorInvalidCode': 'Жарамсыз код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Тексеру және қосу',
   'signup.showPassword': 'Құпия сөзді көрсету',
   'signup.subtitle': 'Маңызды нәрсені бір минуттан аз уақыт ішінде іске қосыңыз.',
 }

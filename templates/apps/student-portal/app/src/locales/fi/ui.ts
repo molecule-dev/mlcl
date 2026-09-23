@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'announcementsFeed.empty': 'Ei vielä ilmoituksia.',
   'announcementsFeed.eyebrow': '{{count}} päivitykset',
   'announcementsFeed.title': 'Viimeisimmät ilmoitukset',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Ei mitään täällä',
   'assignments.emptyBody': 'Vaihda yllä olevia suodattimia nähdäksesi eri tilassa olevat tehtävät.',
   'assignments.eyebrow': 'Kaikki kurssit · Tämä lukukausi',
+  'assignments.loadError': 'Tehtävien lataaminen epäonnistui.',
   'assignments.loading': 'Ladataan tehtäviä…',
   'assignments.subtitle':
     'Suodata tilan mukaan nähdäksesi, mitkä ovat erääntyneet, lähetetyt, arvostellut tai puuttuvat.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Muistiinpano',
   'attendance.empty': 'Ei vielä läsnäolotietoja.',
   'attendance.eyebrow': 'Kevätlukukausi · Viimeiset 4 viikkoa',
+  'attendance.loadError': 'Läsnäolotietojen lataaminen epäonnistui.',
   'attendance.loading': 'Läsnäolotietoja ladataan…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Tehtävien määräajat kuukausittaisessa ruudukossa – kokeet erottuvat punaisella.',
   'calendar.title': '{{month}} tapahtumat',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
+  'common.retry': 'Yritä uudelleen',
   'common.yes': '✓',
   'courseDetail.backLink': 'Arvosanat',
   'courseDetail.currentGrade': 'Nykyinen arvosana',
@@ -65,17 +70,21 @@ export const ui: UiTranslations = {
   'dashboard.weekFocusTitle': 'Paranna Algebra II:ta neljällä pisteellä',
   'forgotPassword.subheading':
     'Anna koulusi sähköpostiosoite, niin lähetämme sinulle palautuslinkin.',
+  'forgotPassword.successBody':
+    'Jos {{email}} vastaa {{appName}} tiliä, salasanan palautuslinkki on matkalla. Linkit vanhenevat 30 minuutin kuluttua.',
   'gpaHeroCard.eyebrow': '{{term}} lukukauden GPA',
   'grades.col.grade': 'Luokka',
   'grades.col.teacher': 'Opettaja',
   'grades.col.trend': 'Trendi',
   'grades.empty': 'Ei vielä julkaistuja arvosanoja.',
   'grades.eyebrow': 'Arvosanakirja',
+  'grades.loadError': 'Arvosanojasi ei voitu ladata.',
   'grades.loading': 'Ladataan arvosanoja…',
   'grades.subtitle':
     'Reaaliaikaiset kirjain- ja prosenttiarvosanat. Trendinuolet näyttävät, oletko siirtymässä ylöspäin, tasaantunut vai laskemassa.',
   'grades.title': 'Arvosanasi kurssi kurssilta',
   'grades.trendStable': 'Vakaa',
+  'landing.copyright': '© {{year}} {{app}} . Opiskelijoille suunniteltu, perheille tehty.',
   'landing.ctaHeading': 'Rauhallisempi koulupäivä alkaa minuuteissa',
   'landing.eyebrow': 'Yläkoululaisille ja lukiolaisille',
   'landing.featuresHeading': 'Oppilaan ympärille rakennettu koulupäivä',
@@ -110,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tehtävät',
   'nav.attendance': 'Läsnäolo',
   'nav.calendar': 'Kalenteri',
+  'nav.closeMenu': 'Sulje navigointivalikko',
   'nav.grades': 'Arvosanat',
+  'nav.openMenu': 'Avaa navigointivalikko',
   'nav.statusEyebrow': 'Lukukauden GPA',
   'nav.statusSubtext': 'Kunnialista · Kevätlukukausi',
+  'nav.unreadMessages': 'Lukemattomat viestit',
   'notifications.eyebrow': '{{count}} päivitykset',
   'notifications.subtitle':
     'Arvosanat, muistutukset, viestit ja koulun ilmoitukset. Voit säätää asetuksissa, mitä kanavia kukin ilmoitus käyttää.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.attendanceLabel': 'läsnäolo',
   'pricing.gradesLabel': 'arvosanat',
   'pricing.heading': 'ilmoitukset',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
+  'auth.legalConsent': 'തുടരുന്നതിലൂടെ, ഞങ്ങളുടെ നിബന്ധനകൾ അംഗീകരിക്കുന്നു',
   'bookings.empty.body':
     'ഇൻബോക്സ് ആരംഭിക്കാൻ ഒരു ഫ്ലൈറ്റ്, ഹോട്ടൽ അല്ലെങ്കിൽ ആക്റ്റിവിറ്റി ചേർക്കുക.',
   'bookings.empty.heading': 'ഇതുവരെ ബുക്കിംഗുകളൊന്നുമില്ല.',
@@ -24,6 +27,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'സ്ഥിരീകരിച്ചു',
   'bookings.summary.pending': 'സ്ഥിരീകരണത്തിനായി കാത്തിരിക്കുന്നു',
   'bookings.summary.total': 'ആകെ പ്രതിജ്ഞാബദ്ധത',
+  'bookings.type.car': 'വാടക കാർ',
+  'bookings.type.flight': 'ഫ്ലൈറ്റ്',
+  'bookings.type.hotel': 'ഹോട്ടൽ',
   'bookings.type.other': 'മറ്റുള്ളവ',
   'budgetSpendCard.budgetTotal': 'യുടെ {{total}} ആസൂത്രണം ചെയ്ത',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -35,6 +41,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'സംഘർഷങ്ങൾ കണ്ടെത്തുക, യാത്രകൾക്കിടയിലുള്ള വീണ്ടെടുക്കൽ ദിവസങ്ങൾ ആസൂത്രണം ചെയ്യുക, സഹകാരികൾ നിങ്ങളോടൊപ്പം യാത്ര ചെയ്യുമ്പോൾ കാണുക.',
   'common.and': 'ഒപ്പം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.budgetHeading': 'ബജറ്റ് പൾസ്',
   'dashboard.empty.heading': 'ഇതുവരെ യാത്രകളൊന്നുമില്ല — നിങ്ങളുടെ അറ്റ്ലസ് ശൂന്യമാണ്.',
   'dashboard.eyebrow': 'മിഷൻ നിയന്ത്രണം',
@@ -43,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'യാത്രകൾ നീങ്ങുന്നു',
   'dashboard.viewAllExpenses': 'എല്ലാ ചെലവുകളും കാണുക',
   'dashboard.viewAllTrips': 'എല്ലാ യാത്രയും കാണുക',
+  'dayTimelineRow.category.accommodation': 'താമസിക്കുക',
   'dayTimelineRow.category.transport': 'ഗതാഗതം',
   'destinationOrbCard.exploreCta': 'ഒരു യാത്രയിലേക്ക് ചേർക്കുക',
   'destinationOrbCard.tripCount': '{{count}} യാത്രകൾ',
@@ -84,11 +92,15 @@ export const ui: UiTranslations = {
     'ഇതുവരെ ഇമെയിൽ ഇല്ലേ? നിങ്ങളുടെ സ്പാം ഫോൾഡർ പരിശോധിക്കുക, അല്ലെങ്കിൽ മറ്റൊരു വിലാസം ഉപയോഗിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'forgotPassword.successSubheading':
     'ഞങ്ങൾ ഒരു വീണ്ടെടുക്കൽ ലിങ്ക് ഇതിലേക്ക് അയച്ചു {{email}} . ലിങ്കിന് 30 മിനിറ്റ് കാലാവധിയുണ്ട്.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
+  'landing.cta.subheading':
+    'സൗജന്യ പ്ലാനിൽ അഞ്ച് യാത്രകൾ, അഞ്ച് സഹകാരികൾ, അഞ്ച് സ്റ്റോപ്പുകൾ വരെ - തത്സമയ സമന്വയം ഉൾപ്പെടെ, നിങ്ങളുടെ പ്ലാനുകൾ വളരുമ്പോൾ പ്രോ പരിധി ഉയർത്തുന്നു.',
   'landing.destinations.eyebrow': 'അടുത്തതായി എവിടേക്ക് പോകണം',
   'landing.destinations.heading': 'എഡിറ്റർ ക്യുറേറ്റ് ചെയ്‌ത ലക്ഷ്യസ്ഥാനങ്ങൾ',
   'landing.features.eyebrow': 'വേപോയിന്റ് എങ്ങനെ പ്രവർത്തിക്കുന്നു',
   'landing.features.heading': 'സ്‌പ്രെഡ്‌ഷീറ്റുകൾക്കായിട്ടല്ല, യാത്രക്കാർക്കായി നിർമ്മിച്ചത്.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ഒരു സൗജന്യ യാത്ര ആരംഭിക്കൂ',
   'landing.hero.ctaSecondary': 'ഒരു സാമ്പിൾ യാത്ര കാണുക',
   'landing.hero.subtitle':
@@ -132,6 +144,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ഐറിസ് ലാർസൻ',
   'signup.subheading':
     '5 സഹകാരികളുമായി വരെ യാത്രകൾ പങ്കിടാനും ബുക്കിംഗുകൾ സമന്വയിപ്പിക്കാനും എല്ലാ സ്ഥിരീകരണങ്ങളും ഒരിടത്തേക്ക് കൊണ്ടുപോകാനും ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുക.',
+  'signup.termsPrefix': 'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ ഞങ്ങളുടെ',
   'tripCountdownHeroCard.budget': '{{used}} യുടെ {{total}} ( {{pct}} ബജറ്റിന്റെ %)',
   'tripCountdownHeroCard.collaborators': '{{count}} സഞ്ചാരികൾ',
   'tripCountdownHeroCard.countdownLabel': 'കൗണ്ട്ഡൗൺ',
@@ -208,5 +221,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ഇതുവരെ യാത്രകളൊന്നുമില്ല.',
   'trips.pastHeading': 'കഴിഞ്ഞ സാഹസികതകൾ',
   'trips.subheading': '{{count}} യാത്രാ പദ്ധതികൾ - ഭൂതകാലം, വർത്തമാനം, ഒരുനാൾ.',
+  'waypointLayout.mobileNavClose': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'waypointLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
 }

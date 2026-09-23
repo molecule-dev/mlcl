@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Bhukha i-aphoyintimenti',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Azikho iziguli okufanele ziboniswe.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'consult.backLink': 'Zonke izikhathi zokuhlangana',
   'consult.captions': 'Amagama-ncazo',
   'consult.connected': 'Kuxhunyiwe · 720p · okuzinzile',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Iziguli',
   'patientVitalsHero.scripts': 'I-Rx ivuliwe',
   'patientVitalsHero.subline': '{{count}} ubonisana ngesheduli yakho namuhla',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'prescriptions.empty': 'Akukho mithi kadokotela ehambisanayo.',
   'prescriptions.eyebrow': 'Ukunikeza imithi nge-elektroniki',
   'prescriptions.heading': 'Imithi kadokotela',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Isaziso Sobumfihlo',
   'privacy.use.body':
     'Ukuze sinikeze ukunakekelwa, sithumele izikhumbuzi ze-aphoyintimenti, sithumele imithi, futhi sithuthukise ukuthembeka kwesevisi. Asikaze sithengise idatha yakho futhi asikaze sabelane ngolwazi lwezokwelapha nabakhangisi.',
+  'providers.allSpecialties': 'Zonke Izinto Ezikhethekile',
+  'providers.loadError': 'Yehlulekile ukulayisha abahlinzeki.',
+  'providers.loading': 'Iyalayisha…',
   'providers.noResults': 'Abekho abahlinzeki abatholiwe.',
   'providers.searchPlaceholder': 'Sesha ngegama, okukhethekile...',
   'providers.title': 'Thola Umhlinzeki',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Ukuqala kosuku',
   'settings.availability.heading': 'Ukutholakala',
   'settings.devices.thisDevice': 'Le divayisi',
+  'settings.devices.unnamed': 'Idivayisi engaqanjwanga igama',
   'settings.eyebrow': 'Ukuzijwayeza kanye ne-akhawunti',
   'settings.loadError': 'Ayikwazanga ukulayisha iphrofayela yakho.',
   'settings.notifications.emailMessages':
@@ -180,6 +186,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Khubaza',
   'settings.security.twoFactor.enable': 'Nika amandla',
   'settings.security.twoFactor.heading': 'Ukuqinisekiswa kwezinto ezimbili',
+  'settings.security.twoFactor.invalidCode': 'Leyo khodi ayifani. Zama futhi.',
+  'settings.security.twoFactor.setupFailed':
+    'Ayikwazanga ukuqala ukusetha kwezinto ezimbili. Zama futhi.',
+  'settings.security.twoFactor.statusOn': 'I-Two-factor ivuliwe',
   'settings.signOutDevice': 'Phuma ngemvume',
   'settings.subheading':
     'Iphrofayili yomhlinzeki, imithetho yokusebenza, kanye nezaziso zezokwelapha.',
@@ -191,6 +201,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Yenza i-akhawunti',
   'signupFooter.hipaa': 'I-HIPAA Iyahambisana',
   'solaceLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'solaceLayout.toggleMenu': 'Guqula imenyu',
   'terms.eligibility.body':
     'Kumelwe okungenani ube neminyaka eyishumi nesishiyagalombili ubudala, noma ube ngumzali noma umnakekeli osemthethweni wengane encane ofuna ukunakekelwa kwayo, futhi ube sendaweni yase-US lapho odokotela bethu benamalayisense khona.',
   'terms.payment.body':

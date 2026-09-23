@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.title': 'Ruang kerja yang bisa Anda bawa di saku Anda',
   'billing.cancelConfirm': 'Batalkan langganan aktif Anda?',
   'billing.cancelFailed': 'Tidak dapat membatalkan.',
   'billing.checkingOut': 'Membuka pembayaran…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Tidak dapat memuat penagihan.',
   'billing.loading': 'Memuat penagihan…',
   'billing.upgradeCta': 'Tingkatkan ke {{name}}',
+  'common.goToDashboard': 'Ke Dashboard',
+  'editor.autosaveOn': 'Simpan otomatis aktif',
   'editor.backToLibrary': 'Kembali ke perpustakaan',
   'editor.charCount': '{{count}} karakter',
   'editor.confirmTrash': 'Pindahkan dokumen ini ke tempat sampah?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Sematan dilepas',
   'editor.unpublishCta': 'Pindahkan ke draf',
   'editor.unpublished': 'Dikembalikan ke draf',
+  'focus.autosaveOn': 'Simpan otomatis aktif',
   'focus.backToLibrary': 'Kembali ke perpustakaan',
   'focus.bodyPlaceholder': 'Satu baris demi satu baris. Tidak ada orang lain di sini.',
   'focus.exit': 'Keluar mode fokus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Buat satu',
   'login.subline':
     'Naskah, halaman harian, dan posisi kursor terakhir Anda tepat di tempat Anda meninggalkannya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'pricing.exports': 'ekspor',
   'pricing.folders': 'folder',
   'pricing.heading': 'dokumen',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Masukkan kode yang baru saja kami email dan pilih sesuatu yang mudah diingat. Kami akan memasukkan Anda segera setelah tersimpan.',
   'reset.tokenHint': 'Tempel dari kotak masuk Anda.',
+  'settings.appearance.heading': 'Terang atau gelap',
   'settings.editor.${row.id}.description': 'Bahasa',
   'settings.editor.description':
     'Pengguliran mesin tik, pemudaran paragraf, dan fokus diam — pengaturan default disesuaikan untuk sesi yang panjang.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Bab Tiga — Satu Jam Hening Sebelum Matahari Terbit',
   'versalDocumentCard.pinned': 'Disematkan',
   'versalLayout.nav.stats': 'Statistik',
+  'versalLayout.primaryNavLabel': 'Navigasi utama',
   'versalManuscriptHero.cta': 'Lanjutkan menulis',
   'versalManuscriptHero.goalLabel': 'Target kata hari ini',
   'versalManuscriptHero.inProgress': 'Sesuai jalur',

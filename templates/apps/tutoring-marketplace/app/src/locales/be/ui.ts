@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ваша роля',
   'account.role.upgradeLink': 'Падайце заяўку, каб стаць правераным рэпетытарам →',
   'account.title': 'Профіль, аплата і налады.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Навучанне на крэйдзе',
   'becomeTutor.form.error': 'Не атрымалася адправіць заяўку.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Тэма',
   'bookingConfirm.title': 'Вы занятыя. Мы паклапоцімся пра астатняе.',
   'bookingConfirm.with': 'З рэпетытарам',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'earningsHero.eyebrow': 'Заробкі • {{month}}',
   'forgotPassword.heading': 'Забыліся пароль?',
   'forgotPassword.subheading':
@@ -114,6 +116,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Адправіць паведамленне',
   'messages.thread.empty': 'Прывітайцеся — пачніце размову.',
   'messages.title': 'Тэмы з вашымі рэпетытарамі.',
+  'nav.primary': 'Пачатковая',
   'pricing.dataExport': 'Экспарт дадзеных:',
   'pricing.headingDefault': 'Пашыраныя функцыі:',
   'resetPassword.heading': 'Выберыце новы надзейны пароль.',

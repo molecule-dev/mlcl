@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.pageTitle': 'Maidir {{appName}}',
   'analytics.error': 'Níorbh fhéidir anailísíocht a lódáil.',
   'analytics.heading': 'Anailísíocht aisghabhála',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Níl aon leibhéil praghsála cumraithe.',
   'billing.plans.heading': 'Pleananna',
   'billing.subheading': 'Plean, úsáid, agus seiceáil amach faoi bhainistíocht Stripe.',
+  'common.confirm': 'Deimhnigh',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.retry': 'Déan iarracht eile',
   'documentCard.open': 'Oscail \\u2192',
   'documentDetail.back': 'Ar ais chuig na doiciméid',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Doiciméad innéacs',
   'documents.composer.titlePlaceholder': 'Teideal an doiciméid',
   'documents.emptyAll': 'Gan aon doiciméid fós. Uaslódáil ceann le tosú ag cur ceisteanna.',
+  'documents.error.load': 'Níorbh fhéidir na doiciméid a luchtú.',
   'documents.heading': 'Doiciméid innéacsaithe',
   'documents.loading': 'Ag lódáil doiciméid…',
   'documents.metric.chunks': 'Iomlán na bpíosaí',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Ag baint\\u2026',
   'members.subheading': 'Tabhair cuireadh do chomhghleacaithe foirne agus socraigh róil',
   'members.tableHeading': 'Clár',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'notFound.askCta': 'Fiafraigh den bhunachar eolais',
+  'notFound.body':
+    'Níorbh fhéidir le {{app}} an leathanach sin a aimsiú. B’fhéidir go bhfuil an nasc briste, nó b’fhéidir gur scoir an leathanach le linn athinnéacsú.',
   'notFound.eyebrow': 'Ní féidir aisghabháil',
   'notFound.title': 'Níl aon chuid den sórt sin san innéacs',
   'notifications.dismiss': 'Díbhe',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL Foinse',
   'sources.empty.body': 'Cliceáil \\u201cCuir foinse leis\\u201d chun do chéad nascóir a shreangú.',
   'sources.empty.title': 'Gan aon fhoinsí fós.',
+  'sources.error.add': 'Níorbh fhéidir foinse a chur leis.',
   'sources.error.labelRequired': 'Tá lipéad ag teastáil.',
   'sources.error.load': 'Níorbh fhéidir foinsí a luchtú.',
   'sources.error.urlRequired': 'Tá URL ag teastáil don chineál foinse seo.',

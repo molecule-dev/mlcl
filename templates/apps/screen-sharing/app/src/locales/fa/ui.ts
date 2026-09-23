@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'about.pageTitle': 'درباره {{appName}}',
   'analytics.empty': 'اولین کلیپ خود را ضبط کنید تا میزان تعامل را اینجا ببینید.',
@@ -39,9 +40,11 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'کلیپس',
   'billing.usage.views': 'بازدیدها',
   'billing.usage.views.unit': 'دیدگاه‌ها',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'landing.cta.title': 'بازخورد بهتری ارسال کنید. با گلینت شروع کنید.',
   'landing.feature.capture.body': 'ضبط در مرورگر، دسکتاپ و موبایل با میکروفون، دوربین و طراحی.',
   'landing.feature.capture.title': 'ضبط با یک لمس',
+  'landing.footer.copy': '© {{year}} {{appName}} . ناهمگام، درخشان.',
   'landing.hero.cardCaption': 'نمونه‌ای از نمای کلی فضای کاری - آن را رایگان امتحان کنید.',
   'landing.hero.primaryCta': 'شروع ضبط رایگان',
   'landing.hero.proof.free': 'ردیف رایگان برای همیشه',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'جستجوی ضبط‌ها',
   'library.searchPlaceholder': 'جستجوی فایل‌های ضبط شده…',
   'library.weeklyChange': '{{value}} درصد نسبت به هفته گذشته',
+  'nav.openMenu': 'منوی ناوبری را باز کنید',
   'nav.record': 'رکورد',
   'nav.shared': 'با من به اشتراک گذاشته شد',
   'nav.startRecording': 'شروع ضبط',

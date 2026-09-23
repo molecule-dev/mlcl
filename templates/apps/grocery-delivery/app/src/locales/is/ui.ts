@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Gefðu kaupandanum þjórfé',
   'checkout.tipLabel': 'Ábending',
   'checkout.zipPlaceholder': 'Póstnúmer',
+  'common.goToDashboard': 'Fara á yfirlit',
   'featuredProductsGrid.addAria': 'Bæta við {{name}} í körfu',
   'featuredProductsGrid.outOfStock': 'Uppselt',
   'forgotPassword.emailLabel': 'Netfang',
   'forgotPassword.emailPlaceholder': 'kaupandi@bushel.fresh',
   'forgotPassword.successBody':
     'Ef þetta netfang er skráð er tengill til að endurstilla það væntanlegur.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Aðalflakk',
   'landing.categoriesEyebrow': 'Göng',
   'landing.categoriesHeading': 'Versla eftir flokki',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Skipuleggðu vikulegar afhendingar með snjallri endurpöntun á heftum og rauntíma ökumannaeftirliti.',
   'landing.heroTitle': 'Ferskleiki heim að dyrum, innan nokkurra klukkustunda.',
   'landing.howEyebrow': 'Þrjú skref',
+  'landing.howItWorksHeading': 'Hvernig {{app}} virkar',
   'lists.addAllCta': 'Bæta öllu í körfu',
   'lists.createCta': 'Búðu til fyrsta listann þinn',
   'lists.createError': 'Gat ekki búið til lista.',

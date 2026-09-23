@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'about.pageTitle': 'Haqqımızda {{appName}}',
   'analytics.empty': 'Nişanı burada görmək üçün ilk klipinizi qeyd edin.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'kliplər',
   'billing.usage.views': 'Baxışlar',
   'billing.usage.views.unit': 'baxışlar',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'landing.cta.title': 'Daha yaxşı rəy göndərin. Glint ilə başlayın.',
   'landing.feature.capture.body':
     'Mikrofon, kamera və rəsm ilə brauzer, masaüstü və mobil səsyazma.',
   'landing.feature.capture.title': 'Bir toxunuşla çəkiliş',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asinxron, parlaq şəkildə hazırlanmışdır.',
   'landing.hero.cardCaption': 'İş sahəsinə dair nümunə icmal — pulsuz sınaqdan keçirin.',
   'landing.hero.primaryCta': 'Pulsuz qeyd etməyə başlayın',
   'landing.hero.proof.free': 'Əbədi Pulsuz Səviyyə',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Yazıları axtarın',
   'library.searchPlaceholder': 'Yazılarda axtarış...',
   'library.weeklyChange': '{{value}} Keçən həftə ilə müqayisədə %',
+  'nav.openMenu': 'Naviqasiya menyusunu açın',
   'nav.record': 'Qeyd',
   'nav.shared': 'Mənimlə paylaşıldı',
   'nav.startRecording': 'Yazmağa başlayın',

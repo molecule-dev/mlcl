@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, talba għal xi karatteristika, jew sibt xi bug? Ikkuntattja lit-tim tal {{app}} permezz tal-link tal-appoġġ fil-menu tal-kont tiegħek — kull messaġġ imur għand bniedem reali.',
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'agentDetail.back': 'L-aġenti kollha',
   'agentDetail.capabilities': 'Kapaċitajiet',
   'agentDetail.delete': 'Ħassar il-persona',
   'agentDetail.deleteConfirm': 'Tħassar din il-persona? Dan ma jistax jitneħħa.',
+  'agentDetail.deleteError': 'Ma stajtx inħassar il-persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Ma setgħetx titgħabba l-persona.',
   'agentDetail.save': 'Issejvja l-persona',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Qed jinbidel…',
   'billing.updateError': 'Ma setax jibda l-aġġornament.',
   'billing.usageHeading': "Użu tal-vuċi f'dan iċ-ċiklu",
+  'chatBubble.source.text': 'test',
+  'chatBubble.source.voice': 'vuċi',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'conversation.defaultTitle': 'Konverżazzjoni ġdida',
   'conversation.empty':
     "Għad m'hemm l-ebda messaġġ. Ibda billi tgħid xi ħaġa jew ittajpja hawn taħt.",
@@ -97,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelliġenza li titkellem.',
   'landing.heroSubtitle':
     'L-assistent tal-vuċi bl-AI li jifhem il-fluss naturali tiegħek. Ikkonversa, ideja, u kkmanda — bla xkiel.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Nisma’…',
   'landing.naturallyBody':
     "L-ebda kliem li jqanqal l-interess. L-ebda kmandi riġidi. Il-lingwaġġ jifhem il-kuntest, l-interruzzjonijiet, u n-nuanzi tad-diskors uman — bħal meta wieħed ikun qed jiċċettja ma' kollega.",
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Iftaħ sessjoni',
   'notFound.home': 'Lura d-dar',
   'notFound.title': 'Ma stajniex nisimgħu dik il-paġna.',
+  'parlanceLayout.closeMenu': 'Agħlaq il-menù',
+  'parlanceLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'parlanceLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'pricing.conversations': '{{count}} konversazzjonijiet',
   'pricing.cta.startFree': "Ibda b'xejn",
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'L-ebda taqbila',
   'search.eyebrow': 'Paletta tal-kmandi',
   'search.fetchError': 'Ma setax jitgħabba l-indiċi tat-tfittxija.',
+  'search.static.profile.preview': 'Isem tal-wiri, isem tal-utent, bijografija',
   'search.static.voice.title': 'Vuċi',
   'search.title': 'Fittex Lingwaġġ',
   'search.transcriptPreview': 'Iftaħ it-traskrizzjoni',

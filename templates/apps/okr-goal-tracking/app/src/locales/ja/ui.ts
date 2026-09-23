@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '私たちについて',
+  'ascentSideNav.nav.notifications': '通知',
   'ascentSideNav.newObjective': '新規目標',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     '頂上を定めましょう。登山を採点しましょう。チームをコーチングしましょう。',
   'authShell.eyebrow': 'チームを動かすOKR',
@@ -21,6 +24,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'ワークスペース · 請求',
   'billing.heading': 'プランと請求書',
   'billing.period.year': '年額',
+  'billing.perk.export': 'データエクスポート＋APIアクセス',
+  'billing.perk.inApp': 'アプリ内レポート',
+  'billing.perk.standard': '標準的なレビュー',
+  'billing.perk.unlimitedObjectives': '目標は無制限',
+  'billing.perk.unlimitedRetention': '無制限の保持',
   'billing.subheading':
     '現在{{name}}プランをご利用中です。プランを比較してアップグレードしてください。',
   'billing.tier.unavailable': '利用不可',
@@ -43,11 +51,13 @@ export const ui: UiTranslations = {
     '各KRの現在値を更新し、信頼度をマークし、1つのメモを残して送信してください。',
   'checkIn.submit': 'チェックインを送信',
   'checkIn.submittedMessage': 'チェックインが保存されました。進捗とタイムラインが更新されました。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.no': 'いいえ',
   'common.relative.daysAgo': '{{count}}日前',
   'common.relative.hoursAgo': '{{count}} 1時間前',
   'common.relative.justNow': 'たった今',
   'common.relative.minutesAgo': '{{count}}分前',
+  'common.retry': '再試行',
   'common.yes': 'はい',
   'common.you': 'あなた',
   'dashboard.allActivity': 'すべてのアクティビティを見る →',
@@ -91,6 +101,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     '{{email}}にリセットリンクを送信しました。1時間で期限切れになります — 受信トレイをしばらくお待ちください。',
   'forgotPassword.successHeading': '受信トレイをご確認ください。',
+  'keyResult.metrics.boolean': 'はい／いいえ',
+  'keyResult.metrics.currency': '通貨 $',
+  'keyResult.metrics.number': '番号',
+  'keyResult.metrics.percent': '％',
   'kpiSummaryCard.srLabel': '{{label}}: {{value}}',
   'landing.ctaBody':
     '最初の目標を設定し、3人のチームメイトを招待し、金曜日までに最初の週次チェックインを実行しましょう。',
@@ -102,6 +116,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'チームの登り方',
   'landing.featuresTitle': 'スプレッドシートの散在なしで、コーチング品質のOKR。',
   'landing.footerBuiltOn': 'Molecule.devで構築',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Ascentはすべてのチームに山を登る測定可能な道筋を提供します — 目標を設定し、毎週キーリザルトを採点し、毎四半期登山を振り返ります。',
   'landing.heroProgressLabel': 'Q2会社プラン',
@@ -111,6 +126,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'または次の方法で続行',
   'login.subheading':
     '中断したところから再開しましょう — チェックイン、KR、レビューが待っています。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.mainNavigation': 'メインナビゲーション',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'newObjective.addKr': 'KRを追加',
   'newObjective.coachLabel': 'コーチングリマインダー',
   'newObjective.descriptionPlaceholder': '戦略的な背景を2〜3文で説明してください。',
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'アクティビティセンター',
   'notifications.markRead': '● 既読にする',
   'objective.scopes.company': '会社',
+  'objective.scopes.individual': '個人',
   'objective.scopes.team': 'チーム',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': '目標一覧に戻る',
@@ -156,11 +175,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     '{{count}}個の目標を追跡中。ステータスでフィルタして、注目が必要なものを見つけてください。',
   'profile.achievementCheckInsMany': '{{count}}件のチェックインを記録',
+  'profile.achievementCheckInsOne': 'チェックイン記録1件',
+  'profile.achievementCompletedMany': '{{count}}個の目標を達成しました',
+  'profile.achievementCompletedOne': '目標を1つ達成しました',
+  'profile.achievementOnTrackMany': '{{count}}件の目標が順調に進んでいます',
+  'profile.achievementOnTrackOne': '1つの目標は順調に進んでいる',
   'profile.activeHeading': 'アクティブな目標',
   'profile.allObjectives': 'すべての目標 →',
   'profile.empty': 'まだアクティブな目標はありません — 最初のものを作成して始めましょう。',
   'profile.eyebrow': '登山者プロフィール',
   'profile.guestName': '登山者',
+  'profile.loadError': '目標を読み込めませんでした。',
   'profile.loading': '目標を読み込み中…',
   'profile.noAchievements': 'チェックインを完了して最初の実績を解除してください。',
   'profile.statCheckIns': 'チェックイン',

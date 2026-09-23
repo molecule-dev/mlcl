@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.eyebrow': 'O aplikácii {{app}}',
   'about.pageTitle': 'Každá trasa, jedno vyhľadávanie.',
   'booking.backToDetail': 'Späť na podrobnosti o lete',
   'booking.continue': 'Pokračovať k platbe',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Dane a poplatky',
   'booking.summary.travelers': 'Cestovatelia',
   'common.about': 'O nás',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'flightDetail.backToResults': 'Späť na výsledky',
   'flightDetail.baseFare': 'Základné cestovné',
   'flightDetail.book': 'Pokračovať k rezervácii',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 zastávka',
   'flightResultCard.select': 'Vyberte',
   'flightResultCard.totalLabel': 'Celkový čas',
+  'flightSearchLayout.primaryNavLabel': 'Hlavná navigácia',
   'forgotPassword.subheading':
     'Zadajte e-mailovú adresu vášho účtu Skylark a my vám pošleme bezpečný odkaz na obnovenie.',
   'forgotPassword.successBody':
     'Skontrolovať {{email}} pre odkaz na nastavenie nového hesla. Platnosť odkazu vyprší o 30 minút.',
   'forgotPassword.successHeading': 'Odkaz na obnovenie bol odoslaný',
   'landing.cta.explore': 'Skúste vyhľadávanie',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Nájdite ďalšie skvelé jedlo skôr ako všetci ostatní.',
   'landing.cta.signup': 'Začnite sledovať cestovné',
   'landing.features.eyebrow': 'Prečo Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Pridať upozornenie',
   'priceAlerts.deleteConfirm': 'Odstrániť toto upozornenie?',
   'priceAlerts.empty': 'Zatiaľ žiadne sledované trasy.',
+  'priceAlerts.emptyCta': 'Vyhľadať trasu na sledovanie',
   'priceAlerts.errorMessage': 'Nepodarilo sa načítať upozornenia.',
   'priceAlerts.eyebrow': 'Zoznam sledovaných zvierat Skylark',
   'priceAlerts.form.createError': 'Upozornenie sa nepodarilo vytvoriť.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerár pre viacero miest',
   'results.multiLegHeading': 'Noha {{n}} · {{od}} → {{do}} · {{dátum}}',
   'results.multiSummary': '{{count}} nohy · {{passengers}} cestovateľ',
+  'results.sortAriaLabel': 'Zoradiť výsledky podľa',
   'results.sortLabel': 'Zoradiť',
   'results.summary': '{{count}} lety · {{passengers}} cestovateľ',
   'settings.language.title': 'Jazyk',

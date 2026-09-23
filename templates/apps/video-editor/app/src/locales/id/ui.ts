@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Menemukan bug, memiliki permintaan fitur, atau ingin memberi tahu kami tentang film yang Anda edit? Setiap pesan akan sampai ke orang sungguhan di tim kami — hubungi kami kapan saja melalui pengaturan akun Anda.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.eyebrow': '// studio di balik potongan ini',
   'about.pageTitle': 'Tentang {{appName}}',
   'assetDetail.back': 'Kembali ke pustaka',
   'assetDetail.confirmDelete': 'Hapus "{{name}}"? Tindakan ini tidak dapat dibatalkan.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} klip, dasar audio, dan grafis siap diletakkan di linimasa.',
   'assetLibrary.title': 'Aset',
   'assetLibrary.upload': 'Tambah aset',
+  'common.goToDashboard': 'Ke Dashboard',
   'dashboard.browseTemplates': 'Jelajahi templat →',
   'dashboard.loading': 'Memuat proyek…',
   'dashboard.noProjects': 'Belum ada proyek — silakan buat satu untuk memulai.',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Pilih sesuatu yang hanya Anda yang akan ingat.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privasi',
+  'rushesLayout.closeMenu': 'Tutup navigasi',
   'rushesLayout.guest': 'Editor',
+  'rushesLayout.navDialog': 'Navigasi',
+  'rushesLayout.openMenu': 'Buka navigasi',
   'rushesLayout.planFree': 'Paket gratis',
   'rushesLayout.tagline': 'Linimasa sinematik',
   'settings.billing.confirmCancel': 'Batalkan langganan di akhir periode?',

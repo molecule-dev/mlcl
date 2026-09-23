@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.title': '{{app}} সম্পর্কে',
   'comments.addFailed': 'মন্তব্য পোস্ট করা যায়নি।',
   'comments.backToDoc': 'পাণ্ডুলিপিতে ফিরে যান',
   'comments.deleteFailed': 'মুছে ফেলা সম্ভব হয়নি।',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'comments.replyPlaceholder': 'উত্তর দিন…',
   'comments.resolve': 'সমাধান করুন',
   'comments.resolveFailed': 'সমাধান করা যায়নি।',
+  'comments.subtitle': '{{open}} খোলা · {{resolved}} সমাধান করা হয়েছে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.activityHeading': 'কী ঘটছে',
   'dashboard.createFailed': 'ডকুমেন্ট তৈরি করা যায়নি।',
   'dashboard.empty': 'এখনো কোনো পাণ্ডুলিপি নেই — নতুন ডকুমেন্ট বাটনটি দিয়ে শুরু করুন।',
@@ -53,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'ট্র্যাশে সরানো যায়নি।',
   'editor.unpublish': 'অপ্রকাশিত',
   'editor.untitled': 'শিরোনামহীন নথি',
+  'editor.updatedElsewhere':
+    'এই নথিটি অন্য কেউ হালনাগাদ করেছেন — সর্বশেষ সংস্করণটি দেখতে রিলোড করুন।',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'যদি একটি অ্যাকাউন্ট বিদ্যমান থাকে {{email}} একটি রিসেট লিঙ্ক পাঠানো হচ্ছে।',
   'forgotPassword.subtitle': 'আমরা আপনাকে একটি রিসেট লিঙ্ক ইমেল করব।',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . মলিকিউল দিয়ে নির্মিত।',
   'landing.ctaHeading': 'পৃষ্ঠাটি খুলুন। কার্সারটি চলতে দিন।',
   'landing.ctaPrimary': 'একটি স্টুডিও খুলুন',
   'landing.eyebrow': 'লেখক, সম্পাদক এবং দলগুলোর জন্য',
@@ -105,8 +112,10 @@ export const ui: UiTranslations = {
   'quillonAuthBrandPanel.presence': '{{count}} স্টুডিওতে সক্রিয় লেখকরা',
   'quillonAuthBrandPanel.quote':
     'লেখালেখিই একমাত্র কাজ, যা করার সময় আমার মনে হয় না যে আমার অন্য কিছু করা উচিত।',
+  'quillonDocumentCard.edited': 'সম্পাদিত {{when}}',
   'quillonDocumentCard.open': 'খুলুন →',
   'quillonKpiCard.trend': 'সাম্প্রতিক প্রবণতা',
+  'quillonLayout.menu': 'মেনু',
   'quillonLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'quillonStudioHero.collab': 'সহযোগীরা',
   'quillonStudioHero.docs': 'স্পর্শ করা নথি',
@@ -157,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'এইমাত্র',
+  'trash.confirmDelete': 'মুছে ফেলা নিশ্চিত করুন',
   'trash.deleteFailed': 'মুছে ফেলা সম্ভব হয়নি।',
   'trash.deleteForever': 'চিরতরে মুছে ফেলুন',
   'trash.empty': 'উদ্ধার করার মতো কিছুই নেই।',
+  'trash.emptyAll': 'ময়লা খালি করুন',
   'trash.eyebrow': 'স্টুডিও',
   'trash.heading': 'আবর্জনা',
   'trash.loadFailed': 'আবর্জনা লোড করা যায়নি।',

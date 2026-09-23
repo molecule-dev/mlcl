@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Решавање…',
   'comments.subtitle':
     'На {{count}} теми кои сè уште чекаат одговор или решение. Сортирани по возраст — прво најстарите, за ништо да не скапува.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'forgotPassword.sentTo': 'Ресетирај линк испратен до {{email}}',
   'forgotPassword.successSubheading':
     'Проверете го вашето сандаче — штотуку испративме линк за ресетирање. Истекува за 30 минути.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Нова страница',
   'pageTreeSidebar.workspaceHeader': 'Работен простор',
   'pageView.breadcrumb': 'Лебни трошки',
+  'pageView.confirmTrash': 'Да се фрли во ѓубре?',
   'pageView.home': 'Дома',
   'pageView.lastEdited': 'Ажурирано {{when}}',
   'pageView.loading': 'Се вчитува страницата…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Резимето на вештачката интелигенција не е конфигурирано за овој работен простор.',
   'pageView.tocTitle': 'На оваа страница',
+  'pageView.trash': 'Ѓубре',
+  'pageView.trashing': 'Се фрла во ѓубре…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Значки',
   'profile.owned.title': 'Сопствени страници',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Работен простор, профил, известувања, интеграции — сè во една мирна школка.',
   'settingsPage.workspace.defaultLanding': 'Стандарден целен екран',
   'settingsPage.workspace.landingHome': 'Дома',
+  'settingsPage.workspace.landingSpaces': 'Празници',
   'settingsPage.workspace.subdomainLabel': 'Поддомен',
   'settingsPage.workspace.title': 'Работен простор',
   'signup.eyebrow': 'Започнете нов работен простор',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин',
   'templates.subtitle':
     'Започнете страница од шаблон, а не од празно платно. Секој шаблон го кодира обликот за да можете да се фокусирате на содржината.',
+  'trash.confirmPurge': 'Чистење засекогаш?',
+  'trash.confirmPurgeAria': 'Потврди: трајно избриши {{title}}',
   'trash.daysUntilPurge': '{{days}} преостанати денови',
   'trash.empty.body': 'Избришаните страници ќе се појавуваат тука 30 дена пред да бидат избришани.',
   'trash.empty.title': 'Ѓубрето е празно.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Враќање…',
   'versionHistory.subtitle': '{{count}} верзии · изберете ред за да ја проверите разликата',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Затвори навигација',
+  'wikiLayout.menu': 'Навигација',
+  'wikiLayout.openMenu': 'Отвори навигација',
   'wikiLayout.searchPlaceholder': 'Пребарај Керн — страници, коментари…',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// אודות {{app}}',
+  'about.pageTitle': 'מישור הבקרה של ה-webhook',
+  'about.plansTitle': 'תוכניות לכל שלב',
   'apiKeys.bestPractices': 'שיטות עבודה מומלצות',
   'apiKeys.body':
     'אסימוני גישה פרוגרמטיים. התייחסו אליהם כמו לסיסמאות - אחסו אותם ב-env variaries, לעולם לא בצעו commit.',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'בתוך התוכנית',
   'billing.usageWarning': 'קרוב למכסה',
   'billing.yearly': 'שְׁנָתִי',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.body':
     'תפוקה בזמן אמת, ניסיונות חוזרים בזמן אמת, ונקודות הקצה שזה עתה נתקעו - בכל סביבת עבודה שאתם מפעילים.',
   'dashboard.endpointsEmpty': 'עדיין אין נקודות קצה.',
@@ -104,6 +108,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'נקודות קצה',
   'endpointDetail.deliveryTrendSub': 'משלוחים / שעה, קנה מידה של יומן',
   'endpointDetail.hideSecret': 'הסתר סוד',
+  'endpointDetail.loading': 'טוען נקודת קצה...',
   'endpointDetail.metric.delivered': 'נמסר תוך 24 שעות',
   'endpointDetail.metric.deliveredCaption': 'מִן {{count}} סוגי אירועים',
   'endpointDetail.metric.lastDeliveryCaption.none': 'מחכה לאירוע הראשון',
@@ -204,6 +209,7 @@ export const ui: UiTranslations = {
   'notifications.metric.totalCaption': 'תיבת הדואר הנכנס בכל הזמנים',
   'payloadViewer.payload': '// מטען',
   'planUpdated.eyebrow': 'אפליקציה · מנוי',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'profile.avatarHeader': 'גִלגוּל',
   'profile.avatarHint': 'ראשי תיבות המוצגים - העלאות שיגיעו עם הגרסה הבאה.',
   'profile.body': 'החשבון, ההעדפות והסשנים הפעילות שלך.',
@@ -218,6 +224,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ נשמר',
   'profile.sessionsEmpty': 'רק הסשן הנוכחי שלך פעיל. אין מכשירים אחרים מחוברים.',
   'profile.toggle': 'לְמַתֵג {{label}}',
+  'pylonShell.closeMenu': 'סגור את תפריט הניווט',
+  'pylonShell.openMenu': 'פתח את תפריט הניווט',
   'pylonShell.primaryNavLabel': 'ניווט ראשי',
   'resetPassword.subtitle': 'בחרו סיסמה חזקה שלא השתמשתם בה בעבר.',
   'resetPassword.tokenPlaceholder': 'הדבקה מהאימייל',

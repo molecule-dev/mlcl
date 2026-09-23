@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '關於 {{app}}',
+  'auth.legalConsent': '繼續即表示您同意我們的',
   'bookings.empty.body': '新增航班、飯店或活動，即可開始收件匣。',
   'bookings.empty.heading': '目前尚無預約。',
   'bookings.errors.create': '無法建立預訂。',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': '確認的',
   'bookings.summary.pending': '等待確認',
   'bookings.summary.total': '總承諾',
+  'bookings.type.car': '租車',
+  'bookings.type.flight': '航班',
+  'bookings.type.hotel': '飯店',
   'bookings.type.other': '其他',
   'budgetSpendCard.budgetTotal': '的{{total}}計劃',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -32,6 +38,7 @@ export const ui: UiTranslations = {
   'calendar.prevMonth': '上個月',
   'calendar.subheading': '發現衝突，安排行程之間的休息日，並查看合作者何時與你一起旅行。',
   'common.and': '以及',
+  'common.goToDashboard': '前往主控台',
   'dashboard.budgetHeading': '預算脈搏',
   'dashboard.empty.heading': '暫無行程－您的地圖冊是空白的。',
   'dashboard.eyebrow': '任務控制中心',
@@ -40,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': '旅途中的',
   'dashboard.viewAllExpenses': '查看每一筆費用',
   'dashboard.viewAllTrips': '查看每次旅行',
+  'dayTimelineRow.category.accommodation': '停留',
   'dayTimelineRow.category.transport': '運輸',
   'destinationOrbCard.exploreCta': '加入行程中',
   'destinationOrbCard.tripCount': '{{count}}旅行',
@@ -76,11 +84,15 @@ export const ui: UiTranslations = {
   'forgotPassword.submitPending': '發送恢復郵件…',
   'forgotPassword.successHint': '還沒收到郵件？請檢查您的垃圾郵件資料夾，或嘗試使用其他郵箱地址。',
   'forgotPassword.successSubheading': '我們已發送恢復連結至{{email}}連結有效期限為30分鐘。',
+  'landing.cta.heading': '{{tagline}}。',
   'landing.cta.signup': '建立免費帳戶',
+  'landing.cta.subheading':
+    '免費方案最多支援 5 次行程、5 位合作者和 5 個站點，並包含即時同步功能；而 Pro 計劃會在您的計劃擴展時解除限制。',
   'landing.destinations.eyebrow': '接下來要去哪裡',
   'landing.destinations.heading': '編輯精選目的地',
   'landing.features.eyebrow': 'Waypoint 的工作原理',
   'landing.features.heading': '專為旅行者打造，而非電子表格。',
+  'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': '開啟免費之旅',
   'landing.hero.ctaSecondary': '查看範例行程',
   'landing.hero.subtitle':
@@ -120,6 +132,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': '艾瑞絲·拉森',
   'signup.subheading':
     '建立帳戶即可與最多 5 位合作者分享行程、同步預訂，並將所有確認資訊集中到一個地方。',
+  'signup.termsPrefix': '建立帳戶即表示您同意我們的條款',
   'tripCountdownHeroCard.budget': '{{used}}的{{total}} （ {{pct}}預算百分比）',
   'tripCountdownHeroCard.collaborators': '{{count}}旅行者',
   'tripCountdownHeroCard.countdownLabel': '倒數計時',
@@ -191,5 +204,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': '目前還沒有行程安排。',
   'trips.pastHeading': '過去的冒險',
   'trips.subheading': '{{count}}行程安排——過去、現在和未來。',
+  'waypointLayout.mobileNavClose': '關閉導覽選單',
   'waypointLayout.primaryNavLabel': '主導航',
 }

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Холбоо барих',
+  'about.title': '{{app}}-ийн тухай',
   'authShell.backToLanding': '← Буух газар руу буцах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
+  'common.retry': 'Дахин оролдох',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Өнөөдөр · Үйл ажиллагааны тойм',
   'dashboard.heading': 'Баримт бичгийн тагнуул',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Одоогийн шүүлтүүртэй тохирох баримт бичиг алга.',
   'documents.heading': 'Бүх баримт бичиг',
   'documents.loadError': 'Баримт бичгийг ачаалж чадсангүй.',
+  'documents.loading': 'Номын санг ачаалж байна…',
   'documents.searchLabel': 'Баримт бичгүүдийг хайх',
   'documents.searchPlaceholder': 'Баримт бичгүүдийг хайх...',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Нууц үгийг нуух',
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.subtitle': 'Баримт бичгүүдээ урсгалтай байлгахын тулд нэвтэрнэ үү.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'notFound.body':
     'Таны нээхийг оролдсон баримт бичиг эсвэл маршрут энд байхгүй байна. Хянах самбар руу буцах эсвэл хажуугийн самбараас хэсгийг сонгоно уу.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Буух хуудсыг нээх',
   'notFound.title': 'Энэ хуудас файлд байхгүй байна',
   'parcelaHeroCard.change': '{{sign}} {{amount}} өчигдөртэй харьцуулахад %',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Одоогоор бүртгэлийн дүрэм алга байна. Шинэ дүрэм нэмэхийн тулд шинэ дүрмийг ашиглана уу.',
   'rules.eyebrow': 'Автоматжуулалт',
+  'rules.fieldsCount': '{{count}} талбар',
   'rules.form.destination': 'Файл руу',
   'rules.form.name': 'Дүрмийн нэр',
   'rules.form.save': 'Дүрмийг хадгалах',

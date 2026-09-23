@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.eyebrow': 'Tungkol sa {{app}}',
+  'about.intro':
+    '{{app}} ay isang meditation app para sa totoong buhay — mga pang-araw-araw na ginagabayang meditasyon, paghinga, at mga kwento sa pagtulog na pinapatakbo ng mga guro na parang isang kaibigan, hindi isang coach. Walang streak guilt, walang maingay na pagkain: isang tahimik na lugar lamang para bumalik sa iyong paghinga.',
+  'about.missionBody':
+    'Naniniwala kami na ang katahimikan ay dapat na ma-access ng lahat, anumang sandali ng araw. {{app}} ay umiiral upang gawing madali ang isang kalmado at pare-parehong pagsasanay — upang ang sampung tapat na minuto ay makapagpabago kung paano mo hinaharap ang susunod na sampung oras.',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.pageTitle': 'Mas kalmadong 10 minuto sa isang araw',
+  'breathingDial.seconds': 'segundo',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.logout': 'Mag-log out',
   'common.min': 'minuto',
   'common.relative.justNow': 'ngayon lang',
   'common.relative.now': 'ngayon',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'nav.secondaryNavigation': 'Pag-navigate sa account',
   'sessionCard.with': 'kasama {{name}}',
   'stillpoint.billing.choose': 'Pumili {{plan}}',
   'stillpoint.billing.currentPlan': 'Kasalukuyang naka-on {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Hindi namin ma-load ang mga plano.',
   'stillpoint.billing.opening': 'Binubuksan ang pag-checkout…',
   'stillpoint.billing.perMonthShort': '/ buwan',
+  'stillpoint.billing.perYearShort': '/taon',
   'stillpoint.billing.unknownResult': 'Hindi inaasahang tugon sa pagsingil.',
   'stillpoint.billing.yearly': 'Taunan · makatipid ng 17%',
   'stillpoint.courseDetail.back': 'Mga Kurso',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Wala pang mga kurso.',
   'stillpoint.courses.eyebrow': '{{count}} mga paglalakbay na maraming araw',
   'stillpoint.courses.heading': 'Mga Kurso',
+  'stillpoint.forgot.checkEmail':
+    'Tingnan ang iyong inbox — mag-e-expire ang link sa loob ng 30 minuto.',
   'stillpoint.forgot.success': 'Nagpadala na kami ng link sa pag-reset sa {{email}} .',
   'stillpoint.home.empty': 'Wala pang mga sesyon — bumalik muli sa lalong madaling panahon.',
   'stillpoint.home.friend': 'kaibigan',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Gumawa ng libreng account',
   'stillpoint.landing.cta.title': 'Simulan ang iyong katahimikan ngayon',
   'stillpoint.landing.features.heading': 'Isang kasanayang lumalago kasabay mo',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Mga pang-araw-araw na ginabayang meditasyon, paghinga, at mga kwentong pampatulog — pinapatakbo ng mga gurong parang isang kaibigan, hindi isang coach.',
   'stillpoint.landing.hero.eyebrow': 'Mas kalmadong 10 minuto sa isang araw',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Mag-browse ayon sa mood',
   'stillpoint.login.rememberMe': 'Panatilihin akong naka-sign in',
   'stillpoint.login.subheading': 'Mag-sign in para ipagpatuloy ang iyong pagsasanay.',
+  'stillpoint.nav.tagline': 'Hanapin ang iyong still center',
+  'stillpoint.notFound.body':
+    'Huminga nang malalim ang pahinang ito sa kung saan. Maghanap tayo ng mas tahimik na lugar para sa iyo sa {{app}} .',
   'stillpoint.notFound.title': 'Nawala sa katahimikan',
   'stillpoint.notFound.toHome': 'Balik sa ngayon',
   'stillpoint.notFound.toLibrary': 'Mag-browse sa library',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Laktawan pabalik ang 15s',
   'stillpoint.player.skipForward': 'Laktawan ang 30s pasulong',
   'stillpoint.player.with': 'kasama {{name}}',
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'Ang iyong pagsasanay, buod.',
   'stillpoint.profile.locked': 'Naka-lock',
   'stillpoint.profile.member': 'Miyembro ng Stillpoint',

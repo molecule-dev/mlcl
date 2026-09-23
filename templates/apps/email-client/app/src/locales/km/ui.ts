@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'យើងជាក្រុមអ្នករចនា និងវិស្វករដែលបែកខ្ញែកគ្នា ដែលធ្លាប់ចំណាយពេលច្រើនម៉ោងក្នុងមួយថ្ងៃនៅក្នុងប្រអប់សំបុត្រដែលមានសំឡេងរំខាន។ Courier គឺជាប្រអប់សំបុត្រដែលយើងចង់ប្រើប្រាស់ដោយខ្លួនឯង។',
   'about.title': 'អ៊ីមែលសម្រាប់ការងារដែលផ្តោតអារម្មណ៍',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'help.cta.about': 'អំពីមេរីឌាន',
   'help.cta.pricing': 'មើលតម្លៃ',
   'help.eyebrow': 'មជ្ឈមណ្ឌលជំនួយ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'ចម្លើយរហ័សចំពោះសំណួរដែលយើងឮញឹកញាប់បំផុត។ មានអ្វីបាត់ទេ? សូមបើកការកំណត់ ហើយប្រើទម្រង់មតិកែលម្អក្នុងកម្មវិធី ឬសរសេរទៅកាន់ support@courier.example។',
   'help.title': 'តើយើងអាចជួយដោយរបៀបណា?',
   'landing.brand.scrollTop': 'ត្រឡប់ទៅផ្នែកខាងលើ',
+  'landing.copyright': '© {{year}} {{appName}} — បង្កើតឡើងសម្រាប់ការផ្តោតអារម្មណ៍។',
   'landing.ctaBody':
     'ចូលរួមជាមួយអ្នកជំនាញរាប់ពាន់នាក់ដែលបានបញ្ចប់ប្រអប់សំបុត្ររបស់ពួកគេមុនពេលអាហារថ្ងៃត្រង់។',
   'landing.ctaTitle': 'ដំណើរការ​ច្រើន ប្រតិកម្ម​តិច។',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'មើលការបង្ហាញ',
   'landing.heroSubtitle':
     'Courier គឺជាប្រអប់ទទួលសារដែលមានបីបន្ទះដ៏ស្ងប់ស្ងាត់មួយ ដែលបង្កើតឡើងសម្រាប់អ្នកធ្វើការផ្នែកចំណេះដឹង ដែលចង់ដំណើរការព័ត៌មាន មិនមែនប្រតិកម្មចំពោះវាទេ។',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ទទួលបានការទុកចិត្តពីក្រុមការងារដែលផ្តោតអារម្មណ៍ទូទាំងពិភពលោក',
   'landing.signIn': 'ចូល',
   'meridian.archive.empty': 'ប័ណ្ណសារទទេ។',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'សេចក្តីព្រាង',
   'meridian.folder.count': '{{count}} សារ',
+  'meridian.folder.delete': 'លុប',
   'meridian.folder.deleteForever': 'លុប​ជា​អចិន្ត្រៃយ៍',
   'meridian.folder.restore': 'ផ្លាស់ទីទៅប្រអប់សំបុត្រ',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'មិនទាន់មានសារនៅទីនេះនៅឡើយទេ។',
   'meridian.inbox.loading': 'កំពុងផ្ទុក…',
   'meridian.inbox.next': 'បន្ទាប់',
+  'meridian.inbox.noSender': '(គ្មានអ្នកផ្ញើ)',
   'meridian.inbox.noSubject': '(គ្មានប្រធានបទ)',
+  'meridian.inbox.ofTotal': '{{current}} នៃ {{total}}',
   'meridian.inbox.openCompose': 'បើក​ការ​សរសេរ',
   'meridian.inbox.previous': 'មុន',
   'meridian.inbox.replyFailed': 'ការឆ្លើយតបត្រូវបានរក្សាទុក ប៉ុន្តែការដឹកជញ្ជូនបរាជ័យ៖ {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'មិនមានគណនីទេឬ?',
   'meridian.login.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'meridian.message.toLine': 'ទៅ {{recipients}}',
+  'meridian.notFound.body':
+    'រកមិនឃើញទំព័រដែលអ្នកកំពុងស្វែងរកទេ។ សូមត្រឡប់ទៅប្រអប់សំបុត្រ {{appName}} របស់អ្នកវិញ ហើយយើងនឹងជួយអ្នក។',
   'meridian.notFound.eyebrow': 'កំហុស ៤០៤',
   'meridian.notFound.title': 'ខ្សែស្រឡាយនេះត្រូវបានទុកក្នុងប័ណ្ណសារ។',
   'meridian.notFound.toInbox': 'បើកប្រអប់សំបុត្ររបស់ខ្ញុំ',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'បន្ថែមផ្កាយ',
   'meridian.thread.unstar': 'ដកផ្កាយចេញ',
   'meridian.time.yesterday': 'ម្សិលមិញ',
+  'meridian.topBar.openMenu': 'បើកម៉ឺនុយរុករក',
   'meridian.topBar.searchPlaceholder': 'ស្វែងរកសំបុត្រ',
   'meridian.trash.empty': 'សំរាមទទេ។',
   'meridian.trash.title': 'សំរាម',
   'nav.legal': 'ផ្នែកច្បាប់',
   'planUpdated.description':
     'ការជាវរបស់អ្នកឥឡូវនេះសកម្មហើយ ហើយការគិតថ្លៃរបស់អ្នកត្រូវបានធ្វើបច្ចុប្បន្នភាព។ សូមស្វាគមន៍មកកាន់ប្រអប់សំបុត្រ Courier ដែលបានធ្វើឱ្យស្រស់របស់អ្នក។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.heading': 'សេចក្តីព្រាង',
   'pricing.limit.emails': 'អ៊ីមែល',
   'pricing.limit.folders': 'ថតឯកសារ',
   'pricing.limit.labels': 'ស្លាក',
   'privacy.collect.account':
     'ទិន្នន័យគណនី៖ ឈ្មោះ អាសយដ្ឋានអ៊ីមែល ពាក្យសម្ងាត់ដែលបានអ៊ិនគ្រីប និងកាលបរិច្ឆេទដែលអ្នកបានចុះឈ្មោះ។',
+  'privacy.contact': 'មានសំណួរទេ? ផ្ញើអ៊ីមែលទៅ privacy@courier.example។',
   'privacy.intro':
     'គោលការណ៍ឯកជនភាពនេះពន្យល់អំពីទិន្នន័យដែល Courier ប្រមូល ហេតុអ្វីយើងប្រមូលវា របៀបដែលយើងរក្សាវាឱ្យមានសុវត្ថិភាព និងជម្រើសអ្វីខ្លះដែលអ្នកមានលើវា។ យើងមានគោលបំណងធ្វើឱ្យជាក់លាក់ជំនួសឱ្យការអនុលោមតាមច្បាប់។ ប្រសិនបើមានអ្វីមួយមិនច្បាស់លាស់ សូមសរសេរទៅកាន់ privacy@courier.example។',
   'privacy.lastUpdated': 'កែប្រែចុងក្រោយ៖ ថ្ងៃទី 1 ខែមេសា ឆ្នាំ 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'លក្ខខណ្ឌទាំងនេះគ្រប់គ្រងការប្រើប្រាស់ Courier របស់អ្នក។ តាមរយៈការបង្កើតគណនី ឬការផ្ញើអ៊ីមែលតាមរយៈយើង អ្នកយល់ព្រមឱ្យពួកគេចងភ្ជាប់ជាមួយលក្ខខណ្ឌទាំងនោះ។ យើងព្យាយាមសរសេរច្បាប់ដែលមនុស្សម្នាក់អាចអនុវត្តតាមបាន។',
   'terms.lastUpdated': 'មានប្រសិទ្ធភាព៖ ថ្ងៃទី 1 ខែមេសា ឆ្នាំ 2026',
+  'terms.linkPrivacy': 'សូមអានគោលការណ៍ឯកជនភាពរបស់យើង →',
   'terms.termination.body':
     'អ្នកអាចលុបគណនីរបស់អ្នកនៅពេលណាក៏បាន។ យើងអាចផ្អាកគណនីដែលរំលោភលើលក្ខខណ្ឌទាំងនេះ។ ប្រសិនបើយើងធ្វើ យើងនឹងពន្យល់ពីមូលហេតុ ហើយអនុញ្ញាតឱ្យអ្នកនាំចេញទិន្នន័យរបស់អ្នកជាមុនសិន។',
   'terms.warranty.body':

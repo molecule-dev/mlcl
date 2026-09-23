@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับเรา',
   'activityFeed.empty': 'ยังไม่มีการดำเนินการใดๆ — โปรดส่งใบแจ้งหนี้ฉบับแรกของคุณ',
   'authShell.sample.paid': 'ชำระเงินเมื่อ 2 นาทีที่แล้ว',
@@ -29,6 +30,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'เพิ่มลูกค้ารายใหม่',
   'clients.search': 'ค้นหาตามชื่อ บริษัท หรืออีเมล',
   'clients.title': 'ลูกค้า',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'ลูกค้าใหม่',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'ลืมรหัสผ่าน',
   'forgotPassword.successBody':
     'เราได้ส่งคำแนะนำในการรีเซ็ตไปให้แล้ว {{email}} ลิงก์นี้จะหมดอายุใน 30 นาที',
+  'invoiceDetail.action.confirmVoid': 'ยืนยันการยกเลิก?',
   'invoiceDetail.action.download': 'ดาวน์โหลด PDF',
   'invoiceDetail.action.duplicate': 'ทำซ้ำ',
   'invoiceDetail.action.edit': 'แก้ไข',
@@ -73,9 +76,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'ใบแจ้งหนี้ถูกยกเลิกแล้ว',
   'invoiceDetail.issued': 'ออกให้แล้ว {{date}}',
   'invoiceDetail.loading': 'กำลังโหลดใบแจ้งหนี้…',
+  'invoiceDetail.paidInFull': 'ชำระเงินเต็มจำนวนแล้ว',
   'invoiceDetail.summary': '{{client}} · ส่งแล้ว {{date}}',
   'invoiceDetail.tax': 'ภาษี ( {{rate}} %)',
   'invoiceDetail.timeline': 'ไทม์ไลน์',
+  'invoiceDetail.voided': 'เป็นโมฆะ',
   'invoiceEditor.addItem': 'เพิ่มรายการ',
   'invoiceEditor.back': '← กลับไปที่ใบแจ้งหนี้',
   'invoiceEditor.col.qty': 'จำนวน',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'ส่งใบแจ้งหนี้ฉบับแรกของคุณ',
   'landing.hero.eyebrow': 'การออกใบแจ้งหนี้สำหรับธุรกิจขนาดเล็ก',
   'landing.hero.secondary': 'ดูตัวอย่างใบแจ้งหนี้',
+  'landing.hero.subtitle':
+    '{{appName}} ผสานรวมใบแจ้งหนี้ที่ดูดีเข้ากับระบบชำระเงินในตัว การเรียกเก็บเงินแบบต่อเนื่อง และรายงานที่พร้อมสำหรับการยื่นภาษี โดยไม่ต้องเสียเวลาทำบัญชี',
   'landing.hero.title': 'ส่งใบแจ้งหนี้ รับเงินเร็วขึ้น',
   'login.signupLink': 'สร้างหนึ่งรายการ',
   'login.submitting': 'กำลังเข้าสู่ระบบ…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'การชำระเงิน',
   'pricing.recurringLabel': 'ตารางเวลาที่เกิดขึ้นซ้ำ',
   'remitLayout.newInvoice': 'ใบแจ้งหนี้ใหม่',
+  'remitLayout.openMenu': 'เปิดเมนูนำทาง',
   'remitLayout.searchPlaceholder': 'ค้นหาใบแจ้งหนี้ ลูกค้า...',
   'remitLayout.tagline': 'รับเงินเร็วขึ้น',
   'reports.chart.aging': 'การวิเคราะห์อายุใบแจ้งหนี้',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'รายได้ประจำงวด',
   'reports.chart.topClients': 'ลูกค้าชั้นนำ',
   'reports.chart.topClientsCaption': 'รายได้ตลอดชีพ 5 อันดับแรก',
+  'reports.empty.aging': 'ไม่มีใบแจ้งหนี้ค้างชำระ',
+  'reports.empty.methods': 'ยังไม่มีข้อมูลการชำระเงิน',
+  'reports.empty.revenue': 'ยังไม่มีข้อมูลรายได้',
+  'reports.empty.topClients': 'ยังไม่มีข้อมูลรายได้จากลูกค้า',
   'reports.exporting': 'กำลังส่งออก…',
   'reports.exportRequiresPaid':
     'การส่งออกเป็นฟีเจอร์แบบเสียค่าใช้จ่าย — โปรดอัปเกรดเพื่อเปิดใช้งาน',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ เพิ่มอัตราภาษี',
   'settings.tax.added': 'เพิ่มอัตราภาษีแล้ว',
   'settings.tax.adding': 'เพิ่ม…',
+  'settings.tax.addRate': 'เพิ่มอัตรา',
   'settings.tax.col.region': 'ภูมิภาค',
   'settings.tax.delete': 'ลบอัตราภาษี',
   'settings.tax.deleted': 'ยกเลิกอัตราภาษีแล้ว',

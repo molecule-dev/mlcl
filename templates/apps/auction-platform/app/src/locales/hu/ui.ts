@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Figyelés',
   'auctionDetail.watchRemoved': 'Eltávolítva a figyelőlistáról.',
   'auctionDetail.watchRemoveLabel': 'Eltávolítás a figyelőlistáról',
+  'auctionPlatformLayout.primaryNavLabel': 'Elsődleges navigáció',
   'authShell.brandBody':
     'Licitáljon valós időben ritka órákon, szépművészeti alkotásokon és egyedi különleges tárgyakon. A kalapács másodpercek alatt esik.',
   'authShell.brandEyebrow': 'Most élőben · 1 420 aukció',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Rendezés',
   'browseAuctions.subheading':
     'Szűrjön kategória szerint, rendezzen a legfontosabb szerint, és adjon ajánlatot, mielőtt a kalapács esik.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'countdownTimer.ended': 'Véget ért',
   'countdownTimer.endingSoon': 'Lejár',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Jelszó elrejtése',
   'login.showPassword': 'Jelszó megjelenítése',
   'login.subtext': 'Kövesse tovább az aukcióit, és adjon ajánlatot, mielőtt a kalapács esik.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'myBids.bidAgain': 'Újabb ajánlat',
   'myBids.browseCta': 'Élő aukciók böngészése →',
   'myBids.checkoutCta': 'Fizetés most',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Még nincsenek értesítések.',
   'notificationsPage.eyebrow': 'Tevékenységközpont',
   'notificationsPage.subheading': '{{count}} olvasatlan · élő frissítések az aukciók mozgásakor',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.bidsLabel': 'ajánlatok',
   'pricing.listingsLabel': 'hirdetés',
   'pricing.watchlistLabel': 'figyelőlista',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'auth.forgotPassword.emailPlaceholder': 'nama@perusahaananda.com',
   'auth.forgotPassword.heading': 'Atur ulang kata sandi Anda.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Tandai tugas selesai',
   'checklistTaskCard.markIncomplete': 'Tandai tugas belum selesai',
   'checklistTaskCard.openLabel': 'Buka tugas',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Anda sudah menyelesaikan semuanya',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Sesuai jalur',
   'dashboard.timelineHeading': 'Tonggak 30/60/90',
   'dashboard.viewAllTasks': 'Lihat semua tugas',
+  'dashboard.weekOne': 'Minggu 1',
   'dashboard.yourCohort': 'Tim Anda',
   'documents.empty.body': 'Dokumen yang ditambahkan oleh tim Anda akan muncul di sini.',
   'documents.empty.title': 'Belum ada dokumen',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Uji coba gratis 14 hari',
   'landing.subhead':
     'Embark memandu setiap rekan tim baru melalui 90 hari pertama mereka — dokumen, pelatihan, tonggak, dan perkenalan yang bermakna, semuanya di satu tempat yang tenang dan percaya diri.',
+  'layout.openMenu': 'Buka menu navigasi',
   'layout.search': 'Cari tugas, dokumen, rekan tim…',
+  'layout.searchTeammates': 'Cari rekan tim berdasarkan nama atau peran…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Perjalanan Anda dimulai di sini',
   'notifications.empty.body': 'Aktivitas baru akan muncul di sini.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Kemarin',
   'planUpdated.message': 'Anda sudah siap.',
   'planUpdated.preparing': 'Memperbarui paket Anda…',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.documentsLabel': 'dokumen',
   'pricing.onboardingsLabel': 'onboarding',
   'pricing.tasksLabel': 'tugas',

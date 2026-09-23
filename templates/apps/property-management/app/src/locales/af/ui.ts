@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.tagline': 'Elke eenheid, onder een dak.',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.addProperty': 'Voeg eiendom by',
   'dashboard.empty.body':
     'Sodra jy eiendomme, eenhede en huurbetalings het, vul hierdie dashboard met portefeulje-insigte.',
@@ -85,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{eiendom}} · Eenheid {{eenheid}} · {{datum}}',
   'maintenanceQueueList.subtitle': '{{count}} oop werkorders, georden volgens prioriteit',
   'maintenanceQueueList.title': 'Onderhoudswaglys',
+  'nav.closeMenu': 'Maak spyskaart toe',
+  'nav.openMenu': 'Maak spyskaart oop',
   'notFound.body':
     'Die bladsy waarna jy gesoek het, is geskuif, geargiveer of het nooit bestaan nie.',
   'notFound.title': 'Daardie deur maak nie oop nie',

@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'activity.empty': 'තවම ක්‍රියාකාරකමක් නැත — උපාංගයක් පෙරළන්න හෝ දර්ශනයක් සක්‍රිය කරන්න.',
   'activity.eyebrow': 'කාලරේඛාව',
   'activity.loadError': 'ක්‍රියාකාරකම් සංග්‍රහය පූරණය කළ නොහැකි විය.',
   'activity.subheading':
     'සෑම උපාංගයක්ම, ස්වයංක්‍රීයකරණයක් සහ ආරක්ෂක සිදුවීමක්ම කාලානුක්‍රමික අනුපිළිවෙලට.',
+  'addDevice.error.failed': 'උපාංගය එක් කිරීමට නොහැකි විය. නැවත උත්සාහ කරන්න.',
   'addDevice.error.nameRequired': 'ඉදිරියට යාමට මෙම උපාංගයට නමක් දෙන්න.',
   'addDevice.field.firmware': 'ස්ථිරාංග අනුවාදය',
   'addDevice.field.manufacturer': 'නිෂ්පාදක',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'පරීක්ෂා කරමින්...',
   'automationEditor.testNew': 'එය පරීක්ෂා කිරීමට පළමුව ස්වයංක්‍රීයකරණය සුරකින්න.',
   'automationRow.lastRun': 'අවසන් {{date}} · {{count}} දුවනවා',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'දුවන්න {{name}} දැන්',
   'automations.empty': 'තවමත් ස්වයංක්‍රීයකරණයන් නොමැත — ඔබේ පළමු චර්යාව සාදන්න.',
   'automations.eyebrow': 'දිනචරියාවන්',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ස්වයංක්‍රීයකරණයන් පූරණය වෙමින්…',
   'automations.newAutomation': '+ නව',
   'automations.subheading': 'මෙය සිදු වූ විට, එය කරන්න - YAML නොමැතිව.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'උපාංගය පූරණය කිරීමට අසමත් විය.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'වැඩ කරමින්…',
   'deviceDetail.unnamed': 'උපාංගය',
   'deviceStatusRow.on': 'ක්‍රියාත්මකයි',
+  'deviceStatusRow.turnOff': 'නිවා දමන්න',
+  'deviceStatusRow.turnOn': 'ක්රියාත්මක කරන්න',
   'deviceStatusRow.watts': '{{watts}} ස',
   'energy.eyebrow': 'බලය',
   'energy.heading': 'ශක්තිය',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'සැලසුම් බලන්න',
   'settings.security.heading': 'ආරක්ෂාව',
   'settings.subheading': 'සැලැස්ම, මධ්‍යස්ථාන සහ ගිණුම් මනාපයන්.',
+  'smartHomeDashboardLayout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
 }

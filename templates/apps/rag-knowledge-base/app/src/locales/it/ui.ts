@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.pageTitle': 'Informazioni su {{appName}}',
   'analytics.error': 'Impossibile caricare le analisi.',
   'analytics.heading': 'Analisi del recupero',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nessun piano tariffario configurato.',
   'billing.plans.heading': 'Piani',
   'billing.subheading': 'Piano, utilizzo e checkout gestito da Stripe.',
+  'common.confirm': 'Conferma',
+  'common.goToDashboard': 'Vai alla Dashboard',
+  'common.retry': 'Riprova',
   'documentCard.open': 'Apri →',
   'documentDetail.back': 'Torna ai documenti',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indicizza documento',
   'documents.composer.titlePlaceholder': 'Titolo del documento',
   'documents.emptyAll': 'Ancora nessun documento. Ne carichi uno per iniziare a porre domande.',
+  'documents.error.load': 'Impossibile caricare i documenti.',
   'documents.heading': 'Documenti indicizzati',
   'documents.loading': 'Caricamento documenti…',
   'documents.metric.chunks': 'Chunk totali',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Rimozione in corso…',
   'members.subheading': 'Inviti colleghi e imposti i ruoli.',
   'members.tableHeading': 'Elenco',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'notFound.askCta': 'Interroghi la knowledge base',
+  'notFound.body':
+    '{{app}} non è riuscita a trovare quella pagina. Il link potrebbe essere interrotto oppure la pagina potrebbe essere stata rimossa durante una reindicizzazione.',
   'notFound.eyebrow': 'Impossibile recuperare',
   'notFound.title': "Nessun chunk di questo tipo nell'indice",
   'notifications.dismiss': 'Ignora',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL della fonte',
   'sources.empty.body': 'Clicchi “Aggiungi fonte” per collegare il Suo primo connettore.',
   'sources.empty.title': 'Ancora nessuna fonte.',
+  'sources.error.add': 'Impossibile aggiungere la sorgente.',
   'sources.error.labelRequired': "L'etichetta è obbligatoria.",
   'sources.error.load': 'Impossibile caricare le fonti.',
   'sources.error.urlRequired': "L'URL è obbligatorio per questo tipo di fonte.",

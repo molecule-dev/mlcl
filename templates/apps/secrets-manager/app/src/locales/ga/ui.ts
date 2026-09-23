@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'about.tagline': 'Faigheann rúin bás san oscailt.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Cruthaigh comhartha',
   'apiTokens.kicker': 'Comharthaí API',
   'apiTokens.loading': 'Ag lódáil comharthaí…',
+  'apiTokens.new': 'Comhartha nua',
   'apiTokens.revoke': 'Cealaigh comhartha',
   'apiTokens.subheading':
     'Comharthaí pearsanta agus seirbhíse don Arcanum CLI agus SDK. Taispeántar téacs simplí uair amháin le linn cruthaithe.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Eochairfhocail',
   'authShell.zeroKnowledge': 'Criptiú nialasach eolais',
   'common.connecting': 'Ag ceangal…',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.inviting': 'Ag tabhairt cuireadh…',
   'forgotPassword.checkInbox':
     'Má tá {email} cláraithe, tiocfaidh nasc athshocraithe sínithe laistigh de nóiméad.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Stádas uainíochta, foláirimh neamhghnáchaíochta, agus iarratais ar cheadú ar fud gach cruinneacháin.',
   'notifications.unreadEmpty': 'Bosca isteach nialas — gach rud gafa suas leis.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.heading': 'rúin',
   'pricing.limits.accessPolicies': 'beartais rochtana',
   'pricing.limits.auditLog': 'iontrálacha loga iniúchta',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Cuntas pearsanta',
   'profile.plan.description': 'Bainistigh do shíntiús, féach teorainneacha, agus uasghrádaigh.',
   'profile.subheading': 'Céannacht, gléasanna dara fachtóir, agus seisiúin ghníomhacha.',
+  'profile.twoFactor.code': 'Cód fíordheimhnithe',
   'profile.twoFactor.disable': 'Díchumasaigh',
   'profile.twoFactor.enable': 'Cumasaigh',
+  'profile.twoFactor.invalidCode': 'Cód neamhbhailí',
   'profile.twoFactor.kicker': 'Fíordheimhniú dhá fhachtóir',
+  'profile.twoFactor.off': 'Gan chumasú',
   'profile.twoFactor.on': 'Cumasaithe',
   'resetPassword.email': 'Ríomhphost an chuntais',
   'resetPassword.heading': 'Socraigh dintiúir nua',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'orduithe',
   'secretsManagerLayout.encrypted': 'AES-256 · CRIPTITHE',
   'secretsManagerLayout.newVault': 'Cruinneachán nua',
+  'secretsManagerLayout.newVaultShort': 'Nua',
   'secretsManagerLayout.rotations': 'Rothlaithe',
   'secretsManagerLayout.search': 'cuardach',
   'secretsManagerLayout.searchPlaceholder': 'Cuardaigh rúin de réir eochair, cosáin, nó clibe…',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Rúin',
   'vaultCard.vaultLabel': 'Cruinneachán',
   'vaultDetail.addSecret': 'Cuir rún leis',
+  'vaultDetail.back': 'Gach cruinneachán',
   'vaultDetail.col.key': 'Eochair',
   'vaultDetail.col.rotated': 'Rothlaithe',
   'vaultDetail.col.value': 'Luach',

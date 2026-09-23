@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
   'authShell.samplePreview':
     '"Habari timu, dashibodi mpya ni nzuri sana — ndicho hasa tulichohitaji!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/njia ya mkato',
   'automations.subheading':
     'Sheria, majibu yaliyopangwa na vibodi vya gumzo — endelea na mlio wa nafasi ya kazi huku timu yako ikizingatia mambo magumu.',
+  'automations.trigger.inboundMessage': 'Ujumbe unaoingia',
   'automations.triggerLabel': 'Kichocheo',
   'chatBubble.internalNoteLabel': 'Dokezo la ndani',
+  'common.confirmDelete': 'Thibitisha kufuta',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'contactDetail.backToContacts': 'Anwani zote',
   'contactDetail.contactFallback': 'Mawasiliano',
   'contactDetail.conversationFallback': 'Mazungumzo',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Mara ya mwisho kuonekana',
   'contacts.empty': 'Hakuna anwani bado. Ongeza anwani yako ya kwanza hapo juu.',
   'contacts.eyebrow': 'Saraka ya wateja',
+  'contacts.form.nameOrEmailRequired': 'Toa angalau jina au barua pepe',
   'contacts.form.save': 'Hifadhi anwani',
   'contacts.heading': 'Anwani',
   'contacts.loading': 'Inapakia anwani…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Hifadhi dokezo',
   'conversationDetail.tab.note': 'Dokezo la ndani',
   'conversationDetail.threadAria': 'Ujumbe wa mazungumzo',
+  'conversationDetail.visitorFallback': 'Mgeni',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Maelezo ya mteja',
   'customerProfilePanel.recentTitle': 'Mazungumzo ya hivi karibuni',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Wateja wanapata jibu lao la kwanza katika {{time}} kwa wastani — endelea na kasi.',
   'inboxHeroCard.title': 'Mazungumzo yanayoendelea',
+  'inboxLayout.navDrawerLabel': 'Urambazaji',
+  'inboxLayout.openMenu': 'Fungua menyu ya kusogeza',
   'inboxOverview.eyebrow': 'Leo kwa muhtasari',
   'inboxOverview.heroChange': '{{count}} fungua',
   'inboxOverview.kpiClosedTrend': 'wakati wote',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Tembelea ukurasa wa nyumbani',
   'notifications.subheading':
     'Kazi, @mentions, hatari za SLA, maoni ya CSAT na shughuli za timu — zimepangwa hivi karibuni kwanza.',
+  'notifications.subjectFallback': 'mazungumzo',
+  'notifications.visitorFallback': 'Mgeni',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Juu',
   'priority.low': 'Chini',
+  'priority.normal': 'Kawaida',
   'priority.urgent': 'Haraka',
   'privacy.title': 'Sera ya faragha',
   'reports.agentFallback': 'Wakala',

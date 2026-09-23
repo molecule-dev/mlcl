@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'analytics.col.quorum': 'Kuorum',
   'analytics.col.votes': 'Undian',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Tiada soalan yang belum selesai lagi.',
   'audienceQa.onStageEyebrow': 'Di atas pentas sekarang',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promosikan',
   'audienceQa.queued': 'beratur',
   'audienceQa.queueEyebrow': 'Baris Gilir',
   'ballot.eyebrow': 'Buang undi anda',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Anda sedang berada di {{plan}} rancangan.',
   'billing.switch': 'Tukar',
   'billing.upgraded': 'Dikemas kini kepada {{plan}} — had dikenakan serta-merta.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'createPoll.addOption': 'Tambah pilihan',
   'createPoll.anonymousHint': 'Nama pengundi tersembunyi dalam log audit; kiraan kekal disahkan.',
   'createPoll.anonymousLabel': 'Benarkan pengundian tanpa nama',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Baru dalam Nosh?',
   'login.remember': 'Ingat saya selama 30 hari',
   'login.subheading': 'Buka lantai, jalankan bilik, dan sahkan hasilnya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notFound.body':
     'Halaman yang anda cuba capai telah ditutup atau dipindahkan. Kembali ke papan pemuka atau buka tinjauan pendapat baharu.',
   'notFound.eyebrow': 'Tiada kuorum di laluan ini',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Tidak dapat memuatkan tinjauan pendapat ini.',
   'pollDetail.loading': 'Memuatkan tinjauan pendapat…',
   'pollDetail.notFound': 'Undian tidak ditemui.',
+  'pollDetail.openBallot': 'Undian terbuka',
   'pollDetail.openLive': 'Keputusan langsung',
   'pollDetail.pollId': 'undian · {{id}}',
   'pollDetail.published': 'Undian diterbitkan — pengundi kini boleh membuang undi.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Cari melalui e-mel…',
   'voters.subheading':
     'Pilih senarai pengundi yang layak. Kumpulkan pengundi mengikut organisasi untuk undi berwajaran.',
+  'votingPollingLayout.nav.analytics': 'Analitik',
+  'votingPollingLayout.nav.billing': 'Pengebilan',
+  'votingPollingLayout.nav.createPoll': 'Tinjauan baharu',
+  'votingPollingLayout.nav.dashboard': 'Papan Pemuka',
+  'votingPollingLayout.nav.notifications': 'Pemberitahuan',
+  'votingPollingLayout.nav.settings': 'Tetapan',
+  'votingPollingLayout.nav.team': 'Pasukan',
+  'votingPollingLayout.nav.voters': 'Pengundi',
+  'votingPollingLayout.primaryNavLabel': 'Navigasi utama',
 }

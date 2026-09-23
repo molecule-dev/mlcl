@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'authShell.samplePreview':
     '„Ahoj týme, ten nový dashboard je skvělý – přesně to, co jsme potřebovali!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/zkratka',
   'automations.subheading':
     'Pravidla, předdefinované odpovědi a chatboty – zajistěte hladký chod pracovního prostředí, zatímco se váš tým soustředí na to podstatné.',
+  'automations.trigger.inboundMessage': 'Příchozí zpráva',
   'automations.triggerLabel': 'Spouštěč',
   'chatBubble.internalNoteLabel': 'Vnitřní poznámka',
+  'common.confirmDelete': 'Potvrdit smazání',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'contactDetail.backToContacts': 'Všechny kontakty',
   'contactDetail.contactFallback': 'Kontakt',
   'contactDetail.conversationFallback': 'Konverzace',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Naposledy viděn',
   'contacts.empty': 'Zatím nemáte žádné kontakty. Přidejte svůj první kontakt výše.',
   'contacts.eyebrow': 'Seznam zákazníků',
+  'contacts.form.nameOrEmailRequired': 'Uveďte alespoň jméno nebo e-mailovou adresu',
   'contacts.form.save': 'Uložit kontakt',
   'contacts.heading': 'Kontakty',
   'contacts.loading': 'Načítání kontaktů…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Uložit poznámku',
   'conversationDetail.tab.note': 'Vnitřní poznámka',
   'conversationDetail.threadAria': 'Zprávy z konverzace',
+  'conversationDetail.visitorFallback': 'Návštěvník',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Údaje o zákazníkovi',
   'customerProfilePanel.recentTitle': 'Nedávné konverzace',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Zákazníci dostávají první odpověď v průměru do {{time}} – udržujte toto tempo.',
   'inboxHeroCard.title': 'Aktivní konverzace',
+  'inboxLayout.navDrawerLabel': 'Navigace',
+  'inboxLayout.openMenu': 'Otevřít navigační menu',
   'inboxOverview.eyebrow': 'Dnešní přehled',
   'inboxOverview.heroChange': '{{count}} otevřít',
   'inboxOverview.kpiClosedTrend': 'všech dob',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Navštivte domovskou stránku',
   'notifications.subheading':
     'Úkoly, @zmínky, rizika SLA, zpětná vazba CSAT a aktivita týmu – seřazeno podle data, nejnovější nahoře.',
+  'notifications.subjectFallback': 'rozhovor',
+  'notifications.visitorFallback': 'Návštěvník',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Vysoká',
   'priority.low': 'Nízká',
+  'priority.normal': 'Normální',
   'priority.urgent': 'Naléhavá',
   'privacy.title': 'Zásady ochrany osobních údajů',
   'reports.agentFallback': 'Agent',

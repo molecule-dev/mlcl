@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'about.tagline': 'Hemligheter dör i det öppna.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Skapa token',
   'apiTokens.kicker': 'API-tokens',
   'apiTokens.loading': 'Laddar tokens…',
+  'apiTokens.new': 'Ny token',
   'apiTokens.revoke': 'Återkalla token',
   'apiTokens.subheading':
     'Personliga tokens och tjänstetokens för Arcanums CLI och SDK. Klartext visas endast en gång vid skapande.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Nollkunskapskryptering',
   'common.connecting': 'Ansluter…',
+  'common.goToDashboard': 'Gå till översikt',
   'common.inviting': 'Bjuder in…',
   'forgotPassword.checkInbox':
     'Om {email} är registrerad anländer en signerad återställningslänk inom en minut.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotationsstatus, anomalivarningar och godkännandeförfrågningar för varje valv.',
   'notifications.unreadEmpty': 'Inkorg noll — allt avklarat.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.heading': 'hemligheter',
   'pricing.limits.accessPolicies': 'åtkomstpolicyer',
   'pricing.limits.auditLog': 'granskningsloggposter',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Personligt konto',
   'profile.plan.description': 'Hantera din prenumeration, se gränser och uppgradera.',
   'profile.subheading': 'Identitet, tvåfaktorsenheter och aktiva sessioner.',
+  'profile.twoFactor.code': 'Autentiseringskod',
   'profile.twoFactor.disable': 'Inaktivera',
   'profile.twoFactor.enable': 'Aktivera',
+  'profile.twoFactor.invalidCode': 'Ogiltig kod',
   'profile.twoFactor.kicker': 'Tvåfaktorsautentisering',
+  'profile.twoFactor.off': 'Inte aktiverad',
   'profile.twoFactor.on': 'Aktiverad',
   'resetPassword.email': 'Konto-e-post',
   'resetPassword.heading': 'Ange nya uppgifter',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'kommandon',
   'secretsManagerLayout.encrypted': 'AES-256 · ENCRYPTED',
   'secretsManagerLayout.newVault': 'Nytt valv',
+  'secretsManagerLayout.newVaultShort': 'Ny',
   'secretsManagerLayout.rotations': 'Rotationer',
   'secretsManagerLayout.search': 'sök',
   'secretsManagerLayout.searchPlaceholder': 'Sök hemligheter efter nyckel, sökväg eller tagg…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Hemligheter',
   'vaultCard.vaultLabel': 'Valv',
   'vaultDetail.addSecret': 'Lägg till hemlighet',
+  'vaultDetail.back': 'Alla valv',
   'vaultDetail.col.key': 'Nyckel',
   'vaultDetail.col.rotated': 'Roterad',
   'vaultDetail.col.value': 'Värde',

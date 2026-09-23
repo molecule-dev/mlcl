@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Gbasara anyị',
   'applications.empty': 'Enweghị ngwa ugbu a \\u2014 ọrụ kwesịrị ekwesị bụ otu tinye n’ebe ọzọ.',
   'applications.eyebrow': 'Njikọ ọkpọkọ gị',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Ọrụ ọ bụla ị tinyere n’ọrụ, na mmegharị. Nyochaa site n’otu ọkwa gaa na nke ọzọ.',
   'applications.untitledRole': 'Ọrụ # {{id}}',
+  'auth.legalConsent': "Site n'ịga n'ihu, ị kwenyere n'usoro anyị",
   'common.and': 'na',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'companies.empty': 'Ọ dịghị ụlọ ọrụ ọ bụla dakọtara na ọchụchọ gị \\u2014 nwalee okwu dị iche.',
   'companies.eyebrow': 'Ndị ọrụ a ma ama',
   'companies.searchPlaceholder': 'Chọọ site na aha, ụlọ ọrụ, na ebe',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Enweghị ngwa maka ọrụ a.',
   'jobApplicants.eyebrow': 'Echiche onye were n’ọrụ',
   'jobApplicants.loading': 'Na-ebugo\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Enweghị m ike imelite ọkwa ahụ — nwaa ọzọ.',
+  'jobApplicants.subheading':
+    'Nyochaa CV, nye ndị ga-azọ ọkwa, ziga onyinye \\u2014 {{count}} na mmegharị.',
   'jobDetail.applicantCount': '{{count}} ndị na-achọ ọrụ ruo ugbu a',
   'jobDetail.applied': 'E zigara ngwa',
   'jobDetail.apply': 'Tinye akwụkwọ ugbu a',
@@ -81,6 +87,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Chọgharịa ọrụ mepere emepe \\u2192',
   'landing.pricingEyebrow': 'Ọnụahịa',
   'landing.pricingHeading': 'Atụmatụ dị mfe maka nha otu ọ bụla.',
+  'login.eyebrow': 'Nnọọ azụ na {{app}}',
   'login.heading': 'Banye na akaụntụ gị',
   'login.noAccount': 'Ọ dị ọhụrụ na Nosh?',
   'login.passwordPlaceholder':
@@ -88,6 +95,7 @@ export const ui: UiTranslations = {
   'login.remember': 'Cheta m ruo ụbọchị iri atọ',
   'login.signingIn': 'Ịbanye\\u2026',
   'login.subheading': 'Malite ọchụchọ gị, kwalite ngwa gị, nụ olu gị ngwa ngwa.',
+  'loginBrandPanel.copyright': "© {{year}} {{app}} . E wuru ya maka ndị otu na-ewe mmadụ n'ọrụ.",
   'loginBrandPanel.headline': 'Ebe talent na-ezute',
   'loginBrandPanel.headlineLine2': 'ọkụ.',
   'loginBrandPanel.listing.recruiter': 'Onye Mmekọ Talent',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': 'Mmelite ngwa, akwụkwọ ịkpọ oku ajụjụ ọnụ, ihe ọhụrụ dabara na mbụ.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} izu a',
   'opportunitiesHero.eyebrow': 'Emeghe taa',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'postJob.addNewCompany': '+ Tinye ụlọ ọrụ ọhụrụ',
   'postJob.companyCreateFailed': 'Enweghị m ike ịmepụta ụlọ ọrụ — nwaa ọzọ.',
   'postJob.companyNameLabel': 'Aha ụlọ ọrụ gị',
@@ -159,10 +168,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Ịmepụta akaụntụ\\u2026',
   'signup.ctaEmployer': 'Mepụta akaụntụ onye were gị n’ọrụ',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Okwuntughe adabaghị.',
   'signup.subheading':
     'N’efu maka ndị na-achọ ihe, ruo mgbe ebighị ebi. Ndị were mmadụ n’ọrụ na-amalite site na nnwale ụbọchị iri atọ.',
   'timeAgo.days': '{{count}} gara aga',
   'timeAgo.hours': '{{count}} awa gara aga',
   'timeAgo.justNow': 'naanị ugbu a',
+  'timeAgo.weeks': '{{count}} gara aga',
 }

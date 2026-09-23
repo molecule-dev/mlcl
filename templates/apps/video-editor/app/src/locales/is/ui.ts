@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fannstu villu, hefurðu beiðni um nýjan eiginleika eða vilt segja okkur frá myndinni sem þú klipptir? Öll skilaboð berast til raunverulegs einstaklings í teyminu — hafðu samband hvenær sem er í gegnum stillingar reikningsins.',
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.eyebrow': '// stúdíóið á bak við klippinguna',
   'about.pageTitle': 'Um {{appName}}',
   'assetDetail.back': 'Til baka í bókasafnið',
   'assetDetail.confirmDelete': 'Eyða " {{name}} "? Þetta er ekki hægt að afturkalla.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} myndskeið, hljóðbeð og grafík tilbúin til birtingar á tímalínunni.',
   'assetLibrary.title': 'Eignir',
   'assetLibrary.upload': 'Bæta við eign',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.browseTemplates': 'Skoða sniðmát →',
   'dashboard.loading': 'Hleður verkefni…',
   'dashboard.noProjects': 'Engin verkefni ennþá — búðu til eitt til að byrja.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Veldu eitthvað sem aðeins þú myndir muna.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Persónuvernd',
+  'rushesLayout.closeMenu': 'Loka flakki',
   'rushesLayout.guest': 'Ritstjóri',
+  'rushesLayout.navDialog': 'Leiðsögn',
+  'rushesLayout.openMenu': 'Opna flakk',
   'rushesLayout.planFree': 'Ókeypis áætlun',
   'rushesLayout.tagline': 'Kvikmyndatímalína',
   'settings.billing.confirmCancel': 'Hætta áskrift við lok tímabils?',

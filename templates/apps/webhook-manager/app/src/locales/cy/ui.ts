@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// am {{app}}',
+  'about.pageTitle': "Plân rheoli'r bachyn gwe",
+  'about.plansTitle': 'Cynlluniau ar gyfer pob cam',
   'apiKeys.bestPractices': 'Arferion gorau',
   'apiKeys.body':
     'Tocynnau mynediad rhaglennol. Trin nhw fel cyfrineiriau — storio mewn amrywiadau amgylchedd, byth yn ymrwymo.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'o fewn y cynllun',
   'billing.usageWarning': 'cap agos',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.body':
     "Trwybwn byw, ailgeisiau yn y daith, a'r pwyntiau terfyn a fethodd - ar draws pob gweithle rydych chi'n ei weithredu.",
   'dashboard.endpointsEmpty': 'Dim pwyntiau terfyn eto.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'pwyntiau terfyn',
   'endpointDetail.deliveryTrendSub': 'danfoniadau / awr, graddfa log',
   'endpointDetail.hideSecret': "Cuddio'r gyfrinach",
+  'endpointDetail.loading': "Wrthi'n llwytho'r pwynt terfyn…",
   'endpointDetail.metric.delivered': "Wedi'i ddanfon o fewn 24 awr",
   'endpointDetail.metric.deliveredCaption': 'o {{count}} mathau o ddigwyddiadau',
   'endpointDetail.metric.failuresCaption': 'ail-ymgeisiadau: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Critigol · 24 awr',
   'notifications.metric.totalCaption': 'mewnflwch bob amser',
   'payloadViewer.payload': '// llwyth tâl',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint':
     "Dangosir y llythrennau cyntaf — uwchlwythiadau sy'n dod gyda'r datganiad nesaf.",
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     "Dim ond eich sesiwn gyfredol sy'n weithredol. Nid oes unrhyw ddyfeisiau eraill wedi mewngofnodi.",
   'profile.toggle': 'Togl {{label}}',
+  'pylonShell.closeMenu': "Cau'r ddewislen lywio",
+  'pylonShell.openMenu': 'Agor y ddewislen lywio',
   'pylonShell.primaryNavLabel': 'Prif lywio',
   'resetPassword.subtitle': "Dewiswch gyfrinair cryf nad ydych wedi'i ddefnyddio o'r blaen.",
   'resetPassword.tokenPlaceholder': 'gludo o e-bost',

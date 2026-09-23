@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über uns',
   'authShell.samplePreview':
     '„Hey Team, das neue Dashboard ist großartig — genau das, was wir gebraucht haben!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/kürzel',
   'automations.subheading':
     'Regeln, vorgefertigte Antworten und Chatbots — halten Sie den Arbeitsbereich am Laufen, während sich Ihr Team auf das Wesentliche konzentriert.',
+  'automations.trigger.inboundMessage': 'Eingehende Nachricht',
   'automations.triggerLabel': 'Auslöser',
   'chatBubble.internalNoteLabel': 'Interne Notiz',
+  'common.confirmDelete': 'Löschen bestätigen',
+  'common.goToDashboard': 'Zum Dashboard',
   'contactDetail.backToContacts': 'Alle Kontakte',
   'contactDetail.contactFallback': 'Kontakt',
   'contactDetail.conversationFallback': 'Unterhaltung',
@@ -41,6 +45,8 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Zuletzt gesehen',
   'contacts.empty': 'Noch keine Kontakte. Fügen Sie oben Ihren ersten Kontakt hinzu.',
   'contacts.eyebrow': 'Kundenverzeichnis',
+  'contacts.form.nameOrEmailRequired':
+    'Geben Sie zumindest einen Namen oder eine E-Mail-Adresse an',
   'contacts.form.save': 'Kontakt speichern',
   'contacts.heading': 'Kontakte',
   'contacts.loading': 'Kontakte werden geladen…',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Notiz speichern',
   'conversationDetail.tab.note': 'Interne Notiz',
   'conversationDetail.threadAria': 'Konversationsnachrichten',
+  'conversationDetail.visitorFallback': 'Besucher',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Kundendetails',
   'customerProfilePanel.recentTitle': 'Aktuelle Konversationen',
@@ -72,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Kunden erhalten ihre erste Antwort im Schnitt in {{time}} — halten Sie das Tempo.',
   'inboxHeroCard.title': 'Aktive Konversationen',
+  'inboxLayout.navDrawerLabel': 'Navigation',
+  'inboxLayout.openMenu': 'Navigationsmenü öffnen',
   'inboxOverview.eyebrow': 'Heute auf einen Blick',
   'inboxOverview.heroChange': '{{count}} offen',
   'inboxOverview.kpiClosedTrend': 'insgesamt',
@@ -117,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Zur Startseite',
   'notifications.subheading':
     'Zuweisungen, @-Erwähnungen, SLA-Risiken, CSAT-Feedback und Team-Aktivitäten — neueste zuerst sortiert.',
+  'notifications.subjectFallback': 'ein Gespräch',
+  'notifications.visitorFallback': 'Ein Besucher',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Hoch',
   'priority.low': 'Niedrig',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Dringend',
   'privacy.title': 'Datenschutzerklärung',
   'reports.agentFallback': 'Agent',

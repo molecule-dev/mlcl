@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
+  'about.eyebrow': 'نبذة عن شركة «{{app}}»',
+  'about.intro':
+    '{{app}} هو تطبيق للتأمل يناسب الحياة اليومية - جلسات تأمل يومية موجهة، وتمارين تنفس، وقصص تساعد على النوم، يقدمها معلمون ودودون لا مدربون. لا داعي للقلق بشأن انقطاع الجلسات، ولا إزعاجات مزعجة: فقط مكان هادئ للعودة إلى أنفاسك.',
+  'about.missionBody':
+    'نؤمن بأن السكون يجب أن يكون متاحًا للجميع، في أي لحظة من اليوم. {{app}} موجود ليجعل ممارسة الهدوء والانتظام أمرًا سهلاً، بحيث يمكن لعشر دقائق من الصدق أن تُغير طريقة تعاملك مع الساعات العشر التالية.',
+  'about.missionTitle': 'مهمتنا',
+  'about.pageTitle': 'عشر دقائق من الهدوء يومياً',
+  'breathingDial.seconds': 'ثوانٍ',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'common.logout': 'تسجيل الخروج',
   'common.min': 'دقيقة',
   'common.relative.justNow': 'الآن',
   'common.relative.now': 'الآن',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
+  'nav.secondaryNavigation': 'التنقل في الحساب',
   'sessionCard.with': 'مع {{name}}',
   'stillpoint.billing.choose': 'اختر {{plan}}',
   'stillpoint.billing.currentPlan': 'أنت مشترك حاليًا في {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'تعذّر علينا تحميل الخطط.',
   'stillpoint.billing.opening': 'جارٍ فتح صفحة الدفع…',
   'stillpoint.billing.perMonthShort': '/ شهريًا',
+  'stillpoint.billing.perYearShort': '/سنويًا',
   'stillpoint.billing.unknownResult': 'استجابة فوترة غير متوقّعة.',
   'stillpoint.billing.yearly': 'سنويًا · وفّر 17%',
   'stillpoint.courseDetail.back': 'الدورات',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'لا توجد دورات بعد.',
   'stillpoint.courses.eyebrow': '{{count}} رحلات متعددة الأيام',
   'stillpoint.courses.heading': 'الدورات',
+  'stillpoint.forgot.checkEmail': 'تحقق من بريدك الوارد — سينتهي صلاحية الرابط خلال 30 دقيقة.',
   'stillpoint.forgot.success': 'أرسلنا رابط إعادة التعيين إلى {{email}}.',
   'stillpoint.home.empty': 'لا توجد جلسات بعد — عُد قريبًا.',
   'stillpoint.home.friend': 'صديق',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'أنشئ حسابك المجّاني',
   'stillpoint.landing.cta.title': 'ابدأ سكينتك اليوم',
   'stillpoint.landing.features.heading': 'ممارسة تنمو معك',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'تأمّلات مُوجَّهة يومية، وتمارين تنفّس، وقصص للنوم — بإيقاع معلّمين يشبهون الأصدقاء أكثر من المدرّبين.',
   'stillpoint.landing.hero.eyebrow': 'عشر دقائق أكثر هدوءًا كلّ يوم',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'تصفّح حسب الحالة المزاجية',
   'stillpoint.login.rememberMe': 'أبقني مسجّلًا',
   'stillpoint.login.subheading': 'سجّل دخولك لمتابعة ممارستك.',
+  'stillpoint.nav.tagline': 'ابحث عن مركز سكونك',
+  'stillpoint.notFound.body':
+    'هذه الصفحة تأخذ قسطاً من الراحة الآن. دعنا نجد لك مكاناً أكثر هدوءاً في {{app}} .',
   'stillpoint.notFound.title': 'ضائع في الصمت',
   'stillpoint.notFound.toHome': 'العودة إلى اليوم',
   'stillpoint.notFound.toLibrary': 'تصفّح المكتبة',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'تخطٍّ للخلف 15 ثانية',
   'stillpoint.player.skipForward': 'تخطٍّ للأمام 30 ثانية',
   'stillpoint.player.with': 'مع {{name}}',
+  'stillpoint.profile.defaultHandle': 'مؤشر ثابت',
   'stillpoint.profile.eyebrow': 'ممارستك، باختصار.',
   'stillpoint.profile.locked': 'مقفل',
   'stillpoint.profile.member': 'عضو في Stillpoint',

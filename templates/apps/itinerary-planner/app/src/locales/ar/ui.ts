@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'حول {{app}}',
+  'auth.legalConsent': 'بالمتابعة، أنت توافق على',
   'bookings.empty.body': 'أضف رحلة طيران أو فندقًا أو نشاطًا لبدء صندوق الوارد.',
   'bookings.empty.heading': 'لا توجد حجوزات بعد.',
   'bookings.errors.create': 'تعذّر إنشاء الحجز.',
@@ -21,6 +24,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'مؤكّدة',
   'bookings.summary.pending': 'بانتظار التأكيد',
   'bookings.summary.total': 'إجمالي الملتزَم به',
+  'bookings.type.car': 'سيارة مستأجرة',
+  'bookings.type.flight': 'رحلة جوية',
+  'bookings.type.hotel': 'الفندق',
   'bookings.type.other': 'آخر',
   'budgetSpendCard.budgetTotal': 'من أصل {{total}} المخطّط',
   'budgetSpendCard.pct': '{{pct}}٪',
@@ -32,6 +38,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'اكتشف التعارضات، وخطّط لأيام راحة بين الرحلات، وشاهد متى يسافر معك المتعاونون.',
   'common.and': 'و',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'dashboard.budgetHeading': 'نبض الميزانية',
   'dashboard.empty.heading': 'لا رحلات بعد — أطلسك فارغ.',
   'dashboard.eyebrow': 'غرفة التحكّم',
@@ -40,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'رحلات قيد التنفيذ',
   'dashboard.viewAllExpenses': 'عرض كل المصروفات',
   'dashboard.viewAllTrips': 'عرض كل الرحلات',
+  'dayTimelineRow.category.accommodation': 'يقضي',
   'dayTimelineRow.category.transport': 'ينقل',
   'destinationOrbCard.exploreCta': 'أضف إلى رحلة',
   'destinationOrbCard.tripCount': '{{count}} رحلة',
@@ -79,11 +87,15 @@ export const ui: UiTranslations = {
     'لم يصل بريد بعد؟ تحقّق من مجلّد البريد المزعج، أو حاول ببريد إلكتروني آخر.',
   'forgotPassword.successSubheading':
     'أرسلنا رابط استعادة إلى {{email}}. الرابط صالح لمدة 30 دقيقة.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'أنشئ حسابًا مجانيًا',
+  'landing.cta.subheading':
+    'ما يصل إلى خمس رحلات، وخمسة متعاونين، وخمس محطات في الخطة المجانية - مع تضمين المزامنة في الوقت الفعلي، وإلغاء القيود في الخطة الاحترافية عند نمو خططك.',
   'landing.destinations.eyebrow': 'إلى أين بعد ذلك؟',
   'landing.destinations.heading': 'وجهات يختارها المحرّر',
   'landing.features.eyebrow': 'كيف يعمل Waypoint',
   'landing.features.heading': 'مصمَّم للمسافرين، لا لجداول البيانات.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ابدأ رحلة مجانية',
   'landing.hero.ctaSecondary': 'شاهد رحلة نموذجية',
   'landing.hero.subtitle':
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'أنشئ حسابًا لمشاركة الرحلات مع حتى 5 متعاونين، ومزامنة الحجوزات، وجمع كل تأكيد في مكان واحد.',
+  'signup.termsPrefix': 'بإنشاء حساب، فإنك توافق على شروطنا',
   'tripCountdownHeroCard.budget': '{{used}} من {{total}} ({{pct}}٪ من الميزانية)',
   'tripCountdownHeroCard.collaborators': '{{count}} مسافرين',
   'tripCountdownHeroCard.countdownLabel': 'العدّ التنازلي',
@@ -196,5 +209,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'لا رحلات بعد.',
   'trips.pastHeading': 'مغامرات سابقة',
   'trips.subheading': '{{count}} خطوط سير — ماضية وحاضرة وفي يومٍ ما.',
+  'waypointLayout.mobileNavClose': 'إغلاق قائمة التنقل',
   'waypointLayout.primaryNavLabel': 'التنقّل الرئيسي',
 }

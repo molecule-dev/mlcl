@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
+  'about.eyebrow': 'За {{app}}',
+  'about.intro':
+    '{{app}} е приложение за медитация за реалния живот — ежедневни водени медитации, дихателни упражнения и истории за сън, водени от учители, които се чувстват като приятел, а не като треньор. Без следи от вина, без шумно предаване на информация: просто тихо място, където да се върнете към дъха си.',
+  'about.missionBody':
+    'Вярваме, че тишината трябва да е достъпна за всеки, във всеки един момент от деня. {{app}} съществува, за да направи спокойната и последователна практика безпроблемна — така че десет минути честност да могат да променят начина, по който посрещате следващите десет часа.',
+  'about.missionTitle': 'Нашата мисия',
+  'about.pageTitle': 'По-спокойни 10 минути на ден',
+  'breathingDial.seconds': 'секунди',
+  'common.goToDashboard': 'Към таблото',
+  'common.logout': 'Изход',
   'common.min': 'мин.',
   'common.relative.justNow': 'току-що',
   'common.relative.now': 'сега',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
+  'nav.secondaryNavigation': 'Навигация в акаунта',
   'sessionCard.with': 'с {{name}}',
   'stillpoint.billing.choose': 'Изберете {{plan}}',
   'stillpoint.billing.currentPlan': 'В момента е включено {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Не успяхме да заредим плановете.',
   'stillpoint.billing.opening': 'Отваряне на касата…',
   'stillpoint.billing.perMonthShort': '/ месец',
+  'stillpoint.billing.perYearShort': '/год.',
   'stillpoint.billing.unknownResult': 'Неочакван отговор за фактуриране.',
   'stillpoint.billing.yearly': 'Годишно · спестете 17%',
   'stillpoint.courseDetail.back': 'Курсове',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Все още няма курсове.',
   'stillpoint.courses.eyebrow': '{{count}} многодневни пътувания',
   'stillpoint.courses.heading': 'Курсове',
+  'stillpoint.forgot.checkEmail': 'Проверете входящата си поща — линкът изтича след 30 минути.',
   'stillpoint.forgot.success': 'Изпратихме линк за нулиране на {{email}} .',
   'stillpoint.home.empty': 'Все още няма сесии — проверете отново скоро.',
   'stillpoint.home.friend': 'приятел',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Създайте безплатен профил',
   'stillpoint.landing.cta.title': 'Започнете своята тишина още днес',
   'stillpoint.landing.features.heading': 'Практика, която расте с вас',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Ежедневни медитации с насоки, дихателни упражнения и истории за сън — водени от учители, които се чувстват като приятел, а не като треньор.',
   'stillpoint.landing.hero.eyebrow': 'По-спокойни 10 минути на ден',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Разглеждане по настроение',
   'stillpoint.login.rememberMe': 'Запази входа ми',
   'stillpoint.login.subheading': 'Влезте, за да продължите практиката си.',
+  'stillpoint.nav.tagline': 'Намерете своя неподвижен център',
+  'stillpoint.notFound.body':
+    'Тази страница някъде си поема дълбок дъх. Нека намерим по-тихо място за вас в {{app}} .',
   'stillpoint.notFound.title': 'Изгубен в тишината',
   'stillpoint.notFound.toHome': 'Обратно към днес',
   'stillpoint.notFound.toLibrary': 'Разгледайте библиотеката',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Прескочи 15 секунди назад',
   'stillpoint.player.skipForward': 'Прескочи напред 30 секунди',
   'stillpoint.player.with': 'с {{name}}',
+  'stillpoint.profile.defaultHandle': 'неподвижен указател',
   'stillpoint.profile.eyebrow': 'Вашата практика, обобщена.',
   'stillpoint.profile.locked': 'Заключено',
   'stillpoint.profile.member': 'Член на Stillpoint',

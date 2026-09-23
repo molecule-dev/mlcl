@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'analytics.avgCheckLabel': 'ശരാശരി പരിശോധന',
   'analytics.busiestHour': 'ഏറ്റവും തിരക്കേറിയ മണിക്കൂർ',
   'analytics.coversToday': 'ഇന്നത്തെ കവറുകൾ',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'ടിപ്പുകൾ (ശരാശരി)',
   'analytics.topItems': 'ഇന്നത്തെ പ്രധാന ഇനങ്ങൾ',
   'authShell.eyebrow': 'സേവനത്തിലേക്ക് വീണ്ടും സ്വാഗതം.',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ഹോസ്പിറ്റാലിറ്റി ടീമുകൾക്കായി ഊഷ്മളവും വേഗതയേറിയതുമായ ഒരു വിൽപ്പന കേന്ദ്രം. നിങ്ങളുടെ അടുക്കളയിൽ സൈൻ ഇൻ ചെയ്‌ത് നിങ്ങൾ നിർത്തിയിടത്ത് നിന്ന് തുടരുക.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'അല്ലെങ്കിൽ {{price}}',
   'billing.priceUnavailable': 'ഈ പ്ലാനിന് ഒരു നിശ്ചിത വിലയില്ല.',
   'billing.updated': 'പ്ലാൻ അപ്ഡേറ്റ് ചെയ്തു.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'customerDetail.book': 'റിസർവേഷൻ ചേർക്കുക',
   'customerDetail.col.table': 'മേശ',
   'customerDetail.confirmDelete': 'ഈ അതിഥി റെക്കോർഡ് ഇല്ലാതാക്കണോ?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ലഭ്യത',
   'menuItemDetail.available': 'ഇന്ന് രാത്രി ലഭ്യമാണ്',
   'menuItemDetail.backToMenu': 'മെനുവിലേക്ക് മടങ്ങുക',
+  'menuItemDetail.confirmDelete': 'ഈ മെനു ഇനം ഇല്ലാതാക്കണോ?',
   'menuItemDetail.delete': 'ഇനം ഇല്ലാതാക്കുക',
   'menuItemDetail.deleteError': 'ഇല്ലാതാക്കൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'menuItemDetail.dietary': 'ഭക്ഷണക്രമ ടാഗുകൾ',
@@ -140,9 +144,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ഫോട്ടോ, മോഡിഫയറുകൾ, ഡയറ്ററി, വിലനിർണ്ണയം എന്നിവ എഡിറ്റ് ചെയ്യുക.',
   'menuItemDetail.untitled': 'പേരില്ലാത്ത ഇനം',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'notFound.heading': 'ഈ മേശ തറയിലല്ല.',
   'notFound.subheading':
     'നിങ്ങൾ തിരയുന്ന പേജ് മറ്റെവിടെയെങ്കിലും സ്ഥാപിച്ചിരിക്കുന്നു - അല്ലെങ്കിൽ ഒരിക്കലും നിലവിലില്ല.',
+  'notFound.toLanding': '{{app}} ഹോം',
   'notifications.markError': 'എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്താൻ കഴിഞ്ഞില്ല.',
   'orderDashboard.activeDelta': 'ഇപ്പോൾ തത്സമയം',
   'orderDashboard.activeLabel': 'സജീവ ഓർഡറുകൾ',
@@ -208,6 +215,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'അടുക്കളയിലേക്കുള്ള ആക്‌സസ് വീണ്ടെടുക്കാൻ നിങ്ങളുടെ പുതിയ പാസ്‌വേഡ് നൽകുക.',
   'resetPassword.tokenLabel': 'ടോക്കൺ പുനഃസജ്ജമാക്കുക',
+  'restaurantOrderingLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'revenueHeroCard.activeOrders': '{{count}} സജീവം',
   'revenueHeroCard.change': '{{sign}} {{amount}} ഇന്നലത്തേതുമായുള്ള താരതമ്യം',
   'revenueHeroCard.title': 'ഇന്നത്തെ വരുമാനം',
@@ -226,6 +234,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'റെസ്റ്റോറന്റിന്റെ പേര്',
   'tableDetail.activeOrders': 'സജീവ ഓർഡറുകൾ',
   'tableDetail.backToFloor': 'ഫ്ലോർ പ്ലാൻ',
+  'tableDetail.confirmDelete': 'ഈ പട്ടിക ഇല്ലാതാക്കണോ?',
   'tableDetail.delete': 'ഇല്ലാതാക്കുക',
   'tableDetail.deleteError': 'പട്ടിക ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'tableDetail.heading': 'മേശ {{label}}',

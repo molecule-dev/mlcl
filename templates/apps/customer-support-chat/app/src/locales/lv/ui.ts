@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'authShell.samplePreview':
     '„Sveiki, komanda, jaunā vadības paneļa izskats ir lielisks — tieši tas, kas mums bija vajadzīgs!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/saīsne',
   'automations.subheading':
     'Noteikumi, sagatavotas atbildes un čatboti — nodrošiniet darba vides raitu darbību, kamēr jūsu komanda koncentrējas uz sarežģītajiem uzdevumiem.',
+  'automations.trigger.inboundMessage': 'Ienākošais ziņojums',
   'automations.triggerLabel': 'Sprūds',
   'chatBubble.internalNoteLabel': 'Iekšējā piezīme',
+  'common.confirmDelete': 'Apstiprināt dzēšanu',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'contactDetail.backToContacts': 'Visi kontakti',
   'contactDetail.contactFallback': 'Kontaktinformācija',
   'contactDetail.conversationFallback': 'Saruna',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Pēdējā reize, kad redzēts',
   'contacts.empty': 'Vēl nav kontaktu. Ievadi savu pirmo kontaktu augšā.',
   'contacts.eyebrow': 'Klientu saraksts',
+  'contacts.form.nameOrEmailRequired': 'Norādiet vismaz vārdu vai e-pasta adresi',
   'contacts.form.save': 'Saglabāt kontaktu',
   'contacts.heading': 'Kontakti',
   'contacts.loading': 'Tiek ielādēti kontakti…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Saglabāt piezīmi',
   'conversationDetail.tab.note': 'Iekšējā piezīme',
   'conversationDetail.threadAria': 'Sarunu ziņojumi',
+  'conversationDetail.visitorFallback': 'Apmeklētājs',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Klienta dati',
   'customerProfilePanel.recentTitle': 'Nesenās sarunas',
@@ -69,7 +75,10 @@ export const ui: UiTranslations = {
   'inbox.retry': 'Mēģināt vēlreiz',
   'inbox.searchPlaceholder': 'Meklēt sarunas…',
   'inboxHeroCard.slaLabel': 'SLA šonedēļ',
+  'inboxHeroCard.subtitle': 'Klienti saņem pirmo atbildi vidēji {{time}} — saglabājiet šo tempu.',
   'inboxHeroCard.title': 'Aktīvās sarunas',
+  'inboxLayout.navDrawerLabel': 'Navigācija',
+  'inboxLayout.openMenu': 'Atvērt navigācijas izvēlni',
   'inboxOverview.eyebrow': 'Šodien īsumā',
   'inboxOverview.heroChange': '{{count}} atvērt',
   'inboxOverview.kpiClosedTrend': 'visu laiku',
@@ -115,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Apmeklējiet mājaslapu',
   'notifications.subheading':
     'Uzdevumi, @atzīmes, SLA riski, CSAT atsauksmes un komandas aktivitāte — sakārtoti pēc jaunākajiem pirmām.',
+  'notifications.subjectFallback': 'saruna',
+  'notifications.visitorFallback': 'Viesis',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Augsts',
   'priority.low': 'Zems',
+  'priority.normal': 'Normāls',
   'priority.urgent': 'Steidzami',
   'privacy.title': 'Privātuma politika',
   'reports.agentFallback': 'Aģents',

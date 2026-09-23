@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'about.plansTitle': 'Πλάνα που μεγαλώνουν μαζί σου',
   'brand.tagline': 'Κάθε δευτερόλεπτο',
   'clientDetail.back': 'Πίσω στους πελάτες',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Κάθε σχέση σε ένα μέρος — έργα, ώρες, ανεξόφλητα τιμολόγια.',
   'clients.title': 'Πελάτες',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.activeProjects': 'Ενεργά έργα',
   'dashboard.empty':
     'Δεν υπάρχουν ακόμη καταχωρήσεις. Ξεκινήστε το χρονόμετρο για να παρακολουθήσετε την πρώτη σας συνεδρία.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Δεν υπάρχουν χρεώσιμες ώρες για τιμολόγηση για αυτόν τον πελάτη. Παρακολουθήστε πρώτα κάποιο χρόνο ή αντιστοιχίστε υπάρχουσες καταχωρήσεις σε ένα από τα έργα αυτού του πελάτη.',
   'invoices.save': 'Δημιουργία τιμολογίου',
   'invoices.subtitle': 'Οι ώρες παρακολούθησης συγκεντρώνονται αυτόματα σε τιμολόγια.',
+  'landing.copyright': '© {{year}} {{app}} . Κάθε δευτερόλεπτο, υπολογίζεται.',
   'landing.ctaBody': 'Δωρεάν για έως και 3 έργα. Αναβαθμίστε όταν συμπληρωθεί η λίστα πελατών σας.',
   'landing.eyebrow': 'Παρακολούθηση χρόνου για χρεώσιμη εργασία',
   'landing.featuresBody':
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Αξιόπιστο από ανεξάρτητους',
   'landing.testimonial.quote':
     '\\u201cΈφυγα από το Toggl σε 30 λεπτά. Η εξάντληση του προϋπολογισμού από μόνη της απέδωσε τα έξοδά της \\u2014 Έχω σταματήσει να υποτιμώ δύο συνεχόμενες εβδομάδες.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Χρονο. Κάθε δευτερόλεπτο, υπολογισμένο.',
   'login.brand.subtitle':
     'Ξεκινήστε το χρονόμετρο από εκεί που το σταματήσατε — κάθε λεπτό έχει ήδη αντιστοιχιστεί σε ένα έργο, έναν πελάτη, ένα τιμολόγιο.',
   'login.brand.tracking': 'Παρακολούθηση',
   'login.subheading': 'Πάρτε το χρονόμετρο από εκεί που το αφήσατε.',
+  'nav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'nav.insightsSection': 'Αναλύσεις',
   'nav.newEntry': 'Νέα καταχώρηση',
+  'nav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'nav.primary': 'Κύρια πλοήγηση',
   'nav.workSection': 'Εργασία',
   'notFound.body':
     'Φαίνεται ότι ο σύνδεσμος που ακολουθήσατε έχει σταματήσει να παρακολουθεί. Επιστρέψτε στον πίνακα ελέγχου σας \\u2014 θα συνεχίσουμε να μετράμε από εκεί.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Χρεώσιμο',
   'timer.descriptionPlaceholder': 'Πάνω σε τι ασχολείσαι;',
   'timer.idle': 'Αδρανής — έναρξη παρακολούθησης',
+  'timer.noProject': 'Κανένα έργο',
   'timer.runningWithProject': 'Κανένα έργο',
   'timer.start': 'Έναρξη χρονοδιακόπτη',
   'timer.stop': 'Διακοπή χρονοδιακόπτη',

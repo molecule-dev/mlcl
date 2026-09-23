@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.title': '{{app}} کے بارے میں',
   'auth.login.noAccount': 'اسپارق میں نئے ہیں؟',
   'auth.login.or': 'یا جاری رکھیں',
   'auth.signup.or': 'یا اس کے ساتھ سائن اپ کریں۔',
+  'common.confirm': 'تصدیق کریں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.loadError': 'اس مواد کو لوڈ کرنے میں کچھ غلط ہو گیا۔',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'discover.collections.title': 'زمرہ کے لحاظ سے براؤز کریں۔',
   'discover.collections.viewAll': 'اپنی لائبریری دیکھیں →',
   'discover.empty.body': 'کوئی مختلف زمرہ آزمائیں یا تلاش کو صاف کریں۔',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'اپنی اسٹریک کو زندہ رکھنے، لائیو گیمز کی میزبانی کرنے اور لیڈر بورڈ پر چڑھنے کے لیے سائن ان کریں۔',
   'myQuizzes.createButton': 'نیا کوئز',
+  'myQuizzes.deleteConfirm': 'ہمیشہ کے لیے حذف کریں؟',
   'myQuizzes.empty.createCta': 'اپنا پہلا کوئز بنائیں →',
   'myQuizzes.empty.created': 'آپ نے ابھی تک کوئز نہیں بنایا ہے۔',
   'myQuizzes.empty.played': 'ابھی تک کوئی شائع شدہ کوئز نہیں ہے۔',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'لوڈ ہو رہا ہے…',
   'notifications.subhead':
     '{{count}} بغیر پڑھے ہوئے چنگاریاں دعوتیں، لیڈر بورڈ کی چالیں، اور کامیابیاں سب ایک ہی سلسلے میں۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.checkoutError': 'چیک آؤٹ شروع نہیں کیا جا سکا۔ براہ کرم دوبارہ کوشش کریں۔',
+  'pricing.heading': 'اپنا {{app}} پلان منتخب کریں',
   'pricing.included': 'شامل',
   'pricing.loadError': 'پلانز لوڈ نہیں ہو سکے۔',
   'pricing.maxQuizzes': '{{count}} کوئز',
@@ -99,11 +108,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ابھی تک کچھ شائع نہیں ہوا۔',
   'profile.startBuilding': 'تعمیر شروع کریں →',
   'profile.tier': 'اسپارک پلیئر',
+  'quizBuilder.addFailed': 'سوال شامل نہیں کیا جا سکا۔ دوبارہ کوشش کریں۔',
   'quizBuilder.addQuestion': 'سوال شامل کریں۔',
   'quizBuilder.answerPlaceholder': 'ایک آپشن ٹائپ کریں…',
   'quizBuilder.answersLabel': 'انتخاب کے جوابات دیں۔',
   'quizBuilder.back': 'واپس میرے کوئزز پر',
   'quizBuilder.delete': 'سوال کو حذف کریں۔',
+  'quizBuilder.deleteFailed': 'سوال کو حذف نہیں کیا جا سکا۔',
   'quizBuilder.firstQuestion': 'شروع کرنے کے لیے اپنا پہلا سوال شامل کریں۔',
   'quizBuilder.idLabel': 'کوئز آئی ڈی: {{id}}',
   'quizBuilder.loadError': 'کوئز لوڈ نہیں ہو سکا۔',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'کم از کم دو جوابات شامل کریں اور اس کے لیے صحیح انتخاب کریں۔ {{count}} اشاعت سے پہلے سوال (سوالات)۔',
   'quizBuilder.questionsTitle': 'سوالات',
+  'quizBuilder.saveFailed': 'عنوان محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔',
   'quizBuilder.statusDraft': 'مسودہ',
   'quizBuilder.subhead':
     'عنوان میں ترمیم کریں، سوالات شامل کریں، انتخاب اور درست جوابات مرتب کریں۔ تبدیلیاں خود بخود محفوظ ہوجاتی ہیں۔',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} منٹ',
   'quizDetail.hostMultiplayer': 'ملٹی پلیئر کی میزبانی کریں۔',
   'quizDetail.leaderboardEmpty': 'ابھی تک کوئی ڈرامے نہیں ہیں — سکور سیٹ کرنے والے پہلے بنیں۔',
+  'quizDetail.loadError': 'اس کوئز کو لوڈ نہیں کیا جا سکا۔',
   'quizDetail.loading': 'کوئز لوڈ ہو رہا ہے…',
   'quizDetail.plays': '{{count}} کھیلتا ہے',
   'quizDetail.playSolo': 'سولو کھیلیں',

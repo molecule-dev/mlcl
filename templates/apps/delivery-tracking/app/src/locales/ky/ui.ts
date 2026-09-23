@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'alerts.acknowledgeLabel': 'Моюнга алуу',
   'alerts.customerLabel': 'Кардар: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Туташууда…',
   'carriers.requiredError': 'Аты-жөнү жана коду талап кылынат.',
   'carriers.subheading': '{{count}} интеграцияланган',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
+  'common.retry': 'Кайра аракет',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Транспортто + белгиленген',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'жөнөтүүлөр',
   'pricing.trackingLabel': 'окуяларды көзөмөлдөө',
   'profile.dangerZone.title': 'Коркунучтуу аймак',
+  'profile.devices.signingOut': 'Чыгарылууда…',
+  'profile.devices.unnamed': 'Аты жок түзмөк',
+  'profile.security.disable2fa': "2FA'ны өчүрүү",
   'profile.security.enable2fa': '2FA иштетүү',
   'profile.security.pwChanged': 'Сырсөз ийгиликтүү өзгөртүлдү.',
   'profile.security.pwCurrent': 'Учурдагы сырсөз',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA активдүү',
   'profile.security.twoFaCode': '6 орундуу код',
   'profile.security.twoFaDisable': 'Өчүрүү',
+  'profile.security.twoFaDisabling': 'Өчүрүлүүдө…',
   'profile.security.twoFaFailed': 'Кодду текшере алган жок.',
   'profile.security.twoFaIntro':
     'Autentifier колдонмоңуздагы QR кодун сканерлеп, андан кийин ырастоо үчүн төмөндөгү 6 орундуу кодду киргизиңиз.',
   'profile.security.twoFaOn': 'Бул аккаунтта эки факторлуу аутентификация иштетилген.',
+  'profile.security.twoFaQrAlt': 'Эки факторлуу QR код',
   'profile.security.twoFaVerify': 'Текшерүү жана иштетүү',
   'profile.security.twoFaVerifying': 'Текшерилүүдө…',
   'profile.subheading': 'Бул жумуш мейкиндиги үчүн идентификация жана коопсуздук жөндөөлөрү.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Бул сырды сактап кал — ал экинчи көрсөтүлбөйт.',
   'settings.api.webhookSecret': 'Вебхукка кол коюу сыры',
   'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
+  'settings.deleteAccountConfirm': 'Ишенесизби? Бул аракетти кайтаруу мүмкүн эмес.',
   'settings.notifications.exceptions':
     'Жөнөтүүдөгү өзгөчө кырдаал болгондо мага электрондук кат жөнөтүңүз',
   'settings.notifications.heading': 'Билдирмелер',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Жөнөтүү табылган жок.',
   'shipmentDetail.originHeading': 'Келип чыгышы',
   'shipmentDetail.shippedOn': 'Жөнөтүлдү {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Азырынча эч кандай байкоо иш-чаралары жок — оператор посылканы сканерлегенде жаңыртуулар бул жерде көрсөтүлөт.',
   'shipmentDetail.weightLabel': '{{weight}} фунт',
   'shipments.col.carrier': 'Ташуучу',
   'shipments.col.eta': 'Келип чыгуу убактысы',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Кирүү',
   'signup.submit': 'Эсеп түзүү',
   'team.emailError': 'Жарактуу электрондук почта дареги талап кылынат.',
+  'team.empty':
+    'Азырынча команда мүчөлөрү жок. Жүктөрдү жеткирүү боюнча кызматташуу үчүн командалашыңызды чакырыңыз.',
   'team.eyebrow': 'Мүчөлөр жана уруксаттар',
   'team.inviteDialog.cancel': 'Жокко чыгаруу',
   'team.inviteDialog.heading': 'Командалашыңызды чакырыңыз',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Трек',
   'waypointLayout.primaryNavLabel': 'Негизги навигация',
   'webhooks.createFailed': 'Вебхуктун акыркы чекити түзүлгөн жок.',
+  'webhooks.endpointsEmpty':
+    'Азырынча вебхуктун акыркы чекиттери жок. Жөнөтүүнүн абалы боюнча кайра чалууларды алуу үчүн бирди түзүңүз.',
   'webhooks.endpointsHeading': 'Аяктоо чекиттери',
   'webhooks.eventCount': '{{count}} иш-чаралар',
   'webhooks.eventsHeading': 'Акыркы жеткирүүлөр',

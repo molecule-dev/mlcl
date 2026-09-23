@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Na kontaktoni',
+  'about.title': 'Rreth {{app}}',
   'authShell.backToLanding': '← Kthehu te ulja',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
+  'common.retry': 'Riprovo',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Sot · Përmbledhje e operacioneve',
   'dashboard.heading': 'Inteligjenca e dokumenteve',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Asnjë dokument nuk përputhet me filtrat aktualë.',
   'documents.heading': 'Të gjitha dokumentet',
   'documents.loadError': 'Ngarkimi i dokumenteve dështoi.',
+  'documents.loading': 'Duke ngarkuar bibliotekën…',
   'documents.searchLabel': 'Kërko dokumente',
   'documents.searchPlaceholder': 'Kërko dokumente…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Fshih fjalëkalimin',
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.subtitle': 'Kyçu për të mbajtur dokumentet e tua të rrjedhshme.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'notFound.body':
     'Dokumenti ose itinerari që u përpoqët të hapni nuk është më këtu. Kthehuni te paneli ose zgjidhni një seksion nga shiriti anësor.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Hap faqen e destinacionit',
   'notFound.title': 'Ajo faqe nuk është në dosje',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % kundrejt djeshëm',
@@ -83,6 +90,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Ende nuk ka rregulla paraqitjeje. Përdorni rregullin e ri për të shtuar një të tillë.',
   'rules.eyebrow': 'Automatizimi',
+  'rules.fieldsCount': '{{count}} fusha',
   'rules.form.destination': 'Skedar në',
   'rules.form.name': 'Emri i rregullit',
   'rules.form.save': 'Ruaj rregullin',

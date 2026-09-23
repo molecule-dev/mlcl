@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'O wa lori aaye lọwọlọwọ {{plan}} ètò.',
   'billing.switch': 'Yípadà',
   'billing.upgraded': 'Ti ṣe imudojuiwọn si {{plan}} — awọn idiwọn ti a lo lẹsẹkẹsẹ.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'compare.activityHeading': 'Àwọn ìdájọ́ ìgbòkègbodò',
   'compare.empty.title': 'Fi o kere ju awọn ipo meji kun lati fiwera',
   'compare.eyebrow': 'Ẹgbẹ́ lẹ́gbẹ̀ẹ́ ara wọn',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Gíga',
   'trends.summary.low.label': 'Kekere',
   'trends.summary.points.label': 'Àwọn ọjọ́',
+  'weatherDashboardLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'weatherHeroCard.updated': 'Ti ṣe imudojuiwọn {{time}}',
 }

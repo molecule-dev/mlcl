@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'argentAuthShell.brandEyebrow': 'Аргент · Алат за богатство',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Није инвестициони савет.',
   'argentAuthShell.sampleChange': '+2.841 долара (+0,28%) данас',
   'argentAuthShell.sampleValue': '1.032.251 долара',
   'argentLayout.primaryNavLabel': 'Примарна навигација',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Нема трансакција за овај тикер.',
   'assetDetail.txHeading': 'Ваше трансакције',
   'common.and': 'и',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Преглед портфолија',
@@ -50,6 +53,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Још нема улагања.',
   'holdings.heading': 'Холдинги',
   'holdings.loadError': 'Учитавање фондова није успело.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Није инвестициони савет. Прошли резултати не гарантују будуће резултате.',
   'landing.eyebrow': 'Argent · Платформа за стицање богатства',
   'landing.features.heading': 'Све што би саветник изградио за себе.',
   'landing.finalCta.heading': 'Вратите дисциплину у свој портфолио.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} пре h',
   'news.justNow': 'управо',
   'news.loadError': 'Учитавање вести није успело.',
+  'planUpdated.verifying': 'Потврђивање уплате…',
   'portfolioHeroCard.label': 'Вредност портфолија',
   'pricing.holdingsLabel': 'поседи',
   'pricing.newsLabel': 'новински чланци',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Обриши налог',
   'settings.security.deleting': 'Брисање…',
   'settings.security.heading': 'Безбедност',
+  'settings.security.newPassword': 'Нова лозинка',
   'settings.security.password': 'Лозинка',
   'settings.security.twoFactorEnable': 'Омогући',
+  'settings.security.twoFactorInvalidCode': 'Неважећи код',
+  'settings.security.twoFactorVerify': 'Провери и омогући',
   'settings.tax.error': 'Није могуће ажурирати метод пореза.',
   'settings.tax.heading': 'Пореско рачуноводство',
   'settings.tax.method': 'Подразумевани метод',

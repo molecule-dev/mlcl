@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.subheading': '您目前正在瀏覽{{plan}}計劃。',
   'billing.switch': '轉變',
   'billing.upgraded': '已更新{{plan}} — 限制立即生效。',
+  'common.goToDashboard': '前往主控台',
   'compare.activityHeading': '活動結果',
   'compare.empty.title': '至少增加兩個地點進行比較。',
   'compare.eyebrow': '並排',
@@ -130,5 +131,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': '高的',
   'trends.summary.low.label': '低的',
   'trends.summary.points.label': '天',
+  'weatherDashboardLayout.primaryNavLabel': '主導航',
   'weatherHeroCard.updated': '更新{{time}}',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'about.pageTitle': 'Buruz {{appName}}',
   'analytics.empty': 'Grabatu zure lehen klipa hemen parte-hartzea ikusteko.',
@@ -40,10 +41,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipak',
   'billing.usage.views': 'Ikuspegiak',
   'billing.usage.views.unit': 'ikuspegiak',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'landing.cta.title': 'Bidali iritzi hobea. Hasi Glint-ekin.',
   'landing.feature.capture.body':
     'Arakatzailean, mahaigainean eta mugikorrean grabaketa mikrofonoarekin, kamerarekin eta marrazketarekin.',
   'landing.feature.capture.title': 'Ukitu bakarreko harrapaketa',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asynchronous, argitsu bihurtua.',
   'landing.hero.cardCaption': 'Lan-eremuaren ikuspegi orokorraren lagina — probatu doan.',
   'landing.hero.primaryCta': 'Hasi doan grabatzen',
   'landing.hero.proof.free': 'Doako betiko maila',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Bilatu grabazioak',
   'library.searchPlaceholder': 'Bilatu grabazioak…',
   'library.weeklyChange': '{{value}} % aurreko astearekin alderatuta',
+  'nav.openMenu': 'Ireki nabigazio menua',
   'nav.record': 'Erregistroa',
   'nav.shared': 'Nirekin partekatua',
   'nav.startRecording': 'Hasi grabatzen',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'announcementsFeed.empty': 'Enweghị ọkwa ọ bụla ugbu a.',
   'announcementsFeed.eyebrow': '{{count}} mmelite',
   'announcementsFeed.title': 'Ọkwa kachasị ọhụrụ',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Ọ dịghị ihe ọ bụla ebe a',
   'assignments.emptyBody': "Gbanwee nzacha dị n'elu iji hụ ọrụ ndị dị na steeti dị iche.",
   'assignments.eyebrow': 'Usoro ọmụmụ niile · Usoro ọmụmụ a',
+  'assignments.loadError': 'Enweghị ike ibu ọrụ.',
   'assignments.loading': 'Na-ebugo ọrụ…',
   'assignments.subtitle':
     'Nyochaa site na ọkwa iji hụ ihe kwesịrị ekwesị, nyefere, nyefere akara, ma ọ bụ ihe na-efu.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Ihe ndetu',
   'attendance.empty': 'Enwebeghị ihe ndekọ ndị bịaranụ.',
   'attendance.eyebrow': 'Oge opupu ihe ubi · Izu anọ gara aga',
+  'attendance.loadError': 'Enweghị ike ibugo ndekọ ndị bịara.',
   'attendance.loading': 'Na-ebugo ndị bịaranụ…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': 'Afọ ụlọ akwụkwọ · {{year}}',
   'calendar.subtitle': "A na-ese akara ụbọchị ọrụ n'usoro ọnwa — ule na-apụta ìhè na uhie.",
   'calendar.title': '{{month}} ihe omume',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.no': '—',
+  'common.retry': 'Nwaa ọzọ',
   'common.yes': '✓',
   'courseDetail.backLink': 'Ọkwa',
   'courseDetail.currentGrade': 'Ọkwa dị ugbu a',
@@ -71,11 +76,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Usoro',
   'grades.empty': 'E bipụtabeghị akara ọ bụla.',
   'grades.eyebrow': 'Akwụkwọ ọkwa',
+  'grades.loadError': 'Enweghị m ike ibuli akara gị.',
   'grades.loading': 'Na-ebugo akara...',
   'grades.subtitle':
     "Mkpụrụ akwụkwọ dị ndụ na pasentị. Àkwá ndị na-egosi ma ị na-arị elu, na-aga n'ihu, ma ọ bụ na-amị amị.",
   'grades.title': 'Akara gị, kwa usoro',
   'grades.trendStable': 'Ụlọ siri ike',
+  'landing.copyright': '© {{year}} {{app}} . E wuru ya maka ụmụ akwụkwọ, e mere ya maka ezinụlọ.',
   'landing.ctaHeading': "Ụbọchị ụlọ akwụkwọ dị jụụ na-amalite n'ime nkeji ole na ole",
   'landing.eyebrow': "Maka ụmụ akwụkwọ sekọndrị na ndị nọ n'ụlọ akwụkwọ sekọndrị",
   'landing.featuresHeading': 'Ụbọchị ụlọ akwụkwọ a haziri gburugburu nwa akwụkwọ ahụ',
@@ -110,12 +117,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Ọrụ',
   'nav.attendance': 'Ndị bịara',
   'nav.calendar': 'Kalenda',
+  'nav.closeMenu': 'Mechie menu nsoroụzọ',
   'nav.grades': 'Ọkwa',
+  'nav.openMenu': 'Mepee menu nsoroụzọ',
   'nav.statusEyebrow': 'GPA oge',
   'nav.statusSubtext': 'Ndepụta nsọpụrụ · Oge opupu ihe ubi',
+  'nav.unreadMessages': 'Ozi ndị a na-agụghị',
   'notifications.eyebrow': '{{count}} mmelite',
   'notifications.subtitle':
     'Akara, ncheta, ozi, na ọkwa ụlọ akwụkwọ. Hazie ọwa ọkwa ọ bụla na-eji na Ntọala.',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.attendanceLabel': 'ọnụnọ',
   'pricing.gradesLabel': 'akara ule',
   'pricing.heading': 'ọkwa',

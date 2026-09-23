@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Oor {{app}}',
   'analytics.back': 'Oorsig van die opname',
   'analytics.kpiNps': 'NPS-telling',
   'analytics.kpiNpsTrend': 'Promotors {{p}} % · Teenstanders {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Eienskappe',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Opnametitel',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'forgotPassword.failed': 'Kon nie terugstel-e-pos stuur nie. Probeer asseblief weer.',
   'forgotPassword.subheading': "Voer jou e-posadres in en ons sal vir jou 'n herstelskakel stuur.",
   'forgotPassword.successBody':
     "As 'n rekening ooreenstem {{email}} , 'n terugstelskakel is oppad. Gaan jou inboks en strooiposlêers na.",
+  'landing.footer.copyright': '© {{year}} {{app}} . Alle stemme welkom.',
   'landing.footer.startTrial': 'Begin proeflopie',
   'landing.hero.badge': 'Opnames, NPS en terugvoer op een plek',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Pryse',
   'landing.pricing.perMonth': '/maand',
   'landing.pricing.popular': 'Mees gewild',
+  'landing.pricing.subtitle':
+    'Elke plan sluit die opnamebouer, skakels vir publieke deel en NPS-analise in. Geen kredietkaart nodig om te begin nie.',
+  'landing.pricing.title': 'Begin gratis, skaal wanneer jy dit doen.',
   'landing.sample.eyebrow': "NPS in 'n oogopslag",
   'landing.sample.title': 'Teenstanders, passiewe, promotors — onmiddellik leesbaar.',
   'login.failed': 'Aanmelding het misluk. Probeer asseblief weer.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Wys wagwoord',
   'login.signUpLink': "Begin 'n gratis proeflopie",
   'login.subheading': 'Meld aan om aan te hou luister na jou gehoor.',
+  'notFound.body':
+    'Die bladsy waarna jy soek, bestaan nie op {{app}} nie. Kom ons neem jou terug na jou opnames.',
   'notFound.cta': 'Terug na opnames',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Hierdie opname het van die tou afgegly.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passief 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Publiek aan jou span en op die opnames wat jy opstel.',
+  'profile.identity.emailRequired': "Voer 'n e-posadres in.",
   'profile.identity.saveCta': 'Stoor naam',
   'profile.password.current': 'Huidige wagwoord',
   'profile.password.fillFields': 'Voer beide die huidige en nuwe wagwoord in.',
@@ -175,6 +184,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} vrae',
   'templates.subheading':
     "Kies 'n getoetste voorgereg — elke sjabloon is vooraf ingestel met verstandige standaardinstellings, voorbeeldlogika en 'n skoon mobiele uitleg.",
+  'thankYou.body':
+    'Jou reaksie is aangeteken. {{app}} sal dit in die volgende ontledingsopdatering insluit.',
   'thankYou.eyebrow': 'Antwoord ontvang',
   'thankYou.heading': 'Dankie – jou stem maak saak.',
   'thankYou.home': 'Besoek Gauge',

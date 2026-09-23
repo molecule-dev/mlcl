@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'authShell.brandHeading': 'కలిసి పనిచేసే డిజైన్ బృందాల కోసం పిక్సెల్-పర్ఫెక్ట్ కాన్వాస్‌లు.',
   'canvas.redirecting': 'ఎడిటర్‌ను ప్రారంభిస్తోంది…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'మరియు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'dashboard.activityEmpty':
     'ఇంకా ఇటీవలి యాక్టివిటీ ఏమీ లేదు — ప్రారంభించడానికి ఒక టీమ్‌మేట్‌ను ఆహ్వానించండి.',
   'dashboard.activityTitle': 'ఈరోజు ఏమి మారింది',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'కార్యస్థలం · నార్త్‌విండ్ స్టూడియో',
   'dashboard.foldersLabel': 'ఫోల్డర్లు',
   'dashboard.gridTitle': '{{count}} ప్రాజెక్టులు',
+  'dashboard.heroActiveTool': 'పెన్ సాధనం',
   'dashboard.loadingTitle': 'ప్రాజెక్ట్‌లు లోడ్ అవుతున్నాయి…',
   'dashboard.searchPlaceholder': 'ప్రాజెక్ట్‌లను శోధించండి',
   'dashboard.startFromTemplate': 'టెంప్లేట్ నుండి ప్రారంభించండి',
   'dashboard.title': 'మీ ప్రాజెక్టులు',
   'dashboard.untitledProject': 'పేరులేని ప్రాజెక్ట్',
   'designCanvasLayout.newProject': 'కొత్త ప్రాజెక్ట్',
+  'designCanvasLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'editor.backToProjects': 'ప్రాజెక్ట్‌లకు తిరిగి వెళ్లండి',
   'editor.deleteShape': 'ఆకారాన్ని తొలగించండి',
   'editor.errorBody': 'మేము ఈ ప్రాజెక్ట్‌ను ప్రారంభించలేకపోయాము.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'మీ చేతుల వేగంతో కదిలే డిజైన్ సాధనాలు',
   'library.empty': 'ఈ విభాగంలో ఇంకా టోకెన్లు లేవు.',
   'library.eyebrow': 'వర్క్‌స్పేస్ · అటెలియర్ డిజైన్ సిస్టమ్',
+  'library.loadFailed': 'డిజైన్ టోకెన్‌లను లోడ్ చేయలేకపోయింది.',
   'library.systemMeta': 'వ్యవస్థ ఆరోగ్యం',
   'library.systemSummary': '{{టోకెన్లు}} టోకెన్లు · {{భాగాలు}} భాగాలు · {{ప్రభావాలు}} ప్రభావాలు',
   'login.emailPlaceholder': 'mara@studio.com',

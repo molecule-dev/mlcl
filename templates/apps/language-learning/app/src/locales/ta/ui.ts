@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.logout': 'வெளியேறு',
   'dailyStatsTriad.heartsLabel': 'இதயங்கள்',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'இன்றைய நிமிடங்கள்',
   'dailyStatsTriad.minutesValue': '{{count}} நிமிடம்',
   'dailyStatsTriad.wordsLabel': 'சொற்கள் தேர்ச்சி பெற்றன',
+  'dailyStatsTriad.wordsMasteryHint': 'வார்த்தைகள் தேர்ச்சி நிலை 4+',
   'dashboard.continueHeading': 'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள்.',
   'dashboard.heading': 'காலை வணக்கம், {{name}} .',
   'dashboard.loadError':
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'landing.languagesEyebrow': 'ஒரு மொழியைத் தேர்ந்தெடுக்கவும்',
   'landing.languagesHeading': 'பதினான்கு மொழிகள், ஒரு தினசரிப் பழக்கம்',
   'landing.proof.languages': '{{count}} மொழிகள்',
+  'landing.proof.rating': 'ஆப் ஸ்டோர் · {{rating}} நட்சத்திரங்கள்',
   'landing.proof.users': '{{count}} செயலில் ஈடுபடும் கற்பவர்கள்',
   'landing.sampleEyebrow': 'தற்போதைய தொடர்',
   'landing.sampleTagline':
@@ -58,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'பயிற்சிகளை ஏற்ற முடியவில்லை.',
   'lessonDetail.loading': 'பாடம் ஏற்றப்படுகிறது…',
   'lessonDetail.submitError': 'பதிலைச் சமர்ப்பிக்க முடியவில்லை.',
+  'lessonDetail.translation': 'சொற்றொடரை மொழிபெயர்க்கவும்',
   'lessonDetail.xpEarned': 'சம்பாதித்த XP · {{xp}}',
   'lessons.empty':
     'மட்டத்தில் பாடங்கள் இல்லை {{level}} ஆனாலும் — மற்றொரு படிநிலையை முயற்சித்துப் பாருங்கள்.',
@@ -71,7 +77,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'பேச்சுவழக்கிற்குப் புதியவரா?',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.signUp': 'இலவசமாகத் தொடங்குங்கள் →',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'parlanceLayout.nav.profile': 'சுயவிவரம்',
   'parlanceLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'practice.empty': 'இன்னும் சொற்றொடர்கள் எதுவும் கிடைக்கவில்லை.',
   'practice.eyebrow': 'பேச்சுப் பயிற்சி',
   'practice.heading': 'படியுங்கள். பதிவு செய்யுங்கள். செம்மைப்படுத்துங்கள்.',

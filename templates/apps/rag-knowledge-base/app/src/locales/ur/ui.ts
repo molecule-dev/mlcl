@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.pageTitle': 'کے بارے میں {{appName}}',
   'analytics.error': 'تجزیات کو لوڈ نہیں کیا جا سکا۔',
   'analytics.heading': 'بازیافت کے تجزیات',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'قیمتوں کے کوئی درجے کنفیگر نہیں کیے گئے ہیں۔',
   'billing.plans.heading': 'منصوبے',
   'billing.subheading': 'منصوبہ، استعمال، اور پٹی سے منظم چیک آؤٹ۔',
+  'common.confirm': 'تصدیق کریں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'documentCard.open': 'کھولیں \\u2192',
   'documentDetail.back': 'دستاویزات پر واپس جائیں۔',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'دستاویز کا عنوان',
   'documents.emptyAll':
     'ابھی تک کوئی دستاویزات نہیں ہیں۔ سوالات پوچھنا شروع کرنے کے لیے ایک اپ لوڈ کریں۔',
+  'documents.error.load': 'دستاویزات لوڈ نہیں کر سکے۔',
   'documents.heading': 'اشاریہ شدہ دستاویزات',
   'documents.loading': 'دستاویزات لوڈ ہو رہی ہیں…',
   'documents.metric.chunks': 'کل ٹکڑے',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'ہٹا رہا ہے\\u2026',
   'members.subheading': 'ٹیم کے ساتھیوں کو مدعو کریں اور کردار مقرر کریں۔',
   'members.tableHeading': 'روسٹر',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'notFound.askCta': 'علم کی بنیاد سے پوچھیں۔',
+  'notFound.body':
+    '{{app}} اس صفحہ کو تلاش نہیں کر سکا۔ ہو سکتا ہے لنک ٹوٹ گیا ہو، یا دوبارہ انڈیکس کے دوران صفحہ ریٹائر ہو گیا ہو۔',
   'notFound.eyebrow': 'بازیافت نہیں ہو سکتا',
   'notFound.title': 'انڈیکس میں ایسا کوئی حصہ نہیں ہے۔',
   'notifications.dismiss': 'برطرف کرنا',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'اپنے پہلے کنیکٹر کو وائر کرنے کے لیے \\u201cماخذ شامل کریں\\u201d پر کلک کریں۔',
   'sources.empty.title': 'ابھی تک کوئی ذرائع نہیں ہیں۔',
+  'sources.error.add': 'ماخذ شامل نہیں کیا جا سکا۔',
   'sources.error.labelRequired': 'لیبل درکار ہے۔',
   'sources.error.load': 'ذرائع کو لوڈ نہیں کیا جا سکا۔',
   'sources.error.urlRequired': 'اس سورس قسم کے لیے URL درکار ہے۔',

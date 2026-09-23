@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'about.pageTitle': 'Rreth {{name}}',
   'auth.footer.about': 'Rreth {{name}}',
   'authHeader.subtitle': 'Kyçu për të mbajtur shifrat e tua të sinqerta.',
   'automations.action.email': 'Email',
+  'automations.action.noop': 'Pa operacion',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Fshij " {{name}} "?',
   'automations.empty.headline': 'Ende nuk ka automatizime',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Shkaktues dhe veprime në çdo libër pune. Çdo ekzekutim regjistron një rresht që mund ta auditoni më vonë.',
   'automations.toggle': 'Aktivizo/çaktivizo {{name}}',
+  'automations.trigger.dailySchedule': 'Orari ditor',
+  'automations.trigger.rowCreated': 'Rreshti u krijua',
+  'automations.trigger.rowUpdated': 'Rreshti u përditësua',
   'billing.empty': 'Nuk ka plane të disponueshme.',
   'billing.error.priceMissing':
     'Nuk është konfiguruar asnjë çmim Stripe për këtë nivel. Cakto variantet e env STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafikët',
   'charts.kpi.totalCharts': 'Gjithsej grafikët',
   'charts.list.empty': 'Nuk ka ende grafikë.',
+  'charts.namePlaceholder': 'Trendi i të ardhurave',
   'charts.newChart': 'Grafik i ri',
   'charts.primary.eyebrow': 'Grafikët sipas llojit',
   'charts.primary.headline': 'Përmbledhje e hapësirës së punës',
   'charts.subhead':
     'Vizualizime të drejtpërdrejta të lidhura me rrjetën tuaj — ri-interpretojini në çdo modifikim të qelizës.',
+  'common.goToDashboard': 'Shko te paneli',
   'editor.addColumn': 'Shto kolonë',
+  'editor.addDialogTitle': 'Shto kolonë',
   'editor.addRow': 'Shto rresht',
   'editor.addSheet': 'Shto fletë',
   'editor.back': 'Kthehu te librat e punës',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite është analistët e rrjetit në kohë reale, me shumë pamje dhe formulë të parë, dhe ekipet financiare synojnë të jenë të parat.',
   'landing.nav.formulas': 'Formulat',
+  'login.noAccount': 'I ri në {{name}} ?',
+  'login.signIn': 'Hyr në {{name}}',
   'login.signUp': 'Krijo një hapësirë pune',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Hap menynë',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "rrugë", "faqe")',
   'notFound.headline': 'Ky varg nuk ka ekzistuar kurrë.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatizime vendase · Webhook dhe shkaktarë cron',
   'signup.creating': 'Duke përgatitur hapësirën e punës…',
   'signup.cta': 'Krijo hapësirën time të punës',
+  'signup.haveAccount': 'Tashmë në {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Rrotulloni librin tuaj të parë të punës në 30 sekonda',
   'team.col.activity': 'I ftuar',

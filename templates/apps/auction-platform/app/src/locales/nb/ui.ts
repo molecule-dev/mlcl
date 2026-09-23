@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Ser på',
   'auctionDetail.watchRemoved': 'Fjernet fra følgelisten.',
   'auctionDetail.watchRemoveLabel': 'Fjern fra følgeliste',
+  'auctionPlatformLayout.primaryNavLabel': 'Primær navigasjon',
   'authShell.brandBody':
     'By i sanntid på sjeldne klokker, fin kunst og unike spesialvarer. Hammeren faller på sekunder.',
   'authShell.brandEyebrow': 'Live nå · 1 420 auksjoner',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sorter etter',
   'browseAuctions.subheading':
     'Filtrer etter kategori, sorter etter det som betyr mest, og legg inn et bud før hammeren faller.',
+  'common.goToDashboard': 'Gå til oversikt',
   'countdownTimer.ended': 'Avsluttet',
   'countdownTimer.endingSoon': 'Avsluttes',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Skjul passord',
   'login.showPassword': 'Vis passord',
   'login.subtext': 'Fortsett å følge auksjonene dine og legg inn bud før hammeren faller.',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'myBids.bidAgain': 'By igjen',
   'myBids.browseCta': 'Bla gjennom live-auksjoner →',
   'myBids.checkoutCta': 'Betal nå',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Aktivitetssenter',
   'notificationsPage.subheading':
     '{{count}} uleste · sanntidsoppdateringer mens auksjoner beveger seg',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.bidsLabel': 'bud',
   'pricing.listingsLabel': 'oppføringer',
   'pricing.watchlistLabel': 'følgeliste',

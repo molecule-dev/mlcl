@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'accountDetail.activeBadge': 'Ενεργός',
   'accountDetail.availableLabel': '{{amount}} διαθέσιμο',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Λογαριασμοί',
   'accounts.loadError': 'Αποτυχία φόρτωσης λογαριασμών.',
   'accounts.status.closed': 'Κλειστός',
+  'accounts.status.frozen': 'Παγωμένο',
   'accounts.totalBalance': '{{amount}} σύνολο',
   'audit.empty': 'Δεν υπάρχουν γεγονότα ακόμα.',
   'audit.eyebrow': 'Ασφάλεια & πρόσβαση',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Μετρητά στο χέρι',
   'cashCreditCard.creditLabel': 'Χρησιμοποιημένη πίστωση',
   'cashCreditCard.title': 'Μετρητά & πίστωση',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.accountsHeading': 'Λογαριασμοί',
   'dashboard.heading': 'Επισκόπηση',
   'dashboard.recentEmpty': 'Δεν υπάρχουν συναλλαγές ακόμα.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.signUp': 'Εγγραφή',
   'login.submit': 'Σύνδεση',
+  'meridianLayout.menu': 'Μενού',
   'meridianLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'nav.legal': 'Νομικά',
   'notifications.emptyHeading': 'Είστε ενημερωμένοι',
   'notifications.subheading':
     'Ειδοποιήσεις σε πραγματικό χρόνο για συναλλαγές, ασφάλεια και καταστάσεις.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'privacy.dataWeShare':
     'Τα προσωπικά τραπεζικά δεδομένα δεν πωλούνται ποτέ. Μοιραζόμαστε πληροφορίες με επεξεργαστές πληρωμών, δίκτυα καρτών και ρυθμιστές μόνο στον βαθμό που απαιτείται για τον διακανονισμό συναλλαγών ή την εκπλήρωση νομικών υποχρεώσεων.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Η διπλή επαλήθευση προσθέτει κωδικό μίας χρήσης από εφαρμογή ελέγχου ταυτότητας σε κάθε σύνδεση.',
   'settings.security.twoFactorCta': 'Διαχείριση διπλής επαλήθευσης',
+  'settings.security.twoFactorOff': 'Η διπλή επαλήθευση είναι απενεργοποιημένη',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.subheading': 'Προφίλ, ασφάλεια και ειδοποιήσεις.',
+  'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'signup.emailLabel': 'Διεύθυνση email',
   'signup.fullName': 'Πώς να σας προσφωνούμε;',
   'signup.showPassword': 'Εμφάνιση κωδικού',
@@ -106,7 +115,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Δεν υπάρχουν συναλλαγές ακόμα.',
   'transactions.endDate': 'Ημερομηνία λήξης',
   'transactions.eyebrow': 'Δραστηριότητα',
+  'transactions.loadError': 'Αποτυχία φόρτωσης συναλλαγών.',
   'transactions.merchant': 'Έμπορος',
+  'transactions.subheading':
+    'Όλες οι καταχωρημένες και εκκρεμείς συναλλαγές σε όλους τους λογαριασμούς σας.',
   'transfers.availableHint': '{{amount}} διαθέσιμο',
   'transfers.errorGeneric': 'Αποτυχία υποβολής μεταφοράς.',
   'transfers.errorMissingFields': 'Επιλέξτε λογαριασμό προέλευσης και προορισμό.',

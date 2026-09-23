@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Гледане',
   'auctionDetail.watchRemoved': 'Премахнато от списъка за наблюдение.',
   'auctionDetail.watchRemoveLabel': 'Премахване от списъка за наблюдение',
+  'auctionPlatformLayout.primaryNavLabel': 'Основна навигация',
   'authShell.brandBody':
     'Наддавайте в реално време за редки часовници, произведения на изкуството и уникални специални предмети. Чукчето пада за секунди.',
   'authShell.brandEyebrow': 'Актуално сега · 1420 търга',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Сортиране по',
   'browseAuctions.subheading':
     'Филтрирайте по категория, сортирайте по най-важното и направете оферта, преди да падне чукчето.',
+  'common.goToDashboard': 'Към таблото',
   'countdownTimer.ended': 'Приключи',
   'countdownTimer.endingSoon': 'Край',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Покажи паролата',
   'login.subtext':
     'Продължете да следите търговете си и да правите оферти, преди чукчето да падне.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'myBids.bidAgain': 'Наддавайте отново',
   'myBids.browseCta': 'Разгледайте аукционите на живо →',
   'myBids.checkoutCta': 'Плати сега',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Център за дейности',
   'notificationsPage.subheading':
     '{{count}} непрочетени · актуализации на живо с развитието на търговете',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.bidsLabel': 'оферти',
   'pricing.listingsLabel': 'обяви',
   'pricing.watchlistLabel': 'списък за наблюдение',

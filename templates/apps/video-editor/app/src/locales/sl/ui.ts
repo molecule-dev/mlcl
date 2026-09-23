@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ste našli napako, imate zahtevo za funkcijo ali nam želite povedati o filmu, ki ste ga posnameli? Vsako sporočilo doseže resnično osebo v ekipi – kadar koli se obrnite na nas v nastavitvah računa.',
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.eyebrow': '// studio, ki stoji za rezom',
   'about.pageTitle': 'O nas {{appName}}',
   'assetDetail.back': 'Nazaj v knjižnico',
   'assetDetail.confirmDelete': 'Izbriši " {{name}} "? Tega ni mogoče razveljaviti."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} posnetki, zvočni posnetki in grafika, pripravljeni za namestitev na časovnico.',
   'assetLibrary.title': 'Sredstva',
   'assetLibrary.upload': 'Dodaj sredstvo',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'dashboard.browseTemplates': 'Brskaj po predlogah →',
   'dashboard.loading': 'Nalaganje projektov…',
   'dashboard.noProjects': 'Še ni projektov – ustvarite enega, da začnete.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Izberi nekaj, česar se boš spomnil/a samo ti.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Zasebnost',
+  'rushesLayout.closeMenu': 'Zapri navigacijo',
   'rushesLayout.guest': 'Urednik',
+  'rushesLayout.navDialog': 'Navigacija',
+  'rushesLayout.openMenu': 'Odpri navigacijo',
   'rushesLayout.planFree': 'Brezplačni načrt',
   'rushesLayout.tagline': 'Filmska časovnica',
   'settings.billing.confirmCancel': 'Preklic naročnine ob koncu obdobja?',

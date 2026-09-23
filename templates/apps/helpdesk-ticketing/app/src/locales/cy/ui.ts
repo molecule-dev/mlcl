@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Cysylltwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.title': 'Ynghylch {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'llun pen proffesiynol o asiant cymorth benywaidd gyda gwên gyfeillgar mewn swyddfa fodern',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Cysylltwch â chymorth',
   'forgotPassword.error': 'Methwyd anfon e-bost ailosod. Rhowch gynnig arall arni.',
   'forgotPassword.rememberPassword': 'Cofiwch eich cyfrinair?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Mewngofnodi — Cymorth Zenith',
   'login.showPassword': 'Dangos cyfrinair',
   'login.welcomeSubheading': "Mewngofnodwch i'ch dangosfwrdd cymorth",
+  'mobileNav.closeMenu': 'Cau llywio',
+  'mobileNav.menu': 'Mordwyo',
+  'mobileNav.openMenu': 'Agor llywio',
   'nav.legal': 'Cyfreithiol',
   'nav.newTicket': 'Tocyn Newydd',
   'notifications.loadError': 'Methwyd llwytho hysbysiadau. Rhowch gynnig arall arni ymhen eiliad.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Chwilio Gorchymyn',
   'operatorDock.newReport': 'Adroddiad Newydd',
   'operatorDock.systemOnline': 'System Ar-lein',
+  'planUpdated.subtitle': 'Diolch',
   'planUpdated.title': "Cynllun wedi'i ddiweddaru",
   'pricing.agents': 'asiantau',
   'pricing.automation': 'Rheolau awtomeiddio',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{enw}}',
   'ticketCustomerReply.avatarAlt': "{{enw}} avatar 's",
   'ticketDetail.errorTitle': "Aeth rhywbeth o'i le",
+  'ticketDetail.loadError': "Methwyd llwytho'r tocyn.",
+  'ticketDetail.notFound': 'Tocyn heb ei ganfod',
+  'ticketDetail.replyError': 'Methwyd anfon ateb. Rhowch gynnig arall arni.',
   'ticketDetail.retry': 'Rhowch gynnig arall arni',
   'ticketDetail.statusUpdateError': "Methwyd diweddaru'r statws. Rhowch gynnig arall arni.",
   'ticketDetailsCard.assigneeLabel': 'Aseinai',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{amser}} chwith',
   'ticketRow.title': 'Cysylltiad cronfa ddata yn methu ar gynhyrchu {{nod}}',
   'tickets.pageTitle': 'Tocynnau — Cymorth Zenith',
+  'ticketsFab.newTicket': 'Tocyn newydd',
   'ticketsFilterBar.assigneeLabel': 'Aseinai:',
   'ticketsFilterBar.clearFilters': 'Clirio Hidlau',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
+  'brandHeader.tagline': '{{tagline}}',
   'commentThreadItem.collapse': 'Κατάρρευση',
   'commentThreadItem.expand': 'Διαστέλλω',
   'commentThreadItem.karma': '{{karma}} κάρμα',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'feed.clearTag': 'Καθαρισμός φίλτρου ετικετών',
   'feed.controls': 'Ταξινόμηση ροής',
   'feed.empty':
     'Δεν υπάρχει τίποτα εδώ ακόμα — να είναι ο πρώτος που θα σηματοδοτήσει μια διαδρομή.',
+  'feed.heroEyebrow': 'Η πρώτη σας σελίδα',
   'feed.heroHeadline': 'Τρεις κοινότητες. Ένα αργό κοινό χρονοδιάγραμμα.',
   'feed.loadError': 'Αποτυχία φόρτωσης αναρτήσεων.',
   'feed.loading': 'Φόρτωση της πρώτης σελίδας…',
@@ -18,6 +24,8 @@ export const ui: UiTranslations = {
   'forgotPassword.subtitle':
     'Εισαγάγετε τη διεύθυνση email στον λογαριασμό σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.success': 'Ελεγχος {{email}} για έναν σύνδεσμο επαναφοράς.',
+  'landing.eyebrow': '{{tagline}}',
+  'landing.footerCopy': '\\u00a9 {{appName}} \\u2014 Σημειώστε τη διαδρομή.',
   'landing.headline': 'Ένα μικρό, αργό μέρος για τους συνδέσμους που αξίζει να επισημανθεί.',
   'landing.heroPreview': 'Προεπισκόπηση του Digest',
   'landing.subsEyebrow': 'Ενεργοί συνδρομητές',
@@ -25,11 +33,15 @@ export const ui: UiTranslations = {
   'landing.todayEyebrow': 'Σήμερα στο Κερν',
   'landing.todayHeadline': 'Μια ματιά στην πρώτη σελίδα.',
   'landing.trendingEyebrow': 'Τα πιο δημοφιλή σήμερα',
+  'linkAggregatorLayout.mobileNav': 'Κύριο',
+  'linkAggregatorLayout.searchAria': 'Αναζήτηση στο Vox',
   'linkAggregatorLayout.searchPlaceholder': 'Αναζήτηση συνδέσμων, ετικετών, χρηστών…',
   'linkAggregatorLayout.sectionFeeds': 'Ροές',
   'linkAggregatorLayout.settings': 'Ρυθμίσεις',
   'linkDetail.backToFeed': 'Επιστροφή στη ροή',
   'linkDetail.byUser': 'υποβλήθηκε από {{user}}',
+  'linkDetail.commentAria': 'Γράψτε ένα σχόλιο',
+  'linkDetail.commentError': 'Η δημοσίευση του σχολίου απέτυχε — δοκιμάστε ξανά.',
   'linkDetail.commentPlaceholder': 'Προσθέστε μια στοχαστική απάντηση…',
   'linkDetail.commentsHeading': '{{count}} σχόλια',
   'linkDetail.commentSubmit': 'Δημοσίευση σχολίου',
@@ -42,13 +54,18 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Νέος στο Tessera;',
   'login.orContinue': 'ή συνεχίστε με',
   'login.signingIn': 'Σύνδεση...',
+  'login.subtitle': '{{tagline}}',
   'login.welcome': 'Καλώς ήρθες πίσω στο τύμβο.',
   'nav.legal': 'Νομικά',
   'notifications.heroHeadline': 'Απαντήσεις, αναφορές και ορόσημα.',
   'notifications.loading': 'Φόρτωση εισερχομένων…',
   'notifications.title.mention': 'Αναφέρθηκες',
   'notifications.title.milestone': 'Ορόσημο που επιτεύχθηκε',
+  'notifications.title.modmail': 'Ειδοποίηση συντονιστή',
+  'notifications.title.reply': 'Νέα απάντηση',
+  'notifications.title.vote': 'Η ανάρτησή σας έλαβε ψήφο εμπιστοσύνης',
   'notifications.view': 'Προβολή νήματος',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'privacy.lastUpdated': 'Τελευταία ενημέρωση: {{date}}',
   'privacy.section.collected.body':
     'Συλλέγουμε στοιχεία λογαριασμού (όνομα χρήστη, email), το περιεχόμενο που δημοσιεύετε (σύνδεσμοι, σχόλια, ψήφοι, αποθηκευμένα στοιχεία, συνδρομές) και τυπικά αρχεία καταγραφής λειτουργίας υπηρεσιών (IP, user-agent, χρονικές σημάνσεις).',
@@ -73,6 +90,7 @@ export const ui: UiTranslations = {
   'resetPassword.submitting': 'Επαναφορά…',
   'resetPassword.subtitle':
     'Επιλέξτε έναν ισχυρό, μοναδικό κωδικό πρόσβασης για να ολοκληρώσετε το ξεκλείδωμα του λογαριασμού σας.',
+  'saved.allCollection': 'Όλα αποθηκεύτηκαν',
   'saved.empty':
     'Δεν υπάρχει τίποτα αποθηκευμένο ακόμα — πατήστε σελιδοδείκτη σε μια ανάρτηση για να ξεκινήσετε τη βιβλιοθήκη σας.',
   'saved.heroBody':
@@ -103,6 +121,7 @@ export const ui: UiTranslations = {
   'settings.privacy.body':
     'Το Digest διατηρεί τους αποθηκευμένους συνδέσμους και το ιστορικό αναζήτησής σας ιδιωτικά. Πατήστε παρακάτω για να κατεβάσετε τα δεδομένα σας ή να κλείσετε τον λογαριασμό σας.',
   'settings.privacy.export': 'Εξαγωγή των δεδομένων μου',
+  'settings.privacy.exporting': 'Προετοιμασία εξαγωγής…',
   'settings.saveFailed': 'Αποτυχία αποθήκευσης ρυθμίσεων.',
   'settings.saving': 'Αποθήκευση…',
   'signup.heading': 'Δημιουργήστε τον λογαριασμό σας στο Digest.',
@@ -135,6 +154,7 @@ export const ui: UiTranslations = {
   'submitLink.urlLabel': 'URL',
   'submitLink.urlRequired': 'Απαιτείται μια διεύθυνση URL για αναρτήσεις συνδέσμων.',
   'subs.empty': 'Δεν υπάρχουν ακόμη συνδρομητές — γίνετε ο πρώτος που θα ξεκινήσει έναν.',
+  'subs.heroEyebrow': 'Υποκοινότητες',
   'subs.heroHeadline': 'Διάλεξε τις πέτρες σου. Φτιάξε τον τύμβο σου.',
   'subs.loadError': 'Αποτυχία φόρτωσης συνδρομητών.',
   'subs.loading': 'Συγκέντρωση συνδρομητών…',

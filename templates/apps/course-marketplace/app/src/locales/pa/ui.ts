@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'ਕੋਰਸ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'browse.next': 'ਅਗਲਾ ਪੰਨਾ',
   'browse.results': 'ਦਿਖਾ ਰਿਹਾ ਹੈ {{count}} ਕੋਰਸ',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'ਦੇ ਨਾਲ ਕ੍ਰਮਬੱਧ',
   'browse.subtitle':
     'ਸੰਪਾਦਕੀ ਪੁਰਾਲੇਖ ਨੂੰ ਵਿਸ਼ੇ, ਪੱਧਰ ਅਤੇ ਕੀਮਤ ਅਨੁਸਾਰ ਫਿਲਟਰ ਕਰੋ। ਹਰੇਕ ਕੋਰਸ ਸਾਡੇ ਸੰਪਾਦਕਾਂ ਦੁਆਰਾ ਹੱਥੀਂ ਤਿਆਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'ਤੁਹਾਡਾ ਸਰਟੀਫਿਕੇਟ ਦਸਤਖਤ ਕੀਤਾ ਹੋਇਆ ਹੈ ਅਤੇ ਤਿਆਰ ਹੈ। ਇਸਨੂੰ ਦੁਨੀਆ ਨਾਲ ਸਾਂਝਾ ਕਰੋ ਜਾਂ ਇਸਨੂੰ ਕਮਾਉਣ ਲਈ ਕੀਤੀ ਗਈ ਮਿਹਨਤ ਦੀ ਯਾਦ ਦਿਵਾਉਣ ਲਈ ਰੱਖੋ।',
   'certificate.copyLink': 'ਸਾਂਝਾ ਕਰਨ ਵਾਲਾ ਲਿੰਕ ਕਾਪੀ ਕਰੋ',
+  'certificate.copyPrompt': 'ਇਸ ਲਿੰਕ ਨੂੰ ਕਾਪੀ ਕਰੋ:',
   'certificate.download': 'PDF ਡਾਊਨਲੋਡ ਕਰੋ',
   'certificate.eyebrow': 'ਪ੍ਰਾਪਤੀ ਅਣਲਾਕ ਕੀਤੀ ਗਈ',
   'certificate.linkCopied': 'ਲਿੰਕ ਕਾਪੀ ਕੀਤਾ ਗਿਆ!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'ਤੁਸੀਂ ਦਾਖਲ ਹੋ ਗਏ ਹੋ!',
   'checkout.verifying': 'ਤੁਹਾਡੇ ਦਾਖਲੇ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...',
   'checkout.viewLibrary': 'ਮੇਰੀ ਸਿੱਖਿਆ ਵੇਖੋ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'common.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'courseDetail.about': 'ਇਸ ਕੋਰਸ ਬਾਰੇ',
   'courseDetail.checkoutPending': 'ਚੈੱਕਆਉਟ ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'courseDetail.continueLearning': 'ਸਿੱਖਣਾ ਜਾਰੀ ਰੱਖੋ',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-ਦਿਨਾਂ ਦੀ ਪੈਸੇ ਵਾਪਸ ਕਰਨ ਦੀ ਗਰੰਟੀ',
   'courseDetail.includes.video': "{{hours}} ਘੰਟਿਆਂ ਦੀ ਮੰਗ 'ਤੇ ਵੀਡੀਓ",
   'courseDetail.instructor': 'ਇੰਸਟ੍ਰਕਟਰ',
+  'courseDetail.languageEnglish': 'ਅੰਗਰੇਜ਼ੀ',
   'courseDetail.lectures': 'ਲੈਕਚਰ',
   'courseDetail.level': 'ਪੱਧਰ',
   'courseDetail.loading': 'ਕੋਰਸ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'ਅਜੇ ਤੱਕ ਕੋਈ ਸਮੀਖਿਆ ਨਹੀਂ।',
   'instructorProfile.students': 'ਵਿਦਿਆਰਥੀ',
   'landing.categories.empty': 'ਕੈਟਾਲਾਗ ਭਰ ਜਾਣ ਤੋਂ ਬਾਅਦ ਸ਼੍ਰੇਣੀਆਂ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।',
+  'landing.categories.heading': 'ਪੁਰਾਲੇਖ ਦੀ ਪੜਚੋਲ ਕਰੋ',
   'landing.hero.eyebrow': 'ਲੈਕਚੁਰਾ · ਮੁਹਾਰਤ ਦਾ ਸੰਪਾਦਕੀ ਪੁਰਾਲੇਖ',
   'landing.hero.proof': 'ਗੂਗਲ, ਮੈਟਾ, ਅਤੇ ਅਡੋਬ ਦੇ ਸਿਖਿਆਰਥੀਆਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ।',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'ਅੱਜ ਹੀ ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰੋ',
   'login.subheading': 'ਆਪਣੇ ਵਿਦਵਤਾਪੂਰਨ ਪੁਰਾਲੇਖ ਤੱਕ ਪਹੁੰਚ ਕਰੋ।',
   'myLearning.empty.title': 'ਇਸ ਫਿਲਟਰ ਨਾਲ ਅਜੇ ਤੱਕ ਕੋਈ ਕੋਰਸ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।',
+  'myLearning.error.title': 'ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ',
   'myLearning.filter.notStarted': 'ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਇਆ',
   'myLearning.hero.subtitle': '{{count}} ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚ ਕੋਰਸ। ਗਤੀ ਨੂੰ ਜਾਰੀ ਰੱਖੋ।',
   'myLearning.hero.title': 'ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ।',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'ਸਮੀਖਿਆ ਕਰਨ ਲਈ ਕੋਈ ਨਵੀਂ ਗਤੀਵਿਧੀ ਨਹੀਂ ਹੈ। ਨਵੇਂ ਇਵੈਂਟ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'notifications.empty.title': 'ਤੁਸੀਂ ਸਭ ਕੁਝ ਪੜ੍ਹ ਲਿਆ ਹੈ',
+  'notifications.error.title': 'ਗਤੀਵਿਧੀ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ',
   'privacy.title': 'ਪਰਾਈਵੇਟ ਨੀਤੀ',
   'reset.confirmPlaceholder': 'ਆਪਣਾ ਨਵਾਂ ਪਾਸਵਰਡ ਦੁਬਾਰਾ ਦਰਜ ਕਰੋ',
   'reset.errorGeneric': 'ਪਾਸਵਰਡ ਰੀਸੈਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਇੱਕ ਨਵੇਂ ਲਿੰਕ ਦੀ ਬੇਨਤੀ ਕਰੋ।',
@@ -190,5 +198,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} ਦਿਨ ਪਹਿਲਾਂ',
   'timeAgo.hours': '{{count}} ਘੰਟਾ ਪਹਿਲਾਂ',
   'timeAgo.minutes': '{{count}} ਮਿੰਟ ਪਹਿਲਾਂ',
+  'timeAgo.months': '{{count}} ਮਹੀਨੇ ਪਹਿਲਾਂ',
   'timeAgo.today': 'ਅੱਜ',
+  'timeAgo.weeks': '{{count}} ਹਫ਼ਤੇ ਪਹਿਲਾਂ',
 }

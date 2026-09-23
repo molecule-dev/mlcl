@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// sobre {{app}}',
+  'about.pageTitle': 'El pla de control del webhook',
+  'about.plansTitle': 'Plans per a cada etapa',
   'apiKeys.bestPractices': 'Bones pràctiques',
   'apiKeys.body':
     "Tokens d'accés programàtic. Tracteu-los com a contrasenyes: emmagatzemeu-los en variables d'entorn, no els confirmeu mai.",
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'dins del pla',
   'billing.usageWarning': 'a prop de la tapa',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.body':
     'Rendiment en directe, intents reiterats i punts finals que acaben de fallar, a tots els espais de treball on opereu.',
   'dashboard.endpointsEmpty': 'Encara no hi ha punts finals.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'punts finals',
   'endpointDetail.deliveryTrendSub': 'lliuraments / hora, escala logarítmica',
   'endpointDetail.hideSecret': 'Amaga el secret',
+  'endpointDetail.loading': "S'està carregant el punt final…",
   'endpointDetail.metric.delivered': 'Lliurat en 24 hores',
   'endpointDetail.metric.deliveredCaption': "de {{count}} tipus d'esdeveniments",
   'endpointDetail.metric.failuresCaption': 'reintents: {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Crític · 24 h',
   'notifications.metric.totalCaption': "safata d'entrada de tots els temps",
   'payloadViewer.payload': '// càrrega útil',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint':
     "Inicials mostrades: les càrregues s'aniran publicant amb la propera versió.",
@@ -233,6 +239,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Només la sessió actual està activa. No hi ha cap altre dispositiu que hagi iniciat la sessió.',
   'profile.toggle': 'Activa/desactiva {{label}}',
+  'pylonShell.closeMenu': 'Tanca el menú de navegació',
+  'pylonShell.openMenu': 'Obre el menú de navegació',
   'pylonShell.primaryNavLabel': 'Navegació principal',
   'resetPassword.subtitle': 'Trieu una contrasenya forta que no hàgiu utilitzat mai abans.',
   'resetPassword.tokenPlaceholder': 'enganxar des del correu electrònic',

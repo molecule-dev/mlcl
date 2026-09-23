@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kan si wa',
+  'about.title': 'Nípa {{app}}',
   'authShell.backToLanding': '← Pada si ibalẹ',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Lónìí · Àkótán iṣẹ́',
   'dashboard.heading': 'Ọgbọ́n ìwé àkọsílẹ̀',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Kò sí ìwé kankan tó bá àwọn àlẹ̀mọ́ tó wà lọ́wọ́lọ́wọ́ mu.',
   'documents.heading': 'Gbogbo àwọn ìwé',
   'documents.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìwé sórí ayélujára.',
+  'documents.loading': 'N n gbe ibi ìkàwé sókè…',
   'documents.searchLabel': 'Ṣe àwárí àwọn ìwé',
   'documents.searchPlaceholder': 'Ṣe àwárí àwọn ìwé…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Fi ọrọ igbaniwọle pamọ',
   'login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'login.subtitle': 'Wọlé láti jẹ́ kí àwọn ìwé rẹ máa ṣiṣẹ́.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'notFound.body':
     'Ìwé tàbí ipa ọ̀nà tí o gbìyànjú láti ṣí kò sí níbí mọ́. Padà sí dasibodu tàbí yan apá kan láti inú ẹ̀gbẹ́ ẹ̀gbẹ́.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Ṣí ojú ìwé ìbalẹ̀',
   'notFound.title': 'Ojú ìwé yẹn kò sí lórí fáìlì',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % vs àná',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Àwọn òfin tó ń ṣiṣẹ́',
   'rules.empty': 'Kò sí òfin ìforúkọsílẹ̀ síbẹ̀. Lo òfin tuntun láti fi ọ̀kan kún un.',
   'rules.eyebrow': 'Adaṣiṣẹ adaṣe',
+  'rules.fieldsCount': 'Àwọn pápá {{count}}',
   'rules.form.destination': 'Fáìlì sí',
   'rules.form.name': 'Orúkọ òfin',
   'rules.form.save': 'Fi ofin pamọ',

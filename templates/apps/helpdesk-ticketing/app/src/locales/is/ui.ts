@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hafðu samband',
   'about.eyebrow': 'Um',
+  'about.title': 'Um {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Fagleg andlitsmynd af kvenkyns þjónustufulltrúa með vinalegt bros á vör á nútímalegri skrifstofu',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Hafðu samband við þjónustudeild',
   'forgotPassword.error': 'Gat ekki sent endurstillingartölvupóst. Reyndu aftur.',
   'forgotPassword.rememberPassword': 'Manstu lykilorðið þitt?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Innskráning — Zenith þjónustudeild',
   'login.showPassword': 'Sýna lykilorð',
   'login.welcomeSubheading': 'Skráðu þig inn á stuðningsstjórnborðið þitt',
+  'mobileNav.closeMenu': 'Loka flakki',
+  'mobileNav.menu': 'Leiðsögn',
+  'mobileNav.openMenu': 'Opna flakk',
   'nav.legal': 'Löglegt',
   'nav.newTicket': 'Nýr miði',
   'notifications.loadError': 'Ekki tókst að hlaða tilkynningum. Reyndu aftur eftir smástund.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Leita að skipunum',
   'operatorDock.newReport': 'Ný skýrsla',
   'operatorDock.systemOnline': 'Kerfi á netinu',
+  'planUpdated.subtitle': 'Takk fyrir',
   'planUpdated.title': 'Áætlun uppfærð',
   'pricing.agents': 'umboðsmenn',
   'pricing.automation': 'Reglur um sjálfvirkni',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{nafn}}',
   'ticketCustomerReply.avatarAlt': '{{nafn}} Notandamynd',
   'ticketDetail.errorTitle': 'Eitthvað fór úrskeiðis',
+  'ticketDetail.loadError': 'Mistókst að hlaða miða.',
+  'ticketDetail.notFound': 'Miðinn fannst ekki',
+  'ticketDetail.replyError': 'Mistókst að senda svar. Vinsamlegast reyndu aftur.',
   'ticketDetail.retry': 'Reyndu aftur',
   'ticketDetail.statusUpdateError': 'Gat ekki uppfært stöðuna. Reyndu aftur.',
   'ticketDetailsCard.assigneeLabel': 'Umboðsmaður',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{tími}} vinstri',
   'ticketRow.title': 'Gagnagrunnstenging bilar í framleiðslu {{hnútur}}',
   'tickets.pageTitle': 'Miðar — Zenith stuðningur',
+  'ticketsFab.newTicket': 'Nýr miði',
   'ticketsFilterBar.assigneeLabel': 'Umboðsmaður:',
   'ticketsFilterBar.clearFilters': 'Hreinsa síur',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

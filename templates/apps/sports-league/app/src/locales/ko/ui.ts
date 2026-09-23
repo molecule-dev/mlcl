@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': '소개',
+  'appShell.closeNav': '탐색 메뉴 닫기',
+  'appShell.openNav': '탐색 메뉴 열기',
+  'common.dashboard': '대시보드',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.eyebrow': '오늘의 리그 현황',
   'dashboard.loading': '오늘 밤 점수를 가져오고 있습니다…',
   'dashboard.scoringLeaders': '득점 리더',
@@ -143,4 +147,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}}일 전',
   'time.hoursAgo': '{{count}}시간 전',
   'time.minutesAgo': '{{count}}분 전',
+  'time.secondsAgo': '{{count}} 초 전',
 }

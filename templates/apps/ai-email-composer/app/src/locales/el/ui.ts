@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Η ιστορία μας',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Ποσοστό ανοίγματος',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Εκκίνηση checkout…',
   'billing.subheading': 'Επιλέξτε το πλάνο που ταιριάζει στον τρόπο αποστολής σας.',
   'billing.unavailable': 'Επικοινωνήστε με το τμήμα πωλήσεων',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'compose.adjustingTone': 'Επαναγραφή στον επιλεγμένο τόνο…',
   'compose.aiPromptPlaceholder':
     'π.χ. «Ευγενική παρακολούθηση μετά από δύο εβδομάδες χωρίς απάντηση, κρατήστε το σύντομο.»',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Χρειάζεται να στείλετε κάτι; Ο Signet μπορεί να έχει ένα πρόχειρο έτοιμο σε δευτερόλεπτα.',
   'dashboard.composeCtaLabel': 'Γρήγορη σύνταξη',
   'dashboard.heading': 'Η εβδομάδα σας, συντεταγμένη',
+  'dashboard.loadFailed': 'Δεν ήταν δυνατή η φόρτωση του πίνακα ελέγχου σας.',
   'dashboard.manageLibrary': 'Διαχείριση βιβλιοθήκης →',
   'dashboard.recentEmpty':
     'Δεν υπάρχουν αποστολές ακόμα — τα email που έχετε στείλει θα εμφανιστούν εδώ.',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Ο Signet χρησιμοποιεί αυτόν τον τόνο εκτός αν τον αντικαταστήσετε στο πρόχειρο.',
   'signetLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'signetLayout.toggleMenu': 'Εναλλαγή μενού',
   'signup.emailLabel': 'Διεύθυνση email',
   'signup.showPassword': 'Εμφάνιση κωδικού',
   'signup.tagline': 'Στείλτε το πρώτο σας email γραμμένο από AI σε λιγότερο από ένα λεπτό.',

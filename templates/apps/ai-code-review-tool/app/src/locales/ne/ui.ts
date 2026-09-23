@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'सम्पर्कमा रहनुहोस्',
   'about.eyebrow': 'बारेमा',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'dashboard.connectRepoCta': 'भण्डार जडान गर्नुहोस्',
   'dashboard.empty': 'अहिलेसम्म कुनै पुल अनुरोध छैन — सुरु गर्न भण्डार जडान गर्नुहोस्।',
   'dashboard.eyebrow': 'अपवर्तन · समीक्षा लाम',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'अपटाइम',
   'pullRequestRow.files': '{{count}} च',
   'pullRequestRow.scoreAria': 'एआई गुणस्तर स्कोर {{score}} / १०',
+  'refractLayout.closeMenu': 'मेनु बन्द गर्नुहोस्',
+  'refractLayout.openMenu': 'मेनु खोल्नुहोस्',
   'refractLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'reports.cumulativeScoreLabel': 'संचयी अङ्क',
   'reports.cumulativeScoreSubtitle': 'सबै रिपोहरू · {{days}} घ',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'खोज अनुक्रमणिका लोड गर्न असफल भयो।',
   'settings.apiKeys.description':
     'माथिल्लो दायाँपट्टि रहेको प्रयोगकर्ता मेनुबाट व्यक्तिगत API कुञ्जीहरू व्यवस्थापन गर्नुहोस्।',
+  'settings.apiKeys.integrationsNote':
+    'प्रदायक पहुँच टोकनहरू माथिको एकीकरण खण्डमा व्यवस्थित गरिएका छन्।',
   'settings.connectError': 'प्रदायक जडान गर्न असफल भयो।',
   'settings.disconnectError': 'प्रदायकलाई विच्छेद गर्न असफल भयो।',
   'settings.eyebrow': 'कार्यक्षेत्र अपवर्तन गर्नुहोस्',
   'settings.integration.${provider}.label': 'बचत गर्दै...',
   'settings.loadError': 'सेटिङहरू लोड गर्न असफल भयो।',
+  'settings.notificationCenter': 'सूचना केन्द्र',
   'settings.notifications.description':
     'डेलिभरी प्राथमिकताहरू हेर्न र व्यवस्थापन गर्न सूचना पृष्ठमा जानुहोस्।',
   'settings.section.account': 'खाता र सुरक्षा',

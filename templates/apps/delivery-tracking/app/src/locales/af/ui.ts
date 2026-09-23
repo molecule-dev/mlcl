@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'alerts.acknowledgeLabel': 'Erken',
   'alerts.customerLabel': 'Kliënt: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Verbind…',
   'carriers.requiredError': 'Naam en kode word vereis.',
   'carriers.subheading': '{{count}} geïntegreerde',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
+  'common.retry': 'Probeer weer',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'In transito + gemerk',
   'dashboard.activeShipmentsSubtitle': '{{count}} Verskepings benodig aandag of is aan die beweeg',
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'verskepings',
   'pricing.trackingLabel': 'dophou gebeurtenisse',
   'profile.dangerZone.title': 'Gevaarsone',
+  'profile.devices.signingOut': 'Meld af…',
+  'profile.devices.unnamed': 'Naamlose toestel',
+  'profile.security.disable2fa': 'Deaktiveer 2FA',
   'profile.security.enable2fa': 'Aktiveer 2FA',
   'profile.security.pwChanged': 'Wagwoord suksesvol verander.',
   'profile.security.pwCurrent': 'Huidige wagwoord',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktief',
   'profile.security.twoFaCode': '6-syferkode',
   'profile.security.twoFaDisable': 'Deaktiveer',
+  'profile.security.twoFaDisabling': 'Deaktiveer tans…',
   'profile.security.twoFaFailed': 'Kon nie kode verifieer nie.',
   'profile.security.twoFaIntro':
     'Skandeer die QR-kode in jou verifikasie-app en voer dan die 6-syfer-kode hieronder in om te verifieer.',
   'profile.security.twoFaOn': 'Tweefaktor-verifikasie is op hierdie rekening geaktiveer.',
+  'profile.security.twoFaQrAlt': 'Tweefaktor QR-kode',
   'profile.security.twoFaVerify': 'Verifieer en aktiveer',
   'profile.security.twoFaVerifying': 'Verifieer tans…',
   'profile.subheading': 'Identiteits- en sekuriteitsinstellings vir hierdie werkspasie.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Stoor hierdie geheim — dit sal nie weer gewys word nie.',
   'settings.api.webhookSecret': 'Webhook-ondertekeningsgeheim',
   'settings.appearance.description': 'Wissel tussen lig- en donkermodus.',
+  'settings.deleteAccountConfirm': 'Is jy seker? Hierdie aksie kan nie ongedaan gemaak word nie.',
   'settings.notifications.exceptions':
     "Stuur vir my 'n e-pos wanneer 'n besendingsuitsondering voorkom",
   'settings.notifications.heading': 'Kennisgewings',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Versending nie gevind nie.',
   'shipmentDetail.originHeading': 'Oorsprong',
   'shipmentDetail.shippedOn': 'Versend {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Geen dophou-gebeurtenisse nog nie — opdaterings verskyn hier soos die diensverskaffer die pakkie skandeer.',
   'shipments.col.carrier': 'Vervoerder',
   'shipments.col.eta': 'Aankomsttyd',
   'shipments.col.route': 'Roete',
@@ -175,6 +186,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Aanmeld',
   'signup.submit': 'Skep Rekening',
   'team.emailError': "'n Geldige e-posadres word vereis.",
+  'team.empty': "Geen spanlede nog nie. Nooi 'n spanmaat om saam te werk aan verskepings.",
   'team.eyebrow': 'Lede en toestemmings',
   'team.inviteDialog.cancel': 'Kanselleer',
   'team.inviteDialog.heading': "Nooi 'n spanmaat",
@@ -197,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Spoor',
   'waypointLayout.primaryNavLabel': 'Primêre navigasie',
   'webhooks.createFailed': 'Kon nie webhook-eindpunt skep nie.',
+  'webhooks.endpointsEmpty':
+    'Geen webhook-eindpunte nog nie. Skep een om terugbelversendingstatus te ontvang.',
   'webhooks.endpointsHeading': 'Eindpunte',
   'webhooks.eventCount': '{{count}} geleenthede',
   'webhooks.eventsHeading': 'Onlangse aflewerings',

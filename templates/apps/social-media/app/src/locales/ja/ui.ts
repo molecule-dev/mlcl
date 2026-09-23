@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
+  'about.pageTitle': '{{app}}について',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.retry': '再試行',
   'compose.cancel': 'キャンセル',
   'compose.captionPlaceholder': '今、何を考えていますか?',
   'compose.heading': '瞬間を共有しましょう',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': '認証済みアカウント',
   'resetPassword.newPassword': '新しいパスワード',
   'resetPassword.subheading': '強力なものを選んでください — 12文字以上。',
+  'search.clearAria': 'クリア',
+  'search.error': '検索に失敗しました。もう一度お試しください。',
   'search.noPeople': '「{{q}}」に一致するクリエイターはいません。',
   'search.noPosts': '「{{q}}」に一致する投稿はありません。',
   'search.noTags': 'まだトレンドのハッシュタグはありません。',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'パスワードを隠す',
   'signup.showPassword': 'パスワードを表示',
   'signup.subheading': '共有を始めるためにアカウントを作成してください。',
+  'socialMediaLayout.closeMenu': 'ナビゲーションメニューを閉じる',
+  'socialMediaLayout.openMenu': 'ナビゲーションメニューを開く',
+  'socialMediaLayout.primaryNavLabel': 'メインナビゲーション',
   'storyRail.heading': 'ストーリー',
   'storyRail.label': 'ストーリー',
   'storyRail.openAria': '{{handle}} さんのストーリーを開く',

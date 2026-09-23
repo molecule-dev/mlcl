@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'ઉકેલી રહ્યું છે...',
   'comments.subtitle':
     'આ {{count}} થ્રેડો હજુ પણ જવાબ અથવા સંકલ્પની રાહ જોઈ રહ્યા છે. ઉંમર પ્રમાણે સૉર્ટ કરેલ — સૌથી જૂની પહેલા, તેથી કંઈ સડતું નથી.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'forgotPassword.sentTo': 'રીસેટ લિંક મોકલવામાં આવી {{email}}',
   'forgotPassword.successSubheading':
     'તમારા ઇનબોક્સ તપાસો — અમે હમણાં જ રીસેટ લિંક મોકલી છે. તે 30 મિનિટમાં સમાપ્ત થાય છે.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'નવું પેજ',
   'pageTreeSidebar.workspaceHeader': 'કાર્યસ્થળ',
   'pageView.breadcrumb': 'બ્રેડક્રમ્બ',
+  'pageView.confirmTrash': 'કચરામાં નાખીએ?',
   'pageView.home': 'ઘર',
   'pageView.lastEdited': 'અપડેટ કરેલ {{when}}',
   'pageView.loading': 'પેજ લોડ કરી રહ્યું છે…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'સારાંશ...',
   'pageView.summaryUnavailable': 'આ કાર્યસ્થળ માટે AI સારાંશ ગોઠવેલ નથી.',
   'pageView.tocTitle': 'આ પેજ પર',
+  'pageView.trash': 'કચરો',
+  'pageView.trashing': 'કચરાપેટીમાં નાખી રહ્યાં છીએ…',
   'pageView.versionBadge': 'વી{{version}}',
   'profile.badges.title': 'બેજેસ',
   'profile.owned.title': 'માલિકીના પૃષ્ઠો',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'કાર્યસ્થળ, પ્રોફાઇલ, સૂચનાઓ, એકીકરણ - બધું એક શાંત વાતાવરણમાં.',
   'settingsPage.workspace.defaultLanding': 'ડિફૉલ્ટ લેન્ડિંગ સ્ક્રીન',
   'settingsPage.workspace.landingHome': 'ઘર',
+  'settingsPage.workspace.landingSpaces': 'જગ્યાઓ',
   'settingsPage.workspace.subdomainLabel': 'સબડોમેન',
   'settingsPage.workspace.title': 'કાર્યસ્થળ',
   'signup.eyebrow': 'નવું કાર્યસ્થળ શરૂ કરો',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} મિનિટ',
   'templates.subtitle':
     'ખાલી કેનવાસથી નહીં, સ્ટેન્સિલથી પૃષ્ઠ શરૂ કરો. દરેક ટેમ્પ્લેટ આકારને સખત રીતે કોડ કરે છે જેથી તમે પદાર્થ પર ધ્યાન કેન્દ્રિત કરી શકો.',
+  'trash.confirmPurge': 'કાયમ માટે શુદ્ધ કરવું?',
+  'trash.confirmPurgeAria': 'પુષ્ટિ કરો: {{title}} કાયમી ધોરણે કાઢી નાખો',
   'trash.daysUntilPurge': '{{days}} દિવસો બાકી',
   'trash.empty.body': 'ડિલીટ કરેલા પેજ સાફ કરવામાં આવે તે પહેલાં 30 દિવસ સુધી અહીં દેખાશે.',
   'trash.empty.title': 'કચરાપેટી ખાલી છે.',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'પુનઃસ્થાપિત કરી રહ્યું છે...',
   'versionHistory.subtitle': '{{count}} આવૃત્તિઓ · તફાવતનું નિરીક્ષણ કરવા માટે એક પંક્તિ પસંદ કરો',
   'versionHistory.versionLabel': 'વી{{v}}',
+  'wikiLayout.closeMenu': 'નેવિગેશન બંધ કરો',
+  'wikiLayout.menu': 'નેવિગેશન',
+  'wikiLayout.openMenu': 'નેવિગેશન ખોલો',
   'wikiLayout.searchPlaceholder': 'કેઇર્ન શોધો — પાનાં, ટિપ્પણીઓ…',
 }

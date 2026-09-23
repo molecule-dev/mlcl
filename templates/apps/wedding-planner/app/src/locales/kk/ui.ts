@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'seating.form.submit': 'Үстел қосу',
   'seating.poolTitle': 'Отырғызылмаған қонақтар',
   'seating.subtitle':
-    '{{отырған}} отырған<x> {{сыйымдылық}}</x> орындықтар ·<x> {{pool}}</x> бассейнде күтіп тұрған қонақтар',
+    '{{seated}} отыратын орын саны {{capacity}} · бассейнде күтіп тұрған {{pool}} қонақ',
   'seating.title': 'Отырғызу кестесі',
   'settings.billing': 'Төлем',
   'settings.changePassword': 'Құпия сөзді өзгерту',

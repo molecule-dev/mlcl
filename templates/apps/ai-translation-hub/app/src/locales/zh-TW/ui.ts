@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'billing.canceled': '訂閱已取消。到期後您將恢復免費使用。',
   'billing.contactSales': '聯繫銷售',
   'billing.free.1': '5 種譯文',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': '無保留期限',
   'billing.upgradeHint': '升級即可解鎖高級人工智慧功能。',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': '前往主控台',
   'dashboard.activityEmpty': '暫無活動－發起一個專案來填入此資訊流。',
   'dashboard.eyebrow': '概述',
   'dashboard.projectsEmpty': '目前還沒有項目——創建一個項目即可在此處查看。',
@@ -106,6 +108,8 @@ export const ui: UiTranslations = {
   'memory.submit': '儲存條目',
   'memory.subtitle': '在所有項目中重複使用以往的翻譯。匹配度越高，返工量就越少。',
   'memory.title': '銀行',
+  'mobileNav.closeMenu': '關閉導覽選單',
+  'mobileNav.openMenu': '開啟導覽選單',
   'nav.legal': '合法的',
   'newProject.addLanguage': '新增目標',
   'newProject.create': '創建專案',
@@ -131,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': '早些時候',
   'notifications.markedAllRead': '標記{{count}}已讀通知。',
   'notifications.subtitle': '來自您工作區內的提及、評論請求和 AI 事件。',
+  'planUpdated.verifying': '確認您的付款中…',
   'privacy.collection.account': '您的帳戶電子郵件和顯示名稱',
   'privacy.deletion.body':
     '您可以隨時從相關頁面刪除項目、章節、術語或記憶條目。從「設定」中刪除帳戶會從我們的資料庫中清除所有工作區範圍內的記錄。',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'projects.loadError': '項目加載失敗。',
   'projects.loading': '正在載入專案……',
   'projects.subtitle': '所有地區的所有在建項目。',
+  'renditionLayout.primaryNavLabel': '主導航',
   'reset.backToLogin': '→ 回登入',
   'reset.passwordLabel': '新密碼',
   'review.activeEyebrow': '部分{{number}}',

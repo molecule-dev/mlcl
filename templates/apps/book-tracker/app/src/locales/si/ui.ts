@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'දම්වැල නැවත ආරම්භ කරන්න',
   'resetPassword.mismatchError': 'මුරපද නොගැලපේ.',
   'resetPassword.subheading': 'ශක්තිමත් දෙයක් තෝරන්න. ඔබේ පොත් බලා සිටිනු ඇත.',
-  'reviewCard.starsAria': 'ශ්‍රේණිගත කර ඇත<x> {{ශ්‍රේණිගත කිරීම}}</x> පිටතට<x> {{න්}}</x> තරු',
+  'reviewCard.starsAria': 'තරු {{of}} න් {{rating}} ලෙස ශ්‍රේණිගත කර ඇත',
   'reviewCard.unratedAria': 'ශ්‍රේණිගත නොකළ',
   'reviews.eyebrow': 'ඔබට සමඟ රැඳුණු දේ',
   'reviews.heading': 'ඔබේ සමාලෝචන',

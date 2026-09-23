@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'about.pageTitle': 'Over {{name}}',
   'auth.footer.about': 'Over {{name}}',
   'authHeader.subtitle': 'Log in om uw cijfers eerlijk te houden.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'No-op',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': '"{{name}}" verwijderen?',
   'automations.empty.headline': 'Nog geen automatiseringen',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Triggers en acties in elke werkmap. Elke uitvoering registreert een rij die u later kunt controleren.',
   'automations.toggle': '{{name}} aan/uit',
+  'automations.trigger.dailySchedule': 'Dagelijks schema',
+  'automations.trigger.rowCreated': 'Rij aangemaakt',
+  'automations.trigger.rowUpdated': 'Rij bijgewerkt',
   'billing.empty': 'Geen abonnementen beschikbaar.',
   'billing.error.priceMissing':
     'Geen Stripe-prijs geconfigureerd voor dit niveau. Stel de STRIPE_*_PRICE_ID-omgevingsvariabelen in.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafieken',
   'charts.kpi.totalCharts': 'Totaal grafieken',
   'charts.list.empty': 'Nog geen grafieken.',
+  'charts.namePlaceholder': 'Omzettrend',
   'charts.newChart': 'Nieuwe grafiek',
   'charts.primary.eyebrow': 'Grafieken per type',
   'charts.primary.headline': 'Werkruimte-overzicht',
   'charts.subhead':
     'Live visualisaties gekoppeld aan uw raster — opnieuw gerenderd bij elke celwijziging.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'editor.addColumn': 'Kolom toevoegen',
+  'editor.addDialogTitle': 'Kolom toevoegen',
   'editor.addRow': 'Rij toevoegen',
   'editor.addSheet': 'Blad toevoegen',
   'editor.back': 'Terug naar werkmappen',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite is het formule-eerst, multi-view, realtime raster waar analisten en financiële teams als eerste naar grijpen.',
   'landing.nav.formulas': 'Formules',
+  'login.noAccount': 'Nieuw bij {{name}} ?',
+  'login.signIn': 'Meld u aan bij {{name}}',
   'login.signUp': 'Werkruimte aanmaken',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Menu openen',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Deze rij heeft nooit bestaan.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Native automatiseringen · webhook- en cron-triggers',
   'signup.creating': 'Werkruimte inrichten…',
   'signup.cta': 'Mijn werkruimte aanmaken',
+  'signup.haveAccount': 'Ben je al op {{name}} ?',
   'signup.namePlaceholder': 'Jan Jansen',
   'signup.tagline': 'Start uw eerste werkmap in 30 seconden',
   'team.col.activity': 'Uitgenodigd',

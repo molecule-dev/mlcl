@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'about.pageTitle': 'Մասին {{appName}}',
   'analytics.empty': 'Նկարահանեք ձեր առաջին հոլովակը՝ այստեղ ներգրավվածությունը տեսնելու համար։',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'տեսահոլովակներ',
   'billing.usage.views': 'Դիտումներ',
   'billing.usage.views.unit': 'դիտումներ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'landing.cta.title': 'Ավելի լավ արձագանք ուղարկեք։ Սկսեք Glint-ից։',
   'landing.feature.capture.body':
     'Ձայնագրում զննարկչում, համակարգչում և բջջային հեռախոսում՝ միկրոֆոնով, տեսախցիկով և նկարչությամբ։',
   'landing.feature.capture.title': 'Մեկ հպումով լուսանկարում',
+  'landing.footer.copy': '© {{year}} {{appName}} ։ Ասինխրոն, լուսարձակող։',
   'landing.hero.cardCaption': 'Աշխատանքային տարածքի ակնարկի նմուշ՝ փորձեք այն անվճար։',
   'landing.hero.primaryCta': 'Սկսեք ձայնագրությունը անվճար',
   'landing.hero.proof.free': 'Անվճար հավերժական մակարդակ',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Որոնել ձայնագրություններ',
   'library.searchPlaceholder': 'Ձայնագրությունների որոնում…',
   'library.weeklyChange': '{{value}} % նախորդ շաբաթվա համեմատ',
+  'nav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'nav.record': 'Ձայնագրություն',
   'nav.shared': 'Կիսվել է ինձ հետ',
   'nav.startRecording': 'Սկսել ձայնագրությունը',

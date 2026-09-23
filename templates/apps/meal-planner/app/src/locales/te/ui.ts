@@ -50,7 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'వస్తువును జోడించలేకపోయింది.',
   'simmer.groceries.clearChecked': 'చెక్ చేసినవి క్లియర్ చేయండి',
   'simmer.groceries.empty.title': 'ఇంకా షాపింగ్ చేయడానికి ఏమీ లేదు',
-  'simmer.groceries.eyebrow': '{{తనిఖీ చేయబడింది}} యొక్క<x> {{మొత్తం}}</x> సంచులలో ఉంచిన వస్తువులు',
+  'simmer.groceries.eyebrow': 'బ్యాగ్ చేసిన {{total}} వస్తువులలో {{checked}}',
   'simmer.groceries.fetchError': 'జాబితాను లోడ్ చేయలేకపోయింది.',
   'simmer.groceries.heading': 'కిరాణా జాబితా',
   'simmer.groceries.loading': 'జాబితా లోడ్ అవుతోంది…',

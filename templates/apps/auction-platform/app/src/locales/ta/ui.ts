@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'பார்ப்பது',
   'auctionDetail.watchRemoved': 'கண்காணிப்புப் பட்டியலிலிருந்து நீக்கப்பட்டது.',
   'auctionDetail.watchRemoveLabel': 'கண்காணிப்புப் பட்டியலிலிருந்து நீக்கவும்',
+  'auctionPlatformLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'authShell.brandBody':
     'அரிய கைக்கடிகாரங்கள், நுண்கலைப் படைப்புகள் மற்றும் தனித்துவமான சிறப்புப் பொருட்களுக்கு நிகழ்நேரத்தில் ஏலம் கேளுங்கள். சில நொடிகளில் ஏலம் முடிவடையும்.',
   'authShell.brandEyebrow': 'தற்போது நேரலையில் · 1,420 ஏலங்கள்',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'வரிசைப்படுத்து',
   'browseAuctions.subheading':
     'பிரிவு வாரியாக வடிகட்டி, மிக முக்கியமானவற்றின் அடிப்படையில் வரிசைப்படுத்தி, ஏலம் முடிவதற்குள் உங்கள் ஏலத்தைப் பதிவு செய்யுங்கள்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'countdownTimer.ended': 'முடிந்தது',
   'countdownTimer.endingSoon': 'முடிவு',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subtext':
     'உங்கள் ஏலங்களைத் தொடர்ந்து கண்காணித்து, ஏலச்சட்டம் முடிவதற்குள் ஏலத்தொகையைச் சமர்ப்பிக்கவும்.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'myBids.bidAgain': 'மீண்டும் ஏலம் விடுங்கள்',
   'myBids.browseCta': 'நேரலை ஏலங்களைப் பார்வையிடவும் →',
   'myBids.checkoutCta': 'இப்போது பணம் செலுத்துங்கள்',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'செயல்பாட்டு மையம்',
   'notificationsPage.subheading':
     '{{count}} படிக்கப்படாதவை · ஏலங்கள் நகரும்போது நேரடிப் புதுப்பிப்புகள்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.bidsLabel': 'ஏலங்கள்',
   'pricing.listingsLabel': 'பட்டியல்கள்',
   'pricing.watchlistLabel': 'கண்காணிப்புப் பட்டியல்',
@@ -204,6 +209,8 @@ export const ui: UiTranslations = {
   'sellListing.detailsHeading': 'பட்டியல் விவரங்கள்',
   'sellListing.durationDays': '{{count}} நாட்கள்',
   'sellListing.eyebrow': 'பட்டியலை உருவாக்கு',
+  'sellListing.feeNotice':
+    'இறுதி மதிப்பு கட்டணம்: விற்பனை விலையில் {{fee}} பங்கு. பணம் செலுத்தும் செயலாக்கக் கட்டணம் இதில் அடங்கும்.',
   'sellListing.heading': 'ஒரு பொருளை விற்கவும்',
   'sellListing.photosHint':
     '8 உயர் தெளிவுத்திறன் கொண்ட புகைப்படங்கள் வரை சேர்க்கலாம். 4 அல்லது அதற்கு மேற்பட்ட புகைப்படங்களைக் கொண்ட பட்டியல்களுக்கு 38% கூடுதல் ஏலங்கள் கிடைக்கும்.',
@@ -285,6 +292,7 @@ export const ui: UiTranslations = {
     'பாதுகாப்பான பரிவர்த்தனைப் பக்கத்திற்குத் திருப்பி விடப்படுகிறது…',
   'wonAuctionCheckout.shippingHeading': 'கப்பல் முகவரி',
   'wonAuctionCheckout.shippingOptionHeading': 'கப்பல் விருப்பம்',
+  'wonAuctionCheckout.soldBy': '{{seller}} என்பவரால் விற்கப்பட்டது',
   'wonAuctionCheckout.stripeNoticed':
     "'Pay' என்பதை அழுத்திய பிறகு, பாதுகாப்பான Stripe செக்அவுட் பக்கத்தில் உங்கள் அட்டை விவரங்களை உள்ளிடுவீர்கள். அங்கே Apple Pay, Google Pay மற்றும் Stripe தரப்பில் சேமிக்கப்பட்ட அட்டைகள் அனைத்தும் காட்டப்படும்.",
   'wonAuctionCheckout.unavailable': 'இந்தப் பரிவர்த்தனை வசதி கிடைக்கவில்லை.',

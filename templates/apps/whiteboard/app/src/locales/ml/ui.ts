@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'authShell.brandHeading': 'ഉറക്കെ ചിന്തിക്കുന്ന ഡിസൈൻ ടീമുകൾക്കുള്ള മൾട്ടിപ്ലെയർ ക്യാൻവാസുകൾ.',
   'billing.canceled': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കി.',
   'billing.cancelPlan': 'പ്ലാൻ റദ്ദാക്കുക',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ടെംപ്ലേറ്റിൽ നിന്ന് ആരംഭിക്കുക',
   'boards.title': 'നിങ്ങളുടെ ബോർഡുകൾ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'forgot.emailPlaceholder': 'mira@studio.com എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക.',
   'forgot.subheading':
     'നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സുമായി ബന്ധിപ്പിച്ചിരിക്കുന്ന ഇമെയിൽ വിലാസം നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
     'കുഴപ്പം നിറഞ്ഞതും, ജനറേറ്റീവ് ആയതും, നേരിട്ട് ചിന്തിക്കുന്നതുമായ കാര്യങ്ങൾക്കായി നിർമ്മിച്ചത്.',
   'landing.demoBoard.title': 'Q1 വർക്ക്‌ഷോപ്പ് · ബ്രാൻഡ് വോയ്‌സ്',
   'landing.featuresTitle': 'വേഗത്തിലുള്ള ഫീഡ്‌ബാക്ക്. മനോഹരമായ ക്യാൻവാസുകൾ. ഘർഷണരഹിതം.',
+  'landing.hero.body':
+    '{{appName}} എന്നത് ഡിസൈൻ ടീമുകൾക്കും, വർക്ക്ഷോപ്പ് ഫെസിലിറ്റേറ്റർമാർക്കും, തത്സമയ ബ്രെയിൻസ്റ്റോമുകൾ നടത്തുന്നവർക്കും ആശയങ്ങൾ ഒരിടത്ത് ഒത്തുചേരേണ്ട അധ്യാപകർക്കും വേണ്ടിയുള്ള ഒരു മൾട്ടിപ്ലെയർ വൈറ്റ്‌ബോർഡാണ്.',
   'landing.hero.primaryCta': 'സൗജന്യമായി ഒരു ബോർഡ് ആരംഭിക്കൂ',
   'landing.hero.socialProof': 'വിശ്വസിച്ചത് {{count}} ലോകമെമ്പാടുമുള്ള ഡിസൈൻ ടീമുകൾ',
   'landing.hero.title': 'നിങ്ങളുടെ ചിന്തകളോളം വേഗതയുള്ള ഒരു ക്യാൻവാസ്',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ഒരു സൗജന്യ വർക്ക്‌സ്‌പെയ്‌സ് സൃഷ്ടിക്കുക',
   'login.subheading':
     'വർക്ക്ഷോപ്പ് നിർത്തിയ ഇടത്ത് നിന്ന് ആരംഭിക്കുക - ബോർഡുകൾ, സ്റ്റിക്കി നോട്ടുകൾ, കഴ്‌സറുകൾ എന്നിവയെല്ലാം തത്സമയം സമന്വയിപ്പിക്കുന്നു.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.new': 'പുതിയത്',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'notifications.editTitle': '"" എന്നതിലേക്കുള്ള എഡിറ്റുകൾ {{board}} "',
   'notifications.empty.body':
     'ക്ഷണങ്ങൾ, സ്നാപ്പ്ഷോട്ട് സേവുകൾ, സമീപകാല ബോർഡ് എഡിറ്റുകൾ എന്നിവ സംഭവിക്കുമ്പോൾ തന്നെ ഇവിടെ ദൃശ്യമാകും.',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'പതിപ്പ് ചരിത്രം',
   'versionHistory.untitledSnapshot': 'പേരില്ലാത്ത സ്നാപ്പ്ഷോട്ട്',
   'whiteboardLayout.newBoard': 'പുതിയ ബോർഡ്',
+  'whiteboardLayout.primaryNav': 'പ്രാഥമിക നാവിഗേഷൻ',
   'workspace.boardLabel': 'ബോർഡ്',
   'workspace.eyebrow': '{{name}} · ജോലിസ്ഥലം',
   'workspace.invite': 'സഹകാരികളെ ക്ഷണിക്കുക',

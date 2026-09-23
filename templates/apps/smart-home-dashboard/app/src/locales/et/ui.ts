@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'activity.empty': 'Tegevust veel pole – pöörake seade ümber või aktiveerige stseen.',
   'activity.eyebrow': 'Ajajoon',
   'activity.loadError': 'Tegevuste voogu ei õnnestunud laadida.',
   'activity.subheading':
     'Iga seade, automatiseerimine ja turvasündmus kronoloogilises järjekorras.',
+  'addDevice.error.failed': 'Seadme lisamine ebaõnnestus. Proovige uuesti.',
   'addDevice.error.nameRequired': 'Jätkamiseks andke sellele seadmele nimi.',
   'addDevice.field.firmware': 'Püsivara versioon',
   'addDevice.field.manufacturer': 'Tootja',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testimine…',
   'automationEditor.testNew': 'Automaatika testimiseks salvesta see esmalt.',
   'automationRow.lastRun': 'Last {{date}} · {{count}} runs',
+  'automationRow.on': 'Kell',
   'automationRow.runNowAria': 'Jookse {{name}} nüüd',
   'automations.empty': 'Automaatilisi seadeid veel pole – loo oma esimene rutiin.',
   'automations.eyebrow': 'Rutiinid',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Automatiseeringute laadimine…',
   'automations.newAutomation': '+ Uus',
   'automations.subheading': 'Kui see juhtub, tee seda – ilma YAML-ita.',
+  'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Seadme laadimine ebaõnnestus.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Töötamine…',
   'deviceDetail.unnamed': 'Seade',
   'deviceStatusRow.on': 'Sees',
+  'deviceStatusRow.turnOff': 'Lülita välja',
+  'deviceStatusRow.turnOn': 'Lülita sisse',
   'deviceStatusRow.watts': '{{watts}} Lääne',
   'energy.eyebrow': 'Võimsus',
   'energy.heading': 'Energia',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Vaata plaane',
   'settings.security.heading': 'Turvalisus',
   'settings.subheading': 'Paketi, keskuste ja konto eelistused.',
+  'smartHomeDashboardLayout.openMenu': 'Ava navigeerimismenüü',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Peamine navigeerimine',
 }

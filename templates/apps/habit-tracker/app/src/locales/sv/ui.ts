@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
+  'about.pageTitle': 'Om {{app}}',
   'achievementBadgeCard.unlockedOn': 'Upplåst {{date}}',
   'achievements.loadError': 'Kunde inte ladda prestationer.',
   'achievements.subheading': '{{unlocked}} av {{total}} upplåsta',
   'achievements.unlockedOn': 'Upplåst {{date}}',
+  'auth.legalConsent': 'Genom att fortsätta godkänner du våra',
   'calendar.empty': 'Skapa en vana för att se din kalender.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Vana',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Vanerutnät',
   'category.${c.category}': '{{räkna}} vanor',
   'common.and': 'och',
+  'common.goToDashboard': 'Gå till översikt',
   'consistencyHeatmap.ariaLabel': 'Daglig konsekvenshetkarta',
   'consistencyHeatmap.caption': 'Senaste {{weeks}} veckorna',
   'consistencyHeatmap.lessLabel': 'Mindre',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Se det live',
   'landing.heroSubtitle':
     'Bygg vanor på det sätt som de faktiskt fastnar: små åtaganden, dagliga sviter och den påtagliga njutningen av en lång obruten kedja.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'En titt inuti Streak',
   'landing.previewMotivation': 'Nio sviter vid liv. Håll dem alla varma.',
   'login.eyebrow': 'Plocka upp kedjan',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Gör den liten. Gör den specifik. Dyk upp imorgon.',
   'newHabit.timeLabel': 'Påminnelsetid',
   'notifications.markError': 'Kunde inte markera alla som lästa.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.entries': '{{count}} poster',
+  'pricing.heading': 'Välj din {{app}}-plan',
   'profile.action.plan': 'Hantera prenumeration',
   'profile.action.settings': 'Kontoinställningar',
   'profile.bioEmpty': 'Lägg till en kort bio i Inställningar för att presentera dig själv.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Daglig morgonpåminnelse (08:00)',
   'settings.reminders.heading': 'Påminnelser',
   'settings.reminders.weekly': 'Veckosammanfattning (söndagskvällar)',
+  'settings.revokeDeviceWarning': 'Enhetens åtkomst kommer att återkallas snart. Logga ut den?',
   'settings.signOutDevice': 'Logga ut',
   'settings.streaks.freezesPerWeek': 'Frysningar per vecka',
   'settings.streaks.gracePeriod': '6 timmars respit efter midnatt',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktiva',
   'streakHeroCard.daysSuffix': 'dagar',
   'streakHeroCard.title': 'Längsta aktiva svit',
+  'streakLayout.closeMenu': 'Stäng navigeringsmenyn',
+  'streakLayout.openMenu': 'Öppna navigeringsmenyn',
   'streakLayout.primaryNavLabel': 'Primär navigering',
 }

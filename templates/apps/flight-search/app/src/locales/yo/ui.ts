@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.eyebrow': 'Nípa {{app}}',
   'about.pageTitle': 'Gbogbo ipa-ọna, wiwa kan.',
   'booking.backToDetail': 'Pada si awọn alaye ọkọ ofurufu',
   'booking.continue': 'Tẹsiwaju si isanwo',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Owó-orí & owó ọ̀yà',
   'booking.summary.travelers': 'Àwọn arìnrìn-àjò',
   'common.about': 'Nípa',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'flightDetail.backToResults': 'Pada si awọn esi',
   'flightDetail.baseFare': 'Iye owo ipilẹ',
   'flightDetail.book': 'Tẹ̀síwájú sí ìforúkọsílẹ̀',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'Iduro 1',
   'flightResultCard.select': 'Yan',
   'flightResultCard.totalLabel': 'Àkókò gbogbo',
+  'flightSearchLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'forgotPassword.subheading':
     'Tẹ imeeli sii lori akọọlẹ Skylark rẹ ati pe a yoo fi ọna asopọ atunto aabo ranṣẹ.',
   'forgotPassword.successBody':
     'Ṣàyẹ̀wò {{email}} fún ìjápọ̀ láti ṣètò ọ̀rọ̀ìpamọ́ tuntun. Ìjápọ̀ náà yóò parí ní ìṣẹ́jú 30.',
   'forgotPassword.successHeading': 'A ti firanṣẹ ọna asopọ tuntun',
   'landing.cta.explore': 'Gbiyanju wiwa kan',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Wa idiyele nla ti o tẹle ṣaaju gbogbo eniyan miiran.',
   'landing.cta.signup': 'Bẹ̀rẹ̀ sí í tọ́pasẹ̀ àwọn owó ọkọ̀',
   'landing.features.eyebrow': 'Kí nìdí tí Skylark fi ṣe é',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Fi ìkìlọ̀ kún un',
   'priceAlerts.deleteConfirm': 'Yọ ìkìlọ̀ yìí kúrò?',
   'priceAlerts.empty': 'Kò sí ipa ọ̀nà tí a tọ́pasẹ̀ rẹ̀ síbẹ̀.',
+  'priceAlerts.emptyCta': 'Wa ipa ọna lati tọpa',
   'priceAlerts.errorMessage': 'Kò le gbé àwọn ìkìlọ̀ sókè.',
   'priceAlerts.eyebrow': 'Àkójọ àwọn ohun tí a ń wò ní Skylark',
   'priceAlerts.form.createError': 'Kò le ṣẹ̀dá ìkìlọ̀.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Ìlànà ìrìnàjò ìlú púpọ̀',
   'results.multiLegHeading': 'Ẹsẹ̀ {{n}} · {{láti}} → {{sí}} · {{ọjọ}}',
   'results.multiSummary': '{{count}} ẹsẹ̀ · {{passengers}} arìnrìn-àjò',
+  'results.sortAriaLabel': 'To awọn abajade nipasẹ',
   'results.sortLabel': 'To lẹsẹsẹ',
   'results.summary': '{{count}} àwọn ọkọ̀ òfurufú · {{passengers}} arìnrìn-àjò',
   'settings.language.title': 'Èdè',

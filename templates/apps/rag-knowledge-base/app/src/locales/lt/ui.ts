@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.pageTitle': 'Apie {{appName}}',
   'analytics.error': 'Nepavyko įkelti analizės duomenų.',
   'analytics.heading': 'Paieškos analizė',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Kainodaros pakopos nenustatytos.',
   'billing.plans.heading': 'Planai',
   'billing.subheading': 'Planas, naudojimas ir „Stripe“ valdomas atsiskaitymas.',
+  'common.confirm': 'Patvirtinti',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.retry': 'Bandyti dar kartą',
   'documentCard.open': 'Atidaryti \\u2192',
   'documentDetail.back': 'Grįžti į dokumentus',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Dokumento pavadinimas',
   'documents.emptyAll':
     'Dokumentų dar nėra. Įkelkite vieną, kad galėtumėte pradėti užduoti klausimus.',
+  'documents.error.load': 'Nepavyko įkelti dokumentų.',
   'documents.heading': 'Indeksuoti dokumentai',
   'documents.loading': 'Įkeliami dokumentai…',
   'documents.metric.chunks': 'Iš viso gabalų',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Šalinama\\u2026',
   'members.subheading': 'Pakvieskite komandos draugus ir paskirstykite vaidmenis.',
   'members.tableHeading': 'Sąrašas',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'notFound.askCta': 'Klauskite žinių bazėje',
+  'notFound.body':
+    '{{app}} nepavyko rasti to puslapio. Gali būti, kad nuoroda neveikia arba puslapis buvo pašalintas pakartotinio indeksavimo metu.',
   'notFound.eyebrow': 'Nepavyksta atkurti',
   'notFound.title': 'Indekse nėra tokio fragmento',
   'notifications.dismiss': 'Atmesti',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Šaltinio URL',
   'sources.empty.body': 'Spustelėkite „Pridėti šaltinį“, kad prijungtumėte pirmąją jungtį.',
   'sources.empty.title': 'Kol kas nėra šaltinių.',
+  'sources.error.add': 'Nepavyko pridėti šaltinio.',
   'sources.error.labelRequired': 'Būtina nurodyti etiketę.',
   'sources.error.load': 'Nepavyko įkelti šaltinių.',
   'sources.error.urlRequired': 'Šiam šaltinio tipui reikalingas URL.',

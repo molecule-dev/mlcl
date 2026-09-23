@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'forgot.eyebrow': 'ወደ ኋላ የመግባት መንገድ ጠፍቶብሃል?',
   'forgot.formSubtitle': 'በፋይሉ ላይ ያለውን ኢሜይል ይንገሩን።',
   'forgot.headline': 'የይለፍ ቃልዎን ዳግም ያስጀምሩ።',
@@ -38,6 +39,8 @@ export const ui: UiTranslations = {
   'login.headline': 'ገጹ የቆመበትን ቦታ ጀምር።',
   'login.signupLink': 'አንድ ፍጠር',
   'login.subline': 'የማስታወሻ ደብተሮችህ፣ የኋላ አገናኞችህ እና የዕለታዊ ገጾችህ በትክክል የተውካቸው ናቸው።',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'noteEditor.backToNotes': 'ወደ ማስታወሻዎች ተመለስ',
   'noteEditor.bodyPlaceholder': 'መጻፍ ይጀምሩ - ሲተይቡ ማስታወሻዎ በራስ-ሰር ይቀመጣል።',
   'noteEditor.confirmTrash': 'ይህ ማስታወሻ ወደ መጣያ ይወሰድ?',
@@ -53,6 +56,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'አዲስ ማስታወሻ ደብተር',
   'notes.newNotebookPrompt': 'አዲስ የማስታወሻ ደብተር ስም',
   'notes.notebooksHeading': 'የማስታወሻ ደብተሮች',
+  'notes.subtitle': 'በግራ በኩል ማስታወሻ ደብተር ይምረጡ፣ ከዚያም አዲስ ግቤት ለመጀመር የአዲሱ ማስታወሻ ቁልፍን ይጫኑ።',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'የማስታወሻ እቅድዎን ይምረጡ',
   'reset.eyebrow': 'ወደ ውስጥ ሊመለስ ነው ማለት ይቻላል',
@@ -105,6 +109,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'ተዘምኗል',
   'versoLayout.nav.graph': 'ግራፍ',
   'versoLayout.nav.home': 'መነሻ',
+  'versoLayout.primaryNavLabel': 'ዋና አሰሳ',
   'versoNoteCard.pinned': 'ተሰክቷል',
   'versoTodayHero.continueCta': 'መጻፍዎን ይቀጥሉ',
   'versoTodayHero.createCta': 'የዛሬውን ማስታወሻ ጀምር',

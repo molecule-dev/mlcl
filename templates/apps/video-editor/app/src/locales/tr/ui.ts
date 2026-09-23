@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bir hata mı buldunuz, bir özellik isteğiniz mi var veya kurguladığınız film hakkında bize bilgi vermek mi istiyorsunuz? Her mesaj ekipteki gerçek bir kişiye ulaşır; hesap ayarlarınızdan istediğiniz zaman iletişime geçebilirsiniz.',
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.eyebrow': '// kurgunun arkasındaki stüdyo',
   'about.pageTitle': '{{appName}} hakkında',
   'assetDetail.back': 'Kütüphaneye dön',
   'assetDetail.confirmDelete': '"{{name}}" silinsin mi? Bu işlem geri alınamaz.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': 'Zaman çizelgesine bırakmaya hazır {{count}} klip, ses zemini ve grafik.',
   'assetLibrary.title': 'Varlıklar',
   'assetLibrary.upload': 'Varlık ekle',
+  'common.goToDashboard': 'Panele Git',
   'dashboard.browseTemplates': 'Şablonlara göz atın →',
   'dashboard.loading': 'Projeler yükleniyor…',
   'dashboard.noProjects': 'Henüz proje yok — başlamak için bir tane oluşturun.',
@@ -158,7 +163,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Yalnızca sizin hatırlayabileceğiniz bir şey seçin.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Gizlilik',
+  'rushesLayout.closeMenu': 'Gezinme menüsünü kapat',
   'rushesLayout.guest': 'Düzenleyici',
+  'rushesLayout.navDialog': 'Gezinti',
+  'rushesLayout.openMenu': 'Gezinme menüsünü aç',
   'rushesLayout.planFree': 'Ücretsiz plan',
   'rushesLayout.tagline': 'Sinematik zaman çizelgesi',
   'settings.billing.confirmCancel': 'Abonelik dönem sonunda iptal edilsin mi?',

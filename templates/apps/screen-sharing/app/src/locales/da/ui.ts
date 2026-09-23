@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'about.pageTitle': 'Om {{appName}}',
   'analytics.empty': 'Optag dit første klip for at se engagement her.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klip',
   'billing.usage.views': 'Visninger',
   'billing.usage.views.unit': 'visninger',
+  'common.goToDashboard': 'Gå til Dashboard',
   'landing.cta.title': 'Send bedre feedback. Start med Glint.',
   'landing.feature.capture.body':
     'Browser-, desktop- og mobiloptagelse med mikrofon, kamera og tegning.',
   'landing.feature.capture.title': 'Optagelse med ét tryk',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asynkron, gjort lysende.',
   'landing.hero.cardCaption': 'Oversigt over eksempel på arbejdsområde – prøv det gratis.',
   'landing.hero.primaryCta': 'Start optagelse gratis',
   'landing.hero.proof.free': 'Gratis niveau for evigt',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Søg efter optagelser',
   'library.searchPlaceholder': 'Søg efter optagelser…',
   'library.weeklyChange': '{{value}} % i forhold til sidste uge',
+  'nav.openMenu': 'Åbn navigationsmenuen',
   'nav.record': 'Optag',
   'nav.shared': 'Delt med mig',
   'nav.startRecording': 'Start optagelse',

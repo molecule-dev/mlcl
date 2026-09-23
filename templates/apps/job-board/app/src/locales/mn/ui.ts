@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
   'applications.empty':
     'Одоогоор өргөдөл байхгүй байна \\u2014 Зөв үүрэг бол нэг өргөдөл гаргах явдал юм.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Таны хэрэгжүүлсэн дүр бүр хөдөлгөөнд. Анхаарал төвлөрүүлэхийн тулд үе шатаар шүүнэ үү.',
   'applications.untitledRole': 'Үүрэг # {{id}}',
+  'auth.legalConsent': 'Үргэлжлүүлснээр та манай',
   'common.and': 'мөн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'companies.empty': 'Таны хайлтад тохирох компани байхгүй байна. Өөр нэр томьёо ашиглана уу.',
   'companies.eyebrow': 'Онцлох ажил олгогчид',
   'companies.searchPlaceholder': 'Нэр, салбар, байршлаар хайх',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Энэ албан тушаалд одоогоор өргөдөл ирээгүй байна.',
   'jobApplicants.eyebrow': 'Ажил олгогчийн үзэл бодол',
   'jobApplicants.loading': 'Ачааллаж байна…',
+  'jobApplicants.statusUpdateFailed': 'Тэр үе шатыг шинэчилж чадсангүй — дахин оролдоно уу.',
+  'jobApplicants.subheading':
+    'Анкетыг хянаж, нэр дэвшигчдийг дэвшүүлж, саналуудыг илгээнэ үү \\u2014 {{count}} .',
   'jobDetail.applicantCount': '{{count}} одоогоор өргөдөл гаргагчид',
   'jobDetail.applied': 'Өргөдөл илгээгдсэн',
   'jobDetail.apply': 'Одоо өргөдөл гаргах',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Нээлттэй үүргүүдийг үзэх \\u2192',
   'landing.pricingEyebrow': 'Үнэ',
   'landing.pricingHeading': 'Бүх багийн хэмжээнд зориулсан энгийн төлөвлөгөө.',
+  'login.eyebrow': '{{app}} руу тавтай морил',
   'login.heading': 'Өөрийн бүртгэлд нэвтэрнэ үү',
   'login.noAccount': 'Ношд шинээр орж байна уу?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Нэвтэрч байна\\u2026',
   'login.subheading':
     'Хайлтаа эхлүүлж, аппликейшнуудаа сайжруулж, хариуг нь илүү хурдан сонсоорой.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Ажилд авах багуудад зориулан бүтээгдсэн.',
   'loginBrandPanel.headline': 'Авьяас чадвар уулздаг газар',
   'loginBrandPanel.headlineLine2': 'эрч хүч.',
   'loginBrandPanel.listing.recruiter': 'Авьяас чадварын түнш',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'Аппликейшны шинэчлэлтүүд, ярилцлагын урилга, шинээр тохирох хүмүүс \\u2014 хамгийн шинэ нь эхэлж.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} энэ долоо хоногт',
   'opportunitiesHero.eyebrow': 'Өнөөдөр нээлттэй',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'postJob.addNewCompany': '+ Шинэ компани нэмэх',
   'postJob.companyCreateFailed': 'Компани үүсгэж чадсангүй — дахин оролдоно уу.',
   'postJob.companyNameLabel': 'Танай компанийн нэр',
@@ -166,9 +175,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'Бүртгэл үүсгэж байна\\u2026',
   'signup.ctaEmployer': 'Ажил олгогчийн бүртгэл үүсгэх',
   'signup.firstNamePlaceholder': 'Майя',
+  'signup.lastNamePlaceholder': 'Чен',
   'signup.passwordMismatch': 'Нууц үгнүүд таарахгүй байна.',
   'signup.subheading': 'Хайгчдад үүрд үнэгүй. Ажил олгогчид 30 хоногийн туршилтаар эхэлнэ.',
   'timeAgo.days': '{{count}} өдрийн өмнө',
   'timeAgo.hours': '{{count}} цагийн өмнө',
   'timeAgo.justNow': 'дөнгөж сая',
+  'timeAgo.weeks': '{{count}} долоо хоногийн өмнө',
 }

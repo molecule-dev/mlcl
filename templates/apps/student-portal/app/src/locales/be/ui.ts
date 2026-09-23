@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'announcementsFeed.empty': "Пакуль няма аб'яваў.",
   'announcementsFeed.eyebrow': '{{count}} абнаўлення',
   'announcementsFeed.title': "Апошнія аб'явы",
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Тут нічога няма',
   'assignments.emptyBody': 'Змяніце фільтры вышэй, каб убачыць заданні ў іншым стане.',
   'assignments.eyebrow': 'Усе курсы · Гэты семестр',
+  'assignments.loadError': 'Не атрымалася загрузіць заданні.',
   'assignments.loading': 'Загрузка заданняў…',
   'assignments.subtitle':
     'Фільтруйце па статусе, каб убачыць, што тэрмін здачы, што адпраўлена, што ацэнена або што адсутнічае.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Заўвага',
   'attendance.empty': 'Пакуль няма запісаў аб наведвальнасці.',
   'attendance.eyebrow': 'Вясновы семестр · Апошнія 4 тыдні',
+  'attendance.loadError': 'Не атрымалася загрузіць запісы аб наведвальнасці.',
   'attendance.loading': 'Загрузка інфармацыі пра наведвальнасць…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Тэрміны здачы заданняў пазначаны ў месячнай сетцы — экзамены вылучаюцца чырвоным колерам.',
   'calendar.title': '{{month}} падзеі',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
+  'common.retry': 'Паспрабуйце яшчэ раз',
   'common.yes': '✓',
   'courseDetail.backLink': 'Ацэнкі',
   'courseDetail.currentGrade': 'Бягучы клас',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Трэнд',
   'grades.empty': 'Пакуль што адзнак няма.',
   'grades.eyebrow': 'Заліковая кніжка',
+  'grades.loadError': 'Не атрымалася загрузіць вашы адзнакі.',
   'grades.loading': 'Загрузка адзнак…',
   'grades.subtitle':
     'Жывыя літарныя і працэнтныя адзнакі. Стрэлкі тэндэнцыі паказваюць, ці рухаецеся вы ўверх, ці вы на адным узроўні, ці апускаецеся.',
   'grades.title': 'Вашы адзнакі па кожным курсе',
   'grades.trendStable': 'Стабільны',
+  'landing.copyright': "© {{year}} {{app}} . Створана для студэнтаў, зроблена для сем'яў.",
   'landing.ctaHeading': 'Спакайнейшы школьны дзень пачнецца праз некалькі хвілін',
   'landing.eyebrow': 'Для вучняў сярэдняй і старэйшай школы',
   'landing.featuresHeading': 'Школьны дзень, арганізаваны вакол вучня',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Заданні',
   'nav.attendance': 'Наведвальнасць',
   'nav.calendar': 'Каляндар',
+  'nav.closeMenu': 'Закрыць меню навігацыі',
   'nav.grades': 'Ацэнкі',
+  'nav.openMenu': 'Адкрыць меню навігацыі',
   'nav.statusEyebrow': 'Сярэдні бал за семестр',
   'nav.statusSubtext': 'Ганаровы спіс · Вясновы семестр',
+  'nav.unreadMessages': 'Непрачытаныя паведамленні',
   'notifications.eyebrow': '{{count}} абнаўлення',
   'notifications.subtitle':
     "Адзнакі, напаміны, паведамленні і школьныя аб'явы. Выберыце каналы, якія выкарыстоўвае кожнае апавяшчэнне, у наладах.",
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.attendanceLabel': 'наведвальнасць',
   'pricing.gradesLabel': 'адзнакі',
   'pricing.heading': "аб'явы",

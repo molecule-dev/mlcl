@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'announcementsFeed.empty': 'Kol kas nėra pranešimų.',
   'announcementsFeed.eyebrow': '{{count}} atnaujinimai',
   'announcementsFeed.title': 'Naujausi pranešimai',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Norėdami matyti kitokios būsenos užduotis, perjunkite filtrus aukščiau.',
   'assignments.eyebrow': 'Visi kursai · Šis semestras',
+  'assignments.loadError': 'Nepavyko įkelti užduočių.',
   'assignments.loading': 'Įkeliamos užduotys…',
   'assignments.subtitle':
     'Filtruokite pagal būseną, kad pamatytumėte, kas yra mokėtina, pateikta, įvertinta arba trūksta.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Pastaba',
   'attendance.empty': 'Lankomumo įrašų dar nėra.',
   'attendance.eyebrow': 'Pavasario semestras · Paskutinės 4 savaitės',
+  'attendance.loadError': 'Nepavyko įkelti lankomumo įrašų.',
   'attendance.loading': 'Įkeliamas lankomumo rodiklis…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Užduočių terminai pavaizduoti mėnesių tinklelyje – egzaminai išsiskiria raudonai.',
   'calendar.title': '{{month}} renginiai',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
+  'common.retry': 'Pabandyk dar kartą',
   'common.yes': '✓',
   'courseDetail.backLink': 'Įvertinimai',
   'courseDetail.currentGrade': 'Dabartinis įvertinimas',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendencija',
   'grades.empty': 'Kol kas nėra paskelbtų įvertinimų.',
   'grades.eyebrow': 'Pažymių knyga',
+  'grades.loadError': 'Nepavyko įkelti jūsų pažymių.',
   'grades.loading': 'Įkeliami pažymiai…',
   'grades.subtitle':
     'Tiesioginiai raidžių ir procentų įvertinimai. Tendencijų rodyklės rodo, ar judate aukštyn, lygiuojate, ar slystate.',
   'grades.title': 'Jūsų pažymiai, kursas po kurso',
   'grades.trendStable': 'Stabilus',
+  'landing.copyright': '© {{year}} {{app}} . Sukurta studentams, pritaikyta šeimoms.',
   'landing.ctaHeading': 'Ramesnė mokyklos diena prasideda per kelias minutes',
   'landing.eyebrow': 'Vidurinių ir vyresnių klasių moksleiviams',
   'landing.featuresHeading': 'Mokyklos diena, organizuota aplink mokinį',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Užduotys',
   'nav.attendance': 'Lankomumas',
   'nav.calendar': 'Kalendorius',
+  'nav.closeMenu': 'Uždaryti navigacijos meniu',
   'nav.grades': 'Įvertinimai',
+  'nav.openMenu': 'Atidaryti navigacijos meniu',
   'nav.statusEyebrow': 'Termino GPA',
   'nav.statusSubtext': 'Garbės sąrašas · Pavasario semestras',
+  'nav.unreadMessages': 'Neskaityti pranešimai',
   'notifications.eyebrow': '{{count}} atnaujinimai',
   'notifications.subtitle':
     'Pažymiai, priminimai, pranešimai ir mokyklos pranešimai. Nustatymuose galite koreguoti, kuriuos kanalus naudos kiekvienas pranešimas.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.attendanceLabel': 'lankomumas',
   'pricing.gradesLabel': 'pažymiai',
   'pricing.heading': 'pranešimai',

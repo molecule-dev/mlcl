@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ի մասին',
   'argentAuthShell.brandEyebrow': 'Argent · Հարստության գործիքակազմ',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} ։ Ներդրումային խորհրդատվություն չէ։',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) այսօր',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Այս տիկերի համար գործարքներ չկան։',
   'assetDetail.txHeading': 'Ձեր գործարքները',
   'common.and': 'և',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Պորտֆելի ակնարկ',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Դեռևս պահումներ չկան։',
   'holdings.heading': 'Հոլդինգներ',
   'holdings.loadError': 'Չհաջողվեց բեռնել պահուստները։',
+  'landing.copyright':
+    '© {{year}} {{app}} ։ Ներդրումային խորհրդատվություն չէ։ Անցյալի ցուցանիշները չեն երաշխավորում ապագա արդյունքները։',
   'landing.eyebrow': 'Argent · Հարստության գործիքակազմի հարթակ',
   'landing.features.heading': 'Ամեն ինչ, ինչ խորհրդատուն կկառուցեր իր համար։',
   'landing.finalCta.heading': 'Վերադարձրեք կարգապահությունը ձեր պորտֆոլիոյում։',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ժամ առաջ',
   'news.justNow': 'հենց հիմա',
   'news.loadError': 'Չհաջողվեց բեռնել նորությունները։',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'portfolioHeroCard.label': 'Պորտֆելի արժեքը',
   'pricing.holdingsLabel': 'ունեցվածքներ',
   'pricing.newsLabel': 'լրատվական հոդվածներ',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Ջնջել հաշիվը',
   'settings.security.deleting': 'Ջնջվում է…',
   'settings.security.heading': 'Անվտանգություն',
+  'settings.security.newPassword': 'Նոր գաղտնաբառ',
   'settings.security.password': 'Գաղտնաբառ',
   'settings.security.twoFactorEnable': 'Միացնել',
+  'settings.security.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.security.twoFactorVerify': 'Հաստատել և միացնել',
   'settings.tax.error': 'Հնարավոր չէ թարմացնել հարկային մեթոդը։',
   'settings.tax.heading': 'Հարկային հաշվառում',
   'settings.tax.method': 'Լռելյայն մեթոդ',

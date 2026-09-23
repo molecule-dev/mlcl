@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.title': '{{app}} အကြောင်း',
   'auth.login.noAccount': 'Sparq မှာ အသစ်လား။',
   'auth.login.or': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
   'auth.signup.or': 'သို့မဟုတ် စာရင်းသွင်းပါ',
+  'common.confirm': 'အတည်ပြုပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.loadError': 'ဤအကြောင်းအရာကို ဖွင့်ရာတွင် တစ်စုံတစ်ခု မှားယွင်းသွားပါသည်။',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'discover.collections.title': 'အမျိုးအစားအလိုက် ကြည့်ရှုပါ',
   'discover.collections.viewAll': 'သင့်စာကြည့်တိုက်ကိုကြည့်ပါ →',
   'discover.empty.body': 'အခြားအမျိုးအစားကို စမ်းကြည့်ပါ သို့မဟုတ် ရှာဖွေမှုကို ရှင်းလင်းပါ။',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'သင့်ရဲ့ ပွဲစဉ်တွေကို အသက်ဝင်နေစေဖို့၊ တိုက်ရိုက်ဂိမ်းတွေကို လက်ခံကျင်းပဖို့နဲ့ ဦးဆောင်သူစာရင်းကို တက်ဖို့အတွက် အကောင့်ဝင်လိုက်ပါ။',
   'myQuizzes.createButton': 'ဉာဏ်စမ်းပဟေဠိအသစ်',
+  'myQuizzes.deleteConfirm': 'အပြီးတိုင် ဖျက်ပစ်မလား။',
   'myQuizzes.empty.createCta': 'သင့်ရဲ့ ပထမဆုံး ဉာဏ်စမ်းပဟေဠိကို တည်ဆောက်ပါ →',
   'myQuizzes.empty.created': 'မင်း ဉာဏ်စမ်းပဟေဠိ မဆောက်ရသေးဘူး။',
   'myQuizzes.empty.played': 'ထုတ်ပြန်ထားသော ဉာဏ်စမ်းမေးခွန်းများ မရှိသေးပါ။',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'တင်နေသည်…',
   'notifications.subhead':
     '{{count}} မဖတ်ရသေးသော မီးပွားများ။ ဖိတ်ကြားချက်များ၊ ဦးဆောင်သူစာရင်းလှုပ်ရှားမှုများနှင့် အောင်မြင်မှုများအားလုံးကို တစ်ခုတည်းတွင် စုစည်းထားသည်။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.checkoutError': 'ငွေရှင်းခြင်းကို စတင်၍မရပါ။ ထပ်မံကြိုးစားပါ။',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
   'pricing.included': 'ပါဝင်သည်',
   'pricing.loadError': 'အစီအစဉ်များကို တင်၍မရပါ။',
   'pricing.maxQuizzes': '{{count}} ဉာဏ်စမ်းမေးခွန်းများ',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ဘာမှထုတ်ပြန်ထားခြင်း မရှိသေးပါဘူး။',
   'profile.startBuilding': 'တည်ဆောက်မှုစတင်ရန် →',
   'profile.tier': 'Sparq ကစားသမား',
+  'quizBuilder.addFailed': 'မေးခွန်းကို ထည့်၍မရပါ။ ထပ်ကြိုးစားပါ။',
   'quizBuilder.addQuestion': 'မေးခွန်းထည့်ပါ',
   'quizBuilder.answerPlaceholder': 'ရွေးချယ်စရာတစ်ခု ရိုက်ထည့်ပါ…',
   'quizBuilder.answersLabel': 'အဖြေရွေးချယ်မှုများ',
   'quizBuilder.back': 'ကျွန်ုပ်၏ ဉာဏ်စမ်းမေးခွန်းများသို့ ပြန်သွားရန်',
   'quizBuilder.delete': 'မေးခွန်းကို ဖျက်ပါ',
+  'quizBuilder.deleteFailed': 'မေးခွန်းကို ဖျက်၍မရပါ။',
   'quizBuilder.firstQuestion': 'စတင်ရန် သင့်ပထမဆုံးမေးခွန်းကို ထည့်ပါ။',
   'quizBuilder.idLabel': 'ဉာဏ်စမ်းပဟေဠိ id: {{id}}',
   'quizBuilder.loadError': 'ဉာဏ်စမ်းပဟေဠိကို ဖွင့်၍မရပါ။',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'အနည်းဆုံး အဖြေနှစ်ခုထည့်ပြီး မှန်ကန်သောတစ်ခုကို ရွေးချယ်ပါ {{count}} ထုတ်ဝေခြင်းမပြုမီ မေးခွန်း(များ)။',
   'quizBuilder.questionsTitle': 'မေးခွန်းများ',
+  'quizBuilder.saveFailed': 'ခေါင်းစဉ်ကို သိမ်းဆည်း၍မရပါ။ ထပ်ကြိုးစားပါ။',
   'quizBuilder.statusDraft': 'မူကြမ်း',
   'quizBuilder.subhead':
     'ခေါင်းစဉ်ကို တည်းဖြတ်ပါ၊ မေးခွန်းများထည့်ပါ၊ ရွေးချယ်မှုများနှင့် မှန်ကန်သောအဖြေကို သတ်မှတ်ပါ။ ပြောင်းလဲမှုများကို အလိုအလျောက် သိမ်းဆည်းပါသည်။',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} မိနစ်',
   'quizDetail.hostMultiplayer': 'အိမ်ရှင် လူများစွာကစားခြင်း',
   'quizDetail.leaderboardEmpty': 'ကစားပွဲမရှိသေးပါ — ပထမဆုံးရမှတ်ရသူ ဖြစ်ပါစေ။',
+  'quizDetail.loadError': 'ဤပဟေဠိကို ဖွင့်၍မရပါ။',
   'quizDetail.loading': 'ဉာဏ်စမ်းပဟေဠိကို တင်နေသည်…',
   'quizDetail.plays': '{{count}} ကစားသည်',
   'quizDetail.playSolo': 'တစ်ကိုယ်တော်တီးပါ',

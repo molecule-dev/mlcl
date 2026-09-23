@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Jarri gurekin harremanetan',
   'about.eyebrow': 'Buruz',
+  'about.title': '{{app}}(r)i buruz',
   'activeAgentsCard.agent1AvatarAlt':
     'Emakumezko laguntza-agente baten argazki profesionala, irribarre atsegin batekin bulego moderno batean',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Jarri harremanetan laguntzarekin',
   'forgotPassword.error': 'Ezin izan da berrezartzeko mezu elektronikoa bidali. Saiatu berriro.',
   'forgotPassword.rememberPassword': 'Gogoratu zure pasahitza?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Hasi saioa — Zenith Laguntza',
   'login.showPassword': 'Erakutsi pasahitza',
   'login.welcomeSubheading': 'Hasi saioa zure laguntza-panelean',
+  'mobileNav.closeMenu': 'Itxi nabigazioa',
+  'mobileNav.menu': 'Nabigazioa',
+  'mobileNav.openMenu': 'Ireki nabigazioa',
   'nav.legal': 'Legezko',
   'nav.newTicket': 'Txartel berria',
   'notifications.loadError': 'Ezin izan dira jakinarazpenak kargatu. Saiatu berriro une batean.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Komandoen bilaketa',
   'operatorDock.newReport': 'Txosten berria',
   'operatorDock.systemOnline': 'Sistema Online',
+  'planUpdated.subtitle': 'Eskerrik asko',
   'planUpdated.title': 'Plana eguneratua',
   'pricing.agents': 'agenteak',
   'pricing.automation': 'Automatizazio arauak',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{izena}}',
   'ticketCustomerReply.avatarAlt': '{{izena}} ren avatarra',
   'ticketDetail.errorTitle': 'Zerbait gaizki joan da',
+  'ticketDetail.loadError': 'Txartela kargatzea huts egin du.',
+  'ticketDetail.notFound': 'Txartela ez da aurkitu',
+  'ticketDetail.replyError': 'Erantzuna bidaltzea huts egin da. Saiatu berriro.',
   'ticketDetail.retry': 'Saiatu berriro',
   'ticketDetail.statusUpdateError': 'Ezin izan da egoera eguneratu. Saiatu berriro.',
   'ticketDetailsCard.assigneeLabel': 'Esleitutakoa',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{denbora}} ezkerrean',
   'ticketRow.title': 'Datu-basearen konexioa huts egiten ari da ekoizpenean {{nodoa}}',
   'tickets.pageTitle': 'Sarrerak — Zenith Laguntza',
+  'ticketsFab.newTicket': 'Txartel berria',
   'ticketsFilterBar.assigneeLabel': 'Esleitutakoa:',
   'ticketsFilterBar.clearFilters': 'Garbitu iragazkiak',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

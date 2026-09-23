@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
+  'about.eyebrow': 'Om {{app}}',
   'about.pageTitle': 'Varje rutt, en sökning.',
   'booking.backToDetail': 'Tillbaka till flyginformation',
   'booking.continue': 'Fortsätt till betalning',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Skatter & avgifter',
   'booking.summary.travelers': 'Resenärer',
   'common.about': 'Om',
+  'common.goToDashboard': 'Gå till översikt',
   'flightDetail.backToResults': 'Tillbaka till resultat',
   'flightDetail.baseFare': 'Grundpris',
   'flightDetail.book': 'Fortsätt till bokning',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 mellanlandning',
   'flightResultCard.select': 'Välj',
   'flightResultCard.totalLabel': 'Total tid',
+  'flightSearchLayout.primaryNavLabel': 'Huvudnavigering',
   'forgotPassword.subheading':
     'Ange e-postadressen på ditt Skylark-konto så skickar vi en säker återställningslänk.',
   'forgotPassword.successBody':
     'Kontrollera {{email}} efter en länk för att ange ett nytt lösenord. Länken upphör att gälla om 30 minuter.',
   'forgotPassword.successHeading': 'Återställningslänk skickad',
   'landing.cta.explore': 'Prova en sökning',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Hitta nästa fantastiska pris före alla andra.',
   'landing.cta.signup': 'Börja spåra priser',
   'landing.features.eyebrow': 'Varför Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Lägg till varning',
   'priceAlerts.deleteConfirm': 'Ta bort denna varning?',
   'priceAlerts.empty': 'Inga spårade rutter ännu.',
+  'priceAlerts.emptyCta': 'Sök efter en rutt att spåra',
   'priceAlerts.errorMessage': 'Det gick inte att läsa in varningar.',
   'priceAlerts.eyebrow': 'Skylark bevakningslista',
   'priceAlerts.form.createError': 'Det gick inte att skapa varning.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Multi-city-resplan',
   'results.multiLegHeading': 'Etapp {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} etapper · {{passengers}} resenär',
+  'results.sortAriaLabel': 'Sortera resultat efter',
   'results.sortLabel': 'Sortera',
   'results.summary': '{{count}} flyg · {{passengers}} resenär',
   'settings.language.title': 'Språk',

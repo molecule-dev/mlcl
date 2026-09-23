@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'accountDetail.activeBadge': 'Белсенді',
   'accountDetail.availableLabel': '{{amount}} қолжетімді',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Тіркелгілерді жүктеу сәтсіз аяқталды.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Мұздатылған',
   'accounts.totalBalance': '{{мөлшер}} жалпы',
   'audit.empty': 'Әзірге ешқандай іс-шара жоқ.',
   'audit.eyebrow': 'Қауіпсіздік және кіру мүмкіндігі',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Қолма-қол ақша',
   'cashCreditCard.creditLabel': 'Пайдаланылған несие',
   'cashCreditCard.title': 'Қолма-қол ақша және несие',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Шолу',
   'dashboard.recentEmpty': 'Әзірге транзакциялар жоқ.',
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Құпия сөзді көрсету',
   'login.signUp': 'Тіркелу',
   'login.submit': 'Кіру',
+  'meridianLayout.menu': 'Мәзір',
   'meridianLayout.primaryNavLabel': 'Негізгі навигация',
   'nav.legal': 'Заңды',
   'notifications.emptyHeading': 'Барлық жаңалықтарды қарап шықтыңыз',
   'notifications.subheading':
     'Транзакциялар, қауіпсіздік және есепшоттар туралы нақты уақыт режиміндегі ескертулер.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'privacy.dataWeShare':
     'Жеке банк деректері ешқашан сатылмайды. Біз ақпаратты төлем процессорларымен, карта желілерімен және реттеуші органдармен тек транзакцияларды реттеу немесе заңды міндеттемелерді орындау үшін қажет болған жағдайда ғана бөлісеміз.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Екі факторлы режим әрбір кіру кезінде аутентификация қолданбасынан бір реттік код қосады.',
   'settings.security.twoFactorCta': 'Екі факторлы аутентификацияны басқару',
+  'settings.security.twoFactorOff': 'Екі факторлы режим өшірулі',
   'settings.signOutDevice': 'Шығу',
   'settings.subheading': 'Профиль, қауіпсіздік және хабарландырулар.',
+  'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorInvalidCode': 'Жарамсыз код',
+  'settings.twoFactorVerify': 'Тексеру және қосу',
   'signup.emailLabel': 'Электрондық поштаның адресі',
   'signup.fullName': 'Сізге қалай жүгінуіміз керек?',
   'signup.showPassword': 'Құпия сөзді көрсету',
@@ -105,7 +114,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Әзірге транзакциялар жоқ.',
   'transactions.endDate': 'Аяқталу күні',
   'transactions.eyebrow': 'Белсенділік',
+  'transactions.loadError': 'Транзакцияларды жүктеу сәтсіз аяқталды.',
   'transactions.merchant': 'Саудагер',
+  'transactions.subheading': 'Сіздің шоттарыңыздағы әрбір жарияланған және күтілетін транзакция.',
   'transfers.availableHint': '{{amount}} қолжетімді',
   'transfers.errorGeneric': 'Аударым жіберілмеді.',
   'transfers.errorMissingFields': 'Бастапқы тіркелгіні және мақсатты орынды таңдаңыз.',

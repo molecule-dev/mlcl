@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'auth.fields.newPassword': 'Νέος κωδικός πρόσβασης',
   'collectionDetail.addImage': 'Δημιουργία για τη συλλογή',
   'collectionDetail.backCta': 'Πίσω στις συλλογές',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, brief και τρέχουσες σειρές',
   'collections.title': 'Συλλογές',
   'collections.untitled': 'Χωρίς τίτλο · {{stamp}}',
+  'common.closeMenu': 'Κλείσιμο μενού',
+  'common.dismiss': 'Κλείσιμο',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'credits.eyebrow': 'Πρόγραμμα {{plan}}',
   'credits.renewsCopy': 'Το πρόγραμμα ανανεώνεται στις {{date}}',
   'credits.trail': 'Ονειροπόληση · {{plan}} κερκίδα',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Η δραστηριότητα δημιουργίας, η κοινοποίηση και οι ειδοποιήσεις credits θα εμφανιστούν εδώ.',
   'notifications.empty.title': 'Τίποτα προς αναφορά',
   'notifications.subtitle': 'Συμβάντα δημιουργίας ομαδοποιημένα ανά ημέρα',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.limits.gallery': '{{count}} συλλογή',
   'privacy.collect.body':
     'Όταν εγγραφείτε, συλλέγουμε το όνομά σας, τη διεύθυνση email σας και έναν κωδικό πρόσβασης σε μορφή hash. Όταν χρησιμοποιείτε το Reverie, αποθηκεύουμε τα prompts που υποβάλλετε, τις εικόνες που δημιουργούμε για εσάς, τα στυλ και τις συλλογές που αποθηκεύετε, καθώς και μεταδεδομένα όπως το μοντέλο που χρησιμοποιήθηκε, τις χρονοσφραγίδες δημιουργίας και το υπόλοιπο credits.',
@@ -169,6 +175,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Αποθήκευση νέου κωδικού πρόσβασης',
   'reset.submitting': 'Ενημέρωση κωδικού πρόσβασης…',
   'settings.account.handle': 'Όνομα χρήστη',
+  'settings.account.lastSaved': 'Ενεργό προφίλ · {{name}}',
   'settings.account.saved': 'Το προφίλ αποθηκεύτηκε',
   'settings.account.saveFailed': 'Δεν ήταν δυνατή η αποθήκευση του προφίλ',
   'settings.account.title': 'Προφίλ δημιουργού',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Νέα εικόνα',
   'sidebar.secondary': 'Δευτερεύουσα πλοήγηση',
   'signup.failed': 'Η εγγραφή απέτυχε. Δοκιμάστε ξανά.',
+  'signup.firstNamePlaceholder': 'Άρια',
   'signup.heading': 'Ξεκινήστε το όνειρό σας',
+  'signup.lastNamePlaceholder': 'Λιν',
   'signup.subheading': 'Δημιουργήστε λογαριασμό και διεκδικήστε 120 δωρεάν credits.',
   'styles.empty': 'Δεν υπάρχουν ακόμα προεπιλογές στυλ — θα εμφανιστούν μετά την πρώτη σύνδεση.',
   'styles.eyebrow': 'Επιμελημένα',

@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Clients',
   'customers.loadError': "No s'han pogut carregar els clients.",
   'customers.loading': "S'està carregant…",
+  'customers.new.address': 'Adreça de servei',
   'customers.new.email': 'Correu electrònic',
   'customers.new.error': "No s'ha pogut afegir el client.",
   'customers.new.heading': 'Nou client',

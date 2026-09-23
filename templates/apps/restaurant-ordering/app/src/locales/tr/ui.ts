@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} hakkında',
   'analytics.avgCheckLabel': 'Ort. hesap',
   'analytics.busiestHour': 'En yoğun saat',
   'analytics.coversToday': 'Bugünkü misafirler',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Bahşiş (ort.)',
   'analytics.topItems': 'Bugünün en çok satanları',
   'authShell.eyebrow': 'Servise tekrar hoş geldiniz',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Ağırlama ekipleri için sıcak ve hızlı bir satış noktası. Mutfağınıza giriş yapın ve kaldığınız yerden devam edin.',
   'authShell.tip': 'Pro ipucu: klavye kısayolları her yerde çalışır — aramak için / tuşuna basın.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'veya {{price}}',
   'billing.priceUnavailable': 'Bu planın yapılandırılmış bir fiyatı yok.',
   'billing.updated': 'Plan güncellendi.',
+  'common.goToDashboard': 'Panele Git',
   'customerDetail.book': 'Rezervasyon ekle',
   'customerDetail.col.table': 'Masa',
   'customerDetail.confirmDelete': 'Bu misafir kaydını silmek istiyor musunuz?',
@@ -125,6 +128,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Mevcudiyet',
   'menuItemDetail.available': 'Bu gece mevcut',
   'menuItemDetail.backToMenu': 'Menüye dön',
+  'menuItemDetail.confirmDelete': 'Bu menü öğesini silmek mi istiyorsunuz?',
   'menuItemDetail.delete': 'Öğeyi sil',
   'menuItemDetail.deleteError': 'Silme başarısız. Tekrar deneyin.',
   'menuItemDetail.dietary': 'Beslenme etiketleri',
@@ -136,8 +140,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · fotoğraf, varyasyonlar, beslenme ve fiyatı düzenleyin.',
   'menuItemDetail.untitled': 'Adsız öğe',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'notFound.heading': 'Bu masa salonda değil.',
   'notFound.subheading': 'Aradığınız sayfa başka bir yere oturtuldu — ya da hiç var olmadı.',
+  'notFound.toLanding': '{{app}} ana sayfa',
   'notifications.markError': 'Tümü okundu olarak işaretlenemedi.',
   'orderDashboard.activeDelta': 'Şimdi canlı',
   'orderDashboard.activeLabel': 'Etkin siparişler',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Parolayı göster',
   'resetPassword.subtitle': 'Mutfağa erişimi yeniden kazanmak için yeni parolanızı girin.',
   'resetPassword.tokenLabel': 'Sıfırlama Belirteci',
+  'restaurantOrderingLayout.primaryNavLabel': 'Birincil gezinme',
   'revenueHeroCard.activeOrders': '{{count}} etkin',
   'revenueHeroCard.change': '{{sign}}{{amount}} düne göre',
   'revenueHeroCard.title': 'Bugünün geliri',
@@ -219,6 +227,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restoran adı',
   'tableDetail.activeOrders': 'Etkin siparişler',
   'tableDetail.backToFloor': 'Salon planı',
+  'tableDetail.confirmDelete': 'Bu tabloyu silmek mi istiyorsunuz?',
   'tableDetail.delete': 'Sil',
   'tableDetail.deleteError': 'Masa silinemedi.',
   'tableDetail.heading': 'Masa {{label}}',

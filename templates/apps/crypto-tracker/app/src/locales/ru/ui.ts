@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'О',
   'alertConditionCard.condition.${alert.condition}': 'Сработал {{когда}}',
+  'alertConditionCard.confirmDelete': 'Подтвердить удаление',
   'alertConditionCard.pauseAriaLabel': 'Предупреждение о паузе',
   'alertConditionCard.resumeAriaLabel': 'Предупреждение о возобновлении',
   'alertNew.condition': 'Состояние',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Оценка с учетом полного разводнения',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Веб-сайт',
+  'coinDetail.links.whitepaper': 'Технический документ',
   'coinDetail.loadError': 'Не удалось загрузить монету.',
   'coinDetail.marketCap': 'Рыночная капитализация',
   'coinDetail.maxSupply': 'Максимальное предложение',
@@ -93,6 +95,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Просканированный вами маршрут не соответствует известной монете или странице. Перепроверьте символ и попробуйте снова.',
   'notFound.browseMarkets': 'Просмотрите рынки',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'portfolio.addError': 'Введите символ, положительную сумму и стоимость.',
   'portfolio.addHoldingCta': '+ Добавить удержание',
   'portfolio.addModal.cost': 'Себестоимость (доллары США)',
@@ -136,9 +139,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Настройки пароля и двухфакторной аутентификации управляются вашей учетной записью.',
   'settings.signOutDevice': 'выход',
+  'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorInvalidCode': 'Неверный код',
   'settings.twoFactorOn': 'О',
+  'settings.twoFactorVerify': 'Проверить и включить',
   'sigilAuthShell.backHomeCta': '← Назад к Сигилу',
   'sigilLayout.primaryNavLabel': 'Основная навигация',
   'signup.eyebrow': 'Откройте терминал',

@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Despre',
+  'appShell.closeNav': 'Închide meniul de navigare',
+  'appShell.openNav': 'Deschide meniul de navigare',
+  'common.dashboard': 'Tablou de bord',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.eyebrow': 'Astăzi în jurul ligii',
   'dashboard.loading': 'Scoatem scorurile din această seară...',
   'dashboard.scoringLeaders': 'Lideri de scor',
@@ -147,4 +151,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': 'acum {{count}}z',
   'time.hoursAgo': 'acum {{count}}h',
   'time.minutesAgo': '{{count}} acum m',
+  'time.secondsAgo': 'Acum {{count}} secunde',
 }

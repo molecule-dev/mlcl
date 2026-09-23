@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'applications.empty':
     'Hələ ki, müraciət yoxdur \\u2014 Ən uyğun rol yalnız bir müraciət məsafəsindədir.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Tətbiq etdiyiniz hər rol hərəkətdədir. Fokuslanmaq üçün mərhələyə görə filtrləyin.',
   'applications.untitledRole': 'Rol # {{id}}',
+  'auth.legalConsent': 'Davam etməklə, bizim şərtlərimizlə razılaşırsınız',
   'common.and': 'və',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'companies.empty': 'Axtarışınıza uyğun heç bir şirkət yoxdur. Başqa bir termin sınayın.',
   'companies.eyebrow': 'Seçilmiş işəgötürənlər',
   'companies.searchPlaceholder': 'Adı, sənayesi, yeri üzrə axtarış',
@@ -51,6 +54,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Bu vəzifə üçün hələlik müraciət yoxdur.',
   'jobApplicants.eyebrow': 'İşəgötürənin baxışı',
   'jobApplicants.loading': 'Yüklənir\\u2026',
+  'jobApplicants.statusUpdateFailed':
+    'Həmin mərhələni yeniləmək mümkün olmadı — yenidən cəhd edin.',
+  'jobApplicants.subheading':
+    'CV-ləri nəzərdən keçirin, namizədləri irəli sürün, təkliflər göndərin \\u2014 {{count}} hərəkətə keçin.',
   'jobDetail.applicantCount': '{{count}} indiyə qədər müraciət edənlər',
   'jobDetail.applied': 'Ərizə göndərildi',
   'jobDetail.apply': 'İndi müraciət edin',
@@ -84,6 +91,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Açıq rollara baxın \\u2192',
   'landing.pricingEyebrow': 'Qiymətləndirmə',
   'landing.pricingHeading': 'Hər komanda ölçüsü üçün sadə planlar.',
+  'login.eyebrow': '{{app}} platformasına xoş gəlmisiniz',
   'login.heading': 'Hesabınıza daxil olun',
   'login.noAccount': 'Nosh-da yenisiniz?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +99,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Daxil olma\\u2026',
   'login.subheading':
     'Axtarışınızı davam etdirin, tətbiqlərinizi inkişaf etdirin, daha tez cavab alın.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . İşə qəbul komandaları üçün hazırlanmışdır.',
   'loginBrandPanel.headline': 'İstedadın qovuşduğu yer',
   'loginBrandPanel.headlineLine2': 'impuls.',
   'loginBrandPanel.listing.recruiter': 'İstedad Tərəfdaşı',
@@ -107,6 +116,7 @@ export const ui: UiTranslations = {
     'Tətbiq yeniləmələri, müsahibə dəvətnamələri, yeni uyğunluqlar \\u2014 ən yeniləri başda.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} bu həftə',
   'opportunitiesHero.eyebrow': 'Bu gün açıqdır',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'postJob.addNewCompany': '+ Yeni şirkət əlavə edin',
   'postJob.companyCreateFailed': 'Şirkət yaratmaq mümkün olmadı — yenidən cəhd edin.',
   'postJob.companyNameLabel': 'Şirkətinizin adı',
@@ -166,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Hesab yaradılır\\u2026',
   'signup.ctaEmployer': 'İşəgötürən hesabı yaradın',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Çen',
   'signup.passwordMismatch': 'Parollar uyğun gəlmir.',
   'signup.subheading':
     'Axtaranlar üçün əbədi olaraq pulsuzdur. İşəgötürənlər 30 günlük sınaq müddəti ilə başlayır.',
   'timeAgo.days': '{{count}} gün əvvəl',
   'timeAgo.hours': '{{count}} saat əvvəl',
   'timeAgo.justNow': 'elə indicə',
+  'timeAgo.weeks': '{{count}} həftə əvvəl',
 }

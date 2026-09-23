@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.pageTitle': 'Over {{app}}',
   'achievementBadgeCard.unlockedOn': 'Ontgrendeld op {{date}}',
   'achievements.loadError': 'Kan prestaties niet laden.',
   'achievements.subheading': '{{unlocked}} van {{total}} ontgrendeld',
   'achievements.unlockedOn': 'Ontgrendeld op {{date}}',
+  'auth.legalConsent': 'Door verder te gaan, ga je akkoord met onze',
   'calendar.empty': 'Maak een gewoonte aan om uw kalender te zien.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Gewoonte',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Gewoonteraster',
   'category.${c.category}': '{{graaf}} gebruiken',
   'common.and': 'en',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'consistencyHeatmap.ariaLabel': 'Heatmap dagelijkse consistentie',
   'consistencyHeatmap.caption': 'Laatste {{weeks}} weken',
   'consistencyHeatmap.lessLabel': 'Minder',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Bekijk live',
   'landing.heroSubtitle':
     'Bouw gewoonten zoals ze echt beklijven: kleine toezeggingen, dagelijkse reeksen en het tastbare plezier van een lange ononderbroken ketting.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Een blik in Streak',
   'landing.previewMotivation': 'Negen reeksen leven. Houd ze allemaal warm.',
   'login.eyebrow': 'Pak de ketting weer op',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Maak het klein. Maak het specifiek. Verschijn morgen.',
   'newHabit.timeLabel': 'Tijd van herinnering',
   'notifications.markError': 'Kon niet alles als gelezen markeren.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.entries': '{{count}} items',
+  'pricing.heading': 'Kies je {{app}}-abonnement',
   'profile.action.plan': 'Abonnement beheren',
   'profile.action.settings': 'Accountinstellingen',
   'profile.bioEmpty': 'Voeg een korte bio toe in Instellingen om uzelf voor te stellen.',
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Dagelijkse ochtendprompt (8:00)',
   'settings.reminders.heading': 'Herinneringen',
   'settings.reminders.weekly': 'Wekelijkse samenvatting (zondagavond)',
+  'settings.revokeDeviceWarning':
+    'De toegang van dit apparaat wordt binnenkort ingetrokken. Uitloggen?',
   'settings.signOutDevice': 'Uitloggen',
   'settings.streaks.freezesPerWeek': 'Freezes per week',
   'settings.streaks.gracePeriod': '6-uurs gratieperiode na middernacht',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} actief',
   'streakHeroCard.daysSuffix': 'dagen',
   'streakHeroCard.title': 'Langste actieve reeks',
+  'streakLayout.closeMenu': 'Navigatiemenu sluiten',
+  'streakLayout.openMenu': 'Navigatiemenu openen',
   'streakLayout.primaryNavLabel': 'Hoofdnavigatie',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
   'auth.forgotPassword.emailPlaceholder': 'име@вашатакомпанија.com',
   'auth.forgotPassword.heading': 'Ресетирајте ја вашата лозинка.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Означи ја задачата завршена',
   'checklistTaskCard.markIncomplete': 'Означи ја задачата како незавршена',
   'checklistTaskCard.openLabel': 'Отвори задача',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Сите сте запознаени',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'На вистинскиот пат',
   'dashboard.timelineHeading': '30/60/90 пресвртници',
   'dashboard.viewAllTasks': 'Прикажи ги сите задачи',
+  'dashboard.weekOne': 'Недела 1',
   'dashboard.yourCohort': 'Вашиот тим',
   'documents.empty.body': 'Документите додадени од вашиот тим ќе се појават тука.',
   'documents.empty.title': 'Сè уште нема документи',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-дневен бесплатен пробен период',
   'landing.subhead':
     'Ембарк го води секој нов соиграч низ неговите први 90 дена - документација, обука, пресвртници и значајни запознавања, сè на едно мирно, самоуверено место.',
+  'layout.openMenu': 'Отвори мени за навигација',
   'layout.search': 'Пребарувајте задачи, документи, соиграчи…',
+  'layout.searchTeammates': 'Пребарувајте соиграчи по име или улога…',
   'layout.section.onboarding': 'Вклучување во тимот',
   'layout.tagline': 'Вашето патување започнува тука',
   'notifications.empty.body': 'Новата активност ќе се прикаже тука.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'вчера',
   'planUpdated.message': 'Готови сте.',
   'planUpdated.preparing': 'Се ажурира вашиот план…',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.documentsLabel': 'документи',
   'pricing.onboardingsLabel': 'вработувања',
   'pricing.tasksLabel': 'задачи',

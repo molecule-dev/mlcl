@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
   'accountDetail.activeBadge': 'Aktiv',
   'accountDetail.availableLabel': '{{amount}} verfügbar',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Konten',
   'accounts.loadError': 'Konten konnten nicht geladen werden.',
   'accounts.status.closed': 'Geschlossen',
+  'accounts.status.frozen': 'Frozen',
   'accounts.totalBalance': '{{amount}} gesamt',
   'audit.empty': 'Noch keine Ereignisse.',
   'audit.eyebrow': 'Sicherheit & Zugriff',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Verfügbares Bargeld',
   'cashCreditCard.creditLabel': 'Genutzter Kredit',
   'cashCreditCard.title': 'Bargeld & Kredit',
+  'common.goToDashboard': 'Zum Dashboard',
   'dashboard.accountsHeading': 'Konten',
   'dashboard.heading': 'Übersicht',
   'dashboard.recentEmpty': 'Noch keine Transaktionen.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Passwort anzeigen',
   'login.signUp': 'Registrieren',
   'login.submit': 'Anmelden',
+  'meridianLayout.menu': 'Menü',
   'meridianLayout.primaryNavLabel': 'Hauptnavigation',
   'nav.legal': 'Rechtliches',
   'notifications.emptyHeading': 'Sie sind auf dem Laufenden',
   'notifications.subheading':
     'Echtzeit-Benachrichtigungen für Transaktionen, Sicherheit und Kontoauszüge.',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'privacy.dataWeShare':
     'Persönliche Bankdaten werden niemals verkauft. Wir geben Informationen nur an Zahlungsdienstleister, Kartennetzwerke und Aufsichtsbehörden weiter, sofern dies zur Abwicklung von Transaktionen oder zur Erfüllung gesetzlicher Verpflichtungen erforderlich ist.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Die Zwei-Faktor-Authentifizierung fügt bei jeder Anmeldung einen Einmalcode aus einer Authenticator-App hinzu.',
   'settings.security.twoFactorCta': 'Zwei-Faktor-Authentifizierung verwalten',
+  'settings.security.twoFactorOff': 'Die Zwei-Faktor-Authentifizierung ist deaktiviert',
   'settings.signOutDevice': 'Abmelden',
   'settings.subheading': 'Profil, Sicherheit und Benachrichtigungen.',
+  'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
   'settings.twoFactorEnable': 'Aktivieren',
+  'settings.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.twoFactorVerify': 'Überprüfen & aktivieren',
   'signup.emailLabel': 'E-Mail-Adresse',
   'signup.fullName': 'Wie sollen wir Sie ansprechen?',
   'signup.showPassword': 'Passwort anzeigen',
@@ -105,7 +114,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Noch keine Transaktionen.',
   'transactions.endDate': 'Enddatum',
   'transactions.eyebrow': 'Aktivität',
+  'transactions.loadError': 'Transaktionen konnten nicht geladen werden.',
   'transactions.merchant': 'Händler',
+  'transactions.subheading':
+    'Alle verbuchten und noch ausstehenden Transaktionen auf Ihren Konten.',
   'transfers.availableHint': '{{amount}} verfügbar',
   'transfers.errorGeneric': 'Die Überweisung konnte nicht übermittelt werden.',
   'transfers.errorMissingFields': 'Wählen Sie ein Quellkonto und einen Empfänger.',

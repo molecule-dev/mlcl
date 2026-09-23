@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
+  'about.eyebrow': '{{app}}について',
   'about.pageTitle': 'すべてのルートを、ひとつの検索で。',
   'booking.backToDetail': 'フライト詳細に戻る',
   'booking.continue': 'お支払いへ進む',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': '税金・手数料',
   'booking.summary.travelers': '旅人',
   'common.about': '概要',
+  'common.goToDashboard': 'ダッシュボードへ',
   'flightDetail.backToResults': '検索結果に戻る',
   'flightDetail.baseFare': '基本運賃',
   'flightDetail.book': '予約手続きへ進む',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 回経由',
   'flightResultCard.select': '選択',
   'flightResultCard.totalLabel': '総所要時間',
+  'flightSearchLayout.primaryNavLabel': 'メインナビゲーション',
   'forgotPassword.subheading':
     'Skylark アカウントのメールアドレスをご入力ください。安全なリセットリンクをお送りします。',
   'forgotPassword.successBody':
     '{{email}} 宛にお送りした新しいパスワード設定用リンクをご確認ください。リンクは 30 分で失効します。',
   'forgotPassword.successHeading': 'リセットリンクを送信しました',
   'landing.cta.explore': '検索を試す',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': '誰よりも早く、次の特別運賃を見つけましょう。',
   'landing.cta.signup': '運賃の追跡を始める',
   'landing.features.eyebrow': 'Skylark が選ばれる理由',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'アラートを追加',
   'priceAlerts.deleteConfirm': 'このアラートを削除しますか？',
   'priceAlerts.empty': 'まだ追跡中のルートはありません。',
+  'priceAlerts.emptyCta': '追跡するルートを検索',
   'priceAlerts.errorMessage': 'アラートを読み込めませんでした。',
   'priceAlerts.eyebrow': 'Skylark ウォッチリスト',
   'priceAlerts.form.createError': 'アラートを作成できませんでした。',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': '複数都市の旅程',
   'results.multiLegHeading': '区間 {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '区間 {{count}} 件 · 旅行者 {{passengers}} 名',
+  'results.sortAriaLabel': '結果を並べ替える',
   'results.sortLabel': '並べ替え',
   'results.summary': 'フライト {{count}} 件 · 旅行者 {{passengers}} 名',
   'settings.language.title': '言語',

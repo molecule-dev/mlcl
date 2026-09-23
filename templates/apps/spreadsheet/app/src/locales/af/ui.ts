@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'about.pageTitle': 'Oor {{name}}',
   'auth.footer.about': 'Oor {{name}}',
   'authHeader.subtitle': 'Meld aan om jou syfers eerlik te hou.',
   'automations.action.email': 'E-pos',
+  'automations.action.noop': 'Geen-op',
   'automations.action.webhook': 'Webhaak',
   'automations.confirmDelete': 'Vee uit " {{name}} "?',
   'automations.empty.headline': 'Geen outomatisasies nog nie',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     "Snellers en aksies oor elke werkboek. Elke lopie teken 'n ry aan wat jy later kan ouditeer.",
   'automations.toggle': 'Wissel {{name}}',
+  'automations.trigger.dailySchedule': 'Daaglikse skedule',
+  'automations.trigger.rowCreated': 'Ry geskep',
+  'automations.trigger.rowUpdated': 'Ry opgedateer',
   'billing.empty': 'Geen planne beskikbaar nie.',
   'billing.error.priceMissing':
     'Geen Stripe-prys vir hierdie vlak gekonfigureer nie. Stel STRIPE_*_PRICE_ID omgewingvariasies.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafieke',
   'charts.kpi.totalCharts': 'Totale grafieke',
   'charts.list.empty': 'Geen grafieke nog nie.',
+  'charts.namePlaceholder': 'Inkomstetendens',
   'charts.newChart': 'Nuwe grafiek',
   'charts.primary.eyebrow': 'Grafieke volgens tipe',
   'charts.primary.headline': 'Werkruimte-oorsig',
   'charts.subhead':
     'Regstreekse visualisasies gekoppel aan jou rooster — hervervaardig met elke selwysiging.',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'editor.addColumn': 'Voeg kolom by',
+  'editor.addDialogTitle': 'Voeg kolom by',
   'editor.addRow': 'Voeg ry by',
   'editor.addSheet': 'Voeg blad by',
   'editor.back': 'Terug na werkboeke',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite is die formule-eerste, multi-aansig, intydse netwerkontleders en finansiële spanne reik na eerste.',
   'landing.nav.formulas': 'Formules',
+  'login.noAccount': 'Nuut by {{name}} ?',
+  'login.signIn': 'Meld aan by {{name}}',
   'login.signUp': "Skep 'n werkruimte",
+  'nav.menu': 'Kieslys',
+  'nav.openMenu': 'Maak spyskaart oop',
   'notFound.cellRef': '#VERW!',
   'notFound.formula': '=SOEK(VERSOEK.url, "roetes", "bladsy")',
   'notFound.headline': 'Hierdie ry het nooit bestaan nie.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Inheemse outomatisasies · webhook- en cron-snellers',
   'signup.creating': 'Voorsien werkruimte…',
   'signup.cta': 'Skep my werkspasie',
+  'signup.haveAccount': 'Reeds op {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Draai jou eerste werkboek in 30 sekondes aan',
   'team.col.activity': 'Genooi',

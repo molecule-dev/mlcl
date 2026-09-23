@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tietoa {{app}}sta',
   'about.plansTitle': 'Tilaukset, jotka kasvavat kanssasi',
   'brand.tagline': 'Joka sekunti',
   'clientDetail.back': 'Takaisin asiakkaille',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Kaikki suhteet yhdessä paikassa – projektit, tunnit, maksamattomat laskut.',
   'clients.title': 'Asiakkaat',
   'common.and': 'ja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.activeProjects': 'Aktiiviset projektit',
   'dashboard.empty':
     'Ei vielä merkintöjä. Käynnistä ajastin seurataksesi ensimmäistä harjoitustasi.',
@@ -82,6 +84,7 @@ export const ui: UiTranslations = {
     'Tälle asiakkaalle ei ole laskutettavia tunteja. Seuraa ensin jonkin verran aikaa tai liitä olemassa olevat merkinnät johonkin tämän asiakkaan projekteista.',
   'invoices.save': 'Luo lasku',
   'invoices.subtitle': 'Seuratut tunnit näkyvät laskuissa automaattisesti.',
+  'landing.copyright': '© {{year}} {{app}} . Joka sekunti huomioitu.',
   'landing.ctaBody': 'Ilmainen jopa kolmelle projektille. Päivitä, kun asiakaslistasi päivittyy.',
   'landing.eyebrow': 'Laskutettavan työn ajanseuranta',
   'landing.featuresBody':
@@ -96,13 +99,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Itsenäisten luottama',
   'landing.testimonial.quote':
     'Muutin pois Togglilta 30 minuutissa. Jo pelkkä budjetin loppuun saattaminen on maksanut itsensä takaisin. Olen lopettanut kahden viikon peräkkäisen alihinnoittelun.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Jokainen sekunti laskettu.',
   'login.brand.subtitle':
     'Jatka ajastinta siitä, mihin jäit – jokainen minuutti on jo linkitetty projektiin, asiakkaaseen tai laskuun.',
   'login.brand.tracking': 'Seuranta',
   'login.subheading': 'Jatka ajastinta siitä, mihin jäit.',
+  'nav.closeMenu': 'Sulje navigointivalikko',
   'nav.insightsSection': 'Oivallukset',
   'nav.newEntry': 'Uusi merkintä',
+  'nav.openMenu': 'Avaa navigointivalikko',
+  'nav.primary': 'Päänavigaatio',
   'nav.workSection': 'Työ',
   'notFound.body':
     'Näyttää siltä, että seuraamasi linkin seuranta on lakannut. Palaa hallintapaneeliisi ja jatkamme laskemista sieltä.',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Laskutettava',
   'timer.descriptionPlaceholder': 'Minkä parissa työskentelet?',
   'timer.idle': 'Lepotila – aloita seuranta',
+  'timer.noProject': 'Ei projektia',
   'timer.runningWithProject': 'Ei projektia',
   'timer.start': 'Käynnistä ajastin',
   'timer.stop': 'Pysäytä ajastin',

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, permintaan fitur, atau menemukan bug? Hubungi tim {{app}} melalui tautan dukungan di menu akun Anda — setiap pesan akan ditangani oleh staf kami secara langsung.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'agentDetail.back': 'Semua agen',
   'agentDetail.capabilities': 'Kemampuan',
   'agentDetail.delete': 'Hapus persona',
   'agentDetail.deleteConfirm': 'Hapus persona ini? Tindakan ini tidak dapat dibatalkan.',
+  'agentDetail.deleteError': 'Tidak dapat menghapus persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Tidak dapat memuat persona.',
   'agentDetail.save': 'Simpan persona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Mengganti…',
   'billing.updateError': 'Tidak dapat memulai pembaruan.',
   'billing.usageHeading': 'Penggunaan suara siklus ini',
+  'chatBubble.source.text': 'teks',
+  'chatBubble.source.voice': 'suara',
+  'common.goToDashboard': 'Ke Dashboard',
   'conversation.defaultTitle': 'Percakapan baru',
   'conversation.empty': 'Belum ada pesan. Mulailah dengan berbicara atau mengetik di bawah.',
   'conversation.eyebrow': 'Sesi langsung',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Kecerdasan yang berbicara.',
   'landing.heroSubtitle':
     'Asisten suara AI yang memahami alur alami Anda. Berbincang, berkreasi, dan memberi perintah — tanpa hambatan.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Mendengarkan…',
   'landing.naturallyBody':
     'Tanpa kata pemicu. Tanpa perintah kaku. Vox memahami konteks, interupsi, dan nuansa bicara manusia — seperti mengobrol dengan rekan kerja.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Buka sesi',
   'notFound.home': 'Kembali ke beranda',
   'notFound.title': 'Kami tidak mendengar halaman itu.',
+  'parlanceLayout.closeMenu': 'Tutup menu',
+  'parlanceLayout.openMenu': 'Buka menu navigasi',
   'parlanceLayout.primaryNavLabel': 'Navigasi utama',
   'pricing.conversations': '{{count}} percakapan',
   'pricing.cta.startFree': 'Mulai gratis',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Tidak ada kecocokan',
   'search.eyebrow': 'Palet perintah',
   'search.fetchError': 'Tidak dapat memuat indeks pencarian.',
+  'search.static.profile.preview': 'Nama tampilan, nama panggilan, deskripsi diri',
   'search.static.voice.title': 'Suara',
   'search.title': 'Cari Vox',
   'search.transcriptPreview': 'Buka transkrip',

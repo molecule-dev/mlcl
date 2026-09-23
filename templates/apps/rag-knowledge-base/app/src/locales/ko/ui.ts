@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.pageTitle': '{{appName}} 소개',
   'analytics.error': '분석을 불러올 수 없습니다.',
   'analytics.heading': '검색 분석',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': '구성된 요금제가 없습니다.',
   'billing.plans.heading': '플랜',
   'billing.subheading': '플랜, 사용량, Stripe로 관리되는 결제입니다.',
+  'common.confirm': '확인',
+  'common.goToDashboard': '대시보드로 이동',
+  'common.retry': '다시 시도',
   'documentCard.open': '열기 →',
   'documentDetail.back': '문서로 돌아가기',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': '문서 색인',
   'documents.composer.titlePlaceholder': '문서 제목',
   'documents.emptyAll': '아직 문서가 없습니다. 질문을 시작하시려면 문서를 업로드해 주세요.',
+  'documents.error.load': '문서를 불러올 수 없습니다.',
   'documents.heading': '색인된 문서',
   'documents.loading': '문서를 불러오는 중…',
   'documents.metric.chunks': '전체 청크',
@@ -137,7 +142,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': '제거 중…',
   'members.subheading': '팀원을 초대하시고 역할을 설정해 주세요.',
   'members.tableHeading': '명단',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'notFound.askCta': '지식 베이스에 질문하기',
+  'notFound.body':
+    '{{app}} 이 해당 페이지를 찾을 수 없습니다. 링크가 깨졌거나 페이지가 재색인 과정에서 삭제되었을 수 있습니다.',
   'notFound.eyebrow': '검색 불가',
   'notFound.title': '색인에 해당 청크가 없습니다',
   'notifications.dismiss': '닫기',
@@ -198,6 +207,7 @@ export const ui: UiTranslations = {
   'sources.add.url': '소스 URL',
   'sources.empty.body': '“소스 추가”를 클릭하여 첫 커넥터를 연결해 주세요.',
   'sources.empty.title': '아직 소스가 없습니다.',
+  'sources.error.add': '소스를 추가할 수 없습니다.',
   'sources.error.labelRequired': '라벨은 필수입니다.',
   'sources.error.load': '소스를 불러올 수 없습니다.',
   'sources.error.urlRequired': '이 소스 종류는 URL이 필요합니다.',

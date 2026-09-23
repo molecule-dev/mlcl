@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} ਬਾਰੇ',
+  'about.pageTitle': 'ਵੈੱਬਹੁੱਕ ਕੰਟਰੋਲ ਪਲੇਨ',
+  'about.plansTitle': 'ਹਰ ਪੜਾਅ ਲਈ ਯੋਜਨਾਵਾਂ',
   'apiKeys.bestPractices': 'ਵਧੀਆ ਅਭਿਆਸ',
   'apiKeys.body':
     'ਪ੍ਰੋਗਰਾਮੇਟਿਕ ਐਕਸੈਸ ਟੋਕਨ। ਉਹਨਾਂ ਨੂੰ ਪਾਸਵਰਡ ਵਾਂਗ ਸਮਝੋ — env vars ਵਿੱਚ ਸਟੋਰ ਕਰੋ, ਕਦੇ ਵੀ ਕਮਿਟ ਨਾ ਕਰੋ।',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ਯੋਜਨਾ ਦੇ ਅੰਦਰ',
   'billing.usageWarning': 'ਕੈਪ ਦੇ ਨੇੜੇ',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'dashboard.body':
     'ਲਾਈਵ ਥਰੂਪੁੱਟ, ਉਡਾਣ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ਾਂ, ਅਤੇ ਅੰਤਮ ਬਿੰਦੂ ਜੋ ਹੁਣੇ ਹੀ ਅੜਚਣ ਆਏ ਹਨ — ਤੁਹਾਡੇ ਦੁਆਰਾ ਚਲਾਏ ਜਾਣ ਵਾਲੇ ਹਰੇਕ ਵਰਕਸਪੇਸ ਵਿੱਚ।',
   'dashboard.endpointsEmpty': 'ਹਾਲੇ ਕੋਈ ਅੰਤਮ ਬਿੰਦੂ ਨਹੀਂ ਹਨ।',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'ਅੰਤਮ ਬਿੰਦੂ',
   'endpointDetail.deliveryTrendSub': 'ਡਿਲੀਵਰੀ / ਘੰਟਾ, ਲੌਗ ਸਕੇਲ',
   'endpointDetail.hideSecret': 'ਰਾਜ਼ ਲੁਕਾਓ',
+  'endpointDetail.loading': 'ਅੰਤਮ ਬਿੰਦੂ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'endpointDetail.metric.delivered': '24 ਘੰਟੇ ਡਿਲੀਵਰ ਕੀਤਾ ਗਿਆ',
   'endpointDetail.metric.deliveredCaption': 'ਤੋਂ {{count}} ਇਵੈਂਟ ਕਿਸਮਾਂ',
   'endpointDetail.metric.failuresCaption': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ਾਂ: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'ਗੰਭੀਰ · 24 ਘੰਟੇ',
   'notifications.metric.totalCaption': 'ਹਰ ਸਮੇਂ ਦਾ ਇਨਬਾਕਸ',
   'payloadViewer.payload': '// ਪੇਲੋਡ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'profile.avatarHeader': 'ਅਵਤਾਰ',
   'profile.avatarHint': 'ਸ਼ੁਰੂਆਤੀ ਅੱਖਰ ਦਿਖਾਏ ਗਏ ਹਨ — ਅਗਲੀ ਰਿਲੀਜ਼ ਦੇ ਨਾਲ ਆਉਣ ਵਾਲੇ ਅੱਪਲੋਡ।',
   'profile.body': 'ਤੁਹਾਡਾ ਖਾਤਾ, ਤਰਜੀਹਾਂ, ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਸੈਸ਼ਨ।',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'ਸਿਰਫ਼ ਤੁਹਾਡਾ ਮੌਜੂਦਾ ਸੈਸ਼ਨ ਕਿਰਿਆਸ਼ੀਲ ਹੈ। ਕੋਈ ਹੋਰ ਡਿਵਾਈਸ ਸਾਈਨ ਇਨ ਨਹੀਂ ਹੈ।',
   'profile.toggle': 'ਟੌਗਲ ਕਰੋ {{label}}',
+  'pylonShell.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'pylonShell.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'pylonShell.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'resetPassword.subtitle': 'ਇੱਕ ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਚੁਣੋ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ ਕਦੇ ਨਹੀਂ ਵਰਤਿਆ।',
   'resetPassword.tokenPlaceholder': 'ਈਮੇਲ ਤੋਂ ਪੇਸਟ ਕਰੋ',

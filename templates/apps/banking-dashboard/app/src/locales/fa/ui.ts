@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'accountDetail.activeBadge': 'فعال',
   'accountDetail.availableLabel': '{{amount}} موجود است',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'حساب‌ها',
   'accounts.loadError': 'بارگیری حساب‌ها ناموفق بود.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'منجمد',
   'accounts.totalBalance': '{{مبلغ}} مجموع',
   'audit.empty': 'هنوز هیچ رویدادی وجود ندارد.',
   'audit.eyebrow': 'امنیت و دسترسی',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'پول نقد در دست',
   'cashCreditCard.creditLabel': 'اعتبار استفاده شده',
   'cashCreditCard.title': 'نقدی و اعتباری',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.accountsHeading': 'حساب‌ها',
   'dashboard.heading': 'نمای کلی',
   'dashboard.recentEmpty': 'هنوز هیچ تراکنشی انجام نشده است.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'نمایش رمز عبور',
   'login.signUp': 'ثبت نام',
   'login.submit': 'ورود',
+  'meridianLayout.menu': 'منو',
   'meridianLayout.primaryNavLabel': 'ناوبری اولیه',
   'nav.legal': 'قانونی',
   'notifications.emptyHeading': 'همه‌تون گرفتارید',
   'notifications.subheading': 'هشدارهای بلادرنگ برای تراکنش‌ها، امنیت و صورتحساب‌ها.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'privacy.dataWeShare':
     'اطلاعات بانکی شخصی هرگز فروخته نمی‌شود. ما اطلاعات را فقط در صورت لزوم برای تسویه تراکنش‌ها یا انجام تعهدات قانونی با پردازنده‌های پرداخت، شبکه‌های کارت و نهادهای نظارتی به اشتراک می‌گذاریم.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'احراز هویت دو مرحله‌ای، در هر بار ورود به سیستم، یک کد یکبار مصرف از یک برنامه‌ی احراز هویت اضافه می‌کند.',
   'settings.security.twoFactorCta': 'مدیریت احراز هویت دو مرحله‌ای',
+  'settings.security.twoFactorOff': 'دو مرحله‌ای غیرفعال است',
   'settings.signOutDevice': 'خروج از سیستم',
   'settings.subheading': 'پروفایل، امنیت و اعلان‌ها',
+  'settings.twoFactorCode': 'کد احراز هویت',
   'settings.twoFactorDisable': 'غیرفعال کردن',
   'settings.twoFactorEnable': 'فعال کردن',
+  'settings.twoFactorInvalidCode': 'کد نامعتبر',
+  'settings.twoFactorVerify': 'تأیید و فعال کردن',
   'signup.emailLabel': 'آدرس ایمیل',
   'signup.fullName': 'چطور باید شما را خطاب کنیم؟',
   'signup.showPassword': 'نمایش رمز عبور',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'هنوز هیچ تراکنشی انجام نشده است.',
   'transactions.endDate': 'تاریخ پایان',
   'transactions.eyebrow': 'فعالیت',
+  'transactions.loadError': 'بارگیری تراکنش‌ها ناموفق بود.',
   'transactions.merchant': 'تاجر',
+  'transactions.subheading': 'هر تراکنش ارسال شده و در انتظار در حساب‌های شما.',
   'transfers.availableHint': '{{amount}} موجود است',
   'transfers.errorGeneric': 'نتوانستم انتقال را ارسال کنم.',
   'transfers.errorMissingFields': 'یک حساب مبدا و یک حساب مقصد انتخاب کنید.',

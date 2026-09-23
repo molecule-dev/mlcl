@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'ہماری کہانی',
   'aiSuggestionPanel.title': 'سگنیٹ کا پائلٹ',
   'analytics.col.open': 'اوپن ریٹ',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'چیک آؤٹ شروع ہو رہا ہے…',
   'billing.subheading': 'وہ منصوبہ منتخب کریں جو آپ کے بھیجنے کے طریقے سے مماثل ہو۔',
   'billing.unavailable': 'سیلز سے رابطہ کریں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'compose.adjustingTone': 'منتخب لہجے میں دوبارہ لکھا جا رہا ہے…',
   'compose.aiPromptPlaceholder':
     'مثال کے طور پر "دو ہفتوں تک جواب نہ آنے کے بعد شائستہ فالو اپ، اسے مختصر رکھیں۔"',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'کچھ بھیجنے کی ضرورت ہے؟ سگنیٹ میں سیکنڈوں میں مسودہ تیار ہو سکتا ہے۔',
   'dashboard.composeCtaLabel': 'فوری تحریر',
   'dashboard.heading': 'آپ کا ہفتہ، مرتب',
+  'dashboard.loadFailed': 'آپ کا ڈیش بورڈ لوڈ نہیں ہو سکا۔',
   'dashboard.manageLibrary': 'لائبریری کا نظم کریں →',
   'dashboard.recentEmpty': 'ابھی تک کوئی بھیجے نہیں — آپ کی بھیجی گئی ای میلز یہاں ظاہر ہوں گی۔',
   'dashboard.recentHeading': 'حالیہ بھیجے۔',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'سگنیٹ اس ٹون کو استعمال کرتا ہے جب تک کہ آپ ڈرافٹ پر اوور رائڈ نہ ہوں۔',
   'signetLayout.primaryNavLabel': 'بنیادی نیویگیشن',
+  'signetLayout.toggleMenu': 'مینو کو ٹوگل کریں۔',
   'signup.emailLabel': 'ای میل ایڈریس',
   'signup.showPassword': 'پاس ورڈ دکھائیں۔',
   'signup.tagline': 'ایک منٹ کے اندر اپنا پہلا AI ڈرافٹ شدہ ای میل بھیجیں۔',

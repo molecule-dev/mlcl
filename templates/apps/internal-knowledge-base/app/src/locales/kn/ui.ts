@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'article.notFound': 'ಲೇಖನ ಕಂಡುಬಂದಿಲ್ಲ.',
   'articleEditor.bodyPlaceholder': 'ಬ್ಲಾಕ್‌ಗಳಿಗಾಗಿ / ಎಂದು ಟೈಪ್ ಮಾಡಿ, ಅಥವಾ ಬರೆಯಲು ಪ್ರಾರಂಭಿಸಿ.',
+  'articleEditor.loadFailed': 'ಲೇಖನವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'articleEditor.publishing': 'ಪ್ರಕಟಣೆ\\u2026',
   'articleEditor.saveFailed': 'ಉಳಿಸುವಿಕೆ ವಿಫಲವಾಗಿದೆ',
   'articleEditor.saving': 'ಉಳಿಸಲಾಗುತ್ತಿದೆ\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'ಬುಕ್‌ಮಾರ್ಕ್',
   'articleView.bookmarkOn': 'ಬುಕ್‌ಮಾರ್ಕ್ ಮಾಡಲಾಗಿದೆ',
   'articleView.edit': 'ಲೇಖನ ಸಂಪಾದಿಸಿ',
+  'articleView.loading': 'ಈ ಲೇಖನವನ್ನು ತೆರೆಯಲಾಗುತ್ತಿದೆ...',
   'articleView.readTime': '{{minutes}} ಕನಿಷ್ಠ ಓದಲು',
   'articleView.spaces': 'ಸ್ಥಳಗಳು',
   'articleView.tocHeading': 'ಈ ಪುಟದಲ್ಲಿ',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'ನಿಮ್ಮ ತಂಡವು ಇನ್ನೂ ಇತ್ತೀಚಿನ ಸಂಪಾದನೆಗಳು, ಓದುವಿಕೆಗಳು ಮತ್ತು ಡ್ರಾಫ್ಟ್‌ಗಳನ್ನು ಪಡೆದುಕೊಳ್ಳುತ್ತಿದೆ.',
   'cairnTrailHero.updated': 'ಲೇಖನಗಳನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'drafts.eyebrow': 'ನಿಮ್ಮ ಅಪೂರ್ಣ ಕೆಲಸ',
   'drafts.heading': 'ಡ್ರಾಫ್ಟ್‌ಗಳು',
+  'drafts.loadFailed': 'ನಿಮ್ಮ ಡ್ರಾಫ್ಟ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'drafts.subtitle':
     'ನೀವು ಆರಂಭಿಸಿರುವ ಆದರೆ ಇನ್ನೂ ಪ್ರಕಟವಾಗದ ಲೇಖನಗಳು. ಒಂದನ್ನು ತೆಗೆದುಕೊಂಡು ಮುಂದುವರಿಸಿ.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'ಇನ್ನೂ ಯಾವುದೇ ಸ್ಥಳಗಳಿಲ್ಲ. ಲೇಖನಗಳನ್ನು ಸಂಗ್ರಹಿಸಲು ಒಂದನ್ನು ತೆರೆಯಿರಿ.',
   'home.spacesHeading': 'ನಿಮ್ಮ ಸ್ಥಳಗಳು',
   'home.subtitle': 'ಇತ್ತೀಚಿನ ಲೇಖನಗಳು, ನಿಮ್ಮ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಮತ್ತು ತಂಡವು ಏನು ಬರೆಯುತ್ತಿದೆ.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . ಅಣುವಿನೊಂದಿಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
   'landing.ctaBody':
     'ಏಕವ್ಯಕ್ತಿ ಲೇಖಕರಿಗೆ ಉಚಿತ. ರನ್‌ಬುಕ್‌ಗಳು, ನಿರ್ಧಾರಗಳು ಮತ್ತು ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಅನ್ನು ರವಾನಿಸುವ ವಿತರಿಸಿದ ತಂಡಗಳಿಗೆ ತಂಡದ ಯೋಜನೆಗಳು.',
   'landing.ctaHeading': 'ಇವತ್ತು ಮೊದಲ ಕಲ್ಲನ್ನು ಜೋಡಿಸು.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ರಚಿಸಿ',
   'login.submitting': 'ಸೈನ್ ಇನ್ ಮಾಡಲಾಗುತ್ತಿದೆ\\u2026',
   'login.subtitle': 'ನೀವು ಬಿಟ್ಟ ಹಾದಿಯನ್ನು ಎಲ್ಲಿಂದ ಎತ್ತಿಕೊಳ್ಳಿ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
+  'newSpace.colorAria': 'ಬಣ್ಣವನ್ನು ಆರಿಸಿ {{color}}',
   'newSpace.colorLabel': 'ಉಚ್ಚಾರಣಾ ಬಣ್ಣ',
+  'newSpace.createFailed': 'ಸ್ಥಳಾವಕಾಶವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'newSpace.descriptionPlaceholder':
     'ರನ್‌ಬುಕ್‌ಗಳು, ಆನ್-ಕಾಲ್ ಪ್ಲೇಬುಕ್‌ಗಳು, ಪೋಸ್ಟ್‌ಮಾರ್ಟಮ್‌ಗಳು\\u2026',
   'newSpace.eyebrow': 'ಜ್ಞಾನದ ಜಾಗವನ್ನು ತೆರೆಯಿರಿ',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ\\u2026',
   'notifications.subtitle':
     '{{count}} ಓದದಿರುವ \\u2014 ಉಲ್ಲೇಖಗಳು, ಕಾಮೆಂಟ್‌ಗಳು, ಪುಟ ಬದಲಾವಣೆಗಳು ಮತ್ತು ವಿಮರ್ಶೆ ವಿನಂತಿಗಳು.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.articles': 'ಲೇಖನಗಳು',
   'pricing.spaces': 'ಸ್ಥಳಗಳು',
   'profile.eyebrow': 'ಲೇಖಕರ ಪ್ರೊಫೈಲ್',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ',
   'resetPassword.subtitle': 'ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ - ಕನಿಷ್ಠ 12 ಅಕ್ಷರಗಳು.',
   'searchResults.eyebrow': 'ಕಾರ್ಯಸ್ಥಳ ಹುಡುಕಾಟ',
+  'searchResults.filter.all': 'ಎಲ್ಲಾ ಸ್ಥಳಗಳು',
   'searchResults.heading': 'ಲೇಖನಗಳನ್ನು ಹುಡುಕಿ',
   'searchResults.placeholder': 'ರನ್‌ಬುಕ್‌ಗಳು, RFC ಗಳು, ನೀತಿಗಳು, ನಿರ್ಧಾರಗಳನ್ನು ಹುಡುಕಿ\\u2026',
   'searchResults.summary': '{{count}} \\u201c ಗಾಗಿ ಫಲಿತಾಂಶಗಳು {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'ಇದು ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಮತ್ತು ನೀವು ಬರೆದ ಪ್ರತಿಯೊಂದು ಲೇಖನವನ್ನು ಅಳಿಸುತ್ತದೆ. ಖಚಿತಪಡಿಸಲು DELETE ಎಂದು ಟೈಪ್ ಮಾಡಿ.',
   'settings.danger.confirmInvalid': 'ಖಚಿತಪಡಿಸಲು DELETE ಎಂದು ಟೈಪ್ ಮಾಡಿ.',
+  'settings.danger.deleteFailed': 'ಖಾತೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.danger.deleting': 'ಅಳಿಸಲಾಗುತ್ತಿದೆ\\u2026',
   'settings.danger.description':
     'ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳವನ್ನು ಅಳಿಸುವುದರಿಂದ ಎಲ್ಲಾ ಲೇಖನಗಳು, ಕಾಮೆಂಟ್‌ಗಳು ಮತ್ತು ಆವೃತ್ತಿ ಇತಿಹಾಸವನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ. ಯಾವುದೇ ಚೇತರಿಕೆ ಇಲ್ಲ.',
   'settings.danger.title': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ಅಳಿಸಿ',
+  'settings.email.confirm': 'ಇಮೇಲ್ ನವೀಕರಿಸಿ',
+  'settings.email.confirmTitle': 'ಇಮೇಲ್ ಬದಲಾವಣೆಯನ್ನು ದೃಢೀಕರಿಸಿ',
   'settings.email.saved': 'ಇಮೇಲ್ ನವೀಕರಿಸಲಾಗಿದೆ.',
+  'settings.email.updateFailed': 'ಇಮೇಲ್ ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.language.title': 'ಭಾಷೆ',
   'settings.name': 'ಹೆಸರು',
+  'settings.name.saved': 'ಹೆಸರನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ.',
+  'settings.name.updateFailed': 'ಹೆಸರನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ',
   'settings.notifications.description': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್‌ಗೆ ಏನು ತಲುಪುತ್ತದೆ ಎಂಬುದನ್ನು ಆರಿಸಿ.',
+  'settings.password.changeFailed': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.password.current': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
   'settings.password.new': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'settings.password.saving': 'ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'ಲೇಖನಗಳು ನಿಮಗಾಗಿ ಹೇಗೆ ನಿರೂಪಿಸುತ್ತವೆ.',
   'settings.reading.title': 'ಓದುವುದು ಮತ್ತು ಬರೆಯುವುದು',
   'settings.subtitle': 'ಅಧಿಸೂಚನೆಗಳು, ಓದುವ ಕ್ಯಾನ್ವಾಸ್ ಮತ್ತು ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ.',
+  'settings.twofa.code': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twofa.disable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twofa.disabled': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ',
   'settings.twofa.enable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twofa.enabled': 'ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ',
+  'settings.twofa.invalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.twofa.unavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
+  'settings.twofa.verify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'signup.brandQuote':
     '\\u201cಅದನ್ನು ಬರೆಯುವುದು ಅದರ ಅಗತ್ಯವಿರುವ ಮುಂದಿನ ವ್ಯಕ್ತಿಗೆ ನಾವು ಮಾಡುವ ಮೊದಲ ಭರವಸೆಯಾಗಿದೆ.\\u201d',
   'signup.eyebrow': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ತೆರೆಯಿರಿ',

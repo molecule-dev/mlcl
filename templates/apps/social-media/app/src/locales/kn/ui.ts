@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'compose.cancel': 'ರದ್ದುಮಾಡಿ',
   'compose.captionPlaceholder': 'ನಿನ್ನ ಮನಸ್ಸಿನಲ್ಲಿ ಏನಿದೆ?',
   'compose.heading': 'ಒಂದು ಕ್ಷಣ ಹಂಚಿಕೊಳ್ಳಿ',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'ಪರಿಶೀಲಿಸಿದ ಖಾತೆ',
   'resetPassword.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading': 'ಕನಿಷ್ಠ 12 ಅಕ್ಷರಗಳಿರುವ - ಬಲವಾದದ್ದನ್ನು ಆರಿಸಿ.',
+  'search.clearAria': 'ಸ್ಪಷ್ಟ',
+  'search.error': 'ಹುಡುಕಾಟ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'search.noPeople': '"ಯಾವುದೇ ಸೃಷ್ಟಿಕರ್ತರು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ" {{q}} ".',
   'search.noPosts': 'ಯಾವುದೇ ಪೋಸ್ಟ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ " {{q}} ".',
   'search.noTags': 'ಇನ್ನೂ ಯಾವುದೇ ಟ್ರೆಂಡಿಂಗ್ ಹ್ಯಾಶ್‌ಟ್ಯಾಗ್‌ಗಳಿಲ್ಲ.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'signup.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'signup.subheading': 'ಹಂಚಿಕೊಳ್ಳಲು ಪ್ರಾರಂಭಿಸಲು ಖಾತೆಯನ್ನು ರಚಿಸಿ.',
+  'socialMediaLayout.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'socialMediaLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
+  'socialMediaLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'storyRail.heading': 'ಕಥೆಗಳು',
   'storyRail.label': 'ಕಥೆಗಳು',
   'storyRail.openAria': 'ತೆರೆದ {{handle}} ಕಥೆ',

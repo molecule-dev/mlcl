@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om os',
   'applications.empty': 'Ingen ansøgninger endnu \\u2014 den rette stilling er én ansøgning væk.',
   'applications.eyebrow': 'Din pipeline',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Alle roller, du har søgt om, er i bevægelse. Filtrer efter niveau for at fokusere.',
   'applications.untitledRole': 'Rolle # {{id}}',
+  'auth.legalConsent': 'Ved at fortsætte accepterer du vores',
   'common.and': 'og',
+  'common.goToDashboard': 'Gå til Dashboard',
   'companies.empty': 'Ingen virksomheder matcher din søgning \\u2014 prøv et andet søgeord.',
   'companies.eyebrow': 'Fremhævede arbejdsgivere',
   'companies.searchPlaceholder': 'Søg efter navn, branche, placering',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Ingen ansøgninger til denne rolle endnu.',
   'jobApplicants.eyebrow': 'Arbejdsgiverens synspunkt',
   'jobApplicants.loading': 'Indlæser…',
+  'jobApplicants.statusUpdateFailed': 'Kunne ikke opdatere den fase — prøv igen.',
+  'jobApplicants.subheading':
+    "Gennemgå CV'er, fremhæv kandidater, send tilbud \\u2014 {{count}} i bevægelse.",
   'jobDetail.applicantCount': '{{count}} ansøgere indtil videre',
   'jobDetail.applied': 'Ansøgning sendt',
   'jobDetail.apply': 'Ansøg nu',
@@ -84,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Gennemse ledige stillinger \\u2192',
   'landing.pricingEyebrow': 'Priser',
   'landing.pricingHeading': 'Enkle planer for alle holdstørrelser.',
+  'login.eyebrow': 'Velkommen tilbage til {{app}}',
   'login.heading': 'Log ind på din konto',
   'login.noAccount': 'Ny til Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Husk mig i 30 dage',
   'login.signingIn': 'Log ind\\u2026',
   'login.subheading': 'Fortsæt din søgning, fremskridt med dine ansøgninger, og få hurtigere svar.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Bygget til ansættelsesteams.',
   'loginBrandPanel.headline': 'Hvor talent mødes',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Talentpartner',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Opdateringer til ansøgninger, invitationer til jobsamtaler, nye matches og de nyeste først.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} denne uge',
   'opportunitiesHero.eyebrow': 'Åben i dag',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'postJob.addNewCompany': '+ Tilføj en ny virksomhed',
   'postJob.companyCreateFailed': 'Kunne ikke oprette virksomhed — prøv igen.',
   'postJob.companyNameLabel': 'Din virksomheds navn',
@@ -163,10 +172,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Opretter konto\\u2026',
   'signup.ctaEmployer': 'Opret arbejdsgiverkonto',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Adgangskoderne stemmer ikke overens.',
   'signup.subheading':
     'Gratis for søgende, for evigt. Arbejdsgivere starter med en 30-dages prøveperiode.',
   'timeAgo.days': '{{count}}d siden',
   'timeAgo.hours': '{{count}}t siden',
   'timeAgo.justNow': 'lige nu',
+  'timeAgo.weeks': '{{count}} uger siden',
 }

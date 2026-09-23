@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Par {{app}}',
+  'appNav.mobileLabel': 'Galvenā navigācija',
+  'appNav.primaryLabel': 'Galvenā navigācija',
   'billing.actions.confirmCancel': 'Vai atcelt abonementu? Varat to atjaunot jebkurā laikā.',
   'billing.actions.paused': 'Abonements ir apturēts.',
   'billing.actions.resumed': 'Abonements ir atsākts.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Katrs līmenis ir nelielas partijas stāsts. Pievienojiet vienu savai rindai vai nomainiet to uz nākamo mēnesi.',
   'boxThemeCard.perMonth': '/ mēnesī',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'customize.eyebrow': 'Padariet to par savu',
   'customize.heading': 'Pielāgojiet savu nākamo Crate',
   'customize.items.exclude': 'Izlaist šo',
@@ -92,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Šajā sezonā',
   'landing.editions.heading': 'Izdevumi, kurus mūsu kuratori dievina',
   'landing.footer.contact': 'Runājiet ar kuratoru',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Sāciet savu kastīti →',
   'landing.hero.ctaSecondary': 'Skatīt līmeņus',
   'landing.hero.eyebrow': 'Katru mēnesi veidots. Vienmēr personisks.',
@@ -111,6 +116,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'Tavs nākamais atradums',
   'nextBoxHeroCard.itemsLabel': 'Izvēlētie vienumi',
   'nextBoxHeroCard.shipsOnLabel': 'Piegāde',
+  'notFound.body':
+    'Mēs nevarējām atrast šo lapu {{app}} arhīvā. Iespējams, tā ir noņemta vai vienkārši uzrakstīta kļūda.',
   'notFound.cta.dashboard': 'Doties uz informācijas paneli',
   'notFound.eyebrow': 'Tukša kaste',
   'notFound.heading': 'Šis plaukts ir tukšs',

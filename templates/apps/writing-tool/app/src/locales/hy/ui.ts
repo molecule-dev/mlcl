@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.title': 'Գրասենյակ, որը կարող եք պահել ձեր գրպանում',
   'billing.cancelConfirm': 'Չեղարկե՞լ ձեր ակտիվ բաժանորդագրությունը:',
   'billing.cancelFailed': 'Չհաջողվեց չեղարկել։',
   'billing.checkingOut': 'Վճարման կետի բացում…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Չհաջողվեց բեռնել հաշիվ-ապրանքագիրը։',
   'billing.loading': 'Հաշվառումը բեռնվում է…',
   'billing.upgradeCta': 'Թարմացնել մինչև {{name}}',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'editor.autosaveOn': 'Ավտոմատ պահպանումը միացված է',
   'editor.backToLibrary': 'Վերադառնալ գրադարան',
   'editor.charCount': '{{count}} կերպարներ',
   'editor.confirmTrash': 'Տեղափոխե՞լ այս փաստաթուղթը աղբարկղ:',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Ապաամրացված',
   'editor.unpublishCta': 'Տեղափոխել սևագիր',
   'editor.unpublished': 'Վերադարձվել է սևագրի վիճակի',
+  'focus.autosaveOn': 'Ավտոմատ պահպանումը միացված է',
   'focus.backToLibrary': 'Վերադառնալ գրադարան',
   'focus.bodyPlaceholder': 'Հերթ առ հերթ։ Այստեղ ուրիշ ոչ ոք չկա։',
   'focus.exit': 'Ելք ֆոկուսի ռեժիմից',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ստեղծեք մեկը',
   'login.subline':
     'Ձեր ձեռագրերը, օրվա էջերը և կուրսորի վերջին դիրքը ճիշտ այնտեղ են, որտեղ դուք թողել եք դրանք։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'pricing.exports': 'արտահանումները',
   'pricing.folders': 'թղթապանակներ',
   'pricing.heading': 'փաստաթղթեր',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Մուտքագրեք ձեզ ուղարկված կոդը և ընտրեք ինչ-որ հիշարժան բան։ Մենք ձեզ կմուտքագրենք, երբ այն պահպանվի։',
   'reset.tokenHint': 'Տեղադրված է ձեր էլ. փոստից։',
+  'settings.appearance.heading': 'Լույս կամ մութ',
   'settings.editor.${row.id}.description': 'Լեզու',
   'settings.editor.description':
     'Գրամեքենայի գլորում, պարբերության մարում և անգործուն ֆոկուս՝ լռելյայն կարգավորումները կարգավորվում են երկար սեսիաների համար։',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Գլուխ երրորդ՝ Լռության ժամ արևածագից առաջ',
   'versalDocumentCard.pinned': 'Ամրացված է',
   'versalLayout.nav.stats': 'Վիճակագրություն',
+  'versalLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'versalManuscriptHero.cta': 'Շարունակեք գրել',
   'versalManuscriptHero.goalLabel': 'Այսօրվա բառային նպատակը',
   'versalManuscriptHero.inProgress': 'Ճանապարհին է',

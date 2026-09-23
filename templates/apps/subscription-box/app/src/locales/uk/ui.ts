@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Про {{app}}',
+  'appNav.mobileLabel': 'Основна навігація',
+  'appNav.primaryLabel': 'Основна навігація',
   'billing.actions.confirmCancel': 'Скасувати підписку? Ви можете поновити підписку будь-коли.',
   'billing.actions.paused': 'Підписку призупинено.',
   'billing.actions.resumed': 'Підписку відновлено.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Кожен рівень – це невелика порція історій. Додайте одну до своєї черги або перенесіть її на наступний місяць.',
   'boxThemeCard.perMonth': '/ місяць',
+  'common.goToDashboard': 'До панелі',
   'customize.eyebrow': 'Зробіть це своїм',
   'customize.heading': 'Налаштуйте свій наступний скарб',
   'customize.items.exclude': 'Пропустити це',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Цього сезону',
   'landing.editions.heading': 'Видання, які подобаються нашим кураторам',
   'landing.footer.contact': 'Поговоріть з куратором',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Почніть свою коробку →',
   'landing.hero.ctaSecondary': 'Див. рівні',
   'landing.hero.eyebrow': 'Щомісяця куратор. Завжди персональний.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ВАШ НАСТУПНИЙ СКАРБІТ',
   'nextBoxHeroCard.itemsLabel': 'Кураторські товари',
   'nextBoxHeroCard.shipsOnLabel': 'Відправлення',
+  'notFound.body':
+    'Нам не вдалося знайти цю сторінку в архіві {{app}} . Можливо, вона була видалена або просто з помилкою.',
   'notFound.cta.dashboard': 'Перейти на інформаційну панель',
   'notFound.eyebrow': 'Порожня коробка',
   'notFound.heading': 'Ця полиця гола',

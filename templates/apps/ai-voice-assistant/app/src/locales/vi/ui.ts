@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bạn có phản hồi, yêu cầu tính năng hoặc phát hiện lỗi? Hãy liên hệ với nhóm {{app}} thông qua liên kết hỗ trợ trong menu tài khoản của bạn — mọi tin nhắn đều được chuyển đến người thật.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'agentDetail.back': 'Tất cả tác nhân',
   'agentDetail.capabilities': 'Khả năng',
   'agentDetail.delete': 'Xoá nhân vật',
   'agentDetail.deleteConfirm':
     'Bạn có muốn xoá nhân vật này không? Hành động này không thể hoàn tác.',
+  'agentDetail.deleteError': 'Không thể xóa hồ sơ người dùng.',
   'agentDetail.eyebrow': 'Nhân vật',
   'agentDetail.fetchError': 'Không thể tải nhân vật.',
   'agentDetail.save': 'Lưu nhân vật',
@@ -47,6 +51,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Đang chuyển đổi…',
   'billing.updateError': 'Không thể bắt đầu cập nhật.',
   'billing.usageHeading': 'Mức sử dụng giọng nói trong chu kỳ này',
+  'chatBubble.source.text': 'chữ',
+  'chatBubble.source.voice': 'tiếng nói',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'conversation.defaultTitle': 'Cuộc trò chuyện mới',
   'conversation.empty':
     'Chưa có tin nhắn nào. Hãy bắt đầu bằng cách nói điều gì đó hoặc nhập bên dưới.',
@@ -97,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Trí tuệ biết nói.',
   'landing.heroSubtitle':
     'Trợ lý giọng nói AI hiểu được dòng chảy tự nhiên của bạn. Trò chuyện, hình thành ý tưởng và ra lệnh — một cách liền mạch.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Đang lắng nghe…',
   'landing.naturallyBody':
     'Không có từ kích hoạt. Không có lệnh cứng nhắc. Vox hiểu ngữ cảnh, lời ngắt và những sắc thái tinh tế của lời nói con người — giống như đang trò chuyện với một đồng nghiệp.',
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Mở một phiên',
   'notFound.home': 'Về trang chủ',
   'notFound.title': 'Chúng tôi không thể nghe thấy trang đó.',
+  'parlanceLayout.closeMenu': 'Đóng menu',
+  'parlanceLayout.openMenu': 'Mở menu điều hướng',
   'parlanceLayout.primaryNavLabel': 'Điều hướng chính',
   'pricing.conversations': '{{count}} cuộc trò chuyện',
   'pricing.cta.startFree': 'Bắt đầu miễn phí',
@@ -152,6 +162,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Không có kết quả khớp',
   'search.eyebrow': 'Bảng lệnh',
   'search.fetchError': 'Không thể tải chỉ mục tìm kiếm.',
+  'search.static.profile.preview': 'Tên hiển thị, biệt danh, tiểu sử',
   'search.static.voice.title': 'Tiếng nói',
   'search.title': 'Tìm trong Vox',
   'search.transcriptPreview': 'Mở bản ghi',

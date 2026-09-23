@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'analytics.col.quorum': 'Ìgbìmọ̀',
   'analytics.col.votes': 'Àwọn ìdìbò',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Kò sí ìbéèrè kankan tí ó ń dúró dè.',
   'audienceQa.onStageEyebrow': 'Lórí ìtàgé báyìí',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Ṣe ìgbéga',
   'audienceQa.queued': 'ti wa ni ila',
   'audienceQa.queueEyebrow': 'ìlà',
   'ballot.eyebrow': 'Ṣe ìdìbò rẹ',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'O wa lori aaye lọwọlọwọ {{plan}} ètò.',
   'billing.switch': 'Yípadà',
   'billing.upgraded': 'Ti ṣe imudojuiwọn si {{plan}} — awọn idiwọn ti a lo lẹsẹkẹsẹ.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'createPoll.addOption': 'Fi àṣàyàn kún un',
   'createPoll.anonymousHint':
     'Àwọn orúkọ olùdìbò tí a fi pamọ́ sínú àkọsílẹ̀ àyẹ̀wò; àwọn àkọsílẹ̀ náà ṣì jẹ́ òótọ́.',
@@ -157,6 +160,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ṣé tuntun sí Nosh ni?',
   'login.remember': 'Máa rántí mi fún ọgbọ̀n ọjọ́',
   'login.subheading': 'Ṣí ilẹ̀ náà, ṣiṣẹ́ yàrá náà, kí o sì jẹ́rìí sí àbájáde rẹ̀.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'notFound.body':
     'Ojú ìwé tí o gbìyànjú láti dé ni a ti ti pa tàbí gbé e kúrò. Padà sí dashboard tàbí kí o ṣí ìwádìí tuntun.',
   'notFound.eyebrow': 'Ko si iye eniyan ni ipa ọna yii',
@@ -183,6 +188,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Kò le gbé ìdìbò yìí jáde.',
   'pollDetail.loading': 'N n gbe ibo soke…',
   'pollDetail.notFound': 'A kò rí ìdìbò.',
+  'pollDetail.openBallot': 'Ìwé ìdìbò tí a ṣí sílẹ̀',
   'pollDetail.openLive': 'Àwọn èsì lásìkò yìí',
   'pollDetail.pollId': 'ìdìbò · {{id}}',
   'pollDetail.published': 'Ìdìbò tí a tẹ̀ jáde — àwọn olùdìbò lè dìbò báyìí.',
@@ -262,4 +268,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Ṣe àwárí nípasẹ̀ ìmeeli…',
   'voters.subheading':
     'Ṣètò àwọn ìdìbò tó yẹ. Ẹ kó àwọn olùdìbò jọ láti ọwọ́ àjọ ìdìbò fún àwọn ìdìbò tó ní ìwọ̀n.',
+  'votingPollingLayout.nav.analytics': 'Àwọn Ìṣàyẹ̀wò',
+  'votingPollingLayout.nav.billing': 'Ìsanwó',
+  'votingPollingLayout.nav.createPoll': 'Ìdìbò tuntun',
+  'votingPollingLayout.nav.dashboard': 'Dásíbọ́ọ̀dù',
+  'votingPollingLayout.nav.notifications': 'Àwọn ìfitónilétí',
+  'votingPollingLayout.nav.settings': 'Àwọn Ètò',
+  'votingPollingLayout.nav.team': 'Ẹgbẹ́',
+  'votingPollingLayout.nav.voters': 'Àwọn olùdìbò',
+  'votingPollingLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
 }

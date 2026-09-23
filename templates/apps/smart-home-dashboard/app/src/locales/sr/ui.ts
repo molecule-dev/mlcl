@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'activity.empty': 'Још нема активности — окрените уређај или активирајте сцену.',
   'activity.eyebrow': 'Временска линија',
   'activity.loadError': 'Није могуће учитати фид активности.',
   'activity.subheading': 'Сваки уређај, аутоматизација и безбедносни догађај хронолошким редом.',
+  'addDevice.error.failed': 'Додавање уређаја није успело. Покушајте поново.',
   'addDevice.error.nameRequired': 'Дајте овом уређају име да бисте наставили.',
   'addDevice.field.firmware': 'Верзија фирмвера',
   'addDevice.field.manufacturer': 'Произвођач',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тестирање…',
   'automationEditor.testNew': 'Прво сачувајте аутоматизацију да бисте је тестирали.',
   'automationRow.lastRun': 'Последњи {{date}} · {{count}} трчи',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Трчи {{name}} сада',
   'automations.empty': 'Још нема аутоматизација — креирајте своју прву рутину.',
   'automations.eyebrow': 'Рутине',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Учитавање аутоматизација…',
   'automations.newAutomation': '+ Ново',
   'automations.subheading': 'Када се то деси, урадите то — без YAML-а.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Учитавање уређаја није успело.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Радим…',
   'deviceDetail.unnamed': 'Уређај',
   'deviceStatusRow.on': 'Укључено',
+  'deviceStatusRow.turnOff': 'Искључи',
+  'deviceStatusRow.turnOn': 'Укључи',
   'deviceStatusRow.watts': '{{watts}} З',
   'energy.eyebrow': 'Моћ',
   'energy.heading': 'Енергија',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Погледајте планове',
   'settings.security.heading': 'Безбедност',
   'settings.subheading': 'Подешавања плана, чворишта и налога.',
+  'smartHomeDashboardLayout.openMenu': 'Отвори мени за навигацију',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Примарна навигација',
 }

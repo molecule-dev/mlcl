@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'დაიწყეთ ხელახლა ჯაჭვი',
   'resetPassword.mismatchError': 'პაროლები არ ემთხვევა.',
   'resetPassword.subheading': 'აირჩიეთ ძლიერი. თქვენი წიგნები დაელოდება.',
-  'reviewCard.starsAria': 'შეფასებული<x> {{რეიტინგი}}</x> გარეთ<x> {{-ის}}</x> ვარსკვლავები',
+  'reviewCard.starsAria': 'შეფასებულია {{rating}} ვარსკვლავით {{of}} -დან',
   'reviewCard.unratedAria': 'რეიტინგის გარეშე',
   'reviews.eyebrow': 'რა დაგრჩათ გონებაში',
   'reviews.heading': 'თქვენი რეცენზიები',

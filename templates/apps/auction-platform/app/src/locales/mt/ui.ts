@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Nara',
   'auctionDetail.watchRemoved': "Imneħħi mil-lista ta' sorveljanza.",
   'auctionDetail.watchRemoveLabel': "Neħħi mil-lista ta' osservazzjoni",
+  'auctionPlatformLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'authShell.brandBody':
     "Agħmel offerti f'ħin reali fuq arloġġi rari, arti fina, u oġġetti speċjali uniċi. Il-mazza taqa' f'sekondi.",
   'authShell.brandEyebrow': 'Live issa · 1,420 irkant',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Issortja skont',
   'browseAuctions.subheading':
     "Iffiltra skont il-kategorija, issortja skont dak li hu l-aktar importanti, u agħmel offerta qabel ma jaqa' l-mazza.",
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'countdownTimer.ended': 'Spiċċa',
   'countdownTimer.endingSoon': 'Tmiem',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Aħbi l-password',
   'login.showPassword': 'Uri l-password',
   'login.subtext': "Kompli segwi l-irkanti tiegħek u agħmel offerti qabel ma jaqa' l-mazza.",
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'myBids.bidAgain': 'Offri mill-ġdid',
   'myBids.browseCta': 'Fittex irkanti diretti →',
   'myBids.checkoutCta': 'Ħallas issa',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Ċentru tal-attività',
   'notificationsPage.subheading':
     "{{count}} mhux moqri · aġġornamenti diretti hekk kif l-irkanti jimxu 'l quddiem",
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.bidsLabel': 'offerti',
   'pricing.listingsLabel': 'listi',
   'pricing.watchlistLabel': "lista ta' sorveljanza",

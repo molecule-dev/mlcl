@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} గురించి',
   'argentAuthShell.brandEyebrow': 'అర్జెంట్ · వెల్త్ టూలింగ్',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . పెట్టుబడి సలహా కాదు.',
   'argentAuthShell.sampleChange': 'ఈరోజు +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ఈ టిక్కర్‌కు లావాదేవీలు లేవు.',
   'assetDetail.txHeading': 'మీ లావాదేవీలు',
   'common.and': 'మరియు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'పోర్ట్‌ఫోలియో అవలోకనం',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ఇంకా హోల్డింగ్స్ ఏమీ లేవు.',
   'holdings.heading': 'హోల్డింగ్స్',
   'holdings.loadError': 'హోల్డింగ్‌లను లోడ్ చేయడంలో విఫలమైంది.',
+  'landing.copyright':
+    '© {{year}} {{app}} . ఇది పెట్టుబడి సలహా కాదు. గత పనితీరు భవిష్యత్ ఫలితాలకు హామీ ఇవ్వదు.',
   'landing.eyebrow': 'అర్జెంట్ · ఒక సంపద-సాధన వేదిక',
   'landing.features.heading': 'ఒక సలహాదారుడు తమ కోసం నిర్మించుకునే ప్రతిదీ.',
   'landing.finalCta.heading': 'మీ పోర్ట్‌ఫోలియోకు తిరిగి క్రమశిక్షణను తీసుకురండి.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} గంటల క్రితం',
   'news.justNow': 'ఇప్పుడే',
   'news.loadError': 'వార్తలను లోడ్ చేయడంలో విఫలమైంది.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'portfolioHeroCard.label': 'పోర్ట్‌ఫోలియో విలువ',
   'pricing.holdingsLabel': 'హోల్డింగ్స్',
   'pricing.newsLabel': 'వార్తా కథనాలు',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'ఖాతాను తొలగించండి',
   'settings.security.deleting': 'తొలగిస్తోంది…',
   'settings.security.heading': 'భద్రత',
+  'settings.security.newPassword': 'కొత్త పాస్‌వర్డ్',
   'settings.security.password': 'పాస్‌వర్డ్',
   'settings.security.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.security.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.security.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'settings.tax.error': 'పన్ను పద్ధతిని నవీకరించలేకపోయింది.',
   'settings.tax.heading': 'పన్ను లాట్ అకౌంటింగ్',
   'settings.tax.method': 'డిఫాల్ట్ పద్ధతి',

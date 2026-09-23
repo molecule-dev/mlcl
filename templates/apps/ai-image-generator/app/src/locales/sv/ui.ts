@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'auth.fields.newPassword': 'Nytt lösenord',
   'collectionDetail.addImage': 'Frammana till samlingen',
   'collectionDetail.backCta': 'Tillbaka till samlingar',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, briefer och pågående serier',
   'collections.title': 'Samlingar',
   'collections.untitled': 'Utan titel · {{stamp}}',
+  'common.closeMenu': 'Stäng menyn',
+  'common.dismiss': 'Avfärda',
+  'common.goToDashboard': 'Gå till översikt',
+  'common.openMenu': 'Öppna navigeringsmenyn',
   'credits.eyebrow': '{{plan}}-abonnemang',
   'credits.renewsCopy': 'Abonnemanget förnyas {{date}}',
   'credits.trail': 'Dagdrömmande · {{plan}} nivå',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Genereringsaktivitet, delning och kreditvarningar visas här.',
   'notifications.empty.title': 'Inget att rapportera',
   'notifications.subtitle': 'Genereringshändelser grupperade per dag',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.limits.gallery': '{{count}} galleri',
   'privacy.collect.body':
     'När du registrerar dig samlar vi in ditt namn, din e-postadress och ett hashat lösenord. När du använder Reverie lagrar vi prompterna du skickar in, bilderna vi genererar åt dig, stilarna och samlingarna du sparar samt metadata som modellen som används, genereringstidstämplar och kreditsaldo.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Spara nytt lösenord',
   'reset.submitting': 'Uppdaterar lösenord…',
   'settings.account.handle': 'Handle',
+  'settings.account.lastSaved': 'Aktiv profil · {{name}}',
   'settings.account.saved': 'Profilen sparad',
   'settings.account.saveFailed': 'Kunde inte spara profilen',
   'settings.account.title': 'Skaparprofil',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Ny bild',
   'sidebar.secondary': 'Sekundär navigering',
   'signup.failed': 'Registreringen misslyckades. Försök igen.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Börja din reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Skapa ett konto och hämta 120 gratis krediter.',
   'styles.empty': 'Inga stilförinställningar ännu — de visas efter första inloggningen.',
   'styles.eyebrow': 'Kurerat',

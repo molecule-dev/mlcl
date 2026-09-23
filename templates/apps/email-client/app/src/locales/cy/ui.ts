@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Tîm dosbarthedig o ddylunwyr a pheirianwyr ydym ni a dreuliodd ormod o oriau bob dydd mewn blwch post swnllyd ar un adeg. Courier yw'r blwch post yr oeddem ni eisiau ei ddefnyddio ein hunain.",
   'about.title': 'E-bost ar gyfer gwaith ffocws',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'help.cta.about': 'Ynglŷn â Courier',
   'help.cta.pricing': 'Gweld prisiau',
   'help.eyebrow': 'Canolfan gymorth',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Atebion cyflym i'r cwestiynau rydyn ni'n eu clywed amlaf. Unrhyw beth ar goll? Agorwch y Gosodiadau a defnyddiwch y ffurflen adborth yn yr ap, neu ysgrifennwch at support@courier.example.",
   'help.title': 'Sut allwn ni helpu?',
   'landing.brand.scrollTop': "Yn ôl i'r brig",
+  'landing.copyright': "© {{year}} {{appName}} — Wedi'i adeiladu ar gyfer ffocws.",
   'landing.ctaBody':
     'Ymunwch â miloedd o weithwyr proffesiynol a orffennodd eu mewnflwch cyn cinio.',
   'landing.ctaTitle': 'Prosesu mwy, ymateb llai.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Gwylio demo',
   'landing.heroSubtitle':
     "Mae Courier yn flwch derbyn tair panel tawel sydd wedi'i adeiladu ar gyfer gweithwyr gwybodaeth sydd eisiau prosesu gwybodaeth, nid ymateb iddi.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Ymddiriedir gan dimau ffocws ledled y byd',
   'landing.signIn': 'Mewngofnodi',
   'meridian.archive.empty': "Mae'r archif yn wag.",
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
   'meridian.compose.cc': 'Cc',
   'meridian.compose.ccPlaceholder': 'cc@example.com',
   'meridian.compose.discard': 'Gwaredu drafft',
+  'meridian.compose.invalidEmail': 'Nid yw " {{value}} " yn e-bost dilys',
   'meridian.compose.needRecipient': 'Ychwanegwch o leiaf un derbynnydd yn gyntaf.',
   'meridian.compose.replyTo': 'Ateb yn yr edau {{id}}',
   'meridian.compose.savedAt': "Drafft wedi'i gadw yn {{time}}",
@@ -76,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Drafft',
   'meridian.folder.count': '{{count}} negeseuon',
+  'meridian.folder.delete': 'Dileu',
   'meridian.folder.deleteForever': "Dileu'n barhaol",
   'meridian.folder.restore': "Symud i'r blwch derbyn",
   'meridian.forgot.subtitle':
@@ -85,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Dim negeseuon yma eto.',
   'meridian.inbox.loading': 'Yn llwytho…',
   'meridian.inbox.next': 'Nesaf',
+  'meridian.inbox.noSender': '(dim anfonwr)',
   'meridian.inbox.noSubject': '(dim pwnc)',
+  'meridian.inbox.ofTotal': '{{current}} o {{total}}',
   'meridian.inbox.openCompose': 'Agor cyfansoddi',
   'meridian.inbox.previous': 'Blaenorol',
   'meridian.inbox.replyFailed': "Ateb wedi'i gadw ond methodd y danfoniad: {{error}}",
@@ -98,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Dim cyfrif gennych chi?',
   'meridian.login.showPassword': 'Dangos cyfrinair',
   'meridian.message.toLine': 'i {{recipients}}',
+  'meridian.notFound.body':
+    "Ni ellid dod o hyd i'r dudalen rydych chi'n chwilio amdani. Ewch yn ôl i'ch mewnflwch {{appName}} a byddwn ni'n eich rhoi ar y trywydd iawn.",
   'meridian.notFound.eyebrow': 'Gwall 404',
   'meridian.notFound.title': 'Cafodd yr edau hon ei harchifo.',
   'meridian.notFound.toInbox': 'Agor fy mewnflwch',
@@ -133,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Ychwanegu seren',
   'meridian.thread.unstar': 'Tynnu seren',
   'meridian.time.yesterday': 'Ddoe',
+  'meridian.topBar.openMenu': 'Agor y ddewislen lywio',
   'meridian.topBar.searchPlaceholder': 'Chwilio post',
   'meridian.trash.empty': "Mae'r sbwriel yn wag.",
   'meridian.trash.title': 'Sbwriel',
   'nav.legal': 'Cyfreithiol',
   'planUpdated.description':
     "Mae eich tanysgrifiad bellach yn weithredol ac mae eich biliau wedi'u diweddaru. Croeso i'ch mewnflwch Courier wedi'i adnewyddu.",
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.heading': 'drafftiau',
   'pricing.limit.emails': 'e-byst',
   'pricing.limit.folders': 'ffolderi',
   'pricing.limit.labels': 'labeli',
   'privacy.collect.account':
     "Data cyfrif: enw, cyfeiriad e-bost, cyfrinair wedi'i hasio, a'r dyddiad y gwnaethoch gofrestru.",
+  'privacy.contact': 'Cwestiynau? E-bostiwch privacy@courier.example.',
   'privacy.intro':
     "Mae'r polisi preifatrwydd hwn yn esbonio pa ddata y mae Courier yn ei gasglu, pam rydym yn ei gasglu, sut rydym yn ei gadw'n ddiogel, a pha ddewisiadau sydd gennych drosto. Ein nod yw bod yn benodol yn hytrach na chyfreithiol; os oes unrhyw beth yn aneglur, ysgrifennwch at privacy@courier.example.",
   'privacy.lastUpdated': 'Diweddarwyd ddiwethaf: 1 Ebrill, 2026',
@@ -164,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Mae'r telerau hyn yn llywodraethu eich defnydd o Courier. Drwy greu cyfrif neu anfon e-bost trwom ni rydych chi'n cytuno i fod yn rhwym iddynt. Rydym yn ceisio ysgrifennu rheolau y gall person eu dilyn mewn gwirionedd.",
   'terms.lastUpdated': 'Yn effeithiol: 1 Ebrill, 2026',
+  'terms.linkPrivacy': 'Darllenwch ein Polisi Preifatrwydd →',
   'terms.termination.body':
     "Gallwch ddileu eich cyfrif unrhyw bryd. Efallai y byddwn yn atal cyfrif sy'n torri'r telerau hyn; os gwnawn hynny, byddwn yn egluro'r rheswm ac yn gadael i chi allforio eich data yn gyntaf.",
   'terms.warranty.body':

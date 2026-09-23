@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'forgot.eyebrow': 'Қайта кіретін жолды адастырып алдыңыз ба?',
   'forgot.formSubtitle': 'Файлдағы электрондық поштаны айтыңыз.',
   'forgot.headline': 'Құпия сөзіңізді қалпына келтіріңіз.',
@@ -41,6 +42,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Біреуін жасаңыз',
   'login.subline':
     'Дәптерлеріңіз, кері сілтемелеріңіз және күнделікті беттеріңіз сіз қалдырған жерде.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'noteEditor.backToNotes': 'Ескертпелерге оралу',
   'noteEditor.bodyPlaceholder':
     'Жазуды бастаңыз — жазбаңыз терген кезде автоматты түрде сақталады.',
@@ -57,6 +60,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Жаңа дәптер',
   'notes.newNotebookPrompt': 'Жаңа дәптер атауы',
   'notes.notebooksHeading': 'Дәптерлер',
+  'notes.subtitle':
+    'Сол жақтағы дәптерді таңдап, жаңа жазбаны бастау үшін Жаңа жазба түймесін басыңыз.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Ескерту жоспарын таңдаңыз',
   'reset.eyebrow': 'Аз қалды қайта кіріп кеттім',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Жаңартылды',
   'versoLayout.nav.graph': 'График',
   'versoLayout.nav.home': 'Үй',
+  'versoLayout.primaryNavLabel': 'Негізгі навигация',
   'versoNoteCard.pinned': 'Бекітілген',
   'versoTodayHero.continueCta': 'Жазуды жалғастырыңыз',
   'versoTodayHero.createCta': 'Бүгінгі жазбаны бастаңыз',

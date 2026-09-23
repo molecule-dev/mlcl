@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับเรา',
   'applications.empty':
     'ยังไม่มีผู้สมัครเลย — ตำแหน่งที่เหมาะสมอยู่ไม่ไกลเกินเอื้อม เพียงแค่คุณสมัครเข้ามาเท่านั้น',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ทุกตำแหน่งงานที่คุณสมัครไว้ แสดงความคืบหน้าทีละขั้นตอน กรองตามขั้นตอนเพื่อเน้นเฉพาะเจาะจง',
   'applications.untitledRole': 'บทบาท # {{id}}',
+  'auth.legalConsent': 'เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ',
   'common.and': 'และ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'companies.empty': 'ไม่พบบริษัทใดตรงกับผลการค้นหาของคุณ – ลองใช้คำค้นหาอื่นดู',
   'companies.eyebrow': 'บริษัทนายจ้างเด่น',
   'companies.searchPlaceholder': 'ค้นหาตามชื่อ อุตสาหกรรม หรือสถานที่',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ยังไม่มีผู้สมัครสำหรับตำแหน่งนี้',
   'jobApplicants.eyebrow': 'มุมมองของนายจ้าง',
   'jobApplicants.loading': 'กำลังโหลด\\u2026',
+  'jobApplicants.statusUpdateFailed': 'ไม่สามารถอัปเดตขั้นตอนดังกล่าวได้ โปรดลองอีกครั้ง',
+  'jobApplicants.subheading':
+    'ตรวจสอบประวัติผู้สมัคร คัดเลือกผู้สมัคร ส่งข้อเสนอ – ดำเนินการตามขั้นตอน {{count}}',
   'jobDetail.applicantCount': '{{count}} จำนวนผู้สมัครจนถึงขณะนี้',
   'jobDetail.applied': 'ส่งใบสมัครแล้ว',
   'jobDetail.apply': 'สมัครเลย',
@@ -81,12 +87,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ดูตำแหน่งงานว่าง \\u2192',
   'landing.pricingEyebrow': 'ราคา',
   'landing.pricingHeading': 'แผนการง่ายๆ สำหรับทีมทุกขนาด',
+  'login.eyebrow': 'ยินดีต้อนรับกลับสู่ {{app}}',
   'login.heading': 'เข้าสู่ระบบบัญชีของคุณ',
   'login.noAccount': 'เพิ่งรู้จัก Nosh ใช่ไหม?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'โปรดจำฉันไว้เป็นเวลา 30 วัน',
   'login.signingIn': 'กำลังเข้าสู่ระบบ\\u2026',
   'login.subheading': 'เริ่มต้นการค้นหาของคุณ พัฒนาใบสมัครของคุณ และรับผลตอบรับเร็วขึ้น',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . สร้างขึ้นเพื่อทีมสรรหาบุคลากร',
   'loginBrandPanel.headline': 'ที่ซึ่งพรสวรรค์มาบรรจบกัน',
   'loginBrandPanel.headlineLine2': 'โมเมนตัม',
   'loginBrandPanel.listing.recruiter': 'พันธมิตรด้านความสามารถ',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': 'การอัปเดตใบสมัคร การเชิญสัมภาษณ์ ผลการจับคู่ใหม่ – ใหม่ล่าสุดก่อน',
   'opportunitiesHero.delta': '{{sign}} {{amount}} สัปดาห์นี้',
   'opportunitiesHero.eyebrow': 'เปิดทำการวันนี้',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'postJob.addNewCompany': '+ เพิ่มบริษัทใหม่',
   'postJob.companyCreateFailed': 'ไม่สามารถสร้างบริษัทได้ โปรดลองอีกครั้ง',
   'postJob.companyNameLabel': 'ชื่อบริษัทของคุณ',
@@ -158,10 +167,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'กำลังสร้างบัญชี\\u2026',
   'signup.ctaEmployer': 'สร้างบัญชีนายจ้าง',
   'signup.firstNamePlaceholder': 'มายา',
+  'signup.lastNamePlaceholder': 'เฉิน',
   'signup.passwordMismatch': 'รหัสผ่านไม่ตรงกัน',
   'signup.subheading':
     'สำหรับผู้ที่สนใจสมัครงาน สามารถใช้ฟรีได้ตลอดไป ส่วนนายจ้างสามารถเริ่มต้นด้วยการทดลองใช้ 30 วัน',
   'timeAgo.days': '{{count}} หลายวันก่อน',
   'timeAgo.hours': '{{count}} ฮ. ที่ผ่านมา',
   'timeAgo.justNow': 'เมื่อสักครู่',
+  'timeAgo.weeks': 'เมื่อ {{count}} สัปดาห์ที่แล้ว',
 }

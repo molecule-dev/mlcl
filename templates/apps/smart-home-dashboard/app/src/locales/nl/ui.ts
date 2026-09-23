@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.pageTitle': 'Over {{app}}',
   'activity.empty': 'Nog geen activiteit — schakel een apparaat in of activeer een scène.',
   'activity.eyebrow': 'Tijdlijn',
   'activity.loadError': 'Kon de activiteitenfeed niet laden.',
   'activity.subheading':
     'Elk apparaat, elke automatisering en elke beveiligingsgebeurtenis in chronologische volgorde.',
+  'addDevice.error.failed': 'Het apparaat kon niet worden toegevoegd. Probeer het opnieuw.',
   'addDevice.error.nameRequired': 'Geef dit apparaat een naam om door te gaan.',
   'addDevice.field.firmware': 'Firmwareversie',
   'addDevice.field.manufacturer': 'Fabrikant',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testen…',
   'automationEditor.testNew': 'Sla de automatisering eerst op om deze te testen.',
   'automationRow.lastRun': 'Laatst {{date}} · {{count}} uitvoeringen',
+  'automationRow.on': 'Op',
   'automationRow.runNowAria': '{{name}} nu uitvoeren',
   'automations.empty': 'Nog geen automatiseringen beschikbaar — maak je eerste routine aan.',
   'automations.eyebrow': 'Routines',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Automatiseringen laden…',
   'automations.newAutomation': '+ Nieuw',
   'automations.subheading': 'Als dit gebeurt, doe dan dat — zonder YAML.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Kon apparaat niet laden.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Bezig…',
   'deviceDetail.unnamed': 'Apparaat',
   'deviceStatusRow.on': 'Aan',
+  'deviceStatusRow.turnOff': 'Uitschakelen',
+  'deviceStatusRow.turnOn': 'Inschakelen',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Vermogen',
   'energy.heading': 'Energie',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Abonnementen bekijken',
   'settings.security.heading': 'Beveiliging',
   'settings.subheading': 'Abonnement, hubs en accountvoorkeuren.',
+  'smartHomeDashboardLayout.openMenu': 'Navigatiemenu openen',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Hoofdnavigatie',
 }

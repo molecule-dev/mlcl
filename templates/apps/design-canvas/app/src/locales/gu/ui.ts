@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'authShell.brandHeading': 'એકસાથે મોકલતી ડિઝાઇન ટીમો માટે પિક્સેલ-પરફેક્ટ કેનવાસ.',
   'canvas.redirecting': 'એડિટર ખોલી રહ્યું છે…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'અને',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'dashboard.activityEmpty':
     'હજુ સુધી કોઈ તાજેતરની પ્રવૃત્તિ નથી — શરૂ કરવા માટે સાથીદારને આમંત્રિત કરો.',
   'dashboard.activityTitle': 'આજે શું બદલાયું છે?',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'કાર્યસ્થળ · નોર્થવિન્ડ સ્ટુડિયો',
   'dashboard.foldersLabel': 'ફોલ્ડર્સ',
   'dashboard.gridTitle': '{{count}} પ્રોજેક્ટ્સ',
+  'dashboard.heroActiveTool': 'પેન ટૂલ',
   'dashboard.loadingTitle': 'પ્રોજેક્ટ્સ લોડ કરી રહ્યાં છીએ…',
   'dashboard.searchPlaceholder': 'પ્રોજેક્ટ શોધો',
   'dashboard.startFromTemplate': 'નમૂનાથી શરૂઆત કરો',
   'dashboard.title': 'તમારા પ્રોજેક્ટ્સ',
   'dashboard.untitledProject': 'શીર્ષક વિનાનો પ્રોજેક્ટ',
   'designCanvasLayout.newProject': 'નવો પ્રોજેક્ટ',
+  'designCanvasLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'editor.backToProjects': 'પ્રોજેક્ટ્સ પર પાછા',
   'editor.deleteShape': 'આકાર કાઢી નાખો',
   'editor.errorBody': 'અમે આ પ્રોજેક્ટ ખોલી શક્યા નહીં.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'તમારા હાથની ગતિએ આગળ વધે તેવા સાધનો ડિઝાઇન કરો',
   'library.empty': 'આ વિભાગમાં હજુ સુધી કોઈ ટોકન નથી.',
   'library.eyebrow': 'કાર્યસ્થળ · અટેલિયર ડિઝાઇન સિસ્ટમ',
+  'library.loadFailed': 'ડિઝાઇન ટોકન્સ લોડ કરી શકાયા નથી.',
   'library.systemMeta': 'સિસ્ટમ આરોગ્ય',
   'library.systemSummary': '{{ટોકન્સ}} ટોકન્સ · {{ઘટકો}} ઘટકો · {{અસર}} અસરો',
   'login.emailPlaceholder': 'mara@studio.com',

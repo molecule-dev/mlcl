@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} შესახებ',
+  'about.pageTitle': 'ვებჰუკის მართვის სიბრტყე',
+  'about.plansTitle': 'გეგმები თითოეული ეტაპისთვის',
   'apiKeys.bestPractices': 'საუკეთესო პრაქტიკები',
   'apiKeys.body':
     'პროგრამული წვდომის ტოკენები. მოეპყარით მათ პაროლების მსგავსად — შეინახეთ env var-ებში, არასდროს დააკოპიროთ.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'გეგმის ფარგლებში',
   'billing.usageWarning': 'ლიმიტის მახლობლად',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.body':
     'რეალურ დროში გატარებადი მონაცემები, განმეორებითი მცდელობები და შეფერხებული საბოლოო წერტილები — თქვენს მიერ მოქმედ ყველა სამუშაო სივრცეში.',
   'dashboard.endpointsEmpty': 'საბოლოო წერტილები ჯერ არ არის.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'საბოლოო წერტილები',
   'endpointDetail.deliveryTrendSub': 'მიწოდება / საათში, ლოგარითმული მასშტაბი',
   'endpointDetail.hideSecret': 'საიდუმლოს დამალვა',
+  'endpointDetail.loading': 'საბოლოო წერტილის ჩატვირთვა…',
   'endpointDetail.metric.delivered': 'მიწოდება 24 საათში',
   'endpointDetail.metric.deliveredCaption': '-დან {{count}} ღონისძიების ტიპები',
   'endpointDetail.metric.failuresCaption': 'ხელახალი მცდელობები: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'კრიტიკული · 24 საათი',
   'notifications.metric.totalCaption': 'ყველა დროის შემოსულები',
   'payloadViewer.payload': '// დატვირთვა',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'profile.avatarHeader': 'ავატარი',
   'profile.avatarHint': 'ნაჩვენებია ინიციალები — ატვირთვები შემდეგ ვერსიასთან ერთად იქნება.',
   'profile.body': 'თქვენი ანგარიში, პარამეტრები და აქტიური სესიები.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'მხოლოდ თქვენი მიმდინარე სესია აქტიურია. სხვა მოწყობილობები არ არის შესული.',
   'profile.toggle': 'გადართვა {{label}}',
+  'pylonShell.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'pylonShell.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'pylonShell.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'resetPassword.subtitle': 'აირჩიეთ ძლიერი პაროლი, რომელიც აქამდე არ გამოგიყენებიათ.',
   'resetPassword.tokenPlaceholder': 'ჩასმა ელფოსტიდან',

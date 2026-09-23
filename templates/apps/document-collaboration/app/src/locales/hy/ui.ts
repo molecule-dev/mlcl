@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.title': '{{app}}-ի մասին',
   'comments.addFailed': 'Չհաջողվեց մեկնաբանություն հրապարակել։',
   'comments.backToDoc': 'Վերադառնալ ձեռագրին',
   'comments.deleteFailed': 'Հնարավոր չէ ջնջել։',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Լուծել',
   'comments.resolveFailed': 'Չհաջողվեց լուծել։',
   'comments.subtitle': '{{open}} բաց · {{resolved}} լուծված',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.activityHeading': 'Ի՞նչ է կատարվում',
   'dashboard.createFailed': 'Հնարավոր չէ փաստաթուղթ ստեղծել։',
   'dashboard.empty': 'Դեռևս ձեռագրեր չկան՝ սկսեք «Նոր փաստաթուղթ» կոճակով։',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Հնարավոր չէ տեղափոխել աղբարկղ։',
   'editor.unpublish': 'Հրապարակումը չեղարկել',
   'editor.untitled': 'Անվերնագիր փաստաթուղթ',
+  'editor.updatedElsewhere':
+    'Այս փաստաթուղթը թարմացվել է ուրիշի կողմից՝ վերաբեռնեք՝ վերջինը տեսնելու համար։',
   'editor.version': 'վ {{v}}',
   'forgotPassword.emailPlaceholder': 'գրող@studio.com',
   'forgotPassword.sentBody':
     'Եթե հաշիվ գոյություն ունի {{email}} , վերակայման հղումը ճանապարհին է։',
   'forgotPassword.subtitle': 'Մենք ձեզ կուղարկենք վերակայման հղում էլ. փոստով։',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} ։ Կառուցված է Molecule-ով։',
   'landing.ctaHeading': 'Բացեք էջը։ Թող կուրսորը սկսի շարժվել։',
   'landing.ctaPrimary': 'Բացեք ստուդիա',
   'landing.eyebrow': 'Գրողների, խմբագիրների և թիմերի համար',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'խմբագրված {{when}}',
   'quillonDocumentCard.open': 'Բացել →',
   'quillonKpiCard.trend': 'Վերջին միտումը',
+  'quillonLayout.menu': 'Մենյու',
   'quillonLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'quillonStudioHero.collab': 'Համագործակիցներ',
   'quillonStudioHero.docs': 'Փաստաթղթերը շոշափվեցին',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'հենց հիմա',
+  'trash.confirmDelete': 'Հաստատեք ջնջումը',
   'trash.deleteFailed': 'Հնարավոր չէ ջնջել։',
   'trash.deleteForever': 'Ջնջել ընդմիշտ',
   'trash.empty': 'Վերականգնելու ոչինչ չկա։',
+  'trash.emptyAll': 'Դատարկեք աղբարկղը',
   'trash.eyebrow': 'Ստուդիա',
   'trash.heading': 'Աղբարկղ',
   'trash.loadFailed': 'Չհաջողվեց բեռնել աղբարկղը։',

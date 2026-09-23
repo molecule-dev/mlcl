@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'समाधान गर्दै...',
   'comments.subtitle':
     'द {{count}} थ्रेडहरू अझै पनि जवाफ वा संकल्पको पर्खाइमा छन्। उमेर अनुसार क्रमबद्ध — पहिले जेठो, त्यसैले केही पनि सड्दैन।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'forgotPassword.sentTo': 'पठाइएको लिङ्क रिसेट गर्नुहोस् {{email}}',
   'forgotPassword.successSubheading':
     'आफ्नो इनबक्स जाँच गर्नुहोस् — हामीले भर्खरै रिसेट लिङ्क पठायौं। यसको म्याद ३० मिनेटमा सकिन्छ।',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'नयाँ पृष्ठ',
   'pageTreeSidebar.workspaceHeader': 'कार्यस्थल',
   'pageView.breadcrumb': 'ब्रेडक्रम्ब',
+  'pageView.confirmTrash': 'रद्दीको टोकरीमा फाल्ने हो?',
   'pageView.home': 'गृह पृष्ठ',
   'pageView.lastEdited': 'अद्यावधिक गरियो {{when}}',
   'pageView.loading': 'पृष्ठ लोड गर्दै...',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'संक्षेप गर्दै...',
   'pageView.summaryUnavailable': 'यस कार्यस्थानको लागि AI सारांश कन्फिगर गरिएको छैन।',
   'pageView.tocTitle': 'यस पृष्ठमा',
+  'pageView.trash': 'रद्दीटोकरी',
+  'pageView.trashing': 'रद्दीटोकरीमा फाल्दै...',
   'pageView.versionBadge': 'वि{{version}}',
   'profile.badges.title': 'ब्याजहरू',
   'profile.owned.title': 'स्वामित्वमा रहेका पृष्ठहरू',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'कार्यक्षेत्र, प्रोफाइल, सूचनाहरू, एकीकरणहरू — सबै एउटै शान्त खोलमा।',
   'settingsPage.workspace.defaultLanding': 'पूर्वनिर्धारित ल्यान्डिङ स्क्रिन',
   'settingsPage.workspace.landingHome': 'गृह पृष्ठ',
+  'settingsPage.workspace.landingSpaces': 'ठाउँहरू',
   'settingsPage.workspace.subdomainLabel': 'उपडोमेन',
   'settingsPage.workspace.title': 'कार्यस्थल',
   'signup.eyebrow': 'नयाँ कार्यस्थान सुरु गर्नुहोस्',
@@ -126,6 +131,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} न्यूनतम',
   'templates.subtitle':
     'खाली क्यानभासबाट होइन, स्टेन्सिलबाट पृष्ठ सुरु गर्नुहोस्। प्रत्येक टेम्प्लेटले आकारलाई कडाइका साथ कोड गर्छ ताकि तपाईं वस्तुमा ध्यान केन्द्रित गर्न सक्नुहुन्छ।',
+  'trash.confirmPurge': 'सधैंको लागि सफा गर्ने?',
+  'trash.confirmPurgeAria': 'पुष्टि गर्नुहोस्: स्थायी रूपमा {{title}} मेटाउनुहोस्',
   'trash.daysUntilPurge': '{{days}} दिन बाँकी',
   'trash.empty.body': 'मेटाइएका पृष्ठहरू हटाउनु अघि ३० दिनसम्म यहाँ देखा पर्नेछ।',
   'trash.empty.title': 'रद्दीको टोकरी खाली छ।',
@@ -145,5 +152,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'पुनर्स्थापना गर्दै...',
   'versionHistory.subtitle': '{{count}} संस्करणहरू · भिन्नता निरीक्षण गर्न पङ्क्ति चयन गर्नुहोस्',
   'versionHistory.versionLabel': 'वि{{v}}',
+  'wikiLayout.closeMenu': 'नेभिगेसन बन्द गर्नुहोस्',
+  'wikiLayout.menu': 'नेभिगेसन',
+  'wikiLayout.openMenu': 'नेभिगेसन खोल्नुहोस्',
   'wikiLayout.searchPlaceholder': 'केयर्न खोज्नुहोस् — पृष्ठहरू, टिप्पणीहरू…',
 }

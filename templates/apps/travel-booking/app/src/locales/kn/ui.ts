@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.featureDiscover.title': 'ಸ್ಫೂರ್ತಿ, ಕೈಯಿಂದ ಆರಿಸಲ್ಪಟ್ಟಿದೆ',
   'account.addPaymentCta': 'ಪಾವತಿ ವಿಧಾನವನ್ನು ಸೇರಿಸಿ',
   'account.addPaymentError': 'ಪಾವತಿ ವಿಧಾನವನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'account.confirmRemove': 'ತೆಗೆದುಹಾಕುವಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ',
   'account.defaultBadge': 'ಡೀಫಾಲ್ಟ್',
   'account.loyalty.pointsTowardNext': '{{ಅಂಕಗಳು}} ನ {{ಮುಂದಿನದು}} ಮೈಲಿಗಳು {{ಮುಂದಿನ ಹಂತ}}',
   'account.loyalty.tier': 'ಪ್ರಸ್ತುತ ಶ್ರೇಣಿ',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ಪ್ರಯಾಣದ ವಿವರಗಳು',
   'booking.tripSummary': '{{nights}} ರಾತ್ರಿಗಳು · {{guests}} ಅತಿಥಿಗಳು',
   'common.daysAgo': '{{count}} ಡಿ ಹಿಂದೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.hoursAgo': '{{count}} ಗಂ ಹಿಂದೆ',
   'common.minutesAgo': '{{count}} ಮೀ ಹಿಂದೆ',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'notifications.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'notifications.subheading': '{{count}} ಓದದಿರುವುದು · ಎಲ್ಲವೂ ಒಂದೇ ಶಾಂತ ಇನ್‌ಬಾಕ್ಸ್‌ನಲ್ಲಿ',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.accommodationsLabel': 'ವಸತಿ ಸೌಕರ್ಯಗಳು',
   'pricing.bookingsLabel': 'ಬುಕಿಂಗ್‌ಗಳು',
   'pricing.destinationsLabel': 'ಉಳಿಸಿದ ಗಮ್ಯಸ್ಥಾನಗಳು',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'ಸ್ಫೂರ್ತಿ, ವಿಶ್ವಾಸಾರ್ಹ ವಾಸ್ತವ್ಯಗಳು ಮತ್ತು ಹಗಲುಗನಸಿನಿಂದ ಬುಕ್ ಮಾಡಿದ ಸ್ಥಳಗಳಿಗೆ ಘರ್ಷಣೆಯಿಲ್ಲದ ಮಾರ್ಗ - 14 ದೇಶಗಳಲ್ಲಿ ಮತ್ತು 200+ ಕೈಯಿಂದ ಪರಿಶೀಲಿಸಲಾದ ಆಸ್ತಿಗಳು.',
   'sojournHeroSearchCard.trustProtected': 'ಉಚಿತ ರದ್ದತಿ, ಸಂಪೂರ್ಣವಾಗಿ ಸುರಕ್ಷಿತ',
   'sojournHeroSearchCard.trustVetted': 'ಕೈಯಿಂದ ಪರಿಶೀಲಿಸಲಾದ ಗುಣಲಕ್ಷಣಗಳು ಮಾತ್ರ',
+  'travelBookingLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'tripDetail.backLink': 'ಪ್ರವಾಸಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'tripDetail.cancelCta': 'ಬುಕಿಂಗ್ ರದ್ದುಗೊಳಿಸಿ',
   'tripDetail.cancelHeading': 'ಈ ಪ್ರವಾಸವನ್ನು ರದ್ದುಗೊಳಿಸುವುದೇ?',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'analytics.back': 'Επισκόπηση έρευνας',
   'analytics.kpiNps': 'Βαθμολογία NPS',
   'analytics.kpiNpsTrend': 'Υποστηρικτές {{p}} % · Επικριτές {{d}} %',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Σκηνικά θέατρου',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Τίτλος έρευνας',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'forgotPassword.failed': 'Αδυναμία αποστολής email επαναφοράς. Δοκίμασε ξανά.',
   'forgotPassword.subheading':
     'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο ανάκτησης.',
   'forgotPassword.successBody':
     "Εάν ένας λογαριασμός ταιριάζει {{email}} , ένας σύνδεσμος επαναφοράς είναι καθ' οδόν. Ελέγξτε τους φακέλους εισερχομένων και ανεπιθύμητης αλληλογραφίας σας.",
+  'landing.footer.copyright': '© {{year}} {{app}} . Όλες οι φωνές είναι ευπρόσδεκτες.',
   'landing.footer.startTrial': 'Έναρξη δοκιμαστικής περιόδου',
   'landing.hero.badge': 'Έρευνες, NPS και σχόλια σε ένα μέρος',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Τιμολόγηση',
   'landing.pricing.perMonth': '/μήνα',
   'landing.pricing.popular': 'Πιο δημοφιλές',
+  'landing.pricing.subtitle':
+    'Κάθε πρόγραμμα περιλαμβάνει το εργαλείο δημιουργίας ερευνών, συνδέσμους κοινής χρήσης και αναλυτικά στοιχεία NPS. Δεν απαιτείται πιστωτική κάρτα για να ξεκινήσετε.',
+  'landing.pricing.title': 'Ξεκινήστε ελεύθερα, κλιμακώστε όταν το κάνετε.',
   'landing.sample.eyebrow': 'NPS με μια ματιά',
   'landing.sample.title': 'Επικριτές, παθητικοί, υποστηρικτές — άμεσα αναγνώσιμοι.',
   'login.failed': 'Η σύνδεση απέτυχε. Παρακαλώ δοκιμάστε ξανά.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.signUpLink': 'Ξεκινήστε μια δωρεάν δοκιμή',
   'login.subheading': 'Συνδεθείτε για να συνεχίσετε να ακούτε το κοινό σας.',
+  'notFound.body':
+    'Η σελίδα που αναζητάτε δεν υπάρχει στην {{app}} . Ας επιστρέψουμε στις έρευνές σας.',
   'notFound.cta': 'Επιστροφή στις έρευνες',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Αυτή η έρευνα αφαιρέθηκε από την ουρά.',
@@ -75,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Παθητική 7–8',
   'npsDistributionBar.promoter': 'Υποστηρικτής 9–10',
   'profile.identity.description': 'Δημόσιο στην ομάδα σας και στις έρευνες που συντάσσετε.',
+  'profile.identity.emailRequired': 'Εισαγάγετε μια διεύθυνση ηλεκτρονικού ταχυδρομείου.',
   'profile.identity.saveCta': 'Αποθήκευση ονόματος',
   'profile.password.current': 'Τρέχων κωδικός',
   'profile.password.fillFields': 'Εισαγάγετε τον τρέχοντα και τον νέο κωδικό πρόσβασης.',
@@ -183,6 +192,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ερωτήσεις',
   'templates.subheading':
     'Επιλέξτε ένα δοκιμασμένο σε μάχη πρότυπο — κάθε πρότυπο έρχεται προρυθμισμένο με λογικές προεπιλογές, λογική δειγμάτων και μια καθαρή διάταξη για κινητά.',
+  'thankYou.body':
+    'Η απάντησή σας έχει καταγραφεί. {{app}} θα την συμπεριλάβει στην επόμενη ανανέωση αναλυτικών στοιχείων.',
   'thankYou.eyebrow': 'Λήψη απάντησης',
   'thankYou.heading': 'Ευχαριστώ — η φωνή σας μετράει.',
   'thankYou.home': 'Επισκεφθείτε το Μούρμουρ',

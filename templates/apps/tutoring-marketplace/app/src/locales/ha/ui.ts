@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Matsayinka',
   'account.role.upgradeLink': 'Yi rijista don zama malami da aka tabbatar →',
   'account.title': 'Bayanin martaba, biyan kuɗi & abubuwan da ake so.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Koyarwa akan Alli',
   'becomeTutor.form.error': 'Ban iya ƙaddamar da aikace-aikacen ba.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': "Maudu'i",
   'bookingConfirm.title': 'An yi maka rajista. Za mu yi sauran.',
   'bookingConfirm.with': 'Tare da malami',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'earningsHero.eyebrow': 'Ribar kuɗi • {{month}}',
   'forgotPassword.heading': 'manta da kalmar shigar ka?',
   'forgotPassword.subheading':
@@ -114,6 +116,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Aika saƙo',
   'messages.thread.empty': 'Sannu — fara tattaunawar.',
   'messages.title': 'Zane-zane tare da masu karatun ku.',
+  'nav.primary': 'Babban Firamare',
   'pricing.dataExport': 'Fitar da bayanai:',
   'pricing.headingDefault': 'Sifofi masu ci gaba:',
   'resetPassword.heading': 'Zaɓi sabuwar kalmar sirri mai ƙarfi.',

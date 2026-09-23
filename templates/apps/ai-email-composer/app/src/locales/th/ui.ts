@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เรื่องราวของเรา',
   'aiSuggestionPanel.title': 'ซิกเน็ต คอนไพลอต',
   'analytics.col.open': 'อัตราการเปิด',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'เริ่มขั้นตอนการชำระเงิน…',
   'billing.subheading': 'เลือกแพ็กเกจที่ตรงกับวิธีการส่งของคุณ',
   'billing.unavailable': 'ติดต่อฝ่ายขาย',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'compose.adjustingTone': 'เขียนใหม่โดยใช้สำนวนที่เลือกไว้...',
   'compose.aiPromptPlaceholder':
     'เช่น "ติดตามผลอย่างสุภาพหลังจากไม่ได้รับการตอบกลับเป็นเวลาสองสัปดาห์ โปรดเขียนให้กระชับ"',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'ต้องการส่งเอกสารใช่ไหม? Signet สามารถเตรียมร่างเอกสารให้เสร็จได้ในเวลาเพียงไม่กี่วินาที',
   'dashboard.composeCtaLabel': 'เขียนเร็ว',
   'dashboard.heading': 'สัปดาห์ของคุณ เรียบเรียงอย่างลงตัว',
+  'dashboard.loadFailed': 'ไม่สามารถโหลดแดชบอร์ดของคุณได้',
   'dashboard.manageLibrary': 'จัดการคลังหนังสือ →',
   'dashboard.recentEmpty': 'ยังไม่มีการส่งอีเมลใดๆ — อีเมลที่คุณส่งไปแล้วจะปรากฏที่นี่',
   'dashboard.recentHeading': 'การส่งล่าสุด',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'โทนเสียงเริ่มต้น',
   'settings.toneSubheading': 'Signet จะใช้โทนสีนี้เว้นแต่คุณจะกำหนดค่าใหม่ในเวอร์ชันร่าง',
   'signetLayout.primaryNavLabel': 'การนำทางหลัก',
+  'signetLayout.toggleMenu': 'สลับเมนู',
   'signup.emailLabel': 'ที่อยู่อีเมล',
   'signup.showPassword': 'แสดงรหัสผ่าน',
   'signup.tagline': 'ส่งอีเมลฉบับแรกที่ร่างโดย AI ได้ภายในเวลาไม่ถึงนาที',

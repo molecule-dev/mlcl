@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Termin buchen',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Keine Patienten anzuzeigen.',
+  'common.goToDashboard': 'Zum Dashboard',
   'consult.backLink': 'Alle Termine',
   'consult.captions': 'Untertitel',
   'consult.connected': 'Verbunden · 720p · stabil',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Patienten',
   'patientVitalsHero.scripts': 'Offene Rezepte',
   'patientVitalsHero.subline': '{{count}} Konsultationen heute in Ihrem Plan',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'prescriptions.empty': 'Keine Verschreibungen gefunden.',
   'prescriptions.eyebrow': 'E-Verschreibung',
   'prescriptions.heading': 'Verschreibungen',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Datenschutzhinweis',
   'privacy.use.body':
     'Zur Versorgung, zum Versand von Terminerinnerungen, zur Weiterleitung von Verschreibungen und zur Verbesserung der Servicezuverlässigkeit. Wir verkaufen Ihre Daten niemals und teilen klinische Informationen niemals mit Werbetreibenden.',
+  'providers.allSpecialties': 'Alle Fachrichtungen',
+  'providers.loadError': 'Die Anbieter konnten nicht geladen werden.',
+  'providers.loading': 'Wird geladen…',
   'providers.noResults': 'Keine Behandler gefunden.',
   'providers.searchPlaceholder': 'Nach Name oder Fachrichtung suchen...',
   'providers.title': 'Behandler finden',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Tagesbeginn',
   'settings.availability.heading': 'Verfügbarkeit',
   'settings.devices.thisDevice': 'Dieses Gerät',
+  'settings.devices.unnamed': 'Unbenanntes Gerät',
   'settings.eyebrow': 'Praxis & Konto',
   'settings.loadError': 'Profil konnte nicht geladen werden.',
   'settings.notifications.emailMessages': 'E-Mail senden, wenn mein Behandlerteam antwortet',
@@ -177,6 +183,11 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Deaktivieren',
   'settings.security.twoFactor.enable': 'Aktivieren',
   'settings.security.twoFactor.heading': 'Zwei-Faktor-Authentifizierung',
+  'settings.security.twoFactor.invalidCode':
+    'Dieser Code stimmte nicht überein. Versuchen Sie es erneut.',
+  'settings.security.twoFactor.setupFailed':
+    'Die Zwei-Faktor-Authentifizierung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.',
+  'settings.security.twoFactor.statusOn': 'Zwei-Faktor-Authentifizierung ist aktiviert',
   'settings.signOutDevice': 'Abmelden',
   'settings.subheading': 'Behandlerprofil, Praxisregeln und klinische Meldungen.',
   'signup.emailLabel': 'E-MAIL',
@@ -187,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Konto erstellen',
   'signupFooter.hipaa': 'HIPAA-konform',
   'solaceLayout.primaryNavLabel': 'Hauptnavigation',
+  'solaceLayout.toggleMenu': 'Menü umschalten',
   'terms.eligibility.body':
     'Sie müssen mindestens achtzehn Jahre alt sein oder Elternteil bzw. Erziehungsberechtigter eines Minderjährigen sein, für den Sie eine Versorgung suchen, und sich physisch in einem US-Bundesstaat befinden, in dem unsere Kliniker zugelassen sind.',
   'terms.payment.body':

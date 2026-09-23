@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'हेर्दै',
   'auctionDetail.watchRemoved': 'वाचलिस्टबाट हटाइयो।',
   'auctionDetail.watchRemoveLabel': 'वाचलिस्टबाट हटाउनुहोस्',
+  'auctionPlatformLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'authShell.brandBody':
     'दुर्लभ घडी, ललित कला, र अनौठा विशेष वस्तुहरूमा वास्तविक समयमा बोली लगाउनुहोस्। केही सेकेन्डमै मूल्य घट्छ।',
   'authShell.brandEyebrow': 'अहिले लाइभ · १,४२० लिलामीहरू',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'क्रमबद्ध गर्नुहोस्',
   'browseAuctions.subheading':
     'श्रेणी अनुसार फिल्टर गर्नुहोस्, सबैभन्दा महत्त्वपूर्ण कुरा अनुसार क्रमबद्ध गर्नुहोस्, र ग्याभल खस्नु अघि बोली लगाउनुहोस्।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'countdownTimer.ended': 'समाप्त भयो',
   'countdownTimer.endingSoon': 'अन्त्य',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'पासवर्ड देखाउनुहोस्',
   'login.subtext':
     'आफ्नो लिलामी ट्र्याक गर्न जारी राख्नुहोस् र ग्याभल खस्नु अघि बोलपत्रहरू राख्नुहोस्।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'myBids.bidAgain': 'फेरि बोली लगाउनुहोस्',
   'myBids.browseCta': 'प्रत्यक्ष लिलामी ब्राउज गर्नुहोस् →',
   'myBids.checkoutCta': 'अहिले नै भुक्तानी गर्नुहोस्',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'अहिलेसम्म कुनै सूचना छैन।',
   'notificationsPage.eyebrow': 'गतिविधि केन्द्र',
   'notificationsPage.subheading': '{{count}} नपढिएको · लिलामी सर्दै जाँदा प्रत्यक्ष अपडेटहरू',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.bidsLabel': 'बोलपत्रहरू',
   'pricing.listingsLabel': 'सूचीहरू',
   'pricing.watchlistLabel': 'वाचलिस्ट',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'accountSettings.confirmEmailLabel': 'Ketik DELETE untuk mengkonfirmasi',
   'accountSettings.deleteError': 'Tidak dapat menghapus akun.',
   'accountSettings.passwordError': 'Tidak dapat mengubah kata sandi.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Tidak ada tenggat waktu yang akan datang.',
   'dashboard.upcomingTitle': 'Batas Waktu Mendatang',
   'deviceSettings.unknownDevice': 'Perangkat tidak dikenal',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Dukungan',
   'forgotPassword.error': 'Gagal mengirim tautan reset.',
   'forgotPassword.subtitle': 'Masukkan email Anda dan kami akan mengirim tautan pengaturan ulang.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'Email atau kata sandi tidak valid.',
   'login.pageTitle': 'Masuk',
   'login.signIn': 'Masuk ke Forge',
+  'login.subtitle': 'Masuk untuk memantau proyek Anda agar tetap berjalan sesuai rencana.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'nav.calendar': 'Kalender',
   'nav.legal': 'Hukum',
   'nav.myTasks': 'My Tasks',

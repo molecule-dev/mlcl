@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Endurræstu keðjuna',
   'resetPassword.mismatchError': 'Lykilorð passa ekki saman.',
   'resetPassword.subheading': 'Veldu eitthvað sterkt. Bækurnar þínar bíða.',
-  'reviewCard.starsAria': 'Metið<x> {{einkunn}}</x> út úr<x> {{af}}</x> stjörnur',
+  'reviewCard.starsAria': 'Gefin einkunn {{rating}} af {{of}} stjörnum',
   'reviewCard.unratedAria': 'Óflokkað',
   'reviews.eyebrow': 'Það sem festist í minni',
   'reviews.heading': 'Umsagnirnar þínar',

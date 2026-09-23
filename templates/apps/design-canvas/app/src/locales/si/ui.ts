@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'authShell.brandHeading': 'එකට නැව්ගත කරන නිර්මාණ කණ්ඩායම් සඳහා පික්සල්-පරිපූර්ණ කැන්වස්.',
   'canvas.redirecting': 'ආරම්භක සංස්කාරකය…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'සහ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'dashboard.activityEmpty':
     'තවම මෑත කාලීන ක්‍රියාකාරකමක් නොමැත — ආරම්භ කිරීමට කණ්ඩායම් සගයෙකුට ආරාධනා කරන්න.',
   'dashboard.activityTitle': 'අද වෙනස් වී ඇති දේ',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'වැඩබිම · නෝර්ත්වින්ඩ් ස්ටුඩියෝ',
   'dashboard.foldersLabel': 'ෆෝල්ඩර',
   'dashboard.gridTitle': '{{count}} ව්‍යාපෘති',
+  'dashboard.heroActiveTool': 'පෑන මෙවලම',
   'dashboard.loadingTitle': 'ව්‍යාපෘති පූරණය වෙමින්...',
   'dashboard.searchPlaceholder': 'ව්‍යාපෘති සොයන්න',
   'dashboard.startFromTemplate': 'සැකිල්ලෙන් ආරම්භ කරන්න',
   'dashboard.title': 'ඔබේ ව්‍යාපෘති',
   'dashboard.untitledProject': 'නම් නොකළ ව්‍යාපෘතිය',
   'designCanvasLayout.newProject': 'නව ව්‍යාපෘතිය',
+  'designCanvasLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'editor.backToProjects': 'ව්‍යාපෘති වෙත ආපසු',
   'editor.deleteShape': 'හැඩය මකන්න',
   'editor.errorBody': 'අපට මෙම ව්‍යාපෘතිය විවෘත කිරීමට නොහැකි විය.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'ඔබේ අත්වල වේගයෙන් චලනය වන මෙවලම් නිර්මාණය කරන්න',
   'library.empty': 'මෙම කොටසේ තවමත් ටෝකන නොමැත.',
   'library.eyebrow': 'වැඩබිම · ඇටලියර් නිර්මාණ පද්ධතිය',
+  'library.loadFailed': 'නිර්මාණ ටෝකන පූරණය කළ නොහැකි විය.',
   'library.systemMeta': 'පද්ධති සෞඛ්‍යය',
   'library.systemSummary': '{{සංකේත}} ටෝකන · {{සංරචක}} සංරචක · {{ප්‍රතිවිපාක}} බලපෑම්',
   'login.emailPlaceholder': 'mara@studio.com වෙත පිවිසෙන්න.',

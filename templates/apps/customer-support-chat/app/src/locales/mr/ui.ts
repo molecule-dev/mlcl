@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'आमच्याबद्दल',
   'authShell.samplePreview': 'हे टीम, नवीन डॅशबोर्ड अप्रतिम आहे — आम्हाला नेमके हेच हवे होते!',
   'authShell.tagline': 'प्रत्येक संदेश महत्त्वाचा असतो. प्रत्येक ग्राहक लक्षात राहतो.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/शॉर्टकट',
   'automations.subheading':
     'नियम, पूर्वनियोजित उत्तरे आणि चॅटबॉट्स — तुमची टीम कठीण कामांवर लक्ष केंद्रित करत असताना, कामाच्या ठिकाणी कामकाज सुरळीत चालू ठेवा.',
+  'automations.trigger.inboundMessage': 'येणारा संदेश',
   'automations.triggerLabel': 'ट्रिगर',
   'chatBubble.internalNoteLabel': 'अंतर्गत नोंद',
+  'common.confirmDelete': 'हटवण्याची पुष्टी करा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'contactDetail.backToContacts': 'सर्व संपर्क',
   'contactDetail.contactFallback': 'संपर्क',
   'contactDetail.conversationFallback': 'संभाषण',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'शेवटचे पाहिले',
   'contacts.empty': 'अद्याप संपर्क साधलेला नाही. तुमचा पहिला संपर्क वर जोडा.',
   'contacts.eyebrow': 'ग्राहक निर्देशिका',
+  'contacts.form.nameOrEmailRequired': 'किमान नाव किंवा ईमेल द्या.',
   'contacts.form.save': 'संपर्क जतन करा',
   'contacts.heading': 'संपर्क',
   'contacts.loading': 'संपर्क लोड होत आहेत…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'नोंद जतन करा',
   'conversationDetail.tab.note': 'अंतर्गत नोंद',
   'conversationDetail.threadAria': 'संभाषण संदेश',
+  'conversationDetail.visitorFallback': 'अभ्यागत',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'ग्राहक तपशील',
   'customerProfilePanel.recentTitle': 'अलीकडील संभाषणे',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ग्राहकांना त्यांचे पहिले उत्तर मिळत आहे {{time}} सरासरी — लय कायम ठेवा.',
   'inboxHeroCard.title': 'सक्रिय संभाषणे',
+  'inboxLayout.navDrawerLabel': 'नेव्हिगेशन',
+  'inboxLayout.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'inboxOverview.eyebrow': 'आज एका दृष्टिक्षेपात',
   'inboxOverview.heroChange': '{{count}} उघडा',
   'inboxOverview.kpiClosedTrend': 'सर्वकालीन',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'मुख्यपृष्ठाला भेट द्या',
   'notifications.subheading':
     'असाइनमेंट्स, @मेंशन्स, SLA धोके, CSAT फीडबॅक आणि टीम ॲक्टिव्हिटी — सर्वात नवीन प्रथम या क्रमाने.',
+  'notifications.subjectFallback': 'एक संभाषण',
+  'notifications.visitorFallback': 'एक अभ्यागत',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'उच्च',
   'priority.low': 'कमी',
+  'priority.normal': 'सामान्य',
   'priority.urgent': 'तातडीचे',
   'privacy.title': 'गोपनीयता धोरण',
   'reports.agentFallback': 'एजंट',

@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Mijozlar',
   'customers.loadError': 'Mijozlarni yuklashda xatolik.',
   'customers.loading': 'Yuklanmoqda…',
+  'customers.new.address': 'Xizmat manzili',
   'customers.new.email': 'Elektron pochta',
   'customers.new.error': "Mijozni qo'shishda xatolik.",
   'customers.new.heading': 'Yangi mijoz',

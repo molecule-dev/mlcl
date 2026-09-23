@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'हाम्रो बारेमा',
   'actions.empty': 'कुनै पनि कार्य वस्तुहरू मेल खाँदैनन्।',
   'actions.heading': 'कार्य वस्तुहरू',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'अघिल्लो महिना',
   'calendar.recent': 'हालैका',
   'common.daysAgo': '{{count}} दिन अगाडि',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.hoursAgo': '{{count}} घण्टा अघि',
   'common.no': '—',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} कार्य वस्तुहरू',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'रिसेट लिङ्कको लागि आफ्नो इनबक्स जाँच गर्नुहोस्।',
   'forgot.subheading': 'तपाईंको इमेल प्रविष्ट गर्नुहोस् र हामी रिसेट लिङ्क पठाउनेछौं।',
   'integrations.disconnected': 'विच्छेद',
+  'integrations.loadError': 'एकीकरणहरू लोड गर्न सकिएन।',
   'integrations.notConnectedTag': 'जडान गरिएको छैन',
   'integrations.subheading':
     'क्यालेन्डर र भिडियो प्लेटफर्महरू जडान गर्नुहोस् ताकि मुर्मर स्वतः सामेल होस्।',
+  'integrations.updateError': 'अद्यावधिक असफल भयो।',
   'landing.ctaButton': 'सुरु गर्नुहोस् — यो नि:शुल्क छ',
   'landing.ctaHeading': 'नोट लिन बन्द गर्नुहोस्। निर्णय लिन सुरु गर्नुहोस्।',
   'landing.demo.aiLabel': 'एआई सारांश, प्रत्यक्ष मस्यौदा गरिएको',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'फलो-अपहरू',
   'meetingDetail.loadError': 'बैठक लोड गर्न असफल भयो।',
   'meetingDetail.noActions': 'कुनै पनि कार्य वस्तुहरू पत्ता लागेनन्।',
+  'meetingDetail.none': 'कुनै पनि होइन।',
   'meetingDetail.notFound': 'बैठक भेटिएन।',
+  'meetingDetail.speakerFallback': 'वक्ता {{id}}',
   'meetingDetail.summaryHeading': 'एआई सारांश',
   'meetingDetail.transcriptHeading': 'ट्रान्सक्रिप्ट',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'बैठकहरू',
   'meetings.loadError': 'बैठकहरू लोड गर्न सकिएन।',
   'meetings.subheading': 'प्रत्येक रेकर्ड गरिएको, अपलोड गरिएको, र सिंक गरिएको बैठक।',
+  'murmurLayout.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'murmurLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'nav.legal': 'कानुनी',
   'notifications.loadError': 'सूचनाहरू लोड गर्न असफल भयो।',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'तपाईं मुर्मुर भित्र कस्तो देखिन्छन्।',
   'record.error.empty': 'कुनै अडियो रेकर्ड गरिएको थिएन।',
   'record.error.permission': 'माइक्रोफोन अनुमति अस्वीकार गरियो।',
+  'record.error.recorder': 'रेकर्डर त्रुटि',
   'record.error.unsupported':
     'तपाईंको ब्राउजरले रेकर्डिङलाई समर्थन गर्दैन। Chrome, Edge, वा Safari प्रयोग गरी हेर्नुहोस्।',
   'record.error.upload': 'अपलोड असफल भयो। फेरि प्रयास गर्नुहोस्।',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'नयाँ पासवर्ड',
   'reset.subheading': 'तपाईंले अन्यत्र प्रयोग नगर्ने पासवर्ड छान्नुहोस्।',
   'search.empty': 'ट्रान्सक्रिप्टहरू खोज्न टाइप गर्नुहोस्।',
+  'search.loadError': 'खोजी असफल भयो। फेरि प्रयास गर्नुहोस्।',
   'search.noResults': '"" को लागि कुनै परिणाम छैन {{q}} "।',
   'settings.appearance.description': 'लाइट र डार्क मोड बीच टगल गर्नुहोस्।',
   'settings.appearance.title': 'उपस्थिति',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'सेटिङहरू लोड गर्न असफल भयो।',
   'settings.loading': 'लोड हुँदै...',
   'settings.push.heading': 'पुश सूचनाहरू',
+  'settings.push.subheading':
+    'उल्लेख, कार्य वस्तुहरू, र सारांशहरूको लागि ब्राउजर अलर्टहरू प्राप्त गर्नुहोस्।',
   'settings.retention.audio': 'अडियो यति समयसम्म राख्नुहोस्',
   'settings.retention.heading': 'अवधारण',
   'settings.retention.transcript': 'ट्रान्सक्रिप्टहरू राख्नुहोस्',
@@ -141,6 +153,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'खाता सिर्जना गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'signup.subheading': 'मिनेटमै बैठकका टिपोटहरू खिच्न सुरु गर्नुहोस्',
   'signup.terms': 'खाता सिर्जना गरेर तपाईं हाम्रो सेवाका सर्तहरू र गोपनीयता नीतिमा सहमत हुनुहुन्छ।',
+  'signup.termsPrefix': 'खाता सिर्जना गरेर तपाईं हाम्रो कुरामा सहमत हुनुहुन्छ',
   'team.inviteCta': 'टोलीका साथीलाई आमन्त्रित गर्नुहोस्',
   'team.invitedAs': 'निमन्त्रणा गरिएको व्यक्ति {{role}}',
   'team.inviteFailed': 'निमन्त्रणा पठाउन सकिएन।',

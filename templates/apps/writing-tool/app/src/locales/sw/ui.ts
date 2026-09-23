@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.title': 'Chumba cha kuandikia unachoweza kuweka mfukoni mwako',
   'billing.cancelConfirm': 'Ghairi usajili wako unaotumika?',
   'billing.cancelFailed': 'Haikuweza kughairi.',
   'billing.checkingOut': 'Inafungua malipo…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Haikuweza kupakia bili.',
   'billing.loading': 'Inapakia bili…',
   'billing.upgradeCta': 'Boresha hadi {{name}}',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'editor.autosaveOn': 'Hifadhi kiotomatiki imewashwa',
   'editor.backToLibrary': 'Rudi kwenye maktaba',
   'editor.charCount': '{{count}} wahusika',
   'editor.confirmTrash': 'Ungependa kuhamisha hati hii hadi kwenye tupio?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Imebanduliwa',
   'editor.unpublishCta': 'Hamisha hadi rasimu',
   'editor.unpublished': 'Imerejeshwa kwenye rasimu',
+  'focus.autosaveOn': 'Hifadhi kiotomatiki imewashwa',
   'focus.backToLibrary': 'Rudi kwenye maktaba',
   'focus.bodyPlaceholder': 'Mstari mmoja baada ya mwingine. Hakuna mtu mwingine hapa.',
   'focus.exit': 'Toka kwenye hali ya kuzingatia',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Unda moja',
   'login.subline':
     'Hati zako, kurasa za kila siku, na nafasi ya mwisho ya kishale ziko pale pale ulipoziacha.',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'pricing.exports': 'mauzo ya nje',
   'pricing.folders': 'folda',
   'pricing.heading': 'hati',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Ingiza msimbo ambao tumekutumia barua pepe na uchague kitu cha kukumbukwa. Tutakuingiza mara tu utakapohifadhi.',
   'reset.tokenHint': 'Imebandikwa kutoka kwenye kikasha chako.',
+  'settings.appearance.heading': 'Mwanga au giza',
   'settings.editor.${row.id}.description': 'Lugha',
   'settings.editor.description':
     'Kusogeza kwa taipureta, kufifia kwa aya, na kuzingatia bila kufanya kazi — chaguo-msingi hurekebishwa kwa vipindi virefu.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Sura ya Tatu — Saa Tulivu Kabla ya Jua Kuchomoza',
   'versalDocumentCard.pinned': 'Imebandikwa',
   'versalLayout.nav.stats': 'Takwimu',
+  'versalLayout.primaryNavLabel': 'Usogezaji mkuu',
   'versalManuscriptHero.cta': 'Endelea kuandika',
   'versalManuscriptHero.goalLabel': 'Lengo la maneno la leo',
   'versalManuscriptHero.inProgress': 'Kwenye wimbo',

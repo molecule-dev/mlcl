@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'auth.fields.newPassword': 'Bagong password',
   'collectionDetail.addImage': 'Lumikha para sa koleksyon',
   'collectionDetail.backCta': 'Bumalik sa mga koleksyon',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mga mood-board, brief, at kasalukuyang serye',
   'collections.title': 'Mga koleksyon',
   'collections.untitled': 'Walang pamagat · {{stamp}}',
+  'common.closeMenu': 'Isara ang menu',
+  'common.dismiss': 'Isara',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.openMenu': 'Buksan ang menu ng nabigasyon',
   'credits.eyebrow': 'Planong {{plan}}',
   'credits.renewsCopy': 'Magre-renew ang plano sa {{date}}',
   'credits.trail': 'Reverie · {{plan}} baitang',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Magpapakita rito ang aktibidad ng pagbuo, pagbabahagi, at mga alerto ng credit.',
   'notifications.empty.title': 'Walang maiulat',
   'notifications.subtitle': 'Mga pangyayari ng pagbuo na nakagrupo ayon sa araw',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.limits.gallery': '{{count}} gallery',
   'privacy.collect.body':
     'Kapag nag-sign up po kayo, kinukolekta namin ang inyong pangalan, email address, at na-hash na password. Habang ginagamit ninyo ang Reverie, sini-save namin ang mga prompt na inihain ninyo, mga larawang binuo namin para sa inyo, mga style at koleksyon na sini-save ninyo, at metadata gaya ng modelong ginamit, mga timestamp ng pagbuo, at balanse ng credit.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'I-save ang bagong password',
   'reset.submitting': 'Ina-update ang password…',
   'settings.account.handle': 'Handle',
+  'settings.account.lastSaved': 'Aktibong profile · {{name}}',
   'settings.account.saved': 'Na-save ang profile',
   'settings.account.saveFailed': 'Hindi nai-save ang profile',
   'settings.account.title': 'Creator profile',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Bagong larawan',
   'sidebar.secondary': 'Pangalawang navigation',
   'signup.failed': 'Nabigo ang pag-sign up. Subukan ulit.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Simulan ang inyong panaginip',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Gumawa po ng account at kumuha ng 120 libreng credits.',
   'styles.empty':
     'Wala pang style presets — magpapakita po ang mga ito pagkatapos ng unang sign-in.',

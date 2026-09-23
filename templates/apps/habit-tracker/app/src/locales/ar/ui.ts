@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
+  'about.pageTitle': 'نبذة عن شركة «{{app}}»',
   'achievementBadgeCard.unlockedOn': 'تم الفتح في {{date}}',
   'achievements.loadError': 'تعذر تحميل الإنجازات.',
   'achievements.subheading': 'تم فتح {{unlocked}} من أصل {{total}}',
   'achievements.unlockedOn': 'تم الفتح في {{date}}',
+  'auth.legalConsent': 'بالمتابعة، أنت توافق على',
   'calendar.empty': 'أنشئ عادة لرؤية تقويمك.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'العادة',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'شبكة العادات',
   'category.${c.category}': '{{عدد}} العادات',
   'common.and': 'و',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'consistencyHeatmap.ariaLabel': 'خريطة حرارية للاتساق اليومي',
   'consistencyHeatmap.caption': 'آخر {{weeks}} أسابيع',
   'consistencyHeatmap.lessLabel': 'أقل',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'شاهد مباشرة',
   'landing.heroSubtitle':
     'ابنِ العادات بالطريقة التي تترسخ بها فعلاً: التزامات صغيرة، وسلاسل يومية، والمتعة الحسية لسلسلة طويلة متواصلة.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'نظرة داخل Streak',
   'landing.previewMotivation': 'تسع سلاسل حية. أبقها جميعًا دافئة.',
   'login.eyebrow': 'التقط السلسلة من جديد',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'اجعلها صغيرة. اجعلها محددة. اظهر غدًا.',
   'newHabit.timeLabel': 'وقت التذكير',
   'notifications.markError': 'تعذر وضع علامة مقروء على الكل.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.entries': '{{count}} إدخالات',
+  'pricing.heading': 'اختر خطة {{app}} الخاصة بك',
   'profile.action.plan': 'إدارة الاشتراك',
   'profile.action.settings': 'إعدادات الحساب',
   'profile.bioEmpty': 'أضف نبذة قصيرة في الإعدادات للتعريف بنفسك.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'تذكير يومي صباحي (الساعة 8:00 صباحًا)',
   'settings.reminders.heading': 'التذكيرات',
   'settings.reminders.weekly': 'ملخص أسبوعي (مساء الأحد)',
+  'settings.revokeDeviceWarning': 'سيتم إلغاء وصول هذا الجهاز قريباً. تسجيل الخروج؟',
   'settings.signOutDevice': 'تسجيل الخروج',
   'settings.streaks.freezesPerWeek': 'عدد التجميدات في الأسبوع',
   'settings.streaks.gracePeriod': 'فترة سماح مدتها 6 ساعات بعد منتصف الليل',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} نشطة',
   'streakHeroCard.daysSuffix': 'أيام',
   'streakHeroCard.title': 'أطول سلسلة نشطة',
+  'streakLayout.closeMenu': 'إغلاق قائمة التنقل',
+  'streakLayout.openMenu': 'فتح قائمة التنقل',
   'streakLayout.primaryNavLabel': 'التنقل الرئيسي',
 }

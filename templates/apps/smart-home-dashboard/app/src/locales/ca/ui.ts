@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.pageTitle': 'Sobre {{app}}',
   'activity.empty': 'Encara no hi ha activitat: gira un dispositiu o activa una escena.',
   'activity.eyebrow': 'Cronologia',
   'activity.loadError': "No s'ha pogut carregar el canal d'activitats.",
   'activity.subheading':
     'Tots els dispositius, automatitzacions i esdeveniments de seguretat en ordre cronològic.',
+  'addDevice.error.failed': "No s'ha pogut afegir el dispositiu. Torna-ho a provar.",
   'addDevice.error.nameRequired': 'Doneu un nom a aquest dispositiu per continuar.',
   'addDevice.field.firmware': 'Versió del firmware',
   'addDevice.field.manufacturer': 'Fabricant',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Proves…',
   'automationEditor.testNew': "Primer desa l'automatització per provar-la.",
   'automationRow.lastRun': 'Últim {{date}} · {{count}} curses',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Corre {{name}} ara',
   'automations.empty': 'Encara no hi ha automatitzacions: crea la teva primera rutina.',
   'automations.eyebrow': 'Rutines',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': "S'estan carregant les automatitzacions…",
   'automations.newAutomation': '+ Nou',
   'automations.subheading': 'Quan això passi, fes-ho, sense el YAML.',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': "No s'ha pogut carregar el dispositiu.",
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Treballant…',
   'deviceDetail.unnamed': 'Dispositiu',
   'deviceStatusRow.on': 'Activat',
+  'deviceStatusRow.turnOff': 'Desactiva',
+  'deviceStatusRow.turnOn': 'Activa',
   'deviceStatusRow.watts': '{{watts}} Oest',
   'energy.eyebrow': 'Poder',
   'energy.heading': 'Energia',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Veure plans',
   'settings.security.heading': 'Seguretat',
   'settings.subheading': 'Preferències de pla, centres i compte.',
+  'smartHomeDashboardLayout.openMenu': 'Obre el menú de navegació',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navegació principal',
 }

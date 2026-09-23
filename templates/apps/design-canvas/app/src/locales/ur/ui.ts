@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'authShell.brandHeading': 'ایک ساتھ بھیجنے والی ڈیزائن ٹیموں کے لیے پکسل پرفیکٹ کینوسز۔',
   'canvas.redirecting': 'ایڈیٹر کھول رہا ہے…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'اور',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'dashboard.activityEmpty':
     'ابھی تک کوئی حالیہ سرگرمی نہیں — شروع کرنے کے لیے ٹیم کے ساتھی کو مدعو کریں۔',
   'dashboard.activityTitle': 'آج کیا بدل گیا ہے۔',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'ورک اسپیس · نارتھ ونڈ اسٹوڈیو',
   'dashboard.foldersLabel': 'فولڈرز',
   'dashboard.gridTitle': '{{count}} منصوبوں',
+  'dashboard.heroActiveTool': 'قلم کا آلہ',
   'dashboard.loadingTitle': 'پروجیکٹس لوڈ ہو رہے ہیں…',
   'dashboard.searchPlaceholder': 'پروجیکٹس تلاش کریں۔',
   'dashboard.startFromTemplate': 'ٹیمپلیٹ سے شروع کریں۔',
   'dashboard.title': 'آپ کے پروجیکٹس',
   'dashboard.untitledProject': 'بلا عنوان پروجیکٹ',
   'designCanvasLayout.newProject': 'نیا پروجیکٹ',
+  'designCanvasLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'editor.backToProjects': 'منصوبوں پر واپس جائیں۔',
   'editor.deleteShape': 'شکل کو حذف کریں۔',
   'editor.errorBody': 'ہم اس پروجیکٹ کو نہیں کھول سکے۔',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'ڈیزائن ٹولز جو آپ کے ہاتھوں کی رفتار سے چلتے ہیں۔',
   'library.empty': 'اس سیکشن میں ابھی تک کوئی ٹوکن نہیں ہے۔',
   'library.eyebrow': 'ورک اسپیس · ٹیلیئر ڈیزائن سسٹم',
+  'library.loadFailed': 'ڈیزائن ٹوکن لوڈ نہیں ہو سکے۔',
   'library.systemMeta': 'سسٹم کی صحت',
   'library.systemSummary': '{{ٹوکنز}} ٹوکنز · {{اجزاء}} اجزاء · {{اثرات}} اثرات',
   'login.emailPlaceholder': 'mara@studio.com',

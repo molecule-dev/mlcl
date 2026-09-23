@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Võtke ühendust',
   'about.eyebrow': 'Teave',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.connectRepoCta': 'Ühenda andmebaas',
   'dashboard.empty': 'Pull-taotlusi pole veel esitatud – ühenda oma hoidla, et alustada.',
   'dashboard.eyebrow': 'Refract · läbivaatamisjärjekord',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Tööaeg',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Tehisintellekti kvaliteedihinnang {{score}} / 10',
+  'refractLayout.closeMenu': 'Sulge menüü',
+  'refractLayout.openMenu': 'Ava menüü',
   'refractLayout.primaryNavLabel': 'Peamine navigeerimine',
   'reports.cumulativeScoreLabel': 'Kogupunktisumma',
   'reports.cumulativeScoreSubtitle': 'kõik repositooriumid · {{days}} d',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Otsingutulemuste indeksit ei õnnestunud laadida.',
   'settings.apiKeys.description':
     'Haldage isiklikke API-võtmeid paremas ülemises nurgas asuvast kasutajamenüüst.',
+  'settings.apiKeys.integrationsNote':
+    'Teenusepakkuja juurdepääsutokeneid hallatakse ülal asuvas jaotises „Integreerimised”.',
   'settings.connectError': 'Teenusepakkujaga ühenduse loomine ebaõnnestus.',
   'settings.disconnectError': 'Teenusepakkujaga ühenduse katkestamine ebaõnnestus.',
   'settings.eyebrow': 'Refract · töökeskkond',
   'settings.integration.${provider}.label': 'Salvestamine…',
   'settings.loadError': 'Seadeid ei õnnestunud laadida.',
+  'settings.notificationCenter': 'Teavituste keskus',
   'settings.notifications.description':
     'Külasta teavituste lehte, et vaadata ja hallata teavituste seadeid.',
   'settings.section.account': 'Konto ja turvalisus',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Dwar {{app}}',
   'analytics.back': 'Ħarsa ġenerali lejn l-istħarriġ',
   'analytics.kpiNps': 'Punteġġ tal-NPS',
   'analytics.kpiNpsTrend': 'Promoturi {{p}} % · Kritiċi {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Proprjetajiet',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Titlu tal-istħarriġ',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'forgotPassword.failed': "Ma stajtx nibgħat email ta' reset. Jekk jogħġbok erġa' pprova.",
   'forgotPassword.subheading': "Daħħal l-email tiegħek u aħna nibagħtulek link ta' rkupru.",
   'forgotPassword.successBody':
     "Jekk kont jaqbel {{email}} , link ta' reset ġej fi triqtu. Iċċekkja l-inbox u l-folders tal-ispam tiegħek.",
+  'landing.footer.copyright': '© {{year}} {{app}} . Il-vuċijiet kollha huma milqugħa.',
   'landing.footer.startTrial': 'Ibda l-prova',
   'landing.hero.badge': "Stħarriġ, NPS u feedback f'post wieħed",
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Prezzijiet',
   'landing.pricing.perMonth': '/xahar',
   'landing.pricing.popular': 'L-aktar popolari',
+  'landing.pricing.subtitle':
+    "Kull pjan jinkludi l-bennej tal-istħarriġ, links ta' kondiviżjoni pubblika, u analitika NPS. M'hemmx bżonn ta' karta ta' kreditu biex tibda.",
+  'landing.pricing.title': "Ibda b'xejn, u żid l-iskala meta tagħmel dan.",
   'landing.sample.eyebrow': "L-NPS f'daqqa t'għajn",
   'landing.sample.title':
     'Kritiċi, dawk li jargumentaw bil-mod, dawk li jippromovu — jinqraw immedjatament.',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Uri l-password',
   'login.signUpLink': 'Ibda prova bla ħlas',
   'login.subheading': "Idħol biex tkompli tisma' lill-udjenza tiegħek.",
+  'notFound.body':
+    'Il-paġna li qed tfittex ma teżistix fuq {{app}} . Ejja nerġgħu lura għall-istħarriġ tiegħek.',
   'notFound.cta': 'Lura għall-istħarriġiet',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Dan l-istħarriġ ma baqax fil-kju.',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiv 7–8',
   'npsDistributionBar.promoter': 'Promotur 9–10',
   'profile.identity.description': 'Pubbliku għat-tim tiegħek u fuq l-istħarriġiet li tawtorizza.',
+  'profile.identity.emailRequired': 'Daħħal indirizz elettroniku.',
   'profile.identity.saveCta': 'Issejvja l-isem',
   'profile.password.current': 'Password attwali',
   'profile.password.fillFields': 'Daħħal kemm il-password attwali kif ukoll dik ġdida.',
@@ -179,6 +188,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} mistoqsijiet',
   'templates.subheading':
     "Agħżel starter ittestjat fil-battalja — kull template jiġi aġġustat minn qabel b'defaults sensibbli, loġika ta' kampjun, u tqassim mobbli nadif.",
+  'thankYou.body':
+    'Ir-risposta tiegħek ġiet irreġistrata. {{app}} se tinkludiha fl-aġġornament tal-analitika li jmiss.',
   'thankYou.eyebrow': 'Risposta riċevuta',
   'thankYou.heading': 'Grazzi — leħnek jgħodd.',
   'thankYou.home': 'Żur Gauge',

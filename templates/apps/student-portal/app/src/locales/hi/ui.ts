@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'announcementsFeed.empty': 'अभी तक कोई घोषणा नहीं।',
   'announcementsFeed.eyebrow': '{{count}} अपडेट',
   'announcementsFeed.title': 'नवीनतम घोषणाएँ',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'यहाँ कुछ नहीं है',
   'assignments.emptyBody': 'किसी अन्य स्थिति में असाइनमेंट देखने के लिए ऊपर फ़िल्टर बदलें।',
   'assignments.eyebrow': 'सभी पाठ्यक्रम · इस सत्र में',
+  'assignments.loadError': 'असाइनमेंट लोड नहीं हो सके।',
   'assignments.loading': 'असाइनमेंट लोड हो रहे हैं…',
   'assignments.subtitle':
     'देखें कि क्या देय, जमा, अंकित, या अनुपस्थित है — स्थिति के अनुसार फ़िल्टर करें।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'टिप्पणी',
   'attendance.empty': 'अभी तक कोई उपस्थिति रिकॉर्ड नहीं है।',
   'attendance.eyebrow': 'वसंत सत्र · पिछले 4 सप्ताह',
+  'attendance.loadError': 'उपस्थिति रिकॉर्ड लोड नहीं हो सके।',
   'attendance.loading': 'उपस्थिति लोड हो रही है…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'असाइनमेंट देय-तिथियाँ मासिक ग्रिड पर अंकित — परीक्षाएँ लाल रंग में प्रमुखता से दिखती हैं।',
   'calendar.title': '{{month}} कार्यक्रम',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.no': '—',
+  'common.retry': 'फिर से प्रयास करें',
   'common.yes': '✓',
   'courseDetail.backLink': 'अंक',
   'courseDetail.currentGrade': 'वर्तमान अंक',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'प्रवृत्ति',
   'grades.empty': 'अभी तक कोई अंक नहीं दिए गए।',
   'grades.eyebrow': 'अंक पुस्तिका',
+  'grades.loadError': 'आपके ग्रेड लोड नहीं हो सके।',
   'grades.loading': 'अंक लोड हो रहे हैं…',
   'grades.subtitle':
     'लाइव अक्षर और प्रतिशत अंक। प्रवृत्ति तीर दिखाते हैं कि आप ऊपर बढ़ रहे हैं, समान स्तर पर हैं, या फिसल रहे हैं।',
   'grades.title': 'आपके अंक, पाठ्यक्रम दर पाठ्यक्रम',
   'grades.trendStable': 'स्थिर',
+  'landing.copyright': '© {{year}} {{app}} . छात्रों के लिए निर्मित, परिवारों के लिए बनाया गया।',
   'landing.ctaHeading': 'एक शांत स्कूली दिन कुछ ही मिनटों में शुरू होता है',
   'landing.eyebrow': 'मध्य और उच्च विद्यालय के छात्रों के लिए',
   'landing.featuresHeading': 'छात्र के इर्द-गिर्द व्यवस्थित एक स्कूली दिन',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'असाइनमेंट',
   'nav.attendance': 'उपस्थिति',
   'nav.calendar': 'कैलेंडर',
+  'nav.closeMenu': 'नेविगेशन मेनू बंद करें',
   'nav.grades': 'अंक',
+  'nav.openMenu': 'नेविगेशन मेनू खोलें',
   'nav.statusEyebrow': 'सत्र GPA',
   'nav.statusSubtext': 'ऑनर रोल · वसंत सत्र',
+  'nav.unreadMessages': 'अपठित संदेश',
   'notifications.eyebrow': '{{count}} अपडेट',
   'notifications.subtitle':
     'अंक, अनुस्मारक, संदेश और स्कूल घोषणाएँ। सेटिंग्स में प्रत्येक सूचना द्वारा उपयोग किए जाने वाले चैनलों को समायोजित करें।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.attendanceLabel': 'उपस्थिति',
   'pricing.gradesLabel': 'अंक',
   'pricing.heading': 'घोषणाएँ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'accountDetail.activeBadge': 'Aktywne',
   'accountDetail.availableLabel': '{{amount}} dostępne',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Konta',
   'accounts.loadError': 'Nie udało się załadować kont.',
   'accounts.status.closed': 'Zamknięte',
+  'accounts.status.frozen': 'Kraina lodu',
   'accounts.totalBalance': '{{amount}} łącznie',
   'audit.empty': 'Brak zdarzeń.',
   'audit.eyebrow': 'Bezpieczeństwo i dostęp',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Gotówka',
   'cashCreditCard.creditLabel': 'Wykorzystany kredyt',
   'cashCreditCard.title': 'Gotówka i kredyt',
+  'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.accountsHeading': 'Konta',
   'dashboard.heading': 'Przegląd',
   'dashboard.recentEmpty': 'Brak transakcji.',
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Pokaż hasło',
   'login.signUp': 'Zarejestruj się',
   'login.submit': 'Zaloguj się',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Nawigacja główna',
   'nav.legal': 'Prawne',
   'notifications.emptyHeading': 'Wszystko na bieżąco',
   'notifications.subheading':
     'Powiadomienia w czasie rzeczywistym o transakcjach, bezpieczeństwie i wyciągach.',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'privacy.dataWeShare':
     'Osobistych danych bankowych nigdy nie sprzedajemy. Informacje udostępniamy procesorom płatności, sieciom kart i regulatorom wyłącznie w zakresie wymaganym do rozliczania transakcji lub spełniania zobowiązań prawnych.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Uwierzytelnianie dwuskładnikowe dodaje jednorazowy kod z aplikacji uwierzytelniającej przy każdym logowaniu.',
   'settings.security.twoFactorCta': 'Zarządzaj uwierzytelnianiem dwuskładnikowym',
+  'settings.security.twoFactorOff': 'Uwierzytelnianie dwuskładnikowe jest wyłączone',
   'settings.signOutDevice': 'Wyloguj się',
   'settings.subheading': 'Profil, bezpieczeństwo i powiadomienia.',
+  'settings.twoFactorCode': 'Kod uwierzytelniający',
   'settings.twoFactorDisable': 'Wyłącz',
   'settings.twoFactorEnable': 'Włącz',
+  'settings.twoFactorInvalidCode': 'Nieprawidłowy kod',
+  'settings.twoFactorVerify': 'Sprawdź i włącz',
   'signup.emailLabel': 'Adres e-mail',
   'signup.fullName': 'Jak mamy się do Pana/Pani zwracać?',
   'signup.showPassword': 'Pokaż hasło',
@@ -104,7 +113,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Brak transakcji.',
   'transactions.endDate': 'Data zakończenia',
   'transactions.eyebrow': 'Aktywność',
+  'transactions.loadError': 'Nie udało się załadować transakcji.',
   'transactions.merchant': 'Sprzedawca',
+  'transactions.subheading':
+    'Wszystkie zaksięgowane i oczekujące transakcje na wszystkich Twoich kontach.',
   'transfers.availableHint': '{{amount}} dostępne',
   'transfers.errorGeneric': 'Nie można wysłać przelewu.',
   'transfers.errorMissingFields': 'Proszę wybrać konto źródłowe i miejsce docelowe.',

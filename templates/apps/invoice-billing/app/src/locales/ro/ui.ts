@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
   'activityFeed.empty': 'Nicio activitate încă — trimiteți prima factură.',
   'authShell.sample.paid': 'Plătit acum 2 minute',
@@ -29,6 +30,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Adăugați un client nou',
   'clients.search': 'Căutare după nume, companie, e-mail',
   'clients.title': 'Clienți',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Client nou',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Parolă uitată',
   'forgotPassword.successBody':
     'Am trimis instrucțiuni de resetare către {{email}} Linkul expiră în 30 de minute.',
+  'invoiceDetail.action.confirmVoid': 'Confirmați anularea?',
   'invoiceDetail.action.download': 'Descărcați PDF',
   'invoiceDetail.action.duplicate': 'Duplicat',
   'invoiceDetail.action.edit': 'Editați',
@@ -73,9 +76,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Factură anulată.',
   'invoiceDetail.issued': 'Emis {{date}}',
   'invoiceDetail.loading': 'Se încarcă factura…',
+  'invoiceDetail.paidInFull': 'Plătit integral',
   'invoiceDetail.summary': '{{client}} · trimis {{date}}',
   'invoiceDetail.tax': 'Taxă ({{rate}}%)',
   'invoiceDetail.timeline': 'Cronologie',
+  'invoiceDetail.voided': 'Anulat',
   'invoiceEditor.addItem': 'Adăugați element',
   'invoiceEditor.back': '← Înapoi la facturi',
   'invoiceEditor.col.qty': 'Cant.',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Trimiteți prima factură',
   'landing.hero.eyebrow': 'Facturare pentru întreprinderi mici',
   'landing.hero.secondary': 'Vedeți un exemplu de factură',
+  'landing.hero.subtitle':
+    '{{appName}} combină facturi impecabile cu plăți integrate, facturare recurentă și rapoarte fiscale. Fără contabilitate.',
   'landing.hero.title': 'Trimiteți facturi. Fiți plătiți mai rapid.',
   'login.signupLink': 'Creați unul',
   'login.submitting': 'Se conectează…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'plăți',
   'pricing.recurringLabel': 'programe recurente',
   'remitLayout.newInvoice': 'Factură nouă',
+  'remitLayout.openMenu': 'Deschide meniul de navigare',
   'remitLayout.searchPlaceholder': 'Caută facturi, clienți...',
   'remitLayout.tagline': 'Fii plătit, mai repede',
   'reports.chart.aging': 'Învechirea facturilor',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Venituri din perioadă',
   'reports.chart.topClients': 'Clienți de top',
   'reports.chart.topClientsCaption': 'Venituri pe durata vieții, top 5',
+  'reports.empty.aging': 'Nicio factură restantă.',
+  'reports.empty.methods': 'Încă nu există date de plată.',
+  'reports.empty.revenue': 'Încă nu există date despre venituri.',
+  'reports.empty.topClients': 'Încă nu există date despre veniturile clienților.',
   'reports.exporting': 'Se exportă…',
   'reports.exportRequiresPaid':
     'Exporturile sunt o funcție plătită — faceți upgrade pentru a o activa.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Adăugați cota de impozitare',
   'settings.tax.added': 'Cota de impozitare adăugată.',
   'settings.tax.adding': 'Se adaugă…',
+  'settings.tax.addRate': 'Adăugați o rată',
   'settings.tax.col.region': 'Regiune',
   'settings.tax.delete': 'Ștergeți cota de impozitare',
   'settings.tax.deleted': 'Cota de impozitare a fost eliminată.',

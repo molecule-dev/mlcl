@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tentang {{app}}',
   'analytics.back': 'Ikhtisar survei',
   'analytics.kpiNps': 'Skor NPS',
   'analytics.kpiNpsTrend': 'Promotor {{p}}% · Pengkritik {{d}}%',
@@ -31,10 +32,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Properti',
   'builder.questionNumber': 'P{{num}}',
   'builder.surveyTitle': 'Judul survei',
+  'common.goToDashboard': 'Ke Dashboard',
   'forgotPassword.failed': 'Tidak dapat mengirim email pengaturan ulang. Silakan coba lagi.',
   'forgotPassword.subheading': 'Masukkan email Anda dan kami akan mengirim tautan pemulihan.',
   'forgotPassword.successBody':
     'Jika ada akun yang cocok dengan {{email}}, tautan pengaturan ulang sedang dalam perjalanan. Periksa kotak masuk dan folder spam Anda.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Semua suara diterima.',
   'landing.footer.startTrial': 'Mulai uji coba',
   'landing.hero.badge': 'Survei, NPS & umpan balik dalam satu tempat',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Harga',
   'landing.pricing.perMonth': '/bln',
   'landing.pricing.popular': 'Paling populer',
+  'landing.pricing.subtitle':
+    'Setiap paket mencakup pembuat survei, tautan berbagi publik, dan analitik NPS. Tidak diperlukan kartu kredit untuk memulai.',
+  'landing.pricing.title': 'Mulailah secara gratis, kembangkan seiring berjalannya waktu.',
   'landing.sample.eyebrow': 'NPS sekilas',
   'landing.sample.title': 'Pengkritik, pasif, promotor — langsung mudah dibaca.',
   'login.failed': 'Masuk gagal. Silakan coba lagi.',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Tampilkan kata sandi',
   'login.signUpLink': 'Mulai uji coba gratis',
   'login.subheading': 'Masuk untuk terus mendengarkan audiens Anda.',
+  'notFound.body':
+    'Halaman yang Anda cari tidak ada di {{app}} . Mari kita kembalikan Anda ke survei Anda.',
   'notFound.cta': 'Kembali ke survei',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Survei ini terlepas dari antrian.',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasif 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Publik untuk tim Anda dan di survei yang Anda buat.',
+  'profile.identity.emailRequired': 'Masukkan alamat email.',
   'profile.identity.saveCta': 'Simpan nama',
   'profile.password.current': 'Kata sandi saat ini',
   'profile.password.fillFields': 'Masukkan kata sandi saat ini dan yang baru.',
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} pertanyaan',
   'templates.subheading':
     'Pilih starter yang telah teruji — setiap templat hadir dengan default yang masuk akal, logika contoh, dan tata letak seluler yang bersih.',
+  'thankYou.body':
+    'Tanggapan Anda telah dicatat. {{app}} akan menyertakannya dalam pembaruan analitik berikutnya.',
   'thankYou.eyebrow': 'Respons diterima',
   'thankYou.heading': 'Terima kasih — suara Anda penting.',
   'thankYou.home': 'Kunjungi Gauge',

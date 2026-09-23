@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'billing.canceled': 'Tilaus peruutettu. Palaat Free-tasolle kauden lopussa.',
   'billing.contactSales': 'Ota yhteyttä myyntiin',
   'billing.free.1': '5 käännöstä',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Ei säilytysrajaa',
   'billing.upgradeHint': 'Päivitä avataksesi edistyneet tekoälyominaisuudet.',
   'billing.yearly': 'Vuosittain',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.activityEmpty': 'Ei vielä toimintaa — käynnistä projekti täyttääksesi tämän syötteen.',
   'dashboard.eyebrow': 'Yleiskatsaus',
   'dashboard.projectsEmpty': 'Ei vielä projekteja — käynnistä yksi nähdäksesi sen täällä.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Käytä aiempia käännöksiä uudelleen kaikissa projekteissa. Korkeampi vastaavuuspisteet → vähemmän uudelleentyötä.',
   'memory.title': 'Muistipankki',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'nav.legal': 'Lainsäädäntö',
   'newProject.addLanguage': 'Lisää kohde',
   'newProject.create': 'Luo projekti',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} ilmoitusta merkitty luetuksi.',
   'notifications.subtitle':
     'Maininnat, tarkistuspyynnöt ja tekoälytapahtumat kaikista työtilastasi.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'privacy.collection.account': 'Tilisi sähköposti ja näyttönimi',
   'privacy.deletion.body':
     'Voit poistaa projektin, segmentin, sanastotermityön tai muistiinmerkinnän milloin tahansa asianomaiselta sivulta. Tilisi poistaminen Asetuksista poistaa kaikki työtilaan sidotut rivit tietokannastamme.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Projektien lataus epäonnistui.',
   'projects.loading': 'Ladataan projekteja…',
   'projects.subtitle': 'Kaikki aktiiviset projektit kaikilla kielillä.',
+  'renditionLayout.primaryNavLabel': 'Päänavigaatio',
   'reset.backToLogin': '← Takaisin kirjautumiseen',
   'reset.passwordLabel': 'Uusi salasana',
   'review.activeEyebrow': 'Segmentti {{number}}',

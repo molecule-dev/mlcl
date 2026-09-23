@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'អតិថិជន',
   'customers.loadError': 'បរាជ័យក្នុងការផ្ទុកអតិថិជន។',
   'customers.loading': 'កំពុងផ្ទុក…',
+  'customers.new.address': 'អាសយដ្ឋានសេវាកម្ម',
   'customers.new.email': 'អ៊ីមែល',
   'customers.new.error': 'បរាជ័យក្នុងការបន្ថែមអតិថិជន។',
   'customers.new.heading': 'អតិថិជនថ្មី',

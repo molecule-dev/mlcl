@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Гласови',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Још нема питања на чекању.',
   'audienceQa.onStageEyebrow': 'Сада на сцени',
   'audienceQa.pollId': 'ка · {{id}}',
+  'audienceQa.promote': 'Промовишите',
   'audienceQa.queued': 'у реду',
   'audienceQa.queueEyebrow': 'Ред',
   'ballot.eyebrow': 'Дајте свој гласачки листић',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Тренутно сте на {{plan}} план.',
   'billing.switch': 'Прекидач',
   'billing.upgraded': 'Ажурирано на {{plan}} — ограничења се примењују одмах.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'createPoll.addOption': 'Додај опцију',
   'createPoll.anonymousHint':
     'Имена бирача скривена у евиденцији ревизије; пребројани гласови остају аутентични.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Нови у Ношу?',
   'login.remember': 'Запамти ме 30 дана',
   'login.subheading': 'Отворите под, прођите кроз собу и потврдите резултат.',
+  'mobileNav.closeMenu': 'Затвори мени за навигацију',
+  'mobileNav.openMenu': 'Отвори мени за навигацију',
   'notFound.body':
     'Страница којој сте покушали да приступите је затворена или премештена. Вратите се на контролну таблу или отворите нову анкету.',
   'notFound.eyebrow': 'Нема кворума на овој рути',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Није могуће учитати ову анкету.',
   'pollDetail.loading': 'Учитавање анкете…',
   'pollDetail.notFound': 'Анкета није пронађена.',
+  'pollDetail.openBallot': 'Отворени гласачки листић',
   'pollDetail.openLive': 'Резултати уживо',
   'pollDetail.pollId': 'анкета · {{id}}',
   'pollDetail.published': 'Анкета објављена — бирачи сада могу да гласају.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Претрага путем имејла…',
   'voters.subheading':
     'Припремите бираче који су испунили услове. Групишите бираче по организацији за пондерисане гласачке листиће.',
+  'votingPollingLayout.nav.analytics': 'Аналитика',
+  'votingPollingLayout.nav.billing': 'Наплата',
+  'votingPollingLayout.nav.createPoll': 'Нова анкета',
+  'votingPollingLayout.nav.dashboard': 'Контролна табла',
+  'votingPollingLayout.nav.notifications': 'Обавештења',
+  'votingPollingLayout.nav.settings': 'Подешавања',
+  'votingPollingLayout.nav.team': 'Тим',
+  'votingPollingLayout.nav.voters': 'Бирачи',
+  'votingPollingLayout.primaryNavLabel': 'Примарна навигација',
 }

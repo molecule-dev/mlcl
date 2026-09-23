@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Info su {{app}}',
   'about.plansTitle': 'Piani che crescono con lei',
   'brand.tagline': 'Ogni secondo',
   'clientDetail.back': 'Torna ai clienti',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Ogni relazione in un unico posto — progetti, ore, fatture in sospeso.',
   'clients.title': 'Clienti',
   'common.and': 'e',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.activeProjects': 'Progetti attivi',
   'dashboard.empty':
     'Nessuna registrazione ancora. Avvii il timer per registrare la Sua prima sessione.',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Nessuna ora fatturabile da fatturare per questo cliente. Tracci prima del tempo o assegni registrazioni esistenti a uno dei progetti di questo cliente.',
   'invoices.save': 'Crea fattura',
   'invoices.subtitle': 'Le ore tracciate si trasformano in fatture, automaticamente.',
+  'landing.copyright': '© {{year}} {{app}} . Ogni secondo, contabilizzato.',
   'landing.ctaBody':
     "Gratis fino a 3 progetti. Effettui l'upgrade quando la Sua lista clienti cresce.",
   'landing.eyebrow': 'Tracciamento del tempo per il lavoro fatturabile',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Affidato dagli indipendenti',
   'landing.testimonial.quote':
     '“Ho abbandonato Toggl in 30 minuti. Il burn-down del budget da solo si è ripagato — ho smesso di sottostimare due settimane di fila.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Ogni secondo, registrato.',
   'login.brand.subtitle':
     'Riprenda il timer da dove lo ha lasciato — ogni minuto già mappato a un progetto, un cliente, una fattura.',
   'login.brand.tracking': 'Tracciamento',
   'login.subheading': 'Riprenda il timer da dove lo ha lasciato.',
+  'nav.closeMenu': 'Chiudi il menu di navigazione',
   'nav.insightsSection': 'Insight',
   'nav.newEntry': 'Nuova registrazione',
+  'nav.openMenu': 'Apri il menu di navigazione',
+  'nav.primary': 'Navigazione principale',
   'nav.workSection': 'Lavoro',
   'notFound.body':
     'Sembra che il link che ha seguito abbia smesso di tracciare. Torni alla Sua dashboard — continueremo a contare da lì.',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Fatturabile',
   'timer.descriptionPlaceholder': 'A cosa sta lavorando?',
   'timer.idle': 'Inattivo — inizi a tracciare',
+  'timer.noProject': 'Nessun progetto',
   'timer.runningWithProject': 'Nessun progetto',
   'timer.start': 'Avvia timer',
   'timer.stop': 'Ferma timer',

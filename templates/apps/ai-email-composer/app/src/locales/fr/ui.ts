@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'Notre histoire',
   'aiSuggestionPanel.title': 'Copilote Signet',
   'analytics.col.open': "Taux d'ouverture",
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Démarrage du paiement…',
   'billing.subheading': "Choisissez le forfait adapté à votre façon d'envoyer.",
   'billing.unavailable': 'Contacter les ventes',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'common.retry': 'Réessayer',
   'compose.adjustingTone': 'Réécriture dans le ton sélectionné…',
   'compose.aiPromptPlaceholder':
     'p. ex. « Relance polie après deux semaines sans réponse, reste concise. »',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Un message à envoyer ? Signet peut préparer un brouillon en quelques secondes.',
   'dashboard.composeCtaLabel': 'Rédaction rapide',
   'dashboard.heading': 'Votre semaine, rédigée',
+  'dashboard.loadFailed': 'Impossible de charger votre tableau de bord.',
   'dashboard.manageLibrary': 'Gérer la bibliothèque →',
   'dashboard.recentEmpty': 'Aucun envoi pour le moment — vos e-mails envoyés apparaîtront ici.',
   'dashboard.recentHeading': 'Envois récents',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ton par défaut',
   'settings.toneSubheading': 'Signet utilise ce ton sauf si vous le remplacez sur le brouillon.',
   'signetLayout.primaryNavLabel': 'Navigation principale',
+  'signetLayout.toggleMenu': 'Basculer le menu',
   'signup.emailLabel': 'Adresse e-mail',
   'signup.showPassword': 'Afficher le mot de passe',
   'signup.tagline': "Envoyez votre premier e-mail rédigé par IA en moins d'une minute.",

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.pageTitle': 'Про {{appName}}',
   'analytics.error': 'Не вдалося завантажити аналітику.',
   'analytics.heading': 'Аналітика пошуку',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ціноутворювальні рівні не налаштовано.',
   'billing.plans.heading': 'Плани',
   'billing.subheading': 'План, використання та оформлення замовлення за допомогою Stripe.',
+  'common.confirm': 'Підтвердити',
+  'common.goToDashboard': 'До панелі',
+  'common.retry': 'Спробувати ще раз',
   'documentCard.open': 'Відкрито \\u2192',
   'documentDetail.back': 'Назад до документів',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Індексний документ',
   'documents.composer.titlePlaceholder': 'Назва документа',
   'documents.emptyAll': 'Поки що немає документів. Завантажте його, щоб почати ставити запитання.',
+  'documents.error.load': 'Не вдалося завантажити документи.',
   'documents.heading': 'Індексовані документи',
   'documents.loading': 'Завантаження документів…',
   'documents.metric.chunks': 'Загальна кількість фрагментів',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Видалення\\u2026',
   'members.subheading': 'Запросіть товаришів по команді та розставте ролі.',
   'members.tableHeading': 'Склад',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'notFound.askCta': 'Запитайте в базі знань',
+  'notFound.body':
+    '{{app}} не зміг знайти цю сторінку. Можливо, посилання не працює, або сторінку було видалено під час переіндексації.',
   'notFound.eyebrow': 'Не вдається отримати',
   'notFound.title': 'Такого фрагмента в індексі немає',
   'notifications.dismiss': 'Закрити',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL-адреса джерела',
   'sources.empty.body': "Натисніть кнопку «Додати джерело», щоб підключити перший роз'єм.",
   'sources.empty.title': 'Джерел поки що немає.',
+  'sources.error.add': 'Не вдалося додати джерело.',
   'sources.error.labelRequired': "Мітка обов'язкова.",
   'sources.error.load': 'Не вдалося завантажити джерела.',
   'sources.error.urlRequired': 'Для цього типу джерела потрібна URL-адреса.',

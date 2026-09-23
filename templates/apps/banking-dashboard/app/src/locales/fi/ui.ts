@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'accountDetail.activeBadge': 'Aktiivinen',
   'accountDetail.availableLabel': '{{amount}} käytettävissä',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Tilit',
   'accounts.loadError': 'Tilien lataus epäonnistui.',
   'accounts.status.closed': 'Suljettu',
+  'accounts.status.frozen': 'Jäädytetty',
   'accounts.totalBalance': '{{amount}} yhteensä',
   'audit.empty': 'Ei vielä tapahtumia.',
   'audit.eyebrow': 'Turvallisuus ja käyttöoikeus',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Käteistä käytettävissä',
   'cashCreditCard.creditLabel': 'Käytetty luotto',
   'cashCreditCard.title': 'Käteinen ja luotto',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.accountsHeading': 'Tilit',
   'dashboard.heading': 'Yleiskatsaus',
   'dashboard.recentEmpty': 'Ei vielä tapahtumia.',
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Näytä salasana',
   'login.signUp': 'Rekisteröidy',
   'login.submit': 'Kirjaudu sisään',
+  'meridianLayout.menu': 'Valikko',
   'meridianLayout.primaryNavLabel': 'Päänavigaatio',
   'nav.legal': 'Lainsäädäntö',
   'notifications.emptyHeading': 'Olet ajan tasalla',
   'notifications.subheading':
     'Reaaliaikaiset hälytykset tapahtumista, turvallisuudesta ja tiliotteista.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'privacy.dataWeShare':
     'Henkilökohtaisia pankkitietoja ei koskaan myydä. Jaamme tietoja maksunkäsittelijöiden, korttiverkostojen ja viranomaisten kanssa ainoastaan tarvittaessa tapahtumien suorittamiseksi tai lakisääteisten velvoitteiden täyttämiseksi.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Kaksivaiheinen tunnistautuminen lisää todentajasovelluksen kertakoodin jokaiseen kirjautumiseen.',
   'settings.security.twoFactorCta': 'Hallinnoi kaksivaiheista tunnistautumista',
+  'settings.security.twoFactorOff': 'Kaksivaiheinen todennus on pois käytöstä',
   'settings.signOutDevice': 'Kirjaudu ulos',
   'settings.subheading': 'Profiili, turvallisuus ja ilmoitukset.',
+  'settings.twoFactorCode': 'Todentamiskoodi',
   'settings.twoFactorDisable': 'Poista käytöstä',
   'settings.twoFactorEnable': 'Ota käyttöön',
+  'settings.twoFactorInvalidCode': 'Virheellinen koodi',
+  'settings.twoFactorVerify': 'Tarkista ja ota käyttöön',
   'signup.emailLabel': 'Sähköpostiosoite',
   'signup.fullName': 'Miten haluaisit meidän puhuttelevan sinua?',
   'signup.showPassword': 'Näytä salasana',
@@ -105,7 +114,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Ei vielä tapahtumia.',
   'transactions.endDate': 'Päättymispäivä',
   'transactions.eyebrow': 'Toiminta',
+  'transactions.loadError': 'Tapahtumien lataaminen epäonnistui.',
   'transactions.merchant': 'Kauppias',
+  'transactions.subheading': 'Kaikki tilillesi kirjatut ja käsittelyssä olevat tapahtumat.',
   'transfers.availableHint': '{{amount}} käytettävissä',
   'transfers.errorGeneric': 'Siirtoa ei voitu lähettää.',
   'transfers.errorMissingFields': 'Valitse lähdetili ja kohde.',

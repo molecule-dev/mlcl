@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Apie',
+  'appShell.closeNav': 'Uždaryti navigaciją',
+  'appShell.openNav': 'Atidaryti navigaciją',
+  'common.dashboard': 'Prietaisų skydelis',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.eyebrow': 'Šiandien visoje lygoje',
   'dashboard.loading': 'Skelbiami šio vakaro rezultatai…',
   'dashboard.scoringLeaders': 'Rezultatyviausi lyderiai',
@@ -149,4 +153,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} prieš d.',
   'time.hoursAgo': '{{count}} prieš val.',
   'time.minutesAgo': '{{count}} prieš min.',
+  'time.secondsAgo': 'Prieš {{count}} s',
 }

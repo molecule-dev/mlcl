@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'auth.forgotPassword.emailPlaceholder': 'nama@syarikatanda.com',
   'auth.forgotPassword.heading': 'Tetapkan semula kata laluan anda.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Tandakan tugasan selesai',
   'checklistTaskCard.markIncomplete': 'Tandakan tugasan tidak lengkap',
   'checklistTaskCard.openLabel': 'Buka tugasan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Anda sudah terkini',
@@ -53,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Di landasan yang betul',
   'dashboard.timelineHeading': 'Pencapaian penting 30/60/90',
   'dashboard.viewAllTasks': 'Lihat semua tugasan',
+  'dashboard.weekOne': 'Minggu 1',
   'dashboard.yourCohort': 'Pasukan anda',
   'documents.empty.body': 'Dokumen yang ditambahkan oleh pasukan anda akan dipaparkan di sini.',
   'documents.empty.title': 'Tiada dokumen lagi',
@@ -110,7 +113,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Percubaan percuma 14 hari',
   'landing.subhead':
     'Embark membimbing setiap rakan sepasukan baharu melalui 90 hari pertama mereka — kerja kertas, latihan, peristiwa penting dan pengenalan yang bermakna, semuanya dalam satu tempat yang tenang dan yakin.',
+  'layout.openMenu': 'Buka menu navigasi',
   'layout.search': 'Cari tugasan, dokumen, rakan sepasukan…',
+  'layout.searchTeammates': 'Cari rakan sepasukan mengikut nama atau peranan…',
   'layout.section.onboarding': 'Pendaftaran',
   'layout.tagline': 'Perjalanan anda bermula di sini',
   'notifications.empty.body': 'Aktiviti baharu akan dipaparkan di sini.',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'semalam',
   'planUpdated.message': 'Awak dah siap.',
   'planUpdated.preparing': 'Mengemas kini pelan anda…',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.documentsLabel': 'dokumen',
   'pricing.onboardingsLabel': 'onboarding',
   'pricing.tasksLabel': 'tugasan',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.pageTitle': 'Over {{appName}}',
   'analytics.error': 'Kan analyses niet laden.',
   'analytics.heading': 'Retrieval-analyses',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Geen prijsniveaus geconfigureerd.',
   'billing.plans.heading': 'Abonnementen',
   'billing.subheading': 'Abonnement, gebruik en door Stripe beheerde checkout.',
+  'common.confirm': 'Bevestigen',
+  'common.goToDashboard': 'Ga naar Dashboard',
+  'common.retry': 'Opnieuw proberen',
   'documentCard.open': 'Openen →',
   'documentDetail.back': 'Terug naar documenten',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Document indexeren',
   'documents.composer.titlePlaceholder': 'Documenttitel',
   'documents.emptyAll': 'Nog geen documenten. Upload er een om vragen te gaan stellen.',
+  'documents.error.load': 'Kan documenten niet laden.',
   'documents.heading': 'Geïndexeerde documenten',
   'documents.loading': 'Documenten laden…',
   'documents.metric.chunks': 'Totaal chunks',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Verwijderen…',
   'members.subheading': 'Nodig teamgenoten uit en stel rollen in.',
   'members.tableHeading': 'Lijst',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'notFound.askCta': 'Stel de kennisbank een vraag',
+  'notFound.body':
+    '{{app}} kon die pagina niet vinden. De link is mogelijk defect of de pagina is mogelijk verwijderd tijdens een herindexering.',
   'notFound.eyebrow': 'Kan niet ophalen',
   'notFound.title': 'Geen dergelijk chunk in de index',
   'notifications.dismiss': 'Sluiten',
@@ -202,6 +211,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Bron-URL',
   'sources.empty.body': 'Klik op “Bron toevoegen” om uw eerste connector te koppelen.',
   'sources.empty.title': 'Nog geen bronnen.',
+  'sources.error.add': 'Kon geen bron toevoegen.',
   'sources.error.labelRequired': 'Label is verplicht.',
   'sources.error.load': 'Kan bronnen niet laden.',
   'sources.error.urlRequired': 'URL is verplicht voor dit soort bron.',

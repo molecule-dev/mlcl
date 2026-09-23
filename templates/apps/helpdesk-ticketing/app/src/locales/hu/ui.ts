@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Lépjen kapcsolatba velünk',
   'about.eyebrow': 'Névjegy',
+  'about.title': 'A {{app}} névjegye',
   'activeAgentsCard.agent1AvatarAlt':
     'Professzionális portré egy női ügyfélszolgálati ügynökről, barátságos mosollyal, modern irodában',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kapcsolatfelvétel az ügyfélszolgálattal',
   'forgotPassword.error': 'Az visszaállítási e-mail küldése nem sikerült. Próbáld újra.',
   'forgotPassword.rememberPassword': 'Emlékszel a jelszavadra?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Bejelentkezés — Zenith Ügyfélszolgálat',
   'login.showPassword': 'Jelszó megjelenítése',
   'login.welcomeSubheading': 'Jelentkezzen be a támogatási irányítópultra',
+  'mobileNav.closeMenu': 'Navigáció bezárása',
+  'mobileNav.menu': 'Navigáció',
+  'mobileNav.openMenu': 'Navigáció megnyitása',
   'nav.legal': 'Jogi',
   'nav.newTicket': 'Új jegy',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Parancskeresés',
   'operatorDock.newReport': 'Új jelentés',
   'operatorDock.systemOnline': 'Rendszer online',
+  'planUpdated.subtitle': 'Köszönjük',
   'planUpdated.title': 'Csomag frissítve',
   'pricing.agents': 'ügynökök',
   'pricing.automation': 'Automatizálási szabályok',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{név}} avatárja',
   'ticketDetail.errorTitle': 'Valami rosszul sült el',
+  'ticketDetail.loadError': 'Nem sikerült betölteni a jegyet.',
+  'ticketDetail.notFound': 'Jegy nem található',
+  'ticketDetail.replyError': 'Nem sikerült elküldeni a választ. Próbáld újra.',
   'ticketDetail.retry': 'Próbálja újra',
   'ticketDetail.statusUpdateError': 'Nem sikerült frissíteni az állapotot. Próbáld újra.',
   'ticketDetailsCard.assigneeLabel': 'Engedményes',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{idő}} balra',
   'ticketRow.title': 'Adatbázis-kapcsolat hibás éles környezetben {{csomópont}}',
   'tickets.pageTitle': 'Jegyek — Zenith Ügyfélszolgálat',
+  'ticketsFab.newTicket': 'Új jegy',
   'ticketsFilterBar.assigneeLabel': 'Engedményes:',
   'ticketsFilterBar.clearFilters': 'Szűrők törlése',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'ਬਾਰੇ',
   'alertConditionCard.condition.${alert.condition}': 'ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ {{ਜਦੋਂ}}',
+  'alertConditionCard.confirmDelete': 'ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
   'alertConditionCard.pauseAriaLabel': 'ਚੇਤਾਵਨੀ ਰੋਕੋ',
   'alertConditionCard.resumeAriaLabel': 'ਚੇਤਾਵਨੀ ਮੁੜ-ਚਾਲੂ ਕਰੋ',
   'alertNew.condition': 'ਹਾਲਤ',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'ਪੂਰੀ ਤਰ੍ਹਾਂ ਪਤਲਾ ਮੁੱਲਾਂਕਣ',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'ਵੈੱਬਸਾਈਟ',
+  'coinDetail.links.whitepaper': 'ਵ੍ਹਾਈਟਪੇਪਰ',
   'coinDetail.loadError': 'ਸਿੱਕਾ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'coinDetail.marketCap': 'ਮਾਰਕੀਟ ਕੈਪ',
   'coinDetail.maxSupply': 'ਵੱਧ ਤੋਂ ਵੱਧ ਸਪਲਾਈ',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     "ਤੁਹਾਡੇ ਦੁਆਰਾ ਸਕੈਨ ਕੀਤਾ ਗਿਆ ਰਸਤਾ ਕਿਸੇ ਜਾਣੇ-ਪਛਾਣੇ ਸਿੱਕੇ ਜਾਂ ਪੰਨੇ 'ਤੇ ਨਹੀਂ ਪਹੁੰਚਦਾ। ਚਿੰਨ੍ਹ ਦੀ ਦੁਬਾਰਾ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
   'notFound.browseMarkets': 'ਬਾਜ਼ਾਰਾਂ ਨੂੰ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'portfolio.addError': 'ਚਿੰਨ੍ਹ, ਸਕਾਰਾਤਮਕ ਰਕਮ, ਅਤੇ ਲਾਗਤ ਦਰਜ ਕਰੋ।',
   'portfolio.addHoldingCta': '+ ਹੋਲਡਿੰਗ ਸ਼ਾਮਲ ਕਰੋ',
   'portfolio.addModal.cost': 'ਲਾਗਤ ਆਧਾਰ (USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'ਪਾਸਵਰਡ ਅਤੇ ਦੋ-ਕਾਰਕ ਸੈਟਿੰਗਾਂ ਤੁਹਾਡੇ ਖਾਤੇ ਦੁਆਰਾ ਪ੍ਰਬੰਧਿਤ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।',
   'settings.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
+  'settings.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'settings.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
   'settings.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'sigilAuthShell.backHomeCta': '← ਸਿਗਿਲ ਤੇ ਵਾਪਸ ਜਾਓ',
   'sigilLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'signup.eyebrow': 'ਇੱਕ ਟਰਮੀਨਲ ਖੋਲ੍ਹੋ',

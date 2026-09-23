@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} के बारे में',
   'about.plansTitle': 'योजनाएँ जो आपके साथ बढ़ती हैं',
   'brand.tagline': 'हर सेकंड',
   'clientDetail.back': 'ग्राहकों पर वापस जाएं',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'हर रिश्ता एक जगह पर — परियोजनाएं, घंटे, बकाया चालान।',
   'clients.title': 'ग्राहक',
   'common.and': 'और',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.activeProjects': 'सक्रिय परियोजनाएं',
   'dashboard.empty': 'अभी तक कोई प्रविष्टि नहीं। अपना पहला सत्र ट्रैक करने के लिए टाइमर शुरू करें।',
   'dashboard.greeting': 'नमस्ते {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'इस ग्राहक के लिए चालान करने हेतु कोई बिल योग्य घंटे नहीं। पहले कुछ समय ट्रैक करें या मौजूदा प्रविष्टियों को इस ग्राहक की किसी परियोजना को आवंटित करें।',
   'invoices.save': 'चालान बनाएं',
   'invoices.subtitle': 'ट्रैक किए गए घंटे स्वचालित रूप से चालान में बदल जाते हैं।',
+  'landing.copyright': '© {{year}} {{app}} . हर सेकंड का हिसाब रखा गया है।',
   'landing.ctaBody': '3 परियोजनाओं तक मुफ्त। जब आपकी ग्राहक सूची बढ़े तो अपग्रेड करें।',
   'landing.eyebrow': 'बिल योग्य कार्य के लिए समय ट्रैकिंग',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'स्वतंत्र पेशेवरों द्वारा विश्वसनीय',
   'landing.testimonial.quote':
     '“मैं 30 मिनट में Toggl से निकल आया। अकेले बजट बर्न-डाउन ने अपनी कीमत वसूल कर ली है — मैंने लगातार दो हफ्तों से कम कोटिंग करना बंद कर दिया है।”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. हर सेकंड का हिसाब।',
   'login.brand.subtitle':
     'जहां आपने छोड़ा था वहीं से टाइमर उठाएं — हर मिनट पहले से ही किसी परियोजना, ग्राहक, चालान से मैप किया गया।',
   'login.brand.tracking': 'ट्रैकिंग',
   'login.subheading': 'जहां आपने छोड़ा था वहीं से टाइमर उठाएं।',
+  'nav.closeMenu': 'नेविगेशन मेनू बंद करें',
   'nav.insightsSection': 'अंतर्दृष्टि',
   'nav.newEntry': 'नई प्रविष्टि',
+  'nav.openMenu': 'नेविगेशन मेनू खोलें',
+  'nav.primary': 'प्राथमिक नेविगेशन',
   'nav.workSection': 'कार्य',
   'notFound.body':
     'ऐसा लगता है कि आपके द्वारा अनुसरण किए गए लिंक ने ट्रैकिंग बंद कर दी है। अपने डैशबोर्ड पर वापस जाएं — हम वहां से गिनती जारी रखेंगे।',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'बिल योग्य',
   'timer.descriptionPlaceholder': 'आप किस पर काम कर रहे हैं?',
   'timer.idle': 'निष्क्रिय — ट्रैकिंग शुरू करें',
+  'timer.noProject': 'कोई परियोजना नहीं',
   'timer.runningWithProject': 'कोई परियोजना नहीं',
   'timer.start': 'टाइमर शुरू करें',
   'timer.stop': 'टाइमर रोकें',

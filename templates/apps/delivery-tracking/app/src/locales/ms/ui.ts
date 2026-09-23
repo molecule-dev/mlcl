@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'alerts.acknowledgeLabel': 'Akui',
   'alerts.customerLabel': 'Pelanggan: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Menyambung…',
   'carriers.requiredError': 'Nama dan kod diperlukan.',
   'carriers.subheading': '{{count}} bersepadu',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
+  'common.retry': 'Cuba semula',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Dalam transit + ditandai',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'penghantaran',
   'pricing.trackingLabel': 'menjejaki peristiwa',
   'profile.dangerZone.title': 'Zon bahaya',
+  'profile.devices.signingOut': 'Log keluar…',
+  'profile.devices.unnamed': 'Peranti tanpa nama',
+  'profile.security.disable2fa': 'Lumpuhkan 2FA',
   'profile.security.enable2fa': 'Dayakan 2FA',
   'profile.security.pwChanged': 'Kata laluan berjaya ditukar.',
   'profile.security.pwCurrent': 'Kata laluan semasa',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktif',
   'profile.security.twoFaCode': 'Kod 6 digit',
   'profile.security.twoFaDisable': 'Lumpuhkan',
+  'profile.security.twoFaDisabling': 'Melumpuhkan…',
   'profile.security.twoFaFailed': 'Tidak dapat mengesahkan kod.',
   'profile.security.twoFaIntro':
     'Imbas kod QR dalam aplikasi pengesah anda, kemudian masukkan kod 6 digit di bawah untuk pengesahan.',
   'profile.security.twoFaOn': 'Pengesahan dua faktor diaktifkan pada akaun ini.',
+  'profile.security.twoFaQrAlt': 'Kod QR dua faktor',
   'profile.security.twoFaVerify': 'Sahkan dan dayakan',
   'profile.security.twoFaVerifying': 'Mengesahkan…',
   'profile.subheading': 'Tetapan identiti dan keselamatan untuk ruang kerja ini.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Simpan rahsia ini — ia tidak akan ditunjukkan lagi.',
   'settings.api.webhookSecret': 'Rahsia tandatangan Webhook',
   'settings.appearance.description': 'Togol antara mod cerah dan gelap.',
+  'settings.deleteAccountConfirm': 'Adakah anda pasti? Tindakan ini tidak boleh dibuat asal.',
   'settings.notifications.exceptions': 'Emel saya apabila pengecualian penghantaran berlaku',
   'settings.notifications.heading': 'Pemberitahuan',
   'settings.notifications.saveFailed': 'Tidak dapat menyimpan keutamaan.',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Penghantaran tidak ditemui.',
   'shipmentDetail.originHeading': 'Asal',
   'shipmentDetail.shippedOn': 'Dihantar {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Tiada acara penjejakan lagi — kemas kini dipaparkan di sini semasa pengangkut mengimbas bungkusan.',
   'shipmentDetail.weightLabel': '{{weight}} paun',
   'shipments.col.carrier': 'Pembawa',
   'shipments.col.eta': 'ETA',
@@ -175,6 +186,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Log Masuk',
   'signup.submit': 'Buat Akaun',
   'team.emailError': 'Alamat e-mel yang sah diperlukan.',
+  'team.empty':
+    'Tiada ahli pasukan lagi. Jemput rakan sepasukan untuk bekerjasama dalam penghantaran.',
   'team.eyebrow': 'Ahli & kebenaran',
   'team.inviteDialog.cancel': 'Batal',
   'team.inviteDialog.heading': 'Jemput ahli pasukan',
@@ -197,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Trek',
   'waypointLayout.primaryNavLabel': 'Navigasi utama',
   'webhooks.createFailed': 'Tidak dapat mencipta titik akhir webhook.',
+  'webhooks.endpointsEmpty':
+    'Tiada titik akhir webhook lagi. Cipta satu untuk menerima panggilan balik status penghantaran.',
   'webhooks.endpointsHeading': 'Endpoints',
   'webhooks.eventCount': '{{count}} acara',
   'webhooks.eventsHeading': 'Penghantaran terkini',

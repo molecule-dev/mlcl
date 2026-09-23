@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.tagline': 'ہر یونٹ، ایک ہی چھت کے نیچے۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.addProperty': 'پراپرٹی شامل کریں۔',
   'dashboard.empty.body':
     'ایک بار جب آپ کے پاس پراپرٹیز، یونٹس اور کرایہ کی ادائیگیاں ہو جائیں، تو یہ ڈیش بورڈ پورٹ فولیو بصیرت سے بھر جاتا ہے۔',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} کھلے کام کے احکامات، ترجیحی بنیادوں پر ترتیب دیے گئے ہیں۔',
   'maintenanceQueueList.title': 'دیکھ بھال کی قطار',
+  'nav.closeMenu': 'مینو بند کریں۔',
+  'nav.openMenu': 'مینو کھولیں۔',
   'notFound.body':
     'آپ جس صفحہ کی تلاش کر رہے تھے اسے منتقل کر دیا گیا ہے، محفوظ کیا گیا ہے یا کبھی موجود نہیں تھا۔',
   'notFound.title': 'وہ دروازہ نہیں کھلتا',

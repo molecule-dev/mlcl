@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': '비밀번호를 재설정하세요.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': '작업을 완료로 표시',
   'checklistTaskCard.markIncomplete': '작업을 미완료로 표시',
   'checklistTaskCard.openLabel': '작업 열기',
+  'common.goToDashboard': '대시보드로 이동',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': '모두 따라잡으셨습니다',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': '정상 진행',
   'dashboard.timelineHeading': '30/60/90 마일스톤',
   'dashboard.viewAllTasks': '모든 작업 보기',
+  'dashboard.weekOne': '1주차',
   'dashboard.yourCohort': '회원님의 팀',
   'documents.empty.body': '팀에서 추가한 문서가 여기에 표시됩니다.',
   'documents.empty.title': '아직 문서가 없습니다',
@@ -104,7 +107,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14일 무료 체험',
   'landing.subhead':
     'Embark는 모든 신규 팀원의 첫 90일을 안내합니다 — 서류, 교육, 마일스톤, 의미 있는 인사가 모두 한곳에서 차분하고 자신감 있게 진행됩니다.',
+  'layout.openMenu': '탐색 메뉴 열기',
   'layout.search': '작업, 문서, 팀원 검색…',
+  'layout.searchTeammates': '팀원을 이름 또는 역할로 검색하세요…',
   'layout.section.onboarding': '온보딩',
   'layout.tagline': '여정이 여기서 시작됩니다',
   'notifications.empty.body': '새로운 활동이 여기에 표시됩니다.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': '어제',
   'planUpdated.message': '이제 모든 준비가 끝났습니다.',
   'planUpdated.preparing': '플랜을 업데이트하는 중…',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.documentsLabel': '문서',
   'pricing.onboardingsLabel': '온보딩',
   'pricing.tasksLabel': '작업',

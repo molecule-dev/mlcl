@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'about.pageTitle': 'Acerca de {{name}}',
   'auth.footer.about': 'Acerca de {{name}}',
   'authHeader.subtitle': 'Inicia sesión para manter as túas cifras xustas.',
   'automations.action.email': 'Correo electrónico',
+  'automations.action.noop': 'Sen operación',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Eliminar " {{name}} "?',
   'automations.empty.headline': 'Aínda non hai automatizacións',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Disparadores e accións en todos os libros de traballo. Cada execución rexistra unha fila que podes auditar máis tarde.',
   'automations.toggle': 'Alternar {{name}}',
+  'automations.trigger.dailySchedule': 'Horario diario',
+  'automations.trigger.rowCreated': 'Fila creada',
+  'automations.trigger.rowUpdated': 'Fila actualizada',
   'billing.empty': 'Non hai planos dispoñibles.',
   'billing.error.priceMissing':
     'Non se configurou ningún prezo de Stripe para este nivel. Define as variables de entorno STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Gráficos',
   'charts.kpi.totalCharts': 'Gráficos totais',
   'charts.list.empty': 'Aínda non hai gráficos.',
+  'charts.namePlaceholder': 'Tendencia dos ingresos',
   'charts.newChart': 'Novo gráfico',
   'charts.primary.eyebrow': 'Gráficos por tipo',
   'charts.primary.headline': 'Visión xeral do espazo de traballo',
   'charts.subhead':
     'Visualizacións en directo vinculadas á túa grella: re-renderízanse en cada edición de celas.',
+  'common.goToDashboard': 'Ir ao panel',
   'editor.addColumn': 'Engadir columna',
+  'editor.addDialogTitle': 'Engadir columna',
   'editor.addRow': 'Engadir fila',
   'editor.addSheet': 'Engadir folla',
   'editor.back': 'Volver aos libros de traballo',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite é a ferramenta de análise en tempo real, multivista e baseada en fórmulas que os analistas de redes e os equipos financeiros buscan primeiro.',
   'landing.nav.formulas': 'Fórmulas',
+  'login.noAccount': 'Novo en {{name}} ?',
+  'login.signIn': 'Iniciar sesión en {{name}}',
   'login.signUp': 'Crear un espazo de traballo',
+  'nav.menu': 'Menú',
+  'nav.openMenu': 'Abrir menú',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=BUSCA(SOLICITUDE.url, "rutas", "páxina")',
   'notFound.headline': 'Esta fila nunca existiu.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatizacións nativas · webhook e disparadores cron',
   'signup.creating': 'Aprovisionando espazo de traballo…',
   'signup.cta': 'Crear o meu espazo de traballo',
+  'signup.haveAccount': 'Xa estás en {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Abre o teu primeiro libro de traballo en 30 segundos',
   'team.col.activity': 'Convidado/a',

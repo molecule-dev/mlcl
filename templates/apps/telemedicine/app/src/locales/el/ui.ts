@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Κλείστε ραντεβού',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Δεν υπάρχουν ασθενείς προς εμφάνιση.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'consult.backLink': 'Όλα τα ραντεβού',
   'consult.captions': 'Υπότιτλοι',
   'consult.connected': 'Συνδεδεμένο · 720p · σταθερό',
@@ -133,6 +134,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Ασθενείς',
   'patientVitalsHero.scripts': 'Ανοιχτή λήψη',
   'patientVitalsHero.subline': '{{count}} συμβουλεύεται για το πρόγραμμά σας σήμερα',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'prescriptions.empty': 'Δεν υπάρχουν συνταγές που να ταιριάζουν.',
   'prescriptions.eyebrow': 'Ηλεκτρονική συνταγογράφηση',
   'prescriptions.heading': 'Συνταγές',
@@ -148,6 +150,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Δήλωση Απορρήτου',
   'privacy.use.body':
     'Για την παροχή φροντίδας, την αποστολή υπενθυμίσεων ραντεβού, την δρομολόγηση συνταγών και τη βελτίωση της αξιοπιστίας των υπηρεσιών. Δεν πουλάμε ποτέ τα δεδομένα σας και δεν κοινοποιούμε ποτέ κλινικές πληροφορίες σε διαφημιστές.',
+  'providers.allSpecialties': 'Όλες οι Ειδικότητες',
+  'providers.loadError': 'Αποτυχία φόρτωσης παρόχων.',
+  'providers.loading': 'Φόρτωση…',
   'providers.noResults': 'Δεν βρέθηκαν πάροχοι.',
   'providers.searchPlaceholder': 'Αναζήτηση με όνομα, ειδικότητα...',
   'providers.title': 'Βρείτε έναν πάροχο',
@@ -167,6 +172,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Έναρξη ημέρας',
   'settings.availability.heading': 'Διαθεσιμότητα',
   'settings.devices.thisDevice': 'Αυτή η συσκευή',
+  'settings.devices.unnamed': 'Άγνωστη συσκευή',
   'settings.eyebrow': 'Πρακτική και λογαριασμός',
   'settings.loadError': 'Δεν ήταν δυνατή η φόρτωση του προφίλ σας.',
   'settings.notifications.emailMessages':
@@ -181,6 +187,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Απενεργοποίηση',
   'settings.security.twoFactor.enable': 'Ενεργοποίηση',
   'settings.security.twoFactor.heading': 'Έλεγχος ταυτότητας δύο παραγόντων',
+  'settings.security.twoFactor.invalidCode': 'Αυτός ο κωδικός δεν ταιριάζει. Δοκιμάστε ξανά.',
+  'settings.security.twoFactor.setupFailed':
+    'Δεν ήταν δυνατή η έναρξη της ρύθμισης δύο παραγόντων. Δοκιμάστε ξανά.',
+  'settings.security.twoFactor.statusOn': 'Ο διπαραγονταςτικός μηχανισμός είναι ενεργοποιημένος',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.subheading': 'Προφίλ παρόχου, κανόνες πρακτικής και κλινικές ειδοποιήσεις.',
   'signup.emailLabel': 'EMAIL',
@@ -191,6 +201,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Δημιουργία λογαριασμού',
   'signupFooter.hipaa': 'Συμμορφώνεται με τον HIPAA',
   'solaceLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'solaceLayout.toggleMenu': 'Εναλλαγή μενού',
   'terms.eligibility.body':
     'Πρέπει να είστε τουλάχιστον δεκαοκτώ ετών ή να είστε ο γονέας ή ο νόμιμος κηδεμόνας ενός ανηλίκου για τον οποίο αναζητάτε φροντίδα και να βρίσκεστε φυσικά σε πολιτεία των ΗΠΑ όπου οι κλινικοί μας γιατροί έχουν άδεια ασκήσεως επαγγέλματος.',
   'terms.payment.body':

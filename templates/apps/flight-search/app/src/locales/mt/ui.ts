@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
+  'about.eyebrow': 'Dwar {{app}}',
   'about.pageTitle': 'Kull rotta, tfittxija waħda.',
   'booking.backToDetail': 'Lura għad-dettalji tat-titjira',
   'booking.continue': 'Kompli għall-ħlas',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Taxxi u tariffi',
   'booking.summary.travelers': 'Vjaġġaturi',
   'common.about': 'Dwar',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'flightDetail.backToResults': 'Lura għar-riżultati',
   'flightDetail.baseFare': 'Tariffa bażi',
   'flightDetail.book': 'Kompli għall-prenotazzjoni',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'waqfa waħda',
   'flightResultCard.select': 'Agħżel',
   'flightResultCard.totalLabel': 'Ħin totali',
+  'flightSearchLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'forgotPassword.subheading':
     "Daħħal l-email fil-kont Skylark tiegħek u aħna nibagħtulek link ta' reset sigur.",
   'forgotPassword.successBody':
     'Iċċekkja {{email}} għal link biex tissettja password ġdida. Il-link jiskadi fi żmien 30 minuta.',
   'forgotPassword.successHeading': 'Il-link tar-reset intbagħat',
   'landing.cta.explore': 'Ipprova tfittxija',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Sib l-aqwa offerta li jmiss qabel kulħadd.',
   'landing.cta.signup': 'Ibda ssegwi l-prezzijiet tal-biljetti',
   'landing.features.eyebrow': 'Għaliex Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Żid twissija',
   'priceAlerts.deleteConfirm': 'Tneħħi din l-allert?',
   'priceAlerts.empty': "Għad m'hemm l-ebda rotta traċċata.",
+  'priceAlerts.emptyCta': 'Fittex rotta biex issegwiha',
   'priceAlerts.errorMessage': 'Ma setgħux jitgħabbew l-allerti.',
   'priceAlerts.eyebrow': "Lista ta' sorveljanza ta' Skylark",
   'priceAlerts.form.createError': 'Ma setgħetx tinħoloq twissija.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': "Itinerarju f'diversi bliet",
   'results.multiLegHeading': 'Sieq {{n}} · {{minn}} → {{għal}} · {{data}}',
   'results.multiSummary': '{{count}} saqajn · {{passengers}} vjaġġatur',
+  'results.sortAriaLabel': 'Issortja r-riżultati skont',
   'results.sortLabel': 'Issortja',
   'results.summary': '{{count}} titjiriet · {{passengers}} vjaġġatur',
   'settings.language.title': 'Lingwa',

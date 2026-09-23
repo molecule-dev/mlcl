@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Gbasara {{app}}',
   'analytics.back': 'Nchịkọta nyocha',
   'analytics.kpiNps': 'Akara NPS',
   'analytics.kpiNpsTrend': 'Ndị na-akwalite nkwalite {{p}} % · Ndị na-ewepụ ihe {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Njirimara',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Aha nyocha',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'forgotPassword.failed': 'Enweghị ike izipu ozi-e nrụpụta. Biko nwaa ọzọ.',
   'forgotPassword.subheading': 'Tinye ozi-e gị, anyị ga-ezitere gị njikọ mgbake.',
   'forgotPassword.successBody':
     'Ọ bụrụ na akaụntụ dakọtara {{email}} , njikọ nrụpụta na-abịa. Lelee igbe mbata gị na folda spam gị.',
+  'landing.footer.copyright': '© {{year}} {{app}} . A na-anabata olu niile.',
   'landing.footer.startTrial': 'Malite nnwale',
   'landing.hero.badge': "Nnyocha, NPS na nzaghachi n'otu ebe",
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Ọnụahịa',
   'landing.pricing.perMonth': '/ọnwa',
   'landing.pricing.popular': 'Ndị kacha ewu ewu',
+  'landing.pricing.subtitle':
+    'Atụmatụ ọ bụla gụnyere onye na-ewu nyocha, njikọ òkè ọha, na nyocha NPS. Achọghị kaadị kredit iji malite.',
+  'landing.pricing.title': "Malite n'efu, tụọ nha mgbe ị mere ya.",
   'landing.sample.eyebrow': 'NPS na nlele anya',
   'landing.sample.title':
     'Ndị na-emebi ihe, ndị na-anaghị achịkwa ihe, ndị na-akwalite ihe — enwere ike ịgụ ya ozugbo.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Gosi paswọọdụ',
   'login.signUpLink': "Malite nnwale n'efu",
   'login.subheading': 'Banye iji nọgide na-ege ndị na-ege gị ntị ntị.',
+  'notFound.body': 'Peeji ị na-achọ adịghị na {{app}} . Ka anyị mee ka ị laghachi na nyocha gị.',
   'notFound.cta': 'Laghachi na nyocha',
   'notFound.eyebrow': '404',
   'notFound.heading': "Nnyocha a si n'ahịrị pụọ.",
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Na-agafe agafe 7–8',
   'npsDistributionBar.promoter': 'Onye nkwalite 9–10',
   'profile.identity.description': 'Ọhaneze nye ndị otu gị na nyocha ndị ị dere.',
+  'profile.identity.emailRequired': 'Tinye adreesị ozi-e.',
   'profile.identity.saveCta': 'Chekwaa aha',
   'profile.password.current': 'Okwuntughe Ugbu a',
   'profile.password.fillFields': 'Tinye ma paswọọdụ ugbu a ma nke ọhụrụ.',
@@ -176,6 +184,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ajụjụ',
   'templates.subheading':
     'Họrọ onye mbido a nwalere nke ọma — ndebiri ọ bụla na-abịa na ntọala ezi uche dị na ya, usoro ihe atụ, na nhazi mkpanaka dị ọcha.',
+  'thankYou.body': 'E dekọọla azịza gị. {{app}} ga-etinye ya na mmelite nyocha ọzọ.',
   'thankYou.eyebrow': 'Anatara nzaghachi',
   'thankYou.heading': 'Daalụ — olu gị dị mkpa.',
   'thankYou.home': 'Gaa Leta Gauge',

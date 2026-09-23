@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Giv din kunde drikkepenge',
   'checkout.tipLabel': 'Tip',
   'checkout.zipPlaceholder': 'Postnummer',
+  'common.goToDashboard': 'Gå til Dashboard',
   'featuredProductsGrid.addAria': 'Tilføje {{name}} til kurv',
   'featuredProductsGrid.outOfStock': 'Udsolgt',
   'forgotPassword.emailLabel': 'E-mailadresse',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Hvis den e-mailadresse er registreret, er der et nulstillingslink på vej.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Primær navigation',
   'landing.categoriesEyebrow': 'Gange',
   'landing.categoriesHeading': 'Shop efter kategori',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Planlæg ugentlige leverancer med smart genbestilling af hæfteklammer og live chaufførsporing.',
   'landing.heroTitle': 'Friskhed ved din dør, på få timer.',
   'landing.howEyebrow': 'Tre trin',
+  'landing.howItWorksHeading': 'Sådan fungerer {{app}}',
   'lists.addAllCta': 'Tilføj alle til kurv',
   'lists.createCta': 'Opret din første liste',
   'lists.createError': 'Kunne ikke oprette listen.',

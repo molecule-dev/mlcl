@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'about.tagline': 'A titkok a nyilvánosság előtt halnak meg.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Token létrehozása',
   'apiTokens.kicker': 'API-tokenek',
   'apiTokens.loading': 'Tokenek betöltése…',
+  'apiTokens.new': 'Új token',
   'apiTokens.revoke': 'Token visszavonása',
   'apiTokens.subheading':
     'Személyes és szolgáltatási tokenek az Arcanum CLI-hez és SDK-hoz. Létrehozáskor egyszer megjelenő egyszerű szöveg.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'Egyszeri bejelentkezés + jelszó',
   'authShell.zeroKnowledge': 'Nulla tudású titkosítás',
   'common.connecting': 'Kapcsolódás…',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.inviting': 'Meghívás küldése…',
   'forgotPassword.checkInbox':
     'Ha a(z) {email} cím regisztrálva van, egy percen belül megérkezik egy aláírt visszaállító link.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotációs állapot, anomália-riasztások és jóváhagyási kérelmek minden trezorban.',
   'notifications.unreadEmpty': 'Beérkezett üzenetek nulla – mindennel le van zárva.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.heading': 'titkok',
   'pricing.limits.accessPolicies': 'hozzáférési szabályzatok',
   'pricing.limits.auditLog': 'naplóbejegyzések',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'Kezelje előfizetését, tekintse meg a limiteket, és váltson magasabbra.',
   'profile.subheading': 'Identitás, másodlagos tényezős eszközök és aktív munkamenetek.',
+  'profile.twoFactor.code': 'Hitelesítési kód',
   'profile.twoFactor.disable': 'Letiltás',
   'profile.twoFactor.enable': 'Engedélyezés',
+  'profile.twoFactor.invalidCode': 'Érvénytelen kód',
   'profile.twoFactor.kicker': 'Kétfaktoros hitelesítés',
+  'profile.twoFactor.off': 'Nincs engedélyezve',
   'profile.twoFactor.on': 'Engedélyezve',
   'resetPassword.email': 'Fiók e-mail címe',
   'resetPassword.heading': 'Új hitelesítő adatok beállítása',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'parancsok',
   'secretsManagerLayout.encrypted': 'AES-256 · TITKOSÍTOTT',
   'secretsManagerLayout.newVault': 'Új trezor',
+  'secretsManagerLayout.newVaultShort': 'Új',
   'secretsManagerLayout.rotations': 'Forgások',
   'secretsManagerLayout.search': 'keresés',
   'secretsManagerLayout.searchPlaceholder':
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Titkos adatok',
   'vaultCard.vaultLabel': 'Boltozat',
   'vaultDetail.addSecret': 'Titkos adat hozzáadása',
+  'vaultDetail.back': 'Minden trezor',
   'vaultDetail.col.key': 'Kulcs',
   'vaultDetail.col.rotated': 'Elforgatva',
   'vaultDetail.col.value': 'Érték',

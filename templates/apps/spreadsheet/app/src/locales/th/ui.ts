@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'about.pageTitle': 'เกี่ยวกับ {{name}}',
   'auth.footer.about': 'เกี่ยวกับ {{name}}',
   'authHeader.subtitle': 'ลงชื่อเข้าใช้เพื่อยืนยันความถูกต้องของข้อมูลของคุณ',
   'automations.action.email': 'อีเมล',
+  'automations.action.noop': 'ไม่มีการดำเนินการ',
   'automations.action.webhook': 'เว็บฮุค',
   'automations.confirmDelete': 'ลบ " {{name}} "?',
   'automations.empty.headline': 'ยังไม่มีระบบอัตโนมัติใดๆ',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ทริกเกอร์และการดำเนินการต่างๆ ในทุกเวิร์กบุ๊ก การทำงานแต่ละครั้งจะบันทึกข้อมูลหนึ่งแถวซึ่งคุณสามารถตรวจสอบได้ในภายหลัง',
   'automations.toggle': 'สลับ {{name}}',
+  'automations.trigger.dailySchedule': 'ตารางประจำวัน',
+  'automations.trigger.rowCreated': 'สร้างแถวแล้ว',
+  'automations.trigger.rowUpdated': 'แถวได้รับการอัปเดตแล้ว',
   'billing.empty': 'ไม่มีแผนบริการใดๆ ให้บริการ',
   'billing.error.priceMissing':
     'ไม่มีการกำหนดราคา Stripe สำหรับระดับนี้ ตั้งค่าตัวแปรสภาพแวดล้อม STRIPE_*_PRICE_ID',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'แผนภูมิ',
   'charts.kpi.totalCharts': 'แผนภูมิทั้งหมด',
   'charts.list.empty': 'ยังไม่มีแผนภูมิใดๆ',
+  'charts.namePlaceholder': 'แนวโน้มรายได้',
   'charts.newChart': 'แผนภูมิใหม่',
   'charts.primary.eyebrow': 'แผนภูมิแยกตามประเภท',
   'charts.primary.headline': 'ภาพรวมพื้นที่ทำงาน',
   'charts.subhead':
     'การแสดงผลแบบเรียลไทม์ที่เชื่อมโยงกับตารางของคุณ — แสดงผลใหม่ทุกครั้งที่มีการแก้ไขเซลล์',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'editor.addColumn': 'เพิ่มคอลัมน์',
+  'editor.addDialogTitle': 'เพิ่มคอลัมน์',
   'editor.addRow': 'เพิ่มแถว',
   'editor.addSheet': 'เพิ่มแผ่นงาน',
   'editor.back': 'กลับไปที่สมุดแบบฝึกหัด',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite คือโซลูชันที่เน้นสูตรคำนวณ มุมมองหลากหลาย และแบบเรียลไทม์ ซึ่งเป็นสิ่งที่นักวิเคราะห์โครงข่ายไฟฟ้าและทีมการเงินเลือกใช้เป็นอันดับแรก',
   'landing.nav.formulas': 'สูตร',
+  'login.noAccount': 'เพิ่งรู้จัก {{name}} เป็นครั้งแรกใช่ไหม?',
+  'login.signIn': 'เข้าสู่ระบบที่ {{name}}',
   'login.signUp': 'สร้างพื้นที่ทำงาน',
+  'nav.menu': 'เมนู',
+  'nav.openMenu': 'เปิดเมนู',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'แถวนี้ไม่เคยมีอยู่จริง',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ระบบอัตโนมัติแบบเนทีฟ · เว็บฮุคและทริกเกอร์ครอน',
   'signup.creating': 'กำลังจัดเตรียมพื้นที่ทำงาน…',
   'signup.cta': 'สร้างพื้นที่ทำงานของฉัน',
+  'signup.haveAccount': 'ใช้งานอยู่แล้วที่ {{name}} ใช่ไหม?',
   'signup.namePlaceholder': 'เอเวอรี่ เฉิน',
   'signup.tagline': 'สร้างเวิร์กบุ๊กแรกของคุณได้ภายใน 30 วินาที',
   'team.col.activity': 'ได้รับเชิญ',

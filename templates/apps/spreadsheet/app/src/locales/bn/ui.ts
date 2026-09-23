@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'about.pageTitle': 'সম্পর্কে {{name}}',
   'auth.footer.about': 'সম্পর্কে {{name}}',
   'authHeader.subtitle': 'আপনার হিসাব সঠিক রাখতে সাইন ইন করুন।',
   'automations.action.email': 'ইমেল',
+  'automations.action.noop': 'নো-অপ',
   'automations.action.webhook': 'ওয়েবহুক',
   'automations.confirmDelete': 'মুছে ফেলুন {{name}} "?',
   'automations.empty.headline': 'এখনো কোনো অটোমেশন নেই',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'প্রতিটি ওয়ার্কবুক জুড়ে ট্রিগার এবং অ্যাকশনসমূহ। প্রতিটি রান একটি সারি লগ করে, যা আপনি পরে নিরীক্ষা করতে পারবেন।',
   'automations.toggle': 'টগল {{name}}',
+  'automations.trigger.dailySchedule': 'দৈনিক সময়সূচী',
+  'automations.trigger.rowCreated': 'সারি তৈরি করা হয়েছে',
+  'automations.trigger.rowUpdated': 'সারি আপডেট করা হয়েছে',
   'billing.empty': 'কোনো প্ল্যান উপলব্ধ নেই।',
   'billing.error.priceMissing':
     'এই টিয়ারের জন্য কোনো স্ট্রাইপ প্রাইস কনফিগার করা নেই। STRIPE_*_PRICE_ID এনভায়রনমেন্ট ভেরিয়েবল সেট করুন।',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'চার্ট',
   'charts.kpi.totalCharts': 'মোট চার্ট',
   'charts.list.empty': 'এখনো কোনো চার্ট নেই।',
+  'charts.namePlaceholder': 'রাজস্ব প্রবণতা',
   'charts.newChart': 'নতুন চার্ট',
   'charts.primary.eyebrow': 'প্রকারভেদে চার্ট',
   'charts.primary.headline': 'কর্মক্ষেত্রের সংক্ষিপ্ত বিবরণ',
   'charts.subhead':
     'আপনার গ্রিডের সাথে সংযুক্ত লাইভ ভিজ্যুয়ালাইজেশন — প্রতিটি সেল সম্পাদনার সাথে সাথে পুনরায় রেন্ডার হয়।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'editor.addColumn': 'কলাম যোগ করুন',
+  'editor.addDialogTitle': 'কলাম যোগ করুন',
   'editor.addRow': 'সারি যোগ করুন',
   'editor.addSheet': 'শীট যোগ করুন',
   'editor.back': 'ওয়ার্কবুকগুলিতে ফিরে যান',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'formulaPlayground.headline': 'ইংরেজির মতো পঠনযোগ্য সূত্র',
   'gridPreview.emptyFormula': 'এর ফর্মুলা দেখতে একটি সেল নির্বাচন করুন',
   'history.backToGrid': 'গ্রিডে ফিরে যান',
+  'history.composition': '{{sheets}} শীট · {{cols}} কলাম · {{rows}} সারি',
   'history.confirmRestore': 'এই সংস্করণটি পুনরুদ্ধার করবেন? জীবন্ত সেলগুলো প্রতিস্থাপন করা হবে।',
   'history.empty.headline': 'এখনো কোনো স্ন্যাপশট নেই',
   'history.empty.subhead': 'ওয়ার্কবুকটির বিভিন্ন সংস্করণ দেখতে এর একটি স্ন্যাপশট নিন।',
@@ -97,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} ক্যালসাইট হলো সেই ফর্মুলা-ভিত্তিক, মাল্টি-ভিউ, রিয়েল-টাইম গ্রিড যা বিশ্লেষক এবং অর্থায়ন দলগুলো সবার আগে ব্যবহার করে।',
   'landing.nav.formulas': 'সূত্র',
+  'login.noAccount': '{{name}} এ নতুন?',
+  'login.signIn': '{{name}} এ সাইন ইন করুন',
   'login.signUp': 'একটি কর্মক্ষেত্র তৈরি করুন',
+  'nav.menu': 'মেনু',
+  'nav.openMenu': 'মেনু খুলুন',
   'notFound.cellRef': '#রেফ!',
   'notFound.formula': '=লুকআপ(অনুরোধ.ইউআরএল, "রুটস", "পৃষ্ঠা")',
   'notFound.headline': 'এই সারিটির কোনো অস্তিত্বই ছিল না।',
@@ -127,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'নেটিভ অটোমেশন · ওয়েবহুক এবং ক্রন ট্রিগার',
   'signup.creating': 'কর্মক্ষেত্র প্রস্তুত করা হচ্ছে…',
   'signup.cta': 'আমার কর্মক্ষেত্র তৈরি করুন',
+  'signup.haveAccount': 'ইতিমধ্যে {{name}} এ আছেন?',
   'signup.namePlaceholder': 'অ্যাভেরি চেন',
   'signup.tagline': '৩০ সেকেন্ডে আপনার প্রথম ওয়ার্কবুকটি চালু করুন।',
   'team.col.activity': 'আমন্ত্রিত',

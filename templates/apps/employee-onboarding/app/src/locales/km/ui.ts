@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'កំណត់ពាក្យសម្ងាត់របស់អ្នកឡើងវិញ។',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'សម្គាល់ភារកិច្ចថារួចរាល់',
   'checklistTaskCard.markIncomplete': 'សម្គាល់​ភារកិច្ច​មិន​ទាន់​ចប់',
   'checklistTaskCard.openLabel': 'បើកកិច្ចការ',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'អ្នក​ទាំងអស់​គ្នា​បាន​ជាប់​ហើយ',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'កំពុងដំណើរការ',
   'dashboard.timelineHeading': 'ចំណុចសំខាន់ៗ 30/60/90',
   'dashboard.viewAllTasks': 'មើលកិច្ចការទាំងអស់',
+  'dashboard.weekOne': 'សប្តាហ៍ទី 1',
   'dashboard.yourCohort': 'ក្រុមរបស់អ្នក',
   'documents.empty.body': 'ឯកសារដែលបានបន្ថែមដោយក្រុមរបស់អ្នកនឹងបង្ហាញនៅទីនេះ។',
   'documents.empty.title': 'មិនទាន់មានឯកសារនៅឡើយទេ',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'សាកល្បងឥតគិតថ្លៃរយៈពេល 14 ថ្ងៃ',
   'landing.subhead':
     'Embark ណែនាំមិត្តរួមក្រុមថ្មីទាំងអស់ឆ្លងកាត់រយៈពេល 90 ថ្ងៃដំបូងរបស់ពួកគេ — ឯកសារ ការបណ្តុះបណ្តាល ព្រឹត្តិការណ៍សំខាន់ៗ និងការណែនាំដ៏មានអត្ថន័យ ទាំងអស់ស្ថិតនៅក្នុងកន្លែងស្ងប់ស្ងាត់ និងមានទំនុកចិត្តតែមួយ។',
+  'layout.openMenu': 'បើកម៉ឺនុយរុករក',
   'layout.search': 'ស្វែងរកកិច្ចការ ឯកសារ មិត្តរួមក្រុម...',
+  'layout.searchTeammates': 'ស្វែងរកមិត្តរួមក្រុមតាមឈ្មោះ ឬតួនាទី...',
   'layout.section.onboarding': 'ការណែនាំអំពីការងារ',
   'layout.tagline': 'ដំណើររបស់អ្នកចាប់ផ្តើមនៅទីនេះ',
   'notifications.empty.body': 'សកម្មភាពថ្មីនឹងបង្ហាញនៅទីនេះ។',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ម្សិលមិញ',
   'planUpdated.message': 'អ្នករួចរាល់ហើយ។',
   'planUpdated.preparing': 'កំពុងធ្វើបច្ចុប្បន្នភាពផែនការរបស់អ្នក…',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.documentsLabel': 'ឯកសារ',
   'pricing.onboardingsLabel': 'ការណែនាំអំពីការងារ',
   'pricing.tasksLabel': 'កិច្ចការ',

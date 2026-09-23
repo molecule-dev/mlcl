@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
   'accountDetail.activeBadge': 'نشط',
   'accountDetail.availableLabel': '{{amount}} متاح',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'الحسابات',
   'accounts.loadError': 'تعذر تحميل الحسابات.',
   'accounts.status.closed': 'مغلق',
+  'accounts.status.frozen': 'فروزن',
   'accounts.totalBalance': '{{amount}} إجمالي',
   'audit.empty': 'لا توجد أحداث بعد.',
   'audit.eyebrow': 'الأمان والوصول',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'النقد المتوفر',
   'cashCreditCard.creditLabel': 'الائتمان المستخدم',
   'cashCreditCard.title': 'النقد والائتمان',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'dashboard.accountsHeading': 'الحسابات',
   'dashboard.heading': 'نظرة عامة',
   'dashboard.recentEmpty': 'لا توجد معاملات بعد.',
@@ -42,10 +45,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'إظهار كلمة المرور',
   'login.signUp': 'إنشاء حساب',
   'login.submit': 'تسجيل الدخول',
+  'meridianLayout.menu': 'القائمة',
   'meridianLayout.primaryNavLabel': 'التنقل الرئيسي',
   'nav.legal': 'قانوني',
   'notifications.emptyHeading': 'أنت على اطلاع بكل شيء',
   'notifications.subheading': 'تنبيهات فورية للمعاملات والأمان وكشوف الحساب.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'privacy.dataWeShare':
     'لا نبيع البيانات المصرفية الشخصية أبدًا. نشارك المعلومات مع معالجات الدفع وشبكات البطاقات والجهات التنظيمية فقط بالقدر المطلوب لتسوية المعاملات أو الوفاء بالالتزامات القانونية.',
   'privacy.dataWeStore':
@@ -77,10 +82,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'تضيف المصادقة الثنائية رمزًا لمرة واحدة من تطبيق مُصادقة عند كل تسجيل دخول.',
   'settings.security.twoFactorCta': 'إدارة المصادقة الثنائية',
+  'settings.security.twoFactorOff': 'تم تعطيل المصادقة الثنائية',
   'settings.signOutDevice': 'تسجيل الخروج',
   'settings.subheading': 'الملف الشخصي والأمان والإشعارات.',
+  'settings.twoFactorCode': 'رمز المصادقة',
   'settings.twoFactorDisable': 'تعطيل',
   'settings.twoFactorEnable': 'تمكين',
+  'settings.twoFactorInvalidCode': 'رمز غير صالح',
+  'settings.twoFactorVerify': 'التحقق والتفعيل',
   'signup.emailLabel': 'عنوان البريد الإلكتروني',
   'signup.fullName': 'كيف نخاطبك؟',
   'signup.showPassword': 'إظهار كلمة المرور',
@@ -102,7 +111,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'لا توجد معاملات بعد.',
   'transactions.endDate': 'تاريخ الانتهاء',
   'transactions.eyebrow': 'النشاط',
+  'transactions.loadError': 'تعذّر تحميل المعاملات.',
   'transactions.merchant': 'التاجر',
+  'transactions.subheading': 'جميع المعاملات المسجلة والمعلقة في جميع حساباتك.',
   'transfers.availableHint': '{{amount}} متاح',
   'transfers.errorGeneric': 'تعذر إرسال التحويل.',
   'transfers.errorMissingFields': 'اختر حساب المصدر والوجهة.',

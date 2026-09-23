@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'auth.fields.newPassword': 'Nouveau mot de passe',
   'collectionDetail.addImage': 'Créer pour la collection',
   'collectionDetail.backCta': 'Retour aux collections',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Planches d’inspiration, briefs et séries en cours',
   'collections.title': 'Collections',
   'collections.untitled': 'Sans titre · {{stamp}}',
+  'common.closeMenu': 'Fermer le menu',
+  'common.dismiss': 'Ignorer',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'common.openMenu': 'Ouvrir le menu de navigation',
   'credits.eyebrow': 'Plan {{plan}}',
   'credits.renewsCopy': 'Le plan se renouvelle le {{date}}',
   'credits.trail': 'Rêverie · {{plan}} étage',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'L’activité de génération, les partages et les alertes de crédits apparaîtront ici.',
   'notifications.empty.title': 'Rien à signaler',
   'notifications.subtitle': 'Événements de génération regroupés par jour',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.limits.gallery': 'Galerie de {{count}}',
   'privacy.collect.body':
     'Lorsque vous vous inscrivez, nous collectons votre nom, votre adresse e-mail et un mot de passe haché. Pendant que vous utilisez Reverie, nous stockons les prompts que vous soumettez, les images que nous générons pour vous, les styles et collections que vous enregistrez, ainsi que des métadonnées telles que le modèle utilisé, les horodatages de génération et le solde de crédits.',
@@ -169,6 +175,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Enregistrer le nouveau mot de passe',
   'reset.submitting': 'Mise à jour du mot de passe…',
   'settings.account.handle': 'Identifiant',
+  'settings.account.lastSaved': 'Profil actif · {{name}}',
   'settings.account.saved': 'Profil enregistré',
   'settings.account.saveFailed': 'Impossible d’enregistrer le profil',
   'settings.account.title': 'Profil de créateur',
@@ -190,7 +197,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nouvelle image',
   'sidebar.secondary': 'Navigation secondaire',
   'signup.failed': 'Échec de l’inscription. Réessayez.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Commencez votre rêverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Créez un compte et obtenez 120 crédits gratuits.',
   'styles.empty':
     'Aucun preset de style pour l’instant — ils apparaîtront après la première connexion.',

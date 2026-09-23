@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Şifrənizi sıfırlayın.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Tapşırığı tamamlanmış kimi qeyd edin',
   'checklistTaskCard.markIncomplete': 'Tapşırığı tamamlanmamış kimi qeyd edin',
   'checklistTaskCard.openLabel': 'Açıq tapşırıq',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Hamınız məlumatsızsınız',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Yolda',
   'dashboard.timelineHeading': '30/60/90 mərhələləri',
   'dashboard.viewAllTasks': 'Bütün tapşırıqlara baxın',
+  'dashboard.weekOne': '1-ci həftə',
   'dashboard.yourCohort': 'Komandanız',
   'documents.empty.body': 'Komandanız tərəfindən əlavə edilmiş sənədlər burada görünəcək.',
   'documents.empty.title': 'Hələ sənəd yoxdur',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 günlük pulsuz sınaq müddəti',
   'landing.subhead':
     'Embark hər yeni komanda yoldaşına ilk 90 gün ərzində — sənədləşmə işləri, təlim, mərhələlər və mənalı təqdimatlar — hamısı bir sakit və inamlı bir yerdə rəhbərlik edir.',
+  'layout.openMenu': 'Naviqasiya menyusunu açın',
   'layout.search': 'Tapşırıqları, sənədləri, komanda yoldaşlarını axtarın...',
+  'layout.searchTeammates': 'Komanda yoldaşlarını ad və ya rola görə axtarın...',
   'layout.section.onboarding': 'İşə qəbul',
   'layout.tagline': 'Səyahətiniz buradan başlayır',
   'notifications.empty.body': 'Yeni fəaliyyət burada görünəcək.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Hazırsınız.',
   'planUpdated.preparing': 'Planınız yenilənir…',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.documentsLabel': 'sənədlər',
   'pricing.onboardingsLabel': 'işə qəbul',
   'pricing.tasksLabel': 'tapşırıqlar',

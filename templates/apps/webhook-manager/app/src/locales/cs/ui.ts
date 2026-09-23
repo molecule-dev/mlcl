@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// o {{app}}',
+  'about.pageTitle': 'Řídicí rovina webhooku',
+  'about.plansTitle': 'Plány pro každou fázi',
   'apiKeys.bestPractices': 'Nejlepší postupy',
   'apiKeys.body':
     'Programové přístupové tokeny. Zacházejte s nimi jako s hesly – ukládejte je do proměnných prostředí, nikdy je necommitujte.',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'v rámci plánu',
   'billing.usageWarning': 'blízko stropu',
   'billing.yearly': 'Ročně',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.body':
     'Živá propustnost, opakované pokusy za chodu a koncové body, které se právě zasekly – napříč každým pracovním prostorem, který provozujete.',
   'dashboard.endpointsEmpty': 'Zatím žádné koncové body.',
@@ -108,6 +112,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'koncové body',
   'endpointDetail.deliveryTrendSub': 'dodávky/hodinu, logaritmické měřítko',
   'endpointDetail.hideSecret': 'Skrýt tajemství',
+  'endpointDetail.loading': 'Načítání koncového bodu…',
   'endpointDetail.metric.delivered': 'Doručeno do 24 hodin',
   'endpointDetail.metric.deliveredCaption': 'z {{count}} typy událostí',
   'endpointDetail.metric.failuresCaption': 'opakované pokusy: {{retries}}',
@@ -212,6 +217,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritické · 24 hodin',
   'notifications.metric.totalCaption': 'doručená pošta za všech okolností',
   'payloadViewer.payload': '// užitečné zatížení',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Zobrazené iniciály – nahrané soubory budou zveřejněny s dalším vydáním.',
   'profile.body': 'Váš účet, předvolby a aktivní relace.',
@@ -227,6 +233,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Aktivní je pouze vaše aktuální relace. Žádná další zařízení nejsou přihlášena.',
   'profile.toggle': 'Přepnout {{label}}',
+  'pylonShell.closeMenu': 'Zavřít navigační menu',
+  'pylonShell.openMenu': 'Otevřít navigační menu',
   'pylonShell.primaryNavLabel': 'Primární navigace',
   'resetPassword.subtitle': 'Zvolte silné heslo, které jste dosud nepoužívali.',
   'resetPassword.tokenPlaceholder': 'vložte z e-mailu',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.eyebrow': '// {{appName}} നെ കുറിച്ച്',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
   'albumDetail.breadcrumb': '// ലൈബ്രറി › ആൽബങ്ങൾ › {{albumTitle}}',
   'albumDetail.breadcrumb.loading': '// ലൈബ്രറി › ആൽബങ്ങൾ',
@@ -19,6 +21,7 @@ export const ui: UiTranslations = {
     'പ്രകാശത്തെ രൂപപ്പെടുത്തുന്ന സ്രഷ്ടാക്കൾക്കുള്ള ഒരു കൃത്യതയുള്ള ഫോട്ടോ എഡിറ്റർ.',
   'authShell.tagline': 'വെളിച്ചം നിങ്ങളുടെ ഇഷ്ടത്തിനനുസരിച്ച് വളയുന്നു',
   'common.and': 'ഒപ്പം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'editor.breadcrumb': '// എഡിറ്റർ',
   'editor.empty.body':
     'ഒരു ഫ്രെയിം തിരഞ്ഞെടുക്കാൻ ലൈബ്രറി തുറക്കുക, അല്ലെങ്കിൽ പുതിയൊരെണ്ണം അപ്‌ലോഡ് ചെയ്യുക.',
@@ -63,6 +66,8 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'photographer@lustra.studio',
   'forgotPassword.eyebrow': '// പാസ്‌വേഡ് പുനഃസജ്ജമാക്കുക',
   'forgotPassword.remembered': 'ഓർമ്മയുണ്ടോ?',
+  'forgotPassword.successBody':
+    'ഒരു അക്കൗണ്ട് {{email}} വിലാസവുമായി പൊരുത്തപ്പെടുന്നുണ്ടെങ്കിൽ, ലിങ്ക് ലഭ്യമായിരിക്കും.',
   'landing.cta': 'ലുസ്ട്ര തുറക്കുക',
   'landing.ctaPrimary': 'സൌജന്യമായി എഡിറ്റ് ചെയ്യാൻ തുടങ്ങൂ',
   'landing.eyebrow': '// പ്രിസിഷൻ ഫോട്ടോ എഡിറ്റർ',
@@ -107,7 +112,9 @@ export const ui: UiTranslations = {
     'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങൂ — നിങ്ങളുടെ ലൈബ്രറി, പ്രീസെറ്റുകൾ, ചരിത്രം എന്നിവ കാത്തിരിക്കുന്നു.',
   'photoEditorLayout.guest': 'ഫോട്ടോഗ്രാഫർ',
   'photoEditorLayout.newEdit': 'പുതിയ എഡിറ്റ്',
+  'photoEditorLayout.planLabel': '{{name}} പ്ലാൻ',
   'photoEditorLayout.planLoading': 'ലോഡ് ചെയ്യുന്നു...',
+  'photoEditorLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'photoEditorLayout.tagline': 'വെളിച്ചം നിങ്ങളുടെ ഇഷ്ടത്തിനനുസരിച്ച് വളയുന്നു',
   'photoTile.edited': 'എഡിറ്റ് ചെയ്‌തു',
   'presets.breadcrumb': '// പ്രീസെറ്റുകൾ › ലൈബ്രറി',
@@ -139,9 +146,14 @@ export const ui: UiTranslations = {
     'അക്ഷരങ്ങളുടെയും അക്കങ്ങളുടെയും മിശ്രിതത്തിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉപയോഗിക്കുക. ഞങ്ങൾ ഒരിക്കലും പ്ലെയിൻടെക്സ്റ്റ് സംഭരിക്കില്ല.',
   'resetPassword.tokenPlaceholder': 'ഇമെയിലിൽ നിന്ന്',
   'settings.account.email': 'ഇമെയിൽ വിലാസം',
+  'settings.account.emailError': 'നിങ്ങളുടെ ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'settings.account.emailSave': 'ഇമെയിൽ സംരക്ഷിക്കുക',
   'settings.account.emailSaved': 'ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്തു.',
   'settings.account.emailSaving': 'സംരക്ഷിക്കുന്നു...',
+  'settings.account.nameError': 'നിങ്ങളുടെ പേര് അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'settings.account.nameSaved': 'പേര് അപ്ഡേറ്റ് ചെയ്തു.',
   'settings.account.nameSaving': 'സംരക്ഷിക്കുന്നു...',
+  'settings.account.passwordSaved': 'പാസ്‌വേഡ് മാറ്റി.',
   'settings.account.title': 'അക്കൗണ്ട്',
   'settings.breadcrumb': '// അക്കൗണ്ട് › മുൻഗണനകൾ',
   'settings.color.body':
@@ -149,6 +161,8 @@ export const ui: UiTranslations = {
   'settings.color.eyebrow': '// നിറം',
   'settings.color.recommended': 'ശുപാർശ ചെയ്ത',
   'settings.color.title': 'പ്രവർത്തിക്കുന്ന കളർ പ്രൊഫൈൽ',
+  'settings.devices.empty': 'ഫയലിൽ മറ്റ് ഉപകരണങ്ങളൊന്നുമില്ല.',
+  'settings.devices.eyebrow': '// ഉപകരണങ്ങൾ',
   'settings.devices.signOut': 'സൈൻ ഔട്ട്',
   'settings.devices.thisDevice': 'ഈ ഉപകരണം',
   'settings.devices.title': 'ഉപകരണങ്ങൾ',
@@ -163,6 +177,7 @@ export const ui: UiTranslations = {
   'settings.plan.namedHeading': 'പ്ലാൻ ലോഡ് ചെയ്യുന്നു...',
   'settings.preferences.eyebrow': '// മുൻഗണനകൾ',
   'settings.preferences.title': 'എഡിറ്ററുടെ പെരുമാറ്റം',
+  'settings.security.eyebrow': '// സുരക്ഷ',
   'settings.security.title': 'പാസ്‌വേഡ്',
   'signup.confirmPlaceholder': 'മുകളിലുള്ള വരി പൊരുത്തപ്പെടുത്തുക',
   'signup.emailPlaceholder': 'photographer@lustra.studio',

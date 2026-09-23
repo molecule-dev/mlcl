@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über uns',
   'activityFeed.empty': 'Noch keine Aktivität — senden Sie Ihre erste Rechnung.',
   'authShell.sample.paid': 'Vor 2 Minuten bezahlt',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Neuen Kunden hinzufügen',
   'clients.search': 'Suche nach Name, Firma, E-Mail',
   'clients.title': 'Kunden',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Neuer Kunde',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Passwort vergessen',
   'forgotPassword.successBody':
     'Wir haben die Reset-Anweisungen an {{email}} gesendet. Der Link läuft in 30 Minuten ab.',
+  'invoiceDetail.action.confirmVoid': 'Ungültig bestätigen?',
   'invoiceDetail.action.download': 'PDF herunterladen',
   'invoiceDetail.action.duplicate': 'Duplizieren',
   'invoiceDetail.action.edit': 'Bearbeiten',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Rechnung storniert.',
   'invoiceDetail.issued': 'Ausgestellt am {{date}}',
   'invoiceDetail.loading': 'Rechnung wird geladen…',
+  'invoiceDetail.paidInFull': 'Vollständig bezahlt',
   'invoiceDetail.summary': '{{client}} · gesendet am {{date}}',
   'invoiceDetail.tax': 'Steuer ({{rate}}%)',
   'invoiceDetail.timeline': 'Verlauf',
+  'invoiceDetail.voided': 'Annulliert',
   'invoiceEditor.addItem': 'Position hinzufügen',
   'invoiceEditor.back': '← Zurück zu Rechnungen',
   'invoiceEditor.col.qty': 'Menge',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Erste Rechnung senden',
   'landing.hero.eyebrow': 'Abrechnung für Kleinunternehmen',
   'landing.hero.secondary': 'Beispielrechnung ansehen',
+  'landing.hero.subtitle':
+    '{{appName}} kombiniert professionelle Rechnungen mit integrierten Zahlungsfunktionen, wiederkehrenden Zahlungen und steuerfertigen Berichten. Buchhaltung ist nicht erforderlich.',
   'landing.hero.title': 'Rechnungen senden.\nSchneller bezahlt werden.',
   'login.signupLink': 'Erstellen Sie eines',
   'login.submitting': 'Anmeldung läuft…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'Zahlungen',
   'pricing.recurringLabel': 'Wiederkehrende Zeitpläne',
   'remitLayout.newInvoice': 'Neue Rechnung',
+  'remitLayout.openMenu': 'Navigationsmenü öffnen',
   'remitLayout.searchPlaceholder': 'Rechnungen, Kunden suchen...',
   'remitLayout.tagline': 'Schneller bezahlt werden',
   'reports.chart.aging': 'Rechnungsalter',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Umsatz im Zeitraum',
   'reports.chart.topClients': 'Top-Kunden',
   'reports.chart.topClientsCaption': 'Lebenslanger Umsatz, Top 5',
+  'reports.empty.aging': 'Keine offenen Rechnungen.',
+  'reports.empty.methods': 'Es liegen noch keine Zahlungsdaten vor.',
+  'reports.empty.revenue': 'Es liegen noch keine Umsatzdaten vor.',
+  'reports.empty.topClients': 'Es liegen noch keine Kundenumsatzdaten vor.',
   'reports.exporting': 'Exportieren…',
   'reports.exportRequiresPaid':
     'Exporte sind eine kostenpflichtige Funktion — upgraden Sie, um sie zu aktivieren.',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Steuersatz hinzufügen',
   'settings.tax.added': 'Steuersatz hinzugefügt.',
   'settings.tax.adding': 'Wird hinzugefügt…',
+  'settings.tax.addRate': 'Zuschlagsrate',
   'settings.tax.col.region': 'Region',
   'settings.tax.delete': 'Steuersatz löschen',
   'settings.tax.deleted': 'Steuersatz entfernt.',

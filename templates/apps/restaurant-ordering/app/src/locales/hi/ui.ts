@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} के बारे में',
   'analytics.avgCheckLabel': 'औसत बिल',
   'analytics.busiestHour': 'सबसे व्यस्त घंटा',
   'analytics.coversToday': 'आज के कवर',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'टिप (औसत)',
   'analytics.topItems': 'आज की शीर्ष वस्तुएँ',
   'authShell.eyebrow': 'सर्विस में आपका पुनः स्वागत है',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'आतिथ्य टीमों के लिए एक गर्म, तेज़ पॉइंट ऑफ़ सेल। अपने रसोई में साइन इन करें और जहाँ छोड़ा था वहीं से शुरू करें।',
   'authShell.tip': 'प्रो टिप: कीबोर्ड शॉर्टकट हर जगह काम करते हैं — खोजने के लिए / दबाएँ।',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'या {{price}}',
   'billing.priceUnavailable': 'इस योजना का कॉन्फ़िगर मूल्य नहीं है।',
   'billing.updated': 'योजना अपडेट हो गई।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'customerDetail.book': 'आरक्षण जोड़ें',
   'customerDetail.col.table': 'मेज़',
   'customerDetail.confirmDelete': 'क्या आप इस अतिथि रिकॉर्ड को हटाना चाहते हैं?',
@@ -125,6 +128,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'उपलब्धता',
   'menuItemDetail.available': 'आज रात उपलब्ध',
   'menuItemDetail.backToMenu': 'मेनू पर वापस जाएँ',
+  'menuItemDetail.confirmDelete': 'क्या आप इस मेनू आइटम को हटाना चाहते हैं?',
   'menuItemDetail.delete': 'वस्तु हटाएँ',
   'menuItemDetail.deleteError': 'हटाना विफल। फिर से कोशिश करें।',
   'menuItemDetail.dietary': 'आहार टैग',
@@ -135,9 +139,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'सहेजना विफल। फिर से कोशिश करें।',
   'menuItemDetail.subheading': '{{category}} · फ़ोटो, संशोधक, आहार, और मूल्य संपादित करें।',
   'menuItemDetail.untitled': 'अनाम वस्तु',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'notFound.heading': 'यह मेज़ फ़्लोर पर नहीं है।',
   'notFound.subheading':
     'जिस पेज की आप तलाश कर रहे थे वह कहीं और बैठा दिया गया है — या कभी अस्तित्व में नहीं था।',
+  'notFound.toLanding': '{{app}} होम',
   'notifications.markError': 'सभी को पढ़ा हुआ चिह्नित नहीं किया जा सका।',
   'orderDashboard.activeDelta': 'अभी लाइव',
   'orderDashboard.activeLabel': 'सक्रिय ऑर्डर',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'पासवर्ड दिखाएँ',
   'resetPassword.subtitle': 'रसोई तक पहुँच पुनः प्राप्त करने के लिए अपना नया पासवर्ड दर्ज करें।',
   'resetPassword.tokenLabel': 'रीसेट टोकन',
+  'restaurantOrderingLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'revenueHeroCard.activeOrders': '{{count}} सक्रिय',
   'revenueHeroCard.change': '{{sign}}{{amount}} कल के मुकाबले',
   'revenueHeroCard.title': 'आज का राजस्व',
@@ -219,6 +227,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'रेस्टोरेंट का नाम',
   'tableDetail.activeOrders': 'सक्रिय ऑर्डर',
   'tableDetail.backToFloor': 'फ़्लोर योजना',
+  'tableDetail.confirmDelete': 'क्या इस टेबल को डिलीट करना है?',
   'tableDetail.delete': 'हटाएँ',
   'tableDetail.deleteError': 'मेज़ नहीं हटाई जा सकी।',
   'tableDetail.heading': 'मेज़ {{label}}',

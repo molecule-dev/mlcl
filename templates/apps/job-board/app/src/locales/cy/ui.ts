@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Amdanom ni',
   'applications.empty': 'Dim ceisiadau eto \\u2014 mae’r rôl gywir un cais i ffwrdd.',
   'applications.eyebrow': 'Eich piblinell',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Pob rôl rydych chi wedi gwneud cais amdani, mewn symudiad. Hidlo yn ôl cam i ganolbwyntio.',
   'applications.untitledRole': 'Rôl # {{id}}',
+  'auth.legalConsent': "Wrth barhau, rydych yn cytuno i'n",
   'common.and': 'a',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'companies.empty':
     'Nid oes unrhyw gwmnïau’n cyfateb i’ch chwiliad \\u2014 rhowch gynnig ar derm gwahanol.',
   'companies.eyebrow': 'Cyflogwyr dan sylw',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Dim ceisiadau eto ar gyfer y rôl hon.',
   'jobApplicants.eyebrow': 'Barn y cyflogwr',
   'jobApplicants.loading': 'Yn llwytho\\u2026',
+  'jobApplicants.statusUpdateFailed': "Methu diweddaru'r cam hwnnw — ceisiwch eto.",
+  'jobApplicants.subheading':
+    'Adolygu CVs, hyrwyddo ymgeiswyr, anfon cynigion \\u2014 {{count}} ar waith.',
   'jobDetail.applicantCount': '{{count}} ymgeiswyr hyd yn hyn',
   'jobDetail.applied': 'Cais wedi’i anfon',
   'jobDetail.apply': 'Gwneud cais nawr',
@@ -82,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Pori rolau gwag \\u2192',
   'landing.pricingEyebrow': 'Prisio',
   'landing.pricingHeading': 'Cynlluniau syml ar gyfer pob maint tîm.',
+  'login.eyebrow': 'Croeso nôl i {{app}}',
   'login.heading': 'Mewngofnodwch i’ch cyfrif',
   'login.noAccount': 'Newydd i Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Cofiwch fi am 30 diwrnod',
   'login.signingIn': 'Mewngofnodi\\u2026',
   'login.subheading': 'Dechreuwch eich chwiliad, datblygwch eich ceisiadau, clywch yn ôl yn gynt.',
+  'loginBrandPanel.copyright': "© {{year}} {{app}} . Wedi'i adeiladu ar gyfer timau sy'n cyflogi.",
   'loginBrandPanel.headline': 'Lle mae talent yn cwrdd',
   'loginBrandPanel.headlineLine2': 'momentwm.',
   'loginBrandPanel.listing.recruiter': 'Partner Talent',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
     'Diweddariadau ceisiadau, gwahoddiadau i gyfweliadau, gemau newydd a’r rhai mwyaf newydd yn gyntaf.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} yr wythnos hon',
   'opportunitiesHero.eyebrow': 'Ar agor heddiw',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'postJob.addNewCompany': '+ Ychwanegu cwmni newydd',
   'postJob.companyCreateFailed': 'Methwyd creu cwmni — ceisiwch eto.',
   'postJob.companyNameLabel': 'Enw eich cwmni',
@@ -162,10 +171,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Wrthi’n creu cyfrif\\u2026',
   'signup.ctaEmployer': 'Creu cyfrif cyflogwr',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Nid yw’r cyfrineiriau’n cyfateb.',
   'signup.subheading':
     'Am ddim i geiswyr, am byth. Mae cyflogwyr yn dechrau gyda threial 30 diwrnod.',
   'timeAgo.days': '{{count}} d yn ôl',
   'timeAgo.hours': '{{count}} awr yn ôl',
   'timeAgo.justNow': 'nawr yn unig',
+  'timeAgo.weeks': '{{count}} wythnos yn ôl',
 }

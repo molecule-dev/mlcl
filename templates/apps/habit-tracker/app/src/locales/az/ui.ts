@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.pageTitle': '{{app}} haqqında',
   'achievementBadgeCard.unlockedOn': 'Kilidsiz {{date}}',
   'achievements.loadError': 'Nailiyyətləri yükləmək alınmadı.',
   'achievements.subheading': '{{unlocked}} -ın {{total}} kilidsiz',
   'achievements.unlockedOn': 'Kilidsiz {{date}}',
+  'auth.legalConsent': 'Davam etməklə, bizim şərtlərimizlə razılaşırsınız',
   'calendar.empty': 'Təqviminizə baxmaq vərdişi yaradın.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Vərdiş',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Vərdişlər şəbəkəsi',
   'category.${c.category}': '{{count}} vərdişlər',
   'common.and': 'və',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'consistencyHeatmap.ariaLabel': 'Gündəlik uyğunluq istilik xəritəsi',
   'consistencyHeatmap.caption': 'Sonuncu {{weeks}} həftələr',
   'consistencyHeatmap.lessLabel': 'Daha az',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Canlı izləyin',
   'landing.heroSubtitle':
     'Vərdişləri əslində yapışdıqları şəkildə inkişaf etdirin: kiçik öhdəliklər, gündəlik işlər və uzun, qırılmaz bir zəncirin daxili zövqü.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak-in içinə bir baxış',
   'landing.previewMotivation': 'Doqquz zolaq canlıdır. Hamısını isti saxlayın.',
   'login.eyebrow': 'Zənciri götür',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Kiçik edin. Konkretləşdirin. Sabah gəlin.',
   'newHabit.timeLabel': 'Xatırlatma vaxtı',
   'notifications.markError': 'Hamısını oxunmuş kimi qeyd etmək mümkün olmadı.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.entries': '{{count}} girişlər',
+  'pricing.heading': '{{app}} planınızı seçin',
   'profile.action.plan': 'Abunəliyi idarə edin',
   'profile.action.settings': 'Hesab parametrləri',
   'profile.bioEmpty': 'Özünüzü təqdim etmək üçün Parametrlərdə qısa bir tərcümeyi-hal əlavə edin.',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Hər gün səhər tezdən (8:00)',
   'settings.reminders.heading': 'Xatırlatmalar',
   'settings.reminders.weekly': 'Həftəlik xülasə (Bazar axşamları)',
+  'settings.revokeDeviceWarning': 'Bu cihazın girişi tezliklə ləğv ediləcək. Çıxış edilsin?',
   'settings.signOutDevice': 'Çıxış',
   'settings.streaks.freezesPerWeek': 'Həftəlik donur',
   'settings.streaks.gracePeriod': 'Gecə yarısından sonra 6 saatlıq güzəşt müddəti',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktiv',
   'streakHeroCard.daysSuffix': 'günlər',
   'streakHeroCard.title': 'Ən uzun aktiv seriya',
+  'streakLayout.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'streakLayout.openMenu': 'Naviqasiya menyusunu açın',
   'streakLayout.primaryNavLabel': 'Əsas naviqasiya',
 }

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'کیا رائے ہے، فیچر کی درخواست ہے، یا کوئی بگ ملا ہے؟ اپنے اکاؤنٹ مینو میں سپورٹ لنک کے ذریعے {{app}} ٹیم تک پہنچیں — ہر پیغام ایک حقیقی انسان تک جاتا ہے۔',
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'agentDetail.back': 'تمام ایجنٹس',
   'agentDetail.capabilities': 'صلاحیتیں',
   'agentDetail.delete': 'شخصیت کو حذف کریں۔',
   'agentDetail.deleteConfirm': 'اس شخصیت کو حذف کریں؟ اسے کالعدم نہیں کیا جا سکتا۔',
+  'agentDetail.deleteError': 'شخصیت کو حذف نہیں کیا جا سکا۔',
   'agentDetail.eyebrow': 'شخصیت',
   'agentDetail.fetchError': 'شخصیت کو لوڈ نہیں کیا جا سکا۔',
   'agentDetail.save': 'شخصیت کو محفوظ کریں۔',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'سوئچ ہو رہا ہے…',
   'billing.updateError': 'اپ ڈیٹ شروع نہیں ہو سکا۔',
   'billing.usageHeading': 'اس سائیکل کو آواز کا استعمال کریں۔',
+  'chatBubble.source.text': 'متن',
+  'chatBubble.source.voice': 'آواز',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'conversation.defaultTitle': 'نئی گفتگو',
   'conversation.empty': 'ابھی تک کوئی پیغامات نہیں ہیں۔ کچھ کہہ کر یا نیچے ٹائپ کرکے شروع کریں۔',
   'conversation.eyebrow': 'لائیو سیشن',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'ذہانت جو بولتی ہے۔',
   'landing.heroSubtitle':
     'AI وائس اسسٹنٹ جو آپ کے قدرتی بہاؤ کو سمجھتا ہے۔ بات چیت، خیال، اور حکم - بغیر کسی رکاوٹ کے۔',
+  'landing.heroTitle': '{{tagline}}۔',
   'landing.listening': 'سن رہا ہے…',
   'landing.naturallyBody':
     'کوئی محرک الفاظ نہیں۔ کوئی سخت احکامات نہیں۔ پارلنس سیاق و سباق، رکاوٹوں اور انسانی تقریر کی اہمیت کو سمجھتا ہے — جیسے کسی ساتھی کے ساتھ بات چیت کرنا۔',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ایک سیشن کھولیں۔',
   'notFound.home': 'گھر واپس',
   'notFound.title': 'ہم اس صفحہ کو نہیں سن سکے۔',
+  'parlanceLayout.closeMenu': 'مینو بند کریں۔',
+  'parlanceLayout.openMenu': 'نیویگیشن مینو کھولیں۔',
   'parlanceLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'pricing.conversations': '{{count}} بات چیت',
   'pricing.cta.startFree': 'مفت شروع کریں۔',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'کوئی میچ نہیں',
   'search.eyebrow': 'کمانڈ پیلیٹ',
   'search.fetchError': 'سرچ انڈیکس لوڈ نہیں ہو سکا۔',
+  'search.static.profile.preview': 'ڈسپلے کا نام، ہینڈل، بائیو',
   'search.static.voice.title': 'آواز',
   'search.title': 'لفظ تلاش کریں۔',
   'search.transcriptPreview': 'ٹرانسکرپٹ کھولیں۔',

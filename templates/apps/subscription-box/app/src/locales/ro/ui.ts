@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Despre {{app}}',
+  'appNav.mobileLabel': 'Navigare principală',
+  'appNav.primaryLabel': 'Navigare principală',
   'billing.actions.confirmCancel': 'Anulați abonamentul? Vă puteți reabona oricând.',
   'billing.actions.paused': 'Abonamentul a fost întrerupt.',
   'billing.actions.resumed': 'Abonamentul a fost reluat.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Fiecare nivel este o poveste dintr-un lot mic. Adaugă una în coada ta de așteptare sau schimb-o în următoarea lună.',
   'boxThemeCard.perMonth': '/ lună',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'customize.eyebrow': 'Fă-l al tău',
   'customize.heading': 'Personalizează-ți următorul Crate',
   'customize.items.exclude': 'Sari peste asta',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Acest sezon',
   'landing.editions.heading': 'Ediții pe care curatorii noștri le îndrăgesc',
   'landing.footer.contact': 'Vorbește cu un curator',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Începe-ți cutia →',
   'landing.hero.ctaSecondary': 'Vedeți nivelurile',
   'landing.hero.eyebrow': 'Selectat lunar. Întotdeauna personal.',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'URMĂTOAREA TA COMORĂ',
   'nextBoxHeroCard.itemsLabel': 'Articole selectate',
   'nextBoxHeroCard.shipsOnLabel': 'Navele pe',
+  'notFound.body':
+    'Nu am găsit pagina respectivă în arhiva {{app}} . Este posibil să fi fost retrasă sau pur și simplu să fi fost scrisă greșit.',
   'notFound.cta.dashboard': 'Accesați tabloul de bord',
   'notFound.eyebrow': 'Cutie goală',
   'notFound.heading': 'Acest raft este gol',

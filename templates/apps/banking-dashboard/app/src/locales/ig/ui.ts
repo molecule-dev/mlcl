@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'accountDetail.activeBadge': 'Na-arụ ọrụ',
   'accountDetail.availableLabel': '{{amount}} dị',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Akaụntụ',
   'accounts.loadError': 'Ịbulighị akaụntụ ndị ahụ.',
   'accounts.status.closed': 'Emechiri',
+  'accounts.status.frozen': 'Oyi kpọnwụrụ akpọnwụ',
   'accounts.totalBalance': '{{ego}} mkpokọta',
   'audit.empty': 'Enweghị ihe omume ọ bụla.',
   'audit.eyebrow': 'Nchekwa na ohere ịnweta',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': "Ego dị n'aka",
   'cashCreditCard.creditLabel': 'E jiri kredit mee ihe',
   'cashCreditCard.title': 'Ego na Kredit',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.accountsHeading': 'Akaụntụ',
   'dashboard.heading': 'Nchịkọta',
   'dashboard.recentEmpty': 'Enweghị azụmahịa ọ bụla.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Gosi paswọọdụ',
   'login.signUp': 'Debanye aha',
   'login.submit': 'Banye',
+  'meridianLayout.menu': 'Ndepụta nri',
   'meridianLayout.primaryNavLabel': 'Ntugharị isi',
   'nav.legal': 'Iwu kwadoro',
   'notifications.emptyHeading': 'Unu niile aghọtala nke ọma',
   'notifications.subheading': 'Ịdọ aka ná ntị ozugbo maka azụmahịa, nchekwa, na nkwupụta.',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'privacy.dataWeShare':
     'A naghị ere data ụlọ akụ nkeonwe. Anyị na-ekerịta ozi na ndị na-ahazi ịkwụ ụgwọ, netwọk kaadị, na ndị na-achịkwa naanị dịka achọrọ iji dozie azụmahịa ma ọ bụ mezuo ọrụ iwu kwadoro.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Two-factor na-agbakwụnye koodu otu oge site na ngwa nyocha na nbanye ọ bụla.',
   'settings.security.twoFactorCta': 'Jikwaa onye edemede nwere ihe abụọ',
+  'settings.security.twoFactorOff': 'Agbanyụọla ihe abụọ',
   'settings.signOutDevice': 'Pụọ',
   'settings.subheading': 'Profaịlụ, nchekwa, na ọkwa.',
+  'settings.twoFactorCode': 'Koodu nyocha',
   'settings.twoFactorDisable': 'Gbanyụọ',
   'settings.twoFactorEnable': 'Mee ka ọ rụọ ọrụ',
+  'settings.twoFactorInvalidCode': 'Koodu na-ezighi ezi',
+  'settings.twoFactorVerify': 'Nyochaa ma mee ka ọ rụọ ọrụ',
   'signup.emailLabel': 'Adreesị ozi ịntanetị',
   'signup.fullName': 'Kedu ka anyị kwesịrị isi gwa gị okwu?',
   'signup.showPassword': 'Gosi paswọọdụ',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Enweghị azụmahịa ọ bụla.',
   'transactions.endDate': 'Ụbọchị njedebe',
   'transactions.eyebrow': 'Ọrụ',
+  'transactions.loadError': 'Akwụsịghị ibu azụmahịa.',
   'transactions.merchant': 'Onye ahịa',
+  'transactions.subheading': "Azụmahịa ọ bụla e bipụtara ma na-echere n'ime akaụntụ gị.",
   'transfers.availableHint': '{{amount}} dị',
   'transfers.errorGeneric': 'Enweghị m ike ịnyefe mbufe ahụ.',
   'transfers.errorMissingFields': 'Họrọ akaụntụ isi mmalite na ebe ị ga-aga.',

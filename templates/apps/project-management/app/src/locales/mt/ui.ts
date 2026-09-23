@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'accountSettings.confirmEmailLabel': 'Ittajpja DELETE biex tikkonferma',
   'accountSettings.deleteError': 'Ma setax jitħassar il-kont.',
   'accountSettings.passwordError': 'Ma stajtx nibdel il-password.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'L-ebda skadenzi li ġejjin.',
   'dashboard.upcomingTitle': 'Skadenzi li ġejjin',
   'deviceSettings.unknownDevice': 'Apparat mhux magħruf',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Appoġġ',
   'forgotPassword.error': 'Ma rnexxiex nibgħat il-link tar-reset.',
   'forgotPassword.subtitle': "Daħħal l-email tiegħek u aħna nibagħtulek link ta' reset.",
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Email jew password mhux validi.',
   'login.pageTitle': 'Idħol',
   'login.signIn': "Idħol f'Forge",
+  'login.subtitle': 'Idħol biex iżżomm il-proġetti tiegħek fit-triq it-tajba',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'nav.calendar': 'Kalendarju',
   'nav.legal': 'Legali',
   'nav.myTasks': 'My Tasks',

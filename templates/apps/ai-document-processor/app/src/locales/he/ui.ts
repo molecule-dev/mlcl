@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'לְהִתְקַשֵׁר',
+  'about.title': 'אודות {{app}}',
   'authShell.backToLanding': '← חזרה לנחיתה',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'common.no': '—',
+  'common.retry': 'נסה שוב',
   'common.yes': '✓',
   'dashboard.eyebrow': 'היום · סקירת פעילות',
   'dashboard.heading': 'מודיעין מסמכים',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'אין מסמכים התואמים את המסננים הנוכחיים.',
   'documents.heading': 'כל המסמכים',
   'documents.loadError': 'טעינת המסמכים נכשלה.',
+  'documents.loading': 'טוען ספרייה...',
   'documents.searchLabel': 'חיפוש מסמכים',
   'documents.searchPlaceholder': 'חיפוש מסמכים…',
   'documents.subheading': '{{count}} מסמכים בספרייה שלך, ממוינים כחדשים ביותר תחילה.',
@@ -61,6 +65,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'הסתר סיסמה',
   'login.showPassword': 'הצג סיסמה',
   'login.subtitle': 'היכנס כדי לשמור על זרימת המסמכים שלך',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'notFound.body':
     'המסמך או הנתיב שניסית לפתוח כבר לא נמצאים כאן. חזור ללוח המחוונים או בחר מקטע מסרגל הצד.',
   'notFound.eyebrow': 'אפליקציה · 404',
@@ -79,6 +85,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'כללים פעילים',
   'rules.empty': 'אין עדיין כללי הגשה. השתמש בכלל חדש כדי להוסיף אחד.',
   'rules.eyebrow': 'אוטומציה',
+  'rules.fieldsCount': '{{count}}',
   'rules.form.destination': 'קובץ אל',
   'rules.form.name': 'שם הכלל',
   'rules.form.save': 'שמור כלל',

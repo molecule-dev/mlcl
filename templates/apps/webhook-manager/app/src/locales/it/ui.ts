@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// Informazioni su {{app}}',
+  'about.pageTitle': 'Il piano di controllo del webhook',
+  'about.plansTitle': 'Piani per ogni fase',
   'apiKeys.bestPractices': 'Best practice',
   'apiKeys.body':
     "Token di accesso programmatici. Trattateli come password — conservateli in variabili d'ambiente, non committateli mai.",
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'entro il piano',
   'billing.usageWarning': 'vicino al limite',
   'billing.yearly': 'Annuale',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.body':
     'Velocità di trasmissione in tempo reale, tentativi di connessione in corso e endpoint che hanno appena riscontrato problemi, in ogni ambiente di lavoro che utilizzi.',
   'dashboard.endpointsEmpty': 'Nessun endpoint ancora.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endpoint',
   'endpointDetail.deliveryTrendSub': 'consegne / ora, scala logaritmica',
   'endpointDetail.hideSecret': 'Nascondi secret',
+  'endpointDetail.loading': "Caricamento dell'endpoint in corso…",
   'endpointDetail.metric.delivered': 'Consegnati 24h',
   'endpointDetail.metric.deliveredCaption': 'da {{count}} tipi di evento',
   'endpointDetail.metric.failuresCaption': 'tentativi: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Critici · 24h',
   'notifications.metric.totalCaption': 'inbox di tutto il periodo',
   'payloadViewer.payload': '// payload',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Mostrate le iniziali — i caricamenti arriveranno con la prossima release.',
   'profile.body': 'Il vostro account, le preferenze e le sessioni attive.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Solo la sessione corrente è attiva. Nessun altro dispositivo è connesso.',
   'profile.toggle': 'Attiva/disattiva {{label}}',
+  'pylonShell.closeMenu': 'Chiudi il menu di navigazione',
+  'pylonShell.openMenu': 'Apri il menu di navigazione',
   'pylonShell.primaryNavLabel': 'Navigazione principale',
   'resetPassword.subtitle': 'Scelga una password robusta che non ha mai usato prima.',
   'resetPassword.tokenPlaceholder': "incolla dall'email",

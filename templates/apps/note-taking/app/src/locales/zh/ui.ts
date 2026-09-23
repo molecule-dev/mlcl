@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': '前往仪表盘',
   'forgot.eyebrow': '找不到回去的路了?',
   'forgot.formSubtitle': '告诉我们您登记的邮箱。',
   'forgot.headline': '重置你的密码。',
@@ -37,6 +38,8 @@ export const ui: UiTranslations = {
   'login.headline': '从页面停止的地方继续。',
   'login.signupLink': '创建一个',
   'login.subline': '您的笔记本、反向链接和每日页面都还在您离开时的位置。',
+  'mobileNav.closeMenu': '关闭导航菜单',
+  'mobileNav.openMenu': '打开导航菜单',
   'noteEditor.backToNotes': '返回笔记',
   'noteEditor.bodyPlaceholder': '开始写作——你的笔记会在你输入时自动保存。',
   'noteEditor.confirmTrash': '将此笔记移至回收站？',
@@ -52,6 +55,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': '新笔记本',
   'notes.newNotebookPrompt': '新笔记本名称',
   'notes.notebooksHeading': '笔记本',
+  'notes.subtitle': '在左侧选择一个笔记本，然后按“新建笔记”按钮开始创建新笔记。',
   'planUpdated.confirmation': '您的套餐已更新',
   'pricing.heading': '选择你的笔记计划',
   'reset.eyebrow': '几乎又回来了',
@@ -104,6 +108,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': '更新时间',
   'versoLayout.nav.graph': '图形',
   'versoLayout.nav.home': '家居',
+  'versoLayout.primaryNavLabel': '主导航',
   'versoNoteCard.pinned': '置顶',
   'versoTodayHero.continueCta': '继续写作',
   'versoTodayHero.createCta': '开始今天的笔记',

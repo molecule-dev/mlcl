@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over ons',
   'actions.empty': 'Geen actiepunten gevonden.',
   'actions.heading': 'Actiepunten',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Vorige maand',
   'calendar.recent': 'Recent',
   'common.daysAgo': '{{count}}d geleden',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.hoursAgo': '{{count}}u geleden',
   'common.no': '—',
+  'common.retry': 'Opnieuw proberen',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} actiepunten',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Controleer uw inbox voor de resetlink.',
   'forgot.subheading': 'Voer uw e-mailadres in en we sturen een resetlink.',
   'integrations.disconnected': 'Ontkoppeld',
+  'integrations.loadError': 'Het laden van de integraties is mislukt.',
   'integrations.notConnectedTag': 'Niet gekoppeld',
   'integrations.subheading':
     "Koppel agenda's en videoplatforms zodat Murmur automatisch deelneemt.",
+  'integrations.updateError': 'Update mislukt.',
   'landing.ctaButton': 'Aan de slag — het is gratis',
   'landing.ctaHeading': 'Stop met notities maken. Begin met beslissingen nemen.',
   'landing.demo.aiLabel': 'AI-samenvatting, live opgesteld',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Vervolgacties',
   'meetingDetail.loadError': 'Vergadering kon niet worden geladen.',
   'meetingDetail.noActions': 'Geen actiepunten gedetecteerd.',
+  'meetingDetail.none': 'Geen.',
   'meetingDetail.notFound': 'Vergadering niet gevonden.',
+  'meetingDetail.speakerFallback': 'Spreker{{id}}',
   'meetingDetail.summaryHeading': 'AI-samenvatting',
   'meetingDetail.transcriptHeading': 'Transcript',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Vergaderingen',
   'meetings.loadError': 'Vergaderingen konden niet worden geladen.',
   'meetings.subheading': 'Elke opgenomen, geüploade en gesynchroniseerde vergadering.',
+  'murmurLayout.openMenu': 'Navigatiemenu openen',
   'murmurLayout.primaryNavLabel': 'Hoofdnavigatie',
   'nav.legal': 'Juridisch',
   'notifications.loadError': 'Meldingen konden niet worden geladen.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Hoe u verschijnt in Murmur.',
   'record.error.empty': 'Er is geen audio vastgelegd.',
   'record.error.permission': 'Microfoontoegang geweigerd.',
+  'record.error.recorder': 'Fout in de recorder',
   'record.error.unsupported':
     'Uw browser ondersteunt geen opnames. Probeer Chrome, Edge of Safari.',
   'record.error.upload': 'Uploaden mislukt. Probeer opnieuw.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nieuw wachtwoord',
   'reset.subheading': 'Kies een wachtwoord dat u nergens anders gebruikt.',
   'search.empty': 'Typ om transcripten te doorzoeken.',
+  'search.loadError': 'Zoeken is mislukt. Probeer het nog eens.',
   'search.noResults': 'Geen resultaten voor “{{q}}”.',
   'settings.appearance.description': 'Schakel tussen lichte en donkere modus.',
   'settings.appearance.title': 'Weergave',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Kon instellingen niet laden.',
   'settings.loading': 'Laden…',
   'settings.push.heading': 'Pushmeldingen',
+  'settings.push.subheading':
+    'Ontvang browsermeldingen voor vermeldingen, actiepunten en samenvattingen.',
   'settings.retention.audio': 'Audio bewaren gedurende',
   'settings.retention.heading': 'Bewaring',
   'settings.retention.transcript': 'Transcripten bewaren gedurende',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Begin binnen enkele minuten met het vastleggen van vergadernotities',
   'signup.terms':
     'Door een account aan te maken, gaat u akkoord met onze Servicevoorwaarden en het Privacybeleid.',
+  'signup.termsPrefix': 'Door een account aan te maken, ga je akkoord met onze',
   'team.inviteCta': 'Teamlid uitnodigen',
   'team.invitedAs': 'Uitgenodigd als {{role}}',
   'team.inviteFailed': 'Uitnodiging kon niet worden verzonden.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'accountDetail.activeBadge': 'Đang hoạt động',
   'accountDetail.availableLabel': '{{amount}} khả dụng',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Tài khoản',
   'accounts.loadError': 'Không thể tải tài khoản.',
   'accounts.status.closed': 'Đã đóng',
+  'accounts.status.frozen': 'Đông lạnh',
   'accounts.totalBalance': 'Tổng cộng {{amount}}',
   'audit.empty': 'Chưa có sự kiện nào.',
   'audit.eyebrow': 'Bảo mật và truy cập',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Tiền mặt hiện có',
   'cashCreditCard.creditLabel': 'Tín dụng đã dùng',
   'cashCreditCard.title': 'Tiền mặt và Tín dụng',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.accountsHeading': 'Tài khoản',
   'dashboard.heading': 'Tổng quan',
   'dashboard.recentEmpty': 'Chưa có giao dịch nào.',
@@ -45,10 +48,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Hiện mật khẩu',
   'login.signUp': 'Đăng ký',
   'login.submit': 'Đăng nhập',
+  'meridianLayout.menu': 'Thực đơn',
   'meridianLayout.primaryNavLabel': 'Điều hướng chính',
   'nav.legal': 'Pháp lý',
   'notifications.emptyHeading': 'Quý vị đã cập nhật hết',
   'notifications.subheading': 'Cảnh báo theo thời gian thực cho giao dịch, bảo mật và sao kê.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'privacy.dataWeShare':
     'Dữ liệu ngân hàng cá nhân không bao giờ được bán. Chúng tôi chỉ chia sẻ thông tin với các đơn vị xử lý thanh toán, mạng lưới thẻ và cơ quan quản lý khi cần thiết để hoàn tất giao dịch hoặc đáp ứng nghĩa vụ pháp lý.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Xác thực hai yếu tố bổ sung mã dùng một lần từ ứng dụng xác thực mỗi lần đăng nhập.',
   'settings.security.twoFactorCta': 'Quản lý xác thực hai yếu tố',
+  'settings.security.twoFactorOff': 'Xác thực hai yếu tố đã tắt',
   'settings.signOutDevice': 'Đăng xuất',
   'settings.subheading': 'Hồ sơ, bảo mật và thông báo.',
+  'settings.twoFactorCode': 'Mã xác thực',
   'settings.twoFactorDisable': 'Vô hiệu hóa',
   'settings.twoFactorEnable': 'Kích hoạt',
+  'settings.twoFactorInvalidCode': 'Mã không hợp lệ',
+  'settings.twoFactorVerify': 'Xác minh và kích hoạt',
   'signup.emailLabel': 'Địa chỉ Email',
   'signup.fullName': 'Chúng tôi nên xưng hô với quý vị như thế nào?',
   'signup.showPassword': 'Hiện mật khẩu',
@@ -105,7 +114,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Chưa có giao dịch nào.',
   'transactions.endDate': 'Ngày kết thúc',
   'transactions.eyebrow': 'Hoạt động',
+  'transactions.loadError': 'Không thể tải giao dịch.',
   'transactions.merchant': 'Đơn vị bán hàng',
+  'transactions.subheading':
+    'Tất cả các giao dịch đã được ghi nhận và đang chờ xử lý trên các tài khoản của bạn.',
   'transfers.availableHint': '{{amount}} khả dụng',
   'transfers.errorGeneric': 'Không thể gửi chuyển khoản.',
   'transfers.errorMissingFields': 'Chọn tài khoản nguồn và điểm đến.',

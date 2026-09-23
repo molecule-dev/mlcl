@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'பற்றி',
+  'appShell.closeNav': 'நெருக்கமான வழிசெலுத்தல்',
+  'appShell.openNav': 'வழிசெலுத்தலைத் திறக்கவும்',
+  'common.dashboard': 'டாஷ்போர்டு',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.eyebrow': 'இன்று லீக்கைச் சுற்றி',
   'dashboard.loading': 'இன்றிரவுக்கான மதிப்பெண்களைப் பார்க்கிறோம்…',
   'dashboard.scoringLeaders': 'மதிப்பெண் தலைவர்கள்',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'teams.empty': 'உங்கள் தேடலுக்குப் பொருத்தமான அணிகள் எதுவும் இல்லை.',
   'teams.eyebrow': 'பேட்ஜ் அணிந்தவர்கள்',
   'teams.loading': 'லீக் ஏற்றப்படுகிறது…',
+  'teams.rankLabel': 'தரவரிசை # {{rank}}',
   'teams.recordLabel': 'உலக சாதனை',
   'teams.searchPlaceholder': 'தேடல் குழு, நகரம், சுருக்கம்…',
   'teams.subtitle': '{{count}} லீக் முழுவதும் உள்ள அணிகள்.',
@@ -146,4 +151,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} டி நோ',
   'time.hoursAgo': '{{count}} எச் முன்பு',
   'time.minutesAgo': '{{count}} ஒரு வருடத்திற்கு முன்பு',
+  'time.secondsAgo': '{{count}} s முன்பு',
 }

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Ixazulula…',
   'comments.subtitle':
     'I {{count}} Izingxoxo zisalinde impendulo noma isinqumo. Zihlelwe ngokweminyaka — ezindala kuqala, ukuze kungabikho lutho olubolayo.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'forgotPassword.sentTo': 'Setha kabusha isixhumanisi esithunyelwe ku- {{email}}',
   'forgotPassword.successSubheading':
     'Hlola ibhokisi lakho lokungenayo — sisanda kuthumela isixhumanisi sokusetha kabusha. Siphelelwa yisikhathi ngemizuzu engama-30.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ikhasi elisha',
   'pageTreeSidebar.workspaceHeader': 'Indawo Yokusebenzela',
   'pageView.breadcrumb': 'Isinkwa esiqoshiwe',
+  'pageView.confirmTrash': 'Kulahle?',
   'pageView.home': 'Ikhaya',
   'pageView.lastEdited': 'Kubuyekeziwe {{when}}',
   'pageView.loading': 'Ilayisha ikhasi…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Ukufingqa…',
   'pageView.summaryUnavailable': 'Isifinyezo se-AI asilungiselelwe le ndawo yokusebenza.',
   'pageView.tocTitle': 'Kuleli khasi',
+  'pageView.trash': 'Udoti',
+  'pageView.trashing': 'Ukulahla udoti…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Amabheji',
   'profile.owned.title': 'Amakhasi anabanikazi',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Indawo yokusebenza, iphrofayela, izaziso, ukuhlanganiswa — konke kugobolondo elilodwa elizolile.',
   'settingsPage.workspace.defaultLanding': 'Isikrini sokufika esizenzakalelayo',
   'settingsPage.workspace.landingHome': 'Ikhaya',
+  'settingsPage.workspace.landingSpaces': 'Izikhala',
   'settingsPage.workspace.subdomainLabel': 'Isizinda Esingaphansi',
   'settingsPage.workspace.title': 'Indawo Yokusebenzela',
   'signup.eyebrow': 'Qala indawo yokusebenza entsha',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} umzuzu',
   'templates.subtitle':
     'Qala ikhasi usebenzisa i-stencil, hhayi i-canvas engenalutho. Ithempulethi ngayinye ibhala umumo ngokuqinile ukuze ukwazi ukugxila kulokho okubhaliwe.',
+  'trash.confirmPurge': 'Ukuhlanza unomphela?',
+  'trash.confirmPurgeAria': 'Qinisekisa: susa unomphela i {{title}}',
   'trash.daysUntilPurge': '{{days}} izinsuku ezisele',
   'trash.empty.body':
     'Amakhasi asusiwe azovela lapha izinsuku ezingu-30 ngaphambi kokuba ahlanzwe.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Iyabuyisela…',
   'versionHistory.subtitle': '{{count}} izinguqulo · khetha umugqa ukuze uhlole umehluko',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Vala ukuzulazula',
+  'wikiLayout.menu': 'Ukuzulazula',
+  'wikiLayout.openMenu': 'Vula ukuzulazula',
   'wikiLayout.searchPlaceholder': 'Sesha i-Cairn — amakhasi, amazwana…',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'alerts.acknowledgeLabel': 'Reconeix',
   'alerts.customerLabel': 'Client: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Connectant…',
   'carriers.requiredError': 'Cal introduir el nom i el codi.',
   'carriers.subheading': '{{count}} integrat',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
+  'common.retry': 'Torna-ho a intentar',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'En trànsit + marcat',
   'dashboard.activeShipmentsSubtitle':
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'enviaments',
   'pricing.trackingLabel': "seguiment d'esdeveniments",
   'profile.dangerZone.title': 'Zona de perill',
+  'profile.devices.signingOut': 'Tancant sessió…',
+  'profile.devices.unnamed': 'Dispositiu sense nom',
+  'profile.security.disable2fa': 'Desactiva la 2FA',
   'profile.security.enable2fa': 'Activa la 2FA',
   'profile.security.pwChanged': "La contrasenya s'ha canviat correctament.",
   'profile.security.pwCurrent': 'Contrasenya actual',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA actiu',
   'profile.security.twoFaCode': 'Codi de 6 dígits',
   'profile.security.twoFaDisable': 'Desactiva',
+  'profile.security.twoFaDisabling': 'Desactivant…',
   'profile.security.twoFaFailed': "No s'ha pogut verificar el codi.",
   'profile.security.twoFaIntro':
     "Escaneja el codi QR a l'aplicació d'autenticació i, a continuació, introdueix el codi de 6 dígits següent per verificar-ho.",
   'profile.security.twoFaOn': "L'autenticació de dos factors està habilitada en aquest compte.",
+  'profile.security.twoFaQrAlt': 'Codi QR de dos factors',
   'profile.security.twoFaVerify': 'Verifica i activa',
   'profile.security.twoFaVerifying': 'Verificant…',
   'profile.subheading': "Configuració d'identitat i seguretat per a aquest espai de treball.",
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Guarda aquest secret: no es tornarà a mostrar.',
   'settings.api.webhookSecret': 'Secret de signatura de Webhook',
   'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
+  'settings.deleteAccountConfirm': 'Segur? Aquesta acció no es pot desfer.',
   'settings.notifications.exceptions':
     "Envia'm un correu electrònic quan es produeixi una excepció d'enviament",
   'settings.notifications.heading': 'Notificacions',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': "No s'ha trobat l'enviament.",
   'shipmentDetail.originHeading': 'Origen',
   'shipmentDetail.shippedOn': 'Enviat {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Encara no hi ha esdeveniments de seguiment; les actualitzacions apareixen aquí a mesura que el transportista escaneja el paquet.',
   'shipmentDetail.weightLabel': '{{weight}} lliura',
   'shipments.col.carrier': 'Transportista',
   'shipments.col.eta': "Hora estimada d'arribada",
@@ -177,6 +188,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Inicia la sessió',
   'signup.submit': 'Crea un compte',
   'team.emailError': 'Cal una adreça de correu electrònic vàlida.',
+  'team.empty':
+    "Encara no hi ha membres de l'equip. Convida un company d'equip a col·laborar en els enviaments.",
   'team.eyebrow': 'Membres i permisos',
   'team.inviteDialog.cancel': 'Cancel·la',
   'team.inviteDialog.heading': "Convida un company d'equip",
@@ -199,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Pista',
   'waypointLayout.primaryNavLabel': 'Navegació principal',
   'webhooks.createFailed': "No s'ha pogut crear el punt final del webhook.",
+  'webhooks.endpointsEmpty':
+    "Encara no hi ha cap punt final de webhook. Crea'n un per rebre trucades de retorn de l'estat de l'enviament.",
   'webhooks.endpointsHeading': 'Punts finals',
   'webhooks.eventCount': '{{count}} esdeveniments',
   'webhooks.eventsHeading': 'Entregues recents',

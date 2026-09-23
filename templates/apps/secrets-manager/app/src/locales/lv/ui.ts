@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'about.tagline': 'Noslēpumi mirst atklātībā.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Izveidot žetonu',
   'apiTokens.kicker': 'API žetoni',
   'apiTokens.loading': 'Notiek žetonu ielāde…',
+  'apiTokens.new': 'Jauns marķieris',
   'apiTokens.revoke': 'Atsaukt pilnvaru',
   'apiTokens.subheading':
     'Personīgie un pakalpojumu žetoni Arcanum komandrindas saskarnei un SDK. Vienkāršs teksts tiek parādīts vienreiz izveides laikā.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + piekļuves atslēga',
   'authShell.zeroKnowledge': 'Nulles zināšanu šifrēšana',
   'common.connecting': 'Notiek savienojuma izveide…',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.inviting': 'Aicinājums…',
   'forgotPassword.checkInbox':
     'Ja {email} ir reģistrēts, parakstīta atiestatīšanas saite tiks saņemta minūtes laikā.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotācijas statuss, anomāliju brīdinājumi un apstiprināšanas pieprasījumi katrā glabātuvē.',
   'notifications.unreadEmpty': 'Ienākošās ziņas nulle — viss paveikts.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.heading': 'noslēpumi',
   'pricing.limits.accessPolicies': 'piekļuves politikas',
   'pricing.limits.auditLog': 'audita žurnāla ieraksti',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Personīgais konts',
   'profile.plan.description': 'Pārvaldiet savu abonementu, skatiet ierobežojumus un uzlabojiet to.',
   'profile.subheading': 'Identitāte, otrā faktora ierīces un aktīvās sesijas.',
+  'profile.twoFactor.code': 'Autentifikācijas kods',
   'profile.twoFactor.disable': 'Atspējot',
   'profile.twoFactor.enable': 'Ieslēgt',
+  'profile.twoFactor.invalidCode': 'Nepareizs kods',
   'profile.twoFactor.kicker': 'Divfaktoru autentifikācija',
+  'profile.twoFactor.off': 'Nav iespējots',
   'profile.twoFactor.on': 'Iespējots',
   'resetPassword.email': 'Konta e-pasts',
   'resetPassword.heading': 'Iestatīt jaunus akreditācijas datus',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'komandas',
   'secretsManagerLayout.encrypted': 'AES-256 · ŠIFRĒTS',
   'secretsManagerLayout.newVault': 'Jauna glabātuve',
+  'secretsManagerLayout.newVaultShort': 'Jauns',
   'secretsManagerLayout.rotations': 'Rotācijas',
   'secretsManagerLayout.search': 'meklēšana',
   'secretsManagerLayout.searchPlaceholder': 'Meklējiet noslēpumus pēc atslēgas, ceļa vai taga…',
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Noslēpumi',
   'vaultCard.vaultLabel': 'Seifs',
   'vaultDetail.addSecret': 'Pievienot paroli',
+  'vaultDetail.back': 'Visas velves',
   'vaultDetail.col.key': 'Atslēga',
   'vaultDetail.col.rotated': 'Pagriezts',
   'vaultDetail.col.value': 'Vērtība',

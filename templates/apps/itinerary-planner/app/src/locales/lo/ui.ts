@@ -2,6 +2,8 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'ຄຳເວົ້າ',
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
+  'auth.legalConsent': 'ໂດຍການດຳເນີນການຕໍ່, ທ່ານຍອມຮັບ',
   'bookings.empty.body': 'ເພີ່ມຖ້ຽວບິນ, ໂຮງແຮມ ຫຼື ກິດຈະກຳເພື່ອເລີ່ມຕົ້ນກ່ອງຈົດໝາຍ.',
   'bookings.empty.heading': 'ຍັງບໍ່ມີການຈອງເທື່ອ.',
   'bookings.errors.create': 'ບໍ່ສາມາດສ້າງການຈອງໄດ້.',
@@ -23,8 +25,12 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'ຢືນຢັນແລ້ວ',
   'bookings.summary.pending': 'ກຳລັງລໍຖ້າການຢືນຢັນ',
   'bookings.summary.total': 'ທັງໝົດທີ່ຜູກມັດ',
+  'bookings.type.car': 'ລົດເຊົ່າ',
+  'bookings.type.flight': 'ຖ້ຽວບິນ',
+  'bookings.type.hotel': 'ໂຮງແຮມ',
   'bookings.type.other': 'ອື່ນໆ',
   'budgetSpendCard.budgetTotal': 'ຂອງ {{total}} ວາງແຜນໄວ້',
+  'budgetSpendCard.pct': '{{pct}} %',
   'calendar.eyebrow': 'ປີໜ້າ',
   'calendar.heading': 'ທຸກໆການເດີນທາງໃນປະຕິທິນດຽວ.',
   'calendar.legendHeading': 'ການເດີນທາງໃນເດືອນນີ້',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ຊອກຫາຂໍ້ຂັດແຍ່ງ, ວາງແຜນມື້ຟື້ນຟູລະຫວ່າງການເດີນທາງ, ແລະເບິ່ງວ່າເວລາໃດທີ່ຜູ້ຮ່ວມມືເດີນທາງກັບທ່ານ.',
   'common.and': 'ແລະ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.budgetHeading': 'ກະແສງົບປະມານ',
   'dashboard.empty.heading': 'ຍັງບໍ່ມີການເດີນທາງເທື່ອ - ແຜນທີ່ຂອງທ່ານຍັງວ່າງເປົ່າ.',
   'dashboard.eyebrow': 'ການຄວບຄຸມພາລະກິດ',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'ການເດີນທາງທີ່ມີການເຄື່ອນໄຫວ',
   'dashboard.viewAllExpenses': 'ເບິ່ງທຸກໆຄ່າໃຊ້ຈ່າຍ',
   'dashboard.viewAllTrips': 'ເບິ່ງທຸກໆການເດີນທາງ',
+  'dayTimelineRow.category.accommodation': 'ຢູ່',
   'dayTimelineRow.category.transport': 'ການຂົນສົ່ງ',
   'destinationOrbCard.exploreCta': 'ເພີ່ມໃສ່ການເດີນທາງ',
   'destinationOrbCard.tripCount': '{{count}} ການເດີນທາງ',
@@ -82,6 +90,8 @@ export const ui: UiTranslations = {
     'ພວກເຮົາໄດ້ສົ່ງລິ້ງກູ້ຄືນໄປຫາ {{email}} ລິ້ງນີ້ໃຊ້ໄດ້ເປັນເວລາ 30 ນາທີ.',
   'landing.cta.heading': 'ຄຳເວົ້າ .',
   'landing.cta.signup': 'ສ້າງບັນຊີຟຣີ',
+  'landing.cta.subheading':
+    'ສູງສຸດຫ້າການເດີນທາງ, ຫ້າຜູ້ຮ່ວມມື, ແລະຫ້າຈຸດຢຸດພັກໃນແຜນການຟຣີ — ພ້ອມດ້ວຍການຊິ້ງຂໍ້ມູນແບບສົດໆ, ແລະ Pro ຈະຍົກເລີກຂໍ້ຈຳກັດເມື່ອແຜນການຂອງທ່ານເຕີບໃຫຍ່ຂຶ້ນ.',
   'landing.destinations.eyebrow': 'ໄປໃສຕໍ່',
   'landing.destinations.heading': 'ຈຸດໝາຍປາຍທາງທີ່ບັນນາທິການຄັດສັນມາ',
   'landing.features.eyebrow': 'ວິທີການເຮັດວຽກຂອງ Waypoint',
@@ -131,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ໄອຣິສ ລາເຊັນ',
   'signup.subheading':
     'ສ້າງບັນຊີເພື່ອແບ່ງປັນການເດີນທາງກັບຜູ້ຮ່ວມມືສູງສຸດ 5 ຄົນ, ຊິ້ງຂໍ້ມູນການຈອງ ແລະ ດຶງເອົາທຸກໆການຢືນຢັນມາໄວ້ໃນບ່ອນດຽວ.',
+  'signup.termsPrefix': 'ໂດຍການສ້າງບັນຊີ ທ່ານຕົກລົງເຫັນດີກັບພວກເຮົາ',
   'tripCountdownHeroCard.budget': '{{used}} ຂອງ {{total}} ({{pct}}% ຂອງງົບປະມານ)',
   'tripCountdownHeroCard.collaborators': '{{count}} ນັກທ່ອງທ່ຽວ',
   'tripCountdownHeroCard.countdownLabel': 'ນັບຖອຍຫຼັງ',
@@ -204,5 +215,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ຍັງບໍ່ມີການເດີນທາງເທື່ອ.',
   'trips.pastHeading': 'ການຜະຈົນໄພໃນອະດີດ',
   'trips.subheading': '{{count}} ແຜນການເດີນທາງ - ອະດີດ, ປະຈຸບັນ, ແລະ ມື້ໜຶ່ງ.',
+  'waypointLayout.mobileNavClose': 'ປິດເມນູນຳທາງ',
   'waypointLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
 }

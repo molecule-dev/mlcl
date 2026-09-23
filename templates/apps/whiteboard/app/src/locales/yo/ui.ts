@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'authShell.brandHeading': 'Àwọn ìfọ̀rọ̀wérọ̀ fún àwọn ẹgbẹ́ oníṣẹ́ ọnà tí wọ́n ń ronú sókè.',
   'billing.canceled': 'Fagilé ìforúkọsílẹ̀.',
   'billing.cancelPlan': 'Fagilee eto naa',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Bẹrẹ lati awoṣe',
   'boards.title': 'Àwọn pákó rẹ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'Tẹ imeeli ti a so mọ ibi iṣẹ rẹ sii, a o si fi ọna asopọ atunto ranṣẹ.',
   'forgot.success.body':
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Ìdánilẹ́kọ̀ọ́ Ìkẹẹ̀kọ̀ọ́dún Kìíní · Ohùn Àmì-ìdámọ̀',
   'landing.featuresEyebrow': 'Kí ló mú kí Slate tessellate',
   'landing.featuresTitle': 'Àwọn èsì tó yára. Àwọn kánfáàsì tó lẹ́wà. Kò sí ìforígbárí kankan.',
+  'landing.hero.body':
+    '{{appName}} jẹ́ àkójọpọ̀ funfun fún àwọn ẹgbẹ́ apẹ̀rẹ̀, àwọn olùṣètò ìdánilẹ́kọ̀ọ́, àti àwọn olùkọ́ni tí wọ́n ń ṣe àwọn ìwádìí ọpọlọ láyìíká tí wọ́n sì nílò àwọn èrò láti pàdé pọ̀ sí ibì kan.',
   'landing.hero.primaryCta': 'Bẹrẹ igbimọ kan fun ọfẹ',
   'landing.hero.socialProof': 'Gbẹ́kẹ̀lé nípasẹ̀ {{count}} awọn ẹgbẹ apẹrẹ ni kariaye',
   'landing.hero.title': 'Kanfasi kan bi awọn ero rẹ ti yara to',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Ṣẹda aaye iṣẹ ọfẹ kan',
   'login.subheading':
     'Bẹ̀rẹ̀ ibi tí ìdánilẹ́kọ̀ọ́ náà dúró sí — àwọn pákó, àwọn àkọsílẹ̀ aláwọ̀, àti àwọn kọ́sọ̀ gbogbo wọn ń ṣiṣẹ́ pọ̀ ní àkókò gidi.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.new': 'Tuntun',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'notifications.editTitle': 'Àwọn àtúnṣe sí " {{board}} "',
   'notifications.empty.body':
     'Àwọn ìkésíni, àwọn ìfipamọ́ àwòrán, àti àwọn àtúnṣe tuntun lórí pátákó yóò farahàn níbí bí wọ́n ṣe ń ṣẹlẹ̀.',
@@ -173,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Ìtàn ẹ̀yà náà',
   'versionHistory.untitledSnapshot': 'Fọ́tò tí kò ní àkọlé',
   'whiteboardLayout.newBoard': 'Ìgbìmọ̀ tuntun',
+  'whiteboardLayout.primaryNav': 'Lilọ kiri akọkọ',
   'workspace.boardLabel': 'Ìgbìmọ̀',
   'workspace.eyebrow': '{{name}} · ibi iṣẹ́',
   'workspace.invite': 'Pe awọn alabaṣiṣẹpọ',

@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'O teu papel',
   'account.role.upgradeLink': 'Solicita converterte nun titor verificado →',
   'account.title': 'Perfil, pagamento e preferencias.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Ensinar con xiz',
   'becomeTutor.form.error': 'Non se puido enviar a solicitude.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Asunto',
   'bookingConfirm.title': 'Xa estás reservado. Nós encargarémonos do resto.',
   'bookingConfirm.with': 'Con titor/a',
+  'common.goToDashboard': 'Ir ao panel',
   'earningsHero.eyebrow': 'Ganancias • {{month}}',
   'forgotPassword.heading': 'Esqueciches o teu contrasinal?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Enviar mensaxe',
   'messages.thread.empty': 'Saúda — inicia a conversa.',
   'messages.title': 'Fíos cos teus titores.',
+  'nav.primary': 'Primaria',
   'pricing.dataExport': 'Exportación de datos:',
   'pricing.headingDefault': 'Funcións avanzadas:',
   'resetPassword.heading': 'Escolle un contrasinal novo e forte.',

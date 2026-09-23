@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.featureDiscover.title': 'ការបំផុសគំនិត ជ្រើសរើសដោយដៃ',
   'account.addPaymentCta': 'បន្ថែមវិធីបង់ប្រាក់',
   'account.addPaymentError': 'មិនអាចបន្ថែមវិធីបង់ប្រាក់បានទេ។',
+  'account.confirmRemove': 'បញ្ជាក់ការដកចេញ',
   'account.defaultBadge': 'លំនាំដើម',
   'account.loyalty.pointsTowardNext': '{{ពិន្ទុ}} នៃ {{បន្ទាប់}} ម៉ាយល៍ទៅ {{nextTier}}',
   'account.loyalty.tier': 'កម្រិតបច្ចុប្បន្ន',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ព័ត៌មានលម្អិតអំពីការធ្វើដំណើរ',
   'booking.tripSummary': '{{nights}} យប់ · {{guests}} ភ្ញៀវ',
   'common.daysAgo': '{{count}} ថ្ងៃមុន',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.hoursAgo': '{{count}} ម៉ោងមុន',
   'common.minutesAgo': '{{count}} ម៉ែត្រមុន',
   'common.no': '—',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'កំពុងផ្ទុក…',
   'notifications.subheading':
     '{{count}} មិនទាន់អាន · អ្វីៗគ្រប់យ៉ាងនៅក្នុងប្រអប់សំបុត្រដ៏ស្ងប់ស្ងាត់មួយ',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.accommodationsLabel': 'កន្លែងស្នាក់នៅ',
   'pricing.bookingsLabel': 'ការកក់',
   'pricing.destinationsLabel': 'គោលដៅដែលបានរក្សាទុក',
@@ -95,6 +100,7 @@ export const ui: UiTranslations = {
   'propertyDetail.freeCancellation': 'ការលុបចោលដោយឥតគិតថ្លៃ',
   'propertyDetail.heroImageAlt': '{{name}} រូបថតវីរបុរស',
   'propertyDetail.lineCleaning': 'ថ្លៃសម្អាត',
+  'propertyDetail.lineRate': '{{price}} × {{nights}} យប់',
   'propertyDetail.lineTaxes': 'ពន្ធ និងថ្លៃសេវា',
   'propertyDetail.loadError': 'មិនអាចផ្ទុកលក្ខណសម្បត្តិបានទេ។',
   'propertyDetail.night': 'យប់',
@@ -132,6 +138,7 @@ export const ui: UiTranslations = {
     'ការបំផុសគំនិត ការស្នាក់នៅដែលគួរឱ្យទុកចិត្ត និងផ្លូវដែលគ្មានការកកិតពីក្តីស្រមៃរហូតដល់ការកក់ទុក — នៅទូទាំង 14 ប្រទេស និងអចលនទ្រព្យជាង 200 ដែលបានត្រួតពិនិត្យដោយដៃ។',
   'sojournHeroSearchCard.trustProtected': 'ការលុបចោលដោយឥតគិតថ្លៃ ការការពារពេញលេញ',
   'sojournHeroSearchCard.trustVetted': 'អចលនទ្រព្យដែលបានត្រួតពិនិត្យដោយផ្ទាល់តែប៉ុណ្ណោះ',
+  'travelBookingLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'tripDetail.backLink': 'ត្រឡប់ទៅដំណើរកម្សាន្តវិញ',
   'tripDetail.cancelCta': 'លុបចោលការកក់',
   'tripDetail.cancelHeading': 'លុបចោលដំណើរកម្សាន្តនេះ?',

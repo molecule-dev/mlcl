@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'رابطہ کریں۔',
+  'about.title': '{{app}} کے بارے میں',
   'authShell.backToLanding': '← واپس لینڈنگ پر',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'common.yes': '✓',
   'dashboard.eyebrow': 'آج · آپریشنز کا جائزہ',
   'dashboard.heading': 'دستاویزی ذہانت',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'کوئی دستاویز موجودہ فلٹرز سے مماثل نہیں ہے۔',
   'documents.heading': 'تمام دستاویزات',
   'documents.loadError': 'دستاویزات لوڈ کرنے میں ناکام۔',
+  'documents.loading': 'لائبریری لوڈ ہو رہی ہے…',
   'documents.searchLabel': 'دستاویزات تلاش کریں۔',
   'documents.searchPlaceholder': 'دستاویزات تلاش کریں…',
   'documents.subheading': '{{count}} آپ کی لائبریری میں موجود دستاویزات، پہلے تازہ ترین ترتیب دیں۔',
@@ -63,8 +67,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'پاس ورڈ چھپائیں۔',
   'login.showPassword': 'پاس ورڈ دکھائیں۔',
   'login.subtitle': 'اپنے دستاویزات کو جاری رکھنے کے لیے سائن ان کریں۔',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'notFound.body':
     'آپ نے جس دستاویز یا راستے کو کھولنے کی کوشش کی وہ اب یہاں نہیں ہے۔ ڈیش بورڈ پر واپس جائیں یا سائڈبار سے ایک سیکشن چنیں۔',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'لینڈنگ پیج کھولیں۔',
   'notFound.title': 'وہ صفحہ فائل میں نہیں ہے۔',
   'parcelaHeroCard.change': '{{sign}} {{amount}} کل بمقابلہ %',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'ابھی تک فائلنگ کے کوئی اصول نہیں ہیں۔ ایک شامل کرنے کے لیے نیا اصول استعمال کریں۔',
   'rules.eyebrow': 'آٹومیشن',
+  'rules.fieldsCount': '{{count}} فیلڈز',
   'rules.form.destination': 'میں فائل کریں۔',
   'rules.form.name': 'اصول کا نام',
   'rules.form.save': 'اصول کو محفوظ کریں۔',

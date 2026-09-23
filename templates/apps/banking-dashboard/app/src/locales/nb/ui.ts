@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
   'accountDetail.activeBadge': 'Aktiv',
   'accountDetail.availableLabel': '{{amount}} tilgjengelig',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Kontoer',
   'accounts.loadError': 'Klarte ikke å laste kontoer.',
   'accounts.status.closed': 'Lukket',
+  'accounts.status.frozen': 'Frossen',
   'accounts.totalBalance': '{{amount}} totalt',
   'audit.empty': 'Ingen hendelser ennå.',
   'audit.eyebrow': 'Sikkerhet og tilgang',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Kontanter tilgjengelig',
   'cashCreditCard.creditLabel': 'Brukt kreditt',
   'cashCreditCard.title': 'Kontanter og kreditt',
+  'common.goToDashboard': 'Gå til oversikt',
   'dashboard.accountsHeading': 'Kontoer',
   'dashboard.heading': 'Oversikt',
   'dashboard.recentEmpty': 'Ingen transaksjoner ennå.',
@@ -45,10 +48,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Vis passord',
   'login.signUp': 'Registrer deg',
   'login.submit': 'Logg inn',
+  'meridianLayout.menu': 'Meny',
   'meridianLayout.primaryNavLabel': 'Primærnavigasjon',
   'nav.legal': 'Juridisk',
   'notifications.emptyHeading': 'Du er helt oppdatert',
   'notifications.subheading': 'Sanntidsvarsler for transaksjoner, sikkerhet og kontoutskrifter.',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'privacy.dataWeShare':
     'Personlige bankdata selges aldri. Vi deler informasjon med betalingsleverandører, kortnettverk og regulatorer kun i den grad det er nødvendig for å gjennomføre transaksjoner eller oppfylle juridiske forpliktelser.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'To-faktor legger til en engangskode fra en godkjenningsapp ved hver innlogging.',
   'settings.security.twoFactorCta': 'Administrer to-faktor-autentisering',
+  'settings.security.twoFactorOff': 'To-faktor-autentisering er deaktivert',
   'settings.signOutDevice': 'Logg ut',
   'settings.subheading': 'Profil, sikkerhet og varsler.',
+  'settings.twoFactorCode': 'Autentiseringskode',
   'settings.twoFactorDisable': 'Deaktiver',
   'settings.twoFactorEnable': 'Aktiver',
+  'settings.twoFactorInvalidCode': 'Ugyldig kode',
+  'settings.twoFactorVerify': 'Bekreft og aktiver',
   'signup.emailLabel': 'E-postadresse',
   'signup.fullName': 'Hva skal vi kalle deg?',
   'signup.showPassword': 'Vis passord',
@@ -105,7 +114,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Ingen transaksjoner ennå.',
   'transactions.endDate': 'Sluttdato',
   'transactions.eyebrow': 'Aktivitet',
+  'transactions.loadError': 'Klarte ikke å laste transaksjoner.',
   'transactions.merchant': 'Forhandler',
+  'transactions.subheading':
+    'Alle registrerte og ventende transaksjoner på tvers av kontoene dine.',
   'transfers.availableHint': '{{amount}} tilgjengelig',
   'transfers.errorGeneric': 'Klarte ikke å sende overføringen.',
   'transfers.errorMissingFields': 'Velg en kildekonto og en mottaker.',

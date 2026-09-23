@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.pageTitle': 'Über {{appName}}',
   'analytics.error': 'Analysen konnten nicht geladen werden.',
   'analytics.heading': 'Retrieval-Analysen',
@@ -54,6 +55,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Keine Preisstufen konfiguriert.',
   'billing.plans.heading': 'Pläne',
   'billing.subheading': 'Plan, Nutzung und von Stripe verwalteter Checkout.',
+  'common.confirm': 'Bestätigen',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.retry': 'Erneut versuchen',
   'documentCard.open': 'Öffnen →',
   'documentDetail.back': 'Zurück zu Dokumenten',
   'documentDetail.chunks.empty':
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Dokument indizieren',
   'documents.composer.titlePlaceholder': 'Dokumenttitel',
   'documents.emptyAll': 'Noch keine Dokumente. Laden Sie eines hoch, um Fragen zu stellen.',
+  'documents.error.load': 'Dokumente konnten nicht geladen werden.',
   'documents.heading': 'Indizierte Dokumente',
   'documents.loading': 'Dokumente werden geladen…',
   'documents.metric.chunks': 'Chunks gesamt',
@@ -143,7 +148,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Wird entfernt…',
   'members.subheading': 'Teamkollegen einladen und Rollen festlegen.',
   'members.tableHeading': 'Roster',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'notFound.askCta': 'Wissensdatenbank fragen',
+  'notFound.body':
+    '{{app}} konnte die Seite nicht finden. Der Link ist möglicherweise defekt oder die Seite wurde im Zuge einer Neuindizierung entfernt.',
   'notFound.eyebrow': 'Kann nicht abgerufen werden',
   'notFound.title': 'Kein solcher Chunk im Index',
   'notifications.dismiss': 'Verwerfen',
@@ -209,6 +218,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Klicken Sie auf „Quelle hinzufügen“, um Ihren ersten Konnektor anzuschließen.',
   'sources.empty.title': 'Noch keine Quellen.',
+  'sources.error.add': 'Die Quelle konnte nicht hinzugefügt werden.',
   'sources.error.labelRequired': 'Bezeichnung ist erforderlich.',
   'sources.error.load': 'Quellen konnten nicht geladen werden.',
   'sources.error.urlRequired': 'Für diese Quellenart ist eine URL erforderlich.',

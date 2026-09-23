@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'accountSettings.confirmEmailLabel': 'സ്ഥിരീകരിക്കാൻ DELETE എന്ന് ടൈപ്പ് ചെയ്യുക',
   'accountSettings.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'accountSettings.passwordError': 'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'വരാനിരിക്കുന്ന സമയപരിധികളൊന്നുമില്ല.',
   'dashboard.upcomingTitle': 'വരാനിരിക്കുന്ന അവസാന തീയതികൾ',
   'deviceSettings.unknownDevice': 'അജ്ഞാത ഉപകരണം',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'പിന്തുണ',
   'forgotPassword.error': 'പുനഃസജ്ജീകരണ ലിങ്ക് അയയ്ക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'അസാധുവായ ഇമെയിൽ വിലാസം അല്ലെങ്കിൽ പാസ്‌വേഡ്.',
   'login.pageTitle': 'സൈൻ ഇൻ',
   'login.signIn': 'ഫോർജിലേക്ക് സൈൻ ഇൻ ചെയ്യുക',
+  'login.subtitle': 'നിങ്ങളുടെ പ്രോജക്റ്റുകൾ ട്രാക്കിൽ നിലനിർത്താൻ സൈൻ ഇൻ ചെയ്യുക',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'nav.calendar': 'കലണ്ടർ',
   'nav.legal': 'നിയമപരമായ',
   'nav.myTasks': 'എന്റെ ജോലികൾ',

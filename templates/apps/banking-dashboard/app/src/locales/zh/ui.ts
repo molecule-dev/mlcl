@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
   'accountDetail.activeBadge': '活跃',
   'accountDetail.availableLabel': '可用{{amount}}',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': '账户',
   'accounts.loadError': '加载账户失败。',
   'accounts.status.closed': '已关闭',
+  'accounts.status.frozen': '冰雪奇缘',
   'accounts.totalBalance': '总计{{amount}}',
   'audit.empty': '暂无事件。',
   'audit.eyebrow': '安全与访问',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': '现金',
   'cashCreditCard.creditLabel': '已用信用额',
   'cashCreditCard.title': '现金与信用',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.accountsHeading': '账户',
   'dashboard.heading': '概览',
   'dashboard.recentEmpty': '暂无交易。',
@@ -42,10 +45,12 @@ export const ui: UiTranslations = {
   'login.showPassword': '显示密码',
   'login.signUp': '注册',
   'login.submit': '登录',
+  'meridianLayout.menu': '菜单',
   'meridianLayout.primaryNavLabel': '主导航',
   'nav.legal': '法律',
   'notifications.emptyHeading': '您已查看所有内容',
   'notifications.subheading': '交易、安全和账单的实时提醒。',
+  'planUpdated.verifying': '确认您的付款中…',
   'privacy.dataWeShare':
     '我们绝不出售个人银行数据。仅在结算交易或履行法律义务所需的情况下，与支付处理商、卡组织和监管机构共享信息。',
   'privacy.dataWeStore':
@@ -77,10 +82,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     '双重验证要求您在每次登录时输入身份验证器应用提供的一次性代码。',
   'settings.security.twoFactorCta': '管理双重验证',
+  'settings.security.twoFactorOff': '双因素认证已关闭',
   'settings.signOutDevice': '退出登录',
   'settings.subheading': '个人资料、安全和通知。',
+  'settings.twoFactorCode': '验证码',
   'settings.twoFactorDisable': '停用',
   'settings.twoFactorEnable': '启用',
+  'settings.twoFactorInvalidCode': '无效代码',
+  'settings.twoFactorVerify': '验证并启用',
   'signup.emailLabel': '电子邮箱',
   'signup.fullName': '我们该如何称呼您？',
   'signup.showPassword': '显示密码',
@@ -102,7 +111,9 @@ export const ui: UiTranslations = {
   'transactions.empty': '暂无交易。',
   'transactions.endDate': '结束日期',
   'transactions.eyebrow': '动态',
+  'transactions.loadError': '加载交易失败。',
   'transactions.merchant': '商户',
+  'transactions.subheading': '您所有账户中已入账和待处理的每笔交易。',
   'transfers.availableHint': '可用{{amount}}',
   'transfers.errorGeneric': '无法提交转账。',
   'transfers.errorMissingFields': '请选择源账户和目标。',

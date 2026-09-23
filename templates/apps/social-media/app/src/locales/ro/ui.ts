@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.pageTitle': 'Despre {{app}}',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.retry': 'Reîncearcă',
   'compose.cancel': 'Anulați',
   'compose.captionPlaceholder': 'Ce este în mintea ta?',
   'compose.heading': 'Împărtășește un moment',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Cont verificat',
   'resetPassword.newPassword': 'Parolă nouă',
   'resetPassword.subheading': 'Alege ceva puternic — cel puțin 12 caractere.',
+  'search.clearAria': 'Ștergeți',
+  'search.error': 'Căutarea a eșuat. Încercați din nou.',
   'search.noPeople': 'Niciun creator nu se potrivește cu " {{q}} „.',
   'search.noPosts': 'Nicio postare nu se potrivește cu " {{q}} „.',
   'search.noTags': 'Încă nu există hashtag-uri în tendințe.',
@@ -128,6 +134,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ascundeți parola',
   'signup.showPassword': 'Afișați parola',
   'signup.subheading': 'Creează un cont pentru a începe partajarea.',
+  'socialMediaLayout.closeMenu': 'Închide meniul de navigare',
+  'socialMediaLayout.openMenu': 'Deschide meniul de navigare',
+  'socialMediaLayout.primaryNavLabel': 'Navigare principală',
   'storyRail.heading': 'Povești',
   'storyRail.label': 'Povești',
   'storyRail.openAria': 'Deschide {{handle}} povestea lui',

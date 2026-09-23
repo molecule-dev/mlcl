@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.title': 'Psací místnost, kterou si můžete nechat v kapse',
   'billing.cancelConfirm': 'Zrušit aktivní předplatné?',
   'billing.cancelFailed': 'Nepodařilo se zrušit.',
   'billing.checkingOut': 'Otevírání pokladny…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nepodařilo se načíst fakturaci.',
   'billing.loading': 'Načítání fakturace…',
   'billing.upgradeCta': 'Upgradovat na {{name}}',
+  'common.goToDashboard': 'Přejít na Dashboard',
+  'editor.autosaveOn': 'Automatické ukládání zapnuto',
   'editor.backToLibrary': 'Zpět do knihovny',
   'editor.charCount': '{{count}} znaků',
   'editor.confirmTrash': 'Přesunout tento dokument do koše?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Odepnuto',
   'editor.unpublishCta': 'Přesunout do konceptu',
   'editor.unpublished': 'Vráceno do konceptu',
+  'focus.autosaveOn': 'Automatické ukládání zapnuto',
   'focus.backToLibrary': 'Zpět do knihovny',
   'focus.bodyPlaceholder': 'Řádek po řádku. Nikdo jiný tu není.',
   'focus.exit': 'Ukončit režim ostření',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Vytvořte si jeden',
   'login.subline':
     'Vaše rukopisy, denní stránky a poslední pozice kurzoru jsou přesně tam, kde jste je nechali.',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
   'pricing.exports': 'vývoz',
   'pricing.folders': 'složky',
   'pricing.heading': 'dokumenty',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Zadejte kód, který jsme vám právě poslali e-mailem, a vyberte si něco nezapomenutelného. Po uložení vás přihlásíme.',
   'reset.tokenHint': 'Vloženo z vaší doručené pošty.',
+  'settings.appearance.heading': 'Světlé nebo tmavé',
   'settings.editor.${row.id}.description': 'Jazyk',
   'settings.editor.description':
     'Rolování psacího stroje, zeslabování odstavců a nečinný fokus – výchozí nastavení jsou vyladěna pro dlouhé relace.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapitola třetí — Klidná hodinka před východem slunce',
   'versalDocumentCard.pinned': 'Připnuté',
   'versalLayout.nav.stats': 'Statistiky',
+  'versalLayout.primaryNavLabel': 'Primární navigace',
   'versalManuscriptHero.cta': 'Pokračovat v psaní',
   'versalManuscriptHero.goalLabel': 'Dnešní slovní cíl',
   'versalManuscriptHero.inProgress': 'Na dobré cestě',

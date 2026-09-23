@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Amakhasimende',
   'customers.loadError': 'Kuhlulekile ukulayisha amakhasimende.',
   'customers.loading': 'Iyalayisha…',
+  'customers.new.address': 'Ikheli lesevisi',
   'customers.new.email': 'I-imeyili',
   'customers.new.error': 'Kuhlulekile ukufaka ikhasimende.',
   'customers.new.heading': 'Ikhasimende elisha',

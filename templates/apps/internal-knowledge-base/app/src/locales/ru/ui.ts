@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'article.notFound': 'Статья не найдена',
   'articleEditor.bodyPlaceholder': 'Наберите / для ввода блоков или просто начните писать.',
+  'articleEditor.loadFailed': 'Не удалось загрузить статью',
   'articleEditor.publishing': 'Издательское дело™',
   'articleEditor.saveFailed': 'Сохранение не удалось',
   'articleEditor.saving': 'Экономия™',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Добавить в закладки',
   'articleView.bookmarkOn': 'Добавлено в закладки',
   'articleView.edit': 'Редактировать статью',
+  'articleView.loading': 'Открывая эту статью…',
   'articleView.readTime': '{{minutes}} мин чтения',
   'articleView.spaces': 'Пространства',
   'articleView.tocHeading': 'На этой странице',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Недавние правки, прочтения и черновики, которые ваша команда все еще обрабатывает.',
   'cairnTrailHero.updated': 'Статьи обновлены.',
+  'common.goToDashboard': 'Перейти к панели',
   'drafts.eyebrow': 'Ваша незавершенная работа',
   'drafts.heading': 'Черновики',
+  'drafts.loadFailed': 'Не удалось загрузить ваши черновики.',
   'drafts.subtitle':
     'Статьи, которые вы начали писать, но еще не опубликовали. Возьмите одну и продолжайте работу.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Пока нет свободных мест. Создайте одно, чтобы начать собирать статьи.',
   'home.spacesHeading': 'Ваши пространства',
   'home.subtitle': 'Последние статьи, ваши закладки и то, что писала команда.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Создано с помощью Molecule.',
   'landing.ctaBody':
     'Бесплатно для авторов-одиночек. Командные тарифы для распределенных команд, которые предоставляют руководства по эксплуатации, решения и инструкции по адаптации новых сотрудников.',
   'landing.ctaHeading': 'Сегодня же заложите первый камень.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Создайте рабочее пространство',
   'login.submitting': 'Вход\\u2026',
   'login.subtitle': 'Продолжите движение по тому же маршруту, с которого начали.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
+  'newSpace.colorAria': 'Выберите цвет {{color}}',
   'newSpace.colorLabel': 'Акцентный цвет',
+  'newSpace.createFailed': 'Не удалось создать пространство.',
   'newSpace.descriptionPlaceholder':
     'Схемы действий в чрезвычайных ситуациях, планы действий по вызову, анализ причин сбоев…',
   'newSpace.eyebrow': 'Открыть пространство знаний',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Загрузка…',
   'notifications.subtitle':
     '{{count}} Непрочитанные – упоминания, комментарии, изменения страниц и запросы на рецензирование.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.articles': 'статьи',
   'pricing.spaces': 'пространства',
   'profile.eyebrow': 'Профиль автора',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Введите новый пароль',
   'resetPassword.subtitle': 'Выберите надежный пароль — не менее 12 символов.',
   'searchResults.eyebrow': 'Поиск в рабочей области',
+  'searchResults.filter.all': 'Все помещения',
   'searchResults.heading': 'Поиск статей',
   'searchResults.placeholder': 'Поиск руководств по эксплуатации, RFC, политик, решений…',
   'searchResults.summary': '{{count}} результаты для \\u201c {{query}} ☐',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Это удалит вашу учетную запись и все написанные вами статьи. Для подтверждения введите DELETE.',
   'settings.danger.confirmInvalid': 'Для подтверждения введите DELETE.',
+  'settings.danger.deleteFailed': 'Не удалось удалить учетную запись.',
   'settings.danger.deleting': 'Удаление™',
   'settings.danger.description':
     'Удаление рабочей области приведет к удалению всех статей, комментариев и истории версий. Восстановление невозможно.',
   'settings.danger.title': 'Удалить рабочее пространство',
+  'settings.email.confirm': 'Обновить адрес электронной почты',
+  'settings.email.confirmTitle': 'Подтвердите изменение адреса электронной почты',
   'settings.email.saved': 'Адрес электронной почты обновлен.',
+  'settings.email.updateFailed': 'Не удалось обновить адрес электронной почты.',
   'settings.language.title': 'Язык',
   'settings.name': 'Имя',
+  'settings.name.saved': 'Имя обновлено.',
+  'settings.name.updateFailed': 'Не удалось обновить имя.',
   'settings.notifications.description': 'Выбирайте, что будет поступать в ваш почтовый ящик.',
+  'settings.password.changeFailed': 'Не удалось изменить пароль.',
   'settings.password.current': 'Текущий пароль',
   'settings.password.new': 'Новый пароль',
   'settings.password.saving': 'Обновление™',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Как отображаются статьи для вас.',
   'settings.reading.title': 'Чтение и письмо',
   'settings.subtitle': 'Настройте уведомления, используйте холст для чтения и свой аккаунт.',
+  'settings.twofa.code': 'Код аутентификации',
   'settings.twofa.disable': 'Отключить',
   'settings.twofa.disabled': 'Неполноценный',
   'settings.twofa.enable': 'Включить',
   'settings.twofa.enabled': 'Включено',
+  'settings.twofa.invalidCode': 'Неверный код',
+  'settings.twofa.unavailable': 'Двухфакторная аутентификация для этого приложения недоступна.',
+  'settings.twofa.verify': 'Проверить и включить',
   'signup.brandQuote':
     '«Записать это — первое обещание, которое мы даем следующему человеку, которому это понадобится».',
   'signup.eyebrow': 'Откройте рабочее пространство',

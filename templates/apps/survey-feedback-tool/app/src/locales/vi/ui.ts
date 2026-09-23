@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Giới thiệu {{app}}',
   'analytics.back': 'Tổng quan khảo sát',
   'analytics.kpiNps': 'Điểm NPS',
   'analytics.kpiNpsTrend': 'Người ủng hộ {{p}}% · Người phản đối {{d}}%',
@@ -31,10 +32,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Thuộc tính',
   'builder.questionNumber': 'C{{num}}',
   'builder.surveyTitle': 'Tiêu đề khảo sát',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'forgotPassword.failed': 'Không thể gửi email đặt lại. Vui lòng thử lại.',
   'forgotPassword.subheading': 'Nhập email của quý vị và chúng tôi sẽ gửi liên kết khôi phục.',
   'forgotPassword.successBody':
     'Nếu có tài khoản khớp với {{email}}, một liên kết đặt lại đang trên đường tới. Vui lòng kiểm tra hộp thư đến và thư rác.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Mọi ý kiến đóng góp đều được hoan nghênh.',
   'landing.footer.startTrial': 'Bắt đầu dùng thử',
   'landing.hero.badge': 'Khảo sát, NPS & phản hồi trong một nơi',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Giá',
   'landing.pricing.perMonth': '/tháng',
   'landing.pricing.popular': 'Phổ biến nhất',
+  'landing.pricing.subtitle':
+    'Mỗi gói dịch vụ đều bao gồm công cụ tạo khảo sát, liên kết chia sẻ công khai và phân tích NPS. Không cần thẻ tín dụng để bắt đầu.',
+  'landing.pricing.title': 'Bắt đầu miễn phí, mở rộng dần khi bạn cần.',
   'landing.sample.eyebrow': 'NPS trong nháy mắt',
   'landing.sample.title': 'Người phản đối, trung lập, ủng hộ — dễ đọc tức thì.',
   'login.failed': 'Đăng nhập thất bại. Vui lòng thử lại.',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Hiển thị mật khẩu',
   'login.signUpLink': 'Bắt đầu dùng thử miễn phí',
   'login.subheading': 'Đăng nhập để tiếp tục lắng nghe khán giả của quý vị.',
+  'notFound.body':
+    'Trang bạn đang tìm kiếm không tồn tại trên {{app}} . Hãy để chúng tôi đưa bạn trở lại phần khảo sát.',
   'notFound.cta': 'Quay lại khảo sát',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Khảo sát này đã lạc khỏi hàng đợi.',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Trung lập 7–8',
   'npsDistributionBar.promoter': 'Người ủng hộ 9–10',
   'profile.identity.description': 'Công khai với nhóm của quý vị và trên các khảo sát quý vị tạo.',
+  'profile.identity.emailRequired': 'Nhập địa chỉ email.',
   'profile.identity.saveCta': 'Lưu tên',
   'profile.password.current': 'Mật khẩu hiện tại',
   'profile.password.fillFields': 'Vui lòng nhập cả mật khẩu hiện tại và mới.',
@@ -176,6 +185,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} câu hỏi',
   'templates.subheading':
     'Chọn một bộ khởi đầu đã được kiểm chứng — mỗi mẫu đều được điều chỉnh sẵn với mặc định hợp lý, logic mẫu và bố cục di động sạch sẽ.',
+  'thankYou.body':
+    'Phản hồi của bạn đã được ghi nhận. {{app}} sẽ đưa phản hồi này vào lần cập nhật phân tích tiếp theo.',
   'thankYou.eyebrow': 'Đã nhận phản hồi',
   'thankYou.heading': 'Cảm ơn — tiếng nói của quý vị quan trọng.',
   'thankYou.home': 'Truy cập Gauge',

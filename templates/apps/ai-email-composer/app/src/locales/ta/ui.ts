@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்கள் கதை',
   'aiSuggestionPanel.title': 'சிக்னெட் கோபைலட்',
   'analytics.col.open': 'திறப்பு விகிதம்',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'பணம் செலுத்தும் செயல்முறை தொடங்குகிறது…',
   'billing.subheading': 'நீங்கள் அனுப்பும் முறைக்குப் பொருத்தமான திட்டத்தைத் தேர்ந்தெடுக்கவும்.',
   'billing.unavailable': 'விற்பனையைத் தொடர்பு கொள்ளவும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'compose.adjustingTone': 'தேர்ந்தெடுக்கப்பட்ட தொனியில் திருத்தி எழுதுதல்…',
   'compose.aiPromptPlaceholder':
     'உதாரணமாக, "இரண்டு வாரங்களாகப் பதில் வராத பட்சத்தில், மரியாதையாகத் தொடர்ந்து விசாரிக்கவும்; அதைச் சுருக்கமாக வைக்கவும்."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'ஏதேனும் அனுப்ப வேண்டுமா? சிக்னெட் நொடிகளில் ஒரு வரைவைத் தயார் செய்துவிடும்.',
   'dashboard.composeCtaLabel': 'விரைவான உருவாக்கம்',
   'dashboard.heading': 'உங்கள் வாரம், தொகுக்கப்பட்டது',
+  'dashboard.loadFailed': 'உங்கள் டாஷ்போர்டை ஏற்ற முடியவில்லை.',
   'dashboard.manageLibrary': 'நூலகத்தை நிர்வகிக்கவும் →',
   'dashboard.recentEmpty':
     'இன்னும் எதுவும் அனுப்பப்படவில்லை — நீங்கள் அனுப்பிய மின்னஞ்சல்கள் இங்கே தோன்றும்.',
@@ -147,6 +151,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'நீங்கள் வரைவில் மாற்றியமைக்காத வரையில், சிக்னெட் இந்தத் தொனியையே பயன்படுத்தும்.',
   'signetLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'signetLayout.toggleMenu': 'மெனுவை மாற்று',
   'signup.emailLabel': 'மின்னஞ்சல் முகவரி',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.tagline':

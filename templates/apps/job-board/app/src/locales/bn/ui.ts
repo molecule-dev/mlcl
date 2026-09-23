@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'আমাদের সম্পর্কে',
   'applications.empty': 'এখনো কোনো আবেদন আসেনি – আপনার পছন্দের পদটি পেতে শুধু একটি আবেদনই যথেষ্ট।',
   'applications.eyebrow': 'আপনার পাইপলাইন',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'আপনার আবেদন করা প্রতিটি পদ চলমান। নির্দিষ্ট স্থানে মনোযোগ দিতে পর্যায় অনুযায়ী ফিল্টার করুন।',
   'applications.untitledRole': 'ভূমিকা # {{id}}',
+  'auth.legalConsent': 'অব্যাহত রেখে, আপনি আমাদের সাথে সম্মত হচ্ছেন',
   'common.and': 'এবং',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'companies.empty':
     'আপনার অনুসন্ধানের সাথে কোনো কোম্পানি মেলে না – অন্য কোনো শব্দ ব্যবহার করে দেখুন।',
   'companies.eyebrow': 'বৈশিষ্ট্যযুক্ত নিয়োগকর্তারা',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'এই পদের জন্য এখনও কোনো আবেদনপত্র জমা পড়েনি।',
   'jobApplicants.eyebrow': 'নিয়োগকর্তার দৃষ্টিকোণ',
   'jobApplicants.loading': 'লোড হচ্ছে...',
+  'jobApplicants.statusUpdateFailed': 'ওই পর্যায়টি আপডেট করা যায়নি — আবার চেষ্টা করুন।',
+  'jobApplicants.subheading':
+    'জীবনবৃত্তান্ত পর্যালোচনা করুন, প্রার্থীদের পরবর্তী ধাপে পাঠান, চাকরির প্রস্তাব পাঠান – {{count}} জন প্রক্রিয়াধীন।',
   'jobDetail.applicantCount': '{{count}} এখন পর্যন্ত আবেদনকারীরা',
   'jobDetail.applied': 'আবেদন পাঠানো হয়েছে',
   'jobDetail.apply': 'এখনই আবেদন করুন',
@@ -83,12 +89,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'খালি পদগুলো দেখুন ➡',
   'landing.pricingEyebrow': 'মূল্য নির্ধারণ',
   'landing.pricingHeading': 'সব আকারের দলের জন্য সহজ পরিকল্পনা।',
+  'login.eyebrow': '{{app}}-এ স্বাগতম',
   'login.heading': 'আপনার অ্যাকাউন্টে সাইন ইন করুন',
   'login.noAccount': 'Nosh-এ নতুন?',
   'login.passwordPlaceholder': '•২০২২ •২০২২ •২০২২ •২০২২ •২০২২ •২০২২ •২০২২',
   'login.remember': '৩০ দিনের জন্য আমাকে মনে রাখবেন',
   'login.signingIn': 'সাইন ইন করা হচ্ছে…',
   'login.subheading': 'আপনার অনুসন্ধান শুরু করুন, আবেদনগুলো এগিয়ে নিন, আরও দ্রুত উত্তর পান।',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . নিয়োগকারী দলগুলোর জন্য নির্মিত।',
   'loginBrandPanel.headline': 'যেখানে প্রতিভার মিলন ঘটে',
   'loginBrandPanel.headlineLine2': 'ভরবেগ।',
   'loginBrandPanel.listing.recruiter': 'ট্যালেন্ট পার্টনার',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
     'আবেদনের হালনাগাদ, সাক্ষাৎকারের আমন্ত্রণ, নতুন সুযোগ – নতুনতমগুলো প্রথমে।',
   'opportunitiesHero.delta': '{{sign}} {{amount}} এই সপ্তাহে',
   'opportunitiesHero.eyebrow': 'আজ খোলা',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'postJob.addNewCompany': 'একটি নতুন কোম্পানি যোগ করুন',
   'postJob.companyCreateFailed': 'কোম্পানি তৈরি করা যায়নি — আবার চেষ্টা করুন।',
   'postJob.companyNameLabel': 'আপনার কোম্পানির নাম',
@@ -163,10 +172,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'অ্যাকাউন্ট তৈরি করা হচ্ছে •',
   'signup.ctaEmployer': 'নিয়োগকর্তার অ্যাকাউন্ট তৈরি করুন',
   'signup.firstNamePlaceholder': 'মায়া',
+  'signup.lastNamePlaceholder': 'চেন',
   'signup.passwordMismatch': 'পাসওয়ার্ডগুলো মিলছে না।',
   'signup.subheading':
     'অনুসন্ধানকারীদের জন্য আজীবন বিনামূল্যে। নিয়োগকর্তারা ৩০-দিনের ট্রায়াল দিয়ে শুরু করতে পারেন।',
   'timeAgo.days': '{{count}} দিন আগে',
   'timeAgo.hours': '{{count}} কয়েক ঘন্টা আগে',
   'timeAgo.justNow': 'এইমাত্র',
+  'timeAgo.weeks': '{{count}} সপ্তাহ আগে',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'alerts.acknowledgeLabel': 'Bevestigen',
   'alerts.customerLabel': 'Klant: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Koppelen…',
   'carriers.requiredError': 'Naam en code zijn verplicht.',
   'carriers.subheading': '{{count}} geïntegreerd',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
+  'common.retry': 'Opnieuw proberen',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Onderweg + gemarkeerd',
   'dashboard.activeShipmentsSubtitle': '{{count}} zendingen vragen aandacht of zijn onderweg',
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'zendingen',
   'pricing.trackingLabel': 'tracking-gebeurtenissen',
   'profile.dangerZone.title': 'Gevarenzone',
+  'profile.devices.signingOut': 'Afmelden…',
+  'profile.devices.unnamed': 'Apparaat zonder naam',
+  'profile.security.disable2fa': '2FA uitschakelen',
   'profile.security.enable2fa': '2FA inschakelen',
   'profile.security.pwChanged': 'Wachtwoord succesvol gewijzigd.',
   'profile.security.pwCurrent': 'Huidig wachtwoord',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA actief',
   'profile.security.twoFaCode': '6-cijferige code',
   'profile.security.twoFaDisable': 'Uitschakelen',
+  'profile.security.twoFaDisabling': 'Uitschakelen…',
   'profile.security.twoFaFailed': 'Kon code niet verifiëren.',
   'profile.security.twoFaIntro':
     'Scan de QR-code in uw authenticator-app en voer hieronder de 6-cijferige code in om te verifiëren.',
   'profile.security.twoFaOn': 'Tweestapsverificatie is ingeschakeld voor dit account.',
+  'profile.security.twoFaQrAlt': 'Tweefactor QR-code',
   'profile.security.twoFaVerify': 'Verifiëren en inschakelen',
   'profile.security.twoFaVerifying': 'Verifiëren…',
   'profile.subheading': 'Identiteits- en beveiligingsinstellingen voor deze werkruimte.',
@@ -130,6 +138,8 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Bewaar dit geheim — het wordt niet opnieuw getoond.',
   'settings.api.webhookSecret': 'Webhook-ondertekeningsgeheim',
   'settings.appearance.description': 'Schakel tussen lichte en donkere modus.',
+  'settings.deleteAccountConfirm':
+    'Weet je het zeker? Deze handeling kan niet ongedaan worden gemaakt.',
   'settings.notifications.exceptions': 'Mail mij wanneer een zendingsuitzondering optreedt',
   'settings.notifications.heading': 'Notificaties',
   'settings.notifications.saveFailed': 'Kon voorkeuren niet opslaan.',
@@ -144,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Zending niet gevonden.',
   'shipmentDetail.originHeading': 'Herkomst',
   'shipmentDetail.shippedOn': 'Verzonden op {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Er zijn nog geen trackinggegevens — updates verschijnen hier zodra de vervoerder het pakket scant.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Vervoerder',
   'shipments.col.eta': 'ETA',
@@ -173,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Aanmelden',
   'signup.submit': 'Account aanmaken',
   'team.emailError': 'Een geldig e-mailadres is vereist.',
+  'team.empty':
+    'Er zijn nog geen teamleden. Nodig een teamgenoot uit om samen aan zendingen te werken.',
   'team.eyebrow': 'Leden en rechten',
   'team.inviteDialog.cancel': 'Annuleren',
   'team.inviteDialog.heading': 'Nodig een teamlid uit',
@@ -195,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Volgen',
   'waypointLayout.primaryNavLabel': 'Primaire navigatie',
   'webhooks.createFailed': 'Kon webhook-eindpunt niet aanmaken.',
+  'webhooks.endpointsEmpty':
+    'Er zijn nog geen webhook-eindpunten. Maak er een aan om callbacks over de verzendstatus te ontvangen.',
   'webhooks.endpointsHeading': 'Eindpunten',
   'webhooks.eventCount': '{{count}} gebeurtenissen',
   'webhooks.eventsHeading': 'Recente bezorgingen',

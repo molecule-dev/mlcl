@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.title': 'Bilik menulis yang boleh anda simpan di dalam poket anda',
   'billing.cancelConfirm': 'Batalkan langganan aktif anda?',
   'billing.cancelFailed': 'Tidak dapat membatalkan.',
   'billing.checkingOut': 'Membuka pembayaran…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Tidak dapat memuatkan pengebilan.',
   'billing.loading': 'Memuatkan bil…',
   'billing.upgradeCta': 'Naik taraf kepada {{name}}',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'editor.autosaveOn': 'Simpan automatik dihidupkan',
   'editor.backToLibrary': 'Kembali ke perpustakaan',
   'editor.charCount': '{{count}} aksara',
   'editor.confirmTrash': 'Alihkan dokumen ini ke sampah?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Ditanggalkan pin',
   'editor.unpublishCta': 'Beralih ke draf',
   'editor.unpublished': 'Dikembalikan kepada draf',
+  'focus.autosaveOn': 'Simpan automatik dihidupkan',
   'focus.backToLibrary': 'Kembali ke perpustakaan',
   'focus.bodyPlaceholder': 'Barisan demi baris. Tiada orang lain di sini.',
   'focus.exit': 'Keluar dari mod fokus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Buat satu',
   'login.subline':
     'Manuskrip, halaman harian dan kedudukan kursor terakhir anda berada betul-betul di tempat anda meletakkannya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'pricing.exports': 'eksport',
   'pricing.folders': 'folder',
   'pricing.heading': 'dokumen',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Masukkan kod yang baru kami emelkan kepada anda dan pilih sesuatu yang mudah diingati. Kami akan log masuk anda setelah ia disimpan.',
   'reset.tokenHint': 'Ditampal dari peti masuk anda.',
+  'settings.appearance.heading': 'Terang atau gelap',
   'settings.editor.${row.id}.description': 'Bahasa',
   'settings.editor.description':
     'Skrol mesin taip, pudar perenggan dan fokus melahu — tetapan lalai ditala untuk sesi yang panjang.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Bab Tiga — Sejam Yang Tenang Sebelum Matahari Terbit',
   'versalDocumentCard.pinned': 'Dipinkan',
   'versalLayout.nav.stats': 'Statistik',
+  'versalLayout.primaryNavLabel': 'Navigasi utama',
   'versalManuscriptHero.cta': 'Teruskan menulis',
   'versalManuscriptHero.goalLabel': 'Matlamat perkataan hari ini',
   'versalManuscriptHero.inProgress': 'Di landasan yang betul',

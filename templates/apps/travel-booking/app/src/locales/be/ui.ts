@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.featureDiscover.title': 'Натхненне, адабранае ўручную',
   'account.addPaymentCta': 'Дадаць спосаб аплаты',
   'account.addPaymentError': 'Не атрымалася дадаць спосаб аплаты.',
+  'account.confirmRemove': 'Пацвердзіць выдаленне',
   'account.defaultBadge': 'Па змаўчанні',
   'account.loyalty.pointsTowardNext': '{{балы}} з {{наступны}} мілі да {{nextTier}}',
   'account.loyalty.tier': 'Бягучы ўзровень',
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'booking.specialRequestsPlaceholder': 'Ці ёсць што-небудзь, што павінен ведаць гаспадар?',
   'booking.submitError': 'Браніраванне не атрымалася.',
   'booking.tripHeading': 'Падрабязнасці паездкі',
+  'booking.tripSummary': '{{nights}} начэй · {{guests}} гасцей',
   'common.daysAgo': '{{count}} д. таму',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.hoursAgo': '{{count}} г. таму',
   'common.minutesAgo': '{{count}} м таму',
   'common.no': '—',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Юрыдычная інфармацыя',
   'notifications.loading': 'Загрузка…',
   'notifications.subheading': '{{count}} непрачытаныя · усё ў адной ціхай паштовай скрыні',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.accommodationsLabel': 'жыллё',
   'pricing.bookingsLabel': 'браніравання',
   'pricing.destinationsLabel': 'захаваныя пункты прызначэння',
@@ -131,6 +137,7 @@ export const ui: UiTranslations = {
     "Натхненне, надзейнае пражыванне і лёгкі шлях ад мары да браніравання — у 14 краінах і больш чым 200 старанна правераных аб'ектах.",
   'sojournHeroSearchCard.trustProtected': 'Бясплатная адмена, поўная абарона',
   'sojournHeroSearchCard.trustVetted': "Толькі правераныя ўручную аб'екты нерухомасці",
+  'travelBookingLayout.primaryNavLabel': 'Асноўная навігацыя',
   'tripDetail.backLink': 'Назад да паездак',
   'tripDetail.cancelCta': 'Адмяніць браніраванне',
   'tripDetail.cancelHeading': 'Адмяніць гэтую паездку?',

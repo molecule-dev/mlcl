@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពីយើង',
   'applications.empty': 'មិនទាន់មានពាក្យសុំនៅឡើយទេ \\u2014 តួនាទីដែលត្រឹមត្រូវគឺត្រូវដាក់ពាក្យ។',
   'applications.eyebrow': 'បំពង់បង្ហូររបស់អ្នក',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'តួនាទីនីមួយៗដែលអ្នកបានដាក់ពាក្យ កំពុងដំណើរការ។ ត្រងតាមដំណាក់កាលដើម្បីផ្តោត។',
   'applications.untitledRole': 'តួនាទីលេខ {{id}}',
+  'auth.legalConsent': 'តាមរយៈការបន្ត អ្នកយល់ព្រមទៅនឹង',
   'common.and': 'និង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'companies.empty':
     'គ្មានក្រុមហ៊ុនណាមួយដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ ដូច្នេះសូមសាកល្បងពាក្យផ្សេង។',
   'companies.eyebrow': 'និយោជកដែលមានលក្ខណៈពិសេស',
@@ -50,6 +53,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'មិនទាន់មានពាក្យសុំសម្រាប់តួនាទីនេះនៅឡើយទេ។',
   'jobApplicants.eyebrow': 'ទស្សនៈរបស់និយោជក',
   'jobApplicants.loading': 'កំពុងផ្ទុក\\u2026',
+  'jobApplicants.statusUpdateFailed':
+    'មិនអាចធ្វើបច្ចុប្បន្នភាពដំណាក់កាលនោះបានទេ — សូមព្យាយាមម្តងទៀត។',
+  'jobApplicants.subheading':
+    'ពិនិត្យមើលប្រវត្តិរូបសង្ខេប ជ្រើសរើសបេក្ខជនជាមុន ផ្ញើការផ្តល់ជូន \\u2014 {{count}} កំពុងដំណើរការ។',
   'jobDetail.applicantCount': '{{count}} អ្នកដាក់ពាក្យរហូតមកដល់ពេលនេះ',
   'jobDetail.applied': 'បានផ្ញើពាក្យសុំ',
   'jobDetail.apply': 'ដាក់ពាក្យឥឡូវនេះ',
@@ -83,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'រកមើលតួនាទីទំនេរ \\u2192',
   'landing.pricingEyebrow': 'តម្លៃ',
   'landing.pricingHeading': 'ផែនការសាមញ្ញសម្រាប់ទំហំក្រុមនីមួយៗ។',
+  'login.eyebrow': 'សូមស្វាគមន៍ត្រឡប់មកកាន់ {{app}}',
   'login.heading': 'ចូលទៅក្នុងគណនីរបស់អ្នក',
   'login.noAccount': 'ថ្មីចំពោះ Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'ចងចាំខ្ញុំរយៈពេល 30 ថ្ងៃ',
   'login.signingIn': 'កំពុងចូល...',
   'login.subheading': 'ជ្រើសរើសការស្វែងរករបស់អ្នក ជំរុញកម្មវិធីរបស់អ្នក ឮដំណឹងលឿនជាងមុន។',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} ។ បង្កើតឡើងសម្រាប់ក្រុមជ្រើសរើសបុគ្គលិក។',
   'loginBrandPanel.headline': 'កន្លែងដែលទេពកោសល្យជួបគ្នា',
   'loginBrandPanel.headlineLine2': 'សន្ទុះ។',
   'loginBrandPanel.listing.recruiter': 'ដៃគូទេពកោសល្យ',
@@ -105,6 +114,7 @@ export const ui: UiTranslations = {
     'ការអាប់ដេតកម្មវិធី, ការអញ្ជើញសម្ភាសន៍, ការផ្គូផ្គងថ្មីៗ \\u2014 ថ្មីបំផុតមុន។',
   'opportunitiesHero.delta': '{{sign}} {{amount}} សប្តាហ៍នេះ',
   'opportunitiesHero.eyebrow': 'បើកថ្ងៃនេះ',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'postJob.addNewCompany': '+ បន្ថែមក្រុមហ៊ុនថ្មីមួយ',
   'postJob.companyCreateFailed': 'មិនអាចបង្កើតក្រុមហ៊ុនបានទេ — សូមព្យាយាមម្តងទៀត។',
   'postJob.companyNameLabel': 'ឈ្មោះក្រុមហ៊ុនរបស់អ្នក',
@@ -165,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'កំពុងបង្កើតគណនី\\u2026',
   'signup.ctaEmployer': 'បង្កើតគណនីនិយោជក',
   'signup.firstNamePlaceholder': 'ម៉ាយ៉ា',
+  'signup.lastNamePlaceholder': 'ចេន',
   'signup.passwordMismatch': 'ពាក្យសម្ងាត់មិនត្រូវគ្នា។',
   'signup.subheading':
     'ឥតគិតថ្លៃសម្រាប់អ្នកស្វែងរកការងារ ជារៀងរហូត។ និយោជកចាប់ផ្តើមជាមួយនឹងការសាកល្បងរយៈពេល 30 ថ្ងៃ។',
   'timeAgo.days': '{{count}} ថ្ងៃមុន',
   'timeAgo.hours': '{{count}} ម៉ោងមុន',
   'timeAgo.justNow': 'អម្បាញ់មិញ',
+  'timeAgo.weeks': '{{count}} សប្តាហ៍មុន',
 }

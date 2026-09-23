@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'forgot.eyebrow': 'Χάσατε τον δρόμο της επιστροφής;',
   'forgot.formSubtitle': 'Πείτε μας το email που έχουμε στο αρχείο.',
   'forgot.headline': 'Επαναφέρετε τον κωδικό πρόσβασής σας.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Δημιουργήστε ένα',
   'login.subline':
     'Τα σημειωματάρια, οι σύνδεσμοι επιστροφής και οι καθημερινές σελίδες σας βρίσκονται ακριβώς εκεί που τα αφήσατε.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'noteEditor.backToNotes': 'Επιστροφή στις σημειώσεις',
   'noteEditor.bodyPlaceholder':
     'Ξεκινήστε να γράφετε — η σημείωσή σας αποθηκεύεται αυτόματα καθώς πληκτρολογείτε.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Νέο σημειωματάριο',
   'notes.newNotebookPrompt': 'Νέο όνομα σημειωματαρίου',
   'notes.notebooksHeading': 'Σημειωματάρια',
+  'notes.subtitle':
+    'Επιλέξτε ένα σημειωματάριο στα αριστερά και, στη συνέχεια, πατήστε το κουμπί Νέα σημείωση για να ξεκινήσετε μια νέα καταχώρηση.',
   'planUpdated.confirmation': 'Το πρόγραμμά σας έχει ενημερωθεί',
   'pricing.heading': 'Επιλέξτε το πρόγραμμα λήψης σημειώσεων που σας ενδιαφέρει',
   'reset.eyebrow': 'Σχεδόν ξανά μέσα',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Ενημερώθηκε',
   'versoLayout.nav.graph': 'Γραφική παράσταση',
   'versoLayout.nav.home': 'Σπίτι',
+  'versoLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'versoNoteCard.pinned': 'Καρφιτσωμένα',
   'versoTodayHero.continueCta': 'Συνέχεια γραφής',
   'versoTodayHero.createCta': 'Ξεκινήστε τη σημερινή σημείωση',

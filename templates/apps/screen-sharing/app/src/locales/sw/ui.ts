@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'about.pageTitle': 'Kuhusu {{appName}}',
   'analytics.empty': 'Rekodi kipande chako cha kwanza cha video ili kuona ushiriki hapa.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipu',
   'billing.usage.views': 'Mitazamo',
   'billing.usage.views.unit': 'mitazamo',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'landing.cta.title': 'Tuma maoni bora zaidi. Anza na Glint.',
   'landing.feature.capture.body':
     'Kivinjari, kompyuta ya mezani, na kurekodi kwa simu kwa kutumia maikrofoni, kamera, na mchoro.',
   'landing.feature.capture.title': 'Kupiga picha kwa kugusa mara moja',
+  'landing.footer.copy': '© {{year}} {{appName}} . Sawazisha, imetengenezwa kuwa na mwangaza.',
   'landing.hero.cardCaption': 'Muhtasari wa mfano wa nafasi ya kazi — jaribu bila malipo.',
   'landing.hero.primaryCta': 'Anza kurekodi bila malipo',
   'landing.hero.proof.free': 'Ngazi ya milele ya bure',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Tafuta rekodi',
   'library.searchPlaceholder': 'Tafuta rekodi…',
   'library.weeklyChange': '{{value}} % dhidi ya wiki iliyopita',
+  'nav.openMenu': 'Fungua menyu ya kusogeza',
   'nav.record': 'Rekodi',
   'nav.shared': 'Imeshirikiwa nami',
   'nav.startRecording': 'Anza kurekodi',

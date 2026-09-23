@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
+  'about.eyebrow': 'За {{app}}',
   'about.pageTitle': 'Всеки маршрут, едно търсене.',
   'booking.backToDetail': 'Обратно към подробностите за полета',
   'booking.continue': 'Продължете към плащането',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Данъци и такси',
   'booking.summary.travelers': 'Пътешественици',
   'common.about': 'Относно',
+  'common.goToDashboard': 'Към таблото',
   'flightDetail.backToResults': 'Обратно към резултатите',
   'flightDetail.baseFare': 'Базова тарифа',
   'flightDetail.book': 'Продължете с резервацията',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 спирка',
   'flightResultCard.select': 'Изберете',
   'flightResultCard.totalLabel': 'Общо време',
+  'flightSearchLayout.primaryNavLabel': 'Основна навигация',
   'forgotPassword.subheading':
     'Въведете имейл адреса на вашия Skylark акаунт и ние ще ви изпратим защитен линк за нулиране.',
   'forgotPassword.successBody':
     'Проверете {{email}} за линк за задаване на нова парола. Линкът изтича след 30 минути.',
   'forgotPassword.successHeading': 'Линкът за нулиране е изпратен',
   'landing.cta.explore': 'Опитайте търсене',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Намерете следващата страхотна цена преди всички останали.',
   'landing.cta.signup': 'Започнете да проследявате тарифите',
   'landing.features.eyebrow': 'Защо чучулига',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Добавяне на сигнал',
   'priceAlerts.deleteConfirm': 'Да се премахне ли това предупреждение?',
   'priceAlerts.empty': 'Все още няма проследени маршрути.',
+  'priceAlerts.emptyCta': 'Търсене на маршрут за проследяване',
   'priceAlerts.errorMessage': 'Не можаха да се заредят известия.',
   'priceAlerts.eyebrow': 'Списък за наблюдение на чучулига',
   'priceAlerts.form.createError': 'Не можа да се създаде сигнал.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Маршрут за няколко града',
   'results.multiLegHeading': 'Крак {{n}} · {{от}} → {{до}} · {{дата}}',
   'results.multiSummary': '{{count}} крака · {{passengers}} пътешественик',
+  'results.sortAriaLabel': 'Сортиране на резултатите по',
   'results.sortLabel': 'Сортиране',
   'results.summary': '{{count}} полети · {{passengers}} пътешественик',
   'settings.language.title': 'Език',

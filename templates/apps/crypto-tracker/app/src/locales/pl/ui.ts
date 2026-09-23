@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'O nas',
   'alertConditionCard.condition.${alert.condition}': 'Wyzwolono {{when}}',
+  'alertConditionCard.confirmDelete': 'Potwierdź usunięcie',
   'alertConditionCard.pauseAriaLabel': 'Wstrzymaj alert',
   'alertConditionCard.resumeAriaLabel': 'Wznów alert',
   'alertNew.condition': 'Warunek',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Wycena w pełni rozwodniona',
   'coinDetail.links.twitter': 'Świergot',
   'coinDetail.links.website': 'Strona internetowa',
+  'coinDetail.links.whitepaper': 'Dokument techniczny',
   'coinDetail.loadError': 'Nie udało się wczytać coina.',
   'coinDetail.marketCap': 'Kapitalizacja rynkowa',
   'coinDetail.maxSupply': 'Maksymalna podaż',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Zeskanowana ścieżka nie wskazuje na znanego coina ani stronę. Proszę sprawdzić symbol i spróbować ponownie.',
   'notFound.browseMarkets': 'Przeglądaj rynki',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'portfolio.addError': 'Proszę wprowadzić symbol, dodatnią ilość oraz koszt.',
   'portfolio.addHoldingCta': '+ Dodaj pozycję',
   'portfolio.addModal.cost': 'Cena nabycia (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Ustawienia hasła i uwierzytelniania dwuskładnikowego są zarządzane przez Pana/Pani konto.',
   'settings.signOutDevice': 'Wyloguj się',
+  'settings.twoFactorCode': 'Kod uwierzytelniający',
   'settings.twoFactorDisable': 'Wyłącz',
   'settings.twoFactorEnable': 'Włącz',
+  'settings.twoFactorInvalidCode': 'Nieprawidłowy kod',
   'settings.twoFactorOn': 'W dniu',
+  'settings.twoFactorVerify': 'Sprawdź i włącz',
   'sigilAuthShell.backHomeCta': '← Wróć do Bourse',
   'sigilLayout.primaryNavLabel': 'Nawigacja główna',
   'signup.eyebrow': 'Otwórz terminal',

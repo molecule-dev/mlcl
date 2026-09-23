@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'අපේ කතාව',
   'aiSuggestionPanel.title': 'සිග්නට් කොපිලට්',
   'analytics.col.open': 'විවෘත අනුපාතය',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'පිටවීම ආරම්භ කරමින්…',
   'billing.subheading': 'ඔබ යවන ආකාරයට ගැලපෙන සැලැස්ම තෝරන්න.',
   'billing.unavailable': 'අලෙවිකරුවන් අමතන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'compose.adjustingTone': 'තෝරාගත් ස්වරයෙන් නැවත ලිවීම...',
   'compose.aiPromptPlaceholder':
     'උදා: "සති දෙකක් තිස්සේ පිළිතුරක් නොලැබුණු පසු ආචාරශීලී පසු විපරමක්, එය කෙටියෙන් තබන්න."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'යමක් යැවීමට අවශ්‍යද? සිග්නට් හට තත්පර කිහිපයකින් කෙටුම්පතක් සූදානම් කළ හැක.',
   'dashboard.composeCtaLabel': 'ඉක්මන් රචනා කිරීම',
   'dashboard.heading': 'ඔබේ සතිය, රචනා කරන ලදී',
+  'dashboard.loadFailed': 'ඔබගේ උපකරණ පුවරුව පූරණය කිරීමට නොහැකි විය.',
   'dashboard.manageLibrary': 'පුස්තකාලය කළමනාකරණය කරන්න →',
   'dashboard.recentEmpty': 'තවම යැවීම් නැත — ඔබගේ යැවූ ඊමේල් මෙහි දිස්වනු ඇත.',
   'dashboard.recentHeading': 'මෑත කාලීන යැවීම්',
@@ -136,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'පෙරනිමි ස්වරය',
   'settings.toneSubheading': 'ඔබ කෙටුම්පත මත අභිබවා නොගියහොත් සිග්නට් මෙම ස්වරය භාවිතා කරයි.',
   'signetLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
+  'signetLayout.toggleMenu': 'මෙනුව ටොගල් කරන්න',
   'signup.emailLabel': 'ඊතැපැල් ලිපිනය',
   'signup.showPassword': 'මුරපදය පෙන්වන්න',
   'signup.tagline': 'ඔබේ පළමු AI-කෙටුම්පත් කළ විද්‍යුත් තැපෑල විනාඩියකටත් අඩු කාලයකින් යවන්න.',

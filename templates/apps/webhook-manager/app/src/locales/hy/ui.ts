@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} ի մասին',
+  'about.pageTitle': 'Վեբհուքի կառավարման հարթությունը',
+  'about.plansTitle': 'Պլաններ յուրաքանչյուր փուլի համար',
   'apiKeys.bestPractices': 'Լավագույն գործելակերպեր',
   'apiKeys.body':
     'Ծրագրային մուտքի տոկեններ։ Վերաբերվեք դրանց որպես գաղտնաբառերի՝ պահեք դրանք env փոփոխականներում, երբեք մի՛ կատարեք։',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'պլանի շրջանակներում',
   'billing.usageWarning': 'մոտակա գագաթնակետին',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.body':
     'Իրական թողունակություն, թռիչքի ընթացքում կատարված կրկնակի փորձեր և վերջնակետեր, որոնք հենց նոր խափանվել են՝ ձեր շահագործած յուրաքանչյուր աշխատանքային տարածքում։',
   'dashboard.endpointsEmpty': 'Վերջնակետեր դեռ չկան։',
@@ -109,6 +113,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'վերջնակետեր',
   'endpointDetail.deliveryTrendSub': 'առաքումներ / ժամ, լոգարիթմական մասշտաբ',
   'endpointDetail.hideSecret': 'Թաքցնել գաղտնիքը',
+  'endpointDetail.loading': 'Վերջնակետի բեռնում…',
   'endpointDetail.metric.delivered': 'Առաքվում է 24 ժամվա ընթացքում',
   'endpointDetail.metric.deliveredCaption': '-ից {{count}} միջոցառումների տեսակներ',
   'endpointDetail.metric.failuresCaption': 'կրկնություններ: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Կրիտիկական · 24 ժամ',
   'notifications.metric.totalCaption': 'բոլոր ժամանակների մուտքի արկղ',
   'payloadViewer.payload': '// օգտակար բեռ',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'profile.avatarHeader': 'Ավատար',
   'profile.avatarHint':
     'Սկզբնատառերը ներկայացված են՝ վերբեռնումները կհրապարակվեն հաջորդ թողարկման հետ միասին։',
@@ -228,6 +234,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ պահպանված',
   'profile.sessionsEmpty': 'Միայն ձեր ընթացիկ սեսիան է ակտիվ։ Այլ սարքեր մուտքագրված չեն։',
   'profile.toggle': 'Միացնել/անջատել {{label}}',
+  'pylonShell.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'pylonShell.openMenu': 'Բացել նավիգացիոն ցանկը',
   'pylonShell.primaryNavLabel': 'Հիմնական նավիգացիա',
   'resetPassword.subtitle': 'Ընտրեք ուժեղ գաղտնաբառ, որը նախկինում չեք օգտագործել։',
   'resetPassword.tokenPlaceholder': 'կպցնել էլ. փոստից',

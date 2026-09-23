@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.tagline': 'Gach aonad, faoi aon díon amháin.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.addProperty': 'Cuir maoin leis',
   'dashboard.empty.body':
     'Nuair a bheidh maoine, aonaid agus íocaíochtaí cíosa agat, líontar an painéal seo le léargais phunann.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{maoin}} · Aonad {{aonad}} · {{dáta}}',
   'maintenanceQueueList.subtitle': '{{count}} orduithe oibre oscailte, ordaithe de réir tosaíochta',
   'maintenanceQueueList.title': 'Scuaine Cothabhála',
+  'nav.closeMenu': 'Dún an roghchlár',
+  'nav.openMenu': 'Oscail an roghchlár',
   'notFound.body':
     'Tá an leathanach a bhí á lorg agat bogtha, cartlannaithe, nó ní raibh sé ann riamh.',
   'notFound.title': 'Ní osclaítear an doras sin',

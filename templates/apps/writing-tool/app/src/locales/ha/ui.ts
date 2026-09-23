@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.title': 'Ɗakin rubutu da za ku iya ajiyewa a aljihunku',
   'billing.cancelConfirm': 'Soke biyan kuɗinka mai aiki?',
   'billing.cancelFailed': 'Ba a iya sokewa ba.',
   'billing.checkingOut': 'Buɗe wurin biya…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Ba za a iya loda lissafin kuɗi ba.',
   'billing.loading': 'Ana loda lissafin kuɗi…',
   'billing.upgradeCta': 'Haɓakawa zuwa {{name}}',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'editor.autosaveOn': 'Ajiye ta atomatik yana kunne',
   'editor.backToLibrary': 'Komawa ɗakin karatu',
   'editor.charCount': '{{count}} haruffa',
   'editor.confirmTrash': 'Matsar da wannan takarda zuwa shara?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'An cire',
   'editor.unpublishCta': 'Matsar zuwa daftarin aiki',
   'editor.unpublished': 'An mayar da shi zuwa daftarin aiki',
+  'focus.autosaveOn': 'Ajiye ta atomatik yana kunne',
   'focus.backToLibrary': 'Komawa ɗakin karatu',
   'focus.bodyPlaceholder': 'Layi ɗaya bayan ɗaya. Babu wani kuma da ke nan.',
   'focus.exit': 'Fita daga yanayin mayar da hankali',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ƙirƙiri ɗaya',
   'login.subline':
     'Rubutunka, shafukan yau da kullun, da kuma matsayin maɓalli na ƙarshe suna nan daidai inda ka bar su.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'pricing.exports': 'fitarwa',
   'pricing.folders': 'manyan fayiloli',
   'pricing.heading': 'takardu',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Shigar da lambar da muka aiko muku ta imel kuma ku zaɓi wani abu da ba za a manta da shi ba. Za mu sanya hannu a kai da zarar an adana shi.',
   'reset.tokenHint': 'An liƙa daga akwatin saƙonka.',
+  'settings.appearance.heading': 'Haske ko duhu',
   'settings.editor.${row.id}.description': 'Harshe',
   'settings.editor.description':
     "Gungura ta na'urar rubutu, fade sakin layi, da kuma mayar da hankali mara aiki - ana daidaita tsoffin sigogi don dogon zaman.",
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': "Babi na Uku — Sa'a Mai Shiru Kafin Fitowar Alfijir",
   'versalDocumentCard.pinned': 'An haɗa',
   'versalLayout.nav.stats': 'Ƙididdiga',
+  'versalLayout.primaryNavLabel': 'Babban kewayawa',
   'versalManuscriptHero.cta': 'Ci gaba da rubutu',
   'versalManuscriptHero.goalLabel': 'Manufar kalma ta yau',
   'versalManuscriptHero.inProgress': 'A kan hanya',

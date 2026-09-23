@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'auth.fields.newPassword': 'Naujas slaptažodis',
   'collectionDetail.addImage': 'Užburti kolekcijai',
   'collectionDetail.backCta': 'Atgal į kolekcijas',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Nuotaikų lentos, trumpi aprašymai ir tęsiamos serijos',
   'collections.title': 'Kolekcijos',
   'collections.untitled': 'Be pavadinimo · {{stamp}}',
+  'common.closeMenu': 'Uždaryti meniu',
+  'common.dismiss': 'Atmesti',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.openMenu': 'Atidaryti navigacijos meniu',
   'credits.eyebrow': '{{plan}} planas',
   'credits.renewsCopy': 'Planas atnaujinamas {{date}}',
   'credits.trail': 'Svajonė · {{plan}} pakopa',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Čia bus rodomi kartos veiklos, bendrinimo ir kreditų įspėjimai.',
   'notifications.empty.title': 'Nėra ką pranešti',
   'notifications.subtitle': 'Kartos įvykiai, sugrupuoti pagal dieną',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.limits.gallery': '{{count}} galerija',
   'privacy.collect.body':
     'Kai registruojatės, renkame jūsų vardą, el. pašto adresą ir sugeneruotą slaptažodį. Jums naudojantis „Reverie“, saugome jūsų pateiktus raginimus, jums sugeneruotus vaizdus, išsaugotus stilius ir kolekcijas bei metaduomenis, pvz., naudotą modelį, generavimo laiko žymas ir kredito likutį.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Išsaugoti naują slaptažodį',
   'reset.submitting': 'Atnaujinamas slaptažodis…',
   'settings.account.handle': 'Rankena',
+  'settings.account.lastSaved': 'Aktyvus profilis · {{name}}',
   'settings.account.saved': 'Profilis išsaugotas',
   'settings.account.saveFailed': 'Nepavyko išsaugoti profilio',
   'settings.account.title': 'Autoriaus profilis',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Naujas vaizdas',
   'sidebar.secondary': 'Antrinė navigacija',
   'signup.failed': 'Prisiregistruoti nepavyko. Bandykite dar kartą.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Pradėkite savo svajones',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Sukurkite paskyrą ir gaukite 120 nemokamų kreditų.',
   'styles.empty':
     'Kol kas nėra išankstinių stiliaus nustatymų – jie bus rodomi po pirmojo prisijungimo.',

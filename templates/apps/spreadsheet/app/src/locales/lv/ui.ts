@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'about.pageTitle': 'Par mums {{name}}',
   'auth.footer.about': 'Par mums {{name}}',
   'authHeader.subtitle': 'Pierakstieties, lai jūsu skaitļi būtu godīgi.',
   'automations.action.email': 'E-pasts',
+  'automations.action.noop': 'Bezdarbības',
   'automations.action.webhook': 'Tīmekļa āķis',
   'automations.confirmDelete': 'Dzēst " {{name}} "?',
   'automations.empty.headline': 'Vēl nav automatizāciju',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Trigeri un darbības katrā darbgrāmatā. Katrā palaišanas reizē tiek reģistrēta rinda, kuru var auditēt vēlāk.',
   'automations.toggle': 'Pārslēgt {{name}}',
+  'automations.trigger.dailySchedule': 'Dienas grafiks',
+  'automations.trigger.rowCreated': 'Rinda izveidota',
+  'automations.trigger.rowUpdated': 'Rinda atjaunināta',
   'billing.empty': 'Nav pieejamu plānu.',
   'billing.error.priceMissing':
     'Šim līmenim nav konfigurēta Stripe cena. Iestatiet STRIPE_*_PRICE_ID vides mainīgos.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagrammas',
   'charts.kpi.totalCharts': 'Kopējais diagrammu skaits',
   'charts.list.empty': 'Vēl nav diagrammu.',
+  'charts.namePlaceholder': 'Ieņēmumu tendence',
   'charts.newChart': 'Jauna diagramma',
   'charts.primary.eyebrow': 'Diagrammas pēc veida',
   'charts.primary.headline': 'Darbvietas pārskats',
   'charts.subhead':
     'Tiešraides vizualizācijas, kas piesaistītas jūsu režģim — atkārtoti renderējiet katrā šūnas rediģēšanas reizē.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'editor.addColumn': 'Pievienot kolonnu',
+  'editor.addDialogTitle': 'Pievienot kolonnu',
   'editor.addRow': 'Pievienot rindu',
   'editor.addSheet': 'Pievienot lapu',
   'editor.back': 'Atpakaļ pie darba burtnīcām',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite ir formulu pirmais, daudzskatu, reāllaika tīkla analītiķu un finanšu komandu uzņēmums, kas tiecas pēc pirmās.',
   'landing.nav.formulas': 'Formulas',
+  'login.noAccount': 'Vai esat jauns {{name}} lietotājs?',
+  'login.signIn': 'Pierakstieties pakalpojumā {{name}}',
   'login.signUp': 'Izveidojiet darba vietu',
+  'nav.menu': 'Izvēlne',
+  'nav.openMenu': 'Atvērt izvēlni',
   'notFound.cellRef': '#ATSAUCĪBA!',
   'notFound.formula': '=LOOKUP(PIEPRASĪJUMS.url, "maršruti", "lapa")',
   'notFound.headline': 'Šī rinda nekad nepastāvēja.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Vietējās automatizācijas · tīmekļa aizķeres un cron aktivizētāji',
   'signup.creating': 'Notiek darbvietas nodrošināšana…',
   'signup.cta': 'Izveidot manu darba telpu',
+  'signup.haveAccount': 'Jau esi {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Izveidojiet savu pirmo darba burtnīcu 30 sekundēs',
   'team.col.activity': 'Uzaicināts',

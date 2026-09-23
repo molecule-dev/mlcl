@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
   'authShell.samplePreview':
     '«Привет, ребята, новая панель управления просто великолепна — именно то, что нам нужно!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ярлык',
   'automations.subheading':
     'Правила, шаблонные ответы и чат-боты — обеспечьте бесперебойную работу офиса, пока ваша команда занимается более сложными задачами.',
+  'automations.trigger.inboundMessage': 'Входящее сообщение',
   'automations.triggerLabel': 'Триггер',
   'chatBubble.internalNoteLabel': 'Внутренняя пометка',
+  'common.confirmDelete': 'Подтвердить удаление',
+  'common.goToDashboard': 'Перейти к панели',
   'contactDetail.backToContacts': 'Все контакты',
   'contactDetail.contactFallback': 'Контакт',
   'contactDetail.conversationFallback': 'Беседа',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Последнее посещение',
   'contacts.empty': 'Контактов пока нет. Добавьте своего первого контакта выше.',
   'contacts.eyebrow': 'Справочник клиентов',
+  'contacts.form.nameOrEmailRequired': 'Укажите хотя бы имя или адрес электронной почты',
   'contacts.form.save': 'Сохранить контакт',
   'contacts.heading': 'Контакты',
   'contacts.loading': 'Загрузка контактов…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Сохранить заметку',
   'conversationDetail.tab.note': 'Внутренняя пометка',
   'conversationDetail.threadAria': 'Сообщения в чате',
+  'conversationDetail.visitorFallback': 'Посетитель',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Данные клиента',
   'customerProfilePanel.recentTitle': 'Последние разговоры',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'В среднем клиенты получают первый ответ в течение {{time}} — не сбавляйте темп.',
   'inboxHeroCard.title': 'Активные беседы',
+  'inboxLayout.navDrawerLabel': 'Навигация',
+  'inboxLayout.openMenu': 'Открыть меню навигации',
   'inboxOverview.eyebrow': 'Сегодня вкратце',
   'inboxOverview.heroChange': '{{count}} открыть',
   'inboxOverview.kpiClosedTrend': 'за всю историю',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Перейти на главную страницу',
   'notifications.subheading':
     'Задания, упоминания, риски по SLA, отзывы о CSAT и активность команды — отсортировано по дате, от самых новых к самым старым.',
+  'notifications.subjectFallback': 'разговор',
+  'notifications.visitorFallback': 'Посетитель',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Высокий',
   'priority.low': 'Низкий',
+  'priority.normal': 'Нормальный',
   'priority.urgent': 'Срочный',
   'privacy.title': 'Политика конфиденциальности',
   'reports.agentFallback': 'Агент',

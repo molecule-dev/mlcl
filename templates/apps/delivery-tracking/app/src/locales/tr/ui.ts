@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'alerts.acknowledgeLabel': 'Onayla',
   'alerts.customerLabel': 'Müşteri: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Bağlanıyor…',
   'carriers.requiredError': 'Ad ve kod gereklidir.',
   'carriers.subheading': '{{count}} entegre edildi',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
+  'common.retry': 'Tekrar dene',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Transit + işaretli',
   'dashboard.activeShipmentsSubtitle': '{{count}} gönderi dikkat gerektiriyor veya yolda',
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'gönderi',
   'pricing.trackingLabel': 'takip etkinliği',
   'profile.dangerZone.title': 'Tehlikeli bölge',
+  'profile.devices.signingOut': 'Oturum kapatılıyor…',
+  'profile.devices.unnamed': 'İsimsiz cihaz',
+  'profile.security.disable2fa': 'İki faktörlü kimlik doğrulamayı devre dışı bırakın',
   'profile.security.enable2fa': "2FA'yı etkinleştir",
   'profile.security.pwChanged': 'Parola başarıyla değiştirildi.',
   'profile.security.pwCurrent': 'Mevcut parola',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA etkin',
   'profile.security.twoFaCode': '6 haneli kod',
   'profile.security.twoFaDisable': 'Devre dışı bırak',
+  'profile.security.twoFaDisabling': 'Devre dışı bırakılıyor…',
   'profile.security.twoFaFailed': 'Kod doğrulanamadı.',
   'profile.security.twoFaIntro':
     'Kimlik doğrulayıcı uygulamanızda QR kodunu tarayın, ardından doğrulamak için aşağıya 6 haneli kodu girin.',
   'profile.security.twoFaOn': 'Bu hesapta iki faktörlü kimlik doğrulama etkin.',
+  'profile.security.twoFaQrAlt': 'İki faktörlü QR kodu',
   'profile.security.twoFaVerify': 'Doğrula ve etkinleştir',
   'profile.security.twoFaVerifying': 'Doğrulanıyor…',
   'profile.subheading': 'Bu çalışma alanı için kimlik ve güvenlik ayarları.',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Bu gizli anahtarı kaydedin — bir daha gösterilmeyecek.',
   'settings.api.webhookSecret': 'Webhook imzalama gizli anahtarı',
   'settings.appearance.description': 'Açık ve koyu mod arasında geçiş yapın.',
+  'settings.deleteAccountConfirm': 'Emin misiniz? Bu işlem geri alınamaz.',
   'settings.notifications.exceptions': 'Bir gönderi istisnası oluştuğunda bana e-posta gönder',
   'settings.notifications.heading': 'Bildirimler',
   'settings.notifications.saveFailed': 'Tercihler kaydedilemedi.',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Gönderi bulunamadı.',
   'shipmentDetail.originHeading': 'Çıkış noktası',
   'shipmentDetail.shippedOn': '{{date}} tarihinde gönderildi',
+  'shipmentDetail.timelineEmpty':
+    'Henüz herhangi bir takip olayı gerçekleşmedi — kargo şirketi paketi taradıkça güncellemeler burada görünecektir.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Taşıyıcı',
   'shipments.col.eta': 'ETA',
@@ -173,6 +184,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Oturum Aç',
   'signup.submit': 'Hesap Oluştur',
   'team.emailError': 'Geçerli bir e-posta adresi gereklidir.',
+  'team.empty':
+    'Henüz ekip üyesi yok. Gönderiler üzerinde iş birliği yapmak için bir ekip arkadaşınızı davet edin.',
   'team.eyebrow': 'Üyeler ve izinler',
   'team.inviteDialog.cancel': 'İptal',
   'team.inviteDialog.heading': 'Bir takım arkadaşı davet edin',
@@ -195,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Takip Et',
   'waypointLayout.primaryNavLabel': 'Birincil gezinme',
   'webhooks.createFailed': 'Webhook uç noktası oluşturulamadı.',
+  'webhooks.endpointsEmpty':
+    'Henüz webhook uç noktası yok. Gönderi durumu geri bildirimlerini almak için bir tane oluşturun.',
   'webhooks.endpointsHeading': 'Uç noktalar',
   'webhooks.eventCount': '{{count}} etkinlik',
   'webhooks.eventsHeading': 'Son teslimatlar',

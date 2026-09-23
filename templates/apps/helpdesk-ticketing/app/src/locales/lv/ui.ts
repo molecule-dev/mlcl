@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.title': 'Par {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'profesionāla sieviešu atbalsta aģentes portreta fotogrāfija ar draudzīgu smaidu modernā birojā',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Sazinieties ar atbalsta dienestu',
   'forgotPassword.error': 'Nevarēja nosūtīt atiestatīšanas e-pastu. Lūdzu, mēģiniet vēlreiz.',
   'forgotPassword.rememberPassword': 'Atceries savu paroli?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Pierakstīties — Zenith atbalsts',
   'login.showPassword': 'Rādīt paroli',
   'login.welcomeSubheading': 'Pierakstieties savā atbalsta informācijas panelī',
+  'mobileNav.closeMenu': 'Aizvērt navigāciju',
+  'mobileNav.menu': 'Navigācija',
+  'mobileNav.openMenu': 'Atvērt navigāciju',
   'nav.legal': 'Juridiskā informācija',
   'nav.newTicket': 'Jauna biļete',
   'notifications.loadError': 'Nevarēja ielādēt paziņojumus. Mēģiniet vēlreiz pēc brīža.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Komandu meklēšana',
   'operatorDock.newReport': 'Jauns ziņojums',
   'operatorDock.systemOnline': 'Sistēma tiešsaistē',
+  'planUpdated.subtitle': 'Paldies',
   'planUpdated.title': 'Plāns atjaunināts',
   'pricing.agents': 'aģenti',
   'pricing.automation': 'Automatizācijas noteikumi',
@@ -237,6 +243,7 @@ export const ui: UiTranslations = {
   'ticketAgentMessage.agentRole': 'Aģents',
   'ticketBreadcrumbHeader.tickets': 'Biļetes',
   'ticketConversationThread.empty': 'Vēl nav ziņojumu — esiet pirmais, kas atbild.',
+  'ticketConversationThread.internalNoteDate': '• {{date}}',
   'ticketConversationThread.unknownAuthorInitials': '?',
   'ticketCustomerInfoCard.previousTickets': 'Iepriekšējās biļetes',
   'ticketCustomerInfoCard.satisfaction': 'Apmierinātība',
@@ -246,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{vārds}} lietotāja avatārs',
   'ticketDetail.errorTitle': 'Kaut kas nogāja greizi',
+  'ticketDetail.loadError': 'Neizdevās ielādēt pieteikumu.',
+  'ticketDetail.notFound': 'Biļete nav atrasta',
+  'ticketDetail.replyError': 'Neizdevās nosūtīt atbildi. Lūdzu, mēģiniet vēlreiz.',
   'ticketDetail.retry': 'Mēģini vēlreiz',
   'ticketDetail.statusUpdateError': 'Nevarēja atjaunināt statusu. Mēģiniet vēlreiz.',
   'ticketDetailsCard.assigneeLabel': 'Cesionārs',
@@ -296,6 +306,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': 'laiks pa kreisi',
   'ticketRow.title': 'Datu bāzes savienojuma kļūme ražošanas vidē {{mezgls}}',
   'tickets.pageTitle': 'Biļetes — Zenith atbalsts',
+  'ticketsFab.newTicket': 'Jauna biļete',
   'ticketsFilterBar.assigneeLabel': 'Cesionārs:',
   'ticketsFilterBar.clearFilters': 'Notīrīt filtrus',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',
@@ -311,6 +322,7 @@ export const ui: UiTranslations = {
   'ticketsFilterBar.statusLabel': 'Statuss:',
   'ticketsPagination.next': 'Next page',
   'ticketsPagination.prev': 'Previous page',
+  'ticketsPagination.showingRange': 'Rāda {{start}} līdz {{end}} no {{total}} biļetēm',
   'ticketsTable.assigneeAvatarAlt': 'Avatars',
   'ticketsTable.selectRow': 'Izvēlieties biļeti {{id}}',
   'ticketsTable.sla.closed': 'Closed',

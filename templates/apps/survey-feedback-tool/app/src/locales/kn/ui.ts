@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'analytics.back': 'ಸಮೀಕ್ಷೆಯ ಅವಲೋಕನ',
   'analytics.kpiNps': 'NPS ಸ್ಕೋರ್',
   'analytics.kpiNpsTrend': 'ಪ್ರವರ್ತಕರು {{p}} % · ವಿರೋಧಿಗಳು {{d}} %',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'ಗುಣಲಕ್ಷಣಗಳು',
   'builder.questionNumber': 'ಬ {{num}}',
   'builder.surveyTitle': 'ಸಮೀಕ್ಷೆಯ ಶೀರ್ಷಿಕೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'forgotPassword.failed': 'ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ನಿಮಗೆ ಮರುಪ್ರಾಪ್ತಿ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
     'ಖಾತೆ ಹೊಂದಾಣಿಕೆಯಾದರೆ {{email}} , ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ. ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಮತ್ತು ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.',
+  'landing.footer.copyright': '© {{year}} {{app}} . ಎಲ್ಲಾ ಧ್ವನಿಗಳಿಗೂ ಸ್ವಾಗತ.',
   'landing.footer.startTrial': 'ಪ್ರಾಯೋಗಿಕ ಅವಧಿಯನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.badge': 'ಸಮೀಕ್ಷೆಗಳು, NPS ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆಗಳು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'ಬೆಲೆ ನಿಗದಿ',
   'landing.pricing.perMonth': '/ತಿಂಗಳು',
   'landing.pricing.popular': 'ಅತ್ಯಂತ ಜನಪ್ರಿಯ',
+  'landing.pricing.subtitle':
+    'ಪ್ರತಿಯೊಂದು ಯೋಜನೆಯು ಸಮೀಕ್ಷೆ ಬಿಲ್ಡರ್, ಸಾರ್ವಜನಿಕ ಹಂಚಿಕೆ ಲಿಂಕ್‌ಗಳು ಮತ್ತು NPS ವಿಶ್ಲೇಷಣೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ. ಪ್ರಾರಂಭಿಸಲು ಯಾವುದೇ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಅಗತ್ಯವಿಲ್ಲ.',
+  'landing.pricing.title': 'ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ, ನೀವು ಮಾಡಿದಾಗ ಸ್ಕೇಲ್ ಮಾಡಿ.',
   'landing.sample.eyebrow': 'NPS ಸಂಕ್ಷಿಪ್ತವಾಗಿ',
   'landing.sample.title': 'ವಿರೋಧಿಗಳು, ನಿಷ್ಕ್ರಿಯರು, ಪ್ರವರ್ತಕರು - ತಕ್ಷಣ ಓದಬಹುದಾದ.',
   'login.failed': 'ಲಾಗಿನ್ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.signUpLink': 'ಉಚಿತ ಪ್ರಯೋಗವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'login.subheading': 'ನಿಮ್ಮ ಪ್ರೇಕ್ಷಕರನ್ನು ಆಲಿಸುತ್ತಲೇ ಇರಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
+  'notFound.body':
+    'ನೀವು ಹುಡುಕುತ್ತಿರುವ ಪುಟ {{app}} ನಲ್ಲಿ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ. ನಿಮ್ಮ ಸಮೀಕ್ಷೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ ನೋಡೋಣ.',
   'notFound.cta': 'ಸಮೀಕ್ಷೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'notFound.eyebrow': '404 (ಆನ್ಲೈನ್)',
   'notFound.heading': 'ಈ ಸಮೀಕ್ಷೆಯು ಸರದಿಯಿಂದ ಹೊರಬಿತ್ತು.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'ನಿಷ್ಕ್ರಿಯ 7–8',
   'npsDistributionBar.promoter': 'ಪ್ರವರ್ತಕ 9–10',
   'profile.identity.description': 'ನಿಮ್ಮ ತಂಡಕ್ಕೆ ಮತ್ತು ನೀವು ರಚಿಸುವ ಸಮೀಕ್ಷೆಗಳಲ್ಲಿ ಸಾರ್ವಜನಿಕ.',
+  'profile.identity.emailRequired': 'ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ.',
   'profile.identity.saveCta': 'ಹೆಸರು ಉಳಿಸಿ',
   'profile.password.current': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
   'profile.password.fillFields': 'ಪ್ರಸ್ತುತ ಮತ್ತು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಎರಡನ್ನೂ ನಮೂದಿಸಿ.',
@@ -180,6 +189,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ಪ್ರಶ್ನೆಗಳು',
   'templates.subheading':
     'ಯುದ್ಧ-ಪರೀಕ್ಷಿತ ಸ್ಟಾರ್ಟರ್ ಅನ್ನು ಆರಿಸಿ - ಪ್ರತಿಯೊಂದು ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಸಮಂಜಸವಾದ ಡೀಫಾಲ್ಟ್‌ಗಳು, ಮಾದರಿ ತರ್ಕ ಮತ್ತು ಸ್ವಚ್ಛ ಮೊಬೈಲ್ ವಿನ್ಯಾಸದೊಂದಿಗೆ ಮೊದಲೇ ಟ್ಯೂನ್ ಮಾಡಲಾಗುತ್ತದೆ.',
+  'thankYou.body':
+    'ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ. {{app}} ಅದನ್ನು ಮುಂದಿನ ವಿಶ್ಲೇಷಣೆ ರಿಫ್ರೆಶ್‌ನಲ್ಲಿ ಸೇರಿಸುತ್ತದೆ.',
   'thankYou.eyebrow': 'ಪ್ರತಿಕ್ರಿಯೆ ಸ್ವೀಕರಿಸಲಾಗಿದೆ',
   'thankYou.heading': 'ಧನ್ಯವಾದಗಳು — ನಿಮ್ಮ ಧ್ವನಿ ಮುಖ್ಯ.',
   'thankYou.home': 'ಗೊಣಗಾಟಕ್ಕೆ ಭೇಟಿ ನೀಡಿ',

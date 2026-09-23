@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.title': 'Cebinizde taşıyabileceğiniz bir yazı odası.',
   'billing.cancelConfirm': 'Aktif aboneliğinizi iptal etmek istiyor musunuz?',
   'billing.cancelFailed': 'İptal edilemedi.',
   'billing.checkingOut': 'Ödeme açılıyor…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Faturalandırma yüklenemedi.',
   'billing.loading': 'Faturalandırma yükleniyor…',
   'billing.upgradeCta': "{{name}}'e yükselt",
+  'common.goToDashboard': 'Panele Git',
+  'editor.autosaveOn': 'Otomatik kaydetme açık',
   'editor.backToLibrary': 'Kitaplığa dön',
   'editor.charCount': '{{count}} karakter',
   'editor.confirmTrash': 'Bu belgeyi çöp kutusuna taşımak istiyor musunuz?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Sabitleme kaldırıldı',
   'editor.unpublishCta': 'Taslağa taşı',
   'editor.unpublished': 'Taslağa geri alındı',
+  'focus.autosaveOn': 'Otomatik kaydetme açık',
   'focus.backToLibrary': 'Kitaplığa dön',
   'focus.bodyPlaceholder': 'Bir seferde bir satır. Başkası yok burada.',
   'focus.exit': 'Odak modundan çık',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Bir tane oluşturun',
   'login.subline':
     'Müsveddeleriniz, günlük sayfalarınız ve son imleç konumunuz bıraktığınız gibi duruyor.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'pricing.exports': 'dışa aktarım',
   'pricing.folders': 'klasör',
   'pricing.heading': 'belgeler',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Az önce e-postayla gönderdiğimiz kodu girin ve hatırlanabilir bir parola seçin. Kaydedilir kaydedilmez sizi giriş yaptıracağız.',
   'reset.tokenHint': 'Gelen kutunuzdan yapıştırılmış.',
+  'settings.appearance.heading': 'Açık veya koyu',
   'settings.editor.${row.id}.description': 'Dil',
   'settings.editor.description':
     'Daktilo kaydırma, paragraf solması ve boşta odaklanma — varsayılan ayarlar uzun oturumlar için optimize edilmiştir.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Üçüncü Bölüm — Şafaktan Önce Sessiz Bir Saat',
   'versalDocumentCard.pinned': 'Sabitlendi',
   'versalLayout.nav.stats': 'İstatistikler',
+  'versalLayout.primaryNavLabel': 'Birincil gezinme',
   'versalManuscriptHero.cta': 'Yazmaya devam et',
   'versalManuscriptHero.goalLabel': 'Bugünün kelime hedefi',
   'versalManuscriptHero.inProgress': 'Yolunda',

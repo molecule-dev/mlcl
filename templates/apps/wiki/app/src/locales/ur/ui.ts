@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'حل ہو رہا ہے…',
   'comments.subtitle':
     'دی {{count}} تھریڈز ابھی تک جواب یا کسی عزم کے منتظر ہیں۔ عمر کے لحاظ سے ترتیب دیا گیا — سب سے پرانا پہلے، لہذا کچھ بھی نہیں سڑتا۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'forgotPassword.sentTo': 'ری سیٹ کا لنک بھیج دیا گیا۔ {{email}}',
   'forgotPassword.successSubheading':
     'اپنا ان باکس چیک کریں — ہم نے ابھی ایک ری سیٹ لنک بھیجا ہے۔ اس کی میعاد 30 منٹ میں ختم ہو جاتی ہے۔',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'نیا صفحہ',
   'pageTreeSidebar.workspaceHeader': 'کام کی جگہ',
   'pageView.breadcrumb': 'بریڈ کرمب',
+  'pageView.confirmTrash': 'اسے ردی کی ٹوکری میں ڈالیں؟',
   'pageView.home': 'گھر',
   'pageView.lastEdited': 'تازہ کاری {{when}}',
   'pageView.loading': 'صفحہ لوڈ ہو رہا ہے…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'خلاصہ کر رہا ہے…',
   'pageView.summaryUnavailable': 'اس ورک اسپیس کے لیے AI کا خلاصہ کنفیگر نہیں کیا گیا ہے۔',
   'pageView.tocTitle': 'اس صفحہ پر',
+  'pageView.trash': 'ردی کی ٹوکری',
+  'pageView.trashing': 'ردی کی ٹوکری میں ڈالا جا رہا ہے…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'بیجز',
   'profile.owned.title': 'ملکیتی صفحات',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'ورک اسپیس، پروفائل، اطلاعات، انضمام - سب ایک ہی پرسکون شیل میں۔',
   'settingsPage.workspace.defaultLanding': 'ڈیفالٹ لینڈنگ اسکرین',
   'settingsPage.workspace.landingHome': 'گھر',
+  'settingsPage.workspace.landingSpaces': 'خالی جگہیں',
   'settingsPage.workspace.subdomainLabel': 'ذیلی ڈومین',
   'settingsPage.workspace.title': 'کام کی جگہ',
   'signup.eyebrow': 'ایک نئی ورک اسپیس شروع کریں۔',
@@ -124,6 +129,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} منٹ',
   'templates.subtitle':
     'اسٹینسل سے صفحہ شروع کریں، خالی کینوس سے نہیں۔ ہر ٹیمپلیٹ شکل کو سخت کوڈ کرتا ہے تاکہ آپ مادہ پر توجہ مرکوز کر سکیں۔',
+  'trash.confirmPurge': 'ہمیشہ کے لیے صاف کریں؟',
+  'trash.confirmPurgeAria': 'تصدیق کریں: مستقل طور پر حذف کریں {{title}}',
   'trash.daysUntilPurge': '{{days}} دن رہ گئے',
   'trash.empty.body': 'حذف شدہ صفحات صاف ہونے سے پہلے 30 دن تک یہاں ظاہر ہوں گے۔',
   'trash.empty.title': 'ردی کی ٹوکری خالی ہے۔',
@@ -143,5 +150,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'بحال ہو رہا ہے…',
   'versionHistory.subtitle': '{{count}} ورژن · فرق کا معائنہ کرنے کے لیے ایک قطار کا انتخاب کریں۔',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'نیویگیشن بند کریں۔',
+  'wikiLayout.menu': 'نیویگیشن',
+  'wikiLayout.openMenu': 'نیویگیشن کھولیں۔',
   'wikiLayout.searchPlaceholder': 'کیرن تلاش کریں - صفحات، تبصرے…',
 }

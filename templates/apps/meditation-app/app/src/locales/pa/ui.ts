@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.eyebrow': '{{app}} ਬਾਰੇ',
+  'about.intro':
+    '{{app}} ਅਸਲ ਜ਼ਿੰਦਗੀ ਲਈ ਇੱਕ ਧਿਆਨ ਐਪ ਹੈ — ਰੋਜ਼ਾਨਾ ਨਿਰਦੇਸ਼ਿਤ ਧਿਆਨ, ਸਾਹ ਲੈਣ ਦਾ ਕੰਮ, ਅਤੇ ਨੀਂਦ ਦੀਆਂ ਕਹਾਣੀਆਂ ਜੋ ਅਧਿਆਪਕਾਂ ਦੁਆਰਾ ਰਫ਼ਤਾਰ ਨਾਲ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਜੋ ਇੱਕ ਦੋਸਤ ਵਾਂਗ ਮਹਿਸੂਸ ਕਰਦੇ ਹਨ, ਕੋਚ ਵਾਂਗ ਨਹੀਂ। ਕੋਈ ਸਟ੍ਰੀਕ ਦੋਸ਼ ਨਹੀਂ, ਕੋਈ ਸ਼ੋਰ ਸ਼ਰਾਬਾ ਨਹੀਂ: ਆਪਣੇ ਸਾਹਾਂ ਵਿੱਚ ਵਾਪਸ ਆਉਣ ਲਈ ਸਿਰਫ਼ ਇੱਕ ਸ਼ਾਂਤ ਜਗ੍ਹਾ।',
+  'about.missionBody':
+    'ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਦਿਨ ਦੇ ਕਿਸੇ ਵੀ ਪਲ, ਸ਼ਾਂਤੀ ਹਰ ਕਿਸੇ ਲਈ ਪਹੁੰਚਯੋਗ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ। {{app}} ਇੱਕ ਸ਼ਾਂਤ, ਇਕਸਾਰ ਅਭਿਆਸ ਨੂੰ ਆਸਾਨ ਬਣਾਉਣ ਲਈ ਮੌਜੂਦ ਹੈ — ਤਾਂ ਜੋ ਦਸ ਇਮਾਨਦਾਰ ਮਿੰਟ ਤੁਹਾਡੇ ਅਗਲੇ ਦਸ ਘੰਟਿਆਂ ਨੂੰ ਕਿਵੇਂ ਪੂਰਾ ਕਰਦੇ ਹਨ, ਇਸ ਨੂੰ ਬਦਲ ਸਕਣ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.pageTitle': 'ਦਿਨ ਵਿੱਚ 10 ਮਿੰਟ ਸ਼ਾਂਤ',
+  'breathingDial.seconds': 'ਸਕਿੰਟ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'common.logout': 'ਲੌਗ ਆਉਟ',
   'common.min': 'ਮਿੰਟ',
   'common.relative.justNow': 'ਹੁਣੇ ਹੀ',
   'common.relative.now': 'ਹੁਣ',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
+  'nav.secondaryNavigation': 'ਖਾਤਾ ਨੈਵੀਗੇਸ਼ਨ',
   'sessionCard.with': 'ਨਾਲ {{name}}',
   'stillpoint.billing.choose': 'ਚੁਣੋ {{plan}}',
   'stillpoint.billing.currentPlan': 'ਇਸ ਵੇਲੇ ਚਾਲੂ ਹੈ {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'ਅਸੀਂ ਪਲਾਨ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕੇ।',
   'stillpoint.billing.opening': 'ਚੈੱਕਆਉਟ ਖੋਲ੍ਹਿਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'stillpoint.billing.perMonthShort': '/ ਮਹੀਨਾ',
+  'stillpoint.billing.perYearShort': '/ਸਾਲ',
   'stillpoint.billing.unknownResult': 'ਬਿਲਿੰਗ ਦਾ ਅਣਕਿਆਸਿਆ ਜਵਾਬ।',
   'stillpoint.billing.yearly': 'ਸਾਲਾਨਾ · 17% ਬਚਾਓ',
   'stillpoint.courseDetail.back': 'ਕੋਰਸ',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'ਅਜੇ ਕੋਈ ਕੋਰਸ ਨਹੀਂ।',
   'stillpoint.courses.eyebrow': '{{count}} ਕਈ-ਦਿਨਾਂ ਦੀਆਂ ਯਾਤਰਾਵਾਂ',
   'stillpoint.courses.heading': 'ਕੋਰਸ',
+  'stillpoint.forgot.checkEmail':
+    'ਆਪਣਾ ਇਨਬਾਕਸ ਚੈੱਕ ਕਰੋ — ਲਿੰਕ ਦੀ ਮਿਆਦ 30 ਮਿੰਟਾਂ ਵਿੱਚ ਖਤਮ ਹੋ ਜਾਵੇਗੀ।',
   'stillpoint.forgot.success': 'ਅਸੀਂ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਿਆ ਹੈ {{email}} .',
   'stillpoint.home.empty': 'ਹਾਲੇ ਕੋਈ ਸੈਸ਼ਨ ਨਹੀਂ - ਜਲਦੀ ਹੀ ਵਾਪਸ ਜਾਂਚ ਕਰੋ।',
   'stillpoint.home.friend': 'ਦੋਸਤ',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'ਆਪਣਾ ਮੁਫ਼ਤ ਖਾਤਾ ਬਣਾਓ',
   'stillpoint.landing.cta.title': 'ਅੱਜ ਹੀ ਆਪਣੀ ਸ਼ਾਂਤੀ ਸ਼ੁਰੂ ਕਰੋ',
   'stillpoint.landing.features.heading': 'ਇੱਕ ਅਭਿਆਸ ਜੋ ਤੁਹਾਡੇ ਨਾਲ ਵਧਦਾ ਹੈ',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'ਰੋਜ਼ਾਨਾ ਨਿਰਦੇਸ਼ਿਤ ਧਿਆਨ, ਸਾਹ ਲੈਣ ਦਾ ਕੰਮ, ਅਤੇ ਨੀਂਦ ਦੀਆਂ ਕਹਾਣੀਆਂ — ਉਹਨਾਂ ਅਧਿਆਪਕਾਂ ਦੁਆਰਾ ਰਫ਼ਤਾਰ ਨਾਲ ਜੋ ਇੱਕ ਦੋਸਤ ਵਾਂਗ ਮਹਿਸੂਸ ਕਰਦੇ ਹਨ, ਕੋਚ ਵਾਂਗ ਨਹੀਂ।',
   'stillpoint.landing.hero.eyebrow': 'ਦਿਨ ਵਿੱਚ 10 ਮਿੰਟ ਸ਼ਾਂਤ',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'ਮੂਡ ਅਨੁਸਾਰ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
   'stillpoint.login.rememberMe': 'ਮੈਨੂੰ ਸਾਈਨ ਇਨ ਰੱਖੋ',
   'stillpoint.login.subheading': 'ਆਪਣਾ ਅਭਿਆਸ ਜਾਰੀ ਰੱਖਣ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ।',
+  'stillpoint.nav.tagline': 'ਆਪਣਾ ਸਥਿਰ ਕੇਂਦਰ ਲੱਭੋ',
+  'stillpoint.notFound.body':
+    'ਇਹ ਪੰਨਾ ਕਿਤੇ ਲੰਮਾ, ਡੂੰਘਾ ਸਾਹ ਲੈ ਰਿਹਾ ਹੈ। ਆਓ {{app}} ਵਿੱਚ ਤੁਹਾਡੇ ਲਈ ਇੱਕ ਸ਼ਾਂਤ ਜਗ੍ਹਾ ਲੱਭੀਏ।',
   'stillpoint.notFound.title': 'ਚੁੱਪ ਵਿੱਚ ਗੁਆਚ ਗਿਆ',
   'stillpoint.notFound.toHome': "ਅੱਜ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'stillpoint.notFound.toLibrary': 'ਲਾਇਬ੍ਰੇਰੀ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 ਸਕਿੰਟ ਪਿੱਛੇ ਜਾਓ',
   'stillpoint.player.skipForward': '30s ਅੱਗੇ ਛੱਡੋ',
   'stillpoint.player.with': 'ਨਾਲ {{name}}',
+  'stillpoint.profile.defaultHandle': 'ਸਥਿਰ ਸੂਚਕ',
   'stillpoint.profile.eyebrow': 'ਤੁਹਾਡਾ ਅਭਿਆਸ, ਸੰਖੇਪ ਵਿੱਚ।',
   'stillpoint.profile.locked': 'ਲਾਕ ਕੀਤਾ ਗਿਆ',
   'stillpoint.profile.member': 'ਸਟਿਲਪੁਆਇੰਟ ਮੈਂਬਰ',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'જોઈ રહ્યા છીએ',
   'auctionDetail.watchRemoved': 'વોચલિસ્ટમાંથી દૂર કર્યું.',
   'auctionDetail.watchRemoveLabel': 'વૉચલિસ્ટમાંથી દૂર કરો',
+  'auctionPlatformLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'authShell.brandBody':
     'દુર્લભ ઘડિયાળો, ફાઇન આર્ટ અને અનોખી સ્પેશિયાલિટી વસ્તુઓ પર રીઅલ-ટાઇમમાં બોલી લગાવો. થોડીક સેકન્ડોમાં જ બોલી લગાવી દો.',
   'authShell.brandEyebrow': 'હમણાં લાઇવ · ૧,૪૨૦ હરાજી',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'સૉર્ટ કરો',
   'browseAuctions.subheading':
     'શ્રેણી પ્રમાણે ફિલ્ટર કરો, સૌથી મહત્વપૂર્ણ વસ્તુ પ્રમાણે સૉર્ટ કરો અને ગીવલ પડે તે પહેલાં બોલી લગાવો.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'countdownTimer.ended': 'સમાપ્ત',
   'countdownTimer.endingSoon': 'અંત',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'પાસવર્ડ છુપાવો',
   'login.showPassword': 'પાસવર્ડ બતાવો',
   'login.subtext': 'તમારી હરાજીઓ પર નજર રાખવાનું ચાલુ રાખો અને ગૅવલ પડે તે પહેલાં બિડ લગાવો.',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'myBids.bidAgain': 'ફરીથી બોલી લગાવો',
   'myBids.browseCta': 'લાઈવ હરાજી બ્રાઉઝ કરો →',
   'myBids.checkoutCta': 'હમણાં ચૂકવો',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'હજુ સુધી કોઈ સૂચનાઓ નથી.',
   'notificationsPage.eyebrow': 'પ્રવૃત્તિ કેન્દ્ર',
   'notificationsPage.subheading': '{{count}} હરાજી આગળ વધતાં વાંચ્યા વગરના · લાઇવ અપડેટ્સ',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.bidsLabel': 'બિડ્સ',
   'pricing.listingsLabel': 'સૂચિઓ',
   'pricing.watchlistLabel': 'વોચલિસ્ટ',

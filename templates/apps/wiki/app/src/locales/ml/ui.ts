@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'പരിഹരിക്കുന്നു...',
   'comments.subtitle':
     'ദി {{count}} മറുപടിക്കോ പരിഹാരത്തിനോ വേണ്ടി ഇപ്പോഴും കാത്തിരിക്കുന്ന ത്രെഡുകൾ. പ്രായം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — പഴയത് ആദ്യം, അതിനാൽ ഒന്നും അഴുകുന്നില്ല.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'forgotPassword.sentTo': 'ലിങ്ക് പുനഃസജ്ജമാക്കൽ ഇതിലേക്ക് അയച്ചു {{email}}',
   'forgotPassword.successSubheading':
     'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക — ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു. ഇത് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'പുതിയ പേജ്',
   'pageTreeSidebar.workspaceHeader': 'ജോലിസ്ഥലം',
   'pageView.breadcrumb': 'ബ്രെഡ്ക്രംബ്സ്',
+  'pageView.confirmTrash': 'അത് ചവറ്റുകുട്ടയിലിടണോ?',
   'pageView.home': 'വീട്',
   'pageView.lastEdited': 'അപ്‌ഡേറ്റുചെയ്‌തു {{when}}',
   'pageView.loading': 'പേജ് ലോഡ് ചെയ്യുന്നു…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'സംഗ്രഹിക്കുന്നു...',
   'pageView.summaryUnavailable': 'ഈ വർക്ക്‌സ്‌പെയ്‌സിനായി AI സംഗ്രഹം കോൺഫിഗർ ചെയ്‌തിട്ടില്ല.',
   'pageView.tocTitle': 'ഈ പേജിൽ',
+  'pageView.trash': 'ചവറ്റുകുട്ട',
+  'pageView.trashing': 'ചവറ്റുകുട്ടയിലേക്ക് മാറ്റുന്നു...',
   'pageView.versionBadge': 'വി{{version}}',
   'profile.badges.title': 'ബാഡ്ജുകൾ',
   'profile.owned.title': 'ഉടമസ്ഥതയിലുള്ള പേജുകൾ',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'ജോലിസ്ഥലം, പ്രൊഫൈൽ, അറിയിപ്പുകൾ, സംയോജനങ്ങൾ - എല്ലാം ഒരു ശാന്തമായ ഷെല്ലിൽ.',
   'settingsPage.workspace.defaultLanding': 'ഡിഫോൾട്ട് ലാൻഡിംഗ് സ്ക്രീൻ',
   'settingsPage.workspace.landingHome': 'വീട്',
+  'settingsPage.workspace.landingSpaces': 'സ്പെയ്സുകൾ',
   'settingsPage.workspace.subdomainLabel': 'ഉപഡൊമെയ്ൻ',
   'settingsPage.workspace.title': 'ജോലിസ്ഥലം',
   'signup.eyebrow': 'പുതിയൊരു വർക്ക്‌സ്‌പെയ്‌സ് ആരംഭിക്കുക',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} മിനിറ്റ്',
   'templates.subtitle':
     'ഒരു ശൂന്യമായ ക്യാൻവാസിൽ നിന്നല്ല, ഒരു സ്റ്റെൻസിൽ ഉപയോഗിച്ചാണ് ഒരു പേജ് ആരംഭിക്കുക. ഓരോ ടെംപ്ലേറ്റും ആകൃതിയെ ഹാർഡ്-കോഡ് ചെയ്യുന്നതിനാൽ നിങ്ങൾക്ക് വസ്തുവിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കാൻ കഴിയും.',
+  'trash.confirmPurge': 'എന്നെന്നേക്കുമായി തുടച്ചുനീക്കണോ?',
+  'trash.confirmPurgeAria': 'സ്ഥിരീകരിക്കുക: {{title}} ശാശ്വതമായി ഇല്ലാതാക്കുക',
   'trash.daysUntilPurge': '{{days}} ദിവസങ്ങൾ ബാക്കി',
   'trash.empty.body':
     'ഇല്ലാതാക്കിയ പേജുകൾ ശുദ്ധീകരിക്കുന്നതിന് മുമ്പ് 30 ദിവസത്തേക്ക് ഇവിടെ ദൃശ്യമാകും.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'പുനഃസ്ഥാപിക്കുന്നു...',
   'versionHistory.subtitle': '{{count}} പതിപ്പുകൾ · വ്യത്യാസം പരിശോധിക്കാൻ ഒരു വരി തിരഞ്ഞെടുക്കുക',
   'versionHistory.versionLabel': 'വി{{v}}',
+  'wikiLayout.closeMenu': 'നാവിഗേഷൻ അടയ്ക്കുക',
+  'wikiLayout.menu': 'നാവിഗേഷൻ',
+  'wikiLayout.openMenu': 'നാവിഗേഷൻ തുറക്കുക',
   'wikiLayout.searchPlaceholder': 'കെയ്‌നിൽ തിരയുക — പേജുകൾ, അഭിപ്രായങ്ങൾ…',
 }

@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'ប្រកាស',
   'categoryDetail.stat.threads': 'ខ្សែស្រឡាយ',
   'categoryDetail.threadCount': 'កំពុងបង្ហាញ {{count}} ខ្សែស្រឡាយ',
+  'categoryDetail.threadsFailed': 'មិនអាចផ្ទុកខ្សែស្រឡាយបានទេ។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'compose.bodyPlaceholder':
     'រៀបចំ​វា។ ប្រើ ## សម្រាប់​ផ្នែក, > សម្រាប់​សញ្ញាសម្រង់, ``` សម្រាប់​ប្លុក​កូដ។',
+  'compose.categoriesFailed': 'មិនអាចផ្ទុកប្រភេទបានទេ។',
   'compose.eyebrow': 'ខ្សែស្រឡាយថ្មី',
   'compose.failed': 'មិនអាចចាប់ផ្តើមខ្សែស្រឡាយបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'compose.field.body': 'រាងកាយ',
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'បន្ត​ពី​កន្លែង​ដែល​អ្នក​បាន​ចាកចេញ — ខ្សែស្រឡាយ​ដែល​មិន​ទាន់​អាន​របស់​អ្នក​កំពុង​រង់ចាំ។',
   'login.twoFactor': 'សញ្ញាសម្ងាត់ពីរកត្តា (ស្រេចចិត្ត)',
+  'moderationQueue.actionFailed': 'សកម្មភាព​បរាជ័យ។ សូម​ព្យាយាម​ម្ដងទៀត។',
   'moderationQueue.eyebrow': 'កន្លែងធ្វើការរបស់អ្នកសម្របសម្រួល',
   'moderationQueue.heading': 'ជួរសម្របសម្រួល · {{count}} ធាតុបើកចំហ',
   'moderationQueue.kind.${item.kind}': '{{រាប់}} ទង់ជាតិ',
@@ -78,7 +83,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'ព្យាយាម​ទាក់ទង​គ្នា​លើក​ដំបូង​ឲ្យ​បាន​តិច​ជាង​ពីរ​ម៉ោង។ សូម​ផ្ញើ​អ៊ីមែល​ទៅ admin@stoa សម្រាប់​ការ​ហៅ​ទូរសព្ទ​មិន​ច្បាស់លាស់។',
   'nav.browseHeader': 'រកមើល',
+  'nav.closeMenu': 'បិទម៉ឺនុយរុករក',
   'nav.communityGuidelinesTitle': 'គោលការណ៍ណែនាំសហគមន៍',
+  'nav.drawerTitle': 'ម៉ឺនុយ',
+  'nav.openMenu': 'បើកម៉ឺនុយរុករក',
+  'nav.primaryNavLabel': 'ការរុករកវេទិកា',
   'notFound.body':
     'វា​អាច​ត្រូវ​បាន​ចាក់សោ​ទុក​ក្នុង​បណ្ណសារ ឬ URL បាន​រសាត់​បាត់។ ត្រឡប់​ទៅ​អាហ្គោរ៉ា​វិញ ហើយ​បន្ត​ការ​សន្ទនា​មួយ​ទៀត។',
   'notFound.browseCta': 'រកមើលប្រភេទ',
@@ -89,6 +98,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'ការជូនដំណឹង · {{count}} មិនទាន់អាន',
   'postCard.edited': '(កែសម្រួល)',
   'postCard.flag': 'ទង់ជាតិ',
+  'postCard.flagged': 'បាន​ដាក់​ទង់ជាតិ',
   'postCard.markSolution': 'សម្គាល់ដំណោះស្រាយ',
   'postCard.originalPost': 'ប្រកាសដើម',
   'postCard.quote': 'សម្រង់',
@@ -109,6 +119,14 @@ export const ui: UiTranslations = {
   'search.heading': 'ស្វែងរកខ្សែស្រឡាយ ប្រកាស ឬមនុស្សម្នាក់។',
   'search.resultsCount': '{{count}} លទ្ធផល',
   'search.searching': 'កំពុង​ស្វែងរក…',
+  'settings.currentPasswordHint':
+    'ការ​ផ្លាស់ប្ដូរ​អ៊ីមែល​របស់​អ្នក​តម្រូវ​ឱ្យ​មាន​ពាក្យ​សម្ងាត់។ ចុច Enter ឬ​ចាកចេញ​ពី​វាល​នេះ​ដើម្បី​បញ្ជាក់។',
+  'settings.currentPasswordLabel': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
+  'settings.currentPasswordRequired':
+    'បញ្ជាក់​ការ​ផ្លាស់ប្ដូរ​នេះ​ជាមួយ​ពាក្យ​សម្ងាត់​បច្ចុប្បន្ន​របស់​អ្នក។',
+  'settings.failedToUpdateProfile': 'មិនអាចធ្វើបច្ចុប្បន្នភាពប្រវត្តិរូបបានទេ',
+  'settings.name': 'ឈ្មោះ',
+  'settings.saved': 'បានរក្សាទុក។',
   'signup.confirm': 'បញ្ជាក់',
   'signup.emailPlaceholder': 'you@stoa.community',
   'signup.eyebrow': 'ចូលរួមជាមួយ Stoa',

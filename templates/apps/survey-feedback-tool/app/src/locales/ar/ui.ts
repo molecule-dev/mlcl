@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'نبذة عن شركة «{{app}}»',
   'analytics.back': 'نظرة عامة على الاستبيان',
   'analytics.kpiNps': 'درجة NPS',
   'analytics.kpiNpsTrend': 'المروّجون {{p}}٪ · المنتقدون {{d}}٪',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'الخصائص',
   'builder.questionNumber': 'س{{num}}',
   'builder.surveyTitle': 'عنوان الاستبيان',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'forgotPassword.failed': 'تعذّر إرسال بريد إعادة التعيين. يُرجى المحاولة مرة أخرى.',
   'forgotPassword.subheading': 'أدخل بريدك الإلكتروني وسنرسل إليك رابط الاسترداد.',
   'forgotPassword.successBody':
     'إذا كان هناك حساب مطابق لـ {{email}}، فإن رابط إعادة التعيين في الطريق. تحقّق من صندوق الوارد ومجلد الرسائل غير المرغوب فيها.',
+  'landing.footer.copyright': '© {{year}} {{app}} . جميع الأصوات مرحب بها.',
   'landing.footer.startTrial': 'بدء التجربة',
   'landing.hero.badge': 'الاستبيانات وNPS والملاحظات في مكان واحد',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'الأسعار',
   'landing.pricing.perMonth': '/شهريًا',
   'landing.pricing.popular': 'الأكثر شيوعًا',
+  'landing.pricing.subtitle':
+    'تتضمن كل باقة أداة إنشاء الاستبيانات، وروابط المشاركة العامة، وتحليلات مؤشر رضا العملاء (NPS). لا حاجة لبطاقة ائتمان للبدء.',
+  'landing.pricing.title': 'ابدأ مجاناً، ثم وسّع نطاق عملك لاحقاً.',
   'landing.sample.eyebrow': 'NPS بلمحة',
   'landing.sample.title': 'المنتقدون والمحايدون والمروّجون — مقروء على الفور.',
   'login.failed': 'فشل تسجيل الدخول. يُرجى المحاولة مرة أخرى.',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'إظهار كلمة المرور',
   'login.signUpLink': 'ابدأ تجربة مجانية',
   'login.subheading': 'سجّل الدخول لمواصلة الإنصات إلى جمهورك.',
+  'notFound.body': 'الصفحة التي تبحث عنها غير موجودة على {{app}} . دعنا نعيدك إلى استطلاعاتك.',
   'notFound.cta': 'العودة إلى الاستبيانات',
   'notFound.eyebrow': '٤٠٤',
   'notFound.heading': 'هذا الاستبيان خرج من قائمة الانتظار.',
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'محايد ٧–٨',
   'npsDistributionBar.promoter': 'مروّج ٩–١٠',
   'profile.identity.description': 'ظاهر لفريقك وفي الاستبيانات التي تنشئها.',
+  'profile.identity.emailRequired': 'أدخل عنوان بريدك الإلكتروني.',
   'profile.identity.saveCta': 'حفظ الاسم',
   'profile.password.current': 'كلمة المرور الحالية',
   'profile.password.fillFields': 'أدخل كلمة المرور الحالية والجديدة معًا.',
@@ -173,6 +181,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} أسئلة',
   'templates.subheading':
     'اختر بداية مجرَّبة — كل قالب مضبوط مسبقًا بإعدادات افتراضية معقولة، ومنطق نموذجي، وتخطيط محمول نظيف.',
+  'thankYou.body': 'تم تسجيل ردك. سيقوم {{app}} بتضمينه في التحديث التحليلي القادم.',
   'thankYou.eyebrow': 'تمّ استلام الرد',
   'thankYou.heading': 'شكرًا — صوتك مهم.',
   'thankYou.home': 'زيارة Gauge',

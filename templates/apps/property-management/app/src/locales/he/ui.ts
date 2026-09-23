@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
+  'about.tagline': 'כל יחידה, תחת קורת גג אחת.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.addProperty': 'הוסף נכס',
   'dashboard.empty.body':
     'ברגע שיש לכם נכסים, יחידות ותשלומי שכר דירה, לוח המחוונים הזה מתמלא בתובנות תיק השקעות.',
@@ -82,6 +85,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{נֶכֶס}} · יחידה {{יְחִידָה}} · {{תַאֲרִיך}}',
   'maintenanceQueueList.subtitle': '{{count}} הזמנות עבודה פתוחות, מסודרות לפי עדיפות',
   'maintenanceQueueList.title': 'תור תחזוקה',
+  'nav.closeMenu': 'סגור תפריט',
+  'nav.openMenu': 'פתח תפריט',
   'notFound.body': 'הדף שחיפשת הועבר, הועבר לארכיון או שמעולם לא היה קיים.',
   'notFound.title': 'הדלת הזאת לא נפתחת',
   'notifications.empty.body':
@@ -109,6 +114,7 @@ export const ui: UiTranslations = {
     'הוסיפו את היסודות עכשיו - תוכלו להוסיף יחידות, חוזי שכירות ושוכרים מדף הנכס.',
   'properties.new.submit': 'צור נכס',
   'properties.searchPlaceholder': 'חיפוש לפי שם או כתובת',
+  'properties.subheading': '{{count}} בניינים · {{units}} יחידות · {{pct}} % תפוסה',
   'propertyDetail.backToList': 'חזרה לנכסים',
   'propertyDetail.breadcrumbProperties': 'נכסים',
   'propertyDetail.noAddress': 'אין כתובת רחוב רשומה',

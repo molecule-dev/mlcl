@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
   'activityFeed.empty':
     'இன்னும் எந்த நடவடிக்கையும் இல்லை — உங்கள் முதல் விலைப்பட்டியலை அனுப்புங்கள்.',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'புதிய வாடிக்கையாளரைச் சேர்க்கவும்',
   'clients.search': 'பெயர், நிறுவனம், மின்னஞ்சல் மூலம் தேடவும்',
   'clients.title': 'வாடிக்கையாளர்கள்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'புதிய வாடிக்கையாளர்',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
     'உங்கள் ரெமிட் கணக்குடன் இணைக்கப்பட்ட மின்னஞ்சலை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'மீட்டமைப்பு வழிமுறைகளை நாங்கள் அனுப்பியுள்ளோம் {{email}} இந்த இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
+  'invoiceDetail.action.confirmVoid': 'வெற்றிடத்தை உறுதிப்படுத்தவா?',
   'invoiceDetail.action.download': 'PDF-ஐ பதிவிறக்கவும்',
   'invoiceDetail.action.duplicate': 'நகல் எடு',
   'invoiceDetail.action.edit': 'திருத்து',
@@ -77,9 +80,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'விலைப்பட்டியல் ரத்து செய்யப்பட்டது.',
   'invoiceDetail.issued': 'வழங்கப்பட்டது {{date}}',
   'invoiceDetail.loading': 'விலைப்பட்டியல் ஏற்றப்படுகிறது…',
+  'invoiceDetail.paidInFull': 'முழுமையாக செலுத்தப்பட்டது',
   'invoiceDetail.summary': '{{client}} அனுப்பப்பட்டது {{date}}',
   'invoiceDetail.tax': 'வரி ( {{rate}} %',
   'invoiceDetail.timeline': 'காலவரிசை',
+  'invoiceDetail.voided': 'ரத்து செய்யப்பட்டது',
   'invoiceEditor.addItem': 'உருப்படியைச் சேர்க்கவும்',
   'invoiceEditor.back': '← விலைப்பட்டியல்களுக்குத் திரும்பு',
   'invoiceEditor.col.qty': 'அளவு',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'உங்கள் முதல் விலைப்பட்டியலை அனுப்பவும்',
   'landing.hero.eyebrow': 'சிறு வணிகங்களுக்கான விலைப்பட்டியல்',
   'landing.hero.secondary': 'மாதிரி விலைப்பட்டியலைப் பார்க்கவும்',
+  'landing.hero.subtitle':
+    '{{appName}} நேர்த்தியான விலைப்பட்டியல்களை, உள்ளமைக்கப்பட்ட பணம் செலுத்தும் வசதிகள், தொடர் கட்டண வசதிகள் மற்றும் வரி சார்ந்த அறிக்கைகளுடன் இணைக்கிறது. கணக்குப் பராமரிப்பு தேவையில்லை.',
   'landing.hero.title': 'விலைப்பட்டியல்களை அனுப்புங்கள். விரைவாகப் பணம் பெறுங்கள்.',
   'login.signupLink': 'ஒன்றை உருவாக்கு',
   'login.submitting': 'உங்களை உள்நுழையச் செய்கிறது…',
@@ -148,6 +155,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'பணம் செலுத்துதல்',
   'pricing.recurringLabel': 'தொடர்ச்சியான அட்டவணைகள்',
   'remitLayout.newInvoice': 'புதிய விலைப்பட்டியல்',
+  'remitLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'remitLayout.searchPlaceholder': 'விலைப்பட்டியல்கள், வாடிக்கையாளர்கள் போன்றவற்றைத் தேடுங்கள்...',
   'remitLayout.tagline': 'விரைவாகப் பணம் பெறுங்கள்',
   'reports.chart.aging': 'விலைப்பட்டியல் காலாவதி',
@@ -157,6 +165,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'கால வருவாய்',
   'reports.chart.topClients': 'முதன்மை வாடிக்கையாளர்கள்',
   'reports.chart.topClientsCaption': 'வாழ்நாள் வருவாய், முதல் 5',
+  'reports.empty.aging': 'நிலுவையில் உள்ள விலைப்பட்டியல்கள் இல்லை.',
+  'reports.empty.methods': 'இன்னும் பணம் செலுத்திய விவரங்கள் இல்லை.',
+  'reports.empty.revenue': 'இன்னும் வருவாய் தரவுகள் இல்லை.',
+  'reports.empty.topClients': 'வாடிக்கையாளர் வருவாய் தரவுகள் இன்னும் இல்லை.',
   'reports.exporting': 'ஏற்றுமதி செய்தல்…',
   'reports.exportRequiresPaid': 'ஏற்றுமதி என்பது கட்டண வசதி — அதைச் செயல்படுத்த மேம்படுத்தவும்.',
   'reports.eyebrow': 'வரிக்குத் தயாரான நுண்ணறிவுகள்',
@@ -198,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ வரி விகிதத்தைச் சேர்க்கவும்',
   'settings.tax.added': 'வரி விகிதம் சேர்க்கப்பட்டது.',
   'settings.tax.adding': 'மேலும்…',
+  'settings.tax.addRate': 'விகிதத்தைச் சேர்க்கவும்',
   'settings.tax.col.region': 'பிராந்தியம்',
   'settings.tax.delete': 'வரி விகிதத்தை நீக்கவும்',
   'settings.tax.deleted': 'வரி விகிதம் நீக்கப்பட்டது.',

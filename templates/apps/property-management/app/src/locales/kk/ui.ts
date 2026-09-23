@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.tagline': 'Әрбір бөлімше, бір шатырдың астында.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.addProperty': 'Мүлікті қосу',
   'dashboard.empty.body':
     'Мүлік, пәтер және жалдау төлемдері болғаннан кейін, бұл басқару тақтасы портфолио туралы ақпаратпен толтырылады.',
@@ -89,6 +92,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{мүлік}} · Бірлік {{бірлік}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}} басымдық бойынша реттелген ашық жұмыс тапсырыстары',
   'maintenanceQueueList.title': 'Техникалық қызмет көрсету кезегі',
+  'nav.closeMenu': 'Мәзірді жабу',
+  'nav.openMenu': 'Мәзірді ашу',
   'notFound.body': 'Сіз іздеген бет жылжытылған, мұрағатталған немесе ешқашан болмаған.',
   'notFound.title': 'Ол есік ашылмайды',
   'notifications.empty.body':

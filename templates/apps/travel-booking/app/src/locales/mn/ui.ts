@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.featureDiscover.title': 'Урам зориг, гараар сонгосон',
   'account.addPaymentCta': 'Төлбөрийн хэрэгсэл нэмэх',
   'account.addPaymentError': 'Төлбөрийн аргыг нэмж чадсангүй.',
+  'account.confirmRemove': 'Устгахыг баталгаажуулах',
   'account.defaultBadge': 'Үндсэн',
   'account.loyalty.pointsTowardNext': '{{оноо}} -ын {{дараагийн}} миль хүртэл {{дараагийнТүвшин}}',
   'account.loyalty.tier': 'Одоогийн түвшин',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Аяллын дэлгэрэнгүй мэдээлэл',
   'booking.tripSummary': '{{nights}} шөнө · {{guests}} зочид',
   'common.daysAgo': '{{count}} өдрийн өмнө',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.hoursAgo': '{{count}} цагийн өмнө',
   'common.minutesAgo': '{{count}} саяын өмнө',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Хууль эрх зүйн',
   'notifications.loading': 'Ачааллаж байна…',
   'notifications.subheading': '{{count}} уншаагүй · бүгдийг нэг тайван имэйл хайрцагт',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.accommodationsLabel': 'байр',
   'pricing.bookingsLabel': 'захиалга',
   'pricing.destinationsLabel': 'хадгалсан очих газрууд',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Урам зориг, найдвартай байр, мөрөөдлөөс захиалга хүртэлх саадгүй зам - 14 улс орон, 200 гаруй гараар шалгагдсан үл хөдлөх хөрөнгө.',
   'sojournHeroSearchCard.trustProtected': 'Үнэгүй цуцлалт, бүрэн хамгаалагдсан',
   'sojournHeroSearchCard.trustVetted': 'Зөвхөн гараар шалгасан үл хөдлөх хөрөнгө',
+  'travelBookingLayout.primaryNavLabel': 'Үндсэн навигаци',
   'tripDetail.backLink': 'Аяллууд руу буцах',
   'tripDetail.cancelCta': 'Захиалгыг цуцлах',
   'tripDetail.cancelHeading': 'Энэ аяллыг цуцлах уу?',

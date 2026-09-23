@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.logout': 'Logáil Amach',
   'dailyStatsTriad.heartsLabel': 'Croíthe',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Nóiméid inniu',
   'dailyStatsTriad.minutesValue': '{{count}} nóim',
   'dailyStatsTriad.wordsLabel': 'Focail máistrithe',
+  'dailyStatsTriad.wordsMasteryHint': 'Focail ag máistreacht 4+',
   'dashboard.continueHeading': 'Lean ar aghaidh san áit ar fhág tú',
   'dashboard.heading': 'Lá maith agaibh, {{name}} .',
   'dashboard.loadError':
@@ -43,6 +47,7 @@ export const ui: UiTranslations = {
   'leaderboardPanel.title': 'Clár ceannairí cairde',
   'leaderboardPanel.you': '(Tusa)',
   'lessonCard.duration': '{{min}} nóim',
+  'lessonCard.level': 'Leibhéal {{level}}',
   'lessonCard.progressPercent': '{{percent}} % críochnaithe',
   'lessonCard.remaining': '{{count}} ceachtanna fágtha',
   'lessonDetail.backToLessons': '← Ar ais chuig na ceachtanna',
@@ -58,7 +63,10 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Níorbh fhéidir cleachtaí a lódáil.',
   'lessonDetail.loading': 'Ag lódáil ceacht…',
   'lessonDetail.submitError': 'Níorbh fhéidir freagra a chur isteach.',
+  'lessonDetail.translation': 'Aistrigh an frása',
   'lessonDetail.xpEarned': 'XP tuillte · {{xp}}',
+  'lessons.empty':
+    'Gan aon cheachtanna ag leibhéal {{level}} go fóill — bain triail as leibhéal eile.',
   'lessons.eyebrow': 'Leabharlann ceachtanna',
   'lessons.heading': 'Brabhsáil gach ceacht',
   'lessons.loadError': 'Níorbh fhéidir ceachtanna a lódáil.',
@@ -69,7 +77,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nua i dteanga teanga?',
   'login.showPassword': 'Taispeáin an focal faire',
   'login.signUp': 'Tosaigh saor in aisce →',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
+  'parlanceLayout.nav.profile': 'Próifíl',
   'parlanceLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'practice.empty': 'Níl aon frásaí ar fáil go fóill.',
   'practice.eyebrow': 'Cleachtadh labhartha',
   'practice.heading': 'Léigh é. Taifead é. Scag é.',

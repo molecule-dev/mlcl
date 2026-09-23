@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.pageTitle': 'Sobre {{appName}}',
   'analytics.error': 'Não foi possível carregar as análises.',
   'analytics.heading': 'Análises de recuperação',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nenhum nível de preço configurado.',
   'billing.plans.heading': 'Planos',
   'billing.subheading': 'Plano, uso e checkout gerenciado pelo Stripe.',
+  'common.confirm': 'Confirmar',
+  'common.goToDashboard': 'Ir para o Painel',
+  'common.retry': 'Tentar novamente',
   'documentCard.open': 'Abrir →',
   'documentDetail.back': 'Voltar aos documentos',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indexar documento',
   'documents.composer.titlePlaceholder': 'Título do documento',
   'documents.emptyAll': 'Ainda sem documentos. Faça upload de um para começar a fazer perguntas.',
+  'documents.error.load': 'Não foi possível carregar os documentos.',
   'documents.heading': 'Documentos indexados',
   'documents.loading': 'Carregando documentos…',
   'documents.metric.chunks': 'Total de chunks',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Removendo…',
   'members.subheading': 'Convide colegas e defina funções.',
   'members.tableHeading': 'Roster',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'notFound.askCta': 'Perguntar à base de conhecimento',
+  'notFound.body':
+    '{{app}} não conseguiu localizar essa página. O link pode estar quebrado ou a página pode ter sido removida durante uma reindexação.',
   'notFound.eyebrow': 'Não foi possível recuperar',
   'notFound.title': 'Nenhum chunk desse tipo no índice',
   'notifications.dismiss': 'Dispensar',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL da fonte',
   'sources.empty.body': 'Clique em “Adicionar fonte” para conectar seu primeiro conector.',
   'sources.empty.title': 'Ainda sem fontes.',
+  'sources.error.add': 'Não foi possível adicionar a fonte.',
   'sources.error.labelRequired': 'O rótulo é obrigatório.',
   'sources.error.load': 'Não foi possível carregar as fontes.',
   'sources.error.urlRequired': 'É necessária uma URL para este tipo de fonte.',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.eyebrow': 'A {{app}} névjegye',
+  'about.intro':
+    '{{app}} egy meditációs alkalmazás a való életre – napi vezetett meditációk, légzésgyakorlatok és alvástörténetek olyan tanárok tempójában, akik barátként, nem pedig edzőként érződnek. Nincs bűntudat, nincs zajos etetés: csak egy csendes hely, ahol visszatérhetsz a lélegzetedhez.',
+  'about.missionBody':
+    'Úgy gondoljuk, hogy a csendnek mindenki számára elérhetőnek kell lennie, a nap bármely szakában. {{app}} azért létezik, hogy a nyugodt, következetes gyakorlás könnyednek tűnjön – hogy tíz őszinte perc megváltoztathassa azt, ahogyan a következő tíz órát töltöd.',
+  'about.missionTitle': 'Küldetésünk',
+  'about.pageTitle': 'Naponta 10 perc nyugodtabb kikapcsolódás',
+  'breathingDial.seconds': 'másodperc',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.logout': 'Kijelentkezés',
   'common.min': 'perc',
   'common.relative.justNow': 'épp most',
   'common.relative.now': 'jelenleg',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
+  'nav.secondaryNavigation': 'Fióknavigáció',
   'sessionCard.with': '-vel {{name}}',
   'stillpoint.billing.choose': 'Válasszon {{plan}}',
   'stillpoint.billing.currentPlan': 'Jelenleg bekapcsolva {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Nem tudtuk betölteni a terveket.',
   'stillpoint.billing.opening': 'Pénztár megnyitása…',
   'stillpoint.billing.perMonthShort': '/ hónap',
+  'stillpoint.billing.perYearShort': '/év',
   'stillpoint.billing.unknownResult': 'Váratlan számlázási válasz.',
   'stillpoint.billing.yearly': 'Éves · 17% megtakarítás',
   'stillpoint.courseDetail.back': 'Tanfolyamok',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Még nincsenek tanfolyamok.',
   'stillpoint.courses.eyebrow': '{{count}} többnapos utazások',
   'stillpoint.courses.heading': 'Tanfolyamok',
+  'stillpoint.forgot.checkEmail': 'Nézd meg a postaládádat – a link 30 perc múlva lejár.',
   'stillpoint.forgot.success': 'Elküldtünk egy visszaállító linket a következő címre: {{email}} .',
   'stillpoint.home.empty': 'Még nincsenek foglalkozások – nézz vissza később.',
   'stillpoint.home.friend': 'barát',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Hozza létre ingyenes fiókját',
   'stillpoint.landing.cta.title': 'Kezdd el a csendet még ma',
   'stillpoint.landing.features.heading': 'Egy gyakorlat, ami veled együtt fejlődik',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Naponta vezetett meditációk, légzésgyakorlatok és alvástörténetek – olyan tanárok tempójában, akik barátként, nem pedig edzőként érződnek.',
   'stillpoint.landing.hero.eyebrow': 'Naponta 10 perc nyugodtabb kikapcsolódás',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Böngészés hangulat szerint',
   'stillpoint.login.rememberMe': 'Maradjon bejelentkezve',
   'stillpoint.login.subheading': 'Jelentkezz be a gyakorlás folytatásához.',
+  'stillpoint.nav.tagline': 'Találd meg a nyugalmi középpontodat',
+  'stillpoint.notFound.body':
+    'Ez az oldal valahol nagyot sóhajt. Keressünk neked egy csendesebb helyet {{app}} alkalmazásban.',
   'stillpoint.notFound.title': 'Elveszve a csendben',
   'stillpoint.notFound.toHome': 'Vissza a mai napra',
   'stillpoint.notFound.toLibrary': 'Könyvtár böngészése',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Ugrás vissza 15 másodperccel',
   'stillpoint.player.skipForward': 'Ugrás előre 30 másodperccel',
   'stillpoint.player.with': '-vel {{name}}',
+  'stillpoint.profile.defaultHandle': 'állópointer',
   'stillpoint.profile.eyebrow': 'A gyakorlatod, összefoglalva.',
   'stillpoint.profile.locked': 'Zárolt',
   'stillpoint.profile.member': 'Stillpoint tag',

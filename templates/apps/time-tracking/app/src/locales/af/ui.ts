@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Oor {{app}}',
   'about.plansTitle': 'Planne wat saam met jou groei',
   'brand.tagline': 'Elke sekonde',
   'clientDetail.back': 'Terug na kliënte',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Elke verhouding op een plek — projekte, ure, uitstaande fakture.',
   'clients.title': 'Kliënte',
   'common.and': 'en',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.activeProjects': 'Aktiewe projekte',
   'dashboard.empty': 'Geen inskrywings nog nie. Begin die timer om jou eerste sessie na te spoor.',
   'dashboard.greeting': 'Goeiedag, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     "Geen faktureerbare ure om vir hierdie kliënt te faktureer nie. Spoor eers 'n bietjie tyd op of ken bestaande inskrywings toe aan een van hierdie kliënt se projekte.",
   'invoices.save': 'Skep faktuur',
   'invoices.subtitle': 'Nagespoorde ure word outomaties in fakture opgeneem.',
+  'landing.copyright': '© {{year}} {{app}} . Elke sekonde, in ag geneem.',
   'landing.ctaBody': 'Gratis vir tot 3 projekte. Gradeer op wanneer jou kliëntelys dit doen.',
   'landing.eyebrow': 'Tydopsporing vir faktureerbare werk',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Vertrou deur onafhanklikes',
   'landing.testimonial.quote':
     '\\u201cEk het binne 30 minute van Toggl af beweeg. Die begrotingsuitbranding alleen het homself betaal \\u2014 Ek het opgehou om twee weke agtereenvolgens te onderkwoteer.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Elke sekonde, in ag geneem.',
   'login.brand.subtitle':
     "Tel die timer op waar jy opgehou het – elke minuut is reeds gekoppel aan 'n projek, 'n kliënt, 'n faktuur.",
   'login.brand.tracking': 'Opsporing',
   'login.subheading': 'Tel die timer op waar jy opgehou het.',
+  'nav.closeMenu': 'Maak navigasiekieslys toe',
   'nav.insightsSection': 'Insigte',
   'nav.newEntry': 'Nuwe Inskrywing',
+  'nav.openMenu': 'Maak navigasiekieslys oop',
+  'nav.primary': 'Primêre navigasie',
   'nav.workSection': 'Werk',
   'notFound.body':
     'Dit lyk asof die skakel wat jy gevolg het, opgehou het om op te spoor. Gaan terug na jou dashboard en ons sal van daar af aanhou tel.',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Faktureerbaar',
   'timer.descriptionPlaceholder': 'Waaraan werk jy?',
   'timer.idle': 'Rustig — begin dophou',
+  'timer.noProject': 'Geen projek nie',
   'timer.runningWithProject': 'Geen projek nie',
   'timer.start': 'Begin die timer',
   'timer.stop': 'Stop die timer',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Kuhusu {{app}}',
+  'appNav.mobileLabel': 'Usogezaji mkuu',
+  'appNav.primaryLabel': 'Usogezaji mkuu',
   'billing.actions.confirmCancel': 'Ghairi usajili wako? Unaweza kujisajili tena wakati wowote.',
   'billing.actions.paused': 'Usajili umesitishwa.',
   'billing.actions.resumed': 'Usajili unaendelea tena.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Kila ngazi ni hadithi ndogo. Ongeza moja kwenye foleni yako au ibadilishe na mwezi wako ujao.',
   'boxThemeCard.perMonth': '/ mwezi',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'customize.eyebrow': 'Ifanye iwe yako',
   'customize.heading': 'Badilisha Uzoefu wako unaofuata',
   'customize.items.exclude': 'Ruka hii',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Msimu huu',
   'landing.editions.heading': 'Matoleo ambayo wasimamizi wetu wanapenda',
   'landing.footer.contact': 'Zungumza na mratibu',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Anza kisanduku chako →',
   'landing.hero.ctaSecondary': 'Tazama ngazi',
   'landing.hero.eyebrow': 'Imeratibiwa kila mwezi. Daima ni ya kibinafsi.',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'TAARIFA YAKO INAYOFUATA',
   'nextBoxHeroCard.itemsLabel': 'Vipengee vilivyochaguliwa',
   'nextBoxHeroCard.shipsOnLabel': 'Inasafirishwa',
+  'notFound.body':
+    'Hatukuweza kupata ukurasa huo kwenye kumbukumbu ya {{app}} . Huenda uliondolewa au uliandikwa vibaya tu.',
   'notFound.cta.dashboard': 'Nenda kwenye dashibodi',
   'notFound.eyebrow': 'Kisanduku tupu',
   'notFound.heading': 'Rafu hii ni tupu',

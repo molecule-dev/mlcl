@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.pageTitle': 'Тухай {{appName}}',
   'analytics.error': 'Аналитикийг ачаалж чадсангүй.',
   'analytics.heading': 'Хайлтын аналитик',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Үнийн шатлал тохируулагдаагүй байна.',
   'billing.plans.heading': 'Төлөвлөгөө',
   'billing.subheading': 'Төлөвлөгөө, хэрэглээ болон Stripe-ээр удирддаг төлбөр тооцоо.',
+  'common.confirm': 'Баталгаажуулах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.retry': 'Дахин оролдох',
   'documentCard.open': 'Нээх \\u2192',
   'documentDetail.back': 'Баримт бичиг рүү буцах',
   'documentDetail.chunks.empty':
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Баримт бичгийн гарчиг',
   'documents.emptyAll':
     'Одоогоор баримт бичиг алга. Асуулт асууж эхлэхийн тулд нэгийг байршуулна уу.',
+  'documents.error.load': 'Баримт бичгийг ачаалж чадсангүй.',
   'documents.heading': 'Индексжүүлсэн баримт бичиг',
   'documents.loading': 'Баримт бичгүүдийг ачаалж байна…',
   'documents.metric.chunks': 'Нийт хэсгүүд',
@@ -143,7 +148,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Хасаж байна\\u2026',
   'members.subheading': 'Багийн гишүүдээ урьж, дүрүүдийг тохиролцоно уу.',
   'members.tableHeading': 'Бүртгэл',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'notFound.askCta': 'Мэдлэгийн сангаас асуу',
+  'notFound.body':
+    '{{app}} тухайн хуудсыг олж чадсангүй. Холбоос эвдэрсэн эсвэл дахин индексжүүлэх явцад хуудас ашиглалтаас гарсан байж магадгүй.',
   'notFound.eyebrow': 'Авч авах боломжгүй',
   'notFound.title': 'Индексэд ийм хэсэг байхгүй байна',
   'notifications.dismiss': 'Хаах',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Эхний холбогчоо холбохын тулд \\u201cЭх үүсвэр нэмэх\\u201d дээр дарна уу.',
   'sources.empty.title': 'Одоогоор эх сурвалж алга байна.',
+  'sources.error.add': 'Эх сурвалжийг нэмж чадсангүй.',
   'sources.error.labelRequired': 'Шошго шаардлагатай.',
   'sources.error.load': 'Эх сурвалжуудыг ачаалж чадсангүй.',
   'sources.error.urlRequired': 'Энэ төрлийн эх сурвалжийн хувьд URL шаардлагатай.',

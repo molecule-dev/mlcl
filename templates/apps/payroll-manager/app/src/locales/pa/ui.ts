@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'auditLog.empty':
     'ਅਜੇ ਤੱਕ ਕੋਈ ਵੀ ਆਡਿਟ ਇਵੈਂਟ ਤੁਹਾਡੇ ਫਿਲਟਰਾਂ ਨਾਲ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ। ਕਿਸੇ ਕਰਮਚਾਰੀ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ ਜਾਂ ਤਨਖਾਹ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰੋ ਅਤੇ ਉਹ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'auditLog.eyebrow': 'ਪਾਲਣਾ',
+  'auditLog.loadError': 'ਆਡਿਟ ਲੌਗ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'auditLog.searchPlaceholder': 'ਅਦਾਕਾਰ, ਐਕਸ਼ਨ, ਜਾਂ ਵਰਣਨ ਅਨੁਸਾਰ ਖੋਜ ਕਰੋ',
   'auditLog.subheading':
     'ਹਰ ਪ੍ਰਵਾਨਗੀ, ਸੰਪਾਦਨ, ਅਤੇ ਟੈਕਸ ਫਾਈਲਿੰਗ — ਅਦਾਕਾਰ, ਟਾਈਮਸਟੈਂਪ, ਅਤੇ ਬਦਲੇ ਹੋਏ ਖੇਤਰਾਂ ਦੇ ਨਾਲ।',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ਸੰਰੂਪਿਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ',
   'billing.plansHeading': 'ਯੋਜਨਾਵਾਂ',
   'billing.subheading': 'ਸਟ੍ਰਾਈਪ ਰਾਹੀਂ ਆਪਣੀ ਯੋਜਨਾ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ ਅਤੇ ਟੀਅਰ ਬਦਲੋ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'ਪਾਲਣਾ ਸਨੈਪਸ਼ਾਟ',
   'dashboard.compliance.title': 'ਸਾਰੇ ਚੈੱਕ ਪਾਸ ਹੋ ਰਹੇ ਹਨ',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': "ਫਾਈਲ 'ਤੇ ਕੋਈ ਕਟੌਤੀਆਂ ਨਹੀਂ ਹਨ।",
   'employeeDetail.notFound': 'ਕਰਮਚਾਰੀ ਨਹੀਂ ਮਿਲਿਆ।',
   'employeeDetail.payFrequency': 'ਭੁਗਤਾਨ ਦੀ ਬਾਰੰਬਾਰਤਾ',
+  'employeeDetail.postTax': 'ਟੈਕਸ ਤੋਂ ਬਾਅਦ',
+  'employeeDetail.preTax': 'ਟੈਕਸ ਤੋਂ ਪਹਿਲਾਂ',
   'employeeDetail.salary': 'ਸਾਲਾਨਾ ਤਨਖਾਹ',
   'employeeDetail.ssn': 'ਐੱਸਐੱਸਐੱਨ',
   'employeeDetail.startedOn': 'ਸ਼ੁਰੂ ਕੀਤਾ {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ਭੁਗਤਾਨ ਦੀ ਬਾਰੰਬਾਰਤਾ',
   'employeeForm.salary': 'ਸਾਲਾਨਾ ਤਨਖਾਹ (USD)',
   'employeeForm.salaryInvalid': 'ਤਨਖਾਹ ਇੱਕ ਗੈਰ-ਨਕਾਰਾਤਮਕ ਸੰਖਿਆ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।',
+  'employeeForm.saveError': 'ਕਰਮਚਾਰੀ ਨੂੰ ਨਹੀਂ ਬਚਾ ਸਕਿਆ।',
   'employeeForm.semimonthly': 'ਅਰਧ-ਮਾਸਿਕ',
   'employeeForm.single': 'ਸਿੰਗਲ',
   'employeeForm.ssn': 'ਐੱਸਐੱਸਐੱਨ',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'ਤਨਖਾਹ',
   'forgotPassword.subtitle':
     'ਆਪਣਾ ਕੰਮ ਦਾ ਈਮੇਲ ਪਤਾ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।',
+  'landing.copyright': '© {{year}} {{app}} . ਸਟੀਕ, ਭਰੋਸੇਮੰਦ, ਰਚਿਆ ਹੋਇਆ।',
   'landing.ctaBody':
     '30 ਦਿਨਾਂ ਲਈ ਮੁਫ਼ਤ। ਕੋਈ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨਹੀਂ। ਆਪਣਾ ਆਡਿਟ ਟ੍ਰੇਲ ਗੁਆਏ ਬਿਨਾਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਬਦਲੋ।',
   'landing.ctaHeading': "ਆਪਣਾ ਅਗਲਾ ਚੱਕਰ Stipend 'ਤੇ ਚਲਾਓ",
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ਇਸ ਪੇ-ਰਨ ਲਈ ਅਜੇ ਤੱਕ ਕੋਈ ਆਡਿਟ ਐਂਟਰੀਆਂ ਨਹੀਂ ਹਨ।',
   'payRunDetail.noStubs':
     'ਅਜੇ ਕੋਈ ਪੇ-ਸਟੱਬ ਨਹੀਂ ਹਨ — ਉਹਨਾਂ ਨੂੰ ਤਿਆਰ ਕਰਨ ਲਈ ਮਨਜ਼ੂਰੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ ਕਰੋ।',
+  'payRunDetail.notFound': 'ਇਹ ਤਨਖਾਹ ਨਹੀਂ ਮਿਲ ਸਕੀ।',
   'payRunDetail.statDeductions': 'ਕਟੌਤੀਆਂ',
   'payRunDetail.statHeadcount': 'ਕਰਮਚਾਰੀ',
   'payRunDetail.statTaxes': 'ਟੈਕਸ ਰੋਕੇ ਗਏ',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'ਅਰਧ-ਮਾਸਿਕ',
   'settings.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
   'settings.subheading': 'ਕੰਪਨੀ ਪ੍ਰੋਫਾਈਲ, ਤਨਖਾਹ ਸ਼ਡਿਊਲ, ਅਤੇ ਏਕੀਕਰਨ।',
+  'settings.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'settings.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
+  'settings.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
+  'settings.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'settings.weekly': 'ਹਫ਼ਤਾਵਾਰੀ',
   'taxCenter.bucket.federal': 'ਸੰਘੀ ਆਮਦਨ',
   'taxCenter.bucket.fica': 'ਸਾਮਾਜਕ ਸੁਰੱਖਿਆ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'analytics.avgCheckLabel': 'Average na pagsusuri',
   'analytics.busiestHour': 'Pinakamaabalang oras',
   'analytics.coversToday': 'Mga takip ngayon',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Mga Tip (average)',
   'analytics.topItems': 'Mga nangungunang item ngayon',
   'authShell.eyebrow': 'Maligayang pagbabalik sa serbisyo',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Isang mainit at mabilis na punto ng pagbebenta para sa mga pangkat ng hospitality. Mag-sign in sa iyong kusina at ipagpatuloy kung saan ka tumigil.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'o {{price}}',
   'billing.priceUnavailable': 'Walang naka-configure na presyo ang planong ito.',
   'billing.updated': 'Na-update na ang plano.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'customerDetail.book': 'Magdagdag ng reserbasyon',
   'customerDetail.col.table': 'Mesa',
   'customerDetail.confirmDelete': 'Burahin ang rekord ng bisitang ito?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Kakayahang magamit',
   'menuItemDetail.available': 'Available ngayong gabi',
   'menuItemDetail.backToMenu': 'Balik sa menu',
+  'menuItemDetail.confirmDelete': 'Burahin ang item na ito sa menu?',
   'menuItemDetail.delete': 'Burahin ang item',
   'menuItemDetail.deleteError': 'Nabigo ang pagbura. Subukan muli.',
   'menuItemDetail.dietary': 'Mga tag sa pagkain',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · i-edit ang larawan, mga modifier, diyeta, at pagpepresyo.',
   'menuItemDetail.untitled': 'Item na walang pamagat',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'notFound.heading': 'Wala sa sahig ang mesang ito.',
   'notFound.subheading': 'Ang pahinang hinahanap mo ay nasa ibang lugar — o hindi talaga umiiral.',
+  'notFound.toLanding': 'tahanan {{app}}',
   'notifications.markError': 'Hindi mamarkahan bilang nabasa na lahat.',
   'orderDashboard.activeDelta': 'Live ngayon',
   'orderDashboard.activeLabel': 'Mga aktibong order',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Ipakita ang password',
   'resetPassword.subtitle': 'Ilagay ang iyong bagong password para makapasok muli sa kusina.',
   'resetPassword.tokenLabel': 'Reset Token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Pangunahing navigation',
   'revenueHeroCard.activeOrders': '{{count}} aktibo',
   'revenueHeroCard.change': '{{sign}} {{amount}} laban kahapon',
   'revenueHeroCard.title': 'Kita ngayon',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Pangalan ng restawran',
   'tableDetail.activeOrders': 'Mga aktibong order',
   'tableDetail.backToFloor': 'Plano ng sahig',
+  'tableDetail.confirmDelete': 'Burahin ang talahanayang ito?',
   'tableDetail.delete': 'Burahin',
   'tableDetail.deleteError': 'Hindi mabura ang talahanayan.',
   'tableDetail.heading': 'Mesa {{label}}',

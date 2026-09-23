@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'analytics.channels.empty': 'Aínda non hai datos de canles.',
   'analytics.channels.title': 'Por canle',
   'analytics.empty': 'Aínda non hai conversas: as análises aparecerán unha vez que inicies un fío.',
@@ -17,11 +18,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Conversas por día',
   'chatBubble.avatarAlt': '{{speaker}} avatar',
   'common.appName': 'Relación',
+  'common.goToDashboard': 'Ir ao panel',
   'confidenceMeter.label': 'Confianza',
   'conversationDetail.agentName': 'Axente',
   'conversationDetail.aiReplyButton': 'Resposta do bot',
   'conversationDetail.aiReplyError': 'Non se puido xerar unha resposta da IA',
   'conversationDetail.aiReplyLoading': 'Redacción…',
+  'conversationDetail.aiReplySourceFallback': 'reserva (sen tecla de IA)',
   'conversationDetail.backAria': 'Volver ás conversas',
   'conversationDetail.composerPlaceholder': 'Resposta ao cliente…',
   'conversationDetail.context.channel': 'Canle',
@@ -159,8 +162,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Define un novo contrasinal para a túa conta',
   'resetPassword.toggleConfirm': 'Activar/desactivar a visibilidade da confirmación do contrasinal',
   'resetPassword.togglePassword': 'Activar/desactivar a visibilidade do contrasinal',
+  'settings.account.emailError': 'Non se puido actualizar o correo electrónico',
   'settings.account.emailLabel': 'Enderezo de correo electrónico',
+  'settings.account.emailSaved': 'Correo electrónico actualizado',
+  'settings.account.nameError': 'Non se puido actualizar o nome',
   'settings.account.nameLabel': 'Nome para mostrar',
+  'settings.account.nameSaved': 'Nome actualizado',
   'settings.account.title': 'Conta',
   'settings.api.createCta': 'Crear token',
   'settings.api.description':
@@ -173,10 +180,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Escalar automaticamente cando a opinión diminúa',
   'settings.bot.greetingLabel': 'Saúdo da primeira mensaxe',
   'settings.bot.title': 'Configuración do bot',
+  'settings.bot.toneFormal': 'Formal',
   'settings.bot.toneLabel': 'Voz e ton',
   'settings.danger.deleteAccount': 'Eliminar conta',
+  'settings.danger.deleteError': 'Non se puido eliminar a conta',
+  'settings.danger.deleteWarning':
+    'Isto elimina permanentemente a túa conta e todos os datos asociados. Esta acción non se pode desfacer.',
   'settings.danger.deleting': 'Eliminando…',
+  'settings.danger.passwordLabel': 'Confirma o teu contrasinal',
   'settings.danger.title': 'Zona de perigo',
+  'settings.devices.empty': 'Non hai dispositivos rexistrados.',
+  'settings.devices.revokeWarning':
+    'O acceso deste dispositivo revogarase en breve. Pechar sesión?',
+  'settings.devices.signingOut': 'Pechando sesión…',
   'settings.devices.signOut': 'Pechar sesión',
   'settings.devices.thisDevice': 'Este dispositivo',
   'settings.devices.title': 'Dispositivos',
@@ -189,9 +205,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Non se puido cambiar o contrasinal',
   'settings.security.currentPassword': 'Contrasinal actual',
   'settings.security.newPassword': 'Novo contrasinal',
+  'settings.security.oauthManaged':
+    'O teu provedor de inicio de sesión xestiona o teu contrasinal.',
   'settings.security.title': 'Seguridade',
   'settings.security.twoFactorDisable': 'Desactivar',
   'settings.security.twoFactorEnable': 'Activar',
+  'settings.security.twoFactorInvalid': 'Código non válido',
   'settings.subtitle':
     'Afina a voz de Rapport, as fontes de coñecemento e as ferramentas coas que se comunica.',
   'settings.tokenCreateError': 'Non se puido crear o token',

@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
   'authBrandPanel.quote':
     '«Το Vellum είναι πλέον το σύστημα καταγραφής κάθε υπογεγραμμένης συμφωνίας που κατέχουμε.»',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'contractDetail.amount': 'Τιμή',
   'contractDetail.back': 'Όλες οι συμβάσεις',
   'contractDetail.downloadCta': 'Λήψη PDF',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
     'Εάν υπάρχει λογαριασμός με τη διεύθυνση {{email}}, θα σας σταλεί σύντομα ένας σύνδεσμος επαναφοράς.',
   'forgotPassword.subtitle':
     'Θα στείλουμε έναν σύνδεσμο επαναφοράς στη διεύθυνση ηλεκτρονικού ταχυδρομείου της εργασίας σας.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Δημιουργήθηκε με το Molecule.',
   'landing.ctaHeading': 'Δείτε το χαρτοφυλάκιό σας να κλείνει την πρώτη μέρα.',
   'landing.ctaPrimary': 'Έναρξη χώρου εργασίας',
   'landing.eyebrow': 'Για Νομικές Λειτουργίες & Προμήθειες',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Απαιτείται το όνομα του αντισυμβαλλομένου.',
   'newContract.errEmail': 'Απαιτείται email υπογράφοντος.',
   'newContract.expires': 'Ημερομηνία λήξης',
+  'newContract.failed': 'Δεν ήταν δυνατή η δημιουργία της σύμβασης.',
   'newContract.heading': 'Νέα σύμβαση',
   'newContract.nextCta': 'Επόμενος',
   'newContract.review.counterparty': 'Αντισυμβαλλόμενος',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Τίτλος σύμβασης',
   'newContract.titlePlaceholder': 'Κύρια Συμφωνία Υπηρεσιών',
   'newContract.variablesHeading': 'Μεταβλητές συμβολαίου',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.dataExport': 'Εξαγωγή δεδομένων',
   'pricing.disabled': 'Οχι',
   'pricing.enabled': 'Ναί',
@@ -149,15 +155,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Αδύνατη η διαγραφή λογαριασμού.',
   'settings.security.deleting': 'Διαγραφή…',
   'settings.security.newPassword': 'Νέος κωδικός πρόσβασης',
+  'settings.security.noDevices': 'Δεν έχουν καταχωρηθεί συσκευές.',
   'settings.security.twoFactor': 'Έλεγχος ταυτότητας δύο παραγόντων',
   'settings.security.twoFactorDisable': 'Απενεργοποίηση',
   'settings.security.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.security.twoFactorInvalidCode': 'Μη έγκυρος κώδικας.',
   'settings.signatures.body':
     'Το πληκτρολογημένο όνομά σας εμφανίζεται στη γραμμή υπογραφής κάθε συμβολαίου που υπογράφετε. Ορίστε το μία φορά και θα αποδίδεται αυτόματα από εδώ και στο εξής.',
   'settings.signatures.heading': 'Μπλοκ υπογραφής',
   'settings.signatures.save': 'Αποθήκευση υπογραφής',
+  'sign.action': 'Υπογράψτε αυτό το έγγραφο',
+  'sign.eyebrow': 'Απαιτείται υπογραφή',
+  'sign.for': 'Για το {{name}}',
+  'sign.loadError': 'Αυτός ο σύνδεσμος εγγραφής δεν είναι έγκυρος ή έχει λήξει.',
   'sign.loading': 'Φόρτωση…',
   'sign.signing': 'Υπογραφή…',
+  'sign.submitError':
+    'Δεν ήταν δυνατή η καταγραφή της υπογραφής σας — ο σύνδεσμος ενδέχεται να έχει λήξει.',
   'signup.brandQuote':
     '\\u201cΜετεγκαταστήσαμε χαρτί 8 ετών σε Vellum σε μια εβδομάδα. Μόνο η διαδρομή ελέγχου δικαιολογεί την ανταλλαγή.\\u201d',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -193,6 +207,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Ανοιχτή σύμβαση →',
   'vellumKpiCard.trend': 'Πρόσφατη τάση',
+  'vellumLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'vellumLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'vellumLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'vellumPortfolioHero.expiring': 'Λήγει σε 30 ημέρες',
   'vellumPortfolioHero.label': 'Αξία χαρτοφυλακίου',

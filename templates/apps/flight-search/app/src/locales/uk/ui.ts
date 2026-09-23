@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.eyebrow': 'Про {{app}}',
   'about.pageTitle': 'Кожен маршрут, один пошук.',
   'booking.backToDetail': 'Повернутися до деталей рейсу',
   'booking.continue': 'Перейти до оплати',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Податки та збори',
   'booking.summary.travelers': 'Мандрівники',
   'common.about': 'Про нас',
+  'common.goToDashboard': 'До панелі',
   'flightDetail.backToResults': 'Назад до результатів',
   'flightDetail.baseFare': 'Базовий тариф',
   'flightDetail.book': 'Продовжити бронювання',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 зупинка',
   'flightResultCard.select': 'Виберіть',
   'flightResultCard.totalLabel': 'Загальний час',
+  'flightSearchLayout.primaryNavLabel': 'Основна навігація',
   'forgotPassword.subheading':
     'Введіть електронну адресу вашого облікового запису Skylark, і ми надішлемо вам безпечне посилання для скидання налаштувань.',
   'forgotPassword.successBody':
     'Перевірити {{email}} для посилання для встановлення нового пароля. Посилання дійсне 30 хвилин.',
   'forgotPassword.successHeading': 'Посилання для скидання надіслано',
   'landing.cta.explore': 'Спробуйте пошук',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Знайдіть наступний чудовий тариф раніше за всіх.',
   'landing.cta.signup': 'Почніть відстежувати тарифи',
   'landing.features.eyebrow': 'Чому жайворонок',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Додати сповіщення',
   'priceAlerts.deleteConfirm': 'Видалити це сповіщення?',
   'priceAlerts.empty': 'Поки що немає відстежених маршрутів.',
+  'priceAlerts.emptyCta': 'Пошук маршруту для відстеження',
   'priceAlerts.errorMessage': 'Не вдалося завантажити сповіщення.',
   'priceAlerts.eyebrow': 'Список спостереження за жайворонком',
   'priceAlerts.form.createError': 'Не вдалося створити сповіщення.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.loading': 'Пошук актуальних тарифів…',
   'results.multiEyebrow': 'Маршрут по кількох містах',
   'results.multiLegHeading': 'Нога {{n}} · {{від}} → {{до}} · {{дата}}',
+  'results.sortAriaLabel': 'Сортувати результати за',
   'results.sortLabel': 'Сортувати',
   'settings.language.title': 'Мова',
   'settings.profile.currency': 'Валюта',

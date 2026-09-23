@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Par {{app}}',
+  'auth.legalConsent': 'Turpinot, jūs piekrītat mūsu',
   'bookings.empty.body':
     'Pievienojiet lidojumu, viesnīcu vai aktivitāti, lai sāktu iesūtnes atvēršanu.',
   'bookings.empty.heading': 'Vēl nav rezervāciju.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Apstiprināts',
   'bookings.summary.pending': 'Gaida apstiprinājumu',
   'bookings.summary.total': 'Kopā piešķirts',
+  'bookings.type.car': 'Nomas automašīna',
+  'bookings.type.flight': 'Lidojums',
+  'bookings.type.hotel': 'Viesnīca',
   'bookings.type.other': 'Cits',
   'budgetSpendCard.pct': '{{pct}} %',
   'calendar.eyebrow': 'Nākamais gads',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Novērojiet konfliktus, ieplānojiet atveseļošanās dienas starp braucieniem un pārbaudiet, kad līdzstrādnieki ceļo kopā ar jums.',
   'common.and': 'un',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.budgetHeading': 'Budžeta pulss',
   'dashboard.empty.heading': 'Vēl nav ceļojumu — jūsu atlants ir tukšs.',
   'dashboard.eyebrow': 'Misijas vadība',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Ceļojumi kustībā',
   'dashboard.viewAllExpenses': 'Skatīt visus izdevumus',
   'dashboard.viewAllTrips': 'Skatīt katru braucienu',
+  'dayTimelineRow.category.accommodation': 'Palieciet',
   'dayTimelineRow.category.transport': 'Transports',
   'destinationOrbCard.exploreCta': 'Pievienot ceļojumam',
   'destinationOrbCard.tripCount': '{{count}} braucieni',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Vēl nav e-pasta adreses? Pārbaudiet surogātpasta mapi vai mēģiniet vēlreiz, izmantojot citu adresi.',
   'forgotPassword.successSubheading':
     'Mēs nosūtījām atkopšanas saiti uz {{email}} Saite ir derīga 30 minūtes.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Izveidot bezmaksas kontu',
+  'landing.cta.subheading':
+    'Līdz pieciem braucieniem, pieciem līdzstrādniekiem un piecām pieturām bezmaksas plānā — ar iekļautu reāllaika sinhronizāciju un Pro iespēju paplašināt plānus, kad tie pieaug.',
   'landing.destinations.eyebrow': 'Kurp doties tālāk',
   'landing.destinations.heading': 'Redaktora atlasīti galamērķi',
   'landing.features.eyebrow': 'Kā darbojas ceļa punkts',
   'landing.features.heading': 'Radīts ceļotājiem, nevis izklājlapām.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Sāciet bezmaksas ceļojumu',
   'landing.hero.ctaSecondary': 'Skatīt parauga braucienu',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Irisa Larsena',
   'signup.subheading':
     'Izveidojiet kontu, lai kopīgotu ceļojumus ar līdz pat 5 sadarbības partneriem, sinhronizētu rezervācijas un apkopotu visus apstiprinājumus vienuviet.',
+  'signup.termsPrefix': 'Izveidojot kontu, jūs piekrītat mūsu',
   'tripCountdownHeroCard.budget': '{{used}} no {{total}} ({{pct}}% no budžeta)',
   'tripCountdownHeroCard.collaborators': '{{count}} ceļotāji',
   'tripCountdownHeroCard.countdownLabel': 'Atpakaļskaitīšana',
@@ -204,5 +217,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Vēl nav braucienu.',
   'trips.pastHeading': 'Iepriekšējie piedzīvojumi',
   'trips.subheading': '{{count}} maršruti — pagātne, tagadne un kādreiz.',
+  'waypointLayout.mobileNavClose': 'Aizvērt navigācijas izvēlni',
   'waypointLayout.primaryNavLabel': 'Galvenā navigācija',
 }

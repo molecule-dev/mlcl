@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'Náš príbeh',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Miera otvorenia',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Začína sa platba…',
   'billing.subheading': 'Vyberte si plán, ktorý zodpovedá spôsobu odosielania.',
   'billing.unavailable': 'Kontaktujte predaj',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.retry': 'Skúsiť znova',
   'compose.adjustingTone': 'Prepisovanie vo vybranom tóne…',
   'compose.aiPromptPlaceholder':
     'napr. „Zdvorilá následná otázka po dvoch týždňoch bez odpovede, stručná.“',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Potrebujete niečo poslať? Signet má koncept pripravený v priebehu niekoľkých sekúnd.',
   'dashboard.composeCtaLabel': 'Rýchle písanie',
   'dashboard.heading': 'Váš týždeň, napísaný',
+  'dashboard.loadFailed': 'Nepodarilo sa načítať váš ovládací panel.',
   'dashboard.manageLibrary': 'Spravovať knižnicu →',
   'dashboard.recentEmpty': 'Zatiaľ žiadne odoslané správy – vaše odoslané e-maily sa zobrazia tu.',
   'dashboard.recentHeading': 'Nedávne odoslania',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Predvolený tón',
   'settings.toneSubheading': 'Signet používa tento tón, pokiaľ ho v koncepte neprepíšete.',
   'signetLayout.primaryNavLabel': 'Hlavná navigácia',
+  'signetLayout.toggleMenu': 'Prepnúť ponuku',
   'signup.emailLabel': 'E-mailová adresa',
   'signup.showPassword': 'Zobraziť heslo',
   'signup.tagline': 'Odošlite svoj prvý e-mail navrhnutý umelou inteligenciou za menej ako minútu.',

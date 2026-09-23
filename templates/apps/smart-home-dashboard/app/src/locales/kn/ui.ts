@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'activity.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಚಟುವಟಿಕೆ ಇಲ್ಲ — ಸಾಧನವನ್ನು ತಿರುಗಿಸಿ ಅಥವಾ ದೃಶ್ಯವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ.',
   'activity.eyebrow': 'ಟೈಮ್‌ಲೈನ್',
   'activity.loadError': 'ಚಟುವಟಿಕೆ ಫೀಡ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'activity.subheading': 'ಪ್ರತಿಯೊಂದು ಸಾಧನ, ಯಾಂತ್ರೀಕೃತಗೊಂಡ ಮತ್ತು ಭದ್ರತಾ ಘಟನೆಗಳು ಕಾಲಾನುಕ್ರಮದಲ್ಲಿ.',
+  'addDevice.error.failed': 'ಸಾಧನವನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'addDevice.error.nameRequired': 'ಮುಂದುವರಿಯಲು ಈ ಸಾಧನಕ್ಕೆ ಒಂದು ಹೆಸರನ್ನು ನೀಡಿ.',
   'addDevice.field.firmware': 'ಫರ್ಮ್‌ವೇರ್ ಆವೃತ್ತಿ',
   'addDevice.field.manufacturer': 'ತಯಾರಕ',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'ಪರೀಕ್ಷಿಸಲಾಗುತ್ತಿದೆ...',
   'automationEditor.testNew': 'ಅದನ್ನು ಪರೀಕ್ಷಿಸಲು ಮೊದಲು ಯಾಂತ್ರೀಕರಣವನ್ನು ಉಳಿಸಿ.',
   'automationRow.lastRun': 'ಕೊನೆಯದು {{date}} · {{count}} ಓಡುತ್ತದೆ',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ಓಡು {{name}} ಈಗ',
   'automations.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಯಾಂತ್ರೀಕರಣಗಳಿಲ್ಲ — ನಿಮ್ಮ ಮೊದಲ ದಿನಚರಿಯನ್ನು ರಚಿಸಿ.',
   'automations.eyebrow': 'ದಿನಚರಿಗಳು',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ಆಟೋಮೇಷನ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'automations.newAutomation': '+ ಹೊಸದು',
   'automations.subheading': 'ಇದು ಸಂಭವಿಸಿದಾಗ, ಅದನ್ನು ಮಾಡಿ - YAML ಇಲ್ಲದೆ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ಸಾಧನವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'ಕೆಲಸ ಮಾಡುತ್ತಿದೆ...',
   'deviceDetail.unnamed': 'ಸಾಧನ',
   'deviceStatusRow.on': 'ಆನ್',
+  'deviceStatusRow.turnOff': 'ಆಫ್ ಮಾಡಿ',
+  'deviceStatusRow.turnOn': 'ಆನ್ ಮಾಡಿ',
   'deviceStatusRow.watts': '{{watts}} ವ',
   'energy.eyebrow': 'ಶಕ್ತಿ',
   'energy.heading': 'ಶಕ್ತಿ',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ಯೋಜನೆಗಳನ್ನು ನೋಡಿ',
   'settings.security.heading': 'ಭದ್ರತೆ',
   'settings.subheading': 'ಯೋಜನೆ, ಹಬ್‌ಗಳು ಮತ್ತು ಖಾತೆ ಆದ್ಯತೆಗಳು.',
+  'smartHomeDashboardLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
 }

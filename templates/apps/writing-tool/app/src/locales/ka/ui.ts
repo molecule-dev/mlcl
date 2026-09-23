@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.title': 'საწერი ოთახი, რომლის ჯიბეში შენახვაც შეგიძლიათ',
   'billing.cancelConfirm': 'გსურთ აქტიური გამოწერის გაუქმება?',
   'billing.cancelFailed': 'გაუქმება ვერ მოხერხდა.',
   'billing.checkingOut': 'გადახდის გახსნა…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ანგარიშსწორების ჩატვირთვა ვერ მოხერხდა.',
   'billing.loading': 'ანგარიშსწორება იტვირთება…',
   'billing.upgradeCta': 'განახლება {{name}}',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'editor.autosaveOn': 'ავტომატური შენახვა ჩართულია',
   'editor.backToLibrary': 'ბიბლიოთეკაში დაბრუნება',
   'editor.charCount': '{{count}} პერსონაჟები',
   'editor.confirmTrash': 'გადავიტანო ეს დოკუმენტი ნაგავში?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'მოხსნილია',
   'editor.unpublishCta': 'მონახაზში გადატანა',
   'editor.unpublished': 'დაუბრუნდა პროექტს',
+  'focus.autosaveOn': 'ავტომატური შენახვა ჩართულია',
   'focus.backToLibrary': 'ბიბლიოთეკაში დაბრუნება',
   'focus.bodyPlaceholder': 'რიგი ერთდროულად. სხვა არავინაა აქ.',
   'focus.exit': 'ფოკუსირების რეჟიმიდან გასვლა',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'შექმენით ერთი',
   'login.subline':
     'თქვენი ხელნაწერები, ყოველდღიური გვერდები და კურსორის ბოლო პოზიცია ზუსტად იქ არის, სადაც დატოვეთ.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'pricing.exports': 'ექსპორტი',
   'pricing.folders': 'საქაღალდეები',
   'pricing.heading': 'დოკუმენტები',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'შეიყვანეთ კოდი, რომელიც ახლახან გამოგიგზავნეთ ელფოსტით და აირჩიეთ რაიმე დასამახსოვრებელი. შენახვის შემდეგ შეგიყვანთ სისტემაში.',
   'reset.tokenHint': 'ჩასმულია თქვენი შემოსულებიდან.',
+  'settings.appearance.heading': 'ღია თუ მუქი',
   'settings.editor.${row.id}.description': 'ენა',
   'settings.editor.description':
     'საბეჭდი მანქანის გადახვევა, აბზაცის გაქრობა და უმოქმედო ფოკუსირება — ნაგულისხმევი პარამეტრები მორგებულია ხანგრძლივი სესიებისთვის.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'თავი მესამე - მშვიდი საათი მზის ამოსვლამდე',
   'versalDocumentCard.pinned': 'მიმაგრებულია',
   'versalLayout.nav.stats': 'სტატისტიკა',
+  'versalLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'versalManuscriptHero.cta': 'განაგრძეთ წერა',
   'versalManuscriptHero.goalLabel': 'დღევანდელი სიტყვის მიზანი',
   'versalManuscriptHero.inProgress': 'გზაზე',

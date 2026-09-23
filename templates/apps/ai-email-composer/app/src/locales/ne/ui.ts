@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'हाम्रो कथा',
   'aiSuggestionPanel.title': 'सिग्नेट कोपाइलट',
   'analytics.col.open': 'खुला दर',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'चेकआउट सुरु गर्दै...',
   'billing.subheading': 'तपाईंले पठाउने तरिकासँग मिल्ने योजना छान्नुहोस्।',
   'billing.unavailable': 'बिक्री सम्पर्क गर्नुहोस्',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'compose.adjustingTone': 'चयन गरिएको स्वरमा पुनर्लेखन गर्दै...',
   'compose.aiPromptPlaceholder':
     'जस्तै "दुई हप्तासम्म कुनै जवाफ नआएपछि विनम्र अनुगमन, छोटो समयको लागि।"',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'केहि पठाउनु पर्यो? सिग्नेटले केही सेकेन्डमै ड्राफ्ट तयार गर्न सक्छ।',
   'dashboard.composeCtaLabel': 'द्रुत रचना गर्नुहोस्',
   'dashboard.heading': 'तपाईंको हप्ता, रचना गरिएको',
+  'dashboard.loadFailed': 'तपाईंको ड्यासबोर्ड लोड गर्न सकिएन।',
   'dashboard.manageLibrary': 'पुस्तकालय व्यवस्थापन गर्नुहोस् →',
   'dashboard.recentEmpty':
     'अहिलेसम्म कुनै पनि इमेल पठाइएको छैन — तपाईंले पठाएका इमेलहरू यहाँ देखा पर्नेछन्।',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'पूर्वनिर्धारित टोन',
   'settings.toneSubheading': 'तपाईंले ड्राफ्टलाई ओभरराइड नगरेसम्म सिग्नेटले यो टोन प्रयोग गर्छ।',
   'signetLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
+  'signetLayout.toggleMenu': 'मेनु टगल गर्नुहोस्',
   'signup.emailLabel': 'इमेल ठेगाना',
   'signup.showPassword': 'पासवर्ड देखाउनुहोस्',
   'signup.tagline': 'एक मिनेट भित्र आफ्नो पहिलो एआई-ड्राफ्ट गरिएको इमेल पठाउनुहोस्।',

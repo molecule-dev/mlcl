@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Mód tástála: taifeadtar orduithe agus socraítear iarmhéideanna, ach ní ghearrtar aon chárta fíor.',
   'checkout.placeOrderCta': 'Cuir ordú isteach',
+  'checkout.placeOrderError': "Níorbh fhéidir d'ordú a chur.",
   'checkout.placingOrder': 'Ag cur ordú…',
   'checkout.review.shipTo': 'Ag seoladh chuig',
   'checkout.review.subtotal': 'Fo-iomlán díoltóra',
@@ -57,6 +58,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Bí i do dhíoltóir',
   'landing.footer.copyright': '© {{year}} {{name}} — gach déantóir, margadh amháin.',
   'landing.footer.help': 'Ionad cabhrach',
+  'landing.nav.keepShopping': 'Lean ort ag siopadóireacht',
   'landing.nav.sell': 'Díol ar Vendry',
   'landing.nav.shop': 'Siopa',
   'landing.nav.signUp': 'Bígí Linn',
@@ -67,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Cad is breá le siopadóirí',
   'login.accountTypeAria': 'Cineál cuntais',
   'login.heading': 'Fáilte ar ais go Vendry',
+  'login.legalPrefix': 'Trí shíniú isteach, aontaíonn tú lenár',
   'login.subheading':
     'Sínigh isteach le leanúint ar aghaidh ag siopadóireacht nó téigh ar ais chuig do shiopa.',
   'login.submitShopper': 'Sínigh isteach chun siopadóireacht a dhéanamh',
@@ -92,10 +95,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Curtha {{date}} · {{vendorCount}} díoltóir(í) · comhlíonadh il-dhíoltóirí',
   'orders.empty': 'Níl aon orduithe a mheaitseálann an scagaire seo go fóill.',
+  'orders.emptyTitle': 'Níl aon orduithe anseo fós',
   'orders.eyebrow': 'Do cheannacháin',
   'orders.subtitle':
     'Féach cé a sheol cad, lean an rianú de réir díoltóra, agus ná caill paicéad arís choíche.',
   'orders.title': 'Orduithe, grúpáilte de réir díoltóra',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'productDetail.addToCart': 'Cuir leis an gciseán',
   'productDetail.addToCartError': 'Níorbh fhéidir a chur leis an gcairt.',
   'productDetail.addToCartSuccess': '" {{name}} " curtha le do chiseán.',
@@ -136,12 +141,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Bainistigh an chaoi a ndéanann tú siopadóireacht, conas a shroicheann díoltóirí tú, agus cá dtéann an t-airgead.',
   'signup.heading': 'Bígí páirteach sa mhargadh',
+  'signup.legalPrefix': 'Trí dhul isteach, aontaíonn tú lenár',
   'signup.mismatch': 'Ní hionann na pasfhocail fós.',
   'signup.subheading':
     'Brabhsáil breis is 4,000 déantóir neamhspleách, nó oscail siopa de do chuid féin.',
   'status.delivered': 'Seachadta',
   'status.refunded': 'Aisíocadh',
+  'userMenu.marketplaceSettings': 'Socruithe an Mhargaidh',
   'vendor.memberSince': 'Ball ó shin {{date}}',
+  'vendorDashboard.defaultShop': 'do shiopa',
   'vendorDashboard.eyebrow': 'Riarthóir díoltóra · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Glanadh tar éis coimisiún Vendry. An chéad íocaíocht eile Dé hAoine.',
@@ -161,12 +169,16 @@ export const ui: UiTranslations = {
     'Cá ndéanann tú, cad a dhéanann tú, cén fáth go bhfuil sé tábhachtach.',
   'vendorOnboarding.currencyLabel': 'Socraigh in airgeadra',
   'vendorOnboarding.errors.shopName': 'Tá ainm an tsiopa ag teastáil.',
+  'vendorOnboarding.errors.submit': 'Níorbh fhéidir d’iarratas a chur isteach.',
   'vendorOnboarding.exit': 'Sábháil & lean ar aghaidh níos déanaí',
   'vendorOnboarding.eyebrow': 'Cuir isteach ar dhíol ar Vendry',
+  'vendorOnboarding.field.shopName': 'Ainm an tsiopa',
   'vendorOnboarding.heroBody':
     'Coimisiún comhréidh 8%, íocaíochtaí gach Aoine, do shiopa, do scéal. Inis dúinn beagán faoi do shiopa agus beimid i dteagmháil leat laistigh de 48 uair an chloig.',
   'vendorOnboarding.review.contact': 'Teagmháil',
   'vendorOnboarding.review.currency': 'Airgeadra',
+  'vendorOnboarding.review.tagline': 'Slogan',
+  'vendorOnboarding.review.website': 'Suíomh gréasáin',
   'vendorOnboarding.reviewBody':
     'Breathnaíonn sé go maith. Déanfaimid athbhreithniú ar do shiopa laistigh de 48 uair an chloig agus seolfaimid do chéad íocaíocht chugat an Aoine tar éis do chéad díola.',
   'vendorOnboarding.samplesLabel': 'Obair shamplach — Instagram, punann oibre, grianghraif',
@@ -175,11 +187,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Iarratas curtha isteach! Déanfaimid athbhreithniú ar do shiopa agus seolfaimid ríomhphost chugat laistigh de 48 uair an chloig.',
   'vendorOnboarding.taxIdLabel': 'Uimhir aitheantais cánach',
+  'vendorOrders.emptyTitle': 'Gan aon orduithe le comhlíonadh fós',
   'vendorOrders.eyebrow': 'Riarthóir díoltóra',
+  'vendorOrders.kpi.awaiting': 'Ag fanacht le comhlíonadh',
   'vendorOrders.kpi.inTransit': 'Ar an mbealach',
   'vendorOrders.subtitle':
     'Priontáil lipéid, marcáil comhlíonta, agus freagair ceisteanna — gan Vendry a fhágáil.',
   'vendorOrders.title': 'Orduithe isteach',
+  'vendorPayouts.emptyTitle': 'Gan aon íocaíochtaí fós',
   'vendorPayouts.eyebrow': 'Maoiniú díoltóirí',
   'vendorPayouts.heroCaption': 'Socraíonn sé le Banco BPI {{account}} · 1–2 lá gnó',
   'vendorPayouts.history': 'Stair íocaíochta',
@@ -197,7 +212,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Cá ndéantar é? Cén scéal atá leis?',
   'vendorProductForm.error.name': 'Tá ainm an táirge riachtanach',
   'vendorProductForm.error.price': 'Cuir isteach praghas dearfach',
+  'vendorProductForm.error.publish': 'Theip ar fhoilsiú',
   'vendorProductForm.eyebrow': 'Liostú nua',
+  'vendorProductForm.eyebrowEdit': 'Cuir an liostú in eagar',
   'vendorProductForm.images.body':
     'Tarraing agus scaoil suas le 8 íomhá. Is é an chéad ghrianghraf clúdach an tsiopa.',
   'vendorProductForm.images.cta': 'Tarraing grianghraif anseo nó brabhsáil',
@@ -209,6 +226,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Sábháil athruithe',
   'vendorProductForm.title': 'Inis do chustaiméirí faoi do phíosa',
   'vendorProductForm.variants.colInventory': 'Fardal',
+  'vendorProductForm.variants.colVariant': 'Leagan',
   'vendorProducts.eyebrow': 'Riarthóir díoltóra',
   'vendorProducts.kpi.draft': 'Dréachtaí',
   'vendorProducts.kpi.lowStock': 'Stoc íseal',

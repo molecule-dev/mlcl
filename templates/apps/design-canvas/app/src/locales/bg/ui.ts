@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'authShell.brandHeading':
     'Перфектни до пиксел платна за дизайнерски екипи, които доставят заедно.',
   'canvas.redirecting': 'Отваряне на редактора…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'и',
+  'common.goToDashboard': 'Към таблото',
+  'common.retry': 'Опитай отново',
   'dashboard.activityEmpty': 'Все още няма скорошна активност — поканете съотборник да започне.',
   'dashboard.activityTitle': 'Какво се промени днес',
   'dashboard.activityViewAll': 'Вижте всички известия',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Работно пространство · Студио Нортвинд',
   'dashboard.foldersLabel': 'Папки',
   'dashboard.gridTitle': '{{count}} проекти',
+  'dashboard.heroActiveTool': 'Инструмент за писалка',
   'dashboard.loadingTitle': 'Зареждане на проекти…',
   'dashboard.searchPlaceholder': 'Търсене на проекти',
   'dashboard.startFromTemplate': 'Започнете от шаблон',
   'dashboard.title': 'Вашите проекти',
   'dashboard.untitledProject': 'Проект без заглавие',
   'designCanvasLayout.newProject': 'Нов проект',
+  'designCanvasLayout.primaryNavLabel': 'Основна навигация',
   'editor.backToProjects': 'Обратно към проектите',
   'editor.deleteShape': 'Изтриване на форма',
   'editor.errorBody': 'Не успяхме да отворим този проект.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Проектирайте инструменти, които се движат със скоростта на вашите ръце',
   'library.empty': 'Все още няма токени в този раздел.',
   'library.eyebrow': 'Работно пространство · Система за ателиерен дизайн',
+  'library.loadFailed': 'Не можаха да се заредят дизайнерските маркери.',
   'library.systemMeta': 'Състояние на системата',
   'library.systemSummary': '{{токени}} жетони · {{компоненти}} компоненти · {{ефекти}} ефекти',
   'login.emailPlaceholder': 'mara@studio.com',

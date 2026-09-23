@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'અમારા વિશે',
   'actions.empty': 'કોઈ ક્રિયા વસ્તુઓ મેળ ખાતી નથી.',
   'actions.heading': 'ક્રિયા વસ્તુઓ',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'પાછલો મહિનો',
   'calendar.recent': 'તાજેતરના',
   'common.daysAgo': '{{count}} દિવસ પહેલા',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.hoursAgo': '{{count}} કલાક પહેલા',
   'common.no': '—',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ક્રિયા વસ્તુઓ',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'રીસેટ લિંક માટે તમારા ઇનબોક્સ તપાસો.',
   'forgot.subheading': 'તમારું ઇમેઇલ દાખલ કરો અને અમે રીસેટ લિંક મોકલીશું.',
   'integrations.disconnected': 'ડિસ્કનેક્ટેડ',
+  'integrations.loadError': 'એકીકરણ લોડ કરવામાં નિષ્ફળ થયાં.',
   'integrations.notConnectedTag': 'કનેક્ટેડ નથી',
   'integrations.subheading':
     'મુર્મર આપમેળે જોડાય તે માટે કેલેન્ડર અને વિડીયો પ્લેટફોર્મ કનેક્ટ કરો.',
+  'integrations.updateError': 'અપડેટ નિષ્ફળ.',
   'landing.ctaButton': 'શરૂઆત કરો — તે મફત છે',
   'landing.ctaHeading': 'નોંધ લેવાનું બંધ કરો. નિર્ણયો લેવાનું શરૂ કરો.',
   'landing.demo.aiLabel': 'AI સારાંશ, લાઇવ મુસદ્દો તૈયાર કરેલ',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ફોલો-અપ્સ',
   'meetingDetail.loadError': 'મીટિંગ લોડ કરવામાં નિષ્ફળ.',
   'meetingDetail.noActions': 'કોઈ ક્રિયા આઇટમ મળી નથી.',
+  'meetingDetail.none': 'કોઈ નહીં.',
   'meetingDetail.notFound': 'મીટિંગ મળી નથી.',
+  'meetingDetail.speakerFallback': 'વક્તા {{id}}',
   'meetingDetail.summaryHeading': 'AI સારાંશ',
   'meetingDetail.transcriptHeading': 'ટ્રાન્સક્રિપ્ટ',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'મીટિંગ્સ',
   'meetings.loadError': 'મીટિંગ લોડ કરવામાં નિષ્ફળ.',
   'meetings.subheading': 'દરેક રેકોર્ડ કરેલી, અપલોડ કરેલી અને સિંક કરેલી મીટિંગ.',
+  'murmurLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'murmurLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'nav.legal': 'કાનૂની',
   'notifications.loadError': 'સૂચનાઓ લોડ કરવામાં નિષ્ફળ થયાં.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'મુર્મુરમાં તમે કેવા દેખાશો.',
   'record.error.empty': 'કોઈ ઑડિઓ રેકોર્ડ કરવામાં આવ્યો ન હતો.',
   'record.error.permission': 'માઇક્રોફોન પરવાનગી નકારાઈ.',
+  'record.error.recorder': 'રેકોર્ડર ભૂલ',
   'record.error.unsupported':
     'તમારા બ્રાઉઝરમાં રેકોર્ડિંગને સપોર્ટ કરતું નથી. Chrome, Edge અથવા Safari અજમાવી જુઓ.',
   'record.error.upload': 'અપલોડ નિષ્ફળ ગયું. ફરી પ્રયાસ કરો.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'નવો પાસવર્ડ',
   'reset.subheading': 'એવો પાસવર્ડ પસંદ કરો જેનો તમે બીજે ક્યાંય ઉપયોગ ન કરો.',
   'search.empty': 'ટ્રાન્સક્રિપ્ટ્સ શોધવા માટે ટાઇપ કરો.',
+  'search.loadError': 'શોધ નિષ્ફળ ગઈ. ફરી પ્રયાસ કરો.',
   'search.noResults': '"" માટે કોઈ પરિણામો નથી {{q}} ”.',
   'settings.appearance.description': 'લાઇટ અને ડાર્ક મોડ વચ્ચે ટૉગલ કરો.',
   'settings.appearance.title': 'દેખાવ',
@@ -124,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'સેટિંગ્સ લોડ કરવામાં નિષ્ફળ.',
   'settings.loading': 'લોડ કરી રહ્યું છે...',
   'settings.push.heading': 'પુશ સૂચનાઓ',
+  'settings.push.subheading': 'ઉલ્લેખો, ક્રિયા વસ્તુઓ અને સારાંશ માટે બ્રાઉઝર ચેતવણીઓ મેળવો.',
   'settings.retention.audio': 'ઑડિઓ આટલા માટે રાખો',
   'settings.retention.heading': 'રીટેન્શન',
   'settings.retention.transcript': 'ટ્રાન્સક્રિપ્ટ્સ આ માટે રાખો',
@@ -140,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'એકાઉન્ટ બનાવી શકાયું નથી. કૃપા કરીને ફરી પ્રયાસ કરો.',
   'signup.subheading': 'મિનિટોમાં મીટિંગ નોંધો કેપ્ચર કરવાનું શરૂ કરો',
   'signup.terms': 'ખાતું બનાવીને તમે અમારી સેવાની શરતો અને ગોપનીયતા નીતિ સાથે સંમત થાઓ છો.',
+  'signup.termsPrefix': 'ખાતું બનાવીને તમે અમારી સાથે સંમત થાઓ છો',
   'team.inviteCta': 'સાથીદારને આમંત્રિત કરો',
   'team.invitedAs': 'આ તરીકે આમંત્રિત {{role}}',
   'team.inviteFailed': 'આમંત્રણ મોકલી શકાયું નથી.',

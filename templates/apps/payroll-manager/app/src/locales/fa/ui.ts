@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'auditLog.empty':
     'هنوز هیچ رویداد حسابرسی با فیلترهای شما مطابقت ندارد. اگر یک کارمند را ویرایش کنید یا یک پرداخت حقوق را پردازش کنید، آنها در اینجا نمایش داده می‌شوند.',
   'auditLog.eyebrow': 'انطباق',
+  'auditLog.loadError': 'نتوانست گزارش حسابرسی را بارگیری کند.',
   'auditLog.searchPlaceholder': 'جستجو بر اساس بازیگر، اقدام یا توضیحات',
   'auditLog.subheading':
     'هر تأیید، ویرایش و ثبت اظهارنامه مالیاتی - به همراه اطلاعات مربوط به بازیگر، مهر زمانی و فیلدهای تغییر یافته.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'پیکربندی نشده',
   'billing.plansHeading': 'طرح‌ها',
   'billing.subheading': 'طرح خود را مدیریت کنید و از طریق Stripe بین سطوح مختلف تغییر دهید.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'دوباره امتحان کنید',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'تصویر لحظه‌ای از انطباق',
   'dashboard.compliance.title': 'پاس شدن تمام چک‌ها',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'هیچ کسوری در پرونده ثبت نشده است.',
   'employeeDetail.notFound': 'کارمند پیدا نشد.',
   'employeeDetail.payFrequency': 'فرکانس پرداخت',
+  'employeeDetail.postTax': 'پس از کسر مالیات',
+  'employeeDetail.preTax': 'قبل از مالیات',
   'employeeDetail.salary': 'حقوق سالانه',
   'employeeDetail.ssn': 'شماره ملی',
   'employeeDetail.startedOn': 'شروع شده {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'فرکانس پرداخت',
   'employeeForm.salary': 'حقوق سالانه (دلار آمریکا)',
   'employeeForm.salaryInvalid': 'حقوق باید یک عدد غیر منفی باشد.',
+  'employeeForm.saveError': 'نتوانست کارمند را نجات دهد.',
   'employeeForm.semimonthly': 'نیمه ماهانه',
   'employeeForm.single': 'مجرد',
   'employeeForm.ssn': 'شماره ملی',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'کارمند',
   'employeesTable.col.salary': 'حقوق',
   'forgotPassword.subtitle': 'ایمیل کاری خود را وارد کنید تا لینک بازیابی را برایتان ارسال کنیم.',
+  'landing.copyright': '© {{year}} {{app}} . دقیق، قابل اعتماد، منسجم.',
   'landing.ctaBody':
     'رایگان به مدت 30 روز. بدون نیاز به کارت اعتباری. هر زمان که خواستید بدون از دست دادن اطلاعات حسابرسی خود، حساب خود را تغییر دهید.',
   'landing.ctaHeading': 'چرخه بعدی خود را روی Stipend اجرا کنید',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'نوشته‌ها',
   'payRunDetail.noActivity': 'هنوز هیچ ورودی حسابرسی برای این پرداخت حقوق و دستمزد وجود ندارد.',
   'payRunDetail.noStubs': 'هنوز فیش حقوقی صادر نشده است - تأیید و مراحل تولید آن انجام شود.',
+  'payRunDetail.notFound': 'این ردیف پرداخت پیدا نشد.',
   'payRunDetail.statDeductions': 'کسورات',
   'payRunDetail.statHeadcount': 'کارمندان',
   'payRunDetail.statTaxes': 'مالیات‌های کسر شده',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'نیمه ماهانه',
   'settings.signOutDevice': 'خروج از سیستم',
   'settings.subheading': 'مشخصات شرکت، برنامه پرداخت و ادغام‌ها.',
+  'settings.twoFactorCode': 'کد احراز هویت',
   'settings.twoFactorDisable': 'غیرفعال کردن',
+  'settings.twoFactorInvalidCode': 'کد نامعتبر',
+  'settings.twoFactorVerify': 'تأیید و فعال کردن',
   'settings.weekly': 'هفتگی',
   'taxCenter.bucket.federal': 'درآمد فدرال',
   'taxCenter.bucket.fica': 'تامین اجتماعی',

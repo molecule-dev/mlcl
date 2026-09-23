@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}}-ի մասին',
+  'auth.legalConsent': 'Շարունակելով՝ դուք համաձայնում եք մեր',
   'bookings.empty.body':
     'Ավելացրեք թռիչք, հյուրանոց կամ գործունեություն՝ էլ. փոստը գործարկելու համար։',
   'bookings.empty.heading': 'Դեռևս ամրագրումներ չկան։',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Հաստատված է',
   'bookings.summary.pending': 'Սպասում է հաստատման',
   'bookings.summary.total': 'Ընդհանուր պարտավորություններ',
+  'bookings.type.car': 'Վարձույթով մեքենա',
+  'bookings.type.flight': 'Թռիչք',
+  'bookings.type.hotel': 'Հյուրանոց',
   'bookings.type.other': 'Ayl',
   'budgetSpendCard.budgetTotal': '-ի {{total}} պլանավորված',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Գտեք կոնֆլիկտներ, պլանավորեք վերականգնման օրեր ուղևորությունների միջև և տեսեք, թե երբ են համագործակիցները ճանապարհորդում ձեզ հետ։',
   'common.and': 'և',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.budgetHeading': 'Բյուջեի զարկերակ',
   'dashboard.empty.heading': 'Դեռևս ուղևորություններ չկան՝ ձեր ատլասը դատարկ է։',
   'dashboard.eyebrow': 'Առաքելության վերահսկողություն',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Ճանապարհորդություններ շարժման մեջ',
   'dashboard.viewAllExpenses': 'Դիտեք յուրաքանչյուր ծախս',
   'dashboard.viewAllTrips': 'Դիտեք յուրաքանչյուր ուղևորություն',
+  'dayTimelineRow.category.accommodation': 'Մնա',
   'dayTimelineRow.category.transport': 'Տրանսպորտ',
   'destinationOrbCard.exploreCta': 'Ավելացնել ուղևորությանը',
   'destinationOrbCard.tripCount': '{{count}} ճանապարհորդություններ',
@@ -82,11 +90,15 @@ export const ui: UiTranslations = {
     'Էլ․ հասցե դեռ չունե՞ք։ Ստուգեք ձեր սպամի պանակը կամ փորձեք կրկին՝ օգտագործելով այլ հասցե։',
   'forgotPassword.successSubheading':
     'Մենք վերականգնման հղում ուղարկեցինք հետևյալ հասցեին՝ {{email}} Հղումը վավեր է 30 րոպե։',
+  'landing.cta.heading': '{{tagline}}։',
   'landing.cta.signup': 'Ստեղծեք անվճար հաշիվ',
+  'landing.cta.subheading':
+    'Մինչև հինգ ուղևորություն, հինգ համագործակցող և հինգ կանգառ անվճար պլանում՝ իրական ժամանակի համաժամեցմամբ, և Pro-ի կողմից սահմանափակումների բարձրացմամբ, երբ ձեր պլանները մեծանան։',
   'landing.destinations.eyebrow': 'Ուր գնալ հաջորդը',
   'landing.destinations.heading': 'Խմբագրի կողմից ընտրված ուղղություններ',
   'landing.features.eyebrow': 'Ինչպես է աշխատում Waypoint-ը',
   'landing.features.heading': 'Ստեղծված է ճանապարհորդների համար, այլ ոչ թե աղյուսակների։',
+  'landing.footer.tagline': '{{tagline}}։',
   'landing.hero.ctaPrimary': 'Սկսեք անվճար ուղևորություն',
   'landing.hero.ctaSecondary': 'Դիտեք նմուշային ճամփորդությունը',
   'landing.hero.subtitle':
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Իրիս Լարսեն',
   'signup.subheading':
     'Ստեղծեք հաշիվ՝ մինչև 5 համագործակիցների հետ ուղևորությունները կիսելու, ամրագրումները համաժամեցնելու և բոլոր հաստատումները մեկ տեղում հավաքելու համար։',
+  'signup.termsPrefix': 'Հաշիվ ստեղծելով՝ դուք համաձայնում եք մեր',
   'tripCountdownHeroCard.budget': '{{used}} -ի {{total}} ( {{pct}} բյուջեի %-ը)',
   'tripCountdownHeroCard.collaborators': '{{count}} ճանապարհորդներ',
   'tripCountdownHeroCard.countdownLabel': 'Հետհաշվարկ',
@@ -203,5 +216,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Դեռևս ուղևորություններ չկան։',
   'trips.pastHeading': 'Անցյալի արկածները',
   'trips.subheading': '{{count}} երթուղիներ՝ անցյալ, ներկա և մի օր։',
+  'waypointLayout.mobileNavClose': 'Փակել նավիգացիոն ցանկը',
   'waypointLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'authShell.brandHeading': 'Multiplayer-canvassen voor ontwerpteams die hardop nadenken.',
   'billing.canceled': 'Abonnement opgezegd.',
   'billing.cancelPlan': 'Abonnement opzeggen',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Beginnen vanuit sjabloon',
   'boards.title': 'Uw borden',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Voer het e-mailadres in dat aan uw workspace is gekoppeld, en wij sturen u een reset-link.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Workshop · Merkstem',
   'landing.featuresEyebrow': 'Wat Slate zo passend maakt',
   'landing.featuresTitle': 'Snelle feedback. Prachtige canvassen. Nul frictie.',
+  'landing.hero.body':
+    '{{appName}} is een multiplayer whiteboard voor ontwerpteams, workshopleiders en docenten die live brainstormsessies organiseren en ideeën op één plek willen samenbrengen.',
   'landing.hero.primaryCta': 'Start een bord gratis',
   'landing.hero.socialProof': 'Vertrouwd door {{count}} ontwerpteams wereldwijd',
   'landing.hero.title': 'Een canvas zo snel als uw gedachten',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Maak een gratis workspace aan',
   'login.subheading':
     'Ga verder waar de workshop ophield — borden, plaknotities en cursors synchroniseren allemaal in realtime.',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.new': 'Nieuw',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'notifications.editTitle': 'Bewerkingen aan "{{board}}"',
   'notifications.empty.body':
     'Uitnodigingen, opgeslagen schermafbeeldingen en recente bewerkingen van het prikbord verschijnen hier zodra ze plaatsvinden.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versiegeschiedenis',
   'versionHistory.untitledSnapshot': 'Naamloze momentopname',
   'whiteboardLayout.newBoard': 'Nieuw bord',
+  'whiteboardLayout.primaryNav': 'Hoofdnavigatie',
   'workspace.boardLabel': 'Bord',
   'workspace.eyebrow': '{{name}} · workspace',
   'workspace.invite': 'Medewerkers uitnodigen',

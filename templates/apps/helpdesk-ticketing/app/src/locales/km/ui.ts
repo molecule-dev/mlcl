@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ទាក់ទងមកយើងខ្ញុំ',
   'about.eyebrow': 'អំពី',
+  'about.title': 'អំពី {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'រូបថតអាជីពរបស់ភ្នាក់ងារជំនួយស្ត្រីម្នាក់ដែលមានស្នាមញញឹមរួសរាយរាក់ទាក់នៅក្នុងការិយាល័យទំនើបមួយ',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ទាក់ទង​ផ្នែក​ជំនួយ',
   'forgotPassword.error': 'មិនអាចផ្ញើអ៊ីមែលកំណត់ឡើងវិញបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'forgotPassword.rememberPassword': 'ចាំពាក្យសម្ងាត់របស់អ្នកទេ?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'ចូល — ការគាំទ្រ Zenith',
   'login.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'login.welcomeSubheading': 'ចូលទៅក្នុងផ្ទាំងគ្រប់គ្រងជំនួយរបស់អ្នក',
+  'mobileNav.closeMenu': 'បិទការរុករក',
+  'mobileNav.menu': 'ការរុករក',
+  'mobileNav.openMenu': 'បើកការរុករក',
   'nav.legal': 'ផ្នែកច្បាប់',
   'nav.newTicket': 'សំបុត្រថ្មី',
   'notifications.loadError': 'មិនអាចផ្ទុកការជូនដំណឹងបានទេ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'ការស្វែងរកពាក្យបញ្ជា',
   'operatorDock.newReport': 'របាយការណ៍ថ្មី',
   'operatorDock.systemOnline': 'ប្រព័ន្ធអនឡាញ',
+  'planUpdated.subtitle': 'សូមអរគុណ',
   'planUpdated.title': 'បានធ្វើបច្ចុប្បន្នភាពផែនការ',
   'pricing.agents': 'ភ្នាក់ងារ',
   'pricing.automation': 'ច្បាប់ស្វ័យប្រវត្តិកម្ម',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{ឈ្មោះ}}',
   'ticketCustomerReply.avatarAlt': '{{ឈ្មោះ}} រូប​តំណាង​របស់',
   'ticketDetail.errorTitle': 'មានអ្វីមួយខុសប្រក្រតី',
+  'ticketDetail.loadError': 'មិនអាចផ្ទុកសំបុត្របានទេ។',
+  'ticketDetail.notFound': 'រកមិនឃើញសំបុត្រ',
+  'ticketDetail.replyError': 'មិនអាចផ្ញើការឆ្លើយតបបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'ticketDetail.retry': 'ព្យាយាមម្តងទៀត',
   'ticketDetail.statusUpdateError': 'មិនអាចធ្វើបច្ចុប្បន្នភាពស្ថានភាពបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'ticketDetailsCard.assigneeLabel': 'អ្នកទទួលការចាត់តាំង',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{ពេលវេលា}} ឆ្វេង',
   'ticketRow.title': 'ការភ្ជាប់មូលដ្ឋានទិន្នន័យបរាជ័យនៅពេលផលិត {{ណូដ}}',
   'tickets.pageTitle': 'សំបុត្រ — ការគាំទ្រ Zenith',
+  'ticketsFab.newTicket': 'សំបុត្រថ្មី',
   'ticketsFilterBar.assigneeLabel': 'អ្នកទទួលបន្ទុក៖',
   'ticketsFilterBar.clearFilters': 'សម្អាតតម្រង',
   'ticketsFilterBar.dateRangeDemoHint': 'ការច្រោះតាមជួរកាលបរិច្ឆេទមិនបានបើកក្នុងការបង្ហាញនេះទេ។',

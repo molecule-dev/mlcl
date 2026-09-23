@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.pageTitle': '{{app}}(r)i buruz',
   'authShell.statusLabel': 'korrikalariak sarean',
   'collections.createError': 'Ezin izan da bilduma sortu.',
   'collections.defaultName': 'Izenik gabeko bilduma {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Bilduma berria',
   'collections.subheading':
     'Taldekatu eskaerak, partekatu zure taldearekin eta exekutatu multzo gisa.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'environmentCard.inactive': 'Inaktibo',
   'environmentCard.more': 'gehiago',
   'environmentCard.variables': 'Aldagaiak',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Deskargatu doan',
   'landing.heroSubtitle':
     'Terminaletan bizi diren ingeniarientzat eraikitako API probak egiteko lan-mahaia oso azkarra.',
+  'landing.heroTitleAccent': 'Sua',
+  'landing.heroTitleLine2': 'konfiantza sortu.',
+  'landing.heroTitleRest': 'eskaerak,',
   'landing.kicker': '$ pylon bidali --watch',
   'landing.pricingEyebrow': '// $ prezioa --plain',
   'landing.pricingHeading': 'Prezio sinple eta aurreikusgarriak',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Berria hemen?',
   'login.showPassword': 'Erakutsi pasahitza',
   'login.subtitle': 'Jarraitu zure Pylon lan-eremuarekin.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'mocks.createError': 'Ezin izan da simulazioa sortu.',
   'mocks.defaultName': 'Izenik gabeko simulazioa {{n}}',
   'mocks.deleteError': 'Ezin izan da imitazioa ezabatu.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Lan-eremura itzuli',
   'notFound.eyebrow': '$ pylon ebazpena --strict',
   'notFound.title': 'Ibilbidea ez da aurkitu',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'privacy.collect.account':
     'Kontua: zure helbide elektronikoa, pasahitza hash bidez, bistaratzeko izena eta azken saioa hastearen denbora-zigilua.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Kontu honek une honetan dituen datuen irakurketa soilik ikuspegia.',
   'settings.unset': 'ezarri gabe',
   'signup.identityHint': 'adibidez, Alex',
+  'signup.statusLabel': 'doako maila · kreditu txartelik gabe',
   'signup.subtitle': 'Hasi eskaerak minutu gutxitan bidaltzen.',
   'terms.account.body':
     'Zure pasahitza babesteaz arduratzen zara. Kontu bera hainbat pertsonarekin partekatzea ez dago baimenduta Doako edo Pro planetan — erosi Team harpidetza bat lan-eremu partekatuetarako.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Ez erabili Pylon zure jabetzakoak ez diren edo probatzeko baimen esplizitua ez duzun zerbitzuetan eskaerak egiteko. Ez erabili Pylon abiadura-mugak saihesteko edo iruzurra egiteko.',
   'terms.warranty.body':
     'Pylon "dagoen bezala" eskaintzen da, inolako bermerik gabe. % 99,9ko funtzionamendu-denbora izatea dugu helburu, baina ez dugu bermatzen Doako edo Pro planetan.',
+  'testRunner.assertionsCount': '{{count}} baieztapen',
   'testRunner.createError': 'Ezin izan da proba sortu.',
   'testRunner.cron':
     'Baieztapenak proba honen lotutako eskaeraren azken exekuzioaren arabera ebaluatzen dira.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite emaitzak, baieztapen desberdintasunak eta azken 50 exekuzioak.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Honela hasita saioa',
+  'workspace.auth.keyName': 'Goiburuaren izena',
+  'workspace.auth.keyValue': 'Gako-balioa',
+  'workspace.auth.password': 'Pasahitza',
+  'workspace.auth.username': 'Erabiltzaile-izena',
+  'workspace.authOption.apikey': 'API gakoa',
+  'workspace.authOption.basic': 'Oinarrizko autentifikazioa',
+  'workspace.authOption.bearer': 'Eramailearen tokena',
+  'workspace.authOption.none': 'Bat ere ez',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Mota',
   'workspace.authTypeLabel': 'Autentifikazio mota',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Bat ere ez',
+  'workspace.body.text': 'Testu gordina',
+  'workspace.body.type': 'Mota',
   'workspace.environment': 'Ingurunerik ez',
   'workspace.envVar': 'ingurune aldagaia',
   'workspace.eyebrow': '$ pylon lan-eremua --pane split',
+  'workspace.kv.addHeader': 'Gehitu goiburua',
+  'workspace.kv.addParam': 'Gehitu parametroa',
+  'workspace.kv.headerKey': 'Goiburuaren izena',
+  'workspace.kv.headerValue': 'Goiburuko balioa',
+  'workspace.kv.key': 'Giltza',
+  'workspace.kv.paramKey': 'Kontsulta parametroaren gakoa',
+  'workspace.kv.paramValue': 'Kontsulta parametroaren balioa',
+  'workspace.kv.removeRow': 'Kendu errenkada',
+  'workspace.kv.value': 'Balioa',
   'workspace.methodLabel': 'HTTP metodoa',
   'workspace.metric.latency': 'Latentzia',
   'workspace.metric.latencyCaption': 'Joan-etorriko bidaia lasterketa honetatik',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Eskaera baztertua — ikusi beheko erantzuna.',
   'workspace.subheading':
     'Idatzi eskaera bat, bidali eta gero baieztatu erantzuna — guztia panel bakarrean.',
+  'workspace.testResults': 'Probaren emaitzak',
   'workspace.token': 'Tokena',
   'workspace.tokenHint':
     'Baimen gisa bidalia: Eramailea<token> bilduma honetako eskaera guztietan.',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Մենք դիզայներների և ինժեներների բաշխված թիմ ենք, որը մի ժամանակ օրվա չափազանց շատ ժամեր էր անցկացնում աղմկոտ փոստարկղում: Courier-ը այն փոստարկղն է, որը մենք ուզում էինք օգտագործել ինքներս:',
   'about.title': 'Էլ․ հասցե՝ կենտրոնացված աշխատանքի համար',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'help.cta.about': 'Մերիդիանոսի մասին',
   'help.cta.pricing': 'Դիտել գները',
   'help.eyebrow': 'Օգնության կենտրոն',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Արագ պատասխաններ մեզ ամենաշատ լսվող հարցերին: Ինչ-որ բան պակա՞ս է: Բացեք կարգավորումները և օգտագործեք հավելվածի ներսում գտնվող հետադարձ կապի ձևը կամ գրեք support@courier.example հասցեին:',
   'help.title': 'Ինչպե՞ս կարող ենք օգնել։',
   'landing.brand.scrollTop': 'Վերադառնալ վերև',
+  'landing.copyright': '© {{year}} {{appName}} — Ստեղծված է կենտրոնացման համար։',
   'landing.ctaBody':
     'Միացե՛ք հազարավոր մասնագետների, ովքեր ավարտել են իրենց էլ. փոստի փոստարկղը ճաշից առաջ։',
   'landing.ctaTitle': 'Ավելի շատ մշակեք, ավելի քիչ արձագանքեք։',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Դիտել դեմո տարբերակը',
   'landing.heroSubtitle':
     'Courier-ը հանգիստ, եռանկյունաձև մուտքի արկղ է, որը նախատեսված է գիտելիքների ոլորտի աշխատողների համար, ովքեր ցանկանում են մշակել տեղեկատվությունը, այլ ոչ թե արձագանքել դրան։',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Վստահված է ամբողջ աշխարհի կենտրոնացած թիմերի կողմից',
   'landing.signIn': 'Մուտք գործել',
   'meridian.archive.empty': 'Արխիվը դատարկ է։',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Սևագիր',
   'meridian.folder.count': '{{count}} հաղորդագրություններ',
+  'meridian.folder.delete': 'Ջնջել',
   'meridian.folder.deleteForever': 'Ջնջել ընդմիշտ',
   'meridian.folder.restore': 'Տեղափոխել մուտքի արկղ',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Այստեղ դեռևս հաղորդագրություններ չկան։',
   'meridian.inbox.loading': 'Բեռնվում է…',
   'meridian.inbox.next': 'Հաջորդը',
+  'meridian.inbox.noSender': '(ուղարկող չկա)',
   'meridian.inbox.noSubject': '(առանց թեմայի)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}} -ից',
   'meridian.inbox.openCompose': 'Բացել գրելը',
   'meridian.inbox.previous': 'Նախորդը',
   'meridian.inbox.replyFailed': 'Պատասխանը պահպանվեց, բայց առաքումը ձախողվեց։ {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Հաշիվ չունե՞ք։',
   'meridian.login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'meridian.message.toLine': 'դեպի {{recipients}}',
+  'meridian.notFound.body':
+    'Ձեր որոնած էջը չի գտնվել։ Վերադարձեք ձեր {{appName}} էլ. փոստարկղ, և մենք ձեզ կօգնենք ճիշտ ուղու վրա։',
   'meridian.notFound.eyebrow': 'Սխալ 404',
   'meridian.notFound.title': 'Այս թեման արխիվացվել է։',
   'meridian.notFound.toInbox': 'Բացել իմ մուտքի արկղը',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Ավելացնել աստղ',
   'meridian.thread.unstar': 'Հեռացնել աստղանիշը',
   'meridian.time.yesterday': 'Երեկ',
+  'meridian.topBar.openMenu': 'Բացել նավիգացիոն ցանկը',
   'meridian.topBar.searchPlaceholder': 'Որոնել փոստը',
   'meridian.trash.empty': 'Աղբարկղը դատարկ է։',
   'meridian.trash.title': 'Աղբարկղ',
   'nav.legal': 'Իրավական',
   'planUpdated.description':
     'Ձեր բաժանորդագրությունն այժմ ակտիվ է, և ձեր վճարումը թարմացվել է: Բարի գալուստ ձեր թարմացված Courier-ի էլ. փոստարկղ:',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.heading': 'նախագծեր',
   'pricing.limit.emails': 'էլ.փոստեր',
   'pricing.limit.folders': 'թղթապանակներ',
   'pricing.limit.labels': 'պիտակներ',
   'privacy.collect.account':
     'Հաշվի տվյալներ՝ անուն, էլեկտրոնային փոստի հասցե, հեշավորված գաղտնաբառ և գրանցման ամսաթիվը։',
+  'privacy.contact': 'Հարցեր ունե՞ք։ Գրեք privacy@courier.example հասցեին։',
   'privacy.intro':
     'Այս գաղտնիության քաղաքականությունը բացատրում է, թե ինչ տվյալներ է հավաքում Courier-ը, ինչու ենք մենք դրանք հավաքում, ինչպես ենք դրանք պահպանում անվտանգ և ինչ ընտրություններ ունեք դրանց վերաբերյալ: Մենք ձգտում ենք լինել կոնկրետ, այլ ոչ թե իրավական. եթե որևէ բան անհասկանալի է, գրեք privacy@courier.example հասցեին:',
   'privacy.lastUpdated': 'Վերջին թարմացումը՝ 1 ապրիլի, 2026թ.',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Այս պայմանները կարգավորում են Courier-ի ձեր կողմից օգտագործումը: Հաշիվ ստեղծելով կամ մեզ միջոցով էլեկտրոնային նամակ ուղարկելով՝ դուք համաձայնում եք դրանցով պարտավորված լինել: Մենք փորձում ենք գրել կանոններ, որոնք անձը կարող է իրականում հետևել:',
   'terms.lastUpdated': 'Ուժի մեջ է մտնում՝ 2026 թվականի ապրիլի 1-ից',
+  'terms.linkPrivacy': 'Կարդացեք մեր գաղտնիության քաղաքականությունը →',
   'terms.termination.body':
     'Դուք կարող եք ջնջել ձեր հաշիվը ցանկացած պահի։ Մենք կարող ենք կասեցնել այս պայմանները խախտող հաշիվը։ Եթե դա անենք, մենք կբացատրենք պատճառը և նախ կթույլատրենք ձեզ արտահանել ձեր տվյալները։',
   'terms.warranty.body':

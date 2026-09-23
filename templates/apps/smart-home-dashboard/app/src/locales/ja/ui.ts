@@ -1,13 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
+  'about.pageTitle': '{{app}}について',
   'activity.empty':
     'まだアクティビティはありません — デバイスを切り替えるかシーンを起動してください。',
   'activity.eyebrow': 'タイムライン',
   'activity.loadError': 'アクティビティフィードを読み込めませんでした。',
   'activity.subheading':
     'すべてのデバイス、オートメーション、セキュリティイベントを時系列で表示します。',
+  'addDevice.error.failed': 'デバイスを追加できませんでした。もう一度お試しください。',
   'addDevice.error.nameRequired': '続けるにはこのデバイスに名前を付けてください。',
   'addDevice.field.firmware': 'ファームウェアのバージョン',
   'addDevice.field.manufacturer': 'メーカー',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'テスト中…',
   'automationEditor.testNew': 'まず自動化設定を保存してテストしてください。',
   'automationRow.lastRun': '前回 {{date}} · {{count}} 回実行',
+  'automationRow.on': 'について',
   'automationRow.runNowAria': '{{name}} を今すぐ実行',
   'automations.empty': 'まだ自動化設定はしていません。最初のルーチンを作成しましょう。',
   'automations.eyebrow': 'ルーチン',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'オートメーションを読み込んでいます…',
   'automations.newAutomation': '+ 新規',
   'automations.subheading': 'これが起きたらそれを実行 — YAMLは不要です。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'デバイスを読み込めませんでした。',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': '処理中…',
   'deviceDetail.unnamed': 'デバイス',
   'deviceStatusRow.on': 'オン',
+  'deviceStatusRow.turnOff': '無効にする',
+  'deviceStatusRow.turnOn': '有効にする',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': '電力',
   'energy.heading': 'エネルギー',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'プランを見る',
   'settings.security.heading': 'セキュリティ',
   'settings.subheading': 'プラン、ハブ、アカウント設定。',
+  'smartHomeDashboardLayout.openMenu': 'ナビゲーションメニューを開く',
+  'smartHomeDashboardLayout.primaryNavLabel': 'メインナビゲーション',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'announcementsFeed.empty': "Hali hech qanday e'lon yo'q.",
   'announcementsFeed.eyebrow': '{{count}} yangilanishlar',
   'announcementsFeed.title': "So'nggi e'lonlar",
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     "Boshqa holatdagi topshiriqlarni ko'rish uchun yuqoridagi filtrlarni almashtiring.",
   'assignments.eyebrow': 'Barcha kurslar · Ushbu semestr',
+  'assignments.loadError': "Topshiriqlarni yuklab bo'lmadi.",
   'assignments.loading': 'Topshiriqlar yuklanmoqda…',
   'assignments.subtitle':
     "Nimalar to'lanishi kerakligini, topshirilganligini, baholanganligini yoki yo'qligini ko'rish uchun holati bo'yicha filtrlang.",
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Eslatma',
   'attendance.empty': 'Hali ishtirokchilar soni qayd etilmagan.',
   'attendance.eyebrow': 'Bahorgi semestr · Oxirgi 4 hafta',
+  'attendance.loadError': "Davomat yozuvlarini yuklab bo'lmadi.",
   'attendance.loading': 'Davomat yuklanmoqda…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     "Topshiriqlarni topshirish muddatlari oylik jadvalda ko'rsatilgan — imtihonlar qizil rang bilan belgilangan.",
   'calendar.title': '{{month}} tadbirlar',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
+  'common.retry': 'Qayta urinib ko’ring',
   'common.yes': '✓',
   'courseDetail.backLink': 'Baholar',
   'courseDetail.currentGrade': 'Joriy baho',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Hali baholar joylashtirilmadi.',
   'grades.eyebrow': 'Baholar kitobi',
+  'grades.loadError': "Baholaringizni yuklab bo'lmadi.",
   'grades.loading': 'Baholar yuklanmoqda…',
   'grades.subtitle':
     "Jonli harflar va foizli baholar. Trend strelkalari sizning yuqoriga ko'tarilishingizni, darajangizni yoki pasayishingizni ko'rsatadi.",
   'grades.title': 'Kursma-kurs baholaringiz',
   'grades.trendStable': 'Otxona',
+  'landing.copyright': '© {{year}} {{app}} . Talabalar uchun, oilalar uchun yaratilgan.',
   'landing.ctaHeading': 'Bir necha daqiqada tinchroq maktab kuni boshlanadi',
   'landing.eyebrow': "O'rta va oliy maktab o'quvchilari uchun",
   'landing.featuresHeading': "O'quvchi atrofida tashkil etilgan maktab kuni",
@@ -114,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Topshiriqlar',
   'nav.attendance': 'Davomat',
   'nav.calendar': 'Taqvim',
+  'nav.closeMenu': 'Navigatsiya menyusini yopish',
   'nav.grades': 'Baholar',
+  'nav.openMenu': 'Navigatsiya menyusini ochish',
   'nav.statusEyebrow': 'Semestr GPA',
   'nav.statusSubtext': 'Faxriy yorliq · Bahorgi semestr',
+  'nav.unreadMessages': "O'qilmagan xabarlar",
   'notifications.eyebrow': '{{count}} yangilanishlar',
   'notifications.subtitle':
     "Baholar, eslatmalar, xabarlar va maktab e'lonlari. Sozlamalarda har bir bildirishnoma qaysi kanallardan foydalanishini sozlang.",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.attendanceLabel': 'davomat',
   'pricing.gradesLabel': 'baholar',
   'pricing.heading': "e'lonlar",

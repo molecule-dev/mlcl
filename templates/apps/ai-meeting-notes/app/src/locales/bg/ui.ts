@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'За нас',
   'actions.empty': 'Няма съвпадения.',
   'actions.heading': 'Задачи за изпълнение',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Предишният месец',
   'calendar.recent': 'Скорошни',
   'common.daysAgo': '{{count}} преди дни',
+  'common.goToDashboard': 'Към таблото',
   'common.hoursAgo': '{{count}} преди ч',
   'common.no': '—',
+  'common.retry': 'Опитай отново',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} задачи за изпълнение',
   'dashboard.empty.body':
@@ -42,9 +45,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Въведете имейл адреса си и ще Ви изпратим линк за възстановяване на паролата.',
   'integrations.disconnected': 'Изключено',
+  'integrations.loadError': 'Не успяхме да заредим интеграциите.',
   'integrations.notConnectedTag': 'Няма връзка',
   'integrations.subheading':
     'Свържете календарите и видеоплатформите, за да се включи Murmur автоматично.',
+  'integrations.updateError': 'Актуализацията се провали.',
   'landing.ctaButton': 'Започнете — това е безплатно',
   'landing.ctaHeading': 'Спрете да си водите бележки. Започнете да взимате решения.',
   'landing.demo.aiLabel': 'Обобщение, изготвено на живо с помощта на изкуствен интелект',
@@ -64,7 +69,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Последващи действия',
   'meetingDetail.loadError': 'Не успях да заредя срещата.',
   'meetingDetail.noActions': 'Не са открити задачи за изпълнение.',
+  'meetingDetail.none': 'Няма.',
   'meetingDetail.notFound': 'Срещата не беше намерена.',
+  'meetingDetail.speakerFallback': 'Лектор{{id}}',
   'meetingDetail.summaryHeading': 'Резюме, изготвено от изкуствен интелект',
   'meetingDetail.transcriptHeading': 'Транскрипт',
   'meetings.empty.body':
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Срещи',
   'meetings.loadError': 'Не успях да заредя срещите.',
   'meetings.subheading': 'Всяка записана, качена и синхронизирана среща.',
+  'murmurLayout.openMenu': 'Отвори менюто за навигация',
   'murmurLayout.primaryNavLabel': 'Основна навигация',
   'nav.legal': 'Правни',
   'notifications.loadError': 'Зареждането на известията не бе успешно.',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Как изглеждате в Murmur.',
   'record.error.empty': 'Не е записан звук.',
   'record.error.permission': 'Достъпът до микрофона е отказан.',
+  'record.error.recorder': 'Грешка в записващото устройство',
   'record.error.unsupported':
     'Вашият браузър не поддържа запис. Опитайте с Chrome, Edge или Safari.',
   'record.error.upload': 'Качването се провали. Опитайте отново.',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Нова парола',
   'reset.subheading': 'Изберете парола, която не използвате никъде другаде.',
   'search.empty': 'Въведете текст, за да търсите в стенограмите.',
+  'search.loadError': 'Търсенето не успя. Опитайте отново.',
   'search.noResults': 'Няма резултати за „{{q}}“.',
   'settings.appearance.description': 'Превключване между светъл и тъмен режим.',
   'settings.appearance.title': 'Външен вид',
@@ -127,6 +137,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Не успяхме да заредим настройките.',
   'settings.loading': 'Зареждане…',
   'settings.push.heading': 'Push известия',
+  'settings.push.subheading':
+    'Получавайте известия в браузъра за споменавания, задачи за действие и обобщения.',
   'settings.retention.audio': 'Запази аудио за',
   'settings.retention.heading': 'Задържане',
   'settings.retention.transcript': 'Съхранявайте академичните справки за',
@@ -144,6 +156,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Започнете да записвате бележки от срещите си за минути',
   'signup.terms':
     'С създаването на профил Вие приемате нашите Условия за ползване и Политика за поверителност.',
+  'signup.termsPrefix': 'С създаването на профил Вие се съгласявате с нашите',
   'team.inviteCta': 'Покани съотборник',
   'team.invitedAs': 'Поканен като „{{role}}“',
   'team.inviteFailed': 'Не успях да изпратя покана.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'about.tagline': 'Сакрэты паміраюць навідавоку.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Стварыць токен',
   'apiTokens.kicker': 'Токены API',
   'apiTokens.loading': 'Загрузка токенаў…',
+  'apiTokens.new': 'Новы токен',
   'apiTokens.revoke': 'Адклікаць токен',
   'apiTokens.subheading':
     'Асабістыя і службовыя токены для каманднага радка Arcanum і SDK. Звычайны тэкст паказваецца адзін раз пры стварэнні.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + пароль',
   'authShell.zeroKnowledge': 'Шыфраванне з нулявым разгалошваннем',
   'common.connecting': 'Падключэнне…',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.inviting': 'Запрашаем…',
   'forgotPassword.checkInbox':
     'Калі адрас электроннай пошты {email} зарэгістраваны, падпісаная спасылка для скіду налад прыйдзе на працягу хвіліны.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Стан ратацыі, абвесткі аб анамаліях і запыты на адабрэнне ў кожным сховішчы.',
   'notifications.unreadEmpty': 'Паштовая скрыня нуль — усё напісана.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.heading': 'сакрэты',
   'pricing.limits.accessPolicies': 'палітыкі доступу',
   'pricing.limits.auditLog': 'запісы журнала аўдыту',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Асабісты рахунак',
   'profile.plan.description': 'Кіруйце сваёй падпіскай, глядзіце абмежаванні і абнаўляйце.',
   'profile.subheading': 'Ідэнтыфікатар, прылады другога фактару аўтарызацыі і актыўныя сесіі.',
+  'profile.twoFactor.code': 'Код аўтэнтыфікацыі',
   'profile.twoFactor.disable': 'Адключыць',
   'profile.twoFactor.enable': 'Уключыць',
+  'profile.twoFactor.invalidCode': 'Няправільны код',
   'profile.twoFactor.kicker': 'Двухфактарная аўтэнтыфікацыя',
+  'profile.twoFactor.off': 'Не ўключана',
   'profile.twoFactor.on': 'Уключана',
   'resetPassword.email': 'Электронная пошта ўліковага запісу',
   'resetPassword.heading': 'Устанавіць новыя ўліковыя дадзеныя',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'каманды',
   'secretsManagerLayout.encrypted': 'AES-256 · ШЫФРАВАНА',
   'secretsManagerLayout.newVault': 'Новы сховішча',
+  'secretsManagerLayout.newVaultShort': 'Новы',
   'secretsManagerLayout.rotations': 'Ратацыі',
   'secretsManagerLayout.search': 'пошук',
   'secretsManagerLayout.searchPlaceholder': 'Пошук сакрэтаў па ключы, шляху або тэгу…',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Сакрэты',
   'vaultCard.vaultLabel': 'Сховішча',
   'vaultDetail.addSecret': 'Дадаць сакрэт',
+  'vaultDetail.back': 'Усе сховішчы',
   'vaultDetail.col.key': 'Ключ',
   'vaultDetail.col.rotated': 'Павернута',
   'vaultDetail.col.value': 'Значэнне',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'auth.fields.newPassword': 'รหัสผ่านใหม่',
   'collectionDetail.addImage': 'ร่ายมนตร์เพื่อการรวบรวม',
   'collectionDetail.backCta': 'กลับไปที่คอลเลกชัน',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood-board, ข้อมูลสรุป และซีรีส์ต่อเนื่อง',
   'collections.title': 'คอลเลกชัน',
   'collections.untitled': 'ไม่มีชื่อ · {{stamp}}',
+  'common.closeMenu': 'ปิดเมนู',
+  'common.dismiss': 'อนุญาตให้ออกไป',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'common.openMenu': 'เปิดเมนูนำทาง',
   'credits.eyebrow': '{{plan}} วางแผน',
   'credits.renewsCopy': 'แผนจะต่ออายุในวันที่ {{date}}',
   'credits.trail': 'ความฝัน · {{plan}} ชั้น',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'กิจกรรมการสร้างเครือข่าย การแชร์ และการแจ้งเตือนเครดิตจะปรากฏที่นี่',
   'notifications.empty.title': 'ไม่มีอะไรต้องรายงาน',
   'notifications.subtitle': 'เหตุการณ์รุ่นต่างๆ จัดกลุ่มตามวัน',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.limits.gallery': '{{count}} แกลเลอรี',
   'privacy.collect.body':
     'เมื่อคุณสมัครใช้งาน เราจะเก็บรวบรวมชื่อ ที่อยู่อีเมล และรหัสผ่านที่เข้ารหัสของคุณ ขณะที่คุณใช้งาน Reverie เราจะจัดเก็บข้อความที่คุณส่ง รูปภาพที่เราสร้างให้คุณ สไตล์และคอลเลกชันที่คุณบันทึก และข้อมูลเมตา เช่น โมเดลที่ใช้ เวลาที่สร้าง และยอดเครดิตคงเหลือ',
@@ -164,6 +170,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'บันทึกรหัสผ่านใหม่',
   'reset.submitting': 'กำลังอัปเดตรหัสผ่าน…',
   'settings.account.handle': 'รับมือ',
+  'settings.account.lastSaved': 'โปรไฟล์ที่ใช้งานอยู่ · {{name}}',
   'settings.account.saved': 'บันทึกโปรไฟล์แล้ว',
   'settings.account.saveFailed': 'ไม่สามารถบันทึกโปรไฟล์ได้',
   'settings.account.title': 'โปรไฟล์ผู้สร้าง',
@@ -185,7 +192,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'ภาพใหม่',
   'sidebar.secondary': 'การนำทางรอง',
   'signup.failed': 'การสมัครสมาชิกล้มเหลว โปรดลองอีกครั้ง',
+  'signup.firstNamePlaceholder': 'อารียา',
   'signup.heading': 'เริ่มต้นช่วงเวลาแห่งความฝันของคุณ',
+  'signup.lastNamePlaceholder': 'หลิน',
   'signup.subheading': 'สร้างบัญชีและรับเครดิตฟรี 120 หน่วย',
   'styles.empty': 'ยังไม่มีการตั้งค่าสไตล์สำเร็จรูป — จะปรากฏขึ้นหลังจากเข้าสู่ระบบครั้งแรก',
   'styles.eyebrow': 'คัดสรร',

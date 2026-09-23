@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'auth.fields.newPassword': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'collectionDetail.addImage': 'ਸੰਗ੍ਰਹਿ ਲਈ ਜਾਦੂ ਕਰੋ',
   'collectionDetail.backCta': "ਸੰਗ੍ਰਹਿ 'ਤੇ ਵਾਪਸ ਜਾਓ",
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'ਮੂਡ-ਬੋਰਡ, ਸੰਖੇਪ ਅਤੇ ਚੱਲ ਰਹੀ ਲੜੀ',
   'collections.title': 'ਸੰਗ੍ਰਹਿ',
   'collections.untitled': 'ਬਿਨਾਂ ਸਿਰਲੇਖ · {{stamp}}',
+  'common.closeMenu': 'ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'common.dismiss': 'ਖਾਰਜ ਕਰੋ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'common.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'credits.eyebrow': '{{plan}} ਯੋਜਨਾ',
   'credits.renewsCopy': 'ਯੋਜਨਾ ਦਾ ਨਵੀਨੀਕਰਨ ਇਸ ਤਾਰੀਖ ਨੂੰ ਹੁੰਦਾ ਹੈ {{date}}',
   'credits.trail': 'ਰੀਵਰੀ · {{plan}} ਟੀਅਰ',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ਜਨਰੇਸ਼ਨ ਗਤੀਵਿਧੀ, ਸਾਂਝਾਕਰਨ ਅਤੇ ਕ੍ਰੈਡਿਟ ਅਲਰਟ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'notifications.empty.title': 'ਰਿਪੋਰਟ ਕਰਨ ਲਈ ਕੁਝ ਨਹੀਂ ਹੈ',
   'notifications.subtitle': 'ਪੀੜ੍ਹੀ ਦੇ ਸਮਾਗਮ ਦਿਨ ਅਨੁਸਾਰ ਸਮੂਹਬੱਧ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.limits.gallery': '{{count}} ਗੈਲਰੀ',
   'privacy.collect.body':
     'ਜਦੋਂ ਤੁਸੀਂ ਸਾਈਨ ਅੱਪ ਕਰਦੇ ਹੋ ਤਾਂ ਅਸੀਂ ਤੁਹਾਡਾ ਨਾਮ, ਈਮੇਲ ਪਤਾ ਅਤੇ ਇੱਕ ਹੈਸ਼ ਕੀਤਾ ਪਾਸਵਰਡ ਇਕੱਠਾ ਕਰਦੇ ਹਾਂ। ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ Reverie ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋ, ਅਸੀਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਜਮ੍ਹਾਂ ਕੀਤੇ ਗਏ ਪ੍ਰੋਂਪਟ, ਤੁਹਾਡੇ ਲਈ ਤਿਆਰ ਕੀਤੀਆਂ ਗਈਆਂ ਤਸਵੀਰਾਂ, ਤੁਹਾਡੇ ਦੁਆਰਾ ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ ਗਈਆਂ ਸ਼ੈਲੀਆਂ ਅਤੇ ਸੰਗ੍ਰਹਿ, ਅਤੇ ਵਰਤੇ ਗਏ ਮਾਡਲ, ਪੀੜ੍ਹੀ ਟਾਈਮਸਟੈਂਪ ਅਤੇ ਕ੍ਰੈਡਿਟ ਬੈਲੇਂਸ ਵਰਗੇ ਮੈਟਾਡੇਟਾ ਨੂੰ ਸਟੋਰ ਕਰਦੇ ਹਾਂ।',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'ਨਵਾਂ ਪਾਸਵਰਡ ਸੇਵ ਕਰੋ',
   'reset.submitting': 'ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'settings.account.handle': 'ਹੈਂਡਲ',
+  'settings.account.lastSaved': 'ਸਰਗਰਮ ਪ੍ਰੋਫਾਈਲ · {{name}}',
   'settings.account.saved': 'ਪ੍ਰੋਫਾਈਲ ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਗਈ',
   'settings.account.saveFailed': 'ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ',
   'settings.account.title': 'ਸਿਰਜਣਹਾਰ ਪ੍ਰੋਫਾਈਲ',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'ਨਵੀਂ ਤਸਵੀਰ',
   'sidebar.secondary': 'ਸੈਕੰਡਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'signup.failed': 'ਸਾਈਨ ਅੱਪ ਅਸਫਲ ਰਿਹਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+  'signup.firstNamePlaceholder': 'ਆਰੀਆ',
   'signup.heading': 'ਆਪਣੀ ਰੀਵਰੀ ਸ਼ੁਰੂ ਕਰੋ',
+  'signup.lastNamePlaceholder': 'ਲਿਨ',
   'signup.subheading': 'ਇੱਕ ਖਾਤਾ ਬਣਾਓ ਅਤੇ 120 ਮੁਫ਼ਤ ਕ੍ਰੈਡਿਟ ਦਾ ਦਾਅਵਾ ਕਰੋ।',
   'styles.empty': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਸਟਾਈਲ ਪ੍ਰੀਸੈੱਟ ਨਹੀਂ ਹਨ — ਉਹ ਪਹਿਲੇ ਸਾਈਨ-ਇਨ ਤੋਂ ਬਾਅਦ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'styles.eyebrow': 'ਕਿਊਰੇਟ ਕੀਤਾ ਗਿਆ',

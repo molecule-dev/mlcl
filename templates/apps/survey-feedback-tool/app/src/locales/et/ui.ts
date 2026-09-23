@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'analytics.back': 'Uuringu ülevaade',
   'analytics.kpiNps': 'NPS-skoor',
   'analytics.kpiNpsTrend': 'Korraldajad {{p}} % · Vastased {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Omadused',
   'builder.questionNumber': 'K {{num}}',
   'builder.surveyTitle': 'Küsitluse pealkiri',
+  'common.goToDashboard': 'Mine töölauani',
   'forgotPassword.failed': 'Lähtestamismeili ei õnnestunud saata. Palun proovige uuesti.',
   'forgotPassword.subheading': 'Sisesta oma e-posti aadress ja me saadame sulle taastamislingi.',
   'forgotPassword.successBody':
     'Kui konto sobib {{email}} , lähtestamislink on teel. Kontrollige oma postkasti ja rämpsposti kausta.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Kõik hääled on teretulnud.',
   'landing.footer.startTrial': 'Alusta prooviperioodi',
   'landing.hero.badge': 'Küsitlused, NPS ja tagasiside ühes kohas',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Hinnakujundus',
   'landing.pricing.perMonth': '/kuu',
   'landing.pricing.popular': 'Kõige populaarsem',
+  'landing.pricing.subtitle':
+    'Iga plaan sisaldab küsitluse koostajat, avaliku jagamise linke ja NPS-i analüütikat. Alustamiseks pole krediitkaarti vaja.',
+  'landing.pricing.title': 'Alusta tasuta, laienda vastavalt vajadusele.',
   'landing.sample.eyebrow': 'NPS-i lühiülevaade',
   'landing.sample.title': 'Kritiseerijad, passiivid, pooldajad – koheselt loetav.',
   'login.failed': 'Sisselogimine ebaõnnestus. Palun proovi uuesti.',
@@ -56,6 +62,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Näita parooli',
   'login.signUpLink': 'Alusta tasuta prooviperioodi',
   'login.subheading': 'Logi sisse, et oma publikut edasi kuulata.',
+  'notFound.body': 'Otsitavat lehte {{app}} is pole. Liigume tagasi teie küsitluste juurde.',
   'notFound.cta': 'Tagasi küsitluste juurde',
   'notFound.eyebrow': '404',
   'notFound.heading': 'See küsitlus triivis järjekorrast maha.',
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiivne 7–8',
   'npsDistributionBar.promoter': 'Edendaja 9–10',
   'profile.identity.description': 'Avalik teie meeskonnale ja teie koostatud küsitlustes.',
+  'profile.identity.emailRequired': 'Sisestage e-posti aadress.',
   'profile.identity.saveCta': 'Salvesta nimi',
   'profile.password.current': 'Praegune parool',
   'profile.password.fillFields': 'Sisestage nii praegune kui ka uus parool.',
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'responses.tableMeta': 'Kuvatakse {{count}}',
   'responses.tableTitle': 'Viimased vastused',
   'responsesHeroCard.npsLabel': 'Keskmine NPS',
+  'responsesHeroCard.subtitle':
+    'Keskmine vastamine võtab aega {{time}} – hoia küsimused lühikesed, et hoogu säilitada.',
   'responsesHeroCard.title': 'Sellel nädalal jäädvustatud vastused',
   'settings.billing.canceled': 'Tellimus on tühistatud.',
   'settings.billing.description': 'Vali plaan, mis sobib sinu tööviisiga.',
@@ -173,6 +183,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} küsimused',
   'templates.subheading':
     'Vali lahingutes läbiproovitud algversioon – iga mall on eelhäälestatud mõistlike vaikesätete, näidisloogika ja selge mobiilipaigutusega.',
+  'thankYou.body':
+    'Teie vastus on salvestatud. {{app}} lisab selle järgmisesse analüütika värskendusse.',
   'thankYou.eyebrow': 'Vastus saabus',
   'thankYou.heading': 'Aitäh – teie hääl on oluline.',
   'thankYou.home': 'Külasta Gaugeit',

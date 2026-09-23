@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'جارٍ الحل…',
   'comments.subtitle':
     'هذه {{count}} محادثة لا تزال تنتظر ردًا أو حلًّا. مرتبة حسب العمر — الأقدم أولًا، حتى لا يتلاشى شيء.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'forgotPassword.sentTo': 'أُرسل رابط إعادة التعيين إلى {{email}}',
   'forgotPassword.successSubheading':
     'يُرجى مراجعة صندوق الوارد — أرسلنا للتو رابط إعادة التعيين. تنتهي صلاحيته خلال 30 دقيقة.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'صفحة جديدة',
   'pageTreeSidebar.workspaceHeader': 'مساحة العمل',
   'pageView.breadcrumb': 'مسار التنقل',
+  'pageView.confirmTrash': 'هل نتخلص منه؟',
   'pageView.home': 'الرئيسية',
   'pageView.lastEdited': 'حُدِّث {{when}}',
   'pageView.loading': 'جارٍ تحميل الصفحة…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'جارٍ التلخيص…',
   'pageView.summaryUnavailable': 'ملخص الذكاء الاصطناعي غير مُعدّ لمساحة العمل هذه.',
   'pageView.tocTitle': 'في هذه الصفحة',
+  'pageView.trash': 'المهملات',
+  'pageView.trashing': 'جارٍ النقل إلى المهملات…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'الشارات',
   'profile.owned.title': 'الصفحات المملوكة',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
     'مساحة العمل، الملف الشخصي، الإشعارات، التكاملات — كلها في غلاف واحد هادئ.',
   'settingsPage.workspace.defaultLanding': 'الشاشة الافتراضية للهبوط',
   'settingsPage.workspace.landingHome': 'المنزل',
+  'settingsPage.workspace.landingSpaces': 'المساحات',
   'settingsPage.workspace.subdomainLabel': 'النطاق الفرعي',
   'settingsPage.workspace.title': 'مساحة العمل',
   'signup.eyebrow': 'بدء مساحة عمل جديدة',
@@ -123,6 +128,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} دقيقة',
   'templates.subtitle':
     'ابدأ صفحة من قالب، لا من لوحة فارغة. كل قالب يثبّت الشكل لتركّز على المضمون.',
+  'trash.confirmPurge': 'هل نتخلص من كل شيء إلى الأبد؟',
+  'trash.confirmPurgeAria': 'تأكيد: حذف {{title}} نهائياً',
   'trash.daysUntilPurge': 'متبقي {{days}} يومًا',
   'trash.empty.body': 'ستظهر الصفحات المحذوفة هنا لمدة 30 يومًا قبل أن تُحذف نهائيًا.',
   'trash.empty.title': 'سلة المهملات فارغة.',
@@ -142,5 +149,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'جارٍ الاستعادة…',
   'versionHistory.subtitle': '{{count}} إصدارات · اختر صفًا لمعاينة الفرق',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'إغلاق شريط التنقل',
+  'wikiLayout.menu': 'التنقل',
+  'wikiLayout.openMenu': 'فتح قائمة التنقل',
   'wikiLayout.searchPlaceholder': 'ابحث في Cairn — صفحات، تعليقات…',
 }

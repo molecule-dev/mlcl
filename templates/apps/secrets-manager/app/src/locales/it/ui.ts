@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'about.tagline': 'I segreti muoiono allo scoperto.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Crea token',
   'apiTokens.kicker': 'Token API',
   'apiTokens.loading': 'Caricamento token…',
+  'apiTokens.new': 'Nuovo token',
   'apiTokens.revoke': 'Revoca token',
   'apiTokens.subheading':
     "Token personali e di servizio per la CLI Arcanum e l'SDK. Il testo in chiaro viene mostrato solo una volta alla creazione.",
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Crittografia a conoscenza zero',
   'common.connecting': 'Connessione…',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.inviting': 'Invio invito…',
   'forgotPassword.checkInbox':
     'Se {email} è registrato, un link di reimpostazione firmato arriverà entro un minuto.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Stato delle rotazioni, avvisi di anomalie e richieste di approvazione in ogni vault.',
   'notifications.unreadEmpty': 'Posta in arrivo a zero — tutto sotto controllo.',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.heading': 'segreti',
   'pricing.limits.accessPolicies': 'policy di accesso',
   'pricing.limits.auditLog': 'voci di audit log',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Account personale',
   'profile.plan.description': 'Gestisca il suo abbonamento, veda i limiti e aggiorni.',
   'profile.subheading': 'Identità, dispositivi di secondo fattore e sessioni attive.',
+  'profile.twoFactor.code': 'Codice di autenticazione',
   'profile.twoFactor.disable': 'Disattiva',
   'profile.twoFactor.enable': 'Attiva',
+  'profile.twoFactor.invalidCode': 'Codice non valido',
   'profile.twoFactor.kicker': 'Autenticazione a due fattori',
+  'profile.twoFactor.off': 'Non abilitato',
   'profile.twoFactor.on': 'Attivata',
   'resetPassword.email': "Email dell'account",
   'resetPassword.heading': 'Imposta nuove credenziali',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'comandi',
   'secretsManagerLayout.encrypted': 'AES-256 · CRITTOGRAFATO',
   'secretsManagerLayout.newVault': 'Nuovo vault',
+  'secretsManagerLayout.newVaultShort': 'Nuovo',
   'secretsManagerLayout.rotations': 'Rotazioni',
   'secretsManagerLayout.search': 'cerca',
   'secretsManagerLayout.searchPlaceholder': 'Cerca segreti per chiave, percorso o tag…',
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Segreti',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Aggiungi segreto',
+  'vaultDetail.back': 'Tutti i caveau',
   'vaultDetail.col.key': 'Chiave',
   'vaultDetail.col.rotated': 'Ruotato',
   'vaultDetail.col.value': 'Valore',

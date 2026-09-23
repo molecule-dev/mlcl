@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'billing.canceled': 'Abonimi u anulua. Do të ktheheni në Falas në fund të periudhës.',
   'billing.contactSales': 'Kontaktoni shitjet',
   'billing.free.1': '5 përkthime',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.upgradeHint':
     'Përditëso për të zhbllokuar veçoritë e përparuara të inteligjencës artificiale.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.activityEmpty': 'Ende pa aktivitet — fillo një projekt për të populluar këtë burim.',
   'dashboard.eyebrow': 'Përmbledhje',
   'dashboard.projectsEmpty': 'Ende nuk ka projekte — filloni një për ta parë këtu.',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Ripërdorni përkthimet e kaluara në çdo projekt. Pikë më e lartë përputhjeje → më pak ripërpunim.',
   'memory.title': 'Bankë kujtese',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'nav.legal': 'Ligjore',
   'newProject.addLanguage': 'Shto objektivin',
   'newProject.create': 'Krijo projekt',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'I shënuar {{count}} njoftimet siç lexohen.',
   'notifications.subtitle':
     'Përmendje, kërkesa për rishikime dhe ngjarje të inteligjencës artificiale nga të gjitha hapësirat tuaja të punës.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'privacy.collection.account': 'Email-i i llogarisë suaj dhe emri i shfaqur',
   'privacy.deletion.body':
     'Mund të fshini një projekt, segment, term fjalori ose hyrje në memorie në çdo kohë nga faqja përkatëse. Fshirja e llogarisë suaj nga Cilësimet fshin çdo rresht të hapësirës së punës nga baza jonë e të dhënave.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Ngarkimi i projekteve dështoi.',
   'projects.loading': 'Duke ngarkuar projektet…',
   'projects.subtitle': 'Çdo projekt aktiv në të gjitha vendet.',
+  'renditionLayout.primaryNavLabel': 'Navigimi kryesor',
   'reset.backToLogin': '\\u2190 Kthehu te identifikimi',
   'reset.passwordLabel': 'Fjalëkalim i ri',
   'review.activeEyebrow': 'Segmenti {{number}}',

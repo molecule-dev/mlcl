@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'analytics.channels.empty': 'Даних про канали ще немає.',
   'analytics.channels.title': 'За каналом',
   'analytics.empty': "Розмов ще немає — аналітика з'явиться, коли Ви розпочнете тему.",
@@ -17,11 +18,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Розмови на день',
   'chatBubble.avatarAlt': 'Аватар {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'До панелі',
   'confidenceMeter.label': 'Впевненість',
   'conversationDetail.agentName': 'Агент',
   'conversationDetail.aiReplyButton': 'Відповідь бота',
   'conversationDetail.aiReplyError': 'Не вдалося згенерувати відповідь ШІ',
   'conversationDetail.aiReplyLoading': 'Підготовка…',
+  'conversationDetail.aiReplySourceFallback': 'резервний варіант (без ключа AI)',
   'conversationDetail.backAria': 'Назад до розмов',
   'conversationDetail.composerPlaceholder': 'Відповісти клієнту…',
   'conversationDetail.context.channel': 'Канал',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Встановіть новий пароль для свого облікового запису',
   'resetPassword.toggleConfirm': 'Перемкнути видимість пароля підтвердження',
   'resetPassword.togglePassword': 'Перемкнути видимість пароля',
+  'settings.account.emailError': 'Не вдалося оновити адресу електронної пошти',
   'settings.account.emailLabel': 'Адреса електронної пошти',
+  'settings.account.emailSaved': 'Адреса електронної пошти оновлено',
+  'settings.account.nameError': "Не вдалося оновити ім'я",
   'settings.account.nameLabel': "Відображуване ім'я",
+  'settings.account.nameSaved': "Ім'я оновлено",
   'settings.account.title': 'Обліковий запис',
   'settings.api.createCta': 'Створити токен',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Автоматична ескалація при падінні настрою',
   'settings.bot.greetingLabel': 'Привітальне повідомлення',
   'settings.bot.title': 'Конфігурація бота',
+  'settings.bot.toneFormal': 'Офіційний',
   'settings.bot.toneLabel': 'Голос і тон',
   'settings.danger.deleteAccount': 'Видалити рахунок',
+  'settings.danger.deleteError': 'Не вдалося видалити обліковий запис',
+  'settings.danger.deleteWarning':
+    'Це призведе до остаточного видалення вашого облікового запису та всіх пов’язаних з ним даних. Цю дію неможливо скасувати.',
   'settings.danger.deleting': 'Видалення…',
+  'settings.danger.passwordLabel': 'Підтвердьте свій пароль',
   'settings.danger.title': 'Небезпечна зона',
+  'settings.devices.empty': 'Пристроїв не зареєстровано.',
+  'settings.devices.revokeWarning':
+    'Доступ цього пристрою буде скасовано найближчим часом. Вийти з нього?',
+  'settings.devices.signingOut': 'Вихід…',
   'settings.devices.signOut': 'Вийти',
   'settings.devices.thisDevice': 'Цей пристрій',
   'settings.devices.title': 'Пристрої',
@@ -186,9 +202,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Не вдалося змінити пароль',
   'settings.security.currentPassword': 'Поточний пароль',
   'settings.security.newPassword': 'Новий пароль',
+  'settings.security.oauthManaged':
+    'Управління вашим паролем здійснює ваш провайдер послуг входу в систему.',
   'settings.security.title': 'Безпека',
   'settings.security.twoFactorDisable': 'Вимкнути',
   'settings.security.twoFactorEnable': 'Увімкнути',
+  'settings.security.twoFactorInvalid': 'Неправильний код',
   'settings.subtitle':
     'Налаштуйте голос Rapport, джерела знань і інструменти, з якими він взаємодіє.',
   'settings.tokenCreateError': 'Не вдалося створити токен',

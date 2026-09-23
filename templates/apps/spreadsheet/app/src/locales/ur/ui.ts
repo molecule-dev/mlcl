@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'about.pageTitle': 'کے بارے میں {{name}}',
   'auth.footer.about': 'کے بارے میں {{name}}',
   'authHeader.subtitle': 'اپنے نمبروں کو ایماندار رکھنے کے لیے سائن ان کریں۔',
   'automations.action.email': 'ای میل',
+  'automations.action.noop': 'No-op',
   'automations.action.webhook': 'ویب ہُک',
   'automations.confirmDelete': 'حذف کریں" {{name}} "؟',
   'automations.empty.headline': 'ابھی تک کوئی آٹومیشن نہیں ہے۔',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ہر ورک بک پر محرکات اور اعمال۔ ہر رن ایک قطار کو لاگ کرتا ہے جس کا آپ بعد میں آڈٹ کر سکتے ہیں۔',
   'automations.toggle': 'ٹوگل کریں۔ {{name}}',
+  'automations.trigger.dailySchedule': 'روزانہ کا شیڈول',
+  'automations.trigger.rowCreated': 'قطار بنائی گئی۔',
+  'automations.trigger.rowUpdated': 'قطار کو اپ ڈیٹ کر دیا گیا۔',
   'billing.empty': 'کوئی منصوبہ دستیاب نہیں ہے۔',
   'billing.error.priceMissing':
     'اس درجے کے لیے کوئی پٹی قیمت ترتیب نہیں دی گئی ہے۔ STRIPE__*_PRICE_ID env vars سیٹ کریں۔',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'چارٹس',
   'charts.kpi.totalCharts': 'کل چارٹس',
   'charts.list.empty': 'ابھی تک کوئی چارٹ نہیں۔',
+  'charts.namePlaceholder': 'آمدنی کا رجحان',
   'charts.newChart': 'نیا چارٹ',
   'charts.primary.eyebrow': 'قسم کے لحاظ سے چارٹس',
   'charts.primary.headline': 'ورک اسپیس کا جائزہ',
   'charts.subhead': 'آپ کے گرڈ سے منسلک لائیو ویژولائزیشن — ہر سیل ایڈیٹ پر دوبارہ رینڈر کریں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'editor.addColumn': 'کالم شامل کریں۔',
+  'editor.addDialogTitle': 'کالم شامل کریں۔',
   'editor.addRow': 'قطار شامل کریں۔',
   'editor.addSheet': 'شیٹ شامل کریں۔',
   'editor.back': 'ورک بک پر واپس جائیں۔',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . Calcite فارمولہ فرسٹ، ملٹی ویو، ریئل ٹائم گرڈ تجزیہ کار اور فنانس ٹیمیں سب سے پہلے پہنچتی ہیں۔',
   'landing.nav.formulas': 'فارمولے',
+  'login.noAccount': '{{name}} میں نئے ہیں؟',
+  'login.signIn': '{{name}} میں سائن ان کریں',
   'login.signUp': 'کام کی جگہ بنائیں',
+  'nav.menu': 'مینو',
+  'nav.openMenu': 'مینو کھولیں۔',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url، "راستے"، "صفحہ")',
   'notFound.headline': 'یہ صف کبھی موجود نہیں تھی۔',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'مقامی آٹومیشنز · ویب ہک اور کرون ٹرگرز',
   'signup.creating': 'ورک اسپیس کی فراہمی…',
   'signup.cta': 'میری ورک اسپیس بنائیں',
+  'signup.haveAccount': 'پہلے سے ہی {{name}} پر ہیں؟',
   'signup.namePlaceholder': 'ایوری چن',
   'signup.tagline': 'اپنی پہلی ورک بک کو 30 سیکنڈ میں گھمائیں۔',
   'team.col.activity': 'مدعو کیا۔',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'accountDetail.activeBadge': 'Attivo',
   'accountDetail.availableLabel': '{{amount}} disponibili',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Conti',
   'accounts.loadError': 'Impossibile caricare i conti.',
   'accounts.status.closed': 'Chiuso',
+  'accounts.status.frozen': 'Frozen',
   'accounts.totalBalance': '{{amount}} totali',
   'audit.empty': 'Nessun evento ancora.',
   'audit.eyebrow': 'Sicurezza e accesso',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Liquidità',
   'cashCreditCard.creditLabel': 'Credito utilizzato',
   'cashCreditCard.title': 'Liquidità e credito',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.accountsHeading': 'Conti',
   'dashboard.heading': 'Panoramica',
   'dashboard.recentEmpty': 'Nessuna transazione ancora.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostra password',
   'login.signUp': 'Registrati',
   'login.submit': 'Accedi',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Navigazione principale',
   'nav.legal': 'Legale',
   'notifications.emptyHeading': 'È in pari con tutto',
   'notifications.subheading': 'Avvisi in tempo reale per transazioni, sicurezza ed estratti conto.',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'privacy.dataWeShare':
     'I dati bancari personali non vengono mai venduti. Condividiamo informazioni con processori di pagamento, reti di carte e regolatori solo quando necessario per liquidare transazioni o adempiere a obblighi legali.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     "L'autenticazione a due fattori aggiunge un codice monouso da un'app di autenticazione a ogni accesso.",
   'settings.security.twoFactorCta': 'Gestisci autenticazione a due fattori',
+  'settings.security.twoFactorOff': "L'autenticazione a due fattori è disattivata",
   'settings.signOutDevice': 'Esci',
   'settings.subheading': 'Profilo, sicurezza e notifiche.',
+  'settings.twoFactorCode': 'Codice di autenticazione',
   'settings.twoFactorDisable': 'Disattiva',
   'settings.twoFactorEnable': 'Attiva',
+  'settings.twoFactorInvalidCode': 'Codice non valido',
+  'settings.twoFactorVerify': 'Verifica e abilita',
   'signup.emailLabel': 'Indirizzo email',
   'signup.fullName': 'Come dobbiamo chiamarla?',
   'signup.showPassword': 'Mostra password',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Nessuna transazione ancora.',
   'transactions.endDate': 'Data di fine',
   'transactions.eyebrow': 'Attività',
+  'transactions.loadError': 'Impossibile caricare le transazioni.',
   'transactions.merchant': 'Esercente',
+  'transactions.subheading': 'Tutte le transazioni registrate e in sospeso sui tuoi conti.',
   'transfers.availableHint': '{{amount}} disponibili',
   'transfers.errorGeneric': 'Impossibile inviare il trasferimento.',
   'transfers.errorMissingFields': 'Scelga un conto di origine e una destinazione.',

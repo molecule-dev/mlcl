@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'about.pageTitle': 'ਬਾਰੇ {{name}}',
   'auth.footer.about': 'ਬਾਰੇ {{name}}',
   'authHeader.subtitle': 'ਆਪਣੇ ਨੰਬਰਾਂ ਨੂੰ ਇਮਾਨਦਾਰ ਰੱਖਣ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ।',
   'automations.action.email': 'ਈਮੇਲ',
+  'automations.action.noop': 'ਨੋ-ਆਪ',
   'automations.action.webhook': 'ਵੈੱਬਹੁੱਕ',
   'automations.confirmDelete': 'ਮਿਟਾਓ " {{name}} "?',
   'automations.empty.headline': 'ਅਜੇ ਤੱਕ ਕੋਈ ਆਟੋਮੇਸ਼ਨ ਨਹੀਂ ਹੈ',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ਹਰੇਕ ਵਰਕਬੁੱਕ ਵਿੱਚ ਟਰਿੱਗਰ ਅਤੇ ਕਾਰਵਾਈਆਂ। ਹਰੇਕ ਰਨ ਇੱਕ ਕਤਾਰ ਨੂੰ ਲੌਗ ਕਰਦਾ ਹੈ ਜਿਸਦਾ ਤੁਸੀਂ ਬਾਅਦ ਵਿੱਚ ਆਡਿਟ ਕਰ ਸਕਦੇ ਹੋ।',
   'automations.toggle': 'ਟੌਗਲ ਕਰੋ {{name}}',
+  'automations.trigger.dailySchedule': 'ਰੋਜ਼ਾਨਾ ਸਮਾਂ-ਸਾਰਣੀ',
+  'automations.trigger.rowCreated': 'ਕਤਾਰ ਬਣਾਈ ਗਈ',
+  'automations.trigger.rowUpdated': 'ਕਤਾਰ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ',
   'billing.empty': 'ਕੋਈ ਯੋਜਨਾਵਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹਨ।',
   'billing.error.priceMissing':
     'ਇਸ ਟੀਅਰ ਲਈ ਕੋਈ ਸਟ੍ਰਾਈਪ ਕੀਮਤ ਕੌਂਫਿਗਰ ਨਹੀਂ ਕੀਤੀ ਗਈ। STRIPE_*_PRICE_ID env vars ਸੈੱਟ ਕਰੋ।',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ਚਾਰਟ',
   'charts.kpi.totalCharts': 'ਕੁੱਲ ਚਾਰਟ',
   'charts.list.empty': 'ਹਾਲੇ ਕੋਈ ਚਾਰਟ ਨਹੀਂ।',
+  'charts.namePlaceholder': 'ਆਮਦਨ ਰੁਝਾਨ',
   'charts.newChart': 'ਨਵਾਂ ਚਾਰਟ',
   'charts.primary.eyebrow': 'ਕਿਸਮ ਅਨੁਸਾਰ ਚਾਰਟ',
   'charts.primary.headline': 'ਵਰਕਸਪੇਸ ਸੰਖੇਪ ਜਾਣਕਾਰੀ',
   'charts.subhead':
     "ਤੁਹਾਡੇ ਗਰਿੱਡ ਨਾਲ ਜੁੜੇ ਲਾਈਵ ਵਿਜ਼ੂਅਲਾਈਜ਼ੇਸ਼ਨ — ਹਰੇਕ ਸੈੱਲ ਸੰਪਾਦਨ 'ਤੇ ਦੁਬਾਰਾ ਪੇਸ਼ ਕਰੋ।",
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'editor.addColumn': 'ਕਾਲਮ ਸ਼ਾਮਲ ਕਰੋ',
+  'editor.addDialogTitle': 'ਕਾਲਮ ਸ਼ਾਮਲ ਕਰੋ',
   'editor.addRow': 'ਕਤਾਰ ਸ਼ਾਮਲ ਕਰੋ',
   'editor.addSheet': 'ਸ਼ੀਟ ਸ਼ਾਮਲ ਕਰੋ',
   'editor.back': "ਵਰਕਬੁੱਕਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . ਕੈਲਸਾਈਟ ਫਾਰਮੂਲਾ-ਫਸਟ, ਮਲਟੀ-ਵਿਊ, ਰੀਅਲ-ਟਾਈਮ ਗਰਿੱਡ ਵਿਸ਼ਲੇਸ਼ਕ ਅਤੇ ਵਿੱਤ ਟੀਮਾਂ ਪਹਿਲੀ ਪ੍ਰਾਪਤੀ ਲਈ ਪਹੁੰਚਦੀਆਂ ਹਨ।',
   'landing.nav.formulas': 'ਫਾਰਮੂਲੇ',
+  'login.noAccount': '{{name}} ਲਈ ਨਵੇਂ ਹੋ?',
+  'login.signIn': '{{name}} ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ',
   'login.signUp': 'ਇੱਕ ਵਰਕਸਪੇਸ ਬਣਾਓ',
+  'nav.menu': 'ਮੀਨੂ',
+  'nav.openMenu': 'ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'notFound.cellRef': '#ਰੈਫ਼ਰ!',
   'notFound.formula': '=ਲੁੱਕਅੱਪ(REQUEST.url, "ਰੂਟਸ", "ਪੰਨਾ")',
   'notFound.headline': 'ਇਹ ਕਤਾਰ ਕਦੇ ਮੌਜੂਦ ਨਹੀਂ ਸੀ।',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ਨੇਟਿਵ ਆਟੋਮੇਸ਼ਨ · ਵੈੱਬਹੁੱਕ ਅਤੇ ਕਰੋਨ ਟ੍ਰਿਗਰ',
   'signup.creating': 'ਵਰਕਸਪੇਸ ਦੀ ਵਿਵਸਥਾ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'signup.cta': 'ਮੇਰਾ ਵਰਕਸਪੇਸ ਬਣਾਓ',
+  'signup.haveAccount': "ਕੀ ਪਹਿਲਾਂ ਹੀ {{name}} 'ਤੇ ਹੋ?",
   'signup.namePlaceholder': 'ਐਵਰੀ ਚੇਨ',
   'signup.tagline': 'ਆਪਣੀ ਪਹਿਲੀ ਵਰਕਬੁੱਕ ਨੂੰ 30 ਸਕਿੰਟਾਂ ਵਿੱਚ ਸਪਿਨ ਕਰੋ',
   'team.col.activity': 'ਸੱਦਾ ਦਿੱਤਾ ਗਿਆ',

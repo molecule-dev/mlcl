@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Nípa {{app}}',
   'analytics.back': 'Àkópọ̀ ìwádìí',
   'analytics.kpiNps': 'Àmì NPS',
   'analytics.kpiNpsTrend': 'Àwọn Olùgbéga {{p}} % · Àwọn ohun tí ń yọ àwọn ènìyàn kúrò {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Àwọn dúkìá',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Àkọlé ìwádìí',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'forgotPassword.failed': 'Kò le fi imeeli tuntun ranṣẹ. Jọwọ gbiyanju lẹẹkansii.',
   'forgotPassword.subheading': 'Tẹ imeeli rẹ sii a o si fi ọna asopọ imularada ranṣẹ si ọ.',
   'forgotPassword.successBody':
     'Tí àkọọ́lẹ̀ kan bá jọra {{email}} , ìjápọ̀ àtúntò kan ń bọ̀. Ṣàyẹ̀wò àpótí ìforúkọsílẹ̀ àti àwọn fódà àwúrúju rẹ.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Gbogbo ohùn ni a gbà.',
   'landing.footer.startTrial': 'Bẹ̀rẹ̀ ìdánwò',
   'landing.hero.badge': 'Awọn iwadii, NPS & esi ni ibi kan',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Iye idiyele',
   'landing.pricing.perMonth': '/osù',
   'landing.pricing.popular': 'Gbajúmọ̀ jùlọ',
+  'landing.pricing.subtitle':
+    'Gbogbo ètò náà ní àwọn olùkọ́lé ìwádìí, àwọn ìjápọ̀ ìpín gbogbogbò, àti àwọn àgbéyẹ̀wò NPS. Kò sí káàdì ìsanwó tí a nílò láti bẹ̀rẹ̀.',
+  'landing.pricing.title': 'Bẹ̀rẹ̀ lọ́fẹ̀ẹ́, ṣe ìwọ̀n nígbà tí o bá ṣe bẹ́ẹ̀.',
   'landing.sample.eyebrow': 'NPS ni wiwo',
   'landing.sample.title':
     'Àwọn ohun tí ń yọni lẹ́nu, àwọn ohun tí kò ṣeé ṣe, àwọn olùgbékalẹ̀ — tí a lè kà lẹ́sẹ̀kẹsẹ̀.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'login.signUpLink': 'Bẹrẹ idanwo ọfẹ kan',
   'login.subheading': 'Wọlé láti máa tẹ́tí sí àwọn olùgbọ́ rẹ.',
+  'notFound.body': 'Ojú ìwé tí o ń wá kò sí lórí {{app}} . Jẹ́ kí a jẹ́ kí o padà sí àwọn ìwádìí rẹ.',
   'notFound.cta': 'Pada si awọn iwadi',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Ìwádìí yìí ti yọ kúrò lórí ìlà.',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasifidi 7–8',
   'npsDistributionBar.promoter': 'Olùgbéga 9–10',
   'profile.identity.description': 'Gbangba fun ẹgbẹ rẹ ati lori awọn iwadi ti o kọ.',
+  'profile.identity.emailRequired': 'Tẹ adirẹsi imeeli kan sii.',
   'profile.identity.saveCta': 'Fipamọ orukọ',
   'profile.password.current': 'Ọ̀rọ̀ìpamọ́ lọ́wọ́lọ́wọ́',
   'profile.password.fillFields': 'Tẹ ọrọ igbaniwọle lọwọlọwọ ati ọrọ igbaniwọle tuntun sii.',
@@ -176,6 +184,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} awọn ibeere',
   'templates.subheading':
     'Yan ẹni tí a ti dán wò láti bẹ̀rẹ̀ ìjà — gbogbo àwòṣe náà wá pẹ̀lú àwọn ìlànà tí ó bójú mu, ìlànà àpẹẹrẹ, àti ìṣètò fóònù alágbéka tí ó mọ́.',
+  'thankYou.body': 'A ti gba ìdáhùn rẹ sílẹ̀. {{app}} yóò fi kún un nínú àtúnṣe àyẹ̀wò tó ń bọ̀.',
   'thankYou.eyebrow': 'Ìgbà tí a gbà ìdáhùn',
   'thankYou.heading': 'O ṣeun — ohùn rẹ ṣe pàtàkì.',
   'thankYou.home': 'Ṣèbẹ̀wò sí Gauge',

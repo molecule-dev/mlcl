@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Menemui pepijat, mempunyai permintaan ciri atau ingin memberitahu kami tentang filem yang anda potong? Setiap mesej sampai kepada orang sebenar dalam pasukan — hubungi pada bila-bila masa daripada tetapan akaun anda.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.eyebrow': '// studio di sebalik potongan itu',
   'about.pageTitle': 'Tentang {{appName}}',
   'assetDetail.back': 'Kembali ke perpustakaan',
   'assetDetail.confirmDelete': 'Padam " {{name}} "? Ini tidak boleh dibatalkan.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klip, katil audio dan grafik sedia untuk diletakkan pada garis masa.',
   'assetLibrary.title': 'Aset',
   'assetLibrary.upload': 'Tambah aset',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.browseTemplates': 'Layari templat →',
   'dashboard.loading': 'Memuatkan projek…',
   'dashboard.noProjects': 'Tiada projek lagi — cipta satu untuk bermula.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Pilih sesuatu yang hanya anda akan ingat.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privasi',
+  'rushesLayout.closeMenu': 'Tutup navigasi',
   'rushesLayout.guest': 'Editor',
+  'rushesLayout.navDialog': 'Navigasi',
+  'rushesLayout.openMenu': 'Buka navigasi',
   'rushesLayout.planFree': 'Pelan percuma',
   'rushesLayout.tagline': 'Garis masa sinematik',
   'settings.billing.confirmCancel': 'Batalkan langganan pada akhir tempoh?',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Réserver un rendez-vous',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Aucun patient à afficher.',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'consult.backLink': 'Tous les rendez-vous',
   'consult.captions': 'Sous-titres',
   'consult.connected': 'Connecté · 720p · stable',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Patients',
   'patientVitalsHero.scripts': 'Rx ouvertes',
   'patientVitalsHero.subline': "{{count}} consultations dans votre agenda aujourd'hui",
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'prescriptions.empty': 'Aucune ordonnance ne correspond.',
   'prescriptions.eyebrow': 'E-prescription',
   'prescriptions.heading': 'Ordonnances',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Avis de confidentialité',
   'privacy.use.body':
     "Pour fournir des soins, envoyer des rappels de rendez-vous, transmettre des ordonnances et améliorer la fiabilité du service. Nous ne vendons jamais vos données et ne partageons jamais d'informations cliniques avec des annonceurs.",
+  'providers.allSpecialties': 'Toutes les spécialités',
+  'providers.loadError': 'Échec du chargement des fournisseurs.',
+  'providers.loading': 'Chargement…',
   'providers.noResults': 'Aucun praticien trouvé.',
   'providers.searchPlaceholder': 'Rechercher par nom, spécialité...',
   'providers.title': 'Trouver un praticien',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Début de journée',
   'settings.availability.heading': 'Disponibilités',
   'settings.devices.thisDevice': 'Cet appareil',
+  'settings.devices.unnamed': 'Appareil sans nom',
   'settings.eyebrow': 'Cabinet et compte',
   'settings.loadError': 'Impossible de charger votre profil.',
   'settings.notifications.emailMessages': "M'envoyer un e-mail lorsque mon équipe soignante répond",
@@ -178,6 +184,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Désactiver',
   'settings.security.twoFactor.enable': 'Activer',
   'settings.security.twoFactor.heading': 'Authentification à deux facteurs',
+  'settings.security.twoFactor.invalidCode': 'Ce code ne correspond pas. Veuillez réessayer.',
+  'settings.security.twoFactor.setupFailed':
+    "Impossible de démarrer la configuration de l'authentification à deux facteurs. Veuillez réessayer.",
+  'settings.security.twoFactor.statusOn': "L'authentification à deux facteurs est activée.",
   'settings.signOutDevice': 'Se déconnecter',
   'settings.subheading': 'Profil praticien, règles du cabinet et alertes cliniques.',
   'signup.emailLabel': 'E-MAIL',
@@ -188,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Créer un compte',
   'signupFooter.hipaa': 'Conforme HIPAA',
   'solaceLayout.primaryNavLabel': 'Navigation principale',
+  'solaceLayout.toggleMenu': 'Basculer le menu',
   'terms.eligibility.body':
     "Vous devez avoir au moins dix-huit ans, ou être le parent ou le tuteur légal d'un mineur pour lequel vous demandez des soins, et vous trouver physiquement dans un État américain où nos cliniciens sont agréés.",
   'terms.payment.body':

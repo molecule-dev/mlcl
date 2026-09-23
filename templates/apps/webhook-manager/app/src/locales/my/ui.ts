@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} အကြောင်း',
+  'about.pageTitle': 'ဝဘ်ဟွတ်ခ် ထိန်းချုပ်မှု ပလက်ဖောင်း',
+  'about.plansTitle': 'အဆင့်တိုင်းအတွက် အစီအစဉ်တွေ',
   'apiKeys.bestPractices': 'အကောင်းဆုံးလုပ်ဆောင်မှုများ',
   'apiKeys.body':
     'Programmatic access tokens တွေ။ သူတို့ကို password တွေလို သဘောထားပါ — env vars ထဲမှာ သိမ်းထားပါ၊ ဘယ်တော့မှ commit မလုပ်ပါနဲ့။',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'အစီအစဉ်အတွင်း',
   'billing.usageWarning': 'ဦးထုပ်အနီး',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.body':
     'တိုက်ရိုက် throughput၊ ပျံသန်းနေစဉ် ပြန်လည်ကြိုးစားမှုများနှင့် သင်လည်ပတ်သည့် အလုပ်ခွင်တိုင်းတွင် ချို့ယွင်းသွားသော endpoint များ။',
   'dashboard.endpointsEmpty': 'အဆုံးမှတ်များ မရှိသေးပါ။',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'အဆုံးမှတ်များ',
   'endpointDetail.deliveryTrendSub': 'ပို့ဆောင်မှု / နာရီ၊ လော့ဂ်စကေး',
   'endpointDetail.hideSecret': 'လျှို့ဝှက်ချက်ကို ဝှက်ထားပါ',
+  'endpointDetail.loading': 'အဆုံးမှတ်ကို တင်နေသည်…',
   'endpointDetail.metric.delivered': '၂၄ နာရီအတွင်း ပို့ဆောင်ပေးသည်',
   'endpointDetail.metric.deliveredCaption': 'မှ {{count}} ပွဲအမျိုးအစားများ',
   'endpointDetail.metric.failuresCaption': 'ပြန်လည်ကြိုးစားမှုများ- {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'အရေးကြီး · ၂၄ နာရီ',
   'notifications.metric.totalCaption': 'အချိန်တိုင်း ဝင်စာပုံး',
   'payloadViewer.payload': '// ဝန်အား',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'profile.avatarHeader': 'ဗီတာ',
   'profile.avatarHint':
     'အတိုကောက်စာလုံးများ ပြသထားသည် — နောက်ထွက်ရှိမှုနှင့်အတူ အပ်လုဒ်များ ပါလာပါမည်။',
@@ -233,6 +239,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'သင့်လက်ရှိ session တစ်ခုတည်းသာ အသက်ဝင်နေပါသည်။ အခြား device များ ဝင်ရောက်ထားခြင်း မရှိပါ။',
   'profile.toggle': 'ပြောင်းရန် {{label}}',
+  'pylonShell.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'pylonShell.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'pylonShell.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'resetPassword.subtitle': 'သင်ယခင်က အသုံးမပြုဖူးသော ခိုင်မာသည့် စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
   'resetPassword.tokenPlaceholder': 'အီးမေးလ်မှ ကူးထည့်ပါ',

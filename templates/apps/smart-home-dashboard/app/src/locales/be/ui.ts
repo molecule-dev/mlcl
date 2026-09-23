@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.pageTitle': 'Пра {{app}}',
   'activity.empty': 'Пакуль няма актыўнасці — перавярніце прыладу або актывуйце сцэну.',
   'activity.eyebrow': 'Храналогія',
   'activity.loadError': 'Не атрымалася загрузіць стужку актыўнасці.',
   'activity.subheading':
     'Кожная падзея, звязаная з прыладай, аўтаматызацыяй і бяспекай, у храналагічным парадку.',
+  'addDevice.error.failed': 'Не атрымалася дадаць прыладу. Паспрабуйце яшчэ раз.',
   'addDevice.error.nameRequired': 'Каб працягнуць, дайце гэтай прыладзе назву.',
   'addDevice.field.firmware': 'Версія прашыўкі',
   'addDevice.field.manufacturer': 'Вытворца',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тэсціраванне…',
   'automationEditor.testNew': 'Спачатку захавайце аўтаматызацыю, каб праверыць яе.',
   'automationRow.lastRun': 'Апошні {{date}} · {{count}} прабежак',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Бегчы {{name}} зараз',
   'automations.empty': 'Пакуль няма аўтаматызацыі — стварыце сваю першую руціну.',
   'automations.eyebrow': 'Руціны',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Загрузка аўтаматызацый…',
   'automations.newAutomation': '+ Новы',
   'automations.subheading': 'Калі гэта адбудзецца, зрабіце гэта — без YAML.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Не атрымалася загрузіць прыладу.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Працую…',
   'deviceDetail.unnamed': 'Прылада',
   'deviceStatusRow.on': 'Уключана',
+  'deviceStatusRow.turnOff': 'Выключыць',
+  'deviceStatusRow.turnOn': 'Уключыць',
   'deviceStatusRow.watts': '{{watts}} З',
   'energy.eyebrow': 'Магутнасць',
   'energy.heading': 'Энергія',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Глядзіце планы',
   'settings.security.heading': 'Бяспека',
   'settings.subheading': 'Налады плана, цэнтраў і ўліковага запісу.',
+  'smartHomeDashboardLayout.openMenu': 'Адкрыць меню навігацыі',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Асноўная навігацыя',
 }

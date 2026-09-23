@@ -152,7 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.mismatchError': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'resetPassword.subheading':
     'வலுவான ஒன்றைத் தேர்வு செய்யுங்கள். உங்கள் புத்தகங்கள் காத்திருக்கும்.',
-  'reviewCard.starsAria': 'மதிப்பிடப்பட்டது<x> மதிப்பீடு</x> வெளியே<x> {{இல்}}</x> நட்சத்திரங்கள்',
+  'reviewCard.starsAria': '{{rating}} நட்சத்திரங்களில் {{of}} என மதிப்பிடப்பட்டது',
   'reviewCard.unratedAria': 'மதிப்பிடப்படாத',
   'reviews.eyebrow': 'உங்களுடன் எது தங்கியது',
   'reviews.heading': 'உங்கள் விமர்சனங்கள்',

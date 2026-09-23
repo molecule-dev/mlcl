@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'about.tagline': 'Sekretet vdesin në shesh.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Krijo token',
   'apiTokens.kicker': 'API tokens',
   'apiTokens.loading': 'Duke ngarkuar tokenët…',
+  'apiTokens.new': 'Token i ri',
   'apiTokens.revoke': 'Anulo tokenin',
   'apiTokens.subheading':
     'Tokenë personalë dhe shërbimi për CLI dhe SDK të Arcanum. Teksti i thjeshtë shfaqet një herë gjatë krijimit.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Çelësi i Kalimit',
   'authShell.zeroKnowledge': 'Enkriptimi me njohuri zero',
   'common.connecting': 'Duke u lidhur…',
+  'common.goToDashboard': 'Shko te paneli',
   'common.inviting': 'Duke ftuar…',
   'forgotPassword.checkInbox':
     'Nëse {email} është i regjistruar, një lidhje e nënshkruar e rivendosjes do të mbërrijë brenda një minute.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Statusi i rrotullimit, alarmet e anomalive dhe kërkesat për miratim në çdo kasafortë.',
   'notifications.unreadEmpty': 'Kutia hyrëse zero — të gjitha të kapura.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.heading': 'sekretet',
   'pricing.limits.accessPolicies': 'politikat e aksesit',
   'pricing.limits.auditLog': 'hyrjet e regjistrit të auditimit',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Llogari personale',
   'profile.plan.description': 'Menaxho abonimin tënd, shiko limitet dhe përmirëso.',
   'profile.subheading': 'Identiteti, pajisjet e faktorit të dytë dhe seancat aktive.',
+  'profile.twoFactor.code': 'Kodi i vërtetimit',
   'profile.twoFactor.disable': 'Çaktivizo',
   'profile.twoFactor.enable': 'Aktivizo',
+  'profile.twoFactor.invalidCode': 'Kod i pavlefshëm',
   'profile.twoFactor.kicker': 'Autentifikimi me dy faktorë',
+  'profile.twoFactor.off': 'Nuk është aktivizuar',
   'profile.twoFactor.on': 'Aktivizuar',
   'resetPassword.email': 'Email-i i llogarisë',
   'resetPassword.heading': 'Vendos kredencialet e reja',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'komandat',
   'secretsManagerLayout.encrypted': 'AES-256 · I KRIPTUAR',
   'secretsManagerLayout.newVault': 'Kasafortë e re',
+  'secretsManagerLayout.newVaultShort': 'E re',
   'secretsManagerLayout.rotations': 'Rrotullimet',
   'secretsManagerLayout.search': 'kërkim',
   'secretsManagerLayout.searchPlaceholder': 'Kërko sekretet sipas çelësit, shtegut ose etiketës…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sekretet',
   'vaultCard.vaultLabel': 'Kasafortë',
   'vaultDetail.addSecret': 'Shto sekret',
+  'vaultDetail.back': 'Të gjitha kasafortat',
   'vaultDetail.col.key': 'Çelësi',
   'vaultDetail.col.rotated': 'Rrotulluar',
   'vaultDetail.col.value': 'Vlerë',

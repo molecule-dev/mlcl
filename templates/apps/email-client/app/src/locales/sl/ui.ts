@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Smo razpršena ekipa oblikovalcev in inženirjev, ki smo nekoč vsak dan preživeli preveč ur v hrupnem poštnem predalu. Courier je poštni predal, ki smo ga želeli uporabljati sami.',
   'about.title': 'E-pošta za osredotočeno delo',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'help.cta.about': 'O podjetju Courier',
   'help.cta.pricing': 'Oglejte si cene',
   'help.eyebrow': 'Center za pomoč',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Hitri odgovori na najpogostejša vprašanja. Kaj manjka? Odpri Nastavitve in uporabi obrazec za povratne informacije v aplikaciji ali piši na support@courier.example.',
   'help.title': 'Kako lahko pomagamo?',
   'landing.brand.scrollTop': 'Nazaj na vrh',
+  'landing.copyright': '© {{year}} {{appName}} — Zasnovan za osredotočenost.',
   'landing.ctaBody':
     'Pridružite se tisočem strokovnjakov, ki so še pred kosilom opravili z delom v svojem nabiralniku.',
   'landing.ctaTitle': 'Več delaj, manj se odzivaj.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Oglejte si predstavitev',
   'landing.heroSubtitle':
     'Courier je preprost predal za prejemno pošto s tremi okni, namenjen strokovnim delavcem, ki želijo informacije obdelovati, ne pa se nanje zgolj odzivati.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Zaupanje usmerjenih ekip po vsem svetu',
   'landing.signIn': 'Prijava',
   'meridian.archive.empty': 'Arhiv je prazen.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Osnutek',
   'meridian.folder.count': '{{count}} sporočila',
+  'meridian.folder.delete': 'Izbriši',
   'meridian.folder.deleteForever': 'Trajno izbriši',
   'meridian.folder.restore': 'Premakni v predal za prejete sporočila',
   'meridian.forgot.subtitle':
@@ -88,7 +92,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Tu še ni nobenih sporočil.',
   'meridian.inbox.loading': 'Nalaganje …',
   'meridian.inbox.next': 'Naprej',
+  'meridian.inbox.noSender': '(brez pošiljatelja)',
   'meridian.inbox.noSubject': '(brez zadeve)',
+  'meridian.inbox.ofTotal': '{{current}} od {{total}}',
   'meridian.inbox.openCompose': 'Odpri okno za pisanje',
   'meridian.inbox.previous': 'Prejšnji',
   'meridian.inbox.replyFailed': 'Odgovor je shranjen, vendar se pošiljanje ni uspelo: {{error}}',
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Še nimate računa?',
   'meridian.login.showPassword': 'Pokaži geslo',
   'meridian.message.toLine': 'na {{recipients}}',
+  'meridian.notFound.body':
+    'Strani, ki jo iščete, ni bilo mogoče najti. Vrnite se v mapo »Prejeto {{appName}} in pomagali vam bomo najti pravo pot.',
   'meridian.notFound.eyebrow': 'Napaka 404',
   'meridian.notFound.title': 'Ta nit je bila arhivirana.',
   'meridian.notFound.toInbox': 'Odpri moj predal za prejete sporočila',
@@ -137,18 +145,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Dodaj zvezdico',
   'meridian.thread.unstar': 'Odstrani zvezdico',
   'meridian.time.yesterday': 'Včeraj',
+  'meridian.topBar.openMenu': 'Odpri navigacijski meni',
   'meridian.topBar.searchPlaceholder': 'Iskanje po pošti',
   'meridian.trash.empty': 'Koš je prazen.',
   'meridian.trash.title': 'Koš',
   'nav.legal': 'Pravno',
   'planUpdated.description':
     'Vaša naročnina je zdaj aktivna, podatki za zaračunavanje pa so bili posodobljeni. Dobrodošli v prenovljenem Courierovem nabiralniku.',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.heading': 'osnutki',
   'pricing.limit.emails': 'elektronska sporočila',
   'pricing.limit.folders': 'mape',
   'pricing.limit.labels': 'nalepke',
   'privacy.collect.account':
     'Podatki o računu: ime, e-poštni naslov, šifrirano geslo in datum registracije.',
+  'privacy.contact': 'Imate vprašanja? Pišite nam na privacy@courier.example.',
   'privacy.intro':
     'Ta politika zasebnosti pojasnjuje, katere podatke zbira Courier, zakaj jih zbiramo, kako jih varujemo in kakšne možnosti imate v zvezi z njimi. Želimo biti konkretni in ne le pravniško natančni; če vam kaj ni jasno, nam pišite na privacy@courier.example.',
   'privacy.lastUpdated': 'Zadnja posodobitev: 1. april 2026',
@@ -168,6 +179,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ti pogoji urejajo vašo uporabo storitve Courier. Z odprtjem računa ali pošiljanjem e-pošte prek naše storitve se strinjate, da vas ti pogoji zavezujejo. Prizadevamo si, da bi pravila oblikovali tako, da jih je mogoče dejansko upoštevati.',
   'terms.lastUpdated': 'Velja od: 1. aprila 2026',
+  'terms.linkPrivacy': 'Preberite našo politiko zasebnosti →',
   'terms.termination.body':
     'Račun lahko kadarkoli izbrišete. Račun, ki krši te pogoje, lahko začasno onemogočimo; v tem primeru vam bomo pojasnili razlog in vam omogočili, da najprej izvozite svoje podatke.',
   'terms.warranty.body':

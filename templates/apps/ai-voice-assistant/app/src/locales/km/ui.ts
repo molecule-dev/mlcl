@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ សំណើសុំមុខងារ ឬរកឃើញកំហុស? សូមទាក់ទងក្រុម {{app}} តាមរយៈតំណភ្ជាប់ជំនួយនៅក្នុងម៉ឺនុយគណនីរបស់អ្នក — រាល់សារទាំងអស់នឹងទៅដល់មនុស្សពិត។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'agentDetail.back': 'ភ្នាក់ងារទាំងអស់',
   'agentDetail.capabilities': 'សមត្ថភាព',
   'agentDetail.delete': 'លុប​បុគ្គលិកលក្ខណៈ',
   'agentDetail.deleteConfirm': 'លុប​បុគ្គលិកលក្ខណៈ​នេះ? នេះ​មិន​អាច​ត្រឡប់​វិញ​បាន​ទេ។',
+  'agentDetail.deleteError': 'មិនអាចលុបបុគ្គលិកលក្ខណៈបានទេ។',
   'agentDetail.eyebrow': 'បុគ្គលិកលក្ខណៈ',
   'agentDetail.fetchError': 'មិនអាចផ្ទុក persona បានទេ។',
   'agentDetail.save': 'រក្សាទុកបុគ្គលិកលក្ខណៈ',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'កំពុងប្តូរ…',
   'billing.updateError': 'មិនអាចចាប់ផ្តើមធ្វើបច្ចុប្បន្នភាពបានទេ។',
   'billing.usageHeading': 'ការប្រើប្រាស់សំឡេងក្នុងវដ្តនេះ',
+  'chatBubble.source.text': 'អត្ថបទ',
+  'chatBubble.source.voice': 'សំឡេង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'conversation.defaultTitle': 'ការសន្ទនាថ្មី',
   'conversation.empty': 'មិនទាន់មានសារនៅឡើយទេ។ ចាប់ផ្តើមដោយនិយាយអ្វីមួយ ឬវាយបញ្ចូលខាងក្រោម។',
   'conversation.eyebrow': 'វគ្គផ្សាយផ្ទាល់',
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'conversationDetail.eyebrow': 'ប្រតិចារឹក',
   'conversationDetail.fetchError': 'មិនអាចផ្ទុកប្រតិចារឹកបានទេ។',
   'conversationDetail.loading': 'កំពុងផ្ទុកប្រតិចារឹក…',
+  'conversationDetail.meta': '{{duration}} · {{count}} វេន',
   'conversationDetail.pause': 'ផ្អាកការចាក់ឡើងវិញ',
   'conversationDetail.play': 'ចាក់​វីដេអូ​ឡើងវិញ',
   'conversationDetail.setSpeed': 'កំណត់ល្បឿនចាក់ឡើងវិញទៅ {{speed}}',
@@ -96,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'បញ្ញាដែលនិយាយ។',
   'landing.heroSubtitle':
     'ជំនួយការសំឡេង AI ដែលយល់ពីលំហូរធម្មជាតិរបស់អ្នក។ សន្ទនា បង្កើតគំនិត និងបញ្ជា — យ៉ាងរលូន។',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'កំពុងស្តាប់…',
   'landing.naturallyBody':
     'គ្មានពាក្យគន្លឹះទេ។ គ្មានពាក្យបញ្ជាតឹងរ៉ឹងទេ។ ភាសាអាចយល់បរិបទ ការរំខាន និងភាពខុសប្លែកគ្នានៃការនិយាយរបស់មនុស្ស — ដូចជាការជជែកជាមួយមិត្តរួមការងារ។',
@@ -114,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'បើកវគ្គមួយ',
   'notFound.home': 'ត្រឡប់​ទៅ​ផ្ទះ​វិញ',
   'notFound.title': 'យើងមិនអាចឮទំព័រនោះទេ។',
+  'parlanceLayout.closeMenu': 'បិទម៉ឺនុយ',
+  'parlanceLayout.openMenu': 'បើកម៉ឺនុយរុករក',
   'parlanceLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'pricing.conversations': '{{count}} ការសន្ទនា',
   'pricing.cta.startFree': 'ចាប់ផ្តើមដោយឥតគិតថ្លៃ',
@@ -150,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'គ្មាន​ការ​ផ្គូផ្គង​ទេ',
   'search.eyebrow': 'ក្ដារលាយពាក្យបញ្ជា',
   'search.fetchError': 'មិនអាចផ្ទុកលិបិក្រមស្វែងរកបានទេ។',
+  'search.static.profile.preview': 'ឈ្មោះបង្ហាញ, អាសយដ្ឋាន, ជីវប្រវត្តិ',
   'search.static.voice.title': 'សំឡេង',
   'search.title': 'ស្វែងរក​សុន្ទរកថា',
   'search.transcriptPreview': 'បើក​ប្រតិចារឹក',

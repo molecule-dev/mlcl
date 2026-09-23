@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.title': '{{app}} గురించి',
   'auth.login.noAccount': 'స్పార్క్‌కు కొత్తగా వచ్చారా?',
   'auth.login.or': 'లేదా కొనసాగించండి',
   'auth.signup.or': 'లేదా దీనితో సైన్ అప్ చేయండి',
+  'common.confirm': 'నిర్ధారించండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.loadError': 'ఈ కంటెంట్‌ను లోడ్ చేయడంలో ఏదో పొరపాటు జరిగింది.',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'discover.collections.title': 'వర్గం వారీగా బ్రౌజ్ చేయండి',
   'discover.collections.viewAll': 'మీ గ్రంథాలయాన్ని చూడండి →',
   'discover.empty.body': 'వేరే వర్గాన్ని ప్రయత్నించండి లేదా శోధనను తొలగించండి.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'మీ విజయ పరంపరను కొనసాగించడానికి, ప్రత్యక్ష ఆటలను నిర్వహించడానికి మరియు లీడర్‌బోర్డ్‌లో పైకి ఎదగడానికి సైన్ ఇన్ చేయండి.',
   'myQuizzes.createButton': 'కొత్త క్విజ్',
+  'myQuizzes.deleteConfirm': 'శాశ్వతంగా తొలగించాలా?',
   'myQuizzes.empty.createCta': 'మీ మొదటి క్విజ్‌ను రూపొందించండి →',
   'myQuizzes.empty.created': 'మీరు ఇంకా క్విజ్‌ను రూపొందించలేదు.',
   'myQuizzes.empty.played': 'ఇంకా క్విజ్‌లు ఏవీ ప్రచురించబడలేదు.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'లోడ్ అవుతోంది…',
   'notifications.subhead':
     '{{count}} చదవని స్పార్క్స్. ఆహ్వానాలు, లీడర్‌బోర్డ్ కదలికలు మరియు విజయాలు అన్నీ ఒకే స్ట్రీమ్‌లో.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.checkoutError': 'చెక్‌అవుట్ ప్రారంభించలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
+  'pricing.heading': 'మీ {{app}} ప్లాన్ ఎంచుకోండి',
   'pricing.included': 'చేర్చబడింది',
   'pricing.loadError': 'ప్లాన్‌లను లోడ్ చేయలేకపోయాము.',
   'pricing.maxQuizzes': '{{count}} క్విజ్‌లు',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ఇంకా ఏమీ ప్రచురించలేదు.',
   'profile.startBuilding': 'నిర్మించడం ప్రారంభించండి →',
   'profile.tier': 'స్పార్క్ ప్లేయర్',
+  'quizBuilder.addFailed': 'ప్రశ్నను జోడించలేకపోయాము. మళ్ళీ ప్రయత్నించండి.',
   'quizBuilder.addQuestion': 'ప్రశ్నను జోడించండి',
   'quizBuilder.answerPlaceholder': 'ఒక ఎంపికను టైప్ చేయండి…',
   'quizBuilder.answersLabel': 'జవాబు ఎంపికలు',
   'quizBuilder.back': 'నా క్విజ్‌లకు తిరిగి వెళ్లండి',
   'quizBuilder.delete': 'ప్రశ్నను తొలగించండి',
+  'quizBuilder.deleteFailed': 'ప్రశ్నను తొలగించలేకపోయాను.',
   'quizBuilder.firstQuestion': 'ప్రారంభించడానికి మీ మొదటి ప్రశ్నను జోడించండి.',
   'quizBuilder.idLabel': 'క్విజ్ ఐడి: {{id}}',
   'quizBuilder.loadError': 'క్విజ్‌ను లోడ్ చేయలేకపోయాను.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'కనీసం రెండు జవాబు ఎంపికలను జోడించి, సరైనదాన్ని ఎంచుకోండి {{count}} ప్రచురించే ముందు ప్రశ్న(లు).',
   'quizBuilder.questionsTitle': 'ప్రశ్నలు',
+  'quizBuilder.saveFailed': 'శీర్షికను సేవ్ చేయలేకపోయాము. మళ్ళీ ప్రయత్నించండి.',
   'quizBuilder.statusDraft': 'ముసాయిదా',
   'quizBuilder.subhead':
     'శీర్షికను సవరించండి, ప్రశ్నలను జోడించండి, ఎంపికలను మరియు సరైన సమాధానాన్ని సెట్ చేయండి. మార్పులు స్వయంచాలకంగా సేవ్ అవుతాయి.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'మల్టీప్లేయర్‌ను హోస్ట్ చేయండి',
   'quizDetail.leaderboardEmpty':
     'ఇంకా ఆటలు ప్రారంభం కాలేదు — స్కోరును నమోదు చేసే మొదటి వ్యక్తి మీరే అవ్వండి.',
+  'quizDetail.loadError': 'ఈ క్విజ్‌ను లోడ్ చేయలేకపోయాను.',
   'quizDetail.loading': 'క్విజ్ లోడ్ అవుతోంది…',
   'quizDetail.plays': '{{count}} నాటకాలు',
   'quizDetail.playSolo': 'సోలో ప్లే',

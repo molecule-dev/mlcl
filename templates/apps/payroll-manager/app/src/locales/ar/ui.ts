@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'auditLog.empty':
     'لا توجد أحداث تدقيق تطابق عوامل التصفية الخاصة بك بعد. عدّل موظفًا أو نفّذ دورة رواتب وستظهر هنا.',
   'auditLog.eyebrow': 'الامتثال',
+  'auditLog.loadError': 'تعذر تحميل سجل التدقيق.',
   'auditLog.searchPlaceholder': 'ابحث حسب المنفّذ أو الإجراء أو الوصف',
   'auditLog.subheading':
     'كل موافقة وتعديل وإقرار ضريبي — مع المنفّذ والطابع الزمني والحقول المعدّلة.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'غير مُهيّأ',
   'billing.plansHeading': 'الخطط',
   'billing.subheading': 'أدِر خطتك وبدّل الطبقات عبر Stripe.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'إعادة المحاولة',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'لقطة الامتثال',
   'dashboard.compliance.title': 'جميع الفحوصات ناجحة',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'لا توجد استقطاعات مسجّلة.',
   'employeeDetail.notFound': 'الموظف غير موجود.',
   'employeeDetail.payFrequency': 'تردد الدفع',
+  'employeeDetail.postTax': 'بعد الضريبة',
+  'employeeDetail.preTax': 'قبل الضريبة',
   'employeeDetail.salary': 'الراتب السنوي',
   'employeeDetail.ssn': 'رقم الضمان الاجتماعي',
   'employeeDetail.startedOn': 'بدأ في {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'تردد الدفع',
   'employeeForm.salary': 'الراتب السنوي (بالدولار الأمريكي)',
   'employeeForm.salaryInvalid': 'يجب أن يكون الراتب رقمًا غير سالب.',
+  'employeeForm.saveError': 'لم يتمكن من إنقاذ الموظف.',
   'employeeForm.semimonthly': 'نصف شهري',
   'employeeForm.single': 'أعزب/عزباء',
   'employeeForm.ssn': 'رقم الضمان الاجتماعي',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'الموظف',
   'employeesTable.col.salary': 'الراتب',
   'forgotPassword.subtitle': 'أدخل بريدك الإلكتروني للعمل وسنرسل إليك رابط إعادة التعيين.',
+  'landing.copyright': '© {{year}} {{app}} . دقيق، موثوق، متزن.',
   'landing.ctaBody':
     'مجاني لمدة 30 يومًا. بدون بطاقة ائتمان. بدّل في أي وقت دون فقدان سجل التدقيق الخاص بك.',
   'landing.ctaHeading': 'نفّذ دورتك التالية على Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'البنود',
   'payRunDetail.noActivity': 'لا توجد بنود تدقيق لدورة الرواتب هذه بعد.',
   'payRunDetail.noStubs': 'لا توجد كعوب رواتب بعد — وافق ونفّذ لتوليدها.',
+  'payRunDetail.notFound': 'لم يتم العثور على هذه الدفعة.',
   'payRunDetail.statDeductions': 'الاستقطاعات',
   'payRunDetail.statHeadcount': 'الموظفون',
   'payRunDetail.statTaxes': 'الضرائب المقتطعة',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'نصف شهري',
   'settings.signOutDevice': 'تسجيل الخروج',
   'settings.subheading': 'ملف الشركة وجدول الدفع وعمليات التكامل.',
+  'settings.twoFactorCode': 'رمز المصادقة',
   'settings.twoFactorDisable': 'تعطيل',
+  'settings.twoFactorInvalidCode': 'رمز غير صالح',
+  'settings.twoFactorVerify': 'التحقق والتفعيل',
   'settings.weekly': 'أسبوعي',
   'taxCenter.bucket.federal': 'الدخل الفيدرالي',
   'taxCenter.bucket.fica': 'الضمان الاجتماعي',

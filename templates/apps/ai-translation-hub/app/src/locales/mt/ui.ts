@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'billing.canceled': "Abbonament ikkanċellat. Int terġa' lura għal B'Xejn fi tmiem il-perjodu.",
   'billing.contactSales': 'Ikkuntattja l-bejgħ',
   'billing.free.1': '5 traduzzjonijiet',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': "L-ebda limitu ta' żamma",
   'billing.upgradeHint': 'Aġġorna biex tiftaħ karatteristiċi avvanzati tal-AI.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.activityEmpty': "Għad m'hemm l-ebda attività — ibda proġett biex timla dan il-feed.",
   'dashboard.eyebrow': 'Ħarsa ġenerali',
   'dashboard.projectsEmpty': "Għad m'hemm l-ebda proġett — ibda wieħed biex tarah hawn.",
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     "Erġa' uża traduzzjonijiet tal-passat f'kull proġett. Punteġġ ta' tqabbil ogħla → inqas xogħol mill-ġdid.",
   'memory.title': 'Bank tal-memorja',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'nav.legal': 'Legali',
   'newProject.addLanguage': 'Żid mira',
   'newProject.create': 'Oħloq proġett',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Immarkat {{count}} notifiki kif moqrija.',
   'notifications.subtitle':
     'Semmi, talbiet għal reviżjonijiet, u avvenimenti tal-AI mill-ispazji tax-xogħol tiegħek kollha.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'privacy.collection.account': 'L-email tal-kont tiegħek u l-isem tal-wiri',
   'privacy.deletion.body':
     "Tista' tħassar proġett, segment, terminu tal-glossarju, jew entrata fil-memorja fi kwalunkwe ħin mill-paġna rilevanti. It-tħassir tal-kont tiegħek mis-Settings ineħħi kull ringiela fl-ambitu tal-ispazju tax-xogħol mid-database tagħna.",
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Ma rnexxiex jitgħabbew il-proġetti.',
   'projects.loading': 'Qed jitgħabbew il-proġetti…',
   'projects.subtitle': 'Kull proġett attiv fil-lokalitajiet kollha.',
+  'renditionLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'reset.backToLogin': 'Lura għall-login',
   'reset.passwordLabel': 'Password ġdida',
   'review.activeEyebrow': 'Segment {{number}}',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'compose.cancel': 'Ακύρωση',
   'compose.captionPlaceholder': 'Τι έχεις στο μυαλό σου;',
   'compose.heading': 'Μοιραστείτε μια στιγμή',
@@ -99,6 +103,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Επαληθευμένος λογαριασμός',
   'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading': 'Διάλεξε κάτι δυνατό — τουλάχιστον 12 χαρακτήρες.',
+  'search.clearAria': 'Εκκαθάριση',
+  'search.error': 'Η αναζήτηση απέτυχε. Δοκιμάστε ξανά.',
   'search.noPeople': 'Δεν υπάρχουν δημιουργοί που να ταιριάζουν " {{q}} ".',
   'search.noPosts': 'Δεν υπάρχουν αναρτήσεις που να ταιριάζουν " {{q}} ".',
   'search.noTags': 'Δεν υπάρχουν ακόμα δημοφιλή hashtag.',
@@ -129,6 +135,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Απόκρυψη κωδικού',
   'signup.showPassword': 'Εμφάνιση κωδικού',
   'signup.subheading': 'Δημιουργήστε έναν λογαριασμό για να ξεκινήσετε την κοινοποίηση.',
+  'socialMediaLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'socialMediaLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'socialMediaLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'storyRail.heading': 'Ιστορίες',
   'storyRail.label': 'Ιστορίες',
   'storyRail.openAria': 'Ανοιχτό {{handle}} η ιστορία του',

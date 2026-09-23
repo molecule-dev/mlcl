@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'billing.canceled': 'המנוי בוטל. תחזור למצב חינמי בסוף התקופה.',
   'billing.contactSales': 'צרו קשר עם המכירות',
   'billing.free.1': '5 תרגומים',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'אין מגבלת שמירה',
   'billing.upgradeHint': 'שדרגו כדי לפתוח תכונות בינה מלאכותית מתקדמות.',
   'billing.yearly': 'שְׁנָתִי',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.activityEmpty': 'אין עדיין פעילות - התחל פרויקט למילוי פיד זה.',
   'dashboard.eyebrow': 'סקירה כללית',
   'dashboard.projectsEmpty': 'אין עדיין פרויקטים - התחל אחד כדי לראות אותו כאן.',
@@ -108,6 +110,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'שימוש חוזר בתרגומים קודמים בכל פרויקט. ציון התאמה גבוה יותר → פחות עבודה חוזרת.',
   'memory.title': 'בנק זיכרון',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'nav.legal': 'מִשׁפָּטִי',
   'newProject.addLanguage': 'הוסף יעד',
   'newProject.create': 'צור פרויקט',
@@ -135,6 +139,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'מוקדם יותר',
   'notifications.markedAllRead': 'מְסוּמָן {{count}} התראות כנקראו.',
   'notifications.subtitle': 'אזכורים, בקשות סקירה ואירועי בינה מלאכותית מכל סביבות העבודה שלך.',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'privacy.collection.account': 'כתובת הדוא"ל ושם התצוגה של החשבון שלך',
   'privacy.deletion.body':
     'ניתן למחוק פרויקט, פלח, מונח במילון מונחים או ערך זיכרון בכל עת מהדף הרלוונטי. מחיקת החשבון שלך מההגדרות מוחקת כל שורה בטווח סביבת העבודה ממסד הנתונים שלנו.',
@@ -169,6 +174,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'טעינת הפרויקטים נכשלה.',
   'projects.loading': 'טוען פרויקטים…',
   'projects.subtitle': 'כל פרויקט פעיל בכל הלוקליות.',
+  'renditionLayout.primaryNavLabel': 'ניווט ראשי',
   'reset.backToLogin': 'חזרה לכניסה',
   'reset.passwordLabel': 'סיסמה חדשה',
   'review.activeEyebrow': 'מִגזָר {{number}}',

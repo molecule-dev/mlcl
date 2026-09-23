@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// o aplikácii {{app}}',
+  'about.pageTitle': 'Riadiaca rovina webhooku',
+  'about.plansTitle': 'Plány pre každú fázu',
   'apiKeys.bestPractices': 'Najlepšie postupy',
   'apiKeys.body':
     'Programové prístupové tokeny. Zaobchádzajte s nimi ako s heslami – ukladajte ich do premenných prostredia, nikdy ich necommitujte.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'v rámci plánu',
   'billing.usageWarning': 'blízko stropu',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.body':
     'Priepustnosť v reálnom čase, opakované pokusy počas prevádzky a koncové body, ktoré práve zablokovali riešenie – v každom pracovnom priestore, ktorý prevádzkujete.',
   'dashboard.endpointsEmpty': 'Zatiaľ žiadne koncové body.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'koncové body',
   'endpointDetail.deliveryTrendSub': 'dodávky/hodina, logaritmická mierka',
   'endpointDetail.hideSecret': 'Skryť tajomstvo',
+  'endpointDetail.loading': 'Načítava sa koncový bod…',
   'endpointDetail.metric.delivered': 'Doručené do 24 hodín',
   'endpointDetail.metric.deliveredCaption': 'z {{count}} typy udalostí',
   'endpointDetail.metric.failuresCaption': 'opakované pokusy: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritické · 24 hodín',
   'notifications.metric.totalCaption': 'doručená pošta za celú dobu',
   'payloadViewer.payload': '// užitočné zaťaženie',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Zobrazené iniciály – nahrané súbory budú súčasťou ďalšieho vydania.',
   'profile.body': 'Váš účet, nastavenia a aktívne relácie.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Aktívna je iba vaša aktuálna relácia. Nie sú prihlásené žiadne iné zariadenia.',
   'profile.toggle': 'Prepnúť {{label}}',
+  'pylonShell.closeMenu': 'Zatvoriť navigačné menu',
+  'pylonShell.openMenu': 'Otvoriť navigačné menu',
   'pylonShell.primaryNavLabel': 'Hlavná navigácia',
   'resetPassword.subtitle': 'Zvoľte si silné heslo, ktoré ste doteraz nepoužívali.',
   'resetPassword.tokenPlaceholder': 'text z e-mailu',

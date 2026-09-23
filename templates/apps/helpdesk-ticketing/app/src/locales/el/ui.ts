@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.title': 'Σχετικά με το {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Επαγγελματική φωτογραφία μιας γυναίκας υποστήριξης με φιλικό χαμόγελο σε ένα σύγχρονο γραφείο',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Επικοινωνήστε με την υποστήριξη',
   'forgotPassword.error': 'Αδυναμία αποστολής email επαναφοράς. Δοκίμασε ξανά.',
   'forgotPassword.rememberPassword': 'Θυμάστε τον κωδικό πρόσβασής σας;',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Σύνδεση — Υποστήριξη Zenith',
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.welcomeSubheading': 'Συνδεθείτε στον πίνακα ελέγχου υποστήριξής σας',
+  'mobileNav.closeMenu': 'Κλείσιμο πλοήγησης',
+  'mobileNav.menu': 'Πλοήγηση',
+  'mobileNav.openMenu': 'Άνοιγμα πλοήγησης',
   'nav.legal': 'Νομικά',
   'nav.newTicket': 'Νέο εισιτήριο',
   'notifications.loadError': 'Δεν ήταν δυνατή η φόρτωση των ειδοποιήσεων. Δοκιμάστε ξανά σε λίγο.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Αναζήτηση εντολών',
   'operatorDock.newReport': 'Νέα Αναφορά',
   'operatorDock.systemOnline': 'Σύστημα online',
+  'planUpdated.subtitle': 'Ευχαριστούμε',
   'planUpdated.title': 'Το πρόγραμμα ενημερώθηκε',
   'pricing.agents': 'πράκτορες',
   'pricing.automation': 'Κανόνες αυτοματισμού',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{όνομα}} Το άβαταρ του',
   'ticketDetail.errorTitle': 'Κάτι πήγε στραβά',
+  'ticketDetail.loadError': 'Αποτυχία φόρτωσης εισιτηρίου.',
+  'ticketDetail.notFound': 'Δεν βρέθηκε εισιτήριο',
+  'ticketDetail.replyError': 'Αποτυχία αποστολής απάντησης. Δοκιμάστε ξανά.',
   'ticketDetail.retry': 'Δοκιμάστε ξανά',
   'ticketDetail.statusUpdateError': 'Δεν ήταν δυνατή η ενημέρωση της κατάστασης. Δοκιμάστε ξανά.',
   'ticketDetailsCard.assigneeLabel': 'Εντολοδόχος',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{φορά}} αριστερά',
   'ticketRow.title': 'Η σύνδεση με τη βάση δεδομένων αποτυγχάνει στην παραγωγή {{κόμβος}}',
   'tickets.pageTitle': 'Εισιτήρια — Υποστήριξη Zenith',
+  'ticketsFab.newTicket': 'Νέο εισιτήριο',
   'ticketsFilterBar.assigneeLabel': 'Εντολοδόχος:',
   'ticketsFilterBar.clearFilters': 'Καθαρισμός φίλτρων',
   'ticketsFilterBar.dateRangeDemoHint':

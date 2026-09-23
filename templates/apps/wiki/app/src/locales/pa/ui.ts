@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'ਹੱਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
   'comments.subtitle':
     'ਦ {{count}} ਥ੍ਰੈੱਡ ਅਜੇ ਵੀ ਜਵਾਬ ਜਾਂ ਸੰਕਲਪ ਦੀ ਉਡੀਕ ਕਰ ਰਹੇ ਹਨ। ਉਮਰ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ — ਸਭ ਤੋਂ ਵੱਡਾ ਪਹਿਲਾਂ, ਇਸ ਲਈ ਕੁਝ ਵੀ ਨਹੀਂ ਸੜਦਾ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'forgotPassword.sentTo': 'ਲਿੰਕ ਰੀਸੈਟ ਕਰੋ ਜਿਸਨੂੰ ਭੇਜਿਆ ਗਿਆ {{email}}',
   'forgotPassword.successSubheading':
     'ਆਪਣਾ ਇਨਬਾਕਸ ਚੈੱਕ ਕਰੋ — ਅਸੀਂ ਹੁਣੇ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਿਆ ਹੈ। ਇਸਦੀ ਮਿਆਦ 30 ਮਿੰਟਾਂ ਵਿੱਚ ਖਤਮ ਹੋ ਜਾਵੇਗੀ।',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'ਨਵਾਂ ਪੰਨਾ',
   'pageTreeSidebar.workspaceHeader': 'ਵਰਕਸਪੇਸ',
   'pageView.breadcrumb': 'ਬਰੈੱਡਕ੍ਰੰਬ',
+  'pageView.confirmTrash': 'ਕੀ ਇਸਨੂੰ ਰੱਦੀ ਵਿੱਚ ਸੁੱਟਣਾ ਹੈ?',
   'pageView.home': 'ਮੁੱਖ ਪੇਜ',
   'pageView.lastEdited': 'ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ {{when}}',
   'pageView.loading': 'ਪੰਨਾ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'ਸੰਖੇਪ ਵਿੱਚ...',
   'pageView.summaryUnavailable': 'ਇਸ ਵਰਕਸਪੇਸ ਲਈ AI ਸੰਖੇਪ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ।',
   'pageView.tocTitle': "ਇਸ ਪੰਨੇ 'ਤੇ",
+  'pageView.trash': 'ਰੱਦੀ',
+  'pageView.trashing': 'ਰੱਦੀ ਵਿੱਚ ਸੁੱਟਿਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'pageView.versionBadge': 'ਵੀ{{version}}',
   'profile.badges.title': 'ਬੈਜ',
   'profile.owned.title': 'ਮਲਕੀਅਤ ਵਾਲੇ ਪੰਨੇ',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'ਵਰਕਸਪੇਸ, ਪ੍ਰੋਫਾਈਲ, ਸੂਚਨਾਵਾਂ, ਏਕੀਕਰਨ — ਸਭ ਇੱਕ ਸ਼ਾਂਤ ਸ਼ੈੱਲ ਵਿੱਚ।',
   'settingsPage.workspace.defaultLanding': 'ਡਿਫਾਲਟ ਲੈਂਡਿੰਗ ਸਕ੍ਰੀਨ',
   'settingsPage.workspace.landingHome': 'ਮੁੱਖ ਪੇਜ',
+  'settingsPage.workspace.landingSpaces': 'ਸਪੇਸ',
   'settingsPage.workspace.subdomainLabel': 'ਸਬਡੋਮੇਨ',
   'settingsPage.workspace.title': 'ਵਰਕਸਪੇਸ',
   'signup.eyebrow': 'ਇੱਕ ਨਵਾਂ ਵਰਕਸਪੇਸ ਸ਼ੁਰੂ ਕਰੋ',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} ਮਿੰਟ',
   'templates.subtitle':
     "ਇੱਕ ਪੰਨਾ ਇੱਕ ਸਟੈਂਸਿਲ ਤੋਂ ਸ਼ੁਰੂ ਕਰੋ, ਇੱਕ ਖਾਲੀ ਕੈਨਵਸ ਤੋਂ ਨਹੀਂ। ਹਰੇਕ ਟੈਂਪਲੇਟ ਆਕਾਰ ਨੂੰ ਸਖ਼ਤ-ਕੋਡ ਕਰਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਸੀਂ ਸਮੱਗਰੀ 'ਤੇ ਧਿਆਨ ਕੇਂਦਰਿਤ ਕਰ ਸਕੋ।",
+  'trash.confirmPurge': 'ਹਮੇਸ਼ਾ ਲਈ ਸਾਫ਼ ਕਰੋ?',
+  'trash.confirmPurgeAria': "ਪੁਸ਼ਟੀ ਕਰੋ: {{title}} ਨੂੰ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾਓ",
   'trash.daysUntilPurge': '{{days}} ਦਿਨ ਬਾਕੀ',
   'trash.empty.body': 'ਮਿਟਾਏ ਗਏ ਪੰਨੇ ਸਾਫ਼ ਕੀਤੇ ਜਾਣ ਤੋਂ ਪਹਿਲਾਂ 30 ਦਿਨਾਂ ਲਈ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'trash.empty.title': 'ਰੱਦੀ ਖਾਲੀ ਹੈ।',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'ਰੀਸਟੋਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
   'versionHistory.subtitle': '{{count}} ਵਰਜਨ · ਅੰਤਰ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ ਇੱਕ ਕਤਾਰ ਚੁਣੋ',
   'versionHistory.versionLabel': 'ਵੀ{{v}}',
+  'wikiLayout.closeMenu': 'ਨੇਵੀਗੇਸ਼ਨ ਬੰਦ ਕਰੋ',
+  'wikiLayout.menu': 'ਨੇਵੀਗੇਸ਼ਨ',
+  'wikiLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਖੋਲ੍ਹੋ',
   'wikiLayout.searchPlaceholder': 'ਕੇਅਰਨ ਖੋਜੋ — ਪੰਨੇ, ਟਿੱਪਣੀਆਂ…',
 }

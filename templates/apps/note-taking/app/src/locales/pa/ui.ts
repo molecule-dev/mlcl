@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'forgot.eyebrow': 'ਵਾਪਸ ਜਾਣ ਦਾ ਰਸਤਾ ਭੁੱਲ ਗਏ ਹੋ?',
   'forgot.formSubtitle': "ਸਾਨੂੰ ਫਾਈਲ 'ਤੇ ਈਮੇਲ ਦੱਸੋ।",
   'forgot.headline': 'ਆਪਣਾ ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰੋ।',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ਇੱਕ ਬਣਾਓ',
   'login.subline':
     'ਤੁਹਾਡੀਆਂ ਨੋਟਬੁੱਕਾਂ, ਬੈਕਲਿੰਕਸ, ਅਤੇ ਰੋਜ਼ਾਨਾ ਪੰਨੇ ਉੱਥੇ ਹੀ ਹਨ ਜਿੱਥੇ ਤੁਸੀਂ ਉਨ੍ਹਾਂ ਨੂੰ ਛੱਡਿਆ ਸੀ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'noteEditor.backToNotes': "ਨੋਟਸ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'noteEditor.bodyPlaceholder':
     'ਲਿਖਣਾ ਸ਼ੁਰੂ ਕਰੋ — ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ ਟਾਈਪ ਕਰਦੇ ਹੋ, ਤੁਹਾਡਾ ਨੋਟ ਆਪਣੇ ਆਪ ਸੁਰੱਖਿਅਤ ਹੋ ਜਾਂਦਾ ਹੈ।',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'ਨਵੀਂ ਨੋਟਬੁੱਕ',
   'notes.newNotebookPrompt': 'ਨਵੀਂ ਨੋਟਬੁੱਕ ਦਾ ਨਾਮ',
   'notes.notebooksHeading': 'ਨੋਟਬੁੱਕਾਂ',
+  'notes.subtitle':
+    'ਖੱਬੇ ਪਾਸੇ ਇੱਕ ਨੋਟਬੁੱਕ ਚੁਣੋ, ਫਿਰ ਇੱਕ ਨਵੀਂ ਐਂਟਰੀ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਨਵਾਂ ਨੋਟ ਬਟਨ ਦਬਾਓ।',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'ਆਪਣੀ ਨੋਟ ਲੈਣ ਦੀ ਯੋਜਨਾ ਚੁਣੋ',
   'reset.eyebrow': 'ਲਗਭਗ ਵਾਪਸ ਆ ਗਿਆ ਹਾਂ',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
   'versoLayout.nav.graph': 'ਗ੍ਰਾਫ਼',
   'versoLayout.nav.home': 'ਮੁੱਖ ਪੇਜ',
+  'versoLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'versoNoteCard.pinned': 'ਪਿੰਨ ਕੀਤਾ ਗਿਆ',
   'versoTodayHero.continueCta': 'ਲਿਖਣਾ ਜਾਰੀ ਰੱਖੋ',
   'versoTodayHero.createCta': 'ਅੱਜ ਦਾ ਨੋਟ ਸ਼ੁਰੂ ਕਰੋ',

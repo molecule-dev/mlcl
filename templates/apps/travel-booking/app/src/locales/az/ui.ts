@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.featureDiscover.title': 'İlham, əl ilə seçilmiş',
   'account.addPaymentCta': 'Ödəniş metodu əlavə edin',
   'account.addPaymentError': 'Ödəniş metodu əlavə edilə bilmədi.',
+  'account.confirmRemove': 'Silinməni təsdiqləyin',
   'account.defaultBadge': 'Defolt',
   'account.loyalty.pointsTowardNext': '{{points}} -ın {{növbəti}} milə qədər {{növbəti səviyyə}}',
   'account.loyalty.tier': 'Hazırkı səviyyə',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Səfər təfərrüatları',
   'booking.tripSummary': '{{nights}} gecələr · {{guests}} qonaqlar',
   'common.daysAgo': '{{count}} gün əvvəl',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.hoursAgo': '{{count}} saat əvvəl',
   'common.minutesAgo': '{{count}} m əvvəl',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Hüquqi',
   'notifications.loading': 'Yüklənir…',
   'notifications.subheading': '{{count}} oxunmamış · hər şey bir sakit gələnlər qutusunda',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.accommodationsLabel': 'yaşayış yerləri',
   'pricing.bookingsLabel': 'sifarişlər',
   'pricing.destinationsLabel': 'yadda saxlanılan təyinat yerləri',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'İlham, etibarlı qonaqlamalar və xəyaldan sifariş edilmişə qədər rahat bir yol — 14 ölkə və 200-dən çox əl ilə yoxlanılmış əmlak.',
   'sojournHeroSearchCard.trustProtected': 'Pulsuz ləğv, tam qorunur',
   'sojournHeroSearchCard.trustVetted': 'Yalnız əl ilə yoxlanılmış əmlaklar',
+  'travelBookingLayout.primaryNavLabel': 'Əsas naviqasiya',
   'tripDetail.backLink': 'Səfərlərə qayıt',
   'tripDetail.cancelCta': 'Sifarişi ləğv edin',
   'tripDetail.cancelHeading': 'Bu səfər ləğv edilsin?',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.eyebrow': 'O aplikaci {{app}}',
   'about.pageTitle': 'Každá trasa, jedno vyhledávání.',
   'booking.backToDetail': 'Zpět na podrobnosti o letu',
   'booking.continue': 'Pokračovat k platbě',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Daně a poplatky',
   'booking.summary.travelers': 'Cestovatelé',
   'common.about': 'O aplikaci',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'flightDetail.backToResults': 'Zpět na výsledky',
   'flightDetail.baseFare': 'Základní jízdné',
   'flightDetail.book': 'Pokračovat k rezervaci',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 zastávka',
   'flightResultCard.select': 'Vybrat',
   'flightResultCard.totalLabel': 'Celkový čas',
+  'flightSearchLayout.primaryNavLabel': 'Primární navigace',
   'forgotPassword.subheading':
     'Zadejte e-mailovou adresu uvedenou ve vašem účtu Skylark a my vám zašleme zabezpečený odkaz pro resetování.',
   'forgotPassword.successBody':
     'Kontrola {{email}} pro odkaz pro nastavení nového hesla. Platnost odkazu vyprší za 30 minut.',
   'forgotPassword.successHeading': 'Odkaz pro resetování byl odeslán',
   'landing.cta.explore': 'Zkuste hledat',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Najděte další skvělé jídlo dříve než všichni ostatní.',
   'landing.cta.signup': 'Začněte sledovat jízdné',
   'landing.features.eyebrow': 'Proč Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Přidat upozornění',
   'priceAlerts.deleteConfirm': 'Odebrat toto upozornění?',
   'priceAlerts.empty': 'Zatím žádné sledované trasy.',
+  'priceAlerts.emptyCta': 'Vyhledat trasu pro sledování',
   'priceAlerts.errorMessage': 'Nepodařilo se načíst upozornění.',
   'priceAlerts.eyebrow': 'Seznam sledovaných skřivanů',
   'priceAlerts.form.createError': 'Upozornění se nepodařilo vytvořit.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerář pro více měst',
   'results.multiLegHeading': 'Noha {{n}} · {{z}} → {{na}} · {{datum}}',
   'results.multiSummary': '{{count}} nohy · {{passengers}} cestovatel',
+  'results.sortAriaLabel': 'Seřadit výsledky podle',
   'results.sortLabel': 'Seřadit',
   'results.summary': '{{count}} lety · {{passengers}} cestovatel',
   'settings.language.title': 'Jazyk',

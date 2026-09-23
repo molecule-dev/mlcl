@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Duke parë',
   'auctionDetail.watchRemoved': 'U hoq nga lista e mbikëqyrjes.',
   'auctionDetail.watchRemoveLabel': 'Hiq nga lista e mbikëqyrjes',
+  'auctionPlatformLayout.primaryNavLabel': 'Navigimi kryesor',
   'authShell.brandBody':
     'Bëni oferta në kohë reale për ora të rralla, vepra arti të bukura dhe artikuj të veçantë. Çekiçi bie brenda sekondash.',
   'authShell.brandEyebrow': 'Drejtpërdrejt tani · 1,420 ankande',
@@ -50,6 +51,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Rendit sipas',
   'browseAuctions.subheading':
     'Filtro sipas kategorisë, rendit sipas asaj që ka më shumë rëndësi dhe bëj një ofertë përpara se të bjerë çekiçi.',
+  'common.goToDashboard': 'Shko te paneli',
   'countdownTimer.ended': 'Mbaroi',
   'countdownTimer.endingSoon': 'Mbarimi',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.subtext':
     'Vazhdoni të gjurmoni ankandet tuaja dhe vendosni ofertat përpara se të bjerë çekiçi.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'myBids.bidAgain': 'Oferto përsëri',
   'myBids.browseCta': 'Shfletoni ankandet live →',
   'myBids.checkoutCta': 'Paguaj tani',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Qendra e aktiviteteve',
   'notificationsPage.subheading':
     '{{count}} të palexuara · përditësime të drejtpërdrejta ndërsa ankandet lëvizin',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.bidsLabel': 'ofertat',
   'pricing.listingsLabel': 'listat',
   'pricing.watchlistLabel': 'listë mbikëqyrjeje',

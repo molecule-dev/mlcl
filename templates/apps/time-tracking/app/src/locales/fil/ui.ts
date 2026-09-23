@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'about.plansTitle': 'Mga planong lumalaki kasabay mo',
   'brand.tagline': 'Bawat segundo',
   'clientDetail.back': 'Balik sa mga kliyente',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Bawat relasyon sa iisang lugar — mga proyekto, oras, mga natitirang invoice.',
   'clients.title': 'Mga Kliyente',
   'common.and': 'at',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.activeProjects': 'Mga aktibong proyekto',
   'dashboard.empty':
     'Wala pang mga entry. Simulan ang timer para subaybayan ang iyong unang sesyon.',
@@ -87,6 +89,7 @@ export const ui: UiTranslations = {
     'Walang oras na sisingilin para sa kliyenteng ito. Subaybayan muna ang ilang oras o magtalaga ng mga umiiral na entry sa isa sa mga proyekto ng kliyenteng ito.',
   'invoices.save': 'Gumawa ng invoice',
   'invoices.subtitle': 'Awtomatikong isinasama sa mga invoice ang mga sinusubaybayang oras.',
+  'landing.copyright': '© {{year}} {{app}} . Bawat segundo, isinasaalang-alang.',
   'landing.ctaBody':
     'Libre para sa hanggang 3 proyekto. Mag-upgrade kapag dumating na ang listahan ng iyong kliyente.',
   'landing.eyebrow': 'Pagsubaybay sa oras para sa gawaing maaaring singilin',
@@ -102,13 +105,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Pinagkakatiwalaan ng mga independente',
   'landing.testimonial.quote':
     '\\u201cUmalis na ako sa Toggl sa loob ng 30 minuto. Ang pagkaubos ng badyet pa lang ay nabayaran na ang sarili nito \\u2014 Tumigil na ako sa pagkukulang sa quotation sa loob ng dalawang linggong magkakasunod.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Bawat segundo, isinasaalang-alang.',
   'login.brand.subtitle':
     'Ipagpatuloy ang timer kung saan ka tumigil — bawat minuto ay naka-map na sa isang proyekto, kliyente, o invoice.',
   'login.brand.tracking': 'Pagsubaybay',
   'login.subheading': 'Ipagpatuloy ang timer kung saan ka tumigil.',
+  'nav.closeMenu': 'Isara ang menu ng nabigasyon',
   'nav.insightsSection': 'Mga pananaw',
   'nav.newEntry': 'Bagong Entry',
+  'nav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'nav.primary': 'Pangunahing navigation',
   'nav.workSection': 'Trabaho',
   'notFound.body':
     'Mukhang tumigil na sa pagsubaybay ang link na sinundan mo. Bumalik sa iyong dashboard \\u2014 patuloy kaming magbibilang mula roon.',
@@ -209,6 +216,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Maaring singilin',
   'timer.descriptionPlaceholder': 'Ano ang ginagawa mo?',
   'timer.idle': 'Idle — simulan ang pagsubaybay',
+  'timer.noProject': 'Walang proyekto',
   'timer.runningWithProject': 'Walang proyekto',
   'timer.start': 'Timer ng pagsisimula',
   'timer.stop': 'Itigil ang timer',

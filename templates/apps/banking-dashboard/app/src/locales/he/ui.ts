@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
   'accountDetail.activeBadge': 'פָּעִיל',
   'accountDetail.availableLabel': '{{amount}} זָמִין',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'חשבונות',
   'accounts.loadError': 'טעינת החשבונות נכשלה.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'קָפוּא',
   'accounts.totalBalance': '{{סְכוּם}} סַך הַכֹּל',
   'audit.empty': 'אין אירועים עדיין.',
   'audit.eyebrow': 'אבטחה וגישה',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'מזומן בהישג יד',
   'cashCreditCard.creditLabel': 'אשראי בשימוש',
   'cashCreditCard.title': 'מזומן ואשראי',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.accountsHeading': 'חשבונות',
   'dashboard.heading': 'סקירה כללית',
   'dashboard.recentEmpty': 'אין עדיין עסקאות.',
@@ -42,10 +45,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'הצג סיסמה',
   'login.signUp': 'הרשמה',
   'login.submit': 'כניסה',
+  'meridianLayout.menu': 'תַפרִיט',
   'meridianLayout.primaryNavLabel': 'ניווט ראשי',
   'nav.legal': 'מִשׁפָּטִי',
   'notifications.emptyHeading': 'אתם מעודכנים',
   'notifications.subheading': 'התראות בזמן אמת על עסקאות, אבטחה ודוחות.',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'privacy.dataWeShare':
     'נתוני בנקאות אישיים לעולם אינם נמכרים. אנו משתפים מידע עם מעבדי תשלומים, רשתות כרטיסי אשראי ורגולטורים רק כנדרש לצורך סידור עסקאות או עמידה בהתחייבויות חוקיות.',
   'privacy.dataWeStore':
@@ -77,10 +82,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'אפשרות דו-גורמית מוסיפה קוד חד-פעמי מאפליקציית אימות בכל כניסה.',
   'settings.security.twoFactorCta': 'ניהול אימות דו-שלבי',
+  'settings.security.twoFactorOff': 'שני גורמים כבויים',
   'settings.signOutDevice': 'יציאה',
   'settings.subheading': 'פרופיל, אבטחה והתראות.',
+  'settings.twoFactorCode': 'קוד אימות',
   'settings.twoFactorDisable': 'השבת',
   'settings.twoFactorEnable': 'לְאַפשֵׁר',
+  'settings.twoFactorInvalidCode': 'קוד לא תקין',
+  'settings.twoFactorVerify': 'אימות והפעלה',
   'signup.emailLabel': 'כתובת דוא"ל',
   'signup.fullName': 'איך עלינו לפנות אליך?',
   'signup.showPassword': 'הצג סיסמה',
@@ -102,7 +111,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'אין עדיין עסקאות.',
   'transactions.endDate': 'תאריך סיום',
   'transactions.eyebrow': 'פְּעִילוּת',
+  'transactions.loadError': 'טעינת העסקאות נכשלה.',
   'transactions.merchant': 'סוֹחֵר',
+  'transactions.subheading': 'כל עסקה שפורסמה וממתינה בחשבונות שלך.',
   'transfers.availableHint': '{{amount}} זָמִין',
   'transfers.errorGeneric': 'לא ניתן היה להגיש את ההעברה.',
   'transfers.errorMissingFields': 'בחר חשבון מקור ויעד.',

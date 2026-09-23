@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.eyebrow': 'អំពី {{app}}',
+  'about.intro':
+    '{{app}} គឺជាកម្មវិធីសមាធិសម្រាប់ជីវិតពិត — ការធ្វើសមាធិដែលមានការណែនាំប្រចាំថ្ងៃ ការហាត់ដកដង្ហើម និងរឿងរ៉ាវអំពីការគេង ដែលមានល្បឿនយឺតៗដោយគ្រូបង្រៀនដែលមានអារម្មណ៍ដូចជាមិត្តភក្តិ មិនមែនជាគ្រូបង្វឹកនោះទេ។ គ្មានកំហុសជាប់លាប់ គ្មានសំឡេងរំខាន៖ គ្រាន់តែជាកន្លែងស្ងប់ស្ងាត់មួយដើម្បីត្រលប់មកដកដង្ហើមរបស់អ្នកវិញ។',
+  'about.missionBody':
+    'យើងជឿជាក់ថា ភាពស្ងប់ស្ងាត់គួរតែអាចចូលដំណើរការបានសម្រាប់មនុស្សគ្រប់គ្នា គ្រប់ពេលវេលានៃថ្ងៃ។ {{app}} មានដើម្បីធ្វើឱ្យការអនុវត្តដ៏ស្ងប់ស្ងាត់ និងស៊ីសង្វាក់គ្នាមានអារម្មណ៍ថាគ្មានការប្រឹងប្រែង — ដូច្នេះដប់នាទីដ៏ស្មោះត្រង់អាចផ្លាស់ប្តូររបៀបដែលអ្នកបំពេញតម្រូវការដប់ម៉ោងបន្ទាប់។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.pageTitle': 'ស្ងប់ស្ងាត់ជាងមុន ១០ នាទីក្នុងមួយថ្ងៃ',
+  'breathingDial.seconds': 'វិនាទី',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.logout': 'ចាកចេញ',
   'common.min': 'នាទី',
   'common.relative.justNow': 'អម្បាញ់មិញ',
   'common.relative.now': 'ឥឡូវនេះ',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
+  'nav.secondaryNavigation': 'ការរុករកគណនី',
   'sessionCard.with': 'ជាមួយ {{name}}',
   'stillpoint.billing.choose': 'ជ្រើសរើស {{plan}}',
   'stillpoint.billing.currentPlan': 'បច្ចុប្បន្នកំពុងបើក {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'យើងមិនអាចផ្ទុកផែនការបានទេ។',
   'stillpoint.billing.opening': 'កំពុងបើកការទូទាត់ប្រាក់…',
   'stillpoint.billing.perMonthShort': '/ ខែ',
+  'stillpoint.billing.perYearShort': '/ឆ្នាំ',
   'stillpoint.billing.unknownResult': 'ការឆ្លើយតប​វិក្កយបត្រ​ដែលមិនបានរំពឹងទុក។',
   'stillpoint.billing.yearly': 'ប្រចាំឆ្នាំ · សន្សំបាន ១៧%',
   'stillpoint.courseDetail.back': 'វគ្គសិក្សា',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'មិនទាន់មានវគ្គសិក្សានៅឡើយទេ។',
   'stillpoint.courses.eyebrow': '{{count}} ដំណើរកម្សាន្តច្រើនថ្ងៃ',
   'stillpoint.courses.heading': 'វគ្គសិក្សា',
+  'stillpoint.forgot.checkEmail':
+    'សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក — តំណភ្ជាប់នឹងផុតកំណត់ក្នុងរយៈពេល 30 នាទី។',
   'stillpoint.forgot.success': 'យើងបានផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញទៅ {{email}} ។',
   'stillpoint.home.empty': 'មិនទាន់មានវគ្គនៅឡើយទេ — សូមពិនិត្យមើលម្តងទៀតឆាប់ៗនេះ។',
   'stillpoint.home.friend': 'មិត្តភ័ក្តិ',
@@ -49,6 +66,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'បង្កើតគណនីឥតគិតថ្លៃរបស់អ្នក',
   'stillpoint.landing.cta.title': 'ចាប់ផ្តើមភាពស្ងប់ស្ងាត់របស់អ្នកនៅថ្ងៃនេះ',
   'stillpoint.landing.features.heading': 'ការអនុវត្តមួយដែលរីកចម្រើនជាមួយអ្នក',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}។',
   'stillpoint.landing.hero.body':
     'ការធ្វើសមាធិដែលមានការណែនាំប្រចាំថ្ងៃ លំហាត់ដកដង្ហើម និងរឿងរ៉ាវអំពីការគេង — បង្រៀនដោយគ្រូបង្រៀនដែលមានអារម្មណ៍ដូចជាមិត្តភក្តិ មិនមែនជាគ្រូបង្វឹកទេ។',
   'stillpoint.landing.hero.eyebrow': 'ស្ងប់ស្ងាត់ជាងមុន ១០ នាទីក្នុងមួយថ្ងៃ',
@@ -65,6 +83,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'រកមើលតាមអារម្មណ៍',
   'stillpoint.login.rememberMe': 'រក្សាខ្ញុំឱ្យនៅដដែល',
   'stillpoint.login.subheading': 'ចូលគណនីដើម្បីបន្តការអនុវត្តរបស់អ្នក។',
+  'stillpoint.nav.tagline': 'ស្វែងរកមជ្ឈមណ្ឌលស្ងប់ស្ងាត់របស់អ្នក',
+  'stillpoint.notFound.body':
+    'ទំព័រនេះកំពុងដកដង្ហើមវែងៗ និងជ្រៅៗនៅកន្លែងណាមួយ។ ចូរយើងរកកន្លែងស្ងាត់ជាងនេះសម្រាប់អ្នកនៅក្នុង {{app}} ។',
   'stillpoint.notFound.title': 'បាត់បង់នៅក្នុងភាពស្ងៀមស្ងាត់',
   'stillpoint.notFound.toHome': 'ត្រឡប់ទៅថ្ងៃនេះវិញ',
   'stillpoint.notFound.toLibrary': 'រកមើលបណ្ណាល័យ',
@@ -82,6 +103,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'រំលង​ថយក្រោយ 15 វិនាទី',
   'stillpoint.player.skipForward': 'រំលងទៅមុខ 30 វិនាទី',
   'stillpoint.player.with': 'ជាមួយ {{name}}',
+  'stillpoint.profile.defaultHandle': 'សូចនាករ​នៅ​ស្ងៀម',
   'stillpoint.profile.eyebrow': 'ការអនុវត្តរបស់អ្នក ត្រូវបានសង្ខេប។',
   'stillpoint.profile.locked': 'ចាក់សោ',
   'stillpoint.profile.member': 'សមាជិក Stillpoint',

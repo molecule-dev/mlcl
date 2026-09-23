@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'analytics.channels.empty': 'ابھی تک کوئی چینل ڈیٹا نہیں ہے۔',
   'analytics.channels.title': 'چینل کے ذریعے',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'فی دن بات چیت',
   'chatBubble.avatarAlt': '{{speaker}} اوتار',
   'common.appName': 'تعلق',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'confidenceMeter.label': 'اعتماد',
   'conversationDetail.agentName': 'ایجنٹ',
   'conversationDetail.aiReplyButton': 'بوٹ جواب',
   'conversationDetail.aiReplyError': 'AI جواب نہیں بنا سکا',
   'conversationDetail.aiReplyLoading': 'مسودہ تیار کیا جا رہا ہے…',
+  'conversationDetail.aiReplySourceFallback': 'فال بیک (کوئی AI کلید نہیں)',
   'conversationDetail.backAria': 'بات چیت پر واپس جائیں۔',
   'conversationDetail.composerPlaceholder': 'کسٹمر کو جواب دیں…',
   'conversationDetail.context.channel': 'چینل',
@@ -157,8 +160,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'اپنے اکاؤنٹ کے لیے نیا پاس ورڈ سیٹ کریں۔',
   'resetPassword.toggleConfirm': 'پاس ورڈ کی مرئیت کی تصدیق کو ٹوگل کریں۔',
   'resetPassword.togglePassword': 'پاس ورڈ کی مرئیت کو ٹوگل کریں۔',
+  'settings.account.emailError': 'ای میل کو اپ ڈیٹ کرنے میں ناکام',
   'settings.account.emailLabel': 'ای میل ایڈریس',
+  'settings.account.emailSaved': 'ای میل کو اپ ڈیٹ کر دیا گیا۔',
+  'settings.account.nameError': 'نام کو اپ ڈیٹ کرنے میں ناکام',
   'settings.account.nameLabel': 'ڈسپلے کا نام',
+  'settings.account.nameSaved': 'نام اپ ڈیٹ کر دیا گیا۔',
   'settings.account.title': 'اکاؤنٹ',
   'settings.api.createCta': 'ٹوکن بنائیں',
   'settings.api.description':
@@ -171,10 +178,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'جذبات کم ہونے پر خود بخود بڑھیں۔',
   'settings.bot.greetingLabel': 'پہلا پیغام سلام',
   'settings.bot.title': 'بوٹ کنفیگریشن',
+  'settings.bot.toneFormal': 'رسمی',
   'settings.bot.toneLabel': 'آواز اور لہجہ',
   'settings.danger.deleteAccount': 'اکاؤنٹ حذف کریں۔',
+  'settings.danger.deleteError': 'اکاؤنٹ حذف کرنے میں ناکام',
+  'settings.danger.deleteWarning':
+    'یہ آپ کا اکاؤنٹ اور تمام متعلقہ ڈیٹا کو مستقل طور پر حذف کر دیتا ہے۔ اسے کالعدم نہیں کیا جا سکتا۔',
   'settings.danger.deleting': 'حذف ہو رہا ہے…',
+  'settings.danger.passwordLabel': 'اپنے پاس ورڈ کی تصدیق کریں۔',
   'settings.danger.title': 'خطرہ زون',
+  'settings.devices.empty': 'کوئی آلات رجسٹرڈ نہیں ہیں۔',
+  'settings.devices.revokeWarning':
+    'اس ڈیوائس کی رسائی جلد منسوخ کر دی جائے گی۔ اسے سائن آؤٹ کریں؟',
+  'settings.devices.signingOut': 'سائن آؤٹ ہو رہا ہے…',
   'settings.devices.signOut': 'سائن آؤٹ کریں۔',
   'settings.devices.thisDevice': 'یہ ڈیوائس',
   'settings.devices.title': 'آلات',
@@ -187,9 +203,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'پاس ورڈ تبدیل کرنے میں ناکام',
   'settings.security.currentPassword': 'موجودہ پاس ورڈ',
   'settings.security.newPassword': 'نیا پاس ورڈ',
+  'settings.security.oauthManaged':
+    'آپ کے پاس ورڈ کا نظم آپ کے سائن ان فراہم کنندہ کے ذریعے کیا جاتا ہے۔',
   'settings.security.title': 'سیکورٹی',
   'settings.security.twoFactorDisable': 'غیر فعال کریں۔',
   'settings.security.twoFactorEnable': 'فعال کریں۔',
+  'settings.security.twoFactorInvalid': 'غلط کوڈ',
   'settings.subtitle': 'رپورٹ کی آواز، علمی ذرائع، اور وہ ٹولز جس سے وہ بات کرتا ہے ٹیون کریں۔',
   'settings.tokenCreateError': 'ٹوکن بنانے میں ناکام',
   'settings.tokenRevokeError': 'ٹوکن منسوخ کرنے میں ناکام',

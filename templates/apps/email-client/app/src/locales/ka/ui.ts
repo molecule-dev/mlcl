@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ჩვენ ვართ დიზაინერებისა და ინჟინრების განაწილებული გუნდი, რომლებიც ერთ დროს ყოველდღიურად ძალიან ბევრ საათს ხმაურიან საფოსტო ყუთში ატარებდნენ. Courier არის შემოსულების ყუთი, რომლის გამოყენებაც თავად გვინდოდა.',
   'about.title': 'ელფოსტა ფოკუსირებული სამუშაოსთვის',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'help.cta.about': 'მერიდიანის შესახებ',
   'help.cta.pricing': 'ფასების ნახვა',
   'help.eyebrow': 'დახმარების ცენტრი',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'სწრაფი პასუხები ყველაზე ხშირად გასმულ კითხვებზე. რამე გამოგრჩათ? გახსენით პარამეტრები და გამოიყენეთ აპლიკაციაში არსებული უკუკავშირის ფორმა, ან მოგვწერეთ support@courier.example-ზე.',
   'help.title': 'როგორ შეგვიძლია დახმარება?',
   'landing.brand.scrollTop': 'დაბრუნება ზევით',
+  'landing.copyright': '© {{year}} {{appName}} — ფოკუსირებისთვის შექმნილი.',
   'landing.ctaBody': 'შემოუერთდით ათასობით პროფესიონალს, რომლებმაც შემოსულები სადილამდე დაასრულეს.',
   'landing.ctaTitle': 'მეტი დაამუშავე, ნაკლები რეაგირება მოახდინე.',
   'landing.eyebrow': 'ელფოსტა ფოკუსირებული სამუშაოსთვის',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'დემოს ყურება',
   'landing.heroSubtitle':
     'Courier არის მშვიდი, სამფანჯრიანი შემოსულების საქაღალდე, რომელიც შექმნილია ცოდნის მქონე მუშაკებისთვის, რომლებსაც სურთ ინფორმაციის დამუშავება და არა მასზე რეაგირება.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'მთელი მსოფლიოს მასშტაბით ორიენტირებული გუნდების ნდობით აღსავსე',
   'landing.signIn': 'შესვლა',
   'meridian.archive.empty': 'არქივი ცარიელია.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'პროექტი',
   'meridian.folder.count': '{{count}} შეტყობინებები',
+  'meridian.folder.delete': 'წაშლა',
   'meridian.folder.deleteForever': 'სამუდამოდ წაშლა',
   'meridian.folder.restore': 'შემოსულებში გადატანა',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'აქ ჯერ შეტყობინებები არ არის.',
   'meridian.inbox.loading': 'იტვირთება…',
   'meridian.inbox.next': 'შემდეგი',
+  'meridian.inbox.noSender': '(გამგზავნი არ არის)',
   'meridian.inbox.noSubject': '(სათაურის გარეშე)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}} დან',
   'meridian.inbox.openCompose': 'გახსენით შედგენა',
   'meridian.inbox.previous': 'წინა',
   'meridian.inbox.replyFailed': 'პასუხი შენახულია, მაგრამ მიწოდება ვერ მოხერხდა: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'ანგარიში არ გაქვთ?',
   'meridian.login.showPassword': 'პაროლის ჩვენება',
   'meridian.message.toLine': 'რომ {{recipients}}',
+  'meridian.notFound.body':
+    'გვერდი, რომელსაც ეძებთ, ვერ მოიძებნა. დაბრუნდით თქვენს {{appName}} შემოსულებში და ჩვენ დაგეხმარებით სწორი მიმართულებით წასვლაში.',
   'meridian.notFound.eyebrow': 'შეცდომა 404',
   'meridian.notFound.title': 'ეს თემა არქივში გადაიდო.',
   'meridian.notFound.toInbox': 'გახსენით ჩემი შემოსულები',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ვარსკვლავის დამატება',
   'meridian.thread.unstar': 'ვარსკვლავის წაშლა',
   'meridian.time.yesterday': 'გუშინ',
+  'meridian.topBar.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'meridian.topBar.searchPlaceholder': 'ფოსტის ძიება',
   'meridian.trash.empty': 'ნაგავი ცარიელია.',
   'meridian.trash.title': 'ნაგავი',
   'nav.legal': 'იურიდიული',
   'planUpdated.description':
     'თქვენი გამოწერა ახლა აქტიურია და თქვენი ანგარიშსწორება განახლებულია. კეთილი იყოს თქვენი მობრძანება Courier-ის განახლებულ შემოსულებში.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.heading': 'მონახაზები',
   'pricing.limit.emails': 'ელფოსტები',
   'pricing.limit.folders': 'საქაღალდეები',
   'pricing.limit.labels': 'ეტიკეტები',
   'privacy.collect.account':
     'ანგარიშის მონაცემები: სახელი, ელექტრონული ფოსტის მისამართი, ჰეშირებული პაროლი და რეგისტრაციის თარიღი.',
+  'privacy.contact': 'კითხვები? მოგვწერეთ ელ. ფოსტაზე privacy@courier.example.',
   'privacy.intro':
     'ეს კონფიდენციალურობის პოლიტიკა განმარტავს, თუ რა მონაცემებს აგროვებს Courier, რატომ ვაგროვებთ მათ, როგორ ვინახავთ მათ უსაფრთხოდ და რა არჩევანი გაქვთ მათთან დაკავშირებით. ჩვენი მიზანია ვიყოთ კონკრეტულები და არა იურიდიულად მკაცრი; თუ რამე გაურკვეველია, მოგვწერეთ privacy@courier.example-ზე.',
   'privacy.lastUpdated': 'ბოლო განახლება: 2026 წლის 1 აპრილი',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ეს პირობები არეგულირებს Courier-ის თქვენს მიერ გამოყენებას. ანგარიშის შექმნით ან ჩვენი მეშვეობით ელფოსტის გაგზავნით თქვენ ეთანხმებით მათ ვალდებულებას. ჩვენ ვცდილობთ შევქმნათ წესები, რომელთა დაცვაც ადამიანს რეალურად შეუძლია.',
   'terms.lastUpdated': 'ძალაში შედის: 2026 წლის 1 აპრილიდან',
+  'terms.linkPrivacy': 'წაიკითხეთ ჩვენი კონფიდენციალურობის პოლიტიკა →',
   'terms.termination.body':
     'თქვენ შეგიძლიათ ნებისმიერ დროს წაშალოთ თქვენი ანგარიში. ჩვენ შეიძლება შევაჩეროთ ანგარიში, რომელიც არღვევს ამ პირობებს; თუ ამას გავაკეთებთ, ჩვენ აგიხსნით მიზეზს და ჯერ თქვენი მონაცემების ექსპორტის საშუალებას მოგცემთ.',
   'terms.warranty.body':

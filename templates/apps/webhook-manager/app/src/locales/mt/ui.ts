@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// dwar {{app}}',
+  'about.pageTitle': "Il-pjan ta' kontroll tal-webhook",
+  'about.plansTitle': 'Pjanijiet għal kull stadju',
   'apiKeys.bestPractices': 'L-aħjar prattiki',
   'apiKeys.body':
     "Tokens ta' aċċess programmatiku. Ittrattahom bħal passwords — aħżenhom f'varjabbli tal-ambjent, qatt ma tagħmel commit.",
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'fil-pjan',
   'billing.usageWarning': 'qrib l-għatu',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.body':
     "Throughput dirett, tentattivi mill-ġdid waqt it-titjira, u l-endpoints li għadhom kif waqfu — f'kull spazju tax-xogħol li topera.",
   'dashboard.endpointsEmpty': "Għad m'hemm l-ebda endpoints.",
@@ -109,6 +113,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'punti tat-tmiem',
   'endpointDetail.deliveryTrendSub': 'kunsinni / siegħa, skala logaritmika',
   'endpointDetail.hideSecret': 'Aħbi sigriet',
+  'endpointDetail.loading': 'Qed jitgħabba l-endpoint…',
   'endpointDetail.metric.delivered': 'Imwassal 24 siegħa',
   'endpointDetail.metric.deliveredCaption': "minn {{count}} tipi ta' avvenimenti",
   'endpointDetail.metric.failuresCaption': 'tentattivi mill-ġdid: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritiku · 24 siegħa',
   'notifications.metric.totalCaption': "l-inbox ta' kull żmien",
   'payloadViewer.payload': '// tagħbija utli',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Inizjali murija — uploads ġejjin mar-rilaxx li jmiss.',
   'profile.body': 'Il-kont tiegħek, il-preferenzi, u s-sessjonijiet attivi.',
@@ -228,6 +234,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Is-sessjoni attwali tiegħek biss hija attiva. L-ebda apparat ieħor mhu illoggjat.',
   'profile.toggle': 'Aqleb {{label}}',
+  'pylonShell.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'pylonShell.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'pylonShell.primaryNavLabel': 'Navigazzjoni primarja',
   'resetPassword.subtitle': "Agħżel password b'saħħitha li qatt ma użajt qabel.",
   'resetPassword.tokenPlaceholder': 'pejst mill-email',

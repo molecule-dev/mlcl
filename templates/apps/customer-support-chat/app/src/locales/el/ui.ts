@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
   'authShell.samplePreview':
     '«Γεια σας, ομάδα, το νέο ταμπλό είναι υπέροχο — ακριβώς αυτό που χρειαζόμασταν!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/συντόμευση',
   'automations.subheading':
     'Κανόνες, προκαθορισμένες απαντήσεις και chatbots — διατηρήστε την ομαλή λειτουργία του χώρου εργασίας, ενώ η ομάδα σας επικεντρώνεται στα πιο δύσκολα θέματα.',
+  'automations.trigger.inboundMessage': 'Εισερχόμενο μήνυμα',
   'automations.triggerLabel': 'Έναυσμα',
   'chatBubble.internalNoteLabel': 'Εσωτερική σημείωση',
+  'common.confirmDelete': 'Επιβεβαίωση διαγραφής',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'contactDetail.backToContacts': 'Όλες οι επαφές',
   'contactDetail.contactFallback': 'Επικοινωνία',
   'contactDetail.conversationFallback': 'Συνομιλία',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Τελευταία εμφάνιση',
   'contacts.empty': 'Δεν υπάρχουν ακόμη επαφές. Προσθέστε την πρώτη σας επαφή παραπάνω.',
   'contacts.eyebrow': 'Κατάλογος πελατών',
+  'contacts.form.nameOrEmailRequired': 'Συμπληρώστε τουλάχιστον ένα όνομα ή μια διεύθυνση email',
   'contacts.form.save': 'Αποθήκευση επαφής',
   'contacts.heading': 'Επαφές',
   'contacts.loading': 'Φόρτωση επαφών…',
@@ -56,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Αποθήκευση σημειώματος',
   'conversationDetail.tab.note': 'Εσωτερική σημείωση',
   'conversationDetail.threadAria': 'Μηνύματα συνομιλίας',
+  'conversationDetail.visitorFallback': 'Επισκέπτης',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Στοιχεία πελάτη',
   'customerProfilePanel.recentTitle': 'Πρόσφατες συνομιλίες',
@@ -74,6 +80,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Οι πελάτες λαμβάνουν την πρώτη απάντηση μέσα σε {{time}} κατά μέσο όρο — διατηρήστε αυτόν τον ρυθμό.',
   'inboxHeroCard.title': 'Ενεργές συνομιλίες',
+  'inboxLayout.navDrawerLabel': 'Πλοήγηση',
+  'inboxLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'inboxOverview.eyebrow': 'Σύνοψη της ημέρας',
   'inboxOverview.heroChange': '{{count}} ανοιχτό',
   'inboxOverview.kpiClosedTrend': 'όλων των εποχών',
@@ -119,10 +127,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Επισκεφθείτε την αρχική σελίδα',
   'notifications.subheading':
     'Αναθέσεις, @αναφορές, κίνδυνοι SLA, σχόλια CSAT και δραστηριότητα ομάδας — ταξινομημένα με τα πιο πρόσφατα πρώτα.',
+  'notifications.subjectFallback': 'μια συζήτηση',
+  'notifications.visitorFallback': 'Ένας επισκέπτης',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Υψηλή',
   'priority.low': 'Χαμηλή',
+  'priority.normal': 'Κανονικό',
   'priority.urgent': 'Επείγουσα',
   'privacy.title': 'Πολιτική απορρήτου',
   'reports.agentFallback': 'Πράκτορας',

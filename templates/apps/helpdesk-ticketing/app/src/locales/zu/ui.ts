@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana',
+  'about.title': 'Mayelana ne-{{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'isithombe sochwepheshe se-ejenti yokusekela yesifazane enomomotheka onobungane ehhovisi lesimanje',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Xhumana nosekelo',
   'forgotPassword.error': 'Ayikwazanga ukuthumela i-imeyili yokusetha kabusha. Sicela uzame futhi.',
   'forgotPassword.rememberPassword': 'Uyakhumbula iphasiwedi yakho?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Ngena ngemvume — Usekelo lwe-Zenith',
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.welcomeSubheading': 'Ngena ngemvume kudeshibhodi yakho yokusekela',
+  'mobileNav.closeMenu': 'Vala ukuzulazula',
+  'mobileNav.menu': 'Ukuzulazula',
+  'mobileNav.openMenu': 'Vula ukuzulazula',
   'nav.legal': 'Ezomthetho',
   'nav.newTicket': 'Ithikithi Elisha',
   'notifications.loadError': 'Ayikwazanga ukulayisha izaziso. Zama futhi ngemva kwesikhashana.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Usesho Lomyalo',
   'operatorDock.newReport': 'Umbiko Omusha',
   'operatorDock.systemOnline': 'Uhlelo Ku-inthanethi',
+  'planUpdated.subtitle': 'Siyabonga',
   'planUpdated.title': 'Uhlelo lubuyekeziwe',
   'pricing.agents': 'ama-ejenti',
   'pricing.automation': 'Imithetho yokuzenzakalela',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{igama}}',
   'ticketCustomerReply.avatarAlt': '{{igama}} isithombe sika-',
   'ticketDetail.errorTitle': 'Kukhona into engahambanga kahle',
+  'ticketDetail.loadError': 'Yehlulekile ukulayisha ithikithi.',
+  'ticketDetail.notFound': 'Ithikithi alitholakalanga',
+  'ticketDetail.replyError': 'Yehlulekile ukuthumela impendulo. Sicela uzame futhi.',
   'ticketDetail.retry': 'Zama futhi',
   'ticketDetail.statusUpdateError': 'Ayikwazanga ukubuyekeza isimo. Zama futhi.',
   'ticketDetailsCard.assigneeLabel': 'Onikezwayo',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{isikhathi}} kwesobunxele',
   'ticketRow.title': 'Ukuxhumeka kwedathabheyisi kuyahluleka ekukhiqizweni {{node}}',
   'tickets.pageTitle': 'Amathikithi — Usekelo lweZenith',
+  'ticketsFab.newTicket': 'Ithikithi elisha',
   'ticketsFilterBar.assigneeLabel': 'Owabelwe:',
   'ticketsFilterBar.clearFilters': 'Izihlungi Ezicacile',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meie lugu',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Avamismäär',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Alustan maksmist…',
   'billing.subheading': 'Vali pakett, mis sobib sinu saatmisviisiga.',
   'billing.unavailable': 'Võtke ühendust müügiga',
+  'common.goToDashboard': 'Mine töölauani',
+  'common.retry': 'Proovi uuesti',
   'compose.adjustingTone': 'Ümberkirjutamine valitud toonis…',
   'compose.aiPromptPlaceholder':
     'nt "Viisakas järelpärimine pärast kahe nädala pikkust vastuseta olemist, lühike."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'Vaja midagi saata? Signet saab mustandi sekunditega valmis.',
   'dashboard.composeCtaLabel': 'Kiire koostamine',
   'dashboard.heading': 'Sinu nädal, koostatud',
+  'dashboard.loadFailed': 'Teie juhtpaneeli ei õnnestunud laadida.',
   'dashboard.manageLibrary': 'Halda teeki →',
   'dashboard.recentEmpty': 'Saadetud e-kirju pole veel – teie saadetud e-kirjad kuvatakse siin.',
   'dashboard.recentHeading': 'Hiljutised saatmised',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet kasutab seda tooni, välja arvatud juhul, kui te mustandil seda muudate.',
   'signetLayout.primaryNavLabel': 'Peamine navigeerimine',
+  'signetLayout.toggleMenu': 'Menüü avamine/sulgemine',
   'signup.emailLabel': 'E-posti aadress',
   'signup.showPassword': 'Näita parooli',
   'signup.tagline': 'Saada oma esimene tehisintellekti abil koostatud e-kiri vähem kui minutiga.',

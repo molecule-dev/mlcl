@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ponte en contacto',
   'about.eyebrow': 'Acerca de',
+  'common.goToDashboard': 'Ir ao panel',
   'dashboard.connectRepoCta': 'Conectar repositorio',
   'dashboard.empty':
     'Aínda non hai ningunha solicitude de extracción: conecta un repositorio para comezar.',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Tempo de actividade',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Puntuación de calidade da IA {{score}} / 10',
+  'refractLayout.closeMenu': 'Pechar menú',
+  'refractLayout.openMenu': 'Abrir menú',
   'refractLayout.primaryNavLabel': 'Navegación principal',
   'reports.cumulativeScoreLabel': 'Puntuación acumulada',
   'reports.cumulativeScoreSubtitle': 'todos os repositorios · {{days}} d',
@@ -183,11 +186,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Non se puido cargar o índice de busca.',
   'settings.apiKeys.description':
     'Xestiona as claves API persoais desde o menú de usuario na parte superior dereita.',
+  'settings.apiKeys.integrationsNote':
+    'Os tokens de acceso dos provedores xestiónanse na sección Integracións anterior.',
   'settings.connectError': 'Non se puido conectar o provedor.',
   'settings.disconnectError': 'Non se puido desconectar o provedor.',
   'settings.eyebrow': 'Refractar · espazo de traballo',
   'settings.integration.${provider}.label': 'Gardando…',
   'settings.loadError': 'Non se puido cargar a configuración.',
+  'settings.notificationCenter': 'Centro de notificacións',
   'settings.notifications.description':
     'Visita a páxina de notificacións para ver e xestionar as preferencias de entrega.',
   'settings.section.account': 'Conta e seguridade',

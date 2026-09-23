@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.featureDiscover.title': 'Inspirasie, handgekies',
   'account.addPaymentCta': 'Voeg betaalmetode by',
   'account.addPaymentError': 'Kon nie betaalmetode byvoeg nie.',
+  'account.confirmRemove': 'Bevestig verwydering',
   'account.defaultBadge': 'Standaard',
   'account.loyalty.pointsTowardNext': '{{punte}} van {{volgende}} myl na {{volgendeVlak}}',
   'account.loyalty.tier': 'Huidige vlak',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Reisbesonderhede',
   'booking.tripSummary': '{{nights}} nagte · {{guests}} gaste',
   'common.daysAgo': '{{count}} d gelede',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.hoursAgo': '{{count}} uur gelede',
   'common.minutesAgo': '{{count}} m gelede',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Regs',
   'notifications.loading': 'Laai tans…',
   'notifications.subheading': '{{count}} ongelees · alles in een kalm inboks',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.accommodationsLabel': 'akkommodasie',
   'pricing.bookingsLabel': 'besprekings',
   'pricing.destinationsLabel': 'gestoorde bestemmings',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     "Inspirasie, betroubare verblyf en 'n wrywinglose pad van dagdroom tot bespreking — oor 14 lande en meer as 200 handgekeurde eiendomme.",
   'sojournHeroSearchCard.trustProtected': 'Gratis kansellasie, ten volle beskerm',
   'sojournHeroSearchCard.trustVetted': 'Slegs handgekeurde eiendomme',
+  'travelBookingLayout.primaryNavLabel': 'Primêre navigasie',
   'tripDetail.backLink': 'Terug na reise',
   'tripDetail.cancelCta': 'Kanselleer bespreking',
   'tripDetail.cancelHeading': 'Kanselleer hierdie reis?',

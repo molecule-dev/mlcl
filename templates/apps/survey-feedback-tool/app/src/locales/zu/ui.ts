@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'analytics.back': 'Ukubuka konke kocwaningo',
   'analytics.kpiNps': 'Isikolo se-NPS',
   'analytics.kpiNpsTrend': 'Abagqugquzeli {{p}} % · Izinciphisi {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Izakhiwo',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Isihloko socwaningo',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'forgotPassword.failed':
     'Ayikwazanga ukuthumela i-imeyili yokusetha kabusha. Sicela uzame futhi.',
   'forgotPassword.subheading': 'Faka i-imeyili yakho bese sizokuthumelela isixhumanisi sokutakula.',
   'forgotPassword.successBody':
     'Uma i-akhawunti ifana {{email}} , isixhumanisi sokusetha kabusha sisendleleni. Hlola ibhokisi lakho lokungenayo kanye namafolda ogaxekile.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Wonke amazwi ayamukelekile.',
   'landing.footer.startTrial': 'Qala isivivinyo',
   'landing.hero.badge': 'Ucwaningo, i-NPS kanye nempendulo endaweni eyodwa',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Intengo',
   'landing.pricing.perMonth': '/ngenyanga',
   'landing.pricing.popular': 'Okudumile kakhulu',
+  'landing.pricing.subtitle':
+    'Lonke uhlelo luhlanganisa umakhi wenhlolovo, izixhumanisi zokwabelana zomphakathi, kanye nokuhlaziywa kwe-NPS. Akudingeki ikhadi lesikweletu ukuze uqale.',
+  'landing.pricing.title': 'Qala mahhala, sikala uma wenza kanjalo.',
   'landing.sample.eyebrow': 'I-NPS ngokubuka nje',
   'landing.sample.title': 'Izihlaziyi, ama-passive, ama-promoter — afundeka ngokushesha.',
   'login.failed': 'Ukungena ngemvume kwehlulekile. Sicela uzame futhi.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.signUpLink': 'Qala isivivinyo samahhala',
   'login.subheading': 'Ngena ngemvume ukuze uqhubeke ulalele izithameli zakho.',
+  'notFound.body': 'Ikhasi olifunayo alikho ku- {{app}} . Ake sikubuyisele ezinhlolovo zakho.',
   'notFound.cta': 'Buyela kuzinhlolovo',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Lolu cwaningo luphumile emgqeni.',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Ukungenzi lutho 7–8',
   'npsDistributionBar.promoter': 'Umthuthukisi 9–10',
   'profile.identity.description': 'Obala eqenjini lakho kanye nasezinhlolovo ozibhalayo.',
+  'profile.identity.emailRequired': 'Faka ikheli le-imeyili.',
   'profile.identity.saveCta': 'Londoloza igama',
   'profile.password.current': 'I-password Yamanje',
   'profile.password.fillFields': 'Faka iphasiwedi yamanje nentsha.',
@@ -179,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} imibuzo',
   'templates.subheading':
     'Khetha isiqalisi esivivinywe yimpi — yonke ithempulethi iza ilungiswe kusengaphambili ngokuzenzakalelayo okunengqondo, i-logic yesampula, kanye nesakhiwo seselula esihlanzekile.',
+  'thankYou.body':
+    'Impendulo yakho irekhodiwe. {{app}} izoyifaka ekuvuseleleni okulandelayo kwezibalo.',
   'thankYou.eyebrow': 'Impendulo itholiwe',
   'thankYou.heading': 'Ngiyabonga — izwi lakho libalulekile.',
   'thankYou.home': 'Vakashela i-Gauge',

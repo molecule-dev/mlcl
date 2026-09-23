@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'article.notFound': 'लेख भेटिएन',
   'articleEditor.bodyPlaceholder': 'ब्लकहरूको लागि / टाइप गर्नुहोस्, वा लेख्न सुरु गर्नुहोस्।',
+  'articleEditor.loadFailed': 'लेख लोड गर्न सकिएन',
   'articleEditor.publishing': 'प्रकाशन गर्दै\\u2026',
   'articleEditor.saveFailed': 'सुरक्षित गर्न सकिएन',
   'articleEditor.saving': 'बचत गर्दै\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'बुकमार्क गर्नुहोस्',
   'articleView.bookmarkOn': 'बुकमार्क गरिएको',
   'articleView.edit': 'लेख सम्पादन गर्नुहोस्',
+  'articleView.loading': 'यो लेख खोल्दै...',
   'articleView.readTime': '{{minutes}} न्यूनतम पढाइ',
   'articleView.spaces': 'ठाउँहरू',
   'articleView.tocHeading': 'यस पृष्ठमा',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'तपाईंको टोलीले हालसालै गरेका सम्पादन, पढाइ र मस्यौदाहरू अझै पनि प्राप्त गरिरहेको छ।',
   'cairnTrailHero.updated': 'लेखहरू अद्यावधिक गरियो',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'drafts.eyebrow': 'तपाईंको अधुरो काम',
   'drafts.heading': 'मस्यौदाहरू',
+  'drafts.loadFailed': 'तपाईंका ड्राफ्टहरू लोड गर्न सकिएन।',
   'drafts.subtitle':
     'तपाईंले सुरु गर्नुभएको तर प्रकाशित नभएका लेखहरू। एउटा उठाउनुहोस् र जारी राख्नुहोस्।',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'अहिलेसम्म कुनै ठाउँ छैन। लेखहरू सङ्कलन गर्न सुरु गर्न एउटा खोल्नुहोस्।',
   'home.spacesHeading': 'तपाईंका ठाउँहरू',
   'home.subtitle': 'हालसालैका लेखहरू, तपाईंका बुकमार्कहरू, र टोलीले के लेखिरहेको छ।',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} । अणुले निर्मित।',
   'landing.ctaBody':
     'एकल लेखकहरूको लागि नि:शुल्क। रनबुक, निर्णय र अनबोर्डिङ पठाउने वितरित टोलीहरूको लागि टोली योजनाहरू।',
   'landing.ctaHeading': 'आज पहिलो ढुङ्गा थुपार।',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'कार्यस्थान सिर्जना गर्नुहोस्',
   'login.submitting': 'साइन इन गर्दै\\u2026',
   'login.subtitle': 'तिमीले छोडेको बाटो जहाँ छाडेका थियौ, त्यहीँ उठाऊ।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
+  'newSpace.colorAria': 'रङ छान्नुहोस् {{color}}',
   'newSpace.colorLabel': 'एक्सेन्ट रङ',
+  'newSpace.createFailed': 'ठाउँ सिर्जना गर्न सकिएन',
   'newSpace.descriptionPlaceholder': 'रनबुकहरू, अन-कल प्लेबुकहरू, पोस्टमार्टमहरू\\u2026',
   'newSpace.eyebrow': 'ज्ञानको ठाउँ खोल्नुहोस्',
   'newSpace.heading': 'नयाँ ठाउँ',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'लोड हुँदै...',
   'notifications.subtitle':
     '{{count}} नपढिएका उल्लेखहरू, टिप्पणीहरू, पृष्ठ परिवर्तनहरू, र समीक्षा अनुरोधहरू।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.articles': 'लेखहरू',
   'pricing.spaces': 'खाली ठाउँहरू',
   'profile.eyebrow': 'लेखन प्रोफाइल',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'नयाँ पासवर्ड प्रविष्ट गर्नुहोस्',
   'resetPassword.subtitle': 'बलियो पासवर्ड छान्नुहोस् — कम्तिमा १२ अक्षरको।',
   'searchResults.eyebrow': 'कार्यस्थान खोजी',
+  'searchResults.filter.all': 'सबै ठाउँहरू',
   'searchResults.heading': 'लेखहरू खोज्नुहोस्',
   'searchResults.placeholder': 'रनबुकहरू, RFC हरू, नीतिहरू, निर्णयहरू खोज्नुहोस्\\u2026',
   'searchResults.summary': '{{count}} \\u201c को लागि परिणामहरू {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'यसले तपाईंको खाता र तपाईंले लेख्नुभएको प्रत्येक लेख मेटाउँछ। पुष्टि गर्न DELETE टाइप गर्नुहोस्।',
   'settings.danger.confirmInvalid': 'पुष्टि गर्न DELETE टाइप गर्नुहोस्।',
+  'settings.danger.deleteFailed': 'खाता मेटाउन सकिएन',
   'settings.danger.deleting': 'मेटाउँदै\\u2026',
   'settings.danger.description':
     'तपाईंको कार्यस्थान मेटाउनाले सबै लेख, टिप्पणी र संस्करण इतिहास मेटिन्छ। कुनै पनि रिकभरी हुँदैन।',
   'settings.danger.title': 'कार्यस्थान मेटाउनुहोस्',
+  'settings.email.confirm': 'इमेल अपडेट गर्नुहोस्',
+  'settings.email.confirmTitle': 'इमेल परिवर्तन पुष्टि गर्नुहोस्',
   'settings.email.saved': 'इमेल अद्यावधिक गरियो।',
+  'settings.email.updateFailed': 'इमेल अपडेट गर्न सकिएन',
   'settings.language.title': 'भाषा',
   'settings.name': 'नाम',
+  'settings.name.saved': 'नाम अद्यावधिक गरियो।',
+  'settings.name.updateFailed': 'नाम अद्यावधिक गर्न सकिएन',
   'settings.notifications.description': 'तपाईंको इनबक्समा के पुग्छ छान्नुहोस्।',
+  'settings.password.changeFailed': 'पासवर्ड परिवर्तन गर्न सकिएन',
   'settings.password.current': 'हालको पासवर्ड',
   'settings.password.new': 'नयाँ पासवर्ड',
   'settings.password.saving': 'अद्यावधिक गर्दै\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'लेखहरू तपाईंको लागि कसरी प्रस्तुत हुन्छन्।',
   'settings.reading.title': 'पढ्ने र लेख्ने',
   'settings.subtitle': 'सूचनाहरू, पढ्ने क्यानभास र आफ्नो खाता ट्युन गर्नुहोस्।',
+  'settings.twofa.code': 'प्रमाणीकरण कोड',
   'settings.twofa.disable': 'असक्षम पार्नुहोस्',
   'settings.twofa.disabled': 'असक्षम पारिएको',
   'settings.twofa.enable': 'सक्षम पार्नुहोस्',
   'settings.twofa.enabled': 'सक्षम पारिएको',
+  'settings.twofa.invalidCode': 'अमान्य कोड',
+  'settings.twofa.unavailable': 'यो एपमा दुई-कारक प्रमाणीकरण उपलब्ध छैन।',
+  'settings.twofa.verify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
   'signup.brandQuote':
     '\\u201cयसलाई लेख्नु भनेको हामीले आवश्यक पर्ने अर्को व्यक्तिलाई गर्ने पहिलो वाचा हो। \\u201d',
   'signup.eyebrow': 'कार्यस्थान खोल्नुहोस्',

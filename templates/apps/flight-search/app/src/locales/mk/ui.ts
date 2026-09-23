@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
+  'about.eyebrow': 'За {{app}}',
   'about.pageTitle': 'Секоја рута, едно пребарување.',
   'booking.backToDetail': 'Назад кон деталите за летот',
   'booking.continue': 'Продолжете кон плаќањето',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Даноци и такси',
   'booking.summary.travelers': 'Патници',
   'common.about': 'За',
+  'common.goToDashboard': 'Оди до контролна табла',
   'flightDetail.backToResults': 'Назад кон резултатите',
   'flightDetail.baseFare': 'Основна цена',
   'flightDetail.book': 'Продолжете со резервација',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 станица',
   'flightResultCard.select': 'Изберете',
   'flightResultCard.totalLabel': 'Вкупно време',
+  'flightSearchLayout.primaryNavLabel': 'Примарна навигација',
   'forgotPassword.subheading':
     'Внесете ја е-поштата на вашата сметка на Skylark и ние ќе ви испратиме линк за безбедно ресетирање.',
   'forgotPassword.successBody':
     'Проверка {{email}} за линк за поставување нова лозинка. Линкот истекува за 30 минути.',
   'forgotPassword.successHeading': 'Ресетирањето на линкот е испратено',
   'landing.cta.explore': 'Обидете се со пребарување',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Пронајдете ја следната одлична цена пред сите други.',
   'landing.cta.signup': 'Започнете со следење на цените',
   'landing.features.eyebrow': 'Зошто Скајларк',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Додај предупредување',
   'priceAlerts.deleteConfirm': 'Да се отстрани ова предупредување?',
   'priceAlerts.empty': 'Сè уште нема следени рути.',
+  'priceAlerts.emptyCta': 'Пребарајте рута за следење',
   'priceAlerts.errorMessage': 'Не можеше да се вчитаат известувањата.',
   'priceAlerts.eyebrow': 'Список за следење на Skylark',
   'priceAlerts.form.createError': 'Не можеше да се креира известување.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Патнички план за повеќе градови',
   'results.multiLegHeading': 'Нога {{n}} · {{од}} → {{до}} · {{датум}}',
   'results.multiSummary': '{{count}} нозе · {{passengers}} патник',
+  'results.sortAriaLabel': 'Сортирај ги резултатите по',
   'results.sortLabel': 'Сортирај',
   'results.summary': '{{count}} летови · {{passengers}} патник',
   'settings.language.title': 'Јазик',

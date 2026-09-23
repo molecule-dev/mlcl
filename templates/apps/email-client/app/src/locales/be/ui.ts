@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Мы — размеркаваная каманда дызайнераў і інжынераў, якая калісьці праводзіла занадта шмат гадзін кожны дзень у шумнай паштовай скрыні. Courier — гэта паштовая скрыня, якой мы хацелі карыстацца самі.',
   'about.title': 'Электронная пошта для мэтанакіраванай працы',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'help.cta.about': 'Пра Мерыдыян',
   'help.cta.pricing': 'Паглядзець цэны',
   'help.eyebrow': 'Цэнтр дапамогі',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Хуткія адказы на пытанні, якія мы чуем часцей за ўсё. Што-небудзь не хапае? Адкрыйце налады і скарыстайцеся формай зваротнай сувязі ў дадатку або напішыце на адрас support@courier.example.',
   'help.title': 'Чым мы можам дапамагчы?',
   'landing.brand.scrollTop': 'Наверх',
+  'landing.copyright': '© {{year}} {{appName}} — Створана для канцэнтрацыі ўвагі.',
   'landing.ctaBody':
     'Далучайцеся да тысяч прафесіяналаў, якія скончылі чытаць паведамленні ў паштовай скрыні да абеду.',
   'landing.ctaTitle': 'Больш апрацоўвай, менш рэагуй.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Глядзець дэманстрацыю',
   'landing.heroSubtitle':
     'Courier — гэта спакойная трохпанэльная паштовая скрыня, створаная для работнікаў інтэлектуальнай працы, якія жадаюць апрацоўваць інфармацыю, а не рэагаваць на яе.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Давяраюць спецыялізаваныя каманды па ўсім свеце',
   'landing.signIn': 'Увайсці',
   'meridian.archive.empty': 'Архіў пусты.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Чарнавік',
   'meridian.folder.count': '{{count}} паведамленні',
+  'meridian.folder.delete': 'Выдаліць',
   'meridian.folder.deleteForever': 'Выдаліць назаўсёды',
   'meridian.folder.restore': 'Перамясціць у паштовую скрыню',
   'meridian.forgot.subtitle':
@@ -88,7 +92,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Тут пакуль няма паведамленняў.',
   'meridian.inbox.loading': 'Загрузка…',
   'meridian.inbox.next': 'Далей',
+  'meridian.inbox.noSender': '(без адпраўніка)',
   'meridian.inbox.noSubject': '(без тэмы)',
+  'meridian.inbox.ofTotal': '{{current}} з {{total}}',
   'meridian.inbox.openCompose': 'Адкрыць напісанне',
   'meridian.inbox.previous': 'Папярэдні',
   'meridian.inbox.replyFailed': 'Адказ захаваны, але дастаўка не атрымалася: {{error}}',
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Няма ўліковага запісу?',
   'meridian.login.showPassword': 'Паказаць пароль',
   'meridian.message.toLine': 'да {{recipients}}',
+  'meridian.notFound.body':
+    'Старонка, якую вы шукаеце, не знойдзена. Вярніцеся ў паштовую скрыню {{appName}} , і мы дапаможам вам знайсці патрэбны шлях.',
   'meridian.notFound.eyebrow': 'Памылка 404',
   'meridian.notFound.title': 'Гэтая тэма была архівавана.',
   'meridian.notFound.toInbox': 'Адкрыць маю паштовую скрыню',
@@ -136,18 +144,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Дадаць зорку',
   'meridian.thread.unstar': 'Зняць зорку',
   'meridian.time.yesterday': 'Учора',
+  'meridian.topBar.openMenu': 'Адкрыць меню навігацыі',
   'meridian.topBar.searchPlaceholder': 'Пошук па пошце',
   'meridian.trash.empty': 'Сметніца пустая.',
   'meridian.trash.title': 'Смецце',
   'nav.legal': 'Юрыдычная інфармацыя',
   'planUpdated.description':
     'Ваша падпіска цяпер актыўная, і вашы рахункі абноўлены. Вітаем у вашай абноўленай паштовай скрыні Courier.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.heading': 'чарнавікі',
   'pricing.limit.emails': 'электронныя лісты',
   'pricing.limit.folders': 'папкі',
   'pricing.limit.labels': 'этыкеткі',
   'privacy.collect.account':
     'Дадзеныя ўліковага запісу: імя, адрас электроннай пошты, хэшаваны пароль і дата рэгістрацыі.',
+  'privacy.contact': 'Пытанні? Пішыце на privacy@courier.example.',
   'privacy.intro':
     'Гэтая палітыка прыватнасці тлумачыць, якія даныя збірае Courier, чаму мы іх збіраем, як мы іх абараняем і якія ў вас ёсць магчымасці выбару. Мы імкнемся быць канкрэтнымі, а не юрыдычнымі; калі што-небудзь незразумела, напішыце на адрас privacy@courier.example.',
   'privacy.lastUpdated': 'Апошняе абнаўленне: 1 красавіка 2026 г.',
@@ -167,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Гэтыя ўмовы рэгулююць ваша карыстанне Courier. Ствараючы ўліковы запіс або адпраўляючы электронны ліст праз нас, вы згаджаецеся з іх выкананнем. Мы стараемся пісаць правілы, якіх чалавек можа рэальна прытрымлівацца.',
   'terms.lastUpdated': 'Дзейнічае з: 1 красавіка 2026 г.',
+  'terms.linkPrivacy': 'Азнаёмцеся з нашай Палітыкай прыватнасці →',
   'terms.termination.body':
     'Вы можаце выдаліць свой уліковы запіс у любы час. Мы можам прыпыніць дзеянне ўліковага запісу, які парушае гэтыя ўмовы; калі мы гэта зробім, мы растлумачым прычыну і спачатку дазволім вам экспартаваць вашы даныя.',
   'terms.warranty.body':

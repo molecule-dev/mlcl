@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.connectRepoCta': 'ගබඩාව සම්බන්ධ කරන්න',
   'dashboard.empty': 'තවමත් ඇදීමේ ඉල්ලීම් නොමැත — ආරම්භ කිරීමට ගබඩාවක් සම්බන්ධ කරන්න.',
   'dashboard.eyebrow': 'වර්තනය · සමාලෝචන පෝලිම',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'ක්‍රියාකාරී කාලය',
   'pullRequestRow.files': '{{count}} එෆ්',
   'pullRequestRow.scoreAria': 'AI තත්ත්ව ලකුණු {{score}} / 10 / 10',
+  'refractLayout.closeMenu': 'මෙනුව වසන්න',
+  'refractLayout.openMenu': 'මෙනුව විවෘත කරන්න',
   'refractLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'reports.cumulativeScoreLabel': 'සමුච්චිත ලකුණු',
   'reports.cumulativeScoreSubtitle': 'සියලුම ගබඩා · {{days}} ඈ',
@@ -175,11 +178,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'සුචිගත කිරීම ආරම්භ කිරීමට ගබඩාවක් සම්බන්ධ කරන්න හෝ අභිරුචි නීති එක් කරන්න.',
   'search.loadError': 'සෙවුම් දර්ශකය පූරණය කිරීමට අසමත් විය.',
   'settings.apiKeys.description': 'ඉහළ දකුණේ පරිශීලක මෙනුවෙන් පුද්ගලික API යතුරු කළමනාකරණය කරන්න.',
+  'settings.apiKeys.integrationsNote':
+    'සැපයුම්කරු ප්‍රවේශ ටෝකන ඉහත ඒකාබද්ධතා කොටසේ කළමනාකරණය කෙරේ.',
   'settings.connectError': 'සැපයුම්කරු සම්බන්ධ කිරීමට අසමත් විය.',
   'settings.disconnectError': 'සැපයුම්කරු විසන්ධි කිරීමට අසමත් විය.',
   'settings.eyebrow': 'වර්තනය · වැඩබිම',
   'settings.integration.${provider}.label': 'සුරකිමින්...',
   'settings.loadError': 'සැකසුම් පූරණය කිරීමට අසමත් විය.',
+  'settings.notificationCenter': 'දැනුම්දීම් මධ්‍යස්ථානය',
   'settings.notifications.description':
     'බෙදාහැරීමේ මනාපයන් බැලීමට සහ කළමනාකරණය කිරීමට දැනුම්දීම් පිටුවට පිවිසෙන්න.',
   'settings.section.account': 'ගිණුම සහ ආරක්ෂාව',

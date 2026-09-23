@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Indaba yethu',
   'aiSuggestionPanel.title': 'Umsizi Womshayeli Wezitifiketi',
   'analytics.col.open': 'Isilinganiso sokuvula',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Iqala ukukhokha…',
   'billing.subheading': 'Khetha uhlelo oluhambisana nendlela othumela ngayo.',
   'billing.unavailable': 'Xhumana nokuthengisa',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.retry': 'Zama futhi',
   'compose.adjustingTone': 'Ukubhala kabusha ngethoni ekhethiwe...',
   'compose.aiPromptPlaceholder':
     'isib. "Ukulandelela okunenhlonipho ngemva kokungaphenduli amasonto amabili, gcina kufushane."',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
     'Udinga ukuthumela okuthile? Isiginesha singaba nohlaka olulungile ngemizuzwana.',
   'dashboard.composeCtaLabel': 'Ukubhala okusheshayo',
   'dashboard.heading': 'Isonto lakho, elibhaliwe',
+  'dashboard.loadFailed': 'Ayikwazanga ukulayisha ideshibhodi yakho.',
   'dashboard.manageLibrary': 'Phatha umtapo wolwazi →',
   'dashboard.recentEmpty':
     'Akukho okuthunyelwe okwamanje — ama-imeyili akho athunyelwe azovela lapha.',
@@ -147,6 +151,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ithoni ezenzakalelayo',
   'settings.toneSubheading': 'I-Signet isebenzisa leli gama ngaphandle kokuthi ushintshe uhlaka.',
   'signetLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'signetLayout.toggleMenu': 'Guqula imenyu',
   'signup.emailLabel': 'Ikheli le-imeyili',
   'signup.showPassword': 'Bonisa iphasiwedi',
   'signup.tagline': 'Thumela i-imeyili yakho yokuqala ebhalwe nge-AI ngaphansi komzuzu.',

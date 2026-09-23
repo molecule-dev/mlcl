@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Din rolle',
   'account.role.upgradeLink': 'Ansøg om at blive verificeret tutor →',
   'account.title': 'Profil, betaling og præferencer.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Undervis på kridt',
   'becomeTutor.form.error': 'Kunne ikke indsende ansøgning.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Emne',
   'bookingConfirm.title': 'Du er booket. Vi klarer resten.',
   'bookingConfirm.with': 'Med tutor',
+  'common.goToDashboard': 'Gå til Dashboard',
   'earningsHero.eyebrow': 'Indtjening • {{month}}',
   'forgotPassword.heading': 'Glemt din adgangskode?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Send besked',
   'messages.thread.empty': 'Sig hej – start samtalen.',
   'messages.title': 'Tråde med dine undervisere.',
+  'nav.primary': 'Primær',
   'pricing.dataExport': 'Dataeksport:',
   'pricing.headingDefault': 'Avancerede funktioner:',
   'resetPassword.heading': 'Vælg en stærk ny adgangskode.',

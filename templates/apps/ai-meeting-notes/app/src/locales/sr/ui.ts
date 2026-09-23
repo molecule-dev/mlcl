@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
   'actions.empty': 'Ниједна ставка акције се не подудара.',
   'actions.heading': 'Акционе ставке',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Претходни месец',
   'calendar.recent': 'Недавно',
   'common.daysAgo': '{{count}} пре д',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'common.hoursAgo': '{{count}} пре h',
   'common.no': '—',
+  'common.retry': 'Покушај поново',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ставке акције',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Проверите пријемно сандуче за линк за ресетовање.',
   'forgot.subheading': 'Унесите своју имејл адресу и послаћемо вам линк за ресетовање.',
   'integrations.disconnected': 'Искључено',
+  'integrations.loadError': 'Учитавање интеграција није успело.',
   'integrations.notConnectedTag': 'Није повезано',
   'integrations.subheading':
     'Повежите календаре и видео платформе како би се Murmur аутоматски придружио.',
+  'integrations.updateError': 'Ажурирање није успело.',
   'landing.ctaButton': 'Почните — бесплатно је',
   'landing.ctaHeading': 'Престани да правиш белешке. Почни да доносиш одлуке.',
   'landing.demo.aiLabel': 'Резиме вештачке интелигенције, нацртано уживо',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Даља праћења',
   'meetingDetail.loadError': 'Учитавање састанка није успело.',
   'meetingDetail.noActions': 'Није откривена ниједна акциона ставка.',
+  'meetingDetail.none': 'Ниједан.',
   'meetingDetail.notFound': 'Састанак није пронађен.',
+  'meetingDetail.speakerFallback': 'Говорник {{id}}',
   'meetingDetail.summaryHeading': 'Резиме вештачке интелигенције',
   'meetingDetail.transcriptHeading': 'Транскрипт',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Састанци',
   'meetings.loadError': 'Учитавање састанака није успело.',
   'meetings.subheading': 'Сваки снимљени, отпремљени и синхронизовани састанак.',
+  'murmurLayout.openMenu': 'Отвори мени за навигацију',
   'murmurLayout.primaryNavLabel': 'Примарна навигација',
   'nav.legal': 'Правни',
   'notifications.loadError': 'Учитавање обавештења није успело.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Како изгледаш унутар Мармура.',
   'record.error.empty': 'Није снимљен звук.',
   'record.error.permission': 'Дозвола за микрофон је одбијена.',
+  'record.error.recorder': 'Грешка снимача',
   'record.error.unsupported':
     'Ваш прегледач не подржава снимање. Пробајте Chrome, Edge или Safari.',
   'record.error.upload': 'Отпремање није успело. Покушајте поново.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Нова лозинка',
   'reset.subheading': 'Изаберите лозинку коју не користите нигде другде.',
   'search.empty': 'Куцајте да бисте претражили транскрипте.',
+  'search.loadError': 'Претрага није успела. Покушајте поново.',
   'search.noResults': 'Нема резултата за „ {{q}} „.',
   'settings.appearance.description': 'Пребацивање између светлог и тамног режима.',
   'settings.appearance.title': 'Изглед',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Учитавање подешавања није успело.',
   'settings.loading': 'Учитавање…',
   'settings.push.heading': 'Пусх обавештења',
+  'settings.push.subheading':
+    'Добијајте обавештења прегледача за помињања, акционе ставке и резимее.',
   'settings.retention.audio': 'Чувај звук за',
   'settings.retention.heading': 'Задржавање',
   'settings.retention.transcript': 'Чувајте транскрипте за',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Није могуће креирати налог. Молимо покушајте поново.',
   'signup.subheading': 'Почните да снимате белешке са састанка за неколико минута',
   'signup.terms': 'Креирањем налога прихватате наше Услове коришћења и Политику приватности.',
+  'signup.termsPrefix': 'Креирањем налога прихватате наше',
   'team.inviteCta': 'Позови саиграча',
   'team.invitedAs': 'Позван као {{role}}',
   'team.inviteFailed': 'Није могуће послати позивницу.',

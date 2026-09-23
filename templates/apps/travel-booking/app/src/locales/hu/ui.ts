@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.featureDiscover.title': 'Inspiráció, válogatott',
   'account.addPaymentCta': 'Fizetési mód hozzáadása',
   'account.addPaymentError': 'Nem sikerült hozzáadni a fizetési módot.',
+  'account.confirmRemove': 'Törlés megerősítése',
   'account.defaultBadge': 'Alapértelmezett',
   'account.loyalty.pointsTowardNext': '{{pont}} a {{következő}} mérföldre {{következőSzint}}',
   'account.loyalty.tier': 'Jelenlegi szint',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Utazás részletei',
   'booking.tripSummary': '{{nights}} éjszakák · {{guests}} vendégek',
   'common.daysAgo': '{{count}}n ezelőtt',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.hoursAgo': '{{count}}ó ezelőtt',
   'common.minutesAgo': '{{count}} perccel ezelőtt',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Jogi',
   'notifications.loading': 'Betöltés…',
   'notifications.subheading': '{{count}} olvasatlan · minden egy csendes postaládában',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.accommodationsLabel': 'szállás',
   'pricing.bookingsLabel': 'foglalások',
   'pricing.destinationsLabel': 'mentett úti célok',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Inspiráció, megbízható szálláshelyek és zökkenőmentes út az álmodozástól a foglalásig – 14 országban és több mint 200 gondosan ellenőrzött szálláshelyen.',
   'sojournHeroSearchCard.trustProtected': 'Ingyenes lemondás, teljes körű védelem',
   'sojournHeroSearchCard.trustVetted': 'Csak kézzel ellenőrzött ingatlanok',
+  'travelBookingLayout.primaryNavLabel': 'Elsődleges navigáció',
   'tripDetail.backLink': 'Vissza az utazásokhoz',
   'tripDetail.cancelCta': 'Foglalás lemondása',
   'tripDetail.cancelHeading': 'Lemondja ezt az utazást?',

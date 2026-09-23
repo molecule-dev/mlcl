@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'about.tagline': 'Paslaptys miršta viešumoje.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Sukurti prieigos raktą',
   'apiTokens.kicker': 'API žetonai',
   'apiTokens.loading': 'Kraunami žetonai…',
+  'apiTokens.new': 'Naujas prieigos raktas',
   'apiTokens.revoke': 'Atšaukti prieigos raktą',
   'apiTokens.subheading':
     'Asmeniniai ir paslaugų žetonai „Arcanum“ komandinės eilutės sąsajai ir SDK. Paprastasis tekstas rodomas vieną kartą kūrimo metu.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + slaptažodis',
   'authShell.zeroKnowledge': 'Nulinės žinios šifravimas',
   'common.connecting': 'Jungiamasi…',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.inviting': 'Kviečiama…',
   'forgotPassword.checkInbox':
     'Jei {email} yra užregistruotas, pasirašyta nustatymo iš naujo nuoroda atkeliaus per minutę.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotacijos būsena, įspėjimai apie anomalijas ir patvirtinimo užklausos kiekviename saugykloje.',
   'notifications.unreadEmpty': 'Gautieji – viskas suspėta.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.heading': 'paslaptys',
   'pricing.limits.accessPolicies': 'prieigos politikos',
   'pricing.limits.auditLog': 'audito žurnalo įrašai',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'Tvarkykite savo prenumeratą, peržiūrėkite apribojimus ir atnaujinkite.',
   'profile.subheading': 'Tapatybė, antrojo faktoriaus įrenginiai ir aktyvūs seansai.',
+  'profile.twoFactor.code': 'Autentifikavimo kodas',
   'profile.twoFactor.disable': 'Išjungti',
   'profile.twoFactor.enable': 'Įjungti',
+  'profile.twoFactor.invalidCode': 'Neteisingas kodas',
   'profile.twoFactor.kicker': 'Dviejų veiksnių autentifikavimas',
+  'profile.twoFactor.off': 'Neįgalinta',
   'profile.twoFactor.on': 'Įjungta',
   'resetPassword.email': 'Paskyros el. pašto adresas',
   'resetPassword.heading': 'Nustatyti naujus prisijungimo duomenis',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'komandos',
   'secretsManagerLayout.encrypted': 'AES-256 · UŽŠIFRUOTA',
   'secretsManagerLayout.newVault': 'Naujas seifas',
+  'secretsManagerLayout.newVaultShort': 'Naujas',
   'secretsManagerLayout.rotations': 'Rotacijos',
   'secretsManagerLayout.search': 'paieška',
   'secretsManagerLayout.searchPlaceholder': 'Ieškokite paslapčių pagal raktą, kelią arba žymę…',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Paslaptys',
   'vaultCard.vaultLabel': 'Saugykla',
   'vaultDetail.addSecret': 'Pridėti slaptažodį',
+  'vaultDetail.back': 'Visos saugyklos',
   'vaultDetail.col.key': 'Raktas',
   'vaultDetail.col.rotated': 'Pasuktas',
   'vaultDetail.col.value': 'Vertė',

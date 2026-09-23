@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
+  'about.pageTitle': '{{app}} 소개',
   'achievementBadgeCard.unlockedOn': '{{date}}에 잠금 해제됨',
   'achievements.loadError': '업적을 불러오지 못했습니다.',
   'achievements.subheading': '{{unlocked}}개 중 {{total}}개 잠금 해제됨',
   'achievements.unlockedOn': '{{date}}에 잠금 해제됨',
+  'auth.legalConsent': '계속 진행하면 다음에 동의하게 됩니다',
   'calendar.empty': '캘린더를 보려면 습관을 만들어 보세요.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': '습관',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': '습관 그리드',
   'category.${c.category}': '{{세다}} 버릇',
   'common.and': '및',
+  'common.goToDashboard': '대시보드로 이동',
   'consistencyHeatmap.ariaLabel': '일일 일관성 히트맵',
   'consistencyHeatmap.caption': '최근 {{weeks}}주',
   'consistencyHeatmap.lessLabel': '적게',
@@ -78,6 +82,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': '라이브로 보기',
   'landing.heroSubtitle':
     '실제로 자리 잡는 방식으로 습관을 만들어 보세요: 작은 약속, 매일의 연속, 그리고 끊기지 않는 긴 사슬이 주는 본능적인 즐거움.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak 내부 살짝 보기',
   'landing.previewMotivation': '아홉 개의 연속이 살아 있습니다. 모두 따뜻하게 유지하세요.',
   'login.eyebrow': '연결 고리를 다시 잡으세요',
@@ -95,7 +100,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': '작게 만드세요. 구체적으로 만드세요. 내일도 나타나세요.',
   'newHabit.timeLabel': '알림 시간',
   'notifications.markError': '모두 읽음으로 표시하지 못했습니다.',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.entries': '{{count}}개 항목',
+  'pricing.heading': '{{app}} 플랜 선택',
   'profile.action.plan': '구독 관리',
   'profile.action.settings': '계정 설정',
   'profile.bioEmpty': '설정에서 짧은 자기소개를 추가해 자신을 소개해 보세요.',
@@ -122,6 +129,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': '매일 아침 프롬프트 (오전 8시)',
   'settings.reminders.heading': '알림',
   'settings.reminders.weekly': '주간 요약 (일요일 저녁)',
+  'settings.revokeDeviceWarning': '이 기기의 접근 권한이 곧 취소됩니다. 로그아웃하시겠습니까?',
   'settings.signOutDevice': '로그아웃',
   'settings.streaks.freezesPerWeek': '주당 프리즈 횟수',
   'settings.streaks.gracePeriod': '자정 이후 6시간 유예 기간',
@@ -148,5 +156,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}}개 활성',
   'streakHeroCard.daysSuffix': '일',
   'streakHeroCard.title': '최장 활성 연속',
+  'streakLayout.closeMenu': '탐색 메뉴 닫기',
+  'streakLayout.openMenu': '탐색 메뉴 열기',
   'streakLayout.primaryNavLabel': '기본 탐색',
 }

@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'ಗ್ರಾಹಕರು',
   'customers.loadError': 'ಗ್ರಾಹಕರನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'customers.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
+  'customers.new.address': 'ಸೇವಾ ವಿಳಾಸ',
   'customers.new.email': 'ಇಮೇಲ್',
   'customers.new.error': 'ಗ್ರಾಹಕ ಸೇರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'customers.new.heading': 'ಹೊಸ ಗ್ರಾಹಕ',

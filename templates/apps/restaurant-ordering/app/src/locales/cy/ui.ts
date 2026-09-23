@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Ynghylch {{app}}',
   'analytics.avgCheckLabel': 'Gwiriad cyfartaledd',
   'analytics.busiestHour': 'Awr brysuraf',
   'analytics.coversToday': 'Clytiau heddiw',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Awgrymiadau (cyfartaledd)',
   'analytics.topItems': 'Eitemau gorau heddiw',
   'authShell.eyebrow': "Croeso yn ôl i'r gwasanaeth",
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     "Man gwerthu cynnes a chyflym ar gyfer timau lletygarwch. Mewngofnodwch i'ch cegin a pharhewch o ble y gwnaethoch chi adael.",
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'neu {{price}}',
   'billing.priceUnavailable': "Nid oes gan y cynllun hwn bris wedi'i ffurfweddu.",
   'billing.updated': "Cynllun wedi'i ddiweddaru.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'customerDetail.book': 'Ychwanegu archeb',
   'customerDetail.col.table': 'Tabl',
   'customerDetail.confirmDelete': "Dileu'r cofnod gwestai hwn?",
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Argaeledd',
   'menuItemDetail.available': 'Ar gael heno',
   'menuItemDetail.backToMenu': "Yn ôl i'r ddewislen",
+  'menuItemDetail.confirmDelete': "Dileu'r eitem ddewislen hon?",
   'menuItemDetail.delete': 'Dileu eitem',
   'menuItemDetail.deleteError': 'Methodd y dileu. Rhowch gynnig arall arni.',
   'menuItemDetail.dietary': 'Tagiau dietegol',
@@ -137,9 +141,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Methodd y cadw. Rhowch gynnig arall arni.',
   'menuItemDetail.subheading': '{{category}} · golygu llun, addaswyr, dietegol, a phrisio.',
   'menuItemDetail.untitled': 'Eitem ddi-deitl',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'notFound.heading': "Nid yw'r bwrdd hwn ar y llawr.",
   'notFound.subheading':
     "Mae'r dudalen yr oeddech chi'n chwilio amdani wedi'i lleoli yn rhywle arall - neu nid yw erioed wedi bodoli.",
+  'notFound.toLanding': 'Cartref {{app}}',
   'notifications.markError': "Methwyd marcio popeth wedi'i ddarllen.",
   'orderDashboard.activeDelta': 'Byw nawr',
   'orderDashboard.activeLabel': 'Gorchmynion gweithredol',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Dangos cyfrinair',
   'resetPassword.subtitle': "Rhowch eich cyfrinair newydd i gael mynediad i'r gegin eto.",
   'resetPassword.tokenLabel': 'Ailosod Tocyn',
+  'restaurantOrderingLayout.primaryNavLabel': 'Prif lywio',
   'revenueHeroCard.activeOrders': '{{count}} gweithredol',
   'revenueHeroCard.change': '{{sign}} {{amount}} yn erbyn ddoe',
   'revenueHeroCard.title': 'Refeniw heddiw',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': "Enw'r bwyty",
   'tableDetail.activeOrders': 'Gorchmynion gweithredol',
   'tableDetail.backToFloor': 'Cynllun llawr',
+  'tableDetail.confirmDelete': "Dileu'r tabl hwn?",
   'tableDetail.delete': 'Dileu',
   'tableDetail.deleteError': "Methwyd dileu'r tabl.",
   'tableDetail.heading': 'Tabl {{label}}',

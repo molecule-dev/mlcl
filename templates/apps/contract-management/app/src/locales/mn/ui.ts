@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
   'authBrandPanel.quote':
     '"Одоо Vellum бол бидний эзэмшдэг гарын үсэг зурсан гэрээ бүрийн бүртгэлийн систем юм."',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'contractDetail.amount': 'Үнэ цэнэ',
   'contractDetail.back': 'Бүх гэрээ',
   'contractDetail.downloadCta': 'PDF татаж авах',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'Хугацаа дуусах',
   'contracts.col.owner': 'Эзэмшигч',
   'contracts.empty': 'Ямар ч гэрээ таарахгүй.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'Гэрээнүүд',
   'contracts.loadError': 'Гэрээг ачаалж чадсангүй.',
   'contracts.newCta': 'Шинэ гэрээ',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Хэрэв данс байгаа бол {{email}} , дахин тохируулах холбоос гарч байна.',
   'forgotPassword.subtitle': 'Бид таны ажлын имэйл хаяг руу дахин тохируулах холбоос илгээх болно.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Молекулаар бүтээгдсэн.',
   'landing.ctaHeading': 'Эхний өдөр портфолиогоо хаалттай нь хараарай.',
   'landing.ctaPrimary': 'Ажлын талбар эхлүүлэх',
   'landing.eyebrow': 'Хууль эрх зүйн үйл ажиллагаа болон худалдан авалтын хувьд',
@@ -98,6 +103,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Эсрэг талын нэр шаардлагатай.',
   'newContract.errEmail': 'Гарын үсэг зурах хүний имэйл шаардлагатай.',
   'newContract.expires': 'Хугацаа дуусах огноо',
+  'newContract.failed': 'Гэрээ үүсгэж чадсангүй.',
   'newContract.heading': 'Шинэ гэрээ',
   'newContract.nextCta': 'Дараагийнх',
   'newContract.review.counterparty': 'Харилцагч тал',
@@ -113,6 +119,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Гэрээний нэр',
   'newContract.titlePlaceholder': 'Үйлчилгээний мастер гэрээ',
   'newContract.variablesHeading': 'Гэрээний хувьсагчууд',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.dataExport': 'Өгөгдөл экспортлох',
   'pricing.disabled': 'Үгүй',
   'pricing.enabled': 'Тийм',
@@ -145,15 +152,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Бүртгэлийг устгаж чадсангүй.',
   'settings.security.deleting': 'Устгаж байна…',
   'settings.security.newPassword': 'Шинэ нууц үг',
+  'settings.security.noDevices': 'Бүртгэгдсэн төхөөрөмж байхгүй байна.',
   'settings.security.twoFactor': 'Хоёр хүчин зүйлийн баталгаажуулалт',
   'settings.security.twoFactorDisable': 'Идэвхгүй болгох',
   'settings.security.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.security.twoFactorInvalidCode': 'Код буруу байна.',
   'settings.signatures.body':
     'Таны бичсэн нэр таны гарын үсэг зурсан гэрээ бүрийн гарын үсгийн мөрөнд гарч ирнэ. Нэг удаа тохируулбал цаашид автоматаар дүрслэгдэнэ.',
   'settings.signatures.heading': 'Гарын үсэг зурах блок',
   'settings.signatures.save': 'Гарын үсэг хадгалах',
+  'sign.action': 'Энэ баримт бичигт гарын үсэг зурна уу',
+  'sign.eyebrow': 'Гарын үсэг хүссэн',
+  'sign.for': '{{name}} зориулсан',
+  'sign.loadError': 'Энэ гарын үсэг зурах холбоос хүчингүй эсвэл хугацаа нь дууссан байна.',
   'sign.loading': 'Ачааллаж байна…',
   'sign.signing': 'Гарын үсэг зурж байна...',
+  'sign.submitError':
+    'Таны гарын үсгийг бичиж чадсангүй — холбоос хугацаа нь дууссан байж магадгүй.',
   'signup.brandQuote':
     '\\u201cБид 8 жилийн турш бичсэн бичвэрээ долоо хоногийн дотор Vellum руу шилжүүлсэн. Зөвхөн аудитын мөр л үүнийг зөвтгөж байна.\\u201d',
   'signup.companyPlaceholder': 'Нортвинд Трейдерс',
@@ -188,6 +203,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Нээлттэй гэрээ →',
   'vellumKpiCard.trend': 'Сүүлийн үеийн чиг хандлага',
+  'vellumLayout.closeMenu': 'Навигацийн цэсийг хаах',
+  'vellumLayout.openMenu': 'Навигацийн цэсийг нээх',
   'vellumLayout.primaryNavLabel': 'Үндсэн навигаци',
   'vellumPortfolioHero.expiring': '30 хоногийн дараа хугацаа нь дуусна',
   'vellumPortfolioHero.label': 'Портфолиогийн үнэ цэнэ',

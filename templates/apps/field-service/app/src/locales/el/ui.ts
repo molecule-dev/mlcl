@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Πελάτες',
   'customers.loadError': 'Αποτυχία φόρτωσης πελατών.',
   'customers.loading': 'Φόρτωση…',
+  'customers.new.address': 'Διεύθυνση εξυπηρέτησης',
   'customers.new.email': 'E-mail',
   'customers.new.error': 'Αποτυχία προσθήκης πελάτη.',
   'customers.new.heading': 'Νέος πελάτης',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Về chúng tôi',
   'authShell.samplePreview':
     '“Chào cả nhóm, bảng điều khiển mới rất tuyệt — đúng những gì chúng ta cần!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/phím tắt',
   'automations.subheading':
     'Quy tắc, phản hồi mẫu và chatbot — giữ cho không gian làm việc luôn vận hành trong khi nhóm của quý vị tập trung vào những việc khó hơn.',
+  'automations.trigger.inboundMessage': 'Tin nhắn đến',
   'automations.triggerLabel': 'Trình kích hoạt',
   'chatBubble.internalNoteLabel': 'Ghi chú nội bộ',
+  'common.confirmDelete': 'Xác nhận xóa',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'contactDetail.backToContacts': 'Tất cả liên hệ',
   'contactDetail.contactFallback': 'Liên hệ',
   'contactDetail.conversationFallback': 'Cuộc trò chuyện',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Lần cuối hoạt động',
   'contacts.empty': 'Chưa có liên hệ nào. Hãy thêm liên hệ đầu tiên ở phía trên.',
   'contacts.eyebrow': 'Danh bạ khách hàng',
+  'contacts.form.nameOrEmailRequired': 'Vui lòng cung cấp ít nhất tên hoặc địa chỉ email.',
   'contacts.form.save': 'Lưu liên hệ',
   'contacts.heading': 'Liên hệ',
   'contacts.loading': 'Đang tải liên hệ…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Lưu ghi chú',
   'conversationDetail.tab.note': 'Ghi chú nội bộ',
   'conversationDetail.threadAria': 'Tin nhắn cuộc trò chuyện',
+  'conversationDetail.visitorFallback': 'Khách tham quan',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Thông tin khách hàng',
   'customerProfilePanel.recentTitle': 'Cuộc trò chuyện gần đây',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Khách hàng đang nhận được phản hồi đầu tiên trung bình trong {{time}} — hãy duy trì nhịp độ này.',
   'inboxHeroCard.title': 'Cuộc trò chuyện đang hoạt động',
+  'inboxLayout.navDrawerLabel': 'Điều hướng',
+  'inboxLayout.openMenu': 'Mở menu điều hướng',
   'inboxOverview.eyebrow': 'Hôm nay nhìn qua',
   'inboxOverview.heroChange': '{{count}} đang mở',
   'inboxOverview.kpiClosedTrend': 'mọi thời điểm',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Truy cập trang chủ',
   'notifications.subheading':
     'Phân công, @nhắc tên, rủi ro SLA, phản hồi CSAT và hoạt động nhóm — sắp xếp mới nhất trước.',
+  'notifications.subjectFallback': 'một cuộc trò chuyện',
+  'notifications.visitorFallback': 'Một vị khách',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Cao',
   'priority.low': 'Thấp',
+  'priority.normal': 'Bình thường',
   'priority.urgent': 'Khẩn cấp',
   'privacy.title': 'Chính sách bảo mật',
   'reports.agentFallback': 'Tác nhân',

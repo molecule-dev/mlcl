@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.tagline': 'Yonke iyunithi, ngaphansi kophahla olulodwa.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.addProperty': 'Engeza impahla',
   'dashboard.empty.body':
     'Uma usunezinkokhelo zezindlu, amayunithi, kanye nerenti, le deshibhodi igcwalisa imininingwane yephothifoliyo.',
@@ -88,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{impahla}} · Iyunithi {{iyunithi}} · {{usuku}}',
   'maintenanceQueueList.subtitle': '{{count}} ama-oda omsebenzi ovulekile, a-odwe ngokubaluleka',
   'maintenanceQueueList.title': 'Umugqa Wokulungisa',
+  'nav.closeMenu': 'Vala imenyu',
+  'nav.openMenu': 'Vula imenyu',
   'notFound.body': 'Ikhasi obulifuna lisusiwe, ligciniwe, noma alikaze libe khona.',
   'notFound.title': 'Lowo mnyango awuvuli',
   'notifications.empty.body':

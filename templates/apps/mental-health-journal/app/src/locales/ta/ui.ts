@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} பற்றி',
+  'authShell.encryptionBadge': 'உங்கள் பதிவுகள் முழுமையாக மறைகுறியாக்கம் செய்யப்பட்டுள்ளன.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'நாள் {{day}} — {{mood}}',
   'calendar.distributionHeading': 'இந்த மாதத்தின் ஒரு பார்வை',
   'calendar.eyebrow': 'மனநிலை ஒரு பார்வையில்',
@@ -10,6 +13,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'அடுத்த மாதம்',
   'calendar.prev': 'முந்தைய மாதம்',
   'calendar.subheading': 'கண்காணிக்கப்பட்டது {{tracked}} இன் {{total}} இந்த மாதத்தின் நாட்கள்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.tryAgain': 'மீண்டும் முயற்சிக்கவும்',
   'entryComposer.cancel': 'பத்திரிகைக்குத் திரும்பு',
   'entryComposer.heading': 'இன்றைய சிந்தனை',
   'entryComposer.moodLabel': 'நீங்கள் எப்படி உணர்கிறீர்கள்?',
@@ -20,7 +25,14 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'உங்கள் பதிவைச் சேமிக்க முடியவில்லை.',
   'entryComposer.titlePlaceholder': 'இந்தச் சிந்தனைக்கு ஒரு பெயர் சூட்டுங்கள்...',
   'entryDetail.back': 'பத்திரிகைக்குத் திரும்பு',
+  'entryDetail.delete': 'இந்த உள்ளீட்டை நீக்கவும்',
+  'entryDetail.deleteConfirm':
+    'இந்தப் பிரதிபலிப்பை நீக்கவா? இதை மீண்டும் பழைய நிலைக்குக் கொண்டுவர முடியாது.',
+  'entryDetail.deleteConfirmTitle': 'பதிவை நீக்கு',
+  'entryDetail.deleteError': 'இந்தப் பதிவை நீக்க முடியவில்லை.',
+  'entryDetail.deleteForever': 'நிரந்தரமாக நீக்கு',
   'entryDetail.encryptedBadge': 'முழுமையான மறைகுறியாக்கம்',
+  'entryDetail.keepEntry': 'அதை வைத்துக்கொள்ளுங்கள்',
   'entryDetail.loadError': 'இந்தப் பதிவை ஏற்ற முடியவில்லை.',
   'entryDetail.loading': 'பிரதிபலிப்பு ஏற்றப்படுகிறது…',
   'entryDetail.notFound': 'பதிவு காணப்படவில்லை.',
@@ -44,6 +56,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'நுண்ணறிவுகளை ஏற்ற முடியவில்லை.',
   'insights.subheading':
     'உங்கள் கடந்த 30 நாட்களில் இருந்து மென்மையாகத் திரட்டப்பட்ட மனநிலை வடிவங்கள், கருப்பொருள்கள் மற்றும் தூண்டுதல்கள்.',
+  'insights.themesEmpty':
+    'இன்னும் கருப்பொருள்கள் எதுவும் இல்லை — உங்கள் பதிவுகளில் ஒன்று அல்லது இரண்டு குறிச்சொற்களைச் சேர்க்கவும், அவை இங்கே ஒன்றுகூடும்.',
   'insights.themesHeading': 'சிறந்த கருப்பொருள்கள்',
   'insights.triggerFrequency': 'கவனித்தார் {{count}} × இந்த மாதம்',
   'insights.triggersHeading': 'உங்கள் மனநிலையை மாற்றும் வடிவங்கள்',
@@ -62,11 +76,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'நாட்குறிப்பு எழுதத் தொடங்குங்கள்',
   'landing.heroCta': 'உங்கள் முதல் பதிவைத் தொடங்குங்கள்',
   'landing.heroCtaSecondary': 'அது செயல்படுவதைப் பாருங்கள்',
+  'landing.heroSubtitle':
+    '{{app}} என்பது தினசரி சுயசிந்தனை, மனநிலையைக் கண்காணித்தல் மற்றும் நன்றியுணர்வுக்காக உருவாக்கப்பட்ட ஒரு மென்மையான, தனிப்பட்ட நாட்குறிப்பு ஆகும் — இது உங்களை நீங்களே நன்கு புரிந்துகொள்ள உதவும் சிந்தனைக்குரிய தூண்டுதல்களையும் அமைதியான வடிவங்களையும் கொண்டுள்ளது.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewLabel': 'Lucid-இன் உள்ளே ஒரு பார்வை',
   'landing.previewPrompt': 'இன்று நீங்கள் நன்றியுணர்வுடன் இருக்கும் ஒரு சிறிய விஷயம் என்ன?',
   'login.heading': 'உங்கள் பத்திரிகையில் உள்நுழையவும்',
   'login.signupLink': 'உங்கள் நாட்குறிப்பை உருவாக்குங்கள்',
   'login.subheading': 'தினசரி சிந்தனைக்கான ஓர் இதமான இடம்.',
+  'mentalHealthJournalLayout.closeMenu': 'மெனுவை மூடுக',
+  'mentalHealthJournalLayout.openMenu': 'மெனுவைத் திறக்கவும்',
   'moodHeroCard.streakSuffix': 'நாள் தொடர்',
   'moodHeroCard.title': 'இன்றைய சிந்தனை',
   'moodTrendChart.aiBadge': 'செயற்கை நுண்ணறிவு தயார்',
@@ -80,6 +99,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'மிக நீண்ட தொடர்',
   'profile.memberSince': 'சிந்தித்துப் பார்க்கையில் {{date}}',
   'profile.milestones': 'மைல்கற்கள்',
+  'profile.milestonesEmpty':
+    'உங்கள் முதல் மைல்கல்லை அடைய இன்னும் ஒரே ஒரு பதிவுதான் உள்ளது — நீங்கள் தயாராக உணரும்போதெல்லாம் எழுதுங்கள்.',
   'profile.streakValue': '{{days}} டி',
   'profile.totalEntries': 'பிரதிபலிப்புகள்',
   'profile.totalWords': 'எழுதப்பட்ட வார்த்தைகள்',
@@ -109,10 +130,10 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'உங்கள் இடம், உங்கள் விதிகள்',
   'settings.languageHeading': 'மொழி',
   'settings.privacyHeading': 'தனியுரிமை மற்றும் குறியாக்கம்',
+  'settings.remindersHeading': 'தினசரி நினைவூட்டல்',
   'settings.reminderToggleDescription':
     'நீங்கள் தேர்ந்தெடுக்கும் நேரத்தில் ஒரு அமைதியான நினைவூட்டல். எந்தப் பதக்கங்களோ அல்லது தொடர் வெற்றி குற்றவுணர்வோ இல்லை.',
   'settings.reminderToggleLabel': 'மென்மையான தூண்டுதலை அனுப்புங்கள்',
-  'settings.remindersHeading': 'தினசரி நினைவூட்டல்',
   'settings.saveError': 'சேமிக்க முடியவில்லை.',
   'signup.eyebrow': 'உங்கள் சிந்தனையைத் தொடங்குங்கள்',
   'signup.firstNamePlaceholder': 'சாம்',

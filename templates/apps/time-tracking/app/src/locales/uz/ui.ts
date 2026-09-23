@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqida',
   'about.plansTitle': "Siz bilan birga o'sadigan rejalar",
   'brand.tagline': 'Har soniyada',
   'clientDetail.back': 'Mijozlarga qaytish',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Har bir munosabatlar bir joyda — loyihalar, ish vaqti, bajarilmagan schyot-fakturalar.',
   'clients.title': 'Mijozlar',
   'common.and': 'va',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.activeProjects': 'Faol loyihalar',
   'dashboard.empty':
     "Hali hech qanday yozuv yo'q. Birinchi sessiyangizni kuzatish uchun taymerni ishga tushiring.",
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     "Bu mijoz uchun hisob-faktura qilish uchun to'lovli soatlar yo'q. Avval vaqtni kuzatib boring yoki mavjud yozuvlarni ushbu mijozning loyihalaridan biriga tayinlang.",
   'invoices.save': 'Hisob-faktura yarating',
   'invoices.subtitle': "Kuzatilayotgan ish vaqti avtomatik ravishda fakturalarga qo'shiladi.",
+  'landing.copyright': '© {{year}} {{app}} . Har bir soniya hisobga olinadi.',
   'landing.ctaBody': "3 tagacha loyiha uchun bepul. Mijozlar ro'yxati yangilanganda yangilang.",
   'landing.eyebrow': 'Hisob-faktura qilinadigan ish uchun vaqtni kuzatish',
   'landing.featuresBody':
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Mustaqillarning ishonchiga sazovor',
   'landing.testimonial.quote':
     '\\u201cMen Toggl’dan 30 daqiqada ketdim. Byudjetning kamayishi o‘zini oqladi \\u014 Men ketma-ket ikki hafta davomida iqtibos keltirishni to‘xtatdim.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Har bir soniya hisobga olindi.',
   'login.brand.subtitle':
     "Taymerni to'xtagan joyingizdan boshlang — har bir daqiqa allaqachon loyiha, mijoz yoki hisob-fakturaga bog'langan.",
   'login.brand.tracking': 'Kuzatuv',
   'login.subheading': "Taymerni to'xtagan joyingizdan oling.",
+  'nav.closeMenu': 'Navigatsiya menyusini yopish',
   'nav.insightsSection': "Ma'lumotlar",
   'nav.newEntry': 'Yangi yozuv',
+  'nav.openMenu': 'Navigatsiya menyusini ochish',
+  'nav.primary': 'Asosiy navigatsiya',
   'nav.workSection': 'Ish',
   'notFound.body':
     "Siz kuzatgan havola kuzatuvni to'xtatgan ko'rinadi. Boshqaruv paneliga qayting - biz u yerdan boshlab hisoblashda davom etamiz.",
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'timer.billable': "To'lovli",
   'timer.descriptionPlaceholder': 'Nima ustida ishlayapsiz?',
   'timer.idle': "Bo'sh — kuzatishni boshlang",
+  'timer.noProject': "Loyiha yo'q",
   'timer.runningWithProject': "Loyiha yo'q",
   'timer.start': 'Taymerni ishga tushirish',
   'timer.stop': "Taymerni to'xtatish",

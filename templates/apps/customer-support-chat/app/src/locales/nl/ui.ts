@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over ons',
   'authShell.samplePreview':
     '“Hé team, het nieuwe dashboard is prachtig — precies wat we nodig hadden!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/sneltoets',
   'automations.subheading':
     'Regels, standaardantwoorden en chatbots — houd de werkruimte soepel draaiend terwijl uw team zich richt op de moeilijke dingen.',
+  'automations.trigger.inboundMessage': 'Inkomend bericht',
   'automations.triggerLabel': 'Trigger',
   'chatBubble.internalNoteLabel': 'Interne notitie',
+  'common.confirmDelete': 'Bevestig verwijdering',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'contactDetail.backToContacts': 'Alle contacten',
   'contactDetail.contactFallback': 'Contact',
   'contactDetail.conversationFallback': 'Gesprek',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Laatst gezien',
   'contacts.empty': 'Nog geen contacten. Voeg hierboven uw eerste contact toe.',
   'contacts.eyebrow': 'Klantenmap',
+  'contacts.form.nameOrEmailRequired': 'Geef ten minste een naam of e-mailadres op',
   'contacts.form.save': 'Contact opslaan',
   'contacts.heading': 'Contacten',
   'contacts.loading': 'Contacten laden…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Notitie opslaan',
   'conversationDetail.tab.note': 'Interne notitie',
   'conversationDetail.threadAria': 'Gespreksberichten',
+  'conversationDetail.visitorFallback': 'Bezoeker',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Klantgegevens',
   'customerProfilePanel.recentTitle': 'Recente gesprekken',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Klanten krijgen hun eerste antwoord gemiddeld in {{time}} — houd het tempo erin.',
   'inboxHeroCard.title': 'Actieve gesprekken',
+  'inboxLayout.navDrawerLabel': 'Navigatie',
+  'inboxLayout.openMenu': 'Navigatiemenu openen',
   'inboxOverview.eyebrow': 'Vandaag in één oogopslag',
   'inboxOverview.heroChange': '{{count}} open',
   'inboxOverview.kpiClosedTrend': 'totaal',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Bezoek de homepage',
   'notifications.subheading':
     "Toewijzingen, @vermeldingen, SLA-risico's, CSAT-feedback en teamactiviteit — gesorteerd van nieuw naar oud.",
+  'notifications.subjectFallback': 'een gesprek',
+  'notifications.visitorFallback': 'Een bezoeker',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Hoog',
   'priority.low': 'Laag',
+  'priority.normal': 'Normaal',
   'priority.urgent': 'Dringend',
   'privacy.title': 'Privacybeleid',
   'reports.agentFallback': 'Agent',

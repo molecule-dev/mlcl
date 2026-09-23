@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Alati za bogatstvo',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nije investicijski savjet.',
   'argentAuthShell.sampleChange': '+2.841 USD (+0,28%) danas',
   'argentAuthShell.sampleValue': '1.032.251 dolara',
   'argentLayout.primaryNavLabel': 'Primarna navigacija',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Nema transakcija za ovaj ticker.',
   'assetDetail.txHeading': 'Vaše transakcije',
   'common.and': 'i',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Pregled portfolija',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Još nema udjela.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Učitavanje fonda nije uspjelo.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nije investicijski savjet. Prošli rezultati ne garantuju buduće rezultate.',
   'landing.eyebrow': 'Argent · Platforma za alate za sticanje bogatstva',
   'landing.features.heading': 'Sve što bi savjetnik izgradio za sebe.',
   'landing.finalCta.heading': 'Vratite disciplinu u svoj portfolio.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} prije h',
   'news.justNow': 'upravo sada',
   'news.loadError': 'Učitavanje vijesti nije uspjelo.',
+  'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'portfolioHeroCard.label': 'Vrijednost portfelja',
   'pricing.holdingsLabel': 'posjedi',
   'pricing.newsLabel': 'novinski članci',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Izbriši račun',
   'settings.security.deleting': 'Brisanje…',
   'settings.security.heading': 'Sigurnost',
+  'settings.security.newPassword': 'Nova lozinka',
   'settings.security.password': 'Lozinka',
   'settings.security.twoFactorEnable': 'Omogući',
+  'settings.security.twoFactorInvalidCode': 'Nevažeći kod',
+  'settings.security.twoFactorVerify': 'Potvrdi i omogući',
   'settings.tax.error': 'Nije moguće ažurirati metodu poreza.',
   'settings.tax.heading': 'Poresko računovodstvo',
   'settings.tax.method': 'Zadana metoda',

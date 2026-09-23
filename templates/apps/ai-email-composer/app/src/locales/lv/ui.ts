@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Mūsu stāsts',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Atvēršanas likme',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Sākas norēķināšanās…',
   'billing.subheading': 'Izvēlieties plānu, kas atbilst jūsu sūtīšanas veidam.',
   'billing.unavailable': 'Sazinieties ar pārdošanas komandu',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'common.retry': 'Mēģināt vēlreiz',
   'compose.adjustingTone': 'Pārrakstot izvēlētajā tonī…',
   'compose.aiPromptPlaceholder':
     'piem., "Pieklājīga atbilde pēc divu nedēļu ilgas atbildes neesamības, īsa."',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
     'Vai kaut kas jānosūta? Signet var sagatavot melnrakstu dažu sekunžu laikā.',
   'dashboard.composeCtaLabel': 'Ātrā rakstīšana',
   'dashboard.heading': 'Tava nedēļa, salikta',
+  'dashboard.loadFailed': 'Neizdevās ielādēt jūsu vadības paneli.',
   'dashboard.manageLibrary': 'Pārvaldīt bibliotēku →',
   'dashboard.recentEmpty': 'Vēl nav nosūtītu ziņojumu — jūsu nosūtītie e-pasti tiks parādīti šeit.',
   'dashboard.recentHeading': 'Nesen nosūtītie dati',
@@ -145,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Noklusējuma signāls',
   'settings.toneSubheading': 'Signet izmanto šo toni, ja vien jūs to nepārrakstat melnrakstā.',
   'signetLayout.primaryNavLabel': 'Galvenā navigācija',
+  'signetLayout.toggleMenu': 'Pārslēgt izvēlni',
   'signup.emailLabel': 'E-pasta adrese',
   'signup.showPassword': 'Rādīt paroli',
   'signup.tagline':

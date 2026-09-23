@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.pageTitle': 'Ynglŷn â {{appName}}',
   'analytics.error': 'Methwyd llwytho dadansoddeg.',
   'analytics.heading': 'Dadansoddeg adfer',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': "Dim haenau prisio wedi'u ffurfweddu.",
   'billing.plans.heading': 'Cynlluniau',
   'billing.subheading': 'Cynllun, defnydd, a thalu a reolir gan Stripe.',
+  'common.confirm': 'Cadarnhau',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.retry': 'Ail-geisio',
   'documentCard.open': 'Agored \\u2192',
   'documentDetail.back': 'Yn ôl at y dogfennau',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Dogfen mynegai',
   'documents.composer.titlePlaceholder': 'Teitl y ddogfen',
   'documents.emptyAll': 'Dim dogfennau eto. Llwythwch un i fyny i ddechrau gofyn cwestiynau.',
+  'documents.error.load': 'Methwyd llwytho dogfennau.',
   'documents.heading': "Dogfennau wedi'u mynegeio",
   'documents.loading': "Wrthi'n llwytho dogfennau…",
   'documents.metric.chunks': 'Cyfanswm y darnau',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Yn tynnu\\u2026',
   'members.subheading': 'Gwahodd cyd-chwaraewyr a gosod rolau',
   'members.tableHeading': 'Rhestr',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'notFound.askCta': "Gofynnwch i'r gronfa wybodaeth",
+  'notFound.body':
+    "Ni allai {{app}} ddod o hyd i'r dudalen honno. Efallai bod y ddolen wedi torri, neu efallai bod y dudalen wedi cael ei rhoi'n ôl yn ystod ail-fynegeio.",
   'notFound.eyebrow': 'Methu adfer',
   'notFound.title': "Dim darn o'r fath yn y mynegai",
   'notifications.dismiss': 'Diystyru',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     "Cliciwch \\u201cYchwanegu ffynhonnell\\u201d i wifro'ch cysylltydd cyntaf.",
   'sources.empty.title': 'Dim ffynonellau eto.',
+  'sources.error.add': 'Methwyd ychwanegu ffynhonnell.',
   'sources.error.labelRequired': 'Mae angen label.',
   'sources.error.load': 'Methwyd llwytho ffynonellau.',
   'sources.error.urlRequired': 'Mae angen URL ar gyfer y math hwn o ffynhonnell.',

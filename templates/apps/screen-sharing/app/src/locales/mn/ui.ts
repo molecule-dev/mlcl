@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'about.pageTitle': 'Тухай {{appName}}',
   'analytics.empty': 'Сүй тавих ёслолыг эндээс харахын тулд анхны клипээ бичээрэй.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'клипүүд',
   'billing.usage.views': 'Үзсэн тоо',
   'billing.usage.views.unit': 'үзэлт',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'landing.cta.title': 'Илүү сайн санал хүсэлт илгээгээрэй. Glint-ээс эхэл.',
   'landing.feature.capture.body':
     'Микрофон, камер, зураг зурах боломжтой хөтөч, ширээний компьютер болон гар утасны бичлэг.',
   'landing.feature.capture.title': 'Нэг товшилтоор зураг авах',
+  'landing.footer.copy': '© {{year}} {{appName}} . Асинхрон, гэрэлтсэн болгосон.',
   'landing.hero.cardCaption': 'Ажлын талбарын тойм жишээ — үнэгүй туршаад үзээрэй.',
   'landing.hero.primaryCta': 'Үнэгүй бичлэг хийж эхлээрэй',
   'landing.hero.proof.free': 'Үүрд үнэгүй түвшин',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Бичлэг хайх',
   'library.searchPlaceholder': 'Бичлэг хайх…',
   'library.weeklyChange': '{{value}} өнгөрсөн долоо хоногтой харьцуулахад %',
+  'nav.openMenu': 'Навигацийн цэсийг нээх',
   'nav.record': 'Бичлэг',
   'nav.shared': 'Надтай хуваалцсан',
   'nav.startRecording': 'Бичлэг хийж эхлэх',

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
+  'article.notFound': 'Artigo non atopado',
   'articleEditor.bodyPlaceholder': 'Escribe / para bloques ou simplemente comeza a escribir.',
+  'articleEditor.loadFailed': 'Non se puido cargar o artigo',
   'articleEditor.publishing': 'Publicación\\u2026',
   'articleEditor.saveFailed': 'Fallou o gardado',
   'articleEditor.saving': 'Gardando\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Marcador',
   'articleView.bookmarkOn': 'Marcado',
   'articleView.edit': 'Editar artigo',
+  'articleView.loading': 'Abrindo este artigo…',
   'articleView.readTime': '{{minutes}} lectura mínima',
   'articleView.spaces': 'Espazos',
   'articleView.tocHeading': 'Nesta páxina',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Edicións, lecturas e borradores recentes que o teu equipo aínda está a recoller.',
   'cairnTrailHero.updated': 'Artigos actualizados',
+  'common.goToDashboard': 'Ir ao panel',
   'drafts.eyebrow': 'O teu traballo inacabado',
   'drafts.heading': 'Borradores',
+  'drafts.loadFailed': 'Non se puideron cargar os borradores.',
   'drafts.subtitle': 'Artigos que comezaches pero aínda non publicaches. Escolle un e continúa.',
   'forgotPassword.sentBody':
     'Se existe unha conta para {{email}} , unha ligazón de restablecemento está en camiño. A ligazón caduca en 30 minutos.',
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Aínda non hai espazos. Abre un para comezar a recoller artigos.',
   'home.spacesHeading': 'Os teus espazos',
   'home.subtitle': 'Artigos recentes, os teus marcadores e o que o equipo estivo escribindo.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Construído con Molecule.',
   'landing.ctaBody':
     'Gratuíto para autores individuais. Plans de equipo para equipos distribuídos que envían libros de execución, decisións e incorporación.',
   'landing.ctaHeading': 'Apila a primeira pedra hoxe.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Crear un espazo de traballo',
   'login.submitting': 'Iniciando sesión\\u2026',
   'login.subtitle': 'Recupera o camiño onde o deixaches.',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
+  'newSpace.colorAria': 'Escolle a cor {{color}}',
   'newSpace.colorLabel': 'Cor de realce',
+  'newSpace.createFailed': 'Non se puido crear o espazo',
   'newSpace.descriptionPlaceholder':
     'Libros de execución, libros de estratexias de garda, análises posteriores...',
   'newSpace.eyebrow': 'Abrir un espazo de coñecemento',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Cargando\\u2026',
   'notifications.subtitle':
     '{{count}} mencións, comentarios, cambios de páxina e solicitudes de revisión sen ler.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.articles': 'artigos',
   'pricing.spaces': 'espazos',
   'profile.eyebrow': 'Perfil de autor',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Introduza un novo contrasinal',
   'resetPassword.subtitle': 'Escolle un contrasinal forte: de polo menos 12 caracteres.',
   'searchResults.eyebrow': 'Busca de espazo de traballo',
+  'searchResults.filter.all': 'Todos os espazos',
   'searchResults.heading': 'Buscar artigos',
   'searchResults.placeholder': 'Buscar runbooks, RFC, políticas, decisións\\u2026',
   'searchResults.summary': '{{count}} resultados para \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Isto elimina a túa conta e todos os artigos que escribiches. Escribe ELIMINAR para confirmar.',
   'settings.danger.confirmInvalid': 'Escribe SUPRIMIR para confirmar.',
+  'settings.danger.deleteFailed': 'Non se puido eliminar a conta',
   'settings.danger.deleting': 'Eliminando\\u2026',
   'settings.danger.description':
     'Ao eliminar o espazo de traballo, elimínanse todos os artigos, comentarios e o historial de versións. Non hai posibilidade de recuperación.',
   'settings.danger.title': 'Eliminar espazo de traballo',
+  'settings.email.confirm': 'Actualizar correo electrónico',
+  'settings.email.confirmTitle': 'Confirmar cambio de correo electrónico',
   'settings.email.saved': 'Correo electrónico actualizado.',
+  'settings.email.updateFailed': 'Non se puido actualizar o correo electrónico',
   'settings.language.title': 'Lingua',
   'settings.name': 'Nome',
+  'settings.name.saved': 'Nome actualizado.',
+  'settings.name.updateFailed': 'Non se puido actualizar o nome',
   'settings.notifications.description': 'Escolle o que chega á túa caixa de entrada.',
+  'settings.password.changeFailed': 'Non se puido cambiar o contrasinal',
   'settings.password.current': 'Contrasinal actual',
   'settings.password.new': 'Novo contrasinal',
   'settings.password.saving': 'Actualizando\\u2026',
@@ -147,10 +167,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Como se renderizan os artigos.',
   'settings.reading.title': 'Lectura e escritura',
   'settings.subtitle': 'Notificacións de Tune, o lenzo de lectura e a túa conta.',
+  'settings.twofa.code': 'Código de autenticación',
   'settings.twofa.disable': 'Desactivar',
   'settings.twofa.disabled': 'Discapacitado',
   'settings.twofa.enable': 'Activar',
   'settings.twofa.enabled': 'Activado',
+  'settings.twofa.invalidCode': 'Código non válido',
+  'settings.twofa.unavailable':
+    'A autenticación de dous factores non está dispoñible para esta aplicación.',
+  'settings.twofa.verify': 'Verificar e activar',
   'signup.brandQuote':
     'Escribilo é a primeira promesa que lle facemos á seguinte persoa que o precise.',
   'signup.eyebrow': 'Abrir un espazo de traballo',

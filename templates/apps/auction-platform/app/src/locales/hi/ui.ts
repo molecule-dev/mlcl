@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'देख रहे हैं',
   'auctionDetail.watchRemoved': 'वॉचलिस्ट से हटाया गया।',
   'auctionDetail.watchRemoveLabel': 'वॉचलिस्ट से हटाएँ',
+  'auctionPlatformLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'authShell.brandBody':
     'दुर्लभ घड़ियों, ललित कला और एक-के-एक विशेष वस्तुओं पर वास्तविक समय में बोली लगाएँ। हथौड़ा सेकंडों में गिरता है।',
   'authShell.brandEyebrow': 'अभी लाइव · 1,420 नीलामियाँ',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'इसके अनुसार क्रमबद्ध करें',
   'browseAuctions.subheading':
     'श्रेणी के अनुसार फ़िल्टर करें, जो सबसे महत्वपूर्ण है उसके अनुसार क्रमबद्ध करें, और हथौड़ा गिरने से पहले बोली लगाएँ।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'countdownTimer.ended': 'समाप्त',
   'countdownTimer.endingSoon': 'समाप्त हो रही है',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'पासवर्ड छिपाएँ',
   'login.showPassword': 'पासवर्ड दिखाएँ',
   'login.subtext': 'अपनी नीलामियों पर नज़र रखना जारी रखें और हथौड़ा गिरने से पहले बोली लगाएँ।',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'myBids.bidAgain': 'फिर से बोली लगाएँ',
   'myBids.browseCta': 'लाइव नीलामियाँ देखें →',
   'myBids.checkoutCta': 'अभी भुगतान करें',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'अभी तक कोई सूचनाएँ नहीं।',
   'notificationsPage.eyebrow': 'गतिविधि केंद्र',
   'notificationsPage.subheading': '{{count}} अपठित · नीलामियाँ बदलते ही लाइव अपडेट',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.bidsLabel': 'बोलियां',
   'pricing.listingsLabel': 'लिस्टिंग',
   'pricing.watchlistLabel': 'वॉचलिस्ट',

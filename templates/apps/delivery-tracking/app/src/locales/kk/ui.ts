@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'alerts.acknowledgeLabel': 'Растау',
   'alerts.customerLabel': 'Тұтынушы: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Қосылуда…',
   'carriers.requiredError': 'Аты-жөні мен коды міндетті түрде көрсетілуі керек.',
   'carriers.subheading': '{{count}} интеграцияланған',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
+  'common.retry': 'Қайталап көру',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Жолда + белгіленген',
   'dashboard.activeShipmentsSubtitle':
@@ -103,6 +106,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'жөнелтімдер',
   'pricing.trackingLabel': 'оқиғаларды бақылау',
   'profile.dangerZone.title': 'Қауіпті аймақ',
+  'profile.devices.signingOut': 'Шығарылуда…',
+  'profile.devices.unnamed': 'Атауы жоқ құрылғы',
+  'profile.security.disable2fa': '2FA өшіру',
   'profile.security.enable2fa': '2FA қосу',
   'profile.security.pwChanged': 'Құпия сөз сәтті өзгертілді.',
   'profile.security.pwCurrent': 'Ағымдағы құпия сөз',
@@ -112,10 +118,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA белсенді',
   'profile.security.twoFaCode': '6 таңбалы код',
   'profile.security.twoFaDisable': 'Өшіру',
+  'profile.security.twoFaDisabling': 'Өшіруде…',
   'profile.security.twoFaFailed': 'Кодты тексеру мүмкін болмады.',
   'profile.security.twoFaIntro':
     'Authenticator қолданбасында QR кодын сканерлеңіз, содан кейін растау үшін төмендегі 6 таңбалы кодты енгізіңіз.',
   'profile.security.twoFaOn': 'Бұл тіркелгіде екі факторлы аутентификация қосылған.',
+  'profile.security.twoFaQrAlt': 'Екі факторлы QR коды',
   'profile.security.twoFaVerify': 'Тексеру және қосу',
   'profile.security.twoFaVerifying': 'Тексеруде…',
   'profile.subheading': 'Бұл жұмыс кеңістігінің сәйкестендіру және қауіпсіздік параметрлері.',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Бұл құпияны сақтаңыз - ол қайтадан көрсетілмейді.',
   'settings.api.webhookSecret': 'Вебхукқа қол қою құпиясы',
   'settings.appearance.description': 'Жарық және қараңғы режимдер арасында ауысу.',
+  'settings.deleteAccountConfirm': 'Сенімдісіз бе? Бұл әрекетті болдырмау мүмкін емес.',
   'settings.notifications.exceptions':
     'Жеткізу ерекшелігі орын алған кезде маған электрондық пошта жіберіңіз',
   'settings.notifications.heading': 'Хабарландырулар',
@@ -149,6 +158,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Жөнелту табылмады.',
   'shipmentDetail.originHeading': 'Шығу тегі',
   'shipmentDetail.shippedOn': 'Жеткізілді {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Әзірге ешқандай бақылау оқиғалары жоқ — тасымалдаушы посылканы сканерлеген кезде жаңартулар осында көрсетіледі.',
   'shipmentDetail.weightLabel': '{{weight}} фунт',
   'shipments.col.carrier': 'Тасымалдаушы',
   'shipments.col.eta': 'Болу уақыты',
@@ -178,6 +189,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Кіру',
   'signup.submit': 'Аккаунт ашу',
   'team.emailError': 'Жарамды электрондық пошта мекенжайы қажет.',
+  'team.empty':
+    'Әзірге команда мүшелері жоқ. Жеткізу бойынша бірлесіп жұмыс істеу үшін командаласыңызды шақырыңыз.',
   'team.eyebrow': 'Мүшелер және рұқсаттар',
   'team.inviteDialog.cancel': 'Бас тарту',
   'team.inviteDialog.heading': 'Командаласты шақырыңыз',
@@ -200,6 +213,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Жол',
   'waypointLayout.primaryNavLabel': 'Негізгі навигация',
   'webhooks.createFailed': 'Вебхуктың соңғы нүктесін жасау мүмкін болмады.',
+  'webhooks.endpointsEmpty':
+    'Әзірге вебхуктың соңғы нүктелері жоқ. Жөнелту күйі туралы кері байланыс алу үшін біреуін жасаңыз.',
   'webhooks.endpointsHeading': 'Соңғы нүктелер',
   'webhooks.eventCount': '{{count}} іс-шаралар',
   'webhooks.eventsHeading': 'Соңғы жеткізілімдер',

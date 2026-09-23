@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
   'activityFeed.empty': 'Пока нет активности — отправьте свой первый счет.',
   'authShell.sample.paid': 'Оплата произведена 2 минуты назад.',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Добавить нового клиента',
   'clients.search': 'Поиск по имени, компании, электронной почте.',
   'clients.title': 'Клиенты',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Новый клиент',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Забыли пароль?',
   'forgotPassword.successBody':
     'Мы отправили инструкции по сбросу настроек. {{email}} Ссылка будет недействительна через 30 минут.',
+  'invoiceDetail.action.confirmVoid': 'Подтвердить аннулирование?',
   'invoiceDetail.action.download': 'Скачать PDF',
   'invoiceDetail.action.duplicate': 'Дубликат',
   'invoiceDetail.action.edit': 'Редактировать',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Счет-фактура аннулирован.',
   'invoiceDetail.issued': 'Изданный {{date}}',
   'invoiceDetail.loading': 'Загрузка счета-фактуры…',
+  'invoiceDetail.paidInFull': 'Оплачено полностью',
   'invoiceDetail.summary': '{{client}} · отправил {{date}}',
   'invoiceDetail.tax': 'Налог ( {{rate}} %)',
   'invoiceDetail.timeline': 'Хронология',
+  'invoiceDetail.voided': 'Пустое',
   'invoiceEditor.addItem': 'Добавить элемент',
   'invoiceEditor.back': '← Назад к счетам',
   'invoiceEditor.col.qty': 'Кол-во',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Выставьте свой первый счет-фактуру',
   'landing.hero.eyebrow': 'Выставление счетов для малых предприятий',
   'landing.hero.secondary': 'См. образец счета-фактуры',
+  'landing.hero.subtitle':
+    '{{appName}} сочетает в себе отполированные счета-фактуры со встроенными функциями платежей, регулярными платежами и отчетами, готовыми к налоговой отчетности. Без необходимости вести бухгалтерский учет.',
   'landing.hero.title': 'Выставляйте счета. Получайте оплату быстрее.',
   'login.signupLink': 'Создайте один',
   'login.submitting': 'Выполняем вход в систему…',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'платежи',
   'pricing.recurringLabel': 'повторяющиеся расписания',
   'remitLayout.newInvoice': 'Новый счет-фактура',
+  'remitLayout.openMenu': 'Открыть меню навигации',
   'remitLayout.searchPlaceholder': 'Поиск счетов-фактур, клиентов...',
   'remitLayout.tagline': 'Получайте оплату быстрее!',
   'reports.chart.aging': 'Сроки погашения счетов-фактур',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Периодическая выручка',
   'reports.chart.topClients': 'Лучшие клиенты',
   'reports.chart.topClientsCaption': 'Общий доход за все время работы, топ-5',
+  'reports.empty.aging': 'Нет неоплаченных счетов.',
+  'reports.empty.methods': 'Данные об платежах пока отсутствуют.',
+  'reports.empty.revenue': 'Данные о доходах пока отсутствуют.',
+  'reports.empty.topClients': 'Данные о доходах от клиентов пока отсутствуют.',
   'reports.exporting': 'Экспорт…',
   'reports.exportRequiresPaid':
     'Функция экспорта является платной — для её активации требуется платная подписка.',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Добавить налоговую ставку',
   'settings.tax.added': 'Добавлена налоговая ставка.',
   'settings.tax.adding': 'Добавляем…',
+  'settings.tax.addRate': 'Добавить ставку',
   'settings.tax.col.region': 'Область',
   'settings.tax.delete': 'Удалить налоговую ставку',
   'settings.tax.deleted': 'Налоговая ставка отменена.',

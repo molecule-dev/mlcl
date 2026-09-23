@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// ກ່ຽວກັບ {{app}}',
+  'about.pageTitle': 'ເຄື່ອງຄວບຄຸມ webhook',
+  'about.plansTitle': 'ແຜນການສຳລັບແຕ່ລະໄລຍະ',
   'apiKeys.bestPractices': 'ວິທີປະຕິບັດທີ່ດີທີ່ສຸດ',
   'apiKeys.body':
     'ໂທເຄັນການເຂົ້າເຖິງແບບໂປຣແກຣມ. ປະຕິບັດຕໍ່ພວກມັນຄືກັບລະຫັດຜ່ານ - ເກັບໄວ້ໃນ env vars, ຢ່າ commit.',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ພາຍໃນແຜນການ',
   'billing.usageWarning': 'ໃກ້ກັບຝາປິດ',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.body':
     'ປະລິມານການເຮັດວຽກສົດ, ການລອງໃໝ່ໃນລະຫວ່າງການບິນ, ແລະຈຸດສິ້ນສຸດທີ່ຫາກໍ່ມີບັນຫາ — ໃນທຸກໆພື້ນທີ່ເຮັດວຽກທີ່ທ່ານດຳເນີນການ.',
   'dashboard.endpointsEmpty': 'ຍັງບໍ່ມີຈຸດສິ້ນສຸດເທື່ອ.',
@@ -108,6 +112,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'ຈຸດສິ້ນສຸດ',
   'endpointDetail.deliveryTrendSub': 'ການຈັດສົ່ງ / ຊົ່ວໂມງ, ຂະໜາດບັນທຶກ',
   'endpointDetail.hideSecret': 'ເຊື່ອງຄວາມລັບ',
+  'endpointDetail.loading': 'ກຳລັງໂຫຼດຈຸດສິ້ນສຸດ…',
   'endpointDetail.metric.delivered': 'ສົ່ງພາຍໃນ 24 ຊົ່ວໂມງ',
   'endpointDetail.metric.deliveredCaption': 'ຈາກ {{count}} ປະເພດເຫດການ',
   'endpointDetail.metric.failuresCaption': 'ລອງໃໝ່: {{retries}}',
@@ -212,6 +217,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'ວິກິດ · 24 ຊົ່ວໂມງ',
   'notifications.metric.totalCaption': 'ກ່ອງຈົດໝາຍຕະຫຼອດເວລາ',
   'payloadViewer.payload': '// ກຳລັງໂຫຼດ',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'profile.avatarHeader': 'ຮູບແທນຕົວ',
   'profile.avatarHint': 'ສະແດງຕົວອັກສອນຫຍໍ້ແລ້ວ — ການອັບໂຫຼດຈະມາພ້ອມກັບການອອກລຸ້ນຕໍ່ໄປ.',
   'profile.body': 'ບັນຊີຂອງທ່ານ, ການຕັ້ງຄ່າ ແລະ ເຊດຊັນທີ່ໃຊ້ງານຢູ່.',
@@ -227,6 +233,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'ມີພຽງເຊດຊັນປັດຈຸບັນຂອງທ່ານເທົ່ານັ້ນທີ່ເປີດໃຊ້ງານຢູ່. ບໍ່ມີອຸປະກອນອື່ນໃດເຂົ້າສູ່ລະບົບ.',
   'profile.toggle': 'ສະຫຼັບ {{label}}',
+  'pylonShell.closeMenu': 'ປິດເມນູນຳທາງ',
+  'pylonShell.openMenu': 'ເປີດເມນູນຳທາງ',
   'pylonShell.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'resetPassword.subtitle': 'ເລືອກລະຫັດຜ່ານທີ່ເຂັ້ມແຂງທີ່ທ່ານບໍ່ເຄີຍໃຊ້ມາກ່ອນ.',
   'resetPassword.tokenPlaceholder': 'ວາງຈາກອີເມວ',

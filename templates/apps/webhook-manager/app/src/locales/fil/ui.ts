@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// tungkol sa {{app}}',
+  'about.pageTitle': 'Ang eroplano ng kontrol ng webhook',
+  'about.plansTitle': 'Mga plano para sa bawat yugto',
   'apiKeys.bestPractices': 'Pinakamahuhusay na kasanayan',
   'apiKeys.body':
     'Mga programmatic access token. Ituring ang mga ito na parang mga password — iimbak sa env vars, huwag kailanman i-commit.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'sa loob ng plano',
   'billing.usageWarning': 'malapit sa takip',
   'billing.yearly': 'Taon-taon',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.body':
     'Live throughput, mga pagsubok muli habang nasa eroplano, at ang mga endpoint na naantala — sa bawat workspace na iyong pinapatakbo.',
   'dashboard.endpointsEmpty': 'Wala pang mga endpoint.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'mga endpoint',
   'endpointDetail.deliveryTrendSub': 'mga paghahatid / oras, talaan ng sukat',
   'endpointDetail.hideSecret': 'Itago ang sikreto',
+  'endpointDetail.loading': 'Naglo-load ng endpoint…',
   'endpointDetail.metric.delivered': 'Naihatid 24 oras',
   'endpointDetail.metric.deliveredCaption': 'mula sa {{count}} mga uri ng kaganapan',
   'endpointDetail.metric.failuresCaption': 'mga pagsubok muli: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritikal · 24 oras',
   'notifications.metric.totalCaption': 'inbox sa lahat ng panahon',
   'payloadViewer.payload': '// kargamento',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Ipinapakita ang mga inisyal — mga upload na kasama ng susunod na release.',
   'profile.body': 'Ang iyong account, mga kagustuhan, at mga aktibong sesyon.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Ang kasalukuyan mong sesyon lang ang aktibo. Walang ibang device ang naka-sign in.',
   'profile.toggle': 'I-toggle {{label}}',
+  'pylonShell.closeMenu': 'Isara ang menu ng nabigasyon',
+  'pylonShell.openMenu': 'Buksan ang menu ng nabigasyon',
   'pylonShell.primaryNavLabel': 'Pangunahing navigation',
   'resetPassword.subtitle': 'Pumili ng matibay na password na hindi mo pa ginamit.',
   'resetPassword.tokenPlaceholder': 'i-paste mula sa email',

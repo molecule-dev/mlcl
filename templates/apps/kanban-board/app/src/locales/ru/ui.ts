@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'auth.legalConsent': 'Продолжая, вы соглашаетесь с нашими',
   'backlog.create.needBoard': 'Сначала создайте доску, чтобы добавить элементы в бэклог.',
   'backlog.create.placeholder':
     'Например, изучите причину медленного запроса на панели мониторинга.',
@@ -12,6 +13,7 @@ export const ui: UiTranslations = {
   'backlog.eyebrow': 'Driftboard · Задержка',
   'backlog.goToBoards': 'Перейти к доскам',
   'backlog.heading': 'Список невыполненных задач',
+  'backlog.loadError': 'Не удалось загрузить список невыполненных задач.',
   'backlog.loading': 'Загрузка накопившихся задач™',
   'backlog.newItem': 'Новый товар',
   'backlog.noBoards': 'Для использования списка задач сначала создайте доску.',
@@ -41,8 +43,10 @@ export const ui: UiTranslations = {
   'boardDetail.rename': 'Переименовать доску',
   'boardDetail.renameDialog.label': 'Новое название',
   'boardDetail.renameDialog.title': 'Переименовать доску',
+  'boardDetail.star': 'Звездная доска',
   'boardDetail.totalCards': '{{count}} карты',
   'boardDetail.totalLists': '{{count}} списки',
+  'boardDetail.unstar': 'Доска Unstar',
   'boardDetail.upgradeRequired': 'Вы достигли лимита списка, установленного вашим тарифным планом.',
   'boardHeroCard.completedLabel': 'Карты отправлены',
   'boardHeroCard.due': 'Должный {{value}}',
@@ -87,6 +91,8 @@ export const ui: UiTranslations = {
   'cardDetail.noDescription': 'Описания пока нет.',
   'cardDetail.notFound': 'Карта не найдена.',
   'common.and': 'и',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Повторить попытку',
   'dashboard.boards.heading': 'Ваши доски',
   'dashboard.boards.updated': 'Обновлено {{ago}}',
   'dashboard.create.nameLabel': 'Название доски',
@@ -98,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpis.cardsShipped': 'Карты отправлены',
   'dashboard.kpis.highPriority': 'Высокий приоритет',
   'dashboard.kpis.openCards': 'Открытые карты',
+  'dashboard.loadError': 'Не удалось загрузить вашу панель управления.',
   'dashboard.loading': 'Загрузка…',
   'dashboard.newBoardCta': 'Новая доска',
   'dashboard.recent.heading': 'Недавние открытки',
@@ -111,6 +118,7 @@ export const ui: UiTranslations = {
   'driftboardAuthShell.sample.title':
     'Перенесите диаграммы на панели мониторинга на новые цветовые обозначения.',
   'driftboardKanbanCard.labelOverflow': '+{{count}}',
+  'driftboardLayout.closeNav': 'Закрыть меню навигации',
   'driftboardLayout.nav.backlog': 'Список невыполненных задач',
   'driftboardLayout.nav.boards': 'Доски',
   'forgotPassword.continueCta': 'У меня есть код сброса.',
@@ -151,8 +159,10 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Эта карта была убрана с игрового поля.',
   'notifications.eyebrow': 'Driftboard · Входящие',
   'notifications.heading': 'Входящие сообщения',
+  'notifications.loadError': 'Не удалось загрузить ваш почтовый ящик.',
   'notifications.loading': 'Загрузка входящих сообщений…',
   'notifications.subline': '{{count}} непрочитанные обновления.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'resetPassword.eyebrow': 'Driftboard · Заключительный этап',
   'resetPassword.headline': 'Установите новый пароль.',
   'resetPassword.newPassword': 'Новый пароль',
@@ -180,6 +190,7 @@ export const ui: UiTranslations = {
   'team.kpis.boards': 'Активные доски',
   'team.kpis.open': 'Открытые карты',
   'team.kpis.shipped': 'Карты отправлены',
+  'team.kpis.total': 'Общее количество участников',
   'team.noEmail': 'Владелец',
   'team.roleOwner': 'Владелец',
   'team.subline':

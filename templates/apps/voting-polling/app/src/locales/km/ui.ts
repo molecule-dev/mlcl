@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'analytics.col.quorum': 'កូរ៉ុម',
   'analytics.col.votes': 'សំឡេងឆ្នោត',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'មិនទាន់មានសំណួរដែលកំពុងរង់ចាំនៅឡើយទេ។',
   'audienceQa.onStageEyebrow': 'នៅលើឆាកឥឡូវនេះ',
   'audienceQa.pollId': 'កា · {{id}}',
+  'audienceQa.promote': 'ផ្សព្វផ្សាយ',
   'audienceQa.queued': 'បានដាក់ជាជួរ',
   'audienceQa.queueEyebrow': 'ជួរ',
   'ballot.eyebrow': 'បោះឆ្នោតរបស់អ្នក',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'បច្ចុប្បន្នអ្នកកំពុងនៅលើ {{plan}} ផែនការ។',
   'billing.switch': 'ប្តូរ',
   'billing.upgraded': 'បានធ្វើបច្ចុប្បន្នភាពទៅ {{plan}} - ដែនកំណត់ត្រូវបានអនុវត្តភ្លាមៗ។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'createPoll.addOption': 'បន្ថែមជម្រើស',
   'createPoll.anonymousHint':
     'ឈ្មោះអ្នកបោះឆ្នោតត្រូវបានលាក់នៅក្នុងកំណត់ហេតុសវនកម្ម; ការរាប់សន្លឹកឆ្នោតនៅតែត្រូវបានផ្ទៀងផ្ទាត់។',
@@ -164,6 +167,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ថ្មីចំពោះ Nosh?',
   'login.remember': 'ចងចាំខ្ញុំរយៈពេល 30 ថ្ងៃ',
   'login.subheading': 'បើកកម្រាលឥដ្ឋ ដំណើរការបន្ទប់ ហើយបញ្ជាក់លទ្ធផល។',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'notFound.body':
     'ទំព័រដែលអ្នកបានព្យាយាមចូលមើលត្រូវបានបិទ ឬផ្លាស់ទី។ ត្រឡប់ទៅផ្ទាំងគ្រប់គ្រងវិញ ឬបើកការស្ទង់មតិថ្មី។',
   'notFound.eyebrow': 'គ្មានកូរ៉ុមនៅលើផ្លូវនេះទេ',
@@ -190,6 +195,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'មិនអាចផ្ទុកការស្ទង់មតិនេះបានទេ។',
   'pollDetail.loading': 'កំពុងផ្ទុកការស្ទង់មតិ…',
   'pollDetail.notFound': 'រកមិនឃើញការស្ទង់មតិទេ។',
+  'pollDetail.openBallot': 'សន្លឹកឆ្នោតបើកចំហ',
   'pollDetail.openLive': 'លទ្ធផលផ្ទាល់',
   'pollDetail.pollId': 'ការស្ទង់មតិ · {{id}}',
   'pollDetail.published': 'ការស្ទង់មតិបានចេញផ្សាយហើយ — ឥឡូវនេះអ្នកបោះឆ្នោតអាចបោះឆ្នោតបានហើយ។',
@@ -272,4 +278,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ស្វែងរកតាមអ៊ីមែល…',
   'voters.subheading':
     'រៀបចំបញ្ជីឈ្មោះអ្នកមានសិទ្ធិបោះឆ្នោត។ ដាក់ក្រុមអ្នកបោះឆ្នោតតាមអង្គការសម្រាប់សន្លឹកឆ្នោតដែលមានទម្ងន់។',
+  'votingPollingLayout.nav.analytics': 'ការវិភាគ',
+  'votingPollingLayout.nav.billing': 'ការគិតថ្លៃ',
+  'votingPollingLayout.nav.createPoll': 'ការស្ទង់មតិថ្មី',
+  'votingPollingLayout.nav.dashboard': 'ផ្ទាំងគ្រប់គ្រង',
+  'votingPollingLayout.nav.notifications': 'ការជូនដំណឹង',
+  'votingPollingLayout.nav.settings': 'ការកំណត់',
+  'votingPollingLayout.nav.team': 'ក្រុម',
+  'votingPollingLayout.nav.voters': 'អ្នកបោះឆ្នោត',
+  'votingPollingLayout.primaryNavLabel': 'ការរុករកចម្បង',
 }

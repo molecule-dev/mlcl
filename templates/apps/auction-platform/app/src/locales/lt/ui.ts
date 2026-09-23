@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Stebėjimas',
   'auctionDetail.watchRemoved': 'Pašalinta iš stebimųjų sąrašo.',
   'auctionDetail.watchRemoveLabel': 'Pašalinti iš stebimųjų sąrašo',
+  'auctionPlatformLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'authShell.brandBody':
     'Teikite pasiūlymus realiuoju laiku už retus laikrodžius, meno kūrinius ir unikalius specialius daiktus. Plaktukas krenta per kelias sekundes.',
   'authShell.brandEyebrow': 'Tiesiogiai dabar · 1 420 aukcionų',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Rūšiuoti pagal',
   'browseAuctions.subheading':
     'Filtruokite pagal kategoriją, rūšiuokite pagal tai, kas svarbiausia, ir pateikite pasiūlymą prieš plaktuką nukritus.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'countdownTimer.ended': 'Baigėsi',
   'countdownTimer.endingSoon': 'Pabaiga',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Rodyti slaptažodį',
   'login.subtext':
     'Toliau stebėkite savo aukcionus ir pateikite pasiūlymus prieš plaktuką nukritus.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'myBids.bidAgain': 'Dar kartą siūlykite kainą',
   'myBids.browseCta': 'Naršyti tiesioginius aukcionus →',
   'myBids.checkoutCta': 'Mokėti dabar',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Veiklos centras',
   'notificationsPage.subheading':
     '{{count}} neskaityta · tiesioginiai atnaujinimai, vykstant aukcionams',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.bidsLabel': 'kainos pasiūlymai',
   'pricing.listingsLabel': 'skelbimai',
   'pricing.watchlistLabel': 'stebimųjų sąrašas',

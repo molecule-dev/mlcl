@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.eyebrow': 'Ynghylch {{app}}',
+  'about.intro':
+    "Ap myfyrdod ar gyfer bywyd go iawn yw {{app}} — myfyrdodau tywys dyddiol, gwaith anadlu, a straeon cysgu wedi'u cyflyru gan athrawon sy'n teimlo fel ffrind, nid hyfforddwr. Dim cyfnodau o euogrwydd, dim bwydo swnllyd: dim ond lle tawel i ddod yn ôl at eich anadl.",
+  'about.missionBody':
+    "Credwn y dylai llonyddwch fod yn hygyrch i bawb, ar unrhyw adeg o'r dydd. Mae {{app}} yn bodoli i wneud i ymarfer tawel, cyson deimlo'n ddiymdrech - fel y gall deg munud gonest newid sut rydych chi'n cwrdd â'r deg awr nesaf.",
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.pageTitle': '10 munud tawelach y dydd',
+  'breathingDial.seconds': 'eiliadau',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.logout': 'Allgofnodi',
   'common.min': 'munud',
   'common.relative.justNow': 'nawr yn unig',
   'common.relative.now': 'nawr',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
+  'nav.secondaryNavigation': 'Mordwyo cyfrif',
   'sessionCard.with': 'gyda {{name}}',
   'stillpoint.billing.choose': 'Dewiswch {{plan}}',
   'stillpoint.billing.currentPlan': 'Ar hyn o bryd {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Ni allem lwytho cynlluniau.',
   'stillpoint.billing.opening': "Wrthi'n agor y ddesg dalu…",
   'stillpoint.billing.perMonthShort': '/ mis',
+  'stillpoint.billing.perYearShort': '/blwyddyn',
   'stillpoint.billing.unknownResult': 'Ymateb bilio annisgwyl.',
   'stillpoint.billing.yearly': 'Bob blwyddyn · arbedwch 17%',
   'stillpoint.courseDetail.back': 'Cyrsiau',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Dim cyrsiau eto.',
   'stillpoint.courses.eyebrow': '{{count}} teithiau aml-ddydd',
   'stillpoint.courses.heading': 'Cyrsiau',
+  'stillpoint.forgot.checkEmail':
+    'Gwiriwch eich mewnflwch — bydd y ddolen yn dod i ben ymhen 30 munud.',
   'stillpoint.forgot.success': 'Rydym wedi anfon dolen ailosod i {{email}} .',
   'stillpoint.home.empty': 'Dim sesiynau eto — gwiriwch yn ôl yn fuan.',
   'stillpoint.home.friend': 'ffrind',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Creu eich cyfrif am ddim',
   'stillpoint.landing.cta.title': 'Dechreuwch eich llonyddwch heddiw',
   'stillpoint.landing.features.heading': "Ymarfer sy'n tyfu gyda chi",
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     "Myfyrdodau tywys dyddiol, gwaith anadlu, a straeon cysgu — wedi'u cyflymderu gan athrawon sy'n teimlo fel ffrind, nid hyfforddwr.",
   'stillpoint.landing.hero.eyebrow': '10 munud tawelach y dydd',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Pori yn ôl hwyliau',
   'stillpoint.login.rememberMe': 'Cadwch fi wedi mewngofnodi',
   'stillpoint.login.subheading': "Mewngofnodwch i barhau â'ch ymarfer.",
+  'stillpoint.nav.tagline': "Dewch o hyd i'ch canol llonydd",
+  'stillpoint.notFound.body':
+    "Mae'r dudalen hon yn anadlu'n hir, yn ddwfn yn rhywle. Gadewch i ni ddod o hyd i fan tawelach i chi yn {{app}} .",
   'stillpoint.notFound.title': 'Ar goll yn y distawrwydd',
   'stillpoint.notFound.toHome': 'Yn ôl i heddiw',
   'stillpoint.notFound.toLibrary': "Pori'r llyfrgell",
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Neidio yn ôl 15 eiliad',
   'stillpoint.player.skipForward': 'Neidio ymlaen 30au',
   'stillpoint.player.with': 'gyda {{name}}',
+  'stillpoint.profile.defaultHandle': 'pwyntydd llonydd',
   'stillpoint.profile.eyebrow': "Eich ymarfer, wedi'i grynhoi.",
   'stillpoint.profile.locked': "Wedi'i gloi",
   'stillpoint.profile.member': 'Aelod Stillpoint',

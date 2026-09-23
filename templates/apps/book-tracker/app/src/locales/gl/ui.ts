@@ -151,7 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Reinicia a cadea',
   'resetPassword.mismatchError': 'Os contrasinais non coinciden.',
   'resetPassword.subheading': 'Escolle algo forte. Os teus libros agardaran.',
-  'reviewCard.starsAria': 'Clasificado<x> {{valoración}}</x> fóra de<x> {{de}}</x> estrelas',
+  'reviewCard.starsAria': 'Cualificado con {{rating}} de {{of}} estrelas',
   'reviewCard.unratedAria': 'Sen cualificación',
   'reviews.eyebrow': 'O que quedou contigo',
   'reviews.heading': 'As túas opinións',

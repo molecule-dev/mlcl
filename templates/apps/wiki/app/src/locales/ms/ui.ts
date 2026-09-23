@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Menyelesaikan…',
   'comments.subtitle':
     'Yang {{count}} utas masih menunggu balasan atau penyelesaian. Disusun mengikut umur — yang paling lama dahulu, jadi tiada yang reput.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'forgotPassword.sentTo': 'Tetapkan semula pautan dihantar ke {{email}}',
   'forgotPassword.successSubheading':
     'Semak peti masuk anda — kami baru sahaja menghantar pautan tetapan semula. Ia akan tamat tempoh dalam masa 30 minit.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Halaman baharu',
   'pageTreeSidebar.workspaceHeader': 'Ruang kerja',
   'pageView.breadcrumb': 'Navigasi breadcrumb',
+  'pageView.confirmTrash': 'Buang sampah?',
   'pageView.home': 'Laman Utama',
   'pageView.lastEdited': 'Dikemas kini {{when}}',
   'pageView.loading': 'Memuatkan halaman…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Meringkaskan…',
   'pageView.summaryUnavailable': 'Ringkasan AI tidak dikonfigurasikan untuk ruang kerja ini.',
   'pageView.tocTitle': 'Di halaman ini',
+  'pageView.trash': 'Tong Sampah',
+  'pageView.trashing': 'Membazir…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Lencana',
   'profile.owned.title': 'Halaman yang dimiliki',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Ruang kerja, profil, pemberitahuan, integrasi — semuanya dalam satu shell yang tenang.',
   'settingsPage.workspace.defaultLanding': 'Skrin pendaratan lalai',
   'settingsPage.workspace.landingHome': 'Laman Utama',
+  'settingsPage.workspace.landingSpaces': 'Ruang',
   'settingsPage.workspace.subdomainLabel': 'Subdomain',
   'settingsPage.workspace.title': 'Ruang kerja',
   'signup.eyebrow': 'Mulakan ruang kerja baharu',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Mulakan halaman daripada stensil, bukan kanvas kosong. Setiap templat mengkodkan bentuknya supaya anda boleh fokus pada bahan tersebut.',
+  'trash.confirmPurge': 'Membersihkan selama-lamanya?',
+  'trash.confirmPurgeAria': 'Sahkan: padamkan {{title}} secara kekal',
   'trash.daysUntilPurge': '{{days}} hari yang tinggal',
   'trash.empty.body':
     'Halaman yang dipadam akan dipaparkan di sini selama 30 hari sebelum dihapuskan.',
@@ -151,5 +158,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Memulihkan…',
   'versionHistory.subtitle': '{{count}} versi · pilih baris untuk memeriksa perbezaan',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Tutup navigasi',
+  'wikiLayout.menu': 'Navigasi',
+  'wikiLayout.openMenu': 'Buka navigasi',
   'wikiLayout.searchPlaceholder': 'Cari Cairn — halaman, komen…',
 }

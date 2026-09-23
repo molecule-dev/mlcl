@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.pageTitle': 'Haqida {{appName}}',
   'analytics.error': "Analitikani yuklab bo'lmadi.",
   'analytics.heading': 'Qidiruv tahlillari',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Narxlash darajalari sozlanmagan.',
   'billing.plans.heading': 'Rejalar',
   'billing.subheading': "Reja, foydalanish va Stripe tomonidan boshqariladigan to'lov.",
+  'common.confirm': 'Tasdiqlash',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.retry': 'Qayta urinish',
   'documentCard.open': 'Ochish \\u2192',
   'documentDetail.back': 'Hujjatlarga qaytish',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Hujjat nomi',
   'documents.emptyAll':
     "Hali hech qanday hujjat yo'q. Savol berishni boshlash uchun bittasini yuklang.",
+  'documents.error.load': "Hujjatlarni yuklab bo'lmadi.",
   'documents.heading': 'Indekslangan hujjatlar',
   'documents.loading': 'Hujjatlar yuklanmoqda…',
   'documents.metric.chunks': "Jami bo'laklar",
@@ -143,7 +148,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Olib tashlanmoqda\\u2026',
   'members.subheading': 'Jamoadoshlarni taklif qiling va rollarni belgilang.',
   'members.tableHeading': 'Tarkib',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'notFound.askCta': "Bilimlar bazasidan so'rang",
+  'notFound.body':
+    "{{app}} ushbu sahifani topa olmadi. Havola uzilgan bo'lishi mumkin yoki sahifa qayta indekslash paytida o'chirib tashlangan bo'lishi mumkin.",
   'notFound.eyebrow': "Olib bo'lmadi",
   'notFound.title': "Indeksda bunday bo'lak yo'q",
   'notifications.dismiss': 'Bekor qilish',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Manba URL manzili',
   'sources.empty.body': 'Birinchi ulagichni ulash uchun "Manba qo\'shish" tugmasini bosing.',
   'sources.empty.title': "Hozircha manbalar yo'q.",
+  'sources.error.add': "Manba qo'shib bo'lmadi.",
   'sources.error.labelRequired': 'Yorliq talab qilinadi.',
   'sources.error.load': "Manbalarni yuklab bo'lmadi.",
   'sources.error.urlRequired': 'Ushbu manba turi uchun URL manzili talab qilinadi.',

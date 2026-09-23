@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.pageTitle': 'Rreth {{app}}',
   'authShell.statusLabel': 'vrapues në internet',
   'collections.createError': 'Nuk mundi të krijonte koleksionin.',
   'collections.defaultName': 'Koleksion pa titull {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Koleksion i ri',
   'collections.subheading':
     'Gruponi kërkesat, ndani ato me ekipin tuaj dhe drejtojini ato si një paketë të vetme.',
+  'common.goToDashboard': 'Shko te paneli',
   'environmentCard.inactive': 'Në gjendje joaktive',
   'environmentCard.more': 'më shumë',
   'environmentCard.variables': 'Variablat',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Shkarko falas',
   'landing.heroSubtitle':
     'Tabela e punës për testimin e API-t, jashtëzakonisht e shpejtë, e ndërtuar për inxhinierë që jetojnë në terminale.',
+  'landing.heroTitleAccent': 'Zjarri',
+  'landing.heroTitleLine2': 'farkëtoni besimin.',
+  'landing.heroTitleRest': 'kërkesa,',
   'landing.kicker': '$ piloni dërgo --watch',
   'landing.pricingEyebrow': '// $ çmimi --plain',
   'landing.pricingHeading': 'Çmime të thjeshta dhe të parashikueshme',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'I ri këtu?',
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.subtitle': 'Vazhdoni në hapësirën tuaj të punës në Pylon.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'mocks.createError': 'Nuk mund të krijohej një imitim.',
   'mocks.defaultName': 'Simulim pa titull {{n}}',
   'mocks.deleteError': 'Nuk mundi të fshinte simulimin.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Kthehu te hapësira e punës',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Itinerari nuk u gjet',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'privacy.collect.account':
     'Llogaria: email-i juaj, fjalëkalimi i hashuar, emri i shfaqur dhe vula kohore e hyrjes suaj të fundit.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Një pamje vetëm për lexim e të dhënave që zotëron aktualisht kjo llogari.',
   'settings.unset': 'nuk është vendosur',
   'signup.identityHint': 'p.sh. Aleks',
+  'signup.statusLabel': 'nivel falas · pa kartë krediti',
   'signup.subtitle': 'Filloni të ekzekutoni kërkesat brenda pak minutash.',
   'terms.account.body':
     'Ju jeni përgjegjës për mbrojtjen e fjalëkalimit tuaj. Ndarja e një llogarie me shumë njerëz nuk lejohet në planet Falas ose Pro — blini një abonim në Team për hapësira pune të përbashkëta.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     "Mos e përdorni Pylon për të dërguar kërkesa në shërbime që nuk i zotëroni ose nuk keni leje të qartë për t'i testuar. Mos e përdorni Pylon për të anashkaluar kufijtë e tarifave ose për të kryer mashtrime.",
   'terms.warranty.body':
     'Pylon ofrohet "siç është" pa asnjë lloj garancie. Ne synojmë 99.9% kohëzgjatje të funksionimit, por nuk e garantojmë këtë për planet Falas ose Pro.',
+  'testRunner.assertionsCount': '{{count}} pohime',
   'testRunner.createError': 'Testi nuk mund të krijohej.',
   'testRunner.cron':
     'Pohimet vlerësohen kundrejt ekzekutimit më të fundit të kërkesës së lidhur të këtij testi.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     'Rezultatet e suitës, ndryshimet e pohimeve dhe 50 ekzekutimet e fundit.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'I identifikuar si',
+  'workspace.auth.keyName': 'Emri i kokës së faqes',
+  'workspace.auth.keyValue': 'Vlera kryesore',
+  'workspace.auth.password': 'Fjalëkalimi',
+  'workspace.auth.username': 'Emri i përdoruesit',
+  'workspace.authOption.apikey': 'Çelësi API',
+  'workspace.authOption.basic': 'Autorizimi Bazë',
+  'workspace.authOption.bearer': 'Token i Mbajtësit',
+  'workspace.authOption.none': 'Asnjë',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Lloji',
   'workspace.authTypeLabel': 'Lloji i autorizimit',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Asnjë',
+  'workspace.body.text': 'Tekst i papërpunuar',
+  'workspace.body.type': 'Lloji',
   'workspace.environment': 'Pa mjedis',
   'workspace.envVar': 'variabli i env-së',
   'workspace.eyebrow': '$ hapësira e punës së pylonit --ndarja e panelit',
+  'workspace.kv.addHeader': 'Shto kokën e faqes',
+  'workspace.kv.addParam': 'Shto parametër',
+  'workspace.kv.headerKey': 'Emri i kokës së faqes',
+  'workspace.kv.headerValue': 'Vlera e kokës',
+  'workspace.kv.key': 'Çelësi',
+  'workspace.kv.paramKey': 'Çelësi i parametrit të pyetjes',
+  'workspace.kv.paramValue': 'Vlera e parametrit të pyetjes',
+  'workspace.kv.removeRow': 'Hiq rreshtin',
+  'workspace.kv.value': 'Vlerë',
   'workspace.methodLabel': 'Metoda HTTP',
   'workspace.metric.latency': 'Latencia',
   'workspace.metric.latencyCaption': 'Udhëtim vajtje-ardhje nga kjo vrapim',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Kërkesa u pranua — shih përgjigjen më poshtë.',
   'workspace.subheading':
     'Shkruani një kërkesë, aktivizojeni atë dhe më pas jepni përgjigjen — të gjitha në një panel të vetëm.',
+  'workspace.testResults': 'Rezultatet e testit',
   'workspace.token': 'Token',
   'workspace.tokenHint': 'Dërguar si Autorizim: Mbajtësi<token> në çdo kërkesë në këtë koleksion.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

@@ -18,6 +18,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'እኛ በአንድ ወቅት በየቀኑ ብዙ ሰዓታትን በጩኸት በተሞላ የፖስታ ሳጥን ውስጥ የምናሳልፍ የዲዛይነሮች እና የኢንጂነሮች ቡድን ነን። ሜሪዲያን እራሳችንን ልንጠቀምበት የምንፈልገው የገቢ መልእክት ሳጥን ነው።',
   'about.title': 'ለተተኮረ ስራ ኢሜይል',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'help.cta.about': 'ስለ ሜሪዲያን',
   'help.cta.pricing': 'ዋጋን ይመልከቱ',
   'help.eyebrow': 'የእገዛ ማዕከል',
@@ -38,6 +39,7 @@ export const ui: UiTranslations = {
     'ብዙ የምንሰማቸው ጥያቄዎች ፈጣን መልሶች። የጎደለ ነገር አለ? ቅንብሮችን ይክፈቱ እና የውስጠ-መተግበሪያ ግብረመልስ ቅጹን ይጠቀሙ ወይም ወደ support@courier.example ይፃፉ።',
   'help.title': 'እንዴት ልንረዳዎ እንችላለን?',
   'landing.brand.scrollTop': 'ወደ ላይ ተመለስ',
+  'landing.copyright': '© {{year}} {{appName}} — ለማተኮር የተገነባ።',
   'landing.ctaBody': 'ከምሳ በፊት የገቢ መልእክት ሳጥናቸውን ከጨረሱ በሺዎች የሚቆጠሩ ባለሙያዎች ጋር ይቀላቀሉ።',
   'landing.ctaTitle': 'የበለጠ ሂደት ያድርጉ፣ ያነሰ ምላሽ ይስጡ።',
   'landing.eyebrow': 'ለተተኮረ ስራ ኢሜይል',
@@ -47,6 +49,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'የሙከራ ማሳያ ይመልከቱ',
   'landing.heroSubtitle':
     'ሜሪዲያን ለመረጃ ማስኬድ ሳይሆን ምላሽ ለመስጠት ለሚፈልጉ የእውቀት ሰራተኞች የተገነባ ጸጥ ያለ ባለ ሶስት ፓነል የገቢ መልዕክት ሳጥን ነው።',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'በዓለም ዙሪያ ባሉ በትኩረት በሚሰሩ ቡድኖች የሚታመን',
   'landing.signIn': 'ይግቡ',
   'meridian.archive.empty': 'ማህደር ባዶ ነው።',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ረቂቅ',
   'meridian.folder.count': '{{count}} መልዕክቶች',
+  'meridian.folder.delete': 'ሰርዝ',
   'meridian.folder.deleteForever': 'በቋሚነት ሰርዝ',
   'meridian.folder.restore': 'ወደ የገቢ መልእክት ሳጥን ውሰድ',
   'meridian.forgot.subtitle': 'ከገቢ መልእክት ሳጥንዎ ጋር የተያያዘውን ኢሜይል ያስገቡ እና የመልሶ ማስጀመሪያ አገናኝ እንልካለን።',
@@ -82,7 +86,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'እዚህ እስካሁን ምንም መልዕክቶች የሉም።',
   'meridian.inbox.loading': 'በመጫን ላይ…',
   'meridian.inbox.next': 'ቀጣይ',
+  'meridian.inbox.noSender': '(ላኪ የለም)',
   'meridian.inbox.noSubject': '(ምንም ርዕሰ ጉዳይ የለም)',
+  'meridian.inbox.ofTotal': '{{current}} የ {{total}}',
   'meridian.inbox.openCompose': 'ጻፍ ክፈት',
   'meridian.inbox.previous': 'ቀዳሚ',
   'meridian.inbox.replyFailed': 'ምላሽ ተቀምጧል ነገር ግን ማድረስ አልተሳካም፡ {{error}}',
@@ -95,6 +101,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'መለያ የለህም?',
   'meridian.login.showPassword': 'የይለፍ ቃል አሳይ',
   'meridian.message.toLine': 'ወደ {{recipients}}',
+  'meridian.notFound.body':
+    'የሚፈልጉትን ገጽ ማግኘት አልተቻለም። ወደ {{appName}} የገቢ መልእክት ሳጥንዎ ይመለሱ እና በትክክለኛው መንገድ ላይ እናደርስዎታለን።',
   'meridian.notFound.eyebrow': 'ስህተት 404',
   'meridian.notFound.title': 'ይህ ክር በማህደር ተቀምጧል።',
   'meridian.notFound.toInbox': 'የገቢ መልዕክት ሳጥኔን ክፈት',
@@ -130,17 +138,20 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ኮከብ ያክሉ',
   'meridian.thread.unstar': 'ኮከብ አስወግድ',
   'meridian.time.yesterday': 'ትላንት',
+  'meridian.topBar.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'meridian.topBar.searchPlaceholder': 'ኢሜይል ፈልግ',
   'meridian.trash.empty': 'ቆሻሻ ባዶ ነው።',
   'meridian.trash.title': 'ቆሻሻ',
   'nav.legal': 'ሕጋዊ',
   'planUpdated.description':
     'የደንበኝነት ምዝገባዎ አሁን ንቁ ነው እና የሂሳብ አከፋፈልዎ ተዘምኗል። ወደታደሰው የሜሪዲያን የገቢ መልእክት ሳጥንዎ እንኳን በደህና መጡ።',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'pricing.heading': 'ረቂቆች',
   'pricing.limit.emails': 'ኢሜይሎች',
   'pricing.limit.folders': 'አቃፊዎች',
   'pricing.limit.labels': 'መለያዎች',
   'privacy.collect.account': 'የመለያ መረጃ፡ ስም፣ የኢሜይል አድራሻ፣ የተደበቀ የይለፍ ቃል እና የተመዘገቡበት ቀን።',
+  'privacy.contact': 'ጥያቄዎች አሉዎት? ኢሜይል ይላኩልን privacy@courier.example።',
   'privacy.intro':
     'ይህ የግላዊነት መመሪያ ሜሪዲያን ምን መረጃ እንደሚሰበስብ፣ ለምን እንደምንሰበስበው፣ እንዴት ደህንነቱ እንደተጠበቀ እና በእሱ ላይ ምን ምርጫዎች እንዳሉዎት ያብራራል። ሕጋዊ ከመሆን ይልቅ ግልጽ ለማድረግ እንጥራለን፤ ግልጽ ያልሆነ ነገር ካለ፣ በprivacy@courier.example ይፃፉ።',
   'privacy.lastUpdated': 'ለመጨረሻ ጊዜ የተሻሻለው፡ ኤፕሪል 1፣ 2026',
@@ -159,6 +170,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'እነዚህ ውሎች የሜሪዲያን አጠቃቀምዎን ይቆጣጠራሉ። አካውንት በመፍጠር ወይም በእኛ በኩል ኢሜይል በመላክ በእነሱ ለመገዛት ተስማምተዋል። አንድ ሰው ሊከተላቸው የሚችላቸውን ህጎች ለመጻፍ እንሞክራለን።',
   'terms.lastUpdated': 'ተግባራዊ የሚሆነው፡ ኤፕሪል 1፣ 2026',
+  'terms.linkPrivacy': 'የግላዊነት መመሪያችንን ያንብቡ →',
   'terms.termination.body':
     'መለያዎን በማንኛውም ጊዜ መሰረዝ ይችላሉ። እነዚህን ውሎች የሚጥስ መለያ ልናግድ እንችላለን፤ ካደረግን ምክንያቱን እናብራራለን እና ውሂብዎን ወደ ውጭ እንዲልኩ እንፈቅድልዎታለን።',
   'terms.warranty.body':

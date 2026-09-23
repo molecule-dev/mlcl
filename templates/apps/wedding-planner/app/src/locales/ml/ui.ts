@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'seating.form.submit': 'ടേബിൾ ചേർക്കുക',
   'seating.poolTitle': 'ഇരുത്താത്ത അതിഥികൾ',
   'seating.subtitle':
-    '{{ഇരുന്നു}} ഇരിക്കുന്നത്<x> {{ശേഷി}}</x> സീറ്റുകൾ ·<x> {{പൂൾ}}</x> കുളത്തിൽ അതിഥികൾ കാത്തിരിക്കുന്നു',
+    '{{seated}} പേർക്ക് {{capacity}} സീറ്റുകൾ ഉണ്ട് · {{pool}} അതിഥികൾ പൂളിൽ കാത്തിരിക്കുന്നു',
   'seating.title': 'സീറ്റിംഗ് ചാർട്ട്',
   'settings.billing': 'ബില്ലിംഗ്',
   'settings.changePassword': 'പാസ്‌വേഡ് മാറ്റുക',

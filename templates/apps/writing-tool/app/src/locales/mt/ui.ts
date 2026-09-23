@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
+  'about.title': 'Kamra tal-kitba li tista’ żżomm fil-but tiegħek',
   'billing.cancelConfirm': 'Tikkanċella l-abbonament attiv tiegħek?',
   'billing.cancelFailed': 'Ma stajtx nikkanċella.',
   'billing.checkingOut': 'Niftħu l-checkout…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Ma setax jitgħabba l-kontijiet.',
   'billing.loading': 'Qed jitgħabba l-kontijiet…',
   'billing.upgradeCta': 'Aġġorna għal {{name}}',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'editor.autosaveOn': 'Issejvja awtomatikament mixgħul',
   'editor.backToLibrary': 'Lura lejn il-librerija',
   'editor.charCount': '{{count}} karattri',
   'editor.confirmTrash': 'Tmexxi dan id-dokument lejn it-trash?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Mhux imwaħħal',
   'editor.unpublishCta': 'Mexxi għall-abbozz',
   'editor.unpublished': "Reġa' lura għall-abbozz",
+  'focus.autosaveOn': 'Issejvja awtomatikament mixgħul',
   'focus.backToLibrary': 'Lura lejn il-librerija',
   'focus.bodyPlaceholder': 'Linja kull darba. Ħadd iktar mhu hawn.',
   'focus.exit': 'Oħroġ mill-modalità tal-fokus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Oħloq waħda',
   'login.subline':
     "Il-manuskritti tiegħek, il-paġni ta' kuljum, u l-aħħar pożizzjoni tal-cursor huma eżatt fejn ħallejthom.",
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'pricing.exports': 'esportazzjonijiet',
   'pricing.folders': 'folders',
   'pricing.heading': 'dokumenti',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Daħħal il-kodiċi li għadna kemm bgħatnielek bl-email u agħżel xi ħaġa memorabbli. Aħna nilloggjawk ladarba jiġi ssejvjat.',
   'reset.tokenHint': 'Imwaħħal mill-inbox tiegħek.',
+  'settings.appearance.heading': 'Dawl jew dlam',
   'settings.editor.${row.id}.description': 'Lingwa',
   'settings.editor.description':
     'Skrolljar tat-tajprajter, fade tal-paragrafu, u fokus wieqaf — id-defaults huma aġġustati għal sessjonijiet twal.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapitlu Tlieta — Siegħa Kwieta Qabel Tlugħ ix-Xemx',
   'versalDocumentCard.pinned': 'Imwaħħal',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'versalManuscriptHero.cta': 'Kompli ikteb',
   'versalManuscriptHero.goalLabel': 'Il-mira tal-kliem tal-lum',
   'versalManuscriptHero.inProgress': 'Fit-triq it-tajba',

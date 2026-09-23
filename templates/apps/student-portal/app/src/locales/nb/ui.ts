@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'announcementsFeed.empty': 'Ingen kunngjøringer ennå.',
   'announcementsFeed.eyebrow': '{{count}} oppdateringer',
   'announcementsFeed.title': 'Siste kunngjøringer',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Ingenting her',
   'assignments.emptyBody': 'Bytt filter ovenfor for å se oppgaver i en annen tilstand.',
   'assignments.eyebrow': 'Alle kurs · Denne terminen',
+  'assignments.loadError': 'Kunne ikke laste inn oppgavene.',
   'assignments.loading': 'Laster inn oppgaver …',
   'assignments.subtitle':
     'Filtrer etter status for å se hva som er forfalt, levert, vurdert eller mangler.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Notat',
   'attendance.empty': 'Ingen oppmøtelogger ennå.',
   'attendance.eyebrow': 'Vårsemester · Siste 4 uker',
+  'attendance.loadError': 'Kunne ikke laste inn oppmøteloggene.',
   'attendance.loading': 'Laster inn oppmøte…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Innleveringsfrister for oppgaver er plottet inn i et månedlig rutenett – eksamener er markert med rødt.',
   'calendar.title': '{{month}} arrangementer',
+  'common.goToDashboard': 'Gå til oversikt',
   'common.no': '—',
+  'common.retry': 'Prøv igjen',
   'common.yes': '✓',
   'courseDetail.backLink': 'Karakterer',
   'courseDetail.currentGrade': 'Nåværende karakter',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Ingen karakterer lagt ut ennå.',
   'grades.eyebrow': 'Karakterbok',
+  'grades.loadError': 'Kunne ikke laste inn karakterene dine.',
   'grades.loading': 'Laster inn karakterer …',
   'grades.subtitle':
     'Karakterer i sanntid og prosent. Trendpiler viser om du beveger deg oppover, på nivå med andre eller faller.',
   'grades.title': 'Karakterene dine, kurs for kurs',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Bygget for studenter, laget for familier.',
   'landing.ctaHeading': 'En roligere skoledag starter på få minutter',
   'landing.eyebrow': 'For elever på ungdomsskolen og videregående skole',
   'landing.featuresHeading': 'En skoledag organisert rundt eleven',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Oppgaver',
   'nav.attendance': 'Oppmøte',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Lukk navigasjonsmenyen',
   'nav.grades': 'Karakterer',
+  'nav.openMenu': 'Åpne navigasjonsmenyen',
   'nav.statusEyebrow': 'Gjennomsnittlig gjennomsnittskarakter (GPA)',
   'nav.statusSubtext': 'Æresliste · Vårsemesteret',
+  'nav.unreadMessages': 'Uleste meldinger',
   'notifications.eyebrow': '{{count}} oppdateringer',
   'notifications.subtitle':
     'Karakterer, påminnelser, meldinger og skolekunngjøringer. Juster hvilke kanaler hvert varsel bruker i Innstillinger.',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.attendanceLabel': 'oppmøte',
   'pricing.gradesLabel': 'karakterer',
   'pricing.heading': 'kunngjøringer',

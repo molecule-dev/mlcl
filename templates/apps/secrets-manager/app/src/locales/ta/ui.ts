@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'about.tagline': 'இரகசியங்கள் வெளிப்படையாகவே மரித்துவிடுகின்றன.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'டோக்கனை உருவாக்கு',
   'apiTokens.kicker': 'API டோக்கன்கள்',
   'apiTokens.loading': 'டோக்கன்கள் ஏற்றப்படுகின்றன…',
+  'apiTokens.new': 'புதிய டோக்கன்',
   'apiTokens.revoke': 'டோக்கனை ரத்து செய்',
   'apiTokens.subheading':
     'ஆர்கானம் CLI மற்றும் SDK-க்கான தனிநபர் மற்றும் சேவை டோக்கன்கள். உருவாக்கும்போது ஒருமுறை தெளிவுரையாகக் காட்டப்படும்.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + கடவுச்சொல்',
   'authShell.zeroKnowledge': 'பூஜ்ஜிய-அறிவு குறியாக்கம்',
   'common.connecting': 'இணைக்கிறது…',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.inviting': 'அழைப்பு விடுக்கிறது…',
   'forgotPassword.checkInbox':
     '{email} பதிவு செய்யப்பட்டிருந்தால், கையொப்பமிடப்பட்ட மீட்டமைப்பு இணைப்பு ஒரு நிமிடத்திற்குள் வந்து சேரும்.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ஒவ்வொரு வால்ட்டிலும் உள்ள சுழற்சி நிலை, முரண்பாட்டு எச்சரிக்கைகள் மற்றும் ஒப்புதல் கோரிக்கைகள்.',
   'notifications.unreadEmpty': 'இன்பாக்ஸ் ஜீரோ — அனைத்தும் சரிசெய்யப்பட்டுவிட்டது.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'ரகசியங்கள்',
   'pricing.limits.accessPolicies': 'அணுகல் கொள்கைகள்',
   'pricing.limits.auditLog': 'தணிக்கைப் பதிவு உள்ளீடுகள்',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'உங்கள் சந்தாவை நிர்வகிக்கவும், வரம்புகளைப் பார்க்கவும், மேம்படுத்தவும்.',
   'profile.subheading': 'அடையாளம், இரண்டாம் காரணி சாதனங்கள் மற்றும் செயலில் உள்ள அமர்வுகள்.',
+  'profile.twoFactor.code': 'அங்கீகாரக் குறியீடு',
   'profile.twoFactor.disable': 'முடக்கு',
   'profile.twoFactor.enable': 'இயக்கு',
+  'profile.twoFactor.invalidCode': 'தவறான குறியீடு',
   'profile.twoFactor.kicker': 'இரு காரணி அங்கீகாரம்',
+  'profile.twoFactor.off': 'இயக்கப்படவில்லை',
   'profile.twoFactor.on': 'இயக்கப்பட்டது',
   'resetPassword.email': 'கணக்கு மின்னஞ்சல்',
   'resetPassword.heading': 'புதிய சான்றுகளை அமைக்கவும்',
@@ -135,6 +142,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'கட்டளைகள்',
   'secretsManagerLayout.encrypted': 'AES-256 · குறியாக்கம் செய்யப்பட்டது',
   'secretsManagerLayout.newVault': 'புதிய பெட்டகம்',
+  'secretsManagerLayout.newVaultShort': 'புதிய',
   'secretsManagerLayout.rotations': 'சுழற்சிகள்',
   'secretsManagerLayout.search': 'தேடல்',
   'secretsManagerLayout.searchPlaceholder':
@@ -174,6 +182,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'ரகசியங்கள்',
   'vaultCard.vaultLabel': 'பெட்டகம்',
   'vaultDetail.addSecret': 'ரகசியத்தைச் சேர்க்கவும்',
+  'vaultDetail.back': 'அனைத்து பெட்டகங்களும்',
   'vaultDetail.col.key': 'விசை',
   'vaultDetail.col.rotated': 'சுழற்றப்பட்டது',
   'vaultDetail.col.value': 'மதிப்பு',

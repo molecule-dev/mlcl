@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.eyebrow': '{{app}} बद्दल',
+  'about.intro':
+    '{{app}} वास्तविक जीवनासाठी एक ध्यान ॲप आहे — यात दररोज मार्गदर्शनपर ध्यान, श्वासोच्छ्वासाचे व्यायाम आणि झोपेच्या कथा आहेत, जे तुम्हाला प्रशिक्षकासारखे नव्हे, तर मित्रासारखे वाटणाऱ्या शिक्षकांद्वारे योग्य गतीने शिकवले जातात. सलग ध्यान पूर्ण केल्याबद्दल अपराधीपणाची भावना नाही, गोंगाटयुक्त फीड नाही: फक्त तुमच्या श्वासावर पुन्हा लक्ष केंद्रित करण्यासाठी एक शांत जागा.',
+  'about.missionBody':
+    'आमचा विश्वास आहे की दिवसाच्या कोणत्याही क्षणी, प्रत्येकाला शांतता सहज उपलब्ध असावी. शांत आणि सातत्यपूर्ण सराव सहज वाटावा, यासाठीच {{app}} अस्तित्वात आहे — जेणेकरून दहा प्रामाणिक मिनिटे, तुम्ही पुढचे दहा तास कसे घालवता यात बदल घडवू शकतील.',
+  'about.missionTitle': 'आमचे ध्येय',
+  'about.pageTitle': 'दिवसातील १० मिनिटे अधिक शांतता',
+  'breathingDial.seconds': 'सेकंद',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.logout': 'लॉग आउट',
   'common.min': 'किमान',
   'common.relative.justNow': 'आत्ताच',
   'common.relative.now': 'आता',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
+  'nav.secondaryNavigation': 'खाते नेव्हिगेशन',
   'sessionCard.with': 'सोबत {{name}}',
   'stillpoint.billing.choose': 'निवडा {{plan}}',
   'stillpoint.billing.currentPlan': 'सध्या {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'आम्ही योजना लोड करू शकलो नाही.',
   'stillpoint.billing.opening': 'चेकआउट सुरू करत आहे…',
   'stillpoint.billing.perMonthShort': '/ मो',
+  'stillpoint.billing.perYearShort': '/वर्ष',
   'stillpoint.billing.unknownResult': 'अनपेक्षित बिलिंग प्रतिसाद.',
   'stillpoint.billing.yearly': 'वार्षिक · १७% बचत करा',
   'stillpoint.courseDetail.back': 'अभ्यासक्रम',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'अद्याप कोणतेही अभ्यासक्रम नाहीत.',
   'stillpoint.courses.eyebrow': '{{count}} बहुदिवसीय प्रवास',
   'stillpoint.courses.heading': 'अभ्यासक्रम',
+  'stillpoint.forgot.checkEmail': 'तुमचा इनबॉक्स तपासा — लिंक ३० मिनिटांत कालबाह्य होईल.',
   'stillpoint.forgot.success': 'आम्ही रीसेट लिंक पाठवली आहे {{email}} ...',
   'stillpoint.home.empty': 'अद्याप कोणतेही सत्र नाही — लवकरच पुन्हा तपासा.',
   'stillpoint.home.friend': 'मित्र',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'आपले मोफत खाते तयार करा',
   'stillpoint.landing.cta.title': 'आजपासून तुमची शांतता सुरू करा.',
   'stillpoint.landing.features.heading': 'तुमच्यासोबत वाढणारी सराव पद्धत',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'दररोज मार्गदर्शित ध्यान, श्वासोच्छ्वासाचे व्यायाम आणि झोपेच्या गोष्टी — हे सर्व अशा शिक्षकांच्या मार्गदर्शनाखाली होते, जे प्रशिक्षकाप्रमाणे नव्हे, तर मित्राप्रमाणे वाटतात.',
   'stillpoint.landing.hero.eyebrow': 'दिवसातील १० मिनिटे अधिक शांतता',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'मूडनुसार ब्राउझ करा',
   'stillpoint.login.rememberMe': 'मला लॉग इन ठेवा',
   'stillpoint.login.subheading': 'तुमचा सराव सुरू ठेवण्यासाठी साइन इन करा.',
+  'stillpoint.nav.tagline': 'आपले स्थिर केंद्र शोधा',
+  'stillpoint.notFound.body':
+    'हे पान कुठेतरी एक दीर्घ श्वास घेत आहे. चला, तुमच्यासाठी {{app}} मध्ये एक शांत जागा शोधूया.',
   'stillpoint.notFound.title': 'शांततेत हरवून गेले',
   'stillpoint.notFound.toHome': 'आजच्या दिवसाकडे परत',
   'stillpoint.notFound.toLibrary': 'लायब्ररी ब्राउझ करा',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '१५ सेकंद मागे जा',
   'stillpoint.player.skipForward': '३० सेकंद पुढे जा',
   'stillpoint.player.with': 'सोबत {{name}}',
+  'stillpoint.profile.defaultHandle': 'स्थिरपॉइंटर',
   'stillpoint.profile.eyebrow': 'तुमच्या सरावाचा सारांश.',
   'stillpoint.profile.locked': 'कुलूपबंद',
   'stillpoint.profile.member': 'स्टिलपॉइंट सदस्य',

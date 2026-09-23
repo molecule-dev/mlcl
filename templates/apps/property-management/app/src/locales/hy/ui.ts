@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.tagline': 'Յուրաքանչյուր բնակարան՝ մեկ տանիքի տակ։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.addProperty': 'Ավելացնել հատկություն',
   'dashboard.empty.body':
     'Երբ դուք ունեք անշարժ գույք, բնակարաններ և վարձակալության վճարումներ, այս վահանակը լցվում է պորտֆելի վիճակագրական տվյալներով։',
@@ -88,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} բաց աշխատանքային պատվերներ, դասավորված ըստ առաջնահերթության',
   'maintenanceQueueList.title': 'Սպասարկման հերթ',
+  'nav.closeMenu': 'Փակել ընտրացանկը',
+  'nav.openMenu': 'Բացել ընտրացանկը',
   'notFound.body': 'Ձեր որոնած էջը տեղափոխվել է, արխիվացվել է կամ երբեք գոյություն չի ունեցել։',
   'notFound.title': 'Այդ դուռը չի բացվում',
   'notifications.empty.body':

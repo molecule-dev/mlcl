@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Дајте бакшиш свом купцу',
   'checkout.tipLabel': 'Бакшиш',
   'checkout.zipPlaceholder': 'Поштански број',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'featuredProductsGrid.addAria': 'Додај {{name}} у корпу',
   'featuredProductsGrid.outOfStock': 'Нема на залихама',
   'forgotPassword.emailLabel': 'Адреса е-поште',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Ако је та имејл адреса регистрована, линк за ресетовање је на путу.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Примарна навигација',
   'landing.categoriesEyebrow': 'Пролази',
   'landing.categoriesHeading': 'Купујте по категорији',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Закажите недељне испоруке уз паметно пренаручивање основних намирница и праћење возача уживо.',
   'landing.heroTitle': 'Свежина на вашим вратима, за сате.',
   'landing.howEyebrow': 'Три корака',
+  'landing.howItWorksHeading': 'Како {{app}} функционише',
   'lists.addAllCta': 'Додај све у корпу',
   'lists.createCta': 'Направите своју прву листу',
   'lists.createError': 'Није могуће креирати листу.',

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.featureDiscover.title': 'অনুপ্রেরণা, হাতে-বাছাই করা',
   'account.addPaymentCta': 'অর্থপ্রদানের পদ্ধতি যোগ করুন',
   'account.addPaymentError': 'অর্থপ্রদানের পদ্ধতি যোগ করা যায়নি।',
+  'account.confirmRemove': 'অপসারণ নিশ্চিত করুন',
   'account.defaultBadge': 'ডিফল্ট',
   'account.loyalty.pointsTowardNext': '{{পয়েন্ট}} এর {{next}} মাইল {{nextTier}}',
   'account.loyalty.tier': 'বর্তমান স্তর',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ভ্রমণের বিবরণ',
   'booking.tripSummary': '{{nights}} রাত · {{guests}} অতিথিরা',
   'common.daysAgo': '{{count}} দিন আগে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.hoursAgo': '{{count}} কয়েক ঘন্টা আগে',
   'common.minutesAgo': '{{count}} মাস আগে',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'আইনি',
   'notifications.loading': 'লোড হচ্ছে…',
   'notifications.subheading': '{{count}} অপঠিত · সবকিছু এক শান্ত ইনবক্সে',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.accommodationsLabel': 'আবাসন',
   'pricing.bookingsLabel': 'বুকিং',
   'pricing.destinationsLabel': 'সংরক্ষিত গন্তব্যস্থল',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'অনুপ্রেরণা, নির্ভরযোগ্য থাকার জায়গা, এবং দিবাস্বপ্ন থেকে বুকিং পর্যন্ত এক নির্বিঘ্ন পথ — ১৪টি দেশ এবং ২০০টিরও বেশি হাতে-বাছাই করা আবাসন জুড়ে।',
   'sojournHeroSearchCard.trustProtected': 'বিনামূল্যে বাতিল করার সুবিধা, সম্পূর্ণ সুরক্ষিত',
   'sojournHeroSearchCard.trustVetted': 'শুধুমাত্র হাতে-বাছাই করা সম্পত্তি',
+  'travelBookingLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'tripDetail.backLink': 'ভ্রমণে ফিরে যান',
   'tripDetail.cancelCta': 'বুকিং বাতিল করুন',
   'tripDetail.cancelHeading': 'এই ভ্রমণটি বাতিল করবেন?',

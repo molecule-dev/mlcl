@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nipa re',
   'applications.empty': 'Kò sí àwọn ìforúkọsílẹ̀ síbẹ̀ \\u2014 ipa tó tọ́ ni pé kí a fi ìbéèrè sílẹ̀.',
   'applications.eyebrow': 'Opo gigun rẹ',
@@ -9,7 +10,9 @@ export const ui: UiTranslations = {
   'applications.loading': 'N n gbe nkan soke\\u2026',
   'applications.subheading': 'Gbogbo ipa tí o ti lò, ní ìṣísẹ̀. Àlẹ̀mọ́ láti orí ìpele sí àfiyèsí.',
   'applications.untitledRole': 'Ipa # {{id}}',
+  'auth.legalConsent': 'Nípa títẹ̀síwájú, o fara mọ́',
   'common.and': 'àti',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'companies.empty': 'Kò sí ilé-iṣẹ́ tó bá ìwákiri rẹ mu \\u2014 gbìyànjú ọ̀rọ̀ mìíràn.',
   'companies.eyebrow': 'Àwọn agbanisiṣẹ́ tí a ṣe pàtàkì',
   'companies.searchPlaceholder': 'Ṣe àwárí nípa orúkọ, ilé iṣẹ́, àti ipò rẹ̀',
@@ -47,6 +50,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Ko si awọn ohun elo fun ipa yii sibẹsibẹ.',
   'jobApplicants.eyebrow': 'Ìwòye agbanisiṣẹ́',
   'jobApplicants.loading': 'N n gbe nkan soke\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Kò le ṣe àtúnṣe ìpele yẹn — gbìyànjú lẹ́ẹ̀kan síi.',
+  'jobApplicants.subheading':
+    'Ṣe àtúnyẹ̀wò ìwé-ẹ̀rí, gbé àwọn olùdíje síwájú, fi àwọn ìfilọ́lẹ̀ ránṣẹ́ \\u2014 {{count}} ní ìṣípò.',
   'jobDetail.applicantCount': '{{count}} àwọn olùbéèrè títí di ìsinsìnyí',
   'jobDetail.applied': 'A ti fi ìbéèrè ránṣẹ́',
   'jobDetail.apply': 'Fi ìbéèrè sílẹ̀ nísinsìnyí',
@@ -80,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Ṣe àwárí àwọn ipa ṣíṣí \\u2192',
   'landing.pricingEyebrow': 'Iye idiyele',
   'landing.pricingHeading': 'Àwọn ètò tó rọrùn fún gbogbo ìwọ̀n ẹgbẹ́.',
+  'login.eyebrow': 'Káàbọ̀ wá sí {{app}}',
   'login.heading': 'Wọlé sí àkọọ́lẹ̀ rẹ',
   'login.noAccount': 'Ṣé tuntun sí Nosh ni?',
   'login.passwordPlaceholder':
@@ -87,6 +94,7 @@ export const ui: UiTranslations = {
   'login.remember': 'Máa rántí mi fún ọgbọ̀n ọjọ́',
   'login.signingIn': 'Wíwọlé\\u2026',
   'login.subheading': 'Gbé ìwákiri rẹ, tẹ̀síwájú nínú àwọn ohun èlò rẹ, gbọ́ ìdáhùn kíákíá.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . A ṣe é fún àwọn ẹgbẹ́ gbígbà.',
   'loginBrandPanel.headline': 'Ibi ti talenti pade',
   'loginBrandPanel.headlineLine2': 'ìṣíṣẹ́.',
   'loginBrandPanel.listing.recruiter': 'Alabaṣiṣẹpọ Talent',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
     'Àwọn àtúnṣe ohun èlò, ìkésíni ìfọ̀rọ̀wánilẹ́nuwò, àwọn ìbáṣepọ̀ tuntun \\u2014 tuntun ní àkọ́kọ́.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ose yi',
   'opportunitiesHero.eyebrow': 'Ṣí sílẹ̀ lónìí',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'postJob.addNewCompany': '+ Fi ile-iṣẹ tuntun kun',
   'postJob.companyCreateFailed': 'Mi ò lè dá ilé-iṣẹ́ sílẹ̀ — gbìyànjú lẹ́ẹ̀kan síi.',
   'postJob.companyNameLabel': 'Orukọ ile-iṣẹ rẹ',
@@ -160,10 +169,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Ṣíṣẹ̀dá àkọọ́lẹ̀\\u2026',
   'signup.ctaEmployer': 'Ṣẹda akọọlẹ agbanisiṣẹ',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Àwọn ọ̀rọ̀ìpamọ́ kò báramu.',
   'signup.subheading':
     'Ọfẹ́ fún àwọn olùwá kiri, títí láé. Àwọn agbanisíṣẹ́ máa ń bẹ̀rẹ̀ pẹ̀lú ìdánwò ọjọ́ 30.',
   'timeAgo.days': '{{count}} ọdun sẹyin',
   'timeAgo.hours': '{{count}} h ti o ti kọja',
   'timeAgo.justNow': 'ni bayi',
+  'timeAgo.weeks': '{{count}} ní ìṣáájú',
 }

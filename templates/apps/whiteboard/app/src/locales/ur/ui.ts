@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'authShell.brandHeading': 'ڈیزائن ٹیموں کے لیے ملٹی پلیئر کینوسز جو اونچی آواز میں سوچتی ہیں۔',
   'billing.canceled': 'سبسکرپشن منسوخ کر دی گئی۔',
   'billing.cancelPlan': 'منصوبہ منسوخ کریں۔',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ٹیمپلیٹ سے شروع کریں۔',
   'boards.title': 'آپ کے بورڈز',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'اپنے ورک اسپیس سے منسلک ای میل درج کریں اور ہم ایک ری سیٹ لنک بھیجیں گے۔',
   'forgot.success.body':
@@ -81,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'گندا، تخلیقی، ذاتی سوچ کے لیے بنایا گیا ہے۔',
   'landing.demoBoard.title': 'Q1 ورکشاپ · برانڈ کی آواز',
   'landing.featuresTitle': 'تیز رائے۔ خوبصورت کینوسز۔ صفر رگڑ۔',
+  'landing.hero.body':
+    '{{appName}} ڈیزائن ٹیموں، ورکشاپ کے سہولت کاروں، اور معلمین کے لیے ایک ملٹی پلیئر وائٹ بورڈ ہے جو لائیو دماغی طوفان چلاتے ہیں اور ایک جگہ پر اکٹھا ہونے کے لیے خیالات کی ضرورت ہوتی ہے۔',
   'landing.hero.primaryCta': 'مفت میں ایک بورڈ شروع کریں۔',
   'landing.hero.socialProof': 'کی طرف سے قابل اعتماد {{count}} دنیا بھر میں ڈیزائن ٹیمیں',
   'landing.hero.title': 'آپ کے خیالات کی طرح تیز کینوس',
@@ -91,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ایک مفت ورک اسپیس بنائیں',
   'login.subheading':
     'وہیں سے شروع کریں جہاں ورکشاپ چھوڑی تھی — بورڈز، چسپاں نوٹ، اور کرسر سبھی حقیقی وقت میں مطابقت پذیر ہوتے ہیں۔',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.new': 'نیا',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'notifications.editTitle': 'میں ترمیم کریں " {{board}} "',
   'notifications.empty.body':
     'دعوت نامے، اسنیپ شاٹ سیو، اور بورڈ کی حالیہ ترامیم جیسے ہی ہوں گی یہاں ظاہر ہوں گی۔',
@@ -173,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ورژن کی تاریخ',
   'versionHistory.untitledSnapshot': 'بلا عنوان سنیپ شاٹ',
   'whiteboardLayout.newBoard': 'نیا بورڈ',
+  'whiteboardLayout.primaryNav': 'بنیادی نیویگیشن',
   'workspace.boardLabel': 'بورڈ',
   'workspace.eyebrow': '{{name}} · کام کی جگہ',
   'workspace.invite': 'تعاون کرنے والوں کو مدعو کریں۔',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'การรับชม',
   'auctionDetail.watchRemoved': 'ลบออกจากรายชื่อเฝ้าระวังแล้ว',
   'auctionDetail.watchRemoveLabel': 'ลบออกจากรายการเฝ้าดู',
+  'auctionPlatformLayout.primaryNavLabel': 'การนำทางหลัก',
   'authShell.brandBody':
     'ร่วมประมูลแบบเรียลไทม์กับนาฬิกาหายาก งานศิลปะชั้นเยี่ยม และสินค้าพิเศษที่ไม่เหมือนใคร การประมูลจะสิ้นสุดลงในไม่กี่วินาที',
   'authShell.brandEyebrow': 'กำลังเปิดประมูลอยู่ · 1,420 รายการ',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'เรียงลำดับตาม',
   'browseAuctions.subheading':
     'กรองตามหมวดหมู่ จัดเรียงตามสิ่งที่สำคัญที่สุด และเสนอราคา ก่อนที่ค้อนจะเคาะลง',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'countdownTimer.ended': 'สิ้นสุดแล้ว',
   'countdownTimer.endingSoon': 'ตอนจบ',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'ซ่อนรหัสผ่าน',
   'login.showPassword': 'แสดงรหัสผ่าน',
   'login.subtext': 'ติดตามการประมูลของคุณอย่างต่อเนื่องและวางราคาเสนอซื้อก่อนที่ค้อนจะเคาะลง',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'myBids.bidAgain': 'ประมูลอีกครั้ง',
   'myBids.browseCta': 'เรียกดูการประมูลสด →',
   'myBids.checkoutCta': 'ชำระเงินตอนนี้',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'ยังไม่มีการแจ้งเตือนใดๆ',
   'notificationsPage.eyebrow': 'ศูนย์กิจกรรม',
   'notificationsPage.subheading': '{{count}} ยังไม่ได้อ่าน · อัปเดตสดขณะทำการประมูล',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.bidsLabel': 'การเสนอราคา',
   'pricing.listingsLabel': 'รายการ',
   'pricing.watchlistLabel': 'รายชื่อเฝ้าดู',

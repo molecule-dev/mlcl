@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': '前往主控台',
   'forgot.eyebrow': '找不到回去的路了嗎？',
   'forgot.formSubtitle': '請告知我們您存檔的電子郵件地址。',
   'forgot.headline': '重設您的密碼。',
@@ -37,6 +38,8 @@ export const ui: UiTranslations = {
   'login.headline': '從頁面停止的地方繼續。',
   'login.signupLink': '創建一個',
   'login.subline': '您的筆記本、反向連結和每日頁面都還在您離開時的位置。',
+  'mobileNav.closeMenu': '關閉導覽選單',
+  'mobileNav.openMenu': '開啟導覽選單',
   'noteEditor.backToNotes': '返回筆記',
   'noteEditor.bodyPlaceholder': '開始寫作－你的筆記會在你輸入時自動儲存。',
   'noteEditor.confirmTrash': '將此筆記移至回收站？',
@@ -52,6 +55,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': '新筆記本',
   'notes.newNotebookPrompt': '新筆記本名稱',
   'notes.notebooksHeading': '筆記本',
+  'notes.subtitle': '在左側選擇一個筆記本，然後按下「新筆記」按鈕開始建立新筆記。',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': '選擇你的筆記計劃',
   'reset.eyebrow': '幾乎又回來了',
@@ -104,6 +108,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': '更新',
   'versoLayout.nav.graph': '圖形',
   'versoLayout.nav.home': '家',
+  'versoLayout.primaryNavLabel': '主導航',
   'versoNoteCard.pinned': '置頂',
   'versoTodayHero.continueCta': '繼續寫作',
   'versoTodayHero.createCta': '開始今天的筆記',

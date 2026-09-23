@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਸਾਡੀ ਕਹਾਣੀ',
   'aiSuggestionPanel.title': 'ਸਿਗਨੇਟ ਕੋਪਾਇਲਟ',
   'analytics.col.open': 'ਖੁੱਲ੍ਹਾ ਦਰ',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ਚੈੱਕਆਉਟ ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'billing.subheading': 'ਉਹ ਪਲਾਨ ਚੁਣੋ ਜੋ ਤੁਹਾਡੇ ਭੇਜਣ ਦੇ ਤਰੀਕੇ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਹੋਵੇ।',
   'billing.unavailable': 'ਵਿਕਰੀ ਨਾਲ ਸੰਪਰਕ ਕਰੋ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'compose.adjustingTone': 'ਚੁਣੇ ਹੋਏ ਸੁਰ ਵਿੱਚ ਦੁਬਾਰਾ ਲਿਖਿਆ ਜਾ ਰਿਹਾ ਹੈ...',
   'compose.aiPromptPlaceholder':
     'ਜਿਵੇਂ ਕਿ "ਦੋ ਹਫ਼ਤਿਆਂ ਤੱਕ ਕੋਈ ਜਵਾਬ ਨਾ ਮਿਲਣ ਤੋਂ ਬਾਅਦ ਨਿਮਰਤਾ ਨਾਲ ਫਾਲੋ-ਅੱਪ ਕਰੋ, ਇਸਨੂੰ ਛੋਟਾ ਰੱਖੋ।"',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'ਕੀ ਕੁਝ ਭੇਜਣ ਦੀ ਲੋੜ ਹੈ? ਸਿਗਨੇਟ ਸਕਿੰਟਾਂ ਵਿੱਚ ਇੱਕ ਡਰਾਫਟ ਤਿਆਰ ਕਰ ਸਕਦਾ ਹੈ।',
   'dashboard.composeCtaLabel': 'ਜਲਦੀ ਲਿਖੋ',
   'dashboard.heading': 'ਤੁਹਾਡਾ ਹਫ਼ਤਾ, ਰਚਿਤ',
+  'dashboard.loadFailed': 'ਤੁਹਾਡਾ ਡੈਸ਼ਬੋਰਡ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'dashboard.manageLibrary': 'ਲਾਇਬ੍ਰੇਰੀ ਪ੍ਰਬੰਧਿਤ ਕਰੋ →',
   'dashboard.recentEmpty':
     'ਹਾਲੇ ਤੱਕ ਕੋਈ ਈਮੇਲ ਨਹੀਂ ਭੇਜੀ ਗਈ — ਤੁਹਾਡੀਆਂ ਭੇਜੀਆਂ ਗਈਆਂ ਈਮੇਲਾਂ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'ਸਿਗਨੇਟ ਇਸ ਟੋਨ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਡਰਾਫਟ ਨੂੰ ਓਵਰਰਾਈਡ ਨਹੀਂ ਕਰਦੇ।',
   'signetLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
+  'signetLayout.toggleMenu': 'ਮੀਨੂ ਟੌਗਲ ਕਰੋ',
   'signup.emailLabel': 'ਈਮੇਲ ਪਤਾ',
   'signup.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'signup.tagline': 'ਇੱਕ ਮਿੰਟ ਦੇ ਅੰਦਰ-ਅੰਦਰ ਆਪਣੀ ਪਹਿਲੀ AI-ਡਰਾਫਟ ਕੀਤੀ ਈਮੇਲ ਭੇਜੋ।',

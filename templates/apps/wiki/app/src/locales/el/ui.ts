@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Επίλυση…',
   'comments.subtitle':
     'Ο {{count}} Θέματα που εξακολουθούν να περιμένουν απάντηση ή λύση. Ταξινόμηση κατά ηλικία — πρώτα τα παλαιότερα, ώστε να μην σαπίζει τίποτα.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'forgotPassword.sentTo': 'Επαναφορά συνδέσμου που στάλθηκε σε {{email}}',
   'forgotPassword.successSubheading':
     'Ελέγξτε τα εισερχόμενά σας — μόλις στείλαμε έναν σύνδεσμο επαναφοράς. Λήγει σε 30 λεπτά.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Νέα σελίδα',
   'pageTreeSidebar.workspaceHeader': 'Χώρος εργασίας',
   'pageView.breadcrumb': 'Ιχνηλάτηση',
+  'pageView.confirmTrash': 'Να το πετάξω στα σκουπίδια;',
   'pageView.home': 'Σπίτι',
   'pageView.lastEdited': 'Ενημερώθηκε {{when}}',
   'pageView.loading': 'Φόρτωση σελίδας…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Σύνοψη…',
   'pageView.summaryUnavailable': 'Η σύνοψη AI δεν έχει ρυθμιστεί για αυτόν τον χώρο εργασίας.',
   'pageView.tocTitle': 'Σε αυτήν τη σελίδα',
+  'pageView.trash': 'Κάδος',
+  'pageView.trashing': 'Απομάκρυνση στα σκουπίδια…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Εμβλήματα',
   'profile.owned.title': 'Ιδιοκτησιακές σελίδες',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Χώρος εργασίας, προφίλ, ειδοποιήσεις, ενσωματώσεις — όλα σε ένα ήρεμο κέλυφος.',
   'settingsPage.workspace.defaultLanding': 'Προεπιλεγμένη οθόνη προορισμού',
   'settingsPage.workspace.landingHome': 'Σπίτι',
+  'settingsPage.workspace.landingSpaces': 'Χώροι',
   'settingsPage.workspace.subdomainLabel': 'Υποτομέας',
   'settingsPage.workspace.title': 'Χώρος εργασίας',
   'signup.eyebrow': 'Έναρξη νέου χώρου εργασίας',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} λεπτά',
   'templates.subtitle':
     'Ξεκινήστε μια σελίδα από ένα στένσιλ, όχι από έναν κενό καμβά. Κάθε πρότυπο κωδικοποιεί το σχήμα, ώστε να μπορείτε να εστιάσετε στην ουσία.',
+  'trash.confirmPurge': 'Καθαρισμός για πάντα;',
+  'trash.confirmPurgeAria': 'Επιβεβαίωση: οριστική διαγραφή {{title}}',
   'trash.daysUntilPurge': '{{days}} μέρες που απομένουν',
   'trash.empty.body': 'Οι διαγραμμένες σελίδες θα εμφανίζονται εδώ για 30 ημέρες πριν διαγραφούν.',
   'trash.empty.title': 'Ο κάδος απορριμμάτων είναι άδειος.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Αποκατάσταση…',
   'versionHistory.subtitle': '{{count}} εκδόσεις · επιλέξτε μια σειρά για να ελέγξετε τη διαφορά',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Κλείσιμο πλοήγησης',
+  'wikiLayout.menu': 'Πλοήγηση',
+  'wikiLayout.openMenu': 'Άνοιγμα πλοήγησης',
   'wikiLayout.searchPlaceholder': 'Αναζήτηση στο Cairn — σελίδες, σχόλια…',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Ke Dashboard',
   'forgot.eyebrow': 'Kehilangan jalan kembali?',
   'forgot.formSubtitle': 'Beri tahu kami email yang terdaftar.',
   'forgot.headline': 'Atur ulang kata sandi Anda.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Buat akun',
   'login.subline':
     'Buku catatan, tautan balik, dan halaman harian Anda berada tepat di tempat Anda meninggalkannya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'noteEditor.backToNotes': 'Kembali ke catatan',
   'noteEditor.bodyPlaceholder':
     'Mulailah menulis — catatan Anda akan tersimpan otomatis saat Anda mengetik.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Notebook baru',
   'notes.newNotebookPrompt': 'Nama buku catatan baru',
   'notes.notebooksHeading': 'Buku catatan',
+  'notes.subtitle':
+    'Pilih buku catatan di sebelah kiri, lalu tekan tombol Catatan baru untuk memulai entri baru.',
   'planUpdated.confirmation': 'Paket Anda telah diperbarui',
   'pricing.heading': 'Pilih paket pencatatan Anda',
   'reset.eyebrow': 'Hampir kembali ke',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Diperbarui',
   'versoLayout.nav.graph': 'Grafik',
   'versoLayout.nav.home': 'Rumah',
+  'versoLayout.primaryNavLabel': 'Navigasi utama',
   'versoNoteCard.pinned': 'Disematkan',
   'versoTodayHero.continueCta': 'Lanjutkan menulis',
   'versoTodayHero.createCta': 'Mulailah catatan hari ini',

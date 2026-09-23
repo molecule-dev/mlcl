@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.title': 'Par {{app}}',
   'auth.login.noAccount': 'Jauns Sparq lietotājs?',
   'auth.login.or': 'vai turpināt ar',
   'auth.signup.or': 'vai reģistrējieties ar',
+  'common.confirm': 'Apstiprināt',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'common.loadError': 'Ielādējot šo saturu, kaut kas nogāja greizi.',
+  'common.retry': 'Mēģināt vēlreiz',
   'discover.collections.title': 'Pārlūkot pēc kategorijas',
   'discover.collections.viewAll': 'Apskatiet savu bibliotēku →',
   'discover.empty.body': 'Izmēģiniet citu kategoriju vai dzēsiet meklēšanas rezultātus.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Pierakstieties, lai turpinātu savu uzvaru sēriju, rīkotu tiešraides spēles un kāptu līderu sarakstā.',
   'myQuizzes.createButton': 'Jauna viktorīna',
+  'myQuizzes.deleteConfirm': 'Dzēst uz visiem laikiem?',
   'myQuizzes.empty.createCta': 'Izveidojiet savu pirmo viktorīnu →',
   'myQuizzes.empty.created': 'Jūs vēl neesat izveidojis viktorīnu.',
   'myQuizzes.empty.played': 'Vēl nav publicētu viktorīnu.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Notiek ielāde…',
   'notifications.subhead':
     '{{count}} nelasītas dzirksteles. Ielūgumi, līderu saraksta gājieni un sasniegumi – viss vienā straumē.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.checkoutError': 'Nevarēja sākt norēķināšanos. Lūdzu, mēģiniet vēlreiz.',
+  'pricing.heading': 'Izvēlieties savu {{app}} plānu',
   'pricing.included': 'Iekļauts',
   'pricing.loadError': 'Nevarēja ielādēt plānus.',
   'pricing.maxQuizzes': '{{count}} viktorīnas',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Vēl nekas nav publicēts.',
   'profile.startBuilding': 'Sākt veidošanu →',
   'profile.tier': 'Sparq spēlētājs',
+  'quizBuilder.addFailed': 'Nevarēja pievienot jautājumu. Mēģiniet vēlreiz.',
   'quizBuilder.addQuestion': 'Pievienot jautājumu',
   'quizBuilder.answerPlaceholder': 'Ierakstiet opciju…',
   'quizBuilder.answersLabel': 'Atbilžu iespējas',
   'quizBuilder.back': 'Atpakaļ pie manām viktorīnām',
   'quizBuilder.delete': 'Dzēst jautājumu',
+  'quizBuilder.deleteFailed': 'Nevarēja izdzēst jautājumu.',
   'quizBuilder.firstQuestion': 'Pievienojiet savu pirmo jautājumu, lai sāktu.',
   'quizBuilder.idLabel': 'Viktorīnas ID: {{id}}',
   'quizBuilder.loadError': 'Nevarēja ielādēt viktorīnu.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Pievienojiet vismaz divas atbildes iespējas un izvēlieties pareizo. {{count}} jautājums(-i) pirms publicēšanas.',
   'quizBuilder.questionsTitle': 'Jautājumi',
+  'quizBuilder.saveFailed': 'Nevarēja saglabāt nosaukumu. Mēģiniet vēlreiz.',
   'quizBuilder.statusDraft': 'Projekts',
   'quizBuilder.subhead':
     'Rediģējiet virsrakstu, pievienojiet jautājumus, iestatiet izvēles iespējas un pareizo atbildi. Izmaiņas tiek saglabātas automātiski.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Rīkojiet vairāku spēlētāju režīmu',
   'quizDetail.leaderboardEmpty': 'Vēl nav nevienas spēles — esi pirmais, kas uzstāda rezultātu.',
+  'quizDetail.loadError': 'Nevarēja ielādēt šo viktorīnu.',
   'quizDetail.loading': 'Notiek viktorīnas ielāde…',
   'quizDetail.plays': '{{count}} lugas',
   'quizDetail.playSolo': 'Spēlēt solo',

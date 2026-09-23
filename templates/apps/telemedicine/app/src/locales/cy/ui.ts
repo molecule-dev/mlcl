@@ -39,6 +39,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Archebu Apwyntiad',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': "Dim cleifion i'w dangos.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'consult.backLink': 'Pob apwyntiad',
   'consult.captions': 'Capsiynau',
   'consult.connected': "Wedi'i gysylltu · 720p · sefydlog",
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Cleifion',
   'patientVitalsHero.scripts': 'Presgripsiwn ar agor',
   'patientVitalsHero.subline': '{{count}} ymgynghoriadau ar eich amserlen heddiw',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'prescriptions.empty': "Dim presgripsiynau'n cyfateb.",
   'prescriptions.eyebrow': 'E-bresgripsiwn',
   'prescriptions.heading': 'Presgripsiynau',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Hysbysiad Preifatrwydd',
   'privacy.use.body':
     'Er mwyn darparu gofal, anfon nodyn atgoffa am apwyntiadau, llwybro presgripsiynau, a gwella dibynadwyedd y gwasanaeth. Nid ydym byth yn gwerthu eich data ac nid ydym byth yn rhannu gwybodaeth glinigol gyda hysbysebwyr.',
+  'providers.allSpecialties': 'Pob Arbenigedd',
+  'providers.loadError': 'Methwyd llwytho darparwyr.',
+  'providers.loading': 'Yn llwytho…',
   'providers.noResults': 'Ni chanfuwyd unrhyw ddarparwyr.',
   'providers.searchPlaceholder': 'Chwiliwch yn ôl enw, arbenigedd...',
   'providers.title': 'Dod o Hyd i Ddarparwr',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': "Dechrau'r dydd",
   'settings.availability.heading': 'Argaeledd',
   'settings.devices.thisDevice': 'Y ddyfais hon',
+  'settings.devices.unnamed': 'Dyfais ddienw',
   'settings.eyebrow': 'Ymarfer a chyfrif',
   'settings.loadError': 'Methwyd llwytho eich proffil.',
   'settings.notifications.emailMessages': 'E-bostiwch fi pan fydd fy nhîm gofal yn ateb',
@@ -176,6 +182,11 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Analluogi',
   'settings.security.twoFactor.enable': 'Galluogi',
   'settings.security.twoFactor.heading': 'Dilysu dau ffactor',
+  'settings.security.twoFactor.invalidCode':
+    "Nid oedd y cod hwnnw'n cyfateb. Rhowch gynnig arall arni.",
+  'settings.security.twoFactor.setupFailed':
+    'Methwyd cychwyn y gosodiad dau ffactor. Rhowch gynnig arall arni.',
+  'settings.security.twoFactor.statusOn': 'Mae dau ffactor ymlaen',
   'settings.signOutDevice': 'Allgofnodi',
   'settings.subheading': 'Proffil darparwr, rheolau ymarfer, a rhybuddion clinigol.',
   'signup.emailLabel': 'E-BOST',
@@ -186,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Creu Cyfrif',
   'signupFooter.hipaa': 'Cydymffurfio â HIPAA',
   'solaceLayout.primaryNavLabel': 'Prif lywio',
+  'solaceLayout.toggleMenu': "Togglo'r ddewislen",
   'terms.eligibility.body':
     "Rhaid i chi fod yn ddeunaw oed o leiaf, neu'n rhiant neu'n warcheidwad cyfreithiol plentyn dan oed rydych chi'n ceisio gofal ar ei gyfer, ac wedi'ch lleoli'n gorfforol mewn talaith yn yr Unol Daleithiau lle mae ein clinigwyr wedi'u trwyddedu.",
   'terms.payment.body':

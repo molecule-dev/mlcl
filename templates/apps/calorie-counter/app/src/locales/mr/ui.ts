@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'प्रत्येक घास, संतुलित',
   'auth.hidePassword': 'पासवर्ड लपवा',
   'auth.showPassword': 'पासवर्ड दाखवा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'nav.legal': 'कायदेशीर',
+  'nosh.auth.legalPrefix': 'सुरू ठेवून तुम्ही आमच्या अटींशी सहमत आहात',
   'nosh.foodDetail.add': 'डायरीमध्ये नोंद करा',
   'nosh.foodDetail.added': 'जोडले जेवण ...',
   'nosh.foodDetail.addError': 'डायरीमध्ये नोंद करता आली नाही.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'फायबर',
   'nosh.foodDetail.micros.sodium': 'सोडियम',
   'nosh.foodDetail.micros.sugar': 'साखर',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'प्रथिने',
   'nosh.foodDetail.serving.count': 'सर्व्हिंग्ज',
   'nosh.foodDetail.serving.meal': 'जोडा',
@@ -47,6 +51,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'अधिक हुशारीने इंधन वापरण्यास सुरुवात करा',
   'nosh.landing.features.heading': 'तुम्हाला आवश्यक असलेले सर्वकाही, अनावश्यक काहीही नाही.',
   'nosh.landing.features.smartRing.title': 'स्मार्ट कॅलरी रिंग',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'एक मैत्रीपूर्ण आहार नोंदवही, जी तुम्हाला अपराधीपणाच्या भावनेशिवाय तुमची ध्येये गाठायला मदत करते. केवळ आकड्यांवर नव्हे, तर पोषणावर लक्ष केंद्रित करा.',
   'nosh.landing.hero.eyebrow': 'सोयीस्कर कॅलरी ट्रॅकिंग',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'तुम्ही किती सक्रिय आहात?',
   'nosh.onboarding.back': 'मागे',
   'nosh.onboarding.macros.heading': 'हे आहे तुमचे दैनंदिन लक्ष्य',
+  'nosh.onboarding.saveError': 'तुमची ध्येये वाचवता आली नाहीत.',
   'nosh.onboarding.start': 'चला',
   'nosh.progress.calorieChart.title': 'दररोजच्या कॅलरीज',
   'nosh.progress.empty':
@@ -142,6 +148,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'कायमस्वरूपी हटवा',
   'nosh.settings.deleteError': 'खाते हटवता आले नाही.',
   'nosh.settings.export.cta': 'CSV डाउनलोड करा',
+  'nosh.settings.export.description': 'तुमची संपूर्ण फूड लॉग CSV स्वरूपात डाउनलोड करा.',
   'nosh.settings.export.label': 'डेटा निर्यात करा',
   'nosh.settings.export.preparing': 'तयारी सुरू आहे…',
   'nosh.settings.eyebrow': 'खाते · सूचना · गोपनीयता',
@@ -153,6 +160,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'मैत्रीपूर्ण ट्रॅकिंग, कोणताही अपराधभाव नाही.',
   'nosh.today.${mealKey}Empty': 'लॉग इन करण्यासाठी टॅप करा',
   'nosh.today.addFood': 'अन्न घाला',
+  'nosh.today.backToToday': 'आजच्या दिवसाकडे परत',
+  'nosh.today.dateNavLabel': 'डायरी बदलण्याचा दिवस',
   'nosh.today.loadError': 'आज लोड होऊ शकले नाही.',
   'nosh.today.macros.carbs': 'कार्ब्स',
   'nosh.today.macros.fat': 'चरबी',
@@ -160,6 +169,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'प्रथिने',
   'nosh.today.macroTitle': 'स्थूल पोषक तत्वे',
   'nosh.today.meal.${mealKey}': 'कॅलरी',
+  'nosh.today.nextDay': 'दुसऱ्या दिवशी',
+  'nosh.today.pastPill': 'गेल्या दिवशी',
+  'nosh.today.prevDay': 'मागील दिवस',
   'nosh.today.quickAddError': 'त्वरित आयटम लॉग करता आला नाही.',
   'nosh.today.remaining': 'उर्वरित कॅलरीज',
   'nosh.today.streakHeadline': '{{count}} -दिवसांची मालिका',

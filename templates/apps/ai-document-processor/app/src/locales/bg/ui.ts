@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свържете се с нас',
+  'about.title': 'За {{app}}',
   'authShell.backToLanding': '← Назад към началната страница',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
+  'common.retry': 'Опитай отново',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Днес · Общ преглед на операциите',
   'dashboard.heading': 'Интелигентност на документите',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Няма документи, отговарящи на зададените филтри.',
   'documents.heading': 'Всички документи',
   'documents.loadError': 'Не успях да заредя документите.',
+  'documents.loading': 'Зареждане на библиотеката…',
   'documents.searchLabel': 'Търсене в документи',
   'documents.searchPlaceholder': 'Търсене в документи…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Скрий паролата',
   'login.showPassword': 'Покажи паролата',
   'login.subtitle': 'Влезте в профила си, за да продължите да работите с документите си.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'notFound.body':
     'Документът или маршрутът, който се опитахте да отворите, вече не се намира тук. Върнете се към началния екран или изберете раздел от страничната лента.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Отвори началната страница',
   'notFound.title': 'Тази страница не е намерена',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % спрямо вчера',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Все още няма правила за подаване. Използвайте „Ново правило“, за да добавите такова.',
   'rules.eyebrow': 'Автоматизация',
+  'rules.fieldsCount': '{{count}} полета',
   'rules.form.destination': 'Изпрати до',
   'rules.form.name': 'Име на правило',
   'rules.form.save': 'Запази правило',

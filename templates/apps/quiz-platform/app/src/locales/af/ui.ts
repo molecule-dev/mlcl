@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.title': 'Oor {{app}}',
   'auth.login.noAccount': 'Nuut by Sparq?',
   'auth.login.or': 'of gaan voort met',
   'auth.signup.or': 'of teken in met',
+  'common.confirm': 'Bevestig',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.loadError': 'Iets het verkeerd geloop met die laai van hierdie inhoud.',
+  'common.retry': 'Probeer weer',
   'discover.collections.title': 'Blaai volgens kategorie',
   'discover.collections.viewAll': 'Sien jou biblioteek →',
   'discover.empty.body': "Probeer 'n ander kategorie of maak die soektog skoon.",
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Meld aan om jou reeks aan die lewe te hou, regstreekse speletjies aan te bied en die puntelys te klim.',
   'myQuizzes.createButton': 'Nuwe vasvra',
+  'myQuizzes.deleteConfirm': 'Vee vir altyd uit?',
   'myQuizzes.empty.createCta': 'Bou jou eerste vasvra →',
   'myQuizzes.empty.created': "Jy het nog nie 'n vasvra gebou nie.",
   'myQuizzes.empty.played': 'Geen gepubliseerde vasvrae nog nie.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laai tans…',
   'notifications.subhead':
     '{{count}} ongeleesde vonke. Uitnodigings, puntelysbewegings en prestasies alles in een stroom.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.checkoutError': 'Kon nie met afhandeling begin nie. Probeer asseblief weer.',
+  'pricing.heading': 'Kies jou {{app}} plan',
   'pricing.included': 'Ingesluit',
   'pricing.loadError': 'Kon nie planne laai nie.',
   'pricing.maxQuizzes': '{{count}} vasvrae',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Niks nog gepubliseer nie.',
   'profile.startBuilding': 'Begin bou →',
   'profile.tier': 'Sparq-speler',
+  'quizBuilder.addFailed': 'Kon nie die vraag byvoeg nie. Probeer weer.',
   'quizBuilder.addQuestion': 'Voeg vraag by',
   'quizBuilder.answerPlaceholder': "Tik 'n opsie in…",
   'quizBuilder.answersLabel': 'Antwoordkeuses',
   'quizBuilder.back': 'Terug na my vasvrae',
   'quizBuilder.delete': 'Vee vraag uit',
+  'quizBuilder.deleteFailed': 'Kon nie die vraag verwyder nie.',
   'quizBuilder.firstQuestion': 'Voeg jou eerste vraag by om te begin.',
   'quizBuilder.idLabel': 'Vasvra-ID: {{id}}',
   'quizBuilder.loadError': 'Kon nie vasvra laai nie.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Voeg ten minste twee antwoordkeuses by en kies die korrekte een vir {{count}} vraag(e) voor publikasie.',
   'quizBuilder.questionsTitle': 'Vrae',
+  'quizBuilder.saveFailed': 'Kon nie die titel stoor nie. Probeer weer.',
   'quizBuilder.statusDraft': 'Konsep',
   'quizBuilder.subhead':
     'Wysig die titel, voeg vrae by, stel keuses en die korrekte antwoord. Veranderinge word outomaties gestoor.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'Gasheer multispeler',
   'quizDetail.leaderboardEmpty':
     "Geen toneelstukke nog nie — wees die eerste om 'n telling op te stel.",
+  'quizDetail.loadError': 'Kon nie hierdie vasvra laai nie.',
   'quizDetail.loading': 'Laai vasvra…',
   'quizDetail.plays': '{{count}} toneelstukke',
   'quizDetail.playSolo': 'Speel solo',

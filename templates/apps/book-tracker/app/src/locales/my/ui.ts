@@ -151,8 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'ကွင်းဆက်ကို ပြန်စတင်ပါ',
   'resetPassword.mismatchError': 'စကားဝှက်များ မကိုက်ညီပါ။',
   'resetPassword.subheading': 'ခိုင်မာသောအရာတစ်ခု ရွေးပါ။ သင့်စာအုပ်များ စောင့်နေပါမည်။',
-  'reviewCard.starsAria':
-    'အဆင့်သတ်မှတ်ထားသည်<x> {{အဆင့်သတ်မှတ်ချက်}}</x> မှ ထွက်လာသော<x> {{၏}}</x> ကြယ်များ',
+  'reviewCard.starsAria': 'ကြယ် {{of}} ပွင့်အနက် {{rating}} အဆင့်သတ်မှတ်ထားသည်',
   'reviewCard.unratedAria': 'အဆင့်သတ်မှတ်မထားပါ',
   'reviews.eyebrow': 'သင်နှင့်အတူ ကျန်ရစ်သောအရာ',
   'reviews.heading': 'သင်၏ သုံးသပ်ချက်များ',

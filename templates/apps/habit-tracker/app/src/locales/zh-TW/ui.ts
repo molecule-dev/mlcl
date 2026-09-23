@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
+  'about.pageTitle': '關於 {{app}}',
   'achievementBadgeCard.unlockedOn': '已解鎖{{date}}',
   'achievements.loadError': '成就加載失敗。',
   'achievements.subheading': '{{unlocked}}的{{total}}已解鎖',
   'achievements.unlockedOn': '已解鎖{{date}}',
+  'auth.legalConsent': '繼續即表示您同意我們的',
   'calendar.empty': '養成查看行事曆的習慣。',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': '習慣',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': '習慣網格',
   'category.${c.category}': '{{數數}}習慣',
   'common.and': '以及',
+  'common.goToDashboard': '前往主控台',
   'consistencyHeatmap.ariaLabel': '每日一致性熱圖',
   'consistencyHeatmap.caption': '最後的{{weeks}}週',
   'consistencyHeatmap.lessLabel': '較少的',
@@ -77,6 +81,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': '現場觀看',
   'landing.heroSubtitle':
     '培養習慣要遵循真正有效的方法：小小的承諾、每日堅持，以及長期不間斷堅持帶來的切身樂趣。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': '一窺 Streak 的內部',
   'landing.previewMotivation': '九條魚還活著。好好保暖它們。',
   'login.eyebrow': '拿起鏈條',
@@ -94,7 +99,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': '化繁為簡，具體明確，明天到場。',
   'newHabit.timeLabel': '提醒時間',
   'notifications.markError': '無法將所有內容標記為已讀。',
+  'planUpdated.verifying': '確認您的付款中…',
   'pricing.entries': '{{count}}條目',
+  'pricing.heading': '選擇您的 {{app}} 方案',
   'profile.action.plan': '管理訂閱',
   'profile.action.settings': '帳戶設定',
   'profile.bioEmpty': '在「設定」中加入個人簡介，介紹一下自己。',
@@ -121,6 +128,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': '每日早晨提示（上午 8:00）',
   'settings.reminders.heading': '提醒',
   'settings.reminders.weekly': '每週總結（週日晚間）',
+  'settings.revokeDeviceWarning': '此裝置的存取權限即將撤銷。將其登出？',
   'settings.signOutDevice': '登出',
   'settings.streaks.freezesPerWeek': '每週冷凍次數',
   'settings.streaks.gracePeriod': '午夜後有6小時的寬限期',
@@ -147,5 +155,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}}積極的',
   'streakHeroCard.daysSuffix': '天',
   'streakHeroCard.title': '最長活躍期',
+  'streakLayout.closeMenu': '關閉導覽選單',
+  'streakLayout.openMenu': '開啟導覽選單',
   'streakLayout.primaryNavLabel': '主導航',
 }

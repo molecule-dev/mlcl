@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.eyebrow': 'Ynghylch {{app}}',
   'about.pageTitle': 'Pob llwybr, un chwiliad.',
   'booking.backToDetail': 'Yn ôl at fanylion yr hediad',
   'booking.continue': "Parhau i'r taliad",
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Trethi a ffioedd',
   'booking.summary.travelers': 'Teithwyr',
   'common.about': 'Ynglŷn â',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'flightDetail.backToResults': "Yn ôl i'r canlyniadau",
   'flightDetail.baseFare': 'Pris sylfaenol',
   'flightDetail.book': 'Parhau i archebu',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 arhosfan',
   'flightResultCard.select': 'Dewis',
   'flightResultCard.totalLabel': 'Cyfanswm yr amser',
+  'flightSearchLayout.primaryNavLabel': 'Prif lywio',
   'forgotPassword.subheading':
     'Rhowch yr e-bost ar eich cyfrif Skylark a byddwn yn anfon dolen ailosod ddiogel.',
   'forgotPassword.successBody':
     "Gwirio {{email}} am ddolen i osod cyfrinair newydd. Mae'r ddolen yn dod i ben ymhen 30 munud.",
   'forgotPassword.successHeading': 'Ailosod dolen a anfonwyd',
   'landing.cta.explore': 'Rhowch gynnig ar chwiliad',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': "Dewch o hyd i'r pris gwych nesaf cyn pawb arall.",
   'landing.cta.signup': 'Dechreuwch olrhain prisiau',
   'landing.features.eyebrow': 'Pam Ehedydd',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Ychwanegu rhybudd',
   'priceAlerts.deleteConfirm': "Dileu'r rhybudd hwn?",
   'priceAlerts.empty': "Dim llwybrau wedi'u holrhain eto.",
+  'priceAlerts.emptyCta': "Chwiliwch am lwybr i'w olrhain",
   'priceAlerts.errorMessage': 'Methwyd llwytho rhybuddion.',
   'priceAlerts.eyebrow': 'Rhestr wylio Skylar',
   'priceAlerts.form.createError': 'Methwyd creu rhybudd.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Taith aml-ddinas',
   'results.multiLegHeading': 'Coes {{n}} · {{o}} → {{i}} · {{dyddiad}}',
   'results.multiSummary': '{{count}} coesau · {{passengers}} teithiwr',
+  'results.sortAriaLabel': 'Trefnu canlyniadau yn ôl',
   'results.sortLabel': 'Trefnu',
   'results.summary': '{{count}} hediadau · {{passengers}} teithiwr',
   'settings.language.title': 'Iaith',

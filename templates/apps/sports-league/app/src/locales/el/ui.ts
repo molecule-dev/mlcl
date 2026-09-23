@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Σχετικά',
+  'appShell.closeNav': 'Κλείσιμο πλοήγησης',
+  'appShell.openNav': 'Άνοιγμα πλοήγησης',
+  'common.dashboard': 'Πίνακας ελέγχου',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.eyebrow': 'Σήμερα γύρω από το πρωτάθλημα',
   'dashboard.loading': 'Βγάζοντας τα σκορ της βραδιάς…',
   'dashboard.scoringLeaders': 'Πρωταθλητές σκοραρίσματος',
@@ -148,4 +152,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}}η πριν',
   'time.hoursAgo': '{{count}}ω πριν',
   'time.minutesAgo': '{{count}} πριν από μ.',
+  'time.secondsAgo': '{{count}} δευτ. πριν',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'accountSettings.confirmEmailLabel': 'Təsdiqləmək üçün DELETE yazın',
   'accountSettings.deleteError': 'Hesabı silmək mümkün olmadı.',
   'accountSettings.passwordError': 'Şifrəni dəyişdirmək mümkün olmadı.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Qarşıdan gələn son tarixlər yoxdur.',
   'dashboard.upcomingTitle': 'Qarşıdan gələn son tarixlər',
   'deviceSettings.unknownDevice': 'Naməlum cihaz',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Dəstək',
   'forgotPassword.error': 'Sıfırlama linki göndərilmədi.',
   'forgotPassword.subtitle': 'E-poçtunuzu daxil edin və sizə sıfırlama linki göndərəcəyik.',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'Yanlış e-poçt və ya parol.',
   'login.pageTitle': 'Daxil ol',
   'login.signIn': 'Forge-a daxil olun',
+  'login.subtitle': 'Layihələrinizi izləmək üçün daxil olun',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'nav.calendar': 'Təqvim',
   'nav.legal': 'Hüquqi',
   'nav.myTasks': 'My Tasks',

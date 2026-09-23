@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.eyebrow': 'Tentang {{app}}',
   'about.pageTitle': 'Setiap rute, satu pencarian.',
   'booking.backToDetail': 'Kembali ke detail penerbangan',
   'booking.continue': 'Lanjutkan ke pembayaran',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Pajak & biaya',
   'booking.summary.travelers': 'Pelancong',
   'common.about': 'Tentang',
+  'common.goToDashboard': 'Ke Dashboard',
   'flightDetail.backToResults': 'Kembali ke hasil',
   'flightDetail.baseFare': 'Tarif dasar',
   'flightDetail.book': 'Lanjutkan ke pemesanan',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 transit',
   'flightResultCard.select': 'Pilih',
   'flightResultCard.totalLabel': 'Waktu total',
+  'flightSearchLayout.primaryNavLabel': 'Navigasi utama',
   'forgotPassword.subheading':
     'Masukkan email pada akun Skylark Anda dan kami akan mengirimkan tautan pemulihan yang aman.',
   'forgotPassword.successBody':
     'Periksa {{email}} untuk tautan menyetel kata sandi baru. Tautan akan kedaluwarsa dalam 30 menit.',
   'forgotPassword.successHeading': 'Tautan pemulihan terkirim',
   'landing.cta.explore': 'Coba pencarian',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Temukan tarif hebat berikutnya sebelum orang lain.',
   'landing.cta.signup': 'Mulai melacak tarif',
   'landing.features.eyebrow': 'Mengapa Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Tambah peringatan',
   'priceAlerts.deleteConfirm': 'Hapus peringatan ini?',
   'priceAlerts.empty': 'Belum ada rute yang dilacak.',
+  'priceAlerts.emptyCta': 'Cari rute untuk dilacak',
   'priceAlerts.errorMessage': 'Tidak dapat memuat peringatan.',
   'priceAlerts.eyebrow': 'Daftar pantau Skylark',
   'priceAlerts.form.createError': 'Tidak dapat membuat peringatan.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Perjalanan multi-kota',
   'results.multiLegHeading': 'Leg {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} leg · {{passengers}} penumpang',
+  'results.sortAriaLabel': 'Urutkan hasil berdasarkan',
   'results.sortLabel': 'Urutkan',
   'results.summary': '{{count}} penerbangan · {{passengers}} penumpang',
   'settings.language.title': 'Bahasa',

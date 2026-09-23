@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.pageTitle': 'درباره {{app}}',
   'achievementBadgeCard.unlockedOn': 'قفل‌گشایی شده {{date}}',
   'achievements.loadError': 'بارگیری دستاوردها ناموفق بود.',
   'achievements.subheading': '{{unlocked}} از {{total}} قفل‌گشایی شده',
   'achievements.unlockedOn': 'قفل‌گشایی شده {{date}}',
+  'auth.legalConsent': 'با ادامه، شما با شرایط ما موافقت می‌کنید',
   'calendar.empty': 'عادت کنید که تقویم خود را ببینید.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'عادت',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'شبکه عادت',
   'category.${c.category}': '{{شمارش}} عادت‌ها',
   'common.and': 'و',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'consistencyHeatmap.ariaLabel': 'نقشه حرارتی سازگاری روزانه',
   'consistencyHeatmap.caption': 'آخرین {{weeks}} هفته‌ها',
   'consistencyHeatmap.lessLabel': 'کمتر',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'زنده ببینید',
   'landing.heroSubtitle':
     'عادت‌ها را به گونه‌ای بسازید که واقعاً ماندگار شوند: تعهدات کوچک، تلاش‌های روزانه و لذت غریزی از یک زنجیره طولانی و ناگسستنی.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'نگاهی اجمالی به درون استریک',
   'landing.previewMotivation': 'نه رگه زنده. همه آنها را گرم نگه دارید.',
   'login.eyebrow': 'زنجیر را بردار',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'کوچکش کن. خاصش کن. فردا بیا.',
   'newHabit.timeLabel': 'زمان یادآوری',
   'notifications.markError': 'نتوانستم همه را علامت بزنم خوانده شده.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.entries': '{{count}} نوشته‌ها',
+  'pricing.heading': 'طرح {{app}} خود را انتخاب کنید',
   'profile.action.plan': 'مدیریت اشتراک',
   'profile.action.settings': 'تنظیمات حساب',
   'profile.bioEmpty': 'در تنظیمات، یک بیوگرافی کوتاه برای معرفی خودتان اضافه کنید.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'برنامه صبحگاهی روزانه (ساعت ۸ صبح)',
   'settings.reminders.heading': 'یادآوری‌ها',
   'settings.reminders.weekly': 'خلاصه هفتگی (یکشنبه شب‌ها)',
+  'settings.revokeDeviceWarning': 'دسترسی این دستگاه به زودی لغو خواهد شد. خروج از آن؟',
   'settings.signOutDevice': 'خروج از سیستم',
   'settings.streaks.freezesPerWeek': 'یخ زدگی در هفته',
   'settings.streaks.gracePeriod': 'مهلت ۶ ساعته پس از نیمه شب',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} فعال',
   'streakHeroCard.daysSuffix': 'روزها',
   'streakHeroCard.title': 'طولانی‌ترین دوره فعال',
+  'streakLayout.closeMenu': 'بستن منوی ناوبری',
+  'streakLayout.openMenu': 'منوی ناوبری را باز کنید',
   'streakLayout.primaryNavLabel': 'ناوبری اولیه',
 }

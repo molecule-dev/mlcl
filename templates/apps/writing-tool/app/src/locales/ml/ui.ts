@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.title': 'നിങ്ങളുടെ പോക്കറ്റിൽ സൂക്ഷിക്കാൻ കഴിയുന്ന ഒരു എഴുത്തുമുറി',
   'billing.cancelConfirm': 'നിങ്ങളുടെ സജീവ സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കണോ?',
   'billing.cancelFailed': 'റദ്ദാക്കാൻ കഴിഞ്ഞില്ല.',
   'billing.checkingOut': 'ചെക്ക്ഔട്ട് തുറക്കുന്നു…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ബില്ലിംഗ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'billing.loading': 'ബില്ലിംഗ് ലോഡ് ചെയ്യുന്നു...',
   'billing.upgradeCta': 'ഇതിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക {{name}}',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'editor.autosaveOn': 'ഓട്ടോസേവ് ഓണാണ്',
   'editor.backToLibrary': 'ലൈബ്രറിയിലേക്ക് മടങ്ങുക',
   'editor.charCount': '{{count}} കഥാപാത്രങ്ങൾ',
   'editor.confirmTrash': 'ഈ പ്രമാണം ട്രാഷിലേക്ക് നീക്കണോ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'അൺപിൻ ചെയ്‌തു',
   'editor.unpublishCta': 'ഡ്രാഫ്റ്റിലേക്ക് നീക്കുക',
   'editor.unpublished': 'ഡ്രാഫ്റ്റിലേക്ക് പുനഃസ്ഥാപിച്ചു',
+  'focus.autosaveOn': 'ഓട്ടോസേവ് ഓണാണ്',
   'focus.backToLibrary': 'ലൈബ്രറിയിലേക്ക് മടങ്ങുക',
   'focus.bodyPlaceholder': 'ഓരോ വരിയായി. ഇവിടെ മറ്റാരുമില്ല.',
   'focus.exit': 'ഫോക്കസ് മോഡിൽ നിന്ന് പുറത്തുകടക്കുക',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ഒന്ന് സൃഷ്ടിക്കുക',
   'login.subline':
     'നിങ്ങളുടെ കൈയെഴുത്തുപ്രതികൾ, ദൈനംദിന പേജുകൾ, അവസാന കഴ്‌സർ സ്ഥാനം എന്നിവ നിങ്ങൾ അവ ഉപേക്ഷിച്ച സ്ഥലത്താണ്.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'pricing.exports': 'കയറ്റുമതി',
   'pricing.folders': 'ഫോൾഡറുകൾ',
   'pricing.heading': 'രേഖകൾ',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'ഞങ്ങൾ ഇപ്പോൾ നിങ്ങൾക്ക് ഇമെയിൽ അയച്ച കോഡ് നൽകി ഓർമ്മയിൽ സൂക്ഷിക്കാൻ കഴിയുന്ന എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക. അത് സംരക്ഷിച്ചുകഴിഞ്ഞാൽ ഞങ്ങൾ നിങ്ങളെ സൈൻ ഇൻ ചെയ്യുന്നതായിരിക്കും.',
   'reset.tokenHint': 'നിങ്ങളുടെ ഇൻബോക്സിൽ നിന്ന് ഒട്ടിച്ചു.',
+  'settings.appearance.heading': 'വെളിച്ചമോ ഇരുട്ടോ',
   'settings.editor.${row.id}.description': 'ഭാഷ',
   'settings.editor.description':
     'ടൈപ്പ്റൈറ്റർ സ്ക്രോൾ, പാരഗ്രാഫ് ഫേഡ്, ഐഡിൽ ഫോക്കസ് — ദീർഘമായ സെഷനുകൾക്കായി ഡിഫോൾട്ടുകൾ ട്യൂൺ ചെയ്തിരിക്കുന്നു.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'മൂന്നാം അധ്യായം — സൂര്യോദയത്തിന് മുമ്പുള്ള ഒരു നിശബ്ദ മണിക്കൂർ',
   'versalDocumentCard.pinned': 'പിൻ ചെയ്‌തു',
   'versalLayout.nav.stats': 'സ്ഥിതിവിവരക്കണക്കുകൾ',
+  'versalLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'versalManuscriptHero.cta': 'എഴുത്ത് തുടരുക',
   'versalManuscriptHero.goalLabel': 'ഇന്നത്തെ വാക്ക് ലക്ഷ്യം',
   'versalManuscriptHero.inProgress': 'ട്രാക്കിൽ',

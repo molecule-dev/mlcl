@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz uwagi, chcesz zgłosić prośbę o dodanie nowej funkcji lub znalazłeś błąd? Skontaktuj się z zespołem {{app}}, korzystając z linku do pomocy technicznej w menu swojego konta — każda wiadomość trafia do prawdziwej osoby.',
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'agentDetail.back': 'Wszyscy agenci',
   'agentDetail.capabilities': 'Możliwości',
   'agentDetail.delete': 'Usuń personę',
   'agentDetail.deleteConfirm': 'Usunąć tę personę? Tego nie można cofnąć.',
+  'agentDetail.deleteError': 'Nie udało się usunąć persony.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Nie można załadować persony.',
   'agentDetail.save': 'Zapisz personę',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Przełączanie…',
   'billing.updateError': 'Nie można rozpocząć aktualizacji.',
   'billing.usageHeading': 'Użycie głosu w tym cyklu',
+  'chatBubble.source.text': 'tekst',
+  'chatBubble.source.voice': 'głos',
+  'common.goToDashboard': 'Przejdź do panelu',
   'conversation.defaultTitle': 'Nowa rozmowa',
   'conversation.empty': 'Brak wiadomości. Proszę zacząć, mówiąc coś lub pisząc poniżej.',
   'conversation.eyebrow': 'Sesja na żywo',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligencja, która mówi.',
   'landing.heroSubtitle':
     'Asystent głosowy AI, który rozumie Pana/Pani naturalny przepływ. Rozmawiaj, twórz pomysły i komenderuj — płynnie.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Słucham…',
   'landing.naturallyBody':
     'Brak słów wyzwalających. Brak sztywnych poleceń. Vox rozumie kontekst, przerwania i niuanse ludzkiej mowy — jak rozmowa z kolegą.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Otwórz sesję',
   'notFound.home': 'Powrót do strony głównej',
   'notFound.title': 'Nie usłyszeliśmy tej strony.',
+  'parlanceLayout.closeMenu': 'Zamknij menu',
+  'parlanceLayout.openMenu': 'Otwórz menu nawigacyjne',
   'parlanceLayout.primaryNavLabel': 'Nawigacja główna',
   'pricing.conversations': '{{count}} rozmów',
   'pricing.cta.startFree': 'Rozpocznij za darmo',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Brak dopasowań',
   'search.eyebrow': 'Paleta poleceń',
   'search.fetchError': 'Nie można załadować indeksu wyszukiwania.',
+  'search.static.profile.preview': 'Nazwa wyświetlana, pseudonim, opis',
   'search.static.voice.title': 'Głos',
   'search.title': 'Przeszukaj Vox',
   'search.transcriptPreview': 'Otwórz transkrypcję',

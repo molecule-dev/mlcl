@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Vērojot',
   'auctionDetail.watchRemoved': 'Noņemts no vērošanas saraksta.',
   'auctionDetail.watchRemoveLabel': 'Noņemt no vērošanas saraksta',
+  'auctionPlatformLayout.primaryNavLabel': 'Galvenā navigācija',
   'authShell.brandBody':
     'Piedalieties reāllaikā, lai iegādātos retus pulksteņus, mākslas darbus un unikālus priekšmetus. Āmurs nokrīt sekundēs.',
   'authShell.brandEyebrow': 'Tiešraide tagad · 1420 izsoles',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Kārtot pēc',
   'browseAuctions.subheading':
     'Filtrējiet pēc kategorijas, kārtojiet pēc svarīgākā un iesniedziet piedāvājumu, pirms āmurs nokrīt.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'countdownTimer.ended': 'Beidzies',
   'countdownTimer.endingSoon': 'Beigas',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Paslēpt paroli',
   'login.showPassword': 'Rādīt paroli',
   'login.subtext': 'Turpiniet sekot līdzi savām izsolēm un veiciet cenas, pirms āmurs nokrīt.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'myBids.bidAgain': 'Piedāvājiet vēlreiz',
   'myBids.browseCta': 'Pārlūkot tiešraides izsoles →',
   'myBids.checkoutCta': 'Maksāt tūlīt',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Aktivitāšu centrs',
   'notificationsPage.subheading':
     '{{count}} nelasīti · tiešraides atjauninājumi, virzoties uz izsolēm',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.bidsLabel': 'cenas',
   'pricing.listingsLabel': 'saraksti',
   'pricing.watchlistLabel': 'vērošanas saraksts',

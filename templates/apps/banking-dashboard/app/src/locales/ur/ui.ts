@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'accountDetail.activeBadge': 'فعال',
   'accountDetail.availableLabel': '{{amount}} دستیاب',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'اکاؤنٹس',
   'accounts.loadError': 'اکاؤنٹس لوڈ کرنے میں ناکام۔',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'منجمد',
   'accounts.totalBalance': '{{رقم}} کل',
   'audit.empty': 'ابھی تک کوئی واقعات نہیں ہیں۔',
   'audit.eyebrow': 'سیکیورٹی اور رسائی',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'ہاتھ پر کیش',
   'cashCreditCard.creditLabel': 'کریڈٹ استعمال کیا گیا۔',
   'cashCreditCard.title': 'کیش اینڈ کریڈٹ',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.accountsHeading': 'اکاؤنٹس',
   'dashboard.heading': 'جائزہ',
   'dashboard.recentEmpty': 'ابھی تک کوئی لین دین نہیں ہوا۔',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'پاس ورڈ دکھائیں۔',
   'login.signUp': 'سائن اپ کریں۔',
   'login.submit': 'سائن ان کریں۔',
+  'meridianLayout.menu': 'مینو',
   'meridianLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'nav.legal': 'قانونی',
   'notifications.emptyHeading': 'آپ سب پکڑے گئے ہیں۔',
   'notifications.subheading': 'لین دین، سیکورٹی اور بیانات کے لیے ریئل ٹائم الرٹس۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'privacy.dataWeShare':
     'ذاتی بینکنگ ڈیٹا کبھی فروخت نہیں ہوتا ہے۔ ہم ادائیگی کے پروسیسرز، کارڈ نیٹ ورکس، اور ریگولیٹرز کے ساتھ معلومات کا اشتراک صرف لین دین کو طے کرنے یا قانونی ذمہ داریوں کو پورا کرنے کے لیے کرتے ہیں۔',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'دو فیکٹر ہر سائن ان پر مستند ایپ سے ایک بار کا کوڈ شامل کرتا ہے۔',
   'settings.security.twoFactorCta': 'دو عنصر کی تصدیق کا نظم کریں۔',
+  'settings.security.twoFactorOff': 'دو عنصر بند ہے۔',
   'settings.signOutDevice': 'سائن آؤٹ کریں۔',
   'settings.subheading': 'پروفائل، سیکورٹی، اور اطلاعات۔',
+  'settings.twoFactorCode': 'تصدیقی کوڈ',
   'settings.twoFactorDisable': 'غیر فعال کریں۔',
   'settings.twoFactorEnable': 'فعال کریں۔',
+  'settings.twoFactorInvalidCode': 'غلط کوڈ',
+  'settings.twoFactorVerify': 'تصدیق کریں اور فعال کریں۔',
   'signup.emailLabel': 'ای میل ایڈریس',
   'signup.fullName': 'ہم آپ کو کیسے مخاطب کریں؟',
   'signup.showPassword': 'پاس ورڈ دکھائیں۔',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ابھی تک کوئی لین دین نہیں ہوا۔',
   'transactions.endDate': 'اختتامی تاریخ',
   'transactions.eyebrow': 'سرگرمی',
+  'transactions.loadError': 'لین دین لوڈ کرنے میں ناکام۔',
   'transactions.merchant': 'مرچنٹ',
+  'transactions.subheading': 'آپ کے اکاؤنٹس میں ہر پوسٹ شدہ اور زیر التواء لین دین۔',
   'transfers.availableHint': '{{amount}} دستیاب',
   'transfers.errorGeneric': 'ٹرانسفر جمع نہیں ہو سکا۔',
   'transfers.errorMissingFields': 'ایک ذریعہ اکاؤنٹ اور ایک منزل کا انتخاب کریں۔',

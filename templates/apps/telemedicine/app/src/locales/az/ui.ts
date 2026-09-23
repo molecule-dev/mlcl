@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Randevu sifariş edin',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Göstəriləcək xəstə yoxdur.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'consult.backLink': 'Bütün təyinatlar',
   'consult.captions': 'Subtitrlər',
   'consult.connected': 'Qoşulub · 720p · sabit',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Xəstələr',
   'patientVitalsHero.scripts': 'Resept üzrə açıq',
   'patientVitalsHero.subline': '{{count}} bu gün cədvəlinizə uyğun məsləhətlər verir',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'prescriptions.empty': 'Uyğun reseptlər yoxdur.',
   'prescriptions.eyebrow': 'Elektron resept',
   'prescriptions.heading': 'Reseptlər',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Məxfilik Bildirişi',
   'privacy.use.body':
     'Tibbi yardım göstərmək, görüş xatırlatmaları göndərmək, reseptləri yönləndirmək və xidmətin etibarlılığını artırmaq üçün. Biz heç vaxt məlumatlarınızı satmırıq və klinik məlumatlarınızı reklamçılarla paylaşmırıq.',
+  'providers.allSpecialties': 'Bütün ixtisaslar',
+  'providers.loadError': 'Provayderləri yükləmək alınmadı.',
+  'providers.loading': 'Yüklənir…',
   'providers.noResults': 'Heç bir provayder tapılmadı.',
   'providers.searchPlaceholder': 'Adı, ixtisası üzrə axtarış...',
   'providers.title': 'Təchizatçı tapın',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Günün başlanğıcı',
   'settings.availability.heading': 'Mövcudluq',
   'settings.devices.thisDevice': 'Bu cihaz',
+  'settings.devices.unnamed': 'Adsız cihaz',
   'settings.eyebrow': 'Təcrübə və hesab',
   'settings.loadError': 'Profilinizi yükləmək mümkün olmadı.',
   'settings.notifications.emailMessages': 'Qayğı qrupum cavab verdikdə mənə e-poçt göndərin',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Deaktiv edin',
   'settings.security.twoFactor.enable': 'Aktivləşdirin',
   'settings.security.twoFactor.heading': 'İki faktorlu identifikasiya',
+  'settings.security.twoFactor.invalidCode': 'Həmin kod uyğun gəlmədi. Yenidən cəhd edin.',
+  'settings.security.twoFactor.setupFailed':
+    'İki faktorlu quraşdırma başlaya bilmədi. Yenidən cəhd edin.',
+  'settings.security.twoFactor.statusOn': 'İki faktorlu rejim aktivdir',
   'settings.signOutDevice': 'Çıxış',
   'settings.subheading': 'Provayder profili, təcrübə qaydaları və klinik xəbərdarlıqlar.',
   'signup.emailLabel': 'E-POÇT',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Hesab Yarat',
   'signupFooter.hipaa': 'HIPAA-ya uyğun',
   'solaceLayout.primaryNavLabel': 'Əsas naviqasiya',
+  'solaceLayout.toggleMenu': 'Menyunu aç/bağla',
   'terms.eligibility.body':
     'Ən azı on səkkiz yaşında olmalı və ya qayğı axtardığınız yetkinlik yaşına çatmayan şəxsin valideyni və ya qanuni qəyyumu olmalı və fiziki olaraq klinisyenlərimizin lisenziyalı olduğu ABŞ ştatında yerləşməlisiniz.',
   'terms.payment.body':

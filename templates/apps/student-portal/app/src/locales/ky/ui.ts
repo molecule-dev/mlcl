@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'announcementsFeed.empty': 'Азырынча эч кандай жарыялар жок.',
   'announcementsFeed.eyebrow': '{{count}} жаңыртуулар',
   'announcementsFeed.title': 'Акыркы жарыялар',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Башка абалдагы дайындоолорду көрүү үчүн жогорудагы чыпкаларды которуштуруңуз.',
   'assignments.eyebrow': 'Бардык курстар · Бул семестр',
+  'assignments.loadError': 'Тапшырмалар жүктөлбөй койду.',
   'assignments.loading': 'Тапшырмалар жүктөлүүдө…',
   'assignments.subtitle':
     'Эмнелер тапшырылганын, эмнелер тапшырылганын, эмнелер бааланганын же эмнелер жетишпегенин көрүү үчүн статусу боюнча чыпкалаңыз.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Эскертүү',
   'attendance.empty': 'Азырынча катышуучулардын саны боюнча жазуулар жок.',
   'attendance.eyebrow': 'Жазгы семестр · Акыркы 4 жума',
+  'attendance.loadError': 'Катышуу жазуулары жүктөлбөй койду.',
   'attendance.loading': 'Катышуучулар жүктөлүүдө…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Тапшырмаларды тапшыруу мөөнөттөрү айлык торчодо көрсөтүлгөн — экзамендер кызыл түс менен белгиленген.',
   'calendar.title': '{{month}} иш-чаралар',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
+  'common.retry': 'Кайра аракет кыл',
   'common.yes': '✓',
   'courseDetail.backLink': 'Баалар',
   'courseDetail.currentGrade': 'Учурдагы баа',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Тренд',
   'grades.empty': 'Азырынча баалар жарыялана элек.',
   'grades.eyebrow': 'Баалоо журналы',
+  'grades.loadError': 'Бааларыңыз жүктөлбөй койду.',
   'grades.loading': 'Баалар жүктөлүүдө…',
   'grades.subtitle':
     'Түз тамгалар жана пайыздык баалар. Тренд жебелери сиздин жогорулап, деңгээлге же тайып жатканыңызды көрсөтөт.',
   'grades.title': 'Бааларыңыз, курс боюнча',
   'grades.trendStable': 'Аткана',
+  'landing.copyright': '© {{year}} {{app}} . Студенттер үчүн, үй-бүлөлөр үчүн жасалган.',
   'landing.ctaHeading': 'Тынч мектеп күнү бир нече мүнөттөн кийин башталат',
   'landing.eyebrow': 'Орто жана жогорку класстын окуучулары үчүн',
   'landing.featuresHeading': 'Окуучунун айланасында уюштурулган мектеп күнү',
@@ -115,12 +122,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Тапшырмалар',
   'nav.attendance': 'Катышуучулар',
   'nav.calendar': 'Календарь',
+  'nav.closeMenu': 'Навигация менюсун жабуу',
   'nav.grades': 'Баалар',
+  'nav.openMenu': 'Навигация менюсун ачуу',
   'nav.statusEyebrow': 'Семестрдик GPA',
   'nav.statusSubtext': 'Ардак тактасы · Жазгы семестр',
+  'nav.unreadMessages': 'Окула элек билдирүүлөр',
   'notifications.eyebrow': '{{count}} жаңыртуулар',
   'notifications.subtitle':
     'Баалар, эскертүүлөр, билдирүүлөр жана мектеп жарыялары. Ар бир эскертме кайсы каналдарды колдоноорун Жөндөөлөрдөн тууралаңыз.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.attendanceLabel': 'катышуу',
   'pricing.gradesLabel': 'баалар',
   'pricing.heading': 'жарыялар',

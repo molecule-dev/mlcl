@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.featureDiscover.title': 'Inspirasi, dipilih dengan cermat.',
   'account.addPaymentCta': 'Tambah metode pembayaran',
   'account.addPaymentError': 'Tidak dapat menambahkan metode pembayaran.',
+  'account.confirmRemove': 'Konfirmasi penghapusan',
   'account.defaultBadge': 'Default',
   'account.loyalty.pointsTowardNext': '{{points}} dari {{next}} mil menuju {{nextTier}}',
   'account.loyalty.tier': 'Tingkat saat ini',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Detail perjalanan',
   'booking.tripSummary': '{{nights}} malam · {{guests}} tamu',
   'common.daysAgo': '{{count}}h lalu',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.hoursAgo': '{{count}}j lalu',
   'common.minutesAgo': '{{count}}m lalu',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Memuat…',
   'notifications.subheading':
     '{{count}} belum dibaca · semuanya dalam satu kotak masuk yang tenang',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.accommodationsLabel': 'akomodasi',
   'pricing.bookingsLabel': 'pemesanan',
   'pricing.destinationsLabel': 'destinasi tersimpan',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Inspirasi, penginapan tepercaya, dan jalur mulus dari lamunan hingga terpesan — di 14 negara dan lebih dari 200 properti pilihan.',
   'sojournHeroSearchCard.trustProtected': 'Pembatalan gratis, terlindungi sepenuhnya',
   'sojournHeroSearchCard.trustVetted': 'Hanya properti pilihan',
+  'travelBookingLayout.primaryNavLabel': 'Navigasi utama',
   'tripDetail.backLink': 'Kembali ke perjalanan',
   'tripDetail.cancelCta': 'Batalkan pemesanan',
   'tripDetail.cancelHeading': 'Batalkan perjalanan ini?',

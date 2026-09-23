@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes algún comentario, algunha solicitude de funcionalidade ou atopaches un erro? Ponte en contacto co equipo de {{app}} a través da ligazón de asistencia do menú da túa conta: cada mensaxe vai para unha persoa real.',
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'agentDetail.back': 'Todos os axentes',
   'agentDetail.capabilities': 'Capacidades',
   'agentDetail.delete': 'Eliminar persoa',
   'agentDetail.deleteConfirm': 'Queres eliminar esta persoa? Isto non se pode desfacer.',
+  'agentDetail.deleteError': 'Non se puido eliminar a persoa.',
   'agentDetail.eyebrow': 'Personaxe',
   'agentDetail.fetchError': 'Non se puido cargar a persoa.',
   'agentDetail.save': 'Gardar persoa',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Cambiando…',
   'billing.updateError': 'Non se puido iniciar a actualización.',
   'billing.usageHeading': 'Uso da voz neste ciclo',
+  'chatBubble.source.text': 'texto',
+  'chatBubble.source.voice': 'voz',
+  'common.goToDashboard': 'Ir ao panel',
   'conversation.defaultTitle': 'Nova conversa',
   'conversation.empty': 'Aínda non hai mensaxes. Comeza dicindo algo ou escribindo a continuación.',
   'conversation.eyebrow': 'Sesión en directo',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelixencia que fala.',
   'landing.heroSubtitle':
     'O asistente de voz con IA que comprende o teu ritmo natural. Conversa, idea e manda, sen problemas.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Escoitando…',
   'landing.naturallyBody':
     'Sen palabras detonantes. Sen ordes ríxidas. A linguaxe comprende o contexto, as interrupcións e os matices da fala humana, como falar cun compañeiro.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Abrir unha sesión',
   'notFound.home': 'De volta á casa',
   'notFound.title': 'Non puidemos escoitar esa páxina.',
+  'parlanceLayout.closeMenu': 'Pechar menú',
+  'parlanceLayout.openMenu': 'Abrir menú de navegación',
   'parlanceLayout.primaryNavLabel': 'Navegación principal',
   'pricing.conversations': '{{count}} conversas',
   'pricing.cta.startFree': 'Comeza gratis',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Sen coincidencias',
   'search.eyebrow': 'Paleta de comandos',
   'search.fetchError': 'Non se puido cargar o índice de busca.',
+  'search.static.profile.preview': 'Nome para mostrar, usuario, biografía',
   'search.static.voice.title': 'Voz',
   'search.title': 'Buscar linguaxe',
   'search.transcriptPreview': 'Abrir transcrición',

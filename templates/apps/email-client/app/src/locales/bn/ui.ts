@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'আমরা ডিজাইনার এবং ইঞ্জিনিয়ারদের একটি বিকেন্দ্রীভূত দল, যারা একসময় প্রতিদিনের অনেকটা সময় একটি কোলাহলপূর্ণ মেইলবক্সে কাটাতাম। মেরিডিয়ান হলো সেই ইনবক্স যা আমরা নিজেরাই ব্যবহার করতে চেয়েছিলাম।',
   'about.title': 'মনোযোগ সহকারে কাজের জন্য ইমেল করুন',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'help.cta.about': 'মেরিডিয়ান সম্পর্কে',
   'help.cta.pricing': 'মূল্য দেখুন',
   'help.eyebrow': 'সহায়তা কেন্দ্র',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'আমাদের কাছে প্রায়শই আসা প্রশ্নগুলোর দ্রুত উত্তর। কিছু বাদ পড়েছে? সেটিংস খুলুন এবং অ্যাপের ভেতরের ফিডব্যাক ফর্মটি ব্যবহার করুন, অথবা support@courier.example-এ ইমেল করুন।',
   'help.title': 'আমরা কীভাবে সাহায্য করতে পারি?',
   'landing.brand.scrollTop': 'উপরে ফিরে যান',
+  'landing.copyright': '© {{year}} {{appName}} — মনোযোগের জন্য নির্মিত।',
   'landing.ctaBody':
     'হাজার হাজার পেশাদারদের সাথে যোগ দিন যারা দুপুরের খাবারের আগেই তাদের ইনবক্সের কাজ শেষ করেছেন।',
   'landing.ctaTitle': 'বেশি করে প্রক্রিয়া করুন, কম প্রতিক্রিয়া দেখান।',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'ডেমো দেখুন',
   'landing.heroSubtitle':
     'মেরিডিয়ান হলো একটি শান্ত, তিন-প্যানেলযুক্ত ইনবক্স, যা এমন জ্ঞানকর্মীদের জন্য তৈরি করা হয়েছে যারা তথ্যের প্রতি প্রতিক্রিয়া না দেখিয়ে তা প্রক্রিয়াজাত করতে চান।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'বিশ্বজুড়ে নিবেদিত দলগুলোর আস্থাভাজন',
   'landing.signIn': 'সাইন ইন করুন',
   'meridian.archive.empty': 'আর্কাইভটি খালি।',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'খসড়া',
   'meridian.folder.count': '{{count}} বার্তা',
+  'meridian.folder.delete': 'মুছে ফেলুন',
   'meridian.folder.deleteForever': 'স্থায়ীভাবে মুছে ফেলুন',
   'meridian.folder.restore': 'ইনবক্সে সরান',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'এখানে এখনো কোনো বার্তা নেই।',
   'meridian.inbox.loading': 'লোড হচ্ছে…',
   'meridian.inbox.next': 'পরবর্তী',
+  'meridian.inbox.noSender': '(প্রেরক নেই)',
   'meridian.inbox.noSubject': '(কোন বিষয় নেই)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}} এর',
   'meridian.inbox.openCompose': 'ওপেন কম্পোজ',
   'meridian.inbox.previous': 'পূর্ববর্তী',
   'meridian.inbox.replyFailed': 'উত্তর সংরক্ষিত হয়েছে কিন্তু ডেলিভারি হয়নি: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'আপনার কি কোনো অ্যাকাউন্ট নেই?',
   'meridian.login.showPassword': 'পাসওয়ার্ড দেখান',
   'meridian.message.toLine': 'থেকে {{recipients}}',
+  'meridian.notFound.body':
+    'আপনি যে পৃষ্ঠাটি খুঁজছেন তা খুঁজে পাওয়া যায়নি। আপনার {{appName}} ইনবক্সে ফিরে যান এবং আমরা আপনাকে সঠিক পথে পরিচালিত করব।',
   'meridian.notFound.eyebrow': 'ত্রুটি ৪০৪',
   'meridian.notFound.title': 'এই থ্রেডটি আর্কাইভ করা হয়েছে।',
   'meridian.notFound.toInbox': 'আমার ইনবক্স খুলুন',
@@ -116,6 +124,7 @@ export const ui: UiTranslations = {
   'meridian.sidebar.labels': 'লেবেল',
   'meridian.sidebar.noLabels': 'এখনো কোনো লেবেল নেই',
   'meridian.sidebar.storage': 'স্টোরেজ',
+  'meridian.sidebar.storageLabel': '{{used}} {{quota}}',
   'meridian.signup.emailPlaceholder': 'morgan@company.com',
   'meridian.signup.heading': 'আপনার মেরিডিয়ান ইনবক্স তৈরি করুন',
   'meridian.signup.namePlaceholder': 'মরগান চেন',
@@ -134,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'তারকা যোগ করুন',
   'meridian.thread.unstar': 'তারকা সরান',
   'meridian.time.yesterday': 'গতকাল',
+  'meridian.topBar.openMenu': 'নেভিগেশন মেনু খুলুন',
   'meridian.topBar.searchPlaceholder': 'মেইল অনুসন্ধান করুন',
   'meridian.trash.empty': 'ময়লার ঝুড়ি খালি।',
   'meridian.trash.title': 'আবর্জনা',
   'nav.legal': 'আইনি',
   'planUpdated.description':
     'আপনার সাবস্ক্রিপশন এখন সক্রিয় এবং আপনার বিলিং আপডেট করা হয়েছে। আপনার নতুন করে সাজানো মেরিডিয়ান ইনবক্সে আপনাকে স্বাগতম।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.heading': 'খসড়া',
   'pricing.limit.emails': 'ইমেল',
   'pricing.limit.folders': 'ফোল্ডার',
   'pricing.limit.labels': 'লেবেল',
   'privacy.collect.account':
     'অ্যাকাউন্টের তথ্য: নাম, ইমেল ঠিকানা, হ্যাশ করা পাসওয়ার্ড এবং সাইন আপ করার তারিখ।',
+  'privacy.contact': 'কোনো প্রশ্ন থাকলে privacy@courier.example-এ ইমেল করুন।',
   'privacy.intro':
     'এই গোপনীয়তা নীতিতে ব্যাখ্যা করা হয়েছে যে মেরিডিয়ান কী ডেটা সংগ্রহ করে, কেন সংগ্রহ করে, কীভাবে তা সুরক্ষিত রাখে এবং এর উপর আপনার কী কী বিকল্প রয়েছে। আমরা আইনগত জটিলতার পরিবর্তে সুনির্দিষ্ট হতে চাই; কোনো কিছু অস্পষ্ট থাকলে privacy@courier.example-এ লিখুন।',
   'privacy.lastUpdated': 'সর্বশেষ হালনাগাদ: ১ এপ্রিল, ২০২৬',
@@ -165,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'এই শর্তাবলী মেরিডিয়ান ব্যবহারের ক্ষেত্রে প্রযোজ্য। আমাদের মাধ্যমে একটি অ্যাকাউন্ট তৈরি করে বা ইমেল পাঠিয়ে আপনি এই শর্তাবলী মেনে চলতে সম্মত হন। আমরা এমন নিয়ম লেখার চেষ্টা করি যা একজন ব্যক্তি প্রকৃতপক্ষে অনুসরণ করতে পারে।',
   'terms.lastUpdated': 'কার্যকর: ১ এপ্রিল, ২০২৬',
+  'terms.linkPrivacy': 'আমাদের গোপনীয়তা নীতি পড়ুন →',
   'terms.termination.body':
     'আপনি যেকোনো সময় আপনার অ্যাকাউন্ট মুছে ফেলতে পারেন। এই শর্তাবলী লঙ্ঘনকারী কোনো অ্যাকাউন্ট আমরা স্থগিত করতে পারি; যদি আমরা তা করি, তবে আমরা কারণ ব্যাখ্যা করব এবং আপনাকে প্রথমে আপনার ডেটা এক্সপোর্ট করার সুযোগ দেব।',
   'terms.warranty.body':

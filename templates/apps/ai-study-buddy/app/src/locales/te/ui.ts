@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'ప్లాన్ సమాచారం లోడ్ అవుతోంది…',
   'billing.popular': 'అత్యంత ప్రియమైన',
   'billing.subtitle': 'మీ అధ్యయన వేగానికి సరిపోయే ప్రణాళికను ఎంచుకోండి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.today': 'ఈరోజు',
   'common.yesterday': 'నిన్న',
   'courseDetail.empty.body':
@@ -83,7 +84,11 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'డెక్ పేరు',
   'flashcards.subtitle': 'మీ వేగానికి అనుగుణంగా సర్దుబాటు చేసుకునే విరామ పునరావృత్తి.',
   'flashcards.title': 'ఫ్లాష్‌కార్డులు',
+  'footer.copyright': '© {{year}} {{app}} . బాగా నేర్చుకోండి, బాగా నిద్రపోండి.',
   'forgotPassword.subtitle': 'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ లింక్‌ను పంపుతాము.',
+  'koanLayout.closeMenu': 'మెనూను మూసివేయండి',
+  'koanLayout.navLabel': 'ప్రాథమిక నావిగేషన్',
+  'koanLayout.openMenu': 'మెనూ తెరవండి',
   'koanLayout.theme': 'థీమ్',
   'landing.featuresBody':
     'పరధ్యానాన్ని తొలగించి, శాశ్వత అవగాహనను పెంపొందించడానికి రూపొందించిన సాధనాలు.',
@@ -118,11 +123,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ఆ URL ఇంతకుముందు చూడనిది. బహుశా అందులో అక్షరదోషం ఉండవచ్చు, లేదా తొలగించిన పాఠం కావచ్చు — ఏది ఏమైనప్పటికీ, మిమ్మల్ని తిరిగి చదువుకునేలా చేద్దాం.',
   'notFound.heading': 'పేజీ కనుగొనబడలేదు.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'మీరు అంతా తెలుసుకున్నారు',
   'notifications.filter.${opt}': 'నోటిఫికేషన్‌లు లోడ్ అవుతున్నాయి…',
   'notifications.markAllError': 'అన్నింటినీ చదివినట్లుగా గుర్తించలేకపోయాను.',
   'notifications.markError': 'చదివినట్లుగా గుర్తించలేకపోయింది.',
   'notifications.subtitle': '{{count}} చదవని నవీకరణలు',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.heading': 'క్విజ్‌లు',
   'pricing.limits.topics': 'అంశాలు',
   'privacy.collectBody':
@@ -189,6 +196,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'వేరొక కీవర్డ్ లేదా ఫిల్టర్‌ను ప్రయత్నించండి.',
   'search.empty.title': 'ఏదీ సరిపోలలేదు.',
   'search.error': 'ఫలితాలను లోడ్ చేయలేకపోయాము.',
+  'search.filters': 'ఫలిత రకం ఫిల్టర్లు',
   'search.go': 'వెళ్ళండి',
   'search.label.flashcard': 'ఫ్లాష్‌కార్డ్ డెక్',
   'search.label.note': 'గమనిక',

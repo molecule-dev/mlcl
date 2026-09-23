@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// kuhusu {{app}}',
+  'about.pageTitle': 'Kidhibiti cha mtandao',
+  'about.plansTitle': 'Mipango kwa kila hatua',
   'apiKeys.bestPractices': 'Mbinu bora',
   'apiKeys.body':
     'Tokeni za ufikiaji za kiprogramu. Zichukulie kama manenosiri — hifadhi kwenye visanduku vya env, usiwahi kuwasilisha.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ndani ya mpango',
   'billing.usageWarning': 'karibu na kifuniko',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.body':
     'Utendaji wa moja kwa moja, majaribio ya mara kwa mara wakati wa kuruka, na sehemu za mwisho zilizokuwa zikikusumbua — katika kila nafasi ya kazi unayofanya kazi.',
   'dashboard.endpointsEmpty': 'Hakuna sehemu za mwisho bado.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'sehemu za mwisho',
   'endpointDetail.deliveryTrendSub': 'usafirishaji / saa, kiwango cha kumbukumbu',
   'endpointDetail.hideSecret': 'Ficha siri',
+  'endpointDetail.loading': 'Inapakia sehemu ya mwisho…',
   'endpointDetail.metric.delivered': 'Imewasilishwa saa 24',
   'endpointDetail.metric.deliveredCaption': 'kutoka {{count}} aina za matukio',
   'endpointDetail.metric.failuresCaption': 'majaribio tena: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Muhimu · saa 24',
   'notifications.metric.totalCaption': 'kikasha pokezi cha wakati wote',
   'payloadViewer.payload': '// mzigo wa malipo',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'profile.avatarHeader': 'Ishara',
   'profile.avatarHint': 'Herufi za mwanzo zinaonyeshwa — vipakiaji vinakuja na toleo lijalo.',
   'profile.body': 'Akaunti yako, mapendeleo, na vipindi vinavyoendelea.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Kipindi chako cha sasa pekee ndicho kinachofanya kazi. Hakuna vifaa vingine vilivyoingia.',
   'profile.toggle': 'Badilisha {{label}}',
+  'pylonShell.closeMenu': 'Funga menyu ya kusogeza',
+  'pylonShell.openMenu': 'Fungua menyu ya kusogeza',
   'pylonShell.primaryNavLabel': 'Usogezaji mkuu',
   'resetPassword.subtitle': 'Chagua nenosiri thabiti ambalo hujawahi kutumia hapo awali.',
   'resetPassword.tokenPlaceholder': 'bandika kutoka kwa barua pepe',

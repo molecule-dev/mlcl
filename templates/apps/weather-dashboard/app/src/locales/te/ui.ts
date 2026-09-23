@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'మీరు ప్రస్తుతం దీనిపై ఉన్నారు {{plan}} ప్రణాళిక.',
   'billing.switch': 'స్విచ్',
   'billing.upgraded': 'నవీకరించబడింది {{plan}} పరిమితులు తక్షణమే వర్తింపజేయబడ్డాయి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'compare.activityHeading': 'కార్యాచరణ తీర్పులు',
   'compare.empty.title': 'పోల్చడానికి కనీసం రెండు ప్రదేశాలను జోడించండి',
   'compare.eyebrow': 'పక్కపక్కన',
@@ -139,5 +140,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'అధిక',
   'trends.summary.low.label': 'తక్కువ',
   'trends.summary.points.label': 'రోజులు',
+  'weatherDashboardLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'weatherHeroCard.updated': 'నవీకరించబడింది {{time}}',
 }

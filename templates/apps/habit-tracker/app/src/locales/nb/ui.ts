@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
+  'about.pageTitle': 'Om {{app}}',
   'achievementBadgeCard.unlockedOn': 'Ulåst {{date}}',
   'achievements.loadError': 'Kunne ikke laste inn prestasjoner.',
   'achievements.subheading': '{{unlocked}} av {{total}} ulåst',
   'achievements.unlockedOn': 'Ulåst {{date}}',
+  'auth.legalConsent': 'Ved å fortsette godtar du våre',
   'calendar.empty': 'Lag en vane med å se kalenderen din.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Vane',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Vanerutenettet',
   'category.${c.category}': '{{telle}} vaner',
   'common.and': 'og',
+  'common.goToDashboard': 'Gå til oversikt',
   'consistencyHeatmap.ariaLabel': 'Daglig konsistensvarmekart',
   'consistencyHeatmap.caption': 'Siste {{weeks}} uker',
   'consistencyHeatmap.lessLabel': 'Mindre',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Se det live',
   'landing.heroSubtitle':
     'Bygg vaner slik de faktisk holder: små forpliktelser, daglige vaner og den viscerale gleden av en lang ubrutt kjede.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'En titt inn i Streak',
   'landing.previewMotivation': 'Ni striper i live. Hold dem alle varme.',
   'login.eyebrow': 'Plukk opp kjeden',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Gjør det lite. Gjør det spesifikt. Møt opp i morgen.',
   'newHabit.timeLabel': 'Påminnelsestidspunkt',
   'notifications.markError': 'Kunne ikke merke alt som lest.',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.entries': '{{count}} oppføringer',
+  'pricing.heading': 'Velg ditt {{app}}-abonnement',
   'profile.action.plan': 'Administrer abonnement',
   'profile.action.settings': 'Kontoinnstillinger',
   'profile.bioEmpty': 'Legg til en kort biografi i Innstillinger for å presentere deg selv.',
@@ -126,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Daglig morgenprompt (kl. 08.00)',
   'settings.reminders.heading': 'Påminnelser',
   'settings.reminders.weekly': 'Ukentlig oppsummering (søndag kveld)',
+  'settings.revokeDeviceWarning':
+    'Denne enhetens tilgang vil bli trukket tilbake snart. Logge den ut?',
   'settings.signOutDevice': 'Logg ut',
   'settings.streaks.freezesPerWeek': 'Fryser per uke',
   'settings.streaks.gracePeriod': '6-timers nådeperiode etter midnatt',
@@ -152,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktiv',
   'streakHeroCard.daysSuffix': 'dager',
   'streakHeroCard.title': 'Lengste aktive rekke',
+  'streakLayout.closeMenu': 'Lukk navigasjonsmenyen',
+  'streakLayout.openMenu': 'Åpne navigasjonsmenyen',
   'streakLayout.primaryNavLabel': 'Primær navigasjon',
 }

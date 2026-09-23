@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Tungkol Sa Amin',
   'alertConditionCard.condition.${alert.condition}': 'Na-trigger {{nang}}',
+  'alertConditionCard.confirmDelete': 'Kumpirmahin ang pagbura',
   'alertConditionCard.pauseAriaLabel': 'I-pause ang alerto',
   'alertConditionCard.resumeAriaLabel': 'Alerto sa resume',
   'alertNew.condition': 'Kundisyon',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Ganap na diluted na pagpapahalaga',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Website',
+  'coinDetail.links.whitepaper': 'Whitepaper',
   'coinDetail.loadError': 'Nabigong i-load ang barya.',
   'coinDetail.marketCap': 'Kapital ng merkado',
   'coinDetail.maxSupply': 'Pinakamataas na suplay',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ang rutang iyong na-scan ay hindi nagpapakita ng isang kilalang barya o pahina. Suriin muli ang simbolo at subukang muli.',
   'notFound.browseMarkets': 'Mag-browse ng mga merkado',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'portfolio.addError': 'Ilagay ang simbolo, positibong halaga, at gastos.',
   'portfolio.addHoldingCta': '+ Magdagdag ng hawak',
   'portfolio.addModal.cost': 'Batayan ng gastos (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Ang password at mga two-factor setting ay pinamamahalaan ng iyong account.',
   'settings.signOutDevice': 'Mag-sign out',
+  'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorInvalidCode': 'Hindi wastong code',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'I-verify at paganahin',
   'sigilAuthShell.backHomeCta': '← Balik sa Bourse',
   'sigilLayout.primaryNavLabel': 'Pangunahing navigation',
   'signup.eyebrow': 'Magbukas ng terminal',

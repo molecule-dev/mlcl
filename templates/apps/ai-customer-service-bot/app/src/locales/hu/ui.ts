@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'analytics.channels.empty': 'Még nincs csatornaadatok.',
   'analytics.channels.title': 'Csatorna szerint',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Napi beszélgetések',
   'chatBubble.avatarAlt': '{{speaker}} avatárja',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'confidenceMeter.label': 'Megbízhatóság',
   'conversationDetail.agentName': 'Ügynök',
   'conversationDetail.aiReplyButton': 'Bot válasza',
   'conversationDetail.aiReplyError': 'Nem sikerült AI-választ generálni',
   'conversationDetail.aiReplyLoading': 'Szerkesztés folyamatban…',
+  'conversationDetail.aiReplySourceFallback': 'tartalék megoldás (nincs AI-kulcs)',
   'conversationDetail.backAria': 'Vissza a beszélgetésekhez',
   'conversationDetail.composerPlaceholder': 'Válasz az ügyfélnek…',
   'conversationDetail.context.channel': 'Csatorna',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Állítson be új jelszót a fiókjához',
   'resetPassword.toggleConfirm': 'Megerősítő jelszó láthatóságának váltása',
   'resetPassword.togglePassword': 'Jelszó láthatóságának váltása',
+  'settings.account.emailError': 'Az e-mail frissítése nem sikerült',
   'settings.account.emailLabel': 'E-mail cím',
+  'settings.account.emailSaved': 'Az e-mail cím frissült',
+  'settings.account.nameError': 'A név frissítése nem sikerült',
   'settings.account.nameLabel': 'Megjelenített név',
+  'settings.account.nameSaved': 'A név frissítve',
   'settings.account.title': 'Fiók',
   'settings.api.createCta': 'Token létrehozása',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Automatikus eszkaláció hangulatesés esetén',
   'settings.bot.greetingLabel': 'Bevezető üdvözlés',
   'settings.bot.title': 'Bot konfigurációja',
+  'settings.bot.toneFormal': 'Hivatalos',
   'settings.bot.toneLabel': 'Hang és stílus',
   'settings.danger.deleteAccount': 'Számla törlése',
+  'settings.danger.deleteError': 'A fiók törlése nem sikerült',
+  'settings.danger.deleteWarning':
+    'Ezzel véglegesen törlődik a fiókja és az ahhoz kapcsolódó összes adat. Ez a művelet visszafordíthatatlan.',
   'settings.danger.deleting': 'Törlés…',
+  'settings.danger.passwordLabel': 'Erősítse meg a jelszavát',
   'settings.danger.title': 'Veszélyzóna',
+  'settings.devices.empty': 'Nincs regisztrált eszköz.',
+  'settings.devices.revokeWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
+  'settings.devices.signingOut': 'Kijelentkeztetés…',
   'settings.devices.signOut': 'Kijelentkezés',
   'settings.devices.thisDevice': 'Ez az eszköz',
   'settings.devices.title': 'Eszközök',
@@ -186,9 +202,11 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Nem sikerült megváltoztatni a jelszót',
   'settings.security.currentPassword': 'Jelenlegi jelszó',
   'settings.security.newPassword': 'Új jelszó',
+  'settings.security.oauthManaged': 'A jelszavadat a bejelentkezési szolgáltatód kezeli.',
   'settings.security.title': 'Biztonság',
   'settings.security.twoFactorDisable': 'Letiltás',
   'settings.security.twoFactorEnable': 'Engedélyezés',
+  'settings.security.twoFactorInvalid': 'Érvénytelen kód',
   'settings.subtitle':
     'Finomhangolja a Rapport hangját, tudásforrásait és az általa használt eszközöket.',
   'settings.tokenCreateError': 'A token létrehozása sikertelen',

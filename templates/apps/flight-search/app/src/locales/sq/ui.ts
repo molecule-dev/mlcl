@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.eyebrow': 'Rreth {{app}}',
   'about.pageTitle': 'Çdo rrugë, një kërkim.',
   'booking.backToDetail': 'Kthehu te detajet e fluturimit',
   'booking.continue': 'Vazhdo te pagesa',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Taksa dhe tarifa',
   'booking.summary.travelers': 'Udhëtarët',
   'common.about': 'Rreth',
+  'common.goToDashboard': 'Shko te paneli',
   'flightDetail.backToResults': 'Kthehu te rezultatet',
   'flightDetail.baseFare': 'Tarifa bazë',
   'flightDetail.book': 'Vazhdo me rezervimin',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ndalesë',
   'flightResultCard.select': 'Zgjidh',
   'flightResultCard.totalLabel': 'Koha totale',
+  'flightSearchLayout.primaryNavLabel': 'Navigimi kryesor',
   'forgotPassword.subheading':
     "Futni email-in në llogarinë tuaj Skylark dhe ne do t'ju dërgojmë një lidhje të sigurt rivendosjeje.",
   'forgotPassword.successBody':
     'Kontrolloni {{email}} për një lidhje për të vendosur një fjalëkalim të ri. Lidhja skadon pas 30 minutash.',
   'forgotPassword.successHeading': 'Lidhja e rivendosjes u dërgua',
   'landing.cta.explore': 'Provo një kërkim',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Gjej ofertën e shkëlqyer të radhës para të gjithëve.',
   'landing.cta.signup': 'Filloni gjurmimin e tarifave',
   'landing.features.eyebrow': 'Pse Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Shto alarm',
   'priceAlerts.deleteConfirm': 'Të hiqet ky alarm?',
   'priceAlerts.empty': 'Ende nuk ka itinerare të gjurmuara.',
+  'priceAlerts.emptyCta': 'Kërko një itinerar për të ndjekur',
   'priceAlerts.errorMessage': 'Nuk mund të ngarkoheshin alarmet.',
   'priceAlerts.eyebrow': 'Lista e mbikëqyrjes së Skylark',
   'priceAlerts.form.createError': 'Nuk mundi të krijonte alarm.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerar shumëqytetësh',
   'results.multiLegHeading': 'Këmbë {{n}} · {{nga}} → {{për}} · {{data}}',
   'results.multiSummary': '{{count}} këmbët · {{passengers}} udhëtar',
+  'results.sortAriaLabel': 'Rendit rezultatet sipas',
   'results.sortLabel': 'Rendit',
   'results.summary': '{{count}} fluturime · {{passengers}} udhëtar',
   'settings.language.title': 'Gjuha',

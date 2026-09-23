@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie mus',
   'activityFeed.empty': 'Kol kas veiklos nėra – išsiųskite pirmąją sąskaitą faktūrą.',
   'authShell.sample.paid': 'Sumokėta prieš 2 minutes',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Pridėti naują klientą',
   'clients.search': 'Ieškoti pagal vardą, įmonę, el. pašto adresą',
   'clients.title': 'Klientai',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Naujas klientas',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Pamiršote slaptažodį',
   'forgotPassword.successBody':
     'Išsiuntėme atstatymo instrukcijas adresu {{email}} Nuoroda baigs galioti po 30 minučių.',
+  'invoiceDetail.action.confirmVoid': 'Patvirtinti negaliojantį?',
   'invoiceDetail.action.download': 'Atsisiųsti PDF',
   'invoiceDetail.action.duplicate': 'Dublikatas',
   'invoiceDetail.action.edit': 'Redaguoti',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Sąskaita faktūra anuliuota.',
   'invoiceDetail.issued': 'Išduota {{date}}',
   'invoiceDetail.loading': 'Įkeliama sąskaita faktūra…',
+  'invoiceDetail.paidInFull': 'Visiškai apmokėta',
   'invoiceDetail.summary': '{{client}} · išsiųstas {{date}}',
   'invoiceDetail.tax': 'Mokestis ( {{rate}} %)',
   'invoiceDetail.timeline': 'Laiko juosta',
+  'invoiceDetail.voided': 'Anuliuota',
   'invoiceEditor.addItem': 'Pridėti elementą',
   'invoiceEditor.back': '← Atgal į sąskaitas faktūras',
   'invoiceEditor.col.qty': 'Kiekis',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Išsiųskite savo pirmąją sąskaitą faktūrą',
   'landing.hero.eyebrow': 'Sąskaitų faktūrų išrašymas mažoms įmonėms',
   'landing.hero.secondary': 'Žr. sąskaitos faktūros pavyzdį',
+  'landing.hero.subtitle':
+    '{{appName}} sujungia tvarkingas sąskaitas faktūras su integruotais mokėjimais, periodiniais atsiskaitymais ir parengtomis mokesčių deklaracijoms ataskaitomis. Be buhalterinės apskaitos.',
   'landing.hero.title': 'Siųskite sąskaitas faktūras. Gaukite pinigus greičiau.',
   'login.signupLink': 'Sukurti vieną',
   'login.submitting': 'Jus prijungiama…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'mokėjimai',
   'pricing.recurringLabel': 'pasikartojantys tvarkaraščiai',
   'remitLayout.newInvoice': 'Nauja sąskaita faktūra',
+  'remitLayout.openMenu': 'Atidaryti navigacijos meniu',
   'remitLayout.searchPlaceholder': 'Ieškoti sąskaitų faktūrų, klientų...',
   'remitLayout.tagline': 'Gaukite atlyginimą greičiau',
   'reports.chart.aging': 'Sąskaitos faktūros senėjimas',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Laikotarpio pajamos',
   'reports.chart.topClients': 'Geriausi klientai',
   'reports.chart.topClientsCaption': 'Viso gyvenimo laikotarpio pajamos, 5 didžiausios',
+  'reports.empty.aging': 'Nėra neapmokėtų sąskaitų faktūrų.',
+  'reports.empty.methods': 'Mokėjimo duomenų dar nėra.',
+  'reports.empty.revenue': 'Pajamų duomenų dar nėra.',
+  'reports.empty.topClients': 'Kliento pajamų duomenų dar nėra.',
   'reports.exporting': 'Eksportuojama…',
   'reports.exportRequiresPaid':
     'Eksportavimas yra mokama funkcija – norėdami ją įjungti, ją reikia atnaujinti.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Pridėti mokesčio tarifą',
   'settings.tax.added': 'Pridėtas mokesčio tarifas.',
   'settings.tax.adding': 'Pridedama…',
+  'settings.tax.addRate': 'Pridėti tarifą',
   'settings.tax.col.region': 'Regionas',
   'settings.tax.delete': 'Ištrinti mokesčio tarifą',
   'settings.tax.deleted': 'Mokesčio tarifas panaikintas.',

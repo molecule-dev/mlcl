@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਸਾਡੇ ਬਾਰੇ',
   'authShell.samplePreview':
     '"ਹੇ ਟੀਮ, ਨਵਾਂ ਡੈਸ਼ਬੋਰਡ ਬਹੁਤ ਹੀ ਸ਼ਾਨਦਾਰ ਹੈ - ਬਿਲਕੁਲ ਉਹੀ ਜਿਸਦੀ ਸਾਨੂੰ ਲੋੜ ਸੀ!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ਸ਼ਾਰਟਕੱਟ',
   'automations.subheading':
     "ਨਿਯਮ, ਤਿਆਰ ਜਵਾਬ ਅਤੇ ਚੈਟਬੋਟ - ਜਦੋਂ ਤੁਹਾਡੀ ਟੀਮ ਔਖੇ ਕੰਮਾਂ 'ਤੇ ਧਿਆਨ ਕੇਂਦਰਿਤ ਕਰਦੀ ਹੈ ਤਾਂ ਵਰਕਸਪੇਸ ਨੂੰ ਗੂੰਜਦਾ ਰੱਖੋ।",
+  'automations.trigger.inboundMessage': 'ਆਉਣ ਵਾਲਾ ਸੁਨੇਹਾ',
   'automations.triggerLabel': 'ਟਰਿੱਗਰ',
   'chatBubble.internalNoteLabel': 'ਅੰਦਰੂਨੀ ਨੋਟ',
+  'common.confirmDelete': 'ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'contactDetail.backToContacts': 'ਸਾਰੇ ਸੰਪਰਕ',
   'contactDetail.contactFallback': 'ਸੰਪਰਕ',
   'contactDetail.conversationFallback': 'ਗੱਲਬਾਤ',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'ਆਖਰੀ ਵਾਰ ਦੇਖਿਆ ਗਿਆ',
   'contacts.empty': 'ਹਾਲੇ ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ। ਉੱਪਰ ਆਪਣਾ ਪਹਿਲਾ ਸੰਪਰਕ ਸ਼ਾਮਲ ਕਰੋ।',
   'contacts.eyebrow': 'ਗਾਹਕ ਡਾਇਰੈਕਟਰੀ',
+  'contacts.form.nameOrEmailRequired': 'ਘੱਟੋ-ਘੱਟ ਇੱਕ ਨਾਮ ਜਾਂ ਈਮੇਲ ਪ੍ਰਦਾਨ ਕਰੋ',
   'contacts.form.save': 'ਸੰਪਰਕ ਸੇਵ ਕਰੋ',
   'contacts.heading': 'ਸੰਪਰਕ',
   'contacts.loading': 'ਸੰਪਰਕ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'ਨੋਟ ਸੇਵ ਕਰੋ',
   'conversationDetail.tab.note': 'ਅੰਦਰੂਨੀ ਨੋਟ',
   'conversationDetail.threadAria': 'ਗੱਲਬਾਤ ਸੁਨੇਹੇ',
+  'conversationDetail.visitorFallback': 'ਵਿਜ਼ਟਰ',
   'customerProfilePanel.csatLabel': 'ਸੀਐਸਏਟੀ',
   'customerProfilePanel.propertiesTitle': 'ਗਾਹਕ ਵੇਰਵੇ',
   'customerProfilePanel.recentTitle': 'ਹਾਲੀਆ ਗੱਲਾਂਬਾਤਾਂ',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ਗਾਹਕਾਂ ਨੂੰ ਆਪਣਾ ਪਹਿਲਾ ਜਵਾਬ ਇਸ ਵਿੱਚ ਮਿਲ ਰਿਹਾ ਹੈ {{time}} ਔਸਤਨ — ਤਾਲ ਨੂੰ ਜਾਰੀ ਰੱਖੋ।',
   'inboxHeroCard.title': 'ਸਰਗਰਮ ਗੱਲਬਾਤਾਂ',
+  'inboxLayout.navDrawerLabel': 'ਨੇਵੀਗੇਸ਼ਨ',
+  'inboxLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'inboxOverview.eyebrow': "ਅੱਜ ਇੱਕ ਨਜ਼ਰ 'ਤੇ",
   'inboxOverview.heroChange': '{{count}} ਖੁੱਲ੍ਹਾ',
   'inboxOverview.kpiClosedTrend': 'ਹਰ ਸਮੇਂ',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': "ਹੋਮਪੇਜ 'ਤੇ ਜਾਓ",
   'notifications.subheading':
     'ਅਸਾਈਨਮੈਂਟ, @mentions, SLA ਜੋਖਮ, CSAT ਫੀਡਬੈਕ ਅਤੇ ਟੀਮ ਗਤੀਵਿਧੀ — ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਸਭ ਤੋਂ ਨਵੇਂ ਨੂੰ ਕ੍ਰਮਬੱਧ ਕੀਤਾ ਗਿਆ।',
+  'notifications.subjectFallback': 'ਇੱਕ ਗੱਲਬਾਤ',
+  'notifications.visitorFallback': 'ਇੱਕ ਵਿਜ਼ਟਰ',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ਉੱਚ',
   'priority.low': 'ਘੱਟ',
+  'priority.normal': 'ਸਧਾਰਨ',
   'priority.urgent': 'ਜ਼ਰੂਰੀ',
   'privacy.title': 'ਪਰਾਈਵੇਟ ਨੀਤੀ',
   'reports.agentFallback': 'ਏਜੰਟ',

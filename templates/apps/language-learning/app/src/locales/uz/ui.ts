@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.logout': 'Chiqish',
   'dailyStatsTriad.heartsLabel': 'Yuraklar',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Bugungi daqiqalar',
   'dailyStatsTriad.minutesValue': '{{count}} daqiqa',
   'dailyStatsTriad.wordsLabel': "O'zlashtirilgan so'zlar",
+  'dailyStatsTriad.wordsMasteryHint': "4+ darajadagi so'zlarni o'zlashtirish",
   'dashboard.continueHeading': "To'xtagan joyingizdan davom eting",
   'dashboard.heading': 'Buenos-Días, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': "Mashqlarni yuklab bo'lmadi.",
   'lessonDetail.loading': 'Dars yuklanmoqda…',
   'lessonDetail.submitError': 'Javob yuborilmadi.',
+  'lessonDetail.translation': 'Jumlani tarjima qiling',
   'lessonDetail.xpEarned': "XP qo'lga kiritildi · {{xp}}",
   'lessons.empty': "Darajada darslar yo'q {{level}} hali — boshqa bosqichni sinab ko'ring.",
   'lessons.eyebrow': 'Dars kutubxonasi',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Parlance bilan yangi tanishyapsizmi?',
   'login.showPassword': "Parolni ko'rsatish",
   'login.signUp': 'Bepul boshlang →',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
+  'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'practice.empty': 'Hozircha hech qanday iboralar mavjud emas.',
   'practice.eyebrow': 'Nutq amaliyoti',
   'practice.heading': "O'qing. Yozib oling. Aniqlang.",

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.eyebrow': 'Giới thiệu {{app}}',
+  'about.intro':
+    '{{app}} là một ứng dụng thiền định dành cho cuộc sống thực — các bài thiền định có hướng dẫn hàng ngày, bài tập thở và truyện ru ngủ được dẫn dắt bởi những người hướng dẫn thân thiện, như một người bạn chứ không phải huấn luyện viên. Không có cảm giác tội lỗi vì không duy trì được thói quen, không có thông báo ồn ào: chỉ đơn giản là một nơi yên tĩnh để bạn quay trở lại với hơi thở của mình.',
+  'about.missionBody':
+    'Chúng tôi tin rằng sự tĩnh lặng nên dễ tiếp cận với mọi người, vào bất kỳ thời điểm nào trong ngày. {{app}} ra đời để giúp việc thực hành tĩnh lặng, đều đặn trở nên dễ dàng — để mười phút chân thành có thể thay đổi cách bạn đón nhận mười giờ tiếp theo.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
+  'about.pageTitle': '10 phút thư giãn mỗi ngày',
+  'breathingDial.seconds': 'giây',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.logout': 'Đăng xuất',
   'common.min': 'phút',
   'common.relative.justNow': 'vừa xong',
   'common.relative.now': 'bây giờ',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
+  'nav.secondaryNavigation': 'Điều hướng tài khoản',
   'sessionCard.with': 'cùng {{name}}',
   'stillpoint.billing.choose': 'Chọn {{plan}}',
   'stillpoint.billing.currentPlan': 'Quý vị đang dùng {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Chúng tôi không thể tải danh sách gói.',
   'stillpoint.billing.opening': 'Đang mở thanh toán…',
   'stillpoint.billing.perMonthShort': '/ tháng',
+  'stillpoint.billing.perYearShort': '/năm',
   'stillpoint.billing.unknownResult': 'Phản hồi thanh toán bất ngờ.',
   'stillpoint.billing.yearly': 'Hàng năm · tiết kiệm 17%',
   'stillpoint.courseDetail.back': 'Khóa học',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Chưa có khóa học nào.',
   'stillpoint.courses.eyebrow': '{{count}} hành trình nhiều ngày',
   'stillpoint.courses.heading': 'Khóa học',
+  'stillpoint.forgot.checkEmail':
+    'Hãy kiểm tra hộp thư đến của bạn — liên kết sẽ hết hạn sau 30 phút.',
   'stillpoint.forgot.success': 'Chúng tôi đã gửi liên kết đặt lại đến {{email}}.',
   'stillpoint.home.empty': 'Chưa có buổi tập nào — vui lòng quay lại sau.',
   'stillpoint.home.friend': 'bạn bè',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Tạo tài khoản miễn phí',
   'stillpoint.landing.cta.title': 'Bắt đầu sự tĩnh lặng của quý vị hôm nay',
   'stillpoint.landing.features.heading': 'Một thực hành lớn dần cùng quý vị',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Thiền có hướng dẫn, bài thở và truyện ngủ hàng ngày — do những giáo viên dẫn dắt như một người bạn, không phải huấn luyện viên.',
   'stillpoint.landing.hero.eyebrow': '10 phút bình yên mỗi ngày',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Duyệt theo tâm trạng',
   'stillpoint.login.rememberMe': 'Giữ tôi đăng nhập',
   'stillpoint.login.subheading': 'Đăng nhập để tiếp tục luyện tập.',
+  'stillpoint.nav.tagline': 'Tìm điểm cân bằng tĩnh lặng của bạn',
+  'stillpoint.notFound.body':
+    'Trang này đang tạm nghỉ ngơi một chút. Hãy cùng tìm một nơi yên tĩnh hơn cho bạn trong {{app}} nhé.',
   'stillpoint.notFound.title': 'Lạc trong tĩnh lặng',
   'stillpoint.notFound.toHome': 'Trở về hôm nay',
   'stillpoint.notFound.toLibrary': 'Duyệt thư viện',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Lùi 15 giây',
   'stillpoint.player.skipForward': 'Tiến 30 giây',
   'stillpoint.player.with': 'cùng {{name}}',
+  'stillpoint.profile.defaultHandle': 'con trỏ tĩnh',
   'stillpoint.profile.eyebrow': 'Bài thực hành của quý vị, tóm tắt.',
   'stillpoint.profile.locked': 'Đã khóa',
   'stillpoint.profile.member': 'Thành viên Stillpoint',

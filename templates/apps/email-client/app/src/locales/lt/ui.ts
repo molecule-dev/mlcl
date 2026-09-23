@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Esame išsibarsčiusi dizainerių ir inžinierių komanda, kuri anksčiau kasdien praleisdavo pernelyg daug laiko triukšmingoje pašto dėžutėje. „Courier“ – tai pašto dėžutė, kurią norėjome naudoti patys.',
   'about.title': 'El. paštas, skirtas susikaupusiam darbui',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'help.cta.about': 'Apie „Courier“',
   'help.cta.pricing': 'Peržiūrėti kainas',
   'help.eyebrow': 'Pagalbos centras',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Trumpi atsakymai į dažniausiai užduodamus klausimus. Trūksta ko nors? Atidarykite „Nustatymai“ ir pasinaudokite programėlėje esančia atsiliepimų forma arba rašykite adresu support@courier.example.',
   'help.title': 'Kaip galime padėti?',
   'landing.brand.scrollTop': 'Atgal į viršų',
+  'landing.copyright': '© {{year}} {{appName}} — Sukurta susikaupimui.',
   'landing.ctaBody':
     'Prisijunkite prie tūkstančių profesionalų, kurie dar iki pietų spėjo išnagrinėti visus el. laiškus.',
   'landing.ctaTitle': 'Daugiau veik, mažiau reaguok.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Peržiūrėti demonstracinę versiją',
   'landing.heroSubtitle':
     '„Courier“ – tai rami, trijų langų pašto dėžutė, sukurta žinių darbuotojams, kurie nori apdoroti informaciją, o ne tik į ją reaguoti.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Jomis pasitiki tikslingai dirbančios komandos visame pasaulyje',
   'landing.signIn': 'Prisijungti',
   'meridian.archive.empty': 'Archyvas tuščias.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Projektas',
   'meridian.folder.count': '{{count}} pranešimai',
+  'meridian.folder.delete': 'Ištrinti',
   'meridian.folder.deleteForever': 'Ištrinti visam laikui',
   'meridian.folder.restore': 'Perkelti į pašto dėžutę',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Čia dar nėra jokių pranešimų.',
   'meridian.inbox.loading': 'Kraunama…',
   'meridian.inbox.next': 'Toliau',
+  'meridian.inbox.noSender': '(siuntėjo nėra)',
   'meridian.inbox.noSubject': '(be temos)',
+  'meridian.inbox.ofTotal': '{{current}} iš {{total}}',
   'meridian.inbox.openCompose': 'Atidaryti laiško rašymo langą',
   'meridian.inbox.previous': 'Ankstesnis',
   'meridian.inbox.replyFailed': 'Atsakymas išsaugotas, tačiau jo nepavyko išsiųsti: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Neturite paskyros?',
   'meridian.login.showPassword': 'Rodyti slaptažodį',
   'meridian.message.toLine': 'į „{{recipients}}“',
+  'meridian.notFound.body':
+    'Nepavyko rasti puslapio, kurio ieškote. Grįžkite į savo {{appName}} pašto dėžutę ir mes padėsime jums rasti tinkamą vietą.',
   'meridian.notFound.eyebrow': 'Klaida 404',
   'meridian.notFound.title': 'Ši tema buvo perkelta į archyvą.',
   'meridian.notFound.toInbox': 'Atidaryti mano pašto dėžutę',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Pridėti žvaigždutę',
   'meridian.thread.unstar': 'Pašalinti žvaigždutę',
   'meridian.time.yesterday': 'Vakar',
+  'meridian.topBar.openMenu': 'Atidaryti navigacijos meniu',
   'meridian.topBar.searchPlaceholder': 'Ieškoti laiškų',
   'meridian.trash.empty': 'Šiukšliadėžė tuščia.',
   'meridian.trash.title': 'Šiukšlės',
   'nav.legal': 'Teisinis',
   'planUpdated.description':
     'Jūsų prenumerata dabar aktyvuota, o atsiskaitymo duomenys atnaujinti. Sveiki atvykę į atnaujintą „Courier“ pašto dėžutę.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.heading': 'juodraščiai',
   'pricing.limit.emails': 'el. laiškai',
   'pricing.limit.folders': 'aplankai',
   'pricing.limit.labels': 'etiketės',
   'privacy.collect.account':
     'Paskyros duomenys: vardas ir pavardė, el. pašto adresas, užšifruotas slaptažodis ir registracijos data.',
+  'privacy.contact': 'Turite klausimų? El. paštu privacy@courier.example.',
   'privacy.intro':
     'Šioje privatumo politikoje paaiškinama, kokius duomenis renka „Courier“, kodėl juos renkam, kaip užtikriname jų saugumą ir kokias galimybes turite jų atžvilgiu. Siekiame pateikti aiškią informaciją, o ne teisinę terminiją; jei kas nors neaišku, rašykite adresu privacy@courier.example.',
   'privacy.lastUpdated': 'Paskutinis atnaujinimas: 2026 m. balandžio 1 d.',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Šios sąlygos reglamentuoja jūsų naudojimąsi „Courier“. Sukurdami paskyrą arba siųsdami el. laišką per mūsų platformą, jūs sutinkate laikytis šių sąlygų. Stengiamės nustatyti taisykles, kurių žmogus iš tikrųjų gali laikytis.',
   'terms.lastUpdated': 'Įsigalioja: 2026 m. balandžio 1 d.',
+  'terms.linkPrivacy': 'Perskaitykite mūsų privatumo politiką →',
   'terms.termination.body':
     'Savo paskyrą galite ištrinti bet kuriuo metu. Mes galime laikinai sustabdyti paskyros, kuri pažeidžia šias sąlygas, veikimą; jei tai padarysime, paaiškinsime priežastį ir leisime jums pirmiausia eksportuoti savo duomenis.',
   'terms.warranty.body':

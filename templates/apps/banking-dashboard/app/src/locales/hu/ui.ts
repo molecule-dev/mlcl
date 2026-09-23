@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'accountDetail.activeBadge': 'Aktív',
   'accountDetail.availableLabel': '{{amount}} elérhető',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Számlák',
   'accounts.loadError': 'A számlák betöltése sikertelen.',
   'accounts.status.closed': 'Lezárva',
+  'accounts.status.frozen': 'Frozen',
   'accounts.totalBalance': '{{amount}} összesen',
   'audit.empty': 'Még nincsenek események.',
   'audit.eyebrow': 'Biztonság és hozzáférés',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Készpénz kéznél',
   'cashCreditCard.creditLabel': 'Felhasznált hitel',
   'cashCreditCard.title': 'Készpénz és hitel',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.accountsHeading': 'Számlák',
   'dashboard.heading': 'Áttekintés',
   'dashboard.recentEmpty': 'Még nincsenek tranzakciók.',
@@ -42,11 +45,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Jelszó megjelenítése',
   'login.signUp': 'Regisztráció',
   'login.submit': 'Bejelentkezés',
+  'meridianLayout.menu': 'Menü',
   'meridianLayout.primaryNavLabel': 'Főnavigáció',
   'nav.legal': 'Jogi',
   'notifications.emptyHeading': 'Mindent elolvasott',
   'notifications.subheading':
     'Valós idejű riasztások tranzakciókhoz, biztonsághoz és kivonatokhoz.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'privacy.dataWeShare':
     'A személyes banki adatokat soha nem adjuk el. Adatokat csak fizetési feldolgozókkal, kártyahálózatokkal és szabályozó hatóságokkal osztunk meg, és csak annyiban, amennyiben az tranzakciók elszámolásához vagy jogi kötelezettségek teljesítéséhez szükséges.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'A kétfaktoros hitelesítés minden bejelentkezéskor egy egyszer használatos kódot ad hozzá egy hitelesítő alkalmazásból.',
   'settings.security.twoFactorCta': 'Kétfaktoros hitelesítés kezelése',
+  'settings.security.twoFactorOff': 'A kétfaktoros hitelesítés ki van kapcsolva',
   'settings.signOutDevice': 'Kijelentkezés',
   'settings.subheading': 'Profil, biztonság és értesítések.',
+  'settings.twoFactorCode': 'Hitelesítési kód',
   'settings.twoFactorDisable': 'Letiltás',
   'settings.twoFactorEnable': 'Engedélyezés',
+  'settings.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'signup.emailLabel': 'E-mail-cím',
   'signup.fullName': 'Hogyan szólítsuk Önt?',
   'signup.showPassword': 'Jelszó megjelenítése',
@@ -103,7 +112,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Még nincsenek tranzakciók.',
   'transactions.endDate': 'Záró dátum',
   'transactions.eyebrow': 'Tevékenység',
+  'transactions.loadError': 'A tranzakciók betöltése sikertelen.',
   'transactions.merchant': 'Kereskedő',
+  'transactions.subheading':
+    'Minden könyvelt és feldolgozás alatt álló tranzakció az összes számládon.',
   'transfers.availableHint': '{{amount}} elérhető',
   'transfers.errorGeneric': 'Az átutalás küldése sikertelen.',
   'transfers.errorMissingFields': 'Válasszon forrásszámlát és célállomást.',

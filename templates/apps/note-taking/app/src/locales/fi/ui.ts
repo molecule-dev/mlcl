@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Siirry etusivulle',
   'forgot.eyebrow': 'Eksyitkö tieltä takaisin sisään?',
   'forgot.formSubtitle': 'Kerro meille tiedostossa oleva sähköpostiosoite.',
   'forgot.headline': 'Nollaa salasanasi.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Luo yksi',
   'login.subline':
     'Muistikirjasi, takalinkkisi ja päivittäiset sivusi ovat juuri siinä missä ne jätit.',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'noteEditor.backToNotes': 'Takaisin muistiinpanoihin',
   'noteEditor.bodyPlaceholder':
     'Aloita kirjoittaminen – muistiinpanosi tallentuu automaattisesti kirjoittaessasi.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Uusi muistikirja',
   'notes.newNotebookPrompt': 'Muistikirjan uusi nimi',
   'notes.notebooksHeading': 'Muistikirjat',
+  'notes.subtitle':
+    'Valitse muistikirja vasemmalta ja paina sitten Uusi muistiinpano -painiketta aloittaaksesi uuden merkinnän.',
   'planUpdated.confirmation': 'Suunnitelmasi on päivitetty',
   'pricing.heading': 'Valitse muistiinpanosuunnitelmasi',
   'reset.eyebrow': 'Melkein takaisin',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Päivitetty',
   'versoLayout.nav.graph': 'Kaavio',
   'versoLayout.nav.home': 'Kotiin',
+  'versoLayout.primaryNavLabel': 'Päänavigaatio',
   'versoNoteCard.pinned': 'Kiinnitetyt',
   'versoTodayHero.continueCta': 'Jatka kirjoittamista',
   'versoTodayHero.createCta': 'Aloita tämän päivän muistiinpano',

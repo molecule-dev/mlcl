@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'seating.form.submit': 'টেবিল যোগ করুন',
   'seating.poolTitle': 'যাদের আসন দেওয়া হয়নি',
   'seating.subtitle':
-    '<x>উপবিষ্ট</x> বসে থাকা<x> ধারণক্ষমতা</x> আসন ·<x> {{পুল}}</x> পুলে অপেক্ষারত অতিথিরা',
+    '{{seated}} জন বসে আছেন {{capacity}} টি আসনের মধ্যে · {{pool}} জন অতিথি পুলে অপেক্ষা করছেন',
   'seating.title': 'বসার চার্ট',
   'settings.billing': 'বিলিং',
   'settings.changePassword': 'পাসওয়ার্ড পরিবর্তন করুন',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'authShell.brandHeading': 'Moninpeliympäristöjä suunnittelutiimeille, jotka ajattelevat ääneen.',
   'billing.canceled': 'Tilaus peruutettu.',
   'billing.cancelPlan': 'Peruuta tilaus',
@@ -26,6 +27,7 @@ export const ui: UiTranslations = {
   'boardCanvas.empty.title': 'Tämä taulu on tyhjä',
   'boardCanvas.eyebrow': 'Lautakunta · Live',
   'boardCanvas.fillColor': 'Täyttää',
+  'boardCanvas.invited': 'Kutsuttu {{email}}',
   'boardCanvas.metaTitle': 'Sijainti',
   'boardCanvas.metaXY': 'X: {{x}} K: {{y}}',
   'boardCanvas.noCollaborators':
@@ -71,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Aloita mallista',
   'boards.title': 'Taulut',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Siirry etusivulle',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Anna työtilaasi liittyvä sähköpostiosoite, niin lähetämme sinulle nollauslinkin.',
@@ -82,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1-työpaja · Brändiääni',
   'landing.featuresEyebrow': 'Mikä tekee Slatesta tessellate-lajikkeen',
   'landing.featuresTitle': 'Nopea palaute. Kauniit kankaat. Ei kitkaa.',
+  'landing.hero.body':
+    '{{appName}} on moninpeli-valkotaulu suunnittelutiimeille, työpajojen fasilitoijille ja kouluttajille, jotka järjestävät reaaliaikaisia aivoriihiä ja tarvitsevat ideoita yhteen paikkaan.',
   'landing.hero.primaryCta': 'Aloita keskustelupalsta ilmaiseksi',
   'landing.hero.socialProof': 'Luotettu {{count}} suunnittelutiimejä maailmanlaajuisesti',
   'landing.hero.title': 'Yhtä nopea kuin ajatuksesi, kangas',
@@ -92,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Luo ilmainen työtila',
   'login.subheading':
     'Jatka työpajassa siitä, mihin jäit – taulut, tarralaput ja kursorit synkronoituvat reaaliajassa.',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.new': 'Uusi',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'notifications.editTitle': 'Muokkaukset kohteeseen " {{board}} "',
   'notifications.empty.body':
     'Kutsut, tilannevedosten tallennukset ja viimeisimmät taulun muokkaukset näkyvät täällä sitä mukaa, kun niitä tapahtuu.',
@@ -173,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versiotiedot',
   'versionHistory.untitledSnapshot': 'Nimetön tilannekuva',
   'whiteboardLayout.newBoard': 'Uusi hallitus',
+  'whiteboardLayout.primaryNav': 'Päänavigaatio',
   'workspace.boardLabel': 'Hallitus',
   'workspace.eyebrow': '{{name}} · työtila',
   'workspace.invite': 'Kutsu yhteistyökumppaneita',

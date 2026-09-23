@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
   'activityFeed.empty': 'Ei vielä toimintaa — lähetä ensimmäinen laskusi.',
   'authShell.sample.paid': 'Maksettu 2 minuuttia sitten',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Lisää uusi asiakas',
   'clients.search': 'Hae nimen, yrityksen tai sähköpostiosoitteen mukaan',
   'clients.title': 'Asiakkaat',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Uusi asiakas',
@@ -47,6 +49,9 @@ export const ui: UiTranslations = {
   'dashboard.recent.title': 'Viimeisimmät laskut',
   'dashboard.title': 'Tervetuloa takaisin. Rahat ovat matkalla.',
   'forgotPassword.eyebrow': 'Unohtunut salasana',
+  'forgotPassword.successBody':
+    'Olemme lähettäneet palautusohjeet osoitteeseen {{email}} . Linkki vanhenee 30 minuutin kuluttua.',
+  'invoiceDetail.action.confirmVoid': 'Vahvistetaanko mitätöinti?',
   'invoiceDetail.action.download': 'Lataa PDF',
   'invoiceDetail.action.duplicate': 'Kopio',
   'invoiceDetail.action.edit': 'Muokkaa',
@@ -71,8 +76,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.sent': 'Lasku lähetetty.',
   'invoiceDetail.feedback.voided': 'Lasku mitätöity.',
   'invoiceDetail.loading': 'Laskua ladataan…',
+  'invoiceDetail.paidInFull': 'Maksettu kokonaan',
+  'invoiceDetail.summary': '{{client}} · lähetetty {{date}}',
   'invoiceDetail.tax': 'Vero ({{rate}}%)',
   'invoiceDetail.timeline': 'Aikajana',
+  'invoiceDetail.voided': 'Mitätöity',
   'invoiceEditor.addItem': 'Lisää kohde',
   'invoiceEditor.back': '← Takaisin laskuihin',
   'invoiceEditor.col.qty': 'Määrä',
@@ -116,6 +124,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Lähetä ensimmäinen laskusi',
   'landing.hero.eyebrow': 'Laskutus pienille yrityksille',
   'landing.hero.secondary': 'Katso esimerkkilasku',
+  'landing.hero.subtitle':
+    '{{appName}} yhdistää viimeistellyt laskut sisäänrakennettuihin maksuihin, toistuvaan laskutukseen ja verotusvalmiisiin raportteihin. Kirjanpitovapaa.',
   'landing.hero.title': 'Lähetä laskuja. Saat maksun nopeammin.',
   'login.signupLink': 'Luo yksi',
   'login.submitting': 'Kirjataan sisään…',
@@ -137,6 +147,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'maksut',
   'pricing.recurringLabel': 'toistuvat aikataulut',
   'remitLayout.newInvoice': 'Uusi lasku',
+  'remitLayout.openMenu': 'Avaa navigointivalikko',
   'remitLayout.searchPlaceholder': 'Hae laskuja, asiakkaita...',
   'remitLayout.tagline': 'Saat palkkasi nopeammin',
   'reports.chart.aging': 'Laskun erääntyminen',
@@ -146,6 +157,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Kauden tuotot',
   'reports.chart.topClients': 'Parhaat asiakkaat',
   'reports.chart.topClientsCaption': 'Elinkaaren tuotot, 5 suurinta',
+  'reports.empty.aging': 'Ei maksamattomia laskuja.',
+  'reports.empty.methods': 'Maksutietoja ei vielä ole.',
+  'reports.empty.revenue': 'Ei vielä tulotietoja.',
+  'reports.empty.topClients': 'Asiakasliikevaihtotietoja ei vielä ole.',
   'reports.exporting': 'Viedään…',
   'reports.exportRequiresPaid':
     'Vienti on maksullinen ominaisuus – päivitä ottaaksesi sen käyttöön.',
@@ -186,6 +201,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Lisää veroprosentti',
   'settings.tax.added': 'Verokanta lisätty.',
   'settings.tax.adding': 'Lisätään…',
+  'settings.tax.addRate': 'Lisää hinta',
   'settings.tax.col.region': 'Alue',
   'settings.tax.delete': 'Poista verokanta',
   'settings.tax.deleted': 'Verokanta poistettu.',

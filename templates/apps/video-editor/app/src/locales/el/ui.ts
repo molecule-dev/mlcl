@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Βρήκατε κάποιο σφάλμα, έχετε κάποιο αίτημα για προσθήκη ή θέλετε να μας πείτε για την ταινία που κόψατε; Κάθε μήνυμα φτάνει σε ένα πραγματικό άτομο στην ομάδα — επικοινωνήστε μαζί μας οποιαδήποτε στιγμή από τις ρυθμίσεις του λογαριασμού σας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.eyebrow': '// το στούντιο πίσω από την κοπή',
   'about.pageTitle': 'Σχετικά με {{appName}}',
   'assetDetail.back': 'Επιστροφή στη βιβλιοθήκη',
   'assetDetail.confirmDelete': 'Διαγραφή " {{name}} "; Αυτό δεν μπορεί να αναιρεθεί.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} κλιπ, ηχητικά κρεβάτια και γραφικά έτοιμα να τεθούν στη χρονογραμμή.',
   'assetLibrary.title': 'Ενεργητικό',
   'assetLibrary.upload': 'Προσθήκη στοιχείου',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.browseTemplates': 'Αναζήτηση προτύπων →',
   'dashboard.loading': 'Φόρτωση έργων…',
   'dashboard.noProjects': 'Δεν υπάρχουν ακόμη έργα — δημιουργήστε ένα για να ξεκινήσετε.',
@@ -165,7 +170,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Διάλεξε κάτι που μόνο εσύ θα θυμάσαι.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Απόρρητο',
+  'rushesLayout.closeMenu': 'Κλείσιμο πλοήγησης',
   'rushesLayout.guest': 'Συντάκτης',
+  'rushesLayout.navDialog': 'Πλοήγηση',
+  'rushesLayout.openMenu': 'Άνοιγμα πλοήγησης',
   'rushesLayout.planFree': 'Δωρεάν πρόγραμμα',
   'rushesLayout.tagline': 'Κινηματογραφικό χρονοδιάγραμμα',
   'settings.billing.confirmCancel': 'Ακύρωση συνδρομής στο τέλος της περιόδου;',

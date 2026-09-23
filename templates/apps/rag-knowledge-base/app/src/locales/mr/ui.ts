@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.pageTitle': 'बद्दल {{appName}}',
   'analytics.error': 'विश्लेषण लोड करता आले नाही.',
   'analytics.heading': 'पुनर्प्राप्ती विश्लेषण',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'कोणतेही किंमत स्तर कॉन्फिगर केलेले नाहीत.',
   'billing.plans.heading': 'योजना',
   'billing.subheading': 'योजना, वापर आणि स्ट्राइप-व्यवस्थापित चेकआउट.',
+  'common.confirm': 'पुष्टी करा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'documentCard.open': 'उघडा',
   'documentDetail.back': 'दस्तऐवजांकडे परत जा',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'दस्तऐवजाचे शीर्षक',
   'documents.emptyAll':
     'अद्याप कोणतेही दस्तऐवज नाहीत. प्रश्न विचारण्यास सुरुवात करण्यासाठी एक दस्तऐवज अपलोड करा.',
+  'documents.error.load': 'कागदपत्रे लोड करता आली नाहीत.',
   'documents.heading': 'अनुक्रमित दस्तऐवज',
   'documents.loading': 'कागदपत्रे लोड होत आहेत…',
   'documents.metric.chunks': 'एकूण तुकडे',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'काढून टाकणे\\u2026',
   'members.subheading': 'संघसहकाऱ्यांना आमंत्रित करा आणि त्यांच्या भूमिका निश्चित करा.',
   'members.tableHeading': 'रोस्टर',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'notFound.askCta': 'ज्ञानकोशाला विचारा',
+  'notFound.body':
+    '{{app}} ला ते पृष्ठ सापडले नाही. लिंक तुटलेली असू शकते, किंवा पुनर्-इंडेक्सिंग दरम्यान ते पृष्ठ काढून टाकले गेले असू शकते.',
   'notFound.eyebrow': 'परत मिळवता येत नाही',
   'notFound.title': 'अनुक्रमणिकेत असा कोणताही भाग नाही',
   'notifications.dismiss': 'बरखास्त करा',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'स्रोत URL',
   'sources.empty.body': 'तुमचा पहिला कनेक्टर जोडण्यासाठी "स्रोत जोडा" वर क्लिक करा.',
   'sources.empty.title': 'अद्याप स्रोत उपलब्ध नाहीत.',
+  'sources.error.add': 'स्रोत जोडता आला नाही.',
   'sources.error.labelRequired': 'लेबल आवश्यक आहे.',
   'sources.error.load': 'स्रोत लोड करता आले नाहीत.',
   'sources.error.urlRequired': 'या स्त्रोत प्रकारासाठी URL आवश्यक आहे.',

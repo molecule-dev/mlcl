@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Είμαστε μια ομάδα σχεδιαστών και μηχανικών που εργάζονται από απόσταση και κάποτε περνούσαμε πάρα πολλές ώρες κάθε μέρα σε ένα θορυβώδες ηλεκτρονικό γραμματοκιβώτιο. Το Courier είναι το ηλεκτρονικό γραμματοκιβώτιο που θέλαμε να χρησιμοποιούμε οι ίδιοι.',
   'about.title': 'Ηλεκτρονικό ταχυδρομείο για συγκεντρωμένη εργασία',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'help.cta.about': 'Σχετικά με τη Courier',
   'help.cta.pricing': 'Προβολή τιμών',
   'help.eyebrow': 'Κέντρο βοήθειας',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Γρήγορες απαντήσεις στις πιο συχνές ερωτήσεις. Λείπει κάτι; Ανοίξτε τις «Ρυθμίσεις» και χρησιμοποιήστε τη φόρμα σχολίων της εφαρμογής ή στείλτε email στη διεύθυνση support@courier.example.',
   'help.title': 'Πώς μπορούμε να βοηθήσουμε;',
   'landing.brand.scrollTop': 'Επιστροφή στην κορυφή',
+  'landing.copyright': '© {{year}} {{appName}} — Σχεδιασμένο για εστίαση.',
   'landing.ctaBody':
     'Γίνετε ένας από τους χιλιάδες επαγγελματίες που έχουν τακτοποιήσει τα μηνύματά τους πριν το μεσημεριανό.',
   'landing.ctaTitle': 'Να σκέφτεσαι περισσότερο, να αντιδράς λιγότερο.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Παρακολούθηση demo',
   'landing.heroSubtitle':
     'Το Courier είναι ένα ήρεμο πρόγραμμα εισερχομένων με τρία παράθυρα, σχεδιασμένο για επαγγελματίες που ασχολούνται με τη διαχείριση πληροφοριών και επιθυμούν να επεξεργάζονται τις πληροφορίες, αντί να αντιδρούν απλώς σε αυτές.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Έχει κερδίσει την εμπιστοσύνη εξειδικευμένων ομάδων σε όλο τον κόσμο',
   'landing.signIn': 'Σύνδεση',
   'meridian.archive.empty': 'Το αρχείο είναι κενό.',
@@ -80,6 +83,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Προς',
   'meridian.drafts.watermark': 'Πρόχειρο',
   'meridian.folder.count': '{{count}} μηνύματα',
+  'meridian.folder.delete': 'Διαγραφή',
   'meridian.folder.deleteForever': 'Οριστική διαγραφή',
   'meridian.folder.restore': 'Μετακίνηση στα εισερχόμενα',
   'meridian.forgot.subtitle':
@@ -89,7 +93,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Δεν υπάρχουν ακόμα μηνύματα εδώ.',
   'meridian.inbox.loading': 'Φόρτωση…',
   'meridian.inbox.next': 'Επόμενος',
+  'meridian.inbox.noSender': '(χωρίς αποστολέα)',
   'meridian.inbox.noSubject': '(χωρίς θέμα)',
+  'meridian.inbox.ofTotal': '{{current}} από {{total}}',
   'meridian.inbox.openCompose': 'Άνοιγμα σύνταξης',
   'meridian.inbox.previous': 'Προηγούμενο',
   'meridian.inbox.replyFailed': 'Η απάντηση αποθηκεύτηκε, αλλά η αποστολή απέτυχε: {{error}}',
@@ -102,6 +108,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Δεν έχετε λογαριασμό;',
   'meridian.login.showPassword': 'Εμφάνιση κωδικού',
   'meridian.message.toLine': 'στη διεύθυνση {{recipients}}',
+  'meridian.notFound.body':
+    'Η σελίδα που αναζητάτε δεν βρέθηκε. Επιστρέψτε στα εισερχόμενά σας στο {{appName}} και θα σας καθοδηγήσουμε.',
   'meridian.notFound.eyebrow': 'Σφάλμα 404',
   'meridian.notFound.title': 'Αυτό το νήμα έχει αρχειοθετηθεί.',
   'meridian.notFound.toInbox': 'Άνοιξε τα εισερχόμενά μου',
@@ -138,18 +146,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Προσθήκη αστερίσκου',
   'meridian.thread.unstar': 'Κατάργηση αστερίσκου',
   'meridian.time.yesterday': 'Χθες',
+  'meridian.topBar.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'meridian.topBar.searchPlaceholder': 'Αναζήτηση αλληλογραφίας',
   'meridian.trash.empty': 'Ο κάδος απορριμμάτων είναι άδειος.',
   'meridian.trash.title': 'Κάδος',
   'nav.legal': 'Νομικά',
   'planUpdated.description':
     'Η συνδρομή σας είναι πλέον ενεργή και τα στοιχεία χρέωσής σας έχουν ενημερωθεί. Καλώς ήρθατε στο ανανεωμένο εισερχόμενό σας στο Courier.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.heading': 'σχέδια',
   'pricing.limit.emails': 'μηνύματα ηλεκτρονικού ταχυδρομείου',
   'pricing.limit.folders': 'φάκελοι',
   'pricing.limit.labels': 'ετικέτες',
   'privacy.collect.account':
     'Δεδομένα λογαριασμού: όνομα, διεύθυνση ηλεκτρονικού ταχυδρομείου, κωδικός πρόσβασης με κρυπτογράφηση hash και η ημερομηνία εγγραφής σας.',
+  'privacy.contact': 'Ερωτήσεις; Ηλεκτρονικό ταχυδρομείο στη διεύθυνση privacy@courier.example.',
   'privacy.intro':
     'Η παρούσα πολιτική απορρήτου εξηγεί ποια δεδομένα συλλέγει η Courier, για ποιο λόγο τα συλλέγουμε, πώς τα προστατεύουμε και ποιες επιλογές έχετε σχετικά με αυτά. Στόχος μας είναι να είμαστε συγκεκριμένοι και όχι νομικίστικοι· αν κάτι δεν είναι σαφές, γράψτε μας στο privacy@courier.example.',
   'privacy.lastUpdated': 'Τελευταία ενημέρωση: 1 Απριλίου 2026',
@@ -169,6 +180,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Οι παρόντες όροι διέπουν τη χρήση του Courier από εσάς. Με τη δημιουργία λογαριασμού ή την αποστολή email μέσω της πλατφόρμας μας, συμφωνείτε να δεσμεύεστε από αυτούς. Προσπαθούμε να συντάσσουμε κανόνες που μπορεί πραγματικά να ακολουθήσει ο καθένας.',
   'terms.lastUpdated': 'Ισχύει από: 1 Απριλίου 2026',
+  'terms.linkPrivacy': 'Διαβάστε την Πολιτική Απορρήτου μας →',
   'terms.termination.body':
     'Μπορείτε να διαγράψετε τον λογαριασμό σας ανά πάσα στιγμή. Διατηρούμε το δικαίωμα να αναστείλουμε έναν λογαριασμό που παραβιάζει τους παρόντες όρους· σε αυτή την περίπτωση, θα σας εξηγήσουμε τον λόγο και θα σας δώσουμε τη δυνατότητα να εξαγάγετε πρώτα τα δεδομένα σας.',
   'terms.warranty.body':

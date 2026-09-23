@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Zənciri yenidən başlat',
   'resetPassword.mismatchError': 'Şifrələr uyğun gəlmir.',
   'resetPassword.subheading': 'Güclü bir şey seçin. Kitablarınız gözləyəcək.',
-  'reviewCard.starsAria': 'Reytinqli<x> {{reytinq}}</x> xaricində<x> {{of}}</x> ulduzlar',
+  'reviewCard.starsAria': '{{of}} ulduzdan {{rating}} ulduzla qiymətləndirilib',
   'reviewCard.unratedAria': 'Reytinqsiz',
   'reviews.eyebrow': 'Yadınızda qalan',
   'reviews.heading': 'Rəyləriniz',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Afspraak boeken',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Geen patiënten om weer te geven.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'consult.backLink': 'Alle afspraken',
   'consult.captions': 'Ondertiteling',
   'consult.connected': 'Verbonden · 720p · stabiel',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Patiënten',
   'patientVitalsHero.scripts': 'Rx open',
   'patientVitalsHero.subline': '{{count}} consulten in uw agenda vandaag',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'prescriptions.empty': 'Geen overeenkomende recepten.',
   'prescriptions.eyebrow': 'E-recepten',
   'prescriptions.heading': 'Recepten',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Privacykennisgeving',
   'privacy.use.body':
     'Om zorg te verlenen, afspraakherinneringen te sturen, recepten te routeren en de servicebetrouwbaarheid te verbeteren. Wij verkopen uw gegevens nooit en delen klinische informatie nooit met adverteerders.',
+  'providers.allSpecialties': 'Alle specialiteiten',
+  'providers.loadError': 'Het laden van providers is mislukt.',
+  'providers.loading': 'Laden…',
   'providers.noResults': 'Geen artsen gevonden.',
   'providers.searchPlaceholder': 'Zoeken op naam, specialisme...',
   'providers.title': 'Een arts zoeken',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Begin werkdag',
   'settings.availability.heading': 'Beschikbaarheid',
   'settings.devices.thisDevice': 'Dit apparaat',
+  'settings.devices.unnamed': 'Apparaat zonder naam',
   'settings.eyebrow': 'Praktijk & account',
   'settings.loadError': 'Kan uw profiel niet laden.',
   'settings.notifications.emailMessages': 'E-mail mij wanneer mijn zorgteam antwoordt',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Uitschakelen',
   'settings.security.twoFactor.enable': 'Inschakelen',
   'settings.security.twoFactor.heading': 'Tweestapsverificatie',
+  'settings.security.twoFactor.invalidCode': 'Die code kwam niet overeen. Probeer het opnieuw.',
+  'settings.security.twoFactor.setupFailed':
+    'De tweefactorauthenticatie kon niet worden gestart. Probeer het opnieuw.',
+  'settings.security.twoFactor.statusOn': 'Tweefactorauthenticatie is ingeschakeld.',
   'settings.signOutDevice': 'Uitloggen',
   'settings.subheading': 'Artsenprofiel, praktijkregels en klinische meldingen.',
   'signup.emailLabel': 'E-MAIL',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Account aanmaken',
   'signupFooter.hipaa': 'HIPAA-conform',
   'solaceLayout.primaryNavLabel': 'Hoofdnavigatie',
+  'solaceLayout.toggleMenu': 'Menu schakelen',
   'terms.eligibility.body':
     'U moet minimaal achttien jaar oud zijn, of de ouder of wettelijke voogd van een minderjarige voor wie u zorg zoekt, en zich fysiek bevinden in een Amerikaanse staat waar onze artsen bevoegd zijn.',
   'terms.payment.body':

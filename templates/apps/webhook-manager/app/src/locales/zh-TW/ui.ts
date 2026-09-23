@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// 關於{{app}}',
+  'about.pageTitle': 'webhook 控制平面',
+  'about.plansTitle': '每個階段的計劃',
   'apiKeys.bestPractices': '最佳實踐',
   'apiKeys.body': '程序化存取令牌。像對待密碼一樣對待它們——儲存在環境變數中，永遠不要提交。',
   'apiKeys.col.created': '建立',
@@ -54,6 +57,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': '在計劃之內',
   'billing.usageWarning': '接近上限',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': '前往主控台',
   'dashboard.body': '即時吞吐量、正在進行的重試以及剛剛發生故障的端點——涵蓋您操作的每個工作區。',
   'dashboard.endpointsEmpty': '暫無終點。',
   'dashboard.endpointsEmptyCta': '創建你的第一個 →',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': '端點',
   'endpointDetail.deliveryTrendSub': '每小時交付量，對數尺度',
   'endpointDetail.hideSecret': '隱藏秘密',
+  'endpointDetail.loading': '正在加載終點…',
   'endpointDetail.metric.delivered': '24小時內送達',
   'endpointDetail.metric.deliveredCaption': '從{{count}}事件類型',
   'endpointDetail.metric.lastDeliveryCaption.none': '等待首場活動',
@@ -196,6 +201,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': '緊急 · 24小時',
   'notifications.metric.totalCaption': '所有收件匣',
   'payloadViewer.payload': '// 有效載荷',
+  'planUpdated.verifying': '確認您的付款中…',
   'profile.avatarHeader': '阿凡達',
   'profile.avatarHint': '顯示的首字母縮寫－將在下一個版本中上傳。',
   'profile.body': '您的帳戶、偏好設定和活躍會話。',
@@ -210,6 +216,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ 已保存',
   'profile.sessionsEmpty': '只有您目前會話處於活動狀態。沒有其他裝置登入。',
   'profile.toggle': '切換{{label}}',
+  'pylonShell.closeMenu': '關閉導覽選單',
+  'pylonShell.openMenu': '開啟導覽選單',
   'pylonShell.primaryNavLabel': '主導航',
   'resetPassword.subtitle': '請選擇一個您從未使用過的強密碼。',
   'resetPassword.tokenPlaceholder': '從電子郵件複製貼上',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'alerts.acknowledgeLabel': 'Kilalanin',
   'alerts.customerLabel': 'Kustomer: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Kumokonekta…',
   'carriers.requiredError': 'Kinakailangan ang pangalan at code.',
   'carriers.subheading': '{{count}} isinama',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
+  'common.retry': 'Subukan muli',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Nasa biyahe + na-flag',
   'dashboard.activeShipmentsSubtitle':
@@ -103,6 +106,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'mga kargamento',
   'pricing.trackingLabel': 'pagsubaybay sa mga kaganapan',
   'profile.dangerZone.title': 'Sona ng panganib',
+  'profile.devices.signingOut': 'Nagsa-sign out…',
+  'profile.devices.unnamed': 'Walang pangalang aparato',
+  'profile.security.disable2fa': 'Huwag paganahin ang 2FA',
   'profile.security.enable2fa': 'Paganahin ang 2FA',
   'profile.security.pwChanged': 'Matagumpay na napalitan ang password.',
   'profile.security.pwCurrent': 'Kasalukuyang password',
@@ -112,10 +118,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'Aktibo ang 2FA',
   'profile.security.twoFaCode': '6-digit na kodigo',
   'profile.security.twoFaDisable': 'I-disable',
+  'profile.security.twoFaDisabling': 'Hindi pinapagana…',
   'profile.security.twoFaFailed': 'Hindi ma-verify ang code.',
   'profile.security.twoFaIntro':
     'I-scan ang QR code sa iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code sa ibaba para mag-verify.',
   'profile.security.twoFaOn': 'Naka-enable ang two-factor authentication sa account na ito.',
+  'profile.security.twoFaQrAlt': 'Two-factor QR code',
   'profile.security.twoFaVerify': 'I-verify at paganahin',
   'profile.security.twoFaVerifying': 'Bine-verify…',
   'profile.subheading': 'Mga setting ng pagkakakilanlan at seguridad para sa workspace na ito.',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Itago ang sikretong ito — hindi na ito ipapakita muli.',
   'settings.api.webhookSecret': 'Lihim sa pag-sign up ng Webhook',
   'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
+  'settings.deleteAccountConfirm': 'Sigurado ka ba? Hindi na maaaring bawiin ang aksyon na ito.',
   'settings.notifications.exceptions':
     'Mag-email sa akin kapag may nangyaring eksepsiyon sa kargamento',
   'settings.notifications.heading': 'Mga Notification',
@@ -149,6 +158,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Hindi natagpuan ang padala.',
   'shipmentDetail.originHeading': 'Pinagmulan',
   'shipmentDetail.shippedOn': 'Naipadala na {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Wala pang mga kaganapan sa pagsubaybay — lumalabas dito ang mga update habang ini-scan ng carrier ang parsela.',
   'shipmentDetail.weightLabel': '{{weight}} libra',
   'shipments.col.carrier': 'Tagapagdala',
   'shipments.col.eta': 'ETA',
@@ -178,6 +189,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Mag-sign In',
   'signup.submit': 'Gumawa ng Account',
   'team.emailError': 'Kinakailangan ang isang wastong email address.',
+  'team.empty':
+    'Wala pang miyembro ng team. Mag-imbita ng isang kasamahan sa team para makipagtulungan sa mga padala.',
   'team.eyebrow': 'Mga Miyembro at Pahintulot',
   'team.inviteDialog.cancel': 'Kanselahin',
   'team.inviteDialog.heading': 'Mag-imbita ng miyembro ng koponan',
@@ -200,6 +213,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Subaybayan',
   'waypointLayout.primaryNavLabel': 'Pangunahing navigation',
   'webhooks.createFailed': 'Hindi makagawa ng webhook endpoint.',
+  'webhooks.endpointsEmpty':
+    'Wala pang mga webhook endpoint. Gumawa ng isa para makatanggap ng mga callback sa status ng pagpapadala.',
   'webhooks.endpointsHeading': 'Mga endpoint',
   'webhooks.eventCount': '{{count}} mga kaganapan',
   'webhooks.eventsHeading': 'Mga kamakailang paghahatid',

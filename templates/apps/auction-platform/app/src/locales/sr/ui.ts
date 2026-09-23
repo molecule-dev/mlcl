@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Гледање',
   'auctionDetail.watchRemoved': 'Уклоњено са листе праћења.',
   'auctionDetail.watchRemoveLabel': 'Уклони са листе праћења',
+  'auctionPlatformLayout.primaryNavLabel': 'Примарна навигација',
   'authShell.brandBody':
     'Лицитирајте у реалном времену за ретке сатове, уметничка дела и јединствене специјалне предмете. Чекић пада за неколико секунди.',
   'authShell.brandEyebrow': 'Тренутно доступно · 1.420 аукција',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Сортирај по',
   'browseAuctions.subheading':
     'Филтрирајте по категорији, сортирајте по ономе што је најважније и дајте понуду пре него што чекић падне.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'countdownTimer.ended': 'Завршено',
   'countdownTimer.endingSoon': 'Крај',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Сакриј лозинку',
   'login.showPassword': 'Прикажи лозинку',
   'login.subtext': 'Наставите да пратите своје аукције и дајте понуде пре него што чекић падне.',
+  'mobileNav.closeMenu': 'Затвори мени за навигацију',
+  'mobileNav.openMenu': 'Отвори мени за навигацију',
   'myBids.bidAgain': 'Поново лицитирајте',
   'myBids.browseCta': 'Прегледајте уживо аукције →',
   'myBids.checkoutCta': 'Плати сада',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Још нема обавештења.',
   'notificationsPage.eyebrow': 'Центар за активности',
   'notificationsPage.subheading': '{{count}} непрочитано · ажурирања уживо како се аукције крећу',
+  'planUpdated.verifying': 'Потврђивање уплате…',
   'pricing.bidsLabel': 'понуде',
   'pricing.listingsLabel': 'огласи',
   'pricing.watchlistLabel': 'листа за праћење',

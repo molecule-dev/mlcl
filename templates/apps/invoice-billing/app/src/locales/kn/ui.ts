@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'activityFeed.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಚಟುವಟಿಕೆ ಇಲ್ಲ — ನಿಮ್ಮ ಮೊದಲ ಇನ್‌ವಾಯ್ಸ್ ಕಳುಹಿಸಿ.',
   'authShell.sample.paid': '2 ನಿಮಿಷಗಳ ಹಿಂದೆ ಪಾವತಿಸಲಾಗಿದೆ',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'ಹೊಸ ಕ್ಲೈಂಟ್ ಸೇರಿಸಿ',
   'clients.search': 'ಹೆಸರು, ಕಂಪನಿ, ಇಮೇಲ್ ಮೂಲಕ ಹುಡುಕಿ',
   'clients.title': 'ಗ್ರಾಹಕರು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'ಹೊಸ ಕ್ಲೈಂಟ್',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ?',
   'forgotPassword.successBody':
     'ನಾವು ಮರುಹೊಂದಿಸುವ ಸೂಚನೆಗಳನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} . ಲಿಂಕ್ 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
+  'invoiceDetail.action.confirmVoid': 'ಅನೂರ್ಜಿತವೆಂದು ದೃಢೀಕರಿಸುವುದೇ?',
   'invoiceDetail.action.download': 'PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ',
   'invoiceDetail.action.duplicate': 'ನಕಲು',
   'invoiceDetail.action.edit': 'ಸಂಪಾದಿಸಿ',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'ಇನ್‌ವಾಯ್ಸ್ ಅನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ.',
   'invoiceDetail.issued': 'ನೀಡಲಾಗಿದೆ {{date}}',
   'invoiceDetail.loading': 'ಇನ್‌ವಾಯ್ಸ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
+  'invoiceDetail.paidInFull': 'ಪೂರ್ಣವಾಗಿ ಪಾವತಿಸಲಾಗಿದೆ',
   'invoiceDetail.summary': '{{client}} · ಕಳುಹಿಸಲಾಗಿದೆ {{date}}',
   'invoiceDetail.tax': 'ತೆರಿಗೆ ( {{rate}} %)',
   'invoiceDetail.timeline': 'ಟೈಮ್‌ಲೈನ್',
+  'invoiceDetail.voided': 'ಅನೂರ್ಜಿತ',
   'invoiceEditor.addItem': 'ಐಟಂ ಸೇರಿಸಿ',
   'invoiceEditor.back': '← ಇನ್‌ವಾಯ್ಸ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'invoiceEditor.col.qty': 'ಪ್ರಮಾಣ',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'ನಿಮ್ಮ ಮೊದಲ ಇನ್‌ವಾಯ್ಸ್ ಕಳುಹಿಸಿ',
   'landing.hero.eyebrow': 'ಸಣ್ಣ ವ್ಯವಹಾರಗಳಿಗೆ ಇನ್‌ವಾಯ್ಸಿಂಗ್',
   'landing.hero.secondary': 'ಮಾದರಿ ಇನ್‌ವಾಯ್ಸ್ ನೋಡಿ',
+  'landing.hero.subtitle':
+    '{{appName}} ಅಂತರ್ನಿರ್ಮಿತ ಪಾವತಿಗಳು, ಮರುಕಳಿಸುವ ಬಿಲ್ಲಿಂಗ್ ಮತ್ತು ತೆರಿಗೆ-ಸಿದ್ಧ ವರದಿಗಳೊಂದಿಗೆ ಪಾಲಿಶ್ ಮಾಡಿದ ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ಜೋಡಿಸುತ್ತದೆ. ಬುಕ್‌ಕೀಪಿಂಗ್-ಮುಕ್ತ.',
   'landing.hero.title': 'ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ಕಳುಹಿಸಿ. ವೇಗವಾಗಿ ಹಣ ಪಡೆಯಿರಿ.',
   'login.signupLink': 'ಒಂದನ್ನು ರಚಿಸಿ',
   'login.submitting': 'ನಿಮ್ಮನ್ನು ಸೈನ್ ಇನ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'ಪಾವತಿಗಳು',
   'pricing.recurringLabel': 'ಪುನರಾವರ್ತಿತ ವೇಳಾಪಟ್ಟಿಗಳು',
   'remitLayout.newInvoice': 'ಹೊಸ ಇನ್‌ವಾಯ್ಸ್',
+  'remitLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'remitLayout.searchPlaceholder': 'ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ಹುಡುಕಿ, ಕ್ಲೈಂಟ್‌ಗಳು...',
   'remitLayout.tagline': 'ವೇಗವಾಗಿ ಹಣ ಪಡೆಯಿರಿ',
   'reports.chart.aging': 'ಇನ್‌ವಾಯ್ಸ್ ವಯಸ್ಸಾದಿಕೆ',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'ಅವಧಿಯ ಆದಾಯ',
   'reports.chart.topClients': 'ಉನ್ನತ ಕ್ಲೈಂಟ್‌ಗಳು',
   'reports.chart.topClientsCaption': 'ಜೀವಮಾನದ ಆದಾಯ, ಟಾಪ್ 5',
+  'reports.empty.aging': 'ಯಾವುದೇ ಇನ್‌ವಾಯ್ಸ್‌ಗಳು ಬಾಕಿ ಇಲ್ಲ.',
+  'reports.empty.methods': 'ಇನ್ನೂ ಯಾವುದೇ ಪಾವತಿ ಡೇಟಾ ಇಲ್ಲ.',
+  'reports.empty.revenue': 'ಇನ್ನೂ ಯಾವುದೇ ಆದಾಯದ ಡೇಟಾ ಇಲ್ಲ.',
+  'reports.empty.topClients': 'ಇನ್ನೂ ಯಾವುದೇ ಕ್ಲೈಂಟ್ ಆದಾಯದ ಡೇಟಾ ಇಲ್ಲ.',
   'reports.exporting': 'ರಫ್ತು ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'reports.exportRequiresPaid':
     'ರಫ್ತುಗಳು ಪಾವತಿಸಿದ ವೈಶಿಷ್ಟ್ಯವಾಗಿದೆ - ಸಕ್ರಿಯಗೊಳಿಸಲು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ ತೆರಿಗೆ ದರ ಸೇರಿಸಿ',
   'settings.tax.added': 'ತೆರಿಗೆ ದರ ಸೇರಿಸಲಾಗಿದೆ.',
   'settings.tax.adding': 'ಸೇರಿಸಲಾಗುತ್ತಿದೆ...',
+  'settings.tax.addRate': 'ದರ ಸೇರಿಸಿ',
   'settings.tax.col.region': 'ಪ್ರದೇಶ',
   'settings.tax.delete': 'ತೆರಿಗೆ ದರವನ್ನು ಅಳಿಸಿ',
   'settings.tax.deleted': 'ತೆರಿಗೆ ದರವನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ.',

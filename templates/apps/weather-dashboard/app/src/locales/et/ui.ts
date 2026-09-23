@@ -2,6 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.pageTitle': 'Teave {{appName}}',
+  'alertBanner.expires': 'Kuni {{time}}',
   'alerts.activeCount': '{{count}} aktiivne',
   'alerts.activeHeading': 'Aktiivsed märguanded',
   'alerts.empty': 'Kõik salvestatud asukohad on selged.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Sa oled hetkel lehel {{plan}} plaan.',
   'billing.switch': 'Lüliti',
   'billing.upgraded': 'Uuendatud versioonile {{plan}} — piirangud rakendatakse kohe.',
+  'common.goToDashboard': 'Mine töölauani',
   'compare.activityHeading': 'Tegevuse hinnangud',
   'compare.empty.title': 'Lisa võrdlemiseks vähemalt kaks asukohta',
   'compare.eyebrow': 'Kõrvuti',
@@ -136,4 +138,5 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Kõrge',
   'trends.summary.low.label': 'Madal',
   'trends.summary.points.label': 'Päevad',
+  'weatherDashboardLayout.primaryNavLabel': 'Peamine navigeerimine',
 }

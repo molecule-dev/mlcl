@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Бид нэгэн цагт өдөр бүр хэтэрхий олон цагийг чимээ шуугиантай шуудангийн хайрцагт өнгөрөөдөг байсан дизайнер, инженерүүдийн тархай бутархай баг юм. Меридиан бол бидний өөрсдөө ашиглахыг хүссэн имэйл хайрцаг юм.',
   'about.title': 'Төвлөрсөн ажилд зориулсан имэйл',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'help.cta.about': 'Меридианы тухай',
   'help.cta.pricing': 'Үнийг харах',
   'help.eyebrow': 'Тусламжийн төв',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Бидний хамгийн их сонсдог асуултуудад хурдан хариулт өгнө үү. Ямар нэгэн зүйл дутуу байна уу? Тохиргоог нээгээд апп доторх санал хүсэлтийн маягтыг ашиглах эсвэл support@courier.example хаягаар бичнэ үү.',
   'help.title': 'Бид хэрхэн тусалж чадах вэ?',
   'landing.brand.scrollTop': 'Дээшээ буцах',
+  'landing.copyright': '© {{year}} {{appName}} — Фокуслахад зориулагдсан.',
   'landing.ctaBody': 'Үдийн хоолны өмнө имэйлээ дуусгасан мянга мянган мэргэжилтнүүдтэй нэгдээрэй.',
   'landing.ctaTitle': 'Илүү их боловсруулж, бага хариу үйлдэл үзүүл.',
   'landing.eyebrow': 'Төвлөрсөн ажилд зориулсан имэйл',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Демо үзэх',
   'landing.heroSubtitle':
     'Меридиан бол мэдээлэлд хариу үйлдэл үзүүлэхийг биш, харин боловсруулахыг хүсдэг мэдлэгийн ажилтнуудад зориулагдсан тайван гурван цонхтой имэйл хайрцаг юм.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Дэлхий даяарх төвлөрсөн багуудын итгэлийг хүлээсэн',
   'landing.signIn': 'Нэвтрэх',
   'meridian.archive.empty': 'Архив хоосон байна.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Ноорог',
   'meridian.folder.count': '{{count}} мессежүүд',
+  'meridian.folder.delete': 'Устгах',
   'meridian.folder.deleteForever': 'Бүрмөсөн устгах',
   'meridian.folder.restore': 'Ирсэн имэйл рүү зөөх',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Энд хараахан мессеж алга байна.',
   'meridian.inbox.loading': 'Ачааллаж байна…',
   'meridian.inbox.next': 'Дараагийнх',
+  'meridian.inbox.noSender': '(илгээгч байхгүй)',
   'meridian.inbox.noSubject': '(сэдэвгүй)',
+  'meridian.inbox.ofTotal': '{{current}} -с {{total}}',
   'meridian.inbox.openCompose': 'Бичихийг нээх',
   'meridian.inbox.previous': 'Өмнөх',
   'meridian.inbox.replyFailed': 'Хариулт хадгалагдсан боловч хүргэлт амжилтгүй боллоо: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Бүртгэл байхгүй юу?',
   'meridian.login.showPassword': 'Нууц үгийг харуулах',
   'meridian.message.toLine': 'руу {{recipients}}',
+  'meridian.notFound.body':
+    'Таны хайж буй хуудас олдсонгүй. {{appName}} ирсэн имэйл хаяг руугаа буцаж очно уу, бид танд зөв замыг зааж өгөх болно.',
   'meridian.notFound.eyebrow': 'Алдаа 404',
   'meridian.notFound.title': 'Энэ сэдвийг архивласан.',
   'meridian.notFound.toInbox': 'Миний ирсэн имэйлийг нээх',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Од нэмэх',
   'meridian.thread.unstar': 'Одыг арилгах',
   'meridian.time.yesterday': 'Өчигдөр',
+  'meridian.topBar.openMenu': 'Навигацийн цэсийг нээх',
   'meridian.topBar.searchPlaceholder': 'Мэйл хайх',
   'meridian.trash.empty': 'Хогийн сав хоосон байна.',
   'meridian.trash.title': 'Хогийн сав',
   'nav.legal': 'Хууль эрх зүйн',
   'planUpdated.description':
     'Таны захиалга одоо идэвхтэй болсон бөгөөд төлбөр тооцоо тань шинэчлэгдсэн. Шинэчилсэн Меридианы имэйл хаягтаа тавтай морилно уу.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.heading': 'ноорог',
   'pricing.limit.emails': 'имэйлүүд',
   'pricing.limit.folders': 'хавтаснууд',
   'pricing.limit.labels': 'шошго',
   'privacy.collect.account':
     'Дансны мэдээлэл: нэр, имэйл хаяг, хэшлэгдсэн нууц үг болон таны бүртгүүлсэн огноо.',
+  'privacy.contact': 'Асуулт байна уу? privacy@courier.example хаягаар имэйл илгээнэ үү.',
   'privacy.intro':
     'Энэхүү нууцлалын бодлого нь Меридиан ямар мэдээлэл цуглуулдаг, бид яагаад цуглуулдаг, бид үүнийг хэрхэн аюулгүй байлгадаг, мөн та үүнтэй холбоотой ямар сонголттой болохыг тайлбарладаг. Бид хууль эрх зүйн үүднээс хандахын оронд тодорхой байхыг зорьдог; хэрэв ямар нэгэн зүйл тодорхойгүй байвал privacy@courier.example хаягаар бичнэ үү.',
   'privacy.lastUpdated': 'Сүүлд шинэчилсэн: 2026 оны 4-р сарын 1',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Эдгээр нөхцөл нь таны Меридианыг ашиглахыг зохицуулна. Биднээр дамжуулан бүртгэл үүсгэх эсвэл имэйл илгээснээр та тэдгээрийг дагаж мөрдөхийг зөвшөөрч байна. Бид хүн үнэхээр дагаж мөрдөж чадах дүрмийг бичихийг хичээдэг.',
   'terms.lastUpdated': 'Хүчин төгөлдөр: 2026 оны 4-р сарын 1',
+  'terms.linkPrivacy': 'Манай Нууцлалын бодлогыг уншина уу →',
   'terms.termination.body':
     'Та хүссэн үедээ бүртгэлээ устгаж болно. Бид эдгээр нөхцөлийг зөрчсөн бүртгэлийг түдгэлзүүлж болно; хэрэв бид зөрчвөл шалтгааныг нь тайлбарлаж, танд эхлээд өгөгдлөө экспортлох боломжийг олгоно.',
   'terms.warranty.body':

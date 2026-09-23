@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.tagline': 'Hver enhed, under ét tag.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.addProperty': 'Tilføj ejendom',
   'dashboard.empty.body':
     'Når du har ejendomme, enheder og huslejebetalinger, fyldes dette dashboard med porteføljeindsigt.',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{ejendom}} · Enhed {{enhed}} · {{dato}}',
   'maintenanceQueueList.subtitle': '{{count}} åbne arbejdsordrer, sorteret efter prioritet',
   'maintenanceQueueList.title': 'Vedligeholdelseskø',
+  'nav.closeMenu': 'Luk menu',
+  'nav.openMenu': 'Åbn menu',
   'notFound.body':
     'Den side, du ledte efter, er blevet flyttet, arkiveret eller har aldrig eksisteret.',
   'notFound.title': 'Den dør åbner sig ikke',

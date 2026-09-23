@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'about.plansTitle': 'Planer, der vokser med dig',
   'brand.tagline': 'Hvert sekund',
   'clientDetail.back': 'Tilbage til klienter',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Alle relationer samlet ét sted — projekter, timer, udestående fakturaer.',
   'clients.title': 'Klienter',
   'common.and': 'og',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.activeProjects': 'Aktive projekter',
   'dashboard.empty': 'Ingen tilmeldinger endnu. Start timeren for at spore din første session.',
   'dashboard.greeting': 'God dag, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'Ingen fakturerbare timer at fakturere for denne klient. Registrer noget tid først, eller tildel eksisterende posteringer til et af denne klients projekter.',
   'invoices.save': 'Opret faktura',
   'invoices.subtitle': 'Registrerede timer akkumuleres automatisk på fakturaer.',
+  'landing.copyright': '© {{year}} {{app}} . Hvert sekund, taget i betragtning.',
   'landing.ctaBody': 'Gratis for op til 3 projekter. Opgrader, når din kundeliste gør det.',
   'landing.eyebrow': 'Tidsregistrering for fakturerbart arbejde',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Tillid fra uafhængige',
   'landing.testimonial.quote':
     'Jeg stoppede med Toggl på 30 minutter. Alene budgetnedbrydningen har tjent sig selv hjem. Jeg er holdt op med at underprise to uger i træk.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Hvert sekund, taget i betragtning.',
   'login.brand.subtitle':
     'Fortsæt der, hvor du slap – hvert minut er allerede knyttet til et projekt, en klient, en faktura.',
   'login.brand.tracking': 'Sporing',
   'login.subheading': 'Fortsæt timeren, hvor du slap.',
+  'nav.closeMenu': 'Luk navigationsmenuen',
   'nav.insightsSection': 'Indsigt',
   'nav.newEntry': 'Ny indtastning',
+  'nav.openMenu': 'Åbn navigationsmenuen',
+  'nav.primary': 'Primær navigation',
   'nav.workSection': 'Arbejde',
   'notFound.body':
     'Det ser ud til, at det link, du fulgte, ikke længere sporer. Gå tilbage til dit dashboard, så tæller vi videre derfra.',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Fakturerbar',
   'timer.descriptionPlaceholder': 'Hvad arbejder du på?',
   'timer.idle': 'Inaktiv — start sporing',
+  'timer.noProject': 'Intet projekt',
   'timer.runningWithProject': 'Intet projekt',
   'timer.start': 'Start timeren',
   'timer.stop': 'Stop timeren',

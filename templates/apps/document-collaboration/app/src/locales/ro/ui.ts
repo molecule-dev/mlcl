@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.title': 'Despre {{app}}',
   'comments.addFailed': 'Nu s-a putut posta comentariul.',
   'comments.backToDoc': 'Înapoi la manuscris',
   'comments.deleteFailed': 'Nu s-a putut șterge.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Rezoluție',
   'comments.resolveFailed': 'Nu s-a putut rezolva.',
   'comments.subtitle': '{{open}} deschis · problema „{{resolved}}” a fost rezolvată',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.activityHeading': 'Ce se întâmplă',
   'dashboard.createFailed': 'Nu s-a putut crea un document.',
   'dashboard.empty': 'Nu există încă niciun manuscris — începeți cu butonul „Document nou”.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Nu s-a putut muta în coșul de gunoi.',
   'editor.unpublish': 'Anulează publicarea',
   'editor.untitled': 'Document fără titlu',
+  'editor.updatedElsewhere':
+    'Acest document a fost actualizat de altcineva — reîncărcați pagina pentru a vedea cele mai recente versiuni.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Dacă există un cont pentru adresa {{email}}, îți vom trimite în curând un link de resetare.',
   'forgotPassword.subtitle': 'Îți vom trimite prin e-mail un link de resetare.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Construit cu Molecule.',
   'landing.ctaHeading': 'Deschide pagina. Lasă cursorul să pornească.',
   'landing.ctaPrimary': 'Deschide un studio',
   'landing.eyebrow': 'Pentru scriitori, editori și echipe',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'modificat la {{when}}',
   'quillonDocumentCard.open': 'Deschide →',
   'quillonKpiCard.trend': 'Tendința actuală',
+  'quillonLayout.menu': 'Meniu',
   'quillonLayout.primaryNavLabel': 'Navigare principală',
   'quillonStudioHero.collab': 'Colaboratori',
   'quillonStudioHero.docs': 'Documente modificate',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': 'acum {{days}}z',
   'time.hoursAgo': 'acum {{hours}}h',
   'time.justNow': 'chiar acum',
+  'trash.confirmDelete': 'Confirmă ștergerea',
   'trash.deleteFailed': 'Nu s-a putut șterge.',
   'trash.deleteForever': 'Șterge definitiv',
   'trash.empty': 'Nu este nimic de recuperat.',
+  'trash.emptyAll': 'Golește coșul',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Coș de gunoi',
   'trash.loadFailed': 'Nu s-a putut încărca coșul de gunoi.',

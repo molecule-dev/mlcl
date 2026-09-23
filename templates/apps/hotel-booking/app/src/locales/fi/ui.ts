@@ -39,6 +39,7 @@ export const ui: UiTranslations = {
     '{{kiinteistö}} sisään {{kaupunki}} , {{maa}} Nähdään {{checkIn}} .',
   'bookingConfirmation.total': 'Kokonais {{total}}',
   'bookingConfirmation.viewTripCta': 'Näytä matka',
+  'common.goToDashboard': 'Siirry etusivulle',
   'destinationDiscoveryCard.exploreCta': 'Tutustu majoituspaikkoihin',
   'favorites.empty': 'Ei vielä tallennettuja ominaisuuksia.',
   'favorites.heading': 'Tallennetut ominaisuudet',
@@ -47,6 +48,8 @@ export const ui: UiTranslations = {
   'favorites.removeCta': 'Peruuta tallennus',
   'forgotPassword.subheading':
     'Syötä tilisi sähköpostiosoite, niin lähetämme sinulle suojatun nollauslinkin.',
+  'forgotPassword.successBody':
+    'Olemme lähettäneet palautusohjeet osoitteeseen {{email}} . Linkki vanhenee 30 minuutin kuluttua.',
   'landing.cta.eyebrow': 'Oleskelujäsenet',
   'landing.cta.heading': 'Jäsenhinnat. Jokainen varaus, joka kerta.',
   'landing.cta.signup': 'Luo ilmainen tili',
@@ -65,6 +68,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Kirjaudu sisään hallitaksesi matkojasi, tarkastellaksesi vahvistuksia ja jatkaaksesi siitä, mihin jäit.',
   'planUpdated.heading': 'Tilaus päivitetty',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.limit.advancedFeatures': 'Edistyneet ominaisuudet:',
   'pricing.limit.canExport': 'Tietojen vienti:',
   'pricing.limit.hotels': 'hotellit',
@@ -77,6 +81,7 @@ export const ui: UiTranslations = {
   'propertyDetail.bookCta': 'Varata',
   'propertyDetail.bookmarkAriaSaved': 'Poista tallennetuista ominaisuuksista',
   'propertyDetail.heroImageAlt': '{{name}} sankarivalokuva',
+  'propertyDetail.hidePhotos': 'Piilota kuvat',
   'propertyDetail.lineCleaning': 'Siivousmaksu',
   'propertyDetail.lineRate': '{{price}} × {{nights}} yöt',
   'propertyDetail.lineTaxes': 'Verot ja maksut',
@@ -103,6 +108,7 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kuratoituja yöpymisiä',
   'searchResults.headingForQuery': 'Pysyy " {{q}} "',
   'searchResults.loadError': 'Ominaisuuksien lataaminen epäonnistui.',
+  'searchResults.mapPinAria': '{{name}} — {{price}} per yö',
   'searchResults.sortLabel': 'Järjestä',
   'searchResults.subheading': '{{count}} kiinteistöt · {{guests}} vieraat',
   'signup.eyebrow': 'Liity jäseneksi',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.title': 'Kirjoitushuone, jota voit pitää taskussasi',
   'billing.cancelConfirm': 'Peruutatko aktiivisen tilauksesi?',
   'billing.cancelFailed': 'Peruutus epäonnistui.',
   'billing.checkingOut': 'Avataan kassa…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Laskutusta ei voitu ladata.',
   'billing.loading': 'Ladataan laskutusta…',
   'billing.upgradeCta': 'Päivitä versioon {{name}}',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'editor.autosaveOn': 'Automaattinen tallennus käytössä',
   'editor.backToLibrary': 'Takaisin kirjastoon',
   'editor.charCount': '{{count}} merkkiä',
   'editor.confirmTrash': 'Siirretäänkö tämä asiakirja roskakoriin?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Irrotettu',
   'editor.unpublishCta': 'Siirrä luonnokseen',
   'editor.unpublished': 'Palautettu luonnokseksi',
+  'focus.autosaveOn': 'Automaattinen tallennus käytössä',
   'focus.backToLibrary': 'Takaisin kirjastoon',
   'focus.bodyPlaceholder': 'Rivi kerrallaan. Ketään muuta ei ole täällä.',
   'focus.exit': 'Poistu tarkennustilasta',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Luo yksi',
   'login.subline':
     'Käsikirjoituksesi, päivittäiset sivusi ja viimeisin kohdistimen sijainti ovat juuri siinä, mihin ne jäit.',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'pricing.exports': 'vienti',
   'pricing.folders': 'kansiot',
   'pricing.heading': 'asiakirjat',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Syötä juuri sähköpostitse lähettämämme koodi ja valitse jokin mieleenpainuva. Kirjaamme sinut sisään, kun se on tallennettu.',
   'reset.tokenHint': 'Liitetty postilaatikostasi.',
+  'settings.appearance.heading': 'Vaalea vai tumma',
   'settings.editor.${row.id}.description': 'Kieli',
   'settings.editor.description':
     'Kirjoituskoneen vieritys, kappaleen häivytys ja lepotilassa tapahtuva kohdistus – oletusasetukset on säädetty pitkiä istuntoja varten.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kolmas luku — Hiljainen tunti ennen auringonnousua',
   'versalDocumentCard.pinned': 'Kiinnitetyt',
   'versalLayout.nav.stats': 'Tilastot',
+  'versalLayout.primaryNavLabel': 'Päänavigaatio',
   'versalManuscriptHero.cta': 'Jatka kirjoittamista',
   'versalManuscriptHero.goalLabel': 'Tämän päivän sanatavoite',
   'versalManuscriptHero.inProgress': 'aikataulussa',

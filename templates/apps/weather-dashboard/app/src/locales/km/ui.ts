@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'បច្ចុប្បន្នអ្នកកំពុងនៅលើ {{plan}} ផែនការ។',
   'billing.switch': 'ប្តូរ',
   'billing.upgraded': 'បានធ្វើបច្ចុប្បន្នភាពទៅ {{plan}} - ដែនកំណត់ត្រូវបានអនុវត្តភ្លាមៗ។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'compare.activityHeading': 'សាលក្រមសកម្មភាព',
   'compare.empty.title': 'បន្ថែមទីតាំងយ៉ាងហោចណាស់ពីរដើម្បីប្រៀបធៀប',
   'compare.eyebrow': 'នៅក្បែរគ្នា',
@@ -136,5 +137,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'ខ្ពស់',
   'trends.summary.low.label': 'ទាប',
   'trends.summary.points.label': 'ថ្ងៃ',
+  'weatherDashboardLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'weatherHeroCard.updated': 'បានធ្វើបច្ចុប្បន្នភាព {{time}}',
 }

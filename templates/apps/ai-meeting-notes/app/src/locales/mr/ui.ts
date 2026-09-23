@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'आमच्याबद्दल',
   'actions.empty': 'कोणतेही कृती पर्याय जुळत नाहीत.',
   'actions.heading': 'कृती करण्यायोग्य बाबी',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'मागील महिना',
   'calendar.recent': 'अलीकडील',
   'common.daysAgo': '{{count}} डी पूर्वी',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.hoursAgo': '{{count}} h पूर्वी',
   'common.no': '—',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} कृती आयटम',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'रीसेट लिंकसाठी तुमचा इनबॉक्स तपासा.',
   'forgot.subheading': 'तुमचा ईमेल प्रविष्ट करा आणि आम्ही तुम्हाला एक रीसेट लिंक पाठवू.',
   'integrations.disconnected': 'डिस्कनेक्ट',
+  'integrations.loadError': 'एकीकरणे लोड करण्यात अयशस्वी झाले.',
   'integrations.notConnectedTag': 'जोडलेले नाही',
   'integrations.subheading':
     'कॅलेंडर आणि व्हिडिओ प्लॅटफॉर्म कनेक्ट करा जेणेकरून मर्मर आपोआप सामील होईल.',
+  'integrations.updateError': 'अपडेट अयशस्वी झाले.',
   'landing.ctaButton': 'सुरुवात करा — हे मोफत आहे.',
   'landing.ctaHeading': 'नोंदी घेणे थांबवा. निर्णय घ्यायला सुरुवात करा.',
   'landing.demo.aiLabel': 'एआय सारांश, थेट मसुदा तयार केला',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'पाठपुरावा',
   'meetingDetail.loadError': 'मीटिंग लोड होण्यात अयशस्वी झाले.',
   'meetingDetail.noActions': 'कोणतीही कृती करण्यायोग्य बाब आढळली नाही.',
+  'meetingDetail.none': 'काहीही नाही.',
   'meetingDetail.notFound': 'मीटिंग सापडली नाही.',
+  'meetingDetail.speakerFallback': 'वक्ता {{id}}',
   'meetingDetail.summaryHeading': 'एआय सारांश',
   'meetingDetail.transcriptHeading': 'प्रतिलेख',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'बैठका',
   'meetings.loadError': 'मीटिंग लोड होण्यात अयशस्वी झाले.',
   'meetings.subheading': 'प्रत्येक रेकॉर्ड केलेली, अपलोड केलेली आणि सिंक केलेली मीटिंग.',
+  'murmurLayout.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'murmurLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'nav.legal': 'कायदेशीर',
   'notifications.loadError': 'सूचना लोड करण्यात अयशस्वी झाले.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'तुम्ही मर्मरमध्ये कसे दिसता.',
   'record.error.empty': 'कोणताही ऑडिओ रेकॉर्ड झाला नाही.',
   'record.error.permission': 'मायक्रोफोनची परवानगी नाकारण्यात आली.',
+  'record.error.recorder': 'रेकॉर्डर त्रुटी',
   'record.error.unsupported':
     'तुमचा ब्राउझर रेकॉर्डिंगला सपोर्ट करत नाही. क्रोम, एज किंवा सफारी वापरून पहा.',
   'record.error.upload': 'अपलोड अयशस्वी झाले. पुन्हा प्रयत्न करा.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'नवीन पासवर्ड',
   'reset.subheading': 'असा पासवर्ड निवडा जो तुम्ही इतरत्र कुठेही वापरत नाही.',
   'search.empty': 'प्रतिलेख शोधण्यासाठी टाइप करा.',
+  'search.loadError': 'शोध अयशस्वी झाला. पुन्हा प्रयत्न करा.',
   'search.noResults': '" साठी कोणतेही परिणाम नाहीत" {{q}} ".',
   'settings.appearance.description': 'लाईट आणि डार्क मोडमध्ये टॉगल करा.',
   'settings.appearance.title': 'देखावा',
@@ -123,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'सेटिंग्ज लोड करण्यात अयशस्वी झाले.',
   'settings.loading': 'लोडिंग…',
   'settings.push.heading': 'पुश सूचना',
+  'settings.push.subheading': 'उल्लेख, कृती करण्यायोग्य बाबी आणि सारांशांसाठी ब्राउझर अलर्ट मिळवा.',
   'settings.retention.audio': 'ऑडिओ ठेवा',
   'settings.retention.heading': 'धारणा',
   'settings.retention.transcript': 'प्रतिलिपी जपून ठेवा',
@@ -139,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'खाते तयार करता आले नाही. कृपया पुन्हा प्रयत्न करा.',
   'signup.subheading': 'काही मिनिटांतच बैठकीच्या नोंदी घ्यायला सुरुवात करा',
   'signup.terms': 'खाते तयार करून तुम्ही आमच्या सेवा अटी आणि गोपनीयता धोरणास सहमत आहात.',
+  'signup.termsPrefix': 'खाते तयार करून तुम्ही आमच्या अटी व शर्तींना सहमती देत आहात.',
   'team.inviteCta': 'संघसहकाऱ्याला आमंत्रित करा',
   'team.invitedAs': 'आमंत्रित म्हणून {{role}}',
   'team.inviteFailed': 'आमंत्रण पाठवता आले नाही.',

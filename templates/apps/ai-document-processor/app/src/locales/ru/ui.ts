@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свяжитесь с нами',
+  'about.title': 'О {{app}}',
   'authShell.backToLanding': '← Вернуться на главную страницу',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
+  'common.retry': 'Повторить попытку',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Сегодня · Обзор операционной деятельности',
   'dashboard.heading': 'Анализ документов',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'По текущим критериям поиска не найдено ни одного документа.',
   'documents.heading': 'Все документы',
   'documents.loadError': 'Не удалось загрузить документы.',
+  'documents.loading': 'Загрузка библиотеки…',
   'documents.searchLabel': 'Поиск документов',
   'documents.searchPlaceholder': 'Поиск документов…',
   'documents.subheading':
@@ -66,8 +70,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Скрыть пароль',
   'login.showPassword': 'Показать пароль',
   'login.subtitle': 'Войдите в систему, чтобы продолжить работу с документами.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'notFound.body':
     'Документа или маршрута, который вы пытались открыть, здесь больше нет. Вернитесь на главную страницу или выберите раздел в боковой панели.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Открыть целевую страницу',
   'notFound.title': 'Эта страница отсутствует',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % по сравнению со вчерашним днём',
@@ -84,6 +91,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Правила подачи пока отсутствуют. Воспользуйтесь функцией «Новое правило», чтобы добавить его.',
   'rules.eyebrow': 'Автоматизация',
+  'rules.fieldsCount': '{{count}} поля',
   'rules.form.destination': 'Отправить в',
   'rules.form.name': 'Название правила',
   'rules.form.save': 'Сохранить правило',

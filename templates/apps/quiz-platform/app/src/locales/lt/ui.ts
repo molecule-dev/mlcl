@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.title': 'Apie {{app}}',
   'auth.login.noAccount': 'Naujokas „Sparq“?',
   'auth.login.or': 'arba tęsti',
   'auth.signup.or': 'arba užsiregistruokite su',
+  'common.confirm': 'Patvirtinti',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.loadError': 'Įkeliant šį turinį įvyko klaida.',
+  'common.retry': 'Bandyti dar kartą',
   'discover.collections.title': 'Naršyti pagal kategoriją',
   'discover.collections.viewAll': 'Peržiūrėkite savo biblioteką →',
   'discover.empty.body': 'Išbandykite kitą kategoriją arba išvalykite paiešką.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Prisijunkite, kad išlaikytumėte savo seriją, rengtumėte tiesiogines rungtynes ir kiltumėte lyderių lentelėje.',
   'myQuizzes.createButton': 'Nauja viktorina',
+  'myQuizzes.deleteConfirm': 'Ištrinti visam laikui?',
   'myQuizzes.empty.createCta': 'Sukurkite savo pirmąją viktoriną →',
   'myQuizzes.empty.created': 'Dar nesukūrėte viktorinos.',
   'myQuizzes.empty.played': 'Dar nėra paskelbtų viktorinų.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Kraunama…',
   'notifications.subhead':
     '{{count}} neskaitytos kibirkštys. Kvietimai, lyderių sąrašo pakeitimai ir pasiekimai – viskas viename sraute.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.checkoutError': 'Nepavyko pradėti atsiskaitymo. Bandykite dar kartą.',
+  'pricing.heading': 'Pasirinkite savo {{app}} planą',
   'pricing.included': 'Įtraukta',
   'pricing.loadError': 'Nepavyko įkelti planų.',
   'pricing.maxQuizzes': '{{count}} viktorinos',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Dar nieko nepaskelbta.',
   'profile.startBuilding': 'Pradėti kurti →',
   'profile.tier': '„Sparq“ žaidėjas',
+  'quizBuilder.addFailed': 'Nepavyko pridėti klausimo. Bandykite dar kartą.',
   'quizBuilder.addQuestion': 'Pridėti klausimą',
   'quizBuilder.answerPlaceholder': 'Įveskite parinktį…',
   'quizBuilder.answersLabel': 'Atsakymų variantai',
   'quizBuilder.back': 'Grįžti prie mano viktorinų',
   'quizBuilder.delete': 'Ištrinti klausimą',
+  'quizBuilder.deleteFailed': 'Nepavyko ištrinti klausimo.',
   'quizBuilder.firstQuestion': 'Pridėkite savo pirmąjį klausimą, kad pradėtumėte.',
   'quizBuilder.idLabel': 'Viktorinos ID: {{id}}',
   'quizBuilder.loadError': 'Nepavyko įkelti viktorinos.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Pridėkite bent du atsakymo variantus ir pasirinkite teisingą {{count}} klausimas(-ai) prieš publikavimą.',
   'quizBuilder.questionsTitle': 'Klausimai',
+  'quizBuilder.saveFailed': 'Nepavyko išsaugoti pavadinimo. Bandykite dar kartą.',
   'quizBuilder.statusDraft': 'Projektas',
   'quizBuilder.subhead':
     'Redaguokite pavadinimą, pridėkite klausimų, nustatykite pasirinkimus ir teisingą atsakymą. Pakeitimai išsaugomi automatiškai.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min.',
   'quizDetail.hostMultiplayer': 'Rengti kelių žaidėjų režimą',
   'quizDetail.leaderboardEmpty': 'Dar nėra žaidimų – būkite pirmas, kuris pasieks rezultatą.',
+  'quizDetail.loadError': 'Nepavyko įkelti šio testo.',
   'quizDetail.loading': 'Kraunama viktorina…',
   'quizDetail.plays': '{{count}} vaidina',
   'quizDetail.playSolo': 'Žaisti vienas',

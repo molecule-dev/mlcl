@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'alerts.acknowledgeLabel': 'အသိအမှတ်ပြုပါ',
   'alerts.customerLabel': 'ဖောက်သည်- {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'ချိတ်ဆက်နေသည်…',
   'carriers.requiredError': 'အမည်နှင့် ကုဒ်နံပါတ် လိုအပ်ပါသည်။',
   'carriers.subheading': '{{count}} ပေါင်းစပ်ထားသော',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ပို့ဆောင်နေစဉ် + အလံပြထားသည်',
   'dashboard.activeShipmentsSubtitle':
@@ -104,6 +107,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'ပို့ဆောင်မှုများ',
   'pricing.trackingLabel': 'ဖြစ်ရပ်များကို ခြေရာခံခြင်း',
   'profile.dangerZone.title': 'အန္တရာယ်ဇုန်',
+  'profile.devices.signingOut': 'ထွက်နေသည်…',
+  'profile.devices.unnamed': 'အမည်မပေးထားသော စက်ပစ္စည်း',
+  'profile.security.disable2fa': '2FA ကို ပိတ်ပါ',
   'profile.security.enable2fa': '2FA ကိုဖွင့်ပါ',
   'profile.security.pwChanged': 'စကားဝှက်ကို အောင်မြင်စွာ ပြောင်းလဲပြီးပါပြီ။',
   'profile.security.pwCurrent': 'လက်ရှိစကားဝှက်',
@@ -113,10 +119,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA အသက်ဝင်နေသည်',
   'profile.security.twoFaCode': 'ဂဏန်း ၆ လုံးပါ ကုဒ်',
   'profile.security.twoFaDisable': 'ပိတ်ရန်',
+  'profile.security.twoFaDisabling': 'ပိတ်နေသည်…',
   'profile.security.twoFaFailed': 'ကုဒ်ကို အတည်ပြု၍မရပါ။',
   'profile.security.twoFaIntro':
     'သင်၏ အထောက်အထားစိစစ်ရေးအက်ပ်ရှိ QR ကုဒ်ကို စကင်ဖတ်ပြီးနောက် အောက်ပါဂဏန်း ၆ လုံးပါ ကုဒ်ကို ရိုက်ထည့်၍ အတည်ပြုပါ။',
   'profile.security.twoFaOn': 'ဤအကောင့်တွင် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်းကို ဖွင့်ထားသည်။',
+  'profile.security.twoFaQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
   'profile.security.twoFaVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'profile.security.twoFaVerifying': 'အတည်ပြုနေသည်…',
   'profile.subheading': 'ဤအလုပ်ခွင်အတွက် အထောက်အထားနှင့် လုံခြုံရေးဆက်တင်များ။',
@@ -135,6 +143,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'ဤလျှို့ဝှက်ချက်ကို သိမ်းဆည်းထားပါ — ၎င်းကို ထပ်မံပြသမည်မဟုတ်ပါ။',
   'settings.api.webhookSecret': 'Webhook လက်မှတ်ထိုးခြင်း လျှို့ဝှက်ချက်',
   'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
+  'settings.deleteAccountConfirm': 'သေချာပါသလား။ ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်၍မရပါ။',
   'settings.notifications.exceptions':
     'ပို့ဆောင်မှု ခြွင်းချက်တစ်ခု ဖြစ်ပေါ်ပါက ကျွန်ုပ်ထံ အီးမေးလ်ပို့ပါ',
   'settings.notifications.heading': 'အကြောင်းကြားချက်များ',
@@ -150,6 +159,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'ပို့ဆောင်မှု မတွေ့ရှိပါ။',
   'shipmentDetail.originHeading': 'မူလအစ',
   'shipmentDetail.shippedOn': 'ပို့ဆောင်ပြီး {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'ခြေရာခံဖြစ်ရပ်များ မရှိသေးပါ — ပို့ဆောင်သူက ပါဆယ်ကို စကင်ဖတ်သည်နှင့်အမျှ ဤနေရာတွင် အပ်ဒိတ်များ ပေါ်လာပါသည်။',
   'shipmentDetail.weightLabel': '{{weight}} ပေါင်',
   'shipments.col.carrier': 'သယ်ယူပို့ဆောင်ရေး',
   'shipments.col.eta': 'ခန့်မှန်းခြေရောက်ရှိမည့်အချိန်',
@@ -179,6 +190,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'ဆိုင်းအင်လုပ်ခြင်း',
   'signup.submit': 'အကောင့်ပြုလုပ်ပါ',
   'team.emailError': 'မှန်ကန်သော အီးမေးလ်လိပ်စာ လိုအပ်ပါသည်။',
+  'team.empty':
+    'အဖွဲ့ဝင် မရှိသေးပါ။ ပို့ဆောင်မှုများတွင် ပူးပေါင်းဆောင်ရွက်ရန် အဖွဲ့ဝင်တစ်ဦးကို ဖိတ်ခေါ်ပါ။',
   'team.eyebrow': 'အဖွဲ့ဝင်များနှင့် ခွင့်ပြုချက်များ',
   'team.inviteDialog.cancel': 'ပယ်ဖျက်ရန်',
   'team.inviteDialog.heading': 'အသင်းဖော်တစ်ယောက်ကို ဖိတ်ခေါ်ပါ',
@@ -201,6 +214,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'လမ်းကြောင်း',
   'waypointLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'webhooks.createFailed': 'webhook အဆုံးမှတ်ကို ဖန်တီး၍မရပါ။',
+  'webhooks.endpointsEmpty':
+    'webhook endpoint များ မရှိသေးပါ။ ပို့ဆောင်မှု အခြေအနေ callback များကို လက်ခံရရှိရန် တစ်ခု ဖန်တီးပါ။',
   'webhooks.endpointsHeading': 'အဆုံးမှတ်များ',
   'webhooks.eventCount': '{{count}} ဖြစ်ရပ်များ',
   'webhooks.eventsHeading': 'မကြာသေးမီက ပေးပို့မှုများ',

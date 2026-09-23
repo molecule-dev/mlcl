@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'about.pageTitle': 'ನಮ್ಮ ಬಗ್ಗೆ {{appName}}',
   'analytics.empty': 'ನಿಶ್ಚಿತಾರ್ಥವನ್ನು ಇಲ್ಲಿ ನೋಡಲು ನಿಮ್ಮ ಮೊದಲ ಕ್ಲಿಪ್ ಅನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ಕ್ಲಿಪ್‌ಗಳು',
   'billing.usage.views': 'ವೀಕ್ಷಣೆಗಳು',
   'billing.usage.views.unit': 'ವೀಕ್ಷಣೆಗಳು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'landing.cta.title': 'ಉತ್ತಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ರವಾನಿಸಿ. ಗ್ಲಿಂಟ್‌ನಿಂದ ಪ್ರಾರಂಭಿಸಿ.',
   'landing.feature.capture.body':
     'ಮೈಕ್, ಕ್ಯಾಮ್ ಮತ್ತು ಡ್ರಾಯಿಂಗ್‌ನೊಂದಿಗೆ ಬ್ರೌಸರ್, ಡೆಸ್ಕ್‌ಟಾಪ್ ಮತ್ತು ಮೊಬೈಲ್ ರೆಕಾರ್ಡಿಂಗ್.',
   'landing.feature.capture.title': 'ಒಂದು-ಟ್ಯಾಪ್ ಕ್ಯಾಪ್ಚರ್',
+  'landing.footer.copy': '© {{year}} {{appName}} . ಅಸಿಂಕ್, ಪ್ರಕಾಶಮಾನವಾಗಿ ಮಾಡಲಾಗಿದೆ.',
   'landing.hero.cardCaption': 'ಮಾದರಿ ಕಾರ್ಯಸ್ಥಳದ ಅವಲೋಕನ - ಇದನ್ನು ಉಚಿತವಾಗಿ ಪ್ರಯತ್ನಿಸಿ.',
   'landing.hero.primaryCta': 'ಉಚಿತವಾಗಿ ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.proof.free': 'ಉಚಿತ ಶಾಶ್ವತ ಶ್ರೇಣಿ',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ರೆಕಾರ್ಡಿಂಗ್‌ಗಳನ್ನು ಹುಡುಕಿ',
   'library.searchPlaceholder': 'ರೆಕಾರ್ಡಿಂಗ್‌ಗಳನ್ನು ಹುಡುಕಿ...',
   'library.weeklyChange': '{{value}} % vs ಕಳೆದ ವಾರ',
+  'nav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'nav.record': 'ದಾಖಲೆ',
   'nav.shared': 'ನನ್ನೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ',
   'nav.startRecording': 'ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ',

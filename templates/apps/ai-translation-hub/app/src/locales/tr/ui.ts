@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'billing.canceled': 'Abonelik iptal edildi. Dönem sonunda Ücretsiz plana döneceksiniz.',
   'billing.contactSales': 'Satış ekibiyle iletişime geçin',
   'billing.free.1': '5 çeviri',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Saklama sınırı yok',
   'billing.upgradeHint': 'Gelişmiş AI özelliklerinin kilidini açmak için yükseltin.',
   'billing.yearly': 'Yıllık',
+  'common.goToDashboard': 'Panele Git',
   'dashboard.activityEmpty': 'Henüz etkinlik yok — bu akışı doldurmak için bir proje başlatın.',
   'dashboard.eyebrow': 'Genel bakış',
   'dashboard.projectsEmpty': 'Henüz proje yok — burada görmek için bir tane başlatın.',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Her projede geçmiş çevirileri yeniden kullanın. Daha yüksek eşleşme puanı → daha az yeniden çalışma.',
   'memory.title': 'Bellek bankası',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'nav.legal': 'Hukuki',
   'newProject.addLanguage': 'Hedef ekle',
   'newProject.create': 'Proje oluştur',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} bildirim okundu olarak işaretlendi.',
   'notifications.subtitle':
     'Tüm çalışma alanlarınızdan bahsetmeler, inceleme istekleri ve AI olayları.',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'privacy.collection.account': 'Hesap e-postanız ve görünen ad',
   'privacy.deletion.body':
     'İlgili sayfadan istediğiniz zaman bir projeyi, segmenti, sözlük terimini veya bellek girişini silebilirsiniz. Ayarlardan hesabınızı silmek, veritabanımızdan çalışma alanı kapsamındaki her satırı temizler.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Projeler yüklenemedi.',
   'projects.loading': 'Projeler yükleniyor…',
   'projects.subtitle': 'Tüm yerel ayarlardaki her etkin proje.',
+  'renditionLayout.primaryNavLabel': 'Birincil gezinme',
   'reset.backToLogin': '\\u2190 Oturum açmaya dön',
   'reset.passwordLabel': 'Yeni şifre',
   'review.activeEyebrow': 'Segment {{number}}',

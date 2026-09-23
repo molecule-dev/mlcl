@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.connectRepoCta': 'Unganisha hazina',
   'dashboard.empty': 'Hakuna maombi ya kuvuta bado — unganisha hazina ili kuanza.',
   'dashboard.eyebrow': 'Refract · foleni ya mapitio',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Muda wa kufanya kazi',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Alama ya ubora wa akili bandia (AI) {{score}} / 10',
+  'refractLayout.closeMenu': 'Funga menyu',
+  'refractLayout.openMenu': 'Fungua menyu',
   'refractLayout.primaryNavLabel': 'Usogezaji mkuu',
   'reports.cumulativeScoreLabel': 'Alama ya jumla',
   'reports.cumulativeScoreSubtitle': 'mapokezi yote · {{days}} d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Imeshindwa kupakia faharasa ya utafutaji.',
   'settings.apiKeys.description':
     'Dhibiti funguo za API za kibinafsi kutoka kwenye menyu ya mtumiaji iliyo juu kulia.',
+  'settings.apiKeys.integrationsNote':
+    'Tokeni za ufikiaji wa mtoa huduma zinasimamiwa katika sehemu ya Ujumuishaji hapo juu.',
   'settings.connectError': 'Imeshindwa kuunganisha mtoa huduma.',
   'settings.disconnectError': 'Imeshindwa kutenganisha mtoa huduma.',
   'settings.eyebrow': 'Kiakisi · nafasi ya kazi',
   'settings.integration.${provider}.label': 'Inahifadhi…',
   'settings.loadError': 'Imeshindwa kupakia mipangilio.',
+  'settings.notificationCenter': 'Kituo cha arifa',
   'settings.notifications.description':
     'Tembelea ukurasa wa arifa ili kuona na kudhibiti mapendeleo ya uwasilishaji.',
   'settings.section.account': 'Akaunti na usalama',

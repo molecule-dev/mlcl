@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'article.notFound': 'ບໍ່ພົບບົດຄວາມ',
   'articleEditor.bodyPlaceholder': 'ພິມ / ສຳລັບບລັອກ, ຫຼືພຽງແຕ່ເລີ່ມຂຽນ.',
+  'articleEditor.loadFailed': 'ບໍ່ສາມາດໂຫຼດບົດຄວາມໄດ້',
   'articleEditor.publishing': 'ການພິມເຜີຍແຜ່\\u2026',
   'articleEditor.saveFailed': 'ບັນທຶກລົ້ມເຫຼວ',
   'articleEditor.saving': 'ກຳລັງບັນທຶກ\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'ບຸກມາກ',
   'articleView.bookmarkOn': 'ບຸກມາກໄວ້ແລ້ວ',
   'articleView.edit': 'ແກ້ໄຂບົດຄວາມ',
+  'articleView.loading': 'ກຳລັງເປີດບົດຄວາມນີ້…',
   'articleView.readTime': '{{minutes}} ອ່ານນາທີ',
   'articleView.spaces': 'ພື້ນທີ່',
   'articleView.tocHeading': 'ໃນໜ້ານີ້',
@@ -36,8 +40,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.readers': 'ຜູ້ອ່ານໃນມື້ນີ້',
   'cairnTrailHero.subtitle': 'ການແກ້ໄຂ, ການອ່ານ ແລະ ຮ່າງຫຼ້າສຸດທີ່ທີມງານຂອງທ່ານຍັງຄົງເຮັດໄດ້ຢູ່.',
   'cairnTrailHero.updated': 'ບົດຄວາມໄດ້ຮັບການອັບເດດແລ້ວ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'drafts.eyebrow': 'ວຽກທີ່ເຈົ້າຍັງບໍ່ສຳເລັດ',
   'drafts.heading': 'ຮ່າງ',
+  'drafts.loadFailed': 'ບໍ່ສາມາດໂຫຼດສະບັບຮ່າງຂອງທ່ານໄດ້.',
   'drafts.subtitle':
     'ບົດຄວາມທີ່ທ່ານໄດ້ເລີ່ມຕົ້ນແລ້ວແຕ່ຍັງບໍ່ທັນໄດ້ເຜີຍແຜ່. ເລືອກບົດຄວາມໜຶ່ງແລະສືບຕໍ່ໄປ.',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'ຍັງບໍ່ມີພື້ນທີ່ເທື່ອ. ເປີດພື້ນທີ່ໜຶ່ງເພື່ອເລີ່ມເກັບກຳບົດຄວາມ.',
   'home.spacesHeading': 'ພື້ນທີ່ຂອງທ່ານ',
   'home.subtitle': 'ບົດຄວາມທີ່ຜ່ານມາ, ບຸກມາກຂອງທ່ານ, ແລະສິ່ງທີ່ທີມງານໄດ້ຂຽນມາ.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . ສ້າງດ້ວຍໂມເລກຸນ.',
   'landing.ctaBody':
     'ຟຣີສຳລັບນັກຂຽນດ່ຽວ. ແຜນທີມສຳລັບທີມງານແບບກະຈາຍທີ່ສົ່ງປຶ້ມຄູ່ມືການດຳເນີນງານ, ການຕັດສິນໃຈ ແລະ ການເລີ່ມເຮັດວຽກ.',
   'landing.ctaHeading': 'ວາງກ້ອນຫີນກ້ອນທຳອິດໃນມື້ນີ້.',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'ສ້າງພື້ນທີ່ເຮັດວຽກ',
   'login.submitting': 'ກຳລັງເຂົ້າສູ່ລະບົບ...',
   'login.subtitle': 'ເລືອກເສັ້ນທາງທີ່ເຈົ້າປະໄວ້.',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
+  'newSpace.colorAria': 'ເລືອກສີ {{color}}',
   'newSpace.colorLabel': 'ສີທີ່ໂດດເດັ່ນ',
+  'newSpace.createFailed': 'ບໍ່ສາມາດສ້າງພື້ນທີ່ໄດ້',
   'newSpace.descriptionPlaceholder':
     'ປຶ້ມຄູ່ມືການແລ່ນ, ປຶ້ມຄູ່ມືການຫຼິ້ນໃນເວລາໂທ, ປຶ້ມບັນທຶກຫຼັງການເສຍຊີວິດ\\u2026',
   'newSpace.eyebrow': 'ເປີດພື້ນທີ່ຄວາມຮູ້',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ກຳລັງໂຫຼດ\\u2026',
   'notifications.subtitle':
     '{{count}} ການກ່າວເຖິງທີ່ຍັງບໍ່ໄດ້ອ່ານ \\u2014, ຄຳເຫັນ, ການປ່ຽນແປງໜ້າ ແລະ ການຮ້ອງຂໍການກວດສອບ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.articles': 'ບົດຄວາມ',
   'pricing.spaces': 'ພື້ນທີ່',
   'profile.eyebrow': 'ໂປຣໄຟລ໌ຜູ້ຂຽນ',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'ໃສ່ລະຫັດຜ່ານໃໝ່',
   'resetPassword.subtitle': 'ເລືອກລະຫັດຜ່ານທີ່ເຂັ້ມແຂງ - ຢ່າງໜ້ອຍ 12 ຕົວອັກສອນ.',
   'searchResults.eyebrow': 'ການຄົ້ນຫາພື້ນທີ່ເຮັດວຽກ',
+  'searchResults.filter.all': 'ພື້ນທີ່ທັງໝົດ',
   'searchResults.heading': 'ຄົ້ນຫາບົດຄວາມ',
   'searchResults.placeholder': 'ຄົ້ນຫາປຶ້ມຄູ່ມື, RFCs, ນະໂຍບາຍ, ການຕັດສິນໃຈ\\u2026',
   'searchResults.summary': '{{count}} ຜົນໄດ້ຮັບສຳລັບ \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'ນີ້ຈະລຶບບັນຊີຂອງທ່ານ ແລະທຸກໆບົດຄວາມທີ່ທ່ານຂຽນ. ພິມ DELETE ເພື່ອຢືນຢັນ.',
   'settings.danger.confirmInvalid': 'ພິມ DELETE ເພື່ອຢືນຢັນ.',
+  'settings.danger.deleteFailed': 'ບໍ່ສາມາດລຶບບັນຊີໄດ້',
   'settings.danger.deleting': 'ກຳລັງລຶບ\\u2026',
   'settings.danger.description':
     'ການລຶບພື້ນທີ່ເຮັດວຽກຂອງທ່ານຈະລຶບບົດຄວາມ, ຄຳເຫັນ ແລະ ປະຫວັດເວີຊັນທັງໝົດ. ຈະບໍ່ມີການກູ້ຄືນຂໍ້ມູນ.',
   'settings.danger.title': 'ລຶບພື້ນທີ່ເຮັດວຽກ',
+  'settings.email.confirm': 'ອັບເດດອີເມວ',
+  'settings.email.confirmTitle': 'ຢືນຢັນການປ່ຽນແປງອີເມວ',
   'settings.email.saved': 'ອັບເດດອີເມວແລ້ວ.',
+  'settings.email.updateFailed': 'ບໍ່ສາມາດອັບເດດອີເມວໄດ້',
   'settings.language.title': 'ພາສາ',
   'settings.name': 'ຊື່',
+  'settings.name.saved': 'ອັບເດດຊື່ແລ້ວ.',
+  'settings.name.updateFailed': 'ບໍ່ສາມາດອັບເດດຊື່ໄດ້',
   'settings.notifications.description': 'ເລືອກສິ່ງທີ່ສົ່ງເຖິງກ່ອງຈົດໝາຍຂອງທ່ານ.',
+  'settings.password.changeFailed': 'ບໍ່ສາມາດປ່ຽນລະຫັດຜ່ານໄດ້',
   'settings.password.current': 'ລະຫັດຜ່ານປັດຈຸບັນ',
   'settings.password.new': 'ລະຫັດຜ່ານໃໝ່',
   'settings.password.saving': 'ກຳລັງອັບເດດ\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'ບົດຄວາມຕ່າງໆສະແດງຜົນແນວໃດສຳລັບທ່ານ.',
   'settings.reading.title': 'ການອ່ານ ແລະ ການຂຽນ',
   'settings.subtitle': 'ປັບແຕ່ງການແຈ້ງເຕືອນ, ຕາຕະລາງການອ່ານ ແລະ ບັນຊີຂອງທ່ານ.',
+  'settings.twofa.code': 'ລະຫັດການພິສູດຢືນຢັນຕົວຕົນ',
   'settings.twofa.disable': 'ປິດການໃຊ້ງານ',
   'settings.twofa.disabled': 'ພິການ',
   'settings.twofa.enable': 'ເປີດໃຊ້',
   'settings.twofa.enabled': 'ເປີດໃຊ້ງານແລ້ວ',
+  'settings.twofa.invalidCode': 'ລະຫັດບໍ່ຖືກຕ້ອງ',
+  'settings.twofa.unavailable': 'ການພິສູດຢືນຢັນສອງປັດໄຈບໍ່ສາມາດໃຊ້ໄດ້ສຳລັບແອັບນີ້.',
+  'settings.twofa.verify': 'ຢືນຢັນ ແລະ ເປີດໃຊ້',
   'signup.brandQuote':
     '\\u201cການຂຽນມັນລົງແມ່ນຄຳສັນຍາທຳອິດທີ່ພວກເຮົາໃຫ້ກັບຄົນຕໍ່ໄປທີ່ຕ້ອງການມັນ.\\u201d',
   'signup.eyebrow': 'ເປີດພື້ນທີ່ເຮັດວຽກ',

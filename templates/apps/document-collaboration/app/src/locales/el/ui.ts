@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.title': 'Σχετικά με το {{app}}',
   'comments.addFailed': 'Δεν ήταν δυνατή η δημοσίευση του σχολίου.',
   'comments.backToDoc': 'Επιστροφή στο χειρόγραφο',
   'comments.deleteFailed': 'Δεν ήταν δυνατή η διαγραφή.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Επίλυση',
   'comments.resolveFailed': 'Δεν ήταν δυνατή η επίλυση.',
   'comments.subtitle': '{{open}} ανοιχτό · Το ζήτημα «{{resolved}}» έχει επιλυθεί',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.activityHeading': 'Τι συμβαίνει',
   'dashboard.createFailed': 'Δεν ήταν δυνατή η δημιουργία εγγράφου.',
   'dashboard.empty': 'Δεν υπάρχουν ακόμη χειρόγραφα — ξεκινήστε πατώντας το κουμπί «Νέο έγγραφο».',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Δεν ήταν δυνατή η μετακίνηση στον κάδο απορριμμάτων.',
   'editor.unpublish': 'Ανάκληση δημοσίευσης',
   'editor.untitled': 'Έγγραφο χωρίς τίτλο',
+  'editor.updatedElsewhere':
+    'Αυτό το έγγραφο ενημερώθηκε από κάποιον άλλο — επαναλάβετε τη φόρτωση για να δείτε την πιο πρόσφατη έκδοση.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Εάν υπάρχει λογαριασμός με τη διεύθυνση {{email}}, θα σας σταλεί σύντομα ένας σύνδεσμος επαναφοράς.',
   'forgotPassword.subtitle': 'Θα σας στείλουμε μέσω email έναν σύνδεσμο επαναφοράς.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Κατασκευασμένο με Molecule.',
   'landing.ctaHeading': 'Άνοιξε τη σελίδα. Άσε τον κέρσορα να ξεκινήσει.',
   'landing.ctaPrimary': 'Άνοιξε ένα στούντιο',
   'landing.eyebrow': 'Για συγγραφείς, συντάκτες και ομάδες',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'επεξεργασία{{when}}',
   'quillonDocumentCard.open': 'Άνοιγμα →',
   'quillonKpiCard.trend': 'Πρόσφατη τάση',
+  'quillonLayout.menu': 'Μενού',
   'quillonLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'quillonStudioHero.collab': 'Συνεργάτες',
   'quillonStudioHero.docs': 'Έγγραφα στα οποία έγινε αναφορά',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}η πριν',
   'time.hoursAgo': '{{hours}}ω πριν',
   'time.justNow': 'μόλις τώρα',
+  'trash.confirmDelete': 'Επιβεβαίωση διαγραφής',
   'trash.deleteFailed': 'Δεν ήταν δυνατή η διαγραφή.',
   'trash.deleteForever': 'Οριστική διαγραφή',
   'trash.empty': 'Δεν υπάρχει τίποτα να ανακτήσω.',
+  'trash.emptyAll': 'Αδειασμός κάδου',
   'trash.eyebrow': 'Στούντιο',
   'trash.heading': 'Κάδος',
   'trash.loadFailed': 'Αδυναμία φόρτωσης κάδου.',

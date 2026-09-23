@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     "Ụdị ule: a na-edekọ iwu ma dozie nguzozi, mana a naghị akwụ ụgwọ kaadị n'ezie.",
   'checkout.placeOrderCta': 'Debe iwu',
+  'checkout.placeOrderError': 'Enweghị m ike itinye iwu gị.',
   'checkout.placingOrder': 'Itinye iwu…',
   'checkout.review.shipTo': 'Mbupu na',
   'checkout.review.subtotal': 'Ngụkọta nke onye na-ere ahịa',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Bụrụ onye na-ere ahịa',
   'landing.footer.copyright': '© {{year}} {{name}} - onye nrụpụta ọ bụla, otu ahịa.',
   'landing.footer.help': 'Ebe enyemaka',
+  'landing.nav.keepShopping': 'Nọgide na-azụ ahịa',
   'landing.nav.sell': 'Ree na Vendry',
   'landing.nav.shop': 'Ụlọ ahịa',
   'landing.nav.signUp': 'Jikọọ',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Ihe ndị na-azụ ahịa na-amasị',
   'login.accountTypeAria': 'Ụdị akaụntụ',
   'login.heading': 'Nnọọ na Vendry',
+  'login.legalPrefix': 'Site na ịbanye, ị kwenyere na anyị',
   'login.subheading': "Banye ka ị gaa n'ihu na-azụ ahịa ma ọ bụ laghachi n'ụlọ ahịa gị.",
   'login.submitShopper': 'Banye ka ịzụ ahịa',
   'login.submitVendor': 'Banye na ụlọ ahịa m',
@@ -88,10 +91,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'E tinyere ya {{date}} · {{vendorCount}} onye na-ere ahịa · mmezu nke ọtụtụ ndị na-ere ahịa',
   'orders.empty': 'Enweghị iwu ọ bụla dabara na nzacha a.',
+  'orders.emptyTitle': 'Enweghị iwu ebe a ugbu a',
   'orders.eyebrow': 'Ihe ndị ị zụtara',
   'orders.subtitle':
     'Hụ onye zigara ihe, soro onye na-ere ahịa na-esochi ihe ahụ, ma ghara ịlafu otu ngwugwu ọzọ.',
   'orders.title': 'Iwu, nke onye na-ere ahịa kewara',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'productDetail.addToCart': 'Tinye na ụgbọ ibu',
   'productDetail.addToCartError': 'Enweghị ike itinye na ụgbọ ibu.',
   'productDetail.addToCartSuccess': '" {{name}} "agbakwunyere na ụgbọ ibu gị.',
@@ -132,12 +137,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Jikwaa otu esi azụ ahịa, otu ndị na-ere ahịa si ezute gị, na ebe ego na-aga.',
   'signup.heading': "Jikọọ n'ahịa",
+  'signup.legalPrefix': 'Site na isonyere, ị kwenyere na anyị',
   'signup.mismatch': 'Okwuntughe adabaghị.',
   'signup.subheading':
     'Chọgharịa ihe karịrị ndị nrụpụta nọọrọ onwe ha 4,000, ma ọ bụ mepee ụlọ ahịa nke gị.',
   'status.delivered': 'E zigara ya',
   'status.refunded': 'Akwụghachiri ego',
+  'userMenu.marketplaceSettings': 'Ntọala ahịa',
   'vendor.memberSince': 'Onye otu kemgbe {{date}}',
+  'vendorDashboard.defaultShop': 'ụlọ ahịa gị',
   'vendorDashboard.eyebrow': 'Onye nchịkwa onye na-ere ahịa · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} A kwadoro ya mgbe Vendry kọmishọna gasịrị. Ụgwọ ọzọ na-abịa na Fraịdee.',
@@ -156,12 +164,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Ebe ị na-eme ihe, ihe ị na-eme, ihe kpatara ya ji dị mkpa.',
   'vendorOnboarding.currencyLabel': 'Gbanwee ego gị',
   'vendorOnboarding.errors.shopName': 'Aha ụlọ ahịa dị mkpa.',
+  'vendorOnboarding.errors.submit': 'Enweghị m ike izipu ngwa gị.',
   'vendorOnboarding.exit': "Chekwaa ma gaa n'ihu ma emechaa",
   'vendorOnboarding.eyebrow': 'Tinye akwụkwọ maka ire na Vendry',
+  'vendorOnboarding.field.shopName': 'Aha ụlọ ahịa',
   'vendorOnboarding.heroBody':
     "Kọmishọn dị larịị nke 8%, ụgwọ ọrụ kwa Fraịdee, ụlọ ahịa gị, akụkọ gị. Gwa anyị ntakịrị gbasara ụlọ ahịa gị, anyị ga-akpọtụrụ gị n'ime awa iri anọ na asatọ.",
   'vendorOnboarding.review.contact': 'Kpọtụrụ',
   'vendorOnboarding.review.currency': 'Ego',
+  'vendorOnboarding.review.tagline': 'Akara mkpado',
+  'vendorOnboarding.review.website': 'Websaịtị',
   'vendorOnboarding.reviewBody':
     "Ọ dị mma nke ukwuu. Anyị ga-enyocha ụlọ ahịa gị n'ime awa iri anọ na asatọ ma ziga ụgwọ mbụ gị na Fraịdee mgbe ire ere mbụ gị gasịrị.",
   'vendorOnboarding.samplesLabel': 'Ọrụ nlele - Instagram, pọtụfoliyo, foto',
@@ -170,11 +182,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     "E tinyere akwụkwọ anamachọihe! Anyị ga-enyocha ụlọ ahịa gị ma zitere gị ozi-e n'ime awa iri anọ na asatọ.",
   'vendorOnboarding.taxIdLabel': 'NJ ụtụ isi',
+  'vendorOrders.emptyTitle': 'Enweghị iwu a ga-emezu ugbu a',
   'vendorOrders.eyebrow': 'Onye nchịkwa onye na-ere ahịa',
+  'vendorOrders.kpi.awaiting': 'Na-eche mmezu',
   'vendorOrders.kpi.inTransit': "N'ụzọ",
   'vendorOrders.subtitle':
     'Bipụta akara ndị e dere, denye akara ndị e mezuru, ma zaa ajụjụ niile — ihe niile na-apụghị na Vendry.',
   'vendorOrders.title': 'Iwu ndị na-abata',
+  'vendorPayouts.emptyTitle': 'Enwebeghị ụgwọ ọ bụla',
   'vendorPayouts.eyebrow': 'Ego onye na-ere ahịa',
   'vendorPayouts.heroCaption': 'Ọ gara Banco na BPI {{account}} · Ụbọchị azụmahịa 1–2',
   'vendorPayouts.history': 'Akụkọ ịkwụ ụgwọ',
@@ -192,7 +207,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Ebee ka e si kee ya? Akụkọ dị aṅaa ka o dere?',
   'vendorProductForm.error.name': 'Aha ngwaahịa dị mkpa',
   'vendorProductForm.error.price': 'Tinye ọnụahịa dị mma',
+  'vendorProductForm.error.publish': 'Mbipụta agaghị',
   'vendorProductForm.eyebrow': 'Ndepụta ọhụrụ',
+  'vendorProductForm.eyebrowEdit': 'Dezie ndepụta',
   'vendorProductForm.images.body':
     'Dọrọ ma dobe ihe ruru onyonyo asatọ. Foto mbụ ahụ ga-aghọ mkpuchi ụlọ ahịa.',
   'vendorProductForm.images.cta': 'Dọrọ foto ebe a ma ọ bụ chọọ',
@@ -204,6 +221,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Chekwaa mgbanwe',
   'vendorProductForm.title': 'Gwa ndị ahịa gbasara ihe ị zụtara',
   'vendorProductForm.variants.colInventory': 'Ndepụta Ngwaahịa',
+  'vendorProductForm.variants.colVariant': 'Ụdị dị iche',
   'vendorProducts.eyebrow': 'Onye nchịkwa onye na-ere ahịa',
   'vendorProducts.kpi.draft': 'Edemede',
   'vendorProducts.kpi.lowStock': 'Ngwaahịa dị ala',

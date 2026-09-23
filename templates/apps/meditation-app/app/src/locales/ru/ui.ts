@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.eyebrow': 'О {{app}}',
+  'about.intro':
+    '{{app}} — это приложение для медитации, созданное для реальной жизни: ежедневные управляемые медитации, дыхательные упражнения и истории для сна под руководством преподавателей, которые воспринимаются как друзья, а не как тренеры. Никакого чувства вины за серию повторений, никакой шумной ленты: просто тихое место, где можно вернуться к своему дыханию.',
+  'about.missionBody':
+    'Мы считаем, что спокойствие должно быть доступно каждому, в любое время дня. {{app}} создано для того, чтобы спокойная и регулярная практика ощущалась без усилий — чтобы десять честных минут могли изменить то, как вы встретите следующие десять часов.',
+  'about.missionTitle': 'Наша миссия',
+  'about.pageTitle': '10 минут спокойного времени в день',
+  'breathingDial.seconds': 'секунд',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.logout': 'Выйти',
   'common.min': 'мин',
   'common.relative.justNow': 'только что',
   'common.relative.now': 'сейчас',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
+  'nav.secondaryNavigation': 'Навигация по учетной записи',
   'sessionCard.with': 'с {{name}}',
   'stillpoint.billing.choose': 'Выбирать {{plan}}',
   'stillpoint.billing.currentPlan': 'В данный момент на {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Нам не удалось загрузить планы.',
   'stillpoint.billing.opening': 'Открытие кассы…',
   'stillpoint.billing.perMonthShort': '/ м',
+  'stillpoint.billing.perYearShort': '/год',
   'stillpoint.billing.unknownResult': 'Неожиданный ответ по поводу выставления счета.',
   'stillpoint.billing.yearly': 'Ежегодно · экономия 17%',
   'stillpoint.courseDetail.back': 'Курсы',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Курсов пока нет.',
   'stillpoint.courses.eyebrow': '{{count}} многодневные поездки',
   'stillpoint.courses.heading': 'Курсы',
+  'stillpoint.forgot.checkEmail': 'Проверьте свою почту — ссылка истечет через 30 минут.',
   'stillpoint.forgot.success': 'Мы отправили ссылку для сброса пароля на {{email}} .',
   'stillpoint.home.empty': 'Пока нет свободных мест — загляните позже.',
   'stillpoint.home.friend': 'друг',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Создайте бесплатную учетную запись',
   'stillpoint.landing.cta.title': 'Начните обретать покой сегодня!',
   'stillpoint.landing.features.heading': 'Практика, которая развивается вместе с вами.',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Ежедневные медитации под руководством инструктора, дыхательные упражнения и рассказы для сна — в темпе, заданном преподавателями, которые воспринимаются как друзья, а не как тренеры.',
   'stillpoint.landing.hero.eyebrow': '10 минут спокойного времени в день',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Просматривайте по настроению',
   'stillpoint.login.rememberMe': 'Оставаться в системе',
   'stillpoint.login.subheading': 'Войдите в систему, чтобы продолжить тренировку.',
+  'stillpoint.nav.tagline': 'Найдите свой неподвижный центр',
+  'stillpoint.notFound.body':
+    'Эта страница где-то делает глубокий вдох. Давайте найдем для вас более тихое место в {{app}} .',
   'stillpoint.notFound.title': 'Затерянный в тишине',
   'stillpoint.notFound.toHome': 'Вернемся к сегодняшнему дню',
   'stillpoint.notFound.toLibrary': 'Просмотреть библиотеку',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Перемотать назад на 15 секунд',
   'stillpoint.player.skipForward': 'Перемотать вперед на 30 секунд',
   'stillpoint.player.with': 'с {{name}}',
+  'stillpoint.profile.defaultHandle': 'указатель неподвижного положения',
   'stillpoint.profile.eyebrow': 'Ваша практика вкратце.',
   'stillpoint.profile.locked': 'Заблокировано',
   'stillpoint.profile.member': 'Участник Stillpoint',

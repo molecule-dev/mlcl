@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// om {{app}}',
+  'about.pageTitle': 'Webhook-kontrolplanet',
+  'about.plansTitle': 'Planer for hver fase',
   'apiKeys.bestPractices': 'Bedste praksis',
   'apiKeys.body':
     'Programmatiske adgangstokens. Behandl dem som adgangskoder — gem dem i miljøvariabler, og commit dem aldrig.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'inden for planen',
   'billing.usageWarning': 'nær hætten',
   'billing.yearly': 'Årlig',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.body':
     'Live-gennemløb, gentagelser under kørsel og de slutpunkter, der lige er gået i stå – på tværs af alle de arbejdsområder, du betjener.',
   'dashboard.endpointsEmpty': 'Ingen slutpunkter endnu.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endepunkter',
   'endpointDetail.deliveryTrendSub': 'leverancer / time, logskala',
   'endpointDetail.hideSecret': 'Skjul hemmelighed',
+  'endpointDetail.loading': 'Indlæser slutpunkt…',
   'endpointDetail.metric.delivered': 'Leveret inden for 24 timer',
   'endpointDetail.metric.deliveredCaption': 'fra {{count}} begivenhedstyper',
   'endpointDetail.metric.failuresCaption': 'forsøg: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritisk · 24 timer',
   'notifications.metric.totalCaption': 'indbakke til enhver tid',
   'payloadViewer.payload': '// nyttelast',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Initialer vist — uploads følger med den næste udgivelse.',
   'profile.body': 'Din konto, præferencer og aktive sessioner.',
@@ -227,6 +233,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ gemt',
   'profile.sessionsEmpty': 'Kun din nuværende session er aktiv. Ingen andre enheder er logget ind.',
   'profile.toggle': 'Skift {{label}}',
+  'pylonShell.closeMenu': 'Luk navigationsmenuen',
+  'pylonShell.openMenu': 'Åbn navigationsmenuen',
   'pylonShell.primaryNavLabel': 'Primær navigation',
   'resetPassword.subtitle': 'Vælg en stærk adgangskode, du ikke har brugt før.',
   'resetPassword.tokenPlaceholder': 'indsæt fra e-mail',

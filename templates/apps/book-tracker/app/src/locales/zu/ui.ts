@@ -151,7 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Qala kabusha uchungechunge',
   'resetPassword.mismatchError': 'Amaphasiwedi awafani.',
   'resetPassword.subheading': 'Khetha into eqinile. Izincwadi zakho ziyolinda.',
-  'reviewCard.starsAria': 'Kulinganiswe<x> {{isilinganiso}}</x> koku<x> {{of}}</x> izinkanyezi',
+  'reviewCard.starsAria': 'Kulinganiswe izinkanyezi ezingu {{rating}} kwezingu {{of}}',
   'reviewCard.unratedAria': 'Akukalwanga',
   'reviews.eyebrow': 'Yini esale nawe',
   'reviews.heading': 'Ukubuyekezwa kwakho',

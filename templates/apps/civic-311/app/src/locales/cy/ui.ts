@@ -175,7 +175,7 @@ export const ui: UiTranslations = {
   'settingsTeamSection.roleName': 'Preswylydd',
   'settingsTeamSection.title': 'Tîm a Chaniatâd',
   'sideNavBar.brandName': '{{appName}}',
-  'sideNavBar.closeMenu': 'Cau&#39;r ddewislen lywio',
+  'sideNavBar.closeMenu': "Cau'r ddewislen lywio",
   'sideNavBar.menuLabel': 'Mordwyo',
   'sideNavBar.navExplore': 'Archwilio',
   'sideNavBar.navMyReports': 'Fy adroddiadau',
@@ -198,7 +198,7 @@ export const ui: UiTranslations = {
   'status.submitted': 'Cyflwynwyd',
   'terms.lastUpdated': 'Diweddarwyd ddiwethaf: 2026-05-01',
   'terms.title': 'Telerau gwasanaeth',
-  'watchAreas.deleteError': 'Methu dileu&#39;r ardal gwylio.',
+  'watchAreas.deleteError': "Methu dileu'r ardal gwylio.",
   'watchAreas.empty':
     'Dim ardaloedd gwylio eto — cadwch un i ddechrau clywed am adroddiadau cyfagos.',
   'watchAreas.loadError': 'Methwyd llwytho ardaloedd gwylio. Rhowch gynnig arall arni.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Par {{app}}',
   'analytics.avgCheckLabel': 'Vidējā pārbaude',
   'analytics.busiestHour': 'Noslogotākā stunda',
   'analytics.coversToday': 'Vāki šodien',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Dzeramnauda (vidēji)',
   'analytics.topItems': 'Populārākās preces šodien',
   'authShell.eyebrow': 'Laipni lūdzam atpakaļ servisā',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Silta un ātra pārdošanas vieta viesmīlības komandām. Piesakieties savā virtuvē un turpiniet darbu no vietas, kur pārtraucāt.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'vai {{price}}',
   'billing.priceUnavailable': 'Šim plānam nav konfigurētas cenas.',
   'billing.updated': 'Plāns ir atjaunināts.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'customerDetail.book': 'Pievienot rezervāciju',
   'customerDetail.col.table': 'Galds',
   'customerDetail.confirmDelete': 'Vai dzēst šo viesa ierakstu?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Pieejamība',
   'menuItemDetail.available': 'Pieejams šovakar',
   'menuItemDetail.backToMenu': 'Atpakaļ uz izvēlni',
+  'menuItemDetail.confirmDelete': 'Vai dzēst šo izvēlnes vienumu?',
   'menuItemDetail.delete': 'Dzēst vienumu',
   'menuItemDetail.deleteError': 'Dzēšana neizdevās. Mēģiniet vēlreiz.',
   'menuItemDetail.dietary': 'Uztura tagi',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Saglabāšana neizdevās. Mēģiniet vēlreiz.',
   'menuItemDetail.subheading': '{{category}} · Rediģēt fotoattēlu, modifikatorus, diētu un cenas.',
   'menuItemDetail.untitled': 'Bez nosaukuma esošs vienums',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'notFound.heading': 'Šis galds neatrodas uz grīdas.',
   'notFound.subheading': 'Lapa, kuru meklējāt, atrodas citur vai nekad nav pastāvējusi.',
+  'notFound.toLanding': '{{app}} sākumlapa',
   'notifications.markError': 'Nevarēja atzīmēt visus kā izlasītus.',
   'orderDashboard.activeDelta': 'Tiešraide tagad',
   'orderDashboard.activeLabel': 'Aktīvie pasūtījumi',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Rādīt paroli',
   'resetPassword.subtitle': 'Ievadiet jauno paroli, lai atgūtu piekļuvi virtuvei.',
   'resetPassword.tokenLabel': 'Atiestatīt žetonu',
+  'restaurantOrderingLayout.primaryNavLabel': 'Galvenā navigācija',
   'revenueHeroCard.activeOrders': '{{count}} aktīvs',
   'revenueHeroCard.change': '{{sign}} {{amount}} salīdzinājumā ar vakardienu',
   'revenueHeroCard.title': 'Šodienas ieņēmumi',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restorāna nosaukums',
   'tableDetail.activeOrders': 'Aktīvie pasūtījumi',
   'tableDetail.backToFloor': 'Stāva plāns',
+  'tableDetail.confirmDelete': 'Vai dzēst šo tabulu?',
   'tableDetail.delete': 'Dzēst',
   'tableDetail.deleteError': 'Nevarēja izdzēst tabulu.',
   'tableDetail.heading': 'Galds {{label}}',

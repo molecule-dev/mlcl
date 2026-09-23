@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'authShell.brandHeading': 'พื้นที่ทำงานแบบหลายผู้เล่นสำหรับทีมออกแบบที่ชอบคิดแบบเปิดเผย',
   'billing.canceled': 'การสมัครสมาชิกถูกยกเลิกแล้ว',
   'billing.cancelPlan': 'ยกเลิกแผน',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'เริ่มต้นจากเทมเพลต',
   'boards.title': 'บอร์ดของคุณ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'forgot.emailPlaceholder': 'มิรา@สตูดิโอ.com',
   'forgot.subheading':
     'ป้อนอีเมลที่เชื่อมโยงกับพื้นที่ทำงานของคุณ แล้วเราจะส่งลิงก์สำหรับรีเซ็ตให้',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
     'ออกแบบมาเพื่อการคิดแบบไม่เป็นระเบียบ สร้างสรรค์ และเกิดขึ้นจริงในสถานที่จริง',
   'landing.demoBoard.title': 'การประชุมเชิงปฏิบัติการไตรมาสที่ 1 · เสียงของแบรนด์',
   'landing.featuresTitle': 'ผลตอบรับรวดเร็ว ภาพวาดสวยงาม ไร้ปัญหา',
+  'landing.hero.body':
+    '{{appName}} คือกระดานไวท์บอร์ดแบบผู้เล่นหลายคนสำหรับทีมออกแบบ ผู้ดำเนินงานเวิร์คช็อป และนักการศึกษาที่จัดการระดมสมองแบบสดๆ และต้องการให้ไอเดียต่างๆ มารวมกันในที่เดียว',
   'landing.hero.primaryCta': 'สร้างบอร์ดได้ฟรี',
   'landing.hero.socialProof': 'ได้รับความไว้วางใจจาก {{count}} ทีมออกแบบทั่วโลก',
   'landing.hero.title': 'ผืนผ้าใบที่เคลื่อนไหวได้รวดเร็วราวกับความคิดของคุณ',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'สร้างพื้นที่ทำงานฟรี',
   'login.subheading':
     'ดำเนินการต่อจากจุดที่การอบรมเชิงปฏิบัติการสิ้นสุดลง — กระดาน กระดาษโน้ต และเคอร์เซอร์ทั้งหมดจะซิงค์กันแบบเรียลไทม์',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.new': 'ใหม่',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'notifications.editTitle': 'การแก้ไข " {{board}} "',
   'notifications.empty.body':
     'คำเชิญ การบันทึกภาพหน้าจอ และการแก้ไขบอร์ดล่าสุดจะปรากฏที่นี่ทันทีที่เกิดขึ้น',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ประวัติเวอร์ชัน',
   'versionHistory.untitledSnapshot': 'ภาพถ่ายไร้ชื่อ',
   'whiteboardLayout.newBoard': 'บอร์ดใหม่',
+  'whiteboardLayout.primaryNav': 'การนำทางหลัก',
   'workspace.boardLabel': 'กระดาน',
   'workspace.eyebrow': '{{name}} · พื้นที่ทำงาน',
   'workspace.invite': 'เชิญผู้ร่วมงาน',

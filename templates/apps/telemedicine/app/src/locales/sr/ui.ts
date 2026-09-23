@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Закажите термин',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Нема пацијената за приказивање.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'consult.backLink': 'Сви закази',
   'consult.captions': 'Титлови',
   'consult.connected': 'Повезано · 720p · стабилно',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Пацијенти',
   'patientVitalsHero.scripts': 'Рецепт отворен',
   'patientVitalsHero.subline': '{{count}} консултације по вашем распореду данас',
+  'planUpdated.verifying': 'Потврђивање уплате…',
   'prescriptions.empty': 'Ниједан рецепт се не подудара.',
   'prescriptions.eyebrow': 'Е-рецепт',
   'prescriptions.heading': 'Рецепти',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Обавештење о приватности',
   'privacy.use.body':
     'Да бисмо пружили негу, слали подсетнике за заказивање, прописивали лекове и побољшали поузданост услуге. Никада не продајемо ваше податке и никада не делимо клиничке информације са оглашивачима.',
+  'providers.allSpecialties': 'Све специјалности',
+  'providers.loadError': 'Учитавање добављача није успело.',
+  'providers.loading': 'Учитавање…',
   'providers.noResults': 'Није пронађен ниједан добављач.',
   'providers.searchPlaceholder': 'Претрага по имену, специјалности...',
   'providers.title': 'Пронађите добављача',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Почетак дана',
   'settings.availability.heading': 'Доступност',
   'settings.devices.thisDevice': 'Овај уређај',
+  'settings.devices.unnamed': 'Неименовани уређај',
   'settings.eyebrow': 'Вежбање и рачун',
   'settings.loadError': 'Није могуће учитати ваш профил.',
   'settings.notifications.emailMessages': 'Пошаљи ми имејл када ми тим за негу одговори',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Онемогући',
   'settings.security.twoFactor.enable': 'Омогући',
   'settings.security.twoFactor.heading': 'Двофакторска аутентификација',
+  'settings.security.twoFactor.invalidCode': 'Тај код се не подудара. Покушајте поново.',
+  'settings.security.twoFactor.setupFailed':
+    'Није могуће покренути двофакторско подешавање. Покушајте поново.',
+  'settings.security.twoFactor.statusOn': 'Двофакторски режим је укључен',
   'settings.signOutDevice': 'Одјавите се',
   'settings.subheading': 'Профил пружаоца услуга, правила праксе и клиничка упозорења.',
   'signup.emailLabel': 'ИМЕЈЛ',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Направи налог',
   'signupFooter.hipaa': 'У складу са HIPAA прописима',
   'solaceLayout.primaryNavLabel': 'Примарна навигација',
+  'solaceLayout.toggleMenu': 'Укључи/искључи мени',
   'terms.eligibility.body':
     'Морате имати најмање осамнаест година или бити родитељ или законски старатељ малолетног лица за којег тражите негу и физички се налазити у држави САД у којој наши клиничари поседују лиценцу.',
   'terms.payment.body':

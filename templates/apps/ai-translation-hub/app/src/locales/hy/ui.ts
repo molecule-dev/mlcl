@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'billing.canceled': 'Բաժանորդագրությունը չեղարկված է։ Դուք կվերադառնաք անվճարի ժամկետի ավարտին։',
   'billing.contactSales': 'Կապվեք վաճառքի հետ',
   'billing.free.1': '5 թարգմանություն',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.upgradeHint':
     'Թարմացրեք՝ արհեստական բանականության առաջադեմ գործառույթները բացելու համար։',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.activityEmpty':
     'Դեռևս գործունեություն չկա՝ սկսեք նախագիծ՝ այս լրահոսը լրացնելու համար։',
   'dashboard.eyebrow': 'Ընդհանուր տեսք',
@@ -115,6 +117,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Վերաօգտագործել նախկին թարգմանությունները յուրաքանչյուր նախագծում: Ավելի բարձր համընկնման միավոր → ավելի քիչ վերաշխատանք:',
   'memory.title': 'Հիշողության բանկ',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'nav.legal': 'Իրավական',
   'newProject.addLanguage': 'Ավելացնել թիրախ',
   'newProject.create': 'Ստեղծել նախագիծ',
@@ -144,6 +148,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Նշված {{count}} ծանուցումները կարդացվածի պես։',
   'notifications.subtitle':
     'Հիշատակումներ, վերանայման հարցումներ և արհեստական բանականության միջոցառումներ ձեր աշխատանքային տարածքներից։',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'privacy.collection.account': 'Ձեր հաշվի էլ․ հասցեն և ցուցադրվող անունը',
   'privacy.deletion.body':
     'Դուք կարող եք ցանկացած պահի ջնջել նախագիծը, հատվածը, բառարանի տերմինը կամ հիշողության գրառումը համապատասխան էջից: Ձեր հաշիվը «Կարգավորումներ» բաժնից ջնջելը մեր տվյալների բազայից մաքրում է աշխատանքային տարածքի շրջանակում գտնվող բոլոր տողերը:',
@@ -179,6 +184,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Չհաջողվեց բեռնել նախագծերը։',
   'projects.loading': 'Նախագծերը բեռնվում են…',
   'projects.subtitle': 'Բոլոր տեղական մակարդակներում գործող յուրաքանչյուր ակտիվ նախագիծ։',
+  'renditionLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'reset.backToLogin': '\\u2190 Վերադառնալ մուտք գործելու համար',
   'reset.passwordLabel': 'Նոր գաղտնաբառ',
   'review.activeEyebrow': 'Հատված {{number}}',

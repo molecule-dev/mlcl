@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
+  'about.eyebrow': 'Om {{app}}',
   'about.pageTitle': 'Hver rute, ett søk.',
   'booking.backToDetail': 'Tilbake til flydetaljene',
   'booking.continue': 'Fortsett til betaling',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Skatter og avgifter',
   'booking.summary.travelers': 'Reisende',
   'common.about': 'Om',
+  'common.goToDashboard': 'Gå til oversikt',
   'flightDetail.backToResults': 'Tilbake til resultater',
   'flightDetail.baseFare': 'Basispris',
   'flightDetail.book': 'Fortsett med bestillingen',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stopp',
   'flightResultCard.select': 'Velge',
   'flightResultCard.totalLabel': 'Total tid',
+  'flightSearchLayout.primaryNavLabel': 'Primær navigasjon',
   'forgotPassword.subheading':
     'Skriv inn e-postadressen for Skylark-kontoen din, så sender vi deg en sikker tilbakestillingslenke.',
   'forgotPassword.successBody':
     'Sjekke {{email}} for en lenke for å angi et nytt passord. Lenken utløper om 30 minutter.',
   'forgotPassword.successHeading': 'Tilbakestill lenke sendt',
   'landing.cta.explore': 'Prøv et søk',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Finn den neste gode prisen før alle andre.',
   'landing.cta.signup': 'Begynn å spore priser',
   'landing.features.eyebrow': 'Hvorfor sanglerke',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Legg til varsel',
   'priceAlerts.deleteConfirm': 'Fjerne dette varselet?',
   'priceAlerts.empty': 'Ingen sporede ruter ennå.',
+  'priceAlerts.emptyCta': 'Søk etter en rute å spore',
   'priceAlerts.errorMessage': 'Kunne ikke laste inn varsler.',
   'priceAlerts.eyebrow': 'Skylark-overvåkningsliste',
   'priceAlerts.form.createError': 'Kunne ikke opprette varsel.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Reiseplan for flere byer',
   'results.multiLegHeading': 'Bein {{n}} · {{fra}} → {{til}} · {{dato}}',
   'results.multiSummary': '{{count}} bein · {{passengers}} reisende',
+  'results.sortAriaLabel': 'Sorter resultater etter',
   'results.sortLabel': 'Sortere',
   'results.summary': '{{count}} flyreiser · {{passengers}} reisende',
   'settings.language.title': 'Språk',

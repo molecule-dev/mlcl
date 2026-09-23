@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'auth.fields.newPassword': 'Ny adgangskode',
   'collectionDetail.addImage': 'Frembring til samlingen',
   'collectionDetail.backCta': 'Tilbage til samlinger',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, briefs og igangværende serier',
   'collections.title': 'Samlinger',
   'collections.untitled': 'Uden titel · {{stamp}}',
+  'common.closeMenu': 'Luk menu',
+  'common.dismiss': 'Afvis',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.openMenu': 'Åbn navigationsmenuen',
   'credits.eyebrow': '{{plan}}-abonnement',
   'credits.renewsCopy': 'Abonnementet fornyes den {{date}}',
   'credits.trail': 'Dagdrøm · {{plan}} niveau',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Genereringer, deling og kreditadvarsler vises her.',
   'notifications.empty.title': 'Intet at rapportere',
   'notifications.subtitle': 'Genereringer grupperet pr. dag',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'pricing.limits.gallery': '{{count}} galleri',
   'privacy.collect.body':
     'Når du tilmelder dig, indsamler vi dit navn, din e-mailadresse og en hashed adgangskode. Når du bruger Reverie, gemmer vi de prompts, du indsender, billederne vi genererer til dig, de stilarter og samlinger, du gemmer, samt metadata som anvendt model, genereringstidsstempler og kreditbalance.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Gem ny adgangskode',
   'reset.submitting': 'Opdaterer adgangskode…',
   'settings.account.handle': 'Brugernavn',
+  'settings.account.lastSaved': 'Aktiv profil · {{name}}',
   'settings.account.saved': 'Profil gemt',
   'settings.account.saveFailed': 'Profilen kunne ikke gemmes',
   'settings.account.title': 'Skaberprofil',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nyt billede',
   'sidebar.secondary': 'Sekundær navigation',
   'signup.failed': 'Oprettelse mislykkedes. Prøv igen.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Begynd din reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Opret en konto og få 120 gratis kreditter.',
   'styles.empty': 'Ingen stilforindstillinger endnu — de vises efter første login.',
   'styles.eyebrow': 'Kurateret',

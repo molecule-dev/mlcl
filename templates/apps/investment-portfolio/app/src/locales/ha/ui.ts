@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Game da {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Kayan aikin arziki',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ba shawara ce ta saka hannun jari ba.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) a yau',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Babban kewayawa',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Babu ma’amaloli don wannan alamar.',
   'assetDetail.txHeading': 'Ma’amaloli naka',
   'common.and': 'kuma',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Bayanin Fayil',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Babu mallakar gida tukuna.',
   'holdings.heading': 'Riƙewa',
   'holdings.loadError': 'An kasa loda abubuwan da ke riƙewa.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ba shawara ce ta saka hannun jari ba. Ayyukan da suka gabata ba su tabbatar da sakamako na gaba ba.',
   'landing.eyebrow': 'Argent · Dandalin kayan aiki masu wadata',
   'landing.features.heading': 'Duk abin da mai ba da shawara zai gina wa kansa.',
   'landing.finalCta.heading': 'Ku dawo da ladabi ga fayil ɗinku.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} h da ya wuce',
   'news.justNow': 'yanzu kawai',
   'news.loadError': 'An kasa loda labarai.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'portfolioHeroCard.label': 'Darajar Fayil',
   'pricing.holdingsLabel': 'riƙewa',
   'pricing.newsLabel': 'labaran labarai',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Share asusu',
   'settings.security.deleting': 'Ana gogewa…',
   'settings.security.heading': 'Tsaro',
+  'settings.security.newPassword': 'Sabuwar kalmar sirri',
   'settings.security.password': 'Kalmar sirri',
   'settings.security.twoFactorEnable': 'Kunna',
+  'settings.security.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
+  'settings.security.twoFactorVerify': 'Tabbatar & kunna',
   'settings.tax.error': 'Ba za a iya sabunta hanyar haraji ba.',
   'settings.tax.heading': 'Lissafin kuɗin haraji',
   'settings.tax.method': 'Hanyar asali',

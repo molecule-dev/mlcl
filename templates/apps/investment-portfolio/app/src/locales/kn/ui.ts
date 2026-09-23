@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'argentAuthShell.brandEyebrow': 'ಅರ್ಜೆಂಟ್ · ಸಂಪತ್ತು ಪರಿಕರಗಳು',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ಹೂಡಿಕೆ ಸಲಹೆಯಲ್ಲ.',
   'argentAuthShell.sampleChange': 'ಇಂದು +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ಈ ಟಿಕ್ಕರ್‌ಗೆ ಯಾವುದೇ ವಹಿವಾಟುಗಳಿಲ್ಲ.',
   'assetDetail.txHeading': 'ನಿಮ್ಮ ವಹಿವಾಟುಗಳು',
   'common.and': 'ಮತ್ತು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಅವಲೋಕನ',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಹೋಲ್ಡಿಂಗ್‌ಗಳಿಲ್ಲ.',
   'holdings.heading': 'ಹೋಲ್ಡಿಂಗ್ಸ್',
   'holdings.loadError': 'ಹೋಲ್ಡಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'landing.copyright':
+    '© {{year}} {{app}} . ಹೂಡಿಕೆ ಸಲಹೆಯಲ್ಲ. ಹಿಂದಿನ ಕಾರ್ಯಕ್ಷಮತೆಯು ಭವಿಷ್ಯದ ಫಲಿತಾಂಶಗಳನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ.',
   'landing.eyebrow': 'ಅರ್ಜೆಂಟ್ · ಸಂಪತ್ತು-ಸಾಧನ ವೇದಿಕೆ',
   'landing.features.heading': 'ಸಲಹೆಗಾರರು ತನಗಾಗಿ ನಿರ್ಮಿಸಿಕೊಳ್ಳುವ ಎಲ್ಲವೂ.',
   'landing.finalCta.heading': 'ನಿಮ್ಮ ಪೋರ್ಟ್‌ಫೋಲಿಯೊಗೆ ಶಿಸ್ತನ್ನು ಮರಳಿ ತನ್ನಿ.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ಗಂ ಹಿಂದೆ',
   'news.justNow': 'ಈಗ ತಾನೇ',
   'news.loadError': 'ಸುದ್ದಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'portfolioHeroCard.label': 'ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಮೌಲ್ಯ',
   'pricing.holdingsLabel': 'ಹಿಡುವಳಿಗಳು',
   'pricing.newsLabel': 'ಸುದ್ದಿ ಲೇಖನಗಳು',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'ಖಾತೆಯನ್ನು ಅಳಿಸಿ',
   'settings.security.deleting': 'ಅಳಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.security.heading': 'ಭದ್ರತೆ',
+  'settings.security.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'settings.security.password': 'ಪಾಸ್ವರ್ಡ್',
   'settings.security.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.security.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.security.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.tax.error': 'ತೆರಿಗೆ ವಿಧಾನವನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.tax.heading': 'ತೆರಿಗೆ ಸ್ಥಳ ಲೆಕ್ಕಪತ್ರ ನಿರ್ವಹಣೆ',
   'settings.tax.method': 'ಡೀಫಾಲ್ಟ್ ವಿಧಾನ',

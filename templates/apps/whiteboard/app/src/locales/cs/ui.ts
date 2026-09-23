@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'authShell.brandHeading': 'Plátna pro více hráčů pro designové týmy, které myslí nahlas.',
   'billing.canceled': 'Předplatné zrušeno.',
   'billing.cancelPlan': 'Zrušit plán',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Začít od šablony',
   'boards.title': 'Vaše nástěnky',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Zadejte e-mailovou adresu propojenou s vaším pracovním prostorem a my vám zašleme odkaz pro resetování.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Workshop pro 1. čtvrtletí · Hlas značky',
   'landing.featuresEyebrow': 'Co způsobuje, že je Slate mozaiková',
   'landing.featuresTitle': 'Rychlá zpětná vazba. Krásná plátna. Nulové tření.',
+  'landing.hero.body':
+    '{{appName}} je multiplayerová bílá tabule pro designové týmy, moderátory workshopů a pedagogy, kteří pořádají živé brainstormingy a potřebují shromáždit nápady na jednom místě.',
   'landing.hero.primaryCta': 'Založte si nástěnku zdarma',
   'landing.hero.socialProof': 'Důvěryhodné pro {{count}} designové týmy po celém světě',
   'landing.hero.title': 'Plátno rychlé jako vaše myšlenky',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Vytvořte si bezplatný pracovní prostor',
   'login.subheading':
     'Pokračujte tam, kde jste ve workshopu skončili – nástěnky, lepicí papírky a kurzory se synchronizují v reálném čase.',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.new': 'Nové',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
   'notifications.editTitle': 'Úpravy " {{board}} "',
   'notifications.empty.body':
     'Pozvánky, uložené snímky a nedávné úpravy nástěnky se zde budou zobrazovat ihned po provedení úprav.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historie verzí',
   'versionHistory.untitledSnapshot': 'Bez názvu snímek',
   'whiteboardLayout.newBoard': 'Nová deska',
+  'whiteboardLayout.primaryNav': 'Primární navigace',
   'workspace.boardLabel': 'Rada',
   'workspace.eyebrow': '{{name}} · pracovní prostor',
   'workspace.invite': 'Pozvat spolupracovníky',

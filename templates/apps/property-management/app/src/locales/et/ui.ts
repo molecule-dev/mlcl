@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.tagline': 'Iga üksus ühe katuse all.',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.addProperty': 'Lisa vara',
   'dashboard.empty.body':
     'Kui teil on kinnisvara, üksused ja üürimaksed olemas, täitub see armatuurlaud portfelliandmetega.',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{omadus}} · Ühik {{üksus}} · kuupäev',
   'maintenanceQueueList.subtitle': '{{count}} avatud töökorraldused prioriteedi järgi järjestatud',
   'maintenanceQueueList.title': 'Hooldusjärjekord',
+  'nav.closeMenu': 'Sulge menüü',
+  'nav.openMenu': 'Ava menüü',
   'notFound.body':
     'Leht, mida otsisid, on teisaldatud, arhiveeritud või pole seda kunagi olemas olnud.',
   'notFound.title': 'See uks ei avane',

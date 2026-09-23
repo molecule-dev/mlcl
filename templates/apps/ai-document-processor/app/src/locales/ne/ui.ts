@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'सम्पर्कमा रहनुहोस्',
+  'about.title': '{{app}} बारे',
   'authShell.backToLanding': '← अवतरणमा फर्कनुहोस्',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'common.yes': '✓',
   'dashboard.eyebrow': 'आज · सञ्चालनको सिंहावलोकन',
   'dashboard.heading': 'कागजात बुद्धिमत्ता',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'हालका फिल्टरहरूसँग कुनै पनि कागजातहरू मेल खाँदैनन्।',
   'documents.heading': 'सबै कागजातहरू',
   'documents.loadError': 'कागजातहरू लोड गर्न असफल भयो।',
+  'documents.loading': 'लाइब्रेरी लोड गर्दै...',
   'documents.searchLabel': 'कागजातहरू खोज्नुहोस्',
   'documents.searchPlaceholder': 'कागजातहरू खोज्नुहोस्...',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'पासवर्ड लुकाउनुहोस्',
   'login.showPassword': 'पासवर्ड देखाउनुहोस्',
   'login.subtitle': 'आफ्ना कागजातहरू प्रवाहित राख्न साइन इन गर्नुहोस्।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'notFound.body':
     'तपाईंले खोल्न खोज्नुभएको कागजात वा मार्ग अब यहाँ छैन। ड्यासबोर्डमा फर्कनुहोस् वा साइडबारबाट कुनै खण्ड छान्नुहोस्।',
+  'notFound.eyebrow': '{{app}} · ४०४',
   'notFound.home': 'ल्यान्डिङ पृष्ठ खोल्नुहोस्',
   'notFound.title': 'त्यो पृष्ठ फाइलमा छैन।',
   'parcelaHeroCard.change': '{{sign}} {{amount}} हिजोको तुलनामा %',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'सक्रिय नियमहरू',
   'rules.empty': 'अहिलेसम्म कुनै फाइलिङ नियम छैन। एउटा थप्न नयाँ नियम प्रयोग गर्नुहोस्।',
   'rules.eyebrow': 'स्वचालन',
+  'rules.fieldsCount': '{{count}} क्षेत्रहरू',
   'rules.form.destination': 'फाइलमा',
   'rules.form.name': 'नियमको नाम',
   'rules.form.save': 'नियम सेभ गर्नुहोस्',

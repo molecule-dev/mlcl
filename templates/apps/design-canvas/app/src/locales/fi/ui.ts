@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'authShell.brandHeading':
     'Täydellisiä pikselikokoisia pohjapiirroksia yhdessä toimiville suunnittelutiimeille.',
   'canvas.redirecting': 'Avataan editori…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'ja',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.retry': 'Yritä uudelleen',
   'dashboard.activityEmpty': 'Ei vielä viimeaikaista toimintaa — kutsu tiimikaveri aloittamaan.',
   'dashboard.activityTitle': 'Mikä muuttui tänään',
   'dashboard.activityViewAll': 'Näytä kaikki ilmoitukset',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Työtila · Northwind Studio',
   'dashboard.foldersLabel': 'Kansiot',
   'dashboard.gridTitle': '{{count}} projektia',
+  'dashboard.heroActiveTool': 'Kynätyökalu',
   'dashboard.loadingTitle': 'Ladataan projekteja…',
   'dashboard.searchPlaceholder': 'Hae projekteja',
   'dashboard.startFromTemplate': 'Aloita mallista',
   'dashboard.title': 'Projektisi',
   'dashboard.untitledProject': 'Nimetön projekti',
   'designCanvasLayout.newProject': 'Uusi projekti',
+  'designCanvasLayout.primaryNavLabel': 'Päänavigaatio',
   'editor.backToProjects': 'Takaisin projekteihin',
   'editor.deleteShape': 'Poista muoto',
   'editor.errorBody': 'Emme voineet avata tätä projektia.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Suunnittele työkaluja, jotka liikkuvat käsiesi nopeudella',
   'library.empty': 'Tässä osiossa ei ole vielä tokeneita.',
   'library.eyebrow': 'Työtila · Ateljee-suunnittelujärjestelmä',
+  'library.loadFailed': 'Suunnittelutokenien lataaminen epäonnistui.',
   'library.systemMeta': 'Järjestelmän terveys',
   'library.systemSummary':
     '{{tokenit}} tokeneita · {{komponentit}} komponentit · {{vaikutukset}} vaikutukset',

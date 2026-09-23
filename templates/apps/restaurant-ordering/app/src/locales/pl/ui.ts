@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O {{app}}',
   'analytics.avgCheckLabel': 'Średni rachunek',
   'analytics.busiestHour': 'Najbardziej oblegana godzina',
   'analytics.coversToday': 'Goście dziś',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Napiwki (śr.)',
   'analytics.topItems': 'Najlepsze pozycje dziś',
   'authShell.eyebrow': 'Witamy ponownie na służbie',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Ciepły i szybki punkt sprzedaży dla zespołów gastronomicznych. Proszę zalogować się do swojej kuchni i kontynuować od miejsca, w którym Pan/Pani skończył(-a).',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'lub {{price}}',
   'billing.priceUnavailable': 'Ten plan nie ma skonfigurowanej ceny.',
   'billing.updated': 'Plan zaktualizowany.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'customerDetail.book': 'Dodaj rezerwację',
   'customerDetail.col.table': 'Stolik',
   'customerDetail.confirmDelete': 'Usunąć ten profil gościa?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Dostępność',
   'menuItemDetail.available': 'Dostępne dziś wieczorem',
   'menuItemDetail.backToMenu': 'Powrót do menu',
+  'menuItemDetail.confirmDelete': 'Usunąć tę pozycję menu?',
   'menuItemDetail.delete': 'Usuń pozycję',
   'menuItemDetail.deleteError': 'Nie udało się usunąć. Proszę spróbować ponownie.',
   'menuItemDetail.dietary': 'Etykiety dietetyczne',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Zapis nie powiódł się. Proszę spróbować ponownie.',
   'menuItemDetail.subheading': '{{category}} · edytuj zdjęcie, dodatki, dietę i cenę.',
   'menuItemDetail.untitled': 'Pozycja bez nazwy',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'notFound.heading': 'Tego stolika nie ma na sali.',
   'notFound.subheading':
     'Strona, której Pan/Pani szukał(-a), została posadzona gdzie indziej — albo nigdy nie istniała.',
+  'notFound.toLanding': '{{app}} strona główna',
   'notifications.markError': 'Nie udało się oznaczyć wszystkich jako przeczytane.',
   'orderDashboard.activeDelta': 'Na żywo',
   'orderDashboard.activeLabel': 'Aktywne zamówienia',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Pokaż hasło',
   'resetPassword.subtitle': 'Proszę podać nowe hasło, aby odzyskać dostęp do kuchni.',
   'resetPassword.tokenLabel': 'Token resetu',
+  'restaurantOrderingLayout.primaryNavLabel': 'Nawigacja główna',
   'revenueHeroCard.activeOrders': '{{count}} aktywnych',
   'revenueHeroCard.change': '{{sign}}{{amount}} vs wczoraj',
   'revenueHeroCard.title': 'Dzisiejszy przychód',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nazwa restauracji',
   'tableDetail.activeOrders': 'Aktywne zamówienia',
   'tableDetail.backToFloor': 'Plan sali',
+  'tableDetail.confirmDelete': 'Usunąć tę tabelę?',
   'tableDetail.delete': 'Usuń',
   'tableDetail.deleteError': 'Nie udało się usunąć stolika.',
   'tableDetail.heading': 'Stolik {{label}}',

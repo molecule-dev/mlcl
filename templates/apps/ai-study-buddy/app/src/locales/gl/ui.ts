@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Cargando información do plan…',
   'billing.popular': 'Máis querido/a',
   'billing.subtitle': 'Escolle o plan que se axuste á túa cadencia de estudo.',
+  'common.goToDashboard': 'Ir ao panel',
   'common.today': 'Hoxe',
   'common.yesterday': 'Onte',
   'courseDetail.empty.body': 'Engade material de estudo para comezar a dominar este tema.',
@@ -79,8 +80,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Nome da baralla',
   'flashcards.subtitle': 'Repetición espaciada que se adapta ao teu ritmo.',
   'flashcards.title': 'Tarxetas de memoria',
+  'footer.copyright': '© {{year}} {{app}} . Aprende ben, dorme ben.',
   'forgotPassword.subtitle':
     'Introduce o teu correo electrónico e enviarémosche unha ligazón de restablecemento.',
+  'koanLayout.closeMenu': 'Pechar menú',
+  'koanLayout.navLabel': 'Navegación principal',
+  'koanLayout.openMenu': 'Abrir menú',
   'koanLayout.theme': 'Tema',
   'landing.featuresBody':
     'Ferramentas deseñadas para eliminar distraccións e construír unha comprensión duradeira.',
@@ -115,11 +120,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ese URL é territorio descoñecido. Quizais unha errata, quizais unha lección eliminada... de calquera xeito, imos axudarte a volver ao estudo.',
   'notFound.heading': 'Páxina non atopada.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Estás ao día',
   'notifications.filter.${opt}': 'Cargando notificacións…',
   'notifications.markAllError': 'Non se puido marcar todo como lido.',
   'notifications.markError': 'Non se puido marcar como lido.',
   'notifications.subtitle': '{{count}} actualizacións sen ler',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.heading': 'cuestionarios',
   'pricing.limits.topics': 'temas',
   'privacy.collectBody':
@@ -185,6 +192,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Proba cunha palabra clave ou un filtro diferente.',
   'search.empty.title': 'Nada coincidía.',
   'search.error': 'Non se puideron cargar os resultados.',
+  'search.filters': 'Filtros de tipo de resultado',
   'search.go': 'Ir',
   'search.label.flashcard': 'Baralla de tarxetas didácticas',
   'search.label.note': 'Nota',

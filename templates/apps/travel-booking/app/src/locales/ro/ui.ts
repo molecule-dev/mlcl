@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.featureDiscover.title': 'Inspirație, aleasă cu grijă',
   'account.addPaymentCta': 'Adăugați metoda de plată',
   'account.addPaymentError': 'Nu s-a putut adăuga metoda de plată.',
+  'account.confirmRemove': 'Confirmă ștergerea',
   'account.defaultBadge': 'Implicit',
   'account.loyalty.pointsTowardNext': '{{puncte}} de {{Următorul}} mile până la {{nextTier}}',
   'account.loyalty.tier': 'Nivelul actual',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Detalii despre călătorie',
   'booking.tripSummary': '{{nights}} nopți · {{guests}} oaspeți',
   'common.daysAgo': 'acum {{count}}z',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.hoursAgo': 'acum {{count}}h',
   'common.minutesAgo': '{{count}} acum m',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Legal',
   'notifications.loading': 'Se încarcă…',
   'notifications.subheading': '{{count}} necitit · totul într-o singură căsuță poștală calmă',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.accommodationsLabel': 'cazare',
   'pricing.bookingsLabel': 'rezervări',
   'pricing.destinationsLabel': 'destinații salvate',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Inspirație, sejururi de încredere și o cale fără probleme de la vis la rezervare - în 14 țări și peste 200 de proprietăți verificate cu atenție.',
   'sojournHeroSearchCard.trustProtected': 'Anulare gratuită, complet protejat',
   'sojournHeroSearchCard.trustVetted': 'Numai proprietăți verificate manual',
+  'travelBookingLayout.primaryNavLabel': 'Navigare principală',
   'tripDetail.backLink': 'Înapoi la călătorii',
   'tripDetail.cancelCta': 'Anulează rezervarea',
   'tripDetail.cancelHeading': 'Anulați această călătorie?',

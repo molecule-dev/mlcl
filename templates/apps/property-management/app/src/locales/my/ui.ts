@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.tagline': 'ယူနစ်တိုင်း၊ တစ်ခုတည်းသော အမိုးအကာအောက်တွင်။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.addProperty': 'ပိုင်ဆိုင်မှုထည့်ပါ',
   'dashboard.empty.body':
     'အိမ်ခြံမြေများ၊ ယူနစ်များနှင့် ငှားရမ်းခများ ပေးချေပြီးသည်နှင့် ဤ dashboard တွင် portfolio insights များဖြင့် ပြည့်နှက်နေပါသည်။',
@@ -90,6 +93,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} ဦးစားပေးအလိုက် အစီအစဉ်တကျ စီစဉ်ထားသော အလုပ်မှာယူမှုများ',
   'maintenanceQueueList.title': 'ပြုပြင်ထိန်းသိမ်းမှုတန်းစီခြင်း',
+  'nav.closeMenu': 'မီနူးကို ပိတ်ပါ',
+  'nav.openMenu': 'မီနူးဖွင့်ပါ',
   'notFound.body':
     'သင်ရှာဖွေနေသော စာမျက်နှာကို ရွှေ့လိုက်ပါပြီ၊ မော်ကွန်းတင်ထားပါသည် သို့မဟုတ် ဘယ်တုန်းကမှ မရှိခဲ့ဖူးပါ။',
   'notFound.title': 'အဲဒီတံခါးက မဖွင့်ဘူး',

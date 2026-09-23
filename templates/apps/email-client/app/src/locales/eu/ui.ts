@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Diseinatzaile eta ingeniari talde banatu bat gara, eta garai batean egunero ordu gehiegi postontzi zaratatsu batean ematen genuen. Courier da geuk erabili nahi genuen sarrera-ontzia.',
   'about.title': 'Lanerako arreta jartzeko posta elektronikoa',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'help.cta.about': 'Courier-i buruz',
   'help.cta.pricing': 'Ikusi prezioak',
   'help.eyebrow': 'Laguntza zentroa',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Gehien entzuten ditugun galderei erantzun azkarrak. Zerbait falta al da? Ireki Ezarpenak eta erabili aplikazio barruko iritzi-formularioa, edo idatzi support@courier.example helbidera.',
   'help.title': 'Nola lagundu dezakegu?',
   'landing.brand.scrollTop': 'Gora itzuli',
+  'landing.copyright': '© {{year}} {{appName}} — Fokuratzeko eraikia.',
   'landing.ctaBody':
     'Batu zaitez bazkaldu aurretik sarrera-ontzia amaitu duten milaka profesionalei.',
   'landing.ctaTitle': 'Gehiago prozesatu, gutxiago erreakzionatu.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Ikusi demoa',
   'landing.heroSubtitle':
     'Courier hiru paneleko sarrera-ontzi lasaia da, informazioa prozesatu nahi duten ezagutza-langileentzat eraikia, ez horri erreakzionatu nahi diotenentzat.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Mundu osoko talde espezializatuen konfiantza dute',
   'landing.signIn': 'Hasi saioa',
   'meridian.archive.empty': 'Artxiboa hutsik dago.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Zirriborroa',
   'meridian.folder.count': '{{count}} mezuak',
+  'meridian.folder.delete': 'Ezabatu',
   'meridian.folder.deleteForever': 'Ezabatu betiko',
   'meridian.folder.restore': 'Sarrerako ontzira eraman',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Ez dago mezurik hemen oraindik.',
   'meridian.inbox.loading': 'Kargatzen…',
   'meridian.inbox.next': 'Hurrengoa',
+  'meridian.inbox.noSender': '(bidaltzailerik gabe)',
   'meridian.inbox.noSubject': '(gairik gabe)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}} tik',
   'meridian.inbox.openCompose': 'Ireki idazketa',
   'meridian.inbox.previous': 'Aurrekoa',
   'meridian.inbox.replyFailed': 'Erantzuna gorde da baina bidalketa huts egin du: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Ez duzu konturik?',
   'meridian.login.showPassword': 'Erakutsi pasahitza',
   'meridian.message.toLine': 'ra {{recipients}}',
+  'meridian.notFound.body':
+    'Ezin izan da bilatzen ari zaren orria aurkitu. Itzuli zure {{appName}} sarrera-ontzira eta bide onetik jarriko zaitugu.',
   'meridian.notFound.eyebrow': '404 errorea',
   'meridian.notFound.title': 'Hari hau artxibatu egin da.',
   'meridian.notFound.toInbox': 'Ireki nire sarrera-ontzia',
@@ -135,18 +143,22 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Gehitu izarra',
   'meridian.thread.unstar': 'Kendu izarra',
   'meridian.time.yesterday': 'Atzo',
+  'meridian.topBar.openMenu': 'Ireki nabigazio menua',
   'meridian.topBar.searchPlaceholder': 'Bilatu posta elektronikoa',
   'meridian.trash.empty': 'Zaborra hutsik dago.',
   'meridian.trash.title': 'Zaborra',
   'nav.legal': 'Legezko',
   'planUpdated.description':
     'Zure harpidetza aktibo dago orain eta zure fakturazioa eguneratu da. Ongi etorri zure Courier sarrera-ontzi freskatura.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.heading': 'zirriborroak',
   'pricing.limit.emails': 'mezu elektronikoak',
   'pricing.limit.folders': 'karpetak',
   'pricing.limit.labels': 'etiketak',
   'privacy.collect.account':
     'Kontuaren datuak: izena, helbide elektronikoa, pasahitza hash bidez eta izena eman zenuen data.',
+  'privacy.contact':
+    'Galderarik baduzu, bidali mezu elektroniko bat privacy@courier.example helbidera.',
   'privacy.intro':
     'Pribatutasun-politika honek Courierek zer datu biltzen dituen azaltzen du, zergatik biltzen ditugun, nola gordetzen ditugun seguru eta zer aukera dituzun horien inguruan. Legalistak izan beharrean, zehatzak izatea dugu helburu; zerbait argi ez baduzu, idatzi privacy@courier.example helbidera.',
   'privacy.lastUpdated': 'Azken eguneraketa: 2026ko apirilaren 1a',
@@ -166,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Baldintza hauek Courieren erabilera arautzen dute. Kontu bat sortuz edo gure bidez mezu elektroniko bat bidaliz gero, baldintza horiek betetzea onartzen duzu. Pertsona batek benetan jarrai ditzakeen arauak idazten saiatzen gara.',
   'terms.lastUpdated': 'Indarrean: 2026ko apirilaren 1a',
+  'terms.linkPrivacy': 'Irakurri gure Pribatutasun Politika →',
   'terms.termination.body':
     'Edozein unetan ezaba dezakezu zure kontua. Baldintza hauek urratzen dituen kontu bat eten dezakegu; hala egiten badugu, arrazoia azalduko dizugu eta lehenik zure datuak esportatzen utziko dizugu.',
   'terms.warranty.body':

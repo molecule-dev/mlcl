@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'auth.fields.newPassword': 'പുതിയ പാസ്വേഡ്',
   'collectionDetail.addImage': 'ശേഖരണത്തിനായി മോഹിപ്പിക്കുക',
   'collectionDetail.backCta': 'ശേഖരങ്ങളിലേക്ക് മടങ്ങുക',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'മൂഡ്-ബോർഡുകൾ, ബ്രീഫുകൾ, തുടർന്നുള്ള പരമ്പരകൾ',
   'collections.title': 'ശേഖരങ്ങൾ',
   'collections.untitled': 'പേരില്ലാത്തത് · {{stamp}}',
+  'common.closeMenu': 'മെനു അടയ്ക്കുക',
+  'common.dismiss': 'നിരസിക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'credits.eyebrow': '{{plan}} പദ്ധതി',
   'credits.renewsCopy': 'പ്ലാൻ പുതുക്കുന്ന തീയതി {{date}}',
   'credits.trail': 'റിവറി · {{plan}} ടയർ',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     'ജനറേഷൻ ആക്റ്റിവിറ്റി, പങ്കിടൽ, ക്രെഡിറ്റ് അലേർട്ടുകൾ എന്നിവ ഇവിടെ ദൃശ്യമാകും.',
   'notifications.empty.title': 'റിപ്പോർട്ട് ചെയ്യാൻ ഒന്നുമില്ല',
   'notifications.subtitle': 'ദിവസം അനുസരിച്ച് തരംതിരിച്ച തലമുറ ഇവന്റുകൾ',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.limits.gallery': '{{count}} ഗാലറി',
   'privacy.collect.body':
     'നിങ്ങൾ സൈൻ അപ്പ് ചെയ്യുമ്പോൾ നിങ്ങളുടെ പേര്, ഇമെയിൽ വിലാസം, ഒരു ഹാഷ് ചെയ്ത പാസ്‌വേഡ് എന്നിവ ഞങ്ങൾ ശേഖരിക്കും. നിങ്ങൾ Reverie ഉപയോഗിക്കുമ്പോൾ, നിങ്ങൾ സമർപ്പിക്കുന്ന പ്രോംപ്റ്റുകൾ, ഞങ്ങൾ നിങ്ങൾക്കായി സൃഷ്ടിക്കുന്ന ചിത്രങ്ങൾ, നിങ്ങൾ സംരക്ഷിക്കുന്ന സ്റ്റൈലുകളും ശേഖരങ്ങളും, ഉപയോഗിച്ച മോഡൽ, ജനറേഷൻ ടൈംസ്റ്റാമ്പുകൾ, ക്രെഡിറ്റ് ബാലൻസ് തുടങ്ങിയ മെറ്റാഡാറ്റ എന്നിവ ഞങ്ങൾ സംഭരിക്കുന്നു.',
@@ -170,6 +176,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'പുതിയ പാസ്‌വേഡ് സംരക്ഷിക്കുക',
   'reset.submitting': 'പാസ്‌വേഡ് അപ്‌ഡേറ്റ് ചെയ്യുന്നു…',
   'settings.account.handle': 'കൈകാര്യം ചെയ്യുക',
+  'settings.account.lastSaved': 'സജീവ പ്രൊഫൈൽ · {{name}}',
   'settings.account.saved': 'പ്രൊഫൈൽ സംരക്ഷിച്ചു',
   'settings.account.saveFailed': 'പ്രൊഫൈൽ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല',
   'settings.account.title': 'സ്രഷ്ടാവിന്റെ പ്രൊഫൈൽ',
@@ -192,7 +199,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'പുതിയ ചിത്രം',
   'sidebar.secondary': 'ദ്വിതീയ നാവിഗേഷൻ',
   'signup.failed': 'സൈൻ അപ്പ് പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
+  'signup.firstNamePlaceholder': 'ആര്യ',
   'signup.heading': 'നിങ്ങളുടെ ധ്യാനം ആരംഭിക്കൂ',
+  'signup.lastNamePlaceholder': 'ലിൻ',
   'signup.subheading': 'ഒരു അക്കൗണ്ട് സൃഷ്ടിച്ച് 120 സൗജന്യ ക്രെഡിറ്റുകൾ ക്ലെയിം ചെയ്യുക.',
   'styles.empty': 'ഇതുവരെ സ്റ്റൈൽ പ്രീസെറ്റുകളൊന്നുമില്ല — ആദ്യ സൈൻ-ഇന്നിനുശേഷം അവ ദൃശ്യമാകും.',
   'styles.eyebrow': 'ക്യുറേറ്റ് ചെയ്‌തത്',

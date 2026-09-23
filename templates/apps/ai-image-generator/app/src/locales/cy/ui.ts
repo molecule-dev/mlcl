@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'auth.fields.newPassword': 'Cyfrinair newydd',
   'collectionDetail.addImage': 'Conjure ar gyfer casglu',
   'collectionDetail.backCta': "Yn ôl i'r casgliadau",
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Byrddau hwyliau, briffiau a chyfresi parhaus',
   'collections.title': 'Casgliadau',
   'collections.untitled': 'Di-deitl · {{stamp}}',
+  'common.closeMenu': "Cau'r ddewislen",
+  'common.dismiss': 'Diystyru',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.openMenu': 'Agor y ddewislen lywio',
   'credits.eyebrow': '{{plan}} cynllun',
   'credits.renewsCopy': 'Cynllun yn adnewyddu ar {{date}}',
   'credits.trail': 'Breuddwyd · {{plan}} haen',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Bydd gweithgaredd cynhyrchu, rhannu a rhybuddion credyd yn ymddangos yma.',
   'notifications.empty.title': "Dim byd i'w adrodd",
   'notifications.subtitle': "Digwyddiadau cenhedlaeth wedi'u grwpio yn ôl diwrnod",
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.limits.gallery': '{{count}} oriel',
   'privacy.collect.body':
     "Pan fyddwch chi'n cofrestru, rydym yn casglu eich enw, cyfeiriad e-bost, a chyfrinair wedi'i hasio. Wrth i chi ddefnyddio Reverie, rydym yn storio'r awgrymiadau rydych chi'n eu cyflwyno, y delweddau rydyn ni'n eu cynhyrchu ar eich cyfer chi, yr arddulliau a'r casgliadau rydych chi'n eu cadw, a metadata fel y model a ddefnyddiwyd, stampiau amser cynhyrchu, a balans credyd.",
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Cadw cyfrinair newydd',
   'reset.submitting': 'Yn diweddaru cyfrinair…',
   'settings.account.handle': 'Trin',
+  'settings.account.lastSaved': 'Proffil gweithredol · {{name}}',
   'settings.account.saved': "Proffil wedi'i gadw",
   'settings.account.saveFailed': "Methu cadw'r proffil",
   'settings.account.title': 'Proffil y crëwr',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Delwedd newydd',
   'sidebar.secondary': 'Mordwyo eilaidd',
   'signup.failed': 'Methodd y gofrestru. Rhowch gynnig arall arni.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Dechreuwch eich breuddwyd',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crëwch gyfrif a hawliwch 120 credyd am ddim.',
   'styles.empty':
     'Dim rhagosodiadau arddull eto — byddant yn ymddangos ar ôl y mewngofnodi cyntaf.',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Ynghylch {{app}}',
+  'auth.legalConsent': "Wrth barhau, rydych yn cytuno i'n",
   'bookings.empty.body': 'Ychwanegwch hediad, gwesty, neu weithgaredd i gychwyn y mewnflwch.',
   'bookings.empty.heading': 'Dim archebion eto.',
   'bookings.errors.create': 'Methwyd creu archeb.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': "Wedi'i gadarnhau",
   'bookings.summary.pending': 'Yn aros am gadarnhad',
   'bookings.summary.total': "Cyfanswm wedi'i ymrwymo",
+  'bookings.type.car': 'Car rhent',
+  'bookings.type.flight': 'Hedfan',
+  'bookings.type.hotel': 'Gwesty',
   'bookings.type.other': 'Arall',
   'budgetSpendCard.budgetTotal': "o {{total}} wedi'i gynllunio",
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Sylwch ar wrthdaro, cynlluniwch ddiwrnodau adfer rhwng teithiau, a gweld pryd mae cydweithwyr yn teithio gyda chi.',
   'common.and': 'a',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.budgetHeading': 'Curiad cyllideb',
   'dashboard.empty.heading': 'Dim teithiau eto — mae eich atlas yn wag.',
   'dashboard.eyebrow': 'Rheoli cenhadaeth',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Teithiau mewn symudiad',
   'dashboard.viewAllExpenses': 'Gweld pob treuliau',
   'dashboard.viewAllTrips': 'Gweld pob taith',
+  'dayTimelineRow.category.accommodation': 'Aros',
   'dayTimelineRow.category.transport': 'Trafnidiaeth',
   'destinationOrbCard.exploreCta': 'Ychwanegu at daith',
   'destinationOrbCard.tripCount': '{{count}} teithiau',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Dim e-bost eto? Gwiriwch eich ffolder sbam, neu ceisiwch eto gyda chyfeiriad gwahanol.',
   'forgotPassword.successSubheading':
     "Fe wnaethon ni anfon dolen adferiad at {{email}} Mae'r ddolen yn ddilys am 30 munud.",
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Creu cyfrif am ddim',
+  'landing.cta.subheading':
+    "Hyd at bum taith, pum cydweithiwr, a phum stop ar y cynllun am ddim — gyda chysoni amser real wedi'i gynnwys, a Pro yn codi'r terfynau pan fydd eich cynlluniau'n tyfu.",
   'landing.destinations.eyebrow': 'Ble nesaf',
   'landing.destinations.heading': "Cyrchfannau wedi'u curadu gan olygyddion",
   'landing.features.eyebrow': 'Sut mae Waypoint yn gweithio',
   'landing.features.heading': "Wedi'i adeiladu ar gyfer teithwyr, nid taenlenni.",
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Dechreuwch daith am ddim',
   'landing.hero.ctaSecondary': 'Gweler taith enghreifftiol',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Crëwch gyfrif i rannu teithiau gyda hyd at 5 cydweithiwr, cydamseru archebion, a thynnu pob cadarnhad i un lle.',
+  'signup.termsPrefix': "Drwy greu cyfrif rydych chi'n cytuno i'n",
   'tripCountdownHeroCard.budget': "{{used}} o {{total}} ( {{pct}} % o'r gyllideb)",
   'tripCountdownHeroCard.collaborators': '{{count}} teithwyr',
   'tripCountdownHeroCard.countdownLabel': 'Cyfrif i lawr',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Dim teithiau eto.',
   'trips.pastHeading': "Anturiaethau'r gorffennol",
   'trips.subheading': '{{count}} teithlenni — y gorffennol, y presennol, a ryw ddydd.',
+  'waypointLayout.mobileNavClose': "Cau'r ddewislen lywio",
   'waypointLayout.primaryNavLabel': 'Prif lywio',
 }

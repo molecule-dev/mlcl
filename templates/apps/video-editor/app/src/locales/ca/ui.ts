@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Has trobat un error, tens una sol·licitud de funció o vols explicar-nos la pel·lícula que has gravat? Cada missatge arriba a una persona real de l'equip; contacta amb nosaltres en qualsevol moment des de la configuració del teu compte.",
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.eyebrow': "// l'estudi darrere del muntatge",
   'about.pageTitle': 'Sobre {{appName}}',
   'assetDetail.back': 'Torna a la biblioteca',
   'assetDetail.confirmDelete': 'Suprimeix " {{name}} "? Això no es pot desfer.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     "{{count}} clips, llits d'àudio i gràfics llestos per col·locar a la línia de temps.",
   'assetLibrary.title': 'Actius',
   'assetLibrary.upload': 'Afegeix un actiu',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.browseTemplates': 'Navega per les plantilles →',
   'dashboard.loading': "S'estan carregant els projectes…",
   'dashboard.noProjects': "Encara no hi ha cap projecte; crea'n un per començar.",
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Tria alguna cosa que només tu recordis.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privacitat',
+  'rushesLayout.closeMenu': 'Tanca la navegació',
   'rushesLayout.guest': 'Editor',
+  'rushesLayout.navDialog': 'Navegació',
+  'rushesLayout.openMenu': 'Obre la navegació',
   'rushesLayout.planFree': 'Pla gratuït',
   'rushesLayout.tagline': 'Cronologia cinematogràfica',
   'settings.billing.confirmCancel': 'Cancel·lar la subscripció al final del període?',

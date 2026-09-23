@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Байланыс',
   'about.eyebrow': 'Туралы',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.connectRepoCta': 'Қойындыны қосыңыз',
   'dashboard.empty': 'Әзірге тарту сұраныстары жоқ — бастау үшін репозиторийді қосыңыз.',
   'dashboard.eyebrow': 'Refract · шолу кезегі',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Жұмыс уақыты',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Жасанды интеллект сапасының көрсеткіші {{score}} / 10',
+  'refractLayout.closeMenu': 'Мәзірді жабу',
+  'refractLayout.openMenu': 'Мәзірді ашу',
   'refractLayout.primaryNavLabel': 'Негізгі навигация',
   'reports.cumulativeScoreLabel': 'Жиынтық ұпай',
   'reports.cumulativeScoreSubtitle': 'барлық қоймалар · {{days}} d',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Іздеу индексін жүктеу сәтсіз аяқталды.',
   'settings.apiKeys.description':
     'Жоғарғы оң жақ бұрыштағы пайдаланушы мәзірінен жеке API кілттерін басқарыңыз.',
+  'settings.apiKeys.integrationsNote':
+    'Провайдерге кіру токендері жоғарыдағы Интеграциялар бөлімінде басқарылады.',
   'settings.connectError': 'Провайдерге қосылу сәтсіз аяқталды.',
   'settings.disconnectError': 'Провайдермен байланыс үзілмеді.',
   'settings.eyebrow': 'Рефракт · жұмыс кеңістігі',
   'settings.integration.${provider}.label': 'Сақталуда…',
   'settings.loadError': 'Параметрлерді жүктеу сәтсіз аяқталды.',
+  'settings.notificationCenter': 'Хабарландыру орталығы',
   'settings.notifications.description':
     'Жеткізу параметрлерін көру және басқару үшін хабарландырулар бетіне өтіңіз.',
   'settings.section.account': 'Тіркелгі және қауіпсіздік',

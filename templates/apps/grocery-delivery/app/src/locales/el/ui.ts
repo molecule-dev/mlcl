@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Δώστε φιλοδώρημα στον αγοραστή σας',
   'checkout.tipLabel': 'Ακρο',
   'checkout.zipPlaceholder': 'ΕΝΕΡΓΗΤΙΚΟΤΗΣ',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'featuredProductsGrid.addAria': 'Προσθέτω {{name}} στο καλάθι',
   'featuredProductsGrid.outOfStock': 'Εξαντλήθηκε',
   'forgotPassword.emailLabel': 'Διεύθυνση email',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     "Εάν αυτό το email είναι καταχωρημένο, ένας σύνδεσμος επαναφοράς είναι καθ' οδόν.",
+  'groceryDeliveryLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'landing.categoriesEyebrow': 'Διάδρομοι',
   'landing.categoriesHeading': 'Αγορά ανά κατηγορία',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Προγραμματίστε εβδομαδιαίες παραδόσεις με έξυπνη αναδιάταξη βασικών ειδών και ζωντανή παρακολούθηση οδηγών.',
   'landing.heroTitle': 'Φρεσκάδα στην πόρτα σας, σε λίγες ώρες.',
   'landing.howEyebrow': 'Τρία βήματα',
+  'landing.howItWorksHeading': 'Πώς λειτουργεί {{app}}',
   'lists.addAllCta': 'Προσθήκη όλων στο καλάθι',
   'lists.createCta': 'Δημιουργήστε την πρώτη σας λίστα',
   'lists.createError': 'Δεν ήταν δυνατή η δημιουργία λίστας.',

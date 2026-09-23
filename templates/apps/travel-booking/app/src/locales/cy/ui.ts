@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.featureDiscover.title': "Ysbrydoliaeth, wedi'i dewis â llaw",
   'account.addPaymentCta': 'Ychwanegu dull talu',
   'account.addPaymentError': 'Methwyd ychwanegu dull talu.',
+  'account.confirmRemove': 'Cadarnhau dileu',
   'account.defaultBadge': 'Diofyn',
   'account.loyalty.pointsTowardNext': '{{pwyntiau}} o {{nesaf}} milltiroedd i {{Haen nesaf}}',
   'account.loyalty.tier': 'Haen gyfredol',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Manylion y daith',
   'booking.tripSummary': '{{nights}} nosweithiau · {{guests}} gwesteion',
   'common.daysAgo': '{{count}} d yn ôl',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.hoursAgo': '{{count}} awr yn ôl',
   'common.minutesAgo': '{{count}} m yn ôl',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Cyfreithiol',
   'notifications.loading': 'Yn llwytho…',
   'notifications.subheading': '{{count}} heb ei ddarllen · popeth mewn un mewnflwch tawel',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.accommodationsLabel': 'llety',
   'pricing.bookingsLabel': 'archebion',
   'pricing.destinationsLabel': "cyrchfannau wedi'u cadw",
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     "Ysbrydoliaeth, arhosiadau dibynadwy, a llwybr didrafferth o freuddwydio i archebu - ar draws 14 gwlad a mwy na 200 o eiddo wedi'u gwirio â llaw.",
   'sojournHeroSearchCard.trustProtected': "Canslo am ddim, wedi'i ddiogelu'n llawn",
   'sojournHeroSearchCard.trustVetted': "Eiddo wedi'u gwirio â llaw yn unig",
+  'travelBookingLayout.primaryNavLabel': 'Prif lywio',
   'tripDetail.backLink': 'Yn ôl at deithiau',
   'tripDetail.cancelCta': "Canslo'r archeb",
   'tripDetail.cancelHeading': "Canslo'r daith hon?",

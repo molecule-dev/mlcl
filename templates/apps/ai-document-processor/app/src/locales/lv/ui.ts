@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Sazinieties ar mums',
+  'about.title': 'Par {{app}}',
   'authShell.backToLanding': '← Atgriezties uz sākuma lapu',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
+  'common.retry': 'Mēģināt vēlreiz',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Šodien · Darbības pārskats',
   'dashboard.heading': 'Dokumentu analīze',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Nav dokumentu, kas atbilstu pašreizējiem filtriem.',
   'documents.heading': 'Visi dokumenti',
   'documents.loadError': 'Neizdevās ielādēt dokumentus.',
+  'documents.loading': 'Notiek bibliotēkas ielāde…',
   'documents.searchLabel': 'Meklēt dokumentus',
   'documents.searchPlaceholder': 'Meklēt dokumentus…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Paslēpt paroli',
   'login.showPassword': 'Rādīt paroli',
   'login.subtitle': 'Piesakieties, lai nodrošinātu dokumentu apriti.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'notFound.body':
     'Dokuments vai maršruts, kuru mēģinājāt atvērt, vairs šeit nav pieejams. Atgriezieties sākumlapā vai izvēlieties sadaļu no sānu joslas.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Atvērt mērķlapu',
   'notFound.title': 'Šī lapa nav atrodama',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % salīdzinājumā ar vakardienu',
@@ -83,6 +90,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Vēl nav izveidoti iesniegšanas noteikumi. Lai pievienotu noteikumus, izmantojiet opciju „Jauns noteikums“.',
   'rules.eyebrow': 'Automatizācija',
+  'rules.fieldsCount': '{{count}} lauki',
   'rules.form.destination': 'Fails uz',
   'rules.form.name': 'Noteikuma nosaukums',
   'rules.form.save': 'Saglabāt noteikumu',

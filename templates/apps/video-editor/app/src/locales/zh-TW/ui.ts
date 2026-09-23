@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '發現漏洞、有功能建議，或是想告訴我們您剪輯的影片？每個訊息都會直接發送給團隊中的真人——您可以隨時透過帳戶設定與我們聯繫。',
+  'about.contactTitle': '與我們聯絡',
+  'about.eyebrow': '// 幕後工作室',
   'about.pageTitle': '關於{{appName}}',
   'assetDetail.back': '返回圖書館',
   'assetDetail.confirmDelete': '刪除 ” {{name}} “？這已經無法挽回了。”',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}}影片片段、背景音樂和圖形已準備就緒，可直接添加到時間線上。',
   'assetLibrary.title': '資產',
   'assetLibrary.upload': '新增資產',
+  'common.goToDashboard': '前往主控台',
   'dashboard.browseTemplates': '瀏覽範本 →',
   'dashboard.loading': '正在載入專案……',
   'dashboard.noProjects': '暫無專案－建立一個專案即可開始。',
@@ -154,7 +159,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': '選擇一些只有你自己才會記得的東西。',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': '隱私',
+  'rushesLayout.closeMenu': '關閉導覽列',
   'rushesLayout.guest': '編輯',
+  'rushesLayout.navDialog': '導覽',
+  'rushesLayout.openMenu': '開啟導覽欄',
   'rushesLayout.planFree': '免費規劃',
   'rushesLayout.tagline': '電影時間軸',
   'settings.billing.confirmCancel': '訂閱期滿後取消訂閱？',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ਸੰਪਰਕ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.title': '{{app}} ਬਾਰੇ',
   'activeAgentsCard.agent1AvatarAlt':
     'ਇੱਕ ਆਧੁਨਿਕ ਦਫ਼ਤਰ ਵਿੱਚ ਦੋਸਤਾਨਾ ਮੁਸਕਰਾਹਟ ਵਾਲੀ ਇੱਕ ਮਹਿਲਾ ਸਹਾਇਤਾ ਏਜੰਟ ਦਾ ਪੇਸ਼ੇਵਰ ਹੈੱਡਸ਼ਾਟ',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ',
   'forgotPassword.error': 'ਰੀਸੈਟ ਈਮੇਲ ਨਹੀਂ ਭੇਜ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'forgotPassword.rememberPassword': 'ਕੀ ਤੁਹਾਨੂੰ ਆਪਣਾ ਪਾਸਵਰਡ ਯਾਦ ਹੈ?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'ਸਾਈਨ ਇਨ ਕਰੋ — ਜ਼ੈਨਿਥ ਸਪੋਰਟ',
   'login.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'login.welcomeSubheading': 'ਆਪਣੇ ਸਹਾਇਤਾ ਡੈਸ਼ਬੋਰਡ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ',
+  'mobileNav.closeMenu': 'ਨੇਵੀਗੇਸ਼ਨ ਬੰਦ ਕਰੋ',
+  'mobileNav.menu': 'ਨੇਵੀਗੇਸ਼ਨ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਖੋਲ੍ਹੋ',
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'nav.newTicket': 'ਨਵੀਂ ਟਿਕਟ',
   'notifications.loadError': 'ਸੂਚਨਾਵਾਂ ਲੋਡ ਨਹੀਂ ਕੀਤੀਆਂ ਜਾ ਸਕੀਆਂ। ਕੁਝ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'ਕਮਾਂਡ ਖੋਜ',
   'operatorDock.newReport': 'ਨਵੀਂ ਰਿਪੋਰਟ',
   'operatorDock.systemOnline': 'ਸਿਸਟਮ ਔਨਲਾਈਨ',
+  'planUpdated.subtitle': 'ਧੰਨਵਾਦ',
   'planUpdated.title': 'ਪਲਾਨ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
   'pricing.agents': 'ਏਜੰਟ',
   'pricing.automation': 'ਆਟੋਮੇਸ਼ਨ ਨਿਯਮ',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{ਨਾਮ}}',
   'ticketCustomerReply.avatarAlt': '{{ਨਾਮ}} ਦਾ ਅਵਤਾਰ',
   'ticketDetail.errorTitle': 'ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ।',
+  'ticketDetail.loadError': 'ਟਿਕਟ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'ticketDetail.notFound': 'ਟਿਕਟ ਨਹੀਂ ਮਿਲੀ',
+  'ticketDetail.replyError': 'ਜਵਾਬ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'ticketDetail.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'ticketDetail.statusUpdateError': 'ਸਥਿਤੀ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'ticketDetailsCard.assigneeLabel': 'ਸਪੁਰਦ ਕਰਨ ਵਾਲਾ',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{ਸਮਾਂ}} ਖੱਬੇ',
   'ticketRow.title': 'ਉਤਪਾਦਨ ਦੌਰਾਨ ਡਾਟਾਬੇਸ ਕਨੈਕਸ਼ਨ ਅਸਫਲ ਹੋ ਰਿਹਾ ਹੈ {{ਨੋਡ}}',
   'tickets.pageTitle': 'ਟਿਕਟਾਂ — ਜ਼ੈਨਿਥ ਸਪੋਰਟ',
+  'ticketsFab.newTicket': 'ਨਵੀਂ ਟਿਕਟ',
   'ticketsFilterBar.assigneeLabel': 'ਨਿਯੁਕਤੀਕਰਤਾ:',
   'ticketsFilterBar.clearFilters': 'ਫਿਲਟਰ ਸਾਫ਼ ਕਰੋ',
   'ticketsFilterBar.dateRangeDemoHint': 'ਇਸ ਡੈਮੋ ਬਿਲਡ ਵਿੱਚ ਮਿਤੀ ਰੇਂਜ ਫਿਲਟਰਿੰਗ ਸਮਰੱਥ ਨਹੀਂ ਹੈ।',

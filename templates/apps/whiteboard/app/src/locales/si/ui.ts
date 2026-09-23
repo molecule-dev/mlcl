@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'authShell.brandHeading': 'ශබ්ද නඟා සිතන නිර්මාණ කණ්ඩායම් සඳහා බහු ක්‍රීඩක කැන්වස්.',
   'billing.canceled': 'දායකත්වය අවලංගු කරන ලදී.',
   'billing.cancelPlan': 'සැලැස්ම අවලංගු කරන්න',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'සැකිල්ලෙන් ආරම්භ කරන්න',
   'boards.title': 'ඔබේ පුවරු',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'forgot.emailPlaceholder': 'මිරා@ස්ටූඩියෝ.කොම්',
   'forgot.subheading':
     'ඔබගේ වැඩබිමට සම්බන්ධ කර ඇති විද්‍යුත් තැපෑල ඇතුළත් කරන්න, එවිට අපි යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'අවුල් සහගත, උත්පාදක, පුද්ගල චින්තනය සඳහා ගොඩනගා ඇත.',
   'landing.demoBoard.title': 'Q1 වැඩමුළුව · සන්නාම හඬ',
   'landing.featuresTitle': 'වේගවත් ප්‍රතිපෝෂණ. ලස්සන කැන්වස්. ඝර්ෂණය ශුන්‍යයි.',
+  'landing.hero.body':
+    '{{appName}} යනු සජීවී මොළ කුණාටු පවත්වන සහ එක තැනකට එක්වීමට අදහස් අවශ්‍ය නිර්මාණ කණ්ඩායම්, වැඩමුළු පහසුකම් සපයන්නන් සහ අධ්‍යාපනඥයින් සඳහා බහු ක්‍රීඩක වයිට්බෝඩ් එකකි.',
   'landing.hero.primaryCta': 'නොමිලේ පුවරුවක් ආරම්භ කරන්න',
   'landing.hero.socialProof': 'විශ්වාස කළේ {{count}} ලොව පුරා නිර්මාණ කණ්ඩායම්',
   'landing.hero.title': 'ඔබේ සිතුවිලි තරම් වේගවත් කැන්වසයක්',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'නොමිලේ වැඩබිමක් සාදන්න',
   'login.subheading':
     'වැඩමුළුව නතර කළ තැනින් පටන් ගන්න - පුවරු, ඇලෙන සුළු සටහන් සහ කර්සර සියල්ල තථ්‍ය කාලය තුළ සමමුහුර්ත වේ.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.new': 'අලුත්',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'notifications.editTitle': '" වෙත සංස්කරණයන් {{board}} "',
   'notifications.empty.body':
     'ආරාධනා, ස්නැප්ෂොට් සුරැකීම් සහ මෑත කාලීන පුවරු සංස්කරණයන් ඒවා සිදු වන විට මෙහි දිස්වනු ඇත.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'අනුවාද ඉතිහාසය',
   'versionHistory.untitledSnapshot': 'නම් නොකළ සැණරුව',
   'whiteboardLayout.newBoard': 'නව පුවරුව',
+  'whiteboardLayout.primaryNav': 'ප්‍රාථමික සංචාලනය',
   'workspace.boardLabel': 'පුවරුව',
   'workspace.eyebrow': '{{name}} · වැඩබිම',
   'workspace.invite': 'සහයෝගිතාකරුවන්ට ආරාධනා කරන්න',

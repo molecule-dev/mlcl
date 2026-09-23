@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'authShell.brandHeading':
     'Amakhanvasi aphelele njenge-Pixel amaqembu okuklama athunyelwa ndawonye.',
   'canvas.redirecting': 'Ivula umhleli…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'futhi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.retry': 'Zama futhi',
   'dashboard.activityEmpty':
     'Akukho msebenzi wakamuva okwamanje — mema umuntu osebenza naye ukuthi aqale.',
   'dashboard.activityTitle': 'Yini eshintshile namuhla',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Indawo Yokusebenzela · I-Northwind Studio',
   'dashboard.foldersLabel': 'Amafolda',
   'dashboard.gridTitle': '{{count}} amaphrojekthi',
+  'dashboard.heroActiveTool': 'Ithuluzi lepeni',
   'dashboard.loadingTitle': 'Ilayisha amaphrojekthi…',
   'dashboard.searchPlaceholder': 'Sesha amaphrojekthi',
   'dashboard.startFromTemplate': 'Qala kusukela kuthempulethi',
   'dashboard.title': 'Amaphrojekthi akho',
   'dashboard.untitledProject': 'Iphrojekthi engenasihloko',
   'designCanvasLayout.newProject': 'Iphrojekthi entsha',
+  'designCanvasLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'editor.backToProjects': 'Buyela kumaphrojekthi',
   'editor.deleteShape': 'Susa isimo',
   'editor.errorBody': 'Asikwazanga ukuvula le phrojekthi.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Amathuluzi okuklama ahamba ngesivinini sezandla zakho',
   'library.empty': 'Azikho izimpawu kulesi sigaba okwamanje.',
   'library.eyebrow': 'Indawo Yokusebenzela · Uhlelo Lokuklama I-Atelier',
+  'library.loadFailed': 'Ayikwazanga ukulayisha amathokheni okuklama.',
   'library.systemMeta': 'Impilo yesistimu',
   'library.systemSummary':
     '{{amathokheni}} amathokheni · {{izingxenye}} izingxenye · {{imiphumela}} imiphumela',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'analytics.col.quorum': 'Határozatképesség',
   'analytics.col.votes': 'Szavazatok',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Még nincsenek függőben lévő kérdések.',
   'audienceQa.onStageEyebrow': 'Most a színpadon',
   'audienceQa.pollId': 'kérdés · {{id}}',
+  'audienceQa.promote': 'Előléptetés',
   'audienceQa.queued': 'sorban álló',
   'audienceQa.queueEyebrow': 'Sor',
   'ballot.eyebrow': 'Szavazz!',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Jelenleg a következőn tartózkodik: {{plan}} terv.',
   'billing.switch': 'Váltás',
   'billing.upgraded': 'Frissítve erre: {{plan}} — azonnal alkalmazott korlátozások.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'createPoll.addOption': 'Opció hozzáadása',
   'createPoll.anonymousHint':
     'A szavazók nevei rejtve vannak a naplóban; a szavazatok hitelesítettek maradnak.',
@@ -164,6 +167,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Még nem ismered a Nosh-t?',
   'login.remember': 'Emlékezzen rám 30 napig',
   'login.subheading': 'Nyisd ki a padlót, fusd át a szobát, és igazold az eredményt.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'notFound.body':
     'A megnyitni kívánt oldal bezárásra vagy áthelyezésre került. Lépjen vissza az irányítópultra, vagy nyisson egy új szavazást.',
   'notFound.eyebrow': 'Nincs kvórum ezen az útvonalon',
@@ -190,6 +195,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Nem sikerült betölteni ezt a szavazást.',
   'pollDetail.loading': 'Szavazás betöltése…',
   'pollDetail.notFound': 'Nem található szavazás.',
+  'pollDetail.openBallot': 'Nyílt szavazás',
   'pollDetail.openLive': 'Élő eredmények',
   'pollDetail.pollId': 'közvélemény-kutatás · {{id}}',
   'pollDetail.published':
@@ -270,4 +276,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Keresés e-mailben…',
   'voters.subheading':
     'A szavazók névsorának válogatása. A szavazók szervezeti felépítése súlyozott szavazólapok létrehozásához.',
+  'votingPollingLayout.nav.analytics': 'Elemzések',
+  'votingPollingLayout.nav.billing': 'Számlázás',
+  'votingPollingLayout.nav.createPoll': 'Új szavazás',
+  'votingPollingLayout.nav.dashboard': 'Irányítópult',
+  'votingPollingLayout.nav.notifications': 'Értesítések',
+  'votingPollingLayout.nav.settings': 'Beállítások',
+  'votingPollingLayout.nav.team': 'Csapat',
+  'votingPollingLayout.nav.voters': 'Választók',
+  'votingPollingLayout.primaryNavLabel': 'Elsődleges navigáció',
 }

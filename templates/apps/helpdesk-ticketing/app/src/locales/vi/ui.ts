@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Liên hệ',
   'about.eyebrow': 'Giới thiệu',
+  'about.title': 'Giới thiệu {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Ảnh chân dung chuyên nghiệp của một nữ nhân viên hỗ trợ với nụ cười thân thiện trong một văn phòng hiện đại.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -62,6 +63,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Liên hệ bộ phận hỗ trợ',
   'forgotPassword.error': 'Không thể gửi email đặt lại. Vui lòng thử lại.',
   'forgotPassword.rememberPassword': 'Quý vị đã nhớ mật khẩu?',
   'forgotPassword.subheading':
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Đăng nhập — Hỗ trợ Zenith',
   'login.showPassword': 'Hiện mật khẩu',
   'login.welcomeSubheading': 'Đăng nhập vào bảng điều khiển hỗ trợ của bạn',
+  'mobileNav.closeMenu': 'Đóng điều hướng',
+  'mobileNav.menu': 'Điều hướng',
+  'mobileNav.openMenu': 'Mở điều hướng',
   'nav.legal': 'Pháp lý',
   'nav.newTicket': 'Vé mới',
   'notifications.loadError': 'Không thể tải thông báo. Vui lòng thử lại sau.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Tìm kiếm lệnh',
   'operatorDock.newReport': 'Báo cáo mới',
   'operatorDock.systemOnline': 'Hệ thống trực tuyến',
+  'planUpdated.subtitle': 'Cảm ơn bạn',
   'planUpdated.title': 'Đã cập nhật gói',
   'pricing.agents': 'tác nhân',
   'pricing.automation': 'Quy tắc tự động hóa',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{tên}} ảnh đại diện của',
   'ticketDetail.errorTitle': 'Đã có lỗi xảy ra',
+  'ticketDetail.loadError': 'Không thể tải vé.',
+  'ticketDetail.notFound': 'Không tìm thấy vé',
+  'ticketDetail.replyError': 'Không thể gửi phản hồi. Vui lòng thử lại.',
   'ticketDetail.retry': 'Thử lại',
   'ticketDetail.statusUpdateError': 'Không thể cập nhật trạng thái. Vui lòng thử lại.',
   'ticketDetailsCard.assigneeLabel': 'Người được chỉ định',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{thời gian}} bên trái',
   'ticketRow.title': 'Lỗi kết nối cơ sở dữ liệu trên môi trường sản xuất {{node}}',
   'tickets.pageTitle': 'Vé — Bộ phận hỗ trợ của Zenith',
+  'ticketsFab.newTicket': 'Vé mới',
   'ticketsFilterBar.assigneeLabel': 'Người được chỉ định:',
   'ticketsFilterBar.clearFilters': 'Xóa bộ lọc',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

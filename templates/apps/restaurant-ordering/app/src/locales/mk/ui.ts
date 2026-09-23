@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'analytics.avgCheckLabel': 'Просечна проверка',
   'analytics.busiestHour': 'Најзафатен час',
   'analytics.coversToday': 'Корици денес',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Бакшиши (просек)',
   'analytics.topItems': 'Најпопуларни артикли денес',
   'authShell.eyebrow': 'Добредојдовте назад во услугата',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Топло, брзо место за продажба за тимови од угостителството. Најавете се во вашата кујна и продолжете од каде што сте застанале.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'или {{price}}',
   'billing.priceUnavailable': 'Овој план нема конфигурирана цена.',
   'billing.updated': 'Планот е ажуриран.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'customerDetail.book': 'Додај резервација',
   'customerDetail.col.table': 'Табела',
   'customerDetail.confirmDelete': 'Да се избрише овој запис за гости?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Достапност',
   'menuItemDetail.available': 'Достапно вечерва',
   'menuItemDetail.backToMenu': 'Назад кон менито',
+  'menuItemDetail.confirmDelete': 'Да се избрише оваа ставка од менито?',
   'menuItemDetail.delete': 'Избриши ставка',
   'menuItemDetail.deleteError': 'Бришењето не успеа. Обидете се повторно.',
   'menuItemDetail.dietary': 'Диететски ознаки',
@@ -140,9 +144,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · уредување фотографија, модификатори, исхрана и цени.',
   'menuItemDetail.untitled': 'Ставка без наслов',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'notFound.heading': 'Оваа маса не е на подот.',
   'notFound.subheading':
     'Страницата што ја баравте се наоѓала на друго место — или никогаш не постоела.',
+  'notFound.toLanding': '{{app}} почетна страница',
   'notifications.markError': 'Не можеше да се означат сите како прочитани.',
   'orderDashboard.activeDelta': 'Во живо сега',
   'orderDashboard.activeLabel': 'Активни нарачки',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'Внесете ја вашата нова лозинка за да добиете повторно пристап до кујната.',
   'resetPassword.tokenLabel': 'Ресетирај токен',
+  'restaurantOrderingLayout.primaryNavLabel': 'Примарна навигација',
   'revenueHeroCard.activeOrders': '{{count}} активен',
   'revenueHeroCard.change': '{{sign}} {{amount}} наспроти вчера',
   'revenueHeroCard.title': 'Денешниот приход',
@@ -225,6 +233,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Име на ресторан',
   'tableDetail.activeOrders': 'Активни нарачки',
   'tableDetail.backToFloor': 'План на подот',
+  'tableDetail.confirmDelete': 'Да се избрише оваа табела?',
   'tableDetail.delete': 'Избриши',
   'tableDetail.deleteError': 'Не можеше да се избрише табелата.',
   'tableDetail.heading': 'Табела {{label}}',

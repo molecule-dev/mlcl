@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} туралы',
   'argentAuthShell.brandEyebrow': 'Аргент · Байлық құралдары',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Инвестициялық кеңес емес.',
   'argentAuthShell.sampleChange': 'Бүгін +$2,841 (+0,28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Негізгі навигация',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Бұл тикер бойынша ешқандай транзакциялар жоқ.',
   'assetDetail.txHeading': 'Сіздің транзакцияларыңыз',
   'common.and': 'және',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Портфолиоға шолу',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Әзірге ешқандай меншік жоқ.',
   'holdings.heading': 'Холдингтер',
   'holdings.loadError': 'Қорларды жүктеу сәтсіз аяқталды.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Инвестициялық кеңес емес. Өткендегі көрсеткіштер болашақ нәтижелерге кепілдік бермейді.',
   'landing.eyebrow': 'Argent · Байлық жинауға арналған платформа',
   'landing.features.heading': 'Кеңесші өзі үшін құрастыратын барлық нәрсе.',
   'landing.finalCta.heading': 'Портфолиоңызға тәртіпті қайтарыңыз.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} сағат бұрын',
   'news.justNow': 'жаңа ғана',
   'news.loadError': 'Жаңалықтар жүктелмеді.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'portfolioHeroCard.label': 'Портфолио құны',
   'pricing.holdingsLabel': 'холдингтер',
   'pricing.newsLabel': 'жаңалықтар мақалалары',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Тіркелгіні жою',
   'settings.security.deleting': 'Жойылуда…',
   'settings.security.heading': 'Қауіпсіздік',
+  'settings.security.newPassword': 'Жаңа құпия сөз',
   'settings.security.password': 'Құпия сөз',
   'settings.security.twoFactorEnable': 'Қосу',
+  'settings.security.twoFactorInvalidCode': 'Жарамсыз код',
+  'settings.security.twoFactorVerify': 'Тексеру және қосу',
   'settings.tax.error': 'Салық әдісін жаңарту мүмкін болмады.',
   'settings.tax.heading': 'Салық учаскесін есепке алу',
   'settings.tax.method': 'Әдепкі әдіс',

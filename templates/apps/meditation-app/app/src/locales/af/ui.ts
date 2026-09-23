@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.eyebrow': 'Oor {{app}}',
+  'about.intro':
+    "{{app}} is 'n meditasie-app vir die werklike lewe — daaglikse begeleide meditasies, asemwerk en slaapstories, gepas deur onderwysers wat soos 'n vriend voel, nie 'n afrigter nie. Geen skuldgevoelens nie, geen raserige voeding nie: net 'n stil plek om terug te keer na jou asemhaling.",
+  'about.missionBody':
+    "Ons glo dat stilte vir almal toeganklik moet wees, op enige oomblik van die dag. {{app}} bestaan om 'n kalm, konsekwente praktyk moeiteloos te laat voel - sodat tien eerlike minute kan verander hoe jy die volgende tien uur tegemoet gaan.",
+  'about.missionTitle': 'Ons missie',
+  'about.pageTitle': "'n Rustiger 10 minute per dag",
+  'breathingDial.seconds': 'sekondes',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.logout': 'Meld af',
   'common.min': 'min',
   'common.relative.justNow': 'nou net',
   'common.relative.now': 'nou',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
+  'nav.secondaryNavigation': 'Rekeningnavigasie',
   'sessionCard.with': 'met {{name}}',
   'stillpoint.billing.choose': 'Kies {{plan}}',
   'stillpoint.billing.currentPlan': 'Tans aan {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Ons kon nie planne laai nie.',
   'stillpoint.billing.opening': 'Maak afhandeling oop…',
   'stillpoint.billing.perMonthShort': '/ ma',
+  'stillpoint.billing.perYearShort': '/jr',
   'stillpoint.billing.unknownResult': 'Onverwagte faktuurreaksie.',
   'stillpoint.billing.yearly': 'Jaarliks · bespaar 17%',
   'stillpoint.courseDetail.back': 'Kursusse',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Geen kursusse nog nie.',
   'stillpoint.courses.eyebrow': '{{count}} meerdaagse reise',
   'stillpoint.courses.heading': 'Kursusse',
+  'stillpoint.forgot.checkEmail': 'Gaan jou inboks na — die skakel verval oor 30 minute.',
   'stillpoint.forgot.success': "Ons het 'n terugstelskakel gestuur na {{email}} .",
   'stillpoint.home.empty': 'Geen sessies nog nie — loer binnekort weer in.',
   'stillpoint.home.friend': 'vriend',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Skep jou gratis rekening',
   'stillpoint.landing.cta.title': 'Begin jou stilte vandag',
   'stillpoint.landing.features.heading': "'n Praktyk wat saam met jou groei",
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     "Daaglikse begeleide meditasies, asemhalingswerk en slaapverhale — gepas deur onderwysers wat soos 'n vriend voel, nie 'n afrigter nie.",
   'stillpoint.landing.hero.eyebrow': "'n Rustiger 10 minute per dag",
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Blaai volgens stemming',
   'stillpoint.login.rememberMe': 'Hou my aangemeld',
   'stillpoint.login.subheading': 'Teken aan om jou oefening voort te sit.',
+  'stillpoint.nav.tagline': 'Vind jou stil sentrum',
+  'stillpoint.notFound.body':
+    "Hierdie bladsy haal iewers 'n lang, diep asem. Kom ons vind 'n stiller plekkie vir jou in {{app}} .",
   'stillpoint.notFound.title': 'Verlore in die stilte',
   'stillpoint.notFound.toHome': 'Terug na vandag',
   'stillpoint.notFound.toLibrary': 'Blaai deur die biblioteek',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Slaan 15 sekondes terug',
   'stillpoint.player.skipForward': "Slaan vorentoe 30's",
   'stillpoint.player.with': 'met {{name}}',
+  'stillpoint.profile.defaultHandle': 'stilstaande wyser',
   'stillpoint.profile.eyebrow': 'Jou praktyk, opgesom.',
   'stillpoint.profile.locked': 'Gesluit',
   'stillpoint.profile.member': 'Stillpoint-lid',

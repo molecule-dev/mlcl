@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'accountSettings.confirmEmailLabel': 'Vahvista kirjoittamalla POISTA',
   'accountSettings.deleteError': 'Tilin poistaminen epäonnistui.',
   'accountSettings.passwordError': 'Salasanan vaihtaminen epäonnistui.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Ei tulevia määräaikoja.',
   'dashboard.upcomingTitle': 'Tulevat määräajat',
   'deviceSettings.unknownDevice': 'Tuntematon laite',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Tuki',
   'forgotPassword.error': 'Nollauslinkin lähettäminen epäonnistui.',
   'forgotPassword.subtitle': 'Syötä sähköpostiosoitteesi ja lähetämme sinulle palautuslinkin.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'Sähköpostiosoite tai salasana on virheellinen.',
   'login.pageTitle': 'Kirjaudu sisään',
   'login.signIn': 'Kirjaudu Forgeen',
+  'login.subtitle': 'Kirjaudu sisään pitääksesi projektisi aikataulussa',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'nav.calendar': 'Kalenteri',
   'nav.legal': 'Lainsäädäntö',
   'nav.myTasks': 'My Tasks',

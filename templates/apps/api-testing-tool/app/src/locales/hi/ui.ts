@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
+  'about.pageTitle': '{{app}} के बारे में',
   'authShell.statusLabel': 'रनर ऑनलाइन',
   'collections.createError': 'संग्रह नहीं बनाया जा सका।',
   'collections.defaultName': 'बिना शीर्षक संग्रह {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'नया संग्रह',
   'collections.subheading':
     'अनुरोधों को समूहित करें, अपनी टीम के साथ साझा करें, और उन्हें एक सूट के रूप में चलाएँ।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'environmentCard.inactive': 'निष्क्रिय',
   'environmentCard.more': 'और',
   'environmentCard.variables': 'वेरिएबल्स',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'मुफ़्त डाउनलोड',
   'landing.heroSubtitle':
     'टर्मिनल में काम करने वाले इंजीनियरों के लिए बनाया गया यह एपीआई टेस्टिंग वर्कबेंच बेहद तेज़ है।',
+  'landing.heroTitleAccent': 'आग',
+  'landing.heroTitleLine2': 'विश्वास पैदा करें।',
+  'landing.heroTitleRest': 'अनुरोध,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'सरल, पूर्वानुमेय मूल्य निर्धारण',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'यहाँ नए हैं?',
   'login.showPassword': 'पासवर्ड दिखाएँ',
   'login.subtitle': 'अपने Pylon वर्कस्पेस पर जाएँ।',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'mocks.createError': 'मॉक नहीं बनाया जा सका।',
   'mocks.defaultName': 'बिना शीर्षक मॉक {{n}}',
   'mocks.deleteError': 'मॉक हटाया नहीं जा सका।',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'वर्कस्पेस पर वापस जाएँ',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'रूट नहीं मिला',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'privacy.collect.account':
     'खाता: आपका ईमेल, हैश किया गया पासवर्ड, प्रदर्शन नाम, और आपके अंतिम साइन-इन का समय।',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'इस खाते के पास वर्तमान में जो डेटा है उसका केवल-पढ़ने योग्य दृश्य।',
   'settings.unset': 'सेट नहीं किया गया',
   'signup.identityHint': 'उदा. Alex',
+  'signup.statusLabel': 'निःशुल्क सेवा · क्रेडिट कार्ड की आवश्यकता नहीं',
   'signup.subtitle': 'मिनटों में अनुरोध भेजना शुरू करें।',
   'terms.account.body':
     'अपने पासवर्ड की सुरक्षा की ज़िम्मेदारी आपकी है। Free या Pro योजनाओं पर एक खाता कई लोगों के साथ साझा करने की अनुमति नहीं है — साझा वर्कस्पेस के लिए Team सदस्यता खरीदें।',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'ऐसी सेवाओं पर अनुरोध भेजने के लिए Pylon का उपयोग न करें जो आपकी नहीं हैं या जिनके परीक्षण की आपके पास स्पष्ट अनुमति नहीं है। रेट सीमाओं को दरकिनार करने या धोखाधड़ी के लिए Pylon का उपयोग न करें।',
   'terms.warranty.body':
     'Pylon किसी भी प्रकार की वारंटी के बिना "जैसा है" प्रदान किया जाता है। हम 99.9% अपटाइम का लक्ष्य रखते हैं लेकिन Free या Pro योजनाओं पर इसकी गारंटी नहीं देते।',
+  'testRunner.assertionsCount': '{{count}} अभिकथन',
   'testRunner.createError': 'टेस्ट नहीं बनाया जा सका।',
   'testRunner.cron':
     'इस टेस्ट से जुड़े अनुरोध के सबसे हालिया रन के विरुद्ध एसर्शन का मूल्यांकन किया जाता है।',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'सूट परिणाम, एसर्शन अंतर, और पिछले 50 रन।',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'इस रूप में साइन इन हैं',
+  'workspace.auth.keyName': 'हेडर नाम',
+  'workspace.auth.keyValue': 'मुख्य मूल्य',
+  'workspace.auth.password': 'पासवर्ड',
+  'workspace.auth.username': 'उपयोगकर्ता नाम',
+  'workspace.authOption.apikey': 'एपीआई कुंजी',
+  'workspace.authOption.basic': 'बुनियादी प्राधिकरण',
+  'workspace.authOption.bearer': 'बियरर टोकन',
+  'workspace.authOption.none': 'कोई नहीं',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'प्रकार',
   'workspace.authTypeLabel': 'प्रमाणीकरण प्रकार',
+  'workspace.body.json': 'जेएन',
+  'workspace.body.none': 'कोई नहीं',
+  'workspace.body.text': 'कच्चा पाठ',
+  'workspace.body.type': 'प्रकार',
   'workspace.environment': 'कोई एनवायरनमेंट नहीं',
   'workspace.envVar': 'env वेरिएबल',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'हेडर जोड़ें',
+  'workspace.kv.addParam': 'पैरामीटर जोड़ें',
+  'workspace.kv.headerKey': 'हेडर नाम',
+  'workspace.kv.headerValue': 'हेडर मान',
+  'workspace.kv.key': 'कुंजी',
+  'workspace.kv.paramKey': 'क्वेरी पैरामीटर कुंजी',
+  'workspace.kv.paramValue': 'क्वेरी पैरामीटर मान',
+  'workspace.kv.removeRow': 'पंक्ति हटाएँ',
+  'workspace.kv.value': 'मूल्य',
   'workspace.methodLabel': 'HTTP मेथड',
   'workspace.metric.latency': 'विलंबता',
   'workspace.metric.latencyCaption': 'इस रन का राउंड-ट्रिप',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'अनुरोध भेजा गया — नीचे प्रतिक्रिया देखें।',
   'workspace.subheading':
     'अनुरोध बनाएँ, उसे भेजें, फिर प्रतिक्रिया की पुष्टि करें — सब एक ही पैनल में।',
+  'workspace.testResults': 'परीक्षा के परिणाम',
   'workspace.token': 'टोकन',
   'workspace.tokenHint':
     'इस संग्रह के प्रत्येक अनुरोध पर Authorization: Bearer <token> के रूप में भेजा गया।',

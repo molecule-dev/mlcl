@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} সম্পর্কে',
+  'auth.legalConsent': 'অব্যাহত রেখে, আপনি আমাদের সাথে সম্মত হচ্ছেন',
   'bookings.empty.body': 'ইনবক্স শুরু করতে একটি ফ্লাইট, হোটেল বা কার্যকলাপ যোগ করুন।',
   'bookings.empty.heading': 'এখনো কোনো বুকিং হয়নি।',
   'bookings.errors.create': 'বুকিং তৈরি করা যায়নি।',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'নিশ্চিত',
   'bookings.summary.pending': 'নিশ্চিতকরণের অপেক্ষায়',
   'bookings.summary.total': 'সম্পূর্ণ প্রতিশ্রুতিবদ্ধ',
+  'bookings.type.car': 'ভাড়া গাড়ি',
+  'bookings.type.flight': 'ফ্লাইট',
+  'bookings.type.hotel': 'হোটেল',
   'bookings.type.other': 'অন্যান্য',
   'budgetSpendCard.budgetTotal': 'এর {{total}} পরিকল্পিত',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'দ্বন্দ্বগুলো চিহ্নিত করুন, ভ্রমণের মাঝে বিশ্রামের দিনের পরিকল্পনা করুন এবং দেখুন সহযোগীরা কখন আপনার সাথে ভ্রমণ করছেন।',
   'common.and': 'এবং',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.budgetHeading': 'বাজেট স্পন্দন',
   'dashboard.empty.heading': 'এখনো কোনো ভ্রমণ হয়নি — আপনার মানচিত্রটি খালি।',
   'dashboard.eyebrow': 'মিশন নিয়ন্ত্রণ',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'গতিশীল ভ্রমণ',
   'dashboard.viewAllExpenses': 'প্রতিটি খরচ দেখুন',
   'dashboard.viewAllTrips': 'প্রতিটি ভ্রমণ দেখুন',
+  'dayTimelineRow.category.accommodation': 'থাকুন',
   'dayTimelineRow.category.transport': 'পরিবহন',
   'destinationOrbCard.exploreCta': 'ভ্রমণে যোগ করুন',
   'destinationOrbCard.tripCount': '{{count}} ভ্রমণ',
@@ -60,11 +68,13 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'পালস ব্যয় করুন',
   'expenses.field.amount': 'পরিমাণ (মার্কিন ডলার)',
   'expenses.field.vendor': 'বিক্রেতা',
+  'expenses.formHeading': '{{trip}} এর খরচ লিপিবদ্ধ করুন',
   'expenses.heading': 'ভ্রমণের বাজেট আসলে কোথায় খরচ হয়।',
   'expenses.noTrips.body': 'প্রথমে ভ্রমণের পরিকল্পনা করুন – খরচ ভ্রমণের বাজেটের সাথে জড়িত থাকে।',
   'expenses.noTrips.heading': 'এখনো কোনো ভ্রমণ হয়নি।',
   'expenses.receiptCount': '{{count}} রসিদ',
   'expenses.recentHeading': 'সাম্প্রতিক খরচ',
+  'expenses.remaining': 'খরচ করার জন্য {{amount}} বাকি আছে',
   'expenses.save': 'খরচ বাঁচান',
   'expenses.saving': 'সঞ্চয় •',
   'expenses.subheading':
@@ -77,11 +87,15 @@ export const ui: UiTranslations = {
     'এখনো ইমেল পাননি? আপনার স্প্যাম ফোল্ডারটি দেখুন, অথবা অন্য একটি ঠিকানা দিয়ে আবার চেষ্টা করুন।',
   'forgotPassword.successSubheading':
     'আমরা একটি পুনরুদ্ধার লিঙ্ক পাঠিয়েছি {{email}} লিঙ্কটি ৩০ মিনিটের জন্য বৈধ।',
+  'landing.cta.heading': '{{tagline}}।',
   'landing.cta.signup': 'বিনামূল্যে অ্যাকাউন্ট তৈরি করুন',
+  'landing.cta.subheading':
+    'ফ্রি প্ল্যানে সর্বোচ্চ পাঁচটি ট্রিপ, পাঁচজন সহযোগী এবং পাঁচটি স্টপ — সাথে রিয়েল-টাইম সিঙ্ক অন্তর্ভুক্ত, এবং আপনার প্ল্যান বড় হলে প্রো প্ল্যান এই সীমা তুলে দেয়।',
   'landing.destinations.eyebrow': 'এরপর কোথায়?',
   'landing.destinations.heading': 'সম্পাদক-নির্বাচিত গন্তব্যস্থল',
   'landing.features.eyebrow': 'ওয়েপয়েন্ট কীভাবে কাজ করে',
   'landing.features.heading': 'ভ্রমণকারীদের জন্য তৈরি, স্প্রেডশিটের জন্য নয়।',
+  'landing.footer.tagline': '{{tagline}}।',
   'landing.hero.ctaPrimary': 'একটি বিনামূল্যে ভ্রমণ শুরু করুন',
   'landing.hero.ctaSecondary': 'একটি নমুনা ভ্রমণ দেখুন',
   'landing.hero.subtitle':
@@ -125,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'আইরিস লারসেন',
   'signup.subheading':
     'সর্বোচ্চ ৫ জন সহযোগীর সাথে ভ্রমণ পরিকল্পনা শেয়ার করতে, বুকিং সিঙ্ক করতে এবং সমস্ত কনফার্মেশন এক জায়গায় নিয়ে আসতে একটি অ্যাকাউন্ট তৈরি করুন।',
+  'signup.termsPrefix': 'অ্যাকাউন্ট তৈরি করার মাধ্যমে আপনি আমাদের শর্তাবলীতে সম্মত হচ্ছেন।',
   'tripCountdownHeroCard.budget': '{{used}} এর {{total}} ({{pct}}% বাজেটের)',
   'tripCountdownHeroCard.collaborators': '{{count}} ভ্রমণকারীরা',
   'tripCountdownHeroCard.countdownLabel': 'কাউন্টডাউন',
@@ -197,5 +212,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'এখনো কোনো ভ্রমণ হয়নি।',
   'trips.pastHeading': 'অতীতের অভিযান',
   'trips.subheading': '{{count}} ভ্রমণসূচী — অতীত, বর্তমান এবং ভবিষ্যতের।',
+  'waypointLayout.mobileNavClose': 'নেভিগেশন মেনু বন্ধ করুন',
   'waypointLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
 }

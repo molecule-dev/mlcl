@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': '내 역할',
   'account.role.upgradeLink': '인증 튜터로 지원하기 →',
   'account.title': '프로필, 결제 및 환경설정.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mentor에서 가르치기',
   'becomeTutor.form.error': '지원서를 제출할 수 없습니다.',
   'becomeTutor.form.pitchPlaceholder':
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': '과목',
   'bookingConfirm.title': '예약이 완료되었습니다. 나머지는 저희가 처리합니다.',
   'bookingConfirm.with': '튜터와 함께',
+  'common.goToDashboard': '대시보드로 이동',
   'earningsHero.eyebrow': '수익 • {{month}}',
   'forgotPassword.heading': '비밀번호를 잊으셨나요?',
   'forgotPassword.subheading': '계정에 연결된 이메일을 입력해 주세요. 재설정 링크를 보내드립니다.',
@@ -106,6 +108,7 @@ export const ui: UiTranslations = {
   'messages.send': '메시지 보내기',
   'messages.thread.empty': '인사로 대화를 시작해 보세요.',
   'messages.title': '튜터와의 스레드.',
+  'nav.primary': '기본',
   'pricing.dataExport': '데이터 내보내기:',
   'pricing.headingDefault': '고급 기능:',
   'resetPassword.heading': '강력한 새 비밀번호를 선택하세요.',

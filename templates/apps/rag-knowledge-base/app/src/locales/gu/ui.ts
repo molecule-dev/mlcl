@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.pageTitle': 'વિશે {{appName}}',
   'analytics.error': 'વિશ્લેષણ લોડ કરી શકાયું નથી.',
   'analytics.heading': 'પુનઃપ્રાપ્તિ વિશ્લેષણ',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'કોઈ કિંમત સ્તર ગોઠવેલ નથી.',
   'billing.plans.heading': 'યોજનાઓ',
   'billing.subheading': 'યોજના, ઉપયોગ અને સ્ટ્રાઇપ-સંચાલિત ચેકઆઉટ.',
+  'common.confirm': 'પુષ્ટિ કરો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'documentCard.open': 'ખુલ્લું \\u2192',
   'documentDetail.back': 'દસ્તાવેજો પર પાછા જાઓ',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'દસ્તાવેજને અનુક્રમિત કરો',
   'documents.composer.titlePlaceholder': 'દસ્તાવેજનું શીર્ષક',
   'documents.emptyAll': 'હજુ સુધી કોઈ દસ્તાવેજો નથી. પ્રશ્નો પૂછવાનું શરૂ કરવા માટે એક અપલોડ કરો.',
+  'documents.error.load': 'દસ્તાવેજો લોડ કરી શકાયા નથી.',
   'documents.heading': 'અનુક્રમિત દસ્તાવેજો',
   'documents.loading': 'દસ્તાવેજો લોડ કરી રહ્યું છે...',
   'documents.metric.chunks': 'કુલ હિસ્સા',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'દૂર કરી રહ્યું છે...',
   'members.subheading': 'સાથી ખેલાડીઓને આમંત્રિત કરો અને ભૂમિકાઓ નક્કી કરો.',
   'members.tableHeading': 'રોસ્ટર',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'notFound.askCta': 'જ્ઞાન આધારને પૂછો',
+  'notFound.body':
+    '{{app}} તે પેજ શોધી શક્યું નથી. લિંક તૂટી ગઈ હોઈ શકે છે, અથવા રિ-ઇન્ડેક્સ દરમિયાન પેજ બંધ થઈ ગયું હોઈ શકે છે.',
   'notFound.eyebrow': 'પુનઃપ્રાપ્ત કરી શકાતું નથી',
   'notFound.title': 'ઇન્ડેક્સમાં આવો કોઈ ભાગ નથી',
   'notifications.dismiss': 'કાઢી નાખો',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'સ્રોત URL',
   'sources.empty.body': 'તમારા પહેલા કનેક્ટરને વાયર કરવા માટે "સ્રોત ઉમેરો" પર ક્લિક કરો.',
   'sources.empty.title': 'હજુ સુધી કોઈ સ્ત્રોત નથી.',
+  'sources.error.add': 'સ્રોત ઉમેરી શકાયો નથી.',
   'sources.error.labelRequired': 'લેબલ જરૂરી છે.',
   'sources.error.load': 'સ્ત્રોતો લોડ કરી શકાયા નથી.',
   'sources.error.urlRequired': 'આ પ્રકારના સ્ત્રોત માટે URL જરૂરી છે.',

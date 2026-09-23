@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.tagline': "Kowace na'ura, a ƙarƙashin rufin ɗaya.",
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.addProperty': 'Ƙara kadarorin',
   'dashboard.empty.body':
     "Da zarar ka mallaki kadarori, raka'o'i, da kuma biyan kuɗin haya, wannan dashboard ɗin zai cika da bayanai kan fayil ɗin.",
@@ -87,6 +90,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{kadarori}} · Naúra {{naúrar}} · {{kwanan wata}}',
   'maintenanceQueueList.subtitle': '{{count}} odar aiki a buɗe, an tsara ta bisa fifiko',
   'maintenanceQueueList.title': 'Jerin Kulawa',
+  'nav.closeMenu': 'Rufe menu',
+  'nav.openMenu': 'Buɗe menu',
   'notFound.body':
     'An canja shafin da kake nema, an adana shi a rumbun adana bayanai, ko kuma ba a taɓa samunsa ba.',
   'notFound.title': 'Wannan ƙofar ba ta buɗewa',

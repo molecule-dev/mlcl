@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Həll olunur…',
   'comments.subtitle':
     'The {{count}} Mövzular hələ də cavab və ya həll yolu gözləyir. Yaşa görə sıralanıb — ən yaşlısı birinci, beləliklə heç nə çürüməsin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'forgotPassword.sentTo': 'Sıfırlama linki göndərildi {{email}}',
   'forgotPassword.successSubheading':
     'Gələnlər qutunuzu yoxlayın — biz indicə sıfırlama linki göndərdik. 30 dəqiqə ərzində müddəti bitir.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Yeni səhifə',
   'pageTreeSidebar.workspaceHeader': 'İş sahəsi',
   'pageView.breadcrumb': 'Çörək qırıntısı',
+  'pageView.confirmTrash': 'Zibil qutusuna atmaq?',
   'pageView.home': 'Ev',
   'pageView.lastEdited': 'Yeniləndi {{when}}',
   'pageView.loading': 'Səhifə yüklənir…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Süni intellekt xülasəsi bu iş sahəsi üçün konfiqurasiya edilməyib.',
   'pageView.tocTitle': 'Bu səhifədə',
+  'pageView.trash': 'Zibil',
+  'pageView.trashing': 'Zibil qutusuna atılır…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Nişanlar',
   'profile.owned.title': 'Sahib olduğu səhifələr',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'İş sahəsi, profil, bildirişlər, inteqrasiyalar — hamısı bir sakit qabıqda.',
   'settingsPage.workspace.defaultLanding': 'Defolt açılış ekranı',
   'settingsPage.workspace.landingHome': 'Ev',
+  'settingsPage.workspace.landingSpaces': 'Məkanlar',
   'settingsPage.workspace.subdomainLabel': 'Alt domen',
   'settingsPage.workspace.title': 'İş sahəsi',
   'signup.eyebrow': 'Yeni bir iş sahəsinə başlayın',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} dəq',
   'templates.subtitle':
     'Səhifəni boş kətandan deyil, trafaretdən başlayın. Hər bir şablon formanı sərt şəkildə kodlaşdırır ki, məzmuna diqqət yetirə biləsiniz.',
+  'trash.confirmPurge': 'Əbədi təmizləmək?',
+  'trash.confirmPurgeAria': 'Təsdiqləyin: {{title}} -i birdəfəlik silin',
   'trash.daysUntilPurge': '{{days}} günlər qalıb',
   'trash.empty.body': 'Silinmiş səhifələr silinməzdən əvvəl 30 gün ərzində burada görünəcək.',
   'trash.empty.title': 'Zibil qutusu boşdur.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Bərpa olunur…',
   'versionHistory.subtitle': '{{count}} versiyalar · fərqi yoxlamaq üçün bir sıra seçin',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Naviqasiyanı bağlayın',
+  'wikiLayout.menu': 'Naviqasiya',
+  'wikiLayout.openMenu': 'Naviqasiyanı açın',
   'wikiLayout.searchPlaceholder': 'Cairn-də axtarış — səhifələr, şərhlər…',
 }

@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Attualmente sta utilizzando il piano {{plan}}.',
   'billing.switch': 'Cambia',
   'billing.upgraded': 'Aggiornato a {{plan}} — limiti applicati immediatamente.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'compare.activityHeading': 'Verdetti sulle attività',
   'compare.empty.title': 'Aggiunga almeno due località da confrontare',
   'compare.eyebrow': 'Affiancati',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Max',
   'trends.summary.low.label': 'Min',
   'trends.summary.points.label': 'Giorni',
+  'weatherDashboardLayout.primaryNavLabel': 'Navigazione principale',
   'weatherHeroCard.updated': 'Aggiornato {{time}}',
 }

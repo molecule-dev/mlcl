@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Memuat kursus…',
   'browse.next': 'Halaman berikutnya',
   'browse.results': 'Menampilkan {{count}} kursus',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Urutkan berdasarkan',
   'browse.subtitle':
     'Filter arsip editorial berdasarkan topik, tingkat, dan harga. Setiap kursus dikurasi dengan saksama oleh editor kami.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Sertifikat Anda telah ditandatangani dan siap. Bagikan ke dunia atau simpan sebagai pengingat atas kerja keras untuk meraihnya.',
   'certificate.copyLink': 'Salin tautan berbagi',
+  'certificate.copyPrompt': 'Salin tautan ini:',
   'certificate.download': 'Unduh PDF',
   'certificate.eyebrow': 'Pencapaian terbuka',
   'certificate.linkCopied': 'Tautan disalin!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Anda terdaftar!',
   'checkout.verifying': 'Memverifikasi pendaftaran Anda…',
   'checkout.viewLibrary': 'Lihat Pembelajaran Saya',
+  'common.goToDashboard': 'Ke Dashboard',
+  'common.retry': 'Coba lagi',
   'courseDetail.about': 'Tentang kursus ini',
   'courseDetail.checkoutPending': 'Memulai pembayaran…',
   'courseDetail.continueLearning': 'Lanjutkan belajar',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Jaminan uang kembali 30 hari',
   'courseDetail.includes.video': '{{hours}} jam video on-demand',
   'courseDetail.instructor': 'Instruktur',
+  'courseDetail.languageEnglish': 'Bahasa Inggris',
   'courseDetail.lectures': 'Kuliah',
   'courseDetail.level': 'Tingkat',
   'courseDetail.loading': 'Memuat kursus…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Belum ada ulasan.',
   'instructorProfile.students': 'Pelajar',
   'landing.categories.empty': 'Kategori akan muncul setelah katalog terisi.',
+  'landing.categories.heading': 'Jelajahi arsip',
   'landing.hero.eyebrow': 'Lectura · Arsip editorial penguasaan',
   'landing.hero.proof': 'Dipercaya oleh para pelajar di Google, Meta, dan Adobe.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Mulai belajar hari ini',
   'login.subheading': 'Akses arsip akademik Anda.',
   'myLearning.empty.title': 'Belum ada kursus yang cocok dengan filter ini',
+  'myLearning.error.title': 'Tidak dapat memuat pustaka Anda',
   'myLearning.filter.notStarted': 'Belum dimulai',
   'myLearning.hero.subtitle':
     '{{count}} kursus-kursus di perpustakaan Anda. Pertahankan momentumnya.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Tidak ada aktivitas baru untuk ditinjau. Peristiwa baru akan muncul di sini.',
   'notifications.empty.title': 'Anda sudah mengikuti semuanya',
+  'notifications.error.title': 'Tidak dapat memuat aktivitas',
   'privacy.title': 'Kebijakan privasi',
   'reset.confirmPlaceholder': 'Masukkan ulang kata sandi baru Anda',
   'reset.errorGeneric': 'Tidak dapat mereset kata sandi. Minta tautan baru.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}h lalu',
   'timeAgo.hours': '{{count}}j lalu',
   'timeAgo.minutes': '{{count}} mnt lalu',
+  'timeAgo.months': '{{count}} beberapa bulan yang lalu',
   'timeAgo.today': 'hari ini',
+  'timeAgo.weeks': '{{count}} beberapa minggu yang lalu',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// относно {{app}}',
+  'about.pageTitle': 'Контролната равнина на уебкуката',
+  'about.plansTitle': 'Планове за всеки етап',
   'apiKeys.bestPractices': 'Най-добри практики',
   'apiKeys.body':
     'Програмни токени за достъп. Третирайте ги като пароли — съхранявайте ги в променливи на околната среда, никога не ги commitвайте.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'в рамките на плана',
   'billing.usageWarning': 'близо до горната граница',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Към таблото',
   'dashboard.body':
     'Пропускателна способност в реално време, повторни опити в реално време и крайни точки, които току-що са се затруднили – във всяко работно пространство, с което работите.',
   'dashboard.endpointsEmpty': 'Все още няма крайни точки.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'крайни точки',
   'endpointDetail.deliveryTrendSub': 'доставки/час, логаритмична скала',
   'endpointDetail.hideSecret': 'Скрий тайната',
+  'endpointDetail.loading': 'Зареждане на крайната точка…',
   'endpointDetail.metric.delivered': 'Доставка до 24 часа',
   'endpointDetail.metric.deliveredCaption': 'от {{count}} видове събития',
   'endpointDetail.metric.failuresCaption': 'повторни опити: {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Критично · 24 часа',
   'notifications.metric.totalCaption': 'входяща поща за всички времена',
   'payloadViewer.payload': '// полезен товар',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint':
     'Показани са инициали — качвания, които ще бъдат качени със следващото издание.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ запазено',
   'profile.sessionsEmpty': 'Активна е само текущата ви сесия. Няма други влезли устройства.',
   'profile.toggle': 'Превключване {{label}}',
+  'pylonShell.closeMenu': 'Затвори менюто за навигация',
+  'pylonShell.openMenu': 'Отвори менюто за навигация',
   'pylonShell.primaryNavLabel': 'Основна навигация',
   'resetPassword.subtitle': 'Изберете силна парола, която не сте използвали досега.',
   'resetPassword.tokenPlaceholder': 'копирано от имейл',

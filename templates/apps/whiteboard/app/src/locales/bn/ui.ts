@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'authShell.brandHeading':
     'যেসব ডিজাইন টিম উচ্চস্বরে চিন্তা করে, তাদের জন্য মাল্টিপ্লেয়ার ক্যানভাস।',
   'billing.canceled': 'সাবস্ক্রিপশন বাতিল করা হয়েছে।',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'টেমপ্লেট থেকে শুরু করুন',
   'boards.title': 'আপনার বোর্ডগুলি',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'আপনার ওয়ার্কস্পেসের সাথে যুক্ত ইমেলটি প্রবেশ করান এবং আমরা একটি রিসেট লিঙ্ক পাঠিয়ে দেব।',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'অগোছালো, সৃজনশীল এবং মুখোমুখি চিন্তাভাবনার জন্য নির্মিত।',
   'landing.demoBoard.title': 'Q1 কর্মশালা · ব্র্যান্ড ভয়েস',
   'landing.featuresTitle': 'দ্রুত প্রতিক্রিয়া। সুন্দর ক্যানভাস। কোনো বাধা নেই।',
+  'landing.hero.body':
+    '{{appName}} হলো ডিজাইন টিম, কর্মশালার সঞ্চালক এবং শিক্ষাবিদদের জন্য একটি মাল্টিপ্লেয়ার হোয়াইটবোর্ড, যারা লাইভ ব্রেইনস্টর্মিং পরিচালনা করেন এবং বিভিন্ন ধারণাকে এক জায়গায় একত্রিত করতে চান।',
   'landing.hero.primaryCta': 'বিনামূল্যে একটি বোর্ড শুরু করুন',
   'landing.hero.socialProof': 'বিশ্বস্ত {{count}} বিশ্বজুড়ে ডিজাইন দল',
   'landing.hero.title': 'আপনার চিন্তার মতোই দ্রুত একটি ক্যানভাস',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'একটি বিনামূল্যের কর্মক্ষেত্র তৈরি করুন',
   'login.subheading':
     'কর্মশালাটি যেখানে শেষ হয়েছিল সেখান থেকেই আবার শুরু করুন — বোর্ড, স্টিকি নোট এবং কার্সার সবই রিয়েল টাইমে সিঙ্ক হয়।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.new': 'নতুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'notifications.editTitle': '"এ সম্পাদনাগুলি {{board}} "',
   'notifications.empty.body':
     'আমন্ত্রণ, সংরক্ষিত স্ন্যাপশট এবং বোর্ডের সাম্প্রতিক সম্পাদনাগুলো ঘটার সাথে সাথেই এখানে প্রদর্শিত হবে।',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'সংস্করণ ইতিহাস',
   'versionHistory.untitledSnapshot': 'শিরোনামহীন স্ন্যাপশট',
   'whiteboardLayout.newBoard': 'নতুন বোর্ড',
+  'whiteboardLayout.primaryNav': 'প্রাথমিক নেভিগেশন',
   'workspace.boardLabel': 'বোর্ড',
   'workspace.eyebrow': '{{name}} কর্মক্ষেত্র',
   'workspace.invite': 'সহযোগীদের আমন্ত্রণ জানান',

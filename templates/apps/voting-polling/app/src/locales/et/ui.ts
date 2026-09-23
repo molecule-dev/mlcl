@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
   'analytics.col.quorum': 'Kvoorum',
   'analytics.col.votes': 'Hääled',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Ootel küsimusi pole veel.',
   'audienceQa.onStageEyebrow': 'Nüüd laval',
   'audienceQa.pollId': 'küsimus · {{id}}',
+  'audienceQa.promote': 'Edendada',
   'audienceQa.queued': 'järjekorras',
   'audienceQa.queueEyebrow': 'Järjekord',
   'ballot.eyebrow': 'Anna oma hääl',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Sa oled hetkel lehel {{plan}} plaan.',
   'billing.switch': 'Lüliti',
   'billing.upgraded': 'Uuendatud versioonile {{plan}} — piirangud rakendatakse kohe.',
+  'common.goToDashboard': 'Mine töölauani',
   'createPoll.addOption': 'Lisa valik',
   'createPoll.anonymousHint':
     'Valijate nimed on auditilogis peidetud; loendused jäävad autentseks.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Kas oled Noshis uus?',
   'login.remember': 'Pea mind 30 päeva meeles',
   'login.subheading': 'Ava põrand, jookse tuba läbi ja kinnita tulemus.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'notFound.body':
     'Leht, millele proovisite ligi pääseda, on suletud või teisaldatud. Minge tagasi juhtpaneelile või avage uus küsitlus.',
   'notFound.eyebrow': 'Sellel marsruudil pole kvoorumit',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Selle küsitluse laadimine ebaõnnestus.',
   'pollDetail.loading': 'Küsitluse laadimine…',
   'pollDetail.notFound': 'Küsitlust ei leitud.',
+  'pollDetail.openBallot': 'Avatud hääletus',
   'pollDetail.openLive': 'Reaalajas tulemused',
   'pollDetail.pollId': 'küsitlus · {{id}}',
   'pollDetail.published': 'Küsitlus avaldatud – valijad saavad nüüd hääletada.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Otsi e-posti teel…',
   'voters.subheading':
     'Kureeri hääleõiguslike isikute nimekirja. Rühmita valijad organisatsiooni järgi, et saada kaalutud hääletussedelitega rühmitused.',
+  'votingPollingLayout.nav.analytics': 'Analüütika',
+  'votingPollingLayout.nav.billing': 'Arveldamine',
+  'votingPollingLayout.nav.createPoll': 'Uus küsitlus',
+  'votingPollingLayout.nav.dashboard': 'Armatuurlaud',
+  'votingPollingLayout.nav.notifications': 'Teavitused',
+  'votingPollingLayout.nav.settings': 'Seaded',
+  'votingPollingLayout.nav.team': 'Meeskond',
+  'votingPollingLayout.nav.voters': 'Valijad',
+  'votingPollingLayout.primaryNavLabel': 'Peamine navigeerimine',
 }

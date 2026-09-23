@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'authShell.brandHeading': 'Kanvas multipemain untuk tim desain yang berpikir dengan lantang.',
   'billing.canceled': 'Langganan dibatalkan.',
   'billing.cancelPlan': 'Batalkan paket',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Mulai dari templat',
   'boards.title': 'Papan Anda',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Ke Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Masukkan email yang terhubung dengan workspace Anda dan kami akan mengirimkan tautan reset.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Workshop · Suara Brand',
   'landing.featuresEyebrow': 'Apa yang membuat Slate berpadu',
   'landing.featuresTitle': 'Umpan balik cepat. Kanvas indah. Tanpa gesekan.',
+  'landing.hero.body':
+    '{{appName}} adalah papan tulis digital multipemain untuk tim desain, fasilitator lokakarya, dan pendidik yang menjalankan sesi brainstorming langsung dan membutuhkan ide-ide untuk berkumpul di satu tempat.',
   'landing.hero.primaryCta': 'Mulai papan gratis',
   'landing.hero.socialProof': 'Dipercaya oleh {{count}} tim desain di seluruh dunia',
   'landing.hero.title': 'Kanvas secepat pikiran Anda',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Buat workspace gratis',
   'login.subheading':
     'Lanjutkan dari tempat workshop berhenti — papan, catatan tempel, dan kursor semuanya tersinkronisasi secara real time.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.new': 'Baru',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notifications.editTitle': 'Suntingan pada "{{board}}"',
   'notifications.empty.body':
     'Undangan, penyimpanan snapshot, dan pengeditan papan terbaru akan muncul di sini saat terjadi.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Riwayat versi',
   'versionHistory.untitledSnapshot': 'Snapshot tanpa judul',
   'whiteboardLayout.newBoard': 'Papan baru',
+  'whiteboardLayout.primaryNav': 'Navigasi utama',
   'workspace.boardLabel': 'Papan',
   'workspace.eyebrow': '{{name}} · workspace',
   'workspace.invite': 'Undang kolaborator',

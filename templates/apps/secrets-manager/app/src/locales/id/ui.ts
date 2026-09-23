@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'about.tagline': 'Rahasia mati di tempat terbuka.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Buat token',
   'apiTokens.kicker': 'Token API',
   'apiTokens.loading': 'Memuat token…',
+  'apiTokens.new': 'Token baru',
   'apiTokens.revoke': 'Cabut token',
   'apiTokens.subheading':
     'Token pribadi dan layanan untuk Arcanum CLI dan SDK. Teks biasa ditampilkan sekali saat pembuatan.',
@@ -29,6 +31,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Enkripsi tanpa pengetahuan',
   'common.connecting': 'Menghubungkan…',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.inviting': 'Mengundang…',
   'forgotPassword.checkInbox':
     'Jika {email} terdaftar, tautan reset bertanda tangan akan tiba dalam satu menit.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Status rotasi, peringatan anomali, dan permintaan persetujuan di setiap vault.',
   'notifications.unreadEmpty': 'Kotak masuk nol — semua sudah ditangani.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.heading': 'rahasia',
   'pricing.limits.accessPolicies': 'kebijakan akses',
   'pricing.limits.auditLog': 'entri log audit',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Akun pribadi',
   'profile.plan.description': 'Kelola langganan, lihat batas, dan tingkatkan.',
   'profile.subheading': 'Identitas, perangkat faktor kedua, dan sesi aktif.',
+  'profile.twoFactor.code': 'Kode otentikasi',
   'profile.twoFactor.disable': 'Nonaktifkan',
   'profile.twoFactor.enable': 'Aktifkan',
+  'profile.twoFactor.invalidCode': 'Kode tidak valid',
   'profile.twoFactor.kicker': 'Autentikasi dua faktor',
+  'profile.twoFactor.off': 'Tidak diaktifkan',
   'profile.twoFactor.on': 'Aktif',
   'resetPassword.email': 'Email akun',
   'resetPassword.heading': 'Tetapkan kredensial baru',
@@ -130,6 +137,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'perintah',
   'secretsManagerLayout.encrypted': 'AES-256 · ENCRYPTED',
   'secretsManagerLayout.newVault': 'Vault baru',
+  'secretsManagerLayout.newVaultShort': 'Baru',
   'secretsManagerLayout.rotations': 'Rotasi',
   'secretsManagerLayout.search': 'cari',
   'secretsManagerLayout.searchPlaceholder': 'Cari rahasia berdasarkan kunci, jalur, atau tag…',
@@ -166,6 +174,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Rahasia',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Tambah rahasia',
+  'vaultDetail.back': 'Semua brankas',
   'vaultDetail.col.key': 'Kunci',
   'vaultDetail.col.rotated': 'Dirotasi',
   'vaultDetail.col.value': 'Nilai',

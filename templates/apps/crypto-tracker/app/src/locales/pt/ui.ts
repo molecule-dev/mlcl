@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Sobre',
   'alertConditionCard.condition.${alert.condition}': 'Acionado {{when}}',
+  'alertConditionCard.confirmDelete': 'Confirmar exclusão',
   'alertConditionCard.pauseAriaLabel': 'Pausar alerta',
   'alertConditionCard.resumeAriaLabel': 'Retomar alerta',
   'alertNew.condition': 'Condição',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Avaliação totalmente diluída',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Site',
+  'coinDetail.links.whitepaper': 'Documento técnico',
   'coinDetail.loadError': 'Falha ao carregar a moeda.',
   'coinDetail.marketCap': 'Capitalização de mercado',
   'coinDetail.maxSupply': 'Oferta máxima',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'A rota que você escaneou não corresponde a uma moeda ou página conhecida. Verifique o símbolo e tente novamente.',
   'notFound.browseMarkets': 'Explorar mercados',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'portfolio.addError': 'Insira o símbolo, a quantidade positiva e o custo.',
   'portfolio.addHoldingCta': '+ Adicionar posição',
   'portfolio.addModal.cost': 'Custo base (USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'As configurações de senha e dois fatores são gerenciadas pela sua conta.',
   'settings.signOutDevice': 'Sair',
+  'settings.twoFactorCode': 'Código de autenticação',
   'settings.twoFactorDisable': 'Desativar',
   'settings.twoFactorEnable': 'Ativar',
+  'settings.twoFactorInvalidCode': 'Código inválido',
   'settings.twoFactorOn': 'Em',
+  'settings.twoFactorVerify': 'Verificar e ativar',
   'sigilAuthShell.backHomeCta': '← Voltar ao Bourse',
   'sigilLayout.primaryNavLabel': 'Navegação principal',
   'signup.eyebrow': 'Abrir um terminal',

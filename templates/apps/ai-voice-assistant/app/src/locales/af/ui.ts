@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, 'n versoek vir 'n funksie of 'n fout gevind? Kontak die {{app}} span deur die ondersteuningskakel in jou rekeningkieslys — elke boodskap gaan na 'n regte mens.",
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'agentDetail.back': 'Alle agente',
   'agentDetail.capabilities': 'Vermoëns',
   'agentDetail.delete': 'Vee persona uit',
   'agentDetail.deleteConfirm': 'Vee hierdie persona uit? Dit kan nie ongedaan gemaak word nie.',
+  'agentDetail.deleteError': 'Kon nie persona verwyder nie.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Kon nie persona laai nie.',
   'agentDetail.save': 'Stoor persona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Skakel oor…',
   'billing.updateError': 'Kon nie opdatering begin nie.',
   'billing.usageHeading': 'Stemgebruik hierdie siklus',
+  'chatBubble.source.text': 'teks',
+  'chatBubble.source.voice': 'stem',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'conversation.defaultTitle': 'Nuwe gesprek',
   'conversation.empty': 'Geen boodskappe nog nie. Begin deur iets te sê of hieronder te tik.',
   'conversation.eyebrow': 'Regstreekse sessie',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelligensie wat praat.',
   'landing.heroSubtitle':
     'Die KI-stemassistent wat jou natuurlike vloei verstaan. Gesels, dink naatloos en gee bevele.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Luister…',
   'landing.naturallyBody':
     "Geen snellerwoorde nie. Geen rigiede bevele nie. Die taalgebruik verstaan konteks, onderbrekings en die nuanse van menslike spraak – soos om met 'n kollega te gesels.",
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': "Maak 'n sessie oop",
   'notFound.home': 'Terug by die huis',
   'notFound.title': 'Ons kon nie daardie bladsy hoor nie.',
+  'parlanceLayout.closeMenu': 'Maak spyskaart toe',
+  'parlanceLayout.openMenu': 'Maak navigasiekieslys oop',
   'parlanceLayout.primaryNavLabel': 'Primêre navigasie',
   'pricing.conversations': '{{count}} gesprekke',
   'pricing.cta.startFree': 'Begin gratis',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Geen ooreenkomste nie',
   'search.eyebrow': 'Opdragpalet',
   'search.fetchError': 'Kon nie soekindeks laai nie.',
+  'search.static.profile.preview': 'Vertoonnaam, handvatsel, biografie',
   'search.static.voice.title': 'Stem',
   'search.title': 'Soektaal',
   'search.transcriptPreview': 'Maak transkripsie oop',

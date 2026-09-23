@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.title': 'Ynghylch {{app}}',
   'comments.addFailed': 'Methwyd postio sylw.',
   'comments.backToDoc': "Yn ôl i'r llawysgrif",
   'comments.deleteFailed': 'Methwyd dileu.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Datrys',
   'comments.resolveFailed': 'Methwyd datrys.',
   'comments.subtitle': "{{open}} agored · {{resolved}} wedi'i ddatrys",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.activityHeading': "Beth sy'n digwydd",
   'dashboard.createFailed': 'Methwyd creu dogfen.',
   'dashboard.empty': "Dim llawysgrifau eto — dechreuwch gyda'r botwm Dogfen Newydd.",
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': "Methwyd symud i'r bin.",
   'editor.unpublish': 'Dadgyhoeddi',
   'editor.untitled': 'Dogfen Ddi-deitl',
+  'editor.updatedElsewhere':
+    'Diweddarwyd y ddogfen hon gan rywun arall — ail-lwythwch i weld y diweddaraf.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'awdur@stiwdio.com',
   'forgotPassword.sentBody':
     'Os oes cyfrif yn bodoli ar gyfer {{email}} , mae dolen ailosod ar y ffordd.',
   'forgotPassword.subtitle': 'Byddwn yn e-bostio dolen ailosod atoch.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Adeiladwyd gyda Molecule.',
   'landing.ctaHeading': "Agorwch y dudalen. Gadewch i'r cyrchwr ddechrau.",
   'landing.ctaPrimary': 'Agor stiwdio',
   'landing.eyebrow': 'Ar gyfer awduron, golygyddion a thimau',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': "wedi'i olygu {{when}}",
   'quillonDocumentCard.open': 'Agor →',
   'quillonKpiCard.trend': 'Tuedd ddiweddar',
+  'quillonLayout.menu': 'Dewislen',
   'quillonLayout.primaryNavLabel': 'Prif lywio',
   'quillonStudioHero.collab': 'Cydweithwyr',
   'quillonStudioHero.docs': "Dogfennau wedi'u cyffwrdd",
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'nawr yn unig',
+  'trash.confirmDelete': 'Cadarnhau dileu',
   'trash.deleteFailed': 'Methwyd dileu.',
   'trash.deleteForever': 'Dileu am byth',
   'trash.empty': "Dim byd i'w adfer.",
+  'trash.emptyAll': "Gwagio'r sbwriel",
   'trash.eyebrow': 'Stiwdio',
   'trash.heading': 'Sbwriel',
   'trash.loadFailed': "Methwyd llwytho'r sbwriel.",

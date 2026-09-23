@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'authBrandPanel.quote':
     '„Pergamen je nyní systémem záznamů pro každou podepsanou smlouvu, kterou vlastníme.“',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'contractDetail.amount': 'Hodnota',
   'contractDetail.back': 'Všechny smlouvy',
   'contractDetail.downloadCta': 'Stáhnout PDF',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Pokud existuje účet s adresou {{email}}, odesíláme vám odkaz pro resetování hesla.',
   'forgotPassword.subtitle': 'Na váš pracovní e-mail vám zašleme odkaz pro resetování.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Vytvořeno pomocí Molecule.',
   'landing.ctaHeading': 'Uzavření portfolia hned první den.',
   'landing.ctaPrimary': 'Spuštění pracovního prostoru',
   'landing.eyebrow': 'Pro právní operace a nákup',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Jméno protistrany je povinné.',
   'newContract.errEmail': 'E-mailová adresa podepisující osoby je povinná.',
   'newContract.expires': 'Datum spotřeby',
+  'newContract.failed': 'Nepodařilo se vytvořit smlouvu.',
   'newContract.heading': 'Nová smlouva',
   'newContract.nextCta': 'Další',
   'newContract.review.counterparty': 'Protistrana',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Název smlouvy',
   'newContract.titlePlaceholder': 'Hlavní smlouva o poskytování služeb',
   'newContract.variablesHeading': 'Proměnné smlouvy',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.dataExport': 'Export dat',
   'pricing.disabled': 'Žádný',
   'pricing.enabled': 'Ano',
@@ -145,15 +151,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Účet se nepodařilo smazat.',
   'settings.security.deleting': 'Mazání…',
   'settings.security.newPassword': 'Nové heslo',
+  'settings.security.noDevices': 'Není zaregistrováno žádné zařízení.',
   'settings.security.twoFactor': 'Dvoufaktorové ověřování',
   'settings.security.twoFactorDisable': 'Zakázat',
   'settings.security.twoFactorEnable': 'Povolit',
+  'settings.security.twoFactorInvalidCode': 'Neplatný kód.',
   'settings.signatures.body':
     'Vaše napsané jméno se objeví v podpisovém řádku každé smlouvy, kterou podepíšete. Nastavte ho jednou a od té doby se bude automaticky vykreslovat.',
   'settings.signatures.heading': 'Podpisový blok',
   'settings.signatures.save': 'Uložit podpis',
+  'sign.action': 'Podepište tento dokument',
+  'sign.eyebrow': 'Vyžaduje se podpis',
+  'sign.for': 'Pro {{name}}',
+  'sign.loadError': 'Tento odkaz pro přihlášení je neplatný nebo jeho platnost vypršela.',
   'sign.loading': 'Načítání…',
   'sign.signing': 'Podepisování…',
+  'sign.submitError': 'Nepodařilo se zaznamenat váš podpis – odkaz pravděpodobně již vypršel.',
   'signup.brandQuote':
     '\\u201cZa týden jsme migrovali 8 let papírových dat do Vellumu. Samotná auditní stopa ospravedlňuje tuto výměnu.\\u201d',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -187,6 +200,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Otevřená smlouva →',
   'vellumKpiCard.trend': 'Současný trend',
+  'vellumLayout.closeMenu': 'Zavřít navigační menu',
+  'vellumLayout.openMenu': 'Otevřít navigační menu',
   'vellumLayout.primaryNavLabel': 'Primární navigace',
   'vellumPortfolioHero.expiring': 'Platnost vyprší za 30 dní',
   'vellumPortfolioHero.label': 'Hodnota portfolia',

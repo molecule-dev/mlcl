@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Sprendžiama…',
   'comments.subtitle':
     'The {{count}} Temos, kurios vis dar laukia atsakymo ar sprendimo. Rūšiuotos pagal amžių – pirmiausia seniausios, kad niekas nesugedtų.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'forgotPassword.sentTo': 'Atkurti nuorodą, išsiųstą gavėjui {{email}}',
   'forgotPassword.successSubheading':
     'Patikrinkite savo pašto dėžutę – ką tik išsiuntėme nustatymo iš naujo nuorodą. Ji galioja 30 minučių.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Naujas puslapis',
   'pageTreeSidebar.workspaceHeader': 'Darbo sritis',
   'pageView.breadcrumb': 'Navigacijos kelias',
+  'pageView.confirmTrash': 'Išmesti?',
   'pageView.home': 'Pradžia',
   'pageView.lastEdited': 'Atnaujinta {{when}}',
   'pageView.loading': 'Įkeliamas puslapis…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Šiai darbo sričiai dirbtinio intelekto santrauka nesukonfigūruota.',
   'pageView.tocTitle': 'Šiame puslapyje',
+  'pageView.trash': 'Šiukšlės',
+  'pageView.trashing': 'Šiukšlinimas…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Ženklai',
   'profile.owned.title': 'Priklausantys puslapiai',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Darbo sritis, profilis, pranešimai, integracijos – visa tai viename ramiame apvalkale.',
   'settingsPage.workspace.defaultLanding': 'Numatytasis nukreipimo ekranas',
   'settingsPage.workspace.landingHome': 'Pradžia',
+  'settingsPage.workspace.landingSpaces': 'Erdvės',
   'settingsPage.workspace.subdomainLabel': 'Subdomenas',
   'settingsPage.workspace.title': 'Darbo sritis',
   'signup.eyebrow': 'Pradėti naują darbo sritį',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min.',
   'templates.subtitle':
     'Pradėkite rašyti puslapį nuo trafareto, o ne nuo tuščios drobės. Kiekvienas šablonas užkoduoja formą, kad galėtumėte sutelkti dėmesį į esmę.',
+  'trash.confirmPurge': 'Išvalyti visam laikui?',
+  'trash.confirmPurgeAria': 'Patvirtinti: visam laikui ištrinti {{title}}',
   'trash.daysUntilPurge': '{{days}} likusių dienų',
   'trash.empty.body': 'Ištrinti puslapiai čia bus rodomi 30 dienų, o tada bus išvalyti.',
   'trash.empty.title': 'Šiukšliadėžė tuščia.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Atkuriama…',
   'versionHistory.subtitle': '{{count}} versijos · pasirinkite eilutę, kad peržiūrėtumėte skirtumą',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Uždaryti navigaciją',
+  'wikiLayout.menu': 'Navigacija',
+  'wikiLayout.openMenu': 'Atidaryti navigaciją',
   'wikiLayout.searchPlaceholder': 'Ieškoti Kerne — puslapiai, komentarai…',
 }

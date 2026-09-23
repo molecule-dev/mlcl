@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Dipantau',
   'auctionDetail.watchRemoved': 'Dihapus dari daftar pantauan.',
   'auctionDetail.watchRemoveLabel': 'Hapus dari daftar pantauan',
+  'auctionPlatformLayout.primaryNavLabel': 'Navigasi utama',
   'authShell.brandBody':
     'Lakukan penawaran secara real-time untuk jam tangan langka, karya seni rupa, dan barang istimewa yang unik. Palu jatuh dalam hitungan detik.',
   'authShell.brandEyebrow': 'Langsung sekarang · 1.420 lelang',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Urutkan berdasarkan',
   'browseAuctions.subheading':
     'Filter berdasarkan kategori, urutkan berdasarkan yang paling penting, dan pasang penawaran sebelum palu jatuh.',
+  'common.goToDashboard': 'Ke Dashboard',
   'countdownTimer.ended': 'Berakhir',
   'countdownTimer.endingSoon': 'Akan berakhir',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Sembunyikan kata sandi',
   'login.showPassword': 'Tampilkan kata sandi',
   'login.subtext': 'Lanjutkan melacak lelang Anda dan pasang penawaran sebelum palu jatuh.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'myBids.bidAgain': 'Tawar lagi',
   'myBids.browseCta': 'Jelajahi lelang langsung →',
   'myBids.checkoutCta': 'Bayar sekarang',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Pusat aktivitas',
   'notificationsPage.subheading':
     '{{count}} belum dibaca · pembaruan langsung saat lelang berlangsung',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.bidsLabel': 'penawaran',
   'pricing.listingsLabel': 'listing',
   'pricing.watchlistLabel': 'daftar pantauan',

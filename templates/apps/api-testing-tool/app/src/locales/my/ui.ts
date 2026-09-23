@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.pageTitle': '{{app}} အကြောင်း',
   'authShell.statusLabel': 'အွန်လိုင်းပြေးသမားများ',
   'collections.createError': 'စုစည်းမှုကို ဖန်တီး၍မရပါ။',
   'collections.defaultName': 'ခေါင်းစဉ်မဲ့ စုစည်းမှု {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'စုစည်းမှုအသစ်',
   'collections.subheading':
     'အဖွဲ့လိုက်တောင်းဆိုမှုများ၊ သင့်အဖွဲ့နှင့်မျှဝေပြီး suite တစ်ခုအနေဖြင့် လုပ်ဆောင်ပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'environmentCard.inactive': 'အားလပ်ချိန်',
   'environmentCard.more': 'နောက်ထပ်',
   'environmentCard.variables': 'ကိန်းရှင်များ',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'အခမဲ့ဒေါင်းလုဒ်လုပ်ပါ',
   'landing.heroSubtitle':
     'တာမီနယ်များတွင် နေထိုင်သော အင်ဂျင်နီယာများအတွက် တည်ဆောက်ထားသော မိုးကြိုးပစ်နိုင်သော API စမ်းသပ်စားပွဲ။',
+  'landing.heroTitleAccent': 'မီး',
+  'landing.heroTitleLine2': 'ယုံကြည်မှုကို တည်ဆောက်ပါ။',
+  'landing.heroTitleRest': 'တောင်းဆိုချက်များ၊',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ ဈေးနှုန်း --ရိုးရှင်းသော',
   'landing.pricingHeading': 'ရိုးရှင်းပြီး ခန့်မှန်းနိုင်သော ဈေးနှုန်း',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ဒီမှာ အသစ်လား။',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.subtitle': 'သင့်ရဲ့ Pylon အလုပ်ခွင်ကို ဆက်သွားပါ။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'mocks.createError': 'အတုအယောင် ဖန်တီး၍မရပါ။',
   'mocks.defaultName': 'ခေါင်းစဉ်မဲ့ အတုအယောင် {{n}}',
   'mocks.deleteError': 'အတုအယောင်ကို ဖျက်၍မရပါ။',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'အလုပ်ခွင်သို့ ပြန်သွားပါ',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'လမ်းကြောင်း ရှာမတွေ့ပါ',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'privacy.collect.account':
     'အကောင့်- သင့်အီးမေးလ်၊ hash လုပ်ထားသော စကားဝှက်၊ ပြသထားသောအမည်နှင့် သင်နောက်ဆုံးဝင်ရောက်ခဲ့သည့် အချိန်တံဆိပ်။',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'ဤအကောင့်က လက်ရှိပိုင်ဆိုင်သော ဒေတာ၏ ဖတ်ရှုရန်သီးသန့် မြင်ကွင်း။',
   'settings.unset': 'မသတ်မှတ်ထားပါ',
   'signup.identityHint': 'ဥပမာ အဲလက်စ်',
+  'signup.statusLabel': 'အခမဲ့အဆင့် · ခရက်ဒစ်ကတ်မလိုပါ',
   'signup.subtitle': 'မိနစ်ပိုင်းအတွင်း တောင်းဆိုမှုများကို စတင်ပေးပို့ပါ။',
   'terms.account.body':
     'သင့်စကားဝှက်ကို ကာကွယ်ရန် သင့်တွင် တာဝန်ရှိပါသည်။ Free သို့မဟုတ် Pro အစီအစဉ်များတွင် အကောင့်တစ်ခုကို လူများစွာနှင့် မျှဝေသုံးစွဲခွင့်မပြုပါ — မျှဝေထားသော အလုပ်ခွင်များအတွက် Team စာရင်းသွင်းမှုကို ဝယ်ယူပါ။',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'သင်မပိုင်ဆိုင်သော သို့မဟုတ် စမ်းသပ်ရန် ရှင်းလင်းစွာခွင့်ပြုချက်မရှိသော ဝန်ဆောင်မှုများတွင် တောင်းဆိုမှုများ ပြုလုပ်ရန် Pylon ကို အသုံးမပြုပါနှင့်။ နှုန်းထားကန့်သတ်ချက်များကို ရှောင်ကွင်းရန် သို့မဟုတ် လိမ်လည်မှုကျူးလွန်ရန် Pylon ကို အသုံးမပြုပါနှင့်။',
   'terms.warranty.body':
     'Pylon ကို မည်သည့်အာမခံချက်မှမပါဘဲ "ရှိရင်းစွဲအတိုင်း" ပံ့ပိုးပေးထားပါသည်။ ကျွန်ုပ်တို့သည် 99.9% uptime ရရှိစေရန် ရည်ရွယ်သော်လည်း Free သို့မဟုတ် Pro အစီအစဉ်များတွင် အာမမခံပါ။',
+  'testRunner.assertionsCount': '{{count}} အခိုင်အမာပြောဆိုချက်များ',
   'testRunner.createError': 'စမ်းသပ်ဖန်တီး၍မရပါ။',
   'testRunner.cron':
     'ဤစမ်းသပ်မှု၏ ချိတ်ဆက်ထားသော တောင်းဆိုချက်၏ မကြာသေးမီက လုပ်ဆောင်မှုနှင့် နှိုင်းယှဉ်၍ အခိုင်အမာပြောဆိုချက်များကို အကဲဖြတ်သည်။',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     'Suite ရလဒ်များ၊ အခိုင်အမာပြောဆိုချက် ကွာခြားချက်များနှင့် နောက်ဆုံး ရမှတ် ၅၀။',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'အဖြစ် လက်မှတ်ထိုးဝင်ထားသည်',
+  'workspace.auth.keyName': 'ခေါင်းစဉ်အမည်',
+  'workspace.auth.keyValue': 'သော့ချက်တန်ဖိုး',
+  'workspace.auth.password': 'စကားဝှက်',
+  'workspace.auth.username': 'အသုံးပြုသူအမည်',
+  'workspace.authOption.apikey': 'API ကီး',
+  'workspace.authOption.basic': 'အခြေခံ ခွင့်ပြုချက်',
+  'workspace.authOption.bearer': 'ကိုင်ဆောင်သူ တိုကင်',
+  'workspace.authOption.none': 'မရှိပါ',
+  'workspace.authOption.oauth': 'OAuth ၂.၀',
   'workspace.authType': 'အမျိုးအစား',
   'workspace.authTypeLabel': 'ခွင့်ပြုချက်အမျိုးအစား',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'မရှိပါ',
+  'workspace.body.text': 'စာသားမပြည့်စုံ',
+  'workspace.body.type': 'အမျိုးအစား',
   'workspace.environment': 'env မရှိပါ',
   'workspace.envVar': 'env ကိန်းရှင်',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'ခေါင်းစီးထည့်ပါ',
+  'workspace.kv.addParam': 'ပါရာမီရာ ထည့်ပါ',
+  'workspace.kv.headerKey': 'ခေါင်းစဉ်အမည်',
+  'workspace.kv.headerValue': 'ခေါင်းစီးတန်ဖိုး',
+  'workspace.kv.key': 'သော့',
+  'workspace.kv.paramKey': 'မေးမြန်းချက် ပါရာမီရာ ကီး',
+  'workspace.kv.paramValue': 'မေးမြန်းချက် ပါရာမီတာ တန်ဖိုး',
+  'workspace.kv.removeRow': 'အတန်းကို ဖယ်ရှားပါ',
+  'workspace.kv.value': 'တန်ဖိုး',
   'workspace.methodLabel': 'HTTP နည်းလမ်း',
   'workspace.metric.latency': 'နှောင့်နှေးမှု',
   'workspace.metric.latencyCaption': 'ဤပြေးလမ်းမှ အသွားအပြန်',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'တောင်းဆိုချက်ကို ရပ်ဆိုင်းလိုက်ပါပြီ — အောက်ပါတုံ့ပြန်ချက်ကို ကြည့်ပါ။',
   'workspace.subheading':
     'တောင်းဆိုချက်တစ်ခု ရေးသားပါ၊ စတင်ပါ၊ ထို့နောက် တုံ့ပြန်မှုကို အတည်ပြုပါ — အားလုံးကို တစ်နေရာတည်းတွင် ပြုလုပ်ပါ။',
+  'workspace.testResults': 'စမ်းသပ်မှုရလဒ်များ',
   'workspace.token': 'တိုကင်',
   'workspace.tokenHint':
     'ခွင့်ပြုချက်အဖြစ် ပေးပို့သည်- ကိုင်ဆောင်သူ<token> ဤစုစည်းမှုတွင် တောင်းဆိုမှုတိုင်းတွင်။',

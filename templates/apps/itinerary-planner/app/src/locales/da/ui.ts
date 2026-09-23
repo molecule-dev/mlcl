@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Om {{app}}',
+  'auth.legalConsent': 'Ved at fortsætte accepterer du vores',
   'bookings.empty.body': 'Tilføj en flyrejse, et hotel eller en aktivitet for at starte indbakken.',
   'bookings.empty.heading': 'Ingen bookinger endnu.',
   'bookings.errors.create': 'Kunne ikke oprette booking.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Bekræftet',
   'bookings.summary.pending': 'Venter på bekræftelse',
   'bookings.summary.total': 'Samlet forpligtet',
+  'bookings.type.car': 'Lejebil',
+  'bookings.type.flight': 'Flyvningen',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Andre',
   'budgetSpendCard.budgetTotal': 'af {{total}} planlagt',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Find konflikter, planlæg restitutionsdage mellem ture, og se, hvornår samarbejdspartnere rejser med dig.',
   'common.and': 'og',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.budgetHeading': 'Budgetpuls',
   'dashboard.empty.heading': 'Ingen ture endnu — dit atlas er tomt.',
   'dashboard.eyebrow': 'Missionskontrol',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Ture i bevægelse',
   'dashboard.viewAllExpenses': 'Se alle udgifter',
   'dashboard.viewAllTrips': 'Se hver tur',
+  'dayTimelineRow.category.accommodation': 'Ophold',
   'dayTimelineRow.category.transport': 'Transportere',
   'destinationOrbCard.exploreCta': 'Tilføj til en rejse',
   'destinationOrbCard.tripCount': '{{count}} ture',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Ingen e-mail endnu? Tjek din spam-mappe, eller prøv igen med en anden adresse.',
   'forgotPassword.successSubheading':
     'Vi sendte et gendannelseslink til {{email}} Linket er gyldigt i 30 minutter.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Opret gratis konto',
+  'landing.cta.subheading':
+    'Op til fem ture, fem samarbejdspartnere og fem stop med gratisabonnementet – med synkronisering i realtid inkluderet, og Pro, der løfter lofterne, når dine planer vokser.',
   'landing.destinations.eyebrow': 'Hvor skal vi hen næste gang',
   'landing.destinations.heading': 'Redaktør-kuraterede destinationer',
   'landing.features.eyebrow': 'Sådan fungerer Waypoint',
   'landing.features.heading': 'Bygget til rejsende, ikke regneark.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start en gratis tur',
   'landing.hero.ctaSecondary': 'Se en prøvetur',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Opret en konto for at dele ture med op til 5 samarbejdspartnere, synkronisere bookinger og samle alle bekræftelser ét sted.',
+  'signup.termsPrefix': 'Ved at oprette en konto accepterer du vores',
   'tripCountdownHeroCard.budget': '{{used}} af {{total}} ( {{pct}} % af budgettet)',
   'tripCountdownHeroCard.collaborators': '{{count}} rejsende',
   'tripCountdownHeroCard.countdownLabel': 'Nedtælling',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ingen ture endnu.',
   'trips.pastHeading': 'Tidligere eventyr',
   'trips.subheading': '{{count}} Rejseplaner - fortid, nutid og engang.',
+  'waypointLayout.mobileNavClose': 'Luk navigationsmenuen',
   'waypointLayout.primaryNavLabel': 'Primær navigation',
 }

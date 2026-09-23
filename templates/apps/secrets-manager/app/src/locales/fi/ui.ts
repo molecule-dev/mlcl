@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'about.tagline': 'Salaisuudet kuolevat julkisesti.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Luo tunnus',
   'apiTokens.kicker': 'API-tunnukset',
   'apiTokens.loading': 'Ladataan tunnuksia…',
+  'apiTokens.new': 'Uusi token',
   'apiTokens.revoke': 'Peruuta tunnus',
   'apiTokens.subheading':
     'Arcanum CLI:n ja SDK:n henkilökohtaiset ja palvelutunnukset. Selkoteksti näytetään kerran luonnin yhteydessä.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + salasana',
   'authShell.zeroKnowledge': 'Nollatiedon salaus',
   'common.connecting': 'Yhdistetään…',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.inviting': 'Kutsutaan…',
   'forgotPassword.checkInbox':
     'Jos {email} on rekisteröity, allekirjoitettu palautuslinkki saapuu minuutin kuluessa.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Kierron tila, poikkeamahälytykset ja hyväksymispyynnöt kaikissa holveissa.',
   'notifications.unreadEmpty': 'Saapuneet-kansio nolla – kaikki hoidettu.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.heading': 'salaisuudet',
   'pricing.limits.accessPolicies': 'käyttöoikeuskäytännöt',
   'pricing.limits.auditLog': 'tarkastuslokin merkinnät',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Henkilökohtainen tili',
   'profile.plan.description': 'Hallinnoi tilaustasi, katso rajoitukset ja päivitä.',
   'profile.subheading': 'Identiteetti, toisen vaiheen laitteet ja aktiiviset istunnot.',
+  'profile.twoFactor.code': 'Todennuskoodi',
   'profile.twoFactor.disable': 'Poista käytöstä',
   'profile.twoFactor.enable': 'Ota käyttöön',
+  'profile.twoFactor.invalidCode': 'Virheellinen koodi',
   'profile.twoFactor.kicker': 'Kaksivaiheinen todennus',
+  'profile.twoFactor.off': 'Ei käytössä',
   'profile.twoFactor.on': 'Käytössä',
   'resetPassword.email': 'Tilin sähköpostiosoite',
   'resetPassword.heading': 'Aseta uudet tunnistetiedot',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'komennot',
   'secretsManagerLayout.encrypted': 'AES-256 · SALATU',
   'secretsManagerLayout.newVault': 'Uusi holvi',
+  'secretsManagerLayout.newVaultShort': 'Uusi',
   'secretsManagerLayout.rotations': 'Kierrokset',
   'secretsManagerLayout.search': 'haku',
   'secretsManagerLayout.searchPlaceholder':
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Salaisuudet',
   'vaultCard.vaultLabel': 'Holvi',
   'vaultDetail.addSecret': 'Lisää salaisuus',
+  'vaultDetail.back': 'Kaikki holvit',
   'vaultDetail.col.key': 'Avain',
   'vaultDetail.col.rotated': 'Kierretty',
   'vaultDetail.col.value': 'Arvo',

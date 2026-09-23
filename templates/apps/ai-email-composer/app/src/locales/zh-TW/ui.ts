@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '我們的故事',
   'aiSuggestionPanel.title': 'Signet 副駕駛',
   'analytics.col.open': '開盤率',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': '開始結帳……',
   'billing.subheading': '選擇與您的發送方式相符的套餐。',
   'billing.unavailable': '聯繫銷售',
+  'common.goToDashboard': '前往主控台',
+  'common.retry': '重試',
   'compose.adjustingTone': '以選定的語氣重寫…',
   'compose.aiPromptPlaceholder': '例如：“兩週未收到回覆後，禮貌地進行跟進，內容要簡短。”',
   'compose.aiReady': '草稿已完成－滿意後請審閱並寄送。',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': '需要發送文件？ Signet 可以在幾秒鐘內準備好草稿。',
   'dashboard.composeCtaLabel': '快速撰寫',
   'dashboard.heading': '你的一周，由…組成',
+  'dashboard.loadFailed': '無法載入您的儀表板。',
   'dashboard.manageLibrary': '管理圖書館 →',
   'dashboard.recentEmpty': '尚未發送任何郵件—您發送的郵件將顯示在此。',
   'dashboard.recentHeading': '最近發送',
@@ -130,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': '預設色調',
   'settings.toneSubheading': '除非您在草稿中另行更改，否則 Signet 將使用此音調。',
   'signetLayout.primaryNavLabel': '主導航',
+  'signetLayout.toggleMenu': '切換選單',
   'signup.emailLabel': '電子郵件',
   'signup.showPassword': '顯示密碼',
   'signup.tagline': '不到一分鐘即可發送您的第一封人工智慧產生的電子郵件。',

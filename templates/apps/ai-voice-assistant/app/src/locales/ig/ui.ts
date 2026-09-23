@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị nwere nzaghachi, arịrịọ atụmatụ, ma ọ bụ hụta njehie? Gaa na ndị otu {{app}} site na njikọ nkwado dị na menu akaụntụ gị - ozi ọ bụla na-aga n'aka mmadụ n'ezie.",
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'agentDetail.back': 'Ndị nnọchiteanya niile',
   'agentDetail.capabilities': 'Ikike',
   'agentDetail.delete': 'Hichapụ njirimara mmadụ',
   'agentDetail.deleteConfirm': 'Hichapụ onye a? Enweghị ike iwepụ nke a.',
+  'agentDetail.deleteError': 'Enweghị ike ihichapụ persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Enweghị ike ibuli persona.',
   'agentDetail.save': 'Chekwaa persona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Na-agbanwe...',
   'billing.updateError': 'Enweghị ike ịmalite mmelite.',
   'billing.usageHeading': 'Ojiji olu a na okirikiri a',
+  'chatBubble.source.text': 'ederede',
+  'chatBubble.source.voice': 'olu',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'conversation.defaultTitle': 'Mkparịta ụka ọhụrụ',
   'conversation.empty': "Enwebeghị ozi ọ bụla. Malite site n'ikwu ihe ma ọ bụ dee ihe n'okpuru.",
   'conversation.eyebrow': 'Oge ndụ',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Ọgụgụ isi nke na-ekwu okwu.',
   'landing.heroSubtitle':
     "Onye enyemaka olu AI nke na-aghọta usoro ebumpụta ụwa gị. Kwurịta okwu, chepụta echiche, ma nye iwu — n'enweghị nsogbu.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Na-ege ntị…',
   'landing.naturallyBody':
     "Enweghị okwu mkpali. Enweghị iwu siri ike. Vox na-aghọta ihe dị n'okwu, nkwụsịtụ, na nkọwa dị iche iche nke okwu mmadụ — dị ka mkparịta ụka na onye ọrụ ibe.",
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Mepee nnọkọ',
   'notFound.home': "Ịlaghachi n'ụlọ",
   'notFound.title': 'Anyị enweghị ike ịnụ ibe ahụ.',
+  'parlanceLayout.closeMenu': 'Mechie menu',
+  'parlanceLayout.openMenu': 'Mepee menu nsoroụzọ',
   'parlanceLayout.primaryNavLabel': 'Ntugharị isi',
   'pricing.conversations': '{{count}} mkparịta ụka',
   'pricing.cta.startFree': "Malite n'efu",
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Enweghị ndakọrịta',
   'search.eyebrow': 'Paletị iwu',
   'search.fetchError': 'Enweghị ike ibuli ihe nchọta.',
+  'search.static.profile.preview': 'Aha ngosi, aka, ihe ndekọ ndụ',
   'search.static.voice.title': 'Olu',
   'search.title': 'Chọọ Okwu',
   'search.transcriptPreview': 'Mepee edemede',

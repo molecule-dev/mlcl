@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// tietoja {{app}} sovelluksesta',
+  'about.pageTitle': 'Webhookin ohjaustaso',
+  'about.plansTitle': 'Suunnitelmat jokaiseen vaiheeseen',
   'apiKeys.bestPractices': 'Parhaat käytännöt',
   'apiKeys.body':
     'Ohjelmalliset käyttöoikeustunnukset. Käsittele niitä kuin salasanoja — tallenna ne env-muuttujiin, älä koskaan tee commit-muuttujia.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'suunnitelman mukaisesti',
   'billing.usageWarning': 'lähellä korkkia',
   'billing.yearly': 'Vuosittain',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.body':
     'Reaaliaikainen läpimenoaika, uudelleenyritykset lennossa ja juuri takkuilleet päätepisteet – kaikissa käyttämissäsi työtiloissa.',
   'dashboard.endpointsEmpty': 'Ei vielä päätepisteitä.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'päätepisteet',
   'endpointDetail.deliveryTrendSub': 'toimitukset / tunti, tukkimittakaava',
   'endpointDetail.hideSecret': 'Piilota salaisuus',
+  'endpointDetail.loading': 'Ladataan päätepistettä…',
   'endpointDetail.metric.delivered': 'Toimitettu 24 tunnissa',
   'endpointDetail.metric.deliveredCaption': 'alkaen {{count}} tapahtumatyypit',
   'endpointDetail.metric.failuresCaption': 'uudelleenyritykset: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kriittinen · 24 h',
   'notifications.metric.totalCaption': 'kaikkien aikojen postilaatikko',
   'payloadViewer.payload': '// hyötykuorma',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint':
     'Nimikirjaimet näytettävissä — seuraavan julkaisun mukana tulevat lataukset.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Vain nykyinen istuntosi on aktiivinen. Millään muulla laitteella ei ole kirjautuneena sisään.',
   'profile.toggle': 'Vaihda {{label}}',
+  'pylonShell.closeMenu': 'Sulje navigointivalikko',
+  'pylonShell.openMenu': 'Avaa navigointivalikko',
   'pylonShell.primaryNavLabel': 'Päänavigaatio',
   'resetPassword.subtitle': 'Valitse vahva salasana, jota et ole käyttänyt aiemmin.',
   'resetPassword.tokenPlaceholder': 'liitä sähköpostista',

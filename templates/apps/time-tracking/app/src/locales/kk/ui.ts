@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} туралы',
   'about.plansTitle': 'Сізбен бірге өсетін жоспарлар',
   'brand.tagline': 'Әр секунд сайын',
   'clientDetail.back': 'Клиенттерге оралу',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
     'Әрбір қарым-қатынас бір жерде — жобалар, жұмыс уақыты, төленбеген шот-фактуралар.',
   'clients.title': 'Клиенттер',
   'common.and': 'және',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.activeProjects': 'Белсенді жобалар',
   'dashboard.empty': 'Әлі жазбалар жоқ. Бірінші сеансты бақылау үшін таймерді іске қосыңыз.',
   'dashboard.greeting': 'Қайырлы күн, {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Бұл клиентке есепшот-фактура жіберуге болатын сағаттар жоқ. Алдымен уақытты бақылаңыз немесе осы клиенттің жобаларының біріне бар жазбаларды тағайындаңыз.',
   'invoices.save': 'Шот-фактура жасау',
   'invoices.subtitle': 'Бақыланатын сағаттар автоматты түрде шот-фактураларға қосылады.',
+  'landing.copyright': '© {{year}} {{app}} . Әрбір секунд есепке алынады.',
   'landing.ctaBody': '3 жобаға дейін тегін. Клиенттер тізіміңіз жаңарған кезде жаңартыңыз.',
   'landing.eyebrow': 'Есеп айырысуға жататын жұмыс үшін уақытты бақылау',
   'landing.featuresBody':
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Тәуелсіздердің сеніміне ие',
   'landing.testimonial.quote':
     '\\u201cМен Toggl-ден 30 минут ішінде кеттім. Бюджеттің азаюы өзін ақтады \\u2014 Мен екі апта қатарынан бағаны төмендетуді тоқтаттым.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Хроно. Әр секунд есепке алынды.',
   'login.brand.subtitle':
     'Таймерді тоқтаған жеріңізден бастаңыз — әрбір минут жобаға, клиентке немесе шот-фактураға тіркелген.',
   'login.brand.tracking': 'Бақылау',
   'login.subheading': 'Таймерді тоқтаған жеріңізден бастаңыз.',
+  'nav.closeMenu': 'Навигация мәзірін жабу',
   'nav.insightsSection': 'Түсініктемелер',
   'nav.newEntry': 'Жаңа жазба',
+  'nav.openMenu': 'Навигация мәзірін ашу',
+  'nav.primary': 'Негізгі навигация',
   'nav.workSection': 'Жұмыс',
   'notFound.body':
     'Сіз бақылаған сілтеме бақылауды тоқтатқан сияқты. Басқару тақтасына оралыңыз - біз сол жерден санауды жалғастырамыз.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Төленетін',
   'timer.descriptionPlaceholder': 'Немен айналысып жатырсыз?',
   'timer.idle': 'Бос тұру — бақылауды бастау',
+  'timer.noProject': 'Жоба жоқ',
   'timer.runningWithProject': 'Жоба жоқ',
   'timer.start': 'Таймерді іске қосу',
   'timer.stop': 'Таймерді тоқтату',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'argentAuthShell.brandEyebrow': 'Argent · სიმდიდრის ინსტრუმენტები',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . არ წარმოადგენს საინვესტიციო რჩევას.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) დღეს',
   'argentAuthShell.sampleValue': '1,032,251 აშშ დოლარი',
   'argentLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ამ ტიკერისთვის ტრანზაქციები არ არის.',
   'assetDetail.txHeading': 'თქვენი ტრანზაქციები',
   'common.and': 'და',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'პორტფელის მიმოხილვა',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ჯერ არ არის ჰოლდინგები.',
   'holdings.heading': 'ჰოლდინგები',
   'holdings.loadError': 'ჰოლდინგების ჩატვირთვა ვერ მოხერხდა.',
+  'landing.copyright':
+    '© {{year}} {{app}} . ეს არ წარმოადგენს საინვესტიციო რჩევას. წარსული შედეგები არ იძლევა მომავლის შედეგების გარანტიას.',
   'landing.eyebrow': 'Argent · სიმდიდრის მოზიდვის პლატფორმა',
   'landing.features.heading': 'ყველაფერი, რასაც მრჩეველი თავად ააშენებდა.',
   'landing.finalCta.heading': 'დააბრუნეთ დისციპლინა თქვენს პორტფოლიოში.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} საათის წინ',
   'news.justNow': 'ახლახან',
   'news.loadError': 'სიახლეების ჩატვირთვა ვერ მოხერხდა.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'portfolioHeroCard.label': 'პორტფელის ღირებულება',
   'pricing.holdingsLabel': 'სამფლობელოები',
   'pricing.newsLabel': 'ახალი ამბების სტატიები',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'ანგარიშის წაშლა',
   'settings.security.deleting': 'წაშლა…',
   'settings.security.heading': 'უსაფრთხოება',
+  'settings.security.newPassword': 'ახალი პაროლი',
   'settings.security.password': 'პაროლი',
   'settings.security.twoFactorEnable': 'ჩართვა',
+  'settings.security.twoFactorInvalidCode': 'არასწორი კოდი',
+  'settings.security.twoFactorVerify': 'დადასტურება და ჩართვა',
   'settings.tax.error': 'გადასახადის მეთოდის განახლება ვერ მოხერხდა.',
   'settings.tax.heading': 'საგადასახადო აღრიცხვა',
   'settings.tax.method': 'ნაგულისხმევი მეთოდი',

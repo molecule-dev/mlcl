@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'За {{app}}',
+  'auth.legalConsent': 'Со продолжување, се согласувате со нашите',
   'bookings.empty.body': 'Додајте лет, хотел или активност за да го започнете приемното сандаче.',
   'bookings.empty.heading': 'Сè уште нема резервации.',
   'bookings.errors.create': 'Не можеше да се креира резервација.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Потврдено',
   'bookings.summary.pending': 'Чекам потврда',
   'bookings.summary.total': 'Вкупно вложено',
+  'bookings.type.car': 'Изнајмен автомобил',
+  'bookings.type.flight': 'Лет',
+  'bookings.type.hotel': 'Хотел',
   'bookings.type.other': 'Друго',
   'budgetSpendCard.budgetTotal': 'од {{total}} планирано',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Пронајдете конфликти, испланирајте денови за закрепнување помеѓу патувањата и видете кога соработниците патуваат со вас.',
   'common.and': 'и',
+  'common.goToDashboard': 'Оди до контролна табла',
   'dashboard.budgetHeading': 'Буџетски пулс',
   'dashboard.empty.heading': 'Сè уште нема патувања — вашиот атлас е празен.',
   'dashboard.eyebrow': 'Контрола на мисијата',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Патувања во движење',
   'dashboard.viewAllExpenses': 'Погледнете го секој трошок',
   'dashboard.viewAllTrips': 'Видете секое патување',
+  'dayTimelineRow.category.accommodation': 'Остани',
   'dayTimelineRow.category.transport': 'Транспорт',
   'destinationOrbCard.exploreCta': 'Додај на патување',
   'destinationOrbCard.tripCount': '{{count}} патувања',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Сè уште немате е-пошта? Проверете ја папката со спам или обидете се повторно со друга адреса.',
   'forgotPassword.successSubheading':
     'Испративме линк за обновување до {{email}} Линкот важи 30 минути.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Креирај бесплатна сметка',
+  'landing.cta.subheading':
+    'До пет патувања, пет соработници и пет станици на бесплатниот план — со вклучена синхронизација во реално време, а Pro ги зголемува ограничувањата кога вашите планови ќе пораснат.',
   'landing.destinations.eyebrow': 'Каде понатаму',
   'landing.destinations.heading': 'Дестинации избрани од уредникот',
   'landing.features.eyebrow': 'Како функционира Waypoint',
   'landing.features.heading': 'Создадено за патници, а не за табеларни пресметки.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Започнете бесплатно патување',
   'landing.hero.ctaSecondary': 'Погледнете примерок од патувањето',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
     'Креирајте сметка за да споделувате патувања со до 5 соработници, да синхронизирате резервации и да ги собирате сите потврди на едно место.',
+  'signup.termsPrefix': 'Со креирање на сметка, се согласувате со нашите',
   'tripCountdownHeroCard.budget': '{{used}} од {{total}} ( {{pct}} % од буџетот)',
   'tripCountdownHeroCard.collaborators': '{{count}} патници',
   'tripCountdownHeroCard.countdownLabel': 'Одбројување',
@@ -203,5 +216,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Сè уште нема патувања.',
   'trips.pastHeading': 'Минати авантури',
   'trips.subheading': '{{count}} патни планови — минато, сегашност и некогаш.',
+  'waypointLayout.mobileNavClose': 'Затвори го менито за навигација',
   'waypointLayout.primaryNavLabel': 'Примарна навигација',
 }

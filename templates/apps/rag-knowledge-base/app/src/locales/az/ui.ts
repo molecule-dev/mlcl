@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.pageTitle': 'Haqqımızda {{appName}}',
   'analytics.error': 'Analitika yüklənə bilmədi.',
   'analytics.heading': 'Axtarış analitikası',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Qiymət səviyyələri konfiqurasiya edilməyib.',
   'billing.plans.heading': 'Planlar',
   'billing.subheading': 'Plan, istifadə və Stripe tərəfindən idarə olunan ödəniş.',
+  'common.confirm': 'Təsdiqləyin',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'common.retry': 'Təkrar cəhd edin',
   'documentCard.open': 'Aç \\u2192',
   'documentDetail.back': 'Sənədlərə qayıt',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'İndeks sənədi',
   'documents.composer.titlePlaceholder': 'Sənəd başlığı',
   'documents.emptyAll': 'Hələ sənəd yoxdur. Sual verməyə başlamaq üçün birini yükləyin.',
+  'documents.error.load': 'Sənədləri yükləmək mümkün olmadı.',
   'documents.heading': 'İndekslənmiş sənədlər',
   'documents.loading': 'Sənədlər yüklənir…',
   'documents.metric.chunks': 'Cəmi hissələr',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Silinir\\u2026',
   'members.subheading': 'Komanda yoldaşlarını dəvət edin və rolları təyin edin.',
   'members.tableHeading': 'Heyət',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'notFound.askCta': 'Bilik bazasından soruşun',
+  'notFound.body':
+    '{{app}} həmin səhifəni tapa bilmədi. Link qırılmış ola bilər və ya səhifə yenidən indeksləmə zamanı istifadədən çıxarılmış ola bilər.',
   'notFound.eyebrow': 'Əldə etmək mümkün deyil',
   'notFound.title': 'İndeksdə belə bir hissə yoxdur',
   'notifications.dismiss': 'Ləğv et',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Mənbə URL-i',
   'sources.empty.body': 'İlk konnektorunuzu qoşmaq üçün "Mənbə əlavə et" düyməsini basın.',
   'sources.empty.title': 'Hələlik heç bir mənbə yoxdur.',
+  'sources.error.add': 'Mənbə əlavə etmək mümkün olmadı.',
   'sources.error.labelRequired': 'Etiket tələb olunur.',
   'sources.error.load': 'Mənbələri yükləmək mümkün olmadı.',
   'sources.error.urlRequired': 'Bu mənbə növü üçün URL tələb olunur.',

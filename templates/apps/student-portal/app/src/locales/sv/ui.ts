@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'announcementsFeed.empty': 'Inga meddelanden ännu.',
   'announcementsFeed.eyebrow': '{{count}} uppdateringar',
   'announcementsFeed.title': 'Senaste meddelanden',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Inget här',
   'assignments.emptyBody': 'Byt filter ovan för att se uppgifter i en annan status.',
   'assignments.eyebrow': 'Alla kurser · Denna termin',
+  'assignments.loadError': 'Kunde inte ladda uppgifterna.',
   'assignments.loading': 'Laddar uppgifter…',
   'assignments.subtitle':
     'Filtrera efter status för att se vad som förfaller, är inlämnat, bedömt eller saknas.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Anteckning',
   'attendance.empty': 'Inga närvarouppgifter ännu.',
   'attendance.eyebrow': 'Vårtermin · Senaste 4 veckorna',
+  'attendance.loadError': 'Kunde inte ladda närvarouppgifterna.',
   'attendance.loading': 'Laddar närvaro…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Inlämningsdatum för uppgifter på ett månadsrutnät — prov sticker ut i rött.',
   'calendar.title': '{{month}} händelser',
+  'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
+  'common.retry': 'Försök igen',
   'common.yes': '✓',
   'courseDetail.backLink': 'Betyg',
   'courseDetail.currentGrade': 'Nuvarande betyg',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Inga betyg publicerade ännu.',
   'grades.eyebrow': 'Betygsbok',
+  'grades.loadError': 'Det gick inte att ladda dina betyg.',
   'grades.loading': 'Laddar betyg…',
   'grades.subtitle':
     'Live bokstavs- och procentbetyg. Trendpilarna visar om du går uppåt, är stabil eller sjunker.',
   'grades.title': 'Dina betyg, kurs för kurs',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Byggd för studenter, gjord för familjer.',
   'landing.ctaHeading': 'En lugnare skoldag börjar på några minuter',
   'landing.eyebrow': 'För högstadie- och gymnasieelever',
   'landing.featuresHeading': 'En skoldag organiserad kring eleven',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Uppgifter',
   'nav.attendance': 'Närvaro',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Stäng navigeringsmenyn',
   'nav.grades': 'Betyg',
+  'nav.openMenu': 'Öppna navigeringsmenyn',
   'nav.statusEyebrow': 'Termins-GPA',
   'nav.statusSubtext': 'Hederslista · Vårtermin',
+  'nav.unreadMessages': 'Olästa meddelanden',
   'notifications.eyebrow': '{{count}} uppdateringar',
   'notifications.subtitle':
     'Betyg, påminnelser, meddelanden och skolmeddelanden. Justera vilka kanaler varje notis använder i Inställningar.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.attendanceLabel': 'närvaro',
   'pricing.gradesLabel': 'betyg',
   'pricing.heading': 'meddelanden',

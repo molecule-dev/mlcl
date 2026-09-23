@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Urmărind',
   'auctionDetail.watchRemoved': 'Eliminat din lista de urmărire.',
   'auctionDetail.watchRemoveLabel': 'Eliminați din lista de urmărire',
+  'auctionPlatformLayout.primaryNavLabel': 'Navigare principală',
   'authShell.brandBody':
     'Licitați în timp real pentru ceasuri rare, artă fină și articole speciale unicat. Ciocanul cade în câteva secunde.',
   'authShell.brandEyebrow': 'Live acum · 1.420 licitații',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sortați după',
   'browseAuctions.subheading':
     'Filtrați după categorie, sortați după ce contează cel mai mult și plasați o ofertă înainte ca ciocanul să cadă.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'countdownTimer.ended': 'Încheiat',
   'countdownTimer.endingSoon': 'Se încheie',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afișați parola',
   'login.subtext':
     'Continuați să urmăriți licitațiile și plasați oferte înainte ca ciocanul să cadă.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'myBids.bidAgain': 'Licitați din nou',
   'myBids.browseCta': 'Explorați licitațiile live →',
   'myBids.checkoutCta': 'Plătiți acum',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centru de activitate',
   'notificationsPage.subheading':
     '{{count}} necitite · actualizări live pe măsură ce licitațiile evoluează',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.bidsLabel': 'oferte',
   'pricing.listingsLabel': 'anunțuri',
   'pricing.watchlistLabel': 'lista de urmărire',

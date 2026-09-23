@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'authShell.brandHeading': 'Многоигрални платна за дизайнерски екипи, които мислят на глас.',
   'billing.canceled': 'Абонаментът е прекратен.',
   'billing.cancelPlan': 'Отмени абонамента',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Започнете от шаблон',
   'boards.title': 'Вашите дъски',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Към таблото',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Въведете имейл адреса, свързан с вашето работно пространство, и ще ви изпратим линк за нулиране.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Създаден за хаотично, генеративно мислене в реално време.',
   'landing.demoBoard.title': 'Работилница за първо тримесечие · Глас на марката',
   'landing.featuresTitle': 'Бърза обратна връзка. Красиви платна. Нулево триене.',
+  'landing.hero.body':
+    '{{appName}} е мултиплейър бяла дъска за дизайнерски екипи, фасилитатори на семинари и преподаватели, които провеждат брейнсторминг на живо и се нуждаят от идеи, които да се съберат на едно място.',
   'landing.hero.primaryCta': 'Създайте безплатна дъска',
   'landing.hero.socialProof': 'Доверен от {{count}} дизайнерски екипи по целия свят',
   'landing.hero.title': 'Платно, бързо като мислите ви',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Създайте безплатно работно пространство',
   'login.subheading':
     'Продължете оттам, откъдето сте спрели в работилницата — дъските, лепящите се бележки и курсорите се синхронизират в реално време.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.new': 'Ново',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'notifications.editTitle': 'Редактиране на „ {{board}} "',
   'notifications.empty.body':
     'Поканите, запазените моментни снимки и последните редакции на форума ще се показват тук веднага щом се случват.',
@@ -173,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Хронология на версиите',
   'versionHistory.untitledSnapshot': 'Неозаглавена снимка',
   'whiteboardLayout.newBoard': 'Нова дъска',
+  'whiteboardLayout.primaryNav': 'Основна навигация',
   'workspace.boardLabel': 'Съвет',
   'workspace.eyebrow': '{{name}} · работно пространство',
   'workspace.invite': 'Поканете сътрудници',

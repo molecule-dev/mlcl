@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'about.pageTitle': 'Mayelana {{appName}}',
   'analytics.empty': 'Qopha isiqeshana sakho sokuqala ukuze ubone ukuzibandakanya lapha.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'iziqeshana',
   'billing.usage.views': 'Ukubukwa',
   'billing.usage.views.unit': 'ukubukwa',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'landing.cta.title': 'Thumela impendulo engcono. Qala nge-Glint.',
   'landing.feature.capture.body':
     'Ukuqopha isiphequluli, ideskithophu, kanye neselula ngemakrofoni, ikhamera, kanye nokudweba.',
   'landing.feature.capture.title': 'Ukuthwebula okukodwa',
+  'landing.footer.copy': '© {{year}} {{appName}} . I-Async, yenziwe yaba nokukhanya.',
   'landing.hero.cardCaption': 'Isifinyezo sendawo yokusebenza esiyisibonelo — sizame mahhala.',
   'landing.hero.primaryCta': 'Qala ukurekhoda mahhala',
   'landing.hero.proof.free': 'Isigaba samahhala saphakade',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Sesha okuqoshiwe',
   'library.searchPlaceholder': 'Sesha okuqoshiwe…',
   'library.weeklyChange': '{{value}} % uma kuqhathaniswa nesonto eledlule',
+  'nav.openMenu': 'Vula imenyu yokuzulazula',
   'nav.record': 'Irekhodi',
   'nav.shared': 'Kwabelwane nami',
   'nav.startRecording': 'Qala ukurekhoda',

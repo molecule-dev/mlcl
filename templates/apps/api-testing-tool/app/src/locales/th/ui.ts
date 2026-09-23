@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'authShell.statusLabel': 'นักวิ่งออนไลน์',
   'collections.createError': 'ไม่สามารถสร้างคอลเลกชันได้',
   'collections.defaultName': 'คอลเลกชันไร้ชื่อ {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'คอลเล็กชั่นใหม่',
   'collections.subheading':
     'รวมคำขอต่างๆ ไว้ในกลุ่มเดียวกัน แชร์กับทีมของคุณ และเรียกใช้งานเป็นชุดเดียวกัน',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'environmentCard.inactive': 'ว่าง',
   'environmentCard.more': 'มากกว่า',
   'environmentCard.variables': 'ตัวแปร',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'ดาวน์โหลดฟรี',
   'landing.heroSubtitle':
     'เวิร์กเบนช์ทดสอบ API ที่รวดเร็วทันใจ สร้างขึ้นสำหรับวิศวกรที่ใช้งานเทอร์มินัลเป็นประจำ',
+  'landing.heroTitleAccent': 'ไฟ',
+  'landing.heroTitleLine2': 'สร้างความเชื่อมั่น',
+  'landing.heroTitleRest': 'คำขอ',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// ราคาแบบธรรมดา',
   'landing.pricingHeading': 'ราคาที่ง่ายและคาดการณ์ได้',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'เพิ่งมาใหม่ใช่ไหม?',
   'login.showPassword': 'แสดงรหัสผ่าน',
   'login.subtitle': 'ดำเนินการต่อเพื่อเข้าสู่พื้นที่ทำงาน Pylon ของคุณ',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'mocks.createError': 'ไม่สามารถสร้างแบบจำลองได้',
   'mocks.defaultName': 'แบบจำลองที่ไม่มีชื่อ {{n}}',
   'mocks.deleteError': 'ไม่สามารถลบภาพจำลองได้',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'กลับสู่พื้นที่ทำงาน',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'ไม่พบเส้นทาง',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'privacy.collect.account':
     'ข้อมูลบัญชี: อีเมลของคุณ รหัสผ่านที่เข้ารหัสแล้ว ชื่อที่แสดง และเวลาที่คุณเข้าสู่ระบบครั้งล่าสุด',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'มุมมองแบบอ่านอย่างเดียวของข้อมูลที่บัญชีนี้เป็นเจ้าของอยู่ในปัจจุบัน',
   'settings.unset': 'ไม่ได้ตั้งค่า',
   'signup.identityHint': 'เช่น อเล็กซ์',
+  'signup.statusLabel': 'ระดับใช้งานฟรี · ไม่ต้องใช้บัตรเครดิต',
   'signup.subtitle': 'เริ่มส่งคำขอได้ภายในไม่กี่นาที',
   'terms.account.body':
     'คุณมีหน้าที่รับผิดชอบในการรักษาความปลอดภัยของรหัสผ่านของคุณ การใช้บัญชีเดียวกันกับบุคคลหลายคนไม่ได้รับอนุญาตในแผนฟรีหรือแผนโปร — หากต้องการใช้พื้นที่ทำงานร่วมกัน โปรดซื้อการสมัครใช้งานแบบทีม',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'ห้ามใช้ Pylon ในการส่งคำขอไปยังบริการที่คุณไม่ได้เป็นเจ้าของหรือไม่มีสิทธิ์ทดสอบโดยชัดแจ้ง ห้ามใช้ Pylon เพื่อหลีกเลี่ยงข้อจำกัดด้านอัตราการใช้งานหรือเพื่อกระทำการฉ้อโกง',
   'terms.warranty.body':
     'Pylon ให้บริการ "ตามสภาพที่เป็นอยู่" โดยไม่มีการรับประกันใดๆ เราตั้งเป้าหมายไว้ที่ 99.9% ของเวลาใช้งาน แต่ไม่รับประกันในแพ็กเกจฟรีหรือแพ็กเกจโปร',
+  'testRunner.assertionsCount': '{{count}} การยืนยัน',
   'testRunner.createError': 'ไม่สามารถสร้างการทดสอบได้',
   'testRunner.cron':
     'การตรวจสอบจะดำเนินการโดยเปรียบเทียบกับผลลัพธ์ล่าสุดของการทดสอบที่เชื่อมโยงกับคำขอที่เชื่อมโยงกัน',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'ผลลัพธ์ของชุดทดสอบ ความแตกต่างของการยืนยัน และการทดสอบ 50 ครั้งล่าสุด',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'เข้าสู่ระบบในฐานะ',
+  'workspace.auth.keyName': 'ชื่อส่วนหัว',
+  'workspace.auth.keyValue': 'ค่าสำคัญ',
+  'workspace.auth.password': 'รหัสผ่าน',
+  'workspace.auth.username': 'ชื่อผู้ใช้',
+  'workspace.authOption.apikey': 'คีย์ API',
+  'workspace.authOption.basic': 'การตรวจสอบสิทธิ์ขั้นพื้นฐาน',
+  'workspace.authOption.bearer': 'โทเค็นผู้ถือ',
+  'workspace.authOption.none': 'ไม่มี',
+  'workspace.authOption.oauth': 'โอออธ 2.0',
   'workspace.authType': 'พิมพ์',
   'workspace.authTypeLabel': 'ประเภทการตรวจสอบสิทธิ์',
+  'workspace.body.json': 'เจซอน',
+  'workspace.body.none': 'ไม่มี',
+  'workspace.body.text': 'ข้อความดิบ',
+  'workspace.body.type': 'พิมพ์',
   'workspace.environment': 'ไม่มีสิ่งแวดล้อม',
   'workspace.envVar': 'ตัวแปรสภาพแวดล้อม',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'เพิ่มส่วนหัว',
+  'workspace.kv.addParam': 'เพิ่มพารามิเตอร์',
+  'workspace.kv.headerKey': 'ชื่อส่วนหัว',
+  'workspace.kv.headerValue': 'ค่าส่วนหัว',
+  'workspace.kv.key': 'สำคัญ',
+  'workspace.kv.paramKey': 'คีย์พารามิเตอร์การค้นหา',
+  'workspace.kv.paramValue': 'ค่าพารามิเตอร์การค้นหา',
+  'workspace.kv.removeRow': 'ลบแถว',
+  'workspace.kv.value': 'ค่า',
   'workspace.methodLabel': 'วิธีการ HTTP',
   'workspace.metric.latency': 'ความหน่วง',
   'workspace.metric.latencyCaption': 'การเดินทางไปกลับจากเส้นทางนี้',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'ส่งคำขอแล้ว — ดูการตอบกลับด้านล่าง',
   'workspace.subheading':
     'สร้างคำขอ ส่งคำขอ จากนั้นตรวจสอบการตอบกลับ ทั้งหมดนี้ทำได้ในหน้าต่างเดียว',
+  'workspace.testResults': 'ผลการทดสอบ',
   'workspace.token': 'โทเค็น',
   'workspace.tokenHint': 'ส่งในฐานะผู้มีอำนาจ: ผู้ถือ<token> ตามคำขอทุกข้อในคอลเลกชันนี้',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

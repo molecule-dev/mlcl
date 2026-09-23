@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Biz bir vaxtlar hər günün çox saatını səs-küylü poçt qutusunda keçirən dizayner və mühəndislərdən ibarət səpələnmiş bir komandayıq. Courier özümüz istifadə etmək istədiyimiz poçt qutusudur.',
   'about.title': 'Fokuslanmış iş üçün e-poçt',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'help.cta.about': 'Courier haqqında',
   'help.cta.pricing': 'Qiymətlərə baxın',
   'help.eyebrow': 'Yardım mərkəzi',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Ən çox eşitdiyimiz suallara tez cavablar. Nəsə çatışmır? Parametrləri açın və tətbiqdaxili rəy formasından istifadə edin və ya support@courier.example ünvanına yazın.',
   'help.title': 'Necə kömək edə bilərik?',
   'landing.brand.scrollTop': 'Yuxarı qayıt',
+  'landing.copyright': '© {{year}} {{appName}} — Fokus üçün hazırlanmışdır.',
   'landing.ctaBody': 'Nahardan əvvəl elektron poçtlarını bitirən minlərlə mütəxəssisə qoşulun.',
   'landing.ctaTitle': 'Daha çox emal edin, daha az reaksiya verin.',
   'landing.eyebrow': 'Fokuslanmış iş üçün e-poçt',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Demo izləyin',
   'landing.heroSubtitle':
     'Courier, məlumatı emal etmək, ona reaksiya vermək istəməyən bilik işçiləri üçün hazırlanmış sakit üç panelli poçt qutusudur.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof':
     'Dünyanın hər yerindən diqqət mərkəzində olan komandalar tərəfindən etibar edilir',
   'landing.signIn': 'Daxil ol',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Qaralama',
   'meridian.folder.count': '{{count}} mesajlar',
+  'meridian.folder.delete': 'Sil',
   'meridian.folder.deleteForever': 'Birdəfəlik silin',
   'meridian.folder.restore': 'Gələnlər qutusuna köçürün',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Hələlik burada mesaj yoxdur.',
   'meridian.inbox.loading': 'Yüklənir…',
   'meridian.inbox.next': 'Növbəti',
+  'meridian.inbox.noSender': '(göndərən yoxdur)',
   'meridian.inbox.noSubject': '(mövzu yoxdur)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'Yazını açın',
   'meridian.inbox.previous': 'Əvvəlki',
   'meridian.inbox.replyFailed': 'Cavab yadda saxlanıldı, lakin çatdırılma uğursuz oldu: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Hesabınız yoxdur?',
   'meridian.login.showPassword': 'Şifrəni göstər',
   'meridian.message.toLine': '-a {{recipients}}',
+  'meridian.notFound.body':
+    'Axtardığınız səhifə tapılmadı. {{appName}} gələnlər qutunuza qayıdın və biz sizə kömək edəcəyik.',
   'meridian.notFound.eyebrow': 'Xəta 404',
   'meridian.notFound.title': 'Bu mövzu arxivləşdirilib.',
   'meridian.notFound.toInbox': 'Gələnlər qutumu açın',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Ulduz əlavə edin',
   'meridian.thread.unstar': 'Ulduzu silin',
   'meridian.time.yesterday': 'Dünən',
+  'meridian.topBar.openMenu': 'Naviqasiya menyusunu açın',
   'meridian.topBar.searchPlaceholder': 'Poçt axtarın',
   'meridian.trash.empty': 'Zibil qutusu boşdur.',
   'meridian.trash.title': 'Zibil',
   'nav.legal': 'Hüquqi',
   'planUpdated.description':
     'Abunəliyiniz artıq aktivdir və ödənişiniz yeniləndi. Yenilənmiş Courier poçt qutunuza xoş gəlmisiniz.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.heading': 'qaralamalar',
   'pricing.limit.emails': 'e-poçtlar',
   'pricing.limit.folders': 'qovluqlar',
   'pricing.limit.labels': 'etiketlər',
   'privacy.collect.account':
     'Hesab məlumatları: ad, elektron poçt ünvanı, heş edilmiş parol və qeydiyyatdan keçdiyiniz tarix.',
+  'privacy.contact': 'Suallarınız var? privacy@courier.example ünvanına e-poçt göndərin.',
   'privacy.intro':
     'Bu məxfilik siyasəti Courier-ın hansı məlumatları topladığını, niyə topladığımızı, necə təhlükəsiz saxladığımızı və bununla bağlı hansı seçimlərinizin olduğunu izah edir. Biz qanuni olmaq əvəzinə, konkret olmağa çalışırıq; əgər bir şey aydın deyilsə, privacy@courier.example ünvanına yazın.',
   'privacy.lastUpdated': 'Son yenilənmə: 1 aprel 2026',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Bu şərtlər Courierdan istifadənizi tənzimləyir. Hesab yaratmaqla və ya bizimlə e-poçt göndərməklə, siz onlara riayət etməyə razılaşırsınız. Biz bir insanın həqiqətən əməl edə biləcəyi qaydalar yazmağa çalışırıq.',
   'terms.lastUpdated': 'Qüvvədədir: 1 aprel 2026',
+  'terms.linkPrivacy': 'Məxfilik Siyasətimizi oxuyun →',
   'terms.termination.body':
     'Hesabınızı istənilən vaxt silə bilərsiniz. Bu şərtləri pozan hesabı dayandıra bilərik; əgər pozarsaq, səbəbini izah edəcəyik və əvvəlcə məlumatlarınızı ixrac etməyinizə icazə verəcəyik.',
   'terms.warranty.body':

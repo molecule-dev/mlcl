@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'authShell.statusLabel': 'tekači na spletu',
   'collections.createError': 'Zbirke ni bilo mogoče ustvariti.',
   'collections.defaultName': 'Neimenovana zbirka {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Nova kolekcija',
   'collections.subheading':
     'Združite zahteve, jih delite s svojo ekipo in jih izvajajte kot paket.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'environmentCard.inactive': 'Nedejavnost',
   'environmentCard.more': 'več',
   'environmentCard.variables': 'Spremenljivke',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Prenesi brezplačno',
   'landing.heroSubtitle':
     'Bliskovito hitro delovno okolje za testiranje API-jev, zgrajeno za inženirje, ki delajo v terminalih.',
+  'landing.heroTitleAccent': 'Požar',
+  'landing.heroTitleLine2': 'graditi zaupanje.',
+  'landing.heroTitleRest': 'zahteve,',
   'landing.kicker': '$ pylon pošlji --oglej si',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Preprosta in predvidljiva cena',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nov tukaj?',
   'login.showPassword': 'Pokaži geslo',
   'login.subtitle': 'Nadaljujte v svoj delovni prostor Pylon.',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'mocks.createError': 'Ni bilo mogoče ustvariti makete.',
   'mocks.defaultName': 'Brez naslova, posmeh {{n}}',
   'mocks.deleteError': 'Napovedi ni bilo mogoče izbrisati.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Nazaj na delovni prostor',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Pot ni bila najdena',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'privacy.collect.account':
     'Račun: vaš e-poštni naslov, zgoščeno geslo, prikazano ime in časovni žig vaše zadnje prijave.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Pogled samo za branje podatkov, ki jih ta račun trenutno ima v lasti.',
   'settings.unset': 'ni nastavljeno',
   'signup.identityHint': 'npr. Alex',
+  'signup.statusLabel': 'brezplačni paket · brez kreditne kartice',
   'signup.subtitle': 'Začnite s sprožitvijo zahtev v nekaj minutah.',
   'terms.account.body':
     'Za varovanje svojega gesla ste odgovorni sami. Deljenje enega računa z več ljudmi ni dovoljeno pri brezplačnih ali profesionalnih paketih – za skupne delovne prostore kupite naročnino Team.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Ne uporabljajte Pylona za pošiljanje zahtev storitvam, ki niso v vaši lasti ali za katere nimate izrecnega dovoljenja za testiranje. Ne uporabljajte Pylona za izogibanje omejitvam hitrosti ali goljufije.',
   'terms.warranty.body':
     'Pylon je na voljo »kot je«, brez kakršne koli garancije. Cilj nam je 99,9-odstotna razpoložljivost, vendar je ne zagotavljamo pri brezplačnih ali profesionalnih paketih.',
+  'testRunner.assertionsCount': '{{count}} trditve',
   'testRunner.createError': 'Testa ni bilo mogoče ustvariti.',
   'testRunner.cron':
     'Trditve se ocenjujejo glede na najnovejšo izvedbo povezane zahteve tega testa.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Rezultati paketa, razlike med trditvami in zadnjih 50 izvedb.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Prijavljen kot',
+  'workspace.auth.keyName': 'Ime glave',
+  'workspace.auth.keyValue': 'Ključna vrednost',
+  'workspace.auth.password': 'Geslo',
+  'workspace.auth.username': 'Uporabniško ime',
+  'workspace.authOption.apikey': 'API-ključ',
+  'workspace.authOption.basic': 'Osnovno preverjanje pristnosti',
+  'workspace.authOption.bearer': 'Token na nosilca',
+  'workspace.authOption.none': 'Nič',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Vrsta',
   'workspace.authTypeLabel': 'Vrsta avtorizacije',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Nič',
+  'workspace.body.text': 'Nesporedano besedilo',
+  'workspace.body.type': 'Vrsta',
   'workspace.environment': 'Brez okolja',
   'workspace.envVar': 'spremenljivka okolja',
   'workspace.eyebrow': '$ pylon delovni prostor --pane razdeli',
+  'workspace.kv.addHeader': 'Dodaj glavo',
+  'workspace.kv.addParam': 'Dodaj parameter',
+  'workspace.kv.headerKey': 'Ime glave',
+  'workspace.kv.headerValue': 'Vrednost glave',
+  'workspace.kv.key': 'Ključ',
+  'workspace.kv.paramKey': 'Ključ parametra poizvedbe',
+  'workspace.kv.paramValue': 'Vrednost parametra poizvedbe',
+  'workspace.kv.removeRow': 'Odstrani vrstico',
+  'workspace.kv.value': 'Vrednost',
   'workspace.methodLabel': 'HTTP metoda',
   'workspace.metric.latency': 'Zamik',
   'workspace.metric.latencyCaption': 'Povratna pot s te vožnje',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Zahteva je bila umaknjena – glejte odgovor spodaj.',
   'workspace.subheading':
     'Sestavite zahtevo, jo sprožite in nato potrdite odgovor – vse v enem podoknu.',
+  'workspace.testResults': 'Rezultati testov',
   'workspace.token': 'Žeton',
   'workspace.tokenHint': 'Poslano kot avtorizacija: Imetnik<token> na vsako zahtevo v tej zbirki.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

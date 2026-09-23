@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'Izvēlieties laiku',
   'booking.title': 'Rezervēt tikšanos',
   'clinicalNotesEditorial.empty': 'Nav pacientu, ko parādīt.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'consult.backLink': 'Visas tikšanās',
   'consult.captions': 'Paraksti',
   'consult.connected': 'Savienots · 720p · stabils',
@@ -125,6 +126,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacienti',
   'patientVitalsHero.scripts': 'Recepte atvērta',
   'patientVitalsHero.subline': '{{count}} konsultācijas pēc jūsu grafika jau šodien',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'prescriptions.empty': 'Neviena recepte nesakrīt.',
   'prescriptions.eyebrow': 'E-receptes',
   'prescriptions.heading': 'Receptes',
@@ -140,6 +142,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Paziņojums par konfidencialitāti',
   'privacy.use.body':
     'Lai sniegtu aprūpi, nosūtītu atgādinājumus par pierakstiem, novirzītu receptes un uzlabotu pakalpojumu uzticamību. Mēs nekad nepārdodam jūsu datus un nekad nekopīgojam klīnisko informāciju ar reklāmdevējiem.',
+  'providers.allSpecialties': 'Visas specialitātes',
+  'providers.loadError': 'Neizdevās ielādēt pakalpojumu sniedzējus.',
+  'providers.loading': 'Notiek ielāde…',
   'providers.noResults': 'Nav atrasts neviens pakalpojumu sniedzējs.',
   'providers.searchPlaceholder': 'Meklēt pēc nosaukuma, specialitātes...',
   'providers.title': 'Atrast pakalpojumu sniedzēju',
@@ -159,6 +164,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Dienas sākums',
   'settings.availability.heading': 'Pieejamība',
   'settings.devices.thisDevice': 'Šī ierīce',
+  'settings.devices.unnamed': 'Nenosaukta ierīce',
   'settings.eyebrow': 'Prakse un konts',
   'settings.loadError': 'Neizdevās ielādēt tavu profilu.',
   'settings.notifications.emailMessages': 'Sūtīt e-pastu, kad mana aprūpes komanda atbild',
@@ -172,6 +178,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Atspējot',
   'settings.security.twoFactor.enable': 'Ieslēgt',
   'settings.security.twoFactor.heading': 'Divfaktoru autentifikācija',
+  'settings.security.twoFactor.invalidCode': 'Kods nesakrita. Mēģiniet vēlreiz.',
+  'settings.security.twoFactor.setupFailed':
+    'Nevarēja sākt divfaktoru iestatīšanu. Mēģiniet vēlreiz.',
+  'settings.security.twoFactor.statusOn': 'Divfaktoru režīms ir ieslēgts',
   'settings.signOutDevice': 'Izrakstīties',
   'settings.subheading':
     'Pakalpojumu sniedzēja profils, prakses noteikumi un klīniskie brīdinājumi.',
@@ -183,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Izveidot kontu',
   'signupFooter.hipaa': 'Atbilst HIPAA prasībām',
   'solaceLayout.primaryNavLabel': 'Galvenā navigācija',
+  'solaceLayout.toggleMenu': 'Pārslēgt izvēlni',
   'terms.eligibility.body':
     'Jums ir jābūt vismaz astoņpadsmit gadus vecam vai jābūt nepilngadīgas personas, kurai meklējat aprūpi, vecākam vai likumīgajam aizbildnim, un fiziski jāatrodas ASV štatā, kurā mūsu klīnicistiem ir licence.',
   'terms.payment.body':

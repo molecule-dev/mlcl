@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.pageTitle': 'À propos de {{appName}}',
   'analytics.error': 'Impossible de charger les analyses.',
   'analytics.heading': 'Analyses de récupération',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Aucun palier tarifaire configuré.',
   'billing.plans.heading': 'Plans',
   'billing.subheading': 'Plan, utilisation et paiement géré par Stripe.',
+  'common.confirm': 'Confirmer',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'common.retry': 'Réessayer',
   'documentCard.open': 'Ouvrir →',
   'documentDetail.back': 'Retour aux documents',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Titre du document',
   'documents.emptyAll':
     'Aucun document pour le moment. Téléversez-en un pour commencer à poser des questions.',
+  'documents.error.load': 'Impossible de charger les documents.',
   'documents.heading': 'Documents indexés',
   'documents.loading': 'Chargement des documents…',
   'documents.metric.chunks': 'Total des fragments',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Retrait…',
   'members.subheading': 'Invitez des coéquipiers et définissez les rôles.',
   'members.tableHeading': 'Roster',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'notFound.askCta': 'Interroger la base de connaissances',
+  'notFound.body':
+    "{{app}} n'a pas pu localiser cette page. Le lien est peut-être rompu ou la page a peut-être été supprimée lors d'une réindexation.",
   'notFound.eyebrow': 'Impossible de récupérer',
   'notFound.title': "Aucun fragment de ce type dans l'index",
   'notifications.dismiss': 'Ignorer',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL de la source',
   'sources.empty.body': 'Cliquez sur « Ajouter une source » pour câbler votre premier connecteur.',
   'sources.empty.title': 'Aucune source pour le moment.',
+  'sources.error.add': "Impossible d'ajouter la source.",
   'sources.error.labelRequired': 'Le libellé est requis.',
   'sources.error.load': 'Impossible de charger les sources.',
   'sources.error.urlRequired': 'Une URL est requise pour ce type de source.',

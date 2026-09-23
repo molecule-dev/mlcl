@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'authShell.brandHeading': 'Telas multijogador para equipes de design que pensam em voz alta.',
   'billing.canceled': 'Assinatura cancelada.',
   'billing.cancelPlan': 'Cancelar plano',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Começar a partir de um modelo',
   'boards.title': 'Seus quadros',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Ir para o Painel',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Informe o e-mail vinculado ao seu workspace e enviaremos um link de redefinição.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Workshop T1 · Voz da marca',
   'landing.featuresEyebrow': 'O que faz o Slate se encaixar',
   'landing.featuresTitle': 'Feedback rápido. Telas lindas. Atrito zero.',
+  'landing.hero.body':
+    '{{appName}} é um quadro branco multijogador para equipes de design, facilitadores de workshops e educadores que realizam brainstorms ao vivo e precisam que as ideias convirjam em um só lugar.',
   'landing.hero.primaryCta': 'Comece um quadro gratuitamente',
   'landing.hero.socialProof': 'Confiado por {{count}} equipes de design no mundo todo',
   'landing.hero.title': 'Uma tela tão rápida quanto seus pensamentos',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Criar um workspace gratuito',
   'login.subheading':
     'Retome de onde o workshop parou — quadros, post-its e cursores sincronizam em tempo real.',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.new': 'Novo',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'notifications.editTitle': 'Edições em "{{board}}"',
   'notifications.empty.body':
     'Convites, capturas de tela e edições recentes do fórum aparecerão aqui conforme forem acontecendo.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Histórico de versões',
   'versionHistory.untitledSnapshot': 'Snapshot sem título',
   'whiteboardLayout.newBoard': 'Novo quadro',
+  'whiteboardLayout.primaryNav': 'Navegação principal',
   'workspace.boardLabel': 'Quadro',
   'workspace.eyebrow': '{{name}} · workspace',
   'workspace.invite': 'Convidar colaboradores',

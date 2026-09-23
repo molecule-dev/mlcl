@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// 关于{{app}}',
+  'about.pageTitle': 'webhook 控制平面',
+  'about.plansTitle': '每个阶段的计划',
   'apiKeys.bestPractices': '最佳实践',
   'apiKeys.body':
     '程序化访问令牌。请像对待密码一样对待它们 —— 存储在环境变量中，切勿提交到代码仓库。',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': '在套餐范围内',
   'billing.usageWarning': '接近上限',
   'billing.yearly': '按年',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.body': '实时吞吐量、正在进行的重试以及刚刚出现故障的端点——涵盖您操作的每个工作区。',
   'dashboard.endpointsEmpty': '暂无终点。',
   'dashboard.endpointsEmptyCta': '创建你的第一个 →',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': '端点',
   'endpointDetail.deliveryTrendSub': '投递数 / 小时，对数刻度',
   'endpointDetail.hideSecret': '隐藏密钥',
+  'endpointDetail.loading': '正在加载终点…',
   'endpointDetail.metric.delivered': '24 小时已投递',
   'endpointDetail.metric.deliveredCaption': '来自 {{count}} 种事件类型',
   'endpointDetail.metric.failuresCaption': '重试次数：{{retries}}',
@@ -197,6 +202,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': '严重 · 24 小时',
   'notifications.metric.totalCaption': '全部历史收件箱',
   'payloadViewer.payload': '// 载荷',
+  'planUpdated.verifying': '确认您的付款中…',
   'profile.avatarHeader': '头像',
   'profile.avatarHint': '显示首字母 —— 上传功能将在下个版本推出。',
   'profile.body': '您的账户、偏好设置和活跃会话。',
@@ -210,6 +216,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ 已保存',
   'profile.sessionsEmpty': '仅您当前的会话处于活跃状态。没有其他设备已登录。',
   'profile.toggle': '切换{{label}}',
+  'pylonShell.closeMenu': '关闭导航菜单',
+  'pylonShell.openMenu': '打开导航菜单',
   'pylonShell.primaryNavLabel': '主导航',
   'resetPassword.subtitle': '选择您未使用过的强密码。',
   'resetPassword.tokenPlaceholder': '从邮件中粘贴',

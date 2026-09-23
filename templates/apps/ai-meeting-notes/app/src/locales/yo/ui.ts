@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nipa re',
   'actions.empty': 'Kò sí àwọn ohun ìṣe tó bá ara wọn mu.',
   'actions.heading': 'Àwọn ohun ìṣe',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Oṣù tó kọjá',
   'calendar.recent': 'Tuntun',
   'common.daysAgo': '{{count}} ọdun sẹyin',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.hoursAgo': '{{count}} h ti o ti kọja',
   'common.no': '—',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} awọn nkan iṣe',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Ṣayẹwo apo-iwọle rẹ fun ọna asopọ atunto.',
   'forgot.subheading': 'Tẹ imeeli rẹ sii a o si fi ọna asopọ atunto ranṣẹ.',
   'integrations.disconnected': 'Tí a ti yọ kúrò',
+  'integrations.loadError': 'Kò ṣeé ṣe láti fi àwọn ìṣọ̀kan kún un.',
   'integrations.notConnectedTag': 'Kò sopọ̀ mọ́ra',
   'integrations.subheading':
     'So awọn kalẹnda ati awọn iru ẹrọ fidio pọ ki Murmur darapọ mọ laifọwọyi.',
+  'integrations.updateError': 'Ìṣàyípadà kùnà.',
   'landing.ctaButton': 'Bẹ̀rẹ̀ — ọ̀fẹ́ ni',
   'landing.ctaHeading': 'Dáwọ́ ṣíṣàkọsílẹ̀. Bẹ̀rẹ̀ sí í ṣe ìpinnu.',
   'landing.demo.aiLabel': 'Àkópọ̀ AI, tí a ṣe àkójọ láyìíká',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Àwọn àtẹ̀lé',
   'meetingDetail.loadError': 'Kò ṣeé ṣe láti gbé ìpàdé sórí ìkànnì.',
   'meetingDetail.noActions': 'A ko ri awọn nkan iṣe kankan.',
+  'meetingDetail.none': 'Kò sí.',
   'meetingDetail.notFound': 'A kò rí ìpàdé náà.',
+  'meetingDetail.speakerFallback': 'Agbọrọsọ {{id}}',
   'meetingDetail.summaryHeading': 'Àkótán AI',
   'meetingDetail.transcriptHeading': 'Ìwé ìkọ̀wé',
   'meetings.empty.body': 'Bẹ̀rẹ̀ gbígbàsílẹ̀ tàbí gbé fáìlì ohùn sókè láti gba àkọsílẹ̀ àti àkópọ̀ AI.',
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìpàdé sórí ayélujára.',
   'meetings.subheading':
     'Gbogbo ìpàdé tí a gbà sílẹ̀, tí a gbé sórí ayélujára, àti tí a bá ṣe ìṣọ̀kan.',
+  'murmurLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'murmurLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'nav.legal': 'Ofin',
   'notifications.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìfitónilétí sórí ayélujára.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Bí o ṣe farahàn nínú Murmur.',
   'record.error.empty': 'A ko gba ohùn kankan.',
   'record.error.permission': 'A kò gba àṣẹ láti gba gbohùngbohùn.',
+  'record.error.recorder': 'Àṣìṣe akọ̀wé',
   'record.error.unsupported':
     'Aṣàwákiri rẹ kò ṣe àtìlẹ́yìn fún gbígbàsílẹ̀. Gbìyànjú Chrome, Edge, tàbí Safari.',
   'record.error.upload': 'Ìgbésókè kò yọrí sí rere. Gbìyànjú lẹ́ẹ̀kan síi.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Ọrọ aṣina Tuntun',
   'reset.subheading': 'Yan ọrọ igbaniwọle kan ti o ko lo nibikibi miiran.',
   'search.empty': 'Tẹ lati wa awọn iwe afọwọkọ.',
+  'search.loadError': 'Wíwá kò ṣiṣẹ́ dáadáa. Gbìyànjú lẹ́ẹ̀kan síi.',
   'search.noResults': 'Ko si awọn abajade fun “ {{q}} “.',
   'settings.appearance.description': 'Yipada laarin ipo ina ati ipo dudu.',
   'settings.appearance.title': 'Ìfarahàn',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Kò ṣeé ṣe láti gbé àwọn ètò sórí ayélujára.',
   'settings.loading': 'N n gbe…',
   'settings.push.heading': 'Àwọn ìfitónilétí tì',
+  'settings.push.subheading':
+    'Gba awọn itaniji aṣàwákiri fun awọn itọkasi, awọn nkan iṣe, ati awọn akopọ.',
   'settings.retention.audio': 'Pa ohùn mọ́ fún',
   'settings.retention.heading': 'Ìdúró',
   'settings.retention.transcript': 'Pa àwọn ìwé àkọsílẹ̀ mọ́ fún',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Kò le ṣẹ̀dá àkọọ́lẹ̀. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan síi.',
   'signup.subheading': 'Bẹ̀rẹ̀ sí í ya àwọn àkọsílẹ̀ ìpàdé ní ìṣẹ́jú díẹ̀',
   'signup.terms': 'Nípa ṣíṣẹ̀dá àkọọ́lẹ̀ kan, o gbà láti tẹ̀lé Àwọn Òfin Iṣẹ́ wa àti Ìlànà Ìpamọ́ wa.',
+  'signup.termsPrefix': 'Nípa ṣíṣẹ̀dá àkọọ́lẹ̀ kan, o gbà sí wa',
   'team.inviteCta': 'Pe ẹgbẹ́ agbábọ́ọ̀lù',
   'team.invitedAs': 'A pè é gẹ́gẹ́ bí {{role}}',
   'team.inviteFailed': 'Kò le fi ìkésíni ránṣẹ́.',

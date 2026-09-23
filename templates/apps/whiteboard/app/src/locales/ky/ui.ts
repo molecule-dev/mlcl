@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'authShell.brandHeading': 'Үн чыгарып ойлонгон дизайн топтору үчүн көп оюнчулуу полотнолор.',
   'billing.canceled': 'Жазылуу жокко чыгарылды.',
   'billing.cancelPlan': 'Планды жокко чыгаруу',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Шаблондон баштоо',
   'boards.title': 'Сиздин такталарыңыз',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Жумуш мейкиндигиңизге байланышкан электрондук почта дарегин киргизиңиз, биз баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Башаламан, генеративдүү, жеке ой жүгүртүү үчүн түзүлгөн.',
   'landing.demoBoard.title': '1-чейректеги семинар · Бренд үнү',
   'landing.featuresTitle': 'Тез пикир. Кооз полотнолор. Эч кандай сүрүлүү жок.',
+  'landing.hero.body':
+    '{{appName}} – бул түз эфирде мээ чабуулдарын жүргүзгөн жана идеяларды бир жерге бириктирүүгө муктаж болгон дизайн топтору, семинарлардын фасилитаторлору жана мугалимдер үчүн көп оюнчулуу ак такта.',
   'landing.hero.primaryCta': 'Акысыз такта баштаңыз',
   'landing.hero.socialProof': 'Ишенимдүү {{count}} дүйнө жүзү боюнча дизайн командалары',
   'landing.hero.title': 'Ойлоруңуздай тез полотно',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Акысыз жумуш мейкиндигин түзүңүз',
   'login.subheading':
     'Семинар аяктаган жерден улантыңыз — доскалар, стикер жазуулар жана курсорлордун баары реалдуу убакыт режиминде шайкештештирилет.',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.new': 'Жаңы',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'notifications.editTitle': '"" дегенге түзөтүүлөр {{board}} "',
   'notifications.empty.body':
     'Чакыруулар, сакталган сүрөттөр жана акыркы форум түзөтүүлөрү бул жерде болуп жатканда көрсөтүлөт.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Версия тарыхы',
   'versionHistory.untitledSnapshot': 'Аталышы жок сүрөт',
   'whiteboardLayout.newBoard': 'Жаңы кеңеш',
+  'whiteboardLayout.primaryNav': 'Негизги навигация',
   'workspace.boardLabel': 'Такта',
   'workspace.eyebrow': '{{name}} · жумуш орду',
   'workspace.invite': 'Кызматташтарды чакыруу',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'analytics.col.quorum': 'गणपूरक संख्या',
   'analytics.col.votes': 'भोटहरू',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'अहिलेसम्म कुनै पनि विचाराधीन प्रश्नहरू छैनन्।',
   'audienceQa.onStageEyebrow': 'अहिले स्टेजमा',
   'audienceQa.pollId': 'क्यूए · {{id}}',
+  'audienceQa.promote': 'प्रचार गर्नुहोस्',
   'audienceQa.queued': 'लामबद्ध',
   'audienceQa.queueEyebrow': 'लाम',
   'ballot.eyebrow': 'आफ्नो मतदान गर्नुहोस्',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'तपाईं हाल यसमा हुनुहुन्छ {{plan}} योजना।',
   'billing.switch': 'स्विच गर्नुहोस्',
   'billing.upgraded': 'अद्यावधिक गरिएको: {{plan}} — सीमाहरू तुरुन्तै लागू हुन्छन्।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'createPoll.addOption': 'विकल्प थप्नुहोस्',
   'createPoll.anonymousHint':
     'मतदाता नामहरू लेखा परीक्षण लगमा लुकाइएका छन्; गणनाहरू प्रमाणित रहन्छन्।',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh मा नयाँ हुनुहुन्छ?',
   'login.remember': 'मलाई ३० दिनसम्म सम्झनुहोस्।',
   'login.subheading': 'भुइँ खोल्नुहोस्, कोठा चलाउनुहोस्, र नतिजा प्रमाणित गर्नुहोस्।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'notFound.body':
     'तपाईंले पुग्न खोज्नुभएको पृष्ठ बन्द गरिएको छ वा सारिएको छ। ड्यासबोर्डमा फर्कनुहोस् वा नयाँ पोल खोल्नुहोस्।',
   'notFound.eyebrow': 'यस मार्गमा गणपूरक संख्या पुगेको छैन।',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'यो पोल लोड गर्न सकिएन।',
   'pollDetail.loading': 'मत सर्वेक्षण लोड गर्दै...',
   'pollDetail.notFound': 'मत सर्वेक्षण भेटिएन।',
+  'pollDetail.openBallot': 'खुला मतपत्र',
   'pollDetail.openLive': 'प्रत्यक्ष परिणामहरू',
   'pollDetail.pollId': 'सर्वेक्षण · {{id}}',
   'pollDetail.published': 'मत सर्वेक्षण प्रकाशित भयो — मतदाताहरूले अब मतदान गर्न सक्छन्।',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'इमेल मार्फत खोज्नुहोस्...',
   'voters.subheading':
     'योग्य मतपत्रहरूको सूची तयार गर्नुहोस्। भारित मतपत्रहरूको लागि संगठन अनुसार मतदाताहरूलाई समूहबद्ध गर्नुहोस्।',
+  'votingPollingLayout.nav.analytics': 'एनालिटिक्स',
+  'votingPollingLayout.nav.billing': 'बिलिङ',
+  'votingPollingLayout.nav.createPoll': 'नयाँ सर्वेक्षण',
+  'votingPollingLayout.nav.dashboard': 'ड्यासबोर्ड',
+  'votingPollingLayout.nav.notifications': 'सूचनाहरू',
+  'votingPollingLayout.nav.settings': 'सेटिङहरू',
+  'votingPollingLayout.nav.team': 'टोली',
+  'votingPollingLayout.nav.voters': 'मतदाताहरू',
+  'votingPollingLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
 }

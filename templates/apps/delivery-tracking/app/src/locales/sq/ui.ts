@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'alerts.acknowledgeLabel': 'Pranoj',
   'alerts.customerLabel': 'Klienti: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Duke u lidhur…',
   'carriers.requiredError': 'Emri dhe kodi janë të nevojshëm.',
   'carriers.subheading': '{{count}} i integruar',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
+  'common.retry': 'Riprovo',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Në transport + i sinjalizuar',
   'dashboard.activeShipmentsSubtitle':
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'dërgesat',
   'pricing.trackingLabel': 'ndjekja e ngjarjeve',
   'profile.dangerZone.title': 'Zona e rrezikut',
+  'profile.devices.signingOut': 'Po del…',
+  'profile.devices.unnamed': 'Pajisje pa emër',
+  'profile.security.disable2fa': 'Çaktivizo 2FA',
   'profile.security.enable2fa': 'Aktivizo 2FA',
   'profile.security.pwChanged': 'Fjalëkalimi u ndryshua me sukses.',
   'profile.security.pwCurrent': 'Fjalëkalimi aktual',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktive',
   'profile.security.twoFaCode': 'kod 6-shifror',
   'profile.security.twoFaDisable': 'Çaktivizo',
+  'profile.security.twoFaDisabling': 'Duke çaktivizuar…',
   'profile.security.twoFaFailed': 'Kodi nuk mund të verifikohej.',
   'profile.security.twoFaIntro':
     'Skano kodin QR në aplikacionin tënd të autentifikimit, pastaj fut kodin 6-shifror më poshtë për ta verifikuar.',
   'profile.security.twoFaOn': 'Autentifikimi me dy faktorë është aktivizuar në këtë llogari.',
+  'profile.security.twoFaQrAlt': 'Kodi QR dy faktorë',
   'profile.security.twoFaVerify': 'Verifiko dhe aktivizo',
   'profile.security.twoFaVerifying': 'Duke verifikuar…',
   'profile.subheading': 'Cilësimet e identitetit dhe sigurisë për këtë hapësirë pune.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Ruaje këtë sekret - nuk do të shfaqet më.',
   'settings.api.webhookSecret': 'Sekreti i nënshkrimit të Webhook-ut',
   'settings.appearance.description': 'Kaloni midis modalitetit të ndriçuar dhe të errët.',
+  'settings.deleteAccountConfirm': 'Je i sigurt? Ky veprim nuk mund të zhbëhet.',
   'settings.notifications.exceptions':
     'Më dërgo email kur të ndodhë një përjashtim nga dërgesa, dërgesës i dërgo edhe mua.',
   'settings.notifications.heading': 'Njoftime',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Dërgesa nuk u gjet.',
   'shipmentDetail.originHeading': 'Origjina',
   'shipmentDetail.shippedOn': 'U dërgua {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Ende nuk ka ngjarje gjurmimi — përditësimet shfaqen këtu ndërsa transportuesi skanon paketën.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Transportuesi',
   'shipments.col.eta': 'Koha e mbërritjes',
@@ -177,6 +188,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Hyr',
   'signup.submit': 'Krijo llogari',
   'team.emailError': 'Kërkohet një adresë e vlefshme email-i.',
+  'team.empty':
+    'Ende nuk ka anëtarë të ekipit. Fto një shok skuadre për të bashkëpunuar në dërgesa.',
   'team.eyebrow': 'Anëtarët dhe lejet',
   'team.inviteDialog.cancel': 'Anulo',
   'team.inviteDialog.heading': 'Fto një shok skuadre',
@@ -199,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Pistë',
   'waypointLayout.primaryNavLabel': 'Navigimi kryesor',
   'webhooks.createFailed': 'Nuk mund të krijohej pika fundore e webhook-ut.',
+  'webhooks.endpointsEmpty':
+    'Ende nuk ka pika fundore webhook. Krijo një për të marrë njoftime për statusin e dërgesës.',
   'webhooks.endpointsHeading': 'Pikat fundore',
   'webhooks.eventCount': '{{count}} ngjarje',
   'webhooks.eventsHeading': 'Dërgesat e fundit',

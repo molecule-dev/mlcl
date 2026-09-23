@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.title': '{{app}}-ийн тухай',
   'auth.login.noAccount': 'Sparq-д шинээр орж байна уу?',
   'auth.login.or': 'эсвэл үргэлжлүүлэх',
   'auth.signup.or': 'эсвэл бүртгүүлэх',
+  'common.confirm': 'Баталгаажуулах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.loadError': 'Энэ контентыг ачаалахад алдаа гарлаа.',
+  'common.retry': 'Дахин оролдох',
   'discover.collections.title': 'Ангиллаар нь үзэх',
   'discover.collections.viewAll': 'Номын сангаа үзэх →',
   'discover.empty.body': 'Өөр ангиллыг туршиж үзэх эсвэл хайлтыг арилгана уу.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Цувралаа хадгалах, шууд тоглолтуудыг зохион байгуулах, тэргүүлэгчдийн жагсаалтад гарахын тулд нэвтэрнэ үү.',
   'myQuizzes.createButton': 'Шинэ асуулт хариулт',
+  'myQuizzes.deleteConfirm': 'Бүрмөсөн устгах уу?',
   'myQuizzes.empty.createCta': 'Анхны асуулт хариултаа зохио →',
   'myQuizzes.empty.created': 'Та хараахан асуулт хариултын тоглоом бүтээгээгүй байна.',
   'myQuizzes.empty.played': 'Одоогоор нийтлэгдсэн асуулт хариултын асуултууд алга.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ачааллаж байна…',
   'notifications.subhead':
     '{{count}} Уншаагүй очнууд. Урилга, тэргүүлэгчдийн самбарын шилжилт болон амжилтууд бүгд нэг урсгалд.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.checkoutError': 'Төлбөр тооцоог эхлүүлж чадсангүй. Дахин оролдоно уу.',
+  'pricing.heading': '{{app}}-ийн төлөвлөгөө сонгох',
   'pricing.included': 'Багцлагдсан',
   'pricing.loadError': 'Төлөвлөгөөг ачаалж чадсангүй.',
   'pricing.maxQuizzes': '{{count}} асуулт хариулт',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Одоогоор юу ч нийтлэгдээгүй байна.',
   'profile.startBuilding': 'Барилга барьж эхлэх →',
   'profile.tier': 'Спарк тоглогч',
+  'quizBuilder.addFailed': 'Асуулт нэмж чадсангүй. Дахин оролдоно уу.',
   'quizBuilder.addQuestion': 'Асуулт нэмэх',
   'quizBuilder.answerPlaceholder': 'Сонголт оруулна уу...',
   'quizBuilder.answersLabel': 'Хариултын сонголтууд',
   'quizBuilder.back': 'Миний асуулт хариултууд руу буцах',
   'quizBuilder.delete': 'Асуултыг устгах',
+  'quizBuilder.deleteFailed': 'Асуултыг устгаж чадсангүй.',
   'quizBuilder.firstQuestion': 'Эхлэхийн тулд эхний асуултаа нэмнэ үү.',
   'quizBuilder.idLabel': 'Асуултын дугаар: {{id}}',
   'quizBuilder.loadError': 'Асуулгыг ачаалж чадсангүй.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Дор хаяж хоёр хариултын сонголт нэмээд зөвийг нь сонгоно уу {{count}} нийтлэхээс өмнөх асуулт(ууд).',
   'quizBuilder.questionsTitle': 'Асуултууд',
+  'quizBuilder.saveFailed': 'Гарчгийг хадгалж чадсангүй. Дахин оролдоно уу.',
   'quizBuilder.statusDraft': 'Ноорог',
   'quizBuilder.subhead':
     'Гарчгийг засах, асуулт нэмэх, сонголт болон зөв хариултыг тохируулах. Өөрчлөлтүүд автоматаар хадгалагдана.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Олон тоглогчтой хостинг хийх боломжтой.',
   'quizDetail.leaderboardEmpty': 'Одоогоор тоглолт алга — оноог хамгийн түрүүнд тавь.',
+  'quizDetail.loadError': 'Энэ асуултыг ачаалж чадсангүй.',
   'quizDetail.loading': 'Асуулт хариултыг ачаалж байна…',
   'quizDetail.plays': '{{count}} жүжгүүд',
   'quizDetail.playSolo': 'Ганцаараа тоглох',

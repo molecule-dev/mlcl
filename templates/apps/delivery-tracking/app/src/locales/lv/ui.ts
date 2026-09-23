@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'alerts.acknowledgeLabel': 'Atzīt',
   'alerts.customerLabel': 'Klients: {{customer}}',
@@ -44,7 +45,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Notiek savienojuma izveide…',
   'carriers.requiredError': 'Obligāti jānorāda vārds un kods.',
   'carriers.subheading': '{{count}} integrēts',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
+  'common.retry': 'Mēģināt vēlreiz',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Tranzītā + atzīmēts ar karodziņu',
   'dashboard.activeShipmentsSubtitle':
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'sūtījumi',
   'pricing.trackingLabel': 'notikumu izsekošana',
   'profile.dangerZone.title': 'Bīstamā zona',
+  'profile.devices.signingOut': 'Izraksta…',
+  'profile.devices.unnamed': 'Nenosaukta ierīce',
+  'profile.security.disable2fa': 'Atspējot 2FA',
   'profile.security.enable2fa': 'Iespējot 2FA',
   'profile.security.pwChanged': 'Parole veiksmīgi nomainīta.',
   'profile.security.pwCurrent': 'Pašreizējais paroles',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktīvs',
   'profile.security.twoFaCode': '6 ciparu kods',
   'profile.security.twoFaDisable': 'Atspējot',
+  'profile.security.twoFaDisabling': 'Notiek atspējošana…',
   'profile.security.twoFaFailed': 'Nevarēja pārbaudīt kodu.',
   'profile.security.twoFaIntro':
     'Noskenējiet QR kodu savā autentifikatora lietotnē un pēc tam ievadiet zemāk esošo 6 ciparu kodu, lai verificētu.',
   'profile.security.twoFaOn': 'Šajā kontā ir iespējota divfaktoru autentifikācija.',
+  'profile.security.twoFaQrAlt': 'Divfaktoru QR kods',
   'profile.security.twoFaVerify': 'Verificēt un iespējot',
   'profile.security.twoFaVerifying': 'Pārbauda…',
   'profile.subheading': 'Šīs darbvietas identitātes un drošības iestatījumi.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Saglabājiet šo noslēpumu — tas vairs netiks rādīts.',
   'settings.api.webhookSecret': 'Webhook parakstīšanas noslēpums',
   'settings.appearance.description': 'Pārslēgties starp gaišo un tumšo režīmu.',
+  'settings.deleteAccountConfirm': 'Vai tiešām? Šo darbību nevar atsaukt.',
   'settings.notifications.exceptions': 'Sūtīt e-pastu, ja rodas sūtījuma izņēmums',
   'settings.notifications.heading': 'Paziņojumi',
   'settings.notifications.saveFailed': 'Neizdevās saglabāt iestatījumus.',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.loadError': 'Neizdevās ielādēt sūtījumu.',
   'shipmentDetail.notFound': 'Sūtījums nav atrasts.',
   'shipmentDetail.originHeading': 'Izcelsme',
+  'shipmentDetail.timelineEmpty':
+    'Vēl nav izsekošanas notikumu — atjauninājumi tiek parādīti šeit, kad pārvadātājs skenē sūtījumu.',
   'shipmentDetail.weightLabel': '{{weight}} mārciņas',
   'shipments.col.carrier': 'Pārvadātājs',
   'shipments.col.eta': 'Aptuvenais ierašanās laiks',
@@ -172,6 +183,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Pieslēgties',
   'signup.submit': 'Izveidot kontu',
   'team.emailError': 'Nepieciešama derīga e-pasta adrese.',
+  'team.empty':
+    'Komandā vēl nav dalībnieku. Uzaiciniet komandas biedru sadarboties piegāžu izstrādē.',
   'team.eyebrow': 'Dalībnieki un atļaujas',
   'team.inviteDialog.cancel': 'Atcelt',
   'team.inviteDialog.heading': 'Uzaicini komandas biedru',
@@ -194,6 +207,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Trase',
   'waypointLayout.primaryNavLabel': 'Galvenā navigācija',
   'webhooks.createFailed': 'Nevarēja izveidot tīmekļa aizķeres galapunktu.',
+  'webhooks.endpointsEmpty':
+    'Vēl nav tīmekļa aizķeres galapunktu. Izveidojiet vienu, lai saņemtu sūtījuma statusa atzvanīšanas ziņojumus.',
   'webhooks.endpointsHeading': 'Galapunkti',
   'webhooks.eventCount': '{{count}} notikumi',
   'webhooks.eventsHeading': 'Nesenās piegādes',

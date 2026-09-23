@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
   'analytics.col.quorum': '定足数',
   'analytics.col.votes': '票数',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'まだ未対応の質問はありません。',
   'audienceQa.onStageEyebrow': 'ステージ上',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': '推進する',
   'audienceQa.queued': '待機中',
   'audienceQa.queueEyebrow': 'キュー',
   'ballot.eyebrow': '投票してください',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': '現在は{{plan}}プランをご利用中です。',
   'billing.switch': '切り替え',
   'billing.upgraded': '{{plan}}に更新しました — 上限は即時反映されます。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'createPoll.addOption': '選択肢を追加',
   'createPoll.anonymousHint': '監査ログでは投票者名を非表示にします。集計は引き続き認証されます。',
   'createPoll.anonymousLabel': '匿名投票を許可する',
@@ -155,6 +158,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Noshは初めてですか?',
   'login.remember': '30日間ログイン状態を保つ',
   'login.subheading': '発言の場を開き、会場を運営し、結果を認証します。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'notFound.body':
     'アクセスしようとしたページは閉じられたか移動されました。ダッシュボードに戻るか、新しい投票を開いてください。',
   'notFound.eyebrow': 'このルートでは定足数なし',
@@ -180,6 +185,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'この投票を読み込めませんでした。',
   'pollDetail.loading': '投票を読み込んでいます…',
   'pollDetail.notFound': '投票が見つかりません。',
+  'pollDetail.openBallot': 'オープン投票',
   'pollDetail.openLive': 'ライブ結果',
   'pollDetail.pollId': '投票 · {{id}}',
   'pollDetail.published': '投票を公開しました — 有権者が投票できるようになりました。',
@@ -256,4 +262,13 @@ export const ui: UiTranslations = {
   'voters.rollHeading': '最近追加された方',
   'voters.searchPlaceholder': 'メールで検索…',
   'voters.subheading': '有権者名簿を整備します。組織別にグループ化して加重投票が可能です。',
+  'votingPollingLayout.nav.analytics': '分析',
+  'votingPollingLayout.nav.billing': '請求',
+  'votingPollingLayout.nav.createPoll': '新しい世論調査',
+  'votingPollingLayout.nav.dashboard': 'ダッシュボード',
+  'votingPollingLayout.nav.notifications': '通知',
+  'votingPollingLayout.nav.settings': '設定',
+  'votingPollingLayout.nav.team': 'チーム',
+  'votingPollingLayout.nav.voters': '有権者',
+  'votingPollingLayout.primaryNavLabel': 'メインナビゲーション',
 }

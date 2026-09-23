@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'ascentSideNav.nav.notifications': 'Bildirişlər',
   'ascentSideNav.newObjective': 'Yeni məqsəd',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'Zirvəni təyin edin. Yolun başlanğıcını qeyd edin. Komandaya məşqçilik edin.',
   'authShell.eyebrow': 'Komandaları hərəkətə gətirən OKR-lər',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'İş sahəsi · Ödəniş',
   'billing.heading': 'Plan və fakturalar',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'Məlumat ixracı + API girişi',
+  'billing.perk.inApp': 'Tətbiqdaxili hesabat',
+  'billing.perk.standard': 'Standart rəylər',
+  'billing.perk.unlimitedObjectives': 'Limitsiz məqsədlər',
+  'billing.perk.unlimitedRetention': 'Limitsiz saxlama',
   'billing.subheading':
     'Sən buradasan {{name}} plan. Səviyyələri müqayisə edin və aşağıda təkmilləşdirin.',
   'billing.tier.unavailable': 'Mövcud deyil',
@@ -41,11 +49,13 @@ export const ui: UiTranslations = {
     'Hər KR üçün cari dəyəri yeniləyin, etibarlılığı qeyd edin, bir qeyd buraxın və təqdim edin.',
   'checkIn.submit': 'Qeydiyyatı təqdim edin',
   'checkIn.submittedMessage': 'Qeydiyyat yadda saxlanıldı. İrəliləyiş və zaman xətti yeniləndi.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': 'Xeyr',
   'common.relative.daysAgo': '{{count}} gün əvvəl',
   'common.relative.hoursAgo': '{{count}} hr ago',
   'common.relative.justNow': 'elə indicə',
   'common.relative.minutesAgo': '{{count}} min ago',
+  'common.retry': 'Təkrar cəhd edin',
   'common.yes': 'Bəli',
   'common.you': 'Sən',
   'dashboard.allActivity': 'Bütün fəaliyyətə baxın →',
@@ -89,6 +99,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Sıfırlama linki göndərdik {{email}} Bir saata müddəti bitir — gələnlər qutusuna bir saniyə vaxt verin.',
   'forgotPassword.successHeading': 'Gələnlər qutunuzu yoxlayın.',
+  'keyResult.metrics.boolean': 'Bəli / Xeyr',
+  'keyResult.metrics.currency': 'Valyuta $',
+  'keyResult.metrics.number': 'Nömrə',
+  'keyResult.metrics.percent': '% faiz',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'İlk məqsədinizi müəyyənləşdirin, üç komanda yoldaşını dəvət edin və cümə gününə qədər ilk həftəlik qeydiyyatınızı həyata keçirin.',
@@ -100,6 +114,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Komandalar necə yüksəlir',
   'landing.featuresTitle': 'Cədvəl genişliyi olmadan kouçinq səviyyəli OKR-lər.',
   'landing.footerBuiltOn': 'Molecule.dev üzərində qurulub',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Yüksəliş hər komandaya dağa qalxmaq üçün ölçülə bilən bir yol verir — məqsədlər qoyun, həftəlik əsas nəticələri qiymətləndirin və dırmanışı hər rübdə nəzərdən keçirin.',
   'landing.heroProgressLabel': '2-ci rüb şirkət planı',
@@ -109,6 +124,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'və ya davam edin',
   'login.subheading':
     'Qaldığınız yerdən davam edin — qeydiyyatlarınız, KR-ləriniz və rəyləriniz gözləyir.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.mainNavigation': 'Əsas naviqasiya',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'newObjective.addKr': 'KR əlavə edin',
   'newObjective.coachLabel': 'Məşqçi xatırlatmaları',
   'newObjective.descriptionPlaceholder': 'Strateji konteksti 2-3 cümlə ilə izah edin.',
@@ -132,6 +150,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Fəaliyyət mərkəzi',
   'notifications.markRead': '● Oxunmuş kimi qeyd edin',
   'objective.scopes.company': 'Şirkət',
+  'objective.scopes.individual': 'Fərdi',
   'objective.scopes.team': 'Komanda',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Məqsədlərə qayıt',
@@ -154,11 +173,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'İzləmə {{count}} məqsədlər. Diqqət yetirilməli olanı tapmaq üçün statusa görə filtrləyin.',
   'profile.achievementCheckInsMany': '{{count}} Qeydiyyatdan Keçmələr',
+  'profile.achievementCheckInsOne': '1 qeydiyyat qeydə alınıb',
+  'profile.achievementCompletedMany': 'Tamamlanmış {{count}} məqsəd',
+  'profile.achievementCompletedOne': '1 məqsədə çatdı',
+  'profile.achievementOnTrackMany': '{{count}} hədəflər irəlidədir',
+  'profile.achievementOnTrackOne': '1 məqsəd irəlidədir',
   'profile.activeHeading': 'Aktiv məqsədlər',
   'profile.allObjectives': 'Bütün məqsədlər →',
   'profile.empty': 'Hələ ki, aktiv məqsəd yoxdur — başlamaq üçün ilk hədəfinizi yaradın.',
   'profile.eyebrow': 'Dırmanma profili',
   'profile.guestName': 'Alpinist',
+  'profile.loadError': 'Hədəflərinizi yükləmək mümkün olmadı.',
   'profile.loading': 'Məqsədlər yüklənir…',
   'profile.noAchievements': 'İlk nailiyyətinizin kilidini açmaq üçün qeydiyyatı tamamlayın.',
   'profile.statCheckIns': 'Qeydiyyatlar',

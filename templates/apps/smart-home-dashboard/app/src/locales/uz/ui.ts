@@ -1,13 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.pageTitle': '{{app}} haqida',
   'activity.empty':
     "Hali hech qanday faollik yo'q — qurilmani aylantiring yoki sahnani faollashtiring.",
   'activity.eyebrow': 'Vaqt jadvali',
   'activity.loadError': "Faoliyat tasmasini yuklab bo'lmadi.",
   'activity.subheading':
     'Har bir qurilma, avtomatlashtirish va xavfsizlik hodisasi xronologik tartibda.',
+  'addDevice.error.failed': "Qurilmani qo'shib bo'lmadi. Qaytadan urinib ko'ring.",
   'addDevice.error.nameRequired': 'Davom etish uchun ushbu qurilmaga nom bering.',
   'addDevice.field.firmware': "Dasturiy ta'minot versiyasi",
   'addDevice.field.manufacturer': 'Ishlab chiqaruvchi',
@@ -48,6 +51,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Sinov…',
   'automationEditor.testNew': "Avtomatlashtirishni sinab ko'rish uchun avval uni saqlang.",
   'automationRow.lastRun': 'Oxirgi {{date}} · {{count}} yugurishlar',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Yugurish {{name}} hozir',
   'automations.empty': "Hali avtomatlashtirish yo'q — birinchi tartibingizni yarating.",
   'automations.eyebrow': 'Rutinlar',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Avtomatlashtirishlar yuklanmoqda…',
   'automations.newAutomation': '+ Yangi',
   'automations.subheading': "Bu sodir bo'lganda, buni YAMLsiz bajaring.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': "Qurilmani yuklab bo'lmadi.",
@@ -74,6 +79,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Ishlamoqda…',
   'deviceDetail.unnamed': 'Qurilma',
   'deviceStatusRow.on': 'Yoqilgan',
+  'deviceStatusRow.turnOff': "O'chirib qo'yish",
+  'deviceStatusRow.turnOn': 'Yoqish; ishga tushirish',
   'deviceStatusRow.watts': "{{watts}} G'arb",
   'energy.eyebrow': 'Quvvat',
   'energy.heading': 'Energiya',
@@ -181,4 +188,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': "Rejalarni ko'ring",
   'settings.security.heading': 'Xavfsizlik',
   'settings.subheading': 'Reja, markazlar va hisob sozlamalari.',
+  'smartHomeDashboardLayout.openMenu': 'Navigatsiya menyusini ochish',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Asosiy navigatsiya',
 }

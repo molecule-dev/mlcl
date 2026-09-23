@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.eyebrow': '{{app}} ಬಗ್ಗೆ',
   'about.pageTitle': 'ಪ್ರತಿಯೊಂದು ಮಾರ್ಗ, ಒಂದು ಹುಡುಕಾಟ.',
   'booking.backToDetail': 'ವಿಮಾನ ವಿವರಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'booking.continue': 'ಪಾವತಿಗೆ ಮುಂದುವರಿಯಿರಿ',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ತೆರಿಗೆಗಳು ಮತ್ತು ಶುಲ್ಕಗಳು',
   'booking.summary.travelers': 'ಪ್ರಯಾಣಿಕರು',
   'common.about': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'flightDetail.backToResults': 'ಫಲಿತಾಂಶಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'flightDetail.baseFare': 'ಮೂಲ ದರ',
   'flightDetail.book': 'ಬುಕಿಂಗ್ ಮುಂದುವರಿಸಿ',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ನಿಲ್ದಾಣ',
   'flightResultCard.select': 'ಆಯ್ಕೆ ಮಾಡಿ',
   'flightResultCard.totalLabel': 'ಒಟ್ಟು ಸಮಯ',
+  'flightSearchLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ ಸ್ಕೈಲಾರ್ಕ್ ಖಾತೆಯಲ್ಲಿ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ನಾವು ಸುರಕ್ಷಿತ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
     'ಪರಿಶೀಲಿಸಿ {{email}} ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಹೊಂದಿಸಲು ಲಿಂಕ್‌ಗಾಗಿ. ಲಿಂಕ್ 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
   'forgotPassword.successHeading': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಳುಹಿಸಲಾಗಿದೆ',
   'landing.cta.explore': 'ಹುಡುಕಾಟ ಪ್ರಯತ್ನಿಸಿ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'ಎಲ್ಲರಿಗಿಂತ ಮೊದಲು ಮುಂದಿನ ಉತ್ತಮ ದರವನ್ನು ಹುಡುಕಿ.',
   'landing.cta.signup': 'ದರಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಪ್ರಾರಂಭಿಸಿ',
   'landing.features.eyebrow': 'ಸ್ಕೈಲಾರ್ಕ್ ಏಕೆ',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'ಎಚ್ಚರಿಕೆಯನ್ನು ಸೇರಿಸಿ',
   'priceAlerts.deleteConfirm': 'ಈ ಎಚ್ಚರಿಕೆಯನ್ನು ತೆಗೆದುಹಾಕುವುದೇ?',
   'priceAlerts.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಮಾರ್ಗಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲಾಗಿಲ್ಲ.',
+  'priceAlerts.emptyCta': 'ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಮಾರ್ಗವನ್ನು ಹುಡುಕಿ',
   'priceAlerts.errorMessage': 'ಎಚ್ಚರಿಕೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'priceAlerts.eyebrow': 'ಸ್ಕೈಲಾರ್ಕ್ ವೀಕ್ಷಣಾ ಪಟ್ಟಿ',
   'priceAlerts.form.createError': 'ಎಚ್ಚರಿಕೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'ಬಹು-ನಗರ ಪ್ರಯಾಣ ಯೋಜನೆ',
   'results.multiLegHeading': 'ಕಾಲು {{ಎನ್}} · {{ಇಂದ}} → {{ಗೆ}} · {{ದಿನಾಂಕ}}',
   'results.multiSummary': '{{count}} ಕಾಲುಗಳು · {{passengers}} ಪ್ರಯಾಣಿಕ',
+  'results.sortAriaLabel': 'ಫಲಿತಾಂಶಗಳನ್ನು ಹೀಗೆ ವಿಂಗಡಿಸಿ',
   'results.sortLabel': 'ವಿಂಗಡಿಸಿ',
   'results.summary': '{{count}} ವಿಮಾನಗಳು · {{passengers}} ಪ್ರಯಾಣಿಕ',
   'settings.language.title': 'ಭಾಷೆ',

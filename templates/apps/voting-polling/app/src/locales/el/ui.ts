@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'analytics.col.quorum': 'Απαρτία',
   'analytics.col.votes': 'Ψήφοι',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Δεν υπάρχουν ακόμη εκκρεμείς ερωτήσεις.',
   'audienceQa.onStageEyebrow': 'Στη σκηνή τώρα',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Προάγω',
   'audienceQa.queued': 'σε ουρά',
   'audienceQa.queueEyebrow': 'Ουρά',
   'ballot.eyebrow': 'Ρίξτε την ψήφο σας',
@@ -82,6 +84,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Αυτή τη στιγμή βρίσκεστε στο {{plan}} σχέδιο.',
   'billing.switch': 'Εναλλαγή',
   'billing.upgraded': 'Ενημερώθηκε σε {{plan}} — τα όρια εφαρμόζονται αμέσως.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'createPoll.addOption': 'Προσθήκη επιλογής',
   'createPoll.anonymousHint':
     'Τα ονόματα των ψηφοφόρων είναι κρυμμένα στο αρχείο καταγραφής ελέγχου. Οι καταμετρήσεις παραμένουν επικυρωμένες.',
@@ -164,6 +167,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Νέος στο Nosh;',
   'login.remember': 'Να με θυμάσαι για 30 ημέρες',
   'login.subheading': 'Άνοιξε το πάτωμα, έλεγξε το δωμάτιο και πιστοποιήστε το αποτέλεσμα.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'notFound.body':
     'Η σελίδα στην οποία προσπαθήσατε να μεταβείτε έχει κλείσει ή μετακινηθεί. Επιστρέψτε στον πίνακα ελέγχου ή ανοίξτε μια νέα δημοσκόπηση.',
   'notFound.eyebrow': 'Δεν υπάρχει απαρτία σε αυτήν τη διαδρομή',
@@ -190,6 +195,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτής της δημοσκόπησης.',
   'pollDetail.loading': 'Φόρτωση δημοσκόπησης…',
   'pollDetail.notFound': 'Η δημοσκόπηση δεν βρέθηκε.',
+  'pollDetail.openBallot': 'Ανοιχτή ψηφοφορία',
   'pollDetail.openLive': 'Ζωντανά αποτελέσματα',
   'pollDetail.pollId': 'δημοσκόπηση · {{id}}',
   'pollDetail.published': 'Δημοσίευση δημοσκόπησης — οι ψηφοφόροι μπορούν πλέον να ψηφίσουν.',
@@ -272,4 +278,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Αναζήτηση μέσω email…',
   'voters.subheading':
     'Επιμεληθείτε τον κατάλογο των επιλέξιμων ψηφοφόρων. Ομαδοποιήστε τους ψηφοφόρους ανά οργανισμό για σταθμισμένα ψηφοδέλτια.',
+  'votingPollingLayout.nav.analytics': 'Αναλυτικά στοιχεία',
+  'votingPollingLayout.nav.billing': 'Χρέωση',
+  'votingPollingLayout.nav.createPoll': 'Νέα δημοσκόπηση',
+  'votingPollingLayout.nav.dashboard': 'Πίνακας ελέγχου',
+  'votingPollingLayout.nav.notifications': 'Ειδοποιήσεις',
+  'votingPollingLayout.nav.settings': 'Ρυθμίσεις',
+  'votingPollingLayout.nav.team': 'Ομάδα',
+  'votingPollingLayout.nav.voters': 'Ψηφοφόροι',
+  'votingPollingLayout.primaryNavLabel': 'Κύρια πλοήγηση',
 }

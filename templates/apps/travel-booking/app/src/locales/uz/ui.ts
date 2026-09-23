@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureDiscover.title': "Ilhom, qo'lda tanlangan",
   'account.addPaymentCta': "To'lov usulini qo'shish",
   'account.addPaymentError': "To'lov usulini qo'shib bo'lmadi.",
+  'account.confirmRemove': 'Olib tashlashni tasdiqlang',
   'account.defaultBadge': 'Standart',
   'account.loyalty.pointsTowardNext': '{{ball}} ning {{Keyingisi}} milyagacha {{keyingiTier}}',
   'account.loyalty.tier': 'Joriy daraja',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Sayohat tafsilotlari',
   'booking.tripSummary': '{{nights}} kechalar · {{guests}} mehmonlar',
   'common.daysAgo': '{{count}} kun oldin',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.hoursAgo': '{{count}} soat oldin',
   'common.minutesAgo': '{{count}} m oldin',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Huquqiy',
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.subheading': "{{count}} o'qilmagan · hamma narsa bitta xotirjam pochta qutisida",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.accommodationsLabel': 'turar joylar',
   'pricing.bookingsLabel': 'buyurtmalar',
   'pricing.destinationsLabel': 'saqlangan manzillar',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     "Ilhom, ishonchli turar joylar va orzudan buyurtma qilingangacha bo'lgan oson yo'l — 14 ta mamlakat va 200 dan ortiq qo'lda tekshirilgan mulklar bo'ylab.",
   'sojournHeroSearchCard.trustProtected': "Bepul bekor qilish, to'liq himoyalangan",
   'sojournHeroSearchCard.trustVetted': "Faqat qo'lda tekshirilgan mulklar",
+  'travelBookingLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'tripDetail.backLink': 'Sayohatlarga qaytish',
   'tripDetail.cancelCta': 'Bronlashni bekor qilish',
   'tripDetail.cancelHeading': 'Bu safar bekor qilinsinmi?',

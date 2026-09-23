@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'about.pageTitle': 'Haqqımızda {{name}}',
   'auth.footer.about': 'Haqqımızda {{name}}',
   'authHeader.subtitle': 'Rəqəmlərinizin dürüst olması üçün daxil olun.',
   'automations.action.email': 'E-poçt',
+  'automations.action.noop': 'Əməliyyat yoxdur',
   'automations.action.webhook': 'Veb çəngəl',
   'automations.confirmDelete': 'Sil " {{name}} "?',
   'automations.empty.headline': 'Hələlik avtomatlaşdırma yoxdur',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Hər iş kitabında tetikleyicilər və hərəkətlər. Hər bir icra, sonradan yoxlaya biləcəyiniz bir sətri qeyd edir.',
   'automations.toggle': 'Aç/bağla {{name}}',
+  'automations.trigger.dailySchedule': 'Gündəlik cədvəl',
+  'automations.trigger.rowCreated': 'Sətir yaradıldı',
+  'automations.trigger.rowUpdated': 'Sətir yeniləndi',
   'billing.empty': 'Heç bir plan mövcud deyil.',
   'billing.error.priceMissing':
     'Bu səviyyə üçün Stripe qiyməti konfiqurasiya edilməyib. STRIPE_*_PRICE_ID mühitinin dəyişkənliyini təyin edin.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diaqramlar',
   'charts.kpi.totalCharts': 'Ümumi qrafiklər',
   'charts.list.empty': 'Hələlik qrafik yoxdur.',
+  'charts.namePlaceholder': 'Gəlir trendi',
   'charts.newChart': 'Yeni qrafik',
   'charts.primary.eyebrow': 'Növlərə görə qrafiklər',
   'charts.primary.headline': 'İş sahəsinə ümumi baxış',
   'charts.subhead':
     'Şəbəkənizlə əlaqəli canlı vizuallaşdırmalar — hər xana düzəlişində yenidən göstərilsin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'editor.addColumn': 'Sütun əlavə edin',
+  'editor.addDialogTitle': 'Sütun əlavə edin',
   'editor.addRow': 'Sətir əlavə edin',
   'editor.addSheet': 'Vərəq əlavə edin',
   'editor.back': 'İş dəftərlərinə qayıt',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Kalsit, ilk növbədə, çoxgörünüşlü, real vaxt rejimində şəbəkə analitikləri və maliyyə qruplarının çatdığı düsturdur.',
   'landing.nav.formulas': 'Düsturlar',
+  'login.noAccount': '{{name}} -də yenisiniz?',
+  'login.signIn': '{{name}} hesabına daxil olun',
   'login.signUp': 'İş sahəsi yaradın',
+  'nav.menu': 'Menyu',
+  'nav.openMenu': 'Menyunu açın',
   'notFound.cellRef': '#İSTİNAD!',
   'notFound.formula': '=AXTARIŞ(REQUEST.url, "marşrutlar", "səhifə")',
   'notFound.headline': 'Bu sıra heç vaxt mövcud olmayıb.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Yerli avtomatlaşdırmalar · webhook və cron tetikleyiciləri',
   'signup.creating': 'İş sahəsi təmin edilir…',
   'signup.cta': 'İş sahəmi yaradın',
+  'signup.haveAccount': 'Artıq {{name}} dəsiniz?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'İlk iş dəftərinizi 30 saniyəyə çevirin',
   'team.col.activity': 'Dəvət olunmuş',

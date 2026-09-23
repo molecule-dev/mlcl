@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
+  'about.eyebrow': 'Om {{app}}',
   'about.pageTitle': 'Hver rute, én søgning.',
   'booking.backToDetail': 'Tilbage til flyoplysninger',
   'booking.continue': 'Fortsæt til betaling',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Skatter og gebyrer',
   'booking.summary.travelers': 'Rejsende',
   'common.about': 'Om',
+  'common.goToDashboard': 'Gå til Dashboard',
   'flightDetail.backToResults': 'Tilbage til resultater',
   'flightDetail.baseFare': 'Basispris',
   'flightDetail.book': 'Fortsæt med bookingen',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stop',
   'flightResultCard.select': 'Vælge',
   'flightResultCard.totalLabel': 'Samlet tid',
+  'flightSearchLayout.primaryNavLabel': 'Primær navigation',
   'forgotPassword.subheading':
     'Indtast e-mailadressen på din Skylark-konto, så sender vi dig et sikkert nulstillingslink.',
   'forgotPassword.successBody':
     'Check {{email}} for et link til at oprette en ny adgangskode. Linket udløber om 30 minutter.',
   'forgotPassword.successHeading': 'Nulstil link sendt',
   'landing.cta.explore': 'Prøv en søgning',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Find den næste gode pris før alle andre.',
   'landing.cta.signup': 'Begynd at spore priser',
   'landing.features.eyebrow': 'Hvorfor Sanglærke',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Tilføj alarm',
   'priceAlerts.deleteConfirm': 'Fjern denne advarsel?',
   'priceAlerts.empty': 'Ingen sporede ruter endnu.',
+  'priceAlerts.emptyCta': 'Søg efter en rute at spore',
   'priceAlerts.errorMessage': 'Kunne ikke indlæse advarsler.',
   'priceAlerts.eyebrow': 'Skylark-overvågningsliste',
   'priceAlerts.form.createError': 'Kunne ikke oprette alarm.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Rejseplan for flere byer',
   'results.multiLegHeading': 'Ben {{n}} · {{fra}} → {{til}} · {{dato}}',
   'results.multiSummary': '{{count}} ben · {{passengers}} rejsende',
+  'results.sortAriaLabel': 'Sortér resultater efter',
   'results.sortLabel': 'Sortere',
   'results.summary': '{{count}} flyrejser · {{passengers}} rejsende',
   'settings.language.title': 'Sprog',

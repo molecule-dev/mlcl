@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'authShell.statusLabel': 'റണ്ണേഴ്സ് ഓൺലൈനിൽ',
   'collections.createError': 'ശേഖരം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'collections.defaultName': 'പേരില്ലാത്ത ശേഖരം {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'പുതിയ ശേഖരം',
   'collections.subheading':
     'ഗ്രൂപ്പ് അഭ്യർത്ഥനകൾ, നിങ്ങളുടെ ടീമുമായി പങ്കിടുക, അവ ഒരു സ്യൂട്ടായി പ്രവർത്തിപ്പിക്കുക.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'environmentCard.inactive': 'അലസമായത്',
   'environmentCard.more': 'കൂടുതൽ',
   'environmentCard.variables': 'വേരിയബിളുകൾ',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'സൗജന്യമായി ഡൗൺലോഡ് ചെയ്യുക',
   'landing.heroSubtitle':
     'ടെർമിനലുകളിൽ താമസിക്കുന്ന എഞ്ചിനീയർമാർക്കായി നിർമ്മിച്ച മിന്നൽ വേഗത്തിലുള്ള API ടെസ്റ്റിംഗ് വർക്ക്ബെഞ്ച്.',
+  'landing.heroTitleAccent': 'തീ',
+  'landing.heroTitleLine2': 'ആത്മവിശ്വാസം വളർത്തുക.',
+  'landing.heroTitleRest': 'അഭ്യർത്ഥനകൾ,',
   'landing.kicker': '$ പൈലോൺ അയയ്ക്കുക --വാച്ച്',
   'landing.pricingEyebrow': '// $ വിലനിർണ്ണയം --പ്ലെയിൻ',
   'landing.pricingHeading': 'ലളിതവും പ്രവചിക്കാവുന്നതുമായ വിലനിർണ്ണയം',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ഇവിടെ പുതിയ ആളാണോ?',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.subtitle': 'നിങ്ങളുടെ പൈലോൺ വർക്ക്‌സ്‌പെയ്‌സിലേക്ക് തുടരുക.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'mocks.createError': 'മോക്ക് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'mocks.defaultName': 'പേരില്ലാത്ത മോക്ക് {{n}}',
   'mocks.deleteError': 'മോക്ക് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
@@ -115,6 +123,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'വർക്ക്‌സ്‌പെയ്‌സിലേക്ക് മടങ്ങുക',
   'notFound.eyebrow': '$ പൈലോൺ റിസോൾവ് --സ്ട്രിക്റ്റ്',
   'notFound.title': 'റൂട്ട് കണ്ടെത്തിയില്ല',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'privacy.collect.account':
     'അക്കൗണ്ട്: നിങ്ങളുടെ ഇമെയിൽ, ഹാഷ് ചെയ്ത പാസ്‌വേഡ്, പ്രദർശന നാമം, നിങ്ങളുടെ അവസാന സൈൻ-ഇന്നിന്റെ ടൈംസ്റ്റാമ്പ്.',
   'privacy.rights.body':
@@ -141,6 +150,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'ഈ അക്കൗണ്ടിന് നിലവിൽ സ്വന്തമായുള്ള ഡാറ്റയുടെ വായന-മാത്രം കാഴ്ച.',
   'settings.unset': 'സജ്ജമാക്കിയിട്ടില്ല',
   'signup.identityHint': 'ഉദാ: അലക്സ്',
+  'signup.statusLabel': 'സൗജന്യ ടയർ · ക്രെഡിറ്റ് കാർഡ് ഇല്ല',
   'signup.subtitle': 'മിനിറ്റുകൾക്കുള്ളിൽ അഭ്യർത്ഥനകൾ അയയ്ക്കാൻ ആരംഭിക്കുക.',
   'terms.account.body':
     'നിങ്ങളുടെ പാസ്‌വേഡ് സംരക്ഷിക്കേണ്ട ഉത്തരവാദിത്തം നിങ്ങൾക്കാണ്. ഫ്രീ അല്ലെങ്കിൽ പ്രോ പ്ലാനുകളിൽ ഒന്നിലധികം ആളുകളുമായി ഒരു അക്കൗണ്ട് പങ്കിടുന്നത് അനുവദനീയമല്ല - പങ്കിട്ട വർക്ക്‌സ്‌പെയ്‌സുകൾക്കായി ഒരു ടീം സബ്‌സ്‌ക്രിപ്‌ഷൻ വാങ്ങുക.',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
     'നിങ്ങളുടെ ഉടമസ്ഥതയിലുള്ളതോ പരീക്ഷിക്കാൻ വ്യക്തമായ അനുമതിയില്ലാത്തതോ ആയ സേവനങ്ങളിൽ അഭ്യർത്ഥനകൾ നടത്താൻ പൈലോൺ ഉപയോഗിക്കരുത്. നിരക്ക് പരിധികൾ മറികടക്കുന്നതിനോ വഞ്ചന നടത്തുന്നതിനോ പൈലോൺ ഉപയോഗിക്കരുത്.',
   'terms.warranty.body':
     'യാതൊരു തരത്തിലുള്ള വാറന്റിയും ഇല്ലാതെ പൈലോൺ "ഉള്ളതുപോലെ" നൽകിയിരിക്കുന്നു. 99.9% പ്രവർത്തന സമയമാണ് ഞങ്ങൾ ലക്ഷ്യമിടുന്നത്, പക്ഷേ സൗജന്യ അല്ലെങ്കിൽ പ്രോ പ്ലാനുകളിൽ ഇത് ഗ്യാരണ്ടി നൽകുന്നില്ല.',
+  'testRunner.assertionsCount': '{{count}} പ്രസ്താവനകൾ',
   'testRunner.createError': 'പരിശോധന സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'testRunner.cron':
     'ഈ ടെസ്റ്റിന്റെ ലിങ്ക് ചെയ്‌ത അഭ്യർത്ഥനയുടെ ഏറ്റവും പുതിയ റൺ അനുസരിച്ചാണ് അവകാശവാദങ്ങൾ വിലയിരുത്തപ്പെടുന്നത്.',
@@ -173,11 +184,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'സ്യൂട്ട് ഫലങ്ങൾ, അസെർമെന്റ് വ്യത്യാസങ്ങൾ, അവസാന 50 റൺസ്.',
   'userMenu.shortcut': '⌘എൽ',
   'userMenu.signedInAs': 'ആയി സൈൻ ഇൻ ചെയ്‌തു',
+  'workspace.auth.keyName': 'തലക്കെട്ടിന്റെ പേര്',
+  'workspace.auth.keyValue': 'പ്രധാന മൂല്യം',
+  'workspace.auth.password': 'പാസ്‌വേഡ്',
+  'workspace.auth.username': 'ഉപയോക്തൃനാമം',
+  'workspace.authOption.apikey': 'API കീ',
+  'workspace.authOption.basic': 'അടിസ്ഥാന ഓത്ത്',
+  'workspace.authOption.bearer': 'ബെയറർ ടോക്കൺ',
+  'workspace.authOption.none': 'ഒന്നുമില്ല',
+  'workspace.authOption.oauth': 'ഒഎഉത് 2.0',
   'workspace.authType': 'ടൈപ്പ് ചെയ്യുക',
   'workspace.authTypeLabel': 'ഓത്ത് തരം',
+  'workspace.body.json': 'ജെ‌എസ്‌ഒ‌എൻ‌',
+  'workspace.body.none': 'ഒന്നുമില്ല',
+  'workspace.body.text': 'റോ ടെക്സ്റ്റ്',
+  'workspace.body.type': 'ടൈപ്പ് ചെയ്യുക',
   'workspace.environment': 'എൻവി ഇല്ല',
   'workspace.envVar': 'env വേരിയബിൾ',
   'workspace.eyebrow': '$ പൈലോൺ വർക്ക്‌സ്‌പെയ്‌സ് --പാളി വിഭജനം',
+  'workspace.kv.addHeader': 'തലക്കെട്ട് ചേർക്കുക',
+  'workspace.kv.addParam': 'പാരാമീറ്റർ ചേർക്കുക',
+  'workspace.kv.headerKey': 'തലക്കെട്ടിന്റെ പേര്',
+  'workspace.kv.headerValue': 'തലക്കെട്ട് മൂല്യം',
+  'workspace.kv.key': 'താക്കോൽ',
+  'workspace.kv.paramKey': 'ക്വറി പാരാമീറ്റർ കീ',
+  'workspace.kv.paramValue': 'ക്വറി പാരാമീറ്റർ മൂല്യം',
+  'workspace.kv.removeRow': 'വരി നീക്കം ചെയ്യുക',
+  'workspace.kv.value': 'വില',
   'workspace.methodLabel': 'HTTP രീതി',
   'workspace.metric.latency': 'ലേറ്റൻസി',
   'workspace.metric.latencyCaption': 'ഈ ഓട്ടത്തിൽ നിന്നുള്ള മടക്കയാത്ര',
@@ -196,6 +229,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'അഭ്യർത്ഥന തീർന്നു — താഴെയുള്ള പ്രതികരണം കാണുക.',
   'workspace.subheading':
     'ഒരു അഭ്യർത്ഥന രചിക്കുക, അത് പൂരിപ്പിക്കുക, തുടർന്ന് പ്രതികരണം ഉറപ്പിക്കുക - എല്ലാം ഒരു പാളിയിൽ.',
+  'workspace.testResults': 'പരിശോധനാ ഫലങ്ങൾ',
   'workspace.token': 'ടോക്കൺ',
   'workspace.tokenHint': 'അംഗീകാരമായി അയച്ചു: ബെയറർ<token> ഈ ശേഖരത്തിലെ ഓരോ അഭ്യർത്ഥനയിലും.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

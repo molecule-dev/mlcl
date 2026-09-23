@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'authShell.brandHeading': 'મોટેથી વિચારતી ડિઝાઇન ટીમો માટે મલ્ટિપ્લેયર કેનવાસ.',
   'billing.canceled': 'સબ્સ્ક્રિપ્શન રદ કર્યું.',
   'billing.cancelPlan': 'યોજના રદ કરો',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'નમૂનાથી શરૂઆત કરો',
   'boards.title': 'તમારા બોર્ડ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'તમારા કાર્યસ્થળ સાથે જોડાયેલ ઇમેઇલ દાખલ કરો અને અમે રીસેટ લિંક મોકલીશું.',
   'forgot.success.body':
@@ -81,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'અવ્યવસ્થિત, ઉત્પાદક, વ્યક્તિગત વિચારસરણી માટે બનાવેલ.',
   'landing.demoBoard.title': 'Q1 વર્કશોપ · બ્રાન્ડ વોઇસ',
   'landing.featuresTitle': 'ઝડપી પ્રતિસાદ. સુંદર કેનવાસ. ઘર્ષણ વિના.',
+  'landing.hero.body':
+    '{{appName}} એ ડિઝાઇન ટીમો, વર્કશોપ ફેસિલિટેટર્સ અને શિક્ષકો માટે એક મલ્ટિપ્લેયર વ્હાઇટબોર્ડ છે જે લાઇવ બ્રેઈનસ્ટોર્મ ચલાવે છે અને એક જગ્યાએ ભેગા થવા માટે વિચારોની જરૂર હોય છે.',
   'landing.hero.primaryCta': 'મફતમાં બોર્ડ શરૂ કરો',
   'landing.hero.socialProof': 'દ્વારા વિશ્વસનીય {{count}} વિશ્વભરમાં ડિઝાઇન ટીમો',
   'landing.hero.title': 'તમારા વિચારો જેટલો ઝડપી કેનવાસ',
@@ -91,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'મફત કાર્યસ્થળ બનાવો',
   'login.subheading':
     'વર્કશોપ જ્યાંથી છોડ્યું હતું ત્યાંથી શરૂ કરો — બોર્ડ, સ્ટીકી નોટ્સ અને કર્સર બધું જ રીઅલ ટાઇમમાં સિંક થાય છે.',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.new': 'નવું',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'notifications.editTitle': '" માં સંપાદનો {{board}} "',
   'notifications.empty.body':
     'આમંત્રણો, સ્નેપશોટ સેવ્સ અને તાજેતરના બોર્ડ સંપાદનો અહીં દેખાશે જેમ જેમ તે થશે.',
@@ -171,6 +178,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'સંસ્કરણ ઇતિહાસ',
   'versionHistory.untitledSnapshot': 'શીર્ષક વિનાનો સ્નેપશોટ',
   'whiteboardLayout.newBoard': 'નવું બોર્ડ',
+  'whiteboardLayout.primaryNav': 'પ્રાથમિક નેવિગેશન',
   'workspace.boardLabel': 'બોર્ડ',
   'workspace.eyebrow': '{{name}} · કાર્યસ્થળ',
   'workspace.invite': 'સહયોગીઓને આમંત્રિત કરો',

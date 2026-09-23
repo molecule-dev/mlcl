@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.eyebrow': 'Kuhusu {{app}}',
+  'about.intro':
+    '{{app}} ni programu ya kutafakari kwa maisha halisi — tafakari zinazoongozwa kila siku, kazi ya kupumua, na hadithi za kulala zinazoendeshwa na walimu wanaohisi kama rafiki, si kocha. Hakuna hatia ya msongamano, hakuna chakula chenye kelele: ni mahali pa utulivu pa kupumzika tena.',
+  'about.missionBody':
+    'Tunaamini utulivu unapaswa kupatikana kwa kila mtu, wakati wowote wa siku. {{app}} ipo ili kufanya mazoezi ya utulivu na thabiti yaonekane rahisi — ili dakika kumi za kweli ziweze kubadilisha jinsi unavyokutana na saa kumi zijazo.',
+  'about.missionTitle': 'Dhamira yetu',
+  'about.pageTitle': 'Dakika 10 kwa siku zenye utulivu zaidi',
+  'breathingDial.seconds': 'sekunde',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.logout': 'Toka',
   'common.min': 'dakika',
   'common.relative.justNow': 'sasa hivi',
   'common.relative.now': 'sasa',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
+  'nav.secondaryNavigation': 'Urambazaji wa akaunti',
   'sessionCard.with': 'na {{name}}',
   'stillpoint.billing.choose': 'Chagua {{plan}}',
   'stillpoint.billing.currentPlan': 'Kwa sasa imewashwa {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Hatukuweza kupakia mipango.',
   'stillpoint.billing.opening': 'Inafungua malipo…',
   'stillpoint.billing.perMonthShort': '/ mwezi',
+  'stillpoint.billing.perYearShort': '/mwaka',
   'stillpoint.billing.unknownResult': 'Jibu lisilotarajiwa la bili.',
   'stillpoint.billing.yearly': 'Kila Mwaka · kuokoa 17%',
   'stillpoint.courseDetail.back': 'Kozi',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Hakuna kozi bado.',
   'stillpoint.courses.eyebrow': '{{count}} safari za siku nyingi',
   'stillpoint.courses.heading': 'Kozi',
+  'stillpoint.forgot.checkEmail':
+    'Angalia kikasha chako cha barua pepe — kiungo kitaisha baada ya dakika 30.',
   'stillpoint.forgot.success': 'Tumetuma kiungo cha kuweka upya kwa {{email}} .',
   'stillpoint.home.empty': 'Hakuna vipindi bado — angalia tena hivi karibuni.',
   'stillpoint.home.friend': 'rafiki',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Fungua akaunti yako ya bure',
   'stillpoint.landing.cta.title': 'Anza utulivu wako leo',
   'stillpoint.landing.features.heading': 'Mazoezi yanayokua pamoja nawe',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Tafakari zinazoongozwa kila siku, kazi ya kupumua, na hadithi za usingizi — zinazoongozwa na walimu wanaohisi kama rafiki, si kocha.',
   'stillpoint.landing.hero.eyebrow': 'Dakika 10 kwa siku zenye utulivu zaidi',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Vinjari kulingana na hisia',
   'stillpoint.login.rememberMe': 'Niweke nimeingia',
   'stillpoint.login.subheading': 'Ingia ili kuendelea na mazoezi yako.',
+  'stillpoint.nav.tagline': 'Tafuta kituo chako cha utulivu',
+  'stillpoint.notFound.body':
+    'Ukurasa huu unavuta pumzi ndefu na ndefu mahali fulani. Hebu tutafute sehemu tulivu zaidi kwako katika {{app}} .',
   'stillpoint.notFound.title': 'Kupotea katika ukimya',
   'stillpoint.notFound.toHome': 'Rudi leo',
   'stillpoint.notFound.toLibrary': 'Vinjari maktaba',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Ruka nyuma sekunde 15',
   'stillpoint.player.skipForward': 'Ruka mbele sekunde 30',
   'stillpoint.player.with': 'na {{name}}',
+  'stillpoint.profile.defaultHandle': 'kiashiria cha picha',
   'stillpoint.profile.eyebrow': 'Uzoefu wako, umefupishwa.',
   'stillpoint.profile.locked': 'Imefungwa',
   'stillpoint.profile.member': 'Mwanachama wa Stillpoint',

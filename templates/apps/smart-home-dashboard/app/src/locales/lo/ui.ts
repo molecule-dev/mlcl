@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
   'activity.empty': 'ຍັງບໍ່ມີກິດຈະກຳເທື່ອ — ພິກອຸປະກອນ ຫຼື ເປີດໃຊ້ scene.',
   'activity.eyebrow': 'ໄລຍະເວລາ',
   'activity.loadError': 'ບໍ່ສາມາດໂຫຼດຟີດກິດຈະກຳໄດ້.',
   'activity.subheading': 'ທຸກໆອຸປະກອນ, ລະບົບອັດຕະໂນມັດ ແລະ ເຫດການຄວາມປອດໄພຕາມລຳດັບເວລາ.',
+  'addDevice.error.failed': 'ບໍ່ສາມາດເພີ່ມອຸປະກອນໄດ້. ລອງອີກຄັ້ງ.',
   'addDevice.error.nameRequired': 'ຕັ້ງຊື່ໃຫ້ອຸປະກອນນີ້ເພື່ອສືບຕໍ່.',
   'addDevice.field.firmware': 'ເວີຊັນເຟີມແວ',
   'addDevice.field.manufacturer': 'ຜູ້ຜະລິດ',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'ກຳລັງທົດສອບ…',
   'automationEditor.testNew': 'ບັນທຶກລະບົບອັດຕະໂນມັດກ່ອນເພື່ອທົດສອບມັນ.',
   'automationRow.lastRun': 'Last {{date}} · {{count}} runs',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ແລ່ນ {{name}} ຕອນນີ້',
   'automations.empty': 'ຍັງບໍ່ມີລະບົບອັດຕະໂນມັດເທື່ອ — ສ້າງກິດຈະວັດປະຈຳວັນທຳອິດຂອງທ່ານ.',
   'automations.eyebrow': 'ກິດຈະວັດປະຈຳວັນ',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ກຳລັງໂຫຼດລະບົບອັດຕະໂນມັດ…',
   'automations.newAutomation': '+ ໃໝ່',
   'automations.subheading': 'ເມື່ອເຫດການນີ້ເກີດຂຶ້ນ, ໃຫ້ເຮັດແນວນັ້ນ - ໂດຍບໍ່ມີ YAML.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ໂຫຼດອຸປະກອນບໍ່ສຳເລັດ.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'ກຳລັງເຮັດວຽກ...',
   'deviceDetail.unnamed': 'ອຸປະກອນ',
   'deviceStatusRow.on': 'ເປີດ',
+  'deviceStatusRow.turnOff': 'ປິດ',
+  'deviceStatusRow.turnOn': 'ເປີດ',
   'deviceStatusRow.watts': '{{watts}} ຕາເວັນຕົກ',
   'energy.eyebrow': 'ພະລັງງານ',
   'energy.heading': 'ພະລັງງານ',
@@ -173,4 +180,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ເບິ່ງແຜນການ',
   'settings.security.heading': 'ຄວາມປອດໄພ',
   'settings.subheading': 'ການຕັ້ງຄ່າແຜນການ, ສູນ ແລະ ບັນຊີ.',
+  'smartHomeDashboardLayout.openMenu': 'ເປີດເມນູນຳທາງ',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
 }

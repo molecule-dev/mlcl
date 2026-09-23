@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.pageTitle': '{{app}}-ის შესახებ',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.retry': 'ხელახლა ცდა',
   'compose.cancel': 'გაუქმება',
   'compose.captionPlaceholder': 'რა გაქვს მხედველობაში?',
   'compose.heading': 'გააზიარეთ მომენტი',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'დადასტურებული ანგარიში',
   'resetPassword.newPassword': 'ახალი პაროლი',
   'resetPassword.subheading': 'აირჩიეთ რაიმე ძლიერი — მინიმუმ 12 სიმბოლო.',
+  'search.clearAria': 'გასუფთავება',
+  'search.error': 'ძიება ვერ მოხერხდა. სცადეთ ხელახლა.',
   'search.noPeople': 'შესაბამისი შემქმნელები არ არიან " {{q}} „.',
   'search.noPosts': 'არცერთი პოსტი არ ემთხვევა " {{q}} „.',
   'search.noTags': 'ტრენდული ჰეშთეგები ჯერ არ არის.',
@@ -128,6 +134,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'პაროლის დამალვა',
   'signup.showPassword': 'პაროლის ჩვენება',
   'signup.subheading': 'გაზიარების დასაწყებად შექმენით ანგარიში.',
+  'socialMediaLayout.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'socialMediaLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'socialMediaLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'storyRail.heading': 'ისტორიები',
   'storyRail.label': 'ისტორიები',
   'storyRail.openAria': 'გახსნა {{handle}} -ის ისტორია',

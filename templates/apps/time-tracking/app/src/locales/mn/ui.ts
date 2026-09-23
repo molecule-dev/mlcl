@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ийн тухай',
   'about.plansTitle': 'Тантай хамт өсөн нэмэгдэх төлөвлөгөөнүүд',
   'brand.tagline': 'Секунд тутамд',
   'clientDetail.back': 'Үйлчлүүлэгчид рүү буцах',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Бүх харилцаа нэг дор — төслүүд, цагийн хуваарь, төлөгдөөгүй нэхэмжлэхүүд.',
   'clients.title': 'Үйлчлүүлэгчид',
   'common.and': 'мөн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.activeProjects': 'Идэвхтэй төслүүд',
   'dashboard.empty': 'Одоогоор оруулга алга. Эхний сессээ хянахын тулд цаг хэмжигчийг эхлүүлнэ үү.',
   'dashboard.greeting': 'Өдрийн мэнд, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'Энэ үйлчлүүлэгчид нэхэмжлэх цаг байхгүй. Эхлээд цагийг хянах эсвэл одоо байгаа оруулгуудыг энэ үйлчлүүлэгчийн төслүүдийн аль нэгэнд нь оноож өгөөрэй.',
   'invoices.save': 'Нэхэмжлэх үүсгэх',
   'invoices.subtitle': 'Хянасан цагууд автоматаар нэхэмжлэх болж хувирдаг.',
+  'landing.copyright': '© {{year}} {{app}} . Секунд бүрийг тооцдог.',
   'landing.ctaBody': '3 хүртэлх төсөлд үнэгүй. Үйлчлүүлэгчдийн жагсаалт нэмэгдэхэд шинэчлээрэй.',
   'landing.eyebrow': 'Төлбөртэй ажлын цагийг хянах',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Бие даасан хүмүүсийн итгэлийг хүлээсэн',
   'landing.testimonial.quote':
     '\\u201cБи Toggl-ээс 30 минутын дотор гарсан. Төсвийн зарцуулалт өөрөө өөрийгөө нөхсөн \\u2014 Би хоёр долоо хоног дараалан дутуу иш татахаа больсон.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Хроно. Секунд бүрийг тооцдог.',
   'login.brand.subtitle':
     'Цаг хэмжигчээ орхисон газраасаа үргэлжлүүлээрэй — минут бүрийг төсөл, үйлчлүүлэгч, нэхэмжлэхтэй аль хэдийн холбосон байна.',
   'login.brand.tracking': 'Хяналт',
   'login.subheading': 'Цаг хэмжигчийг зогссон газраасаа эхлэнэ үү.',
+  'nav.closeMenu': 'Навигацийн цэсийг хаах',
   'nav.insightsSection': 'Ойлголтууд',
   'nav.newEntry': 'Шинэ оруулга',
+  'nav.openMenu': 'Навигацийн цэсийг нээх',
+  'nav.primary': 'Үндсэн навигаци',
   'nav.workSection': 'Ажил',
   'notFound.body':
     'Таны дагасан холбоосыг хянахаа больсон бололтой. Хянах самбар руугаа буцна уу - бид тэндээс үргэлжлүүлэн тоолох болно.',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Төлбөртэй',
   'timer.descriptionPlaceholder': 'Та юун дээр ажиллаж байна вэ?',
   'timer.idle': 'Сул зогсолт — хянахыг эхлүүлэх',
+  'timer.noProject': 'Төсөл байхгүй',
   'timer.runningWithProject': 'Төсөл байхгүй',
   'timer.start': 'Цаг хэмжигчийг эхлүүлэх',
   'timer.stop': 'Цаг хэмжигчийг зогсоох',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'actions.empty': 'Brak pasujących zadań do wykonania.',
   'actions.heading': 'Zadania do wykonania',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Poprzedni miesiąc',
   'calendar.recent': 'Ostatnie',
   'common.daysAgo': '{{count}} dni temu',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.hoursAgo': '{{count}} godz. temu',
   'common.no': '—',
+  'common.retry': 'Spróbuj ponownie',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} zadań do wykonania',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Sprawdź skrzynkę odbiorczą, aby znaleźć link do resetowania.',
   'forgot.subheading': 'Wprowadź swój adres e-mail, a wyślemy link do resetowania.',
   'integrations.disconnected': 'Rozłączono',
+  'integrations.loadError': 'Nie udało się załadować integracji.',
   'integrations.notConnectedTag': 'Nie połączono',
   'integrations.subheading':
     'Połącz kalendarze i platformy wideo, aby Murmur dołączał automatycznie.',
+  'integrations.updateError': 'Aktualizacja nie powiodła się.',
   'landing.ctaButton': 'Rozpocznij — to bezpłatne',
   'landing.ctaHeading': 'Przestań robić notatki. Zacznij podejmować decyzje.',
   'landing.demo.aiLabel': 'Podsumowanie AI, tworzone na żywo',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Działania następcze',
   'meetingDetail.loadError': 'Nie udało się załadować spotkania.',
   'meetingDetail.noActions': 'Nie wykryto zadań do wykonania.',
+  'meetingDetail.none': 'Brak.',
   'meetingDetail.notFound': 'Nie znaleziono spotkania.',
+  'meetingDetail.speakerFallback': 'Prelegentka{{id}}',
   'meetingDetail.summaryHeading': 'Podsumowanie AI',
   'meetingDetail.transcriptHeading': 'Transkrypcja',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Spotkania',
   'meetings.loadError': 'Nie udało się załadować spotkań.',
   'meetings.subheading': 'Każde nagrane, przesłane i zsynchronizowane spotkanie.',
+  'murmurLayout.openMenu': 'Otwórz menu nawigacyjne',
   'murmurLayout.primaryNavLabel': 'Nawigacja główna',
   'nav.legal': 'Prawne',
   'notifications.loadError': 'Nie udało się załadować powiadomień.',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Jak Pan/Pani wygląda w Murmur.',
   'record.error.empty': 'Nie zarejestrowano dźwięku.',
   'record.error.permission': 'Odmowa dostępu do mikrofonu.',
+  'record.error.recorder': 'Błąd rejestratora',
   'record.error.unsupported':
     'Przeglądarka nie obsługuje nagrywania. Spróbuj Chrome, Edge lub Safari.',
   'record.error.upload': 'Przesyłanie nieudane. Spróbuj ponownie.',
@@ -118,6 +127,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nowe hasło',
   'reset.subheading': 'Wybierz hasło, którego nie używa Pan/Pani nigdzie indziej.',
   'search.empty': 'Wpisz, aby przeszukać transkrypcje.',
+  'search.loadError': 'Wyszukiwanie nie powiodło się. Spróbuj ponownie.',
   'search.noResults': 'Brak wyników dla „{{q}}”.',
   'settings.appearance.description': 'Przełączaj między trybem jasnym i ciemnym.',
   'settings.appearance.title': 'Wygląd',
@@ -126,6 +136,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nie udało się załadować ustawień.',
   'settings.loading': 'Ładowanie…',
   'settings.push.heading': 'Powiadomienia push',
+  'settings.push.subheading':
+    'Otrzymuj powiadomienia w przeglądarce o wzmiankach, zadaniach do wykonania i podsumowaniach.',
   'settings.retention.audio': 'Przechowuj audio przez',
   'settings.retention.heading': 'Przechowywanie',
   'settings.retention.transcript': 'Przechowuj transkrypcje przez',
@@ -143,6 +155,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Zacznij rejestrować notatki ze spotkań w kilka minut',
   'signup.terms':
     'Tworząc konto, akceptujesz nasze Warunki świadczenia usług i Politykę prywatności.',
+  'signup.termsPrefix': 'Tworząc konto, wyrażasz zgodę na nasze',
   'team.inviteCta': 'Zaproś członka zespołu',
   'team.invitedAs': 'Zaproszony jako {{role}}',
   'team.inviteFailed': 'Nie udało się wysłać zaproszenia.',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'ബന്ധപ്പെടുക',
+  'about.title': '{{app}} നെക്കുറിച്ച്',
   'authShell.backToLanding': '← ലാൻഡിംഗിലേക്ക് മടങ്ങുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ഇന്ന് · പ്രവർത്തനങ്ങളുടെ അവലോകനം',
   'dashboard.heading': 'ഡോക്യുമെന്റ് ഇന്റലിജൻസ്',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'നിലവിലെ ഫിൽട്ടറുകളുമായി പൊരുത്തപ്പെടുന്ന രേഖകളൊന്നുമില്ല.',
   'documents.heading': 'എല്ലാ രേഖകളും',
   'documents.loadError': 'പ്രമാണങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'documents.loading': 'ലൈബ്രറി ലോഡ് ചെയ്യുന്നു...',
   'documents.searchLabel': 'ഡോക്യുമെന്റുകൾ തിരയുക',
   'documents.searchPlaceholder': 'പ്രമാണങ്ങൾ തിരയുക...',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.subtitle': 'നിങ്ങളുടെ ഡോക്യുമെന്റുകൾ സുഗമമായി പ്രവർത്തിക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'notFound.body':
     'നിങ്ങൾ തുറക്കാൻ ശ്രമിച്ച ഡോക്യുമെന്റ് അല്ലെങ്കിൽ റൂട്ട് ഇനി ഇവിടെയില്ല. ഡാഷ്‌ബോർഡിലേക്ക് തിരികെ പോകുക അല്ലെങ്കിൽ സൈഡ്‌ബാറിൽ നിന്ന് ഒരു വിഭാഗം തിരഞ്ഞെടുക്കുക.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ലാൻഡിംഗ് പേജ് തുറക്കുക',
   'notFound.title': 'ആ പേജ് ഫയലിൽ ഇല്ല.',
   'parcelaHeroCard.change': '{{sign}} {{amount}} ഇന്നലത്തേതുമായി താരതമ്യം ചെയ്യുമ്പോൾ %',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'സജീവ നിയമങ്ങൾ',
   'rules.empty': 'ഇതുവരെ ഫയലിംഗ് നിയമങ്ങളൊന്നുമില്ല. പുതിയ നിയമം ഉപയോഗിച്ച് ഒന്ന് ചേർക്കുക.',
   'rules.eyebrow': 'ഓട്ടോമേഷൻ',
+  'rules.fieldsCount': '{{count}} ഫീൽഡുകൾ',
   'rules.form.destination': 'ഫയൽ ചെയ്യുക',
   'rules.form.name': 'നിയമത്തിന്റെ പേര്',
   'rules.form.save': 'നിയമം സംരക്ഷിക്കുക',

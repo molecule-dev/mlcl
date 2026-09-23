@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Anzisha upya mnyororo',
   'resetPassword.mismatchError': 'Nenosiri hazifanani.',
   'resetPassword.subheading': 'Chagua kitu chenye nguvu. Vitabu vyako vitangoja.',
-  'reviewCard.starsAria': 'Imekadiriwa<x> {{ukadiriaji}}</x> nje ya<x> {{of}}</x> nyota',
+  'reviewCard.starsAria': 'Imepewa ukadiriaji wa nyota {{rating}} kati ya {{of}}',
   'reviewCard.unratedAria': 'Haijakadiriwa',
   'reviews.eyebrow': 'Nini kilichobaki nawe',
   'reviews.heading': 'Hakiki zako',

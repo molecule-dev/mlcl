@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaci {{app}}',
   'about.plansTitle': 'Plány, které rostou s vámi',
   'brand.tagline': 'Každou vteřinu',
   'clientDetail.back': 'Zpět ke klientům',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Všechny vztahy na jednom místě – projekty, hodiny, neuhrazené faktury.',
   'clients.title': 'Klienti',
   'common.and': 'a',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.activeProjects': 'Aktivní projekty',
   'dashboard.empty': 'Zatím žádné záznamy. Spusťte časovač pro sledování vaší první lekce.',
   'dashboard.greeting': 'Dobrý den, {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Pro tohoto klienta nejsou k dispozici žádné fakturovatelné hodiny. Nejprve si sledujte čas nebo přiřaďte existující položky k jednomu z projektů tohoto klienta.',
   'invoices.save': 'Vytvořit fakturu',
   'invoices.subtitle': 'Sledované hodiny se automaticky sčítají do faktur.',
+  'landing.copyright': '© {{year}} {{app}} . Každá vteřina je zpočítána.',
   'landing.ctaBody':
     'Zdarma až pro 3 projekty. Upgradujte, jakmile to bude možné u vašich klientů.',
   'landing.eyebrow': 'Sledování času pro fakturovatelnou práci',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Důvěra nezávislých',
   'landing.testimonial.quote':
     '\\u201cZ Togglu jsem odešel za 30 minut. Už jen to vyčerpání rozpočtu se mi vyplatilo \\u2014 Už dva týdny po sobě jsem přestal podhodnocovat nabídky.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Každá vteřina, započítána.',
   'login.brand.subtitle':
     'Pokračujte v měření času tam, kde jste skončili – každá minuta je již přiřazena k projektu, klientovi, faktuře.',
   'login.brand.tracking': 'Sledování',
   'login.subheading': 'Pokračujte v měření času tam, kde jste skončili.',
+  'nav.closeMenu': 'Zavřít navigační menu',
   'nav.insightsSection': 'Přehledy',
   'nav.newEntry': 'Nový záznam',
+  'nav.openMenu': 'Otevřít navigační menu',
+  'nav.primary': 'Primární navigace',
   'nav.workSection': 'Práce',
   'notFound.body':
     'Vypadá to, že odkaz, na který jste klikli, přestal sledovat váš profil. Vraťte se na svůj řídicí panel a my budeme odtud pokračovat v počítání.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Fakturovatelné',
   'timer.descriptionPlaceholder': 'Na čem pracuješ?',
   'timer.idle': 'Nečinnost – spuštění sledování',
+  'timer.noProject': 'Žádný projekt',
   'timer.runningWithProject': 'Žádný projekt',
   'timer.start': 'Spustit časovač',
   'timer.stop': 'Zastavit časovač',

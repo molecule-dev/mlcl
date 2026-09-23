@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.pageTitle': 'Mayelana ne-{{app}}',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.retry': 'Zama futhi',
   'compose.cancel': 'Khansela',
   'compose.captionPlaceholder': 'UCABANGANI?',
   'compose.heading': 'Yabelana ngomzuzwana',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'I-akhawunti eqinisekisiwe',
   'resetPassword.newPassword': 'Iphasiwedi Entsha',
   'resetPassword.subheading': 'Khetha into eqinile — okungenani izinhlamvu ezingu-12.',
+  'search.clearAria': 'Sula',
+  'search.error': 'Ukusesha kuhlulekile. Zama futhi.',
   'search.noPeople': 'Akukho abadali abafanayo " {{q}} ".',
   'search.noPosts': 'Akukho okuthunyelwe okufanayo " {{q}} ".',
   'search.noTags': 'Azikho ama-hashtag athandwayo okwamanje.',
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Fihla iphasiwedi',
   'signup.showPassword': 'Bonisa iphasiwedi',
   'signup.subheading': 'Dala i-akhawunti ukuze uqale ukwabelana.',
+  'socialMediaLayout.closeMenu': 'Vala imenyu yokuzulazula',
+  'socialMediaLayout.openMenu': 'Vula imenyu yokuzulazula',
+  'socialMediaLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'storyRail.heading': 'Izindaba',
   'storyRail.label': 'Izindaba',
   'storyRail.openAria': 'Vula {{handle}} Indaba ka-',

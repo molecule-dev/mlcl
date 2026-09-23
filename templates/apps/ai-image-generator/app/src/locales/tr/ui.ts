@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'auth.fields.newPassword': 'Yeni parola',
   'collectionDetail.addImage': 'Koleksiyon için yarat',
   'collectionDetail.backCta': 'Koleksiyonlara dön',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': "Mood-board'lar, brief'ler ve devam eden seriler",
   'collections.title': 'Koleksiyonlar',
   'collections.untitled': 'Başlıksız · {{stamp}}',
+  'common.closeMenu': 'Menüyü kapat',
+  'common.dismiss': 'Kapat',
+  'common.goToDashboard': 'Panele Git',
+  'common.openMenu': 'Gezinti menüsünü aç',
   'credits.eyebrow': '{{plan}} planı',
   'credits.renewsCopy': 'Plan {{date}} tarihinde yenilenir',
   'credits.trail': 'Hayal {{plan}} aşama',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Üretim etkinliği, paylaşım ve kredi uyarıları burada görünecek.',
   'notifications.empty.title': 'Bildirilecek bir şey yok',
   'notifications.subtitle': 'Güne göre gruplanmış üretim olayları',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.limits.gallery': '{{count}} galeri',
   'privacy.collect.body':
     "Kayıt olduğunuzda adınızı, e-posta adresinizi ve karma haline getirilmiş parolanızı topluyoruz. Reverie'yi kullanırken gönderdiğiniz istemleri, sizin için ürettiğimiz görselleri, kaydettiğiniz stilleri ve koleksiyonları ile kullanılan model, üretim zaman damgaları ve kredi bakiyesi gibi üst verileri saklıyoruz.",
@@ -164,6 +170,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Yeni parolayı kaydet',
   'reset.submitting': 'Parola güncelleniyor…',
   'settings.account.handle': 'Kullanıcı adı',
+  'settings.account.lastSaved': 'Etkin profil · {{name}}',
   'settings.account.saved': 'Profil kaydedildi',
   'settings.account.saveFailed': 'Profil kaydedilemedi',
   'settings.account.title': 'Yaratıcı profili',
@@ -185,7 +192,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Yeni görsel',
   'sidebar.secondary': 'İkincil gezinme',
   'signup.failed': 'Kaydolma başarısız. Tekrar deneyin.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': "Reverie'nize başlayın",
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Hesap oluşturun ve 120 ücretsiz kredi alın.',
   'styles.empty': 'Henüz stil ön ayarı yok — ilk oturum açmadan sonra görünecek.',
   'styles.eyebrow': 'Seçilmiş',

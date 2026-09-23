@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'À propos',
   'alertConditionCard.condition.${alert.condition}': 'Déclenchée {{when}}',
+  'alertConditionCard.confirmDelete': 'Confirmer la suppression',
   'alertConditionCard.pauseAriaLabel': 'Mettre en pause',
   'alertConditionCard.resumeAriaLabel': 'Reprendre l’alerte',
   'alertNew.condition': 'Condition',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Valorisation entièrement diluée',
   'coinDetail.links.twitter': 'Gazouillement',
   'coinDetail.links.website': 'Site web',
+  'coinDetail.links.whitepaper': 'Livre blanc',
   'coinDetail.loadError': 'Échec du chargement de la crypto.',
   'coinDetail.marketCap': 'Capitalisation',
   'coinDetail.maxSupply': 'Offre maximale',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'L’itinéraire analysé ne correspond à aucune crypto ou page connue. Vérifiez le symbole et réessayez.',
   'notFound.browseMarkets': 'Parcourir les marchés',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'portfolio.addError': 'Saisissez un symbole, un montant positif et un coût.',
   'portfolio.addHoldingCta': '+ Ajouter une position',
   'portfolio.addModal.cost': 'Coût de revient (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Le mot de passe et la double authentification sont gérés depuis votre compte.',
   'settings.signOutDevice': 'Se déconnecter',
+  'settings.twoFactorCode': "Code d'authentification",
   'settings.twoFactorDisable': 'Désactiver',
   'settings.twoFactorEnable': 'Activer',
+  'settings.twoFactorInvalidCode': 'Code non valide',
   'settings.twoFactorOn': 'Le',
+  'settings.twoFactorVerify': 'Vérifier et activer',
   'sigilAuthShell.backHomeCta': '← Retour à Bourse',
   'sigilLayout.primaryNavLabel': 'Navigation principale',
   'signup.eyebrow': 'Ouvrir un terminal',

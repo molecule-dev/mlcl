@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Jeder Bissen – ausgewogen',
   'auth.hidePassword': 'Passwort ausblenden',
   'auth.showPassword': 'Passwort anzeigen',
+  'common.goToDashboard': 'Zum Dashboard',
   'nav.legal': 'Rechtliches',
+  'nosh.auth.legalPrefix': 'Mit dem Fortfahren stimmst du unseren',
   'nosh.foodDetail.add': 'Zum Tagebuch hinzufügen',
   'nosh.foodDetail.added': 'Zu {{meal}} hinzugefügt.',
   'nosh.foodDetail.addError': 'Konnte nicht zum Tagebuch hinzugefügt werden.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Ballaststoffe',
   'nosh.foodDetail.micros.sodium': 'Natrium',
   'nosh.foodDetail.micros.sugar': 'Zucker',
+  'nosh.foodDetail.percentDv': '{{pct}}% der empfohlenen Tagesmenge',
   'nosh.foodDetail.protein': 'Protein',
   'nosh.foodDetail.serving.count': 'Portionen',
   'nosh.foodDetail.serving.meal': 'Hinzufügen zu',
@@ -49,6 +53,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Beginnen Sie, klüger zu essen',
   'nosh.landing.features.heading': 'Alles, was Sie brauchen, nichts darüber hinaus',
   'nosh.landing.features.smartRing.title': 'Smart Calorie Ring',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Ein freundliches Ernährungstagebuch, das Ihnen hilft, Ihre Ziele ohne Schuldgefühle zu erreichen. Fokus auf Nährwerte, nicht nur auf Zahlen.',
   'nosh.landing.hero.eyebrow': 'Freundliches Kalorientracking',
@@ -84,6 +89,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Wie aktiv sind Sie?',
   'nosh.onboarding.back': 'Zurück',
   'nosh.onboarding.macros.heading': 'Hier ist Ihr tägliches Ziel',
+  'nosh.onboarding.saveError': 'Deine Ziele konnten nicht gespeichert werden.',
   'nosh.onboarding.start': "Los geht's",
   'nosh.progress.calorieChart.title': 'Kalorien pro Tag',
   'nosh.progress.empty':
@@ -146,6 +152,8 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Dauerhaft löschen',
   'nosh.settings.deleteError': 'Konto konnte nicht gelöscht werden.',
   'nosh.settings.export.cta': 'CSV herunterladen',
+  'nosh.settings.export.description':
+    'Laden Sie Ihr vollständiges Ernährungsprotokoll als CSV-Datei herunter.',
   'nosh.settings.export.label': 'Daten exportieren',
   'nosh.settings.export.preparing': 'Wird vorbereitet…',
   'nosh.settings.eyebrow': 'Konto · Benachrichtigungen · Datenschutz',
@@ -157,6 +165,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Freundliches Tracking, ohne Schuldgefühle.',
   'nosh.today.${mealKey}Empty': 'Zum Anmelden tippen',
   'nosh.today.addFood': 'Lebensmittel hinzufügen',
+  'nosh.today.backToToday': 'Zurück zu heute',
+  'nosh.today.dateNavLabel': 'Tagebuch-Tag ändern',
   'nosh.today.loadError': 'Heute konnte nicht geladen werden.',
   'nosh.today.macros.carbs': 'Kohlenhydrate',
   'nosh.today.macros.fat': 'Fett',
@@ -164,6 +174,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Protein',
   'nosh.today.macroTitle': 'Makronährstoffe',
   'nosh.today.meal.${mealKey}': 'cal',
+  'nosh.today.nextDay': 'Am nächsten Tag',
+  'nosh.today.pastPill': 'Gestern',
+  'nosh.today.prevDay': 'Vortag',
   'nosh.today.quickAddError': 'Schneller Eintrag konnte nicht erfasst werden.',
   'nosh.today.remaining': 'Kalorien übrig',
   'nosh.today.streakHeadline': '{{count}}-Tage-Streak',

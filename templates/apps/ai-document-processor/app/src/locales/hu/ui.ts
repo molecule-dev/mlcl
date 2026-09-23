@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Lépjen kapcsolatba velünk',
+  'about.title': 'A {{app}} névjegye',
   'authShell.backToLanding': '← Vissza a kezdőlapra',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
+  'common.retry': 'Újra',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Ma · Műveleti áttekintés',
   'dashboard.heading': 'Dokumentumintelligencia',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Nincs az aktuális szűrőknek megfelelő dokumentum.',
   'documents.heading': 'Minden dokumentum',
   'documents.loadError': 'Nem sikerült betölteni a dokumentumokat.',
+  'documents.loading': 'Könyvtár betöltése…',
   'documents.searchLabel': 'Dokumentumok keresése',
   'documents.searchPlaceholder': 'Dokumentumok keresése…',
   'documents.subheading': '{{count}} dokumentum az Ön könyvtárában, legújabb előre rendezve.',
@@ -63,8 +67,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Jelszó elrejtése',
   'login.showPassword': 'Jelszó megjelenítése',
   'login.subtitle': 'Jelentkezzen be, hogy dokumentumai folyamatosan haladjanak.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'notFound.body':
     'A dokumentum vagy útvonal, amelyet megpróbált megnyitni, már nincs itt. Térjen vissza az irányítópultra, vagy válasszon egy szakaszt az oldalsávból.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Kezdőlap megnyitása',
   'notFound.title': 'Ez az oldal nincs iktatva',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % a tegnapihoz képest',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Még nincsenek iktatási szabályok. Használja az Új szabály lehetőséget hozzáadáshoz.',
   'rules.eyebrow': 'Automatizálás',
+  'rules.fieldsCount': '{{count}} mezők',
   'rules.form.destination': 'Iktatás ide',
   'rules.form.name': 'Szabály neve',
   'rules.form.save': 'Szabály mentése',

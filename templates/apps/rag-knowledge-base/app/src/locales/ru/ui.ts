@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.pageTitle': 'О {{appName}}',
   'analytics.error': 'Не удалось загрузить аналитику.',
   'analytics.heading': 'Аналитика поиска',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ценовые уровни не настроены.',
   'billing.plans.heading': 'Планы',
   'billing.subheading': 'План, использование и оформление заказа через Stripe.',
+  'common.confirm': 'Подтверждать',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Повторить попытку',
   'documentCard.open': 'Открыть \\u2192',
   'documentDetail.back': 'Вернуться к документам',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Указательный документ',
   'documents.composer.titlePlaceholder': 'Название документа',
   'documents.emptyAll': 'Документов пока нет. Загрузите один, чтобы начать задавать вопросы.',
+  'documents.error.load': 'Не удалось загрузить документы.',
   'documents.heading': 'Индексированные документы',
   'documents.loading': 'Загрузка документов…',
   'documents.metric.chunks': 'Всего блоков',
@@ -144,7 +149,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Удаление™',
   'members.subheading': 'Пригласите коллег по команде и распределите роли.',
   'members.tableHeading': 'Состав команды',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'notFound.askCta': 'Обратитесь в базу знаний.',
+  'notFound.body':
+    '{{app}} не смогло найти эту страницу. Возможно, ссылка не работает, или страница была удалена в процессе переиндексации.',
   'notFound.eyebrow': 'Невозможно получить',
   'notFound.title': 'В индексе такого фрагмента нет.',
   'notifications.dismiss': 'Увольнять',
@@ -209,6 +218,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Исходный URL',
   'sources.empty.body': 'Нажмите «Добавить источник», чтобы подключить первый разъем.',
   'sources.empty.title': 'Источники пока отсутствуют.',
+  'sources.error.add': 'Не удалось добавить источник.',
   'sources.error.labelRequired': 'Маркировка обязательна.',
   'sources.error.load': 'Не удалось загрузить источники.',
   'sources.error.urlRequired': 'Для данного типа источника требуется URL-адрес.',

@@ -199,7 +199,7 @@ export const ui: UiTranslations = {
   'status.submitted': 'Yuborildi',
   'terms.lastUpdated': 'Oxirgi yangilanish: 2026-05-01',
   'terms.title': 'Xizmat shartlari',
-  'watchAreas.deleteError': 'Kuzatuv maydonini o&#39;chirib bo&#39;lmadi.',
+  'watchAreas.deleteError': "Kuzatuv maydonini o'chirib bo'lmadi.",
   'watchAreas.empty':
     "Hozircha kuzatuv hududlari yo'q — yaqin atrofdagi hisobotlarni eshitishni boshlash uchun birini saqlang.",
   'watchAreas.loadError': "Kuzatuv hududlarini yuklab bo'lmadi. Qayta urinib ko'ring.",

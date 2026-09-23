@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '私たちについて',
   'applications.empty': 'まだ応募はありません — ぴったりの仕事は応募1つ先にあります。',
   'applications.eyebrow': 'あなたのパイプライン',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     '応募したすべての職種が、現在選考中です。選考段階で絞り込んで検索できます。',
   'applications.untitledRole': '求人 #{{id}}',
+  'auth.legalConsent': '続行することで、以下に同意したことになります',
   'common.and': 'および',
+  'common.goToDashboard': 'ダッシュボードへ',
   'companies.empty': '該当する企業がありません — 別のキーワードでお試しください。',
   'companies.eyebrow': '注目の雇用主',
   'companies.searchPlaceholder': '名前・業種・地域で検索',
@@ -49,6 +52,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'この求人にはまだ応募がありません。',
   'jobApplicants.eyebrow': '雇用主ビュー',
   'jobApplicants.loading': '読み込み中…',
+  'jobApplicants.statusUpdateFailed':
+    'そのステージを更新できませんでした。もう一度お試しください。',
+  'jobApplicants.subheading':
+    '履歴書の審査、候補者の選考、オファーの送付 - {{count}}件の手続きが進行中です。',
   'jobDetail.applicantCount': 'これまでに {{count}} 名が応募',
   'jobDetail.applied': '応募を送信しました',
   'jobDetail.apply': '今すぐ応募',
@@ -81,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': '募集中の職種を見る →',
   'landing.pricingEyebrow': '料金',
   'landing.pricingHeading': 'あらゆる規模のチームに合うシンプルなプラン。',
+  'login.eyebrow': '{{app}}へようこそ',
   'login.heading': 'アカウントにサインイン',
   'login.noAccount': 'Noshは初めてですか?',
   'login.passwordPlaceholder': '••••••••',
   'login.remember': '30日間ログイン状態を保持',
   'login.signingIn': 'サインイン中…',
   'login.subheading': '求人検索を再開し、応募を前に進め、より早く返信を受け取りましょう。',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} 。採用チーム向けに構築されています。',
   'loginBrandPanel.headline': '才能と出会う場所',
   'loginBrandPanel.headlineLine2': '勢い。',
   'loginBrandPanel.listing.recruiter': 'タレントパートナー',
@@ -101,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': '応募状況の更新、面接の招待、新しいマッチング — 新着順に表示します。',
   'opportunitiesHero.delta': '今週 {{sign}}{{amount}}',
   'opportunitiesHero.eyebrow': '本日募集中',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'postJob.addNewCompany': '+ 新しい企業を追加',
   'postJob.companyCreateFailed': '企業を作成できませんでした — もう一度お試しください。',
   'postJob.companyNameLabel': '貴社名',
@@ -158,9 +168,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'アカウントを作成中…',
   'signup.ctaEmployer': '雇用主アカウントを作成',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'チェン',
   'signup.passwordMismatch': 'パスワードが一致しません。',
   'signup.subheading': '求職者は永久無料。雇用主は30日間の無料トライアルから始められます。',
   'timeAgo.days': '{{count}}日前',
   'timeAgo.hours': '{{count}}時間前',
   'timeAgo.justNow': 'たった今',
+  'timeAgo.weeks': '{{count}}週間前',
 }

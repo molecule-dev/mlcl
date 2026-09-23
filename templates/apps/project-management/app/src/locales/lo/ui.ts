@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'accountSettings.confirmEmailLabel': 'ພິມ DELETE ເພື່ອຢືນຢັນ',
   'accountSettings.deleteError': 'ບໍ່ສາມາດລຶບບັນຊີໄດ້.',
   'accountSettings.passwordError': 'ບໍ່ສາມາດປ່ຽນລະຫັດຜ່ານໄດ້.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'ບໍ່ມີເສັ້ນຕາຍທີ່ຈະມາເຖິງ.',
   'dashboard.upcomingTitle': 'ກຳນົດເວລາທີ່ຈະມາເຖິງ',
   'deviceSettings.unknownDevice': 'ອຸປະກອນທີ່ບໍ່ຮູ້ຈັກ',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'ສະໜັບສະໜູນ',
   'forgotPassword.error': 'ສົ່ງລິ້ງຣີເຊັດບໍ່ສຳເລັດ.',
   'forgotPassword.subtitle': 'ໃສ່ອີເມວຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່ໃຫ້ທ່ານ.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'ອີເມວ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ.',
   'login.pageTitle': 'ເຂົ້າສູ່ລະບົບ',
   'login.signIn': 'ເຂົ້າສູ່ລະບົບ Forge',
+  'login.subtitle': 'ເຂົ້າສູ່ລະບົບເພື່ອຮັກສາໂຄງການຂອງທ່ານໃຫ້ດຳເນີນຕໍ່ໄປ',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'nav.calendar': 'ປະຕິທິນ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'nav.myTasks': 'ວຽກຂອງຂ້ອຍ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ein stori',
   'aiSuggestionPanel.title': 'Cyd-beilot Signet',
   'analytics.col.open': 'Cyfradd agor',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Dechrau talu…',
   'billing.subheading': "Dewiswch y cynllun sy'n cyd-fynd â sut rydych chi'n anfon.",
   'billing.unavailable': 'Cysylltwch â gwerthiannau',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.retry': 'Ail-geisio',
   'compose.adjustingTone': 'Ailysgrifennu yn y tôn a ddewiswyd…',
   'compose.aiPromptPlaceholder':
     'e.e. "Dilyniant cwrtais ar ôl dim ateb am bythefnos, cadwch ef yn fyr."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'Angen anfon rhywbeth? Gall Signet gael drafft yn barod mewn eiliadau.',
   'dashboard.composeCtaLabel': 'Cyfansoddi cyflym',
   'dashboard.heading': "Eich wythnos, wedi'i chyfansoddi",
+  'dashboard.loadFailed': 'Methwyd llwytho eich dangosfwrdd.',
   'dashboard.manageLibrary': 'Rheoli llyfrgell →',
   'dashboard.recentEmpty': 'Dim anfonion eto — bydd eich e-byst a anfonwyd yn ymddangos yma.',
   'dashboard.recentHeading': 'Anfoniadau diweddar',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     "Mae Signet yn defnyddio'r tôn hon oni bai eich bod yn diystyru'r drafft.",
   'signetLayout.primaryNavLabel': 'Prif lywio',
+  'signetLayout.toggleMenu': "Togglo'r ddewislen",
   'signup.emailLabel': 'Cyfeiriad E-bost',
   'signup.showPassword': 'Dangos cyfrinair',
   'signup.tagline': "Anfonwch eich e-bost cyntaf wedi'i ddrafftio gan AI mewn llai na munud.",

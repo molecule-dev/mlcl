@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'article.notFound': 'Ez da artikulua aurkitu',
   'articleEditor.bodyPlaceholder': 'Idatzi / blokeetarako, edo hasi idazten.',
+  'articleEditor.loadFailed': 'Ezin izan da artikulua kargatu',
   'articleEditor.publishing': 'Argitalpena\\u2026',
   'articleEditor.saveFailed': 'Gordetzeak huts egin du',
   'articleEditor.saving': 'Gordetzen\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Laster-marka',
   'articleView.bookmarkOn': 'Gogokoetan gordeta',
   'articleView.edit': 'Editatu artikulua',
+  'articleView.loading': 'Artikulu hau irekitzen…',
   'articleView.readTime': '{{minutes}} irakurketa minutukoa',
   'articleView.spaces': 'Espazioak',
   'articleView.tocHeading': 'Orrialde honetan',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Zure taldeak oraindik jasotzen ari den azken edizioak, irakurketak eta zirriborroak.',
   'cairnTrailHero.updated': 'Artikuluak eguneratuta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'drafts.eyebrow': 'Zure amaitu gabeko lana',
   'drafts.heading': 'Zirriborroak',
+  'drafts.loadFailed': 'Ezin izan dira zure zirriborroak kargatu.',
   'drafts.subtitle':
     'Hasi baina oraindik argitaratu ez dituzun artikuluak. Hartu bat eta jarraitu.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Oraindik ez dago tokirik. Ireki bat artikuluak biltzen hasteko.',
   'home.spacesHeading': 'Zure espazioak',
   'home.subtitle': 'Azken artikuluak, zure laster-markak eta taldeak idatzi duena.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule-rekin eraikia.',
   'landing.ctaBody':
     'Doakoa bakarkako egileentzat. Talde-planak exekuzio-liburuak, erabakiak eta onboarding-a bidaltzen dituzten talde banatuentzat.',
   'landing.ctaHeading': 'Jarri lehen harria gaur.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Sortu lan-eremu bat',
   'login.submitting': 'Saioa hasten\\u2026',
   'login.subtitle': 'Jarrai ezazu utzi zenuen bideari.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
+  'newSpace.colorAria': 'Aukeratu kolorea {{color}}',
   'newSpace.colorLabel': 'Kolore azentua',
+  'newSpace.createFailed': 'Ezin izan da espazioa sortu',
   'newSpace.descriptionPlaceholder':
     'Exekuzio-liburuak, txandako jokabide-liburuak, autopsia osteko analisiak...',
   'newSpace.eyebrow': 'Ezagutza espazio bat ireki',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Kargatzen\\u2026',
   'notifications.subtitle':
     '{{count}} irakurri gabeko aipamenak, iruzkinak, orrialde-aldaketak eta berrikuspen-eskaerak.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.articles': 'artikuluak',
   'pricing.spaces': 'espazioak',
   'profile.eyebrow': 'Egile-profila',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Sartu pasahitz berri bat',
   'resetPassword.subtitle': 'Aukeratu pasahitz sendo bat — gutxienez 12 karaktere dituena.',
   'searchResults.eyebrow': 'Lan-eremuaren bilaketa',
+  'searchResults.filter.all': 'Espazio guztiak',
   'searchResults.heading': 'Bilatu artikuluak',
   'searchResults.placeholder': 'Bilatu exekuzio-liburuak, RFCak, politikak, erabakiak\\u2026',
   'searchResults.summary': '{{count}} emaitzak \\u201c-rentzat {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Honek zure kontua eta idatzi dituzun artikulu guztiak ezabatzen ditu. Idatzi EZABATU berresteko.',
   'settings.danger.confirmInvalid': 'Idatzi EZABATU baieztatzeko.',
+  'settings.danger.deleteFailed': 'Ezin izan da kontua ezabatu',
   'settings.danger.deleting': 'Ezabatzen\\u2026',
   'settings.danger.description':
     'Lan-eremua ezabatzean, artikulu, iruzkin eta bertsio-historia guztiak ezabatzen dira. Ez dago berreskuratzerik.',
   'settings.danger.title': 'Ezabatu lan-eremua',
+  'settings.email.confirm': 'Eguneratu helbide elektronikoa',
+  'settings.email.confirmTitle': 'Berretsi helbide elektronikoaren aldaketa',
   'settings.email.saved': 'Helbide elektronikoa eguneratuta.',
+  'settings.email.updateFailed': 'Ezin izan da posta elektronikoa eguneratu',
   'settings.language.title': 'Hizkuntza',
   'settings.name': 'Izena',
+  'settings.name.saved': 'Izena eguneratu da.',
+  'settings.name.updateFailed': 'Ezin izan da izena eguneratu',
   'settings.notifications.description': 'Aukeratu zer iristen den zure sarrera-ontzian.',
+  'settings.password.changeFailed': 'Ezin izan da pasahitza aldatu',
   'settings.password.current': 'Uneko pasahitza',
   'settings.password.new': 'Pasahitz berria',
   'settings.password.saving': 'Eguneratzen\\u2026',
@@ -148,10 +168,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Artikuluak nola errendatzen diren.',
   'settings.reading.title': 'Irakurketa eta idazketa',
   'settings.subtitle': 'Sintonizatu jakinarazpenak, irakurketa-mihisea eta zure kontua.',
+  'settings.twofa.code': 'Autentifikazio kodea',
   'settings.twofa.disable': 'Desgaitu',
   'settings.twofa.disabled': 'Desgaitua',
   'settings.twofa.enable': 'Gaitu',
   'settings.twofa.enabled': 'Gaituta',
+  'settings.twofa.invalidCode': 'Kode baliogabea',
+  'settings.twofa.unavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
+  'settings.twofa.verify': 'Egiaztatu eta gaitu',
   'signup.brandQuote': 'Idaztea da hurrengo behar duen pertsonari egiten diogun lehen promesa.',
   'signup.eyebrow': 'Ireki lan-eremu bat',
   'signup.firstNamePlaceholder': 'Maia',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'about.pageTitle': 'О {{appName}}',
   'analytics.empty': 'Запишите свой первый ролик, чтобы посмотреть, насколько он привлек внимание.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'клипы',
   'billing.usage.views': 'Мнения',
   'billing.usage.views.unit': 'просмотры',
+  'common.goToDashboard': 'Перейти к панели',
   'landing.cta.title': 'Оставляйте более качественные отзывы. Начните с Glint.',
   'landing.feature.capture.body':
     'Запись видео в браузере, на компьютере и мобильном устройстве с использованием микрофона, камеры и функции рисования.',
   'landing.feature.capture.title': 'Захват одним касанием',
+  'landing.footer.copy': '© {{year}} {{appName}} . Асинхронность, ставшая яркой.',
   'landing.hero.cardCaption': 'Примерный обзор рабочего пространства — попробуйте бесплатно.',
   'landing.hero.primaryCta': 'Начните запись бесплатно',
   'landing.hero.proof.free': 'Бесплатный уровень навсегда',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Поиск записей',
   'library.searchPlaceholder': 'Поиск записей…',
   'library.weeklyChange': '{{value}} % по сравнению с прошлой неделей',
+  'nav.openMenu': 'Открыть меню навигации',
   'nav.record': 'Записывать',
   'nav.shared': 'Поделился со мной',
   'nav.startRecording': 'Начать запись',

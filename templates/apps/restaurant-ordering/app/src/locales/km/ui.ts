@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'អំពី {{app}}',
   'analytics.avgCheckLabel': 'ការត្រួតពិនិត្យជាមធ្យម',
   'analytics.busiestHour': 'ម៉ោងមមាញឹកបំផុត',
   'analytics.coversToday': 'គម្របថ្ងៃនេះ',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'គន្លឹះ (ជាមធ្យម)',
   'analytics.topItems': 'ទំនិញពេញនិយមថ្ងៃនេះ',
   'authShell.eyebrow': 'សូមស្វាគមន៍មកកាន់សេវាកម្មវិញ',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ចំណុចលក់ដ៏កក់ក្តៅ និងរហ័សសម្រាប់ក្រុមបដិសណ្ឋារកិច្ច។ ចូលទៅក្នុងផ្ទះបាយរបស់អ្នក ហើយបន្តពីកន្លែងដែលអ្នកបានចាកចេញ។',
   'authShell.tip':
@@ -29,8 +31,10 @@ export const ui: UiTranslations = {
   'billing.noPlans':
     'គ្មានផែនការណាមួយត្រូវបានកំណត់រចនាសម្ព័ន្ធទេ។ កំណត់លេខសម្គាល់តម្លៃ Stripe នៅក្នុងបរិស្ថានរបស់អ្នក។',
   'billing.notConfigured': 'តម្លៃ Stripe មិនត្រូវបានកំណត់រចនាសម្ព័ន្ធទេ',
+  'billing.orYearly': 'ឬ {{price}}',
   'billing.priceUnavailable': 'ផែនការនេះមិនមានតម្លៃដែលបានកំណត់រចនាសម្ព័ន្ធទេ។',
   'billing.updated': 'ផែនការត្រូវបានធ្វើបច្ចុប្បន្នភាព។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'customerDetail.book': 'បន្ថែមការកក់',
   'customerDetail.col.table': 'តុ',
   'customerDetail.confirmDelete': 'លុបកំណត់ត្រាភ្ញៀវនេះ?',
@@ -126,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ភាពអាចរកបាន',
   'menuItemDetail.available': 'មាននៅយប់នេះ',
   'menuItemDetail.backToMenu': 'ត្រឡប់ទៅម៉ឺនុយវិញ',
+  'menuItemDetail.confirmDelete': 'លុបធាតុម៉ឺនុយនេះ?',
   'menuItemDetail.delete': 'លុប​ធាតុ',
   'menuItemDetail.deleteError': 'ការលុបបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
   'menuItemDetail.dietary': 'ស្លាក​អាហារ',
@@ -136,8 +141,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'ការរក្សាទុកបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
   'menuItemDetail.subheading': '{{category}} · កែសម្រួលរូបថត កែប្រែ របបអាហារ និងកំណត់តម្លៃ។',
   'menuItemDetail.untitled': 'វត្ថុគ្មានចំណងជើង',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'notFound.heading': 'តុនេះមិននៅលើឥដ្ឋទេ។',
   'notFound.subheading': 'ទំព័រដែលអ្នកកំពុងស្វែងរកត្រូវបានដាក់នៅកន្លែងផ្សេង — ឬមិនដែលមានទេ។',
+  'notFound.toLanding': 'ទំព័រដើម {{app}}',
   'notifications.markError': 'មិនអាចសម្គាល់ថាបានអានទាំងអស់ទេ។',
   'orderDashboard.activeDelta': 'រស់នៅឥឡូវនេះ',
   'orderDashboard.activeLabel': 'ការបញ្ជាទិញសកម្ម',
@@ -202,7 +210,9 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'បញ្ចូលពាក្យសម្ងាត់ថ្មីរបស់អ្នក ដើម្បីទទួលបានសិទ្ធិចូលប្រើផ្ទះបាយឡើងវិញ។',
   'resetPassword.tokenLabel': 'កំណត់សញ្ញាសម្ងាត់ឡើងវិញ',
+  'restaurantOrderingLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'revenueHeroCard.activeOrders': '{{count}} សកម្ម',
+  'revenueHeroCard.change': '{{sign}} {{amount}} ធៀបនឹងម្សិលមិញ',
   'revenueHeroCard.title': 'ចំណូលថ្ងៃនេះ',
   'settings.eyebrow': 'ការកំណត់ភោជនីយដ្ឋាន',
   'settings.hours.heading': 'ម៉ោងធ្វើការ',
@@ -219,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'ឈ្មោះភោជនីយដ្ឋាន',
   'tableDetail.activeOrders': 'ការបញ្ជាទិញសកម្ម',
   'tableDetail.backToFloor': 'ផែនការជាន់',
+  'tableDetail.confirmDelete': 'លុបតារាងនេះ?',
   'tableDetail.delete': 'លុប',
   'tableDetail.deleteError': 'មិនអាចលុបតារាងបានទេ។',
   'tableDetail.heading': 'តុ {{label}}',

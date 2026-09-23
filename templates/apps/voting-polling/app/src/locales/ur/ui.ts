@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'analytics.col.quorum': 'کورم',
   'analytics.col.votes': 'ووٹ',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ابھی تک کوئی زیر التوا سوالات نہیں ہیں۔',
   'audienceQa.onStageEyebrow': 'اب اسٹیج پر',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'فروغ دینا',
   'audienceQa.queued': 'قطار میں',
   'audienceQa.queueEyebrow': 'قطار',
   'ballot.eyebrow': 'اپنا ووٹ ڈالیں۔',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'آپ فی الحال پر ہیں۔ {{plan}} منصوبہ',
   'billing.switch': 'سوئچ کریں۔',
   'billing.upgraded': 'میں اپ ڈیٹ کیا گیا۔ {{plan}} - حدود کا اطلاق فوری طور پر۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'createPoll.addOption': 'آپشن شامل کریں۔',
   'createPoll.anonymousHint': 'آڈٹ لاگ میں چھپے ووٹر کے نام؛ قد کی تصدیق باقی ہے۔',
   'createPoll.anonymousLabel': 'گمنام ووٹنگ کی اجازت دیں۔',
@@ -155,6 +158,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'نوش میں نئے؟',
   'login.remember': 'مجھے 30 دن تک یاد رکھنا',
   'login.subheading': 'فرش کھولیں، کمرہ چلائیں، اور نتیجہ کی تصدیق کریں۔',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'notFound.body':
     'آپ نے جس صفحہ تک پہنچنے کی کوشش کی اسے بند یا منتقل کر دیا گیا ہے۔ ڈیش بورڈ پر واپس جائیں یا ایک تازہ پول کھولیں۔',
   'notFound.eyebrow': 'اس روٹ پر کورم نہیں ہے۔',
@@ -181,6 +186,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'اس پول کو لوڈ نہیں کیا جا سکا۔',
   'pollDetail.loading': 'پول لوڈ ہو رہا ہے…',
   'pollDetail.notFound': 'پول نہیں ملا۔',
+  'pollDetail.openBallot': 'اوپن بیلٹ',
   'pollDetail.openLive': 'لائیو نتائج',
   'pollDetail.pollId': 'رائے شماری · {{id}}',
   'pollDetail.published': 'رائے شماری شائع - ووٹر اب ووٹ ڈال سکتے ہیں۔',
@@ -259,4 +265,13 @@ export const ui: UiTranslations = {
   'voters.rollHeading': 'حال ہی میں شامل کیا گیا۔',
   'voters.searchPlaceholder': 'ای میل کے ذریعے تلاش کریں…',
   'voters.subheading': 'اہل رول کو درست کریں۔ وزنی بیلٹ کے لیے org کے ذریعے ووٹرز کو گروپ کریں۔',
+  'votingPollingLayout.nav.analytics': 'تجزیات',
+  'votingPollingLayout.nav.billing': 'بلنگ',
+  'votingPollingLayout.nav.createPoll': 'نیا سروے',
+  'votingPollingLayout.nav.dashboard': 'ڈیش بورڈ',
+  'votingPollingLayout.nav.notifications': 'اطلاعات',
+  'votingPollingLayout.nav.settings': 'ترتیبات',
+  'votingPollingLayout.nav.team': 'ٹیم',
+  'votingPollingLayout.nav.voters': 'ووٹرز',
+  'votingPollingLayout.primaryNavLabel': 'بنیادی نیویگیشن',
 }

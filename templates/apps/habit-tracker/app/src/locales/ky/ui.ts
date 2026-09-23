@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.pageTitle': '{{app}} жөнүндө',
   'achievementBadgeCard.unlockedOn': 'Кулпусу ачылган {{date}}',
   'achievements.loadError': 'Жетишкендиктер жүктөлбөй калды.',
   'achievements.subheading': '{{unlocked}} ...нын {{total}} кулпусу ачылган',
   'achievements.unlockedOn': 'Кулпусу ачылган {{date}}',
+  'auth.legalConsent': 'Улантуу менен, сиз биздин макулдашасыз',
   'calendar.empty': 'Календарьыңызды көрүү адатын калыптандырыңыз.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Адат',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Адаттардын торчосу',
   'category.${c.category}': '{{count}} адаттар',
   'common.and': 'жана',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'consistencyHeatmap.ariaLabel': 'Күнүмдүк ырааттуулук жылуулук картасы',
   'consistencyHeatmap.caption': 'Акыркы {{weeks}} жумалар',
   'consistencyHeatmap.lessLabel': 'Азыраак',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Түз эфирде көрүңүз',
   'landing.heroSubtitle':
     'Адаттарды алар иш жүзүндө кармангандай кылып калыптандырыңыз: кичинекей милдеттенмелер, күнүмдүк иштер жана узун, үзүлбөгөн чынжырдын ички ырахаты.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Стрийктин ичине көз чаптыруу',
   'landing.previewMotivation': 'Тогуз тилке тирүү. Алардын баарын жылуу кармаңыз.',
   'login.eyebrow': 'Чынжырды алыңыз',
@@ -99,7 +104,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Аны кичинекей кылыңыз. Аны конкреттүү кылыңыз. Эртең келиңиз.',
   'newHabit.timeLabel': 'Эскертме убактысы',
   'notifications.markError': 'Баары окулган деп белгиленбей койду.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.entries': '{{count}} жазуу',
+  'pricing.heading': '{{app}} тарифиңизди тандаңыз',
   'profile.action.plan': 'Жазылууну башкаруу',
   'profile.action.settings': 'Аккаунт жөндөөлөрү',
   'profile.bioEmpty': 'Өзүңүздү тааныштыруу үчүн Жөндөөлөргө кыскача өмүр баян кошуңуз.',
@@ -128,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Күн сайын эртең мененки эскертүү (8:00)',
   'settings.reminders.heading': 'Эскертүүлөр',
   'settings.reminders.weekly': 'Апталык кыскача маалымат (жекшемби күнү кечинде)',
+  'settings.revokeDeviceWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
   'settings.signOutDevice': 'Чыгуу',
   'settings.streaks.freezesPerWeek': 'Жумасына тоңот',
   'settings.streaks.gracePeriod': 'Түн ортосунан кийин 6 сааттык жеңилдик мөөнөтү',
@@ -154,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} активдүү',
   'streakHeroCard.daysSuffix': 'күндөр',
   'streakHeroCard.title': 'Эң узак активдүү серия',
+  'streakLayout.closeMenu': 'Навигация менюсун жабуу',
+  'streakLayout.openMenu': 'Навигация менюсун ачуу',
   'streakLayout.primaryNavLabel': 'Негизги навигация',
 }

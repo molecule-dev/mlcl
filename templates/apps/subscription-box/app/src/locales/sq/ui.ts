@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Rreth {{app}}',
+  'appNav.mobileLabel': 'Navigimi kryesor',
+  'appNav.primaryLabel': 'Navigimi kryesor',
   'billing.actions.confirmCancel': 'Do ta anulosh abonimin? Mund të riabonohesh në çdo kohë.',
   'billing.actions.paused': 'Abonimi u ndërpre.',
   'billing.actions.resumed': 'Abonimi rifilloi.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Çdo nivel është një histori me grupe të vogla. Shtoni një në radhën tuaj ose ndërrojeni atë në muajin tuaj të ardhshëm.',
   'boxThemeCard.perMonth': '/ muaj',
+  'common.goToDashboard': 'Shko te paneli',
   'customize.eyebrow': 'Bëje tënden',
   'customize.heading': 'Personalizo Crate-in tënd të ardhshëm',
   'customize.items.exclude': 'Kapërceje këtë',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Këtë sezon',
   'landing.editions.heading': 'Botime që kuratorët tanë i adhurojnë',
   'landing.footer.contact': 'Bisedoni me një kurator',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Filloni kutinë tuaj →',
   'landing.hero.ctaSecondary': 'Shihni nivelet',
   'landing.hero.eyebrow': 'I kuruar çdo muaj. Gjithmonë personal.',
@@ -115,6 +120,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'THESARI JUAJ I ARDHSHËM',
   'nextBoxHeroCard.itemsLabel': 'Artikuj të përzgjedhur',
   'nextBoxHeroCard.shipsOnLabel': 'Dërgohet në',
+  'notFound.body':
+    'Nuk mundëm ta gjenim atë faqe në arkivin {{app}} . Mund të jetë hequr nga përdorimi ose thjesht është shtypur gabim.',
   'notFound.cta.dashboard': 'Shko te paneli',
   'notFound.eyebrow': 'Kuti bosh',
   'notFound.heading': 'Ky raft është bosh',

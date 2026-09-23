@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
+  'about.eyebrow': 'אודות {{app}}',
   'about.pageTitle': 'כל מסלול, חיפוש אחד.',
   'booking.backToDetail': 'חזרה לפרטי הטיסה',
   'booking.continue': 'המשך לתשלום',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'מיסים ועמלות',
   'booking.summary.travelers': 'מטיילים',
   'common.about': 'אוֹדוֹת',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'flightDetail.backToResults': 'חזרה לתוצאות',
   'flightDetail.baseFare': 'תעריף בסיס',
   'flightDetail.book': 'המשך להזמנה',
@@ -53,6 +56,7 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'תחנה אחת',
   'flightResultCard.select': 'לִבחוֹר',
   'flightResultCard.totalLabel': 'זמן כולל',
+  'flightSearchLayout.primaryNavLabel': 'ניווט ראשי',
   'forgotPassword.subheading':
     'הזן את כתובת האימייל של חשבון Skylark שלך ואנו נשלח לך קישור איפוס מאובטח.',
   'forgotPassword.successBody':
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'הוסף התראה',
   'priceAlerts.deleteConfirm': 'להסיר את ההתראה הזו?',
   'priceAlerts.empty': 'אין עדיין מסלולים במעקב.',
+  'priceAlerts.emptyCta': 'חיפוש מסלול למעקב',
   'priceAlerts.errorMessage': 'לא ניתן היה לטעון את ההתראות.',
   'priceAlerts.eyebrow': 'רשימת המעקב של סקיילרק',
   'priceAlerts.form.createError': 'לא ניתן היה ליצור התראה.',
@@ -108,6 +113,7 @@ export const ui: UiTranslations = {
   'results.loading': 'מחפש תעריפים בזמן אמת...',
   'results.multiEyebrow': 'מסלול טיול רב-ערים',
   'results.multiLegHeading': 'רֶגֶל {{n}} · {{מִן}} → {{אֶל}} · {{תַאֲרִיך}}',
+  'results.sortAriaLabel': 'מיין תוצאות לפי',
   'results.sortLabel': 'סוּג',
   'settings.language.title': 'שָׂפָה',
   'settings.profile.currency': 'מַטְבֵּעַ',

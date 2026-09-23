@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'À propos de {{app}}',
   'about.plansTitle': 'Des formules qui évoluent avec vous',
   'brand.tagline': 'Chaque seconde',
   'clientDetail.back': 'Retour aux clients',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Chaque relation en un seul endroit — projets, heures, factures en attente.',
   'clients.title': 'Clients',
   'common.and': 'et',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'dashboard.activeProjects': 'Projets actifs',
   'dashboard.empty':
     'Aucune entrée pour le moment. Lancez le minuteur pour enregistrer votre première session.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Aucune heure facturable pour ce client. Enregistrez du temps ou assignez des entrées existantes à l’un de ses projets.',
   'invoices.save': 'Créer la facture',
   'invoices.subtitle': 'Les heures enregistrées se transforment automatiquement en factures.',
+  'landing.copyright': '© {{year}} {{app}} . Chaque seconde, comptabilisée.',
   'landing.ctaBody':
     'Gratuit jusqu’à 3 projets. Passez au plan supérieur quand votre liste de clients s’allonge.',
   'landing.eyebrow': 'Suivi du temps pour travail facturable',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Plébiscité par les indépendants',
   'landing.testimonial.quote':
     '« J’ai quitté Toggl en 30 minutes. Le suivi de la consommation du budget s’est déjà rentabilisé — j’ai cessé de sous-estimer mes devis depuis deux semaines. »',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Chaque seconde, comptabilisée.',
   'login.brand.subtitle':
     'Reprenez le minuteur là où vous l’avez laissé — chaque minute déjà rattachée à un projet, un client, une facture.',
   'login.brand.tracking': 'Suivi en cours',
   'login.subheading': 'Reprenez le minuteur là où vous l’avez laissé.',
+  'nav.closeMenu': 'Fermer le menu de navigation',
   'nav.insightsSection': 'Analyses',
   'nav.newEntry': 'Nouvelle entrée',
+  'nav.openMenu': 'Ouvrir le menu de navigation',
+  'nav.primary': 'Navigation principale',
   'nav.workSection': 'Travail',
   'notFound.body':
     'Le lien que vous avez suivi a cessé de tourner. Revenez à votre tableau de bord — nous continuerons à compter là-bas.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Facturable',
   'timer.descriptionPlaceholder': 'Sur quoi travaillez-vous ?',
   'timer.idle': 'Inactif — lancer le suivi',
+  'timer.noProject': 'Aucun projet',
   'timer.runningWithProject': 'Aucun projet',
   'timer.start': 'Démarrer le minuteur',
   'timer.stop': 'Arrêter le minuteur',

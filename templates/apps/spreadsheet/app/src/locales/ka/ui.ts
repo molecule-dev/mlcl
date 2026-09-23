@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'about.pageTitle': 'შესახებ {{name}}',
   'auth.footer.about': 'შესახებ {{name}}',
   'authHeader.subtitle': 'შედით სისტემაში, რათა თქვენი ციფრები სიმართლეს შეესაბამებოდეს.',
   'automations.action.email': 'ელ. ფოსტა',
+  'automations.action.noop': 'უმოქმედო',
   'automations.action.webhook': 'ვებჰუკი',
   'automations.confirmDelete': 'წაშლა {{name}} „?“',
   'automations.empty.headline': 'ავტომატიზაცია ჯერ არ არის',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ტრიგერები და მოქმედებები ყველა სამუშაო წიგნში. თითოეული გაშვება აღრიცხავს რიგს, რომლის აუდიტიც მოგვიანებით შეგიძლიათ.',
   'automations.toggle': 'გადართვა {{name}}',
+  'automations.trigger.dailySchedule': 'ყოველდღიური გრაფიკი',
+  'automations.trigger.rowCreated': 'რიგი შეიქმნა',
+  'automations.trigger.rowUpdated': 'რიგი განახლდა',
   'billing.empty': 'გეგმები არ არის ხელმისაწვდომი.',
   'billing.error.priceMissing':
     'ამ დონისთვის Stripe-ის ფასი კონფიგურირებული არ არის. დააყენეთ STRIPE_*_PRICE_ID გარემოს ცვლადები.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'დიაგრამები',
   'charts.kpi.totalCharts': 'სულ დიაგრამები',
   'charts.list.empty': 'დიაგრამები ჯერ არ არის.',
+  'charts.namePlaceholder': 'შემოსავლების ტენდენცია',
   'charts.newChart': 'ახალი დიაგრამა',
   'charts.primary.eyebrow': 'დიაგრამები ტიპის მიხედვით',
   'charts.primary.headline': 'სამუშაო სივრცის მიმოხილვა',
   'charts.subhead':
     'თქვენს ბადეზე მიბმული პირდაპირი ვიზუალიზაცია — ხელახლა რენდერირება ყოველი უჯრის რედაქტირებისას.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'editor.addColumn': 'სვეტის დამატება',
+  'editor.addDialogTitle': 'სვეტის დამატება',
   'editor.addRow': 'მწკრივის დამატება',
   'editor.addSheet': 'ფურცლის დამატება',
   'editor.back': 'სამუშაო წიგნებზე დაბრუნება',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite არის ფორმულაზე ორიენტირებული, მრავალხედიანი, რეალურ დროში მომუშავე ქსელის ანალიტიკოსები და ფინანსური გუნდები, რომლებიც პირველობას ცდილობენ.',
   'landing.nav.formulas': 'ფორმულები',
+  'login.noAccount': 'ახალი ხართ {{name}} ში?',
+  'login.signIn': 'შესვლა {{name}} ში',
   'login.signUp': 'სამუშაო სივრცის შექმნა',
+  'nav.menu': 'მენიუ',
+  'nav.openMenu': 'მენიუს გახსნა',
   'notFound.cellRef': '#მითითება!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "მარშრუტები", "გვერდი")',
   'notFound.headline': 'ეს რიგი არასდროს არსებობდა.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'მშობლიური ავტომატიზაცია · ვებჰუკი და კრონ-ტრიგერები',
   'signup.creating': 'სამუშაო სივრცის უზრუნველყოფა…',
   'signup.cta': 'ჩემი სამუშაო სივრცის შექმნა',
+  'signup.haveAccount': 'უკვე {{name}} -ზე ხართ?',
   'signup.namePlaceholder': 'ევერი ჩენი',
   'signup.tagline': 'დაატრიალეთ თქვენი პირველი სამუშაო წიგნი 30 წამში',
   'team.col.activity': 'მოწვეული',

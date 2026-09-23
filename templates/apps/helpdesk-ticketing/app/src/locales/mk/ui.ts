@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Стапете во контакт',
   'about.eyebrow': 'За',
+  'about.title': 'За {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Професионална фотографија од жена агент за поддршка со пријателска насмевка во модерна канцеларија',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Контактирајте ја поддршката',
   'forgotPassword.error': 'Не може да се испрати е-пошта за ресетирање. Обидете се повторно.',
   'forgotPassword.rememberPassword': 'Се сеќавате на вашата лозинка?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Најавете се — Поддршка за Зенит',
   'login.showPassword': 'Прикажи лозинка',
   'login.welcomeSubheading': 'Најавете се на вашата контролна табла за поддршка',
+  'mobileNav.closeMenu': 'Затвори навигација',
+  'mobileNav.menu': 'Навигација',
+  'mobileNav.openMenu': 'Отвори навигација',
   'nav.legal': 'Правни',
   'nav.newTicket': 'Нов билет',
   'notifications.loadError': 'Не може да се вчитаат известувањата. Обидете се повторно за момент.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Командно пребарување',
   'operatorDock.newReport': 'Нов извештај',
   'operatorDock.systemOnline': 'Систем онлајн',
+  'planUpdated.subtitle': 'Ви благодариме',
   'planUpdated.title': 'Планот е ажуриран',
   'pricing.agents': 'агенти',
   'pricing.automation': 'Правила за автоматизација',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{име}}',
   'ticketCustomerReply.avatarAlt': '{{име}} Аватарот на',
   'ticketDetail.errorTitle': 'Нешто тргна наопаку',
+  'ticketDetail.loadError': 'Не успеа да се вчита билетот.',
+  'ticketDetail.notFound': 'Билетот не е пронајден',
+  'ticketDetail.replyError': 'Неуспешно испраќање на одговорот. Обидете се повторно.',
   'ticketDetail.retry': 'Обидете се повторно',
   'ticketDetail.statusUpdateError': 'Не може да се ажурира статусот. Обидете се повторно.',
   'ticketDetailsCard.assigneeLabel': 'Доверител',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{време}} лево',
   'ticketRow.title': 'Поврзувањето со базата на податоци не успеа при производство {{јазол}}',
   'tickets.pageTitle': 'Билети — Зенит Поддршка',
+  'ticketsFab.newTicket': 'Нов билет',
   'ticketsFilterBar.assigneeLabel': 'Доверител:',
   'ticketsFilterBar.clearFilters': 'Исчисти филтри',
   'ticketsFilterBar.dateRangeDemoHint':

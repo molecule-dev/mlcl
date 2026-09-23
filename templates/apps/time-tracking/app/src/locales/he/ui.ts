@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'אודות {{app}}',
   'about.plansTitle': 'תוכניות שגדלות איתך',
   'brand.tagline': 'כל שנייה',
   'clientDetail.back': 'חזרה ללקוחות',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'כל מערכת יחסים במקום אחד - פרויקטים, שעות, חשבוניות שטרם נפרעו.',
   'clients.title': 'לקוחות',
   'common.and': 'ו',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.activeProjects': 'פרויקטים פעילים',
   'dashboard.empty': 'אין עדיין רשומות. הפעל את הטיימר כדי לעקוב אחר הסשן הראשון שלך.',
   'dashboard.greeting': 'יום טוב, {{name}}',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
     'אין שעות לחיוב עבור לקוח זה. יש לעקוב אחר שעות מסוימות תחילה או להקצות רשומות קיימות לאחד מהפרויקטים של לקוח זה.',
   'invoices.save': 'צור חשבונית',
   'invoices.subtitle': 'שעות שנבדקו מצטברות לחשבוניות, באופן אוטומטי.',
+  'landing.copyright': '© {{year}} {{app}} . כל שנייה, מחושבת.',
   'landing.ctaBody': 'חינם לעד 3 פרויקטים. שדרגו כשתתאים לרשימת הלקוחות שלכם.',
   'landing.eyebrow': 'מעקב זמן עבור עבודה לחיוב',
   'landing.featuresBody':
@@ -94,12 +97,16 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'סומכים על ידי עצמאים',
   'landing.testimonial.quote':
     '\\u201cיצאתי מ-Toggl תוך 30 דקות. שריפת התקציב לבדה השתלמה \\u2014 הפסקתי להגיש הצעות מחיר נמוכות במשך שבועיים ברציפות.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} כרונו. כל שנייה, מחושבת.',
   'login.brand.subtitle': 'חזור למצב שבו הפסקתם - כל דקה כבר ממופה לפרויקט, ללקוח, לחשבונית.',
   'login.brand.tracking': 'מַעֲקָב',
   'login.subheading': 'תחזירו את הטיימר מהמקום שבו הפסקת.',
+  'nav.closeMenu': 'סגור את תפריט הניווט',
   'nav.insightsSection': 'תובנות',
   'nav.newEntry': 'ערך חדש',
+  'nav.openMenu': 'פתח את תפריט הניווט',
+  'nav.primary': 'ניווט ראשי',
   'nav.workSection': 'עֲבוֹדָה',
   'notFound.body': 'נראה שהקישור שאליו פעלת הפסיק לעקוב. חזור ללוח המחוונים שלך, נמשיך לספור משם.',
   'notFound.dashboard': 'פתח את לוח המחוונים',
@@ -197,6 +204,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'ניתן לחיוב',
   'timer.descriptionPlaceholder': 'על מה אתה עובד?',
   'timer.idle': 'במצב סרק - התחל מעקב',
+  'timer.noProject': 'אין פרויקט',
   'timer.runningWithProject': 'אין פרויקט',
   'timer.start': 'הפעלת טיימר',
   'timer.stop': 'עצור את הטיימר',

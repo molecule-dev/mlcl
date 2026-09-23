@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
+  'about.title': 'غرفة كتابة يمكنك الاحتفاظ بها في جيبك',
   'billing.cancelConfirm': 'إلغاء اشتراككم النشط؟',
   'billing.cancelFailed': 'تعذّر الإلغاء.',
   'billing.checkingOut': 'جارٍ فتح صفحة الدفع…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'تعذّر تحميل الفوترة.',
   'billing.loading': 'جارٍ تحميل الفوترة…',
   'billing.upgradeCta': 'الترقية إلى {{name}}',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'editor.autosaveOn': 'الحفظ التلقائي مُفعّل',
   'editor.backToLibrary': 'العودة إلى المكتبة',
   'editor.charCount': '{{count}} حرفًا',
   'editor.confirmTrash': 'نقل هذا المستند إلى المهملات؟',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'تم إلغاء التثبيت',
   'editor.unpublishCta': 'النقل إلى المسودّات',
   'editor.unpublished': 'أُعيد إلى المسودّة',
+  'focus.autosaveOn': 'الحفظ التلقائي مُفعّل',
   'focus.backToLibrary': 'العودة إلى المكتبة',
   'focus.bodyPlaceholder': 'سطرٌ في كل مرة. لا أحد هنا سواكم.',
   'focus.exit': 'الخروج من وضع التركيز',
@@ -79,6 +84,8 @@ export const ui: UiTranslations = {
   'login.headline': 'تابعوا السطر الذي تركتموه.',
   'login.signupLink': 'أنشئوا واحدًا',
   'login.subline': 'مخطوطاتكم وصفحاتكم اليومية وموضع المؤشّر الأخير حيث تركتموها تمامًا.',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'pricing.exports': 'عمليات تصدير',
   'pricing.folders': 'مجلّدات',
   'pricing.heading': 'المستندات',
@@ -90,6 +97,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'أدخلوا الرمز الذي أرسلناه إليكم للتو واختاروا شيئًا يسهل تذكّره. سنُسجّل دخولكم فور حفظها.',
   'reset.tokenHint': 'ملصق من صندوق الوارد.',
+  'settings.appearance.heading': 'فاتح أو داكن',
   'settings.editor.${row.id}.description': 'اللغة',
   'settings.editor.description':
     'التمرير باستخدام الآلة الكاتبة، وتلاشي الفقرة، والتركيز التلقائي - تم ضبط الإعدادات الافتراضية للجلسات الطويلة.',
@@ -135,6 +143,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'الفصل الثالث — ساعةٌ هادئة قبل الفجر',
   'versalDocumentCard.pinned': 'مُثبَّت',
   'versalLayout.nav.stats': 'الإحصاءات',
+  'versalLayout.primaryNavLabel': 'التنقل الرئيسي',
   'versalManuscriptHero.cta': 'متابعة الكتابة',
   'versalManuscriptHero.goalLabel': 'هدف كلمات اليوم',
   'versalManuscriptHero.inProgress': 'على المسار',

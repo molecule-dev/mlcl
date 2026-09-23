@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Та одоогоор дараах дээр байна {{plan}} төлөвлөгөө.',
   'billing.switch': 'Сэлгүүр',
   'billing.upgraded': 'Шинэчлэгдсэн {{plan}} — хязгаарлалтыг нэн даруй хэрэгжүүлнэ.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'compare.activityHeading': 'Үйл ажиллагааны дүгнэлт',
   'compare.empty.title': 'Харьцуулахын тулд дор хаяж хоёр байршил нэмнэ үү',
   'compare.eyebrow': 'Зэрэгцээ',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Өндөр',
   'trends.summary.low.label': 'Бага',
   'trends.summary.points.label': 'Өдөр',
+  'weatherDashboardLayout.primaryNavLabel': 'Үндсэн навигаци',
   'weatherHeroCard.updated': 'Шинэчлэгдсэн {{time}}',
 }

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.featureDiscover.title': 'Inspioráid, roghnaithe de láimh',
   'account.addPaymentCta': 'Cuir modh íocaíochta leis',
   'account.addPaymentError': 'Níorbh fhéidir modh íocaíochta a chur leis.',
+  'account.confirmRemove': 'Deimhnigh an bhaint',
   'account.defaultBadge': 'Réamhshocrú',
   'account.loyalty.pointsTowardNext':
     '{{pointí}} de {{ar aghaidh}} míle go {{an chéad Sraith eile}}',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Sonraí an turais',
   'booking.tripSummary': '{{nights}} oícheanta · {{guests}} aíonna',
   'common.daysAgo': '{{count}} lá ó shin',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.hoursAgo': '{{count}} uair an chloig ó shin',
   'common.minutesAgo': '{{count}} m ó shin',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Dlíthiúil',
   'notifications.loading': 'Ag lódáil…',
   'notifications.subheading': '{{count}} gan léamh · gach rud i mbosca isteach amháin socair',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.accommodationsLabel': 'cóiríocht',
   'pricing.bookingsLabel': 'áirithintí',
   'pricing.destinationsLabel': 'cinn scríbe sábháilte',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Inspioráid, fanacht iontaofa, agus cosán gan stró ó bhrionglóid go dtí áirithint — trasna 14 thír agus breis is 200 maoin a ndearnadh grinnscrúdú orthu de láimh.',
   'sojournHeroSearchCard.trustProtected': 'Cealú saor in aisce, lánchosanta',
   'sojournHeroSearchCard.trustVetted': 'Maoine atá grinnscrúdaithe de láimh amháin',
+  'travelBookingLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'tripDetail.backLink': 'Ar ais chuig na turais',
   'tripDetail.cancelCta': 'Cealaigh an áirithint',
   'tripDetail.cancelHeading': 'An bhfuil tú ag iarraidh an turas seo a chealú?',

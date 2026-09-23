@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.pageTitle': 'ගැන {{appName}}',
   'analytics.error': 'විශ්ලේෂණ පූරණය කළ නොහැකි විය.',
   'analytics.heading': 'ලබා ගැනීමේ විශ්ලේෂණ',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'මිලකරණ ස්ථර වින්‍යාස කර නොමැත.',
   'billing.plans.heading': 'සැලසුම්',
   'billing.subheading': 'සැලැස්ම, භාවිතය සහ ඉරි කළමනාකරණය කළ පිටවීම.',
+  'common.confirm': 'තහවුරු කරන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'documentCard.open': 'විවෘතයි \\u2192',
   'documentDetail.back': 'ලේඛන වෙත ආපසු',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'සුචි ලේඛනය',
   'documents.composer.titlePlaceholder': 'ලේඛන මාතෘකාව',
   'documents.emptyAll': 'තවම ලේඛන නැත. ප්‍රශ්න ඇසීමට පටන් ගැනීමට එකක් උඩුගත කරන්න.',
+  'documents.error.load': 'ලේඛන පූරණය කළ නොහැකි විය.',
   'documents.heading': 'සුචිගත කළ ලේඛන',
   'documents.loading': 'ලේඛන පූරණය වෙමින්…',
   'documents.metric.chunks': 'මුළු කැබලි',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'ඉවත් කරමින්\\u2026',
   'members.subheading': 'කණ්ඩායමේ සාමාජිකයින්ට ආරාධනා කර භූමිකාවන් සකසන්න.',
   'members.tableHeading': 'නාමලේඛනය',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'notFound.askCta': 'දැනුම පදනමෙන් විමසන්න',
+  'notFound.body':
+    '{{app}} හට එම පිටුව සොයා ගැනීමට නොහැකි විය. සබැඳිය කැඩී ගොස් තිබිය හැකිය, නැතහොත් නැවත සුචිගත කිරීමේදී පිටුව විශ්‍රාම ගොස් තිබිය හැකිය.',
   'notFound.eyebrow': 'ලබා ගත නොහැක',
   'notFound.title': 'දර්ශකයේ එවැනි කොටසක් නොමැත.',
   'notifications.dismiss': 'ඉවතලන්න',
@@ -210,6 +219,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'ඔබේ පළමු සම්බන්ධකය වයර් කිරීමට \\u201cමූලාශ්‍රය එක් කරන්න\\u201d ක්ලික් කරන්න.',
   'sources.empty.title': 'තවමත් මූලාශ්‍ර නොමැත.',
+  'sources.error.add': 'මූලාශ්‍රය එක් කිරීමට නොහැකි විය.',
   'sources.error.labelRequired': 'ලේබලය අවශ්‍යයි.',
   'sources.error.load': 'මූලාශ්‍ර පූරණය කළ නොහැකි විය.',
   'sources.error.urlRequired': 'මෙම මූලාශ්‍ර වර්ගය සඳහා URL අවශ්‍ය වේ.',

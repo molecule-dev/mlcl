@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Ag réiteach…',
   'comments.subtitle':
     'An {{count}} Snáitheanna fós ag fanacht le freagra nó réiteach. Sórtáilte de réir aoise — an duine is sine ar dtús, ionas nach lobhadh aon rud.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'forgotPassword.sentTo': 'Athshocraigh an nasc a seoladh chuig {{email}}',
   'forgotPassword.successSubheading':
     'Seiceáil do bhosca isteach — sheolamar nasc athshocraithe chugat díreach anois. Rachaidh sé in éag i gceann 30 nóiméad.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Leathanach nua',
   'pageTreeSidebar.workspaceHeader': 'Spás Oibre',
   'pageView.breadcrumb': 'Brioscaí Aráin',
+  'pageView.confirmTrash': 'Cuir sa bhruscar é?',
   'pageView.home': 'Baile',
   'pageView.lastEdited': 'Nuashonraithe {{when}}',
   'pageView.loading': 'Ag lódáil an leathanaigh…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Ag achoimre…',
   'pageView.summaryUnavailable': 'Níl achoimre AI cumraithe don spás oibre seo.',
   'pageView.tocTitle': 'Ar an leathanach seo',
+  'pageView.trash': 'Bruscar',
+  'pageView.trashing': 'Ag cur an bhruscair…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Suaitheantais',
   'profile.owned.title': 'Leathanaigh faoi úinéireacht',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Spás oibre, próifíl, fógraí, comhtháthú — iad uile i mblaosc ciúin amháin.',
   'settingsPage.workspace.defaultLanding': 'Scáileán tuirlingthe réamhshocraithe',
   'settingsPage.workspace.landingHome': 'Baile',
+  'settingsPage.workspace.landingSpaces': 'Spásanna',
   'settingsPage.workspace.subdomainLabel': 'Fo-fhearann',
   'settingsPage.workspace.title': 'Spás Oibre',
   'signup.eyebrow': 'Tosaigh spás oibre nua',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} nóim',
   'templates.subtitle':
     'Tosaigh leathanach ó stensil, ní ó chanbhás bán. Déanann gach teimpléad an cruth a chódú go crua ionas gur féidir leat díriú ar an tsubstaint.',
+  'trash.confirmPurge': 'Glanadh go deo?',
+  'trash.confirmPurgeAria': 'Deimhnigh: scrios {{title}} go buan',
   'trash.daysUntilPurge': '{{days}} laethanta fágtha',
   'trash.empty.body':
     'Beidh leathanaigh scriosta le feiceáil anseo ar feadh 30 lá sula nglanfar iad.',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Ag athchóiriú…',
   'versionHistory.subtitle': '{{count}} leaganacha · roghnaigh ró chun an difríocht a iniúchadh',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Dún nascleanúint',
+  'wikiLayout.menu': 'Loingseoireacht',
+  'wikiLayout.openMenu': 'Oscail nascleanúint',
   'wikiLayout.searchPlaceholder': 'Cuardaigh Cairn — leathanaigh, tuairimí…',
 }

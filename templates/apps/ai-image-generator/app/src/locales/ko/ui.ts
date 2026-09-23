@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'auth.fields.newPassword': '새 비밀번호',
   'collectionDetail.addImage': '컬렉션에 생성하기',
   'collectionDetail.backCta': '컬렉션으로 돌아가기',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': '무드보드, 브리프 및 진행 중인 시리즈',
   'collections.title': '컬렉션',
   'collections.untitled': '제목 없음 · {{stamp}}',
+  'common.closeMenu': '메뉴 닫기',
+  'common.dismiss': '닫기',
+  'common.goToDashboard': '대시보드로 이동',
+  'common.openMenu': '탐색 메뉴 열기',
   'credits.eyebrow': '{{plan}} 플랜',
   'credits.renewsCopy': '{{date}}에 플랜 갱신',
   'credits.trail': '몽상 · {{plan}} 층',
@@ -128,6 +133,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': '생성 활동, 공유 및 크레딧 알림이 여기에 표시됩니다.',
   'notifications.empty.title': '보고할 내용이 없습니다',
   'notifications.subtitle': '일별로 그룹화된 생성 이벤트',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.limits.gallery': '갤러리 {{count}}',
   'privacy.collect.body':
     '회원가입 시 귀하의 이름, 이메일 주소 및 해시된 비밀번호를 수집합니다. Reverie 사용 시 제출하신 프롬프트, 생성된 이미지, 저장된 스타일과 컬렉션, 사용된 모델, 생성 타임스탬프, 크레딧 잔액 등의 메타데이터를 저장합니다.',
@@ -163,6 +169,7 @@ export const ui: UiTranslations = {
   'reset.submit': '새 비밀번호 저장',
   'reset.submitting': '비밀번호 업데이트 중…',
   'settings.account.handle': '핸들',
+  'settings.account.lastSaved': '활성 프로필 · {{name}}',
   'settings.account.saved': '프로필이 저장되었습니다',
   'settings.account.saveFailed': '프로필을 저장할 수 없습니다',
   'settings.account.title': '크리에이터 프로필',
@@ -184,7 +191,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': '새 이미지',
   'sidebar.secondary': '보조 내비게이션',
   'signup.failed': '가입에 실패했습니다. 다시 시도해 주세요.',
+  'signup.firstNamePlaceholder': '아리아',
   'signup.heading': '몽상을 시작하세요',
+  'signup.lastNamePlaceholder': '린',
   'signup.subheading': '계정을 만들고 무료 크레딧 120개를 받으세요.',
   'styles.empty': '아직 스타일 프리셋이 없습니다 — 첫 로그인 후 표시됩니다.',
   'styles.eyebrow': '큐레이션됨',

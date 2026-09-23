@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'billing.canceled': 'A ti fagile iforukọsilẹ naa. O yoo pada si Ọfẹ ni opin akoko naa.',
   'billing.contactSales': 'Kan si awọn tita',
   'billing.free.1': 'Àwọn ìtumọ̀ márùn-ún',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Ko si opin idaduro',
   'billing.upgradeHint': 'Ṣe igbesoke lati ṣii awọn ẹya AI ti ilọsiwaju.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.activityEmpty':
     'Kò sí ìgbòkègbodò kankan síbẹ̀ — bẹ̀rẹ̀ iṣẹ́ àkànṣe kan láti kún ojú ìwé yìí.',
   'dashboard.eyebrow': 'Àkótán Àkótán',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Lò àwọn ìtumọ̀ àtijọ́ káàkiri gbogbo iṣẹ́ àgbékalẹ̀. Àmì ìbáramu tó ga jùlọ → àtúnṣe díẹ̀.',
   'memory.title': 'Báńkì ìrántí',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'nav.legal': 'Ofin',
   'newProject.addLanguage': 'Fi ibi-afẹde kun',
   'newProject.create': 'Ṣẹ̀dá iṣẹ́ àgbékalẹ̀',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Ti samisi {{count}} àwọn ìfitónilétí bí a ṣe ń kà á.',
   'notifications.subtitle':
     'Àwọn ìtọ́kasí, àtúnyẹ̀wò ìbéèrè, àti àwọn ìṣẹ̀lẹ̀ AI láti gbogbo ibi iṣẹ́ rẹ.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'privacy.collection.account': 'Ìmeeli àkọọ́lẹ̀ rẹ àti orúkọ ìfihàn rẹ',
   'privacy.deletion.body':
     'O le paarẹ iṣẹ akanṣe, apakan, ọrọ itumọ ọrọ, tabi titẹ sii iranti nigbakugba lati oju-iwe ti o yẹ. Piparẹ akọọlẹ rẹ kuro ninu Eto n pa gbogbo ila ti a ṣe ayẹwo aaye iṣẹ kuro ninu ibi ipamọ data wa.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Kò ṣeé ṣe láti gbé àwọn iṣẹ́ náà sórí ayélujára.',
   'projects.loading': 'N n gbe awọn iṣẹ akanṣe…',
   'projects.subtitle': 'Gbogbo iṣẹ́ àgbékalẹ̀ tó ń lọ lọ́wọ́ ní gbogbo àgbègbè.',
+  'renditionLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'reset.backToLogin': '\\u2190 Pada si ibuwọlu',
   'reset.passwordLabel': 'Ọrọ aṣina Tuntun',
   'review.activeEyebrow': 'Apá {{number}}',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.pageTitle': 'Oko {{appName}}',
   'analytics.error': 'Nije moguće učitati analitiku.',
   'analytics.heading': 'Analitika preuzimanja',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nisu konfigurirane cjenovne razine.',
   'billing.plans.heading': 'Planovi',
   'billing.subheading': 'Plan, korištenje i naplata kojom upravlja Stripe.',
+  'common.confirm': 'Potvrdi',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
+  'common.retry': 'Pokušaj ponovno',
   'documentCard.open': 'Otvori \\u2192',
   'documentDetail.back': 'Natrag na dokumente',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksni dokument',
   'documents.composer.titlePlaceholder': 'Naslov dokumenta',
   'documents.emptyAll': 'Još nema dokumenata. Prenesite jedan da biste počeli postavljati pitanja.',
+  'documents.error.load': 'Nije moguće učitati dokumente.',
   'documents.heading': 'Indeksirani dokumenti',
   'documents.loading': 'Učitavanje dokumenata…',
   'documents.metric.chunks': 'Ukupni broj dijelova',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Uklanjanje\\u2026',
   'members.subheading': 'Pozovite suigrače i odredite uloge.',
   'members.tableHeading': 'Popis igrača',
+  'mobileNav.closeMenu': 'Zatvori navigacijski izbornik',
+  'mobileNav.openMenu': 'Otvori navigacijski izbornik',
   'notFound.askCta': 'Pitajte bazu znanja',
+  'notFound.body':
+    '{{app}} nije mogao pronaći tu stranicu. Veza možda ne radi ili je stranica možda uklonjena tijekom ponovnog indeksiranja.',
   'notFound.eyebrow': 'Nije moguće dohvatiti',
   'notFound.title': 'Nema takvog dijela u indeksu',
   'notifications.dismiss': 'Odbaciti',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL izvora',
   'sources.empty.body': 'Kliknite \\u201cDodaj izvor\\u201d za spajanje prvog konektora.',
   'sources.empty.title': 'Još nema izvora.',
+  'sources.error.add': 'Nije moguće dodati izvor.',
   'sources.error.labelRequired': 'Oznaka je obavezna.',
   'sources.error.load': 'Nije moguće učitati izvore.',
   'sources.error.urlRequired': 'Za ovu vrstu izvora potreban je URL.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره ما',
   'actions.empty': 'هیچ مورد عملی مطابقت ندارد.',
   'actions.heading': 'موارد اقدام',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'ماه قبل',
   'calendar.recent': 'اخیر',
   'common.daysAgo': '{{count}} د پیش',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.hoursAgo': '{{count}} ساعت پیش',
   'common.no': '—',
+  'common.retry': 'دوباره امتحان کنید',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} موارد اقدام',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'برای لینک بازنشانی، صندوق ورودی خود را بررسی کنید.',
   'forgot.subheading': 'ایمیل خود را وارد کنید و ما یک لینک بازنشانی ارسال خواهیم کرد.',
   'integrations.disconnected': 'قطع شده',
+  'integrations.loadError': 'بارگیری ادغام‌ها ناموفق بود.',
   'integrations.notConnectedTag': 'متصل نیست',
   'integrations.subheading':
     'تقویم‌ها و پلتفرم‌های ویدیویی را به هم متصل کنید تا مورمور به طور خودکار به آن بپیوندد.',
+  'integrations.updateError': 'به‌روزرسانی ناموفق بود.',
   'landing.ctaButton': 'شروع کنید - رایگان است',
   'landing.ctaHeading': 'یادداشت‌برداری را کنار بگذارید. شروع به تصمیم‌گیری کنید.',
   'landing.demo.aiLabel': 'خلاصه هوش مصنوعی، به صورت زنده تهیه شده است',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'پیگیری‌ها',
   'meetingDetail.loadError': 'بارگیری جلسه ناموفق بود.',
   'meetingDetail.noActions': 'هیچ مورد عملی شناسایی نشد.',
+  'meetingDetail.none': 'هیچ کدام.',
   'meetingDetail.notFound': 'جلسه پیدا نشد.',
+  'meetingDetail.speakerFallback': 'گوینده {{id}}',
   'meetingDetail.summaryHeading': 'خلاصه هوش مصنوعی',
   'meetingDetail.transcriptHeading': 'رونوشت',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'جلسات',
   'meetings.loadError': 'بارگیری جلسات ناموفق بود.',
   'meetings.subheading': 'هر جلسه ضبط شده، آپلود شده و همگام سازی شده.',
+  'murmurLayout.openMenu': 'منوی ناوبری را باز کنید',
   'murmurLayout.primaryNavLabel': 'ناوبری اولیه',
   'nav.legal': 'قانونی',
   'notifications.loadError': 'بارگیری اعلان‌ها ناموفق بود.',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'اینکه چطور درون مورمور ظاهر می‌شوی.',
   'record.error.empty': 'هیچ صوتی ضبط نشده است.',
   'record.error.permission': 'اجازه میکروفون رد شد.',
+  'record.error.recorder': 'خطای ضبط کننده',
   'record.error.unsupported':
     'مرورگر شما از ضبط پشتیبانی نمی‌کند. کروم، اج یا سافاری را امتحان کنید.',
   'record.error.upload': 'آپلود ناموفق بود. دوباره امتحان کنید.',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'رمز عبور جدید',
   'reset.subheading': 'رمز عبوری انتخاب کنید که در هیچ جای دیگری استفاده نمی‌کنید.',
   'search.empty': 'برای جستجوی رونوشت‌ها تایپ کنید.',
+  'search.loadError': 'جستجو ناموفق بود. دوباره امتحان کنید.',
   'search.noResults':
     'هیچ نتیجه‌ای برای « {{q}} «. (یا: "(این عبارت به نظر مجموعه‌ای از حروف و اعداد است و معنای مشخصی ندارد.)',
   'settings.appearance.description': 'بین حالت روشن و تاریک جابجا شوید.',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'بارگیری تنظیمات ناموفق بود.',
   'settings.loading': 'در حال بارگذاری…',
   'settings.push.heading': 'اعلان‌های فشاری',
+  'settings.push.subheading':
+    'هشدارهای مرورگر را برای موارد ذکر شده، موارد اقدام و خلاصه‌ها دریافت کنید.',
   'settings.retention.audio': 'صدا را برای [زمان مورد نظر] نگه دارید',
   'settings.retention.heading': 'حفظ',
   'settings.retention.transcript': 'رونوشت‌ها را نگه دارید برای',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'شروع به ضبط یادداشت‌های جلسه در عرض چند دقیقه',
   'signup.terms':
     'با ایجاد حساب کاربری، شما با شرایط خدمات و سیاست حفظ حریم خصوصی ما موافقت می‌کنید.',
+  'signup.termsPrefix': 'با ایجاد حساب کاربری، شما با ما موافقت می‌کنید',
   'team.inviteCta': 'دعوت از هم‌تیمی',
   'team.invitedAs': 'دعوت شده به عنوان {{role}}',
   'team.inviteFailed': 'دعوتنامه ارسال نشد.',

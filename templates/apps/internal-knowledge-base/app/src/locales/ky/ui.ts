@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'article.notFound': 'Макала табылган жок',
   'articleEditor.bodyPlaceholder': 'Блоктор үчүн / деп териңиз же жөн гана жаза баштаңыз.',
+  'articleEditor.loadFailed': 'Макала жүктөлбөй койду',
   'articleEditor.publishing': 'Басмакана\\u2026',
   'articleEditor.saveFailed': 'Сакталбай калды',
   'articleEditor.saving': 'Сакталууда\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Кыстарма',
   'articleView.bookmarkOn': 'Кыстармага кошулган',
   'articleView.edit': 'Макаланы түзөтүү',
+  'articleView.loading': 'Бул макаланы ачуу…',
   'articleView.readTime': '{{minutes}} минималдуу окуу',
   'articleView.spaces': 'Боштуктар',
   'articleView.tocHeading': 'Бул баракчада',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Акыркы түзөтүүлөр, окуулар жана долбоорлор сиздин командаңызда дагы эле уланып жатат.',
   'cairnTrailHero.updated': 'Макалалар жаңыртылды',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'drafts.eyebrow': 'Бүтпөгөн ишиңиз',
   'drafts.heading': 'Долбоорлор',
+  'drafts.loadFailed': 'Сомолоруңуз жүктөлбөй койду.',
   'drafts.subtitle':
     'Баштаган, бирок жарыялана элек макалаларыңыз бар. Бирөөсүн тандап, улантыңыз.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Азырынча орун жок. Макалаларды чогулта баштоо үчүн бирөөсүн ачыңыз.',
   'home.spacesHeading': 'Сиздин мейкиндиктериңиз',
   'home.subtitle': 'Акыркы макалалар, кыстармаларыңыз жана команда эмне жазып жатканы.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule менен курулган.',
   'landing.ctaBody':
     'Жеке авторлор үчүн акысыз. Жумуш китепчелерин, чечимдерди жана адаптацияны жөнөтүүчү таратылган топтор үчүн командалык пландар.',
   'landing.ctaHeading': 'Бүгүн биринчи ташты үйүп кой.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Жумуш ордун түзүү',
   'login.submitting': 'Кирүүдө\\u2026',
   'login.subtitle': 'Аны таштап кеткен жерден изиңизди алыңыз.',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
+  'newSpace.colorAria': '{{color}} түсүн тандаңыз',
   'newSpace.colorLabel': 'Басым түсү',
+  'newSpace.createFailed': 'Орун түзүлбөй койду',
   'newSpace.descriptionPlaceholder':
     'Иштөө китепчелери, нөөмөт боюнча оюн китепчелери, өлүмдөн кийинки окуялар\\u2026',
   'newSpace.eyebrow': 'Билим мейкиндигин ачыңыз',
@@ -108,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Жүктөлүүдө\\u2026',
   'notifications.subtitle':
     '{{count}} окула элек \\u2014 эскерүүлөр, комментарийлер, баракчанын өзгөрүүлөрү жана карап чыгуу өтүнүчтөрү.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.articles': 'макалалар',
   'pricing.spaces': 'боштуктар',
   'profile.eyebrow': 'Автордук профиль',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Жаңы сырсөз киргизиңиз',
   'resetPassword.subtitle': 'Күчтүү сырсөз тандаңыз — кеминде 12 белгиден турушу керек.',
   'searchResults.eyebrow': 'Жумуш ордун издөө',
+  'searchResults.filter.all': 'Бардык мейкиндиктер',
   'searchResults.heading': 'Макалаларды издөө',
   'searchResults.placeholder': 'Издөө китепчелери, RFCлер, саясаттар, чечимдер\\u2026',
   'searchResults.summary': '{{count}} жыйынтыктар \\u201c {{query}} \\u201d',
@@ -135,14 +148,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Бул сиздин аккаунтуңузду жана сиз жазган ар бир макаланы жок кылат. Ырастоо үчүн DELETE деп териңиз.',
   'settings.danger.confirmInvalid': 'Ырастоо үчүн DELETE деп териңиз.',
+  'settings.danger.deleteFailed': 'Аккаунт өчүрүлгөн жок',
   'settings.danger.deleting': 'Жок кылынууда\\u2026',
   'settings.danger.description':
     'Жумуш мейкиндигиңизди өчүрүү бардык макалаларды, комментарийлерди жана версиялардын тарыхын жок кылат. Калыбына келтирүү мүмкүн эмес.',
   'settings.danger.title': 'Жумуш ордун жок кылуу',
+  'settings.email.confirm': 'Электрондук почтаны жаңыртуу',
+  'settings.email.confirmTitle': 'Электрондук почтанын өзгөрүшүн ырастоо',
   'settings.email.saved': 'Электрондук почта жаңыртылды.',
+  'settings.email.updateFailed': 'Электрондук почта жаңыртылган жок',
   'settings.language.title': 'Тил',
   'settings.name': 'Аты',
+  'settings.name.saved': 'Аты-жөнү жаңыртылды.',
+  'settings.name.updateFailed': 'Аты-жөнү жаңыртылган жок',
   'settings.notifications.description': 'Кирүү кутучаңызга эмне жетерин тандаңыз.',
+  'settings.password.changeFailed': 'Сырсөздү өзгөртө алган жок',
   'settings.password.current': 'Учурдагы сырсөз',
   'settings.password.new': 'Жаңы сыр сөз',
   'settings.password.saving': 'Жаңыртылууда…',
@@ -150,10 +170,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Макалалар сиз үчүн кандайча көрсөтүлөт.',
   'settings.reading.title': 'Окуу жана жазуу',
   'settings.subtitle': 'Эскертмелерди, окуу тактасын жана аккаунтуңузду жөндөңүз.',
+  'settings.twofa.code': 'Аутентификация коду',
   'settings.twofa.disable': 'Өчүрүү',
   'settings.twofa.disabled': 'Өчүрүлгөн',
   'settings.twofa.enable': 'Иштетүү',
   'settings.twofa.enabled': 'Иштетилген',
+  'settings.twofa.invalidCode': 'Жараксыз код',
+  'settings.twofa.unavailable': 'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
+  'settings.twofa.verify': 'Текшерүү жана иштетүү',
   'signup.brandQuote':
     'Аны жазып алуу - бул ага муктаж болгон кийинки адамга берген биринчи убадабыз.',
   'signup.eyebrow': 'Жумуш ордун ачуу',

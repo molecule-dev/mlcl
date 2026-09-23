@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Resolució…',
   'comments.subtitle':
     'El {{count}} fils que encara esperen una resposta o una resolució. Ordenats per edat — el més antic primer, perquè no es podreixi res.',
+  'common.goToDashboard': 'Anar al panell',
   'forgotPassword.sentTo': 'Enllaç de restabliment enviat a {{email}}',
   'forgotPassword.successSubheading':
     "Revisa la teva safata d'entrada: acabem d'enviar un enllaç de restabliment. Caduca en 30 minuts.",
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nova pàgina',
   'pageTreeSidebar.workspaceHeader': 'Espai de treball',
   'pageView.breadcrumb': 'Moll de pa',
+  'pageView.confirmTrash': 'Llençar-ho a les escombraries?',
   'pageView.home': 'Inici',
   'pageView.lastEdited': 'Actualitzat {{when}}',
   'pageView.loading': "S'està carregant la pàgina…",
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Resumint…',
   'pageView.summaryUnavailable': "El resum d'IA no està configurat per a aquest espai de treball.",
   'pageView.tocTitle': 'En aquesta pàgina',
+  'pageView.trash': 'Escombraries',
+  'pageView.trashing': 'Destrossant…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Insígnies',
   'profile.owned.title': 'Pàgines pròpies',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Espai de treball, perfil, notificacions, integracions: tot en una sola carcassa tranquil·la.',
   'settingsPage.workspace.defaultLanding': "Pantalla d'aterratge predeterminada",
   'settingsPage.workspace.landingHome': 'Inici',
+  'settingsPage.workspace.landingSpaces': 'Espais',
   'settingsPage.workspace.subdomainLabel': 'Subdomini',
   'settingsPage.workspace.title': 'Espai de treball',
   'signup.eyebrow': 'Inicia un nou espai de treball',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     "Comença una pàgina des d'una plantilla, no des d'un llenç en blanc. Cada plantilla codifica la forma perquè puguis centrar-te en la substància.",
+  'trash.confirmPurge': 'Purgar per sempre?',
+  'trash.confirmPurgeAria': 'Confirma: suprimeix permanentment {{title}}',
   'trash.daysUntilPurge': '{{days}} dies que queden',
   'trash.empty.body':
     'Les pàgines eliminades apareixeran aquí durant 30 dies abans de ser purgades.',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} versions · seleccioneu una fila per inspeccionar la diferència',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Tanca la navegació',
+  'wikiLayout.menu': 'Navegació',
+  'wikiLayout.openMenu': 'Obre la navegació',
   'wikiLayout.searchPlaceholder': 'Cerca a Cairn: pàgines, comentaris…',
 }

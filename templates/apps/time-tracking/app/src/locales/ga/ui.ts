@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Faoi {{app}}',
   'about.plansTitle': 'Pleananna a fhásann leat',
   'brand.tagline': 'Gach soicind',
   'clientDetail.back': 'Ar ais chuig cliaint',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Gach caidreamh in aon áit amháin — tionscadail, uaireanta, sonraisc gan íoc.',
   'clients.title': 'Cliaint',
   'common.and': 'agus',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.activeProjects': 'Tionscadail ghníomhacha',
   'dashboard.empty': 'Gan aon iontrálacha fós. Tosaigh an lasc ama chun do chéad seisiún a rianú.',
   'dashboard.greeting': 'Lá maith, {{name}}',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Níl aon uaireanta inbhilleála le sonrascadh don chliant seo. Rianaigh roinnt ama ar dtús nó sannadh iontrálacha atá ann cheana féin do cheann de thionscadail an chliaint seo.',
   'invoices.save': 'Cruthaigh sonrasc',
   'invoices.subtitle': 'Rollaítear uaireanta rianaithe isteach i sonraisc go huathoibríoch.',
+  'landing.copyright': '© {{year}} {{app}} . Gach soicind, curtha san áireamh.',
   'landing.ctaBody':
     'Saor in aisce le haghaidh suas le 3 thionscadal. Uasghrádaigh nuair a bheidh sé sin fíor i gcás do liosta cliant.',
   'landing.eyebrow': 'Rianú ama le haghaidh oibre inbhilleáilte',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Muinín ag neamhspleácha',
   'landing.testimonial.quote':
     'D’éirigh mé as Toggl i gceann 30 nóiméad. D’íoc an laghdú buiséid as féin. Táim tar éis stop a chur le luachana ísle a thabhairt dhá sheachtain as a chéile.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Gach soicind, cuntas air.',
   'login.brand.subtitle':
     'Tóg an lasc ama ar ais san áit ar fhág tú é — gach nóiméad mapáilte cheana féin chuig tionscadal, cliant, sonrasc.',
   'login.brand.tracking': 'Rianú',
   'login.subheading': 'Tóg an lasc ama arís san áit ar fhág tú é.',
+  'nav.closeMenu': 'Dún an roghchlár nascleanúna',
   'nav.insightsSection': 'Léargais',
   'nav.newEntry': 'Iontráil Nua',
+  'nav.openMenu': 'Oscail an roghchlár nascleanúna',
+  'nav.primary': 'Príomh-loingseoireacht',
   'nav.workSection': 'Obair',
   'notFound.body':
     'Is cosúil gur stop an rianú ar an nasc a lean tú. Téigh ar ais chuig do phainéal agus leanfaimid orainn ag comhaireamh as sin.',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Inbhilleáilte',
   'timer.descriptionPlaceholder': 'Cad atá á dhéanamh agat?',
   'timer.idle': 'Díomhaoin — tosaigh ag rianú',
+  'timer.noProject': 'Gan tionscadal',
   'timer.runningWithProject': 'Gan tionscadal',
   'timer.start': 'Tosaigh an lasc ama',
   'timer.stop': 'Stop an lasc ama',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Over {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Vermogensbeheer-tools',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Geen beleggingsadvies.',
   'argentAuthShell.sampleChange': '+$2.841 (+0,28%) vandaag',
   'argentAuthShell.sampleValue': '$1.032.251',
   'argentLayout.primaryNavLabel': 'Hoofdnavigatie',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Geen transacties voor dit ticker.',
   'assetDetail.txHeading': 'Uw transacties',
   'common.and': 'en',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portefeuilleoverzicht',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Nog geen posities.',
   'holdings.heading': 'Posities',
   'holdings.loadError': 'Posities konden niet worden geladen.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Geen beleggingsadvies. Resultaten uit het verleden bieden geen garantie voor de toekomst.',
   'landing.eyebrow': 'Argent · Een platform voor vermogensbeheer',
   'landing.features.heading': 'Alles wat een adviseur voor zichzelf zou bouwen.',
   'landing.finalCta.heading': 'Breng discipline terug in uw portefeuille.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}u geleden',
   'news.justNow': 'zojuist',
   'news.loadError': 'Nieuws kon niet worden geladen.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'portfolioHeroCard.label': 'Portefeuillewaarde',
   'pricing.holdingsLabel': 'bezittingen',
   'pricing.newsLabel': 'nieuwsartikelen',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Account verwijderen',
   'settings.security.deleting': 'Verwijderen…',
   'settings.security.heading': 'Beveiliging',
+  'settings.security.newPassword': 'Nieuw wachtwoord',
   'settings.security.password': 'Wachtwoord',
   'settings.security.twoFactorEnable': 'Inschakelen',
+  'settings.security.twoFactorInvalidCode': 'Ongeldige code',
+  'settings.security.twoFactorVerify': 'Controleren en inschakelen',
   'settings.tax.error': 'Belastingmethode kon niet worden bijgewerkt.',
   'settings.tax.heading': 'Belastinglotboekhouding',
   'settings.tax.method': 'Standaardmethode',

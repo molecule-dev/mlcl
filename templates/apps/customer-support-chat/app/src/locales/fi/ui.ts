@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
   'authShell.samplePreview':
     '”Hei tiimi, uusi hallintapaneeli on upea – juuri sitä, mitä tarvitsimme!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/pikakuvake',
   'automations.subheading':
     'Säännöt, valmiit vastaukset ja chatbotit – pidä työympäristö sujuvana, kun tiimisi keskittyy vaikeisiin tehtäviin.',
+  'automations.trigger.inboundMessage': 'Saapuva viesti',
   'automations.triggerLabel': 'Laukaisija',
   'chatBubble.internalNoteLabel': 'Sisäinen huomautus',
+  'common.confirmDelete': 'Vahvista poisto',
+  'common.goToDashboard': 'Siirry etusivulle',
   'contactDetail.backToContacts': 'Kaikki yhteystiedot',
   'contactDetail.contactFallback': 'Yhteyshenkilö',
   'contactDetail.conversationFallback': 'Keskustelu',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Viimeksi nähty',
   'contacts.empty': 'Ei vielä yhteystietoja. Lisää ensimmäinen yhteystietosi yllä.',
   'contacts.eyebrow': 'Asiakasluettelo',
+  'contacts.form.nameOrEmailRequired': 'Anna ainakin nimi tai sähköpostiosoite',
   'contacts.form.save': 'Tallenna yhteystiedot',
   'contacts.heading': 'Yhteystiedot',
   'contacts.loading': 'Lataan yhteystietoja…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Tallenna muistiinpano',
   'conversationDetail.tab.note': 'Sisäinen huomautus',
   'conversationDetail.threadAria': 'Keskustelut',
+  'conversationDetail.visitorFallback': 'Vierailija',
   'customerProfilePanel.csatLabel': 'asiakastyytyväisyysindeksi',
   'customerProfilePanel.propertiesTitle': 'Asiakastiedot',
   'customerProfilePanel.recentTitle': 'Viimeaikaiset keskustelut',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Asiakkaat saavat ensimmäisen vastauksen keskimäärin {{time}} -palvelussa — pidä tämä tahti yllä.',
   'inboxHeroCard.title': 'Aktiiviset keskustelut',
+  'inboxLayout.navDrawerLabel': 'Navigointi',
+  'inboxLayout.openMenu': 'Avaa navigointivalikko',
   'inboxOverview.eyebrow': 'Päivän katsaus',
   'inboxOverview.heroChange': '{{count}} auki',
   'inboxOverview.kpiClosedTrend': 'kaikkien aikojen',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Siirry kotisivulle',
   'notifications.subheading':
     'Tehtävät, @maininnat, SLA-riskit, asiakastyytyväisyyspalautteet ja tiimin toiminta — järjestetty uusimmasta vanhimpaan.',
+  'notifications.subjectFallback': 'keskustelu',
+  'notifications.visitorFallback': 'Vierailija',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Korkea',
   'priority.low': 'Matala',
+  'priority.normal': 'Normaali',
   'priority.urgent': 'Kiireellinen',
   'privacy.title': 'Tietosuojakäytäntö',
   'reports.agentFallback': 'Agentti',

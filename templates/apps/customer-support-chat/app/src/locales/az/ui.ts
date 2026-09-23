@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'authShell.samplePreview':
     '“Salam komanda, yeni idarəetmə paneli möhtəşəmdir — tam da ehtiyac duyduğumuz şey!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/qısayol',
   'automations.subheading':
     'Qaydalar, konservləşdirilmiş cavablar və çatbotlar — komandanız çətin işlərə diqqət yetirərkən iş sahəsini səs-küylü saxlayın.',
+  'automations.trigger.inboundMessage': 'Daxil olan mesaj',
   'automations.triggerLabel': 'Tetikleyici',
   'chatBubble.internalNoteLabel': 'Daxili qeyd',
+  'common.confirmDelete': 'Silinməni təsdiqləyin',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'contactDetail.backToContacts': 'Bütün əlaqələr',
   'contactDetail.contactFallback': 'Əlaqə',
   'contactDetail.conversationFallback': 'Söhbət',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Son görüldü',
   'contacts.empty': 'Hələ ki, əlaqə yoxdur. İlk əlaqənizi yuxarıya əlavə edin.',
   'contacts.eyebrow': 'Müştəri kataloqu',
+  'contacts.form.nameOrEmailRequired': 'Ən azı ad və ya e-poçt ünvanı təqdim edin',
   'contacts.form.save': 'Kontaktı yadda saxla',
   'contacts.heading': 'Əlaqə',
   'contacts.loading': 'Kontaktlar yüklənir…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Qeydi yadda saxla',
   'conversationDetail.tab.note': 'Daxili qeyd',
   'conversationDetail.threadAria': 'Söhbət mesajları',
+  'conversationDetail.visitorFallback': 'Ziyarətçi',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Müştəri məlumatları',
   'customerProfilePanel.recentTitle': 'Son söhbətlər',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Müştərilər ilk cavablarını alırlar {{time}} orta hesabla — kadensi davam etdirin.',
   'inboxHeroCard.title': 'Aktiv söhbətlər',
+  'inboxLayout.navDrawerLabel': 'Naviqasiya',
+  'inboxLayout.openMenu': 'Naviqasiya menyusunu açın',
   'inboxOverview.eyebrow': 'Bu gün bir baxışda',
   'inboxOverview.heroChange': '{{count}} açıq',
   'inboxOverview.kpiClosedTrend': 'bütün zamanların',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Ana səhifəyə daxil olun',
   'notifications.subheading':
     'Tapşırıqlar, @qeydlər, SLA riskləri, CSAT rəyi və komanda fəaliyyəti — ən yenisi əvvəlcə sıralanır.',
+  'notifications.subjectFallback': 'söhbət',
+  'notifications.visitorFallback': 'Ziyarətçi',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Yüksək',
   'priority.low': 'Aşağı',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Təcili',
   'privacy.title': 'Məxfilik siyasəti',
   'reports.agentFallback': 'Agent',

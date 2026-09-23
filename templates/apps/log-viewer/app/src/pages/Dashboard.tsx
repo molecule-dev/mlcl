@@ -231,7 +231,7 @@ export function Dashboard() {
           value={(counts.errors * 412).toLocaleString()}
           icon="error"
           tone="error"
-          changeLabel={t('dashboard.deltaUp', { value: '+18.2%' }, { defaultValue: '+18.2%' })}
+          changeLabel={t('dashboard.metric.errorsDelta', {}, { defaultValue: '+18.2%' })}
           changeTone="error"
           sparkline={ERROR_VOLUME_24H}
           caption={t('dashboard.metric.errorsCaption', {}, { defaultValue: 'vs last 24h' })}

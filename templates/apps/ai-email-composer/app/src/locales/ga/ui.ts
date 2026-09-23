@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Ár scéal',
   'aiSuggestionPanel.title': 'Comhphíolóta Sínithe',
   'analytics.col.open': 'Ráta oscailte',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Ag tosú ag seiceáil amach…',
   'billing.subheading': 'Roghnaigh an plean a oireann don chaoi a seolann tú.',
   'billing.unavailable': 'Déan teagmháil le díolacháin',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.retry': 'Déan iarracht eile',
   'compose.adjustingTone': 'Athscríobh sa ton roghnaithe…',
   'compose.aiPromptPlaceholder':
     'm.sh. "Freagra béasach i ndiaidh gan freagra ar feadh coicíse, coinnigh gearr é."',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
     'An gá duit rud éigin a sheoladh? Is féidir le Signet dréacht a bheith réidh i gceann soicindí.',
   'dashboard.composeCtaLabel': 'Cumadóireacht thapa',
   'dashboard.heading': 'Do sheachtain, comhdhéanta',
+  'dashboard.loadFailed': 'Níorbh fhéidir do phainéal rialaithe a lódáil.',
   'dashboard.manageLibrary': 'Bainistigh an leabharlann →',
   'dashboard.recentEmpty': 'Gan aon seoladh fós — beidh do ríomhphoist seolta le feiceáil anseo.',
   'dashboard.recentHeading': 'Seoltaí le déanaí',
@@ -147,6 +151,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ton réamhshocraithe',
   'settings.toneSubheading': 'Úsáideann Signet an ton seo mura ndéanann tú sárú ar an dréacht.',
   'signetLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'signetLayout.toggleMenu': 'Roghchlár scoránaigh',
   'signup.emailLabel': 'Seoladh Ríomhphoist',
   'signup.showPassword': 'Taispeáin an focal faire',
   'signup.tagline': 'Seol do chéad ríomhphost dréachtaithe ag AI i níos lú ná nóiméad.',

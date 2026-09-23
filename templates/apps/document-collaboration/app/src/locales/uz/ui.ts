@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.title': '{{app}} haqida',
   'comments.addFailed': "Fikr qoldirish imkoni bo'lmadi.",
   'comments.backToDoc': "Qo'lyozmaga qaytish",
   'comments.deleteFailed': "O'chirib bo'lmadi.",
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Yechim',
   'comments.resolveFailed': 'Yechim topilmadi.',
   'comments.subtitle': '{{open}} ochiq · {{resolved}} hal qilindi',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.activityHeading': "Nimalar bo'lyapti",
   'dashboard.createFailed': "Hujjat yaratib bo'lmadi.",
   'dashboard.empty': 'Hali qo\'lyozmalar yo\'q — "Yangi hujjat" tugmasidan boshlang.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': "Chiqindi qutisiga tashlab bo'lmadi.",
   'editor.unpublish': 'Nashrni bekor qilish',
   'editor.untitled': 'Nomsiz hujjat',
+  'editor.updatedElsewhere':
+    "Bu hujjat boshqa birov tomonidan yangilandi — eng so'nggisini ko'rish uchun qayta yuklang.",
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     "Agar hisob mavjud bo'lsa {{email}} , qayta o'rnatish havolasi yo'lda.",
   'forgotPassword.subtitle': 'Sizga qayta tiklash havolasini elektron pochta orqali yuboramiz.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule yordamida yaratilgan.',
   'landing.ctaHeading': 'Sahifani oching. Kursorni ishga tushiring.',
   'landing.ctaPrimary': 'Studiya oching',
   'landing.eyebrow': 'Yozuvchilar, muharrirlar va jamoalar uchun',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'tahrirlangan {{when}}',
   'quillonDocumentCard.open': 'Ochish →',
   'quillonKpiCard.trend': "So'nggi trend",
+  'quillonLayout.menu': 'Menyu',
   'quillonLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'quillonStudioHero.collab': 'Hamkorlar',
   'quillonStudioHero.docs': 'Hujjatlarga tegildi',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'hozirgina',
+  'trash.confirmDelete': "O'chirishni tasdiqlang",
   'trash.deleteFailed': "O'chirib bo'lmadi.",
   'trash.deleteForever': "Abadiy o'chirish",
   'trash.empty': "Qayta tiklanadigan hech narsa yo'q.",
+  'trash.emptyAll': "Axlatni bo'shatish",
   'trash.eyebrow': 'Studiya',
   'trash.heading': 'Axlat',
   'trash.loadFailed': "Chiqindilarni yuklab bo'lmadi.",

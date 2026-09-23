@@ -30,6 +30,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'በመመልከት ላይ',
   'auctionDetail.watchRemoved': 'ከክትትል ዝርዝር ተወግዷል።',
   'auctionDetail.watchRemoveLabel': 'ከክትትል ዝርዝር አስወግድ',
+  'auctionPlatformLayout.primaryNavLabel': 'ዋና አሰሳ',
   'authShell.brandBody':
     'ብርቅዬ ሰዓቶችን፣ የጥበብ ስራዎችን እና ልዩ የሆኑ ልዩ እቃዎችን በእውነተኛ ጊዜ ይወዳደሩ። ጋሪው በሰከንዶች ውስጥ ይወርዳል።',
   'authShell.brandEyebrow': 'አሁን በቀጥታ ስርጭት · 1,420 ጨረታዎች',
@@ -47,6 +48,7 @@ export const ui: UiTranslations = {
   'browseAuctions.searchPlaceholder': 'ቦታዎችን፣ ሻጮችን ወይም ምድቦችን ይፈልጉ…',
   'browseAuctions.sortLabel': 'ደርድር በ',
   'browseAuctions.subheading': 'በምድብ ያጣሩ፣ በጣም አስፈላጊ በሆነው ደርድር፣ እና ጌውል ከመውደቁ በፊት ጨረታ ያድርጉ።',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'countdownTimer.ended': 'አብቅቷል',
   'countdownTimer.endingSoon': 'መጨረሻ',
   'forgotPassword.checkEmailBody':
@@ -108,6 +110,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'የይለፍ ቃል ደብቅ',
   'login.showPassword': 'የይለፍ ቃል አሳይ',
   'login.subtext': 'ጨረታዎችዎን መከታተልዎን ይቀጥሉ እና ጌድል ከመውደቁ በፊት ጨረታዎችን ያስቀምጡ።',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'myBids.bidAgain': 'እንደገና ጨረታ ያድርጉ',
   'myBids.browseCta': 'የቀጥታ ጨረታዎችን ያስሱ →',
   'myBids.checkoutCta': 'አሁን ይክፈሉ',
@@ -134,6 +138,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'እስካሁን ምንም ማሳወቂያዎች የሉም።',
   'notificationsPage.eyebrow': 'የእንቅስቃሴ ማዕከል',
   'notificationsPage.subheading': '{{count}} ያልተነበቡ · ጨረታዎች ሲንቀሳቀሱ የቀጥታ ዝመናዎች',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'pricing.bidsLabel': 'ጨረታዎች',
   'pricing.listingsLabel': 'ዝርዝሮች',
   'pricing.watchlistLabel': 'የክትትል ዝርዝር',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Скинути пароль.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Позначити завдання як виконане',
   'checklistTaskCard.markIncomplete': 'Позначити завдання як невиконане',
   'checklistTaskCard.openLabel': 'Відкрити завдання',
+  'common.goToDashboard': 'До панелі',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Ви повністю в курсі',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'На правильному шляху',
   'dashboard.timelineHeading': '30/60/90 етапів',
   'dashboard.viewAllTasks': 'Переглянути всі завдання',
+  'dashboard.weekOne': 'Тиждень 1',
   'dashboard.yourCohort': 'Ваша команда',
   'documents.empty.body': 'Документи, додані вашою командою, відображатимуться тут.',
   'documents.empty.title': 'Документів поки що немає',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-денна безкоштовна пробна версія',
   'landing.subhead':
     'Embark супроводжує кожного нового члена команди протягом перших 90 днів — оформлення документів, навчання, досягнення важливих етапів та змістовні знайомства — все в одному спокійному та впевненому місці.',
+  'layout.openMenu': 'Відкрити меню навігації',
   'layout.search': 'Пошук завдань, документів, товаришів по команді…',
+  'layout.searchTeammates': 'Пошук товаришів по команді за іменем або посадою…',
   'layout.section.onboarding': 'Адаптація',
   'layout.tagline': 'Ваша подорож починається тут',
   'notifications.empty.body': 'Нова активність відображатиметься тут.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'вчора',
   'planUpdated.message': 'Ви все готові.',
   'planUpdated.preparing': 'Оновлення вашого плану…',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.documentsLabel': 'документи',
   'pricing.onboardingsLabel': 'адаптації',
   'pricing.tasksLabel': 'завдання',

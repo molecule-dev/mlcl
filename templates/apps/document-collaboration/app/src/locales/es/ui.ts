@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
+  'about.title': 'Acerca de {{app}}',
   'comments.addFailed': 'No se pudo publicar el comentario.',
   'comments.backToDoc': 'Volver al manuscrito',
   'comments.deleteFailed': 'No se pudo eliminar.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Resolver',
   'comments.resolveFailed': 'No se pudo resolver.',
   'comments.subtitle': '{{open}} abiertos · {{resolved}} resueltos',
+  'common.goToDashboard': 'Ir al panel',
   'dashboard.activityHeading': 'Lo que está pasando',
   'dashboard.createFailed': 'No se pudo crear un documento.',
   'dashboard.empty': 'Aún no hay manuscritos — comienza con el botón Nuevo documento.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'No se pudo enviar a la papelera.',
   'editor.unpublish': 'Despublicar',
   'editor.untitled': 'Documento sin título',
+  'editor.updatedElsewhere':
+    'Este documento fue actualizado por otra persona; actualice la página para ver la última versión.',
   'editor.version': 'v{{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Si existe una cuenta para {{email}}, te enviaremos un enlace de restablecimiento.',
   'forgotPassword.subtitle': 'Te enviaremos un enlace de restablecimiento por correo.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Creado con Molecule.',
   'landing.ctaHeading': 'Abre la página. Deja que comience el cursor.',
   'landing.ctaPrimary': 'Abrir un estudio',
   'landing.eyebrow': 'Para escritores, editores y equipos',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'editado {{when}}',
   'quillonDocumentCard.open': 'Abrir →',
   'quillonKpiCard.trend': 'Tendencia reciente',
+  'quillonLayout.menu': 'Menú',
   'quillonLayout.primaryNavLabel': 'Navegación principal',
   'quillonStudioHero.collab': 'Colaboradores',
   'quillonStudioHero.docs': 'Documentos tocados',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': 'hace {{days}} d',
   'time.hoursAgo': 'hace {{hours}} h',
   'time.justNow': 'ahora mismo',
+  'trash.confirmDelete': 'Confirmar eliminación',
   'trash.deleteFailed': 'No se pudo eliminar.',
   'trash.deleteForever': 'Eliminar para siempre',
   'trash.empty': 'Nada que recuperar.',
+  'trash.emptyAll': 'Vaciar papelera',
   'trash.eyebrow': 'Estudio',
   'trash.heading': 'Papelera',
   'trash.loadFailed': 'No se pudo cargar la papelera.',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'تماس بگیرید',
   'about.eyebrow': 'درباره',
+  'about.title': 'درباره {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'عکس حرفه‌ای از یک نماینده پشتیبانی زن با لبخندی دوستانه در یک دفتر مدرن',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'تماس با پشتیبانی',
   'forgotPassword.error': 'ارسال ایمیل بازیابی ناموفق بود. لطفاً دوباره امتحان کنید.',
   'forgotPassword.rememberPassword': 'رمز عبور خود را به خاطر دارید؟',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'ورود — پشتیبانی زنیت',
   'login.showPassword': 'نمایش رمز عبور',
   'login.welcomeSubheading': 'وارد پنل پشتیبانی خود شوید',
+  'mobileNav.closeMenu': 'بستن ناوبری',
+  'mobileNav.menu': 'ناوبری',
+  'mobileNav.openMenu': 'ناوبری باز',
   'nav.legal': 'قانونی',
   'nav.newTicket': 'بلیط جدید',
   'notifications.loadError': 'اعلان‌ها بارگیری نشدند. چند لحظه دیگر دوباره امتحان کنید.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'جستجوی فرمان',
   'operatorDock.newReport': 'گزارش جدید',
   'operatorDock.systemOnline': 'سیستم آنلاین',
+  'planUpdated.subtitle': 'از شما متشکریم',
   'planUpdated.title': 'طرح به‌روزرسانی شد',
   'pricing.agents': 'عوامل',
   'pricing.automation': 'قوانین اتوماسیون',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{نام}}',
   'ticketCustomerReply.avatarAlt': '{{نام}} آواتار',
   'ticketDetail.errorTitle': 'چیزی اشتباه پیش رفت',
+  'ticketDetail.loadError': 'بارگیری بلیط ناموفق بود.',
+  'ticketDetail.notFound': 'بلیت پیدا نشد',
+  'ticketDetail.replyError': 'ارسال پاسخ ناموفق بود. لطفا دوباره امتحان کنید.',
   'ticketDetail.retry': 'دوباره امتحان کنید',
   'ticketDetail.statusUpdateError': 'به‌روزرسانی وضعیت امکان‌پذیر نیست. دوباره امتحان کنید.',
   'ticketDetailsCard.assigneeLabel': 'واگذارکننده',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{زمان}} چپ',
   'ticketRow.title': 'اتصال به پایگاه داده در محیط عملیاتی با مشکل مواجه شد {{گره}}',
   'tickets.pageTitle': 'تیکت‌ها — پشتیبانی زنیت',
+  'ticketsFab.newTicket': 'بلیط جدید',
   'ticketsFilterBar.assigneeLabel': 'واگذارکننده:',
   'ticketsFilterBar.clearFilters': 'فیلترها را پاک کنید',
   'ticketsFilterBar.dateRangeDemoHint': 'فیلتر بازه تاریخ در این نسخه دمو فعال نیست.',

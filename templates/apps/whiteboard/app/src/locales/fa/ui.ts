@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'authShell.brandHeading': 'بوم‌های چند نفره برای تیم‌های طراحی که با صدای بلند فکر می‌کنند.',
   'billing.canceled': 'اشتراک لغو شد.',
   'billing.cancelPlan': 'لغو طرح',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'از الگو شروع کنید',
   'boards.title': 'تابلوهای شما',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'ایمیلی که به فضای کاری شما مرتبط است را وارد کنید، ما یک لینک بازنشانی برای شما ارسال خواهیم کرد.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'ساخته شده برای تفکر آشفته، مولد و حضوری.',
   'landing.demoBoard.title': 'کارگاه آموزشی Q1 · صدای برند',
   'landing.featuresTitle': 'بازخورد سریع. بوم‌های زیبا. بدون اصطکاک.',
+  'landing.hero.body':
+    '{{appName}} یک تخته سفید چند نفره برای تیم‌های طراحی، تسهیل‌گران کارگاه‌ها و مربیانی است که طوفان‌های فکری زنده برگزار می‌کنند و نیاز به همگرایی ایده‌ها در یک مکان دارند.',
   'landing.hero.primaryCta': 'یک انجمن را به صورت رایگان راه اندازی کنید',
   'landing.hero.socialProof': 'مورد اعتماد توسط {{count}} تیم‌های طراحی در سراسر جهان',
   'landing.hero.title': 'بوم نقاشی به سرعت افکارت',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ایجاد یک فضای کاری رایگان',
   'login.subheading':
     'کارگاه را از جایی که متوقف شد ادامه دهید - تخته‌ها، یادداشت‌های چسبان و مکان‌نماها همه به صورت همزمان همگام‌سازی می‌شوند.',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.new': 'جدید',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'notifications.editTitle': 'ویرایش‌ها به " {{board}} «',
   'notifications.empty.body':
     'دعوت‌نامه‌ها، ذخیره اسنپ‌شات‌ها و ویرایش‌های اخیر بورد، به محض وقوع، در اینجا نمایش داده می‌شوند.',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'تاریخچه نسخه',
   'versionHistory.untitledSnapshot': 'عکس فوری بدون عنوان',
   'whiteboardLayout.newBoard': 'تخته جدید',
+  'whiteboardLayout.primaryNav': 'ناوبری اولیه',
   'workspace.boardLabel': 'هیئت مدیره',
   'workspace.eyebrow': '{{name}} · فضای کاری',
   'workspace.invite': 'دعوت از همکاران',

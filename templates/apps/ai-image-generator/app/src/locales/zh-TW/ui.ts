@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'auth.fields.newPassword': '新密碼',
   'collectionDetail.addImage': '召喚收集',
   'collectionDetail.backCta': '返回收藏夾',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': '情緒板、簡報和持續系列',
   'collections.title': '收藏',
   'collections.untitled': '無題 · {{stamp}}',
+  'common.closeMenu': '關閉選單',
+  'common.dismiss': '解僱',
+  'common.goToDashboard': '前往主控台',
+  'common.openMenu': '開啟導覽選單',
   'credits.eyebrow': '{{plan}}計劃',
   'credits.renewsCopy': '計畫續期{{date}}',
   'credits.trail': '遐想{{plan}}層級',
@@ -126,6 +131,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': '發電活動、分享和信用提醒將顯示在此。',
   'notifications.empty.title': '暫無報告',
   'notifications.subtitle': '按日期分組的世代事件',
+  'planUpdated.verifying': '確認您的付款中…',
   'pricing.limits.gallery': '{{count}}畫廊',
   'privacy.collect.body':
     '註冊時，我們會收集您的姓名、電子郵件地址和雜湊密碼。使用 Reverie 期間，我們會儲存您提交的提示、我們為您產生的圖像、您儲存的樣式和系列，以及元數據，例如使用的模型、產生時間戳記和積分餘額。',
@@ -161,6 +167,7 @@ export const ui: UiTranslations = {
   'reset.submit': '儲存新密碼',
   'reset.submitting': '正在更新密碼…',
   'settings.account.handle': '手柄',
+  'settings.account.lastSaved': '活躍個人檔案 · {{name}}',
   'settings.account.saved': '已儲存的個人資料',
   'settings.account.saveFailed': '無法儲存個人資料',
   'settings.account.title': '創作者簡介',
@@ -182,7 +189,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': '新影像',
   'sidebar.secondary': '輔助導航',
   'signup.failed': '報名失敗，請重試。',
+  'signup.firstNamePlaceholder': '《Aria》',
   'signup.heading': '開始你的遐想',
+  'signup.lastNamePlaceholder': '林',
   'signup.subheading': '建立帳戶即可領取120個免費點數。',
   'styles.empty': '目前還沒有樣式預設－首次登入後才會顯示。',
   'styles.eyebrow': '精選',

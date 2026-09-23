@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Klijenti',
   'customers.loadError': 'Ma rnexxielx jitgħabbew il-klijenti.',
   'customers.loading': 'Qed jitgħabba…',
+  'customers.new.address': 'Indirizz tas-servizz',
   'customers.new.email': 'Email',
   'customers.new.error': 'Ma rnexxielx jiżdied il-klijent.',
   'customers.new.heading': 'Klijent ġdid',

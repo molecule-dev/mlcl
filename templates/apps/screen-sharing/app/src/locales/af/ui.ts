@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'about.pageTitle': 'Oor {{appName}}',
   'analytics.empty': 'Neem jou eerste snit op om betrokkenheid hier te sien.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'knipsels',
   'billing.usage.views': 'Uitsigte',
   'billing.usage.views.unit': 'uitsigte',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'landing.cta.title': 'Lewer beter terugvoer. Begin met Glint.',
   'landing.feature.capture.body':
     'Blaaier-, rekenaar- en mobiele opname met mikrofoon, kamera en tekening.',
   'landing.feature.capture.title': 'Een-tik-opname',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asinkronies, liggewend gemaak.',
   'landing.hero.cardCaption': 'Voorbeeld werkruimte-oorsig — probeer dit gratis.',
   'landing.hero.primaryCta': 'Begin gratis opneem',
   'landing.hero.proof.free': 'Gratis vir ewige vlak',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Soek opnames',
   'library.searchPlaceholder': 'Soek opnames…',
   'library.weeklyChange': '{{value}} % teenoor verlede week',
+  'nav.openMenu': 'Maak navigasiekieslys oop',
   'nav.record': 'Rekord',
   'nav.shared': 'Met my gedeel',
   'nav.startRecording': 'Begin opname',

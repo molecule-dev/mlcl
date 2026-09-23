@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'I-restart ang kadena',
   'resetPassword.mismatchError': 'Hindi tugma ang mga password.',
   'resetPassword.subheading': 'Pumili ng malakas. Naghihintay ang iyong mga libro.',
-  'reviewCard.starsAria': 'Na-rate<x> {{rating}}</x> mula sa<x> {{ng}}</x> mga bituin',
+  'reviewCard.starsAria': 'Niraranggo nang {{rating}} mula sa {{of}} bituin',
   'reviewCard.unratedAria': 'Walang rating',
   'reviews.eyebrow': 'Ano ang nananatili sa iyo',
   'reviews.heading': 'Iyong mga review',

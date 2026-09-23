@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.pageTitle': 'Game da {{app}}',
   'activity.empty': "Babu wani aiki tukuna — juya na'ura ko kunna wani yanayi.",
   'activity.eyebrow': 'Tsarin lokaci',
   'activity.loadError': 'Ba za a iya loda abincin aiki ba.',
   'activity.subheading':
     "Kowace na'ura, ta atomatik, da kuma abubuwan da suka faru na tsaro a cikin tsari na lokaci-lokaci.",
+  'addDevice.error.failed': "Ba zan iya ƙara na'urar ba. Gwada kuma.",
   'addDevice.error.nameRequired': "Ba wa wannan na'urar suna don ci gaba.",
   'addDevice.field.firmware': 'Sigar firmware',
   'addDevice.field.manufacturer': 'Mai ƙera',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Gwaji…',
   'automationEditor.testNew': 'Ajiye atomatik da farko don gwada shi.',
   'automationRow.lastRun': 'Na ƙarshe {{date}} · {{count}} gudu',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Gudu {{name}} yanzu',
   'automations.empty': "Babu na'urorin sarrafa kansa tukuna — ƙirƙiri tsarin aikinka na farko.",
   'automations.eyebrow': 'Ayyuka na yau da kullun',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Ana lodawa ta atomatik…',
   'automations.newAutomation': '+ Sabo',
   'automations.subheading': 'Idan wannan ya faru, yi hakan — ba tare da YAML ba.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': "An kasa loda na'urar.",
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Aiki…',
   'deviceDetail.unnamed': "Na'ura",
   'deviceStatusRow.on': 'A kunne',
+  'deviceStatusRow.turnOff': 'Kashe',
+  'deviceStatusRow.turnOn': 'Kunna',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Ƙarfi',
   'energy.heading': 'Makamashi',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Duba tsare-tsare',
   'settings.security.heading': 'Tsaro',
   'settings.subheading': 'Tsarin, cibiyoyin sadarwa, da kuma abubuwan da aka fi so a asusun.',
+  'smartHomeDashboardLayout.openMenu': 'Buɗe menu na kewayawa',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Babban kewayawa',
 }

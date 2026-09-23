@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'about.pageTitle': 'గురించి {{name}}',
   'auth.footer.about': 'గురించి {{name}}',
   'authHeader.subtitle': 'మీ సంఖ్యలు సరిగ్గా ఉండేలా చూసుకోవడానికి సైన్ ఇన్ చేయండి.',
   'automations.action.email': 'ఇమెయిల్',
+  'automations.action.noop': 'నో-ఆప్',
   'automations.action.webhook': 'వెబ్‌హుక్',
   'automations.confirmDelete': 'తొలగించు {{name}} "?',
   'automations.empty.headline': 'ఇంకా ఆటోమేషన్లు లేవు',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ప్రతి వర్క్‌బుక్‌లో ట్రిగ్గర్‌లు మరియు చర్యలు. ప్రతి రన్ మీరు తర్వాత ఆడిట్ చేయగల ఒక వరుసను లాగ్ చేస్తుంది.',
   'automations.toggle': 'టోగుల్ {{name}}',
+  'automations.trigger.dailySchedule': 'రోజువారీ షెడ్యూల్',
+  'automations.trigger.rowCreated': 'వరుస సృష్టించబడింది',
+  'automations.trigger.rowUpdated': 'వరుస నవీకరించబడింది',
   'billing.empty': 'ప్రణాళికలు అందుబాటులో లేవు.',
   'billing.error.priceMissing':
     'ఈ శ్రేణికి స్ట్రైప్ ధర కాన్ఫిగర్ చేయబడలేదు. STRIPE_*_PRICE_ID ఎన్విరాన్మెంట్ వేరియబుల్స్‌ను సెట్ చేయండి.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'చార్ట్‌లు',
   'charts.kpi.totalCharts': 'మొత్తం చార్ట్‌లు',
   'charts.list.empty': 'ఇంకా చార్టులు లేవు.',
+  'charts.namePlaceholder': 'ఆదాయ ధోరణి',
   'charts.newChart': 'కొత్త చార్ట్',
   'charts.primary.eyebrow': 'రకం వారీగా చార్టులు',
   'charts.primary.headline': 'వర్క్‌స్పేస్ అవలోకనం',
   'charts.subhead':
     'మీ గ్రిడ్‌కు అనుసంధానించబడిన ప్రత్యక్ష దృశ్యీకరణలు — ప్రతి సెల్ మార్పుపై తిరిగి రెండర్ చేయబడతాయి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'editor.addColumn': 'కాలమ్‌ను జోడించండి',
+  'editor.addDialogTitle': 'కాలమ్‌ను జోడించండి',
   'editor.addRow': 'వరుసను జోడించండి',
   'editor.addSheet': 'షీట్‌ను జోడించండి',
   'editor.back': 'వర్క్‌బుక్‌లకు తిరిగి వెళ్లండి',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} కాల్సైట్ అనేది విశ్లేషకులు మరియు ఆర్థిక బృందాలు మొదటగా ఎంచుకునే ఫార్ములా-కేంద్రీకృత, బహుళ-వీక్షణ, నిజ-సమయ గ్రిడ్.',
   'landing.nav.formulas': 'సూత్రాలు',
+  'login.noAccount': '{{name}} కు కొత్తగా వచ్చారా?',
+  'login.signIn': '{{name}} లోకి సైన్ ఇన్ చేయండి',
   'login.signUp': 'పని ప్రదేశాన్ని సృష్టించండి',
+  'nav.menu': 'మెనూ',
+  'nav.openMenu': 'మెనూ తెరవండి',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'ఈ గొడవ ఎప్పుడూ జరగలేదు.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'నేటివ్ ఆటోమేషన్లు · వెబ్‌హుక్ & క్రాన్ ట్రిగ్గర్లు',
   'signup.creating': 'కార్యస్థలాన్ని ఏర్పాటు చేయడం…',
   'signup.cta': 'నా కార్యస్థలాన్ని సృష్టించండి',
+  'signup.haveAccount': 'ఇప్పటికే {{name}} లో ఉన్నారా?',
   'signup.namePlaceholder': 'అవేరీ చెన్',
   'signup.tagline': '30 సెకన్లలో మీ మొదటి వర్క్‌బుక్‌ను ప్రారంభించండి',
   'team.col.activity': 'ఆహ్వానించబడ్డారు',

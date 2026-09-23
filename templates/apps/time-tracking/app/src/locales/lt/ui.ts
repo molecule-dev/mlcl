@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Apie {{app}}',
   'about.plansTitle': 'Planai, kurie auga kartu su jumis',
   'brand.tagline': 'Kiekvieną sekundę',
   'clientDetail.back': 'Atgal pas klientus',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Visi santykiai vienoje vietoje – projektai, valandos, neapmokėtos sąskaitos.',
   'clients.title': 'Klientai',
   'common.and': 'ir',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.activeProjects': 'Aktyvūs projektai',
   'dashboard.empty':
     'Kol kas įrašų nėra. Įjunkite laikmatį, kad galėtumėte sekti savo pirmąją sesiją.',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Šiam klientui nėra apmokestinamų valandų, kurias būtų galima išrašyti sąskaitoje. Pirmiausia sekite laiką arba priskirkite esamus įrašus vienam iš šio kliento projektų.',
   'invoices.save': 'Sukurti sąskaitą faktūrą',
   'invoices.subtitle': 'Stebimos valandos automatiškai įtraukiamos į sąskaitas faktūras.',
+  'landing.copyright': '© {{year}} {{app}} . Apskaičiuota kiekviena sekundė.',
   'landing.ctaBody': 'Nemokama iki 3 projektų. Atnaujinkite, kai tai padarys jūsų klientų sąrašas.',
   'landing.eyebrow': 'Apmokestinamo darbo laiko stebėjimas',
   'landing.featuresBody':
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Pasitiki nepriklausomi asmenys',
   'landing.testimonial.quote':
     '\\u201cPer 30 minučių išsikrausčiau iš „Toggl“. Vien biudžeto išeikvojimas atsipirko. \\u2014 Dvi savaites iš eilės nustojau nepakankamai įvertinti kainas.\\u201',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Kiekviena sekundė, apskaičiuojama.',
   'login.brand.subtitle':
     'Tęskite laikmatį nuo ten, kur baigėte – kiekviena minutė jau susieta su projektu, klientu, sąskaita faktūra.',
   'login.brand.tracking': 'Stebėjimas',
   'login.subheading': 'Tęskite laikmatį ten, kur baigėte.',
+  'nav.closeMenu': 'Uždaryti navigacijos meniu',
   'nav.insightsSection': 'Įžvalgos',
   'nav.newEntry': 'Naujas įrašas',
+  'nav.openMenu': 'Atidaryti navigacijos meniu',
+  'nav.primary': 'Pagrindinė navigacija',
   'nav.workSection': 'Darbas',
   'notFound.body':
     'Panašu, kad nuoroda, kuria sekėte, nebesekama. Grįžkite į savo prietaisų skydelį – mes tęsime skaičiavimus nuo ten.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Apmokestinama',
   'timer.descriptionPlaceholder': 'Prie ko dirbate?',
   'timer.idle': 'Neveikimo būsena – pradėti sekimą',
+  'timer.noProject': 'Nėra projekto',
   'timer.runningWithProject': 'Nėra projekto',
   'timer.start': 'Paleisti laikmatį',
   'timer.stop': 'Sustabdyti laikmatį',

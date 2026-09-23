@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.title': '{{app}} সম্পর্কে',
   'activeAgentsCard.agent1AvatarAlt':
     'একটি আধুনিক অফিসে বন্ধুত্বপূর্ণ হাসিমুখসহ একজন নারী সাপোর্ট এজেন্টের পেশাদার হেডশট।',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'সহায়তার সাথে যোগাযোগ করুন',
   'forgotPassword.error': 'রিসেট ইমেল পাঠানো যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'forgotPassword.rememberPassword': 'আপনার পাসওয়ার্ড মনে আছে?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'সাইন ইন করুন — জেনিথ সাপোর্ট',
   'login.showPassword': 'পাসওয়ার্ড দেখান',
   'login.welcomeSubheading': 'আপনার সাপোর্ট ড্যাশবোর্ডে সাইন ইন করুন',
+  'mobileNav.closeMenu': 'নেভিগেশন বন্ধ করুন',
+  'mobileNav.menu': 'নেভিগেশন',
+  'mobileNav.openMenu': 'নেভিগেশন খুলুন',
   'nav.legal': 'আইনি',
   'nav.newTicket': 'নতুন টিকিট',
   'notifications.loadError': 'নোটিফিকেশনগুলো লোড করা যায়নি। কিছুক্ষণ পর আবার চেষ্টা করুন।',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'কমান্ড অনুসন্ধান',
   'operatorDock.newReport': 'নতুন প্রতিবেদন',
   'operatorDock.systemOnline': 'সিস্টেম অনলাইন',
+  'planUpdated.subtitle': 'ধন্যবাদ',
   'planUpdated.title': 'পরিকল্পনা আপডেট করা হয়েছে',
   'pricing.agents': 'এজেন্টরা',
   'pricing.automation': 'অটোমেশন নিয়ম',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{name}} তার অবতার',
   'ticketDetail.errorTitle': 'কিছু একটা ভুল হয়েছে',
+  'ticketDetail.loadError': 'টিকিট লোড করা সম্ভব হয়নি।',
+  'ticketDetail.notFound': 'টিকিট খুঁজে পাওয়া যায়নি',
+  'ticketDetail.replyError': 'উত্তর পাঠানো সম্ভব হয়নি। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'ticketDetail.retry': 'আবার চেষ্টা করুন',
   'ticketDetail.statusUpdateError': 'স্ট্যাটাস আপডেট করা যায়নি। আবার চেষ্টা করুন।',
   'ticketDetailsCard.assigneeLabel': 'নির্ধারিত ব্যক্তি',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{সময়}} বাম',
   'ticketRow.title': 'প্রোডাকশনে ডাটাবেস সংযোগ ব্যর্থ হচ্ছে {{নোড}}',
   'tickets.pageTitle': 'টিকেট — জেনিথ সাপোর্ট',
+  'ticketsFab.newTicket': 'নতুন টিকিট',
   'ticketsFilterBar.assigneeLabel': 'অর্পণগ্রহীতা:',
   'ticketsFilterBar.clearFilters': 'ফিল্টার পরিষ্কার করুন',
   'ticketsFilterBar.dateRangeDemoHint': 'এই ডেমো বিল্ডে তারিখ পরিসর ফিল্টারিং সক্রিয় নয়।',

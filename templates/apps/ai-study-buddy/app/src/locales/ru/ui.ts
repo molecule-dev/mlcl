@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Информация о плане загрузки…',
   'billing.popular': 'Самые популярные',
   'billing.subtitle': 'Выберите план, который соответствует вашему темпу обучения.',
+  'common.goToDashboard': 'Перейти к панели',
   'common.today': 'Сегодня',
   'common.yesterday': 'Вчера',
   'courseDetail.empty.body': 'Добавьте учебные материалы, чтобы начать осваивать эту тему.',
@@ -83,8 +84,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Название колоды',
   'flashcards.subtitle': 'Интервальное повторение, адаптирующееся к вашему темпу.',
   'flashcards.title': 'Флэш-карты',
+  'footer.copyright': '© {{year}} {{app}}. Учись хорошо, спи хорошо.',
   'forgotPassword.subtitle':
     'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.',
+  'koanLayout.closeMenu': 'Закрыть меню',
+  'koanLayout.navLabel': 'Основная навигация',
+  'koanLayout.openMenu': 'Открыть меню',
   'koanLayout.theme': 'Тема',
   'landing.featuresBody':
     'Инструменты, разработанные для устранения отвлекающих факторов и формирования прочного понимания.',
@@ -120,11 +125,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Этот URL-адрес — неизведанная территория. Возможно, опечатка, возможно, удаленный урок — в любом случае, давайте продолжим ваше обучение.',
   'notFound.heading': 'Страница не найдена.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Вы всё успели!',
   'notifications.filter.${opt}': 'Загрузка уведомлений…',
   'notifications.markAllError': 'Не удалось пометить все как прочитанное.',
   'notifications.markError': 'Не удалось отметить как прочитанное.',
   'notifications.subtitle': '{{count}} непрочитанные обновления',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.heading': 'викторины',
   'pricing.limits.topics': 'темы',
   'privacy.collectBody':
@@ -190,6 +197,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Попробуйте другое ключевое слово или фильтр.',
   'search.empty.title': 'Ничего не совпало.',
   'search.error': 'Не удалось загрузить результаты.',
+  'search.filters': 'Фильтры по типу результатов',
   'search.go': 'Идти',
   'search.label.flashcard': 'Колода карточек для запоминания',
   'search.label.note': 'Примечание',

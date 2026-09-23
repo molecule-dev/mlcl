@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Ir para o Painel',
   'forgot.eyebrow': 'Perdeu o caminho de volta?',
   'forgot.formSubtitle': 'Diga-nos o e-mail cadastrado.',
   'forgot.headline': 'Redefina sua senha.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Crie uma',
   'login.subline':
     'Seus cadernos, backlinks e páginas diárias estão exatamente onde você os deixou.',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'noteEditor.backToNotes': 'Voltar às notas',
   'noteEditor.bodyPlaceholder':
     'Comece a escrever — sua anotação é salva automaticamente enquanto você digita.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Novo caderno',
   'notes.newNotebookPrompt': 'Novo nome do caderno',
   'notes.notebooksHeading': 'Cadernos',
+  'notes.subtitle':
+    'Selecione um caderno à esquerda e, em seguida, pressione o botão Nova nota para começar uma nova entrada.',
   'planUpdated.confirmation': 'Seu plano foi atualizado',
   'pricing.heading': 'Escolha seu plano de anotações',
   'reset.eyebrow': 'Quase de volta',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Atualizado',
   'versoLayout.nav.graph': 'Gráfico',
   'versoLayout.nav.home': 'Casa',
+  'versoLayout.primaryNavLabel': 'Navegação principal',
   'versoNoteCard.pinned': 'Fixados',
   'versoTodayHero.continueCta': 'Continuar escrevendo',
   'versoTodayHero.createCta': 'Comece a anotação de hoje',

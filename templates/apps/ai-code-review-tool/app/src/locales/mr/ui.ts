@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.connectRepoCta': 'रिपॉझिटरी कनेक्ट करा',
   'dashboard.empty':
     'अद्याप एकही पुल रिक्वेस्ट आलेली नाही — सुरुवात करण्यासाठी रिपॉझिटरी कनेक्ट करा.',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'अपटाइम',
   'pullRequestRow.files': '{{count}} एफ',
   'pullRequestRow.scoreAria': 'एआय गुणवत्ता स्कोअर {{score}} / १०',
+  'refractLayout.closeMenu': 'मेनू बंद करा',
+  'refractLayout.openMenu': 'मेनू उघडा',
   'refractLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'reports.cumulativeScoreLabel': 'संचयी गुण',
   'reports.cumulativeScoreSubtitle': 'सर्व रिपॉझिटरीज · {{days}} डी',
@@ -106,6 +109,7 @@ export const ui: UiTranslations = {
   'repositories.fullNamePlaceholder': 'उदा. yourorg/your-repo',
   'repositories.fullNameRequired': 'रिपॉझिटरीचे नाव आवश्यक आहे.',
   'repositories.heading': 'भांडार',
+  'repositories.lastSync': 'शेवटचे सिंक {{when}}',
   'repositories.loadError': 'रिपॉझिटरीज लोड करण्यात अयशस्वी झाले.',
   'repositories.providerLabel': 'प्रदाता',
   'repositories.subheading':
@@ -157,6 +161,7 @@ export const ui: UiTranslations = {
   'rulesEditor.disableRule': 'नियम अक्षम करा',
   'rulesEditor.empty':
     'अद्याप कोणतेही सानुकूल नियम नाहीत — तुमचा पहिला नियम जोडण्यासाठी वरील फॉर्म वापरा.',
+  'rulesEditor.enabledCount': '{{on}} / {{total}} सक्षम केले',
   'rulesEditor.enableRule': 'नियम सक्षम करा',
   'rulesEditor.eyebrow': 'अपवर्तित करा · धोरणाचे पुनरावलोकन करा',
   'rulesEditor.field.pattern': 'रेगेक्स पॅटर्न',
@@ -176,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'शोध सूची लोड करण्यात अयशस्वी झाले.',
   'settings.apiKeys.description':
     'वरच्या उजव्या कोपऱ्यातील युझर मेन्यूमधून वैयक्तिक API की व्यवस्थापित करा.',
+  'settings.apiKeys.integrationsNote':
+    'प्रोव्हायडर ऍक्सेस टोकनचे व्यवस्थापन वरील इंटिग्रेशन्स विभागात केले जाते.',
   'settings.connectError': 'प्रोव्हायडरशी कनेक्ट होण्यात अयशस्वी झाले.',
   'settings.disconnectError': 'प्रोव्हायडरचे कनेक्शन खंडित करण्यात अयशस्वी झाले.',
   'settings.eyebrow': 'अपवर्तित करा · कार्यक्षेत्र',
   'settings.integration.${provider}.label': 'जतन करत आहे…',
   'settings.loadError': 'सेटिंग्ज लोड करण्यात अयशस्वी झाले.',
+  'settings.notificationCenter': 'सूचना केंद्र',
   'settings.notifications.description':
     'डिलिव्हरी प्राधान्ये पाहण्यासाठी आणि व्यवस्थापित करण्यासाठी सूचना पृष्ठाला भेट द्या.',
   'settings.section.account': 'खाते आणि सुरक्षा',

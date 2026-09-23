@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'در حال بارگذاری اطلاعات طرح…',
   'billing.popular': 'محبوب ترین',
   'billing.subtitle': 'طرحی را انتخاب کنید که با ریتم مطالعه شما متناسب باشد.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.today': 'امروز',
   'common.yesterday': 'دیروز',
   'courseDetail.empty.body': 'برای شروع تسلط بر این موضوع، یک منبع مطالعاتی اضافه کنید.',
@@ -81,8 +82,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'نام عرشه',
   'flashcards.subtitle': 'تکرار فاصله‌دار که با سرعت شما سازگار می‌شود.',
   'flashcards.title': 'فلش کارت‌ها',
+  'footer.copyright': '© {{year}} {{app}} . خوب یاد بگیرید، خوب بخوابید.',
   'forgotPassword.subtitle':
     'ایمیل خود را وارد کنید، ما یک لینک بازنشانی برای شما ارسال خواهیم کرد.',
+  'koanLayout.closeMenu': 'بستن منو',
+  'koanLayout.navLabel': 'ناوبری اولیه',
+  'koanLayout.openMenu': 'منوی باز',
   'koanLayout.theme': 'تم',
   'landing.featuresBody':
     'ابزارهایی که برای از بین بردن حواس‌پرتی و ایجاد درک پایدار طراحی شده‌اند.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'آن آدرس اینترنتی (URL) یک قلمرو ناشناخته است. شاید یک اشتباه تایپی باشد، شاید یک درس حذف شده باشد - در هر صورت، بیایید شما را به مطالعه بازگردانیم.',
   'notFound.heading': 'صفحه یافت نشد.',
+  'notFound.label': '{{appName}} · ۴۰۴',
   'notifications.empty.title': 'همه‌تون گرفتارید',
   'notifications.filter.${opt}': 'در حال بارگیری اعلان‌ها…',
   'notifications.markAllError': 'نتوانستم همه را به عنوان خوانده شده علامت گذاری کنم.',
   'notifications.markError': 'علامت‌گذاری به عنوان خوانده‌شده امکان‌پذیر نبود.',
   'notifications.subtitle': '{{count}} به‌روزرسانی‌های خوانده نشده',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.heading': 'آزمون‌ها',
   'pricing.limits.topics': 'مباحث',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'یک کلمه کلیدی یا فیلتر دیگر را امتحان کنید.',
   'search.empty.title': 'هیچ چیز جور در نمی‌آمد.',
   'search.error': 'نتایج بارگذاری نشد.',
+  'search.filters': 'فیلترهای نوع نتیجه',
   'search.go': 'برو',
   'search.label.flashcard': 'دسته فلش کارت',
   'search.label.note': 'توجه داشته باشید',

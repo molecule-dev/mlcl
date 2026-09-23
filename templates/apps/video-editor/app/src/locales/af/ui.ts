@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy 'n fout gevind, 'n versoek vir 'n funksie, of wil jy ons vertel van die film wat jy gesny het? Elke boodskap bereik 'n regte persoon in die span — kontak ons enige tyd vanaf jou rekeninginstellings.",
+  'about.contactTitle': 'Praat met ons',
+  'about.eyebrow': '// die ateljee agter die snit',
   'about.pageTitle': 'Oor {{appName}}',
   'assetDetail.back': 'Terug na die biblioteek',
   'assetDetail.confirmDelete': 'Vee uit " {{name}} "? Dit kan nie ongedaan gemaak word nie."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} snitte, klankbeddens en grafika gereed om op die tydlyn te verskyn.',
   'assetLibrary.title': 'Bates',
   'assetLibrary.upload': 'Voeg bate by',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.browseTemplates': 'Blaai deur sjablone →',
   'dashboard.loading': 'Laai projekte…',
   'dashboard.noProjects': 'Geen projekte nog nie — skep een om te begin.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Kies iets wat net jy sal onthou.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privaatheid',
+  'rushesLayout.closeMenu': 'Maak navigasie toe',
   'rushesLayout.guest': 'Redakteur',
+  'rushesLayout.navDialog': 'Navigasie',
+  'rushesLayout.openMenu': 'Maak navigasie oop',
   'rushesLayout.planFree': 'Gratis plan',
   'rushesLayout.tagline': 'Filmiese tydlyn',
   'settings.billing.confirmCancel': 'Kanselleer intekening aan die einde van die tydperk?',

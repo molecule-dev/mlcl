@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Sobre {{app}}',
+  'auth.legalConsent': 'En continuar, acceptes les nostres',
   'bookings.empty.body':
     "Afegeix un vol, un hotel o una activitat per iniciar la safata d'entrada.",
   'bookings.empty.heading': 'Encara no hi ha reserves.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Confirmat',
   'bookings.summary.pending': 'Esperant confirmació',
   'bookings.summary.total': 'Total compromès',
+  'bookings.type.car': 'Cotxe de lloguer',
+  'bookings.type.flight': 'Vol',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Altres',
   'budgetSpendCard.budgetTotal': 'de {{total}} planificat',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Detecta conflictes, planifica dies de recuperació entre viatges i mira quan els col·laboradors viatgen amb tu.',
   'common.and': 'i',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.budgetHeading': 'Pols pressupostari',
   'dashboard.empty.heading': 'Encara no has fet cap viatge; el teu atles està en blanc.',
   'dashboard.eyebrow': 'Control de missió',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Viatges en moviment',
   'dashboard.viewAllExpenses': 'Veure totes les despeses',
   'dashboard.viewAllTrips': 'Veure cada viatge',
+  'dayTimelineRow.category.accommodation': 'Estada',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Afegeix a un viatge',
   'destinationOrbCard.tripCount': '{{count}} viatges',
@@ -83,11 +91,15 @@ export const ui: UiTranslations = {
     'Encara no tens correu electrònic? Revisa la carpeta de correu brossa o torna-ho a provar amb una adreça diferent.',
   'forgotPassword.successSubheading':
     "Hem enviat un enllaç de recuperació a {{email}} L'enllaç és vàlid durant 30 minuts.",
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Crea un compte gratuït',
+  'landing.cta.subheading':
+    'Fins a cinc viatges, cinc col·laboradors i cinc parades amb el pla gratuït, amb sincronització en temps real inclosa i amb la funció Pro que amplia els límits quan els teus plans creixen.',
   'landing.destinations.eyebrow': 'On anar després?',
   'landing.destinations.heading': 'Destinacions seleccionades per editors',
   'landing.features.eyebrow': 'Com funciona Waypoint',
   'landing.features.heading': 'Creat per a viatgers, no per a fulls de càlcul.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Comença un viatge gratuït',
   'landing.hero.ctaSecondary': 'Veure un exemple de viatge',
   'landing.hero.subtitle':
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Crea un compte per compartir viatges amb fins a 5 col·laboradors, sincronitzar reserves i reunir totes les confirmacions en un sol lloc.',
+  'signup.termsPrefix': 'En crear un compte, acceptes les nostres',
   'tripCountdownHeroCard.budget': '{{used}} de {{total}} ( {{pct}} % del pressupost)',
   'tripCountdownHeroCard.collaborators': '{{count}} viatgers',
   'tripCountdownHeroCard.countdownLabel': 'Compte enrere',
@@ -203,5 +216,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Encara no hi ha viatges.',
   'trips.pastHeading': 'Aventures passades',
   'trips.subheading': '{{count}} itineraris: passat, present i algun dia.',
+  'waypointLayout.mobileNavClose': 'Tanca el menú de navegació',
   'waypointLayout.primaryNavLabel': 'Navegació principal',
 }

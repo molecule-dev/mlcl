@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.title': 'Tietoa {{app}}sta',
   'comments.addFailed': 'Kommenttia ei voitu lähettää.',
   'comments.backToDoc': 'Takaisin käsikirjoitukseen',
   'comments.deleteFailed': 'Poistaminen ei onnistunut.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Ratkaisu',
   'comments.resolveFailed': 'Ei voitu selvittää.',
   'comments.subtitle': '{{open}} avoin · {{resolved}} ratkaistu',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.activityHeading': 'Mitä on meneillään',
   'dashboard.createFailed': 'Asiakirjaa ei voitu luoda.',
   'dashboard.empty': 'Ei vielä käsikirjoituksia — aloita painamalla Uusi asiakirja -painiketta.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Ei voitu siirtää roskakoriin.',
   'editor.unpublish': 'Poista julkaisusta',
   'editor.untitled': 'Nimetön asiakirja',
+  'editor.updatedElsewhere':
+    'Joku muu on päivittänyt tämän asiakirjan – lataa sivu uudelleen nähdäksesi uusimmat tiedot.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Jos osoitteella {{email}} on tili, nollauslinkki lähetetään sinulle pian.',
   'forgotPassword.subtitle': 'Lähetämme sinulle sähköpostitse linkin salasanan nollaamiseen.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Rakennettu molekyylillä.',
   'landing.ctaHeading': 'Avaa sivu. Anna kursorin aloittaa.',
   'landing.ctaPrimary': 'Avaa studio',
   'landing.eyebrow': 'Kirjoittajille, toimittajille ja tiimeille',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'muokattu {{when}}',
   'quillonDocumentCard.open': 'Avaa →',
   'quillonKpiCard.trend': 'Viimeaikainen suuntaus',
+  'quillonLayout.menu': 'Valikko',
   'quillonLayout.primaryNavLabel': 'Päänavigaatio',
   'quillonStudioHero.collab': 'Yhteistyökumppanit',
   'quillonStudioHero.docs': 'Käsitellyt asiakirjat',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}pv sitten',
   'time.hoursAgo': '{{hours}}t sitten',
   'time.justNow': 'juuri nyt',
+  'trash.confirmDelete': 'Vahvista poisto',
   'trash.deleteFailed': 'Poistaminen ei onnistunut.',
   'trash.deleteForever': 'Poista pysyvästi',
   'trash.empty': 'Ei ole mitään palautettavaa.',
+  'trash.emptyAll': 'Tyhjennä roskakori',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Roskakori',
   'trash.loadFailed': 'Roskakorin lataaminen epäonnistui.',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Boka tid',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Inga patienter att visa.',
+  'common.goToDashboard': 'Gå till översikt',
   'consult.backLink': 'Alla bokningar',
   'consult.captions': 'Undertexter',
   'consult.connected': 'Ansluten · 720p · stabil',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Patienter',
   'patientVitalsHero.scripts': 'Rx öppna',
   'patientVitalsHero.subline': '{{count}} konsultationer på ditt schema idag',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'prescriptions.empty': 'Inga recept matchar.',
   'prescriptions.eyebrow': 'E-förskrivning',
   'prescriptions.heading': 'Recept',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Integritetsmeddelande',
   'privacy.use.body':
     'För att leverera vård, skicka påminnelser om bokningar, dirigera recept och förbättra tjänstens tillförlitlighet. Vi säljer aldrig dina data och delar aldrig klinisk information med annonsörer.',
+  'providers.allSpecialties': 'Alla specialiteter',
+  'providers.loadError': 'Det gick inte att läsa in leverantörerna.',
+  'providers.loading': 'Laddar…',
   'providers.noResults': 'Inga behandlare hittades.',
   'providers.searchPlaceholder': 'Sök efter namn, specialitet...',
   'providers.title': 'Hitta en behandlare',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Dagsstart',
   'settings.availability.heading': 'Tillgänglighet',
   'settings.devices.thisDevice': 'Den här enheten',
+  'settings.devices.unnamed': 'Enhet utan namn',
   'settings.eyebrow': 'Mottagning och konto',
   'settings.loadError': 'Kunde inte ladda din profil.',
   'settings.notifications.emailMessages': 'Mejla mig när mitt vårdteam svarar',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Inaktivera',
   'settings.security.twoFactor.enable': 'Aktivera',
   'settings.security.twoFactor.heading': 'Tvåfaktorsautentisering',
+  'settings.security.twoFactor.invalidCode': 'Koden matchade inte. Försök igen.',
+  'settings.security.twoFactor.setupFailed':
+    'Kunde inte starta tvåfaktorskonfigurationen. Försök igen.',
+  'settings.security.twoFactor.statusOn': 'Tvåfaktorer är på',
   'settings.signOutDevice': 'Logga ut',
   'settings.subheading': 'Behandlarprofil, mottagningsregler och kliniska varningar.',
   'signup.emailLabel': 'E-POST',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Skapa konto',
   'signupFooter.hipaa': 'HIPAA-kompatibel',
   'solaceLayout.primaryNavLabel': 'Primär navigering',
+  'solaceLayout.toggleMenu': 'Växla meny',
   'terms.eligibility.body':
     'Du måste vara minst arton år, eller förälder eller juridisk vårdnadshavare för ett minderårigt barn du söker vård för, och fysiskt befinna dig i en amerikansk delstat där våra kliniker är licensierade.',
   'terms.payment.body':

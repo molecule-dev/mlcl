@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.title': 'Tungkol sa {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'propesyonal na headshot ng isang babaeng ahente ng suporta na may palakaibigang ngiti sa isang modernong opisina',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Makipag-ugnayan sa suporta',
   'forgotPassword.error': 'Hindi mapadala ang reset email. Subukan muli.',
   'forgotPassword.rememberPassword': 'Natatandaan mo ba ang iyong password?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Mag-sign in — Suporta ng Zenith',
   'login.showPassword': 'Ipakita ang password',
   'login.welcomeSubheading': 'Mag-sign in sa iyong dashboard ng suporta',
+  'mobileNav.closeMenu': 'Isara ang nabigasyon',
+  'mobileNav.menu': 'Nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang nabigasyon',
   'nav.legal': 'Legal',
   'nav.newTicket': 'Bagong Tiket',
   'notifications.loadError': 'Hindi ma-load ang mga notification. Subukan muli maya-maya.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Paghahanap ng Utos',
   'operatorDock.newReport': 'Bagong Ulat',
   'operatorDock.systemOnline': 'Sistema Online',
+  'planUpdated.subtitle': 'Salamat',
   'planUpdated.title': 'Na-update ang plano',
   'pricing.agents': 'mga ahente',
   'pricing.automation': 'Mga patakaran sa automation',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{pangalan}} avatar ni',
   'ticketDetail.errorTitle': 'May nangyaring mali',
+  'ticketDetail.loadError': 'Nabigong i-load ang tiket.',
+  'ticketDetail.notFound': 'Hindi natagpuan ang tiket',
+  'ticketDetail.replyError': 'Nabigong maipadala ang tugon. Pakisubukang muli.',
   'ticketDetail.retry': 'Subukan muli',
   'ticketDetail.statusUpdateError': 'Hindi ma-update ang status. Subukan muli.',
   'ticketDetailsCard.assigneeLabel': 'Tatanggap',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{oras}} kaliwa',
   'ticketRow.title': 'Nabigo ang koneksyon sa database sa produksyon {{node}}',
   'tickets.pageTitle': 'Mga Tiket — Suporta ng Zenith',
+  'ticketsFab.newTicket': 'Bagong tiket',
   'ticketsFilterBar.assigneeLabel': 'Tatanggap ng Itinalaga:',
   'ticketsFilterBar.clearFilters': 'I-clear ang mga Filter',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

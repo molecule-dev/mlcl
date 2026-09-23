@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'about.pageTitle': 'Про нас {{name}}',
   'auth.footer.about': 'Про нас {{name}}',
   'authHeader.subtitle': 'Увійдіть, щоб ваші цифри були чесними.',
   'automations.action.email': 'Електронна пошта',
+  'automations.action.noop': 'Без операції',
   'automations.action.webhook': 'Вебхук',
   'automations.confirmDelete': 'Видалити {{name}} "?',
   'automations.empty.headline': 'Автоматизації поки що немає',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Тригери та дії в кожній книзі. Під час кожного запуску реєструється рядок, який можна перевірити пізніше.',
   'automations.toggle': 'Перемикач {{name}}',
+  'automations.trigger.dailySchedule': 'Щоденний розклад',
+  'automations.trigger.rowCreated': 'Рядок створено',
+  'automations.trigger.rowUpdated': 'Рядок оновлено',
   'billing.empty': 'Немає доступних планів.',
   'billing.error.priceMissing':
     'Для цього рівня не налаштовано ціну Stripe. Встановіть змінні середовища STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Діаграми',
   'charts.kpi.totalCharts': 'Загальна кількість діаграм',
   'charts.list.empty': 'Ще немає діаграм.',
+  'charts.namePlaceholder': 'Тенденція доходів',
   'charts.newChart': 'Нова діаграма',
   'charts.primary.eyebrow': 'Діаграми за типом',
   'charts.primary.headline': 'Огляд робочого простору',
   'charts.subhead':
     'Живі візуалізації, прив’язані до вашої сітки — повторно відображаються після кожного редагування комірки.',
+  'common.goToDashboard': 'До панелі',
   'editor.addColumn': 'Додати стовпець',
+  'editor.addDialogTitle': 'Додати стовпець',
   'editor.addRow': 'Додати рядок',
   'editor.addSheet': 'Додати аркуш',
   'editor.back': 'Повернутися до робочих зошитів',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite — це першопрохідний аналітик сітки з кількома видами перегляду в режимі реального часу, який базується на формулах, і фінансові команди прагнуть першими досягти успіху.',
   'landing.nav.formulas': 'Формули',
+  'login.noAccount': 'Вперше на {{name}} ?',
+  'login.signIn': 'Увійти в {{name}}',
   'login.signUp': 'Створіть робочу область',
+  'nav.menu': 'Меню',
+  'nav.openMenu': 'Відкрити меню',
   'notFound.cellRef': '#РЕФ!',
   'notFound.formula': '=LOOKUP(ЗАПИТ.url; "маршрути"; "сторінка")',
   'notFound.headline': 'Цього ряду ніколи не існувало.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Рідна автоматизація · вебхуки та кронні тригери',
   'signup.creating': 'Налаштування робочої області…',
   'signup.cta': 'Створити мою робочу область',
+  'signup.haveAccount': 'Вже користуєтеся {{name}} ?',
   'signup.namePlaceholder': 'Ейвері Чен',
   'signup.tagline': 'Розкрутіть свою першу робочу книгу за 30 секунд',
   'team.col.activity': 'Запрошено',

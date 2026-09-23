@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.tagline': 'Alle Wohneinheiten unter einem Dach.',
+  'common.goToDashboard': 'Zum Dashboard',
   'dashboard.addProperty': 'Objekt hinzufügen',
   'dashboard.empty.body':
     'Sobald Sie Objekte, Einheiten und Mietzahlungen haben, füllt sich dieses Dashboard mit Portfolio-Einblicken.',
@@ -87,6 +90,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · Einheit {{unit}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}} offene Arbeitsaufträge, nach Priorität sortiert',
   'maintenanceQueueList.title': 'Wartungswarteschlange',
+  'nav.closeMenu': 'Menü schließen',
+  'nav.openMenu': 'Menü öffnen',
   'notFound.body': 'Die gesuchte Seite wurde verschoben, archiviert oder hat nie existiert.',
   'notFound.title': 'Diese Tür öffnet sich nicht',
   'notifications.empty.body':

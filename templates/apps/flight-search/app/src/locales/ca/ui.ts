@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.eyebrow': 'Sobre {{app}}',
   'about.pageTitle': 'Cada ruta, una cerca.',
   'booking.backToDetail': 'Torna als detalls del vol',
   'booking.continue': 'Continua amb el pagament',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Impostos i taxes',
   'booking.summary.travelers': 'Viatgers',
   'common.about': 'Sobre',
+  'common.goToDashboard': 'Anar al panell',
   'flightDetail.backToResults': 'Torna als resultats',
   'flightDetail.baseFare': 'Tarifa base',
   'flightDetail.book': 'Continua amb la reserva',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 parada',
   'flightResultCard.select': 'Selecciona',
   'flightResultCard.totalLabel': 'Temps total',
+  'flightSearchLayout.primaryNavLabel': 'Navegació principal',
   'forgotPassword.subheading':
     "Introdueix el correu electrònic del teu compte de Skylark i t'enviarem un enllaç de restabliment segur.",
   'forgotPassword.successBody':
     "Comprovar {{email}} per a un enllaç per establir una nova contrasenya. L'enllaç caduca en 30 minuts.",
   'forgotPassword.successHeading': 'Enllaç de restabliment enviat',
   'landing.cta.explore': 'Prova una cerca',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Troba la propera gran oferta abans que ningú.',
   'landing.cta.signup': 'Comença a fer el seguiment de les tarifes',
   'landing.features.eyebrow': 'Per què Skylark?',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Afegeix alerta',
   'priceAlerts.deleteConfirm': 'Voleu eliminar aquesta alerta?',
   'priceAlerts.empty': 'Encara no hi ha rutes rastrejades.',
+  'priceAlerts.emptyCta': 'Cerca una ruta per seguir',
   'priceAlerts.errorMessage': "No s'han pogut carregar les alertes.",
   'priceAlerts.eyebrow': 'Llista de seguiment de Skylark',
   'priceAlerts.form.createError': "No s'ha pogut crear l'alerta.",
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerari multiciutat',
   'results.multiLegHeading': 'Cama {{n}} · {{de}} → {{a}} · {{data}}',
   'results.multiSummary': '{{count}} cames · {{passengers}} viatger',
+  'results.sortAriaLabel': 'Ordena els resultats per',
   'results.sortLabel': 'Ordenar',
   'results.summary': '{{count}} vols · {{passengers}} viatger',
   'settings.language.title': 'Llengua',

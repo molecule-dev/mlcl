@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'accountSettings.confirmEmailLabel': '확인하려면 DELETE를 입력하세요.',
   'accountSettings.deleteError': '계정을 삭제하지 못했습니다.',
   'accountSettings.passwordError': '비밀번호를 변경하지 못했습니다.',
@@ -51,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': '다가오는 마감일이 없습니다.',
   'dashboard.upcomingTitle': '다가오는 마감일',
   'deviceSettings.unknownDevice': '알 수 없는 기기',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': '지원',
   'forgotPassword.error': '재설정 링크 전송에 실패했습니다.',
   'forgotPassword.subtitle': '이메일을 입력하시면 재설정 링크를 보내드립니다.',
@@ -65,6 +67,9 @@ export const ui: UiTranslations = {
   'login.error': '이메일 또는 비밀번호가 올바르지 않습니다.',
   'login.pageTitle': '로그인',
   'login.signIn': 'Forge에 로그인하세요',
+  'login.subtitle': '로그인하여 프로젝트 진행 상황을 확인하세요.',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'nav.calendar': '캘린더',
   'nav.legal': '법적 고지',
   'nav.myTasks': '내 작업',

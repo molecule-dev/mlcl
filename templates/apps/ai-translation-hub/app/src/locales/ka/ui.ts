@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'billing.canceled': 'გამოწერა გაუქმდა. პერიოდის ბოლოს თქვენ დაუბრუნდებით უფასო ვერსიას.',
   'billing.contactSales': 'დაუკავშირდით გაყიდვების განყოფილებას',
   'billing.free.1': '5 თარგმანი',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'შენახვის ლიმიტი არ არის',
   'billing.upgradeHint': 'განაახლეთ გაფართოებული ხელოვნური ინტელექტის ფუნქციების განსაბლოკად.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.activityEmpty': 'აქტივობა ჯერ არ არის — დაიწყეთ პროექტი ამ არხის შესავსებად.',
   'dashboard.eyebrow': 'მიმოხილვა',
   'dashboard.projectsEmpty': 'პროექტები ჯერ არ არის — დაიწყეთ ერთ-ერთი, რომ აქ ნახოთ.',
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ყველა პროექტში ხელახლა გამოიყენეთ წარსული თარგმანები. უფრო მაღალი შესაბამისობის ქულა → ნაკლები ხელახალი დამუშავება.',
   'memory.title': 'მეხსიერების ბანკი',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'nav.legal': 'იურიდიული',
   'newProject.addLanguage': 'სამიზნის დამატება',
   'newProject.create': 'პროექტის შექმნა',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'მონიშნულია {{count}} შეტყობინებები წაკითხვისთანავე.',
   'notifications.subtitle':
     'თქვენი სამუშაო სივრცეებიდან ხსენებები, მიმოხილვის მოთხოვნები და ხელოვნური ინტელექტის მოვლენები.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'privacy.collection.account': 'თქვენი ანგარიშის ელ. ფოსტა და საჩვენებელი სახელი',
   'privacy.deletion.body':
     'თქვენ შეგიძლიათ წაშალოთ პროექტი, სეგმენტი, ტერმინოლოგიური ტერმინი ან მეხსიერების ჩანაწერი ნებისმიერ დროს შესაბამისი გვერდიდან. თქვენი ანგარიშის პარამეტრებიდან წაშლა წაშლის ჩვენი მონაცემთა ბაზიდან სამუშაო სივრცის ფარგლებში არსებულ ყველა რიგს.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'პროექტების ჩატვირთვა ვერ მოხერხდა.',
   'projects.loading': 'პროექტები იტვირთება…',
   'projects.subtitle': 'ყველა აქტიური პროექტი ყველა ლოკალზე.',
+  'renditionLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'reset.backToLogin': '\\u2190 დაბრუნება შესასვლელად',
   'reset.passwordLabel': 'ახალი პაროლი',
   'review.activeEyebrow': 'სეგმენტი {{number}}',

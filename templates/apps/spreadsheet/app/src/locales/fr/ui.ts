@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'about.pageTitle': 'À propos de {{name}}',
   'auth.footer.about': 'À propos de {{name}}',
   'authHeader.subtitle': 'Connectez-vous pour garder vos chiffres au carré.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': "Pas d'opération",
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Supprimer « {{name}} » ?',
   'automations.empty.headline': 'Aucune automatisation pour l’instant',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Déclencheurs et actions sur tous vos classeurs. Chaque exécution journalise une ligne auditable.',
   'automations.toggle': 'Basculer {{name}}',
+  'automations.trigger.dailySchedule': 'Programme quotidien',
+  'automations.trigger.rowCreated': 'Ligne créée',
+  'automations.trigger.rowUpdated': 'Ligne mise à jour',
   'billing.empty': 'Aucune offre disponible.',
   'billing.error.priceMissing':
     'Aucun prix Stripe configuré pour ce palier. Définissez les variables d’environnement STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Graphiques',
   'charts.kpi.totalCharts': 'Total des graphiques',
   'charts.list.empty': 'Aucun graphique pour l’instant.',
+  'charts.namePlaceholder': 'Tendances des revenus',
   'charts.newChart': 'Nouveau graphique',
   'charts.primary.eyebrow': 'Graphiques par type',
   'charts.primary.headline': 'Vue d’ensemble',
   'charts.subhead':
     'Visualisations en direct liées à votre grille — recalculées à chaque modification.',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'editor.addColumn': 'Ajouter une colonne',
+  'editor.addDialogTitle': 'Ajouter une colonne',
   'editor.addRow': 'Ajouter une ligne',
   'editor.addSheet': 'Ajouter une feuille',
   'editor.back': 'Retour aux classeurs',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite est la grille axée formules, multi-vues et temps réel que les analystes et la finance choisissent en premier.',
   'landing.nav.formulas': 'Formules',
+  'login.noAccount': 'Nouveau sur {{name}} ?',
+  'login.signIn': 'Connectez-vous à {{name}}',
   'login.signUp': 'Créer un espace',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Ouvrir le menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Cette ligne n’a jamais existé.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatisations natives · déclencheurs webhook & cron',
   'signup.creating': 'Provisionnement de l’espace…',
   'signup.cta': 'Créer mon espace',
+  'signup.haveAccount': 'Déjà sur {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Démarrez votre premier classeur en 30 secondes',
   'team.col.activity': 'Invité le',

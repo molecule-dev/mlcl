@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'authShell.brandHeading': 'ਉੱਚੀ ਆਵਾਜ਼ ਵਿੱਚ ਸੋਚਣ ਵਾਲੀਆਂ ਡਿਜ਼ਾਈਨ ਟੀਮਾਂ ਲਈ ਮਲਟੀਪਲੇਅਰ ਕੈਨਵਸ।',
   'billing.canceled': 'ਗਾਹਕੀ ਰੱਦ ਕੀਤੀ ਗਈ।',
   'billing.cancelPlan': 'ਯੋਜਨਾ ਰੱਦ ਕਰੋ',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ਟੈਂਪਲੇਟ ਤੋਂ ਸ਼ੁਰੂ ਕਰੋ',
   'boards.title': 'ਤੁਹਾਡੇ ਬੋਰਡ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'forgot.emailPlaceholder': 'mira@studio.com ਵੱਲੋਂ ਹੋਰ',
   'forgot.subheading': 'ਆਪਣੇ ਵਰਕਸਪੇਸ ਨਾਲ ਜੁੜੀ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।',
   'forgot.success.body':
@@ -81,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'ਗੜਬੜ ਵਾਲੀ, ਉਤਪੰਨ ਕਰਨ ਵਾਲੀ, ਵਿਅਕਤੀਗਤ ਸੋਚ ਲਈ ਬਣਾਇਆ ਗਿਆ।',
   'landing.demoBoard.title': 'Q1 ਵਰਕਸ਼ਾਪ · ਬ੍ਰਾਂਡ ਵਾਇਸ',
   'landing.featuresTitle': 'ਤੇਜ਼ ਫੀਡਬੈਕ। ਸੁੰਦਰ ਕੈਨਵਸ। ਬਿਨਾਂ ਰਗੜ ਦੇ।',
+  'landing.hero.body':
+    "{{appName}} ਡਿਜ਼ਾਈਨ ਟੀਮਾਂ, ਵਰਕਸ਼ਾਪ ਫੈਸੀਲੀਟੇਟਰਾਂ, ਅਤੇ ਸਿੱਖਿਅਕਾਂ ਲਈ ਇੱਕ ਮਲਟੀਪਲੇਅਰ ਵ੍ਹਾਈਟਬੋਰਡ ਹੈ ਜੋ ਲਾਈਵ ਬ੍ਰੇਨਸਟੋਰਮ ਚਲਾਉਂਦੇ ਹਨ ਅਤੇ ਇੱਕ ਥਾਂ 'ਤੇ ਇਕੱਠੇ ਹੋਣ ਲਈ ਵਿਚਾਰਾਂ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।",
   'landing.hero.primaryCta': 'ਮੁਫ਼ਤ ਵਿੱਚ ਇੱਕ ਬੋਰਡ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.hero.socialProof': 'ਭਰੋਸੇਯੋਗ {{count}} ਦੁਨੀਆ ਭਰ ਵਿੱਚ ਡਿਜ਼ਾਈਨ ਟੀਮਾਂ',
   'landing.hero.title': 'ਤੁਹਾਡੇ ਵਿਚਾਰਾਂ ਜਿੰਨਾ ਤੇਜ਼ ਕੈਨਵਸ',
@@ -91,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ਇੱਕ ਮੁਫ਼ਤ ਵਰਕਸਪੇਸ ਬਣਾਓ',
   'login.subheading':
     'ਵਰਕਸ਼ਾਪ ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ ਜਿੱਥੇ ਛੱਡਿਆ ਗਿਆ ਸੀ — ਬੋਰਡ, ਸਟਿੱਕੀ ਨੋਟਸ, ਅਤੇ ਕਰਸਰ ਸਾਰੇ ਅਸਲ ਸਮੇਂ ਵਿੱਚ ਸਿੰਕ ਹੁੰਦੇ ਹਨ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.new': 'ਨਵਾਂ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'notifications.editTitle': '" ਵਿੱਚ ਸੰਪਾਦਨ ਕਰਦਾ ਹੈ {{board}} "',
   'notifications.empty.body':
     'ਸੱਦੇ, ਸਨੈਪਸ਼ਾਟ ਸੇਵ, ਅਤੇ ਹਾਲੀਆ ਬੋਰਡ ਸੰਪਾਦਨ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ ਜਿਵੇਂ ਹੀ ਉਹ ਹੋਣਗੇ।',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ਵਰਜਨ ਇਤਿਹਾਸ',
   'versionHistory.untitledSnapshot': 'ਬਿਨਾਂ ਸਿਰਲੇਖ ਵਾਲਾ ਸਨੈਪਸ਼ਾਟ',
   'whiteboardLayout.newBoard': 'ਨਵਾਂ ਬੋਰਡ',
+  'whiteboardLayout.primaryNav': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'workspace.boardLabel': 'ਬੋਰਡ',
   'workspace.eyebrow': '{{name}} · ਵਰਕਸਪੇਸ',
   'workspace.invite': 'ਸਹਿਯੋਗੀਆਂ ਨੂੰ ਸੱਦਾ ਦਿਓ',

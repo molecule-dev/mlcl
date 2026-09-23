@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Chi siamo',
   'authBrandPanel.quote':
     '“Vellum è ora il sistema di registrazione per ogni accordo firmato che possediamo.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'contractDetail.amount': 'Valore',
   'contractDetail.back': 'Tutti i contratti',
   'contractDetail.downloadCta': 'Scarica PDF',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Se esiste un account per {{email}}, il link di reimpostazione è in arrivo.',
   'forgotPassword.subtitle': 'Le invieremo un link di reimpostazione alla sua email di lavoro.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Realizzato con Molecule.',
   'landing.ctaHeading': 'Veda il suo portafoglio chiudere fin dal primo giorno.',
   'landing.ctaPrimary': 'Avvia uno spazio di lavoro',
   'landing.eyebrow': 'Per Legal Ops e Procurement',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Il nome della controparte è obbligatorio.',
   'newContract.errEmail': "L'email del firmatario è obbligatoria.",
   'newContract.expires': 'Data di scadenza',
+  'newContract.failed': 'Impossibile creare il contratto.',
   'newContract.heading': 'Nuovo contratto',
   'newContract.nextCta': 'Avanti',
   'newContract.review.counterparty': 'Controparte',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Titolo del contratto',
   'newContract.titlePlaceholder': 'Master Services Agreement',
   'newContract.variablesHeading': 'Variabili del contratto',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.dataExport': 'Esportazione dati',
   'pricing.disabled': 'No',
   'pricing.enabled': 'Sì',
@@ -145,15 +151,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': "Impossibile eliminare l'account.",
   'settings.security.deleting': 'Eliminazione…',
   'settings.security.newPassword': 'Nuova password',
+  'settings.security.noDevices': 'Nessun dispositivo registrato.',
   'settings.security.twoFactor': 'Autenticazione a due fattori',
   'settings.security.twoFactorDisable': 'Disattiva',
   'settings.security.twoFactorEnable': 'Attiva',
+  'settings.security.twoFactorInvalidCode': 'Codice non valido.',
   'settings.signatures.body':
     "Il suo nome digitato appare sulla riga di firma di ogni contratto che firma. Lo imposti una volta e verrà reso automaticamente d'ora in poi.",
   'settings.signatures.heading': 'Blocco firma',
   'settings.signatures.save': 'Salva firma',
+  'sign.action': 'Firma questo documento',
+  'sign.eyebrow': 'Si richiede la firma',
+  'sign.for': 'Per {{name}}',
+  'sign.loadError': "Questo link per l'accesso non è valido o è scaduto.",
   'sign.loading': 'Caricamento…',
   'sign.signing': 'Firma in corso…',
+  'sign.submitError': 'Impossibile registrare la tua firma: il link potrebbe essere scaduto.',
   'signup.brandQuote':
     '“Abbiamo migrato 8 anni di documenti cartacei in Vellum in una settimana. La sola traccia di audit giustifica il passaggio.”',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -187,6 +200,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Apri contratto →',
   'vellumKpiCard.trend': 'Andamento recente',
+  'vellumLayout.closeMenu': 'Chiudi il menu di navigazione',
+  'vellumLayout.openMenu': 'Apri il menu di navigazione',
   'vellumLayout.primaryNavLabel': 'Navigazione principale',
   'vellumPortfolioHero.expiring': 'In scadenza 30g',
   'vellumPortfolioHero.label': 'Valore portafoglio',

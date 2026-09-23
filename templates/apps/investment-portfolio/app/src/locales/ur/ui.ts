@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} کے بارے میں',
   'argentAuthShell.brandEyebrow': 'Argent · دولت کے اوزار',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . سرمایہ کاری کا مشورہ نہیں۔',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) آج',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'بنیادی نیویگیشن',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'اس ٹکر کے لیے کوئی لین دین نہیں ہے۔',
   'assetDetail.txHeading': 'آپ کے لین دین',
   'common.and': 'اور',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'پورٹ فولیو کا جائزہ',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ابھی تک کوئی ہولڈنگز نہیں ہیں۔',
   'holdings.heading': 'ہولڈنگز',
   'holdings.loadError': 'ہولڈنگز لوڈ کرنے میں ناکام۔',
+  'landing.copyright':
+    '© {{year}} {{app}} . سرمایہ کاری کا مشورہ نہیں۔ ماضی کی کارکردگی مستقبل کے نتائج کی ضمانت نہیں دیتی۔',
   'landing.eyebrow': 'ارجنٹ · دولت سے مالا مال کرنے کا پلیٹ فارم',
   'landing.features.heading': 'ہر وہ چیز جو ایک مشیر اپنے لیے بنائے گا۔',
   'landing.finalCta.heading': 'نظم و ضبط کو اپنے پورٹ فولیو میں واپس لائیں۔',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} گھنٹہ پہلے',
   'news.justNow': 'ابھی ابھی',
   'news.loadError': 'خبریں لوڈ کرنے میں ناکام۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'portfolioHeroCard.label': 'پورٹ فولیو ویلیو',
   'pricing.holdingsLabel': 'ہولڈنگز',
   'pricing.newsLabel': 'خبروں کے مضامین',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'اکاؤنٹ حذف کریں۔',
   'settings.security.deleting': 'حذف ہو رہا ہے…',
   'settings.security.heading': 'سیکورٹی',
+  'settings.security.newPassword': 'نیا پاس ورڈ',
   'settings.security.password': 'پاس ورڈ',
   'settings.security.twoFactorEnable': 'فعال کریں۔',
+  'settings.security.twoFactorInvalidCode': 'غلط کوڈ',
+  'settings.security.twoFactorVerify': 'تصدیق کریں اور فعال کریں۔',
   'settings.tax.error': 'ٹیکس کے طریقہ کار کو اپ ڈیٹ نہیں کیا جا سکا۔',
   'settings.tax.heading': 'ٹیکس لاٹ اکاؤنٹنگ',
   'settings.tax.method': 'طے شدہ طریقہ',

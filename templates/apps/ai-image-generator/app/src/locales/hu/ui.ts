@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'auth.fields.newPassword': 'Új jelszó',
   'collectionDetail.addImage': 'Készítés a gyűjteményhez',
   'collectionDetail.backCta': 'Vissza a gyűjteményekhez',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Hangulattáblák, leírások és folyamatban lévő sorozatok',
   'collections.title': 'Gyűjtemények',
   'collections.untitled': 'Cím nélkül · {{stamp}}',
+  'common.closeMenu': 'Menü bezárása',
+  'common.dismiss': 'Bezárás',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.openMenu': 'Navigációs menü megnyitása',
   'credits.eyebrow': '{{plan}} csomag',
   'credits.renewsCopy': 'A csomag megújul: {{date}}',
   'credits.trail': 'Ábrándozás · {{plan}} szint',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'A generálási tevékenység, megosztás és kreditértesítések itt fognak megjelenni.',
   'notifications.empty.title': 'Nincs jelenteni való',
   'notifications.subtitle': 'Generálási események napok szerint csoportosítva',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.limits.gallery': '{{count}} galéria',
   'privacy.collect.body':
     'Amikor regisztrál, összegyűjtjük az Ön nevét, e-mail-címét és egy hash-elt jelszót. A Reverie használata során tároljuk az Ön által beküldött promptokat, az Önnek generált képeket, az elmentett stílusokat és gyűjteményeket, valamint metaadatokat, mint a használt modell, a generálási időbélyegek és a kreditegyenleg.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Új jelszó mentése',
   'reset.submitting': 'Jelszó frissítése…',
   'settings.account.handle': 'Felhasználónév',
+  'settings.account.lastSaved': 'Aktív profil · {{name}}',
   'settings.account.saved': 'Profil mentve',
   'settings.account.saveFailed': 'A profilt nem sikerült menteni',
   'settings.account.title': 'Alkotói profil',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Új kép',
   'sidebar.secondary': 'Másodlagos navigáció',
   'signup.failed': 'A regisztráció sikertelen. Próbálja újra.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Kezdje el a reveriéjét',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Hozzon létre fiókot és igényeljen 120 ingyenes kreditet.',
   'styles.empty': 'Még nincsenek stílus-előbeállítások — az első bejelentkezés után jelennek meg.',
   'styles.eyebrow': 'Válogatott',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.title': 'یک اتاق نویسندگی که می‌توانید در جیب خود داشته باشید',
   'billing.cancelConfirm': 'اشتراک فعال خود را لغو کنید؟',
   'billing.cancelFailed': 'نشد لغو کنیم.',
   'billing.checkingOut': 'افتتاح حساب…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'نتوانستم صورتحساب را بارگیری کنم.',
   'billing.loading': 'در حال بارگیری صورتحساب…',
   'billing.upgradeCta': 'ارتقا به {{name}}',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'editor.autosaveOn': 'ذخیره خودکار روشن',
   'editor.backToLibrary': 'بازگشت به کتابخانه',
   'editor.charCount': '{{count}} شخصیت‌ها',
   'editor.confirmTrash': 'این سند را به سطل زباله منتقل کنید؟',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'پین نشده',
   'editor.unpublishCta': 'انتقال به پیش‌نویس',
   'editor.unpublished': 'به پیش‌نویس برگردانده شد',
+  'focus.autosaveOn': 'ذخیره خودکار روشن',
   'focus.backToLibrary': 'بازگشت به کتابخانه',
   'focus.bodyPlaceholder': 'هر بار یک صف. کس دیگری اینجا نیست.',
   'focus.exit': 'خروج از حالت فوکوس',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'یکی ایجاد کنید',
   'login.subline':
     'نسخه‌های خطی، صفحات روزانه و آخرین موقعیت مکان‌نما درست همان جایی هستند که آنها را رها کرده‌اید.',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'pricing.exports': 'صادرات',
   'pricing.folders': 'پوشه‌ها',
   'pricing.heading': 'اسناد',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'کدی را که همین الان برای شما ایمیل کردیم وارد کنید و چیزی را انتخاب کنید که به خاطر سپردنش آسان باشد. پس از ذخیره شدن، شما را وارد سیستم خواهیم کرد.',
   'reset.tokenHint': 'از صندوق ورودی شما الصاق شده است.',
+  'settings.appearance.heading': 'روشن یا تیره',
   'settings.editor.${row.id}.description': 'زبان',
   'settings.editor.description':
     'اسکرول ماشین تحریر، محو شدن پاراگراف و فوکوس در حالت بی‌حرکت - پیش‌فرض‌ها برای جلسات طولانی تنظیم شده‌اند.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'فصل سوم - ساعتی آرام پیش از طلوع آفتاب',
   'versalDocumentCard.pinned': 'پین شده',
   'versalLayout.nav.stats': 'آمار',
+  'versalLayout.primaryNavLabel': 'ناوبری اولیه',
   'versalManuscriptHero.cta': 'ادامه نوشتن',
   'versalManuscriptHero.goalLabel': 'هدف کلمه امروز',
   'versalManuscriptHero.inProgress': 'در مسیر درست',

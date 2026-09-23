@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.pageTitle': 'Gbasara {{app}}',
   'achievementBadgeCard.unlockedOn': 'Emegheghị {{date}}',
   'achievements.loadError': 'Adịghị ebugo ihe ndị a rụzuru.',
   'achievements.subheading': '{{unlocked}} nke {{total}} emepeela',
   'achievements.unlockedOn': 'Emegheghị {{date}}',
+  'auth.legalConsent': "Site n'ịga n'ihu, ị kwenyere n'usoro anyị",
   'calendar.empty': 'Mepụta àgwà ịhụ kalenda gị.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Àgwà',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Usoro omume',
   'category.${c.category}': '{{ọnụọgụ}} omume',
   'common.and': 'na',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'consistencyHeatmap.ariaLabel': 'Maapụ okpomọkụ nke na-adịgide adịgide kwa ụbọchị',
   'consistencyHeatmap.caption': 'Ikpeazụ {{weeks}} izu',
   'consistencyHeatmap.lessLabel': 'Mpekarị',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Lee ya na ndụ',
   'landing.heroSubtitle':
     "Zụlite àgwà dịka ha si agbaso: obere nkwa, usoro kwa ụbọchị, na obi ụtọ dị n'ime ogologo agbụ ígwè na-adịghị agbaji.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': "Nleba anya n'ime Streak",
   'landing.previewMotivation': 'E nwere akara itoolu dị ndụ. Mee ka ha niile dị ọkụ.',
   'login.eyebrow': 'Bulie agbụ ahụ elu',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Mee ka ọ dị obere. Mee ka ọ pụta ìhè. Ga-apụta echi.',
   'newHabit.timeLabel': 'Oge ncheta',
   'notifications.markError': 'Enweghị ike ịde akara niile agụpụtara.',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.entries': 'ntinye {{count}}',
+  'pricing.heading': 'Họrọ atụmatụ {{app}} gị',
   'profile.action.plan': 'Jikwaa ndenye aha',
   'profile.action.settings': 'Ntọala akaụntụ',
   'profile.bioEmpty': 'Tinye obere akụkọ ndụ na Ntọala iji gosipụta onwe gị.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Asọmpi ụtụtụ kwa ụbọchị (8:00 nke ụtụtụ)',
   'settings.reminders.heading': 'Ihe ncheta',
   'settings.reminders.weekly': 'Nchịkọta kwa izu (Mbubreyo Sọnde)',
+  'settings.revokeDeviceWarning': "A ga-ewepụ ohere ngwaọrụ a n'oge na-adịghị anya. Pụọ ya?",
   'settings.signOutDevice': 'Pụọ',
   'settings.streaks.freezesPerWeek': 'Na-akpọnwụ kwa izu',
   'settings.streaks.gracePeriod': 'Oge amara awa isii mgbe etiti abalị gachara',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} na-arụ ọrụ',
   'streakHeroCard.daysSuffix': 'ụbọchị',
   'streakHeroCard.title': 'Usoro kachasị ogologo na-arụ ọrụ',
+  'streakLayout.closeMenu': 'Mechie menu nsoroụzọ',
+  'streakLayout.openMenu': 'Mepee menu nsoroụzọ',
   'streakLayout.primaryNavLabel': 'Ntugharị isi',
 }

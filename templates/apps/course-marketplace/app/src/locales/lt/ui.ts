@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Įkeliami kursai…',
   'browse.next': 'Kitas puslapis',
   'browse.results': 'Rodomi „{{count}}“ kursai',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Rūšiuoti pagal',
   'browse.subtitle':
     'Filtruokite redakcijos archyvą pagal temą, lygį ir kainą. Kiekvieną kursą atidžiai atrenka mūsų redaktoriai.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Jūsų sertifikatas pasirašytas ir paruoštas. Pasidalykite juo su pasauliu arba pasilikite jį kaip priminimą apie pastangas, kurių prireikė jam užsidirbti.',
   'certificate.copyLink': 'Kopijuoti dalijimosi nuorodą',
+  'certificate.copyPrompt': 'Nukopijuokite šią nuorodą:',
   'certificate.download': 'Atsisiųsti PDF',
   'certificate.eyebrow': 'Pasiekimas atrakintas',
   'certificate.linkCopied': 'Nuoroda nukopijuota!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Jūs užsiregistravote!',
   'checkout.verifying': 'Tikrinama jūsų registracija…',
   'checkout.viewLibrary': 'Peržiūrėti mano mokymosi pažangą',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.retry': 'Pabandyk dar kartą',
   'courseDetail.about': 'Apie šį kursą',
   'courseDetail.checkoutPending': 'Pradedamas atsiskaitymo procesas…',
   'courseDetail.continueLearning': 'Tęskite mokymąsi',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 dienų pinigų grąžinimo garantija',
   'courseDetail.includes.video': '{{hours}} valandos vaizdo įrašų pagal užsakymą',
   'courseDetail.instructor': 'Lektorius',
+  'courseDetail.languageEnglish': 'Anglų kalba',
   'courseDetail.lectures': 'Paskaitos',
   'courseDetail.level': 'Lygis',
   'courseDetail.loading': 'Kursas įkeliama…',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Dar nėra atsiliepimų.',
   'instructorProfile.students': 'Studentai',
   'landing.categories.empty': 'Kategorijos bus rodomos, kai katalogas bus užpildytas.',
+  'landing.categories.heading': 'Naršykite archyvą',
   'landing.hero.eyebrow': '„Lectura“ · „Meistriškumo“ leidybos archyvas',
   'landing.hero.proof': 'Juo pasitiki „Google“, „Meta“ ir „Adobe“ mokiniai.',
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Pradėkite mokytis jau šiandien',
   'login.subheading': 'Prisijunkite prie savo mokslinio archyvo.',
   'myLearning.empty.title': 'Kol kas nėra kursų, atitinkančių šį filtrą',
+  'myLearning.error.title': 'Nepavyko įkelti jūsų bibliotekos',
   'myLearning.filter.notStarted': 'Dar nepradėta',
   'myLearning.hero.subtitle': '{{count}} kursai jūsų bibliotekoje. Nepraraskite įgauto pagreičio.',
   'myLearning.hero.title': 'Tęskite ten, kur baigėte.',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Nėra naujų veiklų, kurias reikėtų peržiūrėti. Čia bus rodomi nauji įvykiai.',
   'notifications.empty.title': 'Jūs jau viską žinote',
+  'notifications.error.title': 'Nepavyko įkelti veiklos',
   'privacy.title': 'Privatumo politika',
   'reset.confirmPlaceholder': 'Įveskite naują slaptažodį dar kartą',
   'reset.errorGeneric': 'Nepavyko atkurti slaptažodžio. Paprašykite naujos nuorodos.',
@@ -193,5 +201,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} prieš d.',
   'timeAgo.hours': '{{count}} prieš val.',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} prieš kelis mėnesius',
   'timeAgo.today': 'šiandien',
+  'timeAgo.weeks': '{{count}} prieš kelias savaites',
 }

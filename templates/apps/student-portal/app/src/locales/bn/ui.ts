@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'announcementsFeed.empty': 'এখনো কোনো ঘোষণা আসেনি।',
   'announcementsFeed.eyebrow': '{{count}} আপডেট',
   'announcementsFeed.title': 'সর্বশেষ ঘোষণা',
   'assignmentDetail.alreadySubmitted': 'আপনি ইতিমধ্যেই এই অ্যাসাইনমেন্টটি জমা দিয়েছেন।',
   'assignmentDetail.backLink': 'অ্যাসাইনমেন্টে ফিরে যান',
   'assignmentDetail.dropButton': 'ফাইলগুলি নির্বাচন করুন',
+  'assignmentDetail.due': 'বকেয়া {{due}}',
+  'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'নির্দেশাবলী',
   'assignmentDetail.loadError': 'অ্যাসাইনমেন্ট লোড করতে ব্যর্থ হয়েছে।',
   'assignmentDetail.noInstructions': 'কোনো অতিরিক্ত নির্দেশনা প্রদান করা হয়নি।',
@@ -17,10 +20,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusSubmitted': 'জমা দেওয়া হয়েছে',
   'assignmentDetail.statusTitle': 'জমা দেওয়ার অবস্থা',
   'assignmentDetail.submitted': 'জমা দেওয়া নথিভুক্ত করা হয়েছে — আপনার শিক্ষককে অবহিত করা হয়েছে।',
+  'assignmentRow.courseDue': '{{course}} · Due {{due}}',
   'assignments.empty': 'এখানে কিছুই নেই',
   'assignments.emptyBody':
     'ভিন্ন অবস্থায় থাকা অ্যাসাইনমেন্টগুলো দেখতে উপরের ফিল্টারগুলো পরিবর্তন করুন।',
   'assignments.eyebrow': 'সকল কোর্স · এই সেমিস্টার',
+  'assignments.loadError': 'অ্যাসাইনমেন্টগুলো লোড করা যায়নি।',
   'assignments.loading': 'অ্যাসাইনমেন্ট লোড হচ্ছে…',
   'assignments.subtitle':
     'বকেয়া, জমা দেওয়া, মূল্যায়ন করা হয়েছে বা অনুপস্থিত কী আছে তা দেখতে স্ট্যাটাস অনুযায়ী ফিল্টার করুন।',
@@ -29,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'দ্রষ্টব্য',
   'attendance.empty': 'এখনো কোনো উপস্থিতির রেকর্ড নেই।',
   'attendance.eyebrow': 'বসন্তকালীন পর্ব · শেষ ৪ সপ্তাহ',
+  'attendance.loadError': 'উপস্থিতির রেকর্ড লোড করা যায়নি।',
   'attendance.loading': 'উপস্থিতি লোড হচ্ছে…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -42,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'মাসভিত্তিক গ্রিডে অ্যাসাইনমেন্ট জমা দেওয়ার তারিখগুলো সাজানো হয়েছে — পরীক্ষাগুলো লাল রঙে চিহ্নিত করা হয়েছে।',
   'calendar.title': '{{month}} ঘটনাগুলি',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
+  'common.retry': 'আবার চেষ্টা করুন',
   'common.yes': '✓',
   'courseDetail.backLink': 'গ্রেড',
   'courseDetail.currentGrade': 'বর্তমান গ্রেড',
@@ -71,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'প্রবণতা',
   'grades.empty': 'এখনো কোনো গ্রেড পোস্ট করা হয়নি।',
   'grades.eyebrow': 'গ্রেড বই',
+  'grades.loadError': 'আপনার গ্রেডগুলো লোড করা যায়নি।',
   'grades.loading': 'গ্রেড লোড হচ্ছে…',
   'grades.subtitle':
     'সরাসরি লেটার ও পার্সেন্টেজ গ্রেড। ট্রেন্ড অ্যারো দেখায় আপনি উন্নতি করছেন, একই জায়গায় আছেন, নাকি পিছিয়ে পড়ছেন।',
   'grades.title': 'কোর্স অনুযায়ী আপনার গ্রেড',
   'grades.trendStable': 'স্থিতিশীল',
+  'landing.copyright': '© {{year}} {{app}} . শিক্ষার্থীদের জন্য নির্মিত, পরিবারগুলোর জন্য তৈরি।',
   'landing.ctaHeading': 'কয়েক মিনিটের মধ্যেই একটি শান্ত স্কুল দিন শুরু হয়।',
   'landing.eyebrow': 'মাধ্যমিক ও উচ্চ বিদ্যালয়ের শিক্ষার্থীদের জন্য',
   'landing.featuresHeading': 'শিক্ষার্থীকে কেন্দ্র করে আয়োজিত একটি স্কুল দিবস',
@@ -110,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'অ্যাসাইনমেন্ট',
   'nav.attendance': 'উপস্থিতি',
   'nav.calendar': 'ক্যালেন্ডার',
+  'nav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
   'nav.grades': 'গ্রেড',
+  'nav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'nav.statusEyebrow': 'টার্ম জিপিএ',
   'nav.statusSubtext': 'সম্মাননা তালিকা · বসন্তকালীন সেমিস্টার',
+  'nav.unreadMessages': 'অপঠিত বার্তা',
   'notifications.eyebrow': '{{count}} আপডেট',
   'notifications.subtitle':
     'গ্রেড, রিমাইন্ডার, মেসেজ এবং স্কুলের ঘোষণা। প্রতিটি নোটিফিকেশন কোন কোন চ্যানেলে ব্যবহৃত হবে, তা সেটিংস থেকে ঠিক করুন।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.attendanceLabel': 'উপস্থিতি',
   'pricing.gradesLabel': 'গ্রেড',
   'pricing.heading': 'ঘোষণা',

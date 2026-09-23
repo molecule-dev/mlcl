@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.pageTitle': '{{app}} பற்றி',
   'achievementBadgeCard.unlockedOn': 'திறக்கப்பட்டது {{date}}',
   'achievements.loadError': 'சாதனைகளை ஏற்ற முடியவில்லை.',
   'achievements.unlockedOn': 'திறக்கப்பட்டது {{date}}',
+  'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'calendar.empty': 'உங்கள் நாட்காட்டியைப் பார்க்கும் பழக்கத்தை ஏற்படுத்திக்கொள்ளுங்கள்.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'பழக்கம்',
@@ -19,7 +22,9 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'பழக்க கட்டம்',
   'category.${c.category}': '{{count}} பழக்கவழக்கங்கள்',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'consistencyHeatmap.ariaLabel': 'தினசரி நிலைத்தன்மை வெப்ப வரைபடம்',
+  'consistencyHeatmap.caption': 'கடந்த {{weeks}} வாரங்கள்',
   'consistencyHeatmap.lessLabel': 'குறைவானவை',
   'consistencyHeatmap.moreLabel': 'மேலும்',
   'consistencyHeatmap.title': 'நிலைத்தன்மை',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'நேரலையில் பாருங்கள்',
   'landing.heroSubtitle':
     'பழக்கங்களை அவை உண்மையில் நிலைத்து நிற்கும் விதத்தில் உருவாக்குங்கள்: சிறிய அர்ப்பணிப்புகள், தினசரித் தொடர் முயற்சிகள், மற்றும் ஒரு நீண்ட, தடையற்ற சங்கிலித்தொடரின் உள்ளார்ந்த இன்பம்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'ஸ்ட்ரீக்கின் உள்ளே ஒரு பார்வை',
   'landing.previewMotivation':
     'ஒன்பது கோடுகள் உயிருடன் உள்ளன. அவை அனைத்தையும் கதகதப்பாக வைத்திருங்கள்.',
@@ -99,7 +105,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'சிறியதாகச் செய். குறிப்பிட்டதாகச் செய். நாளை வந்து சேர்.',
   'newHabit.timeLabel': 'நினைவூட்டல் நேரம்',
   'notifications.markError': 'அனைத்தையும் படித்ததாகக் குறிக்க முடியவில்லை.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.entries': '{{count}} பதிவுகள்',
+  'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'profile.action.plan': 'சந்தாவை நிர்வகிக்கவும்',
   'profile.action.settings': 'கணக்கு அமைப்புகள்',
   'profile.bioEmpty':
@@ -130,6 +138,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'தினசரி காலை அறிவிப்பு (காலை 8:00 மணி)',
   'settings.reminders.heading': 'நினைவூட்டல்கள்',
   'settings.reminders.weekly': 'வாராந்திரச் சுருக்கம் (ஞாயிறு மாலைகளில்)',
+  'settings.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.streaks.freezesPerWeek': 'வாரத்திற்கு உறைநிலைகள்',
   'settings.streaks.gracePeriod': 'நள்ளிரவுக்குப் பிறகு 6 மணி நேர சலுகை நேரம்',
@@ -156,5 +166,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} செயலில்',
   'streakHeroCard.daysSuffix': 'நாட்கள்',
   'streakHeroCard.title': 'மிக நீண்ட தொடர்',
+  'streakLayout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'streakLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'streakLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
 }

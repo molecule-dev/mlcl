@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': '解決中…',
   'comments.subtitle':
     '返信や解決を待っている{{count}}件のスレッドです。古い順に並んでいるので、何も埋もれません。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'forgotPassword.sentTo': 'リセットリンクを{{email}}に送信しました',
   'forgotPassword.successSubheading':
     '受信トレイをご確認ください。リセットリンクを送信しました。30分で有効期限が切れます。',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': '新しいページ',
   'pageTreeSidebar.workspaceHeader': 'スペース',
   'pageView.breadcrumb': 'パンくず',
+  'pageView.confirmTrash': '捨てる？',
   'pageView.home': 'ホーム',
   'pageView.lastEdited': '{{when}}に更新',
   'pageView.loading': 'ページを読み込み中…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': '要約中…',
   'pageView.summaryUnavailable': 'このワークスペースではAI要約が構成されていません。',
   'pageView.tocTitle': 'このページの目次',
+  'pageView.trash': 'ゴミ箱',
+  'pageView.trashing': 'ゴミ箱に移動中…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'バッジ',
   'profile.owned.title': '所有ページ',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
     'ワークスペース、プロフィール、通知、連携 — すべてが一つの静かなシェルに。',
   'settingsPage.workspace.defaultLanding': '既定のランディング画面',
   'settingsPage.workspace.landingHome': 'ホーム',
+  'settingsPage.workspace.landingSpaces': 'スペース',
   'settingsPage.workspace.subdomainLabel': 'サブドメイン',
   'settingsPage.workspace.title': 'ワークスペース',
   'signup.eyebrow': '新しいワークスペースを開始',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '約{{min}}分',
   'templates.subtitle':
     '空白のキャンバスではなく、テンプレートからページを始めましょう。各テンプレートが形を固めるので、中身に集中できます。',
+  'trash.confirmPurge': '永遠に浄化するのか？',
+  'trash.confirmPurgeAria': '確認： {{title}}を完全に削除します',
   'trash.daysUntilPurge': '残り{{days}}日',
   'trash.empty.body': '削除されたページは完全削除まで30日間ここに表示されます。',
   'trash.empty.title': 'ゴミ箱は空です。',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': '復元中…',
   'versionHistory.subtitle': '{{count}}件のバージョン · 行を選択して差分を確認',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'ナビゲーションを閉じる',
+  'wikiLayout.menu': 'ナビゲーション',
+  'wikiLayout.openMenu': 'ナビゲーションを開く',
   'wikiLayout.searchPlaceholder': 'Cairnを検索 — ページ、コメント…',
 }

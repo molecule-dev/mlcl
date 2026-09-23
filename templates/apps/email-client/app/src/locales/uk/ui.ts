@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Ми — команда дизайнерів та інженерів, які раніше щодня проводили занадто багато часу в галасливій поштовій скриньці. Courier — це саме та поштова скринька, якою ми самі хотіли б користуватися.',
   'about.title': 'Електронна пошта для зосередженої роботи',
+  'common.goToDashboard': 'До панелі',
   'help.cta.about': 'Про компанію Courier',
   'help.cta.pricing': 'Переглянути ціни',
   'help.eyebrow': 'Довідковий центр',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Короткі відповіді на найпоширеніші запитання. Не вистачає чогось? Відкрийте «Налаштування» та скористайтеся формою зворотного зв’язку в додатку або напишіть на адресу support@courier.example.',
   'help.title': 'Як ми можемо допомогти?',
   'landing.brand.scrollTop': 'Нагору',
+  'landing.copyright': '© {{year}} {{appName}} — Створено для зосередженості.',
   'landing.ctaBody':
     'Приєднуйтесь до тисяч професіоналів, які встигають опрацювати всі листи до обіду.',
   'landing.ctaTitle': 'Більше дійте, менше реагуйте.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Переглянути демо',
   'landing.heroSubtitle':
     'Courier — це лаконічна поштова програма з трьома панелями, створена для фахівців, які працюють з інформацією та прагнуть її опрацьовувати, а не просто реагувати на неї.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Нам довіряють спеціалізовані команди з усього світу',
   'landing.signIn': 'Увійти',
   'meridian.archive.empty': 'Архів порожній.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Кому',
   'meridian.drafts.watermark': 'Чернетка',
   'meridian.folder.count': '{{count}} повідомлення',
+  'meridian.folder.delete': 'Видалити',
   'meridian.folder.deleteForever': 'Видалити назавжди',
   'meridian.folder.restore': 'Перемістити до вхідних',
   'meridian.forgot.subtitle':
@@ -88,7 +92,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Поки що тут немає повідомлень.',
   'meridian.inbox.loading': 'Завантаження…',
   'meridian.inbox.next': 'Далі',
+  'meridian.inbox.noSender': '(без відправника)',
   'meridian.inbox.noSubject': '(без теми)',
+  'meridian.inbox.ofTotal': '{{current}} з {{total}}',
   'meridian.inbox.openCompose': 'Відкрити вікно створення повідомлення',
   'meridian.inbox.previous': 'Попереднє',
   'meridian.inbox.replyFailed': 'Відповідь збережено, але надіслати не вдалося: {{error}}',
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Немає облікового запису?',
   'meridian.login.showPassword': 'Показати пароль',
   'meridian.message.toLine': 'на адресу {{recipients}}',
+  'meridian.notFound.body':
+    'Сторінку, яку ви шукаєте, не знайдено. Поверніться до папки "Вхідні" програми {{appName}} , і ми допоможемо вам знайти потрібний шлях.',
   'meridian.notFound.eyebrow': 'Помилка 404',
   'meridian.notFound.title': 'Ця тема була переміщена до архіву.',
   'meridian.notFound.toInbox': 'Відкрити мою папку «Вхідні»',
@@ -136,18 +144,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Додати зірку',
   'meridian.thread.unstar': 'Зняти позначку «Улюблене»',
   'meridian.time.yesterday': 'Вчора',
+  'meridian.topBar.openMenu': 'Відкрити меню навігації',
   'meridian.topBar.searchPlaceholder': 'Пошук у пошті',
   'meridian.trash.empty': 'Кошик порожній.',
   'meridian.trash.title': 'Кошик',
   'nav.legal': 'Юридична інформація',
   'planUpdated.description':
     'Ваша передплата тепер активна, а платіжні дані оновлено. Ласкаво просимо до оновленої поштової скриньки Courier.',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.heading': 'чернетки',
   'pricing.limit.emails': 'електронні листи',
   'pricing.limit.folders': 'папки',
   'pricing.limit.labels': 'етикетки',
   'privacy.collect.account':
     'Дані облікового запису: ім’я, адреса електронної пошти, хешований пароль та дата реєстрації.',
+  'privacy.contact': 'Запитання? Надішліть електронного листа на privacy@courier.example.',
   'privacy.intro':
     'У цій політиці конфіденційності пояснюється, які дані збирає компанія Courier, з якою метою ми це робимо, як ми забезпечуємо їхню безпеку та які можливості ви маєте щодо цих даних. Ми прагнемо висловлюватися конкретно, а не юридичною мовою; якщо щось вам незрозуміло, напишіть на адресу privacy@courier.example.',
   'privacy.lastUpdated': 'Останнє оновлення: 1 квітня 2026 року',
@@ -167,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ці умови регулюють використання вами сервісу Courier. Створюючи обліковий запис або надсилаючи електронні листи через наш сервіс, ви погоджуєтеся дотримуватися цих умов. Ми намагаємося розробляти правила, яких людина може реально дотримуватися.',
   'terms.lastUpdated': 'Набирає чинності: 1 квітня 2026 року',
+  'terms.linkPrivacy': 'Ознайомтеся з нашою Політикою конфіденційності →',
   'terms.termination.body':
     'Ви можете видалити свій обліковий запис у будь-який час. Ми можемо заблокувати обліковий запис, який порушує ці умови; у такому разі ми пояснимо причину та надамо вам можливість спочатку експортувати свої дані.',
   'terms.warranty.body':

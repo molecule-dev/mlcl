@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'billing.canceled':
     'Abunəlik ləğv edildi. Müddət bitdikdən sonra Pulsuz versiyaya qayıdacaqsınız.',
   'billing.contactSales': 'Satışla əlaqə saxlayın',
@@ -26,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.upgradeHint':
     'Qabaqcıl süni intellekt xüsusiyyətlərinin kilidini açmaq üçün təkmilləşdirin.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.activityEmpty':
     'Hələlik heç bir fəaliyyət yoxdur — bu lenti doldurmaq üçün bir layihəyə başlayın.',
   'dashboard.eyebrow': 'Baxış',
@@ -115,6 +117,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Hər layihədə keçmiş tərcümələrdən yenidən istifadə edin. Daha yüksək uyğunluq balı → daha az təkrar iş.',
   'memory.title': 'Yaddaş bankı',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'nav.legal': 'Hüquqi',
   'newProject.addLanguage': 'Hədəf əlavə edin',
   'newProject.create': 'Layihə yaradın',
@@ -144,6 +148,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'İşarələnmiş {{count}} bildirişlər oxunduğu kimi.',
   'notifications.subtitle':
     'İş sahələrinizdən qeydlər, rəy sorğuları və süni intellekt tədbirləri.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'privacy.collection.account': 'Hesabınızın e-poçt ünvanı və göstəriləcək adı',
   'privacy.deletion.body':
     'İstənilən vaxt müvafiq səhifədən layihəni, seqmenti, lüğət terminini və ya yaddaş girişini silə bilərsiniz. Hesabınızı Parametrlərdən silmək, verilənlər bazamızdan iş sahəsi ilə əhatə olunmuş bütün sətirləri silir.',
@@ -179,6 +184,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Layihələri yükləmək alınmadı.',
   'projects.loading': 'Layihələr yüklənir…',
   'projects.subtitle': 'Bütün ərazilərdə hər bir aktiv layihə.',
+  'renditionLayout.primaryNavLabel': 'Əsas naviqasiya',
   'reset.backToLogin': '\\u2190 Daxil olmaq üçün geri qayıdın',
   'reset.passwordLabel': 'Yeni parol',
   'review.activeEyebrow': 'Seqment {{number}}',

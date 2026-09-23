@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'auditLog.empty':
     '필터에 해당하는 감사 이벤트가 아직 없습니다. 직원을 편집하거나 급여 처리를 진행하면 여기에 표시됩니다.',
   'auditLog.eyebrow': '컴플라이언스',
+  'auditLog.loadError': '감사 로그를 불러올 수 없습니다.',
   'auditLog.searchPlaceholder': '수행자, 작업 또는 설명으로 검색',
   'auditLog.subheading':
     '모든 승인, 편집 및 세금 신고 — 수행자, 타임스탬프 및 변경된 필드와 함께 표시됩니다.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': '구성되지 않음',
   'billing.plansHeading': '요금제',
   'billing.subheading': 'Stripe를 통해 요금제를 관리하고 등급을 변경하십시오.',
+  'common.goToDashboard': '대시보드로 이동',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': '다시 시도',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': '컴플라이언스 스냅샷',
   'dashboard.compliance.title': '모든 검사 통과',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': '등록된 공제 항목이 없습니다.',
   'employeeDetail.notFound': '직원을 찾을 수 없습니다.',
   'employeeDetail.payFrequency': '급여 주기',
+  'employeeDetail.postTax': '세후',
+  'employeeDetail.preTax': '세전',
   'employeeDetail.salary': '연봉',
   'employeeDetail.ssn': '사회보장번호',
   'employeeDetail.startedOn': '{{date}}에 시작',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': '급여 주기',
   'employeeForm.salary': '연봉 (USD)',
   'employeeForm.salaryInvalid': '급여는 음수가 아닌 숫자여야 합니다.',
+  'employeeForm.saveError': '직원을 저장할 수 없습니다.',
   'employeeForm.semimonthly': '반월간',
   'employeeForm.single': '미혼',
   'employeeForm.ssn': '사회보장번호',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': '직원',
   'employeesTable.col.salary': '급여',
   'forgotPassword.subtitle': '업무용 이메일을 입력하시면 재설정 링크를 보내드립니다.',
+  'landing.copyright': '© {{year}} {{app}} . 정확하고, 신뢰할 수 있으며, 침착합니다.',
   'landing.ctaBody':
     '30일 무료. 신용카드 불필요. 감사 기록을 잃지 않고 언제든지 전환할 수 있습니다.',
   'landing.ctaHeading': '다음 사이클을 Stipend에서 운영하십시오',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': '항목',
   'payRunDetail.noActivity': '이 급여 처리에 대한 감사 항목이 아직 없습니다.',
   'payRunDetail.noStubs': '아직 급여 명세서가 없습니다 — 승인 및 처리하여 생성하십시오.',
+  'payRunDetail.notFound': '해당 급여 지급 내역을 찾을 수 없습니다.',
   'payRunDetail.statDeductions': '공제 항목',
   'payRunDetail.statHeadcount': '직원 수',
   'payRunDetail.statTaxes': '원천징수 세금',
@@ -217,7 +226,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': '반월간',
   'settings.signOutDevice': '로그아웃',
   'settings.subheading': '회사 프로필, 급여 일정 및 통합.',
+  'settings.twoFactorCode': '인증 코드',
   'settings.twoFactorDisable': '비활성화',
+  'settings.twoFactorInvalidCode': '잘못된 코드',
+  'settings.twoFactorVerify': '확인 및 활성화',
   'settings.weekly': '주간',
   'taxCenter.bucket.federal': '연방 소득세',
   'taxCenter.bucket.fica': '사회보장세',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Stopite v stik',
   'about.eyebrow': 'O nas',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'dashboard.connectRepoCta': 'Poveži repozitorij',
   'dashboard.empty':
     'Zaenkrat še ni nobenih zahtevkov za vključitev – poveži repozitorij in se loti dela.',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Čas delovanja',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Ocena kakovosti AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Zapri meni',
+  'refractLayout.openMenu': 'Odpri meni',
   'refractLayout.primaryNavLabel': 'Primarna navigacija',
   'reports.cumulativeScoreLabel': 'Skupni rezultat',
   'reports.cumulativeScoreSubtitle': 'vsi repozitoriji · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Iskanje indeksa ni uspelo.',
   'settings.apiKeys.description':
     'Osebne API-ključe lahko upravljate v uporabniškem meniju v zgornjem desnem kotu.',
+  'settings.apiKeys.integrationsNote':
+    'Dostopni žetoni ponudnikov se upravljajo v razdelku »Integracije« zgoraj.',
   'settings.connectError': 'Povezava s ponudnikom ni uspela.',
   'settings.disconnectError': 'Odklop ponudnika ni uspel.',
   'settings.eyebrow': 'Refract · delovno okolje',
   'settings.integration.${provider}.label': 'Shranjevanje …',
   'settings.loadError': 'Nastavitev ni bilo mogoče naložiti.',
+  'settings.notificationCenter': 'Center za obvestila',
   'settings.notifications.description':
     'Obiščite stran z obvestili, kjer lahko pregledate in upravljate nastavitve prejemanja obvestil.',
   'settings.section.account': 'Račun in varnost',

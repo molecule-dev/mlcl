@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'accountDetail.activeBadge': 'Aktiv',
   'accountDetail.availableLabel': '{{amount}} mövcud',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Hesabları yükləmək alınmadı.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Donmuş',
   'accounts.totalBalance': '{{məbləğ}} cəmi',
   'audit.empty': 'Hələlik tədbir yoxdur.',
   'audit.eyebrow': 'Təhlükəsizlik və giriş',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Əldə olan nağd pul',
   'cashCreditCard.creditLabel': 'İstifadə olunmuş kredit',
   'cashCreditCard.title': 'Nağd pul və kredit',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Baxış',
   'dashboard.recentEmpty': 'Hələlik əməliyyat yoxdur.',
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Şifrəni göstər',
   'login.signUp': 'Qeydiyyatdan keçin',
   'login.submit': 'Daxil ol',
+  'meridianLayout.menu': 'Menyu',
   'meridianLayout.primaryNavLabel': 'Əsas naviqasiya',
   'nav.legal': 'Hüquqi',
   'notifications.emptyHeading': 'Hamınız məlumatlısınız',
   'notifications.subheading':
     'Əməliyyatlar, təhlükəsizlik və hesabatlar üçün real vaxt rejimində xəbərdarlıqlar.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'privacy.dataWeShare':
     'Şəxsi bank məlumatları heç vaxt satılmır. Biz məlumatları yalnız əməliyyatların həyata keçirilməsi və ya qanuni öhdəliklərin yerinə yetirilməsi üçün tələb olunduqda ödəniş prosessorları, kart şəbəkələri və tənzimləyicilərlə paylaşırıq.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'İki faktorlu rejim hər girişdə identifikasiya tətbiqindən birdəfəlik kod əlavə edir.',
   'settings.security.twoFactorCta': 'İki faktorlu autentifikasiyanı idarə edin',
+  'settings.security.twoFactorOff': 'İki faktorlu rejim deaktivdir',
   'settings.signOutDevice': 'Çıxış',
   'settings.subheading': 'Profil, təhlükəsizlik və bildirişlər.',
+  'settings.twoFactorCode': 'Doğrulama kodu',
   'settings.twoFactorDisable': 'Deaktiv edin',
   'settings.twoFactorEnable': 'Aktivləşdirin',
+  'settings.twoFactorInvalidCode': 'Yanlış kod',
+  'settings.twoFactorVerify': 'Təsdiqləyin və aktivləşdirin',
   'signup.emailLabel': 'E-poçt ünvanı',
   'signup.fullName': 'Sizə necə müraciət etməliyik?',
   'signup.showPassword': 'Şifrəni göstər',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Hələlik əməliyyat yoxdur.',
   'transactions.endDate': 'Bitmə tarixi',
   'transactions.eyebrow': 'Fəaliyyət',
+  'transactions.loadError': 'Əməliyyatları yükləmək alınmadı.',
   'transactions.merchant': 'Tacir',
+  'transactions.subheading': 'Hesablarınızdakı hər bir dərc edilmiş və gözlənilən əməliyyat.',
   'transfers.availableHint': '{{amount}} mövcud',
   'transfers.errorGeneric': 'Köçürməni təqdim etmək mümkün olmadı.',
   'transfers.errorMissingFields': 'Mənbə hesabı və təyinat yeri seçin.',

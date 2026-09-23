@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'ကိုက်တိုင်း မျှတတယ်',
   'auth.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'auth.showPassword': 'စကားဝှက်ပြပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'nav.legal': 'ဥပဒေရေးရာ',
+  'nosh.auth.legalPrefix': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏သို့သဘောတူညီပါသည်',
   'nosh.foodDetail.add': 'ဒိုင်ယာရီထဲထည့်ပါ',
   'nosh.foodDetail.added': 'ထည့်သွင်းထားသည် {{အစားအစာ}} ။',
   'nosh.foodDetail.addError': 'ဒိုင်ယာရီထဲ ထည့်လို့မရခဲ့ဘူး။',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'အမျှင်ဓာတ်',
   'nosh.foodDetail.micros.sodium': 'ဆိုဒီယမ်',
   'nosh.foodDetail.micros.sugar': 'သကြား',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'ပရိုတင်း',
   'nosh.foodDetail.serving.count': 'စားသုံးမှုပမာဏ',
   'nosh.foodDetail.serving.meal': 'ထည့်သည်',
@@ -49,6 +53,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'ပိုမိုစမတ်ကျသော လောင်စာဆီဖြည့်တင်းခြင်း စတင်ပါ',
   'nosh.landing.features.heading': 'မင်းလိုအပ်တာအားလုံး၊ မင်းမလိုအပ်တာဘာမှမရှိဘူး',
   'nosh.landing.features.smartRing.title': 'စမတ်ကယ်လိုရီလက်စွပ်',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'အပြစ်ရှိစိတ်မရှိဘဲ သင့်ရည်မှန်းချက်များကို အောင်မြင်စေရန် ကူညီပေးသည့် ဖော်ရွေသော အစားအစာမှတ်တမ်း။ ကိန်းဂဏန်းများကိုသာမက အာဟာရပြည့်ဝမှုကိုပါ အာရုံစိုက်ပါ။',
   'nosh.landing.hero.eyebrow': 'ဖော်ရွေသော ကယ်လိုရီခြေရာခံခြင်း',
@@ -85,6 +90,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'မင်း ဘယ်လောက် တက်ကြွလဲ။',
   'nosh.onboarding.back': 'နောက်သို့',
   'nosh.onboarding.macros.heading': 'ဒီမှာ မင်းရဲ့နေ့စဉ်ပစ်မှတ်',
+  'nosh.onboarding.saveError': 'မင်းရဲ့ရည်မှန်းချက်တွေကို သိမ်းဆည်းလို့မရခဲ့ဘူး။',
   'nosh.onboarding.start': 'သွားကြရအောင်',
   'nosh.progress.calorieChart.title': 'တစ်နေ့တာအလိုက် ကယ်လိုရီ',
   'nosh.progress.empty':
@@ -148,6 +154,8 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'အပြီးတိုင်ဖျက်ရန်',
   'nosh.settings.deleteError': 'အကောင့်ကို ဖျက်၍မရပါ။',
   'nosh.settings.export.cta': 'CSV ကို ဒေါင်းလုဒ်လုပ်ပါ',
+  'nosh.settings.export.description':
+    'သင့်ရဲ့ အစားအသောက်မှတ်တမ်း အပြည့်အစုံကို CSV အဖြစ် ဒေါင်းလုဒ်လုပ်ပါ။',
   'nosh.settings.export.label': 'ဒေတာ ထုတ်ယူပါ',
   'nosh.settings.export.preparing': 'ပြင်ဆင်နေသည်…',
   'nosh.settings.eyebrow': 'အကောင့် · အသိပေးချက်များ · လျှို့ဝှက်ရေး',
@@ -159,6 +167,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'ဖော်ရွေသော ခြေရာခံခြင်း၊ အပြစ်မရှိပါ။',
   'nosh.today.${mealKey}Empty': 'မှတ်တမ်းတင်ရန် တို့ပါ',
   'nosh.today.addFood': 'အစားအစာထည့်ပါ',
+  'nosh.today.backToToday': 'ဒီနေ့ကို ပြန်သွားပါ',
+  'nosh.today.dateNavLabel': 'ဒိုင်ယာရီရက်ကို ပြောင်းပါ',
   'nosh.today.loadError': 'ဒီနေ့ တင်လို့မရပါဘူး။',
   'nosh.today.macros.carbs': 'ကာဗိုဟိုက်ဒရိတ်များ',
   'nosh.today.macros.fat': 'အဆီ',
@@ -166,6 +176,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'ပရိုတင်း',
   'nosh.today.macroTitle': 'မက်ခရို အာဟာရဓာတ်များ',
   'nosh.today.meal.${mealKey}': 'ကယ်လီ',
+  'nosh.today.nextDay': 'နောက်တစ်နေ့',
+  'nosh.today.pastPill': 'ပြီးခဲ့တဲ့နေ့က',
+  'nosh.today.prevDay': 'ယခင်နေ့က',
   'nosh.today.quickAddError': 'အမြန်အကြောင်းအရာကို မှတ်တမ်းတင်၍မရပါ။',
   'nosh.today.remaining': 'ကျန်ရှိသော ကယ်လိုရီ',
   'nosh.today.streakHeadline': '{{count}} - တစ်နေ့တာ ဆက်တိုက်',

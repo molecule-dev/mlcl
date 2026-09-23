@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'authShell.brandHeading': 'მრავალმოთამაშიანი ტილოები ხმამაღლა მოაზროვნე დიზაინის გუნდებისთვის.',
   'billing.canceled': 'გამოწერა გაუქმდა.',
   'billing.cancelPlan': 'გეგმის გაუქმება',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'შაბლონიდან დაწყება',
   'boards.title': 'თქვენი დაფები',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'შეიყვანეთ თქვენს სამუშაო სივრცესთან დაკავშირებული ელ. ფოსტა და ჩვენ გამოგიგზავნით გადატვირთვის ბმულს.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'პირველი კვარტლის სემინარი · ბრენდის ხმა',
   'landing.featuresEyebrow': 'რა ხდის Slate-ს tessellate-ს',
   'landing.featuresTitle': 'სწრაფი გამოხმაურება. ლამაზი ტილოები. ნულოვანი ხახუნი.',
+  'landing.hero.body':
+    '{{appName}} არის მრავალმოთამაშიანი თეთრი დაფა დიზაინის გუნდებისთვის, სემინარების ფასილიტატორებისა და პედაგოგებისთვის, რომლებიც აწარმოებენ რეალურ დროში იდეების გენერირებას და სჭირდებათ, რომ იდეები ერთ ადგილას გაერთიანდეს.',
   'landing.hero.primaryCta': 'დაიწყეთ დაფა უფასოდ',
   'landing.hero.socialProof': 'სანდოა {{count}} დიზაინის გუნდები მთელ მსოფლიოში',
   'landing.hero.title': 'ტილო, ისეთივე სწრაფი, როგორც შენი ფიქრები',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'შექმენით თავისუფალი სამუშაო სივრცე',
   'login.subheading':
     'გააგრძელეთ იქიდან, სადაც სემინარი შეწყდა — დაფები, წებოვანი ფურცლები და კურსორები რეალურ დროში სინქრონიზდება.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.new': 'ახალი',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'notifications.editTitle': 'რედაქტირება " {{board}} „',
   'notifications.empty.body':
     'მოსაწვევები, შენახული სნეპშოტები და დაფის ბოლოდროინდელი რედაქტირებები აქ გამოჩნდება მათი განხორციელებისთანავე.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ვერსიის ისტორია',
   'versionHistory.untitledSnapshot': 'უსათაურო სნეპშოტი',
   'whiteboardLayout.newBoard': 'ახალი დაფა',
+  'whiteboardLayout.primaryNav': 'ძირითადი ნავიგაცია',
   'workspace.boardLabel': 'დაფა',
   'workspace.eyebrow': '{{name}} · სამუშაო სივრცე',
   'workspace.invite': 'მოიწვიეთ თანამშრომლები',

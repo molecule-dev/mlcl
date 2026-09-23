@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'පාඨමාලා පූරණය වෙමින්...',
   'browse.next': 'ඊළඟ පිටුව',
   'browse.results': 'පෙන්වමින් {{count}} පාඨමාලා',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'අනුව තෝරන්න',
   'browse.subtitle':
     'මාතෘකාව, මට්ටම සහ මිල අනුව කතුවැකි ලේඛනාගාරය පෙරහන් කරන්න. සෑම පාඨමාලාවක්ම අපගේ සංස්කාරකවරුන් විසින් අතින් සකස් කරනු ලැබේ.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'ඔබගේ සහතිකය අත්සන් කර සූදානම්. එය ලෝකය සමඟ බෙදා ගන්න හෝ එය උපයා ගැනීමට ගත් කාර්යය පිළිබඳ මතක් කිරීමක් ලෙස තබා ගන්න.',
   'certificate.copyLink': 'බෙදාගැනීමේ සබැඳිය පිටපත් කරන්න',
+  'certificate.copyPrompt': 'මෙම සබැඳිය පිටපත් කරන්න:',
   'certificate.download': 'PDF භාගත කරගන්න',
   'certificate.eyebrow': 'ජයග්‍රහණය අගුළු හරින ලදී',
   'certificate.linkCopied': 'සබැඳිය පිටපත් කරන ලදී!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'ඔබ ලියාපදිංචි වී ඇත!',
   'checkout.verifying': 'ඔබගේ ලියාපදිංචිය සත්‍යාපනය කරමින්...',
   'checkout.viewLibrary': 'මගේ ඉගෙනීම බලන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'courseDetail.about': 'මෙම පාඨමාලාව ගැන',
   'courseDetail.checkoutPending': 'පිටවීම ආරම්භ කරමින්…',
   'courseDetail.continueLearning': 'ඉගෙනීම දිගටම කරගෙන යන්න',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'දින 30ක මුදල් ආපසු ගෙවීමේ සහතිකය',
   'courseDetail.includes.video': '{{hours}} ඉල්ලුම මත වීඩියෝ පැය ගණනක්',
   'courseDetail.instructor': 'උපදේශක',
+  'courseDetail.languageEnglish': 'ඉංග්‍රීසි',
   'courseDetail.lectures': 'දේශන',
   'courseDetail.level': 'මට්ටමින්',
   'courseDetail.loading': 'පාඨමාලාව පූරණය වෙමින්...',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'තවමත් සමාලෝචන නොමැත.',
   'instructorProfile.students': 'ශිෂ්‍ය/ශිෂ්‍යාවන්',
   'landing.categories.empty': 'නාමාවලිය පිරවූ පසු ප්‍රවර්ග දිස්වනු ඇත.',
+  'landing.categories.heading': 'ලේඛනාගාරය ගවේෂණය කරන්න',
   'landing.hero.eyebrow': 'ලෙක්චුරා · ප්‍රවීණතාවයේ කතුවැකි ලේඛනාගාරය',
   'landing.hero.proof': 'Google, Meta සහ Adobe හි ඉගෙන ගන්නන් විසින් විශ්වාස කරන ලදී.',
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'අදම ඉගෙනීම ආරම්භ කරන්න',
   'login.subheading': 'ඔබගේ ශාස්ත්‍රීය ලේඛනාගාරයට ප්‍රවේශ වන්න.',
   'myLearning.empty.title': 'මෙම පෙරහනට ගැලපෙන පාඨමාලා තවමත් නොමැත.',
+  'myLearning.error.title': 'ඔබගේ පුස්තකාලය පූරණය කිරීමට නොහැකි විය.',
   'myLearning.filter.notStarted': 'ආරම්භ කර නැත',
   'myLearning.hero.subtitle': '{{count}} ඔබේ පුස්තකාලයේ පාඨමාලා. ගම්‍යතාවය දිගටම පවත්වා ගන්න.',
   'myLearning.hero.title': 'ඔබ නතර කළ තැනින් පටන් ගන්න.',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'සමාලෝචනය කිරීමට නව ක්‍රියාකාරකම් නොමැත. නව සිදුවීම් මෙහි දිස්වනු ඇත.',
   'notifications.empty.title': 'ඔබ සියල්ල හසු කරගෙන ඇත.',
+  'notifications.error.title': 'ක්‍රියාකාරකම පූරණය කළ නොහැකි විය.',
   'privacy.title': 'රහස්යතා ප්රතිපත්තිය',
   'reset.confirmPlaceholder': 'ඔබගේ නව මුරපදය නැවත ඇතුළත් කරන්න',
   'reset.errorGeneric': 'මුරපදය නැවත සැකසීමට නොහැකි විය. නව සබැඳියක් ඉල්ලන්න.',
@@ -189,5 +197,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} ඈට පෙර',
   'timeAgo.hours': '{{count}} පැයකට පෙර',
   'timeAgo.minutes': '{{count}} මිනිත්තු කිහිපයකට පෙර',
+  'timeAgo.months': 'මාස {{count}} කට පෙර',
   'timeAgo.today': 'අද',
+  'timeAgo.weeks': 'සති {{count}} කට පෙර',
 }

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'ਦੇਖ ਰਿਹਾ ਹੈ',
   'auctionDetail.watchRemoved': 'ਵਾਚਲਿਸਟ ਤੋਂ ਹਟਾਇਆ ਗਿਆ।',
   'auctionDetail.watchRemoveLabel': 'ਵਾਚਲਿਸਟ ਤੋਂ ਹਟਾਓ',
+  'auctionPlatformLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'authShell.brandBody':
     "ਦੁਰਲੱਭ ਘੜੀਆਂ, ਫਾਈਨ ਆਰਟ, ਅਤੇ ਵਿਲੱਖਣ ਵਿਸ਼ੇਸ਼ ਚੀਜ਼ਾਂ 'ਤੇ ਅਸਲ-ਸਮੇਂ ਵਿੱਚ ਬੋਲੀ ਲਗਾਓ। ਇਹ ਕੀਮਤ ਸਕਿੰਟਾਂ ਵਿੱਚ ਡਿੱਗ ਜਾਂਦੀ ਹੈ।",
   'authShell.brandEyebrow': 'ਹੁਣੇ ਲਾਈਵ · 1,420 ਨਿਲਾਮੀਆਂ',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'ਦੇ ਨਾਲ ਕ੍ਰਮਬੱਧ',
   'browseAuctions.subheading':
     'ਸ਼੍ਰੇਣੀ ਅਨੁਸਾਰ ਫਿਲਟਰ ਕਰੋ, ਸਭ ਤੋਂ ਮਹੱਤਵਪੂਰਨ ਚੀਜ਼ ਅਨੁਸਾਰ ਛਾਂਟੋ, ਅਤੇ ਗੈਵਲ ਡਿੱਗਣ ਤੋਂ ਪਹਿਲਾਂ ਬੋਲੀ ਲਗਾਓ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'countdownTimer.ended': 'ਸਮਾਪਤ ਹੋਇਆ',
   'countdownTimer.endingSoon': 'ਸਮਾਪਤੀ',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'login.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'login.subtext': 'ਆਪਣੀਆਂ ਨਿਲਾਮੀਆਂ ਨੂੰ ਟਰੈਕ ਕਰਨਾ ਜਾਰੀ ਰੱਖੋ ਅਤੇ ਗੈਵਲ ਡਿੱਗਣ ਤੋਂ ਪਹਿਲਾਂ ਬੋਲੀਆਂ ਲਗਾਓ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'myBids.bidAgain': 'ਦੁਬਾਰਾ ਬੋਲੀ ਲਗਾਓ',
   'myBids.browseCta': 'ਲਾਈਵ ਨਿਲਾਮੀਆਂ ਬ੍ਰਾਊਜ਼ ਕਰੋ →',
   'myBids.checkoutCta': 'ਹੁਣੇ ਭੁਗਤਾਨ ਕਰੋ',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'ਹਾਲੇ ਕੋਈ ਸੂਚਨਾਵਾਂ ਨਹੀਂ।',
   'notificationsPage.eyebrow': 'ਗਤੀਵਿਧੀ ਕੇਂਦਰ',
   'notificationsPage.subheading': '{{count}} ਨਿਲਾਮੀਆਂ ਦੇ ਵਧਣ ਨਾਲ ਨਾ-ਪੜ੍ਹੇ · ਲਾਈਵ ਅੱਪਡੇਟ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.bidsLabel': 'ਬੋਲੀਆਂ',
   'pricing.listingsLabel': 'ਸੂਚੀਆਂ',
   'pricing.watchlistLabel': 'ਵਾਚਲਿਸਟ',

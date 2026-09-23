@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'தீர்க்கப்படுகிறது…',
   'comments.subtitle':
     'தி {{count}} பதிலுக்காகவோ அல்லது தீர்வுக்காகவோ இன்னும் காத்திருக்கும் உரையாடல்கள். காலத்தின் அடிப்படையில் வரிசைப்படுத்தப்பட்டுள்ளது — எதுவும் காலாவதியாகாமல் இருக்க, முதலில் பழமையானவை.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'forgotPassword.sentTo': 'மீட்டமை இணைப்பு அனுப்பப்பட்டது {{email}}',
   'forgotPassword.successSubheading':
     'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும் — நாங்கள் இப்போதுதான் மீட்டமைப்பு இணைப்பை அனுப்பியுள்ளோம். அது 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'புதிய பக்கம்',
   'pageTreeSidebar.workspaceHeader': 'பணியிடம்',
   'pageView.breadcrumb': 'ரொட்டித்தூள்',
+  'pageView.confirmTrash': 'அதை குப்பையில் போடவா?',
   'pageView.home': 'வீடு',
   'pageView.lastEdited': 'புதுப்பிக்கப்பட்டது {{when}}',
   'pageView.loading': 'பக்கம் ஏற்றப்படுகிறது…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'சுருக்கமாக…',
   'pageView.summaryUnavailable': 'இந்தப் பணிச்சூழலுக்கு AI சுருக்கம் உள்ளமைக்கப்படவில்லை.',
   'pageView.tocTitle': 'இந்தப் பக்கத்தில்',
+  'pageView.trash': 'குப்பை',
+  'pageView.trashing': 'குப்பையாக்குதல்…',
   'pageView.versionBadge': 'வி{{version}}',
   'profile.badges.title': 'பேட்ஜ்கள்',
   'profile.owned.title': 'சொந்தமான பக்கங்கள்',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'பணிச்சூழல், சுயவிவரம், அறிவிப்புகள், ஒருங்கிணைப்புகள் — அனைத்தும் ஒரே அமைதியான தளத்தில்.',
   'settingsPage.workspace.defaultLanding': 'இயல்புநிலை இறங்கும் திரை',
   'settingsPage.workspace.landingHome': 'வீடு',
+  'settingsPage.workspace.landingSpaces': 'இடைவெளிகள்',
   'settingsPage.workspace.subdomainLabel': 'துணைக்களம்',
   'settingsPage.workspace.title': 'பணியிடம்',
   'signup.eyebrow': 'புதிய பணிச்சூழலைத் தொடங்குங்கள்',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} நிமிடம்',
   'templates.subtitle':
     'வெற்றுத் தாளில் இருந்து அல்லாமல், ஒரு வார்ப்புருவில் இருந்து பக்கத்தைத் தொடங்குங்கள். ஒவ்வொரு வார்ப்புருவும் வடிவத்தைத் திட்டவட்டமாகக் கொண்டிருப்பதால், நீங்கள் உள்ளடக்கத்தில் கவனம் செலுத்தலாம்.',
+  'trash.confirmPurge': 'நிரந்தரமாக நீக்குவதா?',
+  'trash.confirmPurgeAria': 'உறுதிப்படுத்து: {{title}} ஐ நிரந்தரமாக நீக்கவும்',
   'trash.daysUntilPurge': '{{days}} மீதமுள்ள நாட்கள்',
   'trash.empty.body':
     'நீக்கப்பட்ட பக்கங்கள் முழுமையாக அழிக்கப்படுவதற்கு முன்பு 30 நாட்களுக்கு இங்கே தோன்றும்.',
@@ -152,5 +159,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} பதிப்புகள் · வேறுபாட்டை ஆய்வு செய்ய ஒரு வரிசையைத் தேர்ந்தெடுக்கவும்',
   'versionHistory.versionLabel': 'வி{{v}}',
+  'wikiLayout.closeMenu': 'நெருக்கமான வழிசெலுத்தல்',
+  'wikiLayout.menu': 'வழிசெலுத்தல்',
+  'wikiLayout.openMenu': 'வழிசெலுத்தலைத் திறக்கவும்',
   'wikiLayout.searchPlaceholder': 'கெய்ர்ன் தேடல் — பக்கங்கள், கருத்துகள்…',
 }

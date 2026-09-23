@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'সম্পর্কে',
   'alertConditionCard.condition.${alert.condition}': 'ট্রিগার করা হয়েছে যখন',
+  'alertConditionCard.confirmDelete': 'মুছে ফেলা নিশ্চিত করুন',
   'alertConditionCard.pauseAriaLabel': 'বিরতি সতর্কতা',
   'alertConditionCard.resumeAriaLabel': 'জীবনবৃত্তান্ত সতর্কতা',
   'alertNew.condition': 'অবস্থা',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'সম্পূর্ণরূপে হ্রাসকৃত মূল্যায়ন',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'ওয়েবসাইট',
+  'coinDetail.links.whitepaper': 'শ্বেতপত্র',
   'coinDetail.loadError': 'কয়েন লোড করা সম্ভব হয়নি।',
   'coinDetail.marketCap': 'বাজার মূলধন',
   'coinDetail.maxSupply': 'সর্বোচ্চ সরবরাহ',
@@ -93,6 +95,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'আপনি যে রুটটি স্ক্যান করেছেন তা কোনো পরিচিত মুদ্রা বা পৃষ্ঠায় পৌঁছাচ্ছে না। প্রতীকটি পুনরায় পরীক্ষা করে আবার চেষ্টা করুন।',
   'notFound.browseMarkets': 'বাজার ব্রাউজ করুন',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'portfolio.addError': 'প্রতীক, ধনাত্মক পরিমাণ এবং খরচ লিখুন।',
   'portfolio.addHoldingCta': '+ হোল্ডিং যোগ করুন',
   'portfolio.addModal.cost': 'খরচের ভিত্তিতে (মার্কিন ডলার)',
@@ -136,9 +139,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'পাসওয়ার্ড এবং টু-ফ্যাক্টর সেটিংস আপনার অ্যাকাউন্ট দ্বারা পরিচালিত হয়।',
   'settings.signOutDevice': 'সাইন আউট',
+  'settings.twoFactorCode': 'প্রমাণীকরণ কোড',
   'settings.twoFactorDisable': 'অক্ষম করুন',
   'settings.twoFactorEnable': 'সক্ষম করুন',
+  'settings.twoFactorInvalidCode': 'অবৈধ কোড',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'sigilAuthShell.backHomeCta': '← সিজিলে ফিরে যান',
   'sigilLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'signup.eyebrow': 'একটি টার্মিনাল খুলুন',

@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Každé sústo je vyvážené',
   'auth.hidePassword': 'Skryť heslo',
   'auth.showPassword': 'Zobraziť heslo',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'nav.legal': 'Právne',
+  'nosh.auth.legalPrefix': 'Pokračovaním súhlasíte s našimi',
   'nosh.foodDetail.add': 'Pridať do denníka',
   'nosh.foodDetail.added': 'Pridané do {{jedlo}} .',
   'nosh.foodDetail.addError': 'Nepodarilo sa pridať do denníka.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Vláknina',
   'nosh.foodDetail.micros.sodium': 'Sodík',
   'nosh.foodDetail.micros.sugar': 'Cukor',
+  'nosh.foodDetail.percentDv': '{{pct}}% dennej odporúčanej dávky',
   'nosh.foodDetail.protein': 'Bielkoviny',
   'nosh.foodDetail.serving.count': 'Porcie',
   'nosh.foodDetail.serving.meal': 'Pridať do',
@@ -47,6 +51,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Začnite tankovať rozumnejšie',
   'nosh.landing.features.heading': 'Všetko, čo potrebujete, nič, čo nepotrebujete',
   'nosh.landing.features.smartRing.title': 'Inteligentný kalorický prsteň',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Priateľský denník stravovania, ktorý vám pomôže dosiahnuť vaše ciele bez výčitiek. Zamerajte sa na výživu, nielen na čísla.',
   'nosh.landing.hero.eyebrow': 'Priateľské sledovanie kalórií',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Aký si aktívny/á?',
   'nosh.onboarding.back': 'Späť',
   'nosh.onboarding.macros.heading': 'Tu je váš denný cieľ',
+  'nosh.onboarding.saveError': 'Vaše ciele sa nepodarilo uložiť.',
   'nosh.onboarding.start': 'Poďme',
   'nosh.progress.calorieChart.title': 'Kalórie za deň',
   'nosh.progress.empty':
@@ -143,6 +149,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Natrvalo odstrániť',
   'nosh.settings.deleteError': 'Účet sa nepodarilo odstrániť.',
   'nosh.settings.export.cta': 'Stiahnuť súbor CSV',
+  'nosh.settings.export.description': 'Stiahnite si kompletný denník stravovania vo formáte CSV.',
   'nosh.settings.export.label': 'Exportovať údaje',
   'nosh.settings.export.preparing': 'Príprava…',
   'nosh.settings.eyebrow': 'Účet · Upozornenia · Ochrana osobných údajov',
@@ -154,6 +161,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Priateľské sledovanie, žiadne výčitky svedomia.',
   'nosh.today.${mealKey}Empty': 'Klepnutím sa prihlásite',
   'nosh.today.addFood': 'Pridajte jedlo',
+  'nosh.today.backToToday': 'Späť k dnešku',
+  'nosh.today.dateNavLabel': 'Zmeniť deň v denníku',
   'nosh.today.loadError': 'Dnes sa nepodarilo načítať.',
   'nosh.today.macros.carbs': 'Sacharidy',
   'nosh.today.macros.fat': 'Tuk',
@@ -161,6 +170,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Bielkoviny',
   'nosh.today.macroTitle': 'Makroživiny',
   'nosh.today.meal.${mealKey}': 'kal',
+  'nosh.today.nextDay': 'Na druhý deň',
+  'nosh.today.pastPill': 'Včera',
+  'nosh.today.prevDay': 'Predchádzajúci deň',
   'nosh.today.quickAddError': 'Nepodarilo sa rýchlo zaznamenať položku.',
   'nosh.today.remaining': 'zostávajúce kalórie',
   'nosh.today.streakHeadline': '{{count}} počet dní v rade',

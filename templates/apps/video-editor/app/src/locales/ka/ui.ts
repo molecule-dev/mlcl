@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'იპოვეთ შეცდომა, გაქვთ რაიმე ფუნქციის დამატებაზე მოთხოვნა ან გსურთ გვიამბოთ თქვენს მიერ დამუშავებული ფილმის შესახებ? ყველა შეტყობინება გუნდის რეალურ წევრამდე აღწევს — დაგვიკავშირდით ნებისმიერ დროს თქვენი ანგარიშის პარამეტრებიდან.',
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.eyebrow': '// სტუდია მონტაჟის უკან',
   'about.pageTitle': 'შესახებ {{appName}}',
   'assetDetail.back': 'ბიბლიოთეკაში დაბრუნება',
   'assetDetail.confirmDelete': 'წაშლა {{name}} „? ამის გაუქმება შეუძლებელია.“',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} კლიპები, აუდიო საწოლები და გრაფიკა მზადაა ვადებზე განსათავსებლად.',
   'assetLibrary.title': 'აქტივები',
   'assetLibrary.upload': 'აქტივის დამატება',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.browseTemplates': 'შაბლონების დათვალიერება →',
   'dashboard.loading': 'პროექტები იტვირთება…',
   'dashboard.noProjects': 'პროექტები ჯერ არ არის — შექმენით ერთი დასაწყებად.',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'აირჩიეთ ისეთი რამ, რაც მხოლოდ თქვენ გახსოვთ.',
   'rushesAuthShell.footer.copyright': '© რაშესის სტუდია',
   'rushesAuthShell.footer.privacy': 'კონფიდენციალურობა',
+  'rushesLayout.closeMenu': 'ნავიგაციის დახურვა',
   'rushesLayout.guest': 'რედაქტორი',
+  'rushesLayout.navDialog': 'ნავიგაცია',
+  'rushesLayout.openMenu': 'ნავიგაციის გახსნა',
   'rushesLayout.planFree': 'უფასო გეგმა',
   'rushesLayout.tagline': 'კინემატოგრაფიული ქრონოლოგია',
   'settings.billing.confirmCancel': 'გაუქმდეს გამოწერა პერიოდის ბოლოს?',

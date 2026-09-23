@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'accountDetail.activeBadge': 'Aktyvus',
   'accountDetail.availableLabel': '{{amount}} prieinamas',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Nepavyko įkelti paskyrų.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': '„Frozen“',
   'accounts.totalBalance': '{{suma}} iš viso',
   'audit.empty': 'Kol kas nėra įvykių.',
   'audit.eyebrow': 'Saugumas ir prieiga',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Grynieji pinigai',
   'cashCreditCard.creditLabel': 'Panaudotas kreditas',
   'cashCreditCard.title': 'Grynieji pinigai ir kreditas',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Apžvalga',
   'dashboard.recentEmpty': 'Sandorių dar nėra.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Rodyti slaptažodį',
   'login.signUp': 'Registruotis',
   'login.submit': 'Prisijungti',
+  'meridianLayout.menu': 'Meniu',
   'meridianLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'nav.legal': 'Teisinis',
   'notifications.emptyHeading': 'Viską supratote',
   'notifications.subheading': 'Realaus laiko įspėjimai apie operacijas, saugumą ir ataskaitas.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'privacy.dataWeShare':
     'Asmeniniai bankininkystės duomenys niekada neparduodami. Mes dalijamės informacija su mokėjimų tvarkytojais, kortelių tinklais ir reguliavimo institucijomis tik tiek, kiek to reikia norint atsiskaityti už operacijas arba įvykdyti teisinius įsipareigojimus.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Dviejų veiksnių autentifikavimas prideda vienkartinį kodą iš autentifikavimo programėlės kiekvieno prisijungimo metu.',
   'settings.security.twoFactorCta': 'Dviejų veiksnių autentifikavimo valdymas',
+  'settings.security.twoFactorOff': 'Dviejų veiksnių autentifikavimas išjungtas',
   'settings.signOutDevice': 'Atsijungti',
   'settings.subheading': 'Profilis, saugumas ir pranešimai.',
+  'settings.twoFactorCode': 'Autentifikavimo kodas',
   'settings.twoFactorDisable': 'Išjungti',
   'settings.twoFactorEnable': 'Įjungti',
+  'settings.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.twoFactorVerify': 'Patikrinti ir įjungti',
   'signup.emailLabel': 'El. pašto adresas',
   'signup.fullName': 'Kaip turėtume į Jus kreiptis?',
   'signup.showPassword': 'Rodyti slaptažodį',
@@ -104,7 +113,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Sandorių dar nėra.',
   'transactions.endDate': 'Pabaigos data',
   'transactions.eyebrow': 'Veikla',
+  'transactions.loadError': 'Nepavyko įkelti sandorių.',
   'transactions.merchant': 'Prekybininkas',
+  'transactions.subheading':
+    'Visos jūsų sąskaitose užregistruotos ir laukiančios patvirtinimo operacijos.',
   'transfers.availableHint': '{{amount}} prieinamas',
   'transfers.errorGeneric': 'Nepavyko pateikti pavedimo.',
   'transfers.errorMissingFields': 'Pasirinkite šaltinio ir paskirties paskyras.',

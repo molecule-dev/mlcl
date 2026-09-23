@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний түүх',
   'aiSuggestionPanel.title': 'Хамтран нисгэгч',
   'analytics.col.open': 'Нээлтийн хувь',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Төлбөр тооцоог эхлүүлж байна...',
   'billing.subheading': 'Илгээх аргатайгаа тохирох төлөвлөгөөг сонгоно уу.',
   'billing.unavailable': 'Борлуулалттай холбоо барих',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.retry': 'Дахин оролдох',
   'compose.adjustingTone': 'Сонгосон өнгө аясаар дахин бичиж байна...',
   'compose.aiPromptPlaceholder':
     'жишээ нь "Хоёр долоо хоногийн турш хариу өгөөгүй ч эелдэг байдлаар хариу үйлдэл үзүүлээрэй, богино байлгаарай."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Ямар нэгэн зүйл илгээх шаардлагатай байна уу? Signet хэдхэн секундын дотор ноорог бэлэн болгож чадна.',
   'dashboard.composeCtaLabel': 'Хурдан бичих',
   'dashboard.heading': 'Таны бичсэн долоо хоног',
+  'dashboard.loadFailed': 'Таны хяналтын самбарыг ачаалж чадсангүй.',
   'dashboard.manageLibrary': 'Номын санг удирдах →',
   'dashboard.recentEmpty': 'Илгээлт хараахан алга — таны илгээсэн имэйлүүд энд харагдах болно.',
   'dashboard.recentHeading': 'Саяхны илгээлтүүд',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Үндсэн өнгө аяс',
   'settings.toneSubheading': 'Хэрэв та ноорог дээр дарж бичээгүй бол Signet энэ аяыг ашигладаг.',
   'signetLayout.primaryNavLabel': 'Үндсэн навигаци',
+  'signetLayout.toggleMenu': 'Цэсийг асаах/унтраах',
   'signup.emailLabel': 'И-мэйл хаяг',
   'signup.showPassword': 'Нууц үгийг харуулах',
   'signup.tagline':

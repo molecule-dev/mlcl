@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Perihal {{app}}',
   'analytics.back': 'Gambaran keseluruhan tinjauan',
   'analytics.kpiNps': 'Skor NPS',
   'analytics.kpiNpsTrend': 'Penganjur {{p}} % · Pengkritik {{d}} %',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Hartanah',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Tajuk tinjauan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'forgotPassword.failed': 'Gagal menghantar e-mel tetapan semula. Sila cuba lagi.',
   'forgotPassword.subheading':
     'Masukkan emel anda dan kami akan menghantar pautan pemulihan kepada anda.',
   'forgotPassword.successBody':
     'Jika akaun sepadan {{email}} , pautan tetapan semula sedang dalam proses. Semak peti masuk dan folder spam anda.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Semua suara dialu-alukan.',
   'landing.footer.startTrial': 'Mulakan percubaan',
   'landing.hero.badge': 'Tinjauan, NPS & maklum balas di satu tempat',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Harga',
   'landing.pricing.perMonth': '/bln',
   'landing.pricing.popular': 'Paling popular',
+  'landing.pricing.subtitle':
+    'Setiap pelan merangkumi pembina tinjauan, pautan perkongsian awam dan analitik NPS. Kad kredit tidak diperlukan untuk bermula.',
+  'landing.pricing.title': 'Mulakan secara percuma, tingkatkan skala apabila anda berjaya.',
   'landing.sample.eyebrow': 'NPS sepintas lalu',
   'landing.sample.title': 'Pengkritik, pasif, promoter — boleh dibaca serta-merta.',
   'login.failed': 'Log masuk gagal. Sila cuba lagi.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Tunjukkan kata laluan',
   'login.signUpLink': 'Mulakan percubaan percuma',
   'login.subheading': 'Log masuk untuk terus mendengar khalayak anda.',
+  'notFound.body':
+    'Halaman yang anda cari tidak wujud di {{app}} . Mari kita kembali ke tinjauan anda.',
   'notFound.cta': 'Kembali ke tinjauan',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Tinjauan ini telah tersingkir daripada barisan.',
@@ -75,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': 'Promoter 9–10',
   'profile.identity.description':
     'Didedahkan kepada pasukan anda dan pada tinjauan yang anda tulis.',
+  'profile.identity.emailRequired': 'Masukkan alamat e-mel.',
   'profile.identity.saveCta': 'Simpan nama',
   'profile.password.current': 'Kata laluan semasa',
   'profile.password.fillFields': 'Masukkan kata laluan semasa dan baharu.',
@@ -180,6 +189,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} soalan',
   'templates.subheading':
     'Pilih pemula yang telah diuji — setiap templat didatangkan dengan tetapan lalai yang munasabah, logik sampel dan susun atur mudah alih yang bersih.',
+  'thankYou.body':
+    'Respons anda telah direkodkan. {{app}} akan memasukkannya dalam penyegaran analitik seterusnya.',
   'thankYou.eyebrow': 'Respons diterima',
   'thankYou.heading': 'Terima kasih — suara anda penting.',
   'thankYou.home': 'Lawati Gauge',

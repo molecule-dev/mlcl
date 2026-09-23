@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Sledovanie',
   'auctionDetail.watchRemoved': 'Odstránené zo zoznamu sledovaných položiek.',
   'auctionDetail.watchRemoveLabel': 'Odstrániť zo zoznamu sledovaných',
+  'auctionPlatformLayout.primaryNavLabel': 'Hlavná navigácia',
   'authShell.brandBody':
     'Dražte v reálnom čase na vzácne hodinky, umelecké diela a jedinečné špeciálne predmety. Kladivko padne v priebehu niekoľkých sekúnd.',
   'authShell.brandEyebrow': 'Práve teraz aktuálne · 1 420 aukcií',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Zoradiť podľa',
   'browseAuctions.subheading':
     'Filtrujte podľa kategórie, zoraďte podľa toho, na čom záleží najviac, a podajte ponuku skôr, ako padne kladivko.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'countdownTimer.ended': 'Ukončené',
   'countdownTimer.endingSoon': 'Koniec',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Zobraziť heslo',
   'login.subtext':
     'Pokračujte v sledovaní svojich aukcií a podávajte ponuky skôr, ako padne kladivko.',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'myBids.bidAgain': 'Znova ponúknite',
   'myBids.browseCta': 'Prezrite si živé aukcie →',
   'myBids.checkoutCta': 'Zaplatiť teraz',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centrum aktivít',
   'notificationsPage.subheading':
     '{{count}} neprečítané · aktualizácie v reálnom čase počas aukcií',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.bidsLabel': 'ponuky',
   'pricing.listingsLabel': 'záznamy',
   'pricing.watchlistLabel': 'zoznam sledovaných položiek',

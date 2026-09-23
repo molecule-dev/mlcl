@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Imodi yokuhlola: ama-oda ayaqoshwa futhi ibhalansi iyakhokhwa, kodwa akukho khadi langempela elikhokhiswayo.',
   'checkout.placeOrderCta': 'Faka i-oda',
+  'checkout.placeOrderError': 'Ayikwazanga ukufaka i-oda lakho.',
   'checkout.placingOrder': 'Ifaka i-oda…',
   'checkout.review.shipTo': 'Ukuthunyelwa ku-',
   'checkout.review.subtotal': 'Isamba esingaphansi komthengisi',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Yiba ngumthengisi',
   'landing.footer.copyright': '© {{year}} {{name}} — wonke umenzi, imakethe eyodwa.',
   'landing.footer.help': 'Isikhungo sosizo',
+  'landing.nav.keepShopping': 'Qhubeka uthenga',
   'landing.nav.sell': 'Thengisa ku-Vendry',
   'landing.nav.shop': 'Isitolo',
   'landing.nav.signUp': 'Joyina',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Lokho abathengi abakuthandayo',
   'login.accountTypeAria': 'Uhlobo lwe-akhawunti',
   'login.heading': 'Siyakwamukela futhi eVendry',
+  'login.legalPrefix': 'Ngokungena ngemvume, uyavumelana ne-',
   'login.subheading': 'Ngena ngemvume ukuze uqhubeke nokuthenga noma ubuyele esitolo sakho.',
   'login.submitShopper': 'Ngena ngemvume ukuze uthenge',
   'login.submitVendor': 'Ngena ngemvume esitolo sami',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Kubekwe {{date}} · {{vendorCount}} umthengisi(abathengisi) · ukugcwaliseka kwabathengisi abaningi',
   'orders.empty': 'Awekho ama-oda afana nalesi sihlungi okwamanje.',
+  'orders.emptyTitle': 'Awekho ama-oda lapha okwamanje',
   'orders.eyebrow': 'Ukuthenga kwakho',
   'orders.subtitle':
     'Bona ukuthi ubani othumele ini, landela ukulandelela ngomthengisi ngamunye, futhi ungaphinde ulahlekelwe yiphasela futhi.',
   'orders.title': 'Ama-oda, aqoqwe ngomthengisi',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'productDetail.addToCart': 'Engeza ekalishini',
   'productDetail.addToCartError': 'Ayikwazanga ukwengeza enqoleni.',
   'productDetail.addToCartSuccess': '" {{name}} "kufakwe enqoleni yakho."',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Phatha indlela othenga ngayo, indlela abathengisi abakufinyelela ngayo, nokuthi imali iya kuphi.',
   'signup.heading': 'Joyina imakethe',
+  'signup.legalPrefix': 'Ngokujoyina, uyavumelana ne-',
   'signup.mismatch': 'Amaphasiwedi awafani okwamanje.',
   'signup.subheading':
     'Dlulisa amehlo kubenzi abazimele abangaphezu kuka-4,000, noma uvule isitolo sakho.',
   'status.delivered': 'Kuthunyelwe',
   'status.refunded': 'Kubuyiselwe imali',
+  'userMenu.marketplaceSettings': 'Izilungiselelo zeMakethe',
   'vendor.memberSince': 'Ilungu kusukela {{date}}',
+  'vendorDashboard.defaultShop': 'isitolo sakho',
   'vendorDashboard.eyebrow': 'Umphathi womthengisi · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} kusulwe ngemuva kwekhomishini yokuthengisa. Inkokhelo elandelayo ngoLwesihlanu.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Ukuthi wenza kuphi, wenzani, nokuthi kungani kubalulekile.',
   'vendorOnboarding.currencyLabel': 'Hlala ngemali',
   'vendorOnboarding.errors.shopName': 'Igama lesitolo liyadingeka.',
+  'vendorOnboarding.errors.submit': 'Ayikwazanga ukuthumela isicelo sakho.',
   'vendorOnboarding.exit': 'Londoloza bese uqhubeka kamuva',
   'vendorOnboarding.eyebrow': 'Faka isicelo sokuthengisa ku-Vendry',
+  'vendorOnboarding.field.shopName': 'Igama lesitolo',
   'vendorOnboarding.heroBody':
     'Ikhomishini engu-8% eqondile, izinkokhelo njalo ngoLwesihlanu, isitolo sakho, indaba yakho. Sitshele okuncane ngesitolo sakho futhi sizokuthinta zingakapheli amahora angu-48.',
   'vendorOnboarding.review.contact': 'Xhumana',
   'vendorOnboarding.review.currency': 'Uhlobo lwemali',
+  'vendorOnboarding.review.tagline': 'Umugqa wethegi',
+  'vendorOnboarding.review.website': 'Iwebhusayithi',
   'vendorOnboarding.reviewBody':
     'Kubukeka kukuhle. Sizobuyekeza isitolo sakho zingakapheli amahora angu-48 bese sithumela inkokhelo yakho yokuqala ngoLwesihlanu ngemuva kokuthengisa kwakho kokuqala.',
   'vendorOnboarding.samplesLabel': 'Umsebenzi wesampula — i-Instagram, iphothifoliyo, izithombe',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Isicelo sithunyelwe! Sizobuyekeza isitolo sakho bese sikuthumelela i-imeyili zingakapheli amahora angu-48.',
   'vendorOnboarding.taxIdLabel': 'I-ID yentela',
+  'vendorOrders.emptyTitle': 'Azikho iziyalo okufanele zigcwaliswe okwamanje',
   'vendorOrders.eyebrow': 'Umphathi womthengisi',
+  'vendorOrders.kpi.awaiting': 'Kulindelwe ukugcwaliseka',
   'vendorOrders.kpi.inTransit': 'Iyathutha',
   'vendorOrders.subtitle':
     'Phrinta amalebula, maka ukuthi kugcwalisiwe, bese uphendula imibuzo — konke ngaphandle kokushiya i-Vendry.',
   'vendorOrders.title': 'Ama-oda angenayo',
+  'vendorPayouts.emptyTitle': 'Azikho izinkokhelo okwamanje',
   'vendorPayouts.eyebrow': 'Ezezimali zabathengisi',
   'vendorPayouts.heroCaption': 'Ivumelana ne-Banco BPI {{account}} · Izinsuku zebhizinisi ezi-1–2',
   'vendorPayouts.history': 'Umlando wokukhokha',
@@ -194,7 +209,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Kwenziwa kuphi? Iyiphi indaba ephethe yona?',
   'vendorProductForm.error.name': 'Igama lomkhiqizo liyadingeka',
   'vendorProductForm.error.price': 'Faka intengo enhle',
+  'vendorProductForm.error.publish': 'Yehlulekile ukushicilela',
   'vendorProductForm.eyebrow': 'Uhlu olusha',
+  'vendorProductForm.eyebrowEdit': 'Hlela uhlu',
   'vendorProductForm.images.body':
     'Hudula bese uphonsa izithombe ezifika kwezingu-8. Isithombe sokuqala siba yisembozo sangaphambili kwesitolo.',
   'vendorProductForm.images.cta': 'Hudula izithombe lapha noma uphequlule',
@@ -206,6 +223,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Londoloza izinguquko',
   'vendorProductForm.title': 'Tshela abathengi ngempahla yakho',
   'vendorProductForm.variants.colInventory': 'Isitoko',
+  'vendorProductForm.variants.colVariant': 'Okuhlukile',
   'vendorProducts.eyebrow': 'Umphathi womthengisi',
   'vendorProducts.kpi.draft': 'Ama-draft',
   'vendorProducts.kpi.lowStock': 'Isitoko esiphansi',

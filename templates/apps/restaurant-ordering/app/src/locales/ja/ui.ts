@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}について',
   'analytics.avgCheckLabel': '平均客単価',
   'analytics.busiestHour': '最も忙しい時間帯',
   'analytics.coversToday': '本日のカバー数',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'チップ(平均)',
   'analytics.topItems': '本日の人気商品',
   'authShell.eyebrow': 'サービスへおかえりなさい',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ホスピタリティチームのための温かく高速なPOSです。キッチンにログインして、続きから始めましょう。',
   'authShell.tip': 'ヒント: キーボードショートカットはどこでも使えます — / を押して検索。',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'または{{price}}',
   'billing.priceUnavailable': 'このプランには設定された価格がありません。',
   'billing.updated': 'プランを更新しました。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'customerDetail.book': '予約を追加',
   'customerDetail.col.table': 'テーブル',
   'customerDetail.confirmDelete': 'このゲスト情報を削除しますか?',
@@ -124,6 +127,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': '提供状況',
   'menuItemDetail.available': '今夜提供可',
   'menuItemDetail.backToMenu': 'メニューに戻る',
+  'menuItemDetail.confirmDelete': 'このメニュー項目を削除しますか？',
   'menuItemDetail.delete': '項目を削除',
   'menuItemDetail.deleteError': '削除に失敗しました。もう一度お試しください。',
   'menuItemDetail.dietary': '食事制限タグ',
@@ -134,8 +138,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': '保存に失敗しました。もう一度お試しください。',
   'menuItemDetail.subheading': '{{category}} · 写真、オプション、食事制限、価格を編集。',
   'menuItemDetail.untitled': '無題の項目',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'notFound.heading': 'このテーブルはフロアにありません。',
   'notFound.subheading': 'お探しのページは別の場所に案内されたか、存在しませんでした。',
+  'notFound.toLanding': '{{app}}ホーム',
   'notifications.markError': 'すべてを既読にできませんでした。',
   'orderDashboard.activeDelta': '現在進行中',
   'orderDashboard.activeLabel': '進行中の注文',
@@ -200,6 +207,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     '新しいパスワードを入力して、キッチンへのアクセスを取り戻してください。',
   'resetPassword.tokenLabel': 'リセットトークン',
+  'restaurantOrderingLayout.primaryNavLabel': 'メインナビゲーション',
   'revenueHeroCard.activeOrders': '{{count}}件進行中',
   'revenueHeroCard.change': '昨日比 {{sign}}{{amount}}',
   'revenueHeroCard.title': '本日の売上',
@@ -218,6 +226,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': '店名',
   'tableDetail.activeOrders': '進行中の注文',
   'tableDetail.backToFloor': 'フロアプラン',
+  'tableDetail.confirmDelete': 'このテーブルを削除しますか？',
   'tableDetail.delete': '削除',
   'tableDetail.deleteError': 'テーブルを削除できませんでした。',
   'tableDetail.heading': 'テーブル {{label}}',

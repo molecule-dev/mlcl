@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.tagline': 'Cada unitat, sota un mateix sostre.',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.addProperty': 'Afegeix una propietat',
   'dashboard.empty.body':
     "Un cop tingueu les propietats, els habitatges i els pagaments de lloguer, aquest tauler de control s'omple amb informació sobre la cartera.",
@@ -89,6 +92,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{propietat}} · Unitat {{unitat}} · {{data}}',
   'maintenanceQueueList.subtitle': '{{count}} ordres de treball obertes, ordenades per prioritat',
   'maintenanceQueueList.title': 'Cua de manteniment',
+  'nav.closeMenu': 'Tanca el menú',
+  'nav.openMenu': 'Obre el menú',
   'notFound.body': 'La pàgina que buscaves ha estat moguda, arxivada o no ha existit mai.',
   'notFound.title': "Aquesta porta no s'obre",
   'notifications.empty.body':

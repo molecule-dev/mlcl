@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
   'auth.forgotPassword.emailPlaceholder': 'ime@vasepodjetje.com',
   'auth.forgotPassword.heading': 'Ponastavi geslo.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Označi opravilo kot dokončano',
   'checklistTaskCard.markIncomplete': 'Označi opravilo kot nedokončano',
   'checklistTaskCard.openLabel': 'Odpri nalogo',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Vse ste nadoknadili',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Na pravi poti',
   'dashboard.timelineHeading': '30/60/90 mejnikov',
   'dashboard.viewAllTasks': 'Ogled vseh opravil',
+  'dashboard.weekOne': '1. teden',
   'dashboard.yourCohort': 'Vaša ekipa',
   'documents.empty.body': 'Dokumenti, ki jih je dodala vaša ekipa, bodo prikazani tukaj.',
   'documents.empty.title': 'Še ni dokumentov',
@@ -105,7 +108,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-dnevni brezplačni preizkus',
   'landing.subhead':
     'Embark vodi vsakega novega soigralca skozi prvih 90 dni – papirje, usposabljanje, mejnike in smiselne predstavitve, vse na enem mirnem in samozavestnem mestu.',
+  'layout.openMenu': 'Odpri navigacijski meni',
   'layout.search': 'Iskanje nalog, dokumentov, soigralcev…',
+  'layout.searchTeammates': 'Iskanje soigralcev po imenu ali vlogi …',
   'layout.section.onboarding': 'Uvajanje',
   'layout.tagline': 'Vaše potovanje se začne tukaj',
   'notifications.empty.body': 'Nova dejavnost se bo prikazala tukaj.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Vse je pripravljeno.',
   'planUpdated.preparing': 'Posodabljanje vašega načrta …',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'uvajanja',
   'pricing.tasksLabel': 'naloge',

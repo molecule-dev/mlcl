@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'accountSettings.confirmEmailLabel': 'Idatzi EZABATU baieztatzeko',
   'accountSettings.deleteError': 'Ezin izan da kontua ezabatu.',
   'accountSettings.passwordError': 'Ezin izan da pasahitza aldatu.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Ez dago epeak datozen egunetan.',
   'dashboard.upcomingTitle': 'Hurrengo epeak',
   'deviceSettings.unknownDevice': 'Gailu ezezaguna',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Laguntza',
   'forgotPassword.error': 'Berrezartzeko esteka bidaltzea huts egin da.',
   'forgotPassword.subtitle':
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Baliogabeko helbide elektronikoa edo pasahitz bat.',
   'login.pageTitle': 'Hasi saioa',
   'login.signIn': 'Hasi saioa Forge-n',
+  'login.subtitle': 'Hasi saioa zure proiektuak bide onetik jarraitzeko',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'nav.calendar': 'Egutegia',
   'nav.legal': 'Legezko',
   'nav.myTasks': 'My Tasks',

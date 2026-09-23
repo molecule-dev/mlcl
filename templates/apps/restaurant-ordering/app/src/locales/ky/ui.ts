@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} жөнүндө',
   'analytics.avgCheckLabel': 'Орточо текшерүү',
   'analytics.busiestHour': 'Эң көп иштеген саат',
   'analytics.coversToday': 'Бүгүнкү мукабалар',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Кеңештер (орточо)',
   'analytics.topItems': 'Бүгүнкү күндөгү эң көп сатылган буюмдар',
   'authShell.eyebrow': 'Кызматка кайрадан кош келиңиз',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Конокторду тейлөө командалары үчүн жылуу жана тез сатуу пункту. Ашканаңызга кирип, токтогон жериңизден улантыңыз.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'же {{price}}',
   'billing.priceUnavailable': 'Бул планда конфигурацияланган баа жок.',
   'billing.updated': 'План жаңыртылды.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'customerDetail.book': 'Брондоону кошуу',
   'customerDetail.col.table': 'Стол',
   'customerDetail.confirmDelete': 'Бул конок жазуусун жок кылынсынбы?',
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Бош орундар',
   'menuItemDetail.available': 'Бүгүн кечинде жеткиликтүү',
   'menuItemDetail.backToMenu': 'Менюга кайтуу',
+  'menuItemDetail.confirmDelete': 'Бул менюдагы нерсе жок кылынсынбы?',
   'menuItemDetail.delete': 'Нерсени жок кылуу',
   'menuItemDetail.deleteError': 'Өчүрүү ишке ашкан жок. Кайра аракет кылыңыз.',
   'menuItemDetail.dietary': 'Диеталык тегдер',
@@ -141,8 +145,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · Сүрөттү, модификаторлорду, диетаны жана бааларды түзөтүү.',
   'menuItemDetail.untitled': 'Аталышы жок нерсе',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'notFound.heading': 'Бул стол жерде эмес.',
   'notFound.subheading': 'Сиз издеп жаткан баракча башка жерде жайгашкан же эч качан болгон эмес.',
+  'notFound.toLanding': '{{app}} башкы бети',
   'notifications.markError': 'Баары окулган деп белгиленбей койду.',
   'orderDashboard.activeDelta': 'Азыр түз эфирде',
   'orderDashboard.activeLabel': 'Активдүү буйрутмалар',
@@ -208,6 +215,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Сырсөздү көрсөтүү',
   'resetPassword.subtitle': 'Ашканага кайра кирүү үчүн жаңы сырсөзүңүздү киргизиңиз.',
   'resetPassword.tokenLabel': 'Токенди баштапкы абалга келтирүү',
+  'restaurantOrderingLayout.primaryNavLabel': 'Негизги навигация',
   'revenueHeroCard.activeOrders': '{{count}} активдүү',
   'revenueHeroCard.change': '{{sign}} {{amount}} кечээкиге салыштырмалуу',
   'revenueHeroCard.title': 'Бүгүнкү киреше',
@@ -226,6 +234,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Ресторандын аталышы',
   'tableDetail.activeOrders': 'Активдүү буйрутмалар',
   'tableDetail.backToFloor': 'Кабат планы',
+  'tableDetail.confirmDelete': 'Бул таблицаны жок кылынсынбы?',
   'tableDetail.delete': 'Өчүрүү',
   'tableDetail.deleteError': 'Таблицаны жок кылуу мүмкүн болгон жок.',
   'tableDetail.heading': 'Стол {{label}}',

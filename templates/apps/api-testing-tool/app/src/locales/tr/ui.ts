@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.pageTitle': '{{app}} hakkında',
   'authShell.statusLabel': 'çalışan çevrimiçi',
   'collections.createError': 'Koleksiyon oluşturulamadı.',
   'collections.defaultName': 'Adsız koleksiyon {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Yeni koleksiyon',
   'collections.subheading':
     'İstekleri gruplandırın, ekibinizle paylaşın ve bir paket olarak çalıştırın.',
+  'common.goToDashboard': 'Panele Git',
   'environmentCard.inactive': 'Boşta',
   'environmentCard.more': 'daha',
   'environmentCard.variables': 'Değişkenler',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Ücretsiz indir',
   'landing.heroSubtitle':
     'Bilgisayar başında zaman geçiren mühendisler için tasarlanmış, yıldırım hızında API test ortamı.',
+  'landing.heroTitleAccent': 'Yangın',
+  'landing.heroTitleLine2': 'güven oluşturmak.',
+  'landing.heroTitleRest': 'istekler,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Basit, öngörülebilir fiyatlandırma',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Burada yeni misiniz?',
   'login.showPassword': 'Parolayı göster',
   'login.subtitle': 'Pylon çalışma alanınıza devam edin.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'mocks.createError': 'Sahte (mock) oluşturulamadı.',
   'mocks.defaultName': 'Adsız mock {{n}}',
   'mocks.deleteError': 'Mock silinemedi.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Çalışma alanına dön',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Yol bulunamadı',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'privacy.collect.account':
     "Hesap: e-postanız, hash'lenmiş parolanız, görünen adınız ve son giriş zamanınız.",
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Bu hesabın şu anda sahip olduğu verilerin yalnızca okunabilir görünümü.',
   'settings.unset': 'ayarlanmamış',
   'signup.identityHint': 'örn. Alex',
+  'signup.statusLabel': 'ücretsiz paket · kredi kartı gerekmez',
   'signup.subtitle': 'Dakikalar içinde istek göndermeye başlayın.',
   'terms.account.body':
     'Parolanızı korumaktan siz sorumlusunuz. Bir hesabı birden fazla kişiyle paylaşmak Free veya Pro planlarında izin verilmez — paylaşılan çalışma alanları için Team aboneliği satın alın.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     "Pylon'u sahip olmadığınız veya test etmek için açık izniniz olmayan hizmetlere istek göndermek için kullanmayın. Hız sınırlarını aşmak veya dolandırıcılık yapmak için Pylon'u kullanmayın.",
   'terms.warranty.body':
     'Pylon hiçbir garanti olmaksızın "olduğu gibi" sağlanır. %99,9 çalışma süresi hedefliyoruz ancak Free veya Pro planlarında bunu garanti etmiyoruz.',
+  'testRunner.assertionsCount': '{{count}} iddialar',
   'testRunner.createError': 'Test oluşturulamadı.',
   'testRunner.cron':
     'Onaylamalar, bu testin bağlı olduğu isteğin en son çalıştırılmasına göre değerlendirilir.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Paket sonuçları, onaylama farkları ve son 50 çalıştırma.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Giriş yapan',
+  'workspace.auth.keyName': 'Başlık adı',
+  'workspace.auth.keyValue': 'Anahtar değeri',
+  'workspace.auth.password': 'Parola',
+  'workspace.auth.username': 'Kullanıcı adı',
+  'workspace.authOption.apikey': 'API Anahtarı',
+  'workspace.authOption.basic': 'Temel Kimlik Doğrulama',
+  'workspace.authOption.bearer': 'Hamiline Token',
+  'workspace.authOption.none': 'Yok',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tür',
   'workspace.authTypeLabel': 'Kimlik doğrulama türü',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Yok',
+  'workspace.body.text': 'İşlenmemiş metin',
+  'workspace.body.type': 'Tür',
   'workspace.environment': 'Ortam yok',
   'workspace.envVar': 'env değişkeni',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Başlık ekle',
+  'workspace.kv.addParam': 'Parametre ekle',
+  'workspace.kv.headerKey': 'Başlık adı',
+  'workspace.kv.headerValue': 'Başlık değeri',
+  'workspace.kv.key': 'Anahtar',
+  'workspace.kv.paramKey': 'Sorgu parametresi anahtarı',
+  'workspace.kv.paramValue': 'Sorgu parametresi değeri',
+  'workspace.kv.removeRow': 'Satırı sil',
+  'workspace.kv.value': 'Değer',
   'workspace.methodLabel': 'HTTP yöntemi',
   'workspace.metric.latency': 'Gecikme',
   'workspace.metric.latencyCaption': 'Bu çalıştırmadaki gidiş-dönüş',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'İstek gönderildi — yanıtı aşağıda görün.',
   'workspace.subheading':
     'Bir istek oluşturun, gönderin, sonra yanıtı doğrulayın — hepsi tek bir bölmede.',
+  'workspace.testResults': 'Test sonuçları',
   'workspace.token': 'Belirteç',
   'workspace.tokenHint':
     'Bu koleksiyondaki her istekte Authorization: Bearer <token> olarak gönderilir.',

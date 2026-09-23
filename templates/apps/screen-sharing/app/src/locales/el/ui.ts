@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'about.pageTitle': 'Σχετικά με {{appName}}',
   'analytics.empty': 'Εγγράψτε το πρώτο σας βίντεο για να δείτε την αλληλεπίδραση εδώ.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'κλιπ',
   'billing.usage.views': 'Προβολές',
   'billing.usage.views.unit': 'προβολές',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'landing.cta.title': 'Στείλτε καλύτερα σχόλια. Ξεκινήστε με το Glint.',
   'landing.feature.capture.body':
     'Εγγραφή σε πρόγραμμα περιήγησης, υπολογιστή και κινητό με μικρόφωνο, κάμερα και σχεδίαση.',
   'landing.feature.capture.title': 'Σύλληψη με ένα άγγιγμα',
+  'landing.footer.copy': '© {{year}} {{appName}} . Ασύγχρονο, φωτεινό.',
   'landing.hero.cardCaption': 'Δείγμα επισκόπησης χώρου εργασίας — δοκιμάστε το δωρεάν.',
   'landing.hero.primaryCta': 'Ξεκινήστε την εγγραφή δωρεάν',
   'landing.hero.proof.free': 'Δωρεάν για πάντα επίπεδο',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Αναζήτηση ηχογραφήσεων',
   'library.searchPlaceholder': 'Αναζήτηση ηχογραφήσεων…',
   'library.weeklyChange': '{{value}} % σε σχέση με την προηγούμενη εβδομάδα',
+  'nav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'nav.record': 'Εγγραφή',
   'nav.shared': 'Μου το έδειξε',
   'nav.startRecording': 'Έναρξη εγγραφής',

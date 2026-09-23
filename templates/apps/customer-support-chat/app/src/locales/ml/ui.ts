@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
   'authShell.samplePreview':
     '“ഹേ ടീം, പുതിയ ഡാഷ്‌ബോർഡ് അതിമനോഹരമാണ് — ഞങ്ങൾക്ക് വേണ്ടത് തന്നെയാണ്!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/കുറുക്കുവഴി',
   'automations.subheading':
     'നിയമങ്ങൾ, മുൻനിശ്ചയിച്ച പ്രതികരണങ്ങൾ, ചാറ്റ്ബോട്ടുകൾ - നിങ്ങളുടെ ടീം ബുദ്ധിമുട്ടുള്ള കാര്യങ്ങളിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുമ്പോൾ വർക്ക്‌സ്‌പെയ്‌സ് മൂളിക്കൊണ്ടേയിരിക്കുക.',
+  'automations.trigger.inboundMessage': 'ഇൻബൗണ്ട് സന്ദേശം',
   'automations.triggerLabel': 'ട്രിഗർ',
   'chatBubble.internalNoteLabel': 'ആന്തരിക കുറിപ്പ്',
+  'common.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'contactDetail.backToContacts': 'എല്ലാ കോൺടാക്റ്റുകളും',
   'contactDetail.contactFallback': 'ബന്ധപ്പെടുക',
   'contactDetail.conversationFallback': 'സംഭാഷണം',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'അവസാനം കണ്ടത്',
   'contacts.empty': 'ഇതുവരെ കോൺടാക്റ്റുകളൊന്നുമില്ല. മുകളിൽ നിങ്ങളുടെ ആദ്യ കോൺടാക്റ്റ് ചേർക്കുക.',
   'contacts.eyebrow': 'ഉപഭോക്തൃ ഡയറക്ടറി',
+  'contacts.form.nameOrEmailRequired': 'കുറഞ്ഞത് ഒരു പേരോ ഇമെയിലോ നൽകുക',
   'contacts.form.save': 'കോൺടാക്റ്റ് സംരക്ഷിക്കുക',
   'contacts.heading': 'ബന്ധങ്ങൾ',
   'contacts.loading': 'കോൺടാക്റ്റുകൾ ലോഡ് ചെയ്യുന്നു...',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'കുറിപ്പ് സംരക്ഷിക്കുക',
   'conversationDetail.tab.note': 'ആന്തരിക കുറിപ്പ്',
   'conversationDetail.threadAria': 'സംഭാഷണ സന്ദേശങ്ങൾ',
+  'conversationDetail.visitorFallback': 'സന്ദർശകൻ',
   'customerProfilePanel.csatLabel': 'സി‌എസ്‌‌ടി',
   'customerProfilePanel.propertiesTitle': 'ഉപഭോക്തൃ വിശദാംശങ്ങൾ',
   'customerProfilePanel.recentTitle': 'സമീപകാല സംഭാഷണങ്ങൾ',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ഉപഭോക്താക്കൾക്ക് അവരുടെ ആദ്യ മറുപടി ലഭിക്കുന്നത് {{time}} ശരാശരി - കാഡൻസ് തുടരുക.',
   'inboxHeroCard.title': 'സജീവ സംഭാഷണങ്ങൾ',
+  'inboxLayout.navDrawerLabel': 'നാവിഗേഷൻ',
+  'inboxLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'inboxOverview.eyebrow': 'ഇന്ന് ഒറ്റനോട്ടത്തിൽ',
   'inboxOverview.heroChange': '{{count}} തുറക്കുക',
   'inboxOverview.kpiClosedTrend': 'എല്ലാക്കാലത്തെയും',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ഹോംപേജ് സന്ദർശിക്കുക',
   'notifications.subheading':
     'അസൈൻമെന്റുകൾ, @mentions, SLA റിസ്കുകൾ, CSAT ഫീഡ്‌ബാക്ക്, ടീം പ്രവർത്തനം - ഏറ്റവും പുതിയത് ആദ്യം അടുക്കി.',
+  'notifications.subjectFallback': 'ഒരു സംഭാഷണം',
+  'notifications.visitorFallback': 'ഒരു സന്ദർശകൻ',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ഉയർന്ന',
   'priority.low': 'താഴ്ന്നത്',
+  'priority.normal': 'സാധാരണം',
   'priority.urgent': 'അടിയന്തരം',
   'privacy.title': 'സ്വകാര്യതാ നയം',
   'reports.agentFallback': 'ഏജന്റ്',

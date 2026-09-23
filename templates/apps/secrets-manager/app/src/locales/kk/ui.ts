@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'about.tagline': 'Құпиялар ашық жерде өледі.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Токен жасау',
   'apiTokens.kicker': 'API токендері',
   'apiTokens.loading': 'Токендер жүктелуде…',
+  'apiTokens.new': 'Жаңа токен',
   'apiTokens.revoke': 'Токенді қайтарып алу',
   'apiTokens.subheading':
     'Arcanum CLI және SDK үшін жеке және қызмет көрсету токендері. Жасалған кезде бір рет көрсетіледі.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + құпия сөз',
   'authShell.zeroKnowledge': 'Нөлдік білімді шифрлау',
   'common.connecting': 'Қосылуда…',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.inviting': 'Шақырылуда…',
   'forgotPassword.checkInbox':
     'Егер {email} тіркелген болса, қол қойылған қалпына келтіру сілтемесі бір минут ішінде келеді.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Әрбір қоймадағы айналу күйі, ауытқу туралы ескертулер және бекіту сұраулары.',
   'notifications.unreadEmpty': 'Кіріс жәшігі нөл — барлығы жиналды.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.heading': 'құпиялар',
   'pricing.limits.accessPolicies': 'кіру саясаттары',
   'pricing.limits.auditLog': 'аудит журналының жазбалары',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Жеке аккаунт',
   'profile.plan.description': 'Жазылымыңызды басқарыңыз, лимиттерді қараңыз және жаңартыңыз.',
   'profile.subheading': 'Идентификация, екінші факторлы құрылғылар және белсенді сеанстар.',
+  'profile.twoFactor.code': 'Аутентификация коды',
   'profile.twoFactor.disable': 'Өшіру',
   'profile.twoFactor.enable': 'Қосу',
+  'profile.twoFactor.invalidCode': 'Жарамсыз код',
   'profile.twoFactor.kicker': 'Екі факторлы аутентификация',
+  'profile.twoFactor.off': 'Қосылмаған',
   'profile.twoFactor.on': 'Қосылған',
   'resetPassword.email': 'Тіркелгі электрондық поштасы',
   'resetPassword.heading': 'Жаңа тіркелгі деректерін орнату',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'командалар',
   'secretsManagerLayout.encrypted': 'AES-256 · ШИФРЛАНҒАН',
   'secretsManagerLayout.newVault': 'Жаңа сейф',
+  'secretsManagerLayout.newVaultShort': 'Жаңа',
   'secretsManagerLayout.rotations': 'Айналдырулар',
   'secretsManagerLayout.search': 'іздеу',
   'secretsManagerLayout.searchPlaceholder': 'Құпияларды кілт, жол немесе тег бойынша іздеңіз...',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Құпиялар',
   'vaultCard.vaultLabel': 'Қойма',
   'vaultDetail.addSecret': 'Құпия қосу',
+  'vaultDetail.back': 'Барлық қоймалар',
   'vaultDetail.col.key': 'Кілт',
   'vaultDetail.col.rotated': 'Айналдырылған',
   'vaultDetail.col.value': 'Құндылық',

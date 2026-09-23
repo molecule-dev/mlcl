@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'auditLog.empty':
     'Noch keine Audit-Ereignisse, die zu Ihren Filtern passen. Bearbeiten Sie einen Mitarbeiter oder verarbeiten Sie einen Gehaltslauf, und sie erscheinen hier.',
   'auditLog.eyebrow': 'Compliance',
+  'auditLog.loadError': 'Das Audit-Protokoll konnte nicht geladen werden.',
   'auditLog.searchPlaceholder': 'Nach Akteur, Aktion oder Beschreibung suchen',
   'auditLog.subheading':
     'Jede Freigabe, Bearbeitung und Steuererklärung – mit Akteur, Zeitstempel und geänderten Feldern.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nicht konfiguriert',
   'billing.plansHeading': 'Tarife',
   'billing.subheading': 'Verwalten Sie Ihren Tarif und wechseln Sie Stufen über Stripe.',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Erneut versuchen',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Compliance-Übersicht',
   'dashboard.compliance.title': 'Alle Prüfungen bestanden',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Keine Abzüge hinterlegt.',
   'employeeDetail.notFound': 'Mitarbeiter nicht gefunden.',
   'employeeDetail.payFrequency': 'Zahlungsfrequenz',
+  'employeeDetail.postTax': 'Nach Steuern',
+  'employeeDetail.preTax': 'Vor Steuern',
   'employeeDetail.salary': 'Jahresgehalt',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Begonnen am {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Zahlungsfrequenz',
   'employeeForm.salary': 'Jahresgehalt (USD)',
   'employeeForm.salaryInvalid': 'Das Gehalt muss eine nicht-negative Zahl sein.',
+  'employeeForm.saveError': 'Mitarbeiter konnte nicht gerettet werden.',
   'employeeForm.semimonthly': 'Halbmonatlich',
   'employeeForm.single': 'Ledig',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Gehalt',
   'forgotPassword.subtitle':
     'Geben Sie Ihre geschäftliche E-Mail ein, und wir senden Ihnen einen Reset-Link.',
+  'landing.copyright': '© {{year}} {{app}} . Präzise, zuverlässig, souverän.',
   'landing.ctaBody':
     '30 Tage kostenlos. Keine Kreditkarte. Wechseln Sie jederzeit, ohne Ihre Audit-Spur zu verlieren.',
   'landing.ctaHeading': 'Führen Sie Ihren nächsten Zyklus auf Stipend aus',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Noch keine Audit-Einträge für diesen Gehaltslauf.',
   'payRunDetail.noStubs':
     'Noch keine Gehaltsabrechnungen – genehmigen und verarbeiten Sie sie, um sie zu erzeugen.',
+  'payRunDetail.notFound': 'Dieser Gehaltslauf konnte nicht gefunden werden.',
   'payRunDetail.statDeductions': 'Abzüge',
   'payRunDetail.statHeadcount': 'Mitarbeiter',
   'payRunDetail.statTaxes': 'Einbehaltene Steuern',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Halbmonatlich',
   'settings.signOutDevice': 'Abmelden',
   'settings.subheading': 'Unternehmensprofil, Zahlungsplan und Integrationen.',
+  'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
+  'settings.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.twoFactorVerify': 'Überprüfen & aktivieren',
   'settings.weekly': 'Wöchentlich',
   'taxCenter.bucket.federal': 'Bundeseinkommen',
   'taxCenter.bucket.fica': 'Sozialversicherung',

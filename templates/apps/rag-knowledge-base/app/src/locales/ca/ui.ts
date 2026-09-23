@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.pageTitle': 'Sobre {{appName}}',
   'analytics.error': "No s'han pogut carregar les analítiques.",
   'analytics.heading': 'Analítica de recuperació',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': "No s'han configurat nivells de preus.",
   'billing.plans.heading': 'Plans',
   'billing.subheading': 'Pla, ús i pagament gestionat per Stripe.',
+  'common.confirm': 'Confirma',
+  'common.goToDashboard': 'Anar al panell',
+  'common.retry': 'Torna-ho a intentar',
   'documentCard.open': 'Obre \\u2192',
   'documentDetail.back': 'Torna als documents',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': "Document d'índex",
   'documents.composer.titlePlaceholder': 'Títol del document',
   'documents.emptyAll': "Encara no hi ha cap document. Penja'n un per començar a fer preguntes.",
+  'documents.error.load': "No s'han pogut carregar els documents.",
   'documents.heading': 'Documents indexats',
   'documents.loading': "S'estan carregant els documents…",
   'documents.metric.chunks': 'Total de trossos',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Eliminant\\u2026',
   'members.subheading': "Convida els companys d'equip i estableix els rols.",
   'members.tableHeading': 'Llista',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'notFound.askCta': 'Pregunta a la base de coneixements',
+  'notFound.body':
+    "{{app}} no ha pogut localitzar aquesta pàgina. Pot ser que l'enllaç estigui trencat o que la pàgina s'hagi retirat durant una reindexació.",
   'notFound.eyebrow': 'No es pot recuperar',
   'notFound.title': "No hi ha cap fragment d'aquest tipus a l'índex",
   'notifications.dismiss': 'Ignora',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': "URL d'origen",
   'sources.empty.body': 'Feu clic a «Afegeix una font» per connectar el primer connector.',
   'sources.empty.title': 'Encara no hi ha fonts.',
+  'sources.error.add': "No s'ha pogut afegir la font.",
   'sources.error.labelRequired': "Cal l'etiqueta.",
   'sources.error.load': "No s'han pogut carregar les fonts.",
   'sources.error.urlRequired': 'Cal una URL per a aquest tipus de font.',

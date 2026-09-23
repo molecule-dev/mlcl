@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
   'authShell.samplePreview':
     '"ဟေ့ အဖွဲ့သားတို့၊ ဒက်ရှ်ဘုတ်အသစ်က အရမ်းလှတယ် — ကျွန်တော်တို့ လိုအပ်နေတဲ့အတိုင်းပါပဲ!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/အတိုကောက်',
   'automations.subheading':
     'စည်းမျဉ်းများ၊ အလိုအလျောက်တုံ့ပြန်မှုများနှင့် chatbot များ — သင့်အဖွဲ့သည် ခက်ခဲသောကိစ္စရပ်များကို အာရုံစိုက်နေစဉ် အလုပ်ခွင်ကို စည်ကားနေစေပါ။',
+  'automations.trigger.inboundMessage': 'ဝင်လာတဲ့ မက်ဆေ့ချ်',
   'automations.triggerLabel': 'ထရစ်ဂါ',
   'chatBubble.internalNoteLabel': 'အတွင်းပိုင်းမှတ်စု',
+  'common.confirmDelete': 'ဖျက်ရန် အတည်ပြုပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'contactDetail.backToContacts': 'အဆက်အသွယ်အားလုံး',
   'contactDetail.contactFallback': 'ဆက်သွယ်ရန်',
   'contactDetail.conversationFallback': 'စကားဝိုင်း',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'နောက်ဆုံးတွေ့ခဲ့တာ',
   'contacts.empty': 'အဆက်အသွယ်မရှိသေးပါ။ အပေါ်မှာ သင့်ရဲ့ပထမဆုံးအဆက်အသွယ်ကို ထည့်ပါ။',
   'contacts.eyebrow': 'ဖောက်သည်လမ်းညွှန်',
+  'contacts.form.nameOrEmailRequired': 'အနည်းဆုံး အမည် သို့မဟုတ် အီးမေးလ်တစ်ခု ပေးပါ',
   'contacts.form.save': 'အဆက်အသွယ်ကို သိမ်းဆည်းပါ',
   'contacts.heading': 'အဆက်အသွယ်များ',
   'contacts.loading': 'အဆက်အသွယ်များကို တင်နေသည်…',
@@ -56,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'မှတ်စုကို သိမ်းဆည်းပါ',
   'conversationDetail.tab.note': 'အတွင်းပိုင်းမှတ်စု',
   'conversationDetail.threadAria': 'စကားပြောဆိုမှု မက်ဆေ့ချ်များ',
+  'conversationDetail.visitorFallback': 'လာရောက်လည်ပတ်သူ',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'ဖောက်သည်အသေးစိတ်အချက်အလက်များ',
   'customerProfilePanel.recentTitle': 'မကြာသေးမီက စကားပြောဆိုမှုများ',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ဝယ်ယူသူများသည် ၎င်းတို့၏ ပထမဆုံးပြန်ကြားချက်ကို ရရှိနေကြသည် {{time}} ပျမ်းမျှအားဖြင့် — စည်းချက်ကို ဆက်ထိန်းထားပါ။',
   'inboxHeroCard.title': 'တက်ကြွသော စကားဝိုင်းများ',
+  'inboxLayout.navDrawerLabel': 'လမ်းညွှန်',
+  'inboxLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'inboxOverview.eyebrow': 'ဒီနေ့ကို တစ်ချက်ကြည့်လိုက်ရင်',
   'inboxOverview.heroChange': '{{count}} ပွင့်လင်းသည်',
   'inboxOverview.kpiClosedTrend': 'အချိန်တိုင်း',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ပင်မစာမျက်နှာသို့ ဝင်ရောက်ကြည့်ရှုပါ',
   'notifications.subheading':
     'တာဝန်များ၊ @mentions၊ SLA အန္တရာယ်များ၊ CSAT တုံ့ပြန်ချက်နှင့် အဖွဲ့လိုက်လုပ်ဆောင်မှု — အသစ်ဆုံးကို အရင်စီသည်။',
+  'notifications.subjectFallback': 'စကားဝိုင်းတစ်ခု',
+  'notifications.visitorFallback': 'လာရောက်လည်ပတ်သူတစ်ဦး',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'မြင့်မားသော',
   'priority.low': 'နိမ့်ကျသော',
+  'priority.normal': 'ပုံမှန်',
   'priority.urgent': 'အရေးတကြီး',
   'privacy.title': 'ကိုယ်ရေးအချက်အလက်မူဝါဒ',
   'reports.agentFallback': 'အေးဂျင့်',

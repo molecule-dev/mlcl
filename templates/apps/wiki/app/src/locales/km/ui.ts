@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'កំពុងដោះស្រាយ…',
   'comments.subtitle':
     'ទី {{count}} ខ្សែស្រឡាយនៅតែរង់ចាំការឆ្លើយតប ឬដំណោះស្រាយ។ តម្រៀបតាមអាយុ — ចាស់បំផុតមុន ដូច្នេះគ្មានអ្វីរលួយទេ។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'forgotPassword.sentTo': 'បានផ្ញើតំណកំណត់ឡើងវិញទៅ {{email}}',
   'forgotPassword.successSubheading':
     'សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក — យើងទើបតែបានផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញ។ វាផុតកំណត់ក្នុងរយៈពេល 30 នាទី។',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'ទំព័រថ្មី',
   'pageTreeSidebar.workspaceHeader': 'កន្លែងធ្វើការ',
   'pageView.breadcrumb': 'កំទេចនំប៉័ង',
+  'pageView.confirmTrash': 'ចាក់សំរាមចោល?',
   'pageView.home': 'ផ្ទះ',
   'pageView.lastEdited': 'បានធ្វើបច្ចុប្បន្នភាព {{when}}',
   'pageView.loading': 'កំពុងផ្ទុកទំព័រ…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'សេចក្តីសង្ខេប AI មិនត្រូវបានកំណត់រចនាសម្ព័ន្ធសម្រាប់កន្លែងធ្វើការនេះទេ។',
   'pageView.tocTitle': 'នៅលើទំព័រនេះ',
+  'pageView.trash': 'សំរាម',
+  'pageView.trashing': 'កំពុង​បោះចោល…',
   'pageView.versionBadge': 'វី{{version}}',
   'profile.badges.title': 'ផ្លាកសញ្ញា',
   'profile.owned.title': 'ទំព័រ​ដែល​ជា​កម្មសិទ្ធិ',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'កន្លែងធ្វើការ ប្រវត្តិរូប ការជូនដំណឹង ការរួមបញ្ចូល — ទាំងអស់នៅក្នុងសំបកស្ងប់ស្ងាត់តែមួយ។',
   'settingsPage.workspace.defaultLanding': 'អេក្រង់ចុះចតលំនាំដើម',
   'settingsPage.workspace.landingHome': 'ផ្ទះ',
+  'settingsPage.workspace.landingSpaces': 'ចន្លោះ',
   'settingsPage.workspace.subdomainLabel': 'ដែនរង',
   'settingsPage.workspace.title': 'កន្លែងធ្វើការ',
   'signup.eyebrow': 'ចាប់ផ្តើមកន្លែងធ្វើការថ្មី',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} នាទី',
   'templates.subtitle':
     'ចាប់ផ្តើមទំព័រមួយពីស្ទីល មិនមែនពីផ្ទាំងក្រណាត់ទទេទេ។ គំរូនីមួយៗកំណត់រូបរាងយ៉ាងច្បាស់លាស់ ដូច្នេះអ្នកអាចផ្តោតលើខ្លឹមសារ។',
+  'trash.confirmPurge': 'សម្អាតជារៀងរហូត?',
+  'trash.confirmPurgeAria': 'បញ្ជាក់៖ លុប {{title}} ជាអចិន្ត្រៃយ៍',
   'trash.daysUntilPurge': '{{days}} ថ្ងៃដែលនៅសល់',
   'trash.empty.body': 'ទំព័រដែលបានលុបនឹងបង្ហាញនៅទីនេះរយៈពេល 30 ថ្ងៃមុនពេលត្រូវបានសម្អាត។',
   'trash.empty.title': 'សំរាមទទេ។',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'កំពុងស្ដារ…',
   'versionHistory.subtitle': '{{count}} កំណែ · ជ្រើសរើសជួរដេកមួយដើម្បីពិនិត្យមើលភាពខុសគ្នា',
   'versionHistory.versionLabel': 'វី{{v}}',
+  'wikiLayout.closeMenu': 'បិទការរុករក',
+  'wikiLayout.menu': 'ការរុករក',
+  'wikiLayout.openMenu': 'បើកការរុករក',
   'wikiLayout.searchPlaceholder': 'ស្វែងរក Cairn — ទំព័រ មតិយោបល់…',
 }

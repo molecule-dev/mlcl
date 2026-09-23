@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'تماس بگیرید',
   'about.eyebrow': 'درباره',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.connectRepoCta': 'مخزن را وصل کنید',
   'dashboard.empty': 'هنوز هیچ درخواست pull وجود ندارد - برای شروع، یک مخزن متصل کنید.',
   'dashboard.eyebrow': 'انکسار · صف بررسی',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'زمان فعالیت',
   'pullRequestRow.files': '{{count}} ف',
   'pullRequestRow.scoreAria': 'امتیاز کیفیت هوش مصنوعی {{score}} / 10',
+  'refractLayout.closeMenu': 'بستن منو',
+  'refractLayout.openMenu': 'منوی باز',
   'refractLayout.primaryNavLabel': 'ناوبری اولیه',
   'reports.cumulativeScoreLabel': 'امتیاز تجمعی',
   'reports.cumulativeScoreSubtitle': 'همه مخازن · {{days}} د',
@@ -176,11 +179,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'برای شروع فهرست‌بندی، یک مخزن را متصل کنید یا قوانین سفارشی اضافه کنید.',
   'search.loadError': 'بارگیری فهرست جستجو ناموفق بود.',
   'settings.apiKeys.description': 'کلیدهای API شخصی را از منوی کاربر در بالا سمت راست مدیریت کنید.',
+  'settings.apiKeys.integrationsNote':
+    'توکن‌های دسترسی ارائه‌دهنده در بخش ادغام‌ها در بالا مدیریت می‌شوند.',
   'settings.connectError': 'اتصال ارائه دهنده ناموفق بود.',
   'settings.disconnectError': 'قطع ارتباط ارائه دهنده ناموفق بود.',
   'settings.eyebrow': 'انکسار · فضای کاری',
   'settings.integration.${provider}.label': 'در حال ذخیره…',
   'settings.loadError': 'بارگیری تنظیمات ناموفق بود.',
+  'settings.notificationCenter': 'مرکز اعلان‌ها',
   'settings.notifications.description':
     'برای مشاهده و مدیریت تنظیمات ارسال، به صفحه اعلان‌ها مراجعه کنید.',
   'settings.section.account': 'حساب کاربری و امنیت',

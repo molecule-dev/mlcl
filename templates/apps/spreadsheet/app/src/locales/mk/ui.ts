@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
   'about.pageTitle': 'За {{name}}',
   'auth.footer.about': 'За {{name}}',
   'authHeader.subtitle': 'Најавете се за да ги одржите вашите бројки искрени.',
   'automations.action.email': 'Е-пошта',
+  'automations.action.noop': 'Без операција',
   'automations.action.webhook': 'Вебхук',
   'automations.confirmDelete': 'Избриши " {{name}} „?“',
   'automations.empty.headline': 'Сè уште нема автоматизации',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Тригери и дејства низ секоја работна книга. Секое извршување евидентира ред што можете да го ревидирате подоцна.',
   'automations.toggle': 'Вклучи/исклучи {{name}}',
+  'automations.trigger.dailySchedule': 'Дневен распоред',
+  'automations.trigger.rowCreated': 'Редот е креиран',
+  'automations.trigger.rowUpdated': 'Редот е ажуриран',
   'billing.empty': 'Нема достапни планови.',
   'billing.error.priceMissing':
     'Нема конфигурирана цена на Stripe за ова ниво. Поставете ги варијациите на околините STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Графикони',
   'charts.kpi.totalCharts': 'Вкупно графикони',
   'charts.list.empty': 'Сè уште нема графикони.',
+  'charts.namePlaceholder': 'Тренд на приходи',
   'charts.newChart': 'Нов графикон',
   'charts.primary.eyebrow': 'Графикони по тип',
   'charts.primary.headline': 'Преглед на работниот простор',
   'charts.subhead':
     'Визуелизации во живо врзани за вашата мрежа — повторно прикажувајте при секое уредување на ќелијата.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'editor.addColumn': 'Додај колона',
+  'editor.addDialogTitle': 'Додај колона',
   'editor.addRow': 'Додај ред',
   'editor.addSheet': 'Додај лист',
   'editor.back': 'Назад кон работните книги',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Калцит е компанија која првенствено се фокусира на формулата, има повеќекратен преглед и е во реално време, аналитичарите и финансиските тимови се стремат кон првото.',
   'landing.nav.formulas': 'Формули',
+  'login.noAccount': 'Нов во {{name}} ?',
+  'login.signIn': 'Најавете се на {{name}}',
   'login.signUp': 'Креирај работен простор',
+  'nav.menu': 'Мени',
+  'nav.openMenu': 'Отвори мени',
   'notFound.cellRef': '#РЕФ!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "рути", "страница")',
   'notFound.headline': 'Овој ред никогаш не постоел.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Нативни автоматизации · webhook и cron тригери',
   'signup.creating': 'Обезбедување работен простор…',
   'signup.cta': 'Креирај го мојот работен простор',
+  'signup.haveAccount': 'Веќе сте на {{name}} ?',
   'signup.namePlaceholder': 'Ејвери Чен',
   'signup.tagline': 'Завртете ја вашата прва работна книга за 30 секунди',
   'team.col.activity': 'Поканет',

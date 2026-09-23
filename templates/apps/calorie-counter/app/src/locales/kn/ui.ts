@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'ಪ್ರತಿ ತುತ್ತು, ಸಮತೋಲಿತ',
   'auth.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'auth.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
+  'nosh.auth.legalPrefix': 'ಮುಂದುವರಿಸುವ ಮೂಲಕ ನೀವು ನಮ್ಮ ನಿಯಮಗಳನ್ನು ಒಪ್ಪುತ್ತೀರಿ',
   'nosh.foodDetail.add': 'ಡೈರಿಗೆ ಸೇರಿಸಿ',
   'nosh.foodDetail.added': 'ಸೇರಿಸಲಾಗಿದೆ {{ಊಟ}} .',
   'nosh.foodDetail.addError': 'ಡೈರಿಗೆ ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'ಫೈಬರ್',
   'nosh.foodDetail.micros.sodium': 'ಸೋಡಿಯಂ',
   'nosh.foodDetail.micros.sugar': 'ಸಕ್ಕರೆ',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'ಪ್ರೋಟೀನ್',
   'nosh.foodDetail.serving.count': 'ಸೇವೆಗಳು',
   'nosh.foodDetail.serving.meal': 'ಸೇರಿಸಿ',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'ಚುರುಕಾಗಿ ಇಂಧನ ತುಂಬಲು ಪ್ರಾರಂಭಿಸಿ',
   'nosh.landing.features.heading': 'ನಿಮಗೆ ಬೇಕಾಗಿರುವುದೆಲ್ಲವೂ, ನಿಮಗೆ ಬೇಡವಾದದ್ದು ಯಾವುದೂ ಇಲ್ಲ',
   'nosh.landing.features.smartRing.title': 'ಸ್ಮಾರ್ಟ್ ಕ್ಯಾಲೋರಿ ರಿಂಗ್',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'ಅಪರಾಧಿ ಭಾವನೆಯಿಲ್ಲದೆ ನಿಮ್ಮ ಗುರಿಗಳನ್ನು ತಲುಪಲು ಸಹಾಯ ಮಾಡುವ ಸ್ನೇಹಪರ ಆಹಾರ ಲಾಗ್. ಕೇವಲ ಸಂಖ್ಯೆಗಳಲ್ಲ, ಪೋಷಣೆಯತ್ತ ಗಮನಹರಿಸಿ.',
   'nosh.landing.hero.eyebrow': 'ಸ್ನೇಹಪರ ಕ್ಯಾಲೋರಿ ಟ್ರ್ಯಾಕಿಂಗ್',
@@ -83,6 +88,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'ನೀವು ಎಷ್ಟು ಸಕ್ರಿಯರಾಗಿದ್ದೀರಿ?',
   'nosh.onboarding.back': 'ಹಿಂದೆ',
   'nosh.onboarding.macros.heading': 'ನಿಮ್ಮ ದೈನಂದಿನ ಗುರಿ ಇಲ್ಲಿದೆ',
+  'nosh.onboarding.saveError': 'ನಿಮ್ಮ ಗುರಿಗಳನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'nosh.onboarding.start': 'ಹೋಗೋಣ',
   'nosh.progress.calorieChart.title': 'ದಿನದಿಂದ ಕ್ಯಾಲೋರಿಗಳು',
   'nosh.progress.empty':
@@ -145,6 +151,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ',
   'nosh.settings.deleteError': 'ಖಾತೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'nosh.settings.export.cta': 'CSV ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ',
+  'nosh.settings.export.description': 'ನಿಮ್ಮ ಸಂಪೂರ್ಣ ಆಹಾರ ಲಾಗ್ ಅನ್ನು CSV ಆಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.',
   'nosh.settings.export.label': 'ಡೇಟಾವನ್ನು ರಫ್ತು ಮಾಡಿ',
   'nosh.settings.export.preparing': 'ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ...',
   'nosh.settings.eyebrow': 'ಖಾತೆ · ಅಧಿಸೂಚನೆಗಳು · ಗೌಪ್ಯತೆ',
@@ -156,6 +163,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'ಸ್ನೇಹಪರ ಟ್ರ್ಯಾಕಿಂಗ್, ಯಾವುದೇ ಅಪರಾಧ ಪ್ರಜ್ಞೆ ಇಲ್ಲ.',
   'nosh.today.${mealKey}Empty': 'ಲಾಗಿನ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ',
   'nosh.today.addFood': 'ಆಹಾರವನ್ನು ಸೇರಿಸಿ',
+  'nosh.today.backToToday': 'ಇಂದಿನ ದಿನಕ್ಕೆ ಹಿಂತಿರುಗಿ',
+  'nosh.today.dateNavLabel': 'ದಿನಚರಿ ದಿನವನ್ನು ಬದಲಾಯಿಸಿ',
   'nosh.today.loadError': 'ಇಂದು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'nosh.today.macros.carbs': 'ಕಾರ್ಬೋಹೈಡ್ರೇಟ್‌ಗಳು',
   'nosh.today.macros.fat': 'ಕೊಬ್ಬು',
@@ -163,6 +172,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'ಪ್ರೋಟೀನ್',
   'nosh.today.macroTitle': 'ಮ್ಯಾಕ್ರೋನ್ಯೂಟ್ರಿಯೆಂಟ್ಸ್',
   'nosh.today.meal.${mealKey}': 'ಕ್ಯಾಲೋರಿ',
+  'nosh.today.nextDay': 'ಮರುದಿನ',
+  'nosh.today.pastPill': 'ಕಳೆದ ದಿನ',
+  'nosh.today.prevDay': 'ಹಿಂದಿನ ದಿನ',
   'nosh.today.quickAddError': 'ತ್ವರಿತ ಐಟಂ ಅನ್ನು ಲಾಗ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'nosh.today.remaining': 'ಉಳಿದ ಕ್ಯಾಲೊರಿಗಳು',
   'nosh.today.streakHeadline': '{{count}} - ದಿನದ ಸರಣಿ',

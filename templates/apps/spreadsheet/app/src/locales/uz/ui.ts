@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'about.pageTitle': 'Haqida {{name}}',
   'auth.footer.about': 'Haqida {{name}}',
   'authHeader.subtitle': "Raqamlaringiz rost bo'lishi uchun tizimga kiring.",
   'automations.action.email': 'Elektron pochta',
+  'automations.action.noop': 'Operatsiyasiz',
   'automations.action.webhook': 'Veb-huk',
   'automations.confirmDelete': 'O\'chirish " {{name}} "?',
   'automations.empty.headline': "Hali avtomatlashtirish yo'q",
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     "Har bir ish daftarida triggerlar va harakatlar. Har bir ishga tushirish keyinchalik tekshirishingiz mumkin bo'lgan qatorni qayd etadi.",
   'automations.toggle': "Yoqish/o'chirish {{name}}",
+  'automations.trigger.dailySchedule': 'Kundalik jadval',
+  'automations.trigger.rowCreated': 'Qator yaratildi',
+  'automations.trigger.rowUpdated': 'Qator yangilandi',
   'billing.empty': 'Hech qanday reja mavjud emas.',
   'billing.error.priceMissing':
     "Bu daraja uchun Stripe narxi sozlanmagan. STRIPE_*_PRICE_ID env o'zgaruvchilarini o'rnating.",
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafiklar',
   'charts.kpi.totalCharts': 'Jami jadvallar',
   'charts.list.empty': "Hali jadvallar yo'q.",
+  'charts.namePlaceholder': 'Daromad tendentsiyasi',
   'charts.newChart': 'Yangi jadval',
   'charts.primary.eyebrow': "Turlari bo'yicha jadvallar",
   'charts.primary.headline': 'Ish maydoniga umumiy nuqtai nazar',
   'charts.subhead':
     "Jadvalingizga bog'langan jonli vizualizatsiyalar — har bir katakcha tahririda qayta renderlanadi.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'editor.addColumn': "Ustun qo'shish",
+  'editor.addDialogTitle': "Ustun qo'shish",
   'editor.addRow': "Qator qo'shish",
   'editor.addSheet': "Varaq qo'shish",
   'editor.back': 'Ish daftarlariga qaytish',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     "{{name}} Kaltsit - bu birinchi navbatda ko'p ko'rinishli, real vaqt rejimida tarmoq tahlilchilari va moliya guruhlari birinchi bo'lib murojaat qiladigan formula.",
   'landing.nav.formulas': 'Formulalar',
+  'login.noAccount': '{{name}} da yangimisiz?',
+  'login.signIn': '{{name}} ga kirish',
   'login.signUp': 'Ish maydoni yarating',
+  'nav.menu': 'Menyu',
+  'nav.openMenu': 'Menyuni ochish',
   'notFound.cellRef': '#REFERENCE!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "marshrutlar", "sahifa")',
   'notFound.headline': "Bu qator hech qachon mavjud bo'lmagan.",
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Mahalliy avtomatlashtirish · webhook va cron triggerlari',
   'signup.creating': 'Ish maydoni taqdim etilmoqda…',
   'signup.cta': 'Ish joyimni yarating',
+  'signup.haveAccount': '{{name}} da allaqachon bormisiz?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Birinchi ish daftaringizni 30 soniyada aylantiring',
   'team.col.activity': 'Taklif qilingan',

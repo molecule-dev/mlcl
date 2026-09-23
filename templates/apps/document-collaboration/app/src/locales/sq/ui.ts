@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.title': 'Rreth {{app}}',
   'comments.addFailed': 'Nuk mund të postohej koment.',
   'comments.backToDoc': 'Kthehu te dorëshkrimi',
   'comments.deleteFailed': 'Nuk mund të fshihej.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Zgjidh',
   'comments.resolveFailed': 'Nuk mundi të zgjidhej.',
   'comments.subtitle': '{{open}} hapur · {{resolved}} zgjidhur',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.activityHeading': 'Çfarë po ndodh',
   'dashboard.createFailed': 'Nuk mundi të krijonte një dokument.',
   'dashboard.empty': 'Ende nuk ka dorëshkrime — filloni me butonin Dokument i Ri.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Nuk mund të zhvendosej në kosh.',
   'editor.unpublish': 'Hiq publikimin',
   'editor.untitled': 'Dokument pa titull',
+  'editor.updatedElsewhere':
+    'Ky dokument është përditësuar nga dikush tjetër — ringarkoni për të parë versionin më të fundit.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'shkrimtar@studio.com',
   'forgotPassword.sentBody':
     'Nëse ekziston një llogari për {{email}} , një lidhje rivendosjeje është duke u dërguar.',
   'forgotPassword.subtitle': "Do t'ju dërgojmë me email një lidhje rivendosjeje.",
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Ndërtuar me Molecule.',
   'landing.ctaHeading': 'Hap faqen. Lëre kursorin të fillojë.',
   'landing.ctaPrimary': 'Hap një studio',
   'landing.eyebrow': 'Për shkrimtarë, redaktorë dhe ekipe',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'redaktuar {{when}}',
   'quillonDocumentCard.open': 'Hap →',
   'quillonKpiCard.trend': 'Trendi i fundit',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Navigimi kryesor',
   'quillonStudioHero.collab': 'Bashkëpunëtorët',
   'quillonStudioHero.docs': 'Dokumentet e prekura',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'pikërisht tani',
+  'trash.confirmDelete': 'Konfirmo fshirjen',
   'trash.deleteFailed': 'Nuk mund të fshihej.',
   'trash.deleteForever': 'Fshij përgjithmonë',
   'trash.empty': 'Asgjë për të rikuperuar.',
+  'trash.emptyAll': 'Zbrazni mbeturinat',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Mbeturina',
   'trash.loadFailed': 'Nuk mund të ngarkohej koshi i mbeturinave.',

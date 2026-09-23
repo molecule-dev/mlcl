@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Каждый кусочек — сбалансированный',
   'auth.hidePassword': 'Скрыть пароль',
   'auth.showPassword': 'Показать пароль',
+  'common.goToDashboard': 'Перейти к панели',
   'nav.legal': 'Юридические',
+  'nosh.auth.legalPrefix': 'Продолжая, вы соглашаетесь с нашими',
   'nosh.foodDetail.add': 'Добавить в дневник',
   'nosh.foodDetail.added': 'Добавлено в {{еда}} .',
   'nosh.foodDetail.addError': 'Добавить запись в дневник не удалось.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Волокно',
   'nosh.foodDetail.micros.sodium': 'Натрий',
   'nosh.foodDetail.micros.sugar': 'Сахар',
+  'nosh.foodDetail.percentDv': '{{pct}}% от суточной нормы',
   'nosh.foodDetail.protein': 'Белок',
   'nosh.foodDetail.serving.count': 'Порции',
   'nosh.foodDetail.serving.meal': 'добавить в',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Начните заправляться топливом с умом.',
   'nosh.landing.features.heading': 'Всё, что вам нужно, и ничего лишнего.',
   'nosh.landing.features.smartRing.title': 'Умное кольцо для сжигания калорий',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Удобный дневник питания, который поможет вам достичь целей без чувства вины. Сосредоточьтесь на питательности, а не только на цифрах.',
   'nosh.landing.hero.eyebrow': 'Удобный подсчет калорий',
@@ -83,6 +88,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Насколько вы активны?',
   'nosh.onboarding.back': 'Назад',
   'nosh.onboarding.macros.heading': 'Вот ваша ежедневная цель.',
+  'nosh.onboarding.saveError': 'Не удалось сохранить ваши цели.',
   'nosh.onboarding.start': 'Пойдем',
   'nosh.progress.calorieChart.title': 'Калории в день',
   'nosh.progress.empty':
@@ -145,6 +151,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Удалить навсегда',
   'nosh.settings.deleteError': 'Не удалось удалить учетную запись.',
   'nosh.settings.export.cta': 'Скачать CSV',
+  'nosh.settings.export.description': 'Скачайте полный журнал питания в формате CSV.',
   'nosh.settings.export.label': 'Экспорт данных',
   'nosh.settings.export.preparing': 'Подготовка…',
   'nosh.settings.eyebrow': 'Аккаунт · Уведомления · Политика конфиденциальности',
@@ -156,6 +163,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Удобное отслеживание, никаких угрызений совести.',
   'nosh.today.${mealKey}Empty': 'Нажмите, чтобы войти',
   'nosh.today.addFood': 'Добавить еду',
+  'nosh.today.backToToday': 'Вернемся к сегодняшнему дню',
+  'nosh.today.dateNavLabel': 'Изменить день в дневнике',
   'nosh.today.loadError': 'Сегодня не удалось загрузить.',
   'nosh.today.macros.carbs': 'Углеводы',
   'nosh.today.macros.fat': 'Толстый',
@@ -163,6 +172,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Белок',
   'nosh.today.macroTitle': 'Макронутриенты',
   'nosh.today.meal.${mealKey}': 'кал',
+  'nosh.today.nextDay': 'На следующий день',
+  'nosh.today.pastPill': 'За последний день',
+  'nosh.today.prevDay': 'Предыдущий день',
   'nosh.today.quickAddError': 'Не удалось зарегистрировать быструю запись.',
   'nosh.today.remaining': 'оставшиеся калории',
   'nosh.today.streakHeadline': '{{count}} -дневная серия',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.title': 'Een schrijfkamer die je in je zak kunt meenemen.',
   'billing.cancelConfirm': 'Uw actieve abonnement opzeggen?',
   'billing.cancelFailed': 'Kan niet opzeggen.',
   'billing.checkingOut': 'Afrekenen openen…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Kan facturering niet laden.',
   'billing.loading': 'Facturering laden…',
   'billing.upgradeCta': 'Upgrade naar {{name}}',
+  'common.goToDashboard': 'Ga naar Dashboard',
+  'editor.autosaveOn': 'Automatisch opslaan ingeschakeld',
   'editor.backToLibrary': 'Terug naar bibliotheek',
   'editor.charCount': '{{count}} tekens',
   'editor.confirmTrash': 'Dit document naar de prullenbak verplaatsen?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Losgemaakt',
   'editor.unpublishCta': 'Naar concept verplaatsen',
   'editor.unpublished': 'Teruggezet naar concept',
+  'focus.autosaveOn': 'Automatisch opslaan ingeschakeld',
   'focus.backToLibrary': 'Terug naar bibliotheek',
   'focus.bodyPlaceholder': 'Eén regel tegelijk. Verder is hier niemand.',
   'focus.exit': 'Focusmodus verlaten',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Maak er een aan',
   'login.subline':
     "Uw manuscripten, dagelijkse pagina's en laatste cursorpositie staan precies waar u ze achterliet.",
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'pricing.exports': 'exports',
   'pricing.folders': 'mappen',
   'pricing.heading': 'documenten',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Voer de code in die we u zojuist hebben gemaild en kies iets dat u kunt onthouden. We loggen u in zodra het is opgeslagen.',
   'reset.tokenHint': 'Geplakt uit uw inbox.',
+  'settings.appearance.heading': 'Licht of donker',
   'settings.editor.${row.id}.description': 'Taal',
   'settings.editor.description':
     'Typemachine-scroll, alineavervaging en focus inactief — de standaardinstellingen zijn afgestemd op lange sessies.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Hoofdstuk drie — Een stil uur voor zonsopkomst',
   'versalDocumentCard.pinned': 'Vastgezet',
   'versalLayout.nav.stats': 'Statistieken',
+  'versalLayout.primaryNavLabel': 'Hoofdnavigatie',
   'versalManuscriptHero.cta': 'Verder schrijven',
   'versalManuscriptHero.goalLabel': 'Woorddoel van vandaag',
   'versalManuscriptHero.inProgress': 'Op koers',

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Kurzusok betöltése…',
   'browse.next': 'Következő oldal',
   'browse.results': '{{count}}-kurzusok megjelenítése',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Rendezés',
   'browse.subtitle':
     'Szűrd a szerkesztői archívumot téma, szint és ár szerint. Minden tanfolyamot szerkesztőink gondosan válogattak össze.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'A tanúsítványod aláírásra került és készen áll. Oszd meg a világgal, vagy őrizd meg emlékül arra a munkára, amit a megszerzéséhez kellett végezni.',
   'certificate.copyLink': 'Megosztási link másolása',
+  'certificate.copyPrompt': 'Másold ki ezt a linket:',
   'certificate.download': 'PDF letöltése',
   'certificate.eyebrow': 'A teljesítmény feloldva',
   'certificate.linkCopied': 'A linket másoltam!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Felvételt nyertél!',
   'checkout.verifying': 'A regisztráció ellenőrzése…',
   'checkout.viewLibrary': 'Saját tanulás megtekintése',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.retry': 'Próbálja újra',
   'courseDetail.about': 'A kurzusról',
   'courseDetail.checkoutPending': 'Fizetés indítása…',
   'courseDetail.continueLearning': 'Tanulj tovább',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 napos pénzvisszafizetési garancia',
   'courseDetail.includes.video': '{{hours}} órányi igény szerinti videó',
   'courseDetail.instructor': 'Oktató',
+  'courseDetail.languageEnglish': 'angol',
   'courseDetail.lectures': 'Előadások',
   'courseDetail.level': 'Szint',
   'courseDetail.loading': 'Kurzus betöltése…',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Még nincs vélemény.',
   'instructorProfile.students': 'Diákok',
   'landing.categories.empty': 'A kategóriák akkor jelennek meg, ha a katalógus feltöltésre kerül.',
+  'landing.categories.heading': 'Fedezze fel az archívumot',
   'landing.hero.eyebrow': 'Lectura · A mesteri művészet szerkesztői archívuma',
   'landing.hero.proof': 'A Google, a Meta és az Adobe tanulói is megbíznak bennünk.',
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Kezdd el még ma a tanulást!',
   'login.subheading': 'Nyissa meg tudományos archívumát.',
   'myLearning.empty.title': 'Még nincs olyan kurzus, amely megfelelne ennek a szűrőnek',
+  'myLearning.error.title': 'Nem sikerült betölteni a könyvtáradat',
   'myLearning.filter.notStarted': 'Nem kezdett',
   'myLearning.hero.subtitle':
     '{{count}} a könyvtáradban található tanfolyamok. Tartsd fenn a lendületet!',
@@ -170,6 +177,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Nincs új tevékenység, amit át kellene tekinteni. Az új események itt jelennek meg.',
   'notifications.empty.title': 'Teljesen naprakész',
+  'notifications.error.title': 'A tevékenységet nem sikerült betölteni',
   'privacy.title': 'Adatvédelmi szabályzat',
   'reset.confirmPlaceholder': 'Adja meg újra az új jelszavát',
   'reset.errorGeneric': 'A jelszó visszaállítása nem sikerült. Kérjen új linket.',
@@ -194,5 +202,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}n ezelőtt',
   'timeAgo.hours': '{{count}}ó ezelőtt',
   'timeAgo.minutes': '{{count}} perc ezelőtt',
+  'timeAgo.months': '{{count}} hónapokkal ezelőtt',
   'timeAgo.today': 'ma',
+  'timeAgo.weeks': '{{count}} hetekkel ezelőtt',
 }

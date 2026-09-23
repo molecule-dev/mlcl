@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Դասընթացները բեռնվում են…',
   'browse.next': 'Հաջորդ էջ',
   'browse.results': 'Ցուցադրվում է {{count}} դասընթացներ',
+  'browse.searchChip': '« {{query}} »',
   'browse.sort': 'Դասավորել ըստ',
   'browse.subtitle':
     'Զտեք խմբագրական արխիվը ըստ թեմայի, մակարդակի և գնի: Յուրաքանչյուր դասընթաց մեր խմբագիրների կողմից ձեռքով է կազմվում:',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Ձեր վկայականը ստորագրված է և պատրաստ։ Կիսվեք դրանով աշխարհի հետ կամ պահեք այն որպես հիշեցում այն աշխատանքի մասին, որը պահանջվել է դրա վաստակման համար։',
   'certificate.copyLink': 'Պատճենել կիսվելու հղումը',
+  'certificate.copyPrompt': 'Պատճենեք այս հղումը՝',
   'certificate.download': 'Ներբեռնել PDF-ը',
   'certificate.eyebrow': 'Նվաճումը բացվեց',
   'certificate.linkCopied': 'Հղումը պատճենվեց։',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Դուք գրանցված եք։',
   'checkout.verifying': 'Ձեր գրանցումը հաստատվում է…',
   'checkout.viewLibrary': 'Դիտել իմ ուսուցումը',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.retry': 'Փորձեք կրկին',
   'courseDetail.about': 'Այս դասընթացի մասին',
   'courseDetail.checkoutPending': 'Վճարումը սկսվում է…',
   'courseDetail.continueLearning': 'Շարունակեք սովորելը',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-օրյա գումարի վերադարձման երաշխիք',
   'courseDetail.includes.video': '{{hours}} ժամերով տեսանյութ ըստ պահանջի',
   'courseDetail.instructor': 'Ուսուցիչ',
+  'courseDetail.languageEnglish': 'անգլերեն',
   'courseDetail.lectures': 'Դասախոսություններ',
   'courseDetail.level': 'Մակարդակ',
   'courseDetail.loading': 'Դասընթացը բեռնվում է…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Դեռևս կարծիքներ չկան։',
   'instructorProfile.students': 'Ուսանողներ',
   'landing.categories.empty': 'Կատալոգը լրացնելուց հետո կատեգորիաները կհայտնվեն։',
+  'landing.categories.heading': 'Արխիվը ուսումնասիրեք',
   'landing.hero.eyebrow': 'Դասախոսություն · Վարպետության խմբագրական արխիվ',
   'landing.hero.proof': 'Վստահելի է Google-ի, Meta-ի և Adobe-ի ուսանողների կողմից։',
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Սկսեք սովորել այսօր',
   'login.subheading': 'Մուտք գործեք ձեր գիտական արխիվ։',
   'myLearning.empty.title': 'Այս ֆիլտրին դեռևս ոչ մի դասընթաց չի համապատասխանում',
+  'myLearning.error.title': 'Չհաջողվեց բեռնել ձեր գրադարանը',
   'myLearning.filter.notStarted': 'Սկսված չէ',
   'myLearning.hero.subtitle': '{{count}} դասընթացներ ձեր գրադարանում։ Պահպանեք այս միտումը։',
   'myLearning.hero.title': 'Շարունակեք այնտեղից, որտեղ կանգ առաք։',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Վերանայելու նոր գործունեություն չկա։ Նոր միջոցառումները կհայտնվեն այստեղ։',
   'notifications.empty.title': 'Դուք ամեն ինչ գիտեք',
+  'notifications.error.title': 'Հնարավոր չէ բեռնել գործունեությունը',
   'privacy.title': 'Գաղտնիության քաղաքականություն',
   'reset.confirmPlaceholder': 'Կրկին մուտքագրեք ձեր նոր գաղտնաբառը',
   'reset.errorGeneric': 'Գաղտնաբառը չհաջողվեց վերականգնել։ Խնդրեք նոր հղում։',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} օր առաջ',
   'timeAgo.hours': '{{count}} ժամ առաջ',
   'timeAgo.minutes': '{{count}} րոպե առաջ',
+  'timeAgo.months': '{{count}} ամիս առաջ',
   'timeAgo.today': 'այսօր',
+  'timeAgo.weeks': '{{count}} շաբաթ առաջ',
 }

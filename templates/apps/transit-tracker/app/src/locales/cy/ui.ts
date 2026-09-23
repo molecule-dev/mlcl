@@ -98,7 +98,7 @@ export const ui: UiTranslations = {
   'savedStops.emptyTitle': "Dim arhosfeydd wedi'u cadw eto",
   'savedStops.error': 'Methwyd llwytho arosfannau a arbedwyd. Rhowch gynnig arall arni.',
   'savedStops.eyebrow': 'Eich rhwydwaith',
-  'savedStops.loading': 'Wrthi&#39;n llwytho arosfannau sydd wedi&#39;u cadw…',
+  'savedStops.loading': "Wrthi'n llwytho arosfannau sydd wedi'u cadw…",
   'savedStops.title': "Arhosfeydd wedi'u cadw",
   'settings.account': 'Cyfrif',
   'settings.billing': 'Bilio',

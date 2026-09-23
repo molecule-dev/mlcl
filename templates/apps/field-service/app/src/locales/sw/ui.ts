@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Wateja',
   'customers.loadError': 'Imeshindwa kupakia wateja.',
   'customers.loading': 'Inapakia…',
+  'customers.new.address': 'Anwani ya huduma',
   'customers.new.email': 'Barua pepe',
   'customers.new.error': 'Imeshindwa kuongeza mteja.',
   'customers.new.heading': 'Mteja mpya',

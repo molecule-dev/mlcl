@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'authShell.brandHeading': 'Чанга сэтгэдэг дизайны багуудад зориулсан олон тоглогчийн зураг.',
   'billing.canceled': 'Захиалга цуцлагдлаа.',
   'billing.cancelPlan': 'Төлөвлөгөөг цуцлах',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Загвараас эхлэх',
   'boards.title': 'Таны самбарууд',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Ажлын талбартайгаа холбогдсон имэйл хаягаа оруулна уу, бид дахин тохируулах холбоос илгээх болно.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Эмх замбараагүй, бүтээлч, биечлэн сэтгэхэд зориулагдсан.',
   'landing.demoBoard.title': '1-р улирлын семинар · Брэндийн дуу хоолой',
   'landing.featuresTitle': 'Хурдан санал хүсэлт. Үзэсгэлэнтэй зурагнууд. Үрэлтгүй.',
+  'landing.hero.body':
+    '{{appName}} нь шууд санал бодлоо солилцож, нэг дор нэгтгэх шаардлагатай байгаа дизайны баг, семинарын удирдагч, сурган хүмүүжүүлэгчдэд зориулсан олон тоглогчийн цагаан самбар юм.',
   'landing.hero.primaryCta': 'Үнэгүй самбар эхлүүлэх',
   'landing.hero.socialProof': 'Итгэмжлэгдсэн {{count}} дэлхий даяарх дизайны багууд',
   'landing.hero.title': 'Таны бодол шиг хурдан зураг',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Үнэгүй ажлын талбар үүсгэх',
   'login.subheading':
     'Сургалтын төгсгөлөөс үргэлжлүүлээрэй — самбар, наалттай тэмдэглэл, курсорууд бүгд бодит цаг хугацаанд синк хийгдэх болно.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.new': 'Шинэ',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'notifications.editTitle': '"-д засварласан {{board}} "',
   'notifications.empty.body':
     'Урилга, хадгалсан агшин зураг болон сүүлийн үеийн самбарын засварууд энд гарч ирэх үед нь харагдах болно.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Хувилбарын түүх',
   'versionHistory.untitledSnapshot': 'Гарчиггүй агшин зураг',
   'whiteboardLayout.newBoard': 'Шинэ самбар',
+  'whiteboardLayout.primaryNav': 'Үндсэн навигаци',
   'workspace.boardLabel': 'Самбар',
   'workspace.eyebrow': '{{name}} · Ажлын байр',
   'workspace.invite': 'Хамтран ажиллагсдыг урих',

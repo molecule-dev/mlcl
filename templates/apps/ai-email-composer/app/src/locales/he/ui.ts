@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'הסיפור שלנו',
   'aiSuggestionPanel.title': 'טייס משנה של חותם',
   'analytics.col.open': 'שיעור פתיחה',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'מתחיל את התשלום...',
   'billing.subheading': 'בחרו את התוכנית שמתאימה לאופן השליחה שלכם.',
   'billing.unavailable': 'צרו קשר עם המכירות',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
+  'common.retry': 'נסה שוב',
   'compose.adjustingTone': 'כתיבה מחדש בטון שנבחר…',
   'compose.aiPromptPlaceholder':
     'לדוגמה "מעקב מנומס לאחר חוסר תגובה במשך שבועיים, יש להקפיד על המשך קריאה קצר."',
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'צריכים לשלוח משהו? סיגנט יכולה להכין טיוטה תוך שניות.',
   'dashboard.composeCtaLabel': 'כתיבה מהירה',
   'dashboard.heading': 'השבוע שלך, מורכב',
+  'dashboard.loadFailed': 'לא ניתן היה לטעון את לוח המחוונים שלך.',
   'dashboard.manageLibrary': 'ניהול ספרייה →',
   'dashboard.recentEmpty': 'אין עדיין הודעות דוא"ל - הודעות הדוא"ל ששלחת יופיעו כאן.',
   'dashboard.recentHeading': 'שליחות אחרונות',
@@ -134,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'צליל ברירת מחדל',
   'settings.toneSubheading': 'סיגנט משתמש בטון הזה אלא אם כן אתה מבטל אותו בדראפט.',
   'signetLayout.primaryNavLabel': 'ניווט ראשי',
+  'signetLayout.toggleMenu': 'תפריט הפעלה/כיבוי',
   'signup.emailLabel': 'כתובת דוא"ל',
   'signup.showPassword': 'הצג סיסמה',
   'signup.tagline': 'שלחו את האימייל הראשון שלכם שנוסח באמצעות בינה מלאכותית תוך פחות מדקה.',

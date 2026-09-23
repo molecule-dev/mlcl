@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəyiniz, funksiya sorğunuz varmı və ya səhv tapmısınız? Hesab menyusundakı dəstək linki vasitəsilə {{app}} komandası ilə əlaqə saxlayın — hər mesaj əsl insana göndərilir.',
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'agentDetail.back': 'Bütün agentlər',
   'agentDetail.capabilities': 'Qabiliyyətlər',
   'agentDetail.delete': 'Personajı silin',
   'agentDetail.deleteConfirm': 'Bu personaj silinsin? Bunu geri qaytarmaq mümkün deyil.',
+  'agentDetail.deleteError': 'Şəxsiyyəti silmək mümkün olmadı.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Personajı yükləmək mümkün olmadı.',
   'agentDetail.save': 'Şəxsiyyəti yadda saxla',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Dəyişdirilir…',
   'billing.updateError': 'Yeniləməyə başlamaq mümkün olmadı.',
   'billing.usageHeading': 'Bu dövrdə səs istifadəsi',
+  'chatBubble.source.text': 'mətn',
+  'chatBubble.source.voice': 'səs',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'conversation.defaultTitle': 'Yeni söhbət',
   'conversation.empty': 'Hələ mesaj yoxdur. Başlamaq üçün bir şey deyin və ya aşağıya yazın.',
   'conversation.eyebrow': 'Canlı sessiya',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Danışan zəka.',
   'landing.heroSubtitle':
     'Təbii axışınızı anlayan süni intellekt səs köməkçisi. Rahatlıqla danışın, fikirləşin və əmr verin.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Dinləyir…',
   'landing.naturallyBody':
     'Tətikləyici sözlər yoxdur. Sərt əmrlər yoxdur. Vox konteksti, kəsintiləri və insan nitqinin incəliklərini başa düşür - sanki həmkarı ilə söhbət edir.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Sessiya açın',
   'notFound.home': 'Evə qayıt',
   'notFound.title': 'Həmin səhifəni eşidə bilmədik.',
+  'parlanceLayout.closeMenu': 'Menyunu bağlayın',
+  'parlanceLayout.openMenu': 'Naviqasiya menyusunu açın',
   'parlanceLayout.primaryNavLabel': 'Əsas naviqasiya',
   'pricing.conversations': '{{count}} söhbətlər',
   'pricing.cta.startFree': 'Pulsuz başlayın',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Uyğunluq yoxdur',
   'search.eyebrow': 'Əmr palitrası',
   'search.fetchError': 'Axtarış indeksini yükləmək mümkün olmadı.',
+  'search.static.profile.preview': 'Ekran adı, ünvanı, tərcümeyi-halı',
   'search.static.voice.title': 'Səs',
   'search.title': 'Vox-da axtarış',
   'search.transcriptPreview': 'Açıq transkript',

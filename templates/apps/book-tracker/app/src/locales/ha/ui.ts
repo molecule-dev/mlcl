@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Sake farawa da sarƙa',
   'resetPassword.mismatchError': 'Kalmomin sirri ba su yi daidai ba.',
   'resetPassword.subheading': 'Zaɓi wani mai ƙarfi. Littattafan ku za su jira.',
-  'reviewCard.starsAria': 'An ƙima<x> {{ƙimar}}</x> daga cikin<x> {{na}}</x> taurari',
+  'reviewCard.starsAria': 'An ƙima {{rating}} daga cikin taurari {{of}}',
   'reviewCard.unratedAria': 'Ba a ƙima ba',
   'reviews.eyebrow': 'Abin da ya kasance tare da ku',
   'reviews.heading': 'Bita-bitan ku',

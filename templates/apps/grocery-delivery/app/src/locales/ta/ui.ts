@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'உங்கள் கடைக்காரருக்கு டிப் கொடுங்கள்',
   'checkout.tipLabel': 'குறிப்பு',
   'checkout.zipPlaceholder': 'ஜிப்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'featuredProductsGrid.addAria': 'சேர் {{name}} கூடையில்',
   'featuredProductsGrid.outOfStock': 'கையிருப்பு இல்லை',
   'forgotPassword.emailLabel': 'மின்னஞ்சல் முகவரி',
   'forgotPassword.emailPlaceholder': 'ஷாப்பர்@புஷல்.ஃப்ரெஷ்',
   'forgotPassword.successBody':
     'அந்த மின்னஞ்சல் பதிவு செய்யப்பட்டிருந்தால், மீட்டமைப்பு இணைப்பு ஒன்று உங்களுக்கு அனுப்பப்படும்.',
+  'groceryDeliveryLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'landing.categoriesEyebrow': 'இடைவழிகள்',
   'landing.categoriesHeading': 'வகை வாரியாக வாங்கவும்',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'அத்தியாவசியப் பொருட்களின் ஸ்மார்ட் மறுவரிசைப்படுத்தல் மற்றும் ஓட்டுநரின் நேரடிக் கண்காணிப்பு வசதியுடன் வாராந்திர விநியோகங்களைத் திட்டமிடுங்கள்.',
   'landing.heroTitle': 'புத்துணர்ச்சி சில மணி நேரங்களில் உங்கள் வீட்டு வாசலில்.',
   'landing.howEyebrow': 'மூன்று படிகள்',
+  'landing.howItWorksHeading': '{{app}} எவ்வாறு செயல்படுகிறது',
   'lists.addAllCta': 'அனைத்தையும் கூடையில் சேர்க்கவும்',
   'lists.createCta': 'உங்கள் முதல் பட்டியலை உருவாக்கவும்',
   'lists.createError': 'பட்டியலை உருவாக்க முடியவில்லை.',

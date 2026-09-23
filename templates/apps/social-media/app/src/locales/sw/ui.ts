@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.pageTitle': 'Kuhusu {{app}}',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.retry': 'Jaribu tena',
   'compose.cancel': 'Ghairi',
   'compose.captionPlaceholder': 'Unafikiria nini?',
   'compose.heading': 'Shiriki muda',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Akaunti iliyothibitishwa',
   'resetPassword.newPassword': 'Nenosiri jipya',
   'resetPassword.subheading': 'Chagua kitu chenye nguvu — angalau herufi 12.',
+  'search.clearAria': 'Wazi',
+  'search.error': 'Utafutaji umeshindwa. Jaribu tena.',
   'search.noPeople': 'Hakuna waundaji wanaolingana " {{q}} ".',
   'search.noPosts': 'Hakuna machapisho yanayolingana " {{q}} ".',
   'search.noTags': 'Hakuna hashtag zinazovuma bado.',
@@ -123,6 +129,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ficha nenosiri',
   'signup.showPassword': 'Onyesha nenosiri',
   'signup.subheading': 'Fungua akaunti ili uanze kushiriki.',
+  'socialMediaLayout.closeMenu': 'Funga menyu ya kusogeza',
+  'socialMediaLayout.openMenu': 'Fungua menyu ya kusogeza',
+  'socialMediaLayout.primaryNavLabel': 'Usogezaji mkuu',
   'storyRail.heading': 'Hadithi',
   'storyRail.label': 'Hadithi',
   'storyRail.openAria': 'Fungua {{handle}} hadithi ya',

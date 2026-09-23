@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Fale com a gente',
   'about.eyebrow': 'Sobre',
+  'common.goToDashboard': 'Ir para o Painel',
   'dashboard.connectRepoCta': 'Conectar repositório',
   'dashboard.empty': 'Ainda não há pull requests — conecte um repositório para começar.',
   'dashboard.eyebrow': 'Refract · fila de revisão',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Disponibilidade',
   'pullRequestRow.files': '{{count}} a',
   'pullRequestRow.scoreAria': 'Pontuação de qualidade da IA {{score}} / 10',
+  'refractLayout.closeMenu': 'Fechar menu',
+  'refractLayout.openMenu': 'Abrir menu',
   'refractLayout.primaryNavLabel': 'Navegação principal',
   'reports.cumulativeScoreLabel': 'Pontuação acumulada',
   'reports.cumulativeScoreSubtitle': 'todos os repos · {{days}} d',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Falha ao carregar o índice de busca.',
   'settings.apiKeys.description':
     'Gerencie chaves de API pessoais pelo menu do usuário no canto superior direito.',
+  'settings.apiKeys.integrationsNote':
+    'Os tokens de acesso dos provedores são gerenciados na seção “Integrações”, acima.',
   'settings.connectError': 'Falha ao conectar o provedor.',
   'settings.disconnectError': 'Falha ao desconectar o provedor.',
   'settings.eyebrow': 'Refract · workspace',
   'settings.integration.${provider}.label': 'Salvando…',
   'settings.loadError': 'Falha ao carregar as configurações.',
+  'settings.notificationCenter': 'Central de notificações',
   'settings.notifications.description':
     'Acesse a página de notificações para visualizar e gerenciar as preferências de entrega.',
   'settings.section.account': 'Conta e segurança',

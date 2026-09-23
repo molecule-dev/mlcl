@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.title': 'Par {{app}}',
   'comments.addFailed': 'Neizdevās publicēt komentāru.',
   'comments.backToDoc': 'Atgriezties pie manuskripta',
   'comments.deleteFailed': 'Neizdevās dzēst.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Atrisināt',
   'comments.resolveFailed': 'Neizdevās atrisināt.',
   'comments.subtitle': '{{open}} atvērts · problēma ar „{{resolved}}“ atrisināta',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.activityHeading': 'Kas notiek',
   'dashboard.createFailed': 'Neizdevās izveidot dokumentu.',
   'dashboard.empty': 'Vēl nav neviena manuskripta — sāciet ar pogu „Jauns dokuments“.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Neizdevās pārvietot uz atkritumu grozu.',
   'editor.unpublish': 'Atcelt publicēšanu',
   'editor.untitled': 'Dokuments bez nosaukuma',
+  'editor.updatedElsewhere':
+    'Šo dokumentu atjaunināja kāds cits — ielādējiet atkārtoti, lai skatītu jaunāko informāciju.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ja ir reģistrēts konts ar adresi {{email}}, drīz tiks nosūtīta saite konta atjaunošanai.',
   'forgotPassword.subtitle': 'Mēs nosūtīsim jums e-pastu ar saiti paroles atjaunošanai.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Izveidots ar Molecule.',
   'landing.ctaHeading': 'Atveriet lapu. Ļaujiet kursoram sākt darbu.',
   'landing.ctaPrimary': 'Atvērt studiju',
   'landing.eyebrow': 'Rakstniekiem, redaktoriem un komandām',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'pārstrādāts {{when}}',
   'quillonDocumentCard.open': 'Atvērt →',
   'quillonKpiCard.trend': 'Pēdējā laika tendence',
+  'quillonLayout.menu': 'Izvēlne',
   'quillonLayout.primaryNavLabel': 'Galvenā navigācija',
   'quillonStudioHero.collab': 'Sadarbības partneri',
   'quillonStudioHero.docs': 'Pārskatītie dokumenti',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'tikko',
+  'trash.confirmDelete': 'Apstiprināt dzēšanu',
   'trash.deleteFailed': 'Neizdevās dzēst.',
   'trash.deleteForever': 'Dzēst uz visiem laikiem',
   'trash.empty': 'Nav ko atgūt.',
+  'trash.emptyAll': 'Iztukšot miskasti',
   'trash.eyebrow': 'Studija',
   'trash.heading': 'Atkritumi',
   'trash.loadFailed': 'Neizdevās ielādēt atkritumu grozu.',

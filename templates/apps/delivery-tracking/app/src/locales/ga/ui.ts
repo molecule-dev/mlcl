@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'alerts.acknowledgeLabel': 'Admháil',
   'alerts.customerLabel': 'Custaiméir: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Ag ceangal…',
   'carriers.requiredError': 'Tá ainm agus cód ag teastáil.',
   'carriers.subheading': '{{count}} comhtháite',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
+  'common.retry': 'Déan iarracht eile',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Ar iompar + bratach',
   'dashboard.activeShipmentsSubtitle':
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'loingsithe',
   'pricing.trackingLabel': 'imeachtaí rianaithe',
   'profile.dangerZone.title': 'Crios contúirte',
+  'profile.devices.signingOut': 'Á shíniú amach…',
+  'profile.devices.unnamed': 'Gléas gan ainm',
+  'profile.security.disable2fa': 'Díchumasaigh 2FA',
   'profile.security.enable2fa': 'Cumasaigh 2FA',
   'profile.security.pwChanged': 'Athraíodh an focal faire go rathúil.',
   'profile.security.pwCurrent': 'Focal faire reatha',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA gníomhach',
   'profile.security.twoFaCode': 'Cód 6 dhigit',
   'profile.security.twoFaDisable': 'Díchumasaigh',
+  'profile.security.twoFaDisabling': 'Ag díchumasú…',
   'profile.security.twoFaFailed': 'Níorbh fhéidir an cód a fhíorú.',
   'profile.security.twoFaIntro':
     'Scan an cód QR i d’aip fíordheimhnitheora, ansin cuir isteach an cód 6 dhigit thíos chun a fhíorú.',
   'profile.security.twoFaOn': 'Tá fíordheimhniú dhá fhachtóir cumasaithe ar an gcuntas seo.',
+  'profile.security.twoFaQrAlt': 'Cód QR dhá fhachtóir',
   'profile.security.twoFaVerify': 'Fíoraigh agus cumasaigh',
   'profile.security.twoFaVerifying': 'Ag fíorú…',
   'profile.subheading': 'Socruithe aitheantais agus slándála don spás oibre seo.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Sábháil an rún seo — ní thaispeánfar arís é.',
   'settings.api.webhookSecret': 'Rún sínithe Webhook',
   'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
+  'settings.deleteAccountConfirm': 'An bhfuil tú cinnte? Ní féidir an gníomh seo a chealú.',
   'settings.notifications.exceptions':
     'Seol ríomhphost chugam nuair a tharlaíonn eisceacht loingsithe',
   'settings.notifications.heading': 'Fógraí',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Níor aimsíodh an loingsiú.',
   'shipmentDetail.originHeading': 'Bunús',
   'shipmentDetail.shippedOn': 'Seolta {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Gan aon imeachtaí rianaithe fós — feictear nuashonruithe anseo agus an t-iompróir ag scanadh an phacáiste.',
   'shipments.col.carrier': 'Iompróir',
   'shipments.col.eta': 'Am measta',
   'shipments.col.route': 'Bealach',
@@ -174,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Sínigh Isteach',
   'signup.submit': 'Cruthaigh Cuntas',
   'team.emailError': 'Tá seoladh ríomhphoist bailí ag teastáil.',
+  'team.empty':
+    'Níl aon bhaill foirne fós. Tabhair cuireadh do chomhghleacaí foirne comhoibriú ar loingsithe.',
   'team.eyebrow': 'Baill & ceadanna',
   'team.inviteDialog.cancel': 'Cealaigh',
   'team.inviteDialog.heading': 'Tabhair cuireadh do chomhghleacaí foirne',
@@ -196,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Rian',
   'waypointLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'webhooks.createFailed': 'Níorbh fhéidir críochphointe webhook a chruthú.',
+  'webhooks.endpointsEmpty':
+    'Níl aon chríochphointí webhook ann go fóill. Cruthaigh ceann chun glaonna siar stádais loingsithe a fháil.',
   'webhooks.endpointsHeading': 'Críochphointí',
   'webhooks.eventCount': '{{count}} imeachtaí',
   'webhooks.eventsHeading': 'Seachadtaí le déanaí',

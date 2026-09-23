@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.title': 'Tungkol sa {{app}}',
   'auth.login.noAccount': 'Bago sa Sparq?',
   'auth.login.or': 'o magpatuloy gamit ang',
   'auth.signup.or': 'o mag-sign up sa',
+  'common.confirm': 'Kumpirmahin',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.loadError': 'Nagkaroon ng problema sa paglo-load ng nilalamang ito.',
+  'common.retry': 'Subukan muli',
   'discover.collections.title': 'Mag-browse ayon sa kategorya',
   'discover.collections.viewAll': 'Tingnan ang iyong library →',
   'discover.empty.body': 'Subukan ang ibang kategorya o i-clear ang paghahanap.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Mag-sign in para mapanatiling buhay ang iyong streak, mag-host ng mga live na laro, at umakyat sa leaderboard.',
   'myQuizzes.createButton': 'Bagong pagsusulit',
+  'myQuizzes.deleteConfirm': 'Burahin nang tuluyan?',
   'myQuizzes.empty.createCta': 'Buuin ang iyong unang pagsusulit →',
   'myQuizzes.empty.created': 'Hindi ka pa nakakagawa ng pagsusulit.',
   'myQuizzes.empty.played': 'Wala pang nailathalang mga pagsusulit.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Naglo-load…',
   'notifications.subhead':
     '{{count}} mga hindi pa nababasang spark. Mga imbitasyon, galaw sa leaderboard, at mga achievement lahat sa iisang stream.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.checkoutError': 'Hindi masimulan ang checkout. Pakisubukang muli.',
+  'pricing.heading': 'Pumili ng iyong {{app}} plano',
   'pricing.included': 'Kasama',
   'pricing.loadError': 'Hindi ma-load ang mga plano.',
   'pricing.maxQuizzes': '{{count}} mga pagsusulit',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Wala pang nailathala.',
   'profile.startBuilding': 'Magsimulang bumuo →',
   'profile.tier': 'Manlalaro ng Sparq',
+  'quizBuilder.addFailed': 'Hindi maidagdag ang tanong. Subukan muli.',
   'quizBuilder.addQuestion': 'Magdagdag ng tanong',
   'quizBuilder.answerPlaceholder': 'Mag-type ng opsyon…',
   'quizBuilder.answersLabel': 'Mga pagpipilian sa sagot',
   'quizBuilder.back': 'Balik tayo sa mga pagsusulit ko',
   'quizBuilder.delete': 'Burahin ang tanong',
+  'quizBuilder.deleteFailed': 'Hindi mabura ang tanong.',
   'quizBuilder.firstQuestion': 'Idagdag ang iyong unang tanong para makapagsimula.',
   'quizBuilder.idLabel': 'ID ng Pagsusulit: {{id}}',
   'quizBuilder.loadError': 'Hindi ma-load ang quiz.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Magdagdag ng kahit dalawang pagpipilian ng sagot at piliin ang tama para sa {{count}} mga tanong/mga tanong bago ilathala.',
   'quizBuilder.questionsTitle': 'Mga Tanong',
+  'quizBuilder.saveFailed': 'Hindi ma-save ang pamagat. Subukan muli.',
   'quizBuilder.statusDraft': 'Draft',
   'quizBuilder.subhead':
     'I-edit ang pamagat, magdagdag ng mga tanong, magtakda ng mga pagpipilian at ang tamang sagot. Awtomatikong nase-save ang mga pagbabago.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} minuto',
   'quizDetail.hostMultiplayer': 'Mag-host ng multiplayer',
   'quizDetail.leaderboardEmpty': 'Wala pang mga pag-play — maging una na magtakda ng iskor.',
+  'quizDetail.loadError': 'Hindi ma-load ang pagsusulit na ito.',
   'quizDetail.loading': 'Naglo-load ng pagsusulit…',
   'quizDetail.plays': '{{count}} mga dula',
   'quizDetail.playSolo': 'Maglaro nang mag-isa',

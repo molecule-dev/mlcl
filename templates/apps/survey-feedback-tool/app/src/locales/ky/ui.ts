@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} жөнүндө',
   'analytics.back': 'Сурамжылоого жалпы сереп',
   'analytics.kpiNps': 'NPS упай',
   'analytics.kpiNpsTrend': 'Промоутерлер {{p}} % · Каршы пикирдегилер {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Мүлктөр',
   'builder.questionNumber': 'С {{num}}',
   'builder.surveyTitle': 'Сурамжылоонун аталышы',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'forgotPassword.failed':
     'Баштапкы абалга келтирүү электрондук каты жөнөтүлгөн жок. Кайра аракет кылып көрүңүз.',
   'forgotPassword.subheading':
     'Электрондук почтаңызды киргизиңиз, биз сизге калыбына келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.successBody':
     'Эгер аккаунт дал келсе {{email}} , баштапкы абалга келтирүү шилтемеси жөнөтүлүүдө. Кирүүчү каттар кутучаңызды жана спам папкаларыңызды текшериңиз.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Бардык добуштар кабыл алынат.',
   'landing.footer.startTrial': 'Сыноону баштоо',
   'landing.hero.badge': 'Сурамжылоолор, Улуттук статистика кызматы жана пикир бир жерде',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Баалар',
   'landing.pricing.perMonth': '/ай',
   'landing.pricing.popular': 'Эң популярдуу',
+  'landing.pricing.subtitle':
+    'Ар бир план сурамжылоо куруучуну, коомдук бөлүшүү шилтемелерин жана NPS аналитикасын камтыйт. Баштоо үчүн кредиттик карта талап кылынбайт.',
+  'landing.pricing.title': 'Акысыз баштаңыз, болгондо масштабдаңыз.',
   'landing.sample.eyebrow': 'NPSке кыскача көз чаптыруу',
   'landing.sample.title': 'Каршы пикирдегилер, пассивдүү адамдар, промоутерлер — дароо окулат.',
   'login.failed': 'Кирүү ишке ашкан жок. Кайра аракет кылып көрүңүз.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Сырсөздү көрсөтүү',
   'login.signUpLink': 'Акысыз сыноону баштаңыз',
   'login.subheading': 'Аудиторияңызды угууну улантуу үчүн аккаунтуңузга кириңиз.',
+  'notFound.body':
+    'Сиз издеп жаткан баракча {{app}} колдонмосунда жок. Сурамжылоолоруңузга кайрылып көрөлү.',
   'notFound.cta': 'Сурамжылоолорго кайтуу',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Бул сурамжылоо кезектен чыгып кетти.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Пассивдүү 7–8',
   'npsDistributionBar.promoter': '9–10-уюштуруучу',
   'profile.identity.description': 'Командаңызга жана сиз түзгөн сурамжылоолорго ачык.',
+  'profile.identity.emailRequired': 'Электрондук почта дарегин киргизиңиз.',
   'profile.identity.saveCta': 'Атын сактоо',
   'profile.password.current': 'Учурдагы сырсөз',
   'profile.password.fillFields': 'Учурдагы жана жаңы сырсөздү киргизиңиз.',
@@ -181,6 +190,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} суроолор',
   'templates.subheading':
     'Согушта сыналган башталгычты тандаңыз — ар бир шаблон алдын ала туураланган, акылдуу демейки жөндөөлөр, үлгү логикасы жана таза мобилдик макет менен келет.',
+  'thankYou.body': 'Жообуңуз жаздырылды. {{app}} аны кийинки аналитика жаңыртуусуна кошот.',
   'thankYou.eyebrow': 'Жооп алынды',
   'thankYou.heading': 'Рахмат - сиздин үнүңүз маанилүү.',
   'thankYou.home': 'Мурмурга барыңыз',

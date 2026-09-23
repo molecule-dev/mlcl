@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.title': 'ನಿಮ್ಮ ಜೇಬಿನಲ್ಲಿ ಇಟ್ಟುಕೊಳ್ಳಬಹುದಾದ ಬರವಣಿಗೆ ಕೋಣೆ',
   'billing.cancelConfirm': 'ನಿಮ್ಮ ಸಕ್ರಿಯ ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸುವುದೇ?',
   'billing.cancelFailed': 'ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'billing.checkingOut': 'ಚೆಕ್ಔಟ್ ತೆರೆಯಲಾಗುತ್ತಿದೆ…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ಬಿಲ್ಲಿಂಗ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'billing.loading': 'ಬಿಲ್ಲಿಂಗ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'billing.upgradeCta': 'ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ {{name}}',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'editor.autosaveOn': 'ಸ್ವಯಂಉಳಿಸುವಿಕೆ ಆನ್ ಆಗಿದೆ',
   'editor.backToLibrary': 'ಗ್ರಂಥಾಲಯಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'editor.charCount': '{{count}} ಪಾತ್ರಗಳು',
   'editor.confirmTrash': 'ಈ ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಅನುಪಯುಕ್ತಕ್ಕೆ ಸರಿಸುವುದೇ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ಅನ್‌ಪಿನ್ ಮಾಡಲಾಗಿದೆ',
   'editor.unpublishCta': 'ಡ್ರಾಫ್ಟ್‌ಗೆ ಸರಿಸಿ',
   'editor.unpublished': 'ಡ್ರಾಫ್ಟ್‌ಗೆ ಹಿಂತಿರುಗಿಸಲಾಗಿದೆ',
+  'focus.autosaveOn': 'ಸ್ವಯಂಉಳಿಸುವಿಕೆ ಆನ್ ಆಗಿದೆ',
   'focus.backToLibrary': 'ಗ್ರಂಥಾಲಯಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'focus.bodyPlaceholder': 'ಒಂದೊಂದೇ ಸಾಲು. ಇಲ್ಲಿ ಬೇರೆ ಯಾರೂ ಇಲ್ಲ.',
   'focus.exit': 'ಫೋಕಸ್ ಮೋಡ್‌ನಿಂದ ನಿರ್ಗಮಿಸಿ',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ಒಂದನ್ನು ರಚಿಸಿ',
   'login.subline':
     'ನಿಮ್ಮ ಹಸ್ತಪ್ರತಿಗಳು, ದೈನಂದಿನ ಪುಟಗಳು ಮತ್ತು ಕೊನೆಯ ಕರ್ಸರ್ ಸ್ಥಾನವು ನೀವು ಅವುಗಳನ್ನು ಬಿಟ್ಟ ಸ್ಥಳದಲ್ಲಿಯೇ ಇರುತ್ತದೆ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'pricing.exports': 'ರಫ್ತುಗಳು',
   'pricing.folders': 'ಫೋಲ್ಡರ್‌ಗಳು',
   'pricing.heading': 'ದಾಖಲೆಗಳು',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'ನಾವು ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡಿದ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಸ್ಮರಣೀಯವಾದದ್ದನ್ನು ಆರಿಸಿ. ಅದನ್ನು ಉಳಿಸಿದ ನಂತರ ನಾವು ನಿಮ್ಮನ್ನು ಸೈನ್ ಇನ್ ಮಾಡುತ್ತೇವೆ.',
   'reset.tokenHint': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್‌ನಿಂದ ಅಂಟಿಸಲಾಗಿದೆ.',
+  'settings.appearance.heading': 'ಬೆಳಕು ಅಥವಾ ಕತ್ತಲೆ',
   'settings.editor.${row.id}.description': 'ಭಾಷೆ',
   'settings.editor.description':
     'ಟೈಪ್‌ರೈಟರ್ ಸ್ಕ್ರಾಲ್, ಪ್ಯಾರಾಗ್ರಾಫ್ ಫೇಡ್ ಮತ್ತು ಐಡಲ್ ಫೋಕಸ್ — ದೀರ್ಘ ಅವಧಿಗಳಿಗೆ ಡೀಫಾಲ್ಟ್‌ಗಳನ್ನು ಟ್ಯೂನ್ ಮಾಡಲಾಗುತ್ತದೆ.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'ಅಧ್ಯಾಯ ಮೂರು — ಸೂರ್ಯೋದಯಕ್ಕೆ ಮುಂಚಿನ ಒಂದು ಶಾಂತ ಗಂಟೆ',
   'versalDocumentCard.pinned': 'ಪಿನ್ ಮಾಡಲಾಗಿದೆ',
   'versalLayout.nav.stats': 'ಅಂಕಿಅಂಶಗಳು',
+  'versalLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'versalManuscriptHero.cta': 'ಬರೆಯುವುದನ್ನು ಮುಂದುವರಿಸಿ',
   'versalManuscriptHero.goalLabel': 'ಇಂದಿನ ಪದ ಗುರಿ',
   'versalManuscriptHero.inProgress': 'ಹಾದಿಯಲ್ಲಿದೆ',

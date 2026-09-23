@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'announcementsFeed.empty': 'Aún no hay anuncios.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Últimos anuncios',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Nada por aquí',
   'assignments.emptyBody': 'Cambia los filtros de arriba para ver tareas en otro estado.',
   'assignments.eyebrow': 'Todos los cursos · Este trimestre',
+  'assignments.loadError': 'No se pudieron cargar las tareas.',
   'assignments.loading': 'Cargando tareas…',
   'assignments.subtitle':
     'Filtra por estado para ver lo pendiente, entregado, calificado o no entregado.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': 'Aún no hay registros de asistencia.',
   'attendance.eyebrow': 'Trimestre de primavera · Últimas 4 semanas',
+  'attendance.loadError': 'No se pudieron cargar los registros de asistencia.',
   'attendance.loading': 'Cargando asistencia…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Fechas de entrega de tareas en una cuadrícula mensual — los exámenes destacan en rojo.',
   'calendar.title': 'Eventos de {{month}}',
+  'common.goToDashboard': 'Ir al panel',
   'common.no': '—',
+  'common.retry': 'Intentar de nuevo',
   'common.yes': '✓',
   'courseDetail.backLink': 'Calificaciones',
   'courseDetail.currentGrade': 'Nota actual',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendencia',
   'grades.empty': 'Aún no se han publicado calificaciones.',
   'grades.eyebrow': 'Libro de calificaciones',
+  'grades.loadError': 'No se pudieron cargar tus calificaciones.',
   'grades.loading': 'Cargando calificaciones…',
   'grades.subtitle':
     'Letras y porcentajes en vivo. Las flechas de tendencia muestran si subes, te mantienes o bajas.',
   'grades.title': 'Tus notas, curso por curso',
   'grades.trendStable': 'Estable',
+  'landing.copyright': '© {{year}} {{app}} . Diseñado para estudiantes, creado para familias.',
   'landing.ctaHeading': 'Un día escolar más tranquilo empieza en minutos',
   'landing.eyebrow': 'Para alumnos de secundaria y bachillerato',
   'landing.featuresHeading': 'Una jornada escolar organizada en torno al estudiante',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tareas',
   'nav.attendance': 'Asistencia',
   'nav.calendar': 'Calendario',
+  'nav.closeMenu': 'Cerrar el menú de navegación',
   'nav.grades': 'Calificaciones',
+  'nav.openMenu': 'Abrir el menú de navegación',
   'nav.statusEyebrow': 'GPA del trimestre',
   'nav.statusSubtext': 'Cuadro de honor · Trimestre de primavera',
+  'nav.unreadMessages': 'Mensajes no leídos',
   'notifications.eyebrow': '{{count}} updates',
   'notifications.subtitle':
     'Notas, recordatorios, mensajes y anuncios escolares. Ajusta los canales en Ajustes.',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.attendanceLabel': 'asistencia',
   'pricing.gradesLabel': 'calificaciones',
   'pricing.heading': 'anuncios',

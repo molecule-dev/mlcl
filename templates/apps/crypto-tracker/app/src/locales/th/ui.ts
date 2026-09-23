@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'เกี่ยวกับ',
   'alertConditionCard.condition.${alert.condition}': 'ถูกกระตุ้น {{เมื่อไร}}',
+  'alertConditionCard.confirmDelete': 'ยืนยันการลบ',
   'alertConditionCard.pauseAriaLabel': 'หยุดการแจ้งเตือน',
   'alertConditionCard.resumeAriaLabel': 'แจ้งเตือนประวัติย่อ',
   'alertNew.condition': 'เงื่อนไข',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'การประเมินมูลค่าแบบเจือจางเต็มที่',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'เว็บไซต์',
+  'coinDetail.links.whitepaper': 'เอกสารไวท์เปเปอร์',
   'coinDetail.loadError': 'ไม่สามารถโหลดเหรียญได้',
   'coinDetail.marketCap': 'มูลค่าตลาด',
   'coinDetail.maxSupply': 'ปริมาณสูงสุด',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'เส้นทางที่คุณสแกนไม่พบเหรียญหรือหน้าเว็บที่รู้จัก โปรดตรวจสอบสัญลักษณ์อีกครั้งแล้วลองใหม่อีกครั้ง',
   'notFound.browseMarkets': 'เยี่ยมชมตลาด',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'portfolio.addError': 'ป้อนสัญลักษณ์ จำนวนเงินที่เป็นบวก และราคา',
   'portfolio.addHoldingCta': '+ เพิ่มการยึด',
   'portfolio.addModal.cost': 'ต้นทุน (ดอลลาร์สหรัฐ)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'รหัสผ่านและการตั้งค่าการตรวจสอบสิทธิ์แบบสองขั้นตอนจะได้รับการจัดการผ่านบัญชีของคุณ',
   'settings.signOutDevice': 'ออกจากระบบ',
+  'settings.twoFactorCode': 'รหัสยืนยันตัวตน',
   'settings.twoFactorDisable': 'ปิดใช้งาน',
   'settings.twoFactorEnable': 'เปิดใช้งาน',
+  'settings.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
   'sigilAuthShell.backHomeCta': '← กลับไปที่สัญลักษณ์',
   'sigilLayout.primaryNavLabel': 'การนำทางหลัก',
   'signup.eyebrow': 'เปิดเทอร์มินัล',

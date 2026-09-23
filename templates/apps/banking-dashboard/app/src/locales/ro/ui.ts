@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'accountDetail.activeBadge': 'Activ',
   'accountDetail.availableLabel': '{{amount}} disponibil',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Conturi',
   'accounts.loadError': 'Conturile nu au putut fi încărcate.',
   'accounts.status.closed': 'Închis',
+  'accounts.status.frozen': 'Înghețat',
   'accounts.totalBalance': '{{amount}} total',
   'audit.empty': 'Niciun eveniment încă.',
   'audit.eyebrow': 'Securitate și acces',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Numerar disponibil',
   'cashCreditCard.creditLabel': 'Credit utilizat',
   'cashCreditCard.title': 'Numerar și credit',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.accountsHeading': 'Conturi',
   'dashboard.heading': 'Prezentare generală',
   'dashboard.recentEmpty': 'Nicio tranzacție încă.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afișați parola',
   'login.signUp': 'Înregistrare',
   'login.submit': 'Autentificare',
+  'meridianLayout.menu': 'Meniu',
   'meridianLayout.primaryNavLabel': 'Navigare principală',
   'nav.legal': 'Legal',
   'notifications.emptyHeading': 'Sunteți la zi',
   'notifications.subheading': 'Alerte în timp real pentru tranzacții, securitate și extrase.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'privacy.dataWeShare':
     'Datele bancare personale nu sunt niciodată vândute. Partajăm informații cu procesatorii de plăți, rețelele de carduri și autoritățile de reglementare numai în măsura necesară pentru decontarea tranzacțiilor sau îndeplinirea obligațiilor legale.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Autentificarea în doi factori adaugă un cod unic din aplicația de autentificare la fiecare autentificare.',
   'settings.security.twoFactorCta': 'Gestionați autentificarea în doi factori',
+  'settings.security.twoFactorOff': 'Autentificarea în doi pași este dezactivată',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.subheading': 'Profil, securitate și notificări.',
+  'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
   'settings.twoFactorEnable': 'Activați',
+  'settings.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.twoFactorVerify': 'Verifică și activează',
   'signup.emailLabel': 'Adresă de e-mail',
   'signup.fullName': 'Cum ar trebui să vă adresăm?',
   'signup.showPassword': 'Afișați parola',
@@ -104,7 +113,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Nicio tranzacție încă.',
   'transactions.endDate': 'Dată de sfârșit',
   'transactions.eyebrow': 'Activitate',
+  'transactions.loadError': 'Tranzacțiile nu au putut fi încărcate.',
   'transactions.merchant': 'Comerciant',
+  'transactions.subheading':
+    'Toate tranzacțiile înregistrate și în așteptare din toate conturile dumneavoastră.',
   'transfers.availableHint': '{{amount}} disponibil',
   'transfers.errorGeneric': 'Transferul nu a putut fi trimis.',
   'transfers.errorMissingFields': 'Alegeți un cont sursă și o destinație.',

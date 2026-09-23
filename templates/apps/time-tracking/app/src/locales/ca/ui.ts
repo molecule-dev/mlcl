@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'about.plansTitle': 'Plans que creixen amb tu',
   'brand.tagline': 'Cada segon',
   'clientDetail.back': 'Torna als clients',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Tota la relació en un sol lloc: projectes, hores, factures pendents.',
   'clients.title': 'Clients',
   'common.and': 'i',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.activeProjects': 'Projectes actius',
   'dashboard.empty':
     'Encara no hi ha entrades. Inicia el temporitzador per fer un seguiment de la teva primera sessió.',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     "No hi ha hores facturables per facturar per a aquest client. Primer feu un seguiment d'una hora o assigneu entrades existents a un dels projectes d'aquest client.",
   'invoices.save': 'Crea una factura',
   'invoices.subtitle': "Les hores registrades s'acumulen a les factures automàticament.",
+  'landing.copyright': '© {{year}} {{app}} . Cada segon, comptabilitzat.',
   'landing.ctaBody':
     'Gratuït per a un màxim de 3 projectes. Actualitza quan ho faci la teva llista de clients.',
   'landing.eyebrow': 'Seguiment del temps per a treballs facturables',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Confiança dels independents',
   'landing.testimonial.quote':
     "Vaig deixar de fer Toggl en 30 minuts. Només la despesa pressupostària ja s'ha amortitzat. He deixat de subestimar durant dues setmanes seguides.",
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Crono. Cada segon, comptabilitzat.',
   'login.brand.subtitle':
     "Repren el temporitzador on l'havies deixat: cada minut ja està assignat a un projecte, un client, una factura.",
   'login.brand.tracking': 'Seguiment',
   'login.subheading': "Repren el temporitzador on l'havies deixat.",
+  'nav.closeMenu': 'Tanca el menú de navegació',
   'nav.insightsSection': 'Perspectives',
   'nav.newEntry': 'Nova entrada',
+  'nav.openMenu': 'Obre el menú de navegació',
+  'nav.primary': 'Navegació principal',
   'nav.workSection': 'Treball',
   'notFound.body':
     "Sembla que l'enllaç que has seguit ha deixat de ser rastrejat. Torna al teu tauler de control i a partir d'aquí continuarem comptant.",
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Facturable',
   'timer.descriptionPlaceholder': 'En què estàs treballant?',
   'timer.idle': 'Inactiu: inicia el seguiment',
+  'timer.noProject': 'Cap projecte',
   'timer.runningWithProject': 'Cap projecte',
   'timer.start': 'Inicia el temporitzador',
   'timer.stop': 'Atura el temporitzador',

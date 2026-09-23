@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.title': '{{app}} பற்றி',
   'activeAgentsCard.agent1AvatarAlt':
     'நவீன அலுவலகம் ஒன்றில், நட்பான புன்னகையுடன் இருக்கும் ஒரு பெண் உதவி முகவரின் தொழில்முறை முகப் புகைப்படம்.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ஆதரவைத் தொடர்பு கொள்ளவும்',
   'forgotPassword.error': 'மீட்டமைப்பு மின்னஞ்சலை அனுப்ப முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'forgotPassword.rememberPassword': 'உங்கள் கடவுச்சொல் நினைவிருக்கிறதா?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'உள்நுழை — ஜெனித் ஆதரவு',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.welcomeSubheading': 'உங்கள் ஆதரவு டாஷ்போர்டில் உள்நுழையவும்',
+  'mobileNav.closeMenu': 'நெருக்கமான வழிசெலுத்தல்',
+  'mobileNav.menu': 'வழிசெலுத்தல்',
+  'mobileNav.openMenu': 'வழிசெலுத்தலைத் திறக்கவும்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'nav.newTicket': 'புதிய டிக்கெட்',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'கட்டளைத் தேடல்',
   'operatorDock.newReport': 'புதிய அறிக்கை',
   'operatorDock.systemOnline': 'சிஸ்டம் ஆன்லைன்',
+  'planUpdated.subtitle': 'நன்றி',
   'planUpdated.title': 'திட்டம் புதுப்பிக்கப்பட்டது',
   'pricing.agents': 'முகவர்கள்',
   'pricing.automation': 'தானியங்கு விதிகள்',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{பெயர்}}',
   'ticketCustomerReply.avatarAlt': '{{பெயர்}} அவதார்',
   'ticketDetail.errorTitle': 'ஏதோ தவறு நடந்துவிட்டது',
+  'ticketDetail.loadError': 'டிக்கெட்டை ஏற்ற முடியவில்லை.',
+  'ticketDetail.notFound': 'டிக்கெட் காணப்படவில்லை',
+  'ticketDetail.replyError': 'பதில் அனுப்ப முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'ticketDetail.retry': 'மீண்டும் முயற்சிக்கவும்',
   'ticketDetail.statusUpdateError': 'நிலையைப் புதுப்பிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'ticketDetailsCard.assigneeLabel': 'ஒப்படைக்கப்பட்டவர்',
@@ -302,6 +311,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{நேரம்}} இடது',
   'ticketRow.title': 'உற்பத்திச் சூழலில் தரவுத்தள இணைப்பு தோல்வியடைகிறது {{node}}',
   'tickets.pageTitle': 'டிக்கெட்டுகள் — ஜெனித் ஆதரவு',
+  'ticketsFab.newTicket': 'புதிய டிக்கெட்',
   'ticketsFilterBar.assigneeLabel': 'ஒப்படைக்கப்பட்டவர்:',
   'ticketsFilterBar.clearFilters': 'வடிப்பான்களை அழிக்கவும்',
   'ticketsFilterBar.dateRangeDemoHint':

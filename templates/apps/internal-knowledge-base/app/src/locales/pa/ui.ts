@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'article.notFound': 'ਲੇਖ ਨਹੀਂ ਮਿਲਿਆ',
   'articleEditor.bodyPlaceholder': 'ਬਲਾਕਾਂ ਲਈ / ਟਾਈਪ ਕਰੋ, ਜਾਂ ਲਿਖਣਾ ਸ਼ੁਰੂ ਕਰੋ।',
+  'articleEditor.loadFailed': 'ਲੇਖ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'articleEditor.publishing': 'ਪ੍ਰਕਾਸ਼ਿਤ ਹੋ ਰਿਹਾ ਹੈ\\u2026',
   'articleEditor.saveFailed': 'ਰੱਖਿਅਤ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ',
   'articleEditor.saving': 'ਸੇਵਿੰਗ\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'ਬੁੱਕਮਾਰਕ',
   'articleView.bookmarkOn': 'ਬੁੱਕਮਾਰਕ ਕੀਤਾ ਗਿਆ',
   'articleView.edit': 'ਲੇਖ ਸੰਪਾਦਿਤ ਕਰੋ',
+  'articleView.loading': 'ਇਸ ਲੇਖ ਨੂੰ ਖੋਲ੍ਹਿਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'articleView.readTime': '{{minutes}} ਘੱਟੋ-ਘੱਟ ਪੜ੍ਹਿਆ',
   'articleView.spaces': 'ਸਪੇਸ',
   'articleView.tocHeading': "ਇਸ ਪੰਨੇ 'ਤੇ",
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'ਤੁਹਾਡੀ ਟੀਮ ਅਜੇ ਵੀ ਹਾਲੀਆ ਸੰਪਾਦਨਾਂ, ਪੜ੍ਹੀਆਂ ਅਤੇ ਡਰਾਫਟਾਂ ਨੂੰ ਇਕੱਠਾ ਕਰ ਰਹੀ ਹੈ।',
   'cairnTrailHero.updated': 'ਲੇਖ ਅੱਪਡੇਟ ਕੀਤੇ ਗਏ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'drafts.eyebrow': 'ਤੁਹਾਡਾ ਅਧੂਰਾ ਕੰਮ',
   'drafts.heading': 'ਡਰਾਫਟ',
+  'drafts.loadFailed': 'ਤੁਹਾਡੇ ਡਰਾਫਟ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ।',
   'drafts.subtitle':
     'ਉਹ ਲੇਖ ਜੋ ਤੁਸੀਂ ਸ਼ੁਰੂ ਕੀਤੇ ਹਨ ਪਰ ਅਜੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਹੋਏ। ਇੱਕ ਚੁਣੋ ਅਤੇ ਜਾਰੀ ਰੱਖੋ।',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'ਹਾਲੇ ਕੋਈ ਥਾਂ ਨਹੀਂ ਹੈ। ਲੇਖ ਇਕੱਠੇ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਖੋਲ੍ਹੋ।',
   'home.spacesHeading': 'ਤੁਹਾਡੀਆਂ ਥਾਵਾਂ',
   'home.subtitle': 'ਹਾਲੀਆ ਲੇਖ, ਤੁਹਾਡੇ ਬੁੱਕਮਾਰਕ, ਅਤੇ ਟੀਮ ਕੀ ਲਿਖ ਰਹੀ ਹੈ।',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . ਅਣੂ ਨਾਲ ਬਣਾਇਆ ਗਿਆ।',
   'landing.ctaBody':
     'ਇਕੱਲੇ ਲੇਖਕਾਂ ਲਈ ਮੁਫ਼ਤ। ਵੰਡੀਆਂ ਗਈਆਂ ਟੀਮਾਂ ਲਈ ਟੀਮ ਯੋਜਨਾਵਾਂ ਜੋ ਰਨਬੁੱਕ, ਫੈਸਲੇ ਅਤੇ ਆਨਬੋਰਡਿੰਗ ਭੇਜਦੀਆਂ ਹਨ।',
   'landing.ctaHeading': 'ਅੱਜ ਪਹਿਲਾ ਪੱਥਰ ਰੱਖ ਦਿਓ।',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'ਇੱਕ ਵਰਕਸਪੇਸ ਬਣਾਓ',
   'login.submitting': 'ਸਾਈਨ ਇਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\\u2026',
   'login.subtitle': 'ਉਹ ਰਸਤਾ ਚੁੱਕੋ ਜਿੱਥੇ ਤੁਸੀਂ ਇਸਨੂੰ ਛੱਡਿਆ ਸੀ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
+  'newSpace.colorAria': 'ਰੰਗ ਚੁਣੋ {{color}}',
   'newSpace.colorLabel': 'ਐਕਸੈਂਟ ਰੰਗ',
+  'newSpace.createFailed': 'ਸਪੇਸ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕੀ',
   'newSpace.descriptionPlaceholder': 'ਰਨਬੁੱਕਸ, ਆਨ-ਕਾਲ ਪਲੇਬੁੱਕਸ, ਪੋਸਟਮਾਰਟਮ\\u2026',
   'newSpace.eyebrow': 'ਗਿਆਨ ਦਾ ਇੱਕ ਖੇਤਰ ਖੋਲ੍ਹੋ',
   'newSpace.heading': 'ਨਵੀਂ ਜਗ੍ਹਾ',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'notifications.subtitle':
     '{{count}} ਨਾ-ਪੜ੍ਹੇ \\u2014 ਜ਼ਿਕਰ, ਟਿੱਪਣੀਆਂ, ਪੰਨਾ ਬਦਲਾਅ, ਅਤੇ ਸਮੀਖਿਆ ਬੇਨਤੀਆਂ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.articles': 'ਲੇਖ',
   'pricing.spaces': 'ਸਪੇਸ',
   'profile.eyebrow': 'ਲੇਖਕ ਪ੍ਰੋਫਾਈਲ',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ',
   'resetPassword.subtitle': 'ਇੱਕ ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਚੁਣੋ — ਘੱਟੋ-ਘੱਟ 12 ਅੱਖਰ।',
   'searchResults.eyebrow': 'ਵਰਕਸਪੇਸ ਖੋਜ',
+  'searchResults.filter.all': 'ਸਾਰੀਆਂ ਥਾਵਾਂ',
   'searchResults.heading': 'ਲੇਖ ਖੋਜੋ',
   'searchResults.placeholder': 'ਰਨਬੁੱਕ, RFC, ਨੀਤੀਆਂ, ਫੈਸਲੇ ਖੋਜੋ\\u2026',
   'searchResults.summary': '{{count}} \\u201c ਲਈ ਨਤੀਜੇ {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'ਇਹ ਤੁਹਾਡਾ ਖਾਤਾ ਅਤੇ ਤੁਹਾਡੇ ਦੁਆਰਾ ਲਿਖਿਆ ਹਰ ਲੇਖ ਮਿਟਾ ਦੇਵੇਗਾ। ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ DELETE ਟਾਈਪ ਕਰੋ।',
   'settings.danger.confirmInvalid': 'ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ DELETE ਟਾਈਪ ਕਰੋ।',
+  'settings.danger.deleteFailed': 'ਖਾਤਾ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ',
   'settings.danger.deleting': 'ਮਿਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ\\u2026',
   'settings.danger.description':
     'ਤੁਹਾਡੇ ਵਰਕਸਪੇਸ ਨੂੰ ਮਿਟਾਉਣ ਨਾਲ ਸਾਰੇ ਲੇਖ, ਟਿੱਪਣੀਆਂ ਅਤੇ ਸੰਸਕਰਣ ਇਤਿਹਾਸ ਮਿਟ ਜਾਂਦੇ ਹਨ। ਕੋਈ ਰਿਕਵਰੀ ਨਹੀਂ ਹੁੰਦੀ।',
   'settings.danger.title': 'ਵਰਕਸਪੇਸ ਮਿਟਾਓ',
+  'settings.email.confirm': 'ਈਮੇਲ ਅੱਪਡੇਟ ਕਰੋ',
+  'settings.email.confirmTitle': 'ਈਮੇਲ ਤਬਦੀਲੀ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
   'settings.email.saved': 'ਈਮੇਲ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ।',
+  'settings.email.updateFailed': 'ਈਮੇਲ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ',
   'settings.language.title': 'ਭਾਸ਼ਾ',
   'settings.name': 'ਨਾਮ',
+  'settings.name.saved': 'ਨਾਮ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ।',
+  'settings.name.updateFailed': 'ਨਾਮ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ',
   'settings.notifications.description': 'ਚੁਣੋ ਕਿ ਤੁਹਾਡੇ ਇਨਬਾਕਸ ਤੱਕ ਕੀ ਪਹੁੰਚਦਾ ਹੈ।',
+  'settings.password.changeFailed': 'ਪਾਸਵਰਡ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।',
   'settings.password.current': 'ਵਰਤਮਾਨ ਪਾਸਵਰਡ',
   'settings.password.new': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'settings.password.saving': 'ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
@@ -146,10 +166,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'ਲੇਖ ਤੁਹਾਡੇ ਲਈ ਕਿਵੇਂ ਪੇਸ਼ ਕਰਦੇ ਹਨ।',
   'settings.reading.title': 'ਪੜ੍ਹਨਾ ਅਤੇ ਲਿਖਣਾ',
   'settings.subtitle': 'ਸੂਚਨਾਵਾਂ, ਪੜ੍ਹਨ ਦੇ ਕੈਨਵਸ ਅਤੇ ਆਪਣੇ ਖਾਤੇ ਨੂੰ ਟਿਊਨ ਕਰੋ।',
+  'settings.twofa.code': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'settings.twofa.disable': 'ਅਯੋਗ ਕਰੋ',
   'settings.twofa.disabled': 'ਅਯੋਗ',
   'settings.twofa.enable': 'ਯੋਗ ਬਣਾਓ',
   'settings.twofa.enabled': 'ਯੋਗ ਬਣਾਇਆ ਗਿਆ',
+  'settings.twofa.invalidCode': 'ਅਵੈਧ ਕੋਡ',
+  'settings.twofa.unavailable': 'ਇਸ ਐਪ ਲਈ ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।',
+  'settings.twofa.verify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'signup.brandQuote':
     '\\u201cਇਸਨੂੰ ਲਿਖਣਾ ਪਹਿਲਾ ਵਾਅਦਾ ਹੈ ਜੋ ਅਸੀਂ ਅਗਲੇ ਵਿਅਕਤੀ ਨਾਲ ਕਰਦੇ ਹਾਂ ਜਿਸਨੂੰ ਇਸਦੀ ਲੋੜ ਹੈ।\\u201d',
   'signup.eyebrow': 'ਇੱਕ ਵਰਕਸਪੇਸ ਖੋਲ੍ਹੋ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'analytics.channels.empty': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਚੈਨਲ ਡਾਟਾ ਨਹੀਂ ਹੈ।',
   'analytics.channels.title': 'ਚੈਨਲ ਦੁਆਰਾ',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'ਪ੍ਰਤੀ ਦਿਨ ਗੱਲਬਾਤ',
   'chatBubble.avatarAlt': '{{speaker}} ਅਵਤਾਰ',
   'common.appName': 'ਰਿਪੋਰਟ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'confidenceMeter.label': 'ਵਿਸ਼ਵਾਸ',
   'conversationDetail.agentName': 'ਏਜੰਟ',
   'conversationDetail.aiReplyButton': 'ਬੋਟ ਜਵਾਬ',
   'conversationDetail.aiReplyError': 'AI ਜਵਾਬ ਤਿਆਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ',
   'conversationDetail.aiReplyLoading': 'ਡਰਾਫਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
+  'conversationDetail.aiReplySourceFallback': 'ਫਾਲਬੈਕ (ਕੋਈ AI ਕੁੰਜੀ ਨਹੀਂ)',
   'conversationDetail.backAria': "ਗੱਲਬਾਤਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'conversationDetail.composerPlaceholder': 'ਗਾਹਕ ਨੂੰ ਜਵਾਬ ਦਿਓ…',
   'conversationDetail.context.channel': 'ਚੈਨਲ',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'ਆਪਣੇ ਖਾਤੇ ਲਈ ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰੋ',
   'resetPassword.toggleConfirm': 'ਪੁਸ਼ਟੀ ਪਾਸਵਰਡ ਦਿਖਣਯੋਗਤਾ ਨੂੰ ਟੌਗਲ ਕਰੋ',
   'resetPassword.togglePassword': 'ਪਾਸਵਰਡ ਦਿਖਣਯੋਗਤਾ ਟੌਗਲ ਕਰੋ',
+  'settings.account.emailError': 'ਈਮੇਲ ਅੱਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ',
   'settings.account.emailLabel': 'ਈਮੇਲ ਪਤਾ',
+  'settings.account.emailSaved': 'ਈਮੇਲ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ',
+  'settings.account.nameError': 'ਨਾਮ ਅੱਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ ਰਿਹਾ',
   'settings.account.nameLabel': 'ਦਿਖਾਇਆ ਹੋਇਆ ਨਾਮ',
+  'settings.account.nameSaved': 'ਨਾਮ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
   'settings.account.title': 'ਖਾਤਾ',
   'settings.api.createCta': 'ਟੋਕਨ ਬਣਾਓ',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': "ਭਾਵਨਾ ਡਿੱਗਣ 'ਤੇ ਆਪਣੇ ਆਪ ਵਧੋ",
   'settings.bot.greetingLabel': 'ਪਹਿਲੇ ਸੁਨੇਹੇ ਦਾ ਸਵਾਗਤ',
   'settings.bot.title': 'ਬੋਟ ਸੰਰਚਨਾ',
+  'settings.bot.toneFormal': 'ਰਸਮੀ',
   'settings.bot.toneLabel': 'ਅਵਾਜ਼ ਅਤੇ ਸੁਰ',
   'settings.danger.deleteAccount': 'ਖਾਤਾ ਮਿਟਾਓ',
+  'settings.danger.deleteError': 'ਖਾਤਾ ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ',
+  'settings.danger.deleteWarning':
+    "ਇਹ ਤੁਹਾਡੇ ਖਾਤੇ ਅਤੇ ਸਾਰੇ ਸੰਬੰਧਿਤ ਡੇਟਾ ਨੂੰ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦੇਵੇਗਾ। ਇਸਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
   'settings.danger.deleting': 'ਮਿਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…',
+  'settings.danger.passwordLabel': 'ਆਪਣੇ ਪਾਸਵਰਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
   'settings.danger.title': 'ਖ਼ਤਰੇ ਵਾਲਾ ਖੇਤਰ',
+  'settings.devices.empty': 'ਕੋਈ ਡਿਵਾਈਸ ਰਜਿਸਟਰਡ ਨਹੀਂ ਹੈ।',
+  'settings.devices.revokeWarning':
+    'ਇਸ ਡਿਵਾਈਸ ਦੀ ਪਹੁੰਚ ਜਲਦੀ ਹੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ। ਇਸਨੂੰ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ?',
+  'settings.devices.signingOut': 'ਸਾਈਨ ਆਉਟ ਕਰ ਰਿਹਾ ਹੈ…',
   'settings.devices.signOut': 'ਸਾਇਨ ਆਉਟ',
   'settings.devices.thisDevice': 'ਇਹ ਡਿਵਾਈਸ',
   'settings.devices.title': 'ਡਿਵਾਈਸਾਂ',
@@ -186,9 +202,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'ਪਾਸਵਰਡ ਬਦਲਣ ਵਿੱਚ ਅਸਫਲ',
   'settings.security.currentPassword': 'ਵਰਤਮਾਨ ਪਾਸਵਰਡ',
   'settings.security.newPassword': 'ਨਵਾਂ ਪਾਸਵਰਡ',
+  'settings.security.oauthManaged':
+    'ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਤੁਹਾਡੇ ਸਾਈਨ-ਇਨ ਪ੍ਰਦਾਤਾ ਦੁਆਰਾ ਪ੍ਰਬੰਧਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
   'settings.security.title': 'ਸੁਰੱਖਿਆ',
   'settings.security.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
   'settings.security.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.security.twoFactorInvalid': 'ਅਵੈਧ ਕੋਡ',
   'settings.subtitle':
     'ਰੈਪੋਰਟ ਦੀ ਆਵਾਜ਼, ਗਿਆਨ ਸਰੋਤਾਂ ਅਤੇ ਉਹਨਾਂ ਸਾਧਨਾਂ ਨੂੰ ਟਿਊਨ ਕਰੋ ਜਿਨ੍ਹਾਂ ਨਾਲ ਇਹ ਗੱਲ ਕਰਦਾ ਹੈ।',
   'settings.tokenCreateError': 'ਟੋਕਨ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ',

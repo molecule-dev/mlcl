@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Mulakan semula rantai',
   'resetPassword.mismatchError': 'Kata laluan tidak sepadan.',
   'resetPassword.subheading': 'Pilih sesuatu yang kuat. Buku anda akan menunggu.',
-  'reviewCard.starsAria': 'Dinilai<x> {{penilaian}}</x> daripada<x> {{daripada}}</x> bintang',
+  'reviewCard.starsAria': 'Dinilai {{rating}} daripada {{of}} bintang',
   'reviewCard.unratedAria': 'Tidak dinilai',
   'reviews.eyebrow': 'Apa yang kekal dengan anda',
   'reviews.heading': 'Ulasan anda',

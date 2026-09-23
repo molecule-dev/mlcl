@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'about.pageTitle': '{{name}} hakkında',
   'auth.footer.about': '{{name}} hakkında',
   'authHeader.subtitle': 'Sayılarınızı doğru tutmak için oturum açın.',
   'automations.action.email': 'E-posta',
+  'automations.action.noop': 'Ameliyat yok',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': '"{{name}}" silinsin mi?',
   'automations.empty.headline': 'Henüz otomasyon yok',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Her çalışma kitabında tetikleyiciler ve eylemler. Her çalıştırma, daha sonra denetleyebileceğiniz bir satır kaydeder.',
   'automations.toggle': '{{name}} değiştir',
+  'automations.trigger.dailySchedule': 'Günlük program',
+  'automations.trigger.rowCreated': 'Satır oluşturuldu',
+  'automations.trigger.rowUpdated': 'Satır güncellendi',
   'billing.empty': 'Kullanılabilir plan yok.',
   'billing.error.priceMissing':
     'Bu kademe için yapılandırılmış Stripe fiyatı yok. STRIPE_*_PRICE_ID env değişkenlerini ayarlayın.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafikler',
   'charts.kpi.totalCharts': 'Toplam grafik',
   'charts.list.empty': 'Henüz grafik yok.',
+  'charts.namePlaceholder': 'Gelir trendi',
   'charts.newChart': 'Yeni grafik',
   'charts.primary.eyebrow': 'Türe göre grafikler',
   'charts.primary.headline': 'Çalışma alanı genel bakış',
   'charts.subhead':
     'Tablonuza bağlı canlı görselleştirmeler — her hücre düzenlemesinde yeniden işlenir.',
+  'common.goToDashboard': 'Panele Git',
   'editor.addColumn': 'Sütun ekle',
+  'editor.addDialogTitle': 'Sütun ekle',
   'editor.addRow': 'Satır ekle',
   'editor.addSheet': 'Sayfa ekle',
   'editor.back': 'Çalışma kitaplarına dön',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite, analistlerin ve finans ekiplerinin ilk başvurduğu formül öncelikli, çok görünümlü, gerçek zamanlı tablodur.',
   'landing.nav.formulas': 'Formüller',
+  'login.noAccount': '{{name}} e yeni mi geldiniz?',
+  'login.signIn': '{{name}} hesabına giriş yapın',
   'login.signUp': 'Çalışma alanı oluştur',
+  'nav.menu': 'Menü',
+  'nav.openMenu': 'Menüyü aç',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Bu satır hiç var olmadı.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Yerel otomasyonlar · web kancası ve cron tetikleyicileri',
   'signup.creating': 'Çalışma alanı hazırlanıyor…',
   'signup.cta': 'Çalışma alanımı oluştur',
+  'signup.haveAccount': "Zaten {{name}} 'de misiniz?",
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'İlk çalışma kitabınızı 30 saniyede başlatın',
   'team.col.activity': 'Davet edildi',

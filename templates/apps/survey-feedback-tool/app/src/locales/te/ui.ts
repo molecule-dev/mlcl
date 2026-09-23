@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} గురించి',
   'analytics.back': 'సర్వే అవలోకనం',
   'analytics.kpiNps': 'NPS స్కోరు',
   'analytics.kpiNpsTrend': 'ప్రమోటర్లు {{p}} % · వ్యతిరేకులు {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'ఆస్తులు',
   'builder.questionNumber': 'ప్రశ్న {{num}}',
   'builder.surveyTitle': 'సర్వే శీర్షిక',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'forgotPassword.failed': 'రీసెట్ ఇమెయిల్ పంపలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'forgotPassword.subheading': 'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రికవరీ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody':
     'ఖాతా సరిపోలితే {{email}} రీసెట్ లింక్ పంపబడుతోంది. మీ ఇన్‌బాక్స్ మరియు స్పామ్ ఫోల్డర్‌లను తనిఖీ చేయండి.',
+  'landing.footer.copyright': '© {{year}} {{app}} . అన్ని స్వరాలకు స్వాగతం.',
   'landing.footer.startTrial': 'ట్రయల్ ప్రారంభించండి',
   'landing.hero.badge': 'సర్వేలు, NPS మరియు ఫీడ్‌బ్యాక్ అన్నీ ఒకే చోట',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'ధర నిర్ణయం',
   'landing.pricing.perMonth': '/మో',
   'landing.pricing.popular': 'అత్యంత ప్రజాదరణ పొందిన',
+  'landing.pricing.subtitle':
+    'ప్రతి ప్లాన్‌లో సర్వే బిల్డర్, పబ్లిక్ షేర్ లింకులు మరియు NPS అనలిటిక్స్ ఉంటాయి. ప్రారంభించడానికి క్రెడిట్ కార్డ్ అవసరం లేదు.',
+  'landing.pricing.title': 'ఉచితంగా ప్రారంభించండి, అవసరమైనప్పుడు విస్తరించండి.',
   'landing.sample.eyebrow': 'NPS ఒక చూపులో',
   'landing.sample.title': 'వ్యతిరేకులు, నిష్క్రియులు, ప్రమోటర్లు — తక్షణమే చదవగలిగేలా.',
   'login.failed': 'లాగిన్ విఫలమైంది. దయచేసి మళ్ళీ ప్రయత్నించండి.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.signUpLink': 'ఉచిత ట్రయల్‌ను ప్రారంభించండి',
   'login.subheading': 'మీ ప్రేక్షకుల మాటలను వింటూ ఉండటానికి సైన్ ఇన్ చేయండి.',
+  'notFound.body':
+    'మీరు వెతుకుతున్న పేజీ {{app}} లో లేదు. మిమ్మల్ని మీ సర్వేలకు తిరిగి తీసుకువెళ్దాం.',
   'notFound.cta': 'సర్వేలకు తిరిగి వెళ్లండి',
   'notFound.eyebrow': '404',
   'notFound.heading': 'ఈ సర్వే వరుస నుండి తొలగిపోయింది.',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'నిష్క్రియాత్మక 7–8',
   'npsDistributionBar.promoter': 'ప్రమోటర్ 9–10',
   'profile.identity.description': 'మీ బృందానికి మరియు మీరు రూపొందించే సర్వేలలో బహిరంగంగా ఉంటుంది.',
+  'profile.identity.emailRequired': 'ఇమెయిల్ చిరునామాను నమోదు చేయండి.',
   'profile.identity.saveCta': 'పేరును సేవ్ చేయండి',
   'profile.password.current': 'ప్రస్తుత పాస్‌వర్డ్',
   'profile.password.fillFields': 'ప్రస్తుత మరియు కొత్త పాస్‌వర్డ్ రెండింటినీ నమోదు చేయండి.',
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ప్రశ్నలు',
   'templates.subheading':
     'ఇప్పటికే పరీక్షించబడిన ఒక స్టార్టర్‌ను ఎంచుకోండి — ప్రతి టెంప్లేట్ సహేతుకమైన డిఫాల్ట్‌లు, నమూనా లాజిక్ మరియు చక్కని మొబైల్ లేఅవుట్‌తో ముందుగానే ట్యూన్ చేయబడి వస్తుంది.',
+  'thankYou.body':
+    'మీ స్పందన నమోదు చేయబడింది. {{app}} దానిని తదుపరి అనలిటిక్స్ రిఫ్రెష్‌లో చేర్చుతుంది.',
   'thankYou.eyebrow': 'ప్రతిస్పందన అందింది',
   'thankYou.heading': 'ధన్యవాదాలు — మీ మాటకు విలువ ఉంది.',
   'thankYou.home': 'మర్మర్‌ను సందర్శించండి',

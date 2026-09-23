@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'accountDetail.activeBadge': 'Активный',
   'accountDetail.availableLabel': '{{amount}} доступный',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Счета',
   'accounts.loadError': 'Не удалось загрузить учетные записи.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': '«Холодное сердце»',
   'accounts.totalBalance': '{{количество}} общий',
   'audit.empty': 'Пока никаких событий нет.',
   'audit.eyebrow': 'Безопасность и доступ',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Наличные деньги в наличии',
   'cashCreditCard.creditLabel': 'Использован кредит',
   'cashCreditCard.title': 'Наличные и кредит',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.accountsHeading': 'Счета',
   'dashboard.heading': 'Обзор',
   'dashboard.recentEmpty': 'Пока нет транзакций.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Показать пароль',
   'login.signUp': 'Зарегистрироваться',
   'login.submit': 'Войти',
+  'meridianLayout.menu': 'Меню',
   'meridianLayout.primaryNavLabel': 'Основная навигация',
   'nav.legal': 'Юридические',
   'notifications.emptyHeading': 'Вы всё успели!',
   'notifications.subheading':
     'Оповещения в режиме реального времени о транзакциях, ценных бумагах и выписках.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'privacy.dataWeShare':
     'Персональные банковские данные никогда не продаются. Мы передаем информацию платежным системам, карточным сетям и регулирующим органам только в той мере, в какой это необходимо для проведения транзакций или выполнения юридических обязательств.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Двухфакторная аутентификация добавляет одноразовый код от приложения-аутентификатора при каждом входе в систему.',
   'settings.security.twoFactorCta': 'Управление двухфакторной аутентификацией',
+  'settings.security.twoFactorOff': 'Двухфакторная аутентификация отключена',
   'settings.signOutDevice': 'выход',
   'settings.subheading': 'Профиль, безопасность и уведомления.',
+  'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorInvalidCode': 'Неверный код',
+  'settings.twoFactorVerify': 'Проверить и включить',
   'signup.emailLabel': 'Адрес электронной почты',
   'signup.fullName': 'Как к вам обращаться?',
   'signup.showPassword': 'Показать пароль',
@@ -106,7 +115,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Пока нет транзакций.',
   'transactions.endDate': 'Дата окончания',
   'transactions.eyebrow': 'Активность',
+  'transactions.loadError': 'Не удалось загрузить транзакции.',
   'transactions.merchant': 'Торговец',
+  'transactions.subheading':
+    'Все проведенные и ожидающие обработки транзакции по всем вашим счетам.',
   'transfers.availableHint': '{{amount}} доступный',
   'transfers.errorGeneric': 'Не удалось отправить перевод.',
   'transfers.errorMissingFields': 'Выберите исходный и целевой аккаунты.',

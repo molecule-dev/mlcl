@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.tagline': 'प्रत्येक युनिट, एकाच छताखाली.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.addProperty': 'मालमत्ता जोडा',
   'dashboard.empty.body':
     'एकदा तुमच्याकडे मालमत्ता, युनिट्स आणि भाड्याची रक्कम आली की, हा डॅशबोर्ड पोर्टफोलिओच्या माहितीने भरतो.',
@@ -42,6 +45,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'भाडेकरू निवडा…',
   'leases.new.unit': 'युनिट',
   'leases.new.unitPlaceholder': 'युनिट निवडा…',
+  'leases.subheading':
+    '{{count}} सक्रिय भाडेकरार · {{expiring}} लवकरच मुदत संपणारे · {{monthly}} / महिना एकूण',
   'login.emailLabel': 'ईमेल पत्ता',
   'login.noAccount': 'तुम्ही हर्थस्टोन खेळायला नवीन आहात का?',
   'login.passwordPlaceholder': '•२०२२ •२०२२ •२०२२ •२०२२ •२०२२ •२०२२',
@@ -83,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · युनिट {{युनिट}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}} प्राधान्यक्रमानुसार मांडलेले खुले वर्क ऑर्डर',
   'maintenanceQueueList.title': 'देखभाल रांग',
+  'nav.closeMenu': 'मेनू बंद करा',
+  'nav.openMenu': 'मेनू उघडा',
   'notFound.body':
     'तुम्ही शोधत असलेले पान हलवले गेले आहे, संग्रहित केले गेले आहे, किंवा ते कधी अस्तित्वातच नव्हते.',
   'notFound.title': 'तो दरवाजा उघडत नाही',

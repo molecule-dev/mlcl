@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'פתרון...',
   'comments.subtitle':
     'ה {{count}} שרשורים שעדיין ממתינים לתשובה או לפתרון. ממוינים לפי גיל - המבוגר ביותר ראשון, כדי ששום דבר לא יירקב.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'forgotPassword.sentTo': 'איפוס קישור שנשלח אל {{email}}',
   'forgotPassword.successSubheading':
     'בדוק את תיבת הדואר הנכנס שלך - שלחנו קישור לאיפוס. הוא יפוג תוקפו בעוד 30 דקות.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'עמוד חדש',
   'pageTreeSidebar.workspaceHeader': 'סביבת עבודה',
   'pageView.breadcrumb': 'פירורי לחם',
+  'pageView.confirmTrash': 'לפח את זה?',
   'pageView.home': 'בַּיִת',
   'pageView.lastEdited': 'מְעוּדכָּן {{when}}',
   'pageView.loading': 'טוען דף…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'תִמצוּת…',
   'pageView.summaryUnavailable': 'סיכום בינה מלאכותית לא הוגדר עבור סביבת עבודה זו.',
   'pageView.tocTitle': 'בעמוד זה',
+  'pageView.trash': 'אַשׁפָּה',
+  'pageView.trashing': 'זבל...',
   'pageView.versionBadge': 'ו{{version}}',
   'profile.badges.title': 'תגים',
   'profile.owned.title': 'דפים בבעלות',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'סביבת עבודה, פרופיל, התראות, אינטגרציות - הכל במעטפת אחת שקטה.',
   'settingsPage.workspace.defaultLanding': 'מסך נחיתה ברירת מחדל',
   'settingsPage.workspace.landingHome': 'בַּיִת',
+  'settingsPage.workspace.landingSpaces': 'רווחים',
   'settingsPage.workspace.subdomainLabel': 'תת-דומיין',
   'settingsPage.workspace.title': 'סביבת עבודה',
   'signup.eyebrow': 'התחלת סביבת עבודה חדשה',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} דקות',
   'templates.subtitle':
     'התחילו דף מסטנסיל, לא מקנבס ריק. כל תבנית מקודדת את הצורה באופן קשיח כך שתוכלו להתמקד בתוכן.',
+  'trash.confirmPurge': 'לטהר לנצח?',
+  'trash.confirmPurgeAria': 'אישור: מחיקה לצמיתות {{title}}',
   'trash.daysUntilPurge': '{{days}} ימים שנותרו',
   'trash.empty.body': 'דפים שנמחקו יופיעו כאן למשך 30 יום לפני שיימחקו.',
   'trash.empty.title': 'האשפה ריקה.',
@@ -141,5 +148,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'משחזר…',
   'versionHistory.subtitle': '{{count}} גרסאות · בחר שורה כדי לבדוק את ההבדל',
   'versionHistory.versionLabel': 'ו{{v}}',
+  'wikiLayout.closeMenu': 'סגור ניווט',
+  'wikiLayout.menu': 'ניווט',
+  'wikiLayout.openMenu': 'פתיחת ניווט',
   'wikiLayout.searchPlaceholder': 'חיפוש בקיירן — דפים, תגובות…',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Zum Dashboard',
   'forgot.eyebrow': 'Den Rückweg verloren?',
   'forgot.formSubtitle': 'Nennen Sie uns die hinterlegte E-Mail.',
   'forgot.headline': 'Setzen Sie Ihr Passwort zurück.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Eines erstellen',
   'login.subline':
     'Ihre Notizbücher, Backlinks und Tagesseiten befinden sich genau dort, wo Sie sie verlassen haben.',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'noteEditor.backToNotes': 'Zurück zu den Notizen',
   'noteEditor.bodyPlaceholder':
     'Fangen Sie an zu schreiben – Ihre Notiz wird während des Tippens automatisch gespeichert.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Neues Notebook',
   'notes.newNotebookPrompt': 'Neuer Name des Notizbuchs',
   'notes.notebooksHeading': 'Notizbücher',
+  'notes.subtitle':
+    'Wählen Sie links ein Notizbuch aus und drücken Sie dann die Schaltfläche „Neue Notiz“, um einen neuen Eintrag zu erstellen.',
   'planUpdated.confirmation': 'Ihr Tarif wurde aktualisiert',
   'pricing.heading': 'Wählen Sie Ihren Notizplan',
   'reset.eyebrow': 'Fast wieder zurück',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Aktualisiert',
   'versoLayout.nav.graph': 'Graph',
   'versoLayout.nav.home': 'Zuhause',
+  'versoLayout.primaryNavLabel': 'Hauptnavigation',
   'versoNoteCard.pinned': 'Angeheftet',
   'versoTodayHero.continueCta': 'Weiter schreiben',
   'versoTodayHero.createCta': 'Beginnen Sie die heutige Notiz',

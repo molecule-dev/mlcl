@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Contactați-ne',
+  'about.title': 'Despre {{app}}',
   'authShell.backToLanding': '← Înapoi la pagina principală',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
+  'common.retry': 'Reîncearcă',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Astăzi · Privire de ansamblu operațională',
   'dashboard.heading': 'Inteligență de documente',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Niciun document nu corespunde filtrelor actuale.',
   'documents.heading': 'Toate documentele',
   'documents.loadError': 'Documentele nu au putut fi încărcate.',
+  'documents.loading': 'Se încarcă biblioteca…',
   'documents.searchLabel': 'Caută documente',
   'documents.searchPlaceholder': 'Caută documente…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ascunde parola',
   'login.showPassword': 'Arată parola',
   'login.subtitle': 'Autentificați-vă pentru a vă ține documentele în mișcare.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'notFound.body':
     'Documentul sau ruta pe care ați încercat să o deschideți nu mai este aici. Reveniți la tabloul de bord sau alegeți o secțiune din bara laterală.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Deschide pagina principală',
   'notFound.title': 'Acea pagină nu este în arhivă',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % față de ieri',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Reguli active',
   'rules.empty': 'Nu există încă reguli de arhivare. Folosiți Regulă nouă pentru a adăuga una.',
   'rules.eyebrow': 'Automatizare',
+  'rules.fieldsCount': '{{count}} câmpuri',
   'rules.form.destination': 'Arhivează în',
   'rules.form.name': 'Numele regulii',
   'rules.form.save': 'Salvează regula',

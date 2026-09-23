@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.eyebrow': 'Faoi {{app}}',
+  'about.intro':
+    'Is aip machnaimh í {{app}} don saol fíor — machnaimh threoraithe laethúla, obair análaithe, agus scéalta codlata á luasú ag múinteoirí a bhraitheann cosúil le cara, ní cóitseálaí. Gan aon chiontacht, gan aon bheathú torannach: ach áit chiúin le filleadh ar d’anáil.',
+  'about.missionBody':
+    'Creidimid gur cheart go mbeadh ciúnas inrochtana ag gach duine, ag aon nóiméad den lá. Tá {{app}} ann chun cleachtadh socair, comhsheasmhach a dhéanamh gan stró - ionas gur féidir le deich nóiméad macánta an chaoi a dtéann tú i ngleic leis na deich n-uaire an chloig atá romhainn a athrú.',
+  'about.missionTitle': 'Ár misean',
+  'about.pageTitle': '10 nóiméad níos ciúine sa lá',
+  'breathingDial.seconds': 'soicindí',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.logout': 'Logáil amach',
   'common.min': 'nóim',
   'common.relative.justNow': 'díreach anois',
   'common.relative.now': 'anois',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
+  'nav.secondaryNavigation': 'Nascleanúint chuntais',
   'sessionCard.with': 'le {{name}}',
   'stillpoint.billing.choose': 'Roghnaigh {{plan}}',
   'stillpoint.billing.currentPlan': 'Ar siúl faoi láthair {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Ní raibh muid in ann pleananna a lódáil.',
   'stillpoint.billing.opening': 'Ag oscailt an tseiceáil amach…',
   'stillpoint.billing.perMonthShort': '/ mí',
+  'stillpoint.billing.perYearShort': '/bl',
   'stillpoint.billing.unknownResult': 'Freagra billeála gan choinne.',
   'stillpoint.billing.yearly': 'Bliantúil · sábháil 17%',
   'stillpoint.courseDetail.back': 'Cúrsaí',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Gan aon chúrsaí fós.',
   'stillpoint.courses.eyebrow': '{{count}} turais il-lae',
   'stillpoint.courses.heading': 'Cúrsaí',
+  'stillpoint.forgot.checkEmail':
+    'Seiceáil do bhosca isteach — rachaidh an nasc in éag i gceann 30 nóiméad.',
   'stillpoint.forgot.success': 'Tá nasc athshocraithe seolta againn chuig {{email}} .',
   'stillpoint.home.empty': 'Gan aon seisiúin fós — seiceáil ar ais go luath.',
   'stillpoint.home.friend': 'cara',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Cruthaigh do chuntas saor in aisce',
   'stillpoint.landing.cta.title': 'Tosaigh do chiúineas inniu',
   'stillpoint.landing.features.heading': 'Cleachtadh a fhásann leat',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Machnamh treoraithe laethúla, obair anála, agus scéalta codlata — á luasú ag múinteoirí a bhraitheann cosúil le cara, ní mar chóitseálaí.',
   'stillpoint.landing.hero.eyebrow': '10 nóiméad níos ciúine sa lá',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Brabhsáil de réir giúmar',
   'stillpoint.login.rememberMe': 'Coinnigh mé sínithe isteach',
   'stillpoint.login.subheading': 'Sínigh isteach chun leanúint ar aghaidh le do chleachtadh.',
+  'stillpoint.nav.tagline': 'Aimsigh do lárionad socair',
+  'stillpoint.notFound.body':
+    'Tá an leathanach seo ag tarraingt anáil dhomhain áit éigin. Aimsigh áit níos ciúine duit i {{app}} .',
   'stillpoint.notFound.title': 'Caillte sa tost',
   'stillpoint.notFound.toHome': 'Ar ais go dtí an lá inniu',
   'stillpoint.notFound.toLibrary': 'Brabhsáil an leabharlann',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Léim siar 15 soicind',
   'stillpoint.player.skipForward': 'Léim ar aghaidh 30idí',
   'stillpoint.player.with': 'le {{name}}',
+  'stillpoint.profile.defaultHandle': 'pointeoir fós',
   'stillpoint.profile.eyebrow': 'Do chleachtas, achoimre.',
   'stillpoint.profile.locked': 'Faoi ghlas',
   'stillpoint.profile.member': 'Ball Stillpoint',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'accountSettings.confirmEmailLabel': 'තහවුරු කිරීමට DELETE ටයිප් කරන්න',
   'accountSettings.deleteError': 'ගිණුම මැකීමට නොහැකි විය.',
   'accountSettings.passwordError': 'මුරපදය වෙනස් කිරීමට නොහැකි විය.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'ඉදිරියේදී නියමිත දින නොමැත.',
   'dashboard.upcomingTitle': 'ඉදිරි කාලසීමාවන්',
   'deviceSettings.unknownDevice': 'නොදන්නා උපාංගයකි',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'සහාය',
   'forgotPassword.error': 'යළි පිහිටුවීමේ සබැඳිය යැවීමට අසමත් විය.',
   'forgotPassword.subtitle':
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'අවලංගු විද්‍යුත් තැපෑලක් හෝ මුරපදයක්.',
   'login.pageTitle': 'පුරන්න',
   'login.signIn': 'ෆෝර්ජ් වෙත පුරනය වන්න',
+  'login.subtitle': 'ඔබේ ව්‍යාපෘති නිසි පරිදි පවත්වා ගැනීමට පුරන්න.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'nav.calendar': 'දින දර්ශනය',
   'nav.legal': 'නීතිමය',
   'nav.myTasks': 'මගේ කාර්යයන්',

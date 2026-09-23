@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Kuhusu {{app}}',
   'analytics.back': 'Muhtasari wa utafiti',
   'analytics.kpiNps': 'Alama ya NPS',
   'analytics.kpiNpsTrend': 'Watangazaji {{p}} % · Vipunguzi {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Mali',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Kichwa cha utafiti',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'forgotPassword.failed': 'Haikuweza kutuma barua pepe ya kuweka upya. Tafadhali jaribu tena.',
   'forgotPassword.subheading':
     'Ingiza barua pepe yako nasi tutakutumia kiungo cha kurejesha akaunti.',
   'forgotPassword.successBody':
     'Ikiwa akaunti inalingana {{email}} , kiungo cha kuweka upya kinaendelea. Angalia kikasha chako cha barua pepe na folda za barua taka.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Sauti zote zinakaribishwa.',
   'landing.footer.startTrial': 'Anza jaribio',
   'landing.hero.badge': 'Tafiti, NPS na maoni katika sehemu moja',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Bei',
   'landing.pricing.perMonth': '/mwezi',
   'landing.pricing.popular': 'Maarufu zaidi',
+  'landing.pricing.subtitle':
+    'Kila mpango unajumuisha mjenzi wa utafiti, viungo vya kushiriki vya umma, na uchanganuzi wa NPS. Hakuna kadi ya mkopo inayohitajika kuanza.',
+  'landing.pricing.title': 'Anza bure, punguza uzito unapofanya hivyo.',
   'landing.sample.eyebrow': 'NPS kwa muhtasari',
   'landing.sample.title':
     'Vikashifu, vitenzi visivyotumika, vielekezi — vinaweza kusomeka papo hapo.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Onyesha nenosiri',
   'login.signUpLink': 'Anza jaribio la bure',
   'login.subheading': 'Ingia ili uendelee kuwasikiliza hadhira yako.',
+  'notFound.body':
+    'Ukurasa unaoutafuta haupo kwenye {{app}} . Hebu tukurejeshe kwenye tafiti zako.',
   'notFound.cta': 'Rudi kwenye tafiti',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Utafiti huu uliondoka kwenye foleni.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Tulivu 7–8',
   'npsDistributionBar.promoter': 'Mtangazaji 9–10',
   'profile.identity.description': 'Hadharani kwa timu yako na kwenye tafiti unazoandika.',
+  'profile.identity.emailRequired': 'Ingiza anwani ya barua pepe.',
   'profile.identity.saveCta': 'Hifadhi jina',
   'profile.password.current': 'Nenosiri la sasa',
   'profile.password.fillFields': 'Ingiza nenosiri la sasa na jipya.',
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} maswali',
   'templates.subheading':
     'Chagua kianzishaji kilichojaribiwa kwa majaribio — kila kiolezo huja kimerekebishwa mapema na chaguo-msingi zinazofaa, mantiki ya sampuli, na mpangilio safi wa simu.',
+  'thankYou.body':
+    'Jibu lako limerekodiwa. {{app}} itajumuisha katika uboreshaji ujao wa uchanganuzi.',
   'thankYou.eyebrow': 'Jibu limepokelewa',
   'thankYou.heading': 'Asante — sauti yako ni muhimu.',
   'thankYou.home': 'Tembelea Gauge',

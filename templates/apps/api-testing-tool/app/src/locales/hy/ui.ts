@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.pageTitle': '{{app}}-ի մասին',
   'authShell.statusLabel': 'վազորդներ առցանց',
   'collections.createError': 'Հավաքածու ստեղծել չհաջողվեց։',
   'collections.defaultName': 'Անանուն հավաքածու {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Նոր հավաքածու',
   'collections.subheading':
     'Խմբավորեք հարցումները, կիսվեք ձեր թիմի հետ և աշխատեցրեք դրանք որպես փաթեթ։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'environmentCard.inactive': 'Անգործուն',
   'environmentCard.more': 'ավելին',
   'environmentCard.variables': 'Փոփոխականներ',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Ներբեռնեք անվճար',
   'landing.heroSubtitle':
     'Կայծակնային արագությամբ API թեստավորման աշխատանքային սեղան, որը նախատեսված է տերմինալներում ապրող ինժեներների համար։',
+  'landing.heroTitleAccent': 'Կրակ',
+  'landing.heroTitleLine2': 'վստահություն կերտել։',
+  'landing.heroTitleRest': 'խնդրանքներ,',
   'landing.kicker': '$ պիլոնային ուղարկում --watch',
   'landing.pricingEyebrow': '// $ գնագոյացում --պարզ',
   'landing.pricingHeading': 'Պարզ, կանխատեսելի գնագոյացում',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Նորեկ եք այստեղ՞',
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.subtitle': 'Շարունակեք դեպի ձեր Pylon աշխատանքային տարածքը։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'mocks.createError': 'Չհաջողվեց ստեղծել իմիտացիա։',
   'mocks.defaultName': 'Անվերնագիր մակետ {{n}}',
   'mocks.deleteError': 'Չհաջողվեց ջնջել կեղծը։',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Վերադառնալ աշխատանքային տարածք',
   'notFound.eyebrow': '$ պիլոնային լուծում --strict',
   'notFound.title': 'Երթուղին չի գտնվել',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'privacy.collect.account':
     'Հաշիվ. ձեր էլ. փոստը, հեշավորված գաղտնաբառը, ցուցադրվող անունը և ձեր վերջին մուտքի ժամանակային դրոշմանիշը։',
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
     'Այս հաշվին ներկայումս պատկանող տվյալների միայն ընթերցման համար նախատեսված տեսք։',
   'settings.unset': 'սահմանված չէ',
   'signup.identityHint': 'օրինակ՝ Ալեքս',
+  'signup.statusLabel': 'անվճար մակարդակ · վարկային քարտ չկա',
   'signup.subtitle': 'Սկսեք հայտերը ուղարկել րոպեների ընթացքում։',
   'terms.account.body':
     'Դուք պատասխանատու եք ձեր գաղտնաբառի պաշտպանության համար: Անվճար կամ Pro պլաններում մեկ հաշիվը մի քանի մարդկանց հետ կիսելը թույլատրված չէ. համատեղ աշխատանքային տարածքների համար գնեք Team բաժանորդագրություն:',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     'Մի օգտագործեք Pylon-ը այնպիսի ծառայություններին հարցումներ ուղարկելու համար, որոնք ձեզ չեն պատկանում կամ որոնց փորձարկման համար հստակ թույլտվություն չունեք: Մի օգտագործեք Pylon-ը սակագնային սահմանափակումները շրջանցելու կամ խարդախություն կատարելու համար:',
   'terms.warranty.body':
     'Pylon-ը տրամադրվում է «ինչպես կա»՝ առանց որևէ երաշխիքի: Մենք ձգտում ենք 99.9% անխափան աշխատանքի, բայց դա չենք երաշխավորում անվճար կամ Pro պլանների դեպքում:',
+  'testRunner.assertionsCount': '{{count}} պնդումներ',
   'testRunner.createError': 'Հնարավոր չէ ստեղծել թեստ։',
   'testRunner.cron':
     'Հայտարարությունները գնահատվում են այս թեստի կապակցված հարցման ամենավերջին գործարկման համեմատ։',
@@ -173,11 +184,33 @@ export const ui: UiTranslations = {
     'Հավաքածուի արդյունքները, պնդումների տարբերությունները և վերջին 50 գործարկումները։',
   'userMenu.shortcut': '⌘Լ',
   'userMenu.signedInAs': 'Մուտք է գործել որպես',
+  'workspace.auth.keyName': 'Վերնագրի անունը',
+  'workspace.auth.keyValue': 'Հիմնական արժեք',
+  'workspace.auth.password': 'Գաղտնաբառ',
+  'workspace.auth.username': 'Օգտատիրոջ անուն',
+  'workspace.authOption.apikey': 'API բանալի',
+  'workspace.authOption.basic': 'Հիմնական վավերացում',
+  'workspace.authOption.bearer': 'Կրողի տոկեն',
+  'workspace.authOption.none': 'Ոչ մեկը',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Տեսակ',
   'workspace.authTypeLabel': 'Հաստատման տեսակ',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Ոչ մեկը',
+  'workspace.body.text': 'Հում տեքստ',
+  'workspace.body.type': 'Տեսակ',
   'workspace.environment': 'Առանց միջավայրի',
   'workspace.envVar': 'env փոփոխական',
   'workspace.eyebrow': '$ pylon աշխատանքային տարածք --pane բաժանում',
+  'workspace.kv.addHeader': 'Ավելացնել վերնագիր',
+  'workspace.kv.addParam': 'Ավելացնել պարամետր',
+  'workspace.kv.headerKey': 'Վերնագրի անունը',
+  'workspace.kv.headerValue': 'Վերնագրի արժեք',
+  'workspace.kv.key': 'Բանալի',
+  'workspace.kv.paramKey': 'Հարցման պարամետրի բանալի',
+  'workspace.kv.paramValue': 'Հարցման պարամետրի արժեքը',
+  'workspace.kv.removeRow': 'Հեռացնել տողը',
+  'workspace.kv.value': 'Արժեք',
   'workspace.methodLabel': 'HTTP մեթոդ',
   'workspace.metric.latency': 'Լատենտություն',
   'workspace.metric.latencyCaption': 'Երկկողմանի ուղևորություն այս երթուղուց',
@@ -195,6 +228,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Հարցումը մերժվել է — տե՛ս պատասխանը ստորև։',
   'workspace.subheading':
     'Կազմեք հարցում, գործարկեք այն, ապա հաստատեք պատասխանը՝ այս ամենը մեկ վահանակում։',
+  'workspace.testResults': 'Թեստի արդյունքներ',
   'workspace.token': 'Թոքեն',
   'workspace.tokenHint':
     'Ուղարկվել է որպես լիազորագիր՝ կրող<token> այս հավաքածուի յուրաքանչյուր խնդրանքի համար։',

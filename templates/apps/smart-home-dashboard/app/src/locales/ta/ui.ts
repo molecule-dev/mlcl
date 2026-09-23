@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.pageTitle': '{{app}} பற்றி',
   'activity.empty':
     'இன்னும் செயல்பாடு எதுவும் இல்லை — ஒரு சாதனத்தைத் திருப்புங்கள் அல்லது ஒரு காட்சியைச் செயல்படுத்துங்கள்.',
   'activity.eyebrow': 'காலவரிசை',
   'activity.loadError': 'செயல்பாட்டு ஊட்டத்தை ஏற்ற முடியவில்லை.',
   'activity.subheading': 'ஒவ்வொரு சாதனம், தானியக்கம் மற்றும் பாதுகாப்பு நிகழ்வும் காலவரிசைப்படி.',
+  'addDevice.error.failed': 'சாதனத்தைச் சேர்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'addDevice.error.nameRequired': 'தொடர, இந்தச் சாதனத்திற்கு ஒரு பெயரை இடவும்.',
   'addDevice.field.firmware': 'நிலைபொருள் பதிப்பு',
   'addDevice.field.manufacturer': 'உற்பத்தியாளர்',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'சோதனை…',
   'automationEditor.testNew': 'முதலில் ஆட்டோமேஷனைச் சேமித்துச் சோதித்துப் பாருங்கள்.',
   'automationRow.lastRun': 'கடைசி {{date}} · {{count}} ஓட்டங்கள்',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ஓடு {{name}} இப்போது',
   'automations.empty':
     'இன்னும் தானியக்கங்கள் எதுவும் இல்லை — உங்கள் முதல் வழக்கத்தை உருவாக்குங்கள்.',
@@ -53,6 +57,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'தானியக்கங்களை ஏற்றுகிறது…',
   'automations.newAutomation': '+ புதிய',
   'automations.subheading': 'இது நிகழும்போது, YAML இல்லாமல் அதைச் செய்யுங்கள்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'சாதனத்தை ஏற்ற முடியவில்லை.',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'வேலை நடக்கிறது…',
   'deviceDetail.unnamed': 'சாதனம்',
   'deviceStatusRow.on': 'ஆன்',
+  'deviceStatusRow.turnOff': 'அணைக்கவும்',
+  'deviceStatusRow.turnOn': 'ஆன் ஆகிறது',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'சக்தி',
   'energy.heading': 'ஆற்றல்',
@@ -180,4 +187,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'திட்டங்களைப் பார்க்கவும்',
   'settings.security.heading': 'பாதுகாப்பு',
   'settings.subheading': 'திட்டம், மையங்கள் மற்றும் கணக்கு விருப்பத்தேர்வுகள்.',
+  'smartHomeDashboardLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'smartHomeDashboardLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
 }

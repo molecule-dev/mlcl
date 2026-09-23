@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.tagline': 'Fiecare unitate, sub același acoperiș.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.addProperty': 'Adăugați proprietatea',
   'dashboard.empty.body':
     'După ce aveți proprietăți, unități și plăți de chirie, acest tablou de bord se umple cu informații despre portofoliu.',
@@ -88,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{proprietate}} · Unitate {{unitate}} · {{data}}',
   'maintenanceQueueList.subtitle': '{{count}} comenzi de lucru deschise, ordonate după prioritate',
   'maintenanceQueueList.title': 'Coadă de întreținere',
+  'nav.closeMenu': 'Închide meniul',
+  'nav.openMenu': 'Deschideți meniul',
   'notFound.body': 'Pagina pe care o căutați a fost mutată, arhivată sau nu a existat niciodată.',
   'notFound.title': 'Ușa aceea nu se deschide',
   'notifications.empty.body':

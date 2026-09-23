@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'O aplikaci {{app}}',
+  'auth.legalConsent': 'Pokračováním souhlasíte s našimi',
   'bookings.empty.body': 'Přidejte let, hotel nebo aktivitu pro spuštění doručené pošty.',
   'bookings.empty.heading': 'Zatím žádné rezervace.',
   'bookings.errors.create': 'Nepodařilo se vytvořit rezervaci.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Potvrzeno',
   'bookings.summary.pending': 'Čeká se na potvrzení',
   'bookings.summary.total': 'Celkem přislíbeno',
+  'bookings.type.car': 'Půjčovna aut',
+  'bookings.type.flight': 'Let',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Ostatní',
   'budgetSpendCard.budgetTotal': 'z {{total}} plánované',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Odhalujte konflikty, plánujte dny odpočinku mezi cestami a sledujte, kdy s vámi cestují spolupracovníci.',
   'common.and': 'a',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.budgetHeading': 'Rozpočtový puls',
   'dashboard.empty.heading': 'Zatím žádné cesty – váš atlas je prázdný.',
   'dashboard.eyebrow': 'Řízení mise',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Výlety v pohybu',
   'dashboard.viewAllExpenses': 'Zobrazit každý výdaj',
   'dashboard.viewAllTrips': 'Zobrazit každou cestu',
+  'dayTimelineRow.category.accommodation': 'Pobyt',
   'dayTimelineRow.category.transport': 'Doprava',
   'destinationOrbCard.exploreCta': 'Přidat k cestě',
   'destinationOrbCard.tripCount': '{{count}} výlety',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Ještě nemáte e-mail? Zkontrolujte složku s nevyžádanou poštou nebo zkuste to znovu s jinou adresou.',
   'forgotPassword.successSubheading':
     'Odeslali jsme odkaz pro obnovení účtu {{email}} Odkaz je platný 30 minut.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Vytvořte si bezplatný účet',
+  'landing.cta.subheading':
+    'Až pět cest, pět spolupracovníků a pět zastávek v rámci bezplatného tarifu – včetně synchronizace v reálném čase a verze Pro, která vám zruší limity, když se vaše plány rozrostou.',
   'landing.destinations.eyebrow': 'Kam dál',
   'landing.destinations.heading': 'Destinace vybrané editorem',
   'landing.features.eyebrow': 'Jak funguje Waypoint',
   'landing.features.heading': 'Vytvořeno pro cestovatele, ne pro tabulky.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Začněte bezplatnou cestu',
   'landing.hero.ctaSecondary': 'Podívejte se na ukázkový výlet',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Vytvořte si účet pro sdílení cest až s 5 spolupracovníky, synchronizaci rezervací a shromažďování všech potvrzení na jednom místě.',
+  'signup.termsPrefix': 'Založením účtu vyjadřujete souhlas s našimi',
   'tripCountdownHeroCard.budget': '{{used}} z {{total}} ( {{pct}} % rozpočtu)',
   'tripCountdownHeroCard.collaborators': '{{count}} cestovatelé',
   'tripCountdownHeroCard.countdownLabel': 'Odpočítávání',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Zatím žádné výlety.',
   'trips.pastHeading': 'Minulá dobrodružství',
   'trips.subheading': '{{count}} itineráře – minulé, současné a jednoho dne.',
+  'waypointLayout.mobileNavClose': 'Zavřít navigační menu',
   'waypointLayout.primaryNavLabel': 'Primární navigace',
 }

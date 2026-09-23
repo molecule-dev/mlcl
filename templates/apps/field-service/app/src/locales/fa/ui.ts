@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'مشتریان',
   'customers.loadError': 'بارگذاری مشتریان ناموفق بود.',
   'customers.loading': 'در حال بارگذاری…',
+  'customers.new.address': 'آدرس خدمات',
   'customers.new.email': 'ایمیل',
   'customers.new.error': 'افزودن مشتری ناموفق بود.',
   'customers.new.heading': 'مشتری جدید',

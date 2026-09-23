@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da mu',
   'applications.empty':
     'Babu aikace-aikace tukuna \\u2014 matsayin da ya dace shine a nemi ɗaya a gaba.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Kowace rawar da ka yi amfani da ita, a cikin motsi. Tace ta mataki zuwa mai da hankali.',
   'applications.untitledRole': 'Matsayi # {{id}}',
+  'auth.legalConsent': 'Ta ci gaba, kun yarda da',
   'common.and': 'kuma',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'companies.empty': 'Babu wani kamfani da ya dace da bincikenka \\u2014 gwada wani kalma daban.',
   'companies.eyebrow': 'Ma’aikata da aka fi so',
   'companies.searchPlaceholder': 'Bincika ta suna, masana’antu, da wuri',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Babu aikace-aikace na wannan matsayin tukuna.',
   'jobApplicants.eyebrow': 'Ra’ayin mai ɗaukar ma’aikata',
   'jobApplicants.loading': 'Ana lodawa\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Ba zan iya sabunta wannan matakin ba — sake gwadawa.',
+  'jobApplicants.subheading':
+    "Yi bitar ci gaba, gabatar da 'yan takara, aika tayi \\u2014 {{count}} a cikin motsi.",
   'jobDetail.applicantCount': '{{count}} masu neman aiki zuwa yanzu',
   'jobDetail.applied': 'An aika da aikace-aikacen',
   'jobDetail.apply': 'Yi rijista yanzu',
@@ -85,12 +91,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Duba ayyukan da aka buɗe \\u2192',
   'landing.pricingEyebrow': 'Farashi',
   'landing.pricingHeading': 'Tsare-tsare masu sauƙi ga kowace girman ƙungiya.',
+  'login.eyebrow': 'Maraba da zuwa {{app}}',
   'login.heading': 'Shiga cikin asusunka',
   'login.noAccount': 'Sabo a Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Ka tuna da ni tsawon kwanaki 30',
   'login.signingIn': 'Shiga\\u2026',
   'login.subheading': 'Ɗauki bincikenka, ci gaba da aikace-aikacenka, ji da sauri.',
+  'loginBrandPanel.copyright': "© {{year}} {{app}} . An gina shi don ƙungiyoyin ɗaukar ma'aikata.",
   'loginBrandPanel.headline': 'Inda baiwa ta haɗu',
   'loginBrandPanel.headlineLine2': 'ƙarfin hali.',
   'loginBrandPanel.listing.recruiter': 'Abokin Hulɗar Hazaka',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'Sabunta aikace-aikace, gayyatar hira, sabbin abubuwan da suka faru da farko.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} wannan makon',
   'opportunitiesHero.eyebrow': 'A buɗe yau',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'postJob.addNewCompany': '+ Ƙara sabon kamfani',
   'postJob.companyCreateFailed': 'Ban iya ƙirƙirar kamfani ba — sake gwadawa.',
   'postJob.companyNameLabel': 'Sunan kamfaninka',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Ƙirƙirar asusu\\u2026',
   'signup.ctaEmployer': 'Ƙirƙiri asusun ma’aikaci',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Kalmomin sirri ba su dace ba.',
   'signup.subheading':
     'Kyauta ga masu nema, har abada. Ma’aikata suna farawa da gwaji na kwanaki 30.',
   'timeAgo.days': '{{count}} d da suka wuce',
   'timeAgo.hours': '{{count}} h da ya wuce',
   'timeAgo.justNow': 'yanzu kawai',
+  'timeAgo.weeks': '{{count}} w da suka wuce',
 }

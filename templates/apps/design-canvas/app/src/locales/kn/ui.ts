@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'authShell.brandHeading': 'ಒಟ್ಟಿಗೆ ಸಾಗಿಸುವ ವಿನ್ಯಾಸ ತಂಡಗಳಿಗೆ ಪಿಕ್ಸೆಲ್-ಪರಿಪೂರ್ಣ ಕ್ಯಾನ್ವಾಸ್‌ಗಳು.',
   'canvas.redirecting': 'ಆರಂಭಿಕ ಸಂಪಾದಕ...',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'ಮತ್ತು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'dashboard.activityEmpty':
     'ಇನ್ನೂ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆ ಇಲ್ಲ — ಪ್ರಾರಂಭಿಸಲು ತಂಡದ ಒಬ್ಬ ಆಟಗಾರನನ್ನು ಆಹ್ವಾನಿಸಿ.',
   'dashboard.activityTitle': 'ಇಂದು ಏನು ಬದಲಾಗಿದೆ?',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'ಕಾರ್ಯಸ್ಥಳ · ನಾರ್ತ್‌ವಿಂಡ್ ಸ್ಟುಡಿಯೋ',
   'dashboard.foldersLabel': 'ಫೋಲ್ಡರ್‌ಗಳು',
   'dashboard.gridTitle': '{{count}} ಯೋಜನೆಗಳು',
+  'dashboard.heroActiveTool': 'ಪೆನ್ ಉಪಕರಣ',
   'dashboard.loadingTitle': 'ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'dashboard.searchPlaceholder': 'ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ',
   'dashboard.startFromTemplate': 'ಟೆಂಪ್ಲೇಟ್‌ನಿಂದ ಪ್ರಾರಂಭಿಸಿ',
   'dashboard.title': 'ನಿಮ್ಮ ಯೋಜನೆಗಳು',
   'dashboard.untitledProject': 'ಶೀರ್ಷಿಕೆಯಿಲ್ಲದ ಯೋಜನೆ',
   'designCanvasLayout.newProject': 'ಹೊಸ ಯೋಜನೆ',
+  'designCanvasLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'editor.backToProjects': 'ಯೋಜನೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'editor.deleteShape': 'ಆಕಾರವನ್ನು ಅಳಿಸಿ',
   'editor.errorBody': 'ನಮಗೆ ಈ ಯೋಜನೆಯನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'ನಿಮ್ಮ ಕೈಗಳ ವೇಗದಲ್ಲಿ ಚಲಿಸುವ ಪರಿಕರಗಳನ್ನು ವಿನ್ಯಾಸಗೊಳಿಸಿ.',
   'library.empty': 'ಈ ವಿಭಾಗದಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಟೋಕನ್‌ಗಳಿಲ್ಲ.',
   'library.eyebrow': 'ಕಾರ್ಯಸ್ಥಳ · ಅಟೆಲಿಯರ್ ವಿನ್ಯಾಸ ವ್ಯವಸ್ಥೆ',
+  'library.loadFailed': 'ವಿನ್ಯಾಸ ಟೋಕನ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'library.systemMeta': 'ವ್ಯವಸ್ಥೆಯ ಆರೋಗ್ಯ',
   'library.systemSummary': '{{ಟೋಕನ್‌ಗಳು}} ಟೋಕನ್‌ಗಳು · {{ಘಟಕಗಳು}} ಘಟಕಗಳು · {{ಪರಿಣಾಮಗಳು}} ಪರಿಣಾಮಗಳು',
   'login.emailPlaceholder': 'mara@studio.com ಗೆ ಇಮೇಲ್ ಮಾಡಿ',

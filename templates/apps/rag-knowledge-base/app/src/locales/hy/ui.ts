@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.pageTitle': 'Մասին {{appName}}',
   'analytics.error': 'Չհաջողվեց բեռնել վերլուծությունները։',
   'analytics.heading': 'Վերցման վերլուծություններ',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Գնագոյացման մակարդակներ կարգավորված չեն։',
   'billing.plans.heading': 'Պլաններ',
   'billing.subheading': 'Պլան, օգտագործում և Stripe-ի կողմից կառավարվող վճարում։',
+  'common.confirm': 'Հաստատել',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.retry': 'Կրկին փորձել',
   'documentCard.open': 'Բաց է \\u2192',
   'documentDetail.back': 'Վերադառնալ փաստաթղթերին',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Ինդեքսային փաստաթուղթ',
   'documents.composer.titlePlaceholder': 'Փաստաթղթի վերնագիր',
   'documents.emptyAll': 'Դեռևս փաստաթղթեր չկան։ Վերբեռնեք մեկը՝ հարցեր տալու համար։',
+  'documents.error.load': 'Հնարավոր չէ բեռնել փաստաթղթերը։',
   'documents.heading': 'Ինդեքսավորված փաստաթղթեր',
   'documents.loading': 'Փաստաթղթերի բեռնում…',
   'documents.metric.chunks': 'Ընդհանուր կտորներ',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Հեռացում\\u2026',
   'members.subheading': 'Հրավիրեք թիմակիցներին և նշանակեք դերեր։',
   'members.tableHeading': 'Անվանացանկը',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'notFound.askCta': 'Հարցրեք գիտելիքների բազային',
+  'notFound.body':
+    '{{app}} ը չկարողացավ գտնել այդ էջը։ Հղումը կարող է վնասված լինել, կամ էջը կարող է հեռացված լինել վերինդեքսավորման ժամանակ։',
   'notFound.eyebrow': 'Հնարավոր չէ վերականգնել',
   'notFound.title': 'Ինդեքսում նման հատված չկա',
   'notifications.dismiss': 'Փակել',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Աղբյուրի URL',
   'sources.empty.body': 'Սեղմեք «Ավելացնել աղբյուր»՝ ձեր առաջին միակցիչը միացնելու համար։',
   'sources.empty.title': 'Դեռևս աղբյուրներ չկան։',
+  'sources.error.add': 'Հնարավոր չէ ավելացնել աղբյուրը։',
   'sources.error.labelRequired': 'Պիտակը պարտադիր է։',
   'sources.error.load': 'Հնարավոր չէ բեռնել աղբյուրները։',
   'sources.error.urlRequired': 'Այս աղբյուրի տեսակի համար URL-ը պարտադիր է։',

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
+  'about.pageTitle': '关于{{app}}',
   'achievementBadgeCard.unlockedOn': '{{date}}解锁',
   'achievements.loadError': '无法加载成就。',
   'achievements.subheading': '已解锁 {{unlocked}} / {{total}}',
   'achievements.unlockedOn': '{{date}}解锁',
+  'auth.legalConsent': '继续即表示您同意我们的',
   'calendar.empty': '创建一个习惯以查看您的日历。',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': '习惯',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': '习惯网格',
   'category.${c.category}': '{{数数}}习惯',
   'common.and': '和',
+  'common.goToDashboard': '前往仪表盘',
   'consistencyHeatmap.ariaLabel': '每日坚持度热力图',
   'consistencyHeatmap.caption': '最近 {{weeks}} 周',
   'consistencyHeatmap.lessLabel': '较少',
@@ -77,6 +81,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': '实时体验',
   'landing.heroSubtitle':
     '按真正能坚持的方式培养习惯:小承诺、每日连续,以及一条未断长链所带来的切实成就感。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak 一瞥',
   'landing.previewMotivation': '九段连续正在进行,保持每一段的温度。',
   'login.eyebrow': '续上链条',
@@ -94,7 +99,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': '让它小。让它具体。明天再出现。',
   'newHabit.timeLabel': '提醒时间',
   'notifications.markError': '无法全部标记为已读。',
+  'planUpdated.verifying': '确认您的付款中…',
   'pricing.entries': '{{count}} 条记录',
+  'pricing.heading': '选择您的{{app}}方案',
   'profile.action.plan': '管理订阅',
   'profile.action.settings': '账户设置',
   'profile.bioEmpty': '在设置中添加简短简介来介绍自己。',
@@ -121,6 +128,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': '每日早晨提醒(8:00)',
   'settings.reminders.heading': '提醒',
   'settings.reminders.weekly': '每周总结(周日晚间)',
+  'settings.revokeDeviceWarning': '此设备的访问权限将很快被撤销。退出登录？',
   'settings.signOutDevice': '退出登录',
   'settings.streaks.freezesPerWeek': '每周冻结次数',
   'settings.streaks.gracePeriod': '午夜后 6 小时宽限期',
@@ -147,5 +155,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} 进行中',
   'streakHeroCard.daysSuffix': '天',
   'streakHeroCard.title': '最长进行中连续',
+  'streakLayout.closeMenu': '关闭导航菜单',
+  'streakLayout.openMenu': '打开导航菜单',
   'streakLayout.primaryNavLabel': '主导航',
 }

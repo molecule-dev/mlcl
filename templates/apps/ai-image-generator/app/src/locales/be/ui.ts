@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'auth.fields.newPassword': 'Новы пароль',
   'collectionDetail.addImage': 'Заклінаць для збору',
   'collectionDetail.backCta': 'Назад да калекцый',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Мудборды, брыфінгі і бягучыя серыі',
   'collections.title': 'Калекцыі',
   'collections.untitled': 'Без назвы · {{stamp}}',
+  'common.closeMenu': 'Закрыць меню',
+  'common.dismiss': 'Адхіліць',
+  'common.goToDashboard': 'Перайсці да панэлі',
+  'common.openMenu': 'Адкрыць меню навігацыі',
   'credits.eyebrow': '{{plan}} план',
   'credits.renewsCopy': 'Тарыфны план падаўжаецца {{date}}',
   'credits.trail': 'Мройнасць · {{plan}} узровень',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Тут будуць адлюстроўвацца абвесткі аб актыўнасці генерацыі, абагульванні і крэдытах.',
   'notifications.empty.title': 'Няма чаго паведаміць',
   'notifications.subtitle': 'Падзеі генерацыі, згрупаваныя па днях',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.limits.gallery': '{{count}} галерэя',
   'privacy.collect.body':
     'Калі вы рэгіструецеся, мы збіраем ваша імя, адрас электроннай пошты і хэшаваны пароль. Падчас выкарыстання Reverie мы захоўваем адпраўленыя вамі запыты, выявы, якія мы ствараем для вас, стылі і калекцыі, якія вы захоўваеце, а таксама метададзеныя, такія як выкарыстоўваная мадэль, часовыя меткі стварэння і баланс крэдыту.',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Захаваць новы пароль',
   'reset.submitting': 'Абнаўленне пароля…',
   'settings.account.handle': 'Ручка',
+  'settings.account.lastSaved': 'Актыўны профіль · {{name}}',
   'settings.account.saved': 'Профіль захаваны',
   'settings.account.saveFailed': 'Не ўдалося захаваць профіль',
   'settings.account.title': 'Профіль стваральніка',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Новы вобраз',
   'sidebar.secondary': 'Дадатковая навігацыя',
   'signup.failed': 'Рэгістрацыя не атрымалася. Паспрабуйце яшчэ раз.',
+  'signup.firstNamePlaceholder': 'Арыя',
   'signup.heading': 'Пачніце свае мары',
+  'signup.lastNamePlaceholder': 'Лін',
   'signup.subheading': 'Стварыце ўліковы запіс і атрымайце 120 бясплатных крэдытаў.',
   'styles.empty':
     "Пакуль няма загадзя наладжаных стыляў — яны з'явяцца пасля першага ўваходу ў сістэму.",

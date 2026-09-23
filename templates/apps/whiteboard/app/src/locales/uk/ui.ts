@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'authShell.brandHeading':
     'Багатокористувацькі полотна для дизайнерських команд, які мислять вголос.',
   'billing.canceled': 'Підписку скасовано.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Почати з шаблону',
   'boards.title': 'Ваші дошки',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'До панелі',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Введіть електронну адресу, пов’язану з вашим робочим простором, і ми надішлемо вам посилання для скидання налаштувань.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Створено для безладного, генеративного мислення в реальному житті.',
   'landing.demoBoard.title': 'Семінар за перший квартал · Голос бренду',
   'landing.featuresTitle': "Швидкий зворотний зв'язок. Чудові полотна. Нульове тертя.",
+  'landing.hero.body':
+    '{{appName}} — це багатокористувацька дошка для команд дизайнерів, фасилітаторів семінарів та викладачів, які проводять живі мозкові штурми та потребують зібрання ідей в одному місці.',
   'landing.hero.primaryCta': 'Створіть дошку безкоштовно',
   'landing.hero.socialProof': 'Довірений {{count}} команди дизайнерів по всьому світу',
   'landing.hero.title': 'Полотно, швидке, як і ваші думки',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Створіть безкоштовне робоче місце',
   'login.subheading':
     'Продовжуйте з того місця, де зупинився семінар — дошки, стікери та курсори синхронізуються в режимі реального часу.',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.new': 'Нові',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'notifications.editTitle': 'Редагування до " {{board}} "',
   'notifications.empty.body':
     'Запрошення, збережені знімки та нещодавні редагування дошки відображатимуться тут у міру їх внесення.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Історія версій',
   'versionHistory.untitledSnapshot': 'Знімок без назви',
   'whiteboardLayout.newBoard': 'Нова дошка',
+  'whiteboardLayout.primaryNav': 'Основна навігація',
   'workspace.boardLabel': 'Дошка',
   'workspace.eyebrow': '{{name}} · робочий простір',
   'workspace.invite': 'Запросити співавторів',

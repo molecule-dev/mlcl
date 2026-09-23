@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'accountSettings.confirmEmailLabel': 'Tastați DELETE pentru a confirma',
   'accountSettings.deleteError': 'Nu s-a putut șterge contul.',
   'accountSettings.passwordError': 'Nu s-a putut schimba parola.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Niciun termen limită viitor.',
   'dashboard.upcomingTitle': 'Termene limită viitoare',
   'deviceSettings.unknownDevice': 'Dispozitiv necunoscut',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Suport',
   'forgotPassword.error': 'Nu s-a putut trimite linkul de resetare.',
   'forgotPassword.subtitle': 'Introduceți e-mailul și vă vom trimite un link de resetare.',
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Adresă de e-mail sau parolă incorectă.',
   'login.pageTitle': 'Conectați-vă',
   'login.signIn': 'Conectați-vă la Forge',
+  'login.subtitle': 'Conectați-vă pentru a vă menține proiectele pe drumul cel bun',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'nav.calendar': 'Calendar',
   'nav.legal': 'Legal',
   'nav.myTasks': 'My Tasks',

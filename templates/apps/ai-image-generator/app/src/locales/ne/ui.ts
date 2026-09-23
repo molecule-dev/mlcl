@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'auth.fields.newPassword': 'नयाँ पासवर्ड',
   'collectionDetail.addImage': 'सङ्कलनको लागि कन्ज्युर गर्नुहोस्',
   'collectionDetail.backCta': 'सङ्ग्रहहरूमा फर्कनुहोस्',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'मुड-बोर्डहरू, संक्षिप्त विवरणहरू र जारी श्रृंखलाहरू',
   'collections.title': 'सङ्ग्रहहरू',
   'collections.untitled': 'शीर्षकविहीन · {{stamp}}',
+  'common.closeMenu': 'मेनु बन्द गर्नुहोस्',
+  'common.dismiss': 'खारेज गर्नुहोस्',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'common.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'credits.eyebrow': '{{plan}} योजना',
   'credits.renewsCopy': 'योजना नवीकरण मिति {{date}}',
   'credits.trail': 'दिवास्वप्न · {{plan}} तह',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'उत्पादन गतिविधि, साझेदारी र क्रेडिट अलर्टहरू यहाँ देखा पर्नेछन्।',
   'notifications.empty.title': 'रिपोर्ट गर्न केही छैन',
   'notifications.subtitle': 'दिन अनुसार समूहबद्ध पुस्ताका घटनाहरू',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.limits.gallery': '{{count}} ग्यालरी',
   'privacy.collect.body':
     'तपाईंले साइन अप गर्दा हामी तपाईंको नाम, इमेल ठेगाना र ह्यास गरिएको पासवर्ड सङ्कलन गर्छौं। तपाईंले Reverie प्रयोग गर्दा हामी तपाईंले पेश गर्ने प्रम्प्टहरू, हामीले तपाईंको लागि उत्पन्न गर्ने छविहरू, तपाईंले बचत गर्ने शैलीहरू र सङ्ग्रहहरू, र प्रयोग गरिएको मोडेल, जेनेरेसन टाइमस्ट्याम्पहरू, र क्रेडिट ब्यालेन्स जस्ता मेटाडेटा भण्डारण गर्छौं।',
@@ -171,6 +177,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'नयाँ पासवर्ड बचत गर्नुहोस्',
   'reset.submitting': 'पासवर्ड अद्यावधिक गर्दै...',
   'settings.account.handle': 'ह्यान्डल',
+  'settings.account.lastSaved': 'सक्रिय प्रोफाइल · {{name}}',
   'settings.account.saved': 'प्रोफाइल सेभ गरियो',
   'settings.account.saveFailed': 'प्रोफाइल सुरक्षित गर्न सकिएन',
   'settings.account.title': 'सिर्जनाकर्ता प्रोफाइल',
@@ -193,7 +200,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'नयाँ छवि',
   'sidebar.secondary': 'माध्यमिक नेभिगेसन',
   'signup.failed': 'साइन अप असफल भयो। फेरि प्रयास गर्नुहोस्।',
+  'signup.firstNamePlaceholder': 'आरिया',
   'signup.heading': 'आफ्नो रमझम सुरु गर्नुहोस्',
+  'signup.lastNamePlaceholder': 'लिन',
   'signup.subheading': 'खाता सिर्जना गर्नुहोस् र १२० नि:शुल्क क्रेडिटहरू दाबी गर्नुहोस्।',
   'styles.empty':
     'अहिलेसम्म कुनै पनि शैली प्रिसेटहरू छैनन् — तिनीहरू पहिलो साइन-इन पछि देखा पर्नेछन्।',

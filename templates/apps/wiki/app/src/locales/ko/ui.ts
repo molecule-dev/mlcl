@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': '해결하는 중…',
   'comments.subtitle':
     '아직 답글이나 해결을 기다리는 {{count}}개의 스레드입니다. 오래된 순으로 정렬되어 아무것도 묻히지 않습니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'forgotPassword.sentTo': '{{email}}(으)로 재설정 링크를 보냈습니다',
   'forgotPassword.successSubheading':
     '받은편지함을 확인해 주세요 — 방금 재설정 링크를 보냈습니다. 30분 후 만료됩니다.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': '새 페이지',
   'pageTreeSidebar.workspaceHeader': '워크스페이스',
   'pageView.breadcrumb': '이동 경로',
+  'pageView.confirmTrash': '버리시겠어요?',
   'pageView.home': '홈',
   'pageView.lastEdited': '{{when}}에 업데이트됨',
   'pageView.loading': '페이지를 불러오는 중…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': '요약하는 중…',
   'pageView.summaryUnavailable': '이 워크스페이스에는 AI 요약이 구성되지 않았습니다.',
   'pageView.tocTitle': '이 페이지에서',
+  'pageView.trash': '휴지통',
+  'pageView.trashing': '삭제 중…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': '배지',
   'profile.owned.title': '소유한 페이지',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': '워크스페이스, 프로필, 알림, 통합 — 모두 하나의 차분한 셸에서.',
   'settingsPage.workspace.defaultLanding': '기본 시작 화면',
   'settingsPage.workspace.landingHome': '홈',
+  'settingsPage.workspace.landingSpaces': '스페이스',
   'settingsPage.workspace.subdomainLabel': '하위 도메인',
   'settingsPage.workspace.title': '워크스페이스',
   'signup.eyebrow': '새 워크스페이스 시작',
@@ -124,6 +129,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '약 {{min}}분',
   'templates.subtitle':
     '빈 캔버스가 아닌 스텐실로 페이지를 시작하세요. 각 템플릿은 형태를 미리 정해두어 내용에 집중할 수 있게 합니다.',
+  'trash.confirmPurge': '영원히 숙청하는 건가요?',
+  'trash.confirmPurgeAria': '확인: {{title}} 영구적으로 삭제합니다.',
   'trash.daysUntilPurge': '{{days}}일 남음',
   'trash.empty.body': '삭제된 페이지는 영구 삭제되기 전 30일 동안 여기에 표시됩니다.',
   'trash.empty.title': '휴지통이 비어 있습니다.',
@@ -143,5 +150,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': '복원하는 중…',
   'versionHistory.subtitle': '버전 {{count}}개 · 행을 선택하여 차이를 확인하세요',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': '탐색 메뉴 닫기',
+  'wikiLayout.menu': '탐색',
+  'wikiLayout.openMenu': '탐색 메뉴 열기',
   'wikiLayout.searchPlaceholder': 'Cairn 검색 — 페이지, 댓글…',
 }

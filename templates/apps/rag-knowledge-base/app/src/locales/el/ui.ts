@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.pageTitle': 'Σχετικά με {{appName}}',
   'analytics.error': 'Δεν ήταν δυνατή η φόρτωση των αναλυτικών στοιχείων.',
   'analytics.heading': 'Αναλυτικά στοιχεία ανάκτησης',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Δεν έχουν διαμορφωθεί επίπεδα τιμολόγησης.',
   'billing.plans.heading': 'Πλάνα',
   'billing.subheading': 'Σχέδιο, χρήση και ολοκλήρωση αγοράς με διαχείριση από το Stripe.',
+  'common.confirm': 'Επιβεβαιώνω',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'documentCard.open': 'Ανοιχτό \\u2192',
   'documentDetail.back': 'Επιστροφή στα έγγραφα',
   'documentDetail.chunks.empty':
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Τίτλος εγγράφου',
   'documents.emptyAll':
     'Δεν υπάρχουν ακόμη έγγραφα. Ανεβάστε ένα για να ξεκινήσετε να κάνετε ερωτήσεις.',
+  'documents.error.load': 'Δεν ήταν δυνατή η φόρτωση εγγράφων.',
   'documents.heading': 'Ευρετηριασμένα έγγραφα',
   'documents.loading': 'Φόρτωση εγγράφων…',
   'documents.metric.chunks': 'Συνολικά κομμάτια',
@@ -145,7 +150,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Αφαίρεση\\u2026',
   'members.subheading': 'Προσκαλέστε συμπαίκτες και ορίστε ρόλους.',
   'members.tableHeading': 'Κατάλογος ονομάτων',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'notFound.askCta': 'Ρωτήστε τη βάση γνώσεων',
+  'notFound.body':
+    '{{app}} δεν μπόρεσε να εντοπίσει αυτήν τη σελίδα. Ο σύνδεσμος ενδέχεται να είναι κατεστραμμένος ή η σελίδα ενδέχεται να έχει αποσυρθεί κατά την επαναδημιουργία ευρετηρίου.',
   'notFound.eyebrow': 'Δεν είναι δυνατή η ανάκτηση',
   'notFound.title': 'Δεν υπάρχει τέτοιο κομμάτι στο ευρετήριο',
   'notifications.dismiss': 'Κλείσιμο',
@@ -211,6 +220,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Κάντε κλικ στην επιλογή «Προσθήκη πηγής» για να συνδέσετε την πρώτη σας σύνδεση.',
   'sources.empty.title': 'Δεν υπάρχουν ακόμη πηγές.',
+  'sources.error.add': 'Δεν ήταν δυνατή η προσθήκη πηγής.',
   'sources.error.labelRequired': 'Απαιτείται ετικέτα.',
   'sources.error.load': 'Δεν ήταν δυνατή η φόρτωση των πηγών.',
   'sources.error.urlRequired': 'Απαιτείται διεύθυνση URL για αυτό το είδος πηγής.',

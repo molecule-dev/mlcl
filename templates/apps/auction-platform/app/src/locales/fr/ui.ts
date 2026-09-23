@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Suivi',
   'auctionDetail.watchRemoved': 'Retiré de la liste de suivi.',
   'auctionDetail.watchRemoveLabel': 'Retirer de la liste de suivi',
+  'auctionPlatformLayout.primaryNavLabel': 'Navigation principale',
   'authShell.brandBody':
     "Enchérissez en temps réel sur des montres rares, des œuvres d'art et des articles uniques. Le marteau tombe en quelques secondes.",
   'authShell.brandEyebrow': 'En direct · 1 420 enchères',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Trier par',
   'browseAuctions.subheading':
     'Filtrez par catégorie, triez selon ce qui compte le plus et placez une enchère avant que le marteau ne tombe.',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'countdownTimer.ended': 'Terminé',
   'countdownTimer.endingSoon': 'Se termine',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afficher le mot de passe',
   'login.subtext':
     'Continuez à suivre vos enchères et placez des enchères avant que le marteau ne tombe.',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'myBids.bidAgain': 'Enchérir à nouveau',
   'myBids.browseCta': 'Parcourir les enchères en direct →',
   'myBids.checkoutCta': 'Payer maintenant',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Aucune notification pour le moment.',
   'notificationsPage.eyebrow': "Centre d'activité",
   'notificationsPage.subheading': '{{count}} non lues · mises à jour en direct au fil des enchères',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.bidsLabel': 'offres',
   'pricing.listingsLabel': 'annonces',
   'pricing.watchlistLabel': 'liste de suivi',

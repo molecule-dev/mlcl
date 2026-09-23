@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.pageTitle': 'Kuhusu {{app}}',
   'activity.empty': 'Hakuna shughuli bado — geuza kifaa au uwashe tukio.',
   'activity.eyebrow': 'Orodha ya matukio',
   'activity.loadError': 'Haikuweza kupakia mlisho wa shughuli.',
   'activity.subheading': 'Kila kifaa, otomatiki, na tukio la usalama kwa mpangilio wa matukio.',
+  'addDevice.error.failed': 'Haikuweza kuongeza kifaa. Jaribu tena.',
   'addDevice.error.nameRequired': 'Kipe kifaa hiki jina ili kiendelee.',
   'addDevice.field.firmware': 'Toleo la Programu dhibiti',
   'addDevice.field.manufacturer': 'Mtengenezaji',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Kujaribu…',
   'automationEditor.testNew': 'Hifadhi otomatiki kwanza ili kuijaribu.',
   'automationRow.lastRun': 'Mwisho {{date}} · {{count}} mbio',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Kimbia {{name}} sasa',
   'automations.empty': 'Hakuna otomatiki bado — tengeneza utaratibu wako wa kwanza.',
   'automations.eyebrow': 'Ratiba',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Inapakia otomatiki…',
   'automations.newAutomation': '+ Mpya',
   'automations.subheading': 'Hili likitokea, fanya hivyo — bila YAML.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Imeshindwa kupakia kifaa.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Inafanya kazi…',
   'deviceDetail.unnamed': 'Kifaa',
   'deviceStatusRow.on': 'Imewashwa',
+  'deviceStatusRow.turnOff': 'Zima',
+  'deviceStatusRow.turnOn': 'Washa',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Nguvu',
   'energy.heading': 'Nishati',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Tazama mipango',
   'settings.security.heading': 'Usalama',
   'settings.subheading': 'Mpango, vituo, na mapendeleo ya akaunti.',
+  'smartHomeDashboardLayout.openMenu': 'Fungua menyu ya kusogeza',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Usogezaji mkuu',
 }

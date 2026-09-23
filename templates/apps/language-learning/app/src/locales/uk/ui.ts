@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'common.goToDashboard': 'До панелі',
+  'common.logout': 'Вийти',
   'dailyStatsTriad.heartsLabel': 'Серця',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Хвилини сьогодні',
   'dailyStatsTriad.minutesValue': '{{count}} хв',
   'dailyStatsTriad.wordsLabel': 'Слова опановані',
+  'dailyStatsTriad.wordsMasteryHint': 'Слова на висоті 4+',
   'dashboard.continueHeading': 'Продовжуйте з того місця, де зупинилися',
   'dashboard.heading': 'Добрий день, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Не вдалося завантажити вправи.',
   'lessonDetail.loading': 'Завантаження уроку…',
   'lessonDetail.submitError': 'Не вдалося надіслати відповідь.',
+  'lessonDetail.translation': 'Перекладіть фразу',
   'lessonDetail.xpEarned': 'Зароблений досвід · {{xp}}',
   'lessons.empty': 'Немає уроків на рівні {{level}} все ж — спробуйте інший рівень.',
   'lessons.eyebrow': 'Бібліотека уроків',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Вперше у жаргоні?',
   'login.showPassword': 'Показати пароль',
   'login.signUp': 'Почати безкоштовно →',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
+  'parlanceLayout.nav.profile': 'Профіль',
   'parlanceLayout.primaryNavLabel': 'Основна навігація',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'practice.empty': 'Фрази поки що недоступні.',
   'practice.eyebrow': 'Практика розмов',
   'practice.heading': 'Прочитайте це. Запишіть це. Удоскональте це.',

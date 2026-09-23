@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
   'authBrandPanel.quote':
     '”Vellum on nyt kaikkien omistamiemme allekirjoitettujen sopimusten rekisteröintijärjestelmä.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'contractDetail.amount': 'Arvo',
   'contractDetail.back': 'Kaikki sopimukset',
   'contractDetail.downloadCta': 'Lataa PDF',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Jos osoitteella {{email}} on tili, nollauslinkki lähetetään sinulle pian.',
   'forgotPassword.subtitle': 'Lähetämme palautuslinkin työsähköpostiisi.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Rakennettu Molecule-alustalla.',
   'landing.ctaHeading': 'Näe portfoliosi sulkeutuvan ensimmäisenä päivänä.',
   'landing.ctaPrimary': 'Työtilan aloittaminen',
   'landing.eyebrow': 'Oikeudellisiin operaatioihin ja hankintoihin',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Vastapuolen nimi on pakollinen.',
   'newContract.errEmail': 'Allekirjoittajan sähköpostiosoite on pakollinen.',
   'newContract.expires': 'Voimassaolopäivä',
+  'newContract.failed': 'Sopimusta ei voitu luoda.',
   'newContract.heading': 'Uusi sopimus',
   'newContract.nextCta': 'Seuraava',
   'newContract.review.counterparty': 'Vastapuoli',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Sopimuksen otsikko',
   'newContract.titlePlaceholder': 'Pääpalvelusopimus',
   'newContract.variablesHeading': 'Sopimusmuuttujat',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.dataExport': 'Tietojen vienti',
   'pricing.disabled': 'Ei',
   'pricing.enabled': 'Kyllä',
@@ -146,15 +152,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Tilin poistaminen epäonnistui.',
   'settings.security.deleting': 'Poistetaan…',
   'settings.security.newPassword': 'Uusi salasana',
+  'settings.security.noDevices': 'Laitteita ei ole rekisteröity.',
   'settings.security.twoFactor': 'Kaksivaiheinen todennus',
   'settings.security.twoFactorDisable': 'Poista käytöstä',
   'settings.security.twoFactorEnable': 'Ota käyttöön',
+  'settings.security.twoFactorInvalidCode': 'Virheellinen koodi.',
   'settings.signatures.body':
     'Kirjoittamasi nimi näkyy jokaisen allekirjoittamasi sopimuksen allekirjoitusrivillä. Aseta se kerran, niin se näkyy automaattisesti jatkossa.',
   'settings.signatures.heading': 'Allekirjoituslohko',
   'settings.signatures.save': 'Tallenna allekirjoitus',
+  'sign.action': 'Allekirjoita tämä asiakirja',
+  'sign.eyebrow': 'Allekirjoitusta pyydetään',
+  'sign.for': '{{name}} -sivustolle',
+  'sign.loadError':
+    'Tämä allekirjoituslinkki on virheellinen tai sen voimassaoloaika on päättynyt.',
   'sign.loading': 'Ladataan…',
   'sign.signing': 'Allekirjoitetaan…',
+  'sign.submitError': 'Allekirjoitustasi ei voitu tallentaa — linkki on mahdollisesti vanhentunut.',
   'signup.brandQuote':
     'Siirsimme kahdeksan vuoden paperit Vellum-järjestelmään viikossa. Pelkästään lokitietokanta oikeuttaa vaihdon.',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -189,6 +203,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Avoin sopimus →',
   'vellumKpiCard.trend': 'Viimeaikainen suuntaus',
+  'vellumLayout.closeMenu': 'Sulje navigointivalikko',
+  'vellumLayout.openMenu': 'Avaa navigointivalikko',
   'vellumLayout.primaryNavLabel': 'Päänavigaatio',
   'vellumPortfolioHero.expiring': 'Vanhenee 30 päivän kuluttua',
   'vellumPortfolioHero.label': 'Salkun arvo',

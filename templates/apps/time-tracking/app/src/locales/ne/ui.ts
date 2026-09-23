@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} बारे',
   'about.plansTitle': 'तपाईंसँगै बढ्ने योजनाहरू',
   'brand.tagline': 'प्रत्येक सेकेन्ड',
   'clientDetail.back': 'ग्राहकहरूमा फर्कनुहोस्',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'हरेक सम्बन्ध एकै ठाउँमा — परियोजनाहरू, घण्टा, बाँकी रहेको बीजकहरू।',
   'clients.title': 'ग्राहकहरू',
   'common.and': 'र',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'dashboard.activeProjects': 'सक्रिय परियोजनाहरू',
   'dashboard.empty':
     'अहिलेसम्म कुनै पनि प्रविष्टि छैन। आफ्नो पहिलो सत्र ट्र्याक गर्न टाइमर सुरु गर्नुहोस्।',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'यस क्लाइन्टको लागि बीजक बनाउन कुनै बिलयोग्य घण्टा छैन। पहिले केही समय ट्र्याक गर्नुहोस् वा यस क्लाइन्टको परियोजनाहरू मध्ये एकमा अवस्थित प्रविष्टिहरू तोक्नुहोस्।',
   'invoices.save': 'बीजक सिर्जना गर्नुहोस्',
   'invoices.subtitle': 'ट्र्याक गरिएका घण्टाहरू स्वचालित रूपमा बीजकहरूमा रोल अप हुन्छन्।',
+  'landing.copyright': '© {{year}} {{app}} । प्रत्येक सेकेन्ड, हिसाब गरिएको।',
   'landing.ctaBody':
     '३ वटा परियोजनाहरूसम्म नि:शुल्क। तपाईंको ग्राहक सूचीले स्तरोन्नति गरेपछि स्तरोन्नति गर्नुहोस्।',
   'landing.eyebrow': 'बिलयोग्य कामको लागि समय ट्र्याकिङ',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'स्वतन्त्र व्यक्तिहरूद्वारा विश्वास गरिएको',
   'landing.testimonial.quote':
     '\\u201cम ३० मिनेटमा Toggl बाट सरेँ। बजेट बर्न-डाउनले मात्र यसको भुक्तानी गरेको छ \\u2014 मैले दुई हप्ता चलिरहेको कम उद्धरण गर्न छोडेको छु। \\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} क्रोनो। प्रत्येक सेकेन्ड, हिसाब गरिएको।',
   'login.brand.subtitle':
     'तपाईंले छोड्नुभएको ठाउँबाट टाइमर उठाउनुहोस् — प्रत्येक मिनेट पहिले नै परियोजना, ग्राहक, बीजकमा म्याप गरिएको छ।',
   'login.brand.tracking': 'ट्र्याकिङ',
   'login.subheading': 'तपाईंले छोड्नुभएको ठाउँबाट टाइमर उठाउनुहोस्।',
+  'nav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
   'nav.insightsSection': 'अन्तर्दृष्टिहरू',
   'nav.newEntry': 'नयाँ प्रविष्टि',
+  'nav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
+  'nav.primary': 'प्राथमिक नेभिगेसन',
   'nav.workSection': 'काम',
   'notFound.body':
     'तपाईंले पछ्याउनु भएको लिङ्कले ट्र्याक गर्न बन्द गरेको जस्तो देखिन्छ। आफ्नो ड्यासबोर्डमा फर्कनुहोस् \\u2014 हामी त्यहाँबाट गणना गरिरहनेछौं।',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'बिलयोग्य',
   'timer.descriptionPlaceholder': 'तपाईं केमा काम गर्दै हुनुहुन्छ?',
   'timer.idle': 'निष्क्रिय — ट्र्याकिङ सुरु गर्नुहोस्',
+  'timer.noProject': 'कुनै परियोजना छैन',
   'timer.runningWithProject': 'कुनै परियोजना छैन',
   'timer.start': 'टाइमर सुरु गर्नुहोस्',
   'timer.stop': 'टाइमर रोक्नुहोस्',

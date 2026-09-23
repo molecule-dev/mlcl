@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Über',
   'alertConditionCard.condition.${alert.condition}': 'Ausgelöst {{when}}',
+  'alertConditionCard.confirmDelete': 'Löschen bestätigen',
   'alertConditionCard.pauseAriaLabel': 'Alarm pausieren',
   'alertConditionCard.resumeAriaLabel': 'Alarm fortsetzen',
   'alertNew.condition': 'Bedingung',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Vollständig verwässerte Bewertung',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Webseite',
+  'coinDetail.links.whitepaper': 'Whitepaper',
   'coinDetail.loadError': 'Coin konnte nicht geladen werden.',
   'coinDetail.marketCap': 'Marktkapitalisierung',
   'coinDetail.maxSupply': 'Maximales Angebot',
@@ -93,6 +95,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Die gescannte Route führt nicht zu einem bekannten Coin oder einer Seite. Überprüfen Sie das Symbol und versuchen Sie es erneut.',
   'notFound.browseMarkets': 'Märkte durchsuchen',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'portfolio.addError': 'Geben Sie Symbol, positive Menge und Kosten ein.',
   'portfolio.addHoldingCta': '+ Position hinzufügen',
   'portfolio.addModal.cost': 'Kostenbasis (USD)',
@@ -136,9 +139,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Passwort- und Zwei-Faktor-Einstellungen werden von Ihrem Konto verwaltet.',
   'settings.signOutDevice': 'Abmelden',
+  'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
   'settings.twoFactorEnable': 'Aktivieren',
+  'settings.twoFactorInvalidCode': 'Ungültiger Code',
   'settings.twoFactorOn': 'Am',
+  'settings.twoFactorVerify': 'Überprüfen & aktivieren',
   'sigilAuthShell.backHomeCta': '← Zurück zu Bourse',
   'sigilLayout.primaryNavLabel': 'Primäre Navigation',
   'signup.eyebrow': 'Terminal eröffnen',

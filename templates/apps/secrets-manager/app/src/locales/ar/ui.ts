@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
   'about.tagline': 'الأسرار تموت في العلن.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'إنشاء رمز',
   'apiTokens.kicker': 'رموز API',
   'apiTokens.loading': 'جارٍ تحميل الرموز…',
+  'apiTokens.new': 'رمز جديد',
   'apiTokens.revoke': 'إبطال الرمز',
   'apiTokens.subheading':
     'رموز شخصية وخدمية لواجهة سطر الأوامر Arcanum و SDK. يُعرض النص الواضح مرة واحدة عند الإنشاء.',
@@ -29,6 +31,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + مفتاح المرور',
   'authShell.zeroKnowledge': 'تشفير بدون معرفة',
   'common.connecting': 'جارٍ الاتصال…',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.inviting': 'جارٍ الدعوة…',
   'forgotPassword.checkInbox':
     'إذا كان {email} مسجلاً، فسيصلك رابط إعادة تعيين مُوقَّع خلال دقيقة.',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': 'صندوق الوارد',
   'notifications.subheading': 'حالة التدوير، تنبيهات الشذوذ، وطلبات الموافقة عبر كل خزنة.',
   'notifications.unreadEmpty': 'صندوق الوارد صفر — كل شيء مُحدَّث.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.heading': 'أسرار',
   'pricing.limits.accessPolicies': 'سياسات الوصول',
   'pricing.limits.auditLog': 'إدخالات سجل التدقيق',
@@ -80,9 +84,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'حساب شخصي',
   'profile.plan.description': 'أدِر اشتراكك واطَّلع على الحدود وقم بالترقية.',
   'profile.subheading': 'الهوية وأجهزة العامل الثاني والجلسات النشطة.',
+  'profile.twoFactor.code': 'رمز المصادقة',
   'profile.twoFactor.disable': 'تعطيل',
   'profile.twoFactor.enable': 'تمكين',
+  'profile.twoFactor.invalidCode': 'رمز غير صالح',
   'profile.twoFactor.kicker': 'المصادقة الثنائية',
+  'profile.twoFactor.off': 'غير مفعل',
   'profile.twoFactor.on': 'مُفعَّل',
   'resetPassword.email': 'البريد الإلكتروني للحساب',
   'resetPassword.heading': 'تعيين بيانات اعتماد جديدة',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'الأوامر',
   'secretsManagerLayout.encrypted': 'AES-256 · مُشفَّر',
   'secretsManagerLayout.newVault': 'خزنة جديدة',
+  'secretsManagerLayout.newVaultShort': 'جديد',
   'secretsManagerLayout.rotations': 'التدويرات',
   'secretsManagerLayout.search': 'بحث',
   'secretsManagerLayout.searchPlaceholder': 'البحث عن الأسرار حسب المفتاح أو المسار أو الوسم…',
@@ -161,6 +169,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'الأسرار',
   'vaultCard.vaultLabel': 'خزنة',
   'vaultDetail.addSecret': 'إضافة سر',
+  'vaultDetail.back': 'جميع الخزائن',
   'vaultDetail.col.key': 'المفتاح',
   'vaultDetail.col.rotated': 'مُدوَّر',
   'vaultDetail.col.value': 'القيمة',

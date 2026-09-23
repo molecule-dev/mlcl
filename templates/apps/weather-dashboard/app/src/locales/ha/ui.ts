@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'A halin yanzu kuna kan hanya {{plan}} shirin.',
   'billing.switch': 'Canjawa',
   'billing.upgraded': 'An sabunta zuwa {{plan}} - an yi amfani da iyaka nan da nan.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'compare.activityHeading': 'Hukunce-hukuncen aiki',
   'compare.empty.title': 'Ƙara aƙalla wurare biyu don kwatantawa',
   'compare.eyebrow': 'Gefe da gefe',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Babban',
   'trends.summary.low.label': 'Ƙasa',
   'trends.summary.points.label': 'Kwanaki',
+  'weatherDashboardLayout.primaryNavLabel': 'Babban kewayawa',
   'weatherHeroCard.updated': 'An sabunta {{time}}',
 }

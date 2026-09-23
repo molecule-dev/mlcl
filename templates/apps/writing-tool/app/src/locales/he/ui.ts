@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
+  'about.title': 'חדר כתיבה שתוכלו לשמור בכיס שלכם',
   'billing.cancelConfirm': 'לבטל את המנוי הפעיל שלך?',
   'billing.cancelFailed': 'לא ניתן היה לבטל.',
   'billing.checkingOut': 'פתיחת התשלום…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'לא ניתן היה לטעון את החיוב.',
   'billing.loading': 'טוען את החיוב...',
   'billing.upgradeCta': 'שדרג ל {{name}}',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
+  'editor.autosaveOn': 'שמירה אוטומטית מופעלת',
   'editor.backToLibrary': 'חזרה לספרייה',
   'editor.charCount': '{{count}} דמויות',
   'editor.confirmTrash': 'להעביר את המסמך הזה לאשפה?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'בוטל הצמדה',
   'editor.unpublishCta': 'העבר לטיוטה',
   'editor.unpublished': 'חזר לטיוטה',
+  'focus.autosaveOn': 'שמירה אוטומטית מופעלת',
   'focus.backToLibrary': 'חזרה לספרייה',
   'focus.bodyPlaceholder': 'שורה אחר שורה. אין כאן אף אחד אחר.',
   'focus.exit': 'יציאה ממצב מיקוד',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'צור אחד',
   'login.subline':
     'כתבי היד שלך, עמודי היומיים ומיקום הסמן האחרון נמצאים בדיוק במקום שבו השארת אותם.',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'pricing.exports': 'יצוא',
   'pricing.folders': 'תיקיות',
   'pricing.heading': 'מסמכים',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'הזן את הקוד ששלחנו לך זה עתה באימייל ובחר משהו בלתי נשכח. ניכנס אותך לאחר שהוא יישמר.',
   'reset.tokenHint': 'הודבק מתיבת הדואר הנכנס שלך.',
+  'settings.appearance.heading': 'בהיר או כהה',
   'settings.editor.${row.id}.description': 'שָׂפָה',
   'settings.editor.description':
     'גלילה במכונת כתיבה, דהיית פסקה ומיקוד במצב סרק - ברירות המחדל מכוונות לסשנים ארוכים.',
@@ -135,6 +143,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'פרק שלישי - שעה שקטה לפני הזריחה',
   'versalDocumentCard.pinned': 'מוצמד',
   'versalLayout.nav.stats': 'סטטיסטיקות',
+  'versalLayout.primaryNavLabel': 'ניווט ראשי',
   'versalManuscriptHero.cta': 'המשך לכתוב',
   'versalManuscriptHero.goalLabel': 'מטרת המילים של היום',
   'versalManuscriptHero.inProgress': 'בדרך הנכונה',

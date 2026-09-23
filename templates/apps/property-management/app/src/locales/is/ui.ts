@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.tagline': 'Allar einingar, undir einu þaki.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.addProperty': 'Bæta við eign',
   'dashboard.empty.body':
     'Þegar þú hefur greitt eignir, einingar og leigu, fyllist þessi mælaborð með innsýn í eignasafn þitt.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{eign}} · Eining {{eining}} · {{dagsetning}}',
   'maintenanceQueueList.subtitle': '{{count}} Opnar verkpantanir, raðaðar eftir forgangi',
   'maintenanceQueueList.title': 'Viðhaldsbiðröð',
+  'nav.closeMenu': 'Loka valmynd',
+  'nav.openMenu': 'Opna valmynd',
   'notFound.body': 'Síðan sem þú varst að leita að hefur verið færð, geymd eða aldrei verið til.',
   'notFound.title': 'Sú hurð opnast ekki',
   'notifications.empty.body':

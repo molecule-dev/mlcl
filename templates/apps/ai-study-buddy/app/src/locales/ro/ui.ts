@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Se încarcă informațiile despre plan…',
   'billing.popular': 'Cel mai îndrăgit',
   'billing.subtitle': 'Alegeți planul care se potrivește ritmului dvs. de studiu.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.today': 'Astăzi',
   'common.yesterday': 'Ieri',
   'courseDetail.empty.body':
@@ -82,7 +83,11 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Numele pachetului',
   'flashcards.subtitle': 'Repetiție spațiată adaptată ritmului dvs.',
   'flashcards.title': 'Flashcarduri',
+  'footer.copyright': '© {{year}} {{app}}. Învață bine, dormi bine.',
   'forgotPassword.subtitle': 'Introduceți e-mailul și vă vom trimite un link de resetare.',
+  'koanLayout.closeMenu': 'Închide meniul',
+  'koanLayout.navLabel': 'Navigare principală',
+  'koanLayout.openMenu': 'Deschideți meniul',
   'koanLayout.theme': 'Temă',
   'landing.featuresBody':
     'Instrumente concepute pentru a elimina distragerile și a construi o înțelegere durabilă.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Acel URL este teritoriu nechartat. Poate o greșeală de scriere, poate o lecție ștearsă — oricum, să vă întoarcem la studiu.',
   'notFound.heading': 'Pagina nu a fost găsită.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Sunteți la zi',
   'notifications.filter.${opt}': 'Se încarcă notificările…',
   'notifications.markAllError': 'Nu s-au putut marca toate ca citite.',
   'notifications.markError': 'Nu s-a putut marca ca citit.',
   'notifications.subtitle': '{{count}} actualizări necitite',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.heading': 'chestionare',
   'pricing.limits.topics': 'subiecte',
   'privacy.collectBody':
@@ -186,6 +193,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Încercați un alt cuvânt cheie sau filtru.',
   'search.empty.title': 'Nicio potrivire.',
   'search.error': 'Nu s-au putut încărca rezultatele.',
+  'search.filters': 'Filtre după tipul rezultatului',
   'search.go': 'Mergeți',
   'search.label.flashcard': 'Pachet de flashcarduri',
   'search.label.note': 'Notă',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.connectRepoCta': 'Подключить репозиторий',
   'dashboard.empty': 'Пока нет запросов на слияние — подключите репозиторий, чтобы начать работу.',
   'dashboard.eyebrow': 'Refract · очередь на проверку',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Время работы',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Оценка качества ИИ: {{score}} из 10',
+  'refractLayout.closeMenu': 'Закрыть меню',
+  'refractLayout.openMenu': 'Открыть меню',
   'refractLayout.primaryNavLabel': 'Основная навигация',
   'reports.cumulativeScoreLabel': 'Общий балл',
   'reports.cumulativeScoreSubtitle': 'все репозитории · {{days}} d',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Не удалось загрузить индекс поиска.',
   'settings.apiKeys.description':
     'Управлять личными ключами API можно в меню пользователя в правом верхнем углу.',
+  'settings.apiKeys.integrationsNote':
+    'Управление токенами доступа провайдеров осуществляется в разделе «Интеграции», расположенном выше.',
   'settings.connectError': 'Не удалось подключиться к провайдеру.',
   'settings.disconnectError': 'Не удалось отключить провайдера.',
   'settings.eyebrow': 'Refract · рабочая область',
   'settings.integration.${provider}.label': 'Сохранение…',
   'settings.loadError': 'Не удалось загрузить настройки.',
+  'settings.notificationCenter': 'Центр уведомлений',
   'settings.notifications.description':
     'Перейдите на страницу уведомлений, чтобы просмотреть настройки доставки и управлять ими.',
   'settings.section.account': 'Учетная запись и безопасность',

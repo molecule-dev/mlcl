@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Về chúng tôi',
   'applications.empty': 'Chưa có đơn ứng tuyển nào — vị trí phù hợp chỉ cách một lần ứng tuyển.',
   'applications.eyebrow': 'Tiến trình của quý vị',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Tất cả các vị trí bạn đã ứng tuyển, đều đang trong quá trình tuyển dụng. Lọc theo giai đoạn để tìm kiếm thông tin chi tiết hơn.',
   'applications.untitledRole': 'Vị trí #{{id}}',
+  'auth.legalConsent': 'Bằng việc tiếp tục, bạn đồng ý với',
   'common.and': 'và',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'companies.empty': 'Không có công ty nào khớp với tìm kiếm — vui lòng thử từ khoá khác.',
   'companies.eyebrow': 'Nhà tuyển dụng nổi bật',
   'companies.searchPlaceholder': 'Tìm theo tên, ngành, địa điểm',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Chưa có đơn ứng tuyển nào cho vị trí này.',
   'jobApplicants.eyebrow': 'Góc nhìn nhà tuyển dụng',
   'jobApplicants.loading': 'Đang tải…',
+  'jobApplicants.statusUpdateFailed': 'Không thể cập nhật giai đoạn đó — hãy thử lại.',
+  'jobApplicants.subheading':
+    'Xem xét sơ yếu lý lịch, giới thiệu ứng viên, gửi thư mời làm việc {{count}} trong quá trình thực hiện.',
   'jobDetail.applicantCount': '{{count}} ứng viên cho đến nay',
   'jobDetail.applied': 'Đã gửi đơn',
   'jobDetail.apply': 'Ứng tuyển ngay',
@@ -82,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Xem các vị trí đang tuyển dụng ➡',
   'landing.pricingEyebrow': 'Giá',
   'landing.pricingHeading': 'Các gói đơn giản cho mọi quy mô đội nhóm.',
+  'login.eyebrow': 'Chào mừng trở lại {{app}}',
   'login.heading': 'Đăng nhập tài khoản của bạn',
   'login.noAccount': 'Mới đến với Nosh?',
   'login.passwordPlaceholder': '••••••••',
   'login.remember': 'Ghi nhớ tôi trong 30 ngày',
   'login.signingIn': 'Đang đăng nhập…',
   'login.subheading': 'Tiếp tục tìm kiếm, đẩy nhanh đơn ứng tuyển, nhận phản hồi sớm hơn.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Được xây dựng dành cho các nhóm tuyển dụng.',
   'loginBrandPanel.headline': 'Nơi tài năng gặp gỡ',
   'loginBrandPanel.headlineLine2': 'động lực.',
   'loginBrandPanel.listing.recruiter': 'Đối tác tuyển dụng',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
     'Cập nhật đơn ứng tuyển, lời mời phỏng vấn, kết quả phù hợp mới — mới nhất trước.',
   'opportunitiesHero.delta': '{{sign}}{{amount}} tuần này',
   'opportunitiesHero.eyebrow': 'Mở hôm nay',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'postJob.addNewCompany': '+ Thêm công ty mới',
   'postJob.companyCreateFailed': 'Không thể tạo công ty — vui lòng thử lại.',
   'postJob.companyNameLabel': 'Tên công ty của quý vị',
@@ -162,10 +171,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Đang tạo tài khoản…',
   'signup.ctaEmployer': 'Tạo tài khoản nhà tuyển dụng',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Trần',
   'signup.passwordMismatch': 'Mật khẩu không khớp.',
   'signup.subheading':
     'Miễn phí cho người tìm việc, mãi mãi. Nhà tuyển dụng bắt đầu với bản dùng thử 30 ngày.',
   'timeAgo.days': '{{count}} ngày trước',
   'timeAgo.hours': '{{count}} giờ trước',
   'timeAgo.justNow': 'vừa xong',
+  'timeAgo.weeks': '{{count}} w trước đây',
 }

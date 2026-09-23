@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'authShell.brandHeading': 'קנבסים מרובי משתתפים עבור צוותי עיצוב שחושבים בקול רם.',
   'billing.canceled': 'המנוי בוטל.',
   'billing.cancelPlan': 'ביטול תוכנית',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'billing.upgradeTitle': 'תוכניות זמינות',
   'billing.usage.boards': 'לוחות פעילים',
   'billing.usage.collaborators': 'משתפי פעולה',
+  'billing.usageOf': 'מתוך {{max}} כלול',
   'boardCanvas.backToBoards': 'כל הלוחות',
   'boardCanvas.changeColor': 'שינוי צבע {{color}}',
   'boardCanvas.deleteElement': 'מחיקת רכיב',
@@ -70,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'התחל מהתבנית',
   'boards.title': 'הלוחות שלך',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'הזן את כתובת האימייל המקושרת לסביבת העבודה שלך ונשלח לך קישור לאיפוס.',
   'forgot.success.body':
@@ -79,6 +82,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'בנוי לחשיבה מבולגנת, יצירתית, פנים אל פנים.',
   'landing.demoBoard.title': 'סדנת Q1 · קול המותג',
   'landing.featuresTitle': 'משוב מהיר. קנבסים יפהפיים. אפס חיכוך.',
+  'landing.hero.body':
+    '{{appName}} הוא לוח לבן מרובה משתתפים עבור צוותי עיצוב, מנחי סדנאות ומחנכים שמפעילים סיעור מוחות בשידור חי וצריכים רעיונות להתכנס במקום אחד.',
   'landing.hero.primaryCta': 'פתחו לוח בחינם',
   'landing.hero.socialProof': 'מהימן על ידי {{count}} צוותי עיצוב ברחבי העולם',
   'landing.hero.title': 'קנבס מהיר כמו המחשבות שלך',
@@ -89,6 +94,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'צור סביבת עבודה חופשית',
   'login.subheading':
     'המשיכו מהמקום שבו הפסיקה הסדנה - לוחות, פתקיות דביקות וסמנים מסתנכרנים בזמן אמת.',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.new': 'חָדָשׁ',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'notifications.editTitle': 'עריכות ל" {{board}} "',
   'notifications.empty.body':
     'הזמנות, שמירות תמונות ועריכות אחרונות בפורום יופיעו כאן מיד עם התרחשותן.',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'היסטוריית גרסאות',
   'versionHistory.untitledSnapshot': 'תמונת מצב ללא שם',
   'whiteboardLayout.newBoard': 'לוח חדש',
+  'whiteboardLayout.primaryNav': 'ניווט ראשי',
   'workspace.boardLabel': 'לוּחַ',
   'workspace.eyebrow': '{{name}} · סביבת עבודה',
   'workspace.invite': 'הזמנת משתפי פעולה',

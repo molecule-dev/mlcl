@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Наша гісторыя',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Адкрывальнасць',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Пачатак афармлення замовы…',
   'billing.subheading': 'Выберыце план, які адпавядае вашаму спосабу адпраўкі.',
   'billing.unavailable': 'Звязацца з аддзелам продажаў',
+  'common.goToDashboard': 'Перайсці да панэлі',
+  'common.retry': 'Паўтарыць',
   'compose.adjustingTone': 'Перапісванне ў выбраным тоне…',
   'compose.aiPromptPlaceholder':
     'напрыклад, «Ветлівы наступны адказ пасля двух тыдняў адсутнасці адказу, няхай будзе кароткім».',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
     'Трэба нешта адправіць? Signet можа падрыхтаваць чарнавік за лічаныя секунды.',
   'dashboard.composeCtaLabel': 'Хуткае напісанне',
   'dashboard.heading': 'Ваш тыдзень, напісаны',
+  'dashboard.loadFailed': 'Не атрымалася загрузіць вашу панэль кіравання.',
   'dashboard.manageLibrary': 'Кіраванне бібліятэкай →',
   'dashboard.recentEmpty':
     'Пакуль няма адпраўленых лістоў — тут будуць адлюстроўвацца адпраўленыя вамі лісты.',
@@ -146,6 +150,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet выкарыстоўвае гэты тон, калі вы не перавызначыце яго ў чарнавіку.',
   'signetLayout.primaryNavLabel': 'Асноўная навігацыя',
+  'signetLayout.toggleMenu': 'Паказаць/закрыць меню',
   'signup.emailLabel': 'Адрас электроннай пошты',
   'signup.showPassword': 'Паказаць пароль',
   'signup.tagline':

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.featureDiscover.title': 'Шабыт, қолмен таңдалған',
   'account.addPaymentCta': 'Төлем әдісін қосу',
   'account.addPaymentError': 'Төлем әдісін қосу мүмкін болмады.',
+  'account.confirmRemove': 'Алып тастауды растау',
   'account.defaultBadge': 'Әдепкі',
   'account.loyalty.pointsTowardNext': '{{ұпайлар}} -ның {{келесі}} мильге дейін {{келесідеңгей}}',
   'account.loyalty.tier': 'Ағымдағы деңгей',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Сапар мәліметтері',
   'booking.tripSummary': '{{nights}} түндер · {{guests}} қонақтар',
   'common.daysAgo': '{{count}} күн бұрын',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.hoursAgo': '{{count}} сағат бұрын',
   'common.minutesAgo': '{{count}} м бұрын',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Заңды',
   'notifications.loading': 'Жүктелуде…',
   'notifications.subheading': '{{count}} оқылмаған · барлығы бір тыныш кіріс жәшігінде',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.accommodationsLabel': 'тұру орындары',
   'pricing.bookingsLabel': 'брондау',
   'pricing.destinationsLabel': 'сақталған бағыттар',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Шабыт, сенімді тұру және арманнан тапсырыс бойынша тұруға дейінгі қиындықсыз жол — 14 елде және 200-ден астам тексерілген мүлік бойынша.',
   'sojournHeroSearchCard.trustProtected': 'Тегін бас тарту, толық қорғалған',
   'sojournHeroSearchCard.trustVetted': 'Тек қолмен тексерілген мүліктер',
+  'travelBookingLayout.primaryNavLabel': 'Негізгі навигация',
   'tripDetail.backLink': 'Сапарларға оралу',
   'tripDetail.cancelCta': 'Брондауды болдырмау',
   'tripDetail.cancelHeading': 'Бұл сапардан бас тарту керек пе?',

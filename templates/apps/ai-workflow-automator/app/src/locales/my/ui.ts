@@ -27,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.viewPricing': 'ဈေးနှုန်းကြည့်ရန်',
   'billing.workflowsCaption': '{{total}} အလုပ်ခွင်အတွင်း စုစုပေါင်း',
   'billing.workflowsLabel': 'တက်ကြွသော လုပ်ငန်းစဉ်များ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'connections.count': '{{n}} ပေါင်းစပ်မှုများ',
   'connections.description':
     'သင့်အဖွဲ့အသုံးပြုပြီးသား စနစ်များထဲသို့ သင့်လုပ်ငန်းစဉ်များကို ချိတ်ဆက်ပါ။ Provider key များသည် `api/.env` တွင် ရှိပါသည်။',
@@ -135,6 +136,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.subhead': 'သင်၏ အလိုအလျောက်စနစ်များ ဆက်လက်လည်ပတ်နေစေရန် လက်မှတ်ထိုးဝင်ပါ။',
+  'mobileNav.drawerLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'nav.legal': 'ဥပဒေရေးရာ',
   'notFound.body':
     'သင်ကြိုးစားခဲ့သော လမ်းကြောင်းသည် ဤအလုပ်ခွင်ရှိ မည်သည့် workflow နှင့်မျှ ချိတ်ဆက်မထားပါ။ node တစ်ခုကို အမည်ပြောင်းထားခြင်း ဖြစ်နိုင်သည်။',
@@ -146,6 +149,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ဤ feed ကို ဖြည့်သွင်းရန် workflow တစ်ခုကို လုပ်ဆောင်ပါ။',
   'notifications.empty.title': 'အားလုံးပြီးသွားပါပြီ',
   'notifications.eyebrow': '{{n}} မဖတ်ရသေးသော',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'ပြေးခြင်း',
   'pricing.workflowsSuffix': 'လုပ်ငန်းစဉ်များ',
   'privacy.collect.body':
@@ -193,8 +197,11 @@ export const ui: UiTranslations = {
     'webhook မှတစ်ဆင့် လုပ်ဆောင်ချက်တိုင်းကို သင့် SIEM သို့ တိုက်ရိုက်ထုတ်လွှင့်ပါ။',
   'settings.security.description': 'နှစ်ဆင့်-အချက် auth၊ SSO နှင့် active session များ။',
   'settings.security.sso.hint': 'Scale နှင့် Enterprise အစီအစဉ်များတွင် ရရှိနိုင်ပါသည်။',
+  'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.workspace.description':
     'သင့်အဖွဲ့အတွက် မျှဝေထားသော အထောက်အထား၊ ဒေသနှင့် လည်ပတ်မှု မူရင်းများ။',
   'settings.workspace.maxRuns': 'တစ်ပြိုင်နက်တည်း ပြေးခြင်း ကန့်သတ်ချက်',
@@ -241,6 +248,7 @@ export const ui: UiTranslations = {
     'ဝန်ဆောင်မှုကို လက်ရှိအတိုင်း ပေးအပ်ထားပါသည်။ လုပ်ငန်းစဉ်လုပ်ဆောင်မှု၏ နောက်ဆက်တွဲအကျိုးသက်ရောက်မှုများအတွက် ကျွန်ုပ်တို့တွင် တာဝန်မရှိပါ။ သင့်ကိုယ်ပိုင် အလိုအလျောက်လုပ်ဆောင်မှုများကို စမ်းသပ်ခြင်းနှင့် စောင့်ကြည့်ခြင်းအတွက် သင်တာဝန်ရှိပါသည်။ စုစုပေါင်းတာဝန်ယူမှုသည် ယခင် ၁၂ လအတွင်း ပေးဆောင်ခဲ့သော အခကြေးငွေများအတွက်သာ ကန့်သတ်ထားသည်။',
   'terms.title': 'ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ',
   'workflowAppShell.newWorkflow': 'လုပ်ငန်းစဉ်အသစ်',
+  'workflowAppShell.newWorkflowShort': 'အသစ်',
   'workflowAppShell.searchPlaceholder':
     'လုပ်ငန်းစဉ်များ၊ လုပ်ဆောင်မှုများ၊ တင်းပလိတ်များကို ရှာဖွေပါ...',
   'workflowBuilder.backToList': 'လုပ်ငန်းစဉ်များသို့ ပြန်သွားပါ',
@@ -248,6 +256,7 @@ export const ui: UiTranslations = {
   'workflowBuilder.enable': 'ဖွင့်ပါ',
   'workflowBuilder.error': 'လုပ်ငန်းစဉ်ကို ဖွင့်၍မရပါ။',
   'workflowBuilder.inspector.enabled': 'ဖွင့်ထားသည် — trigger ပေါ်တွင် လုပ်ဆောင်သည်။',
+  'workflowBuilder.inspector.eyebrow': 'စစ်ဆေးရေးမှူး',
   'workflowBuilder.inspector.id': 'အိုင်ဒီ',
   'workflowBuilder.inspector.status': 'လုပ်ငန်းလည်ပတ်မှု အခြေအနေ',
   'workflowBuilder.inspector.trigger': 'ထရစ်ဂါ အမျိုးအစား',
@@ -263,6 +272,7 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggled': 'လုပ်ငန်းလည်ပတ်မှု အခြေအနေကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
   'workflowBuilder.toggleFailed': 'ပြောင်း/ပိတ် မအောင်မြင်ပါ။',
   'workflowBuilder.workflow': 'လုပ်ငန်းလည်ပတ်မှု · v {{v}}',
+  'workflowBuilder.zoom.in': 'ချဲ့ကြည့်ပါ',
   'workflowCard.lastRun': 'နောက်ဆုံးပြေးခြင်း {{when}}',
   'workflowCard.runs': '{{count}} ပြေးခြင်း',
   'workflowHeroCard.last24h': 'ပြီးခဲ့တဲ့ ၂၄ နာရီ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Tun ọrọ igbaniwọle rẹ ṣe.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Ṣe àmì sí iṣẹ́ náà pé',
   'checklistTaskCard.markIncomplete': 'Ṣe àmì pé iṣẹ́ náà kò pé',
   'checklistTaskCard.openLabel': 'Ṣí iṣẹ́ sílẹ̀',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Gbogbo yin ti gba gbogbo yin',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Lórí ipa ọ̀nà',
   'dashboard.timelineHeading': 'Àwọn àmì-ẹ̀yẹ 30/60/90',
   'dashboard.viewAllTasks': 'Wo gbogbo awọn iṣẹ-ṣiṣe',
+  'dashboard.weekOne': 'Ọ̀sẹ̀ 1',
   'dashboard.yourCohort': 'Ẹgbẹ́ rẹ',
   'documents.empty.body': 'Àwọn ìwé tí ẹgbẹ́ rẹ fi kún yóò farahàn níbí.',
   'documents.empty.title': 'Kò sí àwọn ìwé kankan síbẹ̀',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Ìdánwò ọ̀fẹ́ ọjọ́ 14',
   'landing.subhead':
     'Embark ń darí gbogbo àwọn ẹlẹgbẹ́ tuntun ní gbogbo ọjọ́ 90 àkọ́kọ́ wọn — àwọn ìwé àkọsílẹ̀, ìdánilẹ́kọ̀ọ́, àwọn ìṣẹ̀lẹ̀ pàtàkì, àti àwọn ìfìhàn tó ní ìtumọ̀, gbogbo wọn ní ibi kan ṣoṣo tó dákẹ́ jẹ́ẹ́ tí ó sì ní ìgbẹ́kẹ̀lé.',
+  'layout.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'layout.search': 'Ṣe àwárí àwọn iṣẹ́, àwọn ìwé, àwọn ẹlẹgbẹ́ ẹgbẹ́…',
+  'layout.searchTeammates': 'Wa awọn ẹlẹgbẹ nipasẹ orukọ tabi ipa…',
   'layout.section.onboarding': 'Ìbáwọlé',
   'layout.tagline': 'Ìrìnàjò rẹ bẹ̀rẹ̀ níbí',
   'notifications.empty.body': 'Iṣẹ́ tuntun yóò farahàn níbí.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'O ti ṣetan.',
   'planUpdated.preparing': 'N ṣe àtúnṣe ètò rẹ…',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.documentsLabel': 'awọn iwe aṣẹ',
   'pricing.onboardingsLabel': 'àwọn ìtẹ̀síwájú',
   'pricing.tasksLabel': 'awọn iṣẹ-ṣiṣe',

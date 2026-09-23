@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Наша історія',
   'aiSuggestionPanel.title': 'Signet-копілот',
   'analytics.col.open': 'Відсоток відкриттів',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Запуск оформлення замовлення…',
   'billing.subheading': 'Оберіть план, що відповідає Вашому стилю відправлення.',
   'billing.unavailable': "Зв'яжіться з відділом продажів",
+  'common.goToDashboard': 'До панелі',
+  'common.retry': 'Спробувати ще раз',
   'compose.adjustingTone': 'Переписування у вибраному тоні…',
   'compose.aiPromptPlaceholder':
     'наприклад, «Ввічливий нагадувач після двох тижнів без відповіді, будьте стислими.»',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'Потрібно щось відправити? Signet може підготувати чернетку за секунди.',
   'dashboard.composeCtaLabel': 'Швидке складання',
   'dashboard.heading': 'Ваш тиждень, складений',
+  'dashboard.loadFailed': 'Не вдалося завантажити вашу панель.',
   'dashboard.manageLibrary': 'Керувати бібліотекою →',
   'dashboard.recentEmpty': "Ще немає відправлень — Ваші надіслані листи з'являться тут.",
   'dashboard.recentHeading': 'Останні відправлення',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet використовує цей тон, якщо Ви не перевизначите його в чернетці.',
   'signetLayout.primaryNavLabel': 'Основна навігація',
+  'signetLayout.toggleMenu': 'Перемикання меню',
   'signup.emailLabel': 'Адреса електронної пошти',
   'signup.showPassword': 'Показати пароль',
   'signup.tagline': 'Надішліть свій перший лист, написаний AI, менш ніж за хвилину.',

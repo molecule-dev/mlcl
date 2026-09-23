@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'billing.canceled': 'Subskrypcja anulowana. Wróci Pan/Pani do planu Free na koniec okresu.',
   'billing.contactSales': 'Skontaktuj się z działem sprzedaży',
   'billing.free.1': '5 tłumaczeń',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Brak limitu przechowywania',
   'billing.upgradeHint': 'Ulepsz, aby odblokować zaawansowane funkcje AI.',
   'billing.yearly': 'Rocznie',
+  'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.activityEmpty': 'Brak aktywności — uruchom projekt, aby zapełnić ten kanał.',
   'dashboard.eyebrow': 'Przegląd',
   'dashboard.projectsEmpty': 'Brak projektów — uruchom jakiś, aby zobaczyć go tutaj.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Wykorzystaj ponownie wcześniejsze tłumaczenia we wszystkich projektach. Wyższy wynik dopasowania → mniej powtórnej pracy.',
   'memory.title': 'Bank pamięci',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'nav.legal': 'Prawne',
   'newProject.addLanguage': 'Dodaj cel',
   'newProject.create': 'Utwórz projekt',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Oznaczono {{count}} powiadomień jako przeczytane.',
   'notifications.subtitle':
     'Wzmianki, prośby o recenzję i zdarzenia AI z wszystkich Państwa obszarów roboczych.',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'privacy.collection.account': 'E-mail Państwa konta i wyświetlana nazwa',
   'privacy.deletion.body':
     'Można w każdej chwili usunąć projekt, segment, termin glosariusza lub wpis pamięci z odpowiedniej strony. Usunięcie konta z Ustawień usuwa każdy wiersz powiązany z obszarem roboczym z naszej bazy danych.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Nie udało się załadować projektów.',
   'projects.loading': 'Ładowanie projektów…',
   'projects.subtitle': 'Każdy aktywny projekt we wszystkich ustawieniach regionalnych.',
+  'renditionLayout.primaryNavLabel': 'Nawigacja główna',
   'reset.backToLogin': '\\u2190 Wróć do logowania',
   'reset.passwordLabel': 'Nowe hasło',
   'review.activeEyebrow': 'Segment {{number}}',

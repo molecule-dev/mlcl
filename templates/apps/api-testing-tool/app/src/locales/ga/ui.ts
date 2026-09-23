@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.pageTitle': 'Faoi {{app}}',
   'authShell.statusLabel': 'reathaithe ar líne',
   'collections.createError': 'Níorbh fhéidir bailiúchán a chruthú.',
   'collections.defaultName': 'Bailiúchán gan teideal {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Bailiúchán nua',
   'collections.subheading':
     'Iarratais a ghrúpáil, a roinnt le do fhoireann, agus iad a rith mar shraith.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'environmentCard.inactive': 'Díomhaoin',
   'environmentCard.more': 'níos mó',
   'environmentCard.variables': 'Athróga',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Íoslódáil saor in aisce',
   'landing.heroSubtitle':
     "An binse oibre tástála API thar a bheith gasta atá tógtha d'innealtóirí a chónaíonn i gcríochfoirt.",
+  'landing.heroTitleAccent': 'Tine',
+  'landing.heroTitleLine2': 'muinín a chothú.',
+  'landing.heroTitleRest': 'iarratais,',
   'landing.kicker': '$ seol piolóin --faire',
   'landing.pricingEyebrow': '// $ praghsáil --plain',
   'landing.pricingHeading': 'Praghsáil shimplí, intuartha',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nua anseo?',
   'login.showPassword': 'Taispeáin an focal faire',
   'login.subtitle': 'Lean ar aghaidh chuig do spás oibre Pylon.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'mocks.createError': 'Níorbh fhéidir bréige a chruthú.',
   'mocks.defaultName': 'Bréige gan teideal {{n}}',
   'mocks.deleteError': 'Níorbh fhéidir magadh a scriosadh.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Ar ais chuig an spás oibre',
   'notFound.eyebrow': '$ réiteach piolóin --strict',
   'notFound.title': 'Bealach gan aimsiú',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'privacy.collect.account':
     'Cuntas: do r-phost, do phasfhocal haisithe, d’ainm taispeána, agus stampa ama do shíniú isteach dheireanaigh.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Radharc léite amháin ar na sonraí atá i seilbh an chuntais seo faoi láthair.',
   'settings.unset': 'gan socrú',
   'signup.identityHint': 'm.sh. Alex',
+  'signup.statusLabel': 'sraith saor in aisce · gan cárta creidmheasa',
   'signup.subtitle': 'Tosaigh ag seoladh iarratais i gceann cúpla nóiméad.',
   'terms.account.body':
     'Tá tú freagrach as do phasfhocal a chosaint. Ní cheadaítear cuntas amháin a roinnt le roinnt daoine ar phleananna Saor in Aisce ná Pro — ceannaigh síntiús Foirne le haghaidh spásanna oibre comhroinnte.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Ná húsáid Pylon chun iarratais a sheoladh chuig seirbhísí nach leatsa nó nach bhfuil cead sainráite agat iad a thástáil. Ná húsáid Pylon chun teorainneacha ráta a sheachaint ná chun calaois a dhéanamh.',
   'terms.warranty.body':
     'Cuirtear Pylon ar fáil "mar atá" gan aon bharántas de chineál ar bith. Tá sé mar aidhm againn 99.9% d\'am oibriúcháin a bhaint amach ach ní ráthaímid é sin ar phleananna Saor in Aisce ná Pro.',
+  'testRunner.assertionsCount': 'dearbhuithe {{count}}',
   'testRunner.createError': 'Níorbh fhéidir tástáil a chruthú.',
   'testRunner.cron':
     "Déantar dearbhuithe a mheas i gcoinne an rith is déanaí d'iarratas nasctha an tástála seo.",
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Torthaí Suite, difríochtaí dearbhaithe, agus na 50 rith dheireanacha.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Sínithe isteach mar',
+  'workspace.auth.keyName': 'Ainm an cheanntásca',
+  'workspace.auth.keyValue': 'Príomhluach',
+  'workspace.auth.password': 'Pasfhocal',
+  'workspace.auth.username': 'Ainm úsáideora',
+  'workspace.authOption.apikey': 'Eochair API',
+  'workspace.authOption.basic': 'Údarú Bunúsach',
+  'workspace.authOption.bearer': 'Comhartha Iompróra',
+  'workspace.authOption.none': 'Dada',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Cineál',
   'workspace.authTypeLabel': 'Cineál údaraithe',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Dada',
+  'workspace.body.text': 'Téacs amh',
+  'workspace.body.type': 'Cineál',
   'workspace.environment': 'Gan imchlúdach',
   'workspace.envVar': 'athróg timpeallachta',
   'workspace.eyebrow': 'spás oibre $ pylon --pane scoilt',
+  'workspace.kv.addHeader': 'Cuir ceanntásc leis',
+  'workspace.kv.addParam': 'Cuir paraiméadair leis',
+  'workspace.kv.headerKey': 'Ainm an cheanntásca',
+  'workspace.kv.headerValue': 'Luach ceanntásca',
+  'workspace.kv.key': 'Eochair',
+  'workspace.kv.paramKey': 'Eochair paraiméadair an fhiosrúcháin',
+  'workspace.kv.paramValue': 'Luach paraiméadair an fhiosrúcháin',
+  'workspace.kv.removeRow': 'Bain an tsraith',
+  'workspace.kv.value': 'Luach',
   'workspace.methodLabel': 'Modh HTTP',
   'workspace.metric.latency': 'Moill',
   'workspace.metric.latencyCaption': 'Turas cruinn ón rith seo',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Iarratas curtha ar ceal — féach an freagra thíos.',
   'workspace.subheading':
     'Scríobh iarratas, cuir ar ceal é, agus ansin dearbhaigh an freagra — ar fad i bpána amháin.',
+  'workspace.testResults': 'Torthaí tástála',
   'workspace.token': 'Comhartha',
   'workspace.tokenHint': 'Seolta mar Údarú: Iompróir<token> ar gach iarratas sa bhailiúchán seo.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

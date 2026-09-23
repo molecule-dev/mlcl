@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'auth.forgotPassword.emailPlaceholder': 'nume@companiatavoastră.com',
   'auth.forgotPassword.heading': 'Resetează-ți parola.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marcați sarcina ca fiind finalizată',
   'checklistTaskCard.markIncomplete': 'Marcați sarcina ca neterminată',
   'checklistTaskCard.openLabel': 'Deschideți sarcina',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Sunteți la zi',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Pe drumul cel bun',
   'dashboard.timelineHeading': '30/60/90 de etape',
   'dashboard.viewAllTasks': 'Vizualizați toate sarcinile',
+  'dashboard.weekOne': 'Săptămâna 1',
   'dashboard.yourCohort': 'Echipa ta',
   'documents.empty.body': 'Documentele adăugate de echipa dvs. vor apărea aici.',
   'documents.empty.title': 'Încă nu există documente',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Perioadă de încercare gratuită de 14 zile',
   'landing.subhead':
     'Embark îi ghidează pe fiecare coechipier nou în primele sale 90 de zile — documente, instruire, etape importante și prezentări semnificative, toate într-un singur loc calm și încrezător.',
+  'layout.openMenu': 'Deschide meniul de navigare',
   'layout.search': 'Căutați sarcini, documente, colegi de echipă…',
+  'layout.searchTeammates': 'Caută coechipieri după nume sau rol…',
   'layout.section.onboarding': 'Integrare',
   'layout.tagline': 'Călătoria ta începe aici',
   'notifications.empty.body': 'Activitatea nouă va apărea aici.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ieri',
   'planUpdated.message': 'Ești gata.',
   'planUpdated.preparing': 'Se actualizează planul…',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.documentsLabel': 'documente',
   'pricing.onboardingsLabel': 'integrări',
   'pricing.tasksLabel': 'sarcini',

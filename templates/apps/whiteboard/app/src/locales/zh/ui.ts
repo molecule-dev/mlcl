@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'authShell.brandHeading': '为擅长出声思考的设计团队打造的多人协作画布。',
   'billing.canceled': '订阅已取消。',
   'billing.cancelPlan': '取消套餐',
@@ -70,6 +71,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': '从模板开始',
   'boards.title': '您的白板',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': '前往仪表盘',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': '输入与您工作区绑定的电子邮件，我们将发送一封重置链接。',
   'forgot.success.body': '如果 {{email}} 存在账户，重置链接已发出。链接将在 30 分钟后过期。',
@@ -79,6 +81,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 工作坊 · 品牌声音',
   'landing.featuresEyebrow': 'Slate 之所以契合的原因',
   'landing.featuresTitle': '反馈迅速。画布精美。零摩擦。',
+  'landing.hero.body':
+    '{{appName}}是一款多人白板应用，适用于设计团队、研讨会组织者和教育工作者，他们可以进行现场头脑风暴，并将各种想法汇聚到一起。',
   'landing.hero.primaryCta': '免费开始一个白板',
   'landing.hero.socialProof': '全球 {{count}} 个设计团队的信任之选',
   'landing.hero.title': '与思维同步的画布',
@@ -88,6 +92,9 @@ export const ui: UiTranslations = {
   'login.signIn': '登录 Slate',
   'login.signupCta': '创建免费工作区',
   'login.subheading': '从工作坊结束的地方继续 —— 白板、便笺和光标全部实时同步。',
+  'mobileNav.closeMenu': '关闭导航菜单',
+  'mobileNav.new': '新',
+  'mobileNav.openMenu': '打开导航菜单',
   'notifications.editTitle': '对「{{board}}」的编辑',
   'notifications.empty.body': '邀请、快照保存和最近的看板编辑将在此处实时显示。',
   'notifications.empty.title': '您的收件箱暂无新消息',
@@ -165,6 +172,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': '版本历史',
   'versionHistory.untitledSnapshot': '未命名快照',
   'whiteboardLayout.newBoard': '新建白板',
+  'whiteboardLayout.primaryNav': '主导航',
   'workspace.boardLabel': '白板',
   'workspace.eyebrow': '{{name}} · 工作区',
   'workspace.invite': '邀请协作者',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'આપણી વાર્તા',
   'aiSuggestionPanel.title': 'સિગ્નેટ કોપાયલોટ',
   'analytics.col.open': 'ઓપન રેટ',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ચેકઆઉટ શરૂ કરી રહ્યા છીએ…',
   'billing.subheading': 'તમે જે રીતે મોકલો છો તેની સાથે મેળ ખાતો પ્લાન પસંદ કરો.',
   'billing.unavailable': 'વેચાણનો સંપર્ક કરો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'compose.adjustingTone': 'પસંદ કરેલા સ્વરમાં ફરીથી લખી રહ્યા છીએ...',
   'compose.aiPromptPlaceholder':
     'દા.ત. "બે અઠવાડિયા સુધી કોઈ જવાબ ન મળ્યા પછી નમ્ર ફોલો-અપ, તેને ટૂંકું રાખો."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'કંઈક મોકલવાની જરૂર છે? સિગ્નેટ સેકન્ડોમાં ડ્રાફ્ટ તૈયાર કરી શકે છે.',
   'dashboard.composeCtaLabel': 'ઝડપી કંપોઝ કરો',
   'dashboard.heading': 'તમારું અઠવાડિયું, રચિત',
+  'dashboard.loadFailed': 'તમારું ડેશબોર્ડ લોડ કરી શકાયું નથી.',
   'dashboard.manageLibrary': 'લાઇબ્રેરી મેનેજ કરો →',
   'dashboard.recentEmpty':
     'હજુ સુધી કોઈ ઇમેઇલ મોકલવામાં આવ્યા નથી — તમારા મોકલેલા ઇમેઇલ અહીં દેખાશે.',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'જ્યાં સુધી તમે ડ્રાફ્ટ પર ઓવરરાઇડ ન કરો ત્યાં સુધી સિગ્નેટ આ સ્વરનો ઉપયોગ કરે છે.',
   'signetLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
+  'signetLayout.toggleMenu': 'મેનૂ ટૉગલ કરો',
   'signup.emailLabel': 'ઇમેઇલ સરનામું',
   'signup.showPassword': 'પાસવર્ડ બતાવો',
   'signup.tagline': 'એક મિનિટમાં તમારો પહેલો AI-ડ્રાફ્ટેડ ઇમેઇલ મોકલો.',

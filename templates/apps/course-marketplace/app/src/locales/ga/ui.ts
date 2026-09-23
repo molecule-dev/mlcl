@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Ag lódáil cúrsaí…',
   'browse.next': 'An chéad leathanach eile',
   'browse.results': 'Ag taispeáint {{count}} cúrsaí',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'Sórtáil de réir',
   'browse.subtitle':
     'Scag an cartlann eagarthóireachta de réir topaice, leibhéil agus praghais. Déanann ár n-eagarthóirí gach cúrsa a choimeád de láimh.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Tá do theastas sínithe agus réidh. Roinn é leis an domhan nó coinnigh é mar mheabhrúchán ar an obair a thóg sé chun é a thuilleamh.',
   'certificate.copyLink': 'Cóipeáil nasc comhroinnte',
+  'certificate.copyPrompt': 'Cóipeáil an nasc seo:',
   'certificate.download': 'Íoslódáil PDF',
   'certificate.eyebrow': 'Éacht díghlasáilte',
   'certificate.linkCopied': 'Nasc cóipeáilte!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Tá tú cláraithe!',
   'checkout.verifying': 'Ag fíorú do chlárúcháin…',
   'checkout.viewLibrary': 'Féach ar Mo Fhoghlaim',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.retry': 'Déan iarracht arís',
   'courseDetail.about': 'Maidir leis an gcúrsa seo',
   'courseDetail.checkoutPending': 'Ag tosú ag seiceáil amach…',
   'courseDetail.continueLearning': 'Lean ort ag foghlaim',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Ráthaíocht airgid ar ais 30 lá',
   'courseDetail.includes.video': '{{hours}} uaireanta an chloig de fhíseán ar éileamh',
   'courseDetail.instructor': 'Teagascóir',
+  'courseDetail.languageEnglish': 'Béarla',
   'courseDetail.lectures': 'Léachtaí',
   'courseDetail.level': 'Leibhéal',
   'courseDetail.loading': 'Ag lódáil cúrsa…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Gan aon léirmheasanna fós.',
   'instructorProfile.students': 'Mic Léinn',
   'landing.categories.empty': 'Beidh catagóirí le feiceáil a luaithe a bheidh an catalóg lán.',
+  'landing.categories.heading': 'Iniúchadh a dhéanamh ar an gcartlann',
   'landing.hero.eyebrow': 'Léacht · Cartlann eagarthóireachta máistreachta',
   'landing.hero.proof': 'Muinín ag foghlaimeoirí ag Google, Meta, agus Adobe as.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Tosaigh ag foghlaim inniu',
   'login.subheading': 'Rochtain a fháil ar do chartlann scolártha.',
   'myLearning.empty.title': 'Níl aon chúrsaí a mheaitseálann an scagaire seo go fóill',
+  'myLearning.error.title': 'Níorbh fhéidir do leabharlann a lódáil',
   'myLearning.filter.notStarted': 'Níor tosaíodh',
   'myLearning.hero.subtitle': '{{count}} cúrsaí i do leabharlann. Coinnigh an móiminteam ag dul.',
   'myLearning.hero.title': 'Lean ar aghaidh san áit ar fhág tú é.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Níl aon ghníomhaíocht nua le hathbhreithniú. Beidh imeachtaí nua le feiceáil anseo.',
   'notifications.empty.title': 'Tá sibh go léir gafa suas',
+  'notifications.error.title': 'Níorbh fhéidir an ghníomhaíocht a lódáil',
   'privacy.title': 'Polasaí príobháideachta',
   'reset.confirmPlaceholder': 'Ath-iontráil do phasfhocal nua',
   'reset.errorGeneric': 'Níorbh fhéidir an pasfhocal a athshocrú. Iarr nasc nua.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} lá ó shin',
   'timeAgo.hours': '{{count}} uair an chloig ó shin',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} mí ó shin',
   'timeAgo.today': 'inniu',
+  'timeAgo.weeks': '{{count}} seachtain ó shin',
 }

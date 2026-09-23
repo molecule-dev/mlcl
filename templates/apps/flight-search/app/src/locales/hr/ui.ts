@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
+  'about.eyebrow': 'O aplikaciji {{app}}',
   'about.pageTitle': 'Svaka ruta, jedna pretraga.',
   'booking.backToDetail': 'Natrag na detalje leta',
   'booking.continue': 'Nastavite s plaćanjem',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Porezi i pristojbe',
   'booking.summary.travelers': 'Putnici',
   'common.about': 'Oko',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'flightDetail.backToResults': 'Natrag na rezultate',
   'flightDetail.baseFare': 'Osnovna cijena',
   'flightDetail.book': 'Nastavite s rezervacijom',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stanica',
   'flightResultCard.select': 'Odaberite',
   'flightResultCard.totalLabel': 'Ukupno vrijeme',
+  'flightSearchLayout.primaryNavLabel': 'Primarna navigacija',
   'forgotPassword.subheading':
     'Unesite e-mail adresu sa svog Skylark računa i poslat ćemo vam sigurnu poveznicu za resetiranje.',
   'forgotPassword.successBody':
     'Provjeriti {{email}} za poveznicu za postavljanje nove lozinke. Poveznica istječe za 30 minuta.',
   'forgotPassword.successHeading': 'Veza za resetiranje poslana',
   'landing.cta.explore': 'Pokušajte pretragu',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Pronađite sljedeću odličnu hranu prije svih ostalih.',
   'landing.cta.signup': 'Počni pratiti cijene',
   'landing.features.eyebrow': 'Zašto Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Dodaj upozorenje',
   'priceAlerts.deleteConfirm': 'Ukloniti ovo upozorenje?',
   'priceAlerts.empty': 'Još nema praćenih ruta.',
+  'priceAlerts.emptyCta': 'Pretraživanje rute za praćenje',
   'priceAlerts.errorMessage': 'Nije moguće učitati upozorenja.',
   'priceAlerts.eyebrow': 'Popis za praćenje Skylarka',
   'priceAlerts.form.createError': 'Nije moguće stvoriti upozorenje.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.loading': 'Pretraživanje cijena u stvarnom vremenu…',
   'results.multiEyebrow': 'Plan putovanja za više gradova',
   'results.multiLegHeading': 'Noga {{n}} · {{iz}} → {{do}} · {{datum}}',
+  'results.sortAriaLabel': 'Sortiraj rezultate po',
   'results.sortLabel': 'Vrsta',
   'settings.language.title': 'Jezik',
   'settings.profile.currency': 'Valuta',

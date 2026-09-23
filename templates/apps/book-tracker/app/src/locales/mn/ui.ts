@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Гинжээ дахин эхлүүлэх',
   'resetPassword.mismatchError': 'Нууц үг таарахгүй байна.',
   'resetPassword.subheading': 'Хүчтэй нэгийг сонго. Таны номнууд хүлээх болно.',
-  'reviewCard.starsAria': 'Үнэлгээ<x> {{үнэлгээ}}</x> гарч<x> {{of}}}</x> одод',
+  'reviewCard.starsAria': '{{of}} одноос {{rating}} үнэлгээтэй',
   'reviewCard.unratedAria': 'Үнэлгээгүй',
   'reviews.eyebrow': 'Юу санаанд үлдсэн',
   'reviews.heading': 'Таны тоймууд',

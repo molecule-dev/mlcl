@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'పరిష్కరిస్తోంది…',
   'comments.subtitle':
     'ది {{count}} సమాధానం లేదా పరిష్కారం కోసం ఇంకా ఎదురుచూస్తున్న థ్రెడ్‌లు. వయస్సు ప్రకారం క్రమబద్ధీకరించబడ్డాయి — పాతవి మొదటగా, తద్వారా ఏదీ పాడైపోదు.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'forgotPassword.sentTo': 'రీసెట్ లింక్ పంపబడింది {{email}}',
   'forgotPassword.successSubheading':
     'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి — మేము ఇప్పుడే ఒక రీసెట్ లింక్‌ను పంపాము. దాని గడువు 30 నిమిషాలలో ముగుస్తుంది.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'కొత్త పేజీ',
   'pageTreeSidebar.workspaceHeader': 'కార్యస్థలం',
   'pageView.breadcrumb': 'బ్రెడ్‌క్రంబ్',
+  'pageView.confirmTrash': 'దాన్ని పారేయాలా?',
   'pageView.home': 'హోమ్',
   'pageView.lastEdited': 'నవీకరించబడింది {{when}}',
   'pageView.loading': 'పేజీ లోడ్ అవుతోంది…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'సారాంశంగా…',
   'pageView.summaryUnavailable': 'ఈ వర్క్‌స్పేస్ కోసం AI సారాంశం కాన్ఫిగర్ చేయబడలేదు.',
   'pageView.tocTitle': 'ఈ పేజీలో',
+  'pageView.trash': 'చెత్త',
+  'pageView.trashing': 'చెత్తబుట్టలో పడేయడం…',
   'pageView.versionBadge': 'వి{{version}}',
   'profile.badges.title': 'బ్యాడ్జ్‌లు',
   'profile.owned.title': 'యాజమాన్య పేజీలు',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'వర్క్‌స్పేస్, ప్రొఫైల్, నోటిఫికేషన్‌లు, ఇంటిగ్రేషన్‌లు — అన్నీ ఒకే ప్రశాంతమైన షెల్‌లో.',
   'settingsPage.workspace.defaultLanding': 'డిఫాల్ట్ ల్యాండింగ్ స్క్రీన్',
   'settingsPage.workspace.landingHome': 'హోమ్',
+  'settingsPage.workspace.landingSpaces': 'ఖాళీలు',
   'settingsPage.workspace.subdomainLabel': 'ఉపడొమైన్',
   'settingsPage.workspace.title': 'కార్యస్థలం',
   'signup.eyebrow': 'కొత్త కార్యస్థలాన్ని ప్రారంభించండి',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} నిమిషాలు',
   'templates.subtitle':
     'ఖాళీ కాన్వాస్‌తో కాకుండా, ఒక స్టెన్సిల్‌తో పేజీని ప్రారంభించండి. ప్రతి టెంప్లేట్ ఆకారాన్ని హార్డ్-కోడ్ చేస్తుంది, కాబట్టి మీరు అసలు విషయంపై దృష్టి పెట్టవచ్చు.',
+  'trash.confirmPurge': 'శాశ్వతంగా నిర్మూలించాలా?',
+  'trash.confirmPurgeAria': 'నిర్ధారించండి: {{title}} ను శాశ్వతంగా తొలగించండి',
   'trash.daysUntilPurge': '{{days}} మిగిలిన రోజులు',
   'trash.empty.body': 'తొలగించబడిన పేజీలు తీసివేయబడటానికి ముందు 30 రోజుల పాటు ఇక్కడ కనిపిస్తాయి.',
   'trash.empty.title': 'చెత్తబుట్ట ఖాళీగా ఉంది.',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} వెర్షన్లు · వ్యత్యాసాన్ని పరిశీలించడానికి ఒక వరుసను ఎంచుకోండి',
   'versionHistory.versionLabel': 'వి{{v}}',
+  'wikiLayout.closeMenu': 'నావిగేషన్‌ను మూసివేయండి',
+  'wikiLayout.menu': 'నావిగేషన్',
+  'wikiLayout.openMenu': 'నావిగేషన్‌ను తెరవండి',
   'wikiLayout.searchPlaceholder': 'కెయిర్న్‌లో శోధించండి — పేజీలు, వ్యాఖ్యలు…',
 }

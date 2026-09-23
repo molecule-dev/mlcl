@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over ons',
   'applications.empty': 'Nog geen sollicitaties — de juiste functie is één sollicitatie verderop.',
   'applications.eyebrow': 'Uw pijplijn',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Alle functies waarop je hebt gesolliciteerd, in beweging. Filter op fase om je te concentreren.',
   'applications.untitledRole': 'Functie #{{id}}',
+  'auth.legalConsent': 'Door verder te gaan, ga je akkoord met onze',
   'common.and': 'en',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'companies.empty': 'Geen bedrijven gevonden — probeer een andere zoekterm.',
   'companies.eyebrow': 'Uitgelichte werkgevers',
   'companies.searchPlaceholder': 'Zoeken op naam, branche, locatie',
@@ -51,6 +54,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Nog geen sollicitaties voor deze functie.',
   'jobApplicants.eyebrow': 'Werkgeversweergave',
   'jobApplicants.loading': 'Laden…',
+  'jobApplicants.statusUpdateFailed':
+    'Het is niet gelukt om die fase bij te werken — probeer het opnieuw.',
+  'jobApplicants.subheading':
+    "Cv's beoordelen, kandidaten doorverwijzen, aanbiedingen versturen – {{count}} in beweging.",
   'jobDetail.applicantCount': '{{count}} sollicitanten tot nu toe',
   'jobDetail.applied': 'Sollicitatie verzonden',
   'jobDetail.apply': 'Nu solliciteren',
@@ -84,12 +91,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Bekijk openstaande vacatures ➡',
   'landing.pricingEyebrow': 'Prijzen',
   'landing.pricingHeading': 'Eenvoudige plannen voor elke teamgrootte.',
+  'login.eyebrow': 'Welkom terug bij {{app}}',
   'login.heading': 'Log in op uw account',
   'login.noAccount': 'Nieuw bij Nosh?',
   'login.passwordPlaceholder': '••••••••',
   'login.remember': 'Onthoud mij 30 dagen',
   'login.signingIn': 'Inloggen…',
   'login.subheading': 'Hervat uw zoektocht, breng sollicitaties verder, krijg sneller antwoord.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Ontwikkeld voor wervingsteams.',
   'loginBrandPanel.headline': 'Waar talent samenkomt',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Talentenpartner',
@@ -106,6 +115,7 @@ export const ui: UiTranslations = {
     'Updates over sollicitaties, uitnodigingen voor gesprekken, nieuwe matches — nieuwste eerst.',
   'opportunitiesHero.delta': '{{sign}}{{amount}} deze week',
   'opportunitiesHero.eyebrow': 'Vandaag open',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'postJob.addNewCompany': '+ Voeg een nieuw bedrijf toe',
   'postJob.companyCreateFailed': 'Bedrijf kon niet worden aangemaakt — probeer het opnieuw.',
   'postJob.companyNameLabel': 'Naam van uw bedrijf',
@@ -164,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Bezig met aanmaken van account…',
   'signup.ctaEmployer': 'Werkgeversaccount aanmaken',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Wachtwoorden komen niet overeen.',
   'signup.subheading':
     'Gratis voor werkzoekenden, voor altijd. Werkgevers kunnen 30 dagen gratis gebruikmaken van de service.',
   'timeAgo.days': '{{count}}d geleden',
   'timeAgo.hours': '{{count}}u geleden',
   'timeAgo.justNow': 'zojuist',
+  'timeAgo.weeks': '{{count}} weken geleden',
 }

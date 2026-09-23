@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.tagline': 'Har bir birlik, bitta tom ostida.',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.addProperty': "Mulk qo'shish",
   'dashboard.empty.body':
     "Mulklar, kvartiralar va ijara to'lovlari mavjud bo'lgandan so'ng, ushbu boshqaruv paneli portfel haqida ma'lumot bilan to'ldiriladi.",
@@ -89,6 +92,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     "{{count}} ochiq ish buyurtmalari, ustuvorlik bo'yicha tartiblangan",
   'maintenanceQueueList.title': "Xizmat ko'rsatish navbati",
+  'nav.closeMenu': 'Menyuni yopish',
+  'nav.openMenu': 'Menyuni ochish',
   'notFound.body':
     "Siz izlayotgan sahifa ko'chirilgan, arxivlangan yoki hech qachon mavjud bo'lmagan.",
   'notFound.title': 'U eshik ochilmaydi',

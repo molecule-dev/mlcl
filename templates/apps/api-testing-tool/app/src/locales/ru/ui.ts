@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.pageTitle': 'О {{app}}',
   'authShell.statusLabel': 'бегуны в сети',
   'collections.createError': 'Не удалось создать коллекцию.',
   'collections.defaultName': 'Коллекция без названия {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Новая коллекция',
   'collections.subheading':
     'Группируйте запросы, делитесь ими со своей командой и запускайте их как единый комплексный пакет.',
+  'common.goToDashboard': 'Перейти к панели',
   'environmentCard.inactive': 'Праздный',
   'environmentCard.more': 'более',
   'environmentCard.variables': 'Переменные',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Скачать бесплатно',
   'landing.heroSubtitle':
     'Молниеносно быстрая среда тестирования API, созданная для инженеров, которые работают непосредственно за компьютером.',
+  'landing.heroTitleAccent': 'Пожар',
+  'landing.heroTitleLine2': 'укрепить уверенность.',
+  'landing.heroTitleRest': 'запросы,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// Цены в долларах — обычный вариант',
   'landing.pricingHeading': 'Простая и понятная система ценообразования',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Вы здесь впервые?',
   'login.showPassword': 'Показать пароль',
   'login.subtitle': 'Продолжите работу на своем рабочем месте в зоне «Пилон».',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'mocks.createError': 'Не удалось создать фиктивный файл.',
   'mocks.defaultName': 'Безымянный макет {{n}}',
   'mocks.deleteError': 'Не удалось удалить фиктивный файл.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Вернуться в рабочее пространство',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрут не найден',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'privacy.collect.account':
     'Учетная запись: ваш адрес электронной почты, хешированный пароль, отображаемое имя и отметка времени вашего последнего входа в систему.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
     'Доступно только для чтения и отображает данные, которыми в данный момент владеет эта учетная запись.',
   'settings.unset': 'не задано',
   'signup.identityHint': 'например, Алекс',
+  'signup.statusLabel': 'бесплатный тариф · без кредитной карты',
   'signup.subtitle': 'Начните отправлять запросы за считанные минуты.',
   'terms.account.body':
     'Вы несёте ответственность за сохранность своего пароля. В бесплатных и профессиональных тарифных планах использование одной учётной записи несколькими людьми не допускается — для использования общих рабочих пространств приобретите командную подписку.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Не используйте Pylon для отправки запросов к сервисам, которые вам не принадлежат или на тестирование которых у вас нет явного разрешения. Не используйте Pylon для обхода ограничений скорости запросов или совершения мошенничества.',
   'terms.warranty.body':
     'Pylon предоставляется «как есть», без каких-либо гарантий. Мы стремимся к 99,9% времени безотказной работы, но не гарантируем этого для бесплатных и профессиональных тарифных планов.',
+  'testRunner.assertionsCount': '{{count}} утверждения',
   'testRunner.createError': 'Не удалось создать тест.',
   'testRunner.cron':
     'Утверждения оцениваются на основе последнего запуска связанного запроса данного теста.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     'Результаты выполнения набора тестов, сравнение утверждений и последние 50 запусков.',
   'userMenu.shortcut': '⌘Л',
   'userMenu.signedInAs': 'Вошёл как',
+  'workspace.auth.keyName': 'Название заголовка',
+  'workspace.auth.keyValue': 'Значение ключа',
+  'workspace.auth.password': 'Пароль',
+  'workspace.auth.username': 'Имя пользователя',
+  'workspace.authOption.apikey': 'Ключ API',
+  'workspace.authOption.basic': 'Базовая аутентификация',
+  'workspace.authOption.bearer': 'Токен на предъявителя',
+  'workspace.authOption.none': 'Нет',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип авторизации',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Нет',
+  'workspace.body.text': 'Исходный текст',
+  'workspace.body.type': 'Тип',
   'workspace.environment': 'Нет окружающей среды',
   'workspace.envVar': 'переменная окружения',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Добавить заголовок',
+  'workspace.kv.addParam': 'Добавить параметр',
+  'workspace.kv.headerKey': 'Название заголовка',
+  'workspace.kv.headerValue': 'Значение заголовка',
+  'workspace.kv.key': 'Ключ',
+  'workspace.kv.paramKey': 'Ключ параметра запроса',
+  'workspace.kv.paramValue': 'Значение параметра запроса',
+  'workspace.kv.removeRow': 'Удалить строку',
+  'workspace.kv.value': 'Ценить',
   'workspace.methodLabel': 'метод HTTP',
   'workspace.metric.latency': 'Задержка',
   'workspace.metric.latencyCaption': 'Поездка туда и обратно от этого маршрута',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Запрос отправлен — см. ответ ниже.',
   'workspace.subheading':
     'Сформируйте запрос, отправьте его, а затем проверьте ответ — всё в одном окне.',
+  'workspace.testResults': 'Результаты тестирования',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Отправлено как авторизация: Предъявитель<token> по каждому запросу из этой коллекции.',

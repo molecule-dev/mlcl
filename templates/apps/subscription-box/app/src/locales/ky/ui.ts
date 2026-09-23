@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} жөнүндө',
+  'appNav.mobileLabel': 'Негизги навигация',
+  'appNav.primaryLabel': 'Негизги навигация',
   'billing.actions.confirmCancel':
     'Жазылууңузду жокко чыгарасызбы? Каалаган убакта кайра жазылсаңыз болот.',
   'billing.actions.paused': 'Жазылуу тындырылды.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Ар бир деңгээл чакан сериядагы аңгемеден турат. Кезегиңизге бирөөнү кошуңуз же кийинки айга которуңуз.',
   'boxThemeCard.perMonth': '/ ай',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'customize.eyebrow': 'Аны өзүңүзгө ылайыкташтырыңыз',
   'customize.heading': 'Кийинки казынаңызды ыңгайлаштырыңыз',
   'customize.items.exclude': 'Муну өткөрүп жиберүү',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Бул сезондо',
   'landing.editions.heading': 'Биздин кураторлорубуз жакшы көргөн басылмалар',
   'landing.footer.contact': 'Куратор менен сүйлөшүңүз',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Кутучаңызды баштаңыз →',
   'landing.hero.ctaSecondary': 'Деңгээлдерди көрүү',
   'landing.hero.eyebrow': 'Ай сайын тандалып алынат. Ар дайым жекече болот.',
@@ -116,6 +121,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'КИЙИНКИ ТОПТОМУҢУЗ',
   'nextBoxHeroCard.itemsLabel': 'Тандалган нерселер',
   'nextBoxHeroCard.shipsOnLabel': 'Жөнөтүлөт',
+  'notFound.body':
+    'Биз ал баракчаны {{app}} архивинен таба алган жокпуз. Ал өчүрүлгөн же жөн гана туура эмес терилген болушу мүмкүн.',
   'notFound.cta.dashboard': 'Башкаруу панелине өтүү',
   'notFound.eyebrow': 'Бош кутуча',
   'notFound.heading': 'Бул текче бош',

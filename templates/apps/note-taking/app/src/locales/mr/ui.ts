@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'forgot.eyebrow': 'परत येण्याचा मार्ग चुकला का?',
   'forgot.formSubtitle': 'आमच्याकडे नोंद असलेला ईमेल सांगा.',
   'forgot.headline': 'तुमचा पासवर्ड रीसेट करा.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'एक तयार करा',
   'login.subline':
     'तुमच्या नोटबुक, बॅकलिंक्स आणि दैनंदिन पृष्ठे तुम्ही जिथे ठेवली होती, तिथेच आहेत.',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'noteEditor.backToNotes': 'नोट्सकडे परत जा',
   'noteEditor.bodyPlaceholder':
     'लिहायला सुरुवात करा — तुम्ही टाईप करत असताना तुमची नोंद आपोआप सेव्ह होते.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'नवीन नोटबुक',
   'notes.newNotebookPrompt': 'नवीन नोटबुकचे नाव',
   'notes.notebooksHeading': 'नोटबुक',
+  'notes.subtitle':
+    "डावीकडील नोटबुक निवडा, त्यानंतर नवीन नोंद सुरू करण्यासाठी 'नवीन नोंद' बटण दाबा.",
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'तुमची नोंद घेण्याची योजना निवडा',
   'reset.eyebrow': 'जवळजवळ परत',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'अपडेट केले',
   'versoLayout.nav.graph': 'आलेख',
   'versoLayout.nav.home': 'घर',
+  'versoLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'versoNoteCard.pinned': 'पिन केलेले',
   'versoTodayHero.continueCta': 'लिहीत रहा',
   'versoTodayHero.createCta': 'आजची नोंद सुरू करा',

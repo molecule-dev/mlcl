@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.title': 'Over {{app}}',
   'auth.login.noAccount': 'Nieuw bij Sparq?',
   'auth.login.or': 'of ga verder met',
   'auth.signup.or': 'of meld u aan met',
+  'common.confirm': 'Bevestigen',
+  'common.goToDashboard': 'Ga naar Dashboard',
+  'common.loadError': 'Er is iets misgegaan bij het laden van deze inhoud.',
+  'common.retry': 'Opnieuw proberen',
   'discover.collections.title': 'Bladeren per categorie',
   'discover.collections.viewAll': 'Bekijk uw bibliotheek →',
   'discover.empty.body': 'Probeer een andere categorie of wis de zoekopdracht.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Meld u aan om uw streak in leven te houden, livespellen te hosten en hoger te klimmen op de ranglijst.',
   'myQuizzes.createButton': 'Nieuwe quiz',
+  'myQuizzes.deleteConfirm': 'Voor altijd verwijderen?',
   'myQuizzes.empty.createCta': 'Maak uw eerste quiz →',
   'myQuizzes.empty.created': 'U heeft nog geen quizzen gemaakt.',
   'myQuizzes.empty.played': 'Nog geen gepubliceerde quizzen.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laden…',
   'notifications.subhead':
     '{{count}} ongelezen vonken. Uitnodigingen, ranglijstwijzigingen en prestaties in één stroom.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.checkoutError': 'Kon afrekenen niet starten. Probeer het opnieuw.',
+  'pricing.heading': 'Kies je {{app}}-abonnement',
   'pricing.included': 'Inbegrepen',
   'pricing.loadError': 'Kon plannen niet laden.',
   'pricing.maxQuizzes': '{{count}} quizzen',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Nog niets gepubliceerd.',
   'profile.startBuilding': 'Begin met bouwen →',
   'profile.tier': 'Sparq-speler',
+  'quizBuilder.addFailed': 'De vraag kon niet worden toegevoegd. Probeer het opnieuw.',
   'quizBuilder.addQuestion': 'Vraag toevoegen',
   'quizBuilder.answerPlaceholder': 'Typ een optie…',
   'quizBuilder.answersLabel': 'Antwoordopties',
   'quizBuilder.back': 'Terug naar mijn quizzen',
   'quizBuilder.delete': 'Vraag verwijderen',
+  'quizBuilder.deleteFailed': 'De vraag kon niet worden verwijderd.',
   'quizBuilder.firstQuestion': 'Voeg uw eerste vraag toe om te beginnen.',
   'quizBuilder.idLabel': 'Quiz-ID: {{id}}',
   'quizBuilder.loadError': 'Kon de quiz niet laden.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Voeg minstens twee antwoordopties toe en kies de juiste voor {{count}} vraag/vragen voordat u publiceert.',
   'quizBuilder.questionsTitle': 'Vragen',
+  'quizBuilder.saveFailed': 'De titel kon niet worden opgeslagen. Probeer het opnieuw.',
   'quizBuilder.statusDraft': 'Concept',
   'quizBuilder.subhead':
     'Bewerk de titel, voeg vragen toe, stel opties en het juiste antwoord in. Wijzigingen worden automatisch opgeslagen.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} min',
   'quizDetail.hostMultiplayer': 'Multiplayer hosten',
   'quizDetail.leaderboardEmpty': 'Nog geen partijen — wees de eerste die een score vastlegt.',
+  'quizDetail.loadError': 'Deze quiz kon niet worden geladen.',
   'quizDetail.loading': 'Quiz laden…',
   'quizDetail.plays': '{{count}} keer gespeeld',
   'quizDetail.playSolo': 'Solo spelen',

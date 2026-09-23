@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.pageTitle': '{{appName}} жөнүндө',
   'analytics.error': 'Аналитика жүктөлбөй койду.',
   'analytics.heading': 'Издөө аналитикасы',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Баалоо деңгээлдери конфигурацияланган эмес.',
   'billing.plans.heading': 'Пландар',
   'billing.subheading': 'План, колдонуу жана Stripe тарабынан башкарылган төлөм.',
+  'common.confirm': 'Ырастоо',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.retry': 'Кайра аракет',
   'documentCard.open': 'Ачуу \\u2192',
   'documentDetail.back': 'Документтерге кайтуу',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Индекс документи',
   'documents.composer.titlePlaceholder': 'Документтин аталышы',
   'documents.emptyAll': 'Азырынча документтер жок. Суроолорду бере баштоо үчүн бирөөсүн жүктөңүз.',
+  'documents.error.load': 'Документтер жүктөлбөй койду.',
   'documents.heading': 'Индекстелген документтер',
   'documents.loading': 'Документтер жүктөлүүдө…',
   'documents.metric.chunks': 'Жалпы бөлүктөрү',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Алынып салынууда\\u2026',
   'members.subheading': 'Командалаштарды чакырып, ролдорду бөлүштүрүңүз.',
   'members.tableHeading': 'Курамы',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'notFound.askCta': 'Билим базасынан сураңыз',
+  'notFound.body':
+    '{{app}} ал баракчаны таба алган жок. Шилтеме бузулган болушу мүмкүн же баракча кайра индекстөө учурунда өчүрүлгөн болушу мүмкүн.',
   'notFound.eyebrow': 'Алынып алынбайт',
   'notFound.title': 'Индексте мындай бөлүк жок',
   'notifications.dismiss': 'Жокко чыгаруу',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Биринчи туташтыргычыңызды туташтыруу үчүн "Булак кошуу" баскычын чыкылдатыңыз.',
   'sources.empty.title': 'Азырынча булактар жок.',
+  'sources.error.add': 'Булак кошулган жок.',
   'sources.error.labelRequired': 'Энбелги талап кылынат.',
   'sources.error.load': 'Булактар жүктөлбөй койду.',
   'sources.error.urlRequired': 'Бул булак түрү үчүн URL дареги талап кылынат.',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.retry': 'ລອງໃໝ່',
   'compose.cancel': 'ຍົກເລີກ',
   'compose.captionPlaceholder': 'ເຈົ້າຄິດຫຍັງຢູ່?',
   'compose.heading': 'ແບ່ງປັນຊ່ວງເວລາໜຶ່ງ',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'ບັນຊີທີ່ຢືນຢັນແລ້ວ',
   'resetPassword.newPassword': 'ລະຫັດຜ່ານໃໝ່',
   'resetPassword.subheading': 'ເລືອກບາງສິ່ງບາງຢ່າງທີ່ເຂັ້ມແຂງ - ຢ່າງໜ້ອຍ 12 ຕົວອັກສອນ.',
+  'search.clearAria': 'ລຶບລ້າງ',
+  'search.error': 'ການຄົ້ນຫາລົ້ມເຫລວ. ລອງໃໝ່ອີກຄັ້ງ.',
   'search.noPeople': 'ບໍ່ມີຜູ້ສ້າງທີ່ກົງກັນ " {{q}} ".',
   'search.noPosts': 'ບໍ່ມີໂພສທີ່ກົງກັນ " {{q}} ".',
   'search.noTags': 'ຍັງບໍ່ມີ hashtags ທີ່ກຳລັງມາແຮງເທື່ອ.',
@@ -122,6 +128,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'ເຊື່ອງລະຫັດຜ່ານ',
   'signup.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'signup.subheading': 'ສ້າງບັນຊີເພື່ອເລີ່ມການແບ່ງປັນ.',
+  'socialMediaLayout.closeMenu': 'ປິດເມນູນຳທາງ',
+  'socialMediaLayout.openMenu': 'ເປີດເມນູນຳທາງ',
+  'socialMediaLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'storyRail.heading': 'ເລື່ອງລາວ',
   'storyRail.label': 'ເລື່ອງລາວ',
   'storyRail.openAria': 'ເປີດ {{handle}} ເລື່ອງຂອງ',

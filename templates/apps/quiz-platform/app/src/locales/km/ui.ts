@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.title': 'អំពី {{app}}',
   'auth.login.noAccount': 'ទើបតែស្គាល់ Sparq?',
   'auth.login.or': 'ឬបន្តជាមួយ',
   'auth.signup.or': 'ឬចុះឈ្មោះជាមួយ',
+  'common.confirm': 'បញ្ជាក់',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.loadError': 'មានអ្វីមួយខុសប្រក្រតីក្នុងការផ្ទុកខ្លឹមសារនេះ។',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'discover.collections.title': 'រកមើលតាមប្រភេទ',
   'discover.collections.viewAll': 'មើលបណ្ណាល័យរបស់អ្នក →',
   'discover.empty.body': 'សាកល្បងប្រភេទផ្សេង ឬសម្អាតការស្វែងរក។',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'ចូលគណនីដើម្បីរក្សាកំណត់ត្រារបស់អ្នកឱ្យនៅរស់រវើក រៀបចំការប្រកួតផ្ទាល់ និងឡើងលើតារាងពិន្ទុ។',
   'myQuizzes.createButton': 'សំណួរថ្មី',
+  'myQuizzes.deleteConfirm': 'លុប​ចោល​ជា​រៀង​រហូត?',
   'myQuizzes.empty.createCta': 'បង្កើតសំណួរសាកល្បងដំបូងរបស់អ្នក →',
   'myQuizzes.empty.created': 'អ្នកមិនទាន់បានបង្កើតសំណួរនៅឡើយទេ។',
   'myQuizzes.empty.played': 'មិនទាន់មានកម្រងសំណួរដែលបានបោះពុម្ពផ្សាយនៅឡើយទេ។',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'កំពុងផ្ទុក…',
   'notifications.subhead':
     '{{count}} ផ្កាភ្លើងដែលមិនទាន់អាន។ ការអញ្ជើញ ចលនាតារាងពិន្ទុ និងសមិទ្ធផលទាំងអស់នៅក្នុងស្ទ្រីមតែមួយ។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.checkoutError': 'មិនអាចចាប់ផ្តើមទូទាត់ប្រាក់បានទេ។ សូមព្យាយាមម្តងទៀត។',
+  'pricing.heading': 'ជ្រើសរើសគម្រោង {{app}} របស់អ្នក',
   'pricing.included': 'រួមបញ្ចូល',
   'pricing.loadError': 'មិនអាចផ្ទុកផែនការបានទេ។',
   'pricing.maxQuizzes': '{{count}} សំណួរ​សាកល្បង',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'គ្មានអ្វីត្រូវបានបោះពុម្ពផ្សាយនៅឡើយទេ។',
   'profile.startBuilding': 'ចាប់ផ្តើមសាងសង់ →',
   'profile.tier': 'កីឡាករ Sparq',
+  'quizBuilder.addFailed': 'មិនអាចបន្ថែមសំណួរបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'quizBuilder.addQuestion': 'បន្ថែមសំណួរ',
   'quizBuilder.answerPlaceholder': 'វាយបញ្ចូលជម្រើសមួយ…',
   'quizBuilder.answersLabel': 'ជម្រើសចម្លើយ',
   'quizBuilder.back': 'ត្រឡប់ទៅសំណួរសាកល្បងរបស់ខ្ញុំវិញ',
   'quizBuilder.delete': 'លុបសំណួរ',
+  'quizBuilder.deleteFailed': 'មិនអាចលុបសំណួរបានទេ។',
   'quizBuilder.firstQuestion': 'បន្ថែមសំណួរដំបូងរបស់អ្នកដើម្បីចាប់ផ្តើម។',
   'quizBuilder.idLabel': 'លេខសម្គាល់សំណួរ៖ {{id}}',
   'quizBuilder.loadError': 'មិនអាចផ្ទុកសំណួរបានទេ។',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'បន្ថែមជម្រើសចម្លើយយ៉ាងហោចណាស់ពីរ ហើយជ្រើសរើសចម្លើយដែលត្រឹមត្រូវសម្រាប់ {{count}} សំណួរមុនពេលបោះពុម្ពផ្សាយ។',
   'quizBuilder.questionsTitle': 'សំណួរ',
+  'quizBuilder.saveFailed': 'មិនអាចរក្សាទុកចំណងជើងបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'quizBuilder.statusDraft': 'សេចក្តីព្រាង',
   'quizBuilder.subhead':
     'កែសម្រួលចំណងជើង បន្ថែមសំណួរ កំណត់ជម្រើស និងចម្លើយត្រឹមត្រូវ។ ការផ្លាស់ប្តូរត្រូវបានរក្សាទុកដោយស្វ័យប្រវត្តិ។',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'អ្នកលេងច្រើននាក់ជាម្ចាស់ផ្ទះ',
   'quizDetail.leaderboardEmpty':
     'មិនទាន់មានការសម្តែងនៅឡើយទេ — ចូរក្លាយជាអ្នកដំបូងគេដែលកំណត់ពិន្ទុ។',
+  'quizDetail.loadError': 'មិនអាចផ្ទុកសំណួរនេះបានទេ។',
   'quizDetail.loading': 'កំពុងផ្ទុកសំណួរ…',
   'quizDetail.plays': '{{count}} លេង',
   'quizDetail.playSolo': 'លេងតែម្នាក់ឯង',

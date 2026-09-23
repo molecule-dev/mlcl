@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tentang {{app}}',
   'about.plansTitle': 'Paket yang tumbuh bersama Anda',
   'brand.tagline': 'Setiap detik',
   'clientDetail.back': 'Kembali ke klien',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Setiap hubungan di satu tempat — proyek, jam, faktur belum dibayar.',
   'clients.title': 'Klien',
   'common.and': 'dan',
+  'common.goToDashboard': 'Ke Dashboard',
   'dashboard.activeProjects': 'Proyek aktif',
   'dashboard.empty':
     'Belum ada entri. Silakan Anda mulai pengatur waktu untuk melacak sesi pertama.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Tidak ada jam yang dapat ditagih untuk klien ini. Silakan Anda lacak waktu terlebih dahulu atau tetapkan entri yang ada ke salah satu proyek klien ini.',
   'invoices.save': 'Buat faktur',
   'invoices.subtitle': 'Jam yang dilacak otomatis menjadi faktur.',
+  'landing.copyright': '© {{year}} {{app}} . Setiap detik, tercatat.',
   'landing.ctaBody': 'Gratis hingga 3 proyek. Tingkatkan saat daftar klien Anda bertambah.',
   'landing.eyebrow': 'Pelacakan waktu untuk pekerjaan yang dapat ditagih',
   'landing.featuresBody':
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Dipercaya oleh pekerja mandiri',
   'landing.testimonial.quote':
     '“Saya pindah dari Toggl dalam 30 menit. Pemantauan anggaran saja sudah menghasilkan keuntungan — saya berhenti memberi harga rendah dua minggu berturut-turut.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Setiap detik, dihitung.',
   'login.brand.subtitle':
     'Lanjutkan pengatur waktu dari tempat Anda tinggalkan — setiap menit sudah dipetakan ke proyek, klien, faktur.',
   'login.brand.tracking': 'Pelacakan',
   'login.subheading': 'Lanjutkan pengatur waktu dari tempat Anda tinggalkan.',
+  'nav.closeMenu': 'Tutup menu navigasi',
   'nav.insightsSection': 'Wawasan',
   'nav.newEntry': 'Entri baru',
+  'nav.openMenu': 'Buka menu navigasi',
+  'nav.primary': 'Navigasi utama',
   'nav.workSection': 'Pekerjaan',
   'notFound.body':
     'Tampaknya tautan yang Anda ikuti telah berhenti melacak. Kembali ke dasbor — kami akan terus menghitung dari sana.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Dapat ditagih',
   'timer.descriptionPlaceholder': 'Apa yang sedang Anda kerjakan?',
   'timer.idle': 'Idle — mulai melacak',
+  'timer.noProject': 'Tidak ada proyek',
   'timer.runningWithProject': 'Tidak ada proyek',
   'timer.start': 'Mulai pengatur waktu',
   'timer.stop': 'Hentikan pengatur waktu',

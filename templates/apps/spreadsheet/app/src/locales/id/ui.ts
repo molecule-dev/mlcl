@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'about.pageTitle': 'Tentang {{name}}',
   'auth.footer.about': 'Tentang {{name}}',
   'authHeader.subtitle': 'Masuk untuk menjaga angka Anda tetap akurat.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Tidak ada operasi',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Hapus "{{name}}"?',
   'automations.empty.headline': 'Belum ada otomatisasi',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Pemicu dan tindakan di setiap buku kerja. Setiap run mencatat baris yang dapat Anda audit nanti.',
   'automations.toggle': 'Alihkan {{name}}',
+  'automations.trigger.dailySchedule': 'Jadwal harian',
+  'automations.trigger.rowCreated': 'Baris dibuat',
+  'automations.trigger.rowUpdated': 'Baris diperbarui',
   'billing.empty': 'Tidak ada paket tersedia.',
   'billing.error.priceMissing':
     'Tidak ada harga Stripe yang dikonfigurasi untuk tingkat ini. Atur variabel env STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Bagan',
   'charts.kpi.totalCharts': 'Total bagan',
   'charts.list.empty': 'Belum ada bagan.',
+  'charts.namePlaceholder': 'Tren pendapatan',
   'charts.newChart': 'Bagan baru',
   'charts.primary.eyebrow': 'Bagan menurut tipe',
   'charts.primary.headline': 'Ikhtisar ruang kerja',
   'charts.subhead':
     'Visualisasi langsung yang terikat ke kisi Anda — dirender ulang pada setiap pengeditan sel.',
+  'common.goToDashboard': 'Ke Dashboard',
   'editor.addColumn': 'Tambah kolom',
+  'editor.addDialogTitle': 'Tambah kolom',
   'editor.addRow': 'Tambah baris',
   'editor.addSheet': 'Tambah lembar',
   'editor.back': 'Kembali ke buku kerja',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite adalah kisi yang mengutamakan formula, multi-tampilan, real-time yang dipilih para analis dan tim keuangan terlebih dahulu.',
   'landing.nav.formulas': 'Formula',
+  'login.noAccount': 'Baru mengenal {{name}} ?',
+  'login.signIn': 'Masuk ke {{name}}',
   'login.signUp': 'Buat ruang kerja',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Buka menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Baris ini tidak pernah ada.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Otomatisasi natif · pemicu webhook & cron',
   'signup.creating': 'Menyiapkan ruang kerja…',
   'signup.cta': 'Buat ruang kerja saya',
+  'signup.haveAccount': 'Sudah berada di {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Mulai buku kerja pertama Anda dalam 30 detik',
   'team.col.activity': 'Diundang',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
+  'about.title': '一個可以裝進口袋的寫作空間',
   'billing.cancelConfirm': '取消您目前的訂閱？',
   'billing.cancelFailed': '無法取消。',
   'billing.checkingOut': '正在結帳…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': '無法加載賬單。',
   'billing.loading': '正在載入帳單…',
   'billing.upgradeCta': '升級到{{name}}',
+  'common.goToDashboard': '前往主控台',
+  'editor.autosaveOn': '自動儲存',
   'editor.backToLibrary': '返回圖書館',
   'editor.charCount': '{{count}} 字元',
   'editor.confirmTrash': '將此文件移至回收站？',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': '已解壓縮',
   'editor.unpublishCta': '移至草稿',
   'editor.unpublished': '已恢復為草稿',
+  'focus.autosaveOn': '自動儲存',
   'focus.backToLibrary': '返回圖書館',
   'focus.bodyPlaceholder': '一次只接待一人。這裡沒有其他人。',
   'focus.exit': '退出對焦模式',
@@ -79,6 +84,8 @@ export const ui: UiTranslations = {
   'login.headline': '接住你放下的那條線。',
   'login.signupLink': '創建一個',
   'login.subline': '您的稿件、每日頁面和上次遊標位置都還保留著您離開時的樣子。',
+  'mobileNav.closeMenu': '關閉導覽選單',
+  'mobileNav.openMenu': '開啟導覽選單',
   'pricing.exports': '出口',
   'pricing.folders': '資料夾',
   'pricing.heading': '文件',
@@ -90,6 +97,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     '請輸入我們剛剛透過電子郵件發送給您的驗證碼，並選擇一個容易記住的密碼。密碼儲存後，我們將自動為您登入。',
   'reset.tokenHint': '已從您的收件匣貼上。',
+  'settings.appearance.heading': '淺色或深色',
   'settings.editor.${row.id}.description': '語言',
   'settings.editor.description':
     '打字機滾動、段落淡入淡出和空閒焦點 - 預設設定針對長時間會話進行了最佳化。',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': '第三章－日出前的寧靜時刻',
   'versalDocumentCard.pinned': '置頂',
   'versalLayout.nav.stats': '統計數據',
+  'versalLayout.primaryNavLabel': '主導航',
   'versalManuscriptHero.cta': '繼續寫作',
   'versalManuscriptHero.goalLabel': '今日目標詞彙',
   'versalManuscriptHero.inProgress': '一切順利',

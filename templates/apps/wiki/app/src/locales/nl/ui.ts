@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Oplossen…',
   'comments.subtitle':
     'De {{count}} threads die nog wachten op een antwoord of oplossing. Gesorteerd op leeftijd — oudste eerst, zodat niets wegrot.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'forgotPassword.sentTo': 'Reset-link verzonden naar {{email}}',
   'forgotPassword.successSubheading':
     'Controleer uw inbox — we hebben zojuist een reset-link verzonden. Deze verloopt over 30 minuten.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nieuwe pagina',
   'pageTreeSidebar.workspaceHeader': 'Workspace',
   'pageView.breadcrumb': 'Kruimelpad',
+  'pageView.confirmTrash': 'Weggooien?',
   'pageView.home': 'Home',
   'pageView.lastEdited': 'Bijgewerkt {{when}}',
   'pageView.loading': 'Pagina laden…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Samenvatten…',
   'pageView.summaryUnavailable': 'AI-samenvatting is niet geconfigureerd voor deze workspace.',
   'pageView.tocTitle': 'Op deze pagina',
+  'pageView.trash': 'Prullenbak',
+  'pageView.trashing': 'Bezig met verwijderen…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Badges',
   'profile.owned.title': "Eigen pagina's",
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Workspace, profiel, meldingen, integraties — alles in één rustige schil.',
   'settingsPage.workspace.defaultLanding': 'Standaard startscherm',
   'settingsPage.workspace.landingHome': 'Thuis',
+  'settingsPage.workspace.landingSpaces': 'Ruimtes',
   'settingsPage.workspace.subdomainLabel': 'Subdomein',
   'settingsPage.workspace.title': 'Workspace',
   'signup.eyebrow': 'Een nieuwe workspace starten',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Begin een pagina vanuit een sjabloon, niet vanuit een leeg canvas. Elk sjabloon legt de vorm vast zodat u zich op de inhoud kunt richten.',
+  'trash.confirmPurge': 'Voor altijd zuiveren?',
+  'trash.confirmPurgeAria': 'Bevestigen: {{title}} permanent verwijderen',
   'trash.daysUntilPurge': 'Nog {{days}} dagen',
   'trash.empty.body':
     "Verwijderde pagina's verschijnen hier 30 dagen voordat ze definitief worden verwijderd.",
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Herstellen…',
   'versionHistory.subtitle': '{{count}} versies · selecteer een rij om de diff te bekijken',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Navigatie sluiten',
+  'wikiLayout.menu': 'Navigatie',
+  'wikiLayout.openMenu': 'Open navigatie',
   'wikiLayout.searchPlaceholder': "Zoek in Cairn — pagina's, opmerkingen…",
 }

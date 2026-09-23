@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Uz informācijas paneli',
   'forgot.eyebrow': 'Apmaldījies ceļu atpakaļ iekšā?',
   'forgot.formSubtitle': 'Pastāstiet mums failā esošo e-pasta adresi.',
   'forgot.headline': 'Atjaunojiet savu paroli.',
@@ -41,6 +42,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Izveidot vienu',
   'login.subline':
     'Jūsu piezīmju grāmatiņas, atpakaļsaites un ikdienas lapas ir tieši tur, kur tās atstājāt.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'noteEditor.backToNotes': 'Atpakaļ pie piezīmēm',
   'noteEditor.bodyPlaceholder':
     'Sāciet rakstīt — jūsu piezīme automātiski saglabājas, kamēr rakstāt.',
@@ -57,6 +60,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Jauna piezīmju grāmatiņa',
   'notes.newNotebookPrompt': 'Jauns piezīmju grāmatiņas nosaukums',
   'notes.notebooksHeading': 'Piezīmju grāmatiņas',
+  'notes.subtitle':
+    'Kreisajā pusē izvēlieties piezīmju grāmatiņu un pēc tam nospiediet pogu Jauna piezīme, lai sāktu jaunu ierakstu.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Izvēlieties savu piezīmju veikšanas plānu',
   'reset.eyebrow': 'Gandrīz atpakaļ iekšā',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Atjaunināts',
   'versoLayout.nav.graph': 'Grafiks',
   'versoLayout.nav.home': 'Sākums',
+  'versoLayout.primaryNavLabel': 'Galvenā navigācija',
   'versoNoteCard.pinned': 'Piesprausts',
   'versoTodayHero.continueCta': 'Turpināt rakstīt',
   'versoTodayHero.createCta': 'Sāciet šodienas piezīmi',

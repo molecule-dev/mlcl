@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'analytics.col.quorum': 'Kuorum',
   'analytics.col.votes': 'Votat',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Nuk ka ende pyetje në pritje.',
   'audienceQa.onStageEyebrow': 'Në skenë tani',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promovoni',
   'audienceQa.queued': 'në radhë',
   'audienceQa.queueEyebrow': 'Radhë',
   'ballot.eyebrow': 'Hidhni votën tuaj',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Aktualisht jeni në {{plan}} plan.',
   'billing.switch': 'Ndërro',
   'billing.upgraded': 'Përditësuar në {{plan}} — kufizimet zbatohen menjëherë.',
+  'common.goToDashboard': 'Shko te paneli',
   'createPoll.addOption': 'Shto opsion',
   'createPoll.anonymousHint':
     'Emrat e votuesve të fshehur në regjistrin e auditimit; numërimet mbeten të autentikuara.',
@@ -161,6 +164,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'I ri në Nosh?',
   'login.remember': 'Më mbaj mend për 30 ditë',
   'login.subheading': 'Hap dyshemenë, drejto dhomën dhe certifiko rezultatin.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'notFound.body':
     'Faqja që u përpoqët të arrini është mbyllur ose është zhvendosur. Kthehuni te paneli i kontrollit ose hapni një sondazh të ri.',
   'notFound.eyebrow': 'Nuk ka kuorum në këtë rrugë',
@@ -187,6 +192,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Nuk mundi të ngarkonte këtë sondazh.',
   'pollDetail.loading': 'Po ngarkohet sondazhi…',
   'pollDetail.notFound': 'Sondazhi nuk u gjet.',
+  'pollDetail.openBallot': 'Votim i hapur',
   'pollDetail.openLive': 'Rezultatet e drejtpërdrejta',
   'pollDetail.pollId': 'sondazh · {{id}}',
   'pollDetail.published': 'Sondazhi u publikua — votuesit tani mund të hedhin votën.',
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Kërko me email…',
   'voters.subheading':
     'Përgatitni listën e votuesve të kualifikuar. Gruponi votuesit sipas organizatës për fletëvotime të peshuara.',
+  'votingPollingLayout.nav.analytics': 'Analitika',
+  'votingPollingLayout.nav.billing': 'Faturimi',
+  'votingPollingLayout.nav.createPoll': 'Sondazh i ri',
+  'votingPollingLayout.nav.dashboard': 'Paneli i kontrollit',
+  'votingPollingLayout.nav.notifications': 'Njoftime',
+  'votingPollingLayout.nav.settings': 'Cilësimet',
+  'votingPollingLayout.nav.team': 'Ekipi',
+  'votingPollingLayout.nav.voters': 'Votuesit',
+  'votingPollingLayout.primaryNavLabel': 'Navigimi kryesor',
 }

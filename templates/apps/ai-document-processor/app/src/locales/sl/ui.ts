@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Stopite v stik',
+  'about.title': 'O aplikaciji {{app}}',
   'authShell.backToLanding': '← Nazaj na začetno stran',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.no': '—',
+  'common.retry': 'Poskusi znova',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Danes · Pregled poslovanja',
   'dashboard.heading': 'Inteligentna obdelava dokumentov',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Nobena datoteka ne ustreza trenutnim filtrom.',
   'documents.heading': 'Vsi dokumenti',
   'documents.loadError': 'Dokumenti se niso uspeli naložiti.',
+  'documents.loading': 'Nalaganje knjižnice …',
   'documents.searchLabel': 'Iskanje dokumentov',
   'documents.searchPlaceholder': 'Iskanje dokumentov…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Skrij geslo',
   'login.showPassword': 'Pokaži geslo',
   'login.subtitle': 'Prijavite se, da boste lahko nemoteno nadaljevali z delom na dokumentih.',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'notFound.body':
     'Dokument ali pot, ki ste jo poskušali odpreti, ni več na voljo. Vrnite se na nadzorno ploščo ali izberite razdelek v stranskem meniju.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Odpri ciljno stran',
   'notFound.title': 'Te strani ni v arhivu',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % v primerjavi z včeraj',
@@ -83,6 +90,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Pravila za arhiviranje še niso določena. Uporabite možnost »Novo pravilo«, da dodate novo.',
   'rules.eyebrow': 'Avtomatizacija',
+  'rules.fieldsCount': '{{count}} polja',
   'rules.form.destination': 'Datoteka v',
   'rules.form.name': 'Ime pravila',
   'rules.form.save': 'Shrani pravilo',

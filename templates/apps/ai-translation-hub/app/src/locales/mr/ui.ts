@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'billing.canceled':
     'सदस्यता रद्द करण्यात आली आहे. कालावधीच्या शेवटी तुमची सदस्यता पुन्हा विनामूल्य होईल.',
   'billing.contactSales': 'विक्री विभागाशी संपर्क साधा',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'धारणा मर्यादा नाही',
   'billing.upgradeHint': 'प्रगत एआय वैशिष्ट्ये अनलॉक करण्यासाठी अपग्रेड करा.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.activityEmpty': 'अद्याप कोणतीही हालचाल नाही — हा फीड भरण्यासाठी एक प्रकल्प सुरू करा.',
   'dashboard.eyebrow': 'आढावा',
   'dashboard.projectsEmpty': 'अद्याप एकही प्रकल्प नाही — तो येथे पाहण्यासाठी एक सुरू करा.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'प्रत्येक प्रोजेक्टमध्ये पूर्वीच्या भाषांतरांचा पुनर्वापर करा. मॅच स्कोअर जास्त → पुनर्काम कमी.',
   'memory.title': 'मेमरी बँक',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'nav.legal': 'कायदेशीर',
   'newProject.addLanguage': 'लक्ष्य जोडा',
   'newProject.create': 'प्रकल्प तयार करा',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'चिन्हांकित {{count}} वाचलेल्या सूचना.',
   'notifications.subtitle':
     'तुमच्या सर्व वर्कस्पेसमधील उल्लेख, पुनरावलोकन विनंत्या आणि एआय इव्हेंट्स.',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'privacy.collection.account': 'तुमचे खाते ईमेल आणि प्रदर्शित नाव',
   'privacy.deletion.body':
     'तुम्ही संबंधित पृष्ठावरून कधीही प्रकल्प, विभाग, पारिभाषिक संज्ञा किंवा स्मृती नोंद हटवू शकता. सेटिंग्जमधून तुमचे खाते हटवल्यास आमच्या डेटाबेसमधील प्रत्येक कार्यक्षेत्र-व्याप्तीची ओळ काढून टाकली जाते.',
@@ -175,10 +180,12 @@ export const ui: UiTranslations = {
   'projects.loadError': 'प्रकल्प लोड करण्यात अयशस्वी झाले.',
   'projects.loading': 'प्रकल्प लोड होत आहेत…',
   'projects.subtitle': 'सर्व ठिकाणांवरील प्रत्येक सक्रिय प्रकल्प.',
+  'renditionLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'reset.backToLogin': '\\u2190 साइन इन करण्यासाठी मागे जा',
   'reset.passwordLabel': 'नवीन पासवर्ड',
   'review.activeEyebrow': 'विभाग {{number}}',
   'review.approve': 'अनुवाद मंजूर करा',
+  'review.commentsCount': '{{count}} टिप्पण्या · {{reviewer}} यांनी पुनरावलोकन केले',
   'review.currentLabel': 'वर्तमान भाषांतर',
   'review.decisionApproved': 'भाषांतर मंजूर झाले.',
   'review.decisionRejected': 'भाषांतर नाकारले.',

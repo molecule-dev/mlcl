@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
+  'about.pageTitle': 'אודות {{app}}',
   'activity.empty': 'אין עדיין פעילות - הפוך מכשיר או הפעל סצנה.',
   'activity.eyebrow': 'ציר זמן',
   'activity.loadError': 'לא ניתן היה לטעון את פיד הפעילות.',
   'activity.subheading': 'כל מכשיר, אוטומציה ואירוע אבטחה בסדר כרונולוגי.',
+  'addDevice.error.failed': 'לא ניתן היה להוסיף את המכשיר. נסה שוב.',
   'addDevice.error.nameRequired': 'תן שם למכשיר הזה כדי להמשיך.',
   'addDevice.field.firmware': 'גרסת קושחה',
   'addDevice.field.manufacturer': 'יַצרָן',
@@ -41,6 +44,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'בּוֹחֵן…',
   'automationEditor.testNew': 'שמור תחילה את האוטומציה כדי לבדוק אותה.',
   'automationRow.lastRun': 'אַחֲרוֹן {{date}} · {{count}} ריצות',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'לָרוּץ {{name}} עַכשָׁיו',
   'automations.empty': 'אין עדיין אוטומציות - צור את השגרה הראשונה שלך.',
   'automations.eyebrow': 'שגרות',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'טוען אוטומציות...',
   'automations.newAutomation': '+ חדש',
   'automations.subheading': 'כאשר זה קורה, עשו זאת - בלי ה-YAML.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'טעינת המכשיר נכשלה.',
@@ -67,6 +72,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'עובדים…',
   'deviceDetail.unnamed': 'הֶתקֵן',
   'deviceStatusRow.on': 'עַל',
+  'deviceStatusRow.turnOff': 'לְכַבּוֹת',
+  'deviceStatusRow.turnOn': 'לְהַפְעִיל',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'כּוֹחַ',
   'energy.heading': 'אֵנֶרְגִיָה',
@@ -169,4 +176,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ראה תוכניות',
   'settings.security.heading': 'בִּטָחוֹן',
   'settings.subheading': 'העדפות תוכנית, מרכזים וחשבון.',
+  'smartHomeDashboardLayout.openMenu': 'פתח את תפריט הניווט',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ניווט ראשי',
 }

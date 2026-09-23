@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'auditLog.empty':
     'Hakuna matukio ya ukaguzi yanayolingana na vichujio vyako bado. Hariri mfanyakazi au shughulikia malipo ya mshahara na wataonekana hapa.',
   'auditLog.eyebrow': 'Utiifu',
+  'auditLog.loadError': 'Haikuweza kupakia kumbukumbu ya ukaguzi.',
   'auditLog.searchPlaceholder': 'Tafuta kwa mwigizaji, kitendo, au maelezo',
   'auditLog.subheading':
     'Kila idhini, uhariri, na uwasilishaji wa kodi — pamoja na muigizaji, muhuri wa muda, na sehemu zilizobadilishwa.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Haijasanidiwa',
   'billing.plansHeading': 'Mipango',
   'billing.subheading': 'Dhibiti mpango wako na ubadilishe viwango kupitia Stripe.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Jaribu tena',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Picha ya uzingatiaji wa sheria',
   'dashboard.compliance.title': 'Hundi zote zinapita',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Hakuna makato kwenye faili.',
   'employeeDetail.notFound': 'Mfanyakazi hakupatikana.',
   'employeeDetail.payFrequency': 'Masafa ya malipo',
+  'employeeDetail.postTax': 'Baada ya kodi',
+  'employeeDetail.preTax': 'Kabla ya kodi',
   'employeeDetail.salary': 'Mshahara wa kila mwaka',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Imeanza {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Masafa ya malipo',
   'employeeForm.salary': 'Mshahara wa mwaka (USD)',
   'employeeForm.salaryInvalid': 'Mshahara lazima uwe nambari isiyo hasi.',
+  'employeeForm.saveError': 'Haikuweza kuokoa mfanyakazi.',
   'employeeForm.semimonthly': 'Nusu mwezi',
   'employeeForm.single': 'Moja',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Mshahara',
   'forgotPassword.subtitle':
     'Ingiza barua pepe yako ya kazini nasi tutakutumia kiungo cha kuweka upya.',
+  'landing.copyright': '© {{year}} {{app}} . Sahihi, ya kuaminika, na iliyotungwa.',
   'landing.ctaBody':
     'Bila malipo kwa siku 30. Hakuna kadi ya mkopo. Badilisha wakati wowote bila kupoteza njia yako ya ukaguzi.',
   'landing.ctaHeading': 'Endesha mzunguko wako unaofuata kwenye Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Maingizo',
   'payRunDetail.noActivity': 'Hakuna maingizo ya ukaguzi kwa ajili ya malipo haya bado.',
   'payRunDetail.noStubs': 'Hakuna malipo bado — idhinisha na ushughulikie kuyazalisha.',
+  'payRunDetail.notFound': 'Mshahara huu haukupatikana.',
   'payRunDetail.statDeductions': 'Makato',
   'payRunDetail.statHeadcount': 'Wafanyakazi',
   'payRunDetail.statTaxes': 'Kodi zilizozuiliwa',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Nusu mwezi',
   'settings.signOutDevice': 'Toka',
   'settings.subheading': 'Wasifu wa kampuni, ratiba ya malipo, na ujumuishaji.',
+  'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
+  'settings.twoFactorInvalidCode': 'Nambari batili',
+  'settings.twoFactorVerify': 'Thibitisha na uwashe',
   'settings.weekly': 'Kila wiki',
   'taxCenter.bucket.federal': 'Mapato ya Shirikisho',
   'taxCenter.bucket.fica': 'Usalama wa Jamii',

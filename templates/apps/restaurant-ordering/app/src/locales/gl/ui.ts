@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Acerca de {{app}}',
   'analytics.avgCheckLabel': 'Comprobación media',
   'analytics.busiestHour': 'Hora de máis afluencia',
   'analytics.coversToday': 'Cubertas hoxe',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Propinas (media)',
   'analytics.topItems': 'Artigos principais de hoxe',
   'authShell.eyebrow': 'Benvido de volta ao servizo',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Un punto de venda acolledor e rápido para os equipos de hostalería. Inicia sesión na túa cociña e continúa onde o deixaches.',
   'authShell.tip':
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ou {{price}}',
   'billing.priceUnavailable': 'Este plan non ten un prezo configurado.',
   'billing.updated': 'Plan actualizado.',
+  'common.goToDashboard': 'Ir ao panel',
   'customerDetail.book': 'Engadir reserva',
   'customerDetail.col.table': 'Táboa',
   'customerDetail.confirmDelete': 'Queres eliminar este rexistro de convidado?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Dispoñibilidade',
   'menuItemDetail.available': 'Dispoñible esta noite',
   'menuItemDetail.backToMenu': 'Volver ao menú',
+  'menuItemDetail.confirmDelete': 'Queres eliminar este elemento do menú?',
   'menuItemDetail.delete': 'Eliminar elemento',
   'menuItemDetail.deleteError': 'Fallou a eliminación. Téntao de novo.',
   'menuItemDetail.dietary': 'Etiquetas dietéticas',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Fallou a gardación. Téntao de novo.',
   'menuItemDetail.subheading': '{{category}} · editar fotos, modificadores, dieta e prezos.',
   'menuItemDetail.untitled': 'Elemento sen título',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'notFound.heading': 'Esta mesa non está no chan.',
   'notFound.subheading': 'A páxina que buscabas estaba noutro lugar ou nunca existiu.',
+  'notFound.toLanding': 'inicio de {{app}}',
   'notifications.markError': 'Non se puideron marcar todas como lidas.',
   'orderDashboard.activeDelta': 'En directo agora',
   'orderDashboard.activeLabel': 'Pedidos activos',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Mostrar contrasinal',
   'resetPassword.subtitle': 'Introduza o seu novo contrasinal para recuperar o acceso á cociña.',
   'resetPassword.tokenLabel': 'Restablecer o token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navegación principal',
   'revenueHeroCard.activeOrders': '{{count}} activo',
   'revenueHeroCard.change': '{{sign}} {{amount}} en comparación con onte',
   'revenueHeroCard.title': 'Ingresos de hoxe',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nome do restaurante',
   'tableDetail.activeOrders': 'Pedidos activos',
   'tableDetail.backToFloor': 'Plano de planta',
+  'tableDetail.confirmDelete': 'Queres eliminar esta táboa?',
   'tableDetail.delete': 'Eliminar',
   'tableDetail.deleteError': 'Non se puido eliminar a táboa.',
   'tableDetail.heading': 'Táboa {{label}}',

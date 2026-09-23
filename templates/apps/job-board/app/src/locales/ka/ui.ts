@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენს შესახებ',
   'applications.empty':
     'განაცხადები ჯერ არ არის \\u2014 შესაბამისი პოზიციის დასაჯავშნად განაცხადის შეტანის დროა.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ყველა როლი, რომელზეც განაცხადეთ, მოძრაობაშია. ფოკუსირებისთვის გაფილტრეთ ეტაპის მიხედვით.',
   'applications.untitledRole': 'როლი # {{id}}',
+  'auth.legalConsent': 'გაგრძელებით, თქვენ ეთანხმებით ჩვენს',
   'common.and': 'და',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'companies.empty': 'თქვენს ძიებას არცერთი კომპანია არ შეესაბამება \\u2014 სცადეთ სხვა ტერმინი.',
   'companies.eyebrow': 'რეკომენდებული დამსაქმებლები',
   'companies.searchPlaceholder': 'ძებნა სახელის, ინდუსტრიის, მდებარეობის მიხედვით',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ამ პოზიციაზე განაცხადები ჯერ არ არის.',
   'jobApplicants.eyebrow': 'დამსაქმებლის ხედვა',
   'jobApplicants.loading': 'იტვირთება\\u2026',
+  'jobApplicants.statusUpdateFailed': 'ამ ეტაპის განახლება ვერ მოხერხდა — სცადეთ ხელახლა.',
+  'jobApplicants.subheading':
+    'რეზიუმეების განხილვა, კანდიდატების წინ წაწევა, შეთავაზებების გაგზავნა \\u2014 {{count}} მოქმედებაშია.',
   'jobDetail.applicantCount': '{{count}} აპლიკანტები ჯერჯერობით',
   'jobDetail.applied': 'განაცხადი გაიგზავნა',
   'jobDetail.apply': 'განაცხადის შეტანა ახლავე',
@@ -85,12 +91,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ღია როლების დათვალიერება \\u2192',
   'landing.pricingEyebrow': 'ფასები',
   'landing.pricingHeading': 'მარტივი გეგმები ყველა ზომის გუნდისთვის.',
+  'login.eyebrow': 'კეთილი იყოს თქვენი დაბრუნება {{app}}-ში',
   'login.heading': 'შედით თქვენს ანგარიშში',
   'login.noAccount': 'ნოშში ახალი ხართ?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'დამიმახსოვრე 30 დღის განმავლობაში',
   'login.signingIn': 'შესვლა\\u2026',
   'login.subheading': 'განაახლეთ ძიება, განაახლეთ განაცხადები და მიიღეთ პასუხი უფრო სწრაფად.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . შექმნილია დამსაქმებელი გუნდებისთვის.',
   'loginBrandPanel.headline': 'სადაც ნიჭი ხვდება ერთმანეთს',
   'loginBrandPanel.headlineLine2': 'იმპულსი.',
   'loginBrandPanel.listing.recruiter': 'ნიჭიერი პარტნიორი',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'განაცხადების განახლებები, გასაუბრების მოსაწვევები, ახალი მატჩები \\u2014 უახლესი პირველები.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ამ კვირაში',
   'opportunitiesHero.eyebrow': 'დღეს ღიაა',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'postJob.addNewCompany': '+ ახალი კომპანიის დამატება',
   'postJob.companyCreateFailed': 'კომპანიის შექმნა ვერ მოხერხდა — სცადეთ ხელახლა.',
   'postJob.companyNameLabel': 'თქვენი კომპანიის სახელი',
@@ -167,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'ანგარიშის შექმნა\\u2026',
   'signup.ctaEmployer': 'დამსაქმებლის ანგარიშის შექმნა',
   'signup.firstNamePlaceholder': 'მაია',
+  'signup.lastNamePlaceholder': 'ჩენი',
   'signup.passwordMismatch': 'პაროლები არ ემთხვევა.',
   'signup.subheading':
     'უფასოა მაძიებლებისთვის, სამუდამოდ. დამსაქმებლები იწყებენ 30-დღიანი საცდელი პერიოდით.',
   'timeAgo.days': '{{count}} დღის წინ',
   'timeAgo.hours': '{{count}} საათის წინ',
   'timeAgo.justNow': 'ახლახან',
+  'timeAgo.weeks': '{{count}} კვირის წინ',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
   'accountDetail.activeBadge': '有効',
   'accountDetail.availableLabel': '利用可能{{amount}}',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': '口座',
   'accounts.loadError': '口座の読み込みに失敗しました。',
   'accounts.status.closed': '閉鎖',
+  'accounts.status.frozen': '『アナと雪の女王』',
   'accounts.totalBalance': '合計{{amount}}',
   'audit.empty': 'まだイベントはありません。',
   'audit.eyebrow': 'セキュリティとアクセス',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': '手元の現金',
   'cashCreditCard.creditLabel': '利用中のクレジット',
   'cashCreditCard.title': '現金とクレジット',
+  'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.accountsHeading': '口座',
   'dashboard.heading': '概要',
   'dashboard.recentEmpty': 'まだ取引はありません。',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'パスワードを表示',
   'login.signUp': 'サインアップ',
   'login.submit': 'サインイン',
+  'meridianLayout.menu': 'メニュー',
   'meridianLayout.primaryNavLabel': 'メインナビゲーション',
   'nav.legal': '法的事項',
   'notifications.emptyHeading': 'すべて確認済みです',
   'notifications.subheading': '取引、セキュリティ、明細書に関するリアルタイム通知。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'privacy.dataWeShare':
     '個人の銀行データを販売することは一切ありません。決済処理業者、カードネットワーク、規制当局には、取引の決済や法的義務の履行に必要な場合にのみ情報を共有します。',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     '二段階認証では、サインインのたびに認証アプリのワンタイムコードが必要になります。',
   'settings.security.twoFactorCta': '二段階認証を管理',
+  'settings.security.twoFactorOff': '二要素認証がオフになっています',
   'settings.signOutDevice': 'サインアウト',
   'settings.subheading': 'プロフィール、セキュリティ、通知。',
+  'settings.twoFactorCode': '認証コード',
   'settings.twoFactorDisable': '無効化',
   'settings.twoFactorEnable': '有効化',
+  'settings.twoFactorInvalidCode': '無効なコード',
+  'settings.twoFactorVerify': '確認して有効にする',
   'signup.emailLabel': 'メールアドレス',
   'signup.fullName': 'お名前を教えてください',
   'signup.showPassword': 'パスワードを表示',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'まだ取引はありません。',
   'transactions.endDate': '終了日',
   'transactions.eyebrow': 'アクティビティ',
+  'transactions.loadError': '取引の読み込みに失敗しました。',
   'transactions.merchant': '加盟店',
+  'transactions.subheading': 'すべての口座における、すでに処理済みの取引および処理待ちの取引。',
   'transfers.availableHint': '利用可能{{amount}}',
   'transfers.errorGeneric': '送金を送信できませんでした。',
   'transfers.errorMissingFields': '送金元口座と送金先を選択してください。',

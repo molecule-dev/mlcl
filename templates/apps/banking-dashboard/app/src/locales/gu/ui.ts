@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'accountDetail.activeBadge': 'સક્રિય',
   'accountDetail.availableLabel': '{{amount}} ઉપલબ્ધ',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'એકાઉન્ટ્સ',
   'accounts.loadError': 'એકાઉન્ટ્સ લોડ કરવામાં નિષ્ફળ.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'ફ્રોઝન',
   'accounts.totalBalance': '{{રકમ}} કુલ',
   'audit.empty': 'હજુ સુધી કોઈ ઇવેન્ટ નથી.',
   'audit.eyebrow': 'સુરક્ષા અને ઍક્સેસ',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'રોકડા પૈસા ઉપલબ્ધ છે',
   'cashCreditCard.creditLabel': 'ક્રેડિટનો ઉપયોગ થયો',
   'cashCreditCard.title': 'રોકડ અને ક્રેડિટ',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.accountsHeading': 'એકાઉન્ટ્સ',
   'dashboard.heading': 'ઝાંખી',
   'dashboard.recentEmpty': 'હજુ સુધી કોઈ વ્યવહારો નથી.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'પાસવર્ડ બતાવો',
   'login.signUp': 'સાઇન અપ કરો',
   'login.submit': 'સાઇન ઇન કરો',
+  'meridianLayout.menu': 'મેનુ',
   'meridianLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'nav.legal': 'કાનૂની',
   'notifications.emptyHeading': 'તમે બધું પૂર્ણ કરી લીધું છે',
   'notifications.subheading': 'વ્યવહારો, સુરક્ષા અને સ્ટેટમેન્ટ માટે રીઅલ-ટાઇમ ચેતવણીઓ.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'privacy.dataWeShare':
     'વ્યક્તિગત બેંકિંગ ડેટા ક્યારેય વેચાતો નથી. અમે ચુકવણી પ્રોસેસર્સ, કાર્ડ નેટવર્ક્સ અને નિયમનકારો સાથે ફક્ત વ્યવહારો પતાવટ કરવા અથવા કાનૂની જવાબદારીઓ પૂર્ણ કરવા માટે જરૂરી માહિતી શેર કરીએ છીએ.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'દરેક સાઇન-ઇન પર, બે-પરિબળ પ્રમાણકર્તા એપ્લિકેશનમાંથી એક-વખતનો કોડ ઉમેરે છે.',
   'settings.security.twoFactorCta': 'બે-પરિબળ પ્રમાણીકરણનું સંચાલન કરો',
+  'settings.security.twoFactorOff': 'ટુ-ફેક્ટર બંધ છે',
   'settings.signOutDevice': 'સાઇન આઉટ કરો',
   'settings.subheading': 'પ્રોફાઇલ, સુરક્ષા અને સૂચનાઓ.',
+  'settings.twoFactorCode': 'પ્રમાણીકરણ કોડ',
   'settings.twoFactorDisable': 'અક્ષમ કરો',
   'settings.twoFactorEnable': 'સક્ષમ કરો',
+  'settings.twoFactorInvalidCode': 'અમાન્ય કોડ',
+  'settings.twoFactorVerify': 'ચકાસો અને સક્ષમ કરો',
   'signup.emailLabel': 'ઇમેઇલ સરનામું',
   'signup.fullName': 'અમારે તમને કેવી રીતે સંબોધવા જોઈએ?',
   'signup.showPassword': 'પાસવર્ડ બતાવો',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'હજુ સુધી કોઈ વ્યવહારો નથી.',
   'transactions.endDate': 'સમાપ્તિ તારીખ',
   'transactions.eyebrow': 'પ્રવૃત્તિ',
+  'transactions.loadError': 'વ્યવહારો લોડ કરવામાં નિષ્ફળ રહ્યા.',
   'transactions.merchant': 'વેપારી',
+  'transactions.subheading': 'તમારા એકાઉન્ટ્સ પર પોસ્ટ કરેલા અને બાકી રહેલા દરેક વ્યવહાર.',
   'transfers.availableHint': '{{amount}} ઉપલબ્ધ',
   'transfers.errorGeneric': 'ટ્રાન્સફર સબમિટ કરી શકાયું નથી.',
   'transfers.errorMissingFields': 'સ્રોત એકાઉન્ટ અને ગંતવ્ય પસંદ કરો.',

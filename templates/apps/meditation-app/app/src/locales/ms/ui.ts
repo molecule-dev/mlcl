@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.eyebrow': 'Perihal {{app}}',
+  'about.intro':
+    '{{app}} ialah aplikasi meditasi untuk kehidupan sebenar — meditasi berpandu harian, latihan pernafasan dan cerita tidur yang diiringkan oleh guru yang berasa seperti seorang rakan, bukan jurulatih. Tiada rasa bersalah, tiada bunyi bising: hanya tempat yang tenang untuk kembali kepada nafas anda.',
+  'about.missionBody':
+    'Kami percaya ketenangan harus dapat diakses oleh semua orang, pada bila-bila masa sepanjang hari. {{app}} wujud untuk menjadikan amalan yang tenang dan konsisten terasa mudah — supaya sepuluh minit yang jujur dapat mengubah cara anda menghadapi sepuluh jam seterusnya.',
+  'about.missionTitle': 'Misi kami',
+  'about.pageTitle': '10 minit sehari yang lebih tenang',
+  'breathingDial.seconds': 'saat',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.logout': 'Log keluar',
   'common.min': 'min',
   'common.relative.justNow': 'baru sahaja',
   'common.relative.now': 'sekarang',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
+  'nav.secondaryNavigation': 'Navigasi akaun',
   'sessionCard.with': 'dengan {{name}}',
   'stillpoint.billing.choose': 'Pilih {{plan}}',
   'stillpoint.billing.currentPlan': 'Sedang aktif {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Kami tidak dapat memuatkan pelan.',
   'stillpoint.billing.opening': 'Membuka pembayaran…',
   'stillpoint.billing.perMonthShort': '/ bulan',
+  'stillpoint.billing.perYearShort': '/thn',
   'stillpoint.billing.unknownResult': 'Respons pengebilan yang tidak dijangka.',
   'stillpoint.billing.yearly': 'Tahunan · jimat 17%',
   'stillpoint.courseDetail.back': 'Kursus',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Tiada kursus lagi.',
   'stillpoint.courses.eyebrow': '{{count}} perjalanan berbilang hari',
   'stillpoint.courses.heading': 'Kursus',
+  'stillpoint.forgot.checkEmail':
+    'Semak peti masuk anda — pautan tersebut akan tamat tempoh dalam masa 30 minit.',
   'stillpoint.forgot.success': 'Kami telah menghantar pautan tetapan semula kepada {{email}} .',
   'stillpoint.home.empty': 'Tiada sesi lagi — sila semak semula nanti.',
   'stillpoint.home.friend': 'kawan',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Buat akaun percuma anda',
   'stillpoint.landing.cta.title': 'Mulakan ketenangan anda hari ini',
   'stillpoint.landing.features.heading': 'Amalan yang berkembang bersama anda',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditasi berpandu harian, latihan pernafasan dan cerita tidur — dikendalikan oleh guru yang berasa seperti seorang rakan, bukan jurulatih.',
   'stillpoint.landing.hero.eyebrow': '10 minit sehari yang lebih tenang',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Layari mengikut suasana hati',
   'stillpoint.login.rememberMe': 'Kekalkan saya log masuk',
   'stillpoint.login.subheading': 'Daftar masuk untuk meneruskan latihan anda.',
+  'stillpoint.nav.tagline': 'Cari pusat pegun anda',
+  'stillpoint.notFound.body':
+    'Halaman ini sedang menarik nafas panjang dan dalam-dalam di suatu tempat. Mari kita cari tempat yang lebih tenang untuk anda di {{app}} .',
   'stillpoint.notFound.title': 'Hilang dalam kesunyian',
   'stillpoint.notFound.toHome': 'Kembali ke hari ini',
   'stillpoint.notFound.toLibrary': 'Layari perpustakaan',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Langkau ke belakang 15s',
   'stillpoint.player.skipForward': 'Langkau ke hadapan 30-an',
   'stillpoint.player.with': 'dengan {{name}}',
+  'stillpoint.profile.defaultHandle': 'penunjuk pegun',
   'stillpoint.profile.eyebrow': 'Amalan anda, diringkaskan.',
   'stillpoint.profile.locked': 'Dikunci',
   'stillpoint.profile.member': 'Ahli Stillpoint',

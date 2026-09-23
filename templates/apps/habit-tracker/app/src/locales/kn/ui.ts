@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'achievementBadgeCard.unlockedOn': 'ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ {{date}}',
   'achievements.loadError': 'ಸಾಧನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'achievements.subheading': '{{unlocked}} ನ {{total}} ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ',
   'achievements.unlockedOn': 'ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ {{date}}',
+  'auth.legalConsent': 'ಮುಂದುವರಿಸುವ ಮೂಲಕ, ನೀವು ನಮ್ಮನ್ನು ಒಪ್ಪುತ್ತೀರಿ',
   'calendar.empty': 'ನಿಮ್ಮ ಕ್ಯಾಲೆಂಡರ್ ನೋಡುವ ಅಭ್ಯಾಸವನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಿ.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ಅಭ್ಯಾಸ',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ಅಭ್ಯಾಸ ಗ್ರಿಡ್',
   'category.${c.category}': '{{ಎಣಿಕೆ}} ಅಭ್ಯಾಸಗಳು',
   'common.and': 'ಮತ್ತು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'consistencyHeatmap.ariaLabel': 'ದೈನಂದಿನ ಸ್ಥಿರತೆಯ ಹೀಟ್‌ಮ್ಯಾಪ್',
   'consistencyHeatmap.caption': 'ಕೊನೆಯದು {{weeks}} ವಾರಗಳು',
   'consistencyHeatmap.lessLabel': 'ಕಡಿಮೆ',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'ಅದನ್ನು ಲೈವ್ ಆಗಿ ನೋಡಿ',
   'landing.heroSubtitle':
     'ಸಣ್ಣ ಬದ್ಧತೆಗಳು, ದೈನಂದಿನ ಗೆರೆಗಳು ಮತ್ತು ದೀರ್ಘವಾದ ಮುರಿಯದ ಸರಪಳಿಯ ಆಂತರಿಕ ಆನಂದ: ಅವು ನಿಜವಾಗಿಯೂ ಅಂಟಿಕೊಳ್ಳುವ ರೀತಿಯಲ್ಲಿಯೇ ಅಭ್ಯಾಸಗಳನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಿ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'ಸ್ಟ್ರೀಕ್ ಒಳಗೆ ಒಂದು ಇಣುಕು ನೋಟ',
   'landing.previewMotivation': 'ಒಂಬತ್ತು ಗೆರೆಗಳು ಜೀವಂತವಾಗಿವೆ. ಅವೆಲ್ಲವನ್ನೂ ಬೆಚ್ಚಗಿಡಿ.',
   'login.eyebrow': 'ಸರಪಣಿಯನ್ನು ಎತ್ತಿಕೊಳ್ಳಿ',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ಚಿಕ್ಕದಾಗಿಸಿ. ನಿರ್ದಿಷ್ಟಪಡಿಸಿ. ನಾಳೆ ಬನ್ನಿ.',
   'newHabit.timeLabel': 'ಜ್ಞಾಪನೆ ಸಮಯ',
   'notifications.markError': 'ಎಲ್ಲವನ್ನೂ ಓದಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.entries': '{{count}} ನಮೂದುಗಳು',
+  'pricing.heading': 'ನಿಮ್ಮ {{app}} ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ',
   'profile.action.plan': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ನಿರ್ವಹಿಸಿ',
   'profile.action.settings': 'ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
   'profile.bioEmpty':
@@ -127,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'ದೈನಂದಿನ ಬೆಳಗಿನ ಪ್ರಾಂಪ್ಟ್ (ಬೆಳಿಗ್ಗೆ 8:00)',
   'settings.reminders.heading': 'ಜ್ಞಾಪನೆಗಳು',
   'settings.reminders.weekly': 'ವಾರದ ಸಾರಾಂಶ (ಭಾನುವಾರ ಸಂಜೆ)',
+  'settings.revokeDeviceWarning':
+    'ಈ ಸಾಧನದ ಪ್ರವೇಶವನ್ನು ಶೀಘ್ರದಲ್ಲೇ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡುವುದೇ?',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.streaks.freezesPerWeek': 'ವಾರಕ್ಕೆ ಫ್ರೀಜ್ ಆಗುತ್ತದೆ',
   'settings.streaks.gracePeriod': 'ಮಧ್ಯರಾತ್ರಿಯ ನಂತರ 6 ಗಂಟೆಗಳ ಗ್ರೇಸ್ ಅವಧಿ',
@@ -153,5 +162,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ಸಕ್ರಿಯ',
   'streakHeroCard.daysSuffix': 'ದಿನಗಳು',
   'streakHeroCard.title': 'ಅತಿ ಉದ್ದದ ಸಕ್ರಿಯ ಸ್ಟ್ರೀಕ್',
+  'streakLayout.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'streakLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'streakLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
 }

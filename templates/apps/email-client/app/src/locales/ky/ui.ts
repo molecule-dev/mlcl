@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Биз бир кезде күн сайын өтө көп сааттарды ызы-чуулуу почта кутучасында өткөргөн дизайнерлердин жана инженерлердин чачыранды командасыбыз. Courier - бул биз өзүбүз колдонгубуз келген почта кутусу.',
   'about.title': 'Максаттуу иш үчүн электрондук почта',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'help.cta.about': 'Меридиан жөнүндө',
   'help.cta.pricing': 'Бааларды көрүү',
   'help.eyebrow': 'Жардам борбору',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Биз эң көп уккан суроолорго тез жооптор. Бир нерсе жетишпей жатабы? Жөндөөлөрдү ачып, колдонмодогу пикир формасын колдонуңуз же support@courier.example дарегине жазыңыз.',
   'help.title': 'Кантип жардам бере алабыз?',
   'landing.brand.scrollTop': 'Жогоруга кайтуу',
+  'landing.copyright': '© {{year}} {{appName}} — Фокустоо үчүн түзүлгөн.',
   'landing.ctaBody':
     'Түшкү тамакка чейин электрондук почтасын бүтүргөн миңдеген адистерге кошулуңуз.',
   'landing.ctaTitle': 'Көбүрөөк иштетип, азыраак реакция кылыңыз.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Демону көрүү',
   'landing.heroSubtitle':
     'Courier – бул маалыматты иштетүүнү каалаган, ага реакция кылгысы келбеген билим кызматкерлери үчүн түзүлгөн тынч үч панелдүү почта кутусу.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Дүйнө жүзү боюнча атайын топтор тарабынан ишеничке ээ',
   'landing.signIn': 'Кирүү',
   'meridian.archive.empty': 'Архив бош.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Долбоор',
   'meridian.folder.count': '{{count}} билдирүүлөр',
+  'meridian.folder.delete': 'Өчүрүү',
   'meridian.folder.deleteForever': 'Биротоло өчүрүү',
   'meridian.folder.restore': 'Келген каттар кутусуна жылдыруу',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Бул жерде азырынча эч кандай билдирүү жок.',
   'meridian.inbox.loading': 'Жүктөлүүдө…',
   'meridian.inbox.next': 'Кийинки',
+  'meridian.inbox.noSender': '(жөнөтүүчү жок)',
   'meridian.inbox.noSubject': '(темасы жок)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'Жазууну ачуу',
   'meridian.inbox.previous': 'Мурунку',
   'meridian.inbox.replyFailed': 'Жооп сакталды, бирок жеткирүү ишке ашкан жок: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Аккаунтуңуз жокпу?',
   'meridian.login.showPassword': 'Сырсөздү көрсөтүү',
   'meridian.message.toLine': 'чейин {{recipients}}',
+  'meridian.notFound.body':
+    'Сиз издеп жаткан баракча табылган жок. {{appName}} электрондук почтаңызга кайтыңыз, биз сизге туура жолду көрсөтөбүз.',
   'meridian.notFound.eyebrow': '404 катасы',
   'meridian.notFound.title': 'Бул тема архивделген.',
   'meridian.notFound.toInbox': 'Менин келген каттар кутучамды ачуу',
@@ -135,18 +143,22 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Жылдызча кошуу',
   'meridian.thread.unstar': 'Жылдызчаны алып салуу',
   'meridian.time.yesterday': 'Кечээ',
+  'meridian.topBar.openMenu': 'Навигация менюсун ачуу',
   'meridian.topBar.searchPlaceholder': 'Почтаны издөө',
   'meridian.trash.empty': 'Таштанды бош.',
   'meridian.trash.title': 'Таштанды',
   'nav.legal': 'Юридикалык',
   'planUpdated.description':
     'Жазылууңуз эми активдүү жана эсеп-фактураңыз жаңыртылды. Жаңыртылган Courier электрондук почтаңызга кош келиңиз.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.heading': 'долбоорлор',
   'pricing.limit.emails': 'электрондук каттар',
   'pricing.limit.folders': 'папкалар',
   'pricing.limit.labels': 'этикеткалар',
   'privacy.collect.account':
     'Каттоо эсебинин маалыматтары: аты-жөнү, электрондук почта дареги, хэштелген сырсөз жана катталган күнүңүз.',
+  'privacy.contact':
+    'Суроолоруңуз барбы? privacy@courier.example электрондук дарегине кат жазыңыз.',
   'privacy.intro':
     'Бул купуялык саясаты Courier кандай маалыматтарды чогултаарын, эмне үчүн чогултаарын, аны кантип коопсуз сактаарыбызды жана ага карата кандай тандоолоруңуз бар экенин түшүндүрөт. Биз мыйзамдуу эмес, конкреттүү болууга аракет кылабыз; эгерде бир нерсе түшүнүксүз болсо, privacy@courier.example дарегине жазыңыз.',
   'privacy.lastUpdated': 'Акыркы жолу жаңыртылган: 2026-жылдын 1-апрели',
@@ -166,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Бул шарттар сиздин Меридианды колдонууңузду жөнгө салат. Биз аркылуу аккаунт түзүү же электрондук кат жөнөтүү менен сиз аларды аткарууга макул болосуз. Биз адам чындап аткара ала турган эрежелерди жазууга аракет кылабыз.',
   'terms.lastUpdated': 'Күчүнө кирген күнү: 2026-жылдын 1-апрели',
+  'terms.linkPrivacy': 'Купуялык саясатыбызды окуп чыгыңыз →',
   'terms.termination.body':
     'Аккаунтуңузду каалаган убакта жок кыла аласыз. Бул шарттарды бузган аккаунтту убактылуу токтото алабыз; эгерде биз муну кылсак, себебин түшүндүрүп, алгач сизге маалыматыңызды экспорттоого уруксат беребиз.',
   'terms.warranty.body':

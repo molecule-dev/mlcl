@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'authShell.brandHeading':
     'Хамтдаа тээвэрлэдэг дизайны багуудад зориулсан пиксельтэй төгс зурагнууд.',
   'canvas.redirecting': 'Засварлагчийг нээж байна...',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'мөн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.retry': 'Дахин оролдох',
   'dashboard.activityEmpty':
     'Саяхны үйл ажиллагаа хараахан алга байна — багийнхаа андыг эхлүүлэхийг урь.',
   'dashboard.activityTitle': 'Өнөөдөр юу өөрчлөгдсөн бэ',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Ажлын байр · Нортвинд студи',
   'dashboard.foldersLabel': 'Хавтаснууд',
   'dashboard.gridTitle': '{{count}} төслүүд',
+  'dashboard.heroActiveTool': 'Үзэгний хэрэгсэл',
   'dashboard.loadingTitle': 'Төслүүдийг ачаалж байна…',
   'dashboard.searchPlaceholder': 'Төслүүдийг хайх',
   'dashboard.startFromTemplate': 'Загвараас эхлэх',
   'dashboard.title': 'Таны төслүүд',
   'dashboard.untitledProject': 'Гарчиггүй төсөл',
   'designCanvasLayout.newProject': 'Шинэ төсөл',
+  'designCanvasLayout.primaryNavLabel': 'Үндсэн навигаци',
   'editor.backToProjects': 'Төслүүд рүү буцах',
   'editor.deleteShape': 'Дүрсийг устгах',
   'editor.errorBody': 'Бид энэ төслийг нээж чадаагүй.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Гарынхаа хурдаар хөдөлдөг хэрэгслүүдийг зохион бүтээх',
   'library.empty': 'Энэ хэсэгт одоогоор токен алга байна.',
   'library.eyebrow': 'Ажлын байр · Ателье дизайны систем',
+  'library.loadFailed': 'Дизайн токенуудыг ачаалж чадсангүй.',
   'library.systemMeta': 'Системийн эрүүл мэнд',
   'library.systemSummary':
     '{{токен}} жетонууд · {{бүрэлдэхүүн хэсгүүд}} бүрэлдэхүүн хэсгүүд · {{эффектүүд}} нөлөө',

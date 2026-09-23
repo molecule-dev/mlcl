@@ -2,12 +2,14 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Σχετικά',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'askClarionBar.askCta': 'Ρωτήστε',
   'askClarionBar.placeholder':
     'Υποβάλετε ερώτηση για τα δεδομένα σας — π.χ. «κορυφαίοι 10 πελάτες βάσει εσόδων Q3»',
   'askClarionBar.suggestionsLabel': 'Δοκιμάστε',
   'askClarionBar.thinking': 'Επεξεργασία…',
   'clarionLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.askCta': 'Ρωτήστε το Clarion',
@@ -36,6 +38,10 @@ export const ui: UiTranslations = {
   'datasetDetail.sampleEmpty':
     'Δεν έχουν καταγραφεί δείγματα γραμμών για αυτό το σύνολο δεδομένων.',
   'datasetDetail.sampleLoading': 'Φόρτωση προεπισκόπησης…',
+  'datasetDetail.stat.max': 'Μαξ',
+  'datasetDetail.stat.mean': 'Μέσος όρος',
+  'datasetDetail.stat.min': 'Μιν',
+  'datasetDetail.stat.nullPct': 'Μηδέν %',
   'datasetDetail.tab.${tk}': 'Πεδίο',
   'datasets.empty': 'Δεν υπάρχουν σύνολα δεδομένων ακόμα — ανεβάστε ένα για να ξεκινήσετε.',
   'datasets.eyebrow': '{{count}} σύνολα δεδομένων · {{rows}} γραμμές',
@@ -76,6 +82,9 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.subheading':
     'Συνδεθείτε για να συνεχίσετε να κάνετε καλύτερες ερωτήσεις στα δεδομένα σας.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'queryEditor.aiBadge': 'Δημιουργήθηκε από ΤΝ',
   'queryEditor.aiSummary': 'Σύνοψη ΤΝ',
   'queryEditor.copyFailed': 'Αδύνατη η αντιγραφή στο πρόχειρο.',
@@ -94,6 +103,7 @@ export const ui: UiTranslations = {
   'reportDetail.dataHeading': 'Πλήρη δεδομένα',
   'reportDetail.heroHeading': 'Κύριο γράφημα',
   'reportDetail.loadError': 'Αποτυχία φόρτωσης αναφοράς.',
+  'reportDetail.momSuffix': 'MoM',
   'reportDetail.notFound': 'Η αναφορά δεν βρέθηκε.',
   'reports.empty': 'Δεν υπάρχουν αναφορές ακόμα — εκτελέστε ένα ερώτημα και αποθηκεύστε το.',
   'reports.eyebrow': '{{count}} αναφορές · {{scheduled}} προγραμματισμένες',
@@ -109,6 +119,7 @@ export const ui: UiTranslations = {
     'Επιλέξτε έναν ισχυρό κωδικό — τουλάχιστον 8 χαρακτήρες με συνδυασμό γραμμάτων και αριθμών.',
   'settings.account.heading': 'Λογαριασμός',
   'settings.account.orgPlaceholder': 'Η ομάδα ή η εταιρεία σας',
+  'settings.account.passwordChanged': 'Ο κωδικός πρόσβασης άλλαξε.',
   'settings.account.saved': 'Τα στοιχεία λογαριασμού αποθηκεύτηκαν.',
   'settings.account.saveError': 'Αδύνατη η αποθήκευση στοιχείων λογαριασμού.',
   'settings.apiKeys.body':
@@ -135,9 +146,12 @@ export const ui: UiTranslations = {
   'settings.team.empty':
     'Δεν υπάρχουν μέλη ομάδας ακόμα — προσκαλέστε ένα για να ξεκινήσετε τη συνεργασία.',
   'settings.team.removed': 'Το μέλος της ομάδας αφαιρέθηκε.',
+  'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'sideNavBar.appSubtitle': 'AI Data Analyst',
   'sideNavBar.datasets': 'Σύνολα δεδομένων',
   'sideNavBar.newAnalysis': 'Νέα ανάλυση',

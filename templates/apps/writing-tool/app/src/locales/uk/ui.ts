@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.title': 'Кімната для письма, яку можна тримати в кишені',
   'billing.cancelConfirm': 'Скасувати активну підписку?',
   'billing.cancelFailed': 'Не вдалося скасувати.',
   'billing.checkingOut': 'Відкриття каси…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Не вдалося завантажити платіжну інформацію.',
   'billing.loading': 'Завантаження білінгу…',
   'billing.upgradeCta': 'Оновіть до {{name}}',
+  'common.goToDashboard': 'До панелі',
+  'editor.autosaveOn': 'Автозбереження ввімкнено',
   'editor.backToLibrary': 'Назад до бібліотеки',
   'editor.charCount': '{{count}} символів',
   'editor.confirmTrash': 'Перемістити цей документ у кошик?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Відкріплено',
   'editor.unpublishCta': 'Перемістити до чернетки',
   'editor.unpublished': 'Повернуто до чернетки',
+  'focus.autosaveOn': 'Автозбереження ввімкнено',
   'focus.backToLibrary': 'Назад до бібліотеки',
   'focus.bodyPlaceholder': 'Рядок за рядком. Більше нікого тут немає.',
   'focus.exit': 'Вийти з режиму фокусування',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Створіть один',
   'login.subline':
     'Ваші рукописи, щоденні сторінки та остання позиція курсора залишаються саме там, де ви їх залишили.',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'pricing.exports': 'експорт',
   'pricing.folders': 'папки',
   'pricing.heading': 'документи',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Введіть код, який ми щойно надіслали вам електронною поштою, та виберіть щось пам’ятне. Ми ввійдемо в систему, щойно його буде збережено.',
   'reset.tokenHint': 'Вставлено з вашої папки "Вхідні".',
+  'settings.appearance.heading': 'Світлий чи темний',
   'settings.editor.${row.id}.description': 'Мова',
   'settings.editor.description':
     'Прокручування друкарської машинки, поступове згасання абзаців та фокус у режимі очікування — налаштування за замовчуванням налаштовані на тривалі сеанси.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Розділ третій — Тиха година перед сходом сонця',
   'versalDocumentCard.pinned': 'Закріплені',
   'versalLayout.nav.stats': 'Статистика',
+  'versalLayout.primaryNavLabel': 'Основна навігація',
   'versalManuscriptHero.cta': 'Продовжити писати',
   'versalManuscriptHero.goalLabel': 'Сьогоднішня мета зі словами',
   'versalManuscriptHero.inProgress': 'На правильному шляху',

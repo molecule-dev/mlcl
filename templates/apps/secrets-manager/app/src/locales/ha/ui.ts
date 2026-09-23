@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'about.tagline': 'Sirri yana mutuwa a bayyane.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Ƙirƙiri alama',
   'apiTokens.kicker': 'Alamun API',
   'apiTokens.loading': 'Ana loda alamun…',
+  'apiTokens.new': 'Sabuwar alama',
   'apiTokens.revoke': 'Soke alamar',
   'apiTokens.subheading':
     'Alamun sirri da na sabis na Arcanum CLI da SDK. An nuna rubutu a sarari sau ɗaya a lokacin ƙirƙira.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + kalmar sirri',
   'authShell.zeroKnowledge': 'Boye bayanan sifili',
   'common.connecting': 'Haɗawa…',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.inviting': 'Ana gayyatar…',
   'forgotPassword.checkInbox':
     'Idan an yi rijistar {email}, hanyar haɗin sake saitawa da aka sanya hannu za ta isa cikin minti ɗaya.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Matsayin juyawa, faɗakarwar rashin daidaituwa, da buƙatun amincewa a cikin kowane rumbun ajiya.',
   'notifications.unreadEmpty': 'Sifili na akwatin saƙo — an kama duk abin da aka faɗa.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.heading': 'sirri',
   'pricing.limits.accessPolicies': 'manufofin shiga',
   'pricing.limits.auditLog': 'Shigar da bayanan rajista',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Asusunka na kanka',
   'profile.plan.description': 'Sarrafa biyan kuɗin ku, duba iyakoki, da haɓakawa.',
   'profile.subheading': "Asali, na'urori masu mahimmanci, da kuma zaman aiki.",
+  'profile.twoFactor.code': 'Lambar tabbatarwa',
   'profile.twoFactor.disable': 'A kashe',
   'profile.twoFactor.enable': 'Kunna',
+  'profile.twoFactor.invalidCode': 'Lambar da ba ta aiki ba',
   'profile.twoFactor.kicker': 'Tantancewa ta abu biyu',
+  'profile.twoFactor.off': 'Ba a kunna ba',
   'profile.twoFactor.on': 'An kunna',
   'resetPassword.email': 'Imel ɗin asusu',
   'resetPassword.heading': 'Saita sabbin takardun shaida',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'umarni',
   'secretsManagerLayout.encrypted': 'AES-256 · AN RUBUTA',
   'secretsManagerLayout.newVault': 'Sabuwar rumbun ajiya',
+  'secretsManagerLayout.newVaultShort': 'Sabo',
   'secretsManagerLayout.rotations': 'Juyawa',
   'secretsManagerLayout.search': 'bincike',
   'secretsManagerLayout.searchPlaceholder': 'Bincika sirri ta hanyar maɓalli, hanya, ko alama…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sirri',
   'vaultCard.vaultLabel': 'Taska',
   'vaultDetail.addSecret': 'Ƙara sirri',
+  'vaultDetail.back': 'Duk rumbunan ajiya',
   'vaultDetail.col.key': 'Maɓalli',
   'vaultDetail.col.rotated': 'An juya',
   'vaultDetail.col.value': 'darajar',

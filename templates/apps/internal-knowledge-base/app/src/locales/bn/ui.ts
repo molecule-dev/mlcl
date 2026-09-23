@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'article.notFound': 'নিবন্ধটি খুঁজে পাওয়া যায়নি',
   'articleEditor.bodyPlaceholder': 'ব্লক করার জন্য / টাইপ করুন, অথবা সরাসরি লেখা শুরু করুন।',
+  'articleEditor.loadFailed': 'নিবন্ধটি লোড করা যায়নি',
   'articleEditor.publishing': 'প্রকাশনা•',
   'articleEditor.saveFailed': 'সংরক্ষণ ব্যর্থ হয়েছে',
   'articleEditor.saving': 'সঞ্চয় •',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'বুকমার্ক',
   'articleView.bookmarkOn': 'বুকমার্ক করা',
   'articleView.edit': 'নিবন্ধ সম্পাদনা করুন',
+  'articleView.loading': 'এই নিবন্ধটি খুললে…',
   'articleView.readTime': '{{minutes}} মিনিট পড়া',
   'articleView.spaces': 'স্থান',
   'articleView.tocHeading': 'এই পৃষ্ঠায়',
@@ -36,8 +40,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.readers': 'আজকের পাঠকরা',
   'cairnTrailHero.subtitle': 'সাম্প্রতিক সম্পাদনা, পাঠ এবং খসড়া যা আপনার দল এখনও পর্যালোচনা করছে।',
   'cairnTrailHero.updated': 'নিবন্ধগুলি আপডেট করা হয়েছে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'drafts.eyebrow': 'আপনার অসমাপ্ত কাজ',
   'drafts.heading': 'খসড়া',
+  'drafts.loadFailed': 'আপনার খসড়াগুলো লোড করা যায়নি।',
   'drafts.subtitle':
     'যে লেখাগুলো আপনি শুরু করেছেন কিন্তু এখনো প্রকাশ করেননি। যেকোনো একটি হাতে নিন এবং চালিয়ে যান।',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesHeading': 'আপনার স্থানগুলি',
   'home.subtitle':
     'সাম্প্রতিক নিবন্ধসমূহ, আপনার বুকমার্ক করা বিষয়গুলো, এবং আমাদের দল যা যা লিখছে।',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . মলিকিউল দিয়ে নির্মিত।',
   'landing.ctaBody':
     'একক লেখকদের জন্য বিনামূল্যে। দূরবর্তী দলগুলোর জন্য টিম প্ল্যান রয়েছে, যা রানবুক, সিদ্ধান্ত এবং অনবোর্ডিং সরবরাহ করে।',
   'landing.ctaHeading': 'আজ প্রথম পাথরটি স্থাপন করুন।',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'একটি কর্মক্ষেত্র তৈরি করুন',
   'login.submitting': 'সাইন ইন করা হচ্ছে…',
   'login.subtitle': 'যেখান থেকে ছেড়ে এসেছিলেন, সেখান থেকেই আবার শুরু করুন।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
+  'newSpace.colorAria': 'রঙ বাছাই করুন {{color}}',
   'newSpace.colorLabel': 'অ্যাকসেন্ট রঙ',
+  'newSpace.createFailed': 'স্থান তৈরি করা সম্ভব হয়নি',
   'newSpace.descriptionPlaceholder': 'রানবুক, অন-কল প্লেবুক, পোস্টমর্টেম…',
   'newSpace.eyebrow': 'একটি জ্ঞান ক্ষেত্র উন্মুক্ত করুন',
   'newSpace.heading': 'নতুন স্থান',
@@ -104,6 +115,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'লোড হচ্ছে...',
   'notifications.subtitle':
     '{{count}} অপঠিত – মেনশন, মন্তব্য, পৃষ্ঠা পরিবর্তন, এবং পর্যালোচনার অনুরোধ।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.articles': 'প্রবন্ধগুলি',
   'pricing.spaces': 'স্থান',
   'profile.eyebrow': 'লেখকের প্রোফাইল',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'একটি নতুন পাসওয়ার্ড লিখুন',
   'resetPassword.subtitle': 'একটি শক্তিশালী পাসওয়ার্ড বেছে নিন — কমপক্ষে ১২ অক্ষরের।',
   'searchResults.eyebrow': 'কর্মক্ষেত্র অনুসন্ধান',
+  'searchResults.filter.all': 'সমস্ত স্থান',
   'searchResults.heading': 'নিবন্ধ অনুসন্ধান করুন',
   'searchResults.placeholder': 'রানবুক, আরএফসি, নীতিমালা, সিদ্ধান্তসমূহ অনুসন্ধান করুন…',
   'searchResults.summary': '{{count}} \\u201c এর ফলাফল {{query}} \\u201d',
@@ -130,14 +143,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'এটি আপনার অ্যাকাউন্ট এবং আপনার লেখা প্রতিটি নিবন্ধ মুছে দেবে। নিশ্চিত করতে DELETE টাইপ করুন।',
   'settings.danger.confirmInvalid': 'নিশ্চিত করতে DELETE টাইপ করুন।',
+  'settings.danger.deleteFailed': 'অ্যাকাউন্ট মুছে ফেলা যায়নি',
   'settings.danger.deleting': 'মুছে ফেলা হচ্ছে...',
   'settings.danger.description':
     'আপনার ওয়ার্কস্পেস ডিলিট করলে সমস্ত আর্টিকেল, কমেন্ট এবং ভার্সন হিস্ট্রি মুছে যাবে। এগুলো পুনরুদ্ধার করা যাবে না।',
   'settings.danger.title': 'ওয়ার্কস্পেস মুছুন',
+  'settings.email.confirm': 'ইমেল আপডেট করুন',
+  'settings.email.confirmTitle': 'ইমেইল পরিবর্তন নিশ্চিত করুন',
   'settings.email.saved': 'ইমেইল আপডেট করা হয়েছে।',
+  'settings.email.updateFailed': 'ইমেল আপডেট করা যায়নি',
   'settings.language.title': 'ভাষা',
   'settings.name': 'নাম',
+  'settings.name.saved': 'নাম হালনাগাদ করা হয়েছে।',
+  'settings.name.updateFailed': 'নাম আপডেট করা সম্ভব হয়নি',
   'settings.notifications.description': 'আপনার ইনবক্সে কী আসবে তা বেছে নিন।',
+  'settings.password.changeFailed': 'পাসওয়ার্ড পরিবর্তন করা যায়নি',
   'settings.password.current': 'বর্তমান পাসওয়ার্ড',
   'settings.password.new': 'নতুন পাসওয়ার্ড',
   'settings.password.saving': 'আপডেট করা হচ্ছে...',
@@ -145,10 +165,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'আপনার জন্য আর্টিকেলগুলো যেভাবে প্রদর্শিত হয়।',
   'settings.reading.title': 'পড়া ও লেখা',
   'settings.subtitle': 'টিউন নোটিফিকেশন, রিডিং ক্যানভাস এবং আপনার অ্যাকাউন্ট।',
+  'settings.twofa.code': 'প্রমাণীকরণ কোড',
   'settings.twofa.disable': 'অক্ষম করুন',
   'settings.twofa.disabled': 'প্রতিবন্ধী',
   'settings.twofa.enable': 'সক্ষম করুন',
   'settings.twofa.enabled': 'সক্ষম করা হয়েছে',
+  'settings.twofa.invalidCode': 'অবৈধ কোড',
+  'settings.twofa.unavailable': 'এই অ্যাপটির জন্য দ্বি-স্তরীয় প্রমাণীকরণ উপলব্ধ নেই।',
+  'settings.twofa.verify': 'যাচাই ও সক্রিয় করুন',
   'signup.brandQuote':
     '“পরবর্তী যে ব্যক্তির এটি প্রয়োজন হবে, তার কাছে আমাদের প্রথম প্রতিশ্রুতি হলো এটি লিখে রাখা।”',
   'signup.eyebrow': 'একটি কর্মক্ষেত্র খুলুন',

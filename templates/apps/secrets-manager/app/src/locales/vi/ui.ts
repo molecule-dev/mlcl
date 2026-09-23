@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'about.tagline': 'Secret chết ngoài ánh sáng.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Tạo token',
   'apiTokens.kicker': 'API token',
   'apiTokens.loading': 'Đang tải token…',
+  'apiTokens.new': 'Mã thông báo mới',
   'apiTokens.revoke': 'Thu hồi token',
   'apiTokens.subheading':
     'Token cá nhân và dịch vụ cho Arcanum CLI và SDK. Văn bản thuần chỉ hiển thị một lần khi tạo.',
@@ -29,6 +31,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Mã hóa không tri thức',
   'common.connecting': 'Đang kết nối…',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.inviting': 'Đang mời…',
   'forgotPassword.checkInbox':
     'Nếu {email} đã đăng ký, một liên kết đặt lại có chữ ký sẽ đến trong vòng một phút.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Trạng thái xoay, cảnh báo bất thường và yêu cầu phê duyệt trên mọi kho.',
   'notifications.unreadEmpty': 'Hộp thư trống — đã giải quyết hết.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.heading': 'bí mật',
   'pricing.limits.accessPolicies': 'chính sách truy cập',
   'pricing.limits.auditLog': 'mục nhật ký kiểm toán',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Tài khoản cá nhân',
   'profile.plan.description': 'Quản lý đăng ký, xem hạn mức và nâng cấp.',
   'profile.subheading': 'Danh tính, thiết bị xác thực hai yếu tố và các phiên đang hoạt động.',
+  'profile.twoFactor.code': 'Mã xác thực',
   'profile.twoFactor.disable': 'Vô hiệu hóa',
   'profile.twoFactor.enable': 'Kích hoạt',
+  'profile.twoFactor.invalidCode': 'Mã không hợp lệ',
   'profile.twoFactor.kicker': 'Xác thực hai yếu tố',
+  'profile.twoFactor.off': 'Chưa được kích hoạt',
   'profile.twoFactor.on': 'Đã bật',
   'resetPassword.email': 'Email tài khoản',
   'resetPassword.heading': 'Đặt thông tin xác thực mới',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'lệnh',
   'secretsManagerLayout.encrypted': 'AES-256 · ENCRYPTED',
   'secretsManagerLayout.newVault': 'Kho mới',
+  'secretsManagerLayout.newVaultShort': 'Mới',
   'secretsManagerLayout.rotations': 'Xoay',
   'secretsManagerLayout.search': 'tìm kiếm',
   'secretsManagerLayout.searchPlaceholder': 'Tìm secret theo khóa, đường dẫn hoặc thẻ…',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Secret',
   'vaultCard.vaultLabel': 'Kho',
   'vaultDetail.addSecret': 'Thêm secret',
+  'vaultDetail.back': 'Tất cả các kho tiền',
   'vaultDetail.col.key': 'Khóa',
   'vaultDetail.col.rotated': 'Đã xoay',
   'vaultDetail.col.value': 'Giá trị',

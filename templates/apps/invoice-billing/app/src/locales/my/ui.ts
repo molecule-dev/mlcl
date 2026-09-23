@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
   'activityFeed.empty': 'လုပ်ဆောင်ချက် မရှိသေးပါ — သင့်ပထမဆုံး ငွေတောင်းခံလွှာကို ပေးပို့ပါ။',
   'authShell.sample.paid': '၂ မိနစ်အကြာက ငွေပေးချေပြီး',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'ဖောက်သည်အသစ်ထည့်ပါ',
   'clients.search': 'အမည်၊ ကုမ္ပဏီ၊ အီးမေးလ်ဖြင့် ရှာဖွေပါ',
   'clients.title': 'ဖောက်သည်များ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'ဖောက်သည်အသစ်',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'စကားဝှက်မေ့နေပါသလား',
   'forgotPassword.successBody':
     'ပြန်လည်သတ်မှတ်ရန် ညွှန်ကြားချက်များကို ကျွန်ုပ်တို့ ပေးပို့ပြီးပါပြီ- {{email}} ။ လင့်ခ်သည် မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးပါမည်။',
+  'invoiceDetail.action.confirmVoid': 'ပျက်ပြယ်ကြောင်း အတည်ပြုပါသလား။',
   'invoiceDetail.action.download': 'PDF ကို ဒေါင်းလုဒ်လုပ်ပါ',
   'invoiceDetail.action.duplicate': 'မိတ္တူကူးထားသည်',
   'invoiceDetail.action.edit': 'တည်းဖြတ်ရန်',
@@ -75,9 +78,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'ပြေစာ ပျက်ပြယ်သွားပါပြီ။',
   'invoiceDetail.issued': 'ထုတ်ပြန်သည် {{date}}',
   'invoiceDetail.loading': 'ပြေစာတင်နေသည်…',
+  'invoiceDetail.paidInFull': 'အပြည့်အဝပေးချေပြီး',
   'invoiceDetail.summary': '{{client}} · ပေးပို့ပြီး {{date}}',
   'invoiceDetail.tax': 'အခွန် ( {{rate}} %)',
   'invoiceDetail.timeline': 'အချိန်ဇယား',
+  'invoiceDetail.voided': 'ပျက်ပြယ်သွားသည်',
   'invoiceEditor.addItem': 'ပစ္စည်းထည့်ပါ',
   'invoiceEditor.back': '← ငွေတောင်းခံလွှာများဆီသို့ ပြန်သွားရန်',
   'invoiceEditor.col.qty': 'အရေအတွက်',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'သင့်ရဲ့ ပထမဆုံး ငွေတောင်းခံလွှာကို ပို့ပါ',
   'landing.hero.eyebrow': 'အသေးစားလုပ်ငန်းများအတွက် ငွေတောင်းခံလွှာများ',
   'landing.hero.secondary': 'ငွေတောင်းခံလွှာနမူနာကိုကြည့်ပါ',
+  'landing.hero.subtitle':
+    '{{appName}} ချောမွေ့သော ငွေတောင်းခံလွှာများကို built-in ငွေပေးချေမှုများ၊ ပုံမှန်ငွေတောင်းခံလွှာများနှင့် အခွန်အကောက်အသင့်အစီရင်ခံစာများနှင့် တွဲဖက်ပေးသည်။ စာရင်းကိုင်လုပ်ငန်း မလိုအပ်ပါ။',
   'landing.hero.title':
     'ငွေတောင်းခံလွှာများ ပေးပို့ပါ။ ငွေပေးချေခြင်းကို ပိုမိုမြန်ဆန်စွာ ရယူလိုက်ပါ။',
   'login.signupLink': 'တစ်ခု ဖန်တီးပါ',
@@ -144,6 +151,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'ငွေပေးချေမှုများ',
   'pricing.recurringLabel': 'ထပ်တလဲလဲ အချိန်ဇယားများ',
   'remitLayout.newInvoice': 'ပြေစာအသစ်',
+  'remitLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'remitLayout.searchPlaceholder': 'ငွေတောင်းခံလွှာများ၊ ဖောက်သည်များကို ရှာဖွေပါ...',
   'remitLayout.tagline': 'ငွေပေးချေပါ၊ ပိုမိုမြန်ဆန်စွာ ရယူလိုက်ပါ',
   'reports.chart.aging': 'ပြေစာသက်တမ်းတိုးခြင်း',
@@ -153,6 +161,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'ကာလအလိုက် ဝင်ငွေ',
   'reports.chart.topClients': 'ထိပ်တန်းဖောက်သည်များ',
   'reports.chart.topClientsCaption': 'တစ်သက်တာဝင်ငွေ၊ ထိပ်တန်း ၅ ခု',
+  'reports.empty.aging': 'ပေးရန်ကျန်ရှိသော ငွေတောင်းခံလွှာများ မရှိပါ။',
+  'reports.empty.methods': 'ငွေပေးချေမှုဒေတာ မရှိသေးပါ။',
+  'reports.empty.revenue': 'ဝင်ငွေဒေတာ မရှိသေးပါ။',
+  'reports.empty.topClients': 'ဖောက်သည်ဝင်ငွေဒေတာ မရှိသေးပါ။',
   'reports.exporting': 'တင်ပို့နေသည်…',
   'reports.exportRequiresPaid':
     'ထုတ်ယူမှုများသည် အခကြေးငွေပေးရသည့် ဝန်ဆောင်မှုတစ်ခုဖြစ်ပြီး ဖွင့်ရန် အဆင့်မြှင့်တင်ပါ။',
@@ -195,6 +207,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ အခွန်နှုန်းထား ထည့်ပါ',
   'settings.tax.added': 'အခွန်နှုန်းထားကို ထည့်သွင်းထားသည်။',
   'settings.tax.adding': 'ထည့်သွင်းနေသည်…',
+  'settings.tax.addRate': 'နှုန်းထားထည့်ပါ',
   'settings.tax.col.region': 'ဒေသ',
   'settings.tax.delete': 'အခွန်နှုန်းထားကို ဖျက်ပါ',
   'settings.tax.deleted': 'အခွန်နှုန်းထားကို ဖယ်ရှားလိုက်ပါပြီ။',

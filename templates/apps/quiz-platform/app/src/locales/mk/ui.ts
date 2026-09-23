@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'about.title': 'За {{app}}',
   'auth.login.noAccount': 'Нов во Спарк?',
   'auth.login.or': 'или продолжете со',
   'auth.signup.or': 'или регистрирајте се со',
+  'common.confirm': 'Потврди',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'common.loadError': 'Нешто тргна наопаку при вчитувањето на оваа содржина.',
+  'common.retry': 'Обидете се повторно',
   'discover.collections.title': 'Прелистај по категорија',
   'discover.collections.viewAll': 'Погледнете ја вашата библиотека →',
   'discover.empty.body': 'Обидете се со друга категорија или исчистете го пребарувањето.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Најавете се за да ја одржите вашата серија, да водите натпревари во живо и да се искачите на табелата со резултати.',
   'myQuizzes.createButton': 'Нов квиз',
+  'myQuizzes.deleteConfirm': 'Да се избрише засекогаш?',
   'myQuizzes.empty.createCta': 'Изградете го вашиот прв квиз →',
   'myQuizzes.empty.created': 'Сè уште не сте составиле квиз.',
   'myQuizzes.empty.played': 'Сè уште нема објавени квизови.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Се вчитува…',
   'notifications.subhead':
     '{{count}} непрочитани искри. Покани, движења на табелата со резултати и достигнувања, сè во еден пренос.',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.checkoutError': 'Не може да се започне со наплата. Обидете се повторно.',
+  'pricing.heading': 'Изберете го вашиот {{app}} план',
   'pricing.included': 'Вклучено',
   'pricing.loadError': 'Не можеше да се вчитаат плановите.',
   'pricing.maxQuizzes': '{{count}} квизови',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Сè уште ништо не е објавено.',
   'profile.startBuilding': 'Започнете со градење →',
   'profile.tier': 'Играч на Sparq',
+  'quizBuilder.addFailed': 'Не може да се додаде прашањето. Обидете се повторно.',
   'quizBuilder.addQuestion': 'Додај прашање',
   'quizBuilder.answerPlaceholder': 'Внесете опција…',
   'quizBuilder.answersLabel': 'Избор на одговори',
   'quizBuilder.back': 'Назад кон моите квизови',
   'quizBuilder.delete': 'Избриши прашање',
+  'quizBuilder.deleteFailed': 'Не можеше да се избрише прашањето.',
   'quizBuilder.firstQuestion': 'Додајте го вашето прво прашање за да започнете.',
   'quizBuilder.idLabel': 'Идентификатор на квиз: {{id}}',
   'quizBuilder.loadError': 'Не можеше да се вчита квизот.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Додадете најмалку два можни одговори и изберете го точниот за {{count}} прашање(а) пред објавување.',
   'quizBuilder.questionsTitle': 'Прашања',
+  'quizBuilder.saveFailed': 'Не може да се зачува насловот. Обидете се повторно.',
   'quizBuilder.statusDraft': 'Нацрт',
   'quizBuilder.subhead':
     'Уредете го насловот, додадете прашања, поставете избори и точниот одговор. Промените се зачувуваат автоматски.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Домаќин за повеќекратен играч',
   'quizDetail.leaderboardEmpty': 'Сè уште нема претстави — бидете првиот што ќе постави резултат.',
+  'quizDetail.loadError': 'Не можеше да се вчита овој квиз.',
   'quizDetail.loading': 'Се вчитува квизот…',
   'quizDetail.plays': '{{count}} претстави',
   'quizDetail.playSolo': 'Играј соло',

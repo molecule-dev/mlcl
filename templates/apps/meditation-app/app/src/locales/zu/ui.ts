@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.eyebrow': 'Mayelana ne-{{app}}',
+  'about.intro':
+    '{{app}} uhlelo lokusebenza lokuzindla lwempilo yangempela — ukuzindla okuqondiswa nsuku zonke, umsebenzi wokuphefumula, kanye nezindaba zokulala eziqhutshwa othisha abazizwa njengabangane, hhayi umqeqeshi. Akukho mizwa yecala engapheli, akukho ukudla okunomsindo: indawo nje ethule yokubuyela emoyeni wakho.',
+  'about.missionBody':
+    'Sikholelwa ukuthi ukuthula kufanele kutholakale kuwo wonke umuntu, nganoma yisiphi isikhathi sosuku. {{app}} ikhona ukuze yenze umkhuba ozolile noqhubekayo uzwakale ulula — ukuze imizuzu eyishumi eqotho ingashintsha indlela ohlangabezana ngayo namahora ayishumi alandelayo.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.pageTitle': 'Ukuzola imizuzu eyi-10 ngosuku',
+  'breathingDial.seconds': 'imizuzwana',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.logout': 'Phuma',
   'common.min': 'umzuzu',
   'common.relative.justNow': 'khona manje',
   'common.relative.now': 'manje',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
+  'nav.secondaryNavigation': 'Ukuzulazula kwe-akhawunti',
   'sessionCard.with': 'nge {{name}}',
   'stillpoint.billing.choose': 'Khetha {{plan}}',
   'stillpoint.billing.currentPlan': 'Okwamanje kuvuliwe {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Asikwazanga ukulayisha izinhlelo.',
   'stillpoint.billing.opening': 'Ivula ukukhokha…',
   'stillpoint.billing.perMonthShort': '/ inyanga',
+  'stillpoint.billing.perYearShort': '/ngonyaka',
   'stillpoint.billing.unknownResult': 'Impendulo yokukhokha engalindelekile.',
   'stillpoint.billing.yearly': 'Ngonyaka · londoloza u-17%',
   'stillpoint.courseDetail.back': 'Izifundo',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Azikho izifundo okwamanje.',
   'stillpoint.courses.eyebrow': '{{count}} uhambo lwezinsuku eziningi',
   'stillpoint.courses.heading': 'Izifundo',
+  'stillpoint.forgot.checkEmail':
+    'Hlola ibhokisi lakho lokungenayo — isixhumanisi siphelelwa yisikhathi ngemizuzu engama-30.',
   'stillpoint.forgot.success': 'Sithumele isixhumanisi sokusetha kabusha ku- {{email}} .',
   'stillpoint.home.empty': 'Azikho izikhathi okwamanje — hlola futhi maduze.',
   'stillpoint.home.friend': 'umngane',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Dala i-akhawunti yakho yamahhala',
   'stillpoint.landing.cta.title': 'Qala ukuthula kwakho namuhla',
   'stillpoint.landing.features.heading': 'Umkhuba okhula nawe',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Ukuzindla okuqondiswa nsuku zonke, umsebenzi wokuphefumula, kanye nezindaba zokulala — okwenziwa othisha abazizwa njengabangane, hhayi umqeqeshi.',
   'stillpoint.landing.hero.eyebrow': 'Ukuzola imizuzu eyi-10 ngosuku',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Phequlula ngokwesimo sengqondo',
   'stillpoint.login.rememberMe': 'Ngigcine ngingene ngemvume',
   'stillpoint.login.subheading': 'Ngena ngemvume ukuze uqhubeke nomkhuba wakho.',
+  'stillpoint.nav.tagline': 'Thola indawo yakho ethule',
+  'stillpoint.notFound.body':
+    'Leli khasi lithatha umoya omude, ojulile ndawana thize. Ake sikutholele indawo ethule ku {{app}} .',
   'stillpoint.notFound.title': 'Ulahlekile ekuthuleni',
   'stillpoint.notFound.toHome': 'Buyela namuhla',
   'stillpoint.notFound.toLibrary': 'Dlulisa amehlo kulabhulali',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Yeqa emuva ngemizuzwana eyi-15',
   'stillpoint.player.skipForward': 'Yeqa phambili amasekhondi angu-30',
   'stillpoint.player.with': 'nge {{name}}',
+  'stillpoint.profile.defaultHandle': 'isikhombisi-ndlela',
   'stillpoint.profile.eyebrow': 'Umkhuba wakho, ufingqiwe.',
   'stillpoint.profile.locked': 'Kukhiyiwe',
   'stillpoint.profile.member': 'Ilungu le-Stillpoint',

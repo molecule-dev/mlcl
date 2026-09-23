@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
   'about.pageTitle': 'אוֹדוֹת {{appName}}',
   'analytics.empty': 'הקלט את הקליפ הראשון שלך כדי לראות מעורבות כאן.',
@@ -39,9 +40,11 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'קליפסים',
   'billing.usage.views': 'צפיות',
   'billing.usage.views.unit': 'צפיות',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'landing.cta.title': 'שלחו משוב טוב יותר. התחילו עם Glint.',
   'landing.feature.capture.body': 'הקלטה בדפדפן, במחשב ובנייד עם מיקרופון, מצלמה וציור.',
   'landing.feature.capture.title': 'צילום בנגיעה אחת',
+  'landing.footer.copy': '© {{year}} {{appName}} . אסינכרוני, הפך זוהר.',
   'landing.hero.cardCaption': 'סקירת סביבת עבודה לדוגמה - נסה זאת בחינם.',
   'landing.hero.primaryCta': 'התחל להקליט בחינם',
   'landing.hero.proof.free': 'רמת חינמית לנצח',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'חיפוש הקלטות',
   'library.searchPlaceholder': 'חיפוש הקלטות…',
   'library.weeklyChange': '{{value}} % לעומת השבוע שעבר',
+  'nav.openMenu': 'פתח את תפריט הניווט',
   'nav.record': 'רְשׁוּמָה',
   'nav.shared': 'שיתף איתי',
   'nav.startRecording': 'התחל להקליט',

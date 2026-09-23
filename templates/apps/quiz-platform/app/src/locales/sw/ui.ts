@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.title': 'Kuhusu {{app}}',
   'auth.login.noAccount': 'Mgeni kwa Sparq?',
   'auth.login.or': 'au endelea na',
   'auth.signup.or': 'au jiandikishe na',
+  'common.confirm': 'Thibitisha',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.loadError': 'Hitilafu imetokea wakati wa kupakia maudhui haya.',
+  'common.retry': 'Jaribu tena',
   'discover.collections.title': 'Vinjari kwa kategoria',
   'discover.collections.viewAll': 'Tazama maktaba yako →',
   'discover.empty.body': 'Jaribu kategoria tofauti au futa utafutaji.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Ingia ili uendelee kuwa hai mfululizo wako, uandae michezo ya moja kwa moja, na upande ubao wa wanaoongoza.',
   'myQuizzes.createButton': 'Jaribio jipya',
+  'myQuizzes.deleteConfirm': 'Futa milele?',
   'myQuizzes.empty.createCta': 'Jenga jaribio lako la kwanza →',
   'myQuizzes.empty.created': 'Hujatengeneza jaribio bado.',
   'myQuizzes.empty.played': 'Hakuna majaribio yaliyochapishwa bado.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Inapakia…',
   'notifications.subhead':
     '{{count}} cheche ambazo hazijasomwa. Mialiko, hatua za ubao wa wanaoongoza, na mafanikio yote katika mkondo mmoja.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.checkoutError': 'Haikuweza kuanza kulipa. Tafadhali jaribu tena.',
+  'pricing.heading': 'Chagua mpango wako wa {{app}}',
   'pricing.included': 'Imejumuishwa',
   'pricing.loadError': 'Haikuweza kupakia mipango.',
   'pricing.maxQuizzes': '{{count}} majaribio',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Hakuna kilichochapishwa bado.',
   'profile.startBuilding': 'Anza kujenga →',
   'profile.tier': 'Mchezaji wa Sparq',
+  'quizBuilder.addFailed': 'Haikuweza kuongeza swali. Jaribu tena.',
   'quizBuilder.addQuestion': 'Ongeza swali',
   'quizBuilder.answerPlaceholder': 'Andika chaguo…',
   'quizBuilder.answersLabel': 'Chaguo za majibu',
   'quizBuilder.back': 'Rudi kwenye maswali yangu ya majaribio',
   'quizBuilder.delete': 'Futa swali',
+  'quizBuilder.deleteFailed': 'Haikuweza kufuta swali.',
   'quizBuilder.firstQuestion': 'Ongeza swali lako la kwanza mwanzoni.',
   'quizBuilder.idLabel': 'Kitambulisho cha jaribio: {{id}}',
   'quizBuilder.loadError': 'Haikuweza kupakia jaribio.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Ongeza angalau majibu mawili na uchague moja sahihi kwa {{count}} swali(maswali) kabla ya kuchapishwa.',
   'quizBuilder.questionsTitle': 'Maswali',
+  'quizBuilder.saveFailed': 'Haikuweza kuhifadhi kichwa. Jaribu tena.',
   'quizBuilder.statusDraft': 'Rasimu',
   'quizBuilder.subhead':
     'Hariri kichwa, ongeza maswali, weka chaguo na jibu sahihi. Mabadiliko huhifadhiwa kiotomatiki.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} dakika',
   'quizDetail.hostMultiplayer': 'Mwenyeji wa wachezaji wengi',
   'quizDetail.leaderboardEmpty': 'Hakuna michezo bado — kuwa wa kwanza kuweka alama.',
+  'quizDetail.loadError': 'Haikuweza kupakia jaribio hili.',
   'quizDetail.loading': 'Inapakia jaribio…',
   'quizDetail.plays': '{{count}} michezo',
   'quizDetail.playSolo': 'Cheza peke yako',

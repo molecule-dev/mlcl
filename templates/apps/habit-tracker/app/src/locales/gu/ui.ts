@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
+  'about.pageTitle': '{{app}} વિશે',
   'achievementBadgeCard.unlockedOn': 'અનલોક કરેલ {{date}}',
   'achievements.loadError': 'સિદ્ધિઓ લોડ કરવામાં નિષ્ફળ થયાં.',
   'achievements.subheading': '{{unlocked}} ના {{total}} અનલોક કરેલ',
   'achievements.unlockedOn': 'અનલોક કરેલ {{date}}',
+  'auth.legalConsent': 'ચાલુ રાખીને, તમે અમારી સાથે સંમત થાઓ છો',
   'calendar.empty': 'તમારા કેલેન્ડર જોવાની આદત બનાવો.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'આદત',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'આદત ગ્રીડ',
   'category.${c.category}': '{{ગણતરી}} ટેવો',
   'common.and': 'અને',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'consistencyHeatmap.ariaLabel': 'દૈનિક સુસંગતતા હીટમેપ',
   'consistencyHeatmap.caption': 'છેલ્લા {{weeks}} અઠવાડિયા',
   'consistencyHeatmap.lessLabel': 'ઓછું',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'તેને લાઇવ જુઓ',
   'landing.heroSubtitle':
     'આદતોને એવી રીતે બનાવો કે જે રીતે તે ખરેખર વળગી રહે છે: નાની પ્રતિબદ્ધતાઓ, દૈનિક સ્ટ્રીક્સ, અને લાંબી અતૂટ સાંકળનો આંતરિક આનંદ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'સ્ટ્રીકની અંદર એક ઝલક',
   'landing.previewMotivation': 'નવ દોર જીવંત. તે બધાને ગરમ રાખો.',
   'login.eyebrow': 'સાંકળ ઉપાડો.',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'તેને નાનું બનાવો. તેને ચોક્કસ બનાવો. કાલે આવજો.',
   'newHabit.timeLabel': 'રીમાઇન્ડર સમય',
   'notifications.markError': 'બધું વાંચેલું ચિહ્નિત કરી શકાયું નથી.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.entries': '{{count}} એન્ટ્રીઓ',
+  'pricing.heading': 'તમારો {{app}} પ્લાન પસંદ કરો',
   'profile.action.plan': 'સબ્સ્ક્રિપ્શન મેનેજ કરો',
   'profile.action.settings': 'એકાઉન્ટ સેટિંગ્સ',
   'profile.bioEmpty': 'તમારો પરિચય આપવા માટે સેટિંગ્સમાં એક ટૂંકી બાયો ઉમેરો.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'દૈનિક સવારનો સંકેત (સવારે 8:00 વાગ્યે)',
   'settings.reminders.heading': 'રીમાઇન્ડર્સ',
   'settings.reminders.weekly': 'સાપ્તાહિક સારાંશ (રવિવાર સાંજે)',
+  'settings.revokeDeviceWarning': 'આ ડિવાઇસની ઍક્સેસ ટૂંક સમયમાં રદ થશે. તેને સાઇન આઉટ કરીએ?',
   'settings.signOutDevice': 'સાઇન આઉટ કરો',
   'settings.streaks.freezesPerWeek': 'અઠવાડિયા દીઠ ફ્રીઝ',
   'settings.streaks.gracePeriod': 'મધ્યરાત્રિ પછી 6 કલાકનો ગ્રેસ પીરિયડ',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} સક્રિય',
   'streakHeroCard.daysSuffix': 'દિવસો',
   'streakHeroCard.title': 'સૌથી લાંબી સક્રિય શ્રેણી',
+  'streakLayout.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'streakLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'streakLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
 }

@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'شما در حال حاضر در {{plan}} طرح.',
   'billing.switch': 'سوئیچ',
   'billing.upgraded': 'به‌روزرسانی‌شده به {{plan}} — محدودیت‌ها بلافاصله اعمال می‌شوند.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'compare.activityHeading': 'احکام فعالیت',
   'compare.empty.title': 'حداقل دو مکان برای مقایسه اضافه کنید',
   'compare.eyebrow': 'در کنار هم',
@@ -136,5 +137,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'بالا',
   'trends.summary.low.label': 'کم',
   'trends.summary.points.label': 'روزها',
+  'weatherDashboardLayout.primaryNavLabel': 'ناوبری اولیه',
   'weatherHeroCard.updated': 'به‌روزرسانی‌شده {{time}}',
 }

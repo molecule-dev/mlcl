@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'auditLog.empty':
     'თქვენს ფილტრებს ჯერ არცერთი აუდიტის მოვლენა არ ემთხვევა. შეცვალეთ თანამშრომელი ან დაამუშავეთ ანაზღაურება და ისინი აქ გამოჩნდება.',
   'auditLog.eyebrow': 'შესაბამისობა',
+  'auditLog.loadError': 'აუდიტის ჟურნალის ჩატვირთვა ვერ მოხერხდა.',
   'auditLog.searchPlaceholder': 'ძიება მსახიობის, მოქმედების ან აღწერილობის მიხედვით',
   'auditLog.subheading':
     'ყველა დამტკიცება, რედაქტირება და საგადასახადო დეკლარაცია — მოქმედი პირის, დროის ნიშნულის და შეცვლილი ველების ჩათვლით.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'კონფიგურირებული არ არის',
   'billing.plansHeading': 'გეგმები',
   'billing.subheading': 'მართეთ თქვენი გეგმა და გადართეთ დონეები Stripe-ის საშუალებით.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ხელახლა ცდა',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'შესაბამისობის მიმოხილვა',
   'dashboard.compliance.title': 'ყველა შემოწმება წარმატებით გაიარა',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'გამოქვითვები არ არის დოკუმენტში.',
   'employeeDetail.notFound': 'თანამშრომელი ვერ მოიძებნა.',
   'employeeDetail.payFrequency': 'გადახდის სიხშირე',
+  'employeeDetail.postTax': 'გადასახადის შემდგომი',
+  'employeeDetail.preTax': 'გადასახადამდე',
   'employeeDetail.salary': 'წლიური ხელფასი',
   'employeeDetail.ssn': 'სოციალური დაზღვევის ნომერი',
   'employeeDetail.startedOn': 'დაიწყო {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'გადახდის სიხშირე',
   'employeeForm.salary': 'წლიური ხელფასი (აშშ დოლარი)',
   'employeeForm.salaryInvalid': 'ხელფასი უნდა იყოს არაუარყოფითი რიცხვი.',
+  'employeeForm.saveError': 'თანამშრომლის გადარჩენა ვერ მოხერხდა.',
   'employeeForm.semimonthly': 'ნახევართვიური',
   'employeeForm.single': 'მარტოხელა',
   'employeeForm.ssn': 'სოციალური დაზღვევის ნომერი',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'ხელფასი',
   'forgotPassword.subtitle':
     'შეიყვანეთ თქვენი სამსახურის ელ. ფოსტა და ჩვენ გამოგიგზავნით გადატვირთვის ბმულს.',
+  'landing.copyright': '© {{year}} {{app}} . ზუსტი, სანდო, ორგანიზებული.',
   'landing.ctaBody':
     'უფასოა 30 დღის განმავლობაში. საკრედიტო ბარათის გარეშე. გადართეთ ნებისმიერ დროს აუდიტის კვალის დაკარგვის გარეშე.',
   'landing.ctaHeading': 'შემდეგი ციკლი Stipend-ზე გაიარეთ',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ამ ანაზღაურებისთვის აუდიტის ჩანაწერები ჯერ არ არის.',
   'payRunDetail.noStubs':
     'ხელფასის ქვითრები ჯერ არ არის — დაამტკიცეთ და დაამუშავეთ ისინი გენერირებისთვის.',
+  'payRunDetail.notFound': 'ეს გადახდის მარშრუტი ვერ მოიძებნა.',
   'payRunDetail.statDeductions': 'გამოქვითვები',
   'payRunDetail.statHeadcount': 'თანამშრომლები',
   'payRunDetail.statTaxes': 'დაკავებული გადასახადები',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'ნახევართვიური',
   'settings.signOutDevice': 'გასვლა',
   'settings.subheading': 'კომპანიის პროფილი, ანაზღაურების გრაფიკი და ინტეგრაციები.',
+  'settings.twoFactorCode': 'ავტორიზაციის კოდი',
   'settings.twoFactorDisable': 'გამორთვა',
+  'settings.twoFactorInvalidCode': 'არასწორი კოდი',
+  'settings.twoFactorVerify': 'დადასტურება და ჩართვა',
   'settings.weekly': 'ყოველკვირეული',
   'taxCenter.bucket.federal': 'ფედერალური შემოსავალი',
   'taxCenter.bucket.fica': 'სოციალური უზრუნველყოფა',

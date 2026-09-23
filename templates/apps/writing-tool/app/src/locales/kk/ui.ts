@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.title': 'Қалтаңызда сақтай алатын жазу бөлмесі',
   'billing.cancelConfirm': 'Белсенді жазылымыңыздан бас тарту керек пе?',
   'billing.cancelFailed': 'Бас тарту мүмкін болмады.',
   'billing.checkingOut': 'Касса ашылуда…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Есепшот жүктелмеді.',
   'billing.loading': 'Есепшот жүктелуде…',
   'billing.upgradeCta': 'Жаңарту {{name}}',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'editor.autosaveOn': 'Автоматты сақтау қосулы',
   'editor.backToLibrary': 'Кітапханаға оралу',
   'editor.charCount': '{{count}} кейіпкерлер',
   'editor.confirmTrash': 'Бұл құжатты себетке жіберу керек пе?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Босатылды',
   'editor.unpublishCta': 'Жоба нұсқасына жылжыту',
   'editor.unpublished': 'Жоба нұсқасына қайтарылды',
+  'focus.autosaveOn': 'Автоматты сақтау қосулы',
   'focus.backToLibrary': 'Кітапханаға оралу',
   'focus.bodyPlaceholder': 'Кезек кезекпен. Басқа ешкім жоқ.',
   'focus.exit': 'Фокус режимінен шығу',
@@ -82,6 +87,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Біреуін жасаңыз',
   'login.subline':
     'Қолжазбаларыңыз, күнделікті беттеріңіз және курсордың соңғы орны сіз қалдырған жерде орналасқан.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'pricing.exports': 'экспорт',
   'pricing.folders': 'қалталар',
   'pricing.heading': 'құжаттар',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Біз сізге электрондық пошта арқылы жіберген кодты енгізіп, есте қаларлық кодты таңдаңыз. Ол сақталғаннан кейін біз сізді жүйеге енгіземіз.',
   'reset.tokenHint': 'Кіріс жәшігіңізден қойылды.',
+  'settings.appearance.heading': 'Ашық немесе қараңғы',
   'settings.editor.${row.id}.description': 'Тіл',
   'settings.editor.description':
     'Жазу машинасында айналдыру, абзацтың сөнуі және бос фокустау — әдепкі параметрлер ұзақ сеанстар үшін реттеледі.',
@@ -139,6 +147,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Үшінші тарау — Күн шыққанға дейінгі тыныш сағат',
   'versalDocumentCard.pinned': 'Бекітілген',
   'versalLayout.nav.stats': 'Статистика',
+  'versalLayout.primaryNavLabel': 'Негізгі навигация',
   'versalManuscriptHero.cta': 'Жазуды жалғастырыңыз',
   'versalManuscriptHero.goalLabel': 'Бүгінгі сөз мақсаты',
   'versalManuscriptHero.inProgress': 'Жолда',

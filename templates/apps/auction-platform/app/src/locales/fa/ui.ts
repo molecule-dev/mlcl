@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'تماشا',
   'auctionDetail.watchRemoved': 'از فهرست پیگیری حذف شد.',
   'auctionDetail.watchRemoveLabel': 'حذف از فهرست پیگیری',
+  'auctionPlatformLayout.primaryNavLabel': 'ناوبری اولیه',
   'authShell.brandBody':
     'به صورت آنی روی ساعت‌های کمیاب، آثار هنری زیبا و اقلام خاص و بی‌نظیر پیشنهاد قیمت دهید. چکش حراج در عرض چند ثانیه فرو می‌ریزد.',
   'authShell.brandEyebrow': 'همین حالا پخش زنده · ۱۴۲۰ حراجی',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'مرتب سازی بر اساس',
   'browseAuctions.subheading':
     'بر اساس دسته‌بندی فیلتر کنید، بر اساس مهم‌ترین موارد مرتب کنید و قبل از اینکه شانس با شما یار باشد، پیشنهاد قیمت دهید.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'countdownTimer.ended': 'پایان یافت',
   'countdownTimer.endingSoon': 'پایان',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'نمایش رمز عبور',
   'login.subtext':
     'قبل از اینکه کار از کار بگذرد، به پیگیری مزایده‌ها و ثبت پیشنهادهای خود ادامه دهید.',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'myBids.bidAgain': 'دوباره پیشنهاد قیمت دهید',
   'myBids.browseCta': 'حراج‌های زنده را مرور کنید →',
   'myBids.checkoutCta': 'همین حالا پرداخت کنید',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'مرکز فعالیت',
   'notificationsPage.subheading':
     '{{count}} خوانده نشده · به‌روزرسانی‌های زنده همزمان با جابجایی حراج‌ها',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.bidsLabel': 'پیشنهادهای قیمت',
   'pricing.listingsLabel': 'فهرست‌ها',
   'pricing.watchlistLabel': 'فهرست پیگیری',

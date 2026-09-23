@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'வாடிக்கையாளர்கள்',
   'customers.loadError': 'வாடிக்கையாளர்களை ஏற்ற முடியவில்லை.',
   'customers.loading': 'ஏற்றப்படுகிறது…',
+  'customers.new.address': 'சேவை முகவரி',
   'customers.new.email': 'மின்னஞ்சல்',
   'customers.new.error': 'வாடிக்கையாளரைச் சேர்க்க முடியவில்லை.',
   'customers.new.heading': 'புதிய வாடிக்கையாளர்',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'about.tagline': 'રહસ્યો ખુલ્લામાં મૃત્યુ પામે છે.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ટોકન બનાવો',
   'apiTokens.kicker': 'API ટોકન્સ',
   'apiTokens.loading': 'ટોકન્સ લોડ કરી રહ્યું છે…',
+  'apiTokens.new': 'નવું ટોકન',
   'apiTokens.revoke': 'ટોકન રદ કરો',
   'apiTokens.subheading':
     'આર્કેનમ CLI અને SDK માટે વ્યક્તિગત અને સેવા ટોકન્સ. બનાવટ સમયે એકવાર દર્શાવવામાં આવેલ સાદો ટેક્સ્ટ.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + પાસકી',
   'authShell.zeroKnowledge': 'શૂન્ય-જ્ઞાન એન્ક્રિપ્શન',
   'common.connecting': 'કનેક્ટ કરી રહ્યું છે...',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.inviting': 'આમંત્રિત કરી રહ્યાં છીએ…',
   'forgotPassword.checkInbox':
     'જો {email} રજીસ્ટર થયેલ હોય, તો એક મિનિટમાં સહી કરેલ રીસેટ લિંક આવી જશે.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': 'ઇનબોક્સ',
   'notifications.subheading': 'દરેક વૉલ્ટમાં પરિભ્રમણ સ્થિતિ, વિસંગતતા ચેતવણીઓ અને મંજૂરી વિનંતીઓ.',
   'notifications.unreadEmpty': 'ઇનબોક્સ શૂન્ય — બધું વાંચી લીધું.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.heading': 'રહસ્યો',
   'pricing.limits.accessPolicies': 'ઍક્સેસ નીતિઓ',
   'pricing.limits.auditLog': 'ઑડિટ-લોગ એન્ટ્રીઓ',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'વ્યક્તિગત ખાતું',
   'profile.plan.description': 'તમારા સબ્સ્ક્રિપ્શનનું સંચાલન કરો, મર્યાદાઓ જુઓ અને અપગ્રેડ કરો.',
   'profile.subheading': 'ઓળખ, બીજા-પરિબળ ઉપકરણો અને સક્રિય સત્રો.',
+  'profile.twoFactor.code': 'પ્રમાણીકરણ કોડ',
   'profile.twoFactor.disable': 'અક્ષમ કરો',
   'profile.twoFactor.enable': 'સક્ષમ કરો',
+  'profile.twoFactor.invalidCode': 'અમાન્ય કોડ',
   'profile.twoFactor.kicker': 'દ્વિ-પરિબળ પ્રમાણીકરણ',
+  'profile.twoFactor.off': 'સક્ષમ નથી',
   'profile.twoFactor.on': 'સક્ષમ',
   'resetPassword.email': 'એકાઉન્ટ ઇમેઇલ',
   'resetPassword.heading': 'નવા ઓળખપત્રો સેટ કરો',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'આદેશો',
   'secretsManagerLayout.encrypted': 'AES-256 · એન્ક્રિપ્ટેડ',
   'secretsManagerLayout.newVault': 'નવી તિજોરી',
+  'secretsManagerLayout.newVaultShort': 'નવું',
   'secretsManagerLayout.rotations': 'પરિભ્રમણ',
   'secretsManagerLayout.search': 'શોધ',
   'secretsManagerLayout.searchPlaceholder': 'કી, પાથ અથવા ટેગ દ્વારા રહસ્યો શોધો...',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'રહસ્યો',
   'vaultCard.vaultLabel': 'વૉલ્ટ',
   'vaultDetail.addSecret': 'ગુપ્ત માહિતી ઉમેરો',
+  'vaultDetail.back': 'બધા તિજોરીઓ',
   'vaultDetail.col.key': 'કી',
   'vaultDetail.col.rotated': 'ફેરવ્યું',
   'vaultDetail.col.value': 'કિંમત',

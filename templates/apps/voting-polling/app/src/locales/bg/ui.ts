@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Гласове',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Все още няма чакащи въпроси.',
   'audienceQa.onStageEyebrow': 'На сцената сега',
   'audienceQa.pollId': 'качество · {{id}}',
+  'audienceQa.promote': 'Промотиране',
   'audienceQa.queued': 'на опашка',
   'audienceQa.queueEyebrow': 'Опашка',
   'ballot.eyebrow': 'Пуснете своя бюлетин',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'В момента сте на {{plan}} план.',
   'billing.switch': 'Превключвател',
   'billing.upgraded': 'Актуализирано до {{plan}} — ограничения, прилагани незабавно.',
+  'common.goToDashboard': 'Към таблото',
   'createPoll.addOption': 'Добавяне на опция',
   'createPoll.anonymousHint':
     'Имената на избирателите са скрити в дневника на одита; преброяванията остават удостоверени.',
@@ -161,6 +164,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Нови ли сте в Нош?',
   'login.remember': 'Запомни ме за 30 дни',
   'login.subheading': 'Отворете пода, проверете стаята и сертифицирайте резултата.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'notFound.body':
     'Страницата, която се опитахте да отворите, е затворена или преместена. Върнете се към таблото за управление или отворете нова анкета.',
   'notFound.eyebrow': 'Няма кворум по този маршрут',
@@ -187,6 +192,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Не можа да се зареди тази анкета.',
   'pollDetail.loading': 'Зареждане на анкетата…',
   'pollDetail.notFound': 'Анкетата не е намерена.',
+  'pollDetail.openBallot': 'Открито гласуване',
   'pollDetail.openLive': 'Резултати на живо',
   'pollDetail.pollId': 'анкета · {{id}}',
   'pollDetail.published': 'Анкетата е публикувана — избирателите вече могат да гласуват.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Търсене по имейл…',
   'voters.subheading':
     'Подредете избирателите с право на глас. Групирайте избирателите по организация за претеглени бюлетини.',
+  'votingPollingLayout.nav.analytics': 'Анализ',
+  'votingPollingLayout.nav.billing': 'Фактуриране',
+  'votingPollingLayout.nav.createPoll': 'Нова анкета',
+  'votingPollingLayout.nav.dashboard': 'Табло',
+  'votingPollingLayout.nav.notifications': 'Известия',
+  'votingPollingLayout.nav.settings': 'Настройки',
+  'votingPollingLayout.nav.team': 'Екип',
+  'votingPollingLayout.nav.voters': 'Избиратели',
+  'votingPollingLayout.primaryNavLabel': 'Основна навигация',
 }

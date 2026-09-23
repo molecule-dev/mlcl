@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.connectRepoCta': 'Ikonekta ang repository',
   'dashboard.empty': 'Wala pang pull request — ikonekta ang isang repository para magsimula.',
   'dashboard.eyebrow': 'Refract · review queue',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Uptime',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI quality score {{score}} / 10',
+  'refractLayout.closeMenu': 'Isara ang menu',
+  'refractLayout.openMenu': 'Buksan ang menu',
   'refractLayout.primaryNavLabel': 'Pangunahing navigation',
   'reports.cumulativeScoreLabel': 'Cumulative score',
   'reports.cumulativeScoreSubtitle': 'lahat ng repo · {{days}}d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nabigo ang pag-load ng search index.',
   'settings.apiKeys.description':
     'Pamahalaan ang mga personal na API key mula sa user menu sa kanang sulok sa itaas.',
+  'settings.apiKeys.integrationsNote':
+    'Ang mga token ng access ng provider ay pinamamahalaan sa seksyong Mga Pagsasama sa itaas.',
   'settings.connectError': 'Nabigo ang pagkonekta ng provider.',
   'settings.disconnectError': 'Nabigo ang pag-disconnect ng provider.',
   'settings.eyebrow': 'Refract · workspace',
   'settings.integration.${provider}.label': 'Sine-save…',
   'settings.loadError': 'Nabigo ang pag-load ng mga setting.',
+  'settings.notificationCenter': 'Sentro ng abiso',
   'settings.notifications.description':
     'Bisitahin ang pahina ng notification para tingnan at pamahalaan ang mga kagustuhan sa paghahatid.',
   'settings.section.account': 'Account at seguridad',

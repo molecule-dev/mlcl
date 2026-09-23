@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'የይለፍ ቃልዎን ዳግም ያስጀምሩ።',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ተግባር እንደተጠናቀቀ ምልክት አድርግበት',
   'checklistTaskCard.markIncomplete': 'ተግባር ያልተሟላ ምልክት አድርግበት',
   'checklistTaskCard.openLabel': 'ተግባር ክፈት',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'ሁላችሁም ተረድታችኋል',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'በትራክ ላይ',
   'dashboard.timelineHeading': 'የ30/60/90 ምዕራፎች',
   'dashboard.viewAllTasks': 'ሁሉንም ተግባራት ይመልከቱ',
+  'dashboard.weekOne': 'ሳምንት 1',
   'dashboard.yourCohort': 'የእርስዎ ቡድን',
   'documents.empty.body': 'በቡድንዎ የተጨመሩ ሰነዶች እዚህ ይታያሉ።',
   'documents.empty.title': 'እስካሁን ምንም ሰነዶች የሉም',
@@ -100,7 +103,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'የ14-ቀን ነፃ የሙከራ ጊዜ',
   'landing.subhead':
     'ኢምባርክ እያንዳንዱን አዲስ የቡድን አጋራቸውን በመጀመሪያዎቹ 90 ቀናት ውስጥ ይመራቸዋል - የወረቀት ስራዎች፣ ስልጠናዎች፣ ወሳኝ ክስተቶች እና ትርጉም ያላቸው መግቢያዎች፣ ሁሉም በአንድ ጸጥታ እና በራስ መተማመን ቦታ።',
+  'layout.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'layout.search': 'ተግባራትን፣ ሰነዶችን፣ የቡድን ጓደኞችን ይፈልጉ…',
+  'layout.searchTeammates': 'የቡድን ጓደኞችን በስም ወይም በሚና ይፈልጉ…',
   'layout.section.onboarding': 'ኦንቦርዲንግ',
   'layout.tagline': 'ጉዞህ የሚጀምረው እዚህ ነው',
   'notifications.empty.body': 'አዲስ እንቅስቃሴ እዚህ ይታያል።',
@@ -109,6 +114,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ትላንትና',
   'planUpdated.message': 'ጨርሰሃል።',
   'planUpdated.preparing': 'ዕቅድዎን በማዘመን ላይ…',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'pricing.documentsLabel': 'ሰነዶች',
   'pricing.onboardingsLabel': 'ማስተዋወቂያዎች',
   'pricing.tasksLabel': 'ተግባራት',

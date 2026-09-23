@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'accountSettings.confirmEmailLabel': 'Clóscríobh DELETE le deimhniú',
   'accountSettings.deleteError': 'Níorbh fhéidir an cuntas a scriosadh.',
   'accountSettings.passwordError': 'Níorbh fhéidir an focal faire a athrú.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Gan aon spriocdhátaí atá le teacht.',
   'dashboard.upcomingTitle': 'Spriocdhátaí atá le teacht',
   'deviceSettings.unknownDevice': 'Gléas anaithnid',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Tacaíocht',
   'forgotPassword.error': 'Theip ar nasc athshocraithe a sheoladh.',
   'forgotPassword.subtitle':
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ríomhphost nó pasfhocal neamhbhailí.',
   'login.pageTitle': 'Sínigh Isteach',
   'login.signIn': 'Sínigh isteach i Forge',
+  'login.subtitle': 'Sínigh isteach chun do thionscadail a choinneáil ar an mbóthar ceart',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'nav.calendar': 'Féilire',
   'nav.legal': 'Dlíthiúil',
   'nav.myTasks': 'My Tasks',

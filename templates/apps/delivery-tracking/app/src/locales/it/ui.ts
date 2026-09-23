@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'alerts.acknowledgeLabel': 'Conferma',
   'alerts.customerLabel': 'Cliente: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Collegamento in corso…',
   'carriers.requiredError': 'Nome e codice sono obbligatori.',
   'carriers.subheading': '{{count}} integrati',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.no': '—',
+  'common.retry': 'Riprova',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'In transito + segnalate',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'spedizioni',
   'pricing.trackingLabel': 'eventi di tracciamento',
   'profile.dangerZone.title': 'Zona pericolosa',
+  'profile.devices.signingOut': 'Disconnessione…',
+  'profile.devices.unnamed': 'Dispositivo senza nome',
+  'profile.security.disable2fa': "Disattiva l'autenticazione a due fattori",
   'profile.security.enable2fa': 'Abilita 2FA',
   'profile.security.pwChanged': 'Password modificata con successo.',
   'profile.security.pwCurrent': 'Password attuale',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA attiva',
   'profile.security.twoFaCode': 'Codice a 6 cifre',
   'profile.security.twoFaDisable': 'Disattiva',
+  'profile.security.twoFaDisabling': 'Disattivazione in corso…',
   'profile.security.twoFaFailed': 'Impossibile verificare il codice.',
   'profile.security.twoFaIntro':
     'Scansioni il codice QR nella sua app di autenticazione, poi inserisca il codice a 6 cifre qui sotto per verificare.',
   'profile.security.twoFaOn': "L'autenticazione a due fattori è abilitata su questo account.",
+  'profile.security.twoFaQrAlt': 'Codice QR autenticazione a due fattori',
   'profile.security.twoFaVerify': 'Verifica e abilita',
   'profile.security.twoFaVerifying': 'Verifica in corso…',
   'profile.subheading': 'Impostazioni di identità e sicurezza per questo workspace.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Salvi questo segreto — non verrà mostrato di nuovo.',
   'settings.api.webhookSecret': 'Segreto di firma webhook',
   'settings.appearance.description': 'Alterni tra modalità chiara e scura.',
+  'settings.deleteAccountConfirm': 'Sei sicuro? Questa operazione non può essere annullata.',
   'settings.notifications.exceptions':
     "Inviami un'email quando si verifica un'eccezione di spedizione",
   'settings.notifications.heading': 'Notifiche',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Spedizione non trovata.',
   'shipmentDetail.originHeading': 'Origine',
   'shipmentDetail.shippedOn': 'Spedito il {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Non ci sono ancora eventi di tracciamento — gli aggiornamenti appariranno qui non appena il corriere scansionerà il pacco.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Corriere',
   'shipments.col.eta': 'ETA',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Accedi',
   'signup.submit': 'Crea account',
   'team.emailError': 'È richiesto un indirizzo email valido.',
+  'team.empty':
+    'Non ci sono ancora membri del team. Invita un collega a collaborare alla gestione delle spedizioni.',
   'team.eyebrow': 'Membri e autorizzazioni',
   'team.inviteDialog.cancel': 'Annulla',
   'team.inviteDialog.heading': 'Invita un collega',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Traccia',
   'waypointLayout.primaryNavLabel': 'Navigazione principale',
   'webhooks.createFailed': "Impossibile creare l'endpoint webhook.",
+  'webhooks.endpointsEmpty':
+    'Non ci sono ancora endpoint per i webhook. Creane uno per ricevere i callback relativi allo stato delle spedizioni.',
   'webhooks.endpointsHeading': 'Endpoint',
   'webhooks.eventCount': '{{count}} eventi',
   'webhooks.eventsHeading': 'Consegne recenti',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'billing.canceled':
     'சந்தா ரத்து செய்யப்பட்டது. காலக்கெடுவின் முடிவில் நீங்கள் மீண்டும் இலவசச் சேவைக்குத் திரும்புவீர்கள்.',
   'billing.contactSales': 'விற்பனையைத் தொடர்பு கொள்ளவும்',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'தக்கவைப்பு வரம்பு இல்லை',
   'billing.upgradeHint': 'மேம்பட்ட AI அம்சங்களைத் திறக்க, மேம்படுத்தவும்.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.activityEmpty':
     'இன்னும் எந்தச் செயல்பாடும் இல்லை — இந்தப் பதிவுத் தொகுப்பை நிரப்ப ஒரு திட்டத்தைத் தொடங்குங்கள்.',
   'dashboard.eyebrow': 'கண்ணோட்டம்',
@@ -117,6 +119,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ஒவ்வொரு திட்டத்திலும் பழைய மொழிபெயர்ப்புகளை மீண்டும் பயன்படுத்துங்கள். அதிகப் பொருத்தம் → குறைவான மறுவேலை.',
   'memory.title': 'நினைவக வங்கி',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'newProject.addLanguage': 'இலக்கைச் சேர்க்கவும்',
   'newProject.create': 'திட்டத்தை உருவாக்கு',
@@ -147,6 +151,7 @@ export const ui: UiTranslations = {
     'குறிக்கப்பட்டது {{count}} அறிவிப்புகள் படிக்கப்பட்டதாகக் குறிக்கப்பட்டன.',
   'notifications.subtitle':
     'உங்கள் பணிச்சூழல்கள் முழுவதிலுமிருந்து வரும் குறிப்புகள், மதிப்பாய்வுக் கோரிக்கைகள் மற்றும் AI நிகழ்வுகள்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'privacy.collection.account': 'உங்கள் கணக்கு மின்னஞ்சல் மற்றும் காண்பிக்கப்படும் பெயர்',
   'privacy.deletion.body':
     'தொடர்புடைய பக்கத்திலிருந்து ஒரு திட்டம், பிரிவு, சொற்களஞ்சியச் சொல் அல்லது நினைவகப் பதிவை நீங்கள் எப்போது வேண்டுமானாலும் நீக்கலாம். அமைப்புகளிலிருந்து உங்கள் கணக்கை நீக்குவது, எங்கள் தரவுத்தளத்திலிருந்து பணிவெளிக்குட்பட்ட ஒவ்வொரு வரிசையையும் முழுமையாக நீக்கிவிடும்.',
@@ -183,10 +188,12 @@ export const ui: UiTranslations = {
   'projects.loadError': 'திட்டங்களை ஏற்ற முடியவில்லை.',
   'projects.loading': 'திட்டங்கள் ஏற்றப்படுகின்றன…',
   'projects.subtitle': 'அனைத்து இடங்களிலும் உள்ள ஒவ்வொரு செயலில் உள்ள திட்டமும்.',
+  'renditionLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'reset.backToLogin': '➡ உள்நுழைவிற்குத் திரும்பு',
   'reset.passwordLabel': 'புதிய கடவுச்சொல்',
   'review.activeEyebrow': 'பிரிவு {{number}}',
   'review.approve': 'மொழிபெயர்ப்பை அங்கீகரிக்கவும்',
+  'review.commentsCount': 'கருத்துகளின் {{count}} · {{reviewer}} மதிப்பாய்வு செய்யப்பட்டது',
   'review.currentLabel': 'தற்போதைய மொழிபெயர்ப்பு',
   'review.decisionApproved': 'மொழிபெயர்ப்பு அங்கீகரிக்கப்பட்டது.',
   'review.decisionRejected': 'மொழிபெயர்ப்பு நிராகரிக்கப்பட்டது.',

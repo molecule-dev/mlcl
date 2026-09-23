@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Dwar',
   'alertConditionCard.condition.${alert.condition}': 'Imqanqal {{meta}}',
+  'alertConditionCard.confirmDelete': 'Ikkonferma t-tħassir',
   'alertConditionCard.pauseAriaLabel': 'Pawża l-allert',
   'alertConditionCard.resumeAriaLabel': 'Erġa’ ibda l-allert',
   'alertNew.condition': 'Kundizzjoni',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Valutazzjoni kompletament dilwita',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Websajt',
+  'coinDetail.links.whitepaper': 'Karta Prinċipali',
   'coinDetail.loadError': "Ma rnexxiex ittella' l-munita.",
   'coinDetail.marketCap': 'Kapitalizzazzjoni tas-suq',
   'coinDetail.maxSupply': 'Provvista massima',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Ir-rotta li skennjajt ma tirriżolvix għal munita jew paġna magħrufa. Erġa' ċċekkja s-simbolu u erġa' pprova.",
   'notFound.browseMarkets': 'Fittex fis-swieq',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'portfolio.addError': 'Daħħal is-simbolu, l-ammont pożittiv, u l-ispiża.',
   'portfolio.addHoldingCta': '+ Żid azjenda',
   'portfolio.addModal.cost': 'Bażi tal-kost (USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     "Il-password u s-settings b'żewġ fatturi huma ġestiti mill-kont tiegħek.",
   'settings.signOutDevice': 'Oħroġ',
+  'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Ivverifika u attiva',
   'sigilAuthShell.backHomeCta': '← Lura għal Bourse',
   'sigilLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'signup.eyebrow': 'Iftaħ terminal',

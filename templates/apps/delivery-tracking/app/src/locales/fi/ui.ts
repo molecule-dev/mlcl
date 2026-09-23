@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'alerts.acknowledgeLabel': 'Kuittaa',
   'alerts.customerLabel': 'Asiakas: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Yhdistetään…',
   'carriers.requiredError': 'Nimi ja koodi vaaditaan.',
   'carriers.subheading': '{{count}} integroitu',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
+  'common.retry': 'Yritä uudelleen',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Matkalla + merkitty',
   'dashboard.activeShipmentsSubtitle': '{{count}} lähetykset vaativat huomiota tai ovat liikkeellä',
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'lähetykset',
   'pricing.trackingLabel': 'tapahtumien seuranta',
   'profile.dangerZone.title': 'Vaaravyöhyke',
+  'profile.devices.signingOut': 'Kirjaudutaan ulos…',
+  'profile.devices.unnamed': 'Nimetön laite',
+  'profile.security.disable2fa': 'Poista kaksivaiheinen todennus käytöstä',
   'profile.security.enable2fa': 'Ota käyttöön 2FA',
   'profile.security.pwChanged': 'Salasana vaihdettu onnistuneesti.',
   'profile.security.pwCurrent': 'Nykyinen salasana',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktiivinen',
   'profile.security.twoFaCode': '6-numeroinen koodi',
   'profile.security.twoFaDisable': 'Poista käytöstä',
+  'profile.security.twoFaDisabling': 'Poistetaan käytöstä…',
   'profile.security.twoFaFailed': 'Koodia ei voitu vahvistaa.',
   'profile.security.twoFaIntro':
     'Skannaa QR-koodi todennussovelluksessasi ja syötä sitten alla oleva 6-numeroinen koodi vahvistaaksesi.',
   'profile.security.twoFaOn': 'Kaksivaiheinen todennus on käytössä tällä tilillä.',
+  'profile.security.twoFaQrAlt': 'Kaksivaiheisen QR-koodi',
   'profile.security.twoFaVerify': 'Vahvista ja ota käyttöön',
   'profile.security.twoFaVerifying': 'Vahvistetaan…',
   'profile.subheading': 'Tämän työtilan identiteetti- ja suojausasetukset.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Tallenna tämä salaisuus — sitä ei näytetä uudelleen.',
   'settings.api.webhookSecret': 'Webhookin allekirjoitussalaisuus',
   'settings.appearance.description': 'Vaihda vaalean ja tumman tilan välillä.',
+  'settings.deleteAccountConfirm': 'Oletko varma? Tätä toimintoa ei voi peruuttaa.',
   'settings.notifications.exceptions':
     'Lähetä minulle sähköpostia, kun lähetyksessä ilmenee poikkeus',
   'settings.notifications.heading': 'Ilmoitukset',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.loadError': 'Lähetyksen lataaminen epäonnistui.',
   'shipmentDetail.notFound': 'Lähetystä ei löytynyt.',
   'shipmentDetail.originHeading': 'Alkuperä',
+  'shipmentDetail.timelineEmpty':
+    'Seurantatietoja ei vielä ole — päivitykset näkyvät tässä, kun kuljetusyhtiö skannaa paketin.',
   'shipmentDetail.weightLabel': '{{weight}} paunaa',
   'shipments.col.carrier': 'Kuljetusliike',
   'shipments.col.eta': 'Arvioitu saapumisaika',
@@ -175,6 +186,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Kirjaudu sisään',
   'signup.submit': 'Luo tili',
   'team.emailError': 'Kelvollinen sähköpostiosoite vaaditaan.',
+  'team.empty': 'Jäseniä ei ole vielä. Kutsu tiimikaveri mukaan käsittelemään lähetyksiä.',
   'team.eyebrow': 'Jäsenet ja käyttöoikeudet',
   'team.inviteDialog.cancel': 'Peruuta',
   'team.inviteDialog.heading': 'Kutsu tiimiläinen',
@@ -197,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Seurata',
   'waypointLayout.primaryNavLabel': 'Päänavigaatio',
   'webhooks.createFailed': 'Webhook-päätepisteen luominen epäonnistui.',
+  'webhooks.endpointsEmpty':
+    'Webhook-päätelaitteita ei ole vielä. Luo sellainen, jotta saat ilmoituksia lähetysten tilasta.',
   'webhooks.endpointsHeading': 'Endpointit',
   'webhooks.eventCount': '{{count}} tapahtumat',
   'webhooks.eventsHeading': 'Viimeaikaiset toimitukset',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.eyebrow': '{{app}} గురించి',
   'about.pageTitle': 'ప్రతి మార్గం, ఒక శోధన.',
   'booking.backToDetail': 'విమాన వివరాలకు తిరిగి వెళ్లండి',
   'booking.continue': 'చెల్లింపును కొనసాగించండి',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'పన్నులు & రుసుములు',
   'booking.summary.travelers': 'ప్రయాణికులు',
   'common.about': 'గురించి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'flightDetail.backToResults': 'ఫలితాలకు తిరిగి వెళ్లండి',
   'flightDetail.baseFare': 'బేస్ ఛార్జీ',
   'flightDetail.book': 'బుకింగ్‌కు కొనసాగండి',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ఆపు',
   'flightResultCard.select': 'ఎంచుకోండి',
   'flightResultCard.totalLabel': 'మొత్తం సమయం',
+  'flightSearchLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'forgotPassword.subheading':
     'మీ స్కైలార్క్ ఖాతాలోని ఇమెయిల్‌ను నమోదు చేయండి, మేము సురక్షితమైన రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody':
     'తనిఖీ చేయండి {{email}} కొత్త పాస్‌వర్డ్‌ను సెట్ చేయడానికి లింక్. ఈ లింక్ 30 నిమిషాలలో గడువు ముగుస్తుంది.',
   'forgotPassword.successHeading': 'రీసెట్ లింక్ పంపబడింది',
   'landing.cta.explore': 'శోధనను ప్రయత్నించండి',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'అందరికంటే ముందుగా రాబోయే గొప్ప ఆఫర్‌ను కనుగొనండి.',
   'landing.cta.signup': 'ఛార్జీలను ట్రాక్ చేయడం ప్రారంభించండి',
   'landing.features.eyebrow': 'స్కైలార్క్ ఎందుకు',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'హెచ్చరికను జోడించండి',
   'priceAlerts.deleteConfirm': 'ఈ హెచ్చరికను తొలగించాలా?',
   'priceAlerts.empty': 'ఇంకా ట్రాక్ చేయబడిన మార్గాలు ఏవీ లేవు.',
+  'priceAlerts.emptyCta': 'ట్రాక్ చేయడానికి మార్గాన్ని శోధించండి',
   'priceAlerts.errorMessage': 'హెచ్చరికలను లోడ్ చేయలేకపోయింది.',
   'priceAlerts.eyebrow': 'స్కైలార్క్ వాచ్‌లిస్ట్',
   'priceAlerts.form.createError': 'అలర్ట్‌ను సృష్టించలేకపోయాము.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'బహుళ నగరాల ప్రయాణ ప్రణాళిక',
   'results.multiLegHeading': 'కాలు {{n}} · {{నుండి}} → {{to}} · {{తేదీ}}',
   'results.multiSummary': '{{count}} కాళ్లు · {{passengers}} ప్రయాణికుడు',
+  'results.sortAriaLabel': 'ఫలితాలను దీని ప్రకారం క్రమబద్ధీకరించండి',
   'results.sortLabel': 'క్రమబద్ధీకరించు',
   'results.summary': '{{count}} విమానాలు · {{passengers}} ప్రయాణికుడు',
   'settings.language.title': 'భాష',

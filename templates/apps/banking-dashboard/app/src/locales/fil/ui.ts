@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'accountDetail.activeBadge': 'Aktibo',
   'accountDetail.availableLabel': '{{amount}} magagamit',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Mga Account',
   'accounts.loadError': 'Hindi na-load ang mga account.',
   'accounts.status.closed': 'Sarado',
+  'accounts.status.frozen': 'Nagyelo',
   'accounts.totalBalance': '{{amount}} kabuuan',
   'audit.empty': 'Wala pang event.',
   'audit.eyebrow': 'Seguridad at access',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Cash sa kamay',
   'cashCreditCard.creditLabel': 'Ginamit na credit',
   'cashCreditCard.title': 'Cash at Credit',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.accountsHeading': 'Mga Account',
   'dashboard.heading': 'Pangkalahatang-tanaw',
   'dashboard.recentEmpty': 'Wala pang transaksyon.',
@@ -45,11 +48,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ipakita ang password',
   'login.signUp': 'Mag-sign Up',
   'login.submit': 'Mag-sign In',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Pangunahing navigation',
   'nav.legal': 'Legal',
   'notifications.emptyHeading': 'Handa ka na',
   'notifications.subheading':
     'Mga real-time na alerto para sa mga transaksyon, seguridad, at mga statement.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'privacy.dataWeShare':
     'Ang personal na data sa pagbabangko ay hindi kailanman ibinibenta. Nagbabahagi kami ng impormasyon sa mga processor ng pagbabayad, network ng card, at mga regulator lamang hanggang sa kinakailangan upang maayos ang mga transaksyon o matupad ang mga legal na obligasyon.',
   'privacy.dataWeStore':
@@ -81,10 +86,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Ang two-factor ay nagdaragdag ng one-time code mula sa authenticator app sa bawat pag-sign in.',
   'settings.security.twoFactorCta': 'Pamahalaan ang two-factor auth',
+  'settings.security.twoFactorOff': 'Naka-off ang two-factor',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.subheading': 'Profile, seguridad, at mga notification.',
+  'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.twoFactorVerify': 'I-verify at paganahin',
   'signup.emailLabel': 'Email Address',
   'signup.fullName': 'Paano ka namin tatawaging?',
   'signup.showPassword': 'Ipakita ang password',
@@ -106,7 +115,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Wala pang transaksyon.',
   'transactions.endDate': 'Petsa ng pagtatapos',
   'transactions.eyebrow': 'Aktibidad',
+  'transactions.loadError': 'Nabigo sa pag-load ng mga transaksyon.',
   'transactions.merchant': 'Mangangalakal',
+  'transactions.subheading': 'Bawat nai-post at nakabinbing transaksyon sa iyong mga account.',
   'transfers.availableHint': '{{amount}} magagamit',
   'transfers.errorGeneric': 'Hindi ma-submit ang transfer.',
   'transfers.errorMissingFields': 'Pumili ng source account at destinasyon.',

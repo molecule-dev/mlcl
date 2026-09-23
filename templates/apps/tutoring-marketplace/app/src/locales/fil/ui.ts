@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ang iyong tungkulin',
   'account.role.upgradeLink': 'Mag-apply para maging isang beripikadong tutor →',
   'account.title': 'Profile, pagbabayad at mga kagustuhan.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Magturo gamit ang Mentor',
   'becomeTutor.form.error': 'Hindi maisumite ang aplikasyon.',
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Paksa',
   'bookingConfirm.title': 'Naka-book ka na. Kami na ang bahala sa iba pa.',
   'bookingConfirm.with': 'Kasama ang tutor',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'earningsHero.eyebrow': 'Mga Kita • {{month}}',
   'forgotPassword.heading': 'Nakalimutan mo ba ang iyong password?',
   'forgotPassword.subheading':
@@ -117,6 +119,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Magpadala ng mensahe',
   'messages.thread.empty': 'Magpabati — simulan ang usapan.',
   'messages.title': 'Mga usapan kasama ang iyong mga tutor.',
+  'nav.primary': 'Pangunahin',
   'pricing.dataExport': 'Pag-export ng data:',
   'pricing.headingDefault': 'Mga advanced na tampok:',
   'resetPassword.heading': 'Pumili ng isang malakas at bagong password.',

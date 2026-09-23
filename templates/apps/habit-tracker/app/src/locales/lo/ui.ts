@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
+  'achievementBadgeCard.unlockedOn': 'ປົດລັອກແລ້ວ {{date}}',
   'achievements.loadError': 'ໂຫຼດຜົນສຳເລັດບໍ່ສຳເລັດ.',
   'achievements.subheading': '{{unlocked}} ຂອງ {{total}} ປົດລັອກແລ້ວ',
+  'auth.legalConsent': 'ໂດຍການດຳເນີນການຕໍ່, ທ່ານຍອມຮັບ',
   'calendar.empty': 'ສ້າງນິໄສເພື່ອເບິ່ງປະຕິທິນຂອງທ່ານ.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ນິໄສ',
@@ -18,6 +22,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ຕາຕາລາງນິໄສ',
   'category.${c.category}': '{{ນັບ}} ນິໄສ',
   'common.and': 'ແລະ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'consistencyHeatmap.ariaLabel': 'ແຜນທີ່ຄວາມຮ້ອນຄວາມສອດຄ່ອງປະຈຳວັນ',
   'consistencyHeatmap.caption': 'ສຸດທ້າຍ {{weeks}} ອາທິດ',
   'consistencyHeatmap.lessLabel': 'ໜ້ອຍລົງ',
@@ -95,7 +100,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ເຮັດໃຫ້ມັນນ້ອຍ. ເຮັດໃຫ້ມັນຊັດເຈນ. ຈະປາກົດຕົວໃນມື້ອື່ນ.',
   'newHabit.timeLabel': 'ເວລາເຕືອນ',
   'notifications.markError': 'ບໍ່ສາມາດໝາຍວ່າອ່ານແລ້ວທັງໝົດໄດ້.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.entries': '{{count}} ລາຍການ',
+  'pricing.heading': 'ເລືອກແຜນ {{app}} ຂອງທ່ານ',
   'profile.action.plan': 'ຈັດການການສະໝັກໃຊ້',
   'profile.action.settings': 'ການຕັ້ງຄ່າບັນຊີ',
   'profile.bioEmpty': 'ເພີ່ມຊີວະປະຫວັດຫຍໍ້ໃນການຕັ້ງຄ່າເພື່ອແນະນຳຕົວທ່ານເອງ.',
@@ -122,6 +129,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'ແຈ້ງການຕອນເຊົ້າປະຈຳວັນ (8:00 ໂມງເຊົ້າ)',
   'settings.reminders.heading': 'ການແຈ້ງເຕືອນ',
   'settings.reminders.weekly': 'ສະຫຼຸບປະຈຳອາທິດ (ຕອນແລງວັນອາທິດ)',
+  'settings.revokeDeviceWarning': 'ການເຂົ້າເຖິງຂອງອຸປະກອນນີ້ຈະຖືກຍົກເລີກໄວໆນີ້. ອອກຈາກລະບົບບໍ?',
   'settings.signOutDevice': 'ອອກຈາກລະບົບ',
   'settings.streaks.freezesPerWeek': 'ແຊ່ແຂງຕໍ່ອາທິດ',
   'settings.streaks.gracePeriod': 'ໄລຍະເວລາຜ່ອນຜັນ 6 ຊົ່ວໂມງຫຼັງຈາກທ່ຽງຄືນ',
@@ -148,5 +156,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ເຄື່ອນໄຫວ',
   'streakHeroCard.daysSuffix': 'ມື້',
   'streakHeroCard.title': 'ຕິດຕໍ່ກັນທີ່ຍາວທີ່ສຸດ',
+  'streakLayout.closeMenu': 'ປິດເມນູນຳທາງ',
+  'streakLayout.openMenu': 'ເປີດເມນູນຳທາງ',
   'streakLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
 }

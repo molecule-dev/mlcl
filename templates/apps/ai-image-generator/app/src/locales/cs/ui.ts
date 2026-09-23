@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'auth.fields.newPassword': 'Nové heslo',
   'collectionDetail.addImage': 'Vytvořit pro sbírku',
   'collectionDetail.backCta': 'Zpět ke sbírkám',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboardy, zadání a probíhající série',
   'collections.title': 'Sbírky',
   'collections.untitled': 'Bez názvu · {{stamp}}',
+  'common.closeMenu': 'Zavřít nabídku',
+  'common.dismiss': 'Zavřít',
+  'common.goToDashboard': 'Přejít na Dashboard',
+  'common.openMenu': 'Otevřít navigační menu',
   'credits.eyebrow': 'Plán {{plan}}',
   'credits.renewsCopy': 'Plán se obnoví dne {{date}}',
   'credits.trail': 'Snění · {{plan}} úroveň',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Generovací aktivita, sdílení a upozornění na kredity se zobrazí zde.',
   'notifications.empty.title': 'Není co hlásit',
   'notifications.subtitle': 'Generovací události seskupené podle dne',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.limits.gallery': 'Galerie {{count}}',
   'privacy.collect.body':
     'Při registraci shromažďujeme vaše jméno, e-mailovou adresu a hašované heslo. Když používáte Reverie, ukládáme prompty, které odesíláte, obrázky, které pro vás generujeme, styly a sbírky, které ukládáte, a metadata, jako je použitý model, časové značky generování a kreditová bilance.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Uložit nové heslo',
   'reset.submitting': 'Aktualizace hesla…',
   'settings.account.handle': 'Uživatelské jméno',
+  'settings.account.lastSaved': 'Aktivní profil · {{name}}',
   'settings.account.saved': 'Profil uložen',
   'settings.account.saveFailed': 'Profil nelze uložit',
   'settings.account.title': 'Profil tvůrce',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nový obrázek',
   'sidebar.secondary': 'Sekundární navigace',
   'signup.failed': 'Registrace se nezdařila. Zkuste to znovu.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Začněte své reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Vytvořte si účet a získejte 120 kreditů zdarma.',
   'styles.empty': 'Zatím žádné stylové předvolby — objeví se po prvním přihlášení.',
   'styles.eyebrow': 'Kurátorováno',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Időpontfoglalás',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Nincsenek betegek, akiket fel lehetne mutatni.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'consult.backLink': 'Minden találkozó',
   'consult.captions': 'Feliratok',
   'consult.connected': 'Csatlakoztatva · 720p · stabil',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Betegek',
   'patientVitalsHero.scripts': 'Recept nyitva',
   'patientVitalsHero.subline': '{{count}} konzultációk az Ön által megadott időpontban még ma',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'prescriptions.empty': 'Nincsenek egyező receptek.',
   'prescriptions.eyebrow': 'E-recept',
   'prescriptions.heading': 'Receptek',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Adatvédelmi nyilatkozat',
   'privacy.use.body':
     'Az ellátás nyújtása, időpont-emlékeztetők küldése, receptek kiosztása és a szolgáltatás megbízhatóságának javítása érdekében. Soha nem adjuk el az Ön adatait, és soha nem osztunk meg klinikai információkat hirdetőkkel.',
+  'providers.allSpecialties': 'Minden specialitás',
+  'providers.loadError': 'Nem sikerült betölteni a szolgáltatókat.',
+  'providers.loading': 'Betöltés…',
   'providers.noResults': 'Nem található szolgáltató.',
   'providers.searchPlaceholder': 'Keresés név, szakterület szerint...',
   'providers.title': 'Szolgáltató keresése',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Nap kezdete',
   'settings.availability.heading': 'Elérhetőség',
   'settings.devices.thisDevice': 'Ez az eszköz',
+  'settings.devices.unnamed': 'Névtelen eszköz',
   'settings.eyebrow': 'Gyakorlás és fiók',
   'settings.loadError': 'A profilod betöltése nem sikerült.',
   'settings.notifications.emailMessages': 'E-mailben értesítek, ha a gondozócsapatom válaszol',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Letiltás',
   'settings.security.twoFactor.enable': 'Engedélyezés',
   'settings.security.twoFactor.heading': 'Kétfaktoros hitelesítés',
+  'settings.security.twoFactor.invalidCode': 'A kód nem egyezik. Próbáld újra.',
+  'settings.security.twoFactor.setupFailed':
+    'Nem sikerült elindítani a kétfaktoros beállítást. Próbáld újra.',
+  'settings.security.twoFactor.statusOn': 'Kétfaktoros funkció be van kapcsolva',
   'settings.signOutDevice': 'Kijelentkezés',
   'settings.subheading': 'Szolgáltatói profil, gyakorlati szabályok és klinikai riasztások.',
   'signup.emailLabel': 'E-MAIL',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Fiók létrehozása',
   'signupFooter.hipaa': 'HIPAA-kompatibilis',
   'solaceLayout.primaryNavLabel': 'Elsődleges navigáció',
+  'solaceLayout.toggleMenu': 'Menü megjelenítése/elrejtése',
   'terms.eligibility.body':
     'Legalább tizennyolc évesnek kell lennie, vagy a kiskorú szülőjének, illetve törvényes gyámjának kell lennie, akinek ellátását kéri, és fizikailag az Egyesült Államok olyan államában kell tartózkodnia, ahol klinikusaink engedéllyel rendelkeznek.',
   'terms.payment.body':

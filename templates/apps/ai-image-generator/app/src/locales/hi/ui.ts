@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'auth.fields.newPassword': 'नया पासवर्ड',
   'collectionDetail.addImage': 'संग्रह के लिए सृजन करें',
   'collectionDetail.backCta': 'संग्रह पर वापस जाएँ',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'मूड-बोर्ड, संक्षिप्त विवरण और चल रही श्रृंखलाएँ',
   'collections.title': 'संग्रह',
   'collections.untitled': 'शीर्षकहीन · {{stamp}}',
+  'common.closeMenu': 'मेनू बंद करें',
+  'common.dismiss': 'खारिज करें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.openMenu': 'नेविगेशन मेनू खोलें',
   'credits.eyebrow': '{{plan}} योजना',
   'credits.renewsCopy': 'योजना {{date}} को नवीनीकृत होती है',
   'credits.trail': 'कल्पना · {{plan}} टीयर',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'सृजन गतिविधि, साझाकरण और क्रेडिट अलर्ट यहाँ दिखाई देंगे।',
   'notifications.empty.title': 'रिपोर्ट करने के लिए कुछ नहीं',
   'notifications.subtitle': 'दिन के अनुसार समूहित सृजन ईवेंट',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.limits.gallery': '{{count}} गैलरी',
   'privacy.collect.body':
     'जब आप साइन अप करते हैं तो हम आपका नाम, ईमेल पता और हैश किया गया पासवर्ड एकत्र करते हैं। जैसे ही आप Reverie का उपयोग करते हैं, हम आपके द्वारा सबमिट किए गए संकेत, हमारे द्वारा आपके लिए सृजित छवियाँ, आपके द्वारा सहेजी गई शैलियाँ और संग्रह, और उपयोग किए गए मॉडल, सृजन टाइमस्टैम्प और क्रेडिट शेष जैसे मेटाडेटा संग्रहीत करते हैं।',
@@ -164,6 +170,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'नया पासवर्ड सहेजें',
   'reset.submitting': 'पासवर्ड अद्यतन हो रहा है…',
   'settings.account.handle': 'हैंडल',
+  'settings.account.lastSaved': 'सक्रिय प्रोफ़ाइल · {{name}}',
   'settings.account.saved': 'प्रोफ़ाइल सहेजी गई',
   'settings.account.saveFailed': 'प्रोफ़ाइल सहेजी नहीं जा सकी',
   'settings.account.title': 'रचनाकार प्रोफ़ाइल',
@@ -185,7 +192,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'नई छवि',
   'sidebar.secondary': 'द्वितीयक नेविगेशन',
   'signup.failed': 'साइन अप विफल। पुनः प्रयास करें।',
+  'signup.firstNamePlaceholder': 'आरिया',
   'signup.heading': 'अपनी reverie शुरू करें',
+  'signup.lastNamePlaceholder': 'लिन',
   'signup.subheading': 'एक खाता बनाएँ और 120 मुफ़्त क्रेडिट का दावा करें।',
   'styles.empty': 'अभी तक कोई शैली प्रीसेट नहीं — पहले साइन-इन के बाद दिखाई देंगे।',
   'styles.eyebrow': 'क्यूरेट',

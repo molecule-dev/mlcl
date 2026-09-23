@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwarna',
   'authShell.samplePreview':
     '"Ħej tim, id-dashboard il-ġdid huwa sabiħ ħafna — eżattament dak li kellna bżonn!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/shortcut',
   'automations.subheading':
     'Regoli, risposti ppreparati u chatbots — żomm l-ispazju tax-xogħol jaħdem waqt li t-tim tiegħek jiffoka fuq l-affarijiet diffiċli.',
+  'automations.trigger.inboundMessage': 'Messaġġ dieħel',
   'automations.triggerLabel': 'Trigger',
   'chatBubble.internalNoteLabel': 'Nota interna',
+  'common.confirmDelete': 'Ikkonferma t-tħassir',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'contactDetail.backToContacts': 'Il-kuntatti kollha',
   'contactDetail.contactFallback': 'Kuntatt',
   'contactDetail.conversationFallback': 'Konverżazzjoni',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Deher l-aħħar',
   'contacts.empty': "Għad m'hemm l-ebda kuntatt. Żid l-ewwel kuntatt tiegħek hawn fuq.",
   'contacts.eyebrow': 'Direttorju tal-klijenti',
+  'contacts.form.nameOrEmailRequired': 'Ipprovdi mill-inqas isem jew indirizz elettroniku',
   'contacts.form.save': 'Issejvja l-kuntatt',
   'contacts.heading': 'Kuntatti',
   'contacts.loading': 'Qed jitgħabbew il-kuntatti…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Issejvja n-nota',
   'conversationDetail.tab.note': 'Nota interna',
   'conversationDetail.threadAria': "Messaġġi ta' konverżazzjoni",
+  'conversationDetail.visitorFallback': 'Viżitatur',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Dettalji tal-klijent',
   'customerProfilePanel.recentTitle': 'Konversazzjonijiet riċenti',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Il-klijenti qed jirċievu l-ewwel tweġiba tagħhom {{time}} bħala medja — żomm il-kadenza għaddejja.',
   'inboxHeroCard.title': 'Konversazzjonijiet attivi',
+  'inboxLayout.navDrawerLabel': 'Navigazzjoni',
+  'inboxLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'inboxOverview.eyebrow': "Illum f'daqqa t'għajn",
   'inboxOverview.heroChange': '{{count}} miftuħ',
   'inboxOverview.kpiClosedTrend': "ta' kull żmien",
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Żur il-paġna ewlenija',
   'notifications.subheading':
     'Assenjazzjonijiet, @mentions, riskji SLA, feedback CSAT u attività tat-tim — magħżula mill-aktar ġodda l-ewwel.',
+  'notifications.subjectFallback': 'konverżazzjoni',
+  'notifications.visitorFallback': 'Viżitatur',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Għoli',
   'priority.low': 'Baxx',
+  'priority.normal': 'Normali',
   'priority.urgent': 'Urġenti',
   'privacy.title': 'Politika tal-privatezza',
   'reports.agentFallback': 'Aġent',

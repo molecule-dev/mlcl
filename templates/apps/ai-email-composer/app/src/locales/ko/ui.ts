@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '우리의 이야기',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': '오픈율',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': '결제를 시작하는 중…',
   'billing.subheading': '발송 스타일에 맞는 플랜을 선택하세요.',
   'billing.unavailable': '영업팀 문의',
+  'common.goToDashboard': '대시보드로 이동',
+  'common.retry': '다시 시도',
   'compose.adjustingTone': '선택한 톤으로 다시 작성 중…',
   'compose.aiPromptPlaceholder': '예: "2주간 답장이 없을 때 보내는 정중한 후속 메일, 간결하게."',
   'compose.aiReady': '초안이 준비되었습니다 — 확인 후 발송해 주세요.',
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
     '보내실 메시지가 있으신가요? Signet이 몇 초 만에 초안을 준비해 드립니다.',
   'dashboard.composeCtaLabel': '빠른 작성',
   'dashboard.heading': '이번 주, 정성껏 작성된 메시지',
+  'dashboard.loadFailed': '대시보드를 불러올 수 없습니다.',
   'dashboard.manageLibrary': '라이브러리 관리 →',
   'dashboard.recentEmpty': '아직 발송 내역이 없습니다 — 보낸 이메일이 여기에 표시됩니다.',
   'dashboard.recentHeading': '최근 발송',
@@ -133,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': '기본 톤',
   'settings.toneSubheading': '초안에서 변경하지 않는 한 Signet이 이 톤을 사용합니다.',
   'signetLayout.primaryNavLabel': '기본 내비게이션',
+  'signetLayout.toggleMenu': '메뉴 전환',
   'signup.emailLabel': '이메일 주소',
   'signup.showPassword': '비밀번호 보기',
   'signup.tagline': '1분 안에 첫 AI 작성 이메일을 보내세요.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tietoa {{app}}sta',
   'analytics.avgCheckLabel': 'Keskimääräinen tarkistus',
   'analytics.busiestHour': 'Vilkkain tunti',
   'analytics.coversToday': 'Kattaa tänään',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Tipit (keskimäärin)',
   'analytics.topItems': 'Suosituimmat tuotteet tänään',
   'authShell.eyebrow': 'Tervetuloa takaisin palvelukseen',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Lämmin ja nopea myyntipiste ravintola-alan tiimeille. Kirjaudu sisään keittiöösi ja jatka siitä, mihin jäit.',
   'authShell.tip': 'Vinkki: pikanäppäimet toimivat kaikkialla – hae painamalla /-näppäintä.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'tai {{price}}',
   'billing.priceUnavailable': 'Tälle paketille ei ole määritetty hintaa.',
   'billing.updated': 'Suunnitelma päivitetty.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'customerDetail.book': 'Lisää varaus',
   'customerDetail.col.table': 'Taulukko',
   'customerDetail.confirmDelete': 'Poistetaanko tämä vierastieto?',
@@ -125,6 +128,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Saatavuus',
   'menuItemDetail.available': 'Saatavilla tänä iltana',
   'menuItemDetail.backToMenu': 'Takaisin valikkoon',
+  'menuItemDetail.confirmDelete': 'Poistetaanko tämä valikkokohta?',
   'menuItemDetail.delete': 'Poista kohde',
   'menuItemDetail.deleteError': 'Poisto epäonnistui. Yritä uudelleen.',
   'menuItemDetail.dietary': 'Ruokavaliomerkinnät',
@@ -136,9 +140,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · Muokkaa kuvaa, muokkaajia, ruokavalioita ja hinnoittelua.',
   'menuItemDetail.untitled': 'Nimetön kohde',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'notFound.heading': 'Tämä pöytä ei ole lattialla.',
   'notFound.subheading':
     'Etsimäsi sivu on jo muualla – tai sitä ei ole koskaan ollut olemassakaan.',
+  'notFound.toLanding': '{{app}} kotisivu',
   'notifications.markError': 'Kaikkia ei voitu merkitä luetuiksi.',
   'orderDashboard.activeDelta': 'Live nyt',
   'orderDashboard.activeLabel': 'Aktiiviset tilaukset',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Näytä salasana',
   'resetPassword.subtitle': 'Syötä uusi salasanasi päästäksesi takaisin keittiöön.',
   'resetPassword.tokenLabel': 'Palautustunnus',
+  'restaurantOrderingLayout.primaryNavLabel': 'Päänavigaatio',
   'revenueHeroCard.activeOrders': '{{count}} aktiivinen',
   'revenueHeroCard.change': '{{sign}} {{amount}} vs. eilen',
   'revenueHeroCard.title': 'Tämän päivän tulot',
@@ -220,6 +228,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Ravintolan nimi',
   'tableDetail.activeOrders': 'Aktiiviset tilaukset',
   'tableDetail.backToFloor': 'Pohjapiirros',
+  'tableDetail.confirmDelete': 'Poistetaanko tämä taulukko?',
   'tableDetail.delete': 'Poista',
   'tableDetail.deleteError': 'Taulukon poistaminen epäonnistui.',
   'tableDetail.heading': 'Taulukko {{label}}',

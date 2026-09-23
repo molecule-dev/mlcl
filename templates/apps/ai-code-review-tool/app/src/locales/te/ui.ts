@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'సంప్రదించండి',
   'about.eyebrow': 'గురించి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.connectRepoCta': 'కనెక్ట్ రిపోజిటరీ',
   'dashboard.empty':
     'ఇంకా పుల్ రిక్వెస్ట్‌లు లేవు — ప్రారంభించడానికి ఒక రిపోజిటరీని కనెక్ట్ చేయండి.',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'అప్‌టైమ్',
   'pullRequestRow.files': '{{count}} ఎఫ్',
   'pullRequestRow.scoreAria': 'AI నాణ్యత స్కోరు {{score}} / 10',
+  'refractLayout.closeMenu': 'మెనూను మూసివేయండి',
+  'refractLayout.openMenu': 'మెనూ తెరవండి',
   'refractLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'reports.cumulativeScoreLabel': 'సంచిత స్కోరు',
   'reports.cumulativeScoreSubtitle': 'అన్ని రిపోలు · {{days}} డి',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'శోధన సూచికను లోడ్ చేయడంలో విఫలమైంది.',
   'settings.apiKeys.description':
     'ఎగువ-కుడి వైపున ఉన్న యూజర్ మెనూ నుండి వ్యక్తిగత API కీలను నిర్వహించండి.',
+  'settings.apiKeys.integrationsNote':
+    'ప్రొవైడర్ యాక్సెస్ టోకెన్‌లు పైన ఉన్న ఇంటిగ్రేషన్స్ విభాగంలో నిర్వహించబడతాయి.',
   'settings.connectError': 'ప్రొవైడర్‌ను కనెక్ట్ చేయడంలో విఫలమైంది.',
   'settings.disconnectError': 'ప్రొవైడర్‌ను డిస్‌కనెక్ట్ చేయడంలో విఫలమయ్యాము.',
   'settings.eyebrow': 'రిఫ్రాక్ట్ · వర్క్‌స్పేస్',
   'settings.integration.${provider}.label': 'సేవ్ అవుతోంది…',
   'settings.loadError': 'సెట్టింగ్‌లను లోడ్ చేయడంలో విఫలమైంది.',
+  'settings.notificationCenter': 'నోటిఫికేషన్ కేంద్రం',
   'settings.notifications.description':
     'డెలివరీ ప్రాధాన్యతలను వీక్షించడానికి మరియు నిర్వహించడానికి నోటిఫికేషన్ల పేజీని సందర్శించండి.',
   'settings.section.account': 'ఖాతా మరియు భద్రత',

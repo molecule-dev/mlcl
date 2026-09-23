@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.title': '{{app}} жөнүндө',
   'comments.addFailed': 'Комментарий калтыра алган жок.',
   'comments.backToDoc': 'Кол жазмага кайтуу',
   'comments.deleteFailed': 'Өчүрө алган жок.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Чечүү',
   'comments.resolveFailed': 'Чечим чыгара алган жок.',
   'comments.subtitle': '{{open}} ачык · {{resolved}} чечилди',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.activityHeading': 'Эмне болуп жатат',
   'dashboard.createFailed': 'Документ түзүлбөй койду.',
   'dashboard.empty': 'Азырынча кол жазмалар жок — "Жаңы документ" баскычынан баштаңыз.',
@@ -54,12 +57,15 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Таштандыга жылдырылбай калды.',
   'editor.unpublish': 'Жарыялоодон баш тартуу',
   'editor.untitled': 'Аталышы жок документ',
+  'editor.updatedElsewhere':
+    'Бул документ башка бирөө тарабынан жаңыртылды — эң акыркысын көрүү үчүн кайра жүктөңүз.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Эгерде аккаунт бар болсо {{email}} , баштапкы абалга келтирүү шилтемеси жакында чыгат.',
   'forgotPassword.subtitle':
     'Биз сизге баштапкы абалга келтирүү шилтемесин электрондук почта аркылуу жөнөтөбүз.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule менен курулган.',
   'landing.ctaHeading': 'Баракты ачыңыз. Курсорду иштетиңиз.',
   'landing.ctaPrimary': 'Студия ачуу',
   'landing.eyebrow': 'Жазуучулар, редакторлор жана командалар үчүн',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'түзөтүлдү {{when}}',
   'quillonDocumentCard.open': 'Ачуу →',
   'quillonKpiCard.trend': 'Акыркы тенденция',
+  'quillonLayout.menu': 'Меню',
   'quillonLayout.primaryNavLabel': 'Негизги навигация',
   'quillonStudioHero.collab': 'Кызматташтар',
   'quillonStudioHero.docs': 'Документтерге кол коюлду',
@@ -161,9 +168,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}} күн мурун',
   'time.hoursAgo': '{{hours}} саат мурун',
   'time.justNow': 'азыр эле',
+  'trash.confirmDelete': 'Өчүрүүнү ырастоо',
   'trash.deleteFailed': 'Өчүрө алган жок.',
   'trash.deleteForever': 'Түбөлүккө өчүрүү',
   'trash.empty': 'Калыбына келтире турган эч нерсе жок.',
+  'trash.emptyAll': 'Таштандыны бошотуу',
   'trash.eyebrow': 'Студия',
   'trash.heading': 'Таштанды',
   'trash.loadFailed': 'Таштанды жүктөлбөй койду.',

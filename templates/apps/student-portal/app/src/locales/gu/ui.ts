@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'announcementsFeed.empty': 'હજુ સુધી કોઈ જાહેરાત નથી.',
   'announcementsFeed.eyebrow': '{{count}} અપડેટ્સ',
   'announcementsFeed.title': 'નવીનતમ જાહેરાતો',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'અહીં કંઈ નથી',
   'assignments.emptyBody': 'અલગ સ્થિતિમાં સોંપણીઓ જોવા માટે ઉપર ફિલ્ટર્સ સ્વિચ કરો.',
   'assignments.eyebrow': 'બધા અભ્યાસક્રમો · આ શબ્દ',
+  'assignments.loadError': 'સોંપણીઓ લોડ કરી શકાયા નથી.',
   'assignments.loading': 'સોંપણીઓ લોડ કરી રહ્યું છે…',
   'assignments.subtitle':
     'શું બાકી છે, સબમિટ થયું છે, ગ્રેડ થયું છે કે ખૂટતું છે તે જોવા માટે સ્થિતિ દ્વારા ફિલ્ટર કરો.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'નોંધ',
   'attendance.empty': 'હજુ સુધી કોઈ હાજરી રેકોર્ડ નથી.',
   'attendance.eyebrow': 'વસંત સત્ર · છેલ્લા 4 અઠવાડિયા',
+  'attendance.loadError': 'હાજરી રેકોર્ડ લોડ કરી શકાયા નથી.',
   'attendance.loading': 'હાજરી લોડ કરી રહ્યું છે…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'મહિનાના ગ્રીડ પર સોંપણીની નિયત તારીખો લખેલી છે - પરીક્ષાઓ લાલ રંગમાં અલગ દેખાય છે.',
   'calendar.title': '{{month}} ઘટનાઓ',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.no': '—',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'common.yes': '✓',
   'courseDetail.backLink': 'ગ્રેડ',
   'courseDetail.currentGrade': 'વર્તમાન ગ્રેડ',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'વલણ',
   'grades.empty': 'હજુ સુધી કોઈ ગ્રેડ પોસ્ટ કરવામાં આવ્યા નથી.',
   'grades.eyebrow': 'ગ્રેડ બુક',
+  'grades.loadError': 'તમારા ગ્રેડ લોડ કરી શકાયા નથી.',
   'grades.loading': 'ગ્રેડ લોડ કરી રહ્યું છે…',
   'grades.subtitle':
     'લાઈવ લેટર અને ટકાવારી ગ્રેડ. ટ્રેન્ડ એરો બતાવે છે કે તમે ઉપર જઈ રહ્યા છો, લેવલ કરી રહ્યા છો કે લપસી રહ્યા છો.',
   'grades.title': 'તમારા ગ્રેડ, કોર્સ દ્વારા કોર્સ',
   'grades.trendStable': 'સ્થિર',
+  'landing.copyright': '© {{year}} {{app}} . વિદ્યાર્થીઓ માટે બનાવેલ, પરિવારો માટે બનાવેલ.',
   'landing.ctaHeading': 'થોડી મિનિટોમાં શાંત શાળાનો દિવસ શરૂ થાય છે',
   'landing.eyebrow': 'મધ્યમ અને ઉચ્ચ શાળાના વિદ્યાર્થીઓ માટે',
   'landing.featuresHeading': 'વિદ્યાર્થીની આસપાસ આયોજિત શાળા દિવસ',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'સોંપણીઓ',
   'nav.attendance': 'હાજરી',
   'nav.calendar': 'કેલેન્ડર',
+  'nav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
   'nav.grades': 'ગ્રેડ',
+  'nav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'nav.statusEyebrow': 'ટર્મ GPA',
   'nav.statusSubtext': 'ઓનર રોલ · વસંત સત્ર',
+  'nav.unreadMessages': 'વાંચ્યા વગરના સંદેશા',
   'notifications.eyebrow': '{{count}} અપડેટ્સ',
   'notifications.subtitle':
     'ગ્રેડ, રિમાઇન્ડર્સ, સંદેશાઓ અને શાળાની ઘોષણાઓ. સેટિંગ્સમાં દરેક સૂચના કઈ ચેનલોનો ઉપયોગ કરે છે તે ગોઠવો.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.attendanceLabel': 'હાજરી',
   'pricing.gradesLabel': 'ગ્રેડ',
   'pricing.heading': 'જાહેરાતો',

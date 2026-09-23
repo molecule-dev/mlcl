@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'announcementsFeed.empty': 'Gan aon fhógraí fós.',
   'announcementsFeed.eyebrow': '{{count}} nuashonruithe',
   'announcementsFeed.title': 'Fógraí is déanaí',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Níl aon rud anseo',
   'assignments.emptyBody': 'Athraigh scagairí thuas chun sannadh i riocht difriúil a fheiceáil.',
   'assignments.eyebrow': 'Gach cúrsa · An téarma seo',
+  'assignments.loadError': 'Níorbh fhéidir na tascanna a lódáil.',
   'assignments.loading': 'Ag lódáil tascanna…',
   'assignments.subtitle':
     'Scag de réir stádais chun a fheiceáil cad atá dlite, curtha isteach, grádaithe, nó ar iarraidh.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nóta',
   'attendance.empty': 'Gan aon taifid tinrimh go fóill.',
   'attendance.eyebrow': 'Téarma an earraigh · 4 seachtaine deiridh',
+  'attendance.loadError': 'Níorbh fhéidir taifid láithreachta a lódáil.',
   'attendance.loading': 'Ag lódáil láithreacht…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Spriocdhátaí na n-obair phlota ar eangach mhíosúil — seasann scrúduithe amach i ndath dearg.',
   'calendar.title': '{{month}} imeachtaí',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
+  'common.retry': 'Déan iarracht arís',
   'common.yes': '✓',
   'courseDetail.backLink': 'Gráid',
   'courseDetail.currentGrade': 'Grád reatha',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Treocht',
   'grades.empty': 'Níl aon ghráid foilsithe fós.',
   'grades.eyebrow': 'Leabhar grád',
+  'grades.loadError': 'Níorbh fhéidir do ghráid a lódáil.',
   'grades.loading': 'Ag lódáil gráid…',
   'grades.subtitle':
     'Gráid bheo litreacha agus céatadáin. Taispeánann saigheada treochta an bhfuil tú ag bogadh suas, ag leibhéalú, nó ag sleamhnú.',
   'grades.title': 'Do ghráid, cúrsa ar chúrsa',
   'grades.trendStable': 'Cobhsaí',
+  'landing.copyright': '© {{year}} {{app}} . Tógtha do mhic léinn, déanta do theaghlaigh.',
   'landing.ctaHeading': 'Tosaíonn lá scoile níos ciúine i gceann cúpla nóiméad',
   'landing.eyebrow': 'Do dhaltaí meánscoile agus ardscoile',
   'landing.featuresHeading': 'Lá scoile eagraithe timpeall ar an mac léinn',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tascanna',
   'nav.attendance': 'Tinreamh',
   'nav.calendar': 'Féilire',
+  'nav.closeMenu': 'Dún an roghchlár nascleanúna',
   'nav.grades': 'Gráid',
+  'nav.openMenu': 'Oscail an roghchlár nascleanúna',
   'nav.statusEyebrow': 'GPA téarma',
   'nav.statusSubtext': 'Rolla onóra · Téarma an earraigh',
+  'nav.unreadMessages': 'Teachtaireachtaí gan léamh',
   'notifications.eyebrow': '{{count}} nuashonruithe',
   'notifications.subtitle':
     'Gráid, meabhrúcháin, teachtaireachtaí, agus fógraí scoile. Coigeartaigh na bealaí a úsáideann gach fógra i Socruithe.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.attendanceLabel': 'láithreacht',
   'pricing.gradesLabel': 'gráid',
   'pricing.heading': 'fógraí',
@@ -167,6 +178,7 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.gradesCaption': 'Trasna {{percent}} Meán ualaithe %',
   'todayScheduleStrip.empty': 'Gan aon ranganna inniu.',
   'todayScheduleStrip.eyebrow': '{{count}} ranganna',
+  'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Sceideal an lae inniu',
   'topbar.guestName': 'Mac Léinn',
   'topbar.searchPlaceholder': 'Cuardaigh ranganna, tascanna…',

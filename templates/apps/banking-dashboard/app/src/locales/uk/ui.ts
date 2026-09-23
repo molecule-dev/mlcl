@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'accountDetail.activeBadge': 'Активний',
   'accountDetail.availableLabel': '{{amount}} доступно',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Рахунки',
   'accounts.loadError': 'Не вдалося завантажити рахунки.',
   'accounts.status.closed': 'Закрито',
+  'accounts.status.frozen': '«Крижане королівство»',
   'accounts.totalBalance': '{{amount}} загалом',
   'audit.empty': 'Подій ще немає.',
   'audit.eyebrow': 'Безпека та доступ',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Готівка на руках',
   'cashCreditCard.creditLabel': 'Використаний кредит',
   'cashCreditCard.title': 'Готівка та кредит',
+  'common.goToDashboard': 'До панелі',
   'dashboard.accountsHeading': 'Рахунки',
   'dashboard.heading': 'Огляд',
   'dashboard.recentEmpty': 'Транзакцій ще немає.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Показати пароль',
   'login.signUp': 'Зареєструватися',
   'login.submit': 'Увійти',
+  'meridianLayout.menu': 'Меню',
   'meridianLayout.primaryNavLabel': 'Головна навігація',
   'nav.legal': 'Юридична інформація',
   'notifications.emptyHeading': 'Ви в курсі всього',
   'notifications.subheading': 'Сповіщення в реальному часі про транзакції, безпеку та виписки.',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'privacy.dataWeShare':
     "Особисті банківські дані ніколи не продаються. Ми ділимося інформацією з платіжними системами, картковими мережами та регуляторами лише в тій мірі, яка необхідна для проведення транзакцій або виконання юридичних зобов'язань.",
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Двофакторна автентифікація додає одноразовий код із застосунку автентифікатора при кожному вході.',
   'settings.security.twoFactorCta': 'Керувати двофакторною автентифікацією',
+  'settings.security.twoFactorOff': 'Двофакторна автентифікація вимкнена',
   'settings.signOutDevice': 'Вийти',
   'settings.subheading': 'Профіль, безпека та сповіщення.',
+  'settings.twoFactorCode': 'Код аутентифікації',
   'settings.twoFactorDisable': 'Вимкнути',
   'settings.twoFactorEnable': 'Увімкнути',
+  'settings.twoFactorInvalidCode': 'Неправильний код',
+  'settings.twoFactorVerify': 'Перевірити та увімкнути',
   'signup.emailLabel': 'Адреса електронної пошти',
   'signup.fullName': 'Як нам до вас звертатися?',
   'signup.showPassword': 'Показати пароль',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Транзакцій ще немає.',
   'transactions.endDate': 'Дата завершення',
   'transactions.eyebrow': 'Активність',
+  'transactions.loadError': 'Не вдалося завантажити транзакції.',
   'transactions.merchant': 'Торговець',
+  'transactions.subheading': 'Усі проведені та очікувані транзакції на ваших рахунках.',
   'transfers.availableHint': '{{amount}} доступно',
   'transfers.errorGeneric': 'Не вдалося надіслати переказ.',
   'transfers.errorMissingFields': 'Виберіть рахунок-джерело та отримувача.',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': '予約を取る',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': '表示する患者がいません。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'consult.backLink': 'すべての予約',
   'consult.captions': '字幕',
   'consult.connected': '接続済み · 720p · 安定',
@@ -128,6 +129,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': '患者',
   'patientVitalsHero.scripts': '処方未対応',
   'patientVitalsHero.subline': '本日のスケジュールに {{count}} 件の診察があります',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'prescriptions.empty': '該当する処方はありません。',
   'prescriptions.eyebrow': '電子処方',
   'prescriptions.heading': '処方',
@@ -143,6 +145,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'プライバシー通知',
   'privacy.use.body':
     'ケアの提供、予約のリマインダー送信、処方の連携、サービスの信頼性向上のために使用します。データを販売することはなく、臨床情報を広告主と共有することもありません。',
+  'providers.allSpecialties': 'すべての専門分野',
+  'providers.loadError': 'プロバイダーの読み込みに失敗しました。',
+  'providers.loading': '読み込み中…',
   'providers.noResults': '担当医が見つかりません。',
   'providers.searchPlaceholder': '名前や専門分野で検索...',
   'providers.title': '担当医を探す',
@@ -162,6 +167,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': '始業時間',
   'settings.availability.heading': '対応可能時間',
   'settings.devices.thisDevice': 'このデバイス',
+  'settings.devices.unnamed': '名前のないデバイス',
   'settings.eyebrow': '診療所とアカウント',
   'settings.loadError': 'プロフィールを読み込めませんでした。',
   'settings.notifications.emailMessages': 'ケアチームから返信があったらメールで通知',
@@ -175,6 +181,11 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': '無効化',
   'settings.security.twoFactor.enable': '有効化',
   'settings.security.twoFactor.heading': '二要素認証',
+  'settings.security.twoFactor.invalidCode':
+    'そのコードは一致しませんでした。もう一度お試しください。',
+  'settings.security.twoFactor.setupFailed':
+    '二段階認証の設定を開始できませんでした。もう一度お試しください。',
+  'settings.security.twoFactor.statusOn': '二段階認証が有効です',
   'settings.signOutDevice': 'サインアウト',
   'settings.subheading': '担当医プロフィール、診療ルール、臨床アラート。',
   'signup.emailLabel': 'メール',
@@ -185,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'アカウントを作成',
   'signupFooter.hipaa': 'HIPAA 準拠',
   'solaceLayout.primaryNavLabel': 'メインナビゲーション',
+  'solaceLayout.toggleMenu': 'メニューを切り替え',
   'terms.eligibility.body':
     'ご利用には 18 歳以上であること、またはケアを希望する未成年者の親もしくは法定後見人であることが必要です。また、当社の臨床医が免許を持つ米国の州内に物理的にいる必要があります。',
   'terms.payment.body':

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.tagline': "Ngalaba ọ bụla, n'okpuru otu ụlọ.",
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.addProperty': 'Tinye ihe onwunwe',
   'dashboard.empty.body':
     'Ozugbo i nwere ihe onwunwe, nkeji, na ụgwọ ụlọ, dashboard a na-ejupụta na nghọta nke pọtụfoliyo.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} iwu ọrụ mepere emepe, nke e nyere iwu dịka mkpa si dị',
   'maintenanceQueueList.title': "N'usoro mmezi",
+  'nav.closeMenu': 'Mechie menu',
+  'nav.openMenu': 'Mepee menu',
   'notFound.body':
     "E bufeela ibe ị na-achọ, debe ya n'ebe nchekwa, ma ọ bụ na ọ dịghị mgbe ọ dị adị.",
   'notFound.title': 'Ụzọ ahụ anaghị emepe',

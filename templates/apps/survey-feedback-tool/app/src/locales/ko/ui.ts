@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} 소개',
   'analytics.back': '설문 개요',
   'analytics.kpiNps': 'NPS 점수',
   'analytics.kpiNpsTrend': '추천자 {{p}}% · 비추천자 {{d}}%',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': '속성',
   'builder.questionNumber': 'Q{{num}}',
   'builder.surveyTitle': '설문 제목',
+  'common.goToDashboard': '대시보드로 이동',
   'forgotPassword.failed': '재설정 이메일을 전송하지 못했습니다. 다시 시도해 주세요.',
   'forgotPassword.subheading': '이메일을 입력하시면 복구 링크를 보내드립니다.',
   'forgotPassword.successBody':
     '{{email}}에 일치하는 계정이 있다면 재설정 링크가 발송됩니다. 받은편지함과 스팸함을 확인해 주세요.',
+  'landing.footer.copyright': '© {{year}} {{app}} . 모든 의견을 환영합니다.',
   'landing.footer.startTrial': '체험 시작',
   'landing.hero.badge': '설문, NPS 및 피드백을 한곳에서',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': '요금제',
   'landing.pricing.perMonth': '/월',
   'landing.pricing.popular': '가장 인기',
+  'landing.pricing.subtitle':
+    '모든 플랜에는 설문 조사 작성 도구, 공개 공유 링크 및 NPS 분석 기능이 포함되어 있습니다. 시작하는 데 신용 카드 정보는 필요하지 않습니다.',
+  'landing.pricing.title': '무료로 시작하고 필요에 따라 확장하세요.',
   'landing.sample.eyebrow': '한눈에 보는 NPS',
   'landing.sample.title': '비추천자, 중립자, 추천자 — 한눈에 읽힙니다.',
   'login.failed': '로그인에 실패했습니다. 다시 시도해 주세요.',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'login.showPassword': '비밀번호 표시',
   'login.signUpLink': '무료 체험 시작',
   'login.subheading': '로그인하여 청중의 목소리를 계속 들어보세요.',
+  'notFound.body': '{{app}} 에는 찾으시는 페이지가 없습니다. 설문조사 페이지로 돌아가겠습니다.',
   'notFound.cta': '설문으로 돌아가기',
   'notFound.eyebrow': '404',
   'notFound.heading': '이 설문은 대기열에서 사라졌습니다.',
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': '중립자 7–8',
   'npsDistributionBar.promoter': '추천자 9–10',
   'profile.identity.description': '팀과 작성하신 설문에 공개됩니다.',
+  'profile.identity.emailRequired': '이메일 주소를 입력하세요.',
   'profile.identity.saveCta': '이름 저장',
   'profile.password.current': '현재 비밀번호',
   'profile.password.fillFields': '현재 비밀번호와 새 비밀번호를 모두 입력하세요.',
@@ -173,6 +181,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}}개의 질문',
   'templates.subheading':
     '검증된 스타터를 선택하세요 — 모든 템플릿에는 합리적인 기본값, 샘플 로직, 깔끔한 모바일 레이아웃이 미리 설정되어 있습니다.',
+  'thankYou.body':
+    '귀하의 답변이 기록되었습니다. {{app}} 다음 분석 업데이트에 해당 답변을 포함할 예정입니다.',
   'thankYou.eyebrow': '응답 수신됨',
   'thankYou.heading': '감사합니다 — 여러분의 목소리가 중요합니다.',
   'thankYou.home': 'Gauge 방문',

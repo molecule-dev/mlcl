@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// apie {{app}}',
+  'about.pageTitle': '„Webhook“ valdymo plokštuma',
+  'about.plansTitle': 'Planai kiekvienam etapui',
   'apiKeys.bestPractices': 'Geriausia praktika',
   'apiKeys.body':
     'Programinės prieigos žetonai. Elkitės su jais kaip su slaptažodžiais – saugokite juos „env vars“ kintamuosiuose, niekada nepakeiskite pakeitimų.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'pagal planą',
   'billing.usageWarning': 'netoli dangtelio',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.body':
     'Tiesioginis pralaidumas, pakartotiniai bandymai veikiant ir ką tik užstrigę galiniai taškai – kiekvienoje jūsų valdomoje darbo vietoje.',
   'dashboard.endpointsEmpty': 'Dar nėra galinių taškų.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'galiniai taškai',
   'endpointDetail.deliveryTrendSub': 'pristatymai / val., rąstų skalė',
   'endpointDetail.hideSecret': 'Slėpti paslaptį',
+  'endpointDetail.loading': 'Įkeliamas galinis taškas…',
   'endpointDetail.metric.delivered': 'Pristatyta per 24 val.',
   'endpointDetail.metric.deliveredCaption': 'iš {{count}} įvykių tipai',
   'endpointDetail.metric.failuresCaption': 'pakartotiniai bandymai: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritinis · 24 val.',
   'notifications.metric.totalCaption': 'visų laikų gautųjų',
   'payloadViewer.payload': '// naudingoji apkrova',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'profile.avatarHeader': 'Avataras',
   'profile.avatarHint': 'Rodomi inicialai – įkėlimai bus rodomi su kitu leidimu.',
   'profile.body': 'Jūsų paskyra, nuostatos ir aktyvūs seansai.',
@@ -228,6 +234,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ išsaugota',
   'profile.sessionsEmpty': 'Aktyvi tik dabartinė sesija. Nėra prisijungusių kitų įrenginių.',
   'profile.toggle': 'Perjungti {{label}}',
+  'pylonShell.closeMenu': 'Uždaryti navigacijos meniu',
+  'pylonShell.openMenu': 'Atidaryti navigacijos meniu',
   'pylonShell.primaryNavLabel': 'Pagrindinė navigacija',
   'resetPassword.subtitle': 'Pasirinkite saugų slaptažodį, kurio dar nenaudojote.',
   'resetPassword.tokenPlaceholder': 'įklijuoti iš el. laiško',

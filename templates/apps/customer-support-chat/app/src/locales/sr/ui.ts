@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
   'authShell.samplePreview':
     '„Ћао екипо, нова контролна табла је прелепа — управо оно што нам је требало!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/пречица',
   'automations.subheading':
     'Правила, унапред припремљени одговори и четботови — одржавајте радни простор активним док се ваш тим фокусира на тешке ствари.',
+  'automations.trigger.inboundMessage': 'Долазна порука',
   'automations.triggerLabel': 'Окидач',
   'chatBubble.internalNoteLabel': 'Интерна напомена',
+  'common.confirmDelete': 'Потврди брисање',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'contactDetail.backToContacts': 'Сви контакти',
   'contactDetail.contactFallback': 'Контакт',
   'contactDetail.conversationFallback': 'Разговор',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Последњи пут виђен',
   'contacts.empty': 'Још нема контаката. Додајте свој први контакт изнад.',
   'contacts.eyebrow': 'Именик купаца',
+  'contacts.form.nameOrEmailRequired': 'Наведите барем име или имејл адресу',
   'contacts.form.save': 'Сачувај контакт',
   'contacts.heading': 'Контакти',
   'contacts.loading': 'Учитавање контаката…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Сачувај белешку',
   'conversationDetail.tab.note': 'Интерна напомена',
   'conversationDetail.threadAria': 'Поруке у разговору',
+  'conversationDetail.visitorFallback': 'Посетилац',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Подаци о купцу',
   'customerProfilePanel.recentTitle': 'Недавни разговори',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Купци добијају свој први одговор у {{time}} у просеку — одржавајте ритам.',
   'inboxHeroCard.title': 'Активни разговори',
+  'inboxLayout.navDrawerLabel': 'Навигација',
+  'inboxLayout.openMenu': 'Отвори мени за навигацију',
   'inboxOverview.eyebrow': 'Данас на први поглед',
   'inboxOverview.heroChange': '{{count}} отворено',
   'inboxOverview.kpiClosedTrend': 'свих времена',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Посетите почетну страницу',
   'notifications.subheading':
     'Задаци, @помињања, SLA ризици, CSAT повратне информације и активности тима — сортирано од најновијег.',
+  'notifications.subjectFallback': 'разговор',
+  'notifications.visitorFallback': 'Посетилац',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Високо',
   'priority.low': 'Ниско',
+  'priority.normal': 'Нормално',
   'priority.urgent': 'Хитно',
   'privacy.title': 'Политика приватности',
   'reports.agentFallback': 'Агент',

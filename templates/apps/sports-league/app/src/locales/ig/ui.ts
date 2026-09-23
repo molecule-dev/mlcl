@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Banyere',
+  'appShell.closeNav': 'Mechie nhazigharị',
+  'appShell.openNav': 'Mepee nhazigharị',
+  'common.dashboard': 'Dashboard',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.eyebrow': 'Taa gburugburu otu egwuregwu ahụ',
   'dashboard.loading': 'Na-adọta akara nke taa...',
   'dashboard.scoringLeaders': 'Ndị isi na-enye akara',
@@ -146,4 +150,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} gara aga',
   'time.hoursAgo': '{{count}} awa gara aga',
   'time.minutesAgo': '{{count}} ọnwa gara aga',
+  'time.secondsAgo': '{{count}} gara aga',
 }

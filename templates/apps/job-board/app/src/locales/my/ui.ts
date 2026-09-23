@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
   'applications.empty':
     'လျှောက်လွှာများ မရှိသေးပါ။ သင့်တော်သော ရာထူးကို တစ်ဦးတည်းသာ လျှောက်ထားရပါမည်။',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'သင်လျှောက်ထားသော အခန်းကဏ္ဍတိုင်း၊ ရွေ့လျားနေပါသည်။ အာရုံစိုက်ရန် အဆင့်အလိုက် စစ်ထုတ်ပါ။',
   'applications.untitledRole': 'အခန်းကဏ္ဍ # {{id}}',
+  'auth.legalConsent': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းမျဉ်းများကို သဘောတူပါသည်',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'companies.empty':
     'သင့်ရှာဖွေမှုနှင့် ကိုက်ညီသော ကုမ္ပဏီများ မရှိပါ။ အခြားအသုံးအနှုန်းကို စမ်းကြည့်ပါ။',
   'companies.eyebrow': 'အထူးပြု အလုပ်ရှင်များ',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ဤရာထူးအတွက် လျှောက်လွှာများ မရှိသေးပါ။',
   'jobApplicants.eyebrow': 'အလုပ်ရှင်အမြင်',
   'jobApplicants.loading': 'တင်နေသည်\\u2026',
+  'jobApplicants.statusUpdateFailed': 'ထိုအဆင့်ကို အပ်ဒိတ်လုပ်၍မရပါ — ထပ်ကြိုးစားပါ။',
+  'jobApplicants.subheading':
+    'ကိုယ်ရေးရာဇဝင်အကျဉ်းကို ပြန်လည်သုံးသပ်ပါ၊ ကိုယ်စားလှယ်လောင်းများကို ကြိုတင်စာရင်းသွင်းပါ၊ ကမ်းလှမ်းချက်များ ပေးပို့ပါ \\u2014 {{count}} တွင် လုပ်ဆောင်နေပါသည်။',
   'jobDetail.applicantCount': '{{count}} ယခုအချိန်အထိ လျှောက်ထားသူများ',
   'jobDetail.applied': 'လျှောက်လွှာပို့ပြီးပါပြီ',
   'jobDetail.apply': 'ယခုပဲ လျှောက်ထားလိုက်ပါ',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'လစ်လပ်ရာထူးများကို ကြည့်ရှုပါ \\u2192',
   'landing.pricingEyebrow': 'ဈေးနှုန်း',
   'landing.pricingHeading': 'အဖွဲ့အရွယ်အစားတိုင်းအတွက် ရိုးရှင်းသောအစီအစဉ်များ။',
+  'login.eyebrow': '{{app}} သို့ ပြန်လည် ကြိုဆိုပါသည်',
   'login.heading': 'သင့်အကောင့်သို့ လက်မှတ်ထိုးဝင်ပါ',
   'login.noAccount': 'Nosh ကို အသစ်လား။',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'အကောင့်ဝင်နေသည်\\u2026',
   'login.subheading':
     'သင့်ရှာဖွေမှုကို လုပ်ဆောင်ပါ၊ သင့်အပလီကေးရှင်းများကို မြှင့်တင်ပါ၊ ပိုမိုမြန်ဆန်စွာ ပြန်လည်ဆက်သွယ်ပါ။',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} ။ ငှားရမ်းခြင်းအဖွဲ့များအတွက် တည်ဆောက်ထားသည်။',
   'loginBrandPanel.headline': 'အရည်အချင်းတွေ ဆုံတွေ့တဲ့နေရာ',
   'loginBrandPanel.headlineLine2': 'အရှိန်အဟုန်။',
   'loginBrandPanel.listing.recruiter': 'ပါရမီရှင် မိတ်ဖက်',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'လျှောက်လွှာ အပ်ဒိတ်များ၊ အင်တာဗျူး ဖိတ်ကြားချက်များ၊ አዲስ ကိုက်ညီမှုများ \\u2014 အသစ်ဆုံးကို ဦးစွာပြသပါ။',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ဒီတစ်ပတ်',
   'opportunitiesHero.eyebrow': 'ယနေ့ဖွင့်သည်',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'postJob.addNewCompany': '+ ကုမ္ပဏီအသစ်တစ်ခု ထည့်ပါ',
   'postJob.companyCreateFailed': 'ကုမ္ပဏီတစ်ခု ဖန်တီး၍မရပါ — ထပ်ကြိုးစားပါ။',
   'postJob.companyNameLabel': 'သင့်ကုမ္ပဏီ၏အမည်',
@@ -167,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'အကောင့်ဖန်တီးနေသည်\\u2026',
   'signup.ctaEmployer': 'အလုပ်ရှင်အကောင့် ဖန်တီးပါ',
   'signup.firstNamePlaceholder': 'မာယာ',
+  'signup.lastNamePlaceholder': 'ချန်',
   'signup.passwordMismatch': 'စကားဝှက်များ မကိုက်ညီပါ။',
   'signup.subheading':
     'အလုပ်ရှာဖွေသူများအတွက် အခမဲ့၊ ထာဝရ။ အလုပ်ရှင်များသည် ရက် ၃၀ အစမ်းသုံးခြင်းဖြင့် စတင်သည်။',
   'timeAgo.days': '{{count}} လွန်ခဲ့သော ရက်',
   'timeAgo.hours': '{{count}} နာရီ ကြာပြီ',
   'timeAgo.justNow': 'ယခုပင်',
+  'timeAgo.weeks': '{{count}} တစ်ပတ် ကြာပြီ',
 }

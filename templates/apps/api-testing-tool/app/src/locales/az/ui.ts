@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.pageTitle': '{{app}} haqqında',
   'authShell.statusLabel': 'onlayn qaçışçılar',
   'collections.createError': 'Kolleksiya yaradıla bilmədi.',
   'collections.defaultName': 'Başlıqsız kolleksiya {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Yeni kolleksiya',
   'collections.subheading':
     'Qrup sorğuları edin, komandanızla paylaşın və onları bir dəst kimi işlədin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'environmentCard.inactive': 'Boş',
   'environmentCard.more': 'daha çox',
   'environmentCard.variables': 'Dəyişənlər',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Pulsuz yükləyin',
   'landing.heroSubtitle':
     'Terminallarda yaşayan mühəndislər üçün hazırlanmış ildırım sürətli API sınaq iş masası.',
+  'landing.heroTitleAccent': 'Yanğın',
+  'landing.heroTitleLine2': 'özünəinam yaratmaq.',
+  'landing.heroTitleRest': 'istəklər,',
   'landing.kicker': '$ pylon göndər --watch',
   'landing.pricingEyebrow': '// $ qiymət --düzgün',
   'landing.pricingHeading': 'Sadə, proqnozlaşdırıla bilən qiymət',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Burada yenisiniz?',
   'login.showPassword': 'Şifrəni göstər',
   'login.subtitle': 'Pylon iş sahənizə davam edin.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'mocks.createError': 'Saxtakarlıq yaratmaq mümkün olmadı.',
   'mocks.defaultName': 'Başlıqsız istehza {{n}}',
   'mocks.deleteError': 'Saxtakarlığı silmək mümkün olmadı.',
@@ -115,6 +123,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'İş sahəsinə qayıt',
   'notFound.eyebrow': '$ pylon həlli --strict',
   'notFound.title': 'Marşrut tapılmadı',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'privacy.collect.account':
     'Hesab: e-poçt ünvanınız, heş edilmiş parolunuz, ekran adınız və son girişinizin vaxt möhürü.',
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Bu hesabın hazırda sahib olduğu məlumatların yalnız oxunan görünüşü.',
   'settings.unset': 'təyin olunmayıb',
   'signup.identityHint': 'məs. Aleks',
+  'signup.statusLabel': 'pulsuz səviyyə · kredit kartı yoxdur',
   'signup.subtitle': 'Bir neçə dəqiqə ərzində sorğuları işə salmağa başlayın.',
   'terms.account.body':
     'Şifrənizin qorunmasına görə məsuliyyət daşıyırsınız. Pulsuz və ya Pro planlarında bir hesabı birdən çox insanla paylaşmağa icazə verilmir — ortaq iş sahələri üçün Komanda abunəliyi alın.',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     'Sahib olmadığınız və ya sınaq üçün açıq icazəniz olmayan xidmətlərə sorğu göndərmək üçün Pylon-dan istifadə etməyin. Tarif limitlərini aşmaq və ya fırıldaqçılıq etmək üçün Pylon-dan istifadə etməyin.',
   'terms.warranty.body':
     'Pylon heç bir zəmanət olmadan "olduğu kimi" təqdim olunur. Biz 99.9% işləmə müddətini hədəfləyirik, lakin Pulsuz və ya Pro planlarında buna zəmanət vermirik.',
+  'testRunner.assertionsCount': '{{count}} iddia',
   'testRunner.createError': 'Test yaradıla bilmədi.',
   'testRunner.cron':
     'Təsdiqlər bu testin əlaqəli sorğusunun ən son versiyasına qarşı qiymətləndirilir.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite nəticələri, təsdiq fərqləri və son 50 cəhd.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Daxil olduğum şəxs',
+  'workspace.auth.keyName': 'Başlıq adı',
+  'workspace.auth.keyValue': 'Açar dəyər',
+  'workspace.auth.password': 'Şifrə',
+  'workspace.auth.username': 'İstifadəçi adı',
+  'workspace.authOption.apikey': 'API Açarı',
+  'workspace.authOption.basic': 'Əsas Təsdiq',
+  'workspace.authOption.bearer': 'Daşıyıcı Token',
+  'workspace.authOption.none': 'Heç biri',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Növü',
   'workspace.authTypeLabel': 'Təsdiq növü',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Heç biri',
+  'workspace.body.text': 'Xam mətn',
+  'workspace.body.type': 'Növü',
   'workspace.environment': 'Ətraf mühit yoxdur',
   'workspace.envVar': 'ətraf mühit dəyişəni',
   'workspace.eyebrow': '$ pylon iş sahəsi --pane split',
+  'workspace.kv.addHeader': 'Başlıq əlavə edin',
+  'workspace.kv.addParam': 'Parametr əlavə edin',
+  'workspace.kv.headerKey': 'Başlıq adı',
+  'workspace.kv.headerValue': 'Başlıq dəyəri',
+  'workspace.kv.key': 'Açar',
+  'workspace.kv.paramKey': 'Sorğu parametr açarı',
+  'workspace.kv.paramValue': 'Sorğu parametr dəyəri',
+  'workspace.kv.removeRow': 'Sətiri silin',
+  'workspace.kv.value': 'Dəyər',
   'workspace.methodLabel': 'HTTP metodu',
   'workspace.metric.latency': 'Gecikmə',
   'workspace.metric.latencyCaption': 'Bu qaçışdan gediş-dönüş',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Sorğu qəbul edildi — aşağıdakı cavaba baxın.',
   'workspace.subheading':
     'Bir sorğu yazın, onu işə salın və sonra cavabı təsdiqləyin — hamısı bir paneldə.',
+  'workspace.testResults': 'Test nəticələri',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Səlahiyyət olaraq göndərildi: Daşıyıcı<token> bu kolleksiyadakı hər bir sorğu üçün.',

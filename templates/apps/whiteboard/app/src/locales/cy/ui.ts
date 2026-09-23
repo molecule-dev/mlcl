@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'authShell.brandHeading': "Canfasau aml-chwaraewr ar gyfer timau dylunio sy'n meddwl yn uchel.",
   'billing.canceled': "Tanysgrifiad wedi'i ganslo.",
   'billing.cancelPlan': "Canslo'r cynllun",
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'billing.usage.collaborators': 'Cydweithwyr',
   'billing.usageOf': "o {{max}} wedi'i gynnwys",
   'boardCanvas.backToBoards': 'Pob bwrdd',
+  'boardCanvas.changeColor': 'Newid {{color}}',
   'boardCanvas.deleteElement': 'Dileu elfen',
   'boardCanvas.deselect': 'Dad-ddewis',
   'boardCanvas.elementsCount': '{{count}} elfennau',
@@ -69,6 +71,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': "Dechrau o'r templed",
   'boards.title': 'Eich byrddau',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Rhowch yr e-bost sy'n gysylltiedig â'ch gweithle a byddwn yn anfon dolen ailosod atoch.",
@@ -80,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Gweithdy Ch1 · Llais Brand',
   'landing.featuresEyebrow': "Beth sy'n gwneud i Slate fod yn deselledig",
   'landing.featuresTitle': 'Adborth cyflym. Cynfasau hardd. Dim ffrithiant.',
+  'landing.hero.body':
+    "Mae {{appName}} yn fwrdd gwyn aml-chwaraewr ar gyfer timau dylunio, hwyluswyr gweithdai ac addysgwyr sy'n cynnal sesiynau meddwl byw ac angen syniadau i ddod at ei gilydd mewn un lle.",
   'landing.hero.primaryCta': 'Dechreuwch fwrdd am ddim',
   'landing.hero.socialProof': 'Ymddiriedir gan {{count}} timau dylunio ledled y byd',
   'landing.hero.title': "Cynfas mor gyflym â'ch meddyliau",
@@ -90,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Creu man gwaith am ddim',
   'login.subheading':
     'Parhewch lle gorffennodd y gweithdy — mae byrddau, nodiadau gludiog, a chyrchwyr i gyd yn cydamseru mewn amser real.',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.new': 'Newydd',
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'notifications.editTitle': 'Golygiadau i " {{board}} "',
   'notifications.empty.body':
     'Bydd gwahoddiadau, arbedion ciplun, a golygiadau diweddar ar y bwrdd yn ymddangos yma wrth iddynt ddigwydd.',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Hanes fersiwn',
   'versionHistory.untitledSnapshot': 'Ciplun di-deitl',
   'whiteboardLayout.newBoard': 'Bwrdd newydd',
+  'whiteboardLayout.primaryNav': 'Prif lywio',
   'workspace.boardLabel': 'Bwrdd',
   'workspace.eyebrow': '{{name}} · gweithle',
   'workspace.invite': 'Gwahodd cydweithwyr',

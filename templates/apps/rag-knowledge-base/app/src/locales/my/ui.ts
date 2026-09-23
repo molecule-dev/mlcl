@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.pageTitle': 'အကြောင်း {{appName}}',
   'analytics.error': 'ခွဲခြမ်းစိတ်ဖြာချက်များကို ဖွင့်၍မရပါ။',
   'analytics.heading': 'ပြန်လည်ရယူခြင်း ခွဲခြမ်းစိတ်ဖြာမှု',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ဈေးနှုန်းအဆင့်များကို ပြင်ဆင်သတ်မှတ်ထားခြင်း မရှိပါ။',
   'billing.plans.heading': 'အစီအစဉ်များ',
   'billing.subheading': 'အစီအစဉ်၊ အသုံးပြုမှုနှင့် Stripe မှ စီမံခန့်ခွဲထားသော ငွေရှင်းခြင်း။',
+  'common.confirm': 'အတည်ပြုပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'documentCard.open': 'ဖွင့်ရန် \\u2192',
   'documentDetail.back': 'စာရွက်စာတမ်းများဆီသို့ ပြန်သွားပါ',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'စာရွက်စာတမ်းခေါင်းစဉ်',
   'documents.emptyAll':
     'စာရွက်စာတမ်းများ မရှိသေးပါ။ မေးခွန်းများ စတင်မေးမြန်းရန်အတွက် တစ်ခုကို အပ်လုဒ်လုပ်ပါ။',
+  'documents.error.load': 'စာရွက်စာတမ်းများကို တင်၍မရပါ။',
   'documents.heading': 'အညွှန်းတပ်ထားသော စာရွက်စာတမ်းများ',
   'documents.loading': 'စာရွက်စာတမ်းများကို တင်နေသည်…',
   'documents.metric.chunks': 'စုစုပေါင်း အပိုင်းအစများ',
@@ -144,7 +149,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'ဖယ်ရှားခြင်း\\u2026',
   'members.subheading': 'အသင်းဖော်များကို ဖိတ်ခေါ်ပြီး အခန်းကဏ္ဍများ သတ်မှတ်ပါ။',
   'members.tableHeading': 'စာရင်း',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'notFound.askCta': 'ဗဟုသုတအခြေခံကို မေးပါ',
+  'notFound.body':
+    '{{app}} ထိုစာမျက်နှာကို ရှာမတွေ့ခဲ့ပါ။ လင့်ခ်ပျက်နေနိုင်သည်၊ သို့မဟုတ် စာမျက်နှာကို ပြန်လည်အညွှန်းပြုလုပ်နေစဉ်အတွင်း အနားပေးလိုက်ခြင်း ဖြစ်နိုင်သည်။',
   'notFound.eyebrow': 'ပြန်ယူ၍မရပါ',
   'notFound.title': 'အညွှန်းတွင် ထိုသို့သော အပိုင်းအစ မပါရှိပါ',
   'notifications.dismiss': 'ပယ်ချပါ',
@@ -211,6 +220,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'သင်၏ပထမဆုံး connector ကို ဝါယာကြိုးချိတ်ရန် \\u201cAdd source\\u201d ကို နှိပ်ပါ။',
   'sources.empty.title': 'အရင်းအမြစ်များ မရှိသေးပါ။',
+  'sources.error.add': 'အရင်းအမြစ်ကို ထည့်၍မရပါ။',
   'sources.error.labelRequired': 'အညွှန်း လိုအပ်သည်။',
   'sources.error.load': 'အရင်းအမြစ်များကို ဖွင့်၍မရပါ။',
   'sources.error.urlRequired': 'ဤရင်းမြစ်အမျိုးအစားအတွက် URL လိုအပ်ပါသည်။',

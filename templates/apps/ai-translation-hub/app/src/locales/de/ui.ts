@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'billing.canceled': 'Abonnement gekündigt. Sie wechseln am Ende des Zeitraums zurück zu Free.',
   'billing.contactSales': 'Vertrieb kontaktieren',
   'billing.free.1': '5 Übersetzungen',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Keine Aufbewahrungsgrenze',
   'billing.upgradeHint': 'Upgraden Sie, um erweiterte KI-Funktionen freizuschalten.',
   'billing.yearly': 'Jährlich',
+  'common.goToDashboard': 'Zum Dashboard',
   'dashboard.activityEmpty':
     'Noch keine Aktivität – starten Sie ein Projekt, um diesen Feed zu füllen.',
   'dashboard.eyebrow': 'Übersicht',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Frühere Übersetzungen über alle Projekte hinweg wiederverwenden. Höherer Match-Score → weniger Nacharbeit.',
   'memory.title': 'Speicherbank',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'nav.legal': 'Rechtliches',
   'newProject.addLanguage': 'Ziel hinzufügen',
   'newProject.create': 'Projekt erstellen',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} Benachrichtigungen als gelesen markiert.',
   'notifications.subtitle':
     'Erwähnungen, Review-Anfragen und KI-Ereignisse aus allen Ihren Arbeitsbereichen.',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'privacy.collection.account': 'Ihre Konto-E-Mail und Ihr Anzeigename',
   'privacy.deletion.body':
     'Sie können ein Projekt, Segment, Glossarbegriff oder einen Speichereintrag jederzeit auf der entsprechenden Seite löschen. Das Löschen Ihres Kontos in den Einstellungen entfernt jede arbeitsbereichsbezogene Zeile aus unserer Datenbank.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Projekte konnten nicht geladen werden.',
   'projects.loading': 'Projekte werden geladen…',
   'projects.subtitle': 'Jedes aktive Projekt über alle Sprachen hinweg.',
+  'renditionLayout.primaryNavLabel': 'Hauptnavigation',
   'reset.backToLogin': '\\u2190 Zurück zur Anmeldung',
   'reset.passwordLabel': 'Neues Passwort',
   'review.activeEyebrow': 'Segment {{number}}',

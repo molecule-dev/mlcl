@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'forgot.eyebrow': 'वापस अंदर का रास्ता भूल गए?',
   'forgot.formSubtitle': 'हमें वह ईमेल बताएँ जो फ़ाइल पर है।',
   'forgot.headline': 'अपना पासवर्ड रीसेट करें।',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'एक बनाएँ',
   'login.subline':
     'आपकी नोटबुक, बैकलिंक और दैनिक पृष्ठ ठीक उसी जगह पर हैं जहां आपने उन्हें छोड़ा था।',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'noteEditor.backToNotes': 'नोट्स पर वापस जाएँ',
   'noteEditor.bodyPlaceholder':
     'लिखना शुरू करें — जैसे ही आप टाइप करेंगे, आपका नोट अपने आप सेव हो जाएगा।',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'नई नोटबुक',
   'notes.newNotebookPrompt': 'नई नोटबुक का नाम',
   'notes.notebooksHeading': 'नोटबुक',
+  'notes.subtitle':
+    "बाईं ओर से एक नोटबुक चुनें, फिर एक नई प्रविष्टि शुरू करने के लिए 'नया नोट' बटन दबाएं।",
   'planUpdated.confirmation': 'आपका प्लान अपडेट कर दिया गया है',
   'pricing.heading': 'अपनी नोट लेने की योजना चुनें',
   'reset.eyebrow': 'लगभग वापस आ गया',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'अद्यतन',
   'versoLayout.nav.graph': 'ग्राफ़',
   'versoLayout.nav.home': 'घर',
+  'versoLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'versoNoteCard.pinned': 'पिन की गई',
   'versoTodayHero.continueCta': 'लेखन जारी रखें',
   'versoTodayHero.createCta': 'आज का नोट शुरू करें',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meist',
   'applications.empty':
     'Kandideerimisavaldusi pole veel esitatud \\2014 õige roll on ühe kandideerimise kaugusel.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Kõik rollid, millele kandideerisid, on liikumises. Filtreeri etappide kaupa, et keskenduda.',
   'applications.untitledRole': 'Rolli nr {{id}}',
+  'auth.legalConsent': 'Jätkates nõustute meie',
   'common.and': 'ja',
+  'common.goToDashboard': 'Mine töölauani',
   'companies.empty': 'Ükski ettevõte ei vasta teie otsingule \\u2014 proovige mõnda muud terminit.',
   'companies.eyebrow': 'Soovitatud tööandjad',
   'companies.searchPlaceholder': 'Otsi nime, valdkonna, asukoha järgi',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Sellele ametikohale pole veel ühtegi avaldust esitatud.',
   'jobApplicants.eyebrow': 'Tööandja vaade',
   'jobApplicants.loading': 'Laadimine\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Selle etapi värskendamine ebaõnnestus – proovige uuesti.',
+  'jobApplicants.subheading':
+    'Vaadake üle CV-d, edastage kandidaate, saatke pakkumisi \\u2014 {{count}} töös.',
   'jobDetail.applicantCount': '{{count}} seni taotlejad',
   'jobDetail.applied': 'Avaldus saadetud',
   'jobDetail.apply': 'Kandideeri kohe',
@@ -83,12 +89,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Sirvi avatud ametikohti \\u2192',
   'landing.pricingEyebrow': 'Hinnakujundus',
   'landing.pricingHeading': 'Lihtsad plaanid igale meeskonna suurusele.',
+  'login.eyebrow': 'Tere tulemast tagasi rakenduse {{app}} juurde',
   'login.heading': 'Logige sisse oma kontole',
   'login.noAccount': 'Kas oled Noshis uus?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Pea mind 30 päeva meeles',
   'login.signingIn': 'Sisselogimine\\u2026',
   'login.subheading': 'Alusta otsingut, esita oma avaldusi ja saa kiiremini vastuseid.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Loodud meeskondade värbamiseks.',
   'loginBrandPanel.headline': 'Kus talent kohtub',
   'loginBrandPanel.headlineLine2': 'hoog.',
   'loginBrandPanel.listing.recruiter': 'Talendipartner',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
     'Kandideerimisavalduste uuendused, intervjuukutsed, värsked vasted \\u2014 uusim esimesena.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} sel nädalal',
   'opportunitiesHero.eyebrow': 'Täna avatud',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'postJob.addNewCompany': '+ Lisa uus ettevõte',
   'postJob.companyCreateFailed': 'Ettevõtte loomine ebaõnnestus – proovige uuesti.',
   'postJob.companyNameLabel': 'Teie ettevõtte nimi',
@@ -161,10 +170,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Konto loomine\\u2026',
   'signup.ctaEmployer': 'Loo tööandja konto',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Paroolid ei ühti.',
   'signup.subheading':
     'Otsijatele igaveseks tasuta. Tööandjad alustavad 30-päevase prooviperioodiga.',
   'timeAgo.days': '{{count}} päeva tagasi',
   'timeAgo.hours': '{{count}} tund aega tagasi',
   'timeAgo.justNow': 'just praegu',
+  'timeAgo.weeks': '{{count}} nädalat tagasi',
 }

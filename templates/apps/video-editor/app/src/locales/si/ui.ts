@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'දෝෂයක් හමු වුනාද, විශේෂාංග ඉල්ලීමක් තියෙනවද, නැත්නම් ඔබ කැපූ චිත්‍රපටය ගැන අපට කියන්න කැමතිද? සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ පුද්ගලයෙකුට ළඟා වේ - ඔබගේ ගිණුම් සැකසුම් වලින් ඕනෑම වේලාවක අප හා සම්බන්ධ වන්න.',
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.eyebrow': '// කප්පාදුව පිටුපස ඇති චිත්‍රාගාරය',
   'about.pageTitle': 'ගැන {{appName}}',
   'assetDetail.back': 'පුස්තකාලයට ආපසු',
   'assetDetail.confirmDelete': 'මකන්න " {{name}} "? මෙය අහෝසි කළ නොහැක.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} ක්ලිප්, ශ්‍රව්‍ය ඇඳන් සහ ග්‍රැෆික්ස් කාලරේඛාවට දැමීමට සූදානම්.',
   'assetLibrary.title': 'වත්කම්',
   'assetLibrary.upload': 'වත්කම එක් කරන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.browseTemplates': 'සැකිලි බ්‍රවුස් කරන්න →',
   'dashboard.loading': 'ව්‍යාපෘති පූරණය වෙමින්...',
   'dashboard.noProjects': 'තවම ව්‍යාපෘති නොමැත — ආරම්භ කිරීමට එකක් සාදන්න.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'ඔබට පමණක් මතක ඇති දෙයක් තෝරන්න.',
   'rushesAuthShell.footer.copyright': '© රෂස් ස්ටුඩියෝ',
   'rushesAuthShell.footer.privacy': 'රහස්‍යතාව',
+  'rushesLayout.closeMenu': 'සංචාලනය වසන්න',
   'rushesLayout.guest': 'සංස්කරණය හෝ',
+  'rushesLayout.navDialog': 'සංචලනය',
+  'rushesLayout.openMenu': 'සංචාලනය විවෘත කරන්න',
   'rushesLayout.planFree': 'නොමිලේ සැලැස්ම',
   'rushesLayout.tagline': 'සිනමාත්මක කාලරේඛාව',
   'settings.billing.confirmCancel': 'කාල සීමාව අවසානයේ දායකත්වය අවලංගු කරන්නද?',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
   'authShell.samplePreview': '«Բարև թիմ, նոր վահանակը հիասքանչ է՝ հենց այն, ինչ մեզ պետք էր»։',
   'authShell.tagline': 'Յուրաքանչյուր հաղորդագրություն կարևոր է։ Յուրաքանչյուր հաճախորդ հիշվում է։',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/կարճուղի',
   'automations.subheading':
     'Կանոններ, պահված պատասխաններ և չաթբոտներ՝ աշխատավայրը աշխույժ պահեք, մինչ ձեր թիմը կենտրոնանում է դժվար գործերի վրա։',
+  'automations.trigger.inboundMessage': 'Մուտքային հաղորդագրություն',
   'automations.triggerLabel': 'Տրիգեր',
   'chatBubble.internalNoteLabel': 'Ներքին նշում',
+  'common.confirmDelete': 'Հաստատեք ջնջումը',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'contactDetail.backToContacts': 'Բոլոր կոնտակտները',
   'contactDetail.contactFallback': 'Կապ',
   'contactDetail.conversationFallback': 'Զրույց',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Վերջին անգամ տեսնվել է',
   'contacts.empty': 'Կոնտակտներ դեռ չկան։ Ավելացրեք ձեր առաջին կոնտակտը վերևում։',
   'contacts.eyebrow': 'Հաճախորդների տեղեկատու',
+  'contacts.form.nameOrEmailRequired': 'Նշեք առնվազն անուն կամ էլ․ հասցե',
   'contacts.form.save': 'Պահպանել կոնտակտը',
   'contacts.heading': 'Կոնտակտներ',
   'contacts.loading': 'Կոնտակտները բեռնվում են…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Պահպանել նշումը',
   'conversationDetail.tab.note': 'Ներքին նշում',
   'conversationDetail.threadAria': 'Զրույցի հաղորդագրություններ',
+  'conversationDetail.visitorFallback': 'Այցելու',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Հաճախորդի մանրամասները',
   'customerProfilePanel.recentTitle': 'Վերջին զրույցները',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Հաճախորդները ստանում են իրենց առաջին պատասխանը {{time}} միջինում պահպանեք ռիթմը։',
   'inboxHeroCard.title': 'Ակտիվ զրույցներ',
+  'inboxLayout.navDrawerLabel': 'Նավիգացիա',
+  'inboxLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'inboxOverview.eyebrow': 'Այսօր՝ մեկ հայացքով',
   'inboxOverview.heroChange': '{{count}} բաց',
   'inboxOverview.kpiClosedTrend': 'բոլոր ժամանակների',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Այցելել գլխավոր էջը',
   'notifications.subheading':
     'Հանձնարարություններ, @հիշատակումներ, SLA ռիսկեր, CSAT արձագանք և թիմային գործունեություն՝ տեսակավորված ըստ նորերի։',
+  'notifications.subjectFallback': 'զրույց',
+  'notifications.visitorFallback': 'Այցելու',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Բարձր',
   'priority.low': 'Ցածր',
+  'priority.normal': 'Նորմալ',
   'priority.urgent': 'Շտապ',
   'privacy.title': 'Գաղտնիության քաղաքականություն',
   'reports.agentFallback': 'Գործակալ',

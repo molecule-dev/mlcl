@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkımızda',
   'actions.empty': 'Eşleşen eylem maddesi yok.',
   'actions.heading': 'Eylem maddeleri',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Önceki ay',
   'calendar.recent': 'Son',
   'common.daysAgo': '{{count}}g önce',
+  'common.goToDashboard': 'Panele Git',
   'common.hoursAgo': '{{count}}s önce',
   'common.no': '—',
+  'common.retry': 'Tekrar dene',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} eylem maddesi',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Sıfırlama bağlantısı için gelen kutunuzu kontrol edin.',
   'forgot.subheading': 'E-postanızı girin, size bir sıfırlama bağlantısı gönderelim.',
   'integrations.disconnected': 'Bağlantı kesildi',
+  'integrations.loadError': 'Entegrasyonlar yüklenemedi.',
   'integrations.notConnectedTag': 'Bağlı değil',
   'integrations.subheading':
     "Murmur'un otomatik katılması için takvimleri ve video platformlarını bağlayın.",
+  'integrations.updateError': 'Güncelleme başarısız.',
   'landing.ctaButton': 'Başlayın — ücretsizdir',
   'landing.ctaHeading': 'Not almayı bırakın. Karar vermeye başlayın.',
   'landing.demo.aiLabel': 'AI özeti, canlı taslak',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Takipler',
   'meetingDetail.loadError': 'Toplantı yüklenemedi.',
   'meetingDetail.noActions': 'Eylem maddesi tespit edilmedi.',
+  'meetingDetail.none': 'Yok.',
   'meetingDetail.notFound': 'Toplantı bulunamadı.',
+  'meetingDetail.speakerFallback': 'Konuşmacı{{id}}',
   'meetingDetail.summaryHeading': 'AI özeti',
   'meetingDetail.transcriptHeading': 'Transkript',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Toplantılar',
   'meetings.loadError': 'Toplantılar yüklenemedi.',
   'meetings.subheading': 'Kaydedilen, yüklenen ve eşitlenen her toplantı.',
+  'murmurLayout.openMenu': 'Gezinti menüsünü aç',
   'murmurLayout.primaryNavLabel': 'Ana gezinme',
   'nav.legal': 'Hukuki',
   'notifications.loadError': 'Bildirimler yüklenemedi.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmur içinde nasıl görüneceğiniz.',
   'record.error.empty': 'Ses yakalanmadı.',
   'record.error.permission': 'Mikrofon izni reddedildi.',
+  'record.error.recorder': 'Kayıt cihazı hatası',
   'record.error.unsupported': 'Tarayıcınız kaydı desteklemiyor. Chrome, Edge veya Safari deneyin.',
   'record.error.upload': 'Yükleme başarısız oldu. Tekrar deneyin.',
   'record.heading': 'Kaydet',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Yeni parola',
   'reset.subheading': 'Başka hiçbir yerde kullanmadığınız bir parola seçin.',
   'search.empty': 'Transkriptleri aramak için yazın.',
+  'search.loadError': 'Arama başarısız oldu. Lütfen tekrar deneyin.',
   'search.noResults': '“{{q}}” için sonuç yok.',
   'settings.appearance.description': 'Açık ve koyu mod arasında geçiş yapın.',
   'settings.appearance.title': 'Görünüm',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Ayarlar yüklenemedi.',
   'settings.loading': 'Yükleniyor…',
   'settings.push.heading': 'Anlık bildirimler',
+  'settings.push.subheading':
+    'Bahsedilmeler, eylem maddeleri ve özetler için tarayıcı uyarıları alın.',
   'settings.retention.audio': 'Sesi şu süre boyunca sakla',
   'settings.retention.heading': 'Saklama',
   'settings.retention.transcript': 'Transkriptleri şu süre boyunca sakla',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Dakikalar içinde toplantı notları yakalamaya başlayın',
   'signup.terms':
     'Hesap oluşturarak Hizmet Şartlarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz.',
+  'signup.termsPrefix': 'Bir hesap oluşturarak, şartlarımızı kabul etmiş olursunuz',
   'team.inviteCta': 'Ekip arkadaşı davet et',
   'team.invitedAs': '{{role}} olarak davet edildi',
   'team.inviteFailed': 'Davet gönderilemedi.',

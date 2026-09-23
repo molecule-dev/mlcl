@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} hakkında',
+  'about.pageTitle': 'Webhook kontrol düzlemi',
+  'about.plansTitle': 'Her aşama için planlar',
   'apiKeys.bestPractices': 'En iyi uygulamalar',
   'apiKeys.body':
     'Programatik erişim belirteçleri. Bunları parola gibi düşünün — env değişkenlerinde saklayın, asla commit etmeyin.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'plan dahilinde',
   'billing.usageWarning': 'sınıra yakın',
   'billing.yearly': 'Yıllık',
+  'common.goToDashboard': 'Panele Git',
   'dashboard.body':
     'İşlettiğiniz her çalışma alanında canlı işlem hacmi, devam eden yeniden denemeler ve kısa süreliğine sorun yaşayan uç noktalar hakkında bilgi.',
   'dashboard.endpointsEmpty': 'Henüz uç nokta yok.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'uç noktalar',
   'endpointDetail.deliveryTrendSub': 'teslimat / saat, log ölçek',
   'endpointDetail.hideSecret': 'Sırrı gizle',
+  'endpointDetail.loading': 'Uç nokta yükleniyor…',
   'endpointDetail.metric.delivered': '24s teslim edildi',
   'endpointDetail.metric.deliveredCaption': '{{count}} olay türünden',
   'endpointDetail.metric.failuresCaption': 'denemeler: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritik · 24s',
   'notifications.metric.totalCaption': 'tüm zamanlar gelen kutusu',
   'payloadViewer.payload': '// yük',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Baş harfler gösterilir — yüklemeler bir sonraki sürümle birlikte geliyor.',
   'profile.body': 'Hesabınız, tercihleriniz ve aktif oturumlarınız.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ kaydedildi',
   'profile.sessionsEmpty': 'Yalnızca mevcut oturumunuz aktif. Başka cihaz oturum açmamış.',
   'profile.toggle': 'Açma/Kapama {{label}}',
+  'pylonShell.closeMenu': 'Gezinme menüsünü kapat',
+  'pylonShell.openMenu': 'Gezinti menüsünü aç',
   'pylonShell.primaryNavLabel': 'Birincil gezinme',
   'resetPassword.subtitle': 'Daha önce kullanmadığınız güçlü bir parola seçin.',
   'resetPassword.tokenPlaceholder': 'e-postadan yapıştırın',

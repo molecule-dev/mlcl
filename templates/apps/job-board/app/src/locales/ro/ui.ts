@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
   'applications.empty':
     'Nicio aplicație încă, iar rolul potrivit este la o singură aplicație distanță.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Fiecare rol pentru care ai aplicat, în mișcare. Filtrează după etapă pentru a te concentra.',
   'applications.untitledRole': 'Rol # {{id}}',
+  'auth.legalConsent': 'Continuând, ești de acord cu',
   'common.and': 'și',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'companies.empty': 'Nicio companie nu corespunde căutării dvs. \\2014 încercați un alt termen.',
   'companies.eyebrow': 'Angajatori recomandați',
   'companies.searchPlaceholder': 'Căutare după nume, industrie, locație',
@@ -50,6 +53,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Încă nu există aplicații pentru acest rol.',
   'jobApplicants.eyebrow': 'Opinia angajatorului',
   'jobApplicants.loading': 'Se încarcă…',
+  'jobApplicants.statusUpdateFailed':
+    'Nu s-a putut actualiza etapa respectivă — încercați din nou.',
+  'jobApplicants.subheading':
+    'Verifică CV-uri, promovează candidați, trimite oferte \\u2014 {{count}} în acțiune.',
   'jobDetail.applicantCount': '{{count}} aplicanți de până acum',
   'jobDetail.applied': 'Cerere trimisă',
   'jobDetail.apply': 'Aplică acum',
@@ -83,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Răsfoiți posturile vacante \\2192',
   'landing.pricingEyebrow': 'Prețuri',
   'landing.pricingHeading': 'Planuri simple pentru echipe de orice dimensiune.',
+  'login.eyebrow': 'Bun venit înapoi la {{app}}',
   'login.heading': 'Autentificați-vă în cont',
   'login.noAccount': 'Ești nou în Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Amintește-mă timp de 30 de zile',
   'login.signingIn': 'Autentificare...',
   'login.subheading': 'Continuați căutarea, avansați aplicațiile, primiți un răspuns mai rapid.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Conceput pentru echipe de recrutare.',
   'loginBrandPanel.headline': 'Unde talentul se întâlnește',
   'loginBrandPanel.headlineLine2': 'impuls.',
   'loginBrandPanel.listing.recruiter': 'Partener de talente',
@@ -105,6 +114,7 @@ export const ui: UiTranslations = {
     'Actualizări ale aplicațiilor, invitații la interviuri, potriviri noi \\2014 cele mai noi primele.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} în această săptămână',
   'opportunitiesHero.eyebrow': 'Deschis astăzi',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'postJob.addNewCompany': '+ Adăugați o companie nouă',
   'postJob.companyCreateFailed': 'Nu s-a putut crea compania — încercați din nou.',
   'postJob.companyNameLabel': 'Numele companiei dumneavoastră',
@@ -163,10 +173,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Se creează contul\\u2026',
   'signup.ctaEmployer': 'Creați un cont de angajator',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Parolele nu se potrivesc.',
   'signup.subheading':
     'Gratuit pentru cei care caută, pentru totdeauna. Angajatorii încep cu o perioadă de probă de 30 de zile.',
   'timeAgo.days': 'acum {{count}}z',
   'timeAgo.hours': 'acum {{count}}h',
   'timeAgo.justNow': 'chiar acum',
+  'timeAgo.weeks': '{{count}} săptămâni în urmă',
 }

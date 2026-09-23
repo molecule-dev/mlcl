@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Arbatpinigiai pirkėjui',
   'checkout.tipLabel': 'Patarimas',
   'checkout.zipPlaceholder': 'Pašto kodas',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'featuredProductsGrid.addAria': 'Pridėti {{name}} į krepšelį',
   'featuredProductsGrid.outOfStock': 'Nėra sandėlyje',
   'forgotPassword.emailLabel': 'El. pašto adresas',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Jei tas el. pašto adresas užregistruotas, bus išsiųsta nustatymo iš naujo nuoroda.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'landing.categoriesEyebrow': 'Praėjimai',
   'landing.categoriesHeading': 'Apsipirkite pagal kategoriją',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Planuokite savaitinius pristatymus naudodami išmanųjį pagrindinių prekių užsakymą ir tiesioginį vairuotojų sekimą.',
   'landing.heroTitle': 'Gaiva prie jūsų durų per kelias valandas.',
   'landing.howEyebrow': 'Trys žingsniai',
+  'landing.howItWorksHeading': 'Kaip veikia {{app}}',
   'lists.addAllCta': 'Įdėti viską į krepšelį',
   'lists.createCta': 'Sukurkite savo pirmąjį sąrašą',
   'lists.createError': 'Nepavyko sukurti sąrašo.',

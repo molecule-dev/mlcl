@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.eyebrow': 'Apie {{app}}',
   'about.pageTitle': 'Kiekvienas maršrutas, viena paieška.',
   'booking.backToDetail': 'Grįžti į skrydžio informaciją',
   'booking.continue': 'Tęsti mokėjimą',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Mokesčiai ir rinkliavos',
   'booking.summary.travelers': 'Keliautojai',
   'common.about': 'Apie',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'flightDetail.backToResults': 'Grįžti į rezultatus',
   'flightDetail.baseFare': 'Bazinė kaina',
   'flightDetail.book': 'Tęsti užsakymą',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 sustojimas',
   'flightResultCard.select': 'Pasirinkite',
   'flightResultCard.totalLabel': 'Bendras laikas',
+  'flightSearchLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'forgotPassword.subheading':
     'Įveskite savo „Skylark“ paskyroje nurodytą el. pašto adresą ir mes atsiųsime saugią atstatymo nuorodą.',
   'forgotPassword.successBody':
     'Patikrinkite {{email}} nuoroda naujam slaptažodžiui nustatyti. Nuoroda galios 30 minučių.',
   'forgotPassword.successHeading': 'Atkurti nuorodą išsiųsta',
   'landing.cta.explore': 'Pabandykite paiešką',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Raskite kitą puikų bilietą anksčiau nei visi kiti.',
   'landing.cta.signup': 'Pradėkite stebėti kainas',
   'landing.features.eyebrow': 'Kodėl vieversys',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Pridėti įspėjimą',
   'priceAlerts.deleteConfirm': 'Pašalinti šį įspėjimą?',
   'priceAlerts.empty': 'Kol kas nėra stebimų maršrutų.',
+  'priceAlerts.emptyCta': 'Ieškoti maršruto, kurį norite sekti',
   'priceAlerts.errorMessage': 'Nepavyko įkelti įspėjimų.',
   'priceAlerts.eyebrow': 'Vieversių stebėjimo sąrašas',
   'priceAlerts.form.createError': 'Nepavyko sukurti įspėjimo.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Keli miestai maršrute',
   'results.multiLegHeading': 'Koja {{n}} · {{iš}} → {{į}} · {{data}}',
   'results.multiSummary': '{{count}} kojos · {{passengers}} keliautojas',
+  'results.sortAriaLabel': 'Rūšiuoti rezultatus pagal',
   'results.sortLabel': 'Rūšiuoti',
   'results.summary': '{{count}} skrydžiai · {{passengers}} keliautojas',
   'settings.language.title': 'Kalba',

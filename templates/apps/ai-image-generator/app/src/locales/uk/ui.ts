@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'auth.fields.newPassword': 'Новий пароль',
   'collectionDetail.addImage': 'Створити для колекції',
   'collectionDetail.backCta': 'Назад до колекцій',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Мудборди, брифи та поточні серії',
   'collections.title': 'Колекції',
   'collections.untitled': 'Без назви · {{stamp}}',
+  'common.closeMenu': 'Закрити меню',
+  'common.dismiss': 'Закрити',
+  'common.goToDashboard': 'До панелі',
+  'common.openMenu': 'Відкрити меню навігації',
   'credits.eyebrow': 'План {{plan}}',
   'credits.renewsCopy': 'План поновлюється {{date}}',
   'credits.trail': 'Мрія · {{plan}} рівень',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     "Тут з'являться активність генерації, надсилання та сповіщення про кредити.",
   'notifications.empty.title': 'Немає чого повідомити',
   'notifications.subtitle': 'Події генерації, згруповані за днями',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.limits.gallery': '{{count}} галерея',
   'privacy.collect.body':
     "Коли Ви реєструєтеся, ми збираємо Ваше ім'я, електронну адресу та хешований пароль. Коли Ви користуєтесь Reverie, ми зберігаємо промпти, які Ви надсилаєте, зображення, які ми генеруємо для Вас, стилі та колекції, які Ви зберігаєте, а також метадані, такі як використана модель, часові мітки генерації та баланс кредитів.",
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Зберегти новий пароль',
   'reset.submitting': 'Оновлення пароля…',
   'settings.account.handle': 'Нікнейм',
+  'settings.account.lastSaved': 'Активний профіль · {{name}}',
   'settings.account.saved': 'Профіль збережено',
   'settings.account.saveFailed': 'Не вдалося зберегти профіль',
   'settings.account.title': 'Профіль творця',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Нове зображення',
   'sidebar.secondary': 'Додаткова навігація',
   'signup.failed': 'Реєстрація не вдалася. Спробуйте ще раз.',
+  'signup.firstNamePlaceholder': 'Арія',
   'signup.heading': 'Почніть свою мрію',
+  'signup.lastNamePlaceholder': 'Лін',
   'signup.subheading': 'Створіть обліковий запис і отримайте 120 безкоштовних кредитів.',
   'styles.empty': "Поки що немає стильових пресетів — вони з'являться після першого входу.",
   'styles.eyebrow': 'Підібрано',

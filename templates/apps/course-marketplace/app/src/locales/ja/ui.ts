@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'コースを読み込み中…',
   'browse.next': '次のページ',
   'browse.results': '{{count}}件のコースを表示中',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': '並び替え',
   'browse.subtitle':
     'トピック、レベル、価格で編集アーカイブをフィルタリングします。すべてのコースは編集者が手作業で厳選しています。',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     '修了証は署名済みで準備が整いました。世界と共有するか、努力の証として保管しましょう。',
   'certificate.copyLink': '共有リンクをコピー',
+  'certificate.copyPrompt': 'このリンクをコピーしてください：',
   'certificate.download': 'PDFをダウンロード',
   'certificate.eyebrow': '実績解除',
   'certificate.linkCopied': 'リンクをコピーしました！',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': '登録が完了しました！',
   'checkout.verifying': '登録を確認中…',
   'checkout.viewLibrary': 'マイラーニングを表示',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.retry': 'もう一度試す',
   'courseDetail.about': 'このコースについて',
   'courseDetail.checkoutPending': 'お支払いを開始中…',
   'courseDetail.continueLearning': '学習を続ける',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30日間返金保証',
   'courseDetail.includes.video': '{{hours}}時間のオンデマンド動画',
   'courseDetail.instructor': '講師',
+  'courseDetail.languageEnglish': '英語',
   'courseDetail.lectures': 'レクチャー',
   'courseDetail.level': 'レベル',
   'courseDetail.loading': 'コースを読み込み中…',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'まだレビューはありません。',
   'instructorProfile.students': '受講者',
   'landing.categories.empty': 'カタログが充実するとカテゴリーが表示されます。',
+  'landing.categories.heading': 'アーカイブを閲覧する',
   'landing.hero.eyebrow': 'Lectura · 熟達の編集アーカイブ',
   'landing.hero.proof': 'Google、Meta、Adobeの学習者から信頼されています。',
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': '今日から学習を始めましょう',
   'login.subheading': 'あなたの学術アーカイブにアクセス。',
   'myLearning.empty.title': 'このフィルターに一致するコースはまだありません',
+  'myLearning.error.title': 'ライブラリを読み込めませんでした',
   'myLearning.filter.notStarted': '未開始',
   'myLearning.hero.subtitle':
     '{{count}}図書館にある講座を受講しましょう。この勢いを維持しましょう。',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     '確認すべき新しいアクティビティはありません。新しいイベントはここに表示されます。',
   'notifications.empty.title': 'すべて確認済みです',
+  'notifications.error.title': 'アクティビティを読み込めませんでした',
   'privacy.title': 'プライバシーポリシー',
   'reset.confirmPlaceholder': '新しいパスワードをもう一度入力してください',
   'reset.errorGeneric':
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}日前',
   'timeAgo.hours': '{{count}}時間前',
   'timeAgo.minutes': '{{count}}分前',
+  'timeAgo.months': '{{count}} 数ヶ月前',
   'timeAgo.today': '本日',
+  'timeAgo.weeks': '{{count}} 数週間前',
 }

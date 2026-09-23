@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'billing.canceled': "ਗਾਹਕੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਗਈ। ਤੁਸੀਂ ਮਿਆਦ ਦੇ ਅੰਤ 'ਤੇ ਮੁਫ਼ਤ ਵਿੱਚ ਵਾਪਸ ਆ ਜਾਓਗੇ।",
   'billing.contactSales': 'ਵਿਕਰੀ ਨਾਲ ਸੰਪਰਕ ਕਰੋ',
   'billing.free.1': '5 ਅਨੁਵਾਦ',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'ਕੋਈ ਧਾਰਨ ਸੀਮਾ ਨਹੀਂ',
   'billing.upgradeHint': 'ਉੱਨਤ AI ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'dashboard.activityEmpty': 'ਹਾਲੇ ਕੋਈ ਗਤੀਵਿਧੀ ਨਹੀਂ ਹੈ — ਇਸ ਫੀਡ ਨੂੰ ਭਰਨ ਲਈ ਇੱਕ ਪ੍ਰੋਜੈਕਟ ਸ਼ੁਰੂ ਕਰੋ।',
   'dashboard.eyebrow': 'ਸੰਖੇਪ ਜਾਣਕਾਰੀ',
   'dashboard.projectsEmpty': 'ਹਾਲੇ ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ — ਇੱਥੇ ਦੇਖਣ ਲਈ ਇੱਕ ਸ਼ੁਰੂ ਕਰੋ।',
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ਹਰੇਕ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਪਿਛਲੇ ਅਨੁਵਾਦਾਂ ਦੀ ਮੁੜ ਵਰਤੋਂ ਕਰੋ। ਵੱਧ ਮੈਚ ਸਕੋਰ → ਘੱਟ ਮੁੜ-ਕੰਮ।',
   'memory.title': 'ਮੈਮੋਰੀ ਬੈਂਕ',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'newProject.addLanguage': 'ਟੀਚਾ ਸ਼ਾਮਲ ਕਰੋ',
   'newProject.create': 'ਪ੍ਰੋਜੈਕਟ ਬਣਾਓ',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'ਪਹਿਲਾਂ',
   'notifications.markedAllRead': 'ਚਿੰਨ੍ਹਿਤ {{count}} ਪੜ੍ਹੀਆਂ ਗਈਆਂ ਸੂਚਨਾਵਾਂ।',
   'notifications.subtitle': 'ਤੁਹਾਡੇ ਵਰਕਸਪੇਸਾਂ ਤੋਂ ਜ਼ਿਕਰ, ਸਮੀਖਿਆ ਬੇਨਤੀਆਂ, ਅਤੇ AI ਇਵੈਂਟ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'privacy.collection.account': 'ਤੁਹਾਡੇ ਖਾਤੇ ਦਾ ਈਮੇਲ ਪਤਾ ਅਤੇ ਡਿਸਪਲੇ ਨਾਮ',
   'privacy.deletion.body':
     'ਤੁਸੀਂ ਸੰਬੰਧਿਤ ਪੰਨੇ ਤੋਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਪ੍ਰੋਜੈਕਟ, ਖੰਡ, ਸ਼ਬਦਾਵਲੀ ਸ਼ਬਦ, ਜਾਂ ਮੈਮੋਰੀ ਐਂਟਰੀ ਨੂੰ ਮਿਟਾ ਸਕਦੇ ਹੋ। ਸੈਟਿੰਗਾਂ ਤੋਂ ਆਪਣੇ ਖਾਤੇ ਨੂੰ ਮਿਟਾਉਣ ਨਾਲ ਸਾਡੇ ਡੇਟਾਬੇਸ ਤੋਂ ਹਰੇਕ ਵਰਕਸਪੇਸ-ਸਕੋਪ ਵਾਲੀ ਕਤਾਰ ਸਾਫ਼ ਹੋ ਜਾਂਦੀ ਹੈ।',
@@ -173,6 +178,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ਪ੍ਰੋਜੈਕਟ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'projects.loading': 'ਪ੍ਰੋਜੈਕਟ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'projects.subtitle': 'ਸਾਰੇ ਸਥਾਨਾਂ ਵਿੱਚ ਹਰ ਸਰਗਰਮ ਪ੍ਰੋਜੈਕਟ।',
+  'renditionLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'reset.backToLogin': "\\u2190 ਸਾਈਨ ਇਨ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'reset.passwordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'review.activeEyebrow': 'ਖੰਡ {{number}}',

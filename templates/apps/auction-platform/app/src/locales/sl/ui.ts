@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Gledanje',
   'auctionDetail.watchRemoved': 'Odstranjeno s seznama za spremljanje.',
   'auctionDetail.watchRemoveLabel': 'Odstrani s seznama za spremljanje',
+  'auctionPlatformLayout.primaryNavLabel': 'Primarna navigacija',
   'authShell.brandBody':
     'Licitirajte v realnem času za redke ure, umetniška dela in unikatne specialne predmete. Kladivo pade v nekaj sekundah.',
   'authShell.brandEyebrow': 'Trenutno na voljo · 1.420 dražb',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Razvrsti po',
   'browseAuctions.subheading':
     'Filtrirajte po kategorijah, razvrstite po najpomembnejšem in oddajte ponudbo, preden kladivo pade.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'countdownTimer.ended': 'Končano',
   'countdownTimer.endingSoon': 'Konec',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Pokaži geslo',
   'login.subtext':
     'Nadaljujte s spremljanjem svojih dražb in oddajte ponudbe, preden kladivo pade.',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'myBids.bidAgain': 'Ponovno ponudite',
   'myBids.browseCta': 'Brskaj po dražbah v živo →',
   'myBids.checkoutCta': 'Plačaj zdaj',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Center aktivnosti',
   'notificationsPage.subheading':
     '{{count}} neprebrano · posodobitve v živo, ko se dražbe premikajo',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.bidsLabel': 'ponudbe',
   'pricing.listingsLabel': 'oglasi',
   'pricing.watchlistLabel': 'seznam za spremljanje',

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'auditLog.empty':
     'ยังไม่มีเหตุการณ์การตรวจสอบใดตรงกับตัวกรองของคุณ แก้ไขข้อมูลพนักงานหรือดำเนินการจ่ายเงินเดือน แล้วเหตุการณ์เหล่านั้นจะปรากฏขึ้นที่นี่',
   'auditLog.eyebrow': 'การปฏิบัติตามกฎระเบียบ',
+  'auditLog.loadError': 'ไม่สามารถโหลดบันทึกการตรวจสอบได้',
   'auditLog.searchPlaceholder': 'ค้นหาตามนักแสดง การกระทำ หรือคำอธิบาย',
   'auditLog.subheading':
     'ทุกการอนุมัติ การแก้ไข และการยื่นภาษี จะบันทึกพร้อมชื่อผู้เกี่ยวข้อง เวลา และข้อมูลที่เปลี่ยนแปลง',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ไม่ได้กำหนดค่า',
   'billing.plansHeading': 'แผนการ',
   'billing.subheading': 'จัดการแพ็กเกจและเปลี่ยนระดับแพ็กเกจผ่าน Stripe ได้เลย',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'ภาพรวมการปฏิบัติตามกฎระเบียบ',
   'dashboard.compliance.title': 'ผ่านการตรวจสอบทุกอย่างเรียบร้อยแล้ว',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ไม่มีการหักลดหย่อนใดๆ ในข้อมูล',
   'employeeDetail.notFound': 'ไม่พบพนักงาน',
   'employeeDetail.payFrequency': 'ความถี่ในการชำระเงิน',
+  'employeeDetail.postTax': 'หลังหักภาษี',
+  'employeeDetail.preTax': 'ก่อนหักภาษี',
   'employeeDetail.salary': 'เงินเดือนประจำปี',
   'employeeDetail.ssn': 'ประกันสังคม',
   'employeeDetail.startedOn': 'เริ่ม {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ความถี่ในการชำระเงิน',
   'employeeForm.salary': 'เงินเดือนประจำปี (ดอลลาร์สหรัฐ)',
   'employeeForm.salaryInvalid': 'เงินเดือนต้องเป็นจำนวนที่ไม่ติดลบ',
+  'employeeForm.saveError': 'ไม่สามารถช่วยชีวิตพนักงานได้',
   'employeeForm.semimonthly': 'รายครึ่งเดือน',
   'employeeForm.single': 'เดี่ยว',
   'employeeForm.ssn': 'ประกันสังคม',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'พนักงาน',
   'employeesTable.col.salary': 'เงินเดือน',
   'forgotPassword.subtitle': 'กรุณาป้อนอีเมลที่ทำงานของคุณ แล้วเราจะส่งลิงก์สำหรับรีเซ็ตให้',
+  'landing.copyright': '© {{year}} {{app}} . แม่นยำ น่าเชื่อถือ สุขุมรอบคอบ',
   'landing.ctaBody':
     'ทดลองใช้ฟรี 30 วัน ไม่ต้องใช้บัตรเครดิต เปลี่ยนผู้ให้บริการได้ทุกเมื่อโดยไม่สูญเสียประวัติการใช้งาน',
   'landing.ctaHeading': 'เริ่มรอบการชำระเงินครั้งต่อไปของคุณกับ Stipend ได้เลย',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'รายการ',
   'payRunDetail.noActivity': 'ยังไม่มีรายการตรวจสอบสำหรับการจ่ายเงินเดือนรอบนี้',
   'payRunDetail.noStubs': 'ยังไม่มีสลิปเงินเดือน — โปรดอนุมัติและดำเนินการเพื่อสร้างสลิปเงินเดือน',
+  'payRunDetail.notFound': 'ไม่พบรอบการจ่ายเงินนี้',
   'payRunDetail.statDeductions': 'การหักลดหย่อน',
   'payRunDetail.statHeadcount': 'พนักงาน',
   'payRunDetail.statTaxes': 'ภาษีหัก ณ ที่จ่าย',
@@ -220,7 +229,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'รายครึ่งเดือน',
   'settings.signOutDevice': 'ออกจากระบบ',
   'settings.subheading': 'ข้อมูลบริษัท ตารางค่าตอบแทน และการเชื่อมต่อกับระบบอื่นๆ',
+  'settings.twoFactorCode': 'รหัสยืนยันตัวตน',
   'settings.twoFactorDisable': 'ปิดใช้งาน',
+  'settings.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
+  'settings.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
   'settings.weekly': 'รายสัปดาห์',
   'taxCenter.bucket.federal': 'รายได้ของรัฐบาลกลาง',
   'taxCenter.bucket.fica': 'ประกันสังคม',

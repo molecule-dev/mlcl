@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} সম্পর্কে',
   'analytics.avgCheckLabel': 'গড় পরীক্ষা',
   'analytics.busiestHour': 'সবচেয়ে ব্যস্ত সময়',
   'analytics.coversToday': 'আজকের কভার',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'টিপস (গড়)',
   'analytics.topItems': 'আজকের সেরা আইটেমগুলো',
   'authShell.eyebrow': 'পরিষেবাতে আপনাকে আবার স্বাগত জানাই।',
+  'authShell.heading': '{{tagline}}।',
   'authShell.subheading':
     'হসপিটালিটি টিমের জন্য একটি সহজ ও দ্রুত পয়েন্ট অফ সেল ব্যবস্থা। আপনার রান্নাঘরে সাইন ইন করুন এবং যেখানে শেষ করেছিলেন সেখান থেকেই আবার শুরু করুন।',
   'authShell.tip': 'বিশেষ টিপস: কিবোর্ড শর্টকাট সব জায়গায় কাজ করে — সার্চ করার জন্য / চাপুন।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'অথবা {{price}}',
   'billing.priceUnavailable': 'এই প্ল্যানটির কোনো নির্ধারিত মূল্য নেই।',
   'billing.updated': 'পরিকল্পনা হালনাগাদ করা হয়েছে।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'customerDetail.book': 'রিজার্ভেশন যোগ করুন',
   'customerDetail.col.table': 'টেবিল',
   'customerDetail.confirmDelete': 'এই অতিথির রেকর্ডটি মুছে ফেলবেন?',
@@ -70,12 +73,15 @@ export const ui: UiTranslations = {
   'guestCart.heading': 'আপনার টেবিল',
   'guestCart.increment': 'পরিমাণ বাড়ান',
   'guestCart.ownerMissing': 'কার্টে রেস্তোরাঁর মালিকের তথ্য নেই। কিউআর কোডটি পুনরায় স্ক্যান করুন।',
+  'guestCart.payCta': 'অর্ডার করুন · {{amount}}',
   'guestCart.payError': 'অর্ডার দেওয়া সম্ভব হয়নি। আবার চেষ্টা করুন।',
+  'guestCart.perPerson': 'জনপ্রতি {{amount}}',
   'guestCart.placing': 'অর্ডার দেওয়া হচ্ছে…',
   'guestCart.splitHeading': 'বিল ভাগ করুন',
   'guestCart.subheading': 'পর্যালোচনা করে আপনার অর্ডার দিন — আমরা রান্নাঘরে নিশ্চিত করব।',
   'guestCart.success': 'অর্ডার দেওয়া হয়েছে। অপেক্ষা করুন — আপনার রান্নাঘরের জন্য খাবার প্রস্তুত।',
   'guestCart.tax': 'কর (৮.৭৫%)',
+  'guestCart.tipAmount': 'টিপ: {{amount}}',
   'guestCart.tipHeading': 'টিপ',
   'guestCart.tipRow': 'টিপ ( {{pct}} %)',
   'guestCart.ways': '{{count}} উপায়',
@@ -123,6 +129,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'প্রাপ্যতা',
   'menuItemDetail.available': 'আজ রাতে পাওয়া যাবে',
   'menuItemDetail.backToMenu': 'মেনুতে ফিরে যান',
+  'menuItemDetail.confirmDelete': 'এই মেনু আইটেমটি মুছে ফেলবেন?',
   'menuItemDetail.delete': 'আইটেমটি মুছে ফেলুন',
   'menuItemDetail.deleteError': 'মুছে ফেলা ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
   'menuItemDetail.dietary': 'খাদ্যতালিকাগত ট্যাগ',
@@ -133,9 +140,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।',
   'menuItemDetail.subheading': '{{category}} ছবি, মডিফায়ার, খাদ্যতালিকা এবং মূল্য সম্পাদনা করুন।',
   'menuItemDetail.untitled': 'শিরোনামহীন আইটেম',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'notFound.heading': 'এই টেবিলটি মেঝেতে নেই।',
   'notFound.subheading':
     'আপনি যে পৃষ্ঠাটি খুঁজছিলেন তা অন্য কোথাও রয়েছে — অথবা সেটির কোনো অস্তিত্বই ছিল না।',
+  'notFound.toLanding': '{{app}} হোম',
   'notifications.markError': 'সবগুলো পঠিত হিসেবে চিহ্নিত করা সম্ভব হয়নি।',
   'orderDashboard.activeDelta': 'এখন সরাসরি সম্প্রচারিত হচ্ছে',
   'orderDashboard.activeLabel': 'সক্রিয় আদেশ',
@@ -200,7 +210,9 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'রান্নাঘরে পুনরায় প্রবেশাধিকার পেতে আপনার নতুন পাসওয়ার্ডটি প্রবেশ করান।',
   'resetPassword.tokenLabel': 'টোকেন রিসেট করুন',
+  'restaurantOrderingLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'revenueHeroCard.activeOrders': '{{count}} সক্রিয়',
+  'revenueHeroCard.change': '{{sign}} বনাম {{amount}}',
   'revenueHeroCard.title': 'আজকের রাজস্ব',
   'settings.eyebrow': 'রেস্তোরাঁর পরিবেশ',
   'settings.hours.heading': 'পরিষেবার সময়',
@@ -217,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'রেস্তোরাঁর নাম',
   'tableDetail.activeOrders': 'সক্রিয় আদেশ',
   'tableDetail.backToFloor': 'ফ্লোর প্ল্যান',
+  'tableDetail.confirmDelete': 'এই টেবিলটি মুছে ফেলবেন?',
   'tableDetail.delete': 'মুছে ফেলুন',
   'tableDetail.deleteError': 'টেবিলটি মুছে ফেলা যায়নি।',
   'tableDetail.heading': 'টেবিল {{label}}',
@@ -239,4 +252,5 @@ export const ui: UiTranslations = {
   'tables.loading': 'লোডিং ফ্লোর…',
   'tables.subheading':
     'টেবিলটিকে পরিষ্কার করা হচ্ছে, উপলব্ধ আছে কিনা তা চিহ্নিত করতে বা এর অবস্থা পরিবর্তন করতে ট্যাপ করুন।',
+  'tableTile.seats': '{{guests}} / {{seats}}',
 }

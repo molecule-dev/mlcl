@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'သင်သည် လက်ရှိတွင် አዲስተያየትንያየት� {{plan}} အစီအစဉ်။',
   'billing.switch': 'ပြောင်းပါ',
   'billing.upgraded': 'အပ်ဒိတ်လုပ်ထားသည် {{plan}} - ကန့်သတ်ချက်များကို ချက်ချင်းသက်ရောက်သည်။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'compare.activityHeading': 'လုပ်ဆောင်ချက်ဆိုင်ရာ ဆုံးဖြတ်ချက်များ',
   'compare.empty.title': 'နှိုင်းယှဉ်ရန် အနည်းဆုံး နေရာနှစ်ခု ထည့်ပါ',
   'compare.eyebrow': 'ဘေးချင်းယှဉ်လျက်',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'မြင့်မားသော',
   'trends.summary.low.label': 'နိမ့်ကျသော',
   'trends.summary.points.label': 'ရက်များ',
+  'weatherDashboardLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'weatherHeroCard.updated': 'အပ်ဒိတ်လုပ်ထားသည် {{time}}',
 }

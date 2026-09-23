@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'announcementsFeed.empty': 'هنوز هیچ اطلاعیه‌ای منتشر نشده است.',
   'announcementsFeed.eyebrow': '{{count}} به‌روزرسانی‌ها',
   'announcementsFeed.title': 'آخرین اطلاعیه‌ها',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'اینجا هیچی نیست',
   'assignments.emptyBody': 'برای دیدن تکالیف در حالت‌های مختلف، فیلترهای بالا را تغییر دهید.',
   'assignments.eyebrow': 'همه دوره‌ها · این ترم',
+  'assignments.loadError': 'نتوانستم تکالیف را بارگذاری کنم.',
   'assignments.loading': 'در حال بارگذاری تکالیف…',
   'assignments.subtitle':
     'برای دیدن موارد معوق، ارسال شده، نمره داده شده یا مفقود، بر اساس وضعیت فیلتر کنید.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'توجه داشته باشید',
   'attendance.empty': 'هنوز هیچ سابقه حضور و غیابی وجود ندارد.',
   'attendance.eyebrow': 'ترم بهار · ۴ هفته آخر',
+  'attendance.loadError': 'نتوانستم سوابق حضور و غیاب را بارگذاری کنم.',
   'attendance.loading': 'در حال بارگذاری حضور و غیاب…',
   'attendance.noNote': '—',
   'attendance.subtitle': 'گزارش روزانه حضور، غیبت و تأخیر - به همراه یادداشت در صورت لزوم.',
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'تاریخ‌های تحویل تکالیف روی یک جدول ماهانه رسم شده‌اند - امتحانات با رنگ قرمز مشخص شده‌اند.',
   'calendar.title': '{{month}} رویدادها',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
+  'common.retry': 'دوباره امتحان کنید',
   'common.yes': '✓',
   'courseDetail.backLink': 'نمرات',
   'courseDetail.currentGrade': 'نمره فعلی',
@@ -72,11 +77,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'روند',
   'grades.empty': 'هنوز نمره‌ای ثبت نشده است.',
   'grades.eyebrow': 'دفتر نمره',
+  'grades.loadError': 'نتونستم نمراتت رو بارگذاری کنم.',
   'grades.loading': 'در حال بارگذاری نمرات…',
   'grades.subtitle':
     'نمرات زنده با حروف و درصد. فلش‌های روند نشان می‌دهند که آیا در حال پیشرفت، سطح یا افت هستید.',
   'grades.title': 'نمرات شما، دوره به دوره',
   'grades.trendStable': 'پایدار',
+  'landing.copyright':
+    '© {{year}} {{app}} . ساخته شده برای دانش‌آموزان، ساخته شده برای خانواده‌ها.',
   'landing.ctaHeading': 'یک روز مدرسه آرام‌تر تا دقایقی دیگر آغاز می‌شود',
   'landing.eyebrow': 'برای دانش‌آموزان راهنمایی و دبیرستان',
   'landing.featuresHeading': 'یک روز مدرسه‌ای که حول محور دانش‌آموز سازماندهی شده است',
@@ -112,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'تکالیف',
   'nav.attendance': 'حضور و غیاب',
   'nav.calendar': 'تقویم',
+  'nav.closeMenu': 'بستن منوی ناوبری',
   'nav.grades': 'نمرات',
+  'nav.openMenu': 'منوی ناوبری را باز کنید',
   'nav.statusEyebrow': 'معدل کل ترم',
   'nav.statusSubtext': 'فهرست افتخارات · ترم بهار',
+  'nav.unreadMessages': 'پیام‌های خوانده نشده',
   'notifications.eyebrow': '{{count}} به‌روزرسانی‌ها',
   'notifications.subtitle':
     'نمرات، یادآوری‌ها، پیام‌ها و اطلاعیه‌های مدرسه. در تنظیمات، کانال‌هایی را که هر اعلان از آنها استفاده می‌کند، تنظیم کنید.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.attendanceLabel': 'حضور و غیاب',
   'pricing.gradesLabel': 'نمرات',
   'pricing.heading': 'اطلاعیه‌ها',

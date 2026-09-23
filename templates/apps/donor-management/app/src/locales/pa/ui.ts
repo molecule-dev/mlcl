@@ -56,7 +56,7 @@ export const ui: UiTranslations = {
   'donors.col.lifetime': 'ਜੀਵਨ ਭਰ ਦਾਨ',
   'donors.col.tags': 'ਟੈਗਸ',
   'donors.empty': 'ਕੋਈ ਦਾਨੀ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।',
-  'donors.emptyNoDonors': 'ਅਜੇ ਤੱਕ ਕੋਈ ਦਾਨੀ ਫਾਈਲ &#39;ਤੇ ਨਹੀਂ ਹੈ।',
+  'donors.emptyNoDonors': "ਅਜੇ ਤੱਕ ਕੋਈ ਦਾਨੀ ਫਾਈਲ 'ਤੇ ਨਹੀਂ ਹੈ।",
   'donors.filterByTag': 'ਟੈਗ ਨਾਲ ਫਿਲਟਰ ਕਰੋ',
   'donors.firstGift': 'ਪਹਿਲਾ ਦਾਨ',
   'donors.giftCount': '({{count}} ਦਾਨ)',

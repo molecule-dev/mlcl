@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.pageTitle': 'பற்றி {{appName}}',
   'analytics.error': 'பகுப்பாய்வுகளை ஏற்ற முடியவில்லை.',
   'analytics.heading': 'மீட்டெடுப்பு பகுப்பாய்வு',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'விலை நிர்ணய நிலைகள் எதுவும் அமைக்கப்படவில்லை.',
   'billing.plans.heading': 'திட்டங்கள்',
   'billing.subheading': 'திட்டம், பயன்பாடு மற்றும் ஸ்ட்ரைப் நிர்வகிக்கும் பணம்செலுத்தல்.',
+  'common.confirm': 'உறுதிப்படுத்து',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'documentCard.open': 'திற \\u2192',
   'documentDetail.back': 'ஆவணங்களுக்குத் திரும்பு',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'குறியீட்டு ஆவணம்',
   'documents.composer.titlePlaceholder': 'ஆவணத்தின் தலைப்பு',
   'documents.emptyAll': 'இன்னும் ஆவணங்கள் இல்லை. கேள்விகள் கேட்கத் தொடங்க, ஒன்றை பதிவேற்றவும்.',
+  'documents.error.load': 'ஆவணங்களை ஏற்ற முடியவில்லை.',
   'documents.heading': 'குறியிடப்பட்ட ஆவணங்கள்',
   'documents.loading': 'ஆவணங்கள் ஏற்றப்படுகின்றன…',
   'documents.metric.chunks': 'மொத்த துண்டுகள்',
@@ -144,7 +149,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'நீக்குதல்',
   'members.subheading': 'அணி வீரர்களை அழைத்து, பொறுப்புகளை ஒதுக்குங்கள்.',
   'members.tableHeading': 'பட்டியல்',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'notFound.askCta': 'அறிவுத் தளத்திடம் கேளுங்கள்',
+  'notFound.body':
+    '{{app}} அந்தப் பக்கத்தைக் கண்டுபிடிக்க முடியவில்லை. இணைப்பு செயலிழந்திருக்கலாம், அல்லது மறு அட்டவணைப்படுத்தலின் போது அந்தப் பக்கம் நீக்கப்பட்டிருக்கலாம்.',
   'notFound.eyebrow': 'மீட்டெடுக்க முடியவில்லை',
   'notFound.title': 'குறியீட்டில் அப்படிப்பட்ட பகுதி எதுவும் இல்லை',
   'notifications.dismiss': 'நிராகரி',
@@ -215,6 +224,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'உங்கள் முதல் இணைப்பானை இணைக்க, “மூலத்தைச் சேர்க்கவும்” என்பதைக் கிளிக் செய்யவும்.',
   'sources.empty.title': 'இன்னும் ஆதாரங்கள் கிடைக்கவில்லை.',
+  'sources.error.add': 'மூலத்தைச் சேர்க்க முடியவில்லை.',
   'sources.error.labelRequired': 'லேபிள் தேவைப்படுகிறது.',
   'sources.error.load': 'மூலங்களை ஏற்ற முடியவில்லை.',
   'sources.error.urlRequired': 'இந்த மூல வகைக்கு URL தேவைப்படுகிறது.',

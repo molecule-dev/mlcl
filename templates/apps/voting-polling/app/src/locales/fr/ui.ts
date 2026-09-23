@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
   'analytics.col.quorum': 'Quorum',
   'analytics.col.votes': 'Voix',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': "Aucune question en attente pour l'instant.",
   'audienceQa.onStageEyebrow': 'Sur scène maintenant',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promouvoir',
   'audienceQa.queued': 'en attente',
   'audienceQa.queueEyebrow': "File d'attente",
   'ballot.eyebrow': 'Déposez votre bulletin',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Vous êtes actuellement au plan {{plan}}.',
   'billing.switch': 'Changer',
   'billing.upgraded': "Mis à niveau vers {{plan}} — les limites s'appliquent immédiatement.",
+  'common.goToDashboard': 'Aller au tableau de bord',
   'createPoll.addOption': 'Ajouter une option',
   'createPoll.anonymousHint':
     "Les noms des votants sont masqués dans le journal d'audit ; les décomptes restent authentifiés.",
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nouveau sur Nosh ?',
   'login.remember': 'Se souvenir de moi pendant 30 jours',
   'login.subheading': 'Ouvrez la séance, dirigez la salle et certifiez le résultat.',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'notFound.body':
     "La page que vous avez tenté d'ouvrir a été fermée ou déplacée. Retournez au tableau de bord ou lancez un nouveau vote.",
   'notFound.eyebrow': 'Pas de quorum sur cette route',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Impossible de charger ce vote.',
   'pollDetail.loading': 'Chargement du vote…',
   'pollDetail.notFound': 'Vote introuvable.',
+  'pollDetail.openBallot': 'vote ouvert',
   'pollDetail.openLive': 'Résultats en direct',
   'pollDetail.pollId': 'vote · {{id}}',
   'pollDetail.published': 'Vote publié — les électeurs peuvent désormais voter.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Rechercher par e-mail…',
   'voters.subheading':
     'Composez le registre des éligibles. Groupez les votants par organisation pour des scrutins pondérés.',
+  'votingPollingLayout.nav.analytics': 'Analyses',
+  'votingPollingLayout.nav.billing': 'Facturation',
+  'votingPollingLayout.nav.createPoll': 'Nouveau sondage',
+  'votingPollingLayout.nav.dashboard': 'Tableau de bord',
+  'votingPollingLayout.nav.notifications': 'Notifications',
+  'votingPollingLayout.nav.settings': 'Paramètres',
+  'votingPollingLayout.nav.team': 'Équipe',
+  'votingPollingLayout.nav.voters': 'Les électeurs',
+  'votingPollingLayout.primaryNavLabel': 'Navigation principale',
 }

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.title': 'Kuhusu {{app}}',
   'comments.addFailed': 'Haikuweza kuchapisha maoni.',
   'comments.backToDoc': 'Rudi kwenye hati',
   'comments.deleteFailed': 'Haikuweza kufuta.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Suluhisha',
   'comments.resolveFailed': 'Haikuweza kusuluhisha.',
   'comments.subtitle': '{{open}} wazi · {{resolved}} kutatuliwa',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.activityHeading': 'Kinachoendelea',
   'dashboard.createFailed': 'Haikuweza kuunda hati.',
   'dashboard.empty': 'Hakuna hati bado — anza na kitufe cha Hati Mpya.',
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Haikuweza kuhamishiwa kwenye takataka.',
   'editor.unpublish': 'Ondoa uchapishaji',
   'editor.untitled': 'Hati Isiyo na Jina',
+  'editor.updatedElsewhere':
+    'Hati hii ilisasishwa na mtu mwingine — pakia upya ili kuona mpya zaidi.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'mwandishi@studio.com',
   'forgotPassword.sentBody':
     'Ikiwa akaunti ipo kwa {{email}} , kiungo cha kuweka upya kiko njiani.',
   'forgotPassword.subtitle': 'Tutakutumia kiungo cha kuweka upya.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Imejengwa kwa Molekuli.',
   'landing.ctaHeading': 'Fungua ukurasa. Acha kielekezi kianze.',
   'landing.ctaPrimary': 'Fungua studio',
   'landing.eyebrow': 'Kwa waandishi, wahariri, na timu',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'imehaririwa {{when}}',
   'quillonDocumentCard.open': 'Fungua →',
   'quillonKpiCard.trend': 'Mwenendo wa hivi karibuni',
+  'quillonLayout.menu': 'Menyu',
   'quillonLayout.primaryNavLabel': 'Usogezaji mkuu',
   'quillonStudioHero.collab': 'Washirika',
   'quillonStudioHero.docs': 'Hati zilizoguswa',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'sasa hivi',
+  'trash.confirmDelete': 'Thibitisha kufuta',
   'trash.deleteFailed': 'Haikuweza kufuta.',
   'trash.deleteForever': 'Futa milele',
   'trash.empty': 'Hakuna cha kupona.',
+  'trash.emptyAll': 'Tupa takataka',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Takataka',
   'trash.loadFailed': 'Haikuweza kupakia takataka.',

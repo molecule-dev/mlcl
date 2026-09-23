@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'alerts.acknowledgeLabel': 'รับทราบ',
   'alerts.customerLabel': 'ลูกค้า: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'กำลังเชื่อมต่อ…',
   'carriers.requiredError': 'ต้องระบุชื่อและรหัส',
   'carriers.subheading': '{{count}} บูรณาการ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'อยู่ระหว่างการขนส่ง + ติดธง',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'การจัดส่ง',
   'pricing.trackingLabel': 'การติดตามเหตุการณ์',
   'profile.dangerZone.title': 'เขตอันตราย',
+  'profile.devices.signingOut': 'กำลังออกจากระบบ…',
+  'profile.devices.unnamed': 'อุปกรณ์ที่ไม่มีชื่อ',
+  'profile.security.disable2fa': 'ปิดใช้งาน 2FA',
   'profile.security.enable2fa': 'เปิดใช้งาน 2FA',
   'profile.security.pwChanged': 'เปลี่ยนรหัสผ่านสำเร็จแล้ว',
   'profile.security.pwCurrent': 'รหัสผ่านปัจจุบัน',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'เปิดใช้งาน 2FA แล้ว',
   'profile.security.twoFaCode': 'รหัส 6 หลัก',
   'profile.security.twoFaDisable': 'ปิดใช้งาน',
+  'profile.security.twoFaDisabling': 'กำลังปิดใช้งาน…',
   'profile.security.twoFaFailed': 'ไม่สามารถตรวจสอบรหัสได้',
   'profile.security.twoFaIntro':
     'สแกนคิวอาร์โค้ดในแอปยืนยันตัวตนของคุณ จากนั้นป้อนรหัส 6 หลักด้านล่างเพื่อยืนยัน',
   'profile.security.twoFaOn': 'บัญชีนี้เปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอนแล้ว',
+  'profile.security.twoFaQrAlt': 'QR code การยืนยันสองขั้นตอน',
   'profile.security.twoFaVerify': 'ตรวจสอบและเปิดใช้งาน',
   'profile.security.twoFaVerifying': 'กำลังตรวจสอบ…',
   'profile.subheading': 'การตั้งค่าข้อมูลประจำตัวและความปลอดภัยสำหรับพื้นที่ทำงานนี้',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'เก็บเรื่องนี้เป็นความลับ — จะไม่มีใครเปิดเผยเรื่องนี้อีก',
   'settings.api.webhookSecret': 'รหัสลับการลงนามเว็บฮุค',
   'settings.appearance.description': 'สลับระหว่างโหมดสว่างและโหมดมืด',
+  'settings.deleteAccountConfirm': 'คุณแน่ใจหรือ? การกระทำนี้ไม่สามารถย้อนกลับได้',
   'settings.notifications.exceptions': 'แจ้งเตือนฉันทางอีเมลเมื่อเกิดข้อผิดพลาดในการจัดส่ง',
   'settings.notifications.heading': 'การแจ้งเตือน',
   'settings.notifications.saveFailed': 'ไม่สามารถบันทึกการตั้งค่าได้',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'ไม่พบสินค้าที่จัดส่ง',
   'shipmentDetail.originHeading': 'ต้นทาง',
   'shipmentDetail.shippedOn': 'จัดส่งแล้ว {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'ยังไม่มีข้อมูลการติดตามใดๆ การอัปเดตจะปรากฏขึ้นเมื่อผู้ให้บริการขนส่งสแกนพัสดุแล้ว',
   'shipmentDetail.weightLabel': '{{weight}} ปอนด์',
   'shipments.col.carrier': 'ผู้ให้บริการ',
   'shipments.col.eta': 'เวลาโดยประมาณ',
@@ -175,6 +186,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'เข้าสู่ระบบ',
   'signup.submit': 'สร้างบัญชี',
   'team.emailError': 'จำเป็นต้องระบุที่อยู่อีเมลที่ถูกต้อง',
+  'team.empty': 'ยังไม่มีสมาชิกทีม เชิญเพื่อนร่วมทีมเพื่อร่วมมือกันในการจัดส่งสินค้า',
   'team.eyebrow': 'สมาชิกและสิทธิ์การเข้าถึง',
   'team.inviteDialog.cancel': 'ยกเลิก',
   'team.inviteDialog.heading': 'เชิญเพื่อนร่วมทีม',
@@ -197,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ติดตาม',
   'waypointLayout.primaryNavLabel': 'การนำทางหลัก',
   'webhooks.createFailed': 'ไม่สามารถสร้างเอนด์พอยต์เว็บฮุคได้',
+  'webhooks.endpointsEmpty':
+    'ยังไม่มีเอนด์พอยต์เว็บฮุค สร้างเอนด์พอยต์เพื่อรับการแจ้งเตือนสถานะการจัดส่ง',
   'webhooks.endpointsHeading': 'จุดสิ้นสุด',
   'webhooks.eventCount': '{{count}} กิจกรรม',
   'webhooks.eventsHeading': 'การส่งมอบล่าสุด',

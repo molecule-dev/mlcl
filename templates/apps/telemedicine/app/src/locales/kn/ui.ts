@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'ನೇಮಕಾತಿ ಕಾಯ್ದಿರಿಸಿ',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'ತೋರಿಸಲು ಯಾವುದೇ ರೋಗಿಗಳಿಲ್ಲ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'consult.backLink': 'ಎಲ್ಲಾ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು',
   'consult.captions': 'ಶೀರ್ಷಿಕೆಗಳು',
   'consult.connected': 'ಸಂಪರ್ಕಗೊಂಡಿದೆ · 720p · ಸ್ಥಿರ',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'ರೋಗಿಗಳು',
   'patientVitalsHero.scripts': 'ಆರ್‌ಎಕ್ಸ್ ಓಪನ್',
   'patientVitalsHero.subline': '{{count}} ಇಂದಿನ ನಿಮ್ಮ ವೇಳಾಪಟ್ಟಿಯಲ್ಲಿ ಸಮಾಲೋಚಿಸುತ್ತದೆ',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'prescriptions.empty': 'ಯಾವುದೇ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'prescriptions.eyebrow': 'ಇ-ಶಿಫಾರಸು ಮಾಡುವಿಕೆ',
   'prescriptions.heading': 'ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್‌ಗಳು',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'ಗೌಪ್ಯತಾ ಸೂಚನೆ',
   'privacy.use.body':
     'ಆರೈಕೆಯನ್ನು ನೀಡಲು, ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಜ್ಞಾಪನೆಗಳನ್ನು ಕಳುಹಿಸಿ, ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್‌ಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸೇವಾ ವಿಶ್ವಾಸಾರ್ಹತೆಯನ್ನು ಸುಧಾರಿಸಿ. ನಾವು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಎಂದಿಗೂ ಮಾರಾಟ ಮಾಡುವುದಿಲ್ಲ ಮತ್ತು ಜಾಹೀರಾತುದಾರರೊಂದಿಗೆ ಕ್ಲಿನಿಕಲ್ ಮಾಹಿತಿಯನ್ನು ಎಂದಿಗೂ ಹಂಚಿಕೊಳ್ಳುವುದಿಲ್ಲ.',
+  'providers.allSpecialties': 'ಎಲ್ಲಾ ವಿಶೇಷತೆಗಳು',
+  'providers.loadError': 'ಪೂರೈಕೆದಾರರನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'providers.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'providers.noResults': 'ಯಾವುದೇ ಪೂರೈಕೆದಾರರು ಕಂಡುಬಂದಿಲ್ಲ.',
   'providers.searchPlaceholder': 'ಹೆಸರು, ವಿಶೇಷತೆ... ಮೂಲಕ ಹುಡುಕಿ',
   'providers.title': 'ಪೂರೈಕೆದಾರರನ್ನು ಹುಡುಕಿ',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'ದಿನದ ಆರಂಭ',
   'settings.availability.heading': 'ಲಭ್ಯತೆ',
   'settings.devices.thisDevice': 'ಈ ಸಾಧನ',
+  'settings.devices.unnamed': 'ಹೆಸರಿಸದ ಸಾಧನ',
   'settings.eyebrow': 'ಅಭ್ಯಾಸ ಮತ್ತು ಖಾತೆ',
   'settings.loadError': 'ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.notifications.emailMessages': 'ನನ್ನ ಆರೈಕೆ ತಂಡವು ಪ್ರತ್ಯುತ್ತರಿಸಿದಾಗ ನನಗೆ ಇಮೇಲ್ ಮಾಡಿ',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.security.twoFactor.enable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.security.twoFactor.heading': 'ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ',
+  'settings.security.twoFactor.invalidCode': 'ಆ ಕೋಡ್ ಹೊಂದಿಕೆಯಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'settings.security.twoFactor.setupFailed':
+    'ಎರಡು-ಅಂಶ ಸೆಟಪ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'settings.security.twoFactor.statusOn': 'ಎರಡು-ಅಂಶ ಆನ್ ಆಗಿದೆ',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.subheading': 'ಪೂರೈಕೆದಾರರ ಪ್ರೊಫೈಲ್, ಅಭ್ಯಾಸ ನಿಯಮಗಳು ಮತ್ತು ಕ್ಲಿನಿಕಲ್ ಎಚ್ಚರಿಕೆಗಳು.',
   'signup.emailLabel': 'ಇಮೇಲ್',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'ಖಾತೆ ರಚಿಸಿ',
   'signupFooter.hipaa': 'HIPAA ಕಂಪ್ಲೈಂಟ್',
   'solaceLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'solaceLayout.toggleMenu': 'ಮೆನು ಟಾಗಲ್ ಮಾಡಿ',
   'terms.eligibility.body':
     'ನೀವು ಕನಿಷ್ಠ ಹದಿನೆಂಟು ವರ್ಷ ವಯಸ್ಸಿನವರಾಗಿರಬೇಕು, ಅಥವಾ ನೀವು ಆರೈಕೆಯನ್ನು ಬಯಸುತ್ತಿರುವ ಅಪ್ರಾಪ್ತ ವಯಸ್ಕರ ಪೋಷಕರು ಅಥವಾ ಕಾನೂನುಬದ್ಧ ಪೋಷಕರಾಗಿರಬೇಕು ಮತ್ತು ನಮ್ಮ ವೈದ್ಯರು ಪರವಾನಗಿ ಪಡೆದಿರುವ US ರಾಜ್ಯದಲ್ಲಿ ಭೌತಿಕವಾಗಿ ನೆಲೆಸಿರಬೇಕು.',
   'terms.payment.body':

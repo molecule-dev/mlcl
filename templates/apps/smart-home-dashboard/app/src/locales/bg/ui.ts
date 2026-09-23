@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.pageTitle': 'За {{app}}',
   'activity.empty': 'Все още няма активност — обърнете устройство или активирайте сцена.',
   'activity.eyebrow': 'Хронология',
   'activity.loadError': 'Не можа да се зареди емисията за активност.',
   'activity.subheading':
     'Всяко устройство, автоматизация и събитие, свързано със сигурността, в хронологичен ред.',
+  'addDevice.error.failed': 'Устройството не можа да се добави. Опитайте отново.',
   'addDevice.error.nameRequired': 'Дайте име на това устройство, за да продължите.',
   'addDevice.field.firmware': 'Версия на фърмуера',
   'addDevice.field.manufacturer': 'Производител',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тестване…',
   'automationEditor.testNew': 'Първо запазете автоматизацията, за да я тествате.',
   'automationRow.lastRun': 'Последен {{date}} · {{count}} бяга',
+  'automationRow.on': 'На',
   'automationRow.runNowAria': 'Бягане {{name}} сега',
   'automations.empty': 'Все още няма автоматизации — създайте първата си рутина.',
   'automations.eyebrow': 'Рутини',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Зареждане на автоматизации…',
   'automations.newAutomation': '+ Ново',
   'automations.subheading': 'Когато това се случи, направете го — без YAML.',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Зареждането на устройството не бе успешно.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Работа…',
   'deviceDetail.unnamed': 'Устройство',
   'deviceStatusRow.on': 'Включено',
+  'deviceStatusRow.turnOff': 'Изключи',
+  'deviceStatusRow.turnOn': 'Включване',
   'deviceStatusRow.watts': '{{watts}} З',
   'energy.eyebrow': 'Мощност',
   'energy.heading': 'Енергия',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Вижте плановете',
   'settings.security.heading': 'Сигурност',
   'settings.subheading': 'Предпочитания за план, хъбове и акаунт.',
+  'smartHomeDashboardLayout.openMenu': 'Отвори менюто за навигация',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Основна навигация',
 }

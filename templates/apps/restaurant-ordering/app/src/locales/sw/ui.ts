@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Kuhusu {{app}}',
   'analytics.avgCheckLabel': 'Ukaguzi wa wastani',
   'analytics.busiestHour': 'Saa yenye shughuli nyingi zaidi',
   'analytics.coversToday': 'Vifuniko leo',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Vidokezo (wastani)',
   'analytics.topItems': 'Bidhaa bora leo',
   'authShell.eyebrow': 'Karibu tena kwenye huduma',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Sehemu ya kuuza ya haraka na ya joto kwa timu za ukarimu. Ingia jikoni mwako na uendelee na mahali ulipoishia.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'au {{price}}',
   'billing.priceUnavailable': 'Mpango huu hauna bei iliyopangwa.',
   'billing.updated': 'Mpango umesasishwa.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'customerDetail.book': 'Ongeza nafasi',
   'customerDetail.col.table': 'Meza',
   'customerDetail.confirmDelete': 'Ungependa kufuta rekodi hii ya mgeni?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Upatikanaji',
   'menuItemDetail.available': 'Inapatikana usiku wa leo',
   'menuItemDetail.backToMenu': 'Rudi kwenye menyu',
+  'menuItemDetail.confirmDelete': 'Ungependa kufuta kipengee hiki cha menyu?',
   'menuItemDetail.delete': 'Futa kipengee',
   'menuItemDetail.deleteError': 'Imeshindwa kufuta. Jaribu tena.',
   'menuItemDetail.dietary': 'Lebo za lishe',
@@ -137,9 +141,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Imeshindwa kuhifadhi. Jaribu tena.',
   'menuItemDetail.subheading': '{{category}} · Hariri picha, virekebishaji, lishe, na bei.',
   'menuItemDetail.untitled': 'Kipengee kisicho na kichwa',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'notFound.heading': 'Meza hii haipo sakafuni.',
   'notFound.subheading':
     'Ukurasa uliokuwa ukiutafuta umewekwa mahali pengine — au haujawahi kuwepo.',
+  'notFound.toLanding': '{{app}} nyumbani',
   'notifications.markError': 'Haikuweza kutia alama kwenye usomaji wote.',
   'orderDashboard.activeDelta': 'Ishi sasa',
   'orderDashboard.activeLabel': 'Maagizo yanayotumika',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Onyesha nenosiri',
   'resetPassword.subtitle': 'Ingiza nenosiri lako jipya ili upate tena ufikiaji wa jikoni.',
   'resetPassword.tokenLabel': 'Weka upya Tokeni',
+  'restaurantOrderingLayout.primaryNavLabel': 'Usogezaji mkuu',
   'revenueHeroCard.activeOrders': '{{count}} hai',
   'revenueHeroCard.change': '{{sign}} {{amount}} dhidi ya jana',
   'revenueHeroCard.title': 'Mapato ya leo',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Jina la mgahawa',
   'tableDetail.activeOrders': 'Maagizo yanayotumika',
   'tableDetail.backToFloor': 'Mpango wa sakafu',
+  'tableDetail.confirmDelete': 'Futa jedwali hili?',
   'tableDetail.delete': 'Futa',
   'tableDetail.deleteError': 'Haikuweza kufuta jedwali.',
   'tableDetail.heading': 'Meza {{label}}',

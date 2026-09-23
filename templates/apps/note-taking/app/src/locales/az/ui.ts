@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'İdarə panelinə keç',
   'forgot.eyebrow': 'Geri qayıtmağın yolunu itirdin?',
   'forgot.formSubtitle': 'Fayldakı e-poçtu bizə bildirin.',
   'forgot.headline': 'Şifrənizi sıfırlayın.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Birini yaradın',
   'login.subline':
     'Dəftərləriniz, geri keçidləriniz və gündəlik səhifələriniz onları qoyduğunuz yerdədir.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'noteEditor.backToNotes': 'Qeydlərə qayıt',
   'noteEditor.bodyPlaceholder':
     'Yazmağa başlayın — qeydiniz yazdıqca avtomatik olaraq yadda saxlanılır.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Yeni dəftər',
   'notes.newNotebookPrompt': 'Yeni dəftər adı',
   'notes.notebooksHeading': 'Dəftərlər',
+  'notes.subtitle':
+    'Solda bir dəftər seçin, sonra yeni bir qeydə başlamaq üçün Yeni qeyd düyməsini basın.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Qeyd etmə planınızı seçin',
   'reset.eyebrow': 'Demək olar ki, geri qayıdıb',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Yeniləndi',
   'versoLayout.nav.graph': 'Qrafik',
   'versoLayout.nav.home': 'Ev',
+  'versoLayout.primaryNavLabel': 'Əsas naviqasiya',
   'versoNoteCard.pinned': 'Sancaqlandı',
   'versoTodayHero.continueCta': 'Yazmağa davam edin',
   'versoTodayHero.createCta': 'Bugünkü qeydə başlayın',

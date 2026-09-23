@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Giới thiệu {{app}}',
+  'appNav.mobileLabel': 'Điều hướng chính',
+  'appNav.primaryLabel': 'Điều hướng chính',
   'billing.actions.confirmCancel':
     'Quý vị có muốn hủy đăng ký không? Quý vị có thể đăng ký lại bất cứ lúc nào.',
   'billing.actions.paused': 'Đã tạm dừng đăng ký.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Mỗi gói là một câu chuyện theo lô nhỏ. Thêm một gói vào hàng đợi hoặc đổi vào tháng tới.',
   'boxThemeCard.perMonth': '/ tháng',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'customize.eyebrow': 'Biến nó thành của quý vị',
   'customize.heading': 'Tùy chỉnh Crate tiếp theo của quý vị',
   'customize.items.exclude': 'Bỏ qua món này',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Mùa này',
   'landing.editions.heading': 'Các phiên bản mà người tuyển chọn của chúng tôi yêu thích',
   'landing.footer.contact': 'Trò chuyện với người tuyển chọn',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bắt đầu hộp của quý vị →',
   'landing.hero.ctaSecondary': 'Xem các gói',
   'landing.hero.eyebrow': 'Tuyển chọn hàng tháng. Luôn cá nhân.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'CRATE TIẾP THEO CỦA QUÝ VỊ',
   'nextBoxHeroCard.itemsLabel': 'Vật phẩm tuyển chọn',
   'nextBoxHeroCard.shipsOnLabel': 'Vận chuyển vào',
+  'notFound.body':
+    'Chúng tôi không tìm thấy trang đó trong kho lưu trữ {{app}} . Có thể trang đó đã bị xóa hoặc chỉ đơn giản là bị gõ sai.',
   'notFound.cta.dashboard': 'Đến bảng điều khiển',
   'notFound.eyebrow': 'Hộp trống',
   'notFound.heading': 'Kệ này đang trống',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.eyebrow': 'O aplikaciji {{app}}',
+  'about.intro':
+    '{{app}} је апликација за медитацију за стварни живот — свакодневне вођене медитације, вежбе дисања и приче о спавању које воде инструктори који вам делују као пријатељ, а не као тренер. Без кривице, без бучног преноса информација: само мирно место за повратак свом даху.',
+  'about.missionBody':
+    'Верујемо да мир треба да буде доступан свима, у било ком тренутку дана. {{app}} постоји да би мирна, доследна пракса била без напора — тако да десет искрених минута може променити начин на који дочекујете наредних десет сати.',
+  'about.missionTitle': 'Наша мисија',
+  'about.pageTitle': 'Мирнијих 10 минута дневно',
+  'breathingDial.seconds': 'секунде',
+  'common.goToDashboard': 'Иди на контролну таблу',
+  'common.logout': 'Odjavi se',
   'common.min': 'мин',
   'common.relative.justNow': 'управо',
   'common.relative.now': 'сада',
+  'mobileNav.closeMenu': 'Затвори мени за навигацију',
+  'mobileNav.openMenu': 'Отвори мени за навигацију',
+  'nav.secondaryNavigation': 'Навигација по налогу',
   'sessionCard.with': 'са {{name}}',
   'stillpoint.billing.choose': 'Изаберите {{plan}}',
   'stillpoint.billing.currentPlan': 'Тренутно укључено {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Нисмо могли да учитамо планове.',
   'stillpoint.billing.opening': 'Отварање касе…',
   'stillpoint.billing.perMonthShort': '/ месечно',
+  'stillpoint.billing.perYearShort': '/год.',
   'stillpoint.billing.unknownResult': 'Неочекивани одговор о наплати.',
   'stillpoint.billing.yearly': 'Годишње · уштедите 17%',
   'stillpoint.courseDetail.back': 'Курсеви',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Још нема курсева.',
   'stillpoint.courses.eyebrow': '{{count}} вишедневна путовања',
   'stillpoint.courses.heading': 'Курсеви',
+  'stillpoint.forgot.checkEmail': 'Проверите пријемно сандуче — линк истиче за 30 минута.',
   'stillpoint.forgot.success': 'Послали смо линк за ресетовање на {{email}} .',
   'stillpoint.home.empty': 'Још нема сесија — проверите поново ускоро.',
   'stillpoint.home.friend': 'пријатељ',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Направите свој бесплатни налог',
   'stillpoint.landing.cta.title': 'Започните свој мир већ данас',
   'stillpoint.landing.features.heading': 'Пракса која расте са вама',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Дневне вођене медитације, вежбе дисања и приче за спавање — темпо воде инструктори који се осећају као пријатељ, а не као тренер.',
   'stillpoint.landing.hero.eyebrow': 'Мирнијих 10 минута дневно',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Прегледајте по расположењу',
   'stillpoint.login.rememberMe': 'Остани пријављен/а',
   'stillpoint.login.subheading': 'Пријавите се да бисте наставили са вежбањем.',
+  'stillpoint.nav.tagline': 'Пронађите свој центар мировања',
+  'stillpoint.notFound.body':
+    'Ова страница негде дуго, дубоко дише. Хајде да пронађемо мирније место за вас у {{app}} .',
   'stillpoint.notFound.title': 'Изгубљен у тишини',
   'stillpoint.notFound.toHome': 'Назад на данас',
   'stillpoint.notFound.toLibrary': 'Прегледај библиотеку',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Прескочи 15 секунди уназад',
   'stillpoint.player.skipForward': 'Прескочи 30 секунди унапред',
   'stillpoint.player.with': 'са {{name}}',
+  'stillpoint.profile.defaultHandle': 'показивач стајалишта',
   'stillpoint.profile.eyebrow': 'Ваша пракса, укратко.',
   'stillpoint.profile.locked': 'Закључано',
   'stillpoint.profile.member': 'Члан Stillpoint-а',

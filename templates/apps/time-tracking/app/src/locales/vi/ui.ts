@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Giới thiệu {{app}}',
   'about.plansTitle': 'Các gói phát triển cùng quý vị',
   'brand.tagline': 'Mỗi giây',
   'clientDetail.back': 'Quay lại khách hàng',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Mọi mối quan hệ ở một nơi — dự án, giờ, hóa đơn tồn đọng.',
   'clients.title': 'Khách hàng',
   'common.and': 'và',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.activeProjects': 'Dự án đang hoạt động',
   'dashboard.empty':
     'Chưa có mục nào. Kính mời quý vị bắt đầu hẹn giờ để theo dõi phiên làm việc đầu tiên.',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Không có giờ tính phí để lập hóa đơn cho khách hàng này. Kính mời quý vị theo dõi một ít thời gian trước hoặc gán các mục hiện có cho một trong các dự án của khách hàng này.',
   'invoices.save': 'Tạo hóa đơn',
   'invoices.subtitle': 'Giờ đã theo dõi tự động tổng hợp thành hóa đơn.',
+  'landing.copyright': '© {{year}} {{app}} . Từng giây đều được ghi chép đầy đủ.',
   'landing.ctaBody':
     'Miễn phí cho tối đa 3 dự án. Nâng cấp khi danh sách khách hàng của quý vị tăng lên.',
   'landing.eyebrow': 'Theo dõi thời gian cho công việc tính phí',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Được tin tưởng bởi người làm việc độc lập',
   'landing.testimonial.quote':
     '“Tôi đã chuyển khỏi Toggl trong 30 phút. Riêng việc theo dõi tiêu hao ngân sách đã tự trang trải — tôi đã ngừng báo giá thấp hai tuần liên tiếp.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Mỗi giây đều được hạch toán.',
   'login.brand.subtitle':
     'Tiếp tục bộ hẹn giờ từ nơi quý vị đã dừng lại — mỗi phút đã được liên kết với một dự án, một khách hàng, một hóa đơn.',
   'login.brand.tracking': 'Đang theo dõi',
   'login.subheading': 'Tiếp tục bộ hẹn giờ từ nơi quý vị đã dừng lại.',
+  'nav.closeMenu': 'Đóng menu điều hướng',
   'nav.insightsSection': 'Thông tin chi tiết',
   'nav.newEntry': 'Mục mới',
+  'nav.openMenu': 'Mở menu điều hướng',
+  'nav.primary': 'Điều hướng chính',
   'nav.workSection': 'Công việc',
   'notFound.body':
     'Có vẻ như liên kết mà quý vị theo dõi đã ngừng theo dõi. Kính mời quý vị quay lại bảng điều khiển — chúng tôi sẽ tiếp tục đếm từ đó.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Tính phí',
   'timer.descriptionPlaceholder': 'Quý vị đang làm gì?',
   'timer.idle': 'Nhàn rỗi — bắt đầu theo dõi',
+  'timer.noProject': 'Không có dự án',
   'timer.runningWithProject': 'Không có dự án',
   'timer.start': 'Bắt đầu hẹn giờ',
   'timer.stop': 'Dừng hẹn giờ',

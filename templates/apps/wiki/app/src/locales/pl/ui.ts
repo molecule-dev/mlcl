@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Rozwiązywanie…',
   'comments.subtitle':
     'Wątki ({{count}}) wciąż czekające na odpowiedź lub rozwiązanie. Posortowane według wieku — najstarsze najpierw, aby nic nie uległo zapomnieniu.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'forgotPassword.sentTo': 'Link resetujący wysłany do {{email}}',
   'forgotPassword.successSubheading':
     'Proszę sprawdzić skrzynkę odbiorczą — właśnie wysłaliśmy link resetujący. Wygasa za 30 minut.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nowa strona',
   'pageTreeSidebar.workspaceHeader': 'Przestrzeń robocza',
   'pageView.breadcrumb': 'Ścieżka nawigacji',
+  'pageView.confirmTrash': 'Wyrzucić?',
   'pageView.home': 'Strona główna',
   'pageView.lastEdited': 'Zaktualizowano {{when}}',
   'pageView.loading': 'Ładowanie strony…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Podsumowanie AI nie jest skonfigurowane dla tej przestrzeni roboczej.',
   'pageView.tocTitle': 'Na tej stronie',
+  'pageView.trash': 'Kosz',
+  'pageView.trashing': 'Usuwanie…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Odznaki',
   'profile.owned.title': 'Posiadane strony',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Przestrzeń robocza, profil, powiadomienia, integracje — wszystko w jednej spokojnej powłoce.',
   'settingsPage.workspace.defaultLanding': 'Domyślny ekran startowy',
   'settingsPage.workspace.landingHome': 'Dom',
+  'settingsPage.workspace.landingSpaces': 'Przestrzenie',
   'settingsPage.workspace.subdomainLabel': 'Subdomena',
   'settingsPage.workspace.title': 'Przestrzeń robocza',
   'signup.eyebrow': 'Utwórz nową przestrzeń roboczą',
@@ -130,6 +135,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Proszę rozpocząć stronę od szablonu, a nie od pustego płótna. Każdy szablon utrwala formę, aby można było skupić się na treści.',
+  'trash.confirmPurge': 'Czyścić na zawsze?',
+  'trash.confirmPurgeAria': 'Potwierdź: trwałe usunięcie {{title}}',
   'trash.daysUntilPurge': 'Pozostało dni: {{days}}',
   'trash.empty.body':
     'Usunięte strony pojawią się tutaj na 30 dni, zanim zostaną usunięte na stałe.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Przywracanie…',
   'versionHistory.subtitle': 'Wersji: {{count}} · proszę wybrać wiersz, aby sprawdzić diff',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Zamknij menu nawigacyjne',
+  'wikiLayout.menu': 'Nawigacja',
+  'wikiLayout.openMenu': 'Otwórz menu nawigacyjne',
   'wikiLayout.searchPlaceholder': 'Szukaj w Cairn — strony, komentarze…',
 }

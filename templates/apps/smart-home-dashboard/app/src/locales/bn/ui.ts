@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.pageTitle': '{{app}} সম্পর্কে',
   'activity.empty': 'এখনো কোনো কার্যকলাপ হয়নি — ডিভাইসটি উল্টান অথবা কোনো দৃশ্য সক্রিয় করুন।',
   'activity.eyebrow': 'সময়রেখা',
   'activity.loadError': 'অ্যাক্টিভিটি ফিড লোড করা যায়নি।',
   'activity.subheading': 'প্রতিটি ডিভাইস, অটোমেশন এবং নিরাপত্তা সংক্রান্ত ঘটনা কালানুক্রমিকভাবে।',
+  'addDevice.error.failed': 'ডিভাইসটি যোগ করা যায়নি। আবার চেষ্টা করুন।',
   'addDevice.error.nameRequired': 'চালিয়ে যাওয়ার জন্য এই ডিভাইসটির একটি নাম দিন।',
   'addDevice.field.firmware': 'ফার্মওয়্যার সংস্করণ',
   'addDevice.field.manufacturer': 'প্রস্তুতকারক',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'পরীক্ষা চলছে…',
   'automationEditor.testNew': 'পরীক্ষা করার জন্য প্রথমে অটোমেশনটি সেভ করুন।',
   'automationRow.lastRun': 'শেষ {{date}} · {{count}} দৌড়',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'দৌড় {{name}} এখন',
   'automations.empty': 'এখনো কোনো অটোমেশন নেই — আপনার প্রথম রুটিনটি তৈরি করুন।',
   'automations.eyebrow': 'রুটিন',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'অটোমেশন লোড হচ্ছে…',
   'automations.newAutomation': '+ নতুন',
   'automations.subheading': 'যখন এমনটা ঘটবে, তখন YAML ছাড়া ওই কাজটি করুন।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ডিভাইস লোড করতে ব্যর্থ হয়েছে।',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'কাজ চলছে…',
   'deviceDetail.unnamed': 'ডিভাইস',
   'deviceStatusRow.on': 'চালু',
+  'deviceStatusRow.turnOff': 'বন্ধ করুন',
+  'deviceStatusRow.turnOn': 'চালু করুন',
   'deviceStatusRow.watts': '{{watts}} ডাব্লিউ',
   'energy.eyebrow': 'শক্তি',
   'energy.heading': 'শক্তি',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'পরিকল্পনাগুলো দেখুন',
   'settings.security.heading': 'নিরাপত্তা',
   'settings.subheading': 'প্ল্যান, হাব এবং অ্যাকাউন্ট পছন্দসমূহ।',
+  'smartHomeDashboardLayout.openMenu': 'নেভিগেশন মেনু খুলুন',
+  'smartHomeDashboardLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
 }

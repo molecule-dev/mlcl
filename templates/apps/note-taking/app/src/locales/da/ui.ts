@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Gå til Dashboard',
   'forgot.eyebrow': 'Mistet vejen tilbage?',
   'forgot.formSubtitle': 'Fortæl os den e-mailadresse, vi har registreret.',
   'forgot.headline': 'Nulstil din adgangskode.',
@@ -38,6 +39,8 @@ export const ui: UiTranslations = {
   'login.headline': 'Fortsæt hvor siden stoppede.',
   'login.signupLink': 'Opret en',
   'login.subline': 'Dine notesbøger, backlinks og daglige sider er lige der, hvor du efterlod dem.',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'noteEditor.backToNotes': 'Tilbage til noter',
   'noteEditor.bodyPlaceholder': 'Begynd at skrive – din note gemmes automatisk, mens du skriver.',
   'noteEditor.confirmTrash': 'Flytte denne note til papirkurven?',
@@ -53,6 +56,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Ny notesbog',
   'notes.newNotebookPrompt': 'Nyt notesbogsnavn',
   'notes.notebooksHeading': 'Notesbøger',
+  'notes.subtitle':
+    'Vælg en notesbog til venstre, og tryk derefter på knappen Ny note for at starte en frisk post.',
   'planUpdated.confirmation': 'Din plan er blevet opdateret',
   'pricing.heading': 'Vælg din noteplan',
   'reset.eyebrow': 'Næsten tilbage i',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Opdateret',
   'versoLayout.nav.graph': 'Kurve',
   'versoLayout.nav.home': 'Hjem',
+  'versoLayout.primaryNavLabel': 'Primær navigation',
   'versoNoteCard.pinned': 'Fastgjort',
   'versoTodayHero.continueCta': 'Fortsæt med at skrive',
   'versoTodayHero.createCta': 'Start dagens note',

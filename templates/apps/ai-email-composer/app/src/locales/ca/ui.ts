@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'La nostra història',
   'aiSuggestionPanel.title': 'Copilot de Signet',
   'analytics.col.open': "Taxa d'obertura",
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Iniciant el procés de compra…',
   'billing.subheading': "Trieu el pla que s'adapti a la vostra manera d'enviar.",
   'billing.unavailable': 'Contacta amb vendes',
+  'common.goToDashboard': 'Anar al panell',
+  'common.retry': 'Torna-ho a intentar',
   'compose.adjustingTone': 'Reescrivint en el to seleccionat…',
   'compose.aiPromptPlaceholder':
     'p. ex. "Seguiment educat després de no respondre durant dues setmanes, sigues breu."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Necessites enviar alguna cosa? Signet pot tenir un esborrany a punt en segons.',
   'dashboard.composeCtaLabel': 'Redacció ràpida',
   'dashboard.heading': 'La teva setmana, composta',
+  'dashboard.loadFailed': "No s'ha pogut carregar el tauler de control.",
   'dashboard.manageLibrary': 'Gestiona la biblioteca →',
   'dashboard.recentEmpty':
     "Encara no s'ha fet cap enviament: els correus electrònics enviats apareixeran aquí.",
@@ -145,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'To predeterminat',
   'settings.toneSubheading': "Signet utilitza aquest to tret que el substitueixis per l'esborrany.",
   'signetLayout.primaryNavLabel': 'Navegació principal',
+  'signetLayout.toggleMenu': 'Menú desplegable',
   'signup.emailLabel': 'Adreça electrònica',
   'signup.showPassword': 'Mostra la contrasenya',
   'signup.tagline': "Envia el teu primer correu electrònic redactat amb IA en menys d'un minut.",

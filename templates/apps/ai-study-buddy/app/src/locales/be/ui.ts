@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Загрузка інфармацыі аб тарыфе…',
   'billing.popular': 'Найбольш любімыя',
   'billing.subtitle': 'Выберыце план, які адпавядае вашаму тэмпу навучання.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.today': 'Сёння',
   'common.yesterday': 'Учора',
   'courseDetail.empty.body': 'Дадайце навучальны матэрыял, каб пачаць асвойваць гэтую тэму.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Назва калоды',
   'flashcards.subtitle': 'Інтэрвалы паўтарэння, якія падладжваюцца пад ваш тэмп.',
   'flashcards.title': 'Флэш-карткі',
+  'footer.copyright': '© {{year}} {{app}} . Добра вучыся, добра спіш.',
   'forgotPassword.subtitle':
     'Увядзіце свой адрас электроннай пошты, і мы дашлем вам спасылку для скіду налад.',
+  'koanLayout.closeMenu': 'Закрыць меню',
+  'koanLayout.navLabel': 'Асноўная навігацыя',
+  'koanLayout.openMenu': 'Адкрыць меню',
   'koanLayout.theme': 'Тэма',
   'landing.featuresBody':
     'Інструменты, прызначаныя для ліквідацыі адцягваючых фактараў і стварэння трывалага разумення.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Гэты URL-адрас — нязведаная тэрыторыя. Магчыма, памылка друку, магчыма, выдалены ўрок — у любым выпадку, давайце вернемся да вучобы.',
   'notFound.heading': 'Старонка не знойдзена.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Вы ўсё прагледзелі',
   'notifications.filter.${opt}': 'Загрузка апавяшчэнняў…',
   'notifications.markAllError': 'Не ўдалося адзначыць усе як прачытаныя.',
   'notifications.markError': 'Не атрымалася адзначыць як прачытанае.',
   'notifications.subtitle': '{{count}} непрачытаныя абнаўленні',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.heading': 'віктарыны',
   'pricing.limits.topics': 'тэмы',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Паспрабуйце іншае ключавое слова або фільтр.',
   'search.empty.title': 'Нічога не супадала.',
   'search.error': 'Не атрымалася загрузіць вынікі.',
+  'search.filters': 'Фільтры тыпаў вынікаў',
   'search.go': 'Ісці',
   'search.label.flashcard': 'Калода картак',
   'search.label.note': 'Заўвага',

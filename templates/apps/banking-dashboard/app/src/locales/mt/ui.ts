@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'accountDetail.activeBadge': 'Attiv',
   'accountDetail.availableLabel': '{{amount}} disponibbli',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Ma rnexxiex jitgħabbew il-kontijiet.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Iffriżat',
   'accounts.totalBalance': '{{ammont}} totali',
   'audit.empty': "Għad m'hemm l-ebda avvenimenti.",
   'audit.eyebrow': 'Sigurtà u aċċess',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Flus kontanti fil-idejn',
   'cashCreditCard.creditLabel': 'Kreditu użat',
   'cashCreditCard.title': 'Flus Kontanti u Kreditu',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Ħarsa ġenerali',
   'dashboard.recentEmpty': "Għad m'hemm l-ebda tranżazzjonijiet.",
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Uri l-password',
   'login.signUp': 'Irreġistra',
   'login.submit': 'Idħol',
+  'meridianLayout.menu': 'Menù',
   'meridianLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'nav.legal': 'Legali',
   'notifications.emptyHeading': 'Int imlaħħaqt',
   'notifications.subheading':
     "Twissijiet f'ħin reali għal tranżazzjonijiet, sigurtà, u rendikonti.",
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'privacy.dataWeShare':
     'Id-dejta bankarja personali qatt ma tinbiegħ. Aħna naqsmu l-informazzjoni mal-proċessuri tal-ħlas, man-netwerks tal-kards, u mar-regolaturi biss kif meħtieġ biex jiġu ssetiljati t-tranżazzjonijiet jew biex nilħqu l-obbligi legali.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     "Two-factor iżid kodiċi ta' darba minn app ta' awtentikar ma' kull sign-in.",
   'settings.security.twoFactorCta': "Immaniġġja l-awtentikazzjoni b'żewġ fatturi",
+  'settings.security.twoFactorOff': 'Żewġ fatturi huma mitfija',
   'settings.signOutDevice': 'Oħroġ',
   'settings.subheading': 'Profil, sigurtà, u notifiki.',
+  'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.twoFactorVerify': 'Ivverifika u attiva',
   'signup.emailLabel': 'Indirizz tal-Email',
   'signup.fullName': 'Kif għandna nindirizzawk?',
   'signup.showPassword': 'Uri l-password',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': "Għad m'hemm l-ebda tranżazzjonijiet.",
   'transactions.endDate': 'Data tat-tmiem',
   'transactions.eyebrow': 'Attività',
+  'transactions.loadError': 'Ma rnexxilniex nitgħabbew it-tranżazzjonijiet.',
   'transactions.merchant': 'Merkant',
+  'transactions.subheading': 'Kull tranżazzjoni ppubblikata u pendenti fil-kontijiet tiegħek.',
   'transfers.availableHint': '{{amount}} disponibbli',
   'transfers.errorGeneric': 'Ma stajtx nissottometti t-trasferiment.',
   'transfers.errorMissingFields': 'Agħżel kont tas-sors u destinazzjoni.',

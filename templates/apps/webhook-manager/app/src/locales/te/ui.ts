@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} గురించి',
+  'about.pageTitle': 'వెబ్‌హుక్ నియంత్రణ విమానం',
+  'about.plansTitle': 'ప్రతి దశకు ప్రణాళికలు',
   'apiKeys.bestPractices': 'ఉత్తమ పద్ధతులు',
   'apiKeys.body':
     'ప్రోగ్రామాటిక్ యాక్సెస్ టోకెన్లు. వాటిని పాస్‌వర్డ్‌ల వలె పరిగణించండి — env vars లో నిల్వ చేయండి, ఎప్పటికీ కమిట్ చేయవద్దు.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ప్రణాళికలో భాగంగా',
   'billing.usageWarning': 'క్యాప్ దగ్గర',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.body':
     'మీరు నిర్వహించే ప్రతి వర్క్‌స్పేస్‌లో — లైవ్ త్రూపుట్, రన్‌వేలో రీట్రైలు, మరియు ఇప్పుడే మొరాయించిన ఎండ్‌పాయింట్‌లు.',
   'dashboard.endpointsEmpty': 'ఇంకా అంతిమ బిందువులు లేవు.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'ముగింపు పాయింట్లు',
   'endpointDetail.deliveryTrendSub': 'డెలివరీలు / గంట, లాగ్ స్కేల్',
   'endpointDetail.hideSecret': 'రహస్యాన్ని దాచండి',
+  'endpointDetail.loading': 'ఎండ్‌పాయింట్ లోడ్ అవుతోంది…',
   'endpointDetail.metric.delivered': '24 గంటల్లో డెలివరీ',
   'endpointDetail.metric.deliveredCaption': 'నుండి {{count}} ఈవెంట్ రకాలు',
   'endpointDetail.metric.failuresCaption': 'పునః ప్రయత్నాలు: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'క్లిష్టమైనది · 24 గంటలు',
   'notifications.metric.totalCaption': 'ఆల్-టైమ్ ఇన్‌బాక్స్',
   'payloadViewer.payload': '// పేలోడ్',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'profile.avatarHeader': 'అవతార్',
   'profile.avatarHint': 'చూపబడినవి సంక్షిప్త అక్షరాలు — తదుపరి విడుదలతో అప్‌లోడ్‌లు రానున్నాయి.',
   'profile.body': 'మీ ఖాతా, ప్రాధాన్యతలు మరియు క్రియాశీల సెషన్‌లు.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'మీ ప్రస్తుత సెషన్ మాత్రమే యాక్టివ్‌గా ఉంది. ఇతర పరికరాలు ఏవీ సైన్ ఇన్ చేయబడలేదు.',
   'profile.toggle': 'టోగుల్ {{label}}',
+  'pylonShell.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'pylonShell.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'pylonShell.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'resetPassword.subtitle': 'మీరు ఇంతకు ముందు ఉపయోగించని బలమైన పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'resetPassword.tokenPlaceholder': 'ఇమెయిల్ నుండి అతికించండి',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'විසඳමින්...',
   'comments.subtitle':
     'එම {{count}} පිළිතුරක් හෝ විසඳුමක් බලාපොරොත්තුවෙන් තවමත් නූල් තිබේ. වයස අනුව වර්ග කර ඇත - පැරණිතම එක පළමුව, එබැවින් කිසිවක් කුණු නොවේ.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'forgotPassword.sentTo': 'යළි පිහිටුවීමේ සබැඳිය යවන ලද්දේ {{email}}',
   'forgotPassword.successSubheading':
     'ඔබගේ එන ලිපි පරීක්ෂා කරන්න — අපි දැන් යළි පිහිටුවීමේ සබැඳියක් එව්වා. එය විනාඩි 30 කින් කල් ඉකුත් වේ.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'නව පිටුව',
   'pageTreeSidebar.workspaceHeader': 'වැඩබිම',
   'pageView.breadcrumb': 'පාන් කුඩු',
+  'pageView.confirmTrash': 'කුණු කූඩයට දාන්නද?',
   'pageView.home': 'මුල් පිටුව',
   'pageView.lastEdited': 'යාවත්කාලීන කරන ලදී {{when}}',
   'pageView.loading': 'පිටුව පූරණය වෙමින්...',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'සාරාංශගත කරමින්...',
   'pageView.summaryUnavailable': 'මෙම වැඩබිම සඳහා AI සාරාංශය වින්‍යාස කර නොමැත.',
   'pageView.tocTitle': 'මෙම පිටුවේ',
+  'pageView.trash': 'කුණු කූඩය',
+  'pageView.trashing': 'කුණු කූඩයට දමමින්...',
   'pageView.versionBadge': 'තුල{{version}}',
   'profile.badges.title': 'ලාංඡන',
   'profile.owned.title': 'හිමිකාරී පිටු',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'වැඩබිම, පැතිකඩ, දැනුම්දීම්, ඒකාබද්ධ කිරීම් - සියල්ල එකම සන්සුන් කවචයක.',
   'settingsPage.workspace.defaultLanding': 'පෙරනිමි ගොඩබෑමේ තිරය',
   'settingsPage.workspace.landingHome': 'මුල් පිටුව',
+  'settingsPage.workspace.landingSpaces': 'අවකාශ',
   'settingsPage.workspace.subdomainLabel': 'උපවසම',
   'settingsPage.workspace.title': 'වැඩබිම',
   'signup.eyebrow': 'නව වැඩබිමක් ආරම්භ කරන්න',
@@ -126,6 +131,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} මිනි',
   'templates.subtitle':
     'හිස් කැන්වසයකින් නොව, ස්ටෙන්සිල් එකකින් පිටුවක් ආරම්භ කරන්න. සෑම සැකිල්ලක්ම හැඩය දෘඪ-කේතනය කරයි, එවිට ඔබට ද්‍රව්‍යය කෙරෙහි අවධානය යොමු කළ හැකිය.',
+  'trash.confirmPurge': 'සදහටම ඉවත් කරන්නද?',
+  'trash.confirmPurgeAria': 'තහවුරු කරන්න: {{title}} ස්ථිරවම මකන්න',
   'trash.daysUntilPurge': '{{days}} ඉතිරි දින ගණන',
   'trash.empty.body': 'මකා දැමූ පිටු පිරිසිදු කිරීමට පෙර දින 30ක් මෙහි දිස්වනු ඇත.',
   'trash.empty.title': 'කුණු කූඩය හිස්ය.',
@@ -145,5 +152,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'ප්‍රතිසාධනය කරමින්...',
   'versionHistory.subtitle': '{{count}} අනුවාද · වෙනස පරීක්ෂා කිරීමට පේළියක් තෝරන්න',
   'versionHistory.versionLabel': 'තුල{{v}}',
+  'wikiLayout.closeMenu': 'සංචාලනය වසන්න',
+  'wikiLayout.menu': 'සංචලනය',
+  'wikiLayout.openMenu': 'සංචාලනය විවෘත කරන්න',
   'wikiLayout.searchPlaceholder': 'කෙයාන් සොයන්න — පිටු, අදහස්…',
 }

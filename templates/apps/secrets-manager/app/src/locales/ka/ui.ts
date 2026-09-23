@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'about.tagline': 'საიდუმლოებები ღიად კვდება.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ტოკენის შექმნა',
   'apiTokens.kicker': 'API ტოკენები',
   'apiTokens.loading': 'იტვირთება ტოკენები…',
+  'apiTokens.new': 'ახალი ტოკენი',
   'apiTokens.revoke': 'ტოკენის გაუქმება',
   'apiTokens.subheading':
     'პირადი და მომსახურების ტოკენები Arcanum CLI-სა და SDK-სთვის. შექმნისას ერთხელ ნაჩვენები უბრალო ტექსტი.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + პაროლი',
   'authShell.zeroKnowledge': 'ნულოვანი ცოდნის დაშიფვრა',
   'common.connecting': 'დაკავშირება…',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.inviting': 'მოწვევა…',
   'forgotPassword.checkInbox':
     'თუ {ელ. ფოსტა} დარეგისტრირებულია, ხელმოწერილი გადატვირთვის ბმული ერთ წუთში მოვა.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'როტაციის სტატუსი, ანომალიის შეტყობინებები და დამტკიცების მოთხოვნები ყველა სარდაფში.',
   'notifications.unreadEmpty': 'ნულოვანი შემოსულები — ყველაფერი მოძიებულია.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.heading': 'საიდუმლოებები',
   'pricing.limits.accessPolicies': 'წვდომის პოლიტიკა',
   'pricing.limits.auditLog': 'აუდიტის ჟურნალის ჩანაწერები',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'პირადი ანგარიში',
   'profile.plan.description': 'მართეთ თქვენი გამოწერა, იხილეთ ლიმიტები და განაახლეთ.',
   'profile.subheading': 'იდენტობა, მეორე ფაქტორის მოწყობილობები და აქტიური სესიები.',
+  'profile.twoFactor.code': 'ავტორიზაციის კოდი',
   'profile.twoFactor.disable': 'გამორთვა',
   'profile.twoFactor.enable': 'ჩართვა',
+  'profile.twoFactor.invalidCode': 'არასწორი კოდი',
   'profile.twoFactor.kicker': 'ორფაქტორიანი ავთენტიფიკაცია',
+  'profile.twoFactor.off': 'ჩართული არ არის',
   'profile.twoFactor.on': 'ჩართულია',
   'resetPassword.email': 'ანგარიშის ელ. ფოსტა',
   'resetPassword.heading': 'ახალი ავტორიზაციის მონაცემების დაყენება',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ბრძანებები',
   'secretsManagerLayout.encrypted': 'AES-256 · დაშიფრული',
   'secretsManagerLayout.newVault': 'ახალი სარდაფი',
+  'secretsManagerLayout.newVaultShort': 'ახალი',
   'secretsManagerLayout.rotations': 'ბრუნვები',
   'secretsManagerLayout.search': 'ძიება',
   'secretsManagerLayout.searchPlaceholder': 'მოძებნეთ საიდუმლოებები გასაღებით, ბილიკით ან თეგით…',
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'საიდუმლოებები',
   'vaultCard.vaultLabel': 'სარდაფი',
   'vaultDetail.addSecret': 'საიდუმლოს დამატება',
+  'vaultDetail.back': 'ყველა სარდაფი',
   'vaultDetail.col.key': 'გასაღები',
   'vaultDetail.col.rotated': 'შემობრუნებული',
   'vaultDetail.col.value': 'ღირებულება',

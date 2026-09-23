@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'auditLog.empty':
     'നിങ്ങളുടെ ഫിൽട്ടറുകളുമായി പൊരുത്തപ്പെടുന്ന ഓഡിറ്റ് ഇവന്റുകളൊന്നും ഇതുവരെയില്ല. ഒരു ജീവനക്കാരനെ എഡിറ്റ് ചെയ്യുകയോ പേ റൺ പ്രോസസ്സ് ചെയ്യുകയോ ചെയ്‌താൽ അവ ഇവിടെ ദൃശ്യമാകും.',
   'auditLog.eyebrow': 'അനുസരണം',
+  'auditLog.loadError': 'ഓഡിറ്റ് ലോഗ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'auditLog.searchPlaceholder': 'നടൻ, ആക്ഷൻ അല്ലെങ്കിൽ വിവരണം അനുസരിച്ച് തിരയുക',
   'auditLog.subheading':
     'എല്ലാ അംഗീകാരവും, എഡിറ്റും, നികുതി ഫയലിംഗും - നടൻ, ടൈംസ്റ്റാമ്പ്, മാറ്റിയ ഫീൽഡുകൾ എന്നിവയോടൊപ്പം.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'കോൺഫിഗർ ചെയ്തിട്ടില്ല',
   'billing.plansHeading': 'പദ്ധതികൾ',
   'billing.subheading': 'സ്ട്രൈപ്പ് വഴി നിങ്ങളുടെ പ്ലാൻ കൈകാര്യം ചെയ്യുക, ടയറുകൾ മാറുക.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'അനുസരണ സ്നാപ്പ്ഷോട്ട്',
   'dashboard.compliance.title': 'എല്ലാ പരിശോധനകളും പാസാകുന്നു',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ഫയലിൽ കിഴിവുകളൊന്നുമില്ല.',
   'employeeDetail.notFound': 'ജീവനക്കാരനെ കണ്ടെത്തിയില്ല.',
   'employeeDetail.payFrequency': 'പണമടയ്ക്കൽ ആവൃത്തി',
+  'employeeDetail.postTax': 'നികുതിക്ക് ശേഷം',
+  'employeeDetail.preTax': 'നികുതിക്ക് മുമ്പുള്ളത്',
   'employeeDetail.salary': 'വാർഷിക ശമ്പളം',
   'employeeDetail.ssn': 'എസ്എസ്എൻ',
   'employeeDetail.startedOn': 'ആരംഭിച്ചു {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'പണമടയ്ക്കൽ ആവൃത്തി',
   'employeeForm.salary': 'വാർഷിക ശമ്പളം (USD)',
   'employeeForm.salaryInvalid': 'ശമ്പളം ഒരു നെഗറ്റീവ് അല്ലാത്ത സംഖ്യ ആയിരിക്കണം.',
+  'employeeForm.saveError': 'ജീവനക്കാരനെ രക്ഷിക്കാനായില്ല.',
   'employeeForm.semimonthly': 'അർദ്ധമാസം',
   'employeeForm.single': 'സിംഗിൾ',
   'employeeForm.ssn': 'എസ്എസ്എൻ',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'ശമ്പളം',
   'forgotPassword.subtitle':
     'നിങ്ങളുടെ ഔദ്യോഗിക ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
+  'landing.copyright': '© {{year}} {{app}} . കൃത്യം, വിശ്വസനീയം, ചിട്ടപ്പെടുത്തിയത്.',
   'landing.ctaBody':
     '30 ദിവസത്തേക്ക് സൗജന്യം. ക്രെഡിറ്റ് കാർഡ് ഇല്ല. നിങ്ങളുടെ ഓഡിറ്റ് ട്രെയിൽ നഷ്ടപ്പെടാതെ എപ്പോൾ വേണമെങ്കിലും മാറൂ.',
   'landing.eyebrow': 'ചെറുകിട ഇടത്തരം ബിസിനസുകൾക്കുള്ള ശമ്പളപ്പട്ടിക',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ഈ പേ-റണ്ണിന് ഇതുവരെ ഓഡിറ്റ് എൻട്രികളൊന്നുമില്ല.',
   'payRunDetail.noStubs':
     'ഇതുവരെ പേ-സ്റ്റബുകളൊന്നുമില്ല — അവ ജനറേറ്റ് ചെയ്യുന്നതിന് അംഗീകാരം നൽകി പ്രോസസ്സ് ചെയ്യുക.',
+  'payRunDetail.notFound': 'ഈ പേ റൺ കണ്ടെത്താനായില്ല.',
   'payRunDetail.statDeductions': 'കിഴിവുകൾ',
   'payRunDetail.statHeadcount': 'ജീവനക്കാർ',
   'payRunDetail.statTaxes': 'നികുതികൾ പിടിച്ചുവച്ചു',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'അർദ്ധമാസം',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.subheading': 'കമ്പനി പ്രൊഫൈൽ, ശമ്പള ഷെഡ്യൂൾ, സംയോജനങ്ങൾ.',
+  'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.weekly': 'ആഴ്ചതോറും',
   'taxCenter.bucket.federal': 'ഫെഡറൽ വരുമാനം',
   'taxCenter.bucket.fica': 'സാമൂഹിക സുരക്ഷ',

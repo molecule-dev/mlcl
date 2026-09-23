@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om oss',
   'actions.empty': 'Inga åtgärdspunkter matchar.',
   'actions.heading': 'Åtgärdspunkter',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Föregående månad',
   'calendar.recent': 'Senaste',
   'common.daysAgo': '{{count}}d sedan',
+  'common.goToDashboard': 'Gå till översikt',
   'common.hoursAgo': '{{count}}h sedan',
   'common.no': '—',
+  'common.retry': 'Försök igen',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} åtgärdspunkter',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Kontrollera din inkorg efter återställningslänken.',
   'forgot.subheading': 'Ange din e-postadress så skickar vi en återställningslänk.',
   'integrations.disconnected': 'Frånkopplad',
+  'integrations.loadError': 'Det gick inte att ladda integrationerna.',
   'integrations.notConnectedTag': 'Inte ansluten',
   'integrations.subheading':
     'Anslut kalendrar och videoplattformar så Murmur ansluter automatiskt.',
+  'integrations.updateError': 'Uppdatering misslyckades.',
   'landing.ctaButton': 'Kom igång — det är gratis',
   'landing.ctaHeading': 'Sluta anteckna. Börja fatta beslut.',
   'landing.demo.aiLabel': 'AI-sammanfattning, skriven live',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Uppföljningar',
   'meetingDetail.loadError': 'Kunde inte ladda möte.',
   'meetingDetail.noActions': 'Inga åtgärdspunkter upptäckta.',
+  'meetingDetail.none': 'Inget.',
   'meetingDetail.notFound': 'Möte hittades inte.',
+  'meetingDetail.speakerFallback': 'Talare{{id}}',
   'meetingDetail.summaryHeading': 'AI-sammanfattning',
   'meetingDetail.transcriptHeading': 'Transkription',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Möten',
   'meetings.loadError': 'Kunde inte ladda möten.',
   'meetings.subheading': 'Alla inspelade, uppladdade och synkroniserade möten.',
+  'murmurLayout.openMenu': 'Öppna navigeringsmenyn',
   'murmurLayout.primaryNavLabel': 'Huvudnavigering',
   'nav.legal': 'Juridiskt',
   'notifications.loadError': 'Kunde inte ladda aviseringar.',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Hur du visas i Murmur.',
   'record.error.empty': 'Inget ljud fångades.',
   'record.error.permission': 'Mikrofonbehörighet nekades.',
+  'record.error.recorder': 'Fel i inspelaren',
   'record.error.unsupported':
     'Din webbläsare stöder inte inspelning. Prova Chrome, Edge eller Safari.',
   'record.error.upload': 'Uppladdning misslyckades. Försök igen.',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nytt lösenord',
   'reset.subheading': 'Välj ett lösenord du inte använder någon annanstans.',
   'search.empty': 'Skriv för att söka i transkriptioner.',
+  'search.loadError': 'Sökningen misslyckades. Försök igen.',
   'search.noResults': 'Inga resultat för ”{{q}}”.',
   'settings.appearance.description': 'Växla mellan ljust och mörkt läge.',
   'settings.appearance.title': 'Utseende',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Misslyckades med att ladda inställningar.',
   'settings.loading': 'Laddar…',
   'settings.push.heading': 'Pushnotiser',
+  'settings.push.subheading':
+    'Få aviseringar i webbläsaren om omnämnanden, åtgärder och sammanfattningar.',
   'settings.retention.audio': 'Behåll ljud i',
   'settings.retention.heading': 'Lagring',
   'settings.retention.transcript': 'Behåll transkriptioner i',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Börja fånga mötesanteckningar på några minuter',
   'signup.terms':
     'Genom att skapa ett konto godkänner du våra användarvillkor och integritetspolicy.',
+  'signup.termsPrefix': 'Genom att skapa ett konto godkänner du våra',
   'team.inviteCta': 'Bjud in teammedlem',
   'team.invitedAs': 'Inbjuden som {{role}}',
   'team.inviteFailed': 'Kunde inte skicka inbjudan.',

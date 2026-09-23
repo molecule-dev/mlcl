@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'about.plansTitle': 'Планови што растат со вас',
   'brand.tagline': 'Секоја секунда',
   'clientDetail.back': 'Назад кон клиентите',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Секоја врска на едно место - проекти, часови, неплатени фактури.',
   'clients.title': 'Клиенти',
   'common.and': 'и',
+  'common.goToDashboard': 'Оди до контролна табла',
   'dashboard.activeProjects': 'Активни проекти',
   'dashboard.empty':
     'Сè уште нема записи. Стартувајте го тајмерот за да ја следите вашата прва сесија.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Нема часови за фактурирање што може да се фактурираат за овој клиент. Прво следете некое време или доделете постоечки записи на еден од проектите на овој клиент.',
   'invoices.save': 'Креирај фактура',
   'invoices.subtitle': 'Следените часови автоматски се претвораат во фактури.',
+  'landing.copyright': '© {{year}} {{app}} . Секоја секунда, земена предвид.',
   'landing.ctaBody':
     'Бесплатно за до 3 проекти. Надградете кога ќе се пополни вашата листа на клиенти.',
   'landing.eyebrow': 'Следење на времето за фактурирана работа',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Доверлив од независни компании',
   'landing.testimonial.quote':
     '\\u201cСе откажав од Toggl за 30 минути. Само трошењето на буџетот се исплати \\u2014 Престанав да давам пониски цени две недели по ред.\\u201c',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Хроно. Секоја секунда, земена предвид.',
   'login.brand.subtitle':
     'Почнете го тајмерот од каде што сте застанале — секоја минута е веќе мапирана на проект, клиент, фактура.',
   'login.brand.tracking': 'Следење',
   'login.subheading': 'Земете го тајмерот од каде што сте застанале.',
+  'nav.closeMenu': 'Затвори го менито за навигација',
   'nav.insightsSection': 'Увиди',
   'nav.newEntry': 'Нов запис',
+  'nav.openMenu': 'Отвори мени за навигација',
+  'nav.primary': 'Примарна навигација',
   'nav.workSection': 'Работа',
   'notFound.body':
     'Изгледа дека линкот што го следевте престанал да следи. Вратете се на вашата контролна табла \\u2014 ние \\u2014 ќе продолжиме да одбројуваме оттаму.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Фактурно',
   'timer.descriptionPlaceholder': 'На што работиш?',
   'timer.idle': 'Неактивен — започнете со следење',
+  'timer.noProject': 'Нема проект',
   'timer.runningWithProject': 'Нема проект',
   'timer.start': 'Стартувај тајмер',
   'timer.stop': 'Запри тајмер',

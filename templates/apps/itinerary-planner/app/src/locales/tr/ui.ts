@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} hakkında',
+  'auth.legalConsent': 'Devam ederek kabul etmiş olursunuz',
   'bookings.empty.body': 'Gelen kutusunu başlatmak için bir uçuş, otel veya etkinlik ekleyin.',
   'bookings.empty.heading': 'Henüz rezervasyon yok.',
   'bookings.errors.create': 'Rezervasyon oluşturulamadı.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Onaylandı',
   'bookings.summary.pending': 'Onay bekleniyor',
   'bookings.summary.total': 'Toplam taahhüt edilen',
+  'bookings.type.car': 'Kiralık araba',
+  'bookings.type.flight': 'Uçuş',
+  'bookings.type.hotel': 'Otel',
   'bookings.type.other': 'Diğer',
   'budgetSpendCard.budgetTotal': '{{total}} planlananın',
   'budgetSpendCard.pct': '%{{pct}}',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Çakışmaları fark edin, geziler arasında dinlenme günleri planlayın ve iş arkadaşlarınızın sizinle ne zaman seyahat ettiğini görün.',
   'common.and': 've',
+  'common.goToDashboard': 'Panele Git',
   'dashboard.budgetHeading': 'Bütçe nabzı',
   'dashboard.empty.heading': 'Henüz gezi yok — atlasınız boş.',
   'dashboard.eyebrow': 'Görev kontrol',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Hareket halindeki geziler',
   'dashboard.viewAllExpenses': 'Tüm harcamaları görüntüleyin',
   'dashboard.viewAllTrips': 'Tüm gezileri görün',
+  'dayTimelineRow.category.accommodation': 'Kalmak',
   'dayTimelineRow.category.transport': 'Ulaşım',
   'destinationOrbCard.exploreCta': 'Bir geziye ekle',
   'destinationOrbCard.tripCount': '{{count}} gezi',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Henüz e-posta gelmedi mi? Spam klasörünüzü kontrol edin veya farklı bir adresle tekrar deneyin.',
   'forgotPassword.successSubheading':
     '{{email}} adresine bir kurtarma bağlantısı gönderdik. Bağlantı 30 dakika geçerlidir.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ücretsiz hesap oluştur',
+  'landing.cta.subheading':
+    'Ücretsiz planda en fazla beş seyahat, beş iş ortağı ve beş durak bulunur; gerçek zamanlı senkronizasyon dahildir ve planlarınız büyüdükçe Pro plana geçilerek bu sınırlar kaldırılır.',
   'landing.destinations.eyebrow': 'Sıradaki nereye',
   'landing.destinations.heading': 'Editör tarafından seçilmiş hedefler',
   'landing.features.eyebrow': 'Waypoint nasıl çalışır',
   'landing.features.heading': 'Elektronik tablolar için değil, gezginler için tasarlandı.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ücretsiz bir gezi başlat',
   'landing.hero.ctaSecondary': 'Örnek bir gezi görün',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     '5 iş arkadaşıyla gezileri paylaşmak, rezervasyonları senkronize etmek ve her onayı tek bir yere çekmek için bir hesap oluşturun.',
+  'signup.termsPrefix': 'Bir hesap oluşturarak, şartlarımızı kabul etmiş olursunuz',
   'tripCountdownHeroCard.budget': "{{used}} içinde {{total}} (bütçenin %{{pct}}'i)",
   'tripCountdownHeroCard.collaborators': '{{count}} gezgin',
   'tripCountdownHeroCard.countdownLabel': 'Geri sayım',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Henüz gezi yok.',
   'trips.pastHeading': 'Geçmiş maceralar',
   'trips.subheading': '{{count}} güzergah — geçmiş, şimdiki ve bir gün.',
+  'waypointLayout.mobileNavClose': 'Gezinme menüsünü kapat',
   'waypointLayout.primaryNavLabel': 'Birincil gezinme',
 }

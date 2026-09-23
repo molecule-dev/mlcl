@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'applications.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಅರ್ಜಿಗಳಿಲ್ಲ \\u2014 ಸರಿಯಾದ ಪಾತ್ರಕ್ಕೆ ಒಂದು ಅರ್ಜಿ ಬಾಕಿ ಇದೆ.',
   'applications.eyebrow': 'ನಿಮ್ಮ ಪೈಪ್‌ಲೈನ್',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ನೀವು ಅರ್ಜಿ ಸಲ್ಲಿಸಿದ ಪ್ರತಿಯೊಂದು ಪಾತ್ರವೂ ಚಲನೆಯಲ್ಲಿದೆ. ಗಮನಹರಿಸಲು ಹಂತದಿಂದ ಹಂತಕ್ಕೆ ಫಿಲ್ಟರ್ ಮಾಡಿ.',
   'applications.untitledRole': 'ಪಾತ್ರ # {{id}}',
+  'auth.legalConsent': 'ಮುಂದುವರಿಸುವ ಮೂಲಕ, ನೀವು ನಮ್ಮನ್ನು ಒಪ್ಪುತ್ತೀರಿ',
   'common.and': 'ಮತ್ತು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'companies.empty':
     'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದಿಕೆಯಾಗುವ ಯಾವುದೇ ಕಂಪನಿಗಳಿಲ್ಲ \\u2014 ಬೇರೆ ಪದವನ್ನು ಪ್ರಯತ್ನಿಸಿ.',
   'companies.eyebrow': 'ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಉದ್ಯೋಗದಾತರು',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ಈ ಹುದ್ದೆಗೆ ಇನ್ನೂ ಯಾವುದೇ ಅರ್ಜಿಗಳು ಬಂದಿಲ್ಲ.',
   'jobApplicants.eyebrow': 'ಉದ್ಯೋಗದಾತರ ನೋಟ',
   'jobApplicants.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ\\u2026',
+  'jobApplicants.statusUpdateFailed': 'ಆ ಹಂತವನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ — ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'jobApplicants.subheading':
+    'ರೆಸ್ಯೂಮ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ, ಅಭ್ಯರ್ಥಿಗಳನ್ನು ಮುನ್ನಡೆಸಿ, ಆಫರ್‌ಗಳನ್ನು ಕಳುಹಿಸಿ \\u2014 {{count}} ಚಾಲನೆಯಲ್ಲಿದೆ.',
   'jobDetail.applicantCount': '{{count}} ಇದುವರೆಗಿನ ಅರ್ಜಿದಾರರು',
   'jobDetail.applied': 'ಅರ್ಜಿ ಕಳುಹಿಸಲಾಗಿದೆ',
   'jobDetail.apply': 'ಈಗಲೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ಮುಕ್ತ ಪಾತ್ರಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ \\u2192',
   'landing.pricingEyebrow': 'ಬೆಲೆ ನಿಗದಿ',
   'landing.pricingHeading': 'ಪ್ರತಿ ತಂಡದ ಗಾತ್ರಕ್ಕೂ ಸರಳ ಯೋಜನೆಗಳು.',
+  'login.eyebrow': '{{app}}ಗೆ ಮತ್ತೆ ಸ್ವಾಗತ',
   'login.heading': 'ನಿಮ್ಮ ಖಾತೆಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'login.noAccount': 'ನೋಶ್‌ಗೆ ಹೊಸಬರೇ?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'ಸೈನ್ ಇನ್ ಮಾಡಲಾಗುತ್ತಿದೆ\\u2026',
   'login.subheading':
     'ನಿಮ್ಮ ಹುಡುಕಾಟವನ್ನು ಪ್ರಾರಂಭಿಸಿ, ನಿಮ್ಮ ಅರ್ಜಿಗಳನ್ನು ಮುಂದುವರಿಸಿ, ವೇಗವಾಗಿ ಪ್ರತಿಕ್ರಿಯೆ ಪಡೆಯಿರಿ.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . ತಂಡಗಳನ್ನು ನೇಮಿಸಿಕೊಳ್ಳಲು ನಿರ್ಮಿಸಲಾಗಿದೆ.',
   'loginBrandPanel.headline': 'ಪ್ರತಿಭೆಗಳು ಒಂದಾಗುವ ಸ್ಥಳ',
   'loginBrandPanel.headlineLine2': 'ಆವೇಗ.',
   'loginBrandPanel.listing.recruiter': 'ಪ್ರತಿಭಾ ಪಾಲುದಾರ',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'ಅರ್ಜಿ ನವೀಕರಣಗಳು, ಸಂದರ್ಶನ ಆಹ್ವಾನಗಳು, ಹೊಸ ಹೊಂದಾಣಿಕೆಗಳು \\u2014 ಹೊಸತ ಮೊದಲು.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ಈ ವಾರ',
   'opportunitiesHero.eyebrow': 'ಇಂದು ತೆರೆದಿರುತ್ತದೆ',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'postJob.addNewCompany': '+ ಹೊಸ ಕಂಪನಿಯನ್ನು ಸೇರಿಸಿ',
   'postJob.companyCreateFailed': 'ಕಂಪನಿಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ — ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'postJob.companyNameLabel': 'ನಿಮ್ಮ ಕಂಪನಿಯ ಹೆಸರು',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'ಖಾತೆಯನ್ನು ರಚಿಸಲಾಗುತ್ತಿದೆ\\u2026',
   'signup.ctaEmployer': 'ಉದ್ಯೋಗದಾತರ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'signup.firstNamePlaceholder': 'ಮಾಯಾ',
+  'signup.lastNamePlaceholder': 'ಚೆನ್',
   'signup.passwordMismatch': 'ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'signup.subheading':
     'ಉದ್ಯೋಗಾಕಾಂಕ್ಷಿಗಳಿಗೆ ಶಾಶ್ವತವಾಗಿ ಉಚಿತ. ಉದ್ಯೋಗದಾತರು 30 ದಿನಗಳ ಪ್ರಾಯೋಗಿಕ ಅವಧಿಯೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸುತ್ತಾರೆ.',
   'timeAgo.days': '{{count}} ಡಿ ಹಿಂದೆ',
   'timeAgo.hours': '{{count}} ಗಂ ಹಿಂದೆ',
   'timeAgo.justNow': 'ಈಗ ತಾನೇ',
+  'timeAgo.weeks': '{{count}} ವಾರಗಳ ಹಿಂದೆ',
 }

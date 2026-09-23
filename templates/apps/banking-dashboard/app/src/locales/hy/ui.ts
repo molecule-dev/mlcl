@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'accountDetail.activeBadge': 'Ակտիվ',
   'accountDetail.availableLabel': '{{amount}} հասանելի',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Հաշիվներ',
   'accounts.loadError': 'Հաշիվները չհաջողվեց բեռնել։',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Սառեցված',
   'accounts.totalBalance': '{{գումար}} ընդհանուր',
   'audit.empty': 'Դեռևս միջոցառումներ չկան։',
   'audit.eyebrow': 'Անվտանգություն և մուտք',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Կանխիկ դրամ',
   'cashCreditCard.creditLabel': 'Օգտագործված վարկ',
   'cashCreditCard.title': 'Կանխիկ և վարկային պատմություն',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.accountsHeading': 'Հաշիվներ',
   'dashboard.heading': 'Ընդհանուր տեսք',
   'dashboard.recentEmpty': 'Գործարքներ դեռ չկան։',
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.signUp': 'Գրանցվել',
   'login.submit': 'Մուտք գործել',
+  'meridianLayout.menu': 'Մենյու',
   'meridianLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'nav.legal': 'Իրավական',
   'notifications.emptyHeading': 'Դուք ամեն ինչ գիտեք',
   'notifications.subheading':
     'Գործարքների, անվտանգության և քաղվածքների վերաբերյալ իրական ժամանակի ծանուցումներ։',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'privacy.dataWeShare':
     'Անձնական բանկային տվյալները երբեք չեն վաճառվում: Մենք տեղեկատվություն ենք փոխանակում վճարային համակարգերի, քարտային ցանցերի և կարգավորող մարմինների հետ միայն անհրաժեշտության դեպքում՝ գործարքները կարգավորելու կամ իրավական պարտավորությունները կատարելու համար:',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Երկփուլային համակարգը յուրաքանչյուր մուտքի ժամանակ ավելացնում է միանվագ կոդ նույնականացման հավելվածից։',
   'settings.security.twoFactorCta': 'Կառավարեք երկփուլանի վավերացումը',
+  'settings.security.twoFactorOff': 'Երկգործոնը անջատված է',
   'settings.signOutDevice': 'Ելք',
   'settings.subheading': 'Պրոֆիլ, անվտանգություն և ծանուցումներ։',
+  'settings.twoFactorCode': 'Հաստատման կոդ',
   'settings.twoFactorDisable': 'Անջատել',
   'settings.twoFactorEnable': 'Միացնել',
+  'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.twoFactorVerify': 'Հաստատել և միացնել',
   'signup.emailLabel': 'Էլ․ հասցե',
   'signup.fullName': 'Ինչպե՞ս պետք է դիմենք ձեզ։',
   'signup.showPassword': 'Ցուցադրել գաղտնաբառը',
@@ -105,7 +114,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Գործարքներ դեռ չկան։',
   'transactions.endDate': 'Ավարտի ամսաթիվ',
   'transactions.eyebrow': 'Գործունեություն',
+  'transactions.loadError': 'Գործարքները չհաջողվեց բեռնել։',
   'transactions.merchant': 'Վաճառական',
+  'transactions.subheading': 'Ձեր հաշիվների միջև տեղադրված և սպասվող յուրաքանչյուր գործարք։',
   'transfers.availableHint': '{{amount}} հասանելի',
   'transfers.errorGeneric': 'Փոխանցումը չհաջողվեց ուղարկել։',
   'transfers.errorMissingFields': 'Ընտրեք աղբյուրի հաշիվ և նպատակակետ։',

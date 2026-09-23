@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.title': '{{app}} बद्दल',
   'comments.addFailed': 'टिप्पणी पोस्ट करता आली नाही.',
   'comments.backToDoc': 'हस्तलिखिताकडे परत जा',
   'comments.deleteFailed': 'हटवता आले नाही.',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'comments.replyPlaceholder': 'उत्तर…',
   'comments.resolve': 'निराकरण करा',
   'comments.resolveFailed': 'निराकरण होऊ शकले नाही.',
+  'comments.subtitle': '{{open}} उघडे · {{resolved}} निराकरण झाले',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.activityHeading': 'काय घडत आहे',
   'dashboard.createFailed': 'दस्तऐवज तयार करता आला नाही.',
   'dashboard.empty': "अद्याप एकही हस्तलिखित नाही — 'नवीन दस्तऐवज' बटणाने सुरुवात करा.",
@@ -53,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'कचरापेटीत टाकता आले नाही.',
   'editor.unpublish': 'अप्रकाशित करा',
   'editor.untitled': 'शीर्षक नसलेला दस्तऐवज',
+  'editor.updatedElsewhere':
+    'हा दस्तऐवज दुसऱ्या कोणीतरी अद्ययावत केला आहे — नवीनतम आवृत्ती पाहण्यासाठी रीलोड करा.',
   'editor.version': 'व्ही {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'जर खाते अस्तित्वात असेल तर {{email}} रीसेट लिंक लवकरच पाठवण्यात येईल.',
   'forgotPassword.subtitle': 'आम्ही तुम्हाला रीसेट लिंक ईमेल करू.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule ने बनवले आहे.',
   'landing.ctaHeading': 'पान उघडा. कर्सर सुरू होऊ द्या.',
   'landing.ctaPrimary': 'स्टुडिओ उघडा',
   'landing.eyebrow': 'लेखक, संपादक आणि संघांसाठी',
@@ -104,8 +111,10 @@ export const ui: UiTranslations = {
   'quillonAuthBrandPanel.presence': '{{count}} स्टुडिओमध्ये सक्रिय असलेले लेखक',
   'quillonAuthBrandPanel.quote':
     'लेखन ही एकमेव अशी गोष्ट आहे, जी करताना मला दुसरं काहीतरी करायला हवं असं वाटत नाही.',
+  'quillonDocumentCard.edited': '{{when}} संपादित केले',
   'quillonDocumentCard.open': 'उघडा →',
   'quillonKpiCard.trend': 'अलीकडील ट्रेंड',
+  'quillonLayout.menu': 'मेनू',
   'quillonLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'quillonStudioHero.collab': 'सहयोगी',
   'quillonStudioHero.docs': 'कागदपत्रांना स्पर्श केला',
@@ -154,9 +163,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'आत्ताच',
+  'trash.confirmDelete': 'हटवण्याची पुष्टी करा',
   'trash.deleteFailed': 'हटवता आले नाही.',
   'trash.deleteForever': 'कायमचे हटवा',
   'trash.empty': 'वसूल करण्यासारखं काहीच नाही.',
+  'trash.emptyAll': 'कचरापेटी रिकामी करा',
   'trash.eyebrow': 'स्टुडिओ',
   'trash.heading': 'कचरा',
   'trash.loadFailed': 'कचरा लोड करता आला नाही.',

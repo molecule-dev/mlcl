@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'បានរកឃើញកំហុស មានសំណើសុំមុខងារ ឬចង់ប្រាប់យើងអំពីខ្សែភាពយន្តដែលអ្នកបានកាត់ត? រាល់សារទាំងអស់ទៅដល់មនុស្សពិតនៅក្នុងក្រុម — ទាក់ទងមកយើងគ្រប់ពេលពីការកំណត់គណនីរបស់អ្នក។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.eyebrow': '// ស្ទូឌីយោនៅពីក្រោយការកាត់ត',
   'about.pageTitle': 'អំពី {{appName}}',
   'assetDetail.back': 'ត្រឡប់ទៅបណ្ណាល័យវិញ',
   'assetDetail.confirmDelete': 'លុប " {{name}} "? រឿងនេះមិនអាចត្រឡប់វិញបានទេ។',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} ឈុតខ្លីៗ គ្រែអូឌីយ៉ូ និងក្រាហ្វិកដែលត្រៀមរួចជាស្រេចដើម្បីទម្លាក់នៅលើបន្ទាត់ពេលវេលា។',
   'assetLibrary.title': 'ទ្រព្យសកម្ម',
   'assetLibrary.upload': 'បន្ថែម​ទ្រព្យ​សកម្ម',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.browseTemplates': 'រកមើលគំរូ →',
   'dashboard.loading': 'កំពុងផ្ទុកគម្រោង…',
   'dashboard.noProjects': 'មិនទាន់មានគម្រោងនៅឡើយទេ — សូមបង្កើតមួយដើម្បីចាប់ផ្តើម។',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'ជ្រើសរើសអ្វីមួយដែលអ្នកអាចចងចាំបានតែប៉ុណ្ណោះ។',
   'rushesAuthShell.footer.copyright': '© ស្ទូឌីយោ Rushes',
   'rushesAuthShell.footer.privacy': 'ភាពឯកជន',
+  'rushesLayout.closeMenu': 'បិទការរុករក',
   'rushesLayout.guest': 'អ្នកកែសម្រួល',
+  'rushesLayout.navDialog': 'ការរុករក',
+  'rushesLayout.openMenu': 'បើកការរុករក',
   'rushesLayout.planFree': 'ផែនការឥតគិតថ្លៃ',
   'rushesLayout.tagline': 'ពេលវេលាភាពយន្ត',
   'settings.billing.confirmCancel': 'បោះបង់ការជាវនៅចុងបញ្ចប់នៃរយៈពេល?',

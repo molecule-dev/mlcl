@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.title': 'Письменная комната, которую можно носить с собой в кармане.',
   'billing.cancelConfirm': 'Отменить активную подписку?',
   'billing.cancelFailed': 'Отменить не удалось.',
   'billing.checkingOut': 'Открытие кассы…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Не удалось загрузить данные для выставления счетов.',
   'billing.loading': 'Загрузка счетов…',
   'billing.upgradeCta': 'Обновить до {{name}}',
+  'common.goToDashboard': 'Перейти к панели',
+  'editor.autosaveOn': 'Автосохранение включено',
   'editor.backToLibrary': 'Вернуться в библиотеку',
   'editor.charCount': '{{count}} символы',
   'editor.confirmTrash': 'Переместить этот документ в корзину?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Не закреплено',
   'editor.unpublishCta': 'Переход к черновику',
   'editor.unpublished': 'Возвращено в черновик',
+  'focus.autosaveOn': 'Автосохранение включено',
   'focus.backToLibrary': 'Вернуться в библиотеку',
   'focus.bodyPlaceholder': 'По одной строчке за раз. Больше никого нет.',
   'focus.exit': 'Выйти из режима фокусировки',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Создайте один',
   'login.subline':
     'Ваши рукописи, ежедневные страницы и последнее положение курсора находятся именно там, где вы их оставили.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'pricing.exports': 'экспорт',
   'pricing.folders': 'папки',
   'pricing.heading': 'документы',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Введите код, который мы только что отправили вам по электронной почте, и выберите что-нибудь запоминающееся. После сохранения мы войдем в систему.',
   'reset.tokenHint': 'Скопировано из вашей почты.',
+  'settings.appearance.heading': 'Светлый или тёмный',
   'settings.editor.${row.id}.description': 'Язык',
   'settings.editor.description':
     'Прокрутка, плавное исчезание абзаца и фокус в режиме ожидания — настройки по умолчанию оптимизированы для длительных сеансов работы.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Глава третья — Тихий час перед рассветом',
   'versalDocumentCard.pinned': 'Закреплено',
   'versalLayout.nav.stats': 'Статистика',
+  'versalLayout.primaryNavLabel': 'Основная навигация',
   'versalManuscriptHero.cta': 'Продолжить написание',
   'versalManuscriptHero.goalLabel': 'Цель по количеству слов на сегодня',
   'versalManuscriptHero.inProgress': 'На верном пути',

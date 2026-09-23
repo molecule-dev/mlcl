@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
   'actions.empty': 'எந்தச் செயல்களும் பொருந்தவில்லை.',
   'actions.heading': 'செயல் உருப்படிகள்',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'முந்தைய மாதம்',
   'calendar.recent': 'ஞாபகம்',
   'common.daysAgo': '{{count}} டி நோ',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.hoursAgo': '{{count}} எச் முன்பு',
   'common.no': '—',
+  'common.retry': 'மீண்டும் முயற்சி',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} செயல் உருப்படிகள்',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'மீட்டமைப்பு இணைப்புக்கு உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
   'forgot.subheading': 'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'integrations.disconnected': 'துண்டிக்கப்பட்டது',
+  'integrations.loadError': 'ஒருங்கிணைப்புகளை ஏற்ற முடியவில்லை.',
   'integrations.notConnectedTag': 'இணைப்பு இல்லை',
   'integrations.subheading':
     'காலண்டர்களையும் வீடியோ தளங்களையும் இணைத்தால், மர்மர் தானாகவே இணைந்துகொள்ளும்.',
+  'integrations.updateError': 'புதுப்பிப்பு தோல்வியடைந்தது.',
   'landing.ctaButton': 'தொடங்குங்கள் — இது இலவசம்',
   'landing.ctaHeading': 'குறிப்பெடுப்பதை நிறுத்துங்கள். முடிவெடுக்கத் தொடங்குங்கள்.',
   'landing.demo.aiLabel': 'AI சுருக்கம், நேரலையில் தயாரிக்கப்பட்டது',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'பின்தொடர்தல்கள்',
   'meetingDetail.loadError': 'கூட்டத்தை ஏற்ற முடியவில்லை.',
   'meetingDetail.noActions': 'செயல் உருப்படிகள் எதுவும் கண்டறியப்படவில்லை.',
+  'meetingDetail.none': 'ஏதுமில்லை.',
   'meetingDetail.notFound': 'சந்திப்பு காணப்படவில்லை.',
+  'meetingDetail.speakerFallback': 'பேச்சாளர் {{id}}',
   'meetingDetail.summaryHeading': 'AI சுருக்கம்',
   'meetingDetail.transcriptHeading': 'படியெடுத்தல்',
   'meetings.empty.body':
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'meetings.loadError': 'கூட்டங்களை ஏற்ற முடியவில்லை.',
   'meetings.subheading':
     'பதிவுசெய்யப்பட்ட, பதிவேற்றப்பட்ட மற்றும் ஒத்திசைக்கப்பட்ட ஒவ்வொரு சந்திப்பும்.',
+  'murmurLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'murmurLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'notifications.loadError': 'அறிவிப்புகளை ஏற்ற முடியவில்லை.',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'மர்மருக்குள் நீங்கள் எப்படித் தோன்றுகிறீர்கள்.',
   'record.error.empty': 'ஒலி எதுவும் பதிவு செய்யப்படவில்லை.',
   'record.error.permission': 'ஒலிவாங்கி அனுமதி மறுக்கப்பட்டது.',
+  'record.error.recorder': 'பதிவாளர் பிழை',
   'record.error.unsupported':
     'உங்கள் உலாவி பதிவுசெய்தலை ஆதரிக்கவில்லை. Chrome, Edge அல்லது Safari-ஐப் பயன்படுத்திப் பாருங்கள்.',
   'record.error.upload': 'பதிவேற்றம் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'புதிய கடவுச்சொல்',
   'reset.subheading': 'வேறு எங்கும் நீங்கள் பயன்படுத்தாத ஒரு கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
   'search.empty': 'படியெடுத்த உரைகளைத் தேட தட்டச்சு செய்யவும்.',
+  'search.loadError': 'தேடல் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
   'search.noResults': '"இதற்கான முடிவுகள் எதுவும் இல்லை" என்பதற்கு {{q}} ”.',
   'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
@@ -127,6 +137,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'அமைப்புகளை ஏற்ற முடியவில்லை.',
   'settings.loading': 'ஏற்றப்படுகிறது…',
   'settings.push.heading': 'புஷ் அறிவிப்புகள்',
+  'settings.push.subheading':
+    'குறிப்புகள், செய்ய வேண்டியவை மற்றும் சுருக்கங்களுக்கான உலாவி அறிவிப்புகளைப் பெறுங்கள்.',
   'settings.retention.audio': 'ஆடியோவை இதற்காக வைத்திருங்கள்',
   'settings.retention.heading': 'தக்கவைப்பு',
   'settings.retention.transcript': 'இதற்கான படியெடுத்தல்களை வைத்திருக்கவும்',
@@ -144,6 +156,8 @@ export const ui: UiTranslations = {
   'signup.subheading': 'நிமிடங்களில் சந்திப்புக் குறிப்புகளைப் பதிவு செய்யத் தொடங்குங்கள்',
   'signup.terms':
     'கணக்கை உருவாக்குவதன் மூலம் எங்கள் சேவை விதிமுறைகள் மற்றும் தனியுரிமைக் கொள்கையை நீங்கள் ஏற்றுக்கொள்கிறீர்கள்.',
+  'signup.termsPrefix':
+    'கணக்கை உருவாக்குவதன் மூலம் நீங்கள் எங்கள் விதிமுறைகளுக்கு ஒப்புக்கொள்கிறீர்கள்.',
   'team.inviteCta': 'அணி வீரரை அழைக்கவும்',
   'team.invitedAs': 'அழைக்கப்பட்டவர் {{role}}',
   'team.inviteFailed': 'அழைப்பிதழ் அனுப்ப முடியவில்லை.',

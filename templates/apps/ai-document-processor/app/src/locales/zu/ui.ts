@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Xhumana nathi',
+  'about.title': 'Mayelana ne-{{app}}',
   'authShell.backToLanding': '← Buyela ekufikeni',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
+  'common.retry': 'Zama futhi',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Namuhla · Ukubuka konke kokusebenza',
   'dashboard.heading': 'Ubuhlakani bedokhumenti',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Awekho amadokhumenti afana nezihlungi zamanje.',
   'documents.heading': 'Yonke imibhalo',
   'documents.loadError': 'Yehlulekile ukulayisha amadokhumenti.',
+  'documents.loading': 'Ilayisha ilabhulali…',
   'documents.searchLabel': 'Sesha amadokhumenti',
   'documents.searchPlaceholder': 'Sesha amadokhumenti…',
   'documents.subheading': '{{count}} amadokhumenti kulabhulali yakho, ahlelwe kabusha kuqala.',
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Fihla iphasiwedi',
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.subtitle': 'Ngena ngemvume ukuze ugcine amadokhumenti akho egeleza.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'notFound.body':
     'Idokhumenti noma umzila ozame ukuwuvula awusekho lapha. Buyela emuva kudeshibhodi noma khetha isigaba kubha eseceleni.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Vula ikhasi lokufikela',
   'notFound.title': 'Lelo khasi alikho efayeleni',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % uma kuqhathaniswa nosuku lwayizolo',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Ayikho imithetho yokufaka okwamanje. Sebenzisa umthetho omusha ukuze wengeze owodwa.',
   'rules.eyebrow': 'Ukuzenzakalela',
+  'rules.fieldsCount': 'Amasimu {{count}}',
   'rules.form.destination': 'Faka ku-',
   'rules.form.name': 'Igama lomthetho',
   'rules.form.save': 'Londoloza umthetho',

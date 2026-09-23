@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Over {{app}}',
   'analytics.back': 'Enquêteoverzicht',
   'analytics.kpiNps': 'NPS-score',
   'analytics.kpiNpsTrend': 'Promotors {{p}}% · Criticasters {{d}}%',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Eigenschappen',
   'builder.questionNumber': 'V{{num}}',
   'builder.surveyTitle': 'Enquêtetitel',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'forgotPassword.failed':
     'E-mail voor wachtwoordherstel kon niet worden verzonden. Probeer het opnieuw.',
   'forgotPassword.subheading': 'Voer uw e-mailadres in en we sturen u een herstelkoppeling.',
   'forgotPassword.successBody':
     'Als een account overeenkomt met {{email}}, is er een herstelkoppeling onderweg. Controleer uw inbox en spammap.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Alle stemmen zijn welkom.',
   'landing.footer.startTrial': 'Proefperiode starten',
   'landing.hero.badge': 'Enquêtes, NPS en feedback op één plek',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Prijzen',
   'landing.pricing.perMonth': '/mnd',
   'landing.pricing.popular': 'Meest populair',
+  'landing.pricing.subtitle':
+    'Elk abonnement omvat de enquêtebouwer, openbare deelknoppen en NPS-analyses. Geen creditcard nodig om te beginnen.',
+  'landing.pricing.title': 'Begin gratis en schaal op wanneer je wilt.',
   'landing.sample.eyebrow': 'NPS in één oogopslag',
   'landing.sample.title': 'Criticasters, passieven, promotors — direct leesbaar.',
   'login.failed': 'Inloggen mislukt. Probeer het opnieuw.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Wachtwoord tonen',
   'login.signUpLink': 'Start een gratis proefperiode',
   'login.subheading': 'Log in om uw publiek te blijven volgen.',
+  'notFound.body':
+    'De pagina die u zoekt, bestaat niet op {{app}} . We brengen u graag terug naar uw enquêtes.',
   'notFound.cta': 'Terug naar enquêtes',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Deze enquête is uit de wachtrij verdwenen.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passief 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Zichtbaar voor uw team en op de enquêtes die u maakt.',
+  'profile.identity.emailRequired': 'Voer een e-mailadres in.',
   'profile.identity.saveCta': 'Naam opslaan',
   'profile.password.current': 'Huidig wachtwoord',
   'profile.password.fillFields': 'Vul zowel het huidige als het nieuwe wachtwoord in.',
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} vragen',
   'templates.subheading':
     'Kies een beproefde starter — elk sjabloon is vooraf afgesteld met verstandige standaardwaarden, voorbeeldlogica en een nette mobiele layout.',
+  'thankYou.body':
+    'Je reactie is geregistreerd. {{app}} zal deze meenemen in de volgende analyseupdate.',
   'thankYou.eyebrow': 'Antwoord ontvangen',
   'thankYou.heading': 'Bedankt — uw stem telt.',
   'thankYou.home': 'Bezoek Gauge',

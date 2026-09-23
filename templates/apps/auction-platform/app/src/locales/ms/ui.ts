@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Menonton',
   'auctionDetail.watchRemoved': 'Dibuang daripada senarai pantauan.',
   'auctionDetail.watchRemoveLabel': 'Buang daripada senarai pantauan',
+  'auctionPlatformLayout.primaryNavLabel': 'Navigasi utama',
   'authShell.brandBody':
     'Bida secara masa nyata untuk jam tangan langka, seni halus, dan barangan istimewa unik. Tukul jatuh dalam beberapa saat.',
   'authShell.brandEyebrow': 'Live sekarang · 1,420 lelongan',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Isih mengikut',
   'browseAuctions.subheading':
     'Tapis mengikut kategori, isih mengikut yang paling penting, dan buat tawaran sebelum tukul jatuh.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'countdownTimer.ended': 'Tamat',
   'countdownTimer.endingSoon': 'Hampir tamat',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Sembunyikan kata laluan',
   'login.showPassword': 'Tunjukkan kata laluan',
   'login.subtext': 'Teruskan memantau lelongan anda dan buat tawaran sebelum tukul jatuh.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'myBids.bidAgain': 'Bida semula',
   'myBids.browseCta': 'Layari lelongan langsung →',
   'myBids.checkoutCta': 'Bayar sekarang',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Pusat aktiviti',
   'notificationsPage.subheading':
     '{{count}} belum dibaca · kemas kini langsung semasa lelongan bergerak',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.bidsLabel': 'bidaan',
   'pricing.listingsLabel': 'penyenaraian',
   'pricing.watchlistLabel': 'senarai pantauan',

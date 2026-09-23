@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} 소개',
+  'appNav.mobileLabel': '기본 탐색',
+  'appNav.primaryLabel': '기본 탐색',
   'billing.actions.confirmCancel': '구독을 취소하시겠습니까? 언제든지 다시 구독하실 수 있습니다.',
   'billing.actions.paused': '구독이 일시 중지되었습니다.',
   'billing.actions.resumed': '구독이 재개되었습니다.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     '각 등급은 소량 생산된 이야기입니다. 대기열에 추가하시거나 다음 달 박스와 교체하실 수 있습니다.',
   'boxThemeCard.perMonth': '/ 월',
+  'common.goToDashboard': '대시보드로 이동',
   'customize.eyebrow': '나만의 박스 만들기',
   'customize.heading': '다음 Crate 맞춤 설정',
   'customize.items.exclude': '건너뛰기',
@@ -93,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': '이번 시즌',
   'landing.editions.heading': '큐레이터가 사랑하는 에디션',
   'landing.footer.contact': '큐레이터와 대화하기',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': '박스 시작하기 →',
   'landing.hero.ctaSecondary': '등급 보기',
   'landing.hero.eyebrow': '매월 엄선. 언제나 개인 맞춤.',
@@ -110,6 +115,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': '당신의 다음 CRATE',
   'nextBoxHeroCard.itemsLabel': '엄선된 아이템',
   'nextBoxHeroCard.shipsOnLabel': '배송일',
+  'notFound.body':
+    '{{app}} 아카이브에서 해당 페이지를 찾을 수 없었습니다. 페이지가 삭제되었거나 단순히 오타일 수 있습니다.',
   'notFound.cta.dashboard': '대시보드로 이동',
   'notFound.eyebrow': '빈 박스',
   'notFound.heading': '이 선반은 비어 있습니다',

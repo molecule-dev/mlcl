@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.pageTitle': 'Um {{app}}',
   'activity.empty': 'Engin virkni enn — snúið tæki við eða virkjaðu sviðsmynd.',
   'activity.eyebrow': 'Tímalína',
   'activity.loadError': 'Ekki tókst að hlaða virknistraumi.',
   'activity.subheading': 'Sérhvert tæki, sjálfvirkni og öryggisatburður í tímaröð.',
+  'addDevice.error.failed': 'Ekki tókst að bæta tækinu við. Reyndu aftur.',
   'addDevice.error.nameRequired': 'Gefðu þessu tæki nafn til að halda áfram.',
   'addDevice.field.firmware': 'Útgáfa vélbúnaðar',
   'addDevice.field.manufacturer': 'Framleiðandi',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Prófun…',
   'automationEditor.testNew': 'Vistaðu sjálfvirknina fyrst til að prófa hana.',
   'automationRow.lastRun': 'Síðasta {{date}} · {{count}} hlaup',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Hlaupa {{name}} núna',
   'automations.empty': 'Engar sjálfvirkniaðgerðir ennþá — búðu til þína fyrstu rútínu.',
   'automations.eyebrow': 'Venjur',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Hleður sjálfvirkni…',
   'automations.newAutomation': '+ Nýtt',
   'automations.subheading': 'Þegar þetta gerist, gerðu það - án YAML.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Mistókst að hlaða tækið.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Að vinna…',
   'deviceDetail.unnamed': 'Tæki',
   'deviceStatusRow.on': 'Kveikt',
+  'deviceStatusRow.turnOff': 'Slökkva',
+  'deviceStatusRow.turnOn': 'Kveikja á',
   'deviceStatusRow.watts': '{{watts}} V',
   'energy.eyebrow': 'Kraftur',
   'energy.heading': 'Orka',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Sjá áætlanir',
   'settings.security.heading': 'Öryggi',
   'settings.subheading': 'Áætlun, miðstöðvar og reikningsstillingar.',
+  'smartHomeDashboardLayout.openMenu': 'Opna flakkvalmynd',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Aðalflakk',
 }

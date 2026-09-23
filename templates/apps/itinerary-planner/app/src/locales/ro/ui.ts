@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Despre {{app}}',
+  'auth.legalConsent': 'Continuând, ești de acord cu',
   'bookings.empty.body': 'Adaugă un zbor, un hotel sau o activitate pentru a deschide inbox-ul.',
   'bookings.empty.heading': 'Nicio rezervare încă.',
   'bookings.errors.create': 'Nu s-a putut crea rezervarea.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Confirmat',
   'bookings.summary.pending': 'Se așteaptă confirmarea',
   'bookings.summary.total': 'Total angajat',
+  'bookings.type.car': 'Mașină de închiriat',
+  'bookings.type.flight': 'Zbor',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Alte',
   'budgetSpendCard.budgetTotal': 'de {{total}} planificat',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Identificați conflictele, planificați zile de recuperare între călătorii și vedeți când călătoresc colaboratorii cu dumneavoastră.',
   'common.and': 'și',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.budgetHeading': 'Pulsul bugetar',
   'dashboard.empty.heading': 'Nicio călătorie încă — atlasul tău este gol.',
   'dashboard.eyebrow': 'Controlul misiunii',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Călătorii în mișcare',
   'dashboard.viewAllExpenses': 'Vizualizați fiecare cheltuială',
   'dashboard.viewAllTrips': 'Vezi fiecare călătorie',
+  'dayTimelineRow.category.accommodation': 'Şedere',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Adăugați la o călătorie',
   'destinationOrbCard.tripCount': '{{count}} călătorii',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Încă nu ai e-mail? Verifică folderul de spam sau încearcă din nou cu o altă adresă.',
   'forgotPassword.successSubheading':
     'Am trimis un link de recuperare către {{email}} Linkul este valabil timp de 30 de minute.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Creați un cont gratuit',
+  'landing.cta.subheading':
+    'Până la cinci călătorii, cinci colaboratori și cinci opriri cu abonamentul gratuit — cu sincronizare în timp real inclusă, iar Pro îți permite să te descarci atunci când planurile tale cresc.',
   'landing.destinations.eyebrow': 'Unde urmează',
   'landing.destinations.heading': 'Destinații selectate de editori',
   'landing.features.eyebrow': 'Cum funcționează Waypoint-ul',
   'landing.features.heading': 'Creat pentru călători, nu pentru foi de calcul.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Începeți o călătorie gratuită',
   'landing.hero.ctaSecondary': 'Vedeți un exemplu de călătorie',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Creează un cont pentru a partaja călătorii cu până la 5 colaboratori, a sincroniza rezervările și a reuni fiecare confirmare într-un singur loc.',
+  'signup.termsPrefix': 'Prin crearea unui cont, sunteți de acord cu',
   'tripCountdownHeroCard.budget': '{{used}} de {{total}} ( {{pct}} (% din buget)',
   'tripCountdownHeroCard.collaborators': '{{count}} călători',
   'tripCountdownHeroCard.countdownLabel': 'Numărătoare inversă',
@@ -202,5 +215,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Nicio călătorie încă.',
   'trips.pastHeading': 'Aventurile trecute',
   'trips.subheading': '{{count}} itinerarii — trecut, prezent și cândva.',
+  'waypointLayout.mobileNavClose': 'Închide meniul de navigare',
   'waypointLayout.primaryNavLabel': 'Navigare principală',
 }

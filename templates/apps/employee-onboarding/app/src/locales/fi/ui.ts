@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'auth.forgotPassword.emailPlaceholder': 'nimi@yrityksesi.com',
   'auth.forgotPassword.heading': 'Nollaa salasanasi.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Merkitse tehtävä valmiiksi',
   'checklistTaskCard.markIncomplete': 'Merkitse tehtävä keskeneräiseksi',
   'checklistTaskCard.openLabel': 'Avoin tehtävä',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Olet ajan tasalla',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'aikataulussa',
   'dashboard.timelineHeading': '30/60/90 virstanpylvästä',
   'dashboard.viewAllTasks': 'Näytä kaikki tehtävät',
+  'dashboard.weekOne': 'Viikko 1',
   'dashboard.yourCohort': 'Tiimisi',
   'documents.empty.body': 'Tiimisi lisäämät asiakirjat näkyvät täällä.',
   'documents.empty.title': 'Ei vielä asiakirjoja',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 päivän ilmainen kokeilujakso',
   'landing.subhead':
     'Embark opastaa jokaista uutta tiimikaveria ensimmäisten 90 päivän läpi – paperityöt, koulutus, virstanpylväät ja merkitykselliset perehdytykset, kaikki yhdessä rauhallisessa ja itsevarmassa paikassa.',
+  'layout.openMenu': 'Avaa navigointivalikko',
   'layout.search': 'Hae tehtäviä, asiakirjoja, tiimikavereita…',
+  'layout.searchTeammates': 'Hae tiimikavereita nimen tai roolin perusteella…',
   'layout.section.onboarding': 'Perehdytys',
   'layout.tagline': 'Matkasi alkaa täältä',
   'notifications.empty.body': 'Uusi toiminta näkyy täällä.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'eilen',
   'planUpdated.message': 'Olet valmis.',
   'planUpdated.preparing': 'Päivitetään suunnitelmaasi…',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.documentsLabel': 'asiakirjat',
   'pricing.onboardingsLabel': 'perehdytykset',
   'pricing.tasksLabel': 'tehtävät',

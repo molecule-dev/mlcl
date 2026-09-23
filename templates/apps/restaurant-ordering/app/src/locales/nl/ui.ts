@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Over {{app}}',
   'analytics.avgCheckLabel': 'Gem. besteding',
   'analytics.busiestHour': 'Drukste uur',
   'analytics.coversToday': 'Gasten vandaag',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Fooi (gem.)',
   'analytics.topItems': 'Toppers van vandaag',
   'authShell.eyebrow': 'Welkom terug in de service',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Een warm en snel kassasysteem voor horecateams. Meld u aan bij uw keuken en ga verder waar u gebleven was.',
   'authShell.tip': 'Tip: sneltoetsen werken overal — druk op / om te zoeken.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'of {{price}}',
   'billing.priceUnavailable': 'Voor dit abonnement is geen prijs ingesteld.',
   'billing.updated': 'Abonnement bijgewerkt.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'customerDetail.book': 'Reservering toevoegen',
   'customerDetail.col.table': 'Tafel',
   'customerDetail.confirmDelete': 'Dit gastprofiel verwijderen?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Beschikbaarheid',
   'menuItemDetail.available': 'Vanavond beschikbaar',
   'menuItemDetail.backToMenu': 'Terug naar menu',
+  'menuItemDetail.confirmDelete': 'Dit menu-item verwijderen?',
   'menuItemDetail.delete': 'Item verwijderen',
   'menuItemDetail.deleteError': 'Verwijderen mislukt. Probeer het opnieuw.',
   'menuItemDetail.dietary': 'Dieettags',
@@ -137,8 +141,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Opslaan mislukt. Probeer het opnieuw.',
   'menuItemDetail.subheading': '{{category}} · pas foto, varianten, dieettags en prijs aan.',
   'menuItemDetail.untitled': 'Naamloos item',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'notFound.heading': 'Deze tafel staat niet in de zaal.',
   'notFound.subheading': 'De pagina die u zocht is elders geplaatst — of heeft nooit bestaan.',
+  'notFound.toLanding': '{{app}} startpagina',
   'notifications.markError': 'Kan niet alles als gelezen markeren.',
   'orderDashboard.activeDelta': 'Nu actief',
   'orderDashboard.activeLabel': 'Actieve bestellingen',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'Voer uw nieuwe wachtwoord in om weer toegang tot de keuken te krijgen.',
   'resetPassword.tokenLabel': 'Hersteltoken',
+  'restaurantOrderingLayout.primaryNavLabel': 'Hoofdnavigatie',
   'revenueHeroCard.activeOrders': '{{count}} actief',
   'revenueHeroCard.change': '{{sign}}{{amount}} t.o.v. gisteren',
   'revenueHeroCard.title': 'Omzet van vandaag',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Naam restaurant',
   'tableDetail.activeOrders': 'Actieve bestellingen',
   'tableDetail.backToFloor': 'Plattegrond',
+  'tableDetail.confirmDelete': 'Deze tabel verwijderen?',
   'tableDetail.delete': 'Verwijderen',
   'tableDetail.deleteError': 'Kan tafel niet verwijderen.',
   'tableDetail.heading': 'Tafel {{label}}',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Đang theo dõi',
   'auctionDetail.watchRemoved': 'Đã xóa khỏi danh sách theo dõi.',
   'auctionDetail.watchRemoveLabel': 'Xóa khỏi danh sách theo dõi',
+  'auctionPlatformLayout.primaryNavLabel': 'Điều hướng chính',
   'authShell.brandBody':
     'Đặt giá theo thời gian thực cho đồng hồ hiếm, mỹ thuật và những món đồ đặc biệt độc nhất. Búa gõ xuống chỉ trong vài giây.',
   'authShell.brandEyebrow': 'Đang trực tiếp · 1.420 phiên đấu giá',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sắp xếp theo',
   'browseAuctions.subheading':
     'Lọc theo danh mục, sắp xếp theo điều quý vị quan tâm nhất và đặt giá trước khi búa gõ xuống.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'countdownTimer.ended': 'Đã kết thúc',
   'countdownTimer.endingSoon': 'Sắp kết thúc',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Hiện mật khẩu',
   'login.subtext':
     'Tiếp tục theo dõi các phiên đấu giá của quý vị và đặt giá trước khi búa gõ xuống.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'myBids.bidAgain': 'Đặt giá lại',
   'myBids.browseCta': 'Duyệt phiên đấu giá trực tiếp →',
   'myBids.checkoutCta': 'Thanh toán ngay',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Trung tâm hoạt động',
   'notificationsPage.subheading':
     '{{count}} chưa đọc · cập nhật trực tiếp khi phiên đấu giá thay đổi',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.bidsLabel': 'giá thầu',
   'pricing.listingsLabel': 'tin đăng',
   'pricing.watchlistLabel': 'danh sách theo dõi',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} жөнүндө',
+  'about.pageTitle': 'Веб-клюрканы башкаруу тегиздиги',
+  'about.plansTitle': 'Ар бир этап үчүн пландар',
   'apiKeys.bestPractices': 'Эң мыкты тажрыйбалар',
   'apiKeys.body':
     'Программалык мүмкүндүк алуу токендери. Аларга сырсөздөр сыяктуу мамиле кылыңыз — env vars файлында сактаңыз, эч качан компитациялабаңыз.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'пландын ичинде',
   'billing.usageWarning': 'капкактын жанында',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.body':
     'Түз эфирдеги өткөрүү жөндөмдүүлүгү, учуудагы кайталоо аракеттери жана жаңы эле үзгүлтүккө учураган акыркы чекиттер — сиз иштеген ар бир жумуш мейкиндигинде.',
   'dashboard.endpointsEmpty': 'Азырынча акыркы чекиттер жок.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'акыркы чекиттер',
   'endpointDetail.deliveryTrendSub': 'жеткирүү / саат, журнал масштабы',
   'endpointDetail.hideSecret': 'Сыр жашыруу',
+  'endpointDetail.loading': 'Акыркы чекит жүктөлүүдө…',
   'endpointDetail.metric.delivered': '24 сааттын ичинде жеткирилет',
   'endpointDetail.metric.deliveredCaption': '-дан {{count}} иш-чара түрлөрү',
   'endpointDetail.metric.failuresCaption': 'кайталоо аракеттери: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Критикалык · 24 саат',
   'notifications.metric.totalCaption': 'бардык убактагы кирүүчү почта кутусу',
   'payloadViewer.payload': '// пайдалуу жүк',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint':
     'Көрсөтүлгөн баш тамгалар — кийинки чыгарылыш менен жүктөлүп берилүүчү нерселер.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ сакталды',
   'profile.sessionsEmpty': 'Учурдагы сеансыңыз гана активдүү. Башка түзмөктөр кирген эмес.',
   'profile.toggle': 'Көчүрүү/жокко чыгаруу {{label}}',
+  'pylonShell.closeMenu': 'Навигация менюсун жабуу',
+  'pylonShell.openMenu': 'Навигация менюсун ачуу',
   'pylonShell.primaryNavLabel': 'Негизги навигация',
   'resetPassword.subtitle': 'Мурда колдонбогон күчтүү сырсөз тандаңыз.',
   'resetPassword.tokenPlaceholder': 'электрондук почтадан чаптоо',

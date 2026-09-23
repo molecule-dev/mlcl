@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'about.pageTitle': 'Относно {{name}}',
   'auth.footer.about': 'Относно {{name}}',
   'authHeader.subtitle': 'Влезте, за да запазите числата си честни.',
   'automations.action.email': 'Имейл',
+  'automations.action.noop': 'Без операция',
   'automations.action.webhook': 'Уебкукичка',
   'automations.confirmDelete': 'Изтрий " {{name}} "?',
   'automations.empty.headline': 'Все още няма автоматизации',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Тригери и действия във всяка работна книга. Всяко изпълнение регистрира ред, който можете да одитирате по-късно.',
   'automations.toggle': 'Превключване {{name}}',
+  'automations.trigger.dailySchedule': 'Дневен график',
+  'automations.trigger.rowCreated': 'Редът е създаден',
+  'automations.trigger.rowUpdated': 'Редът е актуализиран',
   'billing.empty': 'Няма налични планове.',
   'billing.error.priceMissing':
     'Не е конфигурирана цена на Stripe за това ниво. Задайте променливи на средата STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Диаграми',
   'charts.kpi.totalCharts': 'Общо графики',
   'charts.list.empty': 'Все още няма графики.',
+  'charts.namePlaceholder': 'Тенденция в приходите',
   'charts.newChart': 'Нова диаграма',
   'charts.primary.eyebrow': 'Диаграми по вид',
   'charts.primary.headline': 'Преглед на работното пространство',
   'charts.subhead':
     'Визуализации на живо, обвързани с вашата мрежа — рендерирайте отново при всяка редакция на клетка.',
+  'common.goToDashboard': 'Към таблото',
   'editor.addColumn': 'Добавяне на колона',
+  'editor.addDialogTitle': 'Добавяне на колона',
   'editor.addRow': 'Добавяне на ред',
   'editor.addSheet': 'Добавяне на лист',
   'editor.back': 'Обратно към работните книги',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite е първият в света анализатор на мрежови данни в реално време, който предлага множество изгледи и е първият, който предлага формули, към които финансовите екипи се стремят.',
   'landing.nav.formulas': 'Формули',
+  'login.noAccount': 'Нови ли сте в {{name}} ?',
+  'login.signIn': 'Влезте в {{name}}',
   'login.signUp': 'Създаване на работно пространство',
+  'nav.menu': 'Меню',
+  'nav.openMenu': 'Отвори менюто',
   'notFound.cellRef': '#РЕФ!',
   'notFound.formula': '=LOOKUP(REQUEST.url; "маршрути"; "страница")',
   'notFound.headline': 'Този ред никога не е съществувал.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Нативни автоматизации · webhook и cron тригери',
   'signup.creating': 'Осигуряване на работно пространство…',
   'signup.cta': 'Създаване на работно пространство',
+  'signup.haveAccount': 'Вече сте на {{name}} ?',
   'signup.namePlaceholder': 'Ейвъри Чен',
   'signup.tagline': 'Създайте първата си работна книга за 30 секунди',
   'team.col.activity': 'Поканен/а',

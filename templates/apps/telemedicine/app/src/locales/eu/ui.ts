@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Hitzordua erreserbatu',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Ez dago pazienterik erakusteko.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'consult.backLink': 'Hitzordu guztiak',
   'consult.captions': 'Azpitituluak',
   'consult.connected': 'Konektatuta · 720p · egonkorra',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pazienteak',
   'patientVitalsHero.scripts': 'Errezeta irekita',
   'patientVitalsHero.subline': '{{count}} gaur zure ordutegian kontsultak',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'prescriptions.empty': 'Ez dago errezetarik bat datorrenik.',
   'prescriptions.eyebrow': 'Errezeta elektronikoa',
   'prescriptions.heading': 'Errezetak',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Pribatutasun Oharra',
   'privacy.use.body':
     'Arreta emateko, hitzorduen abisuak bidaltzeko, errezetak bideratzeko eta zerbitzuaren fidagarritasuna hobetzeko. Ez ditugu inoiz zure datuak saltzen eta ez ditugu inoiz informazio klinikoa iragarleekin partekatzen.',
+  'providers.allSpecialties': 'Espezialitate guztiak',
+  'providers.loadError': 'Ezin izan dira hornitzaileak kargatu.',
+  'providers.loading': 'Kargatzen…',
   'providers.noResults': 'Ez da hornitzailerik aurkitu.',
   'providers.searchPlaceholder': 'Bilatu izenaren, espezialitatearen arabera...',
   'providers.title': 'Hornitzaile bat aurkitu',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Egunaren hasiera',
   'settings.availability.heading': 'Eskuragarritasuna',
   'settings.devices.thisDevice': 'Gailu hau',
+  'settings.devices.unnamed': 'Gailu izengabea',
   'settings.eyebrow': 'Praktika eta kontua',
   'settings.loadError': 'Ezin izan da zure profila kargatu.',
   'settings.notifications.emailMessages':
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Desgaitu',
   'settings.security.twoFactor.enable': 'Gaitu',
   'settings.security.twoFactor.heading': 'Bi faktoreko autentifikazioa',
+  'settings.security.twoFactor.invalidCode': 'Kode hori ez dator bat. Saiatu berriro.',
+  'settings.security.twoFactor.setupFailed':
+    'Ezin izan da bi faktoreko konfigurazioa hasi. Saiatu berriro.',
+  'settings.security.twoFactor.statusOn': 'Bi faktore aktibatuta dago',
   'settings.signOutDevice': 'Saioa itxi',
   'settings.subheading': 'Hornitzailearen profila, praktika-arauak eta alerta klinikoak.',
   'signup.emailLabel': 'MEZU ELEKTRONIKOA',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Sortu kontua',
   'signupFooter.hipaa': 'HIPAA betetzen du',
   'solaceLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'solaceLayout.toggleMenu': 'Menua aldatu/erakutsi',
   'terms.eligibility.body':
     'Gutxienez hemezortzi urte izan behar dituzu, edo arreta bilatzen ari zaren adingabe baten guraso edo legezko tutorea izan behar duzu, eta fisikoki gure klinikoek lizentzia duten AEBetako estatu batean bizi behar duzu.',
   'terms.payment.body':

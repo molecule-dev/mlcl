@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Σχετικά',
   'alertConditionCard.condition.${alert.condition}': 'Ενεργοποιήθηκε {{όταν}}',
+  'alertConditionCard.confirmDelete': 'Επιβεβαίωση διαγραφής',
   'alertConditionCard.pauseAriaLabel': 'Παύση ειδοποίησης',
   'alertConditionCard.resumeAriaLabel': 'Ειδοποίηση συνέχισης',
   'alertNew.condition': 'Κατάσταση',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Πλήρως αραιωμένη αποτίμηση',
   'coinDetail.links.twitter': 'Κελάδημα',
   'coinDetail.links.website': 'Δικτυακός τόπος',
+  'coinDetail.links.whitepaper': 'Λευκή βίβλος',
   'coinDetail.loadError': 'Αποτυχία φόρτωσης νομίσματος.',
   'coinDetail.marketCap': 'Κεφαλαιοποίηση αγοράς',
   'coinDetail.maxSupply': 'Μέγιστη προσφορά',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Η διαδρομή που σαρώσατε δεν καταλήγει σε γνωστό νόμισμα ή σελίδα. Ελέγξτε ξανά το σύμβολο και προσπαθήστε ξανά.',
   'notFound.browseMarkets': 'Περιηγηθείτε στις αγορές',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'portfolio.addError': 'Εισαγάγετε το σύμβολο, το θετικό ποσό και το κόστος.',
   'portfolio.addHoldingCta': '+ Προσθήκη συμμετοχής',
   'portfolio.addModal.cost': 'Βάση κόστους (USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Ο λογαριασμός σας διαχειρίζεται τον κωδικό πρόσβασης και τις ρυθμίσεις δύο παραγόντων.',
   'settings.signOutDevice': 'Αποσύνδεση',
+  'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'sigilAuthShell.backHomeCta': '← Πίσω στο Bourse',
   'sigilLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'signup.eyebrow': 'Άνοιγμα τερματικού',

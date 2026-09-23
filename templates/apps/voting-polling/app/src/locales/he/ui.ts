@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
   'analytics.col.quorum': 'מִניָן',
   'analytics.col.votes': 'קולות',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'אין עדיין שאלות ממתינות.',
   'audienceQa.onStageEyebrow': 'על הבמה עכשיו',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'לְקַדֵם',
   'audienceQa.queued': 'בתור',
   'audienceQa.queueEyebrow': 'תוֹר',
   'ballot.eyebrow': 'הטילו את הצבעתכם',
@@ -77,6 +79,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'אתה נמצא כרגע על {{plan}} לְתַכְנֵן.',
   'billing.switch': 'מֶתֶג',
   'billing.upgraded': 'עודכן ל {{plan}} — מגבלות יוחלו באופן מיידי.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'createPoll.addOption': 'הוסף אפשרות',
   'createPoll.anonymousHint': 'שמות הבוחרים מוסתרים ביומן הביקורת; ספירות הבוחרים נשארות מאומתות.',
   'createPoll.anonymousLabel': 'אפשר הצבעה אנונימית',
@@ -151,6 +154,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'חדש ב אפליקציה ?',
   'login.remember': 'זכור אותי למשך 30 יום',
   'login.subheading': 'פתחו את הרצפה, הפעילו את החדר ואשרו את התוצאה.',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'notFound.body': 'הדף שניסית להגיע אליו נסגר או הועבר. חזור ללוח המחוונים או פתח סקר חדש.',
   'notFound.eyebrow': 'אין קוורום במסלול זה',
   'notFound.heading': 'פתק ההצבעה הזה ריק.',
@@ -159,6 +164,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'טוען התראות…',
   'notifications.subheading':
     'עדכוני קוורום, אירועי הצבעה, קידומי שאלות ותשובות על הבמה ותקינות האינטגרציה.',
+  'pollCard.questionsAndResponses': '{{questions}} שאלות · {{responses}} תגובות',
   'pollCard.quorum': 'מִניָן',
   'pollDetail.close': 'סגירת הצבעה',
   'pollDetail.closed': 'הסקר נסגר - הספירה הסופית נחתם.',
@@ -175,6 +181,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'לא ניתן היה לטעון את הסקר הזה.',
   'pollDetail.loading': 'טוען את הסקר…',
   'pollDetail.notFound': 'הסקר לא נמצא.',
+  'pollDetail.openBallot': 'הצבעה פתוחה',
   'pollDetail.openLive': 'תוצאות חיות',
   'pollDetail.pollId': 'סקר · {{id}}',
   'pollDetail.published': 'הסקר פורסם - כעת ניתן להצביע בבחירות.',
@@ -253,4 +260,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'חיפוש לפי אימייל…',
   'voters.subheading':
     'אצור את רשימת הצבעות הזכאים. קבץ מצביעים לפי ארגון עבור פתקי הצבעה משוקללים.',
+  'votingPollingLayout.nav.analytics': 'אנליטיקס',
+  'votingPollingLayout.nav.billing': 'חיוב',
+  'votingPollingLayout.nav.createPoll': 'סקר חדש',
+  'votingPollingLayout.nav.dashboard': 'לוח בקרה',
+  'votingPollingLayout.nav.notifications': 'התראות',
+  'votingPollingLayout.nav.settings': 'הגדרות',
+  'votingPollingLayout.nav.team': 'קְבוּצָה',
+  'votingPollingLayout.nav.voters': 'מצביעים',
+  'votingPollingLayout.primaryNavLabel': 'ניווט ראשי',
 }

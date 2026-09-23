@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'billing.canceled': 'Abbonamento annullato. Tornerà al piano Free alla fine del periodo.',
   'billing.contactSales': 'Contatta le vendite',
   'billing.free.1': '5 traduzioni',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Nessun limite di conservazione',
   'billing.upgradeHint': 'Aggiorna per sbloccare le funzionalità AI avanzate.',
   'billing.yearly': 'Annuale',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.activityEmpty':
     'Nessuna attività ancora — avvia un progetto per popolare questo feed.',
   'dashboard.eyebrow': 'Panoramica',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Riutilizzi traduzioni passate in ogni progetto. Punteggio di corrispondenza più alto → meno rilavorazione.',
   'memory.title': 'Banca di memoria',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'nav.legal': 'Legale',
   'newProject.addLanguage': 'Aggiungi destinazione',
   'newProject.create': 'Crea progetto',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Contrassegnate {{count}} notifiche come lette.',
   'notifications.subtitle':
     'Menzioni, richieste di revisione ed eventi AI da tutte le sue aree di lavoro.',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'privacy.collection.account': "L'email del suo account e il nome visualizzato",
   'privacy.deletion.body':
     "Può eliminare un progetto, un segmento, un termine del glossario o una voce di memoria in qualsiasi momento dalla pagina corrispondente. L'eliminazione del suo account dalle Impostazioni cancella ogni riga del database con ambito area di lavoro.",
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Caricamento dei progetti non riuscito.',
   'projects.loading': 'Caricamento progetti…',
   'projects.subtitle': 'Ogni progetto attivo in tutti i locale.',
+  'renditionLayout.primaryNavLabel': 'Navigazione principale',
   'reset.backToLogin': "\\u2190 Torna all'accesso",
   'reset.passwordLabel': 'Nuova password',
   'review.activeEyebrow': 'Segmento {{number}}',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'alerts.acknowledgeLabel': 'Xác nhận',
   'alerts.customerLabel': 'Khách hàng: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Đang kết nối…',
   'carriers.requiredError': 'Tên và mã là bắt buộc.',
   'carriers.subheading': '{{count}} đã tích hợp',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.no': '—',
+  'common.retry': 'Thử lại',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Đang vận chuyển + được gắn cờ',
   'dashboard.activeShipmentsSubtitle': '{{count}} lô hàng cần chú ý hoặc đang di chuyển',
@@ -98,6 +101,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'lô hàng',
   'pricing.trackingLabel': 'sự kiện theo dõi',
   'profile.dangerZone.title': 'Vùng nguy hiểm',
+  'profile.devices.signingOut': 'Đang đăng xuất…',
+  'profile.devices.unnamed': 'Thiết bị không tên',
+  'profile.security.disable2fa': 'Vô hiệu hóa xác thực hai yếu tố (2FA).',
   'profile.security.enable2fa': 'Bật 2FA',
   'profile.security.pwChanged': 'Mật khẩu đã thay đổi thành công.',
   'profile.security.pwCurrent': 'Mật khẩu hiện tại',
@@ -107,10 +113,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA đang hoạt động',
   'profile.security.twoFaCode': 'Mã 6 chữ số',
   'profile.security.twoFaDisable': 'Vô hiệu hóa',
+  'profile.security.twoFaDisabling': 'Vô hiệu hóa…',
   'profile.security.twoFaFailed': 'Không thể xác minh mã.',
   'profile.security.twoFaIntro':
     'Quét mã QR trong ứng dụng xác thực của quý vị, sau đó nhập mã 6 chữ số bên dưới để xác minh.',
   'profile.security.twoFaOn': 'Xác thực hai yếu tố đã được bật trên tài khoản này.',
+  'profile.security.twoFaQrAlt': 'Mã QR xác thực hai yếu tố',
   'profile.security.twoFaVerify': 'Xác minh và bật',
   'profile.security.twoFaVerifying': 'Đang xác minh…',
   'profile.subheading': 'Cài đặt danh tính và bảo mật cho không gian làm việc này.',
@@ -129,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Hãy lưu khóa bí mật này — nó sẽ không được hiển thị lại.',
   'settings.api.webhookSecret': 'Khóa bí mật ký webhook',
   'settings.appearance.description': 'Chuyển đổi giữa chế độ sáng và tối.',
+  'settings.deleteAccountConfirm': 'Bạn có chắc không? Hành động này không thể đảo ngược.',
   'settings.notifications.exceptions': 'Gửi email cho tôi khi xảy ra ngoại lệ lô hàng',
   'settings.notifications.heading': 'Thông báo',
   'settings.notifications.saveFailed': 'Không thể lưu tùy chọn.',
@@ -143,6 +152,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Không tìm thấy lô hàng.',
   'shipmentDetail.originHeading': 'Điểm xuất phát',
   'shipmentDetail.shippedOn': 'Vận chuyển ngày {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Hiện chưa có thông tin theo dõi nào — cập nhật sẽ hiển thị ở đây khi đơn vị vận chuyển quét bưu kiện.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Nhà vận chuyển',
   'shipments.col.eta': 'ETA',
@@ -172,6 +183,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Đăng nhập',
   'signup.submit': 'Tạo tài khoản',
   'team.emailError': 'Cần một địa chỉ email hợp lệ.',
+  'team.empty':
+    'Chưa có thành viên nào trong nhóm. Mời một đồng đội cùng cộng tác trong việc vận chuyển hàng.',
   'team.eyebrow': 'Thành viên & quyền hạn',
   'team.inviteDialog.cancel': 'Hủy',
   'team.inviteDialog.heading': 'Mời đồng đội',
@@ -194,6 +207,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Theo dõi',
   'waypointLayout.primaryNavLabel': 'Điều hướng chính',
   'webhooks.createFailed': 'Không thể tạo điểm cuối webhook.',
+  'webhooks.endpointsEmpty':
+    'Hiện chưa có điểm cuối webhook nào. Hãy tạo một điểm cuối để nhận thông báo về trạng thái vận chuyển.',
   'webhooks.endpointsHeading': 'Điểm cuối',
   'webhooks.eventCount': '{{count}} sự kiện',
   'webhooks.eventsHeading': 'Lần gửi gần đây',

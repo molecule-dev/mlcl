@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Skontaktuj się',
   'about.eyebrow': 'O nas',
+  'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.connectRepoCta': 'Połącz repozytorium',
   'dashboard.empty': 'Brak pull requestów — proszę połączyć repozytorium, aby rozpocząć.',
   'dashboard.eyebrow': 'Refract · kolejka recenzji',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Dostępność',
   'pullRequestRow.files': '{{count}} pl',
   'pullRequestRow.scoreAria': 'Wynik jakości AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Zamknij menu',
+  'refractLayout.openMenu': 'Otwórz menu',
   'refractLayout.primaryNavLabel': 'Nawigacja główna',
   'reports.cumulativeScoreLabel': 'Wynik skumulowany',
   'reports.cumulativeScoreSubtitle': 'wszystkie repo · {{days}}d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nie udało się załadować indeksu wyszukiwania.',
   'settings.apiKeys.description':
     'Proszę zarządzać osobistymi kluczami API z menu użytkownika w prawym górnym rogu.',
+  'settings.apiKeys.integrationsNote':
+    'Tokenami dostępu dostawców zarządza się w sekcji „Integracje” powyżej.',
   'settings.connectError': 'Nie udało się połączyć dostawcy.',
   'settings.disconnectError': 'Nie udało się rozłączyć dostawcy.',
   'settings.eyebrow': 'Refract · obszar roboczy',
   'settings.integration.${provider}.label': 'Zapisywanie…',
   'settings.loadError': 'Nie udało się załadować ustawień.',
+  'settings.notificationCenter': 'Centrum powiadomień',
   'settings.notifications.description':
     'Proszę odwiedzić stronę powiadomień, aby wyświetlić i zarządzać preferencjami dostawy.',
   'settings.section.account': 'Konto i bezpieczeństwo',

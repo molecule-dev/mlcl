@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'analytics.col.quorum': '정족수',
   'analytics.col.votes': '득표수',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': '아직 대기 중인 질문이 없습니다.',
   'audienceQa.onStageEyebrow': '현재 무대 위',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': '홍보하다',
   'audienceQa.queued': '대기 중',
   'audienceQa.queueEyebrow': '대기열',
   'ballot.eyebrow': '투표하기',
@@ -78,6 +80,7 @@ export const ui: UiTranslations = {
   'billing.subheading': '현재 {{plan}} 요금제를 사용 중이십니다.',
   'billing.switch': '전환',
   'billing.upgraded': '{{plan}} 요금제로 업데이트되었습니다 — 한도가 즉시 적용됩니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'createPoll.addOption': '옵션 추가',
   'createPoll.anonymousHint':
     '감사 로그에서 투표자 이름이 숨겨집니다. 집계는 인증된 상태로 유지됩니다.',
@@ -153,6 +156,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh가 처음이신가요?',
   'login.remember': '30일 동안 기억하기',
   'login.subheading': '회의를 열고, 진행하고, 결과를 확정하세요.',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'notFound.body':
     '찾으시는 페이지가 마감되었거나 이동되었습니다. 대시보드로 돌아가거나 새 투표를 여세요.',
   'notFound.eyebrow': '이 경로에는 정족수가 없습니다',
@@ -178,6 +183,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': '이 투표를 불러올 수 없습니다.',
   'pollDetail.loading': '투표를 불러오는 중…',
   'pollDetail.notFound': '투표를 찾을 수 없습니다.',
+  'pollDetail.openBallot': '공개 투표',
   'pollDetail.openLive': '실시간 결과',
   'pollDetail.pollId': 'poll · {{id}}',
   'pollDetail.published': '투표가 게시되었습니다 — 이제 투표자가 투표할 수 있습니다.',
@@ -255,4 +261,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': '이메일로 검색…',
   'voters.subheading':
     '자격 있는 명부를 관리하세요. 가중 투표를 위해 조직별로 투표자를 그룹화하세요.',
+  'votingPollingLayout.nav.analytics': '분석',
+  'votingPollingLayout.nav.billing': '결제',
+  'votingPollingLayout.nav.createPoll': '새로운 여론조사',
+  'votingPollingLayout.nav.dashboard': '대시보드',
+  'votingPollingLayout.nav.notifications': '알림',
+  'votingPollingLayout.nav.settings': '설정',
+  'votingPollingLayout.nav.team': '팀',
+  'votingPollingLayout.nav.voters': '유권자들',
+  'votingPollingLayout.primaryNavLabel': '기본 탐색',
 }

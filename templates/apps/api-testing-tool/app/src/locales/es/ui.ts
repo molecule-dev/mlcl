@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
+  'about.pageTitle': 'Acerca de {{app}}',
   'authShell.statusLabel': 'runners en línea',
   'collections.createError': 'No se pudo crear la colección.',
   'collections.defaultName': 'Colección sin título {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Nueva colección',
   'collections.subheading':
     'Agrupa solicitudes, compártelas con tu equipo y ejecútalas como una suite.',
+  'common.goToDashboard': 'Ir al panel',
   'environmentCard.inactive': 'Inactivo',
   'environmentCard.more': 'más',
   'environmentCard.variables': 'Variables',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Descargar gratis',
   'landing.heroSubtitle':
     'La plataforma de pruebas de API ultrarrápida diseñada para ingenieros que trabajan directamente con terminales.',
+  'landing.heroTitleAccent': 'Fuego',
+  'landing.heroTitleLine2': 'fomentar la confianza.',
+  'landing.heroTitleRest': 'solicitudes,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Precios simples y predecibles',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': '¿Nuevo aquí?',
   'login.showPassword': 'Mostrar contraseña',
   'login.subtitle': 'Continúa a tu espacio de trabajo de Pylon.',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'mocks.createError': 'No se pudo crear el mock.',
   'mocks.defaultName': 'Mock sin título {{n}}',
   'mocks.deleteError': 'No se pudo eliminar el mock.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Volver al espacio de trabajo',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Ruta no encontrada',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'privacy.collect.account':
     'Cuenta: tu correo, contraseña con hash, nombre visible y la marca de tiempo del último inicio de sesión.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Vista de solo lectura de los datos que esta cuenta posee actualmente.',
   'settings.unset': 'no establecido',
   'signup.identityHint': 'ej. Alex',
+  'signup.statusLabel': 'plan gratuito · sin tarjeta de crédito',
   'signup.subtitle': 'Empieza a disparar solicitudes en minutos.',
   'terms.account.body':
     'Eres responsable de salvaguardar tu contraseña. Compartir una cuenta con varias personas no está permitido en los planes Free o Pro — adquiere una suscripción Team para espacios de trabajo compartidos.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'No uses Pylon para disparar solicitudes a servicios que no posees o para los que no tienes permiso explícito de probar. No uses Pylon para eludir límites de tasa o cometer fraude.',
   'terms.warranty.body':
     'Pylon se proporciona "tal cual" sin garantía de ningún tipo. Aspiramos a un 99,9% de uptime pero no lo garantizamos en los planes Free o Pro.',
+  'testRunner.assertionsCount': '{{count}} afirmaciones',
   'testRunner.createError': 'No se pudo crear el test.',
   'testRunner.cron':
     'Las aserciones se evalúan contra la ejecución más reciente de la solicitud vinculada a este test.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
     'Resultados de suite, diferencias de aserción y las últimas 50 ejecuciones.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Sesión iniciada como',
+  'workspace.auth.keyName': 'Nombre del encabezado',
+  'workspace.auth.keyValue': 'Valor clave',
+  'workspace.auth.password': 'Contraseña',
+  'workspace.auth.username': 'Nombre de usuario',
+  'workspace.authOption.apikey': 'Clave API',
+  'workspace.authOption.basic': 'Autenticación básica',
+  'workspace.authOption.bearer': 'Token al portador',
+  'workspace.authOption.none': 'Ninguno',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipo',
   'workspace.authTypeLabel': 'Tipo de auth',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Ninguno',
+  'workspace.body.text': 'Texto sin formato',
+  'workspace.body.type': 'Tipo',
   'workspace.environment': 'Sin entorno',
   'workspace.envVar': 'variable de entorno',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Agregar encabezado',
+  'workspace.kv.addParam': 'Añadir parámetro',
+  'workspace.kv.headerKey': 'Nombre del encabezado',
+  'workspace.kv.headerValue': 'Valor del encabezado',
+  'workspace.kv.key': 'Clave',
+  'workspace.kv.paramKey': 'Clave del parámetro de consulta',
+  'workspace.kv.paramValue': 'Valor del parámetro de consulta',
+  'workspace.kv.removeRow': 'Eliminar fila',
+  'workspace.kv.value': 'Valor',
   'workspace.methodLabel': 'Método HTTP',
   'workspace.metric.latency': 'Latencia',
   'workspace.metric.latencyCaption': 'Ida y vuelta de esta ejecución',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Solicitud disparada — ver respuesta abajo.',
   'workspace.subheading':
     'Compón una solicitud, dispárala y luego asevera la respuesta — todo en un solo panel.',
+  'workspace.testResults': 'Resultados de las pruebas',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Enviado como Authorization: Bearer <token> en cada solicitud de esta colección.',

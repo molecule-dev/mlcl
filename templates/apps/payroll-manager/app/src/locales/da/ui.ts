@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'auditLog.empty':
     'Ingen revisionshændelser matcher dine filtre endnu. Rediger en medarbejder eller behandl en lønkørsel, og de vises her.',
   'auditLog.eyebrow': 'Overholdelse',
+  'auditLog.loadError': 'Revisionsloggen kunne ikke indlæses.',
   'auditLog.searchPlaceholder': 'Søg efter skuespiller, handling eller beskrivelse',
   'auditLog.subheading':
     'Enhver godkendelse, redigering og skatteindberetning – med aktør, tidsstempel og ændrede felter.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Ikke konfigureret',
   'billing.plansHeading': 'Planer',
   'billing.subheading': 'Administrer dit abonnement og skift niveau via Stripe.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Prøv igen',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Overholdelsesøjeblik',
   'dashboard.compliance.title': 'Alle kontroller bestået',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Ingen fradrag i arkivet.',
   'employeeDetail.notFound': 'Medarbejder ikke fundet.',
   'employeeDetail.payFrequency': 'Lønningsfrekvens',
+  'employeeDetail.postTax': 'Efter skat',
+  'employeeDetail.preTax': 'Før skat',
   'employeeDetail.salary': 'Årsløn',
   'employeeDetail.ssn': 'CPR-nummer',
   'employeeDetail.startedOn': 'Startet {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Lønningsfrekvens',
   'employeeForm.salary': 'Årsløn (USD)',
   'employeeForm.salaryInvalid': 'Lønnen skal være et ikke-negativt tal.',
+  'employeeForm.saveError': 'Kunne ikke gemme medarbejderen.',
   'employeeForm.semimonthly': 'Halvmånedlig',
   'employeeForm.single': 'Enkelt',
   'employeeForm.ssn': 'CPR-nummer',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Medarbejder',
   'employeesTable.col.salary': 'Løn',
   'forgotPassword.subtitle': 'Indtast din arbejds-e-mail, så sender vi dig et nulstillingslink.',
+  'landing.copyright': '© {{year}} {{app}} . Præcis, pålidelig, sammensat.',
   'landing.ctaBody':
     'Gratis i 30 dage. Intet kreditkort. Skift når som helst uden at miste dit revisionsspor.',
   'landing.ctaHeading': 'Kør din næste cyklus på Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Indlæg',
   'payRunDetail.noActivity': 'Ingen revisionsposteringer for denne lønkørsel endnu.',
   'payRunDetail.noStubs': 'Ingen lønsedler endnu — godkend og generér dem.',
+  'payRunDetail.notFound': 'Denne lønseddel kunne ikke findes.',
   'payRunDetail.statDeductions': 'Fradrag',
   'payRunDetail.statHeadcount': 'Medarbejdere',
   'payRunDetail.statTaxes': 'Tilbageholdte skatter',
@@ -217,7 +226,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Halvmånedlig',
   'settings.signOutDevice': 'Log ud',
   'settings.subheading': 'Virksomhedsprofil, lønplan og integrationer.',
+  'settings.twoFactorCode': 'Godkendelseskode',
   'settings.twoFactorDisable': 'Deaktivér',
+  'settings.twoFactorInvalidCode': 'Ugyldig kode',
+  'settings.twoFactorVerify': 'Bekræft og aktiver',
   'settings.weekly': 'Ugentlig',
   'taxCenter.bucket.federal': 'Føderal indkomst',
   'taxCenter.bucket.fica': 'Social sikring',

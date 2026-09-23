@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'announcementsFeed.empty': 'Nog geen mededelingen.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Laatste mededelingen',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Wissel de filters hierboven om opdrachten in een andere status te zien.',
   'assignments.eyebrow': 'Alle vakken · Dit semester',
+  'assignments.loadError': 'Opdrachten konden niet worden geladen.',
   'assignments.loading': 'Opdrachten laden…',
   'assignments.subtitle':
     'Filter op status om te zien wat moet worden ingeleverd, is ingeleverd, beoordeeld of mist.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Notitie',
   'attendance.empty': 'Nog geen aanwezigheidsregistraties.',
   'attendance.eyebrow': 'Voorjaarssemester · Laatste 4 weken',
+  'attendance.loadError': 'Kon de aanwezigheidsgegevens niet laden.',
   'attendance.loading': 'Aanwezigheid laden…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Inleverdata van opdrachten op een maandrooster — toetsen springen er rood uit.',
   'calendar.title': 'Activiteiten in {{month}}',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
+  'common.retry': 'Opnieuw proberen',
   'common.yes': '✓',
   'courseDetail.backLink': 'Cijfers',
   'courseDetail.currentGrade': 'Huidig cijfer',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Nog geen cijfers geplaatst.',
   'grades.eyebrow': 'Cijferlijst',
+  'grades.loadError': 'Je cijfers konden niet worden geladen.',
   'grades.loading': 'Cijfers laden…',
   'grades.subtitle':
     'Live letter- en percentagecijfers. Trendpijlen tonen of u stijgt, gelijk blijft of zakt.',
   'grades.title': 'Uw cijfers, vak voor vak',
   'grades.trendStable': 'Stabiel',
+  'landing.copyright': '© {{year}} {{app}} . Ontwikkeld voor studenten, gemaakt voor gezinnen.',
   'landing.ctaHeading': 'Een rustigere schooldag begint binnen enkele minuten',
   'landing.eyebrow': 'Voor middelbare scholieren',
   'landing.featuresHeading': 'Een schooldag georganiseerd rond de leerling',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Opdrachten',
   'nav.attendance': 'Aanwezigheid',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Navigatiemenu sluiten',
   'nav.grades': 'Cijfers',
+  'nav.openMenu': 'Navigatiemenu openen',
   'nav.statusEyebrow': 'GPA semester',
   'nav.statusSubtext': 'Eerlijke lijst · Voorjaarssemester',
+  'nav.unreadMessages': 'Ongelezen berichten',
   'notifications.eyebrow': '{{count}} updates',
   'notifications.subtitle':
     'Cijfers, herinneringen, berichten en schoolmededelingen. Pas in Instellingen aan welke kanalen elke melding gebruikt.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.attendanceLabel': 'aanwezigheid',
   'pricing.gradesLabel': 'cijfers',
   'pricing.heading': 'aankondigingen',

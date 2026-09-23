@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Гледање',
   'auctionDetail.watchRemoved': 'Отстрането од списокот за следење.',
   'auctionDetail.watchRemoveLabel': 'Отстрани од списокот за следење',
+  'auctionPlatformLayout.primaryNavLabel': 'Примарна навигација',
   'authShell.brandBody':
     'Лицитирајте во реално време за ретки часовници, ликовна уметност и уникатни специјализирани предмети. Чеканот паѓа за неколку секунди.',
   'authShell.brandEyebrow': 'Во живо сега · 1.420 аукции',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Сортирај по',
   'browseAuctions.subheading':
     'Филтрирајте по категорија, сортирајте по она што е најважно и дадете понуда пред да падне чеканот.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'countdownTimer.ended': 'Завршено',
   'countdownTimer.endingSoon': 'Завршува',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Сокриј ја лозинката',
   'login.showPassword': 'Прикажи лозинка',
   'login.subtext': 'Продолжете да ги следите вашите аукции и давајте понуди пред да падне чеканот.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'myBids.bidAgain': 'Лицитирајте повторно',
   'myBids.browseCta': 'Прелистајте аукции во живо →',
   'myBids.checkoutCta': 'Плати сега',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Центар за активности',
   'notificationsPage.subheading':
     '{{count}} непрочитани · ажурирања во живо како што се движат аукциите',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.bidsLabel': 'понуди',
   'pricing.listingsLabel': 'огласи',
   'pricing.watchlistLabel': 'список за следење',

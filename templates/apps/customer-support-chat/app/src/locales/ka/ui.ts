@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენს შესახებ',
   'authShell.samplePreview':
     '„გამარჯობა, გუნდო, ახალი დაფა შესანიშნავია — ზუსტად ის, რაც გვჭირდებოდა!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/მალსახმობი',
   'automations.subheading':
     'წესები, წინასწარ დამუშავებული პასუხები და ჩატბოტები — შეინარჩუნეთ სამუშაო სივრცის ხმაურიანი ფუნქციონირება, სანამ თქვენი გუნდი რთულ საკითხებზეა კონცენტრირებული.',
+  'automations.trigger.inboundMessage': 'შემომავალი შეტყობინება',
   'automations.triggerLabel': 'ტრიგერი',
   'chatBubble.internalNoteLabel': 'შიდა შენიშვნა',
+  'common.confirmDelete': 'დაადასტურეთ წაშლა',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'contactDetail.backToContacts': 'ყველა კონტაქტი',
   'contactDetail.contactFallback': 'კონტაქტი',
   'contactDetail.conversationFallback': 'საუბარი',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'ბოლოს ნანახი',
   'contacts.empty': 'კონტაქტები ჯერ არ არის. დაამატეთ თქვენი პირველი კონტაქტი ზემოთ.',
   'contacts.eyebrow': 'მომხმარებელთა დირექტორია',
+  'contacts.form.nameOrEmailRequired': 'მიუთითეთ სულ მცირე სახელი ან ელ. ფოსტა',
   'contacts.form.save': 'კონტაქტის შენახვა',
   'contacts.heading': 'კონტაქტები',
   'contacts.loading': 'კონტაქტები იტვირთება…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'ჩანაწერის შენახვა',
   'conversationDetail.tab.note': 'შიდა შენიშვნა',
   'conversationDetail.threadAria': 'საუბრის შეტყობინებები',
+  'conversationDetail.visitorFallback': 'სტუმარი',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'მომხმარებლის დეტალები',
   'customerProfilePanel.recentTitle': 'ბოლო საუბრები',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'მომხმარებლები პირველ პასუხს იღებენ {{time}} საშუალოდ — შეინარჩუნეთ კადენცია.',
   'inboxHeroCard.title': 'აქტიური საუბრები',
+  'inboxLayout.navDrawerLabel': 'ნავიგაცია',
+  'inboxLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'inboxOverview.eyebrow': 'დღეს ერთი შეხედვით',
   'inboxOverview.heroChange': '{{count}} ღია',
   'inboxOverview.kpiClosedTrend': 'ყველა დროის',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ეწვიეთ მთავარ გვერდს',
   'notifications.subheading':
     'დავალებები, @ხსენებები, SLA რისკები, CSAT-ის უკუკავშირი და გუნდური აქტივობა — დალაგებულია უახლესის მიხედვით.',
+  'notifications.subjectFallback': 'საუბარი',
+  'notifications.visitorFallback': 'სტუმარი',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'მაღალი',
   'priority.low': 'დაბალი',
+  'priority.normal': 'ნორმალური',
   'priority.urgent': 'სასწრაფო',
   'privacy.title': 'კონფიდენციალურობის პოლიტიკა',
   'reports.agentFallback': 'აგენტი',

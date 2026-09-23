@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Gbasara {{app}}',
+  'appNav.mobileLabel': 'Ntugharị isi',
+  'appNav.primaryLabel': 'Ntugharị isi',
   'billing.actions.confirmCancel': 'Kagbuo ndenye aha gị? Ị nwere ike ịdenye aha ọzọ oge ọ bụla.',
   'billing.actions.paused': 'Ndenye aha kwụsịtụla.',
   'billing.actions.resumed': 'Ndebanye aha amaliteghachiri.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     "Ọkwa nke ọ bụla bụ obere akụkọ. Tinye otu n'ahịrị gị ma ọ bụ gbanwee ya ka ọ bụrụ nke gị n'ọnwa na-abịa.",
   'boxThemeCard.perMonth': '/ ọnwa',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'customize.eyebrow': 'Mee ka ọ bụrụ nke gị',
   'customize.heading': 'Hazie Crate gị na-esote',
   'customize.items.exclude': 'Wụpụ nke a',
@@ -93,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Oge a',
   'landing.editions.heading': "Mbipụta ndị na-elekọta anyị hụrụ n'anya",
   'landing.footer.contact': 'Gwa onye nlekọta okwu',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Malite igbe gị →',
   'landing.hero.ctaSecondary': 'Lee ọkwa dị iche iche',
   'landing.hero.eyebrow': 'A na-ahazi ya kwa ọnwa. Onye ọ bụla na-eme ya.',
@@ -111,6 +116,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'Njem gị ọzọ',
   'nextBoxHeroCard.itemsLabel': 'Ihe ndị a haziri ahazi',
   'nextBoxHeroCard.shipsOnLabel': 'A na-ebuga ozi',
+  'notFound.body':
+    "Anyị enweghị ike ịchọta ibe ahụ n'ebe nchekwa {{app}} . O nwere ike ịbụ na e wepụrụ ya ma ọ bụ na e mejọrọ ya nke ọma.",
   'notFound.cta.dashboard': 'Gaa na dashboard',
   'notFound.eyebrow': 'Igbe tọgbọ chakoo',
   'notFound.heading': 'Shelf a dị larịị',

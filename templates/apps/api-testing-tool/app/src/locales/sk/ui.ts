@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.pageTitle': 'O aplikácii {{app}}',
   'authShell.statusLabel': 'bežci online',
   'collections.createError': 'Nepodarilo sa vytvoriť kolekciu.',
   'collections.defaultName': 'Nepomenovaná kolekcia {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Nová kolekcia',
   'collections.subheading':
     'Zoskupujte požiadavky, zdieľajte ich so svojím tímom a spúšťajte ich ako jeden balík.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'environmentCard.inactive': 'Nečinnosť',
   'environmentCard.more': 'viac',
   'environmentCard.variables': 'Premenné',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Stiahnuť zadarmo',
   'landing.heroSubtitle':
     'Bleskovo rýchle testovacie API riešenie vytvorené pre inžinierov, ktorí pracujú v termináloch.',
+  'landing.heroTitleAccent': 'Požiar',
+  'landing.heroTitleLine2': 'budovať dôveru.',
+  'landing.heroTitleRest': 'žiadosti,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Jednoduché a prehľadné ceny',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nový/á tu?',
   'login.showPassword': 'Zobraziť heslo',
   'login.subtitle': 'Pokračujte do svojho pracovného priestoru Pylon.',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'mocks.createError': 'Nepodarilo sa vytvoriť napodobeninu.',
   'mocks.defaultName': 'Bez názvu, napodobenina {{n}}',
   'mocks.deleteError': 'Nepodarilo sa odstrániť napodobeninu.',
@@ -115,6 +123,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Späť do pracovného priestoru',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Trasa sa nenašla',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'privacy.collect.account':
     'Účet: váš e-mail, hašované heslo, zobrazované meno a časová pečiatka vášho posledného prihlásenia.',
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Zobrazenie údajov, ktoré tento účet aktuálne vlastní, iba na čítanie.',
   'settings.unset': 'nie je nastavené',
   'signup.identityHint': 'napr. Alex',
+  'signup.statusLabel': 'bezplatná úroveň · bez kreditnej karty',
   'signup.subtitle': 'Začnite spúšťať žiadosti o služby už o pár minút.',
   'terms.account.body':
     'Zodpovedáte za ochranu svojho hesla. Zdieľanie jedného účtu s viacerými ľuďmi nie je povolené v rámci plánov Free alebo Pro – pre zdieľané pracovné priestory si zakúpte tímové predplatné.',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     'Nepoužívajte Pylon na odosielanie požiadaviek na služby, ktoré nevlastníte alebo na ich testovanie nemáte výslovné povolenie. Nepoužívajte Pylon na obchádzanie limitov frekvencie alebo na páchanie podvodov.',
   'terms.warranty.body':
     'Pylon sa poskytuje „tak, ako je“, bez akejkoľvek záruky. Snažíme sa o 99,9 % dostupnosť, ale negarantujeme ju v rámci programov Free alebo Pro.',
+  'testRunner.assertionsCount': '{{count}} tvrdenia',
   'testRunner.createError': 'Test sa nepodarilo vytvoriť.',
   'testRunner.cron':
     'Tvrdenia sa vyhodnocujú na základe najnovšieho spustenia prepojenej požiadavky tohto testu.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Výsledky balíka, rozdiely v tvrdeniach a posledných 50 behov.',
   'userMenu.shortcut': '⌘Ľ',
   'userMenu.signedInAs': 'Prihlásený ako',
+  'workspace.auth.keyName': 'Názov záhlavia',
+  'workspace.auth.keyValue': 'Hodnota kľúča',
+  'workspace.auth.password': 'Heslo',
+  'workspace.auth.username': 'Používateľské meno',
+  'workspace.authOption.apikey': 'Kľúč API',
+  'workspace.authOption.basic': 'Základné overovanie',
+  'workspace.authOption.bearer': 'Token na predloženie',
+  'workspace.authOption.none': 'Žiadne',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Typ',
   'workspace.authTypeLabel': 'Typ autorizácie',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Žiadne',
+  'workspace.body.text': 'Neformátovaný text',
+  'workspace.body.type': 'Typ',
   'workspace.environment': 'Žiadne prostredie',
   'workspace.envVar': 'premenná prostredia',
   'workspace.eyebrow': '$ pylon pracovný priestor --rozdeliť panel',
+  'workspace.kv.addHeader': 'Pridať hlavičku',
+  'workspace.kv.addParam': 'Pridať parameter',
+  'workspace.kv.headerKey': 'Názov záhlavia',
+  'workspace.kv.headerValue': 'Hodnota hlavičky',
+  'workspace.kv.key': 'Kľúč',
+  'workspace.kv.paramKey': 'Kľúč parametra dotazu',
+  'workspace.kv.paramValue': 'Hodnota parametra dotazu',
+  'workspace.kv.removeRow': 'Odstrániť riadok',
+  'workspace.kv.value': 'Hodnota',
   'workspace.methodLabel': 'Metóda HTTP',
   'workspace.metric.latency': 'Oneskorenie',
   'workspace.metric.latencyCaption': 'Spiatočná cesta z tejto jazdy',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Žiadosť bola stiahnutá – pozri odpoveď nižšie.',
   'workspace.subheading':
     'Vytvorte požiadavku, spustite ju a potom potvrďte odpoveď – všetko v jednom paneli.',
+  'workspace.testResults': 'Výsledky testov',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Odoslané ako autorizácia: Doručiteľ<token> na každú požiadavku v tejto kolekcii.',

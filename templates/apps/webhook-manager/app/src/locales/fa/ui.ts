@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// درباره {{app}}',
+  'about.pageTitle': 'صفحه کنترل وب هوک',
+  'about.plansTitle': 'طرح‌هایی برای هر مرحله',
   'apiKeys.bestPractices': 'بهترین شیوه‌ها',
   'apiKeys.body':
     'توکن‌های دسترسی برنامه‌نویسی‌شده. با آن‌ها مانند رمز عبور رفتار کنید - در متغیرهای محیطی ذخیره کنید، هرگز کامیت نکنید.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'درون طرح',
   'billing.usageWarning': 'نزدیک کلاه',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.body':
     'توان عملیاتی زنده، تلاش‌های مجدد در حین اجرا، و نقاط پایانی که دچار وقفه شده‌اند - در هر فضای کاری که اداره می‌کنید.',
   'dashboard.endpointsEmpty': 'هنوز هیچ نقطه پایانی وجود ندارد.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'نقاط پایانی',
   'endpointDetail.deliveryTrendSub': 'تحویل‌ها/ساعت، مقیاس لگاریتمی',
   'endpointDetail.hideSecret': 'مخفی کردن راز',
+  'endpointDetail.loading': 'در حال بارگذاری نقطه پایانی…',
   'endpointDetail.metric.delivered': 'تحویل ۲۴ ساعته',
   'endpointDetail.metric.deliveredCaption': 'از {{count}} انواع رویداد',
   'endpointDetail.metric.failuresCaption': 'تلاش‌های مجدد: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'بحرانی · 24 ساعته',
   'notifications.metric.totalCaption': 'صندوق ورودی تمام وقت',
   'payloadViewer.payload': '// بار مفید',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'profile.avatarHeader': 'آواتار',
   'profile.avatarHint': 'حروف اول نشان داده شده است - آپلودها با نسخه بعدی ارائه می‌شوند.',
   'profile.body': 'حساب کاربری، تنظیمات برگزیده و جلسات فعال شما.',
@@ -228,6 +234,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ ذخیره شده',
   'profile.sessionsEmpty': 'فقط جلسه فعلی شما فعال است. هیچ دستگاه دیگری وارد سیستم نشده است.',
   'profile.toggle': 'ضامن {{label}}',
+  'pylonShell.closeMenu': 'بستن منوی ناوبری',
+  'pylonShell.openMenu': 'منوی ناوبری را باز کنید',
   'pylonShell.primaryNavLabel': 'ناوبری اولیه',
   'resetPassword.subtitle': 'یک رمز عبور قوی انتخاب کنید که قبلاً از آن استفاده نکرده باشید.',
   'resetPassword.tokenPlaceholder': 'چسباندن از ایمیل',

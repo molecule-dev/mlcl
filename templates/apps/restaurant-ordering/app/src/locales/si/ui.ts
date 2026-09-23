@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'analytics.avgCheckLabel': 'සාමාන්‍ය පරීක්ෂාව',
   'analytics.busiestHour': 'කාර්යබහුලම පැය',
   'analytics.coversToday': 'අද ආවරණ',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'ඉඟි (සාමාන්‍ය)',
   'analytics.topItems': 'අද දින ඉහළම අයිතම',
   'authShell.eyebrow': 'සේවාවට නැවත සාදරයෙන් පිළිගනිමු.',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ආගන්තුක සත්කාර කණ්ඩායම් සඳහා උණුසුම්, වේගවත් විකුණුම් ස්ථානයක්. ඔබේ මුළුතැන්ගෙයට පුරනය වී ඔබ නතර කළ තැනින් පටන් ගන්න.',
   'authShell.tip': 'වෘත්තීය උපදෙස්: යතුරුපුවරු කෙටිමං සෑම තැනකම ක්‍රියාත්මක වේ — සෙවීමට / ඔබන්න.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'හෝ {{price}}',
   'billing.priceUnavailable': 'මෙම සැලැස්මට වින්‍යාසගත මිලක් නොමැත.',
   'billing.updated': 'සැලැස්ම යාවත්කාලීන කරන ලදී.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'customerDetail.book': 'වෙන්කිරීමක් එක් කරන්න',
   'customerDetail.col.table': 'වගුව',
   'customerDetail.confirmDelete': 'මෙම ආගන්තුක වාර්තාව මකන්නද?',
@@ -125,6 +128,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'උපයෝජ්‍යතාව',
   'menuItemDetail.available': 'අද රාත්‍රියේ ලබා ගත හැකිය',
   'menuItemDetail.backToMenu': 'මෙනුවට ආපසු',
+  'menuItemDetail.confirmDelete': 'මෙම මෙනු අයිතමය මකන්නද?',
   'menuItemDetail.delete': 'අයිතමය මකන්න',
   'menuItemDetail.deleteError': 'මැකීම අසාර්ථක විය. නැවත උත්සාහ කරන්න.',
   'menuItemDetail.dietary': 'ආහාර ටැග්',
@@ -136,8 +140,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ඡායාරූප, වෙනස් කරන්නන්, ආහාර වේල සහ මිල ගණන් සංස්කරණය කරන්න.',
   'menuItemDetail.untitled': 'නම් නොකළ අයිතමය',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'notFound.heading': 'මේ මේසය බිම නෙවෙයි තියෙන්නේ.',
   'notFound.subheading': 'ඔබ සොයන පිටුව වෙනත් තැනක පිහිටා ඇත - නැතහොත් කිසිදා නොතිබුණි.',
+  'notFound.toLanding': '{{app}} මුල් පිටුව',
   'notifications.markError': 'සියල්ල කියවූ ලෙස සලකුණු කිරීමට නොහැකි විය.',
   'orderDashboard.activeDelta': 'දැන් සජීවීව',
   'orderDashboard.activeLabel': 'ක්‍රියාකාරී ඇණවුම්',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'මුරපදය පෙන්වන්න',
   'resetPassword.subtitle': 'මුළුතැන්ගෙයට ප්‍රවේශය නැවත ලබා ගැනීමට ඔබගේ නව මුරපදය ඇතුළත් කරන්න.',
   'resetPassword.tokenLabel': 'ටෝකනය නැවත සකසන්න',
+  'restaurantOrderingLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'revenueHeroCard.activeOrders': '{{count}} ක්‍රියාකාරී',
   'revenueHeroCard.change': '{{sign}} {{amount}} ඊයේ එදිරිව',
   'revenueHeroCard.title': 'අද දින ආදායම',
@@ -219,6 +227,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'අවන්හලේ නම',
   'tableDetail.activeOrders': 'ක්‍රියාකාරී ඇණවුම්',
   'tableDetail.backToFloor': 'බිම් සැලැස්ම',
+  'tableDetail.confirmDelete': 'මෙම වගුව මකන්නද?',
   'tableDetail.delete': 'මකන්න',
   'tableDetail.deleteError': 'වගුව මැකීමට නොහැකි විය.',
   'tableDetail.heading': 'වගුව {{label}}',

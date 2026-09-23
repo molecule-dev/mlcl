@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'ascentSideNav.nav.notifications': 'அறிவிப்புகள்',
   'ascentSideNav.newObjective': 'புதிய நோக்கம்',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'உச்சியை நிர்ணயித்து, ஏற்றத்தில் வெற்றி பெற்று, அணிக்குப் பயிற்சியளியுங்கள்.',
   'authShell.eyebrow': 'அணிகளை நகர்த்தும் OKRகள்',
@@ -21,6 +24,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'பணியிடம் · கட்டணம்',
   'billing.heading': 'திட்டம் மற்றும் விலைப்பட்டியல்கள்',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'தரவு ஏற்றுமதி + API அணுகல்',
+  'billing.perk.inApp': 'செயலிக்குள் புகாரளித்தல்',
+  'billing.perk.standard': 'தரநிலை மதிப்பாய்வு',
+  'billing.perk.unlimitedObjectives': 'வரம்பற்ற நோக்கங்கள்',
+  'billing.perk.unlimitedRetention': 'வரம்பற்ற தக்கவைப்பு',
   'billing.subheading': 'நீங்கள் {{name}} திட்டம். நிலைகளை ஒப்பிட்டு, கீழே மேம்படுத்தவும்.',
   'billing.tier.unavailable': 'கிடைக்கவில்லை',
   'billing.tier.upgrade': 'மேம்படுத்த {{name}}',
@@ -43,11 +51,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'செக்-இன் சமர்ப்பிக்கவும்',
   'checkIn.submittedMessage':
     'வருகைப் பதிவு சேமிக்கப்பட்டது. முன்னேற்றம் மற்றும் காலவரிசை புதுப்பிக்கப்பட்டது.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': 'இல்லை',
   'common.relative.daysAgo': '{{count}} டி நோ',
   'common.relative.hoursAgo': '{{count}} ஒரு மணி நேரத்திற்கு முன்பு',
   'common.relative.justNow': 'இப்போதே',
   'common.relative.minutesAgo': '{{count}} ஒரு நிமிடத்திற்கு முன்பு',
+  'common.retry': 'மீண்டும் முயற்சி',
   'common.yes': 'ஆம்',
   'common.you': 'நீங்கள்',
   'dashboard.allActivity': 'அனைத்து செயல்பாடுகளையும் காண்க →',
@@ -91,6 +101,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இது ஒரு மணி நேரத்தில் காலாவதியாகிவிடும் — இன்பாக்ஸை சிறிது நேரம் பாருங்கள்.',
   'forgotPassword.successHeading': 'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
+  'keyResult.metrics.boolean': 'ஆம் / இல்லை',
+  'keyResult.metrics.currency': 'நாணயம் $',
+  'keyResult.metrics.number': 'எண்',
+  'keyResult.metrics.percent': '% சதவீதம்',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'உங்கள் முதல் குறிக்கோளை அமைத்து, மூன்று குழு உறுப்பினர்களை அழைத்து, வெள்ளிக்கிழமைக்குள் உங்கள் முதல் வாராந்திர சரிபார்ப்பை நடத்துங்கள்.',
@@ -102,6 +116,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'அணிகள் எப்படி உயர்கின்றன',
   'landing.featuresTitle': 'விரிவான விரிதாள் இல்லாமல், பயிற்சித் தரத்திலான OKR-கள்.',
   'landing.footerBuiltOn': 'Molecule.dev-ஐ அடிப்படையாகக் கொண்டு உருவாக்கப்பட்டது',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'அசென்ட் ஒவ்வொரு குழுவிற்கும் மலையேறுவதற்கான அளவிடக்கூடிய ஒரு பாதையை வழங்குகிறது — இலக்குகளை நிர்ணயித்தல், வாரந்தோறும் முக்கிய முடிவுகளுக்கு மதிப்பெண் வழங்குதல், மற்றும் ஒவ்வொரு காலாண்டிலும் அந்த மலையேற்றத்தை மதிப்பாய்வு செய்தல்.',
   'landing.heroProgressLabel': 'Q2 நிறுவனத் திட்டம்',
@@ -111,6 +126,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'அல்லது தொடரவும்',
   'login.subheading':
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — உங்கள் வருகைப் பதிவுகள், அறிவுப் பதிவுகள் மற்றும் மதிப்புரைகள் உங்களுக்காகக் காத்திருக்கின்றன.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.mainNavigation': 'முதன்மை வழிசெலுத்தல்',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'newObjective.addKr': 'கே.ஆர்-ஐச் சேர்க்கவும்',
   'newObjective.coachLabel': 'பயிற்சியாளர் நினைவூட்டல்கள்',
   'newObjective.descriptionPlaceholder': 'மூலோபாய சூழலை 2–3 வாக்கியங்களில் விளக்கவும்.',
@@ -135,6 +153,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'செயல்பாட்டு மையம்',
   'notifications.markRead': '● படித்ததாகக் குறிக்கவும்',
   'objective.scopes.company': 'நிறுவனம்',
+  'objective.scopes.individual': 'தனிநபர்',
   'objective.scopes.team': 'அணி',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'குறிக்கோள்களுக்குத் திரும்பு',
@@ -158,12 +177,18 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'கண்காணிப்பு {{count}} நோக்கங்கள். கவனம் தேவைப்படுவதைக் கண்டறிய நிலையின் அடிப்படையில் வடிகட்டவும்.',
   'profile.achievementCheckInsMany': '{{count}} வருகைப் பதிவுகள்',
+  'profile.achievementCheckInsOne': '1 செக்-இன் பதிவு செய்யப்பட்டது',
+  'profile.achievementCompletedMany': '{{count}} இலக்குகள் நிறைவுற்றன',
+  'profile.achievementCompletedOne': '1 குறிக்கோளை நிறைவுசெய்தது',
+  'profile.achievementOnTrackMany': 'இலக்குகள் {{count}} பாதையில் உள்ளன',
+  'profile.achievementOnTrackOne': '1 குறிக்கோள் சரியான பாதையில் உள்ளது',
   'profile.activeHeading': 'செயலில் உள்ள நோக்கங்கள்',
   'profile.allObjectives': 'அனைத்து நோக்கங்களும் →',
   'profile.empty':
     'தற்போது செயலில் உள்ள இலக்குகள் எதுவும் இல்லை — தொடங்குவதற்கு உங்கள் முதல் இலக்கை உருவாக்குங்கள்.',
   'profile.eyebrow': 'ஏறுபவர் சுயவிவரம்',
   'profile.guestName': 'ஏறுபவர்',
+  'profile.loadError': 'உங்கள் குறிக்கோள்களை ஏற்ற முடியவில்லை.',
   'profile.loading': 'குறிக்கோள்கள் ஏற்றப்படுகின்றன…',
   'profile.noAchievements': 'உங்கள் முதல் சாதனையைத் திறக்க, செக்-இன் செய்யவும்.',
   'profile.statCheckIns': 'வருகைப் பதிவுகள்',

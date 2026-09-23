@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Teave',
+  'appShell.closeNav': 'Sulge navigeerimisriba',
+  'appShell.openNav': 'Ava navigeerimisriba',
+  'common.dashboard': 'Armatuurlaud',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.eyebrow': 'Täna liigas ringi',
   'dashboard.loading': 'Tänase õhtu tulemuste väljaselgitamine…',
   'dashboard.scoringLeaders': 'Punktiarvestuse liidrid',
@@ -145,4 +149,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} päeva tagasi',
   'time.hoursAgo': '{{count}} tund aega tagasi',
   'time.minutesAgo': '{{count}} minutit tagasi',
+  'time.secondsAgo': '{{count}} sekundit tagasi',
 }

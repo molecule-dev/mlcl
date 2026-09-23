@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}(r)i buruz',
+  'appNav.mobileLabel': 'Nabigazio nagusia',
+  'appNav.primaryLabel': 'Nabigazio nagusia',
   'billing.actions.confirmCancel':
     'Harpidetza bertan behera utzi nahi duzu? Edozein unetan harpidetu zaitezke berriro.',
   'billing.actions.paused': 'Harpidetza pausatu da.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Maila bakoitza istorio multzo txiki bat da. Gehitu bat zure ilaran edo aldatu hurrengo hilabetean.',
   'boxThemeCard.perMonth': '/ hilabete',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'customize.eyebrow': 'Egin ezazu zurea',
   'customize.heading': 'Pertsonalizatu zure hurrengo Crate-a',
   'customize.items.exclude': 'Saltatu hau',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Denboraldi honetan',
   'landing.editions.heading': 'Gure komisarioek maite dituzten edizioak',
   'landing.footer.contact': 'Kuratzaile batekin hitz egin',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Hasi zure kutxa →',
   'landing.hero.ctaSecondary': 'Ikusi mailak',
   'landing.hero.eyebrow': 'Hileroko lana. Beti pertsonala.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ZURE HURRENGO ALTXORRA',
   'nextBoxHeroCard.itemsLabel': 'Elementu hautatuak',
   'nextBoxHeroCard.shipsOnLabel': 'Bidalketak martxan',
+  'notFound.body':
+    'Ezin izan dugu orrialde hori aurkitu {{app}} artxiboan. Baliteke erretiratu izana edo gaizki idatzita egotea.',
   'notFound.cta.dashboard': 'Joan kontrol-panelera',
   'notFound.eyebrow': 'Kutxa hutsa',
   'notFound.heading': 'Apal hau hutsik dago',

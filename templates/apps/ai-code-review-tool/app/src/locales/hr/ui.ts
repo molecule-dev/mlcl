@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'Oko',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.connectRepoCta': 'Poveži repozitorij',
   'dashboard.empty': 'Još nema zahtjeva za povlačenjem — povežite repozitorij da biste započeli.',
   'dashboard.eyebrow': 'Refract · red za pregled',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Vrijeme rada',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Ocjena kvalitete umjetne inteligencije {{score}} / 10',
+  'refractLayout.closeMenu': 'Zatvori izbornik',
+  'refractLayout.openMenu': 'Otvori izbornik',
   'refractLayout.primaryNavLabel': 'Primarna navigacija',
   'reports.cumulativeScoreLabel': 'Kumulativni rezultat',
   'reports.cumulativeScoreSubtitle': 'sva repozitorija · {{days}} dan',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nije uspjelo učitavanje indeksa pretraživanja.',
   'settings.apiKeys.description':
     'Upravljajte osobnim API ključevima iz korisničkog izbornika u gornjem desnom kutu.',
+  'settings.apiKeys.integrationsNote':
+    'Tokeni za pristup pružatelja usluga upravljaju se u odjeljku Integracije iznad.',
   'settings.connectError': 'Povezivanje s pružateljem usluga nije uspjelo.',
   'settings.disconnectError': 'Nije uspjelo isključivanje davatelja usluga.',
   'settings.eyebrow': 'Refract · radni prostor',
   'settings.integration.${provider}.label': 'Spremanje…',
   'settings.loadError': 'Učitavanje postavki nije uspjelo.',
+  'settings.notificationCenter': 'Centar za obavijesti',
   'settings.notifications.description':
     'Posjetite stranicu s obavijestima kako biste pregledali i upravljali postavkama dostave.',
   'settings.section.account': 'Račun i sigurnost',

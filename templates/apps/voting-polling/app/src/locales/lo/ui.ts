@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'analytics.col.quorum': 'ສະພາ',
   'analytics.col.votes': 'ຄະແນນສຽງ',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ຍັງບໍ່ມີຄຳຖາມທີ່ຄ້າງຢູ່ເທື່ອ.',
   'audienceQa.onStageEyebrow': 'ດຽວນີ້ຢູ່ເທິງເວທີ',
   'audienceQa.pollId': 'ຄາ · {{id}}',
+  'audienceQa.promote': 'ສົ່ງເສີມ',
   'audienceQa.queued': 'ລໍຖ້າຄິວແລ້ວ',
   'audienceQa.queueEyebrow': 'ຄິວ',
   'ballot.eyebrow': 'ລົງບັດເລືອກຕັ້ງຂອງທ່ານ',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ປັດຈຸບັນທ່ານກຳລັງຢູ່ໃນ {{plan}} ແຜນການ.',
   'billing.switch': 'ສະວິດ',
   'billing.upgraded': 'ອັບເດດເປັນ {{plan}} - ຂໍ້ຈຳກັດຕ່າງໆຈະຖືກນຳໃຊ້ທັນທີ.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'createPoll.addOption': 'ເພີ່ມຕົວເລືອກ',
   'createPoll.anonymousHint':
     'ຊື່ຜູ້ມີສິດເລືອກຕັ້ງຖືກເຊື່ອງໄວ້ໃນບັນທຶກການກວດສອບ; ການນັບຍັງຄົງຖືກຕ້ອງ.',
@@ -150,6 +153,7 @@ export const ui: UiTranslations = {
   'liveResults.openQa': 'ຖາມ-ຕອບຈາກຜູ້ຊົມ',
   'liveResults.pollId': 'ການສຳຫຼວດຄວາມຄິດເຫັນ · {{id}}',
   'liveResults.present': 'ປະຈຸບັນ',
+  'liveResults.quorum': 'ເປົ້າໝາຍຂອງຄະນະກຳມະການ {{pct}}',
   'liveResults.streamAria': 'ອັດຕາການມາຮອດຂອງບັດເລືອກຕັ້ງຕາມການເວລາ',
   'liveResults.streamHeading': 'ການລົງຄະແນນສຽງຫຼ້າສຸດ',
   'liveResultsHero.closed': 'ປິດແລ້ວ · ການນັບຄະແນນສຸດທ້າຍ',
@@ -161,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ຫາກໍ່ຮູ້ຈັກ Nosh ບໍ?',
   'login.remember': 'ຈື່ຂ້ອຍໄວ້ເປັນເວລາ 30 ມື້',
   'login.subheading': 'ເປີດພື້ນ, ດໍາເນີນການຫ້ອງ, ແລະ ຮັບຮອງຜົນໄດ້ຮັບ.',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'notFound.body':
     'ໜ້າເວັບທີ່ທ່ານພະຍາຍາມເຂົ້າເຖິງໄດ້ຖືກປິດ ຫຼື ຍ້າຍໄປແລ້ວ. ກັບໄປທີ່ແຜງຄວບຄຸມ ຫຼື ເປີດການສຳຫຼວດຄວາມຄິດເຫັນໃໝ່.',
   'notFound.eyebrow': 'ບໍ່ມີກຸ່ມຄົນໃນເສັ້ນທາງນີ້',
@@ -187,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ບໍ່ສາມາດໂຫຼດການສຳຫຼວດຄວາມຄິດເຫັນນີ້ໄດ້.',
   'pollDetail.loading': 'ກຳລັງໂຫຼດແບບສຳຫຼວດ…',
   'pollDetail.notFound': 'ບໍ່ພົບການສຳຫຼວດຄວາມຄິດເຫັນ.',
+  'pollDetail.openBallot': 'ການລົງຄະແນນສຽງເປີດ',
   'pollDetail.openLive': 'ຜົນໄດ້ຮັບສົດ',
   'pollDetail.pollId': 'ການສຳຫຼວດຄວາມຄິດເຫັນ · {{id}}',
   'pollDetail.published':
@@ -266,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ຄົ້ນຫາຜ່ານອີເມວ…',
   'voters.subheading':
     'ຄັດເລືອກຜູ້ມີສິດເລືອກຕັ້ງ. ຈັດກຸ່ມຜູ້ມີສິດເລືອກຕັ້ງຕາມອົງກອນສຳລັບບັດເລືອກຕັ້ງທີ່ມີນໍ້າໜັກ.',
+  'votingPollingLayout.nav.analytics': 'ການວິເຄາະ',
+  'votingPollingLayout.nav.billing': 'ການຮຽກເກັບເງິນ',
+  'votingPollingLayout.nav.createPoll': 'ການສຳຫຼວດຄວາມຄິດເຫັນໃໝ່',
+  'votingPollingLayout.nav.dashboard': 'ໜ້າຄວບຄຸມ',
+  'votingPollingLayout.nav.notifications': 'ການແຈ້ງເຕືອນ',
+  'votingPollingLayout.nav.settings': 'ການຕັ້ງຄ່າ',
+  'votingPollingLayout.nav.team': 'ທີມ',
+  'votingPollingLayout.nav.voters': 'ຜູ້ມີສິດເລືອກຕັ້ງ',
+  'votingPollingLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
 }

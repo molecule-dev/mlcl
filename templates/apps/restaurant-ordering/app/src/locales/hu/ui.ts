@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'A {{app}} névjegye',
   'analytics.avgCheckLabel': 'Átlagos ellenőrzés',
   'analytics.busiestHour': 'Legforgalmasabb óra',
   'analytics.coversToday': 'Mai borítók',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Borravaló (átlag)',
   'analytics.topItems': 'Mai legnépszerűbb termékek',
   'authShell.eyebrow': 'Üdvözöljük ismét a szolgálatban',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Egy barátságos, gyors értékesítési pont vendéglátóipari csapatok számára. Jelentkezzen be a konyhájába, és folytassa ott, ahol abbahagyta.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'vagy {{price}}',
   'billing.priceUnavailable': 'Ennek a csomagnak nincs konfigurált ára.',
   'billing.updated': 'A terv frissítve.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'customerDetail.book': 'Foglalás hozzáadása',
   'customerDetail.col.table': 'Táblázat',
   'customerDetail.confirmDelete': 'Törli ezt a vendégrekordot?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Elérhetőség',
   'menuItemDetail.available': 'Elérhető ma este',
   'menuItemDetail.backToMenu': 'Vissza a menübe',
+  'menuItemDetail.confirmDelete': 'Törli ezt a menüpontot?',
   'menuItemDetail.delete': 'Elem törlése',
   'menuItemDetail.deleteError': 'A törlés sikertelen. Próbáld újra.',
   'menuItemDetail.dietary': 'Étrendi címkék',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'A mentés sikertelen. Próbáld újra.',
   'menuItemDetail.subheading': '{{category}} · Fotó szerkesztése, módosítók, étrendek és árak.',
   'menuItemDetail.untitled': 'Névtelen elem',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'notFound.heading': 'Ez az asztal nincs a földön.',
   'notFound.subheading': 'A keresett oldal máshol található – vagy soha nem is létezett.',
+  'notFound.toLanding': '{{app}} kezdőlap',
   'notifications.markError': 'Nem sikerült az összeset olvasottként megjelölni.',
   'orderDashboard.activeDelta': 'Most élőben',
   'orderDashboard.activeLabel': 'Aktív megrendelések',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Jelszó megjelenítése',
   'resetPassword.subtitle': 'Írja be az új jelszavát a konyhába való hozzáférés visszaszerzéséhez.',
   'resetPassword.tokenLabel': 'Visszaállítási token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Elsődleges navigáció',
   'revenueHeroCard.activeOrders': '{{count}} aktív',
   'revenueHeroCard.change': '{{sign}} {{amount}} a tegnapihoz képest',
   'revenueHeroCard.title': 'Mai bevétel',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Étterem neve',
   'tableDetail.activeOrders': 'Aktív megrendelések',
   'tableDetail.backToFloor': 'Alaprajz',
+  'tableDetail.confirmDelete': 'Törli ezt a táblázatot?',
   'tableDetail.delete': 'Törlés',
   'tableDetail.deleteError': 'Nem sikerült törölni a táblázatot.',
   'tableDetail.heading': 'Táblázat {{label}}',

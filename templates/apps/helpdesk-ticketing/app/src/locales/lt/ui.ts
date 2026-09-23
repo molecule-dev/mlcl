@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Susisiekite',
   'about.eyebrow': 'Apie',
+  'about.title': 'Apie {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'profesionali palaikymo agentės su draugiška šypsena nuotrauka moderniame biure',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Susisiekite su palaikymo tarnyba',
   'forgotPassword.error':
     'Nepavyko išsiųsti el. laiško, kurio reikia iš naujo nustatyti. Bandykite dar kartą.',
   'forgotPassword.rememberPassword': 'Prisimenate slaptažodį?',
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Prisijungti — „Zenith“ palaikymas',
   'login.showPassword': 'Rodyti slaptažodį',
   'login.welcomeSubheading': 'Prisijunkite prie savo palaikymo skydelio',
+  'mobileNav.closeMenu': 'Uždaryti navigaciją',
+  'mobileNav.menu': 'Navigacija',
+  'mobileNav.openMenu': 'Atidaryti navigaciją',
   'nav.legal': 'Teisinis',
   'nav.newTicket': 'Naujas bilietas',
   'notifications.loadError': 'Nepavyko įkelti pranešimų. Bandykite dar kartą po akimirkos.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Komandų paieška',
   'operatorDock.newReport': 'Nauja ataskaita',
   'operatorDock.systemOnline': 'Sistema prisijungus',
+  'planUpdated.subtitle': 'Ačiū',
   'planUpdated.title': 'Planas atnaujintas',
   'pricing.agents': 'agentai',
   'pricing.automation': 'Automatizavimo taisyklės',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{vardas}} avataras',
   'ticketDetail.errorTitle': 'Kažkas nutiko ne taip',
+  'ticketDetail.loadError': 'Nepavyko įkelti bilieto.',
+  'ticketDetail.notFound': 'Bilietas nerastas',
+  'ticketDetail.replyError': 'Nepavyko išsiųsti atsakymo. Bandykite dar kartą.',
   'ticketDetail.retry': 'Pabandyk dar kartą',
   'ticketDetail.statusUpdateError': 'Nepavyko atnaujinti būsenos. Bandykite dar kartą.',
   'ticketDetailsCard.assigneeLabel': 'Įgaliotasis',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': 'laikas kairė',
   'ticketRow.title': 'Duomenų bazės ryšio sutrikimas gamybinėje aplinkoje {{mazgas}}',
   'tickets.pageTitle': 'Bilietai — „Zenith“ palaikymas',
+  'ticketsFab.newTicket': 'Naujas bilietas',
   'ticketsFilterBar.assigneeLabel': 'Įgaliotasis:',
   'ticketsFilterBar.clearFilters': 'Išvalyti filtrus',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

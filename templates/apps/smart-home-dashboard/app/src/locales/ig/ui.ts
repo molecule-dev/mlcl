@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.pageTitle': 'Gbasara {{app}}',
   'activity.empty': 'Enweghị ihe omume ọ bụla — tụgharịa ngwaọrụ ma ọ bụ mee ka ihe nkiri rụọ ọrụ.',
   'activity.eyebrow': 'Usoro iheomume',
   'activity.loadError': 'Enweghị ike ibunye nri mmemme.',
   'activity.subheading': "Ngwaọrụ ọ bụla, akpaaka, na ihe omume nchekwa n'usoro oge.",
+  'addDevice.error.failed': 'Enweghị m ike itinye ngwaọrụ ahụ. Nwaa ọzọ.',
   'addDevice.error.nameRequired': "Nye ngwaọrụ a aha ka ọ gaa n'ihu.",
   'addDevice.field.firmware': 'Ụdị firmware',
   'addDevice.field.manufacturer': 'Onye nrụpụta',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Nnwale…',
   'automationEditor.testNew': 'Chekwaa akpaaka mbụ iji nwalee ya.',
   'automationRow.lastRun': 'Ikpeazụ {{date}} · {{count}} ọsọ',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Gbaa ọsọ {{name}} ugbu a',
   'automations.empty': 'Enwebeghị ihe na-arụ ọrụ akpaaka — mepụta usoro mbụ gị.',
   'automations.eyebrow': 'Usoro ihe omume',
@@ -50,6 +54,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Na-ebugo akpaaka...',
   'automations.newAutomation': '+ Ọhụrụ',
   'automations.subheading': 'Mgbe nke a mere, mee nke ahụ — na-enweghị YAML.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Ịbugo ngwaọrụ ahụ agaghị arụ ọrụ.',
@@ -69,6 +74,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Na-arụ ọrụ…',
   'deviceDetail.unnamed': 'Ngwaọrụ',
   'deviceStatusRow.on': 'Gbanyere',
+  'deviceStatusRow.turnOff': 'Gbanyụọ',
+  'deviceStatusRow.turnOn': 'Gbanwuo',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Ike',
   'energy.heading': 'Ike',
@@ -172,4 +179,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Lee atụmatụ',
   'settings.security.heading': 'Nchekwa',
   'settings.subheading': 'Atụmatụ, ebe a na-ahazi ihe, na mmasị akaụntụ.',
+  'smartHomeDashboardLayout.openMenu': 'Mepee menu nsoroụzọ',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Ntugharị isi',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqida',
+  'appNav.mobileLabel': 'Asosiy navigatsiya',
+  'appNav.primaryLabel': 'Asosiy navigatsiya',
   'billing.actions.confirmCancel':
     "Obunangizni bekor qilmoqchimisiz? Istalgan vaqtda qayta obuna bo'lishingiz mumkin.",
   'billing.actions.paused': "Obuna to'xtatildi.",
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     "Har bir bosqich kichik partiyali hikoya. Navbatingizga bittasini qo'shing yoki keyingi oyingizga o'tkazing.",
   'boxThemeCard.perMonth': '/ oy',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'customize.eyebrow': "Uni o'zingizniki qiling",
   'customize.heading': "Keyingi to'plamingizni sozlang",
   'customize.items.exclude': "Buni o'tkazib yuboring",
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Bu mavsumda',
   'landing.editions.heading': 'Kuratorlarimiz sevadigan nashrlar',
   'landing.footer.contact': 'Kurator bilan gaplashing',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qutini ishga tushiring →',
   'landing.hero.ctaSecondary': "Bosqichlarni ko'ring",
   'landing.hero.eyebrow': 'Oylik tanlov asosida. Doim shaxsiylashtirilgan.',
@@ -116,6 +121,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': "KEYINGI TO'PLAMI",
   'nextBoxHeroCard.itemsLabel': 'Tanlangan elementlar',
   'nextBoxHeroCard.shipsOnLabel': 'Yetkazib beriladi',
+  'notFound.body':
+    "Biz bu sahifani {{app}} arxividan topa olmadik. U o'chirib tashlangan yoki shunchaki noto'g'ri yozilgan bo'lishi mumkin.",
   'notFound.cta.dashboard': "Boshqaruv paneliga o'tish",
   'notFound.eyebrow': "Bo'sh quti",
   'notFound.heading': "Bu javon bo'sh",

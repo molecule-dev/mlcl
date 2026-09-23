@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'alerts.acknowledgeLabel': 'Vuma',
   'alerts.customerLabel': 'Ikhasimende: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Iyaxhuma…',
   'carriers.requiredError': 'Igama nekhodi kuyadingeka.',
   'carriers.subheading': '{{count}} kuhlanganisiwe',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
+  'common.retry': 'Zama futhi',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Kusendleleni + kuhlatshwe umkhosi',
   'dashboard.activeShipmentsSubtitle':
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'ukuthunyelwa',
   'pricing.trackingLabel': 'imicimbi yokulandelela',
   'profile.dangerZone.title': 'Indawo eyingozi',
+  'profile.devices.signingOut': 'Iyaphuma…',
+  'profile.devices.unnamed': 'Idivayisi engaqanjwanga igama',
+  'profile.security.disable2fa': 'Khubaza i-2FA',
   'profile.security.enable2fa': 'Nika amandla i-2FA',
   'profile.security.pwChanged': 'Iphasiwedi ishintshwe ngempumelelo.',
   'profile.security.pwCurrent': 'I-password Yamanje',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'I-2FA iyasebenza',
   'profile.security.twoFaCode': 'Ikhodi enezinombolo ezingu-6',
   'profile.security.twoFaDisable': 'Khubaza',
+  'profile.security.twoFaDisabling': 'Iyakhubaza…',
   'profile.security.twoFaFailed': 'Ayikwazanga ukuqinisekisa ikhodi.',
   'profile.security.twoFaIntro':
     'Skena ikhodi ye-QR kuhlelo lwakho lokusebenza lokufakazela ubuqiniso, bese ufaka ikhodi enezinombolo ezingu-6 ngezansi ukuze uqinisekise.',
   'profile.security.twoFaOn': 'Ukuqinisekiswa kwezinto ezimbili kuyasebenza kule akhawunti.',
+  'profile.security.twoFaQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
   'profile.security.twoFaVerify': 'Qinisekisa futhi unike amandla',
   'profile.security.twoFaVerifying': 'Iyaqinisekisa…',
   'profile.subheading': 'Izilungiselelo zobunikazi kanye nokuvikeleka kwale ndawo yokusebenza.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Londoloza le mfihlo — ngeke iphinde iboniswe.',
   'settings.api.webhookSecret': 'Imfihlo yokusayina i-Webhook',
   'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
+  'settings.deleteAccountConfirm': 'Uqinisekile? Lesi senzo asikwazi ukuhlehliswa.',
   'settings.notifications.exceptions':
     'Ngithumelele i-imeyili uma kwenzeka okuhlukile ekuthunyelweni',
   'settings.notifications.heading': 'Izaziso',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Ukuthunyelwa akutholakalanga.',
   'shipmentDetail.originHeading': 'Umsuka',
   'shipmentDetail.shippedOn': 'Kuthunyelwe {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Azikho izehlakalo zokulandelela okwamanje — izibuyekezo zivela lapha njengoba inkampani yenethiwekhi iskena iphasela.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Umthwali',
   'shipments.col.eta': 'I-ETA',
@@ -177,6 +188,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Ngena ngemvume',
   'signup.submit': 'Yenza i-akhawunti',
   'team.emailError': 'Kudingeka ikheli le-imeyili elivumelekile.',
+  'team.empty':
+    'Azikho amalungu eqembu okwamanje. Mema umuntu osebenza naye ukuthi abambisane ekuthunyelweni kwezimpahla.',
   'team.eyebrow': 'Amalungu nezimvume',
   'team.inviteDialog.cancel': 'Khansela',
   'team.inviteDialog.heading': 'Mema umuntu osebenza naye eqenjini',
@@ -199,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Ithrekhi',
   'waypointLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'webhooks.createFailed': 'Ayikwazanga ukudala i-webhook endpoint.',
+  'webhooks.endpointsEmpty':
+    'Azikho izindawo zokugcina ze-webhook okwamanje. Dala eyodwa ukuze uthole ukubizwa kabusha kwesimo sokuthunyelwa.',
   'webhooks.endpointsHeading': 'Amaphoyinti Okugcina',
   'webhooks.eventCount': '{{count}} imicimbi',
   'webhooks.eventsHeading': 'Ukulethwa kwakamuva',

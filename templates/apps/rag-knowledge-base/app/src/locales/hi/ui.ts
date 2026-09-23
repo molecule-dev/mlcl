@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.pageTitle': '{{appName}} के बारे में',
   'analytics.error': 'एनालिटिक्स लोड नहीं हो सका।',
   'analytics.heading': 'रिट्रीवल एनालिटिक्स',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'कोई मूल्य निर्धारण टियर कॉन्फ़िगर नहीं है।',
   'billing.plans.heading': 'प्लान',
   'billing.subheading': 'प्लान, उपयोग और Stripe-प्रबंधित चेकआउट।',
+  'common.confirm': 'पुष्टि करें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.retry': 'पुनः प्रयास करें',
   'documentCard.open': 'खोलें →',
   'documentDetail.back': 'दस्तावेज़ों पर वापस जाएँ',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'दस्तावेज़ अनुक्रमित करें',
   'documents.composer.titlePlaceholder': 'दस्तावेज़ शीर्षक',
   'documents.emptyAll': 'अभी तक कोई दस्तावेज़ नहीं। प्रश्न पूछना शुरू करने के लिए एक अपलोड करें।',
+  'documents.error.load': 'दस्तावेज़ लोड नहीं हो सके।',
   'documents.heading': 'अनुक्रमित दस्तावेज़',
   'documents.loading': 'दस्तावेज़ लोड हो रहे हैं…',
   'documents.metric.chunks': 'कुल खंड',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'हटाया जा रहा है…',
   'members.subheading': 'सहयोगियों को आमंत्रित करें और भूमिकाएँ निर्धारित करें।',
   'members.tableHeading': 'रोस्टर',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'notFound.askCta': 'ज्ञान आधार से पूछें',
+  'notFound.body':
+    '{{app}} उस पृष्ठ का पता नहीं लगा सका। लिंक टूटा हुआ हो सकता है, या पुनः अनुक्रमण के दौरान पृष्ठ को हटा दिया गया हो सकता है।',
   'notFound.eyebrow': 'पुनर्प्राप्त नहीं किया जा सकता',
   'notFound.title': 'अनुक्रमणिका में ऐसा कोई खंड नहीं',
   'notifications.dismiss': 'खारिज करें',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'स्रोत URL',
   'sources.empty.body': 'अपना पहला कनेक्टर वायर करने के लिए “स्रोत जोड़ें” पर क्लिक करें।',
   'sources.empty.title': 'अभी तक कोई स्रोत नहीं।',
+  'sources.error.add': 'स्रोत नहीं जोड़ा जा सका।',
   'sources.error.labelRequired': 'लेबल आवश्यक है।',
   'sources.error.load': 'स्रोत लोड नहीं हो सके।',
   'sources.error.urlRequired': 'इस स्रोत प्रकार के लिए URL आवश्यक है।',

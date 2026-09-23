@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'ඔබගේ මුරපදය නැවත සකසන්න.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'කාර්යය සම්පූර්ණ ලෙස සලකුණු කරන්න',
   'checklistTaskCard.markIncomplete': 'කාර්යය අසම්පූර්ණ ලෙස සලකුණු කරන්න',
   'checklistTaskCard.openLabel': 'කාර්යය විවෘත කරන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'ඔබ සියල්ල හසු කරගෙන ඇත.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'මාර්ගයේ',
   'dashboard.timelineHeading': '30/60/90 සන්ධිස්ථාන',
   'dashboard.viewAllTasks': 'සියලු කාර්යයන් බලන්න',
+  'dashboard.weekOne': '1 වන සතිය',
   'dashboard.yourCohort': 'ඔබේ කණ්ඩායම',
   'documents.empty.body': 'ඔබගේ කණ්ඩායම විසින් එකතු කරන ලද ලේඛන මෙහි දිස්වනු ඇත.',
   'documents.empty.title': 'තවමත් ලේඛන නොමැත.',
@@ -104,7 +107,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'දින-14ක නොමිලේ අත්හදා බැලීම',
   'landing.subhead':
     'Embark විසින් සෑම නව කණ්ඩායම් සගයෙකුටම ඔවුන්ගේ පළමු දින 90 හරහා මඟ පෙන්වනු ලැබේ - ලේඛන කටයුතු, පුහුණුව, සන්ධිස්ථාන සහ අර්ථවත් හැඳින්වීම්, සියල්ලම එකම සන්සුන්, විශ්වාසදායක ස්ථානයක.',
+  'layout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'layout.search': 'කාර්යයන්, ලේඛන, කණ්ඩායම් සගයන් සොයන්න...',
+  'layout.searchTeammates': 'නම හෝ භූමිකාව අනුව කණ්ඩායම් සගයන් සොයන්න...',
   'layout.section.onboarding': 'බඳවා ගැනීම',
   'layout.tagline': 'ඔබේ ගමන මෙතැනින් ආරම්භ වේ',
   'notifications.empty.body': 'නව ක්‍රියාකාරකම් මෙහි දිස්වනු ඇත.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ඊයේ',
   'planUpdated.message': 'ඔයා ඔක්කොම හරි.',
   'planUpdated.preparing': 'ඔබේ සැලැස්ම යාවත්කාලීන කරමින්...',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.documentsLabel': 'ලේඛන',
   'pricing.onboardingsLabel': 'ඇතුළත් කිරීම්',
   'pricing.tasksLabel': 'කාර්යයන්',

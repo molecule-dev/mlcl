@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'analytics.col.quorum': 'Córam',
   'analytics.col.votes': 'Vótaí',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Níl aon cheisteanna ar feitheamh go fóill.',
   'audienceQa.onStageEyebrow': 'Ar an stáitse anois',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Cur Chun Cinn',
   'audienceQa.queued': 'i scuaine',
   'audienceQa.queueEyebrow': 'Scuaine',
   'ballot.eyebrow': 'Caith do bhallóid',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Tá tú ar an láthair {{plan}} plean.',
   'billing.switch': 'Athraigh',
   'billing.upgraded': 'Nuashonraithe go {{plan}} — teorainneacha curtha i bhfeidhm láithreach.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'createPoll.addOption': 'Cuir rogha leis',
   'createPoll.anonymousHint':
     'Ainmneacha vótálaithe i bhfolach sa log iniúchta; fanann na comhairimh fíordheimhnithe.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nua le Nosh?',
   'login.remember': 'Cuimhnigh orm ar feadh 30 lá',
   'login.subheading': 'Oscail an t-urlár, rith an seomra, agus deimhnigh an toradh.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'notFound.body':
     'Tá an leathanach ar iarraigh tú teacht air dúnta nó bogtha. Téigh ar ais chuig an deais nó oscail pobalbhreith úr.',
   'notFound.eyebrow': 'Gan aon chóram ar an mbealach seo',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Níorbh fhéidir an pobalbhreith seo a lódáil.',
   'pollDetail.loading': 'Ag lódáil pobalbhreithe…',
   'pollDetail.notFound': 'Níor aimsíodh pobalbhreith.',
+  'pollDetail.openBallot': 'Ballóid oscailte',
   'pollDetail.openLive': 'Torthaí beo',
   'pollDetail.pollId': 'pobalbhreith · {{id}}',
   'pollDetail.published':
@@ -272,4 +278,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Cuardaigh trí ríomhphost…',
   'voters.subheading':
     'Déan an rolla incháilithe a choimeád. Grúpáil vótálaithe de réir eagraíochta le haghaidh ballóidí ualaithe.',
+  'votingPollingLayout.nav.analytics': 'Anailísíocht',
+  'votingPollingLayout.nav.billing': 'Billeáil',
+  'votingPollingLayout.nav.createPoll': 'Polaitíocht nua',
+  'votingPollingLayout.nav.dashboard': 'Painéal Rialaithe',
+  'votingPollingLayout.nav.notifications': 'Fógraí',
+  'votingPollingLayout.nav.settings': 'Socruithe',
+  'votingPollingLayout.nav.team': 'Foireann',
+  'votingPollingLayout.nav.voters': 'Vótálaithe',
+  'votingPollingLayout.primaryNavLabel': 'Príomh-loingseoireacht',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'accountSettings.confirmEmailLabel': 'Tasdiqlash uchun DELETE deb yozing',
   'accountSettings.deleteError': "Hisobni o'chirib bo'lmadi.",
   'accountSettings.passwordError': "Parolni o'zgartirib bo'lmadi.",
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': "Yaqinlashib kelayotgan muddatlar yo'q.",
   'dashboard.upcomingTitle': 'Kelgusi muddatlar',
   'deviceSettings.unknownDevice': "Noma'lum qurilma",
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': "Qo'llab-quvvatlash",
   'forgotPassword.error': "Qayta tiklash havolasini yuborib bo'lmadi.",
   'forgotPassword.subtitle':
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': "Elektron pochta yoki parol noto'g'ri.",
   'login.pageTitle': 'Tizimga kirish',
   'login.signIn': 'Forge’ga kirish',
+  'login.subtitle': 'Loyihalaringizni kuzatib borish uchun tizimga kiring',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'nav.calendar': 'Taqvim',
   'nav.legal': 'Huquqiy',
   'nav.myTasks': 'Mening vazifalarim',

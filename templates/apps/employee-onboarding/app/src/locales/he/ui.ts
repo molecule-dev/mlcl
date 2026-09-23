@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
   'auth.forgotPassword.emailPlaceholder': 'שם@החברה שלך.com',
   'auth.forgotPassword.heading': 'אפס את הסיסמה שלך.',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'סמן משימה שהושלמה',
   'checklistTaskCard.markIncomplete': 'סמן משימה כלא גמורה',
   'checklistTaskCard.openLabel': 'משימה פתוחה',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'אתם שקועים לגמרי',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'בדרך הנכונה',
   'dashboard.timelineHeading': 'אבני דרך של 30/60/90',
   'dashboard.viewAllTasks': 'הצג את כל המשימות',
+  'dashboard.weekOne': 'שבוע 1',
   'dashboard.yourCohort': 'הצוות שלך',
   'documents.empty.body': 'מסמכים שנוספו על ידי הצוות שלך יופיעו כאן.',
   'documents.empty.title': 'אין עדיין מסמכים',
@@ -101,7 +104,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'ניסיון חינם ל-14 יום',
   'landing.subhead':
     'Embark מנחה כל חבר צוות חדש ב-90 הימים הראשונים שלו - ניירת, הכשרה, אבני דרך והיכרות משמעותית, הכל במקום אחד רגוע ובטוח.',
+  'layout.openMenu': 'פתח את תפריט הניווט',
   'layout.search': 'חיפוש משימות, מסמכים, חברי צוות...',
+  'layout.searchTeammates': 'חפש צוות צוות לפי שם או תפקיד…',
   'layout.section.onboarding': 'קליטה',
   'layout.tagline': 'המסע שלך מתחיל כאן',
   'notifications.empty.body': 'פעילות חדשה תופיע כאן.',
@@ -110,6 +115,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'אֶתמוֹל',
   'planUpdated.message': 'אתה מוכן.',
   'planUpdated.preparing': 'מעדכן את התוכנית שלך…',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'pricing.documentsLabel': 'מסמכים',
   'pricing.onboardingsLabel': 'קליטת עבודות',
   'pricing.tasksLabel': 'משימות',

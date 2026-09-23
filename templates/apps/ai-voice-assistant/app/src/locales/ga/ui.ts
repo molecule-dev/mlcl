@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, iarratas gné nó fabht aimsithe agat? Téigh i dteagmháil le foireann {{app}} tríd an nasc tacaíochta i roghchlár do chuntais — téann gach teachtaireacht chuig fíordhuine.',
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'agentDetail.back': 'Gach gníomhaire',
   'agentDetail.capabilities': 'Cumais',
   'agentDetail.delete': 'Scrios pearsa',
   'agentDetail.deleteConfirm': 'Scrios an phearsa seo? Ní féidir é seo a chealú.',
+  'agentDetail.deleteError': 'Níorbh fhéidir an pearsa a scriosadh.',
   'agentDetail.eyebrow': 'Pearsa',
   'agentDetail.fetchError': 'Níorbh fhéidir an phearsa a lódáil.',
   'agentDetail.save': 'Sábháil pearsa',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Ag athrú…',
   'billing.updateError': 'Níorbh fhéidir an nuashonrú a thosú.',
   'billing.usageHeading': 'Úsáid gutha an timthriall seo',
+  'chatBubble.source.text': 'téacs',
+  'chatBubble.source.voice': 'guth',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'conversation.defaultTitle': 'Comhrá nua',
   'conversation.empty':
     'Gan aon teachtaireachtaí fós. Tosaigh trí rud éigin a rá nó a chlóscríobh thíos.',
@@ -97,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Faisnéis a labhraíonn.',
   'landing.heroSubtitle':
     'An cúntóir gutha AI a thuigeann do shreabhadh nádúrtha. Comhráigh, smaoinigh agus tabhair orduithe — gan uaim.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Ag éisteacht…',
   'landing.naturallyBody':
     'Gan aon fhocail spreagtha. Gan aon orduithe dochta. Tuigeann an teanga comhthéacs, cur isteach, agus castachtaí cainte an duine - cosúil le comhrá a dhéanamh le comhghleacaí.',
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Oscail seisiún',
   'notFound.home': 'Ar ais sa bhaile',
   'notFound.title': 'Níorbh fhéidir linn an leathanach sin a chloisteáil.',
+  'parlanceLayout.closeMenu': 'Dún an roghchlár',
+  'parlanceLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'parlanceLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'pricing.conversations': '{{count}} comhráite',
   'pricing.cta.startFree': 'Tosaigh saor in aisce',
@@ -152,6 +162,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Gan aon mheaitseálacha',
   'search.eyebrow': 'Pailéad orduithe',
   'search.fetchError': 'Níorbh fhéidir innéacs cuardaigh a lódáil.',
+  'search.static.profile.preview': 'Ainm taispeána, láimhseáil, beathaisnéis',
   'search.static.voice.title': 'Guth',
   'search.title': 'Cuardaigh Teanga',
   'search.transcriptPreview': 'Oscail an tras-scríbhinn',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'billing.canceled': 'Abonnement opgezegd. U keert aan het einde van de periode terug naar Free.',
   'billing.contactSales': 'Neem contact op met sales',
   'billing.free.1': '5 vertalingen',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Geen bewaarlimiet',
   'billing.upgradeHint': 'Upgrade om geavanceerde AI-functies te ontgrendelen.',
   'billing.yearly': 'Jaarlijks',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'dashboard.activityEmpty': 'Nog geen activiteit — start een project om deze feed te vullen.',
   'dashboard.eyebrow': 'Overzicht',
   'dashboard.projectsEmpty': 'Nog geen projecten — start er een om het hier te zien.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Hergebruik eerdere vertalingen in elk project. Hogere matchscore → minder herwerk.',
   'memory.title': 'Geheugenbank',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'nav.legal': 'Juridisch',
   'newProject.addLanguage': 'Doel toevoegen',
   'newProject.create': 'Project aanmaken',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} meldingen gemarkeerd als gelezen.',
   'notifications.subtitle':
     'Vermeldingen, beoordelingsverzoeken en AI-gebeurtenissen uit al uw werkruimtes.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'privacy.collection.account': 'Uw accountmail en weergavenaam',
   'privacy.deletion.body':
     'U kunt op elk moment een project, segment, term uit de woordenlijst of geheugenitem verwijderen vanaf de relevante pagina. Het verwijderen van uw account in Instellingen wist elke werkruimte-scoped rij uit onze database.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Projecten konden niet worden geladen.',
   'projects.loading': 'Projecten laden…',
   'projects.subtitle': 'Elk actief project in alle locales.',
+  'renditionLayout.primaryNavLabel': 'Hoofdnavigatie',
   'reset.backToLogin': '\\u2190 Terug naar aanmelden',
   'reset.passwordLabel': 'Nieuw wachtwoord',
   'review.activeEyebrow': 'Segment {{number}}',

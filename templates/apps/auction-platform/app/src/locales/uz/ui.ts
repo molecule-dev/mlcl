@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Tomosha qilish',
   'auctionDetail.watchRemoved': 'Kuzatuv roʻyxatidan olib tashlandi.',
   'auctionDetail.watchRemoveLabel': "Kuzatuv ro'yxatidan olib tashlash",
+  'auctionPlatformLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'authShell.brandBody':
     'Noyob soatlar, tasviriy sanʼat asarlari va noyob maxsus buyumlarga real vaqt rejimida narx taklif qiling. Bolgʻa bir necha soniya ichida tushadi.',
   'authShell.brandEyebrow': 'Hozir jonli efirda · 1420 ta auktsion',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Saralash turi',
   'browseAuctions.subheading':
     "Kategoriya bo'yicha filtrlang, eng muhimlari bo'yicha saralang va bolg'a tushmasdan oldin narx qo'ying.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'countdownTimer.ended': 'Tugadi',
   'countdownTimer.endingSoon': 'Yakun',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': "Parolni ko'rsatish",
   'login.subtext':
     "Auksionlaringizni kuzatishda davom eting va bolg'a yiqilishidan oldin takliflar bering.",
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'myBids.bidAgain': 'Yana taklif qiling',
   'myBids.browseCta': "Jonli auktsionlarni ko'rib chiqing →",
   'myBids.checkoutCta': "Hozir to'lang",
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Faoliyat markazi',
   'notificationsPage.subheading':
     "{{count}} o'qilmagan · auktsionlar o'tkazilishi bilan jonli yangilanishlar",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.bidsLabel': 'takliflar',
   'pricing.listingsLabel': "ro'yxatlar",
   'pricing.watchlistLabel': "kuzatuv ro'yxati",

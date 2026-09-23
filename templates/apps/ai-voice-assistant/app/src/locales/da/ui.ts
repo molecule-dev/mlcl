@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, et ønske om en ny funktion eller har du fundet en fejl? Du kan kontakte {{app}}-teamet via supportlinket i din kontomenu — alle beskeder bliver behandlet af et rigtigt menneske.',
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'agentDetail.back': 'Alle agenter',
   'agentDetail.capabilities': 'Funktioner',
   'agentDetail.delete': 'Slet persona',
   'agentDetail.deleteConfirm': 'Slet denne persona? Dette kan ikke fortrydes.',
+  'agentDetail.deleteError': 'Det var ikke muligt at slette personaen.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Kunne ikke indlæse persona.',
   'agentDetail.save': 'Gem persona',
@@ -44,6 +48,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Skifter…',
   'billing.updateError': 'Kunne ikke starte opdatering.',
   'billing.usageHeading': 'Stemmeforbrug denne periode',
+  'chatBubble.source.text': 'tekst',
+  'chatBubble.source.voice': 'stemme',
+  'common.goToDashboard': 'Gå til Dashboard',
   'conversation.defaultTitle': 'Ny samtale',
   'conversation.empty': 'Ingen beskeder endnu. Begynd ved at sige noget eller skriv nedenfor.',
   'conversation.eyebrow': 'Live session',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelligens, der taler.',
   'landing.heroSubtitle':
     'AI-stemmeassistenten, der forstår dit naturlige flow. Samtale, idéudvikling og kommandoer – problemfrit.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Lytter…',
   'landing.naturallyBody':
     'Ingen aktiveringsord. Ingen stive kommandoer. Vox forstår kontekst, afbrydelser og nuancerne i menneskelig tale – som at tale med en kollega.',
@@ -110,6 +118,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Åbn en session',
   'notFound.home': 'Tilbage til forsiden',
   'notFound.title': 'Vi kunne ikke høre den side.',
+  'parlanceLayout.closeMenu': 'Luk menu',
+  'parlanceLayout.openMenu': 'Åbn navigationsmenuen',
   'parlanceLayout.primaryNavLabel': 'Primær navigation',
   'pricing.conversations': '{{count}} samtaler',
   'pricing.cta.startFree': 'Kom gratis i gang',
@@ -146,6 +156,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Ingen resultater',
   'search.eyebrow': 'Kommandopalet',
   'search.fetchError': 'Kunne ikke indlæse søgeindeks.',
+  'search.static.profile.preview': 'Visningsnavn, brugernavn, biografi',
   'search.static.voice.title': 'Stemme',
   'search.title': 'Søg i Vox',
   'search.transcriptPreview': 'Åbn transskription',

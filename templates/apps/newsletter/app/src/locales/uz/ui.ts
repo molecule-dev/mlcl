@@ -81,7 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Avval mavzuni yozing.',
   'issueEditor.title': 'Son muharriri',
   'issues.delete': "O'chirish",
-  'issues.deleteConfirm': 'Bu muammo o&#39;chirib tashlansinmi? Buni ortga qaytarib bo&#39;lmaydi.',
+  'issues.deleteConfirm': "Bu muammo o'chirib tashlansinmi? Buni ortga qaytarib bo'lmaydi.",
   'issues.deleteError': "Sonni o'chirib bo'lmadi",
   'issues.edit': 'Tahrirlash',
   'issues.loadError': 'Sonlarni yuklash muvaffaqiyatsiz tugadi',
@@ -167,7 +167,7 @@ export const ui: UiTranslations = {
   'settingsPageHeader.title': 'Hisob sozlamalari',
   'settingsPrivacySection.description':
     "Ma'lumotlaringiz va mavjudligingiz ko'rinishini boshqaring.",
-  'settingsPrivacySection.profileVisibilityLabel': 'Ommaviy profil ko&#39;rinishi',
+  'settingsPrivacySection.profileVisibilityLabel': "Ommaviy profil ko'rinishi",
   'settingsProfileSection.profileImage': 'Profil rasmi',
   'settingsProfileSection.sectionDescription':
     "Nashr muallifligi sifatida ko'rsatiladigan shaxsiy ma'lumotlar.",

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'analytics.avgCheckLabel': 'Isheke elimaphakathi',
   'analytics.busiestHour': 'Ihora elimatasa kakhulu',
   'analytics.coversToday': 'Izembozo namuhla',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Amathiphu (okumaphakathi)',
   'analytics.topItems': 'Izinto eziphezulu namuhla',
   'authShell.eyebrow': 'Siyakwamukela futhi kusevisi',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Indawo yokuthengisa efudumele nesheshayo yamaqembu okungenisa izihambi. Ngena ngemvume ekhishini lakho bese uqala lapho ugcine khona.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'noma {{price}}',
   'billing.priceUnavailable': 'Lolu hlelo alunamanani ahleliwe.',
   'billing.updated': 'Uhlelo lubuyekeziwe.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'customerDetail.book': 'Engeza ukubhukha',
   'customerDetail.col.table': 'Ithebula',
   'customerDetail.confirmDelete': 'Susa leli rekhodi lezivakashi?',
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Ukutholakala',
   'menuItemDetail.available': 'Kuyatholakala namuhla ebusuku',
   'menuItemDetail.backToMenu': 'Buyela kumenyu',
+  'menuItemDetail.confirmDelete': 'Susa le nto yemenyu?',
   'menuItemDetail.delete': 'Susa into',
   'menuItemDetail.deleteError': 'Ukususa kuhlulekile. Zama futhi.',
   'menuItemDetail.dietary': 'Amathegi okudla',
@@ -141,8 +145,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · Hlela isithombe, izilungisi, ukudla, kanye namanani.',
   'menuItemDetail.untitled': 'Into engenasihloko',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'notFound.heading': 'Leli tafula alikho phansi.',
   'notFound.subheading': 'Ikhasi obulifuna libekwe kwenye indawo — noma alikaze libe khona.',
+  'notFound.toLanding': 'ikhaya le {{app}}',
   'notifications.markError': 'Ayikwazanga ukumaka konke okufundiwe.',
   'orderDashboard.activeDelta': 'Bukhoma manje',
   'orderDashboard.activeLabel': 'Ama-oda asebenzayo',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Bonisa iphasiwedi',
   'resetPassword.subtitle': 'Faka iphasiwedi yakho entsha ukuze uthole ukufinyelela ekhishini.',
   'resetPassword.tokenLabel': 'Setha kabusha ithokheni',
+  'restaurantOrderingLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'revenueHeroCard.activeOrders': '{{count}} esebenzayo',
   'revenueHeroCard.change': '{{sign}} {{amount}} uma kuqhathaniswa nosuku lwayizolo',
   'revenueHeroCard.title': 'Imali engenayo yanamuhla',
@@ -224,6 +232,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Igama lendawo yokudlela',
   'tableDetail.activeOrders': 'Ama-oda asebenzayo',
   'tableDetail.backToFloor': 'Uhlelo lwephansi',
+  'tableDetail.confirmDelete': 'Susa leli thebula?',
   'tableDetail.delete': 'Susa',
   'tableDetail.deleteError': 'Ayikwazanga ukususa ithebula.',
   'tableDetail.heading': 'Ithebula {{label}}',

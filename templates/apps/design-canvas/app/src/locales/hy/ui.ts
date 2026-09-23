@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'authShell.brandHeading':
     'Պիքսելային կատարյալ կտավներ համատեղ առաքմամբ զբաղվող դիզայներական թիմերի համար։',
   'canvas.redirecting': 'Խմբագրիչը բացվում է…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'և',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.retry': 'Կրկին փորձել',
   'dashboard.activityEmpty': 'Վերջերս որևէ գործունեություն չկա՝ հրավիրեք թիմակցի սկսելու համար։',
   'dashboard.activityTitle': 'Ի՞նչ փոխվեց այսօր',
   'dashboard.activityViewAll': 'Դիտել բոլոր ծանուցումները',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Աշխատանքային տարածք · Northwind Studio',
   'dashboard.foldersLabel': 'Թղթապանակներ',
   'dashboard.gridTitle': '{{count}} նախագծեր',
+  'dashboard.heroActiveTool': 'Գրիչի գործիք',
   'dashboard.loadingTitle': 'Նախագծերը բեռնվում են…',
   'dashboard.searchPlaceholder': 'Որոնել նախագծեր',
   'dashboard.startFromTemplate': 'Սկսել ձևանմուշից',
   'dashboard.title': 'Ձեր նախագծերը',
   'dashboard.untitledProject': 'Անանուն նախագիծ',
   'designCanvasLayout.newProject': 'Նոր նախագիծ',
+  'designCanvasLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'editor.backToProjects': 'Վերադառնալ նախագծերին',
   'editor.deleteShape': 'Ջնջել ձևը',
   'editor.errorBody': 'Մենք չկարողացանք բացել այս նախագիծը։',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Դիզայնի գործիքներ, որոնք շարժվում են ձեր ձեռքերի արագությամբ',
   'library.empty': 'Այս բաժնում դեռևս թոքեններ չկան։',
   'library.eyebrow': 'Աշխատանքային տարածք · Ատելիեի դիզայնի համակարգ',
+  'library.loadFailed': 'Չհաջողվեց բեռնել դիզայնի տոկենները։',
   'library.systemMeta': 'Համակարգի առողջությունը',
   'library.systemSummary':
     '{{թոքեններ}} տոկեններ · {{բաղադրիչներ}} բաղադրիչներ · {{էֆեկտներ}} էֆեկտներ',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Ynghylch {{app}}',
   'argentAuthShell.brandEyebrow': 'Ariannin · Offer cyfoeth',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nid cyngor buddsoddi mo hyn.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) heddiw',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Prif lywio',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Dim trafodion ar gyfer y ticer hwn.',
   'assetDetail.txHeading': 'Eich trafodion',
   'common.and': 'a',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Trosolwg o’r portffolio',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Dim daliadau eto.',
   'holdings.heading': 'Daliadau',
   'holdings.loadError': 'Methwyd llwytho daliadau.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nid cyngor buddsoddi mo hyn. Nid yw perfformiad yn y gorffennol yn gwarantu canlyniadau yn y dyfodol.',
   'landing.eyebrow': 'Argent · Platfform offer cyfoeth',
   'landing.features.heading': 'Popeth y byddai cynghorydd yn ei adeiladu drostynt eu hunain.',
   'landing.finalCta.heading': 'Dewch â disgyblaeth yn ôl i’ch portffolio.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} awr yn ôl',
   'news.justNow': 'nawr yn unig',
   'news.loadError': 'Methwyd llwytho newyddion.',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'portfolioHeroCard.label': 'Gwerth Portffolio',
   'pricing.holdingsLabel': 'daliadau',
   'pricing.newsLabel': 'erthyglau newyddion',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Dileu cyfrif',
   'settings.security.deleting': 'Yn dileu…',
   'settings.security.heading': 'Diogelwch',
+  'settings.security.newPassword': 'Cyfrinair newydd',
   'settings.security.password': 'Cyfrinair',
   'settings.security.twoFactorEnable': 'Galluogi',
+  'settings.security.twoFactorInvalidCode': 'Cod annilys',
+  'settings.security.twoFactorVerify': 'Dilysu a galluogi',
   'settings.tax.error': 'Methwyd diweddaru’r dull treth.',
   'settings.tax.heading': 'Cyfrifeg lot treth',
   'settings.tax.method': 'Dull diofyn',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Orodja za premoženje',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ni investicijski nasvet.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) danes',
   'argentAuthShell.sampleValue': '1.032.251 $',
   'argentLayout.primaryNavLabel': 'Primarna navigacija',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Za ta ticker ni transakcij.',
   'assetDetail.txHeading': 'Vaše transakcije',
   'common.and': 'in',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Pregled portfelja',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Še ni deležev.',
   'holdings.heading': 'Holdingi',
   'holdings.loadError': 'Nalaganje zbirk ni uspelo.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ni investicijski nasvet. Pretekla uspešnost ne zagotavlja prihodnjih rezultatov.',
   'landing.eyebrow': 'Argent · Platforma za ustvarjanje premoženja',
   'landing.features.heading': 'Vse, kar bi si svetovalec zgradil sam.',
   'landing.finalCta.heading': 'Vrnite disciplino v svoj portfelj.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} pred h',
   'news.justNow': 'ravnokar',
   'news.loadError': 'Nalaganje novic ni uspelo.',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'portfolioHeroCard.label': 'Vrednost portfelja',
   'pricing.holdingsLabel': 'posesti',
   'pricing.newsLabel': 'novice',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Izbriši račun',
   'settings.security.deleting': 'Brisanje …',
   'settings.security.heading': 'Varnost',
+  'settings.security.newPassword': 'Novo geslo',
   'settings.security.password': 'Geslo',
   'settings.security.twoFactorEnable': 'Omogoči',
+  'settings.security.twoFactorInvalidCode': 'Neveljavna koda',
+  'settings.security.twoFactorVerify': 'Preveri in omogoči',
   'settings.tax.error': 'Davčne metode ni bilo mogoče posodobiti.',
   'settings.tax.heading': 'Davčno računovodstvo',
   'settings.tax.method': 'Privzeta metoda',

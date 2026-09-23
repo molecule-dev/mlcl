@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqida',
   'analytics.avgCheckLabel': "O'rtacha chek",
   'analytics.busiestHour': 'Eng gavjum soat',
   'analytics.coversToday': 'Bugungi muqovalari',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': "Maslahatlar (o'rtacha)",
   'analytics.topItems': 'Bugungi eng yaxshi mahsulotlar',
   'authShell.eyebrow': 'Xizmatga yana xush kelibsiz',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     "Mehmondo'stlik jamoalari uchun iliq va tezkor savdo nuqtasi. Oshxonangizga kiring va to'xtagan joyingizdan davom eting.",
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'yoki {{price}}',
   'billing.priceUnavailable': "Ushbu rejada sozlangan narx yo'q.",
   'billing.updated': 'Reja yangilandi.',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'customerDetail.book': "Buyurtma qo'shish",
   'customerDetail.col.table': 'Stol',
   'customerDetail.confirmDelete': "Ushbu mehmon yozuvi o'chirilsinmi?",
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Mavjudlik',
   'menuItemDetail.available': 'Bugun kechqurun mavjud',
   'menuItemDetail.backToMenu': 'Menyuga qaytish',
+  'menuItemDetail.confirmDelete': "Ushbu menyu elementi o'chirilsinmi?",
   'menuItemDetail.delete': "Elementni o'chirish",
   'menuItemDetail.deleteError': 'Oʻchirish amalga oshmadi. Qaytadan urinib koʻring.',
   'menuItemDetail.dietary': 'Parhez teglari',
@@ -141,9 +145,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · Suratni tahrirlash, modifikatorlar, parhez va narxlar.',
   'menuItemDetail.untitled': 'Nomsiz element',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'notFound.heading': 'Bu stol yerda emas.',
   'notFound.subheading':
     "Siz izlayotgan sahifa boshqa joyda joylashgan yoki hech qachon mavjud bo'lmagan.",
+  'notFound.toLanding': '{{app}} bosh sahifasi',
   'notifications.markError': "Hammasini o'qilgan deb belgilash imkoni bo'lmadi.",
   'orderDashboard.activeDelta': 'Hozir jonli efirda',
   'orderDashboard.activeLabel': 'Faol buyurtmalar',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': "Parolni ko'rsatish",
   'resetPassword.subtitle': 'Oshxonaga kirishni qayta tiklash uchun yangi parolingizni kiriting.',
   'resetPassword.tokenLabel': 'Tokenni asl holatiga qaytarish',
+  'restaurantOrderingLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'revenueHeroCard.activeOrders': '{{count}} faol',
   'revenueHeroCard.change': '{{sign}} {{amount}} kechagiga nisbatan',
   'revenueHeroCard.title': 'Bugungi daromad',
@@ -226,6 +234,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restoran nomi',
   'tableDetail.activeOrders': 'Faol buyurtmalar',
   'tableDetail.backToFloor': 'Qavat rejasi',
+  'tableDetail.confirmDelete': "Ushbu jadval o'chirilsinmi?",
   'tableDetail.delete': "O'chirish",
   'tableDetail.deleteError': "Jadvalni o'chirib bo'lmadi.",
   'tableDetail.heading': 'Stol {{label}}',

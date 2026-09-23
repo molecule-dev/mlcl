@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'authShell.brandHeading': 'Pixel-perfekte lærreder til designteams, der leverer sammen.',
   'canvas.redirecting': 'Åbner editor…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'og',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.retry': 'Prøv igen',
   'dashboard.activityEmpty': 'Ingen nylig aktivitet endnu — inviter en holdkammerat til at starte.',
   'dashboard.activityTitle': 'Hvad der ændrede sig i dag',
   'dashboard.activityViewAll': 'Se alle notifikationer',
@@ -16,12 +19,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Arbejdsplads · Northwind Studio',
   'dashboard.foldersLabel': 'Mapper',
   'dashboard.gridTitle': '{{count}} projekter',
+  'dashboard.heroActiveTool': 'Penværktøj',
   'dashboard.loadingTitle': 'Indlæser projekter…',
   'dashboard.searchPlaceholder': 'Søg i projekter',
   'dashboard.startFromTemplate': 'Start fra skabelon',
   'dashboard.title': 'Dine projekter',
   'dashboard.untitledProject': 'Unavngivet projekt',
   'designCanvasLayout.newProject': 'Nyt projekt',
+  'designCanvasLayout.primaryNavLabel': 'Primær navigation',
   'editor.backToProjects': 'Tilbage til projekter',
   'editor.deleteShape': 'Slet form',
   'editor.errorBody': 'Vi kunne ikke åbne dette projekt.',
@@ -61,6 +66,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Designværktøjer, der bevæger sig med dine hænders hastighed',
   'library.empty': 'Ingen tokens i denne sektion endnu.',
   'library.eyebrow': 'Arbejdsområde · Atelier Design System',
+  'library.loadFailed': 'Designtokens kunne ikke indlæses.',
   'library.systemMeta': 'Systemets sundhed',
   'library.systemSummary':
     '{{tokens}} tokens · {{komponenter}} komponenter · {{effekter}} effekter',

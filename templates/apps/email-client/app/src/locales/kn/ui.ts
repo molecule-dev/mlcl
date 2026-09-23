@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ನಾವು ಒಂದು ಕಾಲದಲ್ಲಿ ಪ್ರತಿದಿನ ಹಲವು ಗಂಟೆಗಳ ಕಾಲ ಗದ್ದಲದ ಮೇಲ್‌ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಕಳೆದ ವಿನ್ಯಾಸಕರು ಮತ್ತು ಎಂಜಿನಿಯರ್‌ಗಳ ವಿಂಗಡಿತ ತಂಡ. ಮೆರಿಡಿಯನ್ ಎಂದರೆ ನಾವು ನಾವೇ ಬಳಸಲು ಬಯಸಿದ ಇನ್‌ಬಾಕ್ಸ್.',
   'about.title': 'ಗಮನಹರಿಸಿದ ಕೆಲಸಕ್ಕಾಗಿ ಇಮೇಲ್',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'help.cta.about': 'ಮೆರಿಡಿಯನ್ ಬಗ್ಗೆ',
   'help.cta.pricing': 'ಬೆಲೆ ನಿಗದಿಯನ್ನು ವೀಕ್ಷಿಸಿ',
   'help.eyebrow': 'ಸಹಾಯ ಕೇಂದ್ರ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'ನಾವು ಹೆಚ್ಚಾಗಿ ಕೇಳುವ ಪ್ರಶ್ನೆಗಳಿಗೆ ತ್ವರಿತ ಉತ್ತರಗಳು. ಏನಾದರೂ ಕಾಣೆಯಾಗಿದೆಯೇ? ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿನ ಪ್ರತಿಕ್ರಿಯೆ ಫಾರ್ಮ್ ಅನ್ನು ಬಳಸಿ, ಅಥವಾ support@courier.example ಗೆ ಬರೆಯಿರಿ.',
   'help.title': 'ನಾವು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?',
   'landing.brand.scrollTop': 'ಮೇಲಕ್ಕೆ ಹಿಂತಿರುಗಿ',
+  'landing.copyright': '© {{year}} {{appName}} — ಗಮನಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
   'landing.ctaBody': 'ಊಟಕ್ಕೆ ಮುಂಚೆಯೇ ತಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಅನ್ನು ಮುಗಿಸಿದ ಸಾವಿರಾರು ವೃತ್ತಿಪರರೊಂದಿಗೆ ಸೇರಿ.',
   'landing.ctaTitle': 'ಹೆಚ್ಚು ಸಂಸ್ಕರಿಸಿ, ಕಡಿಮೆ ಪ್ರತಿಕ್ರಿಯಿಸಿ.',
   'landing.eyebrow': 'ಗಮನಹರಿಸಿದ ಕೆಲಸಕ್ಕಾಗಿ ಇಮೇಲ್',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'ಡೆಮೋ ವೀಕ್ಷಿಸಿ',
   'landing.heroSubtitle':
     'ಮೆರಿಡಿಯನ್ ಎಂಬುದು ಮಾಹಿತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಬಯಸುವ ಜ್ಞಾನ ಕಾರ್ಯಕರ್ತರಿಗಾಗಿ ನಿರ್ಮಿಸಲಾದ ಶಾಂತ ಮೂರು-ಫಲಕದ ಇನ್‌ಬಾಕ್ಸ್ ಆಗಿದೆ, ಅವರು ಅದಕ್ಕೆ ಪ್ರತಿಕ್ರಿಯಿಸುವ ಬದಲು ಮಾಹಿತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಬಯಸುತ್ತಾರೆ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ವಿಶ್ವಾದ್ಯಂತ ಕೇಂದ್ರೀಕೃತ ತಂಡಗಳಿಂದ ವಿಶ್ವಾಸಾರ್ಹ',
   'landing.signIn': 'ಸೈನ್ ಇನ್',
   'meridian.archive.empty': 'ಆರ್ಕೈವ್ ಖಾಲಿಯಾಗಿದೆ.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ಡ್ರಾಫ್ಟ್',
   'meridian.folder.count': '{{count}} ಸಂದೇಶಗಳು',
+  'meridian.folder.delete': 'ಅಳಿಸಿ',
   'meridian.folder.deleteForever': 'ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ',
   'meridian.folder.restore': 'ಇನ್‌ಬಾಕ್ಸ್‌ಗೆ ಸರಿಸಿ',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ಇಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಸಂದೇಶಗಳಿಲ್ಲ.',
   'meridian.inbox.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'meridian.inbox.next': 'ಮುಂದೆ',
+  'meridian.inbox.noSender': '(ಕಳುಹಿಸುವವರು ಇಲ್ಲ)',
   'meridian.inbox.noSubject': '(ವಿಷಯವಿಲ್ಲ)',
+  'meridian.inbox.ofTotal': '{{current}} / {{total}}',
   'meridian.inbox.openCompose': 'ರಚನೆಯನ್ನು ತೆರೆಯಿರಿ',
   'meridian.inbox.previous': 'ಹಿಂದಿನದು',
   'meridian.inbox.replyFailed': 'ಪ್ರತ್ಯುತ್ತರವನ್ನು ಉಳಿಸಲಾಗಿದೆ ಆದರೆ ವಿತರಣೆ ವಿಫಲವಾಗಿದೆ: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'ಖಾತೆ ಇಲ್ಲವೇ?',
   'meridian.login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'meridian.message.toLine': 'ಗೆ {{recipients}}',
+  'meridian.notFound.body':
+    'ನೀವು ಹುಡುಕುತ್ತಿರುವ ಪುಟ ಸಿಗಲಿಲ್ಲ. ನಿಮ್ಮ {{appName}} ಇನ್‌ಬಾಕ್ಸ್‌ಗೆ ಹಿಂತಿರುಗಿ, ನಾವು ನಿಮ್ಮನ್ನು ಸರಿಯಾದ ದಾರಿಗೆ ತರುತ್ತೇವೆ.',
   'meridian.notFound.eyebrow': 'ದೋಷ 404',
   'meridian.notFound.title': 'ಈ ಥ್ರೆಡ್ ಅನ್ನು ಆರ್ಕೈವ್ ಮಾಡಲಾಗಿದೆ.',
   'meridian.notFound.toInbox': 'ನನ್ನ ಇನ್‌ಬಾಕ್ಸ್ ತೆರೆಯಿರಿ',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ನಕ್ಷತ್ರ ಸೇರಿಸಿ',
   'meridian.thread.unstar': 'ನಕ್ಷತ್ರ ತೆಗೆದುಹಾಕಿ',
   'meridian.time.yesterday': 'ನಿನ್ನೆ',
+  'meridian.topBar.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'meridian.topBar.searchPlaceholder': 'ಮೇಲ್ ಹುಡುಕಿ',
   'meridian.trash.empty': 'ಕಸ ಖಾಲಿಯಾಗಿದೆ.',
   'meridian.trash.title': 'ಕಸ',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'planUpdated.description':
     'ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ ಮತ್ತು ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಅನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ರಿಫ್ರೆಶ್ ಮಾಡಿದ ಮೆರಿಡಿಯನ್ ಇನ್‌ಬಾಕ್ಸ್‌ಗೆ ಸುಸ್ವಾಗತ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.heading': 'ಡ್ರಾಫ್ಟ್‌ಗಳು',
   'pricing.limit.emails': 'ಇಮೇಲ್‌ಗಳು',
   'pricing.limit.folders': 'ಫೋಲ್ಡರ್‌ಗಳು',
   'pricing.limit.labels': 'ಲೇಬಲ್‌ಗಳು',
   'privacy.collect.account':
     'ಖಾತೆ ಡೇಟಾ: ಹೆಸರು, ಇಮೇಲ್ ವಿಳಾಸ, ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್ ಮತ್ತು ನೀವು ಸೈನ್ ಅಪ್ ಮಾಡಿದ ದಿನಾಂಕ.',
+  'privacy.contact': 'ಪ್ರಶ್ನೆಗಳಿವೆಯೇ? privacy@courier.example ಗೆ ಇಮೇಲ್ ಮಾಡಿ.',
   'privacy.intro':
     'ಈ ಗೌಪ್ಯತಾ ನೀತಿಯು ಮೆರಿಡಿಯನ್ ಯಾವ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುತ್ತದೆ, ನಾವು ಅದನ್ನು ಏಕೆ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ, ನಾವು ಅದನ್ನು ಹೇಗೆ ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತೇವೆ ಮತ್ತು ಅದರ ಮೇಲೆ ನಿಮಗೆ ಯಾವ ಆಯ್ಕೆಗಳಿವೆ ಎಂಬುದನ್ನು ವಿವರಿಸುತ್ತದೆ. ಕಾನೂನುಬದ್ಧವಾಗಿರುವುದಕ್ಕಿಂತ ನಿರ್ದಿಷ್ಟವಾಗಿರಲು ನಾವು ಗುರಿ ಹೊಂದಿದ್ದೇವೆ; ಏನಾದರೂ ಸ್ಪಷ್ಟವಾಗಿಲ್ಲದಿದ್ದರೆ, privacy@courier.example ಗೆ ಬರೆಯಿರಿ.',
   'privacy.lastUpdated': 'ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಿದ್ದು: ಏಪ್ರಿಲ್ 1, 2026',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ಈ ನಿಯಮಗಳು ನಿಮ್ಮ ಮೆರಿಡಿಯನ್ ಬಳಕೆಯನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ. ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ಅಥವಾ ನಮ್ಮ ಮೂಲಕ ಇಮೇಲ್ ಕಳುಹಿಸುವ ಮೂಲಕ ನೀವು ಅವುಗಳಿಗೆ ಬದ್ಧರಾಗಿರಲು ಒಪ್ಪುತ್ತೀರಿ. ಒಬ್ಬ ವ್ಯಕ್ತಿಯು ನಿಜವಾಗಿಯೂ ಅನುಸರಿಸಬಹುದಾದ ನಿಯಮಗಳನ್ನು ಬರೆಯಲು ನಾವು ಪ್ರಯತ್ನಿಸುತ್ತೇವೆ.',
   'terms.lastUpdated': 'ಜಾರಿ: ಏಪ್ರಿಲ್ 1, 2026',
+  'terms.linkPrivacy': 'ನಮ್ಮ ಗೌಪ್ಯತಾ ನೀತಿಯನ್ನು ಓದಿ →',
   'terms.termination.body':
     'ನೀವು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಬಹುದು. ಈ ನಿಯಮಗಳನ್ನು ಉಲ್ಲಂಘಿಸುವ ಖಾತೆಯನ್ನು ನಾವು ಅಮಾನತುಗೊಳಿಸಬಹುದು; ನಾವು ಹಾಗೆ ಮಾಡಿದರೆ, ಕಾರಣವನ್ನು ನಾವು ವಿವರಿಸುತ್ತೇವೆ ಮತ್ತು ಮೊದಲು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ರಫ್ತು ಮಾಡಲು ನಿಮಗೆ ಅವಕಾಶ ನೀಡುತ್ತೇವೆ.',
   'terms.warranty.body':

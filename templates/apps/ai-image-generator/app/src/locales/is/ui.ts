@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'auth.fields.newPassword': 'Nýtt lykilorð',
   'collectionDetail.addImage': 'Galdra til safns',
   'collectionDetail.backCta': 'Til baka í söfn',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Skaptöflur, yfirlit og áframhaldandi seríur',
   'collections.title': 'Söfn',
   'collections.untitled': 'Ónefndur · {{stamp}}',
+  'common.closeMenu': 'Loka valmynd',
+  'common.dismiss': 'Hafna',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.openMenu': 'Opna flakkvalmynd',
   'credits.eyebrow': '{{plan}} áætlun',
   'credits.renewsCopy': 'Áætlun endurnýjast þann {{date}}',
   'credits.trail': 'Dagdráttur · {{plan}} stig',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Kynslóðarvirkni, deiling og tilkynningar um inneign birtast hér.',
   'notifications.empty.title': 'Ekkert að tilkynna',
   'notifications.subtitle': 'Kynslóðarviðburðir flokkaðir eftir dögum',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.limits.gallery': '{{count}} gallerí',
   'privacy.collect.body':
     'Þegar þú skráir þig söfnum við nafni þínu, netfangi og dulkóðuðu lykilorði. Þegar þú notar Reverie geymum við fyrirmælin sem þú sendir inn, myndirnar sem við búum til fyrir þig, stílana og söfnin sem þú vistar og lýsigögn eins og líkanið sem notað var, tímastimpla kynslóðarinnar og inneignarstöðu.',
@@ -164,6 +170,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Vista nýtt lykilorð',
   'reset.submitting': 'Uppfærir lykilorð…',
   'settings.account.handle': 'Handfang',
+  'settings.account.lastSaved': 'Virkt prófíl · {{name}}',
   'settings.account.saved': 'Prófíll vistaður',
   'settings.account.saveFailed': 'Gat ekki vistað prófílinn',
   'settings.account.title': 'Prófíll höfundar',
@@ -185,7 +192,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Ný mynd',
   'sidebar.secondary': 'Aukaleiðsögn',
   'signup.failed': 'Skráning mistókst. Reyndu aftur.',
+  'signup.firstNamePlaceholder': 'Aría',
   'signup.heading': 'Byrjaðu drauma þína',
+  'signup.lastNamePlaceholder': 'Lín',
   'signup.subheading': 'Stofnaðu aðgang og fáðu 120 ókeypis einingar.',
   'styles.empty': 'Engar forstillingar fyrir stíl ennþá — þær birtast eftir fyrstu innskráningu.',
   'styles.eyebrow': 'Valið',

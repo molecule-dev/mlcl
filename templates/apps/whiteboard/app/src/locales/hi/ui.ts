@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'authShell.brandHeading': 'उन डिज़ाइन टीमों के लिए मल्टीप्लेयर कैनवस जो ज़ोर से सोचती हैं।',
   'billing.canceled': 'सदस्यता रद्द कर दी गई।',
   'billing.cancelPlan': 'योजना रद्द करें',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'टेम्पलेट से शुरू करें',
   'boards.title': 'आपके बोर्ड',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'अपने वर्कस्पेस से जुड़ा ईमेल दर्ज करें और हम आपको एक रीसेट लिंक भेजेंगे।',
   'forgot.success.body':
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 कार्यशाला · ब्रांड वॉइस',
   'landing.featuresEyebrow': 'Slate को क्या ख़ास बनाता है',
   'landing.featuresTitle': 'तेज़ फ़ीडबैक। सुंदर कैनवस। शून्य घर्षण।',
+  'landing.hero.body':
+    '{{appName}} एक मल्टीप्लेयर व्हाइटबोर्ड है जो डिजाइन टीमों, कार्यशाला संचालकों और शिक्षकों के लिए है जो लाइव ब्रेनस्टॉर्मिंग सत्र आयोजित करते हैं और विचारों को एक ही स्थान पर एकत्रित करने की आवश्यकता होती है।',
   'landing.hero.primaryCta': 'मुफ़्त में बोर्ड शुरू करें',
   'landing.hero.socialProof': 'दुनिया भर की {{count}} डिज़ाइन टीमों द्वारा विश्वसनीय',
   'landing.hero.title': 'आपके विचारों जितनी तेज़ कैनवस',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'एक मुफ़्त वर्कस्पेस बनाएँ',
   'login.subheading':
     'जहाँ कार्यशाला छूटी थी वहाँ से जारी रखें — बोर्ड, स्टिकी नोट्स और कर्सर सभी वास्तविक समय में सिंक होते हैं।',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.new': 'नया',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'notifications.editTitle': '"{{board}}" में संपादन',
   'notifications.empty.body':
     'निमंत्रण, सहेजे गए स्नैपशॉट और बोर्ड में हाल ही में किए गए बदलाव जैसे ही होंगे, यहां दिखाई देंगे।',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'संस्करण इतिहास',
   'versionHistory.untitledSnapshot': 'शीर्षकहीन स्नैपशॉट',
   'whiteboardLayout.newBoard': 'नया बोर्ड',
+  'whiteboardLayout.primaryNav': 'प्राथमिक नेविगेशन',
   'workspace.boardLabel': 'बोर्ड',
   'workspace.eyebrow': '{{name}} · वर्कस्पेस',
   'workspace.invite': 'सहयोगियों को आमंत्रित करें',

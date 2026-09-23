@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}}について',
+  'about.pageTitle': 'ウェブフック制御プレーン',
+  'about.plansTitle': '各段階の計画',
   'apiKeys.bestPractices': 'ベストプラクティス',
   'apiKeys.body':
     'プログラム的アクセストークンです。パスワードと同様に扱い、環境変数に保存し、リポジトリには絶対にコミットしないでください。',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'プラン内',
   'billing.usageWarning': '上限間近',
   'billing.yearly': '年額',
+  'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.body':
     'リアルタイムのスループット、実行中の再試行状況、そして最近不具合が発生したエンドポイントを、操作するすべてのワークスペースで確認できます。',
   'dashboard.endpointsEmpty': 'まだエンドポイントはありません。',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'エンドポイント',
   'endpointDetail.deliveryTrendSub': '配信数 / 時間、対数スケール',
   'endpointDetail.hideSecret': 'シークレットを隠す',
+  'endpointDetail.loading': 'エンドポイントを読み込んでいます…',
   'endpointDetail.metric.delivered': '配信 24時間',
   'endpointDetail.metric.deliveredCaption': '{{count}}種類のイベントから',
   'endpointDetail.metric.failuresCaption': '再試行: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': '重大 · 24時間',
   'notifications.metric.totalCaption': '全期間の受信箱',
   'payloadViewer.payload': '// ペイロード',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'profile.avatarHeader': 'アバター',
   'profile.avatarHint': 'イニシャルを表示中 — アップロードは次回リリースで対応予定です。',
   'profile.body': 'アカウント、設定、アクティブセッション。',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     '現在のセッションのみアクティブです。他のデバイスはサインインしていません。',
   'profile.toggle': 'トグル{{label}}',
+  'pylonShell.closeMenu': 'ナビゲーションメニューを閉じる',
+  'pylonShell.openMenu': 'ナビゲーションメニューを開く',
   'pylonShell.primaryNavLabel': 'メインナビゲーション',
   'resetPassword.subtitle': '以前に使用したことのない強力なパスワードを選択してください。',
   'resetPassword.tokenPlaceholder': 'メールから貼り付け',

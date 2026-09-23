@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.title': 'Over {{app}}',
   'comments.addFailed': 'Reactie kon niet worden geplaatst.',
   'comments.backToDoc': 'Terug naar manuscript',
   'comments.deleteFailed': 'Verwijderen mislukt.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Oplossen',
   'comments.resolveFailed': 'Oplossen mislukt.',
   'comments.subtitle': '{{open}} open · {{resolved}} opgelost',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'dashboard.activityHeading': 'Wat er gebeurt',
   'dashboard.createFailed': 'Document kon niet worden aangemaakt.',
   'dashboard.empty': 'Nog geen manuscripten — begin met de knop Nieuw document.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Verplaatsen naar prullenbak mislukt.',
   'editor.unpublish': 'Publicatie ongedaan maken',
   'editor.untitled': 'Naamloos document',
+  'editor.updatedElsewhere':
+    'Dit document is door iemand anders bijgewerkt — vernieuw de pagina om de nieuwste versie te zien.',
   'editor.version': 'v{{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Als er een account bestaat voor {{email}}, sturen we u een herstellink.',
   'forgotPassword.subtitle': 'We sturen u een herstellink per e-mail.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Gebouwd met Molecule.',
   'landing.ctaHeading': 'Open de pagina. Laat de cursor beginnen.',
   'landing.ctaPrimary': 'Open een studio',
   'landing.eyebrow': 'Voor schrijvers, redacteuren en teams',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'bewerkt {{when}}',
   'quillonDocumentCard.open': 'Openen →',
   'quillonKpiCard.trend': 'Recente trend',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Hoofdnavigatie',
   'quillonStudioHero.collab': 'Medewerkers',
   'quillonStudioHero.docs': 'Aangeraakte documenten',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d geleden',
   'time.hoursAgo': '{{hours}}u geleden',
   'time.justNow': 'zojuist',
+  'trash.confirmDelete': 'Bevestig verwijdering',
   'trash.deleteFailed': 'Verwijderen mislukt.',
   'trash.deleteForever': 'Definitief verwijderen',
   'trash.empty': 'Niets te herstellen.',
+  'trash.emptyAll': 'Prullenbak legen',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Prullenbak',
   'trash.loadFailed': 'Prullenbak kon niet worden geladen.',

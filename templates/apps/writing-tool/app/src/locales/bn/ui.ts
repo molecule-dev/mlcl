@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.title': 'এমন একটি লেখার ঘর যা আপনি পকেটে রাখতে পারেন',
   'billing.cancelConfirm': 'আপনার সক্রিয় সাবস্ক্রিপশন বাতিল করতে চান?',
   'billing.cancelFailed': 'বাতিল করা সম্ভব হয়নি।',
   'billing.checkingOut': 'চেকআউট শুরু হচ্ছে…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'বিলিং লোড করা যায়নি।',
   'billing.loading': 'বিলিং লোড হচ্ছে…',
   'billing.upgradeCta': 'আপগ্রেড করুন {{name}}',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
+  'editor.autosaveOn': 'অটোসেভ চালু',
   'editor.backToLibrary': 'লাইব্রেরিতে ফিরে যান',
   'editor.charCount': '{{count}} চরিত্রগুলি',
   'editor.confirmTrash': 'এই ডকুমেন্টটি ট্র্যাশে সরাবেন?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'আনপিন করা',
   'editor.unpublishCta': 'খসড়ায় স্থানান্তর করুন',
   'editor.unpublished': 'খসড়ায় ফিরিয়ে আনা হয়েছে',
+  'focus.autosaveOn': 'অটোসেভ চালু',
   'focus.backToLibrary': 'লাইব্রেরিতে ফিরে যান',
   'focus.bodyPlaceholder': 'একবারে এক সারি করে। এখানে আর কেউ নেই।',
   'focus.exit': 'ফোকাস মোড থেকে প্রস্থান করুন',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'একটি তৈরি করুন',
   'login.subline':
     'আপনার পাণ্ডুলিপি, দৈনিক পৃষ্ঠা এবং কার্সরের শেষ অবস্থান ঠিক সেখানেই আছে যেখানে আপনি রেখেছিলেন।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'pricing.exports': 'রপ্তানি',
   'pricing.folders': 'ফোল্ডার',
   'pricing.heading': 'নথিপত্র',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'আমরা আপনাকে এইমাত্র যে কোডটি ইমেল করেছি সেটি প্রবেশ করান এবং মনে রাখার মতো কিছু একটা বেছে নিন। এটি সেভ হয়ে গেলে আমরা আপনাকে সাইন ইন করিয়ে দেব।',
   'reset.tokenHint': 'আপনার ইনবক্স থেকে কপি করা।',
+  'settings.appearance.heading': 'হালকা বা গাঢ়',
   'settings.editor.${row.id}.description': 'ভাষা',
   'settings.editor.description':
     'টাইপরাইটার স্ক্রল, প্যারাগ্রাফ ফেড, এবং আইডল ফোকাস — ডিফল্ট সেটিংস দীর্ঘ সময় ধরে ব্যবহারের জন্য টিউন করা হয়েছে।',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'তৃতীয় অধ্যায় — সূর্যোদয়ের আগের এক শান্ত প্রহর',
   'versalDocumentCard.pinned': 'পিন করা',
   'versalLayout.nav.stats': 'পরিসংখ্যান',
+  'versalLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'versalManuscriptHero.cta': 'লেখা চালিয়ে যান',
   'versalManuscriptHero.goalLabel': 'আজকের শব্দ লক্ষ্য',
   'versalManuscriptHero.inProgress': 'সঠিক পথে আছে',

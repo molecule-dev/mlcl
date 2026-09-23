@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'authShell.brandHeading': 'Multiplayer-canvaser för designteam som tänker högt.',
   'billing.canceled': 'Prenumerationen avbruten.',
   'billing.cancelPlan': 'Avbryt plan',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Starta från mall',
   'boards.title': 'Dina tavlor',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Gå till översikt',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Ange e-postadressen som är kopplad till din workspace så skickar vi en återställningslänk.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Workshop · Varumärkesröst',
   'landing.featuresEyebrow': 'Vad som får Slate att passa ihop',
   'landing.featuresTitle': 'Snabb feedback. Vackra canvaser. Noll friktion.',
+  'landing.hero.body':
+    '{{appName}} är en whiteboardtavla med flera spelare för designteam, workshopledare och lärare som driver brainstormings i realtid och behöver samla idéer på ett och samma ställe.',
   'landing.hero.primaryCta': 'Starta en tavla gratis',
   'landing.hero.socialProof': 'Litas på av {{count}} designteam världen över',
   'landing.hero.title': 'En canvas så snabb som dina tankar',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Skapa en gratis workspace',
   'login.subheading':
     'Fortsätt där workshopen slutade — tavlor, klisterlappar och markörer synkas alla i realtid.',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.new': 'Ny',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'notifications.editTitle': 'Redigeringar av "{{board}}"',
   'notifications.empty.body':
     'Inbjudningar, sparade ögonblicksbilder och senaste redigeringar av forumet visas här allt eftersom de sker.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versionshistorik',
   'versionHistory.untitledSnapshot': 'Namnlös ögonblicksbild',
   'whiteboardLayout.newBoard': 'Ny tavla',
+  'whiteboardLayout.primaryNav': 'Huvudnavigering',
   'workspace.boardLabel': 'Tavla',
   'workspace.eyebrow': '{{name}} · workspace',
   'workspace.invite': 'Bjud in samarbetspartner',

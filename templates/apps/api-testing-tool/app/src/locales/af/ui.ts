@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.pageTitle': 'Oor {{app}}',
   'authShell.statusLabel': 'hardlopers aanlyn',
   'collections.createError': 'Kon nie versameling skep nie.',
   'collections.defaultName': 'Naamlose versameling {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Versoeke',
   'collections.newCollection': 'Nuwe versameling',
   'collections.subheading': "Groepeer versoeke, deel dit met jou span en voer dit as 'n suite uit.",
+  'common.goToDashboard': 'Gaan na Dashboard',
   'environmentCard.inactive': 'Idle',
   'environmentCard.more': 'meer',
   'environmentCard.variables': 'Veranderlikes',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Laai gratis af',
   'landing.heroSubtitle':
     'Die blitsvinnige API-toetswerkbank gebou vir ingenieurs wat in terminale woon.',
+  'landing.heroTitleAccent': 'Vuur',
+  'landing.heroTitleLine2': 'vertroue smee.',
+  'landing.heroTitleRest': 'versoeke,',
   'landing.kicker': '$ pyloon stuur --kyk',
   'landing.pricingEyebrow': '// $ pryse --plain',
   'landing.pricingHeading': 'Eenvoudige, voorspelbare pryse',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nuut hier?',
   'login.showPassword': 'Wys wagwoord',
   'login.subtitle': 'Gaan voort na jou Pylon-werkruimte.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'mocks.createError': 'Kon nie spot skep nie.',
   'mocks.defaultName': 'Ongetitelde spotprent {{n}}',
   'mocks.deleteError': 'Kon nie spotprent verwyder nie.',
@@ -112,6 +120,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Terug na werkruimte',
   'notFound.eyebrow': '$ pyloon resolve --strict',
   'notFound.title': 'Roete nie gevind nie',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'privacy.collect.account':
     'Rekening: jou e-pos, gehashte wagwoord, vertoonnaam en die tydstempel van jou laaste aanmelding.',
   'privacy.rights.body':
@@ -137,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.subheading': "'n Leesalleen-aansig van die data wat hierdie rekening tans besit.",
   'settings.unset': 'nie gestel nie',
   'signup.identityHint': 'bv. Alex',
+  'signup.statusLabel': 'gratis vlak · geen kredietkaart nie',
   'signup.subtitle': 'Begin binne minute versoeke afvuur.',
   'terms.account.body':
     "Jy is verantwoordelik vir die beskerming van jou wagwoord. Om een rekening met verskeie mense te deel, word nie toegelaat op Gratis- of Pro-planne nie – koop 'n Span-intekening vir gedeelde werkruimtes.",
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
     'Moenie Pylon gebruik om versoeke te stuur na dienste wat jy nie besit of uitdruklike toestemming het om te toets nie. Moenie Pylon gebruik om tarieflimiete te omseil of bedrog te pleeg nie.',
   'terms.warranty.body':
     'Pylon word "soos dit is" verskaf sonder enige waarborg van enige aard. Ons streef na 99.9% bedryfstyd, maar waarborg dit nie op Gratis- of Pro-planne nie.',
+  'testRunner.assertionsCount': '{{count}} bewerings',
   'testRunner.createError': 'Kon nie toets skep nie.',
   'testRunner.cron':
     'Bewerings word geëvalueer teen die mees onlangse lopie van hierdie toets se gekoppelde versoek.',
@@ -169,11 +180,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite-resultate, beweringverskille en die laaste 50 lopies.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Aangemeld as',
+  'workspace.auth.keyName': 'Kopnaam',
+  'workspace.auth.keyValue': 'Sleutelwaarde',
+  'workspace.auth.password': 'Wagwoord',
+  'workspace.auth.username': 'Gebruikersnaam',
+  'workspace.authOption.apikey': 'API-sleutel',
+  'workspace.authOption.basic': 'Basiese Magtiging',
+  'workspace.authOption.bearer': 'Draerteken',
+  'workspace.authOption.none': 'Geen',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipe',
   'workspace.authTypeLabel': 'Magtigingsoort',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Geen',
+  'workspace.body.text': 'Rou teks',
+  'workspace.body.type': 'Tipe',
   'workspace.environment': 'Geen omhulsel',
   'workspace.envVar': 'omgewing veranderlike',
   'workspace.eyebrow': '$ pyloon werkspasie --paneel split',
+  'workspace.kv.addHeader': 'Voeg koptekst by',
+  'workspace.kv.addParam': 'Voeg parameter by',
+  'workspace.kv.headerKey': 'Kopnaam',
+  'workspace.kv.headerValue': 'Kopwaarde',
+  'workspace.kv.key': 'Sleutel',
+  'workspace.kv.paramKey': 'Navraagparametersleutel',
+  'workspace.kv.paramValue': 'Navraagparameterwaarde',
+  'workspace.kv.removeRow': 'Verwyder ry',
+  'workspace.kv.value': 'Waarde',
   'workspace.methodLabel': 'HTTP-metode',
   'workspace.metric.latency': 'Latensie',
   'workspace.metric.latencyCaption': 'Rondrit vanaf hierdie rit',
@@ -190,6 +223,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Versoek afgekeur — sien antwoord hieronder.',
   'workspace.subheading':
     "Stel 'n versoek op, stuur dit af en bevestig dan die antwoord – alles in een paneel.",
+  'workspace.testResults': 'Toetsresultate',
   'workspace.token': 'Teken',
   'workspace.tokenHint':
     'Gestuur as Magtiging: Draer<token> op elke versoek in hierdie versameling.',

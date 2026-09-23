@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'analytics.channels.empty': "Hozircha kanal ma'lumotlari yo'q.",
   'analytics.channels.title': "Kanal bo'yicha",
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Kunlik suhbatlar',
   'chatBubble.avatarAlt': '{{speaker}} avatar',
   'common.appName': 'Hisobot',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'confidenceMeter.label': 'Ishonch',
   'conversationDetail.agentName': 'Agent',
   'conversationDetail.aiReplyButton': 'Bot javobi',
   'conversationDetail.aiReplyError': "Sun'iy intellekt javobini yaratib bo'lmadi",
   'conversationDetail.aiReplyLoading': 'Qoralama…',
+  'conversationDetail.aiReplySourceFallback': "zaxira nusxasi (AI kaliti yo'q)",
   'conversationDetail.backAria': 'Suhbatlarga qaytish',
   'conversationDetail.composerPlaceholder': 'Mijozga javob…',
   'conversationDetail.context.channel': 'Kanal',
@@ -158,8 +161,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': "Hisobingiz uchun yangi parol o'rnating",
   'resetPassword.toggleConfirm': "Parol ko'rinishini tasdiqlash/tasdiqlash",
   'resetPassword.togglePassword': "Parol ko'rinishini yoqish/o'chirish",
+  'settings.account.emailError': 'Elektron pochtani yangilashda xatolik yuz berdi',
   'settings.account.emailLabel': 'E-pochta manzili',
+  'settings.account.emailSaved': 'Elektron pochta yangilandi',
+  'settings.account.nameError': 'Nomni yangilashda xatolik yuz berdi',
   'settings.account.nameLabel': "Ko'rsatiladigan ism",
+  'settings.account.nameSaved': 'Nom yangilandi',
   'settings.account.title': 'Hisob',
   'settings.api.createCta': 'Token yarating',
   'settings.api.description':
@@ -172,10 +179,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Kayfiyat pasayganda avtomatik ravishda kuchaytirish',
   'settings.bot.greetingLabel': 'Birinchi xabar bilan tabriklash',
   'settings.bot.title': 'Bot konfiguratsiyasi',
+  'settings.bot.toneFormal': 'Rasmiy',
   'settings.bot.toneLabel': 'Ovoz va ohang',
   'settings.danger.deleteAccount': "Hisobni o'chirish",
+  'settings.danger.deleteError': "Hisobni o'chirib bo'lmadi",
+  'settings.danger.deleteWarning':
+    "Bu sizning hisobingizni va unga bog'liq barcha ma'lumotlarni butunlay o'chirib tashlaydi. Buni bekor qilib bo'lmaydi.",
   'settings.danger.deleting': "O'chirilmoqda…",
+  'settings.danger.passwordLabel': 'Parolingizni tasdiqlang',
   'settings.danger.title': 'Xavfli zona',
+  'settings.devices.empty': "Hech qanday qurilma ro'yxatdan o'tkazilmagan.",
+  'settings.devices.revokeWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
+  'settings.devices.signingOut': 'Chiqarilmoqda…',
   'settings.devices.signOut': 'tizimdan chiqish',
   'settings.devices.thisDevice': 'Ushbu qurilma',
   'settings.devices.title': 'Qurilmalar',
@@ -188,9 +204,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': "Parolni o'zgartirib bo'lmadi",
   'settings.security.currentPassword': 'Joriy parol',
   'settings.security.newPassword': 'Yangi parol',
+  'settings.security.oauthManaged':
+    'Parolingiz tizimga kirish provayderingiz tomonidan boshqariladi.',
   'settings.security.title': 'Xavfsizlik',
   'settings.security.twoFactorDisable': "O'chirish",
   'settings.security.twoFactorEnable': 'Yoqish',
+  'settings.security.twoFactorInvalid': "Noto'g'ri kod",
   'settings.subtitle': 'Tune Rapport ovozi, bilim manbalari va u ishlaydigan vositalar.',
   'settings.tokenCreateError': 'Token yaratilmadi',
   'settings.tokenRevokeError': 'Tokenni bekor qilishda xatolik yuz berdi',

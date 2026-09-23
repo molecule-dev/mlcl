@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
+  'about.pageTitle': 'O {{app}}',
   'achievementBadgeCard.unlockedOn': 'Odblokowano {{date}}',
   'achievements.loadError': 'Nie udało się wczytać osiągnięć.',
   'achievements.subheading': '{{unlocked}} z {{total}} odblokowanych',
   'achievements.unlockedOn': 'Odblokowano {{date}}',
+  'auth.legalConsent': 'Kontynuując, zgadzasz się z naszymi',
   'calendar.empty': 'Proszę utworzyć nawyk, aby zobaczyć swój kalendarz.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Nawyk',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Siatka nawyków',
   'category.${c.category}': '{{liczyć}} nawyki',
   'common.and': 'i',
+  'common.goToDashboard': 'Przejdź do panelu',
   'consistencyHeatmap.ariaLabel': 'Mapa cieplna codziennej konsekwencji',
   'consistencyHeatmap.caption': 'Ostatnie {{weeks}} tygodni',
   'consistencyHeatmap.lessLabel': 'Mniej',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Zobacz na żywo',
   'landing.heroSubtitle':
     'Proszę budować nawyki tak, jak naprawdę się utrwalają: małe zobowiązania, codzienne serie i wewnętrzna przyjemność długiego nieprzerwanego łańcucha.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Spojrzenie do wnętrza Streak',
   'landing.previewMotivation': 'Dziewięć serii żyje. Proszę utrzymać je wszystkie ciepłe.',
   'login.eyebrow': 'Proszę podnieść łańcuch',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
     'Proszę zrobić to małym. Proszę zrobić to konkretnym. Proszę pojawić się jutro.',
   'newHabit.timeLabel': 'Czas przypomnienia',
   'notifications.markError': 'Nie można oznaczyć wszystkich jako przeczytane.',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.entries': '{{count}} wpisów',
+  'pricing.heading': 'Wybierz plan {{app}}',
   'profile.action.plan': 'Zarządzaj subskrypcją',
   'profile.action.settings': 'Ustawienia konta',
   'profile.bioEmpty': 'Proszę dodać krótkie bio w Ustawieniach, aby się przedstawić.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Codzienne poranne przypomnienie (8:00)',
   'settings.reminders.heading': 'Przypomnienia',
   'settings.reminders.weekly': 'Cotygodniowe podsumowanie (niedzielne wieczory)',
+  'settings.revokeDeviceWarning': 'Dostęp tego urządzenia zostanie wkrótce cofnięty. Wylogować?',
   'settings.signOutDevice': 'Wyloguj się',
   'settings.streaks.freezesPerWeek': 'Zamrożenia tygodniowo',
   'settings.streaks.gracePeriod': '6-godzinny okres karencji po północy',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktywne',
   'streakHeroCard.daysSuffix': 'dni',
   'streakHeroCard.title': 'Najdłuższa aktywna seria',
+  'streakLayout.closeMenu': 'Zamknij menu nawigacyjne',
+  'streakLayout.openMenu': 'Otwórz menu nawigacyjne',
   'streakLayout.primaryNavLabel': 'Nawigacja główna',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikácii {{app}}',
+  'appNav.mobileLabel': 'Hlavná navigácia',
+  'appNav.primaryLabel': 'Hlavná navigácia',
   'billing.actions.confirmCancel': 'Zrušiť odber? Môžete sa kedykoľvek znova prihlásiť na odber.',
   'billing.actions.paused': 'Predplatné pozastavené.',
   'billing.actions.resumed': 'Predplatné bolo obnovené.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Každá úroveň je malá várka príbehov. Pridajte si jeden do frontu alebo ho preložte do ďalšieho mesiaca.',
   'boxThemeCard.perMonth': '/ mesiac',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'customize.eyebrow': 'Prispôsobte si to',
   'customize.heading': 'Prispôsobte si svoj ďalší poklad',
   'customize.items.exclude': 'Preskočiť toto',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Túto sezónu',
   'landing.editions.heading': 'Edície, ktoré naši kurátori milujú',
   'landing.footer.contact': 'Porozprávajte sa s kurátorom',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Začnite svoju krabicu →',
   'landing.hero.ctaSecondary': 'Zobraziť úrovne',
   'landing.hero.eyebrow': 'Mesačne kurátorované. Vždy osobné.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'TVOJ ĎALŠÍ POKLAD',
   'nextBoxHeroCard.itemsLabel': 'Vybrané položky',
   'nextBoxHeroCard.shipsOnLabel': 'Odosiela sa',
+  'notFound.body':
+    'Túto stránku sme v archíve aplikácie {{app}} nenašli. Možno bola vyradená alebo sa v nej jednoducho preklepolilo.',
   'notFound.cta.dashboard': 'Prejsť na ovládací panel',
   'notFound.eyebrow': 'Prázdna krabica',
   'notFound.heading': 'Táto polica je prázdna',

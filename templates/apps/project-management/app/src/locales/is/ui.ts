@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'accountSettings.confirmEmailLabel': 'Sláðu inn DELETE til að staðfesta',
   'accountSettings.deleteError': 'Gat ekki eytt reikningnum.',
   'accountSettings.passwordError': 'Gat ekki breytt lykilorðinu.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Engir komandi frestar.',
   'dashboard.upcomingTitle': 'Komandi frestir',
   'deviceSettings.unknownDevice': 'Óþekkt tæki',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Stuðningur',
   'forgotPassword.error': 'Mistókst að senda endurstillingarhlekk.',
   'forgotPassword.subtitle': 'Sláðu inn netfangið þitt og við sendum þér endurstillingarhlekk.',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ógilt netfang eða lykilorð.',
   'login.pageTitle': 'Innskráning',
   'login.signIn': 'Skráðu þig inn í Forge',
+  'login.subtitle': 'Skráðu þig inn til að halda verkefnum þínum á réttri braut',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'nav.calendar': 'Dagatal',
   'nav.legal': 'Löglegt',
   'nav.myTasks': 'My Tasks',

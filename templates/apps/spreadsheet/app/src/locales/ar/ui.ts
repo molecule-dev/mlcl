@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
   'about.pageTitle': 'عن {{name}}',
   'auth.footer.about': 'عن {{name}}',
   'authHeader.subtitle': 'سجّل الدخول للحفاظ على أرقامك صادقة.',
   'automations.action.email': 'البريد الإلكتروني',
+  'automations.action.noop': 'لا يوجد إجراء',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'هل تريد حذف "{{name}}"؟',
   'automations.empty.headline': 'لا توجد أتمتة بعد',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'المشغّلات والإجراءات عبر كل مصنف. كل تشغيل يسجّل صفًا يمكنك مراجعته لاحقًا.',
   'automations.toggle': 'تبديل {{name}}',
+  'automations.trigger.dailySchedule': 'الجدول اليومي',
+  'automations.trigger.rowCreated': 'تم إنشاء الصف',
+  'automations.trigger.rowUpdated': 'تم تحديث الصف',
   'billing.empty': 'لا توجد خطط متاحة.',
   'billing.error.priceMissing':
     'لم يتم تكوين سعر Stripe لهذا المستوى. اضبط متغيرات البيئة STRIPE_*_PRICE_ID.',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'المخططات',
   'charts.kpi.totalCharts': 'إجمالي المخططات',
   'charts.list.empty': 'لا توجد مخططات بعد.',
+  'charts.namePlaceholder': 'اتجاه الإيرادات',
   'charts.newChart': 'مخطط جديد',
   'charts.primary.eyebrow': 'المخططات حسب النوع',
   'charts.primary.headline': 'نظرة عامة على مساحة العمل',
   'charts.subhead': 'تصورات مباشرة مرتبطة بشبكتك — يُعاد تصييرها مع كل تعديل خلية.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'editor.addColumn': 'إضافة عمود',
+  'editor.addDialogTitle': 'إضافة عمود',
   'editor.addRow': 'إضافة صف',
   'editor.addSheet': 'إضافة ورقة',
   'editor.back': 'العودة إلى المصنفات',
@@ -95,7 +103,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite هي الشبكة المركّزة على الصيغ، متعددة العروض، والفورية التي يلجأ إليها المحللون وفرق المالية أولًا.',
   'landing.nav.formulas': 'الصيغ',
+  'login.noAccount': 'جديد على {{name}} ؟',
+  'login.signIn': 'سجّل الدخول إلى {{name}}',
   'login.signUp': 'إنشاء مساحة عمل',
+  'nav.menu': 'القائمة',
+  'nav.openMenu': 'فتح القائمة',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'هذا الصف لم يكن موجودًا قط.',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'أتمتة أصيلة · مشغّلات webhook وcron',
   'signup.creating': 'جارٍ تجهيز مساحة العمل…',
   'signup.cta': 'إنشاء مساحة عملي',
+  'signup.haveAccount': 'هل أنت موجود بالفعل على {{name}} ؟',
   'signup.namePlaceholder': 'محمد علي',
   'signup.tagline': 'ابدأ أول مصنف لك في 30 ثانية',
   'team.col.activity': 'تمت دعوته',

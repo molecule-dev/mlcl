@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Tuntuɓi mu',
   'about.eyebrow': 'Game da',
+  'about.title': 'Game da {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Hoton ƙwararren mai tallafawa mace tare da murmushin abokantaka a ofis na zamani',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Kasuwanci',
   'demoTicket.thread.customer':
     'Na sake saita kalmar sirri ta jiya kuma yanzu ba zan iya shiga cikin tashar biyan kuɗi ba. Za ku iya taimakawa?',
+  'floatingHelp.contactSupport': 'Tuntuɓi tallafin',
   'forgotPassword.error': 'Ba za a iya aika sake saita imel ba. Da fatan za a sake gwadawa.',
   'forgotPassword.rememberPassword': 'Ka tuna kalmar sirrinka?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Shiga — Taimakon Zenith',
   'login.showPassword': 'Nuna kalmar sirri',
   'login.welcomeSubheading': 'Shiga cikin dashboard ɗin tallafi naka',
+  'mobileNav.closeMenu': 'Rufe kewayawa',
+  'mobileNav.menu': 'Kewaya',
+  'mobileNav.openMenu': 'Buɗe kewayawa',
   'nav.legal': "Shari'a",
   'nav.newTicket': 'Sabon Tikiti',
   'notifications.loadError': 'Ba za a iya loda sanarwa ba. Gwada kuma nan da ɗan lokaci.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Binciken Umarni',
   'operatorDock.newReport': 'Sabon Rahoton',
   'operatorDock.systemOnline': 'Tsarin Kan layi',
+  'planUpdated.subtitle': 'Na gode',
   'planUpdated.title': 'An sabunta shirin',
   'pricing.agents': 'wakilai',
   'pricing.automation': 'Dokokin sarrafa kansa',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{suna}}',
   'ticketCustomerReply.avatarAlt': '{{suna}} Avatar ɗin',
   'ticketDetail.errorTitle': 'Akwai matsala da ta faru',
+  'ticketDetail.loadError': 'An kasa loda tikiti.',
+  'ticketDetail.notFound': 'Ba a sami tikitin ba',
+  'ticketDetail.replyError': 'An kasa aika amsa. Da fatan za a sake gwadawa.',
   'ticketDetail.retry': 'Gwada kuma',
   'ticketDetail.statusUpdateError': 'Ba za a iya sabunta matsayi ba. Gwada kuma.',
   'ticketDetailsCard.assigneeLabel': 'Wanda aka naɗa',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{lokaci}} hagu',
   'ticketRow.title': 'Haɗin bayanai ya gaza yayin samarwa {{kusurwa}}',
   'tickets.pageTitle': 'Tikiti — Taimakon Zenith',
+  'ticketsFab.newTicket': 'Sabon tikitin',
   'ticketsFilterBar.assigneeLabel': 'Wanda aka naɗa:',
   'ticketsFilterBar.clearFilters': 'Share Matatu',
   'ticketsFilterBar.dateRangeDemoHint':

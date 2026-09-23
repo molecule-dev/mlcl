@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.title': 'За {{app}}',
   'auth.login.noAccount': 'Нови ли сте в Sparq?',
   'auth.login.or': 'или продължете с',
   'auth.signup.or': 'или се регистрирайте с',
+  'common.confirm': 'Потвърди',
+  'common.goToDashboard': 'Към таблото',
+  'common.loadError': 'Нещо се обърка при зареждането на това съдържание.',
+  'common.retry': 'Опитай отново',
   'discover.collections.title': 'Разглеждане по категория',
   'discover.collections.viewAll': 'Вижте вашата библиотека →',
   'discover.empty.body': 'Опитайте с друга категория или изчистете търсенето.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Влезте, за да поддържате серията си жива, да провеждате игри на живо и да се изкачвате в класацията.',
   'myQuizzes.createButton': 'Нов тест',
+  'myQuizzes.deleteConfirm': 'Изтриване завинаги?',
   'myQuizzes.empty.createCta': 'Създайте първия си тест →',
   'myQuizzes.empty.created': 'Все още не сте създали тест.',
   'myQuizzes.empty.played': 'Все още няма публикувани тестове.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Зареждане…',
   'notifications.subhead':
     '{{count}} непрочетени искри. Покани, премествания в класацията и постижения, всичко в един поток.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.checkoutError': 'Плащането не можа да започне. Моля, опитайте отново.',
+  'pricing.heading': 'Изберете {{app}} план',
   'pricing.included': 'Включено',
   'pricing.loadError': 'Не можаха да се заредят плановете.',
   'pricing.maxQuizzes': '{{count}} викторини',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Все още нищо не е публикувано.',
   'profile.startBuilding': 'Започнете да създавате →',
   'profile.tier': 'Играч на Sparq',
+  'quizBuilder.addFailed': 'Въпросът не можа да се добави. Опитайте отново.',
   'quizBuilder.addQuestion': 'Добавяне на въпрос',
   'quizBuilder.answerPlaceholder': 'Въведете опция…',
   'quizBuilder.answersLabel': 'Избор на отговори',
   'quizBuilder.back': 'Обратно към моите тестове',
   'quizBuilder.delete': 'Изтриване на въпрос',
+  'quizBuilder.deleteFailed': 'Въпросът не можа да бъде изтрит.',
   'quizBuilder.firstQuestion': 'Добавете първия си въпрос, за да започнете.',
   'quizBuilder.idLabel': 'Идентификационен номер на теста: {{id}}',
   'quizBuilder.loadError': 'Тестът не можа да се зареди.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Добавете поне два варианта за отговор и изберете правилния {{count}} въпрос(и) преди публикуване.',
   'quizBuilder.questionsTitle': 'Въпроси',
+  'quizBuilder.saveFailed': 'Заглавието не можа да се запази. Опитайте отново.',
   'quizBuilder.statusDraft': 'Проект',
   'quizBuilder.subhead':
     'Редактирайте заглавието, добавете въпроси, задайте опции и правилния отговор. Промените се запазват автоматично.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мин.',
   'quizDetail.hostMultiplayer': 'Домакин на мултиплейър',
   'quizDetail.leaderboardEmpty': 'Все още няма пиеси — бъдете първият, който ще отбележи резултат.',
+  'quizDetail.loadError': 'Не можа да се зареди този тест.',
   'quizDetail.loading': 'Зареждане на теста…',
   'quizDetail.plays': '{{count}} пиеси',
   'quizDetail.playSolo': 'Играй соло',

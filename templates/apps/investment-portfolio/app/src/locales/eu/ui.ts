@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}(r)i buruz',
   'argentAuthShell.brandEyebrow': 'Argent · Aberastasun tresnak',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ez da inbertsio aholkurik.',
   'argentAuthShell.sampleChange': '+2.841 $ (+% 0,28) gaur',
   'argentAuthShell.sampleValue': '1.032.251 $',
   'argentLayout.primaryNavLabel': 'Nabigazio nagusia',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Ez dago transakziorik ticker honetarako.',
   'assetDetail.txHeading': 'Zure transakzioak',
   'common.and': 'eta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfolioaren ikuspegi orokorra',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Oraindik ez dago edukierarik.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Ezin izan dira edukiak kargatu.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ez da inbertsio aholkurik. Iraganeko errendimenduak ez ditu etorkizuneko emaitzak bermatzen.',
   'landing.eyebrow': 'Argent · Aberastasuna lortzeko tresna plataforma bat',
   'landing.features.heading': 'Aholkulari batek beretzat eraikiko lukeen guztia.',
   'landing.finalCta.heading': 'Ekarri diziplina berriro zure zorrora.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} duela ordu batzuk',
   'news.justNow': 'oraintxe bertan',
   'news.loadError': 'Albisteak kargatzea huts egin du.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'portfolioHeroCard.label': 'Zorroaren balioa',
   'pricing.holdingsLabel': 'jabetzak',
   'pricing.newsLabel': 'albiste artikuluak',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Ezabatu kontua',
   'settings.security.deleting': 'Ezabatzen…',
   'settings.security.heading': 'Segurtasuna',
+  'settings.security.newPassword': 'Pasahitz berria',
   'settings.security.password': 'Pasahitza',
   'settings.security.twoFactorEnable': 'Gaitu',
+  'settings.security.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.security.twoFactorVerify': 'Egiaztatu eta gaitu',
   'settings.tax.error': 'Ezin izan da zerga-metodoa eguneratu.',
   'settings.tax.heading': 'Zerga-loteen kontabilitatea',
   'settings.tax.method': 'Metodo lehenetsia',

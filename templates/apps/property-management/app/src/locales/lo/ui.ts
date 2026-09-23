@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.tagline': 'ທຸກໆຫົວໜ່ວຍ, ພາຍໃຕ້ຫຼັງຄາດຽວ.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.addProperty': 'ເພີ່ມຄຸນສົມບັດ',
   'dashboard.empty.body':
     'ເມື່ອທ່ານມີຊັບສິນ, ຫົວໜ່ວຍ ແລະ ການຈ່າຍຄ່າເຊົ່າແລ້ວ, ແຜງຄວບຄຸມນີ້ຈະເຕັມໄປດ້ວຍຂໍ້ມູນเชิงลึกກ່ຽວກັບຫຼັກຊັບ.',
@@ -42,6 +45,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'ເລືອກຜູ້ເຊົ່າ…',
   'leases.new.unit': 'ໜ່ວຍ',
   'leases.new.unitPlaceholder': 'ເລືອກໜ່ວຍ…',
+  'leases.subheading':
+    'ສັນຍາເຊົ່າທີ່ໃຊ້ງານໄດ້ {{count}} · {{expiring}} ກຳລັງຈະໝົດອາຍຸໃນໄວໆນີ້ · {{monthly}} / ລວມທັງໝົດເດືອນ',
   'login.emailLabel': 'ທີ່ຢູ່ອີເມວ',
   'login.noAccount': 'ຫາກໍ່ເລີ່ມຫຼິ້ນ Hearthstone ບໍ?',
   'login.passwordPlaceholder': '••••••••',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{ຊັບສິນ}} · ໜ່ວຍ {{ໜ່ວຍ}} · ວັນທີ',
   'maintenanceQueueList.subtitle': '{{count}} ຄຳສັ່ງວຽກເປີດ, ຈັດລຽງຕາມລຳດັບຄວາມສຳຄັນ',
   'maintenanceQueueList.title': 'ຄິວບຳລຸງຮັກສາ',
+  'nav.closeMenu': 'ປິດເມນູ',
+  'nav.openMenu': 'ເປີດເມນູ',
   'notFound.body': 'ໜ້າເວັບທີ່ທ່ານກຳລັງຊອກຫາຢູ່ນັ້ນໄດ້ຖືກຍ້າຍໄປ, ເກັບໄວ້ ຫຼື ບໍ່ເຄີຍມີຢູ່ແລ້ວ.',
   'notFound.title': 'ປະຕູນັ້ນເປີດບໍ່ໄດ້',
   'notifications.empty.body':
@@ -108,6 +115,7 @@ export const ui: UiTranslations = {
     'ເພີ່ມຂໍ້ມູນພື້ນຖານດຽວນີ້ — ທ່ານສາມາດເພີ່ມຫົວໜ່ວຍ, ສັນຍາເຊົ່າ ແລະ ຜູ້ເຊົ່າຈາກໜ້າຊັບສິນໄດ້.',
   'properties.new.submit': 'ສ້າງຊັບສິນ',
   'properties.searchPlaceholder': 'ຄົ້ນຫາຕາມຊື່ ຫຼື ທີ່ຢູ່',
+  'properties.subheading': 'ອາຄານ {{count}} · ໜ່ວຍ {{units}} {{pct}} % ການເຂົ້າພັກ',
   'propertyDetail.backToList': 'ກັບໄປທີ່ຄຸນສົມບັດ',
   'propertyDetail.breadcrumbProperties': 'ຊັບສິນ',
   'propertyDetail.noAddress': 'ບໍ່ມີທີ່ຢູ່ຕາມຖະໜົນຢູ່ໃນລະບົບ',

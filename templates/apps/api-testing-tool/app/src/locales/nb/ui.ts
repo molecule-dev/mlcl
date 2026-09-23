@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
+  'about.pageTitle': 'Om {{app}}',
   'authShell.statusLabel': 'runners tilkoblet',
   'collections.createError': 'Kunne ikke opprette samlingen.',
   'collections.defaultName': 'Uten navn samling {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Ny samling',
   'collections.subheading':
     'Grupper forespørsler, del dem med teamet ditt, og kjør dem som en suite.',
+  'common.goToDashboard': 'Gå til oversikt',
   'environmentCard.inactive': 'Inaktiv',
   'environmentCard.more': 'mer',
   'environmentCard.variables': 'Variabler',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Last ned gratis',
   'landing.heroSubtitle':
     'Den lynraske API-testingsbenken bygget for ingeniører som bor i terminaler.',
+  'landing.heroTitleAccent': 'Brann',
+  'landing.heroTitleLine2': 'skape tillit.',
+  'landing.heroTitleRest': 'forespørsler,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Enkel, forutsigbar prising',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ny her?',
   'login.showPassword': 'Vis passord',
   'login.subtitle': 'Fortsett til Pylon-arbeidsområdet ditt.',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'mocks.createError': 'Kunne ikke opprette mock.',
   'mocks.defaultName': 'Uten navn mock {{n}}',
   'mocks.deleteError': 'Kunne ikke slette mock.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Tilbake til arbeidsområdet',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Rute ikke funnet',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'privacy.collect.account':
     'Konto: e-posten din, hashet passord, visningsnavn og tidsstempelet for siste innlogging.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'En skrivebeskyttet visning av dataene denne kontoen eier.',
   'settings.unset': 'ikke angitt',
   'signup.identityHint': 'f.eks. Alex',
+  'signup.statusLabel': 'gratis abonnementsnivå · uten kredittkort',
   'signup.subtitle': 'Begynn å sende forespørsler på minutter.',
   'terms.account.body':
     'Du er ansvarlig for å beskytte passordet ditt. Det er ikke tillatt å dele én konto med flere personer på Free- eller Pro-planer — kjøp et Team-abonnement for delte arbeidsområder.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'Ikke bruk Pylon til å sende forespørsler til tjenester du ikke eier eller har uttrykkelig tillatelse til å teste. Ikke bruk Pylon til å omgå hastighetsbegrensninger eller begå svindel.',
   'terms.warranty.body':
     'Pylon leveres "som det er" uten garantier av noe slag. Vi sikter mot 99,9 % oppetid, men garanterer det ikke på Free- eller Pro-planer.',
+  'testRunner.assertionsCount': '{{count}} påstander',
   'testRunner.createError': 'Kunne ikke opprette test.',
   'testRunner.cron':
     'Påstander evalueres mot den siste kjøringen av denne testens tilknyttede forespørsel.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite-resultater, påstandsdiffs og de siste 50 kjøringene.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Logget inn som',
+  'workspace.auth.keyName': 'Tittelnavn',
+  'workspace.auth.keyValue': 'Nøkkelverdi',
+  'workspace.auth.password': 'Passord',
+  'workspace.auth.username': 'Brukernavn',
+  'workspace.authOption.apikey': 'API-nøkkel',
+  'workspace.authOption.basic': 'Grunnleggende autentisering',
+  'workspace.authOption.bearer': 'Bærertoken',
+  'workspace.authOption.none': 'Ingen',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Type',
   'workspace.authTypeLabel': 'Godkjenningstype',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Ingen',
+  'workspace.body.text': 'Råtekst',
+  'workspace.body.type': 'Type',
   'workspace.environment': 'Intet miljø',
   'workspace.envVar': 'miljøvariabel',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Legg til overskrift',
+  'workspace.kv.addParam': 'Legg til parameter',
+  'workspace.kv.headerKey': 'Tittelnavn',
+  'workspace.kv.headerValue': 'Hodeverdi',
+  'workspace.kv.key': 'Nøkkel',
+  'workspace.kv.paramKey': 'Nøkkel for spørringsparameter',
+  'workspace.kv.paramValue': 'Verdien av spørringsparameteren',
+  'workspace.kv.removeRow': 'Fjern rad',
+  'workspace.kv.value': 'Verdi',
   'workspace.methodLabel': 'HTTP-method',
   'workspace.metric.latency': 'Latens',
   'workspace.metric.latencyCaption': 'Tur-retur fra denne kjøringen',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Forespørsel sendt — se response nedenfor.',
   'workspace.subheading':
     'Sett sammen en forespørsel, send den, og bekreft responsen — alt i én rute.',
+  'workspace.testResults': 'Testresultater',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Sendes som Authorization: Bearer <token> på alle forespørsler i denne samlingen.',

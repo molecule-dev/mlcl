@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'auditLog.empty':
     'Vašim filtrům zatím neodpovídají žádné auditní události. Upravte zaměstnance nebo zpracujte výplatní pásmo a ty se zde zobrazí.',
   'auditLog.eyebrow': 'Dodržování',
+  'auditLog.loadError': 'Nepodařilo se načíst protokol auditu.',
   'auditLog.searchPlaceholder': 'Hledat podle herce, akce nebo popisu',
   'auditLog.subheading':
     'Každé schválení, úprava a daňové přiznání – s údaji o aktérovi, časovém razítku a změněných polích.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Není nakonfigurováno',
   'billing.plansHeading': 'Plány',
   'billing.subheading': 'Spravujte svůj tarif a přepínejte mezi úrovněmi přes Stripe.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Zkusit znovu',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Snímek shody s předpisy',
   'dashboard.compliance.title': 'Všechny kontroly prošly',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Žádné srážky v evidenci.',
   'employeeDetail.notFound': 'Zaměstnanec nenalezen.',
   'employeeDetail.payFrequency': 'Frekvence plateb',
+  'employeeDetail.postTax': 'Po zdanění',
+  'employeeDetail.preTax': 'Před zdaněním',
   'employeeDetail.salary': 'Roční plat',
   'employeeDetail.ssn': 'Číslo sociálního zabezpečení',
   'employeeDetail.startedOn': 'Zahájeno {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Frekvence plateb',
   'employeeForm.salary': 'Roční plat (USD)',
   'employeeForm.salaryInvalid': 'Plat musí být nezáporné číslo.',
+  'employeeForm.saveError': 'Zaměstnance se nepodařilo uložit.',
   'employeeForm.semimonthly': 'Polo-měsíčně',
   'employeeForm.single': 'Singl',
   'employeeForm.ssn': 'Číslo sociálního zabezpečení',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Zaměstnanec',
   'employeesTable.col.salary': 'Plat',
   'forgotPassword.subtitle': 'Zadejte svůj pracovní e-mail a my vám zašleme odkaz pro resetování.',
+  'landing.copyright': '© {{year}} {{app}} . Přesné, spolehlivé, klidné.',
   'landing.ctaBody':
     'Zdarma na 30 dní. Bez kreditní karty. Přepněte kdykoli bez ztráty auditní stopy.',
   'landing.ctaHeading': 'Spusťte svůj další cyklus na Stipendu',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Záznamy',
   'payRunDetail.noActivity': 'Pro tuto výplatní cykly zatím nejsou žádné auditní záznamy.',
   'payRunDetail.noStubs': 'Zatím žádné výplatní pásky – schválit a zpracovat je k vygenerování.',
+  'payRunDetail.notFound': 'Tuto výplatní pásku se nepodařilo nalézt.',
   'payRunDetail.statDeductions': 'Srážky',
   'payRunDetail.statHeadcount': 'Zaměstnanci',
   'payRunDetail.statTaxes': 'Sražené daně',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Polo-měsíčně',
   'settings.signOutDevice': 'Odhlásit se',
   'settings.subheading': 'Profil společnosti, výplatní harmonogram a integrace.',
+  'settings.twoFactorCode': 'Ověřovací kód',
   'settings.twoFactorDisable': 'Zakázat',
+  'settings.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.twoFactorVerify': 'Ověřit a povolit',
   'settings.weekly': 'Týdně',
   'taxCenter.bucket.federal': 'Federální příjem',
   'taxCenter.bucket.fica': 'Sociální zabezpečení',

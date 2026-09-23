@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'about.pageTitle': 'О {{name}}',
   'auth.footer.about': 'О {{name}}',
   'authHeader.subtitle': 'Войдите в систему, чтобы ваши данные были достоверными.',
   'automations.action.email': 'Электронная почта',
+  'automations.action.noop': 'Без операции',
   'automations.action.webhook': 'Вебхук',
   'automations.confirmDelete': 'Удалить " {{name}} "?',
   'automations.empty.headline': 'Автоматизации пока нет.',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Триггеры и действия для каждой рабочей книги. Каждый запуск регистрирует строку, которую вы сможете проверить позже.',
   'automations.toggle': 'Переключать {{name}}',
+  'automations.trigger.dailySchedule': 'Ежедневное расписание',
+  'automations.trigger.rowCreated': 'Создана строка',
+  'automations.trigger.rowUpdated': 'Строка обновлена',
   'billing.empty': 'Планы отсутствуют.',
   'billing.error.priceMissing':
     'Для этого уровня не настроена цена Stripe. Установите переменные окружения STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Диаграммы',
   'charts.kpi.totalCharts': 'Всего диаграмм',
   'charts.list.empty': 'Графиков пока нет.',
+  'charts.namePlaceholder': 'Тенденция роста доходов',
   'charts.newChart': 'Новый график',
   'charts.primary.eyebrow': 'Диаграммы по типу',
   'charts.primary.headline': 'Обзор рабочего пространства',
   'charts.subhead':
     'Визуализация в реальном времени, привязанная к вашей сетке — перерисовка при каждом изменении ячейки.',
+  'common.goToDashboard': 'Перейти к панели',
   'editor.addColumn': 'Добавить столбец',
+  'editor.addDialogTitle': 'Добавить столбец',
   'editor.addRow': 'Добавить строку',
   'editor.addSheet': 'Добавить лист',
   'editor.back': 'Вернуться к рабочим тетрадям',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite — это формула, ориентированная на многоракурсное отображение данных в режиме реального времени, к которой в первую очередь обращаются аналитики энергосистем и финансовые отделы.',
   'landing.nav.formulas': 'Формулы',
+  'login.noAccount': 'Впервые на сайте {{name}} ?',
+  'login.signIn': 'Войдите в систему {{name}}',
   'login.signUp': 'Создайте рабочее пространство',
+  'nav.menu': 'Меню',
+  'nav.openMenu': 'Открыть меню',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Этого ряда никогда не существовало.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Встроенные средства автоматизации · веб-хуки и триггеры cron',
   'signup.creating': 'Подготовка рабочего пространства…',
   'signup.cta': 'Создать моё рабочее пространство',
+  'signup.haveAccount': 'Уже зарегистрированы на {{name}} ?',
   'signup.namePlaceholder': 'Эйвери Чен',
   'signup.tagline': 'Создайте свою первую рабочую книгу за 30 секунд.',
   'team.col.activity': 'Приглашенный',

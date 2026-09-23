@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.connectRepoCta': 'Xhuma indawo yokugcina impahla',
   'dashboard.empty': 'Azikho izicelo zokudonsa okwamanje — xhuma indawo yokugcina ukuze uqalise.',
   'dashboard.eyebrow': 'Ukuphindisela · umugqa wokubuyekeza',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Isikhathi sokusebenza',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Isilinganiso sekhwalithi ye-AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Vala imenyu',
+  'refractLayout.openMenu': 'Vula imenyu',
   'refractLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'reports.cumulativeScoreLabel': 'Isikolo esihlanganisiwe',
   'reports.cumulativeScoreSubtitle': 'wonke ama-repo · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Yehlulekile ukulayisha inkomba yokusesha.',
   'settings.apiKeys.description':
     'Phatha okhiye be-API yomuntu siqu kusuka kumenyu yomsebenzisi phezulu kwesokudla.',
+  'settings.apiKeys.integrationsNote':
+    'Amathokheni okufinyelela kumhlinzeki aphathwa esigabeni sokuhlanganiswa ngenhla.',
   'settings.connectError': 'Yehlulekile ukuxhuma umhlinzeki.',
   'settings.disconnectError': 'Yehlulekile ukunqamula umhlinzeki.',
   'settings.eyebrow': 'Indawo yokuhlaziya · indawo yokusebenza',
   'settings.integration.${provider}.label': 'Ilondoloza...',
   'settings.loadError': 'Yehlulekile ukulayisha izilungiselelo.',
+  'settings.notificationCenter': 'Isikhungo sesaziso',
   'settings.notifications.description':
     'Vakashela ikhasi lezaziso ukuze ubuke futhi uphathe izintandokazi zokulethwa.',
   'settings.section.account': 'I-akhawunti kanye nokuphepha',

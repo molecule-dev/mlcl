@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'announcementsFeed.empty': 'Zatiaľ žiadne oznámenia.',
   'announcementsFeed.eyebrow': '{{count}} aktualizácie',
   'announcementsFeed.title': 'Najnovšie oznámenia',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Nič tu',
   'assignments.emptyBody': 'Prepnite filtre vyššie a zobrazte si úlohy v inom stave.',
   'assignments.eyebrow': 'Všetky kurzy · Tento semester',
+  'assignments.loadError': 'Nepodarilo sa načítať úlohy.',
   'assignments.loading': 'Načítavajú sa úlohy…',
   'assignments.subtitle':
     'Filtrujte podľa stavu a zistite, čo je splatné, odoslané, ohodnotené alebo chýba.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Poznámka',
   'attendance.empty': 'Zatiaľ žiadne záznamy o dochádzke.',
   'attendance.eyebrow': 'Jarný semester · Posledné 4 týždne',
+  'attendance.loadError': 'Nepodarilo sa načítať záznamy o dochádzke.',
   'attendance.loading': 'Načítava sa dochádzka…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Termíny odovzdania úloh sú vykreslené v mesačnej mriežke – skúšky sú zvýraznené červenou farbou.',
   'calendar.title': '{{month}} udalosti',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.no': '—',
+  'common.retry': 'Skúste to znova',
   'common.yes': '✓',
   'courseDetail.backLink': 'Známky',
   'courseDetail.currentGrade': 'Aktuálny ročník',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Zatiaľ neboli zverejnené žiadne známky.',
   'grades.eyebrow': 'Známka',
+  'grades.loadError': 'Nepodarilo sa načítať vaše známky.',
   'grades.loading': 'Načítavajú sa známky…',
   'grades.subtitle':
     'Aktuálne písmenové a percentuálne známky. Trendové šípky ukazujú, či sa posúvate nahor, ste na úrovni alebo klesáte.',
   'grades.title': 'Vaše známky, kurz po kurze',
   'grades.trendStable': 'Stabilný',
+  'landing.copyright': '© {{year}} {{app}} . Vytvorené pre študentov, vyrobené pre rodiny.',
   'landing.ctaHeading': 'Pokojnejší školský deň sa začína o pár minút',
   'landing.eyebrow': 'Pre stredoškolákov a študentov vysokých škôl',
   'landing.featuresHeading': 'Školský deň organizovaný okolo študenta',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Úlohy',
   'nav.attendance': 'Účasť',
   'nav.calendar': 'Kalendár',
+  'nav.closeMenu': 'Zatvoriť navigačné menu',
   'nav.grades': 'Známky',
+  'nav.openMenu': 'Otvoriť navigačné menu',
   'nav.statusEyebrow': 'GPA za semestrálny rok',
   'nav.statusSubtext': 'Čestná listina · Jarný semester',
+  'nav.unreadMessages': 'Neprečítané správy',
   'notifications.eyebrow': '{{count}} aktualizácie',
   'notifications.subtitle':
     'Známky, pripomienky, správy a školské oznámenia. V Nastaveniach si môžete upraviť, ktoré kanály jednotlivé oznámenia používajú.',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.attendanceLabel': 'dochádzka',
   'pricing.gradesLabel': 'známky',
   'pricing.heading': 'oznámenia',

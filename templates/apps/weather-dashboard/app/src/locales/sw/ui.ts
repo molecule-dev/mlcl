@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Kwa sasa uko kwenye {{plan}} mpango.',
   'billing.switch': 'Swichi',
   'billing.upgraded': 'Imesasishwa hadi {{plan}} — mipaka inatumika mara moja.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'compare.activityHeading': 'Hukumu za shughuli',
   'compare.empty.title': 'Ongeza angalau maeneo mawili ili kulinganisha',
   'compare.eyebrow': 'Upande kwa upande',
@@ -136,5 +137,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Juu',
   'trends.summary.low.label': 'Chini',
   'trends.summary.points.label': 'Siku',
+  'weatherDashboardLayout.primaryNavLabel': 'Usogezaji mkuu',
   'weatherHeroCard.updated': 'Imesasishwa {{time}}',
 }

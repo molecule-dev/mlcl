@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'အစီအစဉ်အချက်အလက်ကို တင်နေသည်…',
   'billing.popular': 'အချစ်ဆုံး',
   'billing.subtitle': 'သင့်လေ့လာမှုနှုန်းထားနှင့် ကိုက်ညီသော အစီအစဉ်ကို ရွေးချယ်ပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.today': 'ယနေ့',
   'common.yesterday': 'မနေ့က',
   'courseDetail.empty.body':
@@ -84,8 +85,12 @@ export const ui: UiTranslations = {
   'flashcards.subtitle':
     'သင့်အရှိန်အဟုန်နှင့် လိုက်လျောညီထွေဖြစ်အောင် နေရာခြား၍ ထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်း။',
   'flashcards.title': 'ဖလက်ရှ်ကတ်များ',
+  'footer.copyright': '© {{year}} {{app}} . ကောင်းစွာသင်ယူပါ၊ ကောင်းစွာအိပ်စက်ပါ။',
   'forgotPassword.subtitle':
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
+  'koanLayout.closeMenu': 'မီနူးကို ပိတ်ပါ',
+  'koanLayout.navLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'koanLayout.openMenu': 'မီနူးဖွင့်ပါ',
   'koanLayout.theme': 'အပြင်အဆင်',
   'landing.featuresBody':
     'အာရုံပျံ့လွင့်မှုများကို ဖယ်ရှားပြီး ရေရှည်နားလည်မှုကို တည်ဆောက်ရန် ဒီဇိုင်းထုတ်ထားသော ကိရိယာများ။',
@@ -120,11 +125,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'အဲဒီ URL က မမှတ်မိတော့တဲ့ နယ်မြေပါ။ စာရိုက်မှားနေတာလည်း ဖြစ်နိုင်တယ်၊ ဖျက်လိုက်တဲ့ သင်ခန်းစာလည်း ဖြစ်နိုင်တယ် — ဘယ်လိုပဲဖြစ်ဖြစ်၊ ပြန်လေ့လာကြရအောင်။',
   'notFound.heading': 'စာမျက်နှာကို ရှာမတွေ့ပါ။',
+  'notFound.label': '{{appName}} · ၄၀၄',
   'notifications.empty.title': 'အားလုံးပြီးသွားပါပြီ',
   'notifications.filter.${opt}': 'အကြောင်းကြားချက်များကို တင်နေသည်…',
   'notifications.markAllError': 'အားလုံးကို ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
   'notifications.markError': 'ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
   'notifications.subtitle': '{{count}} မဖတ်ရသေးသော အပ်ဒိတ်များ',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'ဉာဏ်စမ်းမေးခွန်းများ',
   'pricing.limits.topics': 'ခေါင်းစဉ်များ',
   'privacy.collectBody':
@@ -192,6 +199,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'အခြား keyword သို့မဟုတ် filter တစ်ခုကို စမ်းကြည့်ပါ။',
   'search.empty.title': 'ဘာမှ ကိုက်ညီမှု မရှိဘူး။',
   'search.error': 'ရလဒ်များကို တင်၍မရပါ။',
+  'search.filters': 'ရလဒ်အမျိုးအစား စစ်ထုတ်မှုများ',
   'search.go': 'သွားပါ',
   'search.label.flashcard': 'ဖလက်ရှ်ကတ်ပြား',
   'search.label.note': 'မှတ်ချက်',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Mag-book ng Appointment',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Walang pasyenteng maipapakita.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'consult.backLink': 'Lahat ng appointment',
   'consult.captions': 'Mga Caption',
   'consult.connected': 'Nakakonekta · 720p · matatag',
@@ -132,6 +133,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'mga pasyente',
   'patientVitalsHero.scripts': 'Bukas ang Rx',
   'patientVitalsHero.subline': '{{count}} mga konsultasyon sa iyong iskedyul ngayon',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'prescriptions.empty': 'Walang tugmang reseta.',
   'prescriptions.eyebrow': 'E-reseta',
   'prescriptions.heading': 'Mga Reseta',
@@ -147,6 +149,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Paunawa sa Pagkapribado',
   'privacy.use.body':
     'Para makapaghatid ng pangangalaga, magpadala ng mga paalala sa appointment, mag-ruta ng mga reseta, at mapabuti ang pagiging maaasahan ng serbisyo. Hindi namin kailanman ibinebenta ang iyong data at hindi kailanman ibinabahagi ang klinikal na impormasyon sa mga advertiser.',
+  'providers.allSpecialties': 'Lahat ng Espesyalidad',
+  'providers.loadError': 'Nabigong i-load ang mga provider.',
+  'providers.loading': 'Naglo-load…',
   'providers.noResults': 'Walang nahanap na provider.',
   'providers.searchPlaceholder': 'Maghanap ayon sa pangalan, espesyalidad...',
   'providers.title': 'Maghanap ng Tagapagbigay ng Serbisyo',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Simula ng araw',
   'settings.availability.heading': 'Kakayahang magamit',
   'settings.devices.thisDevice': 'Ang device na ito',
+  'settings.devices.unnamed': 'Walang pangalang aparato',
   'settings.eyebrow': 'Pagsasanay at pagtutuos',
   'settings.loadError': 'Hindi ma-load ang iyong profile.',
   'settings.notifications.emailMessages':
@@ -180,6 +186,9 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'I-disable',
   'settings.security.twoFactor.enable': 'I-enable',
   'settings.security.twoFactor.heading': 'Dalawang-factor na pagpapatotoo',
+  'settings.security.twoFactor.invalidCode': 'Hindi tugma ang code na iyon. Subukan muli.',
+  'settings.security.twoFactor.setupFailed': 'Hindi masimulan ang two-factor setup. Subukang muli.',
+  'settings.security.twoFactor.statusOn': 'Naka-on ang two-factor',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.subheading':
     'Profile ng tagapagbigay ng serbisyo, mga tuntunin sa pagsasanay, at mga klinikal na alerto.',
@@ -191,6 +200,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Gumawa ng Account',
   'signupFooter.hipaa': 'Sumusunod sa HIPAA',
   'solaceLayout.primaryNavLabel': 'Pangunahing navigation',
+  'solaceLayout.toggleMenu': 'I-toggle ang menu',
   'terms.eligibility.body':
     'Dapat ay hindi bababa sa labingwalong taong gulang ka, o magulang o legal na tagapag-alaga ng isang menor de edad na iyong pinapangasiwaan, at pisikal na matatagpuan sa isang estado ng US kung saan ang aming mga clinician ay may lisensya.',
   'terms.payment.body':

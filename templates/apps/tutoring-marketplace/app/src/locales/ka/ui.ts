@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'თქვენი როლი',
   'account.role.upgradeLink': 'განაცხადის შეტანა დადასტურებული რეპეტიტორის სტატუსის მისაღებად →',
   'account.title': 'პროფილი, გადახდა და პარამეტრები.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'ცარცზე სწავლება',
   'becomeTutor.form.error': 'განაცხადის წარდგენა ვერ მოხერხდა.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'თემა',
   'bookingConfirm.title': 'დაჯავშნილი ხართ. დანარჩენს ჩვენ მივხედავთ.',
   'bookingConfirm.with': 'რეპეტიტორთან ერთად',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'earningsHero.eyebrow': 'შემოსავალი • {{month}}',
   'forgotPassword.heading': 'პაროლი დაგავიწყდათ?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'შეტყობინების გაგზავნა',
   'messages.thread.empty': 'მოკითხვა — საუბრის დაწყება.',
   'messages.title': 'თემები თქვენს რეპეტიტორებთან.',
+  'nav.primary': 'ძირითადი',
   'pricing.dataExport': 'მონაცემთა ექსპორტი:',
   'pricing.headingDefault': 'გაფართოებული ფუნქციები:',
   'resetPassword.heading': 'აირჩიეთ ახალი, ძლიერი პაროლი.',

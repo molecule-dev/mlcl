@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'about.pageTitle': 'Banyere {{name}}',
   'auth.footer.about': 'Banyere {{name}}',
   'authHeader.subtitle': 'Banye iji mee ka ọnụọgụgụ gị bụrụ eziokwu.',
   'automations.action.email': 'Ozi-e',
+  'automations.action.noop': 'Enweghị ọrụ',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Hichapụ " {{name}} "?',
   'automations.empty.headline': 'Enweghị akpaghị aka ugbu a',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     "Ihe mkpali na ihe omume dị iche iche n'akwụkwọ ọrụ ọ bụla. Ọsọ ọ bụla na-edekọ otu ahịrị ị nwere ike inyocha ma emechaa.",
   'automations.toggle': 'Gbanwee {{name}}',
+  'automations.trigger.dailySchedule': 'Usoro ihe omume kwa ụbọchị',
+  'automations.trigger.rowCreated': 'E mepụtara ahịrị',
+  'automations.trigger.rowUpdated': 'Emelitere ahịrị',
   'billing.empty': 'Enweghị atụmatụ dị.',
   'billing.error.priceMissing':
     'Enweghị ọnụahịa Stripe ahaziri maka ọkwa a. Hazie STRIPE_*_PRICE_ID env vars.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Chaatị',
   'charts.kpi.totalCharts': 'Chaatị niile',
   'charts.list.empty': 'Enweghị chaatị ugbu a.',
+  'charts.namePlaceholder': 'Usoro ego',
   'charts.newChart': 'Chaatị ọhụrụ',
   'charts.primary.eyebrow': 'Chaatị site na ụdị',
   'charts.primary.headline': 'Nchịkọta nke ebe ọrụ',
   'charts.subhead':
     'Nlereanya dị ndụ nke ejikọtara na grid gị - gbanweegharịa na ndezi sel ọ bụla.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'editor.addColumn': 'Tinye kọlụm',
+  'editor.addDialogTitle': 'Tinye kọlụm',
   'editor.addRow': 'Tinye ahịrị',
   'editor.addSheet': 'Tinye mpempe akwụkwọ',
   'editor.back': 'Laghachi na akwụkwọ ọrụ',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     "{{name}} Calcite bụ usoro nke mbụ, nke nwere ọtụtụ echiche, nke ndị nyocha grid n'oge na-adịbeghị anya na ndị otu ego na-erute maka nke mbụ.",
   'landing.nav.formulas': 'Usoro',
+  'login.noAccount': 'Ọ dị ọhụrụ na {{name}} ?',
+  'login.signIn': 'Banye na {{name}}',
   'login.signUp': 'Mepụta ebe ọrụ',
+  'nav.menu': 'Ndepụta nri',
+  'nav.openMenu': 'Mepee menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=ỊCHỌPỤTA(REQUEST.url, "ụzọ", "peeji")',
   'notFound.headline': 'Ahịrị a adịbeghị.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Akpaaka nke ndị obodo · webhook na cron triggers',
   'signup.creating': 'Imepụta ụlọ ọrụ na-enye ọrụ...',
   'signup.cta': 'Mepụta ebe ọrụ m',
+  'signup.haveAccount': 'Ọ dịlarị na {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': "Melite akwụkwọ ọrụ mbụ gị n'ime sekọnd 30",
   'team.col.activity': 'A kpọrọ òkù',

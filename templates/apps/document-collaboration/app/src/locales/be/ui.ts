@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.title': 'Пра {{app}}',
   'comments.addFailed': 'Не атрымалася апублікаваць каментар.',
   'comments.backToDoc': 'Вярнуцца да рукапісу',
   'comments.deleteFailed': 'Не атрымалася выдаліць.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Вырашыць',
   'comments.resolveFailed': 'Не атрымалася вырашыць.',
   'comments.subtitle': '{{open}} адкрыты · {{resolved}} вырашана',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.activityHeading': 'Што адбываецца',
   'dashboard.createFailed': 'Не атрымалася стварыць дакумент.',
   'dashboard.empty': 'Пакуль няма рукапісаў — пачніце з кнопкі «Новы дакумент».',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Не атрымалася перамясціць у кошык.',
   'editor.unpublish': 'Адмяніць публікацыю',
   'editor.untitled': 'Безназоўны дакумент',
+  'editor.updatedElsewhere':
+    'Гэты дакумент быў абноўлены кімсьці іншым — перазагрузіце яго, каб убачыць апошнія змены.',
   'editor.version': 'в {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Калі ўліковы запіс існуе для {{email}} , спасылка для скіду налад ужо ў дарозе.',
   'forgotPassword.subtitle': 'Мы дашлем вам спасылку для скіду налад па электроннай пошце.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Створана з дапамогай Molecule.',
   'landing.ctaHeading': 'Адкрыйце старонку. Пачніце рухацца курсорам.',
   'landing.ctaPrimary': 'Адкрыйце студыю',
   'landing.eyebrow': 'Для аўтараў, рэдактараў і каманд',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'адрэдагавана {{when}}',
   'quillonDocumentCard.open': 'Адкрыць →',
   'quillonKpiCard.trend': 'Нядаўняя тэндэнцыя',
+  'quillonLayout.menu': 'Меню',
   'quillonLayout.primaryNavLabel': 'Асноўная навігацыя',
   'quillonStudioHero.collab': 'Супрацоўнікі',
   'quillonStudioHero.docs': 'Дакументы, якіх датычыліся',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}} д. таму',
   'time.hoursAgo': '{{hours}} г. таму',
   'time.justNow': 'толькі што',
+  'trash.confirmDelete': 'Пацвердзіць выдаленне',
   'trash.deleteFailed': 'Не атрымалася выдаліць.',
   'trash.deleteForever': 'Выдаліць назаўсёды',
   'trash.empty': 'Няма чаго аднаўляць.',
+  'trash.emptyAll': 'Ачысціць кошык',
   'trash.eyebrow': 'Студыя',
   'trash.heading': 'Смецце',
   'trash.loadFailed': 'Не атрымалася загрузіць кошык.',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.tagline': '모든 시설이 한 지붕 아래에 있습니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.addProperty': '부동산 추가',
   'dashboard.empty.body':
     '부동산, 호실, 임대료 결제가 등록되면 이 대시보드가 포트폴리오 인사이트로 채워집니다.',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · 호실 {{unit}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}}건의 열린 작업 지시서, 우선순위순',
   'maintenanceQueueList.title': '유지보수 대기열',
+  'nav.closeMenu': '메뉴 닫기',
+  'nav.openMenu': '메뉴 열기',
   'notFound.body': '찾으시는 페이지가 이동되었거나, 보관되었거나, 존재하지 않습니다.',
   'notFound.title': '그 문은 열리지 않습니다',
   'notifications.empty.body':

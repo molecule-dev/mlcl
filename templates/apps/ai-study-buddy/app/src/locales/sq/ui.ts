@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Duke ngarkuar informacionin e planit…',
   'billing.popular': 'Më të dashurat',
   'billing.subtitle': 'Zgjidhni planin që i përshtatet ritmit tuaj të studimit.',
+  'common.goToDashboard': 'Shko te paneli',
   'common.today': 'Sot',
   'common.yesterday': 'Dje',
   'courseDetail.empty.body': 'Shtoni një material studimi për të filluar zotërimin e kësaj teme.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Emri i kuvertës',
   'flashcards.subtitle': 'Përsëritje me hapësirë që përshtatet me ritmin tuaj.',
   'flashcards.title': 'Kartela me figura',
+  'footer.copyright': '© {{year}} {{app}} . Mëso mirë, fli mirë.',
   'forgotPassword.subtitle':
     "Shkruani email-in tuaj dhe ne do t'ju dërgojmë një lidhje rivendosjeje.",
+  'koanLayout.closeMenu': 'Mbyll menynë',
+  'koanLayout.navLabel': 'Navigimi kryesor',
+  'koanLayout.openMenu': 'Hap menynë',
   'koanLayout.theme': 'Tema',
   'landing.featuresBody':
     'Mjete të dizajnuara për të eliminuar shpërqendrimin dhe për të ndërtuar një kuptim të qëndrueshëm.',
@@ -116,11 +121,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Ajo URL është territor i panjohur. Ndoshta një gabim shtypi, ndoshta një mësim i fshirë - sidoqoftë, le t'ju kthejmë te studimi.",
   'notFound.heading': 'Faqja nuk u gjet.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Je plotësisht i informuar',
   'notifications.filter.${opt}': 'Duke ngarkuar njoftimet…',
   'notifications.markAllError': 'Nuk mund të shënoheshin të gjitha si të lexuara.',
   'notifications.markError': 'Nuk mund të shënohej si i lexuar.',
   'notifications.subtitle': '{{count}} përditësime të palexuara',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.heading': 'kuize',
   'pricing.limits.topics': 'temat',
   'privacy.collectBody':
@@ -185,6 +192,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Provo një fjalë kyçe ose filtër tjetër.',
   'search.empty.title': 'Asgjë nuk përputhej.',
   'search.error': 'Nuk mund të ngarkoheshin rezultatet.',
+  'search.filters': 'Filtrat e llojit të rezultateve',
   'search.go': 'Shko',
   'search.label.flashcard': 'Paketa me kartat me figura',
   'search.label.note': 'Shënim',

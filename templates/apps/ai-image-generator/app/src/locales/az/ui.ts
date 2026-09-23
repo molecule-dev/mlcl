@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'auth.fields.newPassword': 'Yeni parol',
   'collectionDetail.addImage': 'Kolleksiya üçün sehrbazlıq',
   'collectionDetail.backCta': 'Kolleksiyalara qayıt',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Əhval-ruhiyyə lövhələri, qısa məlumat və davam edən seriyalar',
   'collections.title': 'Kolleksiyalar',
   'collections.untitled': 'Başlıqsız · {{stamp}}',
+  'common.closeMenu': 'Menyunu bağlayın',
+  'common.dismiss': 'Ləğv et',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'common.openMenu': 'Naviqasiya menyusunu açın',
   'credits.eyebrow': '{{plan}} plan',
   'credits.renewsCopy': 'Plan yenilənir {{date}}',
   'credits.trail': 'Reverie · {{plan}} pillə',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Nəsil fəaliyyəti, paylaşım və kredit bildirişləri burada görünəcək.',
   'notifications.empty.title': 'Bildiriləcək heç nə yoxdur',
   'notifications.subtitle': 'Günə görə qruplaşdırılmış nəsil hadisələri',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.limits.gallery': '{{count}} qalereya',
   'privacy.collect.body':
     'Qeydiyyatdan keçdiyiniz zaman adınızı, e-poçt ünvanınızı və heş edilmiş parolunuzu toplayırıq. Reverie-dən istifadə etdikcə göndərdiyiniz sorğuları, sizin üçün yaratdığımız şəkilləri, saxladığınız üslubları və kolleksiyaları, eləcə də istifadə olunan model, generasiya vaxt damğaları və kredit balansı kimi metaməlumatları saxlayırıq.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Yeni parolu yadda saxla',
   'reset.submitting': 'Şifrə yenilənir…',
   'settings.account.handle': 'Dəstək',
+  'settings.account.lastSaved': 'Aktiv profil · {{name}}',
   'settings.account.saved': 'Profil yadda saxlanıldı',
   'settings.account.saveFailed': 'Profil yadda saxlanıla bilmədi',
   'settings.account.title': 'Yaradıcı profili',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Yeni şəkil',
   'sidebar.secondary': 'İkinci dərəcəli naviqasiya',
   'signup.failed': 'Qeydiyyat uğursuz oldu. Yenidən cəhd edin.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Xəyalınıza başlayın',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Hesab yaradın və 120 pulsuz kredit tələb edin.',
   'styles.empty':
     'Hələlik heç bir stil əvvəlcədən ayarları yoxdur — onlar ilk girişdən sonra görünəcək.',

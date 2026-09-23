@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Lépjen kapcsolatba velünk',
   'about.eyebrow': 'Névjegy',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.connectRepoCta': 'Repository csatlakoztatása',
   'dashboard.empty': 'Még nincsenek pull requestek — csatlakoztasson egy repositoryt a kezdéshez.',
   'dashboard.eyebrow': 'Refract · review várólista',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Üzemidő',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI minőségi pontszám {{score}} / 10',
+  'refractLayout.closeMenu': 'Menü bezárása',
+  'refractLayout.openMenu': 'Menü megnyitása',
   'refractLayout.primaryNavLabel': 'Elsődleges navigáció',
   'reports.cumulativeScoreLabel': 'Halmozott pontszám',
   'reports.cumulativeScoreSubtitle': 'összes repó · {{days}}n',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nem sikerült betölteni a keresési indexet.',
   'settings.apiKeys.description':
     'Kezelje személyes API kulcsait a jobb felső felhasználói menüből.',
+  'settings.apiKeys.integrationsNote':
+    'A szolgáltatói hozzáférési tokeneket a fenti „Integrációk” szakaszban lehet kezelni.',
   'settings.connectError': 'Nem sikerült csatlakoztatni a szolgáltatót.',
   'settings.disconnectError': 'Nem sikerült leválasztani a szolgáltatót.',
   'settings.eyebrow': 'Refract · munkaterület',
   'settings.integration.${provider}.label': 'Mentés…',
   'settings.loadError': 'Nem sikerült betölteni a beállításokat.',
+  'settings.notificationCenter': 'Értesítési központ',
   'settings.notifications.description':
     'Látogassa meg az értesítések oldalt a kézbesítési preferenciák megtekintéséhez és kezeléséhez.',
   'settings.section.account': 'Fiók és biztonság',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'authShell.statusLabel': 'runners σε σύνδεση',
   'collections.createError': 'Δεν ήταν δυνατή η δημιουργία της συλλογής.',
   'collections.defaultName': 'Συλλογή χωρίς όνομα {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Νέα συλλογή',
   'collections.subheading':
     'Ομαδοποιήστε αιτήματα, μοιραστείτε τα με την ομάδα σας και εκτελέστε τα ως σουίτα.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'environmentCard.inactive': 'Ανενεργό',
   'environmentCard.more': 'περισσότερα',
   'environmentCard.variables': 'Μεταβλητές',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Δωρεάν λήψη',
   'landing.heroSubtitle':
     'Ο εξαιρετικά γρήγορος πάγκος εργασίας δοκιμών API που έχει κατασκευαστεί για μηχανικούς που ζουν σε τερματικούς σταθμούς.',
+  'landing.heroTitleAccent': 'Φωτιά',
+  'landing.heroTitleLine2': 'να καλλιεργήσουν την εμπιστοσύνη.',
+  'landing.heroTitleRest': 'αιτήματα,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Απλή, προβλέψιμη τιμολόγηση',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Νέος εδώ;',
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.subtitle': 'Συνεχίστε στον χώρο εργασίας σας στο Pylon.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'mocks.createError': 'Δεν ήταν δυνατή η δημιουργία του mock.',
   'mocks.defaultName': 'Mock χωρίς όνομα {{n}}',
   'mocks.deleteError': 'Δεν ήταν δυνατή η διαγραφή του mock.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Επιστροφή στον χώρο εργασίας',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Η διαδρομή δεν βρέθηκε',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'privacy.collect.account':
     'Λογαριασμός: το email σας, ο κατακερματισμένος κωδικός, το εμφανιζόμενο όνομα και η χρονοσφραγίδα της τελευταίας σύνδεσης.',
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
     'Προβολή μόνο ανάγνωσης των δεδομένων που ανήκουν σε αυτόν τον λογαριασμό.',
   'settings.unset': 'δεν έχει οριστεί',
   'signup.identityHint': 'π.χ. Alex',
+  'signup.statusLabel': 'δωρεάν πακέτο · χωρίς πιστωτική κάρτα',
   'signup.subtitle': 'Ξεκινήστε να στέλνετε αιτήματα σε λίγα λεπτά.',
   'terms.account.body':
     'Είστε υπεύθυνοι για την προστασία του κωδικού σας. Η κοινή χρήση ενός λογαριασμού από πολλά άτομα δεν επιτρέπεται στα πλάνα Free ή Pro — αγοράστε συνδρομή Team για κοινόχρηστους χώρους εργασίας.',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     'Μην χρησιμοποιείτε το Pylon για αποστολή αιτημάτων σε υπηρεσίες που δεν σας ανήκουν ή για τις οποίες δεν έχετε ρητή άδεια δοκιμής. Μην χρησιμοποιείτε το Pylon για παράκαμψη ορίων ρυθμού ή διάπραξη απάτης.',
   'terms.warranty.body':
     'Το Pylon παρέχεται "ως έχει" χωρίς καμία εγγύηση. Στοχεύουμε σε 99,9% διαθεσιμότητα, αλλά δεν την εγγυόμαστε στα πλάνα Free ή Pro.',
+  'testRunner.assertionsCount': '{{count}} ισχυρισμοί',
   'testRunner.createError': 'Δεν ήταν δυνατή η δημιουργία του τεστ.',
   'testRunner.cron':
     'Οι ισχυρισμοί αξιολογούνται βάσει της πιο πρόσφατης εκτέλεσης του συνδεδεμένου αιτήματος αυτού του τεστ.',
@@ -173,11 +184,33 @@ export const ui: UiTranslations = {
     'Αποτελέσματα σουίτας, διαφορές ισχυρισμών και οι τελευταίες 50 εκτελέσεις.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Συνδεδεμένος ως',
+  'workspace.auth.keyName': 'Όνομα επικεφαλίδας',
+  'workspace.auth.keyValue': 'Τιμή κλειδιού',
+  'workspace.auth.password': 'Κωδικός πρόσβασης',
+  'workspace.auth.username': 'Όνομα χρήστη',
+  'workspace.authOption.apikey': 'Κλειδί API',
+  'workspace.authOption.basic': 'Βασική πιστοποίηση',
+  'workspace.authOption.bearer': 'Token ανώνυμου κατόχου',
+  'workspace.authOption.none': 'Κανένα',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Τύπος',
   'workspace.authTypeLabel': 'Τύπος ελέγχου ταυτότητας',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Κανένα',
+  'workspace.body.text': 'Ακατέργαστο κείμενο',
+  'workspace.body.type': 'Τύπος',
   'workspace.environment': 'Χωρίς περιβάλλον',
   'workspace.envVar': 'μεταβλητή περιβάλλοντος',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Προσθήκη κεφαλίδας',
+  'workspace.kv.addParam': 'Προσθήκη παραμέτρου',
+  'workspace.kv.headerKey': 'Όνομα επικεφαλίδας',
+  'workspace.kv.headerValue': 'Τιμή κεφαλίδας',
+  'workspace.kv.key': 'Κλειδί',
+  'workspace.kv.paramKey': 'Κλειδί παραμέτρου ερωτήματος',
+  'workspace.kv.paramValue': 'Τιμή παραμέτρου ερωτήματος',
+  'workspace.kv.removeRow': 'Διαγραφή σειράς',
+  'workspace.kv.value': 'Τιμή',
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Καθυστέρηση',
   'workspace.metric.latencyCaption': 'Πλήρης διαδρομή από αυτή την εκτέλεση',
@@ -195,6 +228,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Αίτημα εστάλη — δείτε το response παρακάτω.',
   'workspace.subheading':
     'Συνθέστε ένα αίτημα, στείλτε το και επαληθεύστε το response — όλα σε ένα παράθυρο.',
+  'workspace.testResults': 'Αποτελέσματα εξετάσεων',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Αποστέλλεται ως Authorization: Bearer <token> σε κάθε αίτημα αυτής της συλλογής.',

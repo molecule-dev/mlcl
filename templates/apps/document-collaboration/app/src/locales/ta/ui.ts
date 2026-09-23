@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.title': '{{app}} பற்றி',
   'comments.addFailed': 'கருத்தைப் பதிவிட முடியவில்லை.',
   'comments.backToDoc': 'கையெழுத்துப் பிரதிக்குத் திரும்பு',
   'comments.deleteFailed': 'நீக்க முடியவில்லை.',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'comments.replyPlaceholder': 'பதில்…',
   'comments.resolve': 'தீர்வு',
   'comments.resolveFailed': 'தீர்க்க முடியவில்லை.',
+  'comments.subtitle': '{{open}} திறந்த · {{resolved}} தீர்க்கப்பட்டது',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.activityHeading': 'என்ன நடக்கிறது',
   'dashboard.createFailed': 'ஆவணத்தை உருவாக்க முடியவில்லை.',
   'dashboard.empty':
@@ -54,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'குப்பைக்கு நகர்த்த முடியவில்லை.',
   'editor.unpublish': 'வெளியிடப்படாத',
   'editor.untitled': 'தலைப்பிடப்படாத ஆவணம்',
+  'editor.updatedElsewhere':
+    'இந்த ஆவணம் வேறொருவரால் புதுப்பிக்கப்பட்டுள்ளது — சமீபத்திய பதிப்பைக் காண மீண்டும் ஏற்றவும்.',
   'editor.version': 'வி {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'ஒரு கணக்கு இருந்தால் {{email}} மீட்டமைப்பு இணைப்பு விரைவில் அனுப்பப்படும்.',
   'forgotPassword.subtitle': 'மீட்டமைப்பு இணைப்பை உங்களுக்கு மின்னஞ்சல் செய்வோம்.',
+  'landing.copyright': '{{year}} {{app}} . Molecule கொண்டு உருவாக்கப்பட்டது.',
   'landing.ctaHeading': 'பக்கத்தைத் திறக்கவும். சுட்டியைத் தொடங்க விடுங்கள்.',
   'landing.ctaPrimary': 'ஒரு ஸ்டுடியோவைத் திறக்கவும்',
   'landing.eyebrow': 'எழுத்தாளர்கள், பதிப்பாசிரியர்கள் மற்றும் குழுக்களுக்கு',
@@ -110,6 +117,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'திருத்தப்பட்டது {{when}}',
   'quillonDocumentCard.open': 'திற →',
   'quillonKpiCard.trend': 'சமீபத்திய போக்கு',
+  'quillonLayout.menu': 'மெனு',
   'quillonLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'quillonStudioHero.collab': 'ஒத்துழைப்பாளர்கள்',
   'quillonStudioHero.docs': 'ஆவணங்கள் தொடப்பட்டன',
@@ -165,9 +173,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'இப்போதே',
+  'trash.confirmDelete': 'நீக்குவதை உறுதிப்படுத்துக',
   'trash.deleteFailed': 'நீக்க முடியவில்லை.',
   'trash.deleteForever': 'நிரந்தரமாக நீக்கு',
   'trash.empty': 'மீட்க எதுவும் இல்லை.',
+  'trash.emptyAll': 'குப்பைகளை காலி செய்',
   'trash.eyebrow': 'ஸ்டுடியோ',
   'trash.heading': 'குப்பை',
   'trash.loadFailed': 'குப்பையை ஏற்ற முடியவில்லை.',

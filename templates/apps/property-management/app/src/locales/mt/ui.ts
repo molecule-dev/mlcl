@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.tagline': 'Kull unità, taħt saqaf wieħed.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.addProperty': 'Żid proprjetà',
   'dashboard.empty.body':
     "Ladarba jkollok proprjetajiet, unitajiet, u ħlasijiet tal-kera, dan id-dashboard jimtela b'tagħrif dwar il-portafoll.",
@@ -87,6 +90,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     "{{count}} ordnijiet ta' xogħol miftuħa, ordnati skont il-prijorità",
   'maintenanceQueueList.title': 'Kju tal-Manutenzjoni',
+  'nav.closeMenu': 'Agħlaq il-menù',
+  'nav.openMenu': 'Iftaħ il-menù',
   'notFound.body': 'Il-paġna li kont qed tfittex ġiet imċaqalqa, arkivjata, jew qatt ma eżistiet.',
   'notFound.title': 'Dak il-bieb ma jinfetaħx',
   'notifications.empty.body':

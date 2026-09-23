@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'authShell.brandHeading': 'Zane-zane masu kyau ga ƙungiyoyin ƙira waɗanda ke jigilar kaya tare.',
   'canvas.redirecting': 'Editan buɗewa…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'kuma',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.retry': 'Sake gwadawa',
   'dashboard.activityEmpty':
     'Babu wani aiki na baya-bayan nan tukuna — gayyato abokin aiki don farawa.',
   'dashboard.activityTitle': 'Abin da ya canza a yau',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Wurin Aiki · Northwind Studio',
   'dashboard.foldersLabel': 'Fayiloli',
   'dashboard.gridTitle': '{{count}} ayyuka',
+  'dashboard.heroActiveTool': 'Kayan aikin alkalami',
   'dashboard.loadingTitle': 'Ana loda ayyukan…',
   'dashboard.searchPlaceholder': 'Bincika ayyukan',
   'dashboard.startFromTemplate': 'Fara daga samfuri',
   'dashboard.title': 'Ayyukanka',
   'dashboard.untitledProject': 'Aikin da ba shi da lakabi',
   'designCanvasLayout.newProject': 'Sabon aiki',
+  'designCanvasLayout.primaryNavLabel': 'Babban kewayawa',
   'editor.backToProjects': 'Komawa ga ayyukan',
   'editor.deleteShape': 'Share siffar',
   'editor.errorBody': 'Ba mu iya buɗe wannan aikin ba.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Tsarin kayan aikin da ke motsawa da saurin hannunka',
   'library.empty': 'Babu alamun a wannan sashe tukuna.',
   'library.eyebrow': 'Wurin Aiki · Tsarin Zane na Atelier',
+  'library.loadFailed': 'Ba a iya loda alamun ƙira ba.',
   'library.systemMeta': 'Lafiyar tsarin',
   'library.systemSummary': '{{alamu}} Alamu · {{kayayyaki}} sassan · {{tasiri}} tasirin',
   'login.emailPlaceholder': 'mara@studio.com',

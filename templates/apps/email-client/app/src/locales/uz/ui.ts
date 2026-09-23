@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Biz bir vaqtlar shovqinli pochta qutisida kunning juda ko'p soatlarini o'tkazgan dizaynerlar va muhandislarning tarqoq jamoamiz. Courier - bu biz o'zimiz foydalanmoqchi bo'lgan pochta qutisi.",
   'about.title': 'Maqsadli ish uchun elektron pochta',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'help.cta.about': 'Courier haqida',
   'help.cta.pricing': "Narxlarni ko'rish",
   'help.eyebrow': 'Yordam markazi',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Eng ko'p eshitadigan savollarga tezkor javoblar. Biror narsa yetishmayaptimi? Sozlamalarni oching va ilova ichidagi fikr-mulohaza shaklidan foydalaning yoki support@courier.example manziliga yozing.",
   'help.title': 'Qanday yordam bera olamiz?',
   'landing.brand.scrollTop': 'Yuqoriga qaytish',
+  'landing.copyright': '© {{year}} {{appName}} — Diqqatni jamlash uchun yaratilgan.',
   'landing.ctaBody':
     "Tushlikdan oldin pochta qutisini tugatgan minglab mutaxassislarga qo'shiling.",
   'landing.ctaTitle': "Ko'proq ishlov bering, kamroq reaksiya qiling.",
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Demo tomosha qiling',
   'landing.heroSubtitle':
     "Courier - bu ma'lumotga munosabat bildirishni emas, balki uni qayta ishlashni istagan bilim xodimlari uchun yaratilgan sokin uch panelli elektron pochta qutisi.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': "Dunyo bo'ylab maqsadli jamoalar tomonidan ishonchli",
   'landing.signIn': 'tizimga kirish',
   'meridian.archive.empty': "Arxiv bo'sh.",
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Qoralama',
   'meridian.folder.count': '{{count}} xabarlar',
+  'meridian.folder.delete': "O'chirish",
   'meridian.folder.deleteForever': "Butunlay o'chirish",
   'meridian.folder.restore': "Kiruvchi xabarlar qutisiga ko'chirish",
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': "Bu yerda hali xabar yo'q.",
   'meridian.inbox.loading': 'Yuklanmoqda…',
   'meridian.inbox.next': 'Keyingisi',
+  'meridian.inbox.noSender': "(jo'natuvchi yo'q)",
   'meridian.inbox.noSubject': '(mavzusiz)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'Yozishni ochish',
   'meridian.inbox.previous': 'Oldingi',
   'meridian.inbox.replyFailed': 'Javob saqlandi, ammo yetkazib berish amalga oshmadi: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': "Hisobingiz yo'qmi?",
   'meridian.login.showPassword': "Parolni ko'rsatish",
   'meridian.message.toLine': 'ga {{recipients}}',
+  'meridian.notFound.body':
+    "Siz izlayotgan sahifa topilmadi. {{appName}} elektron pochta qutingizga qayting, biz sizga kerakli yo'lni ko'rsatamiz.",
   'meridian.notFound.eyebrow': '404-xato',
   'meridian.notFound.title': 'Bu mavzu arxivlandi.',
   'meridian.notFound.toInbox': 'Mening pochtamni oching',
@@ -135,18 +143,22 @@ export const ui: UiTranslations = {
   'meridian.thread.star': "Yulduzcha qo'shish",
   'meridian.thread.unstar': 'Yulduzchani olib tashlash',
   'meridian.time.yesterday': 'Kecha',
+  'meridian.topBar.openMenu': 'Navigatsiya menyusini ochish',
   'meridian.topBar.searchPlaceholder': 'Pochta orqali qidirish',
   'meridian.trash.empty': "Chiqindi qutisi bo'sh.",
   'meridian.trash.title': 'Axlat',
   'nav.legal': 'Huquqiy',
   'planUpdated.description':
     'Obunangiz endi faol va hisob-kitobingiz yangilandi. Yangilangan Courier pochta qutingizga xush kelibsiz.',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.heading': 'qoralamalar',
   'pricing.limit.emails': 'elektron pochta xabarlari',
   'pricing.limit.folders': 'papkalar',
   'pricing.limit.labels': 'yorliqlar',
   'privacy.collect.account':
     "Hisob ma'lumotlari: ism, elektron pochta manzili, xeshlangan parol va ro'yxatdan o'tgan sana.",
+  'privacy.contact':
+    'Savollaringiz bormi? privacy@courier.example elektron pochta manziliga xabar yuboring.',
   'privacy.intro':
     "Ushbu maxfiylik siyosati Courier qanday ma'lumotlarni to'plashini, nima uchun ularni to'plashimizni, ularni qanday xavfsiz saqlashimizni va ular bo'yicha qanday tanlovlaringiz borligini tushuntiradi. Biz qonuniy emas, balki aniqroq bo'lishga intilamiz; agar biror narsa noaniq bo'lsa, privacy@courier.example manziliga yozing.",
   'privacy.lastUpdated': 'Oxirgi yangilanish: 2026-yil 1-aprel',
@@ -166,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Ushbu shartlar sizning Courierdan foydalanishingiz bilan bog'liq. Biz orqali hisob yaratish yoki elektron pochta xabarini yuborish orqali siz ularga rioya qilishga rozilik bildirasiz. Biz inson amal qilishi mumkin bo'lgan qoidalarni yozishga harakat qilamiz.",
   'terms.lastUpdated': 'Amal qilish muddati: 2026-yil 1-aprel',
+  'terms.linkPrivacy': "Maxfiylik siyosatimizni o'qing →",
   'terms.termination.body':
     "Siz istalgan vaqtda hisobingizni o'chirib tashlashingiz mumkin. Ushbu shartlarni buzgan hisobni to'xtatib qo'yishimiz mumkin; agar shunday qilsak, sababini tushuntiramiz va avval ma'lumotlaringizni eksport qilishingizga ruxsat beramiz.",
   'terms.warranty.body':

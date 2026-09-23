@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'announcementsFeed.empty': 'Teadaandeid pole veel.',
   'announcementsFeed.eyebrow': '{{count}} uuendused',
   'announcementsFeed.title': 'Viimased teadaanded',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Siin pole midagi',
   'assignments.emptyBody': 'Teises olekus ülesannete nägemiseks vahetage ülaltoodud filtreid.',
   'assignments.eyebrow': 'Kõik kursused · See semester',
+  'assignments.loadError': 'Ülesandeid ei õnnestunud laadida.',
   'assignments.loading': 'Ülesannete laadimine…',
   'assignments.subtitle':
     'Filtreeri oleku järgi, et näha, mis on tähtajaks tasutud, esitatud, hinnatud või puudu.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Märkus',
   'attendance.empty': 'Kohalolekuandmeid veel pole.',
   'attendance.eyebrow': 'Kevadsemester · Viimased 4 nädalat',
+  'attendance.loadError': 'Kohalolekuandmeid ei õnnestunud laadida.',
   'attendance.loading': 'Kohalolekut laaditakse…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Ülesannete tähtajad on joonistatud kuugraafikule – eksamid on punasega esile tõstetud.',
   'calendar.title': '{{month}} sündmused',
+  'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
+  'common.retry': 'Proovi uuesti',
   'common.yes': '✓',
   'courseDetail.backLink': 'Hinded',
   'courseDetail.currentGrade': 'Praegune hinne',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Hinneid pole veel postitatud.',
   'grades.eyebrow': 'Hinnete raamat',
+  'grades.loadError': 'Teie hindeid ei õnnestunud laadida.',
   'grades.loading': 'Hinnete laadimine…',
   'grades.subtitle':
     'Reaalajas tähe- ja protsentuaalsed hinded. Trendi nooled näitavad, kas liigute ülespoole, tasapinnale või langete.',
   'grades.title': 'Sinu hinded kursuse haaval',
   'grades.trendStable': 'Stabiilne',
+  'landing.copyright': '© {{year}} {{app}} . Loodud õpilastele, loodud peredele.',
   'landing.ctaHeading': 'Rahulikum koolipäev algab minutitega',
   'landing.eyebrow': 'Kesk- ja gümnaasiumiõpilastele',
   'landing.featuresHeading': 'Õpilase ümber korraldatud koolipäev',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Ülesanded',
   'nav.attendance': 'Osavõtt',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Sulge navigeerimismenüü',
   'nav.grades': 'Hinded',
+  'nav.openMenu': 'Ava navigeerimismenüü',
   'nav.statusEyebrow': 'Keskmine keskmine hinne',
   'nav.statusSubtext': 'Aunimekiri · Kevadsemester',
+  'nav.unreadMessages': 'Lugemata sõnumid',
   'notifications.eyebrow': '{{count}} uuendused',
   'notifications.subtitle':
     'Hinded, meeldetuletused, sõnumid ja kooli teadaanded. Saate seadetes määrata, milliseid kanaleid iga teavitus kasutab.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.attendanceLabel': 'kohalolek',
   'pricing.gradesLabel': 'hinded',
   'pricing.heading': 'teadaanded',

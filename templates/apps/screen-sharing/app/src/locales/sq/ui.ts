@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'about.pageTitle': 'Rreth {{appName}}',
   'analytics.empty': 'Regjistro klipin tënd të parë për të parë angazhimin këtu.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipet',
   'billing.usage.views': 'Shikime',
   'billing.usage.views.unit': 'pamje',
+  'common.goToDashboard': 'Shko te paneli',
   'landing.cta.title': 'Dërgo reagime më të mira. Fillo me Glint.',
   'landing.feature.capture.body':
     'Regjistrim në shfletues, desktop dhe celular me mikrofon, kamerë dhe vizatim.',
   'landing.feature.capture.title': 'Kapje me një prekje',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asinkron, i bërë i ndritshëm.',
   'landing.hero.cardCaption':
     'Shembull i një përmbledhjeje të hapësirës së punës — provojeni falas.',
   'landing.hero.primaryCta': 'Filloni regjistrimin falas',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Kërko regjistrime',
   'library.searchPlaceholder': 'Kërko regjistrime…',
   'library.weeklyChange': '{{value}} % krahasuar me javën e kaluar',
+  'nav.openMenu': 'Hap menynë e navigimit',
   'nav.record': 'Regjistro',
   'nav.shared': 'Ndarë me mua',
   'nav.startRecording': 'Fillo regjistrimin',

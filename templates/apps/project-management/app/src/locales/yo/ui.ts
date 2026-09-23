@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'accountSettings.confirmEmailLabel': 'Tẹ DELETE lati jẹrisi',
   'accountSettings.deleteError': 'Kò le pa àkọọ́lẹ̀ rẹ rẹ́.',
   'accountSettings.passwordError': 'Kò le yí ọ̀rọ̀ìpamọ́ padà.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Ko si awọn akoko ipari ti n bọ.',
   'dashboard.upcomingTitle': 'Àwọn Àkókò Ìparí Tí Ń Bọ̀',
   'deviceSettings.unknownDevice': 'Ẹ̀rọ tí a kò mọ̀',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Àtìlẹ́yìn',
   'forgotPassword.error': 'Kò ṣeé ṣe láti fi ìjápọ̀ àtúntò ránṣẹ́.',
   'forgotPassword.subtitle': 'Tẹ imeeli rẹ sii a o si fi ọna asopọ atunto ranṣẹ si ọ.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ìmeeli tàbí ọ̀rọ̀ìpamọ́ tí kò tọ́.',
   'login.pageTitle': 'Wọle',
   'login.signIn': 'Wọlé láti Forge',
+  'login.subtitle': 'Wọlé láti jẹ́ kí àwọn iṣẹ́ rẹ máa lọ ní ọ̀nà tó tọ́',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'nav.calendar': 'Kàlẹ́ńdà',
   'nav.legal': 'Ofin',
   'nav.myTasks': 'Àwọn Iṣẹ́ Mi',

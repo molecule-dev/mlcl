@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
+  'appNav.mobileLabel': 'Primær navigation',
+  'appNav.primaryLabel': 'Primær navigation',
   'billing.actions.confirmCancel':
     'Vil du opsige dit abonnement? Du kan til enhver tid genabonnemente.',
   'billing.actions.paused': 'Abonnementet er sat på pause.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Hvert niveau er en lille historie. Tilføj en til din kø, eller byt den til din næste måned.',
   'boxThemeCard.perMonth': '/ måned',
+  'common.goToDashboard': 'Gå til Dashboard',
   'customize.eyebrow': 'Gør det til dit eget',
   'customize.heading': 'Tilpas din næste Crate',
   'customize.items.exclude': 'Spring dette over',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Denne sæson',
   'landing.editions.heading': 'Udgaver vores kuratorer elsker',
   'landing.footer.contact': 'Tal med en kurator',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start din boks →',
   'landing.hero.ctaSecondary': 'Se niveauer',
   'landing.hero.eyebrow': 'Udarbejdes månedligt. Altid personligt.',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'DIN NÆSTE FILM',
   'nextBoxHeroCard.itemsLabel': 'Udvalgte varer',
   'nextBoxHeroCard.shipsOnLabel': 'Sendes på',
+  'notFound.body':
+    'Vi kunne ikke finde siden i {{app}} -arkivet. Den er muligvis blevet udfaset eller blot skrevet forkert.',
   'notFound.cta.dashboard': 'Gå til dashboard',
   'notFound.eyebrow': 'Tom kasse',
   'notFound.heading': 'Denne hylde er tom',

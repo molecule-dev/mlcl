@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.eyebrow': '{{app}}-ийн тухай',
   'about.pageTitle': 'Маршрут бүр, нэг хайлт.',
   'booking.backToDetail': 'Нислэгийн дэлгэрэнгүй мэдээлэл рүү буцах',
   'booking.continue': 'Төлбөрийг үргэлжлүүлэх',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Татвар ба хураамж',
   'booking.summary.travelers': 'Аялагчид',
   'common.about': 'Тухай',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'flightDetail.backToResults': 'Үр дүн рүү буцах',
   'flightDetail.baseFare': 'Үндсэн үнэ',
   'flightDetail.book': 'Захиалгаа үргэлжлүүлэх',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 зогсолт',
   'flightResultCard.select': 'Сонгох',
   'flightResultCard.totalLabel': 'Нийт хугацаа',
+  'flightSearchLayout.primaryNavLabel': 'Үндсэн навигаци',
   'forgotPassword.subheading':
     'Skylark бүртгэлийнхээ имэйл хаягийг оруулна уу, бид аюулгүй дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.successBody':
     'Шалгах {{email}} Шинэ нууц үг тохируулах холбоос. Холбоос 30 минутын дараа хүчингүй болно.',
   'forgotPassword.successHeading': 'Дахин тохируулах холбоос илгээгдсэн',
   'landing.cta.explore': 'Хайлт хийж үзнэ үү',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Бусдаас түрүүлж дараагийн гайхалтай хоолыг олоорой.',
   'landing.cta.signup': 'Үнийн саналыг хянаж эхлэх',
   'landing.features.eyebrow': 'Яагаад Скайларк',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Анхааруулга нэмэх',
   'priceAlerts.deleteConfirm': 'Энэ сэрэмжлүүлгийг устгах уу?',
   'priceAlerts.empty': 'Одоогоор хянасан маршрут байхгүй байна.',
+  'priceAlerts.emptyCta': 'Замаа олох зам хайх',
   'priceAlerts.errorMessage': 'Мэдэгдлийг ачаалж чадсангүй.',
   'priceAlerts.eyebrow': 'Скайларкийн ажиглалтын жагсаалт',
   'priceAlerts.form.createError': 'Анхааруулга үүсгэж чадсангүй.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Олон хотын аялалын маршрут',
   'results.multiLegHeading': 'Хөл {{n}} · {{from}} → {{to}} · {{огноо}}',
   'results.multiSummary': '{{count}} хөл · {{passengers}} аялагч',
+  'results.sortAriaLabel': 'Үр дүнг эрэмбэлэх',
   'results.sortLabel': 'Эрэмбэлэх',
   'results.summary': '{{count}} нислэгүүд · {{passengers}} аялагч',
   'settings.language.title': 'Хэл',

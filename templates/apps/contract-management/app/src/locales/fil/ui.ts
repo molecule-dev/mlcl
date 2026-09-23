@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
   'authBrandPanel.quote':
     '"Ang Vellum na ngayon ang sistema ng talaan para sa bawat nilagdaang kasunduan na pagmamay-ari natin."',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'contractDetail.amount': 'Halaga',
   'contractDetail.back': 'Lahat ng kontrata',
   'contractDetail.downloadCta': 'I-download ang PDF',
@@ -74,6 +77,7 @@ export const ui: UiTranslations = {
     'Kung mayroong account para sa {{email}} , may paparating nang link para sa pag-reset.',
   'forgotPassword.subtitle':
     'Magpapadala kami ng link para sa pag-reset sa iyong email sa trabaho.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Ginawa gamit ang Molecule.',
   'landing.ctaHeading': 'Tingnan ang pagsasara ng iyong portfolio sa unang araw.',
   'landing.ctaPrimary': 'Magsimula ng workspace',
   'landing.eyebrow': 'Para sa mga Legal na Operasyon at Pagkuha',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Kinakailangan ang pangalan ng katapat na partido.',
   'newContract.errEmail': 'Kinakailangan ang email ng pumirma.',
   'newContract.expires': 'Petsa ng pag-expire',
+  'newContract.failed': 'Hindi makagawa ng kontrata.',
   'newContract.heading': 'Bagong kontrata',
   'newContract.nextCta': 'Susunod',
   'newContract.review.counterparty': 'Katapat na partido',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Pamagat ng kontrata',
   'newContract.titlePlaceholder': 'Kasunduan sa Pangunahing Serbisyo',
   'newContract.variablesHeading': 'Mga baryabol ng kontrata',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.dataExport': 'Pag-export ng data',
   'pricing.disabled': 'Hindi',
   'pricing.enabled': 'Oo',
@@ -147,15 +153,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Hindi mabura ang account.',
   'settings.security.deleting': 'Binubura…',
   'settings.security.newPassword': 'Bagong password',
+  'settings.security.noDevices': 'Walang nakarehistrong device.',
   'settings.security.twoFactor': 'Dalawang-factor na pagpapatotoo',
   'settings.security.twoFactorDisable': 'I-disable',
   'settings.security.twoFactorEnable': 'I-enable',
+  'settings.security.twoFactorInvalidCode': 'Hindi wastong kodigo.',
   'settings.signatures.body':
     'Ang iyong na-type na pangalan ay lilitaw sa linya ng lagda ng bawat kontratang iyong pipirmahan. Itakda ito nang isang beses at awtomatiko itong magre-render sa hinaharap.',
   'settings.signatures.heading': 'Bloke ng lagda',
   'settings.signatures.save': 'I-save ang lagda',
+  'sign.action': 'Pirmahan ang dokumentong ito',
+  'sign.eyebrow': 'Hiniling ang lagda',
+  'sign.for': 'Para kay {{name}}',
+  'sign.loadError': 'Hindi wasto o nag-expire na ang link na ito para sa pag-sign.',
   'sign.loading': 'Naglo-load…',
   'sign.signing': 'Pagpirma…',
+  'sign.submitError': 'Hindi maitala ang iyong lagda — maaaring nag-expire na ang link.',
   'signup.brandQuote':
     'Inilipat namin ang 8 taon ng papel sa Vellum sa loob ng isang linggo. Ang audit trail pa lamang ay nagbibigay-katwiran sa pagpapalit.',
   'signup.companyPlaceholder': 'Mga Mangangalakal ng Northwind',
@@ -191,6 +204,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Bukas na kontrata →',
   'vellumKpiCard.trend': 'Kamakailang uso',
+  'vellumLayout.closeMenu': 'Isara ang menu ng nabigasyon',
+  'vellumLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'vellumLayout.primaryNavLabel': 'Pangunahing navigation',
   'vellumPortfolioHero.expiring': 'Mag-e-expire sa ika-30 araw',
   'vellumPortfolioHero.label': 'Halaga ng portfolio',

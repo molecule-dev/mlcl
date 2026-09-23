@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Joan aginte-panelera',
   'forgot.eyebrow': 'Sartzeko bidea galdu duzu?',
   'forgot.formSubtitle': 'Esan iezaguzu artxibatutako helbide elektronikoa.',
   'forgot.headline': 'Berrezarri zure pasahitza.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Sortu bat',
   'login.subline':
     'Zure koadernoak, atzera-estekak eta eguneroko orrialdeak utzi zenituen lekuan daude.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'noteEditor.backToNotes': 'Itzuli oharretara',
   'noteEditor.bodyPlaceholder':
     'Hasi idazten — oharra automatikoki gordetzen da idazten duzun bitartean.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Koaderno berria',
   'notes.newNotebookPrompt': 'Koaderno berriaren izenburua',
   'notes.notebooksHeading': 'Koadernoak',
+  'notes.subtitle':
+    'Aukeratu ezkerreko koaderno bat eta sakatu Ohar berria botoia sarrera berri bat hasteko.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Aukeratu zure oharrak hartzeko plana',
   'reset.eyebrow': 'Ia berriro sartuta',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Eguneratua',
   'versoLayout.nav.graph': 'Grafikoa',
   'versoLayout.nav.home': 'Etxea',
+  'versoLayout.primaryNavLabel': 'Nabigazio nagusia',
   'versoNoteCard.pinned': 'Pinkatuta',
   'versoTodayHero.continueCta': 'Jarraitu idazten',
   'versoTodayHero.createCta': 'Hasi gaurko oharra',

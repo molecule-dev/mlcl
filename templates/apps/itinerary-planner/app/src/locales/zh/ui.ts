@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '关于{{app}}',
+  'auth.legalConsent': '继续即表示您同意我们的',
   'bookings.empty.body': '添加航班、酒店或活动,开始你的预订收件箱。',
   'bookings.empty.heading': '暂无预订。',
   'bookings.errors.create': '无法创建预订。',
@@ -21,6 +24,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': '已确认',
   'bookings.summary.pending': '等待确认',
   'bookings.summary.total': '已承诺总额',
+  'bookings.type.car': '租车',
+  'bookings.type.flight': '航班',
+  'bookings.type.hotel': '酒店',
   'bookings.type.other': '其他',
   'budgetSpendCard.budgetTotal': '已规划 {{total}}',
   'budgetSpendCard.pct': '{{pct}}%',
@@ -31,6 +37,7 @@ export const ui: UiTranslations = {
   'calendar.prevMonth': '上个月',
   'calendar.subheading': '发现行程冲突,在两次旅行之间安排休整日,查看同行者何时与你一起出行。',
   'common.and': '和',
+  'common.goToDashboard': '前往仪表盘',
   'dashboard.budgetHeading': '预算脉动',
   'dashboard.empty.heading': '暂无行程 — 你的地图集还是一片空白。',
   'dashboard.eyebrow': '任务控制中心',
@@ -39,6 +46,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': '进行中的行程',
   'dashboard.viewAllExpenses': '查看所有支出',
   'dashboard.viewAllTrips': '查看所有行程',
+  'dayTimelineRow.category.accommodation': '停留',
   'dayTimelineRow.category.transport': '运输',
   'destinationOrbCard.exploreCta': '添加到行程',
   'destinationOrbCard.tripCount': '{{count}} 次行程',
@@ -74,11 +82,15 @@ export const ui: UiTranslations = {
   'forgotPassword.submitPending': '正在发送找回邮件…',
   'forgotPassword.successHint': '还没收到?查看垃圾邮件文件夹,或换一个邮箱重试。',
   'forgotPassword.successSubheading': '我们已向 {{email}} 发送了找回链接。链接有效期为 30 分钟。',
+  'landing.cta.heading': '{{tagline}}。',
   'landing.cta.signup': '创建免费账号',
+  'landing.cta.subheading':
+    '免费计划最多支持 5 次行程、5 位合作者和 5 个站点，并包含实时同步功能；而 Pro 计划会在您的计划扩展时解除限制。',
   'landing.destinations.eyebrow': '下一步去哪里',
   'landing.destinations.heading': '编辑精选目的地',
   'landing.features.eyebrow': 'Waypoint 如何工作',
   'landing.features.heading': '为旅人而生,不为电子表格而设。',
+  'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': '开始一段免费行程',
   'landing.hero.ctaSecondary': '查看示例行程',
   'landing.hero.subtitle':
@@ -117,6 +129,7 @@ export const ui: UiTranslations = {
   'signup.heading': '一次规划,一起出发。',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading': '创建账号,即可与多达 5 位同行者共享行程、同步预订、把每一份确认归集在一处。',
+  'signup.termsPrefix': '注册账户即表示您同意我们的',
   'tripCountdownHeroCard.budget': '{{used}} 中的 {{total}} ({{pct}}% 预算)',
   'tripCountdownHeroCard.collaborators': '{{count}} 位旅人',
   'tripCountdownHeroCard.countdownLabel': '倒计时',
@@ -187,5 +200,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': '暂无行程。',
   'trips.pastHeading': '过往冒险',
   'trips.subheading': '{{count}} 段行程 — 过去、现在和未来。',
+  'waypointLayout.mobileNavClose': '关闭导航菜单',
   'waypointLayout.primaryNavLabel': '主导航',
 }

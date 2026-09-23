@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ስለ {{app}}',
   'argentAuthShell.brandEyebrow': 'አርጀንት · የሀብት መሳሪያ',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . የኢንቨስትመንት ምክር አይደለም።',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) ዛሬ',
   'argentAuthShell.sampleValue': '1,032,251 ዶላር',
   'argentLayout.primaryNavLabel': 'ዋና አሰሳ',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ለዚህ ቲከር ምንም ግብይቶች የሉም።',
   'assetDetail.txHeading': 'የእርስዎ ግብይቶች',
   'common.and': 'እና',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'የፖርትፎሊዮ አጠቃላይ እይታ',
@@ -49,6 +52,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'እስካሁን ምንም መያዣ የለም።',
   'holdings.heading': 'ሆልዲንግስ',
   'holdings.loadError': 'መያዣዎችን መጫን አልተሳካም።',
+  'landing.copyright':
+    '© {{year}} {{app}} . የኢንቨስትመንት ምክር አይደለም። ያለፈው አፈጻጸም የወደፊት ውጤቶችን ዋስትና አይሰጥም።',
   'landing.eyebrow': 'አርጀንት · የሀብት መሳሪያ መድረክ',
   'landing.features.heading': 'አማካሪ ለራሱ የሚገነባው ነገር ሁሉ።',
   'landing.finalCta.heading': 'ዲሲፕሊን ወደ ፖርትፎሊዮዎ ይመልሱ።',
@@ -68,6 +73,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ከሰዓታት በፊት',
   'news.justNow': 'አሁን',
   'news.loadError': 'ዜና መጫን አልተሳካም።',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'portfolioHeroCard.label': 'የፖርትፎሊዮ እሴት',
   'pricing.holdingsLabel': 'ይዞታዎች',
   'pricing.newsLabel': 'የዜና መጣጥፎች',
@@ -130,8 +136,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'መለያ ሰርዝ',
   'settings.security.deleting': 'በመሰረዝ ላይ…',
   'settings.security.heading': 'ደህንነት',
+  'settings.security.newPassword': 'አዲስ የይለፍ ቃል',
   'settings.security.password': 'የይለፍ ቃል',
   'settings.security.twoFactorEnable': 'አንቃ',
+  'settings.security.twoFactorInvalidCode': 'ልክ ያልሆነ ኮድ',
+  'settings.security.twoFactorVerify': 'አረጋግጥ እና አንቃ',
   'settings.tax.error': 'የግብር ዘዴን ማዘመን አልተቻለም።',
   'settings.tax.heading': 'የግብር ሎጥ የሂሳብ አያያዝ',
   'settings.tax.method': 'ነባሪ ዘዴ',

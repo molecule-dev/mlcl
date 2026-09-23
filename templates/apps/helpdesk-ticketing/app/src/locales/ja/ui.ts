@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
+  'about.title': '{{app}}について',
   'activeAgentsCard.agent1AvatarAlt':
     'モダンなオフィスで、親しみやすい笑顔を浮かべた女性サポート担当者のプロフェッショナルな顔写真。',
   'activeAgentsCard.agent2AvatarAlt':
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'common.timeAgo.days': '{{days}}d ago',
   'common.timeAgo.hours': '{{hours}}h ago',
   'common.timeAgo.minutes': '{{minutes}}m ago',
+  'csatScoreCard.outOf': '/ {{max}}',
   'csatScoreCard.score': '{{score}}',
   'csatScoreCard.title': 'CSATスコア',
   'dashboard.pageTitle': 'ダッシュボード — ゼニスサポート',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboardKpiRow.customerSatisfaction': '顧客満足度',
   'dashboardKpiRow.openTickets': 'チケット販売開始',
   'dashboardKpiRow.openTrend': '{{change}} ％',
+  'dashboardKpiRow.ratingMax': '/ {{max}}',
   'dashboardKpiRow.resolutionRateValue': '{{rate}} ％',
   'dashboardKpiRow.responseTrend': '{{change}} h',
   'dashboardKpiRow.satisfactionTrend': '{{change}}',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'サポートにお問い合わせください',
   'forgotPassword.error': 'リセットメールを送信できませんでした。もう一度お試しください。',
   'forgotPassword.rememberPassword': 'パスワードを思い出しましたか？',
   'forgotPassword.subheading':
@@ -100,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'サインイン — ゼニスサポート',
   'login.showPassword': 'パスワードを表示',
   'login.welcomeSubheading': 'サポートダッシュボードにサインインしてください',
+  'mobileNav.closeMenu': 'ナビゲーションを閉じる',
+  'mobileNav.menu': 'ナビゲーション',
+  'mobileNav.openMenu': 'ナビゲーションを開く',
   'nav.legal': '法的事項',
   'nav.newTicket': '新しいチケット',
   'notifications.loadError': '通知を読み込めませんでした。しばらくしてからもう一度お試しください。',
@@ -111,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'コマンド検索',
   'operatorDock.newReport': '新しいレポート',
   'operatorDock.systemOnline': 'システムオンライン',
+  'planUpdated.subtitle': 'ありがとうございます',
   'planUpdated.title': 'プランを更新しました',
   'pricing.agents': 'エージェント',
   'pricing.automation': '自動化ルール',
@@ -244,6 +252,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{名前}}のアバター',
   'ticketDetail.errorTitle': '問題が発生しました',
+  'ticketDetail.loadError': 'チケットの読み込みに失敗しました。',
+  'ticketDetail.notFound': 'チケットが見つかりません',
+  'ticketDetail.replyError': '返信の送信に失敗しました。もう一度お試しください。',
   'ticketDetail.retry': 'もう一度試す',
   'ticketDetail.statusUpdateError': 'ステータスを更新できませんでした。もう一度お試しください。',
   'ticketDetailsCard.assigneeLabel': '譲受人',
@@ -295,6 +306,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{時間}}左',
   'ticketRow.title': '本番環境でデータベース接続が失敗しています{{ノード}}',
   'tickets.pageTitle': 'チケット — ゼニスサポート',
+  'ticketsFab.newTicket': '新しいチケット',
   'ticketsFilterBar.assigneeLabel': '譲受人:',
   'ticketsFilterBar.clearFilters': 'フィルターをクリア',
   'ticketsFilterBar.dateRangeDemoHint':
@@ -313,6 +325,7 @@ export const ui: UiTranslations = {
   'ticketsPagination.prev': '前のページ',
   'ticketsPagination.showingRange': '表示中{{start}}に{{end}}の{{total}}チケット',
   'ticketsTable.assigneeAvatarAlt': 'アバター',
+  'ticketsTable.selectRow': 'チケット{{id}}を選択してください',
   'ticketsTable.sla.closed': 'Closed',
   'ticketsTable.sla.expired': '期限切れ',
   'ticketsTable.sla.hoursLeft': '{{h}}h {{m}}m',

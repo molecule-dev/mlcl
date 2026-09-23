@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureDiscover.title': 'പ്രചോദനം, സ്വയം തിരഞ്ഞെടുത്തത്',
   'account.addPaymentCta': 'പേയ്‌മെന്റ് രീതി ചേർക്കുക',
   'account.addPaymentError': 'പേയ്‌മെന്റ് രീതി ചേർക്കാൻ കഴിഞ്ഞില്ല.',
+  'account.confirmRemove': 'നീക്കം സ്ഥിരീകരിക്കുക',
   'account.defaultBadge': 'സ്ഥിരസ്ഥിതി',
   'account.loyalty.pointsTowardNext': '{{പോയിന്റുകൾ}} യുടെ {{അടുത്തത്}} മൈലുകൾ വരെ {{അടുത്ത ടയർ}}',
   'account.loyalty.tier': 'നിലവിലെ ടയർ',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'യാത്രാ വിശദാംശങ്ങൾ',
   'booking.tripSummary': '{{nights}} രാത്രികൾ · {{guests}} അതിഥികൾ',
   'common.daysAgo': '{{count}} ഡി മുമ്പ്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'common.minutesAgo': '{{count}} മാസം മുമ്പ്',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'നിയമപരമായ',
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.subheading': '{{count}} വായിക്കാത്തവ · എല്ലാം ഒരു ശാന്തമായ ഇൻബോക്സിൽ',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.accommodationsLabel': 'താമസ സൗകര്യങ്ങൾ',
   'pricing.bookingsLabel': 'ബുക്കിംഗുകൾ',
   'pricing.destinationsLabel': 'സംരക്ഷിച്ച ലക്ഷ്യസ്ഥാനങ്ങൾ',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'പ്രചോദനം, വിശ്വസനീയമായ താമസം, പകൽക്കിനാവിൽ നിന്ന് ബുക്ക് ചെയ്ത സ്ഥലങ്ങളിലേക്കുള്ള സംഘർഷരഹിതമായ പാത - 14 രാജ്യങ്ങളിലും 200+ കൈകൊണ്ട് പരിശോധിച്ച പ്രോപ്പർട്ടികളിലുമായി.',
   'sojournHeroSearchCard.trustProtected': 'സൗജന്യ റദ്ദാക്കൽ, പൂർണ്ണമായും പരിരക്ഷിതം',
   'sojournHeroSearchCard.trustVetted': 'കൈകൊണ്ട് പരിശോധിച്ച പ്രോപ്പർട്ടികൾ മാത്രം',
+  'travelBookingLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'tripDetail.backLink': 'യാത്രകളിലേക്ക് മടങ്ങുക',
   'tripDetail.cancelCta': 'ബുക്കിംഗ് റദ്ദാക്കുക',
   'tripDetail.cancelHeading': 'ഈ യാത്ര റദ്ദാക്കണോ?',

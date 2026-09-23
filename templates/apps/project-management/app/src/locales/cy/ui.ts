@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'accountSettings.confirmEmailLabel': 'Teipiwch DILEU i gadarnhau',
   'accountSettings.deleteError': "Methwyd dileu'r cyfrif.",
   'accountSettings.passwordError': 'Methwyd newid y cyfrinair.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Dim dyddiadau cau i ddod.',
   'dashboard.upcomingTitle': 'Dyddiadau Cau i Ddod',
   'deviceSettings.unknownDevice': 'Dyfais anhysbys',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Cymorth',
   'forgotPassword.error': 'Methwyd anfon dolen ailosod.',
   'forgotPassword.subtitle': 'Rhowch eich cyfeiriad e-bost a byddwn yn anfon dolen ailosod atoch.',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'E-bost neu gyfrinair annilys.',
   'login.pageTitle': 'Mewngofnodi',
   'login.signIn': 'Mewngofnodi i Forge',
+  'login.subtitle': 'Mewngofnodwch i gadw eich prosiectau ar y trywydd iawn',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'nav.calendar': 'Calendr',
   'nav.legal': 'Cyfreithiol',
   'nav.myTasks': 'My Tasks',

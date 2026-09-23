@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'আপনার পাসওয়ার্ড পুনরায় সেট করুন।',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'কাজটি সম্পন্ন হিসেবে চিহ্নিত করুন',
   'checklistTaskCard.markIncomplete': 'কাজটি অসম্পূর্ণ হিসেবে চিহ্নিত করুন',
   'checklistTaskCard.openLabel': 'খোলা কাজ',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'আপনি সবকিছু জেনে গেছেন।',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'সঠিক পথে আছে',
   'dashboard.timelineHeading': '৩০/৬০/৯০ মাইলফলক',
   'dashboard.viewAllTasks': 'সমস্ত কাজ দেখুন',
+  'dashboard.weekOne': 'সপ্তাহ ১',
   'dashboard.yourCohort': 'আপনার দল',
   'documents.empty.body': 'আপনার দলের যোগ করা নথিগুলো এখানে প্রদর্শিত হবে।',
   'documents.empty.title': 'এখনো কোনো নথি নেই',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '১৪ দিনের বিনামূল্যে ট্রায়াল',
   'landing.subhead':
     'এমবার্ক প্রত্যেক নতুন টিমমেটকে তাদের প্রথম ৯০ দিনের যাত্রাপথে পথ দেখায় — কাগজপত্র, প্রশিক্ষণ, বিভিন্ন মাইলফলক এবং অর্থপূর্ণ পরিচিতি, সবকিছু একটি শান্ত ও আত্মবিশ্বাসী পরিবেশে।',
+  'layout.openMenu': 'নেভিগেশন মেনু খুলুন',
   'layout.search': 'টাস্ক, ডকুমেন্ট, টিমমেট খুঁজুন…',
+  'layout.searchTeammates': 'নাম বা ভূমিকা অনুসারে সতীর্থদের খুঁজুন…',
   'layout.section.onboarding': 'অনবোর্ডিং',
   'layout.tagline': 'আপনার যাত্রা এখান থেকেই শুরু',
   'notifications.empty.body': 'নতুন কার্যকলাপ এখানে দেখা যাবে।',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'গতকাল',
   'planUpdated.message': 'আপনি সম্পূর্ণ প্রস্তুত।',
   'planUpdated.preparing': 'আপনার পরিকল্পনা আপডেট করা হচ্ছে…',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.documentsLabel': 'নথিপত্র',
   'pricing.onboardingsLabel': 'অনবোর্ডিং',
   'pricing.tasksLabel': 'কাজগুলি',

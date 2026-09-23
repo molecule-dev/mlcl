@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'authShell.brandHeading':
     'Des canevas multijoueur pour les équipes de design qui pensent à voix haute.',
   'billing.canceled': 'Abonnement annulé.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': "Démarrer à partir d'un modèle",
   'boards.title': 'Vos tableaux',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Saisissez l'e-mail lié à votre espace de travail et nous vous enverrons un lien de réinitialisation.",
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Atelier T1 · Voix de marque',
   'landing.featuresEyebrow': 'Ce qui rend Slate unique',
   'landing.featuresTitle': 'Retours rapides. Canevas magnifiques. Zéro friction.',
+  'landing.hero.body':
+    "{{appName}} est un tableau blanc multijoueur destiné aux équipes de conception, aux animateurs d'ateliers et aux éducateurs qui organisent des séances de brainstorming en direct et ont besoin que les idées convergent en un seul endroit.",
   'landing.hero.primaryCta': 'Démarrer un tableau gratuitement',
   'landing.hero.socialProof': 'Plébiscité par {{count}} équipes de design dans le monde',
   'landing.hero.title': 'Un canevas aussi rapide que vos pensées',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Créer un espace de travail gratuit',
   'login.subheading':
     "Reprenez là où l'atelier s'était arrêté — les tableaux, pense-bêtes et curseurs se synchronisent en temps réel.",
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.new': 'Nouveau',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'notifications.editTitle': 'Modifications de « {{board}} »',
   'notifications.empty.body':
     "Les invitations, les sauvegardes d'instantanés et les modifications récentes du tableau apparaîtront ici au fur et à mesure.",
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historique des versions',
   'versionHistory.untitledSnapshot': 'Instantané sans titre',
   'whiteboardLayout.newBoard': 'Nouveau tableau',
+  'whiteboardLayout.primaryNav': 'Navigation principale',
   'workspace.boardLabel': 'Tableau',
   'workspace.eyebrow': '{{name}} · espace de travail',
   'workspace.invite': 'Inviter des collaborateurs',

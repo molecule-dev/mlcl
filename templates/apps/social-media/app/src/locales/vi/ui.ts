@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.pageTitle': 'Giới thiệu {{app}}',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.retry': 'Thử lại',
   'compose.cancel': 'Huỷ',
   'compose.captionPlaceholder': 'Quý vị đang nghĩ gì?',
   'compose.heading': 'Chia sẻ một khoảnh khắc',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Tài khoản đã xác minh',
   'resetPassword.newPassword': 'Mật khẩu mới',
   'resetPassword.subheading': 'Chọn mật khẩu mạnh — ít nhất 12 ký tự.',
+  'search.clearAria': 'Xóa',
+  'search.error': 'Tìm kiếm không thành công. Hãy thử lại.',
   'search.noPeople': 'Không có nhà sáng tạo nào khớp với "{{q}}".',
   'search.noPosts': 'Không có bài đăng nào khớp với "{{q}}".',
   'search.noTags': 'Chưa có hashtag thịnh hành nào.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ẩn mật khẩu',
   'signup.showPassword': 'Hiện mật khẩu',
   'signup.subheading': 'Tạo tài khoản để bắt đầu chia sẻ.',
+  'socialMediaLayout.closeMenu': 'Đóng menu điều hướng',
+  'socialMediaLayout.openMenu': 'Mở menu điều hướng',
+  'socialMediaLayout.primaryNavLabel': 'Điều hướng chính',
   'storyRail.heading': 'Stories',
   'storyRail.label': 'Stories',
   'storyRail.openAria': 'Mở story của {{handle}}',

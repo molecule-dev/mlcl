@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'actions.empty': 'Жодних відповідних пунктів дій.',
   'actions.heading': 'Пункти дій',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Попередній місяць',
   'calendar.recent': 'Останні',
   'common.daysAgo': '{{count}}д тому',
+  'common.goToDashboard': 'До панелі',
   'common.hoursAgo': '{{count}}г тому',
   'common.no': '—',
+  'common.retry': 'Спробувати ще раз',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} пунктів дій',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Перевірте вхідні листи для отримання посилання для скидання.',
   'forgot.subheading': 'Введіть свою електронну адресу, і ми надішлемо посилання для скидання.',
   'integrations.disconnected': 'Відключено',
+  'integrations.loadError': 'Не вдалося завантажити інтеграції.',
   'integrations.notConnectedTag': 'Не підключено',
   'integrations.subheading':
     'Підключіть календарі та відеоплатформи, щоб Murmur приєднувався автоматично.',
+  'integrations.updateError': 'Не вдалося оновити.',
   'landing.ctaButton': 'Почати — це безкоштовно',
   'landing.ctaHeading': 'Перестаньте робити нотатки. Починайте приймати рішення.',
   'landing.demo.aiLabel': 'AI-підсумок, складений у прямому ефірі',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Подальші кроки',
   'meetingDetail.loadError': 'Не вдалося завантажити нараду.',
   'meetingDetail.noActions': 'Пункти дій не виявлено.',
+  'meetingDetail.none': 'Немає.',
   'meetingDetail.notFound': 'Нараду не знайдено.',
+  'meetingDetail.speakerFallback': 'Доповідач{{id}}',
   'meetingDetail.summaryHeading': 'AI-підсумок',
   'meetingDetail.transcriptHeading': 'Транскрипт',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Наради',
   'meetings.loadError': 'Не вдалося завантажити наради.',
   'meetings.subheading': 'Кожна записана, завантажена та синхронізована нарада.',
+  'murmurLayout.openMenu': 'Відкрити меню навігації',
   'murmurLayout.primaryNavLabel': 'Основна навігація',
   'nav.legal': 'Юридична інформація',
   'notifications.loadError': 'Не вдалося завантажити сповіщення.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Як Ви відображаєтеся в Murmur.',
   'record.error.empty': 'Звук не було записано.',
   'record.error.permission': 'Дозвіл на мікрофон відхилено.',
+  'record.error.recorder': 'Помилка записувача',
   'record.error.unsupported': 'Ваш браузер не підтримує запис. Спробуйте Chrome, Edge або Safari.',
   'record.error.upload': 'Завантаження не вдалося. Спробуйте ще раз.',
   'record.heading': 'Запис',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Новий пароль',
   'reset.subheading': 'Оберіть пароль, який Ви не використовуєте ніде інде.',
   'search.empty': 'Введіть текст для пошуку в транскриптах.',
+  'search.loadError': 'Пошук не вдався. Спробуйте ще раз.',
   'search.noResults': 'Немає результатів для «{{q}}».',
   'settings.appearance.description': 'Перемикання між світлим і темним режимом.',
   'settings.appearance.title': 'Зовнішній вигляд',
@@ -124,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Не вдалося завантажити налаштування.',
   'settings.loading': 'Завантаження…',
   'settings.push.heading': 'Push-сповіщення',
+  'settings.push.subheading': 'Отримуйте сповіщення у браузері про згадки, завдання та підсумки.',
   'settings.retention.audio': 'Зберігати аудіо протягом',
   'settings.retention.heading': 'Зберігання',
   'settings.retention.transcript': 'Зберігати транскрипти протягом',
@@ -141,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Почніть записувати нотатки нарад за кілька хвилин',
   'signup.terms':
     'Створюючи обліковий запис, Ви погоджуєтесь з нашими Умовами надання послуг та Політикою конфіденційності.',
+  'signup.termsPrefix': 'Створюючи обліковий запис, ви погоджуєтеся з нашими',
   'team.inviteCta': 'Запросити члена команди',
   'team.invitedAs': 'Запрошено як {{role}}',
   'team.inviteFailed': 'Не вдалося надіслати запрошення.',

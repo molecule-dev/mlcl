@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.eyebrow': 'Gbasara {{app}}',
   'about.pageTitle': 'Ụzọ ọ bụla, otu ọchụchọ.',
   'booking.backToDetail': 'Nkọwa ụgbọ elu laghachite azụ',
   'booking.continue': "Gaa n'ihu na ịkwụ ụgwọ",
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Ụtụ isi na ụgwọ',
   'booking.summary.travelers': 'Ndị njem',
   'common.about': 'Banyere',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'flightDetail.backToResults': 'Laghachi na nsonaazụ',
   'flightDetail.baseFare': 'Ọnụ ego isi',
   'flightDetail.book': "Gaa n'ihu na ịdenye aha",
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 nkwụsị',
   'flightResultCard.select': 'Họrọ',
   'flightResultCard.totalLabel': 'Oge niile',
+  'flightSearchLayout.primaryNavLabel': 'Ntugharị isi',
   'forgotPassword.subheading':
     'Tinye ozi-e ahụ na akaụntụ Skylark gị, anyị ga-ezitere gị njikọ nrụpụta echekwara.',
   'forgotPassword.successBody':
     "Lelee {{email}} maka njikọ iji tinye paswọọdụ ọhụrụ. Njikọ ahụ ga-agwụ n'ime nkeji iri atọ.",
   'forgotPassword.successHeading': 'E zigara njikọ ahụgharịa',
   'landing.cta.explore': 'Nwaa ọchụchọ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Chọta ezigbo ụgwọ ọzọ tupu onye ọ bụla ọzọ.',
   'landing.cta.signup': 'Malite ịdekọ ọnụego',
   'landing.features.eyebrow': 'Gịnị kpatara Skylark',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Tinye ịdọ aka ná ntị',
   'priceAlerts.deleteConfirm': 'Wepụ ịdọ aka ná ntị a?',
   'priceAlerts.empty': 'Enwebeghị ụzọ ndị a na-esochi.',
+  'priceAlerts.emptyCta': 'Chọọ ụzọ ị ga-eso',
   'priceAlerts.errorMessage': 'Enweghị ike ibunye ọkwa ịdọ aka ná ntị.',
   'priceAlerts.eyebrow': 'Ndepụta ihe nlele Skylark',
   'priceAlerts.form.createError': 'Enweghị ike ịmepụta ọkwa ịdọ aka ná ntị.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Usoro njem ọtụtụ obodo',
   'results.multiLegHeading': 'Ụkwụ {{n}} · {{site na}} → {{na}} · {{ụbọchị}}',
   'results.multiSummary': '{{count}} ụkwụ · {{passengers}} onye njem',
+  'results.sortAriaLabel': 'Hazie nsonaazụ site na',
   'results.sortLabel': 'Hazie ha',
   'results.summary': '{{count}} ụgbọ elu · {{passengers}} onye njem',
   'settings.language.title': 'Asụsụ',

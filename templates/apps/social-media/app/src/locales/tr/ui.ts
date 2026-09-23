@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.pageTitle': '{{app}} hakkında',
+  'common.goToDashboard': 'Panele Git',
+  'common.retry': 'Tekrar dene',
   'compose.cancel': 'İptal',
   'compose.captionPlaceholder': 'Aklınızdan ne geçiyor?',
   'compose.heading': 'Bir an paylaşın',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Doğrulanmış hesap',
   'resetPassword.newPassword': 'Yeni şifre',
   'resetPassword.subheading': 'Güçlü bir şey seçin — en az 12 karakter.',
+  'search.clearAria': 'Temizle',
+  'search.error': 'Arama başarısız oldu. Lütfen tekrar deneyin.',
   'search.noPeople': '"{{q}}" ile eşleşen içerik üreticisi yok.',
   'search.noPosts': '"{{q}}" ile eşleşen gönderi yok.',
   'search.noTags': 'Henüz trend olan hashtag yok.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Şifreyi gizle',
   'signup.showPassword': 'Şifreyi göster',
   'signup.subheading': 'Paylaşmaya başlamak için bir hesap oluşturun.',
+  'socialMediaLayout.closeMenu': 'Gezinme menüsünü kapat',
+  'socialMediaLayout.openMenu': 'Gezinti menüsünü aç',
+  'socialMediaLayout.primaryNavLabel': 'Birincil gezinme',
   'storyRail.heading': 'Hikâyeler',
   'storyRail.label': 'Hikâyeler',
   'storyRail.openAria': '{{handle}} kullanıcısının hikâyesini aç',

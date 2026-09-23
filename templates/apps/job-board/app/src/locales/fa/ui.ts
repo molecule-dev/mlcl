@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره ما',
   'applications.empty':
     'هنوز هیچ درخواستی ثبت نشده است. نقش مناسب فقط با یک درخواست قابل دستیابی است.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'هر نقشی که در آن ایفای نقش کرده‌اید، در حال حرکت. برای تمرکز بیشتر، بر اساس مرحله فیلتر کنید.',
   'applications.untitledRole': 'نقش # {{id}}',
+  'auth.legalConsent': 'با ادامه، شما با شرایط ما موافقت می‌کنید',
   'common.and': 'و',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'companies.empty': 'هیچ شرکتی با جستجوی شما مطابقت ندارد. عبارت دیگری را امتحان کنید.',
   'companies.eyebrow': 'کارفرمایان ویژه',
   'companies.searchPlaceholder': 'جستجو بر اساس نام، صنعت، مکان',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'هنوز هیچ درخواستی برای این نقش وجود ندارد.',
   'jobApplicants.eyebrow': 'دیدگاه کارفرما',
   'jobApplicants.loading': 'در حال بارگذاری\\u2026',
+  'jobApplicants.statusUpdateFailed': 'نتوانستم آن مرحله را به‌روزرسانی کنم — دوباره امتحان کنید.',
+  'jobApplicants.subheading':
+    'رزومه‌ها را بررسی کنید، کاندیداها را معرفی کنید، پیشنهادها را ارسال کنید \\u014 {{count}} در حال انجام.',
   'jobDetail.applicantCount': '{{count}} متقاضیان تا این لحظه',
   'jobDetail.applied': 'درخواست ارسال شد',
   'jobDetail.apply': 'همین حالا درخواست دهید',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'مرور نقش‌های باز \\u192',
   'landing.pricingEyebrow': 'قیمت‌گذاری',
   'landing.pricingHeading': 'برنامه‌های ساده برای هر اندازه تیمی.',
+  'login.eyebrow': 'به {{app}} خوش آمدید',
   'login.heading': 'وارد حساب کاربری خود شوید',
   'login.noAccount': 'تازه به نوش آمده‌اید؟',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'ورود به سیستم\\u2026',
   'login.subheading':
     'جستجوی خود را ادامه دهید، درخواست‌های خود را پیش ببرید، سریع‌تر پاسخ بگیرید.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . ساخته شده برای استخدام تیم‌ها.',
   'loginBrandPanel.headline': 'جایی که استعدادها به هم می‌رسند',
   'loginBrandPanel.headlineLine2': 'شتاب.',
   'loginBrandPanel.listing.recruiter': 'شریک استعداد',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'به‌روزرسانی‌های درخواست، دعوت‌نامه‌های مصاحبه، تطابق‌های جدید و ... جدیدترین‌ها اول.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} این هفته',
   'opportunitiesHero.eyebrow': 'امروز باز است',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'postJob.addNewCompany': '+ اضافه کردن شرکت جدید',
   'postJob.companyCreateFailed': 'نتوانستم شرکت ایجاد کنم — دوباره امتحان کنید.',
   'postJob.companyNameLabel': 'نام شرکت شما',
@@ -165,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'ایجاد حساب کاربری\\u026',
   'signup.ctaEmployer': 'ایجاد حساب کاربری کارفرما',
   'signup.firstNamePlaceholder': 'مایا',
+  'signup.lastNamePlaceholder': 'چن',
   'signup.passwordMismatch': 'رمزهای عبور مطابقت ندارند.',
   'signup.subheading':
     'برای جویندگان، برای همیشه رایگان است. کارفرمایان با یک دوره آزمایشی 30 روزه شروع می‌کنند.',
   'timeAgo.days': '{{count}} د پیش',
   'timeAgo.hours': '{{count}} ساعت پیش',
   'timeAgo.justNow': 'هم‌اکنون',
+  'timeAgo.weeks': '{{count}} هفته پیش',
 }

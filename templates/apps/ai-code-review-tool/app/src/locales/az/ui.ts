@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.connectRepoCta': 'Anbarı qoşun',
   'dashboard.empty': 'Hələ ki, pull request yoxdur — başlamaq üçün depo qoşun.',
   'dashboard.eyebrow': 'Refract · baxış növbəsi',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'İş vaxtı',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Süni intellekt keyfiyyət balı {{score}} / 10',
+  'refractLayout.closeMenu': 'Menyunu bağlayın',
+  'refractLayout.openMenu': 'Menyunu açın',
   'refractLayout.primaryNavLabel': 'Əsas naviqasiya',
   'reports.cumulativeScoreLabel': 'Kumulyativ bal',
   'reports.cumulativeScoreSubtitle': 'bütün depolar · {{days}} d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Axtarış indeksini yükləmək alınmadı.',
   'settings.apiKeys.description':
     'Şəxsi API açarlarını yuxarı sağ küncdəki istifadəçi menyusundan idarə edin.',
+  'settings.apiKeys.integrationsNote':
+    'Provayder giriş tokenləri yuxarıdakı İnteqrasiyalar bölməsində idarə olunur.',
   'settings.connectError': 'Provayderi qoşmaq alınmadı.',
   'settings.disconnectError': 'Provayderi ayırmaq alınmadı.',
   'settings.eyebrow': 'Refract · iş sahəsi',
   'settings.integration.${provider}.label': 'Yadda saxlanılır…',
   'settings.loadError': 'Parametrləri yükləmək alınmadı.',
+  'settings.notificationCenter': 'Bildiriş mərkəzi',
   'settings.notifications.description':
     'Çatdırılma seçimlərinə baxmaq və idarə etmək üçün bildirişlər səhifəsinə daxil olun.',
   'settings.section.account': 'Hesab və təhlükəsizlik',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tungkol sa {{app}}',
+  'appNav.mobileLabel': 'Pangunahing navigation',
+  'appNav.primaryLabel': 'Pangunahing navigation',
   'billing.actions.confirmCancel':
     'Kanselahin ang iyong subscription? Maaari kang mag-subscribe muli anumang oras.',
   'billing.actions.paused': 'Nahinto ang suskrisyon.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Ang bawat baitang ay isang maliit na batch na kwento. Magdagdag ng isa sa iyong queue o ipalit ito sa iyong susunod na buwan.',
   'boxThemeCard.perMonth': '/ buwan',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'customize.eyebrow': 'Gawin itong iyo',
   'customize.heading': 'I-customize ang iyong susunod na Crate',
   'customize.items.exclude': 'Laktawan ito',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Ngayong season',
   'landing.editions.heading': 'Mga edisyong minamahal ng aming mga curator',
   'landing.footer.contact': 'Makipag-usap sa isang tagapangasiwa',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Simulan ang iyong kahon →',
   'landing.hero.ctaSecondary': 'Tingnan ang mga tier',
   'landing.hero.eyebrow': 'Binibili buwan-buwan. Palaging personal.',
@@ -116,6 +121,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ANG IYONG SUSUNOD NA KITA',
   'nextBoxHeroCard.itemsLabel': 'Mga napiling item',
   'nextBoxHeroCard.shipsOnLabel': 'Nagpapadala sa',
+  'notFound.body':
+    'Hindi namin mahanap ang pahinang iyon sa archive ng {{app}} . Maaaring hindi na ito ginagamit o sadyang mali lang ang pagkaka-type.',
   'notFound.cta.dashboard': 'Pumunta sa dashboard',
   'notFound.eyebrow': 'Walang laman na kahon',
   'notFound.heading': 'Walang laman ang istante na ito',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'announcementsFeed.empty': 'Niciun anunț încă.',
   'announcementsFeed.eyebrow': '{{count}} actualizări',
   'announcementsFeed.title': 'Ultimele anunțuri',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Schimbați filtrele de mai sus pentru a vedea sarcinile aflate într-o stare diferită.',
   'assignments.eyebrow': 'Toate cursurile · Acest semestru',
+  'assignments.loadError': 'Nu s-au putut încărca temele.',
   'assignments.loading': 'Se încarcă temele…',
   'assignments.subtitle':
     'Filtrați după stare pentru a vedea ce este scadent, trimis, notat sau lipsă.',
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Notă',
   'attendance.empty': 'Încă nu există înregistrări de prezență.',
   'attendance.eyebrow': 'Semestrul de primăvară · Ultimele 4 săptămâni',
+  'attendance.loadError': 'Nu s-au putut încărca înregistrările de prezență.',
   'attendance.loading': 'Se încarcă prezența…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Datele scadente pentru teme sunt reprezentate pe o grilă lunară — examenele sunt evidențiate cu roșu.',
   'calendar.title': '{{month}} evenimente',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
+  'common.retry': 'Încercați din nou',
   'common.yes': '✓',
   'courseDetail.backLink': 'Note',
   'courseDetail.currentGrade': 'Clasa actuală',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendinţă',
   'grades.empty': 'Încă nu au fost postate note.',
   'grades.eyebrow': 'Carte de note',
+  'grades.loadError': 'Nu s-au putut încărca notele.',
   'grades.loading': 'Se încarcă notele…',
   'grades.subtitle':
     'Note live cu litere și procente. Săgețile de tendință arată dacă progresezi, nivelezi sau scăderi.',
   'grades.title': 'Notele tale, curs cu curs',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Creat pentru studenți, conceput pentru familii.',
   'landing.ctaHeading': 'O zi de școală mai liniștită începe în câteva minute',
   'landing.eyebrow': 'Pentru elevii de gimnaziu și liceu',
   'landing.featuresHeading': 'O zi de școală organizată în jurul elevului',
@@ -114,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Sarcini',
   'nav.attendance': 'Prezență',
   'nav.calendar': 'Calendar',
+  'nav.closeMenu': 'Închide meniul de navigare',
   'nav.grades': 'Note',
+  'nav.openMenu': 'Deschide meniul de navigare',
   'nav.statusEyebrow': 'Media generală pe termen lung',
   'nav.statusSubtext': 'Tablou de onoare · Semestrul de primăvară',
+  'nav.unreadMessages': 'Mesaje necitite',
   'notifications.eyebrow': '{{count}} actualizări',
   'notifications.subtitle':
     'Note, mementouri, mesaje și anunțuri școlare. Ajustați canalele folosite de fiecare notificare în Setări.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.attendanceLabel': 'prezență',
   'pricing.gradesLabel': 'note',
   'pricing.heading': 'anunțuri',

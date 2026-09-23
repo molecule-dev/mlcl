@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'forgot.eyebrow': 'أضعتم طريق العودة؟',
   'forgot.formSubtitle': 'أخبرونا بالبريد الإلكتروني المسجّل.',
   'forgot.headline': 'أعد تعيين كلمة المرور.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'أنشئ حسابًا',
   'login.subline':
     'دفاتر ملاحظاتك وروابطك الخلفية وصفحاتك اليومية موجودة في المكان الذي تركتها فيه.',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'noteEditor.backToNotes': 'العودة إلى الملاحظات',
   'noteEditor.bodyPlaceholder': 'ابدأ الكتابة — يتم حفظ ملاحظتك تلقائيًا أثناء الكتابة.',
   'noteEditor.confirmTrash': 'هل تريد نقل هذه الملاحظة إلى سلة المهملات؟',
@@ -54,6 +57,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'دفتر ملاحظات جديد',
   'notes.newNotebookPrompt': 'اسم دفتر الملاحظات الجديد',
   'notes.notebooksHeading': 'دفاتر الملاحظات',
+  'notes.subtitle': 'اختر دفتر ملاحظات من اليسار، ثم اضغط على زر "ملاحظة جديدة" لبدء إدخال جديد.',
   'planUpdated.confirmation': 'تم تحديث خطتك',
   'pricing.heading': 'اختر خطة تدوين الملاحظات الخاصة بك',
   'reset.eyebrow': 'أوشكنا على العودة',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'آخر تحديث',
   'versoLayout.nav.graph': 'الرسم البياني',
   'versoLayout.nav.home': 'المنزل',
+  'versoLayout.primaryNavLabel': 'التنقل الرئيسي',
   'versoNoteCard.pinned': 'المثبّتة',
   'versoTodayHero.continueCta': 'متابعة الكتابة',
   'versoTodayHero.createCta': 'ابدأ كتابة مذكرتك اليوم',

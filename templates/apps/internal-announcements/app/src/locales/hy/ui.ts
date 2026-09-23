@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'analytics.byChannelTitle': 'Հաստատման հաճախականությունը ալիքով',
   'analytics.colAck': 'Հաստատված / Հնարավոր',
@@ -14,12 +15,17 @@ export const ui: UiTranslations = {
   'analytics.kpiPostsDelta': '{{count}} անհրաժեշտ է հաստատել',
   'analytics.kpiTtaEmpty': 'Դեռևս չկան ականներ',
   'analytics.loading': 'Ճշգրիտ թվեր…',
+  'analytics.title':
+    'Հասանելիություն, շնորհակալություն և այն սենյակները, որոնց հետ դուք խոսում եք։',
   'analytics.trendLabel': 'Ակս · վերջին {{days}} օրեր',
   'announcementCard.ackCount': '{{acknowledged}} / {{total}} արժանացած',
   'announcementCard.adminBadge': 'Ադմինիստրատոր',
   'announcementCard.commentCount': '{{count}} մեկնաբանություններ',
   'announcementCard.openAndAck': 'Բացել և հաստատել',
   'announcementCard.viewAck': 'Հաստատված · բաց',
+  'announcements.unknownAuthor': 'Անհայտ հեղինակ',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.teammate': 'Թիմակից',
   'composer.channelDescription': 'Հրապարակվում է # հասցեին {{name}}.',
   'composer.channelLabel': 'Ալիք',
   'composer.eyebrow': 'Նոր հայտարարություն',
@@ -47,6 +53,7 @@ export const ui: UiTranslations = {
   'detail.replyPlaceholder':
     'Հարց տվեք, առաջարկեք հետագա գործողություն կամ պարզապես շնորհակալություն հայտնեք…',
   'feed.allChannels': 'Բոլոր ալիքները',
+  'feed.authorFilterClear': 'Մաքրել հեղինակի զտիչը',
   'feed.compose': 'Նոր հայտարարություն',
   'feed.emptyAllSubtitle':
     'Սեղմեք վերևում «Նոր հայտարարություն»՝ ձեր առաջին հաղորդագրությունը հրապարակելու համար. լրահոսը կթարմացվի, հենց որ սեղմեք «Հրապարակել»։',
@@ -84,7 +91,10 @@ export const ui: UiTranslations = {
     'Քարտի նմուշ՝ ուղիղ եթերում։ Ձեր թիմը կտեսնի նույն բաղադրիչը՝ գրադիենտային առաջնահերթության սահմանը, հաստատման առաջընթացը և թեմատիկ մեկնաբանությունները՝ մեկ հպումով։',
   'landing.previewTitle': 'Ինչ են թիմերը տեսնում լրահոսում։',
   'layout.channelsTitle': 'Ալիքներ',
+  'layout.closeMenu': 'Փակել նավիգացիոն ցանկը',
   'layout.guestName': 'թիմի անդամ',
+  'layout.navDialogLabel': 'Նավիգացիա',
+  'layout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'login.description': 'Վերցրեք ձեր ուշադրությանը սպասող հայտարարությունները։',
   'login.emailPlaceholder': 'you@northwindlabs.com',
   'login.heading': 'Մուտք գործեք Herald-ում',
@@ -106,6 +116,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 — ալիքից դուրս',
   'notFound.title': 'Այս հայտարարությունը բացակայում է։',
   'notifications.ackUpdate': 'կիսվել է ack թարմացմամբ',
+  'notifications.loadError': 'Չհաջողվեց բեռնել ծանուցումները՝ {{message}}',
   'notifications.loading': 'Թարմացվում է…',
   'notifications.repliedTo': 'պատասխանեց',
   'notifications.subtitle': 'Դուք ունեք {{count}} չկարդացված ծանուցումներ։',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'people.eyebrow': '{{company}} · տեղեկատու',
   'people.loading': 'Թիմակիցների բեռնում…',
   'people.searchPlaceholder': 'Փնտրեք թիմակիցներին…',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.announcements': 'հայտարարություններ',
   'pricing.categories': 'կատեգորիաներ',
   'pricing.comments': 'մեկնաբանություններ',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'profile.bio':
     'Ձեր գործունեությունը այս աշխատանքային տարածքում՝ մեկ հայացքով։ Ձեր հեղինակած գրառումները, ձեր գրանցված հղումները, ձեր անունով ստացված հիշատակումները և պատասխանները։',
   'profile.emptyPosts': 'Դուք դեռ հայտարարություն չեք հրապարակել։',
+  'profile.loadError': 'Հնարավոր չէ բեռնել ձեր պրոֆիլի տվյալները՝ {{message}}',
   'profile.you': 'Դու',
   'resetPassword.description':
     'Ընտրեք ուժեղ մեկը։ Մենք ձեզ կմուտքագրենք, երբ վերագործարկումը հաջողվի։',
@@ -131,7 +144,11 @@ export const ui: UiTranslations = {
   'search.emptyAll': 'Դեռևս փնտրելու ոչինչ չկա։',
   'search.emptyQuery': '«» հարցման արդյունքներ չկան {{query}} «.',
   'search.eyebrow': 'Գտեք ցանկացած բան',
+  'search.loadError': 'Չհաջողվեց բեռնել որոնման տվյալները՝ {{message}}',
   'search.loading': 'Բեռնվում է ինդեքսը…',
+  'search.metaAdmin': 'ադմինիստրատոր',
+  'search.metaAnnouncement': 'հայտարարություն',
+  'search.metaTeammate': 'թիմակից',
   'search.title': 'Որոնել Herald-ում',
   'settings.adminOnly': 'Միայն ադմինիստրատորի համար',
   'settings.appearance.title': 'Արտաքին տեսք',

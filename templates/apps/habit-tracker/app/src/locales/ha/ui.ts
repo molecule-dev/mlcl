@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.pageTitle': 'Game da {{app}}',
   'achievementBadgeCard.unlockedOn': 'An buɗe {{date}}',
   'achievements.loadError': 'An kasa loda nasarorin.',
   'achievements.subheading': '{{unlocked}} na {{total}} a buɗe',
   'achievements.unlockedOn': 'An buɗe {{date}}',
+  'auth.legalConsent': 'Ta ci gaba, kun yarda da',
   'calendar.empty': "Ƙirƙiri dabi'ar ganin kalanda.",
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': "Al'ada",
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': "Tsarin al'ada",
   'category.${c.category}': '{{ƙidaya}} halaye',
   'common.and': 'kuma',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'consistencyHeatmap.ariaLabel': 'Taswirar yanayin zafi na yau da kullun',
   'consistencyHeatmap.caption': 'Na ƙarshe {{weeks}} makonni',
   'consistencyHeatmap.lessLabel': 'Kadan',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Ka gani kai tsaye',
   'landing.heroSubtitle':
     'Gina halaye kamar yadda suke mannewa: ƙananan alkawurra, abubuwan yau da kullun, da kuma jin daɗin dogon sarkar da ba ta karyewa.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Duba cikin Streak',
   'landing.previewMotivation': 'Rigunan tara suna raye. A kiyaye su duka dumi.',
   'login.eyebrow': 'Ɗauki sarkar',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'A yi ƙarami. A yi takamaiman bayani. A zo gobe.',
   'newHabit.timeLabel': 'Lokacin tunatarwa',
   'notifications.markError': 'Ba za a iya yiwa duk wanda aka karanta alama ba.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.entries': 'shigarwa {{count}}',
+  'pricing.heading': 'Zaɓi tsarin {{app}} ku',
   'profile.action.plan': 'Sarrafa biyan kuɗi',
   'profile.action.settings': 'Saitunan asusu',
   'profile.bioEmpty': 'Ƙara ɗan gajeren tarihin rayuwa a Saituna don gabatar da kanka.',
@@ -124,6 +131,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Sakon gaisuwa na safe (8:00 na dare) a kowace rana',
   'settings.reminders.heading': 'Masu tunatarwa',
   'settings.reminders.weekly': 'Takaitaccen bayani na mako-mako (Daren Lahadi)',
+  'settings.revokeDeviceWarning':
+    "Za a soke izinin wannan na'ura nan ba da jimawa ba. Ka fitar da ita?",
   'settings.signOutDevice': 'Fita',
   'settings.streaks.freezesPerWeek': 'Yana daskarewa a kowane mako',
   'settings.streaks.gracePeriod': 'Lokacin alheri na awanni 6 bayan tsakar dare',
@@ -150,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} mai aiki',
   'streakHeroCard.daysSuffix': 'kwanaki',
   'streakHeroCard.title': 'Mafi tsawon jerin aiki',
+  'streakLayout.closeMenu': 'Rufe menu na kewayawa',
+  'streakLayout.openMenu': 'Buɗe menu na kewayawa',
   'streakLayout.primaryNavLabel': 'Babban kewayawa',
 }

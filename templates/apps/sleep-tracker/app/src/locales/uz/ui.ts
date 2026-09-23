@@ -2,6 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': "Bog'laning",
+  'about.pageTitle': '{{app}} haqida',
   'coaching.activeBanner.continue': "Maqolani o'qing",
   'coaching.empty.body': "Yangi dasturlar qo'shilganda bu yerda paydo bo'ladi.",
   'coaching.empty.title': "Hozircha murabbiylik maqolalari yo'q",
@@ -18,12 +19,15 @@ export const ui: UiTranslations = {
   'coachingDetail.locked.title': 'Ushbu maqola premium hisoblanadi',
   'coachingDetail.notFound': 'Biz bu maqolani topa olmadik.',
   'coachingDetail.unavailable': 'Maqola mavjud emas',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.empty.body':
     "Uyqu tartibingizni ko'rishni boshlash uchun tungi vaqtingizni qayd eting yoki taqiladigan qurilmani ulang.",
+  'dashboard.empty.cta': 'Kiyiladigan qurilmani ulang',
   'dashboard.eyebrow': 'Bugun kechqurun',
   'dashboard.heroInsight':
     'Chuqur uyqu tendentsiyalarini aniqlash uchun boshqa kechani kuzatib boring.',
   'dashboard.loading': "So'nggi kechalar yuklanmoqda…",
+  'dashboard.logNight': 'Bir kecha yozib oling',
   'dashboard.recentEmpty': "Kuzatilgan kechalaringiz shu yerda ko'rsatiladi.",
   'dashboard.recentNights': "So'nggi kechalar",
   'dashboard.viewAll': 'Barcha kechalar',
@@ -31,6 +35,8 @@ export const ui: UiTranslations = {
   'devices.emptyBody':
     'Uyqu bosqichlarini avtomatik ravishda import qilish uchun kiyiladigan, halqali yoki uyqu gilamchasini ulang.',
   'devices.emptyHeading': "Hech qanday qurilma bog'lanmagan",
+  'devices.errors.linkFailed':
+    "Qurilmani ulashda xatolik yuz berdi — iltimos, qayta urinib ko'ring.",
   'devices.eyebrow': 'Ulangan qurilmalar',
   'devices.heading': 'Kiyiladigan narsalar, halqalar va gilamchalar',
   'devices.linkDialog': 'Qurilmani ulang',
@@ -53,6 +59,9 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'Bugun kechqurun kuzatishni boshlang',
   'landing.heroCta': 'Birinchi kechangizni kuzatib boring',
   'landing.heroCtaSecondary': "Amalda ko'ring",
+  'landing.heroSubtitle':
+    "{{app}} har kechaning har bir bosqichini aniqlash, tiklanishingizni baholash va sizni siklingizning to'g'ri vaqtida uyg'otish uchun kiyiladigan qurilmangiz bilan birlashadi.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewInsight':
     "Chuqur uyqu haftalik o'rtacha ko'rsatkichingizga nisbatan 22 daqiqaga ko'proq edi — dam olish ritualingiz ish bermoqda.",
   'landing.previewLabel': 'Somnia ichkarisiga bir nazar',
@@ -60,11 +69,20 @@ export const ui: UiTranslations = {
   'login.rememberMe': 'Meni tizimga kirgan holda qoldirish',
   'login.signupLink': 'Bugun kechqurun kuzatishni boshlang',
   'login.subheading': "Kechalaringizni to'xtagan joyingizdan davom ettiring.",
+  'logNight.bedtimeField': 'Yotish vaqti',
+  'logNight.dateField': 'Kechasi',
+  'logNight.interruptionsField': "Kechasi uyg'onishlar",
+  'logNight.notesField': 'Izohlar (ixtiyoriy)',
+  'logNight.save': 'Kechani saqlang',
+  'logNight.title': 'Bir kecha yozib oling',
+  'logNight.wakeField': "Uyg'onish vaqti",
   'night.backLink': 'Tarixga qaytish',
   'night.eyebrow': 'Bir kecha',
   'night.heroInsight': "Vaqt jadvalidagi sahnaga sho'ng'ish uchun bosing.",
   'night.loading': 'Kecha tafsilotlari yuklanmoqda…',
   'night.notFound.body': "Bu sana uchun uyqu yozuvimiz yo'q.",
+  'night.notFound.cta': 'Tarixga qaytish',
+  'night.notFound.logCta': 'Bu kecha yozing',
   'night.notFound.title': 'Kecha topilmadi',
   'night.scorePill': '{{score}} Xol',
   'nightHistory.count': "Ko'rsatilmoqda {{count}} kechalar",
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
     "Tarixingizni to'ldirish uchun uyqu seansini yozib oling yoki kiyiladigan qurilmani ulang.",
   'nightHistory.heading': 'Siz kuzatgan har bir kecha',
   'nightHistory.loading': 'Kechalar yuklanmoqda…',
+  'nightHistory.logNight': 'Bir kecha yozib oling',
   'nightHistoryRow.aria': 'Kechasi {{date}}',
   'nightHistoryRow.deep': '{{pct}} % chuqurlik',
   'nightHistoryRow.hourSuffix': 'soat',
@@ -115,6 +134,9 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'Kecha tunda',
   'sleepStagesTimeline.title': 'Gipnogramma',
+  'sleepTrackerLayout.closeMenu': 'Navigatsiya menyusini yopish',
+  'sleepTrackerLayout.openMenu': 'Navigatsiya menyusini ochish',
+  'sleepTrackerLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'sleepTrendChart.ariaLabel': 'Uyqu trendlari jadvali',
   'sleepTrendChart.caption': 'Oxirgi {{count}} kechalar',
   'sleepTrendChart.empty': "Uyqu ma'lumotlari hali yo'q",
@@ -126,6 +148,8 @@ export const ui: UiTranslations = {
   'smartAlarm.emptyBody':
     "Uyqu sikllaringiz bilan sinxronlashni boshlash uchun uyg'onish vaqtini qo'shing.",
   'smartAlarm.emptyHeading': "Hali signallar yo'q",
+  'smartAlarm.errors.saveFailed':
+    "Budilnikni saqlashda xatolik yuz berdi — iltimos, qayta urinib ko'ring.",
   'smartAlarm.eyebrow': "Aqlli uyg'onish",
   'smartAlarm.heading': "Kerakli vaqtda uyg'onish",
   'smartAlarm.labelField': 'Yorliq',

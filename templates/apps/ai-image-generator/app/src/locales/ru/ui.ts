@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'auth.fields.newPassword': 'Новый пароль',
   'collectionDetail.addImage': 'Призвать для коллекции',
   'collectionDetail.backCta': 'Вернуться к коллекциям',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Мудборды, брифы и текущие серии работ',
   'collections.title': 'Коллекции',
   'collections.untitled': 'Без названия · {{stamp}}',
+  'common.closeMenu': 'Закрыть меню',
+  'common.dismiss': 'Увольнять',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.openMenu': 'Открыть меню навигации',
   'credits.eyebrow': '{{plan}} план',
   'credits.renewsCopy': 'План продлен на {{date}}',
   'credits.trail': 'Мечтание · {{plan}} уровень',
@@ -135,6 +140,7 @@ export const ui: UiTranslations = {
     'Здесь будут отображаться уведомления об активности генерации, совместном использовании ресурсов и кредитах.',
   'notifications.empty.title': 'Сообщать нечего.',
   'notifications.subtitle': 'События, связанные с поколениями, сгруппированы по дням.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.limits.gallery': '{{count}} галерея',
   'privacy.collect.body':
     'При регистрации мы собираем ваше имя, адрес электронной почты и хешированный пароль. В процессе использования Reverie мы сохраняем отправленные вами запросы, сгенерированные для вас изображения, сохраненные вами стили и коллекции, а также метаданные, такие как используемая модель, временные метки генерации и баланс кредитов.',
@@ -170,6 +176,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Сохраните новый пароль',
   'reset.submitting': 'Обновление пароля…',
   'settings.account.handle': 'Ручка',
+  'settings.account.lastSaved': 'Активный профиль · {{name}}',
   'settings.account.saved': 'Профиль сохранен',
   'settings.account.saveFailed': 'Не удалось сохранить профиль.',
   'settings.account.title': 'Профиль автора',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Новое изображение',
   'sidebar.secondary': 'Вторичная навигация',
   'signup.failed': 'Регистрация не удалась. Попробуйте еще раз.',
+  'signup.firstNamePlaceholder': 'Ария',
   'signup.heading': 'Начните свои мечтания',
+  'signup.lastNamePlaceholder': 'Лин',
   'signup.subheading': 'Создайте аккаунт и получите 120 бесплатных кредитов.',
   'styles.empty': 'Пока нет предустановленных стилей — они появятся после первого входа в систему.',
   'styles.eyebrow': 'Подборка',

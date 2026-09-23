@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'analytics.channels.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಚಾನಲ್ ಡೇಟಾ ಇಲ್ಲ.',
   'analytics.channels.title': 'ಚಾನಲ್ ಮೂಲಕ',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'ದಿನಕ್ಕೆ ಸಂಭಾಷಣೆಗಳು',
   'chatBubble.avatarAlt': '{{speaker}} ಅವತಾರ',
   'common.appName': 'ಸಂಬಂಧ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'confidenceMeter.label': 'ವಿಶ್ವಾಸ',
   'conversationDetail.agentName': 'ಏಜೆಂಟ್',
   'conversationDetail.aiReplyButton': 'ಬಾಟ್ ಪ್ರತ್ಯುತ್ತರ',
   'conversationDetail.aiReplyError': 'AI ಪ್ರತ್ಯುತ್ತರವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'conversationDetail.aiReplyLoading': 'ಡ್ರಾಫ್ಟಿಂಗ್...',
+  'conversationDetail.aiReplySourceFallback': 'ಫಾಲ್‌ಬ್ಯಾಕ್ (AI ಕೀ ಇಲ್ಲ)',
   'conversationDetail.backAria': 'ಸಂಭಾಷಣೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'conversationDetail.composerPlaceholder': 'ಗ್ರಾಹಕರಿಗೆ ಪ್ರತ್ಯುತ್ತರಿಸಿ...',
   'conversationDetail.context.channel': 'ಚಾನೆಲ್',
@@ -157,8 +160,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'ನಿಮ್ಮ ಖಾತೆಗೆ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಹೊಂದಿಸಿ',
   'resetPassword.toggleConfirm': 'ಪಾಸ್‌ವರ್ಡ್ ಗೋಚರತೆಯನ್ನು ಖಚಿತಪಡಿಸಲು ಟಾಗಲ್ ಮಾಡಿ',
   'resetPassword.togglePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಗೋಚರತೆಯನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
+  'settings.account.emailError': 'ಇಮೇಲ್ ನವೀಕರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.account.emailLabel': 'ಇಮೇಲ್ ವಿಳಾಸ',
+  'settings.account.emailSaved': 'ಇಮೇಲ್ ನವೀಕರಿಸಲಾಗಿದೆ',
+  'settings.account.nameError': 'ಹೆಸರನ್ನು ನವೀಕರಿಸಲು ವಿಫಲವಾಗಿದೆ',
   'settings.account.nameLabel': 'ಪ್ರದರ್ಶನ ಹೆಸರು',
+  'settings.account.nameSaved': 'ಹೆಸರನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ',
   'settings.account.title': 'ಖಾತೆ',
   'settings.api.createCta': 'ಟೋಕನ್ ರಚಿಸಿ',
   'settings.api.description':
@@ -171,10 +178,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'ಭಾವನೆ ಕಡಿಮೆಯಾದಾಗ ಸ್ವಯಂ-ಹೆಚ್ಚಳ',
   'settings.bot.greetingLabel': 'ಮೊದಲ ಸಂದೇಶ ಶುಭಾಶಯ',
   'settings.bot.title': 'ಬಾಟ್ ಕಾನ್ಫಿಗರೇಶನ್',
+  'settings.bot.toneFormal': 'ಔಪಚಾರಿಕ',
   'settings.bot.toneLabel': 'ಧ್ವನಿ ಮತ್ತು ಸ್ವರ',
   'settings.danger.deleteAccount': 'ಖಾತೆಯನ್ನು ಅಳಿಸಿ',
+  'settings.danger.deleteError': 'ಖಾತೆಯನ್ನು ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
+  'settings.danger.deleteWarning':
+    'ಇದು ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಅದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
   'settings.danger.deleting': 'ಅಳಿಸಲಾಗುತ್ತಿದೆ...',
+  'settings.danger.passwordLabel': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ದೃಢೀಕರಿಸಿ',
   'settings.danger.title': 'ಅಪಾಯ ವಲಯ',
+  'settings.devices.empty': 'ಯಾವುದೇ ಸಾಧನಗಳನ್ನು ನೋಂದಾಯಿಸಲಾಗಿಲ್ಲ.',
+  'settings.devices.revokeWarning':
+    'ಈ ಸಾಧನದ ಪ್ರವೇಶವನ್ನು ಶೀಘ್ರದಲ್ಲೇ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡುವುದೇ?',
+  'settings.devices.signingOut': 'ಸೈನ್ ಔಟ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'settings.devices.signOut': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.devices.thisDevice': 'ಈ ಸಾಧನ',
   'settings.devices.title': 'ಸಾಧನಗಳು',
@@ -187,9 +203,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.security.currentPassword': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
   'settings.security.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
+  'settings.security.oauthManaged':
+    'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಿಮ್ಮ ಸೈನ್-ಇನ್ ಪೂರೈಕೆದಾರರು ನಿರ್ವಹಿಸುತ್ತಾರೆ.',
   'settings.security.title': 'ಭದ್ರತೆ',
   'settings.security.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.security.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.security.twoFactorInvalid': 'ಅಮಾನ್ಯ ಕೋಡ್',
   'settings.subtitle':
     'ರ‍್ಯಾಪೋರ್ಟ್‌ನ ಧ್ವನಿ, ಜ್ಞಾನ ಮೂಲಗಳು ಮತ್ತು ಅದು ಮಾತನಾಡುವ ಪರಿಕರಗಳನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ.',
   'settings.tokenCreateError': 'ಟೋಕನ್ ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ',

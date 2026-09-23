@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.title': 'Yàrá ìkọ̀wé tí o lè kó sínú àpò rẹ',
   'billing.cancelConfirm': 'Fagilé ìforúkọsílẹ̀ rẹ tí ń ṣiṣẹ́?',
   'billing.cancelFailed': 'Kò le fagilé.',
   'billing.checkingOut': 'Ṣíṣí ìsanwó…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Kò le gbé ìsanwó sórí ayélujára.',
   'billing.loading': 'N n gbe owo isanwo soke…',
   'billing.upgradeCta': 'Ṣe igbesoke si {{name}}',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'editor.autosaveOn': 'Fifipamọ laifọwọyi tan',
   'editor.backToLibrary': 'Pada si ile-ikawe',
   'editor.charCount': '{{count}} àwọn ohun kikọ',
   'editor.confirmTrash': 'Ṣé o lè gbé ìwé yìí lọ sí ìdọ̀tí?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'A tú ìsopọ̀ náà kúrò',
   'editor.unpublishCta': 'Ṣíṣe àtúnṣe sí àkọsílẹ̀',
   'editor.unpublished': 'A ti pada si akọọkọ',
+  'focus.autosaveOn': 'Fifipamọ laifọwọyi tan',
   'focus.backToLibrary': 'Pada si ile-ikawe',
   'focus.bodyPlaceholder': 'Ìlà kan ní àkókò kan. Kò sí ẹlòmíràn tó wà níbí.',
   'focus.exit': 'Jáde ipò ìfojúsùn',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ṣẹ̀dá ọ̀kan',
   'login.subline':
     'Àwọn ìwé àfọwọ́kọ rẹ, àwọn ojú ìwé ojoojúmọ́, àti ipò kọ́ọ̀bù ìkẹyìn wà ní ibi tí o fi wọ́n sílẹ̀.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'pricing.exports': 'awọn ọja okeere',
   'pricing.folders': 'àwọn fódà',
   'pricing.heading': 'awọn iwe aṣẹ',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Tẹ koodu ti a fi ranṣẹ si ọ ni imeeli sii ki o si yan nkan ti o le gbagbe. A o fi orukọ silẹ fun ọ ni kete ti o ba ti fipamọ.',
   'reset.tokenHint': 'Ti fi sita lati inu apo-iwọle rẹ.',
+  'settings.appearance.heading': 'Imọlẹ tabi dudu',
   'settings.editor.${row.id}.description': 'Èdè',
   'settings.editor.description':
     'Àyíká ìkọ̀wé, pípadánù ìpínrọ̀, àti ìfojúsùn aláìṣiṣẹ́ — a máa ń ṣe àtúnṣe àwọn àìṣedéédé fún àwọn àkókò gígùn.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Orí Kẹta — Wákàtí Ìdákẹ́jẹ́ẹ́ Kí Oòrùn Tó Lè Wá',
   'versalDocumentCard.pinned': 'Ti so mọ́lẹ̀',
   'versalLayout.nav.stats': 'Àwọn ìṣirò',
+  'versalLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'versalManuscriptHero.cta': 'Tẹ̀síwájú láti kọ ọ́',
   'versalManuscriptHero.goalLabel': 'Àfojúsùn ọ̀rọ̀ òde òní',
   'versalManuscriptHero.inProgress': 'Lórí ipa ọ̀nà',

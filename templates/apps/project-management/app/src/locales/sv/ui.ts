@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'accountSettings.confirmEmailLabel': 'Skriv DELETE för att bekräfta',
   'accountSettings.deleteError': 'Kunde inte ta bort kontot.',
   'accountSettings.passwordError': 'Kunde inte byta lösenord.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Inga kommande deadlines.',
   'dashboard.upcomingTitle': 'Kommande deadlines',
   'deviceSettings.unknownDevice': 'Okänd enhet',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Support',
   'forgotPassword.error': 'Misslyckades med att skicka återställningslänken.',
   'forgotPassword.subtitle': 'Ange din e-postadress så skickar vi en återställningslänk.',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ogiltig e-post eller lösenord.',
   'login.pageTitle': 'Logga in',
   'login.signIn': 'Logga in på Forge',
+  'login.subtitle': 'Logga in för att hålla dina projekt på rätt spår',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'nav.calendar': 'Kalender',
   'nav.legal': 'Juridiskt',
   'nav.myTasks': 'My Tasks',

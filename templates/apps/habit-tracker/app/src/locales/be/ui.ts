@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.pageTitle': 'Пра {{app}}',
   'achievementBadgeCard.unlockedOn': 'Разблакіравана {{date}}',
   'achievements.loadError': 'Не атрымалася загрузіць дасягненні.',
   'achievements.subheading': '{{unlocked}} з {{total}} разблакаваны',
   'achievements.unlockedOn': 'Разблакіравана {{date}}',
+  'auth.legalConsent': 'Працягваючы, вы згаджаецеся з нашымі',
   'calendar.empty': 'Выпрацуйце звычку праглядаць свой каляндар.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Звычка',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Сетка звычак',
   'category.${c.category}': '{{count}} звычкі',
   'common.and': 'і',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'consistencyHeatmap.ariaLabel': 'Штодзённая цеплавая карта кансістэнцыі',
   'consistencyHeatmap.caption': 'Апошні {{weeks}} тыдні',
   'consistencyHeatmap.lessLabel': 'Менш',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Глядзіце ўжывую',
   'landing.heroSubtitle':
     'Выпрацоўвайце звычкі такімі, якімі яны сапраўды застаюцца: невялікія абавязацельствы, штодзённыя паласы поспехаў і вісцаральнае задавальненне ад доўгага непарыўнага ланцуга.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Зазірніце ўнутр Streak',
   'landing.previewMotivation': 'Дзевяць жывых палос. Трымайце іх усіх у цяпле.',
   'login.eyebrow': 'Вазьміце ланцуг',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': "Зрабіце гэта невялікім. Зрабіце гэта канкрэтным. З'явіце заўтра.",
   'newHabit.timeLabel': 'Час напаміну',
   'notifications.markError': 'Не ўдалося адзначыць усё як прачытанае.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.entries': '{{count}} запісаў',
+  'pricing.heading': 'Выберыце свой план {{app}}',
   'profile.action.plan': 'Кіраванне падпіскай',
   'profile.action.settings': 'Налады ўліковага запісу',
   'profile.bioEmpty': 'Дадайце кароткую біяграфію ў наладах, каб прадставіцца.',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Штодзённая ранішняя падказка (8:00 раніцы)',
   'settings.reminders.heading': 'Напаміны',
   'settings.reminders.weekly': 'Штотыднёвы агляд (нядзельны вечар)',
+  'settings.revokeDeviceWarning': 'Доступ гэтай прылады хутка будзе адкліканы. Выйсці?',
   'settings.signOutDevice': 'Выйсці',
   'settings.streaks.freezesPerWeek': 'Замярзанняў у тыдзень',
   'settings.streaks.gracePeriod': '6-гадзінны льготны перыяд пасля поўначы',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} актыўны',
   'streakHeroCard.daysSuffix': 'дні',
   'streakHeroCard.title': 'Найдаўжэйшая актыўная серыя',
+  'streakLayout.closeMenu': 'Закрыць меню навігацыі',
+  'streakLayout.openMenu': 'Адкрыць меню навігацыі',
   'streakLayout.primaryNavLabel': 'Асноўная навігацыя',
 }

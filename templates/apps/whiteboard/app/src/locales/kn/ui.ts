@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'authShell.brandHeading': 'ಗಟ್ಟಿಯಾಗಿ ಯೋಚಿಸುವ ವಿನ್ಯಾಸ ತಂಡಗಳಿಗೆ ಮಲ್ಟಿಪ್ಲೇಯರ್ ಕ್ಯಾನ್ವಾಸ್‌ಗಳು.',
   'billing.canceled': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ.',
   'billing.cancelPlan': 'ಯೋಜನೆಯನ್ನು ರದ್ದುಗೊಳಿಸಿ',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ಟೆಂಪ್ಲೇಟ್‌ನಿಂದ ಪ್ರಾರಂಭಿಸಿ',
   'boards.title': 'ನಿಮ್ಮ ಬೋರ್ಡ್‌ಗಳು',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'forgot.emailPlaceholder': 'ಮಿರಾ@ಸ್ಟುಡಿಯೋ.ಕಾಮ್',
   'forgot.subheading':
     'ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'ಗೊಂದಲಮಯ, ಉತ್ಪಾದಕ, ವೈಯಕ್ತಿಕ ಚಿಂತನೆಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
   'landing.demoBoard.title': 'Q1 ಕಾರ್ಯಾಗಾರ · ಬ್ರಾಂಡ್ ಧ್ವನಿ',
   'landing.featuresTitle': 'ವೇಗದ ಪ್ರತಿಕ್ರಿಯೆ. ಸುಂದರವಾದ ಕ್ಯಾನ್ವಾಸ್‌ಗಳು. ಘರ್ಷಣೆ ಇಲ್ಲ.',
+  'landing.hero.body':
+    '{{appName}} ಎಂಬುದು ವಿನ್ಯಾಸ ತಂಡಗಳು, ಕಾರ್ಯಾಗಾರದ ಆಯೋಜಕರು ಮತ್ತು ನೇರ ಬುದ್ದಿಮತ್ತೆಗಳನ್ನು ನಡೆಸುವ ಮತ್ತು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ಸೇರಲು ಆಲೋಚನೆಗಳ ಅಗತ್ಯವಿರುವ ಶಿಕ್ಷಕರಿಗೆ ಮಲ್ಟಿಪ್ಲೇಯರ್ ವೈಟ್‌ಬೋರ್ಡ್ ಆಗಿದೆ.',
   'landing.hero.primaryCta': 'ಉಚಿತವಾಗಿ ಬೋರ್ಡ್ ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.socialProof': 'ವಿಶ್ವಾಸಾರ್ಹರು {{count}} ವಿಶ್ವಾದ್ಯಂತ ವಿನ್ಯಾಸ ತಂಡಗಳು',
   'landing.hero.title': 'ನಿಮ್ಮ ಆಲೋಚನೆಗಳಷ್ಟೇ ವೇಗವಾದ ಕ್ಯಾನ್ವಾಸ್',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ಉಚಿತ ಕಾರ್ಯಕ್ಷೇತ್ರವನ್ನು ರಚಿಸಿ',
   'login.subheading':
     'ಕಾರ್ಯಾಗಾರ ಎಲ್ಲಿ ನಿಲ್ಲಿಸಿದೆಯೋ ಅಲ್ಲಿಂದ ಪ್ರಾರಂಭಿಸಿ — ಬೋರ್ಡ್‌ಗಳು, ಸ್ಟಿಕಿ ನೋಟ್‌ಗಳು ಮತ್ತು ಕರ್ಸರ್‌ಗಳು ಎಲ್ಲವೂ ನೈಜ ಸಮಯದಲ್ಲಿ ಸಿಂಕ್ ಆಗುತ್ತವೆ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.new': 'ಹೊಸದು',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'notifications.editTitle': '" ಗೆ ಸಂಪಾದನೆಗಳು {{board}} "',
   'notifications.empty.body':
     'ಆಹ್ವಾನಗಳು, ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಉಳಿಸುವಿಕೆಗಳು ಮತ್ತು ಇತ್ತೀಚಿನ ಬೋರ್ಡ್ ಸಂಪಾದನೆಗಳು ಅವು ಸಂಭವಿಸಿದಂತೆಯೇ ಇಲ್ಲಿ ಗೋಚರಿಸುತ್ತವೆ.',
@@ -173,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ಆವೃತ್ತಿ ಇತಿಹಾಸ',
   'versionHistory.untitledSnapshot': 'ಶೀರ್ಷಿಕೆರಹಿತ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್',
   'whiteboardLayout.newBoard': 'ಹೊಸ ಬೋರ್ಡ್',
+  'whiteboardLayout.primaryNav': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'workspace.boardLabel': 'ಬೋರ್ಡ್',
   'workspace.eyebrow': '{{name}} · ಕಾರ್ಯಕ್ಷೇತ್ರ',
   'workspace.invite': 'ಸಹಯೋಗಿಗಳನ್ನು ಆಹ್ವಾನಿಸಿ',

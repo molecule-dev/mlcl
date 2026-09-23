@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'about.pageTitle': 'Dwar {{name}}',
   'auth.footer.about': 'Dwar {{name}}',
   'authHeader.subtitle': 'Idħol biex iżżomm in-numri tiegħek onesti.',
   'automations.action.email': 'Email',
+  'automations.action.noop': 'Bla operazzjoni',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Ħassar " {{name}} "?',
   'automations.empty.headline': "Għad m'hemm l-ebda awtomazzjoni",
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     "Triggers u azzjonijiet f'kull workbook. Kull ġirja tirreġistra ringiela li tista' tawditja aktar tard.",
   'automations.toggle': 'Aqleb {{name}}',
+  'automations.trigger.dailySchedule': "Skeda ta' kuljum",
+  'automations.trigger.rowCreated': 'Ringiela maħluqa',
+  'automations.trigger.rowUpdated': 'Ringiela aġġornata',
   'billing.empty': 'L-ebda pjan disponibbli.',
   'billing.error.priceMissing':
     "L-ebda prezz ta' Stripe ma ġie kkonfigurat għal dan il-livell. Issettja l-varjabbli tal-ambjent STRIPE_*_PRICE_ID.",
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Ċarts',
   'charts.kpi.totalCharts': 'Ċarts totali',
   'charts.list.empty': "Għad m'hemm l-ebda ċarts.",
+  'charts.namePlaceholder': 'Xejra tad-dħul',
   'charts.newChart': 'Grafika ġdida',
   'charts.primary.eyebrow': 'Ċarts skont it-tip',
   'charts.primary.headline': 'Ħarsa ġenerali lejn l-ispazju tax-xogħol',
   'charts.subhead':
     "Viżwalizzazzjonijiet ħajjin marbuta mal-grilja tiegħek — erġa' agħmel rendering ma' kull editjar taċ-ċellula.",
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'editor.addColumn': 'Żid kolonna',
+  'editor.addDialogTitle': 'Żid kolonna',
   'editor.addRow': 'Żid ringiela',
   'editor.addSheet': 'Żid folja',
   'editor.back': 'Lura għall-kotba tax-xogħol',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     "{{name}} Calcite hija l-analisti tal-grilja f'ħin reali, b'ħafna viżjonijiet, li l-ewwel jilħqu l-formula u t-timijiet tal-finanzi.",
   'landing.nav.formulas': 'Formuli',
+  'login.noAccount': "Ġdid f' {{name}} ?",
+  'login.signIn': "Idħol f' {{name}}",
   'login.signUp': 'Oħloq spazju tax-xogħol',
+  'nav.menu': 'Menù',
+  'nav.openMenu': 'Iftaħ il-menù',
   'notFound.cellRef': '#REFERENZA!',
   'notFound.formula': '=FITTEX(TALBA.url, "rotot", "paġna")',
   'notFound.headline': 'Din ir-ringiela qatt ma eżistiet.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Awtomazzjonijiet nattivi · webhook u cron triggers',
   'signup.creating': 'Qed jiġi pprovdut spazju tax-xogħol...',
   'signup.cta': 'Oħloq l-ispazju tax-xogħol tiegħi',
+  'signup.haveAccount': 'Diġà fuq {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Dawwar l-ewwel workbook tiegħek fi 30 sekonda',
   'team.col.activity': 'Mistieden',

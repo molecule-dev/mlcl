@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.pageTitle': 'Gbasara {{app}}',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.retry': 'Nwaa ọzọ',
   'compose.cancel': 'Kagbuo',
   'compose.captionPlaceholder': "Kedu ihe dị n'uche gị?",
   'compose.heading': 'Kekọrịta otu oge',
@@ -94,6 +98,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Akaụntụ akwadoro',
   'resetPassword.newPassword': 'Okwuntughe Ọhụrụ',
   'resetPassword.subheading': 'Họrọ ihe siri ike — ma ọ dịkarịa ala mkpụrụedemede iri na abụọ.',
+  'search.clearAria': 'Kpochapụ Anya',
+  'search.error': 'Nchọgharị ahụ agaghị nke ọma. Nwaa ọzọ.',
   'search.noPeople': 'Ọ dịghị onye okike ya na ya yiri " {{q}} ".',
   'search.noPosts': 'Ọ dịghị ihe ọ bụla dakọtara na post " {{q}} ".',
   'search.noTags': 'Enweghị hashtags na-ewu ewu ugbu a.',
@@ -121,6 +127,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Zoo paswọọdụ',
   'signup.showPassword': 'Gosi paswọọdụ',
   'signup.subheading': 'Mepụta akaụntụ iji malite ịkekọrịta.',
+  'socialMediaLayout.closeMenu': 'Mechie menu nsoroụzọ',
+  'socialMediaLayout.openMenu': 'Mepee menu nsoroụzọ',
+  'socialMediaLayout.primaryNavLabel': 'Ntugharị isi',
   'storyRail.heading': 'Akụkọ',
   'storyRail.label': 'Akụkọ',
   'storyRail.openAria': 'Mepee {{handle}} Akụkọ nke',

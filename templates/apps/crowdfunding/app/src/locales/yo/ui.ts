@@ -54,6 +54,7 @@ export const ui: UiTranslations = {
   'campaignEditor.rewards.descPlaceholder':
     'Àwọn tí wọ́n gbà ní ìpele yìí ni àwọn olùrànlọ́wọ́ máa ń gbà',
   'campaignEditor.rewards.etaLabel': 'Ìfijiṣẹ́ tí a fojú díwọ̀n',
+  'campaignEditor.rewards.etaPlaceholder': 'Oṣù Kẹta 2027',
   'campaignEditor.rewards.maxLabel': 'Awọn olufowosi to pọ julọ (aṣayan)',
   'campaignEditor.rewards.tier': 'Ipele {{n}}',
   'campaignEditor.step.basics': 'Àwọn ìpìlẹ̀',
@@ -94,6 +95,7 @@ export const ui: UiTranslations = {
   'campaignProgressBar.pledged': 'Ti ṣe ìlérí',
   'categoryFilterBar.label': 'Àlẹ̀mọ́ nípasẹ̀ ẹ̀ka',
   'common.daysAgo': '{{count}} ọdun sẹyin',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.hoursAgo': '{{count}} h ti o ti kọja',
   'common.minutesAgo': '{{count}} ní agogo méjì sẹ́yìn',
   'common.no': '—',
@@ -102,6 +104,7 @@ export const ui: UiTranslations = {
   'creatorSidebar.guest': 'Ẹlẹ́dàá',
   'creatorSidebar.label': 'Lilọ kiri Ẹlẹda',
   'creatorSidebar.role': 'Ẹlẹ́dàá',
+  'creatorSidebar.viewProfile': 'Wo profaili rẹ',
   'dashboard.active.title': 'Àwọn ìpolówó mi',
   'dashboard.active.viewAll': 'Ṣe àwárí síi',
   'dashboard.activity.empty':
@@ -215,10 +218,14 @@ export const ui: UiTranslations = {
   'settings.saved': 'Àtúnṣe sí profaili',
   'settings.saveError': 'Kò ṣeé ṣe láti fi àwọn àyípadà pamọ́',
   'settings.section.payouts': 'Awọn isanwo',
+  'settings.security.body': 'Fi afikun aabo kun si akọọlẹ rẹ pẹlu ohun elo olufisiṣe.',
   'settings.security.title': 'Ààbò',
+  'settings.twoFactorCode': 'Kóòdù ìfàṣẹsí',
   'settings.twoFactorDisable': 'Mu ṣiṣẹ',
   'settings.twoFactorEnable': 'Mu ṣiṣẹ',
+  'settings.twoFactorInvalidCode': 'Kóòdù tí kò tọ́',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Ṣàyẹ̀wò kí o sì mú un ṣiṣẹ́',
   'signup.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'signup.subtitle': 'Ṣe ìfilọ́lẹ̀ ohun tó ṣe pàtàkì láàárín ìṣẹ́jú kan.',
 }

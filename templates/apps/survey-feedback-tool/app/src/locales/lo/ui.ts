@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
   'analytics.back': 'ພາບລວມຂອງການສຳຫຼວດ',
   'analytics.kpiNps': 'ຄະແນນ NPS',
   'analytics.kpiNpsTrend': 'ຜູ້ສົ່ງເສີມ {{p}} % · ຜູ້ຄັດຄ້ານ {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'ຊັບສິນ',
   'builder.questionNumber': 'ຖ. {{num}}',
   'builder.surveyTitle': 'ຫົວຂໍ້ແບບສຳຫຼວດ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'forgotPassword.failed': 'ບໍ່ສາມາດສົ່ງອີເມວຕັ້ງຄ່າໃໝ່ໄດ້. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.',
   'forgotPassword.subheading': 'ໃສ່ອີເມວຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງກູ້ຄືນໃຫ້ທ່ານ.',
   'forgotPassword.successBody':
     'ຖ້າບັນຊີກົງກັນ {{email}} , ລິ້ງຣີເຊັດກຳລັງມາ. ກະລຸນາກວດສອບກ່ອງຈົດໝາຍເຂົ້າ ແລະ ໂຟນເດີສະແປມຂອງທ່ານ.',
+  'landing.footer.copyright': '© {{year}} {{app}} . ຍິນດີຕ້ອນຮັບທຸກໆຄວາມຄິດເຫັນ.',
   'landing.footer.startTrial': 'ເລີ່ມການທົດລອງໃຊ້',
   'landing.hero.badge': 'ການສຳຫຼວດ, NPS ແລະ ຄຳຕິຊົມໃນບ່ອນດຽວ',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'ລາຄາ',
   'landing.pricing.perMonth': '/ເດືອນ',
   'landing.pricing.popular': 'ຍອດນິຍົມທີ່ສຸດ',
+  'landing.pricing.subtitle':
+    'ທຸກໆແຜນການປະກອບມີຕົວສ້າງແບບສຳຫຼວດ, ລິ້ງແບ່ງປັນສາທາລະນະ, ແລະ ການວິເຄາະ NPS. ບໍ່ຕ້ອງໃຊ້ບັດເຄຣດິດເພື່ອເລີ່ມຕົ້ນ.',
+  'landing.pricing.title': 'ເລີ່ມຕົ້ນຟຣີ, ປັບຂະໜາດເມື່ອທ່ານເຮັດ.',
   'landing.sample.eyebrow': 'ພາບລວມຂອງ NPS',
   'landing.sample.title': 'ຜູ້ວິພາກວິຈານ, ຜູ້ບໍ່ສະໜັບສະໜູນ, ຜູ້ສົ່ງເສີມ — ສາມາດອ່ານໄດ້ທັນທີ.',
   'login.failed': 'ເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'login.signUpLink': 'ເລີ່ມການທົດລອງໃຊ້ຟຣີ',
   'login.subheading': 'ເຂົ້າສູ່ລະບົບເພື່ອສືບຕໍ່ຮັບຟັງຜູ້ຊົມຂອງທ່ານ.',
+  'notFound.body':
+    'ໜ້າເວັບທີ່ທ່ານກຳລັງຊອກຫາບໍ່ມີຢູ່ໃນ {{app}} . ໃຫ້ພວກເຮົາກັບໄປຫາແບບສຳຫຼວດຂອງທ່ານ.',
   'notFound.cta': 'ກັບໄປທີ່ແບບສຳຫຼວດ',
   'notFound.eyebrow': '404',
   'notFound.heading': 'ການສຳຫຼວດນີ້ໄດ້ເລື່ອນອອກຈາກຄິວ.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'ອະນຸພາກ 7–8',
   'npsDistributionBar.promoter': 'ຜູ້ສົ່ງເສີມ 9–10',
   'profile.identity.description': 'ເປີດເຜີຍຕໍ່ທີມງານຂອງທ່ານ ແລະ ໃນແບບສຳຫຼວດທີ່ທ່ານຂຽນ.',
+  'profile.identity.emailRequired': 'ໃສ່ທີ່ຢູ່ອີເມວ.',
   'profile.identity.saveCta': 'ບັນທຶກຊື່',
   'profile.password.current': 'ລະຫັດຜ່ານປັດຈຸບັນ',
   'profile.password.fillFields': 'ໃສ່ທັງລະຫັດຜ່ານປັດຈຸບັນ ແລະ ລະຫັດຜ່ານໃໝ່.',
@@ -175,6 +184,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ຄຳຖາມ',
   'templates.subheading':
     'ເລືອກໂປຣແກຣມເລີ່ມຕົ້ນທີ່ໄດ້ຮັບການທົດສອບການສູ້ຮົບແລ້ວ — ທຸກໆແມ່ແບບມາພ້ອມກັບຄ່າເລີ່ມຕົ້ນທີ່ສົມເຫດສົມຜົນ, ຕົວຢ່າງເຫດຜົນ ແລະ ຮູບແບບມືຖືທີ່ສະອາດ.',
+  'thankYou.body':
+    'ຄຳຕອບຂອງທ່ານໄດ້ຖືກບັນທຶກໄວ້ແລ້ວ. {{app}} ຈະລວມມັນໄວ້ໃນການໂຫຼດຂໍ້ມູນການວິເຄາະຄືນໃໝ່ຄັ້ງຕໍ່ໄປ.',
   'thankYou.eyebrow': 'ໄດ້ຮັບຄຳຕອບແລ້ວ',
   'thankYou.heading': 'ຂອບໃຈ — ສຽງຂອງເຈົ້າມີຄວາມໝາຍ.',
   'thankYou.home': 'ຢ້ຽມຊົມເມືອງ Gauge',

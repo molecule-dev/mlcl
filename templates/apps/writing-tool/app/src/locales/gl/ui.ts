@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
+  'about.title': 'Unha sala de escritura que podes gardar no peto',
   'billing.cancelConfirm': 'Queres cancelar a túa subscrición activa?',
   'billing.cancelFailed': 'Non se puido cancelar.',
   'billing.checkingOut': 'Abrindo caixa…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Non se puido cargar a facturación.',
   'billing.loading': 'Cargando facturación…',
   'billing.upgradeCta': 'Actualizar a {{name}}',
+  'common.goToDashboard': 'Ir ao panel',
+  'editor.autosaveOn': 'Gardar automaticamente activado',
   'editor.backToLibrary': 'Volver á biblioteca',
   'editor.charCount': '{{count}} personaxes',
   'editor.confirmTrash': 'Mover este documento á papeleira?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Sen fixar',
   'editor.unpublishCta': 'Mover a borrador',
   'editor.unpublished': 'Volvido a borrador',
+  'focus.autosaveOn': 'Gardar automaticamente activado',
   'focus.backToLibrary': 'Volver á biblioteca',
   'focus.bodyPlaceholder': 'Unha fila á vez. Non hai ninguén máis aquí.',
   'focus.exit': 'Saír do modo de enfoque',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Crear un',
   'login.subline':
     'Os teus manuscritos, as páxinas diarias e a última posición do cursor están xusto onde os deixaches.',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'pricing.exports': 'exportacións',
   'pricing.folders': 'carpetas',
   'pricing.heading': 'documentos',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Introduce o código que che acabamos de enviar por correo electrónico e escolle algo que che resulte memorable. Iniciaremos a sesión unha vez que estea gardado.',
   'reset.tokenHint': 'Pegado desde a túa caixa de entrada.',
+  'settings.appearance.heading': 'Claro ou escuro',
   'settings.editor.${row.id}.description': 'Lingua',
   'settings.editor.description':
     'Desprazamento da máquina de escribir, esvaecemento de parágrafo e foco inactivo: os valores predeterminados están axustados para sesións longas.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Capítulo tres: Unha hora tranquila antes do amencer',
   'versalDocumentCard.pinned': 'Fixado',
   'versalLayout.nav.stats': 'Estatísticas',
+  'versalLayout.primaryNavLabel': 'Navegación principal',
   'versalManuscriptHero.cta': 'Continuar escribindo',
   'versalManuscriptHero.goalLabel': 'Obxectivo de palabras de hoxe',
   'versalManuscriptHero.inProgress': 'No camiño correcto',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
   'actions.empty': 'Δεν βρέθηκαν αντίστοιχα στοιχεία δράσης.',
   'actions.heading': 'Στοιχεία δράσης',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Προηγούμενος μήνας',
   'calendar.recent': 'Πρόσφατα',
   'common.daysAgo': '{{count}}η πριν',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.hoursAgo': '{{count}}ω πριν',
   'common.no': '—',
+  'common.retry': 'Επανάληψη',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} στοιχεία δράσης',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Ελέγξτε τα εισερχόμενά σας για τον σύνδεσμο επαναφοράς.',
   'forgot.subheading': 'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'integrations.disconnected': 'Αποσυνδεδεμένο',
+  'integrations.loadError': 'Δεν κατέστη δυνατή η φόρτωση των ενσωματώσεων.',
   'integrations.notConnectedTag': 'Μη συνδεδεμένο',
   'integrations.subheading':
     'Συνδέστε ημερολόγια και πλατφόρμες βίντεο για να συμμετέχει το Murmur αυτόματα.',
+  'integrations.updateError': 'Η ενημέρωση απέτυχε.',
   'landing.ctaButton': 'Ξεκινήστε — είναι δωρεάν',
   'landing.ctaHeading': 'Σταματήστε να κρατάτε σημειώσεις. Αρχίστε να παίρνετε αποφάσεις.',
   'landing.demo.aiLabel': 'Περίληψη AI, σχεδιασμένη ζωντανά',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Παρακολουθήσεις',
   'meetingDetail.loadError': 'Η φόρτωση της συνάντησης απέτυχε.',
   'meetingDetail.noActions': 'Δεν εντοπίστηκαν στοιχεία δράσης.',
+  'meetingDetail.none': 'Κανένα.',
   'meetingDetail.notFound': 'Η συνάντηση δεν βρέθηκε.',
+  'meetingDetail.speakerFallback': 'Ομιλητής{{id}}',
   'meetingDetail.summaryHeading': 'Περίληψη AI',
   'meetingDetail.transcriptHeading': 'Μεταγραφή',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Συναντήσεις',
   'meetings.loadError': 'Η φόρτωση των συναντήσεων απέτυχε.',
   'meetings.subheading': 'Κάθε εγγεγραμμένη, ανεβασμένη και συγχρονισμένη συνάντηση.',
+  'murmurLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'murmurLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'nav.legal': 'Νομικά',
   'notifications.loadError': 'Αποτυχία φόρτωσης ειδοποιήσεων.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Πώς εμφανίζεστε στο Murmur.',
   'record.error.empty': 'Δεν καταγράφηκε ήχος.',
   'record.error.permission': 'Η άδεια χρήσης μικροφώνου απορρίφθηκε.',
+  'record.error.recorder': 'Σφάλμα καταγραφέα',
   'record.error.unsupported':
     'Το πρόγραμμα περιήγησής σας δεν υποστηρίζει εγγραφή. Δοκιμάστε Chrome, Edge ή Safari.',
   'record.error.upload': 'Η μεταφόρτωση απέτυχε. Δοκιμάστε ξανά.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Νέος κωδικός πρόσβασης',
   'reset.subheading': 'Επιλέξτε κωδικό πρόσβασης που δεν χρησιμοποιείτε αλλού.',
   'search.empty': 'Πληκτρολογήστε για αναζήτηση στις μεταγραφές.',
+  'search.loadError': 'Η αναζήτηση απέτυχε. Δοκιμάστε ξανά.',
   'search.noResults': 'Δεν βρέθηκαν αποτελέσματα για «{{q}}».',
   'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Αποτυχία φόρτωσης ρυθμίσεων.',
   'settings.loading': 'Φόρτωση…',
   'settings.push.heading': 'Ειδοποιήσεις push',
+  'settings.push.subheading':
+    'Λάβετε ειδοποιήσεις μέσω του προγράμματος περιήγησης για αναφορές, εκκρεμείς ενέργειες και περιλήψεις.',
   'settings.retention.audio': 'Διατήρηση ήχου για',
   'settings.retention.heading': 'Διατήρηση',
   'settings.retention.transcript': 'Διατήρηση μεταγραφών για',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Ξεκινήστε να καταγράφετε σημειώσεις συναντήσεων σε λίγα λεπτά',
   'signup.terms':
     'Δημιουργώντας λογαριασμό, συμφωνείτε με τους Όρους Υπηρεσίας και την Πολιτική Απορρήτου μας.',
+  'signup.termsPrefix': 'Με τη δημιουργία λογαριασμού, αποδέχεστε τους όρους μας',
   'team.inviteCta': 'Πρόσκληση μέλους ομάδας',
   'team.invitedAs': 'Προσκλήθηκε ως {{role}}',
   'team.inviteFailed': 'Η αποστολή πρόσκλησης απέτυχε.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
   'accountDetail.activeBadge': 'ንቁ',
   'accountDetail.availableLabel': '{{amount}} ይገኛል',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'መለያዎች',
   'accounts.loadError': 'መለያዎችን መጫን አልተሳካም።',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'የቀዘቀዘ',
   'accounts.totalBalance': '{{መጠን}} ጠቅላላ',
   'audit.empty': 'እስካሁን ምንም ክስተቶች የሉም።',
   'audit.eyebrow': 'ደህንነት እና መዳረሻ',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'ጥሬ ገንዘብ በእጅ ላይ',
   'cashCreditCard.creditLabel': 'ክሬዲት ጥቅም ላይ ውሏል',
   'cashCreditCard.title': 'ጥሬ ገንዘብ እና ክሬዲት',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.accountsHeading': 'መለያዎች',
   'dashboard.heading': 'አጠቃላይ እይታ',
   'dashboard.recentEmpty': 'እስካሁን ምንም ግብይቶች የሉም።',
@@ -42,10 +45,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'የይለፍ ቃል አሳይ',
   'login.signUp': 'ይመዝገቡ',
   'login.submit': 'ይግቡ',
+  'meridianLayout.menu': 'ምናሌ',
   'meridianLayout.primaryNavLabel': 'ዋና አሰሳ',
   'nav.legal': 'ሕጋዊ',
   'notifications.emptyHeading': 'ሁሉንም ነገር ተረድተሃል',
   'notifications.subheading': 'ለግብይቶች፣ ለደህንነት እና ለሂሳብ መግለጫዎች የእውነተኛ ጊዜ ማንቂያዎች።',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'privacy.dataWeShare':
     'የግል የባንክ መረጃ በፍጹም አይሸጥም። መረጃዎችን ከክፍያ ማቀነባበሪያዎች፣ ከካርድ ኔትወርኮች እና ከተቆጣጣሪዎች ጋር የምናጋራው ግብይቶችን ለመፍታት ወይም ህጋዊ ግዴታዎችን ለመወጣት አስፈላጊ በሚሆንበት ጊዜ ብቻ ነው።',
   'privacy.dataWeStore':
@@ -77,10 +82,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'ባለሁለት ደረጃ በእያንዳንዱ መግቢያ ላይ ከአንድ የአረጋጋጭ መተግበሪያ የአንድ ጊዜ ኮድ ያክላል።',
   'settings.security.twoFactorCta': 'ባለሁለት-ደረጃ ፈቃድን ያቀናብሩ',
+  'settings.security.twoFactorOff': 'ባለሁለት-ደረጃ ጠፍቷል',
   'settings.signOutDevice': 'ውጣ',
   'settings.subheading': 'መገለጫ፣ ደህንነት እና ማሳወቂያዎች።',
+  'settings.twoFactorCode': 'የማረጋገጫ ኮድ',
   'settings.twoFactorDisable': 'አሰናክል',
   'settings.twoFactorEnable': 'አንቃ',
+  'settings.twoFactorInvalidCode': 'ልክ ያልሆነ ኮድ',
+  'settings.twoFactorVerify': 'አረጋግጥ እና አንቃ',
   'signup.emailLabel': 'የኢሜይል አድራሻ',
   'signup.fullName': 'እንዴት ልንገናኝህ ይገባል?',
   'signup.showPassword': 'የይለፍ ቃል አሳይ',
@@ -102,7 +111,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'እስካሁን ምንም ግብይቶች የሉም።',
   'transactions.endDate': 'የመጨረሻ ቀን',
   'transactions.eyebrow': 'እንቅስቃሴ',
+  'transactions.loadError': 'ግብይቶችን መጫን አልተሳካም።',
   'transactions.merchant': 'ነጋዴ',
+  'transactions.subheading': 'በመለያዎችዎ ላይ የተለጠፈ እና በመጠባበቅ ላይ ያለ እያንዳንዱ ግብይት።',
   'transfers.availableHint': '{{amount}} ይገኛል',
   'transfers.errorGeneric': 'ዝውውሩን ማስገባት አልተቻለም።',
   'transfers.errorMissingFields': 'የምንጭ መለያ እና መድረሻ ይምረጡ።',

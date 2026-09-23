@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Löser…',
   'comments.subtitle':
     'De {{count}} trådar som fortfarande väntar på ett svar eller en lösning. Sorterade efter ålder — äldst först, så att inget ruttnar.',
+  'common.goToDashboard': 'Gå till översikt',
   'forgotPassword.sentTo': 'Återställningslänk skickad till {{email}}',
   'forgotPassword.successSubheading':
     'Kolla din inkorg — vi har precis skickat en återställningslänk. Den går ut om 30 minuter.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ny sida',
   'pageTreeSidebar.workspaceHeader': 'Arbetsyta',
   'pageView.breadcrumb': 'Brödsmulor',
+  'pageView.confirmTrash': 'Skräpa det?',
   'pageView.home': 'Hem',
   'pageView.lastEdited': 'Uppdaterad {{when}}',
   'pageView.loading': 'Laddar sida…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Sammanfattar…',
   'pageView.summaryUnavailable': 'AI-sammanfattning är inte konfigurerad för denna arbetsyta.',
   'pageView.tocTitle': 'På den här sidan',
+  'pageView.trash': 'Papperskorg',
+  'pageView.trashing': 'Slänger…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Märken',
   'profile.owned.title': 'Egna sidor',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'Arbetsyta, profil, aviseringar, integrationer — allt i ett tyst skal.',
   'settingsPage.workspace.defaultLanding': 'Standardstartsida',
   'settingsPage.workspace.landingHome': 'Hem',
+  'settingsPage.workspace.landingSpaces': 'Ytor',
   'settingsPage.workspace.subdomainLabel': 'Underdomän',
   'settingsPage.workspace.title': 'Arbetsyta',
   'signup.eyebrow': 'Starta en ny arbetsyta',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Starta en sida från en schablon, inte en tom duk. Varje mall låser formen så att du kan fokusera på innehållet.',
+  'trash.confirmPurge': 'Rensa ut för alltid?',
+  'trash.confirmPurgeAria': 'Bekräfta: radera {{title}} permanent',
   'trash.daysUntilPurge': '{{days}} dagar kvar',
   'trash.empty.body': 'Borttagna sidor visas här i 30 dagar innan de raderas permanent.',
   'trash.empty.title': 'Papperskorgen är tom.',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Återställer…',
   'versionHistory.subtitle': '{{count}} versioner · välj en rad för att inspektera diffen',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Stäng navigeringen',
+  'wikiLayout.menu': 'Navigering',
+  'wikiLayout.openMenu': 'Öppna navigeringen',
   'wikiLayout.searchPlaceholder': 'Sök i Cairn — sidor, kommentarer…',
 }

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.featureDiscover.title': 'Натхнення, відібране власноруч',
   'account.addPaymentCta': 'Додати спосіб оплати',
   'account.addPaymentError': 'Не вдалося додати спосіб оплати.',
+  'account.confirmRemove': 'Підтвердити видалення',
   'account.defaultBadge': 'За замовчуванням',
   'account.loyalty.pointsTowardNext': '{{points}} з {{наступний}} миль до {{nextTier}}',
   'account.loyalty.tier': 'Поточний рівень',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Деталі поїздки',
   'booking.tripSummary': '{{nights}} ночі · {{guests}} гості',
   'common.daysAgo': '{{count}}д тому',
+  'common.goToDashboard': 'До панелі',
   'common.hoursAgo': '{{count}}г тому',
   'common.minutesAgo': '{{count}} м тому',
   'common.no': '—',
@@ -83,6 +87,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Юридична інформація',
   'notifications.loading': 'Завантаження…',
   'notifications.subheading': '{{count}} непрочитані · все в одній спокійній поштовій скриньці',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.accommodationsLabel': 'проживання',
   'pricing.bookingsLabel': 'бронювання',
   'pricing.destinationsLabel': 'збережені пункти призначення',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     "Натхнення, надійне проживання та безперешкодний шлях від мрії до бронювання — у 14 країнах та понад 200 ретельно перевірених об'єктах.",
   'sojournHeroSearchCard.trustProtected': 'Безкоштовне скасування, повний захист',
   'sojournHeroSearchCard.trustVetted': "Тільки ретельно перевірені об'єкти нерухомості",
+  'travelBookingLayout.primaryNavLabel': 'Основна навігація',
   'tripDetail.backLink': 'Повернутися до подорожей',
   'tripDetail.cancelCta': 'Скасувати бронювання',
   'tripDetail.cancelHeading': 'Скасувати цю поїздку?',

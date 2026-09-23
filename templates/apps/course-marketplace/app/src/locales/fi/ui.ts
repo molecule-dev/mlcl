@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Ladataan kursseja…',
   'browse.next': 'Seuraava sivu',
   'browse.results': 'Näytetään kurssit aiheesta ”{{count}}”',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Järjestä',
   'browse.subtitle':
     'Suodata artikkelit aiheen, tason ja hinnan mukaan. Jokainen kurssi on toimittajiemme huolella valitsema.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Sertifikaattisi on allekirjoitettu ja valmis. Jaa se muille tai säilytä se muistona siitä työstä, jonka sen ansaitseminen vaati.',
   'certificate.copyLink': 'Kopioi jakolinkki',
+  'certificate.copyPrompt': 'Kopioi tämä linkki:',
   'certificate.download': 'Lataa PDF',
   'certificate.eyebrow': 'Saavutus avattu',
   'certificate.linkCopied': 'Linkki kopioitu!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Olet ilmoittautunut!',
   'checkout.verifying': 'Tarkistetaan rekisteröitymistäsi…',
   'checkout.viewLibrary': 'Tarkastele oppimistani',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.retry': 'Yritä uudelleen',
   'courseDetail.about': 'Tietoja kurssista',
   'courseDetail.checkoutPending': 'Aloitetaan kassaistunto…',
   'courseDetail.continueLearning': 'Jatka oppimista',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 päivän rahat takaisin -takuu',
   'courseDetail.includes.video': '{{hours}} tunteja tilausvideoita',
   'courseDetail.instructor': 'Opettaja',
+  'courseDetail.languageEnglish': 'englanti',
   'courseDetail.lectures': 'Luennot',
   'courseDetail.level': 'Taso',
   'courseDetail.loading': 'Ladataan kurssia…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Arvosteluja ei ole vielä.',
   'instructorProfile.students': 'Opiskelijat',
   'landing.categories.empty': 'Luokat tulevat näkyviin, kun tuoteluettelo on täytetty.',
+  'landing.categories.heading': 'Tutustu arkistoon',
   'landing.hero.eyebrow': 'Lectura · Mestaruuden julkaisut',
   'landing.hero.proof': 'Google, Meta ja Adobe luottavat siihen.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Aloita oppiminen jo tänään',
   'login.subheading': 'Siirry tieteelliseen arkistoosi.',
   'myLearning.empty.title': 'Tällä hetkellä suodattimeen sopivia kursseja ei ole',
+  'myLearning.error.title': 'Kirjastoa ei voitu ladata',
   'myLearning.filter.notStarted': 'Ei aloitettu',
   'myLearning.hero.subtitle': '{{count}} kirjastossasi olevat kurssit. Pidä vauhti yllä.',
   'myLearning.hero.title': 'Jatka siitä, mihin jäit.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Tarkasteltavia uusia tapahtumia ei ole. Uudet tapahtumat näkyvät tässä.',
   'notifications.empty.title': 'Olet ajan tasalla',
+  'notifications.error.title': 'Toimintoa ei voitu ladata',
   'privacy.title': 'Tietosuojakäytäntö',
   'reset.confirmPlaceholder': 'Syötä uusi salasanasi uudelleen',
   'reset.errorGeneric': 'Salasanaa ei voitu nollata. Pyydä uusi linkki.',
@@ -190,5 +198,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}pv sitten',
   'timeAgo.hours': '{{count}}t sitten',
   'timeAgo.minutes': '{{count}} min sitten',
+  'timeAgo.months': '{{count}} kuukausia sitten',
   'timeAgo.today': 'tänään',
+  'timeAgo.weeks': '{{count}} viikkoja sitten',
 }

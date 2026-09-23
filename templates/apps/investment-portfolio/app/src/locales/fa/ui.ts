@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'درباره {{app}}',
   'argentAuthShell.brandEyebrow': 'آرجنت · ابزار ثروت',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . مشاوره سرمایه‌گذاری نیست.',
   'argentAuthShell.sampleChange': '+۲۸۴۱ دلار (+۰.۲۸٪) امروز',
   'argentAuthShell.sampleValue': '۱,۰۳۲,۲۵۱ دلار',
   'argentLayout.primaryNavLabel': 'ناوبری اولیه',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'هیچ تراکنشی برای این تیکر وجود ندارد.',
   'assetDetail.txHeading': 'تراکنش‌های شما',
   'common.and': 'و',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'نمای کلی نمونه کارها',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'هنوز هیچ موجودی وجود ندارد.',
   'holdings.heading': 'هولدینگ‌ها',
   'holdings.loadError': 'بارگیری منابع ناموفق بود.',
+  'landing.copyright':
+    '© {{year}} {{app}} . مشاوره سرمایه‌گذاری نیست. عملکرد گذشته، نتایج آینده را تضمین نمی‌کند.',
   'landing.eyebrow': 'آرجنت · پلتفرمی برای ابزار ثروت',
   'landing.features.heading': 'هر چیزی که یک مشاور برای خودش می‌سازد.',
   'landing.finalCta.heading': 'نظم و انضباط را به سبد سهام خود بازگردانید.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ساعت پیش',
   'news.justNow': 'هم‌اکنون',
   'news.loadError': 'بارگذاری خبر ناموفق بود.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'portfolioHeroCard.label': 'ارزش سبد سهام',
   'pricing.holdingsLabel': 'دارایی‌ها',
   'pricing.newsLabel': 'مقالات خبری',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'حذف حساب کاربری',
   'settings.security.deleting': 'در حال حذف…',
   'settings.security.heading': 'امنیت',
+  'settings.security.newPassword': 'رمز عبور جدید',
   'settings.security.password': 'رمز عبور',
   'settings.security.twoFactorEnable': 'فعال کردن',
+  'settings.security.twoFactorInvalidCode': 'کد نامعتبر',
+  'settings.security.twoFactorVerify': 'تأیید و فعال کردن',
   'settings.tax.error': 'روش مالیات به‌روزرسانی نشد.',
   'settings.tax.heading': 'حسابداری مالیاتی',
   'settings.tax.method': 'روش پیش‌فرض',

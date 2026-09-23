@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'about.pageTitle': 'Um {{appName}}',
   'analytics.empty': 'Taktu upp fyrsta myndskeiðið þitt til að sjá þátttöku hér.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klippur',
   'billing.usage.views': 'Skoðanir',
   'billing.usage.views.unit': 'skoðanir',
+  'common.goToDashboard': 'Fara á yfirlit',
   'landing.cta.title': 'Sendu betri endurgjöf. Byrjaðu með Glint.',
   'landing.feature.capture.body':
     'Upptaka í vafra, tölvu og farsíma með hljóðnema, myndavél og teikniforriti.',
   'landing.feature.capture.title': 'Myndataka með einum smelli',
+  'landing.footer.copy': '© {{year}} {{appName}} . Ósamstillt, gert lýsandi.',
   'landing.hero.cardCaption': 'Yfirlit yfir sýnishorn af vinnusvæði — prófaðu það ókeypis.',
   'landing.hero.primaryCta': 'Byrjaðu að taka upp ókeypis',
   'landing.hero.proof.free': 'Ókeypis að eilífu stig',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Leita í upptökum',
   'library.searchPlaceholder': 'Leita að upptökum…',
   'library.weeklyChange': '{{value}} % miðað við síðustu viku',
+  'nav.openMenu': 'Opna flakkvalmynd',
   'nav.record': 'Upptaka',
   'nav.shared': 'Deilt með mér',
   'nav.startRecording': 'Hefja upptöku',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Zarezerwuj wizytę',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Brak pacjentów do wyświetlenia.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'consult.backLink': 'Wszystkie wizyty',
   'consult.captions': 'Napisy',
   'consult.connected': 'Połączono · 720p · stabilne',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacjenci',
   'patientVitalsHero.scripts': 'Otwarte Rx',
   'patientVitalsHero.subline': '{{count}} konsultacji w dzisiejszym harmonogramie',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'prescriptions.empty': 'Brak pasujących recept.',
   'prescriptions.eyebrow': 'Recepty elektroniczne',
   'prescriptions.heading': 'Recepty',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Informacja o prywatności',
   'privacy.use.body':
     'Aby świadczyć opiekę, wysyłać przypomnienia o wizytach, kierować recepty i poprawiać niezawodność usługi. Nigdy nie sprzedajemy Państwa danych ani nie udostępniamy informacji klinicznych reklamodawcom.',
+  'providers.allSpecialties': 'Wszystkie specjalności',
+  'providers.loadError': 'Nie udało się załadować dostawców.',
+  'providers.loading': 'Ładowanie…',
   'providers.noResults': 'Nie znaleziono lekarzy.',
   'providers.searchPlaceholder': 'Szukaj po nazwisku, specjalizacji...',
   'providers.title': 'Znajdź lekarza',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Początek dnia',
   'settings.availability.heading': 'Dostępność',
   'settings.devices.thisDevice': 'To urządzenie',
+  'settings.devices.unnamed': 'Urządzenie bez nazwy',
   'settings.eyebrow': 'Gabinet i konto',
   'settings.loadError': 'Nie udało się wczytać Pani/Pana profilu.',
   'settings.notifications.emailMessages': 'Powiadom mnie e-mailem, gdy zespół opieki odpowie',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Wyłącz',
   'settings.security.twoFactor.enable': 'Włącz',
   'settings.security.twoFactor.heading': 'Uwierzytelnianie dwuskładnikowe',
+  'settings.security.twoFactor.invalidCode': 'Ten kod nie pasuje. Spróbuj ponownie.',
+  'settings.security.twoFactor.setupFailed':
+    'Nie udało się rozpocząć konfiguracji dwuskładnikowej. Spróbuj ponownie.',
+  'settings.security.twoFactor.statusOn': 'Dwuskładnikowe uwierzytelnianie jest włączone',
   'settings.signOutDevice': 'Wyloguj się',
   'settings.subheading': 'Profil lekarza, zasady gabinetu i alerty kliniczne.',
   'signup.emailLabel': 'E-MAIL',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Utwórz konto',
   'signupFooter.hipaa': 'Zgodne z HIPAA',
   'solaceLayout.primaryNavLabel': 'Nawigacja główna',
+  'solaceLayout.toggleMenu': 'Przełącz menu',
   'terms.eligibility.body':
     'Musi Pan/Pani mieć co najmniej osiemnaście lat lub być rodzicem albo opiekunem prawnym małoletniego, dla którego szuka Pan/Pani opieki, a także fizycznie przebywać w stanie USA, w którym nasi lekarze mają uprawnienia.',
   'terms.payment.body':

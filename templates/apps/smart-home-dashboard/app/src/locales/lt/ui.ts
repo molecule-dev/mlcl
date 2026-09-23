@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.pageTitle': 'Apie {{app}}',
   'activity.empty': 'Kol kas veiklos nėra – apverskite įrenginį arba aktyvuokite sceną.',
   'activity.eyebrow': 'Laiko juosta',
   'activity.loadError': 'Nepavyko įkelti veiklos srauto.',
   'activity.subheading':
     'Kiekvienas įrenginys, automatizavimas ir saugumo įvykis chronologine tvarka.',
+  'addDevice.error.failed': 'Nepavyko pridėti įrenginio. Bandykite dar kartą.',
   'addDevice.error.nameRequired': 'Norėdami tęsti, suteikite šiam įrenginiui pavadinimą.',
   'addDevice.field.firmware': 'Programinės įrangos versija',
   'addDevice.field.manufacturer': 'Gamintojas',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Bandymas…',
   'automationEditor.testNew': 'Pirmiausia išsaugokite automatizavimą, kad jį išbandytumėte.',
   'automationRow.lastRun': 'Paskutinis {{date}} · {{count}} bėgimai',
+  'automationRow.on': 'Dėl',
   'automationRow.runNowAria': 'Bėkti {{name}} dabar',
   'automations.empty': 'Kol kas nėra automatizacijų – sukurkite savo pirmąją rutiną.',
   'automations.eyebrow': 'Įprastos procedūros',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Įkeliami automatizavimai…',
   'automations.newAutomation': '+ Naujas',
   'automations.subheading': 'Kai tai atsitiks, darykite tai – be YAML.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Nepavyko įkelti įrenginio.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Dirbame…',
   'deviceDetail.unnamed': 'Įrenginys',
   'deviceStatusRow.on': 'Įjungta',
+  'deviceStatusRow.turnOff': 'Išjungti',
+  'deviceStatusRow.turnOn': 'Įjungti',
   'deviceStatusRow.watts': '{{watts}} V',
   'energy.eyebrow': 'Galia',
   'energy.heading': 'Energija',
@@ -178,4 +185,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Žr. planus',
   'settings.security.heading': 'Saugumas',
   'settings.subheading': 'Plano, centrų ir paskyros nuostatos.',
+  'smartHomeDashboardLayout.openMenu': 'Atidaryti navigacijos meniu',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Pagrindinė navigacija',
 }

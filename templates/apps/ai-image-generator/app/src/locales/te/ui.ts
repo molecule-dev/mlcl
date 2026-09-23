@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'auth.fields.newPassword': 'కొత్త పాస్‌వర్డ్',
   'collectionDetail.addImage': 'సేకరణ కోసం మంత్రం',
   'collectionDetail.backCta': 'సేకరణలకు తిరిగి వెళ్లండి',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'మూడ్-బోర్డులు, బ్రీఫ్‌లు మరియు కొనసాగుతున్న సిరీస్‌లు',
   'collections.title': 'సేకరణలు',
   'collections.untitled': 'శీర్షిక లేనిది · {{stamp}}',
+  'common.closeMenu': 'మెనూను మూసివేయండి',
+  'common.dismiss': 'కొట్టివేయండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'credits.eyebrow': '{{plan}} ప్రణాళిక',
   'credits.renewsCopy': 'ప్లాన్ పునరుద్ధరించబడుతుంది {{date}}',
   'credits.trail': 'రివెరీ · {{plan}} శ్రేణి',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'జనరేషన్ యాక్టివిటీ, షేరింగ్ మరియు క్రెడిట్ అలర్ట్‌లు ఇక్కడ కనిపిస్తాయి.',
   'notifications.empty.title': 'నివేదించడానికి ఏమీ లేదు',
   'notifications.subtitle': 'రోజు వారీగా వర్గీకరించబడిన తరం ఈవెంట్‌లు',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.limits.gallery': '{{count}} గ్యాలరీ',
   'privacy.collect.body':
     'మీరు సైన్ అప్ చేసినప్పుడు మేము మీ పేరు, ఇమెయిల్ చిరునామా మరియు హ్యాష్ చేయబడిన పాస్‌వర్డ్‌ను సేకరిస్తాము. మీరు రెవెరీని ఉపయోగిస్తున్నప్పుడు, మీరు సమర్పించే ప్రాంప్ట్‌లు, మేము మీ కోసం రూపొందించే చిత్రాలు, మీరు సేవ్ చేసే స్టైల్స్ మరియు కలెక్షన్‌లు, ఇంకా ఉపయోగించిన మోడల్, జనరేషన్ టైమ్‌స్టాంప్‌లు మరియు క్రెడిట్ బ్యాలెన్స్ వంటి మెటాడేటాను మేము నిల్వ చేస్తాము.',
@@ -169,6 +175,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'కొత్త పాస్‌వర్డ్‌ను సేవ్ చేయండి',
   'reset.submitting': 'పాస్‌వర్డ్ అప్‌డేట్ అవుతోంది…',
   'settings.account.handle': 'హ్యాండిల్',
+  'settings.account.lastSaved': 'క్రియాశీల ప్రొఫైల్ · {{name}}',
   'settings.account.saved': 'ప్రొఫైల్ సేవ్ చేయబడింది',
   'settings.account.saveFailed': 'ప్రొఫైల్‌ను సేవ్ చేయలేకపోయారు',
   'settings.account.title': 'సృష్టికర్త ప్రొఫైల్',
@@ -190,7 +197,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'కొత్త చిత్రం',
   'sidebar.secondary': 'ద్వితీయ నావిగేషన్',
   'signup.failed': 'నమోదు విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
+  'signup.firstNamePlaceholder': 'ఆరియా',
   'signup.heading': 'మీ కలల ప్రపంచాన్ని ప్రారంభించండి',
+  'signup.lastNamePlaceholder': 'లిన్',
   'signup.subheading': 'ఖాతాను సృష్టించి 120 ఉచిత క్రెడిట్‌లను పొందండి.',
   'styles.empty': 'ఇంకా స్టైల్ ప్రీసెట్‌లు లేవు — అవి మొదటి సైన్-ఇన్ తర్వాత కనిపిస్తాయి.',
   'styles.eyebrow': 'క్యూరేటెడ్',

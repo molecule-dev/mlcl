@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ваша улога',
   'account.role.upgradeLink': 'Пријавите се да бисте постали верификовани тутор →',
   'account.title': 'Профил, плаћање и подешавања.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Учите кредом',
   'becomeTutor.form.error': 'Није могуће послати пријаву.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Предмет',
   'bookingConfirm.title': 'Резервисано је. Ми ћемо се побринути за остало.',
   'bookingConfirm.with': 'Са тутором',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'earningsHero.eyebrow': 'Зарада • {{month}}',
   'forgotPassword.heading': 'Заборавили сте лозинку?',
   'forgotPassword.subheading':
@@ -111,6 +113,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Пошаљи поруку',
   'messages.thread.empty': 'Јави се — започни разговор.',
   'messages.title': 'Теме са твојим туторима.',
+  'nav.primary': 'Примарни',
   'pricing.dataExport': 'Извоз података:',
   'pricing.headingDefault': 'Напредне функције:',
   'resetPassword.heading': 'Изаберите јаку нову лозинку.',

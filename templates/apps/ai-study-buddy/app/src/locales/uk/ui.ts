@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Завантаження інформації про план…',
   'billing.popular': 'Найулюбленіший',
   'billing.subtitle': 'Оберіть план, що відповідає Вашому темпу навчання.',
+  'common.goToDashboard': 'До панелі',
   'common.today': 'Сьогодні',
   'common.yesterday': 'Вчора',
   'courseDetail.empty.body': 'Додайте навчальні матеріали, щоб почати опановувати цю тему.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Назва колоди',
   'flashcards.subtitle': 'Інтервальне повторення, що адаптується до Вашого темпу.',
   'flashcards.title': 'Флеш-картки',
+  'footer.copyright': '© {{year}} {{app}}. Вчіться добре, спіть добре.',
   'forgotPassword.subtitle':
     'Введіть Вашу електронну пошту, і ми надішлемо посилання для скидання.',
+  'koanLayout.closeMenu': 'Закрити меню',
+  'koanLayout.navLabel': 'Основна навігація',
+  'koanLayout.openMenu': 'Відкрити меню',
   'koanLayout.theme': 'Тема',
   'landing.featuresBody':
     'Інструменти, розроблені для усунення відволікань і побудови міцного розуміння.',
@@ -116,11 +121,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ця URL-адреса — невідома територія. Можливо, помилка друку, можливо, видалений урок — так чи інакше, повернімося до навчання.',
   'notFound.heading': 'Сторінку не знайдено.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Ви повністю в курсі',
   'notifications.filter.${opt}': 'Завантаження сповіщень…',
   'notifications.markAllError': 'Не вдалося позначити всі як прочитані.',
   'notifications.markError': 'Не вдалося позначити як прочитане.',
   'notifications.subtitle': '{{count}} непрочитаних оновлень',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.heading': 'вікторини',
   'pricing.limits.topics': 'тем',
   'privacy.collectBody':
@@ -185,6 +192,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Спробуйте інше ключове слово або фільтр.',
   'search.empty.title': 'Нічого не знайдено.',
   'search.error': 'Не вдалося завантажити результати.',
+  'search.filters': 'Фільтри за типом результатів',
   'search.go': 'Шукати',
   'search.label.flashcard': 'Колода флеш-карток',
   'search.label.note': 'Нотатка',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.eyebrow': 'Faoi {{app}}',
   'about.pageTitle': 'Gach bealach, cuardach amháin.',
   'booking.backToDetail': 'Ar ais chuig sonraí na heitilte',
   'booking.continue': 'Lean ar aghaidh leis an íocaíocht',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Cánacha & táillí',
   'booking.summary.travelers': 'Taistealaithe',
   'common.about': 'Maidir',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'flightDetail.backToResults': 'Ar ais chuig na torthaí',
   'flightDetail.baseFare': 'Táille bhunúsach',
   'flightDetail.book': 'Lean ar aghaidh leis an áirithint',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stad',
   'flightResultCard.select': 'Roghnaigh',
   'flightResultCard.totalLabel': 'Am iomlán',
+  'flightSearchLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'forgotPassword.subheading':
     'Cuir isteach an seoladh ríomhphoist atá ar do chuntas Skylark agus cuirfimid nasc athshocraithe slán chugat.',
   'forgotPassword.successBody':
     'Seiceáil {{email}} le haghaidh nasc chun pasfhocal nua a shocrú. Rachaidh an nasc in éag i gceann 30 nóiméad.',
   'forgotPassword.successHeading': 'Athshocraigh an nasc a seoladh',
   'landing.cta.explore': 'Bain triail as cuardach',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Faigh an chéad táille iontach eile roimh aon duine eile.',
   'landing.cta.signup': 'Tosaigh ag rianú táillí',
   'landing.features.eyebrow': 'Cén fáth Fuisceog',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Cuir foláireamh leis',
   'priceAlerts.deleteConfirm': 'An bhfuil fonn ort an foláireamh seo a bhaint?',
   'priceAlerts.empty': 'Níl aon bhealaí rianaithe fós.',
+  'priceAlerts.emptyCta': 'Cuardaigh bealach le rianú',
   'priceAlerts.errorMessage': 'Níorbh fhéidir foláirimh a lódáil.',
   'priceAlerts.eyebrow': 'Liosta faire Skylark',
   'priceAlerts.form.createError': 'Níorbh fhéidir foláireamh a chruthú.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Clár taistil ilchathrach',
   'results.multiLegHeading': 'Cos {{n}} · {{ó}} → {{go}} · {{dáta}}',
   'results.multiSummary': '{{count}} cosa · {{passengers}} taistealaí',
+  'results.sortAriaLabel': 'Sórtáil torthaí de réir',
   'results.sortLabel': 'Sórtáil',
   'results.summary': '{{count}} eitiltí · {{passengers}} taistealaí',
   'settings.language.title': 'Teanga',

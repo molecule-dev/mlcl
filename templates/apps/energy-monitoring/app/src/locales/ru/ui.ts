@@ -1,14 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'about.pageTitle': 'О {{appName}}',
+  'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ак',
   'alertCard.dismiss': 'Увольнять',
   'alertCard.threshold': '{{value}} против {{threshold}}',
   'alertRule.channelsLabel': 'Каналы уведомлений',
   'alertRule.comparisonLabel': 'Сравнение',
   'alertRule.emailLabel': 'Адрес электронной почты',
+  'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Новое правило',
   'alertRule.heading': 'Уловите всплеск активности, прежде чем он вам навредит.',
   'alertRule.namePlaceholder':
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'alertRule.submitError': 'Сохранить правило не удалось.',
   'alertRule.thresholdLabel': 'Порог',
   'alerts.checking': 'Проверка™',
+  'alerts.confirmDelete': 'Подтвердить удаление',
   'alerts.emptyNoRules':
     'Пока нет оповещений — добавьте правило, затем нажмите «Проверить сейчас», чтобы протестировать его.',
   'alerts.errorAck': 'Не могу подтвердить.',
@@ -34,7 +38,7 @@ export const ui: UiTranslations = {
   'alerts.ruleOn': 'На',
   'alerts.rulesEmpty': 'Правил пока нет — создайте новое, чтобы начать мониторинг.',
   'alerts.rulesHeading': 'Действующие правила',
-  'alerts.ruleSummary': '{{тип}} · {{сравнение}} {{порог}}',
+  'alerts.ruleSummary': '{{type}} · {{comparison}} {{threshold}}',
   'alerts.runCheck': 'Оцените сейчас',
   'alerts.subheading':
     'Срабатывание пороговых и шаблонных оповещений на ваших счетчиках, а также правила, которые ими управляют.',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'billing.subheading':
     'Выберите тарифный план, соответствующий вашему объему потребления электроэнергии.',
   'billing.unavailable': 'Связаться с отделом продаж',
+  'common.goToDashboard': 'Перейти к панели',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
   'dailyCostMeter.runningLabel': 'Итоговая сумма',
   'dailyCostMeter.title': 'Стоимость на сегодняшний день',
@@ -76,10 +81,12 @@ export const ui: UiTranslations = {
   'dashboard.viewAllDevices': 'Каждое устройство →',
   'deviceDetail.alreadyOff': 'Уже приостановлено',
   'deviceDetail.back': 'Все цепи',
+  'deviceDetail.confirmDelete': 'Подтвердить удаление',
   'deviceDetail.controlsHeading': 'Быстрое управление',
   'deviceDetail.deactivate': 'Индикатор паузы',
   'deviceDetail.delete': 'Удалить счетчик',
   'deviceDetail.errorDeactivate': 'Не удалось отключить счетчик.',
+  'deviceDetail.errorDelete': 'Не удалось удалить счетчик.',
   'deviceDetail.errorMint': 'Не удалось выдать токен.',
   'deviceDetail.eyebrow': 'Детали схемы',
   'deviceDetail.heroLabel': 'Последние 24 образца',
@@ -92,7 +99,9 @@ export const ui: UiTranslations = {
     'Пока нет данных — отправьте их через токен приема, чтобы увидеть их здесь.',
   'deviceDetail.notFound': 'Счетчик не найден.',
   'deviceDetail.recentHeading': 'Недавние образцы',
+  'deviceDetail.tokenEnabled': 'включено',
   'deviceDetail.tokenIssued': 'Новый токен для приема данных (отображается один раз)',
+  'deviceDetail.tokenRevoked': 'отменённый',
   'deviceDetail.unnamedToken': 'безымянный',
   'devices.addCta': 'Добавить счетчик',
   'devices.adding': 'Добавление™',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'devices.subheading':
     'Текущая мощность и сегодняшняя мощность в кВт·ч по каждой цепи, которую может отслеживать Voltrace.',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
+  'energyMonitoringLayout.menu': 'Меню',
   'landing.ctaHeading':
     'Подключите измерительный прибор и узнайте показания мощности в ваттах за минуты.',
   'landing.eyebrow': 'Информация об энергопотреблении в режиме реального времени',
@@ -179,7 +189,10 @@ export const ui: UiTranslations = {
   'settings.saving': 'Экономия™',
   'settings.securityHeading': 'Двухфакторная аутентификация',
   'settings.subheading': 'Тарифы, уведомления и экспорт данных.',
+  'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorInvalidCode': 'Неверный код',
   'settings.twoFactorOn': 'О',
+  'settings.twoFactorVerify': 'Проверить и включить',
 }

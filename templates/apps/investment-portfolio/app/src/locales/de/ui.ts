@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Über {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Vermögensverwaltungs-Tools',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Keine Anlageberatung.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) heute',
   'argentAuthShell.sampleValue': '1.032.251 $',
   'argentLayout.primaryNavLabel': 'Hauptnavigation',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Keine Transaktionen für dieses Ticker.',
   'assetDetail.txHeading': 'Ihre Transaktionen',
   'common.and': 'und',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfolio-Übersicht',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Noch keine Positionen.',
   'holdings.heading': 'Positionen',
   'holdings.loadError': 'Positionen konnten nicht geladen werden.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Keine Anlageberatung. Die Wertentwicklung in der Vergangenheit ist keine Garantie für zukünftige Ergebnisse.',
   'landing.eyebrow': 'Argent · Eine Vermögensverwaltungs-Plattform',
   'landing.features.heading': 'Alles, was ein Berater für sich selbst bauen würde.',
   'landing.finalCta.heading': 'Bringen Sie Disziplin zurück in Ihr Portfolio.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'vor {{count}} Std',
   'news.justNow': 'gerade eben',
   'news.loadError': 'Nachrichten konnten nicht geladen werden.',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'portfolioHeroCard.label': 'Portfoliowert',
   'pricing.holdingsLabel': 'Bestände',
   'pricing.newsLabel': 'Nachrichtenartikel',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Konto löschen',
   'settings.security.deleting': 'Wird gelöscht…',
   'settings.security.heading': 'Sicherheit',
+  'settings.security.newPassword': 'Neues Passwort',
   'settings.security.password': 'Passwort',
   'settings.security.twoFactorEnable': 'Aktivieren',
+  'settings.security.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.security.twoFactorVerify': 'Überprüfen und aktivieren',
   'settings.tax.error': 'Steuermethode konnte nicht aktualisiert werden.',
   'settings.tax.heading': 'Steuerlot-Buchhaltung',
   'settings.tax.method': 'Standardmethode',

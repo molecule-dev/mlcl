@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
   'actions.empty': 'Engar aðgerðarliðir passa.',
   'actions.heading': 'Aðgerðaratriði',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Fyrri mánuður',
   'calendar.recent': 'Nýlegt',
   'common.daysAgo': '{{count}} fyrir dögum',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.hoursAgo': '{{count}} fyrir klst.',
   'common.no': '—',
+  'common.retry': 'Reyna aftur',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} aðgerðarliðir',
   'dashboard.empty.body':
@@ -40,8 +43,10 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Kíktu á pósthólfið þitt til að sjá endurstillingartengilinn.',
   'forgot.subheading': 'Sláðu inn netfangið þitt og við sendum þér endurstillingarhlekk.',
   'integrations.disconnected': 'Aftengt',
+  'integrations.loadError': 'Mistókst að hlaða inn samþættingum.',
   'integrations.notConnectedTag': 'Ekki tengt',
   'integrations.subheading': 'Tengdu dagatöl og myndbandsvettvanga svo Murmur tengist sjálfkrafa.',
+  'integrations.updateError': 'Uppfærsla mistókst.',
   'landing.ctaButton': 'Byrjaðu — það er ókeypis',
   'landing.ctaHeading': 'Hættu að taka minnispunkta. Byrjaðu að taka ákvarðanir.',
   'landing.demo.aiLabel': 'Samantekt á gervigreind, rituð í beinni',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Eftirfylgni',
   'meetingDetail.loadError': 'Mistókst að hlaða fundinn.',
   'meetingDetail.noActions': 'Engar aðgerðarliðir fundust.',
+  'meetingDetail.none': 'Enginn.',
   'meetingDetail.notFound': 'Fundur fannst ekki.',
+  'meetingDetail.speakerFallback': 'Ræðumaður {{id}}',
   'meetingDetail.summaryHeading': 'Yfirlit yfir gervigreind',
   'meetingDetail.transcriptHeading': 'Afrit',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Fundir',
   'meetings.loadError': 'Mistókst að hlaða fundum.',
   'meetings.subheading': 'Allir fundir sem eru teknir upp, hlaðnir upp og samstilltir.',
+  'murmurLayout.openMenu': 'Opna flakkvalmynd',
   'murmurLayout.primaryNavLabel': 'Aðalflakk',
   'nav.legal': 'Löglegt',
   'notifications.loadError': 'Mistókst að hlaða tilkynningum.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Hvernig þú birtist inni í Murmur.',
   'record.error.empty': 'Ekkert hljóð var tekið upp.',
   'record.error.permission': 'Leyfi fyrir hljóðnema hafnað.',
+  'record.error.recorder': 'Villa í upptökutæki',
   'record.error.unsupported': 'Vafrinn þinn styður ekki upptöku. Prófaðu Chrome, Edge eða Safari.',
   'record.error.upload': 'Upphleðsla mistókst. Reyndu aftur.',
   'record.heading': 'Upptaka',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nýtt lykilorð',
   'reset.subheading': 'Veldu lykilorð sem þú notar ekki annars staðar.',
   'search.empty': 'Sláðu inn til að leita að afritum.',
+  'search.loadError': 'Leit mistókst. Reyndu aftur.',
   'search.noResults': 'Engar niðurstöður fyrir „ {{q}} „.“',
   'settings.appearance.description': 'Skipta á milli ljóss og dökks stillingar.',
   'settings.appearance.title': 'Útlit',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Mistókst að hlaða stillingum.',
   'settings.loading': 'Hleður…',
   'settings.push.heading': 'Tilkynningar',
+  'settings.push.subheading':
+    'Fáðu tilkynningar í vafranum um umtal, aðgerðaratriði og samantektir.',
   'settings.retention.audio': 'Geymið hljóð í',
   'settings.retention.heading': 'Varðveisla',
   'settings.retention.transcript': 'Geymið afrit fyrir',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Byrjaðu að taka upp fundarglósur á örfáum mínútum',
   'signup.terms':
     'Með því að stofna aðgang samþykkir þú þjónustuskilmála okkar og persónuverndarstefnu.',
+  'signup.termsPrefix': 'Með því að stofna aðgang samþykkir þú skilmála okkar',
   'team.inviteCta': 'Bjóða liðsfélaga',
   'team.invitedAs': 'Boðið sem {{role}}',
   'team.inviteFailed': 'Gat ekki sent boð.',

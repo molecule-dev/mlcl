@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} વિશે',
+  'appNav.mobileLabel': 'પ્રાથમિક નેવિગેશન',
+  'appNav.primaryLabel': 'પ્રાથમિક નેવિગેશન',
   'billing.actions.confirmCancel':
     'તમારું સબ્સ્ક્રિપ્શન રદ કરીએ? તમે ગમે ત્યારે ફરીથી સબ્સ્ક્રાઇબ કરી શકો છો.',
   'billing.actions.paused': 'સબ્સ્ક્રિપ્શન થોભાવ્યું.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'દરેક સ્તર એક નાની-બેચની વાર્તા છે. તમારી કતારમાં એક ઉમેરો અથવા તેને તમારા આગામી મહિનામાં સ્વેપ કરો.',
   'boxThemeCard.perMonth': '/ મહિનો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'customize.eyebrow': 'તેને તમારું બનાવો',
   'customize.heading': 'તમારા આગામી ટ્રોવને કસ્ટમાઇઝ કરો',
   'customize.items.exclude': 'આ છોડી દો',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'આ સીઝનમાં',
   'landing.editions.heading': 'અમારા ક્યુરેટર્સને ગમતી આવૃત્તિઓ',
   'landing.footer.contact': 'ક્યુરેટર સાથે વાત કરો',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'તમારું બોક્સ શરૂ કરો →',
   'landing.hero.ctaSecondary': 'સ્તરો જુઓ',
   'landing.hero.eyebrow': 'દર મહિને ક્યુરેટ કરેલ. હંમેશા વ્યક્તિગત.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'તમારી આગામી યાત્રા',
   'nextBoxHeroCard.itemsLabel': 'પસંદ કરેલી આઇટમ્સ',
   'nextBoxHeroCard.shipsOnLabel': 'રવાના થાય છે',
+  'notFound.body':
+    'અમને {{app}} આર્કાઇવમાં તે પૃષ્ઠ મળી શક્યું નથી. તે કદાચ રીટાયર્ડ થયું હશે અથવા ફક્ત ખોટું ટાઇપ થયું હશે.',
   'notFound.cta.dashboard': 'ડેશબોર્ડ પર જાઓ',
   'notFound.eyebrow': 'ખાલી બોક્સ',
   'notFound.heading': 'આ શેલ્ફ ખાલી છે.',

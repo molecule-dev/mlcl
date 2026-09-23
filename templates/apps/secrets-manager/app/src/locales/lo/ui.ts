@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'about.tagline': 'ຄວາມລັບຕາຍຢ່າງເປີດເຜີຍ.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ສ້າງໂທເຄັນ',
   'apiTokens.kicker': 'ໂທເຄັນ API',
   'apiTokens.loading': 'ກຳລັງໂຫຼດໂທເຄັນ…',
+  'apiTokens.new': 'ໂທເຄັນໃໝ່',
   'apiTokens.revoke': 'ຍົກເລີກໂທເຄັນ',
   'apiTokens.subheading':
     'ໂທເຄັນສ່ວນຕົວ ແລະ ໂທເຄັນການບໍລິການສຳລັບ Arcanum CLI ແລະ SDK. ຂໍ້ຄວາມທຳມະດາຈະສະແດງຄັ້ງດຽວໃນເວລາສ້າງ.',
@@ -28,6 +30,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + ລະຫັດຜ່ານ',
   'authShell.zeroKnowledge': 'ການເຂົ້າລະຫັດສູນຄວາມຮູ້',
   'common.connecting': 'ກຳລັງເຊື່ອມຕໍ່…',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.inviting': 'ກຳລັງເຊີນ...',
   'forgotPassword.checkInbox':
     'ຖ້າ {email} ຖືກລົງທະບຽນແລ້ວ, ລິ້ງຣີເຊັດທີ່ລົງນາມແລ້ວຈະມາຮອດພາຍໃນໜຶ່ງນາທີ.',
@@ -74,6 +77,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ສະຖານະການໝູນວຽນ, ການແຈ້ງເຕືອນຄວາມຜິດປົກກະຕິ ແລະ ການຮ້ອງຂໍການອະນຸມັດໃນທົ່ວທຸກຫ້ອງໂຖງ.',
   'notifications.unreadEmpty': 'ກ່ອງຈົດໝາຍສູນ — ກວດສອບທຸກຢ່າງແລ້ວ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.heading': 'ຄວາມລັບ',
   'pricing.limits.accessPolicies': 'ນະໂຍບາຍການເຂົ້າເຖິງ',
   'pricing.limits.auditLog': 'ລາຍການບັນທຶກການກວດສອບ',
@@ -82,9 +86,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'ບັນຊີສ່ວນຕົວ',
   'profile.plan.description': 'ຈັດການການສະໝັກໃຊ້ຂອງທ່ານ, ເບິ່ງຂໍ້ຈຳກັດ ແລະ ອັບເກຣດ.',
   'profile.subheading': 'ຕົວຕົນ, ອຸປະກອນປັດໄຈທີສອງ, ແລະ ເຊດຊັນທີ່ໃຊ້ງານຢູ່.',
+  'profile.twoFactor.code': 'ລະຫັດການພິສູດຢືນຢັນຕົວຕົນ',
   'profile.twoFactor.disable': 'ປິດການໃຊ້ງານ',
   'profile.twoFactor.enable': 'ເປີດໃຊ້',
+  'profile.twoFactor.invalidCode': 'ລະຫັດບໍ່ຖືກຕ້ອງ',
   'profile.twoFactor.kicker': 'ການພິສູດຢືນຢັນສອງປັດໄຈ',
+  'profile.twoFactor.off': 'ບໍ່ໄດ້ເປີດໃຊ້ງານ',
   'profile.twoFactor.on': 'ເປີດໃຊ້ງານແລ້ວ',
   'resetPassword.email': 'ອີເມວບັນຊີ',
   'resetPassword.heading': 'ຕັ້ງຄ່າຂໍ້ມູນປະຈຳຕົວໃໝ່',
@@ -129,6 +136,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ຄຳສັ່ງ',
   'secretsManagerLayout.encrypted': 'AES-256 · ຖືກເຂົ້າລະຫັດ',
   'secretsManagerLayout.newVault': 'ຫ້ອງໂຖງໃໝ່',
+  'secretsManagerLayout.newVaultShort': 'ໃໝ່',
   'secretsManagerLayout.rotations': 'ການໝຸນ',
   'secretsManagerLayout.search': 'ຄົ້ນຫາ',
   'secretsManagerLayout.searchPlaceholder': 'ຄົ້ນຫາຄວາມລັບດ້ວຍລະຫັດ, ເສັ້ນທາງ, ຫຼືແທັກ…',
@@ -166,6 +174,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'ຄວາມລັບ',
   'vaultCard.vaultLabel': 'ຫ້ອງໂຖງ',
   'vaultDetail.addSecret': 'ເພີ່ມຂໍ້ມູນລັບ',
+  'vaultDetail.back': 'ຫ້ອງໂຖງທັງໝົດ',
   'vaultDetail.col.key': 'ກະແຈ',
   'vaultDetail.col.rotated': 'ໝຸນແລ້ວ',
   'vaultDetail.col.value': 'ມູນຄ່າ',

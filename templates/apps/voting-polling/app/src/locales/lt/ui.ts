@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'analytics.col.quorum': 'Kvorumas',
   'analytics.col.votes': 'Balsai',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Kol kas nėra neišspręstų klausimų.',
   'audienceQa.onStageEyebrow': 'Dabar scenoje',
   'audienceQa.pollId': 'klausimas · {{id}}',
+  'audienceQa.promote': 'Reklamuoti',
   'audienceQa.queued': 'eilėje',
   'audienceQa.queueEyebrow': 'Eilė',
   'ballot.eyebrow': 'Atiduokite savo balsą',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Šiuo metu esate {{plan}} planas.',
   'billing.switch': 'Jungiklis',
   'billing.upgraded': 'Atnaujinta iki {{plan}} — nedelsiant taikomi apribojimai.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'createPoll.addOption': 'Pridėti parinktį',
   'createPoll.anonymousHint':
     'Rinkėjų vardai paslėpti audito žurnale; suskaičiuoti balsai lieka autentifikuoti.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Naujokas Nosh?',
   'login.remember': 'Prisiminti mane 30 dienų',
   'login.subheading': 'Atidarykite grindis, peržiūrėkite kambarį ir patvirtinkite rezultatą.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'notFound.body':
     'Puslapis, kurį bandėte pasiekti, buvo uždarytas arba perkeltas. Grįžkite į valdymo skydelį arba atidarykite naują apklausą.',
   'notFound.eyebrow': 'Šiame maršrute nėra kvorumo',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Nepavyko įkelti šios apklausos.',
   'pollDetail.loading': 'Kraunama apklausa…',
   'pollDetail.notFound': 'Apklausa nerasta.',
+  'pollDetail.openBallot': 'Atviras balsavimas',
   'pollDetail.openLive': 'Tiesioginiai rezultatai',
   'pollDetail.pollId': 'apklausa · {{id}}',
   'pollDetail.published': 'Paskelbta apklausa – rinkėjai dabar gali balsuoti.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Ieškoti el. paštu…',
   'voters.subheading':
     'Surinkite tinkamų balsuoti asmenų sąrašą. Grupuokite rinkėjus pagal organizaciją, kad gautumėte svertinius balsavimo biuletenius.',
+  'votingPollingLayout.nav.analytics': 'Analizė',
+  'votingPollingLayout.nav.billing': 'Atsiskaitymas',
+  'votingPollingLayout.nav.createPoll': 'Nauja apklausa',
+  'votingPollingLayout.nav.dashboard': 'Prietaisų skydelis',
+  'votingPollingLayout.nav.notifications': 'Pranešimai',
+  'votingPollingLayout.nav.settings': 'Nustatymai',
+  'votingPollingLayout.nav.team': 'Komanda',
+  'votingPollingLayout.nav.voters': 'Rinkėjai',
+  'votingPollingLayout.primaryNavLabel': 'Pagrindinė navigacija',
 }

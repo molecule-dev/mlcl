@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'accountDetail.activeBadge': 'Faol',
   'accountDetail.availableLabel': '{{amount}} mavjud',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Hisoblar',
   'accounts.loadError': "Hisoblarni yuklab bo'lmadi.",
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Muzlatilgan',
   'accounts.totalBalance': '{{summa}} jami',
   'audit.empty': "Hali hech qanday tadbirlar yo'q.",
   'audit.eyebrow': 'Xavfsizlik va kirish',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': "Qo'lda naqd pul",
   'cashCreditCard.creditLabel': 'Ishlatilgan kredit',
   'cashCreditCard.title': 'Naqd pul va kredit',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.accountsHeading': 'Hisoblar',
   'dashboard.heading': "Umumiy ma'lumot",
   'dashboard.recentEmpty': "Hali hech qanday tranzaksiya yo'q.",
@@ -43,11 +46,13 @@ export const ui: UiTranslations = {
   'login.showPassword': "Parolni ko'rsatish",
   'login.signUp': "Ro'yxatdan o'tish",
   'login.submit': 'Tizimga kirish',
+  'meridianLayout.menu': 'Menyu',
   'meridianLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'nav.legal': 'Huquqiy',
   'notifications.emptyHeading': 'Hammasi joyida',
   'notifications.subheading':
     'Tranzaksiyalar, xavfsizlik va hisobotlar uchun real vaqt rejimida ogohlantirishlar.',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'privacy.dataWeShare':
     "Shaxsiy bank ma'lumotlari hech qachon sotilmaydi. Biz ma'lumotni to'lovlarni amalga oshiruvchilar, karta tarmoqlari va tartibga soluvchilar bilan faqat tranzaksiyalarni amalga oshirish yoki qonuniy majburiyatlarni bajarish uchun zarur bo'lganda baham ko'ramiz.",
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     "Ikki faktorli rejim har bir kirishda autentifikator ilovasidan bir martalik kodni qo'shadi.",
   'settings.security.twoFactorCta': 'Ikki faktorli autentifikatsiyani boshqarish',
+  'settings.security.twoFactorOff': "Ikki faktorli rejim o'chirilgan",
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.subheading': 'Profil, xavfsizlik va bildirishnomalar.',
+  'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'signup.emailLabel': 'E-pochta manzili',
   'signup.fullName': 'Sizga qanday murojaat qilishimiz kerak?',
   'signup.showPassword': "Parolni ko'rsatish",
@@ -104,7 +113,10 @@ export const ui: UiTranslations = {
   'transactions.empty': "Hali hech qanday tranzaksiya yo'q.",
   'transactions.endDate': 'Tugash sanasi',
   'transactions.eyebrow': 'Faoliyat',
+  'transactions.loadError': "Tranzaksiyalarni yuklab bo'lmadi.",
   'transactions.merchant': 'Savdogar',
+  'transactions.subheading':
+    "Hisoblaringiz bo'yicha joylashtirilgan va kutilayotgan har bir tranzaksiya.",
   'transfers.availableHint': '{{amount}} mavjud',
   'transfers.errorGeneric': 'Oʻtkazmani yuborib boʻlmadi.',
   'transfers.errorMissingFields': 'Manba hisobi va manzilni tanlang.',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.title': 'Isang silid-sulatan na maaari mong ilagay sa iyong bulsa',
   'billing.cancelConfirm': 'Kanselahin ang iyong aktibong subscription?',
   'billing.cancelFailed': 'Hindi makansela.',
   'billing.checkingOut': 'Binubuksan ang pag-checkout…',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Hindi ma-load ang pagsingil.',
   'billing.loading': 'Naglo-load ng billing…',
   'billing.upgradeCta': 'Mag-upgrade sa {{name}}',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'editor.autosaveOn': 'Naka-on ang awtomatikong pag-save',
   'editor.backToLibrary': 'Balik sa aklatan',
   'editor.charCount': '{{count}} na karakter',
   'editor.confirmTrash': 'Ilipat ang dokumentong ito sa basurahan?',
@@ -37,6 +41,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Na-unpin',
   'editor.unpublishCta': 'Lumipat sa draft',
   'editor.unpublished': 'Ibinalik sa draft',
+  'focus.autosaveOn': 'Naka-on ang awtomatikong pag-save',
   'focus.backToLibrary': 'Balik sa aklatan',
   'focus.bodyPlaceholder': 'Paisa-isang pila. Walang ibang tao rito.',
   'focus.exit': 'Lumabas sa mode ng pag-focus',
@@ -82,6 +87,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Gumawa ng isa',
   'login.subline':
     'Ang iyong mga manuskrito, pang-araw-araw na pahina, at ang huling posisyon ng cursor ay nasa mismong lugar kung saan mo iniwan ang mga ito.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'pricing.exports': 'mga eksport',
   'pricing.folders': 'mga folder',
   'pricing.heading': 'mga dokumento',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Ilagay ang code na kaka-email lang namin sa iyo at pumili ng isang bagay na hindi mo malilimutan. Isa-sign in ka namin kapag na-save na ito.',
   'reset.tokenHint': 'Na-paste mula sa iyong inbox.',
+  'settings.appearance.heading': 'Maliwanag o madilim',
   'settings.editor.${row.id}.description': 'Wika',
   'settings.editor.description':
     'Pag-scroll ng makinilya, pag-fade ng talata, at idle focus — ang mga default ay nakatutok para sa mahahabang sesyon.',
@@ -139,6 +147,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kabanata Tatlo — Isang Tahimik na Oras Bago Sumikat ang Araw',
   'versalDocumentCard.pinned': 'Naka-pin',
   'versalLayout.nav.stats': 'Mga Estadistika',
+  'versalLayout.primaryNavLabel': 'Pangunahing navigation',
   'versalManuscriptHero.cta': 'Ipagpatuloy ang pagsulat',
   'versalManuscriptHero.goalLabel': 'Layunin ng salita ngayon',
   'versalManuscriptHero.inProgress': 'Nasa track',

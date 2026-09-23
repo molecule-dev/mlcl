@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.eyebrow': 'Game da {{app}}',
+  'about.intro':
+    '{{app}} manhaja ce ta tunani don rayuwa ta gaske - tunani mai jagora na yau da kullun, aikin numfashi, da labaran barci waɗanda malamai ke yi waɗanda ke jin kamar aboki, ba koci ba. Babu laifi akai-akai, babu abinci mai hayaniya: kawai wuri ne mai natsuwa don komawa ga numfashinka.',
+  'about.missionBody':
+    "Mun yi imanin cewa ya kamata kowa ya sami nutsuwa, a kowane lokaci na rana. {{app}} yana nan don sa aikin kwantar da hankali da daidaito ya zama ba shi da wahala — ta yadda mintuna goma na gaskiya za su iya canza yadda za ku haɗu da sa'o'i goma masu zuwa.",
+  'about.missionTitle': 'Manufarmu',
+  'about.pageTitle': 'Minti 10 na nutsuwa a rana',
+  'breathingDial.seconds': 'daƙiƙa',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.logout': 'Fita',
   'common.min': 'minti',
   'common.relative.justNow': 'yanzu kawai',
   'common.relative.now': 'yanzu',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
+  'nav.secondaryNavigation': 'Kewaya asusu',
   'sessionCard.with': 'tare da {{name}}',
   'stillpoint.billing.choose': 'Zaɓi {{plan}}',
   'stillpoint.billing.currentPlan': 'A halin yanzu a kan {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Ba mu iya loda tsare-tsare ba.',
   'stillpoint.billing.opening': 'Buɗe wurin biya…',
   'stillpoint.billing.perMonthShort': '/ wata',
+  'stillpoint.billing.perYearShort': '/shekara',
   'stillpoint.billing.unknownResult': 'Amsar lissafin kuɗi da ba a zata ba.',
   'stillpoint.billing.yearly': 'Shekara-shekara · adana 17%',
   'stillpoint.courseDetail.back': 'Darussa',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Babu kwasa-kwasan tukuna.',
   'stillpoint.courses.eyebrow': '{{count}} tafiye-tafiye na kwanaki da yawa',
   'stillpoint.courses.heading': 'Darussa',
+  'stillpoint.forgot.checkEmail':
+    'Duba akwatin saƙonka — hanyar haɗin za ta ƙare cikin mintuna 30.',
   'stillpoint.forgot.success': 'Mun aika hanyar haɗin sake saitawa zuwa {{email}} .',
   'stillpoint.home.empty': 'Babu zaman tattaunawa tukuna — duba nan ba da jimawa ba.',
   'stillpoint.home.friend': 'aboki',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Ƙirƙiri asusunka kyauta',
   'stillpoint.landing.cta.title': 'Fara shirunka a yau',
   'stillpoint.landing.features.heading': 'Aiki wanda ke girma tare da ku',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Bimbini mai jagora a kowace rana, aikin numfashi, da labaran barci — wanda malamai ke jin kamar aboki ne, ba mai horarwa ba.',
   'stillpoint.landing.hero.eyebrow': 'Minti 10 na nutsuwa a rana',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Bincika ta hanyar yanayi',
   'stillpoint.login.rememberMe': 'Ci gaba da sanya ni a ciki',
   'stillpoint.login.subheading': 'Shiga don ci gaba da aikinka.',
+  'stillpoint.nav.tagline': 'Nemo cibiyar ku mai aiki',
+  'stillpoint.notFound.body':
+    'Wannan shafin yana ɗaukar dogon numfashi mai zurfi a wani wuri. Bari mu nemo muku wuri mafi natsuwa a cikin {{app}} .',
   'stillpoint.notFound.title': 'Bata cikin shiru ba',
   'stillpoint.notFound.toHome': 'Komawa ga yau',
   'stillpoint.notFound.toLibrary': 'Duba ɗakin karatu',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Tsallake baya 15s',
   'stillpoint.player.skipForward': 'Tsallake gaba 30s',
   'stillpoint.player.with': 'tare da {{name}}',
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'Aikinka, an taƙaita shi.',
   'stillpoint.profile.locked': 'An kulle',
   'stillpoint.profile.member': 'Memba na Stillpoint',

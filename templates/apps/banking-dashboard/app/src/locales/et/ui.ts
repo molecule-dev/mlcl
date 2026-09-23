@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
   'accountDetail.activeBadge': 'Aktiivne',
   'accountDetail.availableLabel': '{{amount}} saadaval',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Kontode laadimine ebaõnnestus.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Külmutatud',
   'accounts.totalBalance': '{{summa}} kokku',
   'audit.empty': 'Sündmusi pole veel.',
   'audit.eyebrow': 'Turvalisus ja juurdepääs',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Sularaha käes',
   'cashCreditCard.creditLabel': 'Kasutatud krediit',
   'cashCreditCard.title': 'Sularaha ja krediitkaart',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Ülevaade',
   'dashboard.recentEmpty': 'Tehinguid pole veel tehtud.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Näita parooli',
   'login.signUp': 'Registreeru',
   'login.submit': 'Logi sisse',
+  'meridianLayout.menu': 'Menüü',
   'meridianLayout.primaryNavLabel': 'Peamine navigeerimine',
   'nav.legal': 'Õiguslik',
   'notifications.emptyHeading': 'Oled kõigega kursis',
   'notifications.subheading': 'Reaalajas teated tehingute, turvalisuse ja väljavõtete kohta.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'privacy.dataWeShare':
     'Isiklikke pangandusandmeid ei müüda kunagi. Jagame teavet makseteenuse pakkujate, kaardivõrkude ja reguleerivate asutustega ainult tehingute arveldamiseks või juriidiliste kohustuste täitmiseks vajalikul määral.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Kahefaktoriline autentimine lisab iga sisselogimise korral autentimisrakendusest ühekordse koodi.',
   'settings.security.twoFactorCta': 'Kahefaktorilise autentimise haldamine',
+  'settings.security.twoFactorOff': 'Kahefaktoriline autentimine on välja lülitatud',
   'settings.signOutDevice': 'Logi välja',
   'settings.subheading': 'Profiil, turvalisus ja teavitused.',
+  'settings.twoFactorCode': 'Autentimiskood',
   'settings.twoFactorDisable': 'Keela',
   'settings.twoFactorEnable': 'Luba',
+  'settings.twoFactorInvalidCode': 'Kehtetu kood',
+  'settings.twoFactorVerify': 'Kontrolli ja aktiveeri',
   'signup.emailLabel': 'E-posti aadress',
   'signup.fullName': 'Kuidas peaksime teid pöörduma?',
   'signup.showPassword': 'Näita parooli',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Tehinguid pole veel tehtud.',
   'transactions.endDate': 'Lõppkuupäev',
   'transactions.eyebrow': 'Tegevus',
+  'transactions.loadError': 'Tehinguid ei õnnestunud laadida.',
   'transactions.merchant': 'Kaupmees',
+  'transactions.subheading': 'Kõik teie kontodel kajastatud ja ootel olevad tehingud.',
   'transfers.availableHint': '{{amount}} saadaval',
   'transfers.errorGeneric': 'Ülekannet ei õnnestunud esitada.',
   'transfers.errorMissingFields': 'Valige lähtekonto ja sihtkonto.',

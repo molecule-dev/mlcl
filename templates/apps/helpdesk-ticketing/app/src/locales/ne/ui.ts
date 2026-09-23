@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'सम्पर्कमा रहनुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.title': '{{app}} बारे',
   'activeAgentsCard.agent1AvatarAlt':
     'आधुनिक कार्यालयमा मैत्रीपूर्ण मुस्कानसहित महिला सहयोगी एजेन्टको व्यावसायिक हेडसट',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'समर्थनलाई सम्पर्क गर्नुहोस्',
   'forgotPassword.error': 'रिसेट इमेल पठाउन सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'forgotPassword.rememberPassword': 'आफ्नो पासवर्ड याद छ?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'साइन इन — जेनिथ समर्थन',
   'login.showPassword': 'पासवर्ड देखाउनुहोस्',
   'login.welcomeSubheading': 'आफ्नो समर्थन ड्यासबोर्डमा साइन इन गर्नुहोस्',
+  'mobileNav.closeMenu': 'नेभिगेसन बन्द गर्नुहोस्',
+  'mobileNav.menu': 'नेभिगेसन',
+  'mobileNav.openMenu': 'नेभिगेसन खोल्नुहोस्',
   'nav.legal': 'कानुनी',
   'nav.newTicket': 'नयाँ टिकट',
   'notifications.loadError': 'सूचनाहरू लोड गर्न सकिएन। केही बेरमा फेरि प्रयास गर्नुहोस्।',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'आदेश खोज',
   'operatorDock.newReport': 'नयाँ रिपोर्ट',
   'operatorDock.systemOnline': 'प्रणाली अनलाइन',
+  'planUpdated.subtitle': 'धन्यवाद',
   'planUpdated.title': 'योजना अद्यावधिक गरियो',
   'pricing.agents': 'एजेन्टहरू',
   'pricing.automation': 'स्वचालन नियमहरू',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{नाम}}',
   'ticketCustomerReply.avatarAlt': '{{नाम}} को अवतार',
   'ticketDetail.errorTitle': 'केही गडबड भयो।',
+  'ticketDetail.loadError': 'टिकट लोड गर्न सकिएन।',
+  'ticketDetail.notFound': 'टिकट भेटिएन',
+  'ticketDetail.replyError': 'जवाफ पठाउन असफल भयो। कृपया फेरि प्रयास गर्नुहोस्।',
   'ticketDetail.retry': 'फेरि प्रयास गर्नुहोस्',
   'ticketDetail.statusUpdateError': 'स्थिति अद्यावधिक गर्न सकिएन। फेरि प्रयास गर्नुहोस्।',
   'ticketDetailsCard.assigneeLabel': 'तोकिएको व्यक्ति',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{समय}} बायाँ',
   'ticketRow.title': 'उत्पादनमा डाटाबेस जडान असफल भयो {{नोड}}',
   'tickets.pageTitle': 'टिकटहरू — जेनिथ समर्थन',
+  'ticketsFab.newTicket': 'नयाँ टिकट',
   'ticketsFilterBar.assigneeLabel': 'तोकिएको व्यक्ति:',
   'ticketsFilterBar.clearFilters': 'फिल्टरहरू हटाउनुहोस्',
   'ticketsFilterBar.dateRangeDemoHint': 'यो डेमो बिल्डमा मिति दायरा फिल्टरिङ सक्षम छैन।',

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Sobre nós',
+  'common.goToDashboard': 'Ir ao panel',
+  'common.logout': 'Pechar sesión',
   'dailyStatsTriad.heartsLabel': 'Corazóns',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minutos hoxe',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Palabras dominadas',
+  'dailyStatsTriad.wordsMasteryHint': 'Palabras con dominio 4+',
   'dashboard.continueHeading': 'Continúa onde o deixaches',
   'dashboard.heading': 'Bos días, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Non se puideron cargar os exercicios.',
   'lessonDetail.loading': 'Cargando lección…',
   'lessonDetail.submitError': 'Non se puido enviar a resposta.',
+  'lessonDetail.translation': 'Traducir a frase',
   'lessonDetail.xpEarned': 'XP gañado · {{xp}}',
   'lessons.empty': 'Sen leccións a ese nivel {{level}} aínda así, proba outro nivel.',
   'lessons.eyebrow': 'Biblioteca de leccións',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Novo en Parlance?',
   'login.showPassword': 'Mostrar contrasinal',
   'login.signUp': 'Comeza gratis →',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
+  'parlanceLayout.nav.profile': 'Perfil',
   'parlanceLayout.primaryNavLabel': 'Navegación principal',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'practice.empty': 'Aínda non hai frases dispoñibles.',
   'practice.eyebrow': 'Práctica oral',
   'practice.heading': 'Léao. Gráveo. Refínao.',

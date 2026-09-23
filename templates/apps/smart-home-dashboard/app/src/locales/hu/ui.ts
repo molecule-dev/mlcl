@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.pageTitle': 'A {{app}} névjegye',
   'activity.empty': 'Még nincs aktivitás — fordíts meg egy eszközt, vagy aktiválj egy jelenetet.',
   'activity.eyebrow': 'Idővonal',
   'activity.loadError': 'Nem sikerült betölteni az aktivitási hírcsatornát.',
   'activity.subheading': 'Minden eszköz, automatizálás és biztonsági esemény időrendi sorrendben.',
+  'addDevice.error.failed': 'Nem sikerült hozzáadni az eszközt. Próbáld újra.',
   'addDevice.error.nameRequired': 'Adjon nevet ennek az eszköznek a folytatáshoz.',
   'addDevice.field.firmware': 'Firmware verzió',
   'addDevice.field.manufacturer': 'Gyártó',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Tesztelés…',
   'automationEditor.testNew': 'Először mentsd el az automatizálást a teszteléshez.',
   'automationRow.lastRun': 'Utolsó {{date}} · {{count}} futások',
+  'automationRow.on': 'A',
   'automationRow.runNowAria': 'Fut {{name}} jelenleg',
   'automations.empty': 'Még nincsenek automatizálások — hozd létre az első rutinod.',
   'automations.eyebrow': 'Rutinok',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Automatizálások betöltése…',
   'automations.newAutomation': '+ Új',
   'automations.subheading': 'Amikor ez megtörténik, tedd ezt – a YAML nélkül.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Nem sikerült betölteni az eszközt.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Munka folyamatban…',
   'deviceDetail.unnamed': 'Eszköz',
   'deviceStatusRow.on': 'On',
+  'deviceStatusRow.turnOff': 'Kapcsold ki',
+  'deviceStatusRow.turnOn': 'Bekapcsol',
   'deviceStatusRow.watts': '{{watts}} Ny',
   'energy.eyebrow': 'Hatalom',
   'energy.heading': 'Energia',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Csomagok megtekintése',
   'settings.security.heading': 'Biztonság',
   'settings.subheading': 'Csomag, központok és fiókbeállítások.',
+  'smartHomeDashboardLayout.openMenu': 'Navigációs menü megnyitása',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Elsődleges navigáció',
 }

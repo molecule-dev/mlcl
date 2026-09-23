@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Көру',
   'auctionDetail.watchRemoved': 'Бақылау тізімінен жойылды.',
   'auctionDetail.watchRemoveLabel': 'Бақылау тізімінен алып тастау',
+  'auctionPlatformLayout.primaryNavLabel': 'Негізгі навигация',
   'authShell.brandBody':
     'Сирек кездесетін сағаттарға, бейнелеу өнеріне және бірегей арнайы заттарға нақты уақыт режимінде баға белгілеңіз. Балға бірнеше секунд ішінде құлайды.',
   'authShell.brandEyebrow': 'Қазір тікелей эфирде · 1420 аукцион',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Бойынша сұрыптау',
   'browseAuctions.subheading':
     'Санат бойынша сүзгіден өткізіңіз, ең маңыздысы бойынша сұрыптаңыз және балға құлағанға дейін баға қойыңыз.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'countdownTimer.ended': 'Аяқталды',
   'countdownTimer.endingSoon': 'Аяқталуы',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Құпия сөзді көрсету',
   'login.subtext':
     'Аукциондарыңызды бақылауды жалғастырыңыз және балға құлағанға дейін баға ұсыныстарын қойыңыз.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'myBids.bidAgain': 'Тағы да баға белгілеу',
   'myBids.browseCta': 'Тікелей аукциондарды шолу →',
   'myBids.checkoutCta': 'Қазір төлеу',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Әлі хабарландырулар жоқ.',
   'notificationsPage.eyebrow': 'Белсенділік орталығы',
   'notificationsPage.subheading': '{{count}} оқылмаған · аукциондар өткен сайын тікелей жаңартулар',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.bidsLabel': 'баға ұсыныстары',
   'pricing.listingsLabel': 'тізімдер',
   'pricing.watchlistLabel': 'бақылау тізімі',

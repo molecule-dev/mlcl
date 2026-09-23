@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.eyebrow': 'Oor {{app}}',
   'about.pageTitle': 'Elke roete, een soektog.',
   'booking.backToDetail': 'Terug na vlugbesonderhede',
   'booking.continue': 'Gaan voort na betaling',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Belasting en fooie',
   'booking.summary.travelers': 'Reisigers',
   'common.about': 'Oor',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'flightDetail.backToResults': 'Terug na resultate',
   'flightDetail.baseFare': 'Basistarief',
   'flightDetail.book': 'Gaan voort met bespreking',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stop',
   'flightResultCard.select': 'Kies',
   'flightResultCard.totalLabel': 'Totale tyd',
+  'flightSearchLayout.primaryNavLabel': 'Primêre navigasie',
   'forgotPassword.subheading':
     "Voer die e-posadres op jou Skylark-rekening in en ons sal 'n veilige herstelskakel stuur.",
   'forgotPassword.successBody':
     "Kontroleer {{email}} vir 'n skakel om 'n nuwe wagwoord te stel. Skakel verval oor 30 minute.",
   'forgotPassword.successHeading': 'Herstel skakel gestuur',
   'landing.cta.explore': "Probeer 'n soektog",
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Vind die volgende goeie prys voor almal anders.',
   'landing.cta.signup': 'Begin om tariewe dop te hou',
   'landing.features.eyebrow': 'Waarom Veldleeuwerik',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Voeg waarskuwing by',
   'priceAlerts.deleteConfirm': 'Verwyder hierdie waarskuwing?',
   'priceAlerts.empty': 'Geen nagespoorde roetes nog nie.',
+  'priceAlerts.emptyCta': "Soek 'n roete om op te spoor",
   'priceAlerts.errorMessage': 'Kon nie waarskuwings laai nie.',
   'priceAlerts.eyebrow': 'Skylark-kyklys',
   'priceAlerts.form.createError': 'Kon nie waarskuwing skep nie.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Meerstad-reisplan',
   'results.multiLegHeading': 'Been {{n}} · {{van}} → {{naar}} · {{datum}}',
   'results.multiSummary': '{{count}} bene · {{passengers}} reisiger',
+  'results.sortAriaLabel': 'Sorteer resultate volgens',
   'results.sortLabel': 'Sorteer',
   'results.summary': '{{count}} vlugte · {{passengers}} reisiger',
   'settings.language.title': 'Taal',

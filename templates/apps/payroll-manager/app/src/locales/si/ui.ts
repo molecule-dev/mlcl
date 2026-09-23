@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'auditLog.empty':
     'ඔබගේ පෙරහන් වලට ගැලපෙන විගණන සිදුවීම් කිසිවක් තවමත් නොමැත. සේවකයෙකු සංස්කරණය කරන්න හෝ වැටුප් ගෙවීමක් සකසන්න, එවිට ඒවා මෙහි පෙන්වනු ඇත.',
   'auditLog.eyebrow': 'අනුකූලතාව',
+  'auditLog.loadError': 'විගණන ලොගය පූරණය කිරීමට නොහැකි විය.',
   'auditLog.searchPlaceholder': 'නළුවා, ක්‍රියාව හෝ විස්තරය අනුව සොයන්න',
   'auditLog.subheading':
     'සෑම අනුමැතියක්ම, සංස්කරණයක් සහ බදු ගොනු කිරීමක් - නළුවා, වේලා මුද්‍රාව සහ වෙනස් කළ ක්ෂේත්‍ර සමඟ.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'වින්‍යාස කර නැත',
   'billing.plansHeading': 'සැලසුම්',
   'billing.subheading': 'ඔබේ සැලැස්ම කළමනාකරණය කර Stripe හරහා ස්ථර මාරු කරන්න.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'අනුකූලතා සැණරුව',
   'dashboard.compliance.title': 'සියලුම චෙක්පත් සමත් වීම',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ගොනුවේ අඩු කිරීම් නොමැත.',
   'employeeDetail.notFound': 'සේවකයා හමු නොවීය.',
   'employeeDetail.payFrequency': 'ගෙවීම් වාර ගණන',
+  'employeeDetail.postTax': 'බදු ගෙවීමෙන් පසු',
+  'employeeDetail.preTax': 'බදු ගෙවීමට පෙර',
   'employeeDetail.salary': 'වාර්ෂික වැටුප',
   'employeeDetail.ssn': 'එස්එස්එන්',
   'employeeDetail.startedOn': 'ආරම්භ කරන ලදී {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ගෙවීම් වාර ගණන',
   'employeeForm.salary': 'වාර්ෂික වැටුප (ඇ.ඩො.)',
   'employeeForm.salaryInvalid': 'වැටුප සෘණ නොවන අංකයක් විය යුතුය.',
+  'employeeForm.saveError': 'සේවකයා බේරා ගැනීමට නොහැකි විය.',
   'employeeForm.semimonthly': 'අර්ධ මාසික',
   'employeeForm.single': 'තනි',
   'employeeForm.ssn': 'එස්එස්එන්',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'වැටුප',
   'forgotPassword.subtitle':
     'ඔබගේ කාර්යාල විද්‍යුත් තැපෑල ඇතුළත් කරන්න, අපි යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
+  'landing.copyright': '© {{year}} {{app}} . නිරවද්‍ය, විශ්වාසදායක, සංයුක්ත.',
   'landing.ctaBody':
     'දින 30ක් නොමිලේ. ක්‍රෙඩිට් කාඩ් නැත. ඔබේ විගණන මංපෙත නැති නොකර ඕනෑම වේලාවක මාරු වන්න.',
   'landing.ctaHeading': 'ඔබේ ඊළඟ චක්‍රය Stipend මත ධාවනය කරන්න.',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'ඇතුළත් කිරීම්',
   'payRunDetail.noActivity': 'මෙම ගෙවීම් ක්‍රියාවලිය සඳහා තවමත් විගණන ඇතුළත් කිරීම් නොමැත.',
   'payRunDetail.noStubs': 'තවම ගෙවීම් කූඩු නොමැත — ඒවා ජනනය කිරීමට අනුමත කර සකස් කරන්න.',
+  'payRunDetail.notFound': 'මෙම ගෙවීම් ක්‍රියාවලිය සොයාගත නොහැකි විය.',
   'payRunDetail.statDeductions': 'අඩු කිරීම්',
   'payRunDetail.statHeadcount': 'සේවකයින්',
   'payRunDetail.statTaxes': 'රඳවා ගත් බදු',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'අර්ධ මාසික',
   'settings.signOutDevice': 'වරන්න',
   'settings.subheading': 'සමාගම් පැතිකඩ, වැටුප් කාලසටහන සහ ඒකාබද්ධ කිරීම්.',
+  'settings.twoFactorCode': 'සත්‍යාපන කේතය',
   'settings.twoFactorDisable': 'අබල කරන්න',
+  'settings.twoFactorInvalidCode': 'අවලංගු කේතයකි',
+  'settings.twoFactorVerify': 'සත්‍යාපනය කර සබල කරන්න',
   'settings.weekly': 'සතිපතා',
   'taxCenter.bucket.federal': 'ෆෙඩරල් ආදායම',
   'taxCenter.bucket.fica': 'සමාජ ආරක්ෂණය',

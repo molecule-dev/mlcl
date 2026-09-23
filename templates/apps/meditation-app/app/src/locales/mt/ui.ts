@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
+  'about.eyebrow': 'Dwar {{app}}',
+  'about.intro':
+    "{{app}} hija app ta' meditazzjoni għall-ħajja reali — meditazzjonijiet iggwidati ta' kuljum, workout tan-nifs, u stejjer tal-irqad immexxija minn għalliema li jħossuhom bħal ħabib, mhux kowċ. L-ebda ħtija minħabba s-sensiela ta' nifs, l-ebda storbju: sempliċement post kwiet fejn terġa' lura għan-nifs tiegħek.",
+  'about.missionBody':
+    "Aħna nemmnu li l-kwiet għandu jkun aċċessibbli għal kulħadd, fi kwalunkwe mument tal-ġurnata. {{app}} teżisti biex tagħmel prattika kalma u konsistenti tħossha bla sforz — sabiex għaxar minuti onesti jkunu jistgħu jibdlu l-mod kif tiltaqa' mal-għaxar sigħat li ġejjin.",
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'about.pageTitle': '10 minuti aktar kalmi kuljum',
+  'breathingDial.seconds': 'sekondi',
+  'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.logout': 'Oħroġ',
   'common.min': 'minuta',
   'common.relative.justNow': 'issa stess',
   'common.relative.now': 'issa',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
+  'nav.secondaryNavigation': 'Navigazzjoni tal-kont',
   'sessionCard.with': "ma' {{name}}",
   'stillpoint.billing.choose': 'Agħżel {{plan}}',
   'stillpoint.billing.currentPlan': 'Bħalissa mixgħul {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Ma stajniex intellgħu l-pjanijiet.',
   'stillpoint.billing.opening': 'Niftħu l-checkout…',
   'stillpoint.billing.perMonthShort': '/ xahar',
+  'stillpoint.billing.perYearShort': '/sena',
   'stillpoint.billing.unknownResult': 'Rispons mhux mistenni għall-kontijiet.',
   'stillpoint.billing.yearly': 'Kull sena · iffranka 17%',
   'stillpoint.courseDetail.back': 'Korsijiet',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': "Għad m'hemm l-ebda kors.",
   'stillpoint.courses.eyebrow': "{{count}} vjaġġi ta' diversi jiem",
   'stillpoint.courses.heading': 'Korsijiet',
+  'stillpoint.forgot.checkEmail': 'Iċċekkja l-inbox tiegħek — il-link jiskadi fi żmien 30 minuta.',
   'stillpoint.forgot.success': "Bagħtejna link ta' reset lil {{email}} .",
   'stillpoint.home.empty': "Għad m'hemm l-ebda sessjonijiet — erġa' żur dalwaqt.",
   'stillpoint.home.friend': 'ħabib',
@@ -49,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Oħloq il-kont bla ħlas tiegħek',
   'stillpoint.landing.cta.title': 'Ibda l-kwiet tiegħek illum',
   'stillpoint.landing.features.heading': 'Prattika li tikber miegħek',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditazzjonijiet iggwidati ta’ kuljum, taħriġ tan-nifs, u stejjer dwar l-irqad — immexxija minn għalliema li jħossuhom bħal ħabib, mhux kowċ.',
   'stillpoint.landing.hero.eyebrow': '10 minuti aktar kalmi kuljum',
@@ -65,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Fittex skont il-burdata',
   'stillpoint.login.rememberMe': 'Żommni illoggjat/a',
   'stillpoint.login.subheading': 'Idħol biex tkompli l-prattika tiegħek.',
+  'stillpoint.nav.tagline': 'Sib iċ-ċentru kwiet tiegħek',
+  'stillpoint.notFound.body':
+    "Din il-paġna qed tieħu nifs twil u profond x'imkien. Ejja nsibulek post aktar kwiet f' {{app}} .",
   'stillpoint.notFound.title': 'Mitluf fis-skiet',
   'stillpoint.notFound.toHome': 'Lura għal-lum',
   'stillpoint.notFound.toLibrary': 'Fittex fil-librerija',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Aqbeż lura 15s',
   'stillpoint.player.skipForward': "Aqbeż 'il quddiem 30s",
   'stillpoint.player.with': "ma' {{name}}",
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'Il-prattika tiegħek, fil-qosor.',
   'stillpoint.profile.locked': 'Imsakkar',
   'stillpoint.profile.member': "Membru ta' Stillpoint",

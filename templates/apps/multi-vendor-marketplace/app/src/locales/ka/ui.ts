@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'სატესტო რეჟიმი: შეკვეთები ფიქსირდება და ბალანსი ანგარიშსწორდება, მაგრამ რეალური ბარათიდან თანხა არ იჭრება.',
   'checkout.placeOrderCta': 'შეკვეთის განთავსება',
+  'checkout.placeOrderError': 'შეკვეთის განთავსება ვერ მოხერხდა.',
   'checkout.placingOrder': 'შეკვეთის განთავსება…',
   'checkout.review.shipTo': 'მიწოდება',
   'checkout.review.subtotal': 'მომწოდებლის ქვეჯამი',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'გახდი გამყიდველი',
   'landing.footer.copyright': '© {{year}} {{name}} — ყველა მწარმოებელი, ერთი ბაზარი.',
   'landing.footer.help': 'დახმარების ცენტრი',
+  'landing.nav.keepShopping': 'განაგრძეთ შოპინგი',
   'landing.nav.sell': 'გაყიდვა Vendry-ზე',
   'landing.nav.shop': 'მაღაზია',
   'landing.nav.signUp': 'გაწევრიანება',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'რა უყვართ მყიდველებს',
   'login.accountTypeAria': 'ანგარიშის ტიპი',
   'login.heading': 'კეთილი იყოს თქვენი დაბრუნება Vendry-ში',
+  'login.legalPrefix': 'შესვლით, თქვენ ეთანხმებით ჩვენს',
   'login.subheading': 'შედით სისტემაში შოპინგის გასაგრძელებლად ან დაუბრუნდით თქვენს მაღაზიას.',
   'login.submitShopper': 'შედით სისტემაში საყიდლად',
   'login.submitVendor': 'შედით ჩემს მაღაზიაში',
@@ -89,10 +92,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'განთავსებული {{date}} · {{vendorCount}} მომწოდებელი(ები) · მრავალმომწოდებლიანი შეკვეთების შესრულება',
   'orders.empty': 'ამ ფილტრს ჯერ არცერთი შეკვეთა არ შეესაბამება.',
+  'orders.emptyTitle': 'აქ შეკვეთები ჯერ არ არის',
   'orders.eyebrow': 'თქვენი შენაძენები',
   'orders.subtitle':
     'ნახეთ, ვინ რა გაგზავნა, მიჰყევით თითოეული გამყიდველის თვალყურის დევნებას და აღარასდროს დაკარგავთ ამანათს.',
   'orders.title': 'შეკვეთები, დაჯგუფებული გამყიდველის მიხედვით',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'productDetail.addToCart': 'კალათაში დამატება',
   'productDetail.addToCartError': 'კალათაში დამატება ვერ მოხერხდა.',
   'productDetail.addToCartSuccess': '„ {{name}} „დამატებულია თქვენს კალათაში.“',
@@ -133,12 +138,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'მართეთ, თუ როგორ შოპინგობთ, როგორ გიკავშირდებიან გამყიდველები და სად მიდის ფული.',
   'signup.heading': 'შემოუერთდით ბაზარში',
+  'signup.legalPrefix': 'გაწევრიანებით, თქვენ ეთანხმებით ჩვენს',
   'signup.mismatch': 'პაროლები ჯერ არ ემთხვევა.',
   'signup.subheading':
     'დაათვალიერეთ 4000-ზე მეტი დამოუკიდებელი მწარმოებელი ან გახსენით თქვენი საკუთარი მაღაზია.',
   'status.delivered': 'მიწოდებული',
   'status.refunded': 'დაბრუნებული',
+  'userMenu.marketplaceSettings': 'Marketplace-ის პარამეტრები',
   'vendor.memberSince': 'წევრი წლიდან {{date}}',
+  'vendorDashboard.defaultShop': 'შენი მაღაზია',
   'vendorDashboard.eyebrow': 'გამყიდველის ადმინისტრატორი · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Vendry-ის საკომისიოს შემდეგ გაიწმინდა. შემდეგი გადახდა პარასკევს მოხდება.',
@@ -157,12 +165,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'სად ქმნით, რას ქმნით და რატომ არის ეს მნიშვნელოვანი.',
   'vendorOnboarding.currencyLabel': 'ვალუტაში გადახდა',
   'vendorOnboarding.errors.shopName': 'მაღაზიის სახელი აუცილებელია.',
+  'vendorOnboarding.errors.submit': 'თქვენი განაცხადის წარდგენა ვერ მოხერხდა.',
   'vendorOnboarding.exit': 'შენახვა და მოგვიანებით გაგრძელება',
   'vendorOnboarding.eyebrow': 'Vendry-ზე გაყიდვისთვის განაცხადის შეტანა',
+  'vendorOnboarding.field.shopName': 'მაღაზიის სახელი',
   'vendorOnboarding.heroBody':
     'ფიქსირებული 8%-იანი საკომისიო, გადახდები ყოველ პარასკევს, თქვენი ვიტრინა, თქვენი ისტორია. მოგვიყევით თქვენი მაღაზიის შესახებ და ჩვენ 48 საათის განმავლობაში დაგიკავშირდებით.',
   'vendorOnboarding.review.contact': 'კონტაქტი',
   'vendorOnboarding.review.currency': 'ვალუტა',
+  'vendorOnboarding.review.tagline': 'სლოგანი',
+  'vendorOnboarding.review.website': 'ვებსაიტი',
   'vendorOnboarding.reviewBody':
     'კარგად გამოიყურება. თქვენს მაღაზიას 48 საათის განმავლობაში განვიხილავთ და პირველ გადახდას პირველი გაყიდვის შემდეგ პარასკევს გამოგიგზავნით.',
   'vendorOnboarding.samplesLabel': 'ნამუშევრების ნიმუშები — Instagram, პორტფოლიო, ფოტოები',
@@ -171,11 +183,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'განაცხადი წარდგენილია! ჩვენ განვიხილავთ თქვენს მაღაზიას და 48 საათის განმავლობაში გამოგიგზავნით ელ.წერილს.',
   'vendorOnboarding.taxIdLabel': 'საგადასახადო ID',
+  'vendorOrders.emptyTitle': 'ჯერ შესასრულებელი შეკვეთები არ არის',
   'vendorOrders.eyebrow': 'გამყიდველის ადმინისტრატორი',
+  'vendorOrders.kpi.awaiting': 'შესრულების მოლოდინში',
   'vendorOrders.kpi.inTransit': 'ტრანზიტში',
   'vendorOrders.subtitle':
     'დაბეჭდეთ ეტიკეტები, მონიშნეთ შესრულებული და უპასუხეთ კითხვებს — ყველაფერი Vendry-დან გაუსვლელად.',
   'vendorOrders.title': 'შემომავალი შეკვეთები',
+  'vendorPayouts.emptyTitle': 'გადახდები ჯერ არ არის',
   'vendorPayouts.eyebrow': 'მომწოდებლების ფინანსები',
   'vendorPayouts.heroCaption': 'Banco BPI-ზე ჯდება {{account}} · 1–2 სამუშაო დღე',
   'vendorPayouts.history': 'გადახდის ისტორია',
@@ -193,7 +208,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'სად იქმნება? რა ისტორიას შეიცავს?',
   'vendorProductForm.error.name': 'პროდუქტის სახელი სავალდებულოა',
   'vendorProductForm.error.price': 'შეიყვანეთ დადებითი ფასი',
+  'vendorProductForm.error.publish': 'გამოქვეყნება ვერ მოხერხდა',
   'vendorProductForm.eyebrow': 'ახალი ჩამონათვალი',
+  'vendorProductForm.eyebrowEdit': 'სიის რედაქტირება',
   'vendorProductForm.images.body':
     'გადაიტანეთ და ჩააგდეთ მაქსიმუმ 8 სურათი. პირველი ფოტო ვიტრინის ყდად იქცევა.',
   'vendorProductForm.images.cta': 'გადაიტანეთ ფოტოები აქ ან დაათვალიერეთ',
@@ -205,6 +222,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'ცვლილებების შენახვა',
   'vendorProductForm.title': 'უთხარით მყიდველებს თქვენი ნივთის შესახებ',
   'vendorProductForm.variants.colInventory': 'ინვენტარი',
+  'vendorProductForm.variants.colVariant': 'ვარიანტი',
   'vendorProducts.eyebrow': 'გამყიდველის ადმინისტრატორი',
   'vendorProducts.kpi.draft': 'პროექტები',
   'vendorProducts.kpi.lowStock': 'დაბალი მარაგი',

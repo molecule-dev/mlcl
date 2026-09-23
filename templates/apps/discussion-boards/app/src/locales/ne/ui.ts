@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'पोस्टहरू',
   'categoryDetail.stat.threads': 'थ्रेडहरू',
   'categoryDetail.threadCount': 'देखाउँदै {{count}} थ्रेडहरू',
+  'categoryDetail.threadsFailed': 'थ्रेडहरू लोड गर्न सकिएन।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'compose.bodyPlaceholder':
     'यसलाई व्यवस्थित गर्नुहोस्। खण्डहरूको लागि ##, उद्धरणहरूको लागि >, कोड ब्लकहरूको लागि ``` प्रयोग गर्नुहोस्।',
+  'compose.categoriesFailed': 'कोटीहरू लोड गर्न सकिएन।',
   'compose.eyebrow': 'नयाँ थ्रेड',
   'compose.failed': 'थ्रेड सुरु गर्न सकिएन। फेरि प्रयास गर्नुहोस्।',
   'compose.field.body': 'शरीर',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'तपाईंले छोड्नुभएको ठाउँबाट सुरु गर्नुहोस् — तपाईंका नपढिएका थ्रेडहरू पर्खिरहेका छन्।',
   'login.twoFactor': 'दुई-कारक टोकन (वैकल्पिक)',
+  'moderationQueue.actionFailed': 'कार्य असफल भयो। फेरि प्रयास गर्नुहोस्।',
   'moderationQueue.eyebrow': 'मध्यस्थकर्ता कार्यस्थान',
   'moderationQueue.heading': 'मोडरेसन लाइन · {{count}} खुला वस्तुहरू',
   'moderationQueue.kind.${item.kind}': '{{गणना}} झण्डाहरू',
@@ -79,7 +84,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'दुई घण्टा भन्दा कम समयमा पहिलो सम्पर्क गर्ने लक्ष्य राख्नुहोस्। अस्पष्ट कलहरूको लागि admin@stoa मा सम्पर्क गर्नुहोस्।',
   'nav.browseHeader': 'ब्राउज गर्नुहोस्',
+  'nav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
   'nav.communityGuidelinesTitle': 'समुदाय निर्देशिकाहरू',
+  'nav.drawerTitle': 'मेनु',
+  'nav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
+  'nav.primaryNavLabel': 'फोरम नेभिगेसन',
   'notFound.body':
     'यो अभिलेखमा लक गरिएको हुन सक्छ, वा URL ड्रिफ्ट गरिएको हुन सक्छ। अगोरामा फर्कनुहोस् र अर्को कुराकानी लिनुहोस्।',
   'notFound.browseCta': 'कोटीहरू ब्राउज गर्नुहोस्',
@@ -90,6 +99,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'सूचनाहरू · {{count}} नपढिएको',
   'postCard.edited': '(सम्पादन गरिएको)',
   'postCard.flag': 'झण्डा',
+  'postCard.flagged': 'फ्ल्याग गरिएको',
   'postCard.markSolution': 'समाधान चिन्ह लगाउनुहोस्',
   'postCard.originalPost': 'मूल पोस्ट',
   'postCard.quote': 'उद्धरण',
@@ -110,6 +120,14 @@ export const ui: UiTranslations = {
   'search.heading': 'एउटा थ्रेड, एउटा पोस्ट, एउटा व्यक्ति खोज्नुहोस्।',
   'search.resultsCount': '{{count}} परिणामहरू',
   'search.searching': 'खोज्दै...',
+  'settings.currentPasswordHint':
+    'तपाईंको इमेल परिवर्तन गर्न तपाईंको पासवर्ड आवश्यक पर्दछ। पुष्टि गर्न इन्टर थिच्नुहोस् वा फिल्ड छोड्नुहोस्।',
+  'settings.currentPasswordLabel': 'हालको पासवर्ड',
+  'settings.currentPasswordRequired':
+    'आफ्नो हालको पासवर्ड प्रयोग गरी यो परिवर्तन पुष्टि गर्नुहोस्।',
+  'settings.failedToUpdateProfile': 'प्रोफाइल अद्यावधिक गर्न असफल भयो',
+  'settings.name': 'नाम',
+  'settings.saved': 'बचत भयो।',
   'signup.confirm': 'पुष्टि गर्नुहोस्',
   'signup.emailPlaceholder': 'you@stoa.community मा जानुहोस्',
   'signup.eyebrow': 'स्टोआमा सामेल हुनुहोस्',

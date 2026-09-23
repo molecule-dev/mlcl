@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'authShell.statusLabel': 'jooksjad veebis',
   'collections.createError': 'Kollektsiooni loomine ebaõnnestus.',
   'collections.defaultName': 'Pealkirjata kollektsioon {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Uus kollektsioon',
   'collections.subheading':
     'Grupeeri päringuid, jaga neid oma meeskonnaga ja käita neid ühtse tervikuna.',
+  'common.goToDashboard': 'Mine töölauani',
   'environmentCard.inactive': 'Jõudeolek',
   'environmentCard.more': 'rohkem',
   'environmentCard.variables': 'Muutujad',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Laadi alla tasuta',
   'landing.heroSubtitle':
     'Välkkiirusega API testimise töölaud, mis on loodud terminalides elavatele inseneridele.',
+  'landing.heroTitleAccent': 'Tulekahju',
+  'landing.heroTitleLine2': 'luua usaldust.',
+  'landing.heroTitleRest': 'taotlused,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ hind --plain',
   'landing.pricingHeading': 'Lihtne ja arusaadav hinnakujundus',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Uus siin?',
   'login.showPassword': 'Näita parooli',
   'login.subtitle': 'Jätka oma Pyloni tööruumi.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'mocks.createError': 'Näidise loomine ebaõnnestus.',
   'mocks.defaultName': 'Pealkirjata näidis {{n}}',
   'mocks.deleteError': 'Mocki ei saanud kustutada.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Tagasi tööruumi',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Marsruuti ei leitud',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'privacy.collect.account':
     'Konto: teie e-posti aadress, räsitud parool, kuvatav nimi ja viimase sisselogimise ajatempel.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Kirjutuskaitstud vaade andmetest, mis sellele kontole praegu kuuluvad.',
   'settings.unset': 'pole määratud',
   'signup.identityHint': 'nt Alex',
+  'signup.statusLabel': 'tasuta pakett · krediitkaarti pole vaja',
   'signup.subtitle': 'Alusta päringute täitmist minutitega.',
   'terms.account.body':
     'Teie vastutate oma parooli kaitsmise eest. Ühe konto jagamine mitme inimesega ei ole Free ega Pro pakettides lubatud – jagatud tööruumide jaoks ostke Team tellimus.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Ärge kasutage Pylonit päringute saatmiseks teenustele, mis ei kuulu teile või mille testimiseks teil pole selgesõnalist luba. Ärge kasutage Pylonit kiirusepiirangute vältimiseks ega pettuse toimepanemiseks.',
   'terms.warranty.body':
     'Pyloni pakutakse olemasoleval kujul ilma igasuguse garantiita. Meie eesmärk on 99,9% käideolekuaeg, kuid me ei garanteeri seda tasuta ega Pro pakettides.',
+  'testRunner.assertionsCount': '{{count}} väited',
   'testRunner.createError': 'Testi loomine ebaõnnestus.',
   'testRunner.cron': 'Väiteid hinnatakse selle testi lingitud päringu viimase käivitamise suhtes.',
   'testRunner.defaultName': 'Pealkirjata test {{n}}',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': "Suite'i tulemused, väidete erinevused ja viimased 50 käivitust.",
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Sisse logitud kui',
+  'workspace.auth.keyName': 'Pealkirja nimi',
+  'workspace.auth.keyValue': 'Võtmeväärtus',
+  'workspace.auth.password': 'Parool',
+  'workspace.auth.username': 'Kasutajanimi',
+  'workspace.authOption.apikey': 'API-võti',
+  'workspace.authOption.basic': 'Põhitäiendus',
+  'workspace.authOption.bearer': 'Kandja-token',
+  'workspace.authOption.none': 'Puudub',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tüüp',
   'workspace.authTypeLabel': 'Autentimise tüüp',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Puudub',
+  'workspace.body.text': 'Töötlemata tekst',
+  'workspace.body.type': 'Tüüp',
   'workspace.environment': 'Keskkonda pole',
   'workspace.envVar': 'keskkonnamuutuja',
   'workspace.eyebrow': '$ pylon tööruum --pane split',
+  'workspace.kv.addHeader': 'Lisa päis',
+  'workspace.kv.addParam': 'Lisa parameeter',
+  'workspace.kv.headerKey': 'Pealkirja nimi',
+  'workspace.kv.headerValue': 'Pealkirja väärtus',
+  'workspace.kv.key': 'Võti',
+  'workspace.kv.paramKey': 'Päringu parameetri võti',
+  'workspace.kv.paramValue': 'Päringu parameetri väärtus',
+  'workspace.kv.removeRow': 'Rida eemaldada',
+  'workspace.kv.value': 'Väärtus',
   'workspace.methodLabel': 'HTTP-meetod',
   'workspace.metric.latency': 'Viivitus',
   'workspace.metric.latencyCaption': 'Edasi-tagasi sellelt sõidult',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Päring käivitatud — vaata vastust allpool.',
   'workspace.subheading':
     'Koostage päring, käivitage see ja seejärel esitage vastus – kõik ühel paanil.',
+  'workspace.testResults': 'Testi tulemused',
   'workspace.token': 'Märk',
   'workspace.tokenHint':
     'Saadetud volitusena: Esitaja<token> iga selle kollektsiooni taotluse kohta.',

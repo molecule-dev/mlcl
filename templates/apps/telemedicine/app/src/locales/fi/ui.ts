@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Varaa aika',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Ei potilaita näytettävänä.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'consult.backLink': 'Kaikki tapaamiset',
   'consult.captions': 'Tekstitykset',
   'consult.connected': 'Yhdistetty · 720p · vakaa',
@@ -128,6 +129,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Potilaat',
   'patientVitalsHero.scripts': 'Resepti avoinna',
   'patientVitalsHero.subline': '{{count}} konsultaatioita aikataulusi mukaan tänään',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'prescriptions.empty': 'Mikään resepti ei täsmää.',
   'prescriptions.eyebrow': 'Sähköinen resepti',
   'prescriptions.heading': 'Reseptit',
@@ -143,6 +145,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Tietosuojailmoitus',
   'privacy.use.body':
     'Hoidon tarjoaminen, ajanvarausmuistutusten lähettäminen, reseptien reitittäminen ja palvelun luotettavuuden parantaminen. Emme koskaan myy tietojasi emmekä koskaan jaa kliinisiä tietoja mainostajien kanssa.',
+  'providers.allSpecialties': 'Kaikki erikoisalat',
+  'providers.loadError': 'Palveluntarjoajien lataaminen epäonnistui.',
+  'providers.loading': 'Ladataan…',
   'providers.noResults': 'Ei palveluntarjoajia löytynyt.',
   'providers.searchPlaceholder': 'Hae nimellä, erikoisalalla...',
   'providers.title': 'Etsi palveluntarjoaja',
@@ -162,6 +167,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Päivän alku',
   'settings.availability.heading': 'Saatavuus',
   'settings.devices.thisDevice': 'Tämä laite',
+  'settings.devices.unnamed': 'Nimeämätön laite',
   'settings.eyebrow': 'Harjoittelu ja tili',
   'settings.loadError': 'Profiiliasi ei voitu ladata.',
   'settings.notifications.emailMessages': 'Lähetä minulle sähköpostia, kun hoitotiimini vastaa',
@@ -175,6 +181,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Poista käytöstä',
   'settings.security.twoFactor.enable': 'Ota käyttöön',
   'settings.security.twoFactor.heading': 'Kaksivaiheinen todennus',
+  'settings.security.twoFactor.invalidCode': 'Koodi ei täsmää. Yritä uudelleen.',
+  'settings.security.twoFactor.setupFailed':
+    'Kaksivaiheisen asennuksen aloittaminen epäonnistui. Yritä uudelleen.',
+  'settings.security.twoFactor.statusOn': 'Kaksitekijä on käytössä',
   'settings.signOutDevice': 'Kirjaudu ulos',
   'settings.subheading': 'Palveluntarjoajan profiili, toimintasäännöt ja kliiniset hälytykset.',
   'signup.emailLabel': 'SÄHKÖPOSTI',
@@ -185,6 +195,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Luo tili',
   'signupFooter.hipaa': 'HIPAA-yhteensopiva',
   'solaceLayout.primaryNavLabel': 'Päänavigaatio',
+  'solaceLayout.toggleMenu': 'Valikko',
   'terms.eligibility.body':
     'Sinun on oltava vähintään kahdeksantoistavuotias tai alaikäisen, jolle haet hoitoa, vanhempi tai laillinen huoltaja ja fyysisesti sijaittava Yhdysvaltain osavaltiossa, jossa lääkäreillämme on toimilupa.',
   'terms.payment.body':

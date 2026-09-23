@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.eyebrow': '{{app}} பற்றி',
   'about.pageTitle': 'ஒவ்வொரு வழியும், ஒரே தேடல்.',
   'booking.backToDetail': 'விமான விவரங்களுக்குத் திரும்பு',
   'booking.continue': 'பணம் செலுத்துதலுக்குத் தொடரவும்',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'வரிகள் மற்றும் கட்டணங்கள்',
   'booking.summary.travelers': 'பயணிகள்',
   'common.about': 'பற்றி',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'flightDetail.backToResults': 'முடிவுகளுக்குத் திரும்பு',
   'flightDetail.baseFare': 'அடிப்படை கட்டணம்',
   'flightDetail.book': 'முன்பதிவைத் தொடரவும்',
@@ -52,12 +55,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 நிறுத்தம்',
   'flightResultCard.select': 'தேர்ந்தெடுக்கவும்',
   'flightResultCard.totalLabel': 'மொத்த நேரம்',
+  'flightSearchLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'forgotPassword.subheading':
     'உங்கள் ஸ்கைலார்க் கணக்கில் உள்ள மின்னஞ்சலை உள்ளிடவும், நாங்கள் ஒரு பாதுகாப்பான மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'சரிபார்க்கவும் {{email}} புதிய கடவுச்சொல்லை அமைப்பதற்கான இணைப்பு. இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'forgotPassword.successHeading': 'மீட்டமைப்பு இணைப்பு அனுப்பப்பட்டது',
   'landing.cta.explore': 'தேடிப் பாருங்கள்',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'மற்றவர்கள் அனைவருக்கும் முன்பாக அடுத்த சிறந்த விருந்தைக் கண்டறியுங்கள்.',
   'landing.cta.signup': 'கட்டணங்களைக் கண்காணிக்கத் தொடங்குங்கள்',
   'landing.features.eyebrow': 'ஸ்கைலார்க் ஏன்',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'எச்சரிக்கையைச் சேர்க்கவும்',
   'priceAlerts.deleteConfirm': 'இந்த எச்சரிக்கையை நீக்கவா?',
   'priceAlerts.empty': 'இதுவரை வழித்தடங்கள் எதுவும் கண்காணிக்கப்படவில்லை.',
+  'priceAlerts.emptyCta': 'கண்காணிக்க ஒரு வழியைத் தேடுங்கள்',
   'priceAlerts.errorMessage': 'எச்சரிக்கைகளை ஏற்ற முடியவில்லை.',
   'priceAlerts.eyebrow': 'ஸ்கைலார்க் கண்காணிப்புப் பட்டியல்',
   'priceAlerts.form.createError': 'எச்சரிக்கையை உருவாக்க முடியவில்லை.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'பல நகர பயணத் திட்டம்',
   'results.multiLegHeading': 'கால் {{n}} · {{இருந்து}} → {{க்கு}} · {{தேதி}}',
   'results.multiSummary': '{{count}} கால்கள் · {{passengers}} பயணி',
+  'results.sortAriaLabel': 'முடிவுகளை இதன்படி வரிசைப்படுத்தவும்',
   'results.sortLabel': 'வரிசைப்படுத்து',
   'results.summary': '{{count}} விமானங்கள் {{passengers}} பயணி',
   'settings.language.title': 'மொழி',

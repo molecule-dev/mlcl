@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ձեր դերը',
   'account.role.upgradeLink': 'Դիմեք՝ դառնալու ստուգված դասատու →',
   'account.title': 'Պրոֆիլ, վճարում և նախընտրություններ։',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Սովորեցրեք կավիճի վրա',
   'becomeTutor.form.error': 'Չհաջողվեց ներկայացնել դիմումը։',
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Թեմա',
   'bookingConfirm.title': 'Դուք պատվիրված եք։ Մնացածը մենք կհոգանք։',
   'bookingConfirm.with': 'Դաստիարակի հետ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'earningsHero.eyebrow': 'Եկամուտներ • {{month}}',
   'forgotPassword.heading': 'Մոռացե՞լ եք գաղտնաբառը։',
   'forgotPassword.subheading':
@@ -117,6 +119,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Ուղարկել հաղորդագրություն',
   'messages.thread.empty': 'Ասա բարև՝ սկսիր զրույցը։',
   'messages.title': 'Թեմաներ ձեր դասատուների հետ։',
+  'nav.primary': 'Հիմնական',
   'pricing.dataExport': 'Տվյալների արտահանում:',
   'pricing.headingDefault': 'Ընդլայնված հնարավորություններ՝',
   'resetPassword.heading': 'Ընտրեք նոր ուժեղ գաղտնաբառ։',

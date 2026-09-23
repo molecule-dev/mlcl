@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ປັດຈຸບັນທ່ານກຳລັງຢູ່ໃນ {{plan}} ແຜນການ.',
   'billing.switch': 'ສະວິດ',
   'billing.upgraded': 'ອັບເດດເປັນ {{plan}} - ຂໍ້ຈຳກັດຕ່າງໆຈະຖືກນຳໃຊ້ທັນທີ.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'compare.activityHeading': 'ຄຳຕັດສິນກ່ຽວກັບກິດຈະກຳ',
   'compare.empty.title': 'ຕື່ມຢ່າງໜ້ອຍສອງສະຖານທີ່ເພື່ອປຽບທຽບ',
   'compare.eyebrow': 'ຄຽງຄູ່ກັນ',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'ສູງ',
   'trends.summary.low.label': 'ຕ່ຳ',
   'trends.summary.points.label': 'ມື້',
+  'weatherDashboardLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'weatherHeroCard.updated': 'ອັບເດດແລ້ວ {{time}}',
 }

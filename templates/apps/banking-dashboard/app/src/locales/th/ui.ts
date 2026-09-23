@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'accountDetail.activeBadge': 'คล่องแคล่ว',
   'accountDetail.availableLabel': '{{amount}} มีอยู่',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'บัญชี',
   'accounts.loadError': 'ไม่สามารถโหลดบัญชีได้',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'แช่แข็ง',
   'accounts.totalBalance': '{{จำนวน}} ทั้งหมด',
   'audit.empty': 'ยังไม่มีกิจกรรมใดๆ',
   'audit.eyebrow': 'ระบบรักษาความปลอดภัยและการเข้าถึง',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'เงินสดในมือ',
   'cashCreditCard.creditLabel': 'เครดิตที่ใช้',
   'cashCreditCard.title': 'เงินสดและเครดิต',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.accountsHeading': 'บัญชี',
   'dashboard.heading': 'ภาพรวม',
   'dashboard.recentEmpty': 'ยังไม่มีการทำธุรกรรมใดๆ',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'แสดงรหัสผ่าน',
   'login.signUp': 'ลงทะเบียน',
   'login.submit': 'เข้าสู่ระบบ',
+  'meridianLayout.menu': 'เมนู',
   'meridianLayout.primaryNavLabel': 'การนำทางหลัก',
   'nav.legal': 'ถูกกฎหมาย',
   'notifications.emptyHeading': 'คุณตามทันหมดแล้ว',
   'notifications.subheading': 'การแจ้งเตือนแบบเรียลไทม์สำหรับธุรกรรม หลักทรัพย์ และงบการเงิน',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'privacy.dataWeShare':
     'ข้อมูลทางการเงินส่วนบุคคลจะไม่ถูกขายให้กับบุคคลอื่น เราจะแบ่งปันข้อมูลกับผู้ให้บริการชำระเงิน เครือข่ายบัตร และหน่วยงานกำกับดูแลเฉพาะในกรณีที่จำเป็นสำหรับการชำระธุรกรรมหรือปฏิบัติตามข้อผูกพันทางกฎหมายเท่านั้น',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'การยืนยันตัวตนสองขั้นตอนจะเพิ่มรหัสใช้ครั้งเดียวจากแอปยืนยันตัวตนทุกครั้งที่เข้าสู่ระบบ',
   'settings.security.twoFactorCta': 'จัดการการตรวจสอบสิทธิ์แบบสองขั้นตอน',
+  'settings.security.twoFactorOff': 'การตรวจสอบสิทธิ์แบบสองปัจจัยถูกปิดใช้งาน',
   'settings.signOutDevice': 'ออกจากระบบ',
   'settings.subheading': 'ข้อมูลส่วนตัว ความปลอดภัย และการแจ้งเตือน',
+  'settings.twoFactorCode': 'รหัสยืนยันตัวตน',
   'settings.twoFactorDisable': 'ปิดใช้งาน',
   'settings.twoFactorEnable': 'เปิดใช้งาน',
+  'settings.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
+  'settings.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
   'signup.emailLabel': 'ที่อยู่อีเมล',
   'signup.fullName': 'เราควรเรียกคุณว่าอย่างไรดี?',
   'signup.showPassword': 'แสดงรหัสผ่าน',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ยังไม่มีการทำธุรกรรมใดๆ',
   'transactions.endDate': 'วันสิ้นสุด',
   'transactions.eyebrow': 'กิจกรรม',
+  'transactions.loadError': 'ไม่สามารถโหลดรายการธุรกรรมได้',
   'transactions.merchant': 'พ่อค้า',
+  'transactions.subheading': 'ธุรกรรมทั้งหมดที่บันทึกไว้และรอการอนุมัติในบัญชีของคุณ',
   'transfers.availableHint': '{{amount}} มีอยู่',
   'transfers.errorGeneric': 'ไม่สามารถส่งการโอนเงินได้',
   'transfers.errorMissingFields': 'เลือกบัญชีต้นทางและบัญชีปลายทาง',

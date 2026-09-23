@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
   'applications.empty': 'Азырынча арыз жок \\u2014 Туура рол - бир гана арыз берүү.',
   'applications.eyebrow': 'Сиздин түтүк жолуңуз',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Кыймылдагы ар бир ролуңузга кайрылгансыз. Фокустоо үчүн этап боюнча чыпкалаңыз.',
   'applications.untitledRole': 'Роль # {{id}}',
+  'auth.legalConsent': 'Улантуу менен, сиз биздин макулдашасыз',
   'common.and': 'жана',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'companies.empty': 'Издөөңүзгө дал келген компаниялар жок. Башка терминди колдонуп көрүңүз.',
   'companies.eyebrow': 'Сунушталган жумуш берүүчүлөр',
   'companies.searchPlaceholder': 'Аты-жөнү, тармагы, жайгашкан жери боюнча издөө',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Бул кызмат ордуна азырынча эч кандай арыз түшкөн жок.',
   'jobApplicants.eyebrow': 'Жумуш берүүчүнүн көз карашы',
   'jobApplicants.loading': 'Жүктөлүүдө\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Ал этапты жаңырта алган жок — кайра аракет кылыңыз.',
+  'jobApplicants.subheading':
+    'Резюмелерди карап чыгуу, талапкерлерди алдыга жылдыруу, сунуштарды жөнөтүү \\u2014 {{count}} аракетте.',
   'jobDetail.applicantCount': '{{count}} азырынча талапкерлер',
   'jobDetail.applied': 'Арыз жөнөтүлдү',
   'jobDetail.apply': 'Азыр кайрылыңыз',
@@ -84,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Ачык ролдорду карап чыгуу \\u2192',
   'landing.pricingEyebrow': 'Баалар',
   'landing.pricingHeading': 'Ар бир команданын өлчөмү үчүн жөнөкөй пландар.',
+  'login.eyebrow': '{{app}} дегенге кайра келиңиз',
   'login.heading': 'Аккаунтуңузга кириңиз',
   'login.noAccount': 'Ношко жаңы келдиңизби?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Мени 30 күнгө эстеп кал',
   'login.signingIn': 'Кирүүдө\\u2026',
   'login.subheading': 'Издөөнү улантыңыз, арыздарыңызды өркүндөтүңүз, тезирээк жооп алыңыз.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Жумушка алуу командалары үчүн түзүлгөн.',
   'loginBrandPanel.headline': 'Талант жолуккан жерде',
   'loginBrandPanel.headlineLine2': 'импульс.',
   'loginBrandPanel.listing.recruiter': 'Талант өнөктөшү',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Колдонмо жаңыртуулары, маектешүүгө чакыруулар, жаңы дал келүүлөр \\u2014 эң жаңысы биринчи.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} бул аптада',
   'opportunitiesHero.eyebrow': 'Бүгүн ачык',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'postJob.addNewCompany': '+ Жаңы компания кошуу',
   'postJob.companyCreateFailed': 'Компания түзүлбөй койду — кайра аракет кылыңыз.',
   'postJob.companyNameLabel': 'Компанияңыздын аталышы',
@@ -164,10 +173,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Аккаунт түзүлүүдө\\u2026',
   'signup.ctaEmployer': 'Жумуш берүүчүнүн аккаунтун түзүү',
   'signup.firstNamePlaceholder': 'Майя',
+  'signup.lastNamePlaceholder': 'Чен',
   'signup.passwordMismatch': 'Сырсөздөр дал келген жок.',
   'signup.subheading':
     'Издөөчүлөр үчүн түбөлүккө акысыз. Жумуш берүүчүлөр 30 күндүк сыноо мөөнөтү менен башташат.',
   'timeAgo.days': '{{count}} күн мурун',
   'timeAgo.hours': '{{count}} саат мурун',
   'timeAgo.justNow': 'азыр эле',
+  'timeAgo.weeks': '{{count}} жума мурун',
 }

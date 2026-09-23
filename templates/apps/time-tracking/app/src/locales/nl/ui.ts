@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Over {{app}}',
   'about.plansTitle': 'Abonnementen die met u meegroeien',
   'brand.tagline': 'Elke seconde',
   'clientDetail.back': 'Terug naar klanten',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Elke relatie op één plek — projecten, uren, openstaande facturen.',
   'clients.title': 'Klanten',
   'common.and': 'en',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'dashboard.activeProjects': 'Actieve projecten',
   'dashboard.empty': 'Nog geen registraties. Start de timer om uw eerste sessie bij te houden.',
   'dashboard.greeting': 'Goedendag, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'Geen factureerbare uren om te factureren voor deze klant. Houd eerst tijd bij of wijs bestaande registraties toe aan een project van deze klant.',
   'invoices.save': 'Factuur aanmaken',
   'invoices.subtitle': 'Bijgehouden uren worden automatisch verwerkt in facturen.',
+  'landing.copyright': '© {{year}} {{app}} . Elke seconde wordt geregistreerd.',
   'landing.ctaBody': 'Gratis voor maximaal 3 projecten. Upgrade wanneer uw klantenlijst groeit.',
   'landing.eyebrow': 'Tijdregistratie voor factureerbaar werk',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Vertrouwd door zelfstandigen',
   'landing.testimonial.quote':
     '“Ik ben in 30 minuten van Toggl overgestapt. De budgetafbouw alleen al heeft zichzelf terugverdiend — ik ben twee weken op rij gestopt met onderoffertes.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Elke seconde, geregistreerd.',
   'login.brand.subtitle':
     'Pak de timer op waar u was gebleven — elke minuut al toegewezen aan een project, een klant, een factuur.',
   'login.brand.tracking': 'Bezig met bijhouden',
   'login.subheading': 'Pak de timer op waar u was gebleven.',
+  'nav.closeMenu': 'Navigatiemenu sluiten',
   'nav.insightsSection': 'Inzichten',
   'nav.newEntry': 'Nieuwe registratie',
+  'nav.openMenu': 'Navigatiemenu openen',
+  'nav.primary': 'Hoofdnavigatie',
   'nav.workSection': 'Werk',
   'notFound.body':
     'Het lijkt erop dat de link die u volgde is gestopt met bijhouden. Ga terug naar uw dashboard — we tellen daar verder.',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Factureerbaar',
   'timer.descriptionPlaceholder': 'Waar werkt u aan?',
   'timer.idle': 'Inactief — begin met bijhouden',
+  'timer.noProject': 'Geen project',
   'timer.runningWithProject': 'Geen project',
   'timer.start': 'Timer starten',
   'timer.stop': 'Timer stoppen',

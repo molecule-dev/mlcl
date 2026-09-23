@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} hakkında',
   'argentAuthShell.brandEyebrow': 'Argent · Servet araçları',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Yatırım tavsiyesi değildir.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) bugün',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Ana navigasyon',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Bu sembol için işlem yok.',
   'assetDetail.txHeading': 'İşlemleriniz',
   'common.and': 've',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portföy genel bakışı',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Henüz pozisyon yok.',
   'holdings.heading': 'Pozisyonlar',
   'holdings.loadError': 'Pozisyonlar yüklenemedi.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Yatırım tavsiyesi değildir. Geçmiş performans, gelecekteki sonuçları garanti etmez.',
   'landing.eyebrow': 'Argent · Bir servet aracı platformu',
   'landing.features.heading': 'Bir danışmanın kendisi için kuracağı her şey.',
   'landing.finalCta.heading': 'Portföyünüze disiplini geri getirin.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}s önce',
   'news.justNow': 'az önce',
   'news.loadError': 'Haberler yüklenemedi.',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'portfolioHeroCard.label': 'Portföy Değeri',
   'pricing.holdingsLabel': 'holdingler',
   'pricing.newsLabel': 'haber makalesi',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Hesabı sil',
   'settings.security.deleting': 'Siliniyor…',
   'settings.security.heading': 'Güvenlik',
+  'settings.security.newPassword': 'Yeni şifre',
   'settings.security.password': 'Parola',
   'settings.security.twoFactorEnable': 'Etkinleştir',
+  'settings.security.twoFactorInvalidCode': 'Geçersiz kod',
+  'settings.security.twoFactorVerify': 'Doğrula ve etkinleştir',
   'settings.tax.error': 'Vergi yöntemi güncellenemedi.',
   'settings.tax.heading': 'Vergi lotu muhasebesi',
   'settings.tax.method': 'Varsayılan yöntem',

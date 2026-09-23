@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'article.notFound': 'Makala hayakupatikana',
   'articleEditor.bodyPlaceholder': 'Andika / kwa vitalu, au anza tu kuandika.',
+  'articleEditor.loadFailed': 'Haikuweza kupakia makala',
   'articleEditor.publishing': 'Kuchapisha\\u2026',
   'articleEditor.saveFailed': 'Imeshindwa kuhifadhi',
   'articleEditor.saving': 'Kuhifadhi\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Alamisho',
   'articleView.bookmarkOn': 'Imealamishwa',
   'articleView.edit': 'Hariri makala',
+  'articleView.loading': 'Kufungua makala haya…',
   'articleView.readTime': '{{minutes}} kusoma kwa dakika',
   'articleView.spaces': 'Nafasi',
   'articleView.tocHeading': 'Kwenye ukurasa huu',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Marekebisho, usomaji, na rasimu za hivi karibuni ambazo timu yako bado inazipata.',
   'cairnTrailHero.updated': 'Makala yamesasishwa',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'drafts.eyebrow': 'Kazi yako ambayo haijakamilika',
   'drafts.heading': 'Rasimu',
+  'drafts.loadFailed': 'Haikuweza kupakia rasimu zako.',
   'drafts.subtitle': 'Makala ulizoanza lakini bado hujachapisha. Chukua moja na uendelee.',
   'forgotPassword.sentBody':
     'Ikiwa akaunti ipo kwa {{email}} , kiungo cha kuweka upya kiko njiani. Kiungo kitaisha baada ya dakika 30.',
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesHeading': 'Nafasi zako',
   'home.subtitle':
     'Makala za hivi karibuni, alamisho zako, na kile ambacho timu imekuwa ikiandika.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Imejengwa kwa Molekuli.',
   'landing.ctaBody':
     'Bila malipo kwa waandishi binafsi. Timu hupanga timu zilizosambazwa zinazosafirisha vitabu vya kuendeshwa, maamuzi, na uandikishaji.',
   'landing.ctaHeading': 'Weka jiwe la kwanza leo.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Unda nafasi ya kazi',
   'login.submitting': 'Kuingia\\u2026',
   'login.subtitle': 'Chukua njia ulipoiacha.',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
+  'newSpace.colorAria': 'Chagua rangi {{color}}',
   'newSpace.colorLabel': 'Rangi ya lafudhi',
+  'newSpace.createFailed': 'Haikuweza kuunda nafasi',
   'newSpace.descriptionPlaceholder':
     'Runbooks, vitabu vya michezo vya wakati wa simu, uchunguzi wa baada ya kifo\\u2026',
   'newSpace.eyebrow': 'Fungua nafasi ya maarifa',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Inapakia\\u2026',
   'notifications.subtitle':
     '{{count}} haijasomwa \\u2014 kutaja, maoni, mabadiliko ya ukurasa, na maombi ya ukaguzi.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.articles': 'makala',
   'pricing.spaces': 'nafasi',
   'profile.eyebrow': 'Wasifu wa mwandishi',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Ingiza nenosiri jipya',
   'resetPassword.subtitle': 'Chagua nenosiri thabiti — angalau herufi 12.',
   'searchResults.eyebrow': 'Utafutaji wa nafasi ya kazi',
+  'searchResults.filter.all': 'Nafasi zote',
   'searchResults.heading': 'Tafuta makala',
   'searchResults.placeholder': 'Tafuta vitabu vya uendeshaji, RFC, sera, maamuzi\\u2026',
   'searchResults.summary': '{{count}} matokeo ya \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Hii hufuta akaunti yako na kila makala uliyoandika. Andika DELETE ili kuthibitisha.',
   'settings.danger.confirmInvalid': 'Andika DELETE ili kuthibitisha.',
+  'settings.danger.deleteFailed': 'Haikuweza kufuta akaunti',
   'settings.danger.deleting': 'Inafuta\\u2026',
   'settings.danger.description':
     'Kufuta nafasi yako ya kazi huondoa makala, maoni, na historia yote ya matoleo. Hakuna urejeshaji.',
   'settings.danger.title': 'Futa nafasi ya kazi',
+  'settings.email.confirm': 'Sasisha barua pepe',
+  'settings.email.confirmTitle': 'Thibitisha mabadiliko ya barua pepe',
   'settings.email.saved': 'Barua pepe imesasishwa.',
+  'settings.email.updateFailed': 'Haikuweza kusasisha barua pepe',
   'settings.language.title': 'Lugha',
   'settings.name': 'Jina',
+  'settings.name.saved': 'Jina limesasishwa.',
+  'settings.name.updateFailed': 'Haikuweza kusasisha jina',
   'settings.notifications.description': 'Chagua kinachofikia kikasha chako.',
+  'settings.password.changeFailed': 'Haikuweza kubadilisha nenosiri',
   'settings.password.current': 'Nenosiri la sasa',
   'settings.password.new': 'Nenosiri jipya',
   'settings.password.saving': 'Inasasisha\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Jinsi makala zinavyoonekana kwako.',
   'settings.reading.title': 'Kusoma na kuandika',
   'settings.subtitle': 'Rekebisha arifa, turubai ya kusoma, na akaunti yako.',
+  'settings.twofa.code': 'Nambari ya uthibitishaji',
   'settings.twofa.disable': 'Zima',
   'settings.twofa.disabled': 'Walemavu',
   'settings.twofa.enable': 'Washa',
   'settings.twofa.enabled': 'Imewezeshwa',
+  'settings.twofa.invalidCode': 'Nambari batili',
+  'settings.twofa.unavailable': 'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
+  'settings.twofa.verify': 'Thibitisha na uwashe',
   'signup.brandQuote':
     '\\u201cKuiandika ni ahadi ya kwanza tunayotoa kwa mtu mwingine anayeihitaji.\\u201d',
   'signup.eyebrow': 'Fungua nafasi ya kazi',

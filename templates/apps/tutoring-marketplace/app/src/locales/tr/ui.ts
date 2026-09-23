@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Rolünüz',
   'account.role.upgradeLink': 'Doğrulanmış eğitmen olmak için başvurun →',
   'account.title': 'Profil, ödeme ve tercihler.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': "Mentor'ta öğretin",
   'becomeTutor.form.error': 'Başvuru gönderilemedi.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Ders',
   'bookingConfirm.title': 'Rezervasyonunuz tamam. Gerisini biz hallederiz.',
   'bookingConfirm.with': 'Eğitmenle',
+  'common.goToDashboard': 'Panele Git',
   'earningsHero.eyebrow': 'Kazançlar • {{month}}',
   'forgotPassword.heading': 'Parolanızı mı unuttunuz?',
   'forgotPassword.subheading': 'Hesabınıza bağlı e-postayı girin, sıfırlama bağlantısı gönderelim.',
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Mesaj gönder',
   'messages.thread.empty': 'Merhaba deyin — sohbeti başlatın.',
   'messages.title': 'Eğitmenlerinizle olan sohbetler.',
+  'nav.primary': 'Birincil',
   'pricing.dataExport': 'Veri dışa aktarma:',
   'pricing.headingDefault': 'Gelişmiş özellikler:',
   'resetPassword.heading': 'Güçlü yeni bir parola seçin.',

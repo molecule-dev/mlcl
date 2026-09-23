@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'forgot.eyebrow': 'Elvesztetted a visszautat?',
   'forgot.formSubtitle': 'Add meg a nyilvántartásunkban szereplő e-mail címet.',
   'forgot.headline': 'Állítsa vissza a jelszavát.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Hozz létre egyet',
   'login.subline':
     'A jegyzetfüzeteid, a backlinkjeid és a napi oldalaid ott vannak, ahol hagytad őket.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'noteEditor.backToNotes': 'Vissza a jegyzetekhez',
   'noteEditor.bodyPlaceholder':
     'Kezdj el írni – a jegyzeted automatikusan mentésre kerül gépelés közben.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Új jegyzetfüzet',
   'notes.newNotebookPrompt': 'Új jegyzetfüzet neve',
   'notes.notebooksHeading': 'Jegyzetfüzetek',
+  'notes.subtitle':
+    'Válasszon egy jegyzetfüzetet a bal oldalon, majd nyomja meg az Új jegyzet gombot egy új bejegyzés megkezdéséhez.',
   'planUpdated.confirmation': 'A csomagod frissült',
   'pricing.heading': 'Válassza ki a jegyzetelési tervét',
   'reset.eyebrow': 'Majdnem vissza',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Frissítve',
   'versoLayout.nav.graph': 'Grafikon',
   'versoLayout.nav.home': 'Otthon',
+  'versoLayout.primaryNavLabel': 'Elsődleges navigáció',
   'versoNoteCard.pinned': 'Rögzítve',
   'versoTodayHero.continueCta': 'Írás folytatása',
   'versoTodayHero.createCta': 'Kezdje a mai jegyzetet',

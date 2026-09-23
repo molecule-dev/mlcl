@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'auditLog.empty':
     'Kol kas nėra jūsų filtrus atitinkančių audito įvykių. Redaguokite darbuotoją arba apdorokite atlyginimų vykdymą ir jie bus rodomi čia.',
   'auditLog.eyebrow': 'Atitiktis',
+  'auditLog.loadError': 'Nepavyko įkelti audito žurnalo.',
   'auditLog.searchPlaceholder': 'Ieškoti pagal aktorių, veiksmą arba aprašymą',
   'auditLog.subheading':
     'Kiekvienas patvirtinimas, redagavimas ir mokesčių deklaravimas – su veikėju, laiko žyma ir pakeistais laukais.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nenustatyta',
   'billing.plansHeading': 'Planai',
   'billing.subheading': 'Tvarkykite savo planą ir keiskite lygius naudodami „Stripe“.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Bandyti dar kartą',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Atitikties apžvalga',
   'dashboard.compliance.title': 'Visi patikrinimai sėkmingi',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Byloje nėra jokių išskaitymų.',
   'employeeDetail.notFound': 'Darbuotojas nerastas.',
   'employeeDetail.payFrequency': 'Mokėjimo dažnumas',
+  'employeeDetail.postTax': 'Po mokesčių',
+  'employeeDetail.preTax': 'Prieš apmokestinimą',
   'employeeDetail.salary': 'Metinis atlyginimas',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Pradėta {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Mokėjimo dažnumas',
   'employeeForm.salary': 'Metinis atlyginimas (USD)',
   'employeeForm.salaryInvalid': 'Atlyginimas turi būti neneigiamas skaičius.',
+  'employeeForm.saveError': 'Nepavyko išsaugoti darbuotojo.',
   'employeeForm.semimonthly': 'Kas pusmetį',
   'employeeForm.single': 'Vienvietis',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Atlyginimas',
   'forgotPassword.subtitle':
     'Įveskite savo darbo el. pašto adresą ir mes atsiųsime jums atstatymo nuorodą.',
+  'landing.copyright': '© {{year}} {{app}} . Tikslus, patikimas, susikaupęs.',
   'landing.ctaBody':
     '30 dienų nemokamai. Nereikia kreditinės kortelės. Galite bet kada pakeisti prenumeratą neprarasdami savo duomenų.',
   'landing.ctaHeading': 'Kitą ciklą atlikite naudodami „Stipend“',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Šiam mokėjimo laikotarpiui dar nėra audito įrašų.',
   'payRunDetail.noStubs':
     'Kol kas nėra atlyginimo lapelių – patvirtinkite ir apdorokite, kad juos sugeneruotumėte.',
+  'payRunDetail.notFound': 'Šio mokėjimo eigos rasti nepavyko.',
   'payRunDetail.statDeductions': 'Atskaitymai',
   'payRunDetail.statHeadcount': 'Darbuotojai',
   'payRunDetail.statTaxes': 'Išskaičiuoti mokesčiai',
@@ -223,7 +232,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Kas pusmetį',
   'settings.signOutDevice': 'Atsijungti',
   'settings.subheading': 'Įmonės profilis, atlyginimų grafikas ir integracijos.',
+  'settings.twoFactorCode': 'Autentifikavimo kodas',
   'settings.twoFactorDisable': 'Išjungti',
+  'settings.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.twoFactorVerify': 'Patvirtinti ir įgalinti',
   'settings.weekly': 'Savaitinis',
   'taxCenter.bucket.federal': 'Federalinės pajamos',
   'taxCenter.bucket.fica': 'Socialinis draudimas',

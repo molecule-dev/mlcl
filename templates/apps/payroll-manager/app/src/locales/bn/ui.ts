@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'auditLog.empty':
     'এখনও আপনার ফিল্টারের সাথে মেলে এমন কোনো অডিট ইভেন্ট নেই। কোনো কর্মীকে সম্পাদনা করুন অথবা বেতন পরিশোধের প্রক্রিয়া সম্পন্ন করুন, তাহলে সেগুলো এখানে দেখা যাবে।',
   'auditLog.eyebrow': 'সম্মতি',
+  'auditLog.loadError': 'অডিট লগ লোড করা যায়নি।',
   'auditLog.searchPlaceholder': 'অভিনেতা, কার্যকলাপ বা বিবরণ দ্বারা অনুসন্ধান করুন',
   'auditLog.subheading':
     'প্রতিটি অনুমোদন, সম্পাদনা এবং ট্যাক্স ফাইলিং — অভিনেতা, টাইমস্ট্যাম্প এবং পরিবর্তিত ফিল্ড সহ।',
@@ -11,8 +13,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'কনফিগার করা হয়নি',
   'billing.plansHeading': 'পরিকল্পনা',
   'billing.subheading': 'Stripe-এর মাধ্যমে আপনার প্ল্যান পরিচালনা করুন এবং টিয়ার পরিবর্তন করুন।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'সম্মতি স্ন্যাপশট',
   'dashboard.compliance.title': 'সমস্ত চেক পাস করছে',
@@ -31,6 +35,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'নথিভুক্ত কোনো কর্তন নেই।',
   'employeeDetail.notFound': 'কর্মচারীকে খুঁজে পাওয়া যায়নি।',
   'employeeDetail.payFrequency': 'বেতন প্রদানের ফ্রিকোয়েন্সি',
+  'employeeDetail.postTax': 'কর-পরবর্তী',
+  'employeeDetail.preTax': 'প্রাক-কর',
   'employeeDetail.salary': 'বার্ষিক বেতন',
   'employeeDetail.ssn': 'এসএসএন',
   'employeeDetail.startedOn': 'শুরু হয়েছে {{date}}',
@@ -51,6 +57,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'বেতন প্রদানের ফ্রিকোয়েন্সি',
   'employeeForm.salary': 'বার্ষিক বেতন (মার্কিন ডলার)',
   'employeeForm.salaryInvalid': 'বেতন অবশ্যই একটি অঋণাত্মক সংখ্যা হতে হবে।',
+  'employeeForm.saveError': 'কর্মীকে বাঁচানো সম্ভব হয়নি।',
   'employeeForm.semimonthly': 'অর্ধ-মাসিক',
   'employeeForm.single': 'একক',
   'employeeForm.ssn': 'এসএসএন',
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'কর্মচারী',
   'employeesTable.col.salary': 'বেতন',
   'forgotPassword.subtitle': 'আপনার অফিসের ইমেল দিন এবং আমরা একটি রিসেট লিঙ্ক পাঠিয়ে দেব।',
+  'landing.copyright': '© {{year}} {{app}} . নির্ভুল, নির্ভরযোগ্য, সংযত।',
   'landing.ctaBody':
     '৩০ দিনের জন্য বিনামূল্যে। কোনো ক্রেডিট কার্ডের প্রয়োজন নেই। আপনার অডিট ট্রেইল না হারিয়ে যেকোনো সময় পরিবর্তন করুন।',
   'landing.eyebrow': 'ক্ষুদ্র ও মাঝারি ব্যবসার জন্য বেতন',
@@ -85,6 +93,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'অনুমোদন, সময়সীমা, ইন্টিগ্রেশন অ্যালার্ট এবং মেনশন—সবকিছু এক জায়গায়।',
   'notifications.view': 'দেখুন',
+  'payrollHeroCard.change': 'পূর্ববর্তী চক্রের তুলনায় {{sign}} {{amount}}',
   'payrollHeroCard.cta': 'পর্যালোচনা করুন এবং চালান',
   'payrollHeroCard.employees': '{{count}} কর্মচারীরা',
   'payrollHeroCard.eyebrow': 'পরবর্তী বেতন প্রদান · {{date}}',
@@ -103,6 +112,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'এই বেতন পরিশোধের জন্য এখনও কোনো নিরীক্ষা নথি তৈরি হয়নি।',
   'payRunDetail.noStubs':
     'এখনো কোনো বেতন স্লিপ নেই — সেগুলো তৈরি করার জন্য অনুমোদন দিন এবং প্রক্রিয়া শুরু করুন।',
+  'payRunDetail.notFound': 'এই পে রানটি খুঁজে পাওয়া যায়নি।',
   'payRunDetail.statDeductions': 'কর্তন',
   'payRunDetail.statHeadcount': 'কর্মচারীরা',
   'payRunDetail.statTaxes': 'কর কর্তন করা হয়েছে',
@@ -111,6 +121,7 @@ export const ui: UiTranslations = {
   'payRuns.eyebrow': 'সাইকেলের ইতিহাস',
   'payRuns.heading': 'বেতন দৌড়',
   'payRuns.runNow': 'বেতন পরিশোধ করুন',
+  'payRuns.subheading': '{{processed}} প্রক্রিয়াকৃত · {{pending}} বিচারাধীন · {{total}} এই দৃশ্য',
   'payRunsList.employeeCount': '{{count}}',
   'payRunsList.empty': 'এখনও কোনো পেমেন্ট রান শুরু হয়নি। আপনার প্রথম সাইকেলটি শিডিউল করুন।',
   'payRunsList.payDate': 'বেতন প্রদানের তারিখ · {{date}}',
@@ -216,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'অর্ধ-মাসিক',
   'settings.signOutDevice': 'সাইন আউট',
   'settings.subheading': 'কোম্পানির প্রোফাইল, বেতন প্রদানের সময়সূচী এবং ইন্টিগ্রেশন।',
+  'settings.twoFactorCode': 'প্রমাণীকরণ কোড',
   'settings.twoFactorDisable': 'অক্ষম করুন',
+  'settings.twoFactorInvalidCode': 'অবৈধ কোড',
+  'settings.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'settings.weekly': 'সাপ্তাহিক',
   'taxCenter.bucket.federal': 'ফেডারেল আয়',
   'taxCenter.bucket.fica': 'সামাজিক নিরাপত্তা',

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Tarifinformationen werden geladen…',
   'billing.popular': 'Am beliebtesten',
   'billing.subtitle': 'Wählen Sie den Tarif, der zu Ihrem Lernrhythmus passt.',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.today': 'Heute',
   'common.yesterday': 'Gestern',
   'courseDetail.empty.body': 'Fügen Sie Lernmaterial hinzu, um dieses Thema zu meistern.',
@@ -83,8 +84,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Deckname',
   'flashcards.subtitle': 'Verteiltes Lernen, das sich Ihrem Tempo anpasst.',
   'flashcards.title': 'Karteikarten',
+  'footer.copyright': '© {{year}} {{app}}. Gut lernen, gut schlafen.',
   'forgotPassword.subtitle':
     'Geben Sie Ihre E-Mail-Adresse ein, und wir senden Ihnen einen Link zum Zurücksetzen.',
+  'koanLayout.closeMenu': 'Menü schließen',
+  'koanLayout.navLabel': 'Hauptnavigation',
+  'koanLayout.openMenu': 'Menü öffnen',
   'koanLayout.theme': 'Design',
   'landing.featuresBody':
     'Werkzeuge, die Ablenkung beseitigen und nachhaltiges Verständnis aufbauen.',
@@ -120,11 +125,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Diese URL ist unerforschtes Gebiet. Vielleicht ein Tippfehler, vielleicht eine gelöschte Lektion – wie auch immer, zurück zum Lernen.',
   'notFound.heading': 'Seite nicht gefunden.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Sie sind auf dem neuesten Stand',
   'notifications.filter.${opt}': 'Benachrichtigungen werden geladen…',
   'notifications.markAllError': 'Konnte nicht alle als gelesen markieren.',
   'notifications.markError': 'Konnte nicht als gelesen markieren.',
   'notifications.subtitle': '{{count}} ungelesene Updates',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.heading': 'Quizze',
   'pricing.limits.topics': 'Themen',
   'privacy.collectBody':
@@ -189,6 +196,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Versuchen Sie ein anderes Stichwort oder Filter.',
   'search.empty.title': 'Nichts gefunden.',
   'search.error': 'Ergebnisse konnten nicht geladen werden.',
+  'search.filters': 'Filter nach Ergebnisart',
   'search.go': 'Los',
   'search.label.flashcard': 'Karteikartendeck',
   'search.label.note': 'Notiz',

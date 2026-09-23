@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '의견이나 기능 요청이 있거나 버그를 발견하셨나요? 계정 메뉴의 지원 링크를 통해 {{app}} 팀에 문의해 주세요. 모든 메시지는 실제 담당자가 직접 확인합니다.',
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'agentDetail.back': '모든 에이전트',
   'agentDetail.capabilities': '기능',
   'agentDetail.delete': '페르소나 삭제',
   'agentDetail.deleteConfirm': '이 페르소나를 삭제하시겠습니까? 되돌릴 수 없습니다.',
+  'agentDetail.deleteError': '페르소나를 삭제할 수 없습니다.',
   'agentDetail.eyebrow': '페르소나',
   'agentDetail.fetchError': '페르소나를 불러올 수 없습니다.',
   'agentDetail.save': '페르소나 저장',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': '전환 중…',
   'billing.updateError': '업데이트를 시작할 수 없습니다.',
   'billing.usageHeading': '이번 주기의 음성 사용량',
+  'chatBubble.source.text': '텍스트',
+  'chatBubble.source.voice': '음성',
+  'common.goToDashboard': '대시보드로 이동',
   'conversation.defaultTitle': '새 대화',
   'conversation.empty': '아직 메시지가 없습니다. 말하거나 아래에 입력하여 시작하세요.',
   'conversation.eyebrow': '라이브 세션',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': '말하는 지능.',
   'landing.heroSubtitle':
     '당신의 자연스러운 흐름을 이해하는 AI 음성 어시스턴트. 대화하고, 아이디어를 떠올리고, 명령하세요 — 매끄럽게.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': '듣는 중…',
   'landing.naturallyBody':
     '트리거 단어 없음. 엄격한 명령 없음. Vox는 컨텍스트, 중단, 인간 음성의 뉘앙스를 이해합니다 — 동료와 대화하는 것처럼.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': '세션 열기',
   'notFound.home': '홈으로 돌아가기',
   'notFound.title': '그 페이지를 들을 수 없었습니다.',
+  'parlanceLayout.closeMenu': '메뉴 닫기',
+  'parlanceLayout.openMenu': '탐색 메뉴 열기',
   'parlanceLayout.primaryNavLabel': '기본 탐색',
   'pricing.conversations': '대화 {{count}}회',
   'pricing.cta.startFree': '무료로 시작하기',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': '일치하는 항목 없음',
   'search.eyebrow': '명령 팔레트',
   'search.fetchError': '검색 인덱스를 불러올 수 없습니다.',
+  'search.static.profile.preview': '표시 이름, 닉네임, 자기소개',
   'search.static.voice.title': '목소리',
   'search.title': 'Vox 검색',
   'search.transcriptPreview': '전사본 열기',

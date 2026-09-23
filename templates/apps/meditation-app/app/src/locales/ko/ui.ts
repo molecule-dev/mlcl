@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
+  'about.eyebrow': '{{app}} 소개',
+  'about.intro':
+    '{{app}} 은 실생활에 최적화된 명상 앱입니다. 친구처럼 편안하게 느껴지는 선생님들이 안내하는 일일 명상, 호흡법, 수면 이야기 등을 제공합니다. 연속 명상에 대한 부담감도 없고, 시끄러운 알림도 없습니다. 그저 조용히 호흡에 집중할 수 있는 공간입니다.',
+  'about.missionBody':
+    '우리는 누구나 하루 중 언제든 고요함을 누릴 수 있어야 한다고 믿습니다. {{app}} 은 차분하고 꾸준한 명상 연습을 쉽고 편안하게 할 수 있도록 만들어, 진솔한 10분이 앞으로 10시간을 맞이하는 방식을 바꿔놓을 수 있도록 돕습니다.',
+  'about.missionTitle': '우리의 사명',
+  'about.pageTitle': '하루에 10분씩 더 차분하게',
+  'breathingDial.seconds': '초',
+  'common.goToDashboard': '대시보드로 이동',
+  'common.logout': '로그아웃',
   'common.min': '분',
   'common.relative.justNow': '방금 전',
   'common.relative.now': '지금',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
+  'nav.secondaryNavigation': '계정 탐색',
   'sessionCard.with': '{{name}} 선생님과 함께',
   'stillpoint.billing.choose': '{{plan}} 선택하기',
   'stillpoint.billing.currentPlan': '현재 {{plan}}을 이용 중입니다',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': '플랜을 불러오지 못했습니다.',
   'stillpoint.billing.opening': '결제 화면을 여는 중…',
   'stillpoint.billing.perMonthShort': '/ 월',
+  'stillpoint.billing.perYearShort': '/년',
   'stillpoint.billing.unknownResult': '결제 응답이 올바르지 않습니다.',
   'stillpoint.billing.yearly': '연간 · 17% 할인',
   'stillpoint.courseDetail.back': '코스 목록',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': '아직 코스가 없습니다.',
   'stillpoint.courses.eyebrow': '{{count}}개의 다일정 여정',
   'stillpoint.courses.heading': '코스',
+  'stillpoint.forgot.checkEmail': '받은 편지함을 확인하세요. 링크는 30분 후에 만료됩니다.',
   'stillpoint.forgot.success': '{{email}}로 재설정 링크를 보내 드렸습니다.',
   'stillpoint.home.empty': '아직 세션이 없습니다 — 잠시 후 다시 확인해 주세요.',
   'stillpoint.home.friend': '친구',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': '무료 계정 만들기',
   'stillpoint.landing.cta.title': '오늘부터 고요함을 시작해 보세요',
   'stillpoint.landing.features.heading': '함께 자라나는 수련',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     '매일의 가이드 명상, 호흡 수련, 잠들기 전 이야기 — 코치보다는 다정한 친구처럼 함께하는 선생님들이 이끌어 드립니다.',
   'stillpoint.landing.hero.eyebrow': '하루 10분의 더 차분한 시간',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': '기분으로 둘러보기',
   'stillpoint.login.rememberMe': '로그인 상태 유지',
   'stillpoint.login.subheading': '로그인하고 수련을 이어가 보세요.',
+  'stillpoint.nav.tagline': '고요한 중심을 찾으세요',
+  'stillpoint.notFound.body':
+    '이 페이지는 지금 어딘가에서 길고 깊은 숨을 쉬고 있습니다. {{app}} 에서 좀 더 조용한 곳을 찾아볼게요.',
   'stillpoint.notFound.title': '고요 속에서 길을 잃었어요',
   'stillpoint.notFound.toHome': '오늘로 돌아가기',
   'stillpoint.notFound.toLibrary': '라이브러리 둘러보기',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15초 뒤로',
   'stillpoint.player.skipForward': '30초 앞으로',
   'stillpoint.player.with': '{{name}} 선생님과 함께',
+  'stillpoint.profile.defaultHandle': '스틸포인터',
   'stillpoint.profile.eyebrow': '당신의 수련을 한눈에.',
   'stillpoint.profile.locked': '잠김',
   'stillpoint.profile.member': 'Stillpoint 회원',

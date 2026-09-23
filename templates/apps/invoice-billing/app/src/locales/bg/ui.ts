@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'За нас',
   'activityFeed.empty': 'Все още няма активност — изпратете първата си фактура.',
   'authShell.sample.paid': 'Платено преди 2 минути',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Добавяне на нов клиент',
   'clients.search': 'Търсене по име, фирма, имейл',
   'clients.title': 'Клиенти',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Нов клиент',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Забравена парола',
   'forgotPassword.successBody':
     'Изпратихме инструкции за нулиране до {{email}} Линкът изтича след 30 минути.',
+  'invoiceDetail.action.confirmVoid': 'Потвърждаване на невалидност?',
   'invoiceDetail.action.download': 'Изтегли PDF',
   'invoiceDetail.action.duplicate': 'Дубликат',
   'invoiceDetail.action.edit': 'Редактиране',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Фактура е анулирана.',
   'invoiceDetail.issued': 'Издаден {{date}}',
   'invoiceDetail.loading': 'Зареждане на фактура…',
+  'invoiceDetail.paidInFull': 'Платено изцяло',
   'invoiceDetail.summary': '{{client}} · изпратен {{date}}',
   'invoiceDetail.tax': 'Данък ( {{rate}} %)',
   'invoiceDetail.timeline': 'Хронология',
+  'invoiceDetail.voided': 'Анулиран',
   'invoiceEditor.addItem': 'Добавяне на елемент',
   'invoiceEditor.back': '← Обратно към фактурите',
   'invoiceEditor.col.qty': 'Количество',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Изпратете първата си фактура',
   'landing.hero.eyebrow': 'Фактуриране за малки предприятия',
   'landing.hero.secondary': 'Вижте примерна фактура',
+  'landing.hero.subtitle':
+    '{{appName}} съчетава изпипани фактури с вградени плащания, повтарящи се фактури и отчети, готови за данъчно облагане. Без необходимост от счетоводство.',
   'landing.hero.title': 'Изпращайте фактури. Получавайте плащания по-бързо.',
   'login.signupLink': 'Създайте такъв',
   'login.submitting': 'Влизането ви в профила...',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'плащания',
   'pricing.recurringLabel': 'повтарящи се графици',
   'remitLayout.newInvoice': 'Нова фактура',
+  'remitLayout.openMenu': 'Отвори менюто за навигация',
   'remitLayout.searchPlaceholder': 'Търсене на фактури, клиенти...',
   'remitLayout.tagline': 'Получавайте заплащане по-бързо',
   'reports.chart.aging': 'Застаряване на фактурите',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Приходи за периода',
   'reports.chart.topClients': 'Най-добри клиенти',
   'reports.chart.topClientsCaption': 'Приходи за целия период, топ 5',
+  'reports.empty.aging': 'Няма неплатени фактури.',
+  'reports.empty.methods': 'Все още няма данни за плащане.',
+  'reports.empty.revenue': 'Все още няма данни за приходите.',
+  'reports.empty.topClients': 'Все още няма данни за приходите на клиентите.',
   'reports.exporting': 'Експортиране…',
   'reports.exportRequiresPaid':
     'Експортирането е платена функция — надстройте, за да я активирате.',
@@ -192,6 +204,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Добавяне на данъчна ставка',
   'settings.tax.added': 'Добавена е данъчна ставка.',
   'settings.tax.adding': 'Добавяне…',
+  'settings.tax.addRate': 'Добавяне на тарифа',
   'settings.tax.col.region': 'Регион',
   'settings.tax.delete': 'Изтриване на данъчната ставка',
   'settings.tax.deleted': 'Данъчната ставка е премахната.',

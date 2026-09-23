@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Контактирајте нас',
   'about.eyebrow': 'О нама',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'dashboard.connectRepoCta': 'Повежи репозиторијум',
   'dashboard.empty': 'Још нема захтева за повлачење — повежите репозиторијум да бисте започели.',
   'dashboard.eyebrow': 'Refract · ред за преглед',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Време рада',
   'pullRequestRow.files': '{{count}} ф',
   'pullRequestRow.scoreAria': 'Оцена квалитета вештачке интелигенције {{score}} / 10',
+  'refractLayout.closeMenu': 'Затвори мени',
+  'refractLayout.openMenu': 'Отвори мени',
   'refractLayout.primaryNavLabel': 'Примарна навигација',
   'reports.cumulativeScoreLabel': 'Кумулативни резултат',
   'reports.cumulativeScoreSubtitle': 'сви репозиторијуми · {{days}} д',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Учитавање индекса претраге није успело.',
   'settings.apiKeys.description':
     'Управљајте личним API кључевима из корисничког менија у горњем десном углу.',
+  'settings.apiKeys.integrationsNote':
+    'Токени за приступ провајдера се управљају у одељку Интеграције изнад.',
   'settings.connectError': 'Повезивање са провајдером није успело.',
   'settings.disconnectError': 'Искључивање добављача није успело.',
   'settings.eyebrow': 'Refract · радни простор',
   'settings.integration.${provider}.label': 'Чување…',
   'settings.loadError': 'Учитавање подешавања није успело.',
+  'settings.notificationCenter': 'Центар за обавештења',
   'settings.notifications.description':
     'Посетите страницу са обавештењима да бисте видели и управљали подешавањима испоруке.',
   'settings.section.account': 'Налог и безбедност',

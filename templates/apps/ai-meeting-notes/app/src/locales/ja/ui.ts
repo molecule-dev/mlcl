@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '私たちについて',
   'actions.empty': '一致するアクションアイテムはありません。',
   'actions.heading': 'アクションアイテム',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': '前月',
   'calendar.recent': '最近',
   'common.daysAgo': '{{count}}日前',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.hoursAgo': '{{count}}時間前',
   'common.no': '—',
+  'common.retry': '再試行',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} 件のアクションアイテム',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': '受信箱でリセットリンクをご確認ください。',
   'forgot.subheading': 'メールアドレスを入力すると、リセットリンクをお送りします。',
   'integrations.disconnected': '切断済み',
+  'integrations.loadError': '連携機能の読み込みに失敗しました。',
   'integrations.notConnectedTag': '未接続',
   'integrations.subheading':
     'カレンダーとビデオプラットフォームを接続して、Murmur を自動参加させましょう。',
+  'integrations.updateError': '更新に失敗しました。',
   'landing.ctaButton': '始める — 無料です',
   'landing.ctaHeading': 'メモを取るのをやめましょう。決断を始めましょう。',
   'landing.demo.aiLabel': 'AI 要約をライブ作成中',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'フォローアップ',
   'meetingDetail.loadError': 'ミーティングを読み込めませんでした。',
   'meetingDetail.noActions': 'アクションアイテムは検出されませんでした。',
+  'meetingDetail.none': 'なし。',
   'meetingDetail.notFound': 'ミーティングが見つかりません。',
+  'meetingDetail.speakerFallback': 'スピーカー：{{id}}',
   'meetingDetail.summaryHeading': 'AI 要約',
   'meetingDetail.transcriptHeading': 'トランスクリプト',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'ミーティング',
   'meetings.loadError': 'ミーティングを読み込めませんでした。',
   'meetings.subheading': '録音、アップロード、同期されたすべてのミーティング。',
+  'murmurLayout.openMenu': 'ナビゲーションメニューを開く',
   'murmurLayout.primaryNavLabel': 'プライマリナビゲーション',
   'nav.legal': '法的事項',
   'notifications.loadError': '通知を読み込めませんでした。',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmur 上での見え方。',
   'record.error.empty': '音声が記録されませんでした。',
   'record.error.permission': 'マイクの権限が拒否されました。',
+  'record.error.recorder': 'レコーダーのエラー',
   'record.error.unsupported':
     'お使いのブラウザは録音をサポートしていません。Chrome、Edge、Safari をお試しください。',
   'record.error.upload': 'アップロードに失敗しました。もう一度お試しください。',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': '新しいパスワード',
   'reset.subheading': '他で使用していないパスワードを選択してください。',
   'search.empty': '入力するとトランスクリプトを検索できます。',
+  'search.loadError': '検索に失敗しました。もう一度お試しください。',
   'search.noResults': '「{{q}}」に該当する結果はありません。',
   'settings.appearance.description': 'ライトモードとダークモードを切り替えます。',
   'settings.appearance.title': '外観',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': '設定を読み込めませんでした。',
   'settings.loading': '読み込み中…',
   'settings.push.heading': 'プッシュ通知',
+  'settings.push.subheading':
+    '言及、アクション項目、要約について、ブラウザで通知を受け取ることができます。',
   'settings.retention.audio': '音声の保持期間',
   'settings.retention.heading': '保持期間',
   'settings.retention.transcript': 'トランスクリプトの保持期間',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': '数分でミーティングのメモを取り始めましょう',
   'signup.terms':
     'アカウントを作成することで、利用規約とプライバシーポリシーに同意したものとみなされます。',
+  'signup.termsPrefix': 'アカウントを作成することにより、お客様は当社の',
   'team.inviteCta': 'チームメイトを招待',
   'team.invitedAs': '{{role}} として招待済み',
   'team.inviteFailed': '招待を送信できませんでした。',

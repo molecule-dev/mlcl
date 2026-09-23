@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Konpontzen…',
   'comments.subtitle':
     'The {{count}} Hariak oraindik erantzun edo ebazpen baten zain. Adinaren arabera ordenatuta — zaharrenak lehenengo, ezer ez usteltzeko.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'forgotPassword.sentTo': 'Berrezarri esteka bidali da helbide honetara {{email}}',
   'forgotPassword.successSubheading':
     'Begiratu zure sarrera-ontzia — berrezartzeko esteka bat bidali berri dizugu. 30 minutu barru iraungitzen da.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Orrialde berria',
   'pageTreeSidebar.workspaceHeader': 'Lan-eremua',
   'pageView.breadcrumb': 'Ogi-apurra',
+  'pageView.confirmTrash': 'Zaborretara bota?',
   'pageView.home': 'Etxea',
   'pageView.lastEdited': 'Eguneratua {{when}}',
   'pageView.loading': 'Orria kargatzen…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Laburbilduz…',
   'pageView.summaryUnavailable': 'AI laburpena ez dago konfiguratuta lan-eremu honetarako.',
   'pageView.tocTitle': 'Orrialde honetan',
+  'pageView.trash': 'Zaborra',
+  'pageView.trashing': 'Zaborretara botatzen…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Txapa',
   'profile.owned.title': 'Jabetzako orrialdeak',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Lan-eremua, profila, jakinarazpenak, integrazioak — dena lasaitasun-oskol bakarrean.',
   'settingsPage.workspace.defaultLanding': 'Lehenetsitako lurreratze-pantaila',
   'settingsPage.workspace.landingHome': 'Etxea',
+  'settingsPage.workspace.landingSpaces': 'Espazioak',
   'settingsPage.workspace.subdomainLabel': 'Azpidomeinua',
   'settingsPage.workspace.title': 'Lan-eremua',
   'signup.eyebrow': 'Lan-eremu berri bat hasi',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} minutu',
   'templates.subtitle':
     'Hasi orrialde bat txantiloi batetik, ez mihise huts batetik. Txantiloi bakoitzak forma finko kodetzen du, zuk edukian zentratu ahal izateko.',
+  'trash.confirmPurge': 'Betiko garbitu?',
+  'trash.confirmPurgeAria': 'Berretsi: ezabatu betiko {{title}}',
   'trash.daysUntilPurge': '{{days}} egunak geratzen dira',
   'trash.empty.body': 'Ezabatutako orrialdeak hemen agertuko dira 30 egunez garbitu aurretik.',
   'trash.empty.title': 'Zaborra hutsik dago.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Berrezartzen…',
   'versionHistory.subtitle': '{{count}} bertsioak · hautatu errenkada bat aldea ikuskatzeko',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Itxi nabigazioa',
+  'wikiLayout.menu': 'Nabigazioa',
+  'wikiLayout.openMenu': 'Ireki nabigazioa',
   'wikiLayout.searchPlaceholder': 'Bilatu Cairn — orrialdeak, iruzkinak…',
 }

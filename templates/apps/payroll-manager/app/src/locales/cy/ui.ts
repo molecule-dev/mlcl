@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'auditLog.empty':
     "Does dim digwyddiadau archwilio yn cyd-fynd â'ch hidlwyr eto. Golygwch weithiwr neu broseswch rediad cyflog a byddant yn ymddangos yma.",
   'auditLog.eyebrow': 'Cydymffurfiaeth',
+  'auditLog.loadError': "Methwyd llwytho'r log archwilio.",
   'auditLog.searchPlaceholder': 'Chwiliwch yn ôl actor, gweithred, neu ddisgrifiad',
   'auditLog.subheading':
     "Pob cymeradwyaeth, golygiad, a ffeilio treth — gyda'r actor, y stamp amser, a'r meysydd wedi'u newid.",
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Heb ei ffurfweddu',
   'billing.plansHeading': 'Cynlluniau',
   'billing.subheading': 'Rheoli eich cynllun a newid haenau trwy Stripe.',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Ail-geisio',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Ciplun cydymffurfiaeth',
   'dashboard.compliance.title': 'Pob siec yn pasio',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Dim didyniadau ar ffeil.',
   'employeeDetail.notFound': 'Ni chanfuwyd y gweithiwr.',
   'employeeDetail.payFrequency': 'Amlder talu',
+  'employeeDetail.postTax': 'Ar ôl treth',
+  'employeeDetail.preTax': 'Cyn treth',
   'employeeDetail.salary': 'Cyflog blynyddol',
   'employeeDetail.ssn': 'Rhif y Gwasanaeth Sifil',
   'employeeDetail.startedOn': 'Dechreuodd {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Amlder talu',
   'employeeForm.salary': 'Cyflog blynyddol (USD)',
   'employeeForm.salaryInvalid': "Rhaid i gyflog fod yn rhif nad yw'n negatif.",
+  'employeeForm.saveError': 'Methwyd achub y gweithiwr.',
   'employeeForm.semimonthly': 'Hanner misol',
   'employeeForm.single': 'Sengl',
   'employeeForm.ssn': 'Rhif y Gwasanaeth Sifil',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Cyflog',
   'forgotPassword.subtitle':
     'Rhowch eich cyfeiriad e-bost gwaith a byddwn yn anfon dolen ailosod atoch.',
+  'landing.copyright': '© {{year}} {{app}} . Manwl gywir, dibynadwy, cyfansoddedig.',
   'landing.ctaBody':
     'Am ddim am 30 diwrnod. Dim cerdyn credyd. Newidiwch unrhyw bryd heb golli eich trywydd archwilio.',
   'landing.ctaHeading': 'Rhedeg eich cylch nesaf ar Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Cofnodion',
   'payRunDetail.noActivity': 'Dim cofnodion archwilio ar gyfer y rhediad cyflog hwn eto.',
   'payRunDetail.noStubs': "Dim slipiau cyflog eto — cymeradwywch a phroseswch i'w cynhyrchu.",
+  'payRunDetail.notFound': "Ni ellid dod o hyd i'r rhediad cyflog hwn.",
   'payRunDetail.statDeductions': 'Didyniadau',
   'payRunDetail.statHeadcount': 'Gweithwyr',
   'payRunDetail.statTaxes': 'Trethi a ataliwyd',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Hanner misol',
   'settings.signOutDevice': 'Allgofnodi',
   'settings.subheading': 'Proffil cwmni, amserlen dalu, ac integreiddiadau.',
+  'settings.twoFactorCode': 'Cod dilysu',
   'settings.twoFactorDisable': 'Analluogi',
+  'settings.twoFactorInvalidCode': 'Cod annilys',
+  'settings.twoFactorVerify': 'Dilysu a galluogi',
   'settings.weekly': 'Wythnosol',
   'taxCenter.bucket.federal': 'Incwm ffederal',
   'taxCenter.bucket.fica': 'Nawdd Cymdeithasol',

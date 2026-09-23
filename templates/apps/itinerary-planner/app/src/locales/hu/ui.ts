@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'A {{app}} névjegye',
+  'auth.legalConsent': 'A folytatással elfogadod a',
   'bookings.empty.body':
     'Adjon hozzá egy repülőjegyet, szállodát vagy tevékenységet a beérkező levelek elindításához.',
   'bookings.empty.heading': 'Még nincsenek foglalások.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Megerősített',
   'bookings.summary.pending': 'Megerősítésre vár',
   'bookings.summary.total': 'Teljes lekötött összeg',
+  'bookings.type.car': 'Autókölcsönzés',
+  'bookings.type.flight': 'Repülési',
+  'bookings.type.hotel': 'Szálloda',
   'bookings.type.other': 'Más',
   'budgetSpendCard.budgetTotal': 'a {{total}} tervezett',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Figyeld meg az ütközéseket, tervezz pihenőnapokat az utazások között, és nézd meg, mikor utaznak veled a munkatársaid.',
   'common.and': 'és',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.budgetHeading': 'Költségvetési impulzus',
   'dashboard.empty.heading': 'Még nincsenek utazások – az atlaszod üres.',
   'dashboard.eyebrow': 'Misszióirányítás',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Mozgásban lévő utazások',
   'dashboard.viewAllExpenses': 'Tekintse meg az összes költséget',
   'dashboard.viewAllTrips': 'Minden utazás megtekintése',
+  'dayTimelineRow.category.accommodation': 'Marad',
   'dayTimelineRow.category.transport': 'Szállítás',
   'destinationOrbCard.exploreCta': 'Hozzáadás egy utazáshoz',
   'destinationOrbCard.tripCount': '{{count}} utazások',
@@ -83,11 +91,15 @@ export const ui: UiTranslations = {
     'Még nincs e-mail címed? Ellenőrizd a spam mappádat, vagy próbáld újra egy másik címmel.',
   'forgotPassword.successSubheading':
     'Elküldtünk egy helyreállítási linket ide: {{email}} A link 30 percig érvényes.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ingyenes fiók létrehozása',
+  'landing.cta.subheading':
+    'Akár öt út, öt együttműködő és öt megálló az ingyenes csomaggal – valós idejű szinkronizálással, és a Pro csomaggal, amely a tervek bővülésével egyre több lehetőséget kínál.',
   'landing.destinations.eyebrow': 'Merre tovább',
   'landing.destinations.heading': 'Szerkesztő által válogatott úti célok',
   'landing.features.eyebrow': 'Hogyan működik az útpont?',
   'landing.features.heading': 'Utazóknak készült, nem táblázatoknak.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ingyenes utazás indítása',
   'landing.hero.ctaSecondary': 'Tekintsen meg egy mintautat',
   'landing.hero.subtitle':
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Írisz Larsen',
   'signup.subheading':
     'Hozz létre egy fiókot, hogy megoszthasd az utakat akár 5 munkatárssal, szinkronizálhasd a foglalásokat, és minden visszaigazolást egy helyre gyűjthess.',
+  'signup.termsPrefix': 'Fiók létrehozásával Ön elfogadja a mi',
   'tripCountdownHeroCard.budget': '{{used}} a {{total}} ( {{pct}} költségvetés %-a)',
   'tripCountdownHeroCard.collaborators': '{{count}} utazók',
   'tripCountdownHeroCard.countdownLabel': 'Visszaszámlálás',
@@ -206,5 +219,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Még nincsenek kirándulások.',
   'trips.pastHeading': 'Korábbi kalandok',
   'trips.subheading': '{{count}} útvonalak – múlt, jelen és valamikor.',
+  'waypointLayout.mobileNavClose': 'A navigációs menü bezárása',
   'waypointLayout.primaryNavLabel': 'Elsődleges navigáció',
 }

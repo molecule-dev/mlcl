@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'auth.fields.newPassword': 'Nové heslo',
   'collectionDetail.addImage': 'Vyčarujte pre zbierku',
   'collectionDetail.backCta': 'Späť do kolekcií',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Nástenky nálad, stručné popisy a pokračujúce série',
   'collections.title': 'Kolekcie',
   'collections.untitled': 'Bez názvu · {{stamp}}',
+  'common.closeMenu': 'Zatvoriť ponuku',
+  'common.dismiss': 'Zavrieť',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.openMenu': 'Otvoriť navigačné menu',
   'credits.eyebrow': '{{plan}} plán',
   'credits.renewsCopy': 'Plán sa obnovuje dňa {{date}}',
   'credits.trail': 'Snívanie · {{plan}} úroveň',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Tu sa zobrazia upozornenia na aktivitu generovania, zdieľanie a kredity.',
   'notifications.empty.title': 'Nič na hlásenie',
   'notifications.subtitle': 'Udalosti generovania zoskupené podľa dňa',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.limits.gallery': '{{count}} galéria',
   'privacy.collect.body':
     'Keď sa zaregistrujete, zhromažďujeme vaše meno, e-mailovú adresu a hašované heslo. Počas používania služby Reverie ukladáme odoslané výzvy, obrázky, ktoré pre vás generujeme, štýly a kolekcie, ktoré ukladáte, a metadáta, ako napríklad použitý model, časové pečiatky generovania a zostatok kreditu.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Uložiť nové heslo',
   'reset.submitting': 'Aktualizácia hesla…',
   'settings.account.handle': 'Rukoväť',
+  'settings.account.lastSaved': 'Aktívny profil · {{name}}',
   'settings.account.saved': 'Profil uložený',
   'settings.account.saveFailed': 'Profil sa nepodarilo uložiť',
   'settings.account.title': 'Profil tvorcu',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nový obrázok',
   'sidebar.secondary': 'Sekundárna navigácia',
   'signup.failed': 'Registrácia zlyhala. Skúste to znova.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Začnite svoje snívanie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Vytvorte si účet a získajte 120 kreditov zadarmo.',
   'styles.empty': 'Zatiaľ žiadne predvoľby štýlov – zobrazia sa po prvom prihlásení.',
   'styles.eyebrow': 'Vybrané',

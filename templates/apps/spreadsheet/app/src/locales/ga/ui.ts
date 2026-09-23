@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'about.pageTitle': 'Maidir {{name}}',
   'auth.footer.about': 'Maidir {{name}}',
   'authHeader.subtitle': 'Sínigh isteach chun do chuid uimhreacha a choinneáil macánta.',
   'automations.action.email': 'Ríomhphost',
+  'automations.action.noop': 'Gan oibríocht',
   'automations.action.webhook': 'Crúca Gréasáin',
   'automations.confirmDelete': 'Scrios " {{name}} "?',
   'automations.empty.headline': 'Gan aon uathoibriú fós',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Spreagthóirí agus gníomhartha ar fud gach leabhar oibre. Logálann gach rith ró ar féidir leat iniúchadh a dhéanamh air níos déanaí.',
   'automations.toggle': 'Toggle {{name}}',
+  'automations.trigger.dailySchedule': 'Sceideal laethúil',
+  'automations.trigger.rowCreated': 'Ró cruthaithe',
+  'automations.trigger.rowUpdated': 'Nuashonraithe sa tsraith',
   'billing.empty': 'Níl aon phleananna ar fáil.',
   'billing.error.priceMissing':
     'Níl aon phraghas Stripe cumraithe don leibhéal seo. Socraigh na cineálacha timpeallachta STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Cairteacha',
   'charts.kpi.totalCharts': 'Cairteacha iomlána',
   'charts.list.empty': 'Gan aon chairteacha fós.',
+  'charts.namePlaceholder': 'Treocht ioncaim',
   'charts.newChart': 'Cairt nua',
   'charts.primary.eyebrow': 'Cairteacha de réir cineáil',
   'charts.primary.headline': 'Forbhreathnú ar an spás oibre',
   'charts.subhead':
     'Amharcléirithe beo atá ceangailte le do ghreille — athrindreáil ar gach eagarthóireacht cille.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'editor.addColumn': 'Cuir colún leis',
+  'editor.addDialogTitle': 'Cuir colún leis',
   'editor.addRow': 'Cuir sraith leis',
   'editor.addSheet': 'Cuir bileog leis',
   'editor.back': 'Ar ais chuig na leabhair oibre',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Is é Calcite an chéad fhoirmle, ilradhairc, eangach fíor-ama a shroicheann anailísithe agus foirne airgeadais an chéad dul síos.',
   'landing.nav.formulas': 'Foirmlí',
+  'login.noAccount': 'Nua le {{name}} ?',
+  'login.signIn': 'Sínigh isteach chuig {{name}}',
   'login.signUp': 'Cruthaigh spás oibre',
+  'nav.menu': 'Roghchlár',
+  'nav.openMenu': 'Oscail an roghchlár',
   'notFound.cellRef': '#TAG!',
   'notFound.formula': '=CUARDAIGH(IARRATAS.url, "bealaí", "leathanach")',
   'notFound.headline': 'Ní raibh an tsraith seo ann riamh.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Uathoibrithe dúchasacha · webhook & spreagthóirí cron',
   'signup.creating': 'Ag soláthar spás oibre…',
   'signup.cta': 'Cruthaigh mo spás oibre',
+  'signup.haveAccount': 'Ar {{name}} cheana féin?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Cas suas do chéad leabhar oibre i 30 soicind',
   'team.col.activity': 'Cuireadh',
@@ -174,6 +187,7 @@ export const ui: UiTranslations = {
   'workbookHeroCard.openWorkbooks': 'Oscail leabhair oibre',
   'workbookListItem.unstar': 'Bain an réalta {{name}}',
   'workbooks.empty.first': 'Gan aon leabhair oibre fós — cruthaigh do chéad cheann',
+  'workbooks.error': 'Níorbh fhéidir an méid seo a leanas a luchtú: {{error}}',
   'workbooks.headline': 'Leabhair oibre',
   'workbooks.kpi.allHealthy': 'Gach duine sláintiúil',
   'workbooks.kpi.automationsStatus': '{{count}} dlite anocht',

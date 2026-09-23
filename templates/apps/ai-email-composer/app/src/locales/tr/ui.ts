@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Bizim hikayemiz',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Açılma oranı',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Ödeme başlatılıyor…',
   'billing.subheading': 'Gönderim tarzınıza uygun planı seçin.',
   'billing.unavailable': 'Satışla iletişime geçin',
+  'common.goToDashboard': 'Panele Git',
+  'common.retry': 'Tekrar dene',
   'compose.adjustingTone': 'Seçilen tonda yeniden yazılıyor…',
   'compose.aiPromptPlaceholder':
     'örn. "İki hafta cevap gelmeyince nazik bir hatırlatma, kısa olsun."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Bir şey mi göndereceksiniz? Signet saniyeler içinde taslak hazırlayabilir.',
   'dashboard.composeCtaLabel': 'Hızlı yazım',
   'dashboard.heading': 'Haftanız, ince işçilikle yazılmış',
+  'dashboard.loadFailed': 'Panonuz yüklenemedi.',
   'dashboard.manageLibrary': 'Kütüphaneyi yönet →',
   'dashboard.recentEmpty': 'Henüz gönderim yok — gönderilen e-postalarınız burada görünecek.',
   'dashboard.recentHeading': 'Son gönderimler',
@@ -134,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Varsayılan ton',
   'settings.toneSubheading': 'Taslakta değiştirmediğiniz sürece Signet bu tonu kullanır.',
   'signetLayout.primaryNavLabel': 'Birincil gezinme',
+  'signetLayout.toggleMenu': 'Menüyü aç/kapat',
   'signup.emailLabel': 'E-posta adresi',
   'signup.showPassword': 'Parolayı göster',
   'signup.tagline': 'Bir dakikadan kısa sürede ilk AI yazılı e-postanızı gönderin.',

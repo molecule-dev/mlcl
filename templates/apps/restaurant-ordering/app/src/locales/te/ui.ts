@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} గురించి',
   'analytics.avgCheckLabel': 'సగటు తనిఖీ',
   'analytics.busiestHour': 'అత్యంత రద్దీ సమయం',
   'analytics.coversToday': 'ఈరోజు కవర్లు',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'చిట్కాలు (సగటు)',
   'analytics.topItems': 'ఈరోజు అగ్రశ్రేణి అంశాలు',
   'authShell.eyebrow': 'సేవకు తిరిగి స్వాగతం',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ఆతిథ్య బృందాల కోసం ఒక ఆత్మీయమైన, వేగవంతమైన విక్రయ కేంద్రం. మీ వంటగదిలోకి సైన్ ఇన్ చేసి, మీరు ఎక్కడ ఆపారో అక్కడి నుండి కొనసాగించండి.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'లేదా {{price}}',
   'billing.priceUnavailable': 'ఈ ప్లాన్‌కు ధర నిర్ణయించబడలేదు.',
   'billing.updated': 'ప్రణాళిక నవీకరించబడింది.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'customerDetail.book': 'రిజర్వేషన్ జోడించండి',
   'customerDetail.col.table': 'పట్టిక',
   'customerDetail.confirmDelete': 'ఈ అతిథి రికార్డును తొలగించాలా?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'లభ్యత',
   'menuItemDetail.available': 'ఈ రాత్రి అందుబాటులో ఉంది',
   'menuItemDetail.backToMenu': 'మెనూకు తిరిగి వెళ్లండి',
+  'menuItemDetail.confirmDelete': 'ఈ మెనూ ఐటెమ్‌ను తొలగించాలా?',
   'menuItemDetail.delete': 'అంశాన్ని తొలగించండి',
   'menuItemDetail.deleteError': 'తొలగింపు విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
   'menuItemDetail.dietary': 'ఆహార ట్యాగ్‌లు',
@@ -140,8 +144,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ఫోటో, మాడిఫైయర్‌లు, ఆహార నియమాలు మరియు ధరలను సవరించండి.',
   'menuItemDetail.untitled': 'పేరులేని అంశం',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'notFound.heading': 'ఈ బల్ల నేల మీద లేదు.',
   'notFound.subheading': 'మీరు వెతుకుతున్న పేజీ వేరే చోట ఉంది — లేదా అసలు ఉనికిలోనే లేదు.',
+  'notFound.toLanding': '{{app}} హోమ్',
   'notifications.markError': 'అన్నింటినీ చదివినట్లుగా గుర్తించలేకపోయాను.',
   'orderDashboard.activeDelta': 'ఇప్పుడు ప్రత్యక్ష ప్రసారం',
   'orderDashboard.activeLabel': 'యాక్టివ్ ఆర్డర్లు',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'వంటగదిలోకి తిరిగి ప్రవేశించడానికి మీ కొత్త పాస్‌వర్డ్‌ను నమోదు చేయండి.',
   'resetPassword.tokenLabel': 'టోకెన్‌ను రీసెట్ చేయండి',
+  'restaurantOrderingLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'revenueHeroCard.activeOrders': '{{count}} చురుకుగా',
   'revenueHeroCard.change': '{{sign}} {{amount}} నిన్నటితో పోలిస్తే',
   'revenueHeroCard.title': 'నేటి ఆదాయం',
@@ -224,6 +232,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'రెస్టారెంట్ పేరు',
   'tableDetail.activeOrders': 'యాక్టివ్ ఆర్డర్లు',
   'tableDetail.backToFloor': 'ఫ్లోర్ ప్లాన్',
+  'tableDetail.confirmDelete': 'ఈ పట్టికను తొలగించాలా?',
   'tableDetail.delete': 'తొలగించు',
   'tableDetail.deleteError': 'పట్టికను తొలగించలేకపోయాము.',
   'tableDetail.heading': 'పట్టిక {{label}}',

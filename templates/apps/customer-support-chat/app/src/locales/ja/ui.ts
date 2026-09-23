@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '私たちについて',
   'authShell.samplePreview':
     '「みなさん、新しいダッシュボードは素晴らしいです — まさに求めていたものです！」',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ショートカット',
   'automations.subheading':
     'ルール、定型返信、チャットボット — チームが難しい業務に集中している間、ワークスペースをスムーズに保ちます。',
+  'automations.trigger.inboundMessage': '受信メッセージ',
   'automations.triggerLabel': 'トリガー',
   'chatBubble.internalNoteLabel': '社内メモ',
+  'common.confirmDelete': '削除を確認',
+  'common.goToDashboard': 'ダッシュボードへ',
   'contactDetail.backToContacts': 'すべての連絡先',
   'contactDetail.contactFallback': '連絡先',
   'contactDetail.conversationFallback': '会話',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': '最終アクセス',
   'contacts.empty': '連絡先はまだありません。上から最初の連絡先を追加してください。',
   'contacts.eyebrow': '顧客ディレクトリ',
+  'contacts.form.nameOrEmailRequired': '少なくとも名前かメールアドレスのいずれかを入力してください',
   'contacts.form.save': '連絡先を保存',
   'contacts.heading': '連絡先',
   'contacts.loading': '連絡先を読み込み中…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'メモを保存',
   'conversationDetail.tab.note': '社内メモ',
   'conversationDetail.threadAria': '会話メッセージ',
+  'conversationDetail.visitorFallback': '訪問者',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': '顧客詳細',
   'customerProfilePanel.recentTitle': '最近の会話',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'お客様は平均 {{time}} で最初の返信を受け取っています — このペースを保ちましょう。',
   'inboxHeroCard.title': 'アクティブな会話',
+  'inboxLayout.navDrawerLabel': 'ナビゲーション',
+  'inboxLayout.openMenu': 'ナビゲーションメニューを開く',
   'inboxOverview.eyebrow': '今日の概要',
   'inboxOverview.heroChange': '{{count}} 件オープン',
   'inboxOverview.kpiClosedTrend': '累計',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ホームページへ',
   'notifications.subheading':
     '割り当て、@メンション、SLAリスク、CSATフィードバック、チームアクティビティ — 新しい順に並べ替え。',
+  'notifications.subjectFallback': '会話',
+  'notifications.visitorFallback': '来訪者',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': '高',
   'priority.low': '低',
+  'priority.normal': '通常',
   'priority.urgent': '緊急',
   'privacy.title': 'プライバシーポリシー',
   'reports.agentFallback': 'エージェント',

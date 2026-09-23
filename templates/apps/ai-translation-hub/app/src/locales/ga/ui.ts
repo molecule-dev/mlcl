@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'billing.canceled':
     'Síntiús curtha ar ceal. Fillfidh tú ar an leagan Saor in Aisce ag deireadh na tréimhse.',
   'billing.contactSales': 'Déan teagmháil le díolacháin',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Gan teorainn coinneála',
   'billing.upgradeHint': 'Uasghrádaigh chun gnéithe ardleibhéil AI a dhíghlasáil.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.activityEmpty':
     'Gan aon ghníomhaíocht fós — cuir tús le tionscadal chun an fotha seo a líonadh.',
   'dashboard.eyebrow': 'Forbhreathnú',
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Athúsáid aistriúcháin roimhe seo ar fud gach tionscadail. Scór meaitseála níos airde → níos lú athoibre.',
   'memory.title': 'Banc cuimhne',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'nav.legal': 'Dlíthiúil',
   'newProject.addLanguage': 'Cuir sprioc leis',
   'newProject.create': 'Cruthaigh tionscadal',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Marcáilte {{count}} fógraí mar léite.',
   'notifications.subtitle':
     'Luaitear, iarratais ar athbhreithnithe, agus imeachtaí AI ó do spásanna oibre ar fad.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'privacy.collection.account': 'Seoladh ríomhphoist agus ainm taispeána do chuntais',
   'privacy.deletion.body':
     'Is féidir leat tionscadal, deighleog, téarma gluaise, nó iontráil chuimhne a scriosadh tráth ar bith ón leathanach ábhartha. Má scriosann tú do chuntas ó na Socruithe, glantar gach ró atá faoi raon feidhme an spáis oibre ónár mbunachar sonraí.',
@@ -178,6 +183,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Theip ar lódáil na dtionscadal.',
   'projects.loading': 'Ag lódáil tionscadal…',
   'projects.subtitle': 'Gach tionscadal gníomhach ar fud na suíomhanna uile.',
+  'renditionLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'reset.backToLogin': 'Ar ais chuig an síniú isteach',
   'reset.passwordLabel': 'Pasfhocal nua',
   'review.activeEyebrow': 'Deighleog {{number}}',

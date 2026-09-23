@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du synpunkter, önskemål om nya funktioner eller upptäckt ett fel? Kontakta {{app}}-teamet via supportlänken i din kontomeny – varje meddelande hanteras av en riktig person.',
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'agentDetail.back': 'Alla agenter',
   'agentDetail.capabilities': 'Förmågor',
   'agentDetail.delete': 'Ta bort persona',
   'agentDetail.deleteConfirm': 'Ta bort denna persona? Detta kan inte ångras.',
+  'agentDetail.deleteError': 'Det gick inte att ta bort persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Kunde inte ladda persona.',
   'agentDetail.save': 'Spara persona',
@@ -44,6 +48,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Byter…',
   'billing.updateError': 'Kunde inte starta uppdatering.',
   'billing.usageHeading': 'Röstanvändning denna cykel',
+  'chatBubble.source.text': 'text',
+  'chatBubble.source.voice': 'röst',
+  'common.goToDashboard': 'Gå till översikt',
   'conversation.defaultTitle': 'Nytt samtal',
   'conversation.empty': 'Inga meddelanden ännu. Börja med att säga något eller skriva nedan.',
   'conversation.eyebrow': 'Live-session',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelligens som talar.',
   'landing.heroSubtitle':
     'AI-röstassistenten som förstår ditt naturliga flöde. Samtala, idéa och kommendera — sömlöst.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Lyssnar…',
   'landing.naturallyBody':
     'Inga aktiveringsord. Inga stela kommandon. Vox förstår kontext, avbrott och nyansen i mänskligt tal — som att chatta med en kollega.',
@@ -110,6 +118,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Öppna en session',
   'notFound.home': 'Tillbaka hem',
   'notFound.title': 'Vi kunde inte höra den sidan.',
+  'parlanceLayout.closeMenu': 'Stäng menyn',
+  'parlanceLayout.openMenu': 'Öppna navigeringsmenyn',
   'parlanceLayout.primaryNavLabel': 'Primär navigering',
   'pricing.conversations': '{{count}} samtal',
   'pricing.cta.startFree': 'Kom igång gratis',
@@ -146,6 +156,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Inga träffar',
   'search.eyebrow': 'Kommandopalett',
   'search.fetchError': 'Kunde inte ladda sökindex.',
+  'search.static.profile.preview': 'Visningsnamn, användarnamn, biografi',
   'search.static.voice.title': 'Röst',
   'search.title': 'Sök i Vox',
   'search.transcriptPreview': 'Öppna transkript',

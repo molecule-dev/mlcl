@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'సంప్రదించండి',
+  'about.title': '{{app}} గురించి',
   'authShell.backToLanding': '← ల్యాండింగ్‌కు తిరిగి వెళ్లండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ఈరోజు · కార్యకలాపాల అవలోకనం',
   'dashboard.heading': 'డాక్యుమెంట్ ఇంటెలిజెన్స్',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'ప్రస్తుత ఫిల్టర్‌లకు సరిపోలే పత్రాలు ఏవీ లేవు.',
   'documents.heading': 'అన్ని పత్రాలు',
   'documents.loadError': 'పత్రాలను లోడ్ చేయడంలో విఫలమైంది.',
+  'documents.loading': 'లైబ్రరీ లోడ్ అవుతోంది…',
   'documents.searchLabel': 'పత్రాలను శోధించండి',
   'documents.searchPlaceholder': 'పత్రాలను శోధించండి…',
   'documents.subheading': '{{count}} మీ లైబ్రరీలోని పత్రాలు, కొత్తవి మొదటగా వచ్చే క్రమంలో ఉంటాయి.',
@@ -63,8 +67,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.subtitle': 'మీ పత్రాలు సజావుగా అందడానికి సైన్ ఇన్ చేయండి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'notFound.body':
     'మీరు తెరవడానికి ప్రయత్నించిన డాక్యుమెంట్ లేదా రూట్ ఇప్పుడు ఇక్కడ లేదు. డాష్‌బోర్డ్‌కు తిరిగి వెళ్లండి లేదా సైడ్‌బార్ నుండి ఒక విభాగాన్ని ఎంచుకోండి.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ల్యాండింగ్ పేజీని తెరవండి',
   'notFound.title': 'ఆ పేజీ ఫైల్‌లో లేదు',
   'parcelaHeroCard.change': '{{sign}} {{amount}} నిన్నటితో పోలిస్తే శాతం',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     "ఇంకా ఫైలింగ్ నియమాలు లేవు. ఒక నియమాన్ని జోడించడానికి 'కొత్త నియమం'ను ఉపయోగించండి.",
   'rules.eyebrow': 'ఆటోమేషన్',
+  'rules.fieldsCount': '{{count}} ఫీల్డ్‌లు',
   'rules.form.destination': 'ఫైల్ చేయండి',
   'rules.form.name': 'నియమం పేరు',
   'rules.form.save': 'నియమాన్ని సేవ్ చేయండి',

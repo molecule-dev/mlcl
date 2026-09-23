@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'alerts.acknowledgeLabel': 'تصدیق کردن',
   'alerts.customerLabel': 'مشتری: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'در حال اتصال…',
   'carriers.requiredError': 'نام و کد ملی الزامی است.',
   'carriers.subheading': '{{count}} یکپارچه',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
+  'common.retry': 'دوباره امتحان کنید',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'در حال انتقال + علامت‌گذاری شده',
   'dashboard.activeShipmentsSubtitle':
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'محموله‌ها',
   'pricing.trackingLabel': 'ردیابی رویدادها',
   'profile.dangerZone.title': 'منطقه خطر',
+  'profile.devices.signingOut': 'در حال خروج…',
+  'profile.devices.unnamed': 'دستگاه بی‌نام',
+  'profile.security.disable2fa': 'غیرفعال کردن 2FA',
   'profile.security.enable2fa': 'فعال کردن 2FA',
   'profile.security.pwChanged': 'رمز عبور با موفقیت تغییر یافت.',
   'profile.security.pwCurrent': 'رمز عبور فعلی',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'فعال بودن احراز هویت دو مرحله‌ای',
   'profile.security.twoFaCode': 'کد ۶ رقمی',
   'profile.security.twoFaDisable': 'غیرفعال کردن',
+  'profile.security.twoFaDisabling': 'غیرفعال کردن…',
   'profile.security.twoFaFailed': 'کد تایید نشد.',
   'profile.security.twoFaIntro':
     'کد QR را در برنامه تأیید هویت خود اسکن کنید، سپس کد 6 رقمی زیر را برای تأیید وارد کنید.',
   'profile.security.twoFaOn': 'احراز هویت دو مرحله‌ای روی این حساب فعال است.',
+  'profile.security.twoFaQrAlt': 'کد QR احراز هویت دو مرحله‌ای',
   'profile.security.twoFaVerify': 'تأیید و فعال کردن',
   'profile.security.twoFaVerifying': 'در حال تأیید…',
   'profile.subheading': 'تنظیمات هویت و امنیت برای این فضای کاری.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'این راز را ذخیره کنید - دیگر نمایش داده نخواهد شد.',
   'settings.api.webhookSecret': 'راز امضای وب‌هوک',
   'settings.appearance.description': 'بین حالت روشن و تاریک جابجا شوید.',
+  'settings.deleteAccountConfirm': 'مطمئنی؟ این اقدام قابل لغو نیست.',
   'settings.notifications.exceptions': 'وقتی یک استثنا در ارسال رخ می‌دهد، به من ایمیل بزنید',
   'settings.notifications.heading': 'اعلان‌ها',
   'settings.notifications.saveFailed': 'نتوانست تنظیمات برگزیده را ذخیره کند.',
@@ -145,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'محموله پیدا نشد.',
   'shipmentDetail.originHeading': 'مبدا',
   'shipmentDetail.shippedOn': 'ارسال شد {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'هنوز هیچ رویداد ردیابی وجود ندارد - به‌روزرسانی‌ها در اینجا با اسکن بسته توسط شرکت مخابراتی ظاهر می‌شوند.',
   'shipmentDetail.weightLabel': '{{weight}} پوند',
   'shipments.col.carrier': 'حامل',
   'shipments.col.eta': 'اتا',
@@ -173,6 +184,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'ورود',
   'signup.submit': 'ایجاد حساب کاربری',
   'team.emailError': 'یک آدرس ایمیل معتبر الزامی است.',
+  'team.empty':
+    'هنوز هیچ عضوی برای تیم انتخاب نشده است. از یکی از هم‌تیمی‌هایتان برای همکاری در ارسال محموله‌ها دعوت کنید.',
   'team.eyebrow': 'اعضا و مجوزها',
   'team.inviteDialog.cancel': 'لغو',
   'team.inviteDialog.heading': 'دعوت از یک هم‌تیمی',
@@ -195,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'آهنگ',
   'waypointLayout.primaryNavLabel': 'ناوبری اولیه',
   'webhooks.createFailed': 'نتوانست نقطه پایانی وب‌هوک را ایجاد کند.',
+  'webhooks.endpointsEmpty':
+    'هنوز هیچ نقطه پایانی وب‌هوک وجود ندارد. یکی ایجاد کنید تا بتوانید وضعیت ارسال را دریافت کنید.',
   'webhooks.endpointsHeading': 'نقاط پایانی',
   'webhooks.eventCount': '{{count}} رویدادها',
   'webhooks.eventsHeading': 'تحویل‌های اخیر',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// om {{app}}',
+  'about.pageTitle': 'Webhook-kontrollplanet',
+  'about.plansTitle': 'Planer för varje steg',
   'apiKeys.bestPractices': 'Bästa praxis',
   'apiKeys.body':
     'Programmatiska åtkomsttoken. Behandla dem som lösenord — lagra i miljövariabler, committa aldrig.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'inom plan',
   'billing.usageWarning': 'nära gränsen',
   'billing.yearly': 'Årligen',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.body':
     'Livedataflöde, återförsök under drift och slutpunkterna som just krånglade – i varje arbetsyta du använder.',
   'dashboard.endpointsEmpty': 'Inga slutpunkter ännu.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endpoints',
   'endpointDetail.deliveryTrendSub': 'leveranser / timme, log-skala',
   'endpointDetail.hideSecret': 'Dölj hemlighet',
+  'endpointDetail.loading': 'Laddar slutpunkt…',
   'endpointDetail.metric.delivered': 'Levererat 24h',
   'endpointDetail.metric.deliveredCaption': 'från {{count}} händelsetyper',
   'endpointDetail.metric.failuresCaption': 'försök: {{retries}}',
@@ -212,6 +217,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritiska · 24h',
   'notifications.metric.totalCaption': 'all-tid inkorg',
   'payloadViewer.payload': '// payload',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Initialer visas — uppladdningar kommer med nästa version.',
   'profile.body': 'Ditt konto, inställningar och aktiva sessioner.',
@@ -226,6 +232,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ sparat',
   'profile.sessionsEmpty': 'Endast din aktuella session är aktiv. Inga andra enheter är inloggade.',
   'profile.toggle': 'Växla {{label}}',
+  'pylonShell.closeMenu': 'Stäng navigeringsmenyn',
+  'pylonShell.openMenu': 'Öppna navigeringsmenyn',
   'pylonShell.primaryNavLabel': 'Huvudnavigering',
   'resetPassword.subtitle': 'Välj ett starkt lösenord som du inte använt tidigare.',
   'resetPassword.tokenPlaceholder': 'klistra in från e-post',

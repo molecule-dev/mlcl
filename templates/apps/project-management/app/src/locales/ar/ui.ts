@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'accountSettings.confirmEmailLabel': 'اكتب DELETE للتأكيد',
   'accountSettings.deleteError': 'تعذر حذف الحساب.',
   'accountSettings.passwordError': 'تعذّر تغيير كلمة المرور.',
@@ -51,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'لا توجد مواعيد نهائية قادمة.',
   'dashboard.upcomingTitle': 'المواعيد النهائية القادمة',
   'deviceSettings.unknownDevice': 'جهاز غير معروف',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'الدعم',
   'forgotPassword.error': 'فشل إرسال رابط إعادة التعيين.',
   'forgotPassword.subtitle': 'أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين.',
@@ -65,6 +67,9 @@ export const ui: UiTranslations = {
   'login.error': 'البريد الإلكتروني أو كلمة المرور غير صالحة.',
   'login.pageTitle': 'تسجيل الدخول',
   'login.signIn': 'سجّل الدخول إلى Forge',
+  'login.subtitle': 'سجّل الدخول للحفاظ على سير مشاريعك بسلاسة.',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'nav.calendar': 'التقويم',
   'nav.legal': 'قانوني',
   'nav.myTasks': 'مهامي',

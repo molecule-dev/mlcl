@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Faoi {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Uirlisí saibhris',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ní comhairle infheistíochta atá ann.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) inniu',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Príomh-loingseoireacht',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Gan aon idirbhearta don ticéad seo.',
   'assetDetail.txHeading': 'Do chuid idirbhearta',
   'common.and': 'agus',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Forbhreathnú ar phunann',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Gan aon sealúchais go fóill.',
   'holdings.heading': 'Sealúchais',
   'holdings.loadError': 'Theip ar luchtú na sealúchas.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ní comhairle infheistíochta í. Ní ráthaíocht í feidhmíocht san am atá thart ar thorthaí amach anseo.',
   'landing.eyebrow': 'Argent · Ardán uirlisí saibhris',
   'landing.features.heading': 'Gach rud a thógfadh comhairleoir dóibh féin.',
   'landing.finalCta.heading': 'Tabhair smacht ar ais chuig do phunann oibre.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} uair an chloig ó shin',
   'news.justNow': 'díreach anois',
   'news.loadError': 'Theip ar an nuacht a lódáil.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'portfolioHeroCard.label': 'Luach Punainne',
   'pricing.holdingsLabel': 'sealúchais',
   'pricing.newsLabel': 'ailt nuachta',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Scrios cuntas',
   'settings.security.deleting': 'Ag scriosadh…',
   'settings.security.heading': 'Slándáil',
+  'settings.security.newPassword': 'Pasfhocal nua',
   'settings.security.password': 'Pasfhocal',
   'settings.security.twoFactorEnable': 'Cumasaigh',
+  'settings.security.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.security.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'settings.tax.error': 'Níorbh fhéidir an modh cánach a nuashonrú.',
   'settings.tax.heading': 'Cuntasaíocht chánach',
   'settings.tax.method': 'Modh réamhshocraithe',

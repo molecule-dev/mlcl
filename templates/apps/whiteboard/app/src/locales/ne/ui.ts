@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'authShell.brandHeading': 'ठूलो स्वरमा सोच्ने डिजाइन टोलीहरूका लागि मल्टिप्लेयर क्यानभासहरू।',
   'billing.canceled': 'सदस्यता रद्द गरियो।',
   'billing.cancelPlan': 'योजना रद्द गर्नुहोस्',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'टेम्प्लेटबाट सुरु गर्नुहोस्',
   'boards.title': 'तपाईंका बोर्डहरू',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'forgot.emailPlaceholder': 'mira@studio.com मा थप पढ्नुहोस्।',
   'forgot.subheading':
     'तपाईंको कार्यस्थानमा जोडिएको इमेल प्रविष्ट गर्नुहोस् र हामी रिसेट लिङ्क पठाउनेछौं।',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'अव्यवस्थित, उत्पादनशील, व्यक्तिगत सोचको लागि निर्मित।',
   'landing.demoBoard.title': 'Q1 कार्यशाला · ब्रान्ड भ्वाइस',
   'landing.featuresTitle': 'छिटो प्रतिक्रिया। सुन्दर क्यानभासहरू। शून्य घर्षण।',
+  'landing.hero.body':
+    '{{appName}} डिजाइन टोलीहरू, कार्यशाला सहजकर्ताहरू, र शिक्षकहरूका लागि एक मल्टिप्लेयर ह्वाइटबोर्ड हो जसले प्रत्यक्ष ब्रेनस्टर्महरू चलाउँछन् र एकै ठाउँमा एकसाथ आउन विचारहरू चाहिन्छ।',
   'landing.hero.primaryCta': 'नि:शुल्क बोर्ड सुरु गर्नुहोस्',
   'landing.hero.socialProof': 'द्वारा विश्वास गरिएको {{count}} विश्वव्यापी डिजाइन टोलीहरू',
   'landing.hero.title': 'तपाईंको विचार जत्तिकै छिटो क्यानभास',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'नि:शुल्क कार्यस्थान सिर्जना गर्नुहोस्',
   'login.subheading':
     'कार्यशाला जहाँ छोडिएको थियो त्यहीँबाट सुरु गर्नुहोस् — बोर्डहरू, स्टिकी नोटहरू, र कर्सरहरू सबै वास्तविक समयमा सिङ्क हुन्छन्।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.new': 'नयाँ',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'notifications.editTitle': '" मा सम्पादन गर्दछ {{board}} "',
   'notifications.empty.body':
     'निमन्त्रणाहरू, स्न्यापसट बचतहरू, र हालसालैका बोर्ड सम्पादनहरू यहाँ देखा पर्नेछन्।',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'संस्करण इतिहास',
   'versionHistory.untitledSnapshot': 'शीर्षकविहीन स्न्यापसट',
   'whiteboardLayout.newBoard': 'नयाँ बोर्ड',
+  'whiteboardLayout.primaryNav': 'प्राथमिक नेभिगेसन',
   'workspace.boardLabel': 'बोर्ड',
   'workspace.eyebrow': '{{name}} · कार्यक्षेत्र',
   'workspace.invite': 'सहयोगीहरूलाई आमन्त्रित गर्नुहोस्',

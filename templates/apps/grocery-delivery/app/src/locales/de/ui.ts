@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Trinkgeld für Ihren Shopper',
   'checkout.tipLabel': 'Trinkgeld',
   'checkout.zipPlaceholder': 'PLZ',
+  'common.goToDashboard': 'Zum Dashboard',
   'featuredProductsGrid.addAria': '{{name}} in den Warenkorb legen',
   'featuredProductsGrid.outOfStock': 'Nicht vorrätig',
   'forgotPassword.emailLabel': 'E-Mail-Adresse',
   'forgotPassword.emailPlaceholder': 'kunde@bushel.fresh',
   'forgotPassword.successBody':
     'Wenn diese E-Mail-Adresse registriert ist, ist ein Reset-Link unterwegs.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Hauptnavigation',
   'landing.categoriesEyebrow': 'Gänge',
   'landing.categoriesHeading': 'Nach Kategorie einkaufen',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Planen Sie wöchentliche Lieferungen mit intelligentem Nachbestellen von Grundnahrungsmitteln und Live-Fahrerverfolgung.',
   'landing.heroTitle': 'Frische an Ihre Tür, in wenigen Stunden.',
   'landing.howEyebrow': 'Drei Schritte',
+  'landing.howItWorksHeading': 'So funktioniert {{app}}',
   'lists.addAllCta': 'Alle in den Warenkorb',
   'lists.createCta': 'Erstellen Sie Ihre erste Liste',
   'lists.createError': 'Liste konnte nicht erstellt werden.',

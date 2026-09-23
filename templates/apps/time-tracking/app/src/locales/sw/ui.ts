@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Kuhusu {{app}}',
   'about.plansTitle': 'Mipango inayokua pamoja nawe',
   'brand.tagline': 'Kila sekunde',
   'clientDetail.back': 'Rudi kwa wateja',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Kila uhusiano katika sehemu moja — miradi, saa, ankara zilizolipwa.',
   'clients.title': 'Wateja',
   'common.and': 'na',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.activeProjects': 'Miradi inayoendelea',
   'dashboard.empty':
     'Hakuna maingizo bado. Anza kipima muda ili kufuatilia kipindi chako cha kwanza.',
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     'Hakuna saa zinazoweza kutozwa za ankara kwa mteja huyu. Fuatilia muda fulani kwanza au gawa maingizo yaliyopo kwa mojawapo ya miradi ya mteja huyu.',
   'invoices.save': 'Unda ankara',
   'invoices.subtitle': 'Saa zinazofuatiliwa hubadilika kuwa ankara, kiotomatiki.',
+  'landing.copyright': '© {{year}} {{app}} . Kila sekunde, ilihesabiwa.',
   'landing.ctaBody': 'Bure kwa hadi miradi 3. Boresha orodha ya wateja wako inapofanya hivyo.',
   'landing.eyebrow': 'Ufuatiliaji wa muda kwa kazi inayoweza kutozwa',
   'landing.featuresBody':
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Inaaminika na watu huru',
   'landing.testimonial.quote':
     '\\u201cNilihama kutoka Toggl ndani ya dakika 30. Kuungua kwa bajeti pekee kumejilipia \\u2014 Nimeacha kunukuu chini ya wiki mbili mfululizo.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Kila sekunde, ilichangia.',
   'login.brand.subtitle':
     'Chukua kipima muda pale ulipoishia — kila dakika tayari imeunganishwa na mradi, mteja, ankara.',
   'login.brand.tracking': 'Ufuatiliaji',
   'login.subheading': 'Chukua kipima muda mahali ulipoishia.',
+  'nav.closeMenu': 'Funga menyu ya kusogeza',
   'nav.insightsSection': 'Maarifa',
   'nav.newEntry': 'Ingizo Jipya',
+  'nav.openMenu': 'Fungua menyu ya kusogeza',
+  'nav.primary': 'Usogezaji mkuu',
   'nav.workSection': 'Kazi',
   'notFound.body':
     'Inaonekana kiungo ulichokifuata kimeacha kufuatilia. Rudi kwenye dashibodi yako \\u2014 tutaendelea kuhesabu kuanzia hapo.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Inayoweza kutozwa',
   'timer.descriptionPlaceholder': 'Unafanya kazi gani?',
   'timer.idle': 'Idle — anza kufuatilia',
+  'timer.noProject': 'Hakuna mradi',
   'timer.runningWithProject': 'Hakuna mradi',
   'timer.start': 'Anza kipima muda',
   'timer.stop': 'Kipima muda cha kusimamisha',

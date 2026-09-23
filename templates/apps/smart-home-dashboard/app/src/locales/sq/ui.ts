@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.pageTitle': 'Rreth {{app}}',
   'activity.empty': 'Ende pa aktivitet — përmbys një pajisje ose aktivizo një skenë.',
   'activity.eyebrow': 'Kronologjia',
   'activity.loadError': 'Nuk mund të ngarkohej burimi i aktivitetit.',
   'activity.subheading': 'Çdo pajisje, automatizim dhe ngjarje sigurie në rend kronologjik.',
+  'addDevice.error.failed': 'Pajisja nuk mund të shtohej. Provo përsëri.',
   'addDevice.error.nameRequired': 'Jepini kësaj pajisjeje një emër për të vazhduar.',
   'addDevice.field.firmware': 'Versioni i firmware-it',
   'addDevice.field.manufacturer': 'Prodhuesi',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Duke testuar…',
   'automationEditor.testNew': 'Ruaj automatizimin së pari për ta testuar atë.',
   'automationRow.lastRun': 'E fundit {{date}} · {{count}} vrapon',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Vrapo {{name}} tani',
   'automations.empty': 'Ende pa automatizime — krijoni rutinën tuaj të parë.',
   'automations.eyebrow': 'Rutinat',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Duke ngarkuar automatizimet…',
   'automations.newAutomation': '+ E re',
   'automations.subheading': 'Kur kjo të ndodhë, bëjeni këtë — pa YAML.',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Ngarkimi i pajisjes dështoi.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Duke punuar…',
   'deviceDetail.unnamed': 'Pajisje',
   'deviceStatusRow.on': 'Aktiv',
+  'deviceStatusRow.turnOff': 'Fike',
+  'deviceStatusRow.turnOn': 'Aktivizo',
   'deviceStatusRow.watts': '{{watts}} P',
   'energy.eyebrow': 'Fuqia',
   'energy.heading': 'Energji',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Shiko planet',
   'settings.security.heading': 'Siguria',
   'settings.subheading': 'Plani, qendrat dhe preferencat e llogarisë.',
+  'smartHomeDashboardLayout.openMenu': 'Hap menynë e navigimit',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigimi kryesor',
 }

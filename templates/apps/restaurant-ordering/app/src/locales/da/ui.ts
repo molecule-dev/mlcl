@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'analytics.avgCheckLabel': 'Gennemsnitstjek',
   'analytics.busiestHour': 'Travleste time',
   'analytics.coversToday': 'Dækker i dag',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Drikkepenge (gennemsnit)',
   'analytics.topItems': 'Topvarer i dag',
   'authShell.eyebrow': 'Velkommen tilbage til tjenesten',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Et varmt og hurtigt salgssted for hotel- og restaurationsteams. Log ind på dit køkken, og fortsæt, hvor du slap.',
   'authShell.tip': 'Pro tip: Tastaturgenveje virker overalt – tryk på / for at søge.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'eller {{price}}',
   'billing.priceUnavailable': 'Denne plan har ikke en konfigureret pris.',
   'billing.updated': 'Planen er opdateret.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'customerDetail.book': 'Tilføj reservation',
   'customerDetail.col.table': 'Tabel',
   'customerDetail.confirmDelete': 'Slet denne gæstepost?',
@@ -125,6 +128,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Tilgængelighed',
   'menuItemDetail.available': 'Tilgængelig i aften',
   'menuItemDetail.backToMenu': 'Tilbage til menuen',
+  'menuItemDetail.confirmDelete': 'Slet dette menupunkt?',
   'menuItemDetail.delete': 'Slet element',
   'menuItemDetail.deleteError': 'Sletningen mislykkedes. Prøv igen.',
   'menuItemDetail.dietary': 'Kostmærker',
@@ -135,9 +139,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Gemning mislykkedes. Prøv igen.',
   'menuItemDetail.subheading': '{{category}} · rediger foto, modifikatorer, kost og prissætning.',
   'menuItemDetail.untitled': 'Unavngivet element',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'notFound.heading': 'Dette bord er ikke på gulvet.',
   'notFound.subheading':
     'Den side, du ledte efter, har været placeret et andet sted – eller har aldrig eksisteret.',
+  'notFound.toLanding': '{{app}} hjem',
   'notifications.markError': 'Kunne ikke markere alt som læst.',
   'orderDashboard.activeDelta': 'Live nu',
   'orderDashboard.activeLabel': 'Aktive ordrer',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Vis adgangskode',
   'resetPassword.subtitle': 'Indtast din nye adgangskode for at få adgang til køkkenet igen.',
   'resetPassword.tokenLabel': 'Nulstillingstoken',
+  'restaurantOrderingLayout.primaryNavLabel': 'Primær navigation',
   'revenueHeroCard.activeOrders': '{{count}} aktiv',
   'revenueHeroCard.change': '{{sign}} {{amount}} vs i går',
   'revenueHeroCard.title': 'Dagens omsætning',
@@ -219,6 +227,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restaurantens navn',
   'tableDetail.activeOrders': 'Aktive ordrer',
   'tableDetail.backToFloor': 'Plantegning',
+  'tableDetail.confirmDelete': 'Slet denne tabel?',
   'tableDetail.delete': 'Slet',
   'tableDetail.deleteError': 'Tabellen kunne ikke slettes.',
   'tableDetail.heading': 'Tabel {{label}}',

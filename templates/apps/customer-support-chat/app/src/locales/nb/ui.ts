@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om oss',
   'authShell.samplePreview':
     '«Hei, teamet! Det nye dashbordet er fantastisk – akkurat det vi trengte!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/snarvei',
   'automations.subheading':
     'Regler, standardsvar og chatbots – sørg for at arbeidsplassen fungerer som den skal, mens teamet ditt kan konsentrere seg om det viktigste.',
+  'automations.trigger.inboundMessage': 'Innkommende melding',
   'automations.triggerLabel': 'Utløser',
   'chatBubble.internalNoteLabel': 'Intern merknad',
+  'common.confirmDelete': 'Bekreft sletting',
+  'common.goToDashboard': 'Gå til oversikt',
   'contactDetail.backToContacts': 'Alle kontakter',
   'contactDetail.contactFallback': 'Kontakt',
   'contactDetail.conversationFallback': 'Samtale',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Sist sett',
   'contacts.empty': 'Ingen kontakter ennå. Legg til din første kontakt ovenfor.',
   'contacts.eyebrow': 'Kundekatalog',
+  'contacts.form.nameOrEmailRequired': 'Oppgi minst et navn eller en e-postadresse',
   'contacts.form.save': 'Lagre kontakt',
   'contacts.heading': 'Kontakter',
   'contacts.loading': 'Laster inn kontakter…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Lagre notat',
   'conversationDetail.tab.note': 'Intern merknad',
   'conversationDetail.threadAria': 'Samtalemeldinger',
+  'conversationDetail.visitorFallback': 'Besøkende',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Kundeopplysninger',
   'customerProfilePanel.recentTitle': 'Siste samtaler',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Kundene får i gjennomsnitt svar innen {{time}} – hold dette tempoet oppe.',
   'inboxHeroCard.title': 'Aktive samtaler',
+  'inboxLayout.navDrawerLabel': 'Navigasjon',
+  'inboxLayout.openMenu': 'Åpne navigasjonsmenyen',
   'inboxOverview.eyebrow': 'Dagens oversikt',
   'inboxOverview.heroChange': '{{count}} åpen',
   'inboxOverview.kpiClosedTrend': 'noensinne',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Gå til hjemmesiden',
   'notifications.subheading':
     'Oppgaver, @-nevninger, SLA-risikoer, CSAT-tilbakemeldinger og teamaktivitet – sortert etter nyeste først.',
+  'notifications.subjectFallback': 'en samtale',
+  'notifications.visitorFallback': 'En besøkende',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Høy',
   'priority.low': 'Lav',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Haster',
   'privacy.title': 'Personvernerklæring',
   'reports.agentFallback': 'Agent',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
   'applications.empty': 'Hozircha arizalar yo’q \\u2014 To’g’ri rol - bitta ariza berish.',
   'applications.eyebrow': 'Sizning quvuringiz',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Harakatda qo’llagan har bir rolingiz. Diqqatni jamlash uchun bosqichlar bo’yicha filtrlang.',
   'applications.untitledRole': 'Rol raqami {{id}}',
+  'auth.legalConsent': 'Davom etish orqali siz bizning',
   'common.and': 'va',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'companies.empty':
     'Qidiruvingizga hech qanday kompaniya mos kelmadi. Boshqa atamani sinab ko’ring.',
   'companies.eyebrow': 'Tanlangan ish beruvchilar',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Ushbu lavozim uchun hali arizalar qabul qilinmagan.',
   'jobApplicants.eyebrow': 'Ish beruvchining nuqtai nazari',
   'jobApplicants.loading': 'Yuklanmoqda…',
+  'jobApplicants.statusUpdateFailed': "Bu bosqichni yangilab bo'lmadi — qayta urinib ko'ring.",
+  'jobApplicants.subheading':
+    "Rezyumelarni ko'rib chiqing, nomzodlarni ilgari suring, takliflarni yuboring \\u2014 {{count}} harakatda.",
   'jobDetail.applicantCount': '{{count}} hozirgacha abituriyentlar',
   'jobDetail.applied': 'Ariza yuborildi',
   'jobDetail.apply': 'Hozir murojaat qiling',
@@ -85,6 +91,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Ochiq rollarni ko’rib chiqing \\u2192',
   'landing.pricingEyebrow': 'Narxlar',
   'landing.pricingHeading': 'Har bir jamoa hajmi uchun oddiy rejalar.',
+  'login.eyebrow': '{{app}}ga qaytib kelganingizdan xursandmiz',
   'login.heading': 'Hisobingizga kiring',
   'login.noAccount': 'Noshda yangimisiz?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Kirish\\u2026',
   'login.subheading':
     'Qidiruvingizni davom ettiring, arizalaringizni ilgari suring, tezroq javob oling.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Yollash guruhlari uchun yaratilgan.',
   'loginBrandPanel.headline': 'Iste’dod uchrashadigan joy',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Iste’dodli hamkor',
@@ -108,6 +116,7 @@ export const ui: UiTranslations = {
     'Ilova yangilanishlari, suhbatga taklifnomalar, yangi mosliklar \\u2014 eng yangilari birinchi.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} Ushbu hafta',
   'opportunitiesHero.eyebrow': 'Bugun ochiq',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'postJob.addNewCompany': '+ Yangi kompaniya qo’shish',
   'postJob.companyCreateFailed': 'Kompaniya yaratib bo’lmadi — qayta urinib ko’ring.',
   'postJob.companyNameLabel': 'Kompaniyangiz nomi',
@@ -168,10 +177,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Hisob yaratilmoqda\\u2026',
   'signup.ctaEmployer': 'Ish beruvchi hisobini yarating',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Parollar mos kelmayapti.',
   'signup.subheading':
     'Izlovchilar uchun abadiy bepul. Ish beruvchilar 30 kunlik sinov muddati bilan boshlaydilar.',
   'timeAgo.days': '{{count}} kun oldin',
   'timeAgo.hours': '{{count}} soat oldin',
   'timeAgo.justNow': 'hozirgina',
+  'timeAgo.weeks': '{{count}} hafta oldin',
 }

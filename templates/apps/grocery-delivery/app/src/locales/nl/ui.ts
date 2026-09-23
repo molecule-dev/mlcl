@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Fooi voor uw shopper',
   'checkout.tipLabel': 'Fooi',
   'checkout.zipPlaceholder': 'Postcode',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'featuredProductsGrid.addAria': '{{name}} aan winkelwagen toevoegen',
   'featuredProductsGrid.outOfStock': 'Niet op voorraad',
   'forgotPassword.emailLabel': 'E-mailadres',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Als dat e-mailadres geregistreerd is, ontvangt u binnenkort een resetlink.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Hoofdnavigatie',
   'landing.categoriesEyebrow': 'Schappen',
   'landing.categoriesHeading': 'Winkelen op categorie',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Plan wekelijkse bezorgingen met slim opnieuw bestellen van vaste producten en live volgen van uw chauffeur.',
   'landing.heroTitle': 'Versheid aan uw deur, binnen enkele uren.',
   'landing.howEyebrow': 'Drie stappen',
+  'landing.howItWorksHeading': 'Hoe {{app}} werkt',
   'lists.addAllCta': 'Alles aan winkelwagen toevoegen',
   'lists.createCta': 'Maak uw eerste lijst aan',
   'lists.createError': 'Kon lijst niet aanmaken.',

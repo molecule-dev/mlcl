@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'auth.forgotPassword.emailPlaceholder': 'ad@sirketiniz.com',
   'auth.forgotPassword.heading': 'Şifrenizi sıfırlayın.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Görevi tamamlandı olarak işaretle',
   'checklistTaskCard.markIncomplete': 'Görevi tamamlanmadı olarak işaretle',
   'checklistTaskCard.openLabel': 'Görevi aç',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Her şeyi tamamladınız',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Yolunda',
   'dashboard.timelineHeading': '30/60/90 kilometre taşları',
   'dashboard.viewAllTasks': 'Tüm görevleri görüntüle',
+  'dashboard.weekOne': '1. Hafta',
   'dashboard.yourCohort': 'Ekibiniz',
   'documents.empty.body': 'Ekibinizin eklediği belgeler burada görünecek.',
   'documents.empty.title': 'Henüz belge yok',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 gün ücretsiz deneme',
   'landing.subhead':
     'Embark, her yeni takım arkadaşına ilk 90 günü boyunca rehberlik eder — evrak, eğitim, kilometre taşları ve anlamlı tanıştırmalar, hepsi tek bir sakin, güvenli yerde.',
+  'layout.openMenu': 'Gezinti menüsünü aç',
   'layout.search': 'Görev, belge, takım arkadaşı arayın…',
+  'layout.searchTeammates': 'Takım arkadaşlarınızı isim veya görevlerine göre arayın…',
   'layout.section.onboarding': 'İşe alıştırma',
   'layout.tagline': 'Yolculuğunuz burada başlıyor',
   'notifications.empty.body': 'Yeni etkinlikler burada görünecek.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Dün',
   'planUpdated.message': 'Her şey hazır.',
   'planUpdated.preparing': 'Planınız güncelleniyor…',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.documentsLabel': 'belgeler',
   'pricing.onboardingsLabel': 'işe alıştırma',
   'pricing.tasksLabel': 'görev',

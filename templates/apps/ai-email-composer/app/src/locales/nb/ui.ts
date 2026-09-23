@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Vår historie',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Åpningsrate',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Starter kassen…',
   'billing.subheading': 'Velg planen som passer din sendestil.',
   'billing.unavailable': 'Kontakt salg',
+  'common.goToDashboard': 'Gå til oversikt',
+  'common.retry': 'Prøv igjen',
   'compose.adjustingTone': 'Skriver om med valgt tone…',
   'compose.aiPromptPlaceholder':
     'f.eks. «Høflig oppfølging etter ingen svar i to uker, hold det kort.»',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Trenger du å sende noe? Signet kan ha et utkast klart på sekunder.',
   'dashboard.composeCtaLabel': 'Rask skriving',
   'dashboard.heading': 'Uken din, komponert',
+  'dashboard.loadFailed': 'Kunne ikke laste dashbordet ditt.',
   'dashboard.manageLibrary': 'Administrer bibliotek →',
   'dashboard.recentEmpty': 'Ingen utsendelser ennå — sendte e-poster vil vises her.',
   'dashboard.recentHeading': 'Siste utsendelser',
@@ -135,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Standardtone',
   'settings.toneSubheading': 'Signet bruker denne tonen med mindre du overstyrer den på utkastet.',
   'signetLayout.primaryNavLabel': 'Primærnavigasjon',
+  'signetLayout.toggleMenu': 'Veksle meny',
   'signup.emailLabel': 'E-postadresse',
   'signup.showPassword': 'Vis passord',
   'signup.tagline': 'Send din første AI-skrevne e-post på under ett minutt.',

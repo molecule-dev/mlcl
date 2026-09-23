@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.pageTitle': '{{app}} గురించి',
   'achievementBadgeCard.unlockedOn': 'అన్‌లాక్ చేయబడింది {{date}}',
   'achievements.loadError': 'విజయాలు లోడ్ చేయడంలో విఫలమయ్యాము.',
   'achievements.subheading': '{{unlocked}} యొక్క {{total}} అన్‌లాక్ చేయబడింది',
   'achievements.unlockedOn': 'అన్‌లాక్ చేయబడింది {{date}}',
+  'auth.legalConsent': 'కొనసాగడం ద్వారా, మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'calendar.empty': 'మీ క్యాలెండర్‌ను చూసుకునే అలవాటును ఏర్పరచుకోండి.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'అలవాటు',
@@ -20,12 +23,14 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'అలవాటు గ్రిడ్',
   'category.${c.category}': '{{count}} అలవాట్లు',
   'common.and': 'మరియు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'consistencyHeatmap.ariaLabel': 'రోజువారీ స్థిరత్వ హీట్‌మ్యాప్',
   'consistencyHeatmap.caption': 'చివరిది {{weeks}} వారాలు',
   'consistencyHeatmap.lessLabel': 'తక్కువ',
   'consistencyHeatmap.moreLabel': 'మరిన్ని',
   'consistencyHeatmap.title': 'స్థిరత్వం',
   'dashboard.empty': 'ఇంకా అలవాట్లు ఏమీ లేవు. ఒక స్ట్రీక్ ప్రారంభించడానికి ఒక అలవాటును జోడించండి.',
+  'dashboard.heading': 'ఈరోజు — {{total}} లో {{completed}} పూర్తయింది',
   'dashboard.newHabitCta': 'కొత్త అలవాటు',
   'dashboard.todaySection': 'ఈరోజు చేయవలసిన పనుల జాబితా',
   'dashboard.viewAllHabits': 'అలవాట్లను నిర్వహించండి →',
@@ -79,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'ప్రత్యక్షంగా చూడండి',
   'landing.heroSubtitle':
     'అలవాట్లు నిజంగా నిలిచిపోయే విధంగా వాటిని నిర్మించుకోండి: చిన్న చిన్న నిబద్ధతలు, ప్రతిరోజూ చేసే పనులు, మరియు సుదీర్ఘంగా, నిరంతరాయంగా కొనసాగే గొలుసు నుండి లభించే సహజమైన ఆనందం.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'స్ట్రీక్ లోపలికి ఒక తొంగిచూపు',
   'landing.previewMotivation': 'తొమ్మిది వరుసలు సజీవంగా ఉన్నాయి. వాటన్నింటినీ వెచ్చగా ఉంచండి.',
   'login.eyebrow': 'గొలుసును తీసుకోండి',
@@ -96,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'దాన్ని చిన్నదిగా చేయండి. దాన్ని నిర్దిష్టంగా చేయండి. రేపు హాజరవ్వండి.',
   'newHabit.timeLabel': 'రిమైండర్ సమయం',
   'notifications.markError': 'అన్నింటినీ చదివినట్లుగా గుర్తించలేకపోయాను.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.entries': '{{count}} ఎంట్రీలు',
+  'pricing.heading': 'మీ {{app}} ప్లాన్ ఎంచుకోండి',
   'profile.action.plan': 'సభ్యత్వాన్ని నిర్వహించండి',
   'profile.action.settings': 'ఖాతా సెట్టింగ్‌లు',
   'profile.bioEmpty':
@@ -125,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'రోజువారీ ఉదయం సూచన (ఉదయం 8:00 గంటలకు)',
   'settings.reminders.heading': 'రిమైండర్లు',
   'settings.reminders.weekly': 'వారపు సారాంశం (ఆదివారం సాయంత్రాలు)',
+  'settings.revokeDeviceWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.signOutDevice': 'సైన్ అవుట్',
   'settings.streaks.freezesPerWeek': 'వారానికి గడ్డకట్టడం',
   'settings.streaks.gracePeriod': 'అర్ధరాత్రి తర్వాత 6 గంటల గ్రేస్ పీరియడ్',
@@ -151,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} చురుకుగా',
   'streakHeroCard.daysSuffix': 'రోజులు',
   'streakHeroCard.title': 'అత్యంత సుదీర్ఘమైన యాక్టివ్ స్ట్రీక్',
+  'streakLayout.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'streakLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'streakLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
 }

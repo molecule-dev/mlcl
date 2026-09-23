@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} बारे',
   'analytics.avgCheckLabel': 'औसत जाँच',
   'analytics.busiestHour': 'सबैभन्दा व्यस्त समय',
   'analytics.coversToday': 'आजको कभर',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'सुझावहरू (औसत)',
   'analytics.topItems': 'आजका शीर्ष वस्तुहरू',
   'authShell.eyebrow': 'सेवामा पुन: स्वागत छ',
+  'authShell.heading': '{{tagline}}।',
   'authShell.subheading':
     'आतिथ्य टोलीहरूको लागि न्यानो, द्रुत बिक्री बिन्दु। आफ्नो भान्सामा साइन इन गर्नुहोस् र जहाँ छोड्नुभएको थियो त्यहीँबाट सुरु गर्नुहोस्।',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'वा {{price}}',
   'billing.priceUnavailable': 'यो योजनाको कुनै निश्चित मूल्य छैन।',
   'billing.updated': 'योजना अद्यावधिक गरियो।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'customerDetail.book': 'आरक्षण थप्नुहोस्',
   'customerDetail.col.table': 'तालिका',
   'customerDetail.confirmDelete': 'यो अतिथि रेकर्ड मेटाउने हो?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'उपलब्धता',
   'menuItemDetail.available': 'आज राति उपलब्ध छ',
   'menuItemDetail.backToMenu': 'मेनुमा फर्कनुहोस्',
+  'menuItemDetail.confirmDelete': 'यो मेनु वस्तु मेटाउने हो?',
   'menuItemDetail.delete': 'वस्तु मेटाउनुहोस्',
   'menuItemDetail.deleteError': 'मेटाउन असफल भयो। फेरि प्रयास गर्नुहोस्।',
   'menuItemDetail.dietary': 'आहार ट्यागहरू',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · फोटो, परिमार्जक, आहार, र मूल्य निर्धारण सम्पादन गर्नुहोस्।',
   'menuItemDetail.untitled': 'शीर्षकविहीन वस्तु',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'notFound.heading': 'यो टेबल भुइँमा छैन।',
   'notFound.subheading':
     'तपाईंले खोजिरहनुभएको पृष्ठ अन्यत्र राखिएको छ - वा कहिल्यै अस्तित्वमा थिएन।',
+  'notFound.toLanding': '{{app}} गृहपृष्ठ',
   'notifications.markError': 'सबै पढिएको चिन्ह लगाउन सकिएन।',
   'orderDashboard.activeDelta': 'अहिले लाइभ गर्नुहोस्',
   'orderDashboard.activeLabel': 'सक्रिय अर्डरहरू',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'भान्सामा पुनः पहुँच प्राप्त गर्न आफ्नो नयाँ पासवर्ड प्रविष्ट गर्नुहोस्।',
   'resetPassword.tokenLabel': 'टोकन रिसेट गर्नुहोस्',
+  'restaurantOrderingLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'revenueHeroCard.activeOrders': '{{count}} सक्रिय',
   'revenueHeroCard.change': '{{sign}} {{amount}} हिजोको तुलनामा',
   'revenueHeroCard.title': 'आजको राजस्व',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'रेस्टुरेन्टको नाम',
   'tableDetail.activeOrders': 'सक्रिय अर्डरहरू',
   'tableDetail.backToFloor': 'तल्ला योजना',
+  'tableDetail.confirmDelete': 'यो तालिका मेटाउने हो?',
   'tableDetail.delete': 'मेटाउनुहोस्',
   'tableDetail.deleteError': 'तालिका मेटाउन सकिएन।',
   'tableDetail.heading': 'तालिका {{label}}',

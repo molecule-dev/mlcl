@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Gwylio',
   'auctionDetail.watchRemoved': "Wedi'i dynnu o'r rhestr wylio.",
   'auctionDetail.watchRemoveLabel': "Dileu o'r rhestr wylio",
+  'auctionPlatformLayout.primaryNavLabel': 'Prif lywio',
   'authShell.brandBody':
     "Cynigiwch mewn amser real ar oriorau prin, celfyddyd gain, ac eitemau arbenigol unigryw. Mae'r morthwyl yn disgyn mewn eiliadau.",
   'authShell.brandEyebrow': 'Yn fyw nawr · 1,420 o arwerthiannau',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Trefnu yn ôl',
   'browseAuctions.subheading':
     "Hidlo yn ôl categori, trefnu yn ôl yr hyn sydd bwysicaf, a rhoi cynnig cyn i'r morthwyl ddisgyn.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'countdownTimer.ended': 'Wedi dod i ben',
   'countdownTimer.endingSoon': 'Diweddu',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Dangos cyfrinair',
   'login.subtext':
     "Parhewch i olrhain eich arwerthiannau a gosodwch gynigion cyn i'r morthwyl ddisgyn.",
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'myBids.bidAgain': 'Cynnig eto',
   'myBids.browseCta': 'Pori arwerthiannau byw →',
   'myBids.checkoutCta': 'Talu nawr',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Canolfan weithgareddau',
   'notificationsPage.subheading':
     '{{count}} heb ei ddarllen · diweddariadau byw wrth i arwerthiannau symud',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.bidsLabel': 'cynigion',
   'pricing.listingsLabel': 'rhestrau',
   'pricing.watchlistLabel': 'rhestr wylio',

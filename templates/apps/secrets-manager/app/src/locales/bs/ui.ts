@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'O nama',
   'about.tagline': 'Tajne umiru na otvorenom.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Kreiraj token',
   'apiTokens.kicker': 'API tokeni',
   'apiTokens.loading': 'Učitavanje tokena…',
+  'apiTokens.new': 'Novi token',
   'apiTokens.revoke': 'Poništi token',
   'apiTokens.subheading':
     'Lični i servisni tokeni za Arcanum CLI i SDK. Otvoreni tekst se prikazuje jednom prilikom kreiranja.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Lozinka',
   'authShell.zeroKnowledge': 'Šifriranje s nultim znanjem',
   'common.connecting': 'Povezivanje…',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.inviting': 'Pozivanje…',
   'forgotPassword.checkInbox':
     'Ako je {email} registrovan/a, potpisani link za resetovanje će stići u roku od jedne minute.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Status rotacije, upozorenja o anomalijama i zahtjevi za odobrenje u svakom trezoru.',
   'notifications.unreadEmpty': 'Inbox nula — sve je pregledano.',
+  'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'pricing.heading': 'tajne',
   'pricing.limits.accessPolicies': 'pravila pristupa',
   'pricing.limits.auditLog': 'unosi u dnevnik revizije',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'Upravljajte svojom pretplatom, pogledajte ograničenja i nadogradite.',
   'profile.subheading': 'Identitet, uređaji drugog faktora i aktivne sesije.',
+  'profile.twoFactor.code': 'Autentifikacijski kod',
   'profile.twoFactor.disable': 'Onemogući',
   'profile.twoFactor.enable': 'Omogući',
+  'profile.twoFactor.invalidCode': 'Nevažeći kod',
   'profile.twoFactor.kicker': 'Dvofaktorska autentifikacija',
+  'profile.twoFactor.off': 'Nije omogućeno',
   'profile.twoFactor.on': 'Omogućeno',
   'resetPassword.email': 'E-pošta računa',
   'resetPassword.heading': 'Postavite nove akreditive',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'naredbe',
   'secretsManagerLayout.encrypted': 'AES-256 · ŠIFRIRANO',
   'secretsManagerLayout.newVault': 'Novi trezor',
+  'secretsManagerLayout.newVaultShort': 'Novo',
   'secretsManagerLayout.rotations': 'Rotacije',
   'secretsManagerLayout.search': 'pretraga',
   'secretsManagerLayout.searchPlaceholder': 'Pretražite tajne po ključu, putanji ili oznaci…',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Tajne',
   'vaultCard.vaultLabel': 'Trezor',
   'vaultDetail.addSecret': 'Dodaj tajnu',
+  'vaultDetail.back': 'Svi trezori',
   'vaultDetail.col.key': 'Ključ',
   'vaultDetail.col.rotated': 'Rotirano',
   'vaultDetail.col.value': 'Vrijednost',

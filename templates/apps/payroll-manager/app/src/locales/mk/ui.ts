@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'auditLog.empty':
     'Сè уште нема настани за ревизија што одговараат на вашите филтри. Уредете вработен или обработете исплата и тие ќе се појават тука.',
   'auditLog.eyebrow': 'Усогласеност',
+  'auditLog.loadError': 'Не можеше да се вчита дневникот на ревизијата.',
   'auditLog.searchPlaceholder': 'Пребарување по актер, дејство или опис',
   'auditLog.subheading':
     'Секое одобрување, уредување и поднесување на даночна пријава — со актерот, временската ознака и изменетите полиња.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Не е конфигурирано',
   'billing.plansHeading': 'Планови',
   'billing.subheading': 'Управувајте со вашиот план и менувајте нивоа преку Stripe.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Обидете се повторно',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Слика на усогласеност',
   'dashboard.compliance.title': 'Сите проверки поминаа',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Нема одбитоци во досието.',
   'employeeDetail.notFound': 'Вработениот не е пронајден.',
   'employeeDetail.payFrequency': 'Фреквенција на плаќање',
+  'employeeDetail.postTax': 'По оданочување',
+  'employeeDetail.preTax': 'Пред оданочување',
   'employeeDetail.salary': 'Годишна плата',
   'employeeDetail.ssn': 'ЕМБГ',
   'employeeDetail.startedOn': 'Започнато {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Фреквенција на плаќање',
   'employeeForm.salary': 'Годишна плата (USD)',
   'employeeForm.salaryInvalid': 'Платата мора да биде ненегативен број.',
+  'employeeForm.saveError': 'Не можеше да се зачува вработениот.',
   'employeeForm.semimonthly': 'Полумесечно',
   'employeeForm.single': 'Сингл',
   'employeeForm.ssn': 'ЕМБГ',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Плата',
   'forgotPassword.subtitle':
     'Внесете ја вашата службена е-пошта и ние ќе ви испратиме линк за ресетирање.',
+  'landing.copyright': '© {{year}} {{app}} . Прецизно, сигурно, смирено.',
   'landing.ctaBody':
     'Бесплатно 30 дена. Без кредитна картичка. Префрлете се во секое време без да ја изгубите вашата ревизорска трага.',
   'landing.ctaHeading': 'Извршете го вашиот следен циклус на Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Записи',
   'payRunDetail.noActivity': 'Сè уште нема записи за ревизија за оваа исплата.',
   'payRunDetail.noStubs': 'Сè уште нема платни потврди — одобри и обработи за да ги генерираш.',
+  'payRunDetail.notFound': 'Ова плаќање не може да се пронајде.',
   'payRunDetail.statDeductions': 'Одбивања',
   'payRunDetail.statHeadcount': 'Вработени',
   'payRunDetail.statTaxes': 'Задржани даноци',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Полумесечно',
   'settings.signOutDevice': 'Одјави се',
   'settings.subheading': 'Профил на компанијата, распоред на плати и интеграции.',
+  'settings.twoFactorCode': 'Код за автентикација',
   'settings.twoFactorDisable': 'Оневозможи',
+  'settings.twoFactorInvalidCode': 'Неважечки код',
+  'settings.twoFactorVerify': 'Потврди и овозможи',
   'settings.weekly': 'Неделно',
   'taxCenter.bucket.federal': 'Федерален приход',
   'taxCenter.bucket.fica': 'Социјално осигурување',

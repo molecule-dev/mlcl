@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'authShell.brandHeading': 'بوم‌های پیکسلی بی‌نقص برای تیم‌های طراحی که با هم کار می‌کنند.',
   'canvas.redirecting': 'ویرایشگر در حال باز شدن…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'و',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.retry': 'دوباره امتحان کنید',
   'dashboard.activityEmpty':
     'هنوز فعالیت جدیدی انجام نشده است - از یک هم‌تیمی برای شروع دعوت کنید.',
   'dashboard.activityTitle': 'امروز چه چیزی تغییر کرد',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'فضای کاری · استودیو نورث‌ویند',
   'dashboard.foldersLabel': 'پوشه‌ها',
   'dashboard.gridTitle': '{{count}} پروژه‌ها',
+  'dashboard.heroActiveTool': 'ابزار قلم',
   'dashboard.loadingTitle': 'در حال بارگذاری پروژه‌ها…',
   'dashboard.searchPlaceholder': 'جستجوی پروژه‌ها',
   'dashboard.startFromTemplate': 'از الگو شروع کنید',
   'dashboard.title': 'پروژه‌های شما',
   'dashboard.untitledProject': 'پروژه بدون عنوان',
   'designCanvasLayout.newProject': 'پروژه جدید',
+  'designCanvasLayout.primaryNavLabel': 'ناوبری اولیه',
   'editor.backToProjects': 'بازگشت به پروژه‌ها',
   'editor.deleteShape': 'حذف شکل',
   'editor.errorBody': 'ما نتوانستیم این پروژه را افتتاح کنیم.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'ابزارهایی طراحی کنید که با سرعت دستان شما حرکت می‌کنند',
   'library.empty': 'هنوز هیچ توکنی در این بخش وجود ندارد.',
   'library.eyebrow': 'فضای کاری · سیستم طراحی آتلیه',
+  'library.loadFailed': 'نتوانست توکن‌های طراحی را بارگیری کند.',
   'library.systemMeta': 'سلامت سیستم',
   'library.systemSummary': '{{توکن‌ها}} توکن‌ها · {{اجزای تشکیل‌دهنده}} اجزا · {{اثرات}} اثرات',
   'login.emailPlaceholder': 'mara@studio.com',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'announcementsFeed.empty': 'ຍັງບໍ່ມີການປະກາດໃດໆເທື່ອ.',
   'announcementsFeed.eyebrow': '{{count}} ການອັບເດດ',
   'announcementsFeed.title': 'ການປະກາດລ່າສຸດ',
@@ -8,6 +9,7 @@ export const ui: UiTranslations = {
   'assignmentDetail.backLink': 'ກັບໄປຫາວຽກມອບໝາຍ',
   'assignmentDetail.dropButton': 'ເລືອກໄຟລ໌',
   'assignmentDetail.due': 'ຄົບກຳນົດ {{due}}',
+  'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'ຄຳແນະນຳ',
   'assignmentDetail.loadError': 'ໂຫຼດວຽກມອບໝາຍບໍ່ສຳເລັດ.',
   'assignmentDetail.noInstructions': 'ບໍ່ມີຄຳແນະນຳເພີ່ມເຕີມໃດໆໃຫ້.',
@@ -18,9 +20,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusSubmitted': 'ສົ່ງແລ້ວ',
   'assignmentDetail.statusTitle': 'ສະຖານະການສົ່ງ',
   'assignmentDetail.submitted': 'ບັນທຶກການສົ່ງແລ້ວ - ຄູຂອງທ່ານໄດ້ຮັບແຈ້ງແລ້ວ.',
+  'assignmentRow.courseDue': '{{course}} · ຄົບກຳນົດ {{due}}',
   'assignments.empty': 'ບໍ່ມີຫຍັງຢູ່ທີ່ນີ້',
   'assignments.emptyBody': 'ສະຫຼັບຕົວກອງຂ້າງເທິງເພື່ອເບິ່ງການມອບໝາຍໃນສະຖານະອື່ນ.',
   'assignments.eyebrow': 'ຫຼັກສູດທັງໝົດ · ເທີມນີ້',
+  'assignments.loadError': 'ບໍ່ສາມາດໂຫຼດວຽກມອບໝາຍໄດ້.',
   'assignments.loading': 'ກຳລັງໂຫຼດວຽກມອບໝາຍ…',
   'assignments.subtitle':
     'ກັ່ນຕອງຕາມສະຖານະເພື່ອເບິ່ງວ່າມີຫຍັງຄົບກຳນົດສົ່ງ, ສົ່ງແລ້ວ, ໃຫ້ຄະແນນແລ້ວ ຫຼື ຂາດຫາຍໄປ.',
@@ -29,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'ໝາຍເຫດ',
   'attendance.empty': 'ຍັງບໍ່ມີບັນທຶກການເຂົ້າຮ່ວມເທື່ອ.',
   'attendance.eyebrow': 'ພາກຮຽນ spring · 4 ອາທິດຜ່ານມາ',
+  'attendance.loadError': 'ບໍ່ສາມາດໂຫຼດບັນທຶກການເຂົ້າຮ່ວມໄດ້.',
   'attendance.loading': 'ກຳລັງໂຫຼດການເຂົ້າຮ່ວມ…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -42,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'ວັນຄົບກຳນົດສົ່ງວຽກມອບໝາຍທີ່ວາງໄວ້ໃນຕາຕະລາງເດືອນ - ການສອບເສັງຈະເດັ່ນເປັນສີແດງ.',
   'calendar.title': '{{month}} ເຫດການຕ່າງໆ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.no': '—',
+  'common.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
   'common.yes': '✓',
   'courseDetail.backLink': 'ເກຣດ',
   'courseDetail.currentGrade': 'ຊັ້ນຮຽນປັດຈຸບັນ',
@@ -70,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ແນວໂນ້ມ',
   'grades.empty': 'ຍັງບໍ່ມີການຈັດອັນດັບທີ່ໂພສໄວ້ເທື່ອ.',
   'grades.eyebrow': 'ປຶ້ມຄະແນນ',
+  'grades.loadError': 'ບໍ່ສາມາດໂຫຼດຄະແນນຂອງທ່ານໄດ້.',
   'grades.loading': 'ກຳລັງໂຫຼດເກຣດ…',
   'grades.subtitle':
     'ຄະແນນຈົດໝາຍສົດ ແລະ ເປີເຊັນ. ລູກສອນແນວໂນ້ມສະແດງໃຫ້ເຫັນວ່າທ່ານກຳລັງເລື່ອນຂຶ້ນ, ເລື່ອນລະດັບ ຫຼື ເລື່ອນລົງ.',
   'grades.title': 'ເກຣດຂອງທ່ານ, ຫຼັກສູດຕໍ່ຫຼັກສູດ',
   'grades.trendStable': 'ໝັ້ນຄົງ',
+  'landing.copyright': '© {{year}} {{app}} . ສ້າງມາສຳລັບນັກຮຽນ, ສ້າງມາສຳລັບຄອບຄົວ.',
   'landing.ctaHeading': 'ມື້ຮຽນທີ່ສະຫງົບລົງເລີ່ມຕົ້ນພາຍໃນນາທີ',
   'landing.eyebrow': 'ສຳລັບນັກຮຽນຊັ້ນມັດທະຍົມຕອນຕົ້ນ ແລະ ມັດທະຍົມຕອນປາຍ',
   'landing.featuresHeading': 'ມື້ຮຽນທີ່ຈັດຂຶ້ນໂດຍອ້ອມຮອບນັກຮຽນ',
@@ -110,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'ວຽກມອບໝາຍ',
   'nav.attendance': 'ການເຂົ້າຮ່ວມ',
   'nav.calendar': 'ປະຕິທິນ',
+  'nav.closeMenu': 'ປິດເມນູນຳທາງ',
   'nav.grades': 'ເກຣດ',
+  'nav.openMenu': 'ເປີດເມນູນຳທາງ',
   'nav.statusEyebrow': 'ເກຣດສະເລ່ຍພາກຮຽນ',
   'nav.statusSubtext': 'ລາຍຊື່ກຽດຕິຍົດ · ພາກຮຽນ spring',
+  'nav.unreadMessages': 'ຂໍ້ຄວາມທີ່ຍັງບໍ່ໄດ້ອ່ານ',
   'notifications.eyebrow': '{{count}} ການອັບເດດ',
   'notifications.subtitle':
     'ເກຣດ, ການແຈ້ງເຕືອນ, ຂໍ້ຄວາມ ແລະ ການປະກາດຂອງໂຮງຮຽນ. ປັບຊ່ອງທາງທີ່ການແຈ້ງເຕືອນແຕ່ລະອັນໃຊ້ໃນການຕັ້ງຄ່າ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.attendanceLabel': 'ການເຂົ້າຮ່ວມ',
   'pricing.gradesLabel': 'ເກຣດ',
   'pricing.heading': 'ການປະກາດ',

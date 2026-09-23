@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.pageTitle': 'Om {{app}}',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.retry': 'Prøv igen',
   'compose.cancel': 'Annuller',
   'compose.captionPlaceholder': 'Hvad tænker du på?',
   'compose.heading': 'Del et øjeblik',
@@ -93,6 +97,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Bekræftet konto',
   'resetPassword.newPassword': 'Ny adgangskode',
   'resetPassword.subheading': 'Vælg noget stærkt – mindst 12 tegn.',
+  'search.clearAria': 'Ryd',
+  'search.error': 'Søgningen mislykkedes. Prøv igen.',
   'search.noPeople': 'Ingen skabere matcher {{q}} ".',
   'search.noPosts': 'Ingen matchende opslag {{q}} ".',
   'search.noTags': 'Ingen trending hashtags endnu.',
@@ -122,6 +128,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Skjul adgangskode',
   'signup.showPassword': 'Vis adgangskode',
   'signup.subheading': 'Opret en konto for at begynde at dele.',
+  'socialMediaLayout.closeMenu': 'Luk navigationsmenuen',
+  'socialMediaLayout.openMenu': 'Åbn navigationsmenuen',
+  'socialMediaLayout.primaryNavLabel': 'Primær navigation',
   'storyRail.heading': 'Historier',
   'storyRail.label': 'Historier',
   'storyRail.openAria': "Åben {{handle}} 's historie",

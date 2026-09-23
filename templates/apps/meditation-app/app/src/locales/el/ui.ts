@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.eyebrow': 'Σχετικά με το {{app}}',
+  'about.intro':
+    '{{app}} είναι μια εφαρμογή διαλογισμού για την πραγματική ζωή — καθημερινοί καθοδηγούμενοι διαλογισμοί, ασκήσεις αναπνοής και ιστορίες ύπνου, με τη βοήθεια δασκάλων που τους νιώθουν σαν φίλους, όχι σαν προπονητές. Χωρίς ενοχές, χωρίς θορυβώδες τάισμα: απλώς ένα ήσυχο μέρος για να επιστρέψετε στην αναπνοή σας.',
+  'about.missionBody':
+    'Πιστεύουμε ότι η ηρεμία πρέπει να είναι προσβάσιμη σε όλους, οποιαδήποτε στιγμή της ημέρας. {{app}} υπάρχει για να κάνει μια ήρεμη, συνεπή εξάσκηση να φαίνεται αβίαστη — έτσι ώστε δέκα ειλικρινή λεπτά να μπορούν να αλλάξουν τον τρόπο με τον οποίο θα ανταποκριθείτε στις επόμενες δέκα ώρες.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.pageTitle': 'Πιο ήρεμα 10 λεπτά την ημέρα',
+  'breathingDial.seconds': 'δευτερόλεπτα',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.logout': 'Αποσύνδεση',
   'common.min': 'λεπτά',
   'common.relative.justNow': 'μόλις τώρα',
   'common.relative.now': 'τώρα',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'nav.secondaryNavigation': 'Πλοήγηση λογαριασμού',
   'sessionCard.with': 'με {{name}}',
   'stillpoint.billing.choose': 'Επιλέγω {{plan}}',
   'stillpoint.billing.currentPlan': 'Αυτή τη στιγμή ενεργοποιημένο {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Δεν ήταν δυνατή η φόρτωση σχεδίων.',
   'stillpoint.billing.opening': 'Άνοιγμα ταμείου…',
   'stillpoint.billing.perMonthShort': '/ μήνα',
+  'stillpoint.billing.perYearShort': '/χρόνο',
   'stillpoint.billing.unknownResult': 'Μη αναμενόμενη απόκριση χρέωσης.',
   'stillpoint.billing.yearly': 'Ετήσια · εξοικονομήστε 17%',
   'stillpoint.courseDetail.back': 'Μαθήματα',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Δεν υπάρχουν ακόμη μαθήματα.',
   'stillpoint.courses.eyebrow': '{{count}} πολυήμερα ταξίδια',
   'stillpoint.courses.heading': 'Μαθήματα',
+  'stillpoint.forgot.checkEmail': 'Ελέγξτε τα εισερχόμενά σας — ο σύνδεσμος λήγει σε 30 λεπτά.',
   'stillpoint.forgot.success': 'Στείλαμε έναν σύνδεσμο επαναφοράς στο {{email}} .',
   'stillpoint.home.empty': 'Δεν υπάρχουν ακόμη συνεδρίες — ελέγξτε ξανά σύντομα.',
   'stillpoint.home.friend': 'φίλος',
@@ -49,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Δημιουργήστε το δωρεάν λογαριασμό σας',
   'stillpoint.landing.cta.title': 'Ξεκίνα την ηρεμία σου σήμερα',
   'stillpoint.landing.features.heading': 'Μια πρακτική που εξελίσσεται μαζί σας',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Καθημερινοί καθοδηγούμενοι διαλογισμοί, ασκήσεις αναπνοής και ιστορίες ύπνου — με ρυθμό από δασκάλους που αισθάνονται σαν φίλοι, όχι σαν προπονητές.',
   'stillpoint.landing.hero.eyebrow': 'Πιο ήρεμα 10 λεπτά την ημέρα',
@@ -65,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Περιηγηθείτε ανά διάθεση',
   'stillpoint.login.rememberMe': 'Να παραμένω συνδεδεμένος',
   'stillpoint.login.subheading': 'Συνδεθείτε για να συνεχίσετε την πρακτική σας.',
+  'stillpoint.nav.tagline': 'Βρείτε το κέντρο ακινησίας σας',
+  'stillpoint.notFound.body':
+    'Αυτή η σελίδα παίρνει μια βαθιά ανάσα κάπου. Ας βρούμε ένα πιο ήσυχο μέρος για εσάς στην {{app}} .',
   'stillpoint.notFound.title': 'Χαμένος στη σιωπή',
   'stillpoint.notFound.toHome': 'Πίσω στο σήμερα',
   'stillpoint.notFound.toLibrary': 'Περιήγηση στη βιβλιοθήκη',
@@ -82,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Παράλειψη 15 δευτερολέπτων προς τα πίσω',
   'stillpoint.player.skipForward': 'Μετάβαση προς τα εμπρός κατά 30 δευτερόλεπτα',
   'stillpoint.player.with': 'με {{name}}',
+  'stillpoint.profile.defaultHandle': 'σταθερό δείκτη',
   'stillpoint.profile.eyebrow': 'Η πρακτική σας, συνοπτικά.',
   'stillpoint.profile.locked': 'Κλειδωμένο',
   'stillpoint.profile.member': 'Μέλος του Stillpoint',

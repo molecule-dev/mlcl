@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'auditLog.empty':
     'ನಿಮ್ಮ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವ ಯಾವುದೇ ಆಡಿಟ್ ಈವೆಂಟ್‌ಗಳು ಇನ್ನೂ ಇಲ್ಲ. ಉದ್ಯೋಗಿಯನ್ನು ಸಂಪಾದಿಸಿ ಅಥವಾ ಪೇ ರನ್ ಅನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಿ ಮತ್ತು ಅವುಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.',
   'auditLog.eyebrow': 'ಅನುಸರಣೆ',
+  'auditLog.loadError': 'ಆಡಿಟ್ ಲಾಗ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'auditLog.searchPlaceholder': 'ನಟ, ಆಕ್ಷನ್ ಅಥವಾ ವಿವರಣೆಯ ಮೂಲಕ ಹುಡುಕಿ',
   'auditLog.subheading':
     'ಪ್ರತಿಯೊಂದು ಅನುಮೋದನೆ, ಸಂಪಾದನೆ ಮತ್ತು ತೆರಿಗೆ ಸಲ್ಲಿಕೆ - ನಟ, ಸಮಯಸ್ಟ್ಯಾಂಪ್ ಮತ್ತು ಬದಲಾದ ಕ್ಷೇತ್ರಗಳೊಂದಿಗೆ.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ',
   'billing.plansHeading': 'ಯೋಜನೆಗಳು',
   'billing.subheading': 'ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಿ ಮತ್ತು ಸ್ಟ್ರೈಪ್ ಮೂಲಕ ಶ್ರೇಣಿಗಳನ್ನು ಬದಲಾಯಿಸಿ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'ಅನುಸರಣೆ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್',
   'dashboard.compliance.title': 'ಎಲ್ಲಾ ಚೆಕ್‌ಗಳು ಪಾಸಾಗುತ್ತಿವೆ',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ಫೈಲ್‌ನಲ್ಲಿ ಯಾವುದೇ ಕಡಿತಗಳಿಲ್ಲ.',
   'employeeDetail.notFound': 'ಉದ್ಯೋಗಿ ಕಂಡುಬಂದಿಲ್ಲ.',
   'employeeDetail.payFrequency': 'ಪಾವತಿ ಆವರ್ತನ',
+  'employeeDetail.postTax': 'ತೆರಿಗೆ-ನಂತರ',
+  'employeeDetail.preTax': 'ತೆರಿಗೆ ಪೂರ್ವ',
   'employeeDetail.salary': 'ವಾರ್ಷಿಕ ವೇತನ',
   'employeeDetail.ssn': 'ಎಸ್‌ಎಸ್‌ಎನ್',
   'employeeDetail.startedOn': 'ಪ್ರಾರಂಭಿಸಲಾಗಿದೆ {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ಪಾವತಿ ಆವರ್ತನ',
   'employeeForm.salary': 'ವಾರ್ಷಿಕ ವೇತನ (USD)',
   'employeeForm.salaryInvalid': 'ಸಂಬಳವು ಋಣಾತ್ಮಕವಲ್ಲದ ಸಂಖ್ಯೆಯಾಗಿರಬೇಕು.',
+  'employeeForm.saveError': 'ಉದ್ಯೋಗಿಯನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'employeeForm.semimonthly': 'ಅರ್ಧ ಮಾಸಿಕ',
   'employeeForm.single': 'ಏಕ',
   'employeeForm.ssn': 'ಎಸ್‌ಎಸ್‌ಎನ್',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'ಸಂಬಳ',
   'forgotPassword.subtitle':
     'ನಿಮ್ಮ ಕೆಲಸದ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
+  'landing.copyright': '© {{year}} {{app}} . ನಿಖರ, ವಿಶ್ವಾಸಾರ್ಹ, ಸಂಯೋಜಿತ.',
   'landing.ctaBody':
     '30 ದಿನಗಳವರೆಗೆ ಉಚಿತ. ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಇಲ್ಲ. ನಿಮ್ಮ ಆಡಿಟ್ ಟ್ರೇಲ್ ಕಳೆದುಕೊಳ್ಳದೆ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಬದಲಾಯಿಸಿ.',
   'landing.ctaHeading': 'ನಿಮ್ಮ ಮುಂದಿನ ಚಕ್ರವನ್ನು Stipend‌ನಲ್ಲಿ ಚಲಾಯಿಸಿ',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ಈ ಪೇ-ರನ್‌ಗೆ ಇನ್ನೂ ಯಾವುದೇ ಆಡಿಟ್ ನಮೂದುಗಳಿಲ್ಲ.',
   'payRunDetail.noStubs':
     'ಇನ್ನೂ ಯಾವುದೇ ಪೇ-ಸ್ಟಬ್‌ಗಳಿಲ್ಲ — ಅವುಗಳನ್ನು ರಚಿಸಲು ಅನುಮೋದಿಸಿ ಮತ್ತು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಿ.',
+  'payRunDetail.notFound': 'ಈ ಪೇ ರನ್ ಸಿಗಲಿಲ್ಲ.',
   'payRunDetail.statDeductions': 'ಕಡಿತಗಳು',
   'payRunDetail.statHeadcount': 'ನೌಕರರು',
   'payRunDetail.statTaxes': 'ತೆರಿಗೆಗಳನ್ನು ತಡೆಹಿಡಿಯಲಾಗಿದೆ',
@@ -220,7 +229,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'ಅರ್ಧ ಮಾಸಿಕ',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.subheading': 'ಕಂಪನಿ ಪ್ರೊಫೈಲ್, ವೇತನ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಏಕೀಕರಣಗಳು.',
+  'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.weekly': 'ಸಾಪ್ತಾಹಿಕ',
   'taxCenter.bucket.federal': 'ಫೆಡರಲ್ ಆದಾಯ',
   'taxCenter.bucket.fica': 'ಸಾಮಾಜಿಕ ಭದ್ರತೆ',

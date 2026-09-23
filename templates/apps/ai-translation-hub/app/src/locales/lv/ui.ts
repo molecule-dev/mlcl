@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'billing.canceled': 'Abonements ir atcelts. Perioda beigās jūs atgriezīsieties bezmaksas režīmā.',
   'billing.contactSales': 'Sazinieties ar pārdošanas komandu',
   'billing.free.1': '5 tulkojumi',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Nav saglabāšanas ierobežojuma',
   'billing.upgradeHint': 'Jauniniet, lai atbloķētu uzlabotas mākslīgā intelekta funkcijas.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.activityEmpty': 'Vēl nav aktivitāšu — sāciet projektu, lai aizpildītu šo plūsmu.',
   'dashboard.eyebrow': 'Pārskats',
   'dashboard.projectsEmpty': 'Vēl nav projektu — sāciet vienu, lai to redzētu šeit.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Atkārtoti izmantot iepriekšējos tulkojumus katrā projektā. Augstāks atbilstības rādītājs → mazāk atkārtota darba.',
   'memory.title': 'Atmiņas banka',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'nav.legal': 'Juridiskā informācija',
   'newProject.addLanguage': 'Pievienot mērķi',
   'newProject.create': 'Izveidot projektu',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Atzīmēts {{count}} paziņojumus kā izlasītus.',
   'notifications.subtitle':
     'Pieminējumi, atsauksmju pieprasījumi un mākslīgā intelekta notikumi no visām jūsu darbvietām.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'privacy.collection.account': 'Jūsu konta e-pasts un parādāmais vārds',
   'privacy.deletion.body':
     'Jūs varat jebkurā laikā dzēst projektu, segmentu, glosārija terminu vai atmiņas ierakstu no attiecīgās lapas. Dzēšot savu kontu no iestatījumiem, no mūsu datubāzes tiek iztīrītas visas darbvietas tvēruma rindas.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Neizdevās ielādēt projektus.',
   'projects.loading': 'Ielādē projektus…',
   'projects.subtitle': 'Katrs aktīvais projekts visās lokalizācijās.',
+  'renditionLayout.primaryNavLabel': 'Galvenā navigācija',
   'reset.backToLogin': 'Atpakaļ pie pierakstīšanās',
   'reset.passwordLabel': 'Jauna parole',
   'review.activeEyebrow': 'Segments {{number}}',

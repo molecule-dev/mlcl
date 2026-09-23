@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Sake saita kalmar sirrinka.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Yi alamar kammala aikin',
   'checklistTaskCard.markIncomplete': 'Yi alamar aikin bai cika ba',
   'checklistTaskCard.openLabel': 'Buɗe aiki',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Kun kama komai',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'A kan hanya',
   'dashboard.timelineHeading': 'Maki 30/60/90',
   'dashboard.viewAllTasks': 'Duba duk ayyuka',
+  'dashboard.weekOne': 'Mako na 1',
   'dashboard.yourCohort': 'Ƙungiyar ku',
   'documents.empty.body': 'Takardu da ƙungiyar ku ta ƙara za su bayyana a nan.',
   'documents.empty.title': 'Babu takardu tukuna',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Gwaji kyauta na kwanaki 14',
   'landing.subhead':
     "Embark yana jagorantar kowane sabon abokin aiki a cikin kwanaki 90 na farko - takardu, horo, abubuwan da suka faru, da gabatarwa masu ma'ana, duk a wuri ɗaya cikin natsuwa da kwanciyar hankali.",
+  'layout.openMenu': 'Buɗe menu na kewayawa',
   'layout.search': 'Bincika ayyuka, takardu, abokan aiki…',
+  'layout.searchTeammates': 'Bincika abokan wasansu ta suna ko rawar da suka taka…',
   'layout.section.onboarding': 'Shigarwa',
   'layout.tagline': 'Tafiyarku ta fara a nan',
   'notifications.empty.body': 'Sabon aiki zai bayyana a nan.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Kun shirya tsaf.',
   'planUpdated.preparing': 'Ana sabunta shirinka…',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.documentsLabel': 'takardu',
   'pricing.onboardingsLabel': 'shigarwa',
   'pricing.tasksLabel': 'ayyuka',

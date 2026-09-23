@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.pageTitle': 'เกี่ยวกับ {{appName}}',
   'analytics.error': 'ไม่สามารถโหลดข้อมูลวิเคราะห์ได้',
   'analytics.heading': 'การวิเคราะห์การดึงข้อมูล',
@@ -50,6 +51,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ไม่ได้กำหนดระดับราคาไว้',
   'billing.plans.heading': 'แผนการ',
   'billing.subheading': 'แผนการใช้งาน และการชำระเงินที่จัดการโดย Stripe',
+  'common.confirm': 'ยืนยัน',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'documentCard.open': 'เปิด ➡',
   'documentDetail.back': 'กลับไปที่เอกสาร',
   'documentDetail.chunks.empty':
@@ -69,6 +73,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'เอกสารดัชนี',
   'documents.composer.titlePlaceholder': 'ชื่อเอกสาร',
   'documents.emptyAll': 'ยังไม่มีเอกสารใดๆ กรุณาอัปโหลดเอกสารเพื่อเริ่มถามคำถาม',
+  'documents.error.load': 'ไม่สามารถโหลดเอกสารได้',
   'documents.heading': 'เอกสารที่จัดทำดัชนี',
   'documents.loading': 'กำลังโหลดเอกสาร…',
   'documents.metric.chunks': 'ชิ้นส่วนทั้งหมด',
@@ -136,7 +141,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'การลบ\\u2026',
   'members.subheading': 'เชิญเพื่อนร่วมทีมและกำหนดบทบาทให้ชัดเจน',
   'members.tableHeading': 'รายชื่อ',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'notFound.askCta': 'ถามจากฐานความรู้',
+  'notFound.body':
+    '{{app}} ไม่พบหน้านั้น ลิงก์อาจเสีย หรือหน้านั้นอาจถูกลบออกจากระบบระหว่างการจัดทำดัชนีใหม่',
   'notFound.eyebrow': 'ไม่สามารถดึงข้อมูลได้',
   'notFound.title': 'ไม่มีส่วนดังกล่าวในดัชนี',
   'notifications.dismiss': 'อนุญาตให้ออกไป',
@@ -199,6 +208,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL แหล่งที่มา',
   'sources.empty.body': "คลิก 'เพิ่มแหล่งที่มา' เพื่อต่อสายตัวเชื่อมต่อแรกของคุณ",
   'sources.empty.title': 'ยังไม่มีแหล่งข้อมูล',
+  'sources.error.add': 'ไม่สามารถเพิ่มแหล่งที่มาได้',
   'sources.error.labelRequired': 'ต้องติดป้ายกำกับ',
   'sources.error.load': 'ไม่สามารถโหลดแหล่งข้อมูลได้',
   'sources.error.urlRequired': 'จำเป็นต้องระบุ URL สำหรับแหล่งข้อมูลประเภทนี้',

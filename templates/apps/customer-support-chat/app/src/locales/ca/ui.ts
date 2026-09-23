@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
   'authShell.samplePreview':
     '"Ei, equip, el nou quadre de comandament és preciós, exactament el que necessitàvem!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/drecera',
   'automations.subheading':
     "Regles, respostes predefinides i chatbots: mantingueu l'espai de treball en funcionament mentre el vostre equip es concentra en les coses difícils.",
+  'automations.trigger.inboundMessage': 'Missatge entrant',
   'automations.triggerLabel': 'Disparador',
   'chatBubble.internalNoteLabel': 'Nota interna',
+  'common.confirmDelete': "Confirma l'eliminació",
+  'common.goToDashboard': 'Anar al panell',
   'contactDetail.backToContacts': 'Tots els contactes',
   'contactDetail.contactFallback': 'Contacte',
   'contactDetail.conversationFallback': 'Conversa',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Vist per última vegada',
   'contacts.empty': 'Encara no hi ha contactes. Afegeix el teu primer contacte a dalt.',
   'contacts.eyebrow': 'Directori de clients',
+  'contacts.form.nameOrEmailRequired': 'Proporcioneu com a mínim un nom o un correu electrònic',
   'contacts.form.save': 'Desa el contacte',
   'contacts.heading': 'Contactes',
   'contacts.loading': "S'estan carregant els contactes…",
@@ -56,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Desa la nota',
   'conversationDetail.tab.note': 'Nota interna',
   'conversationDetail.threadAria': 'Missatges de conversa',
+  'conversationDetail.visitorFallback': 'Visitant',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Dades del client',
   'customerProfilePanel.recentTitle': 'Converses recents',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Els clients reben la seva primera resposta {{time}} de mitjana, mantenir la cadència.',
   'inboxHeroCard.title': 'Converses actives',
+  'inboxLayout.navDrawerLabel': 'Navegació',
+  'inboxLayout.openMenu': 'Obre el menú de navegació',
   'inboxOverview.eyebrow': "Avui, d'un cop d'ull",
   'inboxOverview.heroChange': '{{count}} obert',
   'inboxOverview.kpiClosedTrend': 'de tots els temps',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Visita la pàgina principal',
   'notifications.subheading':
     "Assignacions, @mencions, riscos de SLA, comentaris de CSAT i activitat de l'equip: ordenats primer per les més noves.",
+  'notifications.subjectFallback': 'una conversa',
+  'notifications.visitorFallback': 'Un visitant',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Alt',
   'priority.low': 'Baix',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Urgent',
   'privacy.title': 'Política de privacitat',
   'reports.agentFallback': 'Agent',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.pageTitle': 'Acerca de {{appName}}',
   'analytics.error': 'Non se puideron cargar as analíticas.',
   'analytics.heading': 'Análise de recuperación',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Non hai niveis de prezos configurados.',
   'billing.plans.heading': 'Planos',
   'billing.subheading': 'Plan, uso e finalización da compra xestionada por Stripe.',
+  'common.confirm': 'Confirmar',
+  'common.goToDashboard': 'Ir ao panel',
+  'common.retry': 'Reintentar',
   'documentCard.open': 'Abrir \\u2192',
   'documentDetail.back': 'Volver aos documentos',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Documento de índice',
   'documents.composer.titlePlaceholder': 'Título do documento',
   'documents.emptyAll': 'Aínda non hai documentos. Sube un para comezar a facer preguntas.',
+  'documents.error.load': 'Non se puideron cargar os documentos.',
   'documents.heading': 'Documentos indexados',
   'documents.loading': 'Cargando documentos…',
   'documents.metric.chunks': 'Total de anacos',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Eliminando\\u2026',
   'members.subheading': 'Convida aos compañeiros de equipo e establece os roles.',
   'members.tableHeading': 'Lista',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'notFound.askCta': 'Preguntar á base de coñecementos',
+  'notFound.body':
+    '{{app}} non puido localizar esa páxina. É posible que a ligazón estea rota ou que a páxina se retirase durante unha reindexación.',
   'notFound.eyebrow': 'Non se pode recuperar',
   'notFound.title': 'Non existe tal fragmento no índice',
   'notifications.dismiss': 'Rexeitar',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL de orixe',
   'sources.empty.body': 'Fai clic en "Engadir fonte" para conectar o primeiro conector.',
   'sources.empty.title': 'Aínda non hai fontes.',
+  'sources.error.add': 'Non se puido engadir a fonte.',
   'sources.error.labelRequired': 'É obrigatoria a etiqueta.',
   'sources.error.load': 'Non se puideron cargar as fontes.',
   'sources.error.urlRequired': 'É obrigatorio o URL para este tipo de fonte.',

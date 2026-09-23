@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Туралы',
   'alertConditionCard.condition.${alert.condition}': 'Іске қосылған {{қашан}}',
+  'alertConditionCard.confirmDelete': 'Жоюды растау',
   'alertConditionCard.pauseAriaLabel': 'Дабыл кідірту',
   'alertConditionCard.resumeAriaLabel': 'Жалғастыру туралы ескерту',
   'alertNew.condition': 'Жағдай',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Толық сұйылтылған бағалау',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Веб-сайт',
+  'coinDetail.links.whitepaper': 'Ақ қағаз',
   'coinDetail.loadError': 'Монета жүктелмеді.',
   'coinDetail.marketCap': 'Нарық капитализациясы',
   'coinDetail.maxSupply': 'Максималды жеткізу',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Сіз сканерлеген бағыт белгілі монета немесе бетке сәйкес келмейді. Таңбаны қайта тексеріп, қайталап көріңіз.',
   'notFound.browseMarkets': 'Нарықтарды шолу',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'portfolio.addError': 'Таңбаны, оң соманы және құнын енгізіңіз.',
   'portfolio.addHoldingCta': '+ Холдингті қосу',
   'portfolio.addModal.cost': 'Шығындар базасы (АҚШ доллары)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Құпия сөз және екі факторлы параметрлер сіздің тіркелгіңізбен басқарылады.',
   'settings.signOutDevice': 'Шығу',
+  'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorInvalidCode': 'Жарамсыз код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Тексеру және қосу',
   'sigilAuthShell.backHomeCta': '← Сигилге оралу',
   'sigilLayout.primaryNavLabel': 'Негізгі навигация',
   'signup.eyebrow': 'Терминалды ашу',

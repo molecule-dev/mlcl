@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// про {{app}}',
+  'about.pageTitle': 'Площина керування вебхуком',
+  'about.plansTitle': 'Плани для кожного етапу',
   'apiKeys.bestPractices': 'Найкращі практики',
   'apiKeys.body':
     'Програмні токени доступу. Ставтеся до них як до паролів — зберігайте їх у змінних середовища, ніколи не коммітьте.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'в рамках плану',
   'billing.usageWarning': 'біля шапки',
   'billing.yearly': 'Щорічно',
+  'common.goToDashboard': 'До панелі',
   'dashboard.body':
     'Поточний пропуск, повторні спроби в процесі обробки та кінцеві точки, які щойно виникали збої — у кожному робочому просторі, з яким ви працюєте.',
   'dashboard.endpointsEmpty': 'Кінцевих точок поки що немає.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'кінцеві точки',
   'endpointDetail.deliveryTrendSub': 'доставки/годину, логарифмічний масштаб',
   'endpointDetail.hideSecret': 'Приховати секрет',
+  'endpointDetail.loading': 'Завантаження кінцевої точки…',
   'endpointDetail.metric.delivered': 'Доставка протягом 24 годин',
   'endpointDetail.metric.deliveredCaption': 'з {{count}} типи подій',
   'endpointDetail.metric.failuresCaption': 'повторні спроби: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Критично · 24 год',
   'notifications.metric.totalCaption': 'вхідні повідомлення за весь час',
   'payloadViewer.payload': '// корисне навантаження',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint':
     'Показано ініціали — завантаження, що з’являться разом із наступним релізом.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Активний лише ваш поточний сеанс. На інших пристроях не ввійшли в систему.',
   'profile.toggle': 'Перемикач {{label}}',
+  'pylonShell.closeMenu': 'Закрити меню навігації',
+  'pylonShell.openMenu': 'Відкрити меню навігації',
   'pylonShell.primaryNavLabel': 'Основна навігація',
   'resetPassword.subtitle': 'Оберіть надійний пароль, який ви ще не використовували.',
   'resetPassword.tokenPlaceholder': 'вставте з листа',

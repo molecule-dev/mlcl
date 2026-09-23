@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.tagline': 'Все помещения под одной крышей.',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.addProperty': 'Добавить свойство',
   'dashboard.empty.body':
     'После того, как вы добавите информацию о недвижимости, объектах и арендных платежах, эта панель управления заполнится аналитическими данными о вашем портфеле.',
@@ -90,6 +93,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} Открытые заявки на выполнение работ, упорядоченные по приоритету.',
   'maintenanceQueueList.title': 'Очередь технического обслуживания',
+  'nav.closeMenu': 'Закрыть меню',
+  'nav.openMenu': 'Открыть меню',
   'notFound.body':
     'Страница, которую вы искали, была перемещена, заархивирована или никогда не существовала.',
   'notFound.title': 'Эта дверь не открывается',

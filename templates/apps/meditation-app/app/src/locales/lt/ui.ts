@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.eyebrow': 'Apie {{app}}',
+  'about.intro':
+    '{{app}} – tai meditacijos programėlė, skirta realiam gyvenimui – kasdienės vedamos meditacijos, kvėpavimo pratimai ir miego istorijos, kurias veda mokytojai, kurie jaučiasi kaip draugai, o ne treneriai. Jokių kaltės jausmų po pertraukos, jokio triukšmingo maitinimo: tiesiog rami vieta grįžti į savo kvėpavimą.',
+  'about.missionBody':
+    'Tikime, kad ramybė turėtų būti prieinama kiekvienam bet kuriuo paros metu. {{app}} egzistuoja tam, kad rami ir nuosekli praktika jaustųsi nesunkiai – kad dešimt nuoširdžių minučių galėtų pakeisti tai, kaip sutinkate kitas dešimt valandų.',
+  'about.missionTitle': 'Mūsų misija',
+  'about.pageTitle': 'Ramesnės 10 minučių per dieną',
+  'breathingDial.seconds': 'sekundės',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.logout': 'Atsijungti',
   'common.min': 'min.',
   'common.relative.justNow': 'ką tik',
   'common.relative.now': 'dabar',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
+  'nav.secondaryNavigation': 'Paskyros naršymas',
   'sessionCard.with': 'su {{name}}',
   'stillpoint.billing.choose': 'Pasirinkite {{plan}}',
   'stillpoint.billing.currentPlan': 'Šiuo metu įjungta {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Nepavyko įkelti planų.',
   'stillpoint.billing.opening': 'Atidaroma kasa…',
   'stillpoint.billing.perMonthShort': '/ mėn.',
+  'stillpoint.billing.perYearShort': '/metus',
   'stillpoint.billing.unknownResult': 'Netikėtas atsakymas į sąskaitą faktūrą.',
   'stillpoint.billing.yearly': 'Metinis · sutaupykite 17 %',
   'stillpoint.courseDetail.back': 'Kursai',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Kursų dar nėra.',
   'stillpoint.courses.eyebrow': '{{count}} kelių dienų kelionės',
   'stillpoint.courses.heading': 'Kursai',
+  'stillpoint.forgot.checkEmail':
+    'Patikrinkite savo pašto dėžutę – nuoroda baigs galioti po 30 minučių.',
   'stillpoint.forgot.success': 'Išsiuntėme atstatymo nuorodą adresu {{email}} .',
   'stillpoint.home.empty': 'Dar nėra sesijų – patikrinkite vėliau.',
   'stillpoint.home.friend': 'draugas',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Susikurkite nemokamą paskyrą',
   'stillpoint.landing.cta.title': 'Pradėkite savo tylą šiandien',
   'stillpoint.landing.features.heading': 'Praktika, kuri auga kartu su jumis',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Kasdienės vedamos meditacijos, kvėpavimo pratimai ir miego istorijos – vedamos mokytojų, kurie jaučiasi kaip draugai, o ne treneriai.',
   'stillpoint.landing.hero.eyebrow': 'Ramesnės 10 minučių per dieną',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Naršyti pagal nuotaiką',
   'stillpoint.login.rememberMe': 'Palikti mane prisijungusį',
   'stillpoint.login.subheading': 'Prisijunkite, kad galėtumėte tęsti praktiką.',
+  'stillpoint.nav.tagline': 'Raskite savo ramų centrą',
+  'stillpoint.notFound.body':
+    'Šis puslapis kažkur giliai ir ilgai kvėpuoja. Suraskime jums ramesnę vietą {{app}} programoje.',
   'stillpoint.notFound.title': 'Pasiklydęs tyloje',
   'stillpoint.notFound.toHome': 'Grįžimas į šiandieną',
   'stillpoint.notFound.toLibrary': 'Naršyti biblioteką',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Praleisti 15 s atgal',
   'stillpoint.player.skipForward': 'Praleisti 30 s į priekį',
   'stillpoint.player.with': 'su {{name}}',
+  'stillpoint.profile.defaultHandle': 'nejudantis žymeklis',
   'stillpoint.profile.eyebrow': 'Jūsų praktika, apibendrinta.',
   'stillpoint.profile.locked': 'Užrakinta',
   'stillpoint.profile.member': 'Stillpoint narys',

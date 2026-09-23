@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'authBrandPanel.quote': '«Vellum тепер є системою обліку кожної підписаної угоди, яку ми маємо».',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'До панелі',
   'contractDetail.amount': 'Значення',
   'contractDetail.back': 'Усі контракти',
   'contractDetail.downloadCta': 'Завантажити PDF',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
     'Якщо для адреси {{email}} існує обліковий запис, вам незабаром буде надіслано посилання для відновлення пароля.',
   'forgotPassword.subtitle':
     'Ми надішлемо посилання для скидання налаштувань на вашу робочу електронну адресу.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Створено за допомогою Molecule.',
   'landing.ctaHeading': 'Дивіться, як ваш портфель закривається в перший день.',
   'landing.ctaPrimary': 'Створіть робочу область',
   'landing.eyebrow': 'Для юридичних операцій та закупівель',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': "Обов'язкове ім'я контрагента.",
   'newContract.errEmail': 'Потрібно вказати електронну адресу підписанта.',
   'newContract.expires': 'Термін дії',
+  'newContract.failed': 'Не вдалося створити контракт.',
   'newContract.heading': 'Новий контракт',
   'newContract.nextCta': 'Далі',
   'newContract.review.counterparty': 'Контрагент',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Назва договору',
   'newContract.titlePlaceholder': 'Генеральна угода про надання послуг',
   'newContract.variablesHeading': 'Змінні контракту',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.dataExport': 'Експорт даних',
   'pricing.disabled': 'Ні',
   'pricing.enabled': 'Так',
@@ -145,15 +151,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Не вдалося видалити обліковий запис.',
   'settings.security.deleting': 'Видалення…',
   'settings.security.newPassword': 'Новий пароль',
+  'settings.security.noDevices': 'Пристроїв не зареєстровано.',
   'settings.security.twoFactor': 'Двофакторна автентифікація',
   'settings.security.twoFactorDisable': 'Вимкнути',
   'settings.security.twoFactorEnable': 'Увімкнути',
+  'settings.security.twoFactorInvalidCode': 'Неправильний код.',
   'settings.signatures.body':
     "Ваше введене ім'я відображається в рядку підпису кожного договору, який ви підписуєте. Встановіть його один раз, і надалі воно відображатиметься автоматично.",
   'settings.signatures.heading': 'Блок підпису',
   'settings.signatures.save': 'Зберегти підпис',
+  'sign.action': 'Підпишіть цей документ',
+  'sign.eyebrow': 'Потрібен підпис',
+  'sign.for': 'Для {{name}}',
+  'sign.loadError': 'Це посилання для підпису є недійсним або термін його дії закінчився.',
   'sign.loading': 'Завантаження…',
   'sign.signing': 'Підписання…',
+  'sign.submitError':
+    'Не вдалося зареєструвати ваш підпис — можливо, термін дії посилання закінчився.',
   'signup.brandQuote':
     'Ми перенесли 8 років паперової інформації у Vellum за тиждень. Один лише журнал аудиту виправдовує заміну.',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -188,6 +202,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Відкритий контракт →',
   'vellumKpiCard.trend': 'Останні тенденції',
+  'vellumLayout.closeMenu': 'Закрити меню навігації',
+  'vellumLayout.openMenu': 'Відкрити меню навігації',
   'vellumLayout.primaryNavLabel': 'Основна навігація',
   'vellumPortfolioHero.expiring': 'Термін дії закінчується через 30 днів',
   'vellumPortfolioHero.label': 'Вартість портфеля',

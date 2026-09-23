@@ -1,8 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'accountDetail.activeBadge': 'সক্রিয়',
+  'accountDetail.availableLabel': 'উপলব্ধ {{amount}}',
   'accountDetail.backLink': 'সমস্ত অ্যাকাউন্ট',
   'accountDetail.loadError': 'অ্যাকাউন্ট লোড করা সম্ভব হয়নি।',
   'accountDetail.postedCount': '{{count}} পোস্ট করা হয়েছে',
@@ -12,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'অ্যাকাউন্ট',
   'accounts.loadError': 'অ্যাকাউন্ট লোড করা সম্ভব হয়নি।',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'হিমায়িত',
   'accounts.totalBalance': 'পরিমাণ মোট',
   'audit.empty': 'এখনো কোনো ইভেন্ট নেই।',
   'audit.eyebrow': 'নিরাপত্তা ও প্রবেশাধিকার',
@@ -19,10 +22,12 @@ export const ui: UiTranslations = {
   'audit.subheading':
     'প্রতিটি সাইন-ইন, ট্রান্সফার এবং অ্যাকাউন্ট পরিবর্তনের ক্ষেত্রে প্রযোজ্য। ২৪ মাসের জন্য উপলব্ধ।',
   'audit.successCount': '{{count}} সফল',
+  'balanceHeroCard.change': '{{sign}} {{amount}}',
   'balanceHeroCard.title': 'মোট ব্যালেন্স',
   'cashCreditCard.cashLabel': 'হাতে নগদ টাকা',
   'cashCreditCard.creditLabel': 'ব্যবহৃত ক্রেডিট',
   'cashCreditCard.title': 'নগদ ও ক্রেডিট',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.accountsHeading': 'অ্যাকাউন্ট',
   'dashboard.heading': 'সংক্ষিপ্ত বিবরণ',
   'dashboard.recentEmpty': 'এখনো কোনো লেনদেন হয়নি।',
@@ -42,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'পাসওয়ার্ড দেখান',
   'login.signUp': 'সাইন আপ করুন',
   'login.submit': 'সাইন ইন করুন',
+  'meridianLayout.menu': 'মেনু',
   'meridianLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'nav.legal': 'আইনি',
   'notifications.emptyHeading': 'আপনি সবকিছু জেনে গেছেন।',
   'notifications.subheading': 'লেনদেন, নিরাপত্তা এবং বিবরণীর জন্য রিয়েল-টাইম সতর্কতা।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'privacy.dataWeShare':
     'ব্যক্তিগত ব্যাংকিং তথ্য কখনো বিক্রি করা হয় না। আমরা শুধুমাত্র লেনদেন নিষ্পত্তি করতে বা আইনি বাধ্যবাধকতা পূরণের জন্য প্রয়োজন অনুসারে পেমেন্ট প্রসেসর, কার্ড নেটওয়ার্ক এবং নিয়ন্ত্রকদের সাথে তথ্য শেয়ার করি।',
   'privacy.dataWeStore':
@@ -77,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'টু-ফ্যাক্টর অথেন্টিকেশন প্রতিবার সাইন-ইন করার সময় একটি অথেন্টিকেটর অ্যাপ থেকে একটি ওয়ান-টাইম কোড যোগ করে।',
   'settings.security.twoFactorCta': 'দ্বি-স্তরীয় প্রমাণীকরণ পরিচালনা করুন',
+  'settings.security.twoFactorOff': 'টু-ফ্যাক্টর বন্ধ আছে',
   'settings.signOutDevice': 'সাইন আউট',
   'settings.subheading': 'প্রোফাইল, নিরাপত্তা এবং বিজ্ঞপ্তি।',
+  'settings.twoFactorCode': 'প্রমাণীকরণ কোড',
   'settings.twoFactorDisable': 'অক্ষম করুন',
   'settings.twoFactorEnable': 'সক্ষম করুন',
+  'settings.twoFactorInvalidCode': 'অবৈধ কোড',
+  'settings.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'signup.emailLabel': 'ইমেইল ঠিকানা',
   'signup.fullName': 'আমরা আপনাকে কীভাবে সম্বোধন করব?',
   'signup.showPassword': 'পাসওয়ার্ড দেখান',
@@ -102,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'এখনো কোনো লেনদেন হয়নি।',
   'transactions.endDate': 'শেষ তারিখ',
   'transactions.eyebrow': 'কার্যকলাপ',
+  'transactions.loadError': 'লেনদেনগুলো লোড করা সম্ভব হয়নি।',
   'transactions.merchant': 'বণিক',
+  'transactions.subheading': 'আপনার অ্যাকাউন্ট জুড়ে পোস্ট করা এবং অপেক্ষাধীন প্রতিটি লেনদেন।',
   'transfers.errorGeneric': 'স্থানান্তরটি জমা দেওয়া সম্ভব হয়নি।',
   'transfers.errorMissingFields': 'একটি উৎস অ্যাকাউন্ট এবং একটি গন্তব্য অ্যাকাউন্ট নির্বাচন করুন।',
   'transfers.fromLabel': 'From',
@@ -111,6 +124,7 @@ export const ui: UiTranslations = {
   'transfers.statusSubmitted':
     'স্থানান্তর নির্ধারিত হয়েছে। আমরা ইমেইলের মাধ্যমে একটি রসিদ পাঠিয়ে দেব।',
   'transfers.statusSubmitting': 'স্থানান্তর জমা দেওয়া হচ্ছে…',
+  'transfers.submit': 'সময়সূচী স্থানান্তর · {{amount}}',
   'transfers.submitted': 'স্থানান্তর নির্ধারিত হয়েছে ✓',
   'transfers.toLabel': 'To',
   'transfers.toPlaceholder': 'নির্বাচন করুন…',

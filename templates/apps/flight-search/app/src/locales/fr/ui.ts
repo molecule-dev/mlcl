@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
+  'about.eyebrow': 'À propos de {{app}}',
   'about.pageTitle': 'Chaque itinéraire, une seule recherche.',
   'booking.backToDetail': 'Retour aux détails du vol',
   'booking.continue': 'Continuer vers le paiement',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Taxes et frais',
   'booking.summary.travelers': 'Voyageurs',
   'common.about': 'À propos',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'flightDetail.backToResults': 'Retour aux résultats',
   'flightDetail.baseFare': 'Tarif de base',
   'flightDetail.book': 'Continuer la réservation',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 escale',
   'flightResultCard.select': 'Sélectionner',
   'flightResultCard.totalLabel': 'Durée totale',
+  'flightSearchLayout.primaryNavLabel': 'Navigation principale',
   'forgotPassword.subheading':
     "Saisissez l'e-mail de votre compte Skylark et nous vous enverrons un lien sécurisé de réinitialisation.",
   'forgotPassword.successBody':
     'Consultez {{email}} pour trouver un lien et définir un nouveau mot de passe. Le lien expire dans 30 minutes.',
   'forgotPassword.successHeading': 'Lien de réinitialisation envoyé',
   'landing.cta.explore': 'Essayer une recherche',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Trouvez le prochain bon tarif avant tout le monde.',
   'landing.cta.signup': 'Commencer à suivre les tarifs',
   'landing.features.eyebrow': 'Pourquoi Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Ajouter une alerte',
   'priceAlerts.deleteConfirm': 'Supprimer cette alerte ?',
   'priceAlerts.empty': 'Aucun itinéraire suivi pour le moment.',
+  'priceAlerts.emptyCta': 'Rechercher un itinéraire à suivre',
   'priceAlerts.errorMessage': 'Impossible de charger les alertes.',
   'priceAlerts.eyebrow': 'Liste de suivi Skylark',
   'priceAlerts.form.createError': "Impossible de créer l'alerte.",
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinéraire multi-villes',
   'results.multiLegHeading': 'Tronçon {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} tronçons · {{passengers}} voyageur',
+  'results.sortAriaLabel': 'Trier les résultats par',
   'results.sortLabel': 'Trier',
   'results.summary': '{{count}} vols · {{passengers}} voyageur',
   'settings.language.title': 'Langue',

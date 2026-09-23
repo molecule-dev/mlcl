@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'about.tagline': 'Τα μυστικά πεθαίνουν στο φως.',
   'apiTokens.col.actions': '',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Δημιουργία token',
   'apiTokens.kicker': 'διακριτικά API',
   'apiTokens.loading': 'Φόρτωση tokens…',
+  'apiTokens.new': 'Νέο διακριτικό',
   'apiTokens.revoke': 'Ανάκληση διακριτικού',
   'apiTokens.subheading':
     'Προσωπικά και υπηρεσιακά διακριτικά για το CLI και το SDK του Arcanum. Απλό κείμενο που εμφανίζεται μία φορά κατά τη δημιουργία.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Κλειδί πρόσβασης',
   'authShell.zeroKnowledge': 'Κρυπτογράφηση μηδενικής γνώσης',
   'common.connecting': 'Συνδετικός…',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.inviting': 'Αποστολή πρόσκλησης…',
   'forgotPassword.checkInbox':
     'Εάν ο χρήστης {email} είναι εγγεγραμμένος, ένας υπογεγραμμένος σύνδεσμος επαναφοράς θα φτάσει εντός ενός λεπτού.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Κατάσταση εναλλαγής, ειδοποιήσεις ανωμαλιών και αιτήματα έγκρισης σε κάθε θησαυροφυλάκιο.',
   'notifications.unreadEmpty': 'Εισερχόμενα μηδέν — όλα έτοιμα.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.heading': 'μυστικά',
   'pricing.limits.accessPolicies': 'πολιτικές πρόσβασης',
   'pricing.limits.auditLog': 'καταχωρήσεις αρχείου καταγραφής ελέγχου',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Προσωπικός λογαριασμός',
   'profile.plan.description': 'Διαχειριστείτε τη συνδρομή σας, δείτε τα όρια και κάντε αναβάθμιση.',
   'profile.subheading': 'Ταυτότητα, συσκευές δεύτερου παράγοντα και ενεργές συνεδρίες.',
+  'profile.twoFactor.code': 'Κωδικός επαλήθευσης',
   'profile.twoFactor.disable': 'Απενεργοποίηση',
   'profile.twoFactor.enable': 'Ενεργοποίηση',
+  'profile.twoFactor.invalidCode': 'Μη έγκυρος κώδικας',
   'profile.twoFactor.kicker': 'Έλεγχος ταυτότητας δύο παραγόντων',
+  'profile.twoFactor.off': 'Δεν είναι ενεργοποιημένο',
   'profile.twoFactor.on': 'Ενεργοποιημένο',
   'resetPassword.email': 'Ηλεκτρονικό ταχυδρομείο λογαριασμού',
   'resetPassword.heading': 'Ορισμός νέων διαπιστευτηρίων',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'εντολές',
   'secretsManagerLayout.encrypted': 'AES-256 · ΚΡΥΠΤΟΓΡΑΦΗΜΕΝΟ',
   'secretsManagerLayout.newVault': 'Νέο θησαυροφυλάκιο',
+  'secretsManagerLayout.newVaultShort': 'Νέα',
   'secretsManagerLayout.rotations': 'Περιστροφές',
   'secretsManagerLayout.search': 'έρευνα',
   'secretsManagerLayout.searchPlaceholder': 'Αναζήτηση μυστικών με κλειδί, διαδρομή ή ετικέτα…',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Μυστικά',
   'vaultCard.vaultLabel': 'Θόλος',
   'vaultDetail.addSecret': 'Προσθήκη μυστικού',
+  'vaultDetail.back': 'Όλα τα θησαυροφυλάκια',
   'vaultDetail.col.key': 'Κλειδί',
   'vaultDetail.col.rotated': 'Περιστράφηκε',
   'vaultDetail.col.value': 'Τιμή',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'auth.fields.newPassword': 'Nova contrasenya',
   'collectionDetail.addImage': 'Conjurar per a la col·lecció',
   'collectionDetail.backCta': 'Torna a les col·leccions',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, resums i sèries en curs',
   'collections.title': 'Col·leccions',
   'collections.untitled': 'Sense títol · {{stamp}}',
+  'common.closeMenu': 'Tanca el menú',
+  'common.dismiss': 'Ignora',
+  'common.goToDashboard': 'Anar al panell',
+  'common.openMenu': 'Obre el menú de navegació',
   'credits.eyebrow': '{{plan}} pla',
   'credits.renewsCopy': 'El pla es renova el {{date}}',
   'credits.trail': 'Somniament · {{plan}} nivell',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     "Aquí apareixeran les alertes d'activitat de generació, compartició i crèdit.",
   'notifications.empty.title': 'Res a informar',
   'notifications.subtitle': 'Esdeveniments de generació agrupats per dia',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.limits.gallery': '{{count}} galeria',
   'privacy.collect.body':
     'Quan et registres, recopilem el teu nom, la teva adreça electrònica i una contrasenya amb hash. A mesura que fas servir Reverie, emmagatzemem les sol·licituds que envies, les imatges que generem per a tu, els estils i les col·leccions que deses i les metadades com ara el model utilitzat, les marques de temps de generació i el saldo de crèdit.',
@@ -169,6 +175,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Desa la nova contrasenya',
   'reset.submitting': 'Actualitzant la contrasenya…',
   'settings.account.handle': 'Maneta',
+  'settings.account.lastSaved': 'Perfil actiu · {{name}}',
   'settings.account.saved': 'Perfil desat',
   'settings.account.saveFailed': "No s'ha pogut desar el perfil",
   'settings.account.title': 'Perfil del creador',
@@ -190,7 +197,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nova imatge',
   'sidebar.secondary': 'Navegació secundària',
   'signup.failed': 'El registre ha fallat. Torna-ho a intentar.',
+  'signup.firstNamePlaceholder': 'Ària',
   'signup.heading': 'Comença la teva ensopegada',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crea un compte i reclama 120 crèdits gratuïts.',
   'styles.empty':
     "Encara no hi ha cap configuració predefinida d'estil; apareixeran després del primer inici de sessió.",

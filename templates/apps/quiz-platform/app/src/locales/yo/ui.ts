@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'about.title': 'Nípa {{app}}',
   'auth.login.noAccount': 'Tuntun sí Sparq?',
   'auth.login.or': 'tabi tẹsiwaju pẹlu',
   'auth.signup.or': 'tabi forukọsilẹ pẹlu',
+  'common.confirm': 'Jẹ́rìísí',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.loadError': 'Nǹkan kan kò ṣe dáadáa nígbà tí a bá ń gbé àkóónú yìí kalẹ̀.',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'discover.collections.title': 'Ṣawari nipasẹ ẹka',
   'discover.collections.viewAll': 'Wo ibi ìkàwé rẹ →',
   'discover.empty.body': 'Gbiyanju ẹka miiran tabi paarẹ wiwa naa.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Wọlé láti jẹ́ kí ìtẹ̀síwájú rẹ wà láàyè, gbàlejò àwọn eré alágbékalẹ̀, kí o sì gun orí àkójọ àwọn tó ń ṣeré.',
   'myQuizzes.createButton': 'Ìdánwò tuntun',
+  'myQuizzes.deleteConfirm': 'Paarẹ títí láé?',
   'myQuizzes.empty.createCta': 'Ṣe ìbéèrè àkọ́kọ́ rẹ →',
   'myQuizzes.empty.created': 'O kò tíì ṣe àyẹ̀wò kankan.',
   'myQuizzes.empty.played': 'Kò sí àwọn ìbéèrè tí a tẹ̀ jáde síbẹ̀.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'N n gbe…',
   'notifications.subhead':
     '{{count}} Àwọn ìkésíni tí a kò kà. Àwọn ìkésíni, àwọn ìgbésẹ̀ aṣáájú, àti àwọn àṣeyọrí gbogbo wọn ní ìṣàn kan.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.checkoutError': 'Kò le bẹ̀rẹ̀ sí í san owó. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i.',
+  'pricing.heading': 'Yan ètò {{app}} rẹ',
   'pricing.included': 'Tí a fi kún un',
   'pricing.loadError': 'Kò le gbé àwọn ètò jáde.',
   'pricing.maxQuizzes': '{{count}} awọn idanwo idanwo',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Kò sí ohun tí a tẹ̀ jáde síbẹ̀.',
   'profile.startBuilding': 'Bẹ̀rẹ̀ sí í kọ́ →',
   'profile.tier': 'Ẹrọ orin Sparq',
+  'quizBuilder.addFailed': 'Mi ò le fi ìbéèrè náà kún un. Gbìyànjú lẹ́ẹ̀kan sí i.',
   'quizBuilder.addQuestion': 'Fi ìbéèrè kún un',
   'quizBuilder.answerPlaceholder': 'Tẹ aṣayan kan…',
   'quizBuilder.answersLabel': 'Àwọn àṣàyàn ìdáhùn',
   'quizBuilder.back': 'Pada si awọn idanwo mi',
   'quizBuilder.delete': 'Pa ìbéèrè rẹ́',
+  'quizBuilder.deleteFailed': 'Kò le pa ìbéèrè náà rẹ́.',
   'quizBuilder.firstQuestion': 'Fi ìbéèrè àkọ́kọ́ rẹ kún un láti bẹ̀rẹ̀.',
   'quizBuilder.idLabel': 'ID ibeere: {{id}}',
   'quizBuilder.loadError': 'Kò le gbé ìbéèrè jáde.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Fi o kere ju awọn aṣayan idahun meji kun ki o si yan eyi ti o tọ fun {{count}} ìbéèrè (àwọn) kí a tó tẹ̀ ẹ́ jáde.',
   'quizBuilder.questionsTitle': 'Àwọn ìbéèrè',
+  'quizBuilder.saveFailed': 'Kò le fi àkọlé náà pamọ́. Gbìyànjú lẹ́ẹ̀kan síi.',
   'quizBuilder.statusDraft': 'Àkọsílẹ̀',
   'quizBuilder.subhead':
     'Ṣe àtúnṣe àkọlé náà, fi àwọn ìbéèrè kún un, ṣètò àwọn àṣàyàn àti ìdáhùn tó tọ́. Àwọn àyípadà máa ń fipamọ́ láìfọwọ́sí.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} iṣẹju',
   'quizDetail.hostMultiplayer': 'Olùgbàlejò ẹlẹ́ẹ̀pútà púpọ̀',
   'quizDetail.leaderboardEmpty': 'Kò sí eré kankan síbẹ̀ — jẹ́ ẹni àkọ́kọ́ láti ṣètò àmì.',
+  'quizDetail.loadError': 'Kò le gbé ìbéèrè yìí jáde.',
   'quizDetail.loading': 'N n gbe awọn ibeere soke…',
   'quizDetail.plays': '{{count}} àwọn eré',
   'quizDetail.playSolo': 'Ṣeré nìkan ṣoṣo',

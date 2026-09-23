@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
+  'about.featureDiscover.title': 'Ispirazzjoni, magħżula bl-idejn',
   'account.addPaymentCta': "Żid metodu ta' ħlas",
   'account.addPaymentError': "Ma stajtx inżid il-metodu ta' ħlas.",
+  'account.confirmRemove': 'Ikkonferma t-tneħħija',
   'account.defaultBadge': 'Default',
   'account.loyalty.pointsTowardNext': "{{punti}} ta' {{li jmiss}} mili għal {{LivellLi jmiss}}",
   'account.loyalty.tier': 'Livell attwali',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Dettalji tal-vjaġġ',
   'booking.tripSummary': '{{nights}} iljieli · {{guests}} mistednin',
   'common.daysAgo': '{{count}} jum ilu',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.hoursAgo': '{{count}} siegħa ilu',
   'common.minutesAgo': '{{count}} m ilu',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Legali',
   'notifications.loading': 'Qed jitgħabba…',
   'notifications.subheading': "{{count}} mhux moqri · kollox f'inbox waħda kalma",
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.accommodationsLabel': 'akkomodazzjonijiet',
   'pricing.bookingsLabel': 'prenotazzjonijiet',
   'pricing.destinationsLabel': 'destinazzjonijiet salvati',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Ispirazzjoni, soġġorni affidabbli, u triq bla xkiel minn ħolma għal prenotazzjoni — madwar 14-il pajjiż u aktar minn 200 proprjetà vverifikati bir-reqqa.',
   'sojournHeroSearchCard.trustProtected': 'Kanċellazzjoni bla ħlas, protetta għalkollox',
   'sojournHeroSearchCard.trustVetted': 'Proprjetajiet ivverifikati bl-idejn biss',
+  'travelBookingLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'tripDetail.backLink': 'Lura għall-vjaġġi',
   'tripDetail.cancelCta': 'Ikkanċella l-prenotazzjoni',
   'tripDetail.cancelHeading': 'Tikkanċella dan il-vjaġġ?',

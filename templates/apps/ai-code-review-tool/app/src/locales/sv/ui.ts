@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.connectRepoCta': 'Anslut repository',
   'dashboard.empty': 'Inga pull requests ännu — anslut ett repository för att börja.',
   'dashboard.eyebrow': 'Refract · granskningskö',
@@ -77,6 +78,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Drifttid',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI-kvalitetspoäng {{score}} / 10',
+  'refractLayout.closeMenu': 'Stäng menyn',
+  'refractLayout.openMenu': 'Öppna meny',
   'refractLayout.primaryNavLabel': 'Primär navigering',
   'reports.cumulativeScoreLabel': 'Kumulativ poäng',
   'reports.cumulativeScoreSubtitle': 'alla repos · {{days}}d',
@@ -175,11 +178,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Misslyckades med att ladda sökindex.',
   'settings.apiKeys.description':
     'Hantera personliga API-nycklar från användarmenyn uppe till höger.',
+  'settings.apiKeys.integrationsNote':
+    'Åtkomsttoken för leverantörer hanteras i avsnittet ”Integrationer” ovan.',
   'settings.connectError': 'Misslyckades med att ansluta leverantör.',
   'settings.disconnectError': 'Misslyckades med att koppla från leverantör.',
   'settings.eyebrow': 'Refract · arbetsyta',
   'settings.integration.${provider}.label': 'Sparar…',
   'settings.loadError': 'Misslyckades med att ladda inställningar.',
+  'settings.notificationCenter': 'Meddelandecentret',
   'settings.notifications.description':
     'Besök aviseringssidan för att visa och hantera leveranspreferenser.',
   'settings.section.account': 'Konto och säkerhet',

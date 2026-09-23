@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.title': 'เกี่ยวกับ {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'ภาพถ่ายบุคคลแบบมืออาชีพของเจ้าหน้าที่ฝ่ายสนับสนุนหญิง ยิ้มแย้มแจ่มใส ในสำนักงานที่ทันสมัย',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ติดต่อฝ่ายสนับสนุน',
   'forgotPassword.error': 'ไม่สามารถส่งอีเมลรีเซ็ตได้ โปรดลองอีกครั้ง',
   'forgotPassword.rememberPassword': 'จำรหัสผ่านของคุณได้ไหม?',
   'forgotPassword.subheading': 'กรุณาป้อนอีเมลของคุณ แล้วเราจะส่งลิงก์สำหรับรีเซ็ตรหัสผ่านให้คุณ',
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'เข้าสู่ระบบ — ฝ่ายสนับสนุน Zenith',
   'login.showPassword': 'แสดงรหัสผ่าน',
   'login.welcomeSubheading': 'ลงชื่อเข้าใช้แดชบอร์ดการสนับสนุนของคุณ',
+  'mobileNav.closeMenu': 'ปิดการนำทาง',
+  'mobileNav.menu': 'การนำทาง',
+  'mobileNav.openMenu': 'เปิดการนำทาง',
   'nav.legal': 'ถูกกฎหมาย',
   'nav.newTicket': 'ตั๋วใหม่',
   'notifications.loadError': 'ไม่สามารถโหลดการแจ้งเตือนได้ โปรดลองอีกครั้งในภายหลัง',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'การค้นหาคำสั่ง',
   'operatorDock.newReport': 'รายงานฉบับใหม่',
   'operatorDock.systemOnline': 'ระบบออนไลน์',
+  'planUpdated.subtitle': 'ขอบคุณ',
   'planUpdated.title': 'แผนได้รับการปรับปรุงแล้ว',
   'pricing.agents': 'ตัวแทน',
   'pricing.automation': 'กฎการทำงานอัตโนมัติ',
@@ -246,6 +252,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{ชื่อ}}',
   'ticketCustomerReply.avatarAlt': '{{ชื่อ}} อวตารของ',
   'ticketDetail.errorTitle': 'เกิดข้อผิดพลาดบางอย่าง',
+  'ticketDetail.loadError': 'ไม่สามารถโหลดตั๋วได้',
+  'ticketDetail.notFound': 'ไม่พบตั๋ว',
+  'ticketDetail.replyError': 'ไม่สามารถส่งข้อความตอบกลับได้ โปรดลองอีกครั้ง',
   'ticketDetail.retry': 'ลองอีกครั้ง',
   'ticketDetail.statusUpdateError': 'ไม่สามารถอัปเดตสถานะได้ โปรดลองอีกครั้ง',
   'ticketDetailsCard.assigneeLabel': 'ผู้รับโอนสิทธิ์',
@@ -297,6 +306,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{เวลา}} ซ้าย',
   'ticketRow.title': 'การเชื่อมต่อฐานข้อมูลล้มเหลวในระบบใช้งานจริง {{โหนด}}',
   'tickets.pageTitle': 'บัตรเข้าชม — Zenith Support',
+  'ticketsFab.newTicket': 'ตั๋วใหม่',
   'ticketsFilterBar.assigneeLabel': 'ผู้รับโอนสิทธิ์:',
   'ticketsFilterBar.clearFilters': 'ล้างตัวกรอง',
   'ticketsFilterBar.dateRangeDemoHint': 'การกรองตามช่วงวันที่ไม่ได้เปิดใช้งานในเดโมนี้',

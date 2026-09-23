@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
   'actions.empty': 'Համապատասխանող առաջադրանքներ չկան։',
   'actions.heading': 'Գործողություններ',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Նախորդ ամիս',
   'calendar.recent': 'Վերջերս',
   'common.daysAgo': '{{count}} օր առաջ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.hoursAgo': '{{count}} ժամ առաջ',
   'common.no': '—',
+  'common.retry': 'Կրկին փորձել',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} գործողությունների տարրեր',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Ստուգեք ձեր էլ. փոստը՝ վերակայման հղումը գտնելու համար։',
   'forgot.subheading': 'Մուտքագրեք ձեր էլ. փոստը, և մենք կուղարկենք վերականգնման հղում։',
   'integrations.disconnected': 'Anjatvac',
+  'integrations.loadError': 'Չհաջողվեց բեռնել ինտեգրացիաները։',
   'integrations.notConnectedTag': 'Միացված չէ',
   'integrations.subheading':
     'Միացրեք օրացույցներն ու տեսանյութերի հարթակները, որպեսզի Murmur-ը միանա ավտոմատ կերպով։',
+  'integrations.updateError': 'Թարմացումը ձախողվեց։',
   'landing.ctaButton': 'Սկսե՛ք՝ դա անվճար է',
   'landing.ctaHeading': 'Դադարեք նշումներ անել։ Սկսեք որոշումներ կայացնել։',
   'landing.demo.aiLabel': 'Արհեստական բանականության ամփոփում, նախագծված ուղիղ եթերում',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Հետագա գործողություններ',
   'meetingDetail.loadError': 'Հանդիպումը չհաջողվեց բեռնել։',
   'meetingDetail.noActions': 'Գործողություններ չեն հայտնաբերվել։',
+  'meetingDetail.none': 'Ոչ մեկը։',
   'meetingDetail.notFound': 'Հանդիպումը չի գտնվել։',
+  'meetingDetail.speakerFallback': 'Խոսնակ {{id}}',
   'meetingDetail.summaryHeading': 'Արհեստական բանականության ամփոփում',
   'meetingDetail.transcriptHeading': 'Տառադարձություն',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Հանդիպումներ',
   'meetings.loadError': 'Հանդիպումները չհաջողվեց բեռնել։',
   'meetings.subheading': 'Յուրաքանչյուր ձայնագրված, վերբեռնված և համաժամեցված հանդիպում։',
+  'murmurLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'murmurLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'nav.legal': 'Իրավական',
   'notifications.loadError': 'Ծանուցումները չհաջողվեց բեռնել։',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Ինչպես ես դու երևում Մուրմուրի ներսում։',
   'record.error.empty': 'Աուդիո չի ձայնագրվել։',
   'record.error.permission': 'Միկրոֆոնի թույլտվությունը մերժված է։',
+  'record.error.recorder': 'Ձայնագրիչի սխալ',
   'record.error.unsupported':
     'Ձեր դիտարկիչը չի աջակցում ձայնագրությունը։ Փորձեք Chrome, Edge կամ Safari։',
   'record.error.upload': 'Վերբեռնումը ձախողվեց։ Փորձեք կրկին։',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Նոր գաղտնաբառ',
   'reset.subheading': 'Ընտրեք գաղտնաբառ, որը չեք օգտագործում ոչ մի այլ տեղ։',
   'search.empty': 'Մուտքագրեք՝ տառադարձումներ որոնելու համար։',
+  'search.loadError': 'Որոնումը ձախողվեց։ Փորձեք կրկին։',
   'search.noResults': '«» հարցման արդյունքներ չկան {{q}} «',
   'settings.appearance.description': 'Անցնել բաց և մութ ռեժիմների միջև։',
   'settings.appearance.title': 'Արտաքին տեսք',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Չհաջողվեց բեռնել կարգավորումները։',
   'settings.loading': 'Բեռնվում է…',
   'settings.push.heading': 'Push ծանուցումներ',
+  'settings.push.subheading':
+    'Ստացեք դիտարկիչի ծանուցումներ հիշատակումների, գործողությունների և ամփոփումների վերաբերյալ։',
   'settings.retention.audio': 'Պահել աուդիոն',
   'settings.retention.heading': 'Պահպանում',
   'settings.retention.transcript': 'Պահպանեք տառադարձումները',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Սկսեք հանդիպումների նշումները ձայնագրել րոպեների ընթացքում',
   'signup.terms':
     'Հաշիվ ստեղծելով՝ դուք համաձայնում եք մեր ծառայության պայմաններին և գաղտնիության քաղաքականությանը։',
+  'signup.termsPrefix': 'Հաշիվ ստեղծելով՝ դուք համաձայնում եք մեր',
   'team.inviteCta': 'Հրավիրել թիմակցին',
   'team.invitedAs': 'Հրավիրված է որպես {{role}}',
   'team.inviteFailed': 'Հնարավոր չէ հրավեր ուղարկել։',

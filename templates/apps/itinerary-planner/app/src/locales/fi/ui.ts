@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Tietoa {{app}}sta',
+  'auth.legalConsent': 'Jatkamalla hyväksyt',
   'bookings.empty.body': 'Lisää lento, hotelli tai aktiviteetti aloittaaksesi postilaatikon.',
   'bookings.empty.heading': 'Ei vielä varauksia.',
   'bookings.errors.create': 'Varauksen luominen epäonnistui.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Vahvistettu',
   'bookings.summary.pending': 'Odotetaan vahvistusta',
   'bookings.summary.total': 'Yhteensä sidottu',
+  'bookings.type.car': 'Vuokra-auto',
+  'bookings.type.flight': 'Lento',
+  'bookings.type.hotel': 'Hotelli',
   'bookings.type.other': 'Muut',
   'budgetSpendCard.budgetTotal': 'jostakin {{total}} suunniteltu',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Paikanna konfliktit, suunnittele palautumispäiviä matkojen välille ja katso, milloin yhteistyökumppanit matkustavat kanssasi.',
   'common.and': 'ja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.budgetHeading': 'Budjettipulssi',
   'dashboard.empty.heading': 'Ei vielä matkoja — atlasi on tyhjä.',
   'dashboard.eyebrow': 'Lentokoneen ohjaus',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Matkat liikkeessä',
   'dashboard.viewAllExpenses': 'Näytä kaikki kulut',
   'dashboard.viewAllTrips': 'Katso jokainen matka',
+  'dayTimelineRow.category.accommodation': 'Pysyä',
   'dayTimelineRow.category.transport': 'Kuljetus',
   'destinationOrbCard.exploreCta': 'Lisää matkalle',
   'destinationOrbCard.tripCount': '{{count}} matkat',
@@ -78,11 +86,15 @@ export const ui: UiTranslations = {
   'forgotPassword.submitPending': 'Lähetetään palautussähköpostia…',
   'forgotPassword.successHint':
     'Eikö sähköpostia vielä tullut? Tarkista roskapostikansiosi tai yritä uudelleen eri osoitteella.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Luo ilmainen tili',
+  'landing.cta.subheading':
+    'Jopa viisi matkaa, viisi yhteistyökumppania ja viisi pysähdystä ilmaisella paketilla – reaaliaikainen synkronointi sisältyy hintaan, ja Pro nostaa kattoja suunnitelmiesi kasvaessa.',
   'landing.destinations.eyebrow': 'Minne seuraavaksi',
   'landing.destinations.heading': 'Toimittajan kuratoimat kohteet',
   'landing.features.eyebrow': 'Reittipisteen toimintaperiaate',
   'landing.features.heading': 'Tehty matkailijoille, ei laskentataulukoille.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Aloita ilmainen matka',
   'landing.hero.ctaSecondary': 'Katso esimerkkimatka',
   'landing.hero.subtitle':
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Luo tili jakaaksesi matkoja jopa viiden yhteistyökumppanin kanssa, synkronoidaksesi varauksia ja kerätäksesi kaikki vahvistukset yhteen paikkaan.',
+  'signup.termsPrefix': 'Luomalla tilin hyväksyt käyttöehdot',
   'tripCountdownHeroCard.budget': '{{used}} jostakin {{total}} ( {{pct}} % budjetista)',
   'tripCountdownHeroCard.collaborators': '{{count}} matkailijat',
   'tripCountdownHeroCard.countdownLabel': 'Lähtölaskenta',
@@ -198,5 +211,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ei vielä matkoja.',
   'trips.pastHeading': 'Menneet seikkailut',
   'trips.subheading': '{{count}} matkasuunnitelmat – menneisyys, nykyisyys ja jonain päivänä.',
+  'waypointLayout.mobileNavClose': 'Sulje navigointivalikko',
   'waypointLayout.primaryNavLabel': 'Päänavigaatio',
 }

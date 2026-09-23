@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// game da {{app}}',
+  'about.pageTitle': 'Jirgin sarrafa webhook',
+  'about.plansTitle': 'Tsare-tsare na kowane mataki',
   'apiKeys.bestPractices': 'Mafi kyawun ayyuka',
   'apiKeys.body':
     'Alamun shiga na shirye-shirye. Yi musu kamar kalmomin shiga - adana su a cikin env vars, kada ku taɓa yin hakan.',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'cikin tsari',
   'billing.usageWarning': 'kusa da hula',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.body':
     'Tsarin aiki kai tsaye, sake gwadawa a lokacin tashi, da kuma ƙarshen da suka yi rauni - a duk faɗin wurin aiki da kake aiki.',
   'dashboard.endpointsEmpty': 'Babu ƙarshen maki tukuna.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'ƙarshen maki',
   'endpointDetail.deliveryTrendSub': "isarwa / awa, ma'aunin log",
   'endpointDetail.hideSecret': 'Ɓoye sirri',
+  'endpointDetail.loading': 'Ana loda ƙarshen wurin…',
   'endpointDetail.metric.delivered': 'An kawo awa 24',
   'endpointDetail.metric.deliveredCaption': "daga {{count}} Nau'ikan abubuwan da suka faru",
   'endpointDetail.metric.failuresCaption': 'sake gwadawa: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Mai mahimmanci · awanni 24',
   'notifications.metric.totalCaption': 'akwatin saƙo na kowane lokaci',
   'payloadViewer.payload': '// nauyin da aka biya',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'An nuna farkon haruffa - lodawa suna zuwa tare da fitowar ta gaba.',
   'profile.body': 'Asusunka, abubuwan da kake so, da kuma zaman aiki.',
@@ -227,6 +233,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ an adana',
   'profile.sessionsEmpty': "Zamanka na yanzu kawai yake aiki. Babu wasu na'urori da aka shiga.",
   'profile.toggle': 'Maɓalli {{label}}',
+  'pylonShell.closeMenu': 'Rufe menu na kewayawa',
+  'pylonShell.openMenu': 'Buɗe menu na kewayawa',
   'pylonShell.primaryNavLabel': 'Babban kewayawa',
   'resetPassword.subtitle': 'Zaɓi kalmar sirri mai ƙarfi da ba ka taɓa amfani da ita ba a da.',
   'resetPassword.tokenPlaceholder': 'liƙa daga imel',

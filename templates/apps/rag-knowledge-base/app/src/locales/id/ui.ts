@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.pageTitle': 'Tentang {{appName}}',
   'analytics.error': 'Tidak dapat memuat analitik.',
   'analytics.heading': 'Analitik pengambilan',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Tidak ada tingkat harga yang dikonfigurasi.',
   'billing.plans.heading': 'Paket',
   'billing.subheading': 'Paket, penggunaan, dan checkout yang dikelola Stripe.',
+  'common.confirm': 'Konfirmasi',
+  'common.goToDashboard': 'Ke Dashboard',
+  'common.retry': 'Coba lagi',
   'documentCard.open': 'Buka →',
   'documentDetail.back': 'Kembali ke dokumen',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeks dokumen',
   'documents.composer.titlePlaceholder': 'Judul dokumen',
   'documents.emptyAll': 'Belum ada dokumen. Unggah satu untuk mulai mengajukan pertanyaan.',
+  'documents.error.load': 'Tidak dapat memuat dokumen.',
   'documents.heading': 'Dokumen terindeks',
   'documents.loading': 'Memuat dokumen…',
   'documents.metric.chunks': 'Total potongan',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Menghapus…',
   'members.subheading': 'Undang rekan tim dan atur peran.',
   'members.tableHeading': 'Daftar',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notFound.askCta': 'Tanyakan basis pengetahuan',
+  'notFound.body':
+    '{{app}} tidak dapat menemukan halaman tersebut. Tautan mungkin rusak, atau halaman tersebut mungkin telah dihapus selama pengindeksan ulang.',
   'notFound.eyebrow': 'Tidak dapat diambil',
   'notFound.title': 'Tidak ada potongan seperti itu di indeks',
   'notifications.dismiss': 'Tutup',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL sumber',
   'sources.empty.body': 'Klik “Tambah sumber” untuk menghubungkan konektor pertama Anda.',
   'sources.empty.title': 'Belum ada sumber.',
+  'sources.error.add': 'Sumber tidak dapat ditambahkan.',
   'sources.error.labelRequired': 'Label diperlukan.',
   'sources.error.load': 'Tidak dapat memuat sumber.',
   'sources.error.urlRequired': 'URL diperlukan untuk jenis sumber ini.',

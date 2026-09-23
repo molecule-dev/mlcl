@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'accountSettings.confirmEmailLabel': 'Kinnitamiseks tippige DELETE',
   'accountSettings.deleteError': 'Konto kustutamine ebaõnnestus.',
   'accountSettings.passwordError': 'Parooli ei saanud muuta.',
@@ -51,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Lähenevaid tähtaegu pole.',
   'dashboard.upcomingTitle': 'Eelseisvad tähtajad',
   'deviceSettings.unknownDevice': 'Tundmatu seade',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Tugi',
   'forgotPassword.error': 'Lähtestamise lingi saatmine ebaõnnestus.',
   'forgotPassword.subtitle': 'Sisesta oma e-posti aadress ja me saadame sulle lähtestamise lingi.',
@@ -65,6 +67,9 @@ export const ui: UiTranslations = {
   'login.error': 'E-posti aadress või parool on vale.',
   'login.pageTitle': 'Logi sisse',
   'login.signIn': "Logi sisse Forge'i",
+  'login.subtitle': 'Logi sisse, et oma projektid õigel teel püsiksid',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'nav.calendar': 'Kalender',
   'nav.legal': 'Õiguslik',
   'nav.myTasks': 'My Tasks',

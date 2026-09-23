@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'about.title': 'Om {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Professionell porträttbild av en kvinnlig supportmedarbetare med ett vänligt leende på ett modernt kontor',
   'activeAgentsCard.agent2AvatarAlt':
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'common.timeAgo.days': '{{days}}d ago',
   'common.timeAgo.hours': '{{hours}}h ago',
   'common.timeAgo.minutes': '{{minutes}}m ago',
+  'csatScoreCard.outOf': '/ {{max}}',
   'csatScoreCard.score': '{{score}}',
   'csatScoreCard.title': 'CSAT-poäng',
   'dashboard.pageTitle': 'Instrumentpanel — Zenith-support',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboardKpiRow.customerSatisfaction': 'Kundnöjdhet',
   'dashboardKpiRow.openTickets': 'Öppna biljetter',
   'dashboardKpiRow.openTrend': '{{change}} %',
+  'dashboardKpiRow.ratingMax': '/ {{max}}',
   'dashboardKpiRow.resolutionRateValue': '{{rate}} %',
   'dashboardKpiRow.responseTrend': '{{change}} h',
   'dashboardKpiRow.satisfactionTrend': '{{change}}',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontakta supporten',
   'forgotPassword.error': 'Kunde inte skicka återställningsmejl. Försök igen.',
   'forgotPassword.rememberPassword': 'Kommer du ihåg ditt lösenord?',
   'forgotPassword.subheading':
@@ -101,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Logga in — Zenith-supporten',
   'login.showPassword': 'Visa lösenord',
   'login.welcomeSubheading': 'Logga in på din supportöversikt',
+  'mobileNav.closeMenu': 'Stäng navigering',
+  'mobileNav.menu': 'Navigering',
+  'mobileNav.openMenu': 'Öppna navigering',
   'nav.legal': 'Juridiskt',
   'nav.newTicket': 'Ny biljett',
   'notifications.loadError': 'Det gick inte att läsa in aviseringarna. Försök igen om en stund.',
@@ -112,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Kommandosökning',
   'operatorDock.newReport': 'Ny rapport',
   'operatorDock.systemOnline': 'System online',
+  'planUpdated.subtitle': 'Tack',
   'planUpdated.title': 'Abonnemanget uppdaterat',
   'pricing.agents': 'agenter',
   'pricing.automation': 'Automatiseringsregler',
@@ -246,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{namn}} s avatar',
   'ticketDetail.errorTitle': 'Något gick fel',
+  'ticketDetail.loadError': 'Misslyckades med att ladda biljetten.',
+  'ticketDetail.notFound': 'Biljetten hittades inte',
+  'ticketDetail.replyError': 'Misslyckades med att skicka svar. Försök igen.',
   'ticketDetail.retry': 'Försök igen',
   'ticketDetail.statusUpdateError': 'Kunde inte uppdatera statusen. Försök igen.',
   'ticketDetailsCard.assigneeLabel': 'Övertagare',
@@ -297,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{tid}} vänster',
   'ticketRow.title': 'Databasanslutning misslyckas i produktion {{nod}}',
   'tickets.pageTitle': 'Biljetter — Zenith Support',
+  'ticketsFab.newTicket': 'Ny biljett',
   'ticketsFilterBar.assigneeLabel': 'Uppdragstagare:',
   'ticketsFilterBar.clearFilters': 'Rensa filter',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

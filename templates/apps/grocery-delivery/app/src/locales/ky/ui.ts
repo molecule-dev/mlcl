@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Сатып алуучуга чайпул бериңиз',
   'checkout.tipLabel': 'Чайпул',
   'checkout.zipPlaceholder': 'Почта индекси',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'featuredProductsGrid.addAria': 'Кошуу {{name}} себетке',
   'featuredProductsGrid.outOfStock': 'Запаста жок',
   'forgotPassword.emailLabel': 'Электрондук почта дареги',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Эгер ал электрондук почта катталган болсо, баштапкы абалга келтирүү шилтемеси жөнөтүлүүдө.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Негизги навигация',
   'landing.categoriesEyebrow': 'Өтмөктөр',
   'landing.categoriesHeading': 'Категория боюнча сатып алуу',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Степлерлерди акылдуу кайра заказ кылуу жана айдоочуну түз көзөмөлдөө менен жума сайын жеткирүүнү пландаштырыңыз.',
   'landing.heroTitle': 'Бир нече сааттын ичинде эшигиңизде жаңылык.',
   'landing.howEyebrow': 'Үч кадам',
+  'landing.howItWorksHeading': '{{app}} кантип иштейт',
   'lists.addAllCta': 'Баарын себетке кошуу',
   'lists.createCta': 'Биринчи тизмеңизди түзүңүз',
   'lists.createError': 'Тизме түзүлбөй койду.',

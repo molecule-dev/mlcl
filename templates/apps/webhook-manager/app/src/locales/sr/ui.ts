@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// о {{app}}',
+  'about.pageTitle': 'Контролна раван вебхука',
+  'about.plansTitle': 'Планови за сваку фазу',
   'apiKeys.bestPractices': 'Најбоље праксе',
   'apiKeys.body':
     'Програмски токени за приступ. Третирајте их као лозинке — чувајте их у променљивим окружења, никада не потврђујте измене.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'у оквиру плана',
   'billing.usageWarning': 'близу горње границе',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'dashboard.body':
     'Пропусност уживо, поновни покушаји у току и крајње тачке које су управо закаснеле — у сваком радном простору којим управљате.',
   'dashboard.endpointsEmpty': 'Још нема крајњих тачака.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'крајње тачке',
   'endpointDetail.deliveryTrendSub': 'испоруке / сат, логаритамска скала',
   'endpointDetail.hideSecret': 'Сакриј тајну',
+  'endpointDetail.loading': 'Учитавање крајње тачке…',
   'endpointDetail.metric.delivered': 'Достава за 24 сата',
   'endpointDetail.metric.deliveredCaption': 'од {{count}} типови догађаја',
   'endpointDetail.metric.failuresCaption': 'поновни покушаји: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Критично · 24 сата',
   'notifications.metric.totalCaption': 'пријемно сандуче свих времена',
   'payloadViewer.payload': '// корисни садржај',
+  'planUpdated.verifying': 'Потврђивање уплате…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint': 'Приказани иницијали — отпремљени садржаји долазе са следећим издањем.',
   'profile.body': 'Ваш налог, подешавања и активне сесије.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Само ваша тренутна сесија је активна. Ниједан други уређај није пријављен.',
   'profile.toggle': 'Укључи/искључи {{label}}',
+  'pylonShell.closeMenu': 'Затвори мени за навигацију',
+  'pylonShell.openMenu': 'Отвори мени за навигацију',
   'pylonShell.primaryNavLabel': 'Примарна навигација',
   'resetPassword.subtitle': 'Изаберите јаку лозинку коју раније нисте користили.',
   'resetPassword.tokenPlaceholder': 'налепи из имејла',

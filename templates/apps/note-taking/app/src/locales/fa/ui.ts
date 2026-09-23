@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'رفتن به داشبورد',
   'forgot.eyebrow': 'راه برگشت به داخل را گم کرده‌اید؟',
   'forgot.formSubtitle': 'ایمیل موجود در پرونده را به ما بگویید.',
   'forgot.headline': 'رمز عبور خود را بازنشانی کنید.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'یکی ایجاد کنید',
   'login.subline':
     'دفترچه‌های یادداشت، بک لینک‌ها و صفحات روزانه شما درست همان جایی هستند که آنها را رها کرده‌اید.',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'noteEditor.backToNotes': 'بازگشت به یادداشت‌ها',
   'noteEditor.bodyPlaceholder':
     'شروع به نوشتن کنید - یادداشت شما همزمان با تایپ کردن، به طور خودکار ذخیره می‌شود.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'دفترچه یادداشت جدید',
   'notes.newNotebookPrompt': 'نام دفترچه یادداشت جدید',
   'notes.notebooksHeading': 'نوت بوک ها',
+  'notes.subtitle':
+    'یک دفترچه یادداشت از سمت چپ انتخاب کنید، سپس دکمه یادداشت جدید را برای شروع یک ورودی جدید فشار دهید.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'طرح یادداشت‌برداری خود را انتخاب کنید',
   'reset.eyebrow': 'تقریباً برگشته داخل',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'به‌روزرسانی‌شده',
   'versoLayout.nav.graph': 'نمودار',
   'versoLayout.nav.home': 'خانه',
+  'versoLayout.primaryNavLabel': 'ناوبری اولیه',
   'versoNoteCard.pinned': 'پین شده',
   'versoTodayHero.continueCta': 'ادامه نوشتن',
   'versoTodayHero.createCta': 'شروع یادداشت امروز',

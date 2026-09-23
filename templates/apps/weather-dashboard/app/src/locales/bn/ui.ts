@@ -35,7 +35,9 @@ export const ui: UiTranslations = {
   'billing.kpi.retentionUnlimited': 'সীমাহীন',
   'billing.plansEyebrow': 'একটি প্ল্যান বেছে নিন',
   'billing.plansHeading': 'ফ্রি, প্রো এবং টিম',
+  'billing.subheading': 'আপনি বর্তমানে {{plan}} প্ল্যানে আছেন।',
   'billing.switch': 'সুইচ',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'compare.activityHeading': 'কার্যকলাপের রায়',
   'compare.empty.title': 'তুলনা করার জন্য কমপক্ষে দুটি অবস্থান যোগ করুন।',
   'compare.eyebrow': 'পাশাপাশি',
@@ -137,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'উচ্চ',
   'trends.summary.low.label': 'নিম্ন',
   'trends.summary.points.label': 'দিন',
+  'weatherDashboardLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'weatherHeroCard.updated': 'আপডেট করা হয়েছে {{time}}',
 }

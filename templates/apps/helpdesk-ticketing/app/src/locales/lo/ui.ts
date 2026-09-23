@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.title': 'ກ່ຽວກັບ {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'ຮູບຖ່າຍຫົວແບບມືອາຊີບຂອງຕົວແທນສະໜັບສະໜູນຍິງທີ່ມີຮອຍຍິ້ມທີ່ເປັນມິດໃນຫ້ອງການທີ່ທັນສະໄໝ',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ຕິດຕໍ່ຝ່າຍສະໜັບສະໜູນ',
   'forgotPassword.error': 'ບໍ່ສາມາດສົ່ງອີເມວຕັ້ງຄ່າໃໝ່ໄດ້. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.',
   'forgotPassword.rememberPassword': 'ຈື່ລະຫັດຜ່ານຂອງທ່ານບໍ?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'ເຂົ້າສູ່ລະບົບ — ການຊ່ວຍເຫຼືອຂອງ Zenith',
   'login.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'login.welcomeSubheading': 'ເຂົ້າສູ່ລະບົບແຜງຄວບຄຸມການຊ່ວຍເຫຼືອຂອງທ່ານ',
+  'mobileNav.closeMenu': 'ປິດການນຳທາງ',
+  'mobileNav.menu': 'ການນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດການນຳທາງ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'nav.newTicket': 'ປີ້ໃໝ່',
   'notifications.loadError': 'ບໍ່ສາມາດໂຫຼດການແຈ້ງເຕືອນໄດ້. ກະລຸນາລອງໃໝ່ໃນອີກບໍ່ດົນ.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'ຄົ້ນຫາຄຳສັ່ງ',
   'operatorDock.newReport': 'ບົດລາຍງານໃໝ່',
   'operatorDock.systemOnline': 'ລະບົບອອນໄລນ໌',
+  'planUpdated.subtitle': 'ຂອບໃຈ',
   'planUpdated.title': 'ອັບເດດແຜນການແລ້ວ',
   'pricing.agents': 'ຕົວແທນ',
   'pricing.automation': 'ກົດລະບຽບອັດຕະໂນມັດ',
@@ -238,6 +244,7 @@ export const ui: UiTranslations = {
   'ticketAgentMessage.agentRole': 'ຕົວແທນ',
   'ticketBreadcrumbHeader.tickets': 'ປີ້',
   'ticketConversationThread.empty': 'ຍັງບໍ່ມີຂໍ້ຄວາມເທື່ອ - ກະລຸນາຕອບກັບກ່ອນ.',
+  'ticketConversationThread.internalNoteDate': '• {{date}}',
   'ticketConversationThread.unknownAuthorInitials': '?',
   'ticketCustomerInfoCard.previousTickets': 'ປີ້ກ່ອນໜ້ານີ້',
   'ticketCustomerInfoCard.satisfaction': 'ຄວາມພໍໃຈ',
@@ -247,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{ຊື່}}',
   'ticketCustomerReply.avatarAlt': '{{ຊື່}} ຮູບແທນຕົວຂອງ',
   'ticketDetail.errorTitle': 'ມີບາງຢ່າງຜິດພາດເກີດຂຶ້ນ',
+  'ticketDetail.loadError': 'ໂຫຼດປີ້ບໍ່ສຳເລັດ.',
+  'ticketDetail.notFound': 'ບໍ່ພົບປີ້',
+  'ticketDetail.replyError': 'ສົ່ງຄຳຕອບບໍ່ສຳເລັດ. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.',
   'ticketDetail.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
   'ticketDetail.statusUpdateError': 'ບໍ່ສາມາດອັບເດດສະຖານະໄດ້. ກະລຸນາລອງໃໝ່.',
   'ticketDetailsCard.assigneeLabel': 'ຜູ້ຮັບມອບໝາຍ',
@@ -298,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{ເວລາ}} ຊ້າຍ',
   'ticketRow.title': 'ການເຊື່ອມຕໍ່ຖານຂໍ້ມູນລົ້ມເຫຼວໃນການຜະລິດ {{ໂນດ}}',
   'tickets.pageTitle': 'ປີ້ — ການສະໜັບສະໜູນ Zenith',
+  'ticketsFab.newTicket': 'ປີ້ໃໝ່',
   'ticketsFilterBar.assigneeLabel': 'ຜູ້ຮັບມອບໝາຍ:',
   'ticketsFilterBar.clearFilters': 'ລຶບລ້າງຕົວກອງ',
   'ticketsFilterBar.dateRangeDemoHint': 'ການກັ່ນຕອງຊ່ວງວັນທີບໍ່ໄດ້ເປີດໃຊ້ໃນຕົວສ້າງເດໂມນີ້.',

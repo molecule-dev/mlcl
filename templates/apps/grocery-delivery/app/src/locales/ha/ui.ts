@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Ba wa mai siyan ku shawara',
   'checkout.tipLabel': 'Shawara',
   'checkout.zipPlaceholder': 'Lambar akwatin gidan waya',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'featuredProductsGrid.addAria': 'Ƙara {{name}} zuwa keken siyayya',
   'featuredProductsGrid.outOfStock': 'Kayayyakin sun ƙare',
   'forgotPassword.emailLabel': 'Adireshin i-mel',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Idan an yi rijistar wannan imel ɗin, hanyar sake saitawa tana kan hanya.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Babban kewayawa',
   'landing.categoriesEyebrow': 'Hanyoyi',
   'landing.categoriesHeading': 'Siyayya ta rukuni',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Shirya jigilar kaya na mako-mako tare da sake tsara kayan abinci masu kyau da kuma bin diddigin direbobi kai tsaye.',
   'landing.heroTitle': 'Sabo a ƙofar gidanka, cikin awanni.',
   'landing.howEyebrow': 'Matakai uku',
+  'landing.howItWorksHeading': 'Yadda {{app}} ke aiki',
   'lists.addAllCta': 'Ƙara duk zuwa siyayya',
   'lists.createCta': 'Ƙirƙiri jerin farko naka',
   'lists.createError': 'Ba a iya ƙirƙirar jerin ba.',

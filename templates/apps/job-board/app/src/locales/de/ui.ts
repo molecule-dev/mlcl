@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über uns',
   'applications.empty':
     'Noch keine Bewerbungen — der richtige Job ist nur eine Bewerbung entfernt.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Alle Stellen, auf die Sie sich beworben haben, im Überblick. Filtern Sie nach Phase, um den Fokus zu finden.',
   'applications.untitledRole': 'Stelle #{{id}}',
+  'auth.legalConsent': 'Indem Sie fortfahren, stimmen Sie unseren',
   'common.and': 'und',
+  'common.goToDashboard': 'Zum Dashboard',
   'companies.empty':
     'Keine Unternehmen passen zu Ihrer Suche — versuchen Sie einen anderen Begriff.',
   'companies.eyebrow': 'Empfohlene Arbeitgeber',
@@ -52,6 +55,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Noch keine Bewerbungen für diese Stelle.',
   'jobApplicants.eyebrow': 'Arbeitgeberansicht',
   'jobApplicants.loading': 'Wird geladen…',
+  'jobApplicants.statusUpdateFailed':
+    'Diese Phase konnte nicht aktualisiert werden – bitte versuchen Sie es erneut.',
+  'jobApplicants.subheading':
+    'Lebensläufe prüfen, Kandidaten weiterleiten, Angebote versenden – {{count}} in Bewegung.',
   'jobDetail.applicantCount': 'Bislang {{count}} Bewerber',
   'jobDetail.applied': 'Bewerbung gesendet',
   'jobDetail.apply': 'Jetzt bewerben',
@@ -85,6 +92,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Offene Stellen durchsuchen →',
   'landing.pricingEyebrow': 'Preise',
   'landing.pricingHeading': 'Einfache Tarife für Teams jeder Größe.',
+  'login.eyebrow': 'Willkommen zurück bei {{app}}',
   'login.heading': 'Bei Ihrem Konto anmelden',
   'login.noAccount': 'Neu bei Nosh?',
   'login.passwordPlaceholder': '••••••••',
@@ -92,6 +100,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Anmeldung läuft…',
   'login.subheading':
     'Setzen Sie Ihre Suche fort, bringen Sie Ihre Bewerbungen voran und erhalten Sie schneller Rückmeldung.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Entwickelt für Recruiting-Teams.',
   'loginBrandPanel.headline': 'Wo Talent trifft',
   'loginBrandPanel.headlineLine2': 'Schwung.',
   'loginBrandPanel.listing.recruiter': 'Talentpartner',
@@ -108,6 +117,7 @@ export const ui: UiTranslations = {
     'Bewerbungs-Updates, Einladungen zu Gesprächen, neue Treffer — die neuesten zuerst.',
   'opportunitiesHero.delta': '{{sign}}{{amount}} diese Woche',
   'opportunitiesHero.eyebrow': 'Heute offen',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'postJob.addNewCompany': '+ Neues Unternehmen hinzufügen',
   'postJob.companyCreateFailed':
     'Unternehmen konnte nicht erstellt werden — bitte erneut versuchen.',
@@ -167,10 +177,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Konto wird erstellt…',
   'signup.ctaEmployer': 'Arbeitgeber-Konto erstellen',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Passwörter stimmen nicht überein.',
   'signup.subheading':
     'Kostenlos für Suchende, dauerhaft. Arbeitgeber starten mit einer 30-tägigen Testphase.',
   'timeAgo.days': 'vor {{count}} T',
   'timeAgo.hours': 'vor {{count}} Std',
   'timeAgo.justNow': 'gerade eben',
+  'timeAgo.weeks': '{{count}} Wochen alt',
 }

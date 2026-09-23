@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'activityFeed.empty': 'Brak aktywności — proszę wysłać pierwszą fakturę.',
   'authShell.sample.paid': 'Zapłacono 2 minuty temu',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Dodaj nowego klienta',
   'clients.search': 'Szukaj po nazwie, firmie, e-mailu',
   'clients.title': 'Klienci',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Nowy klient',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Nie pamiętam hasła',
   'forgotPassword.successBody':
     'Wysłaliśmy instrukcje resetowania na adres {{email}}. Link wygaśnie za 30 minut.',
+  'invoiceDetail.action.confirmVoid': 'Potwierdzić nieważność?',
   'invoiceDetail.action.download': 'Pobierz PDF',
   'invoiceDetail.action.duplicate': 'Duplikuj',
   'invoiceDetail.action.edit': 'Edytuj',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Faktura anulowana.',
   'invoiceDetail.issued': 'Wystawiono {{date}}',
   'invoiceDetail.loading': 'Wczytywanie faktury…',
+  'invoiceDetail.paidInFull': 'Zapłacono w całości',
   'invoiceDetail.summary': '{{client}} · wysłano {{date}}',
   'invoiceDetail.tax': 'VAT ({{rate}}%)',
   'invoiceDetail.timeline': 'Oś czasu',
+  'invoiceDetail.voided': 'Unieważnione',
   'invoiceEditor.addItem': 'Dodaj pozycję',
   'invoiceEditor.back': '← Powrót do faktur',
   'invoiceEditor.col.qty': 'Ilość',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Wyślij pierwszą fakturę',
   'landing.hero.eyebrow': 'Fakturowanie dla małych firm',
   'landing.hero.secondary': 'Zobacz przykładową fakturę',
+  'landing.hero.subtitle':
+    '{{appName}} łączy dopracowane faktury z wbudowanymi płatnościami, rozliczeniami cyklicznymi i raportami gotowymi do rozliczeń podatkowych. Bez księgowości.',
   'landing.hero.title': 'Wysyłaj faktury.\nOtrzymuj zapłatę szybciej.',
   'login.signupLink': 'Załóż konto',
   'login.submitting': 'Logowanie…',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'płatności',
   'pricing.recurringLabel': 'harmonogramy cykliczne',
   'remitLayout.newInvoice': 'Nowa faktura',
+  'remitLayout.openMenu': 'Otwórz menu nawigacyjne',
   'remitLayout.searchPlaceholder': 'Szukaj faktur, klientów...',
   'remitLayout.tagline': 'Otrzymuj zapłatę szybciej',
   'reports.chart.aging': 'Wiek faktur',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Przychody w okresie',
   'reports.chart.topClients': 'Najlepsi klienci',
   'reports.chart.topClientsCaption': 'Łączny przychód, top 5',
+  'reports.empty.aging': 'Brak nieopłaconych faktur.',
+  'reports.empty.methods': 'Brak danych dotyczących płatności.',
+  'reports.empty.revenue': 'Brak danych o przychodach.',
+  'reports.empty.topClients': 'Brak danych o przychodach klientów.',
   'reports.exporting': 'Eksportowanie…',
   'reports.exportRequiresPaid':
     'Eksport to funkcja płatna — proszę dokonać aktualizacji, aby ją włączyć.',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Dodaj stawkę VAT',
   'settings.tax.added': 'Stawka VAT dodana.',
   'settings.tax.adding': 'Dodawanie…',
+  'settings.tax.addRate': 'Dodaj stawkę',
   'settings.tax.col.region': 'Region',
   'settings.tax.delete': 'Usuń stawkę VAT',
   'settings.tax.deleted': 'Stawka VAT usunięta.',

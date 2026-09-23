@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពីយើង',
   'actions.empty': 'គ្មានធាតុសកម្មភាពដែលត្រូវគ្នាទេ។',
   'actions.heading': 'ធាតុសកម្មភាព',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'ខែមុន',
   'calendar.recent': 'ថ្មីៗ',
   'common.daysAgo': '{{count}} ថ្ងៃមុន',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.hoursAgo': '{{count}} ម៉ោងមុន',
   'common.no': '—',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ធាតុសកម្មភាព',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នកសម្រាប់តំណភ្ជាប់កំណត់ឡើងវិញ។',
   'forgot.subheading': 'សូមបញ្ចូលអ៊ីមែលរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញ។',
   'integrations.disconnected': 'ផ្តាច់ការតភ្ជាប់',
+  'integrations.loadError': 'មិនអាចផ្ទុកការរួមបញ្ចូលបានទេ។',
   'integrations.notConnectedTag': 'មិនបានភ្ជាប់',
   'integrations.subheading':
     'ភ្ជាប់ប្រតិទិន និងវេទិកាវីដេអូ ដើម្បីឱ្យ Murmur ចូលរួមដោយស្វ័យប្រវត្តិ។',
+  'integrations.updateError': 'ការធ្វើបច្ចុប្បន្នភាពបរាជ័យ។',
   'landing.ctaButton': 'ចាប់ផ្តើម — វាឥតគិតថ្លៃ',
   'landing.ctaHeading': 'ឈប់កត់ចំណាំ។ ចាប់ផ្តើមធ្វើការសម្រេចចិត្ត។',
   'landing.demo.aiLabel': 'សេចក្តីសង្ខេប AI ដែលត្រូវបានព្រាងផ្ទាល់',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ការតាមដាន',
   'meetingDetail.loadError': 'មិនអាចផ្ទុកកិច្ចប្រជុំបានទេ។',
   'meetingDetail.noActions': 'រកមិនឃើញធាតុសកម្មភាពទេ។',
+  'meetingDetail.none': 'គ្មាន។',
   'meetingDetail.notFound': 'រកមិនឃើញការប្រជុំទេ។',
+  'meetingDetail.speakerFallback': 'អ្នកនិយាយ {{id}}',
   'meetingDetail.summaryHeading': 'សេចក្តីសង្ខេប AI',
   'meetingDetail.transcriptHeading': 'ប្រតិចារឹក',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'កិច្ចប្រជុំ',
   'meetings.loadError': 'មិនអាចផ្ទុកកិច្ចប្រជុំបានទេ។',
   'meetings.subheading': 'រាល់ការប្រជុំដែលបានថត ផ្ទុកឡើង និងធ្វើសមកាលកម្ម។',
+  'murmurLayout.openMenu': 'បើកម៉ឺនុយរុករក',
   'murmurLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'nav.legal': 'ផ្នែកច្បាប់',
   'notifications.loadError': 'បរាជ័យក្នុងការផ្ទុកការជូនដំណឹង។',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'របៀបដែលអ្នកបង្ហាញខ្លួននៅខាងក្នុង Murmur។',
   'record.error.empty': 'គ្មានសំឡេងត្រូវបានថតទេ។',
   'record.error.permission': 'ការអនុញ្ញាតឱ្យប្រើមីក្រូហ្វូនត្រូវបានបដិសេធ។',
+  'record.error.recorder': 'កំហុស​ក្នុង​ការ​ថត​សំឡេង',
   'record.error.unsupported':
     'កម្មវិធីរុករកតាមអ៊ីនធឺណិតរបស់អ្នកមិនគាំទ្រការថតទេ។ សាកល្បងប្រើ Chrome, Edge ឬ Safari។',
   'record.error.upload': 'ការផ្ទុកឡើងបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
   'reset.subheading': 'សូមជ្រើសរើសពាក្យសម្ងាត់ដែលអ្នកមិនប្រើនៅកន្លែងផ្សេង។',
   'search.empty': 'វាយបញ្ចូលដើម្បីស្វែងរកប្រតិចារឹក។',
+  'search.loadError': 'ការស្វែងរកបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
   'search.noResults': 'គ្មានលទ្ធផលសម្រាប់ " {{q}} "។',
   'settings.appearance.description': 'ប្តូររវាងរបៀបភ្លឺ និងងងឹត។',
   'settings.appearance.title': 'រូបរាង',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'បរាជ័យក្នុងការផ្ទុកការកំណត់។',
   'settings.loading': 'កំពុងផ្ទុក…',
   'settings.push.heading': 'ការជូនដំណឹងជំរុញ',
+  'settings.push.subheading':
+    'ទទួលបានការជូនដំណឹងពីកម្មវិធីរុករកតាមអ៊ីនធឺណិតសម្រាប់ការលើកឡើង ធាតុសកម្មភាព និងសេចក្តីសង្ខេប។',
   'settings.retention.audio': 'រក្សាទុកសំឡេងសម្រាប់',
   'settings.retention.heading': 'ការរក្សាទុក',
   'settings.retention.transcript': 'រក្សាទុកប្រតិចារឹកសម្រាប់',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'មិនអាចបង្កើតគណនីបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'signup.subheading': 'ចាប់ផ្តើមថតកំណត់ចំណាំកិច្ចប្រជុំក្នុងរយៈពេលប៉ុន្មាននាទី',
   'signup.terms': 'តាមរយៈការបង្កើតគណនី អ្នកយល់ព្រមតាមលក្ខខណ្ឌនៃសេវាកម្ម និងគោលការណ៍ឯកជនភាពរបស់យើង។',
+  'signup.termsPrefix': 'តាមរយៈការបង្កើតគណនី អ្នកយល់ព្រមតាមរបស់យើង',
   'team.inviteCta': 'អញ្ជើញមិត្តរួមក្រុម',
   'team.invitedAs': 'បានអញ្ជើញជា {{role}}',
   'team.inviteFailed': 'មិនអាចផ្ញើការអញ្ជើញបានទេ។',

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'auditLog.empty':
     'अभी तक आपके फ़िल्टर से मेल खाने वाली कोई ऑडिट घटना नहीं है। किसी कर्मचारी को संपादित करें या वेतन चक्र चलाएँ, और वे यहाँ दिखाई देंगे।',
   'auditLog.eyebrow': 'अनुपालन',
+  'auditLog.loadError': 'ऑडिट लॉग लोड नहीं हो सका।',
   'auditLog.searchPlaceholder': 'अभिनेता, क्रिया या विवरण द्वारा खोजें',
   'auditLog.subheading':
     'हर अनुमोदन, संपादन और कर फाइलिंग — अभिनेता, टाइमस्टैम्प और बदले गए फ़ील्ड के साथ।',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'कॉन्फ़िगर नहीं किया गया',
   'billing.plansHeading': 'योजनाएँ',
   'billing.subheading': 'अपनी योजना प्रबंधित करें और Stripe के माध्यम से स्तर बदलें।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'पुनः प्रयास करें',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'अनुपालन स्नैपशॉट',
   'dashboard.compliance.title': 'सभी जाँचें उत्तीर्ण',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'फ़ाइल पर कोई कटौती नहीं।',
   'employeeDetail.notFound': 'कर्मचारी नहीं मिला।',
   'employeeDetail.payFrequency': 'वेतन आवृत्ति',
+  'employeeDetail.postTax': 'कर पश्चात',
+  'employeeDetail.preTax': 'पूर्व कर',
   'employeeDetail.salary': 'वार्षिक वेतन',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': '{{date}} को शुरू किया',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'वेतन आवृत्ति',
   'employeeForm.salary': 'वार्षिक वेतन (USD)',
   'employeeForm.salaryInvalid': 'वेतन एक गैर-नकारात्मक संख्या होनी चाहिए।',
+  'employeeForm.saveError': 'कर्मचारी को बचाया नहीं जा सका।',
   'employeeForm.semimonthly': 'अर्ध-मासिक',
   'employeeForm.single': 'अविवाहित',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'कर्मचारी',
   'employeesTable.col.salary': 'वेतन',
   'forgotPassword.subtitle': 'अपना कार्य ईमेल दर्ज करें और हम आपको एक रीसेट लिंक भेजेंगे।',
+  'landing.copyright': '© {{year}} {{app}} . सटीक, विश्वसनीय, संयमित।',
   'landing.ctaBody':
     '30 दिन के लिए मुफ़्त। कोई क्रेडिट कार्ड नहीं। अपने ऑडिट ट्रेल को खोए बिना किसी भी समय बदलें।',
   'landing.ctaHeading': 'अपना अगला चक्र Stipend पर चलाएँ',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'इस वेतन चक्र के लिए अभी तक कोई ऑडिट प्रविष्टि नहीं।',
   'payRunDetail.noStubs':
     'अभी तक कोई वेतन स्टब नहीं — उन्हें उत्पन्न करने के लिए अनुमोदित करें और संसाधित करें।',
+  'payRunDetail.notFound': 'इस वेतन भुगतान का विवरण नहीं मिल सका।',
   'payRunDetail.statDeductions': 'कटौतियाँ',
   'payRunDetail.statHeadcount': 'कर्मचारी',
   'payRunDetail.statTaxes': 'कर रोके गए',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'अर्ध-मासिक',
   'settings.signOutDevice': 'साइन आउट',
   'settings.subheading': 'कंपनी प्रोफ़ाइल, वेतन कार्यक्रम और एकीकरण।',
+  'settings.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.twoFactorDisable': 'अक्षम करें',
+  'settings.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.twoFactorVerify': 'सत्यापित करें और सक्षम करें',
   'settings.weekly': 'साप्ताहिक',
   'taxCenter.bucket.federal': 'संघीय आय',
   'taxCenter.bucket.fica': 'सामाजिक सुरक्षा',

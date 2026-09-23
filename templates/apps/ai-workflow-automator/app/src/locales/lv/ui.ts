@@ -26,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.updateBilling': 'Atjaunināšanas iestatījumi',
   'billing.viewPricing': 'Skatīt cenas',
   'billing.workflowsLabel': 'Aktīvās darbplūsmas',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'connections.count': '{{n}} integrācijas',
   'connections.description':
     'Iekļaujiet savas darbplūsmas sistēmās, kuras jūsu komanda jau izmanto. Pakalpojumu sniedzēju atslēgas atrodas failā `api/.env`.',
@@ -133,6 +134,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Paslēpt paroli',
   'login.showPassword': 'Rādīt paroli',
   'login.subhead': 'Pierakstieties, lai nodrošinātu nepārtrauktu automatizāciju.',
+  'mobileNav.drawerLabel': 'Galvenā navigācija',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'nav.legal': 'Juridiskā informācija',
   'notFound.body':
     'Ceļš, ko izmēģinājāt, nesaista nevienu darbplūsmu šajā darbvietā. Varbūt kāds mezgls ir pārdēvēts?',
@@ -144,6 +147,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Palaidiet darbplūsmu, lai sāktu aizpildīt šo plūsmu.',
   'notifications.empty.title': 'Jūs esat pilnībā informēti',
   'notifications.eyebrow': '{{n}} nelasīts',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.heading': 'skrējieni',
   'pricing.workflowsSuffix': 'darbplūsmas',
   'privacy.collect.body':
@@ -181,6 +185,7 @@ export const ui: UiTranslations = {
   'settings.profile.description':
     'Kā jūs izskatāties darbplūsmas izpildītājā. Izmanto darbvietas aktivitātēs.',
   'settings.profile.noEmail': 'Nav reģistrēta e-pasta adrese',
+  'settings.profile.saved': 'Saglabāts vietnē {{time}}.',
   'settings.profile.saveFailed': 'Nevarēja saglabāt profila izmaiņas.',
   'settings.profile.unnamedUser': 'Nenosaukts lietotājs',
   'settings.security.audit.hint':
@@ -188,13 +193,17 @@ export const ui: UiTranslations = {
   'settings.security.description':
     'Divfaktoru autentifikācija, vienreizēja pierakstīšanās un aktīvas sesijas.',
   'settings.security.sso.hint': 'Pieejams Scale un Enterprise plānos.',
+  'settings.twoFactorCode': 'Autentifikācijas kods',
   'settings.twoFactorDisable': 'Atspējot',
   'settings.twoFactorEnable': 'Ieslēgt',
+  'settings.twoFactorInvalidCode': 'Nepareizs kods',
+  'settings.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'settings.workspace.description':
     'Koplietota identitāte, reģions un palaišanas noklusējuma iestatījumi jūsu komandai.',
   'settings.workspace.maxRuns': 'Vienlaicīgu braucienu ierobežojums',
   'settings.workspace.name': 'Darba vides nosaukums',
   'settings.workspace.region': 'Reģions',
+  'settings.workspace.saved': 'Saglabāts vietnē {{time}}.',
   'signup.failed': 'Reģistrācija neizdevās',
   'signup.profileHint': 'Kā citi tevi uztvers',
   'signup.subhead': 'Sāciet orķestrēt savu steku mazāk nekā minūtes laikā.',
@@ -235,12 +244,14 @@ export const ui: UiTranslations = {
     'Pakalpojums tiek sniegts “tādā stāvoklī”, kādā tas ir. Mēs neesam atbildīgi par darbplūsmas izpildes lejupējo ietekmi; jūs esat atbildīgs par savu automatizāciju testēšanu un uzraudzību. Kopējā atbildība ir ierobežota ar maksām, kas samaksātas iepriekšējo divpadsmit mēnešu laikā.',
   'terms.title': 'Lietošanas noteikumi',
   'workflowAppShell.newWorkflow': 'Jauna darbplūsma',
+  'workflowAppShell.newWorkflowShort': 'Jauns',
   'workflowAppShell.searchPlaceholder': 'Meklēt darbplūsmas, palaišanas, veidnes…',
   'workflowBuilder.backToList': 'Atpakaļ pie darbplūsmām',
   'workflowBuilder.disable': 'Atspējot',
   'workflowBuilder.enable': 'Ieslēgt',
   'workflowBuilder.error': 'Nevarēja ielādēt darbplūsmu.',
   'workflowBuilder.inspector.enabled': 'Iespējots — darbojas, kad tiek aktivizēts.',
+  'workflowBuilder.inspector.eyebrow': 'Inspektors',
   'workflowBuilder.inspector.id': 'ID',
   'workflowBuilder.inspector.status': 'Darbplūsmas statuss',
   'workflowBuilder.inspector.trigger': 'Aktivizētāja veids',
@@ -255,6 +266,7 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggled': 'Darbplūsmas statuss ir atjaunināts.',
   'workflowBuilder.toggleFailed': 'Pārslēgšana neizdevās.',
   'workflowBuilder.workflow': 'Darbplūsma · v {{v}}',
+  'workflowBuilder.zoom.in': 'Tuvināt',
   'workflowCard.lastRun': 'Pēdējais skrējiens {{when}}',
   'workflowCard.runs': '{{count}} skrējieni',
   'workflowHeroCard.last24h': 'Pēdējās 24 stundas',

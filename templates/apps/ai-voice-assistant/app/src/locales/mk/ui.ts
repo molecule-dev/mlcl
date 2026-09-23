@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратни информации, барање за функција или пронајдовте грешка? Контактирајте го тимот на {{app}} преку линкот за поддршка во менито на вашата сметка - секоја порака оди до вистински човек.',
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
   'agentDetail.back': 'Сите агенти',
   'agentDetail.capabilities': 'Способности',
   'agentDetail.delete': 'Избриши личност',
   'agentDetail.deleteConfirm': 'Да се избрише оваа личност? Ова не може да се врати.',
+  'agentDetail.deleteError': 'Не може да се избрише ликот.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Не може да се вчита ликот.',
   'agentDetail.save': 'Зачувај личност',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Префрлување…',
   'billing.updateError': 'Не можеше да се започне со ажурирање.',
   'billing.usageHeading': 'Користење на гласот во овој циклус',
+  'chatBubble.source.text': 'текст',
+  'chatBubble.source.voice': 'глас',
+  'common.goToDashboard': 'Оди до контролна табла',
   'conversation.defaultTitle': 'Нов разговор',
   'conversation.empty': 'Сè уште нема пораки. Започнете со кажување нешто или пишување подолу.',
   'conversation.eyebrow': 'Сесија во живо',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Интелигенција што зборува.',
   'landing.heroSubtitle':
     'Гласовен асистент со вештачка интелигенција кој го разбира вашиот природен тек. Разговарајте, смислувајте идеи и командувајте — беспрекорно.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Слушање…',
   'landing.naturallyBody':
     'Без зборови што поттикнуваат. Без крути наредби. Жаргонот го разбира контекстот, прекините и нијансата на човечкиот говор - како разговор со колега.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Отвори сесија',
   'notFound.home': 'Назад дома',
   'notFound.title': 'Не можевме да ја чуеме таа страница.',
+  'parlanceLayout.closeMenu': 'Затвори мени',
+  'parlanceLayout.openMenu': 'Отвори мени за навигација',
   'parlanceLayout.primaryNavLabel': 'Примарна навигација',
   'pricing.conversations': '{{count}} разговори',
   'pricing.cta.startFree': 'Започнете бесплатно',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Нема совпаѓања',
   'search.eyebrow': 'Палета на команди',
   'search.fetchError': 'Не може да се вчита индексот на пребарување.',
+  'search.static.profile.preview': 'Име за прикажување, рачка, биографија',
   'search.static.voice.title': 'Глас',
   'search.title': 'Пребарај Парланс',
   'search.transcriptPreview': 'Отвори транскрипт',

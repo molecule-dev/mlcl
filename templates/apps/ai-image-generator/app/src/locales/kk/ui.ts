@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'auth.fields.newPassword': 'Жаңа құпия сөз',
   'collectionDetail.addImage': 'Жинау үшін сиқырлау',
   'collectionDetail.backCta': 'Коллекцияларға оралу',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Көңіл-күй тақталары, қысқаша шолулар және үздіксіз сериялар',
   'collections.title': 'Жинақтар',
   'collections.untitled': 'Атауы жоқ · {{stamp}}',
+  'common.closeMenu': 'Мәзірді жабу',
+  'common.dismiss': 'Жабу',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.openMenu': 'Навигация мәзірін ашу',
   'credits.eyebrow': '{{plan}} жоспар',
   'credits.renewsCopy': 'Жоспар жаңартылатын күні {{date}}',
   'credits.trail': 'Ревери · {{plan}} деңгей',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Буын жасау әрекеті, бөлісу және несие туралы ескертулер осында көрсетіледі.',
   'notifications.empty.title': 'Хабарлайтын ештеңе жоқ',
   'notifications.subtitle': 'Күн бойынша топтастырылған ұрпақ оқиғалары',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.limits.gallery': '{{count}} галерея',
   'privacy.collect.body':
     'Тіркелген кезде біз сіздің аты-жөніңізді, электрондық пошта мекенжайыңызды және хэштелген құпия сөзіңізді жинаймыз. Reverie қызметін пайдаланған кезде біз сіз жіберген сұрауларды, сіз үшін жасаған суреттерді, сіз сақтаған стильдер мен жинақтарды, сондай-ақ пайдаланылған модель, генерациялау уақыт белгілері және несиелік баланс сияқты метадеректерді сақтаймыз.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Жаңа құпия сөзді сақтау',
   'reset.submitting': 'Құпия сөз жаңартылуда…',
   'settings.account.handle': 'Тұтқа',
+  'settings.account.lastSaved': 'Белсенді профиль · {{name}}',
   'settings.account.saved': 'Профиль сақталды',
   'settings.account.saveFailed': 'Профиль сақталмады',
   'settings.account.title': 'Автор профилі',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Жаңа сурет',
   'sidebar.secondary': 'Қосымша навигация',
   'signup.failed': 'Тіркелу сәтсіз аяқталды. Қайталап көріңіз.',
+  'signup.firstNamePlaceholder': 'Ария',
   'signup.heading': 'Ойыңызды бастаңыз',
+  'signup.lastNamePlaceholder': 'Лин',
   'signup.subheading': 'Тіркелгі жасап, 120 тегін кредит алыңыз.',
   'styles.empty': 'Әзірге стиль параметрлері жоқ — олар бірінші рет кіргеннен кейін пайда болады.',
   'styles.eyebrow': 'Сұрыпталған',

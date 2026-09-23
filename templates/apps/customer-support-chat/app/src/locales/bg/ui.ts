@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'За нас',
   'authShell.samplePreview':
     '„Здравейте, екип, новият табло е страхотно — точно това, от което се нуждаехме!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/пряк път',
   'automations.subheading':
     'Правила, готови отговори и чатботове — поддържайте работната среда в пълна готовност, докато екипът ви се концентрира върху важните задачи.',
+  'automations.trigger.inboundMessage': 'Входящо съобщение',
   'automations.triggerLabel': 'Спусък',
   'chatBubble.internalNoteLabel': 'Вътрешна бележка',
+  'common.confirmDelete': 'Потвърди изтриването',
+  'common.goToDashboard': 'Към таблото',
   'contactDetail.backToContacts': 'Всички контакти',
   'contactDetail.contactFallback': 'Контакт',
   'contactDetail.conversationFallback': 'Разговор',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Последно видян',
   'contacts.empty': 'Все още нямате контакти. Добавете първия си контакт по-горе.',
   'contacts.eyebrow': 'Списък с клиенти',
+  'contacts.form.nameOrEmailRequired': 'Посочете поне име или имейл адрес',
   'contacts.form.save': 'Запази контакт',
   'contacts.heading': 'Контакти',
   'contacts.loading': 'Зареждане на контакти…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Запази бележка',
   'conversationDetail.tab.note': 'Вътрешна бележка',
   'conversationDetail.threadAria': 'Съобщения от чата',
+  'conversationDetail.visitorFallback': 'Посетител',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Данни за клиента',
   'customerProfilePanel.recentTitle': 'Последни разговори',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Клиентите получават първия си отговор в рамките на {{time}} средно — поддържайте този ритъм.',
   'inboxHeroCard.title': 'Текущи разговори',
+  'inboxLayout.navDrawerLabel': 'Навигация',
+  'inboxLayout.openMenu': 'Отвори менюто за навигация',
   'inboxOverview.eyebrow': 'Днес накратко',
   'inboxOverview.heroChange': '{{count}} отвори',
   'inboxOverview.kpiClosedTrend': 'в историята',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Посетете началната страница',
   'notifications.subheading':
     'Задачи, @споменавания, рискове, свързани със SLA, обратна връзка за CSAT и дейности на екипа — подредени по дата, като най-новите са на първо място.',
+  'notifications.subjectFallback': 'един разговор',
+  'notifications.visitorFallback': 'Един посетител',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Високо',
   'priority.low': 'Ниско',
+  'priority.normal': 'Нормално',
   'priority.urgent': 'Спешно',
   'privacy.title': 'Политика за поверителност',
   'reports.agentFallback': 'Агент',

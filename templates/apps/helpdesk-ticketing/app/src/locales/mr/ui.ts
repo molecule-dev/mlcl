@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.title': '{{app}} बद्दल',
   'activeAgentsCard.agent1AvatarAlt':
     'आधुनिक कार्यालयातील, मैत्रीपूर्ण हास्य असलेल्या एका महिला सपोर्ट एजंटचा व्यावसायिक हेडशॉट.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'सपोर्टशी संपर्क साधा',
   'forgotPassword.error': 'रीसेट ईमेल पाठवता आला नाही. कृपया पुन्हा प्रयत्न करा.',
   'forgotPassword.rememberPassword': 'तुम्हाला तुमचा पासवर्ड आठवतो का?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'साइन इन करा — झेनिथ सपोर्ट',
   'login.showPassword': 'पासवर्ड दाखवा',
   'login.welcomeSubheading': 'तुमच्या सपोर्ट डॅशबोर्डवर साइन इन करा',
+  'mobileNav.closeMenu': 'नेव्हिगेशन बंद करा',
+  'mobileNav.menu': 'नेव्हिगेशन',
+  'mobileNav.openMenu': 'नेव्हिगेशन उघडा',
   'nav.legal': 'कायदेशीर',
   'nav.newTicket': 'नवीन तिकीट',
   'notifications.loadError': 'सूचना लोड होऊ शकल्या नाहीत. थोड्या वेळाने पुन्हा प्रयत्न करा.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'कमांड शोध',
   'operatorDock.newReport': 'नवीन अहवाल',
   'operatorDock.systemOnline': 'सिस्टम ऑनलाइन',
+  'planUpdated.subtitle': 'धन्यवाद',
   'planUpdated.title': 'योजना अद्ययावत केली.',
   'pricing.agents': 'एजंट',
   'pricing.automation': 'ऑटोमेशन नियम',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': "{{name}} 'चा अवतार",
   'ticketDetail.errorTitle': 'काहीतरी चूक झाली',
+  'ticketDetail.loadError': 'तिकीट लोड करण्यात अयशस्वी झाले.',
+  'ticketDetail.notFound': 'तिकीट सापडले नाही',
+  'ticketDetail.replyError': 'उत्तर पाठवण्यात अयशस्वी झाले. कृपया पुन्हा प्रयत्न करा.',
   'ticketDetail.retry': 'पुन्हा प्रयत्न करा',
   'ticketDetail.statusUpdateError': 'स्थिती अद्ययावत करता आली नाही. पुन्हा प्रयत्न करा.',
   'ticketDetailsCard.assigneeLabel': 'नेमणूकदार',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{वेळ}} डावीकडे',
   'ticketRow.title': 'प्रोडक्शनवर डेटाबेस कनेक्शन अयशस्वी होत आहे. {{node}}',
   'tickets.pageTitle': 'तिकिटे — झेनिथ सपोर्ट',
+  'ticketsFab.newTicket': 'नवीन तिकीट',
   'ticketsFilterBar.assigneeLabel': 'नेमणूकदार:',
   'ticketsFilterBar.clearFilters': 'फिल्टर साफ करा',
   'ticketsFilterBar.dateRangeDemoHint': 'या डेमो बिल्डमध्ये तारीख श्रेणी फिल्टरिंग सक्षम नाही.',
@@ -313,6 +323,7 @@ export const ui: UiTranslations = {
   'ticketsFilterBar.statusLabel': 'स्थिती:',
   'ticketsPagination.next': 'पुढील पृष्ठ',
   'ticketsPagination.prev': 'मागील पृष्ठ',
+  'ticketsPagination.showingRange': '{{total}} पैकी {{start}} ते {{end}} तिकीट दाखवत आहे',
   'ticketsTable.assigneeAvatarAlt': 'अवतार',
   'ticketsTable.selectRow': 'तिकीट निवडा {{id}}',
   'ticketsTable.sla.closed': 'Closed',

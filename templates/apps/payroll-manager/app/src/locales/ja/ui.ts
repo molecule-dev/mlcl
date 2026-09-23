@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'auditLog.empty':
     'フィルターに一致する監査イベントはまだありません。従業員を編集したり給与計算を実行すると、ここに表示されます。',
   'auditLog.eyebrow': 'コンプライアンス',
+  'auditLog.loadError': '監査ログを読み込めませんでした。',
   'auditLog.searchPlaceholder': '実行者、操作、説明で検索',
   'auditLog.subheading':
     'すべての承認、編集、税務申告を — 実行者、タイムスタンプ、変更されたフィールドとともに記録します。',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': '未設定',
   'billing.plansHeading': 'プラン',
   'billing.subheading': 'プランを管理し、Stripe 経由でティアを切り替えます。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': '再試行',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'コンプライアンス・スナップショット',
   'dashboard.compliance.title': 'すべてのチェックが合格',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': '登録されている控除はありません。',
   'employeeDetail.notFound': '従業員が見つかりません。',
   'employeeDetail.payFrequency': '支払頻度',
+  'employeeDetail.postTax': '税引き後',
+  'employeeDetail.preTax': '税引き前',
   'employeeDetail.salary': '年俸',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': '{{date}} に開始',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': '支払頻度',
   'employeeForm.salary': '年俸（USD）',
   'employeeForm.salaryInvalid': '給与は 0 以上の数値である必要があります。',
+  'employeeForm.saveError': '従業員を救出できませんでした。',
   'employeeForm.semimonthly': '半月ごと',
   'employeeForm.single': '独身',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': '従業員',
   'employeesTable.col.salary': '給与',
   'forgotPassword.subtitle': '勤務先メールを入力してください。リセットリンクをお送りします。',
+  'landing.copyright': '© {{year}} {{app}} 。正確で、信頼性が高く、落ち着いています。',
   'landing.ctaBody':
     '30 日間無料。クレジットカード不要。監査履歴を失うことなくいつでも切り替え可能です。',
   'landing.ctaHeading': '次回のサイクルを Stipend で実行',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'エントリ',
   'payRunDetail.noActivity': 'この給与計算の監査エントリはまだありません。',
   'payRunDetail.noStubs': '明細書はまだありません — 承認して処理を行うと生成されます。',
+  'payRunDetail.notFound': 'この給与支払処理は見つかりませんでした。',
   'payRunDetail.statDeductions': '控除',
   'payRunDetail.statHeadcount': '従業員',
   'payRunDetail.statTaxes': '源泉徴収税',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': '半月ごと',
   'settings.signOutDevice': 'サインアウト',
   'settings.subheading': '会社プロフィール、支給スケジュール、連携設定。',
+  'settings.twoFactorCode': '認証コード',
   'settings.twoFactorDisable': '無効化',
+  'settings.twoFactorInvalidCode': '無効なコード',
+  'settings.twoFactorVerify': '確認して有効化する',
   'settings.weekly': '週次',
   'taxCenter.bucket.federal': '連邦所得',
   'taxCenter.bucket.fica': '社会保障',

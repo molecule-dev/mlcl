@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'authShell.brandHeading':
     'Ozen pentsatzen duten diseinu-taldeentzako jokalari anitzeko mihiseak.',
   'billing.canceled': 'Harpidetza bertan behera utzi da.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Txantiloitik hasi',
   'boards.title': 'Zure oholak',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Sartu zure lan-eremuari lotutako helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1. hiruhilekoko tailerra · Markaren ahotsa',
   'landing.featuresEyebrow': 'Zerk egiten du Slate teselatua?',
   'landing.featuresTitle': 'Iritzi azkarra. Mihise ederrak. Marruskadurarik gabe.',
+  'landing.hero.body':
+    '{{appName}} diseinu-taldeentzat, tailer-eragileentzat eta ideiak leku bakarrean biltzea behar duten hezitzaileentzako arbel zuri anitzeko bat da.',
   'landing.hero.primaryCta': 'Hasi taula bat doan',
   'landing.hero.socialProof': 'Honen konfiantza {{count}} mundu osoko diseinu taldeak',
   'landing.hero.title': 'Zure pentsamenduak bezain azkarra den mihise bat',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Sortu lan-eremu libre bat',
   'login.subheading':
     'Jarraitu tailerra utzi zen tokitik — arbelak, ohar itsaskorrak eta kurtsoreak denbora errealean sinkronizatzen dira.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.new': 'Berria',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'notifications.editTitle': 'Aldaketak " {{board}} "',
   'notifications.empty.body':
     'Gonbidapenak, gordetako argazkiak eta azken taularen aldaketak hemen agertuko dira gertatzen diren heinean.',
@@ -177,6 +184,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Bertsioen historia',
   'versionHistory.untitledSnapshot': 'Izenik gabeko argazkia',
   'whiteboardLayout.newBoard': 'Taula berria',
+  'whiteboardLayout.primaryNav': 'Nabigazio nagusia',
   'workspace.boardLabel': 'Batzordea',
   'workspace.eyebrow': '{{name}} · lan-eremua',
   'workspace.invite': 'Gonbidatu kolaboratzaileak',

@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Αυτή τη στιγμή βρίσκεστε στο {{plan}} σχέδιο.',
   'billing.switch': 'Εναλλαγή',
   'billing.upgraded': 'Ενημερώθηκε σε {{plan}} — τα όρια εφαρμόζονται αμέσως.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'compare.activityHeading': 'Ετυμηγορία δραστηριότητας',
   'compare.empty.title': 'Προσθέστε τουλάχιστον δύο τοποθεσίες για σύγκριση',
   'compare.eyebrow': 'Πλάι πλάι',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Υψηλή',
   'trends.summary.low.label': 'Χαμηλή',
   'trends.summary.points.label': 'Ημέρες',
+  'weatherDashboardLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'weatherHeroCard.updated': 'Ενημερώθηκε {{time}}',
 }

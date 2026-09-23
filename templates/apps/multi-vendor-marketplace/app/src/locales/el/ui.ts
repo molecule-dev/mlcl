@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Λειτουργία δοκιμής: οι παραγγελίες καταγράφονται και τα υπόλοιπα διευθετούνται, αλλά δεν χρεώνεται καμία πραγματική κάρτα.',
   'checkout.placeOrderCta': 'Υποβολή παραγγελίας',
+  'checkout.placeOrderError': 'Δεν ήταν δυνατή η υποβολή της παραγγελίας σας.',
   'checkout.placingOrder': 'Υποβολή παραγγελίας…',
   'checkout.review.shipTo': 'Αποστολή σε',
   'checkout.review.subtotal': 'Μερικό σύνολο προμηθευτή',
@@ -57,6 +58,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Γίνετε προμηθευτής',
   'landing.footer.copyright': '© {{year}} {{name}} — κάθε κατασκευαστής, μία αγορά.',
   'landing.footer.help': 'Κέντρο βοήθειας',
+  'landing.nav.keepShopping': 'Συνεχίστε τα ψώνια σας',
   'landing.nav.sell': 'Πουλήστε στο Vendry',
   'landing.nav.shop': 'Κατάστημα',
   'landing.nav.signUp': 'Συμμετοχή',
@@ -67,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Τι λατρεύουν οι αγοραστές',
   'login.accountTypeAria': 'Τύπος λογαριασμού',
   'login.heading': 'Καλώς ήρθατε πίσω στο Vendry',
+  'login.legalPrefix': 'Με την είσοδό σας, συμφωνείτε με τους όρους μας',
   'login.subheading': 'Συνδεθείτε για να συνεχίσετε τα ψώνια σας ή επιστρέψτε στο κατάστημά σας.',
   'login.submitShopper': 'Συνδεθείτε για να ψωνίσετε',
   'login.submitVendor': 'Σύνδεση στο κατάστημά μου',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Τοποθετήθηκε {{date}} · {{vendorCount}} προμηθευτής(-είς) · εκπλήρωση παραγγελιών από πολλαπλούς προμηθευτές',
   'orders.empty': 'Δεν υπάρχουν ακόμη παραγγελίες που να ταιριάζουν με αυτό το φίλτρο.',
+  'orders.emptyTitle': 'Δεν υπάρχουν παραγγελίες εδώ ακόμα',
   'orders.eyebrow': 'Οι αγορές σας',
   'orders.subtitle':
     'Δείτε ποιος έστειλε τι, ακολουθήστε την παρακολούθηση ανά προμηθευτή και μην χάσετε ποτέ ξανά δέμα.',
   'orders.title': 'Παραγγελίες, ομαδοποιημένες ανά προμηθευτή',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'productDetail.addToCart': 'Προσθήκη στο καλάθι',
   'productDetail.addToCartError': 'Δεν ήταν δυνατή η προσθήκη στο καλάθι.',
   'productDetail.addToCartSuccess': '« {{name}} "προστέθηκε στο καλάθι σας.',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Διαχειριστείτε τον τρόπο με τον οποίο ψωνίζετε, τον τρόπο με τον οποίο οι πωλητές φτάνουν σε εσάς και πού πηγαίνουν τα χρήματα.',
   'signup.heading': 'Γίνετε μέλος της αγοράς',
+  'signup.legalPrefix': 'Με την εγγραφή σας, συμφωνείτε με τους όρους μας',
   'signup.mismatch': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν ακόμα.',
   'signup.subheading':
     'Περιηγηθείτε σε 4.000+ ανεξάρτητους κατασκευαστές ή ανοίξτε ένα δικό σας κατάστημα.',
   'status.delivered': 'Παραδόθηκε',
   'status.refunded': 'Επιστράφηκε',
+  'userMenu.marketplaceSettings': 'Ρυθμίσεις αγοράς',
   'vendor.memberSince': 'Μέλος από το {{date}}',
+  'vendorDashboard.defaultShop': 'το κατάστημά σας',
   'vendorDashboard.eyebrow': 'Διαχειριστής προμηθευτή · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Εκκαθάριση μετά την προμήθεια Vendry. Επόμενη πληρωμή την Παρασκευή.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Πού φτιάχνεις, τι φτιάχνεις, γιατί έχει σημασία.',
   'vendorOnboarding.currencyLabel': 'Εξόφληση σε νόμισμα',
   'vendorOnboarding.errors.shopName': 'Απαιτείται το όνομα του καταστήματος.',
+  'vendorOnboarding.errors.submit': 'Δεν ήταν δυνατή η υποβολή της αίτησής σας.',
   'vendorOnboarding.exit': 'Αποθήκευση και συνέχεια αργότερα',
   'vendorOnboarding.eyebrow': 'Κάντε αίτηση για πώληση στο Vendry',
+  'vendorOnboarding.field.shopName': 'Όνομα καταστήματος',
   'vendorOnboarding.heroBody':
     'Μια σταθερή προμήθεια 8%, πληρωμές κάθε Παρασκευή, η βιτρίνα σας, η ιστορία σας. Πείτε μας λίγα πράγματα για το κατάστημά σας και θα επικοινωνήσουμε μαζί σας εντός 48 ωρών.',
   'vendorOnboarding.review.contact': 'Επικοινωνία',
   'vendorOnboarding.review.currency': 'Νόμισμα',
+  'vendorOnboarding.review.tagline': 'Σλόγκαν',
+  'vendorOnboarding.review.website': 'Δικτυακός τόπος',
   'vendorOnboarding.reviewBody':
     'Φαίνεται καλό. Θα ελέγξουμε το κατάστημά σας εντός 48 ωρών και θα σας στείλουμε την πρώτη πληρωμή την Παρασκευή μετά την πρώτη σας πώληση.',
   'vendorOnboarding.samplesLabel': 'Δείγματα εργασίας — Instagram, portfolio, φωτογραφίες',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Η αίτηση υποβλήθηκε! Θα εξετάσουμε το κατάστημά σας και θα σας στείλουμε email εντός 48 ωρών.',
   'vendorOnboarding.taxIdLabel': 'ΑΦΜ',
+  'vendorOrders.emptyTitle': 'Δεν υπάρχουν ακόμη παραγγελίες προς εκτέλεση',
   'vendorOrders.eyebrow': 'Διαχειριστής προμηθευτή',
+  'vendorOrders.kpi.awaiting': 'Αναμονή εκπλήρωσης',
   'vendorOrders.kpi.inTransit': 'Σε διαμετακόμιση',
   'vendorOrders.subtitle':
     'Εκτυπώστε ετικέτες, σημειώστε την ολοκλήρωση και απαντήστε σε ερωτήσεις — όλα αυτά χωρίς να φύγετε από το Vendry.',
   'vendorOrders.title': 'Εισερχόμενες παραγγελίες',
+  'vendorPayouts.emptyTitle': 'Δεν υπάρχουν ακόμη πληρωμές',
   'vendorPayouts.eyebrow': 'Χρηματοδότηση προμηθευτών',
   'vendorPayouts.heroCaption': 'Εγκαθίσταται στην Banco BPI {{account}} · 1–2 εργάσιμες ημέρες',
   'vendorPayouts.history': 'Ιστορικό πληρωμών',
@@ -194,7 +209,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Πού φτιάχνεται; Ποια ιστορία κουβαλάει;',
   'vendorProductForm.error.name': 'Απαιτείται όνομα προϊόντος',
   'vendorProductForm.error.price': 'Εισαγάγετε μια θετική τιμή',
+  'vendorProductForm.error.publish': 'Η δημοσίευση απέτυχε',
   'vendorProductForm.eyebrow': 'Νέα καταχώριση',
+  'vendorProductForm.eyebrowEdit': 'Επεξεργασία καταχώρισης',
   'vendorProductForm.images.body':
     'Σύρετε και αποθέστε έως και 8 εικόνες. Η πρώτη φωτογραφία γίνεται το εξώφυλλο της βιτρίνας.',
   'vendorProductForm.images.cta': 'Σύρετε φωτογραφίες εδώ ή περιηγηθείτε',
@@ -207,6 +224,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title':
     'Ενημερώστε τους αγοραστές για το προϊόν σας στους δικούς τους αγοραστές.',
   'vendorProductForm.variants.colInventory': 'Καταγραφή εμπορευμάτων',
+  'vendorProductForm.variants.colVariant': 'Παραλαγή',
   'vendorProducts.eyebrow': 'Διαχειριστής προμηθευτή',
   'vendorProducts.kpi.draft': 'Προσχέδια',
   'vendorProducts.kpi.lowStock': 'Χαμηλό απόθεμα',

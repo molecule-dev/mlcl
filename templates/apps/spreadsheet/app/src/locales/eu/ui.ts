@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'about.pageTitle': 'Buruz {{name}}',
   'auth.footer.about': 'Buruz {{name}}',
   'authHeader.subtitle': 'Hasi saioa zure zenbakiak zintzoak mantentzeko.',
   'automations.action.email': 'Posta elektronikoa',
+  'automations.action.noop': 'Eragiketarik gabe',
   'automations.action.webhook': 'Webhook-a',
   'automations.confirmDelete': 'Ezabatu " {{name}} "?',
   'automations.empty.headline': 'Oraindik ez dago automatizaziorik',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Abiarazleak eta ekintzak lan-liburu guztietan. Exekuzio bakoitzak geroago ikuskatu dezakezun errenkada bat erregistratzen du.',
   'automations.toggle': 'Txandakatu {{name}}',
+  'automations.trigger.dailySchedule': 'Eguneroko ordutegia',
+  'automations.trigger.rowCreated': 'Sortutako errenkada',
+  'automations.trigger.rowUpdated': 'Errenkada eguneratu da',
   'billing.empty': 'Ez dago planik eskuragarri.',
   'billing.error.priceMissing':
     'Ez dago Stripe preziorik konfiguratuta maila honetarako. Ezarri STRIPE_*_PRICE_ID ingurune aldagaiak.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafikoak',
   'charts.kpi.totalCharts': 'Guztirako grafikoak',
   'charts.list.empty': 'Oraindik ez dago grafikorik.',
+  'charts.namePlaceholder': 'Diru-sarreren joera',
   'charts.newChart': 'Diagrama berria',
   'charts.primary.eyebrow': 'Motaren araberako grafikoak',
   'charts.primary.headline': 'Lan-eremuaren ikuspegi orokorra',
   'charts.subhead':
     'Zure saretari lotutako zuzeneko bistaratzeak — berriro errendatu gelaxka editatzen den bakoitzean.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'editor.addColumn': 'Gehitu zutabea',
+  'editor.addDialogTitle': 'Gehitu zutabea',
   'editor.addRow': 'Gehitu errenkada',
   'editor.addSheet': 'Gehitu orria',
   'editor.back': 'Lan-koadernoetara itzuli',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Kaltzita da formula-lehenengoa, ikuspegi anitzekoa eta denbora errealeko sare-analistek eta finantza-taldeek lehenengo erabiltzen dutena.',
   'landing.nav.formulas': 'Formulak',
+  'login.noAccount': 'Berria zara {{name}} ?',
+  'login.signIn': 'Hasi saioa {{name}} kontuan',
   'login.signUp': 'Sortu lan-eremu bat',
+  'nav.menu': 'Menua',
+  'nav.openMenu': 'Ireki menua',
   'notFound.cellRef': '#ERREF!',
   'notFound.formula': '=BILATU(ESKAERA.url, "ibilbideak", "orrialdea")',
   'notFound.headline': 'Lerro hau ez da inoiz existitu.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatizazio natiboak · webhook eta cron abiarazleak',
   'signup.creating': 'Lan-eremua hornitzen…',
   'signup.cta': 'Sortu nire lan-eremua',
+  'signup.haveAccount': 'Jada {{name}} zaude?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Biratu zure lehen lan-koadernoa 30 segundotan',
   'team.col.activity': 'Gonbidatuta',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Um {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Auðsverkfæri',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ekki fjárfestingarráðgjöf.',
   'argentAuthShell.sampleChange': '+2.841 Bandaríkjadalir (+0,28%) í dag',
   'argentAuthShell.sampleValue': '1.032.251 dollarar',
   'argentLayout.primaryNavLabel': 'Aðalflakk',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Engar færslur fyrir þetta auðkenni.',
   'assetDetail.txHeading': 'Færslur þínar',
   'common.and': 'og',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Yfirlit yfir eignasafn',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Engar eignarhlutir ennþá.',
   'holdings.heading': 'Eignarhald',
   'holdings.loadError': 'Mistókst að hlaða eignum.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ekki fjárfestingarráðgjöf. Fyrri árangur er ekki trygging fyrir framtíðarárangri.',
   'landing.eyebrow': 'Argent · Pallur fyrir auðsöfnun',
   'landing.features.heading': 'Allt sem ráðgjafi myndi smíða fyrir sjálfan sig.',
   'landing.finalCta.heading': 'Fáðu aga aftur í eignasafn þitt.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} fyrir klst.',
   'news.justNow': 'rétt í þessu',
   'news.loadError': 'Mistókst að hlaða fréttum.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'portfolioHeroCard.label': 'Virði eignasafns',
   'pricing.holdingsLabel': 'eignarhlutir',
   'pricing.newsLabel': 'fréttagreinar',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Eyða reikningi',
   'settings.security.deleting': 'Eyðir…',
   'settings.security.heading': 'Öryggi',
+  'settings.security.newPassword': 'Nýtt lykilorð',
   'settings.security.password': 'Lykilorð',
   'settings.security.twoFactorEnable': 'Virkja',
+  'settings.security.twoFactorInvalidCode': 'Ógildur kóði',
+  'settings.security.twoFactorVerify': 'Staðfesta og virkja',
   'settings.tax.error': 'Ekki tókst að uppfæra skattaaðferð.',
   'settings.tax.heading': 'Skattlotubókhald',
   'settings.tax.method': 'Sjálfgefin aðferð',

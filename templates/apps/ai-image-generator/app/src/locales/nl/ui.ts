@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'auth.fields.newPassword': 'Nieuw wachtwoord',
   'collectionDetail.addImage': 'Oproepen voor collectie',
   'collectionDetail.backCta': 'Terug naar collecties',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboards, briefings en lopende series',
   'collections.title': 'Collecties',
   'collections.untitled': 'Naamloos · {{stamp}}',
+  'common.closeMenu': 'Menu sluiten',
+  'common.dismiss': 'Sluiten',
+  'common.goToDashboard': 'Ga naar Dashboard',
+  'common.openMenu': 'Navigatiemenu openen',
   'credits.eyebrow': '{{plan}} pakket',
   'credits.renewsCopy': 'Pakket vernieuwt op {{date}}',
   'credits.trail': 'Mijmering · {{plan}} laag',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Generatieactiviteit, delen en credit-meldingen verschijnen hier.',
   'notifications.empty.title': 'Niets te melden',
   'notifications.subtitle': 'Generatie-evenementen gegroepeerd per dag',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.limits.gallery': '{{count}} galerij',
   'privacy.collect.body':
     'Wanneer u zich aanmeldt verzamelen we uw naam, e-mailadres en een gehasht wachtwoord. Wanneer u Reverie gebruikt slaan we de prompts op die u indient, de afbeeldingen die we voor u genereren, de stijlen en collecties die u opslaat, en metadata zoals het gebruikte model, generatietijdstempels en creditsaldo.',
@@ -164,6 +170,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Nieuw wachtwoord opslaan',
   'reset.submitting': 'Wachtwoord bijwerken…',
   'settings.account.handle': 'Handle',
+  'settings.account.lastSaved': 'Actief profiel · {{name}}',
   'settings.account.saved': 'Profiel opgeslagen',
   'settings.account.saveFailed': 'Kon profiel niet opslaan',
   'settings.account.title': 'Makersprofiel',
@@ -185,7 +192,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nieuwe afbeelding',
   'sidebar.secondary': 'Secundaire navigatie',
   'signup.failed': 'Aanmelden mislukt. Probeer opnieuw.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Begin uw reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Maak een account en claim 120 gratis credits.',
   'styles.empty': 'Nog geen stijlpresets — ze verschijnen na het eerste inloggen.',
   'styles.eyebrow': 'Samengesteld',

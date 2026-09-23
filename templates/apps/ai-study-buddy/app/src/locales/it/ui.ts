@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Caricamento informazioni piano…',
   'billing.popular': 'Il più amato',
   'billing.subtitle': 'Scelga il piano adatto al Suo ritmo di studio.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.today': 'Oggi',
   'common.yesterday': 'Ieri',
   'courseDetail.empty.body':
@@ -81,7 +82,11 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Nome del mazzo',
   'flashcards.subtitle': 'Ripetizione spaziata che si adatta al Suo ritmo.',
   'flashcards.title': 'Flashcard',
+  'footer.copyright': '© {{year}} {{app}}. Studia bene, dormi bene.',
   'forgotPassword.subtitle': 'Inserisca la Sua email e Le invieremo un link di reimpostazione.',
+  'koanLayout.closeMenu': 'Chiudi il menu',
+  'koanLayout.navLabel': 'Navigazione principale',
+  'koanLayout.openMenu': 'Apri menu',
   'koanLayout.theme': 'Tema',
   'landing.featuresBody':
     'Strumenti progettati per eliminare le distrazioni e costruire una comprensione duratura.',
@@ -116,11 +121,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Questo URL è territorio inesplorato. Forse un errore di battitura, forse una lezione eliminata — in ogni caso, La riportiamo allo studio.',
   'notFound.heading': 'Pagina non trovata.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'È tutto aggiornato',
   'notifications.filter.${opt}': 'Caricamento notifiche…',
   'notifications.markAllError': 'Impossibile contrassegnare tutto come letto.',
   'notifications.markError': 'Impossibile contrassegnare come letto.',
   'notifications.subtitle': '{{count}} aggiornamenti non letti',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.heading': 'quiz',
   'pricing.limits.topics': 'argomenti',
   'privacy.collectBody':
@@ -185,6 +192,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Provi una parola chiave o un filtro diverso.',
   'search.empty.title': 'Nessuna corrispondenza.',
   'search.error': 'Impossibile caricare i risultati.',
+  'search.filters': 'Filtri per il tipo di risultato',
   'search.go': 'Vai',
   'search.label.flashcard': 'Mazzo di flashcard',
   'search.label.note': 'Nota',

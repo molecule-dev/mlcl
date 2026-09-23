@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'billing.canceled': 'Subscripció cancel·lada. Tornaràs a ser gratuït al final del període.',
   'billing.contactSales': 'Contacta amb vendes',
   'billing.free.1': '5 traduccions',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Sense límit de retenció',
   'billing.upgradeHint': "Actualitza per desbloquejar funcions avançades d'IA.",
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.activityEmpty':
     'Encara no hi ha activitat: inicia un projecte per omplir aquest feed.',
   'dashboard.eyebrow': 'Visió general',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Reutilitza traduccions anteriors en tots els projectes. Puntuació de coincidència més alta → menys repetició de treball.',
   'memory.title': 'Banc de memòria',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'nav.legal': 'Legal',
   'newProject.addLanguage': 'Afegeix un objectiu',
   'newProject.create': 'Crea un projecte',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Marcat {{count}} notificacions tal com es llegeixen.',
   'notifications.subtitle':
     "Mencions, sol·licituds de revisió i esdeveniments d'IA des de tots els vostres espais de treball.",
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'privacy.collection.account': 'Correu electrònic i nom de visualització del vostre compte',
   'privacy.deletion.body':
     "Podeu suprimir un projecte, segment, terme del glossari o entrada de memòria en qualsevol moment des de la pàgina pertinent. Si suprimiu el vostre compte des de Configuració, es descarten totes les files de l'àmbit de l'espai de treball de la nostra base de dades.",
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': "No s'han pogut carregar els projectes.",
   'projects.loading': "S'estan carregant els projectes…",
   'projects.subtitle': 'Tots els projectes actius a totes les ubicacions.',
+  'renditionLayout.primaryNavLabel': 'Navegació principal',
   'reset.backToLogin': 'Torna a iniciar sessió',
   'reset.passwordLabel': 'Nova contrasenya',
   'review.activeEyebrow': 'Segment {{number}}',

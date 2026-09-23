@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.connectRepoCta': 'রিপোজিটরি সংযোগ করুন',
   'dashboard.empty': 'এখনো কোনো পুল রিকোয়েস্ট আসেনি — কাজ শুরু করতে একটি রিপোজিটরি সংযুক্ত করুন।',
   'dashboard.eyebrow': 'প্রতিসরণ · পর্যালোচনা সারি',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'আপটাইম',
   'pullRequestRow.files': '{{count}} ফ',
   'pullRequestRow.scoreAria': 'এআই গুণমান স্কোর {{score}} / ১০',
+  'refractLayout.closeMenu': 'মেনু বন্ধ করুন',
+  'refractLayout.openMenu': 'মেনু খুলুন',
   'refractLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'reports.cumulativeScoreLabel': 'ক্রমবর্ধমান স্কোর',
   'reports.cumulativeScoreSubtitle': 'সমস্ত রিপো · {{days}} ঘ',
@@ -105,6 +108,7 @@ export const ui: UiTranslations = {
   'repositories.fullNamePlaceholder': 'যেমন yourorg/your-repo',
   'repositories.fullNameRequired': 'রিপোজিটরি নাম আবশ্যক।',
   'repositories.heading': 'সংগ্রহস্থল',
+  'repositories.lastSync': 'শেষ সিঙ্ক {{when}}',
   'repositories.loadError': 'রিপোজিটরিগুলো লোড করতে ব্যর্থ হয়েছে।',
   'repositories.providerLabel': 'সরবরাহকারী',
   'repositories.subheading':
@@ -157,6 +161,7 @@ export const ui: UiTranslations = {
   'rulesEditor.disableRule': 'নিয়ম নিষ্ক্রিয় করুন',
   'rulesEditor.empty':
     'এখনো কোনো কাস্টম নিয়ম যোগ করা হয়নি — আপনার প্রথমটি যোগ করতে উপরের ফর্মটি ব্যবহার করুন।',
+  'rulesEditor.enabledCount': '{{on}} / {{total}} সক্রিয়',
   'rulesEditor.enableRule': 'নিয়ম সক্রিয় করুন',
   'rulesEditor.eyebrow': 'প্রতিসরণ · নীতি পর্যালোচনা',
   'rulesEditor.field.pattern': 'রেজেক্স প্যাটার্ন',
@@ -177,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'অনুসন্ধান সূচক লোড করতে ব্যর্থ হয়েছে।',
   'settings.apiKeys.description':
     'উপরের ডানদিকের ব্যবহারকারী মেনু থেকে ব্যক্তিগত এপিআই কীগুলো পরিচালনা করুন।',
+  'settings.apiKeys.integrationsNote':
+    'প্রোভাইডার অ্যাক্সেস টোকেনগুলো উপরের ইন্টিগ্রেশন বিভাগে পরিচালনা করা হয়।',
   'settings.connectError': 'প্রদানকারীর সাথে সংযোগ স্থাপন করা সম্ভব হয়নি।',
   'settings.disconnectError': 'প্রোভাইডারের সংযোগ বিচ্ছিন্ন করা সম্ভব হয়নি।',
   'settings.eyebrow': 'প্রতিসরণ · কর্মক্ষেত্র',
   'settings.integration.${provider}.label': 'সঞ্চয়…',
   'settings.loadError': 'সেটিংস লোড করা সম্ভব হয়নি।',
+  'settings.notificationCenter': 'বিজ্ঞপ্তি কেন্দ্র',
   'settings.notifications.description':
     'ডেলিভারি সংক্রান্ত পছন্দগুলো দেখতে ও পরিচালনা করতে নোটিফিকেশন পেজটি ভিজিট করুন।',
   'settings.section.account': 'অ্যাকাউন্ট ও নিরাপত্তা',

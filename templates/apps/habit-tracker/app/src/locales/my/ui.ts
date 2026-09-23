@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.pageTitle': '{{app}} အကြောင်း',
   'achievementBadgeCard.unlockedOn': 'သော့ဖွင့်ထားသည် {{date}}',
   'achievements.loadError': 'အောင်မြင်မှုများကို တင်၍မရပါ။',
   'achievements.subheading': '{{unlocked}} ၏ {{total}} သော့ဖွင့်ထားသည်',
   'achievements.unlockedOn': 'သော့ဖွင့်ထားသည် {{date}}',
+  'auth.legalConsent': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းမျဉ်းများကို သဘောတူပါသည်',
   'calendar.empty': 'သင့်ပြက္ခဒိန်ကိုကြည့်ရှုရန် အလေ့အကျင့်တစ်ခု ဖန်တီးပါ။',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'အကျင့်စရိုက်',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'အလေ့အကျင့်ဇယားကွက်',
   'category.${c.category}': '{{ရေတွက်}} အလေ့အကျင့်များ',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'consistencyHeatmap.ariaLabel': 'နေ့စဉ် ညီညွတ်မှု အပူချိန်ပြမြေပုံ',
   'consistencyHeatmap.caption': 'နောက်ဆုံး {{weeks}} ရက်သတ္တပတ်များ',
   'consistencyHeatmap.lessLabel': 'နည်းသော',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'တိုက်ရိုက်ကြည့်ရှုပါ',
   'landing.heroSubtitle':
     'အလေ့အကျင့်တွေကို တကယ်လိုက်နာတဲ့ပုံစံအတိုင်း တည်ဆောက်ပါ- သေးငယ်တဲ့ ကတိကဝတ်တွေ၊ နေ့စဉ်လုပ်ဆောင်မှုတွေနဲ့ မပြတ်တောက်တဲ့ ကွင်းဆက်ရှည်ကြီးရဲ့ အတွင်းစိတ်ပျော်ရွှင်မှု။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak အတွင်းသို့ ချောင်းကြည့်ခြင်း',
   'landing.previewMotivation': 'ကြိုးကိုးချောင်း အသက်ရှင်လျက်။ အားလုံးကို နွေးနွေးထွေးထွေးထားပါ။',
   'login.eyebrow': 'ကွင်းဆက်ကို ကောက်ယူလိုက်ပါ',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'သေးသေးလေးလုပ်ပါ။ တိကျအောင်လုပ်ပါ။ မနက်ဖြန်လာခဲ့ပါ။',
   'newHabit.timeLabel': 'သတိပေးချက်အချိန်',
   'notifications.markError': 'အားလုံးကို ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.entries': '{{count}} မှတ်တမ်းများ',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
   'profile.action.plan': 'စာရင်းသွင်းမှုကို စီမံခန့်ခွဲပါ',
   'profile.action.settings': 'အကောင့်ဆက်တင်များ',
   'profile.bioEmpty':
@@ -128,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'နေ့စဉ် မနက်ခင်း သတိပေးချက် (နံနက် ၈:၀၀ နာရီ)',
   'settings.reminders.heading': 'သတိပေးချက်များ',
   'settings.reminders.weekly': 'အပတ်စဉ်အကျဉ်းချုပ် (တနင်္ဂနွေညနေပိုင်းများ)',
+  'settings.revokeDeviceWarning': 'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
   'settings.streaks.freezesPerWeek': 'တစ်ပတ်လျှင် ရေခဲများ',
   'settings.streaks.gracePeriod': 'သန်းခေါင်ယံနောက်ပိုင်း ၆ နာရီကြာ ခွင့်ပြုကာလ',
@@ -154,5 +162,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} တက်ကြွသော',
   'streakHeroCard.daysSuffix': 'ရက်များ',
   'streakHeroCard.title': 'အရှည်ကြာဆုံး တက်ကြွသော စီးရီး',
+  'streakLayout.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'streakLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'streakLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
 }

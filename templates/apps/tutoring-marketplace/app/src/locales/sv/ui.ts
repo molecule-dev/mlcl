@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Din roll',
   'account.role.upgradeLink': 'Ansök om att bli verifierad lärare →',
   'account.title': 'Profil, betalning och inställningar.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Undervisa på Mentor',
   'becomeTutor.form.error': 'Det gick inte att skicka ansökan.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Ämne',
   'bookingConfirm.title': 'Du är bokad. Vi sköter resten.',
   'bookingConfirm.with': 'Med lärare',
+  'common.goToDashboard': 'Gå till översikt',
   'earningsHero.eyebrow': 'Intäkter • {{month}}',
   'forgotPassword.heading': 'Glömt lösenordet?',
   'forgotPassword.subheading':
@@ -110,6 +112,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Skicka meddelande',
   'messages.thread.empty': 'Säg hej — starta konversationen.',
   'messages.title': 'Trådar med dina lärare.',
+  'nav.primary': 'Primär',
   'pricing.dataExport': 'Dataexport:',
   'pricing.headingDefault': 'Avancerade funktioner:',
   'resetPassword.heading': 'Välj ett starkt nytt lösenord.',

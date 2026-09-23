@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'El teu paper',
   'account.role.upgradeLink': 'Sol·licita convertir-te en un tutor verificat →',
   'account.title': 'Perfil, pagament i preferències.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Ensenyar amb guix',
   'becomeTutor.form.error': "No s'ha pogut enviar la sol·licitud.",
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Assumpte',
   'bookingConfirm.title': 'Ja tens la reserva. Nosaltres ens encarregarem de la resta.',
   'bookingConfirm.with': 'Amb tutor/a',
+  'common.goToDashboard': 'Anar al panell',
   'earningsHero.eyebrow': 'Guanys • {{month}}',
   'forgotPassword.heading': 'Has oblidat la contrasenya?',
   'forgotPassword.subheading':
@@ -114,6 +116,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Enviar missatge',
   'messages.thread.empty': 'Saluda — inicia la conversa.',
   'messages.title': 'Temes amb els teus tutors.',
+  'nav.primary': 'Primària',
   'pricing.dataExport': 'Exportació de dades:',
   'pricing.headingDefault': 'Funcions avançades:',
   'resetPassword.heading': 'Trieu una contrasenya nova i segura.',

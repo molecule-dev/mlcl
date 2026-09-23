@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Nalaganje podatkov o paketu …',
   'billing.popular': 'Najbolj priljubljeni',
   'billing.subtitle': 'Izberite načrt, ki ustreza vaši učni kadenci.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.today': 'Danes',
   'common.yesterday': 'Včeraj',
   'courseDetail.empty.body': 'Dodajte študijsko gradivo, da začnete obvladovati to temo.',
@@ -79,8 +80,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Ime krova',
   'flashcards.subtitle': 'Razmaknjeno ponavljanje, ki se prilagaja vašemu tempu.',
   'flashcards.title': 'Kartice',
+  'footer.copyright': '© {{year}} {{app}}. Učite se dobro, spite dobro.',
   'forgotPassword.subtitle':
     'Vnesite svoj e-poštni naslov in poslali vam bomo povezavo za ponastavitev.',
+  'koanLayout.closeMenu': 'Zapri meni',
+  'koanLayout.navLabel': 'Primarna navigacija',
+  'koanLayout.openMenu': 'Odpri meni',
   'koanLayout.theme': 'Tema',
   'landing.featuresBody':
     'Orodja, zasnovana za odpravljanje motenj in krepitev trajnega razumevanja.',
@@ -115,11 +120,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ta URL je neznano ozemlje. Morda gre za tipkarsko napako, morda za izbrisano lekcijo – kakorkoli že, vrnimo se k učenju.',
   'notFound.heading': 'Strani ni bilo mogoče najti.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Vse ste pregledali',
   'notifications.filter.${opt}': 'Nalaganje obvestil …',
   'notifications.markAllError': 'Vseh ni bilo mogoče označiti kot prebranih.',
   'notifications.markError': 'Ni bilo mogoče označiti kot prebrano.',
   'notifications.subtitle': '{{count}} neprebrane posodobitve',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.heading': 'kvizi',
   'pricing.limits.topics': 'teme',
   'privacy.collectBody':
@@ -184,6 +191,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Poskusite z drugo ključno besedo ali filtrom.',
   'search.empty.title': 'Nič se ni ujemalo.',
   'search.error': 'Rezultatov ni bilo mogoče naložiti.',
+  'search.filters': 'Filtri po vrsti rezultatov',
   'search.go': 'Pojdi',
   'search.label.flashcard': 'Komplet kartic',
   'search.label.note': 'Opomba',

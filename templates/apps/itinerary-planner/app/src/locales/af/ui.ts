@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Oor {{app}}',
+  'auth.legalConsent': 'Deur voort te gaan, stem jy in tot ons',
   'bookings.empty.body': "Voeg 'n vlug, hotel of aktiwiteit by om die inboks te begin.",
   'bookings.empty.heading': 'Geen besprekings nog nie.',
   'bookings.errors.create': 'Kon nie bespreking skep nie.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Bevestig',
   'bookings.summary.pending': 'Wag tans vir bevestiging',
   'bookings.summary.total': 'Totaal toegewyd',
+  'bookings.type.car': 'Huurmotor',
+  'bookings.type.flight': 'Vlug',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Ander',
   'budgetSpendCard.budgetTotal': 'van {{total}} beplan',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Identifiseer konflikte, beplan hersteldae tussen reise en kyk wanneer medewerkers saam met jou reis.',
   'common.and': 'en',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.budgetHeading': 'Begrotingspols',
   'dashboard.empty.heading': 'Geen reise nog nie — jou atlas is leeg.',
   'dashboard.eyebrow': 'Missiebeheer',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Reise in beweging',
   'dashboard.viewAllExpenses': 'Bekyk elke uitgawe',
   'dashboard.viewAllTrips': 'Sien elke reis',
+  'dayTimelineRow.category.accommodation': 'Bly',
   'dayTimelineRow.category.transport': 'Vervoer',
   'destinationOrbCard.exploreCta': "Voeg by 'n reis",
   'destinationOrbCard.tripCount': '{{count}} reise',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     "Nog geen e-pos nie? Gaan jou strooiposvouer na, of probeer weer met 'n ander adres.",
   'forgotPassword.successSubheading':
     "Ons het 'n herstelskakel gestuur na {{email}} Die skakel is vir 30 minute geldig.",
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Skep gratis rekening',
+  'landing.cta.subheading':
+    'Tot vyf reise, vyf medewerkers en vyf stoppe op die gratis plan – met intydse sinchronisasie ingesluit, en Pro wat die perke lig wanneer jou planne groei.',
   'landing.destinations.eyebrow': 'Waarheen volgende',
   'landing.destinations.heading': 'Deur redakteur saamgestelde bestemmings',
   'landing.features.eyebrow': 'Hoe Waypoint werk',
   'landing.features.heading': 'Gebou vir reisigers, nie sigblaaie nie.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': "Begin 'n gratis reis",
   'landing.hero.ctaSecondary': "Sien 'n voorbeeldreis",
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     "Skep 'n rekening om reise met tot 5 medewerkers te deel, besprekings te sinkroniseer en elke bevestiging op een plek te versamel.",
+  'signup.termsPrefix': "Deur 'n rekening te skep, stem jy in tot ons",
   'tripCountdownHeroCard.budget': '{{used}} van {{total}} ( {{pct}} % van begroting)',
   'tripCountdownHeroCard.collaborators': '{{count}} reisigers',
   'tripCountdownHeroCard.countdownLabel': 'Aftelling',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Geen reise nog nie.',
   'trips.pastHeading': 'Verlede avonture',
   'trips.subheading': '{{count}} reisplanne — verlede, hede en eendag.',
+  'waypointLayout.mobileNavClose': 'Maak navigasiekieslys toe',
   'waypointLayout.primaryNavLabel': 'Primêre navigasie',
 }

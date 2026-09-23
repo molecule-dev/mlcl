@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'analytics.avgCheckLabel': 'Comprovació mitjana',
   'analytics.busiestHour': 'Hora més concorreguda',
   'analytics.coversToday': 'Cobertes avui',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Propina (mitjana)',
   'analytics.topItems': "Articles principals d'avui",
   'authShell.eyebrow': 'Benvinguts de nou al servei',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     "Un punt de venda càlid i ràpid per a equips d'hostaleria. Inicia la sessió a la teva cuina i continua on ho vas deixar.",
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'o {{price}}',
   'billing.priceUnavailable': 'Aquest pla no té un preu configurat.',
   'billing.updated': 'Pla actualitzat.',
+  'common.goToDashboard': 'Anar al panell',
   'customerDetail.book': 'Afegeix una reserva',
   'customerDetail.col.table': 'Taula',
   'customerDetail.confirmDelete': 'Voleu suprimir aquest registre de convidat?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponibilitat',
   'menuItemDetail.available': 'Disponible aquesta nit',
   'menuItemDetail.backToMenu': 'Torna al menú',
+  'menuItemDetail.confirmDelete': 'Voleu suprimir aquest element del menú?',
   'menuItemDetail.delete': "Suprimeix l'element",
   'menuItemDetail.deleteError': "No s'ha pogut suprimir. Torna-ho a provar.",
   'menuItemDetail.dietary': 'Etiquetes dietètiques',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': "No s'ha pogut desar. Torna-ho a provar.",
   'menuItemDetail.subheading': '{{category}} · editar fotos, modificadors, dieta i preus.',
   'menuItemDetail.untitled': 'Element sense títol',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'notFound.heading': 'Aquesta taula no és a terra.',
   'notFound.subheading':
     'La pàgina que buscaves ha estat ubicada en un altre lloc, o no ha existit mai.',
+  'notFound.toLanding': 'Inici de {{app}}',
   'notifications.markError': "No s'ha pogut marcar tot com a llegit.",
   'orderDashboard.activeDelta': 'En directe ara',
   'orderDashboard.activeLabel': 'Comandes actives',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Mostra la contrasenya',
   'resetPassword.subtitle': 'Introdueix la nova contrasenya per tornar a accedir a la cuina.',
   'resetPassword.tokenLabel': 'Restableix el testimoni',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navegació principal',
   'revenueHeroCard.activeOrders': '{{count}} actiu',
   'revenueHeroCard.change': '{{sign}} {{amount}} en comparació amb ahir',
   'revenueHeroCard.title': "Els ingressos d'avui",
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nom del restaurant',
   'tableDetail.activeOrders': 'Comandes actives',
   'tableDetail.backToFloor': 'Plànol de planta',
+  'tableDetail.confirmDelete': 'Voleu suprimir aquesta taula?',
   'tableDetail.delete': 'Suprimeix',
   'tableDetail.deleteError': "No s'ha pogut suprimir la taula.",
   'tableDetail.heading': 'Taula {{label}}',

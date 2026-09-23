@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} کے بارے میں',
   'analytics.avgCheckLabel': 'اوسط چیک',
   'analytics.busiestHour': 'مصروف ترین گھنٹہ',
   'analytics.coversToday': 'آج کا احاطہ کرتا ہے۔',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'تجاویز (اوسط)',
   'analytics.topItems': 'آج کی اہم اشیاء',
   'authShell.eyebrow': 'خدمت میں دوبارہ خوش آمدید',
+  'authShell.heading': '{{tagline}}۔',
   'authShell.subheading':
     'مہمان نوازی کی ٹیموں کے لیے ایک گرم، تیز رفتار فروخت کا مقام۔ اپنے کچن میں سائن ان کریں اور وہیں سے شروع کریں جہاں سے آپ نے چھوڑا تھا۔',
   'authShell.tip': 'پرو ٹپ: کی بورڈ شارٹ کٹ ہر جگہ کام کرتے ہیں — تلاش کرنے کے لیے دبائیں',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'یا {{price}}',
   'billing.priceUnavailable': 'اس پلان کی ترتیب شدہ قیمت نہیں ہے۔',
   'billing.updated': 'پلان اپ ڈیٹ ہو گیا۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'customerDetail.book': 'ریزرویشن شامل کریں۔',
   'customerDetail.col.table': 'میز',
   'customerDetail.confirmDelete': 'اس مہمان کے ریکارڈ کو حذف کریں؟',
@@ -126,6 +129,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'دستیابی',
   'menuItemDetail.available': 'آج رات دستیاب ہے۔',
   'menuItemDetail.backToMenu': 'مینو پر واپس جائیں۔',
+  'menuItemDetail.confirmDelete': 'اس مینو آئٹم کو حذف کریں؟',
   'menuItemDetail.delete': 'آئٹم کو حذف کریں۔',
   'menuItemDetail.deleteError': 'حذف کرنا ناکام ہو گیا۔ دوبارہ کوشش کریں۔',
   'menuItemDetail.dietary': 'غذائی ٹیگز',
@@ -137,9 +141,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} تصویر میں ترمیم کریں، ترمیم کرنے والے، غذائیت، اور قیمتوں کا تعین کریں۔',
   'menuItemDetail.untitled': 'بلا عنوان آئٹم',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'notFound.heading': 'یہ میز فرش پر نہیں ہے۔',
   'notFound.subheading':
     'آپ جس صفحہ کی تلاش کر رہے تھے وہ کہیں اور بیٹھا ہوا ہے — یا کبھی موجود نہیں تھا۔',
+  'notFound.toLanding': '{{app}} گھر',
   'notifications.markError': 'سبھی پڑھے ہوئے نشان زد نہیں کر سکے۔',
   'orderDashboard.activeDelta': 'ابھی جیو',
   'orderDashboard.activeLabel': 'فعال احکامات',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'باورچی خانے تک دوبارہ رسائی حاصل کرنے کے لیے اپنا نیا پاس ورڈ درج کریں۔',
   'resetPassword.tokenLabel': 'ٹوکن ری سیٹ کریں۔',
+  'restaurantOrderingLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'revenueHeroCard.activeOrders': '{{count}} فعال',
   'revenueHeroCard.change': '{{sign}} {{amount}} بمقابلہ کل',
   'revenueHeroCard.title': 'آج کی آمدنی',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'ریستوراں کا نام',
   'tableDetail.activeOrders': 'فعال احکامات',
   'tableDetail.backToFloor': 'منزل کا منصوبہ',
+  'tableDetail.confirmDelete': 'اس ٹیبل کو حذف کریں؟',
   'tableDetail.delete': 'حذف کریں۔',
   'tableDetail.deleteError': 'ٹیبل کو حذف نہیں کیا جا سکا۔',
   'tableDetail.heading': 'میز {{label}}',

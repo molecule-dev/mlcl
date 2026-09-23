@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Nossa história',
   'aiSuggestionPanel.title': 'Copiloto Signet',
   'analytics.col.open': 'Taxa de abertura',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Iniciando checkout…',
   'billing.subheading': 'Escolha o plano que combina com seu jeito de enviar.',
   'billing.unavailable': 'Falar com vendas',
+  'common.goToDashboard': 'Ir para o Painel',
+  'common.retry': 'Tentar novamente',
   'compose.adjustingTone': 'Reescrevendo no tom selecionado…',
   'compose.aiPromptPlaceholder':
     'ex.: "Follow-up educado após duas semanas sem resposta, mantenha curto."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Precisa enviar alguma coisa? O Signet pode ter um rascunho pronto em segundos.',
   'dashboard.composeCtaLabel': 'Redação rápida',
   'dashboard.heading': 'Sua semana, redigida',
+  'dashboard.loadFailed': 'Não foi possível carregar seu painel.',
   'dashboard.manageLibrary': 'Gerenciar biblioteca →',
   'dashboard.recentEmpty': 'Nenhum envio ainda — seus e-mails enviados aparecerão aqui.',
   'dashboard.recentHeading': 'Envios recentes',
@@ -135,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Tom padrão',
   'settings.toneSubheading': 'O Signet usa este tom, a menos que você o substitua no rascunho.',
   'signetLayout.primaryNavLabel': 'Navegação principal',
+  'signetLayout.toggleMenu': 'Alternar menu',
   'signup.emailLabel': 'Endereço de e-mail',
   'signup.showPassword': 'Mostrar senha',
   'signup.tagline': 'Envie seu primeiro e-mail redigido por IA em menos de um minuto.',

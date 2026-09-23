@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'auditLog.empty':
     'Wala pang mga kaganapan sa pag-audit na tumutugma sa iyong mga filter. I-edit ang isang empleyado o iproseso ang isang pay run at lalabas ang mga ito rito.',
   'auditLog.eyebrow': 'Pagsunod',
+  'auditLog.loadError': 'Hindi ma-load ang audit log.',
   'auditLog.searchPlaceholder': 'Maghanap ayon sa aktor, aksyon, o paglalarawan',
   'auditLog.subheading':
     'Bawat pag-apruba, pag-edit, at paghahain ng buwis — kasama ang aktor, timestamp, at mga binagong field.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Hindi na-configure',
   'billing.plansHeading': 'Mga plano',
   'billing.subheading': 'Pamahalaan ang iyong plano at lumipat ng mga tier gamit ang Stripe.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Subukan muli',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Snapshot ng pagsunod',
   'dashboard.compliance.title': 'Lahat ng tseke ay pumasa',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Walang mga bawas na nakatala.',
   'employeeDetail.notFound': 'Hindi natagpuan ang empleyado.',
   'employeeDetail.payFrequency': 'Dalas ng pagbabayad',
+  'employeeDetail.postTax': 'Pagkatapos ng buwis',
+  'employeeDetail.preTax': 'Bago ang buwis',
   'employeeDetail.salary': 'Taunang suweldo',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Nagsimula {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Dalas ng pagbabayad',
   'employeeForm.salary': 'Taunang suweldo (USD)',
   'employeeForm.salaryInvalid': 'Ang suweldo ay dapat na isang numerong hindi negatibo.',
+  'employeeForm.saveError': 'Hindi mailigtas ang empleyado.',
   'employeeForm.semimonthly': 'Kada dalawang buwan',
   'employeeForm.single': 'Isahan',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Suweldo',
   'forgotPassword.subtitle':
     'Ilagay ang iyong email sa trabaho at magpapadala kami ng link sa pag-reset.',
+  'landing.copyright': '© {{year}} {{app}} . Tumpak, maaasahan, maayos.',
   'landing.ctaBody':
     'Libre sa loob ng 30 araw. Walang credit card. Lumipat anumang oras nang hindi nawawala ang iyong audit trail.',
   'landing.ctaHeading': 'Patakbuhin ang iyong susunod na siklo sa Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Mga Entry',
   'payRunDetail.noActivity': 'Wala pang mga entry sa pag-audit para sa pay-run na ito.',
   'payRunDetail.noStubs': 'Wala pang mga pay-stub — aprubahan at iproseso ang pagbuo ng mga ito.',
+  'payRunDetail.notFound': 'Hindi mahanap ang pay run na ito.',
   'payRunDetail.statDeductions': 'Mga bawas',
   'payRunDetail.statHeadcount': 'Mga empleyado',
   'payRunDetail.statTaxes': 'Mga buwis na binawasan',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Kada dalawang buwan',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.subheading': 'Profile ng kumpanya, iskedyul ng suweldo, at mga integrasyon.',
+  'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.twoFactorVerify': 'I-verify at paganahin',
   'settings.weekly': 'Lingguhan',
   'taxCenter.bucket.federal': 'Kita ng pederal',
   'taxCenter.bucket.fica': 'Seguridad Panlipunan',

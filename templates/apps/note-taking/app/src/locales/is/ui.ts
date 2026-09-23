@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Fara á yfirlit',
   'forgot.eyebrow': 'Týndist leiðin til baka inn?',
   'forgot.formSubtitle': 'Segðu okkur netfangið sem við erum með á skrá.',
   'forgot.headline': 'Endurstilla lykilorðið þitt.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Búa til einn',
   'login.subline':
     'Minnisbækur þínar, baktenglar og daglegar síður eru nákvæmlega þar sem þú skildir þær eftir.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'noteEditor.backToNotes': 'Til baka í glósur',
   'noteEditor.bodyPlaceholder':
     'Byrjaðu að skrifa — glósan þín vistast sjálfkrafa um leið og þú skrifar.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Ný minnisbók',
   'notes.newNotebookPrompt': 'Nýtt nafn á minnisbók',
   'notes.notebooksHeading': 'Minnisbækur',
+  'notes.subtitle':
+    'Veldu minnisbók vinstra megin og ýttu síðan á hnappinn Ný glósa til að byrja á nýrri færslu.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Veldu glósutökuáætlun þína',
   'reset.eyebrow': 'Næstum aftur inn',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Uppfært',
   'versoLayout.nav.graph': 'Graf',
   'versoLayout.nav.home': 'Heim',
+  'versoLayout.primaryNavLabel': 'Aðalflakk',
   'versoNoteCard.pinned': 'Fest',
   'versoTodayHero.continueCta': 'Haltu áfram að skrifa',
   'versoTodayHero.createCta': 'Byrjaðu glósuna í dag',

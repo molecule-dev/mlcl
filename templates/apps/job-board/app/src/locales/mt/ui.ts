@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwarna',
   'applications.empty':
     'Għad m’hemm l-ebda applikazzjoni \\2014 ir-rwol it-tajjeb huwa applikazzjoni waħda ’l bogħod.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Kull rwol li applikajt għalih, f’moviment. Iffiltra skont l-istadju biex tiffoka.',
   'applications.untitledRole': 'Rwol # {{id}}',
+  'auth.legalConsent': 'Billi tkompli, taqbel mal-',
   'common.and': 'u',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'companies.empty':
     'L-ebda kumpanija ma taqbel mat-tfittxija tiegħek \\u2014 ipprova terminu differenti.',
   'companies.eyebrow': 'Impjegaturi Dehru',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Għad m’hemm l-ebda applikazzjoni għal dan ir-rwol.',
   'jobApplicants.eyebrow': 'Il-fehma ta’ min iħaddem',
   'jobApplicants.loading': 'Qed jitgħabba\\u2026',
+  'jobApplicants.statusUpdateFailed': "Ma stajtx naġġorna dak l-istadju — erġa' pprova.",
+  'jobApplicants.subheading':
+    'Irrevedi r-resumes, avvanza l-kandidati, ibgħat offerti \\u2014 {{count}} għaddejjin.',
   'jobDetail.applicantCount': '{{count}} applikanti s’issa',
   'jobDetail.applied': 'L-applikazzjoni mibgħuta',
   'jobDetail.apply': 'Applika issa',
@@ -85,6 +91,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Fittex rwoli miftuħa \\u2192',
   'landing.pricingEyebrow': 'Prezzijiet',
   'landing.pricingHeading': 'Pjanijiet sempliċi għal kull daqs ta’ tim.',
+  'login.eyebrow': "Merħba lura f'{{app}}",
   'login.heading': 'Idħol fil-kont tiegħek',
   'login.noAccount': "Ġdid f'Nosh?",
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Qed tidħol\\u2026',
   'login.subheading':
     'Kompli t-tfittxija tiegħek, avvanza l-applikazzjonijiet tiegħek, erġa’ agħti risposta aktar malajr.',
+  'loginBrandPanel.copyright': "© {{year}} {{app}} . Magħmul għal timijiet ta' reklutaġġ.",
   'loginBrandPanel.headline': 'Fejn jiltaqa’ t-talent',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Sieħeb tat-Talent',
@@ -108,6 +116,7 @@ export const ui: UiTranslations = {
     'Aġġornamenti tal-applikazzjoni, stediniet għall-intervisti, tqabbil ġdid \\2014 l-aktar ġdid l-ewwel.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} din il-ġimgħa',
   'opportunitiesHero.eyebrow': 'Miftuħ illum',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'postJob.addNewCompany': '+ Żid kumpanija ġdida',
   'postJob.companyCreateFailed': 'Ma setgħetx tinħoloq kumpanija — erġa’ pprova.',
   'postJob.companyNameLabel': 'Isem il-kumpanija tiegħek',
@@ -165,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Qed noħloq kont\\u2026',
   'signup.ctaEmployer': 'Oħloq kont ta’ min iħaddem',
   'signup.firstNamePlaceholder': 'Maja',
+  'signup.lastNamePlaceholder': 'Ċen',
   'signup.passwordMismatch': 'Il-passwords ma jaqblux.',
   'signup.subheading':
     'B’xejn għal dawk li qed ifittxu, għal dejjem. Min iħaddem jibda bi prova ta’ 30 jum.',
   'timeAgo.days': '{{count}} jum ilu',
   'timeAgo.hours': '{{count}} siegħa ilu',
   'timeAgo.justNow': 'issa stess',
+  'timeAgo.weeks': '{{count}} ġimgħat ilu',
 }

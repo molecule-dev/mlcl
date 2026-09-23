@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Үзэж байна',
   'auctionDetail.watchRemoved': 'Үзэх жагсаалтаас хасагдсан.',
   'auctionDetail.watchRemoveLabel': 'Үзэх жагсаалтаас хасах',
+  'auctionPlatformLayout.primaryNavLabel': 'Үндсэн навигаци',
   'authShell.brandBody':
     'Ховор цаг, урлагийн бүтээл болон хосгүй онцгой эдлэлүүдэд бодит цаг хугацаанд үнэ хаялцаарай. Жээг хэдхэн секундын дотор унага.',
   'authShell.brandEyebrow': 'Одоо шууд · 1,420 дуудлага худалдаа',
@@ -50,6 +51,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Эрэмбэлэх',
   'browseAuctions.subheading':
     'Ангиллаар нь шүүж, хамгийн чухал зүйлээр нь эрэмбэлж, жигнүүр унахаас өмнө үнэ тавиарай.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'countdownTimer.ended': 'Дууссан',
   'countdownTimer.endingSoon': 'Төгсгөл',
   'forgotPassword.checkEmailBody':
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.subtext':
     'Дуудлага худалдаагаа үргэлжлүүлэн хянаж, дэр унахаас өмнө үнийн саналаа өгөөрэй.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'myBids.bidAgain': 'Дахин үнийн санал өгөх',
   'myBids.browseCta': 'Шууд дуудлага худалдааг үзэх →',
   'myBids.checkoutCta': 'Одоо төлөх',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Үйл ажиллагааны төв',
   'notificationsPage.subheading':
     '{{count}} уншаагүй · дуудлага худалдаа явагдахтай холбоотой шууд шинэчлэлтүүд',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.bidsLabel': 'үнийн саналууд',
   'pricing.listingsLabel': 'жагсаалт',
   'pricing.watchlistLabel': 'үзэх жагсаалт',

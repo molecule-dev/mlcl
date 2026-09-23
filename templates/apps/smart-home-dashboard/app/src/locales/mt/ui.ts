@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.pageTitle': 'Dwar {{app}}',
   'activity.empty': "Għad m'hemm l-ebda attività — aqleb apparat jew attiva xena.",
   'activity.eyebrow': 'Kronoloġija',
   'activity.loadError': 'Ma setax jitgħabba l-għalf tal-attività.',
   'activity.subheading':
     "Kull apparat, awtomazzjoni, u avveniment ta' sigurtà f'ordni kronoloġika.",
+  'addDevice.error.failed': "Ma stajtx inżid l-apparat. Erġa' pprova.",
   'addDevice.error.nameRequired': 'Agħti isem lil dan l-apparat biex tkompli.',
   'addDevice.field.firmware': 'Verżjoni tal-Firmware',
   'addDevice.field.manufacturer': 'Manifattur',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Ittestjar…',
   'automationEditor.testNew': 'Issejvja l-awtomazzjoni l-ewwel biex tittestjaha.',
   'automationRow.lastRun': 'L-aħħar {{date}} · {{count}} ġirjiet',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Ġirja {{name}} issa',
   'automations.empty': "Għad m'hemm l-ebda awtomazzjoni — oħloq l-ewwel rutina tiegħek.",
   'automations.eyebrow': 'Rutini',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Qed jitgħabbew l-awtomazzjonijiet…',
   'automations.newAutomation': '+ Ġdid',
   'automations.subheading': 'Meta jiġri dan, agħmel dan — mingħajr il-YAML.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Ma rnexxiex it-tagħbija tal-apparat.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Naħdem…',
   'deviceDetail.unnamed': 'Apparat',
   'deviceStatusRow.on': 'Mixgħul',
+  'deviceStatusRow.turnOff': 'Itfi',
+  'deviceStatusRow.turnOn': 'Ixgħel',
   'deviceStatusRow.watts': '{{watts}} Punent',
   'energy.eyebrow': 'Qawwa',
   'energy.heading': 'Enerġija',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Ara l-pjanijiet',
   'settings.security.heading': 'Sigurtà',
   'settings.subheading': 'Pjan, hubs, u preferenzi tal-kont.',
+  'smartHomeDashboardLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigazzjoni primarja',
 }

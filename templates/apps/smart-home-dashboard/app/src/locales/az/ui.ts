@@ -1,13 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.pageTitle': '{{app}} haqqında',
   'activity.empty':
     'Hələlik heç bir fəaliyyət yoxdur — cihazı çevirin və ya səhnəni aktivləşdirin.',
   'activity.eyebrow': 'Xronologiya',
   'activity.loadError': 'Fəaliyyət lentini yükləmək mümkün olmadı.',
   'activity.subheading':
     'Hər bir cihaz, avtomatlaşdırma və təhlükəsizlik hadisəsi xronoloji ardıcıllıqla.',
+  'addDevice.error.failed': 'Cihazı əlavə etmək mümkün olmadı. Yenidən cəhd edin.',
   'addDevice.error.nameRequired': 'Davam etmək üçün bu cihaza ad verin.',
   'addDevice.field.firmware': 'Proqram təminatı versiyası',
   'addDevice.field.manufacturer': 'İstehsalçı',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Test…',
   'automationEditor.testNew': 'Əvvəlcə avtomatlaşdırmanı sınamaq üçün yadda saxlayın.',
   'automationRow.lastRun': 'Sonuncu {{date}} · {{count}} qaçışlar',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Qaç {{name}} indi',
   'automations.empty': 'Hələlik avtomatlaşdırma yoxdur — ilk rutininizi yaradın.',
   'automations.eyebrow': 'Rutinlər',
@@ -53,6 +57,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Avtomatlaşdırmalar yüklənir…',
   'automations.newAutomation': '+ Yeni',
   'automations.subheading': 'Bu baş verdikdə, bunu YAML olmadan edin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Cihazı yükləmək alınmadı.',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'İşləyir…',
   'deviceDetail.unnamed': 'Cihaz',
   'deviceStatusRow.on': 'Aktiv',
+  'deviceStatusRow.turnOff': 'Söndürün',
+  'deviceStatusRow.turnOn': 'Aktivləşdirin',
   'deviceStatusRow.watts': '{{watts}} Q',
   'energy.eyebrow': 'Güc',
   'energy.heading': 'Enerji',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Planlara baxın',
   'settings.security.heading': 'Təhlükəsizlik',
   'settings.subheading': 'Plan, mərkəzlər və hesab seçimləri.',
+  'smartHomeDashboardLayout.openMenu': 'Naviqasiya menyusunu açın',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Əsas naviqasiya',
 }

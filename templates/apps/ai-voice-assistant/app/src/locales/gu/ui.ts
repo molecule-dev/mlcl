@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'શું તમને કોઈ પ્રતિસાદ છે, કોઈ સુવિધાની વિનંતી છે, કે કોઈ બગ મળ્યો છે? તમારા એકાઉન્ટ મેનૂમાં સપોર્ટ લિંક દ્વારા {{app}} ટીમનો સંપર્ક કરો — દરેક સંદેશ વાસ્તવિક માનવી સુધી પહોંચે છે.',
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'agentDetail.back': 'બધા એજન્ટો',
   'agentDetail.capabilities': 'ક્ષમતાઓ',
   'agentDetail.delete': 'વ્યક્તિત્વ કાઢી નાખો',
   'agentDetail.deleteConfirm': 'આ વ્યક્તિત્વ કાઢી નાખીએ? આ પૂર્વવત્ કરી શકાતું નથી.',
+  'agentDetail.deleteError': 'વ્યક્તિત્વ કાઢી શકાયું નથી.',
   'agentDetail.eyebrow': 'પર્સોના',
   'agentDetail.fetchError': 'વ્યક્તિત્વ લોડ કરી શકાયું નથી.',
   'agentDetail.save': 'વ્યક્તિત્વ સાચવો',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'સ્વિચ કરી રહ્યું છે...',
   'billing.updateError': 'અપડેટ શરૂ કરી શકાયું નથી.',
   'billing.usageHeading': 'આ ચક્રમાં વૉઇસનો ઉપયોગ',
+  'chatBubble.source.text': 'ટેક્સ્ટ',
+  'chatBubble.source.voice': 'અવાજ',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'conversation.defaultTitle': 'નવી વાતચીત',
   'conversation.empty': 'હજુ સુધી કોઈ સંદેશ નથી. કંઈક કહીને અથવા નીચે લખીને શરૂઆત કરો.',
   'conversation.eyebrow': 'લાઈવ સત્ર',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'બોલતી બુદ્ધિ.',
   'landing.heroSubtitle':
     'AI વૉઇસ આસિસ્ટન્ટ જે તમારા કુદરતી પ્રવાહને સમજે છે. વાતચીત કરો, વિચારો કરો અને આદેશ આપો - સરળતાથી.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'સાંભળી રહ્યું છે...',
   'landing.naturallyBody':
     'કોઈ ઉત્તેજક શબ્દો નથી. કોઈ કઠોર આદેશો નથી. બોલચાલ સંદર્ભ, વિક્ષેપો અને માનવ વાણીની સૂક્ષ્મતા સમજે છે - જેમ કે કોઈ સાથીદાર સાથે વાત કરવી.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'સત્ર ખોલો',
   'notFound.home': 'ઘરે પાછા',
   'notFound.title': 'અમે તે પેજ સાંભળી શક્યા નહીં.',
+  'parlanceLayout.closeMenu': 'મેનૂ બંધ કરો',
+  'parlanceLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'parlanceLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'pricing.conversations': '{{count}} વાતચીતો',
   'pricing.cta.startFree': 'મફતમાં શરૂઆત કરો',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'કોઈ મેળ નથી',
   'search.eyebrow': 'કમાન્ડ પેલેટ',
   'search.fetchError': 'શોધ અનુક્રમણિકા લોડ કરી શકાઈ નથી.',
+  'search.static.profile.preview': 'ડિસ્પ્લે નામ, હેન્ડલ, બાયો',
   'search.static.voice.title': 'અવાજ',
   'search.title': 'ભાષા શોધો',
   'search.transcriptPreview': 'ટ્રાન્સક્રિપ્ટ ખોલો',

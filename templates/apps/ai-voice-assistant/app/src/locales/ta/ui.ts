@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து, புதிய அம்சக் கோரிக்கை உள்ளதா அல்லது பிழையைக் கண்டறிந்தீர்களா? உங்கள் கணக்கு மெனுவில் உள்ள ஆதரவு இணைப்பு வழியாக {{app}} குழுவைத் தொடர்பு கொள்ளுங்கள் — ஒவ்வொரு செய்தியும் ஒரு உண்மையான மனிதரைச் சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'agentDetail.back': 'அனைத்து முகவர்களும்',
   'agentDetail.capabilities': 'திறன்கள்',
   'agentDetail.delete': 'ஆளுமையை நீக்கு',
   'agentDetail.deleteConfirm':
     'இந்த ஆளுமையை நீக்குவதா? இதை மீண்டும் பழைய நிலைக்குக் கொண்டுவர முடியாது.',
+  'agentDetail.deleteError': 'ஆளுமையை நீக்க முடியவில்லை.',
   'agentDetail.eyebrow': 'பெர்சோனா',
   'agentDetail.fetchError': 'ஆளுமையை ஏற்ற முடியவில்லை.',
   'agentDetail.save': 'ஆளுமையைச் சேமிக்கவும்',
@@ -47,6 +51,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'மாறுதல்…',
   'billing.updateError': 'புதுப்பித்தலைத் தொடங்க முடியவில்லை.',
   'billing.usageHeading': 'இந்த சுழற்சியில் குரல் பயன்பாடு',
+  'chatBubble.source.text': 'உரை',
+  'chatBubble.source.voice': 'குரல்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'conversation.defaultTitle': 'புதிய உரையாடல்',
   'conversation.empty':
     'இன்னும் செய்திகள் வரவில்லை. ஏதாவது சொல்வதன் மூலமோ அல்லது கீழே தட்டச்சு செய்வதன் மூலமோ தொடங்கவும்.',
@@ -98,6 +105,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'பேசும் நுண்ணறிவு.',
   'landing.heroSubtitle':
     'உங்கள் இயல்பான போக்கைப் புரிந்துகொள்ளும் செயற்கை நுண்ணறிவு குரல் உதவியாளர். தடையின்றி உரையாடுங்கள், யோசியுங்கள், கட்டளையிடுங்கள்.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'கவனித்தல்…',
   'landing.naturallyBody':
     'கோபமூட்டும் வார்த்தைகளோ, இறுக்கமான கட்டளைகளோ இல்லை. பார்லன்ஸ், ஒரு சக ஊழியருடன் உரையாடுவதைப் போல, சூழலையும், குறுக்கீடுகளையும், மனிதப் பேச்சின் நுணுக்கங்களையும் புரிந்துகொள்கிறது.',
@@ -116,6 +124,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ஒரு அமர்வைத் திறக்கவும்',
   'notFound.home': 'வீட்டிற்குத் திரும்பு',
   'notFound.title': 'எங்களால் அந்தப் பக்கத்தைக் கேட்க முடியவில்லை.',
+  'parlanceLayout.closeMenu': 'மெனுவை மூடுக',
+  'parlanceLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'parlanceLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'pricing.conversations': '{{count}} உரையாடல்கள்',
   'pricing.cta.startFree': 'இலவசமாகத் தொடங்குங்கள்',
@@ -154,6 +164,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'போட்டிகள் இல்லை',
   'search.eyebrow': 'கட்டளைத் தட்டு',
   'search.fetchError': 'தேடல் அட்டவணையை ஏற்ற முடியவில்லை.',
+  'search.static.profile.preview': 'காட்சிப் பெயர், பயனர்பெயர், சுயவிவரம்',
   'search.static.voice.title': 'குரல்',
   'search.title': 'தேடல் சொற்களம்',
   'search.transcriptPreview': 'திறந்த டிரான்ஸ்கிரிப்ட்',

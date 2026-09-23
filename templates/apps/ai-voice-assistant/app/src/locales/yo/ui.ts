@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé o ní èsì, ìbéèrè fún ẹ̀yà ara, tàbí o rí àṣìṣe kan? Pe àwọn ẹgbẹ́ {{app}} nípasẹ̀ ìjápọ̀ ìrànlọ́wọ́ nínú àkóónú àkọọ́lẹ̀ rẹ — gbogbo ìránṣẹ́ lọ sí ọ̀dọ̀ ènìyàn gidi.',
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'agentDetail.back': 'Gbogbo àwọn aṣojú',
   'agentDetail.capabilities': 'Àwọn agbára',
   'agentDetail.delete': 'Pa ẹni rẹ rẹ́',
   'agentDetail.deleteConfirm': 'Pa ẹni yìí rẹ́? A kò le ṣe àtúnṣe èyí.',
+  'agentDetail.deleteError': 'Kò le pa persona rẹ.',
   'agentDetail.eyebrow': 'Ènìyàn',
   'agentDetail.fetchError': 'Kò le gbé persona sókè.',
   'agentDetail.save': 'Fipamọ eniyan',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Yíyípadà…',
   'billing.updateError': 'Kò le bẹ̀rẹ̀ sí í ṣe àtúnṣe.',
   'billing.usageHeading': 'Lilo ohùn ni iyipo yii',
+  'chatBubble.source.text': 'ọrọ',
+  'chatBubble.source.voice': 'ohùn',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'conversation.defaultTitle': 'Ìjíròrò tuntun',
   'conversation.empty': 'Kò sí ìránṣẹ́ kankan síbẹ̀. Bẹ̀rẹ̀ nípa sísọ nǹkan kan tàbí kí o tẹ̀ sí ìsàlẹ̀.',
   'conversation.eyebrow': 'Ìpàdé láyè',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Ọgbọ́n tó ń sọ̀rọ̀.',
   'landing.heroSubtitle':
     'Olùrànlọ́wọ́ ohùn AI tó mọ bí ara rẹ ṣe ń ṣiṣẹ́. Bá ara rẹ sọ̀rọ̀, ronú jinlẹ̀, kí o sì pàṣẹ — láìsí ìṣòro.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Fífetísílẹ̀…',
   'landing.naturallyBody':
     'Kò sí ọ̀rọ̀ tó ń fa ọ̀rọ̀ jáde. Kò sí àṣẹ líle koko. Vox lóye ìtumọ̀ ọ̀rọ̀, ìdádúró, àti ìtumọ̀ ọ̀rọ̀ ènìyàn — bíi sísọ̀rọ̀ pẹ̀lú ẹlẹgbẹ́ rẹ̀.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Ṣí ìpàdé kan',
   'notFound.home': 'Pada si ile',
   'notFound.title': 'A kò gbọ́ ojú ìwé yẹn.',
+  'parlanceLayout.closeMenu': 'Ti akojọ aṣayan pa',
+  'parlanceLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'parlanceLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'pricing.conversations': '{{count}} awọn ibaraẹnisọrọ',
   'pricing.cta.startFree': 'Bẹ̀rẹ̀ lọ́fẹ̀ẹ́',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'K\\u00F2 s\\u00ED \\u00E0b\\u00E1r\\u00ED',
   'search.eyebrow': 'Páálítì àṣẹ',
   'search.fetchError': 'Kò le gbé àtọ́ka àwárí jáde.',
+  'search.static.profile.preview': 'Orúkọ ìfihàn, ọwọ́, ìtàn ìgbésí ayé',
   'search.static.voice.title': 'Oh\\u00F9n',
   'search.title': 'Ṣe àwárí èdè',
   'search.transcriptPreview': 'Ṣí ìwé àkọsílẹ̀ sílẹ̀',

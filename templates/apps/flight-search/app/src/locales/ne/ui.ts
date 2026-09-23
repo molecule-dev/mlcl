@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
+  'about.eyebrow': '{{app}} बारे',
   'about.pageTitle': 'हरेक मार्ग, एउटा खोज।',
   'booking.backToDetail': 'उडान विवरणमा फर्कनुहोस्',
   'booking.continue': 'भुक्तानी जारी राख्नुहोस्',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'कर र शुल्कहरू',
   'booking.summary.travelers': 'यात्रीहरू',
   'common.about': 'बारेमा',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'flightDetail.backToResults': 'परिणामहरूमा फर्कनुहोस्',
   'flightDetail.baseFare': 'आधार भाडा',
   'flightDetail.book': 'बुकिङ जारी राख्नुहोस्',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '१ स्टप',
   'flightResultCard.select': 'चयन गर्नुहोस्',
   'flightResultCard.totalLabel': 'कुल समय',
+  'flightSearchLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'forgotPassword.subheading':
     'तपाईंको स्काइलार्क खातामा इमेल प्रविष्ट गर्नुहोस् र हामी सुरक्षित रिसेट लिङ्क पठाउनेछौं।',
   'forgotPassword.successBody':
     'जाँच गर्नुहोस् {{email}} नयाँ पासवर्ड सेट गर्न लिङ्कको लागि। लिङ्कको म्याद ३० मिनेटमा सकिन्छ।',
   'forgotPassword.successHeading': 'रिसेट लिङ्क पठाइयो',
   'landing.cta.explore': 'खोजी गरी हेर्नुहोस्',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'अरू सबै भन्दा पहिले अर्को राम्रो भाडा खोज्नुहोस्।',
   'landing.cta.signup': 'भाडा ट्र्याक गर्न सुरु गर्नुहोस्',
   'landing.features.eyebrow': 'किन स्काइलार्क',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'अलर्ट थप्नुहोस्',
   'priceAlerts.deleteConfirm': 'यो अलर्ट हटाउने हो?',
   'priceAlerts.empty': 'अहिलेसम्म कुनै पनि ट्र्याक गरिएका मार्गहरू छैनन्।',
+  'priceAlerts.emptyCta': 'ट्र्याक गर्न मार्ग खोज्नुहोस्',
   'priceAlerts.errorMessage': 'अलर्टहरू लोड गर्न सकिएन।',
   'priceAlerts.eyebrow': 'स्काइलार्क वाचलिस्ट',
   'priceAlerts.form.createError': 'अलर्ट सिर्जना गर्न सकिएन।',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'बहु-शहर यात्रा कार्यक्रम',
   'results.multiLegHeading': 'खुट्टा {{n}} · {{बाट}} → {{देखि}} · {{मिति}}',
   'results.multiSummary': '{{count}} खुट्टा · {{passengers}} यात्री',
+  'results.sortAriaLabel': 'परिणामहरू क्रमबद्ध गर्नुहोस्',
   'results.sortLabel': 'क्रमबद्ध गर्नुहोस्',
   'results.summary': '{{count}} उडानहरू · {{passengers}} यात्री',
   'settings.language.title': 'भाषा',

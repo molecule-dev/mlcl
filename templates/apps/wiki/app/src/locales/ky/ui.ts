@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Чечилүүдө…',
   'comments.subtitle':
     'The {{count}} жооп же чечим күтүлүп жаткан темалар. Жашы боюнча иреттелген — эң улуусу биринчи, ошондуктан эч нерсе чирип калбайт.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'forgotPassword.sentTo': 'Баштапкы абалга келтирүү шилтемеси жөнөтүлдү {{email}}',
   'forgotPassword.successSubheading':
     'Кат почтаңызды текшериңиз — биз жаңы эле баштапкы абалга келтирүү шилтемесин жөнөттүк. Ал 30 мүнөттөн кийин жараксыз болуп калат.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Жаңы барак',
   'pageTreeSidebar.workspaceHeader': 'Жумуш орду',
   'pageView.breadcrumb': 'Нан күкүмдөрү',
+  'pageView.confirmTrash': 'Таштандыга ыргытып жибересизби?',
   'pageView.home': 'Үй',
   'pageView.lastEdited': 'Жаңыртылды {{when}}',
   'pageView.loading': 'Барак жүктөлүүдө…',
@@ -78,6 +80,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Бул жумуш мейкиндиги үчүн AI кыскача маалыматы конфигурацияланган эмес.',
   'pageView.tocTitle': 'Бул баракчада',
+  'pageView.trash': 'Таштанды',
+  'pageView.trashing': 'Таштандыга ыргытылууда…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Белгилер',
   'profile.owned.title': 'Менчик баракчалар',
@@ -103,6 +107,7 @@ export const ui: UiTranslations = {
     'Жумуш мейкиндиги, профиль, эскертмелер, интеграциялар — мунун баары бир тынч кабыкта.',
   'settingsPage.workspace.defaultLanding': 'Демейки конуу экраны',
   'settingsPage.workspace.landingHome': 'Үй',
+  'settingsPage.workspace.landingSpaces': 'Боштуктар',
   'settingsPage.workspace.subdomainLabel': 'Субдомен',
   'settingsPage.workspace.title': 'Жумуш орду',
   'signup.eyebrow': 'Жаңы жумуш ордун баштоо',
@@ -132,6 +137,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин',
   'templates.subtitle':
     'Баракты бош полотнодон эмес, трафареттен баштаңыз. Ар бир шаблон форманы катуу коддоп, сиз мазмунга көңүл бура аласыз.',
+  'trash.confirmPurge': 'Түбөлүккө тазалоо?',
+  'trash.confirmPurgeAria': 'Ырастоо: {{title}} биротоло жок кылуу',
   'trash.daysUntilPurge': '{{days}} күндөр калды',
   'trash.empty.body': 'Өчүрүлгөн барактар тазаланардан мурун 30 күн бою ушул жерде көрсөтүлөт.',
   'trash.empty.title': 'Таштанды бош.',
@@ -151,5 +158,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Калыбына келтирүүдө…',
   'versionHistory.subtitle': '{{count}} версиялар · айырмачылыкты текшерүү үчүн сапты тандаңыз',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Навигацияны жабуу',
+  'wikiLayout.menu': 'Навигация',
+  'wikiLayout.openMenu': 'Навигацияны ачуу',
   'wikiLayout.searchPlaceholder': 'Кэрнди издөө — баракчалар, комментарийлер…',
 }

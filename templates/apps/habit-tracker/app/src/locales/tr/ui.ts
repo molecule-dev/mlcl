@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.pageTitle': '{{app}} hakkında',
   'achievementBadgeCard.unlockedOn': '{{date}} tarihinde açıldı',
   'achievements.loadError': 'Başarılar yüklenemedi.',
   'achievements.subheading': '{{unlocked}} başarıdan {{total}} tanesi açıldı',
   'achievements.unlockedOn': '{{date}} tarihinde açıldı',
+  'auth.legalConsent': 'Devam ederek kabul etmiş olursunuz',
   'calendar.empty': 'Takviminizi görmek için bir alışkanlık oluşturun.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Alışkanlık',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Alışkanlık ızgarası',
   'category.${c.category}': '{{saymak}} alışkanlıklar',
   'common.and': 've',
+  'common.goToDashboard': 'Panele Git',
   'consistencyHeatmap.ariaLabel': 'Günlük tutarlılık ısı haritası',
   'consistencyHeatmap.caption': 'Son {{weeks}} hafta',
   'consistencyHeatmap.lessLabel': 'Daha az',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Canlı görün',
   'landing.heroSubtitle':
     'Alışkanlıkları gerçekten kalıcı oldukları şekilde kurun: küçük taahhütler, günlük seriler ve uzun, kopmamış bir zincirin somut zevki.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': "Streak'in içinden bir bakış",
   'landing.previewMotivation': 'Dokuz seri hayatta. Hepsini sıcak tutun.',
   'login.eyebrow': 'Zinciri elinize alın',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Küçük tutun. Spesifik yapın. Yarın yine gelin.',
   'newHabit.timeLabel': 'Hatırlatıcı zamanı',
   'notifications.markError': 'Tümü okundu olarak işaretlenemedi.',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.entries': '{{count}} giriş',
+  'pricing.heading': '{{app}} planınızı seçin',
   'profile.action.plan': 'Aboneliği yönet',
   'profile.action.settings': 'Hesap ayarları',
   'profile.bioEmpty': "Kendinizi tanıtmak için Ayarlar'a kısa bir biyografi ekleyin.",
@@ -123,6 +130,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Günlük sabah hatırlatıcısı (08:00)',
   'settings.reminders.heading': 'Hatırlatıcılar',
   'settings.reminders.weekly': 'Haftalık özet (Pazar akşamları)',
+  'settings.revokeDeviceWarning':
+    'Bu cihazın erişimi kısa süre içinde iptal edilecek. Oturumu kapat?',
   'settings.signOutDevice': 'Oturumu kapat',
   'settings.streaks.freezesPerWeek': 'Hafta başına dondurma',
   'settings.streaks.gracePeriod': 'Gece yarısından sonra 6 saatlik ek süre',
@@ -149,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktif',
   'streakHeroCard.daysSuffix': 'gün',
   'streakHeroCard.title': 'En uzun aktif seri',
+  'streakLayout.closeMenu': 'Gezinme menüsünü kapat',
+  'streakLayout.openMenu': 'Gezinti menüsünü aç',
   'streakLayout.primaryNavLabel': 'Birincil gezinme',
 }

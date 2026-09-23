@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'about.pageTitle': 'കുറിച്ച് {{name}}',
   'auth.footer.about': 'കുറിച്ച് {{name}}',
   'authHeader.subtitle': 'നിങ്ങളുടെ നമ്പറുകൾ സത്യസന്ധമായി സൂക്ഷിക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
   'automations.action.email': 'ഇമെയിൽ',
+  'automations.action.noop': 'വേണ്ട',
   'automations.action.webhook': 'വെബ്‌ഹുക്ക്',
   'automations.confirmDelete': 'ഇല്ലാതാക്കുക " {{name}} "?',
   'automations.empty.headline': 'ഇതുവരെ ഓട്ടോമേഷനുകളൊന്നുമില്ല',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ഓരോ വർക്ക്ബുക്കിലുടനീളമുള്ള ട്രിഗറുകളും പ്രവർത്തനങ്ങളും. ഓരോ റൺ പിന്നീട് ഓഡിറ്റ് ചെയ്യാൻ കഴിയുന്ന ഒരു വരി ലോഗ് ചെയ്യുന്നു.',
   'automations.toggle': 'ടോഗിൾ ചെയ്യുക {{name}}',
+  'automations.trigger.dailySchedule': 'ദൈനംദിന ഷെഡ്യൂൾ',
+  'automations.trigger.rowCreated': 'വരി സൃഷ്ടിച്ചു',
+  'automations.trigger.rowUpdated': 'വരി അപ്ഡേറ്റ് ചെയ്തു',
   'billing.empty': 'പ്ലാനുകളൊന്നും ലഭ്യമല്ല.',
   'billing.error.priceMissing':
     'ഈ ടയറിനായി സ്ട്രൈപ്പ് വില കോൺഫിഗർ ചെയ്തിട്ടില്ല. STRIPE_*_PRICE_ID env vars സജ്ജമാക്കുക.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ചാർട്ടുകൾ',
   'charts.kpi.totalCharts': 'ആകെ ചാർട്ടുകൾ',
   'charts.list.empty': 'ഇതുവരെ ചാർട്ടുകളൊന്നുമില്ല.',
+  'charts.namePlaceholder': 'വരുമാന പ്രവണത',
   'charts.newChart': 'പുതിയ ചാർട്ട്',
   'charts.primary.eyebrow': 'തരം അനുസരിച്ചുള്ള ചാർട്ടുകൾ',
   'charts.primary.headline': 'വർക്ക്‌സ്‌പെയ്‌സ് അവലോകനം',
   'charts.subhead':
     'നിങ്ങളുടെ ഗ്രിഡുമായി ബന്ധിപ്പിച്ചിരിക്കുന്ന തത്സമയ ദൃശ്യവൽക്കരണങ്ങൾ — ഓരോ സെൽ എഡിറ്റിലും വീണ്ടും റെൻഡർ ചെയ്യുക.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'editor.addColumn': 'കോളം ചേർക്കുക',
+  'editor.addDialogTitle': 'കോളം ചേർക്കുക',
   'editor.addRow': 'വരി ചേർക്കുക',
   'editor.addSheet': 'ഷീറ്റ് ചേർക്കുക',
   'editor.back': 'വർക്ക്ബുക്കുകളിലേക്ക് മടങ്ങുക',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . ഫോർമുല-ഫസ്റ്റ്, മൾട്ടി-വ്യൂ, റിയൽ-ടൈം ഗ്രിഡ് അനലിസ്റ്റുകളും ഫിനാൻസ് ടീമുകളും ആദ്യം ലക്ഷ്യമിടുന്നത് കാൽസൈറ്റാണ്.',
   'landing.nav.formulas': 'സൂത്രവാക്യങ്ങൾ',
+  'login.noAccount': '{{name}} -ൽ പുതിയ ആളാണോ?',
+  'login.signIn': '{{name}} എന്നതിലേക്ക് സൈൻ ഇൻ ചെയ്യുക',
   'login.signUp': 'ഒരു വർക്ക്‌സ്‌പെയ്‌സ് സൃഷ്‌ടിക്കുക',
+  'nav.menu': 'മെനു',
+  'nav.openMenu': 'മെനു തുറക്കുക',
   'notFound.cellRef': '#റഫ്!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "റൂട്ടുകൾ", "പേജ്")',
   'notFound.headline': 'ഈ വരി ഒരിക്കലും ഉണ്ടായിരുന്നില്ല.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'നേറ്റീവ് ഓട്ടോമേഷനുകൾ · വെബ്‌ഹുക്ക് & ക്രോൺ ട്രിഗറുകൾ',
   'signup.creating': 'വർക്ക്‌സ്‌പെയ്‌സ് പ്രൊവിഷൻ ചെയ്യുന്നു…',
   'signup.cta': 'എന്റെ വർക്ക്‌സ്‌പെയ്‌സ് സൃഷ്‌ടിക്കുക',
+  'signup.haveAccount': 'ഇതിനകം {{name}} ൽ ഉണ്ടോ?',
   'signup.namePlaceholder': 'ആവറി ചെൻ',
   'signup.tagline': 'നിങ്ങളുടെ ആദ്യ വർക്ക്ബുക്ക് 30 സെക്കൻഡിനുള്ളിൽ സ്പിൻ ചെയ്യുക.',
   'team.col.activity': 'ക്ഷണിച്ചു',

@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bạn phát hiện lỗi, có yêu cầu về tính năng hoặc muốn chia sẻ về bộ phim bạn đã dựng? Mọi tin nhắn đều được gửi đến một thành viên thực sự trong nhóm — bạn có thể liên hệ bất cứ lúc nào từ cài đặt tài khoản của mình.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.eyebrow': '// studio đứng sau đoạn cắt',
   'about.pageTitle': 'Về {{appName}}',
   'assetDetail.back': 'Quay lại thư viện',
   'assetDetail.confirmDelete': 'Xóa "{{name}}"? Thao tác này không thể hoàn tác.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} clip, nền âm thanh và đồ họa sẵn sàng đưa vào dòng thời gian.',
   'assetLibrary.title': 'Tài nguyên',
   'assetLibrary.upload': 'Thêm tài nguyên',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.browseTemplates': 'Duyệt mẫu →',
   'dashboard.loading': 'Đang tải dự án…',
   'dashboard.noProjects': 'Chưa có dự án — xin quý vị tạo một để bắt đầu.',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Xin quý vị chọn điều mà chỉ quý vị mới nhớ.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Quyền riêng tư',
+  'rushesLayout.closeMenu': 'Đóng điều hướng',
   'rushesLayout.guest': 'Trình chỉnh sửa',
+  'rushesLayout.navDialog': 'Điều hướng',
+  'rushesLayout.openMenu': 'Mở điều hướng',
   'rushesLayout.planFree': 'Gói miễn phí',
   'rushesLayout.tagline': 'Dòng thời gian điện ảnh',
   'settings.billing.confirmCancel': 'Hủy đăng ký vào cuối kỳ?',

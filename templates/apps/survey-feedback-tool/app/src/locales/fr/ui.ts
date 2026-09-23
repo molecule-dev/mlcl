@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'À propos de {{app}}',
   'analytics.back': "Aperçu de l'enquête",
   'analytics.kpiNps': 'Score NPS',
   'analytics.kpiNpsTrend': 'Promoteurs {{p}}% · Détracteurs {{d}}%',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Propriétés',
   'builder.questionNumber': 'Q{{num}}',
   'builder.surveyTitle': "Titre de l'enquête",
+  'common.goToDashboard': 'Aller au tableau de bord',
   'forgotPassword.failed': "Impossible d'envoyer l'e-mail de réinitialisation. Veuillez réessayer.",
   'forgotPassword.subheading':
     'Entrez votre e-mail et nous vous enverrons un lien de récupération.',
   'forgotPassword.successBody':
     'Si un compte correspond à {{email}}, un lien de réinitialisation est en route. Vérifiez votre boîte de réception et vos spams.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Toutes les voix sont les bienvenues.',
   'landing.footer.startTrial': "Démarrer l'essai",
   'landing.hero.badge': 'Enquêtes, NPS et feedback réunis',
   'landing.hero.subtitle':
@@ -51,6 +54,10 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Tarifs',
   'landing.pricing.perMonth': '/mois',
   'landing.pricing.popular': 'Le plus populaire',
+  'landing.pricing.subtitle':
+    "Chaque forfait inclut l'outil de création de sondages, les liens de partage public et l'analyse NPS. Aucune carte de crédit n'est requise pour commencer.",
+  'landing.pricing.title':
+    'Commencez gratuitement, et développez votre activité au fur et à mesure.',
   'landing.sample.eyebrow': "NPS en un coup d'œil",
   'landing.sample.title': 'Détracteurs, passifs, promoteurs — lisibles instantanément.',
   'login.failed': 'Échec de la connexion. Veuillez réessayer.',
@@ -58,6 +65,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afficher le mot de passe',
   'login.signUpLink': 'Démarrer un essai gratuit',
   'login.subheading': 'Connectez-vous pour continuer à écouter votre audience.',
+  'notFound.body':
+    "La page que vous recherchez n'existe pas sur {{app}} . Revenons à vos sondages.",
   'notFound.cta': 'Retour aux enquêtes',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Cette enquête a quitté la file.',
@@ -74,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passif 7–8',
   'npsDistributionBar.promoter': 'Promoteur 9–10',
   'profile.identity.description': 'Public pour votre équipe et sur les enquêtes que vous créez.',
+  'profile.identity.emailRequired': 'Veuillez saisir une adresse e-mail.',
   'profile.identity.saveCta': 'Enregistrer le nom',
   'profile.password.current': 'Mot de passe actuel',
   'profile.password.fillFields': 'Entrez le mot de passe actuel et le nouveau.',
@@ -179,6 +189,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} questions',
   'templates.subheading':
     "Choisissez un point de départ éprouvé — chaque modèle est pré-réglé avec des valeurs par défaut sensées, une logique d'exemple et un design mobile soigné.",
+  'thankYou.body':
+    "Votre réponse a été enregistrée. {{app}} l'inclura dans la prochaine mise à jour des statistiques.",
   'thankYou.eyebrow': 'Réponse reçue',
   'thankYou.heading': 'Merci — votre voix compte.',
   'thankYou.home': 'Visiter Gauge',

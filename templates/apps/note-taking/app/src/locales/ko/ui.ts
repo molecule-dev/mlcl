@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': '대시보드로 이동',
   'forgot.eyebrow': '다시 들어가는 길을 잃으셨나요?',
   'forgot.formSubtitle': '등록된 이메일을 알려주세요.',
   'forgot.headline': '비밀번호를 재설정하세요.',
@@ -38,6 +39,8 @@ export const ui: UiTranslations = {
   'login.headline': '페이지가 멈춘 부분부터 다시 시작하세요.',
   'login.signupLink': '계정 만들기',
   'login.subline': '노트, 백링크, 일일 페이지는 그대로 남아 있습니다.',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'noteEditor.backToNotes': '메모로 돌아가기',
   'noteEditor.bodyPlaceholder': '지금 바로 글을 쓰세요. 입력하는 동안 메모가 자동으로 저장됩니다.',
   'noteEditor.confirmTrash': '이 메모를 휴지통으로 옮기시겠습니까?',
@@ -53,6 +56,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': '새 노트북',
   'notes.newNotebookPrompt': '새 노트북 이름',
   'notes.notebooksHeading': '노트북',
+  'notes.subtitle': "왼쪽에서 노트를 선택한 다음, '새 노트' 버튼을 눌러 새 항목을 시작하세요.",
   'planUpdated.confirmation': '요금제가 업데이트되었습니다',
   'pricing.heading': '필기 계획을 선택하세요',
   'reset.eyebrow': '거의 돌아왔습니다',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': '업데이트됨',
   'versoLayout.nav.graph': '그래프',
   'versoLayout.nav.home': '홈',
+  'versoLayout.primaryNavLabel': '기본 탐색',
   'versoNoteCard.pinned': '고정됨',
   'versoTodayHero.continueCta': '계속 작성',
   'versoTodayHero.createCta': '오늘의 메모를 시작하세요',

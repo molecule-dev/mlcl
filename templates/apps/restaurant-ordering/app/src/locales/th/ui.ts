@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'analytics.avgCheckLabel': 'การตรวจสอบโดยเฉลี่ย',
   'analytics.busiestHour': 'ช่วงเวลาที่คนพลุกพล่านที่สุด',
   'analytics.coversToday': 'ปกวันนี้',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'เคล็ดลับ (เฉลี่ย)',
   'analytics.topItems': 'สินค้ายอดนิยมวันนี้',
   'authShell.eyebrow': 'ยินดีต้อนรับกลับสู่การให้บริการ',
+  'authShell.heading': '{{tagline}}',
   'authShell.subheading':
     'ระบบขายหน้าร้านที่ใช้งานง่ายและรวดเร็วสำหรับทีมงานบริการด้านอาหารและเครื่องดื่ม เข้าสู่ระบบครัวของคุณและทำงานต่อจากจุดที่คุณหยุดไว้ได้เลย',
   'authShell.tip': 'เคล็ดลับมือโปร: คีย์ลัดใช้ได้ทุกที่ — กด / เพื่อค้นหา',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'หรือ {{price}}',
   'billing.priceUnavailable': 'แผนนี้ไม่มีการกำหนดราคาไว้',
   'billing.updated': 'แผนได้รับการปรับปรุงแล้ว',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'customerDetail.book': 'เพิ่มการจอง',
   'customerDetail.col.table': 'โต๊ะ',
   'customerDetail.confirmDelete': 'ลบข้อมูลผู้เข้าพักรายนี้หรือไม่?',
@@ -124,6 +127,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ความพร้อมใช้งาน',
   'menuItemDetail.available': 'พร้อมให้บริการคืนนี้',
   'menuItemDetail.backToMenu': 'กลับสู่เมนู',
+  'menuItemDetail.confirmDelete': 'ลบรายการเมนูนี้?',
   'menuItemDetail.delete': 'ลบรายการ',
   'menuItemDetail.deleteError': 'การลบไม่สำเร็จ โปรดลองอีกครั้ง',
   'menuItemDetail.dietary': 'ป้ายกำกับอาหาร',
@@ -135,8 +139,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} • แก้ไขรูปภาพ ตัวปรับแต่ง ข้อมูลเกี่ยวกับอาหาร และราคา',
   'menuItemDetail.untitled': 'รายการที่ไม่มีชื่อ',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'notFound.heading': 'โต๊ะตัวนี้ไม่ได้วางอยู่บนพื้น',
   'notFound.subheading': 'หน้าเว็บที่คุณกำลังมองหานั้นอยู่ที่อื่น หรืออาจไม่เคยมีอยู่จริงเลย',
+  'notFound.toLanding': '{{app}} หน้าหลัก',
   'notifications.markError': 'ไม่สามารถทำเครื่องหมายว่าอ่านแล้วทั้งหมดได้',
   'orderDashboard.activeDelta': 'ถ่ายทอดสดตอนนี้',
   'orderDashboard.activeLabel': 'คำสั่งซื้อที่ใช้งานอยู่',
@@ -199,6 +206,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'แสดงรหัสผ่าน',
   'resetPassword.subtitle': 'ป้อนรหัสผ่านใหม่ของคุณเพื่อกลับเข้าสู่ห้องครัว',
   'resetPassword.tokenLabel': 'รีเซ็ตโทเค็น',
+  'restaurantOrderingLayout.primaryNavLabel': 'การนำทางหลัก',
   'revenueHeroCard.activeOrders': '{{count}} คล่องแคล่ว',
   'revenueHeroCard.change': '{{sign}} {{amount}} เทียบกับเมื่อวาน',
   'revenueHeroCard.title': 'รายได้วันนี้',
@@ -217,6 +225,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'ชื่อร้านอาหาร',
   'tableDetail.activeOrders': 'คำสั่งซื้อที่ใช้งานอยู่',
   'tableDetail.backToFloor': 'แผนผังชั้น',
+  'tableDetail.confirmDelete': 'ลบตารางนี้?',
   'tableDetail.delete': 'ลบ',
   'tableDetail.deleteError': 'ไม่สามารถลบตารางได้',
   'tableDetail.heading': 'โต๊ะ {{label}}',

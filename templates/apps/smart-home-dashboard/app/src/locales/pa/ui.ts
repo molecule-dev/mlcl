@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
   'activity.empty':
     'ਹਾਲੇ ਕੋਈ ਗਤੀਵਿਧੀ ਨਹੀਂ ਹੈ — ਇੱਕ ਡਿਵਾਈਸ ਨੂੰ ਫਲਿੱਪ ਕਰੋ ਜਾਂ ਇੱਕ ਦ੍ਰਿਸ਼ ਨੂੰ ਕਿਰਿਆਸ਼ੀਲ ਕਰੋ।',
   'activity.eyebrow': 'ਸਮਾਂਰੇਖਾ',
   'activity.loadError': 'ਗਤੀਵਿਧੀ ਫੀਡ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
   'activity.subheading': 'ਹਰ ਡਿਵਾਈਸ, ਆਟੋਮੇਸ਼ਨ, ਅਤੇ ਸੁਰੱਖਿਆ ਘਟਨਾ ਕਾਲਕ੍ਰਮਿਕ ਕ੍ਰਮ ਵਿੱਚ।',
+  'addDevice.error.failed': 'ਡਿਵਾਈਸ ਨੂੰ ਜੋੜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'addDevice.error.nameRequired': 'ਜਾਰੀ ਰੱਖਣ ਲਈ ਇਸ ਡਿਵਾਈਸ ਨੂੰ ਇੱਕ ਨਾਮ ਦਿਓ।',
   'addDevice.field.firmware': 'ਫਰਮਵੇਅਰ ਵਰਜਨ',
   'addDevice.field.manufacturer': 'ਨਿਰਮਾਤਾ',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'ਜਾਂਚ...',
   'automationEditor.testNew': 'ਇਸਦੀ ਜਾਂਚ ਕਰਨ ਲਈ ਪਹਿਲਾਂ ਆਟੋਮੇਸ਼ਨ ਨੂੰ ਸੇਵ ਕਰੋ।',
   'automationRow.lastRun': 'ਆਖਰੀ {{date}} · {{count}} ਦੌੜਦਾ ਹੈ',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ਦੌੜੋ {{name}} ਹੁਣ',
   'automations.empty': 'ਅਜੇ ਕੋਈ ਆਟੋਮੇਸ਼ਨ ਨਹੀਂ ਹੈ — ਆਪਣਾ ਪਹਿਲਾ ਰੁਟੀਨ ਬਣਾਓ।',
   'automations.eyebrow': 'ਰੁਟੀਨ',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ਆਟੋਮੇਸ਼ਨ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'automations.newAutomation': '+ ਨਵਾਂ',
   'automations.subheading': 'ਜਦੋਂ ਇਹ ਵਾਪਰਦਾ ਹੈ, ਤਾਂ ਇਹ ਕਰੋ — YAML ਤੋਂ ਬਿਨਾਂ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ਡਿਵਾਈਸ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ...',
   'deviceDetail.unnamed': 'ਡਿਵਾਈਸ',
   'deviceStatusRow.on': 'ਚਾਲੂ',
+  'deviceStatusRow.turnOff': 'ਬੰਦ ਕਰ ਦਿਓ',
+  'deviceStatusRow.turnOn': 'ਚਾਲੂ ਕਰੋ',
   'deviceStatusRow.watts': '{{watts}} ਡਬਲਯੂ',
   'energy.eyebrow': 'ਪਾਵਰ',
   'energy.heading': 'ਊਰਜਾ',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ਯੋਜਨਾਵਾਂ ਵੇਖੋ',
   'settings.security.heading': 'ਸੁਰੱਖਿਆ',
   'settings.subheading': 'ਯੋਜਨਾ, ਹੱਬ, ਅਤੇ ਖਾਤਾ ਤਰਜੀਹਾਂ।',
+  'smartHomeDashboardLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
 }

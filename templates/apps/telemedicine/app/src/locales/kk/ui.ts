@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Кездесуді брондау',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Көрсететін науқастар жоқ.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'consult.backLink': 'Барлық кездесулер',
   'consult.captions': 'Жазулар',
   'consult.connected': 'Қосылған · 720p · тұрақты',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Пациенттер',
   'patientVitalsHero.scripts': 'Рецепт бойынша ашық',
   'patientVitalsHero.subline': '{{count}} бүгін сіздің кестеңіз бойынша кеңес береді',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'prescriptions.empty': 'Ешқандай рецепт сәйкес келмейді.',
   'prescriptions.eyebrow': 'Электронды рецепт бойынша дәрі-дәрмек',
   'prescriptions.heading': 'Рецепттер',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Құпиялылық туралы ескерту',
   'privacy.use.body':
     'Медициналық көмек көрсету, кездесулер туралы еске салғыштарды жіберу, рецепттерді жолдау және қызмет көрсету сенімділігін арттыру үшін. Біз сіздің деректеріңізді ешқашан сатпаймыз және клиникалық ақпаратты жарнама берушілермен ешқашан бөліспейміз.',
+  'providers.allSpecialties': 'Барлық мамандықтар',
+  'providers.loadError': 'Провайдерлерді жүктеу сәтсіз аяқталды.',
+  'providers.loading': 'Жүктелуде…',
   'providers.noResults': 'Ешқандай провайдер табылмады.',
   'providers.searchPlaceholder': 'Аты-жөні, мамандығы бойынша іздеу...',
   'providers.title': 'Қызмет көрсетушіні табу',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Күннің басталуы',
   'settings.availability.heading': 'Қолжетімділік',
   'settings.devices.thisDevice': 'Бұл құрылғы',
+  'settings.devices.unnamed': 'Атауы жоқ құрылғы',
   'settings.eyebrow': 'Тәжірибе және есеп',
   'settings.loadError': 'Профиліңізді жүктеу мүмкін болмады.',
   'settings.notifications.emailMessages':
@@ -180,6 +186,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Өшіру',
   'settings.security.twoFactor.enable': 'Қосу',
   'settings.security.twoFactor.heading': 'Екі факторлы аутентификация',
+  'settings.security.twoFactor.invalidCode': 'Бұл код сәйкес келмеді. Қайталап көріңіз.',
+  'settings.security.twoFactor.setupFailed':
+    'Екі факторлы орнатуды бастау мүмкін болмады. Қайталап көріңіз.',
+  'settings.security.twoFactor.statusOn': 'Екі факторлы режим қосулы',
   'settings.signOutDevice': 'Шығу',
   'settings.subheading':
     'Қызмет көрсетушінің профилі, тәжірибе ережелері және клиникалық ескертулер.',
@@ -191,6 +201,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Аккаунт ашу',
   'signupFooter.hipaa': 'HIPAA-ға сәйкес келеді',
   'solaceLayout.primaryNavLabel': 'Негізгі навигация',
+  'solaceLayout.toggleMenu': 'Мәзірді ауыстыру/жасыру',
   'terms.eligibility.body':
     'Сіз кемінде он сегіз жаста болуыңыз керек немесе сіз күтім іздеп жүрген кәмелетке толмаған баланың ата-анасы немесе заңды қамқоршысы болуыңыз керек және біздің дәрігерлеріміз лицензияланған АҚШ штатында физикалық тұрғыдан тұруыңыз керек.',
   'terms.payment.body':

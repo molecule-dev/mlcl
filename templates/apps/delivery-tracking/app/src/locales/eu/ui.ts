@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'alerts.acknowledgeLabel': 'Onartu',
   'alerts.customerLabel': 'Bezeroa: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Konektatzen…',
   'carriers.requiredError': 'Izena eta kodea beharrezkoak dira.',
   'carriers.subheading': '{{count}} integratuta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
+  'common.retry': 'Saiatu berriro',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Bidean + markatuta',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'bidalketak',
   'pricing.trackingLabel': 'gertaeren jarraipena',
   'profile.dangerZone.title': 'Arrisku-eremua',
+  'profile.devices.signingOut': 'Saioa isten…',
+  'profile.devices.unnamed': 'Gailu izengabea',
+  'profile.security.disable2fa': 'Desgaitu 2FA',
   'profile.security.enable2fa': 'Gaitu 2FA',
   'profile.security.pwChanged': 'Pasahitza behar bezala aldatu da.',
   'profile.security.pwCurrent': 'Uneko pasahitza',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktiboa',
   'profile.security.twoFaCode': '6 digituko kodea',
   'profile.security.twoFaDisable': 'Desgaitu',
+  'profile.security.twoFaDisabling': 'Desgaitzen…',
   'profile.security.twoFaFailed': 'Ezin izan da kodea egiaztatu.',
   'profile.security.twoFaIntro':
     'Eskaneatu QR kodea zure autentifikazio aplikazioan, eta sartu beheko 6 digituko kodea egiaztatzeko.',
   'profile.security.twoFaOn': 'Bi faktoreko autentifikazioa gaituta dago kontu honetan.',
+  'profile.security.twoFaQrAlt': 'Bi faktoreko QR kodea',
   'profile.security.twoFaVerify': 'Egiaztatu eta gaitu',
   'profile.security.twoFaVerifying': 'Egiaztatzen…',
   'profile.subheading': 'Lan-eremu honen identitate- eta segurtasun-ezarpenak.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Gorde sekretu hau — ez da berriro erakutsiko.',
   'settings.api.webhookSecret': 'Webhook sinadura sekretua',
   'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
+  'settings.deleteAccountConfirm': 'Ziur zaude? Ekintza hau ezin da desegin.',
   'settings.notifications.exceptions':
     'Bidali mezu elektroniko bat bidalketa-salbuespen bat gertatzen denean',
   'settings.notifications.heading': 'Jakinarazpenak',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Ez da bidalketa aurkitu.',
   'shipmentDetail.originHeading': 'Jatorria',
   'shipmentDetail.shippedOn': 'Bidalita {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Ez dago jarraipen-gertaerarik oraindik — eguneraketak hemen agertzen dira garraiolariak paketea eskaneatzen duen heinean.',
   'shipmentDetail.weightLabel': '{{weight}} libra',
   'shipments.col.carrier': 'Garraiolaria',
   'shipments.col.eta': 'Iritsiera-ordua',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Hasi saioa',
   'signup.submit': 'Sortu kontua',
   'team.emailError': 'Baliozko helbide elektroniko bat behar da.',
+  'team.empty':
+    'Oraindik ez dago taldekiderik. Gonbidatu taldekide bat bidalketetan elkarlanean aritzera.',
   'team.eyebrow': 'Kideak eta baimenak',
   'team.inviteDialog.cancel': 'Utzi',
   'team.inviteDialog.heading': 'Gonbidatu taldekide bat',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Pista',
   'waypointLayout.primaryNavLabel': 'Nabigazio nagusia',
   'webhooks.createFailed': 'Ezin izan da webhook amaiera-puntua sortu.',
+  'webhooks.endpointsEmpty':
+    'Ez dago webhook amaiera-punturik oraindik. Sortu bat bidalketaren egoeraren erantzunak jasotzeko.',
   'webhooks.endpointsHeading': 'Amaiera-puntuak',
   'webhooks.eventCount': '{{count}} ekitaldiak',
   'webhooks.eventsHeading': 'Azken bidalketak',

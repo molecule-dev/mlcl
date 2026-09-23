@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.featureDiscover.title': 'پریرتا، ہاتھ سے اٹھایا',
   'account.addPaymentCta': 'ادائیگی کا طریقہ شامل کریں۔',
   'account.addPaymentError': 'ادائیگی کا طریقہ شامل نہیں کیا جا سکا۔',
+  'account.confirmRemove': 'ہٹانے کی تصدیق کریں۔',
   'account.defaultBadge': 'طے شدہ',
   'account.loyalty.pointsTowardNext': '{{پوائنٹس}} کی {{اگلا}} میل سے {{اگلا درجہ}}',
   'account.loyalty.tier': 'موجودہ درجہ',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'سفر کی تفصیلات',
   'booking.tripSummary': '{{nights}} راتیں · {{guests}} مہمان',
   'common.daysAgo': '{{count}} ڈی پہلے',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.hoursAgo': '{{count}} گھنٹہ پہلے',
   'common.minutesAgo': '{{count}} m پہلے',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'قانونی',
   'notifications.loading': 'لوڈ ہو رہا ہے…',
   'notifications.subheading': '{{count}} بغیر پڑھے ہوئے · سب کچھ ایک پرسکون ان باکس میں',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.accommodationsLabel': 'رہائش',
   'pricing.bookingsLabel': 'بکنگ',
   'pricing.destinationsLabel': 'محفوظ شدہ منزلیں',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'پریرتا، بھروسہ مند قیام، اور ڈے ڈریم سے بکنگ تک کا ایک بے ہنگم راستہ — 14 ممالک اور 200+ ہاتھ سے جانچی گئی پراپرٹیز میں۔',
   'sojournHeroSearchCard.trustProtected': 'مفت منسوخی، مکمل طور پر محفوظ',
   'sojournHeroSearchCard.trustVetted': 'صرف ہاتھ سے جانچی گئی خصوصیات',
+  'travelBookingLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'tripDetail.backLink': 'دوروں پر واپس جائیں۔',
   'tripDetail.cancelCta': 'بکنگ منسوخ کریں۔',
   'tripDetail.cancelHeading': 'اس سفر کو منسوخ کریں؟',

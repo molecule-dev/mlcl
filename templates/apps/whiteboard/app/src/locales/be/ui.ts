@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'authShell.brandHeading':
     'Шматкарыстальніцкія палотны для дызайнерскіх каманд, якія думаюць уголас.',
   'billing.canceled': 'Падпіска адменена.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Пачаць з шаблону',
   'boards.title': 'Вашы дошкі',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Увядзіце адрас электроннай пошты, звязаны з вашай працоўнай прасторай, і мы дашлем вам спасылку для скіду налад.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Створаны для бязладнага, генератыўнага мыслення ў рэальных умовах.',
   'landing.demoBoard.title': 'Семінар за першы квартал · Голас брэнда',
   'landing.featuresTitle': 'Хуткая зваротная сувязь. Прыгожыя палотны. Нулявае трэнне.',
+  'landing.hero.body':
+    '{{appName}} — гэта шматкарыстальніцкая дошка для дызайнерскіх каманд, фасілітатараў майстар-класаў і выкладчыкаў, якія праводзяць жывыя мазгавыя штурмы і маюць патрэбу ў тым, каб ідэі сабраліся ў адным месцы.',
   'landing.hero.primaryCta': 'Стварыце дошку бясплатна',
   'landing.hero.socialProof': 'Давераны {{count}} дызайнерскія каманды па ўсім свеце',
   'landing.hero.title': 'Палатно такое ж хуткае, як і вашы думкі',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Стварыце бясплатную працоўную прастору',
   'login.subheading':
     'Працягвайце з таго месца, на якім спыніўся майстар-клас — дошкі, нататкі і курсоры сінхранізуюцца ў рэжыме рэальнага часу.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.new': 'Новы',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'notifications.editTitle': 'Рэдагаванне " {{board}} "',
   'notifications.empty.body':
     "Запрашэнні, захаваныя здымкі і нядаўнія рэдагаванні дошкі будуць з'яўляцца тут па меры іх унясення.",
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Гісторыя версій',
   'versionHistory.untitledSnapshot': 'Здымак без назвы',
   'whiteboardLayout.newBoard': 'Новая дошка',
+  'whiteboardLayout.primaryNav': 'Асноўная навігацыя',
   'workspace.boardLabel': 'Дошка',
   'workspace.eyebrow': '{{name}} · працоўная прастора',
   'workspace.invite': 'Запрасіць калег',

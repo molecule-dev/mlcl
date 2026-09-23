@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
   'actions.empty': 'Nincs egyező teendő.',
   'actions.heading': 'Teendők',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Előző hónap',
   'calendar.recent': 'Legutóbbi',
   'common.daysAgo': '{{count}}n ezelőtt',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.hoursAgo': '{{count}}ó ezelőtt',
   'common.no': '—',
+  'common.retry': 'Újra',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} teendő',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Ellenőrizze beérkezőjét a visszaállítási hivatkozásért.',
   'forgot.subheading': 'Adja meg e-mail-címét, és küldünk egy visszaállítási hivatkozást.',
   'integrations.disconnected': 'Leválasztva',
+  'integrations.loadError': 'Az integrációk betöltése nem sikerült.',
   'integrations.notConnectedTag': 'Nincs csatlakoztatva',
   'integrations.subheading':
     'Csatlakoztasson naptárakat és videoplatformokat, hogy a Murmur automatikusan csatlakozzon.',
+  'integrations.updateError': 'Frissítés sikertelen.',
   'landing.ctaButton': 'Kezdje el – ingyenes',
   'landing.ctaHeading': 'Hagyja abba a jegyzetek készítését. Kezdjen döntéseket hozni.',
   'landing.demo.aiLabel': 'AI összefoglaló, élőben szerkesztve',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Utókövetések',
   'meetingDetail.loadError': 'Az értekezlet betöltése sikertelen.',
   'meetingDetail.noActions': 'Nem található teendő.',
+  'meetingDetail.none': 'Nincs.',
   'meetingDetail.notFound': 'Az értekezlet nem található.',
+  'meetingDetail.speakerFallback': 'Előadó{{id}}',
   'meetingDetail.summaryHeading': 'AI összefoglaló',
   'meetingDetail.transcriptHeading': 'Átirat',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Értekezletek',
   'meetings.loadError': 'Az értekezletek betöltése sikertelen.',
   'meetings.subheading': 'Minden rögzített, feltöltött és szinkronizált értekezlet.',
+  'murmurLayout.openMenu': 'Navigációs menü megnyitása',
   'murmurLayout.primaryNavLabel': 'Elsődleges navigáció',
   'nav.legal': 'Jogi',
   'notifications.loadError': 'Az értesítések betöltése sikertelen.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Hogyan jelenik meg a Murmuron.',
   'record.error.empty': 'Nem rögzült hanganyag.',
   'record.error.permission': 'A mikrofon-engedély megtagadva.',
+  'record.error.recorder': 'Felvevőhiba',
   'record.error.unsupported':
     'A böngészője nem támogatja a felvételt. Próbálja Chrome-mal, Edge-dzsel vagy Safarival.',
   'record.error.upload': 'A feltöltés sikertelen. Próbálja újra.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Új jelszó',
   'reset.subheading': 'Válasszon olyan jelszót, amelyet máshol nem használ.',
   'search.empty': 'Írjon az átiratok kereséséhez.',
+  'search.loadError': 'A keresés sikertelen volt. Próbálja meg újra.',
   'search.noResults': 'Nincs találat a következőre: „ {{q}} „”.',
   'settings.appearance.description': 'Váltás a világos és sötét mód között.',
   'settings.appearance.title': 'Megjelenés',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nem sikerült betölteni a beállításokat.',
   'settings.loading': 'Betöltés…',
   'settings.push.heading': 'Push értesítések',
+  'settings.push.subheading':
+    'Kapjon böngészőn keresztül értesítéseket az említésekről, a teendőkről és az összefoglalásokról.',
   'settings.retention.audio': 'Hang megőrzése',
   'settings.retention.heading': 'Megőrzés',
   'settings.retention.transcript': 'Átiratok megőrzése',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Kezdje el rögzíteni az értekezletek feljegyzéseit percek alatt',
   'signup.terms':
     'Fiók létrehozásával elfogadja Felhasználási feltételeinket és Adatvédelmi irányelveinket.',
+  'signup.termsPrefix': 'Fiók létrehozásával elfogadja a',
   'team.inviteCta': 'Csapattag meghívása',
   'team.invitedAs': 'Meghívva: {{role}}',
   'team.inviteFailed': 'A meghívó küldése sikertelen.',

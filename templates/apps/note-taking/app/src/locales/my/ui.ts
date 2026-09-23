@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'forgot.eyebrow': 'ပြန်ဝင်ဖို့ လမ်းပျောက်နေလား။',
   'forgot.formSubtitle': 'ဖိုင်ထဲမှာရှိတဲ့ အီးမေးလ်ကို ပြောပြပါ။',
   'forgot.headline': 'သင့်စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပါ။',
@@ -41,6 +42,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'တစ်ခု ဖန်တီးပါ',
   'login.subline':
     'သင့်ရဲ့ မှတ်စုစာအုပ်တွေ၊ backlink တွေနဲ့ နေ့စဉ်စာမျက်နှာတွေဟာ သင်ထားခဲ့တဲ့ နေရာမှာပဲ ရှိနေမှာပါ။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'noteEditor.backToNotes': 'မှတ်စုများသို့ ပြန်သွားရန်',
   'noteEditor.bodyPlaceholder':
     'ရေးသားစတင်ပါ — သင်စာရိုက်နေစဉ် သင့်မှတ်စုကို အလိုအလျောက်သိမ်းဆည်းပါသည်။',
@@ -57,6 +60,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'မှတ်စုစာအုပ်အသစ်',
   'notes.newNotebookPrompt': 'မှတ်စုစာအုပ်အသစ်အမည်',
   'notes.notebooksHeading': 'မှတ်စုစာအုပ်များ',
+  'notes.subtitle':
+    'ဘယ်ဘက်ရှိ မှတ်စုစာအုပ်တစ်အုပ်ကို ရွေးချယ်ပြီးနောက် အသစ်တစ်ခုစတင်ရန် New note ခလုတ်ကို နှိပ်ပါ။',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'သင့်ရဲ့ မှတ်စုယူခြင်း အစီအစဉ်ကို ရွေးချယ်ပါ',
   'reset.eyebrow': 'ပြန်ဝင်ခါနီးပြီ',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'အပ်ဒိတ်လုပ်ထားသည်',
   'versoLayout.nav.graph': 'ဂရပ်',
   'versoLayout.nav.home': 'အိမ်',
+  'versoLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'versoNoteCard.pinned': 'ပင်ထိုးထားသည်',
   'versoTodayHero.continueCta': 'ဆက်လက်ရေးသားပါ',
   'versoTodayHero.createCta': 'ဒီနေ့မှတ်စုကိုစတင်ပါ',

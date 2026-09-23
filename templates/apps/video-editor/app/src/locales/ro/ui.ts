@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai găsit o eroare, ai o solicitare de funcționalitate sau vrei să ne spui despre filmul pe care l-ai montat? Fiecare mesaj ajunge la o persoană reală din echipă — contactează-ne oricând din setările contului tău.',
+  'about.contactTitle': 'Contactează-ne',
+  'about.eyebrow': '// studioul din spatele montajului',
   'about.pageTitle': 'Despre {{appName}}',
   'assetDetail.back': 'Înapoi la bibliotecă',
   'assetDetail.confirmDelete': 'Ștergeți " {{name}} „? Această acțiune nu poate fi anulată.”',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} clipuri, suporturi audio și grafică gata de încărcat în cronologie.',
   'assetLibrary.title': 'Active',
   'assetLibrary.upload': 'Adăugați un element',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.browseTemplates': 'Răsfoiți șabloanele →',
   'dashboard.loading': 'Se încarcă proiectele…',
   'dashboard.noProjects': 'Niciun proiect încă — creează unul pentru a începe.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Alege ceva ce ți-ai aminti doar tu.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Confidențialitate',
+  'rushesLayout.closeMenu': 'Închide navigarea',
   'rushesLayout.guest': 'Editor',
+  'rushesLayout.navDialog': 'Navigare',
+  'rushesLayout.openMenu': 'Deschideți navigarea',
   'rushesLayout.planFree': 'Plan gratuit',
   'rushesLayout.tagline': 'Cronologie cinematografică',
   'settings.billing.confirmCancel': 'Anulați abonamentul la sfârșitul perioadei?',

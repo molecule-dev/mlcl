@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'auditLog.empty':
     'Таны шүүлтүүртэй тохирох аудитын үйл явдал хараахан алга байна. Ажилтныг засах эсвэл цалингийн бүртгэлийг боловсруулахад тэдгээр нь энд харагдах болно.',
   'auditLog.eyebrow': 'Дагаж мөрдөх',
+  'auditLog.loadError': 'Аудитын бүртгэлийг ачаалж чадсангүй.',
   'auditLog.searchPlaceholder': 'Жүжигчин, үйлдэл эсвэл тайлбараар хайх',
   'auditLog.subheading':
     'Зөвшөөрөл, засвар, татварын тайлан бүрийг гүйцэтгэгч, цагийн тэмдэг, өөрчлөгдсөн талбаруудтай хамт хийнэ.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Тохиргоо хийгдээгүй байна',
   'billing.plansHeading': 'Төлөвлөгөө',
   'billing.subheading': 'Stripe-ээр дамжуулан төлөвлөгөөгөө удирдаж, түвшингээ соль.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Дахин оролдох',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Хууль эрх зүйн байдлын товч мэдээлэл',
   'dashboard.compliance.title': 'Бүх шалгалтууд давж байна',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Хасалтын бүртгэл байхгүй.',
   'employeeDetail.notFound': 'Ажилтан олдсонгүй.',
   'employeeDetail.payFrequency': 'Төлбөрийн давтамж',
+  'employeeDetail.postTax': 'Татварын дараах',
+  'employeeDetail.preTax': 'Татварын өмнөх',
   'employeeDetail.salary': 'Жилийн цалин',
   'employeeDetail.ssn': 'Нийгмийн даатгалын дугаар',
   'employeeDetail.startedOn': 'Эхлүүлсэн {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Төлбөрийн давтамж',
   'employeeForm.salary': 'Жилийн цалин (ам.доллар)',
   'employeeForm.salaryInvalid': 'Цалин нь сөрөг бус тоо байх ёстой.',
+  'employeeForm.saveError': 'Ажилтныг аварч чадаагүй.',
   'employeeForm.semimonthly': 'Хагас сар тутмын',
   'employeeForm.single': 'Ганц бие',
   'employeeForm.ssn': 'Нийгмийн даатгалын дугаар',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Цалин',
   'forgotPassword.subtitle':
     'Ажлын имэйл хаягаа оруулна уу, бид дахин тохируулах холбоос илгээх болно.',
+  'landing.copyright': '© {{year}} {{app}} . Нарийвчлалтай, найдвартай, эмх цэгцтэй.',
   'landing.ctaBody':
     '30 хоногийн турш үнэгүй. Зээлийн карт ашиглах шаардлагагүй. Аудитын мөрөө алдахгүйгээр хүссэн үедээ сольж болно.',
   'landing.ctaHeading': 'Дараагийн мөчлөгөө Stipend дээр ажиллуулна уу',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Энэ цалингийн гүйлгээний аудитын бичилт хараахан хийгдээгүй байна.',
   'payRunDetail.noStubs':
     'Цалингийн баримт хараахан байхгүй байна — тэдгээрийг үүсгэхийн тулд баталж, боловсруулна уу.',
+  'payRunDetail.notFound': 'Энэ цалингийн гүйлгээ олдсонгүй.',
   'payRunDetail.statDeductions': 'Хасалтууд',
   'payRunDetail.statHeadcount': 'Ажилчид',
   'payRunDetail.statTaxes': 'Татварыг суутгасан',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Хагас сар тутмын',
   'settings.signOutDevice': 'Гарах',
   'settings.subheading': 'Компанийн танилцуулга, цалингийн хуваарь болон интеграцчлалууд.',
+  'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorInvalidCode': 'Буруу код',
+  'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'settings.weekly': 'Долоо хоног бүр',
   'taxCenter.bucket.federal': 'Холбооны орлого',
   'taxCenter.bucket.fica': 'Нийгмийн даатгал',

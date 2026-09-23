@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
   'argentAuthShell.brandEyebrow': 'ਪੈਸਾ · ਵੈਲਥ ਟੂਲਿੰਗ',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ਨਿਵੇਸ਼ ਸਲਾਹ ਨਹੀਂ।',
   'argentAuthShell.sampleChange': 'ਅੱਜ +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ਇਸ ਟਿੱਕਰ ਲਈ ਕੋਈ ਲੈਣ-ਦੇਣ ਨਹੀਂ।',
   'assetDetail.txHeading': 'ਤੁਹਾਡੇ ਲੈਣ-ਦੇਣ',
   'common.and': 'ਅਤੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ਪੋਰਟਫੋਲੀਓ ਸੰਖੇਪ ਜਾਣਕਾਰੀ',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ਅਜੇ ਕੋਈ ਹੋਲਡਿੰਗ ਨਹੀਂ।',
   'holdings.heading': 'ਹੋਲਡਿੰਗਜ਼',
   'holdings.loadError': 'ਹੋਲਡਿੰਗਜ਼ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'landing.copyright':
+    '© {{year}} {{app}} . ਨਿਵੇਸ਼ ਸਲਾਹ ਨਹੀਂ। ਪਿਛਲੀ ਕਾਰਗੁਜ਼ਾਰੀ ਭਵਿੱਖ ਦੇ ਨਤੀਜਿਆਂ ਦੀ ਗਰੰਟੀ ਨਹੀਂ ਦਿੰਦੀ।',
   'landing.eyebrow': 'ਅਰਜੈਂਟ · ਇੱਕ ਦੌਲਤ-ਟੂਲਿੰਗ ਪਲੇਟਫਾਰਮ',
   'landing.features.heading': 'ਹਰ ਚੀਜ਼ ਜੋ ਇੱਕ ਸਲਾਹਕਾਰ ਆਪਣੇ ਲਈ ਬਣਾਏਗਾ।',
   'landing.finalCta.heading': 'ਆਪਣੇ ਪੋਰਟਫੋਲੀਓ ਵਿੱਚ ਅਨੁਸ਼ਾਸਨ ਵਾਪਸ ਲਿਆਓ।',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ਘੰਟਾ ਪਹਿਲਾਂ',
   'news.justNow': 'ਹੁਣੇ ਹੀ',
   'news.loadError': 'ਖ਼ਬਰਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'portfolioHeroCard.label': 'ਪੋਰਟਫੋਲੀਓ ਮੁੱਲ',
   'pricing.holdingsLabel': 'ਹੋਲਡਿੰਗਜ਼',
   'pricing.newsLabel': 'ਖ਼ਬਰਾਂ ਦੇ ਲੇਖ',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'ਖਾਤਾ ਮਿਟਾਓ',
   'settings.security.deleting': 'ਮਿਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'settings.security.heading': 'ਸੁਰੱਖਿਆ',
+  'settings.security.newPassword': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'settings.security.password': 'ਪਾਸਵਰਡ',
   'settings.security.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.security.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
+  'settings.security.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'settings.tax.error': 'ਟੈਕਸ ਵਿਧੀ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'settings.tax.heading': 'ਟੈਕਸ ਲਾਟ ਅਕਾਊਂਟਿੰਗ',
   'settings.tax.method': 'ਡਿਫਾਲਟ ਵਿਧੀ',

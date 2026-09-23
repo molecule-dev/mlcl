@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Kuangalia',
   'auctionDetail.watchRemoved': 'Imeondolewa kwenye orodha ya kutazama.',
   'auctionDetail.watchRemoveLabel': 'Ondoa kwenye orodha ya kutazama',
+  'auctionPlatformLayout.primaryNavLabel': 'Usogezaji mkuu',
   'authShell.brandBody':
     'Zabuni kwa wakati halisi kwenye saa adimu, sanaa nzuri, na vitu maalum vya kipekee. Gavel huanguka kwa sekunde chache.',
   'authShell.brandEyebrow': 'Inapatikana sasa · Minada 1,420',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Panga kulingana na',
   'browseAuctions.subheading':
     'Chuja kwa kategoria, panga kulingana na kile muhimu zaidi, na weka zabuni kabla ya gavel kuanguka.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'countdownTimer.ended': 'Imeisha',
   'countdownTimer.endingSoon': 'Mwisho',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ficha nenosiri',
   'login.showPassword': 'Onyesha nenosiri',
   'login.subtext': 'Endelea kufuatilia minada yako na uweke zabuni kabla ya kuanguka kwa gavel.',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'myBids.bidAgain': 'Zabuni tena',
   'myBids.browseCta': 'Vinjari minada ya moja kwa moja →',
   'myBids.checkoutCta': 'Lipa sasa',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Kituo cha shughuli',
   'notificationsPage.subheading':
     '{{count}} haijasomwa · masasisho ya moja kwa moja huku minada ikihama',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.bidsLabel': 'zabuni',
   'pricing.listingsLabel': 'orodha',
   'pricing.watchlistLabel': 'orodha ya kutazama',

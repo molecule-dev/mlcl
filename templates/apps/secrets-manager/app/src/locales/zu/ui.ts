@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'about.tagline': 'Izimfihlo ziyafa obala.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Dala ithokheni',
   'apiTokens.kicker': 'Amathokheni e-API',
   'apiTokens.loading': 'Ilayisha amathokheni…',
+  'apiTokens.new': 'Ithokheni entsha',
   'apiTokens.revoke': 'Buyisa ithokheni',
   'apiTokens.subheading':
     'Amathokheni omuntu siqu nawesevisi e-Arcanum CLI kanye ne-SDK. Umbhalo ocacile uboniswa kanye ekudalweni.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'I-SSO + Ukhiye Wokudlula',
   'authShell.zeroKnowledge': 'Ukubethela okungenalo ulwazi',
   'common.connecting': 'Iyaxhuma…',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.inviting': 'Iyamema…',
   'forgotPassword.checkInbox':
     'Uma i-{email} ibhalisiwe, isixhumanisi sokusetha kabusha esisayiniwe sizofika kungakapheli umzuzu.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Isimo sokuzungeza, izexwayiso ezingavamile, kanye nezicelo zokugunyazwa kuyo yonke indawo yokugcina impahla.',
   'notifications.unreadEmpty': 'Ibhokisi lokungenayo liyi-zero — konke sekuphelile.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.heading': 'izimfihlo',
   'pricing.limits.accessPolicies': 'izinqubomgomo zokufinyelela',
   'pricing.limits.auditLog': 'okufakiwe kwelogi yokuhlola',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'I-akhawunti yomuntu siqu',
   'profile.plan.description': 'Phatha okubhalisele kwakho, bona imikhawulo, futhi uthuthukise.',
   'profile.subheading': 'Ubunikazi, amadivayisi esici sesibili, kanye nezikhathi ezisebenzayo.',
+  'profile.twoFactor.code': 'Ikhodi yokuqinisekisa',
   'profile.twoFactor.disable': 'Khubaza',
   'profile.twoFactor.enable': 'Nika amandla',
+  'profile.twoFactor.invalidCode': 'Ikhodi engavumelekile',
   'profile.twoFactor.kicker': 'Ukuqinisekiswa kwezinto ezimbili',
+  'profile.twoFactor.off': 'Akuvunyelwe',
   'profile.twoFactor.on': 'Kunikwe amandla',
   'resetPassword.email': 'I-imeyili ye-akhawunti',
   'resetPassword.heading': 'Setha iziqinisekiso ezintsha',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'imiyalo',
   'secretsManagerLayout.encrypted': 'I-AES-256 · KUBHALWE',
   'secretsManagerLayout.newVault': 'Indlu entsha yokugcina impahla',
+  'secretsManagerLayout.newVaultShort': 'Okusha',
   'secretsManagerLayout.rotations': 'Ukujikeleza',
   'secretsManagerLayout.search': 'sesha',
   'secretsManagerLayout.searchPlaceholder': 'Sesha izimfihlo ngokhiye, indlela, noma ithegi…',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Izimfihlo',
   'vaultCard.vaultLabel': 'I-Vault',
   'vaultDetail.addSecret': 'Engeza imfihlo',
+  'vaultDetail.back': 'Zonke izindawo zokugcina impahla',
   'vaultDetail.col.key': 'Ukhiye',
   'vaultDetail.col.rotated': 'Kujikelezisiwe',
   'vaultDetail.col.value': 'Inani',

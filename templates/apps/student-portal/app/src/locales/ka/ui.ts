@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'announcementsFeed.empty': 'ჯერ განცხადებები არ არის.',
   'announcementsFeed.eyebrow': '{{count}} განახლებები',
   'announcementsFeed.title': 'უახლესი განცხადებები',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'სხვა მდგომარეობაში მყოფი დავალებების სანახავად, გადართეთ ზემოთ მოცემული ფილტრები.',
   'assignments.eyebrow': 'ყველა კურსი · ამ სემესტრში',
+  'assignments.loadError': 'დავალებების ჩატვირთვა ვერ მოხერხდა.',
   'assignments.loading': 'დავალებები იტვირთება…',
   'assignments.subtitle':
     'სტატუსის მიხედვით გაფილტრეთ, რომ ნახოთ, რა არის გადასახდელი, წარდგენილი, შეფასებული ან რა აკლია.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'შენიშვნა',
   'attendance.empty': 'დასწრების ჩანაწერები ჯერ არ არის.',
   'attendance.eyebrow': 'გაზაფხულის სემესტრი · ბოლო 4 კვირა',
+  'attendance.loadError': 'დასწრების ჩანაწერების ჩატვირთვა ვერ მოხერხდა.',
   'attendance.loading': 'დასწრება იტვირთება…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'დავალებების წარდგენის ბოლო თარიღები თვის ბადეზეა გამოსახული — გამოცდები წითლად გამოირჩევა.',
   'calendar.title': '{{month}} ღონისძიებები',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
+  'common.retry': 'ხელახლა სცადეთ',
   'common.yes': '✓',
   'courseDetail.backLink': 'შეფასებები',
   'courseDetail.currentGrade': 'მიმდინარე კლასი',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ტენდენცია',
   'grades.empty': 'ჯერ არ გამოქვეყნებულა შეფასებები.',
   'grades.eyebrow': 'ნიშნების წიგნი',
+  'grades.loadError': 'თქვენი შეფასებების ჩატვირთვა ვერ მოხერხდა.',
   'grades.loading': 'იტვირთება შეფასებები…',
   'grades.subtitle':
     'პირდაპირი ასოებითა და პროცენტებით შეფასება. ტენდენციის ისრები გიჩვენებთ, მაღლა მოძრაობთ, დონით თუ სრიალდებით.',
   'grades.title': 'თქვენი შეფასებები, კურსიდან კურსამდე',
   'grades.trendStable': 'სტაბილური',
+  'landing.copyright': '© {{year}} {{app}} . შექმნილია სტუდენტებისთვის, ოჯახებისთვის.',
   'landing.ctaHeading': 'უფრო მშვიდი სასკოლო დღე წუთებში იწყება',
   'landing.eyebrow': 'საშუალო და უმაღლესი სკოლის მოსწავლეებისთვის',
   'landing.featuresHeading': 'მოსწავლის გარშემო ორგანიზებული სასკოლო დღე',
@@ -114,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'დავალებები',
   'nav.attendance': 'დასწრება',
   'nav.calendar': 'კალენდარი',
+  'nav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
   'nav.grades': 'შეფასებები',
+  'nav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'nav.statusEyebrow': 'სემესტრის საშუალო მაჩვენებელი',
   'nav.statusSubtext': 'საპატიო სია · გაზაფხულის სემესტრი',
+  'nav.unreadMessages': 'წაუკითხავი შეტყობინებები',
   'notifications.eyebrow': '{{count}} განახლებები',
   'notifications.subtitle':
     'შეფასებები, შეხსენებები, შეტყობინებები და სკოლის განცხადებები. პარამეტრებში დაარეგულირეთ, თუ რომელ არხებს იყენებს თითოეული შეტყობინება.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.attendanceLabel': 'დასწრება',
   'pricing.gradesLabel': 'შეფასებები',
   'pricing.heading': 'განცხადებები',

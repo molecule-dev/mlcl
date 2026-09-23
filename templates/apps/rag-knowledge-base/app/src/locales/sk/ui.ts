@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.pageTitle': 'O nás {{appName}}',
   'analytics.error': 'Nepodarilo sa načítať analytické údaje.',
   'analytics.heading': 'Analýza vyhľadávania',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nie sú nakonfigurované žiadne cenové úrovne.',
   'billing.plans.heading': 'Plány',
   'billing.subheading': 'Plán, používanie a platba spravovaná systémom Stripe.',
+  'common.confirm': 'Potvrdiť',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.retry': 'Skúsiť znova',
   'documentCard.open': 'Otvoriť \\u2192',
   'documentDetail.back': 'Späť k dokumentom',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indexový dokument',
   'documents.composer.titlePlaceholder': 'Názov dokumentu',
   'documents.emptyAll': 'Zatiaľ žiadne dokumenty. Nahrajte jeden a začnite klásť otázky.',
+  'documents.error.load': 'Dokumenty sa nepodarilo načítať.',
   'documents.heading': 'Indexované dokumenty',
   'documents.loading': 'Načítavajú sa dokumenty…',
   'documents.metric.chunks': 'Celkový počet kusov',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Odstraňuje sa\\u2026',
   'members.subheading': 'Pozvite spoluhráčov a stanovte si úlohy.',
   'members.tableHeading': 'Zostava',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'notFound.askCta': 'Opýtajte sa vedomostnej bázy',
+  'notFound.body':
+    '{{app}} nenašla danú stránku. Odkaz môže byť nefunkčný alebo stránka mohla byť odstránená počas opätovného indexovania.',
   'notFound.eyebrow': 'Nedá sa načítať',
   'notFound.title': 'V indexe nie je takýto blok',
   'notifications.dismiss': 'Zavrieť',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL zdroja',
   'sources.empty.body': 'Kliknite na tlačidlo „Pridať zdroj“ a zapojte prvý konektor.',
   'sources.empty.title': 'Zatiaľ žiadne zdroje.',
+  'sources.error.add': 'Zdroj sa nepodarilo pridať.',
   'sources.error.labelRequired': 'Označenie je povinné.',
   'sources.error.load': 'Nepodarilo sa načítať zdroje.',
   'sources.error.urlRequired': 'Pre tento typ zdroja je povinná URL adresa.',

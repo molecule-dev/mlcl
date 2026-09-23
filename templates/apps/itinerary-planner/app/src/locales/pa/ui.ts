@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
+  'auth.legalConsent': 'ਜਾਰੀ ਰੱਖ ਕੇ, ਤੁਸੀਂ ਸਾਡੇ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'bookings.empty.body': 'ਇਨਬਾਕਸ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਉਡਾਣ, ਹੋਟਲ, ਜਾਂ ਗਤੀਵਿਧੀ ਸ਼ਾਮਲ ਕਰੋ।',
   'bookings.empty.heading': 'ਹਾਲੇ ਕੋਈ ਬੁਕਿੰਗ ਨਹੀਂ ਹੋਈ।',
   'bookings.errors.create': 'ਬੁਕਿੰਗ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕੀ।',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'ਪੁਸ਼ਟੀ ਕੀਤੀ ਗਈ',
   'bookings.summary.pending': 'ਪੁਸ਼ਟੀ ਦੀ ਉਡੀਕ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ',
   'bookings.summary.total': 'ਕੁੱਲ ਵਚਨਬੱਧਤਾ',
+  'bookings.type.car': 'ਕਿਰਾਏ ਦੀ ਕਾਰ',
+  'bookings.type.flight': 'ਉਡਾਣ',
+  'bookings.type.hotel': 'ਹੋਟਲ',
   'bookings.type.other': 'ਹੋਰ',
   'budgetSpendCard.budgetTotal': 'ਦੇ {{total}} ਯੋਜਨਾਬੱਧ',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ਟਕਰਾਵਾਂ ਦਾ ਪਤਾ ਲਗਾਓ, ਯਾਤਰਾਵਾਂ ਵਿਚਕਾਰ ਰਿਕਵਰੀ ਦਿਨਾਂ ਦੀ ਯੋਜਨਾ ਬਣਾਓ, ਅਤੇ ਦੇਖੋ ਕਿ ਸਹਿਯੋਗੀ ਤੁਹਾਡੇ ਨਾਲ ਕਦੋਂ ਯਾਤਰਾ ਕਰ ਰਹੇ ਹਨ।',
   'common.and': 'ਅਤੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'dashboard.budgetHeading': 'ਬਜਟ ਪਲਸ',
   'dashboard.empty.heading': 'ਹਾਲੇ ਕੋਈ ਯਾਤਰਾ ਨਹੀਂ ਹੈ — ਤੁਹਾਡਾ ਐਟਲਸ ਖਾਲੀ ਹੈ।',
   'dashboard.eyebrow': 'ਮਿਸ਼ਨ ਕੰਟਰੋਲ',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'ਯਾਤਰਾਵਾਂ ਗਤੀ ਵਿੱਚ',
   'dashboard.viewAllExpenses': 'ਹਰ ਖਰਚਾ ਵੇਖੋ',
   'dashboard.viewAllTrips': 'ਹਰ ਯਾਤਰਾ ਵੇਖੋ',
+  'dayTimelineRow.category.accommodation': 'ਰਹੋ',
   'dayTimelineRow.category.transport': 'ਆਵਾਜਾਈ',
   'destinationOrbCard.exploreCta': 'ਯਾਤਰਾ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ',
   'destinationOrbCard.tripCount': '{{count}} ਯਾਤਰਾਵਾਂ',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'ਕੀ ਅਜੇ ਕੋਈ ਈਮੇਲ ਨਹੀਂ ਹੈ? ਆਪਣੇ ਸਪੈਮ ਫੋਲਡਰ ਦੀ ਜਾਂਚ ਕਰੋ, ਜਾਂ ਕਿਸੇ ਵੱਖਰੇ ਪਤੇ ਨਾਲ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'forgotPassword.successSubheading':
     'ਅਸੀਂ ਇੱਕ ਰਿਕਵਰੀ ਲਿੰਕ ਭੇਜਿਆ ਹੈ {{email}} . ਲਿੰਕ 30 ਮਿੰਟਾਂ ਲਈ ਵੈਧ ਹੈ।',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ਮੁਫ਼ਤ ਖਾਤਾ ਬਣਾਓ',
+  'landing.cta.subheading':
+    "ਮੁਫ਼ਤ ਪਲਾਨ 'ਤੇ ਪੰਜ ਯਾਤਰਾਵਾਂ, ਪੰਜ ਸਹਿਯੋਗੀ, ਅਤੇ ਪੰਜ ਸਟਾਪ - ਰੀਅਲ-ਟਾਈਮ ਸਿੰਕ ਦੇ ਨਾਲ, ਅਤੇ ਪ੍ਰੋ ਤੁਹਾਡੇ ਪਲਾਨ ਵਧਣ 'ਤੇ ਸੀਮਾਵਾਂ ਨੂੰ ਵਧਾਉਂਦੇ ਹਨ।",
   'landing.destinations.eyebrow': 'ਅੱਗੇ ਕਿੱਥੇ ਜਾਣਾ ਹੈ',
   'landing.destinations.heading': 'ਸੰਪਾਦਕ ਦੁਆਰਾ ਚੁਣੇ ਗਏ ਟਿਕਾਣੇ',
   'landing.features.eyebrow': 'ਵੇਅਪੁਆਇੰਟ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ',
   'landing.features.heading': 'ਯਾਤਰੀਆਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ, ਸਪ੍ਰੈਡਸ਼ੀਟਾਂ ਲਈ ਨਹੀਂ।',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ਇੱਕ ਮੁਫ਼ਤ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.hero.ctaSecondary': 'ਇੱਕ ਨਮੂਨਾ ਯਾਤਰਾ ਵੇਖੋ',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ਆਇਰਿਸ ਲਾਰਸਨ',
   'signup.subheading':
     "5 ਸਹਿਯੋਗੀਆਂ ਤੱਕ ਨਾਲ ਯਾਤਰਾਵਾਂ ਸਾਂਝੀਆਂ ਕਰਨ, ਬੁਕਿੰਗਾਂ ਨੂੰ ਸਿੰਕ ਕਰਨ ਅਤੇ ਹਰੇਕ ਪੁਸ਼ਟੀਕਰਨ ਨੂੰ ਇੱਕ ਥਾਂ 'ਤੇ ਲਿਆਉਣ ਲਈ ਇੱਕ ਖਾਤਾ ਬਣਾਓ।",
+  'signup.termsPrefix': 'ਖਾਤਾ ਬਣਾ ਕੇ ਤੁਸੀਂ ਸਾਡੇ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'tripCountdownHeroCard.budget': '{{used}} ਦੇ {{total}} ( {{pct}} ਬਜਟ ਦਾ %)',
   'tripCountdownHeroCard.collaborators': '{{count}} ਯਾਤਰੀ',
   'tripCountdownHeroCard.countdownLabel': 'ਉਲਟੀ ਗਿਣਤੀ',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ਹਾਲੇ ਕੋਈ ਯਾਤਰਾ ਨਹੀਂ।',
   'trips.pastHeading': 'ਪਿਛਲੇ ਸਾਹਸ',
   'trips.subheading': '{{count}} ਯਾਤਰਾ ਪ੍ਰੋਗਰਾਮ - ਭੂਤਕਾਲ, ਵਰਤਮਾਨ, ਅਤੇ ਕਿਸੇ ਦਿਨ।',
+  'waypointLayout.mobileNavClose': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
   'waypointLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
 }

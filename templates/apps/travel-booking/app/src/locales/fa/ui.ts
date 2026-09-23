@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.featureDiscover.title': 'الهام، گلچین شده',
   'account.addPaymentCta': 'روش پرداخت را اضافه کنید',
   'account.addPaymentError': 'روش پرداخت اضافه نشد.',
+  'account.confirmRemove': 'تأیید حذف',
   'account.defaultBadge': 'پیش‌فرض',
   'account.loyalty.pointsTowardNext': '{{امتیازات}} از {{بعدی}} مایل به {{رده بعدی}}',
   'account.loyalty.tier': 'ردیف فعلی',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'جزئیات سفر',
   'booking.tripSummary': '{{nights}} شب‌ها · {{guests}} مهمانان',
   'common.daysAgo': '{{count}} د پیش',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.hoursAgo': '{{count}} ساعت پیش',
   'common.minutesAgo': '{{count}} متر پیش',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'قانونی',
   'notifications.loading': 'در حال بارگذاری…',
   'notifications.subheading': '{{count}} خوانده نشده · همه چیز در یک صندوق ورودی آرام',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.accommodationsLabel': 'اقامتگاه‌ها',
   'pricing.bookingsLabel': 'رزروها',
   'pricing.destinationsLabel': 'مقصدهای ذخیره شده',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'الهام‌بخش، اقامت‌های قابل اعتماد، و مسیری بدون دردسر از رویاپردازی تا رزرو - در ۱۴ کشور و بیش از ۲۰۰ ملک بررسی‌شده.',
   'sojournHeroSearchCard.trustProtected': 'لغو رایگان، کاملاً محافظت‌شده',
   'sojournHeroSearchCard.trustVetted': 'فقط املاک بررسی‌شده دستی',
+  'travelBookingLayout.primaryNavLabel': 'ناوبری اولیه',
   'tripDetail.backLink': 'بازگشت به سفرها',
   'tripDetail.cancelCta': 'لغو رزرو',
   'tripDetail.cancelHeading': 'این سفر را لغو کنیم؟',

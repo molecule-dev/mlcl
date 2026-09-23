@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'auditLog.empty':
     'Δεν υπάρχουν ακόμη συμβάντα ελέγχου που να αντιστοιχούν στα φίλτρα σας. Επεξεργαστείτε έναν υπάλληλο ή επεξεργαστείτε μια πληρωμή και θα εμφανιστούν εδώ.',
   'auditLog.eyebrow': 'Συμμόρφωση',
+  'auditLog.loadError': 'Δεν ήταν δυνατή η φόρτωση του αρχείου καταγραφής ελέγχου.',
   'auditLog.searchPlaceholder': 'Αναζήτηση ανά ηθοποιό, ενέργεια ή περιγραφή',
   'auditLog.subheading':
     'Κάθε έγκριση, επεξεργασία και υποβολή φορολογικής δήλωσης — με τον ηθοποιό, τη χρονική σήμανση και τα τροποποιημένα πεδία.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Δεν έχει ρυθμιστεί',
   'billing.plansHeading': 'Πλάνα',
   'billing.subheading': 'Διαχειριστείτε το πρόγραμμά σας και αλλάξτε επίπεδα μέσω του Stripe.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Επανάληψη',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Σύνοψη συμμόρφωσης',
   'dashboard.compliance.title': 'Όλοι οι έλεγχοι περνούν',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Δεν υπάρχουν κρατήσεις στο αρχείο.',
   'employeeDetail.notFound': 'Δεν βρέθηκε υπάλληλος.',
   'employeeDetail.payFrequency': 'Συχνότητα πληρωμής',
+  'employeeDetail.postTax': 'Μετά την καταβολή φόρων',
+  'employeeDetail.preTax': 'Προ φόρων',
   'employeeDetail.salary': 'Ετήσιος μισθός',
   'employeeDetail.ssn': 'ΑΜΚΑ',
   'employeeDetail.startedOn': 'Ξεκίνησε {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Συχνότητα πληρωμής',
   'employeeForm.salary': 'Ετήσιος μισθός (USD)',
   'employeeForm.salaryInvalid': 'Ο μισθός πρέπει να είναι μη αρνητικός αριθμός.',
+  'employeeForm.saveError': 'Δεν ήταν δυνατή η αποθήκευση του υπαλλήλου.',
   'employeeForm.semimonthly': 'Δεκαπενθήμερος',
   'employeeForm.single': 'Μονόκλινο',
   'employeeForm.ssn': 'ΑΜΚΑ',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Μισθός',
   'forgotPassword.subtitle':
     'Εισαγάγετε το email της εργασίας σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
+  'landing.copyright': '© {{year}} {{app}} . Ακριβές, αξιόπιστο, συγκροτημένο.',
   'landing.ctaBody':
     'Δωρεάν για 30 ημέρες. Δεν απαιτείται πιστωτική κάρτα. Αλλάξτε οποιαδήποτε στιγμή χωρίς να χάσετε το ίχνος ελέγχου σας.',
   'landing.ctaHeading': 'Εκτελέστε τον επόμενο κύκλο σας στο Stipend',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Δεν υπάρχουν ακόμη εγγραφές ελέγχου για αυτήν την πληρωμή.',
   'payRunDetail.noStubs':
     'Δεν υπάρχουν ακόμη μισθοδοτικές καταστάσεις — έγκριση και επεξεργασία για τη δημιουργία τους.',
+  'payRunDetail.notFound': 'Αυτή η πληρωμή δεν βρέθηκε.',
   'payRunDetail.statDeductions': 'Κρατήσεις',
   'payRunDetail.statHeadcount': 'Υπάλληλοι',
   'payRunDetail.statTaxes': 'Παρακρατούμενοι φόροι',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Δεκαπενθήμερος',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.subheading': 'Προφίλ εταιρείας, πρόγραμμα αμοιβών και ενσωματώσεις.',
+  'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.weekly': 'Εβδομαδιαίος',
   'taxCenter.bucket.federal': 'Ομοσπονδιακό εισόδημα',
   'taxCenter.bucket.fica': 'Κοινωνική ασφάλιση',

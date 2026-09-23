@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'billing.canceled': 'Langganan dibatalkan. Anda akan kembali ke paket Free di akhir periode.',
   'billing.contactSales': 'Hubungi penjualan',
   'billing.free.1': '5 terjemahan',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Tidak ada batas penyimpanan',
   'billing.upgradeHint': 'Tingkatkan untuk membuka fitur AI tingkat lanjut.',
   'billing.yearly': 'Tahunan',
+  'common.goToDashboard': 'Ke Dashboard',
   'dashboard.activityEmpty': 'Belum ada aktivitas — mulai proyek untuk mengisi feed ini.',
   'dashboard.eyebrow': 'Ikhtisar',
   'dashboard.projectsEmpty': 'Belum ada proyek — mulai satu untuk melihatnya di sini.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Gunakan kembali terjemahan masa lalu di setiap proyek. Skor cocok lebih tinggi → lebih sedikit kerja ulang.',
   'memory.title': 'Bank memori',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'nav.legal': 'Hukum',
   'newProject.addLanguage': 'Tambah target',
   'newProject.create': 'Buat proyek',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Menandai {{count}} notifikasi sebagai dibaca.',
   'notifications.subtitle':
     'Sebutan, permintaan tinjauan, dan acara AI dari seluruh ruang kerja Anda.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'privacy.collection.account': 'Email akun Anda dan nama tampilan',
   'privacy.deletion.body':
     'Anda dapat menghapus proyek, segmen, istilah glosarium, atau entri memori kapan saja dari halaman terkait. Menghapus akun Anda dari Pengaturan akan membersihkan setiap baris dalam lingkup ruang kerja dari basis data kami.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Gagal memuat proyek.',
   'projects.loading': 'Memuat proyek…',
   'projects.subtitle': 'Setiap proyek aktif di semua locale.',
+  'renditionLayout.primaryNavLabel': 'Navigasi utama',
   'reset.backToLogin': '\\u2190 Kembali ke masuk',
   'reset.passwordLabel': 'Kata sandi baru',
   'review.activeEyebrow': 'Segmen {{number}}',

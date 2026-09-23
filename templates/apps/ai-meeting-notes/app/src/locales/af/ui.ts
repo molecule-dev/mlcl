@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor ons',
   'actions.empty': 'Geen aksie-items stem ooreen nie.',
   'actions.heading': 'Aksie-items',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Vorige maand',
   'calendar.recent': 'Onlangs',
   'common.daysAgo': '{{count}} d gelede',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.hoursAgo': '{{count}} uur gelede',
   'common.no': '—',
+  'common.retry': 'Probeer weer',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} aksie-items',
   'dashboard.empty.body':
@@ -40,8 +43,10 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Gaan jou inboks na vir die terugstelskakel.',
   'forgot.subheading': 'Voer jou e-posadres in en ons sal ’n terugstelskakel stuur.',
   'integrations.disconnected': 'Ontkoppel',
+  'integrations.loadError': 'Kon nie integrasies laai nie.',
   'integrations.notConnectedTag': 'Nie gekoppel nie',
   'integrations.subheading': 'Koppel kalenders en videoplatforms sodat Murmur outomaties aansluit.',
+  'integrations.updateError': 'Opdatering het misluk.',
   'landing.ctaButton': 'Begin – dis gratis',
   'landing.ctaHeading': 'Hou op om notas te neem. Begin om besluite te neem.',
   'landing.demo.aiLabel': 'KI-opsomming, regstreeks opgestel',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Opvolgwerk',
   'meetingDetail.loadError': 'Kon nie vergadering laai nie.',
   'meetingDetail.noActions': 'Geen aksie-items is bespeur nie.',
+  'meetingDetail.none': 'Geen.',
   'meetingDetail.notFound': 'Vergadering nie gevind nie.',
+  'meetingDetail.speakerFallback': 'Spreker {{id}}',
   'meetingDetail.summaryHeading': 'KI-opsomming',
   'meetingDetail.transcriptHeading': 'Transkripsie',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Vergaderings',
   'meetings.loadError': 'Kon nie vergaderings laai nie.',
   'meetings.subheading': 'Elke opgeneemde, opgelaaide en gesinkroniseerde vergadering.',
+  'murmurLayout.openMenu': 'Maak navigasiekieslys oop',
   'murmurLayout.primaryNavLabel': 'Primêre navigasie',
   'nav.legal': 'Regs',
   'notifications.loadError': 'Kon nie kennisgewings laai nie.',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Hoe jy binne Murmur verskyn.',
   'record.error.empty': 'Geen klank is opgeneem nie.',
   'record.error.permission': 'Mikrofoontoestemming geweier.',
+  'record.error.recorder': 'Opnemerfout',
   'record.error.unsupported':
     'Jou blaaier ondersteun nie opname nie. Probeer Chrome, Edge of Safari.',
   'record.error.upload': 'Oplaai het misluk. Probeer weer.',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nuwe wagwoord',
   'reset.subheading': 'Kies ’n wagwoord wat jy nêrens anders gebruik nie.',
   'search.empty': 'Tik om transkripsies te soek.',
+  'search.loadError': 'Soektog het misluk. Probeer weer.',
   'search.noResults': 'Geen resultate vir “ {{q}} ".',
   'settings.appearance.description': 'Wissel tussen lig- en donkermodus.',
   'settings.appearance.title': 'Voorkoms',
@@ -122,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Kon nie instellings laai nie.',
   'settings.loading': 'Laai tans…',
   'settings.push.heading': 'Stootkennisgewings',
+  'settings.push.subheading': 'Kry blaaierwaarskuwings vir vermeldings, aksie-items en opsommings.',
   'settings.retention.audio': 'Hou klank vir',
   'settings.retention.heading': 'Behoud',
   'settings.retention.transcript': 'Hou transkripsies vir',
@@ -139,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Begin om binne minute vergaderingnotas vas te lê',
   'signup.terms':
     'Deur ’n rekening te skep, stem jy in tot ons Diensbepalings en Privaatheidsbeleid.',
+  'signup.termsPrefix': "Deur 'n rekening te skep, stem jy in tot ons",
   'team.inviteCta': 'Nooi spanmaat uit',
   'team.invitedAs': 'Genooi as {{role}}',
   'team.inviteFailed': 'Kon nie uitnodiging stuur nie.',

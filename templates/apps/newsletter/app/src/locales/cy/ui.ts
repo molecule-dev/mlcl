@@ -81,7 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Ysgrifennwch bwnc yn gyntaf.',
   'issueEditor.title': 'Golygydd rhifyn',
   'issues.delete': 'Dileu',
-  'issues.deleteConfirm': 'Dileu&#39;r broblem hon? Ni ellir dadwneud hyn.',
+  'issues.deleteConfirm': "Dileu'r broblem hon? Ni ellir dadwneud hyn.",
   'issues.deleteError': 'Methwyd dileu rhifyn',
   'issues.edit': 'Golygu',
   'issues.loadError': 'Methwyd llwytho rhifynnau',

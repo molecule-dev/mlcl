@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'actions.empty': 'Žádné akční body neodpovídají.',
   'actions.heading': 'Akční body',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Předchozí měsíc',
   'calendar.recent': 'Nedávné',
   'common.daysAgo': 'před {{count}} d',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.hoursAgo': 'před {{count}} h',
   'common.no': '—',
+  'common.retry': 'Zkusit znovu',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} akčních bodů',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Zkontrolujte doručenou poštu pro odkaz pro obnovení.',
   'forgot.subheading': 'Zadejte svůj e-mail a my Vám pošleme odkaz pro obnovení.',
   'integrations.disconnected': 'Odpojeno',
+  'integrations.loadError': 'Načtení integrací se nezdařilo.',
   'integrations.notConnectedTag': 'Nepřipojeno',
   'integrations.subheading':
     'Připojte kalendáře a video platformy, aby se Murmur připojoval automaticky.',
+  'integrations.updateError': 'Aktualizace selhala.',
   'landing.ctaButton': 'Začít – je to zdarma',
   'landing.ctaHeading': 'Přestaňte si dělat poznámky. Začněte přijímat rozhodnutí.',
   'landing.demo.aiLabel': 'AI shrnutí, sestavené živě',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Navazující akce',
   'meetingDetail.loadError': 'Nepodařilo se načíst schůzku.',
   'meetingDetail.noActions': 'Nebyly zjištěny žádné akční body.',
+  'meetingDetail.none': 'Žádné.',
   'meetingDetail.notFound': 'Schůzka nebyla nalezena.',
+  'meetingDetail.speakerFallback': 'Přednášející{{id}}',
   'meetingDetail.summaryHeading': 'AI shrnutí',
   'meetingDetail.transcriptHeading': 'Přepis',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Schůzky',
   'meetings.loadError': 'Nepodařilo se načíst schůzky.',
   'meetings.subheading': 'Každá nahraná, uploadovaná a synchronizovaná schůzka.',
+  'murmurLayout.openMenu': 'Otevřít navigační menu',
   'murmurLayout.primaryNavLabel': 'Primární navigace',
   'nav.legal': 'Právní',
   'notifications.loadError': 'Nepodařilo se načíst oznámení.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Jak se zobrazujete v Murmuru.',
   'record.error.empty': 'Nebyl zachycen žádný zvuk.',
   'record.error.permission': 'Přístup k mikrofonu byl odepřen.',
+  'record.error.recorder': 'Chyba záznamového zařízení',
   'record.error.unsupported':
     'Váš prohlížeč nepodporuje nahrávání. Zkuste Chrome, Edge nebo Safari.',
   'record.error.upload': 'Nahrání se nezdařilo. Zkuste to znovu.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nové heslo',
   'reset.subheading': 'Zvolte heslo, které nepoužíváte nikde jinde.',
   'search.empty': 'Zadejte text pro vyhledávání v přepisech.',
+  'search.loadError': 'Hledání se nezdařilo. Zkuste to znovu.',
   'search.noResults': 'Žádné výsledky pro „ {{q}} „.',
   'settings.appearance.description': 'Přepínejte mezi světlým a tmavým režimem.',
   'settings.appearance.title': 'Vzhled',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nepodařilo se načíst nastavení.',
   'settings.loading': 'Načítání…',
   'settings.push.heading': 'Push notifikace',
+  'settings.push.subheading':
+    'Nechte si v prohlížeči zasílat upozornění na zmínky, úkoly a souhrny.',
   'settings.retention.audio': 'Uchovávat zvuk po dobu',
   'settings.retention.heading': 'Uchovávání dat',
   'settings.retention.transcript': 'Uchovávat přepisy po dobu',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Začněte zaznamenávat poznámky ze schůzek během několika minut',
   'signup.terms':
     'Vytvořením účtu souhlasíte s našimi Podmínkami služby a Zásadami ochrany osobních údajů.',
+  'signup.termsPrefix': 'Založením účtu vyjadřujete souhlas s našimi',
   'team.inviteCta': 'Pozvat člena týmu',
   'team.invitedAs': 'Pozván/a jako {{role}}',
   'team.inviteFailed': 'Nepodařilo se odeslat pozvánku.',

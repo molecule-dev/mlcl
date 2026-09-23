@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem algum comentário, uma sugestão de recurso ou encontrou um bug? Entre em contato com a equipe do {{app}} pelo link de suporte no menu da sua conta — todas as mensagens são atendidas por uma pessoa de verdade.',
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
   'agentDetail.back': 'Todos os agentes',
   'agentDetail.capabilities': 'Capacidades',
   'agentDetail.delete': 'Excluir persona',
   'agentDetail.deleteConfirm': 'Excluir esta persona? Esta ação não pode ser desfeita.',
+  'agentDetail.deleteError': 'Não foi possível excluir a persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Não foi possível carregar a persona.',
   'agentDetail.save': 'Salvar persona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Trocando…',
   'billing.updateError': 'Não foi possível iniciar a atualização.',
   'billing.usageHeading': 'Uso de voz neste ciclo',
+  'chatBubble.source.text': 'texto',
+  'chatBubble.source.voice': 'voz',
+  'common.goToDashboard': 'Ir para o Painel',
   'conversation.defaultTitle': 'Nova conversa',
   'conversation.empty': 'Sem mensagens ainda. Comece falando ou digitando abaixo.',
   'conversation.eyebrow': 'Sessão ao vivo',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligência que fala.',
   'landing.heroSubtitle':
     'O assistente de voz com IA que entende seu fluxo natural. Converse, idealize e comande — sem interrupções.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Ouvindo…',
   'landing.naturallyBody':
     'Sem palavras-gatilho. Sem comandos rígidos. Vox entende contexto, interrupções e a nuance da fala humana — como conversar com um colega.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Abrir uma sessão',
   'notFound.home': 'Voltar ao início',
   'notFound.title': 'Não conseguimos ouvir essa página.',
+  'parlanceLayout.closeMenu': 'Fechar menu',
+  'parlanceLayout.openMenu': 'Abrir menu de navegação',
   'parlanceLayout.primaryNavLabel': 'Navegação principal',
   'pricing.conversations': '{{count}} conversas',
   'pricing.cta.startFree': 'Começar grátis',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Sem resultados',
   'search.eyebrow': 'Paleta de comandos',
   'search.fetchError': 'Não foi possível carregar o índice de busca.',
+  'search.static.profile.preview': 'Nome de exibição, apelido, biografia',
   'search.static.voice.title': 'Voz',
   'search.title': 'Pesquisar Vox',
   'search.transcriptPreview': 'Abrir transcrição',

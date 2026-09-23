@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
   'about.pageTitle': '关于 {{appName}}',
   'analytics.empty': '录制你的第一个剪辑后即可在此查看互动情况。',
@@ -39,9 +40,11 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': '个剪辑',
   'billing.usage.views': '观看',
   'billing.usage.views.unit': '次观看',
+  'common.goToDashboard': '前往仪表盘',
   'landing.cta.title': '提供更好的反馈。从Glint开始。',
   'landing.feature.capture.body': '浏览器、桌面和移动端录制，支持麦克风、摄像头和绘图。',
   'landing.feature.capture.title': '一键捕获',
+  'landing.footer.copy': '© {{year}} {{appName}} 。异步，闪耀。',
   'landing.hero.cardCaption': '示例工作区概览——免费试用。',
   'landing.hero.primaryCta': '免费开始录制',
   'landing.hero.proof.free': '永久免费版',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'library.search.aria': '搜索录像',
   'library.searchPlaceholder': '搜索录像…',
   'library.weeklyChange': '较上周{{value}}%',
+  'nav.openMenu': '打开导航菜单',
   'nav.record': '录制',
   'nav.shared': '与我共享',
   'nav.startRecording': '开始录制',

@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Uthole iphutha, unesicelo sesici, noma ufuna ukusitshela ngefilimu oyinqumile? Yonke imilayezo ifinyelela kumuntu wangempela eqenjini — xhumana noma nini kusuka kuzilungiselelo ze-akhawunti yakho.',
+  'about.contactTitle': 'Xoxa nathi',
+  'about.eyebrow': '// isitudiyo esingemuva kokusika',
   'about.pageTitle': 'Mayelana {{appName}}',
   'assetDetail.back': 'Buyela kulabhulali',
   'assetDetail.confirmDelete': 'Susa " {{name}} "? Lokhu akukwazi ukuhlehliswa."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} iziqeshana, imibhede yomsindo, kanye nezithombe ezilungele ukubekwa kumugqa wesikhathi.',
   'assetLibrary.title': 'Izimpahla',
   'assetLibrary.upload': 'Engeza ifa',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.browseTemplates': 'Dlulisa amehlo kumathempulethi →',
   'dashboard.loading': 'Ilayisha amaphrojekthi…',
   'dashboard.noProjects': 'Azikho imiklamo okwamanje — dala eyodwa ozoqala ngayo.',
@@ -164,7 +169,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Khetha into ozoyikhumbula kuphela.',
   'rushesAuthShell.footer.copyright': '© I-Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Ubumfihlo',
+  'rushesLayout.closeMenu': 'Vala ukuzulazula',
   'rushesLayout.guest': 'Umhleli',
+  'rushesLayout.navDialog': 'Ukuzulazula',
+  'rushesLayout.openMenu': 'Vula ukuzulazula',
   'rushesLayout.planFree': 'Uhlelo lwamahhala',
   'rushesLayout.tagline': 'Umugqa wesikhathi we-cinematic',
   'settings.billing.confirmCancel': 'Khansela okubhalisele ekupheleni kwesikhathi?',

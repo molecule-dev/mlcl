@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.title': 'Apie {{app}}',
   'comments.addFailed': 'Nepavyko įkelti komentarą.',
   'comments.backToDoc': 'Grįžti prie rankraščio',
   'comments.deleteFailed': 'Nepavyko ištrinti.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Išspręsti',
   'comments.resolveFailed': 'Nepavyko išspręsti.',
   'comments.subtitle': '{{open}} atidaryta · „{{resolved}}“ problema išspręsta',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.activityHeading': 'Kas vyksta',
   'dashboard.createFailed': 'Nepavyko sukurti dokumento.',
   'dashboard.empty': 'Rankraščių dar nėra – pradėkite spustelėdami mygtuką „Naujas dokumentas“.',
@@ -54,12 +57,15 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Nepavyko perkelti į šiukšlinę.',
   'editor.unpublish': 'Atšaukti paskelbimą',
   'editor.untitled': 'Dokumentas be pavadinimo',
+  'editor.updatedElsewhere':
+    'Šį dokumentą atnaujino kažkas kitas – įkelkite iš naujo, kad pamatytumėte naujausią versiją.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Jei turite paskyrą adresu {{email}}, netrukus gausite nuorodą, kuria galėsite atkurti slaptažodį.',
   'forgotPassword.subtitle':
     'Jums elektroniniu paštu išsiųsime nuorodą, kuria galėsite atkurti slaptažodį.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Sukurta naudojant „Molecule“.',
   'landing.ctaHeading': 'Atidarykite puslapį. Pradėkite rašyti.',
   'landing.ctaPrimary': 'Atidaryti studiją',
   'landing.eyebrow': 'Rašytojams, redaktoriams ir komandoms',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'redaguota {{when}}',
   'quillonDocumentCard.open': 'Atidaryti →',
   'quillonKpiCard.trend': 'Naujausios tendencijos',
+  'quillonLayout.menu': 'Meniu',
   'quillonLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'quillonStudioHero.collab': 'Bendradarbiai',
   'quillonStudioHero.docs': 'Peržiūrėti dokumentai',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ką tik',
+  'trash.confirmDelete': 'Patvirtinti ištrynimą',
   'trash.deleteFailed': 'Nepavyko ištrinti.',
   'trash.deleteForever': 'Ištrinti visam laikui',
   'trash.empty': 'Nėra ką atkurti.',
+  'trash.emptyAll': 'Ištuštinti šiukšliadėžę',
   'trash.eyebrow': 'Studija',
   'trash.heading': 'Šiukšlės',
   'trash.loadFailed': 'Nepavyko įkelti šiukšlių.',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.eyebrow': 'Par {{app}}',
+  'about.intro':
+    '{{app}} ir meditācijas lietotne reālajai dzīvei — ikdienas vadītas meditācijas, elpošanas vingrinājumi un miega stāsti, ko vada skolotāji, kuri jūtas kā draugi, nevis treneri. Nav ne vainas apziņas, ne trokšņainas barošanas: tikai klusa vieta, kur atgriezties pie savas elpas.',
+  'about.missionBody':
+    'Mēs ticam, ka mieram jābūt pieejamam ikvienam jebkurā diennakts brīdī. {{app}} pastāv, lai mierīga, konsekventa prakse šķistu viegla — lai desmit godīgas minūtes varētu mainīt to, kā jūs pavadāt nākamās desmit stundas.',
+  'about.missionTitle': 'Mūsu misija',
+  'about.pageTitle': 'Mierīgākas 10 minūtes dienā',
+  'breathingDial.seconds': 'sekundes',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'common.logout': 'Izrakstīties',
   'common.min': 'min',
   'common.relative.justNow': 'tikko',
   'common.relative.now': 'tagad',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
+  'nav.secondaryNavigation': 'Konta navigācija',
   'sessionCard.with': 'ar {{name}}',
   'stillpoint.billing.choose': 'Izvēlieties {{plan}}',
   'stillpoint.billing.currentPlan': 'Pašlaik ieslēgts {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Nevarēja ielādēt plānus.',
   'stillpoint.billing.opening': 'Atverot kasi…',
   'stillpoint.billing.perMonthShort': '/mēn.',
+  'stillpoint.billing.perYearShort': '/gadā',
   'stillpoint.billing.unknownResult': 'Negaidīta atbilde uz rēķinu.',
   'stillpoint.billing.yearly': 'Gada laikā · ietaupiet 17%',
   'stillpoint.courseDetail.back': 'Kursi',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Vēl nav kursu.',
   'stillpoint.courses.eyebrow': '{{count}} vairāku dienu braucieni',
   'stillpoint.courses.heading': 'Kursi',
+  'stillpoint.forgot.checkEmail': 'Pārbaudiet savu iesūtni — saite būs derīga 30 minūtes.',
   'stillpoint.forgot.success': 'Esam nosūtījuši atiestatīšanas saiti uz {{email}} .',
   'stillpoint.home.empty': 'Vēl nav sesiju — pārbaudiet vēlāk.',
   'stillpoint.home.friend': 'draugs',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Izveidojiet bezmaksas kontu',
   'stillpoint.landing.cta.title': 'Sāciet savu klusumu jau šodien',
   'stillpoint.landing.features.heading': 'Prakse, kas aug kopā ar jums',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Ikdienas vadītas meditācijas, elpošanas vingrinājumi un miega stāsti — skolotājiem, kuri jūtas kā draugi, nevis treneri.',
   'stillpoint.landing.hero.eyebrow': 'Mierīgākas 10 minūtes dienā',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Pārlūkot pēc noskaņojuma',
   'stillpoint.login.rememberMe': 'Palikt pieteicies',
   'stillpoint.login.subheading': 'Pierakstieties, lai turpinātu savu praksi.',
+  'stillpoint.nav.tagline': 'Atrodi savu kluso centru',
+  'stillpoint.notFound.body':
+    'Šī lapa kaut kur dziļi un dziļi ieelpo. Atrodīsim jums klusāku vietu lietotnē {{app}} .',
   'stillpoint.notFound.title': 'Pazudis klusumā',
   'stillpoint.notFound.toHome': 'Atpakaļ uz šodienu',
   'stillpoint.notFound.toLibrary': 'Pārlūkot bibliotēku',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Pārlēkt atpakaļ 15 s',
   'stillpoint.player.skipForward': 'Pārlēkt uz priekšu par 30 s',
   'stillpoint.player.with': 'ar {{name}}',
+  'stillpoint.profile.defaultHandle': 'nekustīguma rādītājs',
   'stillpoint.profile.eyebrow': 'Jūsu prakse, īsumā.',
   'stillpoint.profile.locked': 'Bloķēts',
   'stillpoint.profile.member': 'Stillpoint biedrs',

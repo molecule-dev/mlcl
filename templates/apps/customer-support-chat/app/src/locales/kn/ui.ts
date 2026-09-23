@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'authShell.samplePreview':
     '"ಹೇ ತಂಡ, ಹೊಸ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಅದ್ಭುತವಾಗಿದೆ - ನಮಗೆ ಬೇಕಾಗಿದ್ದದ್ದು ನಿಖರವಾಗಿ!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ಶಾರ್ಟ್‌ಕಟ್',
   'automations.subheading':
     'ನಿಯಮಗಳು, ಪೂರ್ವಸಿದ್ಧ ಪ್ರತಿಕ್ರಿಯೆಗಳು ಮತ್ತು ಚಾಟ್‌ಬಾಟ್‌ಗಳು - ನಿಮ್ಮ ತಂಡವು ಕಠಿಣ ವಿಷಯಗಳ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುವಾಗ ಕಾರ್ಯಕ್ಷೇತ್ರವನ್ನು ಗುನುಗುವಂತೆ ಮಾಡಿ.',
+  'automations.trigger.inboundMessage': 'ಒಳಬರುವ ಸಂದೇಶ',
   'automations.triggerLabel': 'ಟ್ರಿಗ್ಗರ್',
   'chatBubble.internalNoteLabel': 'ಆಂತರಿಕ ಟಿಪ್ಪಣಿ',
+  'common.confirmDelete': 'ಅಳಿಸುವಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'contactDetail.backToContacts': 'ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳು',
   'contactDetail.contactFallback': 'ಸಂಪರ್ಕಿಸಿ',
   'contactDetail.conversationFallback': 'ಸಂವಾದ',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'ಕೊನೆಯದಾಗಿ ನೋಡಿದ್ದು',
   'contacts.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಸಂಪರ್ಕಗಳಿಲ್ಲ. ಮೇಲೆ ನಿಮ್ಮ ಮೊದಲ ಸಂಪರ್ಕವನ್ನು ಸೇರಿಸಿ.',
   'contacts.eyebrow': 'ಗ್ರಾಹಕ ಡೈರೆಕ್ಟರಿ',
+  'contacts.form.nameOrEmailRequired': 'ಕನಿಷ್ಠ ಒಂದು ಹೆಸರು ಅಥವಾ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಒದಗಿಸಿ',
   'contacts.form.save': 'ಸಂಪರ್ಕವನ್ನು ಉಳಿಸಿ',
   'contacts.heading': 'ಸಂಪರ್ಕಗಳು',
   'contacts.loading': 'ಸಂಪರ್ಕಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
@@ -56,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'ಟಿಪ್ಪಣಿ ಉಳಿಸಿ',
   'conversationDetail.tab.note': 'ಆಂತರಿಕ ಟಿಪ್ಪಣಿ',
   'conversationDetail.threadAria': 'ಸಂಭಾಷಣೆ ಸಂದೇಶಗಳು',
+  'conversationDetail.visitorFallback': 'ಸಂದರ್ಶಕ',
   'customerProfilePanel.csatLabel': 'ಸಿಎಸ್ಎಟಿ',
   'customerProfilePanel.propertiesTitle': 'ಗ್ರಾಹಕರ ವಿವರಗಳು',
   'customerProfilePanel.recentTitle': 'ಇತ್ತೀಚಿನ ಸಂಭಾಷಣೆಗಳು',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ಗ್ರಾಹಕರು ತಮ್ಮ ಮೊದಲ ಉತ್ತರವನ್ನು ಪಡೆಯುತ್ತಿದ್ದಾರೆ {{time}} ಸರಾಸರಿ - ಕ್ಯಾಡೆನ್ಸ್ ಮುಂದುವರಿಸಿ.',
   'inboxHeroCard.title': 'ಸಕ್ರಿಯ ಸಂಭಾಷಣೆಗಳು',
+  'inboxLayout.navDrawerLabel': 'ಸಂಚರಣೆ',
+  'inboxLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'inboxOverview.eyebrow': 'ಇಂದು ಒಂದು ನೋಟದಲ್ಲಿ',
   'inboxOverview.heroChange': '{{count}} ತೆರೆದ',
   'inboxOverview.kpiClosedTrend': 'ಸರ್ವಕಾಲಿಕ',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'ಮುಖಪುಟಕ್ಕೆ ಭೇಟಿ ನೀಡಿ',
   'notifications.subheading':
     'ನಿಯೋಜನೆಗಳು, @mentions, SLA ಅಪಾಯಗಳು, CSAT ಪ್ರತಿಕ್ರಿಯೆ ಮತ್ತು ತಂಡದ ಚಟುವಟಿಕೆ - ಹೊಸದಾಗಿ ಮೊದಲು ವಿಂಗಡಿಸಲಾಗಿದೆ.',
+  'notifications.subjectFallback': 'ಸಂಭಾಷಣೆ',
+  'notifications.visitorFallback': 'ಒಬ್ಬ ಸಂದರ್ಶಕ',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ಹೆಚ್ಚಿನ',
   'priority.low': 'ಕಡಿಮೆ',
+  'priority.normal': 'ಸಾಮಾನ್ಯ',
   'priority.urgent': 'ತುರ್ತು',
   'privacy.title': 'ಗೌಪ್ಯತಾ ನೀತಿ',
   'reports.agentFallback': 'ಏಜೆಂಟ್',

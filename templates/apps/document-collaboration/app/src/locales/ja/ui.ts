@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
+  'about.title': '{{app}}について',
   'comments.addFailed': 'コメントを投稿できませんでした。',
   'comments.backToDoc': '原稿に戻る',
   'comments.deleteFailed': '削除できませんでした。',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': '解決',
   'comments.resolveFailed': '解決できませんでした。',
   'comments.subtitle': '未解決 {{open}} 件 · 解決済み {{resolved}} 件',
+  'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.activityHeading': 'いま起きていること',
   'dashboard.createFailed': 'ドキュメントを作成できませんでした。',
   'dashboard.empty': 'まだ原稿がありません — 「新規ドキュメント」ボタンから始めましょう。',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'ゴミ箱に移動できませんでした。',
   'editor.unpublish': '非公開にする',
   'editor.untitled': '無題のドキュメント',
+  'editor.updatedElsewhere':
+    'この文書は他のユーザーによって更新されました。最新の情報を見るにはページを再読み込みしてください。',
   'editor.version': 'v{{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     '{{email}} のアカウントが存在する場合、リセットリンクをお送りしました。',
   'forgotPassword.subtitle': 'リセットリンクをメールでお送りします。',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Moleculeを使用して構築されました。',
   'landing.ctaHeading': 'ページを開きましょう。カーソルに始めさせましょう。',
   'landing.ctaPrimary': 'スタジオを開く',
   'landing.eyebrow': 'ライター、編集者、チームのために',
@@ -107,6 +113,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': '{{when}} に編集',
   'quillonDocumentCard.open': '開く →',
   'quillonKpiCard.trend': '最近のトレンド',
+  'quillonLayout.menu': 'メニュー',
   'quillonLayout.primaryNavLabel': 'メインナビゲーション',
   'quillonStudioHero.collab': 'コラボレーター',
   'quillonStudioHero.docs': '編集したドキュメント',
@@ -155,9 +162,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}日前',
   'time.hoursAgo': '{{hours}}時間前',
   'time.justNow': 'たった今',
+  'trash.confirmDelete': '削除を確認',
   'trash.deleteFailed': '削除できませんでした。',
   'trash.deleteForever': '完全に削除',
   'trash.empty': '復元できる項目はありません。',
+  'trash.emptyAll': 'ゴミ箱を空にする',
   'trash.eyebrow': 'スタジオ',
   'trash.heading': 'ゴミ箱',
   'trash.loadFailed': 'ゴミ箱を読み込めませんでした。',

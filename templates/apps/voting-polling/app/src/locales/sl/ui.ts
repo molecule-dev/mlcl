@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
   'analytics.col.quorum': 'Kvorum',
   'analytics.col.votes': 'Glasovi',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Ni še odprtih vprašanj.',
   'audienceQa.onStageEyebrow': 'Zdaj na odru',
   'audienceQa.pollId': 'kakovost · {{id}}',
+  'audienceQa.promote': 'Promocija',
   'audienceQa.queued': 'v čakalni vrsti',
   'audienceQa.queueEyebrow': 'Čakalna vrsta',
   'ballot.eyebrow': 'Oddajte svoj glas',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Trenutno ste na {{plan}} načrt.',
   'billing.switch': 'Preklop',
   'billing.upgraded': 'Posodobljeno na {{plan}} — omejitve se uporabijo takoj.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'createPoll.addOption': 'Dodaj možnost',
   'createPoll.anonymousHint':
     'Imena volivcev skrita v dnevniku revizije; prešteti glasovi ostanejo overjeni.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ste novi v Noshu?',
   'login.remember': 'Zapomni si me 30 dni',
   'login.subheading': 'Odprite tla, preverite sobo in potrdite rezultat.',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'notFound.body':
     'Stran, ki ste jo poskušali odpreti, je bila zaprta ali premaknjena. Vrnite se na nadzorno ploščo ali odprite novo anketo.',
   'notFound.eyebrow': 'Na tej poti ni kvoruma',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Te ankete ni bilo mogoče naložiti.',
   'pollDetail.loading': 'Nalaganje ankete …',
   'pollDetail.notFound': 'Ankete ni bilo mogoče najti.',
+  'pollDetail.openBallot': 'Odprto glasovanje',
   'pollDetail.openLive': 'Rezultati v živo',
   'pollDetail.pollId': 'anketa · {{id}}',
   'pollDetail.published': 'Anketa objavljena – volivci lahko zdaj oddajo glasovnice.',
@@ -264,4 +270,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Iskanje po e-pošti …',
   'voters.subheading':
     'Pripravite upravičene volilne lističe. Združite volivce po organizacijah za ponderirane glasovnice.',
+  'votingPollingLayout.nav.analytics': 'Analitika',
+  'votingPollingLayout.nav.billing': 'Obračunavanje',
+  'votingPollingLayout.nav.createPoll': 'Nova anketa',
+  'votingPollingLayout.nav.dashboard': 'Nadzorna plošča',
+  'votingPollingLayout.nav.notifications': 'Obvestila',
+  'votingPollingLayout.nav.settings': 'Nastavitve',
+  'votingPollingLayout.nav.team': 'Ekipa',
+  'votingPollingLayout.nav.voters': 'Volivci',
+  'votingPollingLayout.primaryNavLabel': 'Primarna navigacija',
 }

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'संपर्क करें',
   'about.eyebrow': 'परिचय',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.connectRepoCta': 'रिपॉजिटरी कनेक्ट करें',
   'dashboard.empty': 'अभी तक कोई पुल रिक्वेस्ट नहीं — शुरू करने के लिए एक रिपॉजिटरी कनेक्ट करें।',
   'dashboard.eyebrow': 'Refract · समीक्षा कतार',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'अपटाइम',
   'pullRequestRow.files': '{{count}} फ़ा',
   'pullRequestRow.scoreAria': 'AI गुणवत्ता स्कोर {{score}} / 10',
+  'refractLayout.closeMenu': 'मेनू बंद करें',
+  'refractLayout.openMenu': 'मेनू खोलें',
   'refractLayout.primaryNavLabel': 'मुख्य नेविगेशन',
   'reports.cumulativeScoreLabel': 'संचयी स्कोर',
   'reports.cumulativeScoreSubtitle': 'सभी रिपोज · {{days}}दि',
@@ -175,11 +178,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'खोज अनुक्रमणिका लोड करने में विफल।',
   'settings.apiKeys.description':
     'ऊपर-दाएँ उपयोगकर्ता मेनू से व्यक्तिगत API कुंजियों का प्रबंधन करें।',
+  'settings.apiKeys.integrationsNote':
+    'प्रदाता एक्सेस टोकन का प्रबंधन ऊपर दिए गए एकीकरण अनुभाग में किया जाता है।',
   'settings.connectError': 'प्रदाता कनेक्ट करने में विफल।',
   'settings.disconnectError': 'प्रदाता डिस्कनेक्ट करने में विफल।',
   'settings.eyebrow': 'Refract · वर्कस्पेस',
   'settings.integration.${provider}.label': 'सहेजा जा रहा है…',
   'settings.loadError': 'सेटिंग्स लोड करने में विफल।',
+  'settings.notificationCenter': 'अधिसूचना केंद्र',
   'settings.notifications.description':
     'डिलीवरी प्राथमिकताओं को देखने और प्रबंधित करने के लिए सूचना पृष्ठ पर जाएँ।',
   'settings.section.account': 'खाता और सुरक्षा',

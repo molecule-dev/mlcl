@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.eyebrow': 'Пра {{app}}',
   'about.pageTitle': 'Кожны маршрут — адзін пошук.',
   'booking.backToDetail': 'Назад да звестак пра рэйс',
   'booking.continue': 'Працягнуць аплату',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Падаткі і зборы',
   'booking.summary.travelers': 'Падарожнікі',
   'common.about': 'Пра нас',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'flightDetail.backToResults': 'Назад да вынікаў',
   'flightDetail.baseFare': 'Базавы тарыф',
   'flightDetail.book': 'Працягнуць браніраванне',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 прыпынак',
   'flightResultCard.select': 'Выберыце',
   'flightResultCard.totalLabel': 'Агульны час',
+  'flightSearchLayout.primaryNavLabel': 'Асноўная навігацыя',
   'forgotPassword.subheading':
     'Увядзіце адрас электроннай пошты вашага акаўнта Skylark, і мы дашлем вам бяспечную спасылку для скіду налад.',
   'forgotPassword.successBody':
     'Праверце {{email}} каб атрымаць спасылку для ўсталёўкі новага пароля. Тэрмін дзеяння спасылкі скончыцца праз 30 хвілін.',
   'forgotPassword.successHeading': 'Спасылка для скіду адпраўлена',
   'landing.cta.explore': 'Паспрабуйце пошук',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Знайдзіце наступны выдатны тарыф раней за ўсіх астатніх.',
   'landing.cta.signup': 'Пачніце адсочваць тарыфы',
   'landing.features.eyebrow': 'Чаму жаўрук',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Дадаць абвестку',
   'priceAlerts.deleteConfirm': 'Выдаліць гэтае папярэджанне?',
   'priceAlerts.empty': 'Пакуль няма адсочваных маршрутаў.',
+  'priceAlerts.emptyCta': 'Пошук маршруту для адсочвання',
   'priceAlerts.errorMessage': 'Не атрымалася загрузіць абвесткі.',
   'priceAlerts.eyebrow': 'Спіс назірання за жаўруком',
   'priceAlerts.form.createError': 'Не атрымалася стварыць абвестку.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.loading': 'Пошук актуальных тарыфаў…',
   'results.multiEyebrow': 'Маршрут па некалькіх гарадах',
   'results.multiLegHeading': 'Нага {{n}} · {{ад}} → {{да}} · {{дата}}',
+  'results.sortAriaLabel': 'Сартаваць вынікі па',
   'results.sortLabel': 'Сартаваць',
   'settings.language.title': 'Мова',
   'settings.profile.currency': 'Валюта',

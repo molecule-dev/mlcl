@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'analytics.back': 'සමීක්ෂණ දළ විශ්ලේෂණය',
   'analytics.kpiNps': 'NPS ලකුණු',
   'analytics.kpiNpsTrend': 'ප්‍රවර්ධකයින් {{p}} % · අවඥා සහගත {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'දේපළ',
   'builder.questionNumber': 'බ {{num}}',
   'builder.surveyTitle': 'සමීක්ෂණ මාතෘකාව',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'forgotPassword.failed':
     'යළි පිහිටුවීමේ විද්‍යුත් තැපෑල යැවීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'forgotPassword.subheading':
     'ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, එවිට අපි ඔබට ප්‍රතිසාධන සබැඳියක් එවන්නෙමු.',
   'forgotPassword.successBody':
     'ගිණුමක් ගැලපෙන්නේ නම් {{email}} , යළි පිහිටුවීමේ සබැඳියක් පැමිණෙමින් තිබේ. ඔබගේ එන ලිපි සහ අයාචිත තැපැල් ෆෝල්ඩර පරීක්ෂා කරන්න.',
+  'landing.footer.copyright': '© {{year}} {{app}} . සියලුම හඬ කැවීම් සාදරයෙන් පිළිගනිමු.',
   'landing.footer.startTrial': 'අත්හදා බැලීම ආරම්භ කරන්න',
   'landing.hero.badge': 'සමීක්ෂණ, NPS සහ ප්‍රතිපෝෂණ එක තැනක',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'මිල ගණන්',
   'landing.pricing.perMonth': '/මා',
   'landing.pricing.popular': 'වඩාත් ජනප්‍රියයි',
+  'landing.pricing.subtitle':
+    'සෑම සැලැස්මකටම සමීක්ෂණ සාදන්නා, පොදු බෙදාගැනීමේ සබැඳි සහ NPS විශ්ලේෂණ ඇතුළත් වේ. ආරම්භ කිරීමට ක්‍රෙඩිට් කාඩ්පතක් අවශ්‍ය නොවේ.',
+  'landing.pricing.title': 'නොමිලේ පටන් ගන්න, ඔබ කරන විට පරිමාණය කරන්න.',
   'landing.sample.eyebrow': 'NPS කෙටියෙන්',
   'landing.sample.title': 'විවේචනාත්මක, නිෂ්ක්‍රීය, ප්‍රවර්ධක - ක්ෂණිකව කියවිය හැකි.',
   'login.failed': 'පුරනය වීම අසාර්ථක විය. කරුණාකර නැවත උත්සාහ කරන්න.',
@@ -58,6 +64,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'මුරපදය පෙන්වන්න',
   'login.signUpLink': 'නොමිලේ අත්හදා බැලීමක් ආරම්භ කරන්න',
   'login.subheading': 'ඔබේ ප්‍රේක්ෂකයින්ට සවන් දීම දිගටම කරගෙන යාමට පුරන්න.',
+  'notFound.body': 'ඔබ සොයන පිටුව {{app}} හි නොමැත. අපි ඔබව නැවත ඔබේ සමීක්ෂණ වෙත ගෙන යමු.',
   'notFound.cta': 'සමීක්ෂණ වෙත ආපසු',
   'notFound.eyebrow': '404 යි',
   'notFound.heading': 'මෙම සමීක්ෂණය පෝලිමෙන් ඉවතට ඇදී ගියේය.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'උදාසීන 7–8',
   'npsDistributionBar.promoter': 'ප්‍රවර්ධක 9–10',
   'profile.identity.description': 'ඔබේ කණ්ඩායමට සහ ඔබ ලියන සමීක්ෂණවලට ප්‍රසිද්ධ කරන්න.',
+  'profile.identity.emailRequired': 'ඊමේල් ලිපිනයක් ඇතුළත් කරන්න.',
   'profile.identity.saveCta': 'නම සුරකින්න',
   'profile.password.current': 'වත්මන් මුර පදය',
   'profile.password.fillFields': 'වත්මන් සහ නව මුරපද දෙකම ඇතුළත් කරන්න.',
@@ -178,6 +186,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ප්‍රශ්න',
   'templates.subheading':
     'සටන්-පරීක්ෂා කරන ලද ආරම්භකයක් තෝරන්න - සෑම සැකිල්ලක්ම සංවේදී පෙරනිමි, නියැදි තර්කනය සහ පිරිසිදු ජංගම පිරිසැලසුමක් සමඟ පූර්ව-සුසර කර ඇත.',
+  'thankYou.body':
+    'ඔබගේ ප්‍රතිචාරය සටහන් කර ඇත. {{app}} එය ඊළඟ විශ්ලේෂණ නැවුම් කිරීමට ඇතුළත් කරනු ඇත.',
   'thankYou.eyebrow': 'ප්‍රතිචාරය ලැබුණා',
   'thankYou.heading': 'ස්තූතියි — ඔබේ හඬ වැදගත්.',
   'thankYou.home': 'මැර්මූර් වෙත පිවිසෙන්න',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.eyebrow': 'Despre {{app}}',
+  'about.intro':
+    '{{app}} este o aplicație de meditație pentru viața reală — meditații ghidate zilnice, exerciții de respirație și povești despre somn, ritmate de profesori care se simt ca niște prieteni, nu ca niște antrenori. Fără sentimente de vinovăție, fără zgomote puternice: doar un loc liniștit în care să te întorci la respirație.',
+  'about.missionBody':
+    'Credem că liniștea ar trebui să fie accesibilă tuturor, în orice moment al zilei. {{app}} există pentru a face ca o practică calmă și consecventă să fie ușoară - astfel încât zece minute sincere să poată schimba modul în care întâmpini următoarele zece ore.',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.pageTitle': '10 minute mai calme pe zi',
+  'breathingDial.seconds': 'secunde',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.logout': 'Deconectare',
   'common.min': 'min',
   'common.relative.justNow': 'chiar acum',
   'common.relative.now': 'acum',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
+  'nav.secondaryNavigation': 'Navigare în cont',
   'sessionCard.with': 'cu {{name}}',
   'stillpoint.billing.choose': 'Alege {{plan}}',
   'stillpoint.billing.currentPlan': 'În prezent activ {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Nu am putut încărca planurile.',
   'stillpoint.billing.opening': 'Se deschide finalizarea comenzii…',
   'stillpoint.billing.perMonthShort': '/ lună',
+  'stillpoint.billing.perYearShort': '/an',
   'stillpoint.billing.unknownResult': 'Răspuns neașteptat la facturare.',
   'stillpoint.billing.yearly': 'Anual · economisiți 17%',
   'stillpoint.courseDetail.back': 'Cursuri',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Încă nu există cursuri.',
   'stillpoint.courses.eyebrow': '{{count}} călătorii de mai multe zile',
   'stillpoint.courses.heading': 'Cursuri',
+  'stillpoint.forgot.checkEmail': 'Verifică-ți căsuța poștală — linkul expiră în 30 de minute.',
   'stillpoint.forgot.success': 'Am trimis un link de resetare către {{email}} .',
   'stillpoint.home.empty': 'Nicio sesiune încă — reveniți în curând.',
   'stillpoint.home.friend': 'prieten',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Creează-ți contul gratuit',
   'stillpoint.landing.cta.title': 'Începe-ți liniștea astăzi',
   'stillpoint.landing.features.heading': 'O practică care crește odată cu tine',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditații ghidate zilnice, exerciții de respirație și povești despre somn — ritmate de profesori care se simt ca niște prieteni, nu ca niște antrenori.',
   'stillpoint.landing.hero.eyebrow': '10 minute mai calme pe zi',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Răsfoiți după starea de spirit',
   'stillpoint.login.rememberMe': 'Rămâi conectat',
   'stillpoint.login.subheading': 'Conectați-vă pentru a continua practica.',
+  'stillpoint.nav.tagline': 'Găsește-ți centrul de liniște',
+  'stillpoint.notFound.body':
+    'Această pagină respiră adânc și adânc undeva. Hai să găsim un loc mai liniștit pentru tine în {{app}} .',
   'stillpoint.notFound.title': 'Pierdut în tăcere',
   'stillpoint.notFound.toHome': 'Înapoi la ziua de azi',
   'stillpoint.notFound.toLibrary': 'Răsfoiți biblioteca',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Sari înapoi cu 15 secunde',
   'stillpoint.player.skipForward': 'Sari înainte cu 30 de secunde',
   'stillpoint.player.with': 'cu {{name}}',
+  'stillpoint.profile.defaultHandle': 'indicator static',
   'stillpoint.profile.eyebrow': 'Practica dumneavoastră, pe scurt.',
   'stillpoint.profile.locked': 'Blocat',
   'stillpoint.profile.member': 'Membru Stillpoint',

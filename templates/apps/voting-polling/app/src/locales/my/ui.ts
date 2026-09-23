@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'analytics.col.quorum': 'အစုအဖွဲ့',
   'analytics.col.votes': 'မဲများ',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ဆိုင်းငံ့ထားသော မေးခွန်းများ မရှိသေးပါ။',
   'audienceQa.onStageEyebrow': 'အခု စင်မြင့်ပေါ်မှာ',
   'audienceQa.pollId': 'ကာ · {{id}}',
+  'audienceQa.promote': 'မြှင့်တင်ပါ',
   'audienceQa.queued': 'တန်းစီထားသည်',
   'audienceQa.queueEyebrow': 'တန်းစီခြင်း',
   'ballot.eyebrow': 'မဲပေးပါ',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'သင်သည် လက်ရှိတွင် አዲስተያየትንያየት� {{plan}} အစီအစဉ်။',
   'billing.switch': 'ပြောင်းပါ',
   'billing.upgraded': 'အပ်ဒိတ်လုပ်ထားသည် {{plan}} - ကန့်သတ်ချက်များကို ချက်ချင်းသက်ရောက်သည်။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'createPoll.addOption': 'ရွေးချယ်စရာထည့်ပါ',
   'createPoll.anonymousHint':
     'မဲဆန္ဒရှင်အမည်များကို စာရင်းစစ်မှတ်တမ်းတွင် ဝှက်ထားသည်။ ရေတွက်မှုများကို အထောက်အထားအဖြစ် ဆက်လက်ထားရှိမည်။',
@@ -164,6 +167,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh ကို အသစ်လား။',
   'login.remember': 'ကျွန်တော့်ကို ရက် ၃၀ မှတ်မိထားပါ',
   'login.subheading': 'ကြမ်းပြင်ကိုဖွင့်ပြီး အခန်းကို လည်ပတ်ပါ၊ ရလဒ်ကို အသိအမှတ်ပြုပါ။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'notFound.body':
     'သင်ဝင်ရောက်ရန်ကြိုးစားခဲ့သော စာမျက်နှာကို ပိတ်လိုက်ပါပြီ သို့မဟုတ် ရွှေ့လိုက်ပါပြီ။ ဒက်ရှ်ဘုတ်သို့ ပြန်သွားပါ သို့မဟုတ် စစ်တမ်းအသစ်တစ်ခု ဖွင့်ပါ။',
   'notFound.eyebrow': 'ဤလမ်းကြောင်းတွင် အရေအတွက်မရှိပါ',
@@ -190,6 +195,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ဤစစ်တမ်းကို တင်၍မရပါ။',
   'pollDetail.loading': 'စစ်တမ်းကောက်ယူနေသည်…',
   'pollDetail.notFound': 'စစ်တမ်းကို ရှာမတွေ့ပါ။',
+  'pollDetail.openBallot': 'မဲဖွင့်ခြင်း',
   'pollDetail.openLive': 'တိုက်ရိုက်ရလဒ်များ',
   'pollDetail.pollId': 'စစ်တမ်း · {{id}}',
   'pollDetail.published': 'စစ်တမ်းထုတ်ပြန်ပြီးပါပြီ — မဲဆန္ဒရှင်များသည် ယခု မဲပေးနိုင်ပါပြီ။',
@@ -271,4 +277,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'အီးမေးလ်ဖြင့် ရှာဖွေပါ…',
   'voters.subheading':
     'မဲပေးခွင့်ရှိသူစာရင်းကို ရွေးချယ်ပါ။ မဲပေးသူများကို အဖွဲ့အစည်းအလိုက် အုပ်စုဖွဲ့ပြီး အလေးချိန်သတ်မှတ်ထားသော မဲစာရွက်များအတွက် ရွေးချယ်ပါ။',
+  'votingPollingLayout.nav.analytics': 'ခွဲခြမ်းစိတ်ဖြာမှု',
+  'votingPollingLayout.nav.billing': 'ငွေတောင်းခံခြင်း',
+  'votingPollingLayout.nav.createPoll': 'စစ်တမ်းအသစ်',
+  'votingPollingLayout.nav.dashboard': 'ဒက်ရှ်ဘုတ်',
+  'votingPollingLayout.nav.notifications': 'အကြောင်းကြားချက်များ',
+  'votingPollingLayout.nav.settings': 'ဆက်တင်များ',
+  'votingPollingLayout.nav.team': 'အသင်း',
+  'votingPollingLayout.nav.voters': 'မဲဆန္ဒရှင်များ',
+  'votingPollingLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
 }

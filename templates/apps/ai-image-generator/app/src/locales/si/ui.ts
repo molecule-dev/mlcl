@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'auth.fields.newPassword': 'නව මුරපදය',
   'collectionDetail.addImage': 'එකතු කිරීම සඳහා මන්ත්‍ර කරන්න',
   'collectionDetail.backCta': 'එකතු වෙත ආපසු',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'මූඩ්-බෝඩ්, කෙටිකතා සහ අඛණ්ඩ මාලාවන්',
   'collections.title': 'එකතු කිරීම්',
   'collections.untitled': 'නම් නොකළ · {{stamp}}',
+  'common.closeMenu': 'මෙනුව වසන්න',
+  'common.dismiss': 'ඉවතලන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'credits.eyebrow': '{{plan}} සැලැස්ම',
   'credits.renewsCopy': 'සැලැස්ම අලුත් වන්නේ {{date}}',
   'credits.trail': 'සිහින දැකීම · {{plan}} ස්ථරය',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'උත්පාදන ක්‍රියාකාරකම්, බෙදාගැනීම් සහ ණය ඇඟවීම් මෙහි දිස්වනු ඇත.',
   'notifications.empty.title': 'වාර්තා කිරීමට කිසිවක් නැත.',
   'notifications.subtitle': 'දින අනුව කාණ්ඩගත කරන ලද පරම්පරා සිදුවීම්',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.limits.gallery': '{{count}} ගැලරිය',
   'privacy.collect.body':
     'ඔබ ලියාපදිංචි වන විට අපි ඔබගේ නම, විද්‍යුත් තැපැල් ලිපිනය සහ හැෂ් මුරපදයක් එකතු කරමු. ඔබ Reverie භාවිතා කරන විට, ඔබ ඉදිරිපත් කරන විමසීම්, අපි ඔබ වෙනුවෙන් ජනනය කරන රූප, ඔබ සුරකින මෝස්තර සහ එකතු කිරීම් සහ භාවිතා කළ ආකෘතිය, උත්පාදන කාලරාමු සහ ණය ශේෂය වැනි පාර-දත්ත අපි ගබඩා කරමු.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'නව මුරපදය සුරකින්න',
   'reset.submitting': 'මුරපදය යාවත්කාලීන කරමින්...',
   'settings.account.handle': 'හසුරුවන්න',
+  'settings.account.lastSaved': 'ක්‍රියාකාරී පැතිකඩ · {{name}}',
   'settings.account.saved': 'පැතිකඩ සුරකින ලදී',
   'settings.account.saveFailed': 'පැතිකඩ සුරැකීමට නොහැකි විය.',
   'settings.account.title': 'නිර්මාපක පැතිකඩ',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'නව රූපය',
   'sidebar.secondary': 'ද්විතියික සංචාලනය',
   'signup.failed': 'ලියාපදිංචි වීම අසාර්ථක විය. නැවත උත්සාහ කරන්න.',
+  'signup.firstNamePlaceholder': 'ඒරියා',
   'signup.heading': 'ඔබේ භාවනාව ආරම්භ කරන්න',
+  'signup.lastNamePlaceholder': 'ලින්',
   'signup.subheading': 'ගිණුමක් සාදා නොමිලේ බැර 120ක් ලබා ගන්න.',
   'styles.empty': 'තවමත් විලාස පෙරසිටුවීම් නොමැත — ඒවා පළමු පුරනය වීමෙන් පසුව දිස්වනු ඇත.',
   'styles.eyebrow': 'තෝරාගත්',

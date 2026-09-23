@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Сырсөзүңүздү баштапкы абалга келтириңиз.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Тапшырманы аткарылган деп белгилөө',
   'checklistTaskCard.markIncomplete': 'Тапшырманы аткарылбаган деп белгилөө',
   'checklistTaskCard.openLabel': 'Ачык тапшырма',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Баарыңыздар жетиштиңиздер',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Жолдо',
   'dashboard.timelineHeading': '30/60/90 этаптары',
   'dashboard.viewAllTasks': 'Бардык тапшырмаларды көрүү',
+  'dashboard.weekOne': '1-жума',
   'dashboard.yourCohort': 'Сиздин командаңыз',
   'documents.empty.body': 'Командаңыз кошкон документтер бул жерде көрүнөт.',
   'documents.empty.title': 'Азырынча документтер жок',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 күндүк акысыз сыноо мөөнөтү',
   'landing.subhead':
     'Embark ар бир жаңы командалашына алгачкы 90 күндүк иш-аракеттерин — документтерди толтуруу, окутуу, жетишкендиктер жана маңыздуу тааныштырууларды — бир тынч жана ишенимдүү жерде өткөрөт.',
+  'layout.openMenu': 'Навигация менюсун ачуу',
   'layout.search': 'Тапшырмаларды, документтерди, командалаштарды издөө...',
+  'layout.searchTeammates': 'Командалаштарды аты же ролу боюнча издөө...',
   'layout.section.onboarding': 'Жаңыдан таанышуу',
   'layout.tagline': 'Сиздин сапарыңыз ушул жерден башталат',
   'notifications.empty.body': 'Жаңы аракет бул жерде көрсөтүлөт.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Баары даяр.',
   'planUpdated.preparing': 'Планыңыз жаңыртылууда…',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.documentsLabel': 'документтер',
   'pricing.onboardingsLabel': 'жаңы мүчөлөр',
   'pricing.tasksLabel': 'тапшырмалар',

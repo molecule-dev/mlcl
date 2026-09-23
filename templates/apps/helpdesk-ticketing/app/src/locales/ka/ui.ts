@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.title': '{{app}}-ის შესახებ',
   'activeAgentsCard.agent1AvatarAlt':
     'თანამედროვე ოფისში მეგობრული ღიმილით გადაღებული ქალი დამხმარე აგენტის პროფესიონალური ფოტო',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'დაუკავშირდით მხარდაჭერის გუნდს',
   'forgotPassword.error': 'გადატვირთვის ელფოსტის გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'forgotPassword.rememberPassword': 'გახსოვთ თქვენი პაროლი?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'შესვლა — Zenith-ის მხარდაჭერა',
   'login.showPassword': 'პაროლის ჩვენება',
   'login.welcomeSubheading': 'შედით თქვენს მხარდაჭერის პანელზე',
+  'mobileNav.closeMenu': 'ნავიგაციის დახურვა',
+  'mobileNav.menu': 'ნავიგაცია',
+  'mobileNav.openMenu': 'ნავიგაციის გახსნა',
   'nav.legal': 'იურიდიული',
   'nav.newTicket': 'ახალი ბილეთი',
   'notifications.loadError': 'შეტყობინებების ჩატვირთვა ვერ მოხერხდა. სცადეთ ხელახლა ცოტა ხანში.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'ბრძანების ძიება',
   'operatorDock.newReport': 'ახალი ანგარიში',
   'operatorDock.systemOnline': 'სისტემა ონლაინ რეჟიმში',
+  'planUpdated.subtitle': 'გმადლობთ',
   'planUpdated.title': 'გეგმა განახლდა',
   'pricing.agents': 'აგენტები',
   'pricing.automation': 'ავტომატიზაციის წესები',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{სახელი}}',
   'ticketCustomerReply.avatarAlt': '{{სახელი}} -ის ავატარი',
   'ticketDetail.errorTitle': 'რაღაც არასწორად მოხდა',
+  'ticketDetail.loadError': 'ბილეთის ჩატვირთვა ვერ მოხერხდა.',
+  'ticketDetail.notFound': 'ბილეთი ვერ მოიძებნა',
+  'ticketDetail.replyError': 'პასუხის გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'ticketDetail.retry': 'ხელახლა სცადეთ',
   'ticketDetail.statusUpdateError': 'სტატუსის განახლება ვერ მოხერხდა. სცადეთ ხელახლა.',
   'ticketDetailsCard.assigneeLabel': 'დანიშნული',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{დრო}} მარცხნივ',
   'ticketRow.title': 'მონაცემთა ბაზასთან დაკავშირება ვერ მოხერხდა წარმოებაში {{კვანძი}}',
   'tickets.pageTitle': 'ბილეთები — Zenith Support',
+  'ticketsFab.newTicket': 'ახალი ბილეთი',
   'ticketsFilterBar.assigneeLabel': 'დანიშნული:',
   'ticketsFilterBar.clearFilters': 'ფილტრების გასუფთავება',
   'ticketsFilterBar.dateRangeDemoHint': 'თარიღის დიაპაზონის ფილტრაცია გათიშულია ამ დემო ვერსიაში.',

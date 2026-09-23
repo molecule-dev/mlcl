@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Gbasara {{app}}',
   'about.plansTitle': 'Atụmatụ ndị na-eto gị',
   'brand.tagline': 'Kwa sekọnd ọ bụla',
   'clientDetail.back': 'Laghachi na ndị ahịa',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
     "Mmekọrịta ọ bụla n'otu ebe — ọrụ, awa ọrụ, akwụkwọ ọnụahịa ndị a na-akwụghị ụgwọ.",
   'clients.title': 'Ndị ahịa',
   'common.and': 'na',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.activeProjects': 'Ọrụ ndị na-arụ ọrụ',
   'dashboard.empty':
     'Enwebeghị ihe ọ bụla e tinyere. Malite ihe na-egosi oge iji soro nnọkọ mbụ gị.',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     "Enweghị awa a ga-akwụ ụgwọ maka onye ahịa a. Soro oge ụfọdụ ma ọ bụ kenye ndenye dị adị na otu n'ime ọrụ onye ahịa a.",
   'invoices.save': 'Mepụta akwụkwọ ọnụahịa',
   'invoices.subtitle': "Awa ndị a na-enyocha na-abanye n'akwụkwọ ọnụahịa, na akpaghị aka.",
+  'landing.copyright': '© {{year}} {{app}} . Kwa sekọnd, a na-akwụ ụgwọ ya.',
   'landing.ctaBody': "N'efu maka ihe ruru ọrụ atọ. Melite mgbe ndepụta ndị ahịa gị mere.",
   'landing.eyebrow': 'Ịchọpụta oge maka ọrụ a na-akwụ ụgwọ',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Ndị nọọrọ onwe ha tụkwasịrị obi',
   'landing.testimonial.quote':
     "\\u201cApụrụ m Toggl n'ime nkeji iri atọ. Ọkụ mmefu ego ahụ naanị akwụọla ụgwọ ya \\u2014 Akwụsịla m ikwu okwu n'ụzọ na-ezighị ezi izu abụọ na-aga.\\u201d",
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Oge. Kwa sekọnd, ọ dị mkpa.',
   'login.brand.subtitle':
     'Họrọ ihe na-egosi oge ị kwụsịrị — nkeji ọ bụla e depụtara na ọrụ, onye ahịa, na akwụkwọ ọnụahịa.',
   'login.brand.tracking': 'Nsochi',
   'login.subheading': 'Bulie ihe elekere ebe ị kwụsịrị.',
+  'nav.closeMenu': 'Mechie menu nsoroụzọ',
   'nav.insightsSection': 'Nghọta',
   'nav.newEntry': 'Ntinye Ọhụrụ',
+  'nav.openMenu': 'Mepee menu nsoroụzọ',
+  'nav.primary': 'Ntugharị isi',
   'nav.workSection': 'Ọrụ',
   'notFound.body':
     "O yiri ka njikọ ị soro akwụsịla ịdekọ. Laghachi na dashboard gị, anyị ga-anọgide na-agụ site n'ebe ahụ.",
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'A pụrụ ịkwụ ụgwọ',
   'timer.descriptionPlaceholder': 'Gịnị ka ị na-arụ ọrụ na ya?',
   'timer.idle': 'Idle — malite nsochi',
+  'timer.noProject': 'Enweghị ọrụ',
   'timer.runningWithProject': 'Enweghị ọrụ',
   'timer.start': 'Mmalite ihe ngụ oge',
   'timer.stop': 'Kwụsị ihe nhazi oge',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'analytics.channels.empty': 'Wala pang data ng channel.',
   'analytics.channels.title': 'Ayon sa channel',
   'analytics.empty': 'Wala pang mga usapan — lilitaw ang analytics kapag nagsimula Kayo ng thread.',
@@ -17,11 +18,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Mga usapan bawat araw',
   'chatBubble.avatarAlt': 'Avatar ni {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'confidenceMeter.label': 'Kumpiyansa',
   'conversationDetail.agentName': 'Ahente',
   'conversationDetail.aiReplyButton': 'Tugon ng bot',
   'conversationDetail.aiReplyError': 'Hindi makabuo ng tugon ng AI',
   'conversationDetail.aiReplyLoading': 'Isinusulat…',
+  'conversationDetail.aiReplySourceFallback': 'fallback (walang AI key)',
   'conversationDetail.backAria': 'Bumalik sa mga usapan',
   'conversationDetail.composerPlaceholder': 'Tumugon sa customer…',
   'conversationDetail.context.channel': 'Channel',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Magtakda ng bagong password para sa inyong account',
   'resetPassword.toggleConfirm': 'I-toggle ang visibility ng confirm password',
   'resetPassword.togglePassword': 'I-toggle ang visibility ng password',
+  'settings.account.emailError': 'Nabigong i-update ang email',
   'settings.account.emailLabel': 'Email address',
+  'settings.account.emailSaved': 'Na-update na ang email',
+  'settings.account.nameError': 'Nabigong i-update ang pangalan',
   'settings.account.nameLabel': 'Pangalan ng pagpapakita',
+  'settings.account.nameSaved': 'Na-update ang pangalan',
   'settings.account.title': 'Account',
   'settings.api.createCta': 'Lumikha ng token',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Awtomatikong mag-escalate kapag bumaba ang sentiment',
   'settings.bot.greetingLabel': 'Unang mensaheng pagbati',
   'settings.bot.title': 'Pagsasaayos ng bot',
+  'settings.bot.toneFormal': 'Pormal',
   'settings.bot.toneLabel': 'Boses at tono',
   'settings.danger.deleteAccount': 'Burahin ang account',
+  'settings.danger.deleteError': 'Nabigong burahin ang account',
+  'settings.danger.deleteWarning':
+    'Permanente nitong dine-delete ang iyong account at lahat ng nauugnay na data. Hindi na ito maaaring i-undo.',
   'settings.danger.deleting': 'Binubura…',
+  'settings.danger.passwordLabel': 'Kumpirmahin ang iyong password',
   'settings.danger.title': 'Sona ng panganib',
+  'settings.devices.empty': 'Walang nakarehistrong device.',
+  'settings.devices.revokeWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
+  'settings.devices.signingOut': 'Nagsa-sign out…',
   'settings.devices.signOut': 'Mag-sign out',
   'settings.devices.thisDevice': 'Ang device na ito',
   'settings.devices.title': 'Mga Kagamitan',
@@ -186,9 +202,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Nabigong baguhin ang password',
   'settings.security.currentPassword': 'Kasalukuyang password',
   'settings.security.newPassword': 'Bagong password',
+  'settings.security.oauthManaged':
+    'Ang iyong password ay pinamamahalaan ng iyong sign-in provider.',
   'settings.security.title': 'Seguridad',
   'settings.security.twoFactorDisable': 'I-disable',
   'settings.security.twoFactorEnable': 'I-enable',
+  'settings.security.twoFactorInvalid': 'Hindi wastong code',
   'settings.subtitle':
     'I-tune ang boses ng Rapport, mga pinagkukunan ng kaalaman at mga tool na ginagamit nito.',
   'settings.tokenCreateError': 'Nabigo ang paglikha ng token',

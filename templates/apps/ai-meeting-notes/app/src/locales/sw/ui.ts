@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
   'actions.empty': 'Hakuna vipengee vya vitendo vinavyolingana.',
   'actions.heading': 'Vipengee vya vitendo',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Mwezi uliopita',
   'calendar.recent': 'Hivi karibuni',
   'common.daysAgo': '{{count}} siku iliyopita',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.hoursAgo': '{{count}} h iliyopita',
   'common.no': '—',
+  'common.retry': 'Jaribu tena',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} vipengee vya vitendo',
   'dashboard.empty.body':
@@ -40,8 +43,10 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Angalia kisanduku chako cha barua pepe kwa kiungo cha kuweka upya.',
   'forgot.subheading': 'Ingiza barua pepe yako nasi tutakutumia kiungo cha kuweka upya.',
   'integrations.disconnected': 'Imekatika',
+  'integrations.loadError': 'Imeshindwa kupakia viunganishi.',
   'integrations.notConnectedTag': 'Haijaunganishwa',
   'integrations.subheading': 'Unganisha kalenda na mifumo ya video ili Murmur ajiunge kiotomatiki.',
+  'integrations.updateError': 'Kusasisha kumeshindwa.',
   'landing.ctaButton': 'Anza — ni bure',
   'landing.ctaHeading': 'Acha kuandika maelezo. Anza kufanya maamuzi.',
   'landing.demo.aiLabel': 'Muhtasari wa AI, ulioandaliwa moja kwa moja',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Ufuatiliaji',
   'meetingDetail.loadError': 'Imeshindwa kupakia mkutano.',
   'meetingDetail.noActions': 'Hakuna vipengee vya vitendo vilivyogunduliwa.',
+  'meetingDetail.none': 'Hakuna.',
   'meetingDetail.notFound': 'Mkutano haukupatikana.',
+  'meetingDetail.speakerFallback': 'Spika {{id}}',
   'meetingDetail.summaryHeading': 'Muhtasari wa AI',
   'meetingDetail.transcriptHeading': 'Nakala',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Mikutano',
   'meetings.loadError': 'Imeshindwa kupakia mikutano.',
   'meetings.subheading': 'Kila mkutano uliorekodiwa, uliopakiwa, na uliosawazishwa.',
+  'murmurLayout.openMenu': 'Fungua menyu ya kusogeza',
   'murmurLayout.primaryNavLabel': 'Usogezaji mkuu',
   'nav.legal': 'Kisheria',
   'notifications.loadError': 'Imeshindwa kupakia arifa.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Jinsi unavyoonekana ndani ya Murmur.',
   'record.error.empty': 'Hakuna sauti iliyorekodiwa.',
   'record.error.permission': 'Ruhusa ya maikrofoni imekataliwa.',
+  'record.error.recorder': 'Hitilafu ya kinasa sauti',
   'record.error.unsupported':
     'Kivinjari chako hakihimili kurekodi. Jaribu Chrome, Edge, au Safari.',
   'record.error.upload': 'Upakiaji haukufaulu. Jaribu tena.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nenosiri jipya',
   'reset.subheading': 'Chagua nenosiri ambalo hutumii mahali pengine popote.',
   'search.empty': 'Chapa ili kutafuta manukuu.',
+  'search.loadError': 'Utafutaji umeshindwa. Jaribu tena.',
   'search.noResults': 'Hakuna matokeo ya “ {{q}} ".',
   'settings.appearance.description': 'Badilisha kati ya hali ya mwanga na giza.',
   'settings.appearance.title': 'Muonekano',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Imeshindwa kupakia mipangilio.',
   'settings.loading': 'Inapakia…',
   'settings.push.heading': 'Arifa za programu zinazotumwa na programu',
+  'settings.push.subheading':
+    'Pata arifa za kivinjari kwa ajili ya kutajwa, vitendo, na muhtasari.',
   'settings.retention.audio': 'Weka sauti kwa ajili ya',
   'settings.retention.heading': 'Uhifadhi',
   'settings.retention.transcript': 'Weka nakala kwa ajili ya',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Anza kunasa madokezo ya mkutano kwa dakika chache',
   'signup.terms':
     'Kwa kufungua akaunti unakubali Sheria na Masharti yetu ya Huduma na Sera ya Faragha.',
+  'signup.termsPrefix': 'Kwa kufungua akaunti unakubali',
   'team.inviteCta': 'Mwalike mwenzake',
   'team.invitedAs': 'Alialikwa kama {{role}}',
   'team.inviteFailed': 'Haikuweza kutuma mwaliko.',

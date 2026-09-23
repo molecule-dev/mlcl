@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'आपकी भूमिका',
   'account.role.upgradeLink': 'सत्यापित शिक्षक बनने के लिए आवेदन करें →',
   'account.title': 'प्रोफ़ाइल, भुगतान और प्राथमिकताएँ।',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mentor पर पढ़ाएँ',
   'becomeTutor.form.error': 'आवेदन जमा नहीं हो सका।',
   'becomeTutor.form.pitchPlaceholder':
@@ -70,6 +71,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'विषय',
   'bookingConfirm.title': 'आपकी बुकिंग हो गई। बाकी हम संभालेंगे।',
   'bookingConfirm.with': 'शिक्षक के साथ',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'earningsHero.eyebrow': 'कमाई • {{month}}',
   'forgotPassword.heading': 'अपना पासवर्ड भूल गए?',
   'forgotPassword.subheading': 'अपने खाते से जुड़ा ईमेल दर्ज करें और हम रीसेट लिंक भेजेंगे।',
@@ -110,6 +112,7 @@ export const ui: UiTranslations = {
   'messages.send': 'संदेश भेजें',
   'messages.thread.empty': 'नमस्ते कहें — बातचीत शुरू करें।',
   'messages.title': 'आपके शिक्षकों के साथ थ्रेड।',
+  'nav.primary': 'प्राथमिक',
   'pricing.dataExport': 'डेटा निर्यात:',
   'pricing.headingDefault': 'उन्नत सुविधाएँ:',
   'resetPassword.heading': 'एक मज़बूत नया पासवर्ड चुनें।',

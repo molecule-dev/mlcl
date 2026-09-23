@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'about.pageTitle': 'Par mums {{appName}}',
   'analytics.empty': 'Ierakstiet savu pirmo klipu, lai redzētu iesaisti šeit.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipi',
   'billing.usage.views': 'Skatījumi',
   'billing.usage.views.unit': 'skatījumi',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'landing.cta.title': 'Sūtiet labākas atsauksmes. Sāciet ar Glint.',
   'landing.feature.capture.body':
     'Ierakstīšana pārlūkprogrammā, datorā un mobilajā ierīcē ar mikrofonu, kameru un zīmēšanas iespēju.',
   'landing.feature.capture.title': 'Uzņemšana ar vienu pieskārienu',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asinhrons, padarīts spīdošs.',
   'landing.hero.cardCaption': 'Darba vietas parauga pārskats — izmēģiniet bez maksas.',
   'landing.hero.primaryCta': 'Sāciet ierakstīšanu bez maksas',
   'landing.hero.proof.free': 'Bezmaksas mūžīgais līmenis',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Meklēt ierakstus',
   'library.searchPlaceholder': 'Meklēt ierakstus…',
   'library.weeklyChange': '{{value}} % salīdzinājumā ar iepriekšējo nedēļu',
+  'nav.openMenu': 'Atvērt navigācijas izvēlni',
   'nav.record': 'Ieraksts',
   'nav.shared': 'Dalījās ar mani',
   'nav.startRecording': 'Sākt ierakstīšanu',

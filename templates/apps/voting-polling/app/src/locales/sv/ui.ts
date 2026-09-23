@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'analytics.col.quorum': 'Beslutsför',
   'analytics.col.votes': 'Röster',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Inga väntande frågor ännu.',
   'audienceQa.onStageEyebrow': 'På scen nu',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Främja',
   'audienceQa.queued': 'i kö',
   'audienceQa.queueEyebrow': 'Kö',
   'ballot.eyebrow': 'Avlägg din röst',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Du är för närvarande på {{plan}}-planen.',
   'billing.switch': 'Byt',
   'billing.upgraded': 'Uppdaterad till {{plan}} — gränser tillämpade omedelbart.',
+  'common.goToDashboard': 'Gå till översikt',
   'createPoll.addOption': 'Lägg till alternativ',
   'createPoll.anonymousHint':
     'Väljarnamn dolda i revisionsloggen; sammanräkningar förblir autentiserade.',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ny på Nosh?',
   'login.remember': 'Kom ihåg mig i 30 dagar',
   'login.subheading': 'Öppna sammanträdet, led rummet och certifiera resultatet.',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'notFound.body':
     'Sidan du försökte nå har stängts eller flyttats. Gå tillbaka till instrumentpanelen eller öppna en ny omröstning.',
   'notFound.eyebrow': 'Ingen beslutsförhet på denna rutt',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Kunde inte ladda denna omröstning.',
   'pollDetail.loading': 'Laddar omröstning…',
   'pollDetail.notFound': 'Omröstning hittades inte.',
+  'pollDetail.openBallot': 'Öppen omröstning',
   'pollDetail.openLive': 'Liveresultat',
   'pollDetail.pollId': 'omröstning · {{id}}',
   'pollDetail.published': 'Omröstning publicerad — väljare kan nu avlägga röster.',
@@ -262,4 +268,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Sök efter e-post…',
   'voters.subheading':
     'Kurera det berättigade registret. Gruppera väljare per organisation för viktade röstsedlar.',
+  'votingPollingLayout.nav.analytics': 'Analys',
+  'votingPollingLayout.nav.billing': 'Fakturering',
+  'votingPollingLayout.nav.createPoll': 'Ny omröstning',
+  'votingPollingLayout.nav.dashboard': 'Instrumentpanel',
+  'votingPollingLayout.nav.notifications': 'Aviseringar',
+  'votingPollingLayout.nav.settings': 'Inställningar',
+  'votingPollingLayout.nav.team': 'Lag',
+  'votingPollingLayout.nav.voters': 'Väljare',
+  'votingPollingLayout.primaryNavLabel': 'Huvudnavigering',
 }

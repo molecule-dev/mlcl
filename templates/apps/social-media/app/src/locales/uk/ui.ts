@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.pageTitle': 'Про {{app}}',
+  'common.goToDashboard': 'До панелі',
+  'common.retry': 'Спробувати ще раз',
   'compose.cancel': 'Скасувати',
   'compose.captionPlaceholder': 'Що у тебе на думці?',
   'compose.heading': 'Поділіться моментом',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Підтверджений обліковий запис',
   'resetPassword.newPassword': 'Новий пароль',
   'resetPassword.subheading': 'Оберіть щось сильне — щонайменше 12 символів.',
+  'search.clearAria': 'Очистити',
+  'search.error': 'Пошук не вдався. Спробуйте ще раз.',
   'search.noPeople': 'Немає збігів між авторами {{q}} ".',
   'search.noPosts': 'Немає відповідних публікацій " {{q}} ".',
   'search.noTags': 'Поки що немає трендових хештегів.',
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Сховати пароль',
   'signup.showPassword': 'Показати пароль',
   'signup.subheading': 'Створіть обліковий запис, щоб почати ділитися.',
+  'socialMediaLayout.closeMenu': 'Закрити меню навігації',
+  'socialMediaLayout.openMenu': 'Відкрити меню навігації',
+  'socialMediaLayout.primaryNavLabel': 'Основна навігація',
   'storyRail.heading': 'Історії',
   'storyRail.label': 'Історії',
   'storyRail.openAria': 'ВІДЧИНЕНО {{handle}} історія',

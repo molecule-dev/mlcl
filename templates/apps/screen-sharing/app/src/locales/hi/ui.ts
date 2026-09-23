@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'about.pageTitle': '{{appName}} के बारे में',
   'analytics.empty': 'यहाँ सहभागिता देखने के लिए अपना पहला क्लिप रिकॉर्ड करें।',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'क्लिप',
   'billing.usage.views': 'दृश्य',
   'billing.usage.views.unit': 'दृश्य',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'landing.cta.title': 'बेहतर प्रतिक्रिया भेजें। Glint से शुरू करें।',
   'landing.feature.capture.body':
     'माइक, कैमरा और ड्राइंग के साथ ब्राउज़र, डेस्कटॉप और मोबाइल रिकॉर्डिंग।',
   'landing.feature.capture.title': 'एक-टैप कैप्चर',
+  'landing.footer.copy': '© {{year}} {{appName}} . एसिंक्रोनस, चमकदार बनाया गया।',
   'landing.hero.cardCaption': 'नमूना कार्यक्षेत्र अवलोकन — इसे निःशुल्क आज़माएँ।',
   'landing.hero.primaryCta': 'निःशुल्क रिकॉर्डिंग शुरू करें',
   'landing.hero.proof.free': 'हमेशा के लिए निःशुल्क स्तर',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'रिकॉर्डिंग खोजें',
   'library.searchPlaceholder': 'रिकॉर्डिंग खोजें…',
   'library.weeklyChange': 'पिछले सप्ताह की तुलना में {{value}}%',
+  'nav.openMenu': 'नेविगेशन मेनू खोलें',
   'nav.record': 'रिकॉर्ड करें',
   'nav.shared': 'मेरे साथ साझा',
   'nav.startRecording': 'रिकॉर्डिंग शुरू करें',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.eyebrow': '{{app}} အကြောင်း',
+  'about.intro':
+    '{{app}} သည် လက်တွေ့ဘဝအတွက် တရားထိုင်အက်ပ်တစ်ခုဖြစ်သည် — နေ့စဉ်လမ်းညွှန်တရားထိုင်ခြင်း၊ အသက်ရှူလေ့ကျင့်ခန်းနှင့် အိပ်စက်ခြင်းဇာတ်လမ်းများကို နည်းပြတစ်ဦးမဟုတ်ဘဲ သူငယ်ချင်းတစ်ဦးကဲ့သို့ ခံစားရသော ဆရာများမှ တင်ဆက်သည်။ အပြစ်ရှိစိတ်မရှိ၊ ဆူညံသောအစာကျွေးခြင်းမရှိဘဲ သင့်အသက်ရှူမှုကို ပြန်လည်ရယူရန် တိတ်ဆိတ်ငြိမ်သက်သောနေရာတစ်ခုဖြစ်သည်။',
+  'about.missionBody':
+    'တိတ်ဆိတ်ငြိမ်သက်မှုကို နေ့တစ်နေ့ရဲ့ ဘယ်အချိန်မှာမဆို မည်သူမဆို ရယူအသုံးပြုနိုင်သင့်တယ်လို့ ကျွန်ုပ်တို့ ယုံကြည်ပါတယ်။ {{app}} မှာ တည်ငြိမ်ပြီး တသမတ်တည်းရှိတဲ့ အလေ့အကျင့်တစ်ခုကို အားစိုက်ထုတ်စရာမလိုအောင် တည်ရှိနေတာပါ — ဒါကြောင့် ရိုးသားတဲ့ ဆယ်မိနစ်က နောက်ဆယ်နာရီကို ဘယ်လိုဖြတ်သန်းရမလဲဆိုတာ ပြောင်းလဲပေးနိုင်ပါတယ်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.pageTitle': 'တစ်နေ့ကို ၁၀ မိနစ်လောက် စိတ်အေးချမ်းသာစွာ',
+  'breathingDial.seconds': 'စက္ကန့်များ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.logout': 'အကောင့်ထွက်ပါ',
   'common.min': 'မိနစ်',
   'common.relative.justNow': 'ယခုပင်',
   'common.relative.now': 'အခု',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'nav.secondaryNavigation': 'အကောင့်လမ်းညွှန်',
   'sessionCard.with': 'နှင့်အတူ {{name}}',
   'stillpoint.billing.choose': 'ရွေးချယ်ပါ {{plan}}',
   'stillpoint.billing.currentPlan': 'လက်ရှိတွင် ဖွင့်ထားသည် {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'အစီအစဉ်များကို ကျွန်ုပ်တို့ တင်၍မရပါ။',
   'stillpoint.billing.opening': 'ငွေရှင်းကောင်တာဖွင့်နေသည်…',
   'stillpoint.billing.perMonthShort': '/ လ',
+  'stillpoint.billing.perYearShort': '/နှစ်',
   'stillpoint.billing.unknownResult': 'မမျှော်လင့်ဘဲ ငွေတောင်းခံလွှာပို့ခြင်းအတွက် တုံ့ပြန်မှု။',
   'stillpoint.billing.yearly': 'နှစ်စဉ် · ၁၇% သက်သာသည်',
   'stillpoint.courseDetail.back': 'သင်တန်းများ',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'သင်တန်းတွေ မရှိသေးပါဘူး။',
   'stillpoint.courses.eyebrow': '{{count}} ရက်ပေါင်းများစွာ ခရီးစဉ်များ',
   'stillpoint.courses.heading': 'သင်တန်းများ',
+  'stillpoint.forgot.checkEmail':
+    'သင့် inbox ကို စစ်ဆေးပါ — လင့်ခ်သည် မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးပါမည်။',
   'stillpoint.forgot.success':
     'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပြီးပါပြီ- {{email}} ။',
   'stillpoint.home.empty': 'အစည်းအဝေးများ မရှိသေးပါ — မကြာမီ ပြန်လည်စစ်ဆေးပါ။',
@@ -50,6 +67,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'သင့်ရဲ့ အခမဲ့အကောင့်ကို ဖန်တီးပါ',
   'stillpoint.landing.cta.title': 'ဒီနေ့ကစပြီး သင့်ရဲ့ တိတ်ဆိတ်မှုကို စတင်လိုက်ပါ',
   'stillpoint.landing.features.heading': 'သင်နှင့်အတူ ကြီးထွားလာသော အလေ့အကျင့်တစ်ခု',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'နေ့စဉ် လမ်းညွှန်မှုဖြင့် တရားထိုင်ခြင်း၊ အသက်ရှူလေ့ကျင့်ခန်းနှင့် အိပ်စက်ခြင်းပုံပြင်များကို နည်းပြတစ်ဦးမဟုတ်ဘဲ သူငယ်ချင်းတစ်ဦးကဲ့သို့ ခံစားရသော ဆရာများမှ သင်ကြားပေးသည်။',
   'stillpoint.landing.hero.eyebrow': 'တစ်နေ့ကို ၁၀ မိနစ်လောက် စိတ်အေးချမ်းသာစွာ',
@@ -66,6 +84,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'စိတ်ခံစားချက်အလိုက် ကြည့်ရှုပါ',
   'stillpoint.login.rememberMe': 'ကျွန်ုပ်ကို အကောင့်ဝင်ထားပါ',
   'stillpoint.login.subheading': 'သင့်လေ့ကျင့်ခန်းကို ဆက်လုပ်ရန် အကောင့်ဝင်ပါ။',
+  'stillpoint.nav.tagline': 'သင့်ရဲ့ တည်ငြိမ်တဲ့ ဗဟိုချက်ကို ရှာပါ',
+  'stillpoint.notFound.body':
+    'ဒီစာမျက်နှာက တစ်နေရာရာမှာ ရှည်လျားပြီး နက်ရှိုင်းစွာ အသက်ရှူနေပါတယ်။ {{app}} မှာ သင့်အတွက် ပိုတိတ်ဆိတ်တဲ့နေရာ ရှာကြရအောင်။',
   'stillpoint.notFound.title': 'တိတ်ဆိတ်မှုထဲမှာ ပျောက်ဆုံးသွားတယ်',
   'stillpoint.notFound.toHome': 'ဒီနေ့ကို ပြန်သွားပါ',
   'stillpoint.notFound.toLibrary': 'စာကြည့်တိုက်ကို ကြည့်ရှုပါ',
@@ -83,6 +104,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '၁၅ စက္ကန့် နောက်ပြန်ကျော်ပါ',
   'stillpoint.player.skipForward': 'ရှေ့သို့ ၃၀ စက္ကန့်ကျော်ပါ',
   'stillpoint.player.with': 'နှင့်အတူ {{name}}',
+  'stillpoint.profile.defaultHandle': 'တည်ငြိမ်သောညွှန်ပြကိရိယာ',
   'stillpoint.profile.eyebrow': 'မင်းရဲ့လေ့ကျင့်ခန်းကို အကျဉ်းချုပ်ပြောပြမယ်။',
   'stillpoint.profile.locked': 'သော့ခတ်ထားသည်',
   'stillpoint.profile.member': 'Stillpoint အဖွဲ့ဝင်',

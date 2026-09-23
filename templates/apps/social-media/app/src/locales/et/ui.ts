@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
+  'common.goToDashboard': 'Mine töölauani',
+  'common.retry': 'Proovi uuesti',
   'compose.cancel': 'Tühista',
   'compose.captionPlaceholder': 'Mis sul mõttes on?',
   'compose.heading': 'Jaga hetke',
@@ -94,6 +98,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Kinnitatud konto',
   'resetPassword.newPassword': 'Uus parool',
   'resetPassword.subheading': 'Vali midagi tugevat – vähemalt 12 tähemärki.',
+  'search.clearAria': 'Selge',
+  'search.error': 'Otsing ebaõnnestus. Proovi uuesti.',
   'search.noPeople': 'Loojaid pole sobivaks märgitud " {{q}} ".',
   'search.noPosts': 'Vastavaid postitusi pole leitud " {{q}} ".',
   'search.noTags': 'Trendivaid hashtage veel pole.',
@@ -122,6 +128,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Peida parool',
   'signup.showPassword': 'Näita parooli',
   'signup.subheading': 'Jagamise alustamiseks loo konto.',
+  'socialMediaLayout.closeMenu': 'Sulge navigeerimismenüü',
+  'socialMediaLayout.openMenu': 'Ava navigeerimismenüü',
+  'socialMediaLayout.primaryNavLabel': 'Peamine navigeerimine',
   'storyRail.heading': 'Lood',
   'storyRail.label': 'Lood',
   'storyRail.openAria': 'Avatud {{handle}} lugu',

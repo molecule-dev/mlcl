@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אודותינו',
   'applications.empty': 'אין עדיין מועמדויות \\u2014 התפקיד הנכון נמצא במרחק מועמדות אחת.',
   'applications.eyebrow': 'הצינור שלך',
@@ -9,7 +10,9 @@ export const ui: UiTranslations = {
   'applications.loading': 'טוען\\u2026',
   'applications.subheading': 'כל תפקיד שהגשת מועמדות אליו, בתנועה. סנן לפי שלב כדי להתמקד.',
   'applications.untitledRole': 'תפקיד # {{id}}',
+  'auth.legalConsent': 'בהמשך, אתה מסכים ל',
   'common.and': 'ו',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'companies.empty': 'אין חברות התואמות את החיפוש שלך \\u2014 נסה מונח אחר.',
   'companies.eyebrow': 'מעסיקים נבחרים',
   'companies.searchPlaceholder': 'חיפוש לפי שם, תעשייה, מיקום',
@@ -46,6 +49,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'עדיין אין מועמדויות לתפקיד זה.',
   'jobApplicants.eyebrow': 'נקודת מבט של המעסיק',
   'jobApplicants.loading': 'טוען\\u2026',
+  'jobApplicants.statusUpdateFailed': 'לא ניתן היה לעדכן את השלב הזה - נסה שוב.',
+  'jobApplicants.subheading':
+    'סקירת קורות חיים, קידום מועמדים, שליחת הצעות \\u2014 {{count}} בתנועה.',
   'jobDetail.applicantCount': '{{count}} מועמדים עד כה',
   'jobDetail.applied': 'הבקשה נשלחה',
   'jobDetail.apply': 'הגש מועמדות עכשיו',
@@ -86,6 +92,7 @@ export const ui: UiTranslations = {
   'login.remember': 'זכור אותי למשך 30 יום',
   'login.signingIn': 'כניסה\\u2026',
   'login.subheading': 'המשיכו בחיפוש, התקדמו בבקשות שלכם, תקבלו תשובה מהירה יותר.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . נבנה עבור צוותי גיוס.',
   'loginBrandPanel.headline': 'המקום בו כישרון נפגש',
   'loginBrandPanel.headlineLine2': 'תְנוּפָה.',
   'loginBrandPanel.listing.recruiter': 'שותף כישרונות',
@@ -100,6 +107,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': 'עדכוני מועמדות, זימונים לראיונות, התאמות חדשות וחדשות תחילה.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} השבוע',
   'opportunitiesHero.eyebrow': 'פתוח היום',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'postJob.addNewCompany': '+ הוסף חברה חדשה',
   'postJob.companyCreateFailed': 'לא ניתן היה ליצור חברה - נסה שוב.',
   'postJob.companyNameLabel': 'שם החברה שלך',
@@ -154,9 +162,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'יוצר חשבון\\u2026',
   'signup.ctaEmployer': 'צור חשבון מעסיק',
   'signup.firstNamePlaceholder': 'מאיה',
+  'signup.lastNamePlaceholder': 'חן',
   'signup.passwordMismatch': 'הסיסמאות אינן תואמות.',
   'signup.subheading': 'חינם למחפשי עבודה, לנצח. מעסיקים מתחילים עם תקופת ניסיון של 30 יום.',
   'timeAgo.days': '{{count}} לפני ימים',
   'timeAgo.hours': '{{count}} לפני שעה',
   'timeAgo.justNow': 'הרגע',
+  'timeAgo.weeks': 'לפני {{count}} שבועות',
 }

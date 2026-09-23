@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// حول {{app}}',
+  'about.pageTitle': 'مستوى التحكم في خطاف الويب',
+  'about.plansTitle': 'خطط لكل مرحلة',
   'apiKeys.bestPractices': 'أفضل الممارسات',
   'apiKeys.body':
     'رموز وصول برمجية. تعامل معها كأنها كلمات مرور — احفظها في متغيرات البيئة ولا تودعها في المستودع أبداً.',
@@ -56,6 +59,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ضمن الخطة',
   'billing.usageWarning': 'قريب من السقف',
   'billing.yearly': 'سنوي',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'dashboard.body':
     'معدل النقل المباشر، وإعادة المحاولات الجارية، ونقاط النهاية التي واجهت بعض المشاكل - عبر كل مساحة عمل تقوم بتشغيلها.',
   'dashboard.endpointsEmpty': 'لا توجد نقاط نهاية حتى الآن.',
@@ -105,6 +109,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'نقاط النهاية',
   'endpointDetail.deliveryTrendSub': 'عمليات تسليم / ساعة، مقياس لوغاريتمي',
   'endpointDetail.hideSecret': 'إخفاء السر',
+  'endpointDetail.loading': 'جارٍ تحميل نقطة النهاية…',
   'endpointDetail.metric.delivered': 'تم التسليم ٢٤ ساعة',
   'endpointDetail.metric.deliveredCaption': 'من {{count}} أنواع أحداث',
   'endpointDetail.metric.failuresCaption': 'المحاولات: {{retries}}',
@@ -206,6 +211,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'حرجة · ٢٤ ساعة',
   'notifications.metric.totalCaption': 'صندوق وارد طوال الفترة',
   'payloadViewer.payload': '// الحمولة',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'profile.avatarHeader': 'الصورة الرمزية',
   'profile.avatarHint': 'تُعرض الأحرف الأولى — التحميلات قادمة في الإصدار التالي.',
   'profile.body': 'حسابك وتفضيلاتك وجلساتك النشطة.',
@@ -220,6 +226,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ تم الحفظ',
   'profile.sessionsEmpty': 'جلستك الحالية فقط نشطة. لا توجد أجهزة أخرى مسجَّلة الدخول.',
   'profile.toggle': 'تبديل {{label}}',
+  'pylonShell.closeMenu': 'إغلاق قائمة التنقل',
+  'pylonShell.openMenu': 'فتح قائمة التنقل',
   'pylonShell.primaryNavLabel': 'التنقل الرئيسي',
   'resetPassword.subtitle': 'اختر كلمة مرور قويّة لم تستخدمها من قبل.',
   'resetPassword.tokenPlaceholder': 'الصق من البريد الإلكتروني',

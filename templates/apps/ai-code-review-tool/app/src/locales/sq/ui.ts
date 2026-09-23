@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Na kontaktoni',
   'about.eyebrow': 'Rreth',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.connectRepoCta': 'Lidhni repozitorin',
   'dashboard.empty': 'Ende nuk ka kërkesa tërheqjeje — lidhni një depo për të filluar.',
   'dashboard.eyebrow': 'Refraksion · radhë rishikimi',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Koha e punës',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Rezultati i cilësisë së inteligjencës artificiale {{score}} / 10',
+  'refractLayout.closeMenu': 'Mbyll menynë',
+  'refractLayout.openMenu': 'Hap menynë',
   'refractLayout.primaryNavLabel': 'Navigimi kryesor',
   'reports.cumulativeScoreLabel': 'Rezultati kumulativ',
   'reports.cumulativeScoreSubtitle': 'të gjitha depot · {{days}} d',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Dështoi në ngarkimin e indeksit të kërkimit.',
   'settings.apiKeys.description':
     'Menaxhoni çelësat personalë të API-t nga menyja e përdoruesit në pjesën e sipërme djathtas.',
+  'settings.apiKeys.integrationsNote':
+    'Tokenët e aksesit të ofruesit menaxhohen në seksionin Integrimet më sipër.',
   'settings.connectError': 'Lidhja e ofruesit dështoi.',
   'settings.disconnectError': 'Dështoi në shkëputjen e ofruesit.',
   'settings.eyebrow': 'Refraksion · hapësirë pune',
   'settings.integration.${provider}.label': 'Duke u ruajtur…',
   'settings.loadError': 'Dështoi në ngarkimin e cilësimeve.',
+  'settings.notificationCenter': 'Qendra e njoftimeve',
   'settings.notifications.description':
     'Vizitoni faqen e njoftimeve për të parë dhe menaxhuar preferencat e dorëzimit.',
   'settings.section.account': 'Llogaria dhe siguria',

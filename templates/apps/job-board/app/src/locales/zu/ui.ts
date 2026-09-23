@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
   'applications.empty':
     'Azikho izinhlelo zokusebenza okwamanje \\u2014 indima efanele ukufaka eyodwa.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Yonke indima oyisebenzisele yona, iyaqhubeka. Hlunga ngesigaba ukuze ugxile.',
   'applications.untitledRole': 'Indima # {{id}}',
+  'auth.legalConsent': 'Ngokuqhubeka, uyavuma',
   'common.and': 'futhi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'companies.empty': 'Azikho izinkampani ezifanela usesho lwakho \\u2014 zama igama elihlukile.',
   'companies.eyebrow': 'Abaqashi abavelele',
   'companies.searchPlaceholder': 'Sesha ngegama, imboni, indawo',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Azikho izicelo okwamanje zale ndima.',
   'jobApplicants.eyebrow': 'Umbono womqashi',
   'jobApplicants.loading': 'Iyalayisha...',
+  'jobApplicants.statusUpdateFailed': 'Ayikwazanga ukubuyekeza leso sigaba — zama futhi.',
+  'jobApplicants.subheading':
+    'Buyekeza ama-CV, thuthukisa abantu abazongenela ukhetho, thumela okunikezwayo \\u2014 {{count}} kuyaqhubeka.',
   'jobDetail.applicantCount': '{{count}} abafakizicelo kuze kube manje',
   'jobDetail.applied': 'Isicelo sithunyelwe',
   'jobDetail.apply': 'Faka isicelo manje',
@@ -85,6 +91,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Phequlula izindima ezivulekile \\u2192',
   'landing.pricingEyebrow': 'Intengo',
   'landing.pricingHeading': 'Amacebo alula awo wonke usayizi weqembu.',
+  'login.eyebrow': 'Siyakwamukela emuva ku-{{app}}',
   'login.heading': 'Ngena ngemvume ku-akhawunti yakho',
   'login.noAccount': 'Umusha kuNosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Ukungena ngemvume\\u2026',
   'login.subheading':
     'Qala usesho lwakho, thuthukisa izinhlelo zakho zokusebenza, uzwe ngokushesha.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Yakhelwe ukuqasha amaqembu.',
   'loginBrandPanel.headline': 'Lapho ithalente lihlangana khona',
   'loginBrandPanel.headlineLine2': 'umfutho.',
   'loginBrandPanel.listing.recruiter': 'Umlingani Wethalente',
@@ -108,6 +116,7 @@ export const ui: UiTranslations = {
     'Izibuyekezo zezicelo, izimemo zengxoxo, imidlalo emisha \\u2014 emisha kuqala.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} kuleli viki',
   'opportunitiesHero.eyebrow': 'Kuvuliwe namuhla',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'postJob.addNewCompany': '+ Engeza inkampani entsha',
   'postJob.companyCreateFailed': 'Ayikwazanga ukudala inkampani — zama futhi.',
   'postJob.companyNameLabel': 'Igama lenkampani yakho',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Ukudala i-akhawunti...',
   'signup.ctaEmployer': 'Dala i-akhawunti yomqashi',
   'signup.firstNamePlaceholder': 'IsiMaya',
+  'signup.lastNamePlaceholder': 'UChen',
   'signup.passwordMismatch': 'Amaphasiwedi awafani.',
   'signup.subheading':
     'Kumahhala kwabafuna umsebenzi, kuze kube phakade. Abaqashi baqala ngesivivinyo sezinsuku ezingu-30.',
   'timeAgo.days': '{{count}} kudala',
   'timeAgo.hours': '{{count}} edlule',
   'timeAgo.justNow': 'khona manje',
+  'timeAgo.weeks': '{{count}} edlule',
 }

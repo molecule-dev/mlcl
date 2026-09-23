@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
+  'appNav.mobileLabel': 'การนำทางหลัก',
+  'appNav.primaryLabel': 'การนำทางหลัก',
   'billing.actions.confirmCancel':
     'ต้องการยกเลิกการสมัครสมาชิกใช่ไหม? คุณสามารถสมัครสมาชิกใหม่ได้ทุกเมื่อ',
   'billing.actions.paused': 'การสมัครสมาชิกถูกระงับชั่วคราว',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'แต่ละระดับคือเรื่องราวที่ผลิตขึ้นในจำนวนจำกัด เพิ่มเรื่องใดเรื่องหนึ่งลงในรายการรอของคุณ หรือเปลี่ยนไปอ่านในเดือนถัดไปก็ได้',
   'boxThemeCard.perMonth': '/ เดือน',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'customize.eyebrow': 'ทำให้เป็นของคุณเอง',
   'customize.heading': 'ปรับแต่ง Crate ครั้งต่อไปของคุณได้ตามต้องการ',
   'customize.items.exclude': 'ข้ามส่วนนี้ไป',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'ฤดูกาลนี้',
   'landing.editions.heading': 'ฉบับที่ภัณฑารักษ์ของเราชื่นชอบ',
   'landing.footer.contact': 'พูดคุยกับภัณฑารักษ์',
+  'landing.footer.tagline': '{{tagline}}',
   'landing.hero.ctaPrimary': 'เริ่มสร้างกล่องของคุณ →',
   'landing.hero.ctaSecondary': 'ดูระดับชั้น',
   'landing.hero.eyebrow': 'คัดสรรทุกเดือน ใส่ใจในรายละเอียดเสมอ',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ขุมทรัพย์ต่อไปของคุณ',
   'nextBoxHeroCard.itemsLabel': 'สินค้าที่คัดสรรแล้ว',
   'nextBoxHeroCard.shipsOnLabel': 'เรือบน',
+  'notFound.body':
+    'เราไม่พบหน้านั้นในคลังข้อมูลของ {{app}} อาจเป็นเพราะถูกยกเลิกไปแล้วหรือพิมพ์ผิด',
   'notFound.cta.dashboard': 'ไปที่แดชบอร์ด',
   'notFound.eyebrow': 'กล่องเปล่า',
   'notFound.heading': 'ชั้นวางของนี้ว่างเปล่า',

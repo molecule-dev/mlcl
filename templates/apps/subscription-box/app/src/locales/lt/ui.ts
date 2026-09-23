@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Apie {{app}}',
+  'appNav.mobileLabel': 'Pagrindinė navigacija',
+  'appNav.primaryLabel': 'Pagrindinė navigacija',
   'billing.actions.confirmCancel': 'Atšaukti prenumeratą? Galite bet kada atnaujinti prenumeratą.',
   'billing.actions.paused': 'Prenumerata pristabdyta.',
   'billing.actions.resumed': 'Prenumerata atnaujinta.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Kiekvienas lygis yra nedidelės apimties istorija. Įtraukite vieną į savo eilę arba perkelkite ją į kitą mėnesį.',
   'boxThemeCard.perMonth': '/ mėnesį',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'customize.eyebrow': 'Padarykite tai savo',
   'customize.heading': 'Tinkinkite savo kitą lobį',
   'customize.items.exclude': 'Praleisti tai',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Šį sezoną',
   'landing.editions.heading': 'Leidimai, kuriuos mėgsta mūsų kuratoriai',
   'landing.footer.contact': 'Pasikalbėkite su kuratoriumi',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Pradėkite savo dėžutę →',
   'landing.hero.ctaSecondary': 'Žr. pakopas',
   'landing.hero.eyebrow': 'Kuruojama kas mėnesį. Visada asmeniška.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'JŪSŲ KITAS IEŠKOJIMAS',
   'nextBoxHeroCard.itemsLabel': 'Kuruoti elementai',
   'nextBoxHeroCard.shipsOnLabel': 'Išsiunčiama',
+  'notFound.body':
+    'Nepavyko rasti to puslapio {{app}} archyve. Jis galėjo būti pašalintas arba tiesiog su klaidomis.',
   'notFound.cta.dashboard': 'Eiti į valdymo skydelį',
   'notFound.eyebrow': 'Tuščia dėžutė',
   'notFound.heading': 'Ši lentyna tuščia',

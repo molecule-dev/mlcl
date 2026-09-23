@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'auth.fields.newPassword': 'סיסמה חדשה',
   'collectionDetail.addImage': 'לאסוף באוב',
   'collectionDetail.backCta': 'חזרה לאוספים',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'לוחות מצב רוח, תקצירים וסדרות מתמשכות',
   'collections.title': 'אוספים',
   'collections.untitled': 'ללא כותרת · {{stamp}}',
+  'common.closeMenu': 'סגור תפריט',
+  'common.dismiss': 'לְפַטֵר',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
+  'common.openMenu': 'פתח את תפריט הניווט',
   'credits.eyebrow': '{{plan}} לְתַכְנֵן',
   'credits.renewsCopy': 'התוכנית מתחדשת בתאריך {{date}}',
   'credits.trail': 'הרהורים · {{plan}} נִדבָּך',
@@ -126,6 +131,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'פעילות יצירה, שיתוף והתראות אשראי יופיעו כאן.',
   'notifications.empty.title': 'אין מה לדווח',
   'notifications.subtitle': 'אירועי דור מקובצים לפי יום',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'pricing.limits.gallery': '{{count}} גָלֶרֵיָה',
   'privacy.collect.body':
     'כשאתה נרשם, אנו אוספים את שמך, כתובת הדוא"ל שלך וסיסמה מגובבת. בזמן השימוש שלך ב-Reverie, אנו מאחסנים את ההנחיות שאתה שולח, את התמונות שאנו יוצרים עבורך, את הסגנונות והקולקציות שאתה שומר, ומטא-דאטה כגון המודל בו נעשה שימוש, חותמות זמן של יצירה ויתרת אשראי.',
@@ -161,6 +167,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'שמור סיסמה חדשה',
   'reset.submitting': 'מעדכן סיסמה…',
   'settings.account.handle': 'יָדִית',
+  'settings.account.lastSaved': 'פרופיל פעיל · {{name}}',
   'settings.account.saved': 'הפרופיל נשמר',
   'settings.account.saveFailed': 'לא ניתן היה לשמור את הפרופיל',
   'settings.account.title': 'פרופיל היוצר',
@@ -182,7 +189,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'תמונה חדשה',
   'sidebar.secondary': 'ניווט משני',
   'signup.failed': 'ההרשמה נכשלה. נסה שוב.',
+  'signup.firstNamePlaceholder': 'אַריָה',
   'signup.heading': 'התחל את ההרהורים שלך',
+  'signup.lastNamePlaceholder': 'לין',
   'signup.subheading': 'צור חשבון וקבל 120 נקודות זכות בחינם.',
   'styles.empty': 'אין עדיין קביעות סגנון מוגדרות מראש - הן יופיעו לאחר הכניסה הראשונה.',
   'styles.eyebrow': 'אוצר',

@@ -18,6 +18,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'אנחנו צוות מבוזר של מעצבים ומהנדסים שבילו פעם יותר מדי שעות ביום בתיבת דואר רועשת. מרידיאן היא תיבת הדואר הנכנס שרצינו להשתמש בה בעצמנו.',
   'about.title': 'דוא"ל לעבודה ממוקדת',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'help.cta.about': 'אודות מרידיאן',
   'help.cta.pricing': 'הצג תמחור',
   'help.eyebrow': 'מרכז עזרה',
@@ -38,6 +39,7 @@ export const ui: UiTranslations = {
     'תשובות מהירות לשאלות שאנחנו שומעים הכי הרבה. חסר משהו? פתחו את ההגדרות והשתמשו בטופס המשוב בתוך האפליקציה, או כתבו לכתובת support@courier.example.',
   'help.title': 'איך נוכל לעזור?',
   'landing.brand.scrollTop': 'חזרה למעלה',
+  'landing.copyright': '© {{year}} {{appName}} — בנוי למיקוד.',
   'landing.ctaBody': 'הצטרפו לאלפי אנשי מקצוע שסיימו את תיבת הדואר הנכנס שלהם לפני ארוחת הצהריים.',
   'landing.ctaTitle': 'לעבד יותר, להגיב פחות.',
   'landing.eyebrow': 'דוא"ל לעבודה ממוקדת',
@@ -47,6 +49,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'צפה בהדגמה',
   'landing.heroSubtitle':
     'מרידיאן היא תיבת דואר נכנס רגועה בת שלוש חלוניות שנבנתה עבור עובדי ידע שרוצים לעבד מידע, לא להגיב אליו.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'זוכה לאמון מצד צוותים ממוקדים ברחבי העולם',
   'landing.signIn': 'כניסה',
   'meridian.archive.empty': 'הארכיון ריק.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'אֶל',
   'meridian.drafts.watermark': 'טְיוּטָה',
   'meridian.folder.count': '{{count}} הודעות',
+  'meridian.folder.delete': 'לִמְחוֹק',
   'meridian.folder.deleteForever': 'מחיקה לצמיתות',
   'meridian.folder.restore': 'העבר לתיבת הדואר הנכנס',
   'meridian.forgot.subtitle':
@@ -83,7 +87,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'אין כאן עדיין הודעות.',
   'meridian.inbox.loading': 'טְעִינָה…',
   'meridian.inbox.next': 'הַבָּא',
+  'meridian.inbox.noSender': '(אין שולח)',
   'meridian.inbox.noSubject': '(ללא נושא)',
+  'meridian.inbox.ofTotal': '{{current}} מתוך {{total}}',
   'meridian.inbox.openCompose': 'פתח כתיבה',
   'meridian.inbox.previous': 'קוֹדֵם',
   'meridian.inbox.replyFailed': 'התשובה נשמרה אך המסירה נכשלה: {{error}}',
@@ -96,6 +102,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'אין לך חשבון?',
   'meridian.login.showPassword': 'הצג סיסמה',
   'meridian.message.toLine': 'אֶל {{recipients}}',
+  'meridian.notFound.body':
+    'לא ניתן למצוא את הדף שחיפשת. חזור לתיבת הדואר הנכנס שלך ב {{appName}} ונעזור לך להתקדם.',
   'meridian.notFound.eyebrow': 'שגיאה 404',
   'meridian.notFound.title': 'שרשור זה הועבר לארכיון.',
   'meridian.notFound.toInbox': 'פתח את תיבת הדואר הנכנס שלי',
@@ -131,17 +139,20 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'הוסף כוכב',
   'meridian.thread.unstar': 'הסר כוכב',
   'meridian.time.yesterday': 'אֶתמוֹל',
+  'meridian.topBar.openMenu': 'פתח את תפריט הניווט',
   'meridian.topBar.searchPlaceholder': 'חיפוש דואר',
   'meridian.trash.empty': 'האשפה ריקה.',
   'meridian.trash.title': 'אַשׁפָּה',
   'nav.legal': 'מִשׁפָּטִי',
   'planUpdated.description':
     'המנוי שלך פעיל כעת והחיוב שלך עודכן. ברוכים הבאים לתיבת הדואר הנכנס המעודכנת שלך במרידיאן.',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'pricing.heading': 'דַמקָה',
   'pricing.limit.emails': 'אימיילים',
   'pricing.limit.folders': 'תיקיות',
   'pricing.limit.labels': 'תוויות',
   'privacy.collect.account': 'נתוני חשבון: שם, כתובת דוא"ל, סיסמה מגובבת ותאריך ההרשמה.',
+  'privacy.contact': 'שאלות? שלחו מייל ל-privacy@courier.example',
   'privacy.intro':
     'מדיניות פרטיות זו מסבירה אילו נתונים מרידיאן אוספת, מדוע אנו אוספים אותם, כיצד אנו שומרים עליהם, ואילו אפשרויות יש לכם בנוגע אליהם. אנו שואפים להיות ספציפיים במקום להיות משפטיים; אם משהו אינו ברור, אנא כתבו לכתובת privacy@courier.example.',
   'privacy.lastUpdated': 'עודכן לאחרונה: 1 באפריל, 2026',
@@ -161,6 +172,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'תנאים אלה מסדירים את השימוש שלך במרידיאן. על ידי יצירת חשבון או שליחת דוא"ל דרכנו, הנך מסכים להיות מחויב להם. אנו משתדלים לכתוב כללים שאדם יכול בפועל לפעול לפיהם.',
   'terms.lastUpdated': 'בתוקף: 1 באפריל, 2026',
+  'terms.linkPrivacy': 'קרא את מדיניות הפרטיות שלנו →',
   'terms.termination.body':
     'באפשרותך למחוק את חשבונך בכל עת. אנו עשויים להשעות חשבון המפר תנאים אלה; אם נעשה זאת, נסביר את הסיבה ונאפשר לך לייצא את הנתונים שלך תחילה.',
   'terms.warranty.body':

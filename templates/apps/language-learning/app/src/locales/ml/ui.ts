@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.logout': 'ലോഗ്ഔട്ട് ചെയ്യുക',
   'dailyStatsTriad.heartsLabel': 'ഹൃദയങ്ങൾ',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'ഇന്നത്തെ മിനിറ്റ്',
   'dailyStatsTriad.minutesValue': '{{count}} മിനിറ്റ്',
   'dailyStatsTriad.wordsLabel': 'വാക്കുകൾ പഠിച്ചു',
+  'dailyStatsTriad.wordsMasteryHint': 'മാസ്റ്ററി 4+ ലെ വാക്കുകൾ',
   'dashboard.continueHeading': 'നിർത്തിയിടത്ത് നിന്ന് തുടരുക',
   'dashboard.heading': 'ബ്യൂണസ് ഡിയാസ്, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'വ്യായാമങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'lessonDetail.loading': 'പാഠം ലോഡ് ചെയ്യുന്നു...',
   'lessonDetail.submitError': 'ഉത്തരം സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല.',
+  'lessonDetail.translation': 'വാക്യം വിവർത്തനം ചെയ്യുക',
   'lessonDetail.xpEarned': 'XP നേടി · {{xp}}',
   'lessons.empty': 'തലത്തിൽ പാഠങ്ങളൊന്നുമില്ല. {{level}} എങ്കിലും — മറ്റൊരു ടയർ പരീക്ഷിക്കൂ.',
   'lessons.eyebrow': 'പാഠ ലൈബ്രറി',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'പാരലൻസിൽ പുതിയ ആളാണോ?',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.signUp': 'സൗജന്യമായി ആരംഭിക്കുക →',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'parlanceLayout.nav.profile': 'പ്രൊഫൈൽ',
   'parlanceLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'practice.empty': 'ഇതുവരെ ശൈലികളൊന്നും ലഭ്യമല്ല.',
   'practice.eyebrow': 'സംസാര പരിശീലനം',
   'practice.heading': 'അത് വായിക്കുക. രേഖപ്പെടുത്തുക. പരിഷ്കരിക്കുക.',

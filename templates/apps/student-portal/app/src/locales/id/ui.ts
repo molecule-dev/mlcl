@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'announcementsFeed.empty': 'Belum ada pengumuman.',
   'announcementsFeed.eyebrow': '{{count}} pembaruan',
   'announcementsFeed.title': 'Pengumuman terbaru',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Tidak ada apa-apa di sini',
   'assignments.emptyBody': 'Ubah filter di atas untuk melihat tugas dalam status berbeda.',
   'assignments.eyebrow': 'Semua mata pelajaran · Semester ini',
+  'assignments.loadError': 'Tugas tidak dapat dimuat.',
   'assignments.loading': 'Memuat tugas…',
   'assignments.subtitle':
     'Saring berdasarkan status untuk melihat apa yang jatuh tempo, terkirim, dinilai, atau hilang.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Catatan',
   'attendance.empty': 'Belum ada catatan kehadiran.',
   'attendance.eyebrow': 'Semester musim semi · 4 minggu terakhir',
+  'attendance.loadError': 'Tidak dapat memuat catatan kehadiran.',
   'attendance.loading': 'Memuat kehadiran…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': 'Tahun ajaran · {{year}}',
   'calendar.subtitle': 'Tenggat tugas diplot di grid bulanan — ujian menonjol dengan warna merah.',
   'calendar.title': 'Acara {{month}}',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.no': '—',
+  'common.retry': 'Coba lagi',
   'common.yes': '✓',
   'courseDetail.backLink': 'Nilai',
   'courseDetail.currentGrade': 'Nilai saat ini',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tren',
   'grades.empty': 'Belum ada nilai yang diposting.',
   'grades.eyebrow': 'Buku nilai',
+  'grades.loadError': 'Nilai Anda tidak dapat dimuat.',
   'grades.loading': 'Memuat nilai…',
   'grades.subtitle':
     'Nilai huruf dan persentase secara langsung. Panah tren menunjukkan apakah Anda naik, stabil, atau menurun.',
   'grades.title': 'Nilai Anda, per mata pelajaran',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Dibuat untuk siswa, dirancang untuk keluarga.',
   'landing.ctaHeading': 'Hari sekolah yang lebih tenang dimulai dalam hitungan menit',
   'landing.eyebrow': 'Untuk siswa SMP & SMA',
   'landing.featuresHeading': 'Hari sekolah yang terorganisir di sekitar siswa',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tugas',
   'nav.attendance': 'Kehadiran',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Tutup menu navigasi',
   'nav.grades': 'Nilai',
+  'nav.openMenu': 'Buka menu navigasi',
   'nav.statusEyebrow': 'GPA semester',
   'nav.statusSubtext': 'Daftar kehormatan · Semester musim semi',
+  'nav.unreadMessages': 'Pesan yang belum dibaca',
   'notifications.eyebrow': '{{count}} pembaruan',
   'notifications.subtitle':
     'Nilai, pengingat, pesan, dan pengumuman sekolah. Sesuaikan kanal yang digunakan setiap notifikasi di Pengaturan.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.attendanceLabel': 'kehadiran',
   'pricing.gradesLabel': 'nilai',
   'pricing.heading': 'pengumuman',

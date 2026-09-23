@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.pageTitle': '{{app}}-ի մասին',
   'achievementBadgeCard.unlockedOn': 'Բաց է {{date}}',
   'achievements.loadError': 'Չհաջողվեց բեռնել նվաճումները։',
   'achievements.subheading': '{{unlocked}} -ի {{total}} բացված',
   'achievements.unlockedOn': 'Բաց է {{date}}',
+  'auth.legalConsent': 'Շարունակելով՝ դուք համաձայնում եք մեր',
   'calendar.empty': 'Ստեղծեք ձեր օրացույցը տեսնելու սովորություն։',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Սովորություն',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Սովորույթների ցանց',
   'category.${c.category}': '{{քանակ}} սովորություններ',
   'common.and': 'և',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'consistencyHeatmap.ariaLabel': 'Օրական համապատասխանության ջերմային քարտեզ',
   'consistencyHeatmap.caption': 'Վերջին {{weeks}} շաբաթներ',
   'consistencyHeatmap.lessLabel': 'Ավելի քիչ',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Դիտեք այն ուղիղ եթերում',
   'landing.heroSubtitle':
     'Կառուցեք սովորություններ այնպես, ինչպես դրանք իրականում մնում են ուժի մեջ՝ փոքր պարտավորություններ, ամենօրյա շարքեր և երկար, անխզելի շղթայի ներքին հաճույքը։',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Հակիրճ հայացք Streak-ի ներսում',
   'landing.previewMotivation': 'Ինը շերտ կենդանի է։ Պահեք բոլորը տաք։',
   'login.eyebrow': 'Վերցրեք շղթան',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Փոքրացրեք այն։ Կոնկրետացրեք այն։ Ներկայացեք վաղը։',
   'newHabit.timeLabel': 'Հիշեցման ժամը',
   'notifications.markError': 'Չհաջողվեց նշել բոլորը որպես կարդացված։',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.entries': '{{count}} գրառումներ',
+  'pricing.heading': 'Ընտրեք ձեր {{app}} պլանը',
   'profile.action.plan': 'Կառավարել բաժանորդագրությունը',
   'profile.action.settings': 'Հաշվի կարգավորումներ',
   'profile.bioEmpty':
@@ -127,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Ամենօրյա առավոտյան առաջարկ (8:00)',
   'settings.reminders.heading': 'Հիշեցումներ',
   'settings.reminders.weekly': 'Շաբաթական ամփոփում (կիրակի երեկոյան)',
+  'settings.revokeDeviceWarning': 'Այս սարքի մուտքը շուտով կանդադարի։ Դուրս գալ՞',
   'settings.signOutDevice': 'Ելք',
   'settings.streaks.freezesPerWeek': 'Սառեցնում է շաբաթական',
   'settings.streaks.gracePeriod': 'Կեսգիշերից հետո 6 ժամյա արտոնյալ ժամանակահատված',
@@ -153,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ակտիվ',
   'streakHeroCard.daysSuffix': 'օրեր',
   'streakHeroCard.title': 'Ամենաերկար ակտիվ շարքը',
+  'streakLayout.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'streakLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'streakLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
 }

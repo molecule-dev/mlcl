@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'analytics.col.quorum': 'Cvorum',
   'analytics.col.votes': 'Voturi',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Nicio întrebare în așteptare încă.',
   'audienceQa.onStageEyebrow': 'Pe scenă acum',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promova',
   'audienceQa.queued': 'în coadă',
   'audienceQa.queueEyebrow': 'Coadă',
   'ballot.eyebrow': 'Votează-ți',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'În prezent, vă aflați pe {{plan}} plan.',
   'billing.switch': 'Comutați',
   'billing.upgraded': 'Actualizat la {{plan}} — limite aplicate imediat.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'createPoll.addOption': 'Adăugați o opțiune',
   'createPoll.anonymousHint':
     'Numele alegătorilor sunt ascunse în registrul de audit; numărările rămân autentificate.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ești nou în Nosh?',
   'login.remember': 'Amintește-mă timp de 30 de zile',
   'login.subheading': 'Deschide podeaua, verifică încăperea și certifică rezultatul.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'notFound.body':
     'Pagina la care ați încercat să ajungeți a fost închisă sau mutată. Reveniți la tabloul de bord sau deschideți un sondaj nou.',
   'notFound.eyebrow': 'Nu există cvorum pe această rută',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Nu s-a putut încărca acest sondaj.',
   'pollDetail.loading': 'Se încarcă sondajul…',
   'pollDetail.notFound': 'Sondaj negăsit.',
+  'pollDetail.openBallot': 'Vot deschis',
   'pollDetail.openLive': 'Rezultate live',
   'pollDetail.pollId': 'sondaj · {{id}}',
   'pollDetail.published': 'Sondaj publicat — alegătorii își pot exprima acum votul.',
@@ -268,4 +274,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Căutare după e-mail…',
   'voters.subheading':
     'Organizați lista de votanți eligibili. Grupați alegătorii după organizație pentru buletine de vot ponderate.',
+  'votingPollingLayout.nav.analytics': 'Analize',
+  'votingPollingLayout.nav.billing': 'Facturare',
+  'votingPollingLayout.nav.createPoll': 'Sondaj nou',
+  'votingPollingLayout.nav.dashboard': 'Tablou de bord',
+  'votingPollingLayout.nav.notifications': 'Notificări',
+  'votingPollingLayout.nav.settings': 'Setări',
+  'votingPollingLayout.nav.team': 'Echipă',
+  'votingPollingLayout.nav.voters': 'Alegătorii',
+  'votingPollingLayout.primaryNavLabel': 'Navigare principală',
 }

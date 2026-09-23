@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
   'actions.empty': 'Hech qanday amal elementi mos kelmadi.',
   'actions.heading': 'Harakat elementlari',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Oldingi oy',
   'calendar.recent': 'Yaqinda',
   'common.daysAgo': '{{count}} kun oldin',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.hoursAgo': '{{count}} soat oldin',
   'common.no': '—',
+  'common.retry': 'Qayta urinish',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} harakat elementlari',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Qayta tiklash havolasi uchun pochta qutingizni tekshiring.',
   'forgot.subheading': 'Elektron pochtangizni kiriting va biz tiklash havolasini yuboramiz.',
   'integrations.disconnected': 'Uzilgan',
+  'integrations.loadError': "Integratsiyalarni yuklab bo'lmadi.",
   'integrations.notConnectedTag': 'Ulanmagan',
   'integrations.subheading':
     'Murmur avtomatik ravishda qo’shilishi uchun taqvimlar va video platformalarni ulang.',
+  'integrations.updateError': 'Yangilash amalga oshmadi.',
   'landing.ctaButton': 'Boshlang — bu bepul',
   'landing.ctaHeading': 'Qaydlar yozishni bas qiling. Qaror qabul qilishni boshlang.',
   'landing.demo.aiLabel': 'Sun’iy intellekt xulosasi, jonli ravishda tayyorlangan',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Keyingi kuzatuvlar',
   'meetingDetail.loadError': 'Uchrashuvni yuklab bo’lmadi.',
   'meetingDetail.noActions': 'Hech qanday amal topilmadi.',
+  'meetingDetail.none': 'Hech biri.',
   'meetingDetail.notFound': 'Uchrashuv topilmadi.',
+  'meetingDetail.speakerFallback': 'Spiker {{id}}',
   'meetingDetail.summaryHeading': 'Sun’iy intellekt xulosasi',
   'meetingDetail.transcriptHeading': 'Transkript',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Uchrashuvlar',
   'meetings.loadError': 'Uchrashuvlarni yuklab bo’lmadi.',
   'meetings.subheading': 'Yozib olingan, yuklangan va sinxronlashtirilgan har bir uchrashuv.',
+  'murmurLayout.openMenu': 'Navigatsiya menyusini ochish',
   'murmurLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'nav.legal': 'Huquqiy',
   'notifications.loadError': "Bildirishnomalarni yuklab bo'lmadi.",
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmur ichida qanday ko’rinasiz.',
   'record.error.empty': 'Hech qanday audio yozib olinmadi.',
   'record.error.permission': 'Mikrofonga ruxsat berilmadi.',
+  'record.error.recorder': 'Diktofonda xatolik',
   'record.error.unsupported':
     'Brauzeringiz yozib olishni qo’llab-quvvatlamaydi. Chrome, Edge yoki Safari’ni sinab ko’ring.',
   'record.error.upload': 'Yuklash amalga oshmadi. Qaytadan urinib ko’ring.',
@@ -120,6 +129,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Yangi parol',
   'reset.subheading': 'Boshqa hech qayerda ishlatmaydigan parolni tanlang.',
   'search.empty': 'Transkriptlarni qidirish uchun yozing.',
+  'search.loadError': "Qidiruv amalga oshmadi. Qaytadan urinib ko'ring.",
   'search.noResults': '“ uchun natijalar yo‘q {{q}} ".',
   'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
   'settings.appearance.title': "Tashqi ko'rinish",
@@ -128,6 +138,8 @@ export const ui: UiTranslations = {
   'settings.loadError': "Sozlamalarni yuklab bo'lmadi.",
   'settings.loading': 'Yuklanmoqda…',
   'settings.push.heading': 'Push-bildirishnomalar',
+  'settings.push.subheading':
+    "Eslatib o'tilganlar, harakatlar va xulosalar uchun brauzer ogohlantirishlarini oling.",
   'settings.retention.audio': 'Audioni saqlab qo’ying',
   'settings.retention.heading': 'Saqlash',
   'settings.retention.transcript': 'Transkriptlarni saqlash',
@@ -145,6 +157,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Uchrashuv yozuvlarini bir necha daqiqada yozib olishni boshlang',
   'signup.terms':
     'Hisob yaratish orqali siz bizning Xizmat ko’rsatish shartlari va Maxfiylik siyosatimizga rozilik bildirasiz.',
+  'signup.termsPrefix': 'Hisob yaratish orqali siz bizning shartlarimizga rozilik bildirasiz',
   'team.inviteCta': 'Jamoadoshingizni taklif qiling',
   'team.invitedAs': 'Taklif qilingan {{role}}',
   'team.inviteFailed': 'Taklifnoma yuborilmadi.',

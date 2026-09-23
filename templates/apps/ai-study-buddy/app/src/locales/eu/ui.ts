@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Planaren informazioa kargatzen…',
   'billing.popular': 'Maitatuena',
   'billing.subtitle': 'Aukeratu zure ikasketa-erritmoarekin bat datorren plana.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.today': 'Gaur',
   'common.yesterday': 'Atzo',
   'courseDetail.empty.body': 'Gehitu ikasmaterial bat gai hau menperatzen hasteko.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Sortaren izena',
   'flashcards.subtitle': 'Zure erritmoari egokitzen zaion tartekatutako errepikapena.',
   'flashcards.title': 'Flashcardak',
+  'footer.copyright': '© {{year}} {{app}} . Ondo ikasi, ondo lo egin.',
   'forgotPassword.subtitle':
     'Sartu zure helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
+  'koanLayout.closeMenu': 'Itxi menua',
+  'koanLayout.navLabel': 'Nabigazio nagusia',
+  'koanLayout.openMenu': 'Ireki menua',
   'koanLayout.theme': 'Gaia',
   'landing.featuresBody':
     'Distrakzioak ezabatzeko eta ulermen iraunkorra eraikitzeko diseinatutako tresnak.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'URL hori lurralde ezezaguna da. Agian akats ortografiko bat, agian ezabatutako ikasgai bat — nolanahi ere, ikastera itzul gaitezen.',
   'notFound.heading': 'Ez da orrialdea aurkitu.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Guztiz harrapatuta zaude.',
   'notifications.filter.${opt}': 'Jakinarazpenak kargatzen…',
   'notifications.markAllError': 'Ezin izan da dena irakurrita bezala markatu.',
   'notifications.markError': 'Ezin izan da irakurrita bezala markatu.',
   'notifications.subtitle': '{{count}} irakurri gabeko eguneratzeak',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.heading': 'galdetegiak',
   'pricing.limits.topics': 'gaiak',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Saiatu beste gako-hitz edo iragazki bat erabiltzen.',
   'search.empty.title': 'Ez zegoen bat datorren ezer.',
   'search.error': 'Ezin izan dira emaitzak kargatu.',
+  'search.filters': 'Emaitza motako iragazkiak',
   'search.go': 'Joan',
   'search.label.flashcard': 'Flashcard sorta',
   'search.label.note': 'Oharra',

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Geri bildiriminiz mi var, bir özellik talebiniz mi var ya da bir hata mı buldunuz? Hesap menünüzdeki destek bağlantısı üzerinden {{app}} ekibine ulaşabilirsiniz — her mesaj gerçek bir kişiye ulaşır.',
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'agentDetail.back': 'Tüm ajanlar',
   'agentDetail.capabilities': 'Yetenekler',
   'agentDetail.delete': 'Karakteri sil',
   'agentDetail.deleteConfirm': 'Bu karakter silinsin mi? Bu işlem geri alınamaz.',
+  'agentDetail.deleteError': 'Persona silinemedi.',
   'agentDetail.eyebrow': 'Karakter',
   'agentDetail.fetchError': 'Karakter yüklenemedi.',
   'agentDetail.save': 'Karakteri kaydet',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Geçiş yapılıyor…',
   'billing.updateError': 'Güncelleme başlatılamadı.',
   'billing.usageHeading': 'Bu dönemdeki ses kullanımı',
+  'chatBubble.source.text': 'metin',
+  'chatBubble.source.voice': 'ses',
+  'common.goToDashboard': 'Panele Git',
   'conversation.defaultTitle': 'Yeni konuşma',
   'conversation.empty': 'Henüz mesaj yok. Bir şey söyleyerek veya aşağıya yazarak başlayın.',
   'conversation.eyebrow': 'Canlı oturum',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Konuşan zekâ.',
   'landing.heroSubtitle':
     'Doğal akışınızı anlayan yapay zekâ ses asistanı. Sohbet edin, fikir üretin ve komut verin — kesintisiz.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Dinleniyor…',
   'landing.naturallyBody':
     'Tetikleyici kelimeler yok. Katı komutlar yok. Vox bağlamı, kesintileri ve insan konuşmasının inceliklerini anlar — bir meslektaşla sohbet eder gibi.',
@@ -114,6 +122,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Oturum açın',
   'notFound.home': 'Ana sayfaya dön',
   'notFound.title': 'O sayfayı duyamadık.',
+  'parlanceLayout.closeMenu': 'Menüyü kapat',
+  'parlanceLayout.openMenu': 'Gezinti menüsünü aç',
   'parlanceLayout.primaryNavLabel': 'Birincil gezinme',
   'pricing.conversations': '{{count}} konuşma',
   'pricing.cta.startFree': 'Ücretsiz başlayın',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Eşleşme yok',
   'search.eyebrow': 'Komut paleti',
   'search.fetchError': 'Arama dizini yüklenemedi.',
+  'search.static.profile.preview': 'Görünen ad, kullanıcı adı, tanıtım metni',
   'search.static.voice.title': 'Ses',
   'search.title': "Vox'te arayın",
   'search.transcriptPreview': 'Dökümü aç',

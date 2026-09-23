@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ваша роль',
   'account.role.upgradeLink': 'Подайте заявку на получение статуса сертифицированного репетитора →',
   'account.title': 'Профиль, оплата и настройки.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Учить с помощью мела',
   'becomeTutor.form.error': 'Не удалось отправить заявку.',
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Тема',
   'bookingConfirm.title': 'Вы забронировали место. Остальное мы возьмем на себя.',
   'bookingConfirm.with': 'С репетитором',
+  'common.goToDashboard': 'Перейти к панели',
   'earningsHero.eyebrow': 'Прибыль • {{month}}',
   'forgotPassword.heading': 'Забыли пароль?',
   'forgotPassword.subheading':
@@ -117,6 +119,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Отправить сообщение',
   'messages.thread.empty': 'Поздоровайтесь — начните разговор.',
   'messages.title': 'Общение с преподавателями через чат.',
+  'nav.primary': 'Начальный',
   'pricing.dataExport': 'Экспорт данных:',
   'pricing.headingDefault': 'Расширенные возможности:',
   'resetPassword.heading': 'Выберите новый надежный пароль.',

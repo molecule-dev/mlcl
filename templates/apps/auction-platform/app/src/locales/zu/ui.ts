@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Ukubuka',
   'auctionDetail.watchRemoved': 'Kususiwe ohlwini lokubuka.',
   'auctionDetail.watchRemoveLabel': 'Susa ohlwini lokubuka',
+  'auctionPlatformLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'authShell.brandBody':
     'Biza ngesikhathi sangempela ngamawashi angavamile, ubuciko obuhle, kanye nezinto ezikhethekile ezikhethekile. Igeveli liwela ngemizuzwana.',
   'authShell.brandEyebrow': 'Bukhoma manje · Izindali ezingu-1,420',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Hlunga nge',
   'browseAuctions.subheading':
     'Hlunga ngesigaba, hlela ngalokho okubaluleke kakhulu, bese ubeka ibhidi ngaphambi kokuba i-gavel iwe.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'countdownTimer.ended': 'Kuphelile',
   'countdownTimer.endingSoon': 'Ukuphela',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.subtext':
     'Qhubeka ulandelela indali zakho bese ubeka amabhidi ngaphambi kokuba i-gavel iwe.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'myBids.bidAgain': 'Faka isicelo futhi',
   'myBids.browseCta': 'Dlulisa amehlo kuma-auction abukhoma →',
   'myBids.checkoutCta': 'Khokha manje',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Isikhungo semisebenzi',
   'notificationsPage.subheading':
     '{{count}} okungafundiwe · izibuyekezo ezibukhoma njengoba ama-auction eshintsha',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.bidsLabel': 'amabhidi',
   'pricing.listingsLabel': 'uhlu',
   'pricing.watchlistLabel': 'uhlu lokubuka',

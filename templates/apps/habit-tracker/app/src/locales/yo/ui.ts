@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.pageTitle': 'Nípa {{app}}',
   'achievementBadgeCard.unlockedOn': 'Tí a ṣí sílẹ̀ {{date}}',
   'achievements.loadError': 'Kò ṣeé ṣe láti gbé àwọn àṣeyọrí jáde.',
   'achievements.subheading': '{{unlocked}} ti {{total}} ṣiṣi silẹ',
   'achievements.unlockedOn': 'Tí a ṣí sílẹ̀ {{date}}',
+  'auth.legalConsent': 'Nípa títẹ̀síwájú, o fara mọ́',
   'calendar.empty': 'Dá àṣà láti wo kàlẹ́ńdà rẹ.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Àṣà',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Àkójọ àṣà',
   'category.${c.category}': '{{ìkà}} awọn iwa',
   'common.and': 'àti',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'consistencyHeatmap.ariaLabel': 'Àwòrán ooru ojoojúmọ́ tó dúró ṣinṣin',
   'consistencyHeatmap.caption': 'Ìkẹ́yìn {{weeks}} awọn ọsẹ',
   'consistencyHeatmap.lessLabel': 'Ti o kere',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Wo o laaye',
   'landing.heroSubtitle':
     'Kọ́ àwọn àṣà bí wọ́n ṣe dúró ṣinṣin: àwọn àdéhùn kékeré, àwọn ìṣọ̀kan ojoojúmọ́, àti ìgbádùn ọkàn ti ẹ̀wọ̀n gígùn tí kò já.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Wiwo inu Streak kan',
   'landing.previewMotivation': 'Àwọn ìlà mẹ́sàn-án ló wà láàyè. Jẹ́ kí gbogbo wọn gbóná.',
   'login.eyebrow': 'Gbe ẹwọn naa soke',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Jẹ́ kí ó kéré. Jẹ́ kí ó ṣe pàtó. Wá ní ọ̀la.',
   'newHabit.timeLabel': 'Àkókò ìrántí',
   'notifications.markError': 'Kò le ṣe àmì sí gbogbo àwọn tí a kà.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.entries': '\\u00E0k\\u00F3s\\u00EDl\\u1EB9\\u0300 {{count}}',
+  'pricing.heading': 'Yan ètò {{app}} rẹ',
   'profile.action.plan': 'Ṣakoso iforukọsilẹ',
   'profile.action.settings': 'Ètò àkọọ́lẹ̀',
   'profile.bioEmpty': 'Fi ìtàn ìgbésí ayé kúkúrú kan kún Ètò láti fi ara rẹ hàn.',
@@ -124,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Àkójọpọ̀ ìròyìn ojoojúmọ́ (8:00am)',
   'settings.reminders.heading': 'Àwọn Ìrántí',
   'settings.reminders.weekly': 'Àkópọ̀ ọ̀sọ̀ọ̀sẹ̀ (àwọn ìrọ̀lẹ́ ọjọ́ Àìkú)',
+  'settings.revokeDeviceWarning': 'Wíwọlé ẹ̀rọ yìí yóò di fífà padà láìpẹ́. Mú u jáde?',
   'settings.signOutDevice': 'Jáde',
   'settings.streaks.freezesPerWeek': 'Dídì fún ọ̀sẹ̀ kan',
   'settings.streaks.gracePeriod': 'Àkókò oore-ọ̀fẹ́ wákàtí mẹ́fà lẹ́yìn òru',
@@ -150,5 +158,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ti nṣiṣe lọwọ',
   'streakHeroCard.daysSuffix': 'awọn ọjọ',
   'streakHeroCard.title': 'Ìrìn tó gùn jùlọ tó ń ṣiṣẹ́',
+  'streakLayout.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'streakLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'streakLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
 }

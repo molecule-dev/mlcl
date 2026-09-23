@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'billing.canceled':
     'Подписка отменена. По истечении срока действия подписки вы вернетесь к бесплатному режиму.',
   'billing.contactSales': 'Связаться с отделом продаж',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'billing.upgradeHint':
     'Для разблокировки расширенных функций искусственного интеллекта выполните обновление.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.activityEmpty': 'Пока нет активности — начните проект, чтобы наполнить эту ленту.',
   'dashboard.eyebrow': 'Обзор',
   'dashboard.projectsEmpty': 'Проектов пока нет — начните новый, чтобы увидеть его здесь.',
@@ -116,6 +118,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Используйте ранее сделанные переводы во всех проектах. Более высокий показатель соответствия → меньше доработок.',
   'memory.title': 'Банк памяти',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'nav.legal': 'Юридические',
   'newProject.addLanguage': 'Добавить цель',
   'newProject.create': 'Создать проект',
@@ -145,6 +149,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Отмечено {{count}} Уведомления прочитаны.',
   'notifications.subtitle':
     'Упоминания, запросы на рецензирование и события, связанные с ИИ, из всех ваших рабочих пространств.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'privacy.collection.account': 'Адрес электронной почты вашей учетной записи и отображаемое имя',
   'privacy.deletion.body':
     'Вы можете удалить проект, сегмент, термин глоссария или запись в памяти в любое время на соответствующей странице. Удаление вашей учетной записи в разделе «Настройки» удаляет из нашей базы данных все строки, относящиеся к рабочей области.',
@@ -180,6 +185,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Не удалось загрузить проекты.',
   'projects.loading': 'Загрузка проектов…',
   'projects.subtitle': 'Все активные проекты во всех регионах.',
+  'renditionLayout.primaryNavLabel': 'Основная навигация',
   'reset.backToLogin': '☐ Назад к входу',
   'reset.passwordLabel': 'Новый пароль',
   'review.activeEyebrow': 'Сегмент {{number}}',

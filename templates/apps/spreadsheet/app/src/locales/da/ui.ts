@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'about.pageTitle': 'Om {{name}}',
   'auth.footer.about': 'Om {{name}}',
   'authHeader.subtitle': 'Log ind for at holde dine tal ærlige.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Ingen operation',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Slet " {{name}} "?',
   'automations.empty.headline': 'Ingen automatiseringer endnu',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Udløsere og handlinger på tværs af hver projektmappe. Hver kørsel logger en række, du kan revidere senere.',
   'automations.toggle': 'Skift {{name}}',
+  'automations.trigger.dailySchedule': 'Daglig tidsplan',
+  'automations.trigger.rowCreated': 'Række oprettet',
+  'automations.trigger.rowUpdated': 'Række opdateret',
   'billing.empty': 'Ingen planer tilgængelige.',
   'billing.error.priceMissing':
     'Ingen Stripe-pris konfigureret for dette niveau. Angiv STRIPE_*_PRICE_ID miljøvariabler.',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagrammer',
   'charts.kpi.totalCharts': 'Samlede diagrammer',
   'charts.list.empty': 'Ingen diagrammer endnu.',
+  'charts.namePlaceholder': 'Omsætningstendens',
   'charts.newChart': 'Nyt diagram',
   'charts.primary.eyebrow': 'Diagrammer efter type',
   'charts.primary.headline': 'Oversigt over arbejdsområdet',
   'charts.subhead': 'Livevisualiseringer bundet til dit gitter – gengiv ved hver celleredigering.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'editor.addColumn': 'Tilføj kolonne',
+  'editor.addDialogTitle': 'Tilføj kolonne',
   'editor.addRow': 'Tilføj række',
   'editor.addSheet': 'Tilføj ark',
   'editor.back': 'Tilbage til arbejdsbøger',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite er formel-førende, multi-view, realtids grid-analytikere og finansteams, der stræber efter det første.',
   'landing.nav.formulas': 'Formler',
+  'login.noAccount': 'Ny hos {{name}} ?',
+  'login.signIn': 'Log ind på {{name}}',
   'login.signUp': 'Opret et arbejdsområde',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Åbn menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=OPSLAG(ANMODNING.url, "ruter", "side")',
   'notFound.headline': 'Denne række har aldrig eksisteret.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Native automatiseringer · webhook- og cron-udløsere',
   'signup.creating': 'Klargøring af arbejdsområde…',
   'signup.cta': 'Opret mit arbejdsområde',
+  'signup.haveAccount': 'Allerede på {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Start din første projektmappe på 30 sekunder',
   'team.col.activity': 'Inviteret',

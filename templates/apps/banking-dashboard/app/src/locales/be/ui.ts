@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'accountDetail.activeBadge': 'Актыўны',
   'accountDetail.availableLabel': '{{amount}} даступны',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Рахункі',
   'accounts.loadError': 'Не атрымалася загрузіць уліковыя запісы.',
   'accounts.status.closed': 'Закрыта',
+  'accounts.status.frozen': 'Замарожаныя',
   'accounts.totalBalance': '{{сума}} агульная сума',
   'audit.empty': 'Пакуль няма падзей.',
   'audit.eyebrow': 'Бяспека і доступ',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Наяўныя грошы ў руках',
   'cashCreditCard.creditLabel': 'Выкарыстаны крэдыт',
   'cashCreditCard.title': 'Наяўныя грошы і крэдыт',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.accountsHeading': 'Рахункі',
   'dashboard.heading': 'Агляд',
   'dashboard.recentEmpty': 'Пакуль няма транзакцый.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Паказаць пароль',
   'login.signUp': 'Зарэгістравацца',
   'login.submit': 'Увайсці',
+  'meridianLayout.menu': 'Меню',
   'meridianLayout.primaryNavLabel': 'Асноўная навігацыя',
   'nav.legal': 'Юрыдычная інфармацыя',
   'notifications.emptyHeading': 'Вы ўсё прагледзелі',
   'notifications.subheading':
     'Абвесткі ў рэжыме рэальнага часу аб транзакцыях, бяспецы і выпісках.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'privacy.dataWeShare':
     'Асабістыя банкаўскія дадзеныя ніколі не прадаюцца. Мы перадаем інфармацыю апрацоўшчыкам плацяжоў, картачным сеткам і рэгулятарам толькі ў выпадку неабходнасці для правядзення транзакцый або выканання юрыдычных абавязацельстваў.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Двухфактарная аўтэнтыфікацыя дадае аднаразовы код з праграмы аўтэнтыфікацыі пры кожным уваходзе ў сістэму.',
   'settings.security.twoFactorCta': 'Кіраванне двухфактарнай аўтэнтыфікацыяй',
+  'settings.security.twoFactorOff': 'Двухфактарны рэжым выключаны',
   'settings.signOutDevice': 'Выйсці',
   'settings.subheading': 'Профіль, бяспека і апавяшчэнні.',
+  'settings.twoFactorCode': 'Код аўтэнтыфікацыі',
   'settings.twoFactorDisable': 'Адключыць',
   'settings.twoFactorEnable': 'Уключыць',
+  'settings.twoFactorInvalidCode': 'Няправільны код',
+  'settings.twoFactorVerify': 'Праверыць і ўключыць',
   'signup.emailLabel': 'Адрас электроннай пошты',
   'signup.fullName': 'Як нам да вас звяртацца?',
   'signup.showPassword': 'Паказаць пароль',
@@ -106,7 +115,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Пакуль няма транзакцый.',
   'transactions.endDate': 'Дата заканчэння',
   'transactions.eyebrow': 'Дзейнасць',
+  'transactions.loadError': 'Не атрымалася загрузіць транзакцыі.',
   'transactions.merchant': 'Прадавец',
+  'transactions.subheading': 'Кожная апублікаваная і чакаючая транзакцыя па вашых рахунках.',
   'transfers.availableHint': '{{amount}} даступны',
   'transfers.errorGeneric': 'Не атрымалася адправіць перавод.',
   'transfers.errorMissingFields': 'Выберыце зыходны ўліковы запіс і ўліковы запіс прызначэння.',

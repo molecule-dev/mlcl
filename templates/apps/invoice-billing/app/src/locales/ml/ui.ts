@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
   'activityFeed.empty': 'ഇതുവരെ ഒരു പ്രവർത്തനവുമില്ല — നിങ്ങളുടെ ആദ്യ ഇൻവോയ്‌സ് അയയ്ക്കുക.',
   'authShell.sample.paid': '2 മിനിറ്റ് മുമ്പ് പണമടച്ചു',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'ഒരു പുതിയ ക്ലയന്റിനെ ചേർക്കുക',
   'clients.search': 'പേര്, കമ്പനി, ഇമെയിൽ എന്നിവ പ്രകാരം തിരയുക',
   'clients.title': 'ക്ലയന്റുകൾ',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'പുതിയ ക്ലയന്റ്',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'പാസ്വേഡ് മറന്നോ',
   'forgotPassword.successBody':
     'ഞങ്ങൾ പുനഃസജ്ജീകരണ നിർദ്ദേശങ്ങൾ ഇതിലേക്ക് അയച്ചു {{email}} . ലിങ്ക് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
+  'invoiceDetail.action.confirmVoid': 'അസാധുവാണെന്ന് സ്ഥിരീകരിക്കണോ?',
   'invoiceDetail.action.download': 'PDF ഡൗൺലോഡ് ചെയ്യുക',
   'invoiceDetail.action.duplicate': 'ഡ്യൂപ്ലിക്കേറ്റ്',
   'invoiceDetail.action.edit': 'എഡിറ്റ് ചെയ്യുക',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'ഇൻവോയ്‌സ് അസാധുവാക്കി.',
   'invoiceDetail.issued': 'ഇഷ്യൂചെയ്തു {{date}}',
   'invoiceDetail.loading': 'ഇൻവോയ്‌സ് ലോഡ് ചെയ്യുന്നു…',
+  'invoiceDetail.paidInFull': 'മുഴുവൻ പണമടച്ചു',
   'invoiceDetail.summary': '{{client}} · അയച്ചു {{date}}',
   'invoiceDetail.tax': 'നികുതി ( {{rate}} %)',
   'invoiceDetail.timeline': 'ടൈംലൈൻ',
+  'invoiceDetail.voided': 'അസാധുവാക്കി',
   'invoiceEditor.addItem': 'ഇനം ചേർക്കുക',
   'invoiceEditor.back': '← ഇൻവോയ്‌സുകളിലേക്ക് മടങ്ങുക',
   'invoiceEditor.col.qty': 'അളവ്',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'നിങ്ങളുടെ ആദ്യ ഇൻവോയ്‌സ് അയയ്ക്കുക',
   'landing.hero.eyebrow': 'ചെറുകിട ബിസിനസുകൾക്കുള്ള ഇൻവോയ്‌സിംഗ്',
   'landing.hero.secondary': 'ഒരു സാമ്പിൾ ഇൻവോയ്‌സ് കാണുക',
+  'landing.hero.subtitle':
+    '{{appName}} പോളിഷ് ചെയ്ത ഇൻവോയ്‌സുകളെ ബിൽറ്റ്-ഇൻ പേയ്‌മെന്റുകൾ, ആവർത്തിച്ചുള്ള ബില്ലിംഗ്, നികുതി-റെഡി റിപ്പോർട്ടുകൾ എന്നിവയുമായി ജോടിയാക്കുന്നു. ബുക്ക് കീപ്പിംഗ് രഹിതം.',
   'landing.hero.title': 'ഇൻവോയ്‌സുകൾ അയയ്‌ക്കുക. വേഗത്തിൽ പണം നേടൂ.',
   'login.signupLink': 'ഒന്ന് സൃഷ്ടിക്കുക',
   'login.submitting': 'നിങ്ങളെ സൈൻ ഇൻ ചെയ്യുന്നു...',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'പേയ്‌മെന്റുകൾ',
   'pricing.recurringLabel': 'ആവർത്തിച്ചുള്ള ഷെഡ്യൂളുകൾ',
   'remitLayout.newInvoice': 'പുതിയ ഇൻവോയ്സ്',
+  'remitLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'remitLayout.searchPlaceholder': 'ഇൻവോയ്‌സുകൾ തിരയുക, ക്ലയന്റുകൾ...',
   'remitLayout.tagline': 'വേഗത്തിൽ പണം നേടൂ',
   'reports.chart.aging': 'ഇൻവോയ്‌സ് പഴക്കം',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'കാലയളവിലെ വരുമാനം',
   'reports.chart.topClients': 'മുൻനിര ക്ലയന്റുകൾ',
   'reports.chart.topClientsCaption': 'ആജീവനാന്ത വരുമാനം, മികച്ച 5 എണ്ണം',
+  'reports.empty.aging': 'കുടിശ്ശികയുള്ള ഇൻവോയ്‌സുകളൊന്നുമില്ല.',
+  'reports.empty.methods': 'ഇതുവരെ പേയ്‌മെന്റ് ഡാറ്റയൊന്നുമില്ല.',
+  'reports.empty.revenue': 'ഇതുവരെ വരുമാന ഡാറ്റയൊന്നുമില്ല.',
+  'reports.empty.topClients': 'ഇതുവരെ ക്ലയന്റ് വരുമാന ഡാറ്റകളൊന്നുമില്ല.',
   'reports.exporting': 'കയറ്റുമതി ചെയ്യുന്നു...',
   'reports.exportRequiresPaid':
     'കയറ്റുമതി പണമടച്ചുള്ള ഒരു സവിശേഷതയാണ് — പ്രാപ്തമാക്കാൻ അപ്‌ഗ്രേഡ് ചെയ്യുക.',
@@ -194,6 +206,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ നികുതി നിരക്ക് ചേർക്കുക',
   'settings.tax.added': 'നികുതി നിരക്ക് ചേർത്തു.',
   'settings.tax.adding': 'ചേർക്കുന്നു...',
+  'settings.tax.addRate': 'നിരക്ക് ചേർക്കുക',
   'settings.tax.col.region': 'പ്രദേശം',
   'settings.tax.delete': 'നികുതി നിരക്ക് ഇല്ലാതാക്കുക',
   'settings.tax.deleted': 'നികുതി നിരക്ക് ഒഴിവാക്കി.',

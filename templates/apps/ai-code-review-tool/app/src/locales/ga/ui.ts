@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Maidir',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.connectRepoCta': 'Ceangail stórlann',
   'dashboard.empty': 'Gan aon iarratais tarraingthe fós — ceangail stórlann le tosú.',
   'dashboard.eyebrow': 'Athraonta · scuaine athbhreithnithe',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Am feidhme',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Scór cáilíochta AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Dún an roghchlár',
+  'refractLayout.openMenu': 'Oscail an roghchlár',
   'refractLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'reports.cumulativeScoreLabel': 'Scór carnach',
   'reports.cumulativeScoreSubtitle': 'gach stóras · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Theip ar innéacs cuardaigh a lódáil.',
   'settings.apiKeys.description':
     'Bainistigh eochracha pearsanta API ón roghchlár úsáideora ag an mbarr ar dheis.',
+  'settings.apiKeys.integrationsNote':
+    'Déantar comharthaí rochtana soláthraithe a bhainistiú sa rannán Comhtháthú thuas.',
   'settings.connectError': 'Theip ar an soláthraí a cheangal.',
   'settings.disconnectError': 'Theip ar an soláthraí a dhícheangal.',
   'settings.eyebrow': 'Athraonadh · spás oibre',
   'settings.integration.${provider}.label': 'Ag sábháil…',
   'settings.loadError': 'Theip ar na socruithe a lódáil.',
+  'settings.notificationCenter': 'Ionad fógraí',
   'settings.notifications.description':
     'Tabhair cuairt ar an leathanach fógraí chun roghanna seachadta a fheiceáil agus a bhainistiú.',
   'settings.section.account': 'Cuntas & slándáil',

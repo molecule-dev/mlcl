@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.title': 'Ένα γραφείο που μπορείτε να έχετε στην τσέπη σας',
   'billing.cancelConfirm': 'Ακύρωση της ενεργής συνδρομής σας;',
   'billing.cancelFailed': 'Δεν ήταν δυνατή η ακύρωση.',
   'billing.checkingOut': 'Άνοιγμα ταμείου…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Δεν ήταν δυνατή η φόρτωση της χρέωσης.',
   'billing.loading': 'Φόρτωση χρέωσης…',
   'billing.upgradeCta': 'Αναβάθμιση σε {{name}}',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'editor.autosaveOn': 'Αυτόματη αποθήκευση ενεργοποιημένη',
   'editor.backToLibrary': 'Επιστροφή στη βιβλιοθήκη',
   'editor.charCount': '{{count}} χαρακτήρες',
   'editor.confirmTrash': 'Μετακίνηση αυτού του εγγράφου στον κάδο απορριμμάτων;',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Ξεκαρφιτσώθηκε',
   'editor.unpublishCta': 'Μετακίνηση στο προσχέδιο',
   'editor.unpublished': 'Επαναφέρθηκε στο προσχέδιο',
+  'focus.autosaveOn': 'Αυτόματη αποθήκευση ενεργοποιημένη',
   'focus.backToLibrary': 'Επιστροφή στη βιβλιοθήκη',
   'focus.bodyPlaceholder': 'Μια ουρά τη φορά. Κανείς άλλος δεν είναι εδώ.',
   'focus.exit': 'Έξοδος από τη λειτουργία εστίασης',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Δημιουργήστε ένα',
   'login.subline':
     'Τα χειρόγραφά σας, οι ημερήσιες σελίδες και η τελευταία θέση του κέρσορα βρίσκονται ακριβώς εκεί που τα αφήσατε.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'pricing.exports': 'εξαγωγές',
   'pricing.folders': 'φάκελοι',
   'pricing.heading': 'έγγραφα',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Εισαγάγετε τον κωδικό που μόλις σας στείλαμε μέσω email και επιλέξτε κάτι που θα θυμάστε. Θα σας συνδέσουμε μόλις αποθηκευτεί.',
   'reset.tokenHint': 'Επικολλήθηκε από τα εισερχόμενά σας.',
+  'settings.appearance.heading': 'Ανοιχτό ή σκοτεινό',
   'settings.editor.${row.id}.description': 'Γλώσσα',
   'settings.editor.description':
     'Κύλιση γραφομηχανής, σταδιακή μείωση παραγράφων και εστίαση σε αδράνεια — οι προεπιλογές έχουν ρυθμιστεί για μεγάλες περιόδους λειτουργίας.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Κεφάλαιο Τρίτο — Μια ήσυχη ώρα πριν την ανατολή του ηλίου',
   'versalDocumentCard.pinned': 'Καρφιτσωμένα',
   'versalLayout.nav.stats': 'Στατιστικά',
+  'versalLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'versalManuscriptHero.cta': 'Συνέχεια γραφής',
   'versalManuscriptHero.goalLabel': 'Στόχος λέξεων για σήμερα',
   'versalManuscriptHero.inProgress': 'Σε καλό δρόμο',

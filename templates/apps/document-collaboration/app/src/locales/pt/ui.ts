@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
+  'about.title': 'Sobre {{app}}',
   'comments.addFailed': 'Não foi possível publicar o comentário.',
   'comments.backToDoc': 'Voltar ao manuscrito',
   'comments.deleteFailed': 'Não foi possível excluir.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Resolver',
   'comments.resolveFailed': 'Não foi possível resolver.',
   'comments.subtitle': '{{open}} abertos · {{resolved}} resolvidos',
+  'common.goToDashboard': 'Ir para o Painel',
   'dashboard.activityHeading': 'O que está acontecendo',
   'dashboard.createFailed': 'Não foi possível criar um documento.',
   'dashboard.empty': 'Ainda sem manuscritos — comece pelo botão Novo documento.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Não foi possível mover para a lixeira.',
   'editor.unpublish': 'Cancelar publicação',
   'editor.untitled': 'Documento sem título',
+  'editor.updatedElsewhere':
+    'Este documento foi atualizado por outra pessoa — atualize a página para ver a versão mais recente.',
   'editor.version': 'v{{v}}',
   'forgotPassword.emailPlaceholder': 'escritor@studio.com',
   'forgotPassword.sentBody':
     'Se existir uma conta para {{email}}, um link de redefinição está a caminho.',
   'forgotPassword.subtitle': 'Enviaremos um link de redefinição por e-mail.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Desenvolvido com Molecule.',
   'landing.ctaHeading': 'Abra a página. Deixe o cursor começar.',
   'landing.ctaPrimary': 'Abrir um estúdio',
   'landing.eyebrow': 'Para escritores, editores e equipes',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'editado {{when}}',
   'quillonDocumentCard.open': 'Abrir →',
   'quillonKpiCard.trend': 'Tendência recente',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Navegação principal',
   'quillonStudioHero.collab': 'Colaboradores',
   'quillonStudioHero.docs': 'Documentos tocados',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': 'há {{days}} d',
   'time.hoursAgo': 'há {{hours}} h',
   'time.justNow': 'agora mesmo',
+  'trash.confirmDelete': 'Confirmar exclusão',
   'trash.deleteFailed': 'Não foi possível excluir.',
   'trash.deleteForever': 'Excluir definitivamente',
   'trash.empty': 'Nada para recuperar.',
+  'trash.emptyAll': 'Esvaziar lixeira',
   'trash.eyebrow': 'Estúdio',
   'trash.heading': 'Lixeira',
   'trash.loadFailed': 'Não foi possível carregar a lixeira.',

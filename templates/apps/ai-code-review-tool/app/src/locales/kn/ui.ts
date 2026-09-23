@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.connectRepoCta': 'ರೆಪೊಸಿಟರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ',
   'dashboard.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಪುಲ್ ವಿನಂತಿಗಳಿಲ್ಲ — ಪ್ರಾರಂಭಿಸಲು ರೆಪೊಸಿಟರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.',
   'dashboard.eyebrow': 'ರಿಫ್ರಾಕ್ಟ್ · ವಿಮರ್ಶೆ ಸರದಿ',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'ಅಪ್‌ಟೈಮ್',
   'pullRequestRow.files': '{{count}} ಎಫ್',
   'pullRequestRow.scoreAria': 'AI ಗುಣಮಟ್ಟದ ಸ್ಕೋರ್ {{score}} / 10',
+  'refractLayout.closeMenu': 'ಮೆನು ಮುಚ್ಚಿ',
+  'refractLayout.openMenu': 'ಮೆನು ತೆರೆಯಿರಿ',
   'refractLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'reports.cumulativeScoreLabel': 'ಸಂಚಿತ ಸ್ಕೋರ್',
   'reports.cumulativeScoreSubtitle': 'ಎಲ್ಲಾ ರೆಪೊಗಳು · {{days}} ಡಿ',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'ಹುಡುಕಾಟ ಸೂಚಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.apiKeys.description':
     'ಮೇಲಿನ ಬಲಭಾಗದಲ್ಲಿರುವ ಬಳಕೆದಾರ ಮೆನುವಿನಿಂದ ವೈಯಕ್ತಿಕ API ಕೀಗಳನ್ನು ನಿರ್ವಹಿಸಿ.',
+  'settings.apiKeys.integrationsNote':
+    'ಪೂರೈಕೆದಾರರ ಪ್ರವೇಶ ಟೋಕನ್‌ಗಳನ್ನು ಮೇಲಿನ ಏಕೀಕರಣ ವಿಭಾಗದಲ್ಲಿ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ.',
   'settings.connectError': 'ಪೂರೈಕೆದಾರರನ್ನು ಸಂಪರ್ಕಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.disconnectError': 'ಪೂರೈಕೆದಾರರ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.eyebrow': 'ವಕ್ರೀಭವನ · ಕಾರ್ಯಸ್ಥಳ',
   'settings.integration.${provider}.label': 'ಉಳಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.loadError': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'settings.notificationCenter': 'ಅಧಿಸೂಚನೆ ಕೇಂದ್ರ',
   'settings.notifications.description':
     'ವಿತರಣಾ ಆದ್ಯತೆಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಮತ್ತು ನಿರ್ವಹಿಸಲು ಅಧಿಸೂಚನೆಗಳ ಪುಟಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.',
   'settings.section.account': 'ಖಾತೆ ಮತ್ತು ಭದ್ರತೆ',

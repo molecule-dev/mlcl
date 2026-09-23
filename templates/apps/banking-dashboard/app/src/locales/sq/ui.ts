@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'accountDetail.activeBadge': 'Aktiv',
   'accountDetail.availableLabel': '{{amount}} i disponueshëm',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Ngarkimi i llogarive dështoi.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'I ngrirë',
   'accounts.totalBalance': '{{sasia}} total',
   'audit.empty': 'Nuk ka ende ngjarje.',
   'audit.eyebrow': 'Siguria dhe qasja',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Para në dorë',
   'cashCreditCard.creditLabel': 'Krediti i përdorur',
   'cashCreditCard.title': 'Para në dorë dhe kredi',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Përmbledhje',
   'dashboard.recentEmpty': 'Nuk ka ende transaksione.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.signUp': 'Regjistrohu',
   'login.submit': 'Hyr',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Navigimi kryesor',
   'nav.legal': 'Ligjore',
   'notifications.emptyHeading': 'Je plotësisht i informuar',
   'notifications.subheading': 'Njoftime në kohë reale për transaksionet, sigurinë dhe deklaratat.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'privacy.dataWeShare':
     'Të dhënat personale bankare nuk shiten kurrë. Ne ndajmë informacion me përpunuesit e pagesave, rrjetet e kartave dhe rregullatorët vetëm sipas nevojës për të zgjidhur transaksionet ose për të përmbushur detyrimet ligjore.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Funksioni me dy faktorë shton një kod njëpërdorimësh nga një aplikacion autentifikuesi në çdo hyrje.',
   'settings.security.twoFactorCta': 'Menaxho autorizimin me dy faktorë',
+  'settings.security.twoFactorOff': 'Dyfaktorët janë të çaktivizuar',
   'settings.signOutDevice': 'Dil nga llogaria',
   'settings.subheading': 'Profili, siguria dhe njoftimet.',
+  'settings.twoFactorCode': 'Kodi i vërtetimit',
   'settings.twoFactorDisable': 'Çaktivizo',
   'settings.twoFactorEnable': 'Aktivizo',
+  'settings.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
   'signup.emailLabel': 'Adresa e email-it',
   'signup.fullName': "Si duhet t'ju drejtohemi?",
   'signup.showPassword': 'Shfaq fjalëkalimin',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Nuk ka ende transaksione.',
   'transactions.endDate': 'Data e mbarimit',
   'transactions.eyebrow': 'Aktiviteti',
+  'transactions.loadError': 'Ngarkimi i transaksioneve dështoi.',
   'transactions.merchant': 'Tregtar',
+  'transactions.subheading': 'Çdo transaksion i postuar dhe në pritje në llogaritë tuaja.',
   'transfers.availableHint': '{{amount}} i disponueshëm',
   'transfers.errorGeneric': 'Transferimi nuk mund të dorëzohej.',
   'transfers.errorMissingFields': 'Zgjidhni një llogari burimi dhe një destinacion.',

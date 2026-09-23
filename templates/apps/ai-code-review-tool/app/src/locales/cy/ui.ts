@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Cysylltwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.connectRepoCta': "Cysylltu'r storfa",
   'dashboard.empty': 'Dim ceisiadau tynnu eto — cysylltwch ystorfa i ddechrau.',
   'dashboard.eyebrow': 'Adfer · ciw adolygu',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Amser rhedeg',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Sgôr ansawdd AI {{score}} / 10',
+  'refractLayout.closeMenu': "Cau'r ddewislen",
+  'refractLayout.openMenu': 'Agor y ddewislen',
   'refractLayout.primaryNavLabel': 'Prif lywio',
   'reports.cumulativeScoreLabel': 'Sgôr gronnus',
   'reports.cumulativeScoreSubtitle': 'pob storfa · {{days}} d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Methwyd llwytho mynegai chwilio.',
   'settings.apiKeys.description':
     "Rheoli allweddi API personol o'r ddewislen defnyddiwr yn y gornel dde uchaf.",
+  'settings.apiKeys.integrationsNote':
+    'Rheolir tocynnau mynediad darparwyr yn yr adran Integreiddiadau uchod.',
   'settings.connectError': "Methwyd cysylltu'r darparwr.",
   'settings.disconnectError': "Methwyd datgysylltu'r darparwr.",
   'settings.eyebrow': 'Plygu · gweithle',
   'settings.integration.${provider}.label': 'Yn cadw…',
   'settings.loadError': 'Methwyd llwytho gosodiadau.',
+  'settings.notificationCenter': 'Canolfan hysbysiadau',
   'settings.notifications.description':
     "Ewch i'r dudalen hysbysiadau i weld a rheoli dewisiadau dosbarthu.",
   'settings.section.account': 'Cyfrif a diogelwch',

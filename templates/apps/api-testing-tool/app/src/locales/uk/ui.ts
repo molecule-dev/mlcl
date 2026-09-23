@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.pageTitle': 'Про {{app}}',
   'authShell.statusLabel': 'runners онлайн',
   'collections.createError': 'Не вдалося створити колекцію.',
   'collections.defaultName': 'Колекція без назви {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Запити',
   'collections.newCollection': 'Нова колекція',
   'collections.subheading': 'Групуйте запити, діліться ними з командою та запускайте їх як набір.',
+  'common.goToDashboard': 'До панелі',
   'environmentCard.inactive': 'Неактивне',
   'environmentCard.more': 'ще',
   'environmentCard.variables': 'Змінні',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Завантажити безкоштовно',
   'landing.heroSubtitle':
     'Блискавично швидкий робочий стіл для тестування API, створений для інженерів, які працюють у терміналах.',
+  'landing.heroTitleAccent': 'Пожежа',
+  'landing.heroTitleLine2': 'завоювати довіру.',
+  'landing.heroTitleRest': 'запити,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Проста, передбачувана ціна',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Вперше тут?',
   'login.showPassword': 'Показати пароль',
   'login.subtitle': 'Перейдіть до вашого робочого простору Pylon.',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'mocks.createError': 'Не вдалося створити mock.',
   'mocks.defaultName': 'Mock без назви {{n}}',
   'mocks.deleteError': 'Не вдалося видалити mock.',
@@ -112,6 +120,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Повернутися до робочого простору',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрут не знайдено',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'privacy.collect.account':
     "Обліковий запис: ваша електронна пошта, хешований пароль, відображуване ім'я та часова мітка останнього входу.",
   'privacy.rights.body':
@@ -137,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Перегляд даних, що належать цьому обліковому запису, лише для читання.',
   'settings.unset': 'не встановлено',
   'signup.identityHint': 'напр. Алекс',
+  'signup.statusLabel': 'безкоштовний тариф · без кредитної картки',
   'signup.subtitle': 'Почніть надсилати запити за лічені хвилини.',
   'terms.account.body':
     'Ви несете відповідальність за захист свого пароля. Спільне використання одного облікового запису кількома людьми не дозволяється в планах Free або Pro — придбайте підписку Team для спільних робочих просторів.',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
     'Не використовуйте Pylon для надсилання запитів до сервісів, якими ви не володієте або на тестування яких у вас немає явного дозволу. Не використовуйте Pylon для обходу обмежень швидкості або вчинення шахрайства.',
   'terms.warranty.body':
     'Pylon надається "як є" без будь-яких гарантій. Ми прагнемо до 99,9% безвідмовності, але не гарантуємо її для планів Free або Pro.',
+  'testRunner.assertionsCount': '{{count}} твердження',
   'testRunner.createError': 'Не вдалося створити тест.',
   'testRunner.cron':
     "Твердження оцінюються відносно останнього запуску пов'язаного запиту цього тесту.",
@@ -169,11 +180,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Результати набору, відмінності тверджень та останні 50 запусків.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Увійдено як',
+  'workspace.auth.keyName': 'Назва заголовка',
+  'workspace.auth.keyValue': 'Ключове значення',
+  'workspace.auth.password': 'Пароль',
+  'workspace.auth.username': "Ім'я користувача",
+  'workspace.authOption.apikey': 'Ключ API',
+  'workspace.authOption.basic': 'Базова автентифікація',
+  'workspace.authOption.bearer': "Токен на пред'явника",
+  'workspace.authOption.none': 'Немає',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип автентифікації',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Немає',
+  'workspace.body.text': 'Неоформлений текст',
+  'workspace.body.type': 'Тип',
   'workspace.environment': 'Без середовища',
   'workspace.envVar': 'змінна середовища',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Додати заголовок',
+  'workspace.kv.addParam': 'Додати параметр',
+  'workspace.kv.headerKey': 'Назва заголовка',
+  'workspace.kv.headerValue': 'Значення заголовка',
+  'workspace.kv.key': 'Ключ',
+  'workspace.kv.paramKey': 'Ключ параметра запиту',
+  'workspace.kv.paramValue': 'Значення параметра запиту',
+  'workspace.kv.removeRow': 'Видалити рядок',
+  'workspace.kv.value': 'Значення',
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Затримка',
   'workspace.metric.latencyCaption': 'Час туди-назад для цього запуску',
@@ -190,6 +223,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Запит надіслано — дивіться response нижче.',
   'workspace.subheading':
     'Складіть запит, надішліть його та перевірте response — все в одній панелі.',
+  'workspace.testResults': 'Результати тестування',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Надсилається як Authorization: Bearer <token> з кожним запитом у цій колекції.',

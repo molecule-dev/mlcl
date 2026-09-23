@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.pageTitle': 'Perihal {{app}}',
   'achievementBadgeCard.unlockedOn': 'Tidak dikunci {{date}}',
   'achievements.loadError': 'Gagal memuatkan pencapaian.',
   'achievements.subheading': '{{unlocked}} daripada {{total}} dibuka kuncinya',
   'achievements.unlockedOn': 'Tidak dikunci {{date}}',
+  'auth.legalConsent': 'Dengan meneruskan, anda bersetuju dengan',
   'calendar.empty': 'Cipta tabiat untuk melihat kalendar anda.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Tabiat',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Grid tabiat',
   'category.${c.category}': '{{kiraan}} tabiat',
   'common.and': 'dan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'consistencyHeatmap.ariaLabel': 'Peta haba konsistensi harian',
   'consistencyHeatmap.caption': 'Terakhir {{weeks}} minggu',
   'consistencyHeatmap.lessLabel': 'Kurang',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Tonton secara langsung',
   'landing.heroSubtitle':
     'Bina tabiat seperti yang sebenarnya melekat: komitmen kecil, rutin harian, dan keseronokan mendalam daripada rantai panjang yang tidak terputus.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Sekilas pandang ke dalam Streak',
   'landing.previewMotivation': 'Sembilan jalur hidup. Pastikan semuanya hangat.',
   'login.eyebrow': 'Angkat rantai itu',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Jadikannya kecil. Jadikannya spesifik. Datang esok.',
   'newHabit.timeLabel': 'Masa peringatan',
   'notifications.markError': 'Tidak dapat menanda semua telah dibaca.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.entries': '{{count}} entri',
+  'pricing.heading': 'Pilih pelan {{app}} anda',
   'profile.action.plan': 'Urus langganan',
   'profile.action.settings': 'Tetapan akaun',
   'profile.bioEmpty': 'Tambahkan biodata ringkas dalam Tetapan untuk memperkenalkan diri anda.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Gesaan pagi setiap hari (8:00 pagi)',
   'settings.reminders.heading': 'Peringatan',
   'settings.reminders.weekly': 'Ringkasan mingguan (petang Ahad)',
+  'settings.revokeDeviceWarning': 'Akses peranti ini akan dibatalkan tidak lama lagi. Log keluar?',
   'settings.signOutDevice': 'Log keluar',
   'settings.streaks.freezesPerWeek': 'Membeku setiap minggu',
   'settings.streaks.gracePeriod': 'Tempoh tangguh 6 jam selepas tengah malam',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktif',
   'streakHeroCard.daysSuffix': 'hari',
   'streakHeroCard.title': 'Rentetan aktif terpanjang',
+  'streakLayout.closeMenu': 'Tutup menu navigasi',
+  'streakLayout.openMenu': 'Buka menu navigasi',
   'streakLayout.primaryNavLabel': 'Navigasi utama',
 }

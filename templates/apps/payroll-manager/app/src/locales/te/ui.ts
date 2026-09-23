@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'auditLog.empty':
     'మీ ఫిల్టర్‌లకు ఇంకా ఏ ఆడిట్ ఈవెంట్‌లు సరిపోలడం లేదు. ఒక ఉద్యోగిని సవరించండి లేదా పే రన్‌ను ప్రాసెస్ చేయండి, అప్పుడు అవి ఇక్కడ కనిపిస్తాయి.',
   'auditLog.eyebrow': 'అనుగుణ్యత',
+  'auditLog.loadError': 'ఆడిట్ లాగ్‌ను లోడ్ చేయలేకపోయింది.',
   'auditLog.searchPlaceholder': 'నటుడు, చర్య లేదా వివరణ ద్వారా శోధించండి',
   'auditLog.subheading':
     'ప్రతి ఆమోదం, సవరణ మరియు పన్ను దాఖలు — నటుడు, టైమ్‌స్టాంప్ మరియు మార్చబడిన ఫీల్డ్‌లతో సహా.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'కాన్ఫిగర్ చేయబడలేదు',
   'billing.plansHeading': 'ప్రణాళికలు',
   'billing.subheading': 'స్ట్రైప్ ద్వారా మీ ప్లాన్‌ను నిర్వహించుకోండి మరియు శ్రేణులను మార్చుకోండి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'అనుపాలన స్నాప్‌షాట్',
   'dashboard.compliance.title': 'అన్ని తనిఖీలు పాస్ అయ్యాయి',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'ఫైల్‌లో ఎలాంటి తగ్గింపులు లేవు.',
   'employeeDetail.notFound': 'ఉద్యోగి కనుగొనబడలేదు.',
   'employeeDetail.payFrequency': 'చెల్లింపు పౌనఃపున్యం',
+  'employeeDetail.postTax': 'పన్ను తర్వాత',
+  'employeeDetail.preTax': 'పన్నుకు ముందు',
   'employeeDetail.salary': 'వార్షిక జీతం',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'ప్రారంభించబడింది {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'చెల్లింపు పౌనఃపున్యం',
   'employeeForm.salary': 'వార్షిక జీతం (USD)',
   'employeeForm.salaryInvalid': 'జీతం రుణాత్మకం కాని సంఖ్య అయి ఉండాలి.',
+  'employeeForm.saveError': 'ఉద్యోగిని కాపాడలేకపోయాము.',
   'employeeForm.semimonthly': 'పక్షం రోజులకు ఒకసారి',
   'employeeForm.single': 'ఒంటరి',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'జీతం',
   'forgotPassword.subtitle':
     'మీ ఆఫీస్ ఈమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ లింక్‌ను పంపుతాము.',
+  'landing.copyright': '© {{year}} {{app}} . ఖచ్చితమైన, నమ్మదగిన, కూర్పు చేయబడిన.',
   'landing.ctaBody':
     '30 రోజుల పాటు ఉచితం. క్రెడిట్ కార్డ్ అవసరం లేదు. మీ ఆడిట్ ట్రెయిల్‌ను కోల్పోకుండా ఎప్పుడైనా మార్చుకోండి.',
   'landing.ctaHeading': 'మీ తదుపరి సైకిల్‌ను Stipend‌పై అమలు చేయండి',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ఈ పే-రన్‌కు సంబంధించి ఇంకా ఆడిట్ ఎంట్రీలు ఏవీ లేవు.',
   'payRunDetail.noStubs':
     'ఇంకా పే-స్టబ్‌లు రాలేదు — వాటిని రూపొందించడానికి ఆమోదించి, ప్రాసెస్ చేయండి.',
+  'payRunDetail.notFound': 'ఈ చెల్లింపు వివరాలు కనుగొనబడలేదు.',
   'payRunDetail.statDeductions': 'తగ్గింపులు',
   'payRunDetail.statHeadcount': 'ఉద్యోగులు',
   'payRunDetail.statTaxes': 'పన్నులు నిలిపివేయబడ్డాయి',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'పక్షం రోజులకు ఒకసారి',
   'settings.signOutDevice': 'సైన్ అవుట్',
   'settings.subheading': 'కంపెనీ ప్రొఫైల్, చెల్లింపు షెడ్యూల్ మరియు అనుసంధానాలు.',
+  'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'settings.weekly': 'వారానికోసారి',
   'taxCenter.bucket.federal': 'ఫెడరల్ ఆదాయం',
   'taxCenter.bucket.fica': 'సామాజిక భద్రత',

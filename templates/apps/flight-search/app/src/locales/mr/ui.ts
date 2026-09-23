@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.eyebrow': '{{app}} बद्दल',
   'about.pageTitle': 'प्रत्येक मार्गासाठी एकच शोध.',
   'booking.backToDetail': 'विमान प्रवासाच्या तपशिलांवर परत जा',
   'booking.continue': 'पेमेंट सुरू ठेवा',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'कर आणि शुल्क',
   'booking.summary.travelers': 'प्रवासी',
   'common.about': 'बद्दल',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'flightDetail.backToResults': 'निकालांकडे परत जा',
   'flightDetail.baseFare': 'मूळ भाडे',
   'flightDetail.book': 'बुकिंग सुरू ठेवा',
@@ -52,12 +55,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '१ थांबा',
   'flightResultCard.select': 'निवडा',
   'flightResultCard.totalLabel': 'एकूण वेळ',
+  'flightSearchLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'forgotPassword.subheading':
     'तुमच्या स्कायलाक खात्यामधील ईमेल प्रविष्ट करा आणि आम्ही तुम्हाला एक सुरक्षित रीसेट लिंक पाठवू.',
   'forgotPassword.successBody':
     'तपासा {{email}} नवीन पासवर्ड सेट करण्याच्या लिंकसाठी. लिंक ३० मिनिटांत कालबाह्य होईल.',
   'forgotPassword.successHeading': 'रीसेट लिंक पाठवली आहे.',
   'landing.cta.explore': 'शोधण्याचा प्रयत्न करा',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'इतरांच्या आधी पुढचा उत्तम बेत शोधा.',
   'landing.cta.signup': 'भाड्यांचा मागोवा घेणे सुरू करा',
   'landing.features.eyebrow': 'स्कायलार्क का',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'अलर्ट जोडा',
   'priceAlerts.deleteConfirm': 'ही सूचना काढून टाकायची आहे का?',
   'priceAlerts.empty': 'अद्याप कोणतेही मार्ग नोंदवलेले नाहीत.',
+  'priceAlerts.emptyCta': 'मागोवा घेण्यासाठी मार्ग शोधा',
   'priceAlerts.errorMessage': 'सूचना लोड करता आल्या नाहीत.',
   'priceAlerts.eyebrow': 'स्कायलाक वॉचलिस्ट',
   'priceAlerts.form.createError': 'अलर्ट तयार करता आला नाही.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'बहु-शहरी प्रवास कार्यक्रम',
   'results.multiLegHeading': 'पाय {{n}} · पासून → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} पाय · {{passengers}} प्रवासी',
+  'results.sortAriaLabel': 'निकालांची क्रमवारी लावा',
   'results.sortLabel': 'क्रमवारी लावा',
   'results.summary': '{{count}} उड्डाणे · {{passengers}} प्रवासी',
   'settings.language.title': 'भाषा',

@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'පරීක්ෂණ මාදිලිය: ඇණවුම් සටහන් කර ශේෂයන් පියවනු ලැබේ, නමුත් සැබෑ කාඩ්පතක් අය නොකෙරේ.',
   'checkout.placeOrderCta': 'ඇණවුම කරන්න',
+  'checkout.placeOrderError': 'ඔබගේ ඇණවුම ලබා දීමට නොහැකි විය.',
   'checkout.placingOrder': 'ඇණවුම් කරමින්...',
   'checkout.review.shipTo': 'නැව්ගත කිරීම',
   'checkout.review.subtotal': 'විකුණුම්කරු උප එකතුව',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'වෙළෙන්දෙකු වන්න',
   'landing.footer.copyright': '© {{year}} {{name}} — සෑම නිෂ්පාදකයෙක්ම, එක වෙළඳපොළක්.',
   'landing.footer.help': 'උදව් මධ්‍යස්ථානය',
+  'landing.nav.keepShopping': 'සාප්පු සවාරි යන්න',
   'landing.nav.sell': 'වෙන්ඩ්‍රි හි විකුණන්න',
   'landing.nav.shop': 'සාප්පුව',
   'landing.nav.signUp': 'එක්වන්න',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'සාප්පු යන්නන් ප්‍රිය කරන දේ',
   'login.accountTypeAria': 'ගිණුම් වර්ගය',
   'login.heading': 'වෙන්ඩ්‍රි වෙත නැවත සාදරයෙන් පිළිගනිමු.',
+  'login.legalPrefix': 'පුරනය වීමෙන්, ඔබ අපගේ',
   'login.subheading': 'සාප්පු සවාරි යාම දිගටම කරගෙන යාමට හෝ ඔබේ සාප්පුවට ආපසු යාමට පුරන්න.',
   'login.submitShopper': 'සාප්පු යෑමට පුරනය වන්න',
   'login.submitVendor': 'මගේ සාප්පුවට පුරනය වන්න',
@@ -88,10 +91,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'ස්ථානගත කරන ලදී {{date}} · {{vendorCount}} වෙළෙන්දා (විකුණුම්කරුවන්) · බහු-වෙළෙන්දා ඉටු කිරීම',
   'orders.empty': 'මෙම පෙරහනට ගැලපෙන ඇණවුම් තවමත් නොමැත.',
+  'orders.emptyTitle': 'මෙහි තවමත් ඇණවුම් නොමැත.',
   'orders.eyebrow': 'ඔබේ මිලදී ගැනීම්',
   'orders.subtitle':
     'කවුද මොනවද නැව්ගත කළේ කියලා බලන්න, එක් එක් වෙළෙන්දා අනුව ලුහුබැඳීම අනුගමනය කරන්න, නැවත කිසිදා පාර්සලයක් නැති කරගන්න එපා.',
   'orders.title': 'ඇණවුම්, වෙළෙන්දා අනුව කාණ්ඩ කර ඇත',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'productDetail.addToCart': 'ගැලට එක් කරන්න',
   'productDetail.addToCartError': 'කරත්තයට එක් කිරීමට නොහැකි විය.',
   'productDetail.addToCartSuccess': '" {{name}} ” ඔබේ කරත්තයට එකතු කරන ලදී.',
@@ -132,12 +137,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'ඔබ සාප්පු යන ආකාරය, වෙළෙන්දන් ඔබ වෙත ළඟා වන ආකාරය සහ මුදල් යන්නේ කොතැනටද යන්න කළමනාකරණය කරන්න.',
   'signup.heading': 'වෙළඳපොළට එක්වන්න',
+  'signup.legalPrefix': 'සම්බන්ධ වීමෙන්, ඔබ අපගේ',
   'signup.mismatch': 'මුරපද තවමත් නොගැලපේ.',
   'signup.subheading':
     'ස්වාධීන නිෂ්පාදකයින් 4,000+ ක් බ්‍රවුස් කරන්න, නැතහොත් ඔබේම සාප්පුවක් විවෘත කරන්න.',
   'status.delivered': 'භාර දෙන ලදී',
   'status.refunded': 'ආපසු ගෙවන ලදී',
+  'userMenu.marketplaceSettings': 'වෙළඳපොළ සැකසුම්',
   'vendor.memberSince': 'සාමාජිකයා සිට {{date}}',
+  'vendorDashboard.defaultShop': 'ඔබේ කඩේ',
   'vendorDashboard.eyebrow': 'විකුණුම්කරු පරිපාලක · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} වෙන්ඩ්‍රි කොමිසමෙන් පසු නිදහස් කරන ලදී. ඊළඟ ගෙවීම සිකුරාදා.',
@@ -156,12 +164,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'ඔබ කොහෙද හදන්නේ, ඔබ මොනවද හදන්නේ, ඇයි ඒක වැදගත් වෙන්නේ.',
   'vendorOnboarding.currencyLabel': 'මුදල් ඒකකයෙන් පියවන්න',
   'vendorOnboarding.errors.shopName': 'සාප්පුවේ නම අවශ්‍යයි.',
+  'vendorOnboarding.errors.submit': 'ඔබගේ අයදුම්පත ඉදිරිපත් කිරීමට නොහැකි විය.',
   'vendorOnboarding.exit': 'සුරකින්න සහ පසුව ඉදිරියට යන්න',
   'vendorOnboarding.eyebrow': 'වෙන්ඩ්‍රි හි විකිණීමට අයදුම් කරන්න.',
+  'vendorOnboarding.field.shopName': 'සාප්පුවේ නම',
   'vendorOnboarding.heroBody':
     '8% ක කොමිස් මුදලක්, සෑම සිකුරාදා දිනකම ගෙවීම්, ඔබේ වෙළඳසැල ඉදිරිපිට, ඔබේ කතාව. ඔබේ වෙළඳසැල ගැන අපට ටිකක් කියන්න, අපි පැය 48ක් ඇතුළත ඔබ හා සම්බන්ධ වන්නෙමු.',
   'vendorOnboarding.review.contact': 'අමතන්න',
   'vendorOnboarding.review.currency': 'මුදල්',
+  'vendorOnboarding.review.tagline': 'ටැග්ලයින්',
+  'vendorOnboarding.review.website': 'වෙබ් අඩවිය',
   'vendorOnboarding.reviewBody':
     'හොඳයි වගේ. අපි ඔබේ කඩේ පැය 48ක් ඇතුළත සමාලෝචනය කර ඔබේ පළමු අලෙවියෙන් පසු සිකුරාදා ඔබේ පළමු ගෙවීම එවන්නෙමු.',
   'vendorOnboarding.samplesLabel': 'නියැදි වැඩ — Instagram, කළඹ, ඡායාරූප',
@@ -170,11 +182,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'අයදුම්පත ඉදිරිපත් කළා! අපි ඔබේ සාප්පුව සමාලෝචනය කර පැය 48ක් ඇතුළත ඔබට විද්‍යුත් තැපෑලක් එවන්නෙමු.',
   'vendorOnboarding.taxIdLabel': 'බදු හැඳුනුම්පත',
+  'vendorOrders.emptyTitle': 'තවමත් ඉටු කිරීමට ඇණවුම් නොමැත.',
   'vendorOrders.eyebrow': 'විකුණුම්කරු පරිපාලක',
+  'vendorOrders.kpi.awaiting': 'ඉටුවීම බලාපොරොත්තුවෙන්',
   'vendorOrders.kpi.inTransit': 'ප්රවාහනයේ',
   'vendorOrders.subtitle':
     'ලේබල් මුද්‍රණය කරන්න, ඉටු වූ බව සලකුණු කරන්න, සහ ප්‍රශ්නවලට පිළිතුරු දෙන්න - සියල්ල වෙන්ඩ්‍රි හැර නොගොස්.',
   'vendorOrders.title': 'ලැබෙන ඇණවුම්',
+  'vendorPayouts.emptyTitle': 'තවමත් ගෙවීම් නොමැත',
   'vendorPayouts.eyebrow': 'විකුණුම්කරු මූල්‍යකරණය',
   'vendorPayouts.heroCaption': 'බැන්කෝ BPI වෙත පියවීම් {{account}} · ව්‍යාපාරික දින 1–2',
   'vendorPayouts.history': 'ගෙවීම් ඉතිහාසය',
@@ -192,7 +207,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'එය නිර්මාණය කර ඇත්තේ කොහේද? එහි ඇති කතාව කුමක්ද?',
   'vendorProductForm.error.name': 'නිෂ්පාදන නාමය අවශ්‍යයි',
   'vendorProductForm.error.price': 'ධනාත්මක මිලක් ඇතුළත් කරන්න',
+  'vendorProductForm.error.publish': 'ප්‍රකාශනය කිරීමට අසමත් විය',
   'vendorProductForm.eyebrow': 'නව ලැයිස්තුගත කිරීම',
+  'vendorProductForm.eyebrowEdit': 'ලැයිස්තුගත කිරීම සංස්කරණය කරන්න',
   'vendorProductForm.images.body':
     'රූප 8ක් දක්වා ඇද දමන්න. පළමු ඡායාරූපය වෙළඳසැල ඉදිරිපිට කවරය බවට පත්වේ.',
   'vendorProductForm.images.cta': 'ඡායාරූප මෙතැනට අදින්න හෝ බ්‍රවුස් කරන්න',
@@ -204,6 +221,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'වෙනස්කම් සුරකින්න',
   'vendorProductForm.title': 'ඔබේ භාණ්ඩය ගැන සාප්පු හිමියන්ට කියන්න.',
   'vendorProductForm.variants.colInventory': 'ඉන්වෙන්ටරි',
+  'vendorProductForm.variants.colVariant': 'ප්‍රභේදය',
   'vendorProducts.eyebrow': 'විකුණුම්කරු පරිපාලක',
   'vendorProducts.kpi.draft': 'කෙටුම්පත්',
   'vendorProducts.kpi.lowStock': 'අඩු තොග',

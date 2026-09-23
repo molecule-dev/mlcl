@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
   'activityFeed.empty': 'Ende pa aktivitet — dërgoni faturën tuaj të parë.',
   'authShell.sample.paid': 'Paguar 2 minuta më parë',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Shto një klient të ri',
   'clients.search': 'Kërko sipas emrit, kompanisë, email-it',
   'clients.title': 'Klientët',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Klient i ri',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Harrova fjalëkalimin',
   'forgotPassword.successBody':
     'Ne kemi dërguar udhëzime për rivendosje te {{email}} Lidhja skadon pas 30 minutash.',
+  'invoiceDetail.action.confirmVoid': 'Konfirmo pavlefshmërinë?',
   'invoiceDetail.action.download': 'Shkarko PDF-në',
   'invoiceDetail.action.duplicate': 'Dublikatë',
   'invoiceDetail.action.edit': 'Modifiko',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Fatura u anulua.',
   'invoiceDetail.issued': 'Lëshuar {{date}}',
   'invoiceDetail.loading': 'Duke ngarkuar faturën…',
+  'invoiceDetail.paidInFull': 'Paguar plotësisht',
   'invoiceDetail.summary': '{{client}} · dërguar {{date}}',
   'invoiceDetail.tax': 'Taksa ( {{rate}} %)',
   'invoiceDetail.timeline': 'Kronologjia',
+  'invoiceDetail.voided': 'I pavlefshëm',
   'invoiceEditor.addItem': 'Shto artikull',
   'invoiceEditor.back': '← Kthehu te faturat',
   'invoiceEditor.col.qty': 'Sasia',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Dërgoni faturën tuaj të parë',
   'landing.hero.eyebrow': 'Faturimi për bizneset e vogla',
   'landing.hero.secondary': 'Shihni një faturë shembull',
+  'landing.hero.subtitle':
+    '{{appName}} çifton faturat e përsosura me pagesa të integruara, faturim të përsëritur dhe raporte të gatshme për taksat. Pa kontabilitet.',
   'landing.hero.title': 'Dërgoni fatura. Merrni pagesa më shpejt.',
   'login.signupLink': 'Krijo një',
   'login.submitting': 'Duke ju identifikuar…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'pagesat',
   'pricing.recurringLabel': 'orare të përsëritura',
   'remitLayout.newInvoice': 'Faturë e re',
+  'remitLayout.openMenu': 'Hap menynë e navigimit',
   'remitLayout.searchPlaceholder': 'Kërko fatura, klientë...',
   'remitLayout.tagline': 'Merrni pagesa, më shpejt',
   'reports.chart.aging': 'Vjetërimi i faturës',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Të ardhurat e periudhës',
   'reports.chart.topClients': 'Klientët kryesorë',
   'reports.chart.topClientsCaption': 'Të ardhurat gjatë gjithë jetës, 5 më të mirat',
+  'reports.empty.aging': 'Asnjë faturë e papaguar.',
+  'reports.empty.methods': 'Ende nuk ka të dhëna për pagesën.',
+  'reports.empty.revenue': 'Ende nuk ka të dhëna për të ardhurat.',
+  'reports.empty.topClients': 'Ende nuk ka të dhëna për të ardhurat e klientëve.',
   'reports.exporting': 'Duke eksportuar…',
   'reports.exportRequiresPaid':
     'Eksportet janë një veçori me pagesë - përmirësojeni për ta aktivizuar.',
@@ -194,6 +206,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Shto normën e taksës',
   'settings.tax.added': 'Norma e taksës u shtua.',
   'settings.tax.adding': 'Duke shtuar…',
+  'settings.tax.addRate': 'Shto çmimin',
   'settings.tax.col.region': 'Rajoni',
   'settings.tax.delete': 'Fshi normën e taksës',
   'settings.tax.deleted': 'Norma e taksës u hoq.',

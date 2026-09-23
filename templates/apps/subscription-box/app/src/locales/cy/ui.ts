@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Ynghylch {{app}}',
+  'appNav.mobileLabel': 'Prif lywio',
+  'appNav.primaryLabel': 'Prif lywio',
   'billing.actions.confirmCancel': 'Canslo eich tanysgrifiad? Gallwch ail-danysgrifio unrhyw bryd.',
   'billing.actions.paused': "Tanysgrifiad wedi'i oedi.",
   'billing.actions.resumed': 'Ailddechreuwyd y tanysgrifiad.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     "Mae pob haen yn stori swp bach. Ychwanegwch un at eich ciw neu ei chyfnewid i'ch mis nesaf.",
   'boxThemeCard.perMonth': '/ mis',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'customize.eyebrow': "Gwnewch hi'n eiddo i chi",
   'customize.heading': 'Addaswch eich Crate nesaf',
   'customize.items.exclude': 'Hepgor hwn',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Y tymor hwn',
   'landing.editions.heading': 'Rhifynnau mae ein curaduron wrth eu bodd â nhw',
   'landing.footer.contact': 'Siaradwch â churadur',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Dechreuwch eich blwch →',
   'landing.hero.ctaSecondary': 'Gweler haenau',
   'landing.hero.eyebrow': "Wedi'i guradu'n fisol. Bob amser yn bersonol.",
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'EICH CYNNIG NESAF',
   'nextBoxHeroCard.itemsLabel': "Eitemau wedi'u curadu",
   'nextBoxHeroCard.shipsOnLabel': 'Llongau ymlaen',
+  'notFound.body':
+    "Ni allem ddod o hyd i'r dudalen honno yn archif {{app}} . Efallai ei bod wedi'i rhoi'r gorau iddi neu ei bod wedi'i chamdeipio'n unig.",
   'notFound.cta.dashboard': "Ewch i'r dangosfwrdd",
   'notFound.eyebrow': 'Blwch gwag',
   'notFound.heading': "Mae'r silff hon yn wag",

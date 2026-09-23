@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Perihal {{app}}',
   'about.plansTitle': 'Pelan yang berkembang bersama anda',
   'brand.tagline': 'Setiap saat',
   'clientDetail.back': 'Kembali kepada pelanggan',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Setiap hubungan di satu tempat — projek, jam kerja, invois tertunggak.',
   'clients.title': 'Pelanggan',
   'common.and': 'dan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.activeProjects': 'Projek aktif',
   'dashboard.empty': 'Tiada entri lagi. Mulakan pemasa untuk menjejaki sesi pertama anda.',
   'dashboard.greeting': 'Selamat petang, {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
   'invoices.save': 'Cipta invois',
   'invoices.subtitle':
     'Waktu operasi yang dijejaki akan dimasukkan ke dalam invois secara automatik.',
+  'landing.copyright': '© {{year}} {{app}} . Setiap saat, diperhitungkan.',
   'landing.ctaBody':
     'Percuma untuk sehingga 3 projek. Tingkatkan apabila senarai pelanggan anda berbuat demikian.',
   'landing.eyebrow': 'Penjejakan masa untuk kerja yang boleh dibilkan',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Dipercayai oleh orang bebas',
   'landing.testimonial.quote':
     '\\u201cSaya telah meninggalkan Toggl dalam masa 30 minit. Kehabisan bajet sahaja telah membayarnya dengan sendirinya \\u2014 Saya telah berhenti memberikan sebut harga yang kurang daripada yang sepatutnya selama dua minggu berturut-turut.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Setiap saat, diperhitungkan.',
   'login.brand.subtitle':
     'Teruskan pemasa dari tempat anda berhenti — setiap minit sudah dipetakan kepada projek, pelanggan, invois.',
   'login.brand.tracking': 'Penjejakan',
   'login.subheading': 'Teruskan pemasa dari tempat anda berhenti.',
+  'nav.closeMenu': 'Tutup menu navigasi',
   'nav.insightsSection': 'Wawasan',
   'nav.newEntry': 'Kemasukan Baharu',
+  'nav.openMenu': 'Buka menu navigasi',
+  'nav.primary': 'Navigasi utama',
   'nav.workSection': 'Kerja',
   'notFound.body':
     'Nampaknya pautan yang anda ikuti telah berhenti menjejaki. Kembali ke papan pemuka anda \\u2014 kami akan terus mengira dari situ.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Boleh dibilkan',
   'timer.descriptionPlaceholder': 'Apa yang sedang anda usahakan?',
   'timer.idle': 'Terbiar — mulakan penjejakan',
+  'timer.noProject': 'Tiada projek',
   'timer.runningWithProject': 'Tiada projek',
   'timer.start': 'Mulakan pemasa',
   'timer.stop': 'Hentikan pemasa',

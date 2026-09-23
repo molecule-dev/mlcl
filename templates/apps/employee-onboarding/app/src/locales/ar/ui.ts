@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'أعد تعيين كلمة المرور.',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'تحديد المهمة كمكتملة',
   'checklistTaskCard.markIncomplete': 'تحديد المهمة كغير مكتملة',
   'checklistTaskCard.openLabel': 'فتح المهمة',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'أنت مواكب لكل شيء',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'على المسار الصحيح',
   'dashboard.timelineHeading': 'محطات 30/60/90',
   'dashboard.viewAllTasks': 'عرض جميع المهام',
+  'dashboard.weekOne': 'الأسبوع الأول',
   'dashboard.yourCohort': 'فريقك',
   'documents.empty.body': 'ستظهر هنا الوثائق التي يضيفها فريقك.',
   'documents.empty.title': 'لا توجد وثائق بعد',
@@ -102,7 +105,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'تجربة مجانية لمدة 14 يوماً',
   'landing.subhead':
     'يُرشد Embark كل زميل جديد خلال أول 90 يوم — أوراق، تدريب، محطات، وتعارفات هادفة، كل ذلك في مكان واحد هادئ وواثق.',
+  'layout.openMenu': 'فتح قائمة التنقل',
   'layout.search': 'ابحث في المهام والوثائق والزملاء…',
+  'layout.searchTeammates': 'ابحث عن زملاء الفريق بالاسم أو الدور...',
   'layout.section.onboarding': 'الانضمام',
   'layout.tagline': 'تبدأ رحلتك هنا',
   'notifications.empty.body': 'ستظهر هنا الأنشطة الجديدة.',
@@ -111,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'أمس',
   'planUpdated.message': 'أنت جاهز تماماً.',
   'planUpdated.preparing': 'جارٍ تحديث خطتك…',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.documentsLabel': 'المستندات',
   'pricing.onboardingsLabel': 'عمليات انضمام',
   'pricing.tasksLabel': 'مهام',

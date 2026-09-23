@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Amdanom ni',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.logout': 'Allgofnodi',
   'dailyStatsTriad.heartsLabel': 'Calonnau',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Munudau heddiw',
   'dailyStatsTriad.minutesValue': '{{count}} munud',
   'dailyStatsTriad.wordsLabel': "Geiriau wedi'u meistroli",
+  'dailyStatsTriad.wordsMasteryHint': 'Geiriau ar feistrolaeth 4+',
   'dashboard.continueHeading': 'Parhewch lle gwnaethoch chi adael',
   'dashboard.heading': 'Diwedd y dydd, {{name}} .',
   'dashboard.loadError':
@@ -57,6 +61,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Methwyd llwytho ymarferion.',
   'lessonDetail.loading': "Wrthi'n llwytho'r wers…",
   'lessonDetail.submitError': 'Methwyd cyflwyno ateb.',
+  'lessonDetail.translation': 'Cyfieithwch yr ymadrodd',
   'lessonDetail.xpEarned': 'XP a enillwyd · {{xp}}',
   'lessons.empty': 'Dim gwersi ar y lefel {{level}} eto — rhowch gynnig ar haen arall.',
   'lessons.eyebrow': 'Llyfrgell gwersi',
@@ -69,7 +74,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Newydd i Iaith?',
   'login.showPassword': 'Dangos cyfrinair',
   'login.signUp': 'Dechreuwch am ddim →',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
+  'parlanceLayout.nav.profile': 'Proffil',
   'parlanceLayout.primaryNavLabel': 'Prif lywio',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'practice.empty': 'Dim ymadroddion ar gael eto.',
   'practice.eyebrow': 'Ymarfer siarad',
   'practice.heading': 'Darllenwch ef. Cofnodwch ef. Mireiniwch ef.',

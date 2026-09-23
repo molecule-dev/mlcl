@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.logout': 'Odhlásiť sa',
   'dailyStatsTriad.heartsLabel': 'Srdcia',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minúty dnes',
   'dailyStatsTriad.minutesValue': '{{count}} min.',
   'dailyStatsTriad.wordsLabel': 'Zvládnuté slová',
+  'dailyStatsTriad.wordsMasteryHint': 'Slová na úrovni majstrovstva 4+',
   'dashboard.continueHeading': 'Pokračujte tam, kde ste prestali',
   'dashboard.heading': 'Dobré dni, {{name}} .',
   'dashboard.loadError':
@@ -56,6 +60,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Cvičenia sa nepodarilo načítať.',
   'lessonDetail.loading': 'Načítava sa lekcia…',
   'lessonDetail.submitError': 'Nepodarilo sa odoslať odpoveď.',
+  'lessonDetail.translation': 'Preložte frázu',
   'lessonDetail.xpEarned': 'Získané XP · {{xp}}',
   'lessons.empty': 'Žiadne lekcie na danej úrovni {{level}} skúste inú úroveň.',
   'lessons.eyebrow': 'Knižnica lekcií',
@@ -68,7 +73,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ste v jazyku noví?',
   'login.showPassword': 'Zobraziť heslo',
   'login.signUp': 'Začnite zadarmo →',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
+  'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Hlavná navigácia',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'practice.empty': 'Zatiaľ nie sú k dispozícii žiadne frázy.',
   'practice.eyebrow': 'Rečnícka prax',
   'practice.heading': 'Prečítaj si to. Zaznamenaj si to. Vylepši si to.',

@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'టెస్ట్ మోడ్: ఆర్డర్‌లు నమోదు చేయబడతాయి మరియు బ్యాలెన్స్‌లు సెటిల్ చేయబడతాయి, కానీ నిజమైన కార్డ్ నుండి డబ్బు తీసుకోబడదు.',
   'checkout.placeOrderCta': 'ఆర్డర్ ఇవ్వండి',
+  'checkout.placeOrderError': 'మీ ఆర్డర్‌ను నమోదు చేయలేకపోయాము.',
   'checkout.placingOrder': 'ఆర్డర్ ఇస్తున్నాను…',
   'checkout.review.shipTo': 'షిప్పింగ్',
   'checkout.review.subtotal': 'విక్రేత ఉపమొత్తం',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'విక్రేతగా అవ్వండి',
   'landing.footer.copyright': '© {{year}} {{name}} ప్రతి తయారీదారు, ఒకే మార్కెట్.',
   'landing.footer.help': 'సహాయ కేంద్రం',
+  'landing.nav.keepShopping': 'షాపింగ్ కొనసాగించండి',
   'landing.nav.sell': 'వెండ్రీలో అమ్మండి',
   'landing.nav.shop': 'షాప్',
   'landing.nav.signUp': 'చేరండి',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'కొనుగోలుదారులు ఇష్టపడుతున్నవి',
   'login.accountTypeAria': 'ఖాతా రకం',
   'login.heading': 'వెండ్రీకి తిరిగి స్వాగతం',
+  'login.legalPrefix': 'సైన్ ఇన్ చేయడం ద్వారా, మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు.',
   'login.subheading': 'షాపింగ్ కొనసాగించడానికి సైన్ ఇన్ చేయండి లేదా మీ షాప్‌లోకి తిరిగి వెళ్లండి.',
   'login.submitShopper': 'షాప్‌లోకి సైన్ ఇన్ చేయండి',
   'login.submitVendor': 'నా షాప్‌లోకి లాగిన్ అవ్వండి',
@@ -89,10 +92,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'ఉంచబడింది {{date}} · {{vendorCount}} విక్రేత(లు) · బహుళ-విక్రేత నెరవేర్పు',
   'orders.empty': 'ఈ ఫిల్టర్‌కు సరిపోయే ఆర్డర్‌లు ఇంకా ఏవీ లేవు.',
+  'orders.emptyTitle': 'ఇక్కడ ఇంకా ఆర్డర్లు రాలేదు',
   'orders.eyebrow': 'మీ కొనుగోళ్లు',
   'orders.subtitle':
     'ఎవరు ఏమి పంపించారో చూడండి, ప్రతి విక్రేత ప్రకారం ట్రాకింగ్‌ను అనుసరించండి, ఇకపై ఏ పార్సిల్‌ను పోగొట్టుకోకండి.',
   'orders.title': 'విక్రేత వారీగా సమూహపరచబడిన ఆర్డర్‌లు',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'productDetail.addToCart': 'కార్ట్‌కు జోడించండి',
   'productDetail.addToCartError': 'కార్ట్‌కు జోడించలేకపోయాను.',
   'productDetail.addToCartSuccess': '" {{name}} మీ కార్ట్‌కు జోడించబడింది.',
@@ -133,12 +138,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'మీరు ఎలా షాపింగ్ చేస్తారో, విక్రేతలు మిమ్మల్ని ఎలా సంప్రదిస్తారో మరియు మీ డబ్బు ఎక్కడికి వెళ్తుందో నిర్వహించుకోండి.',
   'signup.heading': 'మార్కెట్‌ప్లేస్‌లో చేరండి',
+  'signup.legalPrefix': 'చేరడం ద్వారా, మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు.',
   'signup.mismatch': 'పాస్‌వర్డ్‌లు ఇంకా సరిపోలలేదు.',
   'signup.subheading':
     '4,000కు పైగా స్వతంత్ర తయారీదారులను పరిశీలించండి, లేదా మీ స్వంత దుకాణాన్ని తెరవండి.',
   'status.delivered': 'పంపిణీ చేయబడింది',
   'status.refunded': 'వాపసు చేయబడింది',
+  'userMenu.marketplaceSettings': 'మార్కెట్‌ప్లేస్ సెట్టింగ్‌లు',
   'vendor.memberSince': 'సభ్యుడు అయినప్పటి నుండి {{date}}',
+  'vendorDashboard.defaultShop': 'మీ దుకాణం',
   'vendorDashboard.eyebrow': 'విక్రేత నిర్వాహకుడు · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} వెండ్రీ కమీషన్ తర్వాత క్లియర్ చేయబడింది. తదుపరి చెల్లింపు శుక్రవారం.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
     'మీరు ఎక్కడ తయారు చేస్తారు, మీరు ఏమి తయారు చేస్తారు, అది ఎందుకు ముఖ్యం.',
   'vendorOnboarding.currencyLabel': 'కరెన్సీలో చెల్లించండి',
   'vendorOnboarding.errors.shopName': 'దుకాణం పేరు తప్పనిసరి.',
+  'vendorOnboarding.errors.submit': 'మీ దరఖాస్తును సమర్పించలేకపోయాము.',
   'vendorOnboarding.exit': 'సేవ్ చేసి, తర్వాత కొనసాగించండి',
   'vendorOnboarding.eyebrow': 'Vendriలో విక్రయించడానికి దరఖాస్తు చేసుకోండి',
+  'vendorOnboarding.field.shopName': 'దుకాణం పేరు',
   'vendorOnboarding.heroBody':
     'స్థిరంగా 8% కమీషన్, ప్రతి శుక్రవారం చెల్లింపులు, మీ స్టోర్‌ఫ్రంట్, మీ కథ. మీ షాప్ గురించి మాకు కొంచెం చెప్పండి, మేము 48 గంటల్లోగా మిమ్మల్ని సంప్రదిస్తాము.',
   'vendorOnboarding.review.contact': 'సంప్రదించండి',
   'vendorOnboarding.review.currency': 'కరెన్సీ',
+  'vendorOnboarding.review.tagline': 'ట్యాగ్‌లైన్',
+  'vendorOnboarding.review.website': 'వెబ్‌సైట్',
   'vendorOnboarding.reviewBody':
     'బాగుంది. మేము 48 గంటలలోపు మీ షాప్‌ను సమీక్షించి, మీ మొదటి అమ్మకం జరిగిన తర్వాత వచ్చే శుక్రవారం నాడు మీ మొదటి చెల్లింపును పంపుతాము.',
   'vendorOnboarding.samplesLabel': 'నమూనా పని — ఇన్‌స్టాగ్రామ్, పోర్ట్‌ఫోలియో, ఫోటోలు',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'దరఖాస్తు సమర్పించబడింది! మేము మీ షాప్‌ను సమీక్షించి, 48 గంటలలోపు మీకు ఇమెయిల్ పంపుతాము.',
   'vendorOnboarding.taxIdLabel': 'పన్ను గుర్తింపు సంఖ్య',
+  'vendorOrders.emptyTitle': 'ఇంకా నెరవేర్చాల్సిన ఆర్డర్లు ఏవీ లేవు',
   'vendorOrders.eyebrow': 'విక్రేత నిర్వాహకుడు',
+  'vendorOrders.kpi.awaiting': 'నెరవేర్పు కోసం వేచి ఉంది',
   'vendorOrders.kpi.inTransit': 'రవాణాలో ఉంది',
   'vendorOrders.subtitle':
     'వెండ్రీని విడిచిపెట్టకుండానే లేబుల్‌లను ప్రింట్ చేయండి, ఆర్డర్ పూర్తయినట్లుగా గుర్తించండి మరియు ప్రశ్నలకు సమాధానం ఇవ్వండి.',
   'vendorOrders.title': 'ఇన్‌కమింగ్ ఆర్డర్‌లు',
+  'vendorPayouts.emptyTitle': 'ఇంకా చెల్లింపులు జరగలేదు',
   'vendorPayouts.eyebrow': 'విక్రేత ఫైనాన్స్',
   'vendorPayouts.heroCaption': 'బాంకో బీపీఐతో ఒప్పందం కుదుర్చుకుంది {{account}} · 1–2 పని దినాలు',
   'vendorPayouts.history': 'చెల్లింపు చరిత్ర',
@@ -194,7 +209,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'దీన్ని ఎక్కడ తయారు చేస్తారు? ఇది ఏ కథను చెబుతుంది?',
   'vendorProductForm.error.name': 'ఉత్పత్తి పేరు అవసరం',
   'vendorProductForm.error.price': 'సానుకూల ధరను నమోదు చేయండి',
+  'vendorProductForm.error.publish': 'ప్రచురించడంలో విఫలమైంది',
   'vendorProductForm.eyebrow': 'కొత్త జాబితా',
+  'vendorProductForm.eyebrowEdit': 'జాబితాను సవరించండి',
   'vendorProductForm.images.body':
     '8 చిత్రాల వరకు డ్రాగ్-అండ్-డ్రాప్ చేయండి. మొదటి ఫోటో స్టోర్‌ఫ్రంట్ కవర్‌గా మారుతుంది.',
   'vendorProductForm.images.cta': 'ఫోటోలను ఇక్కడకు లాగండి లేదా బ్రౌజ్ చేయండి',
@@ -206,6 +223,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'మార్పులను సేవ్ చేయండి',
   'vendorProductForm.title': 'కొనుగోలుదారులకు మీ ఉత్పత్తి గురించి తెలియజేయండి',
   'vendorProductForm.variants.colInventory': 'ఇన్వెంటరీ',
+  'vendorProductForm.variants.colVariant': 'వేరియంట్',
   'vendorProducts.eyebrow': 'విక్రేత నిర్వాహకుడు',
   'vendorProducts.kpi.draft': 'డ్రాఫ్ట్‌లు',
   'vendorProducts.kpi.lowStock': 'తక్కువ స్టాక్',

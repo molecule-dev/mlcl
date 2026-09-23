@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Eich rôl',
   'account.role.upgradeLink': 'Gwneud cais i fod yn diwtor dilys →',
   'account.title': 'Proffil, taliad a dewisiadau.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Addysgu ar Sialc',
   'becomeTutor.form.error': 'Methwyd cyflwyno cais.',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Pwnc',
   'bookingConfirm.title': "Rydych chi wedi archebu. Byddwn ni'n delio â'r gweddill.",
   'bookingConfirm.with': 'Gyda thiwtor',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'earningsHero.eyebrow': 'Enillion • {{month}}',
   'forgotPassword.heading': 'Wedi anghofio eich cyfrinair?',
   'forgotPassword.subheading':
@@ -116,6 +118,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Anfon neges',
   'messages.thread.empty': 'Dywedwch helo — dechreuwch y sgwrs.',
   'messages.title': "Edau gyda'ch tiwtoriaid.",
+  'nav.primary': 'Cynradd',
   'pricing.dataExport': 'Allforio data:',
   'pricing.headingDefault': 'Nodweddion uwch:',
   'resetPassword.heading': 'Dewiswch gyfrinair newydd cryf.',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Se rezolvă…',
   'comments.subtitle':
     'Cel/Cea/Cei/Cele {{count}} Subiecte care încă așteaptă un răspuns sau o rezolvare. Sortate după vârstă — cele mai vechi primele, astfel încât nimic să nu putrezească.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'forgotPassword.sentTo': 'Linkul de resetare a fost trimis către {{email}}',
   'forgotPassword.successSubheading':
     'Verifică-ți căsuța poștală — tocmai ți-am trimis un link de resetare. Acesta expiră în 30 de minute.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Pagină nouă',
   'pageTreeSidebar.workspaceHeader': 'Spațiu de lucru',
   'pageView.breadcrumb': 'Navigare pas cu pas',
+  'pageView.confirmTrash': 'Să-l arunci?',
   'pageView.home': 'Acasă',
   'pageView.lastEdited': 'Actualizat {{when}}',
   'pageView.loading': 'Se încarcă pagina…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Se rezumă…',
   'pageView.summaryUnavailable': 'Rezumatul AI nu este configurat pentru acest spațiu de lucru.',
   'pageView.tocTitle': 'Pe această pagină',
+  'pageView.trash': 'Coș de gunoi',
+  'pageView.trashing': 'Distrugerea…',
   'pageView.versionBadge': 'v.{{version}}',
   'profile.badges.title': 'Insigne',
   'profile.owned.title': 'Pagini deținute',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
     'Spațiu de lucru, profil, notificări, integrări — toate într-o singură platformă calmă.',
   'settingsPage.workspace.defaultLanding': 'Ecran de destinație implicit',
   'settingsPage.workspace.landingHome': 'Acasă',
+  'settingsPage.workspace.landingSpaces': 'Spații',
   'settingsPage.workspace.subdomainLabel': 'Subdomeniu',
   'settingsPage.workspace.title': 'Spațiu de lucru',
   'signup.eyebrow': 'Începeți un nou spațiu de lucru',
@@ -126,6 +131,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Începeți o pagină de la un șablon, nu de la o pânză goală. Fiecare șablon codează forma, astfel încât să vă puteți concentra asupra conținutului.',
+  'trash.confirmPurge': 'Epurare pentru totdeauna?',
+  'trash.confirmPurgeAria': 'Confirmare: ștergere definitivă {{title}}',
   'trash.daysUntilPurge': '{{days}} zile rămase',
   'trash.empty.body':
     'Paginile șterse vor apărea aici timp de 30 de zile înainte de a fi eliminate.',
@@ -146,5 +153,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Restaurare…',
   'versionHistory.subtitle': '{{count}} versiuni · selectați un rând pentru a inspecta diferența',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Închide navigarea',
+  'wikiLayout.menu': 'Navigare',
+  'wikiLayout.openMenu': 'Deschideți navigarea',
   'wikiLayout.searchPlaceholder': 'Caută în Cairn — pagini, comentarii…',
 }

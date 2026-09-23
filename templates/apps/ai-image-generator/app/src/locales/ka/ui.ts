@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'auth.fields.newPassword': 'ახალი პაროლი',
   'collectionDetail.addImage': 'კოლექციისთვის Conjure',
   'collectionDetail.backCta': 'კოლექციებზე დაბრუნება',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'განწყობის დაფები, მოკლე მიმოხილვები და მიმდინარე სერიები',
   'collections.title': 'კოლექციები',
   'collections.untitled': 'უსათაურო · {{stamp}}',
+  'common.closeMenu': 'მენიუს დახურვა',
+  'common.dismiss': 'დახურვა',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'credits.eyebrow': '{{plan}} გეგმა',
   'credits.renewsCopy': 'გეგმა განახლდება {{date}}',
   'credits.trail': 'ოცნება · {{plan}} იარუსი',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'აქ გამოჩნდება გენერირების აქტივობა, გაზიარება და კრედიტის შესახებ შეტყობინებები.',
   'notifications.empty.title': 'არაფერია შესატყობინებელი',
   'notifications.subtitle': 'თაობის მოვლენები დაჯგუფებულია დღის მიხედვით',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.limits.gallery': '{{count}} გალერეა',
   'privacy.collect.body':
     'როდესაც დარეგისტრირდებით, ჩვენ ვაგროვებთ თქვენს სახელს, ელექტრონული ფოსტის მისამართს და ჰეშირებულ პაროლს. Reverie-ს გამოყენებისას ჩვენ ვინახავთ თქვენს მიერ გაგზავნილ მოთხოვნებს, თქვენთვის გენერირებულ სურათებს, თქვენს მიერ შენახულ სტილებსა და კოლექციებს, ასევე მეტამონაცემებს, როგორიცაა გამოყენებული მოდელი, გენერაციის დროის ნიშნულები და საკრედიტო ბალანსი.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'ახალი პაროლის შენახვა',
   'reset.submitting': 'პაროლის განახლება…',
   'settings.account.handle': 'სახელური',
+  'settings.account.lastSaved': 'აქტიური პროფილი · {{name}}',
   'settings.account.saved': 'პროფილი შენახულია',
   'settings.account.saveFailed': 'პროფილის შენახვა ვერ მოხერხდა',
   'settings.account.title': 'შემქმნელის პროფილი',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'ახალი სურათი',
   'sidebar.secondary': 'მეორადი ნავიგაცია',
   'signup.failed': 'რეგისტრაცია ვერ მოხერხდა. სცადეთ ხელახლა.',
+  'signup.firstNamePlaceholder': 'არია',
   'signup.heading': 'დაიწყეთ თქვენი ფიქრი',
+  'signup.lastNamePlaceholder': 'ლინ',
   'signup.subheading': 'შექმენით ანგარიში და მიიღეთ 120 უფასო კრედიტი.',
   'styles.empty':
     'სტილის წინასწარ დაყენებული პარამეტრები ჯერ არ არის — ისინი პირველი შესვლის შემდეგ გამოჩნდება.',

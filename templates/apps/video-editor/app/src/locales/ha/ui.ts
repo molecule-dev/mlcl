@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Na sami matsala, ko kuna da buƙatar fasali, ko kuna son gaya mana game da fim ɗin da kuka yanke? Kowane saƙo yana isa ga ainihin mutum a cikin ƙungiyar — tuntuɓi kowane lokaci daga saitunan asusunku.',
+  'about.contactTitle': 'Yi magana da mu',
+  'about.eyebrow': '// ɗakin studio a bayan yankewar',
   'about.pageTitle': 'Game da {{appName}}',
   'assetDetail.back': 'Komawa ɗakin karatu',
   'assetDetail.confirmDelete': 'Share " {{name}} "? Ba za a iya warware wannan ba."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} shirye-shiryen bidiyo, gadajen sauti, da zane-zane a shirye don bayyana a cikin jadawalin lokaci.',
   'assetLibrary.title': 'Kadarori',
   'assetLibrary.upload': 'Ƙara kadara',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.browseTemplates': 'Duba samfura →',
   'dashboard.loading': 'Ana loda ayyukan…',
   'dashboard.noProjects': 'Babu wasu ayyuka tukuna — ƙirƙiri ɗaya don farawa.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Zaɓi wani abu da za ka tuna kawai.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Sirri',
+  'rushesLayout.closeMenu': 'Rufe kewayawa',
   'rushesLayout.guest': 'Edita',
+  'rushesLayout.navDialog': 'Kewaya',
+  'rushesLayout.openMenu': 'Buɗe kewayawa',
   'rushesLayout.planFree': 'Tsarin kyauta',
   'rushesLayout.tagline': 'Jadawalin lokacin sinima',
   'settings.billing.confirmCancel': 'Soke biyan kuɗi a ƙarshen lokaci?',

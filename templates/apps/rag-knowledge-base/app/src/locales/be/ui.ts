@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.pageTitle': 'Пра {{appName}}',
   'analytics.error': 'Не атрымалася загрузіць аналітыку.',
   'analytics.heading': 'Аналітыка пошуку',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Цэнавыя ўзроўні не настроены.',
   'billing.plans.heading': 'Планы',
   'billing.subheading': 'План, выкарыстанне і афармленне замовы праз Stripe.',
+  'common.confirm': 'Пацвердзіць',
+  'common.goToDashboard': 'Перайсці да панэлі',
+  'common.retry': 'Паўтарыць',
   'documentCard.open': 'Адкрыць \\u2192',
   'documentDetail.back': 'Назад да дакументаў',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Індэксны дакумент',
   'documents.composer.titlePlaceholder': 'Назва дакумента',
   'documents.emptyAll': 'Пакуль няма дакументаў. Загрузіце адзін, каб пачаць задаваць пытанні.',
+  'documents.error.load': 'Не атрымалася загрузіць дакументы.',
   'documents.heading': 'Індэксаваныя дакументы',
   'documents.loading': 'Загрузка дакументаў…',
   'documents.metric.chunks': 'Агульная колькасць фрагментаў',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Выдаленне\\u2026',
   'members.subheading': 'Запрасіце таварышаў па камандзе і расстаўце ролі.',
   'members.tableHeading': 'Склад',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'notFound.askCta': 'Запытайце ў базе ведаў',
+  'notFound.body':
+    '{{app}} не змог знайсці гэту старонку. Спасылка, магчыма, не працуе, альбо старонка магла быць выдалена падчас пераіндэксавання.',
   'notFound.eyebrow': 'Немагчыма атрымаць',
   'notFound.title': 'Няма такога фрагмента ў індэксе',
   'notifications.dismiss': 'Адхіліць',
@@ -209,6 +218,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL-адрас крыніцы',
   'sources.empty.body': "Націсніце «Дадаць крыніцу», каб падключыць першы раз'ём.",
   'sources.empty.title': 'Крыніц пакуль няма.',
+  'sources.error.add': 'Не атрымалася дадаць крыніцу.',
   'sources.error.labelRequired': 'Патрабуецца этыкетка.',
   'sources.error.load': 'Не атрымалася загрузіць крыніцы.',
   'sources.error.urlRequired': 'Для гэтага тыпу крыніцы патрабуецца URL-адрас.',

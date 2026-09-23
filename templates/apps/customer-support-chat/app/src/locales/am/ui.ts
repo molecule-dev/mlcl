@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ እኛ',
   'authShell.samplePreview': '«ሄይ ቡድን፣ አዲሱ ዳሽቦርድ በጣም አስደናቂ ነው - በትክክል የሚያስፈልገንን ነው!»',
   'authShell.tagline': 'እያንዳንዱ መልእክት አስፈላጊ ነው። እያንዳንዱ ደንበኛ ያስታውሳል።',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/አቋራጭ',
   'automations.subheading':
     'ደንቦች፣ የታሸጉ ምላሾች እና የውይይት ቦቶች - ቡድንዎ በከባድ ነገሮች ላይ ሲያተኩር የስራ ቦታውን ማጉረምረምዎን ይቀጥሉ።',
+  'automations.trigger.inboundMessage': 'ወደ ውስጥ የሚመጣ መልእክት',
   'automations.triggerLabel': 'ቀስቅሴ',
   'chatBubble.internalNoteLabel': 'ውስጣዊ ማስታወሻ',
+  'common.confirmDelete': 'ስረዛን ያረጋግጡ',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'contactDetail.backToContacts': 'ሁሉም እውቂያዎች',
   'contactDetail.contactFallback': 'እውቂያ',
   'contactDetail.conversationFallback': 'ውይይት',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'ለመጨረሻ ጊዜ የታየው',
   'contacts.empty': 'እስካሁን ምንም እውቂያዎች የሉም። የመጀመሪያ እውቂያዎን ከላይ ያክሉ።',
   'contacts.eyebrow': 'የደንበኛ ማውጫ',
+  'contacts.form.nameOrEmailRequired': 'ቢያንስ ስም ወይም ኢሜይል ያቅርቡ',
   'contacts.form.save': 'እውቂያን አስቀምጥ',
   'contacts.heading': 'እውቂያዎች',
   'contacts.loading': 'እውቂያዎችን በመጫን ላይ…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'ማስታወሻ አስቀምጥ',
   'conversationDetail.tab.note': 'ውስጣዊ ማስታወሻ',
   'conversationDetail.threadAria': 'የውይይት መልዕክቶች',
+  'conversationDetail.visitorFallback': 'ጎብኚ',
   'customerProfilePanel.csatLabel': 'ሲኤስኤቲ',
   'customerProfilePanel.propertiesTitle': 'የደንበኛ ዝርዝሮች',
   'customerProfilePanel.recentTitle': 'የቅርብ ጊዜ ውይይቶች',
@@ -69,6 +75,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.slaLabel': 'በዚህ ሳምንት SLA',
   'inboxHeroCard.subtitle': 'ደንበኞች የመጀመሪያውን ምላሽ በ {{time}} በአማካይ - ድፍረቱን ይቀጥሉ።',
   'inboxHeroCard.title': 'ንቁ ውይይቶች',
+  'inboxLayout.navDrawerLabel': 'አሰሳ',
+  'inboxLayout.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'inboxOverview.eyebrow': 'ዛሬ በጨረፍታ ሲታይ',
   'inboxOverview.heroChange': '{{count}} ክፈት',
   'inboxOverview.kpiClosedTrend': 'ሁልጊዜ',
@@ -113,10 +121,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'የመነሻ ገጹን ይጎብኙ',
   'notifications.subheading':
     'ምደባዎች፣ @mentions፣ SLA አደጋዎች፣ የCSAT ግብረመልስ እና የቡድን እንቅስቃሴ — በመጀመሪያ አዲሱን ተስተካክለዋል።',
+  'notifications.subjectFallback': 'ውይይት',
+  'notifications.visitorFallback': 'ጎብኚ',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ከፍተኛ',
   'priority.low': 'ዝቅተኛ',
+  'priority.normal': 'መደበኛ',
   'priority.urgent': 'አስቸኳይ',
   'privacy.title': 'የግላዊነት መመሪያ',
   'reports.agentFallback': 'ወኪል',

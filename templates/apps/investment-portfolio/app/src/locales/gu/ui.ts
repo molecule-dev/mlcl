@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} વિશે',
   'argentAuthShell.brandEyebrow': 'આર્જેન્ટ · સંપત્તિ સાધનો',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . રોકાણ સલાહ નહીં.',
   'argentAuthShell.sampleChange': 'આજે +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$૧,૦૩૨,૨૫૧',
   'argentLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'આ ટિકર માટે કોઈ વ્યવહારો નથી.',
   'assetDetail.txHeading': 'તમારા વ્યવહારો',
   'common.and': 'અને',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'પોર્ટફોલિયો ઝાંખી',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'હજુ સુધી કોઈ હોલ્ડિંગ નથી.',
   'holdings.heading': 'હોલ્ડિંગ્સ',
   'holdings.loadError': 'હોલ્ડિંગ્સ લોડ કરવામાં નિષ્ફળ.',
+  'landing.copyright':
+    '© {{year}} {{app}} . રોકાણ સલાહ નથી. ભૂતકાળનું પ્રદર્શન ભવિષ્યના પરિણામોની ગેરંટી આપતું નથી.',
   'landing.eyebrow': 'આર્જેન્ટ · સંપત્તિ-સાધન બનાવતું પ્લેટફોર્મ',
   'landing.features.heading': 'એક સલાહકાર પોતાના માટે જે કંઈ બનાવશે તે બધું.',
   'landing.finalCta.heading': 'તમારા પોર્ટફોલિયોમાં શિસ્ત પાછી લાવો.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} કલાક પહેલા',
   'news.justNow': 'હમણાં જ',
   'news.loadError': 'સમાચાર લોડ કરવામાં નિષ્ફળ થયાં.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'portfolioHeroCard.label': 'પોર્ટફોલિયો મૂલ્ય',
   'pricing.holdingsLabel': 'હોલ્ડિંગ્સ',
   'pricing.newsLabel': 'સમાચાર લેખો',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'એકાઉન્ટ કાઢી નાખો',
   'settings.security.deleting': 'કાઢી નાખી રહ્યું છે...',
   'settings.security.heading': 'સુરક્ષા',
+  'settings.security.newPassword': 'નવો પાસવર્ડ',
   'settings.security.password': 'પાસવર્ડ',
   'settings.security.twoFactorEnable': 'સક્ષમ કરો',
+  'settings.security.twoFactorInvalidCode': 'અમાન્ય કોડ',
+  'settings.security.twoFactorVerify': 'ચકાસો અને સક્ષમ કરો',
   'settings.tax.error': 'કર પદ્ધતિ અપડેટ કરી શકાઈ નથી.',
   'settings.tax.heading': 'ટેક્સ લોટ એકાઉન્ટિંગ',
   'settings.tax.method': 'ડિફોલ્ટ પદ્ધતિ',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'بک اپائنٹمنٹ',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'کوئی مریض دکھانے کے لیے نہیں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'consult.backLink': 'تمام تقرری',
   'consult.captions': 'کیپشنز',
   'consult.connected': 'منسلک · 720p · مستحکم',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'مریضوں',
   'patientVitalsHero.scripts': 'Rx کھلا۔',
   'patientVitalsHero.subline': '{{count}} آج آپ کے شیڈول پر مشورہ کریں',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'prescriptions.empty': 'کوئی نسخہ نہیں ملتا۔',
   'prescriptions.eyebrow': 'ای تجویز کرنا',
   'prescriptions.heading': 'نسخے',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'رازداری کا نوٹس',
   'privacy.use.body':
     'دیکھ بھال فراہم کرنے کے لیے، ملاقات کی یاددہانی بھیجیں، راستے کے نسخے، اور سروس کی وشوسنییتا کو بہتر بنائیں۔ ہم کبھی بھی آپ کا ڈیٹا فروخت نہیں کرتے اور نہ ہی کلینیکل معلومات کو مشتہرین کے ساتھ شیئر کرتے ہیں۔',
+  'providers.allSpecialties': 'تمام خصوصیات',
+  'providers.loadError': 'فراہم کنندگان کو لوڈ کرنے میں ناکام۔',
+  'providers.loading': 'لوڈ ہو رہا ہے…',
   'providers.noResults': 'کوئی فراہم کنندہ نہیں ملا۔',
   'providers.searchPlaceholder': 'نام، خاصیت سے تلاش کریں...',
   'providers.title': 'ایک فراہم کنندہ تلاش کریں۔',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'دن کا آغاز',
   'settings.availability.heading': 'دستیابی',
   'settings.devices.thisDevice': 'یہ ڈیوائس',
+  'settings.devices.unnamed': 'بے نام آلہ',
   'settings.eyebrow': 'پریکٹس اور اکاؤنٹ',
   'settings.loadError': 'آپ کا پروفائل لوڈ نہیں ہو سکا۔',
   'settings.notifications.emailMessages': 'جب میری دیکھ بھال کی ٹیم جواب دے تو مجھے ای میل کریں۔',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'غیر فعال کریں۔',
   'settings.security.twoFactor.enable': 'فعال کریں۔',
   'settings.security.twoFactor.heading': 'دو عنصر کی توثیق',
+  'settings.security.twoFactor.invalidCode': 'وہ کوڈ مماثل نہیں تھا۔ دوبارہ کوشش کریں۔',
+  'settings.security.twoFactor.setupFailed':
+    'دو فیکٹر سیٹ اپ شروع نہیں کیا جا سکا۔ دوبارہ کوشش کریں۔',
+  'settings.security.twoFactor.statusOn': 'ٹو فیکٹر آن ہے۔',
   'settings.signOutDevice': 'سائن آؤٹ کریں۔',
   'settings.subheading': 'فراہم کنندہ کا پروفائل، پریکٹس کے قواعد، اور طبی انتباہات۔',
   'signup.emailLabel': 'ای میل',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'اکاؤنٹ بنائیں',
   'signupFooter.hipaa': 'HIPAA کے مطابق',
   'solaceLayout.primaryNavLabel': 'بنیادی نیویگیشن',
+  'solaceLayout.toggleMenu': 'مینو کو ٹوگل کریں۔',
   'terms.eligibility.body':
     'آپ کی عمر کم از کم اٹھارہ سال ہونی چاہیے، یا کسی نابالغ کے والدین یا قانونی سرپرست جس کی آپ دیکھ بھال کر رہے ہیں، اور جسمانی طور پر ایک امریکی ریاست میں واقع ہے جہاں ہمارے معالجین کو لائسنس دیا گیا ہے۔',
   'terms.payment.body':

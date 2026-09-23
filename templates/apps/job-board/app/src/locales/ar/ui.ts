@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'من نحن',
   'applications.empty': 'لا توجد طلبات حتى الآن — الدور المناسب على بُعد طلب واحد.',
   'applications.eyebrow': 'مسار طلباتك',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'جميع الوظائف التي تقدمت إليها، قيد التنفيذ. قم بالتصفية حسب المرحلة للتركيز.',
   'applications.untitledRole': 'وظيفة رقم {{id}}',
+  'auth.legalConsent': 'بالمتابعة، أنت توافق على',
   'common.and': 'و',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'companies.empty': 'لا توجد شركات تطابق بحثك — جرّب مصطلحًا آخر.',
   'companies.eyebrow': 'أصحاب العمل المميزون',
   'companies.searchPlaceholder': 'ابحث بالاسم أو القطاع أو الموقع',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'لا توجد طلبات بعد لهذه الوظيفة.',
   'jobApplicants.eyebrow': 'عرض صاحب العمل',
   'jobApplicants.loading': 'جارٍ التحميل…',
+  'jobApplicants.statusUpdateFailed': 'تعذر تحديث تلك المرحلة - حاول مرة أخرى.',
+  'jobApplicants.subheading':
+    'مراجعة السير الذاتية، والترقية للمرشحين، وإرسال العروض - {{count}} قيد التنفيذ.',
   'jobDetail.applicantCount': '{{count}} متقدّمًا حتى الآن',
   'jobDetail.applied': 'تم إرسال الطلب',
   'jobDetail.apply': 'قدّم الآن',
@@ -81,12 +87,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'تصفح الوظائف الشاغرة ⬅️',
   'landing.pricingEyebrow': 'الأسعار',
   'landing.pricingHeading': 'خطط بسيطة لكل أحجام الفرق.',
+  'login.eyebrow': 'مرحبًا بعودتك إلى {{app}}',
   'login.heading': 'تسجيل الدخول إلى حسابك',
   'login.noAccount': 'جديد على Nosh؟',
   'login.passwordPlaceholder': '••••••••',
   'login.remember': 'تذكّرني لمدة 30 يومًا',
   'login.signingIn': 'جارٍ تسجيل الدخول…',
   'login.subheading': 'تابع بحثك، وادفع طلباتك للأمام، واحصل على ردود أسرع.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . مصمم خصيصًا لفرق التوظيف.',
   'loginBrandPanel.headline': 'حيث يلتقي الكفاءة',
   'loginBrandPanel.headlineLine2': 'دَفعَة.',
   'loginBrandPanel.listing.recruiter': 'شريك المواهب',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
     'تحديثات الطلبات، ودعوات المقابلات، والمطابقات الجديدة — الأحدث أولًا.',
   'opportunitiesHero.delta': '{{sign}}{{amount}} هذا الأسبوع',
   'opportunitiesHero.eyebrow': 'متاحة اليوم',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'postJob.addNewCompany': '+ أضف شركة جديدة',
   'postJob.companyCreateFailed': 'تعذّر إنشاء الشركة — حاول مرة أخرى.',
   'postJob.companyNameLabel': 'اسم شركتك',
@@ -156,10 +165,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'جارٍ إنشاء الحساب…',
   'signup.ctaEmployer': 'إنشاء حساب صاحب عمل',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'تشين',
   'signup.passwordMismatch': 'كلمتا المرور غير متطابقتين.',
   'signup.subheading':
     'مجاني للباحثين عن عمل، للأبد. يبدأ أصحاب العمل بفترة تجريبية مدتها 30 يومًا.',
   'timeAgo.days': 'قبل {{count}} يوم',
   'timeAgo.hours': 'قبل {{count}} ساعة',
   'timeAgo.justNow': 'الآن',
+  'timeAgo.weeks': '{{count}} w ago',
 }

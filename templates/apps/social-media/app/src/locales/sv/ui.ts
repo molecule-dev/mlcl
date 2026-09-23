@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.pageTitle': 'Om {{app}}',
+  'common.goToDashboard': 'Gå till översikt',
+  'common.retry': 'Försök igen',
   'compose.cancel': 'Avbryt',
   'compose.captionPlaceholder': 'Vad tänker du på?',
   'compose.heading': 'Dela ett ögonblick',
@@ -93,6 +97,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Verifierat konto',
   'resetPassword.newPassword': 'Nytt lösenord',
   'resetPassword.subheading': 'Välj något starkt — minst 12 tecken.',
+  'search.clearAria': 'Rensa',
+  'search.error': 'Sökningen misslyckades. Försök igen.',
   'search.noPeople': 'Inga kreatörer matchar "{{q}}".',
   'search.noPosts': 'Inga inlägg matchar "{{q}}".',
   'search.noTags': 'Inga trendande hashtaggar ännu.',
@@ -121,6 +127,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Dölj lösenord',
   'signup.showPassword': 'Visa lösenord',
   'signup.subheading': 'Skapa ett konto för att börja dela.',
+  'socialMediaLayout.closeMenu': 'Stäng navigeringsmenyn',
+  'socialMediaLayout.openMenu': 'Öppna navigeringsmenyn',
+  'socialMediaLayout.primaryNavLabel': 'Huvudnavigering',
   'storyRail.heading': 'Stories',
   'storyRail.label': 'Stories',
   'storyRail.openAria': 'Öppna {{handle}}s story',

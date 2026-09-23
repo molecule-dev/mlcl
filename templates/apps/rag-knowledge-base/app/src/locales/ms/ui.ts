@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.pageTitle': 'Tentang {{appName}}',
   'analytics.error': 'Tidak dapat memuatkan analitik.',
   'analytics.heading': 'Analisis pengambilan',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Tiada peringkat harga dikonfigurasikan.',
   'billing.plans.heading': 'Pelan',
   'billing.subheading': 'Pelan, penggunaan dan pembayaran yang diuruskan oleh Stripe.',
+  'common.confirm': 'Sahkan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.retry': 'Cuba semula',
   'documentCard.open': 'Buka \\u2192',
   'documentDetail.back': 'Kembali ke dokumen',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Dokumen indeks',
   'documents.composer.titlePlaceholder': 'Tajuk dokumen',
   'documents.emptyAll': 'Tiada dokumen lagi. Muat naik satu untuk mula bertanya soalan.',
+  'documents.error.load': 'Tidak dapat memuatkan dokumen.',
   'documents.heading': 'Dokumen yang diindeks',
   'documents.loading': 'Memuatkan dokumen…',
   'documents.metric.chunks': 'Jumlah ketulan',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Mengalih keluar\\u2026',
   'members.subheading': 'Jemput rakan sepasukan dan tetapkan peranan.',
   'members.tableHeading': 'Senarai',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notFound.askCta': 'Tanya pangkalan pengetahuan',
+  'notFound.body':
+    '{{app}} tidak dapat mencari halaman tersebut. Pautan mungkin rosak atau halaman tersebut mungkin telah dihentikan semasa pengindeksan semula.',
   'notFound.eyebrow': 'Tidak dapat diambil semula',
   'notFound.title': 'Tiada bahagian sedemikian dalam indeks',
   'notifications.dismiss': 'Tutup',
@@ -209,6 +218,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Klik \\u201cTambah sumber\\u201d untuk menyambungkan penyambung pertama anda.',
   'sources.empty.title': 'Tiada sumber lagi.',
+  'sources.error.add': 'Tidak dapat menambah sumber.',
   'sources.error.labelRequired': 'Label diperlukan.',
   'sources.error.load': 'Tidak dapat memuatkan sumber.',
   'sources.error.urlRequired': 'URL diperlukan untuk jenis sumber ini.',

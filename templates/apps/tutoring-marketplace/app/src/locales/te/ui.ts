@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'మీ పాత్ర',
   'account.role.upgradeLink': 'ధృవీకరించబడిన ట్యూటర్ కావడానికి దరఖాస్తు చేసుకోండి →',
   'account.title': 'ప్రొఫైల్, చెల్లింపు మరియు ప్రాధాన్యతలు.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'సుద్దతో బోధించండి',
   'becomeTutor.form.error': 'దరఖాస్తును సమర్పించలేకపోయాను.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'విషయం',
   'bookingConfirm.title': 'మీ బుకింగ్ పూర్తయింది. మిగతాది మేము చూసుకుంటాము.',
   'bookingConfirm.with': 'ట్యూటర్‌తో',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'earningsHero.eyebrow': 'ఆదాయాలు • {{month}}',
   'forgotPassword.heading': 'మీ పాస్‌వర్డ్‌ను మర్చిపోయారా?',
   'forgotPassword.subheading':
@@ -115,6 +117,7 @@ export const ui: UiTranslations = {
   'messages.send': 'సందేశం పంపండి',
   'messages.thread.empty': 'పలకరించండి — సంభాషణను ప్రారంభించండి.',
   'messages.title': 'మీ ట్యూటర్లతో సంభాషణలు.',
+  'nav.primary': 'ప్రాథమిక',
   'pricing.dataExport': 'డేటా ఎగుమతి:',
   'pricing.headingDefault': 'అధునాతన ఫీచర్లు:',
   'resetPassword.heading': 'బలమైన కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి.',

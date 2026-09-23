@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.title': 'Një dhomë shkrimi që mund ta mbani në xhep',
   'billing.cancelConfirm': 'Të anulohet abonimi juaj aktiv?',
   'billing.cancelFailed': 'Nuk mund të anulohej.',
   'billing.checkingOut': 'Duke hapur arkë…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Faturimi nuk mund të ngarkohej.',
   'billing.loading': 'Duke ngarkuar faturimin…',
   'billing.upgradeCta': 'Përmirëso në {{name}}',
+  'common.goToDashboard': 'Shko te paneli',
+  'editor.autosaveOn': 'Ruajtja automatike është aktive',
   'editor.backToLibrary': 'Kthehu në bibliotekë',
   'editor.charCount': '{{count}} personazhe',
   'editor.confirmTrash': 'Të zhvendoset ky dokument në koshin e plehrave?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'I çmbështetur',
   'editor.unpublishCta': 'Zhvendos në draft',
   'editor.unpublished': 'U rikthye në draft',
+  'focus.autosaveOn': 'Ruajtja automatike është aktive',
   'focus.backToLibrary': 'Kthehu në bibliotekë',
   'focus.bodyPlaceholder': 'Një radhë në të njëjtën kohë. Askush tjetër nuk është këtu.',
   'focus.exit': 'Dil nga modaliteti i fokusit',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Krijo një',
   'login.subline':
     'Dorëshkrimet, faqet e përditshme dhe pozicioni i fundit i kursorit janë pikërisht aty ku i latë.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'pricing.exports': 'eksportet',
   'pricing.folders': 'dosje',
   'pricing.heading': 'dokumente',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Fut kodin që sapo të dërguam me email dhe zgjidh diçka të paharrueshme. Do të të identifikojmë pasi të ruhet.',
   'reset.tokenHint': 'U ngjit nga kutia juaj hyrëse.',
+  'settings.appearance.heading': 'E lehtë ose e errët',
   'settings.editor.${row.id}.description': 'Gjuha',
   'settings.editor.description':
     'Rrotullimi i makinës së shkrimit, zbehja e paragrafit dhe fokusi në gjendje të papërgatitur — cilësimet parazgjedhëse akordohen për seanca të gjata.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapitulli i Tretë — Një Orë e Qetë Para Lindjes së Diellit',
   'versalDocumentCard.pinned': 'I fiksuar',
   'versalLayout.nav.stats': 'Statistikat',
+  'versalLayout.primaryNavLabel': 'Navigimi kryesor',
   'versalManuscriptHero.cta': 'Vazhdo të shkruash',
   'versalManuscriptHero.goalLabel': 'Qëllimi i fjalëve për sot',
   'versalManuscriptHero.inProgress': 'Në rrugën e duhur',

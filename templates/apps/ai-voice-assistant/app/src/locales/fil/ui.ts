@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback, kahilingan para sa feature, o may nakitang bug? Makipag-ugnayan sa {{app}} team sa pamamagitan ng support link sa menu ng iyong account — bawat mensahe ay mapupunta sa isang totoong tao.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'agentDetail.back': 'Lahat ng ahente',
   'agentDetail.capabilities': 'Mga kakayahan',
   'agentDetail.delete': 'Burahin ang persona',
   'agentDetail.deleteConfirm': 'Burahin ang persona na ito? Hindi ito maaaring ibalik.',
+  'agentDetail.deleteError': 'Hindi mabura ang persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Hindi ma-load ang persona.',
   'agentDetail.save': 'I-save ang persona',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Nagpapalit…',
   'billing.updateError': 'Hindi masimulan ang update.',
   'billing.usageHeading': 'Paggamit ng boses ngayong cycle',
+  'chatBubble.source.text': 'teksto',
+  'chatBubble.source.voice': 'boses',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'conversation.defaultTitle': 'Bagong usapan',
   'conversation.empty': 'Wala pang mensahe. Magsimula sa pagsasalita o pag-type sa ibaba.',
   'conversation.eyebrow': 'Live na sesyon',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Katalinuhan na nagsasalita.',
   'landing.heroSubtitle':
     'Ang AI voice assistant na nakakaunawa ng iyong natural na daloy. Makipag-usap, mag-ideya, at mag-utos — nang walang putol.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Nakikinig…',
   'landing.naturallyBody':
     'Walang trigger words. Walang mahigpit na utos. Naiintindihan ng Vox ang konteksto, pagkaputol, at mga nuances ng pagsasalita ng tao — tulad ng pakikipagkwentuhan sa katrabaho.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Buksan ang sesyon',
   'notFound.home': 'Bumalik sa home',
   'notFound.title': 'Hindi namin narinig ang pahinang iyon.',
+  'parlanceLayout.closeMenu': 'Isara ang menu',
+  'parlanceLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'parlanceLayout.primaryNavLabel': 'Pangunahing navigation',
   'pricing.conversations': '{{count}} na usapan',
   'pricing.cta.startFree': 'Magsimula nang libre',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Walang natagpuan',
   'search.eyebrow': 'Command palette',
   'search.fetchError': 'Hindi ma-load ang search index.',
+  'search.static.profile.preview': 'Pangalan ng pagpapakita, handle, bio',
   'search.static.voice.title': 'Boses',
   'search.title': 'Maghanap sa Vox',
   'search.transcriptPreview': 'Buksan ang transkripto',

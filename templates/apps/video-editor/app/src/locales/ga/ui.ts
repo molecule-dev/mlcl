@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuair tú fabht, an bhfuil iarratas gné agat, nó ar mhaith leat a insint dúinn faoin scannán a ghearr tú? Sroicheann gach teachtaireacht duine fíor ar an bhfoireann — déan teagmháil linn am ar bith ó shocruithe do chuntais.',
+  'about.contactTitle': 'Labhair linn',
+  'about.eyebrow': '// an stiúideo taobh thiar den ghearradh',
   'about.pageTitle': 'Maidir {{appName}}',
   'assetDetail.back': 'Ar ais chuig an leabharlann',
   'assetDetail.confirmDelete': 'Scrios " {{name}} "? Ní féidir é seo a chealú.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} gearrthóga, leapacha fuaime, agus grafaicí réidh le titim ar an amlíne.',
   'assetLibrary.title': 'Sócmhainní',
   'assetLibrary.upload': 'Cuir sócmhainn leis',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.browseTemplates': 'Brabhsáil teimpléid →',
   'dashboard.loading': 'Ag lódáil tionscadal…',
   'dashboard.noProjects': 'Gan aon tionscadail fós — cruthaigh ceann le tosú.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Roghnaigh rud nach gcuimhneodh ach tusa air.',
   'rushesAuthShell.footer.copyright': '© Stiúideo Rushes',
   'rushesAuthShell.footer.privacy': 'Príobháideacht',
+  'rushesLayout.closeMenu': 'Dún nascleanúint',
   'rushesLayout.guest': 'Eagarthóir',
+  'rushesLayout.navDialog': 'Loingseoireacht',
+  'rushesLayout.openMenu': 'Oscail nascleanúint',
   'rushesLayout.planFree': 'Plean saor in aisce',
   'rushesLayout.tagline': 'Amlíne cineamatach',
   'settings.billing.confirmCancel':

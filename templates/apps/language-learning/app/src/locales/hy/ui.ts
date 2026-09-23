@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.logout': 'Ելք',
   'dailyStatsTriad.heartsLabel': 'Սրտեր',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Այսօրվա րոպեները',
   'dailyStatsTriad.minutesValue': '{{count}} րոպե',
   'dailyStatsTriad.wordsLabel': 'Բառեր, որոնք յուրացվել են',
+  'dailyStatsTriad.wordsMasteryHint': 'Բառեր վարպետության մեջ 4+',
   'dashboard.continueHeading': 'Շարունակեք այնտեղից, որտեղ կանգ առաք',
   'dashboard.heading': 'Բուենոս Դիաս, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Չհաջողվեց բեռնել վարժությունները։',
   'lessonDetail.loading': 'Դասը բեռնվում է…',
   'lessonDetail.submitError': 'Չհաջողվեց ուղարկել պատասխանը։',
+  'lessonDetail.translation': 'Թարգմանեք արտահայտությունը',
   'lessonDetail.xpEarned': 'XP վաստակած · {{xp}}',
   'lessons.empty':
     'Դասեր չկան տվյալ մակարդակում {{level}} այնուամենայնիվ՝ փորձեք մեկ այլ մակարդակ։',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Նորեկ եք Parlance-ում՞',
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.signUp': 'Սկսեք անվճար →',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
+  'parlanceLayout.nav.profile': 'Պրոֆիլ',
   'parlanceLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'practice.empty': 'Դեռևս արտահայտություններ չկան։',
   'practice.eyebrow': 'Խոսքի պրակտիկա',
   'practice.heading': 'Կարդացե՛ք այն։ Գրանցե՛ք այն։ Զտե՛ք այն։',

@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ನೀವು ಪ್ರಸ್ತುತ ಇಲ್ಲಿದ್ದೀರಿ {{plan}} ಯೋಜನೆ.',
   'billing.switch': 'ಬದಲಿಸಿ',
   'billing.upgraded': 'ನವೀಕರಿಸಲಾಗಿದೆ {{plan}} - ಮಿತಿಗಳನ್ನು ತಕ್ಷಣವೇ ಅನ್ವಯಿಸಲಾಗುತ್ತದೆ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'compare.activityHeading': 'ಚಟುವಟಿಕೆ ತೀರ್ಪುಗಳು',
   'compare.empty.title': 'ಹೋಲಿಸಲು ಕನಿಷ್ಠ ಎರಡು ಸ್ಥಳಗಳನ್ನು ಸೇರಿಸಿ',
   'compare.eyebrow': 'ಅಕ್ಕಪಕ್ಕದಲ್ಲಿ',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'ಹೆಚ್ಚಿನ',
   'trends.summary.low.label': 'ಕಡಿಮೆ',
   'trends.summary.points.label': 'ದಿನಗಳು',
+  'weatherDashboardLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'weatherHeroCard.updated': 'ನವೀಕರಿಸಲಾಗಿದೆ {{time}}',
 }

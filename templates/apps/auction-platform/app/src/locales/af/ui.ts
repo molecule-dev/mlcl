@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Kyk',
   'auctionDetail.watchRemoved': 'Verwyder van dophoulys.',
   'auctionDetail.watchRemoveLabel': 'Verwyder van kyklys',
+  'auctionPlatformLayout.primaryNavLabel': 'Primêre navigasie',
   'authShell.brandBody':
     'Bie intyds op seldsame horlosies, beeldende kuns en unieke spesialiteitsitems. Die hamer val binne sekondes.',
   'authShell.brandEyebrow': 'Nou beskikbaar · 1 420 veilings',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sorteer volgens',
   'browseAuctions.subheading':
     "Filtreer volgens kategorie, sorteer volgens wat die belangrikste is, en plaas 'n bod voordat die hamer val.",
+  'common.goToDashboard': 'Gaan na Dashboard',
   'countdownTimer.ended': 'Geëindig',
   'countdownTimer.endingSoon': 'Einde',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Versteek wagwoord',
   'login.showPassword': 'Wys wagwoord',
   'login.subtext': 'Gaan voort om jou veilings dop te hou en plaas bod voordat die hamer val.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'myBids.bidAgain': 'Bie weer',
   'myBids.browseCta': 'Blaai deur regstreekse veilings →',
   'myBids.checkoutCta': 'Betaal nou',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Aktiwiteitsentrum',
   'notificationsPage.subheading':
     '{{count}} ongelees · regstreekse opdaterings soos veilings beweeg',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.bidsLabel': 'bod',
   'pricing.listingsLabel': 'lyste',
   'pricing.watchlistLabel': 'kyklys',

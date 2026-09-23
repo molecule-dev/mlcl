@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'alerts.acknowledgeLabel': 'Tasdiqlash',
   'alerts.customerLabel': 'Mijoz: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Ulanmoqda…',
   'carriers.requiredError': 'Ism va kod talab qilinadi.',
   'carriers.subheading': '{{count}} integratsiyalashgan',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
+  'common.retry': 'Qayta urinish',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Tranzitda + belgilangan',
   'dashboard.activeShipmentsSubtitle': "{{count}} yuklar e'tiborga muhtoj yoki harakatlanmoqda",
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'yuklar',
   'pricing.trackingLabel': 'voqealarni kuzatish',
   'profile.dangerZone.title': 'Xavfli zona',
+  'profile.devices.signingOut': 'Chiqarilmoqda…',
+  'profile.devices.unnamed': 'Nomsiz qurilma',
+  'profile.security.disable2fa': "2FA ni o'chirib qo'ying",
   'profile.security.enable2fa': '2FA ni yoqish',
   'profile.security.pwChanged': "Parol muvaffaqiyatli o'zgartirildi.",
   'profile.security.pwCurrent': 'Joriy parol',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA faol',
   'profile.security.twoFaCode': '6 xonali kod',
   'profile.security.twoFaDisable': "O'chirish",
+  'profile.security.twoFaDisabling': "O'chirib qo'yilmoqda…",
   'profile.security.twoFaFailed': "Kodni tekshirib bo'lmadi.",
   'profile.security.twoFaIntro':
     'Autentifikator ilovangizda QR kodini skanerlang, keyin tasdiqlash uchun quyidagi 6 xonali kodni kiriting.',
   'profile.security.twoFaOn': 'Bu hisobda ikki faktorli autentifikatsiya yoqilgan.',
+  'profile.security.twoFaQrAlt': 'Ikki faktorli QR kod',
   'profile.security.twoFaVerify': 'Tasdiqlang va yoqing',
   'profile.security.twoFaVerifying': 'Tekshirilmoqda…',
   'profile.subheading': 'Ushbu ish maydoni uchun identifikatsiya va xavfsizlik sozlamalari.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': "Bu sirni saqlang — u boshqa ko'rsatilmaydi.",
   'settings.api.webhookSecret': 'Webhook imzolash siri',
   'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
+  'settings.deleteAccountConfirm': "Ishonchingiz komilmi? Bu amalni bekor qilib bo'lmaydi.",
   'settings.notifications.exceptions':
     'Yuk tashishda istisno yuzaga kelganda menga elektron pochta xabarini yuboring',
   'settings.notifications.heading': 'Bildirishnomalar',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Yuk topilmadi.',
   'shipmentDetail.originHeading': 'Kelib chiqishi',
   'shipmentDetail.shippedOn': 'Yetkazib berildi {{date}}',
+  'shipmentDetail.timelineEmpty':
+    "Hozircha kuzatuv tadbirlari yo'q — tashuvchi posilkani skanerlaganida yangilanishlar shu yerda ko'rsatiladi.",
   'shipmentDetail.weightLabel': '{{weight}} funt',
   'shipments.col.carrier': 'Tashuvchi',
   'shipments.col.eta': 'Yetib kelish vaqti',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Tizimga kirish',
   'signup.submit': 'Hisob yaratish',
   'team.emailError': 'Haqiqiy elektron pochta manzili talab qilinadi.',
+  'team.empty':
+    "Hali jamoa a'zolari yo'q. Yuklarni yetkazib berishda hamkorlik qilish uchun jamoadoshingizni taklif qiling.",
   'team.eyebrow': "A'zolar va ruxsatnomalar",
   'team.inviteDialog.cancel': 'Bekor qilish',
   'team.inviteDialog.heading': 'Jamoadoshingizni taklif qiling',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Trek',
   'waypointLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'webhooks.createFailed': "Vebhukning oxirgi nuqtasini yaratib bo'lmadi.",
+  'webhooks.endpointsEmpty':
+    "Hali vebhuk tugunlari yo'q. Yetkazib berish holati bo'yicha qayta qo'ng'iroqlarni qabul qilish uchun bittasini yarating.",
   'webhooks.endpointsHeading': 'Tugash nuqtalari',
   'webhooks.eventCount': '{{count}} tadbirlar',
   'webhooks.eventsHeading': "So'nggi yetkazib berishlar",

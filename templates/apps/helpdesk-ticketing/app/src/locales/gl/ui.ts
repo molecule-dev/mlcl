@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ponte en contacto',
   'about.eyebrow': 'Acerca de',
+  'about.title': 'Acerca de {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Foto de perfil profesional dunha axente de soporte cun sorriso amigable nunha oficina moderna',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Contactar co servizo de asistencia',
   'forgotPassword.error':
     'Non se puido enviar o correo electrónico de restablecemento. Téntao de novo.',
   'forgotPassword.rememberPassword': 'Lembrar o contrasinal?',
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Iniciar sesión — Soporte técnico de Zenith',
   'login.showPassword': 'Mostrar contrasinal',
   'login.welcomeSubheading': 'Inicia sesión no teu panel de soporte',
+  'mobileNav.closeMenu': 'Pechar navegación',
+  'mobileNav.menu': 'Navegación',
+  'mobileNav.openMenu': 'Abrir navegación',
   'nav.legal': 'Legal',
   'nav.newTicket': 'Novo billete',
   'notifications.loadError': 'Non se puideron cargar as notificacións. Téntao de novo nun momento.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Busca de comandos',
   'operatorDock.newReport': 'Novo informe',
   'operatorDock.systemOnline': 'Sistema en liña',
+  'planUpdated.subtitle': 'Grazas',
   'planUpdated.title': 'Plan actualizado',
   'pricing.agents': 'axentes',
   'pricing.automation': 'Regras de automatización',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{nome}}',
   'ticketCustomerReply.avatarAlt': '{{nome}} avatar de',
   'ticketDetail.errorTitle': 'Algo fallou',
+  'ticketDetail.loadError': 'Non se puido cargar o tícket.',
+  'ticketDetail.notFound': 'Non se atopou o billete',
+  'ticketDetail.replyError': 'Non se puido enviar a resposta. Téntao de novo.',
   'ticketDetail.retry': 'Téntao de novo',
   'ticketDetail.statusUpdateError': 'Non se puido actualizar o estado. Téntao de novo.',
   'ticketDetailsCard.assigneeLabel': 'Cesionario',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{hora}} esquerda',
   'ticketRow.title': 'Fallo de conexión á base de datos en produción {{nodo}}',
   'tickets.pageTitle': 'Entradas — Soporte de Zenith',
+  'ticketsFab.newTicket': 'Novo billete',
   'ticketsFilterBar.assigneeLabel': 'Cesionario/a:',
   'ticketsFilterBar.clearFilters': 'Borrar filtros',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

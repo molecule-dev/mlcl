@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Über {{app}}',
   'analytics.avgCheckLabel': 'Ø Rechnung',
   'analytics.busiestHour': 'Stoßzeit',
   'analytics.coversToday': 'Gedecke heute',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Trinkgeld (Ø)',
   'analytics.topItems': 'Top-Gerichte heute',
   'authShell.eyebrow': 'Willkommen zurück im Service',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Ein warmes, schnelles Kassensystem für Gastronomie-Teams. Melden Sie sich in Ihrer Küche an und machen Sie da weiter, wo Sie aufgehört haben.',
   'authShell.tip': 'Profi-Tipp: Tastenkürzel funktionieren überall — drücken Sie /, um zu suchen.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'oder {{price}}',
   'billing.priceUnavailable': 'Für diesen Tarif ist kein Preis konfiguriert.',
   'billing.updated': 'Tarif aktualisiert.',
+  'common.goToDashboard': 'Zum Dashboard',
   'customerDetail.book': 'Reservierung hinzufügen',
   'customerDetail.col.table': 'Tisch',
   'customerDetail.confirmDelete': 'Diesen Gasteintrag löschen?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Verfügbarkeit',
   'menuItemDetail.available': 'Heute Abend verfügbar',
   'menuItemDetail.backToMenu': 'Zurück zur Speisekarte',
+  'menuItemDetail.confirmDelete': 'Diesen Menüpunkt löschen?',
   'menuItemDetail.delete': 'Gericht löschen',
   'menuItemDetail.deleteError': 'Löschen fehlgeschlagen. Versuchen Sie es erneut.',
   'menuItemDetail.dietary': 'Diät-Tags',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Speichern fehlgeschlagen. Versuchen Sie es erneut.',
   'menuItemDetail.subheading': '{{category}} · Foto, Optionen, Diätangaben und Preis bearbeiten.',
   'menuItemDetail.untitled': 'Unbenanntes Gericht',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'notFound.heading': 'Dieser Tisch steht nicht im Saal.',
   'notFound.subheading': 'Die gesuchte Seite wurde anderswo platziert — oder existierte nie.',
+  'notFound.toLanding': '{{app}} Startseite',
   'notifications.markError': 'Konnte nicht alle als gelesen markieren.',
   'orderDashboard.activeDelta': 'Jetzt aktiv',
   'orderDashboard.activeLabel': 'Aktive Bestellungen',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'Geben Sie Ihr neues Passwort ein, um wieder Zugang zur Küche zu erhalten.',
   'resetPassword.tokenLabel': 'Reset-Token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Hauptnavigation',
   'revenueHeroCard.activeOrders': '{{count}} aktiv',
   'revenueHeroCard.change': '{{sign}}{{amount}} vs gestern',
   'revenueHeroCard.title': 'Umsatz heute',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restaurantname',
   'tableDetail.activeOrders': 'Aktive Bestellungen',
   'tableDetail.backToFloor': 'Tischplan',
+  'tableDetail.confirmDelete': 'Diese Tabelle löschen?',
   'tableDetail.delete': 'Löschen',
   'tableDetail.deleteError': 'Tisch konnte nicht gelöscht werden.',
   'tableDetail.heading': 'Tisch {{label}}',

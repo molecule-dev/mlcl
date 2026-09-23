@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.tagline': 'அனைத்துப் பிரிவுகளும் ஒரே கூரையின் கீழ்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.addProperty': 'சொத்தை சேர்க்கவும்',
   'dashboard.empty.body':
     'உங்களிடம் சொத்துக்கள், குடியிருப்புகள் மற்றும் வாடகைக் கட்டணங்கள் கிடைத்தவுடன், இந்த டாஷ்போர்டு உங்கள் முதலீட்டுத் தொகுப்பு குறித்த நுண்ணறிவுகளால் நிரம்பிவிடும்.',
@@ -45,6 +48,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'குத்தகைதாரரைத் தேர்ந்தெடுக்கவும்…',
   'leases.new.unit': 'அலகு',
   'leases.new.unitPlaceholder': 'அலகைத் தேர்ந்தெடுக்கவும்…',
+  'leases.subheading':
+    'செயலில் உள்ள குத்தகைகளின் {{count}} · விரைவில் {{expiring}} · {{monthly}} மொத்தம்',
   'login.emailLabel': 'மின்னஞ்சல் முகவரி',
   'login.noAccount': 'ஹார்த்ஸ்டோனுக்குப் புதியவரா?',
   'login.passwordPlaceholder':
@@ -90,6 +95,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} முன்னுரிமை வரிசைப்படி, நிலுவையில் உள்ள பணிக் கட்டளைகள்',
   'maintenanceQueueList.title': 'பராமரிப்பு வரிசை',
+  'nav.closeMenu': 'மெனுவை மூடுக',
+  'nav.openMenu': 'மெனுவைத் திறக்கவும்',
   'notFound.body':
     'நீங்கள் தேடிய பக்கம் வேறு இடத்திற்கு நகர்த்தப்பட்டுவிட்டது, காப்பகப்படுத்தப்பட்டுவிட்டது, அல்லது அது ஒருபோதும் இருந்ததில்லை.',
   'notFound.title': 'அந்தக் கதவு திறக்காது',

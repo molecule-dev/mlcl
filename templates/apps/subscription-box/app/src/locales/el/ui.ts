@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Σχετικά με το {{app}}',
+  'appNav.mobileLabel': 'Κύρια πλοήγηση',
+  'appNav.primaryLabel': 'Κύρια πλοήγηση',
   'billing.actions.confirmCancel':
     'Ακύρωση της συνδρομής σας; Μπορείτε να εγγραφείτε ξανά ανά πάσα στιγμή.',
   'billing.actions.paused': 'Η συνδρομή τέθηκε σε παύση.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Κάθε επίπεδο είναι μια ιστορία μικρής παρτίδας. Προσθέστε μία στην ουρά σας ή αλλάξτε την στον επόμενο μήνα.',
   'boxThemeCard.perMonth': '/ μήνα',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'customize.eyebrow': 'Κάντε το δικό σας',
   'customize.heading': 'Προσαρμόστε το επόμενο Crate σας',
   'customize.items.exclude': 'Παράλειψη αυτού',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Αυτή τη σεζόν',
   'landing.editions.heading': 'Εκδόσεις που λατρεύουν οι επιμελητές μας',
   'landing.footer.contact': 'Μιλήστε με έναν επιμελητή',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ξεκινήστε το κουτί σας →',
   'landing.hero.ctaSecondary': 'Δείτε τα επίπεδα',
   'landing.hero.eyebrow': 'Επιμελείται μηνιαίως. Πάντα προσωπικά.',
@@ -116,6 +121,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ΤΟ ΕΠΟΜΕΝΟ ΣΟΥ ΘΕΜΑ',
   'nextBoxHeroCard.itemsLabel': 'Επιλεγμένα αντικείμενα',
   'nextBoxHeroCard.shipsOnLabel': 'Αποστέλλεται στις',
+  'notFound.body':
+    'Δεν μπορέσαμε να βρούμε αυτήν τη σελίδα στο αρχείο {{app}} . Ενδέχεται να έχει αποσυρθεί ή απλώς να έχει πληκτρολογηθεί λάθος.',
   'notFound.cta.dashboard': 'Μετάβαση στον πίνακα ελέγχου',
   'notFound.eyebrow': 'Άδειο κουτί',
   'notFound.heading': 'Αυτό το ράφι είναι άδειο',

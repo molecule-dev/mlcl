@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Tietoja',
+  'appShell.closeNav': 'Sulje navigointi',
+  'appShell.openNav': 'Avaa navigointi',
+  'common.dashboard': 'Kojelauta',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.eyebrow': 'Tänään liigan ympäristössä',
   'dashboard.loading': 'Illan pisteiden laskemista…',
   'dashboard.scoringLeaders': 'Pisteytyksen johtajat',
@@ -144,4 +148,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}}pv sitten',
   'time.hoursAgo': '{{count}}t sitten',
   'time.minutesAgo': '{{count}} minuuttia sitten',
+  'time.secondsAgo': '{{count}} sekuntia sitten',
 }

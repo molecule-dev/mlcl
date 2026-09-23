@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'accountSettings.confirmEmailLabel': 'အတည်ပြုရန် DELETE ဟုရိုက်ထည့်ပါ',
   'accountSettings.deleteError': 'အကောင့်ကို ဖျက်၍မရပါ။',
   'accountSettings.passwordError': 'စကားဝှက်ကို ပြောင်းလဲ၍မရပါ။',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'လာမည့်ရက်စွဲများ မရှိပါ။',
   'dashboard.upcomingTitle': 'လာမည့် နောက်ဆုံးရက်များ',
   'deviceSettings.unknownDevice': 'မသိသော စက်ပစ္စည်း',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'ပံ့ပိုးမှု',
   'forgotPassword.error': 'ပြန်လည်သတ်မှတ်လင့်ခ် ပေးပို့၍မရပါ။',
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'အီးမေးလ် သို့မဟုတ် စကားဝှက် မမှန်ကန်ပါ။',
   'login.pageTitle': 'ဆိုင်းအင်လုပ်ခြင်း',
   'login.signIn': 'Forge မှာ အကောင့်ဝင်ပါ',
+  'login.subtitle': 'သင့်ပရောဂျက်များကို လမ်းကြောင်းမှန်ပေါ်ရှိနေစေရန် အကောင့်ဝင်ပါ',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'nav.calendar': 'ပြက္ခဒိန်',
   'nav.legal': 'ဥပဒေရေးရာ',
   'nav.myTasks': 'ကျွန်ုပ်၏လုပ်ငန်းများ',

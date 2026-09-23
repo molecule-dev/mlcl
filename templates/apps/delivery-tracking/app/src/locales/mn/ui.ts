@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'alerts.acknowledgeLabel': 'Хүлээн зөвшөөрөх',
   'alerts.customerLabel': 'Үйлчлүүлэгч: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Холбогдож байна…',
   'carriers.requiredError': 'Нэр болон код шаардлагатай.',
   'carriers.subheading': '{{count}} нэгдсэн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
+  'common.retry': 'Дахин оролдох',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Тээвэрт явж байна + тэмдэглэгдсэн',
   'dashboard.activeShipmentsSubtitle':
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'тээвэрлэлт',
   'pricing.trackingLabel': 'үйл явдлуудыг хянах',
   'profile.dangerZone.title': 'Аюултай бүс',
+  'profile.devices.signingOut': 'Гарч байна…',
+  'profile.devices.unnamed': 'Нэргүй төхөөрөмж',
+  'profile.security.disable2fa': '2FA-г идэвхгүй болгох',
   'profile.security.enable2fa': '2FA-г идэвхжүүлэх',
   'profile.security.pwChanged': 'Нууц үгийг амжилттай өөрчиллөө.',
   'profile.security.pwCurrent': 'Одоогийн нууц үг',
@@ -111,11 +117,13 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA идэвхтэй',
   'profile.security.twoFaCode': '6 оронтой код',
   'profile.security.twoFaDisable': 'Идэвхгүй болгох',
+  'profile.security.twoFaDisabling': 'Идэвхгүй болгож байна…',
   'profile.security.twoFaFailed': 'Кодыг баталгаажуулж чадсангүй.',
   'profile.security.twoFaIntro':
     'Баталгаажуулагч аппликейшн дээрээ QR кодыг уншуулаад, баталгаажуулахын тулд доорх 6 оронтой кодыг оруулна уу.',
   'profile.security.twoFaOn':
     'Энэ бүртгэл дээр хоёр хүчин зүйлийн баталгаажуулалт идэвхжсэн байна.',
+  'profile.security.twoFaQrAlt': 'Хоёр хүчин зүйлийн QR код',
   'profile.security.twoFaVerify': 'Баталгаажуулж, идэвхжүүлэх',
   'profile.security.twoFaVerifying': 'Баталгаажуулж байна…',
   'profile.subheading': 'Энэ ажлын талбарын таних тэмдэг болон аюулгүй байдлын тохиргоо.',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Энэ нууцыг хадгал - энэ нь дахиж харагдахгүй.',
   'settings.api.webhookSecret': 'Вэбхук гарын үсгийн нууц',
   'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
+  'settings.deleteAccountConfirm': 'Та итгэлтэй байна уу? Энэ үйлдлийг буцаах боломжгүй.',
   'settings.notifications.exceptions': 'Тээвэрлэлтийн алдаа гарсан үед надад имэйл илгээнэ үү',
   'settings.notifications.heading': 'Мэдэгдэл',
   'settings.notifications.saveFailed': 'Тохиргоог хадгалж чадсангүй.',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Тээвэрлэлт олдсонгүй.',
   'shipmentDetail.originHeading': 'Гарал үүсэл',
   'shipmentDetail.shippedOn': 'Тээвэрлэгдсэн {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Одоогоор хянах арга хэмжээ алга байна — тээвэрлэгч илгээмжийг сканнердах үед шинэчлэлтүүд энд гарч ирнэ.',
   'shipmentDetail.weightLabel': '{{weight}} фунт',
   'shipments.col.carrier': 'Тээвэрлэгч',
   'shipments.col.eta': 'Хүрэх хугацаа',
@@ -177,6 +188,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Нэвтрэх',
   'signup.submit': 'Бүртгэл үүсгэх',
   'team.emailError': 'Хүчинтэй имэйл хаяг шаардлагатай.',
+  'team.empty':
+    'Багийн гишүүд хараахан алга байна. Тээвэрлэлт дээр хамтран ажиллах багийн гишүүнээ урь.',
   'team.eyebrow': 'Гишүүд болон зөвшөөрөл',
   'team.inviteDialog.cancel': 'Цуцлах',
   'team.inviteDialog.heading': 'Багийн гишүүнээ урих',
@@ -199,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Зам',
   'waypointLayout.primaryNavLabel': 'Үндсэн навигаци',
   'webhooks.createFailed': 'Вэбхук төгсгөлийн цэгийг үүсгэж чадсангүй.',
+  'webhooks.endpointsEmpty':
+    'Вэбхук төгсгөлийн цэгүүд хараахан алга байна. Тээвэрлэлтийн статусын буцаан дуудлагыг хүлээн авахын тулд нэгийг үүсгэнэ үү.',
   'webhooks.endpointsHeading': 'Төгсгөлийн цэгүүд',
   'webhooks.eventCount': '{{count}} үйл явдлууд',
   'webhooks.eventsHeading': 'Саяхны хүргэлтүүд',

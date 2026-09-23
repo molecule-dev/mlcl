@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'authShell.samplePreview':
     '«Прывітанне, каманда, новая прыборная панэль цудоўная — менавіта тое, што нам было трэба!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ярлык',
   'automations.subheading':
     'Правілы, шаблоны адказаў і чат-боты — падтрымлівайце актыўнасць працоўнай прасторы, пакуль ваша каманда засяроджваецца на складаных рэчах.',
+  'automations.trigger.inboundMessage': 'Уваходнае паведамленне',
   'automations.triggerLabel': 'Трыгер',
   'chatBubble.internalNoteLabel': 'Унутраная заўвага',
+  'common.confirmDelete': 'Пацвердзіць выдаленне',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'contactDetail.backToContacts': 'Усе кантакты',
   'contactDetail.contactFallback': 'Кантакт',
   'contactDetail.conversationFallback': 'Размова',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Апошні раз бачылі',
   'contacts.empty': 'Пакуль няма кантактаў. Дадайце свой першы кантакт вышэй.',
   'contacts.eyebrow': 'Каталог кліентаў',
+  'contacts.form.nameOrEmailRequired': 'Укажыце хаця б імя або адрас электроннай пошты',
   'contacts.form.save': 'Захаваць кантакт',
   'contacts.heading': 'Кантакты',
   'contacts.loading': 'Загрузка кантактаў…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Захаваць нататку',
   'conversationDetail.tab.note': 'Унутраная заўвага',
   'conversationDetail.threadAria': 'Паведамленні ў размовах',
+  'conversationDetail.visitorFallback': 'Наведвальнік',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Звесткі пра кліента',
   'customerProfilePanel.recentTitle': 'Нядаўнія размовы',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Кліенты атрымліваюць свой першы адказ у {{time}} у сярэднім — падтрымлівайце рытм.',
   'inboxHeroCard.title': 'Актыўныя размовы',
+  'inboxLayout.navDrawerLabel': 'Навігацыя',
+  'inboxLayout.openMenu': 'Адкрыць меню навігацыі',
   'inboxOverview.eyebrow': 'Сёння з першага погляду',
   'inboxOverview.heroChange': '{{count}} адкрыты',
   'inboxOverview.kpiClosedTrend': 'за ўвесь час',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Наведайце галоўную старонку',
   'notifications.subheading':
     'Заданні, @згадкі, рызыкі SLA, водгукі CSAT і актыўнасць каманды — адсартаваныя ў парадку найноўшых.',
+  'notifications.subjectFallback': 'размова',
+  'notifications.visitorFallback': 'Наведвальнік',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Высокі',
   'priority.low': 'Нізкі',
+  'priority.normal': 'Звычайна',
   'priority.urgent': 'Тэрмінова',
   'privacy.title': 'Палітыка прыватнасці',
   'reports.agentFallback': 'Агент',

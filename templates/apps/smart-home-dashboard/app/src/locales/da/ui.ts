@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.pageTitle': 'Om {{app}}',
   'activity.empty': 'Ingen aktivitet endnu – vend en enhed eller aktiver en scene.',
   'activity.eyebrow': 'Tidslinje',
   'activity.loadError': 'Aktivitetsfeedet kunne ikke indlæses.',
   'activity.subheading':
     'Hver enhed, automatisering og sikkerhedshændelse i kronologisk rækkefølge.',
+  'addDevice.error.failed': 'Enheden kunne ikke tilføjes. Prøv igen.',
   'addDevice.error.nameRequired': 'Giv denne enhed et navn for at fortsætte.',
   'addDevice.field.firmware': 'Firmwareversion',
   'addDevice.field.manufacturer': 'Fabrikant',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Test…',
   'automationEditor.testNew': 'Gem automatiseringen først for at teste den.',
   'automationRow.lastRun': 'Sidst {{date}} · {{count}} løber',
+  'automationRow.on': 'Den',
   'automationRow.runNowAria': 'Løbe {{name}} nu',
   'automations.empty': 'Ingen automatiseringer endnu – opret din første rutine.',
   'automations.eyebrow': 'Rutiner',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Indlæser automatiseringer…',
   'automations.newAutomation': '+ Ny',
   'automations.subheading': 'Når dette sker, så gør det – uden YAML.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Kunne ikke indlæse enheden.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Arbejder…',
   'deviceDetail.unnamed': 'Enhed',
   'deviceStatusRow.on': 'På',
+  'deviceStatusRow.turnOff': 'Sluk',
+  'deviceStatusRow.turnOn': 'Tænd',
   'deviceStatusRow.watts': '{{watts}} V',
   'energy.eyebrow': 'Magt',
   'energy.heading': 'Energi',
@@ -172,4 +179,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Se planer',
   'settings.security.heading': 'Sikkerhed',
   'settings.subheading': 'Abonnement, hubs og kontopræferencer.',
+  'smartHomeDashboardLayout.openMenu': 'Åbn navigationsmenuen',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Primær navigation',
 }

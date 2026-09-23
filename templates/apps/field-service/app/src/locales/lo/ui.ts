@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'ລູກຄ້າ',
   'customers.loadError': 'ໂຫຼດຂໍ້ມູນລູກຄ້າບໍ່ສຳເລັດ.',
   'customers.loading': 'ກຳລັງໂຫຼດ…',
+  'customers.new.address': 'ທີ່ຢູ່ບໍລິການ',
   'customers.new.email': 'ອີເມວ',
   'customers.new.error': 'ເພີ່ມລູກຄ້າບໍ່ສຳເລັດ.',
   'customers.new.heading': 'ລູກຄ້າໃໝ່',

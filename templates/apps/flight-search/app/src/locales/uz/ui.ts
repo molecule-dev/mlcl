@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.eyebrow': '{{app}} haqida',
   'about.pageTitle': "Har bir yo'nalish, bitta qidiruv.",
   'booking.backToDetail': 'Parvoz tafsilotlariga qaytish',
   'booking.continue': "To'lovni davom ettirish",
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': "Soliqlar va to'lovlar",
   'booking.summary.travelers': 'Sayohatchilar',
   'common.about': 'Haqida',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'flightDetail.backToResults': 'Natijalarga qaytish',
   'flightDetail.baseFare': 'Asosiy narx',
   'flightDetail.book': 'Bron qilishni davom eting',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': "1 ta to'xtash joyi",
   'flightResultCard.select': 'Tanlang',
   'flightResultCard.totalLabel': 'Umumiy vaqt',
+  'flightSearchLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'forgotPassword.subheading':
     'Skylark hisobingizdagi elektron pochta manzilini kiriting, shunda biz xavfsiz tiklash havolasini yuboramiz.',
   'forgotPassword.successBody':
     "Tekshirish {{email}} yangi parol o'rnatish uchun havola uchun. Havola 30 daqiqadan so'ng tugaydi.",
   'forgotPassword.successHeading': 'Qayta tiklash havolasi yuborildi',
   'landing.cta.explore': "Qidiruvni sinab ko'ring",
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Hammadan oldin keyingi ajoyib taomni toping.',
   'landing.cta.signup': 'Narxlarni kuzatishni boshlang',
   'landing.features.eyebrow': 'Nima uchun Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': "Ogohlantirish qo'shish",
   'priceAlerts.deleteConfirm': 'Ushbu ogohlantirish olib tashlansinmi?',
   'priceAlerts.empty': "Hali kuzatilgan marshrutlar yo'q.",
+  'priceAlerts.emptyCta': "Kuzatuv uchun yo'nalishni qidiring",
   'priceAlerts.errorMessage': 'Bildirishnomalar yuklanmadi.',
   'priceAlerts.eyebrow': "Skylark kuzatuv ro'yxati",
   'priceAlerts.form.createError': "Ogohlantirish yaratib bo'lmadi.",
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': "Ko'p shaharli sayohat rejasi",
   'results.multiLegHeading': 'Oyoq {{n}} · {{dan}} → {{to}} · {{sana}}',
   'results.multiSummary': '{{count}} oyoqlar · {{passengers}} sayohatchi',
+  'results.sortAriaLabel': "Natijalarni saralash bo'yicha",
   'results.sortLabel': 'Saralash',
   'results.summary': '{{count}} parvozlar · {{passengers}} sayohatchi',
   'settings.language.title': 'Til',

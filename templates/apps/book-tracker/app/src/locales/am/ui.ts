@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'ሰንሰለቱን እንደገና ጀምር',
   'resetPassword.mismatchError': 'የይለፍ ቃሎች አይዛመዱም።',
   'resetPassword.subheading': 'ጠንካራ የሆነ ነገር ይምረጡ። መጻሕፍትዎ ይጠብቃሉ።',
-  'reviewCard.starsAria': 'ደረጃ ተሰጥቶታል<x> {{ደረጃ}}</x> ውጪ<x> {{የ}}</x> ኮከቦች',
+  'reviewCard.starsAria': 'ከ {{of}} ኮከቦች {{rating}} ደረጃ ተሰጥቶታል',
   'reviewCard.unratedAria': 'ደረጃ ያልተሰጠው',
   'reviews.eyebrow': 'ከእርስዎ ጋር የቆየው',
   'reviews.heading': 'የእርስዎ ግምገማዎች',

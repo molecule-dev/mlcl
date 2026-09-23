@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Konke ukuluma, okulinganiselayo',
   'auth.hidePassword': 'Fihla iphasiwedi',
   'auth.showPassword': 'Bonisa iphasiwedi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'nav.legal': 'Ezomthetho',
+  'nosh.auth.legalPrefix': 'Ngokuqhubeka uyavuma',
   'nosh.foodDetail.add': 'Engeza kudayari',
   'nosh.foodDetail.added': 'Kungezwe ku- {{ukudla}} .',
   'nosh.foodDetail.addError': 'Ayikwazanga ukungeza kudayari.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'I-Fiber',
   'nosh.foodDetail.micros.sodium': 'I-Sodium',
   'nosh.foodDetail.micros.sugar': 'Ushukela',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'Amaprotheni',
   'nosh.foodDetail.serving.count': 'Ukudla',
   'nosh.foodDetail.serving.meal': 'Engeza ku',
@@ -48,6 +52,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Qala ukukhulisa amandla ngokuhlakanipha',
   'nosh.landing.features.heading': 'Konke okudingayo, akukho lutho ongaludingi',
   'nosh.landing.features.smartRing.title': 'Indandatho Yekhalori Ehlakaniphile',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Ibhuku lokudla elinobungane elikusiza ukuthi ufinyelele imigomo yakho ngaphandle kwecala. Gxila ekudleni, hhayi ezinambeni kuphela.',
   'nosh.landing.hero.eyebrow': 'Ukulandelela amakhalori okunobungane',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Ukhuthele kangakanani?',
   'nosh.onboarding.back': 'Emuva',
   'nosh.onboarding.macros.heading': 'Nasi inhloso yakho yansuku zonke',
+  'nosh.onboarding.saveError': 'Ayikwazanga ukulondoloza imigomo yakho.',
   'nosh.onboarding.start': 'Asambe',
   'nosh.progress.calorieChart.title': 'Amakhalori ngosuku',
   'nosh.progress.empty':
@@ -145,6 +151,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Susa unomphela',
   'nosh.settings.deleteError': 'Ayikwazanga ukususa i-akhawunti.',
   'nosh.settings.export.cta': 'Landa i-CSV',
+  'nosh.settings.export.description': 'Landa ilogi yakho yokudla ephelele njenge-CSV.',
   'nosh.settings.export.label': 'Thumela idatha',
   'nosh.settings.export.preparing': 'Ilungiselela…',
   'nosh.settings.eyebrow': 'I-Akhawunti · Izaziso · Ubumfihlo',
@@ -156,6 +163,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Ukulandelela okunobungane, akukho cala.',
   'nosh.today.${mealKey}Empty': 'Thepha ukuze ungene ngemvume',
   'nosh.today.addFood': 'Engeza ukudla',
+  'nosh.today.backToToday': 'Buyela namuhla',
+  'nosh.today.dateNavLabel': 'Shintsha usuku lwedayari',
   'nosh.today.loadError': 'Ayikwazanga ukulayisha namuhla.',
   'nosh.today.macros.carbs': 'Ama-carbohydrate',
   'nosh.today.macros.fat': 'Amafutha',
@@ -163,6 +172,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Amaprotheni',
   'nosh.today.macroTitle': 'Ama-Macronutrients',
   'nosh.today.meal.${mealKey}': 'amakhalori',
+  'nosh.today.nextDay': 'Usuku olulandelayo',
+  'nosh.today.pastPill': 'Usuku oludlule',
+  'nosh.today.prevDay': 'Usuku oludlule',
   'nosh.today.quickAddError': 'Ayikwazanga ukufaka into esheshayo.',
   'nosh.today.remaining': 'amakhalori asele',
   'nosh.today.streakHeadline': '{{count}} -uchungechunge lwezinsuku',

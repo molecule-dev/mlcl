@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O {{app}}',
   'analytics.back': 'Przegląd ankiety',
   'analytics.kpiNps': 'Wynik NPS',
   'analytics.kpiNpsTrend': 'Promotorzy {{p}}% · Krytycy {{d}}%',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Właściwości',
   'builder.questionNumber': 'P{{num}}',
   'builder.surveyTitle': 'Tytuł ankiety',
+  'common.goToDashboard': 'Przejdź do panelu',
   'forgotPassword.failed': 'Nie udało się wysłać e-maila resetującego. Proszę spróbować ponownie.',
   'forgotPassword.subheading': 'Proszę podać e-mail, a wyślemy link do odzyskiwania.',
   'forgotPassword.successBody':
     'Jeśli konto odpowiada adresowi {{email}}, link resetujący jest w drodze. Proszę sprawdzić skrzynkę odbiorczą i folder spam.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Wszystkie głosy mile widziane.',
   'landing.footer.startTrial': 'Rozpocznij okres próbny',
   'landing.hero.badge': 'Ankiety, NPS i opinie w jednym miejscu',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Cennik',
   'landing.pricing.perMonth': '/mies.',
   'landing.pricing.popular': 'Najpopularniejszy',
+  'landing.pricing.subtitle':
+    'Każdy plan obejmuje kreator ankiet, publiczne linki do udostępniania oraz analizę NPS. Do rozpoczęcia nie jest wymagana karta kredytowa.',
+  'landing.pricing.title': 'Zacznij za darmo i zwiększaj skalę działania.',
   'landing.sample.eyebrow': 'NPS w skrócie',
   'landing.sample.title': 'Krytycy, neutralni, promotorzy — natychmiast czytelne.',
   'login.failed': 'Logowanie nie powiodło się. Proszę spróbować ponownie.',
@@ -56,6 +62,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Pokaż hasło',
   'login.signUpLink': 'Rozpocznij darmowy okres próbny',
   'login.subheading': 'Proszę się zalogować, aby dalej słuchać swoich odbiorców.',
+  'notFound.body': 'Strona, której szukasz, nie istnieje w {{app}} . Wróćmy do ankiet.',
   'notFound.cta': 'Powrót do ankiet',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Ta ankieta wypadła z kolejki.',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description':
     'Publiczne dla zespołu i w ankietach, których jest Pan/Pani autorem.',
+  'profile.identity.emailRequired': 'Podaj adres e-mail.',
   'profile.identity.saveCta': 'Zapisz nazwę',
   'profile.password.current': 'Bieżące hasło',
   'profile.password.fillFields': 'Proszę wpisać zarówno bieżące, jak i nowe hasło.',
@@ -176,6 +184,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} pytań',
   'templates.subheading':
     'Proszę wybrać sprawdzony starter — każdy szablon ma rozsądne ustawienia domyślne, przykładową logikę i czysty układ mobilny.',
+  'thankYou.body':
+    'Twoja odpowiedź została zarejestrowana. {{app}} uwzględni ją przy następnym odświeżeniu analiz.',
   'thankYou.eyebrow': 'Odpowiedź odebrana',
   'thankYou.heading': 'Dziękujemy — Pana/Pani głos się liczy.',
   'thankYou.home': 'Odwiedź Gauge',

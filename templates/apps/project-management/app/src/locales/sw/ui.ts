@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'accountSettings.confirmEmailLabel': 'Andika DELETE ili kuthibitisha',
   'accountSettings.deleteError': 'Haikuweza kufuta akaunti.',
   'accountSettings.passwordError': 'Haikuweza kubadilisha nenosiri.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Hakuna tarehe za mwisho zijazo.',
   'dashboard.upcomingTitle': 'Tarehe za Mwisho Zijazo',
   'deviceSettings.unknownDevice': 'Kifaa kisichojulikana',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Usaidizi',
   'forgotPassword.error': 'Imeshindwa kutuma kiungo cha kuweka upya.',
   'forgotPassword.subtitle': 'Ingiza barua pepe yako nasi tutakutumia kiungo cha kuweka upya.',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'Barua pepe au nenosiri si sahihi.',
   'login.pageTitle': 'Ingia',
   'login.signIn': 'Ingia kwenye Forge',
+  'login.subtitle': 'Ingia ili uendelee na miradi yako',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'nav.calendar': 'Kalenda',
   'nav.legal': 'Kisheria',
   'nav.myTasks': 'My Tasks',

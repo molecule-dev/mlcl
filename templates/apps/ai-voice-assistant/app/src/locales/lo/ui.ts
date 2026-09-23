@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຕິຊົມ, ການຮ້ອງຂໍຄຸນສົມບັດ, ຫຼື ພົບຂໍ້ຜິດພາດບໍ? ຕິດຕໍ່ທີມງານ {{app}} ຜ່ານລິ້ງສະໜັບສະໜູນໃນເມນູບັນຊີຂອງທ່ານ — ທຸກໆຂໍ້ຄວາມຈະຖືກສົ່ງໄປຫາມະນຸດແທ້ໆ.',
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'agentDetail.back': 'ຕົວແທນທັງໝົດ',
   'agentDetail.capabilities': 'ຄວາມສາມາດ',
   'agentDetail.delete': 'ລຶບບຸກຄະລິກກະພາບ',
   'agentDetail.deleteConfirm': 'ລຶບບຸກຄົນນີ້ບໍ? ສິ່ງນີ້ບໍ່ສາມາດຍົກເລີກໄດ້.',
+  'agentDetail.deleteError': 'ບໍ່ສາມາດລຶບບຸກຄົນໄດ້.',
   'agentDetail.eyebrow': 'ບຸກຄະລິກກະພາບ',
   'agentDetail.fetchError': 'ບໍ່ສາມາດໂຫຼດບຸກຄົນໄດ້.',
   'agentDetail.save': 'ບັນທຶກບຸກຄະລິກກະພາບ',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'ກຳລັງປ່ຽນ…',
   'billing.updateError': 'ບໍ່ສາມາດເລີ່ມການອັບເດດໄດ້.',
   'billing.usageHeading': 'ການໃຊ້ສຽງໃນຮອບວຽນນີ້',
+  'chatBubble.source.text': 'ຂໍ້ຄວາມ',
+  'chatBubble.source.voice': 'ສຽງ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'conversation.defaultTitle': 'ການສົນທະນາໃໝ່',
   'conversation.empty':
     'ຍັງບໍ່ມີຂໍ້ຄວາມເທື່ອ. ເລີ່ມຕົ້ນດ້ວຍການເວົ້າບາງສິ່ງບາງຢ່າງ ຫຼື ພິມຂ້າງລຸ່ມນີ້.',
@@ -114,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ເປີດກອງປະຊຸມ',
   'notFound.home': 'ກັບບ້ານ',
   'notFound.title': 'ພວກເຮົາບໍ່ສາມາດໄດ້ຍິນໜ້ານັ້ນ.',
+  'parlanceLayout.closeMenu': 'ປິດເມນູ',
+  'parlanceLayout.openMenu': 'ເປີດເມນູນຳທາງ',
   'parlanceLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'pricing.conversations': '{{count}} ການສົນທະນາ',
   'pricing.cta.startFree': 'ເລີ່ມຕົ້ນໄດ້ຟຣີ',
@@ -150,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ບໍ່ມີຂໍ້ມູນທີ່ກົງກັນ',
   'search.eyebrow': 'ແຜງຄຳສັ່ງ',
   'search.fetchError': 'ບໍ່ສາມາດໂຫຼດດັດຊະນີການຄົ້ນຫາໄດ້.',
+  'search.static.profile.preview': 'ຊື່ທີ່ສະແດງ, ໝາຍເລກໂທລະສັບ, ຊີວະປະຫວັດ',
   'search.static.voice.title': 'ສຽງ',
   'search.title': 'ຄົ້ນຫາສຳນວນ',
   'search.transcriptPreview': 'ເປີດບົດບັນທຶກສຽງ',

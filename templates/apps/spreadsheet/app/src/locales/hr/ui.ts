@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
   'about.pageTitle': 'Oko {{name}}',
   'auth.footer.about': 'Oko {{name}}',
   'authHeader.subtitle': 'Prijavite se kako bi vaši brojevi bili točni.',
   'automations.action.email': 'E-pošta',
+  'automations.action.noop': 'Zabranjeno',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Izbriši " {{name}} "?',
   'automations.empty.headline': 'Još nema automatizacije',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Okidači i radnje u svakoj radnoj knjizi. Svako pokretanje bilježi redak koji kasnije možete revidirati.',
   'automations.toggle': 'Uključi/isključi {{name}}',
+  'automations.trigger.dailySchedule': 'Dnevni raspored',
+  'automations.trigger.rowCreated': 'Redak je kreiran',
+  'automations.trigger.rowUpdated': 'Redak ažuriran',
   'billing.empty': 'Nema dostupnih planova.',
   'billing.error.priceMissing':
     'Za ovu razinu nije konfigurirana cijena Stripea. Postavite varijable okruženja STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafikoni',
   'charts.kpi.totalCharts': 'Ukupni grafikoni',
   'charts.list.empty': 'Još nema grafikona.',
+  'charts.namePlaceholder': 'Trend prihoda',
   'charts.newChart': 'Novi grafikon',
   'charts.primary.eyebrow': 'Grafikoni po vrsti',
   'charts.primary.headline': 'Pregled radnog prostora',
   'charts.subhead':
     'Vizualizacije uživo vezane uz vašu mrežu — ponovno renderiranje pri svakom uređivanju ćelije.',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'editor.addColumn': 'Dodaj stupac',
+  'editor.addDialogTitle': 'Dodaj stupac',
   'editor.addRow': 'Dodaj redak',
   'editor.addSheet': 'Dodaj list',
   'editor.back': 'Natrag na radne bilježnice',
@@ -100,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite je analitičar mreže s više prikaza u stvarnom vremenu, prvi koji koristi formule, a financijski timovi ga prvi koriste.',
   'landing.nav.formulas': 'Formule',
+  'login.noAccount': 'Novi ste na {{name}} ?',
+  'login.signIn': 'Prijavite se na {{name}}',
   'login.signUp': 'Izradite radni prostor',
+  'nav.menu': 'Jelovnik ',
+  'nav.openMenu': 'Otvori izbornik',
   'notFound.cellRef': '#SUD!',
   'notFound.formula': '=LOOKUP(ZAHTJEV.url, "rute", "stranica")',
   'notFound.headline': 'Ovaj red nikada nije postojao.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Izvorne automatizacije · webhook i cron okidači',
   'signup.creating': 'Pružanje radnog prostora…',
   'signup.cta': 'Izradi moj radni prostor',
+  'signup.haveAccount': 'Već ste na {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Napravite svoju prvu radnu knjigu za 30 sekundi',
   'team.col.activity': 'Pozvani',

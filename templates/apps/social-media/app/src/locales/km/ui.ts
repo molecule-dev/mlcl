@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.pageTitle': 'អំពី {{app}}',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'compose.cancel': 'បោះបង់',
   'compose.captionPlaceholder': 'តើអ្នកកំពុងគិតអ្វី?',
   'compose.heading': 'ចែករំលែកមួយភ្លែត',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'គណនីដែលបានផ្ទៀងផ្ទាត់',
   'resetPassword.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subheading': 'ជ្រើសរើសអ្វីដែលខ្លាំង — យ៉ាងហោចណាស់ ១២ តួអក្សរ។',
+  'search.clearAria': 'ជម្រះ',
+  'search.error': 'ការស្វែងរកបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
   'search.noPeople': 'គ្មានអ្នកបង្កើតណាដែលត្រូវគ្នាទេ " {{q}} "។',
   'search.noPosts': 'គ្មាន​ប្រកាស​ណា​ត្រូវ​គ្នា​ទេ " {{q}} "។',
   'search.noTags': 'មិនទាន់មាន hashtag កំពុងពេញនិយមនៅឡើយទេ។',
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'signup.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'signup.subheading': 'បង្កើតគណនីមួយដើម្បីចាប់ផ្តើមចែករំលែក។',
+  'socialMediaLayout.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'socialMediaLayout.openMenu': 'បើកម៉ឺនុយរុករក',
+  'socialMediaLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'storyRail.heading': 'រឿងរ៉ាវ',
   'storyRail.label': 'រឿងរ៉ាវ',
   'storyRail.openAria': 'បើក {{handle}} រឿង​របស់',

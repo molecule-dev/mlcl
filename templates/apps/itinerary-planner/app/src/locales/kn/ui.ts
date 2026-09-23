@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
+  'auth.legalConsent': 'ಮುಂದುವರಿಸುವ ಮೂಲಕ, ನೀವು ನಮ್ಮನ್ನು ಒಪ್ಪುತ್ತೀರಿ',
   'bookings.empty.body': 'ಇನ್‌ಬಾಕ್ಸ್ ಪ್ರಾರಂಭಿಸಲು ವಿಮಾನ, ಹೋಟೆಲ್ ಅಥವಾ ಚಟುವಟಿಕೆಯನ್ನು ಸೇರಿಸಿ.',
   'bookings.empty.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಬುಕಿಂಗ್‌ಗಳಿಲ್ಲ.',
   'bookings.errors.create': 'ಬುಕಿಂಗ್ ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'ದೃಢೀಕರಿಸಲಾಗಿದೆ',
   'bookings.summary.pending': 'ದೃಢೀಕರಣಕ್ಕಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ',
   'bookings.summary.total': 'ಒಟ್ಟು ಬದ್ಧತೆ',
+  'bookings.type.car': 'ಬಾಡಿಗೆ ಕಾರು',
+  'bookings.type.flight': 'ವಿಮಾನ',
+  'bookings.type.hotel': 'ಹೋಟೆಲ್',
   'bookings.type.other': 'ಇತರೆ',
   'budgetSpendCard.budgetTotal': 'ನ {{total}} ಯೋಜಿಸಲಾಗಿದೆ',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ಸಂಘರ್ಷಗಳನ್ನು ಗುರುತಿಸಿ, ಪ್ರವಾಸಗಳ ನಡುವೆ ಚೇತರಿಕೆಯ ದಿನಗಳನ್ನು ಯೋಜಿಸಿ ಮತ್ತು ಸಹಯೋಗಿಗಳು ನಿಮ್ಮೊಂದಿಗೆ ಯಾವಾಗ ಪ್ರಯಾಣಿಸುತ್ತಿದ್ದಾರೆ ಎಂಬುದನ್ನು ನೋಡಿ.',
   'common.and': 'ಮತ್ತು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.budgetHeading': 'ಬಜೆಟ್ ಪಲ್ಸ್',
   'dashboard.empty.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರವಾಸಗಳಿಲ್ಲ — ನಿಮ್ಮ ಅಟ್ಲಾಸ್ ಖಾಲಿಯಾಗಿದೆ.',
   'dashboard.eyebrow': 'ಮಿಷನ್ ನಿಯಂತ್ರಣ',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'ಚಲನೆಯಲ್ಲಿರುವ ಪ್ರಯಾಣಗಳು',
   'dashboard.viewAllExpenses': 'ಪ್ರತಿ ಖರ್ಚನ್ನು ವೀಕ್ಷಿಸಿ',
   'dashboard.viewAllTrips': 'ಪ್ರತಿ ಪ್ರವಾಸವನ್ನು ನೋಡಿ',
+  'dayTimelineRow.category.accommodation': 'ಇರಿ',
   'dayTimelineRow.category.transport': 'ಸಾರಿಗೆ',
   'destinationOrbCard.exploreCta': 'ಪ್ರವಾಸಕ್ಕೆ ಸೇರಿಸಿ',
   'destinationOrbCard.tripCount': '{{count}} ಪ್ರವಾಸಗಳು',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'ಇನ್ನೂ ಇಮೇಲ್ ಇಲ್ಲವೇ? ನಿಮ್ಮ ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಬೇರೆ ವಿಳಾಸದೊಂದಿಗೆ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'forgotPassword.successSubheading':
     'ನಾವು ಮರುಪಡೆಯುವಿಕೆ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} . ಲಿಂಕ್ 30 ನಿಮಿಷಗಳವರೆಗೆ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
+  'landing.cta.subheading':
+    'ಉಚಿತ ಯೋಜನೆಯಲ್ಲಿ ಐದು ಟ್ರಿಪ್‌ಗಳು, ಐದು ಸಹಯೋಗಿಗಳು ಮತ್ತು ಐದು ನಿಲ್ದಾಣಗಳು - ನೈಜ-ಸಮಯದ ಸಿಂಕ್ ಅನ್ನು ಒಳಗೊಂಡಂತೆ, ಮತ್ತು ನಿಮ್ಮ ಯೋಜನೆಗಳು ಬೆಳೆದಾಗ ಪ್ರೊ ಮಿತಿಗಳನ್ನು ಎತ್ತುತ್ತದೆ.',
   'landing.destinations.eyebrow': 'ಮುಂದೆ ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕು',
   'landing.destinations.heading': 'ಸಂಪಾದಕ-ಆಧಾರಿತ ಗಮ್ಯಸ್ಥಾನಗಳು',
   'landing.features.eyebrow': 'ವೇಪಾಯಿಂಟ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ',
   'landing.features.heading': 'ಸ್ಪ್ರೆಡ್‌ಶೀಟ್‌ಗಳಿಗಾಗಿ ಅಲ್ಲ, ಪ್ರಯಾಣಿಕರಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ಉಚಿತ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.ctaSecondary': 'ಮಾದರಿ ಪ್ರವಾಸವನ್ನು ನೋಡಿ',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ಐರಿಸ್ ಲಾರ್ಸೆನ್',
   'signup.subheading':
     '5 ಸಹಯೋಗಿಗಳೊಂದಿಗೆ ಪ್ರವಾಸಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು, ಬುಕಿಂಗ್‌ಗಳನ್ನು ಸಿಂಕ್ ಮಾಡಲು ಮತ್ತು ಪ್ರತಿಯೊಂದು ದೃಢೀಕರಣವನ್ನು ಒಂದೇ ಸ್ಥಳಕ್ಕೆ ಎಳೆಯಲು ಖಾತೆಯನ್ನು ರಚಿಸಿ.',
+  'signup.termsPrefix': 'ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು ನಮ್ಮ',
   'tripCountdownHeroCard.budget': '{{used}} ನ {{total}} ( {{pct}} ಬಜೆಟ್‌ನ ಶೇ.)',
   'tripCountdownHeroCard.collaborators': '{{count}} ಪ್ರಯಾಣಿಕರು',
   'tripCountdownHeroCard.countdownLabel': 'ಕೌಂಟ್‌ಡೌನ್',
@@ -205,5 +218,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರವಾಸಗಳಿಲ್ಲ.',
   'trips.pastHeading': 'ಹಿಂದಿನ ಸಾಹಸಗಳು',
   'trips.subheading': '{{count}} ಪ್ರಯಾಣ ಯೋಜನೆಗಳು - ಭೂತ, ವರ್ತಮಾನ ಮತ್ತು ಒಂದು ದಿನ.',
+  'waypointLayout.mobileNavClose': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'waypointLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
 }

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.pageTitle': 'Faoi {{app}}',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.retry': 'Déan iarracht eile',
   'compose.cancel': 'Cealaigh',
   'compose.captionPlaceholder': 'Cad atá ar d’intinn?',
   'compose.heading': 'Roinn nóiméad',
@@ -100,6 +104,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Cuntas fíoraithe',
   'resetPassword.newPassword': 'Pasfhocal nua',
   'resetPassword.subheading': 'Roghnaigh rud éigin láidir — 12 charachtar ar a laghad.',
+  'search.clearAria': 'Glan',
+  'search.error': 'Theip ar an gcuardach. Déan iarracht eile.',
   'search.noPeople': 'Níl aon chruthaitheoirí ag teacht le " {{q}} ".',
   'search.noPosts': 'Níl aon phoist ag teacht le " {{q}} ".',
   'search.noTags': 'Níl aon hashtags treochta fós.',
@@ -130,6 +136,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Folaigh an focal faire',
   'signup.showPassword': 'Taispeáin an focal faire',
   'signup.subheading': 'Cruthaigh cuntas chun tús a chur le roinnt.',
+  'socialMediaLayout.closeMenu': 'Dún an roghchlár nascleanúna',
+  'socialMediaLayout.openMenu': 'Oscail an roghchlár nascleanúna',
+  'socialMediaLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'storyRail.heading': 'Scéalta',
   'storyRail.label': 'Scéalta',
   'storyRail.openAria': 'Oscail {{handle}} scéal',

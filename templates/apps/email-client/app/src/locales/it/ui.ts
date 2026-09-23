@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Siamo un team distribuito di designer e ingegneri che un tempo passavano troppe ore al giorno in una casella di posta rumorosa. Courier è la casella di posta che noi stessi avremmo voluto usare.',
   'about.title': 'Email per il lavoro concentrato',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'help.cta.about': 'Informazioni su Courier',
   'help.cta.pricing': 'Vedi i prezzi',
   'help.eyebrow': 'Centro assistenza',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Risposte rapide alle domande più frequenti. Manca qualcosa? Apra le Impostazioni e utilizzi il modulo di feedback nell'app, oppure scriva a support@courier.example.",
   'help.title': 'Come possiamo aiutarLa?',
   'landing.brand.scrollTop': 'Torna in cima',
+  'landing.copyright': '© {{year}} {{appName}} — Creato per la concentrazione.',
   'landing.ctaBody':
     'Si unisca a migliaia di professionisti che hanno finito la posta prima di pranzo.',
   'landing.ctaTitle': 'Elabori di più, reagisca di meno.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Guarda la demo',
   'landing.heroSubtitle':
     'Courier è una casella di posta a tre pannelli, calma, creata per i knowledge worker che vogliono elaborare le informazioni, non reagire ad esse.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Apprezzato da team concentrati in tutto il mondo',
   'landing.signIn': 'Accedi',
   'meridian.archive.empty': "L'archivio è vuoto.",
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'A',
   'meridian.drafts.watermark': 'Bozza',
   'meridian.folder.count': '{{count}} messaggi',
+  'meridian.folder.delete': 'Elimina',
   'meridian.folder.deleteForever': 'Elimina definitivamente',
   'meridian.folder.restore': 'Sposta nella posta in arrivo',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Nessun messaggio qui ancora.',
   'meridian.inbox.loading': 'Caricamento…',
   'meridian.inbox.next': 'Successivo',
+  'meridian.inbox.noSender': '(nessun mittente)',
   'meridian.inbox.noSubject': '(senza oggetto)',
+  'meridian.inbox.ofTotal': '{{current}} di {{total}}',
   'meridian.inbox.openCompose': 'Apri composizione',
   'meridian.inbox.previous': 'Precedente',
   'meridian.inbox.replyFailed': 'Risposta salvata ma la consegna non è riuscita: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Non ha un account?',
   'meridian.login.showPassword': 'Mostra password',
   'meridian.message.toLine': 'a {{recipients}}',
+  'meridian.notFound.body':
+    'La pagina che stai cercando non è stata trovata. Torna alla tua casella di posta {{appName}} e ti aiuteremo a trovare ciò che cerchi.',
   'meridian.notFound.eyebrow': 'Errore 404',
   'meridian.notFound.title': 'Questo thread è stato archiviato.',
   'meridian.notFound.toInbox': 'Apri la mia posta in arrivo',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Aggiungi stella',
   'meridian.thread.unstar': 'Rimuovi stella',
   'meridian.time.yesterday': 'Ieri',
+  'meridian.topBar.openMenu': 'Apri il menu di navigazione',
   'meridian.topBar.searchPlaceholder': 'Cerca nella posta',
   'meridian.trash.empty': 'Il cestino è vuoto.',
   'meridian.trash.title': 'Cestino',
   'nav.legal': 'Legale',
   'planUpdated.description':
     'Il Suo abbonamento è ora attivo e la fatturazione è stata aggiornata. Benvenuto nella Sua casella Courier aggiornata.',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.heading': 'bozze',
   'pricing.limit.emails': 'email',
   'pricing.limit.folders': 'cartelle',
   'pricing.limit.labels': 'etichette',
   'privacy.collect.account':
     "Dati dell'account: nome, indirizzo email, password con hash e data di registrazione.",
+  'privacy.contact': "Domande? Invia un'e-mail a privacy@courier.example.",
   'privacy.intro':
     'Questa informativa sulla privacy spiega quali dati raccoglie Courier, perché li raccogliamo, come li proteggiamo e quali scelte ha al riguardo. Cerchiamo di essere specifici invece che legalistici; se qualcosa non è chiaro, scriva a privacy@courier.example.',
   'privacy.lastUpdated': 'Ultimo aggiornamento: 1 aprile 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Questi termini regolano l'uso di Courier. Creando un account o inviando email attraverso di noi accetta di essere vincolato da essi. Cerchiamo di scrivere regole che una persona possa effettivamente seguire.",
   'terms.lastUpdated': 'In vigore dal: 1 aprile 2026',
+  'terms.linkPrivacy': 'Leggi la nostra Informativa sulla privacy →',
   'terms.termination.body':
     'Può eliminare il Suo account in qualsiasi momento. Possiamo sospendere un account che viola questi termini; se lo facciamo, spiegheremo il motivo e Le consentiremo di esportare prima i Suoi dati.',
   'terms.warranty.body':

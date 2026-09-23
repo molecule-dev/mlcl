@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Anna tippiä ostajallesi',
   'checkout.tipLabel': 'Kärki',
   'checkout.zipPlaceholder': 'POSTINUMERO',
+  'common.goToDashboard': 'Siirry etusivulle',
   'featuredProductsGrid.addAria': 'Lisätä {{name}} ostoskoriin',
   'featuredProductsGrid.outOfStock': 'Loppu varastosta',
   'forgotPassword.emailLabel': 'Sähköpostiosoite',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Jos kyseinen sähköpostiosoite on rekisteröity, nollauslinkki on matkalla.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Päänavigaatio',
   'landing.categoriesEyebrow': 'Käytävät',
   'landing.categoriesHeading': 'Osta kategorian mukaan',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Aikatauluta viikoittaiset toimitukset älykkään niittitilauksen ja reaaliaikaisen kuljettajaseurannan avulla.',
   'landing.heroTitle': 'Tuoreutta ovellasi, muutamassa tunnissa.',
   'landing.howEyebrow': 'Kolme askelta',
+  'landing.howItWorksHeading': 'Näin {{app}} toimii',
   'lists.addAllCta': 'Lisää kaikki ostoskoriin',
   'lists.createCta': 'Luo ensimmäinen listasi',
   'lists.createError': 'Listan luominen epäonnistui.',

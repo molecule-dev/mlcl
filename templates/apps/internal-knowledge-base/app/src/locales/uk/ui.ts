@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'article.notFound': 'Стаття не знайдена',
   'articleEditor.bodyPlaceholder': 'Введіть / для блоків або просто почніть писати.',
+  'articleEditor.loadFailed': 'Не вдалося завантажити статтю',
   'articleEditor.publishing': 'Видавництво\\u2026',
   'articleEditor.saveFailed': 'Помилка збереження',
   'articleEditor.saving': 'Збереження…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Закладка',
   'articleView.bookmarkOn': 'Додано до закладок',
   'articleView.edit': 'Редагувати статтю',
+  'articleView.loading': 'Відкриття цієї статті…',
   'articleView.readTime': '{{minutes}} хвилина читання',
   'articleView.spaces': 'Простори',
   'articleView.tocHeading': 'На цій сторінці',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Нещодавні редагування, прочитання та чернетки, які ваша команда все ще отримує.',
   'cairnTrailHero.updated': 'Статті оновлено',
+  'common.goToDashboard': 'До панелі',
   'drafts.eyebrow': 'Ваша незавершена робота',
   'drafts.heading': 'Чернетки',
+  'drafts.loadFailed': 'Не вдалося завантажити ваші чернетки.',
   'drafts.subtitle':
     'Статті, які ви почали писати, але ще не опублікували. Візьміть одну та продовжуйте.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Поки що немає місць. Відкрийте одне, щоб почати збирати статті.',
   'home.spacesHeading': 'Ваші простори',
   'home.subtitle': 'Нещодавні статті, ваші закладки та те, що писала команда.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Створено за допомогою Molecule.',
   'landing.ctaBody':
     'Безкоштовно для окремих авторів. Командні плани для розподілених команд, які розробляють робочі книги, рішення та займаються адаптацією.',
   'landing.ctaHeading': 'Закладіть перший камінь сьогодні.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Створіть робочу область',
   'login.submitting': 'Увійти\\u2026',
   'login.subtitle': 'Продовжуйте стежку там, де ви її залишили.',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
+  'newSpace.colorAria': 'Виберіть колір {{color}}',
   'newSpace.colorLabel': 'Акцентний колір',
+  'newSpace.createFailed': 'Не вдалося створити простір',
   'newSpace.descriptionPlaceholder': 'Рубрики дій, чергові ігрові книги, розтини після операції',
   'newSpace.eyebrow': 'Відкрийте простір знань',
   'newSpace.heading': 'Новий простір',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Завантаження…',
   'notifications.subtitle':
     '{{count}} непрочитані згадки, коментарі, зміни сторінок та запити на перевірку.',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.articles': 'статті',
   'pricing.spaces': 'простори',
   'profile.eyebrow': 'Профіль автора',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Введіть новий пароль',
   'resetPassword.subtitle': 'Оберіть надійний пароль — щонайменше 12 символів.',
   'searchResults.eyebrow': 'Пошук робочої області',
+  'searchResults.filter.all': 'Усі простори',
   'searchResults.heading': 'Пошук статей',
   'searchResults.placeholder': 'Пошук серед runbook-ів, RFC, політик, рішень',
   'searchResults.summary': '{{count}} результати для \\u201c {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Це видаляє ваш обліковий запис і всі статті, автором яких ви були. Натисніть DELETE для підтвердження.',
   'settings.danger.confirmInvalid': 'Введіть DELETE для підтвердження.',
+  'settings.danger.deleteFailed': 'Не вдалося видалити обліковий запис',
   'settings.danger.deleting': 'Видалення\\u2026',
   'settings.danger.description':
     'Видалення робочої області призведе до видалення всіх статей, коментарів та історії версій. Відновлення неможливе.',
   'settings.danger.title': 'Видалити робочий простір',
+  'settings.email.confirm': 'Оновити електронну пошту',
+  'settings.email.confirmTitle': 'Підтвердити зміну електронної пошти',
   'settings.email.saved': 'Електронну пошту оновлено.',
+  'settings.email.updateFailed': 'Не вдалося оновити електронну пошту',
   'settings.language.title': 'Мова',
   'settings.name': 'Назва',
+  'settings.name.saved': "Ім'я оновлено.",
+  'settings.name.updateFailed': "Не вдалося оновити ім'я",
   'settings.notifications.description': 'Вибирайте, що потраплятиме у вашу поштову скриньку.',
+  'settings.password.changeFailed': 'Не вдалося змінити пароль',
   'settings.password.current': 'Поточний пароль',
   'settings.password.new': 'Новий пароль',
   'settings.password.saving': 'Оновлення\\u2026',
@@ -146,10 +166,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Як статті відображаються для вас.',
   'settings.reading.title': 'Читання та письмо',
   'settings.subtitle': 'Налаштуйте сповіщення, полотно для читання та свій обліковий запис.',
+  'settings.twofa.code': 'Код аутентифікації',
   'settings.twofa.disable': 'Вимкнути',
   'settings.twofa.disabled': 'Інвалід',
   'settings.twofa.enable': 'Увімкнути',
   'settings.twofa.enabled': 'Увімкнено',
+  'settings.twofa.invalidCode': 'Неправильний код',
+  'settings.twofa.unavailable': 'Двофакторна автентифікація недоступна для цього додатка.',
+  'settings.twofa.verify': 'Перевірити та увімкнути',
   'signup.brandQuote':
     '\\u201cЗаписати це — перша обіцянка, яку ми даємо наступній людині, яка цього потребуватиме.\\u201d',
   'signup.eyebrow': 'Відкрийте робочу область',

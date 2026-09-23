@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'Αναρτήσεις',
   'categoryDetail.stat.threads': 'Θέματα',
   'categoryDetail.threadCount': 'Εμφάνιση θεμάτων του «{{count}}»',
+  'categoryDetail.threadsFailed': 'Δεν ήταν δυνατή η φόρτωση των νημάτων.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'compose.bodyPlaceholder':
     'Διάταξέ το. Χρησιμοποίησε ## για τις ενότητες, > για τα αποσπάσματα και ``` για τα τμήματα κώδικα.',
+  'compose.categoriesFailed': 'Δεν ήταν δυνατή η φόρτωση κατηγοριών.',
   'compose.eyebrow': 'Νέο θέμα',
   'compose.failed': 'Δεν ήταν δυνατή η έναρξη του νήματος. Προσπάθησε ξανά.',
   'compose.field.body': 'Κείμενο μηνύματος',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Συνέχισε από εκεί που σταμάτησες — τα μη αναγνωσμένα σου θέματα σε περιμένουν.',
   'login.twoFactor': 'Διακριτικό διπλού ελέγχου (προαιρετικό)',
+  'moderationQueue.actionFailed': 'Η ενέργεια απέτυχε. Δοκιμάστε ξανά.',
   'moderationQueue.eyebrow': 'Χώρος εργασίας συντονιστή',
   'moderationQueue.heading': 'Ουρά ελέγχου · Ανοιχτά στοιχεία στο {{count}}',
   'moderationQueue.kind.${item.kind}': '{{count}} σημαίες',
@@ -79,7 +84,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'Στόχος: απάντηση σε λιγότερο από δύο ώρες. Σε περίπτωση ασαφών κλήσεων, παραπέμψτε το θέμα στο admin@stoa.',
   'nav.browseHeader': 'Περιήγηση',
+  'nav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'nav.communityGuidelinesTitle': 'Οδηγίες κοινότητας',
+  'nav.drawerTitle': 'Μενού',
+  'nav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'nav.primaryNavLabel': 'Πλοήγηση στο φόρουμ',
   'notFound.body':
     'Ίσως να έχει κλειδωθεί στο αρχείο ή η διεύθυνση URL να έχει αλλάξει. Επιστρέψτε στην αγορά και ξεκινήστε μια άλλη συζήτηση.',
   'notFound.browseCta': 'Περιήγηση στις κατηγορίες',
@@ -90,6 +99,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'Ειδοποιήσεις · {{count}} μη αναγνωσμένα',
   'postCard.edited': '(επεξεργασμένο)',
   'postCard.flag': 'Σημαία',
+  'postCard.flagged': 'Σημαιμένο',
   'postCard.markSolution': 'Επιλογή απάντησης',
   'postCard.originalPost': 'Αρχική ανάρτηση',
   'postCard.quote': 'Απόσπασμα',
@@ -110,6 +120,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Βρες ένα νήμα, μια ανάρτηση, ένα άτομο.',
   'search.resultsCount': '{{count}} αποτελέσματα',
   'search.searching': 'Αναζήτηση…',
+  'settings.currentPasswordHint':
+    'Για την αλλαγή του email σας απαιτείται ο κωδικός πρόσβασής σας. Πατήστε Enter ή αφήστε το πεδίο για επιβεβαίωση.',
+  'settings.currentPasswordLabel': 'Τρέχων κωδικός',
+  'settings.currentPasswordRequired':
+    'Επιβεβαιώστε αυτήν την αλλαγή με τον τρέχοντα κωδικό πρόσβασής σας.',
+  'settings.failedToUpdateProfile': 'Η ενημέρωση του προφίλ απέτυχε',
+  'settings.name': 'Όνομα',
+  'settings.saved': 'Αποθηκεύτηκε.',
   'signup.confirm': 'Επιβεβαιώνω',
   'signup.emailPlaceholder': 'you@stoa.community',
   'signup.eyebrow': 'Γίνε μέλος της Stoa',

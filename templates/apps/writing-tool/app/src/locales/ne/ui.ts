@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
+  'about.title': 'आफ्नो खल्तीमा राख्न सकिने लेखन कोठा',
   'billing.cancelConfirm': 'तपाईंको सक्रिय सदस्यता रद्द गर्ने हो?',
   'billing.cancelFailed': 'रद्द गर्न सकिएन।',
   'billing.checkingOut': 'चेकआउट खोल्दै…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'बिलिङ लोड गर्न सकिएन।',
   'billing.loading': 'बिलिङ लोड हुँदै...',
   'billing.upgradeCta': 'स्तरोन्नति गर्नुहोस् {{name}}',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'editor.autosaveOn': 'स्वतः बचत गर्ने सुविधा सक्रिय छ',
   'editor.backToLibrary': 'पुस्तकालयमा फर्कनुहोस्',
   'editor.charCount': '{{count}} पात्रहरू',
   'editor.confirmTrash': 'यो कागजात रद्दीको टोकरीमा सार्ने हो?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'अनपिन गरियो',
   'editor.unpublishCta': 'मस्यौदामा सार्नुहोस्',
   'editor.unpublished': 'मस्यौदामा उल्टाइयो',
+  'focus.autosaveOn': 'स्वतः बचत गर्ने सुविधा सक्रिय छ',
   'focus.backToLibrary': 'पुस्तकालयमा फर्कनुहोस्',
   'focus.bodyPlaceholder': 'एकपछि अर्को लाइन। यहाँ अरू कोही छैन।',
   'focus.exit': 'फोकस मोडबाट बाहिर निस्कनुहोस्',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'एउटा सिर्जना गर्नुहोस्',
   'login.subline':
     'तपाईंका पाण्डुलिपिहरू, दैनिक पृष्ठहरू, र अन्तिम कर्सरको स्थिति तपाईंले छोडेको ठाउँमा नै छ।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'pricing.exports': 'निर्यात',
   'pricing.folders': 'फोल्डरहरू',
   'pricing.heading': 'कागजातहरू',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'हामीले भर्खरै तपाईंलाई इमेल गरेको कोड प्रविष्ट गर्नुहोस् र केही यादगार कुरा छान्नुहोस्। यो सुरक्षित भएपछि हामी तपाईंलाई साइन इन गर्नेछौं।',
   'reset.tokenHint': 'तपाईंको इनबक्सबाट टाँसियो।',
+  'settings.appearance.heading': 'उज्यालो वा अँध्यारो',
   'settings.editor.${row.id}.description': 'भाषा',
   'settings.editor.description':
     'टाइपराइटर स्क्रोल, अनुच्छेद फेड, र निष्क्रिय फोकस — लामो सत्रहरूको लागि पूर्वनिर्धारितहरू ट्युन गरिएका छन्।',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'अध्याय तीन — सूर्योदय हुनुभन्दा पहिलेको शान्त समय',
   'versalDocumentCard.pinned': 'पिन गरिएको',
   'versalLayout.nav.stats': 'तथ्याङ्क',
+  'versalLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'versalManuscriptHero.cta': 'लेख्न जारी राख्नुहोस्',
   'versalManuscriptHero.goalLabel': 'आजको शब्द लक्ष्य',
   'versalManuscriptHero.inProgress': 'ट्रयाकमा छ',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
+  'about.title': 'ポケットに入れて持ち運べるライティングルーム',
   'billing.cancelConfirm': '有効なサブスクリプションを解約しますか?',
   'billing.cancelFailed': '解約できませんでした。',
   'billing.checkingOut': '決済を開いています…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': '請求情報を読み込めませんでした。',
   'billing.loading': '請求情報を読み込み中…',
   'billing.upgradeCta': '{{name}}にアップグレード',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'editor.autosaveOn': '自動保存オン',
   'editor.backToLibrary': 'ライブラリに戻る',
   'editor.charCount': '{{count}}文字',
   'editor.confirmTrash': 'このドキュメントをゴミ箱に移動しますか?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ピン留めを解除しました',
   'editor.unpublishCta': '下書きに戻す',
   'editor.unpublished': '下書きに戻しました',
+  'focus.autosaveOn': '自動保存オン',
   'focus.backToLibrary': 'ライブラリに戻る',
   'focus.bodyPlaceholder': '一行ずつ。ここには誰もいません。',
   'focus.exit': 'フォーカスモードを終了',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.headline': '置いた一行から続けましょう。',
   'login.signupLink': 'アカウントを作成',
   'login.subline': '原稿、デイリーページ、最後のカーソル位置はそのままに残っています。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'pricing.exports': '件のエクスポート',
   'pricing.folders': '個のフォルダー',
   'pricing.heading': 'ドキュメント',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     '送信したコードを入力し、覚えやすいものを選んでください。保存するとサインインします。',
   'reset.tokenHint': '受信トレイから貼り付けてください。',
+  'settings.appearance.heading': '明るいか暗いか',
   'settings.editor.${row.id}.description': '言語',
   'settings.editor.description':
     'タイプライターのスクロール、段落のフェードイン/フェードアウト、アイドル時のフォーカスなど、デフォルト設定は長時間のセッション向けに調整されています。',
@@ -136,6 +144,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': '第三章 — 夜明け前の静かなひととき',
   'versalDocumentCard.pinned': 'ピン留め済み',
   'versalLayout.nav.stats': '統計',
+  'versalLayout.primaryNavLabel': 'メインナビゲーション',
   'versalManuscriptHero.cta': '続きを書く',
   'versalManuscriptHero.goalLabel': '今日のワードゴール',
   'versalManuscriptHero.inProgress': '順調',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
   'actions.empty': 'Tidak ada item tindakan yang cocok.',
   'actions.heading': 'Item tindakan',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Bulan sebelumnya',
   'calendar.recent': 'Terbaru',
   'common.daysAgo': '{{count}}h lalu',
+  'common.goToDashboard': 'Ke Dashboard',
   'common.hoursAgo': '{{count}}j lalu',
   'common.no': '—',
+  'common.retry': 'Coba lagi',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} item tindakan',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Periksa kotak masuk Anda untuk tautan pengaturan ulang.',
   'forgot.subheading': 'Masukkan email Anda dan kami akan mengirim tautan pengaturan ulang.',
   'integrations.disconnected': 'Terputus',
+  'integrations.loadError': 'Gagal memuat integrasi.',
   'integrations.notConnectedTag': 'Tidak terhubung',
   'integrations.subheading':
     'Hubungkan kalender dan platform video agar Murmur bergabung otomatis.',
+  'integrations.updateError': 'Pembaruan gagal.',
   'landing.ctaButton': 'Mulai — gratis',
   'landing.ctaHeading': 'Berhenti mencatat. Mulai membuat keputusan.',
   'landing.demo.aiLabel': 'Ringkasan AI, disusun langsung',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Tindak lanjut',
   'meetingDetail.loadError': 'Gagal memuat rapat.',
   'meetingDetail.noActions': 'Tidak ada item tindakan yang terdeteksi.',
+  'meetingDetail.none': 'Tidak ada.',
   'meetingDetail.notFound': 'Rapat tidak ditemukan.',
+  'meetingDetail.speakerFallback': 'Pembicara{{id}}',
   'meetingDetail.summaryHeading': 'Ringkasan AI',
   'meetingDetail.transcriptHeading': 'Transkrip',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Rapat',
   'meetings.loadError': 'Gagal memuat rapat.',
   'meetings.subheading': 'Setiap rapat yang direkam, diunggah, dan disinkronkan.',
+  'murmurLayout.openMenu': 'Buka menu navigasi',
   'murmurLayout.primaryNavLabel': 'Navigasi utama',
   'nav.legal': 'Hukum',
   'notifications.loadError': 'Gagal memuat notifikasi.',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Bagaimana Anda muncul di dalam Murmur.',
   'record.error.empty': 'Tidak ada audio yang ditangkap.',
   'record.error.permission': 'Izin mikrofon ditolak.',
+  'record.error.recorder': 'Kesalahan perekam',
   'record.error.unsupported':
     'Peramban Anda tidak mendukung perekaman. Coba Chrome, Edge, atau Safari.',
   'record.error.upload': 'Unggahan gagal. Coba lagi.',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Kata sandi baru',
   'reset.subheading': 'Pilih kata sandi yang tidak Anda gunakan di tempat lain.',
   'search.empty': 'Ketik untuk mencari transkrip.',
+  'search.loadError': 'Pencarian gagal. Coba lagi.',
   'search.noResults': 'Tidak ada hasil untuk “{{q}}”.',
   'settings.appearance.description': 'Beralih antara mode terang dan gelap.',
   'settings.appearance.title': 'Tampilan',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Gagal memuat pengaturan.',
   'settings.loading': 'Memuat…',
   'settings.push.heading': 'Notifikasi push',
+  'settings.push.subheading':
+    'Dapatkan pemberitahuan melalui browser untuk penyebutan, tindakan yang perlu dilakukan, dan ringkasan.',
   'settings.retention.audio': 'Simpan audio selama',
   'settings.retention.heading': 'Retensi',
   'settings.retention.transcript': 'Simpan transkrip selama',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Mulai menangkap catatan rapat dalam hitungan menit',
   'signup.terms':
     'Dengan membuat akun, Anda menyetujui Ketentuan Layanan dan Kebijakan Privasi kami.',
+  'signup.termsPrefix': 'Dengan membuat akun, Anda menyetujui ketentuan kami',
   'team.inviteCta': 'Undang rekan tim',
   'team.invitedAs': 'Diundang sebagai {{role}}',
   'team.inviteFailed': 'Tidak dapat mengirim undangan.',

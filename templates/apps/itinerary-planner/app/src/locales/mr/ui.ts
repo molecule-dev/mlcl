@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} बद्दल',
+  'auth.legalConsent': 'सुरू ठेवून, तुम्ही आमच्या यांना सहमती देता',
   'bookings.empty.body': 'इनबॉक्स सुरू करण्यासाठी फ्लाइट, हॉटेल किंवा ॲक्टिव्हिटी जोडा.',
   'bookings.empty.heading': 'अद्याप एकही नोंदणी झालेली नाही.',
   'bookings.errors.create': 'बुकिंग करता आले नाही.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'पुष्टी झाली',
   'bookings.summary.pending': 'पुष्टीकरणाच्या प्रतीक्षेत',
   'bookings.summary.total': 'पूर्णपणे वचनबद्ध',
+  'bookings.type.car': 'भाड्याची कार',
+  'bookings.type.flight': 'उड्डाण',
+  'bookings.type.hotel': 'हॉटेल',
   'bookings.type.other': 'इतर',
   'budgetSpendCard.pct': '{{pct}} %',
   'calendar.eyebrow': 'पुढील वर्ष',
@@ -32,6 +38,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'संभाव्य संघर्ष ओळखा, प्रवासांच्या दरम्यान विश्रांतीच्या दिवसांचे नियोजन करा आणि तुमचे सहकारी तुमच्यासोबत केव्हा प्रवास करत आहेत ते पहा.',
   'common.and': 'आणि',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.budgetHeading': 'अर्थसंकल्पीय नाडी',
   'dashboard.empty.heading': 'अद्याप कोणतीही सफर नाही — तुमचा नकाशासंग्रह कोरा आहे.',
   'dashboard.eyebrow': 'मिशन नियंत्रण',
@@ -40,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'गतिमान प्रवास',
   'dashboard.viewAllExpenses': 'प्रत्येक खर्च पहा',
   'dashboard.viewAllTrips': 'प्रत्येक सहल पहा',
+  'dayTimelineRow.category.accommodation': 'राहा',
   'dayTimelineRow.category.transport': 'वाहतूक',
   'destinationOrbCard.exploreCta': 'प्रवासात जोडा',
   'destinationOrbCard.tripCount': '{{count}} सहली',
@@ -79,11 +87,15 @@ export const ui: UiTranslations = {
     'अद्याप ईमेल आला नाही? तुमचा स्पॅम फोल्डर तपासा, किंवा दुसऱ्या पत्त्याने पुन्हा प्रयत्न करा.',
   'forgotPassword.successSubheading':
     'आम्ही रिकव्हरी लिंक पाठवली {{email}} ही लिंक ३० मिनिटांसाठी वैध आहे.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'मोफत खाते तयार करा',
+  'landing.cta.subheading':
+    'मोफत प्लॅनवर पाच ट्रिप्स, पाच सहयोगी आणि पाच स्टॉप्स — रिअल-टाइम सिंकसह, आणि तुमचे प्लॅन्स वाढल्यावर प्रो प्लॅनमध्ये या मर्यादा हटवल्या जातात.',
   'landing.destinations.eyebrow': 'पुढे कुठे जायचे?',
   'landing.destinations.heading': 'संपादकांनी निवडलेली ठिकाणे',
   'landing.features.eyebrow': 'वेपॉइंट कसे काम करते',
   'landing.features.heading': 'प्रवाशांसाठी बनवलेले, स्प्रेडशीटसाठी नाही.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'मोफत प्रवासाला सुरुवात करा',
   'landing.hero.ctaSecondary': 'नमुना सहल पहा',
   'landing.hero.subtitle':
@@ -127,6 +139,8 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'आयरीस लार्सन',
   'signup.subheading':
     '५ सहकाऱ्यांपर्यंत सहली शेअर करण्यासाठी, बुकिंग सिंक करण्यासाठी आणि प्रत्येक कन्फर्मेशन एकाच ठिकाणी मिळवण्यासाठी खाते तयार करा.',
+  'signup.termsPrefix': 'खाते तयार करून तुम्ही आमच्या अटी व शर्तींना सहमती देत आहात.',
+  'tripCountdownHeroCard.budget': '{{total}} खर्चापैकी {{used}} (अर्थसंकल्पाच्या {{pct}} )',
   'tripCountdownHeroCard.collaborators': '{{count}} प्रवासी',
   'tripCountdownHeroCard.countdownLabel': 'काउंटडाउन',
   'tripCountdownHeroCard.ctaPrimary': 'प्रवासाचा तपशील उघडा',
@@ -199,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'अद्याप एकही सहल नाही.',
   'trips.pastHeading': 'मागील साहसे',
   'trips.subheading': '{{count}} प्रवासाचे आराखडे — भूतकाळातील, वर्तमानातील आणि भविष्यातील.',
+  'waypointLayout.mobileNavClose': 'नेव्हिगेशन मेनू बंद करा',
   'waypointLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
 }

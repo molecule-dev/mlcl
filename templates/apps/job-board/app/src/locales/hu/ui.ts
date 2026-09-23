@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
   'applications.empty':
     'Még nincsenek jelentkezések — a megfelelő pozícióra már csak egy jelentkezés van hátra.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Minden pozíció, amire jelentkeztél, mozgásban. Szűrj szakaszok szerint a fókuszáláshoz.',
   'applications.untitledRole': 'Szerepkör # {{id}}',
+  'auth.legalConsent': 'A folytatással elfogadod a',
   'common.and': 'és',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'companies.empty':
     'Egyetlen vállalat sem felel meg a keresésnek — próbáljon meg egy másik kifejezést.',
   'companies.eyebrow': 'Kiemelt munkaadók',
@@ -53,6 +56,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Még nincsenek jelentkezések erre a pozícióra.',
   'jobApplicants.eyebrow': 'Munkáltatói nézet',
   'jobApplicants.loading': 'Betöltés…',
+  'jobApplicants.statusUpdateFailed': 'Nem sikerült frissíteni a szakaszt – próbáld újra.',
+  'jobApplicants.subheading':
+    'Önéletrajzok áttekintése, jelöltek előléptetése, ajánlatok küldése \\u2014 {{count}} folyamatban.',
   'jobDetail.applicantCount': '{{count}} eddigi jelentkezők',
   'jobDetail.applied': 'Jelentkezés elküldve',
   'jobDetail.apply': 'Jelentkezz most',
@@ -86,6 +92,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Böngésszen a nyitott pozíciók között \\u2192',
   'landing.pricingEyebrow': 'Árazás',
   'landing.pricingHeading': 'Egyszerű tervek minden csapatmérethez.',
+  'login.eyebrow': 'Üdvözöljük újra a {{app}} felületén',
   'login.heading': 'Bejelentkezés a fiókjába',
   'login.noAccount': 'Még nem ismered a Nosh-t?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Bejelentkezés…',
   'login.subheading':
     'Indítsa el a keresést, nyújtsa be jelentkezéseit, és kapjon gyorsabb választ.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Csapatokat toborzóknak készült.',
   'loginBrandPanel.headline': 'Ahol a tehetség találkozik',
   'loginBrandPanel.headlineLine2': 'lendület.',
   'loginBrandPanel.listing.recruiter': 'Tehetségpartner',
@@ -109,6 +117,7 @@ export const ui: UiTranslations = {
     'Jelentkezési frissítések, interjúmeghívók, friss találatok \\u2014 a legújabbak elöl.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ezen a héten',
   'opportunitiesHero.eyebrow': 'Ma nyitva',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'postJob.addNewCompany': '+ Új cég hozzáadása',
   'postJob.companyCreateFailed': 'Nem sikerült létrehozni a céget – próbálja újra.',
   'postJob.companyNameLabel': 'A céged neve',
@@ -168,10 +177,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Fiók létrehozása\\u2026',
   'signup.ctaEmployer': 'Munkáltatói fiók létrehozása',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Csen',
   'signup.passwordMismatch': 'A jelszavak nem egyeznek.',
   'signup.subheading':
     'Ingyenes a keresőknek, örökre. A munkáltatók 30 napos próbaidőszakkal kezdenek.',
   'timeAgo.days': '{{count}}n ezelőtt',
   'timeAgo.hours': '{{count}}ó ezelőtt',
   'timeAgo.justNow': 'épp most',
+  'timeAgo.weeks': '{{count}} héttel ezelőtt',
 }

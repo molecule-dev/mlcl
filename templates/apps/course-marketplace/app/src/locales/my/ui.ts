@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'သင်တန်းများကို တင်နေသည်…',
   'browse.next': 'နောက်စာမျက်နှာ',
   'browse.results': 'ပြသနေသည် {{count}} သင်တန်းများ',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'အလိုက်စဥ်သည်',
   'browse.subtitle':
     'အယ်ဒီတာ့အာဘော်မှတ်တမ်းကို ခေါင်းစဉ်၊ အဆင့်နှင့် ဈေးနှုန်းအလိုက် စစ်ထုတ်ပါ။ သင်တန်းတိုင်းကို ကျွန်ုပ်တို့၏ အယ်ဒီတာများက လက်ဖြင့် စီစဉ်ပေးပါသည်။',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'သင့်လက်မှတ်ကို လက်မှတ်ရေးထိုးပြီး အဆင်သင့်ဖြစ်ပါပြီ။ ၎င်းကို ကမ္ဘာနှင့် မျှဝေပါ သို့မဟုတ် ရှာဖွေရန် ကြိုးစားအားထုတ်ခဲ့ရသည်ကို သတိရစေရန် သိမ်းဆည်းထားပါ။',
   'certificate.copyLink': 'မျှဝေရန်လင့်ခ်ကို ကူးယူပါ',
+  'certificate.copyPrompt': 'ဤလင့်ခ်ကို ကူးယူပါ-',
   'certificate.download': 'PDF ကို ဒေါင်းလုဒ်လုပ်ပါ',
   'certificate.eyebrow': 'အောင်မြင်မှုကို ဖွင့်လှစ်လိုက်ပါပြီ',
   'certificate.linkCopied': 'လင့်ခ်ကို ကူးယူပြီးပါပြီ။',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'သင်စာရင်းသွင်းပြီးပါပြီ။',
   'checkout.verifying': 'သင့်စာရင်းသွင်းမှုကို အတည်ပြုနေသည်…',
   'checkout.viewLibrary': 'ကျွန်ုပ်၏ သင်ယူမှုကို ကြည့်ရှုပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.retry': 'ထပ်ကြိုးစားပါ',
   'courseDetail.about': 'ဒီသင်တန်းအကြောင်း',
   'courseDetail.checkoutPending': 'ငွေရှင်းခြင်းစတင်နေပါပြီ…',
   'courseDetail.continueLearning': 'ဆက်လက်သင်ယူပါ',
@@ -56,6 +60,7 @@ export const ui: UiTranslations = {
   'courseDetail.includes.video':
     '{{hours}} နာရီပေါင်းများစွာ လိုအပ်သလိုကြည့်ရှုနိုင်သော ဗီဒီယိုများ',
   'courseDetail.instructor': 'နည်းပြဆရာ',
+  'courseDetail.languageEnglish': 'အင်္ဂလိပ်',
   'courseDetail.lectures': 'ဟောပြောပွဲများ',
   'courseDetail.level': 'အဆင့်',
   'courseDetail.loading': 'သင်တန်းတင်နေသည်…',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'သုံးသပ်ချက်များ မရှိသေးပါ။',
   'instructorProfile.students': 'ကျောင်းသားတွေ',
   'landing.categories.empty': 'ကတ်တလောက်ကို ဖြည့်သွင်းပြီးသည်နှင့် အမျိုးအစားများ ပေါ်လာပါမည်။',
+  'landing.categories.heading': 'မော်ကွန်းတိုက်ကို စူးစမ်းလေ့လာပါ',
   'landing.hero.eyebrow': 'Lectura · ကျွမ်းကျင်မှု၏ အယ်ဒီတာ့အာဘော် မော်ကွန်းတိုက်',
   'landing.hero.proof': 'Google၊ Meta နှင့် Adobe တို့တွင် သင်ယူသူများ၏ ယုံကြည်စိတ်ချရမှု။',
   'landing.hero.subtitle':
@@ -159,6 +165,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'ယနေ့စတင်သင်ယူပါ',
   'login.subheading': 'သင့်ရဲ့ ပညာရပ်ဆိုင်ရာ မှတ်တမ်းကို ဝင်ရောက်ကြည့်ရှုပါ။',
   'myLearning.empty.title': 'ဤ filter နှင့် ကိုက်ညီသော သင်တန်းများ မရှိသေးပါ',
+  'myLearning.error.title': 'သင့်စာကြည့်တိုက်ကို ဖွင့်၍မရပါ',
   'myLearning.filter.notStarted': 'မစတင်ရသေးပါ',
   'myLearning.hero.subtitle':
     '{{count}} သင့်စာကြည့်တိုက်ရှိ သင်တန်းများ။ အရှိန်အဟုန်ကို ဆက်လက်လုပ်ဆောင်ပါ။',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'ပြန်လည်သုံးသပ်ရန် လုပ်ဆောင်ချက်အသစ် မရှိပါ။ ဤနေရာတွင် ဖြစ်ရပ်အသစ်များ ပေါ်လာပါမည်။',
   'notifications.empty.title': 'အားလုံးပြီးသွားပါပြီ',
+  'notifications.error.title': 'လုပ်ဆောင်ချက်ကို တင်၍မရပါ',
   'privacy.title': 'ကိုယ်ရေးအချက်အလက်မူဝါဒ',
   'reset.confirmPlaceholder': 'သင့်စကားဝှက်အသစ်ကို ပြန်လည်ထည့်သွင်းပါ',
   'reset.errorGeneric': 'စကားဝှက်ကို ပြန်လည်သတ်မှတ်၍မရပါ။ လင့်ခ်အသစ်တစ်ခု တောင်းဆိုပါ။',
@@ -195,5 +203,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} လွန်ခဲ့သော ရက်',
   'timeAgo.hours': '{{count}} နာရီ ကြာပြီ',
   'timeAgo.minutes': '{{count}} မိနစ်အကြာက',
+  'timeAgo.months': 'လွန်ခဲ့သော လအနည်းငယ်က {{count}}',
   'timeAgo.today': 'ဒီနေ့',
+  'timeAgo.weeks': '{{count}} ရက်သတ္တပတ်အကြာက',
 }

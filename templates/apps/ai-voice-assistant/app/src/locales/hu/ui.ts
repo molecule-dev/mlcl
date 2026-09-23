@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, funkciókérésed, vagy hibát találtál? A fiókmenüben található ügyfélszolgálati link segítségével lépj kapcsolatba az {{app}} csapattal — minden üzenetet valódi ember olvas el.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'agentDetail.back': 'Összes ügynök',
   'agentDetail.capabilities': 'Képességek',
   'agentDetail.delete': 'Persona törlése',
   'agentDetail.deleteConfirm': 'Törli ezt a personát? Ez nem vonható vissza.',
+  'agentDetail.deleteError': 'Nem sikerült törölni a személyiséget.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'A persona betöltése nem sikerült.',
   'agentDetail.save': 'Persona mentése',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Váltás…',
   'billing.updateError': 'A frissítés indítása nem sikerült.',
   'billing.usageHeading': 'Hanghasználat ebben a ciklusban',
+  'chatBubble.source.text': 'szöveg',
+  'chatBubble.source.voice': 'hang',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'conversation.defaultTitle': 'Új beszélgetés',
   'conversation.empty': 'Még nincs üzenet. Kezdjen el valamit mondani, vagy írjon alább.',
   'conversation.eyebrow': 'Élő munkamenet',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelligencia, amely beszél.',
   'landing.heroSubtitle':
     'Az AI hangasszisztens, amely érti a természetes folyamát. Társalgás, ötletelés és parancsok – zökkenőmentesen.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Figyel…',
   'landing.naturallyBody':
     'Nincs aktivációs szó. Nincs merev parancs. A Vox érti a kontextust, a félbeszakításokat és az emberi beszéd árnyalatait – mint egy kollégával folytatott csevegés.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Munkamenet megnyitása',
   'notFound.home': 'Vissza a főoldalra',
   'notFound.title': 'Nem hallottuk azt az oldalt.',
+  'parlanceLayout.closeMenu': 'Menü bezárása',
+  'parlanceLayout.openMenu': 'Navigációs menü megnyitása',
   'parlanceLayout.primaryNavLabel': 'Elsődleges navigáció',
   'pricing.conversations': '{{count}} beszélgetés',
   'pricing.cta.startFree': 'Ingyenes kezdés',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Nincs találat',
   'search.eyebrow': 'Parancspaletta',
   'search.fetchError': 'A keresési index betöltése nem sikerült.',
+  'search.static.profile.preview': 'Megjelenítési név, felhasználónév, bemutatkozás',
   'search.static.voice.title': 'Hang',
   'search.title': 'Keresés a Vox-ban',
   'search.transcriptPreview': 'Átirat megnyitása',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Голоса',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Пока нет нерешенных вопросов.',
   'audienceQa.onStageEyebrow': 'Сейчас на сцене',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Продвигать',
   'audienceQa.queued': 'в очереди',
   'audienceQa.queueEyebrow': 'Очередь',
   'ballot.eyebrow': 'Проголосуйте',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'В данный момент вы находитесь на {{plan}} план.',
   'billing.switch': 'Выключатель',
   'billing.upgraded': 'Обновлено до {{plan}} — Ограничения вступили в силу немедленно.',
+  'common.goToDashboard': 'Перейти к панели',
   'createPoll.addOption': 'Добавить опцию',
   'createPoll.anonymousHint':
     'Имена избирателей скрыты в журнале аудита; результаты подсчета голосов остаются достоверными.',
@@ -165,6 +168,8 @@ export const ui: UiTranslations = {
   'login.remember': 'Помните обо мне в течение 30 дней',
   'login.subheading':
     'Проведите тестирование, оцените результаты в помещении и подтвердите их получение.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'notFound.body':
     'Страница, на которую вы пытались перейти, закрыта или перемещена. Вернитесь на главную страницу или создайте новый опрос.',
   'notFound.eyebrow': 'На этом маршруте отсутствует кворум.',
@@ -191,6 +196,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Не удалось загрузить этот опрос.',
   'pollDetail.loading': 'Загрузка опроса…',
   'pollDetail.notFound': 'Опрос не найден.',
+  'pollDetail.openBallot': 'Открытое голосование',
   'pollDetail.openLive': 'Результаты в режиме реального времени',
   'pollDetail.pollId': 'опрос · {{id}}',
   'pollDetail.published':
@@ -273,4 +279,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Поиск по электронной почте…',
   'voters.subheading':
     'Составьте список имеющих право голоса избирателей. Сгруппируйте избирателей по организациям для формирования взвешенных бюллетеней.',
+  'votingPollingLayout.nav.analytics': 'Аналитика',
+  'votingPollingLayout.nav.billing': 'Выставление счетов',
+  'votingPollingLayout.nav.createPoll': 'Новый опрос',
+  'votingPollingLayout.nav.dashboard': 'Панель',
+  'votingPollingLayout.nav.notifications': 'Уведомления',
+  'votingPollingLayout.nav.settings': 'Настройки',
+  'votingPollingLayout.nav.team': 'Команда',
+  'votingPollingLayout.nav.voters': 'Избиратели',
+  'votingPollingLayout.primaryNavLabel': 'Основная навигация',
 }

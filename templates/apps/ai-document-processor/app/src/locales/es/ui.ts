@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Contáctanos',
+  'about.title': 'Acerca de {{app}}',
   'authShell.backToLanding': '← Volver a inicio',
+  'common.goToDashboard': 'Ir al panel',
   'common.no': '—',
+  'common.retry': 'Reintentar',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Hoy · Resumen de operaciones',
   'dashboard.heading': 'Inteligencia de documentos',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Ningún documento coincide con los filtros actuales.',
   'documents.heading': 'Todos los documentos',
   'documents.loadError': 'No se pudieron cargar los documentos.',
+  'documents.loading': 'Cargando biblioteca…',
   'documents.searchLabel': 'Buscar documentos',
   'documents.searchPlaceholder': 'Buscar documentos…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ocultar contraseña',
   'login.showPassword': 'Mostrar contraseña',
   'login.subtitle': 'Inicia sesión para mantener tus documentos en movimiento.',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'notFound.body':
     'El documento o la ruta que intentaste abrir ya no está aquí. Vuelve al panel o elige una sección de la barra lateral.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Abrir página de inicio',
   'notFound.title': 'Esa página no está archivada',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% vs ayer',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Reglas activas',
   'rules.empty': 'Aún no hay reglas de archivado. Usa Nueva regla para añadir una.',
   'rules.eyebrow': 'Automatización',
+  'rules.fieldsCount': '{{count}} campos',
   'rules.form.destination': 'Archivar en',
   'rules.form.name': 'Nombre de la regla',
   'rules.form.save': 'Guardar regla',

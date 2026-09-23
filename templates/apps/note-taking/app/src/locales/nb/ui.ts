@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Gå til oversikt',
   'forgot.eyebrow': 'Mistet veien tilbake?',
   'forgot.formSubtitle': 'Oppgi e-postadressen vi har registrert.',
   'forgot.headline': 'Tilbakestill passordet ditt.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Opprett en',
   'login.subline':
     'Notatbøkene, tilbakekoblingene og de daglige sidene dine er akkurat der du forlot dem.',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'noteEditor.backToNotes': 'Tilbake til notatene',
   'noteEditor.bodyPlaceholder': 'Begynn å skrive – notatet lagres automatisk mens du skriver.',
   'noteEditor.confirmTrash': 'Flytte dette notatet til papirkurven?',
@@ -54,6 +57,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Ny notatbok',
   'notes.newNotebookPrompt': 'Nytt navn på notatboken',
   'notes.notebooksHeading': 'Notatbøker',
+  'notes.subtitle':
+    'Velg en notatbok til venstre, og trykk deretter på Nytt notat-knappen for å starte en ny oppføring.',
   'planUpdated.confirmation': 'Planen din er oppdatert',
   'pricing.heading': 'Velg din notatplan',
   'reset.eyebrow': 'Nesten tilbake',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Oppdatert',
   'versoLayout.nav.graph': 'Kurve',
   'versoLayout.nav.home': 'Hjem',
+  'versoLayout.primaryNavLabel': 'Primær navigasjon',
   'versoNoteCard.pinned': 'Festet',
   'versoTodayHero.continueCta': 'Fortsett å skrive',
   'versoTodayHero.createCta': 'Start dagens notat',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'auth.forgotPassword.emailPlaceholder': 'ten@congtycuaquyvi.com',
   'auth.forgotPassword.heading': 'Đặt lại mật khẩu của quý vị.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Đánh dấu nhiệm vụ hoàn thành',
   'checklistTaskCard.markIncomplete': 'Đánh dấu nhiệm vụ chưa hoàn thành',
   'checklistTaskCard.openLabel': 'Mở nhiệm vụ',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Quý vị đã hoàn tất mọi việc',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Đúng tiến độ',
   'dashboard.timelineHeading': 'Mốc 30/60/90',
   'dashboard.viewAllTasks': 'Xem tất cả nhiệm vụ',
+  'dashboard.weekOne': 'Tuần 1',
   'dashboard.yourCohort': 'Đội của quý vị',
   'documents.empty.body': 'Tài liệu do nhóm của quý vị thêm sẽ xuất hiện tại đây.',
   'documents.empty.title': 'Chưa có tài liệu',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Dùng thử miễn phí 14 ngày',
   'landing.subhead':
     'Embark dẫn dắt mọi đồng nghiệp mới qua 90 ngày đầu của họ — giấy tờ, đào tạo, các cột mốc và những giới thiệu có ý nghĩa, tất cả trong một nơi yên bình và tự tin.',
+  'layout.openMenu': 'Mở menu điều hướng',
   'layout.search': 'Tìm kiếm nhiệm vụ, tài liệu, đồng nghiệp…',
+  'layout.searchTeammates': 'Tìm kiếm đồng đội theo tên hoặc chức vụ…',
   'layout.section.onboarding': 'Hội nhập',
   'layout.tagline': 'Hành trình của quý vị bắt đầu từ đây',
   'notifications.empty.body': 'Hoạt động mới sẽ xuất hiện tại đây.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Hôm qua',
   'planUpdated.message': 'Bạn đã sẵn sàng rồi.',
   'planUpdated.preparing': 'Đang cập nhật gói của quý vị…',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.documentsLabel': 'tài liệu',
   'pricing.onboardingsLabel': 'lượt hội nhập',
   'pricing.tasksLabel': 'nhiệm vụ',

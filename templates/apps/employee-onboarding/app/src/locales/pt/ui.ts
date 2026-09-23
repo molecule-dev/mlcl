@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
   'auth.forgotPassword.emailPlaceholder': 'nome@suaempresa.com',
   'auth.forgotPassword.heading': 'Redefina sua senha.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marcar tarefa como concluída',
   'checklistTaskCard.markIncomplete': 'Marcar tarefa como não concluída',
   'checklistTaskCard.openLabel': 'Abrir tarefa',
+  'common.goToDashboard': 'Ir para o Painel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Você está em dia',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'No caminho',
   'dashboard.timelineHeading': 'Marcos de 30/60/90',
   'dashboard.viewAllTasks': 'Ver todas as tarefas',
+  'dashboard.weekOne': 'Semana 1',
   'dashboard.yourCohort': 'Seu time',
   'documents.empty.body': 'Os documentos adicionados pelo seu time aparecerão aqui.',
   'documents.empty.title': 'Sem documentos ainda',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 dias de teste grátis',
   'landing.subhead':
     'O Embark conduz cada novo colega pelos primeiros 90 dias — burocracia, treinamento, marcos e apresentações que importam, tudo em um único lugar tranquilo e confiável.',
+  'layout.openMenu': 'Abrir menu de navegação',
   'layout.search': 'Buscar tarefas, documentos, colegas…',
+  'layout.searchTeammates': 'Pesquise colegas de equipe por nome ou função…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Sua jornada começa aqui',
   'notifications.empty.body': 'As novidades aparecerão aqui.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ontem',
   'planUpdated.message': 'Está tudo pronto.',
   'planUpdated.preparing': 'Atualizando seu plano…',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.documentsLabel': 'documentos',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'tarefas',

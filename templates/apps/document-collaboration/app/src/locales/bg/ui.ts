@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
+  'about.title': 'За {{app}}',
   'comments.addFailed': 'Не успях да публикувам коментар.',
   'comments.backToDoc': 'Назад към ръкописа',
   'comments.deleteFailed': 'Не можа да се изтрие.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Решение',
   'comments.resolveFailed': 'Не можа да се разреши.',
   'comments.subtitle': '{{open}} отворено · Проблемът с {{resolved}} е разрешен',
+  'common.goToDashboard': 'Към таблото',
   'dashboard.activityHeading': 'Какво се случва',
   'dashboard.createFailed': 'Не е възможно да се създаде документ.',
   'dashboard.empty': 'Все още няма ръкописи — започнете с бутона „Нов документ“.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Не може да се премести в кошчето.',
   'editor.unpublish': 'Отмени публикуването',
   'editor.untitled': 'Документ без заглавие',
+  'editor.updatedElsewhere':
+    'Този документ е актуализиран от някой друг — презаредете, за да видите най-новата версия.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ако имате профил на адрес {{email}}, в момента ви изпращаме линк за възстановяване на паролата.',
   'forgotPassword.subtitle': 'Ще Ви изпратим по имейл линк за възстановяване на паролата.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Създаден с Molecule.',
   'landing.ctaHeading': 'Отворете страницата. Нека курсорът започне.',
   'landing.ctaPrimary': 'Откриване на студио',
   'landing.eyebrow': 'За автори, редактори и екипи',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'редактирано на {{when}}',
   'quillonDocumentCard.open': 'Отвори →',
   'quillonKpiCard.trend': 'Последни тенденции',
+  'quillonLayout.menu': 'Меню',
   'quillonLayout.primaryNavLabel': 'Основна навигация',
   'quillonStudioHero.collab': 'Сътрудници',
   'quillonStudioHero.docs': 'Документи, с които е имало контакт',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'току-що',
+  'trash.confirmDelete': 'Потвърди изтриването',
   'trash.deleteFailed': 'Не можа да се изтрие.',
   'trash.deleteForever': 'Изтрий завинаги',
   'trash.empty': 'Няма какво да се възстанови.',
+  'trash.emptyAll': 'Изпразване на кошчето',
   'trash.eyebrow': 'Студио',
   'trash.heading': 'Кошче',
   'trash.loadFailed': 'Не можа да се зареди кошчето.',

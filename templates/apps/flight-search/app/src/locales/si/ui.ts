@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.eyebrow': '{{app}} පිළිබඳව',
   'about.pageTitle': 'සෑම මාර්ගයක්ම, එක් සෙවුමක්.',
   'booking.backToDetail': 'ගුවන් ගමන් විස්තර වෙත ආපසු යන්න',
   'booking.continue': 'ගෙවීම දිගටම කරගෙන යන්න',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'බදු සහ ගාස්තු',
   'booking.summary.travelers': 'සංචාරකයින්',
   'common.about': 'ගැන',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'flightDetail.backToResults': 'ප්‍රතිඵල වෙත ආපසු',
   'flightDetail.baseFare': 'මූලික ගාස්තුව',
   'flightDetail.book': 'වෙන්කරවා ගැනීම දිගටම කරගෙන යන්න',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'නැවතුම් 1ක්',
   'flightResultCard.select': 'තෝරන්න',
   'flightResultCard.totalLabel': 'මුළු කාලය',
+  'flightSearchLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'forgotPassword.subheading':
     'ඔබගේ Skylark ගිණුමේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, එවිට අපි ආරක්ෂිත යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
   'forgotPassword.successBody':
     'පරීක්ෂා කරන්න {{email}} නව මුරපදයක් සැකසීමට සබැඳියක් සඳහා. සබැඳිය විනාඩි 30 කින් කල් ඉකුත් වේ.',
   'forgotPassword.successHeading': 'සබැඳිය යළි සකසන්න යවන ලදී',
   'landing.cta.explore': 'සෙවීමක් උත්සාහ කරන්න',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'අනෙක් සියල්ලන්ටම පෙර ඊළඟ විශිෂ්ට ගාස්තුව සොයා ගන්න.',
   'landing.cta.signup': 'ගාස්තු නිරීක්ෂණය කිරීම ආරම්භ කරන්න',
   'landing.features.eyebrow': 'ඇයි ස්කයිලාර්ක්',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'ඇඟවීමක් එක් කරන්න',
   'priceAlerts.deleteConfirm': 'මෙම අනතුරු ඇඟවීම ඉවත් කරන්නද?',
   'priceAlerts.empty': 'තවමත් මාර්ග නිරීක්ෂණය කර නොමැත.',
+  'priceAlerts.emptyCta': 'නිරීක්ෂණය කිරීමට මාර්ගයක් සොයන්න',
   'priceAlerts.errorMessage': 'ඇඟවීම් පූරණය කළ නොහැකි විය.',
   'priceAlerts.eyebrow': 'ස්කයිලාක් මුර ලැයිස්තුව',
   'priceAlerts.form.createError': 'අනතුරු ඇඟවීම නිර්මාණය කළ නොහැකි විය.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'බහු-නගර ගමන් විස්තරය',
   'results.multiLegHeading': 'කකුල {{එන්}} · {{සිට}} → {{වෙත}} · {{දිනය}}',
   'results.multiSummary': '{{count}} කකුල් · {{passengers}} සංචාරකයා',
+  'results.sortAriaLabel': 'ප්‍රතිඵල අනුව වර්ග කරන්න',
   'results.sortLabel': 'වර්ග කරන්න',
   'results.summary': '{{count}} ගුවන් ගමන් · {{passengers}} සංචාරකයා',
   'settings.language.title': 'භාෂාව',

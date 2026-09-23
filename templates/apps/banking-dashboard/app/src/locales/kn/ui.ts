@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'accountDetail.activeBadge': 'ಸಕ್ರಿಯ',
   'accountDetail.availableLabel': '{{amount}} ಲಭ್ಯವಿದೆ',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'ಖಾತೆಗಳು',
   'accounts.loadError': 'ಖಾತೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'ಹೆಪ್ಪುಗಟ್ಟಿದ',
   'accounts.totalBalance': '{{ಮೊತ್ತ}} ಒಟ್ಟು',
   'audit.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಈವೆಂಟ್‌ಗಳಿಲ್ಲ.',
   'audit.eyebrow': 'ಭದ್ರತೆ ಮತ್ತು ಪ್ರವೇಶ',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'ಕೈಯಲ್ಲಿ ನಗದು',
   'cashCreditCard.creditLabel': 'ಬಳಸಲಾದ ಕ್ರೆಡಿಟ್',
   'cashCreditCard.title': 'ನಗದು ಮತ್ತು ಕ್ರೆಡಿಟ್',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.accountsHeading': 'ಖಾತೆಗಳು',
   'dashboard.heading': 'ಅವಲೋಕನ',
   'dashboard.recentEmpty': 'ಇನ್ನೂ ಯಾವುದೇ ವಹಿವಾಟುಗಳಿಲ್ಲ.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.signUp': 'ಸೈನ್ ಅಪ್',
   'login.submit': 'ಸೈನ್ ಇನ್ ಮಾಡಿ',
+  'meridianLayout.menu': 'ಮೆನು',
   'meridianLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'notifications.emptyHeading': 'ನೀವು ಎಲ್ಲವನ್ನೂ ಓದಿದ್ದೀರಿ.',
   'notifications.subheading': 'ವಹಿವಾಟುಗಳು, ಭದ್ರತೆ ಮತ್ತು ಹೇಳಿಕೆಗಳಿಗಾಗಿ ನೈಜ-ಸಮಯದ ಎಚ್ಚರಿಕೆಗಳು.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'privacy.dataWeShare':
     'ವೈಯಕ್ತಿಕ ಬ್ಯಾಂಕಿಂಗ್ ಡೇಟಾವನ್ನು ಎಂದಿಗೂ ಮಾರಾಟ ಮಾಡುವುದಿಲ್ಲ. ವಹಿವಾಟುಗಳನ್ನು ಇತ್ಯರ್ಥಪಡಿಸಲು ಅಥವಾ ಕಾನೂನು ಬಾಧ್ಯತೆಗಳನ್ನು ಪೂರೈಸಲು ಅಗತ್ಯವಿರುವಂತೆ ಮಾತ್ರ ನಾವು ಪಾವತಿ ಪ್ರಕ್ರಿಯೆದಾರರು, ಕಾರ್ಡ್ ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಮತ್ತು ನಿಯಂತ್ರಕರೊಂದಿಗೆ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತೇವೆ.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'ಪ್ರತಿ ಸೈನ್-ಇನ್‌ನಲ್ಲಿ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಎರಡು-ಅಂಶವು ಒಂದು-ಬಾರಿಯ ಕೋಡ್ ಅನ್ನು ಸೇರಿಸುತ್ತದೆ.',
   'settings.security.twoFactorCta': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ನಿರ್ವಹಿಸಿ',
+  'settings.security.twoFactorOff': 'ಎರಡು-ಅಂಶ ಆಫ್ ಆಗಿದೆ',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.subheading': 'ಪ್ರೊಫೈಲ್, ಭದ್ರತೆ ಮತ್ತು ಅಧಿಸೂಚನೆಗಳು.',
+  'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'signup.emailLabel': 'ಇಮೇಲ್ ವಿಳಾಸ',
   'signup.fullName': 'ನಾವು ನಿಮ್ಮನ್ನು ಹೇಗೆ ಸಂಬೋಧಿಸಬೇಕು?',
   'signup.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ಇನ್ನೂ ಯಾವುದೇ ವಹಿವಾಟುಗಳಿಲ್ಲ.',
   'transactions.endDate': 'ಅಂತಿಮ ದಿನಾಂಕ',
   'transactions.eyebrow': 'ಚಟುವಟಿಕೆ',
+  'transactions.loadError': 'ವಹಿವಾಟುಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'transactions.merchant': 'ವ್ಯಾಪಾರಿ',
+  'transactions.subheading': 'ನಿಮ್ಮ ಖಾತೆಗಳಲ್ಲಿ ಪೋಸ್ಟ್ ಮಾಡಲಾದ ಮತ್ತು ಬಾಕಿ ಇರುವ ಪ್ರತಿಯೊಂದು ವಹಿವಾಟು.',
   'transfers.availableHint': '{{amount}} ಲಭ್ಯವಿದೆ',
   'transfers.errorGeneric': 'ವರ್ಗಾವಣೆಯನ್ನು ಸಲ್ಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'transfers.errorMissingFields': 'ಮೂಲ ಖಾತೆ ಮತ್ತು ಗಮ್ಯಸ್ಥಾನವನ್ನು ಆರಿಸಿ.',

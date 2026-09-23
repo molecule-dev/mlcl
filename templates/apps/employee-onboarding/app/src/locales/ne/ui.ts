@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com मा जानुहोस्',
   'auth.forgotPassword.heading': 'आफ्नो पासवर्ड रिसेट गर्नुहोस्।',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'कार्य सम्पन्न भएको चिन्ह लगाउनुहोस्',
   'checklistTaskCard.markIncomplete': 'कार्य अपूर्ण भएको रूपमा चिन्ह लगाउनुहोस्',
   'checklistTaskCard.openLabel': 'कार्य खोल्नुहोस्',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'तपाईं सबै हेर्नुभयो।',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ट्रयाकमा छ',
   'dashboard.timelineHeading': '३०/६०/९० कोसेढुङ्गाहरू',
   'dashboard.viewAllTasks': 'सबै कार्यहरू हेर्नुहोस्',
+  'dashboard.weekOne': 'हप्ता १',
   'dashboard.yourCohort': 'तपाईंको टोली',
   'documents.empty.body': 'तपाईंको टोलीले थपेका कागजातहरू यहाँ देखा पर्नेछन्।',
   'documents.empty.title': 'अहिलेसम्म कुनै कागजात छैन',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '१४-दिनको नि:शुल्क परीक्षण',
   'landing.subhead':
     'एम्बार्कले प्रत्येक नयाँ टोली साथीलाई उनीहरूको पहिलो ९० दिनमा मार्गदर्शन गर्दछ — कागजी कार्य, प्रशिक्षण, कोसेढुङ्गाहरू, र अर्थपूर्ण परिचयहरू, सबै एकै शान्त, आत्मविश्वासी ठाउँमा।',
+  'layout.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'layout.search': 'कार्यहरू, कागजातहरू, टोलीका साथीहरू खोज्नुहोस्...',
+  'layout.searchTeammates': 'नाम वा भूमिका अनुसार टोलीका साथीहरू खोज्नुहोस्...',
   'layout.section.onboarding': 'अनबोर्डिङ',
   'layout.tagline': 'तपाईंको यात्रा यहाँबाट सुरु हुन्छ।',
   'notifications.empty.body': 'नयाँ गतिविधि यहाँ देखिनेछ।',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'हिजो',
   'planUpdated.message': 'तिमी तयार छौ।',
   'planUpdated.preparing': 'तपाईंको योजना अद्यावधिक गर्दै...',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.documentsLabel': 'कागजातहरू',
   'pricing.onboardingsLabel': 'अनबोर्डिङहरू',
   'pricing.tasksLabel': 'कार्यहरू',

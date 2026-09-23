@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'auditLog.empty':
     'Hələ ki, filtrlərinizə uyğun audit hadisəsi yoxdur. İşçini redaktə edin və ya əmək haqqı hesabatını emal edin və onlar burada görünəcək.',
   'auditLog.eyebrow': 'Uyğunluq',
+  'auditLog.loadError': 'Audit jurnalını yükləmək mümkün olmadı.',
   'auditLog.searchPlaceholder': 'Aktyor, hərəkət və ya təsvirə görə axtarış',
   'auditLog.subheading':
     'Hər təsdiq, redaktə və vergi bəyannaməsi — aktyor, zaman möhürü və dəyişdirilmiş sahələrlə.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Konfiqurasiya edilməyib',
   'billing.plansHeading': 'Planlar',
   'billing.subheading': 'Planınızı idarə edin və Stripe vasitəsilə səviyyələri dəyişdirin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Təkrar cəhd edin',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Uyğunluq anlıq görüntüsü',
   'dashboard.compliance.title': 'Bütün yoxlamalar keçir',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Faylda heç bir endirim yoxdur.',
   'employeeDetail.notFound': 'İşçi tapılmadı.',
   'employeeDetail.payFrequency': 'Ödəniş tezliyi',
+  'employeeDetail.postTax': 'Vergi sonrası',
+  'employeeDetail.preTax': 'Vergidən əvvəl',
   'employeeDetail.salary': 'İllik əmək haqqı',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Başladı {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Ödəniş tezliyi',
   'employeeForm.salary': 'İllik əmək haqqı (ABŞ dolları)',
   'employeeForm.salaryInvalid': 'Əmək haqqı mənfi olmayan bir rəqəm olmalıdır.',
+  'employeeForm.saveError': 'İşçini xilas etmək mümkün olmadı.',
   'employeeForm.semimonthly': 'Yarım aylıq',
   'employeeForm.single': 'Subay',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'İşçi',
   'employeesTable.col.salary': 'Əmək haqqı',
   'forgotPassword.subtitle': 'İş e-poçtunuzu daxil edin və biz sizə sıfırlama linki göndərəcəyik.',
+  'landing.copyright': '© {{year}} {{app}} . Dəqiq, etibarlı və tərtib olunmuş.',
   'landing.ctaBody':
     '30 gün pulsuz. Kredit kartı yoxdur. Audit izinizi itirmədən istənilən vaxt dəyişin.',
   'landing.ctaHeading': 'Növbəti dövrü Stipend-də işlədin',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Bu ödənişli dövr üçün hələlik heç bir audit qeydi yoxdur.',
   'payRunDetail.noStubs':
     'Hələlik əmək haqqı qəbzləri yoxdur — onları təsdiqləyin və yaratmaq üçün emal edin.',
+  'payRunDetail.notFound': 'Bu ödəniş tapılmadı.',
   'payRunDetail.statDeductions': 'Çıxarışlar',
   'payRunDetail.statHeadcount': 'İşçilər',
   'payRunDetail.statTaxes': 'Tutulan vergilər',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Yarım aylıq',
   'settings.signOutDevice': 'Çıxış',
   'settings.subheading': 'Şirkət profili, ödəniş cədvəli və inteqrasiyalar.',
+  'settings.twoFactorCode': 'Doğrulama kodu',
   'settings.twoFactorDisable': 'Deaktiv edin',
+  'settings.twoFactorInvalidCode': 'Yanlış kod',
+  'settings.twoFactorVerify': 'Təsdiqləyin və aktivləşdirin',
   'settings.weekly': 'Həftəlik',
   'taxCenter.bucket.federal': 'Federal gəlir',
   'taxCenter.bucket.fica': 'Sosial Təminat',

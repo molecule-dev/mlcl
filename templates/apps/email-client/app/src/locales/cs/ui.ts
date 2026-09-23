@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Jsme tým designérů a vývojářů z různých koutů světa, kteří kdysi trávili příliš mnoho času každý den v hlučné schránce. Courier je schránka, kterou jsme sami chtěli používat.',
   'about.title': 'E-mail pro soustředěnou práci',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'help.cta.about': 'O společnosti Courier',
   'help.cta.pricing': 'Zobrazit ceny',
   'help.eyebrow': 'Centrum nápovědy',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Rychlé odpovědi na nejčastější dotazy. Chybí vám něco? Otevřete Nastavení a využijte formulář pro zpětnou vazbu přímo v aplikaci, nebo napište na adresu support@courier.example.',
   'help.title': 'Jak můžeme pomoci?',
   'landing.brand.scrollTop': 'Zpět nahoru',
+  'landing.copyright': '© {{year}} {{appName}} — Vytvořeno pro soustředění.',
   'landing.ctaBody':
     'Přidejte se k tisícům profesionálů, kteří si vyřídí svou e-mailovou schránku ještě před obědem.',
   'landing.ctaTitle': 'Více přemýšlejte, méně reagujte.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Sledovat demo',
   'landing.heroSubtitle':
     'Courier je přehledná schránka se třemi panely určená pro znalostní pracovníky, kteří chtějí informace zpracovávat, a ne na ně jen reagovat.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Důvěru v nás vkládají specializované týmy po celém světě',
   'landing.signIn': 'Přihlásit se',
   'meridian.archive.empty': 'Archiv je prázdný.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Komu',
   'meridian.drafts.watermark': 'Koncept',
   'meridian.folder.count': '{{count}} zprávy',
+  'meridian.folder.delete': 'Smazat',
   'meridian.folder.deleteForever': 'Trvale smazat',
   'meridian.folder.restore': 'Přesunout do schránky',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Zatím zde nejsou žádné zprávy.',
   'meridian.inbox.loading': 'Načítání…',
   'meridian.inbox.next': 'Další',
+  'meridian.inbox.noSender': '(bez odesílatele)',
   'meridian.inbox.noSubject': '(bez předmětu)',
+  'meridian.inbox.ofTotal': '{{current}} z {{total}}',
   'meridian.inbox.openCompose': 'Otevřít okno pro psaní zprávy',
   'meridian.inbox.previous': 'Předchozí',
   'meridian.inbox.replyFailed': 'Odpověď byla uložena, ale doručení se nezdařilo: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Nemáte účet?',
   'meridian.login.showPassword': 'Zobrazit heslo',
   'meridian.message.toLine': 'na {{recipients}}',
+  'meridian.notFound.body':
+    'Hledaná stránka se nenašla. Vraťte se do schránky vaší {{appName}} a my vám pomůžeme najít to správné místo.',
   'meridian.notFound.eyebrow': 'Chyba 404',
   'meridian.notFound.title': 'Toto vlákno bylo archivováno.',
   'meridian.notFound.toInbox': 'Otevřít doručenou poštu',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Přidat hvězdičku',
   'meridian.thread.unstar': 'Odebrat hvězdičku',
   'meridian.time.yesterday': 'Včera',
+  'meridian.topBar.openMenu': 'Otevřít navigační menu',
   'meridian.topBar.searchPlaceholder': 'Prohledat poštu',
   'meridian.trash.empty': 'Koš je prázdný.',
   'meridian.trash.title': 'Koš',
   'nav.legal': 'Právní',
   'planUpdated.description':
     'Vaše předplatné je nyní aktivní a vaše platební údaje byly aktualizovány. Vítejte ve vaší nové schránce Courier.',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.heading': 'průvody',
   'pricing.limit.emails': 'e-maily',
   'pricing.limit.folders': 'složky',
   'pricing.limit.labels': 'štítky',
   'privacy.collect.account':
     'Údaje o účtu: jméno, e-mailová adresa, hash hesla a datum registrace.',
+  'privacy.contact': 'Máte otázky? Napište na privacy@courier.example.',
   'privacy.intro':
     'V těchto zásadách ochrany osobních údajů vysvětlujeme, jaké údaje společnost Courier shromažďuje, proč je shromažďujeme, jak je chráníme a jaké možnosti v této souvislosti máte. Snažíme se být konkrétní, nikoli právnicky formální; pokud vám něco není jasné, napište nám na adresu privacy@courier.example.',
   'privacy.lastUpdated': 'Poslední aktualizace: 1. dubna 2026',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Tyto podmínky upravují vaše používání služby Courier. Vytvořením účtu nebo odesláním e-mailu prostřednictvím naší služby vyjadřujete souhlas s tím, že se jimi budete řídit. Snažíme se vytvářet pravidla, která jsou pro uživatele skutečně splnitelná.',
   'terms.lastUpdated': 'Platnost: 1. dubna 2026',
+  'terms.linkPrivacy': 'Přečtěte si naše Zásady ochrany osobních údajů →',
   'terms.termination.body':
     'Svůj účet můžete kdykoli smazat. Účet, který porušuje tyto podmínky, můžeme pozastavit; v takovém případě vám vysvětlíme důvod a nejprve vám umožníme exportovat vaše data.',
   'terms.warranty.body':

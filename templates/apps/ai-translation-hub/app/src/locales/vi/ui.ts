@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'billing.canceled': 'Đã hủy đăng ký. Quý vị sẽ chuyển về gói Miễn phí vào cuối kỳ.',
   'billing.contactSales': 'Liên hệ bán hàng',
   'billing.free.1': '5 bản dịch',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Không giới hạn lưu trữ',
   'billing.upgradeHint': 'Nâng cấp để mở khóa các tính năng AI nâng cao.',
   'billing.yearly': 'Hàng năm',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.activityEmpty': 'Chưa có hoạt động — hãy bắt đầu một dự án để điền vào nguồn cấp này.',
   'dashboard.eyebrow': 'Tổng quan',
   'dashboard.projectsEmpty': 'Chưa có dự án — hãy bắt đầu một dự án để xem ở đây.',
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Tái sử dụng các bản dịch trong quá khứ trên mọi dự án. Điểm khớp cao hơn → ít làm lại hơn.',
   'memory.title': 'Ngân hàng bộ nhớ',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'nav.legal': 'Pháp lý',
   'newProject.addLanguage': 'Thêm đích',
   'newProject.create': 'Tạo dự án',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Đã đánh dấu {{count}} thông báo là đã đọc.',
   'notifications.subtitle':
     'Các đề cập, yêu cầu đánh giá và sự kiện AI từ tất cả không gian làm việc của quý vị.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'privacy.collection.account': 'Email tài khoản và tên hiển thị của quý vị',
   'privacy.deletion.body':
     'Quý vị có thể xóa một dự án, đoạn, thuật ngữ bảng thuật ngữ hoặc mục bộ nhớ bất cứ lúc nào từ trang liên quan. Xóa tài khoản của quý vị từ Cài đặt sẽ xóa mọi hàng có phạm vi không gian làm việc khỏi cơ sở dữ liệu của chúng tôi.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Không tải được dự án.',
   'projects.loading': 'Đang tải dự án…',
   'projects.subtitle': 'Mọi dự án đang hoạt động trên tất cả các locale.',
+  'renditionLayout.primaryNavLabel': 'Điều hướng chính',
   'reset.backToLogin': '\\u2190 Quay lại đăng nhập',
   'reset.passwordLabel': 'Mật khẩu mới',
   'review.activeEyebrow': 'Đoạn {{number}}',

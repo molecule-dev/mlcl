@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.title': 'Teave rakenduse {{app}} kohta',
   'auth.login.noAccount': 'Kas oled Sparqis uus?',
   'auth.login.or': 'või jätka',
   'auth.signup.or': 'või registreeru',
+  'common.confirm': 'Kinnita',
+  'common.goToDashboard': 'Mine töölauani',
+  'common.loadError': 'Selle sisu laadimisel läks midagi valesti.',
+  'common.retry': 'Proovi uuesti',
   'discover.collections.title': 'Sirvi kategooria järgi',
   'discover.collections.viewAll': 'Vaata oma raamatukogu →',
   'discover.empty.body': 'Proovi teist kategooriat või tühista otsing.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Logi sisse, et oma võiduseeriat elus hoida, otsemänge korraldada ja edetabelis tõusta.',
   'myQuizzes.createButton': 'Uus viktoriin',
+  'myQuizzes.deleteConfirm': 'Kustutada jäädavalt?',
   'myQuizzes.empty.createCta': 'Koosta oma esimene viktoriin →',
   'myQuizzes.empty.created': 'Sa pole veel viktoriini loonud.',
   'myQuizzes.empty.played': 'Avaldatud viktoriine pole veel.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laadimine…',
   'notifications.subhead':
     '{{count}} Lugemata sädemed. Kutsed, edetabeli käigud ja saavutused kõik ühes voos.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.checkoutError': 'Makseprotsessi ei õnnestunud alustada. Palun proovige uuesti.',
+  'pricing.heading': 'Vali oma {{app}} plaan',
   'pricing.included': 'Lisatud',
   'pricing.loadError': 'Plaane ei õnnestunud laadida.',
   'pricing.maxQuizzes': '{{count}} viktoriinid',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Midagi pole veel avaldatud.',
   'profile.startBuilding': 'Alusta ehitamist →',
   'profile.tier': 'Sparqi mängija',
+  'quizBuilder.addFailed': 'Küsimust ei saanud lisada. Proovige uuesti.',
   'quizBuilder.addQuestion': 'Lisa küsimus',
   'quizBuilder.answerPlaceholder': 'Sisesta valik…',
   'quizBuilder.answersLabel': 'Vastusevalikud',
   'quizBuilder.back': 'Tagasi minu viktoriinide juurde',
   'quizBuilder.delete': 'Kustuta küsimus',
+  'quizBuilder.deleteFailed': 'Küsimust ei saanud kustutada.',
   'quizBuilder.firstQuestion': 'Lisa oma esimene küsimus alustuseks.',
   'quizBuilder.idLabel': 'Viktoriini ID: {{id}}',
   'quizBuilder.loadError': 'Viktoriini laadimine ebaõnnestus.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Lisa vähemalt kaks vastusevarianti ja vali neist õige {{count}} küsimus(ed) enne avaldamist.',
   'quizBuilder.questionsTitle': 'Küsimused',
+  'quizBuilder.saveFailed': 'Pealkirja salvestamine ebaõnnestus. Proovige uuesti.',
   'quizBuilder.statusDraft': 'Eelnõu',
   'quizBuilder.subhead':
     'Muuda pealkirja, lisa küsimused, määra valikud ja õige vastus. Muudatused salvestuvad automaatselt.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} minuti',
   'quizDetail.hostMultiplayer': 'Mitme mängijaga mängimise korraldaja',
   'quizDetail.leaderboardEmpty': 'Näiteid veel pole – ole esimene, kes skoori lööb.',
+  'quizDetail.loadError': 'Selle viktoriini laadimine ebaõnnestus.',
   'quizDetail.loading': 'Laadin viktoriini…',
   'quizDetail.plays': '{{count}} näidendid',
   'quizDetail.playSolo': 'Mängi üksi',

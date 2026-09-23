@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Du er i øjeblikket på {{plan}} plan.',
   'billing.switch': 'Skift',
   'billing.upgraded': 'Opdateret til {{plan}} — grænser anvendes øjeblikkeligt.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'compare.activityHeading': 'Aktivitetsvurderinger',
   'compare.empty.title': 'Tilføj mindst to steder for at sammenligne',
   'compare.eyebrow': 'Side om side',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Høj',
   'trends.summary.low.label': 'Lav',
   'trends.summary.points.label': 'Dage',
+  'weatherDashboardLayout.primaryNavLabel': 'Primær navigation',
   'weatherHeroCard.updated': 'Opdateret {{time}}',
 }

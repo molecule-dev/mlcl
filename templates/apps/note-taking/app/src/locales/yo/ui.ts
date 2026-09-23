@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'forgot.eyebrow': 'Ṣe o padanu ọna lati pada wọle?',
   'forgot.formSubtitle': 'Sọ fún wa ní ìmeeli tó wà lórí fáìlì.',
   'forgot.headline': 'Tun ọrọ igbaniwọle rẹ ṣe.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ṣẹ̀dá ọ̀kan',
   'login.subline':
     'Àwọn ìwé àkọsílẹ̀ rẹ, àwọn ìjápọ̀ àti ojú ìwé ojoojúmọ́ rẹ wà níbi tí o ti fi wọ́n sílẹ̀.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'noteEditor.backToNotes': 'Pada si awọn akọsilẹ',
   'noteEditor.bodyPlaceholder':
     'Bẹ̀rẹ̀ sí í kọ — àkọsílẹ̀ rẹ yóò máa fipamọ́ láìfọwọ́kọ bí o ṣe ń tẹ̀ ẹ́.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Àkọsílẹ̀ tuntun',
   'notes.newNotebookPrompt': 'Orukọ iwe akọsilẹ tuntun',
   'notes.notebooksHeading': 'Àwọn Àkọsílẹ̀',
+  'notes.subtitle':
+    'Yan ìwé àkọsílẹ̀ kan ní apá òsì, lẹ́yìn náà tẹ bọ́tìnì àkọsílẹ̀ tuntun láti bẹ̀rẹ̀ ìkọ̀wé tuntun.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Yan Eto Ikọsilẹ Akọsilẹ rẹ',
   'reset.eyebrow': 'Ó fẹ́rẹ̀ padà sí ibẹ̀',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Ti ṣe imudojuiwọn',
   'versoLayout.nav.graph': 'Àwòrán',
   'versoLayout.nav.home': 'Ilé',
+  'versoLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'versoNoteCard.pinned': 'Ti so mọ́lẹ̀',
   'versoTodayHero.continueCta': 'Tẹ̀síwájú láti kọ ọ́',
   'versoTodayHero.createCta': 'Bẹ̀rẹ̀ àkọsílẹ̀ òní',

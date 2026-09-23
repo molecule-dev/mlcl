@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.title': '{{app}} সম্পর্কে',
   'auth.login.noAccount': 'স্পার্ক-এ নতুন?',
   'auth.login.or': 'অথবা চালিয়ে যান',
   'auth.signup.or': 'অথবা সাইন আপ করুন',
+  'common.confirm': 'নিশ্চিত করুন',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
+  'common.loadError': 'এই কন্টেন্টটি লোড করতে কিছু একটা ভুল হয়েছে।',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'discover.collections.title': 'বিভাগ অনুযায়ী ব্রাউজ করুন',
   'discover.collections.viewAll': 'আপনার লাইব্রেরি দেখুন →',
   'discover.empty.body': 'অন্য কোনো বিভাগ চেষ্টা করুন অথবা অনুসন্ধানটি মুছে ফেলুন।',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'আপনার ধারাবাহিকতা বজায় রাখতে, লাইভ গেম হোস্ট করতে এবং লিডারবোর্ডে উপরে উঠতে সাইন ইন করুন।',
   'myQuizzes.createButton': 'নতুন কুইজ',
+  'myQuizzes.deleteConfirm': 'চিরতরে মুছে ফেলব?',
   'myQuizzes.empty.createCta': 'আপনার প্রথম কুইজটি তৈরি করুন →',
   'myQuizzes.empty.created': 'আপনি এখনো কোনো কুইজ তৈরি করেননি।',
   'myQuizzes.empty.played': 'এখনো কোনো কুইজ প্রকাশিত হয়নি।',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'লোড হচ্ছে…',
   'notifications.subhead':
     '{{count}} অপঠিত স্পার্কস। আমন্ত্রণ, লিডারবোর্ডে পরিবর্তন, এবং অ্যাচিভমেন্ট—সবই এক স্ট্রিমে।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.checkoutError': 'চেকআউট শুরু করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।',
+  'pricing.heading': 'আপনার {{app}} প্ল্যান নির্বাচন করুন',
   'pricing.included': 'অন্তর্ভুক্ত',
   'pricing.loadError': 'প্ল্যানগুলো লোড করা যায়নি।',
   'pricing.maxQuizzes': '{{count}} কুইজ',
@@ -99,11 +108,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'এখনো কিছু প্রকাশিত হয়নি।',
   'profile.startBuilding': 'নির্মাণ শুরু করুন →',
   'profile.tier': 'স্পার্ক খেলোয়াড়',
+  'quizBuilder.addFailed': 'প্রশ্নটি যোগ করা যায়নি। আবার চেষ্টা করুন।',
   'quizBuilder.addQuestion': 'প্রশ্ন যোগ করুন',
   'quizBuilder.answerPlaceholder': 'একটি বিকল্প টাইপ করুন…',
   'quizBuilder.answersLabel': 'উত্তর বিকল্পগুলি',
   'quizBuilder.back': 'আমার কুইজগুলোতে ফিরে যান',
   'quizBuilder.delete': 'প্রশ্নটি মুছে ফেলুন',
+  'quizBuilder.deleteFailed': 'প্রশ্নটি মুছে ফেলা যায়নি।',
   'quizBuilder.firstQuestion': 'শুরু করতে আপনার প্রথম প্রশ্নটি যোগ করুন।',
   'quizBuilder.idLabel': 'কুইজ আইডি: {{id}}',
   'quizBuilder.loadError': 'কুইজটি লোড করা যায়নি।',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'কমপক্ষে দুটি উত্তর বিকল্প যোগ করুন এবং সঠিকটি বেছে নিন। {{count}} প্রকাশের পূর্বে প্রশ্ন(গুলো)।',
   'quizBuilder.questionsTitle': 'প্রশ্ন',
+  'quizBuilder.saveFailed': 'শিরোনামটি সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।',
   'quizBuilder.statusDraft': 'খসড়া',
   'quizBuilder.subhead':
     'শিরোনাম সম্পাদনা করুন, প্রশ্ন যোগ করুন, বিকল্প ও সঠিক উত্তর নির্ধারণ করুন। পরিবর্তনগুলো স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়।',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} মিনিট',
   'quizDetail.hostMultiplayer': 'হোস্ট মাল্টিপ্লেয়ার',
   'quizDetail.leaderboardEmpty': 'এখনো কোনো চাল দেওয়া হয়নি — প্রথম স্কোরটি আপনিই করুন।',
+  'quizDetail.loadError': 'এই কুইজটি লোড করা যায়নি।',
   'quizDetail.loading': 'কুইজ লোড হচ্ছে…',
   'quizDetail.plays': '{{count}} নাটক',
   'quizDetail.playSolo': 'এককভাবে খেলুন',

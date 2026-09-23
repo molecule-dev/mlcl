@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'A {{app}} névjegye',
   'about.plansTitle': 'Veled együtt növekvő csomagok',
   'brand.tagline': 'Minden másodpercben',
   'clientDetail.back': 'Vissza az ügyfelekhez',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Minden kapcsolat egy helyen – projektek, munkaórák, kiegyenlítetlen számlák.',
   'clients.title': 'Ügyfelek',
   'common.and': 'és',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.activeProjects': 'Aktív projektek',
   'dashboard.empty':
     'Még nincsenek bejegyzések. Indítsa el az időzítőt az első edzés nyomon követéséhez.',
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     'Nincsenek számlázható órák ehhez az ügyfélhez. Először kövesse nyomon az időt, vagy rendeljen hozzá meglévő bejegyzéseket az ügyfél egyik projektjéhez.',
   'invoices.save': 'Számla létrehozása',
   'invoices.subtitle': 'A nyomon követett órák automatikusan számlázódnak.',
+  'landing.copyright': '© {{year}} {{app}} . Minden másodpercről szó esik.',
   'landing.ctaBody': 'Ingyenes akár 3 projektig. Frissíthető, amikor az ügyféllistád bővül.',
   'landing.eyebrow': 'Időkövetés számlázható munkához',
   'landing.featuresBody':
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Függetlenek bíznak benne',
   'landing.testimonial.quote':
     '\\u201c30 perc alatt elköltöztem a Togglról. Már a költségvetés kimerülése is megtérült \\u2014 Két hete egymás után abbahagytam az alulbecslést.\\u201',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Minden másodperc, számolva.',
   'login.brand.subtitle':
     'Folytasd ott az időzítőt, ahol abbahagytad – minden perc már egy projekthez, egy ügyfélhez, egy számlához van rendelve.',
   'login.brand.tracking': 'Nyomon követés',
   'login.subheading': 'Folytasd az időzítőt ott, ahol abbahagytad.',
+  'nav.closeMenu': 'A navigációs menü bezárása',
   'nav.insightsSection': 'Elemzések',
   'nav.newEntry': 'Új bejegyzés',
+  'nav.openMenu': 'Navigációs menü megnyitása',
+  'nav.primary': 'Elsődleges navigáció',
   'nav.workSection': 'Munka',
   'notFound.body':
     'Úgy tűnik, a követett link követése leállt. Menj vissza az irányítópultra \\u2014 onnan folytatjuk a számolást.',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Számlázható',
   'timer.descriptionPlaceholder': 'Min dolgozol?',
   'timer.idle': 'Tétlen – követés indítása',
+  'timer.noProject': 'Nincs projekt',
   'timer.runningWithProject': 'Nincs projekt',
   'timer.start': 'Időzítő indítása',
   'timer.stop': 'Időzítő leállítása',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
   'auth.forgotPassword.emailPlaceholder': 'nombre@tuempresa.com',
   'auth.forgotPassword.heading': 'Restablece tu contraseña.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marcar tarea como completada',
   'checklistTaskCard.markIncomplete': 'Marcar tarea como incompleta',
   'checklistTaskCard.openLabel': 'Abrir tarea',
+  'common.goToDashboard': 'Ir al panel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Estás al día',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'En camino',
   'dashboard.timelineHeading': 'Hitos a 30/60/90 días',
   'dashboard.viewAllTasks': 'Ver todas las tareas',
+  'dashboard.weekOne': 'Semana 1',
   'dashboard.yourCohort': 'Tu equipo',
   'documents.empty.body': 'Los documentos añadidos por tu equipo aparecerán aquí.',
   'documents.empty.title': 'Aún no hay documentos',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Prueba gratuita de 14 días',
   'landing.subhead':
     'Embark guía a cada nuevo compañero a través de sus primeros 90 días: papeleo, formación, hitos y presentaciones significativas, todo en un mismo lugar tranquilo y confiable.',
+  'layout.openMenu': 'Abrir el menú de navegación',
   'layout.search': 'Buscar tareas, documentos, compañeros…',
+  'layout.searchTeammates': 'Buscar compañeros de equipo por nombre o rol…',
   'layout.section.onboarding': 'Incorporación',
   'layout.tagline': 'Tu recorrido comienza aquí',
   'notifications.empty.body': 'La nueva actividad aparecerá aquí.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ayer',
   'planUpdated.message': 'Ya está todo listo.',
   'planUpdated.preparing': 'Actualizando tu plan…',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.documentsLabel': 'documentos',
   'pricing.onboardingsLabel': 'incorporaciones',
   'pricing.tasksLabel': 'tareas',

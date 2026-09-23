@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'forgot.eyebrow': 'Izgubili ste put natrag?',
   'forgot.formSubtitle': 'Recite nam adresu e-pošte koju imamo u dosjeu.',
   'forgot.headline': 'Resetirajte lozinku.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Izradi jedan',
   'login.subline':
     'Vaše bilježnice, povratne veze i dnevne stranice su točno tamo gdje ste ih ostavili.',
+  'mobileNav.closeMenu': 'Zatvori navigacijski izbornik',
+  'mobileNav.openMenu': 'Otvori navigacijski izbornik',
   'noteEditor.backToNotes': 'Natrag na bilješke',
   'noteEditor.bodyPlaceholder': 'Počnite pisati — vaša se bilješka automatski sprema dok tipkate.',
   'noteEditor.confirmTrash': 'Premjestiti ovu bilješku u smeće?',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Nova bilježnica',
   'notes.newNotebookPrompt': 'Naziv novog bilježnice',
   'notes.notebooksHeading': 'Bilježnice',
+  'notes.subtitle':
+    'Odaberite bilježnicu s lijeve strane, a zatim pritisnite gumb Nova bilješka da biste započeli novi unos.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Odaberite svoj plan za bilježenje',
   'reset.eyebrow': 'Skoro opet unutra',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Ažurirano',
   'versoLayout.nav.graph': 'Grafikon',
   'versoLayout.nav.home': 'Dom',
+  'versoLayout.primaryNavLabel': 'Primarna navigacija',
   'versoNoteCard.pinned': 'Prikvačeno',
   'versoTodayHero.continueCta': 'Nastavi pisati',
   'versoTodayHero.createCta': 'Započnite današnju bilješku',

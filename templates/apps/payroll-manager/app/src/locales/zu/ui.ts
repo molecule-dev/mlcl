@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'auditLog.empty':
     'Azikho izehlakalo zokuhlola ezifana nezihlungi zakho okwamanje. Hlela isisebenzi noma ucubungule ukukhokhelwa futhi sizovela lapha.',
   'auditLog.eyebrow': 'Ukuthobela imithetho',
+  'auditLog.loadError': 'Ayikwazanga ukulayisha ilogi yokuhlola.',
   'auditLog.searchPlaceholder': 'Sesha ngomlingisi, isenzo, noma incazelo',
   'auditLog.subheading':
     'Konke ukuvunyelwa, ukuhlela, kanye nokufakwa kwentela — nomlingisi, isitembu sesikhathi, kanye nezinkambu ezishintshiwe.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Akulungiselelwe',
   'billing.plansHeading': 'Amacebo',
   'billing.subheading': 'Phatha uhlelo lwakho bese ushintsha amazinga nge-Stripe.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Zama futhi',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Isithombe sokuthobela imithetho',
   'dashboard.compliance.title': 'Wonke amasheke ayaphumelela',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Akukho zinkokhelo ezigciniwe.',
   'employeeDetail.notFound': 'Isisebenzi asitholakalanga.',
   'employeeDetail.payFrequency': 'Imvamisa yokukhokha',
+  'employeeDetail.postTax': 'Ngemva kwentela',
+  'employeeDetail.preTax': 'Ngaphambi kwentela',
   'employeeDetail.salary': 'Umholo wonyaka',
   'employeeDetail.ssn': 'I-SSN',
   'employeeDetail.startedOn': 'Kuqalile {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Imvamisa yokukhokha',
   'employeeForm.salary': 'Umholo wonyaka (i-USD)',
   'employeeForm.salaryInvalid': 'Umholo kumele ube inombolo engeyona engembi.',
+  'employeeForm.saveError': 'Ayikwazanga ukusindisa isisebenzi.',
   'employeeForm.semimonthly': 'Inyanga ngayinye',
   'employeeForm.single': 'Oyedwa',
   'employeeForm.ssn': 'I-SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Umholo',
   'forgotPassword.subtitle':
     'Faka i-imeyili yakho yomsebenzi bese sizokuthumela isixhumanisi sokusetha kabusha.',
+  'landing.copyright': '© {{year}} {{app}} . Kunembile, kuthembekile, kubhaliwe.',
   'landing.ctaBody':
     'Kumahhala izinsuku ezingu-30. Akukho khadi lesikweletu. Shintsha noma nini ngaphandle kokulahlekelwa umkhondo wakho wokuhlola.',
   'landing.ctaHeading': 'Qalisa umjikelezo wakho olandelayo ku-Stipend',
@@ -108,6 +116,7 @@ export const ui: UiTranslations = {
     'Akukho okufakiwe kokuhlolwa kwamabhuku kwalolu hlelo lokukhokha okwamanje.',
   'payRunDetail.noStubs':
     'Azikho izitatimende zokukhokha okwamanje — vuma futhi ucubungule ukuze uzikhiqize.',
+  'payRunDetail.notFound': 'Lokhu kukhokhelwa akutholakalanga.',
   'payRunDetail.statDeductions': 'Izinciphiso',
   'payRunDetail.statHeadcount': 'Abasebenzi',
   'payRunDetail.statTaxes': 'Intela egodliwe',
@@ -224,7 +233,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Inyanga ngayinye',
   'settings.signOutDevice': 'Phuma ngemvume',
   'settings.subheading': 'Iphrofayili yenkampani, ishejuli yomholo, kanye nokuhlanganiswa kwayo.',
+  'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'settings.weekly': 'Masonto onke',
   'taxCenter.bucket.federal': 'Imali engenayo kahulumeni',
   'taxCenter.bucket.fica': 'Ukuphepha komphakathi',

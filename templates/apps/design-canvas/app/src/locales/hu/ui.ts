@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'authShell.brandHeading': 'Pixel-pontos vásznak az együtt dolgozó tervezőcsapatok számára.',
   'canvas.redirecting': 'Szerkesztő megnyitása…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'és',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.retry': 'Újra',
   'dashboard.activityEmpty': 'Még nincs friss tevékenység — hívj meg egy csapattársat a kezdéshez.',
   'dashboard.activityTitle': 'Mi változott ma',
   'dashboard.activityViewAll': 'Az összes értesítés megtekintése',
@@ -16,12 +19,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Munkaterület · Northwind Studio',
   'dashboard.foldersLabel': 'Mappák',
   'dashboard.gridTitle': '{{count}} projekt',
+  'dashboard.heroActiveTool': 'Toll eszköz',
   'dashboard.loadingTitle': 'Projektek betöltése…',
   'dashboard.searchPlaceholder': 'Projektek keresése',
   'dashboard.startFromTemplate': 'Kezdés sablonból',
   'dashboard.title': 'A projektjeid',
   'dashboard.untitledProject': 'Névtelen projekt',
   'designCanvasLayout.newProject': 'Új projekt',
+  'designCanvasLayout.primaryNavLabel': 'Elsődleges navigáció',
   'editor.backToProjects': 'Vissza a projektekhez',
   'editor.deleteShape': 'Alakzat törlése',
   'editor.errorBody': 'Nem tudtuk megnyitni ezt a projektet.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Tervezzen olyan eszközöket, amelyek a kezei sebességével mozognak',
   'library.empty': 'Ebben a részben még nincsenek tokenek.',
   'library.eyebrow': 'Munkaterület · Atelier Design System',
+  'library.loadFailed': 'Nem sikerült betölteni a tervezési tokeneket.',
   'library.systemMeta': 'Rendszerállapot',
   'library.systemSummary':
     '{{tokenek}} zsetonok · {{alkatrészek}} alkatrészek · {{effektusok}} hatások',

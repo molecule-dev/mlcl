@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.title': 'Skrifherbergi sem þú getur geymt í vasanum',
   'billing.cancelConfirm': 'Hætta við virka áskrift?',
   'billing.cancelFailed': 'Gat ekki hætt við.',
   'billing.checkingOut': 'Opnar afgreiðslu…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Ekki tókst að hlaða inn reikning.',
   'billing.loading': 'Hleður inn reikninga…',
   'billing.upgradeCta': 'Uppfæra í {{name}}',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'editor.autosaveOn': 'Sjálfvirk vistun virk',
   'editor.backToLibrary': 'Til baka í bókasafnið',
   'editor.charCount': '{{count}} persónur',
   'editor.confirmTrash': 'Færa þetta skjal í ruslið?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Losað',
   'editor.unpublishCta': 'Færa í drög',
   'editor.unpublished': 'Aftur í drög',
+  'focus.autosaveOn': 'Sjálfvirk vistun virk',
   'focus.backToLibrary': 'Til baka í bókasafnið',
   'focus.bodyPlaceholder': 'Ein röð í einu. Enginn annar er hér.',
   'focus.exit': 'Hætta fókusstillingu',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Búa til einn',
   'login.subline':
     'Handritin þín, dagsíður og síðasta bendillinn eru nákvæmlega þar sem þú skildir þau eftir.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'pricing.exports': 'útflutningur',
   'pricing.folders': 'möppur',
   'pricing.heading': 'skjöl',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Sláðu inn kóðann sem við sendum þér í tölvupósti og veldu eitthvað sem þú munt muna. Við skráum þig inn um leið og hann hefur verið vistaður.',
   'reset.tokenHint': 'Límt úr pósthólfinu þínu.',
+  'settings.appearance.heading': 'Ljós eða dökk',
   'settings.editor.${row.id}.description': 'Tungumál',
   'settings.editor.description':
     'Skrunun á ritvél, dofnun á málsgreinum og fókus í biðstöðu — sjálfgefnar stillingar eru stilltar fyrir langar lotur.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Þriðji kafli — Kyrrðarstund fyrir sólarupprás',
   'versalDocumentCard.pinned': 'Fest',
   'versalLayout.nav.stats': 'Tölfræði',
+  'versalLayout.primaryNavLabel': 'Aðalflakk',
   'versalManuscriptHero.cta': 'Haltu áfram að skrifa',
   'versalManuscriptHero.goalLabel': 'Orðamarkmið dagsins',
   'versalManuscriptHero.inProgress': 'Á réttri leið',

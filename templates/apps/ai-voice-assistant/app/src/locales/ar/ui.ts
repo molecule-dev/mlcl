@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'هل لديك ملاحظات، أو طلب لإضافة ميزة، أو اكتشفت خطأً ما؟ تواصل مع فريق {{app}} عبر رابط الدعم الموجود في قائمة حسابك — فكل رسالة تصل إلى شخص حقيقي.',
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
   'agentDetail.back': 'كل الوكلاء',
   'agentDetail.capabilities': 'القدرات',
   'agentDetail.delete': 'حذف الشخصية',
   'agentDetail.deleteConfirm': 'هل تريد حذف هذه الشخصية؟ لا يمكن التراجع عن هذا الإجراء.',
+  'agentDetail.deleteError': 'تعذر حذف الشخصية.',
   'agentDetail.eyebrow': 'شخصية',
   'agentDetail.fetchError': 'تعذّر تحميل الشخصية.',
   'agentDetail.save': 'حفظ الشخصية',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'جارٍ التبديل…',
   'billing.updateError': 'تعذّر بدء التحديث.',
   'billing.usageHeading': 'استخدام الصوت في هذه الدورة',
+  'chatBubble.source.text': 'نص',
+  'chatBubble.source.voice': 'الصوت',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'conversation.defaultTitle': 'محادثة جديدة',
   'conversation.empty': 'لا توجد رسائل بعد. ابدأ بقول شيء أو الكتابة أدناه.',
   'conversation.eyebrow': 'جلسة مباشرة',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'ذكاء يتحدّث.',
   'landing.heroSubtitle':
     'المساعد الصوتي بالذكاء الاصطناعي الذي يفهم تدفّقك الطبيعي. حاوِر وابتكر وأمُر — بسلاسة.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'أستمع…',
   'landing.naturallyBody':
     'لا توجد كلمات تنبيه. لا أوامر صارمة. تفهم Vox السياق والمقاطعات ودقائق الكلام البشري — كالدردشة مع زميل.',
@@ -108,6 +116,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'افتح جلسة',
   'notFound.home': 'العودة إلى الرئيسية',
   'notFound.title': 'لم نستطع سماع تلك الصفحة.',
+  'parlanceLayout.closeMenu': 'إغلاق القائمة',
+  'parlanceLayout.openMenu': 'فتح قائمة التنقل',
   'parlanceLayout.primaryNavLabel': 'التنقّل الرئيسي',
   'pricing.conversations': '{{count}} محادثة',
   'pricing.cta.startFree': 'ابدأ مجّانًا',
@@ -144,6 +154,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'لا توجد مطابقات',
   'search.eyebrow': 'لوحة الأوامر',
   'search.fetchError': 'تعذّر تحميل فهرس البحث.',
+  'search.static.profile.preview': 'الاسم المعروض، الاسم المستعار، السيرة الذاتية',
   'search.static.voice.title': 'صوت',
   'search.title': 'ابحث في Vox',
   'search.transcriptPreview': 'فتح النصّ',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ի մասին',
+  'appNav.mobileLabel': 'Հիմնական նավիգացիա',
+  'appNav.primaryLabel': 'Հիմնական նավիգացիա',
   'billing.actions.confirmCancel':
     'Չեղարկե՞լ ձեր բաժանորդագրությունը։ Կարող եք վերաբաժանորդագրվել ցանկացած պահի։',
   'billing.actions.paused': 'Բաժանորդագրությունը դադարեցված է։',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Յուրաքանչյուր մակարդակ փոքր խմբաքանակով պատմություն է։ Ավելացրեք մեկը ձեր հերթին կամ տեղափոխեք այն ձեր հաջորդ ամսվա մեջ։',
   'boxThemeCard.perMonth': '/ ամիս',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'customize.eyebrow': 'Դարձրեք այն ձերը',
   'customize.heading': 'Անհատականացրեք ձեր հաջորդ գանձարանը',
   'customize.items.exclude': 'Բաց թողնել սա',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Այս մրցաշրջանում',
   'landing.editions.heading': 'Մեր կազմակերպիչների սիրելի հրատարակությունները',
   'landing.footer.contact': 'Խոսեք կուրատորի հետ',
+  'landing.footer.tagline': '{{tagline}}։',
   'landing.hero.ctaPrimary': 'Սկսեք ձեր տուփը →',
   'landing.hero.ctaSecondary': 'Տեսնել մակարդակները',
   'landing.hero.eyebrow': 'Ամսական կտրվածքով։ Միշտ անձնական։',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ՁԵՐ ՀԱՋՈՐԴ ԳԱՆՁԸ',
   'nextBoxHeroCard.itemsLabel': 'Ընտրված տարրեր',
   'nextBoxHeroCard.shipsOnLabel': 'Առաքվում է',
+  'notFound.body':
+    'Մենք չկարողացանք գտնել այդ էջը {{app}} արխիվում։ Հնարավոր է՝ այն այլևս չի գործում կամ պարզապես սխալ է տպագրվել։',
   'notFound.cta.dashboard': 'Անցնել վահանակ',
   'notFound.eyebrow': 'Դատարկ տուփ',
   'notFound.heading': 'Այս դարակը դատարկ է',

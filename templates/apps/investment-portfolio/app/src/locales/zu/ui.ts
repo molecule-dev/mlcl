@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Amathuluzi engcebo',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Akuyona iseluleko sokutshala imali.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) namuhla',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Akukho ukuthengiselana kwale ticker.',
   'assetDetail.txHeading': 'Ukuthengiselana kwakho',
   'common.and': 'futhi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Ukubuka konke kwephothifoliyo',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Azikho izimali ezibanjiwe okwamanje.',
   'holdings.heading': 'Ukubamba',
   'holdings.loadError': 'Yehlulekile ukulayisha izinto ezibanjiwe.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Akuyona iseluleko sokutshala imali. Ukusebenza kwesikhathi esidlule akuqinisekisi imiphumela yesikhathi esizayo.',
   'landing.eyebrow': 'I-Argent · Ipulatifomu yokusebenzisa ingcebo',
   'landing.features.heading': 'Konke umeluleki angazakhela kona.',
   'landing.finalCta.heading': 'Buyisela isiyalo kuphothifoliyo yakho.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} edlule',
   'news.justNow': 'khona manje',
   'news.loadError': 'Yehlulekile ukulayisha izindaba.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'portfolioHeroCard.label': 'Inani lephothifoliyo',
   'pricing.holdingsLabel': 'izimpahla ezibanjiwe',
   'pricing.newsLabel': 'izihloko zezindaba',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Susa i-akhawunti',
   'settings.security.deleting': 'Iyasusa…',
   'settings.security.heading': 'Ukuphepha',
+  'settings.security.newPassword': 'Iphasiwedi Entsha',
   'settings.security.password': 'Iphasiwedi',
   'settings.security.twoFactorEnable': 'Nika amandla',
+  'settings.security.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.security.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'settings.tax.error': 'Ayikwazanga ukubuyekeza indlela yentela.',
   'settings.tax.heading': 'Ukubalwa kwezimali kwentela',
   'settings.tax.method': 'Indlela ezenzakalelayo',

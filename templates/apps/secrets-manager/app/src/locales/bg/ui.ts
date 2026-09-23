@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'about.tagline': 'Тайните умират наяве.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Създаване на токен',
   'apiTokens.kicker': 'API токени',
   'apiTokens.loading': 'Зареждане на токени…',
+  'apiTokens.new': 'Нов токен',
   'apiTokens.revoke': 'Отмяна на токен',
   'apiTokens.subheading':
     'Лични и сервизни токени за Arcanum CLI и SDK. Необработен текст, показван веднъж при създаването.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'Единичен вход + парола',
   'authShell.zeroKnowledge': 'Криптиране с нулево знание',
   'common.connecting': 'Свързване…',
+  'common.goToDashboard': 'Към таблото',
   'common.inviting': 'Поканване…',
   'forgotPassword.checkInbox':
     'Ако {email} е регистриран, подписан линк за нулиране ще пристигне в рамките на една минута.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Състояние на ротацията, предупреждения за аномалии и заявки за одобрение във всеки трезор.',
   'notifications.unreadEmpty': 'Входяща поща нула — всичко е наваксано.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.heading': 'тайни',
   'pricing.limits.accessPolicies': 'правила за достъп',
   'pricing.limits.auditLog': 'записи в журнала за одит',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Личен акаунт',
   'profile.plan.description': 'Управлявайте абонамента си, вижте ограниченията и надстройте.',
   'profile.subheading': 'Самоличност, устройства с вторичен фактор за сигурност и активни сесии.',
+  'profile.twoFactor.code': 'Код за удостоверяване',
   'profile.twoFactor.disable': 'Деактивирай',
   'profile.twoFactor.enable': 'Активирай',
+  'profile.twoFactor.invalidCode': 'Невалиден код',
   'profile.twoFactor.kicker': 'Двуфакторно удостоверяване',
+  'profile.twoFactor.off': 'Не е активирано',
   'profile.twoFactor.on': 'Активирано',
   'resetPassword.email': 'Имейл адрес на акаунта',
   'resetPassword.heading': 'Задаване на нови идентификационни данни',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'команди',
   'secretsManagerLayout.encrypted': 'AES-256 · КРИПТИРАНО',
   'secretsManagerLayout.newVault': 'Нов трезор',
+  'secretsManagerLayout.newVaultShort': 'Ново',
   'secretsManagerLayout.rotations': 'Ротации',
   'secretsManagerLayout.search': 'търсене',
   'secretsManagerLayout.searchPlaceholder': 'Търсене на тайни по ключ, път или етикет…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Тайни',
   'vaultCard.vaultLabel': 'Трезор',
   'vaultDetail.addSecret': 'Добави тайна',
+  'vaultDetail.back': 'Всички трезори',
   'vaultDetail.col.key': 'Ключ',
   'vaultDetail.col.rotated': 'Завъртяно',
   'vaultDetail.col.value': 'Стойност',

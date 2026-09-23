@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'auditLog.empty':
     'Kò sí ìṣẹ̀lẹ̀ àyẹ̀wò tó bá àwọn àlẹ̀mọ́ rẹ mu. Ṣàtúnṣe òṣìṣẹ́ kan tàbí ṣe àgbékalẹ̀ ìsanwó wọn yóò sì hàn níbí.',
   'auditLog.eyebrow': 'ibamu',
+  'auditLog.loadError': 'Kò le gbé àkọsílẹ̀ ìṣàyẹ̀wò náà sórí ìkànnì.',
   'auditLog.searchPlaceholder': 'Ṣe àwárí nípasẹ̀ òṣèré, ìṣe, tàbí àpèjúwe',
   'auditLog.subheading':
     'Gbogbo ìfọwọ́sowọ́pọ̀, àtúnṣe, àti ìforúkọsílẹ̀ owó orí — pẹ̀lú òṣèré, àmì àkókò, àti àwọn pápá tí a yípadà.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'A ko ṣeto',
   'billing.plansHeading': 'Àwọn ètò',
   'billing.subheading': 'Ṣàkóso ètò rẹ kí o sì yí àwọn ipele padà nípasẹ̀ Stripe.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Àwòrán ìfaramọ́ tó wà ní ìbámu pẹ̀lú ìlànà',
   'dashboard.compliance.title': 'Gbogbo awọn ṣẹ́kì ti n lọ',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Ko si awọn iyọkuro lori faili.',
   'employeeDetail.notFound': 'A kò rí òṣìṣẹ́.',
   'employeeDetail.payFrequency': 'Ìwọ̀n ìgbà tí a ó sanwó',
+  'employeeDetail.postTax': 'Lẹ́yìn owó-orí',
+  'employeeDetail.preTax': 'Ṣáájú owó-orí',
   'employeeDetail.salary': 'Owó oṣù ọdọọdún',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Ti bẹ̀rẹ̀ {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Ìwọ̀n ìgbà tí a ó sanwó',
   'employeeForm.salary': 'Owó oṣù ọdọọdún (USD)',
   'employeeForm.salaryInvalid': 'Owó oṣù gbọ́dọ̀ jẹ́ nọ́mbà tí kìí ṣe òdì.',
+  'employeeForm.saveError': 'Kò le gba oṣiṣẹ là.',
   'employeeForm.semimonthly': 'Ní ìdáméjì-oṣooṣù',
   'employeeForm.single': 'Ẹnìkan',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Òṣìṣẹ́',
   'employeesTable.col.salary': 'Owó oṣù',
   'forgotPassword.subtitle': 'Tẹ imeeli iṣẹ rẹ sii a o si fi ọna asopọ atunto ranṣẹ.',
+  'landing.copyright': '© {{year}} {{app}} . Ó péye, ó ṣeé gbẹ́kẹ̀lé, ó sì kọ ọ́.',
   'landing.ctaBody':
     'Ọfẹ fun ọjọ 30. Ko si kaadi kirẹditi. Yi akoko pada laisi pipadanu ipadanu ayẹwo rẹ.',
   'landing.ctaHeading': 'Ṣiṣe iyipo atẹle rẹ lori Stipend',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Àwọn ìforúkọsílẹ̀',
   'payRunDetail.noActivity': 'Kò sí ìforúkọsílẹ̀ àyẹ̀wò fún iṣẹ́ ìsanwó yìí.',
   'payRunDetail.noStubs': 'Kò sí ìwé ìsanwó kankan síbẹ̀ — fọwọ́ sí i kí o sì ṣe àgbékalẹ̀ rẹ̀.',
+  'payRunDetail.notFound': 'A kò rí iṣẹ́ owó oṣù yìí.',
   'payRunDetail.statDeductions': 'Àwọn ìyọkúrò',
   'payRunDetail.statHeadcount': 'Àwọn òṣìṣẹ́',
   'payRunDetail.statTaxes': 'Àwọn owó orí tí a dẹ́kun',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Ní ìdáméjì-oṣooṣù',
   'settings.signOutDevice': 'Jáde',
   'settings.subheading': 'Ìwífún ilé-iṣẹ́, ìṣètò ìsanwó, àti ìṣọ̀kan.',
+  'settings.twoFactorCode': 'Kóòdù ìfàṣẹsí',
   'settings.twoFactorDisable': 'Mu ṣiṣẹ',
+  'settings.twoFactorInvalidCode': 'Kóòdù tí kò tọ́',
+  'settings.twoFactorVerify': 'Ṣàyẹ̀wò kí o sì mú un ṣiṣẹ́',
   'settings.weekly': 'Lọ́sọ̀ọ̀sẹ̀',
   'taxCenter.bucket.federal': 'Owó oṣù àpapọ̀',
   'taxCenter.bucket.fica': 'Owo baba',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'analytics.col.quorum': 'Päätösvaltaisuus',
   'analytics.col.votes': 'Äänet',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Ei vielä vireillä olevia kysymyksiä.',
   'audienceQa.onStageEyebrow': 'Lavalla nyt',
   'audienceQa.pollId': 'kysymys · {{id}}',
+  'audienceQa.promote': 'Edistää',
   'audienceQa.queued': 'jonossa',
   'audienceQa.queueEyebrow': 'Jono',
   'ballot.eyebrow': 'Äänestä',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Olet tällä hetkellä {{plan}} suunnitelma.',
   'billing.switch': 'Vaihda',
   'billing.upgraded': 'Päivitetty {{plan}} — rajoitukset sovelletaan välittömästi.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'createPoll.addOption': 'Lisää vaihtoehto',
   'createPoll.anonymousHint':
     'Äänestäjien nimet piilotetaan lokitiedostoon; ääntenlaskennan todennukset pysyvät voimassa.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Uusi Nosh-käyttäjä?',
   'login.remember': 'Muista minut 30 päivää',
   'login.subheading': 'Avaa lattia, juokse huoneessa ja vahvista tulos.',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'notFound.body':
     'Sivu, jota yritit käyttää, on suljettu tai siirretty. Palaa hallintapaneeliin tai avaa uusi kysely.',
   'notFound.eyebrow': 'Ei päätösvaltaisuutta tällä reitillä',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Tämän kyselyn lataaminen epäonnistui.',
   'pollDetail.loading': 'Ladataan kyselyä…',
   'pollDetail.notFound': 'Kyselyä ei löytynyt.',
+  'pollDetail.openBallot': 'Avoin äänestys',
   'pollDetail.openLive': 'Live-tulokset',
   'pollDetail.pollId': 'kysely · {{id}}',
   'pollDetail.published': 'Äänestys julkaistu – äänestäjät voivat nyt äänestää.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Hae sähköpostitse…',
   'voters.subheading':
     'Kuratoi äänioikeutettujen luetteloa. Ryhmittele äänestäjät organisaation mukaan painotettuja äänestyslippuja varten.',
+  'votingPollingLayout.nav.analytics': 'Analytiikka',
+  'votingPollingLayout.nav.billing': 'Laskutus',
+  'votingPollingLayout.nav.createPoll': 'Uusi kysely',
+  'votingPollingLayout.nav.dashboard': 'Kojelauta',
+  'votingPollingLayout.nav.notifications': 'Ilmoitukset',
+  'votingPollingLayout.nav.settings': 'Asetukset',
+  'votingPollingLayout.nav.team': 'Tiimi',
+  'votingPollingLayout.nav.voters': 'Äänestäjät',
+  'votingPollingLayout.primaryNavLabel': 'Päänavigaatio',
 }

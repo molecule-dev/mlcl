@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'accountSettings.confirmEmailLabel': 'Typ DELETE om te bevestigen',
   'accountSettings.deleteError': 'Kon account niet verwijderen.',
   'accountSettings.passwordError': 'Kon wachtwoord niet wijzigen.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Geen naderende deadlines.',
   'dashboard.upcomingTitle': 'Aankomende deadlines',
   'deviceSettings.unknownDevice': 'Onbekend apparaat',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Ondersteuning',
   'forgotPassword.error': 'Het verzenden van de resetlink is mislukt.',
   'forgotPassword.subtitle': 'Voer uw e-mailadres in en we sturen u een resetlink.',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ongeldig e-mailadres of wachtwoord.',
   'login.pageTitle': 'Inloggen',
   'login.signIn': 'Meld u aan bij Forge',
+  'login.subtitle': 'Meld u aan om uw projecten op schema te houden.',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'nav.calendar': 'Agenda',
   'nav.legal': 'Juridisch',
   'nav.myTasks': 'My Tasks',

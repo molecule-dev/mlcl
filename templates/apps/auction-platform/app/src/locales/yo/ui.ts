@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Wiwo',
   'auctionDetail.watchRemoved': 'A yọ ọ́ kúrò nínú àkójọ àwọn tó ń wò ó.',
   'auctionDetail.watchRemoveLabel': 'Yọ kuro ninu akojọ wiwo',
+  'auctionPlatformLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'authShell.brandBody':
     'Ṣe ìtajà ní àkókò gidi lórí àwọn aago tó ṣọ̀wọ́n, àwọn iṣẹ́ ọnà tó dára, àti àwọn ohun pàtàkì tó yàtọ̀ síra. Ìtajà náà máa ń lọ ní ìṣẹ́jú díẹ̀.',
   'authShell.brandEyebrow': 'Láyé nísinsìnyí · Àwọn ìtajà 1,420',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sa pelu',
   'browseAuctions.subheading':
     'Àlẹ̀mọ́ nípa ẹ̀ka, to àwọn ohun tó ṣe pàtàkì jùlọ, kí o sì fi ìforúkọsílẹ̀ sílẹ̀ kí gavel tó jábọ́.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'countdownTimer.ended': 'Ti pari',
   'countdownTimer.endingSoon': 'Òpin',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'login.subtext':
     'Tẹ̀síwájú láti máa tọ́pasẹ̀ àwọn ọjà ìtajà rẹ kí o sì máa fi àwọn ìtajà sílẹ̀ kí gavel tó jábọ́.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'myBids.bidAgain': 'Ṣe ìforúkọsílẹ̀ lẹ́ẹ̀kan síi',
   'myBids.browseCta': 'Wo awọn titaja laaye →',
   'myBids.checkoutCta': 'Sanwo nisinsinyi',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Ko si awọn iwifunni sibẹsibẹ.',
   'notificationsPage.eyebrow': 'Ile-iṣẹ iṣe',
   'notificationsPage.subheading': '{{count}} Àìkà · àwọn àtúnṣe láyìíká bí àwọn ìtajà ṣe ń lọ',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.bidsLabel': 'awọn idu',
   'pricing.listingsLabel': 'àwọn àkójọ',
   'pricing.watchlistLabel': 'àkójọ àwọn tí a ń wò',

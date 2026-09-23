@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Par {{app}}',
   'analytics.back': 'Aptaujas pārskats',
   'analytics.kpiNps': 'NPS rādītājs',
   'analytics.kpiNpsTrend': 'Reklāmdevēji {{p}} % · Nelabvēļi {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Īpašumi',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Aptaujas nosaukums',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'forgotPassword.failed': 'Nevarēja nosūtīt atiestatīšanas e-pastu. Lūdzu, mēģiniet vēlreiz.',
   'forgotPassword.subheading':
     'Ievadiet savu e-pasta adresi, un mēs nosūtīsim jums atkopšanas saiti.',
   'forgotPassword.successBody':
     'Ja konts atbilst {{email}} , atiestatīšanas saite ir ceļā. Pārbaudiet savu iesūtni un surogātpasta mapes.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Visas balsis ir laipni gaidītas.',
   'landing.footer.startTrial': 'Sākt izmēģinājuma periodu',
   'landing.hero.badge': 'Aptaujas, NPS un atsauksmes vienuviet',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Cenu noteikšana',
   'landing.pricing.perMonth': '/mēn.',
   'landing.pricing.popular': 'Populārākais',
+  'landing.pricing.subtitle':
+    'Katrā plānā ir iekļauts aptauju veidotājs, publiskas kopīgošanas saites un NPS analītika. Lai sāktu darbu, kredītkarte nav nepieciešama.',
+  'landing.pricing.title': 'Sāciet bez maksas, palieliniet, kad tas izdosies.',
   'landing.sample.eyebrow': 'NPS īsumā',
   'landing.sample.title': 'Kritiķi, pasīvie, atbalstītāji — acumirklī salasāmi.',
   'login.failed': 'Pieslēgšanās neizdevās. Lūdzu, mēģiniet vēlreiz.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Rādīt paroli',
   'login.signUpLink': 'Sāciet bezmaksas izmēģinājuma versiju',
   'login.subheading': 'Pierakstieties, lai turpinātu uzklausīt savu auditoriju.',
+  'notFound.body': 'Meklētā lapa pakalpojumā {{app}} neeksistē. Atgriezīsimies pie aptaujām.',
   'notFound.cta': 'Atpakaļ pie aptaujām',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Šī aptauja novirzījās no rindas.',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasīvi 7–8',
   'npsDistributionBar.promoter': '9.–10. klases veicinātājs',
   'profile.identity.description': 'Publiski pieejama jūsu komandai un jūsu veidotajās aptaujās.',
+  'profile.identity.emailRequired': 'Ievadiet e-pasta adresi.',
   'profile.identity.saveCta': 'Saglabāt nosaukumu',
   'profile.password.current': 'Pašreizējais paroles',
   'profile.password.fillFields': 'Ievadiet gan pašreizējo, gan jauno paroli.',
@@ -116,6 +124,8 @@ export const ui: UiTranslations = {
   'responses.tableMeta': 'Rāda {{count}}',
   'responses.tableTitle': 'Jaunākās atbildes',
   'responsesHeroCard.npsLabel': 'Vidējais NPS',
+  'responsesHeroCard.subtitle':
+    'Vidēji atbildes sniegšanai nepieciešams {{time}} — lai saglabātu impulsu, uzdodiet īsus jautājumus.',
   'responsesHeroCard.title': 'Šonedēļ apkopotās atbildes',
   'settings.billing.canceled': 'Abonements ir atcelts.',
   'settings.billing.description': 'Izvēlieties plānu, kas atbilst jūsu darba stilam.',
@@ -174,6 +184,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} jautājumi',
   'templates.subheading':
     'Izvēlieties pārbaudītu iesācēja veidni — katra veidne ir iepriekš noregulēta ar saprātīgiem noklusējuma iestatījumiem, parauga loģiku un tīru mobilo izkārtojumu.',
+  'thankYou.body':
+    'Jūsu atbilde ir ierakstīta. {{app}} to iekļaus nākamajā analītikas atjauninājumā.',
   'thankYou.eyebrow': 'Atbilde saņemta',
   'thankYou.heading': 'Paldies — jūsu balsij ir nozīme.',
   'thankYou.home': 'Apmeklējiet Gauge',

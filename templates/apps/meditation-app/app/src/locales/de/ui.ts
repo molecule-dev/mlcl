@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
+  'about.eyebrow': 'Über {{app}}',
+  'about.intro':
+    '{{app}} ist eine Meditations-App für den Alltag – tägliche geführte Meditationen, Atemübungen und Einschlafgeschichten, angeleitet von freundlichen Lehrern, die sich eher wie Freunde als wie Trainer anfühlen. Kein schlechtes Gewissen wegen fehlender Übungseinheiten, kein störender Feed: einfach ein ruhiger Ort, um wieder zu deinem Atem zurückzufinden.',
+  'about.missionBody':
+    'Wir glauben, dass Stille für jeden zugänglich sein sollte, jederzeit. {{app}} wurde entwickelt, um eine ruhige, regelmäßige Praxis mühelos zu gestalten – damit zehn bewusste Minuten verändern können, wie Sie die nächsten zehn Stunden erleben.',
+  'about.missionTitle': 'Unsere Mission',
+  'about.pageTitle': 'Zehn ruhigere Minuten pro Tag',
+  'breathingDial.seconds': 'Sekunden',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.logout': 'Abmelden',
   'common.min': 'Min.',
   'common.relative.justNow': 'gerade eben',
   'common.relative.now': 'jetzt',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
+  'nav.secondaryNavigation': 'Kontonavigation',
   'sessionCard.with': 'mit {{name}}',
   'stillpoint.billing.choose': '{{plan}} wählen',
   'stillpoint.billing.currentPlan': 'Aktuell im Tarif {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Tarife konnten nicht geladen werden.',
   'stillpoint.billing.opening': 'Kasse wird geöffnet…',
   'stillpoint.billing.perMonthShort': '/ Monat',
+  'stillpoint.billing.perYearShort': '/Jahr',
   'stillpoint.billing.unknownResult': 'Unerwartete Abrechnungsantwort.',
   'stillpoint.billing.yearly': 'Jährlich · 17 % sparen',
   'stillpoint.courseDetail.back': 'Kurse',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Noch keine Kurse.',
   'stillpoint.courses.eyebrow': '{{count}} mehrtägige Reisen',
   'stillpoint.courses.heading': 'Kurse',
+  'stillpoint.forgot.checkEmail':
+    'Bitte prüfen Sie Ihren Posteingang – der Link ist 30 Minuten gültig.',
   'stillpoint.forgot.success': 'Wir haben einen Link zum Zurücksetzen an {{email}} gesendet.',
   'stillpoint.home.empty': 'Noch keine Sitzungen — schauen Sie bald wieder vorbei.',
   'stillpoint.home.friend': 'Freund',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Kostenloses Konto erstellen',
   'stillpoint.landing.cta.title': 'Beginnen Sie heute Ihre Stille',
   'stillpoint.landing.features.heading': 'Eine Praxis, die mit Ihnen wächst',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Tägliche geführte Meditationen, Atemübungen und Schlafgeschichten — angeleitet von Lehrenden, die sich wie Freunde anfühlen, nicht wie Coaches.',
   'stillpoint.landing.hero.eyebrow': '10 ruhigere Minuten am Tag',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Nach Stimmung stöbern',
   'stillpoint.login.rememberMe': 'Angemeldet bleiben',
   'stillpoint.login.subheading': 'Melden Sie sich an, um Ihre Praxis fortzusetzen.',
+  'stillpoint.nav.tagline': 'Finde deine innere Ruhe.',
+  'stillpoint.notFound.body':
+    'Diese Seite atmet gerade tief durch. Lass uns einen ruhigeren Platz für dich in {{app}} finden.',
   'stillpoint.notFound.title': 'In der Stille verloren',
   'stillpoint.notFound.toHome': 'Zurück zu heute',
   'stillpoint.notFound.toLibrary': 'Bibliothek durchsuchen',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 s zurück',
   'stillpoint.player.skipForward': '30 s vor',
   'stillpoint.player.with': 'mit {{name}}',
+  'stillpoint.profile.defaultHandle': 'stillpointer',
   'stillpoint.profile.eyebrow': 'Ihre Praxis, zusammengefasst.',
   'stillpoint.profile.locked': 'Gesperrt',
   'stillpoint.profile.member': 'Stillpoint-Mitglied',

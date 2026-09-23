@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'analytics.channels.empty': "Aucune donnée par canal pour l'instant.",
   'analytics.channels.title': 'Par canal',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Conversations par jour',
   'chatBubble.avatarAlt': 'Avatar de {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'confidenceMeter.label': 'Confiance',
   'conversationDetail.agentName': 'Agent',
   'conversationDetail.aiReplyButton': 'Réponse du bot',
   'conversationDetail.aiReplyError': 'Impossible de générer la réponse IA',
   'conversationDetail.aiReplyLoading': 'Rédaction…',
+  'conversationDetail.aiReplySourceFallback': 'solution de secours (pas de clé IA)',
   'conversationDetail.backAria': 'Retour aux conversations',
   'conversationDetail.composerPlaceholder': 'Répondre au client…',
   'conversationDetail.context.channel': 'Canal',
@@ -157,8 +160,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Définissez un nouveau mot de passe pour votre compte',
   'resetPassword.toggleConfirm': 'Afficher ou masquer la confirmation du mot de passe',
   'resetPassword.togglePassword': 'Afficher ou masquer le mot de passe',
+  'settings.account.emailError': "Échec de la mise à jour de l'adresse e-mail",
   'settings.account.emailLabel': 'Adresse e-mail',
+  'settings.account.emailSaved': 'Adresse e-mail mise à jour',
+  'settings.account.nameError': 'Échec de la mise à jour du nom',
   'settings.account.nameLabel': 'Nom affiché',
+  'settings.account.nameSaved': 'Nom mis à jour',
   'settings.account.title': 'Compte',
   'settings.api.createCta': 'Créer un token',
   'settings.api.description':
@@ -171,10 +178,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Escalader automatiquement quand le sentiment chute',
   'settings.bot.greetingLabel': "Message d'accueil initial",
   'settings.bot.title': 'Configuration du bot',
+  'settings.bot.toneFormal': 'Formel',
   'settings.bot.toneLabel': 'Voix et ton',
   'settings.danger.deleteAccount': 'Supprimer le compte',
+  'settings.danger.deleteError': 'Échec de la suppression du compte',
+  'settings.danger.deleteWarning':
+    'Cette opération supprime définitivement votre compte et toutes les données associées. Elle est irréversible.',
   'settings.danger.deleting': 'Suppression…',
+  'settings.danger.passwordLabel': 'Confirmez votre mot de passe',
   'settings.danger.title': 'Zone dangereuse',
+  'settings.devices.empty': "Aucun appareil n'est enregistré.",
+  'settings.devices.revokeWarning':
+    "L'accès de cet appareil sera bientôt révoqué. Le déconnecter ?",
+  'settings.devices.signingOut': 'Déconnexion…',
   'settings.devices.signOut': 'Se déconnecter',
   'settings.devices.thisDevice': 'Cet appareil',
   'settings.devices.title': 'Appareils',
@@ -187,9 +203,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Impossible de changer le mot de passe',
   'settings.security.currentPassword': 'Mot de passe actuel',
   'settings.security.newPassword': 'Nouveau mot de passe',
+  'settings.security.oauthManaged':
+    "Votre mot de passe est géré par votre fournisseur d'authentification.",
   'settings.security.title': 'Sécurité',
   'settings.security.twoFactorDisable': 'Désactiver',
   'settings.security.twoFactorEnable': 'Activer',
+  'settings.security.twoFactorInvalid': 'Code non valide',
   'settings.subtitle':
     'Réglez la voix de Rapport, ses sources de connaissance et les outils avec lesquels il dialogue.',
   'settings.tokenCreateError': 'Échec de la création du token',

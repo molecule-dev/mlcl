@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.eyebrow': 'درباره {{app}}',
+  'about.intro':
+    '{{app}} یک اپلیکیشن مدیتیشن برای زندگی واقعی است - مدیتیشن‌های روزانه با راهنمایی، تنفس درمانی و داستان‌های خواب که توسط معلمانی که مانند یک دوست هستند، نه یک مربی، ارائه می‌شوند. بدون احساس گناه، بدون سر و صدای زیاد: فقط یک مکان آرام برای بازگشت به تنفس.',
+  'about.missionBody':
+    'ما معتقدیم که سکون باید در هر لحظه از روز برای همه قابل دسترسی باشد. {{app}} وجود دارد تا یک تمرین آرام و مداوم را آسان کند - به طوری که ده دقیقه صادقانه بتواند نحوه برخورد شما با ده ساعت بعدی را تغییر دهد.',
+  'about.missionTitle': 'ماموریت ما',
+  'about.pageTitle': 'ده دقیقه آرامش بیشتر در روز',
+  'breathingDial.seconds': 'ثانیه‌ها',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.logout': 'خروج',
   'common.min': 'دقیقه',
   'common.relative.justNow': 'هم‌اکنون',
   'common.relative.now': 'الان',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
+  'nav.secondaryNavigation': 'پیمایش حساب',
   'sessionCard.with': 'با {{name}}',
   'stillpoint.billing.choose': 'انتخاب کنید {{plan}}',
   'stillpoint.billing.currentPlan': 'در حال حاضر روی {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'ما نتوانستیم نقشه‌ها را بارگذاری کنیم.',
   'stillpoint.billing.opening': 'افتتاح حساب…',
   'stillpoint.billing.perMonthShort': '/ ماه',
+  'stillpoint.billing.perYearShort': '/سال',
   'stillpoint.billing.unknownResult': 'پاسخ غیرمنتظره به صورتحساب.',
   'stillpoint.billing.yearly': 'سالانه · ۱۷٪ صرفه‌جویی کنید',
   'stillpoint.courseDetail.back': 'دوره‌ها',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'هنوز هیچ دوره‌ای وجود ندارد.',
   'stillpoint.courses.eyebrow': '{{count}} سفرهای چند روزه',
   'stillpoint.courses.heading': 'دوره‌ها',
+  'stillpoint.forgot.checkEmail': 'صندوق ورودی خود را بررسی کنید - لینک ظرف 30 دقیقه منقضی می‌شود.',
   'stillpoint.forgot.success': 'ما یک لینک بازنشانی برای شما ارسال کرده‌ایم {{email}} .',
   'stillpoint.home.empty': 'هنوز جلسه‌ای وجود ندارد - به زودی دوباره سر بزنید.',
   'stillpoint.home.friend': 'دوست',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'حساب کاربری رایگان خود را ایجاد کنید',
   'stillpoint.landing.cta.title': 'آرامش خود را از امروز آغاز کنید',
   'stillpoint.landing.features.heading': 'تمرینی که با شما رشد می‌کند',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'مراقبه‌های روزانه، تنفس درمانی و داستان‌های خواب با راهنمایی - توسط معلمانی که احساس یک دوست را دارند، نه یک مربی.',
   'stillpoint.landing.hero.eyebrow': 'ده دقیقه آرامش بیشتر در روز',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'مرور بر اساس خلق و خو',
   'stillpoint.login.rememberMe': 'مرا به خاطر بسپار وارد سیستم شو',
   'stillpoint.login.subheading': 'برای ادامه تمرین وارد شوید.',
+  'stillpoint.nav.tagline': 'مرکز آرامش خود را پیدا کنید',
+  'stillpoint.notFound.body':
+    'این صفحه در جایی نفس عمیق و طولانی می‌کشد. بیایید یک جای آرام‌تر برای شما در {{app}} پیدا کنیم.',
   'stillpoint.notFound.title': 'گم شده در سکوت',
   'stillpoint.notFound.toHome': 'برگشت به امروز',
   'stillpoint.notFound.toLibrary': 'مرور کتابخانه',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '۱۵ ثانیه به عقب برگردید',
   'stillpoint.player.skipForward': 'پرش به جلو در دهه ۳۰',
   'stillpoint.player.with': 'با {{name}}',
+  'stillpoint.profile.defaultHandle': 'هنوز اشاره‌گر',
   'stillpoint.profile.eyebrow': 'خلاصه‌ای از تمرین شما.',
   'stillpoint.profile.locked': 'قفل شده',
   'stillpoint.profile.member': 'عضو استیل‌پوینت',

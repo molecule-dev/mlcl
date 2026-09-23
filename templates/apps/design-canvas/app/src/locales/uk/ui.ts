@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'authShell.brandHeading':
     'Ідеальні до пікселів полотна для дизайнерських команд, які разом розробляють дизайн.',
   'canvas.redirecting': 'Відкриття редактора…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'та',
+  'common.goToDashboard': 'До панелі',
+  'common.retry': 'Спробувати ще раз',
   'dashboard.activityEmpty':
     'Поки що немає нещодавньої активності — запросіть товариша по команді розпочати.',
   'dashboard.activityTitle': 'Що змінилося сьогодні',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Робочий простір · Студія Northwind',
   'dashboard.foldersLabel': 'Папки',
   'dashboard.gridTitle': '{{count}} проєктів',
+  'dashboard.heroActiveTool': 'Інструмент «Перо»',
   'dashboard.loadingTitle': 'Завантаження проєктів…',
   'dashboard.searchPlaceholder': 'Пошук проєктів',
   'dashboard.startFromTemplate': 'Почати з шаблону',
   'dashboard.title': 'Ваші проекти',
   'dashboard.untitledProject': 'Проєкт без назви',
   'designCanvasLayout.newProject': 'Новий проєкт',
+  'designCanvasLayout.primaryNavLabel': 'Основна навігація',
   'editor.backToProjects': 'Назад до проєктів',
   'editor.deleteShape': 'Видалити фігуру',
   'editor.errorBody': 'Нам не вдалося відкрити цей проєкт.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Створюйте інструменти, що рухаються зі швидкістю ваших рук',
   'library.empty': 'У цьому розділі поки що немає токенів.',
   'library.eyebrow': 'Робочий простір · Система дизайну Atelier',
+  'library.loadFailed': 'Не вдалося завантажити токени дизайну.',
   'library.systemMeta': 'Стан системи',
   'library.systemSummary': '{{токени}} жетони · {{компоненти}} компоненти · {{ефекти}} ефекти',
   'login.emailPlaceholder': 'mara@studio.com',

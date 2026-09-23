@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Голоси',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Поки що немає питань, що очікують розгляду.',
   'audienceQa.onStageEyebrow': 'На сцені зараз',
   'audienceQa.pollId': 'якість · {{id}}',
+  'audienceQa.promote': 'Просувати',
   'audienceQa.queued': 'у черзі',
   'audienceQa.queueEyebrow': 'Черга',
   'ballot.eyebrow': 'Віддайте свій голос',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Ви зараз перебуваєте на {{plan}} план.',
   'billing.switch': 'Змінити',
   'billing.upgraded': 'Оновлено до {{plan}} — обмеження застосовуються негайно.',
+  'common.goToDashboard': 'До панелі',
   'createPoll.addOption': 'Додати опцію',
   'createPoll.anonymousHint':
     'Імена виборців приховані в журналі аудиту; підрахунок голосів залишається автентичним.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Вперше в Nosh?',
   'login.remember': "Запам'ятати мене на 30 днів",
   'login.subheading': 'Відкрийте поверх, пройдіться по кімнаті та засвідчіть результат.',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'notFound.body':
     'Сторінку, на яку ви намагалися перейти, закрито або переміщено. Поверніться до панелі керування або відкрийте нове опитування.',
   'notFound.eyebrow': 'Немає кворуму на цьому маршруті',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Не вдалося завантажити це опитування.',
   'pollDetail.loading': 'Завантаження опитування…',
   'pollDetail.notFound': 'Опитування не знайдено.',
+  'pollDetail.openBallot': 'Відкрите голосування',
   'pollDetail.openLive': 'Результати в реальному часі',
   'pollDetail.pollId': 'опитування · {{id}}',
   'pollDetail.published': 'Опитування опубліковано — виборці тепер можуть проголосувати.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Пошук за електронною поштою…',
   'voters.subheading':
     'Сформуйте список виборців, які мають право голосу. Групуйте виборців за організаціями для отримання зважених бюлетенів.',
+  'votingPollingLayout.nav.analytics': 'Аналітика',
+  'votingPollingLayout.nav.billing': 'Білінг',
+  'votingPollingLayout.nav.createPoll': 'Нове опитування',
+  'votingPollingLayout.nav.dashboard': 'Панель керування',
+  'votingPollingLayout.nav.notifications': 'Сповіщення',
+  'votingPollingLayout.nav.settings': 'Налаштування',
+  'votingPollingLayout.nav.team': 'Команда',
+  'votingPollingLayout.nav.voters': 'Виборці',
+  'votingPollingLayout.primaryNavLabel': 'Основна навігація',
 }

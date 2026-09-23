@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'तुमचा पासवर्ड रीसेट करा.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'कार्य पूर्ण झाले म्हणून चिन्हांकित करा',
   'checklistTaskCard.markIncomplete': 'कार्य अपूर्ण म्हणून चिन्हांकित करा',
   'checklistTaskCard.openLabel': 'कार्य उघडा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'तुम्ही सर्व अद्ययावत आहात.',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'मार्गावर',
   'dashboard.timelineHeading': '३०/६०/९० मैलाचे दगड',
   'dashboard.viewAllTasks': 'सर्व कार्ये पहा',
+  'dashboard.weekOne': 'आठवडा १',
   'dashboard.yourCohort': 'तुमची टीम',
   'documents.empty.body': 'तुमच्या टीमने जोडलेली कागदपत्रे येथे दिसतील.',
   'documents.empty.title': 'अद्याप कोणतीही कागदपत्रे नाहीत',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '१४ दिवसांची मोफत चाचणी',
   'landing.subhead':
     'एम्बार्क प्रत्येक नवीन सहकाऱ्याला त्यांच्या पहिल्या ९० दिवसांमध्ये मार्गदर्शन करते — कागदपत्रे, प्रशिक्षण, महत्त्वाचे टप्पे आणि अर्थपूर्ण ओळख, हे सर्व एकाच शांत, आश्वासक ठिकाणी.',
+  'layout.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'layout.search': 'कार्ये, दस्तऐवज, संघसहकारी शोधा…',
+  'layout.searchTeammates': 'सहकाऱ्यांना नावाने किंवा भूमिकेनुसार शोधा…',
   'layout.section.onboarding': 'ऑनबोर्डिंग',
   'layout.tagline': 'तुमचा प्रवास येथून सुरू होतो.',
   'notifications.empty.body': 'येथे नवीन घडामोडी दिसतील.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'काल',
   'planUpdated.message': 'तुमची सर्व तयारी झाली आहे.',
   'planUpdated.preparing': 'तुमची योजना अद्ययावत करत आहे…',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'pricing.documentsLabel': 'कागदपत्रे',
   'pricing.onboardingsLabel': 'ऑनबोर्डिंग',
   'pricing.tasksLabel': 'कार्ये',

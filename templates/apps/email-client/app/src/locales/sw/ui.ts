@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Sisi ni timu iliyosambazwa ya wabunifu na wahandisi ambao hapo awali walitumia saa nyingi sana kila siku kwenye kisanduku cha barua chenye kelele. Courier ndiyo kisanduku cha barua ambacho tulitaka kutumia sisi wenyewe.',
   'about.title': 'Barua pepe kwa kazi inayolenga',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'help.cta.about': 'Kuhusu Courier',
   'help.cta.pricing': 'Tazama bei',
   'help.eyebrow': 'Kituo cha usaidizi',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Majibu ya haraka kwa maswali tunayosikia zaidi. Kuna chochote kinachokosekana? Fungua Mipangilio na utumie fomu ya maoni ya ndani ya programu, au andika kwa support@courier.example.',
   'help.title': 'Tunawezaje kusaidia?',
   'landing.brand.scrollTop': 'Rudi juu',
+  'landing.copyright': '© {{year}} {{appName}} — Imeundwa kwa ajili ya kuzingatia.',
   'landing.ctaBody':
     'Jiunge na maelfu ya wataalamu waliomaliza kikasha chao kabla ya chakula cha mchana.',
   'landing.ctaTitle': 'Usindikaji zaidi, punguza kuguswa.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Tazama onyesho',
   'landing.heroSubtitle':
     'Courier ni kisanduku pokezi tulivu chenye vidirisha vitatu kilichoundwa kwa ajili ya wafanyakazi wa maarifa ambao wanataka kuchakata taarifa, si kuzijibu.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Inaaminika na timu zenye umakini duniani kote',
   'landing.signIn': 'Ingia',
   'meridian.archive.empty': 'Kumbukumbu ni tupu.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Rasimu',
   'meridian.folder.count': '{{count}} ujumbe',
+  'meridian.folder.delete': 'Futa',
   'meridian.folder.deleteForever': 'Futa kabisa',
   'meridian.folder.restore': 'Hamisha hadi kwenye kikasha pokezi',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Hakuna ujumbe hapa bado.',
   'meridian.inbox.loading': 'Inapakia…',
   'meridian.inbox.next': 'Inayofuata',
+  'meridian.inbox.noSender': '(hakuna mtumaji)',
   'meridian.inbox.noSubject': '(hakuna mada)',
+  'meridian.inbox.ofTotal': '{{current}} kati ya {{total}}',
   'meridian.inbox.openCompose': 'Fungua utunzi',
   'meridian.inbox.previous': 'Iliyotangulia',
   'meridian.inbox.replyFailed': 'Jibu limehifadhiwa lakini uwasilishaji umeshindwa: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Huna akaunti?',
   'meridian.login.showPassword': 'Onyesha nenosiri',
   'meridian.message.toLine': 'kwa {{recipients}}',
+  'meridian.notFound.body':
+    'Ukurasa unaoutafuta haukupatikana. Rudi kwenye kikasha chako cha {{appName}} nasi tutakuelekeza kwenye njia sahihi.',
   'meridian.notFound.eyebrow': 'Hitilafu 404',
   'meridian.notFound.title': 'Uzi huu ulihifadhiwa kwenye kumbukumbu.',
   'meridian.notFound.toInbox': 'Fungua kikasha changu cha barua pepe',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Ongeza nyota',
   'meridian.thread.unstar': 'Ondoa nyota',
   'meridian.time.yesterday': 'Jana',
+  'meridian.topBar.openMenu': 'Fungua menyu ya kusogeza',
   'meridian.topBar.searchPlaceholder': 'Tafuta barua pepe',
   'meridian.trash.empty': 'Taka ni tupu.',
   'meridian.trash.title': 'Takataka',
   'nav.legal': 'Kisheria',
   'planUpdated.description':
     'Usajili wako sasa unafanya kazi na bili yako imesasishwa. Karibu kwenye kikasha chako cha barua pepe cha Courier kilichosasishwa.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.heading': 'rasimu',
   'pricing.limit.emails': 'barua pepe',
   'pricing.limit.folders': 'folda',
   'pricing.limit.labels': 'lebo',
   'privacy.collect.account':
     'Data ya akaunti: jina, anwani ya barua pepe, nenosiri lililoharakishwa, na tarehe uliyojisajili.',
+  'privacy.contact': 'Maswali? Tuma barua pepe kwa privacy@courier.example.',
   'privacy.intro':
     'Sera hii ya faragha inaelezea ni data gani Courier inakusanya, kwa nini tunaikusanya, jinsi tunavyoiweka salama, na chaguo gani unazo juu yake. Tunalenga kuwa mahususi badala ya kuwa wa kisheria; ikiwa kuna chochote ambacho hakieleweki, andika kwa privacy@courier.example.',
   'privacy.lastUpdated': 'Ilisasishwa mara ya mwisho: Aprili 1, 2026',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Masharti haya yanatawala matumizi yako ya Courier. Kwa kufungua akaunti au kutuma barua pepe kupitia sisi unakubali kufungwa nayo. Tunajaribu kuandika sheria ambazo mtu anaweza kufuata.',
   'terms.lastUpdated': 'Kuanzia: Aprili 1, 2026',
+  'terms.linkPrivacy': 'Soma Sera yetu ya Faragha →',
   'terms.termination.body':
     'Unaweza kufuta akaunti yako wakati wowote. Tunaweza kusimamisha akaunti inayokiuka masharti haya; tukifanya hivyo, tutaelezea sababu na kukuruhusu kusafirisha data yako kwanza.',
   'terms.warranty.body':

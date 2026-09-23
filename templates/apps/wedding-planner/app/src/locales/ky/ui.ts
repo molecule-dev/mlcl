@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'seating.form.submit': 'Стол кошуу',
   'seating.poolTitle': 'Отургузулбаган конокторуңуз',
   'seating.subtitle':
-    '{{отурган}} отурган<x> {{сыйымдылык}}</x> орундуктар ·<x> {{пул}}</x> бассейнде күтүп жаткан коноктор',
+    '{{seated}} отургандар {{capacity}} орун · бассейнде күтүп турган {{pool}} коноктор',
   'seating.title': 'Отургучтар чиймеси',
   'settings.billing': 'Төлөм',
   'settings.changePassword': 'Сыр сөздү өзгөртүү',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Som un equip distribuït de dissenyadors i enginyers que abans passaven massa hores del dia en una bústia sorollosa. Courier és la bústia d'entrada que volíem utilitzar nosaltres mateixos.",
   'about.title': 'Correu electrònic per a treballs centrats',
+  'common.goToDashboard': 'Anar al panell',
   'help.cta.about': 'Sobre Courier',
   'help.cta.pricing': 'Veure preus',
   'help.eyebrow': "Centre d'ajuda",
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Respostes ràpides a les preguntes que més ens fan sentir. Hi falta alguna cosa? Obre Configuració i utilitza el formulari de comentaris de l'aplicació o escriu a support@courier.example.",
   'help.title': 'Com podem ajudar?',
   'landing.brand.scrollTop': 'Torna a dalt',
+  'landing.copyright': '© {{year}} {{appName}} — Creat per centrar-se en el focus.',
   'landing.ctaBody':
     "Uneix-te a milers de professionals que han acabat la seva safata d'entrada abans de dinar.",
   'landing.ctaTitle': 'Processa més, reacciona menys.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Mira la demostració',
   'landing.heroSubtitle':
     "Courier és una safata d'entrada tranquil·la de tres panells creada per a treballadors del coneixement que volen processar informació, no reaccionar-hi.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': "Confiança d'equips especialitzats a tot el món",
   'landing.signIn': 'Inicia la sessió',
   'meridian.archive.empty': "L'arxiu és buit.",
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Esborrany',
   'meridian.folder.count': '{{count}} missatges',
+  'meridian.folder.delete': 'Suprimeix',
   'meridian.folder.deleteForever': 'Suprimeix permanentment',
   'meridian.folder.restore': "Mou a la safata d'entrada",
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Encara no hi ha missatges aquí.',
   'meridian.inbox.loading': "S'està carregant…",
   'meridian.inbox.next': 'Següent',
+  'meridian.inbox.noSender': '(sense remitent)',
   'meridian.inbox.noSubject': '(sense assumpte)',
+  'meridian.inbox.ofTotal': '{{current}} de {{total}}',
   'meridian.inbox.openCompose': 'Obre la redacció',
   'meridian.inbox.previous': 'Anterior',
   'meridian.inbox.replyFailed': 'Resposta desada però ha fallat el lliurament: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'No tens cap compte?',
   'meridian.login.showPassword': 'Mostra la contrasenya',
   'meridian.message.toLine': 'a {{recipients}}',
+  'meridian.notFound.body':
+    "No s'ha trobat la pàgina que busques. Torna a la safata d'entrada de {{appName}} i t'ajudarem a seguir el bon camí.",
   'meridian.notFound.eyebrow': 'Error 404',
   'meridian.notFound.title': 'Aquest fil ha estat arxivat.',
   'meridian.notFound.toInbox': "Obre la meva safata d'entrada",
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Afegeix una estrella',
   'meridian.thread.unstar': "Elimina l'estrella",
   'meridian.time.yesterday': 'Ahir',
+  'meridian.topBar.openMenu': 'Obre el menú de navegació',
   'meridian.topBar.searchPlaceholder': 'Cerca correu',
   'meridian.trash.empty': 'La paperera és buida.',
   'meridian.trash.title': 'Escombraries',
   'nav.legal': 'Legal',
   'planUpdated.description':
     "La teva subscripció ja està activa i la teva facturació s'ha actualitzat. Benvingut a la teva safata d'entrada de Courier actualitzada.",
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.heading': 'esborranys',
   'pricing.limit.emails': 'correus electrònics',
   'pricing.limit.folders': 'carpetes',
   'pricing.limit.labels': 'etiquetes',
   'privacy.collect.account':
     'Dades del compte: nom, adreça electrònica, contrasenya codificada i data de registre.',
+  'privacy.contact': 'Preguntes? Envieu un correu electrònic a privacy@courier.example.',
   'privacy.intro':
     'Aquesta política de privadesa explica quines dades recopila Courier, per què les recopila, com les mantenim segures i quines opcions teniu al respecte. Intentem ser específics en lloc de legalistes; si alguna cosa no està clara, escriviu a privacy@courier.example.',
   'privacy.lastUpdated': "Darrera actualització: 1 d'abril de 2026",
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Aquests termes regeixen l'ús de Courier. En crear un compte o enviar un correu electrònic a través nostre, accepteu quedar-hi subjectes. Intentem escriure normes que una persona pugui seguir realment.",
   'terms.lastUpdated': "Vigent a partir de l'1 d'abril de 2026",
+  'terms.linkPrivacy': 'Llegeix la nostra Política de privacitat →',
   'terms.termination.body':
     "Podeu eliminar el vostre compte en qualsevol moment. Podem suspendre un compte que infringeixi aquestes condicions; si ho fem, us n'explicarem el motiu i us permetrem exportar les vostres dades primer.",
   'terms.warranty.body':

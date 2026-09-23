@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} பற்றி',
+  'brandHeader.tagline': '{{tagline}}',
   'commentThreadItem.collapse': 'சரிவு',
   'commentThreadItem.expand': 'விரிவாக்கு',
   'commentThreadItem.karma': '{{karma}} கர்மம்',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'feed.clearTag': 'குறிச்சொல் வடிகட்டியை அழிக்கவும்',
   'feed.controls': 'ஊட்டத்தை வரிசைப்படுத்து',
   'feed.empty': 'இன்னும் இங்கே ஒன்றுமில்லை – ஒரு பாதையைக் குறிக்கும் முதல் நபராக இருங்கள்.',
+  'feed.heroEyebrow': 'உங்கள் முகப்புப் பக்கம்',
   'feed.heroHeadline': 'மூன்று சமூகங்கள். ஒரு மெதுவான, பகிரப்பட்ட காலவரிசை.',
   'feed.loadError': 'பதிவுகளை ஏற்ற முடியவில்லை.',
   'feed.loading': 'முகப்புப் பக்கத்தை ஏற்றுகிறது...',
@@ -17,6 +23,8 @@ export const ui: UiTranslations = {
   'forgotPassword.subtitle':
     'உங்கள் கணக்கில் உள்ள மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.success': 'சரிபார்க்கவும் {{email}} மீட்டமைப்பு இணைப்புக்கு.',
+  'landing.eyebrow': '{{tagline}}',
+  'landing.footerCopy': '\\u00a9 {{appName}} – பாதையைக் குறிக்கவும்.',
   'landing.headline': 'குறிக்கத் தகுந்த இணைப்புகளுக்கான ஒரு சிறிய, மெதுவான இடம்.',
   'landing.heroPreview': 'கெய்ர்ன் முன்னோட்டம்',
   'landing.subsEyebrow': 'செயலில் உள்ள சந்தாக்கள்',
@@ -24,12 +32,16 @@ export const ui: UiTranslations = {
   'landing.todayEyebrow': 'இன்று கெய்ர்னில்',
   'landing.todayHeadline': 'முகப்புப் பக்கத்தின் ஒரு சிறு பார்வை.',
   'landing.trendingEyebrow': 'இன்றைய டிரெண்டிங்',
+  'linkAggregatorLayout.mobileNav': 'முதன்மை',
+  'linkAggregatorLayout.searchAria': 'தேடல் சொற்களம்',
   'linkAggregatorLayout.searchPlaceholder':
     'இணைப்புகள், குறிச்சொற்கள், பயனர்கள் ஆகியவற்றைத் தேடுங்கள்…',
   'linkAggregatorLayout.sectionFeeds': 'ஊட்டங்கள்',
   'linkAggregatorLayout.settings': 'அமைப்புகள்',
   'linkDetail.backToFeed': 'பதிவுகளுக்குத் திரும்பு',
   'linkDetail.byUser': 'சமர்ப்பித்தவர் {{user}}',
+  'linkDetail.commentAria': 'ஒரு கருத்தை எழுதுங்கள்',
+  'linkDetail.commentError': 'கருத்து பதிவாகவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'linkDetail.commentPlaceholder': 'சிந்தனைமிக்க பதிலைச் சேர்க்கவும்',
   'linkDetail.commentsHeading': '{{count}} பதிவுகள்',
   'linkDetail.commentSubmit': 'கருத்துரை இடுக',
@@ -42,13 +54,18 @@ export const ui: UiTranslations = {
   'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.orContinue': 'அல்லது தொடரவும்',
   'login.signingIn': 'உள்நுழைதல்',
+  'login.subtitle': '{{tagline}}',
   'login.welcome': 'கற்குவியலுக்கு மீண்டும் வருக.',
   'nav.legal': 'சட்டப்பூர்வமான',
   'notifications.heroHeadline': 'பதில்கள், குறிப்புகள் மற்றும் மைல்கற்கள்.',
   'notifications.loading': 'இன்பாக்ஸ் ஏற்றப்படுகிறது...',
   'notifications.title.mention': 'நீங்கள் குறிப்பிடப்பட்டீர்கள்',
   'notifications.title.milestone': 'மைல்கல் எட்டப்பட்டது',
+  'notifications.title.modmail': 'நெறியாளர் அறிவிப்பு',
+  'notifications.title.reply': 'புதிய பதில்',
+  'notifications.title.vote': 'உங்கள் பதிவுக்கு வாக்குகள் கிடைத்தன.',
   'notifications.view': 'இழையைக் காண்க',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'privacy.lastUpdated': 'கடைசியாகப் புதுப்பிக்கப்பட்டது: {{date}}',
   'privacy.section.collected.body':
     'நாங்கள் கணக்கு விவரங்கள் (பயனர் பெயர், மின்னஞ்சல்), நீங்கள் பதிவிடும் உள்ளடக்கம் (இணைப்புகள், கருத்துகள், வாக்குகள், சேமிக்கப்பட்ட உருப்படிகள், துணை உறுப்பினர் நிலைகள்) மற்றும் வழக்கமான சேவை செயல்பாட்டுப் பதிவுகள் (IP, பயனர் முகவர், நேர முத்திரைகள்) ஆகியவற்றைச் சேகரிக்கிறோம்.',
@@ -73,6 +90,7 @@ export const ui: UiTranslations = {
   'resetPassword.submitting': 'மீட்டமைத்தல்',
   'resetPassword.subtitle':
     'உங்கள் கணக்கைத் திறப்பதை நிறைவு செய்ய, வலிமையான, தனித்துவமான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
+  'saved.allCollection': 'அனைத்தும் சேமிக்கப்பட்டது',
   'saved.empty':
     'இன்னும் எதுவும் சேமிக்கப்படவில்லை – உங்கள் நூலகத்தைத் தொடங்க, ஒரு பதிவில் புக்மார்க் என்பதைத் தட்டவும்.',
   'saved.heroBody':
@@ -104,6 +122,7 @@ export const ui: UiTranslations = {
   'settings.privacy.body':
     'கெய்ர்ன் உங்கள் சேமிக்கப்பட்ட இணைப்புகளையும் தேடல் வரலாற்றையும் இரகசியமாக வைத்திருக்கிறது. உங்கள் தரவைப் பதிவிறக்க அல்லது உங்கள் கணக்கை மூட கீழே தட்டவும்.',
   'settings.privacy.export': 'எனது தரவை ஏற்றுமதி செய்',
+  'settings.privacy.exporting': 'ஏற்றுமதிக்குத் தயாராகிறது…',
   'settings.saveFailed': 'அமைப்புகளைச் சேமிக்க முடியவில்லை.',
   'settings.saving': 'சேமிப்பு',
   'signup.heading': 'உங்கள் கெய்ர்ன் கணக்கை உருவாக்கவும்.',
@@ -136,6 +155,7 @@ export const ui: UiTranslations = {
   'submitLink.urlLabel': 'URL',
   'submitLink.urlRequired': 'இணைப்புப் பதிவுகளுக்கு இணைய முகவரி (URL) தேவைப்படுகிறது.',
   'subs.empty': 'இன்னும் சந்தாக்கள் இல்லை – நீங்களே முதல் ஆளாகத் தொடங்குங்கள்.',
+  'subs.heroEyebrow': 'துணை சமூகங்கள்',
   'subs.heroHeadline': 'உங்கள் கற்களைத் தேர்ந்தெடுங்கள். உங்கள் கற்குவியலை எழுப்புங்கள்.',
   'subs.loadError': 'சப்-டைட்டில்களை ஏற்ற முடியவில்லை.',
   'subs.loading': 'சந்தாக்களைச் சேகரித்தல்',

@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Magbigay ng tip sa iyong mamimili',
   'checkout.tipLabel': 'Tip',
   'checkout.zipPlaceholder': 'ZIP',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'featuredProductsGrid.addAria': 'Idagdag {{name}} papunta sa kariton',
   'featuredProductsGrid.outOfStock': 'Wala nang stock',
   'forgotPassword.emailLabel': 'Email address',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Kung nakarehistro na ang email na iyon, may paparating nang link para sa pag-reset.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Pangunahing navigation',
   'landing.categoriesEyebrow': 'Mga pasilyo',
   'landing.categoriesHeading': 'Mamili ayon sa kategorya',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Mag-iskedyul ng lingguhang paghahatid gamit ang matalinong muling pag-order ng mga staple at live na pagsubaybay sa driver.',
   'landing.heroTitle': 'Kasariwaan sa iyong pintuan, sa loob ng ilang oras.',
   'landing.howEyebrow': 'Tatlong hakbang',
+  'landing.howItWorksHeading': 'Paano gumagana ang {{app}}',
   'lists.addAllCta': 'Idagdag lahat sa cart',
   'lists.createCta': 'Gumawa ng iyong unang listahan',
   'lists.createError': 'Hindi makagawa ng listahan.',

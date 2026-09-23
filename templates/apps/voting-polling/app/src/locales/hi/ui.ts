@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'analytics.col.quorum': 'कोरम',
   'analytics.col.votes': 'वोट',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'अभी तक कोई लंबित प्रश्न नहीं।',
   'audienceQa.onStageEyebrow': 'अभी मंच पर',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'पदोन्नति करना',
   'audienceQa.queued': 'कतार में',
   'audienceQa.queueEyebrow': 'कतार',
   'ballot.eyebrow': 'अपना मत डालें',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'आप वर्तमान में {{plan}} योजना पर हैं।',
   'billing.switch': 'बदलें',
   'billing.upgraded': '{{plan}} पर अपडेट किया गया — सीमाएँ तुरंत लागू।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'createPoll.addOption': 'विकल्प जोड़ें',
   'createPoll.anonymousHint': 'मतदाताओं के नाम ऑडिट लॉग में छुपे रहते हैं; गिनती प्रमाणित रहती है।',
   'createPoll.anonymousLabel': 'अनाम मतदान की अनुमति दें',
@@ -157,6 +160,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh पर नए हैं?',
   'login.remember': 'मुझे 30 दिनों के लिए याद रखें',
   'login.subheading': 'मंच खोलें, कक्ष चलाएँ और परिणाम प्रमाणित करें।',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'notFound.body':
     'जिस पृष्ठ पर आप पहुँचने का प्रयास कर रहे थे वह बंद हो गया है या स्थानांतरित हो गया है। डैशबोर्ड पर वापस जाएँ या नया मतदान खोलें।',
   'notFound.eyebrow': 'इस मार्ग पर कोई कोरम नहीं',
@@ -183,6 +188,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'यह मतदान लोड नहीं हो सका।',
   'pollDetail.loading': 'मतदान लोड हो रहा है…',
   'pollDetail.notFound': 'मतदान नहीं मिला।',
+  'pollDetail.openBallot': 'खुला मतदान',
   'pollDetail.openLive': 'लाइव परिणाम',
   'pollDetail.pollId': 'मतदान · {{id}}',
   'pollDetail.published': 'मतदान प्रकाशित — मतदाता अब वोट डाल सकते हैं।',
@@ -261,4 +267,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ईमेल से खोजें…',
   'voters.subheading':
     'पात्र सूची का प्रबंधन करें। भारित मतपत्रों के लिए मतदाताओं को संगठन के अनुसार समूहित करें।',
+  'votingPollingLayout.nav.analytics': 'विश्लेषण',
+  'votingPollingLayout.nav.billing': 'बिलिंग',
+  'votingPollingLayout.nav.createPoll': 'नया चुनाव',
+  'votingPollingLayout.nav.dashboard': 'डैशबोर्ड',
+  'votingPollingLayout.nav.notifications': 'सूचनाएँ',
+  'votingPollingLayout.nav.settings': 'सेटिंग्स',
+  'votingPollingLayout.nav.team': 'टीम',
+  'votingPollingLayout.nav.voters': 'मतदाताओं',
+  'votingPollingLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
 }

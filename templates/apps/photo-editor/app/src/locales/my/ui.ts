@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.eyebrow': '// {{appName}} အကြောင်း',
   'about.pageTitle': 'အကြောင်း {{appName}}',
   'albumDetail.breadcrumb': '// စာကြည့်တိုက် › အယ်လ်ဘမ်များ › {{albumTitle}}',
   'albumDetail.breadcrumb.loading': '// စာကြည့်တိုက် › အယ်လ်ဘမ်များ',
@@ -18,6 +20,7 @@ export const ui: UiTranslations = {
   'authShell.brandHeading': 'အလင်းကို ပုံဖော်သော ဖန်တီးသူများအတွက် တိကျသော ဓာတ်ပုံတည်းဖြတ်သူ။',
   'authShell.tagline': 'အလင်းရောင်ဟာ မင်းရဲ့ဆန္ဒအတိုင်း ယိမ်းယိုင်နေတယ်',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'editor.breadcrumb': '// အယ်ဒီတာ',
   'editor.empty.body':
     'frame တစ်ခုကို ရွေးချယ်ရန် library ကိုဖွင့်ပါ သို့မဟုတ် frame အသစ်တစ်ခုကို အပ်လုဒ်လုပ်ပါ။',
@@ -62,6 +65,8 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'photographer@lustra.studio',
   'forgotPassword.eyebrow': '// စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပါ',
   'forgotPassword.remembered': 'မှတ်မိပြီလား။',
+  'forgotPassword.successBody':
+    'အကောင့်တစ်ခုသည် {{email}} နှင့် ကိုက်ညီပါက၊ လင့်ခ်သည် ရောက်ရှိလာတော့မည်ဖြစ်သည်။',
   'landing.cta': 'Lustra ကိုဖွင့်ပါ',
   'landing.ctaPrimary': 'အခမဲ့ တည်းဖြတ်ခြင်း စတင်လိုက်ပါ',
   'landing.eyebrow': '// တိကျသော ဓာတ်ပုံတည်းဖြတ်သူ',
@@ -106,7 +111,9 @@ export const ui: UiTranslations = {
     'သင်ထားခဲ့သည့်နေရာမှ ဆက်လုပ်ပါ။ သင့်စာကြည့်တိုက်၊ ကြိုတင်သတ်မှတ်ထားသော ဆက်တင်များနှင့် မှတ်တမ်းက စောင့်ကြိုနေပါသည်။',
   'photoEditorLayout.guest': 'ဓာတ်ပုံဆရာ',
   'photoEditorLayout.newEdit': 'တည်းဖြတ်မှုအသစ်',
+  'photoEditorLayout.planLabel': '{{name}} အစီအစဉ်',
   'photoEditorLayout.planLoading': 'တင်နေသည်…',
+  'photoEditorLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'photoEditorLayout.tagline': 'အလင်းရောင်ဟာ မင်းရဲ့ဆန္ဒအတိုင်း ယိမ်းယိုင်နေတယ်',
   'photoTile.edited': 'တည်းဖြတ်ထားသည်',
   'presets.breadcrumb': '// ကြိုတင်သတ်မှတ်ထားသော ဆက်တင်များ › စာကြည့်တိုက်',
@@ -138,9 +145,14 @@ export const ui: UiTranslations = {
     'အနည်းဆုံး အက္ခရာ ၈ လုံးနှင့် ဂဏန်းများ ရောနှောအသုံးပြုပါ။ ကျွန်ုပ်တို့သည် plaintext ကို ဘယ်သောအခါမှ မသိမ်းဆည်းပါ။',
   'resetPassword.tokenPlaceholder': 'အီးမေးလ်ကနေ',
   'settings.account.email': 'အီးမေးလ်လိပ်စာ',
+  'settings.account.emailError': 'သင့်အီးမေးလ်ကို အပ်ဒိတ်လုပ်၍မရပါ။',
+  'settings.account.emailSave': 'အီးမေးလ်ကို သိမ်းဆည်းပါ',
   'settings.account.emailSaved': 'အီးမေးလ်ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
   'settings.account.emailSaving': 'သိမ်းဆည်းနေသည်…',
+  'settings.account.nameError': 'သင့်အမည်ကို အပ်ဒိတ်လုပ်၍မရပါ။',
+  'settings.account.nameSaved': 'အမည်ကို အပ်ဒိတ်လုပ်ထားသည်။',
   'settings.account.nameSaving': 'သိမ်းဆည်းနေသည်…',
+  'settings.account.passwordSaved': 'စကားဝှက် ပြောင်းပြီးပါပြီ။',
   'settings.account.title': 'အကောင့်',
   'settings.breadcrumb': '// အကောင့် › ဦးစားပေးများ',
   'settings.color.body':
@@ -148,6 +160,8 @@ export const ui: UiTranslations = {
   'settings.color.eyebrow': '// အရောင်',
   'settings.color.recommended': 'အကြံပြုထားသည်',
   'settings.color.title': 'အလုပ်လုပ်သော အရောင်ပရိုဖိုင်',
+  'settings.devices.empty': 'မှတ်တမ်းတွင် အခြားစက်ပစ္စည်းများ မရှိပါ။',
+  'settings.devices.eyebrow': '// စက်ပစ္စည်းများ',
   'settings.devices.signOut': 'ဆိုင်းအောက်',
   'settings.devices.thisDevice': 'ဒီကိရိယာ',
   'settings.devices.title': 'စက်ပစ္စည်းများ',
@@ -162,6 +176,7 @@ export const ui: UiTranslations = {
   'settings.plan.namedHeading': 'အစီအစဉ်ကို တင်နေသည်…',
   'settings.preferences.eyebrow': '// ဦးစားပေးမှုများ',
   'settings.preferences.title': 'အယ်ဒီတာအပြုအမူ',
+  'settings.security.eyebrow': '// လုံခြုံရေး',
   'settings.security.title': 'စကားဝှက်',
   'signup.confirmPlaceholder': 'အပေါ်က မျဉ်းကို ကိုက်ညီအောင်လုပ်ပါ',
   'signup.emailPlaceholder': 'photographer@lustra.studio',

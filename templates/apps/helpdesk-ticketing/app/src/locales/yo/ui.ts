@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kan si wa',
   'about.eyebrow': 'Nípa',
+  'about.title': 'Nípa {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Àwòrán ògbóǹtarìgì ti aṣojú olùrànlọ́wọ́ obìnrin pẹ̀lú ẹ̀rín músẹ́ ní ọ́fíìsì òde òní',
   'activeAgentsCard.agent2AvatarAlt': 'àwòrán ọ̀jọ̀gbọ́n fún ìfihàn ilé-iṣẹ́ náà',
@@ -59,6 +60,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Ilé-iṣẹ́',
   'demoTicket.thread.customer':
     'Mo ti ṣe àtúntò ọ̀rọ̀ìpamọ́ mi lánàá, nísinsìnyí mi ò lè wọlé sí ojú ọ̀nà ìsanwó. Ṣé o lè ràn mí lọ́wọ́?',
+  'floatingHelp.contactSupport': 'Olùrànlọ́wọ́ olùbáṣepọ̀',
   'forgotPassword.error': 'Kò le fi imeeli tuntun ranṣẹ. Jọwọ gbiyanju lẹẹkansii.',
   'forgotPassword.rememberPassword': 'Ṣé o rántí ọ̀rọ̀ìpamọ́ rẹ?',
   'forgotPassword.subheading':
@@ -101,6 +103,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Wọlé — Atilẹyin Zenith',
   'login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'login.welcomeSubheading': 'Wọlé sí ojú-ọ̀nà àtìlẹ́yìn rẹ',
+  'mobileNav.closeMenu': 'Ti lilọ kiri pa',
+  'mobileNav.menu': 'Lilọ kiri',
+  'mobileNav.openMenu': 'Ṣí ìlọ kiri',
   'nav.legal': 'Ofin',
   'nav.newTicket': 'Tíkẹ́ẹ̀tì Tuntun',
   'notifications.loadError': 'Kò le gbé àwọn ìfitónilétí jáde. Gbìyànjú lẹ́ẹ̀kan síi ní ìṣẹ́jú kan.',
@@ -112,6 +117,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Wíwá Àṣẹ',
   'operatorDock.newReport': 'Ìròyìn Tuntun',
   'operatorDock.systemOnline': 'Ètò Lórí Ayélujára',
+  'planUpdated.subtitle': 'O ṣeun',
   'planUpdated.title': 'Ètò tí a ti ṣe àtúnṣe',
   'pricing.agents': 'àwọn aṣojú',
   'pricing.automation': 'Àwọn òfin adaṣiṣẹ',
@@ -246,6 +252,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{orúkọ}}',
   'ticketCustomerReply.avatarAlt': '{{orúkọ}} àwòrán ti',
   'ticketDetail.errorTitle': 'Nǹkan kan ṣe àṣìṣe',
+  'ticketDetail.loadError': 'Kò ṣeéṣe láti gbé tikẹ́ẹ̀tì wọlé.',
+  'ticketDetail.notFound': 'A ko ri tikẹti naa',
+  'ticketDetail.replyError': 'Kò ṣeé ṣe láti fi èsì ránṣẹ́. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan síi.',
   'ticketDetail.retry': 'Gbiyanju lẹẹkansi',
   'ticketDetail.statusUpdateError': 'Kò le ṣe àtúnṣe ipò náà. Gbìyànjú lẹ́ẹ̀kan síi.',
   'ticketDetailsCard.assigneeLabel': 'Olùyànṣe',
@@ -297,6 +306,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{àkókò}} òsì',
   'ticketRow.title': 'Ìsopọ̀ ibi ìpamọ́ dátà kò ṣiṣẹ́ nígbà ìṣẹ̀dá {{node}}',
   'tickets.pageTitle': 'Àwọn Tíkẹ́ẹ̀tì',
+  'ticketsFab.newTicket': 'Tíkẹ́ẹ̀tì tuntun',
   'ticketsFilterBar.assigneeLabel': 'Olùyànṣe:',
   'ticketsFilterBar.clearFilters': 'Pa àwọn Àlẹ̀mọ́ Mọ́',
   'ticketsFilterBar.dateRangeDemoHint': 'A kò lo àlò ìṣàlẹ̀ ọjọ́ ní ìkọ́lé àfihàn yìí.',

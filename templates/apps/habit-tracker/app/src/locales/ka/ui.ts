@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'achievementBadgeCard.unlockedOn': 'განბლოკილია {{date}}',
   'achievements.loadError': 'მიღწევების ჩატვირთვა ვერ მოხერხდა.',
   'achievements.subheading': '{{unlocked}} -ის {{total}} განბლოკილი',
   'achievements.unlockedOn': 'განბლოკილია {{date}}',
+  'auth.legalConsent': 'გაგრძელებით, თქვენ ეთანხმებით ჩვენს',
   'calendar.empty': 'გამოიმუშავეთ ჩვევა, რომ ნახოთ თქვენი კალენდარი.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ჩვევა',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ჩვევების ბადე',
   'category.${c.category}': '{{count}} ჩვევები',
   'common.and': 'და',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'consistencyHeatmap.ariaLabel': 'ყოველდღიური თანმიმდევრულობის სითბური რუკა',
   'consistencyHeatmap.caption': 'ბოლო {{weeks}} კვირები',
   'consistencyHeatmap.lessLabel': 'ნაკლები',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'ნახეთ პირდაპირ ეთერში',
   'landing.heroSubtitle':
     'გამოიმუშავეთ ჩვევები ისე, როგორც ისინი რეალურად ძალაში შედიან: პატარა ვალდებულებები, ყოველდღიური ეტაპები და გრძელი, განუწყვეტელი ჯაჭვის ვისცერული სიამოვნება.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak-ის შიგნით ჩახედვა',
   'landing.previewMotivation': 'ცხრა ზოლი ცოცხალია. ყველა თბილად შეინახეთ.',
   'login.eyebrow': 'აიღე ჯაჭვი',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'გააკეთეთ პატარა. გააკეთეთ კონკრეტული. მობრძანდით ხვალ.',
   'newHabit.timeLabel': 'შეხსენების დრო',
   'notifications.markError': 'ყველას წაკითხულად მონიშვნა ვერ მოხერხდა.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.entries': '{{count}} ჩანაწერები',
+  'pricing.heading': 'აირჩიეთ თქვენი {{app}} ტარიფი',
   'profile.action.plan': 'გამოწერის მართვა',
   'profile.action.settings': 'ანგარიშის პარამეტრები',
   'profile.bioEmpty': 'დაამატეთ მოკლე ბიოგრაფია პარამეტრებში საკუთარი თავის გასაცნობად.',
@@ -127,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'ყოველდღიური დილის შეკვეთა (8:00)',
   'settings.reminders.heading': 'შეხსენებები',
   'settings.reminders.weekly': 'კვირის შეჯამება (კვირა საღამოობით)',
+  'settings.revokeDeviceWarning': 'ამ მოწყობილობის წვდომა მალე გაუქმდება. გასვლა?',
   'settings.signOutDevice': 'გასვლა',
   'settings.streaks.freezesPerWeek': 'კვირაში გაყინვა',
   'settings.streaks.gracePeriod': '6-საათიანი შეღავათიანი პერიოდი შუაღამის შემდეგ',
@@ -153,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} აქტიური',
   'streakHeroCard.daysSuffix': 'დღეები',
   'streakHeroCard.title': 'ყველაზე ხანგრძლივი აქტიური სერია',
+  'streakLayout.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'streakLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'streakLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
 }

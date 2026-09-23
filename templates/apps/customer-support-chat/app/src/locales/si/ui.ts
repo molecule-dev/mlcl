@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'අපි ගැන',
   'authShell.samplePreview': '“හේයි කණ්ඩායම, අලුත් උපකරණ පුවරුව හරිම ලස්සනයි - අපිට අවශ්‍ය දේමයි!”',
   'authShell.tagline': 'සෑම පණිවිඩයක්ම වැදගත්. සෑම පාරිභෝගිකයෙකුම මතක තබා ගත්තා.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/කෙටිමඟ',
   'automations.subheading':
     'නීති, ටින් කළ ප්‍රතිචාර සහ චැට්බෝට් - ඔබේ කණ්ඩායම අමාරු දේවල් කෙරෙහි අවධානය යොමු කරන අතරතුර වැඩබිම මුමුණමින් තබා ගන්න.',
+  'automations.trigger.inboundMessage': 'එන පණිවිඩය',
   'automations.triggerLabel': 'ප්‍රේරකය',
   'chatBubble.internalNoteLabel': 'අභ්‍යන්තර සටහන',
+  'common.confirmDelete': 'මැකීම තහවුරු කරන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'contactDetail.backToContacts': 'සියලු සම්බන්ධතා',
   'contactDetail.contactFallback': 'අමතන්න',
   'contactDetail.conversationFallback': 'සංවාදය',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'අවසන් වරට දුටුවේ',
   'contacts.empty': 'තවම සම්බන්ධතා නොමැත. ඉහතින් ඔබේ පළමු සම්බන්ධතාවය එක් කරන්න.',
   'contacts.eyebrow': 'පාරිභෝගික නාමාවලිය',
+  'contacts.form.nameOrEmailRequired': 'අවම වශයෙන් නමක් හෝ විද්‍යුත් තැපෑලක් ලබා දෙන්න.',
   'contacts.form.save': 'සම්බන්ධතාවය සුරකින්න',
   'contacts.heading': 'සම්බන්ධතා',
   'contacts.loading': 'සම්බන්ධතා පූරණය වෙමින්...',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'සටහන සුරකින්න',
   'conversationDetail.tab.note': 'අභ්‍යන්තර සටහන',
   'conversationDetail.threadAria': 'සංවාද පණිවිඩ',
+  'conversationDetail.visitorFallback': 'අමුත්තා',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'පාරිභෝගික විස්තර',
   'customerProfilePanel.recentTitle': 'මෑත සංවාද',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ගනුදෙනුකරුවන්ට ඔවුන්ගේ පළමු පිළිතුර ලැබෙන්නේ {{time}} සාමාන්‍යයෙන් — කේඩන්ස් එක දිගටම කරගෙන යන්න.',
   'inboxHeroCard.title': 'ක්‍රියාකාරී සංවාද',
+  'inboxLayout.navDrawerLabel': 'සංචලනය',
+  'inboxLayout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'inboxOverview.eyebrow': 'අද කෙටියෙන්',
   'inboxOverview.heroChange': '{{count}} විවෘත',
   'inboxOverview.kpiClosedTrend': 'සර්වකාලීන',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'මුල් පිටුවට පිවිසෙන්න',
   'notifications.subheading':
     'පැවරුම්, @සඳහන් කිරීම්, SLA අවදානම්, CSAT ප්‍රතිපෝෂණ සහ කණ්ඩායම් ක්‍රියාකාරකම් - අලුතින් මුලින්ම වර්ග කර ඇත.',
+  'notifications.subjectFallback': 'සංවාදයක්',
+  'notifications.visitorFallback': 'අමුත්තෙක්',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ඉහළ',
   'priority.low': 'අඩු',
+  'priority.normal': 'සාමාන්‍ය',
   'priority.urgent': 'හදිසි',
   'privacy.title': 'රහස්යතා ප්රතිපත්තිය',
   'reports.agentFallback': 'නියෝජිත',

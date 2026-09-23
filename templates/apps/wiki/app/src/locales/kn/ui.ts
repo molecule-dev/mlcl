@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'ಪರಿಹರಿಸಲಾಗುತ್ತಿದೆ...',
   'comments.subtitle':
     'ದಿ {{count}} ಉತ್ತರ ಅಥವಾ ಪರಿಹಾರಕ್ಕಾಗಿ ಇನ್ನೂ ಕಾಯುತ್ತಿರುವ ಥ್ರೆಡ್‌ಗಳು. ವಯಸ್ಸಿನ ಪ್ರಕಾರ ವಿಂಗಡಿಸಲಾಗಿದೆ - ಹಳೆಯದು ಮೊದಲು, ಆದ್ದರಿಂದ ಯಾವುದೂ ಕೊಳೆಯುವುದಿಲ್ಲ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'forgotPassword.sentTo': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಲಾಗಿದೆ {{email}}',
   'forgotPassword.successSubheading':
     'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ — ನಾವು ಇದೀಗ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸಿದ್ದೇವೆ. ಇದು 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'ಹೊಸ ಪುಟ',
   'pageTreeSidebar.workspaceHeader': 'ಕಾರ್ಯಸ್ಥಳ',
   'pageView.breadcrumb': 'ಬ್ರೆಡ್ ತುಂಡು',
+  'pageView.confirmTrash': 'ಅದನ್ನು ಕಸದ ಬುಟ್ಟಿಗೆ ಎಸೆಯುವುದೇ?',
   'pageView.home': 'ಮರಳಿ ಪ್ರಥಮ ಪುಟಕ್ಕೆ',
   'pageView.lastEdited': 'ನವೀಕರಿಸಲಾಗಿದೆ {{when}}',
   'pageView.loading': 'ಪುಟ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'ಸಾರಾಂಶ...',
   'pageView.summaryUnavailable': 'ಈ ಕಾರ್ಯಸ್ಥಳಕ್ಕಾಗಿ AI ಸಾರಾಂಶವನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ.',
   'pageView.tocTitle': 'ಈ ಪುಟದಲ್ಲಿ',
+  'pageView.trash': 'ಕಸ',
+  'pageView.trashing': 'ಕಸದ ಬುಟ್ಟಿಗೆ ಹಾಕಲಾಗುತ್ತಿದೆ...',
   'pageView.versionBadge': 'ಒಳಗೆ{{version}}',
   'profile.badges.title': 'ಬ್ಯಾಡ್ಜ್‌ಗಳು',
   'profile.owned.title': 'ಮಾಲೀಕತ್ವದ ಪುಟಗಳು',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'ಕಾರ್ಯಕ್ಷೇತ್ರ, ಪ್ರೊಫೈಲ್, ಅಧಿಸೂಚನೆಗಳು, ಏಕೀಕರಣಗಳು - ಎಲ್ಲವೂ ಒಂದೇ ಶಾಂತ ಚಿಪ್ಪಿನಲ್ಲಿ.',
   'settingsPage.workspace.defaultLanding': 'ಡೀಫಾಲ್ಟ್ ಲ್ಯಾಂಡಿಂಗ್ ಸ್ಕ್ರೀನ್',
   'settingsPage.workspace.landingHome': 'ಮರಳಿ ಪ್ರಥಮ ಪುಟಕ್ಕೆ',
+  'settingsPage.workspace.landingSpaces': 'ಸ್ಥಳಗಳು',
   'settingsPage.workspace.subdomainLabel': 'ಸಬ್‌ಡೊಮೇನ್',
   'settingsPage.workspace.title': 'ಕಾರ್ಯಸ್ಥಳ',
   'signup.eyebrow': 'ಹೊಸ ಕಾರ್ಯಸ್ಥಳವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} ನಿಮಿಷ',
   'templates.subtitle':
     'ಖಾಲಿ ಕ್ಯಾನ್ವಾಸ್‌ನಿಂದ ಅಲ್ಲ, ಸ್ಟೆನ್ಸಿಲ್‌ನಿಂದ ಪುಟವನ್ನು ಪ್ರಾರಂಭಿಸಿ. ಪ್ರತಿಯೊಂದು ಟೆಂಪ್ಲೇಟ್ ಆಕಾರವನ್ನು ಹಾರ್ಡ್-ಕೋಡ್ ಮಾಡುತ್ತದೆ ಇದರಿಂದ ನೀವು ವಸ್ತುವಿನ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸಬಹುದು.',
+  'trash.confirmPurge': 'ಶಾಶ್ವತವಾಗಿ ಶುದ್ಧೀಕರಿಸುವುದೇ?',
+  'trash.confirmPurgeAria': 'ದೃಢೀಕರಿಸಿ: {{title}} ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ',
   'trash.daysUntilPurge': '{{days}} ಉಳಿದ ದಿನಗಳು',
   'trash.empty.body':
     'ಅಳಿಸಲಾದ ಪುಟಗಳು 30 ದಿನಗಳವರೆಗೆ ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ, ನಂತರ ಅವುಗಳನ್ನು ತೆರವುಗೊಳಿಸಲಾಗುತ್ತದೆ.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'ಮರುಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ...',
   'versionHistory.subtitle': '{{count}} ಆವೃತ್ತಿಗಳು · ವ್ಯತ್ಯಾಸವನ್ನು ಪರಿಶೀಲಿಸಲು ಸಾಲನ್ನು ಆಯ್ಕೆಮಾಡಿ',
   'versionHistory.versionLabel': 'ಒಳಗೆ{{v}}',
+  'wikiLayout.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮುಚ್ಚಿರಿ',
+  'wikiLayout.menu': 'ಸಂಚರಣೆ',
+  'wikiLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ತೆರೆಯಿರಿ',
   'wikiLayout.searchPlaceholder': 'ಕೈರ್ನ್ ಹುಡುಕಿ — ಪುಟಗಳು, ಕಾಮೆಂಟ್‌ಗಳು…',
 }

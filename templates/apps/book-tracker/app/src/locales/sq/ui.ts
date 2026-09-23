@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Rinis zinxhirin',
   'resetPassword.mismatchError': 'Fjalëkalimet nuk përputhen.',
   'resetPassword.subheading': 'Zgjidh diçka të fortë. Librat e tu do të presin.',
-  'reviewCard.starsAria': 'Vlerësuar<x> {{vlerësim}}</x> jashtë<x> {{nga}}</x> yje',
+  'reviewCard.starsAria': 'Vlerësuar me {{rating}} nga {{of}} yje',
   'reviewCard.unratedAria': 'Pa vlerësim',
   'reviews.eyebrow': 'Çfarë mbeti me ty',
   'reviews.heading': 'Recensionet tuaja',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Nuestra historia',
   'aiSuggestionPanel.title': 'Copiloto de Signet',
   'analytics.col.open': 'Tasa de apertura',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Iniciando el pago…',
   'billing.subheading': 'Elige el plan que se ajusta a tu forma de enviar.',
   'billing.unavailable': 'Contactar a ventas',
+  'common.goToDashboard': 'Ir al panel',
+  'common.retry': 'Reintentar',
   'compose.adjustingTone': 'Reescribiendo en el tono seleccionado…',
   'compose.aiPromptPlaceholder':
     'p. ej. "Seguimiento amable tras dos semanas sin respuesta, mantenlo breve."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     '¿Necesitas enviar algo? Signet puede tener un borrador listo en segundos.',
   'dashboard.composeCtaLabel': 'Redacción rápida',
   'dashboard.heading': 'Tu semana, redactada',
+  'dashboard.loadFailed': 'No se pudo cargar tu panel.',
   'dashboard.manageLibrary': 'Gestionar biblioteca →',
   'dashboard.recentEmpty': 'Aún no hay envíos: tus correos enviados aparecerán aquí.',
   'dashboard.recentHeading': 'Envíos recientes',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Tono predeterminado',
   'settings.toneSubheading': 'Signet usa este tono salvo que lo cambies en el borrador.',
   'signetLayout.primaryNavLabel': 'Navegación principal',
+  'signetLayout.toggleMenu': 'Alternar menú',
   'signup.emailLabel': 'Correo electrónico',
   'signup.showPassword': 'Mostrar contraseña',
   'signup.tagline': 'Envía tu primer correo redactado con IA en menos de un minuto.',

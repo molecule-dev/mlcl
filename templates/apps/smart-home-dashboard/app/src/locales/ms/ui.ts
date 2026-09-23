@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.pageTitle': 'Perihal {{app}}',
   'activity.empty': 'Tiada aktiviti lagi — balikkan peranti atau aktifkan pemandangan.',
   'activity.eyebrow': 'Garis Masa',
   'activity.loadError': 'Tidak dapat memuatkan suapan aktiviti.',
   'activity.subheading':
     'Setiap peranti, automasi dan peristiwa keselamatan dalam susunan kronologi.',
+  'addDevice.error.failed': 'Tidak dapat menambah peranti. Cuba lagi.',
   'addDevice.error.nameRequired': 'Berikan nama kepada peranti ini untuk meneruskan.',
   'addDevice.field.firmware': 'Versi perisian tegar',
   'addDevice.field.manufacturer': 'Pengilang',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Menguji…',
   'automationEditor.testNew': 'Simpan automasi terlebih dahulu untuk mengujinya.',
   'automationRow.lastRun': 'Terakhir {{date}} · {{count}} larian',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Lari {{name}} sekarang',
   'automations.empty': 'Tiada automasi lagi — cipta rutin pertama anda.',
   'automations.eyebrow': 'Rutin',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Memuatkan automasi…',
   'automations.newAutomation': '+ Baharu',
   'automations.subheading': 'Apabila ini berlaku, lakukan itu — tanpa YAML.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Gagal memuatkan peranti.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Bekerja…',
   'deviceDetail.unnamed': 'Peranti',
   'deviceStatusRow.on': 'Hidup',
+  'deviceStatusRow.turnOff': 'Matikan',
+  'deviceStatusRow.turnOn': 'Hidupkan',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Kuasa',
   'energy.heading': 'Tenaga',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Lihat pelan',
   'settings.security.heading': 'Keselamatan',
   'settings.subheading': 'Pelan, hab dan pilihan akaun.',
+  'smartHomeDashboardLayout.openMenu': 'Buka menu navigasi',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navigasi utama',
 }

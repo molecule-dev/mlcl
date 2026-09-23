@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'План жөнүндө маалымат жүктөлүүдө…',
   'billing.popular': 'Эң сүйүктүү',
   'billing.subtitle': 'Окуу темпиңе туура келген планды тандаңыз.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.today': 'Бүгүн',
   'common.yesterday': 'Кечээ',
   'courseDetail.empty.body': 'Бул теманы өздөштүрүүнү баштоо үчүн окуу материалын кошуңуз.',
@@ -82,8 +83,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Палубанын аталышы',
   'flashcards.subtitle': 'Темпиңизге ылайыкташтырылган аралык менен кайталоо.',
   'flashcards.title': 'Флешкарталар',
+  'footer.copyright': '© {{year}} {{app}} . Жакшы оку, жакшы укта.',
   'forgotPassword.subtitle':
     'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
+  'koanLayout.closeMenu': 'Менюну жабуу',
+  'koanLayout.navLabel': 'Негизги навигация',
+  'koanLayout.openMenu': 'Менюну ачуу',
   'koanLayout.theme': 'Тема',
   'landing.featuresBody':
     'Алаксыткан нерселерди жок кылуу жана узак мөөнөттүү түшүнүүнү калыптандыруу үчүн иштелип чыккан куралдар.',
@@ -118,11 +123,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Бул URL тактала элек аймак. Балким, ката жазылгандыр, балким, сабак өчүрүлгөндүр — кандай болгон күндө да, кайрадан окууга өтөлү.',
   'notFound.heading': 'Барак табылган жок.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Баарын билдиңиз',
   'notifications.filter.${opt}': 'Эскертмелер жүктөлүүдө…',
   'notifications.markAllError': 'Баары окулду деп белгиленбей койду.',
   'notifications.markError': 'Окулган деп белгиленбей койду.',
   'notifications.subtitle': '{{count}} окулбаган жаңыртуулар',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.heading': 'викториналар',
   'pricing.limits.topics': 'темалар',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Башка ачкыч сөздү же чыпканы колдонуп көрүңүз.',
   'search.empty.title': 'Эч нерсе дал келген жок.',
   'search.error': 'Жыйынтыктар жүктөлбөй койду.',
+  'search.filters': 'Натыйжа түрүндөгү чыпкалар',
   'search.go': 'Баруу',
   'search.label.flashcard': 'Флэш-карта колодасы',
   'search.label.note': 'Эскертүү',

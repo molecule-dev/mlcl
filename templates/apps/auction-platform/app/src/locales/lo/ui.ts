@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'ກຳລັງເບິ່ງ',
   'auctionDetail.watchRemoved': 'ລຶບອອກຈາກລາຍການເຝົ້າລະວັງແລ້ວ.',
   'auctionDetail.watchRemoveLabel': 'ລຶບອອກຈາກລາຍການຕິດຕາມ',
+  'auctionPlatformLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'authShell.brandBody':
     'ປະມູນໄດ້ທັນທີສຳລັບໂມງທີ່ຫາຍາກ, ສິນລະປະທີ່ດີ, ແລະ ສິນຄ້າພິເສດທີ່ເປັນເອກະລັກ. ຄ້ອນຕີຕົກພາຍໃນວິນາທີ.',
   'authShell.brandEyebrow': 'ຖ່າຍທອດສົດດຽວນີ້ · ການປະມູນ 1,420 ຄັ້ງ',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'ຈັດຮຽງຕາມ',
   'browseAuctions.subheading':
     'ກັ່ນຕອງຕາມໝວດໝູ່, ຈັດຮຽງຕາມສິ່ງທີ່ສຳຄັນທີ່ສຸດ, ແລະ ວາງລາຄາກ່ອນທີ່ຄ້ອນຈະຕົກ.',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'countdownTimer.ended': 'ສິ້ນສຸດແລ້ວ',
   'countdownTimer.endingSoon': 'ສິ້ນສຸດ',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'ເຊື່ອງລະຫັດຜ່ານ',
   'login.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'login.subtext': 'ສືບຕໍ່ຕິດຕາມການປະມູນຂອງທ່ານ ແລະ ວາງການປະມູນກ່ອນທີ່ຄ້ອນຕີຈະຕົກ.',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'myBids.bidAgain': 'ປະມູນອີກຄັ້ງ',
   'myBids.browseCta': 'ເບິ່ງການປະມູນສົດ →',
   'myBids.checkoutCta': 'ຈ່າຍດຽວນີ້',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'ຍັງບໍ່ມີການແຈ້ງເຕືອນເທື່ອ.',
   'notificationsPage.eyebrow': 'ສູນກິດຈະກຳ',
   'notificationsPage.subheading': '{{count}} ຍັງບໍ່ໄດ້ອ່ານ · ການອັບເດດສົດໆ ເມື່ອການປະມູນດຳເນີນໄປ',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.bidsLabel': 'ການປະມູນ',
   'pricing.listingsLabel': 'ລາຍຊື່',
   'pricing.watchlistLabel': 'ລາຍຊື່ເຝົ້າລະວັງ',

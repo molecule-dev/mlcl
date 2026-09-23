@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.logout': 'Toka',
   'dailyStatsTriad.heartsLabel': 'Mioyo',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Dakika za leo',
   'dailyStatsTriad.minutesValue': '{{count}} dakika',
   'dailyStatsTriad.wordsLabel': 'Maneno yaliyoeleweka',
+  'dailyStatsTriad.wordsMasteryHint': 'Maneno katika ustadi 4+',
   'dashboard.continueHeading': 'Endelea pale ulipoishia',
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Haikuweza kupakia mazoezi.',
   'lessonDetail.loading': 'Inapakia somo...',
   'lessonDetail.submitError': 'Haikuweza kuwasilisha jibu.',
+  'lessonDetail.translation': 'Tafsiri kifungu cha maneno',
   'lessonDetail.xpEarned': 'XP iliyopatikana · {{xp}}',
   'lessons.empty': 'Hakuna masomo katika ngazi {{level}} bado — jaribu daraja lingine.',
   'lessons.eyebrow': 'Maktaba ya masomo',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Mgeni katika Usemi?',
   'login.showPassword': 'Onyesha nenosiri',
   'login.signUp': 'Anza bure →',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
+  'parlanceLayout.nav.profile': 'Wasifu',
   'parlanceLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'practice.empty': 'Hakuna vifungu vya maneno vinavyopatikana bado.',
   'practice.eyebrow': 'Mazoezi ya kuzungumza',
   'practice.heading': 'Isome. Irekodi. Iboreshe.',

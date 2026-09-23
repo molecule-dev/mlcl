@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'analytics.channels.empty': 'अभी तक कोई चैनल डेटा नहीं है।',
   'analytics.channels.title': 'चैनल के अनुसार',
   'analytics.empty': 'अभी तक कोई बातचीत नहीं — एक थ्रेड शुरू करने पर विश्लेषण दिखाई देगा।',
@@ -17,11 +18,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'प्रति दिन बातचीत',
   'chatBubble.avatarAlt': '{{speaker}} अवतार',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'confidenceMeter.label': 'विश्वास',
   'conversationDetail.agentName': 'एजेंट',
   'conversationDetail.aiReplyButton': 'बॉट उत्तर',
   'conversationDetail.aiReplyError': 'AI उत्तर उत्पन्न नहीं किया जा सका',
   'conversationDetail.aiReplyLoading': 'मसौदा तैयार हो रहा है…',
+  'conversationDetail.aiReplySourceFallback': 'फ़ॉलबैक (कोई एआई कुंजी नहीं)',
   'conversationDetail.backAria': 'बातचीत पर वापस जाएँ',
   'conversationDetail.composerPlaceholder': 'ग्राहक को उत्तर दें…',
   'conversationDetail.context.channel': 'चैनल',
@@ -155,8 +158,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'अपने खाते के लिए एक नया पासवर्ड सेट करें',
   'resetPassword.toggleConfirm': 'पुष्टि पासवर्ड दृश्यता टॉगल करें',
   'resetPassword.togglePassword': 'पासवर्ड दृश्यता टॉगल करें',
+  'settings.account.emailError': 'ईमेल अपडेट करने में विफल',
   'settings.account.emailLabel': 'ईमेल पता',
+  'settings.account.emailSaved': 'ईमेल अपडेट हो गया',
+  'settings.account.nameError': 'नाम अपडेट करने में विफल',
   'settings.account.nameLabel': 'प्रदर्शन नाम',
+  'settings.account.nameSaved': 'नाम अपडेट किया गया',
   'settings.account.title': 'खाता',
   'settings.api.createCta': 'टोकन बनाएँ',
   'settings.api.description':
@@ -169,10 +176,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'भावना गिरने पर स्वतः एस्केलेट',
   'settings.bot.greetingLabel': 'पहले संदेश का अभिवादन',
   'settings.bot.title': 'बॉट कॉन्फ़िगरेशन',
+  'settings.bot.toneFormal': 'औपचारिक',
   'settings.bot.toneLabel': 'आवाज़ और स्वर',
   'settings.danger.deleteAccount': 'खाता हटाएँ',
+  'settings.danger.deleteError': 'खाता हटाने में विफल',
+  'settings.danger.deleteWarning':
+    'इससे आपका खाता और उससे संबंधित सभी डेटा स्थायी रूप से हटा दिया जाएगा। इसे वापस नहीं लाया जा सकता।',
   'settings.danger.deleting': 'हटाया जा रहा है…',
+  'settings.danger.passwordLabel': 'अपने पासवर्ड की पुष्टि करें',
   'settings.danger.title': 'खतरे का क्षेत्र',
+  'settings.devices.empty': 'कोई डिवाइस पंजीकृत नहीं है।',
+  'settings.devices.revokeWarning':
+    'इस डिवाइस की पहुँच शीघ्र ही निरस्त हो जाएगी। इसे साइन आउट करें?',
+  'settings.devices.signingOut': 'साइन आउट हो रहा है…',
   'settings.devices.signOut': 'साइन आउट',
   'settings.devices.thisDevice': 'यह डिवाइस',
   'settings.devices.title': 'डिवाइस',
@@ -185,9 +201,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'पासवर्ड बदलने में विफल',
   'settings.security.currentPassword': 'वर्तमान पासवर्ड',
   'settings.security.newPassword': 'नया पासवर्ड',
+  'settings.security.oauthManaged':
+    'आपका पासवर्ड आपके साइन-इन प्रदाता द्वारा प्रबंधित किया जाता है।',
   'settings.security.title': 'सुरक्षा',
   'settings.security.twoFactorDisable': 'अक्षम करें',
   'settings.security.twoFactorEnable': 'सक्षम करें',
+  'settings.security.twoFactorInvalid': 'अवैध कोड',
   'settings.subtitle':
     'Rapport की आवाज़, ज्ञान स्रोत और जिन उपकरणों से वह बात करता है उन्हें ट्यून करें।',
   'settings.tokenCreateError': 'टोकन बनाने में विफल',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.pageTitle': '{{appName}}について',
   'analytics.error': 'アナリティクスを読み込めませんでした。',
   'analytics.heading': '検索アナリティクス',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': '価格ティアが設定されていません。',
   'billing.plans.heading': 'プラン',
   'billing.subheading': 'プラン、利用状況、Stripe 管理のチェックアウト。',
+  'common.confirm': '確認',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.retry': '再試行',
   'documentCard.open': '開く →',
   'documentDetail.back': 'ドキュメントに戻る',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'ドキュメントをインデックス',
   'documents.composer.titlePlaceholder': 'ドキュメントタイトル',
   'documents.emptyAll': 'まだドキュメントがありません。1 つアップロードして質問を始めましょう。',
+  'documents.error.load': 'ドキュメントを読み込めませんでした。',
   'documents.heading': 'インデックス済みドキュメント',
   'documents.loading': 'ドキュメントを読み込み中…',
   'documents.metric.chunks': '合計チャンク',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': '削除中…',
   'members.subheading': 'チームメイトを招待して役割を設定します。',
   'members.tableHeading': 'ロスター',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'notFound.askCta': 'ナレッジベースに質問',
+  'notFound.body':
+    '{{app}}はそのページを見つけることができませんでした。リンクが切れているか、ページが再インデックス中に削除された可能性があります。',
   'notFound.eyebrow': '取得できません',
   'notFound.title': 'インデックスにそのチャンクはありません',
   'notifications.dismiss': '閉じる',
@@ -201,6 +210,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'ソース URL',
   'sources.empty.body': '「ソースを追加」をクリックして最初のコネクタを接続してください。',
   'sources.empty.title': 'ソースがまだありません。',
+  'sources.error.add': 'ソースを追加できませんでした。',
   'sources.error.labelRequired': 'ラベルは必須です。',
   'sources.error.load': 'ソースを読み込めませんでした。',
   'sources.error.urlRequired': 'このソース種別には URL が必要です。',

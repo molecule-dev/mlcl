@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.pageTitle': 'Про {{app}}',
   'activity.empty': 'Поки що немає активності — переверніть пристрій або активуйте сцену.',
   'activity.eyebrow': 'Хронологія',
   'activity.loadError': 'Не вдалося завантажити стрічку активності.',
   'activity.subheading': 'Кожен пристрій, автоматизація та подія безпеки у хронологічному порядку.',
+  'addDevice.error.failed': 'Не вдалося додати пристрій. Спробуйте ще раз.',
   'addDevice.error.nameRequired': 'Щоб продовжити, дайте цьому пристрою назву.',
   'addDevice.field.firmware': 'Версія прошивки',
   'addDevice.field.manufacturer': 'Виробник',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тестування…',
   'automationEditor.testNew': 'Спочатку збережіть автоматизацію, щоб протестувати її.',
   'automationRow.lastRun': 'Останній {{date}} · {{count}} пробігає',
+  'automationRow.on': 'Про',
   'automationRow.runNowAria': 'Бігти {{name}} зараз',
   'automations.empty': 'Поки що немає автоматизації — створіть свою першу процедуру.',
   'automations.eyebrow': 'Рутини',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Завантаження автоматизацій…',
   'automations.newAutomation': '+ Нове',
   'automations.subheading': 'Коли це трапляється, зробіть це — без YAML.',
+  'common.goToDashboard': 'До панелі',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Не вдалося завантажити пристрій.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Робота…',
   'deviceDetail.unnamed': 'Пристрій',
   'deviceStatusRow.on': 'Увімкнено',
+  'deviceStatusRow.turnOff': 'Вимкнути',
+  'deviceStatusRow.turnOn': 'Увімкнути',
   'deviceStatusRow.watts': '{{watts}} В',
   'energy.eyebrow': 'Потужність',
   'energy.heading': 'Енергія',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Переглянути плани',
   'settings.security.heading': 'Безпека',
   'settings.subheading': 'Налаштування плану, центрів та облікового запису.',
+  'smartHomeDashboardLayout.openMenu': 'Відкрити меню навігації',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Основна навігація',
 }

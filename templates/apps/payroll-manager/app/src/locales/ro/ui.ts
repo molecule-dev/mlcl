@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'auditLog.empty':
     'Niciun eveniment de audit nu corespunde încă filtrelor dvs. Editați un angajat sau procesați o plată și acestea vor apărea aici.',
   'auditLog.eyebrow': 'Conformitate',
+  'auditLog.loadError': 'Nu s-a putut încărca jurnalul de audit.',
   'auditLog.searchPlaceholder': 'Căutare după actor, acțiune sau descriere',
   'auditLog.subheading':
     'Fiecare aprobare, modificare și depunere a declarației fiscale — cu actorul, marcajul temporal și câmpurile modificate.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nu este configurat',
   'billing.plansHeading': 'Planuri',
   'billing.subheading': 'Gestionează-ți planul și schimbă nivelurile prin Stripe.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Reîncearcă',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Instantaneu de conformitate',
   'dashboard.compliance.title': 'Toate verificările sunt trecute',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Nicio deducere înregistrată.',
   'employeeDetail.notFound': 'Angajat negăsit.',
   'employeeDetail.payFrequency': 'Frecvența de plată',
+  'employeeDetail.postTax': 'După impozitare',
+  'employeeDetail.preTax': 'Înainte de impozitare',
   'employeeDetail.salary': 'Salariu anual',
   'employeeDetail.ssn': 'CNP',
   'employeeDetail.startedOn': 'Început {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Frecvența de plată',
   'employeeForm.salary': 'Salariu anual (USD)',
   'employeeForm.salaryInvalid': 'Salariul trebuie să fie un număr non-negativ.',
+  'employeeForm.saveError': 'Nu s-a putut salva angajatul.',
   'employeeForm.semimonthly': 'Bi-lunar',
   'employeeForm.single': 'Singur',
   'employeeForm.ssn': 'CNP',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Salariu',
   'forgotPassword.subtitle':
     'Introdu adresa ta de e-mail de serviciu și îți vom trimite un link de resetare.',
+  'landing.copyright': '© {{year}} {{app}} . Precis, fiabil, compus.',
   'landing.ctaBody':
     'Gratuit timp de 30 de zile. Fără card de credit. Schimbați oricând fără a pierde pista de audit.',
   'landing.ctaHeading': 'Rulați următorul ciclu pe Stipend',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Nu există încă intrări de audit pentru această plată.',
   'payRunDetail.noStubs':
     'Încă nu există fluturași de salariu — aprobare și procesare pentru generarea lor.',
+  'payRunDetail.notFound': 'Această serie de salarii nu a putut fi găsită.',
   'payRunDetail.statDeductions': 'Deduceri',
   'payRunDetail.statHeadcount': 'Angajați',
   'payRunDetail.statTaxes': 'Impozite reținute',
@@ -223,7 +232,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Bi-lunar',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.subheading': 'Profilul companiei, programul de plată și integrările.',
+  'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
+  'settings.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.twoFactorVerify': 'Verifică și activează',
   'settings.weekly': 'Săptămânal',
   'taxCenter.bucket.federal': 'Venit federal',
   'taxCenter.bucket.fica': 'Securitate Socială',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'alerts.acknowledgeLabel': 'Cydnabod',
   'alerts.customerLabel': 'Cwsmer: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Yn cysylltu…',
   'carriers.requiredError': 'Mae angen enw a chod.',
   'carriers.subheading': '{{count}} integredig',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
+  'common.retry': 'Ail-geisio',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': "Ar y ffordd + wedi'i faneri",
   'dashboard.activeShipmentsSubtitle':
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'llwythi',
   'pricing.trackingLabel': 'digwyddiadau olrhain',
   'profile.dangerZone.title': 'Parth perygl',
+  'profile.devices.signingOut': 'Yn allgofnodi…',
+  'profile.devices.unnamed': 'Dyfais ddienw',
+  'profile.security.disable2fa': 'Analluogi 2FA',
   'profile.security.enable2fa': 'Galluogi 2FA',
   'profile.security.pwChanged': 'Newidiwyd y cyfrinair yn llwyddiannus.',
   'profile.security.pwCurrent': 'Cyfrinair cyfredol',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA gweithredol',
   'profile.security.twoFaCode': 'Cod 6 digid',
   'profile.security.twoFaDisable': 'Analluogi',
+  'profile.security.twoFaDisabling': 'Yn analluogi…',
   'profile.security.twoFaFailed': "Methwyd gwirio'r cod.",
   'profile.security.twoFaIntro':
     'Sganiwch y cod QR yn eich ap dilysu, yna nodwch y cod 6 digid isod i wirio.',
   'profile.security.twoFaOn': "Mae dilysu dau ffactor wedi'i alluogi ar y cyfrif hwn.",
+  'profile.security.twoFaQrAlt': 'Cod QR dau ffactor',
   'profile.security.twoFaVerify': 'Gwirio a galluogi',
   'profile.security.twoFaVerifying': 'Yn gwirio…',
   'profile.subheading': 'Gosodiadau hunaniaeth a diogelwch ar gyfer y gweithle hwn.',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Cadwch y gyfrinach hon — ni fydd yn cael ei dangos eto.',
   'settings.api.webhookSecret': 'Cyfrinach llofnodi Webhook',
   'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
+  'settings.deleteAccountConfirm': "Ydych chi'n siŵr? Ni ellir dadwneud y weithred hon.",
   'settings.notifications.exceptions': 'Anfonwch e-bost ataf pan fydd eithriad cludo yn digwydd',
   'settings.notifications.heading': 'Hysbysiadau',
   'settings.notifications.saveFailed': "Methwyd cadw'r dewisiadau.",
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Ni chanfuwyd y llwyth.',
   'shipmentDetail.originHeading': 'Tarddiad',
   'shipmentDetail.shippedOn': "Wedi'i gludo {{date}}",
+  'shipmentDetail.timelineEmpty':
+    "Dim digwyddiadau olrhain eto — mae diweddariadau'n ymddangos yma wrth i'r cludwr sganio'r parsel.",
   'shipments.col.carrier': 'Cludwr',
   'shipments.col.eta': 'ETA',
   'shipments.col.route': 'Llwybr',
@@ -172,6 +183,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Mewngofnodi',
   'signup.submit': 'Creu Cyfrif',
   'team.emailError': 'Mae angen cyfeiriad e-bost dilys.',
+  'team.empty': "Dim aelodau tîm eto. Gwahoddwch gyd-aelod o'r tîm i gydweithio ar gludo nwyddau.",
   'team.eyebrow': 'Aelodau a chaniatadau',
   'team.inviteDialog.cancel': 'Canslo',
   'team.inviteDialog.heading': "Gwahodd cyd-aelod o'r tîm",
@@ -194,6 +206,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Trac',
   'waypointLayout.primaryNavLabel': 'Prif lywio',
   'webhooks.createFailed': 'Methu creu terfynbwynt gwe-hook.',
+  'webhooks.endpointsEmpty':
+    'Dim pwyntiau terfyn gwe-hook eto. Crëwch un i dderbyn galwadau yn ôl statws cludo.',
   'webhooks.endpointsHeading': 'Pwyntiau terfyn',
   'webhooks.eventCount': '{{count}} digwyddiadau',
   'webhooks.eventsHeading': 'Dosbarthiadau diweddar',

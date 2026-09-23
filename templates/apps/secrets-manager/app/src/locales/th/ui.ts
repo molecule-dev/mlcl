@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'about.tagline': 'ความลับจะหมดไปเมื่อถูกเปิดเผย',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'สร้างโทเค็น',
   'apiTokens.kicker': 'โทเค็น API',
   'apiTokens.loading': 'กำลังโหลดโทเค็น…',
+  'apiTokens.new': 'โทเค็นใหม่',
   'apiTokens.revoke': 'เพิกถอนโทเค็น',
   'apiTokens.subheading':
     'โทเค็นส่วนบุคคลและโทเค็นบริการสำหรับ Arcanum CLI และ SDK จะแสดงข้อความธรรมดาเพียงครั้งเดียวเมื่อสร้างโทเค็น',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + รหัสผ่าน',
   'authShell.zeroKnowledge': 'การเข้ารหัสแบบไร้ความรู้',
   'common.connecting': 'กำลังเชื่อมต่อ…',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.inviting': 'เชิญชวน…',
   'forgotPassword.checkInbox':
     'หากอีเมล {email} ได้รับการลงทะเบียนแล้ว ลิงก์รีเซ็ตที่ลงชื่อแล้วจะถูกส่งมาภายในหนึ่งนาที',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'สถานะการหมุนเวียน การแจ้งเตือนความผิดปกติ และคำขออนุมัติในทุกห้องนิรภัย',
   'notifications.unreadEmpty': 'กล่องจดหมายเข้าว่างเปล่า — จัดการทุกอย่างเรียบร้อยแล้ว',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.heading': 'ความลับ',
   'pricing.limits.accessPolicies': 'นโยบายการเข้าถึง',
   'pricing.limits.auditLog': 'รายการบันทึกการตรวจสอบ',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'บัญชีส่วนตัว',
   'profile.plan.description': 'จัดการการสมัครสมาชิก ดูข้อจำกัด และอัปเกรด',
   'profile.subheading': 'การระบุตัวตน อุปกรณ์ยืนยันตัวตนสองขั้นตอน และเซสชันที่ใช้งานอยู่',
+  'profile.twoFactor.code': 'รหัสยืนยันตัวตน',
   'profile.twoFactor.disable': 'ปิดใช้งาน',
   'profile.twoFactor.enable': 'เปิดใช้งาน',
+  'profile.twoFactor.invalidCode': 'รหัสไม่ถูกต้อง',
   'profile.twoFactor.kicker': 'การตรวจสอบสิทธิ์แบบสองปัจจัย',
+  'profile.twoFactor.off': 'ไม่ได้เปิดใช้งาน',
   'profile.twoFactor.on': 'เปิดใช้งาน',
   'resetPassword.email': 'อีเมลบัญชี',
   'resetPassword.heading': 'ตั้งค่าข้อมูลรับรองใหม่',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'คำสั่ง',
   'secretsManagerLayout.encrypted': 'AES-256 · เข้ารหัส',
   'secretsManagerLayout.newVault': 'ตู้นิรภัยใหม่',
+  'secretsManagerLayout.newVaultShort': 'ใหม่',
   'secretsManagerLayout.rotations': 'การหมุน',
   'secretsManagerLayout.search': 'ค้นหา',
   'secretsManagerLayout.searchPlaceholder': 'ค้นหาข้อมูลลับโดยใช้คีย์ เส้นทาง หรือแท็ก…',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'ความลับ',
   'vaultCard.vaultLabel': 'ห้องนิรภัย',
   'vaultDetail.addSecret': 'เพิ่มความลับ',
+  'vaultDetail.back': 'ห้องนิรภัยทั้งหมด',
   'vaultDetail.col.key': 'สำคัญ',
   'vaultDetail.col.rotated': 'หมุนแล้ว',
   'vaultDetail.col.value': 'ค่า',

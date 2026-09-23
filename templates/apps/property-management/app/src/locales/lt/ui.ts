@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.tagline': 'Kiekvienas padalinys po vienu stogu.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.addProperty': 'Pridėti nuosavybę',
   'dashboard.empty.body':
     'Kai turėsite nekilnojamojo turto objektus, butus ir nuomos mokėjimus, ši ataskaitų suvestinė užsipildys portfelio įžvalgomis.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{nuosavybė}} · Vienetas {{vienetas}} · {{data}}',
   'maintenanceQueueList.subtitle': '{{count}} atviri darbo užsakymai, surūšiuoti pagal prioritetą',
   'maintenanceQueueList.title': 'Priežiūros eilė',
+  'nav.closeMenu': 'Uždaryti meniu',
+  'nav.openMenu': 'Atidaryti meniu',
   'notFound.body':
     'Puslapis, kurio ieškojote, buvo perkeltas, archyvuotas arba niekada neegzistavo.',
   'notFound.title': 'Tos durys neatsidaro',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.title': 'Tentang {{app}}',
   'comments.addFailed': 'Komentar tidak dapat dikirim.',
   'comments.backToDoc': 'Kembali ke naskah',
   'comments.deleteFailed': 'Tidak dapat dihapus.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Selesaikan',
   'comments.resolveFailed': 'Tidak dapat diselesaikan.',
   'comments.subtitle': '{{open}} terbuka · {{resolved}} selesai',
+  'common.goToDashboard': 'Ke Dashboard',
   'dashboard.activityHeading': 'Apa yang sedang terjadi',
   'dashboard.createFailed': 'Tidak dapat membuat dokumen.',
   'dashboard.empty': 'Belum ada naskah — mulai dengan tombol Dokumen baru.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Tidak dapat dipindahkan ke sampah.',
   'editor.unpublish': 'Batalkan penerbitan',
   'editor.untitled': 'Dokumen Tanpa Judul',
+  'editor.updatedElsewhere':
+    'Dokumen ini telah diperbarui oleh orang lain — muat ulang untuk melihat versi terbaru.',
   'editor.version': 'v{{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Jika akun ada untuk {{email}}, tautan pengaturan ulang sedang dalam perjalanan.',
   'forgotPassword.subtitle': 'Kami akan mengirim Anda tautan pengaturan ulang.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Dibangun dengan Molecule.',
   'landing.ctaHeading': 'Buka halaman. Biarkan kursor mulai.',
   'landing.ctaPrimary': 'Buka studio',
   'landing.eyebrow': 'Untuk penulis, editor, dan tim',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'disunting {{when}}',
   'quillonDocumentCard.open': 'Buka →',
   'quillonKpiCard.trend': 'Tren terbaru',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Navigasi utama',
   'quillonStudioHero.collab': 'Kolaborator',
   'quillonStudioHero.docs': 'Dokumen yang disentuh',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}h lalu',
   'time.hoursAgo': '{{hours}}j lalu',
   'time.justNow': 'baru saja',
+  'trash.confirmDelete': 'Konfirmasi penghapusan',
   'trash.deleteFailed': 'Tidak dapat dihapus.',
   'trash.deleteForever': 'Hapus selamanya',
   'trash.empty': 'Tidak ada yang dipulihkan.',
+  'trash.emptyAll': 'Kosongkan sampah',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Sampah',
   'trash.loadFailed': 'Tidak dapat memuat sampah.',

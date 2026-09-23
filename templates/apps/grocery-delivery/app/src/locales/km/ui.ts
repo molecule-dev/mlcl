@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'ផ្តល់ដំបូន្មានដល់អ្នកទិញទំនិញរបស់អ្នក',
   'checkout.tipLabel': 'គន្លឹះ',
   'checkout.zipPlaceholder': 'លេខកូដប្រៃសណីយ៍',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'featuredProductsGrid.addAria': 'បន្ថែម {{name}} ទៅរទេះ',
   'featuredProductsGrid.outOfStock': 'អស់ស្តុកហើយ',
   'forgotPassword.emailLabel': 'អាសយដ្ឋានអ៊ីមែល',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'ប្រសិនបើអ៊ីមែលនោះត្រូវបានចុះឈ្មោះហើយ តំណភ្ជាប់កំណត់ឡើងវិញនឹងមកដល់។',
+  'groceryDeliveryLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'landing.categoriesEyebrow': 'ច្រកផ្លូវ',
   'landing.categoriesHeading': 'ទិញទំនិញតាមប្រភេទ',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'កំណត់ពេលដឹកជញ្ជូនប្រចាំសប្តាហ៍ជាមួយនឹងការបញ្ជាទិញឡើងវិញដ៏ឆ្លាតវៃនៃម្ជុលដេរ និងការតាមដានអ្នកបើកបរផ្ទាល់។',
   'landing.heroTitle': 'ភាពស្រស់ថ្លានៅមាត់ទ្វារផ្ទះរបស់អ្នក គិតជាម៉ោង។',
   'landing.howEyebrow': 'ជំហានបី',
+  'landing.howItWorksHeading': 'របៀបដែល {{app}} ដំណើរការ',
   'lists.addAllCta': 'បន្ថែមទាំងអស់ទៅក្នុងរទេះ',
   'lists.createCta': 'បង្កើតបញ្ជីដំបូងរបស់អ្នក',
   'lists.createError': 'មិនអាចបង្កើតបញ្ជីបានទេ។',

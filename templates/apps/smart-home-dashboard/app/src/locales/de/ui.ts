@@ -1,13 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über',
+  'about.pageTitle': 'Über {{app}}',
   'activity.empty':
     'Noch keine Aktivität — schalten Sie ein Gerät ein oder aktivieren Sie eine Szene.',
   'activity.eyebrow': 'Zeitleiste',
   'activity.loadError': 'Aktivitäts-Feed konnte nicht geladen werden.',
   'activity.subheading':
     'Jedes Gerät, jede Automatisierung und jedes Sicherheitsereignis in chronologischer Reihenfolge.',
+  'addDevice.error.failed':
+    'Das Gerät konnte nicht hinzugefügt werden. Bitte versuchen Sie es erneut.',
   'addDevice.error.nameRequired': 'Geben Sie diesem Gerät einen Namen, um fortzufahren.',
   'addDevice.field.firmware': 'Firmware-Version',
   'addDevice.field.manufacturer': 'Hersteller',
@@ -46,6 +50,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Test läuft…',
   'automationEditor.testNew': 'Speichern Sie die Automatisierung zunächst, um sie zu testen.',
   'automationRow.lastRun': 'Zuletzt {{date}} · {{count}} Ausführungen',
+  'automationRow.on': 'Am',
   'automationRow.runNowAria': '{{name}} jetzt ausführen',
   'automations.empty': 'Noch keine Automatisierungen – erstelle deine erste Routine.',
   'automations.eyebrow': 'Routinen',
@@ -53,6 +58,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Automatisierungen werden geladen…',
   'automations.newAutomation': '+ Neu',
   'automations.subheading': 'Wenn dies geschieht, tu das — ohne YAML.',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Gerät konnte nicht geladen werden.',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Wird verarbeitet…',
   'deviceDetail.unnamed': 'Gerät',
   'deviceStatusRow.on': 'An',
+  'deviceStatusRow.turnOff': 'Deaktivieren',
+  'deviceStatusRow.turnOn': 'Aktivieren',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Strom',
   'energy.heading': 'Energie',
@@ -175,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Tarife ansehen',
   'settings.security.heading': 'Sicherheit',
   'settings.subheading': 'Tarif, Hubs und Kontoeinstellungen.',
+  'smartHomeDashboardLayout.openMenu': 'Navigationsmenü öffnen',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Hauptnavigation',
 }

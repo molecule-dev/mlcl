@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Bevakar',
   'auctionDetail.watchRemoved': 'Borttagen från bevakningslistan.',
   'auctionDetail.watchRemoveLabel': 'Ta bort från bevakningslistan',
+  'auctionPlatformLayout.primaryNavLabel': 'Huvudnavigering',
   'authShell.brandBody':
     'Bjud i realtid på sällsynta klockor, konst och unika specialföremål. Klubban faller på några sekunder.',
   'authShell.brandEyebrow': 'Live nu · 1 420 auktioner',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sortera efter',
   'browseAuctions.subheading':
     'Filtrera efter kategori, sortera efter det som spelar mest roll och lägg ett bud innan klubban faller.',
+  'common.goToDashboard': 'Gå till översikt',
   'countdownTimer.ended': 'Avslutad',
   'countdownTimer.endingSoon': 'Avslutas',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Dölj lösenord',
   'login.showPassword': 'Visa lösenord',
   'login.subtext': 'Fortsätt följa dina auktioner och lägg bud innan klubban faller.',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'myBids.bidAgain': 'Bjud igen',
   'myBids.browseCta': 'Bläddra bland liveauktioner →',
   'myBids.checkoutCta': 'Betala nu',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Inga aviseringar ännu.',
   'notificationsPage.eyebrow': 'Aktivitetscenter',
   'notificationsPage.subheading': '{{count}} olästa · liveuppdateringar när auktionerna rör sig',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.bidsLabel': 'bud',
   'pricing.listingsLabel': 'annonser',
   'pricing.watchlistLabel': 'bevakningslista',

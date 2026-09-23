@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
     '{{property}} இல் {{நகரம்}} , {{country}} நாம் சந்திப்போம் {{checkIn}} .',
   'bookingConfirmation.total': 'மொத்தம் {{total}}',
   'bookingConfirmation.viewTripCta': 'பயணத்தைக் காண்க',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'destinationDiscoveryCard.exploreCta': 'தங்குமிடங்களை ஆராயுங்கள்',
   'favorites.empty': 'இன்னும் எந்த சொத்துக்களும் சேமிக்கப்படவில்லை.',
   'favorites.heading': 'சேமிக்கப்பட்ட சொத்துக்கள்',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'உங்கள் பயணங்களை நிர்வகிக்கவும், உறுதிப்படுத்தல்களைப் பார்க்கவும், நீங்கள் விட்ட இடத்திலிருந்து தொடரவும் உள்நுழையுங்கள்.',
   'planUpdated.heading': 'திட்டம் புதுப்பிக்கப்பட்டது',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.limit.advancedFeatures': 'மேம்பட்ட அம்சங்கள்:',
   'pricing.limit.canExport': 'தரவு ஏற்றுமதி:',
   'pricing.limit.hotels': 'ஹோட்டல்கள்',
@@ -81,7 +83,9 @@ export const ui: UiTranslations = {
   'propertyDetail.bookCta': 'இருப்பு',
   'propertyDetail.bookmarkAriaSaved': 'சேமிக்கப்பட்ட பண்புகளிலிருந்து நீக்கவும்',
   'propertyDetail.heroImageAlt': '{{name}} கதாநாயகனின் புகைப்படம்',
+  'propertyDetail.hidePhotos': 'புகைப்படங்களை மறைக்கவும்',
   'propertyDetail.lineCleaning': 'துப்புரவுக் கட்டணம்',
+  'propertyDetail.lineRate': '{{price}} × {{nights}} இரவுகள்',
   'propertyDetail.lineTaxes': 'வரிகள் மற்றும் கட்டணங்கள்',
   'propertyDetail.loadError': 'சொத்தை ஏற்ற முடியவில்லை.',
   'propertyDetail.night': 'இரவு',
@@ -106,6 +110,7 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'தேர்ந்தெடுக்கப்பட்ட தங்குமிடங்கள்',
   'searchResults.headingForQuery': '"க்கான தங்குமிடங்கள் {{q}} "',
   'searchResults.loadError': 'பண்புகளை ஏற்ற முடியவில்லை.',
+  'searchResults.mapPinAria': '{{name}} — {{price}} ஒரு இரவுக்கு',
   'searchResults.sortLabel': 'வரிசைப்படுத்து',
   'signup.eyebrow': 'உறுப்பினராகுங்கள்',
   'signup.subheading':

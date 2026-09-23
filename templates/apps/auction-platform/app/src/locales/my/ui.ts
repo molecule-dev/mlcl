@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'ကြည့်နေသည်',
   'auctionDetail.watchRemoved': 'စောင့်ကြည့်စာရင်းမှ ဖယ်ရှားလိုက်ပါပြီ။',
   'auctionDetail.watchRemoveLabel': 'စောင့်ကြည့်စာရင်းမှ ဖယ်ရှားရန်',
+  'auctionPlatformLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'authShell.brandBody':
     'ရှားပါးနာရီများ၊ အနုပညာလက်ရာများနှင့် ထူးခြားသော အထူးပစ္စည်းများအတွက် အချိန်နှင့်တပြေးညီ လေလံဆွဲပါ။ တူသည် စက္ကန့်ပိုင်းအတွင်း ပြုတ်ကျသွားသည်။',
   'authShell.brandEyebrow': 'ယခုတိုက်ရိုက်ထုတ်လွှင့်သည် · လေလံပွဲ ၁,၄၂၀ ခု',
@@ -50,6 +51,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'အလိုက်စဥ်သည်',
   'browseAuctions.subheading':
     'အမျိုးအစားအလိုက် စစ်ထုတ်ပါ၊ အရေးကြီးဆုံးအလိုက် စီပါ၊ ထို့နောက် တူမပြုတ်ကျမီ တင်ဒါတင်ပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'countdownTimer.ended': 'ပြီးဆုံးသွားပါပြီ',
   'countdownTimer.endingSoon': 'အဆုံးသတ်',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.subtext': 'တူမပြုတ်ကျမီ သင့်လေလံများကို ဆက်လက်ခြေရာခံပြီး တင်ဒါများတင်ပါ။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'myBids.bidAgain': 'ထပ်မံတင်ဒါခေါ်ယူခြင်း',
   'myBids.browseCta': 'တိုက်ရိုက်လေလံပွဲများကို ကြည့်ရှုပါ →',
   'myBids.checkoutCta': 'ယခုပေးချေပါ',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'လှုပ်ရှားမှုစင်တာ',
   'notificationsPage.subheading':
     '{{count}} မဖတ်ရသေးသော · လေလံပွဲများ ရွှေ့လျားလာသည်နှင့်အမျှ တိုက်ရိုက် အပ်ဒိတ်များ',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.bidsLabel': 'တင်ဒါများ',
   'pricing.listingsLabel': 'စာရင်းများ',
   'pricing.watchlistLabel': 'စောင့်ကြည့်စာရင်း',

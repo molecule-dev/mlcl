@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Се вчитуваат информациите за планот…',
   'billing.popular': 'Најомилени',
   'billing.subtitle': 'Изберете го планот што одговара на вашиот ритам на учење.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.today': 'Денес',
   'common.yesterday': 'Вчера',
   'courseDetail.empty.body':
@@ -82,7 +83,11 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Име на шпил',
   'flashcards.subtitle': 'Растојанско повторување што се прилагодува на вашето темпо.',
   'flashcards.title': 'Флеш-картички',
+  'footer.copyright': '© {{year}} {{app}} . Учи добро, спиј добро.',
   'forgotPassword.subtitle': 'Внесете ја вашата е-пошта и ние ќе ви испратиме линк за ресетирање.',
+  'koanLayout.closeMenu': 'Затвори мени',
+  'koanLayout.navLabel': 'Примарна навигација',
+  'koanLayout.openMenu': 'Отвори мени',
   'koanLayout.theme': 'Тема',
   'landing.featuresBody':
     'Алатки дизајнирани да го елиминираат одвлекувањето на вниманието и да изградат трајно разбирање.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Таа URL адреса е непозната територија. Можеби печатна грешка, можеби избришана лекција - во секој случај, да ве вратиме на учење.',
   'notFound.heading': 'Страницата не е пронајдена.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Се е во тек',
   'notifications.filter.${opt}': 'Се вчитуваат известувањата…',
   'notifications.markAllError': 'Не можеше да се означат сите како прочитани.',
   'notifications.markError': 'Не можеше да се означи како прочитано.',
   'notifications.subtitle': '{{count}} непрочитани ажурирања',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.heading': 'квизови',
   'pricing.limits.topics': 'теми',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Обидете се со друг клучен збор или филтер.',
   'search.empty.title': 'Ништо не се совпаѓаше.',
   'search.error': 'Не можеше да се вчитаат резултатите.',
+  'search.filters': 'Филтри за тип на резултати',
   'search.go': 'Оди',
   'search.label.flashcard': 'Шпил картички',
   'search.label.note': 'Забелешка',

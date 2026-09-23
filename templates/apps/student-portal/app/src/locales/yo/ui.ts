@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'announcementsFeed.empty': 'Ko si awọn ikede sibẹsibẹ.',
   'announcementsFeed.eyebrow': '{{count}} awọn imudojuiwọn',
   'announcementsFeed.title': 'Àwọn ìkéde tuntun',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Ko si nkankan nibi',
   'assignments.emptyBody': 'Yí àwọn àlẹ̀mọ́ padà lókè láti rí àwọn iṣẹ́ tí a yàn ní ipò mìíràn.',
   'assignments.eyebrow': 'Gbogbo àwọn ẹ̀kọ́ · Àkókò yìí',
+  'assignments.loadError': 'Kò le gbé àwọn iṣẹ́ àyànfúnni sókè.',
   'assignments.loading': 'N n gbe awọn iṣẹ iyansilẹ…',
   'assignments.subtitle':
     'Ṣe àlẹ̀mọ́ nípa ipò láti rí ohun tó yẹ, èyí tí a fi sílẹ̀, èyí tí a ṣe àyẹ̀wò rẹ̀, tàbí èyí tí ó sọnù.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Àkíyèsí',
   'attendance.empty': 'Kò sí àkọsílẹ̀ wíwá síbẹ̀.',
   'attendance.eyebrow': 'Àkókò ìrúwé · Ọ̀sẹ̀ mẹ́rin tó kọjá',
+  'attendance.loadError': 'Kò le gbé àwọn àkọsílẹ̀ wíwá sílé sórí ayélujára.',
   'attendance.loading': 'N n gbe wiwa soke…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Àwọn ọjọ́ ìparí iṣẹ́ tí a yà sọ́tọ̀ lórí àkójọ oṣù kan — àwọn ìdánwò náà yàtọ̀ síra ní àwọ̀ pupa.',
   'calendar.title': '{{month}} awọn iṣẹlẹ',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
+  'common.retry': 'Gbiyanju lẹẹkansi',
   'common.yes': '✓',
   'courseDetail.backLink': 'Àwọn ìpele',
   'courseDetail.currentGrade': 'Ipele lọwọlọwọ',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Àṣà àṣà',
   'grades.empty': 'Kò sí àmì tí a fi ránṣẹ́ síbẹ̀.',
   'grades.eyebrow': 'Ìwé ìpele',
+  'grades.loadError': 'Kò le gbé àwọn àmì rẹ sókè.',
   'grades.loading': 'N n gbe awọn ipele soke…',
   'grades.subtitle':
     'Lẹ́tà aláàyè àti ìwọ̀n ìpín ọgọ́rùn-ún. Àwọn ọfà àṣà fihàn bóyá o ń gbéra sókè, ipele, tàbí o ń yọ́.',
   'grades.title': 'Àwọn àmì-ẹ̀yẹ rẹ, ní ọ̀nà kọ̀ọ̀kan',
   'grades.trendStable': 'Ibùdó',
+  'landing.copyright': '© {{year}} {{app}} . A ṣe é fún àwọn akẹ́kọ̀ọ́, a ṣe é fún àwọn ìdílé.',
   'landing.ctaHeading': 'Ọjọ́ ilé-ẹ̀kọ́ tí ó dákẹ́ jẹ́ẹ́ bẹ̀rẹ̀ ní ìṣẹ́jú díẹ̀',
   'landing.eyebrow': 'Fun awọn ọmọ ile-iwe alabọde ati giga',
   'landing.featuresHeading': 'Ọjọ́ ilé-ẹ̀kọ́ tí a ṣètò ní àyíká akẹ́kọ̀ọ́ náà',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Àwọn Iṣẹ́ Àyànfúnni',
   'nav.attendance': 'Wíwá sí ìpàdé',
   'nav.calendar': 'Kàlẹ́ńdà',
+  'nav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
   'nav.grades': 'Àwọn ìpele',
+  'nav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'nav.statusEyebrow': 'GPA igba',
   'nav.statusSubtext': 'Àkókò ìrúwé · Àkókò ọlá',
+  'nav.unreadMessages': 'Àwọn ìránṣẹ́ tí a kò kà',
   'notifications.eyebrow': '{{count}} awọn imudojuiwọn',
   'notifications.subtitle':
     'Àwọn àmì, àwọn ìrántí, àwọn ìránṣẹ́, àti àwọn ìkéde ilé-ìwé. Ṣàtúnṣe àwọn ikanni tí ìfitónilétí kọ̀ọ̀kan ń lò nínú Àwọn Àkójọ.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.attendanceLabel': 'wíwá sílé',
   'pricing.gradesLabel': 'awọn iwọn',
   'pricing.heading': 'àwọn ìkéde',

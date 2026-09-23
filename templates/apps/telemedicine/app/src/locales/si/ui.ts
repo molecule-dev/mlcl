@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'හමුවීම වෙන්කරවා ගන්න',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'පෙන්වීමට රෝගීන් නැත.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'consult.backLink': 'සියලුම හමුවීම්',
   'consult.captions': 'සිරස්තල',
   'consult.connected': 'සම්බන්ධිත · 720p · ස්ථාවර',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'රෝගීන්',
   'patientVitalsHero.scripts': 'Rx විවෘතයි',
   'patientVitalsHero.subline': '{{count}} අද ඔබේ කාලසටහනට අනුව උපදෙස් ලබා ගනී',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'prescriptions.empty': 'කිසිම බෙහෙත් වට්ටෝරුවක් ගැලපෙන්නේ නැහැ.',
   'prescriptions.eyebrow': 'විද්‍යුත් නිර්දේශ කිරීම',
   'prescriptions.heading': 'බෙහෙත් වට්ටෝරු',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'රහස්‍යතා නිවේදනය',
   'privacy.use.body':
     'සත්කාර ලබා දීම සඳහා, හමුවීම් මතක් කිරීම් යැවීම, බෙහෙත් වට්ටෝරු මාර්ගගත කිරීම සහ සේවා විශ්වසනීයත්වය වැඩි දියුණු කිරීම. අපි කිසි විටෙකත් ඔබේ දත්ත විකුණන්නේ නැති අතර සායනික තොරතුරු දැන්වීම්කරුවන් සමඟ බෙදා නොගනිමු.',
+  'providers.allSpecialties': 'සියලුම විශේෂතා',
+  'providers.loadError': 'සැපයුම්කරුවන් පූරණය කිරීමට අසමත් විය.',
+  'providers.loading': 'පූරණය වෙමින්...',
   'providers.noResults': 'සැපයුම්කරුවන් හමු නොවීය.',
   'providers.searchPlaceholder': 'නම, විශේෂත්වය අනුව සොයන්න...',
   'providers.title': 'සැපයුම්කරුවෙකු සොයා ගන්න',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'දින ආරම්භය',
   'settings.availability.heading': 'උපයෝජ්‍යතාව',
   'settings.devices.thisDevice': 'මෙම උපාංගය',
+  'settings.devices.unnamed': 'නම් නොකළ උපාංගය',
   'settings.eyebrow': 'පුහුණුවීම් සහ ගිණුම',
   'settings.loadError': 'ඔබගේ පැතිකඩ පූරණය කිරීමට නොහැකි විය.',
   'settings.notifications.emailMessages':
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'අබල කරන්න',
   'settings.security.twoFactor.enable': 'සක්‍රීය කරන්න',
   'settings.security.twoFactor.heading': 'ද්වි-සාධක සත්‍යාපනය',
+  'settings.security.twoFactor.invalidCode': 'ඒ කේතය ගැළපුණේ නැහැ. නැවත උත්සාහ කරන්න.',
+  'settings.security.twoFactor.setupFailed':
+    'ද්වි-සාධක සැකසුම ආරම්භ කළ නොහැකි විය. නැවත උත්සාහ කරන්න.',
+  'settings.security.twoFactor.statusOn': 'ද්වි-සාධකය ක්‍රියාත්මකයි',
   'settings.signOutDevice': 'වරන්න',
   'settings.subheading': 'සැපයුම්කරුගේ පැතිකඩ, පුහුණු නීති සහ සායනික ඇඟවීම්.',
   'signup.emailLabel': 'විද්‍යුත් තැපෑල',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'ගිණුම තනන්න',
   'signupFooter.hipaa': 'HIPAA අනුකූල',
   'solaceLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
+  'solaceLayout.toggleMenu': 'මෙනුව ටොගල් කරන්න',
   'terms.eligibility.body':
     'ඔබ අවම වශයෙන් වයස අවුරුදු දහඅටක් විය යුතුය, නැතහොත් ඔබ රැකවරණය සොයන බාලවයස්කරුවෙකුගේ දෙමාපියෙකු හෝ නීත්‍යානුකූල භාරකරුවෙකු විය යුතුය, සහ අපගේ වෛද්‍යවරුන් බලපත්‍රලාභී එක්සත් ජනපද ප්‍රාන්තයක භෞතිකව පිහිටා තිබිය යුතුය.',
   'terms.payment.body':

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Ilayisha izifundo…',
   'browse.next': 'Ikhasi elilandelayo',
   'browse.results': 'Kuboniswa {{count}} izifundo',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Hlunga nge',
   'browse.subtitle':
     'Hlunga ingobo yomlando yokuhlela ngesihloko, izinga, kanye nentengo. Zonke izifundo zihlelwe ngesandla ngabahleli bethu.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Isitifiketi sakho sisayiniwe futhi sesilungile. Yabelana ngaso nomhlaba wonke noma usigcine njengesikhumbuzo somsebenzi owadingeka ukuze uthole imali.',
   'certificate.copyLink': 'Kopisha isixhumanisi sokwabelana',
+  'certificate.copyPrompt': 'Kopisha lesi sixhumanisi:',
   'certificate.download': 'Landa i-PDF',
   'certificate.eyebrow': 'Impumelelo ivuliwe',
   'certificate.linkCopied': 'Isixhumanisi sikopishiwe!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Ubhalisile!',
   'checkout.verifying': 'Iqinisekisa ukubhaliswa kwakho…',
   'checkout.viewLibrary': 'Buka Ukufunda Kwami',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.retry': 'Zama futhi',
   'courseDetail.about': 'Mayelana nale khosi',
   'courseDetail.checkoutPending': 'Iqala ukukhokha…',
   'courseDetail.continueLearning': 'Qhubeka ufunda',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Isiqinisekiso sokubuyiselwa imali sezinsuku ezingu-30',
   'courseDetail.includes.video': '{{hours}} amahora evidiyo efunwa kakhulu',
   'courseDetail.instructor': 'Umfundisi',
+  'courseDetail.languageEnglish': 'IsiNgisi',
   'courseDetail.lectures': 'Izinkulumo',
   'courseDetail.level': 'Izinga',
   'courseDetail.loading': 'Ilayisha inkambo…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Azikho izibuyekezo okwamanje.',
   'instructorProfile.students': 'Abafundi',
   'landing.categories.empty': 'Izigaba zizovela uma ikhathalogi isigcwalisiwe.',
+  'landing.categories.heading': 'Hlola ingobo yomlando',
   'landing.hero.eyebrow': 'Isifundo · Ingobo yomlando yomhleli wobuciko',
   'landing.hero.proof': 'Kuthenjwe ngabafundi kwa-Google, Meta, kanye ne-Adobe.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Qala ukufunda namuhla',
   'login.subheading': 'Finyelela ingobo yakho yomlando yezemfundo.',
   'myLearning.empty.title': 'Azikho izifundo ezifana nalesi sihlungi okwamanje',
+  'myLearning.error.title': 'Ayikwazanga ukulayisha ilabhulali yakho',
   'myLearning.filter.notStarted': 'Akuqalwanga',
   'myLearning.hero.subtitle': '{{count}} izifundo kulabhulali yakho. Qhubeka nomfutho.',
   'myLearning.hero.title': 'Qhubeka lapho ushiye khona.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Akukho msebenzi omusha okufanele ubuyekezwe. Imicimbi emisha izovela lapha.',
   'notifications.empty.title': 'Nonke nibambekile',
+  'notifications.error.title': 'Ayikwazanga ukulayisha umsebenzi',
   'privacy.title': 'Inqubomgomo yobumfihlo',
   'reset.confirmPlaceholder': 'Faka kabusha iphasiwedi yakho entsha',
   'reset.errorGeneric': 'Ayikwazanga ukusetha kabusha iphasiwedi. Cela isixhumanisi esisha.',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} kudala',
   'timeAgo.hours': '{{count}} edlule',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': 'Izinyanga ezingu {{count}} ezedlule',
   'timeAgo.today': 'namuhla',
+  'timeAgo.weeks': 'Amaviki angu {{count}} edlule',
 }

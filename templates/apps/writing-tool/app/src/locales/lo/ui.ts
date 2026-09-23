@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.title': 'ຫ້ອງຂຽນທີ່ທ່ານສາມາດເກັບໄວ້ໃນກະເປົາຂອງທ່ານໄດ້',
   'billing.cancelConfirm': 'ຍົກເລີກການສະໝັກໃຊ້ທີ່ໃຊ້ງານຢູ່ຂອງທ່ານບໍ?',
   'billing.cancelFailed': 'ບໍ່ສາມາດຍົກເລີກໄດ້.',
   'billing.checkingOut': 'ກຳລັງເປີດການຈ່າຍເງິນ…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ບໍ່ສາມາດໂຫຼດການຮຽກເກັບເງິນໄດ້.',
   'billing.loading': 'ກຳລັງໂຫຼດໃບບິນ…',
   'billing.upgradeCta': 'ອັບເກຣດເປັນ {{name}}',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'editor.autosaveOn': 'ເປີດບັນທຶກອັດຕະໂນມັດແລ້ວ',
   'editor.backToLibrary': 'ກັບໄປຫ້ອງສະໝຸດ',
   'editor.charCount': '{{count}} ຕົວລະຄອນ',
   'editor.confirmTrash': 'ຍ້າຍເອກະສານນີ້ໄປໃສ່ຖັງຂີ້ເຫຍື້ອບໍ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ຖອນໝຸດແລ້ວ',
   'editor.unpublishCta': 'ຍ້າຍໄປສະບັບຮ່າງ',
   'editor.unpublished': 'ປ່ຽນກັບໄປເປັນສະບັບຮ່າງແລ້ວ',
+  'focus.autosaveOn': 'ເປີດບັນທຶກອັດຕະໂນມັດແລ້ວ',
   'focus.backToLibrary': 'ກັບໄປຫ້ອງສະໝຸດ',
   'focus.bodyPlaceholder': 'ເທື່ອລະແຖວ. ບໍ່ມີໃຜຢູ່ທີ່ນີ້ອີກ.',
   'focus.exit': 'ອອກຈາກໂໝດໂຟກັສ',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ສ້າງອັນໜຶ່ງ',
   'login.subline':
     'ເອກະສານຕົ້ນສະບັບ, ໜ້າປະຈຳວັນ, ແລະ ຕຳແໜ່ງກະພິບສຸດທ້າຍຂອງທ່ານແມ່ນຢູ່ໃນບ່ອນທີ່ເຈົ້າປະໄວ້.',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'pricing.exports': 'ການສົ່ງອອກ',
   'pricing.folders': 'ໂຟນເດີ',
   'pricing.heading': 'ເອກະສານ',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'ໃສ່ລະຫັດທີ່ພວກເຮົາຫາກໍ່ສົ່ງອີເມວຫາທ່ານ ແລະ ເລືອກສິ່ງທີ່ໜ້າຈົດຈຳ. ພວກເຮົາຈະພາທ່ານເຂົ້າສູ່ລະບົບເມື່ອມັນຖືກບັນທຶກໄວ້ແລ້ວ.',
   'reset.tokenHint': 'ວາງຈາກກ່ອງຈົດໝາຍຂອງທ່ານແລ້ວ.',
+  'settings.appearance.heading': 'ສະຫວ່າງ ຫຼື ມືດ',
   'settings.editor.${row.id}.description': 'ພາສາ',
   'settings.editor.description':
     'ການເລື່ອນຂອງເຄື່ອງພິມດີດ, ການຈາງລົງຂອງວັກ, ແລະ ການໂຟກັສໃນຂະນະທີ່ບໍ່ໄດ້ໃຊ້ງານ — ຄ່າເລີ່ມຕົ້ນຈະຖືກປັບແຕ່ງສຳລັບຊ່ວງເວລາທີ່ຍາວນານ.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'ບົດທີສາມ - ຊົ່ວໂມງທີ່ງຽບສະຫງົບກ່ອນຕາເວັນຂຶ້ນ',
   'versalDocumentCard.pinned': 'ປັກໝຸດແລ້ວ',
   'versalLayout.nav.stats': 'ສະຖິຕິ',
+  'versalLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'versalManuscriptHero.cta': 'ສືບຕໍ່ຂຽນ',
   'versalManuscriptHero.goalLabel': 'ເປົ້າໝາຍຄຳສັບຂອງມື້ນີ້',
   'versalManuscriptHero.inProgress': 'ກຳລັງຕິດຕາມ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'analytics.col.quorum': 'கோரம்',
   'analytics.col.votes': 'வாக்குகள்',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'இன்னும் நிலுவையில் உள்ள கேள்விகள் எதுவும் இல்லை.',
   'audienceQa.onStageEyebrow': 'இப்போது மேடையில்',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'ஊக்குவிக்கவும்',
   'audienceQa.queued': 'வரிசையில் நின்றது',
   'audienceQa.queueEyebrow': 'வரிசை',
   'ballot.eyebrow': 'உங்கள் வாக்குகளைப் பதிவு செய்யுங்கள்',
@@ -78,7 +80,9 @@ export const ui: UiTranslations = {
   'billing.kpi.retentionUnlimited': 'வரம்பற்ற',
   'billing.plansEyebrow': 'ஒரு திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'billing.plansHeading': 'இலவசம், புரோ மற்றும் குழு',
+  'billing.subheading': 'நீங்கள் தற்போது {{plan}} திட்டத்தில் இருக்கிறீர்கள்.',
   'billing.switch': 'சுவிட்ச்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'createPoll.addOption': 'விருப்பத்தைச் சேர்க்கவும்',
   'createPoll.anonymousHint':
     'தணிக்கைப் பதிவேட்டில் வாக்காளர் பெயர்கள் மறைக்கப்பட்டுள்ளன; வாக்கு எண்ணிக்கைகள் சரிபார்க்கப்பட்டவையாகவே இருக்கும்.',
@@ -162,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh-க்கு புதியவரா?',
   'login.remember': '30 நாட்களுக்கு என்னை நினைவில் கொள்ளுங்கள்',
   'login.subheading': 'தளத்தைத் திறந்து, அறையை நடத்தி, முடிவைச் சான்றளிக்கவும்.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'notFound.body':
     'நீங்கள் அணுக முயன்ற பக்கம் மூடப்பட்டுவிட்டது அல்லது வேறு இடத்திற்கு மாற்றப்பட்டுள்ளது. டாஷ்போர்டுக்குத் திரும்பிச் செல்லுங்கள் அல்லது புதிய வாக்கெடுப்பைத் தொடங்குங்கள்.',
   'notFound.eyebrow': 'இந்த வழித்தடத்தில் கோரம் இல்லை',
@@ -171,6 +177,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'அறிவிப்புகள் ஏற்றப்படுகின்றன…',
   'notifications.subheading':
     'கோரம் புதுப்பிப்புகள், வாக்கெடுப்பு நிகழ்வுகள், மேடை கேள்வி பதில் ஊக்குவிப்புகள் மற்றும் ஒருங்கிணைப்பு நிலை.',
+  'pollCard.questionsAndResponses': '{{questions}} கேள்விகள் · {{responses}} பதில்கள்',
   'pollCard.quorum': 'கோரம்',
   'pollDetail.close': 'வாக்குச்சீட்டை மூடு',
   'pollDetail.closed': 'வாக்கெடுப்பு முடிவடைந்தது — இறுதி வாக்கு எண்ணிக்கை உறுதிசெய்யப்பட்டது.',
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'இந்த வாக்கெடுப்பை ஏற்ற முடியவில்லை.',
   'pollDetail.loading': 'வாக்கெடுப்பு ஏற்றப்படுகிறது…',
   'pollDetail.notFound': 'வாக்கெடுப்பு காணப்படவில்லை.',
+  'pollDetail.openBallot': 'திறந்த வாக்குச்சீட்டு',
   'pollDetail.openLive': 'நேரடி முடிவுகள்',
   'pollDetail.pollId': 'வாக்கெடுப்பு · {{id}}',
   'pollDetail.published':
@@ -270,4 +278,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'மின்னஞ்சல் மூலம் தேடுங்கள்…',
   'voters.subheading':
     'தகுதியுடையோர் பட்டியலைத் தொகுக்கவும். எடையிடப்பட்ட வாக்குகளுக்காக வாக்காளர்களை அமைப்பு வாரியாகக் குழுவாக்கவும்.',
+  'votingPollingLayout.nav.analytics': 'பகுப்பாய்வு',
+  'votingPollingLayout.nav.billing': 'பில்லிங்',
+  'votingPollingLayout.nav.createPoll': 'புதிய கருத்துக் கணிப்பு',
+  'votingPollingLayout.nav.dashboard': 'டாஷ்போர்டு',
+  'votingPollingLayout.nav.notifications': 'அறிவிப்புகள்',
+  'votingPollingLayout.nav.settings': 'அமைப்புகள்',
+  'votingPollingLayout.nav.team': 'அணி',
+  'votingPollingLayout.nav.voters': 'வாக்காளர்கள்',
+  'votingPollingLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
 }

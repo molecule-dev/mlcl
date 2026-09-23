@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Contáctanos',
   'about.eyebrow': 'Acerca de',
+  'common.goToDashboard': 'Ir al panel',
   'dashboard.connectRepoCta': 'Conectar repositorio',
   'dashboard.empty': 'Aún no hay pull requests: conecta un repositorio para empezar.',
   'dashboard.eyebrow': 'Refract · cola de revisión',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Disponibilidad',
   'pullRequestRow.files': '{{count}} a',
   'pullRequestRow.scoreAria': 'Puntuación de calidad de IA {{score}} / 10',
+  'refractLayout.closeMenu': 'Cerrar menú',
+  'refractLayout.openMenu': 'Abrir menú',
   'refractLayout.primaryNavLabel': 'Navegación principal',
   'reports.cumulativeScoreLabel': 'Puntuación acumulada',
   'reports.cumulativeScoreSubtitle': 'todos los repos · {{days}} d',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'No se pudo cargar el índice de búsqueda.',
   'settings.apiKeys.description':
     'Gestiona claves de API personales desde el menú de usuario en la esquina superior derecha.',
+  'settings.apiKeys.integrationsNote':
+    'Los tokens de acceso de los proveedores se gestionan en la sección «Integraciones» que aparece más arriba.',
   'settings.connectError': 'No se pudo conectar el proveedor.',
   'settings.disconnectError': 'No se pudo desconectar el proveedor.',
   'settings.eyebrow': 'Refract · espacio de trabajo',
   'settings.integration.${provider}.label': 'Guardando…',
   'settings.loadError': 'No se pudieron cargar los ajustes.',
+  'settings.notificationCenter': 'Centro de notificaciones',
   'settings.notifications.description':
     'Visita la página de notificaciones para ver y gestionar las preferencias de entrega.',
   'settings.section.account': 'Cuenta y seguridad',

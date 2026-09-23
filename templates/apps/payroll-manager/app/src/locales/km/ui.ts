@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'auditLog.empty':
     'មិនទាន់មានព្រឹត្តិការណ៍សវនកម្មដែលត្រូវនឹងតម្រងរបស់អ្នកនៅឡើយទេ។ កែសម្រួលបុគ្គលិក ឬដំណើរការការបើកប្រាក់បៀវត្សរ៍ ហើយពួកគេនឹងបង្ហាញនៅទីនេះ។',
   'auditLog.eyebrow': 'ការអនុលោមតាម',
+  'auditLog.loadError': 'មិនអាចផ្ទុកកំណត់ហេតុត្រួតពិនិត្យបានទេ។',
   'auditLog.searchPlaceholder': 'ស្វែងរកតាមតារាសម្តែង សកម្មភាព ឬការពិពណ៌នា',
   'auditLog.subheading':
     'រាល់ការអនុម័ត ការកែសម្រួល និងការដាក់ពាក្យពន្ធ — ជាមួយនឹងអ្នកធ្វើសកម្មភាព ត្រាពេលវេលា និងវាលដែលបានផ្លាស់ប្តូរ។',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'មិនត្រូវបានកំណត់រចនាសម្ព័ន្ធទេ',
   'billing.plansHeading': 'ផែនការ',
   'billing.subheading': 'គ្រប់គ្រងផែនការរបស់អ្នក និងប្តូរកម្រិតតាមរយៈ Stripe។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'ទិដ្ឋភាពទូទៅនៃការអនុលោមតាមច្បាប់',
   'dashboard.compliance.title': 'ការត្រួតពិនិត្យទាំងអស់ឆ្លងកាត់',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'គ្មានការកាត់កងក្នុងឯកសារទេ។',
   'employeeDetail.notFound': 'រកមិនឃើញបុគ្គលិកទេ។',
   'employeeDetail.payFrequency': 'ភាពញឹកញាប់នៃការទូទាត់',
+  'employeeDetail.postTax': 'ក្រោយបង់ពន្ធ',
+  'employeeDetail.preTax': 'មុនពន្ធ',
   'employeeDetail.salary': 'ប្រាក់ខែប្រចាំឆ្នាំ',
   'employeeDetail.ssn': 'លេខសន្តិសុខសង្គម',
   'employeeDetail.startedOn': 'បានចាប់ផ្តើម {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ភាពញឹកញាប់នៃការទូទាត់',
   'employeeForm.salary': 'ប្រាក់ខែប្រចាំឆ្នាំ (ដុល្លារអាមេរិក)',
   'employeeForm.salaryInvalid': 'ប្រាក់ខែត្រូវតែជាលេខមិនអវិជ្ជមាន។',
+  'employeeForm.saveError': 'មិនអាចជួយសង្គ្រោះបុគ្គលិកបានទេ។',
   'employeeForm.semimonthly': 'ពាក់កណ្តាលខែ',
   'employeeForm.single': 'នៅលីវ',
   'employeeForm.ssn': 'លេខសន្តិសុខសង្គម',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'បុគ្គលិក',
   'employeesTable.col.salary': 'ប្រាក់ខែ',
   'forgotPassword.subtitle': 'សូមបញ្ចូលអ៊ីមែលការងាររបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញ។',
+  'landing.copyright': '© {{year}} {{app}} ។ ច្បាស់លាស់ អាចទុកចិត្តបាន មានរបៀបរៀបរយ។',
   'landing.ctaBody':
     'ឥតគិតថ្លៃរយៈពេល 30 ថ្ងៃ។ មិនតម្រូវឱ្យប្រើកាតឥណទានទេ។ ប្តូរនៅពេលណាក៏បានដោយមិនបាត់បង់ប្រវត្តិសវនកម្មរបស់អ្នក។',
   'landing.ctaHeading': 'ដំណើរការវដ្តបន្ទាប់របស់អ្នកនៅលើ Stipend',
@@ -87,6 +95,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ការអនុម័ត ថ្ងៃផុតកំណត់ ការជូនដំណឹងអំពីការរួមបញ្ចូល និងការលើកឡើងនៅកន្លែងតែមួយ។',
   'notifications.view': 'មើល',
+  'payrollHeroCard.change': '{{sign}} {{amount}} ធៀបនឹងវដ្តមុន',
   'payrollHeroCard.cta': 'ពិនិត្យ និងដំណើរការ',
   'payrollHeroCard.employees': '{{count}} បុគ្គលិក',
   'payrollHeroCard.eyebrow': 'ការបើកប្រាក់ខែបន្ទាប់ · {{date}}',
@@ -105,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'មិនទាន់មានធាតុចូលសវនកម្មសម្រាប់ការបើកប្រាក់បៀវត្សរ៍នេះនៅឡើយទេ។',
   'payRunDetail.noStubs':
     'មិនទាន់មានបង្កាន់ដៃបើកប្រាក់ខែនៅឡើយទេ — សូមអនុម័ត និងដំណើរការដើម្បីបង្កើតវា។',
+  'payRunDetail.notFound': 'រកមិនឃើញការបង់ប្រាក់នេះទេ។',
   'payRunDetail.statDeductions': 'ការកាត់កង',
   'payRunDetail.statHeadcount': 'បុគ្គលិក',
   'payRunDetail.statTaxes': 'ពន្ធ​ដែល​បាន​កាត់​ទុក',
@@ -221,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'ពាក់កណ្តាលខែ',
   'settings.signOutDevice': 'ចាកចេញ',
   'settings.subheading': 'ប្រវត្តិរូបក្រុមហ៊ុន កាលវិភាគបើកប្រាក់បៀវត្សរ៍ និងការរួមបញ្ចូល។',
+  'settings.twoFactorCode': 'លេខកូដផ្ទៀងផ្ទាត់',
   'settings.twoFactorDisable': 'បិទ',
+  'settings.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
+  'settings.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'settings.weekly': 'ប្រចាំសប្តាហ៍',
   'taxCenter.bucket.federal': 'ចំណូលសហព័ន្ធ',
   'taxCenter.bucket.fica': 'សន្តិសុខសង្គម',

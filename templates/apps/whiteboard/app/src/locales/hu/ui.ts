@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'authShell.brandHeading': 'Többjátékos vásznak hangosan gondolkodó tervezőcsapatoknak.',
   'billing.canceled': 'Előfizetés lemondva.',
   'billing.cancelPlan': 'Terv lemondása',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Kezdés sablonból',
   'boards.title': 'A tábláid',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Add meg a munkaterületedhez tartozó e-mail címet, és küldünk egy visszaállítási linket.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Rendezetlen, generatív, személyes jelenléttel járó gondolkodásra tervezve.',
   'landing.demoBoard.title': '1. negyedév Workshop · Márkahang',
   'landing.featuresTitle': 'Gyors visszajelzés. Gyönyörű vásznak. Nulla súrlódás.',
+  'landing.hero.body':
+    '{{appName}} egy többjátékos tábla tervezőcsapatok, workshopok lebonyolítói és oktatók számára, akik élő ötleteléseket tartanak, és akiknek egy helyen kell összegyűjteniük az ötleteiket.',
   'landing.hero.primaryCta': 'Indíts ingyenes táblát',
   'landing.hero.socialProof': 'Megbízható által {{count}} tervezőcsapatok világszerte',
   'landing.hero.title': 'Egy vászon, olyan gyors, mint a gondolataid',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Hozz létre egy ingyenes munkaterületet',
   'login.subheading':
     'Folytasd ott, ahol a workshop abbamaradt – a táblák, a cetlik és a kurzorok valós időben szinkronizálódnak.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.new': 'Új',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'notifications.editTitle': 'Szerkesztések a következőhöz: " {{board}} "',
   'notifications.empty.body':
     'A meghívók, a pillanatképmentések és a legutóbbi táblaszerkesztések itt jelennek meg, amint megtörténnek.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Verziótörténet',
   'versionHistory.untitledSnapshot': 'Névtelen pillanatkép',
   'whiteboardLayout.newBoard': 'Új tábla',
+  'whiteboardLayout.primaryNav': 'Elsődleges navigáció',
   'workspace.boardLabel': 'Bizottság',
   'workspace.eyebrow': '{{name}} · munkaterület',
   'workspace.invite': 'Együttműködők meghívása',

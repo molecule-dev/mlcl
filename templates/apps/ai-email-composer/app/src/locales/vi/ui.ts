@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Câu chuyện của chúng tôi',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Tỷ lệ mở',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Đang bắt đầu thanh toán…',
   'billing.subheading': 'Chọn gói phù hợp với cách quý vị gửi.',
   'billing.unavailable': 'Liên hệ bộ phận bán hàng',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.retry': 'Thử lại',
   'compose.adjustingTone': 'Đang viết lại theo tông giọng đã chọn…',
   'compose.aiPromptPlaceholder':
     'ví dụ: "Theo dõi lịch sự sau hai tuần không có phản hồi, giữ ngắn gọn."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Cần gửi gì đó? Signet có thể có bản nháp sẵn sàng trong vài giây.',
   'dashboard.composeCtaLabel': 'Soạn nhanh',
   'dashboard.heading': 'Tuần của quý vị, được chăm chút',
+  'dashboard.loadFailed': 'Không thể tải bảng điều khiển của quý vị.',
   'dashboard.manageLibrary': 'Quản lý thư viện →',
   'dashboard.recentEmpty': 'Chưa có lượt gửi nào — email đã gửi sẽ xuất hiện tại đây.',
   'dashboard.recentHeading': 'Gửi gần đây',
@@ -134,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Tông giọng mặc định',
   'settings.toneSubheading': 'Signet dùng tông giọng này trừ khi quý vị ghi đè trên bản nháp.',
   'signetLayout.primaryNavLabel': 'Điều hướng chính',
+  'signetLayout.toggleMenu': 'Chuyển menu',
   'signup.emailLabel': 'Địa chỉ email',
   'signup.showPassword': 'Hiện mật khẩu',
   'signup.tagline': 'Gửi email đầu tiên do AI soạn trong chưa đầy một phút.',

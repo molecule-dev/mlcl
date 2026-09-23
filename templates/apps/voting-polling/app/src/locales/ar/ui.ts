@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
   'analytics.col.quorum': 'النصاب',
   'analytics.col.votes': 'الأصوات',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'لا توجد أسئلة معلقة بعد.',
   'audienceQa.onStageEyebrow': 'على المنصة الآن',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'يرقي',
   'audienceQa.queued': 'في الانتظار',
   'audienceQa.queueEyebrow': 'قائمة الانتظار',
   'ballot.eyebrow': 'أدلِ بصوتك',
@@ -76,6 +78,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'أنت حالياً على خطة {{plan}}.',
   'billing.switch': 'تبديل',
   'billing.upgraded': 'تم التحديث إلى {{plan}} — تم تطبيق الحدود فوراً.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'createPoll.addOption': 'إضافة خيار',
   'createPoll.anonymousHint': 'أسماء الناخبين مخفية في سجل التدقيق؛ يبقى العدّ موثّقاً.',
   'createPoll.anonymousLabel': 'السماح بالتصويت المجهول',
@@ -150,6 +153,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'جديد على Nosh؟',
   'login.remember': 'تذكّرني لمدة 30 يوماً',
   'login.subheading': 'افتح المنصة، أدر القاعة، واعتمد النتيجة.',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'notFound.body':
     'الصفحة التي حاولت الوصول إليها أُغلقت أو نُقلت. عُد إلى لوحة التحكم أو افتح استطلاعاً جديداً.',
   'notFound.eyebrow': 'لا يوجد نصاب على هذا المسار',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'تعذّر تحميل هذا الاستطلاع.',
   'pollDetail.loading': 'جارٍ تحميل الاستطلاع…',
   'pollDetail.notFound': 'لم يُعثر على الاستطلاع.',
+  'pollDetail.openBallot': 'اقتراع مفتوح',
   'pollDetail.openLive': 'النتائج المباشرة',
   'pollDetail.pollId': 'استطلاع · {{id}}',
   'pollDetail.published': 'تم نشر الاستطلاع — يمكن للناخبين الآن الإدلاء بأصواتهم.',
@@ -251,4 +257,13 @@ export const ui: UiTranslations = {
   'voters.rollHeading': 'أُضيفوا مؤخراً',
   'voters.searchPlaceholder': 'البحث بالبريد الإلكتروني…',
   'voters.subheading': 'نظّم السجل المؤهَّل. اجمع الناخبين حسب المنظمة للاقتراعات المرجَّحة.',
+  'votingPollingLayout.nav.analytics': 'التحليلات',
+  'votingPollingLayout.nav.billing': 'الفوترة',
+  'votingPollingLayout.nav.createPoll': 'استطلاع رأي جديد',
+  'votingPollingLayout.nav.dashboard': 'لوحة التحكم',
+  'votingPollingLayout.nav.notifications': 'الإشعارات',
+  'votingPollingLayout.nav.settings': 'الإعدادات',
+  'votingPollingLayout.nav.team': 'الفريق',
+  'votingPollingLayout.nav.voters': 'الناخبون',
+  'votingPollingLayout.primaryNavLabel': 'التنقل الرئيسي',
 }

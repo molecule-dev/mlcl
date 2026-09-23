@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'accountDetail.activeBadge': 'Inayotumika',
   'accountDetail.availableLabel': '{{amount}} inapatikana',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Imeshindwa kupakia akaunti.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Gandishwa',
   'accounts.totalBalance': '{{kiasi}} jumla',
   'audit.empty': 'Hakuna matukio bado.',
   'audit.eyebrow': 'Usalama na ufikiaji',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Pesa iliyopo',
   'cashCreditCard.creditLabel': 'Salio lililotumika',
   'cashCreditCard.title': 'Pesa Taslimu na Mkopo',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Muhtasari',
   'dashboard.recentEmpty': 'Hakuna miamala bado.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Onyesha nenosiri',
   'login.signUp': 'Jisajili',
   'login.submit': 'Ingia',
+  'meridianLayout.menu': 'Menyu',
   'meridianLayout.primaryNavLabel': 'Usogezaji mkuu',
   'nav.legal': 'Kisheria',
   'notifications.emptyHeading': 'Umeelewa yote',
   'notifications.subheading': 'Arifa za wakati halisi za miamala, usalama, na taarifa.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'privacy.dataWeShare':
     'Data ya kibinafsi ya benki haiuzwi kamwe. Tunashiriki taarifa na wasindikaji wa malipo, mitandao ya kadi, na wasimamizi tu inapohitajika ili kusuluhisha miamala au kutimiza majukumu ya kisheria.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Vipengele viwili huongeza msimbo wa mara moja kutoka kwa programu ya kithibitishaji kila unapoingia.',
   'settings.security.twoFactorCta': 'Dhibiti uidhinishaji wa vipengele viwili',
+  'settings.security.twoFactorOff': 'Vipengele viwili vimezimwa',
   'settings.signOutDevice': 'Toka',
   'settings.subheading': 'Wasifu, usalama, na arifa.',
+  'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
   'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorInvalidCode': 'Nambari batili',
+  'settings.twoFactorVerify': 'Thibitisha na uwashe',
   'signup.emailLabel': 'Anwani ya Barua Pepe',
   'signup.fullName': 'Tunapaswa kukushughulikia vipi?',
   'signup.showPassword': 'Onyesha nenosiri',
@@ -104,7 +113,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Hakuna miamala bado.',
   'transactions.endDate': 'Tarehe ya mwisho',
   'transactions.eyebrow': 'Shughuli',
+  'transactions.loadError': 'Imeshindwa kupakia miamala.',
   'transactions.merchant': 'Mfanyabiashara',
+  'transactions.subheading':
+    'Kila muamala unaotumwa na unaosubiri kushughulikiwa katika akaunti zako.',
   'transfers.availableHint': '{{amount}} inapatikana',
   'transfers.errorGeneric': 'Haikuweza kuwasilisha uhamisho.',
   'transfers.errorMissingFields': 'Chagua akaunti chanzo na mahali pa kwenda.',

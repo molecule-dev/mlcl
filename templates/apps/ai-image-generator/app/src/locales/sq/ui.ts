@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'auth.fields.newPassword': 'Fjalëkalim i ri',
   'collectionDetail.addImage': 'Ngjit për mbledhjen',
   'collectionDetail.backCta': 'Kthehu te koleksionet',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Tabelat e humorit, përmbledhjet dhe seritë në vazhdim',
   'collections.title': 'Koleksione',
   'collections.untitled': 'Pa titull · {{stamp}}',
+  'common.closeMenu': 'Mbyll menynë',
+  'common.dismiss': 'Hiq',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.openMenu': 'Hap menynë e navigimit',
   'credits.eyebrow': '{{plan}} plan',
   'credits.renewsCopy': 'Plani rinovohet më {{date}}',
   'credits.trail': 'Ëndërrim · {{plan}} shtresë',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Aktiviteti i gjenerimit, ndarja dhe njoftimet e kreditit do të shfaqen këtu.',
   'notifications.empty.title': 'Asgjë për të raportuar',
   'notifications.subtitle': 'Ngjarjet e gjenerimit të grupuara sipas ditës',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.limits.gallery': '{{count}} galeri',
   'privacy.collect.body':
     'Kur regjistroheni, ne mbledhim emrin tuaj, adresën e email-it dhe një fjalëkalim të hashuar. Ndërsa përdorni Reverie, ne ruajmë kërkesat që dërgoni, imazhet që gjenerojmë për ju, stilet dhe koleksionet që ruani, si dhe meta të dhëna të tilla si modeli i përdorur, vulat kohore të gjenerimit dhe bilanci i kreditit.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Ruaj fjalëkalimin e ri',
   'reset.submitting': 'Duke përditësuar fjalëkalimin…',
   'settings.account.handle': 'Dorezë',
+  'settings.account.lastSaved': 'Profil aktiv · {{name}}',
   'settings.account.saved': 'Profili u ruajt',
   'settings.account.saveFailed': 'Nuk mundi ta ruante profilin',
   'settings.account.title': 'Profili i krijuesit',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Imazh i ri',
   'sidebar.secondary': 'Navigimi dytësor',
   'signup.failed': 'Regjistrimi dështoi. Provo përsëri.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Filloni ëndërrimin tuaj',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Krijo një llogari dhe përfito 120 kredite falas.',
   'styles.empty': 'Ende nuk ka paracaktime stilesh — ato do të shfaqen pas hyrjes së parë.',
   'styles.eyebrow': 'I kuruar',

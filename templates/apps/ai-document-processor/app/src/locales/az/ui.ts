@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Əlaqə saxlayın',
+  'about.title': '{{app}} haqqında',
   'authShell.backToLanding': '← Eniş nöqtəsinə qayıt',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
+  'common.retry': 'Təkrar cəhd edin',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Bu gün · Əməliyyatlara ümumi baxış',
   'dashboard.heading': 'Sənəd kəşfiyyatı',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Cari filtrlərə uyğun sənəd yoxdur.',
   'documents.heading': 'Bütün sənədlər',
   'documents.loadError': 'Sənədləri yükləmək alınmadı.',
+  'documents.loading': 'Kitabxana yüklənir…',
   'documents.searchLabel': 'Sənədləri axtarın',
   'documents.searchPlaceholder': 'Sənədləri axtarın...',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Şifrəni gizlət',
   'login.showPassword': 'Şifrəni göstər',
   'login.subtitle': 'Sənədlərinizin axışını davam etdirmək üçün daxil olun.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'notFound.body':
     'Açmağa çalışdığınız sənəd və ya marşrut artıq burada deyil. İdarəetmə panelinə qayıdın və ya yan paneldən bir bölmə seçin.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Açılış səhifəsini açın',
   'notFound.title': 'Həmin səhifə faylda deyil',
   'parcelaHeroCard.change': '{{sign}} {{amount}} dünənlə müqayisədə %',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Hələlik sənədləşdirmə qaydaları yoxdur. Yeni qayda əlavə etmək üçün istifadə edin.',
   'rules.eyebrow': 'Avtomatlaşdırma',
+  'rules.fieldsCount': '{{count}} sahə',
   'rules.form.destination': 'Fayl',
   'rules.form.name': 'Qayda adı',
   'rules.form.save': 'Qaydanı yadda saxla',

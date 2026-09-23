@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Hazırda buradasınız {{plan}} plan.',
   'billing.switch': 'Keçid',
   'billing.upgraded': 'Yeniləndi {{plan}} — məhdudiyyətlər dərhal tətbiq olunur.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'compare.activityHeading': 'Fəaliyyət hökmləri',
   'compare.empty.title': 'Müqayisə etmək üçün ən azı iki yer əlavə edin',
   'compare.eyebrow': 'Yan-yana',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Yüksək',
   'trends.summary.low.label': 'Aşağı',
   'trends.summary.points.label': 'Günlər',
+  'weatherDashboardLayout.primaryNavLabel': 'Əsas naviqasiya',
   'weatherHeroCard.updated': 'Yeniləndi {{time}}',
 }

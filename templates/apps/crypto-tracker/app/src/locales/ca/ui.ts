@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Sobre',
   'alertConditionCard.condition.${alert.condition}': 'Activat {{quan}}',
+  'alertConditionCard.confirmDelete': "Confirma l'eliminació",
   'alertConditionCard.pauseAriaLabel': 'Pausa l’alerta',
   'alertConditionCard.resumeAriaLabel': 'Reprendre l’alerta',
   'alertNew.condition': 'Condició',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Valoració totalment diluïda',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Lloc web',
+  'coinDetail.links.whitepaper': 'Llibre blanc',
   'coinDetail.loadError': "No s'ha pogut carregar la moneda.",
   'coinDetail.marketCap': 'Capitalització borsària',
   'coinDetail.maxSupply': 'subministrament màxim',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'La ruta que has escanejat no es resol a una moneda o pàgina coneguda. Torna a comprovar el símbol i torna-ho a intentar.',
   'notFound.browseMarkets': 'Navega pels mercats',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'portfolio.addError': 'Introduïu el símbol, la quantitat positiva i el cost.',
   'portfolio.addHoldingCta': '+ Afegeix una retenció',
   'portfolio.addModal.cost': 'Cost base (USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'La contrasenya i la configuració de dos factors les gestiona el vostre compte.',
   'settings.signOutDevice': 'Tanca la sessió',
+  'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorInvalidCode': 'Codi no vàlid',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Verifica i activa',
   'sigilAuthShell.backHomeCta': '← Torna a Bourse',
   'sigilLayout.primaryNavLabel': 'Navegació principal',
   'signup.eyebrow': 'Obre un terminal',

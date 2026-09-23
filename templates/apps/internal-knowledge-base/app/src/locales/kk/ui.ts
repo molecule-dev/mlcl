@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'article.notFound': 'Мақала табылмады',
   'articleEditor.bodyPlaceholder': 'Блоктар үшін / теріңіз немесе жай ғана жаза бастаңыз.',
+  'articleEditor.loadFailed': 'Мақала жүктелмеді',
   'articleEditor.publishing': 'Баспа…',
   'articleEditor.saveFailed': 'Сақтау сәтсіз аяқталды',
   'articleEditor.saving': 'Сақталуда…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Бетбелгі',
   'articleView.bookmarkOn': 'Белгіленген',
   'articleView.edit': 'Мақаланы өңдеу',
+  'articleView.loading': 'Бұл мақаланы ашу…',
   'articleView.readTime': '{{minutes}} минималды оқу',
   'articleView.spaces': 'Бос орындар',
   'articleView.tocHeading': 'Осы бетте',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Жақында жасалған өзгертулер, оқылымдар және жобалар сіздің командаңызда әлі де жалғасуда.',
   'cairnTrailHero.updated': 'Мақалалар жаңартылды',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'drafts.eyebrow': 'Сіздің аяқталмаған жұмысыңыз',
   'drafts.heading': 'Жобалар',
+  'drafts.loadFailed': 'Жобаларыңызды жүктеу мүмкін болмады.',
   'drafts.subtitle':
     'Бастаған, бірақ әлі жарияланбаған мақалаларыңыз бар. Біреуін таңдап, жалғастырыңыз.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Әзірге бос орындар жоқ. Мақалаларды жинауды бастау үшін біреуін ашыңыз.',
   'home.spacesHeading': 'Сіздің кеңістіктеріңіз',
   'home.subtitle': 'Соңғы мақалалар, бетбелгілеріңіз және команданың жазып жатқандары.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule көмегімен жасалған.',
   'landing.ctaBody':
     'Жеке авторлар үшін тегін. Бастапқы кітаптарды, шешімдерді және бейімделуді жіберетін таратылған топтарға арналған командалық жоспарлар.',
   'landing.ctaHeading': 'Бүгін бірінші тасты үйіңіз.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Жұмыс кеңістігін жасау',
   'login.submitting': 'Жүйеге кіру\\u2026',
   'login.subtitle': 'Қалдырған ізіңізді алыңыз.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
+  'newSpace.colorAria': 'Түсті таңдаңыз {{color}}',
   'newSpace.colorLabel': 'Екпінді түс',
+  'newSpace.createFailed': 'Орын жасау мүмкін болмады',
   'newSpace.descriptionPlaceholder':
     'Іс-шаралар кітапшалары, кезекшілік кітапшалары, өлімнен кейінгі оқиғалар\\u2026',
   'newSpace.eyebrow': 'Білім кеңістігін ашыңыз',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Жүктелуде…',
   'notifications.subtitle':
     '{{count}} оқылмаған \\u2014 ескертулер, пікірлер, бет өзгерістері және шолу сұраулары.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.articles': 'мақалалар',
   'pricing.spaces': 'кеңістіктер',
   'profile.eyebrow': 'Авторлық профиль',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Жаңа құпия сөзді енгізіңіз',
   'resetPassword.subtitle': 'Күшті құпия сөзді таңдаңыз — кемінде 12 таңбадан тұруы керек.',
   'searchResults.eyebrow': 'Жұмыс кеңістігін іздеу',
+  'searchResults.filter.all': 'Барлық кеңістіктер',
   'searchResults.heading': 'Мақалаларды іздеу',
   'searchResults.placeholder':
     'Бастапқы кітапшаларды, RFC-лерді, саясаттарды, шешімдерді іздеу\\u2026',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Бұл сіздің тіркелгіңізді және сіз жазған әрбір мақаланы жояды. Растау үшін DELETE теріңіз.',
   'settings.danger.confirmInvalid': 'Растау үшін DELETE теріңіз.',
+  'settings.danger.deleteFailed': 'Тіркелгіні жою мүмкін болмады',
   'settings.danger.deleting': 'Жойылуда\\u2026',
   'settings.danger.description':
     'Жұмыс кеңістігіңізді жою барлық мақалаларды, пікірлерді және нұсқалар тарихын жояды. Қалпына келтіру мүмкін емес.',
   'settings.danger.title': 'Жұмыс орнын жою',
+  'settings.email.confirm': 'Электрондық поштаны жаңарту',
+  'settings.email.confirmTitle': 'Электрондық поштаның өзгеруін растау',
   'settings.email.saved': 'Электрондық пошта жаңартылды.',
+  'settings.email.updateFailed': 'Электрондық поштаны жаңарту мүмкін болмады',
   'settings.language.title': 'Тіл',
   'settings.name': 'Аты',
+  'settings.name.saved': 'Аты жаңартылды.',
+  'settings.name.updateFailed': 'Аты-жөні жаңартылмады',
   'settings.notifications.description': 'Кіріс жәшігіңізге не келетінін таңдаңыз.',
+  'settings.password.changeFailed': 'Құпия сөзді өзгерту мүмкін болмады',
   'settings.password.current': 'Ағымдағы құпия сөз',
   'settings.password.new': 'Жаңа құпия сөз',
   'settings.password.saving': 'Жаңартылуда…',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Мақалалар сіз үшін қалай көрінеді.',
   'settings.reading.title': 'Оқу және жазу',
   'settings.subtitle': 'Хабарландыруларды, оқу кенептерін және тіркелгіңізді реттеңіз.',
+  'settings.twofa.code': 'Аутентификация коды',
   'settings.twofa.disable': 'Өшіру',
   'settings.twofa.disabled': 'Өшірулі',
   'settings.twofa.enable': 'Қосу',
   'settings.twofa.enabled': 'Қосылған',
+  'settings.twofa.invalidCode': 'Жарамсыз код',
+  'settings.twofa.unavailable': 'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
+  'settings.twofa.verify': 'Тексеру және қосу',
   'signup.brandQuote': 'Оны жазып алу - бұл оған мұқтаж келесі адамға беретін алғашқы уәдеміз.',
   'signup.eyebrow': 'Жұмыс орнын ашу',
   'signup.firstNamePlaceholder': 'Майя',

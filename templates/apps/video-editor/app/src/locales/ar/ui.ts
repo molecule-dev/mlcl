@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'هل وجدت خطأً برمجياً، أو لديك اقتراح لميزة جديدة، أو تريد إخبارنا عن الفيلم الذي قمت بتحريره؟ تصل كل رسالة إلى شخص حقيقي في الفريق - تواصل معنا في أي وقت من إعدادات حسابك.',
+  'about.contactTitle': 'تحدث إلينا',
+  'about.eyebrow': '// الاستوديو وراء الكواليس',
   'about.pageTitle': 'حول {{appName}}',
   'assetDetail.back': 'العودة إلى المكتبة',
   'assetDetail.confirmDelete': 'هل تريد حذف "{{name}}"؟ لا يمكن التراجع عن هذا الإجراء.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} مقطع وأسرّة صوتية ورسومات جاهزة للإدراج في الخط الزمني.',
   'assetLibrary.title': 'الأصول',
   'assetLibrary.upload': 'إضافة أصل',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'dashboard.browseTemplates': '← تصفّح القوالب',
   'dashboard.loading': 'جارٍ تحميل المشاريع…',
   'dashboard.noProjects': 'لا توجد مشاريع بعد — أنشئ مشروعًا للبدء.',
@@ -158,7 +163,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'اختر شيئًا لن يتذكّره سواك.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'الخصوصية',
+  'rushesLayout.closeMenu': 'إغلاق شريط التنقل',
   'rushesLayout.guest': 'المحرر',
+  'rushesLayout.navDialog': 'التنقل',
+  'rushesLayout.openMenu': 'فتح قائمة التنقل',
   'rushesLayout.planFree': 'الخطة المجانية',
   'rushesLayout.tagline': 'خط زمني سينمائي',
   'settings.billing.confirmCancel': 'إلغاء الاشتراك في نهاية الفترة؟',

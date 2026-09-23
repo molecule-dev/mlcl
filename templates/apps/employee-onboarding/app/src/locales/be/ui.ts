@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Скіньце пароль.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Адзначыць задачу як выкананую',
   'checklistTaskCard.markIncomplete': 'Пазначыць задачу як няскончаную',
   'checklistTaskCard.openLabel': 'Адкрыць задачу',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Вы ўсё прасачылі',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'На правільным шляху',
   'dashboard.timelineHeading': '30/60/90 этапаў',
   'dashboard.viewAllTasks': 'Паглядзець усе задачы',
+  'dashboard.weekOne': 'Тыдзень 1',
   'dashboard.yourCohort': 'Ваша каманда',
   'documents.empty.body': 'Дакументы, дададзеныя вашай камандай, будуць адлюстроўвацца тут.',
   'documents.empty.title': 'Пакуль няма дакументаў',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-дзённая бясплатная пробная версія',
   'landing.subhead':
     'Embark суправаджае кожнага новага калегу па камандзе праз першыя 90 дзён — афармленне дакументаў, навучанне, этапы дасягнення поспехаў і значныя знаёмствы — усё ў адным спакойным і ўпэўненым месцы.',
+  'layout.openMenu': 'Адкрыць меню навігацыі',
   'layout.search': 'Пошук задач, дакументаў, таварышаў па камандзе…',
+  'layout.searchTeammates': 'Пошук таварышаў па камандзе па імені або ролі…',
   'layout.section.onboarding': 'Адаптацыя',
   'layout.tagline': 'Ваша падарожжа пачынаецца тут',
   'notifications.empty.body': 'Новая актыўнасць будзе адлюстроўвацца тут.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Усё гатова.',
   'planUpdated.preparing': 'Абнаўленне вашага плана…',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.documentsLabel': 'дакументы',
   'pricing.onboardingsLabel': 'адаптацыі',
   'pricing.tasksLabel': 'задачы',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} பற்றி',
   'analytics.back': 'கணக்கெடுப்பு கண்ணோட்டம்',
   'analytics.kpiNps': 'NPS மதிப்பெண்',
   'analytics.kpiNpsTrend': 'விளம்பரதாரர்கள் {{p}} % · எதிர்ப்பாளர்கள் {{d}} %',
@@ -33,11 +34,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'பொருட்கள்',
   'builder.questionNumber': 'கேள்வி {{num}}',
   'builder.surveyTitle': 'கணக்கெடுப்பு தலைப்பு',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'forgotPassword.failed': 'மீட்டமைப்பு மின்னஞ்சலை அனுப்ப முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'forgotPassword.subheading':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'ஒரு கணக்கு பொருந்தினால் {{email}} மீட்டமைப்பு இணைப்பு ஒன்று விரைவில் அனுப்பப்படும். உங்கள் இன்பாக்ஸ் மற்றும் ஸ்பேம் கோப்புறைகளைச் சரிபார்க்கவும்.',
+  'landing.footer.copyright': '© {{year}} {{app}} . அனைத்துக் குரல்களும் வரவேற்கப்படுகின்றன.',
   'landing.footer.startTrial': 'சோதனையைத் தொடங்குங்கள்',
   'landing.hero.badge': 'கணக்கெடுப்புகள், NPS மற்றும் பின்னூட்டங்கள் அனைத்தும் ஒரே இடத்தில்',
   'landing.hero.subtitle':
@@ -53,6 +56,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'விலை நிர்ணயம்',
   'landing.pricing.perMonth': '/மோ',
   'landing.pricing.popular': 'மிகவும் பிரபலமான',
+  'landing.pricing.subtitle':
+    'ஒவ்வொரு திட்டத்திலும் கணக்கெடுப்பு உருவாக்குநர், பொதுப் பகிர்வு இணைப்புகள் மற்றும் NPS பகுப்பாய்வுகள் அடங்கும். தொடங்குவதற்கு கடன் அட்டை தேவையில்லை.',
+  'landing.pricing.title': 'இலவசமாகத் தொடங்குங்கள், தேவைப்படும்போது விரிவாக்குங்கள்.',
   'landing.sample.eyebrow': 'NPS ஒரு பார்வையில்',
   'landing.sample.title':
     'எதிர்ப்பாளர்கள், நடுநிலையாளர்கள், ஆதரவாளர்கள் — உடனடியாக அடையாளம் காணக்கூடியவர்கள்.',
@@ -61,6 +67,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.signUpLink': 'இலவச சோதனையைத் தொடங்குங்கள்',
   'login.subheading': 'உங்கள் பார்வையாளர்களின் கருத்துக்களைத் தொடர்ந்து கேட்க உள்நுழையுங்கள்.',
+  'notFound.body':
+    'நீங்கள் தேடும் பக்கம் {{app}} இல் இல்லை. உங்களை மீண்டும் உங்கள் கணக்கெடுப்புகளுக்கு அழைத்துச் செல்கிறோம்.',
   'notFound.cta': 'கணக்கெடுப்புகளுக்குத் திரும்பு',
   'notFound.eyebrow': '404',
   'notFound.heading': 'இந்தக் கணக்கெடுப்பு வரிசையிலிருந்து பின்தங்கிவிட்டது.',
@@ -79,6 +87,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': 'ஊக்குவிப்பாளர் 9–10',
   'profile.identity.description':
     'உங்கள் குழுவினருக்கும் நீங்கள் உருவாக்கும் கணக்கெடுப்புகளுக்கும் பகிரங்கப்படுத்துங்கள்.',
+  'profile.identity.emailRequired': 'மின்னஞ்சல் முகவரியை உள்ளிடவும்.',
   'profile.identity.saveCta': 'பெயரைச் சேமிக்கவும்',
   'profile.password.current': 'தற்போதைய கடவுச்சொல்',
   'profile.password.fillFields': 'தற்போதைய மற்றும் புதிய கடவுச்சொல் இரண்டையும் உள்ளிடவும்.',
@@ -184,6 +193,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} கேள்விகள்',
   'templates.subheading':
     'நன்கு சோதிக்கப்பட்ட ஒரு தொடக்கத்தைத் தேர்ந்தெடுங்கள் — ஒவ்வொரு டெம்ப்ளேட்டும் பொருத்தமான இயல்புநிலைகள், மாதிரி தர்க்கம் மற்றும் ஒரு நேர்த்தியான மொபைல் தளவமைப்புடன் முன்பே சரிசெய்யப்பட்டு வருகிறது.',
+  'thankYou.body':
+    'உங்கள் பதில் பதிவு செய்யப்பட்டுள்ளது. அடுத்த பகுப்பாய்வுப் புதுப்பிப்பில் {{app}} அதைச் சேர்க்கும்.',
   'thankYou.eyebrow': 'பதில் பெறப்பட்டது',
   'thankYou.heading': 'நன்றி — உங்கள் குரலுக்கு மதிப்பு உண்டு.',
   'thankYou.home': 'மர்மரைப் பார்வையிடவும்',

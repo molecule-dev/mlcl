@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'अपॉइंटमेंट बुक करें',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'दिखाने के लिए कोई रोगी नहीं।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'consult.backLink': 'सभी अपॉइंटमेंट',
   'consult.captions': 'कैप्शन',
   'consult.connected': 'कनेक्टेड · 720p · स्थिर',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'रोगी',
   'patientVitalsHero.scripts': 'Rx खुले',
   'patientVitalsHero.subline': 'आज आपके शेड्यूल पर {{count}} परामर्श',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'prescriptions.empty': 'कोई नुस्खा मेल नहीं खाता।',
   'prescriptions.eyebrow': 'ई-प्रिस्क्राइबिंग',
   'prescriptions.heading': 'नुस्खे',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'गोपनीयता सूचना',
   'privacy.use.body':
     'देखभाल प्रदान करने, अपॉइंटमेंट अनुस्मारक भेजने, नुस्खे रूट करने, और सेवा विश्वसनीयता सुधारने के लिए। हम कभी आपका डेटा नहीं बेचते और विज्ञापनदाताओं के साथ नैदानिक जानकारी कभी साझा नहीं करते।',
+  'providers.allSpecialties': 'सभी विशेषताएँ',
+  'providers.loadError': 'प्रदाताओं को लोड करने में विफल।',
+  'providers.loading': 'लोड हो रहा है…',
   'providers.noResults': 'कोई चिकित्सक नहीं मिला।',
   'providers.searchPlaceholder': 'नाम, विशेषता से खोजें...',
   'providers.title': 'चिकित्सक खोजें',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'दिन प्रारंभ',
   'settings.availability.heading': 'उपलब्धता',
   'settings.devices.thisDevice': 'यह डिवाइस',
+  'settings.devices.unnamed': 'अनाम उपकरण',
   'settings.eyebrow': 'अभ्यास और खाता',
   'settings.loadError': 'आपकी प्रोफ़ाइल लोड नहीं हो सकी।',
   'settings.notifications.emailMessages': 'जब मेरी देखभाल टीम उत्तर दे तो मुझे ईमेल करें',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'अक्षम करें',
   'settings.security.twoFactor.enable': 'सक्षम करें',
   'settings.security.twoFactor.heading': 'दो-कारक प्रमाणीकरण',
+  'settings.security.twoFactor.invalidCode': 'वह कोड मेल नहीं खाया। पुनः प्रयास करें।',
+  'settings.security.twoFactor.setupFailed':
+    'दो-कारक प्रमाणीकरण सेटअप शुरू नहीं हो सका। कृपया पुनः प्रयास करें।',
+  'settings.security.twoFactor.statusOn': 'दो-कारक प्रमाणीकरण चालू है',
   'settings.signOutDevice': 'साइन आउट',
   'settings.subheading': 'चिकित्सक प्रोफ़ाइल, अभ्यास नियम, और नैदानिक अलर्ट।',
   'signup.emailLabel': 'ईमेल',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'खाता बनाएँ',
   'signupFooter.hipaa': 'HIPAA अनुपालक',
   'solaceLayout.primaryNavLabel': 'मुख्य नेविगेशन',
+  'solaceLayout.toggleMenu': 'मेनू टॉगल करें',
   'terms.eligibility.body':
     'आपकी आयु कम से कम अठारह वर्ष होनी चाहिए, या आप उस नाबालिग के माता-पिता या क़ानूनी अभिभावक हों जिसके लिए आप देखभाल चाहते हैं, और शारीरिक रूप से किसी ऐसे U.S. राज्य में स्थित हों जहाँ हमारे चिकित्सक लाइसेंस प्राप्त हैं।',
   'terms.payment.body':

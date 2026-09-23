@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
   'authBrandPanel.quote':
     'தற்போது, எங்களிடம் உள்ள கையொப்பமிடப்பட்ட ஒவ்வொரு ஒப்பந்தத்திற்கும் வெல்லம் தான் முதன்மைப் பதிவேட்டு அமைப்பாக உள்ளது.',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'contractDetail.amount': 'மதிப்பு',
   'contractDetail.back': 'அனைத்து ஒப்பந்தங்களும்',
   'contractDetail.downloadCta': 'PDF-ஐ பதிவிறக்கவும்',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'காலாவதியாகிறது',
   'contracts.col.owner': 'உரிமையாளர்',
   'contracts.empty': 'எந்த ஒப்பந்தங்களும் பொருந்தவில்லை.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'ஒப்பந்தங்கள்',
   'contracts.loadError': 'ஒப்பந்தங்களை ஏற்ற முடியவில்லை.',
   'contracts.newCta': 'புதிய ஒப்பந்தம்',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'ஒரு கணக்கு இருந்தால் {{email}} மீட்டமைப்பு இணைப்பு விரைவில் அனுப்பப்படும்.',
   'forgotPassword.subtitle': 'மீட்டமைப்பு இணைப்பை உங்கள் அலுவலக மின்னஞ்சலுக்கு அனுப்புவோம்.',
+  'landing.copyright': '{{year}} {{app}} . Molecule கொண்டு உருவாக்கப்பட்டது.',
   'landing.ctaHeading': 'முதல் நாளிலேயே உங்கள் முதலீட்டுத் தொகுப்பு நிறைவடைவதைக் காணுங்கள்.',
   'landing.ctaPrimary': 'ஒரு பணியிடத்தைத் தொடங்குங்கள்',
   'landing.eyebrow': 'சட்ட செயல்பாடுகள் மற்றும் கொள்முதல்',
@@ -100,6 +105,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'எதிர் தரப்பினரின் பெயர் தேவை.',
   'newContract.errEmail': 'கையொப்பமிடுபவரின் மின்னஞ்சல் முகவரி தேவை.',
   'newContract.expires': 'காலாவதி தேதி',
+  'newContract.failed': 'ஒப்பந்தத்தை உருவாக்க முடியவில்லை.',
   'newContract.heading': 'புதிய ஒப்பந்தம்',
   'newContract.nextCta': 'அடுத்து',
   'newContract.review.counterparty': 'எதிர் தரப்பு',
@@ -115,6 +121,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'ஒப்பந்தத் தலைப்பு',
   'newContract.titlePlaceholder': 'முதன்மை சேவைகள் ஒப்பந்தம்',
   'newContract.variablesHeading': 'ஒப்பந்த மாறிகள்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.dataExport': 'தரவு ஏற்றுமதி',
   'pricing.disabled': 'இல்லை',
   'pricing.enabled': 'ஆம்',
@@ -147,15 +154,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'கணக்கை நீக்க முடியவில்லை.',
   'settings.security.deleting': 'நீக்குகிறது…',
   'settings.security.newPassword': 'புதிய கடவுச்சொல்',
+  'settings.security.noDevices': 'சாதனங்கள் எதுவும் பதிவு செய்யப்படவில்லை.',
   'settings.security.twoFactor': 'இரு காரணி அங்கீகாரம்',
   'settings.security.twoFactorDisable': 'முடக்கு',
   'settings.security.twoFactorEnable': 'இயக்கு',
+  'settings.security.twoFactorInvalidCode': 'தவறான குறியீடு.',
   'settings.signatures.body':
     'நீங்கள் கையொப்பமிடும் ஒவ்வொரு ஒப்பந்தத்தின் கையொப்பப் பகுதியிலும், நீங்கள் தட்டச்சு செய்த பெயர் தோன்றும். இதை ஒருமுறை அமைத்துவிட்டால், இனிமேல் அது தானாகவே தோன்றும்.',
   'settings.signatures.heading': 'கையொப்பத் தொகுதி',
   'settings.signatures.save': 'கையொப்பத்தைச் சேமிக்கவும்',
+  'sign.action': 'இந்த ஆவணத்தில் கையொப்பமிடுங்கள்',
+  'sign.eyebrow': 'கையொப்பம் கோரப்பட்டது',
+  'sign.for': '{{name}} க்கு',
+  'sign.loadError': 'இந்த உள்நுழைவு இணைப்பு செல்லாதது அல்லது காலாவதியாகிவிட்டது.',
   'sign.loading': 'ஏற்றப்படுகிறது…',
   'sign.signing': 'கையொப்பமிடுதல்…',
+  'sign.submitError':
+    'உங்கள் கையொப்பத்தைப் பதிவு செய்ய முடியவில்லை — இணைப்பு காலாவதியாகியிருக்கலாம்.',
   'signup.brandQuote':
     '“நாங்கள் 8 வருட காகிதப் பயன்பாட்டை ஒரு வாரத்தில் வெல்லம் எழுத்துருவிற்கு மாற்றினோம். தணிக்கைப் பதிவேடு மட்டுமே இந்த மாற்றத்தை நியாயப்படுத்துகிறது.”',
   'signup.companyPlaceholder': 'நார்த்விண்ட் டிரேடர்ஸ்',
@@ -191,6 +206,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'திறந்த ஒப்பந்தம் →',
   'vellumKpiCard.trend': 'சமீபத்திய போக்கு',
+  'vellumLayout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'vellumLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'vellumLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'vellumPortfolioHero.expiring': 'காலாவதியாகும் 30 நாட்கள்',
   'vellumPortfolioHero.label': 'போர்ட்ஃபோலியோ மதிப்பு',

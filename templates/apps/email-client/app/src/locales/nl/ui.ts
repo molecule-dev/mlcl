@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Wij zijn een verspreid team van ontwerpers en ingenieurs dat ooit te veel uren per dag in een rumoerig postvak doorbracht. Courier is het postvak dat we zelf wilden gebruiken.',
   'about.title': 'E-mail voor geconcentreerd werk',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'help.cta.about': 'Over Courier',
   'help.cta.pricing': 'Bekijk prijzen',
   'help.eyebrow': 'Helpcentrum',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Snelle antwoorden op de vragen die we het meest horen. Mist u iets? Open Instellingen en gebruik het feedbackformulier in de app, of schrijf naar support@courier.example.',
   'help.title': 'Hoe kunnen we u helpen?',
   'landing.brand.scrollTop': 'Terug naar boven',
+  'landing.copyright': '© {{year}} {{appName}} — Ontworpen voor focus.',
   'landing.ctaBody':
     'Sluit u aan bij duizenden professionals die hun postvak vóór de lunch hebben afgerond.',
   'landing.ctaTitle': 'Meer verwerken, minder reageren.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Bekijk de demo',
   'landing.heroSubtitle':
     'Courier is een rustig postvak met drie panelen, gebouwd voor kenniswerkers die informatie willen verwerken in plaats van erop te reageren.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Vertrouwd door geconcentreerde teams wereldwijd',
   'landing.signIn': 'Aanmelden',
   'meridian.archive.empty': 'Archief is leeg.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Aan',
   'meridian.drafts.watermark': 'Concept',
   'meridian.folder.count': '{{count}} berichten',
+  'meridian.folder.delete': 'Verwijderen',
   'meridian.folder.deleteForever': 'Permanent verwijderen',
   'meridian.folder.restore': 'Verplaatsen naar postvak in',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Nog geen berichten hier.',
   'meridian.inbox.loading': 'Laden…',
   'meridian.inbox.next': 'Volgende',
+  'meridian.inbox.noSender': '(geen afzender)',
   'meridian.inbox.noSubject': '(geen onderwerp)',
+  'meridian.inbox.ofTotal': '{{current}} van {{total}}',
   'meridian.inbox.openCompose': 'Opstellen openen',
   'meridian.inbox.previous': 'Vorige',
   'meridian.inbox.replyFailed': 'Antwoord opgeslagen maar bezorging mislukt: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Hebt u nog geen account?',
   'meridian.login.showPassword': 'Wachtwoord tonen',
   'meridian.message.toLine': 'aan {{recipients}}',
+  'meridian.notFound.body':
+    'De pagina die u zocht kon niet worden gevonden. Ga terug naar uw {{appName}} inbox en we helpen u verder.',
   'meridian.notFound.eyebrow': 'Fout 404',
   'meridian.notFound.title': 'Deze thread is gearchiveerd.',
   'meridian.notFound.toInbox': 'Mijn postvak openen',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Ster toevoegen',
   'meridian.thread.unstar': 'Ster verwijderen',
   'meridian.time.yesterday': 'Gisteren',
+  'meridian.topBar.openMenu': 'Navigatiemenu openen',
   'meridian.topBar.searchPlaceholder': 'Zoek in e-mail',
   'meridian.trash.empty': 'Prullenbak is leeg.',
   'meridian.trash.title': 'Prullenbak',
   'nav.legal': 'Juridisch',
   'planUpdated.description':
     'Uw abonnement is nu actief en uw facturering is bijgewerkt. Welkom bij uw vernieuwde Courier-postvak.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.heading': 'ontwerpen',
   'pricing.limit.emails': 'e-mails',
   'pricing.limit.folders': 'mappen',
   'pricing.limit.labels': 'labels',
   'privacy.collect.account':
     'Accountgegevens: naam, e-mailadres, gehasht wachtwoord en de datum van aanmelding.',
+  'privacy.contact': 'Vragen? Stuur een e-mail naar privacy@courier.example.',
   'privacy.intro':
     'Dit privacybeleid legt uit welke gegevens Courier verzamelt, waarom we ze verzamelen, hoe we ze veilig bewaren en welke keuzes u erover hebt. We proberen specifiek te zijn in plaats van juridisch; als iets onduidelijk is, schrijf dan naar privacy@courier.example.',
   'privacy.lastUpdated': 'Laatst bijgewerkt: 1 april 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Deze voorwaarden regelen uw gebruik van Courier. Door een account aan te maken of e-mail via ons te verzenden, gaat u akkoord met deze voorwaarden. We proberen regels te schrijven die een mens daadwerkelijk kan volgen.',
   'terms.lastUpdated': 'Van kracht: 1 april 2026',
+  'terms.linkPrivacy': 'Lees ons privacybeleid →',
   'terms.termination.body':
     'U kunt uw account op elk moment verwijderen. We kunnen een account opschorten dat deze voorwaarden schendt; als we dat doen, leggen we de reden uit en laten we u eerst uw gegevens exporteren.',
   'terms.warranty.body':

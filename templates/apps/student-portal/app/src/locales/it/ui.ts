@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'announcementsFeed.empty': 'Nessun annuncio per ora.',
   'announcementsFeed.eyebrow': '{{count}} aggiornamenti',
   'announcementsFeed.title': 'Ultimi annunci',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Niente da mostrare',
   'assignments.emptyBody': 'Cambi i filtri sopra per vedere compiti in altri stati.',
   'assignments.eyebrow': 'Tutti i corsi · Questo trimestre',
+  'assignments.loadError': 'Impossibile caricare i compiti.',
   'assignments.loading': 'Caricamento compiti…',
   'assignments.subtitle':
     'Filtri per stato per vedere cosa è in scadenza, consegnato, valutato o mancante.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': 'Nessun registro di presenza per ora.',
   'attendance.eyebrow': 'Trimestre primaverile · Ultime 4 settimane',
+  'attendance.loadError': 'Impossibile caricare i dati relativi alle presenze.',
   'attendance.loading': 'Caricamento presenze…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': 'Anno scolastico · {{year}}',
   'calendar.subtitle': 'Scadenze dei compiti su una griglia mensile — gli esami spiccano in rosso.',
   'calendar.title': 'Eventi di {{month}}',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.no': '—',
+  'common.retry': 'Riprovi',
   'common.yes': '✓',
   'courseDetail.backLink': 'Voti',
   'courseDetail.currentGrade': 'Voto attuale',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendenza',
   'grades.empty': 'Nessun voto pubblicato per ora.',
   'grades.eyebrow': 'Registro dei voti',
+  'grades.loadError': 'Impossibile caricare i voti.',
   'grades.loading': 'Caricamento voti…',
   'grades.subtitle':
     'Voti in lettere e percentuali in tempo reale. Le frecce di tendenza mostrano se sta salendo, restando stabile o scendendo.',
   'grades.title': 'I Suoi voti, corso per corso',
   'grades.trendStable': 'Stabile',
+  'landing.copyright': '© {{year}} {{app}} . Creato per gli studenti, pensato per le famiglie.',
   'landing.ctaHeading': 'Una giornata scolastica più serena inizia in pochi minuti',
   'landing.eyebrow': 'Per studenti delle medie e delle superiori',
   'landing.featuresHeading': 'Una giornata scolastica organizzata attorno allo studente',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Compiti',
   'nav.attendance': 'Presenze',
   'nav.calendar': 'Calendario',
+  'nav.closeMenu': 'Chiudi il menu di navigazione',
   'nav.grades': 'Voti',
+  'nav.openMenu': 'Apri il menu di navigazione',
   'nav.statusEyebrow': 'GPA trimestre',
   'nav.statusSubtext': "Albo d'onore · Trimestre primaverile",
+  'nav.unreadMessages': 'Messaggi non letti',
   'notifications.eyebrow': '{{count}} aggiornamenti',
   'notifications.subtitle':
     'Voti, promemoria, messaggi e annunci scolastici. Regoli quali canali ciascuna notifica utilizza dalle Impostazioni.',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.attendanceLabel': 'presenze',
   'pricing.gradesLabel': 'voti',
   'pricing.heading': 'annunci',

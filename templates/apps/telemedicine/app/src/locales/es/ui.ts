@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Reservar cita',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'No hay pacientes para mostrar.',
+  'common.goToDashboard': 'Ir al panel',
   'consult.backLink': 'Todas las citas',
   'consult.captions': 'Subtítulos',
   'consult.connected': 'Conectado · 720p · estable',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacientes',
   'patientVitalsHero.scripts': 'Rx abiertas',
   'patientVitalsHero.subline': '{{count}} consultas en tu agenda de hoy',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'prescriptions.empty': 'No hay recetas que coincidan.',
   'prescriptions.eyebrow': 'Receta electrónica',
   'prescriptions.heading': 'Recetas',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Aviso de privacidad',
   'privacy.use.body':
     'Para prestar atención, enviar recordatorios de citas, derivar recetas y mejorar la fiabilidad del servicio. Nunca vendemos sus datos ni compartimos información clínica con anunciantes.',
+  'providers.allSpecialties': 'Todas las especialidades',
+  'providers.loadError': 'No se pudieron cargar los proveedores.',
+  'providers.loading': 'Cargando…',
   'providers.noResults': 'No se encontraron proveedores.',
   'providers.searchPlaceholder': 'Buscar por nombre, especialidad...',
   'providers.title': 'Buscar un proveedor',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Inicio de jornada',
   'settings.availability.heading': 'Disponibilidad',
   'settings.devices.thisDevice': 'Este dispositivo',
+  'settings.devices.unnamed': 'Dispositivo sin nombre',
   'settings.eyebrow': 'Práctica y cuenta',
   'settings.loadError': 'No se pudo cargar tu perfil.',
   'settings.notifications.emailMessages':
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Desactivar',
   'settings.security.twoFactor.enable': 'Activar',
   'settings.security.twoFactor.heading': 'Autenticación de dos factores',
+  'settings.security.twoFactor.invalidCode': 'Ese código no coincide. Inténtalo de nuevo.',
+  'settings.security.twoFactor.setupFailed':
+    'No se pudo iniciar la configuración de autenticación de dos factores. Inténtalo de nuevo.',
+  'settings.security.twoFactor.statusOn': 'La autenticación de dos factores está activa.',
   'settings.signOutDevice': 'Cerrar sesión',
   'settings.subheading': 'Perfil del proveedor, normas de la práctica y alertas clínicas.',
   'signup.emailLabel': 'CORREO',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Crear cuenta',
   'signupFooter.hipaa': 'Conforme a HIPAA',
   'solaceLayout.primaryNavLabel': 'Navegación principal',
+  'solaceLayout.toggleMenu': 'Alternar menú',
   'terms.eligibility.body':
     'Debes tener al menos dieciocho años, o ser el padre, madre o tutor legal de un menor para quien busques atención, y encontrarte físicamente en un estado de EE. UU. donde nuestros médicos tengan licencia.',
   'terms.payment.body':

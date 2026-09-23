@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'auth.fields.newPassword': '新しいパスワード',
   'collectionDetail.addImage': 'コレクション用に生成する',
   'collectionDetail.backCta': 'コレクションに戻る',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'ムードボード、ブリーフ、進行中のシリーズ',
   'collections.title': 'コレクション',
   'collections.untitled': '無題 · {{stamp}}',
+  'common.closeMenu': 'メニューを閉じる',
+  'common.dismiss': '閉じる',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.openMenu': 'ナビゲーションメニューを開く',
   'credits.eyebrow': '{{plan}} プラン',
   'credits.renewsCopy': 'プランは {{date}} に更新されます',
   'credits.trail': '夢想{{plan}}ティア',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': '生成アクティビティ、共有、クレジットの通知がここに表示されます。',
   'notifications.empty.title': '報告事項はありません',
   'notifications.subtitle': '日付ごとにグループ化された生成イベント',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.limits.gallery': '{{count}} ギャラリー',
   'privacy.collect.body':
     'サインアップ時に、お名前、メールアドレス、ハッシュ化されたパスワードを収集します。Reverie を使用するにつれて、送信されたプロンプト、生成された画像、保存したスタイルやコレクション、使用モデル、生成タイムスタンプ、クレジット残高などのメタデータを保存します。',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': '新しいパスワードを保存',
   'reset.submitting': 'パスワードを更新中…',
   'settings.account.handle': 'ハンドル',
+  'settings.account.lastSaved': 'アクティブなプロフィール · {{name}}',
   'settings.account.saved': 'プロフィールを保存しました',
   'settings.account.saveFailed': 'プロフィールを保存できませんでした',
   'settings.account.title': 'クリエイタープロフィール',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': '新しい画像',
   'sidebar.secondary': 'セカンダリナビゲーション',
   'signup.failed': '登録に失敗しました。もう一度お試しください。',
+  'signup.firstNamePlaceholder': 'アリア',
   'signup.heading': 'Reverie を始めましょう',
+  'signup.lastNamePlaceholder': 'リン',
   'signup.subheading': 'アカウントを作成して、120 の無料クレジットを取得しましょう。',
   'styles.empty': 'まだスタイルプリセットはありません — 初回サインイン後に表示されます。',
   'styles.eyebrow': 'キュレーション',

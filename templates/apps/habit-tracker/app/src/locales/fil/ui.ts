@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'achievementBadgeCard.unlockedOn': 'Naka-unlock {{date}}',
   'achievements.loadError': 'Nabigong i-load ang mga achievement.',
   'achievements.subheading': '{{unlocked}} ng {{total}} naka-unlock',
   'achievements.unlockedOn': 'Naka-unlock {{date}}',
+  'auth.legalConsent': 'Sa pagpapatuloy, sumasang-ayon ka sa aming',
   'calendar.empty': 'Ugaliing tingnan ang iyong kalendaryo.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Ugali',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Grid ng ugali',
   'category.${c.category}': '{{bilang}} mga gawi',
   'common.and': 'at',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'consistencyHeatmap.ariaLabel': 'Heatmap ng pang-araw-araw na pagkakapare-pareho',
   'consistencyHeatmap.caption': 'Huli {{weeks}} mga linggo',
   'consistencyHeatmap.lessLabel': 'Mas kaunti',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Panoorin ito nang live',
   'landing.heroSubtitle':
     'Bumuo ng mga gawi sa paraang talagang nananatili ang mga ito: maliliit na pangako, pang-araw-araw na gawain, at ang visceral na kasiyahan ng isang mahaba at walang patid na kadena.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Isang sulyap sa loob ng Streak',
   'landing.previewMotivation': 'Siyam na guhit ang buhay. Panatilihing mainit ang lahat ng ito.',
   'login.eyebrow': 'Kunin ang kadena',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Gawin itong maliit. Gawin itong espesipiko. Pumunta bukas.',
   'newHabit.timeLabel': 'Oras ng paalala',
   'notifications.markError': 'Hindi mamarkahan bilang nabasa na lahat.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.entries': '{{count}} mga entry',
+  'pricing.heading': 'Pumili ng iyong {{app}} plano',
   'profile.action.plan': 'Pamahalaan ang suskrisyon',
   'profile.action.settings': 'Mga setting ng account',
   'profile.bioEmpty': 'Magdagdag ng maikling bio sa Mga Setting para ipakilala ang iyong sarili.',
@@ -127,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Pang-araw-araw na pahiwatig sa umaga (8:00am)',
   'settings.reminders.heading': 'Mga Paalala',
   'settings.reminders.weekly': 'Lingguhang buod (Linggo ng gabi)',
+  'settings.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.streaks.freezesPerWeek': 'Nagyeyelo kada linggo',
   'settings.streaks.gracePeriod': '6 na oras na palugit pagkatapos ng hatinggabi',
@@ -154,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktibo',
   'streakHeroCard.daysSuffix': 'araw',
   'streakHeroCard.title': 'Pinakamahabang aktibong streak',
+  'streakLayout.closeMenu': 'Isara ang menu ng nabigasyon',
+  'streakLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'streakLayout.primaryNavLabel': 'Pangunahing navigation',
 }

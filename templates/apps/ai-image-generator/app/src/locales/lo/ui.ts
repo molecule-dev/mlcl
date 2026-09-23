@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'auth.fields.newPassword': 'ລະຫັດຜ່ານໃໝ່',
   'collectionDetail.addImage': 'ຊັກຊວນໃຫ້ເກັບກຳ',
   'collectionDetail.backCta': 'ກັບໄປທີ່ຄໍເລັກຊັນ',
@@ -17,10 +18,16 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'ກະດານອາລົມ, ບົດສະຫຼຸບສັ້ນໆ ແລະ ຊຸດທີ່ກຳລັງດຳເນີນຢູ່',
   'collections.title': 'ຄໍເລັກຊັນ',
   'collections.untitled': 'ບໍ່ມີຫົວຂໍ້ · {{stamp}}',
+  'common.closeMenu': 'ປິດເມນູ',
+  'common.dismiss': 'ປິດ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.openMenu': 'ເປີດເມນູນຳທາງ',
   'credits.eyebrow': '{{plan}} ແຜນການ',
+  'credits.renewsCopy': 'ແຜນການຕໍ່ອາຍຸໃນວັນທີ {{date}}',
   'credits.trail': 'ຄວາມຝັນ {{plan}} ຊັ້ນ',
   'credits.units': 'ເຄຣດິດທີ່ຍັງເຫຼືອ',
   'credits.upgrade': 'ແຜນການອັບເກຣດ',
+  'credits.usage': 'ຍັງເຫຼືອ {{pct}} %',
   'dashboard.activity.empty': 'ຍັງບໍ່ມີກິດຈະກຳໃດໆເທື່ອ - ກິດຈະກຳລຸ້ນຂອງທ່ານຈະມາຮອດບ່ອນນີ້.',
   'dashboard.activity.title': 'ກິດຈະກຳມື້ນີ້',
   'dashboard.queue.cta': 'ສະຕູດິໂອເປີດ',
@@ -129,6 +136,7 @@ export const ui: UiTranslations = {
     'ກິດຈະກຳການສ້າງ, ການແບ່ງປັນ ແລະ ການແຈ້ງເຕືອນກ່ຽວກັບເຄຣດິດຈະປາກົດຢູ່ບ່ອນນີ້.',
   'notifications.empty.title': 'ບໍ່ມີຫຍັງຕ້ອງລາຍງານ',
   'notifications.subtitle': 'ກິດຈະກຳລຸ້ນຕໍ່ລຸ້ນຈັດກຸ່ມຕາມມື້',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.limits.gallery': '{{count}} ຄັງຮູບພາບ',
   'privacy.collect.body':
     'ເມື່ອທ່ານລົງທະບຽນ, ພວກເຮົາຈະເກັບກຳຊື່, ທີ່ຢູ່ອີເມວ ແລະ ລະຫັດຜ່ານທີ່ຖືກ hash ຂອງທ່ານ. ໃນຂະນະທີ່ທ່ານໃຊ້ Reverie, ພວກເຮົາຈະເກັບຮັກສາ prompts ທີ່ທ່ານສົ່ງ, ຮູບພາບທີ່ພວກເຮົາສ້າງຂຶ້ນໃຫ້ທ່ານ, ຮູບແບບ ແລະ ຄໍເລັກຊັນທີ່ທ່ານບັນທຶກໄວ້, ແລະ metadata ເຊັ່ນ: ຮູບແບບທີ່ໃຊ້, timestamps ການສ້າງ, ແລະ ຍອດເງິນເຄຣດິດ.',
@@ -164,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'ບັນທຶກລະຫັດຜ່ານໃໝ່',
   'reset.submitting': 'ກຳລັງອັບເດດລະຫັດຜ່ານ…',
   'settings.account.handle': 'ດ້າມຈັບ',
+  'settings.account.lastSaved': 'ໂປຣໄຟລ໌ທີ່ໃຊ້ງານຢູ່ · {{name}}',
   'settings.account.saved': 'ບັນທຶກໂປຣໄຟລ໌ແລ້ວ',
   'settings.account.saveFailed': 'ບໍ່ສາມາດບັນທຶກໂປຣໄຟລ໌ໄດ້',
   'settings.account.title': 'ໂປຣໄຟລ໌ຜູ້ສ້າງ',
@@ -185,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'ຮູບພາບໃໝ່',
   'sidebar.secondary': 'ການນຳທາງສຳຮອງ',
   'signup.failed': 'ການລົງທະບຽນລົ້ມເຫຼວ. ລອງໃໝ່ອີກຄັ້ງ.',
+  'signup.firstNamePlaceholder': 'ອາເຣຍ',
   'signup.heading': 'ເລີ່ມຕົ້ນຄວາມນຶກຄິດຂອງເຈົ້າ',
+  'signup.lastNamePlaceholder': 'ລິນ',
   'signup.subheading': 'ສ້າງບັນຊີແລະຮຽກຮ້ອງເອົາ 120 ເຄຣດິດຟຣີ.',
   'styles.empty':
     'ຍັງບໍ່ມີຄ່າທີ່ຕັ້ງໄວ້ລ່ວງໜ້າສຳລັບຮູບແບບເທື່ອ — ພວກມັນຈະປາກົດຫຼັງຈາກເຂົ້າສູ່ລະບົບຄັ້ງທຳອິດ.',

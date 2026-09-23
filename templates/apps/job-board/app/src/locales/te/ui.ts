@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
   'applications.empty': 'ఇంకా దరఖాస్తులు రాలేదు – సరైన ఉద్యోగం కేవలం ఒక దరఖాస్తు దూరంలో ఉంది.',
   'applications.eyebrow': 'మీ పైప్‌లైన్',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'మీరు దరఖాస్తు చేసుకున్న ప్రతి పాత్ర, కదలికలో. దృష్టి కేంద్రీకరించడానికి దశ వారీగా ఫిల్టర్ చేయండి.',
   'applications.untitledRole': 'పాత్ర # {{id}}',
+  'auth.legalConsent': 'కొనసాగడం ద్వారా, మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'common.and': 'మరియు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'companies.empty': 'మీ శోధనకు సరిపోలే కంపెనీలు ఏవీ లేవు – వేరే పదాన్ని ప్రయత్నించండి.',
   'companies.eyebrow': 'ప్రముఖ యజమానులు',
   'companies.searchPlaceholder': 'పేరు, పరిశ్రమ, ప్రదేశం ద్వారా శోధించండి',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ఈ పదవికి ఇంకా దరఖాస్తులు రాలేదు.',
   'jobApplicants.eyebrow': 'యజమాని అభిప్రాయం',
   'jobApplicants.loading': 'లోడ్ అవుతోంది',
+  'jobApplicants.statusUpdateFailed': 'ఆ దశను నవీకరించలేకపోయాము — మళ్ళీ ప్రయత్నించండి.',
+  'jobApplicants.subheading':
+    'రెస్యూమ్‌లను సమీక్షించడం, అభ్యర్థులను ముందుకు పంపడం, ఆఫర్‌లను పంపడం {{count}} ఈ ప్రక్రియ కొనసాగుతుంది.',
   'jobDetail.applicantCount': '{{count}} ఇప్పటివరకు దరఖాస్తుదారులు',
   'jobDetail.applied': 'దరఖాస్తు పంపబడింది',
   'jobDetail.apply': 'ఇప్పుడే దరఖాస్తు చేసుకోండి',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ఖాళీగా ఉన్న ఉద్యోగాలను చూడండి ➡',
   'landing.pricingEyebrow': 'ధర నిర్ణయం',
   'landing.pricingHeading': 'ప్రతి జట్టు పరిమాణానికి అనువైన సరళమైన ప్రణాళికలు.',
+  'login.eyebrow': '{{app}}కు తిరిగి స్వాగతం',
   'login.heading': 'మీ ఖాతాలోకి లాగిన్ అవ్వండి',
   'login.noAccount': 'నోష్‌కు కొత్తగా వచ్చారా?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'లాగిన్ అవుతున్నాను',
   'login.subheading':
     'మీ శోధనను వేగవంతం చేయండి, మీ దరఖాస్తులను ముందుకు తీసుకెళ్లండి, త్వరగా స్పందన పొందండి.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . నియామక బృందాల కోసం రూపొందించబడింది.',
   'loginBrandPanel.headline': 'ప్రతిభ కలిసే చోట',
   'loginBrandPanel.headlineLine2': 'ఊపు.',
   'loginBrandPanel.listing.recruiter': 'టాలెంట్ పార్టనర్',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'అప్లికేషన్ అప్‌డేట్‌లు, ఇంటర్వ్యూ ఆహ్వానాలు, కొత్తగా ఎంపికైన అభ్యర్థులు – కొత్తవి మొదట.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ఈ వారం',
   'opportunitiesHero.eyebrow': 'ఈరోజు తెరిచి ఉంది',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'postJob.addNewCompany': 'కొత్త కంపెనీని జోడించండి',
   'postJob.companyCreateFailed': 'కంపెనీని సృష్టించలేకపోయాము — మళ్ళీ ప్రయత్నించండి.',
   'postJob.companyNameLabel': 'మీ కంపెనీ పేరు',
@@ -165,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'ఖాతాను సృష్టించడం',
   'signup.ctaEmployer': 'యజమాని ఖాతాను సృష్టించండి',
   'signup.firstNamePlaceholder': 'మాయ',
+  'signup.lastNamePlaceholder': 'చెన్',
   'signup.passwordMismatch': 'పాస్‌వర్డ్‌లు సరిపోలడం లేదు.',
   'signup.subheading':
     'ఉద్యోగాన్వేషులకు ఎప్పటికీ ఉచితం. యజమానులు 30 రోజుల ట్రయల్‌తో ప్రారంభించవచ్చు.',
   'timeAgo.days': '{{count}} డి క్రితం',
   'timeAgo.hours': '{{count}} గంటల క్రితం',
   'timeAgo.justNow': 'ఇప్పుడే',
+  'timeAgo.weeks': '{{count}} వారాల క్రితం',
 }

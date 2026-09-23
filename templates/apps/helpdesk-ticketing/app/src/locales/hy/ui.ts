@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.title': '{{app}}-ի մասին',
   'activeAgentsCard.agent1AvatarAlt':
     'Կին աջակցության գործակալի պրոֆեսիոնալ դիմանկար՝ բարեկամական ժպիտով, ժամանակակից գրասենյակում',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Կապվեք աջակցության ծառայության հետ',
   'forgotPassword.error': 'Չհաջողվեց ուղարկել վերակայման էլ. նամակը։ Խնդրում ենք կրկին փորձել։',
   'forgotPassword.rememberPassword': 'Հիշո՞ւմ եք ձեր գաղտնաբառը։',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Մուտք գործել — Zenith-ի աջակցություն',
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.welcomeSubheading': 'Մուտք գործեք ձեր աջակցության վահանակ',
+  'mobileNav.closeMenu': 'Փակել նավիգացիան',
+  'mobileNav.menu': 'Նավիգացիա',
+  'mobileNav.openMenu': 'Բացել նավիգացիան',
   'nav.legal': 'Իրավական',
   'nav.newTicket': 'Նոր տոմս',
   'notifications.loadError': 'Չհաջողվեց բեռնել ծանուցումները։ Փորձեք կրկին մի փոքր ուշ։',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Հրամանների որոնում',
   'operatorDock.newReport': 'Նոր հաշվետվություն',
   'operatorDock.systemOnline': 'Համակարգը առցանց է',
+  'planUpdated.subtitle': 'Շնորհակալություն',
   'planUpdated.title': 'Պլանը թարմացված է',
   'pricing.agents': 'գործակալներ',
   'pricing.automation': 'Ավտոմատացման կանոններ',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{անուն}}',
   'ticketCustomerReply.avatarAlt': '{{անուն}} -ի ավատարը',
   'ticketDetail.errorTitle': 'Ինչ-որ բան սխալ է գնացել',
+  'ticketDetail.loadError': 'Չհաջողվեց բեռնել տոմսը։',
+  'ticketDetail.notFound': 'Տոմսը չի գտնվել',
+  'ticketDetail.replyError': 'Չհաջողվեց ուղարկել պատասխանը։ Խնդրում ենք կրկին փորձել։',
   'ticketDetail.retry': 'Փորձեք կրկին',
   'ticketDetail.statusUpdateError': 'Կարգավիճակը չհաջողվեց թարմացնել։ Փորձեք կրկին։',
   'ticketDetailsCard.assigneeLabel': 'Հանձնառու',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{ժամանակ}} ձախ',
   'ticketRow.title': 'Տվյալների բազայի կապը խափանվեց արտադրության ժամանակ {{հանգույց}}',
   'tickets.pageTitle': 'Տոմսեր — Zenith Support',
+  'ticketsFab.newTicket': 'Նոր տոմս',
   'ticketsFilterBar.assigneeLabel': 'Հանձնառու՝',
   'ticketsFilterBar.clearFilters': 'Մաքրել ֆիլտրերը',
   'ticketsFilterBar.dateRangeDemoHint':

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.tagline': 'Pob uned, o dan un to.',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.addProperty': 'Ychwanegu eiddo',
   'dashboard.empty.body':
     "Unwaith y bydd gennych eiddo, unedau a thaliadau rhent, mae'r dangosfwrdd hwn yn llenwi â mewnwelediadau portffolio.",
@@ -87,6 +90,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     "{{count}} archebion gwaith agored, wedi'u trefnu yn ôl blaenoriaeth",
   'maintenanceQueueList.title': 'Ciw Cynnal a Chadw',
+  'nav.closeMenu': "Cau'r ddewislen",
+  'nav.openMenu': 'Agor y ddewislen',
   'notFound.body':
     "Mae'r dudalen yr oeddech chi'n chwilio amdani wedi'i symud, wedi'i harchifo, neu nid yw erioed wedi bodoli.",
   'notFound.title': "Dydy'r drws yna ddim yn agor",

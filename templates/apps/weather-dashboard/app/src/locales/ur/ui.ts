@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'آپ فی الحال پر ہیں۔ {{plan}} منصوبہ',
   'billing.switch': 'سوئچ کریں۔',
   'billing.upgraded': 'میں اپ ڈیٹ کیا گیا۔ {{plan}} - حدود کا اطلاق فوری طور پر۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'compare.activityHeading': 'سرگرمی کے فیصلے',
   'compare.empty.title': 'موازنہ کرنے کے لیے کم از کم دو مقامات شامل کریں۔',
   'compare.eyebrow': 'پہلو بہ پہلو',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'اعلی',
   'trends.summary.low.label': 'کم',
   'trends.summary.points.label': 'دن',
+  'weatherDashboardLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'weatherHeroCard.updated': 'تازہ کاری {{time}}',
 }

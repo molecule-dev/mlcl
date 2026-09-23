@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.title': 'Σχετικά με το {{app}}',
   'auth.login.noAccount': 'Νέος/η στο Sparq;',
   'auth.login.or': 'ή συνεχίστε με',
   'auth.signup.or': 'ή εγγραφείτε με',
+  'common.confirm': 'Επιβεβαιώνω',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.loadError': 'Κάτι πήγε στραβά κατά τη φόρτωση αυτού του περιεχομένου.',
+  'common.retry': 'Επανάληψη',
   'discover.collections.title': 'Περιήγηση ανά κατηγορία',
   'discover.collections.viewAll': 'Δείτε τη βιβλιοθήκη σας →',
   'discover.empty.body': 'Δοκιμάστε μια άλλη κατηγορία ή διαγράψτε τα κριτήρια αναζήτησης.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Συνδεθείτε για να διατηρήσετε το σερί σας ζωντανό, να φιλοξενήσετε ζωντανά παιχνίδια και να ανεβείτε στον πίνακα κατάταξης.',
   'myQuizzes.createButton': 'Νέο κουίζ',
+  'myQuizzes.deleteConfirm': 'Διαγραφή οριστικά;',
   'myQuizzes.empty.createCta': 'Δημιουργήστε το πρώτο σας κουίζ →',
   'myQuizzes.empty.created': 'Δεν έχετε δημιουργήσει ακόμα κουίζ.',
   'myQuizzes.empty.played': 'Δεν υπάρχουν ακόμη δημοσιευμένα κουίζ.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Φόρτωση…',
   'notifications.subhead':
     '{{count}} Αδιάβαστες σπίθες. Προσκλήσεις, κινήσεις στον πίνακα κατάταξης και επιτεύγματα, όλα σε μία ροή.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.checkoutError': 'Δεν ήταν δυνατή η έναρξη ολοκλήρωσης αγοράς. Παρακαλώ δοκιμάστε ξανά.',
+  'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
   'pricing.included': 'Συμπεριλαμβανομένος',
   'pricing.loadError': 'Δεν ήταν δυνατή η φόρτωση των σχεδίων.',
   'pricing.maxQuizzes': '{{count}} αινίγματα',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Δεν έχει δημοσιευτεί τίποτα ακόμα.',
   'profile.startBuilding': 'Ξεκινήστε την κατασκευή →',
   'profile.tier': 'Παίκτης Sparq',
+  'quizBuilder.addFailed': 'Δεν ήταν δυνατή η προσθήκη της ερώτησης. Δοκιμάστε ξανά.',
   'quizBuilder.addQuestion': 'Προσθήκη ερώτησης',
   'quizBuilder.answerPlaceholder': 'Πληκτρολογήστε μια επιλογή…',
   'quizBuilder.answersLabel': 'Επιλογές απαντήσεων',
   'quizBuilder.back': 'Επιστροφή στα κουίζ μου',
   'quizBuilder.delete': 'Διαγραφή ερώτησης',
+  'quizBuilder.deleteFailed': 'Δεν ήταν δυνατή η διαγραφή της ερώτησης.',
   'quizBuilder.firstQuestion': 'Προσθέστε την πρώτη σας ερώτηση για να ξεκινήσετε.',
   'quizBuilder.idLabel': 'Αναγνωριστικό κουίζ: {{id}}',
   'quizBuilder.loadError': 'Δεν ήταν δυνατή η φόρτωση του κουίζ.',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Προσθέστε τουλάχιστον δύο επιλογές απάντησης και επιλέξτε τη σωστή για {{count}} ερώτηση(εις) πριν από τη δημοσίευση.',
   'quizBuilder.questionsTitle': 'Ερωτήσεις',
+  'quizBuilder.saveFailed': 'Δεν ήταν δυνατή η αποθήκευση του τίτλου. Δοκιμάστε ξανά.',
   'quizBuilder.statusDraft': 'Πρόχειρο',
   'quizBuilder.subhead':
     'Επεξεργαστείτε τον τίτλο, προσθέστε ερωτήσεις, ορίστε επιλογές και τη σωστή απάντηση. Οι αλλαγές αποθηκεύονται αυτόματα.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'Παιχνίδι για πολλούς παίκτες οικοδεσπότη',
   'quizDetail.leaderboardEmpty':
     'Δεν υπάρχουν ακόμη αναπαραστάσεις — γίνετε ο πρώτος που θα ορίσει σκορ.',
+  'quizDetail.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτού του κουίζ.',
   'quizDetail.loading': 'Φόρτωση κουίζ…',
   'quizDetail.plays': '{{count}} θεατρικά έργα',
   'quizDetail.playSolo': 'Παίξτε σόλο',

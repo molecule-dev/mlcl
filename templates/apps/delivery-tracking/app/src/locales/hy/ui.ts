@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'alerts.acknowledgeLabel': 'Հաստատել',
   'alerts.customerLabel': 'Հաճախորդ՝ {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Միանում է…',
   'carriers.requiredError': 'Անունը և կոդը պարտադիր են։',
   'carriers.subheading': '{{count}} ինտեգրված',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
+  'common.retry': 'Կրկին փորձել',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Ճանապարհին է + դրոշակավորված է',
   'dashboard.activeShipmentsSubtitle':
@@ -103,6 +106,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'առաքումներ',
   'pricing.trackingLabel': 'հետևման իրադարձություններ',
   'profile.dangerZone.title': 'Վտանգավոր գոտի',
+  'profile.devices.signingOut': 'Դուրս է գալիս…',
+  'profile.devices.unnamed': 'Անանուն սարք',
+  'profile.security.disable2fa': 'Անջատել 2FA-ն',
   'profile.security.enable2fa': 'Միացնել 2FA-ն',
   'profile.security.pwChanged': 'Գաղտնաբառը հաջողությամբ փոխվեց։',
   'profile.security.pwCurrent': 'Ընթացիկ գաղտնաբառ',
@@ -112,10 +118,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA ակտիվ է',
   'profile.security.twoFaCode': '6-անիշ կոդ',
   'profile.security.twoFaDisable': 'Անջատել',
+  'profile.security.twoFaDisabling': 'Անջատվում է…',
   'profile.security.twoFaFailed': 'Կոդը չհաջողվեց ստուգել։',
   'profile.security.twoFaIntro':
     'Սկանավորեք QR կոդը ձեր նույնականացման հավելվածում, այնուհետև մուտքագրեք ստորև նշված 6 նիշանոց կոդը՝ հաստատելու համար։',
   'profile.security.twoFaOn': 'Այս հաշվի վրա միացված է երկփուլային նույնականացումը։',
+  'profile.security.twoFaQrAlt': 'Երկկարգի նույնականացման QR կոդ',
   'profile.security.twoFaVerify': 'Հաստատել և միացնել',
   'profile.security.twoFaVerifying': 'Հաստատվում է…',
   'profile.subheading': 'Այս աշխատանքային տարածքի նույնականացման և անվտանգության կարգավորումները։',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Պահպանեք այս գաղտնիքը՝ այն այլևս չի ցուցադրվի։',
   'settings.api.webhookSecret': 'Webhook ստորագրման գաղտնիքը',
   'settings.appearance.description': 'Անցնել բաց և մութ ռեժիմների միջև։',
+  'settings.deleteAccountConfirm': 'Վստա՞հ եք։ Այս գործողությունը չի կարող հետարկվել։',
   'settings.notifications.exceptions':
     'Գրեք ինձ էլեկտրոնային նամակ, երբ առաքման բացառություն տեղի ունենա, երբ այն տեղի ունենա։',
   'settings.notifications.heading': 'Ծանուցումներ',
@@ -149,6 +158,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Առաքումը չի գտնվել։',
   'shipmentDetail.originHeading': 'Ծագումը',
   'shipmentDetail.shippedOn': 'Առաքված է {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Հետևման իրադարձություններ դեռևս չկան. թարմացումները հայտնվում են այստեղ, երբ փոխադրողը սկանավորում է ծանրոցը։',
   'shipmentDetail.weightLabel': '{{weight}} ֆունտ',
   'shipments.col.carrier': 'Փոխադրող',
   'shipments.col.eta': 'Մոտավոր ժամանումը',
@@ -178,6 +189,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Մուտք գործել',
   'signup.submit': 'Ստեղծել հաշիվ',
   'team.emailError': 'Պահանջվում է վավեր էլեկտրոնային հասցե։',
+  'team.empty': 'Թիմի անդամներ դեռ չկան։ Հրավիրեք թիմակցի՝ առաքումների վրա համագործակցելու համար։',
   'team.eyebrow': 'Անդամներ և թույլտվություններ',
   'team.inviteDialog.cancel': 'Չեղարկել',
   'team.inviteDialog.heading': 'Հրավիրեք թիմակցի',
@@ -200,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Հետք',
   'waypointLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'webhooks.createFailed': 'Չհաջողվեց ստեղծել webhook վերջնակետ։',
+  'webhooks.endpointsEmpty':
+    'Դեռևս վեբհուկների վերջնակետեր չկան: Ստեղծեք մեկը՝ առաքման կարգավիճակի հետադարձ զանգեր ստանալու համար:',
   'webhooks.endpointsHeading': 'Վերջնակետեր',
   'webhooks.eventCount': '{{count}} միջոցառումներ',
   'webhooks.eventsHeading': 'Վերջին առաքումները',

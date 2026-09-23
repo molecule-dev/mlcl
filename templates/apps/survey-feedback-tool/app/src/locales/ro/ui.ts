@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Despre {{app}}',
   'analytics.back': 'Prezentare generală a sondajului',
   'analytics.kpiNps': 'Scorul NPS',
   'analytics.kpiNpsTrend': 'Promotori {{p}} % · Detractori {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Proprietăți',
   'builder.questionNumber': 'Î {{num}}',
   'builder.surveyTitle': 'Titlul sondajului',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'forgotPassword.failed': 'Nu s-a putut trimite e-mailul de resetare. Încearcă din nou.',
   'forgotPassword.subheading':
     'Introdu adresa ta de e-mail și îți vom trimite un link de recuperare.',
   'forgotPassword.successBody':
     'Dacă un cont se potrivește {{email}} , un link de resetare este pe drum. Verificați inboxul și folderele de spam.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Toate vocile sunt binevenite.',
   'landing.footer.startTrial': 'Începeți perioada de probă',
   'landing.hero.badge': 'Sondaje, NPS și feedback într-un singur loc',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Prețuri',
   'landing.pricing.perMonth': '/lună',
   'landing.pricing.popular': 'Cel mai popular',
+  'landing.pricing.subtitle':
+    'Fiecare plan include instrumentul de creare a sondajelor, linkuri de partajare publică și analize NPS. Nu este necesar card de credit pentru a începe.',
+  'landing.pricing.title': 'Începeți gratuit, scalați când faceți acest lucru.',
   'landing.sample.eyebrow': 'NPS pe scurt',
   'landing.sample.title': 'Detractori, adversari pasivi, promotori — lizibili instantaneu.',
   'login.failed': 'Autentificarea a eșuat. Vă rugăm să încercați din nou.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afișați parola',
   'login.signUpLink': 'Începe o perioadă de probă gratuită',
   'login.subheading': 'Conectează-te pentru a continua să asculți ce spune publicul tău.',
+  'notFound.body': 'Pagina pe care o cauți nu există pe {{app}} . Hai să te readucem la sondaje.',
   'notFound.cta': 'Înapoi la sondaje',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Acest sondaj a ieșit din coadă.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasiv 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Public pentru echipa ta și în sondajele pe care le creezi.',
+  'profile.identity.emailRequired': 'Introduceți o adresă de e-mail.',
   'profile.identity.saveCta': 'Salvați numele',
   'profile.password.current': 'Parola actuală',
   'profile.password.fillFields': 'Introduceți atât parola curentă, cât și parola nouă.',
@@ -179,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} întrebări',
   'templates.subheading':
     'Alege un șablon de început testat în luptă — fiecare șablon vine pre-reglat cu setări implicite practice, logică de probă și un aspect curat pentru mobil.',
+  'thankYou.body':
+    'Răspunsul tău a fost înregistrat. {{app}} îl va include în următoarea actualizare a datelor analitice.',
   'thankYou.eyebrow': 'Răspuns primit',
   'thankYou.heading': 'Mulțumesc — vocea ta contează.',
   'thankYou.home': 'Vizitați Gauge',

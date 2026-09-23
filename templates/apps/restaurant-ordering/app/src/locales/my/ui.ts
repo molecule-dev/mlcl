@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} အကြောင်း',
   'analytics.avgCheckLabel': 'ပျမ်းမျှစစ်ဆေးမှု',
   'analytics.busiestHour': 'အလုပ်အများဆုံးအချိန်',
   'analytics.coversToday': 'ယနေ့ မျက်နှာဖုံးများ',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'အကြံပြုချက်များ (ပျမ်းမျှ)',
   'analytics.topItems': 'ယနေ့ ထိပ်တန်းပစ္စည်းများ',
   'authShell.eyebrow': 'ဝန်ဆောင်မှုသို့ ပြန်လည်ကြိုဆိုပါတယ်',
+  'authShell.heading': '{{tagline}}။',
   'authShell.subheading':
     'ဧည့်ဝတ်ကျေပွန်မှုအဖွဲ့များအတွက် နွေးထွေးပြီး မြန်ဆန်သော ရောင်းချမှုနေရာ။ သင့်မီးဖိုချောင်သို့ ဝင်ရောက်ပြီး သင်ရပ်ထားသည့်နေရာမှ ဆက်လက်လုပ်ဆောင်ပါ။',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'သို့မဟုတ် {{price}}',
   'billing.priceUnavailable': 'ဤအစီအစဉ်တွင် သတ်မှတ်ထားသော ဈေးနှုန်း မရှိပါ။',
   'billing.updated': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'customerDetail.book': 'ကြိုတင်မှာယူမှုထည့်ရန်',
   'customerDetail.col.table': 'စားပွဲ',
   'customerDetail.confirmDelete': 'ဒီဧည့်သည်မှတ်တမ်းကို ဖျက်မလား။',
@@ -132,6 +135,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ရရှိနိုင်မှု',
   'menuItemDetail.available': 'ဒီည ရနိုင်ပါတယ်',
   'menuItemDetail.backToMenu': 'မီနူးသို့ ပြန်သွားရန်',
+  'menuItemDetail.confirmDelete': 'ဒီမီနူးကို ဖျက်မလား။',
   'menuItemDetail.delete': 'အရာကို ဖျက်ပါ',
   'menuItemDetail.deleteError': 'ဖျက်ခြင်း မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။',
   'menuItemDetail.dietary': 'အစားအသောက်ဆိုင်ရာ တဂ်များ',
@@ -143,9 +147,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ဓာတ်ပုံ၊ ပြုပြင်မွမ်းမံမှုများ၊ အစားအသောက်နှင့် ဈေးနှုန်းများကို တည်းဖြတ်ပါ။',
   'menuItemDetail.untitled': 'ခေါင်းစဉ်မဲ့ပစ္စည်း',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'notFound.heading': 'ဒီစားပွဲက ကြမ်းပြင်ပေါ်မှာ မရှိဘူး။',
   'notFound.subheading':
     'သင်ရှာဖွေနေသော စာမျက်နှာသည် အခြားနေရာတွင် ရှိနေပါသည် - သို့မဟုတ် ဘယ်တုန်းကမှ မရှိခဲ့ဖူးပါ။',
+  'notFound.toLanding': '{{app}} ပင်မစာမျက်နှာ',
   'notifications.markError': 'အားလုံးကို ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
   'orderDashboard.activeDelta': 'ယခုပဲ တိုက်ရိုက်ကြည့်ရှုလိုက်ပါ',
   'orderDashboard.activeLabel': 'လက်ရှိမှာယူမှုများ',
@@ -210,6 +217,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'စကားဝှက်ပြပါ',
   'resetPassword.subtitle': 'မီးဖိုချောင်သို့ ပြန်လည်ဝင်ရောက်ရန် သင့်စကားဝှက်အသစ်ကို ရိုက်ထည့်ပါ။',
   'resetPassword.tokenLabel': 'တိုကင်ကို ပြန်လည်သတ်မှတ်ပါ',
+  'restaurantOrderingLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'revenueHeroCard.activeOrders': '{{count}} တက်ကြွသော',
   'revenueHeroCard.change': '{{sign}} {{amount}} မနေ့ကနှင့် နှိုင်းယှဉ်ပါ',
   'revenueHeroCard.title': 'ဒီနေ့ဝင်ငွေ',
@@ -228,6 +236,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'စားသောက်ဆိုင်အမည်',
   'tableDetail.activeOrders': 'လက်ရှိမှာယူမှုများ',
   'tableDetail.backToFloor': 'အထပ်ပုံစံ',
+  'tableDetail.confirmDelete': 'ဒီဇယားကို ဖျက်မလား။',
   'tableDetail.delete': 'ဖျက်ရန်',
   'tableDetail.deleteError': 'ဇယားကို ဖျက်၍မရပါ။',
   'tableDetail.heading': 'စားပွဲ {{label}}',

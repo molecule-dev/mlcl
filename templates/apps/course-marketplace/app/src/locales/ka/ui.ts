@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'კურსების ჩატვირთვა…',
   'browse.next': 'შემდეგი გვერდი',
   'browse.results': 'ნაჩვენებია {{count}} კურსები',
+  'browse.searchChip': '„ {{query}} “',
   'browse.sort': 'დალაგება',
   'browse.subtitle':
     'გაფილტრეთ სარედაქციო არქივი თემის, დონისა და ფასის მიხედვით. ყველა კურსი ჩვენი რედაქტორების მიერ არის ხელით შერჩეული.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'თქვენი სერტიფიკატი ხელმოწერილი და მზადაა. გაუზიარეთ ის მსოფლიოს ან შეინახეთ, როგორც შეხსენება იმ შრომისა, რომელიც მის მიღებას დასჭირდა.',
   'certificate.copyLink': 'გაზიარების ბმულის კოპირება',
+  'certificate.copyPrompt': 'დააკოპირეთ ეს ბმული:',
   'certificate.download': 'PDF-ის ჩამოტვირთვა',
   'certificate.eyebrow': 'მიღწევა განბლოკილია',
   'certificate.linkCopied': 'ბმული კოპირებულია!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'თქვენ დარეგისტრირებული ხართ!',
   'checkout.verifying': 'თქვენი რეგისტრაციის დადასტურება…',
   'checkout.viewLibrary': 'ჩემი სწავლის ნახვა',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.retry': 'ხელახლა სცადეთ',
   'courseDetail.about': 'ამ კურსის შესახებ',
   'courseDetail.checkoutPending': 'შეკვეთის გაფორმება იწყება…',
   'courseDetail.continueLearning': 'სწავლის გაგრძელება',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-დღიანი თანხის დაბრუნების გარანტია',
   'courseDetail.includes.video': '{{hours}} საათობით მოთხოვნითი ვიდეო',
   'courseDetail.instructor': 'ინსტრუქტორი',
+  'courseDetail.languageEnglish': 'ინგლისური',
   'courseDetail.lectures': 'ლექციები',
   'courseDetail.level': 'დონე',
   'courseDetail.loading': 'კურსი იტვირთება…',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'ჯერ არ არის მიმოხილვები.',
   'instructorProfile.students': 'სტუდენტები',
   'landing.categories.empty': 'კატეგორიები გამოჩნდება კატალოგის შევსების შემდეგ.',
+  'landing.categories.heading': 'არქივის დათვალიერება',
   'landing.hero.eyebrow': 'ლექცია · ოსტატობის რედაქციული არქივი',
   'landing.hero.proof': 'Google-ის, Meta-სა და Adobe-ის სტუდენტების ნდობით სარგებლობს.',
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'დაიწყეთ სწავლა დღესვე',
   'login.subheading': 'თქვენს სამეცნიერო არქივზე წვდომა.',
   'myLearning.empty.title': 'ამ ფილტრს ჯერ არცერთი კურსი არ შეესაბამება',
+  'myLearning.error.title': 'თქვენი ბიბლიოთეკის ჩატვირთვა ვერ მოხერხდა',
   'myLearning.filter.notStarted': 'არ დაწყებულა',
   'myLearning.hero.subtitle': '{{count}} კურსები თქვენს ბიბლიოთეკაში. შეინარჩუნეთ ტემპი.',
   'myLearning.hero.title': 'განაგრძეთ იქიდან, სადაც შეწყვიტეთ.',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'განსახილველი ახალი აქტივობა არ არის. ახალი ღონისძიებები აქ გამოჩნდება.',
   'notifications.empty.title': 'ყველაფერი გასაგებია',
+  'notifications.error.title': 'აქტივობის ჩატვირთვა ვერ მოხერხდა',
   'privacy.title': 'კონფიდენციალურობის პოლიტიკა',
   'reset.confirmPlaceholder': 'ხელახლა შეიყვანეთ თქვენი ახალი პაროლი',
   'reset.errorGeneric': 'პაროლის აღდგენა ვერ მოხერხდა. მოითხოვეთ ახალი ბმული.',
@@ -189,5 +197,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} დღის წინ',
   'timeAgo.hours': '{{count}} საათის წინ',
   'timeAgo.minutes': '{{count}} წუთის წინ',
+  'timeAgo.months': '{{count}} თვის წინ',
   'timeAgo.today': 'დღეს',
+  'timeAgo.weeks': '{{count}} კვირის წინ',
 }

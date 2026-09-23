@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.title': 'Про {{app}}',
   'comments.addFailed': 'Не вдалося опублікувати коментар.',
   'comments.backToDoc': 'Повернутися до рукопису',
   'comments.deleteFailed': 'Не вдалося видалити.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Вирішити',
   'comments.resolveFailed': 'Не вдалося вирішити.',
   'comments.subtitle': '{{open}} відкрито · Проблема з адресою {{resolved}} вирішено',
+  'common.goToDashboard': 'До панелі',
   'dashboard.activityHeading': 'Що відбувається',
   'dashboard.createFailed': 'Не вдалося створити документ.',
   'dashboard.empty': 'Поки що немає рукописів — почніть з кнопки «Новий документ».',
@@ -54,12 +57,15 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Не вдалося перемістити до кошика.',
   'editor.unpublish': 'Скасувати публікацію',
   'editor.untitled': 'Документ без назви',
+  'editor.updatedElsewhere':
+    'Цей документ було оновлено кимось іншим — перезавантажте, щоб побачити останню версію.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Якщо для адреси {{email}} існує обліковий запис, вам незабаром буде надіслано посилання для відновлення пароля.',
   'forgotPassword.subtitle':
     'Ми надішлемо вам електронного листа з посиланням для скидання пароля.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Створено за допомогою Molecule.',
   'landing.ctaHeading': 'Відкрийте сторінку. Давайте почнемо.',
   'landing.ctaPrimary': 'Відкрити студію',
   'landing.eyebrow': 'Для авторів, редакторів та команд',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'оновлено {{when}}',
   'quillonDocumentCard.open': 'Відкрити →',
   'quillonKpiCard.trend': 'Останні тенденції',
+  'quillonLayout.menu': 'Меню',
   'quillonLayout.primaryNavLabel': 'Основна навігація',
   'quillonStudioHero.collab': 'Співробітники',
   'quillonStudioHero.docs': 'Документи, з якими працювали',
@@ -160,9 +167,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}д тому',
   'time.hoursAgo': '{{hours}}г тому',
   'time.justNow': 'щойно',
+  'trash.confirmDelete': 'Підтвердити видалення',
   'trash.deleteFailed': 'Не вдалося видалити.',
   'trash.deleteForever': 'Видалити назавжди',
   'trash.empty': 'Відновлювати нічого.',
+  'trash.emptyAll': 'Очистити кошик',
   'trash.eyebrow': 'Студія',
   'trash.heading': 'Кошик',
   'trash.loadFailed': 'Не вдалося завантажити кошик.',

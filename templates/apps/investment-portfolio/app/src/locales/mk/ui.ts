@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'argentAuthShell.brandEyebrow': 'Аргент · Алатки за богатство',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Не е инвестициски совет.',
   'argentAuthShell.sampleChange': '+2.841 долари (+0,28%) денес',
   'argentAuthShell.sampleValue': '1.032.251 долари',
   'argentLayout.primaryNavLabel': 'Примарна навигација',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Нема трансакции за овој тикер.',
   'assetDetail.txHeading': 'Вашите трансакции',
   'common.and': 'и',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Преглед на портфолиото',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Сè уште нема удели.',
   'holdings.heading': 'Холдинзи',
   'holdings.loadError': 'Не успеа да се вчитаат средствата.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Не е инвестициски совет. Минатите перформанси не гарантираат идни резултати.',
   'landing.eyebrow': 'Аргент · Платформа за алатки за богатство',
   'landing.features.heading': 'Сè што советник би изградил за себе.',
   'landing.finalCta.heading': 'Вратете ја дисциплината во вашето портфолио.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} пред неколку часа',
   'news.justNow': 'токму сега',
   'news.loadError': 'Неуспешно вчитување на вестите.',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'portfolioHeroCard.label': 'Вредност на портфолиото',
   'pricing.holdingsLabel': 'имоти',
   'pricing.newsLabel': 'вести',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Избриши сметка',
   'settings.security.deleting': 'Бришење…',
   'settings.security.heading': 'Безбедност',
+  'settings.security.newPassword': 'Нова лозинка',
   'settings.security.password': 'Лозинка',
   'settings.security.twoFactorEnable': 'Овозможи',
+  'settings.security.twoFactorInvalidCode': 'Неважечки код',
+  'settings.security.twoFactorVerify': 'Потврди и овозможи',
   'settings.tax.error': 'Не може да се ажурира методот на оданочување.',
   'settings.tax.heading': 'Сметководство за даноци',
   'settings.tax.method': 'Стандарден метод',

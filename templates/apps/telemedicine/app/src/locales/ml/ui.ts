@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'അപ്പോയിന്റ്മെന്റ് ബുക്ക് ചെയ്യുക',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'കാണിക്കാൻ രോഗികളില്ല.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'consult.backLink': 'എല്ലാ അപ്പോയിന്റ്മെന്റുകളും',
   'consult.captions': 'അടിക്കുറിപ്പുകൾ',
   'consult.connected': 'കണക്റ്റഡ് · 720p · സ്ഥിരതയുള്ളത്',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'രോഗികൾ',
   'patientVitalsHero.scripts': 'ആർ‌എക്സ് ഓപ്പൺ',
   'patientVitalsHero.subline': '{{count}} നിങ്ങളുടെ ഇന്നത്തെ ഷെഡ്യൂളിൽ കൂടിയാലോചിക്കുന്നു.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'prescriptions.empty': 'ഒരു കുറിപ്പടിയും പൊരുത്തപ്പെടുന്നില്ല.',
   'prescriptions.eyebrow': 'ഇ-പ്രിസ്ക്രിപ്ഷൻ',
   'prescriptions.heading': 'കുറിപ്പടികൾ',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'സ്വകാര്യതാ അറിയിപ്പ്',
   'privacy.use.body':
     'പരിചരണം നൽകുന്നതിന്, അപ്പോയിന്റ്മെന്റ് ഓർമ്മപ്പെടുത്തലുകൾ അയയ്ക്കുക, കുറിപ്പടികൾ നൽകുക, സേവന വിശ്വാസ്യത മെച്ചപ്പെടുത്തുക. ഞങ്ങൾ ഒരിക്കലും നിങ്ങളുടെ ഡാറ്റ വിൽക്കുകയോ പരസ്യദാതാക്കളുമായി ക്ലിനിക്കൽ വിവരങ്ങൾ പങ്കിടുകയോ ചെയ്യില്ല.',
+  'providers.allSpecialties': 'എല്ലാ സ്പെഷ്യാലിറ്റികളും',
+  'providers.loadError': 'ദാതാക്കളെ ലോഡ് ചെയ്യാനായില്ല.',
+  'providers.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'providers.noResults': 'ദാതാക്കളെയൊന്നും കണ്ടെത്തിയില്ല.',
   'providers.searchPlaceholder': 'പേര്, സ്പെഷ്യാലിറ്റി എന്നിവ പ്രകാരം തിരയുക...',
   'providers.title': 'ഒരു ദാതാവിനെ കണ്ടെത്തുക',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'ദിവസത്തിന്റെ തുടക്കം',
   'settings.availability.heading': 'ലഭ്യത',
   'settings.devices.thisDevice': 'ഈ ഉപകരണം',
+  'settings.devices.unnamed': 'പേരില്ലാത്ത ഉപകരണം',
   'settings.eyebrow': 'പ്രാക്ടീസ് & അക്കൗണ്ട്',
   'settings.loadError': 'നിങ്ങളുടെ പ്രൊഫൈൽ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.notifications.emailMessages':
@@ -180,6 +186,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'settings.security.twoFactor.enable': 'പ്രാപ്തമാക്കുക',
   'settings.security.twoFactor.heading': 'രണ്ട്-ഘടക പ്രാമാണീകരണം',
+  'settings.security.twoFactor.invalidCode': 'ആ കോഡ് പൊരുത്തപ്പെട്ടില്ല. വീണ്ടും ശ്രമിക്കുക.',
+  'settings.security.twoFactor.setupFailed':
+    'രണ്ട്-ഘടക സജ്ജീകരണം ആരംഭിക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക.',
+  'settings.security.twoFactor.statusOn': 'ടു-ഫാക്ടർ ഓണാണ്',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.subheading': 'ദാതാവിന്റെ പ്രൊഫൈൽ, പ്രാക്ടീസ് നിയമങ്ങൾ, ക്ലിനിക്കൽ അലേർട്ടുകൾ.',
   'signup.emailLabel': 'ഇമെയിൽ',
@@ -190,6 +200,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'signupFooter.hipaa': 'HIPAA കംപ്ലയിന്റ്',
   'solaceLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'solaceLayout.toggleMenu': 'മെനു ടോഗിൾ ചെയ്യുക',
   'terms.eligibility.body':
     'നിങ്ങൾക്ക് കുറഞ്ഞത് പതിനെട്ട് വയസ്സ് പ്രായമുണ്ടായിരിക്കണം, അല്ലെങ്കിൽ നിങ്ങൾ പരിചരണം തേടുന്ന പ്രായപൂർത്തിയാകാത്ത ഒരാളുടെ രക്ഷിതാവോ നിയമപരമായ രക്ഷിതാവോ ആയിരിക്കണം, കൂടാതെ ഞങ്ങളുടെ ക്ലിനിക്കുകൾക്ക് ലൈസൻസുള്ള ഒരു യുഎസ് സംസ്ഥാനത്ത് ശാരീരികമായി താമസിക്കുന്നയാളുമായിരിക്കണം.',
   'terms.payment.body':

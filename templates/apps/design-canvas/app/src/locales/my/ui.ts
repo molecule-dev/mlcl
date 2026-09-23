@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'authShell.brandHeading':
     'အတူတကွ ပို့ဆောင်ပေးသော ဒီဇိုင်းအဖွဲ့များအတွက် ပစ်ဇယ်အပြည့်ဖြင့် ပြီးပြည့်စုံသော ပတ္တူများ။',
   'canvas.redirecting': 'အယ်ဒီတာကို ဖွင့်နေသည်…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'dashboard.activityEmpty':
     'မကြာသေးမီက လှုပ်ရှားမှု မရှိသေးပါ — စတင်ရန် အသင်းဖော်တစ်ဦးကို ဖိတ်ခေါ်ပါ။',
   'dashboard.activityTitle': 'ဒီနေ့ ဘာတွေပြောင်းလဲသွားလဲ',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'အလုပ်ခွင် · Northwind Studio',
   'dashboard.foldersLabel': 'ဖိုလ်ဒါများ',
   'dashboard.gridTitle': '{{count}} စီမံကိန်းများ',
+  'dashboard.heroActiveTool': 'ဘောပင်ကိရိယာ',
   'dashboard.loadingTitle': 'ပရောဂျက်များကို တင်နေသည်…',
   'dashboard.searchPlaceholder': 'ပရောဂျက်များကို ရှာဖွေပါ',
   'dashboard.startFromTemplate': 'ပုံစံမှ စတင်ပါ',
   'dashboard.title': 'သင့်ရဲ့ ပရောဂျက်တွေ',
   'dashboard.untitledProject': 'ခေါင်းစဉ်မဲ့ ပရောဂျက်',
   'designCanvasLayout.newProject': 'ပရောဂျက်အသစ်',
+  'designCanvasLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'editor.backToProjects': 'ပရောဂျက်များသို့ ပြန်သွားပါ',
   'editor.deleteShape': 'ပုံသဏ္ဍာန်ကို ဖျက်ပါ',
   'editor.errorBody': 'ဒီပရောဂျက်ကို ကျွန်တော်တို့ ဖွင့်လို့မရခဲ့ပါဘူး။',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'သင့်လက်၏အမြန်နှုန်းဖြင့် ရွေ့လျားနိုင်သော ကိရိယာများကို ဒီဇိုင်းထုတ်ပါ',
   'library.empty': 'ဤကဏ္ဍတွင် တိုကင်များ မရှိသေးပါ။',
   'library.eyebrow': 'အလုပ်ခွင် · Atelier ဒီဇိုင်းစနစ်',
+  'library.loadFailed': 'ဒီဇိုင်းတိုကင်များကို တင်၍မရပါ။',
   'library.systemMeta': 'စနစ်ကျန်းမာရေး',
   'library.systemSummary':
     '{{တိုကင်များ}} တိုကင်များ · {{အစိတ်အပိုင်းများ}} အစိတ်အပိုင်းများ · {{အကျိုးသက်ရောက်မှုများ}} အကျိုးသက်ရောက်မှုများ',

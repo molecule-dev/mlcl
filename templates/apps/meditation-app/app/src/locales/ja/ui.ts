@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
+  'about.eyebrow': '{{app}}について',
+  'about.intro':
+    '{{app}}は、日常生活のための瞑想アプリです。毎日のガイド付き瞑想、呼吸法、睡眠に関する物語を、コーチではなく友人のような講師陣が丁寧に指導します。継続を気にしたり、煩わしいフィードに気を取られたりすることなく、静かに呼吸に意識を向けられる場所です。',
+  'about.missionBody':
+    '私たちは、静寂は誰にとっても、一日のどの瞬間でも身近なものであるべきだと考えています。 {{app}}は、穏やかで継続的な習慣を無理なく続けられるようにするために存在します。そうすることで、たった10分間の真摯な時間が、その後の10時間の過ごし方を変えることができるのです。',
+  'about.missionTitle': '私たちの使命',
+  'about.pageTitle': '1日10分間、心を落ち着かせる',
+  'breathingDial.seconds': '秒',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.logout': 'ログアウト',
   'common.min': '分',
   'common.relative.justNow': 'たった今',
   'common.relative.now': '進行中',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
+  'nav.secondaryNavigation': 'アカウントナビゲーション',
   'sessionCard.with': '{{name}}と一緒に',
   'stillpoint.billing.choose': '{{plan}}を選ぶ',
   'stillpoint.billing.currentPlan': '現在のプラン：{{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'プランを読み込めませんでした。',
   'stillpoint.billing.opening': 'チェックアウトを開いています…',
   'stillpoint.billing.perMonthShort': '/ 月',
+  'stillpoint.billing.perYearShort': '/年',
   'stillpoint.billing.unknownResult': '予期しない請求応答です。',
   'stillpoint.billing.yearly': '年額・17%お得',
   'stillpoint.courseDetail.back': 'コース',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'コースはまだありません。',
   'stillpoint.courses.eyebrow': '{{count}}件の複数日にわたる旅',
   'stillpoint.courses.heading': 'コース',
+  'stillpoint.forgot.checkEmail':
+    '受信トレイを確認してください。リンクは30分後に期限切れになります。',
   'stillpoint.forgot.success': '{{email}}にリセットリンクを送信しました。',
   'stillpoint.home.empty': 'セッションはまだありません — また近いうちにご確認ください。',
   'stillpoint.home.friend': '友人',
@@ -49,6 +66,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': '無料アカウントを作成',
   'stillpoint.landing.cta.title': '今日から静けさを始めましょう',
   'stillpoint.landing.features.heading': 'あなたと共に育つ練習',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}。',
   'stillpoint.landing.hero.body':
     '毎日のガイド付き瞑想、呼吸法、スリープストーリー — コーチではなく友人のような先生がペースを案内します。',
   'stillpoint.landing.hero.eyebrow': '1日10分の穏やかさ',
@@ -65,6 +83,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': '気分で探す',
   'stillpoint.login.rememberMe': 'サインインしたままにする',
   'stillpoint.login.subheading': 'サインインして練習を続けましょう。',
+  'stillpoint.nav.tagline': '静寂の中心を見つけよう',
+  'stillpoint.notFound.body':
+    'このページはどこかで大きく深呼吸をしています。 {{app}}でもっと静かな場所を探しましょう。',
   'stillpoint.notFound.title': '静けさに迷いこむ',
   'stillpoint.notFound.toHome': '今日に戻る',
   'stillpoint.notFound.toLibrary': 'ライブラリを見る',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15秒戻る',
   'stillpoint.player.skipForward': '30秒進む',
   'stillpoint.player.with': '{{name}}と一緒に',
+  'stillpoint.profile.defaultHandle': 'スティルポインター',
   'stillpoint.profile.eyebrow': 'あなたの練習をひと目で。',
   'stillpoint.profile.locked': 'ロック中',
   'stillpoint.profile.member': 'Stillpointメンバー',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'about.pageTitle': 'Nípa {{appName}}',
   'analytics.empty': 'Gba fidio akọkọ rẹ silẹ lati wo adehun igbeyawo nibi.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'àwọn gíláàsì',
   'billing.usage.views': 'Àwọn ìwòran',
   'billing.usage.views.unit': 'awọn iwo',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'landing.cta.title': 'Fi esi to dara ju ranṣẹ. Bẹrẹ pẹlu Glint.',
   'landing.feature.capture.body':
     'Gbigbasilẹ ẹ̀rọ lilọ kiri ayelujara, tabili kọmputa, ati alagbeka pẹlu gbohungbohun, kamẹra, ati iyaworan.',
   'landing.feature.capture.title': 'Fífọwọ́kan-fọwọ́kan',
+  'landing.footer.copy': '© {{year}} {{appName}} . A kò fi bẹ́ẹ̀ yípadà, a sì mú un mọ́lẹ̀.',
   'landing.hero.cardCaption': 'Àpẹẹrẹ àkópọ̀ ibi iṣẹ́ — gbìyànjú rẹ̀ lọ́fẹ̀ẹ́.',
   'landing.hero.primaryCta': 'Bẹrẹ gbigbasilẹ ọfẹ',
   'landing.hero.proof.free': 'Ipele ọfẹ lailai',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Ṣe àwárí àwọn ìgbàsílẹ̀',
   'library.searchPlaceholder': 'Ṣe àwárí àwọn ìgbàsílẹ̀…',
   'library.weeklyChange': '{{value}} % ni a fi wé ọ̀sẹ̀ tó kọjá',
+  'nav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'nav.record': 'Àkọsílẹ̀',
   'nav.shared': 'Ti a pin pẹlu mi',
   'nav.startRecording': 'Bẹ̀rẹ̀ gbígbàsílẹ̀',

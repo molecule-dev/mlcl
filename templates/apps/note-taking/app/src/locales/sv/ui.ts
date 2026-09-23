@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Gå till översikt',
   'forgot.eyebrow': 'Tappat vägen tillbaka in?',
   'forgot.formSubtitle': 'Ange den e-postadress som finns registrerad.',
   'forgot.headline': 'Återställ ditt lösenord.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Skapa ett',
   'login.subline':
     'Dina anteckningsböcker, bakåtlänkar och dagliga sidor ligger precis där du lämnade dem.',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'noteEditor.backToNotes': 'Tillbaka till anteckningarna',
   'noteEditor.bodyPlaceholder':
     'Börja skriva – din anteckning sparas automatiskt medan du skriver.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Ny anteckningsbok',
   'notes.newNotebookPrompt': 'Nytt namn på anteckningsboken',
   'notes.notebooksHeading': 'Anteckningsböcker',
+  'notes.subtitle':
+    'Välj en anteckningsbok till vänster och tryck sedan på knappen Ny anteckning för att starta en ny post.',
   'planUpdated.confirmation': 'Din plan har uppdaterats',
   'pricing.heading': 'Välj din anteckningsplan',
   'reset.eyebrow': 'Nästan tillbaka i',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Uppdaterad',
   'versoLayout.nav.graph': 'Graf',
   'versoLayout.nav.home': 'Hem',
+  'versoLayout.primaryNavLabel': 'Huvudnavigering',
   'versoNoteCard.pinned': 'Fästa',
   'versoTodayHero.continueCta': 'Fortsätt skriva',
   'versoTodayHero.createCta': 'Börja dagens anteckning',

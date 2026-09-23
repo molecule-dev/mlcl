@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'authShell.brandHeading': 'Canbháis il-imreora do fhoirne dearaidh a smaoiníonn os ard.',
   'billing.canceled': 'Síntiús curtha ar ceal.',
   'billing.cancelPlan': 'Cealaigh an plean',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Tosaigh ón teimpléad',
   'boards.title': 'Do chláir',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Cuir isteach an seoladh ríomhphoist atá ceangailte le do spás oibre agus seolfaimid nasc athshocraithe chugat.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Ceardlann Q1 · Guth Branda',
   'landing.featuresEyebrow': 'Cad a fhágann go bhfuil Slate teiséilithe',
   'landing.featuresTitle': 'Aiseolas tapa. Canbháis áille. Gan aon fhrithchuimilt.',
+  'landing.hero.body':
+    'Is clár bán il-imreora é {{appName}} do fhoirne dearaidh, éascaitheoirí ceardlann, agus oideoirí a reáchtálann smaointeoireacht bheo agus a bhfuil gá acu le smaointe a thabhairt le chéile in aon áit amháin.',
   'landing.hero.primaryCta': 'Tosaigh bord saor in aisce',
   'landing.hero.socialProof': 'Muinín ag {{count}} foirne dearaidh ar fud an domhain',
   'landing.hero.title': 'Canbhás chomh tapa le do chuid smaointe',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Cruthaigh spás oibre saor in aisce',
   'login.subheading':
     'Lean ar aghaidh san áit ar fhág an cheardlann é — sioncrónaíonn cláir, nótaí greamaitheacha, agus cúrsóirí i bhfíor-am.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.new': 'Nua',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'notifications.editTitle': 'Eagarthóireacht ar " {{board}} "',
   'notifications.empty.body':
     'Beidh cuirí, sábhálacha pictiúr, agus eagarthóireachtaí boird le déanaí le feiceáil anseo de réir mar a tharlaíonn siad.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Stair leaganacha',
   'versionHistory.untitledSnapshot': 'Pictiúr gan teideal',
   'whiteboardLayout.newBoard': 'Bord nua',
+  'whiteboardLayout.primaryNav': 'Príomh-loingseoireacht',
   'workspace.boardLabel': 'Bord',
   'workspace.eyebrow': '{{name}} · spás oibre',
   'workspace.invite': 'Cuir cuireadh chuig comhoibritheoirí',

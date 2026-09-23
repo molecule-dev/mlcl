@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'about.tagline': 'Sirlər açıqda ölür.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Token yaradın',
   'apiTokens.kicker': 'API tokenləri',
   'apiTokens.loading': 'Tokenlər yüklənir…',
+  'apiTokens.new': 'Yeni token',
   'apiTokens.revoke': 'Tokeni ləğv edin',
   'apiTokens.subheading':
     'Arcanum CLI və SDK üçün şəxsi və xidmət tokenləri. Sadə mətn yaradılarkən bir dəfə göstərilir.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Şifrə',
   'authShell.zeroKnowledge': 'Sıfır bilik şifrələmə',
   'common.connecting': 'Qoşulma…',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.inviting': 'Dəvət olunur…',
   'forgotPassword.checkInbox':
     'Əgər {email} qeydiyyatdan keçibsə, imzalanmış sıfırlama linki bir dəqiqə ərzində gələcək.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Hər seyfdə fırlanma statusu, anomaliya xəbərdarlıqları və təsdiq sorğuları.',
   'notifications.unreadEmpty': 'Gələnlər qutusu sıfır — hamısı toplandı.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.heading': 'sirlər',
   'pricing.limits.accessPolicies': 'giriş siyasətləri',
   'pricing.limits.auditLog': 'audit jurnalı girişləri',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Şəxsi hesab',
   'profile.plan.description': 'Abunəliyinizi idarə edin, limitlərə baxın və təkmilləşdirin.',
   'profile.subheading': 'Şəxsiyyət, ikinci dərəcəli cihazlar və aktiv sessiyalar.',
+  'profile.twoFactor.code': 'Doğrulama kodu',
   'profile.twoFactor.disable': 'Deaktiv edin',
   'profile.twoFactor.enable': 'Aktivləşdirin',
+  'profile.twoFactor.invalidCode': 'Yanlış kod',
   'profile.twoFactor.kicker': 'İki faktorlu identifikasiya',
+  'profile.twoFactor.off': 'Aktiv deyil',
   'profile.twoFactor.on': 'Aktivləşdirilib',
   'resetPassword.email': 'Hesab e-poçtu',
   'resetPassword.heading': 'Yeni etimadnamələr təyin edin',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'əmrlər',
   'secretsManagerLayout.encrypted': 'AES-256 · ŞİFRƏLƏNİB',
   'secretsManagerLayout.newVault': 'Yeni seyf',
+  'secretsManagerLayout.newVaultShort': 'Yeni',
   'secretsManagerLayout.rotations': 'Rotasiyalar',
   'secretsManagerLayout.search': 'axtarış',
   'secretsManagerLayout.searchPlaceholder': 'Açar, yol və ya etiketlə sirləri axtarın...',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sirlər',
   'vaultCard.vaultLabel': 'Seyf',
   'vaultDetail.addSecret': 'Sirr əlavə edin',
+  'vaultDetail.back': 'Bütün seyflər',
   'vaultDetail.col.key': 'Açar',
   'vaultDetail.col.rotated': 'Döndürülmüş',
   'vaultDetail.col.value': 'Dəyər',

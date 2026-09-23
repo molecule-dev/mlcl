@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.title': '{{app}} பற்றி',
   'auth.login.noAccount': 'ஸ்பார்க்-க்கு புதியவரா?',
   'auth.login.or': 'அல்லது தொடரவும்',
   'auth.signup.or': 'அல்லது பதிவு செய்யவும்',
+  'common.confirm': 'உறுதிப்படுத்து',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.loadError': 'இந்த உள்ளடக்கத்தை ஏற்றுவதில் ஏதோ தவறு நிகழ்ந்துள்ளது.',
+  'common.retry': 'மீண்டும் முயற்சி',
   'discover.collections.title': 'வகை வாரியாக உலாவுக',
   'discover.collections.viewAll': 'உங்கள் நூலகத்தைப் பார்க்கவும் →',
   'discover.empty.body': 'வேறு வகையை முயற்சிக்கவும் அல்லது தேடலை அழிக்கவும்.',
@@ -67,6 +73,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'உங்கள் தொடர் வெற்றியைத் தக்கவைத்துக் கொள்ளவும், நேரலை ஆட்டங்களை நடத்தவும், தரவரிசையில் முன்னேறவும் உள்நுழையுங்கள்.',
   'myQuizzes.createButton': 'புதிய வினாவிடை',
+  'myQuizzes.deleteConfirm': 'நிரந்தரமாக நீக்கவா?',
   'myQuizzes.empty.createCta': 'உங்கள் முதல் வினாவிடைத் தொகுப்பை உருவாக்குங்கள் →',
   'myQuizzes.empty.created': 'நீங்கள் இன்னும் ஒரு வினாவிடைத் தொகுப்பை உருவாக்கவில்லை.',
   'myQuizzes.empty.played': 'இன்னும் வினாவிடைத் தொகுப்புகள் வெளியிடப்படவில்லை.',
@@ -82,8 +89,10 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ஏற்றப்படுகிறது…',
   'notifications.subhead':
     '{{count}} படிக்கப்படாத பதிவுகள். அழைப்புகள், தரவரிசை நகர்வுகள் மற்றும் சாதனைகள் அனைத்தும் ஒரே தளத்தில்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.checkoutError':
     'பணம் செலுத்தும் செயல்முறையைத் தொடங்க முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
+  'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'pricing.included': 'சேர்க்கப்பட்டுள்ளது',
   'pricing.loadError': 'திட்டங்களை ஏற்ற முடியவில்லை.',
   'pricing.maxQuizzes': '{{count}} வினாடி வினாக்கள்',
@@ -104,11 +113,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'இன்னும் எதுவும் வெளியிடப்படவில்லை.',
   'profile.startBuilding': 'கட்டத் தொடங்கு →',
   'profile.tier': 'ஸ்பார்க் பிளேயர்',
+  'quizBuilder.addFailed': 'கேள்வியைச் சேர்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'quizBuilder.addQuestion': 'கேள்வியைச் சேர்க்கவும்',
   'quizBuilder.answerPlaceholder': 'ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்…',
   'quizBuilder.answersLabel': 'பதில் தேர்வுகள்',
   'quizBuilder.back': 'என் வினாக்களுக்குத் திரும்பு',
   'quizBuilder.delete': 'கேள்வியை நீக்கு',
+  'quizBuilder.deleteFailed': 'கேள்வியை நீக்க முடியவில்லை.',
   'quizBuilder.firstQuestion': 'தொடங்குவதற்கு உங்கள் முதல் கேள்வியைச் சேர்க்கவும்.',
   'quizBuilder.idLabel': 'வினாவிடை அடையாள எண்: {{id}}',
   'quizBuilder.loadError': 'வினாவிடையை ஏற்ற முடியவில்லை.',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'குறைந்தது இரண்டு விடைத் தேர்வுகளைச் சேர்த்து, சரியானதைத் தேர்ந்தெடுக்கவும். {{count}} வெளியிடுவதற்கு முன் கேள்வி(கள்).',
   'quizBuilder.questionsTitle': 'கேள்விகள்',
+  'quizBuilder.saveFailed': 'தலைப்பைச் சேமிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'quizBuilder.statusDraft': 'வரைவு',
   'quizBuilder.subhead':
     'தலைப்பைத் திருத்தவும், கேள்விகளைச் சேர்க்கவும், விருப்பங்களையும் சரியான பதிலையும் அமைக்கவும். மாற்றங்கள் தானாகவே சேமிக்கப்படும்.',
@@ -132,6 +144,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} நிமிடம்',
   'quizDetail.hostMultiplayer': 'மல்டிபிளேயரை ஹோஸ்ட் செய்யவும்',
   'quizDetail.leaderboardEmpty': 'இன்னும் ஆட்டங்கள் இல்லை — முதல் ஆளாக மதிப்பெண் பெறுங்கள்.',
+  'quizDetail.loadError': 'இந்த வினாவிடையை ஏற்ற முடியவில்லை.',
   'quizDetail.loading': 'வினாவிடை ஏற்றப்படுகிறது…',
   'quizDetail.plays': '{{count}} நாடகங்கள்',
   'quizDetail.playSolo': 'தனியாக விளையாடு',

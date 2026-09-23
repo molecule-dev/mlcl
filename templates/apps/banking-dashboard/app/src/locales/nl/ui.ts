@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'accountDetail.activeBadge': 'Actief',
   'accountDetail.availableLabel': '{{amount}} beschikbaar',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Rekeningen',
   'accounts.loadError': 'Kan rekeningen niet laden.',
   'accounts.status.closed': 'Gesloten',
+  'accounts.status.frozen': 'Bevroren',
   'accounts.totalBalance': '{{amount}} totaal',
   'audit.empty': 'Nog geen gebeurtenissen.',
   'audit.eyebrow': 'Beveiliging en toegang',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Contant geld',
   'cashCreditCard.creditLabel': 'Krediet gebruikt',
   'cashCreditCard.title': 'Contant en krediet',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'dashboard.accountsHeading': 'Rekeningen',
   'dashboard.heading': 'Overzicht',
   'dashboard.recentEmpty': 'Nog geen transacties.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Wachtwoord tonen',
   'login.signUp': 'Aanmelden',
   'login.submit': 'Inloggen',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Hoofdnavigatie',
   'nav.legal': 'Juridisch',
   'notifications.emptyHeading': 'U bent helemaal bij',
   'notifications.subheading':
     'Realtime waarschuwingen voor transacties, beveiliging en afschriften.',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'privacy.dataWeShare':
     'Persoonlijke bankgegevens worden nooit verkocht. We delen alleen informatie met betalingsverwerkers, kaartnetwerken en toezichthouders als dat nodig is om transacties af te wikkelen of aan wettelijke verplichtingen te voldoen.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Tweefactorauthenticatie voegt bij elke aanmelding een eenmalige code uit een authenticator-app toe.',
   'settings.security.twoFactorCta': 'Tweefactorauthenticatie beheren',
+  'settings.security.twoFactorOff': 'Tweefactorauthenticatie is uitgeschakeld',
   'settings.signOutDevice': 'Uitloggen',
   'settings.subheading': 'Profiel, beveiliging en meldingen.',
+  'settings.twoFactorCode': 'Verificatiecode',
   'settings.twoFactorDisable': 'Uitschakelen',
   'settings.twoFactorEnable': 'Inschakelen',
+  'settings.twoFactorInvalidCode': 'Ongeldige code',
+  'settings.twoFactorVerify': 'Controleren en inschakelen',
   'signup.emailLabel': 'E-mailadres',
   'signup.fullName': 'Hoe mogen we u aanspreken?',
   'signup.showPassword': 'Wachtwoord tonen',
@@ -105,7 +114,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Nog geen transacties.',
   'transactions.endDate': 'Einddatum',
   'transactions.eyebrow': 'Activiteit',
+  'transactions.loadError': 'Kon transacties niet laden.',
   'transactions.merchant': 'Verkoper',
+  'transactions.subheading': 'Alle geboekte en nog af te wikkelen transacties op al uw rekeningen.',
   'transfers.availableHint': '{{amount}} beschikbaar',
   'transfers.errorGeneric': 'Kan de overboeking niet indienen.',
   'transfers.errorMissingFields': 'Kies een bronrekening en een bestemming.',

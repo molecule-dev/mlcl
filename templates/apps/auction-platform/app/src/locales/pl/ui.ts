@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Obserwowane',
   'auctionDetail.watchRemoved': 'Usunięto z listy obserwowanych.',
   'auctionDetail.watchRemoveLabel': 'Usuń z listy obserwowanych',
+  'auctionPlatformLayout.primaryNavLabel': 'Nawigacja główna',
   'authShell.brandBody':
     'Licytuj w czasie rzeczywistym rzadkie zegarki, dzieła sztuki i unikatowe przedmioty specjalne. Młotek pada w ciągu sekund.',
   'authShell.brandEyebrow': 'Na żywo · 1 420 aukcji',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sortuj według',
   'browseAuctions.subheading':
     'Filtruj według kategorii, sortuj według tego, co najważniejsze, i złóż ofertę zanim padnie młotek.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'countdownTimer.ended': 'Zakończona',
   'countdownTimer.endingSoon': 'Kończy się',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ukryj hasło',
   'login.showPassword': 'Pokaż hasło',
   'login.subtext': 'Kontynuuj śledzenie swoich aukcji i składaj oferty zanim padnie młotek.',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'myBids.bidAgain': 'Licytuj ponownie',
   'myBids.browseCta': 'Przeglądaj aukcje na żywo →',
   'myBids.checkoutCta': 'Zapłać teraz',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centrum aktywności',
   'notificationsPage.subheading':
     '{{count}} nieprzeczytanych · aktualizacje na żywo w miarę postępu aukcji',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.bidsLabel': 'oferty',
   'pricing.listingsLabel': 'ogłoszeń',
   'pricing.watchlistLabel': 'lista obserwowanych',

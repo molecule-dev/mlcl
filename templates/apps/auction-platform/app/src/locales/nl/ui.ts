@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Gevolgd',
   'auctionDetail.watchRemoved': 'Verwijderd van volglijst.',
   'auctionDetail.watchRemoveLabel': 'Verwijderen van volglijst',
+  'auctionPlatformLayout.primaryNavLabel': 'Hoofdnavigatie',
   'authShell.brandBody':
     'Bied in realtime op zeldzame horloges, kunst en unieke speciale items. De hamer valt binnen seconden.',
   'authShell.brandEyebrow': 'Nu live · 1.420 veilingen',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sorteren op',
   'browseAuctions.subheading':
     'Filter op categorie, sorteer op wat voor u belangrijk is en plaats een bod voordat de hamer valt.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'countdownTimer.ended': 'Beëindigd',
   'countdownTimer.endingSoon': 'Eindigt',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Wachtwoord verbergen',
   'login.showPassword': 'Wachtwoord tonen',
   'login.subtext': 'Blijf uw veilingen volgen en plaats biedingen voordat de hamer valt.',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'myBids.bidAgain': 'Opnieuw bieden',
   'myBids.browseCta': 'Bekijk live veilingen →',
   'myBids.checkoutCta': 'Nu betalen',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Nog geen meldingen.',
   'notificationsPage.eyebrow': 'Activiteitscentrum',
   'notificationsPage.subheading': '{{count}} ongelezen · live updates terwijl veilingen verlopen',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.bidsLabel': 'biedingen',
   'pricing.listingsLabel': 'aanbiedingen',
   'pricing.watchlistLabel': 'volglijst',

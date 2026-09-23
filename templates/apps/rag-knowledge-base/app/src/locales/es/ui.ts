@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.pageTitle': 'Acerca de {{appName}}',
   'analytics.error': 'No se pudieron cargar las analíticas.',
   'analytics.heading': 'Analíticas de recuperación',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'No hay niveles de precios configurados.',
   'billing.plans.heading': 'Planes',
   'billing.subheading': 'Plan, uso y checkout gestionado por Stripe.',
+  'common.confirm': 'Confirmar',
+  'common.goToDashboard': 'Ir al panel',
+  'common.retry': 'Reintentar',
   'documentCard.open': 'Abrir →',
   'documentDetail.back': 'Volver a documentos',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indexar documento',
   'documents.composer.titlePlaceholder': 'Título del documento',
   'documents.emptyAll': 'Aún no hay documentos. Sube uno para empezar a hacer preguntas.',
+  'documents.error.load': 'No se pudieron cargar los documentos.',
   'documents.heading': 'Documentos indexados',
   'documents.loading': 'Cargando documentos…',
   'documents.metric.chunks': 'Total de fragmentos',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Quitando…',
   'members.subheading': 'Invita a compañeros y asigna roles.',
   'members.tableHeading': 'Roster',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'notFound.askCta': 'Preguntar a la base de conocimiento',
+  'notFound.body':
+    '{{app}} no pudo encontrar esa página. Es posible que el enlace esté roto o que la página haya sido eliminada durante una reindexación.',
   'notFound.eyebrow': 'No se puede recuperar',
   'notFound.title': 'No existe ese fragmento en el índice',
   'notifications.dismiss': 'Descartar',
@@ -202,6 +211,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL de la fuente',
   'sources.empty.body': 'Haz clic en “Añadir fuente” para conectar tu primer conector.',
   'sources.empty.title': 'Aún no hay fuentes.',
+  'sources.error.add': 'No se pudo agregar la fuente.',
   'sources.error.labelRequired': 'La etiqueta es obligatoria.',
   'sources.error.load': 'No se pudieron cargar las fuentes.',
   'sources.error.urlRequired': 'Se requiere URL para este tipo de fuente.',

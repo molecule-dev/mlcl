@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'จองนัดหมาย',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'ไม่มีผู้ป่วยมาตรวจ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'consult.backLink': 'การนัดหมายทั้งหมด',
   'consult.captions': 'คำบรรยายภาพ',
   'consult.connected': 'เชื่อมต่อแล้ว · 720p · เสถียร',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'ผู้ป่วย',
   'patientVitalsHero.scripts': 'ร้านขายยาเปิด',
   'patientVitalsHero.subline': '{{count}} ปรึกษาได้ตามตารางเวลาของคุณวันนี้',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'prescriptions.empty': 'ไม่มีใบสั่งยาใดตรงกัน',
   'prescriptions.eyebrow': 'การสั่งยาทางอิเล็กทรอนิกส์',
   'prescriptions.heading': 'ใบสั่งยา',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'ประกาศเกี่ยวกับความเป็นส่วนตัว',
   'privacy.use.body':
     'เพื่อให้บริการดูแลรักษา ส่งข้อความเตือนการนัดหมาย จัดส่งยา และปรับปรุงความน่าเชื่อถือของบริการ เราจะไม่ขายข้อมูลของคุณและจะไม่แบ่งปันข้อมูลทางการแพทย์กับผู้โฆษณาใดๆ ทั้งสิ้น',
+  'providers.allSpecialties': 'ทุกสาขาเฉพาะทาง',
+  'providers.loadError': 'ไม่สามารถโหลดผู้ให้บริการได้',
+  'providers.loading': 'กำลังโหลด…',
   'providers.noResults': 'ไม่พบผู้ให้บริการใดๆ',
   'providers.searchPlaceholder': 'ค้นหาตามชื่อ ความเชี่ยวชาญ...',
   'providers.title': 'ค้นหาผู้ให้บริการ',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'เริ่มต้นวันใหม่',
   'settings.availability.heading': 'ความพร้อมใช้งาน',
   'settings.devices.thisDevice': 'อุปกรณ์นี้',
+  'settings.devices.unnamed': 'อุปกรณ์ที่ไม่มีชื่อ',
   'settings.eyebrow': 'ฝึกฝนและบัญชี',
   'settings.loadError': 'ไม่สามารถโหลดโปรไฟล์ของคุณได้',
   'settings.notifications.emailMessages': 'โปรดส่งอีเมลแจ้งเมื่อทีมดูแลของฉันตอบกลับ',
@@ -178,6 +184,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'ปิดใช้งาน',
   'settings.security.twoFactor.enable': 'เปิดใช้งาน',
   'settings.security.twoFactor.heading': 'การตรวจสอบสิทธิ์แบบสองปัจจัย',
+  'settings.security.twoFactor.invalidCode': 'รหัสไม่ตรงกัน โปรดลองอีกครั้ง',
+  'settings.security.twoFactor.setupFailed':
+    'ไม่สามารถเริ่มต้นการตั้งค่าการตรวจสอบสิทธิ์แบบสองขั้นตอนได้ โปรดลองอีกครั้ง',
+  'settings.security.twoFactor.statusOn': 'การตรวจสอบสิทธิ์แบบสองปัจจัยเปิดใช้งานอยู่',
   'settings.signOutDevice': 'ออกจากระบบ',
   'settings.subheading': 'ข้อมูลผู้ให้บริการ กฎการปฏิบัติ และการแจ้งเตือนทางคลินิก',
   'signup.emailLabel': 'อีเมล',
@@ -188,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'สร้างบัญชี',
   'signupFooter.hipaa': 'เป็นไปตามข้อกำหนด HIPAA',
   'solaceLayout.primaryNavLabel': 'การนำทางหลัก',
+  'solaceLayout.toggleMenu': 'สลับเมนู',
   'terms.eligibility.body':
     'คุณต้องมีอายุอย่างน้อยสิบแปดปี หรือเป็นพ่อแม่หรือผู้ปกครองตามกฎหมายของผู้เยาว์ที่คุณกำลังขอรับการดูแล และต้องอยู่ในรัฐของสหรัฐอเมริกาที่แพทย์ของเราได้รับใบอนุญาตประกอบวิชาชีพ',
   'terms.payment.body':

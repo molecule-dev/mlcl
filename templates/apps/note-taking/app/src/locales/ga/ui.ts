@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'forgot.eyebrow': 'An bealach ar ais isteach caillte agat?',
   'forgot.formSubtitle': 'Inis dúinn an seoladh ríomhphoist atá againn.',
   'forgot.headline': 'Athshocraigh do phasfhocal.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Cruthaigh ceann',
   'login.subline':
     'Tá do leabhair nótaí, do naisc siar, agus do leathanaigh laethúla díreach san áit ar fhág tú iad.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'noteEditor.backToNotes': 'Ar ais chuig na nótaí',
   'noteEditor.bodyPlaceholder':
     'Tosaigh ag scríobh — sábhálfar do nóta go huathoibríoch agus tú ag clóscríobh.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Leabhar nótaí nua',
   'notes.newNotebookPrompt': 'Ainm nua leabhar nótaí',
   'notes.notebooksHeading': 'Leabhair nótaí',
+  'notes.subtitle':
+    'Roghnaigh leabhar nótaí ar chlé, ansin brúigh an cnaipe Nóta nua chun iontráil úr a thosú.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Roghnaigh do phlean Glacadh Nótaí',
   'reset.eyebrow': 'Beagnach ar ais isteach',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Nuashonraithe',
   'versoLayout.nav.graph': 'Graf',
   'versoLayout.nav.home': 'Baile',
+  'versoLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'versoNoteCard.pinned': 'Priontáilte',
   'versoTodayHero.continueCta': 'Lean ort ag scríobh',
   'versoTodayHero.createCta': 'Tosaigh nóta an lae inniu',

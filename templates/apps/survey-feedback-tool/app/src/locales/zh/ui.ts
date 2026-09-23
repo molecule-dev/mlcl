@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '关于{{app}}',
   'analytics.back': '调查概览',
   'analytics.kpiNps': 'NPS分数',
   'analytics.kpiNpsTrend': '推荐者{{p}}% · 批评者{{d}}%',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': '属性',
   'builder.questionNumber': 'Q{{num}}',
   'builder.surveyTitle': '调查标题',
+  'common.goToDashboard': '前往仪表盘',
   'forgotPassword.failed': '无法发送重置邮件。请重试。',
   'forgotPassword.subheading': '输入您的邮箱,我们将向您发送恢复链接。',
   'forgotPassword.successBody':
     '如果有账户与{{email}}匹配,重置链接即将发送。请查看您的收件箱和垃圾邮件文件夹。',
+  'landing.footer.copyright': '© {{year}} {{app}} 。欢迎所有声音。',
   'landing.footer.startTrial': '开始试用',
   'landing.hero.badge': '调查、NPS和反馈,一站式解决',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': '价格',
   'landing.pricing.perMonth': '/月',
   'landing.pricing.popular': '最受欢迎',
+  'landing.pricing.subtitle':
+    '每个套餐都包含调查问卷创建工具、公开分享链接和 NPS 分析功能。无需信用卡即可开始使用。',
+  'landing.pricing.title': '先免费开始，然后根据需要扩展规模。',
   'landing.sample.eyebrow': 'NPS一目了然',
   'landing.sample.title': '批评者、中立者、推荐者——立即可读。',
   'login.failed': '登录失败。请重试。',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'login.showPassword': '显示密码',
   'login.signUpLink': '开始免费试用',
   'login.subheading': '登录以继续倾听您的受众。',
+  'notFound.body': '您要查找的页面在{{app}}上不存在。让我们带您返回调查页面。',
   'notFound.cta': '返回调查',
   'notFound.eyebrow': '404',
   'notFound.heading': '此调查已从队列中漂走。',
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': '中立者 7–8',
   'npsDistributionBar.promoter': '推荐者 9–10',
   'profile.identity.description': '对您的团队和您创作的调查公开。',
+  'profile.identity.emailRequired': '请输入电子邮件地址。',
   'profile.identity.saveCta': '保存名称',
   'profile.password.current': '当前密码',
   'profile.password.fillFields': '请输入当前密码和新密码。',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}}个问题',
   'templates.subheading':
     '选择一个经过实战检验的起点——每个模板都预先调优,具有合理的默认值、示例逻辑和简洁的移动布局。',
+  'thankYou.body': '您的回复已记录。 {{app}}会将其包含在下次分析数据刷新中。',
   'thankYou.eyebrow': '已收到回复',
   'thankYou.heading': '谢谢——您的声音很重要。',
   'thankYou.home': '访问Gauge',

@@ -201,7 +201,7 @@ export const ui: UiTranslations = {
   'status.submitted': 'Enviat',
   'terms.lastUpdated': 'Última actualització: 2026-05-01',
   'terms.title': 'Condicions del servei',
-  'watchAreas.deleteError': 'No s&#39;ha pogut suprimir l&#39;àrea de vigilància.',
+  'watchAreas.deleteError': "No s'ha pogut suprimir l'àrea de vigilància.",
   'watchAreas.empty':
     "Encara no hi ha àrees de vigilància — desa'n una per començar a rebre informació sobre denúncies properes.",
   'watchAreas.loadError': "No s'han pogut carregar les àrees de vigilància. Torna-ho a provar.",

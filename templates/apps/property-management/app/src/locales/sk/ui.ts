@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.tagline': 'Každá jednotka pod jednou strechou.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.addProperty': 'Pridať nehnuteľnosť',
   'dashboard.empty.body':
     'Keď budete mať k dispozícii nehnuteľnosti, jednotky a platby nájomného, tento dashboard sa naplní prehľadmi portfólia.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{nehnuteľnosť}} · Jednotka {{jednotka}} · {{dátum}}',
   'maintenanceQueueList.subtitle': '{{count}} otvorené pracovné príkazy zoradené podľa priority',
   'maintenanceQueueList.title': 'Front údržby',
+  'nav.closeMenu': 'Zatvoriť ponuku',
+  'nav.openMenu': 'Otvoriť ponuku',
   'notFound.body':
     'Stránka, ktorú ste hľadali, bola presunutá, archivovaná alebo nikdy neexistovala.',
   'notFound.title': 'Tie dvere sa neotvárajú',

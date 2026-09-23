@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.logout': 'Kijelentkezés',
   'dailyStatsTriad.heartsLabel': 'Szívek',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Mai percek',
   'dailyStatsTriad.minutesValue': '{{count}} perc',
   'dailyStatsTriad.wordsLabel': 'Elsajátított szavak',
+  'dailyStatsTriad.wordsMasteryHint': 'Szavak mesterfokon 4+',
   'dashboard.continueHeading': 'Folytassa ott, ahol abbahagyta',
   'dashboard.heading': 'Buenos napján, {{name}} .',
   'dashboard.loadError':
@@ -57,6 +61,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Nem sikerült betölteni a gyakorlatokat.',
   'lessonDetail.loading': 'Az óra betöltése…',
   'lessonDetail.submitError': 'Nem sikerült elküldeni a választ.',
+  'lessonDetail.translation': 'Fordítsd le a kifejezést',
   'lessonDetail.xpEarned': 'Szerzett XP · {{xp}}',
   'lessons.empty':
     'Nincsenek leckék ezen a szinten {{level}} mégis – próbálj ki egy másik szintet.',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Új a Parlance-ban?',
   'login.showPassword': 'Jelszó megjelenítése',
   'login.signUp': 'Ingyenes kezdés →',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
+  'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Elsődleges navigáció',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'practice.empty': 'Még nincsenek elérhető kifejezések.',
   'practice.eyebrow': 'Beszédgyakorlat',
   'practice.heading': 'Olvasd el. Rögzítsd. Finomítsd.',
@@ -136,6 +145,8 @@ export const ui: UiTranslations = {
   'streakHeroCard.eyebrow': 'Jelenlegi sorozat',
   'streakHeroCard.goalLabel': 'Mai cél',
   'streakHeroCard.goalProgress': '{{current}} / {{goal}} XP',
+  'streakHeroCard.tagline':
+    '{{totalXp}} XP-t szereztél. Tartsd a ritmust – már csak három nap van hátra a heti jelvényedig.',
   'streakHeroCard.xpToday': '+ {{xp}} XP ma',
   'vocabReviewCard.due': 'Esedékes: {{date}}',
   'vocabReviewCard.dueUnknown': 'Felülvizsgálat esedékes',

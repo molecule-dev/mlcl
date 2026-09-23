@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'auditLog.empty':
     'Chưa có sự kiện kiểm toán nào phù hợp với bộ lọc của quý vị. Chỉnh sửa một nhân viên hoặc xử lý một kỳ trả lương và chúng sẽ xuất hiện ở đây.',
   'auditLog.eyebrow': 'Tuân thủ',
+  'auditLog.loadError': 'Không thể tải nhật ký kiểm toán.',
   'auditLog.searchPlaceholder': 'Tìm kiếm theo người thực hiện, hành động hoặc mô tả',
   'auditLog.subheading':
     'Mọi phê duyệt, chỉnh sửa và khai thuế — cùng với người thực hiện, dấu thời gian và các trường đã thay đổi.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Chưa cấu hình',
   'billing.plansHeading': 'Các gói',
   'billing.subheading': 'Quản lý gói của quý vị và chuyển đổi cấp độ qua Stripe.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Thử lại',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Tổng quan tuân thủ',
   'dashboard.compliance.title': 'Tất cả kiểm tra đều đạt',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Không có khấu trừ trong hồ sơ.',
   'employeeDetail.notFound': 'Không tìm thấy nhân viên.',
   'employeeDetail.payFrequency': 'Tần suất trả lương',
+  'employeeDetail.postTax': 'Sau thuế',
+  'employeeDetail.preTax': 'Trước thuế',
   'employeeDetail.salary': 'Lương hằng năm',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Bắt đầu ngày {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Tần suất trả lương',
   'employeeForm.salary': 'Lương hằng năm (USD)',
   'employeeForm.salaryInvalid': 'Lương phải là số không âm.',
+  'employeeForm.saveError': 'Không thể cứu được nhân viên.',
   'employeeForm.semimonthly': 'Nửa tháng một lần',
   'employeeForm.single': 'Độc thân',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Lương',
   'forgotPassword.subtitle':
     'Nhập email công việc của quý vị và chúng tôi sẽ gửi liên kết đặt lại.',
+  'landing.copyright': '© {{year}} {{app}} . Chính xác, đáng tin cậy, mạch lạc.',
   'landing.ctaBody':
     'Miễn phí 30 ngày. Không cần thẻ tín dụng. Chuyển đổi bất cứ lúc nào mà không mất nhật ký kiểm toán.',
   'landing.ctaHeading': 'Vận hành chu kỳ tiếp theo của quý vị trên Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Mục',
   'payRunDetail.noActivity': 'Chưa có mục kiểm toán cho kỳ trả lương này.',
   'payRunDetail.noStubs': 'Chưa có phiếu lương — phê duyệt và xử lý để tạo chúng.',
+  'payRunDetail.notFound': 'Không tìm thấy đợt trả lương này.',
   'payRunDetail.statDeductions': 'Khấu trừ',
   'payRunDetail.statHeadcount': 'Nhân viên',
   'payRunDetail.statTaxes': 'Thuế đã khấu trừ',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Nửa tháng một lần',
   'settings.signOutDevice': 'Đăng xuất',
   'settings.subheading': 'Hồ sơ công ty, lịch trả lương và tích hợp.',
+  'settings.twoFactorCode': 'Mã xác thực',
   'settings.twoFactorDisable': 'Vô hiệu hóa',
+  'settings.twoFactorInvalidCode': 'Mã không hợp lệ',
+  'settings.twoFactorVerify': 'Xác minh và kích hoạt',
   'settings.weekly': 'Hằng tuần',
   'taxCenter.bucket.federal': 'Thu nhập liên bang',
   'taxCenter.bucket.fica': 'An sinh xã hội',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'authShell.brandHeading':
     'ကျယ်လောင်စွာ စဉ်းစားတတ်သော ဒီဇိုင်းအဖွဲ့များအတွက် multiplayer ပန်းချီကားများ။',
   'billing.canceled': 'စာရင်းသွင်းမှုကို ပယ်ဖျက်လိုက်ပါပြီ။',
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ပုံစံမှ စတင်ပါ',
   'boards.title': 'သင့်ရဲ့ ဘုတ်အဖွဲ့တွေ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'သင့်အလုပ်ခွင်နှင့် ချိတ်ဆက်ထားသော အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
@@ -86,6 +88,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 အလုပ်ရုံဆွေးနွေးပွဲ · အမှတ်တံဆိပ်အသံ',
   'landing.featuresEyebrow': 'Slate tesselate ကို ဘာကဖြစ်စေသလဲ',
   'landing.featuresTitle': 'လျင်မြန်သော တုံ့ပြန်ချက်။ လှပသော ပတ္တူများ။ ပွတ်တိုက်မှု လုံးဝမရှိပါ။',
+  'landing.hero.body':
+    '{{appName}} သည် ဒီဇိုင်းအဖွဲ့များ၊ အလုပ်ရုံဆွေးနွေးပွဲ အထောက်အကူပြုသူများနှင့် ပညာပေးသူများအတွက် တိုက်ရိုက် စိတ်ကူးဉာဏ်များ ဖလှယ်ဆွေးနွေးပြီး တစ်နေရာတည်းတွင် စုစည်းရန် လိုအပ်သည့် multiplayer whiteboard တစ်ခု ဖြစ်သည်။',
   'landing.hero.primaryCta': 'အခမဲ့ဘုတ်တစ်ခုစတင်ပါ',
   'landing.hero.socialProof': 'ယုံကြည်ရသော {{count}} ကမ္ဘာတစ်ဝှမ်းရှိ ဒီဇိုင်းအဖွဲ့များ',
   'landing.hero.title': 'မင်းရဲ့အတွေးတွေလောက်မြန်တဲ့ ပတ္တူတစ်ချပ်',
@@ -96,6 +100,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'အခမဲ့ အလုပ်ခွင်တစ်ခု ဖန်တီးပါ',
   'login.subheading':
     'အလုပ်ရုံဆွေးနွေးပွဲ ပြီးဆုံးသွားသည့်နေရာမှ ဆက်လုပ်ပါ — ဘုတ်များ၊ ကပ်ခွာမှတ်စုများနှင့် ကာဆာများအားလုံးကို အချိန်နှင့်တပြေးညီ ထပ်တူပြုပါသည်။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.new': 'အသစ်',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'notifications.editTitle': '"သို့ တည်းဖြတ်မှုများ {{board}} "',
   'notifications.empty.body':
     'ဖိတ်ကြားချက်များ၊ snapshot သိမ်းဆည်းမှုများနှင့် မကြာသေးမီက ဘုတ်ပြင်ဆင်မှုများသည် ဤနေရာတွင် ပေါ်လာပါမည်။',
@@ -178,6 +185,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ဗားရှင်းမှတ်တမ်း',
   'versionHistory.untitledSnapshot': 'ခေါင်းစဉ်မဲ့ လျှပ်တစ်ပြက်ပုံ',
   'whiteboardLayout.newBoard': 'ဘုတ်အသစ်',
+  'whiteboardLayout.primaryNav': 'အဓိက လမ်းညွှန်ချက်',
   'workspace.boardLabel': 'ဘုတ်အဖွဲ့',
   'workspace.eyebrow': '{{name}} · အလုပ်ခွင်',
   'workspace.invite': 'ပူးပေါင်းဆောင်ရွက်သူများကို ဖိတ်ခေါ်ပါ',

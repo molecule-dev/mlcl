@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Kuhusu',
   'alertConditionCard.condition.${alert.condition}': 'Imechochewa {{wakati}}',
+  'alertConditionCard.confirmDelete': 'Thibitisha kufuta',
   'alertConditionCard.pauseAriaLabel': 'Sitisha arifa',
   'alertConditionCard.resumeAriaLabel': 'Arifa ya wasifu',
   'alertNew.condition': 'Hali',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Thamani iliyopunguzwa kikamilifu',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Tovuti',
+  'coinDetail.links.whitepaper': 'Karatasi Nyeupe',
   'coinDetail.loadError': 'Imeshindwa kupakia sarafu.',
   'coinDetail.marketCap': 'Kikomo cha soko',
   'coinDetail.maxSupply': 'Ugavi wa juu zaidi',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Njia uliyochanganua haibadiliki kuwa sarafu au ukurasa unaojulikana. Angalia tena alama hiyo na ujaribu tena.',
   'notFound.browseMarkets': 'Vinjari masoko',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'portfolio.addError': 'Ingiza ishara, kiasi chanya, na gharama.',
   'portfolio.addHoldingCta': '+ Ongeza kushikilia',
   'portfolio.addModal.cost': 'Msingi wa gharama (USD)',
@@ -133,9 +136,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Mipangilio ya nenosiri na vipengele viwili inadhibitiwa na akaunti yako.',
   'settings.signOutDevice': 'Toka',
+  'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
   'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorInvalidCode': 'Nambari batili',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Thibitisha na uwashe',
   'sigilAuthShell.backHomeCta': '← Rudi kwenye Bourse',
   'sigilLayout.primaryNavLabel': 'Usogezaji mkuu',
   'signup.eyebrow': 'Fungua kituo',

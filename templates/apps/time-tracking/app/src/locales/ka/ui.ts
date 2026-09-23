@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'about.plansTitle': 'გეგმები, რომლებიც თქვენთან ერთად იზრდება',
   'brand.tagline': 'ყოველ წამს',
   'clientDetail.back': 'კლიენტებთან დაბრუნება',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'ყველა ურთიერთობა ერთ ადგილას — პროექტები, საათები, გადაუხდელი ინვოისები.',
   'clients.title': 'კლიენტები',
   'common.and': 'და',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.activeProjects': 'აქტიური პროექტები',
   'dashboard.empty':
     'ჩანაწერები ჯერ არ არის. ჩართეთ ტაიმერი თქვენი პირველი სესიის თვალყურის დევნებისთვის.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'ამ კლიენტისთვის ინვოისში გადასახდელი საათები არ არის. ჯერ გარკვეული დრო გააკონტროლეთ ან არსებული ჩანაწერები ამ კლიენტის ერთ-ერთ პროექტს მიანიჭეთ.',
   'invoices.save': 'ინვოისის შექმნა',
   'invoices.subtitle': 'თვალყურის დევნებული საათები ავტომატურად გროვდება ინვოისებში.',
+  'landing.copyright': '© {{year}} {{app}} . ყოველი წამი, აღრიცხული.',
   'landing.ctaBody':
     'უფასოა მაქსიმუმ 3 პროექტისთვის. განაახლეთ, როდესაც თქვენი კლიენტების სია გაიზრდება.',
   'landing.eyebrow': 'გადახდისუნარიანი სამუშაოსთვის დროის თვალყურის დევნება',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'დამოუკიდებელი კომპანიების ნდობით აღჭურვილი',
   'landing.testimonial.quote':
     '\\u201cToggl-ი 30 წუთში დავტოვე. ბიუჯეტის შემცირებამაც კი თავისი გაამართლა \\u2014 ორი კვირაა, რაც ფასების შემცირებას აღარ ვაკეთებ.\\u201c',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ქრონოლოგია. ყოველი წამი, აღრიცხული.',
   'login.brand.subtitle':
     'აიღეთ ტაიმერი იქიდან, სადაც გაჩერდით — ყოველი წუთი უკვე მიბმულია პროექტზე, კლიენტზე, ინვოისზე.',
   'login.brand.tracking': 'თვალყურის დევნება',
   'login.subheading': 'აიღეთ ტაიმერი იქიდან, სადაც შეჩერდით.',
+  'nav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
   'nav.insightsSection': 'ანალიზი',
   'nav.newEntry': 'ახალი ჩანაწერი',
+  'nav.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'nav.primary': 'ძირითადი ნავიგაცია',
   'nav.workSection': 'სამუშაო',
   'notFound.body':
     'როგორც ჩანს, თქვენს მიერ გამოყენებული ბმული თვალყურის დევნებას აღარ ადევნებს თვალყურს. დაბრუნდით თქვენს საინფორმაციო დაფაზე \\u2014 იქიდან დათვლას გავაგრძელებთ.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'გადასახდელი',
   'timer.descriptionPlaceholder': 'რაზე მუშაობ?',
   'timer.idle': 'უმოქმედო — თვალყურის დევნების დაწყება',
+  'timer.noProject': 'პროექტი არ არის',
   'timer.runningWithProject': 'პროექტი არ არის',
   'timer.start': 'ტაიმერის დაწყება',
   'timer.stop': 'ტაიმერის გაჩერება',

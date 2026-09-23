@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meist',
   'activityFeed.empty': 'Tegevust veel pole — saatke oma esimene arve.',
   'authShell.sample.paid': 'Makstud 2 minutit tagasi',
@@ -29,6 +30,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Lisa uus klient',
   'clients.search': 'Otsi nime, ettevõtte, e-posti aadressi järgi',
   'clients.title': 'Kliendid',
+  'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Uus klient',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Unustasid parooli?',
   'forgotPassword.successBody':
     'Oleme saatnud lähtestamisjuhised aadressile {{email}} Link aegub 30 minuti pärast.',
+  'invoiceDetail.action.confirmVoid': 'Kinnitada tühine?',
   'invoiceDetail.action.download': 'Lae alla PDF',
   'invoiceDetail.action.duplicate': 'Duplikaat',
   'invoiceDetail.action.edit': 'Redigeeri',
@@ -72,8 +75,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.sent': 'Arve saadetud.',
   'invoiceDetail.feedback.voided': 'Arve tühistatud.',
   'invoiceDetail.loading': 'Arve laadimine…',
+  'invoiceDetail.paidInFull': 'Täielikult tasutud',
+  'invoiceDetail.summary': '{{client}} · saatis {{date}}',
   'invoiceDetail.tax': 'Maks ( {{rate}} %)',
   'invoiceDetail.timeline': 'Ajajoon',
+  'invoiceDetail.voided': 'Tühistatud',
   'invoiceEditor.addItem': 'Lisa üksus',
   'invoiceEditor.back': '← Tagasi arvete juurde',
   'invoiceEditor.col.qty': 'Kogus',
@@ -117,6 +123,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Saatke oma esimene arve',
   'landing.hero.eyebrow': 'Arvete esitamine väikeettevõtetele',
   'landing.hero.secondary': 'Vaata näidisarvet',
+  'landing.hero.subtitle':
+    '{{appName}} ühendab viimistletud arved sisseehitatud maksevõimaluste, korduva arvelduse ja maksuvalmis aruannetega. Raamatupidamisvaba.',
   'landing.hero.title': 'Saatke arveid. Saage kiiremini tasu.',
   'login.signupLink': 'Loo üks',
   'login.submitting': 'Sisselogimine…',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'maksed',
   'pricing.recurringLabel': 'korduvad ajakavad',
   'remitLayout.newInvoice': 'Uus arve',
+  'remitLayout.openMenu': 'Ava navigeerimismenüü',
   'remitLayout.searchPlaceholder': 'Otsi arveid, kliente...',
   'remitLayout.tagline': 'Saage kiiremini palka',
   'reports.chart.aging': 'Arvete vananemine',
@@ -147,6 +156,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Perioodi tulu',
   'reports.chart.topClients': 'Parimad kliendid',
   'reports.chart.topClientsCaption': 'Eluaegne tulu, 5 suurimat',
+  'reports.empty.aging': 'Tasumata arveid pole.',
+  'reports.empty.methods': 'Makseandmeid veel pole.',
+  'reports.empty.revenue': 'Tulude andmeid veel pole.',
+  'reports.empty.topClients': 'Klientide tulude andmeid veel pole.',
   'reports.exporting': 'Eksporditakse…',
   'reports.exportRequiresPaid':
     'Eksport on tasuline funktsioon – selle lubamiseks tuleb see uuendada.',
@@ -187,6 +200,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Lisa maksumäär',
   'settings.tax.added': 'Lisatud maksumäär.',
   'settings.tax.adding': 'Lisamine…',
+  'settings.tax.addRate': 'Lisa määr',
   'settings.tax.col.region': 'Piirkond',
   'settings.tax.delete': 'Kustuta maksumäär',
   'settings.tax.deleted': 'Maksumäär eemaldatud.',

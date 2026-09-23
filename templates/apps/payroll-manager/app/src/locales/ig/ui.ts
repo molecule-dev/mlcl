@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'auditLog.empty':
     'Ọ dịghị ihe omume nyocha ọ bụla dabara na nzacha gị. Dezie onye ọrụ ma ọ bụ hazie ụgwọ ọrụ ha ga-apụta ebe a.',
   'auditLog.eyebrow': 'Nrubeisi',
+  'auditLog.loadError': 'Enweghị ike ibugo ndekọ nyocha ahụ.',
   'auditLog.searchPlaceholder': 'Chọọ site na onye na-eme ihe nkiri, ihe omume, ma ọ bụ nkọwa',
   'auditLog.subheading':
     'Nkwado ọ bụla, ndezi, na ntinye ụtụ isi — ya na onye na-eme ihe nkiri, akara oge, na mpaghara ndị gbanwere agbanwe.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Ahazighị ya',
   'billing.plansHeading': 'Atụmatụ',
   'billing.subheading': 'Jikwaa atụmatụ gị ma gbanwee ọkwa site na Stripe.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Nwaa ọzọ',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Foto nrubeisi',
   'dashboard.compliance.title': 'Chek niile agafeela',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Enweghị mwepụ na faịlụ.',
   'employeeDetail.notFound': 'Achọtaghị onye ọrụ ahụ.',
   'employeeDetail.payFrequency': 'Ugboro ịkwụ ụgwọ',
+  'employeeDetail.postTax': 'Mgbe ụtụ isi gasịrị',
+  'employeeDetail.preTax': 'Tupu ụtụ isi',
   'employeeDetail.salary': 'Ụgwọ ọnwa kwa afọ',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Amalitere {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Ugboro ịkwụ ụgwọ',
   'employeeForm.salary': 'Ụgwọ ọnwa kwa afọ (USD)',
   'employeeForm.salaryInvalid': 'Ụgwọ ọnwa ga-abụrịrị ọnụọgụgụ na-abụghị nke na-adịghị mma.',
+  'employeeForm.saveError': 'Enweghị ike ịzọpụta onye ọrụ.',
   'employeeForm.semimonthly': 'Ọkara ọnwa',
   'employeeForm.single': 'Otu onye na-alụbeghị di ma ọ bụ nwunye',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Onye ọrụ',
   'employeesTable.col.salary': 'Ụgwọ ọnwa',
   'forgotPassword.subtitle': 'Tinye ozi email ọrụ gị, anyị ga-ezitere gị njikọ nrụpụta.',
+  'landing.copyright': '© {{year}} {{app}} . Kpọmkwem, a pụrụ ịtụkwasị obi, e dere ya.',
   'landing.ctaBody':
     "N'efu ruo ụbọchị iri atọ. Enweghị kaadị kredit. Gbanwee oge ọ bụla na-enweghị mfu nke nlele gị.",
   'landing.ctaHeading': 'Gbaa usoro ọzọ gị na Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Ntinye',
   'payRunDetail.noActivity': 'Enwebeghị ntinye nyocha maka ụgwọ ọrụ a.',
   'payRunDetail.noStubs': 'Enwebeghị akwụkwọ ịkwụ ụgwọ — kwado ma hazie ya iji mepụta ha.',
+  'payRunDetail.notFound': 'Enweghị ike ịchọta usoro ụgwọ a.',
   'payRunDetail.statDeductions': 'Mwepụ',
   'payRunDetail.statHeadcount': 'Ndị ọrụ',
   'payRunDetail.statTaxes': 'E gbochiri ụtụ isi',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Ọkara ọnwa',
   'settings.signOutDevice': 'Pụọ',
   'settings.subheading': 'Profaịlụ ụlọ ọrụ, usoro ịkwụ ụgwọ, na njikọta.',
+  'settings.twoFactorCode': 'Koodu nyocha',
   'settings.twoFactorDisable': 'Gbanyụọ',
+  'settings.twoFactorInvalidCode': 'Koodu na-ezighi ezi',
+  'settings.twoFactorVerify': 'Nyochaa ma mee ka ọ rụọ ọrụ',
   'settings.weekly': 'Kwa izu',
   'taxCenter.bucket.federal': 'Ego gọọmentị etiti',
   'taxCenter.bucket.fica': 'Nchekwa ọha',

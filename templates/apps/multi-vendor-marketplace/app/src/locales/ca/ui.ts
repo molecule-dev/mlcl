@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Mode de prova: es registren les comandes i es liquiden els saldos, però no es carrega cap targeta real.',
   'checkout.placeOrderCta': 'Fes una comanda',
+  'checkout.placeOrderError': "No s'ha pogut fer la comanda.",
   'checkout.placingOrder': 'Fent la comanda…',
   'checkout.review.shipTo': 'Enviament a',
   'checkout.review.subtotal': 'Subtotal del proveïdor',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Fes-te venedor',
   'landing.footer.copyright': '© {{year}} {{name}} — cada fabricant, un mercat.',
   'landing.footer.help': "Centre d'ajuda",
+  'landing.nav.keepShopping': 'Continua comprant',
   'landing.nav.sell': 'Vendre a Vendry',
   'landing.nav.shop': 'Botiga',
   'landing.nav.signUp': 'Uneix-te',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'El que agrada als compradors',
   'login.accountTypeAria': 'Tipus de compte',
   'login.heading': 'Benvinguts de nou a Vendry',
+  'login.legalPrefix': 'En iniciar la sessió, accepteu les nostres',
   'login.subheading': 'Inicia la sessió per continuar comprant o torna a la teva botiga.',
   'login.submitShopper': 'Inicia la sessió per comprar',
   'login.submitVendor': 'Inicia la sessió a la meva botiga',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Col·locat {{date}} · {{vendorCount}} proveïdor(s) · compliment multiproveïdor',
   'orders.empty': 'Encara no hi ha cap comanda que coincideixi amb aquest filtre.',
+  'orders.emptyTitle': 'Encara no hi ha comandes aquí',
   'orders.eyebrow': 'Les teves compres',
   'orders.subtitle':
     'Veureu qui ha enviat què, seguireu el seguiment per proveïdor i no tornareu a perdre cap paquet.',
   'orders.title': 'Comandes, agrupades per proveïdor',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'productDetail.addToCart': 'Afegeix a la cistella',
   'productDetail.addToCartError': "No s'ha pogut afegir a la cistella.",
   'productDetail.addToCartSuccess': '" {{name}} "afegit a la cistella.',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Gestiona com compres, com els venedors es posen en contacte amb tu i on van els diners.',
   'signup.heading': 'Uneix-te al mercat',
+  'signup.legalPrefix': 'En unir-vos, accepteu les nostres',
   'signup.mismatch': 'Les contrasenyes encara no coincideixen.',
   'signup.subheading':
     'Navega per més de 4.000 fabricants independents o obre la teva pròpia botiga.',
   'status.delivered': 'Lliurat',
   'status.refunded': 'Reemborsat',
+  'userMenu.marketplaceSettings': 'Configuració del mercat',
   'vendor.memberSince': 'Membre des de {{date}}',
+  'vendorDashboard.defaultShop': 'la teva botiga',
   'vendorDashboard.eyebrow': 'Administrador de proveïdors · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} liquidat després de la comissió de venda. Pròxim pagament divendres.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'On fas, què fas, per què és important.',
   'vendorOnboarding.currencyLabel': 'Liquidar en moneda',
   'vendorOnboarding.errors.shopName': 'Cal introduir el nom de la botiga.',
+  'vendorOnboarding.errors.submit': "No s'ha pogut enviar la sol·licitud.",
   'vendorOnboarding.exit': 'Desa i continua més tard',
   'vendorOnboarding.eyebrow': 'Sol·licita vendre a Vendry',
+  'vendorOnboarding.field.shopName': 'Nom de la botiga',
   'vendorOnboarding.heroBody':
     "Una comissió fixa del 8%, pagaments cada divendres, la teva botiga, la teva història. Explica'ns una mica sobre la teva botiga i ens posarem en contacte amb tu en un termini de 48 hores.",
   'vendorOnboarding.review.contact': 'Contacte',
   'vendorOnboarding.review.currency': 'moneda',
+  'vendorOnboarding.review.tagline': 'Eslògan',
+  'vendorOnboarding.review.website': 'Lloc web',
   'vendorOnboarding.reviewBody':
     "Té bona pinta. Revisarem la teva botiga en un termini de 48 hores i t'enviarem el primer pagament el divendres després de la teva primera venda.",
   'vendorOnboarding.samplesLabel': 'Treball de mostra — Instagram, portafoli, fotos',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     "Sol·licitud enviada! Revisarem la teva botiga i t'enviarem un correu electrònic en un termini de 48 hores.",
   'vendorOnboarding.taxIdLabel': 'NIF',
+  'vendorOrders.emptyTitle': 'Encara no hi ha ordres per complir',
   'vendorOrders.eyebrow': 'Administrador de proveïdors',
+  'vendorOrders.kpi.awaiting': 'Esperant compliment',
   'vendorOrders.kpi.inTransit': 'En trànsit',
   'vendorOrders.subtitle':
     'Imprimeix etiquetes, marca com a complerta i respon a preguntes, tot sense sortir de Vendry.',
   'vendorOrders.title': 'Comandes entrants',
+  'vendorPayouts.emptyTitle': 'Encara no hi ha pagaments',
   'vendorPayouts.eyebrow': 'Finançament de proveïdors',
   'vendorPayouts.heroCaption': 'Liquida a Banco BPI {{account}} · 1–2 dies laborables',
   'vendorPayouts.history': 'Historial de pagaments',
@@ -194,7 +209,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'On es fabrica? Quina història porta?',
   'vendorProductForm.error.name': 'El nom del producte és obligatori',
   'vendorProductForm.error.price': 'Introdueix un preu positiu',
+  'vendorProductForm.error.publish': "No s'ha pogut publicar",
   'vendorProductForm.eyebrow': 'Nou anunci',
+  'vendorProductForm.eyebrowEdit': "Edita l'anunci",
   'vendorProductForm.images.body':
     'Arrossega i deixa anar fins a 8 imatges. La primera foto es converteix en la portada de la botiga.',
   'vendorProductForm.images.cta': 'Arrossega les fotos aquí o navega-hi',
@@ -206,6 +223,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Desa els canvis',
   'vendorProductForm.title': 'Explica als compradors la teva peça',
   'vendorProductForm.variants.colInventory': 'Inventari',
+  'vendorProductForm.variants.colVariant': 'Variant',
   'vendorProducts.eyebrow': 'Administrador de proveïdors',
   'vendorProducts.kpi.draft': 'Esborranys',
   'vendorProducts.kpi.lowStock': 'Poc estoc',

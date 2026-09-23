@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.title': 'Cibinizdə saxlaya biləcəyiniz bir yazı otağı',
   'billing.cancelConfirm': 'Aktiv abunəliyiniz ləğv edilsin?',
   'billing.cancelFailed': 'Ləğv etmək mümkün olmadı.',
   'billing.checkingOut': 'Kassa açılır...',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Ödəniş yüklənə bilmədi.',
   'billing.loading': 'Faktura yüklənir…',
   'billing.upgradeCta': 'Təkmilləşdirin {{name}}',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'editor.autosaveOn': 'Avtomatik yadda saxlama aktivdir',
   'editor.backToLibrary': 'Kitabxanaya qayıt',
   'editor.charCount': '{{count}} personajlar',
   'editor.confirmTrash': 'Bu sənəd zibil qutusuna atılsın?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Sancaqdan çıxarıldı',
   'editor.unpublishCta': 'Qaralamaya keçin',
   'editor.unpublished': 'Qaralamaya qaytarıldı',
+  'focus.autosaveOn': 'Avtomatik yadda saxlama aktivdir',
   'focus.backToLibrary': 'Kitabxanaya qayıt',
   'focus.bodyPlaceholder': 'Növbə-növbə. Başqa heç kim burada deyil.',
   'focus.exit': 'Fokus rejimindən çıxın',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Birini yaradın',
   'login.subline':
     'Əlyazmalarınız, gündəlik səhifələriniz və son kursor mövqeyi onları qoyduğunuz yerdədir.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'pricing.exports': 'ixrac',
   'pricing.folders': 'qovluqlar',
   'pricing.heading': 'sənədlər',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Sizə e-poçtla göndərdiyimiz kodu daxil edin və yaddaqalan bir şey seçin. Yadda saxlanıldıqdan sonra sizi daxil edəcəyik.',
   'reset.tokenHint': 'Gələnlər qutunuzdan yapışdırıldı.',
+  'settings.appearance.heading': 'İşıq və ya qaranlıq',
   'settings.editor.${row.id}.description': 'Dil',
   'settings.editor.description':
     'Yazı makinasının sürüşdürülməsi, abzasların solması və boş fokus — standart parametrlər uzun sessiyalar üçün tənzimlənir.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Üçüncü Fəsil — Günəşin doğuşundan əvvəl sakit bir saat',
   'versalDocumentCard.pinned': 'Sancaqlandı',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Əsas naviqasiya',
   'versalManuscriptHero.cta': 'Yazmağa davam edin',
   'versalManuscriptHero.goalLabel': 'Bugünkü söz hədəfi',
   'versalManuscriptHero.inProgress': 'Yolda',

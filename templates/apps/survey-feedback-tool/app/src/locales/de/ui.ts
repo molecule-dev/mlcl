@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Über {{app}}',
   'analytics.back': 'Umfrageübersicht',
   'analytics.kpiNps': 'NPS-Score',
   'analytics.kpiNpsTrend': 'Promotoren {{p}}% · Detraktoren {{d}}%',
@@ -32,11 +33,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Eigenschaften',
   'builder.questionNumber': 'F{{num}}',
   'builder.surveyTitle': 'Umfragetitel',
+  'common.goToDashboard': 'Zum Dashboard',
   'forgotPassword.failed': 'Reset-E-Mail konnte nicht gesendet werden. Bitte erneut versuchen.',
   'forgotPassword.subheading':
     'Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Wiederherstellungslink.',
   'forgotPassword.successBody':
     'Wenn ein Konto mit {{email}} übereinstimmt, ist ein Reset-Link unterwegs. Prüfen Sie Posteingang und Spam-Ordner.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Alle Stimmen sind willkommen.',
   'landing.footer.startTrial': 'Test starten',
   'landing.hero.badge': 'Umfragen, NPS & Feedback an einem Ort',
   'landing.hero.subtitle':
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Preise',
   'landing.pricing.perMonth': '/Monat',
   'landing.pricing.popular': 'Am beliebtesten',
+  'landing.pricing.subtitle':
+    'Jedes Paket beinhaltet den Umfrage-Generator, öffentliche Freigabelinks und NPS-Analysen. Für den Einstieg ist keine Kreditkarte erforderlich.',
+  'landing.pricing.title': 'Fang kostenlos an, skaliere später.',
   'landing.sample.eyebrow': 'NPS auf einen Blick',
   'landing.sample.title': 'Detraktoren, Passive, Promotoren — sofort lesbar.',
   'login.failed': 'Anmeldung fehlgeschlagen. Bitte erneut versuchen.',
@@ -59,6 +65,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Passwort anzeigen',
   'login.signUpLink': 'Kostenlosen Test starten',
   'login.subheading': 'Melden Sie sich an, um weiter auf Ihr Publikum zu hören.',
+  'notFound.body':
+    'Die gesuchte Seite existiert nicht auf {{app}} . Wir leiten Sie zurück zu Ihren Umfragen.',
   'notFound.cta': 'Zurück zu Umfragen',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Diese Umfrage ist aus der Warteschlange gefallen.',
@@ -75,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiv 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Sichtbar für Ihr Team und in den Umfragen, die Sie erstellen.',
+  'profile.identity.emailRequired': 'Geben Sie eine E-Mail-Adresse ein.',
   'profile.identity.saveCta': 'Name speichern',
   'profile.password.current': 'Aktuelles Passwort',
   'profile.password.fillFields': 'Geben Sie aktuelles und neues Passwort ein.',
@@ -183,6 +192,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} Fragen',
   'templates.subheading':
     'Wählen Sie einen bewährten Startpunkt — jede Vorlage ist mit sinnvollen Standardwerten, Beispiel-Logik und sauberem Mobile-Layout vorbereitet.',
+  'thankYou.body':
+    'Ihre Antwort wurde gespeichert. {{app}} wird sie bei der nächsten Aktualisierung der Analysedaten berücksichtigen.',
   'thankYou.eyebrow': 'Antwort erhalten',
   'thankYou.heading': 'Danke — Ihre Stimme zählt.',
   'thankYou.home': 'Gauge besuchen',

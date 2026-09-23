@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'about.plansTitle': 'Plaanid, mis kasvavad koos sinuga',
   'brand.tagline': 'Iga sekund',
   'clientDetail.back': 'Tagasi klientide juurde',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Kõik suhted ühes kohas – projektid, töötunnid, tasumata arved.',
   'clients.title': 'Kliendid',
   'common.and': 'ja',
+  'common.goToDashboard': 'Mine töölauani',
   'dashboard.activeProjects': 'Aktiivsed projektid',
   'dashboard.empty': 'Sissekandeid veel pole. Käivita taimer oma esimese seansi jälgimiseks.',
   'dashboard.greeting': 'Tere, {{name}}',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
     'Selle kliendi jaoks pole arveldatavaid tunde. Jälgige esmalt mõnda aega või määrake olemasolevad kirjed ühele selle kliendi projektidest.',
   'invoices.save': 'Loo arve',
   'invoices.subtitle': 'Jälgitud tunnid kajastuvad automaatselt arvetel.',
+  'landing.copyright': '© {{year}} {{app}} . Iga sekund arvesse võetud.',
   'landing.ctaBody': 'Kuni 3 projekti puhul tasuta. Uuenda paketti, kui sinu kliendid seda teevad.',
   'landing.eyebrow': 'Arveldatava töö ajajälgimine',
   'landing.featuresBody':
@@ -95,13 +98,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Sõltumatute usaldus',
   'landing.testimonial.quote':
     '\\u201cKolisin Togglist 30 minutiga minema. Ainuüksi eelarve kokkuvarisemine on ennast ära tasunud \\u2014 Olen lõpetanud kahe nädala jooksul alahinnamise.\\u201',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Iga sekund, arvestatud.',
   'login.brand.subtitle':
     'Jätka taimerit sealt, kus pooleli jäid – iga minut on juba seotud projekti, kliendi või arvega.',
   'login.brand.tracking': 'Jälgimine',
   'login.subheading': 'Jätka taimerit sealt, kus pooleli jäid.',
+  'nav.closeMenu': 'Sulge navigeerimismenüü',
   'nav.insightsSection': 'Ülevaated',
   'nav.newEntry': 'Uus kirje',
+  'nav.openMenu': 'Ava navigeerimismenüü',
+  'nav.primary': 'Peamine navigeerimine',
   'nav.workSection': 'Töö',
   'notFound.body':
     'Paistab, et lingi jälgimine on lõppenud. Mine tagasi oma armatuurlauale – me jätkame lugemist sealt edasi.',
@@ -200,6 +207,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Arveldatav',
   'timer.descriptionPlaceholder': 'Mille kallal sa töötad?',
   'timer.idle': 'Jõudeolek – jälgimise alustamine',
+  'timer.noProject': 'Projekti pole',
   'timer.runningWithProject': 'Projekti pole',
   'timer.start': 'Käivita taimer',
   'timer.stop': 'Peata taimer',

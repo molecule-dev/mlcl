@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
+  'about.featureDiscover.title': 'Ispirazione, selezionata con cura',
   'account.addPaymentCta': 'Aggiungi metodo di pagamento',
   'account.addPaymentError': 'Impossibile aggiungere il metodo di pagamento.',
+  'account.confirmRemove': 'Conferma eliminazione',
   'account.defaultBadge': 'Predefinito',
   'account.loyalty.pointsTowardNext': '{{points}} di {{next}} miglia per {{nextTier}}',
   'account.loyalty.tier': 'Livello attuale',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Dettagli del viaggio',
   'booking.tripSummary': '{{nights}} notti · {{guests}} ospiti',
   'common.daysAgo': '{{count}}g fa',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'common.hoursAgo': '{{count}}h fa',
   'common.minutesAgo': '{{count}}m fa',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Legale',
   'notifications.loading': 'Caricamento…',
   'notifications.subheading': "{{count}} non lette · tutto in un'unica casella tranquilla",
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.accommodationsLabel': 'alloggi',
   'pricing.bookingsLabel': 'prenotazioni',
   'pricing.destinationsLabel': 'destinazioni salvate',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Ispirazione, soggiorni affidabili e un percorso fluido dal sogno alla prenotazione — in 14 paesi e oltre 200 proprietà selezionate a mano.',
   'sojournHeroSearchCard.trustProtected': 'Cancellazione gratuita, completamente protetta',
   'sojournHeroSearchCard.trustVetted': 'Solo proprietà selezionate a mano',
+  'travelBookingLayout.primaryNavLabel': 'Navigazione principale',
   'tripDetail.backLink': 'Torna ai viaggi',
   'tripDetail.cancelCta': 'Annulla prenotazione',
   'tripDetail.cancelHeading': 'Annullare questo viaggio?',

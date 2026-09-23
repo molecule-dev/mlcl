@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
+  'appNav.mobileLabel': 'Примарна навигација',
+  'appNav.primaryLabel': 'Примарна навигација',
   'billing.actions.confirmCancel':
     'Да ја откажете претплатата? Можете повторно да се претплатите во секое време.',
   'billing.actions.paused': 'Претплатата е паузирана.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Секое ниво е приказна за мали серии. Додајте едно во вашиот ред или заменете го во следниот месец.',
   'boxThemeCard.perMonth': '/ месец',
+  'common.goToDashboard': 'Оди до контролна табла',
   'customize.eyebrow': 'Направете го ваше',
   'customize.heading': 'Прилагодете го вашиот следен ризница',
   'customize.items.exclude': 'Прескокни го ова',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Оваа сезона',
   'landing.editions.heading': 'Изданија што ги обожаваат нашите куратори',
   'landing.footer.contact': 'Разговарајте со кустос',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Стартувајте ја вашата кутија →',
   'landing.hero.ctaSecondary': 'Видете ги нивоата',
   'landing.hero.eyebrow': 'Курирано месечно. Секогаш лично.',
@@ -116,6 +121,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ТВОЕТО СЛЕДНО РИЗНИЦЕ',
   'nextBoxHeroCard.itemsLabel': 'Курирани ставки',
   'nextBoxHeroCard.shipsOnLabel': 'Се испорачува на',
+  'notFound.body':
+    'Не можевме да ја пронајдеме таа страница во архивата на {{app}} . Можеби е повлечена или едноставно е погрешно напишана.',
   'notFound.cta.dashboard': 'Оди на контролната табла',
   'notFound.eyebrow': 'Празна кутија',
   'notFound.heading': 'Оваа полица е празна',

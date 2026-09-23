@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hefurðu ábendingar, beiðni um eiginleika eða fundið villu? Hafðu samband við {{app}} teymið í gegnum stuðningstengilinn í valmyndinni á reikningnum þínum — öll skilaboð fara til raunverulegs manns.',
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'agentDetail.back': 'Allir umboðsmenn',
   'agentDetail.capabilities': 'Hæfileikar',
   'agentDetail.delete': 'Eyða persónu',
   'agentDetail.deleteConfirm': 'Eyða þessari persónu? Þetta er ekki hægt að afturkalla.',
+  'agentDetail.deleteError': 'Gat ekki eytt persónunni.',
   'agentDetail.eyebrow': 'Persóna',
   'agentDetail.fetchError': 'Ekki tókst að hlaða persónu.',
   'agentDetail.save': 'Vista persónu',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Skipti…',
   'billing.updateError': 'Gat ekki hafið uppfærslu.',
   'billing.usageHeading': 'Röddnotkun í þessari lotu',
+  'chatBubble.source.text': 'texti',
+  'chatBubble.source.voice': 'rödd',
+  'common.goToDashboard': 'Fara á yfirlit',
   'conversation.defaultTitle': 'Nýtt samtal',
   'conversation.empty':
     'Engin skilaboð ennþá. Byrjaðu á að segja eitthvað eða skrifa hér að neðan.',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Greind sem talar.',
   'landing.heroSubtitle':
     'Raddaðstoðarmaður með gervigreind sem skilur náttúrulegt flæði þitt. Spjallaðu, skapaðu hugmyndir og skipaðu – óaðfinnanlega.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Að hlusta…',
   'landing.naturallyBody':
     'Engin kveikjuorð. Engar stífar skipanir. Málfarið skilur samhengi, truflanir og blæbrigði mannlegs máls — eins og að spjalla við samstarfsmann.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Opna fund',
   'notFound.home': 'Heima',
   'notFound.title': 'Við heyrðum ekki þessa síðu.',
+  'parlanceLayout.closeMenu': 'Loka valmynd',
+  'parlanceLayout.openMenu': 'Opna flakkvalmynd',
   'parlanceLayout.primaryNavLabel': 'Aðalflakk',
   'pricing.conversations': '{{count}} samræður',
   'pricing.cta.startFree': 'Byrjaðu ókeypis',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Engar samsvörun',
   'search.eyebrow': 'Skipanapalletta',
   'search.fetchError': 'Gat ekki hlaðið leitarvísitölu.',
+  'search.static.profile.preview': 'Sýningarnafn, notandanafn, æviágrip',
   'search.static.voice.title': 'Rödd',
   'search.title': 'Leita í málfræði',
   'search.transcriptPreview': 'Opna afrit',

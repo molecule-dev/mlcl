@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.connectRepoCta': 'เชื่อมต่อที่เก็บข้อมูล',
   'dashboard.empty': 'ยังไม่มี pull request ใดๆ — เชื่อมต่อ repository เพื่อเริ่มต้นได้เลย',
   'dashboard.eyebrow': 'หักเหแสง · คิวตรวจสอบ',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'เวลาทำงาน',
   'pullRequestRow.files': '{{count}} เอฟ',
   'pullRequestRow.scoreAria': 'คะแนนคุณภาพ AI {{score}} / 10',
+  'refractLayout.closeMenu': 'ปิดเมนู',
+  'refractLayout.openMenu': 'เปิดเมนู',
   'refractLayout.primaryNavLabel': 'การนำทางหลัก',
   'reports.cumulativeScoreLabel': 'คะแนนสะสม',
   'reports.cumulativeScoreSubtitle': 'คลังเก็บข้อมูลทั้งหมด · {{days}} ง',
@@ -175,11 +178,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'เชื่อมต่อแหล่งเก็บข้อมูลหรือเพิ่มกฎที่กำหนดเองเพื่อเริ่มการจัดทำดัชนี',
   'search.loadError': 'ไม่สามารถโหลดดัชนีการค้นหาได้',
   'settings.apiKeys.description': 'จัดการคีย์ API ส่วนตัวได้จากเมนูผู้ใช้ที่มุมบนขวา',
+  'settings.apiKeys.integrationsNote':
+    'โทเค็นการเข้าถึงของผู้ให้บริการจะได้รับการจัดการในส่วนการผสานรวมด้านบน',
   'settings.connectError': 'ไม่สามารถเชื่อมต่อผู้ให้บริการได้',
   'settings.disconnectError': 'ไม่สามารถตัดการเชื่อมต่อจากผู้ให้บริการได้',
   'settings.eyebrow': 'พื้นที่ทำงาน Refract ·',
   'settings.integration.${provider}.label': 'ประหยัด…',
   'settings.loadError': 'ไม่สามารถโหลดการตั้งค่าได้',
+  'settings.notificationCenter': 'ศูนย์แจ้งเตือน',
   'settings.notifications.description':
     'เยี่ยมชมหน้าการแจ้งเตือนเพื่อดูและจัดการการตั้งค่าการจัดส่ง',
   'settings.section.account': 'บัญชีและการรักษาความปลอดภัย',

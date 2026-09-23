@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
   'about.pageTitle': 'ስለ {{appName}}',
   'analytics.empty': 'እዚህ ጋር ተሳትፎን ለማየት የመጀመሪያውን ክሊፕዎን ይቅረጹ።',
@@ -39,9 +40,11 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ክሊፖች',
   'billing.usage.views': 'እይታዎች',
   'billing.usage.views.unit': 'እይታዎች',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'landing.cta.title': 'የተሻለ ግብረመልስ ይላኩ። በGlint ይጀምሩ።',
   'landing.feature.capture.body': 'ማይክሮፎን፣ ካሜራ እና ስዕል ያለው አሳሽ፣ ዴስክቶፕ እና የሞባይል ቀረጻ።',
   'landing.feature.capture.title': 'አንድ-መታ ቀረጻ',
+  'landing.footer.copy': '© {{year}} {{appName}} . አሰልቺ፣ ብርሃን የሞላበት።',
   'landing.hero.cardCaption': 'የስራ ቦታ አጠቃላይ እይታ ምሳሌ - በነፃ ይሞክሩ።',
   'landing.hero.primaryCta': 'በነፃ መቅዳት ይጀምሩ',
   'landing.hero.proof.free': 'ለዘላለም ነፃ ደረጃ',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ቅጂዎችን ይፈልጉ',
   'library.searchPlaceholder': 'ቅጂዎችን ፈልግ…',
   'library.weeklyChange': '{{value}} % ከባለፈው ሳምንት ጋር ሲነጻጸር',
+  'nav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'nav.record': 'መዝገብ',
   'nav.shared': 'ከእኔ ጋር ተጋርቷል',
   'nav.startRecording': 'መቅዳት ጀምር',

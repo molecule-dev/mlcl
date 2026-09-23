@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'article.notFound': 'கட்டுரை காணப்படவில்லை',
   'articleEditor.bodyPlaceholder':
     'கட்டங்களுக்காக / எனத் தட்டச்சு செய்யவும், அல்லது நேரடியாக எழுதத் தொடங்கவும்.',
+  'articleEditor.loadFailed': 'கட்டுரையை ஏற்ற முடியவில்லை',
   'articleEditor.publishing': 'வெளியிடுதல்',
   'articleEditor.saveFailed': 'சேமிப்பு தோல்வியடைந்தது',
   'articleEditor.saving': 'சேமிப்பு',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'புக்மார்க்',
   'articleView.bookmarkOn': 'புக்மார்க் செய்யப்பட்டது',
   'articleView.edit': 'கட்டுரையைத் திருத்து',
+  'articleView.loading': 'இந்தக் கட்டுரையைத் திறக்கும்போது…',
   'articleView.readTime': '{{minutes}} குறைந்தபட்ச வாசிப்பு',
   'articleView.spaces': 'இடைவெளிகள்',
   'articleView.tocHeading': 'இந்தப் பக்கத்தில்',
@@ -39,8 +43,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'உங்கள் குழு இன்னும் ஆராய்ந்து கொண்டிருக்கும் சமீபத்திய திருத்தங்கள், வாசிப்புகள் மற்றும் வரைவுகள்.',
   'cairnTrailHero.updated': 'கட்டுரைகள் புதுப்பிக்கப்பட்டன',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'drafts.eyebrow': 'உங்கள் முடிக்கப்படாத வேலை',
   'drafts.heading': 'வரைவுகள்',
+  'drafts.loadFailed': 'உங்கள் வரைவுகளை ஏற்ற முடியவில்லை.',
   'drafts.subtitle':
     'நீங்கள் எழுதத் தொடங்கி, இன்னும் வெளியிடாத கட்டுரைகள். அவற்றில் ஒன்றை எடுத்துக்கொண்டு தொடர்ந்து எழுதுங்கள்.',
   'forgotPassword.sentBody':
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
     'இன்னும் இடங்கள் காலியாகவில்லை. கட்டுரைகளைச் சேகரிக்கத் தொடங்க, ஒரு இடத்தைத் திறக்கவும்.',
   'home.spacesHeading': 'உங்கள் இடங்கள்',
   'home.subtitle': 'சமீபத்திய கட்டுரைகள், உங்கள் புக்மார்க்குகள் மற்றும் குழுவினர் எழுதி வருபவை.',
+  'landing.copyright': '{{year}} {{app}} . Molecule கொண்டு உருவாக்கப்பட்டது.',
   'landing.ctaBody':
     'தனி எழுத்தாளர்களுக்கு இலவசம். செயல்திட்டங்கள், முடிவுகள் மற்றும் புதியவர்களைச் சேர்த்தல் ஆகியவற்றை வழங்கும் பரவலான குழுக்களுக்கான குழுத் திட்டங்கள்.',
   'landing.ctaHeading': 'இன்றே முதல் கல்லை அடுக்கவும்.',
@@ -86,7 +93,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'ஒரு பணியிடத்தை உருவாக்கவும்',
   'login.submitting': 'உள்நுழைதல்',
   'login.subtitle': 'நீங்கள் விட்ட இடத்திலிருந்து தடத்தைத் தொடருங்கள்.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'newSpace.colorAria': 'நிறத்தைத் தேர்ந்தெடுக்கவும் {{color}}',
   'newSpace.colorLabel': 'உச்சரிப்பு நிறம்',
+  'newSpace.createFailed': 'இடத்தை உருவாக்க முடியவில்லை',
   'newSpace.descriptionPlaceholder':
     'செயல்பாட்டுத் திட்டங்கள், அழைப்பின் பேரில் பயன்படுத்தப்படும் விளையாட்டுத் திட்டங்கள், ஆய்வின் பின்னாய்வுகள்...',
   'newSpace.eyebrow': 'அறிவு வெளியைத் திறக்கவும்',
@@ -111,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ஏற்றப்படுகிறது—',
   'notifications.subtitle':
     '{{count}} படிக்கப்படாதவை – குறிப்புகள், கருத்துகள், பக்க மாற்றங்கள் மற்றும் மதிப்பாய்வுக் கோரிக்கைகள்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.articles': 'கட்டுரைகள்',
   'pricing.spaces': 'இடங்கள்',
   'profile.eyebrow': 'ஆவண உருவாக்கம்',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தபட்சம் 12 எழுத்துக்கள் கொண்டதாக இருக்க வேண்டும்.',
   'searchResults.eyebrow': 'பணியிடத் தேடல்',
+  'searchResults.filter.all': 'அனைத்து இடங்களும்',
   'searchResults.heading': 'கட்டுரைகளைத் தேடு',
   'searchResults.placeholder':
     'செயல்பாட்டு வழிகாட்டிகள், ஒழுங்குமுறை மீறல் குறிப்புகள், கொள்கைகள், முடிவுகள் ஆகியவற்றைத் தேடவும்...',
@@ -140,14 +153,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'இது உங்கள் கணக்கையும் நீங்கள் எழுதிய ஒவ்வொரு கட்டுரையையும் நீக்கிவிடும். உறுதிப்படுத்த DELETE எனத் தட்டச்சு செய்யவும்.',
   'settings.danger.confirmInvalid': 'உறுதிப்படுத்த DELETE எனத் தட்டச்சு செய்யவும்.',
+  'settings.danger.deleteFailed': 'கணக்கை நீக்க முடியவில்லை',
   'settings.danger.deleting': 'நீக்குதல்',
   'settings.danger.description':
     'உங்கள் பணிவெளியை நீக்குவது அனைத்துக் கட்டுரைகளையும், கருத்துரைகளையும், பதிப்பு வரலாற்றையும் நீக்கிவிடும். அதை மீட்டெடுக்க இயலாது.',
   'settings.danger.title': 'பணியிடத்தை நீக்கு',
+  'settings.email.confirm': 'புதுப்பிப்பு மின்னஞ்சல்',
+  'settings.email.confirmTitle': 'மின்னஞ்சல் மாற்றத்தை உறுதிப்படுத்தவும்',
   'settings.email.saved': 'மின்னஞ்சல் புதுப்பிக்கப்பட்டது.',
+  'settings.email.updateFailed': 'மின்னஞ்சலைப் புதுப்பிக்கவில்லை',
   'settings.language.title': 'மொழி',
   'settings.name': 'பெயர்',
+  'settings.name.saved': 'பெயர் புதுப்பிக்கப்பட்டது.',
+  'settings.name.updateFailed': 'பெயரைப் புதுப்பிக்க முடியவில்லை',
   'settings.notifications.description': 'உங்கள் இன்பாக்ஸிற்கு வர வேண்டியவற்றைத் தேர்ந்தெடுக்கவும்.',
+  'settings.password.changeFailed': 'கடவுச்சொல்லை மாற்ற முடியவில்லை',
   'settings.password.current': 'தற்போதைய கடவுச்சொல்',
   'settings.password.new': 'புதிய கடவுச்சொல்',
   'settings.password.saving': 'புதுப்பித்தல்',
@@ -156,10 +176,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'கட்டுரைகள் உங்களுக்கு எவ்வாறு காட்டப்படுகின்றன.',
   'settings.reading.title': 'படித்தல் மற்றும் எழுதுதல்',
   'settings.subtitle': 'அறிவிப்புகள், வாசிப்புப் பகுதி மற்றும் உங்கள் கணக்கு.',
+  'settings.twofa.code': 'அங்கீகாரக் குறியீடு',
   'settings.twofa.disable': 'முடக்கு',
   'settings.twofa.disabled': 'ஊனமுற்றோர்',
   'settings.twofa.enable': 'இயக்கு',
   'settings.twofa.enabled': 'இயக்கப்பட்டது',
+  'settings.twofa.invalidCode': 'தவறான குறியீடு',
+  'settings.twofa.unavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
+  'settings.twofa.verify': 'சரிபார்த்து இயக்கு',
   'signup.brandQuote':
     '"அதை எழுதி வைப்பது, அடுத்துத் தேவைப்படும் நபருக்கு நாம் அளிக்கும் முதல் வாக்குறுதியாகும்."',
   'signup.eyebrow': 'ஒரு பணியிடத்தைத் திறக்கவும்',

@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'वेळ निवडा',
   'booking.title': 'भेटीची वेळ बुक करा',
   'clinicalNotesEditorial.empty': 'दाखवण्यासाठी एकही रुग्ण नाही.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'consult.backLink': 'सर्व भेटी',
   'consult.captions': 'मथळे',
   'consult.connected': 'कनेक्टेड · ७२०पी · स्थिर',
@@ -126,6 +127,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'रुग्ण',
   'patientVitalsHero.scripts': 'आरएक्स उघडा',
   'patientVitalsHero.subline': '{{count}} आज तुमच्या सोयीनुसार सल्लामसलत करा.',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'prescriptions.empty': 'कोणतीही औषधचिठ्ठी जुळत नाही.',
   'prescriptions.eyebrow': 'ई-प्रिस्क्राइबिंग',
   'prescriptions.heading': 'प्रिस्क्रिप्शन',
@@ -141,6 +143,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'गोपनीयतेची सूचना',
   'privacy.use.body':
     'काळजी पुरवण्यासाठी, भेटीच्या स्मरणपत्रांसाठी, औषधयोजना योग्य ठिकाणी पोहोचवण्यासाठी आणि सेवेची विश्वसनीयता सुधारण्यासाठी. आम्ही तुमचा डेटा कधीही विकत नाही आणि जाहिरातदारांसोबत वैद्यकीय माहिती कधीही शेअर करत नाही.',
+  'providers.allSpecialties': 'सर्व वैशिष्ट्ये',
+  'providers.loadError': 'प्रोवाइडर्स लोड करण्यात अयशस्वी झाले.',
+  'providers.loading': 'लोडिंग…',
   'providers.noResults': 'कोणतेही प्रदाते आढळले नाहीत.',
   'providers.searchPlaceholder': 'नावानुसार, वैशिष्ट्यानुसार शोधा...',
   'providers.title': 'प्रदाता शोधा',
@@ -160,6 +165,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'दिवसाची सुरुवात',
   'settings.availability.heading': 'उपलब्धता',
   'settings.devices.thisDevice': 'हे उपकरण',
+  'settings.devices.unnamed': 'अनामिक डिव्हाइस',
   'settings.eyebrow': 'सराव आणि खाते',
   'settings.loadError': 'तुमचे प्रोफाइल लोड होऊ शकले नाही.',
   'settings.notifications.emailMessages': 'माझी केअर टीम उत्तर देईल तेव्हा मला ईमेल करा.',
@@ -173,6 +179,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'अक्षम करा',
   'settings.security.twoFactor.enable': 'सक्षम करा',
   'settings.security.twoFactor.heading': 'द्वि-घटक प्रमाणीकरण',
+  'settings.security.twoFactor.invalidCode': 'तो कोड जुळला नाही. पुन्हा प्रयत्न करा.',
+  'settings.security.twoFactor.setupFailed':
+    'टू-फॅक्टर सेटअप सुरू होऊ शकले नाही. पुन्हा प्रयत्न करा.',
+  'settings.security.twoFactor.statusOn': 'दोन-घटकी चाचणी चालू आहे',
   'settings.signOutDevice': 'साइन आउट',
   'settings.subheading': 'प्रदाता प्रोफाइल, सराव नियम आणि क्लिनिकल अलर्ट.',
   'signup.emailLabel': 'ईमेल',
@@ -183,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'खाते तयार करा',
   'signupFooter.hipaa': 'HIPAA अनुरूप',
   'solaceLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
+  'solaceLayout.toggleMenu': 'मेनू टॉगल करा',
   'terms.eligibility.body':
     'तुम्ही किमान अठरा वर्षांचे असणे आवश्यक आहे, किंवा तुम्ही ज्या अल्पवयीन व्यक्तीसाठी उपचार घेत आहात त्याचे पालक किंवा कायदेशीर पालक असणे आवश्यक आहे, आणि तुम्ही अमेरिकेच्या अशा राज्यात शारीरिकरित्या उपस्थित असणे आवश्यक आहे जिथे आमच्या चिकित्सकांना परवाना आहे.',
   'terms.payment.body':

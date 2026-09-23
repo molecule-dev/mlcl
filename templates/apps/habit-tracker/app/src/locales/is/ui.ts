@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.pageTitle': 'Um {{app}}',
   'achievementBadgeCard.unlockedOn': 'Opið {{date}}',
   'achievements.loadError': 'Mistókst að hlaða afrekum.',
   'achievements.subheading': '{{unlocked}} af {{total}} ólæst',
   'achievements.unlockedOn': 'Opið {{date}}',
+  'auth.legalConsent': 'Með því að halda áfram samþykkir þú',
   'calendar.empty': 'Skapaðu þér þann vana að skoða dagatalið þitt.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Venja',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Venjunet',
   'category.${c.category}': '{{teljandi}} venjur',
   'common.and': 'og',
+  'common.goToDashboard': 'Fara á yfirlit',
   'consistencyHeatmap.ariaLabel': 'Daglegt samræmishitakort',
   'consistencyHeatmap.caption': 'Síðasta {{weeks}} vikur',
   'consistencyHeatmap.lessLabel': 'Minna',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Sjáðu það í beinni',
   'landing.heroSubtitle':
     'Byggðu upp venjur eins og þær festast í sessi: litlar skuldbindingar, daglegar venjur og innsæi ánægju langrar, óslitinnar keðju.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Innsýn í Streak',
   'landing.previewMotivation': 'Níu rákir lifandi. Haltu þeim öllum heitum.',
   'login.eyebrow': 'Taktu upp keðjuna',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Gerðu það lítið. Gerðu það sértækt. Mættu á morgun.',
   'newHabit.timeLabel': 'Áminningartími',
   'notifications.markError': 'Gat ekki merkt allt sem lesið.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.entries': '{{count}} færslur',
+  'pricing.heading': 'Veldu {{app}} áætlunina þína',
   'profile.action.plan': 'Stjórna áskrift',
   'profile.action.settings': 'Reikningsstillingar',
   'profile.bioEmpty': 'Bættu við stuttri æviágripi í stillingunum til að kynna þig.',
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Dagleg morgunleiðbeining (kl. 8:00)',
   'settings.reminders.heading': 'Áminningar',
   'settings.reminders.weekly': 'Vikuleg samantekt (sunnudagskvöld)',
+  'settings.revokeDeviceWarning':
+    'Aðgangur þessa tækis verður afturkallaður fljótlega. Skrá það út?',
   'settings.signOutDevice': 'Skrá út',
   'settings.streaks.freezesPerWeek': 'Frystingar á viku',
   'settings.streaks.gracePeriod': 'Sex klukkustunda frestur eftir miðnætti',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} virkur',
   'streakHeroCard.daysSuffix': 'dagar',
   'streakHeroCard.title': 'Lengsta virka röðin',
+  'streakLayout.closeMenu': 'Loka flakkvalmynd',
+  'streakLayout.openMenu': 'Opna flakkvalmynd',
   'streakLayout.primaryNavLabel': 'Aðalflakk',
 }

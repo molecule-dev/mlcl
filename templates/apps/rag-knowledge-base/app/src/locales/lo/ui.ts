@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.pageTitle': 'ກ່ຽວກັບ {{appName}}',
   'analytics.error': 'ບໍ່ສາມາດໂຫຼດການວິເຄາະໄດ້.',
   'analytics.heading': 'ການວິເຄາະການດຶງຂໍ້ມູນ',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ບໍ່ມີລະດັບລາຄາທີ່ຕັ້ງຄ່າໄວ້.',
   'billing.plans.heading': 'ແຜນການ',
   'billing.subheading': 'ວາງແຜນ, ການນຳໃຊ້ ແລະ ການຈ່າຍເງິນທີ່ຄຸ້ມຄອງໂດຍ Stripe.',
+  'common.confirm': 'ຢືນຢັນ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.retry': 'ລອງໃໝ່',
   'documentCard.open': 'ເປີດ \\u2192',
   'documentDetail.back': 'ກັບໄປທີ່ເອກະສານ',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'ເອກະສານດັດຊະນີ',
   'documents.composer.titlePlaceholder': 'ຊື່ເອກະສານ',
   'documents.emptyAll': 'ຍັງບໍ່ມີເອກະສານເທື່ອ. ອັບໂຫຼດເອກະສານເພື່ອເລີ່ມຖາມຄຳຖາມ.',
+  'documents.error.load': 'ບໍ່ສາມາດໂຫຼດເອກະສານໄດ້.',
   'documents.heading': 'ເອກະສານທີ່ມີດັດຊະນີ',
   'documents.loading': 'ກຳລັງໂຫຼດເອກະສານ…',
   'documents.metric.chunks': 'ຊິ້ນສ່ວນທັງໝົດ',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'ກຳລັງລຶບອອກ\\u2026',
   'members.subheading': 'ເຊີນເພື່ອນຮ່ວມທີມ ແລະ ກຳນົດບົດບາດ.',
   'members.tableHeading': 'ບັນຊີລາຍຊື່',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'notFound.askCta': 'ຖາມຖານຄວາມຮູ້',
+  'notFound.body':
+    '{{app}} ບໍ່ສາມາດຊອກຫາໜ້ານັ້ນໄດ້. ລິ້ງອາດຈະໃຊ້ບໍ່ໄດ້, ຫຼື ໜ້ານີ້ອາດຈະຖືກຍົກເລີກໃນລະຫວ່າງການຈັດດັດສະນີໃໝ່.',
   'notFound.eyebrow': 'ບໍ່ສາມາດດຶງຂໍ້ມູນຄືນໄດ້',
   'notFound.title': 'ບໍ່ມີຊິ້ນສ່ວນດັ່ງກ່າວຢູ່ໃນດັດຊະນີ',
   'notifications.dismiss': 'ປິດ',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'ຄລິກ \\u201cເພີ່ມແຫຼ່ງຂໍ້ມູນ\\u201d ເພື່ອເຊື່ອມຕໍ່ສາຍຕົວເຊື່ອມຕໍ່ທຳອິດຂອງທ່ານ.',
   'sources.empty.title': 'ຍັງບໍ່ມີແຫຼ່ງຂໍ້ມູນເທື່ອ.',
+  'sources.error.add': 'ບໍ່ສາມາດເພີ່ມແຫຼ່ງຂໍ້ມູນໄດ້.',
   'sources.error.labelRequired': 'ຕ້ອງໃສ່ປ້າຍກຳກັບ.',
   'sources.error.load': 'ບໍ່ສາມາດໂຫຼດແຫຼ່ງຂໍ້ມູນໄດ້.',
   'sources.error.urlRequired': 'ຕ້ອງມີ URL ສຳລັບແຫຼ່ງຂໍ້ມູນປະເພດນີ້.',

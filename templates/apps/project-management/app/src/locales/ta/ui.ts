@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'accountSettings.confirmEmailLabel': 'உறுதிப்படுத்த DELETE என டைப் செய்யவும்.',
   'accountSettings.deleteError': 'கணக்கை நீக்க முடியவில்லை.',
   'accountSettings.passwordError': 'கடவுச்சொல்லை மாற்ற முடியவில்லை.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'வரவிருக்கும் காலக்கெடு எதுவும் இல்லை.',
   'dashboard.upcomingTitle': 'வரவிருக்கும் காலக்கெடு',
   'deviceSettings.unknownDevice': 'அறியப்படாத சாதனம்',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'ஆதரவு',
   'forgotPassword.error': 'மீட்டமைப்பு இணைப்பை அனுப்ப முடியவில்லை.',
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'தவறான மின்னஞ்சல் அல்லது கடவுச்சொல்.',
   'login.pageTitle': 'உள்நுழை',
   'login.signIn': 'ஃபோர்ஜில் உள்நுழைக',
+  'login.subtitle': 'உங்கள் திட்டங்களைச் சரியான பாதையில் வைத்திருக்க உள்நுழையுங்கள்.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'nav.calendar': 'டெம்ப்ளேட்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'nav.myTasks': 'எனது பணிகள்',
@@ -126,6 +131,7 @@ export const ui: UiTranslations = {
   'task.markDone': 'செய்து முடித்ததாகக் குறிக்கவும்',
   'task.markUndone': 'செய்யப்படவில்லை எனக் குறிக்கவும்',
   'taskCard.overdueDate': '{{date}} (காலாவதியானது)',
+  'taskCard.priorityTooltip': '{{priority}}',
   'taskCard.unnamedProject': 'திட்டம்',
   'taskFilterBar.addTask': 'பணியைச் சேர்க்கவும்',
   'taskFilterBar.dateRange': 'தேதி வரம்பு',

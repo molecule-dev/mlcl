@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'accountDetail.activeBadge': 'Aktiboa',
   'accountDetail.availableLabel': '{{amount}} eskuragarri',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Ezin izan dira kontuak kargatu.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Izoztuta',
   'accounts.totalBalance': '{{zenbatekoa}} guztira',
   'audit.empty': 'Ez dago ekitaldirik oraindik.',
   'audit.eyebrow': 'Segurtasuna eta sarbidea',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Eskudirua eskura',
   'cashCreditCard.creditLabel': 'Erabilitako kreditua',
   'cashCreditCard.title': 'Eskudirua eta kreditua',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Orokorra',
   'dashboard.recentEmpty': 'Oraindik ez da transakziorik egin.',
@@ -45,11 +48,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Erakutsi pasahitza',
   'login.signUp': 'Izena eman',
   'login.submit': 'Hasi saioa',
+  'meridianLayout.menu': 'Menua',
   'meridianLayout.primaryNavLabel': 'Nabigazio nagusia',
   'nav.legal': 'Legezko',
   'notifications.emptyHeading': 'Guztiz harrapatuta zaude.',
   'notifications.subheading':
     'Transakzioei, segurtasunari eta laburpenei buruzko denbora errealeko alertak.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'privacy.dataWeShare':
     'Bankuko datu pertsonalak ez dira inoiz saltzen. Informazioa ordainketa-prozesadoreekin, txartel-sareekin eta erregulatzaileekin partekatzen dugu transakzioak kitatzeko edo legezko betebeharrak betetzeko beharrezkoa denean soilik.',
   'privacy.dataWeStore':
@@ -81,10 +86,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Bi faktoreko funtzioak autentifikazio-aplikazio bateko behin-behineko kode bat gehitzen du saioa hasten den bakoitzean.',
   'settings.security.twoFactorCta': 'Bi faktoreko autentifikazioa kudeatu',
+  'settings.security.twoFactorOff': 'Bi faktoreko desaktibatuta dago',
   'settings.signOutDevice': 'Saioa itxi',
   'settings.subheading': 'Profila, segurtasuna eta jakinarazpenak.',
+  'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'signup.emailLabel': 'Helbide elektronikoa',
   'signup.fullName': 'Nola zuzendu behar dizugu?',
   'signup.showPassword': 'Erakutsi pasahitza',
@@ -107,7 +116,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Oraindik ez da transakziorik egin.',
   'transactions.endDate': 'Amaiera data',
   'transactions.eyebrow': 'Jarduera',
+  'transactions.loadError': 'Ezin izan dira transakzioak kargatu.',
   'transactions.merchant': 'Merkataria',
+  'transactions.subheading': 'Zure kontuetan argitaratutako eta zain dauden transakzio guztiak.',
   'transfers.availableHint': '{{amount}} eskuragarri',
   'transfers.errorGeneric': 'Ezin izan da transferentzia bidali.',
   'transfers.errorMissingFields': 'Aukeratu iturburu-kontu bat eta helmuga bat.',

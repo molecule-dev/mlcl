@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.pageTitle': 'אוֹדוֹת {{appName}}',
   'analytics.error': 'לא ניתן היה לטעון את הניתוחים.',
   'analytics.heading': 'ניתוח אחזור',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'לא הוגדרו רמות תמחור.',
   'billing.plans.heading': 'תוכניות',
   'billing.subheading': 'תוכנית, שימוש ותשלום מנוהל על ידי Stripe.',
+  'common.confirm': 'לְאַשֵׁר',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
+  'common.retry': 'נסה שוב',
   'documentCard.open': 'פתח \\u2192',
   'documentDetail.back': 'חזרה למסמכים',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'מסמך אינדקס',
   'documents.composer.titlePlaceholder': 'כותרת המסמך',
   'documents.emptyAll': 'אין עדיין מסמכים. העלה מסמכים כדי להתחיל לשאול שאלות.',
+  'documents.error.load': 'לא ניתן היה לטעון מסמכים.',
   'documents.heading': 'מסמכים אינדקסים',
   'documents.loading': 'טוען מסמכים…',
   'documents.metric.chunks': 'סך כל הנתחים',
@@ -137,7 +142,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'מסיר\\u2026',
   'members.subheading': 'הזמינו חברי צוות וקבעו תפקידים',
   'members.tableHeading': 'לוּחַ תוֹרָנוּיוֹת',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'notFound.askCta': 'שאל את מאגר הידע',
+  'notFound.body':
+    '{{app}} לא הצליח לאתר את הדף. ייתכן שהקישור שבור, או שהדף הוצא משימוש במהלך אינדקס מחדש.',
   'notFound.eyebrow': 'לא ניתן לאחזר',
   'notFound.title': 'אין חלק כזה באינדקס',
   'notifications.dismiss': 'לְפַטֵר',
@@ -199,6 +208,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'כתובת URL של המקור',
   'sources.empty.body': 'לחץ על \\u201cהוסף מקור\\u201d כדי לחבר את המחבר הראשון שלך.',
   'sources.empty.title': 'עדיין אין מקורות.',
+  'sources.error.add': 'לא ניתן היה להוסיף מקור.',
   'sources.error.labelRequired': 'נדרשת תווית.',
   'sources.error.load': 'לא ניתן היה לטעון את המקורות.',
   'sources.error.urlRequired': 'נדרשת כתובת URL עבור סוג מקור זה.',

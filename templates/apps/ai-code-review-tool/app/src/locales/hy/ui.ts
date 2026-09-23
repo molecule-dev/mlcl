@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.connectRepoCta': 'Միացնել պահոցը',
   'dashboard.empty': 'Դեռևս քաշման հարցումներ չկան — միացրեք պահոց՝ սկսելու համար։',
   'dashboard.eyebrow': 'Բեկում · վերանայման հերթ',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
     '\\u0531\\u0577\\u056D\\u0561\\u057F\\u0561\\u0576\\u0584\\u056B \\u056A\\u0561\\u0574\\u0561\\u0576\\u0561\\u056F',
   'pullRequestRow.files': '{{count}} ֆ',
   'pullRequestRow.scoreAria': 'Արհեստական բանականության որակի գնահատական {{score}} / 10',
+  'refractLayout.closeMenu': 'Փակել ընտրացանկը',
+  'refractLayout.openMenu': 'Բացել ընտրացանկը',
   'refractLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'reports.cumulativeScoreLabel': 'Կուտակային միավոր',
   'reports.cumulativeScoreSubtitle': 'բոլոր պահոցները · {{days}} դ',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Չհաջողվեց բեռնել որոնման ինդեքսը։',
   'settings.apiKeys.description':
     'Կառավարեք անձնական API բանալիները վերևի աջ անկյունում գտնվող օգտատիրոջ ցանկից։',
+  'settings.apiKeys.integrationsNote':
+    'Մատակարարի մուտքի տոկենները կառավարվում են վերևում գտնվող «Ինտեգրացիաներ» բաժնում։',
   'settings.connectError': 'Չհաջողվեց կապ հաստատել մատակարարի հետ։',
   'settings.disconnectError': 'Չհաջողվեց անջատել մատակարարին։',
   'settings.eyebrow': 'Բեկում · աշխատանքային տարածք',
   'settings.integration.${provider}.label': 'Պահպանվում է…',
   'settings.loadError': 'Չհաջողվեց բեռնել կարգավորումները։',
+  'settings.notificationCenter': 'Տեղեկացման կենտրոն',
   'settings.notifications.description':
     'Այցելեք ծանուցումների էջ՝ առաքման նախընտրությունները դիտելու և կառավարելու համար։',
   'settings.section.account': 'Հաշիվ և անվտանգություն',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'మేము డిజైనర్లు మరియు ఇంజనీర్లతో కూడిన ఒక వికేంద్రీకృత బృందం. ఒకప్పుడు మేము ప్రతిరోజూ చాలా గంటలపాటు ఒక సందడిగల మెయిల్‌బాక్స్‌లో గడిపేవాళ్ళం. మెరిడియన్ అనేది మేము స్వయంగా ఉపయోగించాలనుకున్న ఇన్‌బాక్స్.',
   'about.title': 'ఏకాగ్రతతో కూడిన పని కోసం ఇమెయిల్',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'help.cta.about': 'మెరిడియన్ గురించి',
   'help.cta.pricing': 'ధరలను వీక్షించండి',
   'help.eyebrow': 'సహాయ కేంద్రం',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'మేము ఎక్కువగా వినే ప్రశ్నలకు త్వరిత సమాధానాలు. ఏమైనా లోపించిందా? సెట్టింగ్స్‌ను తెరిచి, యాప్‌లోని ఫీడ్‌బ్యాక్ ఫారమ్‌ను ఉపయోగించండి, లేదా support@courier.exampleకు వ్రాయండి.',
   'help.title': 'మేము ఎలా సహాయం చేయగలం?',
   'landing.brand.scrollTop': 'పైకి తిరిగి వెళ్లండి',
+  'landing.copyright': '© {{year}} {{appName}} — ఏకాగ్రత కోసం రూపొందించబడింది.',
   'landing.ctaBody':
     'మధ్యాహ్న భోజనానికి ముందే తమ ఇన్‌బాక్స్‌ను పూర్తి చేసుకున్న వేలాది మంది నిపుణులతో చేరండి.',
   'landing.ctaTitle': 'ఎక్కువగా ఆలోచించండి, తక్కువగా ప్రతిస్పందించండి.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'డెమో చూడండి',
   'landing.heroSubtitle':
     'మెరిడియన్ అనేది, సమాచారానికి ప్రతిస్పందించడం కాకుండా దానిని విశ్లేషించాలనుకునే నాలెడ్జ్ వర్కర్ల కోసం రూపొందించబడిన ఒక ప్రశాంతమైన మూడు-పలకల ఇన్‌బాక్స్.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ప్రపంచవ్యాప్తంగా ఉన్న ప్రత్యేక బృందాలచే విశ్వసించబడింది',
   'landing.signIn': 'సైన్ ఇన్',
   'meridian.archive.empty': 'ఆర్కైవ్ ఖాళీగా ఉంది.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ముసాయిదా',
   'meridian.folder.count': '{{count}} సందేశాలు',
+  'meridian.folder.delete': 'తొలగించు',
   'meridian.folder.deleteForever': 'శాశ్వతంగా తొలగించండి',
   'meridian.folder.restore': 'ఇన్‌బాక్స్‌కు తరలించండి',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ఇక్కడ ఇంకా సందేశాలు ఏమీ లేవు.',
   'meridian.inbox.loading': 'లోడ్ అవుతోంది…',
   'meridian.inbox.next': 'తరువాత',
+  'meridian.inbox.noSender': '(పంపినవారు లేరు)',
   'meridian.inbox.noSubject': '(విషయం లేదు)',
+  'meridian.inbox.ofTotal': '{{current}} of {{total}}',
   'meridian.inbox.openCompose': 'ఓపెన్ కంపోజ్',
   'meridian.inbox.previous': 'మునుపటి',
   'meridian.inbox.replyFailed': 'ప్రత్యుత్తరం సేవ్ చేయబడింది కానీ డెలివరీ విఫలమైంది: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'మీకు ఖాతా లేదా?',
   'meridian.login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'meridian.message.toLine': 'కు {{recipients}}',
+  'meridian.notFound.body':
+    'మీరు వెతుకుతున్న పేజీ కనుగొనబడలేదు. మీ {{appName}} ఇన్‌బాక్స్‌కు తిరిగి వెళ్లండి, మేము మీకు సరైన మార్గాన్ని చూపిస్తాము.',
   'meridian.notFound.eyebrow': 'లోపం 404',
   'meridian.notFound.title': 'ఈ థ్రెడ్ ఆర్కైవ్ చేయబడింది.',
   'meridian.notFound.toInbox': 'నా ఇన్‌బాక్స్‌ను తెరవండి',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'నక్షత్రాన్ని జోడించండి',
   'meridian.thread.unstar': 'నక్షత్రాన్ని తొలగించండి',
   'meridian.time.yesterday': 'నిన్న',
+  'meridian.topBar.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'meridian.topBar.searchPlaceholder': 'శోధన మెయిల్',
   'meridian.trash.empty': 'చెత్తబుట్ట ఖాళీగా ఉంది.',
   'meridian.trash.title': 'చెత్త',
   'nav.legal': 'చట్టపరమైన',
   'planUpdated.description':
     'మీ సబ్‌స్క్రిప్షన్ ఇప్పుడు యాక్టివ్‌గా ఉంది మరియు మీ బిల్లింగ్ అప్‌డేట్ చేయబడింది. పునరుద్ధరించబడిన మీ మెరిడియన్ ఇన్‌బాక్స్‌కు స్వాగతం.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.heading': 'డ్రాఫ్ట్‌లు',
   'pricing.limit.emails': 'ఇమెయిల్‌లు',
   'pricing.limit.folders': 'ఫోల్డర్లు',
   'pricing.limit.labels': 'లేబుల్స్',
   'privacy.collect.account':
     'ఖాతా వివరాలు: పేరు, ఇమెయిల్ చిరునామా, హ్యాష్ చేసిన పాస్‌వర్డ్ మరియు మీరు సైన్ అప్ చేసిన తేదీ.',
+  'privacy.contact': 'ఏవైనా సందేహాలు ఉన్నాయా? privacy@courier.example కు ఇమెయిల్ చేయండి.',
   'privacy.intro':
     'ఈ గోప్యతా విధానం, మెరిడియన్ ఏ డేటాను సేకరిస్తుందో, దానిని ఎందుకు సేకరిస్తుందో, దానిని ఎలా సురక్షితంగా ఉంచుతుందో మరియు దానిపై మీకు ఉన్న ఎంపికల గురించి వివరిస్తుంది. మేము చట్టపరమైన పదజాలం వాడకుండా, నిర్దిష్టంగా ఉండాలని లక్ష్యంగా పెట్టుకున్నాము; ఏదైనా అస్పష్టంగా ఉంటే, privacy@courier.example కు వ్రాయండి.',
   'privacy.lastUpdated': 'చివరి నవీకరణ: ఏప్రిల్ 1, 2026',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ఈ నిబంధనలు మీరు మెరిడియన్‌ను ఉపయోగించడాన్ని నియంత్రిస్తాయి. మా ద్వారా ఖాతాను సృష్టించడం లేదా ఇమెయిల్ పంపడం ద్వారా, మీరు వీటికి కట్టుబడి ఉంటారని అంగీకరిస్తున్నారు. ఒక వ్యక్తి వాస్తవంగా పాటించగలిగే నియమాలను రూపొందించడానికి మేము ప్రయత్నిస్తాము.',
   'terms.lastUpdated': 'అమలులోకి వచ్చే తేది: ఏప్రిల్ 1, 2026',
+  'terms.linkPrivacy': 'మా గోప్యతా విధానాన్ని చదవండి →',
   'terms.termination.body':
     'మీరు మీ ఖాతాను ఎప్పుడైనా తొలగించుకోవచ్చు. ఈ నిబంధనలను ఉల్లంఘించే ఖాతాను మేము నిలిపివేయవచ్చు; ఒకవేళ మేము అలా చేస్తే, మేము కారణాన్ని వివరించి, ముందుగా మీ డేటాను ఎగుమతి చేసుకోవడానికి మీకు అవకాశం ఇస్తాము.',
   'terms.warranty.body':

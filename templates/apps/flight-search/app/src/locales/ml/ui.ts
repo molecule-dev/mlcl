@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.eyebrow': '{{app}} നെക്കുറിച്ച്',
   'about.pageTitle': 'ഓരോ വഴിയും, ഓരോ തിരയലും.',
   'booking.backToDetail': 'ഫ്ലൈറ്റ് വിശദാംശങ്ങളിലേക്ക് മടങ്ങുക',
   'booking.continue': 'പേയ്‌മെന്റിലേക്ക് തുടരുക',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'നികുതികളും ഫീസും',
   'booking.summary.travelers': 'സഞ്ചാരികൾ',
   'common.about': 'കുറിച്ച്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'flightDetail.backToResults': 'ഫലങ്ങളിലേക്ക് മടങ്ങുക',
   'flightDetail.baseFare': 'അടിസ്ഥാന നിരക്ക്',
   'flightDetail.book': 'ബുക്കിംഗിലേക്ക് പോകുക',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 സ്റ്റോപ്പ്',
   'flightResultCard.select': 'തിരഞ്ഞെടുക്കുക',
   'flightResultCard.totalLabel': 'ആകെ സമയം',
+  'flightSearchLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ സ്കൈലാർക്ക് അക്കൗണ്ടിൽ ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു സുരക്ഷിത റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
     'പരിശോധിക്കുക {{email}} പുതിയ പാസ്‌വേഡ് സജ്ജീകരിക്കുന്നതിനുള്ള ലിങ്കിനായി. ലിങ്ക് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'forgotPassword.successHeading': 'ലിങ്ക് പുനഃസജ്ജമാക്കി അയച്ചു',
   'landing.cta.explore': 'ഒരു തിരയൽ പരീക്ഷിക്കുക',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'മറ്റെല്ലാവർക്കും മുമ്പ് അടുത്ത മികച്ച യാത്രാക്കൂലി കണ്ടെത്തൂ.',
   'landing.cta.signup': 'നിരക്കുകൾ ട്രാക്ക് ചെയ്യാൻ തുടങ്ങുക',
   'landing.features.eyebrow': 'എന്തുകൊണ്ട് സ്കൈലാർക്ക്',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'അലേർട്ട് ചേർക്കുക',
   'priceAlerts.deleteConfirm': 'ഈ അലേർട്ട് നീക്കം ചെയ്യണോ?',
   'priceAlerts.empty': 'ഇതുവരെ ട്രാക്ക് ചെയ്ത റൂട്ടുകളൊന്നുമില്ല.',
+  'priceAlerts.emptyCta': 'ട്രാക്ക് ചെയ്യാൻ ഒരു റൂട്ട് തിരയുക',
   'priceAlerts.errorMessage': 'അലേർട്ടുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'priceAlerts.eyebrow': 'സ്കൈലാർക്ക് വാച്ച് ലിസ്റ്റ്',
   'priceAlerts.form.createError': 'അലേർട്ട് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'മൾട്ടി-സിറ്റി യാത്രാ പരിപാടി',
   'results.multiLegHeading': 'കാല് {{എൻ}} · {{നിന്ന്}} → {{ടു}} · {{തീയതി}}',
   'results.multiSummary': '{{count}} കാലുകൾ · {{passengers}} സഞ്ചാരി',
+  'results.sortAriaLabel': 'ഫലങ്ങൾ ഇപ്രകാരം അടുക്കുക',
   'results.sortLabel': 'അടുക്കുക',
   'results.summary': '{{count}} വിമാനങ്ങൾ · {{passengers}} സഞ്ചാരി',
   'settings.language.title': 'ഭാഷ',

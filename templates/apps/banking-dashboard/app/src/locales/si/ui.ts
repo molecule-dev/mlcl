@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'accountDetail.activeBadge': 'ක්‍රියාකාරී',
   'accountDetail.availableLabel': '{{amount}} ලබා ගත හැකිය',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'ගිණුම්',
   'accounts.loadError': 'ගිණුම් පූරණය කිරීමට අසමත් විය.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'ශීත කළ',
   'accounts.totalBalance': '{{මුදල}} මුළු',
   'audit.empty': 'තවම සිදුවීම් නැත.',
   'audit.eyebrow': 'ආරක්ෂාව සහ ප්‍රවේශය',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'අතේ ඇති මුදල්',
   'cashCreditCard.creditLabel': 'භාවිතා කළ ණය',
   'cashCreditCard.title': 'මුදල් සහ ණය',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.accountsHeading': 'ගිණුම්',
   'dashboard.heading': 'දළ විශ්ලේෂණය',
   'dashboard.recentEmpty': 'තවම ගනුදෙනු නැත.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'මුරපදය පෙන්වන්න',
   'login.signUp': 'ලියාපදිංචි වන්න',
   'login.submit': 'පුරන්න',
+  'meridianLayout.menu': 'මෙනුව',
   'meridianLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'nav.legal': 'නීතිමය',
   'notifications.emptyHeading': 'ඔයා ඔක්කොම ඉවරයි.',
   'notifications.subheading': 'ගනුදෙනු, ආරක්ෂාව සහ ප්‍රකාශ සඳහා තත්‍ය කාලීන ඇඟවීම්.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'privacy.dataWeShare':
     'පුද්ගලික බැංකු දත්ත කිසි විටෙකත් විකුණනු නොලැබේ. ගනුදෙනු පියවීමට හෝ නීතිමය බැඳීම් සපුරාලීමට අවශ්‍ය විටදී පමණක් අපි ගෙවීම් සකසනයන්, කාඩ්පත් ජාල සහ නියාමකයින් සමඟ තොරතුරු බෙදා ගනිමු.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'සෑම පිවිසුමකදීම සත්‍යාපක යෙදුමකින් එක්-වර කේතයක් ද්වි-සාධක මඟින් එක් කරයි.',
   'settings.security.twoFactorCta': 'ද්වි-සාධක සත්‍යාපනය කළමනාකරණය කරන්න',
+  'settings.security.twoFactorOff': 'ද්වි-සාධක අක්‍රියයි',
   'settings.signOutDevice': 'වරන්න',
   'settings.subheading': 'පැතිකඩ, ආරක්ෂාව සහ දැනුම්දීම්.',
+  'settings.twoFactorCode': 'සත්‍යාපන කේතය',
   'settings.twoFactorDisable': 'අබල කරන්න',
   'settings.twoFactorEnable': 'සක්‍රීය කරන්න',
+  'settings.twoFactorInvalidCode': 'අවලංගු කේතයකි',
+  'settings.twoFactorVerify': 'සත්‍යාපනය කර සබල කරන්න',
   'signup.emailLabel': 'ඊතැපැල් ලිපිනය',
   'signup.fullName': 'අපි ඔබව ආමන්ත්‍රණය කළ යුත්තේ කෙසේද?',
   'signup.showPassword': 'මුරපදය පෙන්වන්න',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'තවම ගනුදෙනු නැත.',
   'transactions.endDate': 'අවසන් දිනය',
   'transactions.eyebrow': 'ක්‍රියාකාරකම්',
+  'transactions.loadError': 'ගනුදෙනු පූරණය කිරීමට අසමත් විය.',
   'transactions.merchant': 'වෙළෙන්දා',
+  'transactions.subheading': 'ඔබගේ ගිණුම් හරහා පළ කරන ලද සහ පොරොත්තු වන සෑම ගනුදෙනුවක්ම.',
   'transfers.availableHint': '{{amount}} ලබා ගත හැකිය',
   'transfers.errorGeneric': 'මාරුව ඉදිරිපත් කිරීමට නොහැකි විය.',
   'transfers.errorMissingFields': 'මූලාශ්‍ර ගිණුමක් සහ ගමනාන්තයක් තෝරන්න.',

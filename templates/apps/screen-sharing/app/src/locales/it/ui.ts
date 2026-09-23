@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'about.pageTitle': 'Informazioni su {{appName}}',
   'analytics.empty': 'Registri la sua prima clip per vedere il coinvolgimento qui.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'clip',
   'billing.usage.views': 'Visualizzazioni',
   'billing.usage.views.unit': 'visualizzazioni',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'landing.cta.title': 'Invii feedback migliori. Inizi con Glint.',
   'landing.feature.capture.body':
     'Registrazione browser, desktop e mobile con microfono, fotocamera e disegno.',
   'landing.feature.capture.title': 'Cattura con un tocco',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asincrono, reso luminoso.',
   'landing.hero.cardCaption': 'Panoramica del workspace di esempio — la provi gratis.',
   'landing.hero.primaryCta': 'Inizi a registrare gratis',
   'landing.hero.proof.free': 'Piano gratuito per sempre',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Cerca registrazioni',
   'library.searchPlaceholder': 'Cerca registrazioni…',
   'library.weeklyChange': '{{value}}% rispetto alla settimana scorsa',
+  'nav.openMenu': 'Apri il menu di navigazione',
   'nav.record': 'Registra',
   'nav.shared': 'Condivisi con me',
   'nav.startRecording': 'Inizia registrazione',

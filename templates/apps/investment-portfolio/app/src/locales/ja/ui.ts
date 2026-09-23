@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}について',
   'argentAuthShell.brandEyebrow': 'Argent · ウェルスマネジメントツール',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} 。投資助言ではありません。',
   'argentAuthShell.sampleChange': '本日 +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'メインナビゲーション',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'このティッカーの取引はありません。',
   'assetDetail.txHeading': 'あなたの取引',
   'common.and': 'および',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ポートフォリオの概要',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': '保有銘柄はまだありません。',
   'holdings.heading': '保有銘柄',
   'holdings.loadError': '保有銘柄の読み込みに失敗しました。',
+  'landing.copyright':
+    '© {{year}} {{app}} 。投資助言ではありません。過去の実績は将来の結果を保証するものではありません。',
   'landing.eyebrow': 'Argent · ウェルスマネジメントプラットフォーム',
   'landing.features.heading': 'アドバイザーが自分のために作り上げるすべて。',
   'landing.finalCta.heading': 'ポートフォリオに規律を取り戻しましょう。',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}時間前',
   'news.justNow': 'たった今',
   'news.loadError': 'ニュースの読み込みに失敗しました。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'portfolioHeroCard.label': 'ポートフォリオ評価額',
   'pricing.holdingsLabel': '保有資産',
   'pricing.newsLabel': 'ニュース記事',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'アカウントを削除',
   'settings.security.deleting': '削除中…',
   'settings.security.heading': 'セキュリティ',
+  'settings.security.newPassword': '新しいパスワード',
   'settings.security.password': 'パスワード',
   'settings.security.twoFactorEnable': '有効化',
+  'settings.security.twoFactorInvalidCode': '無効なコード',
+  'settings.security.twoFactorVerify': '確認して有効化する',
   'settings.tax.error': '税務処理方式を更新できませんでした。',
   'settings.tax.heading': '税務ロット会計',
   'settings.tax.method': '既定の方式',

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tietoa {{app}}sta',
   'argentAuthShell.brandEyebrow': 'Raha · Varallisuuden työkalut',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ei sijoitusneuvontaa.',
   'argentAuthShell.sampleChange': '+2 841 dollaria (+0,28 %) tänään',
   'argentAuthShell.sampleValue': '1 032 251 dollaria',
   'argentLayout.primaryNavLabel': 'Päänavigaatio',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Ei tapahtumia tälle osakekurssille.',
   'assetDetail.txHeading': 'Maksusi',
   'common.and': 'ja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfolion yleiskatsaus',
@@ -49,6 +52,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Ei vielä omistuksia.',
   'holdings.heading': 'Omistukset',
   'holdings.loadError': 'Varaston lataaminen epäonnistui.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ei sijoitusneuvontaa. Aiempi tuotto ei takaa tulevaa tuottoa.',
   'landing.eyebrow': 'Argent · Varallisuuden kasvattamiseen tarkoitettu alusta',
   'landing.features.heading': 'Kaikki, mitä neuvoja rakentaisi itselleen.',
   'landing.finalCta.heading': 'Tuo kuri takaisin portfolioosi.',
@@ -69,6 +74,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}t sitten',
   'news.justNow': 'juuri nyt',
   'news.loadError': 'Uutisten lataaminen epäonnistui.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'portfolioHeroCard.label': 'Salkun arvo',
   'pricing.holdingsLabel': 'omistukset',
   'pricing.newsLabel': 'uutisartikkelit',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Poista tili',
   'settings.security.deleting': 'Poistetaan…',
   'settings.security.heading': 'Turvallisuus',
+  'settings.security.newPassword': 'Uusi salasana',
   'settings.security.password': 'Salasana',
   'settings.security.twoFactorEnable': 'Ota käyttöön',
+  'settings.security.twoFactorInvalidCode': 'Virheellinen koodi',
+  'settings.security.twoFactorVerify': 'Vahvista ja ota käyttöön',
   'settings.tax.error': 'Verotapaa ei voitu päivittää.',
   'settings.tax.heading': 'Veroerän kirjanpito',
   'settings.tax.method': 'Oletusmenetelmä',

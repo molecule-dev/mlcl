@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'analytics.avgCheckLabel': 'ಸರಾಸರಿ ಪರಿಶೀಲನೆ',
   'analytics.busiestHour': 'ಅತ್ಯಂತ ಜನನಿಬಿಡ ಗಂಟೆ',
   'analytics.coversToday': 'ಇಂದಿನ ಸುದ್ದಿಗಳು',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'ಸಲಹೆಗಳು (ಸರಾಸರಿ)',
   'analytics.topItems': 'ಇಂದಿನ ಪ್ರಮುಖ ವಸ್ತುಗಳು',
   'authShell.eyebrow': 'ಸೇವೆಗೆ ಮರಳಿ ಸ್ವಾಗತ.',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ಆತಿಥ್ಯ ತಂಡಗಳಿಗೆ ಬೆಚ್ಚಗಿನ, ವೇಗದ ಮಾರಾಟದ ಸ್ಥಳ. ನಿಮ್ಮ ಅಡುಗೆಮನೆಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ ಮತ್ತು ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಮುಂದುವರಿಸಿ.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ಅಥವಾ {{price}}',
   'billing.priceUnavailable': 'ಈ ಯೋಜನೆಗೆ ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ಬೆಲೆ ಇಲ್ಲ.',
   'billing.updated': 'ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'customerDetail.book': 'ಕಾಯ್ದಿರಿಸುವಿಕೆಯನ್ನು ಸೇರಿಸಿ',
   'customerDetail.col.table': 'ಟೇಬಲ್',
   'customerDetail.confirmDelete': 'ಈ ಅತಿಥಿ ದಾಖಲೆಯನ್ನು ಅಳಿಸುವುದೇ?',
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ಲಭ್ಯತೆ',
   'menuItemDetail.available': 'ಇಂದು ರಾತ್ರಿ ಲಭ್ಯವಿದೆ',
   'menuItemDetail.backToMenu': 'ಮೆನುಗೆ ಹಿಂತಿರುಗಿ',
+  'menuItemDetail.confirmDelete': 'ಈ ಮೆನು ಐಟಂ ಅನ್ನು ಅಳಿಸುವುದೇ?',
   'menuItemDetail.delete': 'ಐಟಂ ಅಳಿಸಿ',
   'menuItemDetail.deleteError': 'ಅಳಿಸುವಿಕೆ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'menuItemDetail.dietary': 'ಆಹಾರ ಪದ್ಧತಿ ಟ್ಯಾಗ್‌ಗಳು',
@@ -141,8 +145,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ಫೋಟೋ, ಮಾರ್ಪಾಡುಗಳು, ಆಹಾರ ಪದ್ಧತಿ ಮತ್ತು ಬೆಲೆಗಳನ್ನು ಸಂಪಾದಿಸಿ.',
   'menuItemDetail.untitled': 'ಶೀರ್ಷಿಕೆಯಿಲ್ಲದ ಐಟಂ',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'notFound.heading': 'ಈ ಮೇಜು ನೆಲದ ಮೇಲೆ ಇಲ್ಲ.',
   'notFound.subheading': 'ನೀವು ಹುಡುಕುತ್ತಿದ್ದ ಪುಟ ಬೇರೆಡೆ ಇದೆ - ಅಥವಾ ಅದು ಎಂದಿಗೂ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ.',
+  'notFound.toLanding': '{{app}} ಮುಖಪುಟ',
   'notifications.markError': 'ಎಲ್ಲವನ್ನೂ ಓದಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'orderDashboard.activeDelta': 'ಈಗ ಲೈವ್',
   'orderDashboard.activeLabel': 'ಸಕ್ರಿಯ ಆರ್ಡರ್‌ಗಳು',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'ಅಡುಗೆಮನೆಗೆ ಪ್ರವೇಶವನ್ನು ಮರಳಿ ಪಡೆಯಲು ನಿಮ್ಮ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ.',
   'resetPassword.tokenLabel': 'ಟೋಕನ್ ಮರುಹೊಂದಿಸಿ',
+  'restaurantOrderingLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'revenueHeroCard.activeOrders': '{{count}} ಸಕ್ರಿಯ',
   'revenueHeroCard.change': '{{sign}} {{amount}} ನಿನ್ನೆಯೊಂದಿಗೆ ಹೋಲಿಸಿದಾಗ',
   'revenueHeroCard.title': 'ಇಂದಿನ ಆದಾಯ',
@@ -225,6 +233,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'ರೆಸ್ಟೋರೆಂಟ್ ಹೆಸರು',
   'tableDetail.activeOrders': 'ಸಕ್ರಿಯ ಆರ್ಡರ್‌ಗಳು',
   'tableDetail.backToFloor': 'ಮಹಡಿ ಯೋಜನೆ',
+  'tableDetail.confirmDelete': 'ಈ ಟೇಬಲ್ ಅನ್ನು ಅಳಿಸುವುದೇ?',
   'tableDetail.delete': 'ಅಳಿಸಿ',
   'tableDetail.deleteError': 'ಟೇಬಲ್ ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'tableDetail.heading': 'ಟೇಬಲ್ {{label}}',

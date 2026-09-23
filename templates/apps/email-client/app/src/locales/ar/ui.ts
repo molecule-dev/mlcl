@@ -18,6 +18,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'نحن فريق موزّع من المصممين والمهندسين الذين قضوا في يومٍ ما ساعات طويلة في صندوق بريد صاخب. Courier هو صندوق الوارد الذي أردنا استخدامه لأنفسنا.',
   'about.title': 'بريد للعمل المركّز',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'help.cta.about': 'عن Courier',
   'help.cta.pricing': 'عرض الأسعار',
   'help.eyebrow': 'مركز المساعدة',
@@ -38,6 +39,7 @@ export const ui: UiTranslations = {
     'إجابات سريعة لأكثر الأسئلة شيوعاً. هل ينقصك شيء؟ افتح الإعدادات واستخدم نموذج الملاحظات داخل التطبيق، أو اكتب إلى support@courier.example.',
   'help.title': 'كيف يمكننا مساعدتك؟',
   'landing.brand.scrollTop': 'العودة إلى الأعلى',
+  'landing.copyright': '© {{year}} {{appName}} — مصمم للتركيز.',
   'landing.ctaBody': 'انضم إلى آلاف المحترفين الذين أنهوا صندوق الوارد قبل الغداء.',
   'landing.ctaTitle': 'عالِج أكثر، وتفاعل أقل.',
   'landing.eyebrow': 'بريد للعمل المركّز',
@@ -47,6 +49,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'شاهد العرض التوضيحي',
   'landing.heroSubtitle':
     'Courier صندوق وارد هادئ بثلاث لوحات، صُمم لعُمّال المعرفة الذين يريدون معالجة المعلومات بدلاً من التفاعل معها.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'تثق به فرق مركّزة حول العالم',
   'landing.signIn': 'تسجيل الدخول',
   'meridian.archive.empty': 'الأرشيف فارغ.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'إلى',
   'meridian.drafts.watermark': 'مسودة',
   'meridian.folder.count': '{{count}} رسالة',
+  'meridian.folder.delete': 'حذف',
   'meridian.folder.deleteForever': 'حذف نهائي',
   'meridian.folder.restore': 'النقل إلى الوارد',
   'meridian.forgot.subtitle':
@@ -84,7 +88,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'لا توجد رسائل هنا بعد.',
   'meridian.inbox.loading': 'جارٍ التحميل…',
   'meridian.inbox.next': 'التالية',
+  'meridian.inbox.noSender': '(بدون مرسل)',
   'meridian.inbox.noSubject': '(بدون موضوع)',
+  'meridian.inbox.ofTotal': '{{current}} من {{total}}',
   'meridian.inbox.openCompose': 'فتح التأليف',
   'meridian.inbox.previous': 'السابقة',
   'meridian.inbox.replyFailed': 'حُفظ الرد لكن تعذّر التسليم: {{error}}',
@@ -97,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'ليس لديك حساب؟',
   'meridian.login.showPassword': 'إظهار كلمة المرور',
   'meridian.message.toLine': 'إلى {{recipients}}',
+  'meridian.notFound.body':
+    'لم يتم العثور على الصفحة التي تبحث عنها. يرجى العودة إلى صندوق بريدك الوارد في {{appName}} وسنساعدك في الوصول إليها.',
   'meridian.notFound.eyebrow': 'خطأ 404',
   'meridian.notFound.title': 'تمت أرشفة هذه المحادثة.',
   'meridian.notFound.toInbox': 'فتح صندوق الوارد',
@@ -132,18 +140,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'إضافة نجمة',
   'meridian.thread.unstar': 'إزالة النجمة',
   'meridian.time.yesterday': 'أمس',
+  'meridian.topBar.openMenu': 'فتح قائمة التنقل',
   'meridian.topBar.searchPlaceholder': 'البحث في البريد',
   'meridian.trash.empty': 'المهملات فارغة.',
   'meridian.trash.title': 'المهملات',
   'nav.legal': 'قانوني',
   'planUpdated.description':
     'اشتراكك مفعَّل الآن وتم تحديث الفوترة. أهلاً بك في صندوق وارد Courier المحدَّث.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.heading': 'مسودات',
   'pricing.limit.emails': 'رسائل',
   'pricing.limit.folders': 'مجلدات',
   'pricing.limit.labels': 'تسميات',
   'privacy.collect.account':
     'بيانات الحساب: الاسم، والبريد الإلكتروني، وكلمة المرور بصيغة مُجزَّأة، وتاريخ التسجيل.',
+  'privacy.contact': 'هل لديك أسئلة؟ راسلنا عبر البريد الإلكتروني privacy@courier.example.',
   'privacy.intro':
     'تشرح سياسة الخصوصية هذه ما تجمعه Courier من بيانات، ولماذا نجمعها، وكيف نحافظ على سلامتها، وما هي خياراتك بشأنها. نسعى إلى التحديد بدلاً من الصياغة القانونية؛ وإن كان أي شيء غير واضح، فاكتب إلى privacy@courier.example.',
   'privacy.lastUpdated': 'آخر تحديث: 1 أبريل 2026',
@@ -163,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'تحكم هذه الشروط استخدامك لـ Courier. بإنشاء حساب أو إرسال بريد عبرنا، فإنك توافق على الالتزام بها. نحاول صياغة قواعد يمكن لشخص حقيقي اتباعها فعلاً.',
   'terms.lastUpdated': 'النفاذ: 1 أبريل 2026',
+  'terms.linkPrivacy': 'اقرأ سياسة الخصوصية الخاصة بنا →',
   'terms.termination.body':
     'يمكنك حذف حسابك في أي وقت. قد نوقِف حساباً ينتهك هذه الشروط؛ وإن فعلنا ذلك، فسنشرح السبب ونتيح لك تصدير بياناتك أولاً.',
   'terms.warranty.body':

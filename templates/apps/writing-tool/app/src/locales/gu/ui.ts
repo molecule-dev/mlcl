@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
+  'about.title': 'એક લેખન ખંડ જે તમે તમારા ખિસ્સામાં રાખી શકો છો',
   'billing.cancelConfirm': 'તમારું સક્રિય સબ્સ્ક્રિપ્શન રદ કરીએ?',
   'billing.cancelFailed': 'રદ કરી શકાયું નથી.',
   'billing.checkingOut': 'ચેકઆઉટ ખોલી રહ્યા છીએ…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'બિલિંગ લોડ કરી શકાયું નથી.',
   'billing.loading': 'બિલિંગ લોડ થઈ રહ્યું છે…',
   'billing.upgradeCta': 'અપગ્રેડ કરો {{name}}',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'editor.autosaveOn': 'ઓટોસેવ ચાલુ',
   'editor.backToLibrary': 'લાઇબ્રેરી પર પાછા જાઓ',
   'editor.charCount': '{{count}} પાત્રો',
   'editor.confirmTrash': 'આ દસ્તાવેજને ટ્રેશમાં ખસેડીએ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'અનપિન કર્યું',
   'editor.unpublishCta': 'ડ્રાફ્ટમાં ખસેડો',
   'editor.unpublished': 'ડ્રાફ્ટમાં પાછું ફેરવ્યું',
+  'focus.autosaveOn': 'ઓટોસેવ ચાલુ',
   'focus.backToLibrary': 'લાઇબ્રેરી પર પાછા જાઓ',
   'focus.bodyPlaceholder': 'એક પછી એક લાઇન. બીજું કોઈ અહીં નથી.',
   'focus.exit': 'ફોકસ મોડમાંથી બહાર નીકળો',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'એક બનાવો',
   'login.subline':
     'તમારી હસ્તપ્રતો, દૈનિક પાના અને કર્સરની છેલ્લી સ્થિતિ તમે જ્યાં છોડી હતી ત્યાં જ છે.',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'pricing.exports': 'નિકાસ',
   'pricing.folders': 'ફોલ્ડર્સ',
   'pricing.heading': 'દસ્તાવેજો',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'અમે તમને હમણાં જ ઇમેઇલ કરેલો કોડ દાખલ કરો અને કંઈક યાદગાર પસંદ કરો. તે સાચવ્યા પછી અમે તમને સાઇન ઇન કરીશું.',
   'reset.tokenHint': 'તમારા ઇનબોક્સમાંથી પેસ્ટ કર્યું.',
+  'settings.appearance.heading': 'આછું કે અંધારું',
   'settings.editor.${row.id}.description': 'ભાષા',
   'settings.editor.description':
     'ટાઇપરાઇટર સ્ક્રોલ, ફકરા ફેડ અને નિષ્ક્રિય ફોકસ — ડિફોલ્ટ્સ લાંબા સત્રો માટે ટ્યુન કરવામાં આવે છે.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'પ્રકરણ ત્રીજો - સૂર્યોદય પહેલાનો શાંત સમય',
   'versalDocumentCard.pinned': 'પિન કરેલ',
   'versalLayout.nav.stats': 'આંકડા',
+  'versalLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'versalManuscriptHero.cta': 'લખવાનું ચાલુ રાખો',
   'versalManuscriptHero.goalLabel': 'આજનો શબ્દ ધ્યેય',
   'versalManuscriptHero.inProgress': 'ટ્રેક પર',

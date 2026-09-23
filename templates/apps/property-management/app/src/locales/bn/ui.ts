@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.tagline': 'প্রতিটি ইউনিট, এক ছাদের নিচে।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.addProperty': 'সম্পত্তি যোগ করুন',
   'dashboard.empty.body':
     'একবার আপনার কাছে সম্পত্তি, ইউনিট এবং ভাড়ার তথ্য চলে এলে, এই ড্যাশবোর্ডটি পোর্টফোলিও সংক্রান্ত তথ্যে পূর্ণ হয়ে যায়।',
@@ -42,6 +45,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'ভাড়াটিয়া নির্বাচন করুন…',
   'leases.new.unit': 'ইউনিট',
   'leases.new.unitPlaceholder': 'ইউনিট নির্বাচন করুন…',
+  'leases.subheading':
+    '{{count}} টি সক্রিয় লিজ · {{expiring}} শীঘ্রই মেয়াদ শেষ হবে · {{monthly}} / প্রতি মাসে মোট',
   'login.emailLabel': 'ইমেইল ঠিকানা',
   'login.noAccount': 'Hearthstone-এ নতুন?',
   'login.passwordPlaceholder': '•২০২২ •২০২২ •২০২২ •২০২২ •২০২২ •২০২২ •২০২২',
@@ -83,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{সম্পত্তি}} ইউনিট {{একক}} · {{তারিখ}}',
   'maintenanceQueueList.subtitle': '{{count}} খোলা ওয়ার্ক অর্ডার, অগ্রাধিকার অনুসারে সাজানো',
   'maintenanceQueueList.title': 'রক্ষণাবেক্ষণ সারি',
+  'nav.closeMenu': 'মেনু বন্ধ করুন',
+  'nav.openMenu': 'মেনু খুলুন',
   'notFound.body':
     'আপনি যে পৃষ্ঠাটি খুঁজছিলেন সেটি স্থানান্তরিত, আর্কাইভ করা হয়েছে, অথবা সেটির কোনো অস্তিত্বই ছিল না।',
   'notFound.title': 'ঐ দরজাটা খোলে না',

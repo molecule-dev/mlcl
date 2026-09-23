@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.pageTitle': 'Kuhusu {{appName}}',
   'analytics.error': 'Haikuweza kupakia uchanganuzi.',
   'analytics.heading': 'Uchanganuzi wa urejeshaji',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Hakuna viwango vya bei vilivyowekwa.',
   'billing.plans.heading': 'Mipango',
   'billing.subheading': 'Panga, matumizi, na malipo yanayosimamiwa na Stripe.',
+  'common.confirm': 'Thibitisha',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.retry': 'Jaribu tena',
   'documentCard.open': 'Fungua \\u2192',
   'documentDetail.back': 'Rudi kwenye hati',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Hati ya faharasa',
   'documents.composer.titlePlaceholder': 'Kichwa cha hati',
   'documents.emptyAll': 'Hakuna hati bado. Pakia moja ili kuanza kuuliza maswali.',
+  'documents.error.load': 'Haikuweza kupakia hati.',
   'documents.heading': 'Nyaraka zilizoorodheshwa',
   'documents.loading': 'Inapakia hati…',
   'documents.metric.chunks': 'Jumla ya vipande',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Kuondoa\\u2026',
   'members.subheading': 'Waalike wachezaji wenzako na uweke majukumu.',
   'members.tableHeading': 'Orodha ya watu',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'notFound.askCta': 'Uliza msingi wa maarifa',
+  'notFound.body':
+    '{{app}} haikuweza kupata ukurasa huo. Huenda kiungo kimevunjika, au ukurasa huo huenda uliondolewa wakati wa uorodheshaji upya.',
   'notFound.eyebrow': 'Haiwezi kurejesha',
   'notFound.title': 'Hakuna kipande kama hicho kwenye faharasa',
   'notifications.dismiss': 'Ondoa',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Bofya \\u201cOngeza chanzo\\u201d ili kuunganisha kiunganishi chako cha kwanza.',
   'sources.empty.title': 'Hakuna vyanzo bado.',
+  'sources.error.add': 'Haikuweza kuongeza chanzo.',
   'sources.error.labelRequired': 'Lebo inahitajika.',
   'sources.error.load': 'Haikuweza kupakia vyanzo.',
   'sources.error.urlRequired': 'URL inahitajika kwa aina hii ya chanzo.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Құпия сөзіңізді қалпына келтіріңіз.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Тапсырманы аяқталған деп белгілеу',
   'checklistTaskCard.markIncomplete': 'Тапсырманы орындалмаған деп белгілеу',
   'checklistTaskCard.openLabel': 'Тапсырманы ашу',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Барлық жаңалықтарды тауып алдыңыз',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Жолда',
   'dashboard.timelineHeading': '30/60/90 кезеңдері',
   'dashboard.viewAllTasks': 'Барлық тапсырмаларды қарау',
+  'dashboard.weekOne': '1-апта',
   'dashboard.yourCohort': 'Сіздің командаңыз',
   'documents.empty.body': 'Командаңыз қосқан құжаттар осы жерде көрсетіледі.',
   'documents.empty.title': 'Әлі құжаттар жоқ',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 күндік тегін сынақ нұсқасы',
   'landing.subhead':
     'Embark әрбір жаңа командаласқа алғашқы 90 күнде – құжаттарды рәсімдеу, жаттығулар, маңызды кезеңдер және маңызды таныстырулар кезінде – тыныш және сенімді жерде басшылық етеді.',
+  'layout.openMenu': 'Навигация мәзірін ашу',
   'layout.search': 'Тапсырмаларды, құжаттарды, командаластарды іздеу...',
+  'layout.searchTeammates': 'Командалас командаларды аты-жөні немесе рөлі бойынша іздеу...',
   'layout.section.onboarding': 'Бейімделу',
   'layout.tagline': 'Сіздің сапарыңыз осы жерден басталады',
   'notifications.empty.body': 'Жаңа әрекет осы жерде көрсетіледі.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Барлығы дайын.',
   'planUpdated.preparing': 'Жоспарыңыз жаңартылуда…',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.documentsLabel': 'құжаттар',
   'pricing.onboardingsLabel': 'бейімделулер',
   'pricing.tasksLabel': 'тапсырмалар',

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
+  'about.title': '{{app}} के बारे में',
   'auth.login.noAccount': 'Sparq पर नए हैं?',
   'auth.login.or': 'या इसके साथ जारी रखें',
   'auth.signup.or': 'या इसके साथ साइन अप करें',
+  'common.confirm': 'पुष्टि करें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.loadError': 'इस सामग्री को लोड करने में कुछ गड़बड़ी हो गई।',
+  'common.retry': 'पुनः प्रयास करें',
   'discover.collections.title': 'श्रेणी के अनुसार ब्राउज़ करें',
   'discover.collections.viewAll': 'अपनी लाइब्रेरी देखें →',
   'discover.empty.body': 'कोई दूसरी श्रेणी आज़माएँ या खोज साफ़ करें।',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'अपनी स्ट्रीक को बनाए रखने, लाइव गेम होस्ट करने और लीडरबोर्ड पर चढ़ने के लिए साइन इन करें।',
   'myQuizzes.createButton': 'नई क्विज़',
+  'myQuizzes.deleteConfirm': 'हमेशा के लिए हटाएं?',
   'myQuizzes.empty.createCta': 'अपनी पहली क्विज़ बनाएँ →',
   'myQuizzes.empty.created': 'आपने अभी तक कोई क्विज़ नहीं बनाई है।',
   'myQuizzes.empty.played': 'अभी तक कोई प्रकाशित क्विज़ नहीं।',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'लोड हो रहा है…',
   'notifications.subhead':
     '{{count}} अपठित चिंगारियाँ। आमंत्रण, लीडरबोर्ड चालें, और उपलब्धियाँ एक स्ट्रीम में।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.checkoutError': 'चेकआउट शुरू नहीं किया जा सका। कृपया पुनः प्रयास करें।',
+  'pricing.heading': 'अपनी {{app}} योजना चुनें',
   'pricing.included': 'शामिल है',
   'pricing.loadError': 'योजनाएँ लोड नहीं हो सकीं।',
   'pricing.maxQuizzes': '{{count}} क्विज़',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'अभी तक कुछ भी प्रकाशित नहीं हुआ है।',
   'profile.startBuilding': 'बनाना शुरू करें →',
   'profile.tier': 'Sparq खिलाड़ी',
+  'quizBuilder.addFailed': 'प्रश्न जोड़ा नहीं जा सका। कृपया पुनः प्रयास करें।',
   'quizBuilder.addQuestion': 'प्रश्न जोड़ें',
   'quizBuilder.answerPlaceholder': 'एक विकल्प लिखें…',
   'quizBuilder.answersLabel': 'उत्तर विकल्प',
   'quizBuilder.back': 'मेरी क्विज़ पर वापस',
   'quizBuilder.delete': 'प्रश्न हटाएँ',
+  'quizBuilder.deleteFailed': 'प्रश्न को हटाया नहीं जा सका।',
   'quizBuilder.firstQuestion': 'शुरू करने के लिए अपना पहला प्रश्न जोड़ें।',
   'quizBuilder.idLabel': 'क्विज़ आईडी: {{id}}',
   'quizBuilder.loadError': 'क्विज़ लोड नहीं हो सकी।',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'प्रकाशित करने से पहले {{count}} प्रश्न(ों) के लिए कम से कम दो उत्तर विकल्प जोड़ें और सही उत्तर चुनें।',
   'quizBuilder.questionsTitle': 'प्रश्न',
+  'quizBuilder.saveFailed': 'शीर्षक सहेजा नहीं जा सका। पुनः प्रयास करें।',
   'quizBuilder.statusDraft': 'ड्राफ़्ट',
   'quizBuilder.subhead':
     'शीर्षक संपादित करें, प्रश्न जोड़ें, विकल्प और सही उत्तर सेट करें। परिवर्तन स्वतः सहेजे जाते हैं।',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} मिनट',
   'quizDetail.hostMultiplayer': 'मल्टीप्लेयर होस्ट करें',
   'quizDetail.leaderboardEmpty': 'अभी तक कोई गेम नहीं — पहले स्कोर सेट करें।',
+  'quizDetail.loadError': 'यह क्विज़ लोड नहीं हो सका।',
   'quizDetail.loading': 'क्विज़ लोड हो रही है…',
   'quizDetail.plays': '{{count}} बार खेली गई',
   'quizDetail.playSolo': 'अकेले खेलें',

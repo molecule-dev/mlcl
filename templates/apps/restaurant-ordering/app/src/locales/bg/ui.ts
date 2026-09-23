@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'analytics.avgCheckLabel': 'Средна проверка',
   'analytics.busiestHour': 'Най-натоварен час',
   'analytics.coversToday': 'Покрива днес',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Бакшиши (средно)',
   'analytics.topItems': 'Най-популярни артикули днес',
   'authShell.eyebrow': 'Добре дошли отново в услугата',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Топла и бърза точка за продажба за екипи в сферата на хотелиерството и ресторантьорството. Влезте в кухнята си и продължете оттам, откъдето сте спрели.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'или {{price}}',
   'billing.priceUnavailable': 'Този план няма конфигурирана цена.',
   'billing.updated': 'Планът е актуализиран.',
+  'common.goToDashboard': 'Към таблото',
   'customerDetail.book': 'Добавяне на резервация',
   'customerDetail.col.table': 'Таблица',
   'customerDetail.confirmDelete': 'Да се изтрие ли този запис на гост?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Наличност',
   'menuItemDetail.available': 'Налично тази вечер',
   'menuItemDetail.backToMenu': 'Обратно към менюто',
+  'menuItemDetail.confirmDelete': 'Да се изтрие ли този елемент от менюто?',
   'menuItemDetail.delete': 'Изтриване на елемент',
   'menuItemDetail.deleteError': 'Изтриването не бе успешно. Опитайте отново.',
   'menuItemDetail.dietary': 'Диетични етикети',
@@ -139,9 +143,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · редактиране на снимки, модификатори, диетични храни и цени.',
   'menuItemDetail.untitled': 'Неозаглавен елемент',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'notFound.heading': 'Тази маса не е на пода.',
   'notFound.subheading':
     'Страницата, която търсите, е била поставена другаде — или никога не е съществувала.',
+  'notFound.toLanding': 'начална страница на {{app}}',
   'notifications.markError': 'Не можах да маркирам всички като прочетени.',
   'orderDashboard.activeDelta': 'На живо сега',
   'orderDashboard.activeLabel': 'Активни поръчки',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Покажи паролата',
   'resetPassword.subtitle': 'Въведете новата си парола, за да си възвърнете достъпа до кухнята.',
   'resetPassword.tokenLabel': 'Нулиране на токен',
+  'restaurantOrderingLayout.primaryNavLabel': 'Основна навигация',
   'revenueHeroCard.activeOrders': '{{count}} активен',
   'revenueHeroCard.change': '{{sign}} {{amount}} спрямо вчера',
   'revenueHeroCard.title': 'Днешните приходи',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Име на ресторант',
   'tableDetail.activeOrders': 'Активни поръчки',
   'tableDetail.backToFloor': 'План на етажа',
+  'tableDetail.confirmDelete': 'Да се изтрие ли тази таблица?',
   'tableDetail.delete': 'Изтриване',
   'tableDetail.deleteError': 'Не можа да се изтрие таблицата.',
   'tableDetail.heading': 'Таблица {{label}}',

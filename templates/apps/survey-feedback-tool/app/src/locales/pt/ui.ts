@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'analytics.back': 'Visão geral da pesquisa',
   'analytics.kpiNps': 'Pontuação NPS',
   'analytics.kpiNpsTrend': 'Promotores {{p}}% · Detratores {{d}}%',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Propriedades',
   'builder.questionNumber': 'P{{num}}',
   'builder.surveyTitle': 'Título da pesquisa',
+  'common.goToDashboard': 'Ir para o Painel',
   'forgotPassword.failed': 'Não foi possível enviar o e-mail de redefinição. Tente novamente.',
   'forgotPassword.subheading': 'Insira seu e-mail e enviaremos um link de recuperação.',
   'forgotPassword.successBody':
     'Se houver uma conta correspondente a {{email}}, um link de redefinição está a caminho. Verifique sua caixa de entrada e a pasta de spam.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Todas as vozes são bem-vindas.',
   'landing.footer.startTrial': 'Iniciar teste',
   'landing.hero.badge': 'Pesquisas, NPS e feedback em um só lugar',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Preços',
   'landing.pricing.perMonth': '/mês',
   'landing.pricing.popular': 'Mais popular',
+  'landing.pricing.subtitle':
+    'Todos os planos incluem o criador de pesquisas, links de compartilhamento público e análises de NPS. Não é necessário cartão de crédito para começar.',
+  'landing.pricing.title': 'Comece gratuitamente e expanda conforme necessário.',
   'landing.sample.eyebrow': 'NPS num relance',
   'landing.sample.title': 'Detratores, passivos, promotores — instantaneamente legíveis.',
   'login.failed': 'Falha no login. Tente novamente.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostrar senha',
   'login.signUpLink': 'Iniciar teste gratuito',
   'login.subheading': 'Entre para continuar ouvindo seu público.',
+  'notFound.body':
+    'A página que você está procurando não existe em {{app}} . Vamos redirecioná-lo para suas pesquisas.',
   'notFound.cta': 'Voltar para pesquisas',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Esta pesquisa saiu da fila.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passivo 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Público para sua equipe e nas pesquisas que você cria.',
+  'profile.identity.emailRequired': 'Insira um endereço de e-mail.',
   'profile.identity.saveCta': 'Salvar nome',
   'profile.password.current': 'Senha atual',
   'profile.password.fillFields': 'Insira a senha atual e a nova.',
@@ -177,6 +186,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} perguntas',
   'templates.subheading':
     'Escolha um ponto de partida testado em campo — cada modelo vem pré-ajustado com padrões sensatos, lógica de exemplo e um layout mobile limpo.',
+  'thankYou.body':
+    'Sua resposta foi registrada. {{app}} a incluirá na próxima atualização de análises.',
   'thankYou.eyebrow': 'Resposta recebida',
   'thankYou.heading': 'Obrigado — sua voz importa.',
   'thankYou.home': 'Visitar Gauge',

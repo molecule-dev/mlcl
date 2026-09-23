@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'ascentSideNav.nav.notifications': 'Mga Notification',
   'ascentSideNav.newObjective': 'Bagong layunin',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'Itakda ang tuktok. Itala ang puntos para sa pag-akyat. Sanayin ang koponan.',
   'authShell.eyebrow': 'Mga OKR na naglilipat ng mga koponan',
@@ -22,6 +25,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Lugar ng Trabaho · Pagsingil',
   'billing.heading': 'Plano at mga invoice',
   'billing.period.year': 'Taon-taon',
+  'billing.perk.export': 'Pag-export ng datos + pag-access sa API',
+  'billing.perk.inApp': 'Pag-uulat sa loob ng app',
+  'billing.perk.standard': 'Mga karaniwang review',
+  'billing.perk.unlimitedObjectives': 'Walang limitasyong mga layunin',
+  'billing.perk.unlimitedRetention': 'Walang limitasyong pagpapanatili',
   'billing.subheading': 'Nasa {{name}} plano. Paghambingin ang mga tier at mag-upgrade sa ibaba.',
   'billing.tier.unavailable': 'Hindi magagamit',
   'billing.tier.upgrade': 'Mag-upgrade sa {{name}}',
@@ -43,11 +51,13 @@ export const ui: UiTranslations = {
     'I-update ang kasalukuyang halaga para sa bawat KR, markahan ang confidence, mag-drop ng isang nota, at isumite.',
   'checkIn.submit': 'Isumite ang pag-check in',
   'checkIn.submittedMessage': 'Na-save na ang check-in. Na-update na ang progreso at timeline.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': 'Hindi',
   'common.relative.daysAgo': '{{count}}a nakalipas',
   'common.relative.hoursAgo': '{{count}} oras ang nakalipas',
   'common.relative.justNow': 'ngayon lang',
   'common.relative.minutesAgo': '{{count}} min nakalipas',
+  'common.retry': 'Subukan muli',
   'common.yes': 'Oo',
   'common.you': 'Ikaw',
   'dashboard.allActivity': 'Tingnan ang lahat ng aktibidad →',
@@ -91,6 +101,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Nagpadala kami ng link sa pag-reset sa {{email}} Mag-e-expire ito sa loob ng isang oras — sandali lang ang inbox.',
   'forgotPassword.successHeading': 'Tingnan ang iyong inbox.',
+  'keyResult.metrics.boolean': 'Oo / Hindi',
+  'keyResult.metrics.currency': 'Pera $',
+  'keyResult.metrics.number': 'Numero',
+  'keyResult.metrics.percent': 'porsyento ng porsyento',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Itakda ang iyong unang layunin, mag-imbita ng tatlong kasamahan sa koponan, at isagawa ang iyong unang lingguhang pag-check-in bago ang Biyernes.',
@@ -102,6 +116,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Paano umaangat ang mga koponan',
   'landing.featuresTitle': 'Mga OKR na pang-coach, nang walang spreadsheet sprawl.',
   'landing.footerBuiltOn': 'Ginawa sa Molecule.dev',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Ang pag-akyat ay nagbibigay sa bawat koponan ng masusukat na landas paakyat ng bundok — magtakda ng mga layunin, makakuha ng mahahalagang resulta linggu-linggo, at repasuhin ang pag-akyat bawat quarter.',
   'landing.heroProgressLabel': 'Plano ng kumpanya sa ikalawang kwarter',
@@ -111,6 +126,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'o magpatuloy gamit ang',
   'login.subheading':
     'Ipagpatuloy kung saan ka tumigil — naghihintay ang iyong mga check-in, KR, at review.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.mainNavigation': 'Pangunahing nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'newObjective.addKr': 'Idagdag ang KR',
   'newObjective.coachLabel': 'Mga paalala ng coach',
   'newObjective.descriptionPlaceholder':
@@ -137,6 +155,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Activity center',
   'notifications.markRead': '● Markahan bilang nabasa na',
   'objective.scopes.company': 'Kumpanya',
+  'objective.scopes.individual': 'Indibidwal',
   'objective.scopes.team': 'Koponan',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Balik sa mga layunin',
@@ -159,11 +178,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Pagsubaybay {{count}} mga layunin. Salain ayon sa katayuan upang mahanap kung ano ang nangangailangan ng pansin.',
   'profile.achievementCheckInsMany': '{{count}} mga naka-log na check-in',
+  'profile.achievementCheckInsOne': '1 naka-log in na',
+  'profile.achievementCompletedMany': 'Nakumpleto ang {{count}} na mga layunin',
+  'profile.achievementCompletedOne': 'Nakumpleto ang 1 layunin',
+  'profile.achievementOnTrackMany': '{{count}} na layunin ang nasa tamang landas',
+  'profile.achievementOnTrackOne': '1 layunin ang nasa track',
   'profile.activeHeading': 'Mga aktibong layunin',
   'profile.allObjectives': 'Lahat ng layunin →',
   'profile.empty': 'Wala pang aktibong layunin — gumawa ng una para makapagsimula.',
   'profile.eyebrow': 'Profile ng umaakyat',
   'profile.guestName': 'Umaakyat',
+  'profile.loadError': 'Hindi ma-load ang iyong mga layunin.',
   'profile.loading': 'Naglo-load ng mga layunin…',
   'profile.noAchievements':
     'Kumpletuhin ang isang check-in upang ma-unlock ang iyong unang achievement.',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.title': 'ห้องเขียนหนังสือที่คุณสามารถพกพาไปได้ทุกที่',
   'billing.cancelConfirm': 'ต้องการยกเลิกการสมัครสมาชิกที่ใช้งานอยู่หรือไม่?',
   'billing.cancelFailed': 'ไม่สามารถยกเลิกได้',
   'billing.checkingOut': 'กำลังเปิดช่องชำระเงิน…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ไม่สามารถโหลดข้อมูลการเรียกเก็บเงินได้',
   'billing.loading': 'กำลังโหลดข้อมูลการเรียกเก็บเงิน…',
   'billing.upgradeCta': 'อัปเกรดเป็น {{name}}',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'editor.autosaveOn': 'บันทึกอัตโนมัติเมื่อ',
   'editor.backToLibrary': 'กลับไปที่ห้องสมุด',
   'editor.charCount': '{{count}} ตัวละคร',
   'editor.confirmTrash': 'ย้ายเอกสารนี้ไปที่ถังขยะ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ยกเลิกการตรึง',
   'editor.unpublishCta': 'ย้ายไปเป็นฉบับร่าง',
   'editor.unpublished': 'กลับสู่สถานะร่าง',
+  'focus.autosaveOn': 'บันทึกอัตโนมัติเมื่อ',
   'focus.backToLibrary': 'กลับไปที่ห้องสมุด',
   'focus.bodyPlaceholder': 'ทีละบรรทัด ไม่มีใครอยู่ที่นี่เลย',
   'focus.exit': 'ออกจากโหมดโฟกัส',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.headline': 'หยิบเชือกที่คุณวางไว้ขึ้นมาอีกครั้ง',
   'login.signupLink': 'สร้างหนึ่งรายการ',
   'login.subline': 'ต้นฉบับของคุณ หน้าบันทึกประจำวัน และตำแหน่งเคอร์เซอร์สุดท้ายยังคงอยู่ที่เดิม',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'pricing.exports': 'การส่งออก',
   'pricing.folders': 'โฟลเดอร์',
   'pricing.heading': 'เอกสาร',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'ป้อนรหัสที่เราเพิ่งส่งให้คุณทางอีเมล แล้วเลือกชื่อที่น่าจดจำ เราจะล็อกอินให้คุณเมื่อบันทึกเรียบร้อยแล้ว',
   'reset.tokenHint': 'คัดลอกมาจากกล่องจดหมายของคุณ',
+  'settings.appearance.heading': 'สว่างหรือมืด',
   'settings.editor.${row.id}.description': 'ภาษา',
   'settings.editor.description':
     'การเลื่อนแบบเครื่องพิมพ์ดีด การเฟดย่อหน้า และการโฟกัสเมื่อไม่ได้ใช้งาน — ค่าเริ่มต้นได้รับการปรับแต่งมาสำหรับการใช้งานเป็นเวลานาน',
@@ -136,6 +144,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'บทที่สาม — ช่วงเวลาอันเงียบสงบก่อนพระอาทิตย์ขึ้น',
   'versalDocumentCard.pinned': 'ปักหมุด',
   'versalLayout.nav.stats': 'สถิติ',
+  'versalLayout.primaryNavLabel': 'การนำทางหลัก',
   'versalManuscriptHero.cta': 'เขียนต่อไป',
   'versalManuscriptHero.goalLabel': 'เป้าหมายคำศัพท์ประจำวันนี้',
   'versalManuscriptHero.inProgress': 'ถูกต้อง',

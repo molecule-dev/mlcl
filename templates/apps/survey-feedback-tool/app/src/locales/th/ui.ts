@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'analytics.back': 'ภาพรวมแบบสำรวจ',
   'analytics.kpiNps': 'คะแนน NPS',
   'analytics.kpiNpsTrend': 'โปรโมเตอร์ {{p}} % · ผู้ที่ไม่เห็นด้วย {{d}} %',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'คุณสมบัติ',
   'builder.questionNumber': 'คิว {{num}}',
   'builder.surveyTitle': 'ชื่อแบบสำรวจ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'forgotPassword.failed': 'ไม่สามารถส่งอีเมลรีเซ็ตได้ โปรดลองอีกครั้ง',
   'forgotPassword.subheading': 'กรอกอีเมลของคุณ แล้วเราจะส่งลิงก์สำหรับกู้คืนระบบให้',
   'forgotPassword.successBody':
     'หากบัญชีตรงกัน {{email}} ลิงก์สำหรับรีเซ็ตจะถูกส่งไปให้คุณ โปรดตรวจสอบกล่องจดหมายเข้าและโฟลเดอร์สแปมของคุณ',
+  'landing.footer.copyright': '© {{year}} {{app}} . ยินดีต้อนรับทุกความคิดเห็น',
   'landing.footer.startTrial': 'เริ่มการทดลอง',
   'landing.hero.badge': 'แบบสำรวจ คะแนนความพึงพอใจของลูกค้า (NPS) และคำติชมทั้งหมดในที่เดียว',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'ราคา',
   'landing.pricing.perMonth': '/เดือน',
   'landing.pricing.popular': 'ยอดนิยมที่สุด',
+  'landing.pricing.subtitle':
+    'ทุกแพ็กเกจประกอบด้วยเครื่องมือสร้างแบบสำรวจ ลิงก์สำหรับแชร์สาธารณะ และการวิเคราะห์ NPS ไม่จำเป็นต้องใช้บัตรเครดิตในการเริ่มต้นใช้งาน',
+  'landing.pricing.title': 'เริ่มต้นใช้งานฟรี ขยายขนาดได้ตามต้องการ',
   'landing.sample.eyebrow': 'ภาพรวม NPS',
   'landing.sample.title': 'ผู้คัดค้าน ผู้เฉยๆ ผู้สนับสนุน — อ่านออกได้ทันที',
   'login.failed': 'การเข้าสู่ระบบล้มเหลว โปรดลองอีกครั้ง',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'แสดงรหัสผ่าน',
   'login.signUpLink': 'เริ่มทดลองใช้งานฟรี',
   'login.subheading': 'ลงชื่อเข้าใช้เพื่อฟังความคิดเห็นจากผู้ชมของคุณต่อไป',
+  'notFound.body': 'หน้าที่คุณกำลังมองหาไม่มีอยู่ใน {{app}} เราจะพาคุณกลับไปยังแบบสำรวจของคุณ',
   'notFound.cta': 'กลับไปที่แบบสำรวจ',
   'notFound.eyebrow': '404',
   'notFound.heading': 'แบบสำรวจนี้หลุดลำดับไปจากกำหนดการ',
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'พาสซีฟ 7–8',
   'npsDistributionBar.promoter': 'โปรโมเตอร์ 9–10',
   'profile.identity.description': 'เผยแพร่ให้ทีมงานของคุณและแบบสำรวจที่คุณสร้างขึ้นทราบ',
+  'profile.identity.emailRequired': 'กรุณาป้อนที่อยู่อีเมล',
   'profile.identity.saveCta': 'บันทึกชื่อ',
   'profile.password.current': 'รหัสผ่านปัจจุบัน',
   'profile.password.fillFields': 'ป้อนทั้งรหัสผ่านปัจจุบันและรหัสผ่านใหม่',
@@ -175,6 +183,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} คำถาม',
   'templates.subheading':
     'เลือกเทมเพลตเริ่มต้นที่ผ่านการทดสอบมาแล้ว — ทุกเทมเพลตได้รับการปรับแต่งมาเป็นอย่างดีด้วยค่าเริ่มต้นที่เหมาะสม ตรรกะตัวอย่าง และเลย์เอาต์มือถือที่สะอาดตา',
+  'thankYou.body':
+    'ระบบได้บันทึกคำตอบของคุณแล้ว {{app}} จะนำคำตอบนี้ไปรวมไว้ในการอัปเดตข้อมูลวิเคราะห์ครั้งถัดไป',
   'thankYou.eyebrow': 'ได้รับคำตอบแล้ว',
   'thankYou.heading': 'ขอบคุณค่ะ เสียงของคุณมีความสำคัญ',
   'thankYou.home': 'เยี่ยมชมเมอร์เมอร์',

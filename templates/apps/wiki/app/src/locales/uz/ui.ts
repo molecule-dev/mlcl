@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Yechilmoqda…',
   'comments.subtitle':
     "The {{count}} Mavzular hali ham javob yoki yechimni kutmoqda. Yoshi bo'yicha saralangan — eng qadimgisi birinchi o'rinda, shuning uchun hech narsa chirimaydi.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'forgotPassword.sentTo': 'Qayta tiklash havolasi yuborildi {{email}}',
   'forgotPassword.successSubheading':
     "Elektron pochtangizni tekshiring — biz hozirgina qayta tiklash havolasini yubordik. U 30 daqiqadan so'ng amal qilish muddati tugaydi.",
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Yangi sahifa',
   'pageTreeSidebar.workspaceHeader': 'Ish maydoni',
   'pageView.breadcrumb': 'Non ushoqlari',
+  'pageView.confirmTrash': 'Chiqindilarni tashlab yuboringmi?',
   'pageView.home': 'Uy',
   'pageView.lastEdited': 'Yangilandi {{when}}',
   'pageView.loading': 'Sahifa yuklanmoqda…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Xulosa qilinmoqda…',
   'pageView.summaryUnavailable': "Sun'iy intellekt xulosasi ushbu ish maydoni uchun sozlanmagan.",
   'pageView.tocTitle': 'Ushbu sahifada',
+  'pageView.trash': 'Axlat',
+  'pageView.trashing': 'Chiqindixonaga tashlanmoqda…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Nishonlar',
   'profile.owned.title': 'Egalik qilingan sahifalar',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Ish maydoni, profil, bildirishnomalar, integratsiyalar — barchasi bitta xotirjam qobiqda.',
   'settingsPage.workspace.defaultLanding': "Standart qo'nish ekrani",
   'settingsPage.workspace.landingHome': 'Uy',
+  'settingsPage.workspace.landingSpaces': "Bo'shliqlar",
   'settingsPage.workspace.subdomainLabel': 'Subdomen',
   'settingsPage.workspace.title': 'Ish maydoni',
   'signup.eyebrow': 'Yangi ish maydonini boshlang',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} daqiqa',
   'templates.subtitle':
     "Sahifani bo'sh tuvaldan emas, balki trafaretdan boshlang. Har bir shablon shaklni qat'iy kodlaydi, shunda siz mazmunga e'tibor qaratishingiz mumkin.",
+  'trash.confirmPurge': 'Abadiy tozalashmi?',
+  'trash.confirmPurgeAria': "Tasdiqlash: {{title}} ni butunlay o'chirish",
   'trash.daysUntilPurge': '{{days}} kunlar qoldi',
   'trash.empty.body':
     "O'chirilgan sahifalar tozalanishidan oldin 30 kun davomida shu yerda ko'rsatiladi.",
@@ -151,5 +158,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Tiklanmoqda…',
   'versionHistory.subtitle': '{{count}} versiyalar · farqni tekshirish uchun qatorni tanlang',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Navigatsiyani yopish',
+  'wikiLayout.menu': 'Navigatsiya',
+  'wikiLayout.openMenu': 'Navigatsiyani ochish',
   'wikiLayout.searchPlaceholder': 'Cairn’da qidiruv — sahifalar, sharhlar…',
 }

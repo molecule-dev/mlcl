@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'announcementsFeed.empty': 'Chưa có thông báo nào.',
   'announcementsFeed.eyebrow': '{{count}} cập nhật',
   'announcementsFeed.title': 'Thông báo mới nhất',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Không có gì ở đây',
   'assignments.emptyBody': 'Hãy chuyển bộ lọc bên trên để xem các bài tập ở trạng thái khác.',
   'assignments.eyebrow': 'Tất cả khóa học · Học kỳ này',
+  'assignments.loadError': 'Không thể tải bài tập.',
   'assignments.loading': 'Đang tải bài tập…',
   'assignments.subtitle':
     'Lọc theo trạng thái để xem bài nào đến hạn, đã nộp, đã chấm hay còn thiếu.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Ghi chú',
   'attendance.empty': 'Chưa có hồ sơ điểm danh nào.',
   'attendance.eyebrow': 'Học kỳ xuân · 4 tuần qua',
+  'attendance.loadError': 'Không thể tải dữ liệu điểm danh.',
   'attendance.loading': 'Đang tải điểm danh…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': 'Năm học · {{year}}',
   'calendar.subtitle': 'Hạn nộp bài tập được vẽ trên lưới tháng — các kỳ thi nổi bật bằng màu đỏ.',
   'calendar.title': 'Sự kiện {{month}}',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.no': '—',
+  'common.retry': 'Thử lại',
   'common.yes': '✓',
   'courseDetail.backLink': 'Điểm số',
   'courseDetail.currentGrade': 'Điểm hiện tại',
@@ -71,11 +76,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Xu hướng',
   'grades.empty': 'Chưa đăng điểm nào.',
   'grades.eyebrow': 'Sổ điểm',
+  'grades.loadError': 'Không thể tải điểm số của bạn.',
   'grades.loading': 'Đang tải điểm…',
   'grades.subtitle':
     'Điểm chữ và phần trăm trực tiếp. Mũi tên xu hướng cho thấy quý vị đang đi lên, đứng yên hay đi xuống.',
   'grades.title': 'Điểm của quý vị, từng khóa học',
   'grades.trendStable': 'Ổn định',
+  'landing.copyright': '© {{year}} {{app}} . Được xây dựng cho sinh viên, dành cho gia đình.',
   'landing.ctaHeading': 'Một ngày học yên ả bắt đầu trong vài phút',
   'landing.eyebrow': 'Dành cho học sinh trung học cơ sở và trung học phổ thông',
   'landing.featuresHeading': 'Một ngày học được sắp xếp xoay quanh học sinh',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Bài tập',
   'nav.attendance': 'Điểm danh',
   'nav.calendar': 'Lịch',
+  'nav.closeMenu': 'Đóng menu điều hướng',
   'nav.grades': 'Điểm số',
+  'nav.openMenu': 'Mở menu điều hướng',
   'nav.statusEyebrow': 'GPA học kỳ',
   'nav.statusSubtext': 'Bảng danh dự · Học kỳ xuân',
+  'nav.unreadMessages': 'Tin nhắn chưa đọc',
   'notifications.eyebrow': '{{count}} cập nhật',
   'notifications.subtitle':
     'Điểm số, lời nhắc, tin nhắn và thông báo nhà trường. Điều chỉnh kênh mà mỗi thông báo sử dụng trong Cài đặt.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.attendanceLabel': 'điểm danh',
   'pricing.gradesLabel': 'điểm',
   'pricing.heading': 'thông báo',

@@ -200,7 +200,9 @@ function checkTree(localesDir, appSrc) {
           problems.push(
             `${where}: '${key}' has [${have.join(', ')}] but English has [${want.join(', ')}]`,
           )
-        } else if (want.some((w, i) => w !== have[i])) {
+        } else if ([...want].sort().some((w, i) => w !== [...have].sort()[i])) {
+          // Compared by NAME, not position: `t()` substitutes by name, and many
+          // languages put the count before the total (`{{of}}개 중 {{rating}}개`).
           problems.push(
             `${where}: '${key}' renames [${have.join(', ')}] → must be [${want.join(', ')}]`,
           )
@@ -249,8 +251,11 @@ if (problems.length === 0) {
   )
 } else {
   console.error(`\n✗ template locale placeholder problems (${problems.length}):\n`)
-  for (const problem of problems.slice(0, 30)) console.error(`  ${problem}`)
-  if (problems.length > 30) console.error(`  … and ${problems.length - 30} more`)
+  // `--all` prints every problem (for auditing); the default keeps hook output short.
+  const shown = process.argv.includes('--all') ? problems : problems.slice(0, 30)
+  for (const problem of shown) console.error(`  ${problem}`)
+  if (problems.length > shown.length)
+    console.error(`  … and ${problems.length - shown.length} more (--all lists them)`)
   console.error(
     `\nA placeholder name is a VARIABLE, not prose: it must match the English\n` +
       `defaultValue byte for byte, or the scaffolded app renders the raw token.\n` +

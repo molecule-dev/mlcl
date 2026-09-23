@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'accountDetail.activeBadge': 'Gníomhach',
   'accountDetail.availableLabel': '{{amount}} ar fáil',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Theip ar na cuntais a lódáil.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Reoite',
   'accounts.totalBalance': '{{suim}} iomlán',
   'audit.empty': 'Gan aon imeachtaí fós.',
   'audit.eyebrow': 'Slándáil & rochtain',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Airgead tirim ar láimh',
   'cashCreditCard.creditLabel': 'Creidmheas a úsáideadh',
   'cashCreditCard.title': 'Airgead Tirim & Creidmheas',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Forbhreathnú',
   'dashboard.recentEmpty': 'Gan aon idirbhearta fós.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Taispeáin an focal faire',
   'login.signUp': 'Cláraigh',
   'login.submit': 'Sínigh Isteach',
+  'meridianLayout.menu': 'Roghchlár',
   'meridianLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'nav.legal': 'Dlíthiúil',
   'notifications.emptyHeading': 'Tá tú gafa suas leis an scéal go léir.',
   'notifications.subheading': 'Foláirimh fíor-ama le haghaidh idirbheart, slándáil agus ráitis.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'privacy.dataWeShare':
     'Ní dhíoltar sonraí baincéireachta pearsanta choíche. Ní roinnimid faisnéis le próiseálaithe íocaíochta, líonraí cártaí agus rialtóirí ach amháin de réir mar is gá chun idirbhearta a shocrú nó chun oibleagáidí dlíthiúla a chomhlíonadh.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Cuireann dhá fhachtóir cód aonuaire ó aip fíordheimhnitheora le gach síniú isteach.',
   'settings.security.twoFactorCta': 'Bainistigh údarú dhá fhachtóir',
+  'settings.security.twoFactorOff': 'Tá dhá fhachtóir múchta',
   'settings.signOutDevice': 'Sínigh amach',
   'settings.subheading': 'Próifíl, slándáil agus fógraí.',
+  'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'signup.emailLabel': 'Seoladh Ríomhphoist',
   'signup.fullName': 'Conas ba chóir dúinn labhairt leat?',
   'signup.showPassword': 'Taispeáin an focal faire',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Gan aon idirbhearta fós.',
   'transactions.endDate': 'Dáta deiridh',
   'transactions.eyebrow': 'Gníomhaíocht',
+  'transactions.loadError': 'Theip ar idirbhearta a lódáil.',
   'transactions.merchant': 'Ceannaí',
+  'transactions.subheading': 'Gach idirbheart postáilte agus ar feitheamh ar fud do chuntais.',
   'transfers.availableHint': '{{amount}} ar fáil',
   'transfers.errorGeneric': 'Níorbh fhéidir an t-aistriú a chur isteach.',
   'transfers.errorMissingFields': 'Roghnaigh cuntas foinse agus ceann scríbe.',

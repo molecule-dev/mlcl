@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.logout': 'Kirjaudu ulos',
   'dailyStatsTriad.heartsLabel': 'Sydämet',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minuutteja tänään',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Sanat hallittu',
+  'dailyStatsTriad.wordsMasteryHint': 'Sanat mestaruustasolla 4+',
   'dashboard.continueHeading': 'Jatka siitä, mihin jäit',
   'dashboard.heading': 'Buenos päivä {{name}} .',
   'dashboard.loadError':
@@ -57,6 +61,8 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Harjoituksia ei voitu ladata.',
   'lessonDetail.loading': 'Lataa oppitunti…',
   'lessonDetail.submitError': 'Vastauksen lähettäminen epäonnistui.',
+  'lessonDetail.translation': 'Käännä lause',
+  'lessonDetail.xpEarned': 'Ansaitut XP-pisteet · {{xp}}',
   'lessons.empty': 'Ei oppitunteja tasolla {{level}} vielä — kokeile toista tasoa.',
   'lessons.eyebrow': 'Oppituntikirjasto',
   'lessons.heading': 'Selaa jokaista oppituntia',
@@ -68,7 +74,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Uusi kieliopin käyttäjä?',
   'login.showPassword': 'Näytä salasana',
   'login.signUp': 'Aloita ilmaiseksi →',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
+  'parlanceLayout.nav.profile': 'Profiili',
   'parlanceLayout.primaryNavLabel': 'Päänavigaatio',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'practice.empty': 'Ei vielä saatavilla olevia lauseita.',
   'practice.eyebrow': 'Puheharjoitus',
   'practice.heading': 'Lue se. Tallenna se. Tarkenna sitä.',
@@ -133,6 +143,8 @@ export const ui: UiTranslations = {
   'streakHeroCard.eyebrow': 'Nykyinen putki',
   'streakHeroCard.goalLabel': 'Tämän päivän tavoite',
   'streakHeroCard.goalProgress': '{{current}} / {{goal}} Kokemus',
+  'streakHeroCard.tagline':
+    'Ansaittu {{totalXp}} XP:tä. Pidä rytmi yllä – kolme päivää enää viikoittaiseen merkkiisi.',
   'streakHeroCard.xpToday': '+ {{xp}} XP tänään',
   'vocabReviewCard.due': 'Eräpäivä {{date}}',
   'vocabReviewCard.dueUnknown': 'Arviointipäivä',

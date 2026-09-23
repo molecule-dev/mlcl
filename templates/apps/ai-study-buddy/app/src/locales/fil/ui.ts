@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Kino-load ang impormasyon ng plano…',
   'billing.popular': 'Pinakaminamahal',
   'billing.subtitle': 'Piliin ang planong angkop sa inyong bilis ng pag-aaral.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.today': 'Ngayon',
   'common.yesterday': 'Kahapon',
   'courseDetail.empty.body':
@@ -81,7 +82,11 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Pangalan ng deck',
   'flashcards.subtitle': 'Spaced repetition na umaangkop sa inyong bilis.',
   'flashcards.title': 'Mga flashcard',
+  'footer.copyright': '© {{year}} {{app}} . Matutong mabuti, matulog nang mahimbing.',
   'forgotPassword.subtitle': 'Ilagay ang inyong email at magpapadala kami ng link sa pag-reset.',
+  'koanLayout.closeMenu': 'Isara ang menu',
+  'koanLayout.navLabel': 'Pangunahing navigation',
+  'koanLayout.openMenu': 'Buksan ang menu',
   'koanLayout.theme': 'Tema',
   'landing.featuresBody':
     'Mga kasangkapan na idinisenyo upang alisin ang mga pagkaabala at bumuo ng pangmatagalang pag-unawa.',
@@ -116,11 +121,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ang URL na iyon ay hindi pa natutuklasang lugar. Marahil ay typo, marahil ay tinanggal na aralin — kung papaano man, ibalik natin kayo sa pag-aaral.',
   'notFound.heading': 'Hindi nahanap ang pahina.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Napapanahon na kayo',
   'notifications.filter.${opt}': 'Naglo-load ng mga notification…',
   'notifications.markAllError': 'Hindi mamarkahan ang lahat bilang nabasa.',
   'notifications.markError': 'Hindi mamarkahan bilang nabasa.',
   'notifications.subtitle': '{{count}} mga hindi pa nababasang update',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.heading': 'mga pagsusulit',
   'pricing.limits.topics': 'mga paksa',
   'privacy.collectBody':
@@ -188,6 +195,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Subukan ang ibang keyword o filter.',
   'search.empty.title': 'Walang natuklasan.',
   'search.error': 'Hindi ma-load ang mga resulta.',
+  'search.filters': 'Mga filter ng uri ng resulta',
   'search.go': 'Hanapin',
   'search.label.flashcard': 'Deck ng flashcard',
   'search.label.note': 'Tala',

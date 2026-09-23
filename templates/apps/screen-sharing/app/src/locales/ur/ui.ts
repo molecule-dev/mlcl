@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'about.pageTitle': 'کے بارے میں {{appName}}',
   'analytics.empty': 'یہاں منگنی دیکھنے کے لیے اپنا پہلا کلپ ریکارڈ کریں۔',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'کلپس',
   'billing.usage.views': 'مناظر',
   'billing.usage.views.unit': 'مناظر',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'landing.cta.title': 'بہتر آراء بھیجیں۔ Glint کے ساتھ شروع کریں۔',
   'landing.feature.capture.body':
     'مائیک، کیم اور ڈرائنگ کے ساتھ براؤزر، ڈیسک ٹاپ، اور موبائل ریکارڈنگ۔',
   'landing.feature.capture.title': 'ایک ٹیپ کیپچر',
+  'landing.footer.copy': '© {{year}} {{appName}} . Async، چمکدار بنا دیا.',
   'landing.hero.cardCaption': 'نمونہ ورک اسپیس کا جائزہ — اسے مفت میں آزمائیں۔',
   'landing.hero.primaryCta': 'مفت ریکارڈنگ شروع کریں۔',
   'landing.hero.proof.free': 'ہمیشہ کے لیے مفت درجے',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ریکارڈنگ تلاش کریں۔',
   'library.searchPlaceholder': 'ریکارڈنگ تلاش کریں…',
   'library.weeklyChange': '{{value}} % بمقابلہ پچھلے ہفتے',
+  'nav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'nav.record': 'ریکارڈ',
   'nav.shared': 'میرے ساتھ اشتراک کیا',
   'nav.startRecording': 'ریکارڈنگ شروع کریں۔',

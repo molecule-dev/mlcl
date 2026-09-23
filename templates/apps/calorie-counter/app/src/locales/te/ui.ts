@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'ప్రతి ముద్ద, సమతుల్యంగా',
   'auth.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'auth.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'nav.legal': 'చట్టపరమైన',
+  'nosh.auth.legalPrefix': 'కొనసాగడం ద్వారా మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'nosh.foodDetail.add': 'డైరీకి జోడించండి',
   'nosh.foodDetail.added': 'జోడించబడింది {{భోజనం}} .',
   'nosh.foodDetail.addError': 'డైరీలో చేర్చలేకపోయాను.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'ఫైబర్',
   'nosh.foodDetail.micros.sodium': 'సోడియం',
   'nosh.foodDetail.micros.sugar': 'చక్కెర',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'ప్రోటీన్',
   'nosh.foodDetail.serving.count': 'వడ్డనలు',
   'nosh.foodDetail.serving.meal': 'జోడించు',
@@ -46,6 +50,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'తెలివిగా ఇంధనం నింపడం ప్రారంభించండి',
   'nosh.landing.features.heading': 'మీకు కావలసినవన్నీ, అనవసరమైనవి ఏవీ లేవు',
   'nosh.landing.features.smartRing.title': 'స్మార్ట్ క్యాలరీ రింగ్',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'అపరాధభావం లేకుండా మీ లక్ష్యాలను చేరుకోవడానికి సహాయపడే ఒక స్నేహపూర్వక ఆహార పట్టిక. కేవలం సంఖ్యలపై కాకుండా, పోషణపై దృష్టి పెట్టండి.',
   'nosh.landing.hero.eyebrow': 'స్నేహపూర్వక కేలరీల ట్రాకింగ్',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'మీరు ఎంత చురుకుగా ఉంటారు?',
   'nosh.onboarding.back': 'వెనుక',
   'nosh.onboarding.macros.heading': 'మీ రోజువారీ లక్ష్యం',
+  'nosh.onboarding.saveError': 'మీ లక్ష్యాలను కాపాడలేకపోయాను.',
   'nosh.onboarding.start': 'వెళ్దాం',
   'nosh.progress.calorieChart.title': 'రోజువారీ కేలరీలు',
   'nosh.progress.empty':
@@ -143,6 +149,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'శాశ్వతంగా తొలగించండి',
   'nosh.settings.deleteError': 'ఖాతాను తొలగించలేకపోయాను.',
   'nosh.settings.export.cta': 'CSVని డౌన్‌లోడ్ చేయండి',
+  'nosh.settings.export.description': 'మీ పూర్తి ఆహార లాగ్‌ను CSVగా డౌన్‌లోడ్ చేసుకోండి.',
   'nosh.settings.export.label': 'ఎగుమతి డేటా',
   'nosh.settings.export.preparing': 'సిద్ధమవుతోంది…',
   'nosh.settings.eyebrow': 'ఖాతా · నోటిఫికేషన్‌లు · గోప్యత',
@@ -154,6 +161,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'స్నేహపూర్వక ట్రాకింగ్, అపరాధభావన లేదు.',
   'nosh.today.${mealKey}Empty': 'లాగిన్ చేయడానికి నొక్కండి',
   'nosh.today.addFood': 'ఆహారాన్ని జోడించండి',
+  'nosh.today.backToToday': 'ఈ రోజుకు తిరిగి వెళ్దాం',
+  'nosh.today.dateNavLabel': 'డైరీ రోజును మార్చండి',
   'nosh.today.loadError': 'ఈరోజు లోడ్ చేయలేకపోయాను.',
   'nosh.today.macros.carbs': 'కార్బోహైడ్రేట్లు',
   'nosh.today.macros.fat': 'కొవ్వు',
@@ -161,6 +170,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'ప్రోటీన్',
   'nosh.today.macroTitle': 'స్థూల పోషకాలు',
   'nosh.today.meal.${mealKey}': 'కాల్',
+  'nosh.today.nextDay': 'మరుసటి రోజు',
+  'nosh.today.pastPill': 'గడిచిన రోజు',
+  'nosh.today.prevDay': 'ముందు రోజు',
   'nosh.today.quickAddError': 'త్వరిత అంశాన్ని నమోదు చేయలేకపోయాను.',
   'nosh.today.remaining': 'మిగిలిన కేలరీలు',
   'nosh.today.streakHeadline': '{{count}} -రోజుల పరంపర',

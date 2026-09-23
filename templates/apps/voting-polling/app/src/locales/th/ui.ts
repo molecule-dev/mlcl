@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
   'analytics.col.quorum': 'องค์ประชุม',
   'analytics.col.votes': 'คะแนนเสียง',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ยังไม่มีคำถามที่รอคำตอบ',
   'audienceQa.onStageEyebrow': 'บนเวทีตอนนี้',
   'audienceQa.pollId': 'ถาม-ตอบ · {{id}}',
+  'audienceQa.promote': 'ส่งเสริม',
   'audienceQa.queued': 'เข้าคิว',
   'audienceQa.queueEyebrow': 'คิว',
   'ballot.eyebrow': 'ไปใช้สิทธิ์เลือกตั้งของคุณ',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ขณะนี้คุณกำลังอยู่ที่ {{plan}} วางแผน.',
   'billing.switch': 'สวิตช์',
   'billing.upgraded': 'อัปเดตเป็น {{plan}} — ข้อจำกัดมีผลบังคับใช้ทันที',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'createPoll.addOption': 'เพิ่มตัวเลือก',
   'createPoll.anonymousHint':
     'ชื่อผู้ลงคะแนนถูกซ่อนไว้ในบันทึกการตรวจสอบ แต่ผลการนับคะแนนยังคงได้รับการยืนยัน',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'เพิ่งรู้จัก Nosh ใช่ไหม?',
   'login.remember': 'โปรดจำฉันไว้เป็นเวลา 30 วัน',
   'login.subheading': 'เปิดโอกาสให้ผู้สนใจเข้าร่วม ดำเนินการประชุม และรับรองผลลัพธ์',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'notFound.body':
     'หน้าเว็บที่คุณพยายามเข้าถึงถูกปิดหรือย้ายไปแล้ว โปรดกลับไปที่แดชบอร์ดหรือเปิดแบบสำรวจใหม่',
   'notFound.eyebrow': 'ไม่มีองค์ประชุมในเส้นทางนี้',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ไม่สามารถโหลดแบบสำรวจนี้ได้',
   'pollDetail.loading': 'กำลังโหลดแบบสำรวจ…',
   'pollDetail.notFound': 'ไม่พบแบบสำรวจ',
+  'pollDetail.openBallot': 'การเปิดการลงคะแนน',
   'pollDetail.openLive': 'ผลการแข่งขันสด',
   'pollDetail.pollId': 'แบบสำรวจ · {{id}}',
   'pollDetail.published': 'ผลสำรวจความคิดเห็นเผยแพร่แล้ว ผู้มีสิทธิเลือกตั้งสามารถลงคะแนนได้แล้ว',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ค้นหาโดยใช้อีเมล…',
   'voters.subheading':
     'คัดกรองรายชื่อผู้มีสิทธิ์ลงคะแนน จัดกลุ่มผู้มีสิทธิ์ลงคะแนนตามองค์กรเพื่อถ่วงน้ำหนักคะแนนเสียง',
+  'votingPollingLayout.nav.analytics': 'การวิเคราะห์',
+  'votingPollingLayout.nav.billing': 'การเรียกเก็บเงิน',
+  'votingPollingLayout.nav.createPoll': 'ผลสำรวจใหม่',
+  'votingPollingLayout.nav.dashboard': 'แดชบอร์ด',
+  'votingPollingLayout.nav.notifications': 'การแจ้งเตือน',
+  'votingPollingLayout.nav.settings': 'การตั้งค่า',
+  'votingPollingLayout.nav.team': 'ทีม',
+  'votingPollingLayout.nav.voters': 'ผู้มีสิทธิเลือกตั้ง',
+  'votingPollingLayout.primaryNavLabel': 'การนำทางหลัก',
 }

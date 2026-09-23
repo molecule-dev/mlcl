@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Peranan anda',
   'account.role.upgradeLink': 'Mohon untuk menjadi tutor yang disahkan →',
   'account.title': 'Profil, pembayaran & pilihan.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mengajar di atas Kapur',
   'becomeTutor.form.error': 'Tidak dapat menghantar permohonan.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Subjek',
   'bookingConfirm.title': 'Anda telah menempah. Kami akan uruskan selebihnya.',
   'bookingConfirm.with': 'Dengan tutor',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'earningsHero.eyebrow': 'Pendapatan • {{month}}',
   'forgotPassword.heading': 'Lupa kata laluan anda?',
   'forgotPassword.subheading':
@@ -114,6 +116,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Hantar mesej',
   'messages.thread.empty': 'Ucapkan hai — mulakan perbualan.',
   'messages.title': 'Berbual secara berperingkat dengan tutor anda.',
+  'nav.primary': 'Utama',
   'pricing.dataExport': 'Eksport data:',
   'pricing.headingDefault': 'Ciri-ciri lanjutan:',
   'resetPassword.heading': 'Pilih kata laluan baharu yang kukuh.',

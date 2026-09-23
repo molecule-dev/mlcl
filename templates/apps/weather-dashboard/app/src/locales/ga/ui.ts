@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Tá tú ar an láthair {{plan}} plean.',
   'billing.switch': 'Athraigh',
   'billing.upgraded': 'Nuashonraithe go {{plan}} — teorainneacha curtha i bhfeidhm láithreach.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'compare.activityHeading': 'Breithiúnais ghníomhaíochta',
   'compare.empty.title': 'Cuir dhá shuíomh ar a laghad leis le comparáid a dhéanamh',
   'compare.eyebrow': 'Taobh le taobh',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Ard',
   'trends.summary.low.label': 'Íseal',
   'trends.summary.points.label': 'Laethanta',
+  'weatherDashboardLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'weatherHeroCard.updated': 'Nuashonraithe {{time}}',
 }

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Oor {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Welvaartgereedskap',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nie beleggingsadvies nie.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) vandag',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Primêre navigasie',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Geen transaksies vir hierdie kode nie.',
   'assetDetail.txHeading': 'Jou transaksies',
   'common.and': 'en',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portefeulje-oorsig',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Geen besittings nog nie.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Kon nie houers laai nie.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nie beleggingsadvies nie. Verlede prestasie waarborg nie toekomstige resultate nie.',
   'landing.eyebrow': 'Argent · ’n Welvaart-instrumentplatform',
   'landing.features.heading': 'Alles wat ’n adviseur vir hulself sou bou.',
   'landing.finalCta.heading': 'Bring dissipline terug na jou portefeulje.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} uur gelede',
   'news.justNow': 'nou net',
   'news.loadError': 'Kon nie nuus laai nie.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'portfolioHeroCard.label': 'Portefeuljewaarde',
   'pricing.holdingsLabel': 'besittings',
   'pricing.newsLabel': 'nuusartikels',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Vee rekening uit',
   'settings.security.deleting': 'Vee tans uit…',
   'settings.security.heading': 'Sekuriteit',
+  'settings.security.newPassword': 'Nuwe wagwoord',
   'settings.security.password': 'Wagwoord',
   'settings.security.twoFactorEnable': 'Aktiveer',
+  'settings.security.twoFactorInvalidCode': 'Ongeldige kode',
+  'settings.security.twoFactorVerify': 'Verifieer en aktiveer',
   'settings.tax.error': 'Kon nie belastingmetode opdateer nie.',
   'settings.tax.heading': 'Belastinglotrekeningkunde',
   'settings.tax.method': 'Standaardmetode',

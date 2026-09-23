@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
   'about.pageTitle': 'Om {{name}}',
   'auth.footer.about': 'Om {{name}}',
   'authHeader.subtitle': 'Logg inn for å holde tallene dine ærlige.',
   'automations.action.email': 'E-post',
+  'automations.action.noop': 'Ingen operasjon',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Slett {{name}} "?',
   'automations.empty.headline': 'Ingen automatiseringer ennå',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Utløsere og handlinger på tvers av hver arbeidsbok. Hver kjøring logger en rad du kan revidere senere.',
   'automations.toggle': 'Veksle {{name}}',
+  'automations.trigger.dailySchedule': 'Daglig timeplan',
+  'automations.trigger.rowCreated': 'Rad opprettet',
+  'automations.trigger.rowUpdated': 'Rad oppdatert',
   'billing.empty': 'Ingen planer tilgjengelig.',
   'billing.error.priceMissing':
     'Ingen Stripe-pris konfigurert for dette nivået. Angi STRIPE_*_PRICE_ID-konvoluttvariabler.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagrammer',
   'charts.kpi.totalCharts': 'Totalt antall diagrammer',
   'charts.list.empty': 'Ingen diagrammer ennå.',
+  'charts.namePlaceholder': 'Inntektstrend',
   'charts.newChart': 'Nytt diagram',
   'charts.primary.eyebrow': 'Diagrammer etter type',
   'charts.primary.headline': 'Oversikt over arbeidsområdet',
   'charts.subhead':
     'Live-visualiseringer knyttet til rutenettet ditt – gjengi på nytt ved hver celleredigering.',
+  'common.goToDashboard': 'Gå til oversikt',
   'editor.addColumn': 'Legg til kolonne',
+  'editor.addDialogTitle': 'Legg til kolonne',
   'editor.addRow': 'Legg til rad',
   'editor.addSheet': 'Legg til ark',
   'editor.back': 'Tilbake til arbeidsbøker',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite er formelen-først, flerperspektiv, sanntidsnett som analytikere og finansteam strekker seg etter først.',
   'landing.nav.formulas': 'Formler',
+  'login.noAccount': 'Ny hos {{name}} ?',
+  'login.signIn': 'Logg inn på {{name}}',
   'login.signUp': 'Opprett et arbeidsområde',
+  'nav.menu': 'Meny',
+  'nav.openMenu': 'Åpne meny',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=OPPSLAG(FORESPØRSEL.url, "ruter", "side")',
   'notFound.headline': 'Denne rekken har aldri eksistert.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Innfødte automatiseringer · webhook- og cron-utløsere',
   'signup.creating': 'Klargjøring av arbeidsområde …',
   'signup.cta': 'Opprett arbeidsområdet mitt',
+  'signup.haveAccount': 'Allerede på {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Start din første arbeidsbok på 30 sekunder',
   'team.col.activity': 'Invitert',

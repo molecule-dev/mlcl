@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'accountSettings.confirmEmailLabel': 'Thayipha i-DELETE ukuze uqinisekise',
   'accountSettings.deleteError': 'Ayikwazanga ukususa i-akhawunti.',
   'accountSettings.passwordError': 'Ayikwazanga ukushintsha iphasiwedi.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Azikho izinsuku zokugcina ezizayo.',
   'dashboard.upcomingTitle': 'Izinsuku Zokugcina Ezizayo',
   'deviceSettings.unknownDevice': 'Idivayisi engaziwa',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Usekelo',
   'forgotPassword.error': 'Yehlulekile ukuthumela isixhumanisi sokusetha kabusha.',
   'forgotPassword.subtitle':
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'I-imeyili noma iphasiwedi engavumelekile.',
   'login.pageTitle': 'Ngena ngemvume',
   'login.signIn': 'Ngena ngemvume ku-Forge',
+  'login.subtitle': 'Ngena ngemvume ukuze ugcine amaphrojekthi akho elandelana',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'nav.calendar': 'Ikhalenda',
   'nav.legal': 'Ezomthetho',
   'nav.myTasks': 'My Tasks',

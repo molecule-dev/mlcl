@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Din rolle',
   'account.role.upgradeLink': 'Søk om å bli en verifisert veileder →',
   'account.title': 'Profil, betaling og preferanser.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Undervis på kritt',
   'becomeTutor.form.error': 'Kunne ikke sende inn søknaden.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Emne',
   'bookingConfirm.title': 'Du er booket. Vi ordner resten.',
   'bookingConfirm.with': 'Med veileder',
+  'common.goToDashboard': 'Gå til oversikt',
   'earningsHero.eyebrow': 'Inntekter • {{month}}',
   'forgotPassword.heading': 'Glemt passordet ditt?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Send melding',
   'messages.thread.empty': 'Si hei – start samtalen.',
   'messages.title': 'Tråder med veilederne dine.',
+  'nav.primary': 'Primær',
   'pricing.dataExport': 'Dataeksport:',
   'pricing.headingDefault': 'Avanserte funksjoner:',
   'resetPassword.heading': 'Velg et sterkt nytt passord.',

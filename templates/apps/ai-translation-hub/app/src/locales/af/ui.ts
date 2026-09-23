@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'billing.canceled':
     'Subskripsie gekanselleer. Jy sal aan die einde van die tydperk terugkeer na Gratis.',
   'billing.contactSales': 'Kontak verkope',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Geen behoudlimiet nie',
   'billing.upgradeHint': 'Gradeer op om gevorderde KI-funksies te ontsluit.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.activityEmpty': "Geen aktiwiteit nog nie — begin 'n projek om hierdie voer te vul.",
   'dashboard.eyebrow': 'Oorsig',
   'dashboard.projectsEmpty': 'Geen projekte nog nie — begin een om dit hier te sien.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Hergebruik vorige vertalings in elke projek. Hoër ooreenstemmingtelling → minder herwerk.',
   'memory.title': 'Geheuebank',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'nav.legal': 'Regs',
   'newProject.addLanguage': 'Voeg teiken by',
   'newProject.create': 'Skep projek',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Gemerk {{count}} kennisgewings as gelees.',
   'notifications.subtitle':
     'Vermeldings, hersieningsversoeke en KI-gebeurtenisse van regoor jou werkruimtes.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'privacy.collection.account': 'Jou rekening se e-posadres en vertoonnaam',
   'privacy.deletion.body':
     "Jy kan 'n projek, segment, woordelysterm of geheue-inskrywing te eniger tyd van die betrokke bladsy verwyder. As jy jou rekening uit Instellings verwyder, word elke werkruimte-omvang ry uit ons databasis verwyder.",
@@ -173,6 +178,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Kon nie projekte laai nie.',
   'projects.loading': 'Laai projekte…',
   'projects.subtitle': 'Elke aktiewe projek oor alle lokale.',
+  'renditionLayout.primaryNavLabel': 'Primêre navigasie',
   'reset.backToLogin': '\\u2190 Terug na aanmelding',
   'reset.passwordLabel': 'Nuwe wagwoord',
   'review.activeEyebrow': 'Segment {{number}}',

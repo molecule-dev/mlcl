@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'announcementsFeed.empty': 'Azikho izimemezelo okwamanje.',
   'announcementsFeed.eyebrow': '{{count}} izibuyekezo',
   'announcementsFeed.title': 'Izimemezelo zakamuva',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Shintsha izihlungi ezingenhla ukuze ubone imisebenzi esesimweni esihlukile.',
   'assignments.eyebrow': 'Zonke izifundo · Leli themu',
+  'assignments.loadError': 'Ayikwazanga ukulayisha imisebenzi.',
   'assignments.loading': 'Ilayisha imisebenzi…',
   'assignments.subtitle':
     'Hlunga ngesimo ukuze ubone ukuthi yini okufanele ikhokhwe, ethunyelwe, ebekwe emabangeni, noma engekho.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Inothi',
   'attendance.empty': 'Awekho amarekhodi okuba khona okwamanje.',
   'attendance.eyebrow': 'Ithemu yentwasahlobo · Amaviki angu-4 edlule',
+  'attendance.loadError': 'Ayikwazanga ukulayisha amarekhodi okuba khona.',
   'attendance.loading': 'Ilayisha ababekhona…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Izinsuku zokugcina zomsebenzi zidwetshwe kugridi yenyanga — izivivinyo zigqama ngombala obomvu.',
   'calendar.title': '{{month}} imicimbi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
+  'common.retry': 'Zama futhi',
   'common.yes': '✓',
   'courseDetail.backLink': 'Amabanga',
   'courseDetail.currentGrade': 'Ibanga lamanje',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Ithrendi',
   'grades.empty': 'Awekho amamaki athunyelwe okwamanje.',
   'grades.eyebrow': 'Incwadi yamabanga',
+  'grades.loadError': 'Ayikwazanga ukulayisha amamaki akho.',
   'grades.loading': 'Ilayisha amamaki…',
   'grades.subtitle':
     'Amamaki ezinhlamvu ezibukhoma namaphesenti. Imicibisholo yethrendi ibonisa ukuthi uyakhuphuka, uyahamba, noma uyashelela.',
   'grades.title': 'Amamaki akho, inkambo ngenkambo',
   'grades.trendStable': 'Isitebele',
+  'landing.copyright': '© {{year}} {{app}} . Yakhelwe abafundi, yenzelwe imindeni.',
   'landing.ctaHeading': 'Usuku lwesikole oluzolile luqala ngemizuzu embalwa',
   'landing.eyebrow': 'Kwabafundi besikole samabanga aphakathi naphezulu',
   'landing.featuresHeading': 'Usuku lwesikole luhlelwe ngokuzungeza umfundi',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Imisebenzi',
   'nav.attendance': 'Ukuba khona',
   'nav.calendar': 'Ikhalenda',
+  'nav.closeMenu': 'Vala imenyu yokuzulazula',
   'nav.grades': 'Amabanga',
+  'nav.openMenu': 'Vula imenyu yokuzulazula',
   'nav.statusEyebrow': 'I-GPA Yesikhathi',
   'nav.statusSubtext': 'I-Honor roll · Isikhathi sasentwasahlobo',
+  'nav.unreadMessages': 'Imiyalezo engakafundwa',
   'notifications.eyebrow': '{{count}} izibuyekezo',
   'notifications.subtitle':
     'Amamaki, izikhumbuzi, imiyalezo, kanye nezimemezelo zesikole. Lungisa ukuthi yiziphi iziteshi ezisetshenziswa yisaziso ngasinye kuzilungiselelo.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.attendanceLabel': 'ukuba khona',
   'pricing.gradesLabel': 'amamaki',
   'pricing.heading': 'izimemezelo',

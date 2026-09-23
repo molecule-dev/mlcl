@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'about.pageTitle': 'Haqida {{appName}}',
   'analytics.empty': "Bu yerda unashtirishni ko'rish uchun birinchi klipingizni yozib oling.",
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'kliplar',
   'billing.usage.views': "Ko'rishlar",
   'billing.usage.views.unit': "ko'rishlar",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'landing.cta.title': 'Yaxshiroq fikr-mulohaza yuboring. Glintdan boshlang.',
   'landing.feature.capture.body':
     'Mikrofon, kamera va chizma yordamida brauzer, ish stoli va mobil qurilmalarda yozib olish.',
   'landing.feature.capture.title': 'Bir marta bosish bilan suratga olish',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asinxron, yorqin qilingan.',
   'landing.hero.cardCaption': "Ish maydoniga umumiy nuqtai nazar namunasi — bepul sinab ko'ring.",
   'landing.hero.primaryCta': 'Bepul yozib olishni boshlang',
   'landing.hero.proof.free': 'Abadiy bepul daraja',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Yozuvlarni qidirish',
   'library.searchPlaceholder': 'Yozuvlarni qidirish…',
   'library.weeklyChange': "{{value}} O'tgan haftaga nisbatan %",
+  'nav.openMenu': 'Navigatsiya menyusini ochish',
   'nav.record': 'Yozuv',
   'nav.shared': "Men bilan baham ko'rilgan",
   'nav.startRecording': 'Yozib olishni boshlang',

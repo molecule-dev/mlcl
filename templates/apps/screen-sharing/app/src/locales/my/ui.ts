@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'about.pageTitle': 'အကြောင်း {{appName}}',
   'analytics.empty':
@@ -40,10 +41,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ကလစ်များ',
   'billing.usage.views': 'မြင်ကွင်းများ',
   'billing.usage.views.unit': 'မြင်ကွင်းများ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'landing.cta.title': 'ပိုကောင်းတဲ့ တုံ့ပြန်ချက်တွေ ပို့ပါ။ Glint နဲ့ စတင်ပါ။',
   'landing.feature.capture.body':
     'မိုက်ခရိုဖုန်း၊ ကင်မရာ နှင့် ပုံဆွဲခြင်းတို့ဖြင့် ဘရောက်ဆာ၊ ဒက်စ်တော့ နှင့် မိုဘိုင်းတွင် မှတ်တမ်းတင်ခြင်း။',
   'landing.feature.capture.title': 'တစ်ချက်နှိပ်ရုံဖြင့် ရိုက်ကူးခြင်း',
+  'landing.footer.copy': '© {{year}} {{appName}} . တစ်ပြိုင်တည်းချိန်ကိုက်ခြင်း၊ တောက်ပစေသည်။',
   'landing.hero.cardCaption': 'နမူနာ အလုပ်ခွင်ခြုံငုံသုံးသပ်ချက် — အခမဲ့ စမ်းသုံးကြည့်ပါ။',
   'landing.hero.primaryCta': 'အခမဲ့ မှတ်တမ်းတင်ခြင်း စတင်ပါ',
   'landing.hero.proof.free': 'အခမဲ့ ထာဝရအဆင့်',
@@ -64,6 +67,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'အသံသွင်းချက်များကို ရှာဖွေပါ',
   'library.searchPlaceholder': 'အသံသွင်းချက်များကို ရှာဖွေပါ…',
   'library.weeklyChange': '{{value}} ပြီးခဲ့သည့်အပတ်နှင့် နှိုင်းယှဉ်ပါက %',
+  'nav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'nav.record': 'မှတ်တမ်းတင်ပါ',
   'nav.shared': 'ကျွန်ုပ်နှင့် မျှဝေထားသည်',
   'nav.startRecording': 'မှတ်တမ်းတင်ခြင်း စတင်ပါ',

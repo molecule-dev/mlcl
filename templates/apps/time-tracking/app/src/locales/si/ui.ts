@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'about.plansTitle': 'ඔබ සමඟ වර්ධනය වන සැලසුම්',
   'brand.tagline': 'සෑම තත්පරයක්ම',
   'clientDetail.back': 'සේවාලාභීන් වෙත ආපසු',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'සෑම සම්බන්ධතාවයක්ම එකම තැනක - ව්‍යාපෘති, පැය ගණන්, හිඟ ඉන්වොයිසි.',
   'clients.title': 'සේවාලාභීන්',
   'common.and': 'සහ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.activeProjects': 'ක්‍රියාකාරී ව්‍යාපෘති',
   'dashboard.empty': 'තවම ඇතුළත් කිරීම් නොමැත. ඔබේ පළමු සැසිය නිරීක්ෂණය කිරීමට ටයිමරය ආරම්භ කරන්න.',
   'dashboard.greeting': 'සුබ දිනක්, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'මෙම සේවාදායකයා සඳහා ඉන්වොයිස් කිරීමට බිල් කළ හැකි පැය ගණනක් නොමැත. පළමුව යම් කාලයක් නිරීක්ෂණය කරන්න හෝ මෙම සේවාදායකයාගේ ව්‍යාපෘතිවලින් එකකට පවතින ඇතුළත් කිරීම් පවරන්න.',
   'invoices.save': 'ඉන්වොයිසිය සාදන්න',
   'invoices.subtitle': 'නිරීක්ෂණය කළ පැය ගණන ස්වයංක්‍රීයව ඉන්වොයිසි බවට පත්වේ.',
+  'landing.copyright': '© {{year}} {{app}} . සෑම තත්පරයක්ම, ගණනය කරන ලදී.',
   'landing.ctaBody':
     'ව්‍යාපෘති 3ක් දක්වා නොමිලේ. ඔබේ සේවාදායක ලැයිස්තුව එසේ වූ විට උත්ශ්‍රේණි කරන්න.',
   'landing.eyebrow': 'බිල් කළ හැකි වැඩ සඳහා කාලය නිරීක්ෂණය කිරීම',
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'ස්වාධීන අය විසින් විශ්වාස කරන ලදී',
   'landing.testimonial.quote':
     '\\u201cමම විනාඩි 30 කින් Toggl එකෙන් ඉවත් වුණා. අයවැය දහනය තනිවම ගෙවිලා ගිහින් \\u2014 මම සති දෙකක් තිස්සේ අඩුවෙන් උපුටා දැක්වීම නැවැත්තුවා.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ක්‍රෝනෝ. සෑම තත්පරයක්ම, ගණන් බලා ඇත.',
   'login.brand.subtitle':
     'ඔබ නැවැත්වූ තැනින් ටයිමරය ගන්න - සෑම මිනිත්තුවක්ම දැනටමත් ව්‍යාපෘතියකට, සේවාදායකයෙකුට, ඉන්වොයිසියකට සිතියම්ගත කර ඇත.',
   'login.brand.tracking': 'ලුහුබැඳීම',
   'login.subheading': 'ඔබ නතර කළ තැනින් ටයිමරය ගන්න.',
+  'nav.closeMenu': 'සංචාලන මෙනුව වසන්න',
   'nav.insightsSection': 'තීක්ෂ්ණ බුද්ධිය',
   'nav.newEntry': 'නව ඇතුළත් කිරීම',
+  'nav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
+  'nav.primary': 'ප්‍රාථමික සංචාලනය',
   'nav.workSection': 'කාර්යය',
   'notFound.body':
     'ඔබ අනුගමනය කළ සබැඳිය ලුහුබැඳීම නතර කර ඇති බව පෙනේ. ඔබගේ උපකරණ පුවරුවට ආපසු යන්න \\u2014 අපි එතැන් සිට ගණන් කිරීම දිගටම කරගෙන යන්නෙමු.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'බිල් කළ හැකි',
   'timer.descriptionPlaceholder': 'ඔයා මොනවද කරන්නේ?',
   'timer.idle': 'අක්‍රියයි — ලුහුබැඳීම ආරම්භ කරන්න',
+  'timer.noProject': 'ව්‍යාපෘතියක් නැත',
   'timer.runningWithProject': 'ව්‍යාපෘතියක් නැත',
   'timer.start': 'ටයිමරය ආරම්භ කරන්න',
   'timer.stop': 'ටයිමරය නවත්වන්න',

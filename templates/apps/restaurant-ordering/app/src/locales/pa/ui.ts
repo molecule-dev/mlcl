@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
   'analytics.avgCheckLabel': 'ਔਸਤ ਚੈੱਕ',
   'analytics.busiestHour': 'ਸਭ ਤੋਂ ਵਿਅਸਤ ਸਮਾਂ',
   'analytics.coversToday': 'ਅੱਜ ਦੇ ਕਵਰ',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'ਸੁਝਾਅ (ਔਸਤ)',
   'analytics.topItems': 'ਅੱਜ ਦੀਆਂ ਪ੍ਰਮੁੱਖ ਆਈਟਮਾਂ',
   'authShell.eyebrow': 'ਸੇਵਾ ਵਿੱਚ ਵਾਪਸ ਸਵਾਗਤ ਹੈ।',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'ਮਹਿਮਾਨ ਨਿਵਾਜੀ ਟੀਮਾਂ ਲਈ ਇੱਕ ਨਿੱਘਾ, ਤੇਜ਼ ਵਿਕਰੀ ਪੁਆਇੰਟ। ਆਪਣੀ ਰਸੋਈ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ ਅਤੇ ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ।',
   'authShell.tip': 'ਪੇਸ਼ੇਵਰ ਸੁਝਾਅ: ਕੀਬੋਰਡ ਸ਼ਾਰਟਕੱਟ ਹਰ ਜਗ੍ਹਾ ਕੰਮ ਕਰਦੇ ਹਨ — ਖੋਜ ਕਰਨ ਲਈ / ਦਬਾਓ।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ਜਾਂ {{price}}',
   'billing.priceUnavailable': 'ਇਸ ਪਲਾਨ ਦੀ ਕੋਈ ਨਿਰਧਾਰਤ ਕੀਮਤ ਨਹੀਂ ਹੈ।',
   'billing.updated': 'ਯੋਜਨਾ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'customerDetail.book': 'ਰਾਖਵਾਂਕਰਨ ਸ਼ਾਮਲ ਕਰੋ',
   'customerDetail.col.table': 'ਟੇਬਲ',
   'customerDetail.confirmDelete': 'ਕੀ ਇਸ ਮਹਿਮਾਨ ਰਿਕਾਰਡ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?',
@@ -126,6 +129,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'ਉਪਲਬਧਤਾ',
   'menuItemDetail.available': 'ਅੱਜ ਰਾਤ ਉਪਲਬਧ',
   'menuItemDetail.backToMenu': 'ਮੀਨੂ ਤੇ ਵਾਪਸ ਜਾਓ',
+  'menuItemDetail.confirmDelete': 'ਕੀ ਇਸ ਮੀਨੂ ਆਈਟਮ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?',
   'menuItemDetail.delete': 'ਆਈਟਮ ਮਿਟਾਓ',
   'menuItemDetail.deleteError': 'ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'menuItemDetail.dietary': 'ਖੁਰਾਕ ਸੰਬੰਧੀ ਟੈਗ',
@@ -136,9 +140,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'ਰੱਖਿਅਤ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'menuItemDetail.subheading': '{{category}} · ਫੋਟੋ, ਸੋਧਕ, ਖੁਰਾਕ, ਅਤੇ ਕੀਮਤ ਸੰਪਾਦਿਤ ਕਰੋ।',
   'menuItemDetail.untitled': 'ਬਿਨਾਂ ਸਿਰਲੇਖ ਵਾਲੀ ਆਈਟਮ',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'notFound.heading': "ਇਹ ਮੇਜ਼ ਫਰਸ਼ 'ਤੇ ਨਹੀਂ ਹੈ।",
   'notFound.subheading':
     'ਜਿਸ ਪੰਨੇ ਦੀ ਤੁਸੀਂ ਭਾਲ ਕਰ ਰਹੇ ਸੀ ਉਹ ਕਿਤੇ ਹੋਰ ਰੱਖਿਆ ਗਿਆ ਹੈ - ਜਾਂ ਕਦੇ ਮੌਜੂਦ ਨਹੀਂ ਸੀ।',
+  'notFound.toLanding': '{{app}} ਹੋਮ',
   'notifications.markError': 'ਸਾਰੇ ਪੜ੍ਹੇ ਹੋਏ ਵਜੋਂ ਨਿਸ਼ਾਨਦੇਹੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
   'orderDashboard.activeDelta': 'ਹੁਣੇ ਲਾਈਵ',
   'orderDashboard.activeLabel': 'ਕਿਰਿਆਸ਼ੀਲ ਆਰਡਰ',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'resetPassword.subtitle': 'ਰਸੋਈ ਤੱਕ ਪਹੁੰਚ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣਾ ਨਵਾਂ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ।',
   'resetPassword.tokenLabel': 'ਟੋਕਨ ਰੀਸੈਟ ਕਰੋ',
+  'restaurantOrderingLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'revenueHeroCard.activeOrders': '{{count}} ਕਿਰਿਆਸ਼ੀਲ',
   'revenueHeroCard.change': '{{sign}} {{amount}} ਬਨਾਮ ਕੱਲ੍ਹ',
   'revenueHeroCard.title': 'ਅੱਜ ਦੀ ਆਮਦਨ',
@@ -220,6 +228,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'ਰੈਸਟੋਰੈਂਟ ਦਾ ਨਾਮ',
   'tableDetail.activeOrders': 'ਕਿਰਿਆਸ਼ੀਲ ਆਰਡਰ',
   'tableDetail.backToFloor': 'ਫਲੋਰ ਪਲਾਨ',
+  'tableDetail.confirmDelete': 'ਕੀ ਇਸ ਸਾਰਣੀ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?',
   'tableDetail.delete': 'ਮਿਟਾਓ',
   'tableDetail.deleteError': 'ਸਾਰਣੀ ਮਿਟਾ ਨਹੀਂ ਸਕਿਆ।',
   'tableDetail.heading': 'ਟੇਬਲ {{label}}',

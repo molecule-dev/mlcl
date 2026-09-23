@@ -20,6 +20,7 @@ export const ui: UiTranslations = {
   'checkout.subtitle':
     'ပစ္စည်းတစ်ခုစီသည် Stripe မှ လက်ခံကျင်းပသော ငွေရှင်းကောင်တာတွင် ၎င်း၏ကိုယ်ပိုင်အကောင့်ကို ဖွင့်သည်။ အတည်ပြုချက်ရရှိသည်နှင့် လိုင်စင်သော့များကို ထုတ်ပေးပါသည်။',
   'checkout.title': 'သင့်ရဲ့ဒေါင်းလုဒ်တွေကနေ တစ်ဆင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'creatorStatGrid.label': 'ဖန်တီးသူ အဓိကအချက်များ',
   'dashboard.eyebrow': 'ဖန်တီးသူ ဒက်ရှ်ဘုတ်',
   'dashboard.range30': '၃၀ ရက်',
@@ -30,6 +31,8 @@ export const ui: UiTranslations = {
   'dashboard.subtitle':
     '{{count}} ပြီးခဲ့သည့် ၃၀ ရက်အတွင်း ရောင်းအား။ ပို့ဆောင်မှုကို ဆက်လက်လုပ်ဆောင်ပါ။',
   'dashboard.topProducts': 'ထိပ်တန်းထုတ်ကုန်များ',
+  'dashboard.topProductsEmpty':
+    'အရောင်းမရှိသေးပါ — သင့်အရောင်းရဆုံးစာရင်းဝင်များကို ဤနေရာတွင် မြင်ရပါလိမ့်မည်။',
   'forgotPassword.emailPlaceholder': 'you@studio.co',
   'forgotPassword.subtitle':
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ — တစ်ကြိမ်တည်း ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ကျွန်ုပ်တို့ ပေးပို့ပါမည်။',
@@ -94,11 +97,13 @@ export const ui: UiTranslations = {
   'orderHistory.downloadError': 'ဒေါင်းလုဒ်လုပ်၍မရပါ။',
   'orderHistory.downloading': 'ဒေါင်းလုဒ်လုပ်နေသည်…',
   'orderHistory.empty': 'မှာယူမှုများ မရှိသေးပါ',
+  'orderHistory.eyebrow': 'ပြေစာများ',
   'orderHistory.free': 'အခမဲ့',
   'orderHistory.title': 'မှာယူမှုမှတ်တမ်း',
   'orderHistory.viewReceipt': 'ပြေစာကိုကြည့်ပါ',
   'planUpdated.settings': 'ဆက်တင်များကို ဖွင့်ပါ',
   'planUpdated.toDashboard': 'ဒက်ရှ်ဘုတ်သို့ သွားပါ',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.feature.downloads': 'ဒေါင်းလုဒ်များ',
   'pricing.heading': 'ထုတ်ကုန်များ',
   'product.notFound': 'ထုတ်ကုန်ကို ရှာမတွေ့ပါ',
@@ -122,9 +127,11 @@ export const ui: UiTranslations = {
   'productEditor.newTitle': 'ထုတ်ကုန်အသစ်',
   'productEditor.notFound': 'ထုတ်ကုန်ကို ရှာမတွေ့ပါ။',
   'productEditor.pricing.price': 'ဈေးနှုန်း (အမေရိကန်ဒေါ်လာ)',
+  'productEditor.published': 'ထုတ်ကုန်ထုတ်ဝေပြီးပါပြီ။',
   'productEditor.saved': 'မူကြမ်းကို သိမ်းဆည်းပြီးပါပြီ။',
   'products.col.sales': 'ရောင်းအား',
   'products.col.updated': 'အပ်ဒိတ်လုပ်ထားသည်',
+  'products.emptyTitle': 'ထုတ်ကုန်များ မရှိသေးပါ',
   'products.eyebrow': 'ကတ်တလောက်',
   'products.subtitle': '{{count}} လက်ရှိစာရင်းများ',
   'products.title': 'သင့်ထုတ်ကုန်များ',

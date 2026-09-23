@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'article.notFound': 'Ba a sami labarin ba',
   'articleEditor.bodyPlaceholder': 'Rubuta / don tubalan, ko kuma kawai fara rubutu.',
+  'articleEditor.loadFailed': 'Ba za a iya loda labarin ba',
   'articleEditor.publishing': 'Bugawa\\u2026',
   'articleEditor.saveFailed': 'Ajiye ya gaza',
   'articleEditor.saving': 'Ana adanawa\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Alamar shafi',
   'articleView.bookmarkOn': 'An yiwa alama',
   'articleView.edit': 'Gyara labarin',
+  'articleView.loading': 'Buɗe wannan labarin…',
   'articleView.readTime': '{{minutes}} karatun minti',
   'articleView.spaces': 'Sarari',
   'articleView.tocHeading': 'A wannan shafin',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Gyaran da aka yi kwanan nan, karantawa, da kuma tsara ayyukan ƙungiyar ku har yanzu suna ci gaba.',
   'cairnTrailHero.updated': 'An sabunta labaran',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'drafts.eyebrow': 'Aikinka da ba a gama ba',
   'drafts.heading': 'Zane-zane',
+  'drafts.loadFailed': 'Ba za a iya loda daftarin aikinka ba.',
   'drafts.subtitle': 'Kasidun da ka fara amma ba a buga su ba tukuna. Ɗauki ɗaya ka ci gaba.',
   'forgotPassword.sentBody':
     'Idan akwai asusu don {{email}} , hanyar sake saitawa tana kan hanya. Hanyar haɗin za ta ƙare cikin mintuna 30.',
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Babu sarari tukuna. Buɗe ɗaya don fara tattara labarai.',
   'home.spacesHeading': 'Wurarenka',
   'home.subtitle': 'Labarai na baya-bayan nan, alamominku, da kuma abin da ƙungiyar ke rubutawa.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . An gina shi da ƙwayoyin halitta.',
   'landing.ctaBody':
     'Kyauta ga marubutan da ba su da aure. Tsarin ƙungiya ga ƙungiyoyin da aka rarraba waɗanda ke aika littattafai, shawarwari, da kuma shiga cikin ƙungiyar.',
   'landing.ctaHeading': 'A tara dutse na farko a yau.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Ƙirƙiri wurin aiki',
   'login.submitting': 'Shiga\\u2026',
   'login.subtitle': 'Ɗauki hanyar da ka bar ta.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
+  'newSpace.colorAria': 'Zaɓi launi {{color}}',
   'newSpace.colorLabel': 'Launin lafazi',
+  'newSpace.createFailed': 'Ba za a iya ƙirƙirar sarari ba',
   'newSpace.descriptionPlaceholder':
     'Littattafan Runbooks, littattafan wasan kwaikwayo na kan-kira, bayan mutuwa\\u2026',
   'newSpace.eyebrow': 'Bude wani wuri na ilimi',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ana lodawa\\u2026',
   'notifications.subtitle':
     '{{count}} ambaton da ba a karanta ba \\u2014, sharhi, canje-canjen shafi, da buƙatun bita.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.articles': 'labarai',
   'pricing.spaces': 'wurare',
   'profile.eyebrow': 'Bayanin Marubuci',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Shigar da sabuwar kalmar sirri',
   'resetPassword.subtitle': 'Zaɓi kalmar sirri mai ƙarfi — aƙalla haruffa 12.',
   'searchResults.eyebrow': 'Binciken wurin aiki',
+  'searchResults.filter.all': 'Duk wurare',
   'searchResults.heading': 'Bincika labarai',
   'searchResults.placeholder': 'Bincika littattafan gudu, RFCs, manufofi, yanke shawara\\u2026',
   'searchResults.summary': '{{count}} sakamako na \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Wannan yana share asusunka da duk wani labarin da ka rubuta. Rubuta DELETE don tabbatarwa.',
   'settings.danger.confirmInvalid': 'Rubuta DELETE domin tabbatarwa.',
+  'settings.danger.deleteFailed': 'Ba za a iya goge asusu ba',
   'settings.danger.deleting': 'Ana gogewa\\u2026',
   'settings.danger.description':
     'Share wurin aikinka yana cire duk labarai, tsokaci, da tarihin sigar. Babu murmurewa.',
   'settings.danger.title': 'Share wurin aiki',
+  'settings.email.confirm': 'Sabunta imel',
+  'settings.email.confirmTitle': 'Tabbatar da canjin imel',
   'settings.email.saved': 'An sabunta imel.',
+  'settings.email.updateFailed': 'Ba za a iya sabunta imel ba',
   'settings.language.title': 'Harshe',
   'settings.name': 'Suna',
+  'settings.name.saved': 'An sabunta suna.',
+  'settings.name.updateFailed': 'Ba za a iya sabunta suna ba',
   'settings.notifications.description': 'Zaɓi abin da zai kai ga akwatin saƙonka.',
+  'settings.password.changeFailed': 'Ba za a iya canza kalmar sirri ba',
   'settings.password.current': 'Kalmar shiga na halin yanzu',
   'settings.password.new': 'Sabuwar kalmar sirri',
   'settings.password.saving': 'Ana sabuntawa\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Yadda labarai ke bayyana muku.',
   'settings.reading.title': 'Karatu da rubutu',
   'settings.subtitle': 'Kunna sanarwar, zane na karatu, da asusunka.',
+  'settings.twofa.code': 'Lambar tabbatarwa',
   'settings.twofa.disable': 'A kashe',
   'settings.twofa.disabled': 'An kashe',
   'settings.twofa.enable': 'Kunna',
   'settings.twofa.enabled': 'An kunna',
+  'settings.twofa.invalidCode': 'Lambar da ba ta aiki ba',
+  'settings.twofa.unavailable': 'Ba a samun tantance abubuwa biyu don wannan app ɗin ba.',
+  'settings.twofa.verify': 'Tabbatar & kunna',
   'signup.brandQuote':
     '\\u201cRubuta shi shine alƙawarin farko da muke yi wa mutum na gaba wanda ke buƙatar sa.\\u201d',
   'signup.eyebrow': 'Buɗe wurin aiki',

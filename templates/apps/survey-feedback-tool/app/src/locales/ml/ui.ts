@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'analytics.back': 'സർവേ അവലോകനം',
   'analytics.kpiNps': 'NPS സ്കോർ',
   'analytics.kpiNpsTrend': 'പ്രൊമോട്ടർമാർ {{p}} % · വിമർശകർ {{d}} %',
@@ -32,11 +33,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'പ്രോപ്പർട്ടികൾ',
   'builder.questionNumber': 'ഫ {{num}}',
   'builder.surveyTitle': 'സർവേ ശീർഷകം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'forgotPassword.failed': 'പുനഃസജ്ജീകരണ ഇമെയിൽ അയയ്ക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു വീണ്ടെടുക്കൽ ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
     'ഒരു അക്കൗണ്ട് പൊരുത്തപ്പെടുന്നെങ്കിൽ {{email}} , ഒരു റീസെറ്റ് ലിങ്ക് വന്നുകൊണ്ടിരിക്കുന്നു. നിങ്ങളുടെ ഇൻബോക്സും സ്പാം ഫോൾഡറുകളും പരിശോധിക്കുക.',
+  'landing.footer.copyright': '© {{year}} {{app}} . എല്ലാവരെയും സ്വാഗതം ചെയ്യുന്നു.',
   'landing.footer.startTrial': 'ട്രയൽ ആരംഭിക്കുക',
   'landing.hero.badge': 'സർവേകൾ, NPS, ഫീഡ്‌ബാക്ക് എന്നിവ ഒരിടത്ത്',
   'landing.hero.subtitle':
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'വിലനിർണ്ണയം',
   'landing.pricing.perMonth': '/മാസം',
   'landing.pricing.popular': 'ഏറ്റവും ജനപ്രിയമായത്',
+  'landing.pricing.subtitle':
+    'എല്ലാ പ്ലാനിലും സർവേ ബിൽഡർ, പബ്ലിക് ഷെയർ ലിങ്കുകൾ, NPS അനലിറ്റിക്സ് എന്നിവ ഉൾപ്പെടുന്നു. ആരംഭിക്കാൻ ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല.',
+  'landing.pricing.title': 'സൗജന്യമായി തുടങ്ങുക, ചെയ്യുമ്പോൾ സ്കെയിൽ ചെയ്യുക.',
   'landing.sample.eyebrow': 'NPS ഒറ്റനോട്ടത്തിൽ',
   'landing.sample.title': 'വിമർശകർ, നിഷ്ക്രിയർ, പ്രമോട്ടർമാർ - പെട്ടെന്ന് വായിക്കാവുന്നവ.',
   'login.failed': 'ലോഗിൻ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
@@ -59,6 +65,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.signUpLink': 'ഒരു സൗജന്യ ട്രയൽ ആരംഭിക്കുക',
   'login.subheading': 'നിങ്ങളുടെ പ്രേക്ഷകരെ ശ്രദ്ധിച്ചുകൊണ്ടിരിക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
+  'notFound.body':
+    'നിങ്ങൾ തിരയുന്ന പേജ് {{app}} -ൽ നിലവിലില്ല. നിങ്ങളുടെ സർവേകളിലേക്ക് തിരികെ വരാം.',
   'notFound.cta': 'സർവേകളിലേക്ക് മടങ്ങുക',
   'notFound.eyebrow': '404 заклада',
   'notFound.heading': 'ഈ സർവേ ക്യൂവിൽ നിന്ന് മാറിപ്പോയി.',
@@ -76,6 +84,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'നിഷ്ക്രിയം 7–8',
   'npsDistributionBar.promoter': 'പ്രൊമോട്ടർ 9–10',
   'profile.identity.description': 'നിങ്ങളുടെ ടീമിനും നിങ്ങൾ രചിക്കുന്ന സർവേകൾക്കും പരസ്യമാക്കുക.',
+  'profile.identity.emailRequired': 'ഒരു ഇമെയിൽ വിലാസം നൽകുക.',
   'profile.identity.saveCta': 'പേര് സംരക്ഷിക്കുക',
   'profile.password.current': 'നിലവിലെ പാസ്വേഡ്',
   'profile.password.fillFields': 'നിലവിലുള്ളതും പുതിയതുമായ പാസ്‌വേഡ് നൽകുക.',
@@ -183,6 +192,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ചോദ്യങ്ങൾ',
   'templates.subheading':
     'യുദ്ധത്തിൽ പരീക്ഷിച്ച ഒരു സ്റ്റാർട്ടർ തിരഞ്ഞെടുക്കുക - ഓരോ ടെംപ്ലേറ്റും മികച്ച ഡിഫോൾട്ടുകൾ, സാമ്പിൾ ലോജിക്, വൃത്തിയുള്ള മൊബൈൽ ലേഔട്ട് എന്നിവ ഉപയോഗിച്ച് മുൻകൂട്ടി ട്യൂൺ ചെയ്തിരിക്കുന്നു.',
+  'thankYou.body':
+    'നിങ്ങളുടെ പ്രതികരണം രേഖപ്പെടുത്തിയിട്ടുണ്ട്. {{app}} അടുത്ത അനലിറ്റിക്സ് പുതുക്കലിൽ ഇത് ഉൾപ്പെടുത്തും.',
   'thankYou.eyebrow': 'പ്രതികരണം ലഭിച്ചു',
   'thankYou.heading': 'നന്ദി — നിങ്ങളുടെ ശബ്ദം പ്രധാനമാണ്.',
   'thankYou.home': 'മുർമൂർ സന്ദർശിക്കുക',

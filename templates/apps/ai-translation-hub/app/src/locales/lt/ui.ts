@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'billing.canceled':
     'Prenumerata atšaukta. Laikotarpio pabaigoje vėl galėsite naudotis nemokama prenumerata.',
   'billing.contactSales': 'Susisiekite su pardavimų vadybininku',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Nėra saugojimo apribojimo',
   'billing.upgradeHint': 'Atnaujinkite, kad atrakintumėte pažangias dirbtinio intelekto funkcijas.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.activityEmpty':
     'Kol kas veiklos nėra – pradėkite projektą, kad užpildytumėte šį sklaidos kanalą.',
   'dashboard.eyebrow': 'Apžvalga',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Pakartotinai naudoti ankstesnius vertimus kiekviename projekte. Didesnis atitikimo balas → mažiau pakartotinio darbo.',
   'memory.title': 'Atminties bankas',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'nav.legal': 'Teisinis',
   'newProject.addLanguage': 'Pridėti taikinį',
   'newProject.create': 'Sukurti projektą',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Pažymėta {{count}} pranešimus kaip perskaitytus.',
   'notifications.subtitle':
     'Paminėjimai, peržiūros užklausos ir dirbtinio intelekto įvykiai iš visų jūsų darbo sričių.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'privacy.collection.account': 'Jūsų paskyros el. pašto adresas ir rodomas vardas',
   'privacy.deletion.body':
     'Projektą, segmentą, žodynėlio terminą ar atminties įrašą galite bet kada ištrinti iš atitinkamo puslapio. Ištrynus paskyrą iš nustatymų, iš mūsų duomenų bazės išvalomos visos darbo srities eilutės.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Nepavyko įkelti projektų.',
   'projects.loading': 'Įkeliami projektai…',
   'projects.subtitle': 'Kiekvienas aktyvus projektas visose lokalizacijose.',
+  'renditionLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'reset.backToLogin': '\\u2190 Grįžti prie prisijungimo',
   'reset.passwordLabel': 'Naujas slaptažodis',
   'review.activeEyebrow': 'Segmentas {{number}}',

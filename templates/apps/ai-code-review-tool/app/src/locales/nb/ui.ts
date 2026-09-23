@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'common.goToDashboard': 'Gå til oversikt',
   'dashboard.connectRepoCta': 'Koble til repositorium',
   'dashboard.empty': 'Ingen pull requests ennå — koble til et repositorium for å komme i gang.',
   'dashboard.eyebrow': 'Refract · gjennomgangskø',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Oppetid',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'KI-kvalitetspoeng {{score}} / 10',
+  'refractLayout.closeMenu': 'Lukk menyen',
+  'refractLayout.openMenu': 'Åpne meny',
   'refractLayout.primaryNavLabel': 'Primær navigasjon',
   'reports.cumulativeScoreLabel': 'Kumulativ poengsum',
   'reports.cumulativeScoreSubtitle': 'alle repo-er · {{days}}d',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Kunne ikke laste søkeindeks.',
   'settings.apiKeys.description':
     'Administrer personlige API-nøkler fra brukermenyen øverst til høyre.',
+  'settings.apiKeys.integrationsNote':
+    'Tilgangstokener for tjenesteleverandører administreres i delen «Integrasjoner» ovenfor.',
   'settings.connectError': 'Kunne ikke koble til leverandør.',
   'settings.disconnectError': 'Kunne ikke koble fra leverandør.',
   'settings.eyebrow': 'Refract · arbeidsområde',
   'settings.integration.${provider}.label': 'Lagrer…',
   'settings.loadError': 'Kunne ikke laste innstillinger.',
+  'settings.notificationCenter': 'Varslingssenteret',
   'settings.notifications.description':
     'Besøk varselsiden for å se og administrere leveringsinnstillinger.',
   'settings.section.account': 'Konto og sikkerhet',

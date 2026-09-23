@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
+  'about.title': 'Et skriverom du kan ha i lommen',
   'billing.cancelConfirm': 'Vil du avslutte det aktive abonnementet ditt?',
   'billing.cancelFailed': 'Kunne ikke avbryte.',
   'billing.checkingOut': 'Åpner kassen …',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Kunne ikke laste inn fakturering.',
   'billing.loading': 'Laster fakturering…',
   'billing.upgradeCta': 'Oppgrader til {{name}}',
+  'common.goToDashboard': 'Gå til oversikt',
+  'editor.autosaveOn': 'Automatisk lagring på',
   'editor.backToLibrary': 'Tilbake til biblioteket',
   'editor.charCount': '{{count}} tegn',
   'editor.confirmTrash': 'Flytte dette dokumentet til papirkurven?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Løst',
   'editor.unpublishCta': 'Flytt til utkast',
   'editor.unpublished': 'Tilbakeført til utkast',
+  'focus.autosaveOn': 'Automatisk lagring på',
   'focus.backToLibrary': 'Tilbake til biblioteket',
   'focus.bodyPlaceholder': 'En linje om gangen. Ingen andre er her.',
   'focus.exit': 'Gå ut av fokusmodus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Opprett en',
   'login.subline':
     'Manuskriptene dine, dagssidene og siste markørposisjon er akkurat der du slapp dem.',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'pricing.exports': 'eksport',
   'pricing.folders': 'mapper',
   'pricing.heading': 'dokumenter',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Skriv inn koden vi nettopp sendte deg på e-post, og velg noe du husker. Vi logger deg på når den er lagret.',
   'reset.tokenHint': 'Limt inn fra innboksen din.',
+  'settings.appearance.heading': 'Lys eller mørk',
   'settings.editor.${row.id}.description': 'Språk',
   'settings.editor.description':
     'Skrivemaskinrulling, avsnittsuttoning og fokus på tomgang – standardinnstillingene er justert for lange økter.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Kapittel tre – En stille time før soloppgang',
   'versalDocumentCard.pinned': 'Festet',
   'versalLayout.nav.stats': 'Statistikk',
+  'versalLayout.primaryNavLabel': 'Primær navigasjon',
   'versalManuscriptHero.cta': 'Fortsett å skrive',
   'versalManuscriptHero.goalLabel': 'Dagens ordmål',
   'versalManuscriptHero.inProgress': 'På rett spor',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'auth.fields.newPassword': 'Нова лозинка',
   'collectionDetail.addImage': 'Возбудете се за собирање',
   'collectionDetail.backCta': 'Назад кон колекциите',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Табли за расположение, брифови и тековни серии',
   'collections.title': 'Колекции',
   'collections.untitled': 'Без наслов · {{stamp}}',
+  'common.closeMenu': 'Затвори мени',
+  'common.dismiss': 'Отфрли',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'common.openMenu': 'Отвори мени за навигација',
   'credits.eyebrow': '{{plan}} план',
   'credits.renewsCopy': 'Планот се обновува на {{date}}',
   'credits.trail': 'Сонував · {{plan}} ниво',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Активноста на генерирање, споделувањето и известувањата за кредит ќе се појават тука.',
   'notifications.empty.title': 'Нема ништо за пријавување',
   'notifications.subtitle': 'Генерациски настани групирани по ден',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.limits.gallery': '{{count}} галерија',
   'privacy.collect.body':
     'Кога се регистрирате, ние ги собираме вашето име, е-пошта адреса и хаширана лозинка. Додека го користите Reverie, ги складираме барањата што ги поднесувате, сликите што ги генерираме за вас, стиловите и колекциите што ги зачувувате и метаподатоците како што се користениот модел, временските ознаки за генерирање и салдото на кредитот.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Зачувај ја новата лозинка',
   'reset.submitting': 'Лозинката се ажурира…',
   'settings.account.handle': 'Рачка',
+  'settings.account.lastSaved': 'Активен профил · {{name}}',
   'settings.account.saved': 'Профилот е зачуван',
   'settings.account.saveFailed': 'Не може да се зачува профилот',
   'settings.account.title': 'Профил на создавач',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Нова слика',
   'sidebar.secondary': 'Секундарна навигација',
   'signup.failed': 'Регистрацијата не успеа. Обидете се повторно.',
+  'signup.firstNamePlaceholder': 'Арија',
   'signup.heading': 'Започнете го вашето мечтаење',
+  'signup.lastNamePlaceholder': 'Лин',
   'signup.subheading': 'Креирајте сметка и добијте 120 бесплатни кредити.',
   'styles.empty':
     'Сè уште нема претходно поставени стилови — тие ќе се појават по првото најавување.',

@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': "Gee jou koper 'n fooitjie",
   'checkout.tipLabel': 'Fooitjie',
   'checkout.zipPlaceholder': 'Poskode',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'featuredProductsGrid.addAria': 'Voeg by {{name}} na mandjie',
   'featuredProductsGrid.outOfStock': 'Uit voorraad',
   'forgotPassword.emailLabel': 'E-posadres',
   'forgotPassword.emailPlaceholder': 'koper@bushel.vars',
   'forgotPassword.successBody':
     "As daardie e-posadres geregistreer is, is 'n terugstelskakel oppad.",
+  'groceryDeliveryLayout.primaryNavLabel': 'Primêre navigasie',
   'landing.categoriesEyebrow': 'Gange',
   'landing.categoriesHeading': 'Winkel volgens kategorie',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Beplan weeklikse aflewerings met slim herbestelling van krammetjies en regstreekse bestuurdersopsporing.',
   'landing.heroTitle': 'Varsheid by jou deur, binne ure.',
   'landing.howEyebrow': 'Drie stappe',
+  'landing.howItWorksHeading': 'Hoe {{app}} werk',
   'lists.addAllCta': 'Voeg alles by mandjie',
   'lists.createCta': 'Skep jou eerste lys',
   'lists.createError': 'Kon nie lys skep nie.',

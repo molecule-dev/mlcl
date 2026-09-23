@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// oor {{app}}',
+  'about.pageTitle': 'Die webhook-beheervlak',
+  'about.plansTitle': 'Planne vir elke stadium',
   'apiKeys.bestPractices': 'Beste praktyke',
   'apiKeys.body':
     'Programmatiese toegangstokens. Behandel hulle soos wagwoorde — stoor in omgewingsvariables, moenie ooit \'n "commit" doen nie.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'binne die plan',
   'billing.usageWarning': 'naby die pet',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.body':
     'Regstreekse deurset, herprobeeringe in vlug, en die eindpunte wat so pas gehiak het – oor elke werkruimte wat jy bedryf.',
   'dashboard.endpointsEmpty': 'Geen eindpunte nog nie.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'eindpunte',
   'endpointDetail.deliveryTrendSub': 'aflewerings / uur, logskaal',
   'endpointDetail.hideSecret': 'Versteek geheim',
+  'endpointDetail.loading': 'Laai eindpunt…',
   'endpointDetail.metric.delivered': 'Afgelewer 24 uur',
   'endpointDetail.metric.deliveredCaption': 'van {{count}} gebeurtenis tipes',
   'endpointDetail.metric.failuresCaption': 'herprobeer: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Krities · 24 uur',
   'notifications.metric.totalCaption': 'alledaagse inboks',
   'payloadViewer.payload': '// vrag',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Voorletters getoon — oplaaie kom met die volgende vrystelling.',
   'profile.body': 'Jou rekening, voorkeure en aktiewe sessies.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Slegs jou huidige sessie is aktief. Geen ander toestelle is aangemeld nie.',
   'profile.toggle': 'Wissel {{label}}',
+  'pylonShell.closeMenu': 'Maak navigasiekieslys toe',
+  'pylonShell.openMenu': 'Maak navigasiekieslys oop',
   'pylonShell.primaryNavLabel': 'Primêre navigasie',
   'resetPassword.subtitle': "Kies 'n sterk wagwoord wat jy nog nie voorheen gebruik het nie.",
   'resetPassword.tokenPlaceholder': 'plak vanaf e-pos',

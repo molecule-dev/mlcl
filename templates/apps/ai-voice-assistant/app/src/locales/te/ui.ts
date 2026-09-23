@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'మీకు ఫీడ్‌బ్యాక్, ఫీచర్ రిక్వెస్ట్ ఉందా, లేదా ఏదైనా బగ్ కనుగొన్నారా? మీ అకౌంట్ మెనూలోని సపోర్ట్ లింక్ ద్వారా {{app}} టీమ్‌ను సంప్రదించండి — ప్రతి సందేశం ఒక నిజమైన వ్యక్తికి చేరుతుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'agentDetail.back': 'అన్ని ఏజెంట్లు',
   'agentDetail.capabilities': 'సామర్థ్యాలు',
   'agentDetail.delete': 'వ్యక్తిత్వాన్ని తొలగించండి',
   'agentDetail.deleteConfirm': 'ఈ వ్యక్తిత్వాన్ని తొలగించాలా? దీన్ని వెనక్కి తీసుకోలేరు.',
+  'agentDetail.deleteError': 'వ్యక్తిత్వాన్ని తొలగించలేకపోయాము.',
   'agentDetail.eyebrow': 'వ్యక్తిత్వం',
   'agentDetail.fetchError': 'పర్సోనాను లోడ్ చేయలేకపోయింది.',
   'agentDetail.save': 'వ్యక్తిత్వాన్ని సేవ్ చేయండి',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'మారుస్తోంది…',
   'billing.updateError': 'అప్‌డేట్‌ను ప్రారంభించలేకపోయాము.',
   'billing.usageHeading': 'ఈ చక్రంలో వాయిస్ వినియోగం',
+  'chatBubble.source.text': 'టెక్స్ట్',
+  'chatBubble.source.voice': 'స్వరం',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'conversation.defaultTitle': 'కొత్త సంభాషణ',
   'conversation.empty':
     'ఇంకా సందేశాలు లేవు. ఏదైనా చెప్పడం ద్వారా లేదా కింద టైప్ చేయడం ద్వారా ప్రారంభించండి.',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'మాట్లాడే తెలివితేటలు.',
   'landing.heroSubtitle':
     'మీ సహజమైన శైలిని అర్థం చేసుకునే AI వాయిస్ అసిస్టెంట్. అప్రయత్నంగా సంభాషించండి, ఆలోచనలు పంచుకోండి, ఆదేశాలు ఇవ్వండి.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'వింటున్నాను…',
   'landing.naturallyBody':
     'ప్రేరేపించే పదాలు లేవు. కఠినమైన ఆదేశాలు లేవు. ఒక సహోద్యోగితో ముచ్చటించినట్లుగా, ఈ సంభాషణ సందర్భాన్ని, అంతరాయాలను, మరియు మానవ ప్రసంగంలోని సూక్ష్మభేదాలను అర్థం చేసుకుంటుంది.',
@@ -114,6 +122,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'సెషన్‌ను ప్రారంభించండి',
   'notFound.home': 'తిరిగి ఇంటికి',
   'notFound.title': 'మాకు ఆ పేజీ వినిపించలేదు.',
+  'parlanceLayout.closeMenu': 'మెనూను మూసివేయండి',
+  'parlanceLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'parlanceLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'pricing.conversations': '{{count}} సంభాషణలు',
   'pricing.cta.startFree': 'ఉచితంగా ప్రారంభించండి',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'మ్యాచ్‌లు లేవు',
   'search.eyebrow': 'కమాండ్ పాలెట్',
   'search.fetchError': 'శోధన సూచికను లోడ్ చేయలేకపోయింది.',
+  'search.static.profile.preview': 'ప్రదర్శన పేరు, హ్యాండిల్, బయో',
   'search.static.voice.title': 'స్వరం',
   'search.title': 'శోధన పరిభాష',
   'search.transcriptPreview': 'ఓపెన్ ట్రాన్స్క్రిప్ట్',

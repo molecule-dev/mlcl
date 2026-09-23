@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'about.pageTitle': 'შესახებ {{appName}}',
   'analytics.empty': 'ჩაწერეთ თქვენი პირველი კლიპი, რომ აქ ნახოთ ჩართულობა.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'კლიპები',
   'billing.usage.views': 'ნახვები',
   'billing.usage.views.unit': 'ნახვები',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'landing.cta.title': 'უკეთესი გამოხმაურების გაგზავნა. დაიწყეთ Glint-ით.',
   'landing.feature.capture.body':
     'ბრაუზერში, დესკტოპსა და მობილურში ჩაწერა მიკროფონით, კამერით და ხატვით.',
   'landing.feature.capture.title': 'ერთი შეხებით გადაღება',
+  'landing.footer.copy': '© {{year}} {{appName}} . ასინქრონული, მანათობელი.',
   'landing.hero.cardCaption': 'სამუშაო სივრცის მიმოხილვის ნიმუში — სცადეთ უფასოდ.',
   'landing.hero.primaryCta': 'დაიწყეთ ჩაწერა უფასოდ',
   'landing.hero.proof.free': 'სამუდამოდ უფასო დონე',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ჩანაწერების ძიება',
   'library.searchPlaceholder': 'ჩანაწერების ძიება…',
   'library.weeklyChange': '{{value}} % გასულ კვირასთან შედარებით',
+  'nav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'nav.record': 'ჩანაწერი',
   'nav.shared': 'გაზიარებულია ჩემთან',
   'nav.startRecording': 'ჩაწერის დაწყება',

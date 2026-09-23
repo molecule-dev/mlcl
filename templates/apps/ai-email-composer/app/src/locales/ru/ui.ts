@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'Наша история',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Коэффициент открытия',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Начинается оформление заказа…',
   'billing.subheading': 'Выберите тарифный план, соответствующий вашему способу отправки.',
   'billing.unavailable': 'Связаться с отделом продаж',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Повторить попытку',
   'compose.adjustingTone': 'Переписывание в выбранном тоне…',
   'compose.aiPromptPlaceholder':
     'Например: «Вежливое напоминание после двух недель отсутствия ответа, краткое».',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
     'Нужно что-то отправить? Signet подготовит черновик за считанные секунды.',
   'dashboard.composeCtaLabel': 'Быстрое сочинение',
   'dashboard.heading': 'Ваша неделя, составленная',
+  'dashboard.loadFailed': 'Не удалось загрузить вашу панель управления.',
   'dashboard.manageLibrary': 'Управление библиотекой →',
   'dashboard.recentEmpty': 'Пока ничего не отправлено — ваши отправленные письма появятся здесь.',
   'dashboard.recentHeading': 'Недавние отправки',
@@ -149,6 +153,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Компания Signet использует этот тон, если вы не измените его в черновике.',
   'signetLayout.primaryNavLabel': 'Основная навигация',
+  'signetLayout.toggleMenu': 'Переключить меню',
   'signup.emailLabel': 'Адрес электронной почты',
   'signup.showPassword': 'Показать пароль',
   'signup.tagline': 'Отправьте свое первое электронное письмо, созданное ИИ, менее чем за минуту.',

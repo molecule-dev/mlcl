@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.eyebrow': '{{app}} hakkında',
   'about.pageTitle': 'Her rota, tek arama.',
   'booking.backToDetail': 'Uçuş ayrıntılarına dön',
   'booking.continue': 'Ödemeye devam et',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Vergiler ve ücretler',
   'booking.summary.travelers': 'Gezginler',
   'common.about': 'Hakkında',
+  'common.goToDashboard': 'Panele Git',
   'flightDetail.backToResults': 'Sonuçlara dön',
   'flightDetail.baseFare': 'Temel ücret',
   'flightDetail.book': 'Rezervasyona devam et',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 aktarma',
   'flightResultCard.select': 'Seç',
   'flightResultCard.totalLabel': 'Toplam süre',
+  'flightSearchLayout.primaryNavLabel': 'Birincil gezinme',
   'forgotPassword.subheading':
     'Skylark hesabınızdaki e-postayı girin, size güvenli bir sıfırlama bağlantısı gönderelim.',
   'forgotPassword.successBody':
     'Yeni şifre belirleme bağlantısı için {{email}} adresini kontrol edin. Bağlantı 30 dakika içinde sona erer.',
   'forgotPassword.successHeading': 'Sıfırlama bağlantısı gönderildi',
   'landing.cta.explore': 'Bir arama deneyin',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Bir sonraki harika ücreti herkesten önce bulun.',
   'landing.cta.signup': 'Ücret takibine başlayın',
   'landing.features.eyebrow': 'Neden Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Uyarı ekle',
   'priceAlerts.deleteConfirm': 'Bu uyarı kaldırılsın mı?',
   'priceAlerts.empty': 'Henüz takip edilen rota yok.',
+  'priceAlerts.emptyCta': 'İzlenecek bir rota arayın',
   'priceAlerts.errorMessage': 'Uyarılar yüklenemedi.',
   'priceAlerts.eyebrow': 'Skylark izleme listesi',
   'priceAlerts.form.createError': 'Uyarı oluşturulamadı.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Çok şehirli seyahat planı',
   'results.multiLegHeading': 'Bacak {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} bacak · {{passengers}} yolcu',
+  'results.sortAriaLabel': 'Sonuçları sırala',
   'results.sortLabel': 'Sırala',
   'results.summary': '{{count}} uçuş · {{passengers}} yolcu',
   'settings.language.title': 'Dil',

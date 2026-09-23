@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'auth.fields.newPassword': 'Pasfhocal nua',
   'collectionDetail.addImage': 'Déan conjure le haghaidh bailiúcháin',
   'collectionDetail.backCta': 'Ar ais chuig na bailiúcháin',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Cláir giúmar, achoimrí agus sraitheanna leanúnacha',
   'collections.title': 'Bailiúcháin',
   'collections.untitled': 'Gan Teideal · {{stamp}}',
+  'common.closeMenu': 'Dún an roghchlár',
+  'common.dismiss': 'Díbhe',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.openMenu': 'Oscail an roghchlár nascleanúna',
   'credits.eyebrow': '{{plan}} plean',
   'credits.renewsCopy': 'Athnuaitear an plean ar {{date}}',
   'credits.trail': 'Brionglóid · {{plan}} sraith',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     'Beidh gníomhaíocht giniúna, comhroinnt agus foláirimh chreidmheasa le feiceáil anseo.',
   'notifications.empty.title': 'Ní haon rud le tuairisciú',
   'notifications.subtitle': 'Imeachtaí giniúna grúpáilte de réir lae',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.limits.gallery': '{{count}} gailearaí',
   'privacy.collect.body':
     'Nuair a chláraíonn tú, bailímid d’ainm, do sheoladh ríomhphoist, agus pasfhocal hasháilte. De réir mar a úsáideann tú Reverie, stóráilimid na leideanna a chuireann tú isteach, na híomhánna a ghineann muid duit, na stíleanna agus na bailiúcháin a shábhálann tú, agus meiteashonraí amhail an tsamhail a úsáideadh, stampaí ama giniúna, agus iarmhéid creidmheasa.',
@@ -169,6 +175,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Sábháil pasfhocal nua',
   'reset.submitting': 'Ag nuashonrú an phasfhocail…',
   'settings.account.handle': 'Láimhseáil',
+  'settings.account.lastSaved': 'Próifíl ghníomhach · {{name}}',
   'settings.account.saved': 'Próifíl sábháilte',
   'settings.account.saveFailed': 'Níorbh fhéidir an phróifíl a shábháil',
   'settings.account.title': 'Próifíl an chruthaitheora',
@@ -191,7 +198,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Íomhá nua',
   'sidebar.secondary': 'Nascleanúint thánaisteach',
   'signup.failed': 'Theip ar an gclárú. Déan iarracht eile.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Tosaigh do bhrionglóid',
+  'signup.lastNamePlaceholder': 'Lín',
   'signup.subheading': 'Cruthaigh cuntas agus éiligh 120 creidmheas saor in aisce.',
   'styles.empty':
     'Níl aon réamhshocruithe stíle ann go fóill — beidh siad le feiceáil tar éis an chéad logáil isteach.',

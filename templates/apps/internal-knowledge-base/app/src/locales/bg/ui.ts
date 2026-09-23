@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'article.notFound': 'Статията не е намерена',
   'articleEditor.bodyPlaceholder': 'Въведете / за блокове или просто започнете да пишете.',
+  'articleEditor.loadFailed': 'Статията не можа да се зареди',
   'articleEditor.publishing': 'Публикуване\\u2026',
   'articleEditor.saveFailed': 'Запазването се провали',
   'articleEditor.saving': 'Запазване\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Запомнете',
   'articleView.bookmarkOn': 'Запазено в отметки',
   'articleView.edit': 'Редактиране на статия',
+  'articleView.loading': 'Отваряне на тази статия…',
   'articleView.readTime': '{{minutes}} мин. четене',
   'articleView.spaces': 'Пространства',
   'articleView.tocHeading': 'На тази страница',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Последни редакции, четения и чернови, които вашият екип все още събира.',
   'cairnTrailHero.updated': 'Статиите са актуализирани',
+  'common.goToDashboard': 'Към таблото',
   'drafts.eyebrow': 'Твоята недовършена работа',
   'drafts.heading': 'Чернови',
+  'drafts.loadFailed': 'Не можах да заредя черновите ви.',
   'drafts.subtitle':
     'Статии, които сте започнали, но все още не сте публикували. Вземете една и продължете.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
     'Все още няма свободни места. Отворете такова, за да започнете да събирате статии.',
   'home.spacesHeading': 'Вашите пространства',
   'home.subtitle': 'Последни статии, вашите отметки и какво е писал екипът.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Създаден с Molecule.',
   'landing.ctaBody':
     'Безплатно за самостоятелни автори. Екипни планове за разпределени екипи, които предоставят наръчници с задачи, решения и адаптация.',
   'landing.ctaHeading': 'Поставете първия камък днес.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Създаване на работно пространство',
   'login.submitting': 'Вход...',
   'login.subtitle': 'Вземете пътеката оттам, откъдето сте я оставили.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
+  'newSpace.colorAria': 'Изберете цвят {{color}}',
   'newSpace.colorLabel': 'Акцентен цвят',
+  'newSpace.createFailed': 'Не можа да се създаде пространство',
   'newSpace.descriptionPlaceholder':
     'Ръководства за работа, дежурни тактики, анализи след операцията\\u2026',
   'newSpace.eyebrow': 'Отворете пространство на знанието',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Зареждане\\u2026',
   'notifications.subtitle':
     '{{count}} непрочетени \\u2014 споменавания, коментари, промени в страницата и заявки за преглед.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.articles': 'статии',
   'pricing.spaces': 'пространства',
   'profile.eyebrow': 'Профил на автора',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Въведете нова парола',
   'resetPassword.subtitle': 'Изберете силна парола — с дължина поне 12 символа.',
   'searchResults.eyebrow': 'Търсене на работно пространство',
+  'searchResults.filter.all': 'Всички пространства',
   'searchResults.heading': 'Търсене на статии',
   'searchResults.placeholder': 'Търсене в наръчници с инструкции, RFC-та, политики, решения\\u2026',
   'searchResults.summary': '{{count}} резултати за \\u201c {{query}} \\u201d',
@@ -134,14 +147,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Това изтрива вашия акаунт и всяка статия, която сте написали. Въведете DELETE за потвърждение.',
   'settings.danger.confirmInvalid': 'Въведете DELETE за потвърждение.',
+  'settings.danger.deleteFailed': 'Не можа да се изтрие акаунтът',
   'settings.danger.deleting': 'Изтриване\\u2026',
   'settings.danger.description':
     'Изтриването на работното ви пространство премахва всички статии, коментари и история на версиите. Няма възможност за възстановяване.',
   'settings.danger.title': 'Изтриване на работното пространство',
+  'settings.email.confirm': 'Актуализиране на имейла',
+  'settings.email.confirmTitle': 'Потвърждаване на промяната на имейла',
   'settings.email.saved': 'Имейлът е актуализиран.',
+  'settings.email.updateFailed': 'Не можа да се актуализира имейл адресът',
   'settings.language.title': 'Език',
   'settings.name': 'Име',
+  'settings.name.saved': 'Името е актуализирано.',
+  'settings.name.updateFailed': 'Името не можа да се актуализира',
   'settings.notifications.description': 'Изберете какво да получавате в пощенската си кутия.',
+  'settings.password.changeFailed': 'Не можах да променя паролата',
   'settings.password.current': 'Текуща парола',
   'settings.password.new': 'Нова парола',
   'settings.password.saving': 'Актуализиране\\u2026',
@@ -149,10 +169,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Как се ви показват статиите.',
   'settings.reading.title': 'Четене и писане',
   'settings.subtitle': 'Настройте известията, платното за четене и вашия акаунт.',
+  'settings.twofa.code': 'Код за удостоверяване',
   'settings.twofa.disable': 'Деактивирай',
   'settings.twofa.disabled': 'С увреждания',
   'settings.twofa.enable': 'Активирай',
   'settings.twofa.enabled': 'Активирано',
+  'settings.twofa.invalidCode': 'Невалиден код',
+  'settings.twofa.unavailable': 'Двуфакторното удостоверяване не е налично за това приложение.',
+  'settings.twofa.verify': 'Проверка и активиране',
   'signup.brandQuote':
     '\\u201cЗаписването му е първото обещание, което даваме на следващия човек, който има нужда от него.\\u201d',
   'signup.eyebrow': 'Отваряне на работно пространство',

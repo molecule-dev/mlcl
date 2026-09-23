@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'billing.canceled': 'Áskrift sagt upp. Þú færð aftur ókeypis áskriftina að tímabilinu loknu.',
   'billing.contactSales': 'Hafðu samband við sölu',
   'billing.free.1': '5 þýðingar',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Engin varðveislumörk',
   'billing.upgradeHint': 'Uppfærðu til að opna fyrir háþróaða gervigreindareiginleika.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.activityEmpty': 'Engin virkni ennþá — hefja verkefni til að fylla út þennan straum.',
   'dashboard.eyebrow': 'Yfirlit',
   'dashboard.projectsEmpty': 'Engin verkefni ennþá — byrjaðu eitt til að sjá það hér.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Endurnýtið fyrri þýðingar í öllum verkefnum. Hærri samsvörunarstig → minni endurvinna.',
   'memory.title': 'Minnisbanki',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'nav.legal': 'Löglegt',
   'newProject.addLanguage': 'Bæta við markmiði',
   'newProject.create': 'Búa til verkefni',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Merkt {{count}} tilkynningar sem lesnar.',
   'notifications.subtitle':
     'Umsagnir, beiðnir um umsögn og gervigreindarviðburðir úr öllum vinnusvæðum þínum.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'privacy.collection.account': 'Netfang reikningsins þíns og birtingarnafn',
   'privacy.deletion.body':
     'Þú getur eytt verkefni, hluta, orðalista eða minnisfærslu hvenær sem er af viðkomandi síðu. Ef þú eyðir reikningnum þínum úr Stillingum hreinsast allar raðir sem falla undir vinnusvæðið úr gagnagrunninum okkar.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Mistókst að hlaða verkefnum.',
   'projects.loading': 'Hleður verkefni…',
   'projects.subtitle': 'Öll virk verkefni á öllum landshlutum.',
+  'renditionLayout.primaryNavLabel': 'Aðalflakk',
   'reset.backToLogin': 'Til baka í innskráningu',
   'reset.passwordLabel': 'Nýtt lykilorð',
   'review.activeEyebrow': 'Hluti {{number}}',

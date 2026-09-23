@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Оди до контролна табла',
   'forgot.eyebrow': 'Го изгубивте патот назад?',
   'forgot.formSubtitle': 'Кажете ни ја е-поштата што е во досието.',
   'forgot.headline': 'Ресетирајте ја вашата лозинка.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Создај еден',
   'login.subline':
     'Вашите тетратки, повратни линкови и дневни страници се токму таму каде што сте ги оставиле.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'noteEditor.backToNotes': 'Назад кон белешките',
   'noteEditor.bodyPlaceholder':
     'Започнете со пишување — вашата белешка автоматски се зачувува додека пишувате.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Нов тефтер',
   'notes.newNotebookPrompt': 'Име на ново тетратка',
   'notes.notebooksHeading': 'Тетратки',
+  'notes.subtitle':
+    'Изберете тетратка од лево, а потоа притиснете го копчето Нова белешка за да започнете нов запис.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Изберете го вашиот план за водење белешки',
   'reset.eyebrow': 'Речиси назад',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Ажурирано',
   'versoLayout.nav.graph': 'График',
   'versoLayout.nav.home': 'Дома',
+  'versoLayout.primaryNavLabel': 'Примарна навигација',
   'versoNoteCard.pinned': 'Закачено',
   'versoTodayHero.continueCta': 'Продолжи со пишување',
   'versoTodayHero.createCta': 'Започнете ја денешната белешка',

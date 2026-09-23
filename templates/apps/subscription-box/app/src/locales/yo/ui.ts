@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Nípa {{app}}',
+  'appNav.mobileLabel': 'Lilọ kiri akọkọ',
+  'appNav.primaryLabel': 'Lilọ kiri akọkọ',
   'billing.actions.confirmCancel': 'Fagilé ìforúkọsílẹ̀ rẹ? O le tún forúkọ sílẹ̀ nígbàkigbà.',
   'billing.actions.paused': 'A ti daduro iforukọsilẹ.',
   'billing.actions.resumed': 'Ìforúkọsílẹ̀ bẹ̀rẹ̀ sí ní bẹ̀rẹ̀.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Ipele kọọkan jẹ itan-akọọlẹ ẹgbẹ kekere kan. Fi ọkan kun si ila rẹ tabi yi pada si oṣu ti n bọ.',
   'boxThemeCard.perMonth': '/ oṣù',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'customize.eyebrow': 'Jẹ́ kí ó jẹ́ tìrẹ',
   'customize.heading': 'Ṣe akanṣe Crate rẹ tókàn',
   'customize.items.exclude': 'Fo eyi',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Àkókò yìí',
   'landing.editions.heading': 'Àwọn àtẹ̀jáde àwọn olùtọ́jú wa nífẹ̀ẹ́ wa',
   'landing.footer.contact': 'Bá olùtọ́jú kan sọ̀rọ̀',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bẹ̀rẹ̀ àpótí rẹ →',
   'landing.hero.ctaSecondary': 'Wo awọn ipele',
   'landing.hero.eyebrow': 'A máa ń ṣe àkójọpọ̀ lóṣooṣù. Ẹni-ẹni-nìkan ni gbogbo ìgbà.',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'Ìrìnàjò rẹ tó tẹ̀lé',
   'nextBoxHeroCard.itemsLabel': 'Àwọn ohun tí a ti ṣètò',
   'nextBoxHeroCard.shipsOnLabel': 'A n gbe e lọ',
+  'notFound.body':
+    'A kò rí ojú ìwé yẹn nínú àkójọ ìwé {{app}} . Ó ṣeé ṣe kí wọ́n ti yọ ọ́ kúrò tàbí kí wọ́n kàn ṣe àṣìṣe nínú rẹ̀.',
   'notFound.cta.dashboard': 'Lọ sí ojú-àwòrán',
   'notFound.eyebrow': 'Àpótí òfo',
   'notFound.heading': 'Sẹ́ẹ̀lì yìí kò sí níbìkan',

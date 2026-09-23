@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.eyebrow': '{{app}} အကြောင်း',
   'about.pageTitle': 'လမ်းကြောင်းတိုင်း၊ ရှာဖွေမှုတစ်ခု။',
   'booking.backToDetail': 'လေယာဉ်ခရီးစဉ် အသေးစိတ်သို့ ပြန်သွားရန်',
   'booking.continue': 'ငွေပေးချေမှုကို ဆက်လက်လုပ်ဆောင်ပါ',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'အခွန်နှင့် အခကြေးငွေများ',
   'booking.summary.travelers': 'ခရီးသွားများ',
   'common.about': 'အကြောင်း',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'flightDetail.backToResults': 'ရလဒ်များဆီသို့ ပြန်သွားပါ',
   'flightDetail.baseFare': 'အခြေခံခ',
   'flightDetail.book': 'ဘွတ်ကင်ဆက်လုပ်ရန်',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '၁ ရပ်နားမှု',
   'flightResultCard.select': 'ရွေးချယ်ပါ',
   'flightResultCard.totalLabel': 'စုစုပေါင်းအချိန်',
+  'flightSearchLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'forgotPassword.subheading':
     'သင့် Skylark အကောင့်ရှိ အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့မှ လုံခြုံသော ပြန်လည်သတ်မှတ်ခြင်းလင့်ခ်ကို ပေးပို့ပါမည်။',
   'forgotPassword.successBody':
     'စစ်ဆေးပါ {{email}} စကားဝှက်အသစ်သတ်မှတ်ရန်လင့်ခ်တစ်ခုအတွက်။ လင့်ခ်သည် မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
   'forgotPassword.successHeading': 'လင့်ခ်ပြန်လည်သတ်မှတ်ရန် ပို့ပြီးပါပြီ',
   'landing.cta.explore': 'ရှာဖွေမှုတစ်ခု စမ်းကြည့်ပါ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'တခြားသူတွေထက် အရင် နောက်ထပ် အကောင်းဆုံး ဈေးနှုန်းတွေကို ရှာပါ။',
   'landing.cta.signup': 'နှုန်းထားများကို စတင်ခြေရာခံပါ',
   'landing.features.eyebrow': 'ဘာကြောင့် Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'သတိပေးချက်ထည့်ပါ',
   'priceAlerts.deleteConfirm': 'ဤသတိပေးချက်ကို ဖယ်ရှားမလား။',
   'priceAlerts.empty': 'ခြေရာခံထားသော လမ်းကြောင်းများ မရှိသေးပါ။',
+  'priceAlerts.emptyCta': 'ခြေရာခံရန် လမ်းကြောင်းရှာဖွေပါ',
   'priceAlerts.errorMessage': 'သတိပေးချက်များကို တင်၍မရပါ။',
   'priceAlerts.eyebrow': 'Skylark စောင့်ကြည့်စာရင်း',
   'priceAlerts.form.createError': 'သတိပေးချက် ဖန်တီး၍မရပါ။',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'မြို့ပေါင်းစုံ ခရီးစဉ်',
   'results.multiLegHeading': 'ခြေထောက် {{n}} · {{မှ}} → {{သို့}} · {{ရက်စွဲ}}',
   'results.multiSummary': '{{count}} ခြေထောက်များ · {{passengers}} ခရီးသွားသူ',
+  'results.sortAriaLabel': 'ရလဒ်များကို စီပါ',
   'results.sortLabel': 'စီပါ',
   'results.summary': '{{count}} လေယာဉ်ခရီးစဉ်များ · {{passengers}} ခရီးသွားသူ',
   'settings.language.title': 'ဘာသာစကား',

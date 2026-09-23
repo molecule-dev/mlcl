@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'نبذة عن شركة «{{app}}»',
   'about.plansTitle': 'خطط تنمو معك',
   'brand.tagline': 'كل ثانية',
   'clientDetail.back': 'العودة إلى العملاء',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'كل علاقة في مكان واحد — المشاريع والساعات والفواتير المستحقة.',
   'clients.title': 'العملاء',
   'common.and': 'و',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'dashboard.activeProjects': 'المشاريع النشطة',
   'dashboard.empty': 'لا توجد سجلات بعد. ابدأ المؤقت لتتبع جلستك الأولى.',
   'dashboard.greeting': 'طاب يومك يا {{name}}',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
     'لا توجد ساعات قابلة للفوترة لهذا العميل. تتبع بعض الوقت أولًا أو عيّن سجلات حالية إلى أحد مشاريع هذا العميل.',
   'invoices.save': 'إنشاء فاتورة',
   'invoices.subtitle': 'الساعات المتتبعة تتحول إلى فواتير تلقائيًا.',
+  'landing.copyright': '© {{year}} {{app}} . كل ثانية، محسوبة.',
   'landing.ctaBody': 'مجاني لما يصل إلى 3 مشاريع. قم بالترقية عند نمو قائمة عملائك.',
   'landing.eyebrow': 'تتبع الوقت للعمل القابل للفوترة',
   'landing.featuresBody':
@@ -94,13 +97,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'موثوق من المستقلين',
   'landing.testimonial.quote':
     '”انتقلت من Toggl في 30 دقيقة. استهلاك الميزانية وحده قد سدد ثمن نفسه — توقفت عن تسعير أقل لأسبوعين متتاليين.“',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. كل ثانية، مسجلة.',
   'login.brand.subtitle':
     'استأنف المؤقت من حيث توقفت — كل دقيقة معينة بالفعل لمشروع وعميل وفاتورة.',
   'login.brand.tracking': 'تتبع',
   'login.subheading': 'استأنف المؤقت من حيث توقفت.',
+  'nav.closeMenu': 'إغلاق قائمة التنقل',
   'nav.insightsSection': 'الإحصاءات',
   'nav.newEntry': 'سجل جديد',
+  'nav.openMenu': 'فتح قائمة التنقل',
+  'nav.primary': 'التنقل الرئيسي',
   'nav.workSection': 'العمل',
   'notFound.body':
     'يبدو أن الرابط الذي اتبعته قد توقف عن التتبع. عد إلى لوحة التحكم — سنواصل العد من هناك.',
@@ -199,6 +206,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'قابل للفوترة',
   'timer.descriptionPlaceholder': 'على ماذا تعمل؟',
   'timer.idle': 'خامل — ابدأ التتبع',
+  'timer.noProject': 'لا يوجد مشروع',
   'timer.runningWithProject': 'لا يوجد مشروع',
   'timer.start': 'بدء المؤقت',
   'timer.stop': 'إيقاف المؤقت',

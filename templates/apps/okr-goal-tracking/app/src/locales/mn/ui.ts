@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
+  'ascentSideNav.nav.notifications': 'Мэдэгдэл',
   'ascentSideNav.newObjective': 'Шинэ зорилго',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Оргилд гар. Авиралтын оноо ав. Багийг дасгалжуул.',
   'authShell.eyebrow': 'Багуудыг хөдөлгөдөг OKR-үүд',
   'authShell.samplePeriod': '2026 оны 2-р улирал · жишээ зорилго',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Ажлын талбар · Төлбөр тооцоо',
   'billing.heading': 'Төлөвлөгөө ба нэхэмжлэх',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'Өгөгдөл экспортлох + API хандалт',
+  'billing.perk.inApp': 'Апп доторх тайлан',
+  'billing.perk.standard': 'Стандарт үнэлгээ',
+  'billing.perk.unlimitedObjectives': 'Хязгааргүй зорилго',
+  'billing.perk.unlimitedRetention': 'Хязгааргүй хадгалалт',
   'billing.subheading':
     'Та дээр байна {{name}} төлөвлөгөө. Доорх түвшингүүдийг харьцуулж, сайжруулна уу.',
   'billing.tier.unavailable': 'Боломжгүй',
@@ -41,11 +49,13 @@ export const ui: UiTranslations = {
     'KR бүрийн одоогийн утгыг шинэчилж, итгэл үнэмшлийг тэмдэглээд, нэг тэмдэглэл үлдээгээд илгээнэ үү.',
   'checkIn.submit': 'Бүртгүүлэхийг илгээх',
   'checkIn.submittedMessage': 'Бүртгүүлэлтийг хадгалсан. Явц болон цагийн хуваарийг шинэчилсэн.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': 'Үгүй',
   'common.relative.daysAgo': '{{count}} өдрийн өмнө',
   'common.relative.hoursAgo': '{{count}} hr ago',
   'common.relative.justNow': 'дөнгөж сая',
   'common.relative.minutesAgo': '{{count}} min ago',
+  'common.retry': 'Дахин оролдох',
   'common.yes': 'Тийм',
   'common.you': 'Чи',
   'dashboard.allActivity': 'Бүх үйл ажиллагааг харах →',
@@ -89,6 +99,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Бид дахин тохируулах холбоос илгээсэн {{email}} Энэ нь нэг цагийн дараа хугацаа нь дуусна — ирсэн имэйлд хэсэг хугацаа өг.',
   'forgotPassword.successHeading': 'Ирсэн имэйлээ шалгана уу.',
+  'keyResult.metrics.boolean': 'Тийм / Үгүй',
+  'keyResult.metrics.currency': 'Валют $',
+  'keyResult.metrics.number': 'Дугаар',
+  'keyResult.metrics.percent': '% хувь',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Эхний зорилгоо тодорхойлж, гурван багийн гишүүнээ урьж, Баасан гараг гэхэд анхны долоо хоног тутмын бүртгэлээ хийгээрэй.',
@@ -100,6 +114,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Багууд хэрхэн дээшээ авирах вэ',
   'landing.featuresTitle': 'Хүснэгтийн өргөтгөлгүйгээр дасгалжуулалтын зэрэглэлийн OKR-үүд.',
   'landing.footerBuiltOn': 'Molecule.dev дээр бүтээгдсэн',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Авиралт нь баг бүрт ууланд хүрэх хэмжигдэхүйц замыг өгдөг — зорилго тавьж, долоо хоног бүр гол үр дүнг дүгнэж, авиралтыг улирал бүр хянаж байдаг.',
   'landing.heroProgressLabel': 'Компанийн 2-р улирлын төлөвлөгөө',
@@ -109,6 +124,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'эсвэл үргэлжлүүлэх',
   'login.subheading':
     'Зогссон газраасаа үргэлжлүүлээрэй — таны бүртгэл, KR болон сэтгэгдлүүд хүлээж байна.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.mainNavigation': 'Үндсэн навигаци',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'newObjective.addKr': 'KR нэмэх',
   'newObjective.coachLabel': 'Дасгалжуулагчийн сануулга',
   'newObjective.descriptionPlaceholder':
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Үйл ажиллагааны төв',
   'notifications.markRead': '● Уншсан гэж тэмдэглэх',
   'objective.scopes.company': 'Компани',
+  'objective.scopes.individual': 'Хувь хүн',
   'objective.scopes.team': 'Баг',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Зорилго руу буцах',
@@ -156,11 +175,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Хяналт {{count}} зорилтууд. Анхаарал хандуулах шаардлагатай зүйлсийг олохын тулд төлөвөөр нь шүүнэ үү.',
   'profile.achievementCheckInsMany': '{{count}} бүртгэлүүд бүртгэгдсэн',
+  'profile.achievementCheckInsOne': '1 бүртгэл бүртгэгдсэн',
+  'profile.achievementCompletedMany': '{{count}} зорилтуудыг биелүүлсэн',
+  'profile.achievementCompletedOne': '1 зорилгоо биелүүлсэн',
+  'profile.achievementOnTrackMany': '{{count}} зорилтууд хэрэгжиж байна',
+  'profile.achievementOnTrackOne': '1 зорилго биеллээ',
   'profile.activeHeading': 'Идэвхтэй зорилтууд',
   'profile.allObjectives': 'Бүх зорилго →',
   'profile.empty': 'Одоогоор идэвхтэй зорилго алга байна — эхлүүлэх эхний зорилгоо үүсгээрэй.',
   'profile.eyebrow': 'Авирагчийн профайл',
   'profile.guestName': 'Уулчин',
+  'profile.loadError': 'Таны зорилтуудыг ачаалж чадсангүй.',
   'profile.loading': 'Зорилтуудыг ачаалж байна…',
   'profile.noAchievements': 'Анхны амжилтаа нээхийн тулд бүртгэлээ гүйцээнэ үү.',
   'profile.statCheckIns': 'Бүртгүүлэх',

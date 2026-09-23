@@ -45,6 +45,7 @@ export const ui: UiTranslations = {
   'customers.heading': '客戶',
   'customers.loadError': '載入客戶失敗。',
   'customers.loading': '載入中…',
+  'customers.new.address': '服務地址',
   'customers.new.email': '電子郵件',
   'customers.new.error': '新增客戶失敗。',
   'customers.new.heading': '新客戶',

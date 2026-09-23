@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.eyebrow': 'A {{app}} névjegye',
   'about.pageTitle': 'Minden útvonal, egy keresés.',
   'booking.backToDetail': 'Vissza a járat részleteihez',
   'booking.continue': 'Tovább a fizetéshez',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Adók és díjak',
   'booking.summary.travelers': 'Utazók',
   'common.about': 'Névjegy',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'flightDetail.backToResults': 'Vissza az eredményekhez',
   'flightDetail.baseFare': 'Alapdíj',
   'flightDetail.book': 'Tovább a foglaláshoz',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 megálló',
   'flightResultCard.select': 'Válasszon',
   'flightResultCard.totalLabel': 'Teljes idő',
+  'flightSearchLayout.primaryNavLabel': 'Elsődleges navigáció',
   'forgotPassword.subheading':
     'Add meg a Skylark fiókodhoz tartozó e-mail címet, és küldünk neked egy biztonságos visszaállítási linket.',
   'forgotPassword.successBody':
     'Ellenőrzés {{email}} egy linkért új jelszó beállításához. A link 30 perc múlva lejár.',
   'forgotPassword.successHeading': 'Visszaállítási link elküldve',
   'landing.cta.explore': 'Próbáljon meg egy keresést',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Találd meg a következő nagyszerű viteldíjat mindenki más előtt.',
   'landing.cta.signup': 'Kezdje el nyomon követni az árakat',
   'landing.features.eyebrow': 'Miért Skylark?',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Értesítés hozzáadása',
   'priceAlerts.deleteConfirm': 'Eltávolítja ezt a riasztást?',
   'priceAlerts.empty': 'Még nincsenek nyomon követett útvonalak.',
+  'priceAlerts.emptyCta': 'Útvonal keresése követéshez',
   'priceAlerts.errorMessage': 'Nem sikerült betölteni az értesítéseket.',
   'priceAlerts.eyebrow': 'Pacsirtafigyelőlista',
   'priceAlerts.form.createError': 'Nem sikerült riasztást létrehozni.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Több várost érintő útiterv',
   'results.multiLegHeading': 'Láb {{n}} · {{tól}} → {{to}} · {{dátum}}',
   'results.multiSummary': '{{count}} lábak · {{passengers}} utazó',
+  'results.sortAriaLabel': 'Eredmények rendezése a következő szerint:',
   'results.sortLabel': 'Fajta',
   'results.summary': '{{count}} repülőjegyek · {{passengers}} utazó',
   'settings.language.title': 'Nyelv',

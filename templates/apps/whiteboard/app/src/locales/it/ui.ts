@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'authShell.brandHeading': 'Canvas multiplayer per team di design che pensano ad alta voce.',
   'billing.canceled': 'Abbonamento annullato.',
   'billing.cancelPlan': 'Annulla piano',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Inizia da un modello',
   'boards.title': 'Le sue lavagne',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Inserisca l'email associata al suo workspace e le invieremo un link per la reimpostazione.",
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Workshop Q1 · Voce del brand',
   'landing.featuresEyebrow': 'Cosa rende Slate unico',
   'landing.featuresTitle': 'Feedback rapido. Canvas bellissimi. Zero attriti.',
+  'landing.hero.body':
+    '{{appName}} è una lavagna virtuale multigiocatore per team di progettazione, facilitatori di workshop e insegnanti che conducono sessioni di brainstorming dal vivo e hanno bisogno di raccogliere le idee in un unico luogo.',
   'landing.hero.primaryCta': 'Inizi una lavagna gratis',
   'landing.hero.socialProof': 'Scelto da {{count}} team di design in tutto il mondo',
   'landing.hero.title': 'Un canvas veloce come i suoi pensieri',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Crea un workspace gratuito',
   'login.subheading':
     'Riprenda da dove ha lasciato il workshop — lavagne, post-it e cursori si sincronizzano tutti in tempo reale.',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.new': 'Nuovo',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'notifications.editTitle': 'Modifiche a "{{board}}"',
   'notifications.empty.body':
     'Inviti, salvataggi di istantanee e modifiche recenti alla bacheca verranno visualizzati qui non appena disponibili.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Cronologia versioni',
   'versionHistory.untitledSnapshot': 'Istantanea senza titolo',
   'whiteboardLayout.newBoard': 'Nuova lavagna',
+  'whiteboardLayout.primaryNav': 'Navigazione principale',
   'workspace.boardLabel': 'Lavagna',
   'workspace.eyebrow': '{{name}} · workspace',
   'workspace.invite': 'Invita collaboratori',

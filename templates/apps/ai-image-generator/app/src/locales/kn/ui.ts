@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'auth.fields.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'collectionDetail.addImage': 'ಸಂಗ್ರಹಕ್ಕಾಗಿ ಕಲ್ಪಿಸಿಕೊಳ್ಳಿ',
   'collectionDetail.backCta': 'ಸಂಗ್ರಹಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'ಮನಸ್ಥಿತಿ-ಮಂಡಳಿಗಳು, ಸಂಕ್ಷಿಪ್ತ ಮಾಹಿತಿಗಳು ಮತ್ತು ನಡೆಯುತ್ತಿರುವ ಸರಣಿಗಳು',
   'collections.title': 'ಸಂಗ್ರಹಣೆಗಳು',
   'collections.untitled': 'ಶೀರ್ಷಿಕೆರಹಿತ · {{stamp}}',
+  'common.closeMenu': 'ಮೆನು ಮುಚ್ಚಿ',
+  'common.dismiss': 'ವಜಾಗೊಳಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'credits.eyebrow': '{{plan}} ಯೋಜನೆ',
   'credits.renewsCopy': 'ಯೋಜನೆ ನವೀಕರಣಗೊಳ್ಳುವ ದಿನಾಂಕ {{date}}',
   'credits.trail': 'ರೆವೆರಿ · {{plan}} ಶ್ರೇಣಿ',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'ಜನರೇಷನ್ ಚಟುವಟಿಕೆ, ಹಂಚಿಕೆ ಮತ್ತು ಕ್ರೆಡಿಟ್ ಎಚ್ಚರಿಕೆಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.',
   'notifications.empty.title': 'ವರದಿ ಮಾಡಲು ಏನೂ ಇಲ್ಲ.',
   'notifications.subtitle': 'ದಿನದ ಪ್ರಕಾರ ಗುಂಪು ಮಾಡಲಾದ ಪೀಳಿಗೆಯ ಘಟನೆಗಳು',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.limits.gallery': '{{count}} ಗ್ಯಾಲರಿ',
   'privacy.collect.body':
     'ನೀವು ಸೈನ್ ಅಪ್ ಮಾಡಿದಾಗ ನಿಮ್ಮ ಹೆಸರು, ಇಮೇಲ್ ವಿಳಾಸ ಮತ್ತು ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಾವು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ. ನೀವು ರೆವೆರಿ ಬಳಸುವಾಗ ನೀವು ಸಲ್ಲಿಸುವ ಪ್ರಾಂಪ್ಟ್‌ಗಳು, ನಿಮಗಾಗಿ ನಾವು ರಚಿಸುವ ಚಿತ್ರಗಳು, ನೀವು ಉಳಿಸುವ ಶೈಲಿಗಳು ಮತ್ತು ಸಂಗ್ರಹಣೆಗಳು ಮತ್ತು ಬಳಸಿದ ಮಾದರಿ, ಪೀಳಿಗೆಯ ಸಮಯಸ್ಟ್ಯಾಂಪ್‌ಗಳು ಮತ್ತು ಕ್ರೆಡಿಟ್ ಬ್ಯಾಲೆನ್ಸ್‌ನಂತಹ ಮೆಟಾಡೇಟಾವನ್ನು ನಾವು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಉಳಿಸಿ',
   'reset.submitting': 'ಪಾಸ್‌ವರ್ಡ್ ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.account.handle': 'ಹ್ಯಾಂಡಲ್',
+  'settings.account.lastSaved': 'ಸಕ್ರಿಯ ಪ್ರೊಫೈಲ್ · {{name}}',
   'settings.account.saved': 'ಪ್ರೊಫೈಲ್ ಉಳಿಸಲಾಗಿದೆ',
   'settings.account.saveFailed': 'ಪ್ರೊಫೈಲ್ ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.account.title': 'ರಚನೆಕಾರರ ಪ್ರೊಫೈಲ್',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'ಹೊಸ ಚಿತ್ರ',
   'sidebar.secondary': 'ದ್ವಿತೀಯ ಸಂಚರಣೆ',
   'signup.failed': 'ಸೈನ್ ಅಪ್ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'signup.firstNamePlaceholder': 'ಏರಿಯಾ',
   'signup.heading': 'ನಿಮ್ಮ ಧ್ಯಾನವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
+  'signup.lastNamePlaceholder': 'ಲಿನ್',
   'signup.subheading': 'ಖಾತೆಯನ್ನು ರಚಿಸಿ ಮತ್ತು 120 ಉಚಿತ ಕ್ರೆಡಿಟ್‌ಗಳನ್ನು ಪಡೆಯಿರಿ.',
   'styles.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಶೈಲಿ ಪೂರ್ವನಿಗದಿಗಳಿಲ್ಲ — ಅವು ಮೊದಲ ಸೈನ್-ಇನ್ ನಂತರ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.',
   'styles.eyebrow': 'ಕ್ಯುರೇಟೆಡ್',

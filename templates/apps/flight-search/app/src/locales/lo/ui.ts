@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.eyebrow': 'ກ່ຽວກັບ {{app}}',
   'about.pageTitle': 'ທຸກໆເສັ້ນທາງ, ການຄົ້ນຫາຄັ້ງດຽວ.',
   'booking.backToDetail': 'ກັບໄປທີ່ລາຍລະອຽດຖ້ຽວບິນ',
   'booking.continue': 'ສືບຕໍ່ການຈ່າຍເງິນ',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ພາສີ ແລະ ຄ່າທຳນຽມ',
   'booking.summary.travelers': 'ນັກທ່ອງທ່ຽວ',
   'common.about': 'ກ່ຽວກັບ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'flightDetail.backToResults': 'ກັບໄປທີ່ຜົນການຄົ້ນຫາ',
   'flightDetail.baseFare': 'ຄ່າໂດຍສານພື້ນຖານ',
   'flightDetail.book': 'ສືບຕໍ່ການຈອງ',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ຈຸດຢຸດ',
   'flightResultCard.select': 'ເລືອກ',
   'flightResultCard.totalLabel': 'ເວລາທັງໝົດ',
+  'flightSearchLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'forgotPassword.subheading':
     'ໃສ່ອີເມວໃນບັນຊີ Skylark ຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່ທີ່ປອດໄພ.',
   'forgotPassword.successBody':
     'ກວດສອບ {{email}} ສຳລັບລິ້ງເພື່ອຕັ້ງລະຫັດຜ່ານໃໝ່. ລິ້ງຈະໝົດອາຍຸພາຍໃນ 30 ນາທີ.',
   'forgotPassword.successHeading': 'ສົ່ງລິ້ງຄືນໃໝ່ແລ້ວ',
   'landing.cta.explore': 'ລອງຄົ້ນຫາ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'ຊອກຫາລາຄາທີ່ດີຕໍ່ໄປກ່ອນຄົນອື່ນ.',
   'landing.cta.signup': 'ເລີ່ມຕິດຕາມຄ່າໂດຍສານ',
   'landing.features.eyebrow': 'ເປັນຫຍັງຕ້ອງ Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'ເພີ່ມການແຈ້ງເຕືອນ',
   'priceAlerts.deleteConfirm': 'ລຶບການແຈ້ງເຕືອນນີ້ອອກບໍ?',
   'priceAlerts.empty': 'ຍັງບໍ່ມີເສັ້ນທາງທີ່ຕິດຕາມເທື່ອ.',
+  'priceAlerts.emptyCta': 'ຄົ້ນຫາເສັ້ນທາງເພື່ອຕິດຕາມ',
   'priceAlerts.errorMessage': 'ບໍ່ສາມາດໂຫຼດການແຈ້ງເຕືອນໄດ້.',
   'priceAlerts.eyebrow': 'ລາຍຊື່ເຝົ້າລະວັງຂອງ Skylark',
   'priceAlerts.form.createError': 'ບໍ່ສາມາດສ້າງການແຈ້ງເຕືອນໄດ້.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'ແຜນການເດີນທາງຫຼາຍເມືອງ',
   'results.multiLegHeading': 'ຂາ {{n}} · {{ຈາກ}} → {{ເຖິງ}} · ວັນທີ',
   'results.multiSummary': '{{count}} ຂາ {{passengers}} ນັກທ່ອງທ່ຽວ',
+  'results.sortAriaLabel': 'ຈັດຮຽງຜົນການຄົ້ນຫາຕາມ',
   'results.sortLabel': 'ຈັດຮຽງ',
   'results.summary': '{{count}} ຖ້ຽວບິນ · {{passengers}} ນັກທ່ອງທ່ຽວ',
   'settings.language.title': 'ພາສາ',

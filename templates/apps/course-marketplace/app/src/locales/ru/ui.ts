@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Загрузка курсов…',
   'browse.next': 'Следующая страница',
   'browse.results': 'Показать курсы «{{count}}»',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Сортировать по',
   'browse.subtitle':
     'Отфильтруйте архив публикаций по теме, уровню и цене. Каждый курс тщательно отобран нашими редакторами.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Ваш сертификат подписан и готов. Поделитесь им с миром или сохраните его в качестве напоминания о том, сколько усилий потребовалось, чтобы его получить.',
   'certificate.copyLink': 'Скопировать ссылку для обмена',
+  'certificate.copyPrompt': 'Скопируйте эту ссылку:',
   'certificate.download': 'Скачать PDF',
   'certificate.eyebrow': 'Достижение разблокировано',
   'certificate.linkCopied': 'Ссылка скопирована!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Вы зарегистрированы!',
   'checkout.verifying': 'Проверка вашей регистрации…',
   'checkout.viewLibrary': 'Просмотреть мои учебные материалы',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Попробуйте ещё раз',
   'courseDetail.about': 'Об этом курсе',
   'courseDetail.checkoutPending': 'Начинается оформление заказа…',
   'courseDetail.continueLearning': 'Продолжить обучение',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-дневная гарантия возврата денег',
   'courseDetail.includes.video': '{{hours}} часов видео по запросу',
   'courseDetail.instructor': 'Преподаватель',
+  'courseDetail.languageEnglish': 'Английский',
   'courseDetail.lectures': 'Лекции',
   'courseDetail.level': 'Уровень',
   'courseDetail.loading': 'Загрузка курса…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Отзывов пока нет.',
   'instructorProfile.students': 'Студенты',
   'landing.categories.empty': 'Категории появятся после заполнения каталога.',
+  'landing.categories.heading': 'Ознакомьтесь с архивом',
   'landing.hero.eyebrow': 'Lectura · Архив публикаций по мастерству',
   'landing.hero.proof': 'Нам доверяют учащиеся из Google, Meta и Adobe.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Начните учиться уже сегодня',
   'login.subheading': 'Получите доступ к своему научному архиву.',
   'myLearning.empty.title': 'Пока нет курсов, соответствующих этому фильтру',
+  'myLearning.error.title': 'Не удалось загрузить вашу библиотеку',
   'myLearning.filter.notStarted': 'Не начато',
   'myLearning.hero.subtitle': '{{count}} курсы в вашей библиотеке. Не теряйте набранный темп.',
   'myLearning.hero.title': 'Продолжайте с того места, где остановились.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Новых событий для просмотра нет. Новые события будут отображаться здесь.',
   'notifications.empty.title': 'Вы уже всё наверстали',
+  'notifications.error.title': 'Не удалось загрузить активность',
   'privacy.title': 'Политика конфиденциальности',
   'reset.confirmPlaceholder': 'Введите новый пароль еще раз',
   'reset.errorGeneric': 'Не удалось сбросить пароль. Запросите новую ссылку.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} д назад',
   'timeAgo.hours': '{{count}} х назад',
   'timeAgo.minutes': '{{count}} мин назад',
+  'timeAgo.months': '{{count}} несколько месяцев назад',
   'timeAgo.today': 'сегодня',
+  'timeAgo.weeks': '{{count}} несколько недель назад',
 }

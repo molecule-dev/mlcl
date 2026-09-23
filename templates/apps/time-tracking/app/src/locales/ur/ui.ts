@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} کے بارے میں',
   'about.plansTitle': 'منصوبے جو آپ کے ساتھ بڑھتے ہیں۔',
   'brand.tagline': 'ہر سیکنڈ',
   'clientDetail.back': 'واپس کلائنٹس پر',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'ہر رشتہ ایک جگہ — پروجیکٹس، گھنٹے، بقایا رسید۔',
   'clients.title': 'کلائنٹس',
   'common.and': 'اور',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.activeProjects': 'فعال منصوبے',
   'dashboard.empty':
     'ابھی تک کوئی اندراج نہیں ہے۔ اپنے پہلے سیشن کو ٹریک کرنے کے لیے ٹائمر شروع کریں۔',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'اس کلائنٹ کے لیے انوائس کے لیے کوئی بل قابل اوقات نہیں۔ پہلے کچھ وقت کا سراغ لگائیں یا اس کلائنٹ کے پروجیکٹس میں سے کسی ایک کو موجودہ اندراجات تفویض کریں۔',
   'invoices.save': 'انوائس بنائیں',
   'invoices.subtitle': 'ٹریک کردہ اوقات خود بخود انوائسز میں شامل ہو جاتے ہیں۔',
+  'landing.copyright': '© {{year}} {{app}} . ہر سیکنڈ، کے لئے حساب.',
   'landing.ctaBody': '3 منصوبوں تک کے لیے مفت۔ جب آپ کے کلائنٹ کی فہرست ہوتی ہے تو اپ گریڈ کریں۔',
   'landing.eyebrow': 'قابل بل کام کے لیے وقت سے باخبر رہنا',
   'landing.featuresBody':
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'آزاد امیدواروں کا بھروسہ',
   'landing.testimonial.quote':
     '\\u201cمیں 30 منٹ میں Toggl سے چلا گیا۔ اکیلے بجٹ کو ختم کرنے نے خود ہی ادائیگی کی ہے \\u2014 میں نے دو ہفتے چلتے ہوئے انڈر کوٹیشن کو روک دیا ہے۔\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} کرونو۔ ہر سیکنڈ، کے لئے حساب.',
   'login.brand.subtitle':
     'وہ ٹائمر اٹھائیں جہاں سے آپ نے چھوڑا تھا — ہر منٹ پہلے سے کسی پروجیکٹ، کلائنٹ، انوائس کے ساتھ نقشہ بنا ہوا ہے۔',
   'login.brand.tracking': 'ٹریکنگ',
   'login.subheading': 'وہ ٹائمر اٹھائیں جہاں سے آپ نے چھوڑا تھا۔',
+  'nav.closeMenu': 'نیویگیشن مینو بند کریں۔',
   'nav.insightsSection': 'بصیرت',
   'nav.newEntry': 'نئی انٹری',
+  'nav.openMenu': 'نیویگیشن مینو کھولیں۔',
+  'nav.primary': 'بنیادی نیویگیشن',
   'nav.workSection': 'کام',
   'notFound.body':
     'ایسا لگتا ہے کہ آپ نے جس لنک کی پیروی کی ہے اس سے باخبر رہنا بند ہو گیا ہے۔ اپنے ڈیش بورڈ پر واپس جائیں ہم وہاں سے گنتی کرتے رہیں گے۔',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'قابل بل',
   'timer.descriptionPlaceholder': 'آپ کس چیز پر کام کر رہے ہیں؟',
   'timer.idle': 'بیکار - ٹریکنگ شروع کریں۔',
+  'timer.noProject': 'کوئی پروجیکٹ نہیں۔',
   'timer.runningWithProject': 'کوئی پروجیکٹ نہیں۔',
   'timer.start': 'ٹائمر شروع کریں۔',
   'timer.stop': 'ٹائمر بند کرو',

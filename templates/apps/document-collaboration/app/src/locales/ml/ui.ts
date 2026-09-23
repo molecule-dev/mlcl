@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.title': '{{app}} നെക്കുറിച്ച്',
   'comments.addFailed': 'കമന്റ് പോസ്റ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'comments.backToDoc': 'കൈയെഴുത്തുപ്രതിയിലേക്ക് മടങ്ങുക',
   'comments.deleteFailed': 'ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'പരിഹരിക്കുക',
   'comments.resolveFailed': 'പരിഹരിക്കാൻ കഴിഞ്ഞില്ല.',
   'comments.subtitle': '{{open}} തുറക്കുക · {{resolved}} പരിഹരിച്ചു',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.activityHeading': 'എന്താണ് സംഭവിക്കുന്നത്',
   'dashboard.createFailed': 'ഒരു പ്രമാണം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'dashboard.empty':
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'ട്രാഷിലേക്ക് നീക്കാൻ കഴിഞ്ഞില്ല.',
   'editor.unpublish': 'പ്രസിദ്ധീകരിച്ചത് മാറ്റുക',
   'editor.untitled': 'പേരില്ലാത്ത പ്രമാണം',
+  'editor.updatedElsewhere':
+    'ഈ പ്രമാണം മറ്റാരോ അപ്ഡേറ്റ് ചെയ്തു — ഏറ്റവും പുതിയത് കാണാൻ വീണ്ടും ലോഡുചെയ്യുക.',
   'editor.version': 'വി {{v}} എന്ന വാക്യം',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ {{email}} , ഒരു പുനഃസജ്ജീകരണ ലിങ്ക് വന്നുകൊണ്ടിരിക്കുകയാണ്.',
   'forgotPassword.subtitle': 'ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് ഇമെയിൽ ചെയ്യും.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . തന്മാത്ര ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
   'landing.ctaHeading': 'പേജ് തുറക്കുക. കഴ്‌സർ ആരംഭിക്കട്ടെ.',
   'landing.ctaPrimary': 'ഒരു സ്റ്റുഡിയോ തുറക്കുക',
   'landing.eyebrow': 'എഴുത്തുകാർക്കും എഡിറ്റർമാർക്കും ടീമുകൾക്കും',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'എഡിറ്റ് ചെയ്തത് {{when}}',
   'quillonDocumentCard.open': 'തുറക്കുക →',
   'quillonKpiCard.trend': 'സമീപകാല പ്രവണത',
+  'quillonLayout.menu': 'മെനു',
   'quillonLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'quillonStudioHero.collab': 'സഹകാരികൾ',
   'quillonStudioHero.docs': 'സ്പർശിച്ച പ്രമാണങ്ങൾ',
@@ -164,9 +171,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ഇപ്പോൾ തന്നെ',
+  'trash.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
   'trash.deleteFailed': 'ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'trash.deleteForever': 'ശാശ്വതമായി ഇല്ലാതാക്കുക',
   'trash.empty': 'വീണ്ടെടുക്കാൻ ഒന്നുമില്ല.',
+  'trash.emptyAll': 'ട്രാഷ് ശൂന്യമാക്കുക',
   'trash.eyebrow': 'സ്റ്റുഡിയോ',
   'trash.heading': 'ചവറ്റുകുട്ട',
   'trash.loadFailed': 'ട്രാഷ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',

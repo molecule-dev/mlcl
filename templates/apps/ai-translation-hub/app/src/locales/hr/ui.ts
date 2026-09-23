@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'billing.canceled': 'Pretplata je otkazana. Vratit ćete se na besplatno na kraju razdoblja.',
   'billing.contactSales': 'Kontaktirajte prodaju',
   'billing.free.1': '5 prijevoda',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Nema ograničenja zadržavanja',
   'billing.upgradeHint': 'Nadogradite kako biste otključali napredne AI značajke.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.activityEmpty': 'Još nema aktivnosti — započnite projekt za popunjavanje ovog feeda.',
   'dashboard.eyebrow': 'Pregled',
   'dashboard.projectsEmpty': 'Još nema projekata - započnite jedan da biste ga vidjeli ovdje.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Ponovno koristite prethodne prijevode u svakom projektu. Viši rezultat podudaranja → manje prerade.',
   'memory.title': 'Banka memorije',
+  'mobileNav.closeMenu': 'Zatvori navigacijski izbornik',
+  'mobileNav.openMenu': 'Otvori navigacijski izbornik',
   'nav.legal': 'Pravni',
   'newProject.addLanguage': 'Dodaj cilj',
   'newProject.create': 'Izradi projekt',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Označeno {{count}} obavijesti kao pročitane.',
   'notifications.subtitle':
     'Spominjanja, zahtjevi za recenzije i AI događaji iz svih vaših radnih prostora.',
+  'planUpdated.verifying': 'Potvrda vaše uplate…',
   'privacy.collection.account': 'E-pošta vašeg računa i ime za prikaz',
   'privacy.deletion.body':
     'Projekt, segment, pojam iz glosara ili unos u memoriji možete izbrisati u bilo kojem trenutku s relevantne stranice. Brisanjem računa iz Postavki briše se svaki redak opsega radnog prostora iz naše baze podataka.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Učitavanje projekata nije uspjelo.',
   'projects.loading': 'Učitavanje projekata…',
   'projects.subtitle': 'Svaki aktivni projekt na svim lokacijama.',
+  'renditionLayout.primaryNavLabel': 'Primarna navigacija',
   'reset.backToLogin': '\\u2190 Natrag na prijavu',
   'reset.passwordLabel': 'Nova lozinka',
   'review.activeEyebrow': 'Segment {{number}}',

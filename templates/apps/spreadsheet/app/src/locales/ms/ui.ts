@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'about.pageTitle': 'Mengenai {{name}}',
   'auth.footer.about': 'Mengenai {{name}}',
   'authHeader.subtitle': 'Log masuk untuk memastikan nombor anda jujur.',
   'automations.action.email': 'E-mel',
+  'automations.action.noop': 'Tiada operasi',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Padam " {{name}} "?',
   'automations.empty.headline': 'Tiada automasi lagi',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Pencetus dan tindakan merentasi setiap buku kerja. Setiap larian mencatat baris yang boleh anda audit kemudian.',
   'automations.toggle': 'Togol {{name}}',
+  'automations.trigger.dailySchedule': 'Jadual harian',
+  'automations.trigger.rowCreated': 'Baris dicipta',
+  'automations.trigger.rowUpdated': 'Baris dikemas kini',
   'billing.empty': 'Tiada pelan tersedia.',
   'billing.error.priceMissing':
     'Tiada harga Stripe dikonfigurasikan untuk peringkat ini. Tetapkan STRIPE_*_PRICE_ID env vars.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Carta',
   'charts.kpi.totalCharts': 'Jumlah carta',
   'charts.list.empty': 'Tiada carta lagi.',
+  'charts.namePlaceholder': 'Trend pendapatan',
   'charts.newChart': 'Carta baharu',
   'charts.primary.eyebrow': 'Carta mengikut jenis',
   'charts.primary.headline': 'Gambaran keseluruhan ruang kerja',
   'charts.subhead':
     'Visualisasi langsung terikat pada grid anda — paparkan semula pada setiap suntingan sel.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'editor.addColumn': 'Tambah lajur',
+  'editor.addDialogTitle': 'Tambah lajur',
   'editor.addRow': 'Tambah baris',
   'editor.addSheet': 'Tambah helaian',
   'editor.back': 'Kembali ke buku kerja',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . Calcite ialah formula pertama, berbilang paparan, grid masa nyata yang dicapai oleh penganalisis dan pasukan kewangan.',
   'landing.nav.formulas': 'Formula',
+  'login.noAccount': 'Baharu kepada {{name}} ?',
+  'login.signIn': 'Log masuk ke {{name}}',
   'login.signUp': 'Cipta ruang kerja',
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Buka menu',
   'notFound.cellRef': '#RUJUKAN!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "laluan", "halaman")',
   'notFound.headline': 'Pergaduhan ini tidak pernah wujud.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automasi natif · pencetus webhook & cron',
   'signup.creating': 'Menyediakan ruang kerja…',
   'signup.cta': 'Cipta ruang kerja saya',
+  'signup.haveAccount': 'Sudah berada di {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Putar buku kerja pertama anda dalam 30 saat',
   'team.col.activity': 'Dijemput',

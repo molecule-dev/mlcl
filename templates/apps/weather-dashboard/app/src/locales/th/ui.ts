@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ขณะนี้คุณกำลังอยู่ที่ {{plan}} วางแผน.',
   'billing.switch': 'สวิตช์',
   'billing.upgraded': 'อัปเดตเป็น {{plan}} — ข้อจำกัดมีผลบังคับใช้ทันที',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'compare.activityHeading': 'ผลการตัดสินกิจกรรม',
   'compare.empty.title': 'เพิ่มสถานที่อย่างน้อยสองแห่งเพื่อใช้ในการเปรียบเทียบ',
   'compare.eyebrow': 'เคียงข้างกัน',
@@ -136,5 +137,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'สูง',
   'trends.summary.low.label': 'ต่ำ',
   'trends.summary.points.label': 'วัน',
+  'weatherDashboardLayout.primaryNavLabel': 'การนำทางหลัก',
   'weatherHeroCard.updated': 'อัปเดตแล้ว {{time}}',
 }

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} 소개',
+  'about.pageTitle': '웹훅 제어 평면',
+  'about.plansTitle': '각 단계별 계획',
   'apiKeys.bestPractices': '권장 사례',
   'apiKeys.body':
     '프로그래밍 방식의 액세스 토큰입니다. 비밀번호처럼 취급하세요 — 환경 변수에 저장하고 절대 커밋하지 마세요.',
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': '요금제 한도 내',
   'billing.usageWarning': '한도 근접',
   'billing.yearly': '연간',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.body':
     '운영 중인 모든 작업 공간에서 실시간 처리량, 재시도 작업, 그리고 방금 오류가 발생한 엔드포인트 정보를 확인할 수 있습니다.',
   'dashboard.endpointsEmpty': '아직 엔드포인트가 없습니다.',
@@ -107,6 +111,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': '엔드포인트',
   'endpointDetail.deliveryTrendSub': '시간당 전송 수, 로그 스케일',
   'endpointDetail.hideSecret': '시크릿 숨기기',
+  'endpointDetail.loading': '엔드포인트 로딩 중…',
   'endpointDetail.metric.delivered': '24시간 전송',
   'endpointDetail.metric.deliveredCaption': '{{count}}개의 이벤트 유형에서',
   'endpointDetail.metric.failuresCaption': '재시도: {{retries}}',
@@ -209,6 +214,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': '심각 · 24시간',
   'notifications.metric.totalCaption': '전체 기간 받은편지함',
   'payloadViewer.payload': '// 페이로드',
+  'planUpdated.verifying': '결제 확인 중…',
   'profile.avatarHeader': '아바타',
   'profile.avatarHint': '이니셜이 표시됩니다 — 업로드 기능은 다음 릴리스에서 제공됩니다.',
   'profile.body': '계정, 환경 설정 및 활성 세션입니다.',
@@ -223,6 +229,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ 저장됨',
   'profile.sessionsEmpty': '현재 세션만 활성 상태입니다. 다른 기기에는 로그인되어 있지 않습니다.',
   'profile.toggle': '비녀장 {{label}}',
+  'pylonShell.closeMenu': '탐색 메뉴 닫기',
+  'pylonShell.openMenu': '탐색 메뉴 열기',
   'pylonShell.primaryNavLabel': '기본 탐색',
   'resetPassword.subtitle': '이전에 사용하지 않은 강력한 비밀번호를 선택해 주세요.',
   'resetPassword.tokenPlaceholder': '이메일에서 붙여넣기',

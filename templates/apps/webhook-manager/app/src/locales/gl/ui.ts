@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// sobre {{app}}',
+  'about.pageTitle': 'O plano de control do webhook',
+  'about.plansTitle': 'Plans para cada etapa',
   'apiKeys.bestPractices': 'Boas prácticas',
   'apiKeys.body':
     'Tokens de acceso programático. Trátaos como contrasinais: almacénaos en variables de entorno, nunca realices confirmacións.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'dentro do plan',
   'billing.usageWarning': 'preto da tapa',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Ir ao panel',
   'dashboard.body':
     'Rendemento en tempo real, intentos en curso e os puntos finais que acaban de ter problemas, en todos os espazos de traballo nos que operas.',
   'dashboard.endpointsEmpty': 'Aínda non hai puntos finais.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'puntos finais',
   'endpointDetail.deliveryTrendSub': 'entregas/hora, escala logarítmica',
   'endpointDetail.hideSecret': 'Ocultar segredo',
+  'endpointDetail.loading': 'Cargando punto final…',
   'endpointDetail.metric.delivered': 'Entregado en 24 horas',
   'endpointDetail.metric.deliveredCaption': 'de {{count}} tipos de eventos',
   'endpointDetail.metric.failuresCaption': 'intentos repetidos: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Crítico · 24 h',
   'notifications.metric.totalCaption': 'caixa de entrada de sempre',
   'payloadViewer.payload': '// carga útil',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Iniciais mostradas: as cargas chegarán coa seguinte versión.',
   'profile.body': 'A túa conta, preferencias e sesións activas.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Só a túa sesión actual está activa. Non hai outros dispositivos con sesión iniciada.',
   'profile.toggle': 'Alternar {{label}}',
+  'pylonShell.closeMenu': 'Pechar o menú de navegación',
+  'pylonShell.openMenu': 'Abrir menú de navegación',
   'pylonShell.primaryNavLabel': 'Navegación principal',
   'resetPassword.subtitle': 'Escolle un contrasinal forte que non teñas usado antes.',
   'resetPassword.tokenPlaceholder': 'pegar desde o correo electrónico',

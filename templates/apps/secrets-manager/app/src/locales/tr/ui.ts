@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'about.tagline': 'Gizli bilgiler açıkta ölür.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Belirteç oluştur',
   'apiTokens.kicker': 'API belirteçleri',
   'apiTokens.loading': 'Belirteçler yükleniyor…',
+  'apiTokens.new': 'Yeni token',
   'apiTokens.revoke': 'Belirteci iptal et',
   'apiTokens.subheading':
     'Arcanum CLI ve SDK için kişisel ve hizmet belirteçleri. Düz metin yalnızca oluşturma sırasında bir kez gösterilir.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Sıfır bilgi şifreleme',
   'common.connecting': 'Bağlanıyor…',
+  'common.goToDashboard': 'Panele Git',
   'common.inviting': 'Davet gönderiliyor…',
   'forgotPassword.checkInbox':
     '{email} kayıtlıysa, imzalı bir sıfırlama bağlantısı bir dakika içinde gelecektir.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': 'Gelen kutusu',
   'notifications.subheading': 'Her kasada döndürme durumu, anormallik uyarıları ve onay istekleri.',
   'notifications.unreadEmpty': 'Gelen kutusu sıfır — hepsi tamam.',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.heading': 'sırlar',
   'pricing.limits.accessPolicies': 'erişim politikası',
   'pricing.limits.auditLog': 'denetim günlüğü kaydı',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Kişisel hesap',
   'profile.plan.description': 'Aboneliğinizi yönetin, limitleri görün ve yükseltin.',
   'profile.subheading': 'Kimlik, ikinci faktör cihazları ve etkin oturumlar.',
+  'profile.twoFactor.code': 'Doğrulama kodu',
   'profile.twoFactor.disable': 'Devre dışı bırak',
   'profile.twoFactor.enable': 'Etkinleştir',
+  'profile.twoFactor.invalidCode': 'Geçersiz kod',
   'profile.twoFactor.kicker': 'İki faktörlü kimlik doğrulama',
+  'profile.twoFactor.off': 'Etkinleştirilmedi',
   'profile.twoFactor.on': 'Etkin',
   'resetPassword.email': 'Hesap e-postası',
   'resetPassword.heading': 'Yeni kimlik bilgileri belirle',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'komut',
   'secretsManagerLayout.encrypted': 'AES-256 · ENCRYPTED',
   'secretsManagerLayout.newVault': 'Yeni kasa',
+  'secretsManagerLayout.newVaultShort': 'Yeni',
   'secretsManagerLayout.rotations': 'Döndürmeler',
   'secretsManagerLayout.search': 'arama',
   'secretsManagerLayout.searchPlaceholder':
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Gizli bilgiler',
   'vaultCard.vaultLabel': 'Kasa',
   'vaultDetail.addSecret': 'Gizli bilgi ekle',
+  'vaultDetail.back': 'Tüm kasalar',
   'vaultDetail.col.key': 'Anahtar',
   'vaultDetail.col.rotated': 'Döndürüldü',
   'vaultDetail.col.value': 'Değer',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'billing.canceled':
     "Tanysgrifiad wedi'i ganslo. Byddwch yn dychwelyd i Am Ddim ar ddiwedd y cyfnod.",
   'billing.contactSales': 'Cysylltwch â gwerthiannau',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Dim terfyn cadw',
   'billing.upgradeHint': 'Uwchraddiwch i ddatgloi nodweddion AI uwch.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.activityEmpty': "Dim gweithgaredd eto — dechreuwch brosiect i lenwi'r porthiant hwn.",
   'dashboard.eyebrow': 'Trosolwg',
   'dashboard.projectsEmpty': "Dim prosiectau eto — dechreuwch un i'w weld yma.",
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Ail-ddefnyddio cyfieithiadau blaenorol ar draws pob prosiect. Sgôr cyfateb uwch → llai o ail-waith.',
   'memory.title': 'Banc cof',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'nav.legal': 'Cyfreithiol',
   'newProject.addLanguage': 'Ychwanegu targed',
   'newProject.create': 'Creu prosiect',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': "Wedi'i farcio {{count}} hysbysiadau fel wedi'u darllen.",
   'notifications.subtitle':
     "Crybwylliadau, ceisiadau adolygu, a digwyddiadau AI o bob rhan o'ch mannau gwaith.",
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'privacy.collection.account': 'E-bost ac enw arddangos eich cyfrif',
   'privacy.deletion.body':
     "Gallwch ddileu prosiect, segment, term rhestr termau, neu gofnod cof ar unrhyw adeg o'r dudalen berthnasol. Mae dileu eich cyfrif o Gosodiadau yn clirio pob rhes sydd wedi'i chwmpasu gan y gweithle o'n cronfa ddata.",
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Methwyd llwytho prosiectau.',
   'projects.loading': "Wrthi'n llwytho prosiectau…",
   'projects.subtitle': 'Pob prosiect gweithredol ar draws pob lleoliad.',
+  'renditionLayout.primaryNavLabel': 'Prif lywio',
   'reset.backToLogin': '\\u2190 Yn ôl i fewngofnodi',
   'reset.passwordLabel': 'Cyfrinair newydd',
   'review.activeEyebrow': 'Segment {{number}}',

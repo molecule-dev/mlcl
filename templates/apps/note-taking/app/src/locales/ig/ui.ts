@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Gaa na Dashboard',
   'forgot.eyebrow': 'Ị chefuru ụzọ ịlaghachi?',
   'forgot.formSubtitle': 'Gwa anyị ozi email dị na faịlụ ahụ.',
   'forgot.headline': 'Tọgharịa paswọọdụ gị.',
@@ -38,6 +39,8 @@ export const ui: UiTranslations = {
   'login.headline': 'Bulie ebe ibe ahụ kwụsịrị.',
   'login.signupLink': 'Mepụta otu',
   'login.subline': 'Akwụkwọ ndetu gị, njikọ azụ gị, na ibe kwa ụbọchị dị kpọmkwem ebe ị hapụrụ ha.',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'noteEditor.backToNotes': 'Laghachi na ndetu',
   'noteEditor.bodyPlaceholder': 'Malite ide ihe — ihe ndetu gị na-echekwa onwe ya ka ị na-ede ihe.',
   'noteEditor.confirmTrash': 'Bugharịa ndetu a gaa na ihe mkpofu?',
@@ -53,6 +56,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Akwụkwọ ndetu ọhụrụ',
   'notes.newNotebookPrompt': 'Aha akwụkwọ ndetu ọhụrụ',
   'notes.notebooksHeading': 'Akwụkwọ ndetu',
+  'notes.subtitle':
+    "Họrọ akwụkwọ ndetu n'aka ekpe, wee pịa bọtịnụ ndetu ọhụrụ iji malite ntinye ọhụrụ.",
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Họrọ atụmatụ ide ihe ndetu gị',
   'reset.eyebrow': 'Ọ fọrọ obere ka ọ laghachi azụ',
@@ -110,6 +115,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Emelitere',
   'versoLayout.nav.graph': 'Eserese eserese',
   'versoLayout.nav.home': 'Ebe Obibi',
+  'versoLayout.primaryNavLabel': 'Ntugharị isi',
   'versoNoteCard.pinned': 'A tụnyere ya',
   'versoTodayHero.continueCta': "Gaa n'ihu na-ede ihe",
   'versoTodayHero.createCta': 'Malite ihe ndetu nke taa',

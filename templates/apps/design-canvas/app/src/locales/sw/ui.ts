@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'authShell.brandHeading':
     'Turubai zinazofaa pikseli kwa timu za usanifu zinazosafirishwa pamoja.',
   'canvas.redirecting': 'Inafungua kihariri…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'na',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.retry': 'Jaribu tena',
   'dashboard.activityEmpty': 'Hakuna shughuli ya hivi karibuni bado — mwalike mwenzako aanze.',
   'dashboard.activityTitle': 'Kilichobadilika leo',
   'dashboard.activityViewAll': 'Tazama arifa zote',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Nafasi ya Kazi · Studio ya Northwind',
   'dashboard.foldersLabel': 'Folda',
   'dashboard.gridTitle': '{{count}} miradi',
+  'dashboard.heroActiveTool': 'Zana ya kalamu',
   'dashboard.loadingTitle': 'Inapakia miradi…',
   'dashboard.searchPlaceholder': 'Tafuta miradi',
   'dashboard.startFromTemplate': 'Anza kutoka kwa kiolezo',
   'dashboard.title': 'Miradi yako',
   'dashboard.untitledProject': 'Mradi usio na jina',
   'designCanvasLayout.newProject': 'Mradi mpya',
+  'designCanvasLayout.primaryNavLabel': 'Usogezaji mkuu',
   'editor.backToProjects': 'Rudi kwenye miradi',
   'editor.deleteShape': 'Futa umbo',
   'editor.errorBody': 'Hatukuweza kufungua mradi huu.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Buni zana zinazotembea kwa kasi ya mikono yako',
   'library.empty': 'Hakuna tokeni katika sehemu hii bado.',
   'library.eyebrow': 'Nafasi ya Kazi · Mfumo wa Ubunifu wa Atelier',
+  'library.loadFailed': 'Haikuweza kupakia tokeni za muundo.',
   'library.systemMeta': 'Afya ya mfumo',
   'library.systemSummary': '{{tokeni}} tokeni · {{vipengele}} vipengele · {{athari}} athari',
   'login.emailPlaceholder': 'mara@studio.com',

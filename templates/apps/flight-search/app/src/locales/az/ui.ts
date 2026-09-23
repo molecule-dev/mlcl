@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.eyebrow': '{{app}} haqqında',
   'about.pageTitle': 'Hər marşrut, bir axtarış.',
   'booking.backToDetail': 'Uçuş detallarına qayıt',
   'booking.continue': 'Ödənişlə davam edin',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Vergilər və rüsumlar',
   'booking.summary.travelers': 'Səyahətçilər',
   'common.about': 'Haqqımızda',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'flightDetail.backToResults': 'Nəticələrə qayıt',
   'flightDetail.baseFare': 'Baza tarif',
   'flightDetail.book': 'Rezervasiyaya davam edin',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 dayanacaq',
   'flightResultCard.select': 'Seçin',
   'flightResultCard.totalLabel': 'Ümumi vaxt',
+  'flightSearchLayout.primaryNavLabel': 'Əsas naviqasiya',
   'forgotPassword.subheading':
     'Skylark hesabınızdakı e-poçtu daxil edin və biz təhlükəsiz sıfırlama linki göndərəcəyik.',
   'forgotPassword.successBody':
     'Yoxlayın {{email}} yeni parol təyin etmək üçün keçid üçün. Link 30 dəqiqə ərzində bitir.',
   'forgotPassword.successHeading': 'Sıfırlama linki göndərildi',
   'landing.cta.explore': 'Axtarışa cəhd edin',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Növbəti əla yeməyi hamıdan əvvəl tapın.',
   'landing.cta.signup': 'Qiymətləri izləməyə başlayın',
   'landing.features.eyebrow': 'Niyə Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Xəbərdarlıq əlavə edin',
   'priceAlerts.deleteConfirm': 'Bu xəbərdarlığı silinsin?',
   'priceAlerts.empty': 'Hələ ki, izlənilən marşrutlar yoxdur.',
+  'priceAlerts.emptyCta': 'İzləmək üçün bir marşrut axtarın',
   'priceAlerts.errorMessage': 'Bildirişləri yükləmək mümkün olmadı.',
   'priceAlerts.eyebrow': 'Skylark izləmə siyahısı',
   'priceAlerts.form.createError': 'Xəbərdarlıq yaradıla bilmədi.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Çox şəhərli marşrut',
   'results.multiLegHeading': 'Ayaq {{n}} · {{from}} → {{to}} · {{tarix}}',
   'results.multiSummary': '{{count}} ayaqlar · {{passengers}} səyyah',
+  'results.sortAriaLabel': 'Nəticələri sırala',
   'results.sortLabel': 'Çeşidləmə',
   'results.summary': '{{count}} uçuşlar · {{passengers}} səyyah',
   'settings.language.title': 'Dil',

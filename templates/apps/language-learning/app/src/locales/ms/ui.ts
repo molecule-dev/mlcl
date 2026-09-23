@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.logout': 'Log keluar',
   'dailyStatsTriad.heartsLabel': 'Hati',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minit hari ini',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Perkataan yang dikuasai',
+  'dailyStatsTriad.wordsMasteryHint': 'Perkataan di penguasaan 4+',
   'dashboard.continueHeading': 'Teruskan dari tempat anda berhenti',
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Tidak dapat memuatkan latihan.',
   'lessonDetail.loading': 'Memuatkan pelajaran…',
   'lessonDetail.submitError': 'Tidak dapat menyerahkan jawapan.',
+  'lessonDetail.translation': 'Terjemahkan frasa tersebut',
   'lessonDetail.xpEarned': 'XP yang diperolehi · {{xp}}',
   'lessons.empty': 'Tiada pelajaran di peringkat {{level}} namun — cuba peringkat lain.',
   'lessons.eyebrow': 'Perpustakaan pelajaran',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Baharu dalam Parlance?',
   'login.showPassword': 'Tunjukkan kata laluan',
   'login.signUp': 'Mulakan secara percuma →',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
+  'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Navigasi utama',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'practice.empty': 'Tiada frasa yang tersedia lagi.',
   'practice.eyebrow': 'Latihan berucap',
   'practice.heading': 'Bacalah. Rakamkannya. Perhalusilah.',

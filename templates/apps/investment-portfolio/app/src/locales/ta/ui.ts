@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} பற்றி',
   'argentAuthShell.brandEyebrow': 'அர்ஜென்ட் · செல்வக் கருவிகள்',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . இது முதலீட்டு ஆலோசனை அல்ல.',
   'argentAuthShell.sampleChange': 'இன்று +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'இந்த குறியீட்டிற்கு எந்த பரிவர்த்தனைகளும் இல்லை.',
   'assetDetail.txHeading': 'உங்கள் பரிவர்த்தனைகள்',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'போர்ட்ஃபோலியோ கண்ணோட்டம்',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'இன்னும் பங்குகள் எதுவும் இல்லை.',
   'holdings.heading': 'பங்குகள்',
   'holdings.loadError': 'இருப்புகளை ஏற்ற முடியவில்லை.',
+  'landing.copyright':
+    '© {{year}} {{app}} . இது முதலீட்டு ஆலோசனை அல்ல. கடந்தகாலச் செயல்பாடு, எதிர்கால முடிவுகளுக்கு உத்தரவாதம் அளிக்காது.',
   'landing.eyebrow': 'அர்ஜென்ட் · செல்வத்தை உருவாக்கும் ஒரு தளம்',
   'landing.features.heading': 'ஒரு ஆலோசகர் தமக்காக உருவாக்கிக் கொள்ளும் அனைத்தும்.',
   'landing.finalCta.heading': 'உங்கள் பணித்தொகுப்பில் ஒழுங்கை மீண்டும் கொண்டு வாருங்கள்.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} எச் முன்பு',
   'news.justNow': 'இப்போதே',
   'news.loadError': 'செய்திகளை ஏற்ற முடியவில்லை.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'portfolioHeroCard.label': 'போர்ட்ஃபோலியோ மதிப்பு',
   'pricing.holdingsLabel': 'பங்குகள்',
   'pricing.newsLabel': 'செய்தி கட்டுரைகள்',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'கணக்கை நீக்கு',
   'settings.security.deleting': 'நீக்குகிறது…',
   'settings.security.heading': 'பாதுகாப்பு',
+  'settings.security.newPassword': 'புதிய கடவுச்சொல்',
   'settings.security.password': 'கடவுச்சொல்',
   'settings.security.twoFactorEnable': 'இயக்கு',
+  'settings.security.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.security.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.tax.error': 'வரி விதிப்பு முறையைப் புதுப்பிக்க முடியவில்லை.',
   'settings.tax.heading': 'வரி நில கணக்கியல்',
   'settings.tax.method': 'இயல்புநிலை முறை',

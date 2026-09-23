@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'article.notFound': 'ဆောင်းပါးကို ရှာမတွေ့ပါ',
   'articleEditor.bodyPlaceholder': 'ဘလောက်များအတွက် / ဟု ရိုက်ထည့်ပါ၊ သို့မဟုတ် ရေးစလိုက်ပါ။',
+  'articleEditor.loadFailed': 'ဆောင်းပါးကို တင်၍မရပါ',
   'articleEditor.publishing': 'ထုတ်ဝေခြင်း\\u2026',
   'articleEditor.saveFailed': 'သိမ်းဆည်းမှု မအောင်မြင်ပါ',
   'articleEditor.saving': 'သိမ်းဆည်းနေသည်\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'စာညှပ်',
   'articleView.bookmarkOn': 'မှတ်သားထားသည်',
   'articleView.edit': 'ဆောင်းပါးကို တည်းဖြတ်ပါ',
+  'articleView.loading': 'ဒီဆောင်းပါးကို ဖွင့်လိုက်တော့…',
   'articleView.readTime': '{{minutes}} မိနစ်ဖတ်ရန်',
   'articleView.spaces': 'နေရာလွတ်များ',
   'articleView.tocHeading': 'ဤစာမျက်နှာတွင်',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'သင့်အဖွဲ့သည် မကြာသေးမီက တည်းဖြတ်မှုများ၊ ဖတ်ရှုမှုများနှင့် မူကြမ်းများကို ဆက်လက်လုပ်ဆောင်နေဆဲဖြစ်သည်။',
   'cairnTrailHero.updated': 'ဆောင်းပါးများကို အပ်ဒိတ်လုပ်ထားသည်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'drafts.eyebrow': 'မင်းရဲ့ မပြီးပြတ်သေးတဲ့ အလုပ်',
   'drafts.heading': 'မူကြမ်းများ',
+  'drafts.loadFailed': 'သင့်မူကြမ်းများကို တင်၍မရပါ။',
   'drafts.subtitle':
     'သင်စတင်ရေးသားပြီးသော်လည်း မထုတ်ဝေရသေးသော ဆောင်းပါးများ။ တစ်ခုကို ရွေးချယ်ပြီး ဆက်လုပ်သွားပါ။',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'နေရာလွတ် မရှိသေးပါ။ ဆောင်းပါးများ စုဆောင်းရန် တစ်ခုဖွင့်ပါ။',
   'home.spacesHeading': 'သင့်ရဲ့ နေရာတွေ',
   'home.subtitle': 'မကြာသေးမီက ဆောင်းပါးများ၊ သင်၏ bookmark များနှင့် အဖွဲ့ရေးသားနေသည့်အရာများ။',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . မော်လီကျူးဖြင့် တည်ဆောက်ထားသည်။',
   'landing.ctaBody':
     'တစ်ကိုယ်တော်ရေးသားသူများအတွက် အခမဲ့။ runbooks၊ ဆုံးဖြတ်ချက်များနှင့် onboarding များကို ပို့ဆောင်ပေးသော ဖြန့်ဝေထားသော အဖွဲ့များအတွက် အဖွဲ့လိုက်အစီအစဉ်များ။',
   'landing.ctaHeading': 'ဒီနေ့ ပထမဆုံး ကျောက်တုံးကို စီပါ။',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'အလုပ်ခွင်တစ်ခု ဖန်တီးပါ',
   'login.submitting': 'အကောင့်ဝင်နေသည်\\u2026',
   'login.subtitle': 'မင်းထားခဲ့တဲ့ လမ်းကြောင်းကို ပြန်ကောက်ပါ။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'newSpace.colorAria': 'အရောင်ရွေးပါ {{color}}',
   'newSpace.colorLabel': 'အသားပေးအရောင်',
+  'newSpace.createFailed': 'နေရာလွတ် ဖန်တီး၍မရပါ',
   'newSpace.descriptionPlaceholder':
     'ပြေးလွှားဆော့ကစားနည်းစာအုပ်များ၊ ခေါ်ယူလေ့ကျင့်ရေးစာအုပ်များ၊ သေဆုံးပြီးနောက် သေဆုံးမှုမှတ်တမ်းများ\\u2026',
   'newSpace.eyebrow': 'ဗဟုသုတနေရာတစ်ခုဖွင့်လှစ်ပါ',
@@ -108,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'တင်နေသည်\\u2026',
   'notifications.subtitle':
     '{{count}} မဖတ်ရသေးသော \\u2014 ဖော်ပြချက်များ၊ မှတ်ချက်များ၊ စာမျက်နှာပြောင်းလဲမှုများနှင့် ပြန်လည်သုံးသပ်ရန် တောင်းဆိုမှုများ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.articles': 'ဆောင်းပါးများ',
   'pricing.spaces': 'နေရာလွတ်များ',
   'profile.eyebrow': 'ရေးသားသူပရိုဖိုင်',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'အနည်းဆုံး စာလုံး ၁၂ လုံးပါသော ခိုင်မာသည့် စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
   'searchResults.eyebrow': 'အလုပ်ခွင်ရှာဖွေမှု',
+  'searchResults.filter.all': 'နေရာအားလုံး',
   'searchResults.heading': 'ဆောင်းပါးများကို ရှာဖွေပါ',
   'searchResults.placeholder':
     'လည်ပတ်မှုစာအုပ်များ၊ RFC များ၊ မူဝါဒများ၊ ဆုံးဖြတ်ချက်များကို ရှာဖွေပါ\\u2026',
@@ -136,15 +149,22 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     '၎င်းက သင့်အကောင့်နှင့် သင်ရေးသားခဲ့သော ဆောင်းပါးတိုင်းကို ဖျက်ပစ်ပါမည်။ အတည်ပြုရန် DELETE ဟု ရိုက်ထည့်ပါ။',
   'settings.danger.confirmInvalid': 'အတည်ပြုရန် DELETE ဟုရိုက်ထည့်ပါ။',
+  'settings.danger.deleteFailed': 'အကောင့်ကို ဖျက်၍မရပါ',
   'settings.danger.deleting': 'ဖျက်နေသည်\\u2026',
   'settings.danger.description':
     'သင့်အလုပ်ခွင်ကို ဖျက်ခြင်းဖြင့် ဆောင်းပါးများ၊ မှတ်ချက်များနှင့် ဗားရှင်းမှတ်တမ်းအားလုံးကို ဖယ်ရှားပါမည်။ ပြန်လည်ရယူခြင်း မရှိပါ။',
   'settings.danger.title': 'အလုပ်ခွင်ကို ဖျက်ပါ',
+  'settings.email.confirm': 'အီးမေးလ်ကို အပ်ဒိတ်လုပ်ပါ',
+  'settings.email.confirmTitle': 'အီးမေးလ်ပြောင်းလဲမှုကို အတည်ပြုပါ',
   'settings.email.saved': 'အီးမေးလ်ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
+  'settings.email.updateFailed': 'အီးမေးလ်ကို အပ်ဒိတ်လုပ်၍မရပါ',
   'settings.language.title': 'ဘာသာစကား',
   'settings.name': 'အမည်',
+  'settings.name.saved': 'အမည်ကို အပ်ဒိတ်လုပ်ထားသည်။',
+  'settings.name.updateFailed': 'အမည်ကို အပ်ဒိတ်လုပ်၍မရပါ',
   'settings.notifications.description':
     'သင့် inbox ထဲသို့ မည်သည့်အရာများ ရောက်ရှိသည်ကို ရွေးချယ်ပါ။',
+  'settings.password.changeFailed': 'စကားဝှက်ကို ပြောင်းလဲ၍မရပါ',
   'settings.password.current': 'လက်ရှိစကားဝှက်',
   'settings.password.new': 'စကားဝှက်အသစ်',
   'settings.password.saving': 'အပ်ဒိတ်လုပ်နေသည်\\u2026',
@@ -152,10 +172,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'ဆောင်းပါးများသည် သင့်အတွက် မည်သို့ ပုံဖော်ပေးသနည်း။',
   'settings.reading.title': 'စာဖတ်ခြင်းနှင့် ရေးသားခြင်း',
   'settings.subtitle': 'အသိပေးချက်များ၊ စာဖတ်ခြင်းပတ္တူနှင့် သင့်အကောင့်ကို ချိန်ညှိပါ။',
+  'settings.twofa.code': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twofa.disable': 'ပိတ်ရန်',
   'settings.twofa.disabled': 'မသန်စွမ်းသူ',
   'settings.twofa.enable': 'ဖွင့်ပါ',
   'settings.twofa.enabled': 'ဖွင့်ထားသည်',
+  'settings.twofa.invalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twofa.unavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
+  'settings.twofa.verify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'signup.brandQuote':
     '\\u201cချရေးထားခြင်းသည် ၎င်းကို လိုအပ်သော နောက်လူအား ကျွန်ုပ်တို့ပေးသော ပထမဆုံးကတိဖြစ်သည်။\\u201d',
   'signup.eyebrow': 'အလုပ်ခွင်တစ်ခုဖွင့်ပါ',

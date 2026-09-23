@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.title': 'Mayelana ne-{{app}}',
   'auth.login.noAccount': 'Usanda kufika eSparq?',
   'auth.login.or': 'noma qhubeka no',
   'auth.signup.or': 'noma ubhalise nge-',
+  'common.confirm': 'Qinisekisa',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.loadError': 'Kukhona okungahambanga kahle ekulayisheni lokhu okuqukethwe.',
+  'common.retry': 'Zama futhi',
   'discover.collections.title': 'Phequlula ngesigaba',
   'discover.collections.viewAll': 'Bona umtapo wakho wezincwadi →',
   'discover.empty.body': 'Zama isigaba esihlukile noma usule usesho.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Ngena ngemvume ukuze ugcine uchungechunge lwakho luphila, usingathe imidlalo ebukhoma, futhi ukhuphuke ebhodini labaphambili.',
   'myQuizzes.createButton': 'Ukuhlolwa okusha',
+  'myQuizzes.deleteConfirm': 'Susa unomphela?',
   'myQuizzes.empty.createCta': 'Yakha umbuzo wakho wokuqala →',
   'myQuizzes.empty.created': 'Awukakhi umbuzo okwamanje.',
   'myQuizzes.empty.played': 'Azikho izivivinyo ezishicilelwe okwamanje.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Iyalayisha…',
   'notifications.subhead':
     '{{count}} izinhlansi ezingakafundwa. Izimemo, ukunyakaza kwebhodi yabaphambili, kanye nempumelelo konke kumfudlana owodwa.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.checkoutError': 'Ayikwazanga ukuqala ukukhokha. Sicela uzame futhi.',
+  'pricing.heading': 'Khetha uhlelo lwakho lwe-{{app}}',
   'pricing.included': 'Kufakiwe',
   'pricing.loadError': 'Ayikwazanga ukulayisha izinhlelo.',
   'pricing.maxQuizzes': '{{count}} imibuzo',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Akukho okushicilelwe okwamanje.',
   'profile.startBuilding': 'Qala ukwakha →',
   'profile.tier': 'Umdlali we-Sparq',
+  'quizBuilder.addFailed': 'Ayikwazanga ukwengeza umbuzo. Zama futhi.',
   'quizBuilder.addQuestion': 'Engeza umbuzo',
   'quizBuilder.answerPlaceholder': 'Thayipha inketho…',
   'quizBuilder.answersLabel': 'Izinketho zezimpendulo',
   'quizBuilder.back': 'Buyela emibuzweni yami',
   'quizBuilder.delete': 'Susa umbuzo',
+  'quizBuilder.deleteFailed': 'Ayikwazanga ukususa umbuzo.',
   'quizBuilder.firstQuestion': 'Faka umbuzo wakho wokuqala ekuqaleni.',
   'quizBuilder.idLabel': 'I-id yombuzo: {{id}}',
   'quizBuilder.loadError': 'Ayikwazanga ukulayisha imibuzo.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Engeza okungenani izinketho ezimbili zezimpendulo bese ukhetha efanele {{count}} imibuzo ngaphambi kokushicilela.',
   'quizBuilder.questionsTitle': 'Imibuzo',
+  'quizBuilder.saveFailed': 'Ayikwazanga ukulondoloza isihloko. Zama futhi.',
   'quizBuilder.statusDraft': 'Okusalungiswa',
   'quizBuilder.subhead':
     'Hlela isihloko, engeza imibuzo, setha izinketho kanye nempendulo efanele. Izinguquko zigcinwa ngokuzenzakalelayo.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} umzuzu',
   'quizDetail.hostMultiplayer': 'Bamba abadlali abaningi',
   'quizDetail.leaderboardEmpty': 'Akukho midlalo okwamanje — yiba ngowokuqala ukusetha amaphuzu.',
+  'quizDetail.loadError': 'Ayikwazanga ukulayisha lo mbuzo.',
   'quizDetail.loading': 'Ilayisha umbuzo…',
   'quizDetail.plays': '{{count}} imidlalo',
   'quizDetail.playSolo': 'Dlala wedwa',

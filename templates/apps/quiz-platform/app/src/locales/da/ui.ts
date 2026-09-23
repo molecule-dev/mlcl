@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.title': 'Om {{app}}',
   'auth.login.noAccount': 'Ny hos Sparq?',
   'auth.login.or': 'eller fortsæt med',
   'auth.signup.or': 'eller tilmeld dig med',
+  'common.confirm': 'Bekræfte',
+  'common.goToDashboard': 'Gå til Dashboard',
+  'common.loadError': 'Noget gik galt under indlæsning af dette indhold.',
+  'common.retry': 'Prøv igen',
   'discover.collections.title': 'Gennemse efter kategori',
   'discover.collections.viewAll': 'Se dit bibliotek →',
   'discover.empty.body': 'Prøv en anden kategori, eller ryd søgningen.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Log ind for at holde din stime i live, afhold livekampe og klatre på ranglisten.',
   'myQuizzes.createButton': 'Ny quiz',
+  'myQuizzes.deleteConfirm': 'Slette for altid?',
   'myQuizzes.empty.createCta': 'Lav din første quiz →',
   'myQuizzes.empty.created': 'Du har ikke lavet en quiz endnu.',
   'myQuizzes.empty.played': 'Ingen offentliggjorte quizzer endnu.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Indlæser…',
   'notifications.subhead':
     '{{count}} ulæste gnister. Invitationer, ranglistebevægelser og præstationer, alt sammen i én strøm.',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'pricing.checkoutError': 'Kunne ikke starte betaling. Prøv venligst igen.',
+  'pricing.heading': 'Vælg din {{app}}-plan',
   'pricing.included': 'Inkluderet',
   'pricing.loadError': 'Kunne ikke indlæse planer.',
   'pricing.maxQuizzes': '{{count}} quizzer',
@@ -99,11 +108,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Intet udgivet endnu.',
   'profile.startBuilding': 'Begynd at bygge →',
   'profile.tier': 'Sparq-spiller',
+  'quizBuilder.addFailed': 'Spørgsmålet kunne ikke tilføjes. Prøv igen.',
   'quizBuilder.addQuestion': 'Tilføj spørgsmål',
   'quizBuilder.answerPlaceholder': 'Skriv en mulighed…',
   'quizBuilder.answersLabel': 'Svarmuligheder',
   'quizBuilder.back': 'Tilbage til mine quizzer',
   'quizBuilder.delete': 'Slet spørgsmål',
+  'quizBuilder.deleteFailed': 'Spørgsmålet kunne ikke slettes.',
   'quizBuilder.firstQuestion': 'Tilføj dit første spørgsmål for at starte.',
   'quizBuilder.idLabel': 'Quiz-id: {{id}}',
   'quizBuilder.loadError': 'Kunne ikke indlæse quiz.',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Tilføj mindst to svarmuligheder, og vælg det rigtige. {{count}} spørgsmål(er) før udgivelse.',
   'quizBuilder.questionsTitle': 'Spørgsmål',
+  'quizBuilder.saveFailed': 'Titlen kunne ikke gemmes. Prøv igen.',
   'quizBuilder.statusDraft': 'Udkast',
   'quizBuilder.subhead':
     'Rediger titlen, tilføj spørgsmål, angiv valgmuligheder og det korrekte svar. Ændringer gemmes automatisk.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min.',
   'quizDetail.hostMultiplayer': 'Vært for multiplayer',
   'quizDetail.leaderboardEmpty': 'Ingen spil endnu — vær den første til at sætte en score.',
+  'quizDetail.loadError': 'Kunne ikke indlæse denne quiz.',
   'quizDetail.loading': 'Indlæser quiz…',
   'quizDetail.plays': '{{count}} skuespil',
   'quizDetail.playSolo': 'Spil alene',

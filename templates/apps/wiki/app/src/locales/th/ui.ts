@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'กำลังแก้ไขปัญหา…',
   'comments.subtitle':
     'เดอะ {{count}} กระทู้ที่ยังรอการตอบกลับหรือการแก้ไข เรียงลำดับตามอายุ — กระทู้เก่าที่สุดอยู่ด้านบน เพื่อไม่ให้กระทู้ใด ๆ ตกหล่น',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'forgotPassword.sentTo': 'ลิงก์รีเซ็ตถูกส่งไปแล้ว {{email}}',
   'forgotPassword.successSubheading':
     'โปรดตรวจสอบกล่องจดหมายของคุณ — เราเพิ่งส่งลิงก์รีเซ็ตไปให้ ลิงก์นี้จะหมดอายุใน 30 นาที',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'หน้าใหม่',
   'pageTreeSidebar.workspaceHeader': 'พื้นที่ทำงาน',
   'pageView.breadcrumb': 'ร่องรอยขนมปัง',
+  'pageView.confirmTrash': 'ทิ้งไปเลยเหรอ?',
   'pageView.home': 'บ้าน',
   'pageView.lastEdited': 'อัปเดตแล้ว {{when}}',
   'pageView.loading': 'กำลังโหลดหน้าเว็บ…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'โดยสรุปแล้ว…',
   'pageView.summaryUnavailable': 'ไม่ได้ตั้งค่าการสรุปข้อมูล AI สำหรับพื้นที่ทำงานนี้',
   'pageView.tocTitle': 'ในหน้านี้',
+  'pageView.trash': 'ขยะ',
+  'pageView.trashing': 'การทิ้งขยะ…',
   'pageView.versionBadge': 'วี{{version}}',
   'profile.badges.title': 'ป้าย',
   'profile.owned.title': 'เพจที่เป็นเจ้าของ',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'พื้นที่ทำงาน โปรไฟล์ การแจ้งเตือน การผสานรวม — ทั้งหมดนี้รวมอยู่ในแพลตฟอร์มเดียวที่ใช้งานง่าย',
   'settingsPage.workspace.defaultLanding': 'หน้าจอเริ่มต้น',
   'settingsPage.workspace.landingHome': 'บ้าน',
+  'settingsPage.workspace.landingSpaces': 'พื้นที่',
   'settingsPage.workspace.subdomainLabel': 'โดเมนย่อย',
   'settingsPage.workspace.title': 'พื้นที่ทำงาน',
   'signup.eyebrow': 'เริ่มพื้นที่ทำงานใหม่',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} นาที',
   'templates.subtitle':
     'เริ่มสร้างหน้าจากแม่แบบ ไม่ใช่จากผืนผ้าใบเปล่า แม่แบบแต่ละอันจะกำหนดรูปทรงไว้แล้ว คุณจึงสามารถมุ่งเน้นไปที่เนื้อหาหลักได้',
+  'trash.confirmPurge': 'ล้างผลาญไปตลอดกาล?',
+  'trash.confirmPurgeAria': 'ยืนยัน: ลบ {{title}} อย่างถาวร',
   'trash.daysUntilPurge': '{{days}} เหลืออีกไม่กี่วัน',
   'trash.empty.body':
     'หน้าเว็บที่ถูกลบจะยังคงปรากฏอยู่ที่นี่เป็นเวลา 30 วัน ก่อนที่จะถูกลบออกอย่างถาวร',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'กำลังบูรณะ…',
   'versionHistory.subtitle': '{{count}} เวอร์ชัน · เลือกแถวเพื่อตรวจสอบความแตกต่าง',
   'versionHistory.versionLabel': 'วี{{v}}',
+  'wikiLayout.closeMenu': 'ปิดการนำทาง',
+  'wikiLayout.menu': 'การนำทาง',
+  'wikiLayout.openMenu': 'เปิดการนำทาง',
   'wikiLayout.searchPlaceholder': 'ค้นหา Cairn — หน้าเว็บ ความคิดเห็น…',
 }

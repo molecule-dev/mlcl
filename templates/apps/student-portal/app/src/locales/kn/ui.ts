@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'announcementsFeed.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಕಟಣೆಗಳಿಲ್ಲ.',
   'announcementsFeed.eyebrow': '{{count}} ನವೀಕರಣಗಳು',
   'announcementsFeed.title': 'ಇತ್ತೀಚಿನ ಪ್ರಕಟಣೆಗಳು',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'ಇಲ್ಲಿ ಏನೂ ಇಲ್ಲ',
   'assignments.emptyBody': 'ಬೇರೆ ಸ್ಥಿತಿಯಲ್ಲಿ ಕಾರ್ಯಯೋಜನೆಗಳನ್ನು ನೋಡಲು ಮೇಲಿನ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಿ.',
   'assignments.eyebrow': 'ಎಲ್ಲಾ ಕೋರ್ಸ್‌ಗಳು · ಈ ಅವಧಿ',
+  'assignments.loadError': 'ಕಾರ್ಯಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'assignments.loading': 'ಕಾರ್ಯಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'assignments.subtitle':
     'ಏನು ಬಾಕಿ ಇದೆ, ಸಲ್ಲಿಸಲಾಗಿದೆ, ಶ್ರೇಣೀಕರಿಸಲಾಗಿದೆ ಅಥವಾ ಕಾಣೆಯಾಗಿದೆ ಎಂಬುದನ್ನು ನೋಡಲು ಸ್ಥಿತಿಯ ಮೂಲಕ ಫಿಲ್ಟರ್ ಮಾಡಿ.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'ಸೂಚನೆ',
   'attendance.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಹಾಜರಾತಿ ದಾಖಲೆಗಳಿಲ್ಲ.',
   'attendance.eyebrow': 'ವಸಂತ ಋತು · ಕಳೆದ 4 ವಾರಗಳು',
+  'attendance.loadError': 'ಹಾಜರಾತಿ ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'attendance.loading': 'ಹಾಜರಾತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'ನಿಯೋಜನೆಯ ಅಂತಿಮ ದಿನಾಂಕಗಳನ್ನು ಒಂದು ತಿಂಗಳ ಗ್ರಿಡ್‌ನಲ್ಲಿ ಗುರುತಿಸಲಾಗಿದೆ - ಪರೀಕ್ಷೆಗಳು ಕೆಂಪು ಬಣ್ಣದಲ್ಲಿ ಎದ್ದು ಕಾಣುತ್ತವೆ.',
   'calendar.title': '{{month}} ಕಾರ್ಯಕ್ರಮಗಳು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
+  'common.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
   'common.yes': '✓',
   'courseDetail.backLink': 'ಶ್ರೇಣಿಗಳು',
   'courseDetail.currentGrade': 'ಪ್ರಸ್ತುತ ದರ್ಜೆ',
@@ -73,11 +78,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ಪ್ರವೃತ್ತಿ',
   'grades.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಗ್ರೇಡ್‌ಗಳನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿಲ್ಲ.',
   'grades.eyebrow': 'ಗ್ರೇಡ್ ಪುಸ್ತಕ',
+  'grades.loadError': 'ನಿಮ್ಮ ಗ್ರೇಡ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'grades.loading': 'ಗ್ರೇಡ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'grades.subtitle':
     'ಲೈವ್ ಲೆಟರ್ ಮತ್ತು ಶೇಕಡಾವಾರು ಗ್ರೇಡ್‌ಗಳು. ಟ್ರೆಂಡ್ ಬಾಣಗಳು ನೀವು ಮೇಲಕ್ಕೆ ಚಲಿಸುತ್ತಿದ್ದೀರಾ, ಮಟ್ಟಕ್ಕೆ ಚಲಿಸುತ್ತಿದ್ದೀರಾ ಅಥವಾ ಜಾರಿಬೀಳುತ್ತಿದ್ದೀರಾ ಎಂಬುದನ್ನು ತೋರಿಸುತ್ತವೆ.',
   'grades.title': 'ನಿಮ್ಮ ಅಂಕಗಳು, ಕೋರ್ಸ್‌ನಿಂದ ಕೋರ್ಸ್',
   'grades.trendStable': 'ಸ್ಥಿರ',
+  'landing.copyright':
+    '© {{year}} {{app}} . ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ, ಕುಟುಂಬಗಳಿಗಾಗಿ ರಚಿಸಲಾಗಿದೆ.',
   'landing.ctaHeading': 'ಶಾಂತವಾದ ಶಾಲಾ ದಿನವು ನಿಮಿಷಗಳಲ್ಲಿ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ',
   'landing.eyebrow': 'ಮಧ್ಯಮ ಮತ್ತು ಪ್ರೌಢಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ',
   'landing.featuresHeading': 'ವಿದ್ಯಾರ್ಥಿಯ ಸುತ್ತ ಆಯೋಜಿಸಲಾದ ಶಾಲಾ ದಿನ.',
@@ -113,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'ನಿಯೋಜನೆಗಳು',
   'nav.attendance': 'ಹಾಜರಾತಿ',
   'nav.calendar': 'ಕ್ಯಾಲೆಂಡರ್',
+  'nav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'nav.grades': 'ಶ್ರೇಣಿಗಳು',
+  'nav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'nav.statusEyebrow': 'ಅವಧಿ GPA',
   'nav.statusSubtext': 'ಗೌರವ ಪ್ರಶಸ್ತಿ · ವಸಂತ ಋತು',
+  'nav.unreadMessages': 'ಓದದಿರುವ ಸಂದೇಶಗಳು',
   'notifications.eyebrow': '{{count}} ನವೀಕರಣಗಳು',
   'notifications.subtitle':
     'ಗ್ರೇಡ್‌ಗಳು, ಜ್ಞಾಪನೆಗಳು, ಸಂದೇಶಗಳು ಮತ್ತು ಶಾಲಾ ಪ್ರಕಟಣೆಗಳು. ಪ್ರತಿ ಅಧಿಸೂಚನೆಯು ಯಾವ ಚಾನಲ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ ಎಂಬುದನ್ನು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಹೊಂದಿಸಿ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.attendanceLabel': 'ಹಾಜರಾತಿ',
   'pricing.gradesLabel': 'ಶ್ರೇಣಿಗಳು',
   'pricing.heading': 'ಪ್ರಕಟಣೆಗಳು',

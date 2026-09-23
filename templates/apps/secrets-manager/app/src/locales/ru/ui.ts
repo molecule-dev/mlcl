@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'about.tagline': 'Секреты умирают на виду у всех.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Создать токен',
   'apiTokens.kicker': 'API-токены',
   'apiTokens.loading': 'Загрузка токенов…',
+  'apiTokens.new': 'Новый токен',
   'apiTokens.revoke': 'Отменить токен',
   'apiTokens.subheading':
     'Персональные и сервисные токены для Arcanum CLI и SDK. Отображаются в открытом виде один раз при создании.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + пароль',
   'authShell.zeroKnowledge': 'Шифрование с нулевым разглашением',
   'common.connecting': 'Подключение…',
+  'common.goToDashboard': 'Перейти к панели',
   'common.inviting': 'Приглашение…',
   'forgotPassword.checkInbox':
     'Если адрес электронной почты {email} зарегистрирован, подписанная ссылка для сброса пароля придет в течение минуты.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Статус ротации, оповещения об аномалиях и запросы на подтверждение для каждого хранилища.',
   'notifications.unreadEmpty': 'Входящие сообщения пусты — все загружено.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.heading': 'секреты',
   'pricing.limits.accessPolicies': 'политики доступа',
   'pricing.limits.auditLog': 'записи журнала аудита',
@@ -87,9 +91,12 @@ export const ui: UiTranslations = {
     'Управляйте своей подпиской, смотрите лимиты и переходите на более высокий уровень.',
   'profile.subheading':
     'Идентификация, устройства с двухфакторной аутентификацией и активные сессии.',
+  'profile.twoFactor.code': 'Код аутентификации',
   'profile.twoFactor.disable': 'Отключить',
   'profile.twoFactor.enable': 'Включить',
+  'profile.twoFactor.invalidCode': 'Неверный код',
   'profile.twoFactor.kicker': 'Двухфакторная аутентификация',
+  'profile.twoFactor.off': 'Не включено',
   'profile.twoFactor.on': 'Включено',
   'resetPassword.email': 'Адрес электронной почты учетной записи',
   'resetPassword.heading': 'Установить новые учетные данные',
@@ -135,6 +142,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'команды',
   'secretsManagerLayout.encrypted': 'AES-256 · ЗАШИФРОВАНО',
   'secretsManagerLayout.newVault': 'Новое хранилище',
+  'secretsManagerLayout.newVaultShort': 'Новый',
   'secretsManagerLayout.rotations': 'Вращения',
   'secretsManagerLayout.search': 'поиск',
   'secretsManagerLayout.searchPlaceholder': 'Поиск секретов по ключу, пути или тегу…',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Секреты',
   'vaultCard.vaultLabel': 'Сейф',
   'vaultDetail.addSecret': 'Добавить секрет',
+  'vaultDetail.back': 'Все хранилища',
   'vaultDetail.col.key': 'Ключ',
   'vaultDetail.col.rotated': 'Повернутый',
   'vaultDetail.col.value': 'Ценить',

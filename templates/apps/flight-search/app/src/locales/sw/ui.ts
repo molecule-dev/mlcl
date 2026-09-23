@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.eyebrow': 'Kuhusu {{app}}',
   'about.pageTitle': 'Kila njia, utafutaji mmoja.',
   'booking.backToDetail': 'Rudi kwenye maelezo ya ndege',
   'booking.continue': 'Endelea na malipo',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Kodi na ada',
   'booking.summary.travelers': 'Wasafiri',
   'common.about': 'Kuhusu',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'flightDetail.backToResults': 'Rudi kwenye matokeo',
   'flightDetail.baseFare': 'Nauli ya msingi',
   'flightDetail.book': 'Endelea kuweka nafasi',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'Kituo 1',
   'flightResultCard.select': 'Chagua',
   'flightResultCard.totalLabel': 'Jumla ya muda',
+  'flightSearchLayout.primaryNavLabel': 'Usogezaji mkuu',
   'forgotPassword.subheading':
     'Ingiza barua pepe kwenye akaunti yako ya Skylark nasi tutakutumia kiungo salama cha kuweka upya.',
   'forgotPassword.successBody':
     'Hundi {{email}} kwa kiungo cha kuweka nenosiri jipya. Kiungo kinaisha muda wake baada ya dakika 30.',
   'forgotPassword.successHeading': 'Weka upya kiungo kilichotumwa',
   'landing.cta.explore': 'Jaribu utafutaji',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Tafuta nauli nzuri inayofuata kabla ya kila mtu mwingine.',
   'landing.cta.signup': 'Anza kufuatilia nauli',
   'landing.features.eyebrow': 'Kwa nini Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Ongeza arifa',
   'priceAlerts.deleteConfirm': 'Ondoa arifa hii?',
   'priceAlerts.empty': 'Hakuna njia zinazofuatiliwa bado.',
+  'priceAlerts.emptyCta': 'Tafuta njia ya kufuatilia',
   'priceAlerts.errorMessage': 'Haikuweza kupakia arifa.',
   'priceAlerts.eyebrow': 'Orodha ya kutazama ya Skylark',
   'priceAlerts.form.createError': 'Haikuweza kuunda arifa.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Ratiba ya miji mingi',
   'results.multiLegHeading': 'Mguu {{n}} · {{kutoka}} → {{hadi}} · {{tarehe}}',
   'results.multiSummary': '{{count}} miguu · {{passengers}} msafiri',
+  'results.sortAriaLabel': 'Panga matokeo kulingana na',
   'results.sortLabel': 'Panga',
   'results.summary': '{{count}} safari za ndege · {{passengers}} msafiri',
   'settings.language.title': 'Lugha',

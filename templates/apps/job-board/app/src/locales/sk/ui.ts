@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'applications.empty':
     'Zatiaľ žiadne žiadosti \\u2014 tá správna pozícia je vzdialená len jednu žiadosť.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Každá pozícia, o ktorú ste sa uchádzali, je v procese realizácie. Filtrujte podľa fázy a zamerajte sa na ňu.',
   'applications.untitledRole': 'Číslo pozície {{id}}',
+  'auth.legalConsent': 'Pokračovaním súhlasíte s našimi',
   'common.and': 'a',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'companies.empty':
     'Žiadne spoločnosti nezodpovedajú vášmu vyhľadávaniu \\u2014 skúste iný výraz.',
   'companies.eyebrow': 'Odporúčaní zamestnávatelia',
@@ -53,6 +56,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Na túto pozíciu zatiaľ neboli žiadne žiadosti.',
   'jobApplicants.eyebrow': 'Názor zamestnávateľa',
   'jobApplicants.loading': 'Načítava sa\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Túto fázu sa nepodarilo aktualizovať – skúste to znova.',
+  'jobApplicants.subheading':
+    'Kontrolujte životopisy, povyšujte kandidátov, posielajte ponuky \\u2014 {{count}} v pohybe.',
   'jobDetail.applicantCount': '{{count}} doterajší uchádzači',
   'jobDetail.applied': 'Žiadosť odoslaná',
   'jobDetail.apply': 'Prihlásiť sa teraz',
@@ -86,6 +92,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Prehliadať voľné pracovné pozície \\u2192',
   'landing.pricingEyebrow': 'Cenník',
   'landing.pricingHeading': 'Jednoduché plány pre tím každej veľkosti.',
+  'login.eyebrow': 'Vitajte späť v {{app}}',
   'login.heading': 'Prihláste sa do svojho účtu',
   'login.noAccount': 'Ste v Noshe noví?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Prihlásenie\\u2026',
   'login.subheading':
     'Zlepšite svoje vyhľadávanie, posuňte svoje žiadosti dopredu a dostávajte odpovede rýchlejšie.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Vytvorené pre náborové tímy.',
   'loginBrandPanel.headline': 'Kde sa stretáva talent',
   'loginBrandPanel.headlineLine2': 'hybnosť.',
   'loginBrandPanel.listing.recruiter': 'Partner talentov',
@@ -109,6 +117,7 @@ export const ui: UiTranslations = {
     'Aktualizácie prihlášok, pozvánky na pohovory, nové zhody a najnovšie ako prvé.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} tento týždeň',
   'opportunitiesHero.eyebrow': 'Otvorené dnes',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'postJob.addNewCompany': '+ Pridať novú spoločnosť',
   'postJob.companyCreateFailed': 'Nepodarilo sa vytvoriť spoločnosť – skúste to znova.',
   'postJob.companyNameLabel': 'Názov vašej spoločnosti',
@@ -167,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Vytvára sa účet\\u2026',
   'signup.ctaEmployer': 'Vytvoriť zamestnávateľský účet',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Heslá sa nezhodujú.',
   'signup.subheading':
     'Zadarmo pre uchádzačov, navždy. Zamestnávatelia začínajú s 30-dňovou skúšobnou verziou.',
   'timeAgo.days': '{{count}} pred d',
   'timeAgo.hours': '{{count}} pred hodinami',
   'timeAgo.justNow': 'práve teraz',
+  'timeAgo.weeks': 'pred {{count}} týždňami',
 }

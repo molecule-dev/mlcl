@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'authShell.brandHeading': 'Дауыстап ойлайтын дизайн топтарына арналған көп ойыншылы кенептер.',
   'billing.canceled': 'Жазылым тоқтатылды.',
   'billing.cancelPlan': 'Жоспарды тоқтату',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Үлгіден бастау',
   'boards.title': 'Сіздің тақталарыңыз',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Жұмыс кеңістігіңізге байланыстырылған электрондық пошта мекенжайын енгізіңіз, сонда біз қалпына келтіру сілтемесін жібереміз.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Шатастырылған, генеративтік, жеке ойлауға арналған.',
   'landing.demoBoard.title': '1-тоқсандағы семинар · Бренд дауысы',
   'landing.featuresTitle': 'Жылдам кері байланыс. Әдемі кенептер. Ешқандай үйкеліссіз.',
+  'landing.hero.body':
+    '{{appName}} – тікелей ми шабуылдарын жүргізетін және идеяларды бір жерге біріктіруді қажет ететін дизайн топтарына, семинар жетекшілеріне және оқытушыларға арналған көп ойыншылы ақ тақта.',
   'landing.hero.primaryCta': 'Тегін тақтаны бастаңыз',
   'landing.hero.socialProof': 'Сенім білдірген {{count}} бүкіл әлем бойынша дизайн топтары',
   'landing.hero.title': 'Ойларыңыздай жылдам кенеп',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Тегін жұмыс кеңістігін жасаңыз',
   'login.subheading':
     'Семинар аяқталған жерден жалғастырыңыз — тақталар, стикер жазбалар және курсорлардың барлығы нақты уақыт режимінде синхрондалады.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.new': 'Жаңа',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'notifications.editTitle': '«»-ге өзгертулер {{board}} "',
   'notifications.empty.body':
     'Шақырулар, сақталған суреттер және соңғы тақтаға енгізілген өзгертулер осы жерде пайда болады.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Нұсқа тарихы',
   'versionHistory.untitledSnapshot': 'Атауы жоқ сурет',
   'whiteboardLayout.newBoard': 'Жаңа тақта',
+  'whiteboardLayout.primaryNav': 'Негізгі навигация',
   'workspace.boardLabel': 'Тақта',
   'workspace.eyebrow': '{{name}} · жұмыс орны',
   'workspace.invite': 'Әріптестерді шақыру',

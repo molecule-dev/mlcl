@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} အကြောင်း',
   'about.plansTitle': 'သင်နှင့်အတူ ကြီးထွားလာမည့် အစီအစဉ်များ',
   'brand.tagline': 'စက္ကန့်တိုင်း',
   'clientDetail.back': 'ဖောက်သည်များထံ ပြန်သွားပါ',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'ဆက်ဆံရေးတိုင်းကို တစ်နေရာတည်းတွင် — ပရောဂျက်များ၊ နာရီများ၊ ပေးရန်ကျန်ရှိသော ငွေတောင်းခံလွှာများ။',
   'clients.title': 'ဖောက်သည်များ',
   'common.and': 'နှင့်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.activeProjects': 'တက်ကြွသော ပရောဂျက်များ',
   'dashboard.empty':
     'မှတ်တမ်းများ မရှိသေးပါ။ သင်၏ ပထမဆုံး session ကို ခြေရာခံရန် timer ကို စတင်ပါ။',
@@ -88,6 +90,7 @@ export const ui: UiTranslations = {
   'invoices.save': 'ငွေတောင်းခံလွှာ ဖန်တီးပါ',
   'invoices.subtitle':
     'ခြေရာခံထားသော နာရီများကို အလိုအလျောက် ငွေတောင်းခံလွှာများထဲသို့ ထည့်သွင်းပါသည်။',
+  'landing.copyright': '© {{year}} {{app}} . စက္ကန့်တိုင်းကို ထည့်သွင်းစဉ်းစားထားသည်။',
   'landing.ctaBody':
     'ပရောဂျက် ၃ ခုအထိ အခမဲ့။ သင့်ဖောက်သည်စာရင်းတွင် ပါရှိသည့်အခါ အဆင့်မြှင့်တင်ပါ။',
   'landing.eyebrow': 'ငွေတောင်းခံနိုင်သော အလုပ်အတွက် အချိန်ခြေရာခံခြင်း',
@@ -103,13 +106,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'လွတ်လပ်သူများ၏ ယုံကြည်ကိုးစားမှုကို ခံရသည်',
   'landing.testimonial.quote':
     '\\u201cမိနစ် ၃၀ အတွင်း Toggl ကနေ ထွက်လိုက်တယ်။ ဘတ်ဂျက်ကုန်သွားတာတစ်ခုတည်းနဲ့တင် အကျိုးပေးသွားပြီ \\u2014 ဈေးနှုန်းလျှော့ပြောတာကို နှစ်ပတ်ဆက်တိုက် ရပ်လိုက်ပြီ။\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ခရိုနို။ စက္ကန့်တိုင်းကို ထည့်သွင်းစဉ်းစားသည်။',
   'login.brand.subtitle':
     'သင်ထားခဲ့သော အချိန်ကိုက်စက်ကို ပြန်ယူပါ - မိနစ်တိုင်းကို ပရောဂျက်၊ ဖောက်သည်၊ ငွေတောင်းခံလွှာတစ်ခုနှင့် ချိတ်ဆက်ပြီးဖြစ်သည်။',
   'login.brand.tracking': 'ခြေရာခံခြင်း',
   'login.subheading': 'သင်ရပ်ထားသည့်နေရာမှ အချိန်တိုင်းကိရိယာကို ကောက်ယူပါ။',
+  'nav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'nav.insightsSection': 'ထိုးထွင်းသိမြင်မှုများ',
   'nav.newEntry': 'အသစ်ဝင်ရောက်မှု',
+  'nav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'nav.primary': 'အဓိက လမ်းညွှန်ချက်',
   'nav.workSection': 'အလုပ်',
   'notFound.body':
     'သင်လိုက်ကြည့်ထားတဲ့လင့်ခ်က ခြေရာခံတာ ရပ်သွားပုံရပါတယ်။ သင့်ဒက်ရှ်ဘုတ်ကို ပြန်သွားပြီး အဲဒီကနေ ကျွန်တော်တို့ ဆက်လက်ရေတွက်သွားပါမယ်။',
@@ -212,6 +219,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'ငွေတောင်းခံနိုင်သည်',
   'timer.descriptionPlaceholder': 'ဘာအလုပ်လုပ်နေတာလဲ။',
   'timer.idle': 'အားလပ်ချိန် — ခြေရာခံခြင်းစတင်ပါ',
+  'timer.noProject': 'ပရောဂျက်မရှိပါ',
   'timer.runningWithProject': 'ပရောဂျက်မရှိပါ',
   'timer.start': 'အချိန်တိုင်းစက် စတင်ပါ',
   'timer.stop': 'အချိန်တိုင်းစက် ရပ်ပါ',

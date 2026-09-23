@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.pageTitle': '{{app}} کے بارے میں',
   'achievementBadgeCard.unlockedOn': 'غیر مقفل {{date}}',
   'achievements.loadError': 'کامیابیاں لوڈ کرنے میں ناکام۔',
   'achievements.subheading': '{{unlocked}} کی {{total}} کھلا',
   'achievements.unlockedOn': 'غیر مقفل {{date}}',
+  'auth.legalConsent': 'جاری رکھ کر، آپ ہماری شرائط سے اتفاق کرتے ہیں',
   'calendar.empty': 'اپنا کیلنڈر دیکھنے کی عادت بنائیں۔',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'عادت',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'عادت گرڈ',
   'category.${c.category}': '{{count}} عادات',
   'common.and': 'اور',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'consistencyHeatmap.ariaLabel': 'روزانہ مستقل مزاجی کا ہیٹ میپ',
   'consistencyHeatmap.caption': 'آخری {{weeks}} ہفتے',
   'consistencyHeatmap.lessLabel': 'کم',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'اسے لائیو دیکھیں',
   'landing.heroSubtitle':
     'عادات کو اس طرح بنائیں جس طرح وہ حقیقت میں قائم ہیں: چھوٹے وعدے، روزانہ کی لکیریں، اور ایک طویل غیر منقطع زنجیر کی بصری خوشی۔',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'اسٹریک کے اندر جھانکنا',
   'landing.previewMotivation': 'نو لکیریں زندہ ہیں۔ ان سب کو گرم رکھیں۔',
   'login.eyebrow': 'زنجیر اٹھاؤ',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'اسے چھوٹا بنائیں۔ اسے مخصوص بنائیں۔ کل دکھائیں۔',
   'newHabit.timeLabel': 'یاد دہانی کا وقت',
   'notifications.markError': 'سبھی پڑھے ہوئے نشان زد نہیں کر سکے۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.entries': '{{count}} اندراجات',
+  'pricing.heading': 'اپنا {{app}} پلان منتخب کریں',
   'profile.action.plan': 'سبسکرپشن کا نظم کریں۔',
   'profile.action.settings': 'اکاؤنٹ کی ترتیبات',
   'profile.bioEmpty': 'اپنا تعارف کروانے کے لیے ترتیبات میں ایک مختصر جیو شامل کریں۔',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'روزانہ صبح کا اشارہ (8:00am)',
   'settings.reminders.heading': 'یاد دہانیاں',
   'settings.reminders.weekly': 'ہفتہ وار خلاصہ (اتوار کی شام)',
+  'settings.revokeDeviceWarning': 'اس ڈیوائس کی رسائی جلد منسوخ کر دی جائے گی۔ اسے سائن آؤٹ کریں؟',
   'settings.signOutDevice': 'سائن آؤٹ کریں۔',
   'settings.streaks.freezesPerWeek': 'فی ہفتہ جم جاتا ہے۔',
   'settings.streaks.gracePeriod': 'آدھی رات کے بعد 6 گھنٹے کی رعایتی مدت',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} فعال',
   'streakHeroCard.daysSuffix': 'دن',
   'streakHeroCard.title': 'سب سے طویل فعال سلسلہ',
+  'streakLayout.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'streakLayout.openMenu': 'نیویگیشن مینو کھولیں۔',
   'streakLayout.primaryNavLabel': 'بنیادی نیویگیشن',
 }

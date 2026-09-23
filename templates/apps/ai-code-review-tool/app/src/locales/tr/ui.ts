@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'İletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'common.goToDashboard': 'Panele Git',
   'dashboard.connectRepoCta': 'Depoyu bağla',
   'dashboard.empty': 'Henüz çekme isteği yok — başlamak için bir depo bağlayın.',
   'dashboard.eyebrow': 'Refract · inceleme kuyruğu',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Çalışma süresi',
   'pullRequestRow.files': '{{count}} d',
   'pullRequestRow.scoreAria': 'AI kalite puanı {{score}} / 10',
+  'refractLayout.closeMenu': 'Menüyü kapat',
+  'refractLayout.openMenu': 'Menüyü aç',
   'refractLayout.primaryNavLabel': 'Birincil gezinme',
   'reports.cumulativeScoreLabel': 'Kümülatif puan',
   'reports.cumulativeScoreSubtitle': 'tüm depolar · {{days}}g',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Arama indeksi yüklenemedi.',
   'settings.apiKeys.description':
     'Sağ üstteki kullanıcı menüsünden kişisel API anahtarlarını yönetin.',
+  'settings.apiKeys.integrationsNote':
+    'Sağlayıcı erişim belirteçleri, yukarıdaki Entegrasyonlar bölümünde yönetilir.',
   'settings.connectError': 'Sağlayıcı bağlanamadı.',
   'settings.disconnectError': 'Sağlayıcının bağlantısı kesilemedi.',
   'settings.eyebrow': 'Refract · çalışma alanı',
   'settings.integration.${provider}.label': 'Kaydediliyor…',
   'settings.loadError': 'Ayarlar yüklenemedi.',
+  'settings.notificationCenter': 'Bildirim merkezi',
   'settings.notifications.description':
     'Teslimat tercihlerini görüntülemek ve yönetmek için bildirimler sayfasını ziyaret edin.',
   'settings.section.account': 'Hesap ve güvenlik',

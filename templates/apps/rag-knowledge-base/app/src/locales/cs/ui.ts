@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.pageTitle': 'O {{appName}}',
   'analytics.error': 'Analytiku nelze načíst.',
   'analytics.heading': 'Analýza vyhledávání',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nejsou nakonfigurovány žádné cenové úrovně.',
   'billing.plans.heading': 'Plány',
   'billing.subheading': 'Plán, využití a pokladna spravovaná službou Stripe.',
+  'common.confirm': 'Potvrdit',
+  'common.goToDashboard': 'Přejít na Dashboard',
+  'common.retry': 'Zkusit znovu',
   'documentCard.open': 'Otevřít \\u2192',
   'documentDetail.back': 'Zpět k dokumentům',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indexový dokument',
   'documents.composer.titlePlaceholder': 'Název dokumentu',
   'documents.emptyAll': 'Zatím žádné dokumenty. Nahrajte jeden a začněte klást otázky.',
+  'documents.error.load': 'Dokumenty se nepodařilo načíst.',
   'documents.heading': 'Indexované dokumenty',
   'documents.loading': 'Načítání dokumentů…',
   'documents.metric.chunks': 'Celkový počet bloků',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Odebírání\\u2026',
   'members.subheading': 'Pozvěte spoluhráče a stanovte role.',
   'members.tableHeading': 'Seznam',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
   'notFound.askCta': 'Zeptejte se znalostní báze',
+  'notFound.body':
+    '{{app}} nemohla danou stránku najít. Odkaz může být nefunkční nebo stránka mohla být během reindexace odstraněna.',
   'notFound.eyebrow': 'Nelze načíst',
   'notFound.title': 'V indexu takový blok není.',
   'notifications.dismiss': 'Zavřít',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL zdroje',
   'sources.empty.body': 'Klikněte na \\u201cPřidat zdroj\\u201d pro zapojení prvního konektoru.',
   'sources.empty.title': 'Zatím žádné zdroje.',
+  'sources.error.add': 'Nepodařilo se přidat zdroj.',
   'sources.error.labelRequired': 'Štítek je povinný.',
   'sources.error.load': 'Nepodařilo se načíst zdroje.',
   'sources.error.urlRequired': 'Pro tento typ zdroje je vyžadována URL adresa.',

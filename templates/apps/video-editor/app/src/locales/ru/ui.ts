@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Нашли ошибку, хотите предложить новую функцию или рассказать о смонтированном вами фильме? Каждое сообщение доходит до реального члена команды — свяжитесь с нами в любое время через настройки вашей учетной записи.',
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.eyebrow': '// Студия, создавшая этот ролик',
   'about.pageTitle': 'О {{appName}}',
   'assetDetail.back': 'Вернуться в библиотеку',
   'assetDetail.confirmDelete': 'Удалить " {{name}} "? Этого нельзя отменить."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} Видеоклипы, звуковые дорожки и графические элементы готовы к размещению на временной шкале.',
   'assetLibrary.title': 'Ресурсы',
   'assetLibrary.upload': 'Добавить актив',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.browseTemplates': 'Просмотреть шаблоны →',
   'dashboard.loading': 'Загрузка проектов…',
   'dashboard.noProjects': 'Проектов пока нет — создайте новый, чтобы начать.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Выберите что-нибудь, что запомнится только вам.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Конфиденциальность',
+  'rushesLayout.closeMenu': 'Закрыть панель навигации',
   'rushesLayout.guest': 'Редактор',
+  'rushesLayout.navDialog': 'Навигация',
+  'rushesLayout.openMenu': 'Открыть панель навигации',
   'rushesLayout.planFree': 'Бесплатный план',
   'rushesLayout.tagline': 'Кинематографическая хронология',
   'settings.billing.confirmCancel': 'Отменить подписку по окончании периода?',

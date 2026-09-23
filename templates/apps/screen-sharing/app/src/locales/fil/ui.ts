@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
   'about.pageTitle': 'Tungkol sa {{appName}}',
   'analytics.empty': 'I-record ang iyong unang clip para mapanood ang engagement dito.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'mga clip',
   'billing.usage.views': 'Mga Pananaw',
   'billing.usage.views.unit': 'mga tanawin',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'landing.cta.title': 'Magpadala ng mas mahusay na feedback. Magsimula sa Glint.',
   'landing.feature.capture.body':
     'Pagre-record gamit ang browser, desktop, at mobile gamit ang mikropono, cam, at pagguhit.',
   'landing.feature.capture.title': 'Isang tap capture',
+  'landing.footer.copy': '© {{year}} {{appName}} . Async, ginawang maliwanag.',
   'landing.hero.cardCaption':
     'Halimbawang pangkalahatang-ideya ng workspace — subukan ito nang libre.',
   'landing.hero.primaryCta': 'Simulan ang pag-record nang libre',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Maghanap ng mga recording',
   'library.searchPlaceholder': 'Maghanap ng mga recording…',
   'library.weeklyChange': '{{value}} % kumpara sa nakaraang linggo',
+  'nav.openMenu': 'Buksan ang menu ng nabigasyon',
   'nav.record': 'Itala',
   'nav.shared': 'Ibinahagi sa akin',
   'nav.startRecording': 'Simulan ang pagre-record',

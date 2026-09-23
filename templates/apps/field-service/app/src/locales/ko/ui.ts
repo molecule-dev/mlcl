@@ -45,6 +45,7 @@ export const ui: UiTranslations = {
   'customers.heading': '고객',
   'customers.loadError': '고객을 불러오지 못했습니다.',
   'customers.loading': '불러오는 중…',
+  'customers.new.address': '서비스 주소',
   'customers.new.email': '이메일',
   'customers.new.error': '고객 추가에 실패했습니다.',
   'customers.new.heading': '새 고객',

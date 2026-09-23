@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Звяжыцеся з намі',
+  'about.title': 'Пра {{app}}',
   'authShell.backToLanding': '← Назад да пасадкі',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
+  'common.retry': 'Паўтарыць',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Сёння · Агляд аперацый',
   'dashboard.heading': 'Аналітыка дакументаў',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Няма дакументаў, якія адпавядаюць бягучым фільтрам.',
   'documents.heading': 'Усе дакументы',
   'documents.loadError': 'Не атрымалася загрузіць дакументы.',
+  'documents.loading': 'Загрузка бібліятэкі…',
   'documents.searchLabel': 'Пошук дакументаў',
   'documents.searchPlaceholder': 'Пошук дакументаў…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Схаваць пароль',
   'login.showPassword': 'Паказаць пароль',
   'login.subtitle': 'Увайдзіце, каб падтрымліваць паток вашых дакументаў.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'notFound.body':
     'Дакумент або маршрут, які вы спрабавалі адкрыць, больш не існуе. Вярніцеся на панэль кіравання або выберыце раздзел на бакавой панэлі.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Адкрыць мэтавую старонку',
   'notFound.title': 'Гэтай старонкі няма ў файле',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % у параўнанні з учорашнім днём',
@@ -83,6 +90,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Пакуль няма правілаў архівавання. Каб дадаць правіла, скарыстайцеся функцыяй «Новае правіла».',
   'rules.eyebrow': 'Аўтаматызацыя',
+  'rules.fieldsCount': 'палёў: {{count}}',
   'rules.form.destination': 'Файл у',
   'rules.form.name': 'Назва правіла',
   'rules.form.save': 'Захаваць правіла',

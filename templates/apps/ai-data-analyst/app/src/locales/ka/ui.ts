@@ -2,12 +2,14 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'შესახებ',
+  'about.pageTitle': '{{app}}-ის შესახებ',
   'askClarionBar.askCta': 'იკითხეთ',
   'askClarionBar.placeholder':
     'დასვით კითხვა თქვენი მონაცემების შესახებ — მაგ. „მესამე კვარტლის შემოსავლის მიხედვით ტოპ 10 მომხმარებელი“',
   'askClarionBar.suggestionsLabel': 'სცადეთ',
   'askClarionBar.thinking': 'ფიქრი…',
   'clarionLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.askCta': 'ჰკითხეთ კლარიონს',
@@ -33,6 +35,10 @@ export const ui: UiTranslations = {
   'datasetDetail.rows': 'რიგები',
   'datasetDetail.sampleEmpty': 'ამ მონაცემთა ნაკრებისთვის ნიმუშის რიგები არ არის აღბეჭდილი.',
   'datasetDetail.sampleLoading': 'წინასწარი გადახედვის ჩატვირთვა…',
+  'datasetDetail.stat.max': 'მაქს',
+  'datasetDetail.stat.mean': 'საშუალო',
+  'datasetDetail.stat.min': 'მინ',
+  'datasetDetail.stat.nullPct': 'ნულოვანი %',
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': 'მონაცემთა ნაკრებები ჯერ არ არის — ატვირთეთ ერთი დასაწყებად.',
   'datasets.eyebrow': '{{count}} მონაცემთა ნაკრებები · {{rows}} რიგები',
@@ -73,6 +79,9 @@ export const ui: UiTranslations = {
   'login.showPassword': 'პაროლის ჩვენება',
   'login.subheading':
     'შედით სისტემაში, რათა გააგრძელოთ თქვენი მონაცემების შესახებ კითხვების დასმა.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'queryEditor.aiBadge': 'ხელოვნური ინტელექტით გენერირებული',
   'queryEditor.aiSummary': 'ხელოვნური ინტელექტის შეჯამება',
   'queryEditor.copyFailed': 'ბუფერში კოპირება ვერ მოხერხდა.',
@@ -91,6 +100,7 @@ export const ui: UiTranslations = {
   'reportDetail.dataHeading': 'სრული მონაცემები',
   'reportDetail.heroHeading': 'გმირის დიაგრამა',
   'reportDetail.loadError': 'ანგარიშის ჩატვირთვა ვერ მოხერხდა.',
+  'reportDetail.momSuffix': 'MoM',
   'reportDetail.notFound': 'ანგარიში ვერ მოიძებნა.',
   'reports.empty': 'ანგარიშები ჯერ არ არის — გაუშვით მოთხოვნა და შეინახეთ.',
   'reports.eyebrow': '{{count}} ანგარიშები · {{scheduled}} დაგეგმილი',
@@ -105,6 +115,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'აირჩიეთ ძლიერი — მინიმუმ 8 სიმბოლო ასოებისა და ციფრების ნაზავით.',
   'settings.account.heading': 'ანგარიში',
   'settings.account.orgPlaceholder': 'თქვენი გუნდი ან კომპანია',
+  'settings.account.passwordChanged': 'პაროლი შეიცვალა.',
   'settings.account.saved': 'ანგარიშის დეტალები შენახულია.',
   'settings.account.saveError': 'ანგარიშის დეტალების შენახვა ვერ მოხერხდა.',
   'settings.apiKeys.body':
@@ -131,9 +142,12 @@ export const ui: UiTranslations = {
   'settings.team.empty':
     'თანაგუნდელები ჯერ არ არიან — მოიწვიეთ ერთ-ერთი თანამშრომლობის დასაწყებად.',
   'settings.team.removed': 'გუნდის წევრი წაშლილია.',
+  'settings.twoFactorCode': 'ავტორიზაციის კოდი',
   'settings.twoFactorDisable': 'გამორთვა',
   'settings.twoFactorEnable': 'ჩართვა',
+  'settings.twoFactorInvalidCode': 'არასწორი კოდი',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'დადასტურება და ჩართვა',
   'sideNavBar.appSubtitle': 'ხელოვნური ინტელექტის მონაცემთა ანალიტიკოსი',
   'sideNavBar.datasets': 'მონაცემთა ნაკრებები',
   'sideNavBar.newAnalysis': 'ახალი ანალიზი',
@@ -145,6 +159,7 @@ export const ui: UiTranslations = {
   'topNavBar.help': 'დახმარება',
   'topNavBar.lastDays': 'ბოლო {{დღეები}} დღეები',
   'topNavBar.userProfileAlt': 'მომხმარებლის პროფილი',
+  'upload.maxSize': 'მაქს {{size}}',
   'upload.noRecent': 'ატვირთვები ჯერ არ არის.',
   'upload.recentHeading': 'ბოლო ატვირთვები',
   'upload.subheading':

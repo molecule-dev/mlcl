@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'आम्ही डिझाइनर्स आणि इंजिनिअर्सची एक विखुरलेली टीम आहोत, ज्यांनी एकेकाळी रोजचे अनेक तास एका गोंगाटमय मेलबॉक्समध्ये घालवले होते. मेरिडियन हा तो इनबॉक्स आहे जो आम्हाला स्वतः वापरायचा होता.',
   'about.title': 'एकाग्र कामासाठी ईमेल',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'help.cta.about': 'मेरिडियनबद्दल',
   'help.cta.pricing': 'किंमत पहा',
   'help.eyebrow': 'मदत केंद्र',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'आम्हाला वारंवार विचारल्या जाणाऱ्या प्रश्नांची झटपट उत्तरे. काही कमी आहे का? सेटिंग्ज उघडा आणि अॅपमधील फीडबॅक फॉर्म वापरा, किंवा support@courier.example वर लिहा.',
   'help.title': 'आम्ही कशी मदत करू शकतो?',
   'landing.brand.scrollTop': 'वर परत जा',
+  'landing.copyright': '© {{year}} {{appName}} — लक्ष केंद्रित करण्यासाठी बनवलेले.',
   'landing.ctaBody':
     'दुपारच्या जेवणापूर्वी आपला इनबॉक्स रिकामा करणाऱ्या हजारो व्यावसायिकांमध्ये सामील व्हा.',
   'landing.ctaTitle': 'अधिक विचार करा, कमी प्रतिक्रिया द्या.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'डेमो पहा',
   'landing.heroSubtitle':
     'मेरिडियन हा एक शांत, तीन-पॅनेलचा इनबॉक्स आहे, जो अशा ज्ञान-कर्मचार्‍यांसाठी तयार केला आहे ज्यांना माहितीवर प्रतिक्रिया देण्याऐवजी त्यावर प्रक्रिया करायची आहे.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'जगभरातील एकाग्र संघांचा विश्वास',
   'landing.signIn': 'साइन इन करा',
   'meridian.archive.empty': 'संग्रह रिकामा आहे.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'मसुदा',
   'meridian.folder.count': '{{count}} संदेश',
+  'meridian.folder.delete': 'हटवा',
   'meridian.folder.deleteForever': 'कायमस्वरूपी हटवा',
   'meridian.folder.restore': 'इनबॉक्समध्ये जा',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'येथे अद्याप एकही संदेश आलेला नाही.',
   'meridian.inbox.loading': 'लोडिंग…',
   'meridian.inbox.next': 'पुढील',
+  'meridian.inbox.noSender': '(प्रेषक नाही)',
   'meridian.inbox.noSubject': '(विषय नाही)',
+  'meridian.inbox.ofTotal': '{{total}} पैकी {{current}}',
   'meridian.inbox.openCompose': 'ओपन कंपोज',
   'meridian.inbox.previous': 'मागील',
   'meridian.inbox.replyFailed': 'उत्तर जतन केले पण वितरण अयशस्वी झाले: {{error}}',
@@ -98,6 +104,9 @@ export const ui: UiTranslations = {
   'meridian.login.hidePassword': 'पासवर्ड लपवा',
   'meridian.login.noAccount': 'तुमचे खाते नाही का?',
   'meridian.login.showPassword': 'पासवर्ड दाखवा',
+  'meridian.message.toLine': '{{recipients}}',
+  'meridian.notFound.body':
+    'तुम्ही शोधत असलेले पान सापडले नाही. तुमच्या {{appName}} इनबॉक्समध्ये परत जा आणि आम्ही तुम्हाला योग्य मार्गदर्शन करू.',
   'meridian.notFound.eyebrow': 'त्रुटी ४०४',
   'meridian.notFound.title': 'हा थ्रेड संग्रहित करण्यात आला.',
   'meridian.notFound.toInbox': 'माझा इनबॉक्स उघडा',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'meridian.sidebar.labels': 'लेबल',
   'meridian.sidebar.noLabels': 'अद्याप कोणतेही लेबल नाहीत',
   'meridian.sidebar.storage': 'साठवणूक',
+  'meridian.sidebar.storageLabel': '{{quota}} पैकी {{used}}',
   'meridian.signup.emailPlaceholder': 'मॉर्गन@कंपनी.कॉम',
   'meridian.signup.heading': 'तुमचा मेरिडियन इनबॉक्स तयार करा',
   'meridian.signup.namePlaceholder': 'मॉर्गन चेन',
@@ -132,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'तारा जोडा',
   'meridian.thread.unstar': 'तारा काढा',
   'meridian.time.yesterday': 'काल',
+  'meridian.topBar.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'meridian.topBar.searchPlaceholder': 'मेल शोधा',
   'meridian.trash.empty': 'कचरापेटी रिकामी आहे.',
   'meridian.trash.title': 'कचरा',
   'nav.legal': 'कायदेशीर',
   'planUpdated.description':
     'तुमची सदस्यता आता सक्रिय झाली आहे आणि तुमचे बिल अद्ययावत करण्यात आले आहे. तुमच्या नवीन मेरिडियन इनबॉक्समध्ये स्वागत आहे.',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'pricing.heading': 'मसुदे',
   'pricing.limit.emails': 'ईमेल',
   'pricing.limit.folders': 'फोल्डर्स',
   'pricing.limit.labels': 'लेबल',
   'privacy.collect.account':
     'खात्याचा डेटा: नाव, ईमेल पत्ता, हॅश केलेला पासवर्ड आणि तुम्ही नोंदणी केल्याची तारीख.',
+  'privacy.contact': 'काही प्रश्न आहेत का? privacy@courier.example वर ईमेल करा.',
   'privacy.intro':
     'हे गोपनीयता धोरण स्पष्ट करते की मेरिडियन कोणता डेटा गोळा करते, आम्ही तो का गोळा करतो, आम्ही तो कसा सुरक्षित ठेवतो आणि त्याबाबत तुमच्याकडे कोणते पर्याय आहेत. आमचा उद्देश कायदेशीर बाबींऐवजी नेमकेपणाने माहिती देण्याचा आहे; जर काही अस्पष्ट असेल, तर privacy@courier.example वर लिहा.',
   'privacy.lastUpdated': 'शेवटचे अद्यतन: १ एप्रिल २०२६',
@@ -163,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'या अटी तुमच्या मेरिडियनच्या वापराचे नियमन करतात. आमच्यामार्फत खाते तयार करून किंवा ईमेल पाठवून, तुम्ही या अटींचे पालन करण्यास सहमत होता. आम्ही असे नियम लिहिण्याचा प्रयत्न करतो, जे एखादी व्यक्ती प्रत्यक्षात पाळू शकेल.',
   'terms.lastUpdated': 'प्रभावी: १ एप्रिल, २०२६',
+  'terms.linkPrivacy': 'आमचे गोपनीयता धोरण वाचा →',
   'terms.termination.body':
     'तुम्ही तुमचे खाते कधीही हटवू शकता. या अटींचे उल्लंघन करणारे खाते आम्ही निलंबित करू शकतो; असे केल्यास, आम्ही त्याचे कारण स्पष्ट करू आणि त्यापूर्वी तुम्हाला तुमचा डेटा निर्यात करण्याची संधी देऊ.',
   'terms.warranty.body':

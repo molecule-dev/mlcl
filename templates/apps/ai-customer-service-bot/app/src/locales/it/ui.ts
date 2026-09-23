@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'analytics.channels.empty': 'Nessun dato sui canali ancora.',
   'analytics.channels.title': 'Per canale',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Conversazioni al giorno',
   'chatBubble.avatarAlt': 'Avatar di {{speaker}}',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'confidenceMeter.label': 'Confidenza',
   'conversationDetail.agentName': 'Agente',
   'conversationDetail.aiReplyButton': 'Risposta del bot',
   'conversationDetail.aiReplyError': 'Impossibile generare una risposta AI',
   'conversationDetail.aiReplyLoading': 'Bozza in corso…',
+  'conversationDetail.aiReplySourceFallback': 'opzione di riserva (senza chiave AI)',
   'conversationDetail.backAria': 'Torna alle conversazioni',
   'conversationDetail.composerPlaceholder': 'Risponda al cliente…',
   'conversationDetail.context.channel': 'Canale',
@@ -159,8 +162,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Imposti una nuova password per il suo account',
   'resetPassword.toggleConfirm': 'Mostra/nascondi conferma password',
   'resetPassword.togglePassword': 'Mostra/nascondi password',
+  'settings.account.emailError': "Impossibile aggiornare l'indirizzo e-mail",
   'settings.account.emailLabel': 'Indirizzo email',
+  'settings.account.emailSaved': 'Indirizzo e-mail aggiornato',
+  'settings.account.nameError': 'Impossibile aggiornare il nome',
   'settings.account.nameLabel': 'Nome visualizzato',
+  'settings.account.nameSaved': 'Nome aggiornato',
   'settings.account.title': 'Conto',
   'settings.api.createCta': 'Crea token',
   'settings.api.description':
@@ -173,10 +180,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Auto-escalation al calo del sentiment',
   'settings.bot.greetingLabel': 'Saluto del primo messaggio',
   'settings.bot.title': 'Configurazione del bot',
+  'settings.bot.toneFormal': 'Formale',
   'settings.bot.toneLabel': 'Voce e tono',
   'settings.danger.deleteAccount': 'Elimina account',
+  'settings.danger.deleteError': "Impossibile eliminare l'account",
+  'settings.danger.deleteWarning':
+    'Questa operazione comporta la cancellazione definitiva del tuo account e di tutti i dati ad esso associati. Non è possibile annullare questa operazione.',
   'settings.danger.deleting': 'Eliminazione…',
+  'settings.danger.passwordLabel': 'Conferma la tua password',
   'settings.danger.title': 'Zona pericolosa',
+  'settings.devices.empty': 'Nessun dispositivo registrato.',
+  'settings.devices.revokeWarning':
+    "L'accesso di questo dispositivo verrà revocato a breve. Disconnetterlo?",
+  'settings.devices.signingOut': 'Disconnessione…',
   'settings.devices.signOut': 'Esci',
   'settings.devices.thisDevice': 'Questo dispositivo',
   'settings.devices.title': 'Dispositivi',
@@ -189,9 +205,11 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Impossibile cambiare la password',
   'settings.security.currentPassword': 'Password attuale',
   'settings.security.newPassword': 'Nuova password',
+  'settings.security.oauthManaged': 'La tua password è gestita dal tuo provider di accesso.',
   'settings.security.title': 'Sicurezza',
   'settings.security.twoFactorDisable': 'Disattiva',
   'settings.security.twoFactorEnable': 'Attiva',
+  'settings.security.twoFactorInvalid': 'Codice non valido',
   'settings.subtitle':
     'Regoli la voce di Rapport, le fonti di conoscenza e gli strumenti con cui dialoga.',
   'settings.tokenCreateError': 'Impossibile creare il token',

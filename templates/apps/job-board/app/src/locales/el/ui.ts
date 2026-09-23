@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
   'applications.empty':
     'Δεν υπάρχουν ακόμη αιτήσεις \\u2014 Η κατάλληλη θέση απέχει μία μόνο αίτηση.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Κάθε ρόλος στον οποίο έχετε υποβάλει αίτηση, σε κίνηση. Φιλτράρετε ανά στάδιο για εστίαση.',
   'applications.untitledRole': 'Ρόλος # {{id}}',
+  'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'companies.empty':
     'Δεν υπάρχουν εταιρείες που να αντιστοιχούν στην αναζήτησή σας \\u2014 δοκιμάστε έναν διαφορετικό όρο.',
   'companies.eyebrow': 'Προτεινόμενοι εργοδότες',
@@ -53,6 +56,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Δεν υπάρχουν ακόμη αιτήσεις για αυτόν τον ρόλο.',
   'jobApplicants.eyebrow': 'Άποψη εργοδότη',
   'jobApplicants.loading': 'Φόρτωση…',
+  'jobApplicants.statusUpdateFailed':
+    'Δεν ήταν δυνατή η ενημέρωση αυτού του σταδίου — δοκιμάστε ξανά.',
+  'jobApplicants.subheading':
+    'Εξέταση βιογραφικών, προώθηση υποψηφίων, αποστολή προσφορών \\u2014 {{count}} σε εξέλιξη.',
   'jobDetail.applicantCount': '{{count}} αιτούντες μέχρι στιγμής',
   'jobDetail.applied': 'Η αίτηση στάλθηκε',
   'jobDetail.apply': 'Κάντε αίτηση τώρα',
@@ -86,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Αναζήτηση ανοιχτών ρόλων \\u2192',
   'landing.pricingEyebrow': 'Τιμολόγηση',
   'landing.pricingHeading': 'Απλά σχέδια για κάθε μέγεθος ομάδας.',
+  'login.eyebrow': 'Καλώς ήρθατε πίσω στο {{app}}',
   'login.heading': 'Συνδεθείτε στον λογαριασμό σας',
   'login.noAccount': 'Νέος στο Nosh;',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -93,6 +101,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Σύνδεση...',
   'login.subheading':
     'Συνεχίστε την αναζήτησή σας, προωθήστε τις αιτήσεις σας και λάβετε απαντήσεις πιο γρήγορα.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Σχεδιασμένο για ομάδες προσλήψεων.',
   'loginBrandPanel.headline': 'Όπου συναντά το ταλέντο',
   'loginBrandPanel.headlineLine2': 'ορμή.',
   'loginBrandPanel.listing.recruiter': 'Συνεργάτης Ταλέντων',
@@ -109,6 +118,7 @@ export const ui: UiTranslations = {
     'Ενημερώσεις αιτήσεων, προσκλήσεις για συνεντεύξεις, νέες αντιστοιχίσεις \\u2014 οι νεότερες πρώτες.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} αυτή την εβδομάδα',
   'opportunitiesHero.eyebrow': 'Ανοιχτά σήμερα',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'postJob.addNewCompany': '+ Προσθήκη νέας εταιρείας',
   'postJob.companyCreateFailed': 'Δεν ήταν δυνατή η δημιουργία εταιρείας — δοκιμάστε ξανά.',
   'postJob.companyNameLabel': 'Το όνομα της εταιρείας σας',
@@ -169,10 +179,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Δημιουργία λογαριασμού\\u2026',
   'signup.ctaEmployer': 'Δημιουργία λογαριασμού εργοδότη',
   'signup.firstNamePlaceholder': 'Μάγια',
+  'signup.lastNamePlaceholder': 'Τσεν',
   'signup.passwordMismatch': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν.',
   'signup.subheading':
     'Δωρεάν για όσους αναζητούν εργασία, για πάντα. Οι εργοδότες ξεκινούν με μια δοκιμαστική περίοδο 30 ημερών.',
   'timeAgo.days': '{{count}}η πριν',
   'timeAgo.hours': '{{count}}ω πριν',
   'timeAgo.justNow': 'μόλις τώρα',
+  'timeAgo.weeks': '{{count}} εβδομάδες πριν',
 }

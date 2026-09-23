@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Пра {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Інструменты для багацця',
+  'argentAuthShell.brandFootnote':
+    "© {{year}} {{app}} . Не з'яўляецца інвестыцыйнай кансультацыяй.",
   'argentAuthShell.sampleChange': '+$2 841 (+0,28%) сёння',
   'argentAuthShell.sampleValue': '1 032 251 долар ЗША',
   'argentLayout.primaryNavLabel': 'Асноўная навігацыя',
@@ -25,6 +28,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Няма транзакцый для гэтага тыкера.',
   'assetDetail.txHeading': 'Вашы транзакцыі',
   'common.and': 'і',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Агляд партфоліа',
@@ -51,6 +55,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Пакуль няма холдынгаў.',
   'holdings.heading': 'Холдынгі',
   'holdings.loadError': 'Не атрымалася загрузіць фонды.',
+  'landing.copyright':
+    "© {{year}} {{app}} . Не з'яўляецца інвестыцыйнай кансультацыяй. Мінулыя вынікі не гарантуюць будучых вынікаў.",
   'landing.eyebrow': 'Argent · Платформа для стварэння багацця',
   'landing.features.heading': 'Усё, што кансультант пабудаваў бы для сябе сам.',
   'landing.finalCta.heading': 'Вярніце дысцыпліну ў сваё партфоліо.',
@@ -71,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} г. таму',
   'news.justNow': 'толькі што',
   'news.loadError': 'Не атрымалася загрузіць навіны.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'portfolioHeroCard.label': 'Кошт партфеля',
   'pricing.holdingsLabel': 'холдынгі',
   'pricing.newsLabel': 'навінавыя артыкулы',
@@ -133,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Выдаліць уліковы запіс',
   'settings.security.deleting': 'Выдаленне…',
   'settings.security.heading': 'Бяспека',
+  'settings.security.newPassword': 'Новы пароль',
   'settings.security.password': 'Пароль',
   'settings.security.twoFactorEnable': 'Уключыць',
+  'settings.security.twoFactorInvalidCode': 'Няправільны код',
+  'settings.security.twoFactorVerify': 'Праверыць і ўключыць',
   'settings.tax.error': 'Не атрымалася абнавіць метад падаткаабкладання.',
   'settings.tax.heading': 'Падатковы ўлік',
   'settings.tax.method': 'Метад па змаўчанні',

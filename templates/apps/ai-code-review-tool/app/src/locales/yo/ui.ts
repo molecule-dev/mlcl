@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kan si wa',
   'about.eyebrow': 'Nípa',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.connectRepoCta': 'So ibi ipamọ pọ',
   'dashboard.empty': 'Ko si ibeere fifa kuro sibẹsibẹ — so ibi ipamọ kan pọ lati bẹrẹ.',
   'dashboard.eyebrow': 'Àtúnyẹ̀wò · ìlà àtúnyẹ̀wò',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Àkókò ṣíṣẹ́',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Iwọn didara AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Ti akojọ aṣayan pa',
+  'refractLayout.openMenu': 'Ṣí àkójọ oúnjẹ',
   'refractLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'reports.cumulativeScoreLabel': 'Àmì àròpọ̀',
   'reports.cumulativeScoreSubtitle': 'gbogbo ibi ipamọ · {{days}} d',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Kò ṣeé ṣe láti gbé àtọ́ka ìwárí jáde.',
   'settings.apiKeys.description':
     'Ṣàkóso àwọn kọ́kọ́rọ́ API ti ara ẹni láti inú àkójọ olùlò ní apá ọ̀tún òkè.',
+  'settings.apiKeys.integrationsNote':
+    'A n ṣakoso awọn ami iwọle olupese ni apakan Awọn isopọpọ loke.',
   'settings.connectError': 'Kò lè so olùpèsè pọ̀ mọ́.',
   'settings.disconnectError': 'Kò ṣeéṣe láti gé olùpèsè náà kúrò.',
   'settings.eyebrow': 'Àtúnṣe · ibi iṣẹ́',
   'settings.integration.${provider}.label': 'Nfipamọ́…',
   'settings.loadError': 'Kò ṣeé ṣe láti gbé àwọn ètò sórí ayélujára.',
+  'settings.notificationCenter': 'Ile-iṣẹ́ ìfitónilétí',
   'settings.notifications.description':
     'Ṣèbẹ̀wò sí ojú ìwé ìfitónilétí láti wo àti láti ṣàkóso àwọn ìfẹ́ ìfijiṣẹ́.',
   'settings.section.account': 'Àkọọ́lẹ̀ & ààbò',

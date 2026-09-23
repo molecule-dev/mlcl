@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Jukumu lako',
   'account.role.upgradeLink': 'Tuma maombi ya kuwa mwalimu aliyethibitishwa →',
   'account.title': 'Wasifu, malipo na mapendeleo.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Fundisha kwa Chaki',
   'becomeTutor.form.error': 'Haikuweza kutuma ombi.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Mada',
   'bookingConfirm.title': 'Umepangiwa nafasi. Tutashughulikia mengine.',
   'bookingConfirm.with': 'Na mwalimu',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'earningsHero.eyebrow': 'Mapato • {{month}}',
   'forgotPassword.heading': 'Umesahau nenosiri lako?',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Tuma ujumbe',
   'messages.thread.empty': 'Sema salamu — anza mazungumzo.',
   'messages.title': 'Mazungumzo na wakufunzi wako.',
+  'nav.primary': 'Msingi',
   'pricing.dataExport': 'Usafirishaji wa data:',
   'pricing.headingDefault': 'Vipengele vya hali ya juu:',
   'resetPassword.heading': 'Chagua nenosiri jipya lenye nguvu.',

@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Mayelana ne-{{app}}',
+  'authShell.encryptionBadge':
+    'Okufakiwe kwakho kubhalwe ngekhodi kusukela ekuqaleni kuze kube sekupheleni.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'Usuku {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Le nyanga ngokubuka nje',
   'calendar.eyebrow': 'Isimo sengqondo ngokubuka nje',
@@ -10,6 +14,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'Inyanga ezayo',
   'calendar.prev': 'Inyanga edlule',
   'calendar.subheading': 'Kulandelelwe {{tracked}} kwe {{total}} izinsuku kule nyanga.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.tryAgain': 'Zama futhi',
   'entryComposer.cancel': 'Buyela kujenali',
   'entryComposer.heading': 'Ukuzindla kwanamuhla',
   'entryComposer.moodLabel': 'Uzizwa kanjani?',
@@ -20,7 +26,13 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'Ayikwazanga ukulondoloza okufakiwe kwakho.',
   'entryComposer.titlePlaceholder': 'Nika lokhu kuzindla igama...',
   'entryDetail.back': 'Buyela kujenali',
+  'entryDetail.delete': 'Susa lokhu okufakiwe',
+  'entryDetail.deleteConfirm': 'Susa lokhu kuboniswa? Lokhu akukwazi ukuhlehliswa.',
+  'entryDetail.deleteConfirmTitle': 'Susa okufakiwe',
+  'entryDetail.deleteError': 'Ayikwazanga ukususa lokhu okufakiwe.',
+  'entryDetail.deleteForever': 'Susa unomphela',
   'entryDetail.encryptedBadge': 'Kubethelwe kusukela ekuqaleni kuze kube sekupheleni',
+  'entryDetail.keepEntry': 'Yigcine',
   'entryDetail.loadError': 'Ayikwazanga ukulayisha lokhu okufakiwe.',
   'entryDetail.loading': 'Ilayisha ukubonakaliswa…',
   'entryDetail.notFound': 'Okufakiwe akutholakalanga.',
@@ -44,6 +56,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Ayikwazanga ukulayisha imininingwane.',
   'insights.subheading':
     'Amaphethini emizwa, izingqikithi, kanye nezinto ezibangela imizwa — eziqoqwe kancane ezinsukwini zakho ezingu-30 ezedlule.',
+  'insights.themesEmpty':
+    'Azikho izingqikithi okwamanje — engeza ithegi eyodwa noma ezimbili kokufakiwe kwakho futhi zizohlangana lapha.',
   'insights.themesHeading': 'Amatimu aphezulu',
   'insights.triggerFrequency': 'kuqashelwe {{count}} × kule nyanga',
   'insights.triggersHeading': 'Amaphethini ashukumisa imizwa yakho',
@@ -62,11 +76,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'Qala ukubhala ijenali',
   'landing.heroCta': 'Qala ukungena kwakho kokuqala',
   'landing.heroCtaSecondary': 'Kubone ngesenzo',
+  'landing.heroSubtitle':
+    'I {{app}} iyincwadi eyimfihlo nemnene yokuzindla nsuku zonke, ukulandelela imizwa, kanye nokubonga — enezikhuthazo ezicatshangelwe kahle kanye namaphethini athule okukusiza ukuthi uziqonde kangcono.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewLabel': 'Ukubheka ngaphakathi kukaLucid',
   'landing.previewPrompt': 'Iyiphi into encane oyibongayo namuhla?',
   'login.heading': 'Ngena ngemvume kujenali yakho',
   'login.signupLink': 'Dala ijenali yakho',
   'login.subheading': 'Indawo ethambile yokuzindla nsuku zonke.',
+  'mentalHealthJournalLayout.closeMenu': 'Vala imenyu',
+  'mentalHealthJournalLayout.openMenu': 'Vula imenyu',
   'moodHeroCard.streakSuffix': 'uchungechunge losuku',
   'moodHeroCard.title': 'Ukuzindla kwanamuhla',
   'moodTrendChart.aiBadge': 'Ukuqonda kwe-AI kulungile',
@@ -80,6 +99,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'Uchungechunge olude kakhulu',
   'profile.memberSince': 'Ukucabanga kusukela {{date}}',
   'profile.milestones': 'Izenzakalo Ezibalulekile',
+  'profile.milestonesEmpty':
+    'Ibanga lakho lokuqala liwukungena okukodwa nje — bhala noma nini lapho uzizwa usukulungele.',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Ukuzindla',
   'profile.totalWords': 'Amagama abhaliwe',
@@ -107,10 +128,10 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Isikhala sakho, imithetho yakho',
   'settings.languageHeading': 'Ulimi',
   'settings.privacyHeading': 'Ubumfihlo nokubethela',
+  'settings.remindersHeading': 'Isikhumbuzi sansuku zonke',
   'settings.reminderToggleDescription':
     'Isikhumbuzo esisodwa esizolile ngesikhathi osikhethayo. Azikho izimpawu noma umuzwa wecala.',
   'settings.reminderToggleLabel': 'Thumela ukushukuma okumnene',
-  'settings.remindersHeading': 'Isikhumbuzi sansuku zonke',
   'settings.saveError': 'Ayikwazanga ukulondoloza.',
   'signup.eyebrow': 'Qala ukucabanga kwakho',
   'signup.firstNamePlaceholder': 'USam',

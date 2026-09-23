@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'നിങ്ങൾ നിലവിൽ ഇതിൽ ആണ് {{plan}} പദ്ധതി.',
   'billing.switch': 'മാറുക',
   'billing.upgraded': 'അപ്ഡേറ്റ് ചെയ്തത് {{plan}} — പരിധികൾ ഉടനടി ബാധകമാക്കി.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'compare.activityHeading': 'പ്രവർത്തന വിധിന്യായങ്ങൾ',
   'compare.empty.title': 'താരതമ്യം ചെയ്യാൻ കുറഞ്ഞത് രണ്ട് ലൊക്കേഷനുകളെങ്കിലും ചേർക്കുക.',
   'compare.eyebrow': 'വശങ്ങളിലായി',
@@ -139,5 +140,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'ഉയർന്ന',
   'trends.summary.low.label': 'താഴ്ന്നത്',
   'trends.summary.points.label': 'ദിവസങ്ങളിൽ',
+  'weatherDashboardLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'weatherHeroCard.updated': 'അപ്‌ഡേറ്റുചെയ്‌തു {{time}}',
 }

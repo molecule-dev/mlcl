@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'announcementsFeed.empty': 'ਹਾਲੇ ਕੋਈ ਐਲਾਨ ਨਹੀਂ।',
   'announcementsFeed.eyebrow': '{{count}} ਅੱਪਡੇਟ',
   'announcementsFeed.title': 'ਨਵੀਨਤਮ ਘੋਸ਼ਣਾਵਾਂ',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'ਇੱਥੇ ਕੁਝ ਨਹੀਂ',
   'assignments.emptyBody': 'ਅਸਾਈਨਮੈਂਟਾਂ ਨੂੰ ਵੱਖਰੀ ਸਥਿਤੀ ਵਿੱਚ ਦੇਖਣ ਲਈ ਉੱਪਰ ਦਿੱਤੇ ਫਿਲਟਰਾਂ ਨੂੰ ਬਦਲੋ।',
   'assignments.eyebrow': 'ਸਾਰੇ ਕੋਰਸ · ਇਹ ਮਿਆਦ',
+  'assignments.loadError': 'ਅਸਾਈਨਮੈਂਟਾਂ ਲੋਡ ਨਹੀਂ ਕੀਤੀਆਂ ਜਾ ਸਕੀਆਂ।',
   'assignments.loading': 'ਅਸਾਈਨਮੈਂਟ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'assignments.subtitle':
     'ਸਥਿਤੀ ਅਨੁਸਾਰ ਫਿਲਟਰ ਕਰੋ ਕਿ ਕੀ ਬਕਾਇਆ ਹੈ, ਕੀ ਜਮ੍ਹਾ ਕੀਤਾ ਗਿਆ ਹੈ, ਕੀ ਗ੍ਰੇਡ ਕੀਤਾ ਗਿਆ ਹੈ, ਜਾਂ ਕੀ ਗੁੰਮ ਹੈ।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'ਨੋਟ',
   'attendance.empty': 'ਅਜੇ ਤੱਕ ਕੋਈ ਹਾਜ਼ਰੀ ਰਿਕਾਰਡ ਨਹੀਂ ਹੈ।',
   'attendance.eyebrow': 'ਬਸੰਤ ਰੁੱਤ · ਪਿਛਲੇ 4 ਹਫ਼ਤੇ',
+  'attendance.loadError': 'ਹਾਜ਼ਰੀ ਰਿਕਾਰਡ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ।',
   'attendance.loading': 'ਹਾਜ਼ਰੀ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     "ਅਸਾਈਨਮੈਂਟ ਦੀਆਂ ਨਿਯਤ ਤਾਰੀਖਾਂ ਇੱਕ ਮਹੀਨੇ ਦੇ ਗਰਿੱਡ 'ਤੇ ਪਲਾਟ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ - ਪ੍ਰੀਖਿਆਵਾਂ ਲਾਲ ਰੰਗ ਵਿੱਚ ਦਿਖਾਈ ਦਿੰਦੀਆਂ ਹਨ।",
   'calendar.title': '{{month}} ਸਮਾਗਮ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
+  'common.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'common.yes': '✓',
   'courseDetail.backLink': 'ਗ੍ਰੇਡ',
   'courseDetail.currentGrade': 'ਮੌਜੂਦਾ ਗ੍ਰੇਡ',
@@ -72,11 +77,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ਰੁਝਾਨ',
   'grades.empty': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਗ੍ਰੇਡ ਪੋਸਟ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।',
   'grades.eyebrow': 'ਗ੍ਰੇਡ ਬੁੱਕ',
+  'grades.loadError': 'ਤੁਹਾਡੇ ਗ੍ਰੇਡ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ।',
   'grades.loading': 'ਗ੍ਰੇਡ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'grades.subtitle':
     'ਲਾਈਵ ਅੱਖਰ ਅਤੇ ਪ੍ਰਤੀਸ਼ਤ ਗ੍ਰੇਡ। ਰੁਝਾਨ ਤੀਰ ਦਿਖਾਉਂਦੇ ਹਨ ਕਿ ਤੁਸੀਂ ਉੱਪਰ ਜਾ ਰਹੇ ਹੋ, ਪੱਧਰ ਕਰ ਰਹੇ ਹੋ, ਜਾਂ ਖਿਸਕ ਰਹੇ ਹੋ।',
   'grades.title': 'ਤੁਹਾਡੇ ਗ੍ਰੇਡ, ਕੋਰਸ ਦਰ ਕੋਰਸ',
   'grades.trendStable': 'ਸਥਿਰ',
+  'landing.copyright': '© {{year}} {{app}} . ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਬਣਾਇਆ ਗਿਆ, ਪਰਿਵਾਰਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ।',
   'landing.ctaHeading': 'ਇੱਕ ਸ਼ਾਂਤ ਸਕੂਲੀ ਦਿਨ ਮਿੰਟਾਂ ਵਿੱਚ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ',
   'landing.eyebrow': 'ਮਿਡਲ ਅਤੇ ਹਾਈ ਸਕੂਲ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ',
   'landing.featuresHeading': 'ਵਿਦਿਆਰਥੀ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਇੱਕ ਸਕੂਲ ਦਿਵਸ ਦਾ ਆਯੋਜਨ',
@@ -111,12 +118,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'ਅਸਾਈਨਮੈਂਟਾਂ',
   'nav.attendance': 'ਹਾਜ਼ਰੀ',
   'nav.calendar': 'ਕੈਲੰਡਰ',
+  'nav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
   'nav.grades': 'ਗ੍ਰੇਡ',
+  'nav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'nav.statusEyebrow': 'ਟਰਮ GPA',
   'nav.statusSubtext': 'ਸਨਮਾਨ ਸੂਚੀ · ਬਸੰਤ ਰੁੱਤ',
+  'nav.unreadMessages': 'ਨਾ ਪੜ੍ਹੇ ਸੁਨੇਹੇ',
   'notifications.eyebrow': '{{count}} ਅੱਪਡੇਟ',
   'notifications.subtitle':
     'ਗ੍ਰੇਡ, ਰੀਮਾਈਂਡਰ, ਸੁਨੇਹੇ, ਅਤੇ ਸਕੂਲ ਘੋਸ਼ਣਾਵਾਂ। ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਹਰੇਕ ਸੂਚਨਾ ਕਿਹੜੇ ਚੈਨਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ, ਉਸਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.attendanceLabel': 'ਹਾਜ਼ਰੀ',
   'pricing.gradesLabel': 'ਗ੍ਰੇਡ',
   'pricing.heading': 'ਘੋਸ਼ਣਾਵਾਂ',

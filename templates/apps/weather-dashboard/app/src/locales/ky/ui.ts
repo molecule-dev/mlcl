@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Сиз учурда төмөнкүдөсүз {{plan}} план.',
   'billing.switch': 'Которгуч',
   'billing.upgraded': 'Жаңыртылды {{plan}} — чектөөлөр дароо колдонулат.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'compare.activityHeading': 'Иш-аракеттер боюнча чечимдер',
   'compare.empty.title': 'Салыштыруу үчүн жок дегенде эки жайгашкан жерди кошуңуз',
   'compare.eyebrow': 'Жанаша',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Жогорку',
   'trends.summary.low.label': 'Төмөн',
   'trends.summary.points.label': 'Күндөр',
+  'weatherDashboardLayout.primaryNavLabel': 'Негизги навигация',
   'weatherHeroCard.updated': 'Жаңыртылды {{time}}',
 }

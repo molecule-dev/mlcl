@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.featureDiscover.title': 'Wahayi, an zaɓa da hannu',
   'account.addPaymentCta': 'Ƙara hanyar biyan kuɗi',
   'account.addPaymentError': 'Ba za a iya ƙara hanyar biyan kuɗi ba.',
+  'account.confirmRemove': 'Tabbatar da cirewa',
   'account.defaultBadge': 'Na asali',
   'account.loyalty.pointsTowardNext': '{{maki}} na {{na gaba}} mil zuwa {{nextTier}}',
   'account.loyalty.tier': 'Matakin yanzu',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Cikakkun bayanai game da tafiya',
   'booking.tripSummary': '{{nights}} dare · {{guests}} baƙi',
   'common.daysAgo': '{{count}} d da suka wuce',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.hoursAgo': '{{count}} h da ya wuce',
   'common.minutesAgo': '{{count}} watanni da suka wuce',
   'common.no': '—',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ana lodawa…',
   'notifications.subheading':
     '{{count}} ba a karanta ba · komai a cikin akwatin saƙo guda ɗaya mai natsuwa',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.accommodationsLabel': 'masauki',
   'pricing.bookingsLabel': 'yin rajista',
   'pricing.destinationsLabel': 'wuraren da aka adana',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Wahayi, aminci, da kuma hanya mai cike da rashin jituwa daga mafarkin rana zuwa wanda aka yi booking — a cikin ƙasashe 14 da gidaje sama da 200 da aka tantance da hannu.',
   'sojournHeroSearchCard.trustProtected': 'Sokewa kyauta, cikakken kariya',
   'sojournHeroSearchCard.trustVetted': 'Kadarorin da aka tantance da hannu kawai',
+  'travelBookingLayout.primaryNavLabel': 'Babban kewayawa',
   'tripDetail.backLink': 'Komawa ga tafiye-tafiye',
   'tripDetail.cancelCta': 'Soke yin booking',
   'tripDetail.cancelHeading': 'Soke wannan tafiyar?',

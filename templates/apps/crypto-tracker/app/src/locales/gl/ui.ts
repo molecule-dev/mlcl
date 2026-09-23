@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Acerca de',
   'alertConditionCard.condition.${alert.condition}': 'Activado {{cando}}',
+  'alertConditionCard.confirmDelete': 'Confirmar eliminación',
   'alertConditionCard.pauseAriaLabel': 'Pausar alerta',
   'alertConditionCard.resumeAriaLabel': 'Reanudar alerta',
   'alertNew.condition': 'Condición',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Valoración totalmente diluída',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Sitio web',
+  'coinDetail.links.whitepaper': 'Documento técnico',
   'coinDetail.loadError': 'Non se puido cargar a moeda.',
   'coinDetail.marketCap': 'Capitalización de mercado',
   'coinDetail.maxSupply': 'subministración máxima',
@@ -93,6 +95,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'A ruta que escaneaches non se resolve a unha moeda ou páxina coñecida. Volve comprobar o símbolo e téntao de novo.',
   'notFound.browseMarkets': 'Explorar mercados',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'portfolio.addError': 'Introduza o símbolo, a cantidade positiva e o custo.',
   'portfolio.addHoldingCta': '+ Engadir retención',
   'portfolio.addModal.cost': 'Base de custo (USD)',
@@ -136,9 +139,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'A túa conta xestiona o contrasinal e a configuración de dous factores.',
   'settings.signOutDevice': 'Pechar sesión',
+  'settings.twoFactorCode': 'Código de autenticación',
   'settings.twoFactorDisable': 'Desactivar',
   'settings.twoFactorEnable': 'Activar',
+  'settings.twoFactorInvalidCode': 'Código non válido',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Verificar e activar',
   'sigilAuthShell.backHomeCta': '← Volver a Bourse',
   'sigilLayout.primaryNavLabel': 'Navegación principal',
   'signup.eyebrow': 'Abrir un terminal',

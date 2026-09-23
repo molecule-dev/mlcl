@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'accountSettings.confirmEmailLabel': 'Írja be a TÖRLÉS billentyűt a megerősítéshez',
   'accountSettings.deleteError': 'Nem sikerült törölni a fiókot.',
   'accountSettings.passwordError': 'Nem sikerült megváltoztatni a jelszót.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Nincsenek közelgő határidők.',
   'dashboard.upcomingTitle': 'Közelgő határidők',
   'deviceSettings.unknownDevice': 'Ismeretlen eszköz',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Támogatás',
   'forgotPassword.error': 'Nem sikerült elküldeni a visszaállító linket.',
   'forgotPassword.subtitle': 'Adja meg e-mail-címét, és küldünk egy visszaállítási linket.',
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'A megadott e-mail-cím vagy jelszó helytelen.',
   'login.pageTitle': 'Bejelentkezés',
   'login.signIn': 'Bejelentkezés a Forge-ba',
+  'login.subtitle': 'Jelentkezz be, hogy a projektjeid a tervek szerint haladjanak',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'nav.calendar': 'Naptár',
   'nav.legal': 'Jogi',
   'nav.myTasks': 'My Tasks',

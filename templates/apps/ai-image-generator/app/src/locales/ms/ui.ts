@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'auth.fields.newPassword': 'Kata laluan baharu',
   'collectionDetail.addImage': 'Cipta untuk koleksi',
   'collectionDetail.backCta': 'Kembali ke koleksi',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Papan mood, brief dan siri yang sedang berjalan',
   'collections.title': 'Koleksi',
   'collections.untitled': 'Tanpa tajuk · {{stamp}}',
+  'common.closeMenu': 'Tutup menu',
+  'common.dismiss': 'Tutup',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.openMenu': 'Buka menu navigasi',
   'credits.eyebrow': 'Pelan {{plan}}',
   'credits.renewsCopy': 'Pelan diperbaharui pada {{date}}',
   'credits.trail': 'Reverie · {{plan}} peringkat',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Aktiviti penjanaan, perkongsian dan amaran kredit akan muncul di sini.',
   'notifications.empty.title': 'Tiada apa-apa untuk dilaporkan',
   'notifications.subtitle': 'Peristiwa penjanaan dikumpulkan mengikut hari',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.limits.gallery': '{{count}} galeri',
   'privacy.collect.body':
     'Apabila Anda mendaftar, kami mengumpul nama Anda, alamat e-mel, dan kata laluan yang di-hash. Apabila Anda menggunakan Reverie, kami menyimpan prompt yang Anda hantar, imej yang kami jana untuk Anda, gaya dan koleksi yang Anda simpan, serta metadata seperti model yang digunakan, cap masa penjanaan, dan baki kredit.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Simpan kata laluan baharu',
   'reset.submitting': 'Mengemas kini kata laluan…',
   'settings.account.handle': 'Pemegang',
+  'settings.account.lastSaved': 'Profil aktif · {{name}}',
   'settings.account.saved': 'Profil disimpan',
   'settings.account.saveFailed': 'Tidak dapat menyimpan profil',
   'settings.account.title': 'Profil pencipta',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Imej baharu',
   'sidebar.secondary': 'Navigasi sekunder',
   'signup.failed': 'Pendaftaran gagal. Cuba lagi.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Mulakan mimpi Anda',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Cipta akaun dan tuntut 120 kredit percuma.',
   'styles.empty': 'Belum ada praset gaya — ia akan muncul selepas log masuk pertama.',
   'styles.eyebrow': 'Dikurasikan',

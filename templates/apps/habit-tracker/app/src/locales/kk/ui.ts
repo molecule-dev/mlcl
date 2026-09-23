@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.pageTitle': '{{app}} туралы',
   'achievementBadgeCard.unlockedOn': 'Құлыптан ашылған {{date}}',
   'achievements.loadError': 'Жетістіктер жүктелмеді.',
   'achievements.subheading': '{{unlocked}} -ның {{total}} құлыпталмаған',
   'achievements.unlockedOn': 'Құлыптан ашылған {{date}}',
+  'auth.legalConsent': 'Жалғастыра отырып, сіз біздің келісесіз',
   'calendar.empty': 'Күнтізбеңізді көру әдетін қалыптастырыңыз.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Әдет',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Әдеттер торы',
   'category.${c.category}': '{{count}} әдеттер',
   'common.and': 'және',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'consistencyHeatmap.ariaLabel': 'Күнделікті тұрақтылық жылу картасы',
   'consistencyHeatmap.caption': 'Соңғы {{weeks}} апта',
   'consistencyHeatmap.lessLabel': 'Аздау',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Тікелей эфирде көріңіз',
   'landing.heroSubtitle':
     'Әдеттерді іс жүзінде қалай қалыптастырса, солай қалыптастырыңыз: шағын міндеттемелер, күнделікті істер және ұзақ, үзілмеген тізбектің ішкі ләззаты.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Стрейктің ішіне көз жүгірту',
   'landing.previewMotivation': 'Тоғыз жолақ тірі. Олардың барлығын жылы ұстаңыз.',
   'login.eyebrow': 'Шынжырды алыңыз',
@@ -99,7 +104,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Кішігірім етіп жасаңыз. Нақтылап жазыңыз. Ертең келіңіз.',
   'newHabit.timeLabel': 'Еске салғыш уақыты',
   'notifications.markError': 'Барлығы оқылған деп белгіленбеді.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.entries': '{{count}} жазбалар',
+  'pricing.heading': '{{app}} жоспарын таңдаңыз',
   'profile.action.plan': 'Жазылымды басқару',
   'profile.action.settings': 'Есеп жазбасын түзету',
   'profile.bioEmpty': 'Өзіңізді таныстыру үшін Параметрлерге қысқаша өмірбаян қосыңыз.',
@@ -128,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Күн сайын таңертеңгілік тапсырма (8:00)',
   'settings.reminders.heading': 'Еске салғыштар',
   'settings.reminders.weekly': 'Апталық қорытынды (жексенбі кештері)',
+  'settings.revokeDeviceWarning':
+    'Бұл құрылғының кіруі жақын арада қайтарып алынады. Оны шығаруға келісесіз бе?',
   'settings.signOutDevice': 'Шығу',
   'settings.streaks.freezesPerWeek': 'Аптасына қатып қалады',
   'settings.streaks.gracePeriod': 'Түн ортасынан кейін 6 сағаттық жеңілдік кезеңі',
@@ -154,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} белсенді',
   'streakHeroCard.daysSuffix': 'күндер',
   'streakHeroCard.title': 'Ең ұзақ белсенді серия',
+  'streakLayout.closeMenu': 'Навигация мәзірін жабу',
+  'streakLayout.openMenu': 'Навигация мәзірін ашу',
   'streakLayout.primaryNavLabel': 'Негізгі навигация',
 }

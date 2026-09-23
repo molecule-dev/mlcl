@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Anar al panell',
   'forgot.eyebrow': 'Has perdut el camí de tornada?',
   'forgot.formSubtitle': "Digue'ns el correu electrònic que tenim registrat.",
   'forgot.headline': 'Restableix la teva contrasenya.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': "Crea'n un",
   'login.subline':
     'Els teus quaderns, enllaços entrants i pàgines diàries són just on els vas deixar.',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'noteEditor.backToNotes': 'Torna a les notes',
   'noteEditor.bodyPlaceholder':
     'Comença a escriure: la nota es desa automàticament a mesura que escrius.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Quadern nou',
   'notes.newNotebookPrompt': 'Nom del nou bloc de notes',
   'notes.notebooksHeading': 'Quaderns',
+  'notes.subtitle':
+    "Trieu un quadern a l'esquerra i premeu el botó Nota nova per començar una entrada nova.",
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Tria el teu pla de presa de notes',
   'reset.eyebrow': 'Gairebé de nou',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Actualitzat',
   'versoLayout.nav.graph': 'Gràfic',
   'versoLayout.nav.home': 'Inici',
+  'versoLayout.primaryNavLabel': 'Navegació principal',
   'versoNoteCard.pinned': 'Fixat',
   'versoTodayHero.continueCta': 'Continua escrivint',
   'versoTodayHero.createCta': "Comença la nota d'avui",

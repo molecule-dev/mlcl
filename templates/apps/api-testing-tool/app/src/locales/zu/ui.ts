@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'authShell.statusLabel': 'abagijimi abaku-inthanethi',
   'collections.createError': 'Ayikwazanga ukudala iqoqo.',
   'collections.defaultName': 'Iqoqo elingenasihloko {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Iqoqo elisha',
   'collections.subheading':
     'Izicelo zeqembu, wabelane nethimba lakho, bese uzisebenzisa njenge-suite.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'environmentCard.inactive': 'Ukungenzi lutho',
   'environmentCard.more': 'Okuningi',
   'environmentCard.variables': 'Izinguquko',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Landa mahhala',
   'landing.heroSubtitle':
     'Ibhentshi lokuhlola i-API elishesha kakhulu elakhelwe onjiniyela abahlala ezikhumulweni.',
+  'landing.heroTitleAccent': 'Umlilo',
+  'landing.heroTitleLine2': 'ukwakha ukuzethemba.',
+  'landing.heroTitleRest': 'izicelo,',
   'landing.kicker': '$ pylon thumela --watch',
   'landing.pricingEyebrow': '// $ intengo --plain',
   'landing.pricingHeading': 'Amanani alula, angabikezelwa',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Kusha lapha?',
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.subtitle': 'Qhubeka uye endaweni yakho yokusebenza yasePylon.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'mocks.createError': 'Ayikwazanga ukudala i-mock.',
   'mocks.defaultName': 'Ihlaya elingenasihloko {{n}}',
   'mocks.deleteError': 'Ayikwazanga ukususa i-mock.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Buyela endaweni yokusebenza',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Umzila awutholakalanga',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'privacy.collect.account':
     'I-akhawunti: i-imeyili yakho, iphasiwedi esheshisiwe, igama lokubonisa, kanye nesitembu sesikhathi sokungena kwakho kokugcina.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Umbono wokufunda kuphela wedatha le akhawunti enayo njengamanje.',
   'settings.unset': 'akusethiwe',
   'signup.identityHint': 'isibonelo u-Alex',
+  'signup.statusLabel': 'isigaba samahhala · akukho khadi lesikweletu',
   'signup.subtitle': 'Qala izicelo zokudubula ngemizuzu embalwa.',
   'terms.account.body':
     'Unesibopho sokuvikela iphasiwedi yakho. Ukwabelana nge-akhawunti eyodwa nabantu abaningi akuvunyelwe ezinhlelweni zamahhala noma ze-Pro — thenga okubhaliselwe kweQembu kwezindawo zokusebenza ezabiwe.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Ungayisebenzisi i-Pylon ukuze ufake izicelo kumasevisi ongewona awakho noma onemvume ecacile yokuhlola. Ungayisebenzisi i-Pylon ukuze weqe imikhawulo yamanani noma wenze ukukhwabanisa.',
   'terms.warranty.body':
     'I-Pylon inikezwa "njengoba injalo" ngaphandle kwewaranti yanoma yiluphi uhlobo. Sihlose isikhathi sokusebenza esingu-99.9% kodwa asiqinisekisi lokho kuma-Free noma ama-Pro plans.',
+  'testRunner.assertionsCount': 'iziqinisekiso ezingu {{count}}',
   'testRunner.createError': 'Ayikwazanga ukudala isivivinyo.',
   'testRunner.cron':
     'Iziqiniseko zihlolwa ngokuhambisana nokuqhutshwa kwakamuva kwesicelo esixhunyiwe salolu vivinyo.',
@@ -172,11 +183,33 @@ export const ui: UiTranslations = {
     'Imiphumela ye-Suite, i-assertion iyahluka, kanye nama-run angu-50 okugcina.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Ungene ngemvume njengo',
+  'workspace.auth.keyName': 'Igama lesihloko',
+  'workspace.auth.keyValue': 'Inani lokhiye',
+  'workspace.auth.password': 'Iphasiwedi',
+  'workspace.auth.username': 'Igama lomsebenzisi',
+  'workspace.authOption.apikey': 'Ukhiye we-API',
+  'workspace.authOption.basic': 'Ugunyazo Oluyisisekelo',
+  'workspace.authOption.bearer': 'Ithokheni Lomphathi',
+  'workspace.authOption.none': 'Akukho',
+  'workspace.authOption.oauth': 'I-OAuth 2.0',
   'workspace.authType': 'Uhlobo',
   'workspace.authTypeLabel': 'Uhlobo lokuqinisekisa',
+  'workspace.body.json': 'I-JSON',
+  'workspace.body.none': 'Akukho',
+  'workspace.body.text': 'Umbhalo ongahluziwe',
+  'workspace.body.type': 'Uhlobo',
   'workspace.environment': 'Ayikho i-env',
   'workspace.envVar': 'i-env variable',
   'workspace.eyebrow': 'indawo yokusebenza ye-pylon engu-$ --i-pane split',
+  'workspace.kv.addHeader': 'Engeza isihloko',
+  'workspace.kv.addParam': 'Engeza i-param',
+  'workspace.kv.headerKey': 'Igama lesihloko',
+  'workspace.kv.headerValue': 'Inani lesihloko',
+  'workspace.kv.key': 'Ukhiye',
+  'workspace.kv.paramKey': 'Ukhiye wepharamitha yombuzo',
+  'workspace.kv.paramValue': 'Inani lepharamitha yombuzo',
+  'workspace.kv.removeRow': 'Susa umugqa',
+  'workspace.kv.value': 'Inani',
   'workspace.methodLabel': 'Indlela ye-HTTP',
   'workspace.metric.latency': 'Ukubambezeleka',
   'workspace.metric.latencyCaption': 'Uhambo oluya nokubuya kusukela kulo mjaho',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Isicelo sixoshiwe — bheka impendulo ngezansi.',
   'workspace.subheading':
     'Bhala isicelo, usikhiphe, bese uqinisekisa impendulo — konke kuphaneli elilodwa.',
+  'workspace.testResults': 'Imiphumela yokuhlolwa',
   'workspace.token': 'Ithokheni',
   'workspace.tokenHint':
     'Kuthunyelwe Njengokugunyazwa: Umphathi<token> kuzo zonke izicelo kuleli qoqo.',

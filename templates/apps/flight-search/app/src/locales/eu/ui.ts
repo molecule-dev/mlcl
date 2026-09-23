@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.eyebrow': '{{app}}(r)i buruz',
   'about.pageTitle': 'Ibilbide guztiak, bilaketa bakarra.',
   'booking.backToDetail': 'Hegaldiaren xehetasunetara itzuli',
   'booking.continue': 'Jarraitu ordainketarekin',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Zergak eta tasak',
   'booking.summary.travelers': 'Bidaiariak',
   'common.about': 'Buruz',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'flightDetail.backToResults': 'Emaitzetara itzuli',
   'flightDetail.baseFare': 'Oinarrizko tarifa',
   'flightDetail.book': 'Jarraitu erreserbarekin',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'Geldialdi 1',
   'flightResultCard.select': 'Hautatu',
   'flightResultCard.totalLabel': 'Denbora osoa',
+  'flightSearchLayout.primaryNavLabel': 'Nabigazio nagusia',
   'forgotPassword.subheading':
     'Sartu zure Skylark kontuan duzun helbide elektronikoa eta berrezartzeko esteka seguru bat bidaliko dizugu.',
   'forgotPassword.successBody':
     'Egiaztatu {{email}} pasahitz berri bat ezartzeko esteka baten bila. Esteka 30 minutu barru iraungitzen da.',
   'forgotPassword.successHeading': 'Berrezarri esteka bidali da',
   'landing.cta.explore': 'Saiatu bilaketa bat egiten',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Aurkitu hurrengo tarifa bikaina beste guztien aurretik.',
   'landing.cta.signup': 'Hasi tarifak jarraitzen',
   'landing.features.eyebrow': 'Zergatik Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Gehitu alerta',
   'priceAlerts.deleteConfirm': 'Alerta hau kendu nahi duzu?',
   'priceAlerts.empty': 'Ez dago ibilbide jarraiturik oraindik.',
+  'priceAlerts.emptyCta': 'Jarraitu beharreko ibilbide bat bilatu',
   'priceAlerts.errorMessage': 'Ezin izan dira alertak kargatu.',
   'priceAlerts.eyebrow': 'Skylark-en jarraipen-zerrenda',
   'priceAlerts.form.createError': 'Ezin izan da alerta sortu.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Hiri anitzeko ibilbidea',
   'results.multiLegHeading': 'Hanka {{n}} · {{tik}} → {{-ra}} · {{data}}',
   'results.multiSummary': '{{count}} hankak · {{passengers}} bidaiari',
+  'results.sortAriaLabel': 'Ordenatu emaitzak honen arabera',
   'results.sortLabel': 'Ordenatu',
   'results.summary': '{{count}} hegaldiak · {{passengers}} bidaiari',
   'settings.language.title': 'Hizkuntza',

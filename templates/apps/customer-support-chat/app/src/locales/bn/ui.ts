@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'আমাদের সম্পর্কে',
   'authShell.samplePreview': 'টিম, নতুন ড্যাশবোর্ডটা অসাধারণ — ঠিক যেমনটা আমাদের দরকার ছিল!',
   'authShell.tagline': 'প্রতিটি বার্তাই গুরুত্বপূর্ণ। প্রত্যেক গ্রাহককে স্মরণ করা হয়।',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/শর্টকাট',
   'automations.subheading':
     'নিয়মকানুন, পূর্বনির্ধারিত উত্তর এবং চ্যাটবট — কর্মক্ষেত্রকে সচল রাখে, যাতে আপনার দল কঠিন কাজগুলোতে মনোযোগ দিতে পারে।',
+  'automations.trigger.inboundMessage': 'আগত বার্তা',
   'automations.triggerLabel': 'ট্রিগার',
   'chatBubble.internalNoteLabel': 'অভ্যন্তরীণ নোট',
+  'common.confirmDelete': 'মুছে ফেলা নিশ্চিত করুন',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'contactDetail.backToContacts': 'সমস্ত যোগাযোগ',
   'contactDetail.contactFallback': 'যোগাযোগ করুন',
   'contactDetail.conversationFallback': 'কথোপকথন',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'শেষ দেখা',
   'contacts.empty': 'এখনো কোনো যোগাযোগ নেই। উপরে আপনার প্রথম যোগাযোগটি যোগ করুন।',
   'contacts.eyebrow': 'গ্রাহক ডিরেক্টরি',
+  'contacts.form.nameOrEmailRequired': 'অন্তত একটি নাম বা ইমেল প্রদান করুন।',
   'contacts.form.save': 'যোগাযোগ সংরক্ষণ করুন',
   'contacts.heading': 'যোগাযোগ',
   'contacts.loading': 'যোগাযোগ লোড হচ্ছে…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'নোট সংরক্ষণ করুন',
   'conversationDetail.tab.note': 'অভ্যন্তরীণ নোট',
   'conversationDetail.threadAria': 'কথোপকথনের বার্তা',
+  'conversationDetail.visitorFallback': 'পরিদর্শক',
   'customerProfilePanel.csatLabel': 'সিএসএটি',
   'customerProfilePanel.propertiesTitle': 'গ্রাহকের বিবরণ',
   'customerProfilePanel.recentTitle': 'সাম্প্রতিক কথোপকথন',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'গ্রাহকরা তাদের প্রথম উত্তর পাচ্ছেন {{time}} গড়ে — ছন্দটা বজায় রাখুন।',
   'inboxHeroCard.title': 'সক্রিয় কথোপকথন',
+  'inboxLayout.navDrawerLabel': 'নেভিগেশন',
+  'inboxLayout.openMenu': 'নেভিগেশন মেনু খুলুন',
   'inboxOverview.eyebrow': 'আজকের এক ঝলক',
   'inboxOverview.heroChange': '{{count}} খোলা',
   'inboxOverview.kpiClosedTrend': 'সর্বকালের',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'হোমপেজ দেখুন',
   'notifications.subheading':
     'অ্যাসাইনমেন্ট, @মেনশন, SLA ঝুঁকি, CSAT ফিডব্যাক এবং টিম অ্যাক্টিভিটি — নতুন থেকে পুরানো ক্রমে সাজানো।',
+  'notifications.subjectFallback': 'একটি কথোপকথন',
+  'notifications.visitorFallback': 'একজন পরিদর্শক',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'উচ্চ',
   'priority.low': 'নিম্ন',
+  'priority.normal': 'স্বাভাবিক',
   'priority.urgent': 'জরুরি',
   'privacy.title': 'গোপনীয়তা নীতি',
   'reports.agentFallback': 'এজেন্ট',

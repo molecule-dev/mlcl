@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': "Pob brathiad, wedi'i gytbwyso",
   'auth.hidePassword': "Cuddio'r cyfrinair",
   'auth.showPassword': 'Dangos cyfrinair',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'nav.legal': 'Cyfreithiol',
+  'nosh.auth.legalPrefix': "Wrth barhau rydych yn cytuno i'n",
   'nosh.foodDetail.add': 'Ychwanegu at y dyddiadur',
   'nosh.foodDetail.added': 'Ychwanegwyd at pryd bwyd .',
   'nosh.foodDetail.addError': 'Methwyd ychwanegu at y dyddiadur.',
@@ -18,6 +21,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Ffibr',
   'nosh.foodDetail.micros.sodium': 'Sodiwm',
   'nosh.foodDetail.micros.sugar': 'Siwgr',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'Protein',
   'nosh.foodDetail.serving.count': 'Dognau',
   'nosh.foodDetail.serving.meal': 'Ychwanegu at',
@@ -47,6 +51,7 @@ export const ui: UiTranslations = {
   'nosh.landing.features.heading':
     'Popeth sydd ei angen arnoch chi, dim byd nad oes ei angen arnoch chi',
   'nosh.landing.features.smartRing.title': 'Cylch Calorïau Clyfar',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     "Log bwyd cyfeillgar sy'n eich helpu i gyrraedd eich nodau heb yr euogrwydd. Canolbwyntiwch ar faeth, nid dim ond niferoedd.",
   'nosh.landing.hero.eyebrow': 'Olrhain calorïau cyfeillgar',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Pa mor egnïol ydych chi?',
   'nosh.onboarding.back': 'Yn ôl',
   'nosh.onboarding.macros.heading': 'Dyma eich targed dyddiol',
+  'nosh.onboarding.saveError': 'Methwyd cadw eich nodau.',
   'nosh.onboarding.start': 'Gadewch i ni fynd',
   'nosh.progress.calorieChart.title': 'Calorïau fesul dydd',
   'nosh.progress.empty': 'Dim data eto — cofnodwch bryd o fwyd i ddechrau eich tuedd.',
@@ -140,6 +146,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': "Dileu'n barhaol",
   'nosh.settings.deleteError': "Methwyd dileu'r cyfrif.",
   'nosh.settings.export.cta': 'Lawrlwytho CSV',
+  'nosh.settings.export.description': 'Lawrlwythwch eich log bwyd llawn fel CSV.',
   'nosh.settings.export.label': 'Allforio data',
   'nosh.settings.export.preparing': 'Yn paratoi…',
   'nosh.settings.eyebrow': 'Cyfrif · Hysbysiadau · Preifatrwydd',
@@ -151,6 +158,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Olrhain cyfeillgar, dim euogrwydd.',
   'nosh.today.${mealKey}Empty': 'Tapiwch i logio',
   'nosh.today.addFood': 'Ychwanegu bwyd',
+  'nosh.today.backToToday': 'Yn ôl i heddiw',
+  'nosh.today.dateNavLabel': 'Newid diwrnod y dyddiadur',
   'nosh.today.loadError': 'Methwyd llwytho heddiw.',
   'nosh.today.macros.carbs': 'Carbohydradau',
   'nosh.today.macros.fat': 'Braster',
@@ -158,6 +167,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Protein',
   'nosh.today.macroTitle': 'Macroniwtrientau',
   'nosh.today.meal.${mealKey}': 'cal',
+  'nosh.today.nextDay': 'Y diwrnod nesaf',
+  'nosh.today.pastPill': 'Diwrnod diwethaf',
+  'nosh.today.prevDay': 'Diwrnod blaenorol',
   'nosh.today.quickAddError': 'Methwyd cofnodi eitem gyflym.',
   'nosh.today.remaining': "calorïau sy'n weddill",
   'nosh.today.streakHeadline': '{{count}} cyfres -dydd',

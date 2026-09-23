@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'common.goToDashboard': 'Към таблото',
   'dashboard.connectRepoCta': 'Свързване с хранилището',
   'dashboard.empty': 'Все още няма заявки за събиране — свържете хранилище, за да започнете.',
   'dashboard.eyebrow': 'Refract · опашка за преглед',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Време на работа',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Оценка за качеството на ИИ {{score}} / 10',
+  'refractLayout.closeMenu': 'Затвори менюто',
+  'refractLayout.openMenu': 'Отвори менюто',
   'refractLayout.primaryNavLabel': 'Основна навигация',
   'reports.cumulativeScoreLabel': 'Общ резултат',
   'reports.cumulativeScoreSubtitle': 'всички репозитории · {{days}} d',
@@ -180,11 +183,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Не успях да заредя индекса за търсене.',
   'settings.apiKeys.description':
     'Управлявайте личните си API ключове от менюто на потребителя в горния десен ъгъл.',
+  'settings.apiKeys.integrationsNote':
+    'Токените за достъп на доставчиците се управляват в раздела „Интеграции“ по-горе.',
   'settings.connectError': 'Не успях да се свържа с доставчика.',
   'settings.disconnectError': 'Не успях да прекъсна връзката с доставчика.',
   'settings.eyebrow': 'Refract · работно пространство',
   'settings.integration.${provider}.label': 'Запазване…',
   'settings.loadError': 'Не успяхме да заредим настройките.',
+  'settings.notificationCenter': 'Център за известия',
   'settings.notifications.description':
     'Посетете страницата с известия, за да видите и управлявате настройките за получаване.',
   'settings.section.account': 'Профил и сигурност',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'અમારા વિશે',
   'authShell.samplePreview': '"હે ટીમ, નવું ડેશબોર્ડ ખૂબ જ સુંદર છે - અમને જેની જરૂર હતી!"',
   'authShell.tagline': 'દરેક સંદેશ મહત્વપૂર્ણ છે. દરેક ગ્રાહક યાદ રાખે છે.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/શોર્ટકટ',
   'automations.subheading':
     'નિયમો, તૈયાર જવાબો અને ચેટબોટ્સ - જ્યારે તમારી ટીમ મુશ્કેલ બાબતો પર ધ્યાન કેન્દ્રિત કરે છે ત્યારે કાર્યસ્થળને ગુંજતું રાખો.',
+  'automations.trigger.inboundMessage': 'ઇનબાઉન્ડ સંદેશ',
   'automations.triggerLabel': 'ટ્રિગર',
   'chatBubble.internalNoteLabel': 'આંતરિક નોંધ',
+  'common.confirmDelete': 'કાઢી નાખવાની પુષ્ટિ કરો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'contactDetail.backToContacts': 'બધા સંપર્કો',
   'contactDetail.contactFallback': 'સંપર્ક કરો',
   'contactDetail.conversationFallback': 'વાર્તાલાપ',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'છેલ્લે જોયું',
   'contacts.empty': 'હજુ સુધી કોઈ સંપર્ક નથી. ઉપર તમારો પહેલો સંપર્ક ઉમેરો.',
   'contacts.eyebrow': 'ગ્રાહક ડિરેક્ટરી',
+  'contacts.form.nameOrEmailRequired': 'ઓછામાં ઓછું નામ અથવા ઇમેઇલ આપો',
   'contacts.form.save': 'સંપર્ક સાચવો',
   'contacts.heading': 'સંપર્કો',
   'contacts.loading': 'સંપર્કો લોડ કરી રહ્યું છે…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'નોંધ સાચવો',
   'conversationDetail.tab.note': 'આંતરિક નોંધ',
   'conversationDetail.threadAria': 'વાતચીત સંદેશા',
+  'conversationDetail.visitorFallback': 'મુલાકાતી',
   'customerProfilePanel.csatLabel': 'સીએસએટી',
   'customerProfilePanel.propertiesTitle': 'ગ્રાહક વિગતો',
   'customerProfilePanel.recentTitle': 'તાજેતરની વાતચીતો',
@@ -70,6 +76,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ગ્રાહકોને તેમનો પહેલો જવાબ આમાં મળી રહ્યો છે {{time}} સરેરાશ - ગતિ ચાલુ રાખો.',
   'inboxHeroCard.title': 'સક્રિય વાતચીતો',
+  'inboxLayout.navDrawerLabel': 'નેવિગેશન',
+  'inboxLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'inboxOverview.eyebrow': 'આજે એક નજરમાં',
   'inboxOverview.heroChange': '{{count}} ખુલ્લું',
   'inboxOverview.kpiClosedTrend': 'સર્વકાલીન',
@@ -115,10 +123,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'હોમપેજની મુલાકાત લો',
   'notifications.subheading':
     'સોંપણીઓ, @mentions, SLA જોખમો, CSAT પ્રતિસાદ અને ટીમ પ્રવૃત્તિ — સૌથી નવાને પહેલા ક્રમાંકિત.',
+  'notifications.subjectFallback': 'વાતચીત',
+  'notifications.visitorFallback': 'મુલાકાતી',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'ઉચ્ચ',
   'priority.low': 'નીચું',
+  'priority.normal': 'સામાન્ય',
   'priority.urgent': 'તાત્કાલિક',
   'privacy.title': 'ગોપનીયતા નીતિ',
   'reports.agentFallback': 'એજન્ટ',

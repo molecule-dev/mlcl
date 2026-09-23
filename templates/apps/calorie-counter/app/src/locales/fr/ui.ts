@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'À chaque bouchée, un équilibre parfait',
   'auth.hidePassword': 'Masquer le mot de passe',
   'auth.showPassword': 'Afficher le mot de passe',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'nav.legal': 'Mentions légales',
+  'nosh.auth.legalPrefix': 'En continuant, vous acceptez nos',
   'nosh.foodDetail.add': 'Ajouter au journal',
   'nosh.foodDetail.added': 'Ajouté à {{meal}}.',
   'nosh.foodDetail.addError': "Impossible d'ajouter au journal.",
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Fibres',
   'nosh.foodDetail.micros.sodium': 'Sodium',
   'nosh.foodDetail.micros.sugar': 'Sucre',
+  'nosh.foodDetail.percentDv': '{{pct}}% des AJR',
   'nosh.foodDetail.protein': 'Protéines',
   'nosh.foodDetail.serving.count': 'Portions',
   'nosh.foodDetail.serving.meal': 'Ajouter à',
@@ -49,6 +53,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Commencez à mieux vous nourrir',
   'nosh.landing.features.heading': "Tout ce dont vous avez besoin, rien d'inutile",
   'nosh.landing.features.smartRing.title': 'Anneau Calorique Intelligent',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Un journal alimentaire bienveillant qui vous aide à atteindre vos objectifs sans culpabilité. Concentrez-vous sur la nutrition, pas seulement les chiffres.',
   'nosh.landing.hero.eyebrow': 'Suivi calorique bienveillant',
@@ -84,6 +89,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': "Quel est votre niveau d'activité ?",
   'nosh.onboarding.back': 'Retour',
   'nosh.onboarding.macros.heading': 'Voici votre objectif quotidien',
+  'nosh.onboarding.saveError': "Impossible d'enregistrer vos objectifs.",
   'nosh.onboarding.start': "C'est parti",
   'nosh.progress.calorieChart.title': 'Calories par jour',
   'nosh.progress.empty':
@@ -147,6 +153,8 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Supprimer définitivement',
   'nosh.settings.deleteError': 'Impossible de supprimer le compte.',
   'nosh.settings.export.cta': 'Télécharger le CSV',
+  'nosh.settings.export.description':
+    "Téléchargez l'intégralité de votre journal alimentaire au format CSV.",
   'nosh.settings.export.label': 'Exporter les données',
   'nosh.settings.export.preparing': 'Préparation…',
   'nosh.settings.eyebrow': 'Compte · Notifications · Confidentialité',
@@ -158,6 +166,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Suivi bienveillant, zéro culpabilité.',
   'nosh.today.${mealKey}Empty': 'Appuyez pour vous connecter',
   'nosh.today.addFood': 'Ajouter un aliment',
+  'nosh.today.backToToday': 'Retour à aujourd’hui',
+  'nosh.today.dateNavLabel': 'Changer le jour du journal',
   'nosh.today.loadError': 'Impossible de charger la journée.',
   'nosh.today.macros.carbs': 'Glucides',
   'nosh.today.macros.fat': 'Lipides',
@@ -165,6 +175,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Protéines',
   'nosh.today.macroTitle': 'Macronutriments',
   'nosh.today.meal.${mealKey}': 'cal',
+  'nosh.today.nextDay': 'Le lendemain',
+  'nosh.today.pastPill': 'Hier',
+  'nosh.today.prevDay': 'La veille',
   'nosh.today.quickAddError': "Impossible d'enregistrer l'élément rapide.",
   'nosh.today.remaining': 'calories restantes',
   'nosh.today.streakHeadline': '{{count}} jours consécutifs',

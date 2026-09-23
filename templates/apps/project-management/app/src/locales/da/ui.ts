@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'accountSettings.confirmEmailLabel': 'Skriv DELETE for at bekræfte',
   'accountSettings.deleteError': 'Kunne ikke slette konto.',
   'accountSettings.passwordError': 'Kunne ikke ændre adgangskode.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Ingen kommende deadlines.',
   'dashboard.upcomingTitle': 'Kommende deadlines',
   'deviceSettings.unknownDevice': 'Ukendt enhed',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Support',
   'forgotPassword.error': 'Kunne ikke sende nulstillingslinket.',
   'forgotPassword.subtitle': 'Indtast din e-mail, og vi sender dig et nulstillingslink.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'Ugyldig e-mailadresse eller adgangskode.',
   'login.pageTitle': 'Log ind',
   'login.signIn': 'Log ind på Forge',
+  'login.subtitle': 'Log ind for at holde dine projekter på sporet',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'nav.calendar': 'Kalender',
   'nav.legal': 'Juridisk',
   'nav.myTasks': 'My Tasks',

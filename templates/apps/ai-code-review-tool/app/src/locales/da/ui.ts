@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.connectRepoCta': 'Tilslut repository',
   'dashboard.empty': 'Ingen pull requests endnu — tilslut et repository for at komme i gang.',
   'dashboard.eyebrow': 'Refract · gennemgangskø',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Oppetid',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI-kvalitetsscore {{score}} / 10',
+  'refractLayout.closeMenu': 'Luk menu',
+  'refractLayout.openMenu': 'Åbn menu',
   'refractLayout.primaryNavLabel': 'Primær navigation',
   'reports.cumulativeScoreLabel': 'Kumulativ score',
   'reports.cumulativeScoreSubtitle': 'alle repos · {{days}}d',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Kunne ikke indlæse søgeindeks.',
   'settings.apiKeys.description':
     'Administrér personlige API-nøgler fra brugermenuen øverst til højre.',
+  'settings.apiKeys.integrationsNote':
+    'Adgangstokener til udbydere administreres i afsnittet »Integrationer« ovenfor.',
   'settings.connectError': 'Kunne ikke tilslutte udbyder.',
   'settings.disconnectError': 'Kunne ikke frakoble udbyder.',
   'settings.eyebrow': 'Refract · workspace',
   'settings.integration.${provider}.label': 'Gemmer…',
   'settings.loadError': 'Kunne ikke indlæse indstillinger.',
+  'settings.notificationCenter': 'Meddelelsescenter',
   'settings.notifications.description':
     'Besøg notifikationssiden for at se og administrere leveringspræferencer.',
   'settings.section.account': 'Konto og sikkerhed',

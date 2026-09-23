@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.pageTitle': '{{app}} గురించి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'compose.cancel': 'రద్దు చేయండి',
   'compose.captionPlaceholder': 'మీ మనసులో ఏముంది?',
   'compose.heading': 'ఒక క్షణాన్ని పంచుకోండి',
@@ -98,6 +102,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'ధృవీకరించబడిన ఖాతా',
   'resetPassword.newPassword': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.subheading': 'బలమైనదాన్ని ఎంచుకోండి — కనీసం 12 అక్షరాలు.',
+  'search.clearAria': 'స్పష్టం',
+  'search.error': 'శోధన విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
   'search.noPeople': 'సృష్టికర్తలు సరిపోలడం లేదు {{q}} ".',
   'search.noPosts': 'ఏ పోస్టులు సరిపోలడం లేదు {{q}} ".',
   'search.noTags': 'ఇంకా ట్రెండింగ్ హ్యాష్‌ట్యాగ్‌లు ఏవీ లేవు.',
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'signup.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'signup.subheading': 'పంచుకోవడం ప్రారంభించడానికి ఖాతాను సృష్టించండి.',
+  'socialMediaLayout.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'socialMediaLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
+  'socialMediaLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'storyRail.heading': 'కథలు',
   'storyRail.label': 'కథలు',
   'storyRail.openAria': 'తెరవండి {{handle}} కథ',

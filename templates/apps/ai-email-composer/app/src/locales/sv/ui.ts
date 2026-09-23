@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Vår berättelse',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Öppningsfrekvens',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Startar kassa…',
   'billing.subheading': 'Välj abonnemanget som matchar hur du skickar.',
   'billing.unavailable': 'Kontakta säljteamet',
+  'common.goToDashboard': 'Gå till översikt',
+  'common.retry': 'Försök igen',
   'compose.adjustingTone': 'Skriver om i vald ton…',
   'compose.aiPromptPlaceholder':
     't.ex. "Artig påminnelse efter två veckor utan svar, håll det kort."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Behöver du skicka något? Signet kan ha ett utkast klart på några sekunder.',
   'dashboard.composeCtaLabel': 'Snabb komposition',
   'dashboard.heading': 'Din vecka, väl formulerad',
+  'dashboard.loadFailed': 'Det gick inte att läsa in din instrumentpanel.',
   'dashboard.manageLibrary': 'Hantera bibliotek →',
   'dashboard.recentEmpty': 'Inga utskick ännu — dina skickade e-postmeddelanden visas här.',
   'dashboard.recentHeading': 'Senaste utskicken',
@@ -136,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Standardton',
   'settings.toneSubheading': 'Signet använder denna ton om du inte åsidosätter på utkastet.',
   'signetLayout.primaryNavLabel': 'Huvudnavigering',
+  'signetLayout.toggleMenu': 'Växla meny',
   'signup.emailLabel': 'E-postadress',
   'signup.showPassword': 'Visa lösenord',
   'signup.tagline': 'Skicka ditt första AI-skrivna e-postmeddelande på under en minut.',

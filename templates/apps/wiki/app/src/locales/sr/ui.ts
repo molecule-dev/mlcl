@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Решавање…',
   'comments.subtitle':
     'The {{count}} Теме које још увек чекају одговор или решење. Сортирано по старости — најстарије прво, да ништа не иструли.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'forgotPassword.sentTo': 'Ресетуј линк послат на {{email}}',
   'forgotPassword.successSubheading':
     'Проверите пријемно сандуче — управо смо вам послали линк за ресетовање. Важи за 30 минута.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Нова страница',
   'pageTreeSidebar.workspaceHeader': 'Радни простор',
   'pageView.breadcrumb': 'Навигационе мрвице',
+  'pageView.confirmTrash': 'У смеће?',
   'pageView.home': 'Дом',
   'pageView.lastEdited': 'Ажурирано {{when}}',
   'pageView.loading': 'Учитавање странице…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Резиме вештачке интелигенције није конфигурисан за овај радни простор.',
   'pageView.tocTitle': 'На овој страници',
+  'pageView.trash': 'Смеће',
+  'pageView.trashing': 'Бацање у смеће…',
   'pageView.versionBadge': 'в{{version}}',
   'profile.badges.title': 'Значке',
   'profile.owned.title': 'Поседоване странице',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Радни простор, профил, обавештења, интеграције — све у једној мирној љусци.',
   'settingsPage.workspace.defaultLanding': 'Подразумевани почетни екран',
   'settingsPage.workspace.landingHome': 'Дом',
+  'settingsPage.workspace.landingSpaces': 'Простори',
   'settingsPage.workspace.subdomainLabel': 'Поддомен',
   'settingsPage.workspace.title': 'Радни простор',
   'signup.eyebrow': 'Покрените нови радни простор',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин',
   'templates.subtitle':
     'Почните страницу од шаблона, а не од празног платна. Сваки шаблон чврсто кодира облик тако да можете да се фокусирате на садржај.',
+  'trash.confirmPurge': 'Очистити заувек?',
+  'trash.confirmPurgeAria': 'Потврди: трајно обриши {{title}}',
   'trash.daysUntilPurge': '{{days}} преостали дани',
   'trash.empty.body':
     'Обрисане странице ће се овде приказивати 30 дана пре него што буду обрисане.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Враћање…',
   'versionHistory.subtitle': '{{count}} верзије · изаберите ред да бисте проверили разлику',
   'versionHistory.versionLabel': 'в{{v}}',
+  'wikiLayout.closeMenu': 'Затвори навигацију',
+  'wikiLayout.menu': 'Навигација',
+  'wikiLayout.openMenu': 'Отвори навигацију',
   'wikiLayout.searchPlaceholder': 'Претрага Керна — странице, коментари…',
 }

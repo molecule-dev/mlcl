@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Akụkọ anyị',
   'aiSuggestionPanel.title': 'Onye na-anya Signet Copilot',
   'analytics.col.open': 'Ọnụego mepere emepe',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Na-amalite ịkwụ ụgwọ…',
   'billing.subheading': 'Họrọ atụmatụ dabara na otu esi ezipụ ya.',
   'billing.unavailable': 'Kpọtụrụ ahịa',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.retry': 'Nwaa ọzọ',
   'compose.adjustingTone': "Ịdegharị ihe n'olu ahọpụtara…",
   'compose.aiPromptPlaceholder':
     'dịka ọmụmaatụ "Nsochi dị mma mgbe ị na-enweghị azịza ruo izu abụọ, mee ka ọ dị mkpụmkpụ."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     "Ị chọrọ izipu ihe? Signet nwere ike ịnwe draft dị njikere n'ime sekọnd ole na ole.",
   'dashboard.composeCtaLabel': 'Dee ngwa ngwa',
   'dashboard.heading': 'Izu gị, nke e dere',
+  'dashboard.loadFailed': 'Enweghị ike ibuli dashboard gị.',
   'dashboard.manageLibrary': 'Jikwaa ọbá akwụkwọ →',
   'dashboard.recentEmpty': 'Enwebeghị ozi ezipụ — ozi ịntanetị gị ezitere ga-apụta ebe a.',
   'dashboard.recentHeading': 'Mbupu ndị na-adịbeghị anya',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ụda ndabara',
   'settings.toneSubheading': 'Signet na-eji olu a belụsọ ma ị gbanwee ihe osise ahụ.',
   'signetLayout.primaryNavLabel': 'Ntugharị isi',
+  'signetLayout.toggleMenu': 'Gbanwee menu',
   'signup.emailLabel': 'Adreesị ozi ịntanetị',
   'signup.showPassword': 'Gosi paswọọdụ',
   'signup.tagline': "Ziga ozi email mbụ gị nke AI depụta n'ime obere oge.",

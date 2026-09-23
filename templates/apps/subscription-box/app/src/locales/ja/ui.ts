@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}について',
+  'appNav.mobileLabel': 'メインナビゲーション',
+  'appNav.primaryLabel': 'メインナビゲーション',
   'billing.actions.confirmCancel':
     'サブスクリプションをキャンセルしますか？いつでも再登録できます。',
   'billing.actions.paused': 'サブスクリプションを一時停止しました。',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     '各ティアは小さなストーリーです。キューに追加するか、来月のものと交換できます。',
   'boxThemeCard.perMonth': '/ 月',
+  'common.goToDashboard': 'ダッシュボードへ',
   'customize.eyebrow': '自分仕様に',
   'customize.heading': '次のCrateをカスタマイズ',
   'customize.items.exclude': 'スキップ',
@@ -92,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': '今シーズン',
   'landing.editions.heading': 'キュレーターお気に入りのエディション',
   'landing.footer.contact': 'キュレーターと話す',
+  'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': 'ボックスを始める →',
   'landing.hero.ctaSecondary': 'ティアを見る',
   'landing.hero.eyebrow': '毎月厳選。いつもパーソナル。',
@@ -110,6 +115,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'あなたの次のCRATE',
   'nextBoxHeroCard.itemsLabel': '厳選アイテム',
   'nextBoxHeroCard.shipsOnLabel': '発送日',
+  'notFound.body':
+    '{{app}}アーカイブで該当ページが見つかりませんでした。ページが廃止されたか、単に入力ミスがあった可能性があります。',
   'notFound.cta.dashboard': 'ダッシュボードへ',
   'notFound.eyebrow': '空のボックス',
   'notFound.heading': 'この棚は空です',

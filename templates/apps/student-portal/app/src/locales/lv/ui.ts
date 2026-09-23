@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'announcementsFeed.empty': 'Vēl nav paziņojumu.',
   'announcementsFeed.eyebrow': '{{count}} atjauninājumi',
   'announcementsFeed.title': 'Jaunākie paziņojumi',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Šeit nav nekā',
   'assignments.emptyBody': 'Pārslēdziet filtrus iepriekš, lai skatītu uzdevumus citā stāvoklī.',
   'assignments.eyebrow': 'Visi kursi · Šajā semestrī',
+  'assignments.loadError': 'Nevarēja ielādēt uzdevumus.',
   'assignments.loading': 'Notiek uzdevumu ielāde…',
   'assignments.subtitle':
     'Filtrējiet pēc statusa, lai redzētu, kas ir jāiesniedz, iesniegts, novērtēts vai trūkst.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Piezīme',
   'attendance.empty': 'Vēl nav apmeklētāju skaita uzskaites.',
   'attendance.eyebrow': 'Pavasara semestris · Pēdējās 4 nedēļas',
+  'attendance.loadError': 'Nevarēja ielādēt apmeklējumu reģistrus.',
   'attendance.loading': 'Notiek apmeklējuma ielāde…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Uzdevumu iesniegšanas termiņi ir attēloti mēnešu režģī — eksāmeni ir izcelti sarkanā krāsā.',
   'calendar.title': '{{month}} notikumi',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
+  'common.retry': 'Mēģini vēlreiz',
   'common.yes': '✓',
   'courseDetail.backLink': 'Atzīmes',
   'courseDetail.currentGrade': 'Pašreizējā atzīme',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendence',
   'grades.empty': 'Vēl nav publicētas atzīmes.',
   'grades.eyebrow': 'Atzīmju grāmata',
+  'grades.loadError': 'Nevarēja ielādēt jūsu atzīmes.',
   'grades.loading': 'Notiek atzīmju ielāde…',
   'grades.subtitle':
     'Tiešraides burtu un procentuālās atzīmes. Tendences bultiņas rāda, vai virzāties uz augšu, izlīdzināties vai slīdat.',
   'grades.title': 'Jūsu atzīmes, kurss pēc kursa',
   'grades.trendStable': 'Stabils',
+  'landing.copyright': '© {{year}} {{app}} . Radīts studentiem, radīts ģimenēm.',
   'landing.ctaHeading': 'Mierīgāka skolas diena sākas dažu minūšu laikā',
   'landing.eyebrow': 'Vidusskolas un vidusskolas skolēniem',
   'landing.featuresHeading': 'Skolas diena, kas organizēta ap skolēnu',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Uzdevumi',
   'nav.attendance': 'Apmeklētība',
   'nav.calendar': 'Kalendārs',
+  'nav.closeMenu': 'Aizvērt navigācijas izvēlni',
   'nav.grades': 'Atzīmes',
+  'nav.openMenu': 'Atvērt navigācijas izvēlni',
   'nav.statusEyebrow': 'Semestra vidējā atzīme',
   'nav.statusSubtext': 'Goda saraksts · Pavasara semestris',
+  'nav.unreadMessages': 'Nelasīti ziņojumi',
   'notifications.eyebrow': '{{count}} atjauninājumi',
   'notifications.subtitle':
     'Atzīmes, atgādinājumi, ziņojumi un skolas paziņojumi. Iestatījumos pielāgojiet, kurus kanālus katrs paziņojums izmanto.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.attendanceLabel': 'apmeklētība',
   'pricing.gradesLabel': 'atzīmes',
   'pricing.heading': 'paziņojumi',

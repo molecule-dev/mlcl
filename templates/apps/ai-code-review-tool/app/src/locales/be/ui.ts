@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.connectRepoCta': 'Падключыць рэпазітар',
   'dashboard.empty': 'Пакуль няма запытаў на злучэнне — падключыце рэпазітар, каб пачаць.',
   'dashboard.eyebrow': 'Refract · чарга агляду',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Час працы',
   'pullRequestRow.files': '{{count}} ф',
   'pullRequestRow.scoreAria': 'Ацэнка якасці штучнага інтэлекту {{score}} / 10',
+  'refractLayout.closeMenu': 'Закрыць меню',
+  'refractLayout.openMenu': 'Адкрыць меню',
   'refractLayout.primaryNavLabel': 'Асноўная навігацыя',
   'reports.cumulativeScoreLabel': 'Сукупны бал',
   'reports.cumulativeScoreSubtitle': 'усе рэпазітарыі · {{days}} д',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Не атрымалася загрузіць пошукавы індэкс.',
   'settings.apiKeys.description':
     'Кіруйце асабістымі ключамі API з меню карыстальніка ў правым верхнім куце.',
+  'settings.apiKeys.integrationsNote':
+    'Токены доступу пастаўшчыка кіруюцца ў раздзеле "Інтэграцыі" вышэй.',
   'settings.connectError': 'Не атрымалася падключыцца да пастаўшчыка.',
   'settings.disconnectError': 'Не атрымалася адключыцца ад пастаўшчыка.',
   'settings.eyebrow': 'Працоўная прастора Refract',
   'settings.integration.${provider}.label': 'Захаванне…',
   'settings.loadError': 'Не атрымалася загрузіць налады.',
+  'settings.notificationCenter': 'Цэнтр апавяшчэнняў',
   'settings.notifications.description':
     'Каб праглядзець і кіраваць наладамі дастаўкі, наведайце старонку апавяшчэнняў.',
   'settings.section.account': 'Уліковы запіс і бяспека',

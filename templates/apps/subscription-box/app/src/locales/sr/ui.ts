@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaciji {{app}}',
+  'appNav.mobileLabel': 'Примарна навигација',
+  'appNav.primaryLabel': 'Примарна навигација',
   'billing.actions.confirmCancel':
     'Желите да откажете претплату? Можете се поново претплатити у било ком тренутку.',
   'billing.actions.paused': 'Претплата је паузирана.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Сваки ниво је прича у малом броју. Додајте једну у свој ред или је пребаците у следећи месец.',
   'boxThemeCard.perMonth': '/ месец',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'customize.eyebrow': 'Прилагодите га себи',
   'customize.heading': 'Прилагодите свој следећи Трове',
   'customize.items.exclude': 'Прескочи ово',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Ове сезоне',
   'landing.editions.heading': 'Издања која наши кустоси воле',
   'landing.footer.contact': 'Разговарајте са кустосом',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Покрените своју кутију →',
   'landing.hero.ctaSecondary': 'Погледајте нивое',
   'landing.hero.eyebrow': 'Месечно курирано. Увек лично.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ВАШЕ СЛЕДЕЋЕ НАЛАЗНИШТЕ',
   'nextBoxHeroCard.itemsLabel': 'Курирано одабране ставке',
   'nextBoxHeroCard.shipsOnLabel': 'Испорука',
+  'notFound.body':
+    'Нисмо могли да пронађемо ту страницу у архиви {{app}} . Можда је повучена или је једноставно погрешно откуцана.',
   'notFound.cta.dashboard': 'Иди на контролну таблу',
   'notFound.eyebrow': 'Празна кутија',
   'notFound.heading': 'Ова полица је празна',

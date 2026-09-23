@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'İzləyirəm',
   'auctionDetail.watchRemoved': 'İzləmə siyahısından silindi.',
   'auctionDetail.watchRemoveLabel': 'İzləmə siyahısından silin',
+  'auctionPlatformLayout.primaryNavLabel': 'Əsas naviqasiya',
   'authShell.brandBody':
     'Nadir saatlar, incəsənət əsərləri və təkrarolunmaz xüsusi əşyalara real vaxt rejimində qiymət təklifi verin. Balta saniyələr içində düşür.',
   'authShell.brandEyebrow': 'İndi canlı · 1420 hərrac',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sıralama üzrə',
   'browseAuctions.subheading':
     'Kateqoriyaya görə filtrləyin, ən vacib olanlara görə çeşidləyin və balta düşməzdən əvvəl təklif verin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'countdownTimer.ended': 'Bitdi',
   'countdownTimer.endingSoon': 'Sonluq',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Şifrəni gizlət',
   'login.showPassword': 'Şifrəni göstər',
   'login.subtext': 'Hərraclarınızı izləməyə davam edin və balta düşməzdən əvvəl təkliflər verin.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'myBids.bidAgain': 'Yenidən təklif verin',
   'myBids.browseCta': 'Canlı hərraclara baxın →',
   'myBids.checkoutCta': 'İndi ödəyin',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Hələ bildiriş yoxdur.',
   'notificationsPage.eyebrow': 'Fəaliyyət mərkəzi',
   'notificationsPage.subheading': '{{count}} oxunmamış · hərraclar keçirildikcə canlı yeniləmələr',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.bidsLabel': 'təkliflər',
   'pricing.listingsLabel': 'siyahılar',
   'pricing.watchlistLabel': 'izləmə siyahısı',

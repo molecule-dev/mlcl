@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Um {{app}}',
   'about.plansTitle': 'Áætlanir sem vaxa með þér',
   'brand.tagline': 'Á hverri sekúndu',
   'clientDetail.back': 'Til baka til viðskiptavina',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Öll samskipti á einum stað — verkefni, vinnutímar, útistandandi reikningar.',
   'clients.title': 'Viðskiptavinir',
   'common.and': 'og',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.activeProjects': 'Virk verkefni',
   'dashboard.empty':
     'Engar færslur ennþá. Byrjaðu á að ræsa tímamælinn til að fylgjast með fyrstu lotunni þinni.',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Engar reikningshæfar klukkustundir til reikningsfærslu fyrir þennan viðskiptavin. Fylgist með tíma fyrst eða úthlutaðu núverandi færslum til eins af verkefnum þessa viðskiptavinar.',
   'invoices.save': 'Búa til reikning',
   'invoices.subtitle': 'Rektar klukkustundir safnast sjálfkrafa upp á reikninga.',
+  'landing.copyright': '© {{year}} {{app}} . Hver sekúnda, tekin með í reikninginn.',
   'landing.ctaBody':
     'Ókeypis fyrir allt að 3 verkefni. Uppfærðu þegar viðskiptavinurinn þinn gerir það.',
   'landing.eyebrow': 'Tímaskráning fyrir reikningshæft verk',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Treyst af sjálfstæðum aðilum',
   'landing.testimonial.quote':
     'Ég hætti að nota Toggl á 30 mínútum. Fjárhagsáætlunarbruninn einn og sér hefur borgað sig upp. Ég er hættur að vanmeta verð tvær vikur í röð.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krónó. Hver sekúnda, tekin með í reikninginn.',
   'login.brand.subtitle':
     'Taktu tímamælinn upp þar sem frá var horfið — hver mínúta er þegar tengd verkefni, viðskiptavini, reikningi.',
   'login.brand.tracking': 'Rekja spor',
   'login.subheading': 'Taktu upp tímamælinn þar sem frá var horfið.',
+  'nav.closeMenu': 'Loka flakkvalmynd',
   'nav.insightsSection': 'Innsýn',
   'nav.newEntry': 'Ný færsla',
+  'nav.openMenu': 'Opna flakkvalmynd',
+  'nav.primary': 'Aðalflakk',
   'nav.workSection': 'Vinna',
   'notFound.body':
     'Lítur út fyrir að tengillinn sem þú fylgdir hafi hætt að rekja. Farðu aftur á stjórnborðið þitt og við höldum áfram að telja þaðan.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Reikningshæft',
   'timer.descriptionPlaceholder': 'Hvað ertu að vinna í?',
   'timer.idle': 'Í biðstöðu — hefja mælingar',
+  'timer.noProject': 'Ekkert verkefni',
   'timer.runningWithProject': 'Ekkert verkefni',
   'timer.start': 'Byrja tímamæli',
   'timer.stop': 'Stöðva tímamæli',

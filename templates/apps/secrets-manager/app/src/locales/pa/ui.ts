@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'about.tagline': 'ਭੇਤ ਖੁੱਲ੍ਹ ਕੇ ਮਰ ਜਾਂਦੇ ਹਨ।',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ਟੋਕਨ ਬਣਾਓ',
   'apiTokens.kicker': 'API ਟੋਕਨ',
   'apiTokens.loading': 'ਟੋਕਨ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
+  'apiTokens.new': 'ਨਵਾਂ ਟੋਕਨ',
   'apiTokens.revoke': 'ਟੋਕਨ ਰੱਦ ਕਰੋ',
   'apiTokens.subheading':
     'Arcanum CLI ਅਤੇ SDK ਲਈ ਨਿੱਜੀ ਅਤੇ ਸੇਵਾ ਟੋਕਨ। ਸਿਰਜਣਾ ਵੇਲੇ ਇੱਕ ਵਾਰ ਦਿਖਾਇਆ ਗਿਆ ਪਲੇਨਟੈਕਸਟ।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + ਪਾਸਕੀ',
   'authShell.zeroKnowledge': 'ਜ਼ੀਰੋ-ਗਿਆਨ ਇਨਕ੍ਰਿਪਸ਼ਨ',
   'common.connecting': 'ਕਨੈਕਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.inviting': 'ਸੱਦਾ ਦਿੱਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'forgotPassword.checkInbox':
     'ਜੇਕਰ {email} ਰਜਿਸਟਰਡ ਹੈ, ਤਾਂ ਇੱਕ ਦਸਤਖਤ ਕੀਤਾ ਰੀਸੈਟ ਲਿੰਕ ਇੱਕ ਮਿੰਟ ਦੇ ਅੰਦਰ ਆ ਜਾਵੇਗਾ।',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': 'ਇਨਬਾਕਸ',
   'notifications.subheading': 'ਹਰ ਵਾਲਟ ਵਿੱਚ ਰੋਟੇਸ਼ਨ ਸਥਿਤੀ, ਅਸੰਗਤ ਚੇਤਾਵਨੀਆਂ, ਅਤੇ ਪ੍ਰਵਾਨਗੀ ਬੇਨਤੀਆਂ।',
   'notifications.unreadEmpty': 'ਇਨਬਾਕਸ ਜ਼ੀਰੋ — ਸਭ ਕੁਝ ਹੋ ਗਿਆ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.heading': 'ਭੇਦ',
   'pricing.limits.accessPolicies': 'ਪਹੁੰਚ ਨੀਤੀਆਂ',
   'pricing.limits.auditLog': 'ਆਡਿਟ-ਲਾਗ ਐਂਟਰੀਆਂ',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'ਨਿੱਜੀ ਖਾਤਾ',
   'profile.plan.description': 'ਆਪਣੀ ਗਾਹਕੀ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ, ਸੀਮਾਵਾਂ ਵੇਖੋ, ਅਤੇ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।',
   'profile.subheading': 'ਪਛਾਣ, ਦੂਜੇ-ਕਾਰਕ ਯੰਤਰ, ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਸੈਸ਼ਨ।',
+  'profile.twoFactor.code': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'profile.twoFactor.disable': 'ਅਯੋਗ ਕਰੋ',
   'profile.twoFactor.enable': 'ਯੋਗ ਬਣਾਓ',
+  'profile.twoFactor.invalidCode': 'ਅਵੈਧ ਕੋਡ',
   'profile.twoFactor.kicker': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ',
+  'profile.twoFactor.off': 'ਯੋਗ ਨਹੀਂ ਹੈ',
   'profile.twoFactor.on': 'ਯੋਗ ਬਣਾਇਆ ਗਿਆ',
   'resetPassword.email': 'ਖਾਤਾ ਈਮੇਲ',
   'resetPassword.heading': 'ਨਵੇਂ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲ ਸੈੱਟ ਕਰੋ',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ਹੁਕਮ',
   'secretsManagerLayout.encrypted': 'AES-256 · ਏਨਕ੍ਰਿਪਟ ਕੀਤਾ ਗਿਆ',
   'secretsManagerLayout.newVault': 'ਨਵਾਂ ਵਾਲਟ',
+  'secretsManagerLayout.newVaultShort': 'ਨਵਾਂ',
   'secretsManagerLayout.rotations': 'ਘੁੰਮਾਓ',
   'secretsManagerLayout.search': 'ਖੋਜ',
   'secretsManagerLayout.searchPlaceholder': 'ਕੁੰਜੀ, ਮਾਰਗ, ਜਾਂ ਟੈਗ ਦੁਆਰਾ ਰਾਜ਼ ਖੋਜੋ...',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'ਭੇਦ',
   'vaultCard.vaultLabel': 'ਵਾਲਟ',
   'vaultDetail.addSecret': 'ਗੁਪਤ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਕਰੋ',
+  'vaultDetail.back': 'ਸਾਰੇ ਵਾਲਟ',
   'vaultDetail.col.key': 'ਕੁੰਜੀ',
   'vaultDetail.col.rotated': 'ਘੁੰਮਾਇਆ ਗਿਆ',
   'vaultDetail.col.value': 'ਮੁੱਲ',

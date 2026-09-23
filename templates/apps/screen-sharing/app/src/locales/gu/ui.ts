@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'about.pageTitle': 'વિશે {{appName}}',
   'analytics.empty': 'સગાઈ જોવા માટે તમારી પહેલી ક્લિપ અહીં રેકોર્ડ કરો.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ક્લિપ્સ',
   'billing.usage.views': 'દૃશ્યો',
   'billing.usage.views.unit': 'દૃશ્યો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'landing.cta.title': 'વધુ સારો પ્રતિસાદ મોકલો. ગ્લિન્ટથી શરૂઆત કરો.',
   'landing.feature.capture.body':
     'માઈક, કેમેરા અને ડ્રોઈંગ સાથે બ્રાઉઝર, ડેસ્કટોપ અને મોબાઈલ રેકોર્ડિંગ.',
   'landing.feature.capture.title': 'એક-ટેપ કેપ્ચર',
+  'landing.footer.copy': '© {{year}} {{appName}} . અસુમેળ, તેજસ્વી બનાવેલ.',
   'landing.hero.cardCaption': 'નમૂના કાર્યસ્થળ ઝાંખી — તેને મફતમાં અજમાવી જુઓ.',
   'landing.hero.primaryCta': 'મફતમાં રેકોર્ડિંગ શરૂ કરો',
   'landing.hero.proof.free': 'મફત કાયમી સ્તર',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'રેકોર્ડિંગ્સ શોધો',
   'library.searchPlaceholder': 'રેકોર્ડિંગ્સ શોધો…',
   'library.weeklyChange': '{{value}} ગયા અઠવાડિયાની સરખામણીમાં %',
+  'nav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'nav.record': 'રેકોર્ડ',
   'nav.shared': 'મારી સાથે શેર કરેલ',
   'nav.startRecording': 'રેકોર્ડિંગ શરૂ કરો',

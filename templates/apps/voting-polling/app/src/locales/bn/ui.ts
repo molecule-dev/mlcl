@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'analytics.col.quorum': 'কোরাম',
   'analytics.col.votes': 'ভোট',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'এখনো কোনো অমীমাংসিত প্রশ্ন নেই।',
   'audienceQa.onStageEyebrow': 'এখন মঞ্চে',
   'audienceQa.pollId': 'প্রশ্নোত্তর · {{id}}',
+  'audienceQa.promote': 'প্রচার করুন',
   'audienceQa.queued': 'সারিবদ্ধ',
   'audienceQa.queueEyebrow': 'সারি',
   'ballot.eyebrow': 'আপনার ভোট দিন',
@@ -76,7 +78,9 @@ export const ui: UiTranslations = {
   'billing.kpi.retentionUnlimited': 'সীমাহীন',
   'billing.plansEyebrow': 'একটি প্ল্যান বেছে নিন',
   'billing.plansHeading': 'ফ্রি, প্রো এবং টিম',
+  'billing.subheading': 'আপনি বর্তমানে {{plan}} প্ল্যানে আছেন।',
   'billing.switch': 'সুইচ',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'createPoll.addOption': 'বিকল্প যোগ করুন',
   'createPoll.anonymousHint':
     'অডিট লগে ভোটারদের নাম গোপন রাখা হয়েছে; কিন্তু গণনার সত্যতা যাচাই করা হয়েছে।',
@@ -158,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh-এ নতুন?',
   'login.remember': '৩০ দিনের জন্য আমাকে মনে রাখবেন',
   'login.subheading': 'আলোচনা শুরু করুন, কার্যক্রম পরিচালনা করুন এবং ফলাফল প্রত্যয়ন করুন।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'notFound.body':
     'আপনি যে পৃষ্ঠাটিতে যাওয়ার চেষ্টা করছিলেন সেটি বন্ধ বা স্থানান্তরিত করা হয়েছে। ড্যাশবোর্ডে ফিরে যান অথবা নতুন করে একটি পোল খুলুন।',
   'notFound.eyebrow': 'এই রুটে কোরাম নেই',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'বিজ্ঞপ্তি লোড হচ্ছে…',
   'notifications.subheading':
     'কোরাম আপডেট, ভোট কার্যক্রম, মঞ্চে প্রশ্নোত্তর পর্বের প্রচার এবং ইন্টিগ্রেশনের অবস্থা।',
+  'pollCard.questionsAndResponses': '{{questions}} প্রশ্নসমূহ · {{responses}} উত্তরসমূহ',
   'pollCard.quorum': 'কোরাম',
   'pollDetail.close': 'হাড্ডাহাড্ডি লড়াই',
   'pollDetail.closed': 'ভোটগ্রহণ শেষ — চূড়ান্ত গণনা সম্পন্ন হয়েছে।',
@@ -183,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'এই পোলটি লোড করা যায়নি।',
   'pollDetail.loading': 'পোল লোড হচ্ছে…',
   'pollDetail.notFound': 'জরিপটি খুঁজে পাওয়া যায়নি।',
+  'pollDetail.openBallot': 'উন্মুক্ত ব্যালট',
   'pollDetail.openLive': 'সরাসরি ফলাফল',
   'pollDetail.pollId': 'জরিপ · {{id}}',
   'pollDetail.published': 'জরিপ প্রকাশিত হয়েছে — ভোটাররা এখন ভোট দিতে পারবেন।',
@@ -264,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ইমেইলের মাধ্যমে অনুসন্ধান করুন…',
   'voters.subheading':
     'যোগ্য ভোটার তালিকা প্রস্তুত করুন। ওজনযুক্ত ব্যালটের জন্য ভোটারদের সংগঠন অনুযায়ী দলবদ্ধ করুন।',
+  'votingPollingLayout.nav.analytics': 'বিশ্লেষণ',
+  'votingPollingLayout.nav.billing': 'বিলিং',
+  'votingPollingLayout.nav.createPoll': 'নতুন জরিপ',
+  'votingPollingLayout.nav.dashboard': 'ড্যাশবোর্ড',
+  'votingPollingLayout.nav.notifications': 'বিজ্ঞপ্তি',
+  'votingPollingLayout.nav.settings': 'সেটিংস',
+  'votingPollingLayout.nav.team': 'দল',
+  'votingPollingLayout.nav.voters': 'ভোটাররা',
+  'votingPollingLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
 }

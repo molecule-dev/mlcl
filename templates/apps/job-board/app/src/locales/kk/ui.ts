@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Біз туралы',
   'applications.empty': 'Әзірге өтініш жоқ \\u2014 дұрыс рөл - бір өтініш беру жеткілікті.',
   'applications.eyebrow': 'Сіздің құбырыңыз',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Қозғалыста қолданылған әрбір рөл. Назар аудару үшін кезең бойынша сүзгіден өткізіңіз.',
   'applications.untitledRole': 'Рөл № {{id}}',
+  'auth.legalConsent': 'Жалғастыра отырып, сіз біздің келісесіз',
   'common.and': 'және',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'companies.empty': 'Іздеуіңізге сәйкес келетін компаниялар жоқ. Басқа терминді қолданып көріңіз.',
   'companies.eyebrow': 'Таңдаулы жұмыс берушілер',
   'companies.searchPlaceholder': 'Аты, саласы, орналасқан жері бойынша іздеу',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Бұл лауазымға әлі ешқандай өтініш түскен жоқ.',
   'jobApplicants.eyebrow': 'Жұмыс берушінің көзқарасы',
   'jobApplicants.loading': 'Жүктелуде…',
+  'jobApplicants.statusUpdateFailed': 'Бұл кезеңді жаңарту мүмкін болмады — қайталап көріңіз.',
+  'jobApplicants.subheading':
+    'Түйіндемелерді қарап шығыңыз, үміткерлерді алға тартыңыз, ұсыныстарды қозғалысқа келтіріңіз \\u2014 {{count}} .',
   'jobDetail.applicantCount': '{{count}} осы уақытқа дейін өтініш берушілер',
   'jobDetail.applied': 'Өтініш жіберілді',
   'jobDetail.apply': 'Қазір өтініш беріңіз',
@@ -83,12 +89,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Ашық рөлдерді шолу \\u2192',
   'landing.pricingEyebrow': 'Баға белгілеу',
   'landing.pricingHeading': 'Әрбір команда өлшеміне арналған қарапайым жоспарлар.',
+  'login.eyebrow': '{{app}} қайта қош келдіңіз',
   'login.heading': 'Тіркелгіңізге кіріңіз',
   'login.noAccount': 'Nosh-қа жаңадан келдіңіз бе?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Мені 30 күн бойы есте сақтаңыз',
   'login.signingIn': 'Жүйеге кіру\\u2026',
   'login.subheading': 'Іздеуді бастаңыз, өтінімдеріңізді жетілдіріңіз, жауап тезірек алыңыз.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Жұмысқа қабылдаушы командаларға арналған.',
   'loginBrandPanel.headline': 'Таланттар кездесетін жерде',
   'loginBrandPanel.headlineLine2': 'серпін.',
   'loginBrandPanel.listing.recruiter': 'Талант серіктесі',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
     'Өтініш жаңартулары, сұхбатқа шақырулар, жаңа сәйкестіктер \\u2014 ең жаңасы алдымен.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} осы аптада',
   'opportunitiesHero.eyebrow': 'Бүгін ашық',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'postJob.addNewCompany': '+ Жаңа компания қосу',
   'postJob.companyCreateFailed': 'Компания құру мүмкін болмады — қайталап көріңіз.',
   'postJob.companyNameLabel': 'Компанияңыздың атауы',
@@ -163,10 +172,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Тіркелгі жасалуда\\u2026',
   'signup.ctaEmployer': 'Жұмыс берушінің тіркелгісін жасау',
   'signup.firstNamePlaceholder': 'Майя',
+  'signup.lastNamePlaceholder': 'Чен',
   'signup.passwordMismatch': 'Құпия сөздер сәйкес келмейді.',
   'signup.subheading':
     'Іздеушілер үшін мәңгілікке тегін. Жұмыс берушілер 30 күндік сынақ мерзімінен бастайды.',
   'timeAgo.days': '{{count}} күн бұрын',
   'timeAgo.hours': '{{count}} сағат бұрын',
   'timeAgo.justNow': 'жаңа ғана',
+  'timeAgo.weeks': '{{count}} апта бұрын',
 }

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
   'about.pageTitle': 'О нама {{name}}',
   'auth.footer.about': 'О нама {{name}}',
   'authHeader.subtitle': 'Пријавите се да би ваши бројеви били тачни.',
   'automations.action.email': 'Е-пошта',
+  'automations.action.noop': 'Забрањено',
   'automations.action.webhook': 'Вебхук',
   'automations.confirmDelete': 'Обриши " {{name}} "?',
   'automations.empty.headline': 'Још нема аутоматизација',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Окидачи и радње у свакој радној свесци. Свако покретање евидентира ред који можете касније ревидирати.',
   'automations.toggle': 'Укључи/искључи {{name}}',
+  'automations.trigger.dailySchedule': 'Дневни распоред',
+  'automations.trigger.rowCreated': 'Ред је креиран',
+  'automations.trigger.rowUpdated': 'Ред је ажуриран',
   'billing.empty': 'Нема доступних планова.',
   'billing.error.priceMissing':
     'Није конфигурисана Stripe цена за овај ниво. Поставите STRIPE_*_PRICE_ID променљиве окружења.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Графикони',
   'charts.kpi.totalCharts': 'Укупно графикона',
   'charts.list.empty': 'Још нема графикона.',
+  'charts.namePlaceholder': 'Тренд прихода',
   'charts.newChart': 'Нови графикон',
   'charts.primary.eyebrow': 'Графикони по типу',
   'charts.primary.headline': 'Преглед радног простора',
   'charts.subhead':
     'Визуелизације уживо везане за вашу мрежу — поново се рендерују при свакој измени ћелије.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'editor.addColumn': 'Додај колону',
+  'editor.addDialogTitle': 'Додај колону',
   'editor.addRow': 'Додај ред',
   'editor.addSheet': 'Додај лист',
   'editor.back': 'Назад на радне свеске',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Калцит је први у формулама, вишеструким приказима, аналитичарима мрежа у реалном времену, а финансијски тимови посежу за првим.',
   'landing.nav.formulas': 'Формуле',
+  'login.noAccount': 'Нови сте на сајту {{name}} ?',
+  'login.signIn': 'Пријавите се на {{name}}',
   'login.signUp': 'Креирајте радни простор',
+  'nav.menu': 'Мени',
+  'nav.openMenu': 'Отвори мени',
   'notFound.cellRef': '#СУФ!',
   'notFound.formula': '=LOOKUP(REQUEST.url; „руте“; „страница“)',
   'notFound.headline': 'Овај ред никада није постојао.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Нативне аутоматизације · вебхукови и крон окидачи',
   'signup.creating': 'Опремање радног простора…',
   'signup.cta': 'Направи мој радни простор',
+  'signup.haveAccount': 'Већ сте на {{name}} ?',
   'signup.namePlaceholder': 'Ејвери Чен',
   'signup.tagline': 'Направите своју прву радну свеску за 30 секунди',
   'team.col.activity': 'Позван',

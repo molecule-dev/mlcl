@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'about.pageTitle': '{{name}}님 소개',
   'auth.footer.about': '{{name}}님 소개',
   'authHeader.subtitle': '숫자를 정직하게 유지하려면 로그인하세요.',
   'automations.action.email': '이메일',
+  'automations.action.noop': '무작업',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': '"{{name}}"을(를) 삭제하시겠습니까?',
   'automations.empty.headline': '아직 자동화가 없습니다',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     '모든 워크북에 걸친 트리거와 작업입니다. 각 실행은 나중에 감사할 수 있도록 행에 기록됩니다.',
   'automations.toggle': '{{name}} 전환',
+  'automations.trigger.dailySchedule': '일일 일정',
+  'automations.trigger.rowCreated': '행이 생성되었습니다',
+  'automations.trigger.rowUpdated': '행이 업데이트되었습니다',
   'billing.empty': '이용 가능한 요금제가 없습니다.',
   'billing.error.priceMissing':
     '이 등급에 대해 Stripe 가격이 구성되지 않았습니다. STRIPE_*_PRICE_ID 환경 변수를 설정하세요.',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': '차트',
   'charts.kpi.totalCharts': '전체 차트',
   'charts.list.empty': '아직 차트가 없습니다.',
+  'charts.namePlaceholder': '수익 추세',
   'charts.newChart': '새 차트',
   'charts.primary.eyebrow': '유형별 차트',
   'charts.primary.headline': '워크스페이스 개요',
   'charts.subhead': '그리드에 연결된 라이브 시각화 — 모든 셀 편집 시 다시 렌더링됩니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'editor.addColumn': '열 추가',
+  'editor.addDialogTitle': '열 추가',
   'editor.addRow': '행 추가',
   'editor.addSheet': '시트 추가',
   'editor.back': '워크북으로 돌아가기',
@@ -94,7 +102,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite는 분석가와 재무팀이 가장 먼저 찾는 수식 우선, 멀티뷰, 실시간 그리드입니다.',
   'landing.nav.formulas': '수식',
+  'login.noAccount': '{{name}} 에 처음 오셨나요?',
+  'login.signIn': '{{name}} 에 로그인하세요',
   'login.signUp': '워크스페이스 만들기',
+  'nav.menu': '메뉴',
+  'nav.openMenu': '메뉴 열기',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': '이 행은 존재한 적이 없습니다.',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': '네이티브 자동화 · 웹훅 및 cron 트리거',
   'signup.creating': '워크스페이스 프로비저닝 중…',
   'signup.cta': '워크스페이스 만들기',
+  'signup.haveAccount': '이미 {{name}} 에 가입하셨나요?',
   'signup.namePlaceholder': '홍길동',
   'signup.tagline': '30초 안에 첫 워크북을 시작하세요',
   'team.col.activity': '초대됨',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Poseu-vos en contacte',
+  'about.title': 'Sobre {{app}}',
   'authShell.backToLanding': "← Torna a l'aterratge",
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
+  'common.retry': 'Torna-ho a intentar',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Avui · Visió general de les operacions',
   'dashboard.heading': 'Intel·ligència documental',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'No hi ha cap document que coincideixi amb els filtres actuals.',
   'documents.heading': 'Tots els documents',
   'documents.loadError': "No s'han pogut carregar els documents.",
+  'documents.loading': 'S’està carregant la biblioteca…',
   'documents.searchLabel': 'Cercar documents',
   'documents.searchPlaceholder': 'Cerca documents…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Amaga la contrasenya',
   'login.showPassword': 'Mostra la contrasenya',
   'login.subtitle': 'Inicia la sessió per mantenir els teus documents en flux.',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'notFound.body':
     'El document o la ruta que has intentat obrir ja no hi és. Torna al tauler de control o tria una secció de la barra lateral.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Obre la pàgina de destinació',
   'notFound.title': 'Aquesta pàgina no està arxivada',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % respecte ahir',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Regles actives',
   'rules.empty': "Encara no hi ha regles d'arxiu. Feu servir Nova regla per afegir-ne una.",
   'rules.eyebrow': 'Automatització',
+  'rules.fieldsCount': '{{count}} camps',
   'rules.form.destination': 'Arxiva a',
   'rules.form.name': 'Nom de la regla',
   'rules.form.save': 'Desa la regla',

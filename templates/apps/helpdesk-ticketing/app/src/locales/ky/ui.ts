@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Байланышка чыгыңыз',
   'about.eyebrow': 'Жөнүндө',
+  'about.title': '{{app}} жөнүндө',
   'activeAgentsCard.agent1AvatarAlt':
     'Заманбап кеңседе жылмаюу менен жылмайган аял колдоо агентинин кесипкөй сүрөтү',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Ишкана',
   'demoTicket.thread.customer':
     'Кечээ сырсөзүмдү кайра койдум, эми эсеп-фактура порталына кире албай жатам. Жардам бере аласызбы?',
+  'floatingHelp.contactSupport': 'Колдоо кызматына кайрылыңыз',
   'forgotPassword.error':
     'Баштапкы абалга келтирүү электрондук каты жөнөтүлгөн жок. Кайра аракет кылып көрүңүз.',
   'forgotPassword.rememberPassword': 'Сырсөзүңүздү эстейсизби?',
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Кирүү — Zenith колдоо кызматы',
   'login.showPassword': 'Сырсөздү көрсөтүү',
   'login.welcomeSubheading': 'Колдоо көрсөтүүчү башкаруу панелиңизге кириңиз',
+  'mobileNav.closeMenu': 'Навигацияны жабуу',
+  'mobileNav.menu': 'Навигация',
+  'mobileNav.openMenu': 'Навигацияны ачуу',
   'nav.legal': 'Юридикалык',
   'nav.newTicket': 'Жаңы билет',
   'notifications.loadError': 'Эскертмелер жүктөлбөй койду. Бир аздан кийин кайра аракет кылыңыз.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Буйрук издөө',
   'operatorDock.newReport': 'Жаңы отчет',
   'operatorDock.systemOnline': 'Система онлайн',
+  'planUpdated.subtitle': 'Рахмат',
   'planUpdated.title': 'План жаңыртылды',
   'pricing.agents': 'агенттер',
   'pricing.automation': 'Автоматташтыруу эрежелери',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{аты}}',
   'ticketCustomerReply.avatarAlt': '{{аты}} аватары',
   'ticketDetail.errorTitle': 'Бир нерсе туура эмес кетти',
+  'ticketDetail.loadError': 'Билет жүктөлбөй калды.',
+  'ticketDetail.notFound': 'Билет табылган жок',
+  'ticketDetail.replyError': 'Жооп жөнөтүлбөй калды. Кайра аракет кылып көрүңүз.',
   'ticketDetail.retry': 'Кайра аракет кыл',
   'ticketDetail.statusUpdateError': 'Абал жаңыртылган жок. Кайра аракет кылыңыз.',
   'ticketDetailsCard.assigneeLabel': 'Тапшыруучу',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{убакыт}} сол',
   'ticketRow.title': 'Маалымат базасына туташуу өндүрүштө иштебей жатат {{node}}',
   'tickets.pageTitle': 'Билеттер — Зенит колдоо кызматы',
+  'ticketsFab.newTicket': 'Жаңы билет',
   'ticketsFilterBar.assigneeLabel': 'Тапшыруучу:',
   'ticketsFilterBar.clearFilters': 'Чыпкаларды тазалоо',
   'ticketsFilterBar.dateRangeDemoHint':

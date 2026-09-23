@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'article.notFound': 'სტატია ვერ მოიძებნა',
   'articleEditor.bodyPlaceholder': 'ბლოკებისთვის აკრიფეთ / ან უბრალოდ დაიწყეთ წერა.',
+  'articleEditor.loadFailed': 'სტატიის ჩატვირთვა ვერ მოხერხდა',
   'articleEditor.publishing': 'გამოქვეყნება\\u2026',
   'articleEditor.saveFailed': 'შენახვა ვერ მოხერხდა',
   'articleEditor.saving': 'შენახვა\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'სანიშნე',
   'articleView.bookmarkOn': 'სანიშნეებში დამატებულია',
   'articleView.edit': 'სტატიის რედაქტირება',
+  'articleView.loading': 'ამ სტატიის გახსნა…',
   'articleView.readTime': '{{minutes}} წთ. წაკითხვა',
   'articleView.spaces': 'სივრცეები',
   'articleView.tocHeading': 'ამ გვერდზე',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'თქვენი გუნდი კვლავ აგრძელებს ბოლოდროინდელი რედაქტირებების, წაკითხვებისა და მონახაზების ზრდას.',
   'cairnTrailHero.updated': 'სტატიები განახლდა',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'drafts.eyebrow': 'შენი დაუმთავრებელი ნამუშევარი',
   'drafts.heading': 'პროექტები',
+  'drafts.loadFailed': 'თქვენი მონახაზების ჩატვირთვა ვერ მოხერხდა.',
   'drafts.subtitle':
     'სტატიები, რომლებიც დაიწყეთ, მაგრამ ჯერ არ გამოქვეყნებულა. აიღეთ ერთი და განაგრძეთ.',
   'forgotPassword.sentBody':
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'ჯერ არ არის ადგილები. გახსენით ერთი სტატიების შეგროვების დასაწყებად.',
   'home.spacesHeading': 'თქვენი სივრცეები',
   'home.subtitle': 'ბოლო სტატიები, თქვენი სანიშნეები და რას წერდა გუნდი.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . შექმნილია Molecule-ით.',
   'landing.ctaBody':
     'უფასოა სოლო ავტორებისთვის. გუნდური გეგმები განაწილებული გუნდებისთვის, რომლებიც აგზავნიან საგამოცდო წიგნებს, გადაწყვეტილებებს და ადაპტაციას.',
   'landing.ctaHeading': 'პირველი ქვა დღესვე დადე.',
@@ -84,7 +91,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'სამუშაო სივრცის შექმნა',
   'login.submitting': 'შესვლა\\u2026',
   'login.subtitle': 'გააგრძელეთ ბილიკი იქ, სადაც დატოვეთ.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
+  'newSpace.colorAria': 'აირჩიეთ ფერი {{color}}',
   'newSpace.colorLabel': 'აქცენტის ფერი',
+  'newSpace.createFailed': 'სივრცის შექმნა ვერ მოხერხდა',
   'newSpace.descriptionPlaceholder':
     'საკონტროლო წიგნები, მორიგეობის სახელმძღვანელოები, სიკვდილის შემდგომი გამოკვლევები\\u2026',
   'newSpace.eyebrow': 'გახსენით ცოდნის სივრცე',
@@ -108,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'იტვირთება\\u2026',
   'notifications.subtitle':
     '{{count}} წაუკითხავი და ხსენებები, კომენტარები, გვერდის ცვლილებები და განხილვის მოთხოვნები.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.articles': 'სტატიები',
   'pricing.spaces': 'სივრცეები',
   'profile.eyebrow': 'ავტორობის პროფილი',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'შეიყვანეთ ახალი პაროლი',
   'resetPassword.subtitle': 'აირჩიეთ ძლიერი პაროლი - მინიმუმ 12 სიმბოლო.',
   'searchResults.eyebrow': 'სამუშაო სივრცის ძიება',
+  'searchResults.filter.all': 'ყველა სივრცე',
   'searchResults.heading': 'სტატიების ძიება',
   'searchResults.placeholder':
     'ძიება runbooks-ში, RFC-ებში, პოლიტიკასა და გადაწყვეტილებებში\\u2026',
@@ -135,14 +148,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'ეს წაშლის თქვენს ანგარიშს და თქვენს მიერ დაწერილ ყველა სტატიას. დასადასტურებლად აკრიფეთ DELETE.',
   'settings.danger.confirmInvalid': 'დასადასტურებლად აკრიფეთ DELETE.',
+  'settings.danger.deleteFailed': 'ანგარიშის წაშლა ვერ მოხერხდა',
   'settings.danger.deleting': 'წაშლა\\u2026',
   'settings.danger.description':
     'სამუშაო სივრცის წაშლით წაიშლება ყველა სტატია, კომენტარი და ვერსიის ისტორია. აღდგენა შეუძლებელია.',
   'settings.danger.title': 'სამუშაო სივრცის წაშლა',
+  'settings.email.confirm': 'ელფოსტის განახლება',
+  'settings.email.confirmTitle': 'დაადასტურეთ ელფოსტის ცვლილება',
   'settings.email.saved': 'ელფოსტა განახლდა.',
+  'settings.email.updateFailed': 'ელფოსტის განახლება ვერ მოხერხდა',
   'settings.language.title': 'ენა',
   'settings.name': 'სახელი',
+  'settings.name.saved': 'სახელი განახლებულია.',
+  'settings.name.updateFailed': 'სახელის განახლება ვერ მოხერხდა',
   'settings.notifications.description': 'აირჩიეთ, რა მოგივათ შემოსულებში.',
+  'settings.password.changeFailed': 'პაროლის შეცვლა ვერ მოხერხდა',
   'settings.password.current': 'მიმდინარე პაროლი',
   'settings.password.new': 'ახალი პაროლი',
   'settings.password.saving': 'განახლება\\u2026',
@@ -150,10 +170,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'როგორ ხდება სტატიების რენდერირება თქვენთვის.',
   'settings.reading.title': 'კითხვა და წერა',
   'settings.subtitle': 'შეტყობინებების, კითხვის ტილოსა და თქვენი ანგარიშის მორგება.',
+  'settings.twofa.code': 'ავტორიზაციის კოდი',
   'settings.twofa.disable': 'გამორთვა',
   'settings.twofa.disabled': 'შეზღუდული შესაძლებლობის მქონე',
   'settings.twofa.enable': 'ჩართვა',
   'settings.twofa.enabled': 'ჩართულია',
+  'settings.twofa.invalidCode': 'არასწორი კოდი',
+  'settings.twofa.unavailable': 'ორფაქტორიანი ავთენტიფიკაცია ამ აპლიკაციისთვის მიუწვდომელია.',
+  'settings.twofa.verify': 'დადასტურება და ჩართვა',
   'signup.brandQuote':
     '\\u201cმისი ჩაწერა პირველი დაპირებაა, რომელსაც შემდეგ ადამიანს ვდებთ, ვისაც ეს დასჭირდება.\\u201d',
   'signup.eyebrow': 'სამუშაო სივრცის გახსნა',

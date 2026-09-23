@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Kino-load ang mga kurso…',
   'browse.next': 'Susunod na pahina',
   'browse.results': 'Ipinapakita {{count}} mga kurso',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'Ayusin ayon sa',
   'browse.subtitle':
     'Salain ang archive ng editoryal ayon sa paksa, antas, at presyo. Ang bawat kurso ay manu-manong pinangangasiwaan ng aming mga editor.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Lagda na at handa na ang iyong sertipiko. Ibahagi ito sa mundo o itago ito bilang paalala ng paghihirap na kinailangan para kumita.',
   'certificate.copyLink': 'Kopyahin ang link ng pagbabahagi',
+  'certificate.copyPrompt': 'Kopyahin ang link na ito:',
   'certificate.download': 'I-download ang PDF',
   'certificate.eyebrow': 'Na-unlock ang tagumpay',
   'certificate.linkCopied': 'Nakopya na ang link!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Naka-enroll ka na!',
   'checkout.verifying': 'Bine-verify ang iyong pagpapatala…',
   'checkout.viewLibrary': 'Tingnan ang Aking Natutunan',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'courseDetail.about': 'Tungkol sa kursong ito',
   'courseDetail.checkoutPending': 'Sinisimulan ang checkout…',
   'courseDetail.continueLearning': 'Magpatuloy sa pag-aaral',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-araw na garantiyang ibabalik ang pera',
   'courseDetail.includes.video': '{{hours}} mga oras ng on-demand na video',
   'courseDetail.instructor': 'Instruktor',
+  'courseDetail.languageEnglish': 'Ingles',
   'courseDetail.lectures': 'Mga Lektura',
   'courseDetail.level': 'Antas',
   'courseDetail.loading': 'Kino-load ang kurso…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Wala pang mga review.',
   'instructorProfile.students': 'mga Mag-aaral',
   'landing.categories.empty': 'Lalabas ang mga kategorya kapag napuno na ang katalogo.',
+  'landing.categories.heading': 'Galugarin ang archive',
   'landing.hero.eyebrow': 'Lektura · Arkibong editoryal ng kahusayan',
   'landing.hero.proof': 'Pinagkakatiwalaan ng mga mag-aaral sa Google, Meta, at Adobe.',
   'landing.hero.subtitle':
@@ -157,6 +163,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Simulan ang pag-aaral ngayon',
   'login.subheading': 'I-access ang iyong akademikong archive.',
   'myLearning.empty.title': 'Wala pang mga kursong tumutugma sa filter na ito',
+  'myLearning.error.title': 'Hindi ma-load ang iyong library',
   'myLearning.filter.notStarted': 'Hindi pa nagsisimula',
   'myLearning.hero.subtitle': '{{count}} mga kurso sa inyong aklatan. Panatilihin ang momentum.',
   'myLearning.hero.title': 'Ipagpatuloy kung saan ka tumigil.',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Walang bagong aktibidad na susuriin. May mga bagong kaganapan na lilitaw dito.',
   'notifications.empty.title': 'Wala kang napalampas',
+  'notifications.error.title': 'Hindi ma-load ang aktibidad',
   'privacy.title': 'Patakaran sa privacy',
   'reset.confirmPlaceholder': 'Muling ilagay ang inyong bagong password',
   'reset.errorGeneric': 'Hindi ma-reset ang password. Humingi ng bagong link.',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}a nakalipas',
   'timeAgo.hours': '{{count}}o nakalipas',
   'timeAgo.minutes': '{{count}} min nakalipas',
+  'timeAgo.months': '{{count}} buwan na ang nakalipas',
   'timeAgo.today': 'ngayon',
+  'timeAgo.weeks': '{{count}} linggo na ang nakalipas',
 }

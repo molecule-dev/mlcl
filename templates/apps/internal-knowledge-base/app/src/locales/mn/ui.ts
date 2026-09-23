@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'article.notFound': 'Нийтлэл олдсонгүй',
   'articleEditor.bodyPlaceholder':
     'Блокуудын хувьд / гэж бичнэ үү, эсвэл зүгээр л бичиж эхэлнэ үү.',
+  'articleEditor.loadFailed': 'Өгүүллийг ачаалж чадсангүй',
   'articleEditor.publishing': 'Хэвлэлийн\\u2026',
   'articleEditor.saveFailed': 'Хадгалах амжилтгүй',
   'articleEditor.saving': 'Хадгалж байна\\u2026',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Хавчуурга',
   'articleView.bookmarkOn': 'Хавчуургатай',
   'articleView.edit': 'Нийтлэлийг засах',
+  'articleView.loading': 'Энэ нийтлэлийг нээж байна...',
   'articleView.readTime': '{{minutes}} хамгийн бага уншлага',
   'articleView.spaces': 'Орон зай',
   'articleView.tocHeading': 'Энэ хуудсан дээр',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Танай багийн сүүлийн үеийн засвар, уншлага, ноорог бүтээлүүд одоо ч гэсэн анхаарал татаж байна.',
   'cairnTrailHero.updated': 'Нийтлэлүүд шинэчлэгдсэн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'drafts.eyebrow': 'Таны дуусаагүй ажил',
   'drafts.heading': 'Ноорог',
+  'drafts.loadFailed': 'Таны ноорогуудыг ачаалж чадсангүй.',
   'drafts.subtitle':
     'Таны эхлүүлсэн боловч хараахан нийтлээгүй нийтлэлүүд. Нэгийг нь сонгоод үргэлжлүүлээрэй.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Зай алга байна. Нийтлэл цуглуулж эхлэхийн тулд нэгийг нээнэ үү.',
   'home.spacesHeading': 'Таны орон зай',
   'home.subtitle': 'Сүүлийн үеийн нийтлэлүүд, таны хавчуурга болон багийн бичиж буй зүйлс.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Молекулаар бүтээгдсэн.',
   'landing.ctaBody':
     'Ганцаараа зохиогчдод үнэгүй. Ажлын ном, шийдвэр, дасан зохицох хөтөлбөрийг илгээдэг тархсан багуудад зориулсан багийн төлөвлөгөө.',
   'landing.ctaHeading': 'Өнөөдөр эхний чулууг овоол.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Ажлын талбар үүсгэх',
   'login.submitting': 'Нэвтэрч байна\\u2026',
   'login.subtitle': 'Замаа орхисон газраасаа өг.',
+  'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
+  'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
+  'newSpace.colorAria': 'Өнгийг сонгоно уу {{color}}',
   'newSpace.colorLabel': 'Өргөлтийн өнгө',
+  'newSpace.createFailed': 'Орон зай үүсгэж чадсангүй',
   'newSpace.descriptionPlaceholder':
     'Ажиллагааны дэвтэр, дуудлагын тоглоомын дэвтэр, нас баралтын дараах дэвтэр\\u2026',
   'newSpace.eyebrow': 'Мэдлэгийн орон зайг нээх',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ачааллаж байна…',
   'notifications.subtitle':
     '{{count}} уншаагүй \\u2014 дурдалт, сэтгэгдэл, хуудасны өөрчлөлт болон хянах хүсэлтүүд.',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.articles': 'нийтлэлүүд',
   'pricing.spaces': 'орон зай',
   'profile.eyebrow': 'Зохиогчийн профайл',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Шинэ нууц үг оруулна уу',
   'resetPassword.subtitle': 'Хүчтэй нууц үг сонгоно уу - дор хаяж 12 тэмдэгт.',
   'searchResults.eyebrow': 'Ажлын талбарын хайлт',
+  'searchResults.filter.all': 'Бүх орон зай',
   'searchResults.heading': 'Нийтлэл хайх',
   'searchResults.placeholder': 'Хайлтын дэвтэр, RFC, бодлого, шийдвэрүүд\\u2026',
   'searchResults.summary': '{{count}} үр дүн {{query}} \\u201d',
@@ -134,14 +147,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Энэ нь таны бүртгэл болон таны бичсэн бүх нийтлэлийг устгана. Баталгаажуулахын тулд DELETE гэж бичнэ үү.',
   'settings.danger.confirmInvalid': 'Баталгаажуулахын тулд DELETE гэж бичнэ үү.',
+  'settings.danger.deleteFailed': 'Бүртгэлийг устгаж чадсангүй',
   'settings.danger.deleting': 'Устгаж байна\\u2026',
   'settings.danger.description':
     'Ажлын талбараа устгаснаар бүх нийтлэл, сэтгэгдэл болон хувилбарын түүх устана. Сэргээлт байхгүй.',
   'settings.danger.title': 'Ажлын талбарыг устгах',
+  'settings.email.confirm': 'И-мэйл шинэчлэх',
+  'settings.email.confirmTitle': 'И-мэйл өөрчлөлтийг баталгаажуулах',
   'settings.email.saved': 'Имэйл шинэчлэгдсэн.',
+  'settings.email.updateFailed': 'Имэйлийг шинэчилж чадсангүй',
   'settings.language.title': 'Хэл',
   'settings.name': 'Нэр',
+  'settings.name.saved': 'Нэрийг шинэчилсэн.',
+  'settings.name.updateFailed': 'Нэрийг шинэчилж чадсангүй',
   'settings.notifications.description': 'Таны имэйл хайрцагт юу хүрэхийг сонгоно уу.',
+  'settings.password.changeFailed': 'Нууц үгийг өөрчилж чадсангүй',
   'settings.password.current': 'Одоогийн нууц үг',
   'settings.password.new': 'Шинэ нууц үг',
   'settings.password.saving': 'Шинэчилж байна…',
@@ -149,10 +169,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Нийтлэлүүд танд хэрхэн харагдах вэ.',
   'settings.reading.title': 'Унших ба бичих',
   'settings.subtitle': 'Мэдэгдэл, унших материал болон бүртгэлээ тохируулна уу.',
+  'settings.twofa.code': 'Баталгаажуулах код',
   'settings.twofa.disable': 'Идэвхгүй болгох',
   'settings.twofa.disabled': 'Хөгжлийн бэрхшээлтэй',
   'settings.twofa.enable': 'Идэвхжүүлэх',
   'settings.twofa.enabled': 'Идэвхжүүлсэн',
+  'settings.twofa.invalidCode': 'Буруу код',
+  'settings.twofa.unavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
+  'settings.twofa.verify': 'Баталгаажуулах ба идэвхжүүлэх',
   'signup.brandQuote':
     '\\u201cҮүнийг бичиж авах нь бидний дараагийн хэрэгтэй хүнд өгөх анхны амлалт юм.\\u201d',
   'signup.eyebrow': 'Ажлын талбар нээх',

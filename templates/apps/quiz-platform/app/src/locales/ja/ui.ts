@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
+  'about.title': '{{app}}について',
   'auth.login.noAccount': 'Sparq は初めてですか?',
   'auth.login.or': 'または次で続行',
   'auth.signup.or': 'または次で登録',
+  'common.confirm': '確認',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.loadError': 'コンテンツの読み込み中に問題が発生しました。',
+  'common.retry': '再試行',
   'discover.collections.title': 'カテゴリで探す',
   'discover.collections.viewAll': 'ライブラリを見る →',
   'discover.empty.body': '別のカテゴリを試すか、検索をクリアしてください。',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'サインインしてストリークを維持し、ライブゲームをホストして、リーダーボードを駆け上がりましょう。',
   'myQuizzes.createButton': '新規クイズ',
+  'myQuizzes.deleteConfirm': '完全に削除しますか？',
   'myQuizzes.empty.createCta': '最初のクイズを作成 →',
   'myQuizzes.empty.created': 'まだクイズを作成していません。',
   'myQuizzes.empty.played': '公開されたクイズはまだありません。',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': '読み込み中…',
   'notifications.subhead':
     '{{count}} 件の未読のひらめき。招待、リーダーボードの動き、達成を 1 つのストリームで。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.checkoutError': 'チェックアウトを開始できませんでした。もう一度お試しください。',
+  'pricing.heading': '{{app}}プランを選択',
   'pricing.included': '含まれる',
   'pricing.loadError': 'プランを読み込めませんでした。',
   'pricing.maxQuizzes': '{{count}} クイズ',
@@ -99,11 +108,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'まだ何も公開されていません。',
   'profile.startBuilding': '作成を始める →',
   'profile.tier': 'Sparq プレイヤー',
+  'quizBuilder.addFailed': '質問を追加できませんでした。もう一度お試しください。',
   'quizBuilder.addQuestion': '問題を追加',
   'quizBuilder.answerPlaceholder': '選択肢を入力…',
   'quizBuilder.answersLabel': '選択肢',
   'quizBuilder.back': 'マイクイズに戻る',
   'quizBuilder.delete': '問題を削除',
+  'quizBuilder.deleteFailed': '質問を削除できませんでした。',
   'quizBuilder.firstQuestion': '最初の問題を追加して始めましょう。',
   'quizBuilder.idLabel': 'クイズ ID: {{id}}',
   'quizBuilder.loadError': 'クイズを読み込めませんでした。',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     '公開する前に、{{count}} 問に対して選択肢を 2 つ以上追加し、正解を選択してください。',
   'quizBuilder.questionsTitle': '問題',
+  'quizBuilder.saveFailed': 'タイトルを保存できませんでした。もう一度お試しください。',
   'quizBuilder.statusDraft': '下書き',
   'quizBuilder.subhead':
     'タイトルを編集し、問題を追加し、選択肢と正解を設定します。変更は自動的に保存されます。',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '約 {{minutes}} 分',
   'quizDetail.hostMultiplayer': 'マルチプレイをホスト',
   'quizDetail.leaderboardEmpty': 'まだプレイがありません。最初のスコアを記録しましょう。',
+  'quizDetail.loadError': 'このクイズを読み込めませんでした。',
   'quizDetail.loading': 'クイズを読み込み中…',
   'quizDetail.plays': '{{count}} 回プレイ',
   'quizDetail.playSolo': 'ひとりでプレイ',

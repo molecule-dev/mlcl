@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
   'actions.empty': 'Nuk përputhet asnjë artikull veprimi.',
   'actions.heading': 'Artikuj veprimi',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Muaji i kaluar',
   'calendar.recent': 'Kohët e fundit',
   'common.daysAgo': '{{count}} ditë më parë',
+  'common.goToDashboard': 'Shko te paneli',
   'common.hoursAgo': '{{count}} orë më parë',
   'common.no': '—',
+  'common.retry': 'Riprovo',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} artikuj veprimi',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Kontrolloni kutinë tuaj postare për lidhjen e rivendosjes.',
   'forgot.subheading': 'Shkruani emailin tuaj dhe ne do t’ju dërgojmë një lidhje rivendosjeje.',
   'integrations.disconnected': 'I Shkëputur',
+  'integrations.loadError': 'Ngarkimi i integrimeve dështoi.',
   'integrations.notConnectedTag': 'I palidhur',
   'integrations.subheading':
     'Lidh kalendarët dhe platformat e videove në mënyrë që Murmur të bashkohet automatikisht.',
+  'integrations.updateError': 'Përditësimi dështoi.',
   'landing.ctaButton': 'Filloni — është falas',
   'landing.ctaHeading': 'Ndalo së mbajturi shënime. Fillo të marrësh vendime.',
   'landing.demo.aiLabel': 'Përmbledhje e IA-së, hartuar drejtpërdrejt',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Ndjekjet',
   'meetingDetail.loadError': 'Ngarkimi i takimit dështoi.',
   'meetingDetail.noActions': 'Nuk u zbuluan artikuj veprimi.',
+  'meetingDetail.none': 'Asnjë.',
   'meetingDetail.notFound': 'Takimi nuk u gjet.',
+  'meetingDetail.speakerFallback': 'Folësi {{id}}',
   'meetingDetail.summaryHeading': 'Përmbledhje e IA-së',
   'meetingDetail.transcriptHeading': 'Transkripti',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Takime',
   'meetings.loadError': 'Ngarkimi i takimeve dështoi.',
   'meetings.subheading': 'Çdo takim i regjistruar, i ngarkuar dhe i sinkronizuar.',
+  'murmurLayout.openMenu': 'Hap menynë e navigimit',
   'murmurLayout.primaryNavLabel': 'Navigimi kryesor',
   'nav.legal': 'Ligjore',
   'notifications.loadError': 'Ngarkimi i njoftimeve dështoi.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Si dukesh brenda Murmur-it.',
   'record.error.empty': 'Nuk u regjistrua asnjë audio.',
   'record.error.permission': 'Leja e mikrofonit u refuzua.',
+  'record.error.recorder': 'Gabim i regjistruesit',
   'record.error.unsupported':
     'Shfletuesi juaj nuk e mbështet regjistrimin. Provoni Chrome, Edge ose Safari.',
   'record.error.upload': 'Ngarkimi dështoi. Provo përsëri.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Fjalëkalim i ri',
   'reset.subheading': 'Zgjidhni një fjalëkalim që nuk e përdorni askund tjetër.',
   'search.empty': 'Shkruaj për të kërkuar transkripte.',
+  'search.loadError': 'Kërkimi dështoi. Provo përsëri.',
   'search.noResults': 'Nuk ka rezultate për " {{q}} ".',
   'settings.appearance.description': 'Kaloni midis modalitetit të ndriçuar dhe të errët.',
   'settings.appearance.title': 'Pamja',
@@ -124,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Dështoi në ngarkimin e cilësimeve.',
   'settings.loading': 'Duke u ngarkuar…',
   'settings.push.heading': 'Njoftime të shpejta',
+  'settings.push.subheading': 'Merr njoftime në shfletues për përmendje, veprime dhe përmbledhje.',
   'settings.retention.audio': 'Mbaj audion për',
   'settings.retention.heading': 'Mbajtja',
   'settings.retention.transcript': 'Mbaj transkriptet për',
@@ -141,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Filloni të regjistroni shënimet e takimit brenda pak minutash',
   'signup.terms':
     'Duke krijuar një llogari, ju pranoni Kushtet tona të Shërbimit dhe Politikën e Privatësisë.',
+  'signup.termsPrefix': 'Duke krijuar një llogari, ju pranoni tonën',
   'team.inviteCta': 'Fto shokun e ekipit',
   'team.invitedAs': 'I ftuar si {{role}}',
   'team.inviteFailed': 'Nuk mundi të dërgonte ftesën.',

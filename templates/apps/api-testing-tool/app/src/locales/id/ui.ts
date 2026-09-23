@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.pageTitle': 'Tentang {{app}}',
   'authShell.statusLabel': 'runner daring',
   'collections.createError': 'Tidak dapat membuat koleksi.',
   'collections.defaultName': 'Koleksi tanpa judul {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Koleksi baru',
   'collections.subheading':
     'Kelompokkan permintaan, bagikan kepada tim Anda, dan jalankan sebagai satu suite.',
+  'common.goToDashboard': 'Ke Dashboard',
   'environmentCard.inactive': 'Tidak aktif',
   'environmentCard.more': 'lainnya',
   'environmentCard.variables': 'Variabel',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Unduh gratis',
   'landing.heroSubtitle':
     'Platform pengujian API super cepat yang dirancang untuk para insinyur yang bekerja di depan terminal.',
+  'landing.heroTitleAccent': 'Api',
+  'landing.heroTitleLine2': 'menumbuhkan kepercayaan diri.',
+  'landing.heroTitleRest': 'permintaan,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Harga sederhana dan dapat diprediksi',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Baru di sini?',
   'login.showPassword': 'Tampilkan kata sandi',
   'login.subtitle': 'Lanjutkan ke workspace Pylon Anda.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'mocks.createError': 'Tidak dapat membuat mock.',
   'mocks.defaultName': 'Mock tanpa judul {{n}}',
   'mocks.deleteError': 'Tidak dapat menghapus mock.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Kembali ke workspace',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Rute tidak ditemukan',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'privacy.collect.account':
     'Akun: email Anda, kata sandi yang di-hash, nama tampilan, dan waktu masuk terakhir Anda.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Tampilan hanya-baca dari data yang saat ini dimiliki akun ini.',
   'settings.unset': 'tidak ditetapkan',
   'signup.identityHint': 'mis. Alex',
+  'signup.statusLabel': 'paket gratis · tanpa kartu kredit',
   'signup.subtitle': 'Mulai mengirim permintaan dalam hitungan menit.',
   'terms.account.body':
     'Anda bertanggung jawab atas keamanan kata sandi Anda. Membagikan satu akun untuk banyak orang tidak diizinkan pada paket Free atau Pro — silakan beli langganan Team untuk workspace bersama.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'Silakan tidak menggunakan Pylon untuk mengirim permintaan ke layanan yang tidak Anda miliki atau tidak memiliki izin eksplisit untuk diuji. Silakan tidak menggunakan Pylon untuk melewati batas rate atau melakukan penipuan.',
   'terms.warranty.body':
     'Pylon disediakan "sebagaimana adanya" tanpa jaminan apa pun. Kami menargetkan uptime 99,9% tetapi tidak menjaminnya pada paket Free atau Pro.',
+  'testRunner.assertionsCount': '{{count}} pernyataan',
   'testRunner.createError': 'Tidak dapat membuat tes.',
   'testRunner.cron':
     'Asersi dievaluasi terhadap eksekusi terbaru dari permintaan yang ditautkan ke tes ini.',
@@ -169,11 +180,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Hasil suite, perbedaan asersi, dan 50 eksekusi terakhir.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Masuk sebagai',
+  'workspace.auth.keyName': 'Nama header',
+  'workspace.auth.keyValue': 'Nilai kunci',
+  'workspace.auth.password': 'Kata sandi',
+  'workspace.auth.username': 'Nama pengguna',
+  'workspace.authOption.apikey': 'Kunci API',
+  'workspace.authOption.basic': 'Otentikasi Dasar',
+  'workspace.authOption.bearer': 'Token Tanpa Pemegang',
+  'workspace.authOption.none': 'Tidak ada',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipe',
   'workspace.authTypeLabel': 'Tipe autentikasi',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Tidak ada',
+  'workspace.body.text': 'Teks mentah',
+  'workspace.body.type': 'Tipe',
   'workspace.environment': 'Tidak ada environment',
   'workspace.envVar': 'variabel env',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Tambahkan header',
+  'workspace.kv.addParam': 'Tambahkan parameter',
+  'workspace.kv.headerKey': 'Nama header',
+  'workspace.kv.headerValue': 'Nilai header',
+  'workspace.kv.key': 'Kunci',
+  'workspace.kv.paramKey': 'Kunci parameter kueri',
+  'workspace.kv.paramValue': 'Nilai parameter kueri',
+  'workspace.kv.removeRow': 'Hapus baris',
+  'workspace.kv.value': 'Nilai',
   'workspace.methodLabel': 'Metode HTTP',
   'workspace.metric.latency': 'Latensi',
   'workspace.metric.latencyCaption': 'Waktu pulang-pergi dari eksekusi ini',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Permintaan terkirim — silakan lihat respons di bawah.',
   'workspace.subheading':
     'Susun permintaan, luncurkan, lalu verifikasi respons — semuanya dalam satu panel.',
+  'workspace.testResults': 'Hasil tes',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Dikirim sebagai Authorization: Bearer <token> pada setiap permintaan dalam koleksi ini.',

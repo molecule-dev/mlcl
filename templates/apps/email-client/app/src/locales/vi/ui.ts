@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Chúng tôi là một đội ngũ phân tán gồm các nhà thiết kế và kỹ sư từng dành quá nhiều giờ mỗi ngày trong một hộp thư ồn ào. Courier là hộp thư mà chính chúng tôi muốn sử dụng.',
   'about.title': 'Email cho công việc tập trung',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'help.cta.about': 'Về Courier',
   'help.cta.pricing': 'Xem giá',
   'help.eyebrow': 'Trung tâm trợ giúp',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Câu trả lời nhanh cho các câu hỏi chúng tôi nghe nhiều nhất. Còn thiếu gì? Mở Cài đặt và sử dụng biểu mẫu phản hồi trong ứng dụng, hoặc viết thư đến support@courier.example.',
   'help.title': 'Chúng tôi có thể giúp gì cho quý vị?',
   'landing.brand.scrollTop': 'Quay về đầu trang',
+  'landing.copyright': '© {{year}} {{appName}} — Được thiết kế để tập trung.',
   'landing.ctaBody': 'Tham gia cùng hàng nghìn chuyên gia đã hoàn thành hộp thư trước bữa trưa.',
   'landing.ctaTitle': 'Xử lý nhiều hơn, phản ứng ít hơn.',
   'landing.eyebrow': 'Email cho công việc tập trung',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Xem demo',
   'landing.heroSubtitle':
     'Courier là một hộp thư ba khung điềm tĩnh được xây dựng cho những người làm công việc tri thức muốn xử lý thông tin, không phản ứng với nó.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Được tin dùng bởi các đội ngũ tập trung trên toàn thế giới',
   'landing.signIn': 'Đăng nhập',
   'meridian.archive.empty': 'Lưu trữ trống.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Đến',
   'meridian.drafts.watermark': 'Bản nháp',
   'meridian.folder.count': '{{count}} tin nhắn',
+  'meridian.folder.delete': 'Xóa',
   'meridian.folder.deleteForever': 'Xóa vĩnh viễn',
   'meridian.folder.restore': 'Chuyển vào hộp thư đến',
   'meridian.forgot.subtitle':
@@ -84,7 +88,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Chưa có tin nhắn nào ở đây.',
   'meridian.inbox.loading': 'Đang tải…',
   'meridian.inbox.next': 'Tiếp theo',
+  'meridian.inbox.noSender': '(không có người gửi)',
   'meridian.inbox.noSubject': '(không có tiêu đề)',
+  'meridian.inbox.ofTotal': '{{current}} của {{total}}',
   'meridian.inbox.openCompose': 'Mở soạn thảo',
   'meridian.inbox.previous': 'Trước đó',
   'meridian.inbox.replyFailed': 'Đã lưu trả lời nhưng giao hàng thất bại: {{error}}',
@@ -97,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Quý vị chưa có tài khoản?',
   'meridian.login.showPassword': 'Hiện mật khẩu',
   'meridian.message.toLine': 'gửi {{recipients}}',
+  'meridian.notFound.body':
+    'Trang bạn đang tìm kiếm không thể được tìm thấy. Quay lại hộp thư đến {{appName}} của bạn và chúng tôi sẽ giúp bạn tiếp tục.',
   'meridian.notFound.eyebrow': 'Lỗi 404',
   'meridian.notFound.title': 'Luồng này đã được lưu trữ.',
   'meridian.notFound.toInbox': 'Mở hộp thư của tôi',
@@ -132,18 +140,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Thêm sao',
   'meridian.thread.unstar': 'Bỏ sao',
   'meridian.time.yesterday': 'Hôm qua',
+  'meridian.topBar.openMenu': 'Mở menu điều hướng',
   'meridian.topBar.searchPlaceholder': 'Tìm kiếm thư',
   'meridian.trash.empty': 'Thùng rác trống.',
   'meridian.trash.title': 'Thùng rác',
   'nav.legal': 'Pháp lý',
   'planUpdated.description':
     'Đăng ký của quý vị hiện đang hoạt động và thanh toán đã được cập nhật. Chào mừng đến với hộp thư Courier mới của quý vị.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.heading': 'bản nháp',
   'pricing.limit.emails': 'email',
   'pricing.limit.folders': 'thư mục',
   'pricing.limit.labels': 'nhãn',
   'privacy.collect.account':
     'Dữ liệu tài khoản: tên, địa chỉ email, mật khẩu được hash và ngày quý vị đăng ký.',
+  'privacy.contact': 'Có thắc mắc gì? Vui lòng gửi email đến privacy@courier.example.',
   'privacy.intro':
     'Chính sách bảo mật này giải thích Courier thu thập dữ liệu gì, tại sao chúng tôi thu thập, cách chúng tôi giữ nó an toàn và quý vị có những lựa chọn nào đối với nó. Chúng tôi nhắm đến sự cụ thể thay vì pháp lý; nếu có điều gì không rõ, hãy viết thư đến privacy@courier.example.',
   'privacy.lastUpdated': 'Cập nhật lần cuối: ngày 1 tháng 4 năm 2026',
@@ -163,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Các điều khoản này quy định việc quý vị sử dụng Courier. Bằng cách tạo tài khoản hoặc gửi email qua chúng tôi, quý vị đồng ý bị ràng buộc bởi chúng. Chúng tôi cố gắng viết các quy tắc mà một người thực sự có thể tuân theo.',
   'terms.lastUpdated': 'Có hiệu lực: ngày 1 tháng 4 năm 2026',
+  'terms.linkPrivacy': 'Đọc Chính sách Bảo mật của chúng tôi →',
   'terms.termination.body':
     'Quý vị có thể xóa tài khoản bất cứ lúc nào. Chúng tôi có thể tạm dừng tài khoản vi phạm các điều khoản này; nếu chúng tôi làm vậy, chúng tôi sẽ giải thích lý do và cho quý vị xuất dữ liệu trước.',
   'terms.warranty.body':

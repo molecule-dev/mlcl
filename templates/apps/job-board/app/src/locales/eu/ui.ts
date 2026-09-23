@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
   'applications.empty':
     'Oraindik ez dago eskaerarik \\u2014 lanpostu egokia eskaera bakarraren faltan dago.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Eskatu dituzun rol guztiak, mugimenduan. Iragazi etaparen arabera arreta jartzeko.',
   'applications.untitledRole': 'Rol # {{id}}',
+  'auth.legalConsent': 'Jarraituz gero, onartzen dituzu gure',
   'common.and': 'eta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'companies.empty':
     'Ez dago zure bilaketarekin bat datorren enpresarik \\u2014 saiatu beste termino batekin.',
   'companies.eyebrow': 'Enplegatzaile nabarmenak',
@@ -53,6 +56,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Oraindik ez dago eskaerarik rol honetarako.',
   'jobApplicants.eyebrow': 'Enpresaburuaren ikuspegia',
   'jobApplicants.loading': 'Kargatzen\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Ezin izan da etapa hori eguneratu — saiatu berriro.',
+  'jobApplicants.subheading':
+    'Berrikusi curriculumak, aurkeztu hautagaiak, bidali eskaintzak \\u2014 {{count}} martxan.',
   'jobDetail.applicantCount': '{{count}} eskatzaileak orain arte',
   'jobDetail.applied': 'Eskaera bidali da',
   'jobDetail.apply': 'Eskatu orain',
@@ -86,12 +92,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Arakatu lanpostu hutsak \\u2192',
   'landing.pricingEyebrow': 'Prezioak',
   'landing.pricingHeading': 'Talde tamaina guztietarako plan sinpleak.',
+  'login.eyebrow': 'Ongi etorri berriro {{app}}(e)ra',
   'login.heading': 'Hasi saioa zure kontuan',
   'login.noAccount': 'Berria zara Nosh-en?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Gogoratu nazazu 30 egunez',
   'login.signingIn': 'Saioa hasten\\u2026',
   'login.subheading': 'Jarraitu zure bilaketa, aurreratu zure eskaerak, jaso erantzuna azkarrago.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Taldeak kontratatzeko eraikia.',
   'loginBrandPanel.headline': 'Talentua elkartzen den lekua',
   'loginBrandPanel.headlineLine2': 'momentua.',
   'loginBrandPanel.listing.recruiter': 'Talentu Bazkidea',
@@ -108,6 +116,7 @@ export const ui: UiTranslations = {
     'Eskaeren eguneraketak, elkarrizketarako gonbidapenak, bat etortze berriak eta berrienak lehenengo.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} aste honetan',
   'opportunitiesHero.eyebrow': 'Gaur irekita',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'postJob.addNewCompany': '+ Gehitu enpresa berri bat',
   'postJob.companyCreateFailed': 'Ezin izan da enpresa sortu — saiatu berriro.',
   'postJob.companyNameLabel': 'Zure enpresaren izena',
@@ -167,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Kontua sortzen\\u2026',
   'signup.ctaEmployer': 'Sortu enpresaburu kontua',
   'signup.firstNamePlaceholder': 'Maia',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Pasahitzak ez datoz bat.',
   'signup.subheading':
     'Doan eskatzaileentzat, betiko. Enplegatzaileek 30 eguneko proba batekin hasten dute.',
   'timeAgo.days': '{{count}} duela egun batzuk',
   'timeAgo.hours': '{{count}} duela ordu batzuk',
   'timeAgo.justNow': 'oraintxe bertan',
+  'timeAgo.weeks': '{{count}} aste',
 }

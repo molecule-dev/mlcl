@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.title': 'Một phòng viết nhỏ gọn bạn có thể mang theo bên mình.',
   'billing.cancelConfirm': 'Hủy đăng ký đang hoạt động của quý vị?',
   'billing.cancelFailed': 'Không thể hủy.',
   'billing.checkingOut': 'Đang mở thanh toán…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Không thể tải thanh toán.',
   'billing.loading': 'Đang tải thanh toán…',
   'billing.upgradeCta': 'Nâng cấp lên {{name}}',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'editor.autosaveOn': 'Tự động lưu khi bật',
   'editor.backToLibrary': 'Quay lại thư viện',
   'editor.charCount': '{{count}} ký tự',
   'editor.confirmTrash': 'Chuyển tài liệu này vào thùng rác?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Đã bỏ ghim',
   'editor.unpublishCta': 'Chuyển về bản nháp',
   'editor.unpublished': 'Đã quay về bản nháp',
+  'focus.autosaveOn': 'Tự động lưu khi bật',
   'focus.backToLibrary': 'Quay lại thư viện',
   'focus.bodyPlaceholder': 'Mỗi lần một dòng. Không có ai khác ở đây.',
   'focus.exit': 'Thoát chế độ tập trung',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Tạo một tài khoản',
   'login.subline':
     'Bản thảo, trang viết hằng ngày và vị trí con trỏ cuối cùng vẫn ở đúng nơi quý vị để lại.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'pricing.exports': 'lần xuất',
   'pricing.folders': 'thư mục',
   'pricing.heading': 'tài liệu',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Nhập mã chúng tôi vừa gửi qua email và chọn một mật khẩu dễ nhớ. Chúng tôi sẽ đăng nhập cho quý vị ngay khi lưu xong.',
   'reset.tokenHint': 'Dán từ hộp thư đến.',
+  'settings.appearance.heading': 'Sáng hay tối',
   'settings.editor.${row.id}.description': 'Ngôn ngữ',
   'settings.editor.description':
     'Hiệu ứng cuộn trang kiểu máy đánh chữ, làm mờ đoạn văn và lấy nét khi không hoạt động — các thiết lập mặc định được tinh chỉnh cho các phiên làm việc dài.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Chương Ba — Một giờ tĩnh lặng trước bình minh',
   'versalDocumentCard.pinned': 'Đã ghim',
   'versalLayout.nav.stats': 'Thống kê',
+  'versalLayout.primaryNavLabel': 'Điều hướng chính',
   'versalManuscriptHero.cta': 'Tiếp tục viết',
   'versalManuscriptHero.goalLabel': 'Mục tiêu từ hôm nay',
   'versalManuscriptHero.inProgress': 'Đúng tiến độ',

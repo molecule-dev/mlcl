@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'authShell.brandHeading': 'Flerspillerlerret for designteam som tenker høyt.',
   'billing.canceled': 'Abonnement avbrutt.',
   'billing.cancelPlan': 'Avbryt plan',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Start fra malen',
   'boards.title': 'Dine tavler',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Gå til oversikt',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Skriv inn e-postadressen som er knyttet til arbeidsområdet ditt, så sender vi deg en tilbakestillingslenke.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Workshop · Merkevarestemme',
   'landing.featuresEyebrow': 'Hva gjør Slate mossellerende',
   'landing.featuresTitle': 'Rask tilbakemelding. Vakre lerret. Null friksjon.',
+  'landing.hero.body':
+    '{{appName}} er en flerspiller-whitetavle for designteam, workshop-ledere og lærere som kjører direkte idémyldringer og trenger ideer som skal samles på ett sted.',
   'landing.hero.primaryCta': 'Start et forum gratis',
   'landing.hero.socialProof': 'Klarert av {{count}} designteam over hele verden',
   'landing.hero.title': 'Et lerret like raskt som tankene dine',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Lag et ledig arbeidsområde',
   'login.subheading':
     'Fortsett der workshopen slapp – tavler, klistrelapper og markører synkroniseres i sanntid.',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.new': 'Ny',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'notifications.editTitle': 'Redigerer til " {{board}} "',
   'notifications.empty.body':
     'Invitasjoner, lagrede øyeblikksbilder og nylige redigeringer av forumet vises her etter hvert som de skjer.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versjonshistorikk',
   'versionHistory.untitledSnapshot': 'Unavngitt øyeblikksbilde',
   'whiteboardLayout.newBoard': 'Nytt styre',
+  'whiteboardLayout.primaryNav': 'Primær navigasjon',
   'workspace.boardLabel': 'Borde',
   'workspace.eyebrow': '{{name}} · arbeidsplass',
   'workspace.invite': 'Inviter samarbeidspartnere',

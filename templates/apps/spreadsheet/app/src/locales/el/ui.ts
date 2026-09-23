@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'about.pageTitle': 'Για {{name}}',
   'auth.footer.about': 'Για {{name}}',
   'authHeader.subtitle': 'Συνδεθείτε για να διατηρήσετε τους αριθμούς σας ειλικρινείς.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Χωρίς λειτουργία',
   'automations.action.webhook': 'Ιστότοπος',
   'automations.confirmDelete': 'Διαγραφή " {{name}} ";"',
   'automations.empty.headline': 'Δεν υπάρχουν ακόμη αυτοματοποιήσεις',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Ενεργοποιητές και ενέργειες σε κάθε βιβλίο εργασίας. Κάθε εκτέλεση καταγράφει μια γραμμή που μπορείτε να ελέγξετε αργότερα.',
   'automations.toggle': 'Μπαρέτα {{name}}',
+  'automations.trigger.dailySchedule': 'Ημερήσιο πρόγραμμα',
+  'automations.trigger.rowCreated': 'Η σειρά δημιουργήθηκε',
+  'automations.trigger.rowUpdated': 'Η σειρά ενημερώθηκε',
   'billing.empty': 'Δεν υπάρχουν διαθέσιμα σχέδια.',
   'billing.error.priceMissing':
     'Δεν έχει ρυθμιστεί τιμή Stripe για αυτό το επίπεδο. Ορίστε τις μεταβλητές περιβάλλοντος STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Γραφήματα',
   'charts.kpi.totalCharts': 'Σύνολο γραφημάτων',
   'charts.list.empty': 'Δεν υπάρχουν ακόμα γραφήματα.',
+  'charts.namePlaceholder': 'Τάση εσόδων',
   'charts.newChart': 'Νέο γράφημα',
   'charts.primary.eyebrow': 'Γραφήματα ανά τύπο',
   'charts.primary.headline': 'Επισκόπηση χώρου εργασίας',
   'charts.subhead':
     'Ζωντανές απεικονίσεις συνδεδεμένες με το πλέγμα σας — επανεμφάνιση σε κάθε επεξεργασία κελιού.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'editor.addColumn': 'Προσθήκη στήλης',
+  'editor.addDialogTitle': 'Προσθήκη στήλης',
   'editor.addRow': 'Προσθήκη σειράς',
   'editor.addSheet': 'Προσθήκη φύλλου',
   'editor.back': 'Επιστροφή στα βιβλία εργασίας',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Η Calcite είναι η πρώτη σε φόρμουλες, η οποία προσφέρει πολλαπλές προβολές και σε πραγματικό χρόνο αναλυτές πλέγματος και οι οικονομικές ομάδες επιδιώκουν την πρώτη θέση.',
   'landing.nav.formulas': 'Τύποι',
+  'login.noAccount': 'Νέος/η στο {{name}} ;',
+  'login.signIn': 'Συνδεθείτε στο {{name}}',
   'login.signUp': 'Δημιουργήστε έναν χώρο εργασίας',
+  'nav.menu': 'Μενού',
+  'nav.openMenu': 'Άνοιγμα μενού',
   'notFound.cellRef': '#ΑΝΑΦΟΡΑ!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "διαδρομές", "σελίδα")',
   'notFound.headline': 'Αυτή η σειρά δεν υπήρξε ποτέ.',
@@ -132,6 +144,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Εγγενείς αυτοματισμοί · ενεργοποιητές webhook και cron',
   'signup.creating': 'Προμήθεια χώρου εργασίας…',
   'signup.cta': 'Δημιουργία του χώρου εργασίας μου',
+  'signup.haveAccount': 'Ήδη στο {{name}} ;',
   'signup.namePlaceholder': 'Άβερι Τσεν',
   'signup.tagline': 'Γυρίστε το πρώτο σας βιβλίο εργασίας σε 30 δευτερόλεπτα',
   'team.col.activity': 'Καλεσμένος',

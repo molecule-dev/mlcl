@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'በመፍታት ላይ…',
   'comments.subtitle':
     'የ {{count}} ክሮች አሁንም መልስ ወይም ውሳኔ እየጠበቁ ናቸው። በዕድሜ የተደረደሩ - በመጀመሪያ በዕድሜ የገፉ፣ ስለዚህ ምንም ነገር አይበሰብስም።',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'forgotPassword.sentTo': 'ዳግም አስጀምር አገናኝ ወደ ተልኳል {{email}}',
   'forgotPassword.successSubheading':
     'የገቢ መልዕክት ሳጥንዎን ይመልከቱ — የዳግም ማስጀመሪያ አገናኝ ልከናል። በ30 ደቂቃዎች ውስጥ ያበቃል።',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'አዲስ ገጽ',
   'pageTreeSidebar.workspaceHeader': 'የስራ ቦታ',
   'pageView.breadcrumb': 'የዳቦ ፍርፋሪ',
+  'pageView.confirmTrash': 'ቆሻሻ?',
   'pageView.home': 'መነሻ',
   'pageView.lastEdited': 'ተዘምኗል {{when}}',
   'pageView.loading': 'ገጽ በመጫን ላይ…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'ማጠቃለያ…',
   'pageView.summaryUnavailable': 'የAI ማጠቃለያ ለዚህ የስራ ቦታ አልተዋቀረም።',
   'pageView.tocTitle': 'በዚህ ገጽ ላይ',
+  'pageView.trash': 'ቆሻሻ',
+  'pageView.trashing': 'ቆሻሻ መጣያ…',
   'pageView.versionBadge': 'ቪ{{version}}',
   'profile.badges.title': 'ባጆች',
   'profile.owned.title': 'ባለቤትነት የተያዙ ገጾች',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'የስራ ቦታ፣ መገለጫ፣ ማሳወቂያዎች፣ ውህደቶች — ሁሉም በአንድ ጸጥ ያለ ቅርፊት።',
   'settingsPage.workspace.defaultLanding': 'ነባሪ የማረፊያ ማያ ገጽ',
   'settingsPage.workspace.landingHome': 'መነሻ',
+  'settingsPage.workspace.landingSpaces': 'ቦታዎች',
   'settingsPage.workspace.subdomainLabel': 'ንዑስ ጎራ',
   'settingsPage.workspace.title': 'የስራ ቦታ',
   'signup.eyebrow': 'አዲስ የስራ ቦታ ይጀምሩ',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} ደቂቃ',
   'templates.subtitle':
     'አንድን ገጽ ከባዶ ሸራ ሳይሆን ከስቴንስል ይጀምሩ። እያንዳንዱ አብነት ቅርጹን በጠንካራ ኮድ ይቀርጸዋል፣ ስለዚህ በንጥረ ነገሩ ላይ ማተኮር ይችላሉ።',
+  'trash.confirmPurge': 'ለዘላለም ይጸዱ?',
+  'trash.confirmPurgeAria': 'አረጋግጥ፦ {{title}} ን በቋሚነት ሰርዝ',
   'trash.daysUntilPurge': '{{days}} የቀሩት ቀናት',
   'trash.empty.body': 'የተሰረዙ ገጾች ከመጸዳታቸው በፊት እዚህ ለ30 ቀናት ይታያሉ።',
   'trash.empty.title': 'ቆሻሻ ባዶ ነው።',
@@ -141,5 +148,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'ወደነበረበት በመመለስ ላይ…',
   'versionHistory.subtitle': '{{count}} ስሪቶች · ልዩነቱን ለመመርመር ረድፍ ይምረጡ',
   'versionHistory.versionLabel': 'ቪ{{v}}',
+  'wikiLayout.closeMenu': 'አሰሳን ዝጋ',
+  'wikiLayout.menu': 'አሰሳ',
+  'wikiLayout.openMenu': 'አሰሳን ክፈት',
   'wikiLayout.searchPlaceholder': 'ኬርን ፈልግ — ገጾች፣ አስተያየቶች…',
 }

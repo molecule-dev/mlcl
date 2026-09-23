@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
   'actions.empty': 'No hi ha cap element d’acció coincident.',
   'actions.heading': 'Elements d’acció',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Mes anterior',
   'calendar.recent': 'Recent',
   'common.daysAgo': '{{count}} fa uns dies',
+  'common.goToDashboard': 'Anar al panell',
   'common.hoursAgo': '{{count}} fa h',
   'common.no': '—',
+  'common.retry': 'Torna-ho a intentar',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} elements d’acció',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Introdueix el teu correu electrònic i t’enviarem un enllaç de restabliment.',
   'integrations.disconnected': 'Desconnectat',
+  'integrations.loadError': "No s'han pogut carregar les integracions.",
   'integrations.notConnectedTag': 'No connectat',
   'integrations.subheading':
     'Connecta calendaris i plataformes de vídeo perquè Murmur s’uneixi automàticament.',
+  'integrations.updateError': 'Error en actualitzar.',
   'landing.ctaButton': 'Comença — és gratuït',
   'landing.ctaHeading': 'Deixa de prendre notes. Comença a prendre decisions.',
   'landing.demo.aiLabel': 'Resum d’IA, redactat en directe',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Seguiments',
   'meetingDetail.loadError': 'No s’ha pogut carregar la reunió.',
   'meetingDetail.noActions': 'No s’han detectat elements d’acció.',
+  'meetingDetail.none': 'Cap.',
   'meetingDetail.notFound': 'No s’ha trobat la reunió.',
+  'meetingDetail.speakerFallback': 'Ponent {{id}}',
   'meetingDetail.summaryHeading': 'Resum de la IA',
   'meetingDetail.transcriptHeading': 'Transcripció',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Reunions',
   'meetings.loadError': 'No s’han pogut carregar les reunions.',
   'meetings.subheading': 'Totes les reunions enregistrades, penjades i sincronitzades.',
+  'murmurLayout.openMenu': 'Obre el menú de navegació',
   'murmurLayout.primaryNavLabel': 'Navegació principal',
   'nav.legal': 'Legal',
   'notifications.loadError': "No s'han pogut carregar les notificacions.",
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Com apareixes dins de Murmur.',
   'record.error.empty': 'No s’ha capturat cap àudio.',
   'record.error.permission': 'Permís de micròfon denegat.',
+  'record.error.recorder': 'Error de la gravadora',
   'record.error.unsupported': 'El teu navegador no admet la gravació. Prova Chrome, Edge o Safari.',
   'record.error.upload': 'La càrrega ha fallat. Torna-ho a provar.',
   'record.heading': 'Registre',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nova contrasenya',
   'reset.subheading': 'Trieu una contrasenya que no utilitzeu enlloc més.',
   'search.empty': 'Escriu per cercar transcripcions.',
+  'search.loadError': 'La cerca ha fallat. Torna-ho a intentar.',
   'search.noResults': 'No hi ha resultats per a " {{q}} ".',
   'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
   'settings.appearance.title': 'Aspecte',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': "No s'ha pogut carregar la configuració.",
   'settings.loading': 'S’està carregant…',
   'settings.push.heading': 'Notificacions push',
+  'settings.push.subheading':
+    "Rep alertes del navegador per a mencions, elements d'acció i resums.",
   'settings.retention.audio': 'Mantingueu l’àudio per a',
   'settings.retention.heading': 'Retenció',
   'settings.retention.transcript': 'Conserva les transcripcions per a',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Comença a capturar notes de reunió en qüestió de minuts',
   'signup.terms':
     'En crear un compte, acceptes els nostres Termes de servei i la Política de privadesa.',
+  'signup.termsPrefix': 'En crear un compte, acceptes les nostres',
   'team.inviteCta': 'Convida un company d’equip',
   'team.invitedAs': 'Convidat com a {{role}}',
   'team.inviteFailed': 'No s’ha pogut enviar la invitació.',

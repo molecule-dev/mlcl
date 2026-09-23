@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vous avez trouvé un bug, vous avez une suggestion d'amélioration ou vous voulez nous parler du film que vous avez monté ? Chaque message est transmis à un membre de l'équipe ; contactez-nous à tout moment depuis les paramètres de votre compte.",
+  'about.contactTitle': 'Contactez-nous',
+  'about.eyebrow': '// le studio derrière la coupure',
   'about.pageTitle': 'À propos de {{appName}}',
   'assetDetail.back': 'Retour à la bibliothèque',
   'assetDetail.confirmDelete': 'Supprimer « {{name}} » ? Cette action est irréversible.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} clips, pistes audio et graphismes prêts à déposer sur la timeline.',
   'assetLibrary.title': 'Ressources',
   'assetLibrary.upload': 'Ajouter une ressource',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'dashboard.browseTemplates': 'Parcourir les modèles →',
   'dashboard.loading': 'Chargement des projets…',
   'dashboard.noProjects': 'Aucun projet pour l’instant — créez-en un pour commencer.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Choisissez quelque chose que vous seul retiendrez.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Confidentialité',
+  'rushesLayout.closeMenu': 'Fermer la navigation',
   'rushesLayout.guest': 'Éditeur',
+  'rushesLayout.navDialog': 'Navigation',
+  'rushesLayout.openMenu': 'Ouvrir la navigation',
   'rushesLayout.planFree': 'Forfait gratuit',
   'rushesLayout.tagline': 'Timeline cinématographique',
   'settings.billing.confirmCancel': 'Annuler l’abonnement à la fin de la période ?',

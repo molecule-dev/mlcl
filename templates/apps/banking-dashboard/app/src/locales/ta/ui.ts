@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'accountDetail.activeBadge': 'செயலில்',
   'accountDetail.availableLabel': '{{amount}} கிடைக்கும்',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'கணக்குகள்',
   'accounts.loadError': 'கணக்குகளை ஏற்ற முடியவில்லை.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'உறைந்த',
   'accounts.totalBalance': '{{தொகை}} மொத்தம்',
   'audit.empty': 'இன்னும் நிகழ்வுகள் எதுவும் இல்லை.',
   'audit.eyebrow': 'பாதுகாப்பு மற்றும் அணுகல்',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'கையில் உள்ள பணம்',
   'cashCreditCard.creditLabel': 'கடன் பயன்படுத்தப்பட்டது',
   'cashCreditCard.title': 'ரொக்கம் மற்றும் கடன்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.accountsHeading': 'கணக்குகள்',
   'dashboard.heading': 'கண்ணோட்டம்',
   'dashboard.recentEmpty': 'இதுவரை பரிவர்த்தனைகள் எதுவும் நடைபெறவில்லை.',
@@ -45,11 +48,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.signUp': 'பதிவு செய்க',
   'login.submit': 'உள்நுழை',
+  'meridianLayout.menu': 'மெனு',
   'meridianLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'notifications.emptyHeading': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்',
   'notifications.subheading':
     'பரிவர்த்தனைகள், பாதுகாப்பு மற்றும் அறிக்கைகள் தொடர்பான நிகழ்நேர எச்சரிக்கைகள்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'privacy.dataWeShare':
     'தனிநபர் வங்கித் தரவுகள் ஒருபோதும் விற்கப்படுவதில்லை. பரிவர்த்தனைகளை முடிப்பதற்கோ அல்லது சட்டப்பூர்வ கடமைகளை நிறைவேற்றுவதற்கோ தேவைப்படும்போது மட்டுமே, நாங்கள் பணம் செலுத்தும் செயலாக்க நிறுவனங்கள், அட்டை வலையமைப்புகள் மற்றும் ஒழுங்குமுறை அமைப்புகளுடன் தகவல்களைப் பகிர்ந்து கொள்கிறோம்.',
   'privacy.dataWeStore':
@@ -81,10 +86,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'இரு காரணி அங்கீகாரம், ஒவ்வொரு உள்நுழைவின்போதும் அங்கீகரிப்புச் செயலியிலிருந்து ஒரு முறை பயன்படுத்தக்கூடிய குறியீட்டைச் சேர்க்கிறது.',
   'settings.security.twoFactorCta': 'இரு காரணி அங்கீகாரத்தை நிர்வகிக்கவும்',
+  'settings.security.twoFactorOff': 'இரு காரணி அங்கீகாரம் முடக்கப்பட்டுள்ளது',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.subheading': 'சுயவிவரம், பாதுகாப்பு மற்றும் அறிவிப்புகள்.',
+  'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'signup.emailLabel': 'மின்னஞ்சல் முகவரி',
   'signup.fullName': 'நாங்கள் உங்களை எவ்வாறு அழைக்க வேண்டும்?',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
@@ -107,7 +116,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'இதுவரை பரிவர்த்தனைகள் எதுவும் நடைபெறவில்லை.',
   'transactions.endDate': 'முடிவு தேதி',
   'transactions.eyebrow': 'செயல்பாடு',
+  'transactions.loadError': 'பரிவர்த்தனைகளை ஏற்ற முடியவில்லை.',
   'transactions.merchant': 'வணிகர்',
+  'transactions.subheading':
+    'உங்கள் கணக்குகளில் பதியப்பட்ட மற்றும் நிலுவையில் உள்ள ஒவ்வொரு பரிவர்த்தனையும்.',
   'transfers.availableHint': '{{amount}} கிடைக்கும்',
   'transfers.errorGeneric': 'பணப் பரிமாற்றத்தைச் சமர்ப்பிக்க முடியவில்லை.',
   'transfers.errorMissingFields': 'மூலக் கணக்கையும் சேருமிடக் கணக்கையும் தேர்வு செய்யவும்.',

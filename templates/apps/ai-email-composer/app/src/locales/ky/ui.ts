@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биздин окуябыз',
   'aiSuggestionPanel.title': 'Копилоттук белги',
   'analytics.col.open': 'Ачылуу көрсөткүчү',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Кассадан төлөө башталууда…',
   'billing.subheading': 'Жөнөтүү ыкмасына дал келген планды тандаңыз.',
   'billing.unavailable': 'Сатуу бөлүмүнө кайрылыңыз',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.retry': 'Кайра аракет',
   'compose.adjustingTone': 'Тандалган үн менен кайра жазылууда…',
   'compose.aiPromptPlaceholder':
     'мисалы, "Эки жума бою жооп болбогондон кийин сылыктык менен жооп бериңиз, кыскача жазыңыз."',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
     'Бир нерсе жөнөтүшүңүз керекпи? Signet бир нече секунданын ичинде долбоорду даярдай алат.',
   'dashboard.composeCtaLabel': 'Тез жазуу',
   'dashboard.heading': 'Сиздин жумаңыз, жазылган',
+  'dashboard.loadFailed': 'Башкаруу панелиңиз жүктөлбөй койду.',
   'dashboard.manageLibrary': 'Китепкананы башкаруу →',
   'dashboard.recentEmpty':
     'Азырынча жөнөтүүлөр жок — жөнөтүлгөн электрондук каттарыңыз бул жерде көрүнөт.',
@@ -149,6 +153,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Демейки үн',
   'settings.toneSubheading': 'Эгерде сиз долбоордо өзгөртпөсөңүз, Signet бул тонду колдонот.',
   'signetLayout.primaryNavLabel': 'Негизги навигация',
+  'signetLayout.toggleMenu': 'Менюну которуу/жокко чыгаруу',
   'signup.emailLabel': 'Электрондук почта дареги',
   'signup.showPassword': 'Сырсөздү көрсөтүү',
   'signup.tagline':

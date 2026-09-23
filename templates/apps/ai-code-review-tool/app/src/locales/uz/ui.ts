@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': "Bog'laning",
   'about.eyebrow': 'Haqida',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.connectRepoCta': 'Repozitoriyani ulang',
   'dashboard.empty': "Hali tortish so'rovlari yo'q — boshlash uchun omborni ulang.",
   'dashboard.eyebrow': "Refract · ko'rib chiqish navbati",
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Ishlash vaqti',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': "AI sifat ko'rsatkichi {{score}} / 10",
+  'refractLayout.closeMenu': 'Menyuni yopish',
+  'refractLayout.openMenu': 'Menyuni ochish',
   'refractLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'reports.cumulativeScoreLabel': 'Kümülatif ball',
   'reports.cumulativeScoreSubtitle': 'barcha omborlar · {{days}} d',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': "Qidiruv indeksini yuklab bo'lmadi.",
   'settings.apiKeys.description':
     "Shaxsiy API kalitlarini yuqori o'ng burchakdagi foydalanuvchi menyusidan boshqaring.",
+  'settings.apiKeys.integrationsNote':
+    "Provayderga kirish tokenlari yuqoridagi Integratsiyalar bo'limida boshqariladi.",
   'settings.connectError': "Provayderga ulanib bo'lmadi.",
   'settings.disconnectError': "Provayder bilan aloqani uzib bo'lmadi.",
   'settings.eyebrow': 'Refract · ish maydoni',
   'settings.integration.${provider}.label': 'Saqlanmoqda…',
   'settings.loadError': "Sozlamalarni yuklab bo'lmadi.",
+  'settings.notificationCenter': 'Bildirishnoma markazi',
   'settings.notifications.description':
     "Yetkazib berish sozlamalarini ko'rish va boshqarish uchun bildirishnomalar sahifasiga tashrif buyuring.",
   'settings.section.account': 'Hisob va xavfsizlik',

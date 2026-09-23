@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'announcementsFeed.empty': 'अहिलेसम्म कुनै घोषणा भएको छैन।',
   'announcementsFeed.eyebrow': '{{count}} अद्यावधिकहरू',
   'announcementsFeed.title': 'पछिल्ला घोषणाहरू',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'यहाँ केही छैन',
   'assignments.emptyBody': 'फरक अवस्थामा असाइनमेन्टहरू हेर्न माथि फिल्टरहरू स्विच गर्नुहोस्।',
   'assignments.eyebrow': 'सबै कोर्सहरू · यो अवधि',
+  'assignments.loadError': 'असाइनमेन्टहरू लोड गर्न सकिएन।',
   'assignments.loading': 'असाइनमेन्टहरू लोड गर्दै...',
   'assignments.subtitle':
     'के बाँकी छ, के बुझाइएको छ, के श्रेणीबद्ध गरिएको छ वा के छुटेको छ भनेर हेर्न स्थिति अनुसार फिल्टर गर्नुहोस्।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'नोट',
   'attendance.empty': 'अहिलेसम्म कुनै उपस्थितिको रेकर्ड छैन।',
   'attendance.eyebrow': 'वसन्त ऋतु · अन्तिम ४ हप्ता',
+  'attendance.loadError': 'उपस्थिति रेकर्डहरू लोड गर्न सकिएन।',
   'attendance.loading': 'उपस्थिति लोड गर्दै...',
   'attendance.noNote': '—',
   'attendance.subtitle': 'उपस्थिति, अनुपस्थिति, र ढिलाइको दैनिक लग - लागू भएमा नोटहरू सहित।',
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'असाइनमेन्टको म्याद मितिहरू महिनाको ग्रिडमा प्लट गरिएको छ — परीक्षाहरू रातो रङमा देखिन्छन्।',
   'calendar.title': '{{month}} घटनाहरू',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
+  'common.retry': 'फेरि प्रयास गर्नुहोस्',
   'common.yes': '✓',
   'courseDetail.backLink': 'ग्रेडहरू',
   'courseDetail.currentGrade': 'हालको ग्रेड',
@@ -72,11 +77,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'प्रवृत्ति',
   'grades.empty': 'अहिलेसम्म कुनै पनि ग्रेड पोस्ट गरिएको छैन।',
   'grades.eyebrow': 'ग्रेड बुक',
+  'grades.loadError': 'तपाईंका ग्रेडहरू लोड गर्न सकिएन।',
   'grades.loading': 'ग्रेडहरू लोड गर्दै...',
   'grades.subtitle':
     'प्रत्यक्ष अक्षर र प्रतिशत ग्रेडहरू। प्रवृत्ति तीरहरूले तपाईं माथि सर्दै हुनुहुन्छ, स्तर बढाउँदै हुनुहुन्छ वा चिप्लँदै हुनुहुन्छ भनेर देखाउँछन्।',
   'grades.title': 'तपाईंको ग्रेड, क्रमशः',
   'grades.trendStable': 'स्थिर',
+  'landing.copyright':
+    '© {{year}} {{app}} । विद्यार्थीहरूको लागि निर्मित, परिवारहरूको लागि बनाइएको।',
   'landing.ctaHeading': 'केही मिनेटमै शान्त स्कूलको दिन सुरु हुन्छ',
   'landing.eyebrow': 'माध्यमिक र उच्च माध्यमिक विद्यालयका विद्यार्थीहरूको लागि',
   'landing.featuresHeading': 'विद्यार्थी वरिपरि आयोजना गरिएको स्कूल दिन',
@@ -111,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'असाइनमेन्टहरू',
   'nav.attendance': 'उपस्थिति',
   'nav.calendar': 'पात्रो',
+  'nav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
   'nav.grades': 'ग्रेडहरू',
+  'nav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'nav.statusEyebrow': 'अवधि GPA',
   'nav.statusSubtext': 'सम्मान सूची · वसन्त ऋतु',
+  'nav.unreadMessages': 'नपढिएका सन्देशहरू',
   'notifications.eyebrow': '{{count}} अद्यावधिकहरू',
   'notifications.subtitle':
     'ग्रेड, रिमाइन्डर, सन्देश र स्कूल घोषणाहरू। सेटिङहरूमा गई प्रत्येक सूचनाले कुन च्यानलहरू प्रयोग गर्छ समायोजन गर्नुहोस्।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.attendanceLabel': 'उपस्थिति',
   'pricing.gradesLabel': 'ग्रेडहरू',
   'pricing.heading': 'घोषणाहरू',

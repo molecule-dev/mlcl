@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Do ról',
   'account.role.upgradeLink': 'Déan iarratas chun bheith i do theagascóir fíoraithe →',
   'account.title': 'Próifíl, íocaíocht & roghanna.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Múin ar Chailc',
   'becomeTutor.form.error': 'Níorbh fhéidir an t-iarratas a chur isteach.',
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Ábhar',
   'bookingConfirm.title': 'Tá áit curtha in áirithe agat. Déanfaimid an chuid eile.',
   'bookingConfirm.with': 'Le teagascóir',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'earningsHero.eyebrow': 'Tuilleamh • {{month}}',
   'forgotPassword.heading': 'An ndearna tú dearmad ar do phasfhocal?',
   'forgotPassword.subheading':
@@ -116,6 +118,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Seol teachtaireacht',
   'messages.thread.empty': 'Abair haigh — cuir tús leis an gcomhrá.',
   'messages.title': 'Snáitheanna le do theagascóirí.',
+  'nav.primary': 'Príomhúil',
   'pricing.dataExport': 'Easpórtáil sonraí:',
   'pricing.headingDefault': 'Gnéithe ardleibhéil:',
   'resetPassword.heading': 'Roghnaigh pasfhocal láidir nua.',

@@ -45,6 +45,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'ደንበኞች',
   'customers.loadError': 'ደንበኞችን መጫን አልተሳካም።',
   'customers.loading': 'በመጫን ላይ…',
+  'customers.new.address': 'የአገልግሎት አድራሻ',
   'customers.new.email': 'ኢሜይል',
   'customers.new.error': 'ደንበኛን መጨመር አልተሳካም።',
   'customers.new.heading': 'አዲስ ደንበኛ',

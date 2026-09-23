@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
+  'ascentSideNav.nav.notifications': 'Fógraí',
   'ascentSideNav.newObjective': 'Cuspóir nua',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Socraigh an barr. Scóráil an dreapadh. Cóitseáil an fhoireann.',
   'authShell.eyebrow': 'OKRanna a bhogann foirne',
   'authShell.samplePeriod': 'R2 2026 · cuspóir samplach',
@@ -21,6 +24,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Spás Oibre · Billeáil',
   'billing.heading': 'Plean & sonraisc',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'Easpórtáil sonraí + rochtain API',
+  'billing.perk.inApp': 'Tuairisciú san aip',
+  'billing.perk.standard': 'Léirmheasanna caighdeánacha',
+  'billing.perk.unlimitedObjectives': 'Cuspóirí gan teorainn',
+  'billing.perk.unlimitedRetention': 'Coinneáil gan teorainn',
   'billing.subheading':
     'Tá tú ar an {{name}} plean. Déan comparáid idir na sraitheanna agus uasghrádaigh thíos.',
   'billing.tier.unavailable': 'Níl sé ar fáil',
@@ -44,11 +52,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'Seiceáil isteach a chur isteach',
   'checkIn.submittedMessage':
     'Sábháilte an seiceáil isteach. Dul chun cinn agus an amlíne nuashonraithe.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': 'Níl',
   'common.relative.daysAgo': '{{count}} lá ó shin',
   'common.relative.hoursAgo': '{{count}} hr ago',
   'common.relative.justNow': 'díreach anois',
   'common.relative.minutesAgo': '{{count}} min ago',
+  'common.retry': 'Déan iarracht eile',
   'common.yes': 'Tá',
   'common.you': 'Tusa',
   'dashboard.allActivity': 'Féach ar an ngníomhaíocht go léir →',
@@ -93,6 +103,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Chuireamar nasc athshocraithe chuig {{email}} Rachaidh sé in éag i gceann uair an chloig — tabhair soicind don bhosca isteach.',
   'forgotPassword.successHeading': 'Seiceáil do bhosca isteach.',
+  'keyResult.metrics.boolean': 'Tá / Níl',
+  'keyResult.metrics.currency': 'Airgeadra $',
+  'keyResult.metrics.number': 'Uimhir',
+  'keyResult.metrics.percent': '% céatadán',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Socraigh do chéad chuspóir, tabhair cuireadh do thriúr comhghleacaithe foirne, agus reáchtáil do chéad seiceáil isteach seachtainiúil faoin Aoine.',
@@ -104,6 +118,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Conas a dhreapann foirne',
   'landing.featuresTitle': 'OKRanna ar ghrád cóitseála, gan an leathadh scarbhileog.',
   'landing.footerBuiltOn': 'Tógtha ar Molecule.dev',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Tugann Ascent cosán intomhaiste suas an sliabh do gach foireann — socraigh cuspóirí, scóráil príomhthorthaí gach seachtain, agus déan athbhreithniú ar an dreapadh gach ráithe.',
   'landing.heroProgressLabel': 'Plean cuideachta Q2',
@@ -113,6 +128,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'nó lean ar aghaidh le',
   'login.subheading':
     'Lean ar aghaidh san áit ar fhág tú — tá do sheiceálacha isteach, do KRanna, agus d’athbhreithnithe ag fanacht leat.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.mainNavigation': 'Príomh-loingseoireacht',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'newObjective.addKr': 'Cuir KR leis',
   'newObjective.coachLabel': 'Meabhrúcháin chóitseálaí',
   'newObjective.descriptionPlaceholder': 'Mínigh an comhthéacs straitéiseach i 2–3 abairt.',
@@ -138,6 +156,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Ionad gníomhaíochta',
   'notifications.markRead': '● Marcáil mar léite',
   'objective.scopes.company': 'Cuideachta',
+  'objective.scopes.individual': 'Aonair',
   'objective.scopes.team': 'Foireann',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Ar ais chuig na cuspóirí',
@@ -160,11 +179,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Rianú {{count}} cuspóirí. Scag de réir stádais chun a fháil amach cad is gá aird a thabhairt air.',
   'profile.achievementCheckInsMany': '{{count}} seiceálacha isteach logáilte',
+  'profile.achievementCheckInsOne': '1 seiceáil isteach logáilte',
+  'profile.achievementCompletedMany': 'Cuspóirí críochnaithe {{count}}',
+  'profile.achievementCompletedOne': 'Cuspóir amháin críochnaithe',
+  'profile.achievementOnTrackMany': '{{count}} cuspóirí ar an mbóthar ceart',
+  'profile.achievementOnTrackOne': '1 chuspóir ar an mbóthar ceart',
   'profile.activeHeading': 'Cuspóirí gníomhacha',
   'profile.allObjectives': 'Gach cuspóir →',
   'profile.empty': 'Gan aon chuspóirí gníomhacha fós — cruthaigh do chéad cheann le tosú.',
   'profile.eyebrow': 'Próifíl dreapadóra',
   'profile.guestName': 'Dreapadóir',
+  'profile.loadError': 'Níorbh fhéidir do chuspóirí a lódáil.',
   'profile.loading': 'Cuspóirí á lódáil…',
   'profile.noAchievements': 'Comhlánaigh seiceáil isteach chun do chéad éacht a dhíghlasáil.',
   'profile.statCheckIns': 'Seiceáil isteach',

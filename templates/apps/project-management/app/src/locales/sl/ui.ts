@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'accountSettings.confirmEmailLabel': 'Za potrditev vtipkajte DELETE',
   'accountSettings.deleteError': 'Računa ni bilo mogoče izbrisati.',
   'accountSettings.passwordError': 'Gesla ni bilo mogoče spremeniti.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Ni prihajajočih rokov.',
   'dashboard.upcomingTitle': 'Prihajajoči roki',
   'deviceSettings.unknownDevice': 'Neznana naprava',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Podpora',
   'forgotPassword.error': 'Pošiljanje povezave za ponastavitev ni uspelo.',
   'forgotPassword.subtitle':
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Neveljaven e-poštni naslov ali geslo.',
   'login.pageTitle': 'Prijavi se',
   'login.signIn': 'Prijava v Forge',
+  'login.subtitle': 'Prijavite se, da boste lahko sledili svojim projektom',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
   'nav.calendar': 'Koledar',
   'nav.legal': 'Pravno',
   'nav.myTasks': 'My Tasks',

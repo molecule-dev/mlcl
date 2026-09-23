@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'alerts.acknowledgeLabel': 'Potwierdź',
   'alerts.customerLabel': 'Klient: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Łączenie…',
   'carriers.requiredError': 'Nazwa i kod są wymagane.',
   'carriers.subheading': 'Zintegrowano: {{count}}',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
+  'common.retry': 'Spróbuj ponownie',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'W tranzycie + oflagowane',
   'dashboard.activeShipmentsSubtitle': '{{count}} przesyłek wymaga uwagi lub jest w drodze',
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'przesyłki',
   'pricing.trackingLabel': 'zdarzenia śledzenia',
   'profile.dangerZone.title': 'Strefa niebezpieczna',
+  'profile.devices.signingOut': 'Wylogowywanie…',
+  'profile.devices.unnamed': 'Urządzenie bez nazwy',
+  'profile.security.disable2fa': 'Wyłącz uwierzytelnianie dwuskładnikowe (2FA)',
   'profile.security.enable2fa': 'Włącz 2FA',
   'profile.security.pwChanged': 'Hasło zostało pomyślnie zmienione.',
   'profile.security.pwCurrent': 'Obecne hasło',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktywne',
   'profile.security.twoFaCode': '6-cyfrowy kod',
   'profile.security.twoFaDisable': 'Wyłącz',
+  'profile.security.twoFaDisabling': 'Wyłączanie…',
   'profile.security.twoFaFailed': 'Nie udało się zweryfikować kodu.',
   'profile.security.twoFaIntro':
     'Proszę zeskanować kod QR w aplikacji uwierzytelniającej, a następnie wprowadzić poniżej 6-cyfrowy kod w celu weryfikacji.',
   'profile.security.twoFaOn': 'Uwierzytelnianie dwuskładnikowe jest włączone na tym koncie.',
+  'profile.security.twoFaQrAlt': 'Kod QR uwierzytelniania dwuskładnikowego',
   'profile.security.twoFaVerify': 'Zweryfikuj i włącz',
   'profile.security.twoFaVerifying': 'Weryfikowanie…',
   'profile.subheading': 'Ustawienia tożsamości i bezpieczeństwa dla tego obszaru roboczego.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Proszę zapisać ten sekret — nie zostanie pokazany ponownie.',
   'settings.api.webhookSecret': 'Sekret podpisu webhooka',
   'settings.appearance.description': 'Przełączaj między trybem jasnym i ciemnym.',
+  'settings.deleteAccountConfirm': 'Jesteś pewien? Tego działania nie da się cofnąć.',
   'settings.notifications.exceptions': 'Wyślij mi e-mail, gdy wystąpi wyjątek przesyłki',
   'settings.notifications.heading': 'Powiadomienia',
   'settings.notifications.saveFailed': 'Nie udało się zapisać preferencji.',
@@ -145,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Nie znaleziono przesyłki.',
   'shipmentDetail.originHeading': 'Miejsce nadania',
   'shipmentDetail.shippedOn': 'Nadano {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Na razie nie ma żadnych zdarzeń związanych ze śledzeniem przesyłki — aktualizacje pojawią się tutaj, gdy przewoźnik zeskanuje paczkę.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Przewoźnik',
   'shipments.col.eta': 'ETA',
@@ -174,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Zaloguj się',
   'signup.submit': 'Utwórz konto',
   'team.emailError': 'Wymagany jest poprawny adres e-mail.',
+  'team.empty':
+    'Nie ma jeszcze żadnych członków zespołu. Zaproś kolegę z zespołu do współpracy przy przesyłkach.',
   'team.eyebrow': 'Członkowie i uprawnienia',
   'team.inviteDialog.cancel': 'Anuluj',
   'team.inviteDialog.heading': 'Zaproś członka zespołu',
@@ -196,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Śledź',
   'waypointLayout.primaryNavLabel': 'Nawigacja główna',
   'webhooks.createFailed': 'Nie udało się utworzyć punktu końcowego webhooka.',
+  'webhooks.endpointsEmpty':
+    'Nie ma jeszcze punktów końcowych webhooków. Utwórz jeden, aby otrzymywać powiadomienia zwrotne o statusie przesyłki.',
   'webhooks.endpointsHeading': 'Punkty końcowe',
   'webhooks.eventCount': 'Zdarzenia: {{count}}',
   'webhooks.eventsHeading': 'Ostatnie dostarczenia',

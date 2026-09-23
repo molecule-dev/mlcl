@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
   'activityFeed.empty': 'Engin virkni enn — sendið fyrsta reikninginn.',
   'authShell.sample.paid': 'Greitt fyrir 2 mínútum',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Bæta við nýjum viðskiptavini',
   'clients.search': 'Leita eftir nafni, fyrirtæki, netfangi',
   'clients.title': 'Viðskiptavinir',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Nýr viðskiptavinur',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Gleymt lykilorð',
   'forgotPassword.successBody':
     'Við höfum sent leiðbeiningar um endurstillingu til {{email}} Tengillinn rennur út eftir 30 mínútur.',
+  'invoiceDetail.action.confirmVoid': 'Staðfesta ógildingu?',
   'invoiceDetail.action.download': 'Sækja PDF-skjal',
   'invoiceDetail.action.duplicate': 'Afrit',
   'invoiceDetail.action.edit': 'Breyta',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Reikningur ógildur.',
   'invoiceDetail.issued': 'Gefið út {{date}}',
   'invoiceDetail.loading': 'Hleður reikning…',
+  'invoiceDetail.paidInFull': 'Greitt að fullu',
   'invoiceDetail.summary': '{{client}} · sent {{date}}',
   'invoiceDetail.tax': 'Skattur ( {{rate}} %)',
   'invoiceDetail.timeline': 'Tímalína',
+  'invoiceDetail.voided': 'Ógilt',
   'invoiceEditor.addItem': 'Bæta við hlut',
   'invoiceEditor.back': '← Til baka á reikninga',
   'invoiceEditor.col.qty': 'Magn',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Senda fyrsta reikninginn þinn',
   'landing.hero.eyebrow': 'Reikningsgerð fyrir lítil fyrirtæki',
   'landing.hero.secondary': 'Sjá sýnishorn af reikningi',
+  'landing.hero.subtitle':
+    '{{appName}} parar saman glæsilega reikninga við innbyggðar greiðslur, endurteknar innheimtur og skattskyldar skýrslur. Bókhaldslaust.',
   'landing.hero.title': 'Senda reikninga. Fáðu greitt hraðar.',
   'login.signupLink': 'Búa til einn',
   'login.submitting': 'Skrái þig inn…',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'greiðslur',
   'pricing.recurringLabel': 'endurteknar áætlanir',
   'remitLayout.newInvoice': 'Nýr reikningur',
+  'remitLayout.openMenu': 'Opna flakkvalmynd',
   'remitLayout.searchPlaceholder': 'Leita að reikningum, viðskiptavinum...',
   'remitLayout.tagline': 'Fáðu greitt, hraðar',
   'reports.chart.aging': 'Aldursgreining reikninga',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Tekjur á tímabili',
   'reports.chart.topClients': 'Helstu viðskiptavinir',
   'reports.chart.topClientsCaption': 'Ævitekjur, efstu 5',
+  'reports.empty.aging': 'Engir útistandandi reikningar.',
+  'reports.empty.methods': 'Engar greiðsluupplýsingar enn.',
+  'reports.empty.revenue': 'Engar tekjuupplýsingar enn.',
+  'reports.empty.topClients': 'Engar tekjur viðskiptavina enn sem komið er.',
   'reports.exporting': 'Flytur út…',
   'reports.exportRequiresPaid':
     'Útflutningur er greiddur eiginleiki — uppfærðu til að virkja hann.',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Bæta við skatthlutfalli',
   'settings.tax.added': 'Skatthlutfall bætt við.',
   'settings.tax.adding': 'Bætir við…',
+  'settings.tax.addRate': 'Bæta við hlutfalli',
   'settings.tax.col.region': 'Svæði',
   'settings.tax.delete': 'Eyða skatthlutfalli',
   'settings.tax.deleted': 'Skatthlutfall fjarlægt.',

@@ -4,6 +4,7 @@ export const ui: UiTranslations = {
   'about.eyebrow': 'Névjegy',
   'approvals.approve': 'Jóváhagyás',
   'approvals.approving': 'Jóváhagyás…',
+  'approvals.confirmReject': 'Elutasítás megerősítése',
   'approvals.eyebrow': 'Vezetői sor',
   'approvals.kpi.flaggedLabel': 'Szabályzat megjelölve',
   'approvals.kpi.totalLabel': 'Függőben lévő érték',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'approvals.review': 'Ellenőrzés',
   'approvals.title': 'Függőben lévő jóváhagyások',
   'approvalTimeline.actor': 'által {{actor}}',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addExpense': 'Új kiadás',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
     'Az elmúlt 12 hétben 17 jóváhagyott jelentés alapján kifizetett költségtérítés.',
   'landing.sampleCardLabel': 'Visszatérítés · 2. negyedév',
   'landing.socialProof': 'A pénzügyi csapatok megbíznak benne',
+  'layout.openMenu': 'Navigációs menü megnyitása',
   'layout.workspace': 'Pénzügyi munkaterület',
   'login.hidePassword': 'Jelszó elrejtése',
   'login.noAccount': 'Új a Recoupban?',
@@ -76,6 +79,8 @@ export const ui: UiTranslations = {
   'newReport.approverPlaceholder': 'manager@aceged.com',
   'newReport.availableExpenses': 'Elérhető költségek',
   'newReport.createFailed': 'Nem sikerült létrehozni a jelentést. Próbáld újra.',
+  'newReport.draftsFallback':
+    'Élő költséglista nem érhető el — kurátori demóadatokat jelenítünk meg.',
   'newReport.includedCount': '{{count}} benne foglaltatik',
   'newReport.purposeLabel': 'Üzleti cél',
   'newReport.purposePlaceholder':
@@ -88,6 +93,7 @@ export const ui: UiTranslations = {
     '{{count}} Költségek benne foglaltatnak. Jóváhagyási útvonalak a vezetődön, majd a pénzügyön keresztül.',
   'newReport.title': 'Új költségjelentés',
   'newReport.titleLabel': 'Jelentés címe',
+  'newReport.titlePlaceholder': 'Berlini értékesítési helyszín',
   'newReport.toggleAria': 'Tartalmazza {{merchant}}',
   'notifications.eyebrow': 'Munkaterületi tevékenység',
   'notifications.feedFallback':
@@ -128,10 +134,12 @@ export const ui: UiTranslations = {
   'settings.policies.empty': 'Még nincsenek irányelvek.',
   'settings.policies.error':
     'Nem sikerült betölteni a szabályzatokat – próbálja meg frissíteni az oldalt.',
+  'settings.policies.managerApproval': 'Vezetői jóváhagyás',
   'settings.policies.receipt': 'Nyugta szükséges a következőhöz:',
   'settings.policies.scope': 'Munkaterület-szintű · csak rendszergazdáknak',
   'settings.policies.title': 'Jóváhagyási szabályzatok',
   'settings.policies.unnamed': 'Politika',
+  'settings.prefsSaveFailed': 'Nem sikerült menteni a beállításokat. Próbáld újra.',
   'settings.profile.saved': 'Mentett ✓',
   'settings.profileSaveFailed': 'Nem sikerült frissíteni a profilt. Próbáld újra.',
   'signup.heading': 'Hozza létre a Visszatérítési fiókját',

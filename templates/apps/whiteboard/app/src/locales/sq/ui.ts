@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'authShell.brandHeading':
     'Kanavacë shumëlojtarësh për ekipet e dizajnit që mendojnë me zë të lartë.',
   'billing.canceled': 'Abonimi u anulua.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Filloni nga shablloni',
   'boards.title': 'Bordet tuaja',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Shko te paneli',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Futni email-in e lidhur me hapësirën tuaj të punës dhe ne do t'ju dërgojmë një lidhje rivendosjeje.",
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Punëtoria e Q1 · Zëri i Markës',
   'landing.featuresEyebrow': 'Çfarë e bën Slate-n mozaik?',
   'landing.featuresTitle': 'Reagime të shpejta. Kanavaca të bukura. Zero fërkime.',
+  'landing.hero.body':
+    '{{appName}} është një tabelë e bardhë shumëlojtarëshe për ekipet e dizajnit, lehtësuesit e punëtorive dhe edukatorët që zhvillojnë shkëmbime idesh live dhe kanë nevojë që idetë të bashkohen në një vend.',
   'landing.hero.primaryCta': 'Filloni një bord falas',
   'landing.hero.socialProof': 'I besuar nga {{count}} ekipet e dizajnit në të gjithë botën',
   'landing.hero.title': 'Një kanavacë aq e shpejtë sa mendimet tuaja',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Krijoni një hapësirë pune të lirë',
   'login.subheading':
     'Vazhdoni nga vendi ku e la seminari — tabelat, shënimet ngjitëse dhe kursorët sinkronizohen të gjitha në kohë reale.',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.new': 'E re',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'notifications.editTitle': 'Ndryshime në " {{board}} "',
   'notifications.empty.body':
     'Ftesat, ruajtja e pamjeve të çastit dhe ndryshimet e fundit në tabelë do të shfaqen këtu ndërsa ndodhin.',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historiku i versioneve',
   'versionHistory.untitledSnapshot': 'Pamje e shkurtër pa titull',
   'whiteboardLayout.newBoard': 'Bord i ri',
+  'whiteboardLayout.primaryNav': 'Navigimi kryesor',
   'workspace.boardLabel': 'Bordi',
   'workspace.eyebrow': '{{name}} · hapësirë pune',
   'workspace.invite': 'Fto bashkëpunëtorë',

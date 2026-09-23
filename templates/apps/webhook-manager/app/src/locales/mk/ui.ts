@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// за {{app}}',
+  'about.pageTitle': 'Контролната рамнина на webhook',
+  'about.plansTitle': 'Планови за секоја фаза',
   'apiKeys.bestPractices': 'Најдобри практики',
   'apiKeys.body':
     'Програмски токени за пристап. Третирајте ги како лозинки — складирајте ги во променливи на env, никогаш не ги комитирајте.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'во рамките на планот',
   'billing.usageWarning': 'близу до границата',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Оди до контролна табла',
   'dashboard.body':
     'Проток во живо, повторни обиди во лет и крајните точки што штотуку се појавија проблеми - низ секој работен простор што го управувате.',
   'dashboard.endpointsEmpty': 'Сè уште нема крајни точки.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'крајни точки',
   'endpointDetail.deliveryTrendSub': 'испораки / час, логистичка скала',
   'endpointDetail.hideSecret': 'Сокриј тајна',
+  'endpointDetail.loading': 'Вчитување на крајната точка…',
   'endpointDetail.metric.delivered': 'Доставено 24 часа',
   'endpointDetail.metric.deliveredCaption': 'од {{count}} типови на настани',
   'endpointDetail.metric.failuresCaption': 'повторни обиди: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Критично · 24 часа',
   'notifications.metric.totalCaption': 'сандаче за сите времиња',
   'payloadViewer.payload': '// товар',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint': 'Прикажани се иницијали — прикачувањата доаѓаат со следното издание.',
   'profile.body': 'Вашата сметка, преференции и активни сесии.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ зачувано',
   'profile.sessionsEmpty': 'Само вашата тековна сесија е активна. Нема најавени други уреди.',
   'profile.toggle': 'Вклучи/исклучи {{label}}',
+  'pylonShell.closeMenu': 'Затвори го менито за навигација',
+  'pylonShell.openMenu': 'Отвори мени за навигација',
   'pylonShell.primaryNavLabel': 'Примарна навигација',
   'resetPassword.subtitle': 'Изберете силна лозинка што не сте ја користеле претходно.',
   'resetPassword.tokenPlaceholder': 'залепете од е-пошта',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om oss',
   'applications.empty': 'Inga ansökningar än — rätt roll är bara en ansökan bort.',
   'applications.eyebrow': 'Din pipeline',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Varje roll du har sökt, i rörelse. Filtrera efter steg för att fokusera.',
   'applications.untitledRole': 'Roll #{{id}}',
+  'auth.legalConsent': 'Genom att fortsätta godkänner du våra',
   'common.and': 'och',
+  'common.goToDashboard': 'Gå till översikt',
   'companies.empty': 'Inga företag matchar din sökning — prova en annan term.',
   'companies.eyebrow': 'Utvalda arbetsgivare',
   'companies.searchPlaceholder': 'Sök på namn, bransch, plats',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Inga ansökningar än för den här rollen.',
   'jobApplicants.eyebrow': 'Arbetsgivarvy',
   'jobApplicants.loading': 'Laddar…',
+  'jobApplicants.statusUpdateFailed': 'Kunde inte uppdatera det steget — försök igen.',
+  'jobApplicants.subheading':
+    'Granska CV, presentera kandidater i förväg, skicka erbjudanden \\u2014 {{count}} i praktiken.',
   'jobDetail.applicantCount': '{{count}} sökande hittills',
   'jobDetail.applied': 'Ansökan skickad',
   'jobDetail.apply': 'Ansök nu',
@@ -82,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Bläddra bland lediga roller \\u2192',
   'landing.pricingEyebrow': 'Priser',
   'landing.pricingHeading': 'Enkla planer för alla teamstorlekar.',
+  'login.eyebrow': 'Välkommen tillbaka till {{app}}',
   'login.heading': 'Logga in på ditt konto',
   'login.noAccount': 'Ny på Nosh?',
   'login.passwordPlaceholder': '••••••••',
   'login.remember': 'Kom ihåg mig i 30 dagar',
   'login.signingIn': 'Loggar in…',
   'login.subheading': 'Återuppta sökandet, driv dina ansökningar framåt, få svar snabbare.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Byggd för rekryteringsteam.',
   'loginBrandPanel.headline': 'Där talang möter',
   'loginBrandPanel.headlineLine2': 'drivkraft.',
   'loginBrandPanel.listing.recruiter': 'Talangpartner',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
     'Ansökningsuppdateringar, intervjuinbjudningar, nya matchningar — nyaste först.',
   'opportunitiesHero.delta': '{{sign}}{{amount}} den här veckan',
   'opportunitiesHero.eyebrow': 'Öppna idag',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'postJob.addNewCompany': '+ Lägg till ett nytt företag',
   'postJob.companyCreateFailed': 'Kunde inte skapa företaget — försök igen.',
   'postJob.companyNameLabel': 'Ditt företags namn',
@@ -162,10 +171,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Skapar konto…',
   'signup.ctaEmployer': 'Skapa arbetsgivarkonto',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Lösenorden matchar inte.',
   'signup.subheading':
     'Gratis för sökande, för alltid. Arbetsgivare börjar med en 30-dagars provperiod.',
   'timeAgo.days': '{{count}}d sedan',
   'timeAgo.hours': '{{count}}h sedan',
   'timeAgo.justNow': 'just nu',
+  'timeAgo.weeks': '{{count}} veckor sedan',
 }

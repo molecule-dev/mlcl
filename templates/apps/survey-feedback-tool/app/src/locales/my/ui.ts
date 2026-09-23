@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} အကြောင်း',
   'analytics.back': 'စစ်တမ်းခြုံငုံသုံးသပ်ချက်',
   'analytics.kpiNps': 'NPS ရမှတ်',
   'analytics.kpiNpsTrend': 'မြှင့်တင်သူများ {{p}} % · ကန့်ကွက်သူများ {{d}} %',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'ဂုဏ်သတ္တိများ',
   'builder.questionNumber': 'မေး {{num}}',
   'builder.surveyTitle': 'စစ်တမ်းခေါင်းစဉ်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'forgotPassword.failed': 'ပြန်လည်သတ်မှတ်သည့် အီးမေးလ်ကို ပို့၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'forgotPassword.subheading':
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်ရယူရေးလင့်ခ် ပို့ပေးပါမည်။',
   'forgotPassword.successBody':
     'အကောင့်တစ်ခု ကိုက်ညီရင် {{email}} , reset link တစ်ခု ရောက်ရှိလာပါပြီ။ သင့်ရဲ့ inbox နဲ့ spam folder တွေကို စစ်ဆေးကြည့်ပါ။',
+  'landing.footer.copyright': '© {{year}} {{app}} . အသံအားလုံးကို ကြိုဆိုပါသည်။',
   'landing.footer.startTrial': 'အစမ်းသုံးမှု စတင်ပါ',
   'landing.hero.badge': 'စစ်တမ်းများ၊ NPS နှင့် တုံ့ပြန်ချက်များကို တစ်နေရာတည်းတွင် ရယူလိုက်ပါ။',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'ဈေးနှုန်း',
   'landing.pricing.perMonth': '/လ',
   'landing.pricing.popular': 'အကျော်ကြားဆုံး',
+  'landing.pricing.subtitle':
+    'အစီအစဉ်တိုင်းမှာ စစ်တမ်းတည်ဆောက်သူ၊ အများသုံးမျှဝေလင့်ခ်များနှင့် NPS ခွဲခြမ်းစိတ်ဖြာမှုများ ပါဝင်သည်။ စတင်ရန် ခရက်ဒစ်ကတ် မလိုအပ်ပါ။',
+  'landing.pricing.title': 'အခမဲ့စတင်ပါ၊ သင်လိုအပ်သည့်အခါ ချိန်ညှိပါ။',
   'landing.sample.eyebrow': 'NPS အကျဉ်းချုပ်',
   'landing.sample.title':
     'ရှုတ်ချသူများ၊ အပြုသဘောဆောင်သူများ၊ မြှင့်တင်သူများ — ချက်ချင်းဖတ်ရှုနိုင်သည်။',
@@ -59,6 +65,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.signUpLink': 'အခမဲ့ အစမ်းသုံးမှု စတင်ပါ',
   'login.subheading': 'သင့်ပရိသတ်ကို ဆက်လက်နားထောင်ရန် အကောင့်ဝင်ပါ။',
+  'notFound.body':
+    'သင်ရှာဖွေနေသော စာမျက်နှာသည် {{app}} တွင် မရှိပါ။ သင့်စစ်တမ်းများဆီသို့ ပြန်သွားကြပါစို့။',
   'notFound.cta': 'စစ်တမ်းများသို့ ပြန်သွားရန်',
   'notFound.eyebrow': '၄၀၄',
   'notFound.heading': 'ဤစစ်တမ်းသည် တန်းစီဇယားမှ ပျောက်ကွယ်သွားခဲ့သည်။',
@@ -77,6 +85,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': 'ပရိုမိုတာ ၉–၁၀',
   'profile.identity.description':
     'သင့်အဖွဲ့နှင့် သင်ရေးသားသော စစ်တမ်းများပေါ်တွင် အများပြည်သူသိရှိစေရန်။',
+  'profile.identity.emailRequired': 'အီးမေးလ်လိပ်စာတစ်ခု ရိုက်ထည့်ပါ။',
   'profile.identity.saveCta': 'အမည်ကို သိမ်းဆည်းပါ',
   'profile.password.current': 'လက်ရှိစကားဝှက်',
   'profile.password.fillFields': 'လက်ရှိနှင့် အသစ် စကားဝှက် နှစ်မျိုးလုံးကို ရိုက်ထည့်ပါ။',
@@ -181,6 +190,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} မေးခွန်းတွေ',
   'templates.subheading':
     'တိုက်ပွဲတွင် စမ်းသပ်ပြီးသား starter တစ်ခုကို ရွေးချယ်ပါ — template တိုင်းတွင် ကျိုးကြောင်းဆီလျော်သော default များ၊ နမူနာ logic နှင့် သန့်ရှင်းသော mobile layout တို့ဖြင့် ကြိုတင်ချိန်ညှိထားပါသည်။',
+  'thankYou.body':
+    'သင့်တုံ့ပြန်မှုကို မှတ်တမ်းတင်ပြီးပါပြီ။ {{app}} သည် ၎င်းကို နောက်တစ်ကြိမ် ခွဲခြမ်းစိတ်ဖြာမှု ပြန်လည်ဆန်းသစ်မှုတွင် ထည့်သွင်းပေးပါမည်။',
   'thankYou.eyebrow': 'တုံ့ပြန်မှုလက်ခံရရှိသည်',
   'thankYou.heading': 'ကျေးဇူးတင်ပါတယ် — သင့်အသံက အရေးကြီးပါတယ်။',
   'thankYou.home': 'မာမာသို့ သွားရောက်လည်ပတ်ပါ',

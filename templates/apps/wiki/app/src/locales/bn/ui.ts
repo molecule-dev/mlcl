@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'সমাধান করা হচ্ছে…',
   'comments.subtitle':
     'দ্য {{count}} থ্রেডগুলো এখনও উত্তর বা সমাধানের অপেক্ষায় আছে। বয়স অনুসারে সাজানো — সবচেয়ে পুরোনোটা প্রথমে, যাতে কোনো কিছু নষ্ট না হয়।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'forgotPassword.sentTo': 'রিসেট লিঙ্ক পাঠানো হয়েছে {{email}}',
   'forgotPassword.successSubheading':
     'আপনার ইনবক্স দেখুন — আমরা এইমাত্র একটি রিসেট লিঙ্ক পাঠিয়েছি। এটির মেয়াদ ৩০ মিনিটে শেষ হয়ে যাবে।',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'নতুন পৃষ্ঠা',
   'pageTreeSidebar.workspaceHeader': 'কর্মক্ষেত্র',
   'pageView.breadcrumb': 'রুটির গুঁড়ো',
+  'pageView.confirmTrash': 'এটা ফেলে দেব?',
   'pageView.home': 'হোম',
   'pageView.lastEdited': 'আপডেট করা হয়েছে {{when}}',
   'pageView.loading': 'পৃষ্ঠা লোড হচ্ছে…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'সারসংক্ষেপে…',
   'pageView.summaryUnavailable': 'এই ওয়ার্কস্পেসের জন্য এআই সারাংশ কনফিগার করা নেই।',
   'pageView.tocTitle': 'এই পৃষ্ঠায়',
+  'pageView.trash': 'আবর্জনা',
+  'pageView.trashing': 'ধ্বংস করা…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'ব্যাজ',
   'profile.owned.title': 'নিজস্ব পৃষ্ঠাগুলি',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'ওয়ার্কস্পেস, প্রোফাইল, নোটিফিকেশন, ইন্টিগ্রেশন — সবকিছু এক শান্ত আবরণে।',
   'settingsPage.workspace.defaultLanding': 'ডিফল্ট ল্যান্ডিং স্ক্রিন',
   'settingsPage.workspace.landingHome': 'হোম',
+  'settingsPage.workspace.landingSpaces': 'স্থান',
   'settingsPage.workspace.subdomainLabel': 'সাবডোমেন',
   'settingsPage.workspace.title': 'কর্মক্ষেত্র',
   'signup.eyebrow': 'একটি নতুন কর্মক্ষেত্র শুরু করুন',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} মিনিট',
   'templates.subtitle':
     'একটি খালি ক্যানভাস থেকে নয়, বরং একটি স্টেনসিল থেকে পৃষ্ঠা শুরু করুন। প্রতিটি টেমপ্লেটে আকৃতিটি নির্দিষ্ট করে দেওয়া থাকে, যাতে আপনি মূল বিষয়বস্তুর উপর মনোযোগ দিতে পারেন।',
+  'trash.confirmPurge': 'চিরতরে নির্মূল?',
+  'trash.confirmPurgeAria': 'নিশ্চিত করুন: {{title}} স্থায়ীভাবে মুছে ফেলুন',
   'trash.daysUntilPurge': '{{days}} বাকি দিন',
   'trash.empty.body':
     'মুছে ফেলা পৃষ্ঠাগুলি সম্পূর্ণরূপে অপসারণ করার আগে ৩০ দিনের জন্য এখানে প্রদর্শিত হবে।',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} সংস্করণসমূহ · পার্থক্যটি খতিয়ে দেখতে একটি সারি নির্বাচন করুন',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'নেভিগেশন বন্ধ করুন',
+  'wikiLayout.menu': 'নেভিগেশন',
+  'wikiLayout.openMenu': 'নেভিগেশন খুলুন',
   'wikiLayout.searchPlaceholder': 'কেয়ার্ন অনুসন্ধান করুন — পৃষ্ঠা, মন্তব্য…',
 }

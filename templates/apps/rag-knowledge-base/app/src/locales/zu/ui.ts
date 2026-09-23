@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.pageTitle': 'Mayelana {{appName}}',
   'analytics.error': 'Ayikwazanga ukulayisha izibalo.',
   'analytics.heading': 'Ukuhlaziywa kokutholwa',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Azikho izigaba zamanani ezilungiselelwe.',
   'billing.plans.heading': 'Amacebo',
   'billing.subheading': 'Hlela, sebenzisa, kanye nokukhokha okuphethwe yi-Stripe.',
+  'common.confirm': 'Qinisekisa',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.retry': 'Zama futhi',
   'documentCard.open': 'Vula \\u2192',
   'documentDetail.back': 'Buyela kumadokhumenti',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Isihloko sedokhumenti',
   'documents.emptyAll':
     'Awekho amadokhumenti okwamanje. Layisha eyodwa ukuze uqale ukubuza imibuzo.',
+  'documents.error.load': 'Ayikwazanga ukulayisha amadokhumenti.',
   'documents.heading': 'Amadokhumenti afakwe ku-index',
   'documents.loading': 'Ilayisha amadokhumenti…',
   'documents.metric.chunks': 'Izingcezu eziphelele',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Iyasusa...',
   'members.subheading': 'Mema ozakwethu bese ubeka izindima.',
   'members.tableHeading': 'Uhlu',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'notFound.askCta': 'Buza isisekelo solwazi',
+  'notFound.body':
+    'I {{app}} ayikwazanga ukuthola lelo khasi. Isixhumanisi singase siphuke, noma ikhasi kungenzeka ukuthi liyekile ngesikhathi sokuphinda libhalwe kabusha.',
   'notFound.eyebrow': 'Ayikwazi ukubuyisa',
   'notFound.title': 'Akukho ngxenye enjalo ku-index',
   'notifications.dismiss': 'Lahla',
@@ -207,6 +216,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Chofoza okuthi \\u201cEngeza umthombo\\u201d ukuze uxhume i-connector yakho yokuqala.',
   'sources.empty.title': 'Akukho mithombo okwamanje.',
+  'sources.error.add': 'Ayikwazanga ukwengeza umthombo.',
   'sources.error.labelRequired': 'Kudingeka ilebula.',
   'sources.error.load': 'Ayikwazanga ukulayisha imithombo.',
   'sources.error.urlRequired': 'I-URL iyadingeka kulolu hlobo lomthombo.',

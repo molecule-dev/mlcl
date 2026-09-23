@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'हम डिज़ाइनरों और इंजीनियरों की एक वितरित टीम हैं जिन्होंने कभी हर दिन के बहुत से घंटे एक शोरगुल वाले मेलबॉक्स में बिताए थे। Courier वही इनबॉक्स है जिसे हम स्वयं उपयोग करना चाहते थे।',
   'about.title': 'केंद्रित कार्य के लिए ईमेल',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'help.cta.about': 'Courier के बारे में',
   'help.cta.pricing': 'मूल्य निर्धारण देखें',
   'help.eyebrow': 'सहायता केंद्र',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'उन प्रश्नों के त्वरित उत्तर जो हम सबसे अधिक सुनते हैं। कुछ छूट गया? सेटिंग्स खोलें और इन-ऐप फीडबैक फॉर्म का उपयोग करें, या support@courier.example पर लिखें।',
   'help.title': 'हम आपकी कैसे मदद कर सकते हैं?',
   'landing.brand.scrollTop': 'ऊपर वापस',
+  'landing.copyright': '© {{year}} {{appName}} — एकाग्रता के लिए निर्मित।',
   'landing.ctaBody':
     'हज़ारों पेशेवरों से जुड़ें जिन्होंने दोपहर के भोजन से पहले अपना इनबॉक्स समाप्त कर लिया।',
   'landing.ctaTitle': 'अधिक प्रसंस्करण, कम प्रतिक्रिया।',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'डेमो देखें',
   'landing.heroSubtitle':
     'Courier एक शांत तीन-पैनल वाला इनबॉक्स है जो उन ज्ञान कार्यकर्ताओं के लिए बनाया गया है जो जानकारी को संसाधित करना चाहते हैं, उस पर प्रतिक्रिया नहीं करना।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'दुनिया भर की केंद्रित टीमों द्वारा भरोसा किया गया',
   'landing.signIn': 'साइन इन करें',
   'meridian.archive.empty': 'संग्रह खाली है।',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'प्रति',
   'meridian.drafts.watermark': 'ड्राफ्ट',
   'meridian.folder.count': '{{count}} संदेश',
+  'meridian.folder.delete': 'हटाएँ',
   'meridian.folder.deleteForever': 'स्थायी रूप से हटाएँ',
   'meridian.folder.restore': 'इनबॉक्स में ले जाएँ',
   'meridian.forgot.subtitle': 'अपने इनबॉक्स से जुड़ा ईमेल दर्ज करें और हम एक रीसेट लिंक भेजेंगे।',
@@ -84,7 +88,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'अभी यहाँ कोई संदेश नहीं है।',
   'meridian.inbox.loading': 'लोड हो रहा है…',
   'meridian.inbox.next': 'अगला',
+  'meridian.inbox.noSender': '(प्रेषक नहीं)',
   'meridian.inbox.noSubject': '(कोई विषय नहीं)',
+  'meridian.inbox.ofTotal': '{{total}} का {{current}}',
   'meridian.inbox.openCompose': 'लेखन खोलें',
   'meridian.inbox.previous': 'पिछला',
   'meridian.inbox.replyFailed': 'उत्तर सहेजा गया लेकिन डिलीवरी विफल: {{error}}',
@@ -97,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'खाता नहीं है?',
   'meridian.login.showPassword': 'पासवर्ड दिखाएँ',
   'meridian.message.toLine': '{{recipients}} को',
+  'meridian.notFound.body':
+    'आप जिस पेज को खोज रहे हैं वह नहीं मिला। कृपया अपने {{appName}} इनबॉक्स पर वापस जाएं, हम आपको सही पेज ढूंढने में मदद करेंगे।',
   'meridian.notFound.eyebrow': 'त्रुटि 404',
   'meridian.notFound.title': 'यह थ्रेड संग्रहीत किया गया था।',
   'meridian.notFound.toInbox': 'मेरा इनबॉक्स खोलें',
@@ -132,18 +140,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'स्टार जोड़ें',
   'meridian.thread.unstar': 'स्टार हटाएँ',
   'meridian.time.yesterday': 'कल',
+  'meridian.topBar.openMenu': 'नेविगेशन मेनू खोलें',
   'meridian.topBar.searchPlaceholder': 'मेल खोजें',
   'meridian.trash.empty': 'ट्रैश खाली है।',
   'meridian.trash.title': 'ट्रैश',
   'nav.legal': 'कानूनी',
   'planUpdated.description':
     'आपकी सदस्यता अब सक्रिय है और आपका बिलिंग अपडेट हो गया है। अपने नवीनीकृत Courier इनबॉक्स में आपका स्वागत है।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.heading': 'ड्राफ्ट',
   'pricing.limit.emails': 'ईमेल',
   'pricing.limit.folders': 'फ़ोल्डर',
   'pricing.limit.labels': 'लेबल',
   'privacy.collect.account':
     'खाता डेटा: नाम, ईमेल पता, हैश किया गया पासवर्ड, और आपके साइन अप करने की तारीख।',
+  'privacy.contact': 'कोई प्रश्न? privacy@courier.example पर ईमेल करें।',
   'privacy.intro':
     'यह गोपनीयता नीति बताती है कि Courier कौन-सा डेटा एकत्र करता है, हम उसे क्यों एकत्र करते हैं, हम उसे कैसे सुरक्षित रखते हैं, और उस पर आपके पास क्या विकल्प हैं। हमारा उद्देश्य कानूनी होने के बजाय विशिष्ट होना है; यदि कुछ अस्पष्ट है, तो privacy@courier.example पर लिखें।',
   'privacy.lastUpdated': 'अंतिम बार अपडेट किया गया: 1 अप्रैल, 2026',
@@ -163,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ये शर्तें Courier के आपके उपयोग को नियंत्रित करती हैं। एक खाता बनाकर या हमारे माध्यम से ईमेल भेजकर आप इनसे बंधे होने के लिए सहमत होते हैं। हम ऐसे नियम लिखने का प्रयास करते हैं जिनका एक व्यक्ति वास्तव में पालन कर सके।',
   'terms.lastUpdated': 'प्रभावी: 1 अप्रैल, 2026',
+  'terms.linkPrivacy': 'हमारी गोपनीयता नीति पढ़ें →',
   'terms.termination.body':
     'आप किसी भी समय अपना खाता हटा सकते हैं। हम ऐसे खाते को निलंबित कर सकते हैं जो इन शर्तों का उल्लंघन करता है; यदि हम ऐसा करते हैं, तो हम कारण समझाएँगे और आपको पहले अपना डेटा निर्यात करने देंगे।',
   'terms.warranty.body':

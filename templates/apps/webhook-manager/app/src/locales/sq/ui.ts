@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// rreth {{app}}',
+  'about.pageTitle': 'Plani i kontrollit të webhook-ut',
+  'about.plansTitle': 'Planet për çdo fazë',
   'apiKeys.bestPractices': 'Praktikat më të mira',
   'apiKeys.body':
     'Tokenët e aksesit programatik. Trajtojini si fjalëkalime — ruajini në variante të env, mos i kryeni kurrë.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'brenda planit',
   'billing.usageWarning': 'afër kufirit',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.body':
     'Rendiment i përditësuar, ripërpjekje gjatë fluturimit dhe pikat fundore që sapo pësuan probleme — në çdo hapësirë pune që operoni.',
   'dashboard.endpointsEmpty': 'Ende nuk ka pika fundore.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'pikat fundore',
   'endpointDetail.deliveryTrendSub': 'dërgesa / orë, shkallë logaritmike',
   'endpointDetail.hideSecret': 'Fshih sekretin',
+  'endpointDetail.loading': 'Duke ngarkuar pikën fundore…',
   'endpointDetail.metric.delivered': 'Dorëzuar 24 orë',
   'endpointDetail.metric.deliveredCaption': 'nga {{count}} llojet e ngjarjeve',
   'endpointDetail.metric.failuresCaption': 'ripërpjekje: {{retries}}',
@@ -215,6 +220,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritik · 24 orë',
   'notifications.metric.totalCaption': 'kutia hyrëse e të gjitha kohërave',
   'payloadViewer.payload': '// ngarkesë',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Inicialet e shfaqura — ngarkimet do të vijnë me versionin e ardhshëm.',
   'profile.body': 'Llogaria juaj, preferencat dhe seancat aktive.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Vetëm seanca juaj aktuale është aktive. Nuk ka asnjë pajisje tjetër të identifikuar.',
   'profile.toggle': 'Aktivizo/çaktivizo {{label}}',
+  'pylonShell.closeMenu': 'Mbyll menynë e navigimit',
+  'pylonShell.openMenu': 'Hap menynë e navigimit',
   'pylonShell.primaryNavLabel': 'Navigimi kryesor',
   'resetPassword.subtitle': 'Zgjidhni një fjalëkalim të fortë që nuk e keni përdorur më parë.',
   'resetPassword.tokenPlaceholder': 'ngjit nga emaili',

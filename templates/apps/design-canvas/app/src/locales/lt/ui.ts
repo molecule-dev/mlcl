@@ -1,28 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'authShell.brandHeading':
     'Idealiai pikselių dydžio drobės dizaino komandoms, kurios dirba kartu.',
   'canvas.redirecting': 'Atidaromas redaktorius…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'ir',
+  'common.goToDashboard': 'Eiti į suvestinę',
+  'common.retry': 'Bandyti dar kartą',
   'dashboard.activityEmpty':
     'Kol kas nėra jokios naujausios veiklos – pakvieskite komandos draugą pradėti.',
   'dashboard.activityTitle': 'Kas pasikeitė šiandien',
   'dashboard.activityViewAll': 'Žr. visus pranešimus',
+  'dashboard.cursorColor': 'Pasirinkite žymeklio spalvą {{color}}',
   'dashboard.cursorPaletteLabel': 'Jūsų žymeklio spalva',
   'dashboard.empty.body': 'Išbandykite kitą paiešką arba pradėkite naują drobę.',
   'dashboard.empty.title': 'Nėra atitinkančių projektų',
   'dashboard.eyebrow': 'Darbo vieta · Northwind Studio',
   'dashboard.foldersLabel': 'Aplankai',
   'dashboard.gridTitle': '{{count}} projektai',
+  'dashboard.heroActiveTool': 'Rašiklio įrankis',
   'dashboard.loadingTitle': 'Įkeliami projektai…',
   'dashboard.searchPlaceholder': 'Ieškoti projektų',
   'dashboard.startFromTemplate': 'Pradėti nuo šablono',
   'dashboard.title': 'Jūsų projektai',
   'dashboard.untitledProject': 'Projektas be pavadinimo',
   'designCanvasLayout.newProject': 'Naujas projektas',
+  'designCanvasLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'editor.backToProjects': 'Grįžti prie projektų',
   'editor.deleteShape': 'Ištrinti formą',
   'editor.errorBody': 'Nepavyko atidaryti šio projekto.',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Kurkite įrankius, kurie juda jūsų rankų greičiu',
   'library.empty': 'Šioje skiltyje dar nėra žetonų.',
   'library.eyebrow': 'Darbo erdvė · Atelier Design System',
+  'library.loadFailed': 'Nepavyko įkelti dizaino žetonų.',
   'library.systemMeta': 'Sistemos sveikata',
   'library.systemSummary':
     '{{žetonai}} žetonai · {{komponentai}} komponentai · {{efektai}} efektai',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
+  'appNav.mobileLabel': 'Navegació principal',
+  'appNav.primaryLabel': 'Navegació principal',
   'billing.actions.confirmCancel':
     'Vols cancel·lar la subscripció? Pots tornar-te a subscriure en qualsevol moment.',
   'billing.actions.paused': 'Subscripció en pausa.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Cada nivell és una història de lot petit. Afegeix-ne una a la teva cua o canvia-la per al teu proper mes.',
   'boxThemeCard.perMonth': '/ mes',
+  'common.goToDashboard': 'Anar al panell',
   'customize.eyebrow': 'Fes-ho teu',
   'customize.heading': 'Personalitza el teu proper Crate',
   'customize.items.exclude': 'Omet això',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Aquesta temporada',
   'landing.editions.heading': 'Edicions que encanten als nostres curadors',
   'landing.footer.contact': 'Parla amb un curador',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Comença la teva caixa →',
   'landing.hero.ctaSecondary': 'Veure nivells',
   'landing.hero.eyebrow': 'Curat mensualment. Sempre personal.',
@@ -115,6 +120,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'EL TEU PRÒXIM TRESO',
   'nextBoxHeroCard.itemsLabel': 'Elements seleccionats',
   'nextBoxHeroCard.shipsOnLabel': 'Enviaments en',
+  'notFound.body':
+    "No hem pogut trobar aquesta pàgina a l'arxiu de {{app}} . Potser s'ha retirat o simplement hi ha hagut un error d'escriptura.",
   'notFound.cta.dashboard': 'Ves al tauler de control',
   'notFound.eyebrow': 'Caixa buida',
   'notFound.heading': 'Aquest prestatge està buit',

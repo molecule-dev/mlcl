@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'billing.canceled': 'Assinatura cancelada. Você voltará ao Free no final do período.',
   'billing.contactSales': 'Contatar vendas',
   'billing.free.1': '5 traduções',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Sem limite de retenção',
   'billing.upgradeHint': 'Atualize para desbloquear recursos avançados de IA.',
   'billing.yearly': 'Anual',
+  'common.goToDashboard': 'Ir para o Painel',
   'dashboard.activityEmpty': 'Sem atividade ainda — inicie um projeto para preencher este feed.',
   'dashboard.eyebrow': 'Visão geral',
   'dashboard.projectsEmpty': 'Sem projetos ainda — inicie um para vê-lo aqui.',
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Reutilize traduções passadas em todos os projetos. Maior pontuação de correspondência → menos retrabalho.',
   'memory.title': 'Banco de memória',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'nav.legal': 'Jurídico',
   'newProject.addLanguage': 'Adicionar destino',
   'newProject.create': 'Criar projeto',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} notificações marcadas como lidas.',
   'notifications.subtitle':
     'Menções, solicitações de revisão e eventos de IA em todos os seus workspaces.',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'privacy.collection.account': 'Seu e-mail de conta e nome de exibição',
   'privacy.deletion.body':
     'Você pode excluir um projeto, segmento, termo de glossário ou entrada de memória a qualquer momento na página correspondente. Excluir sua conta em Configurações purga cada linha vinculada ao workspace do nosso banco de dados.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Falha ao carregar os projetos.',
   'projects.loading': 'Carregando projetos…',
   'projects.subtitle': 'Cada projeto ativo em todos os locales.',
+  'renditionLayout.primaryNavLabel': 'Navegação principal',
   'reset.backToLogin': '\\u2190 Voltar para entrar',
   'reset.passwordLabel': 'Nova senha',
   'review.activeEyebrow': 'Segmento {{number}}',

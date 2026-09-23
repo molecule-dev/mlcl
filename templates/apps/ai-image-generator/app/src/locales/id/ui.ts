@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'auth.fields.newPassword': 'Kata sandi baru',
   'collectionDetail.addImage': 'Wujudkan untuk koleksi',
   'collectionDetail.backCta': 'Kembali ke koleksi',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood-board, brief, dan seri yang sedang berjalan',
   'collections.title': 'Koleksi',
   'collections.untitled': 'Tanpa judul · {{stamp}}',
+  'common.closeMenu': 'Tutup menu',
+  'common.dismiss': 'Tutup',
+  'common.goToDashboard': 'Ke Dashboard',
+  'common.openMenu': 'Buka menu navigasi',
   'credits.eyebrow': 'Paket {{plan}}',
   'credits.renewsCopy': 'Paket diperbarui pada {{date}}',
   'credits.trail': 'Lamunan · {{plan}} tingkat',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Aktivitas pembuatan, berbagi, dan peringatan kredit akan muncul di sini.',
   'notifications.empty.title': 'Tidak ada yang dilaporkan',
   'notifications.subtitle': 'Peristiwa pembuatan dikelompokkan per hari',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.limits.gallery': '{{count}} galeri',
   'privacy.collect.body':
     'Saat Anda mendaftar, kami mengumpulkan nama, alamat email, dan kata sandi yang di-hash. Saat Anda menggunakan Reverie, kami menyimpan prompt yang Anda kirim, gambar yang kami hasilkan untuk Anda, gaya dan koleksi yang Anda simpan, serta metadata seperti model yang digunakan, stempel waktu pembuatan, dan saldo kredit.',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Simpan kata sandi baru',
   'reset.submitting': 'Memperbarui kata sandi…',
   'settings.account.handle': 'Handle',
+  'settings.account.lastSaved': 'Profil aktif · {{name}}',
   'settings.account.saved': 'Profil disimpan',
   'settings.account.saveFailed': 'Tidak dapat menyimpan profil',
   'settings.account.title': 'Profil kreator',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Gambar baru',
   'sidebar.secondary': 'Navigasi sekunder',
   'signup.failed': 'Pendaftaran gagal. Coba lagi.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Mulai reverie Anda',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Buat akun dan klaim 120 kredit gratis.',
   'styles.empty': 'Belum ada preset gaya — akan muncul setelah masuk pertama.',
   'styles.eyebrow': 'Terkurasi',

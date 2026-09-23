@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'about.tagline': 'රහස් එළිපිටම මිය යයි.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ටෝකනය සාදන්න',
   'apiTokens.kicker': 'API ටෝකන',
   'apiTokens.loading': 'ටෝකන පූරණය වෙමින්...',
+  'apiTokens.new': 'නව ටෝකනය',
   'apiTokens.revoke': 'ටෝකනය අවලංගු කරන්න',
   'apiTokens.subheading':
     'Arcanum CLI සහ SDK සඳහා පුද්ගලික සහ සේවා ටෝකන. නිර්මාණයේදී එක් වරක් පෙන්වන සරල පෙළ.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + මුරපදය',
   'authShell.zeroKnowledge': 'ශුන්‍ය දැනුම සංකේතනය',
   'common.connecting': 'සම්බන්ධ වෙමින්...',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.inviting': 'ආරාධනා කරමින්...',
   'forgotPassword.checkInbox':
     '{email} ලියාපදිංචි කර ඇත්නම්, අත්සන් කළ යළි පිහිටුවීමේ සබැඳියක් මිනිත්තුවක් ඇතුළත ලැබෙනු ඇත.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'සෑම සුරක්ෂිතාගාරයකම භ්‍රමණ තත්ත්වය, විෂමතා ඇඟවීම් සහ අනුමැතිය ඉල්ලීම්.',
   'notifications.unreadEmpty': 'එන ලිපි බිංදුව — සියල්ල අහම්බෙන්.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.heading': 'රහස්',
   'pricing.limits.accessPolicies': 'ප්‍රවේශ ප්‍රතිපත්ති',
   'pricing.limits.auditLog': 'විගණන-ලොග් ඇතුළත් කිරීම්',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'පුද්ගලික ගිණුම',
   'profile.plan.description': 'ඔබගේ දායකත්වය කළමනාකරණය කරන්න, සීමාවන් බලන්න, සහ උත්ශ්‍රේණි කරන්න.',
   'profile.subheading': 'අනන්‍යතාවය, දෙවන සාධක උපාංග සහ ක්‍රියාකාරී සැසි.',
+  'profile.twoFactor.code': 'සත්‍යාපන කේතය',
   'profile.twoFactor.disable': 'අබල කරන්න',
   'profile.twoFactor.enable': 'සක්‍රීය කරන්න',
+  'profile.twoFactor.invalidCode': 'අවලංගු කේතයකි',
   'profile.twoFactor.kicker': 'ද්වි-සාධක සත්‍යාපනය',
+  'profile.twoFactor.off': 'සබල කර නැත',
   'profile.twoFactor.on': 'සබල කරන ලදී',
   'resetPassword.email': 'ගිණුම් ඊමේල් ලිපිනය',
   'resetPassword.heading': 'නව අක්තපත්‍ර සකසන්න',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'විධාන',
   'secretsManagerLayout.encrypted': 'AES-256 · සංකේතනය කරන ලදී',
   'secretsManagerLayout.newVault': 'නව සුරක්ෂිතාගාරය',
+  'secretsManagerLayout.newVaultShort': 'අලුත්',
   'secretsManagerLayout.rotations': 'භ්‍රමණයන්',
   'secretsManagerLayout.search': 'සෙවීම',
   'secretsManagerLayout.searchPlaceholder': 'යතුර, මාර්ගය හෝ ටැගය අනුව රහස් සොයන්න...',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'රහස්',
   'vaultCard.vaultLabel': 'සුරක්ෂිතාගාරය',
   'vaultDetail.addSecret': 'රහසක් එක් කරන්න',
+  'vaultDetail.back': 'සියලුම සුරක්ෂිතාගාර',
   'vaultDetail.col.key': 'යතුර',
   'vaultDetail.col.rotated': 'කරකැවූ',
   'vaultDetail.col.value': 'වටිනාකම',

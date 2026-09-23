@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Hadithi yetu',
   'aiSuggestionPanel.title': 'Rubani msaidizi wa saini',
   'analytics.col.open': 'Kiwango cha wazi',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Inaanza kulipa…',
   'billing.subheading': 'Chagua mpango unaolingana na jinsi unavyotuma.',
   'billing.unavailable': 'Wasiliana na mauzo',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.retry': 'Jaribu tena',
   'compose.adjustingTone': 'Kuandika upya kwa sauti iliyochaguliwa...',
   'compose.aiPromptPlaceholder':
     'mfano "Ufuatiliaji wa adabu baada ya kutojibu kwa wiki mbili, fupisha."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'Unahitaji kutuma kitu? Saini inaweza kuwa na rasimu tayari kwa sekunde chache.',
   'dashboard.composeCtaLabel': 'Utungaji wa haraka',
   'dashboard.heading': 'Wiki yako, iliyotungwa',
+  'dashboard.loadFailed': 'Haikuweza kupakia dashibodi yako.',
   'dashboard.manageLibrary': 'Dhibiti maktaba →',
   'dashboard.recentEmpty':
     'Hakuna barua pepe zilizotumwa bado — barua pepe zako zilizotumwa zitaonekana hapa.',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Toni chaguomsingi',
   'settings.toneSubheading': 'Signet hutumia sauti hii isipokuwa kama unapuuza rasimu.',
   'signetLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'signetLayout.toggleMenu': 'Badilisha menyu',
   'signup.emailLabel': 'Anwani ya Barua Pepe',
   'signup.showPassword': 'Onyesha nenosiri',
   'signup.tagline': 'Tuma barua pepe yako ya kwanza iliyoandikwa na AI ndani ya dakika moja.',

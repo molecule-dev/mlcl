@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} hakkında',
+  'appNav.mobileLabel': 'Birincil gezinme',
+  'appNav.primaryLabel': 'Birincil gezinme',
   'billing.actions.confirmCancel':
     'Aboneliğinizi iptal etmek istiyor musunuz? Dilediğiniz zaman yeniden abone olabilirsiniz.',
   'billing.actions.paused': 'Abonelik duraklatıldı.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Her kademe küçük ölçekli bir hikâyedir. Birini kuyruğunuza ekleyin veya gelecek aya geçirin.',
   'boxThemeCard.perMonth': '/ ay',
+  'common.goToDashboard': 'Panele Git',
   'customize.eyebrow': 'Size özel yapın',
   'customize.heading': "Bir sonraki Crate'unuzu özelleştirin",
   'customize.items.exclude': 'Bunu atla',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Bu sezon',
   'landing.editions.heading': 'Küratörlerimizin bayıldığı sürümler',
   'landing.footer.contact': 'Bir küratörle konuşun',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Kutunuzu başlatın →',
   'landing.hero.ctaSecondary': 'Kademeleri görün',
   'landing.hero.eyebrow': 'Aylık seçilmiş. Her zaman kişisel.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': "BİR SONRAKİ CRATE'UNUZ",
   'nextBoxHeroCard.itemsLabel': 'Seçilmiş ürünler',
   'nextBoxHeroCard.shipsOnLabel': 'Gönderim tarihi',
+  'notFound.body':
+    'Bu sayfayı {{app}} arşivinde bulamadık. Kaldırılmış olabilir veya yanlış yazılmış olabilir.',
   'notFound.cta.dashboard': 'Kontrol paneline git',
   'notFound.eyebrow': 'Boş kutu',
   'notFound.heading': 'Bu raf boş',

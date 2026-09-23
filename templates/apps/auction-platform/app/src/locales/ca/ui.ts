@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Mirant',
   'auctionDetail.watchRemoved': 'Eliminat de la llista de seguiment.',
   'auctionDetail.watchRemoveLabel': 'Elimina de la llista de seguiment',
+  'auctionPlatformLayout.primaryNavLabel': 'Navegació principal',
   'authShell.brandBody':
     "Licita en temps real per rellotges rars, obres d'art i articles especials únics. El martell cau en segons.",
   'authShell.brandEyebrow': 'En directe ara · 1.420 subhastes',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ordena per',
   'browseAuctions.subheading':
     'Filtra per categoria, ordena pel que més importa i fes una oferta abans que caigui el martell.',
+  'common.goToDashboard': 'Anar al panell',
   'countdownTimer.ended': 'Finalitzat',
   'countdownTimer.endingSoon': 'Final',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostra la contrasenya',
   'login.subtext':
     'Continua fent un seguiment de les teves subhastes i fes ofertes abans que caigui el martell.',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'myBids.bidAgain': 'Torna a licitar',
   'myBids.browseCta': 'Navega per les subhastes en directe →',
   'myBids.checkoutCta': 'Paga ara',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': "Centre d'activitats",
   'notificationsPage.subheading':
     '{{count}} sense llegir · actualitzacions en directe a mesura que avancen les subhastes',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.bidsLabel': 'ofertes',
   'pricing.listingsLabel': 'llistats',
   'pricing.watchlistLabel': 'llista de seguiment',

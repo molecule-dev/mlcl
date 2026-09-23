@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '회사 소개',
   'authShell.samplePreview':
     '“팀 여러분, 새 대시보드가 정말 멋져요 — 저희가 원하던 바로 그것입니다!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/단축키',
   'automations.subheading':
     '규칙, 미리 작성된 답변, 챗봇 — 팀이 어려운 일에 집중하는 동안 워크스페이스가 원활하게 돌아가도록 도와줍니다.',
+  'automations.trigger.inboundMessage': '수신 메시지',
   'automations.triggerLabel': '트리거',
   'chatBubble.internalNoteLabel': '내부 메모',
+  'common.confirmDelete': '삭제 확인',
+  'common.goToDashboard': '대시보드로 이동',
   'contactDetail.backToContacts': '모든 연락처',
   'contactDetail.contactFallback': '연락처',
   'contactDetail.conversationFallback': '대화',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': '마지막 활동',
   'contacts.empty': '아직 연락처가 없습니다. 위에서 첫 연락처를 추가해 주세요.',
   'contacts.eyebrow': '고객 디렉터리',
+  'contacts.form.nameOrEmailRequired': '최소한 이름이나 이메일 주소 중 하나는 입력해 주세요',
   'contacts.form.save': '연락처 저장',
   'contacts.heading': '연락처',
   'contacts.loading': '연락처를 불러오는 중…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': '메모 저장',
   'conversationDetail.tab.note': '내부 메모',
   'conversationDetail.threadAria': '대화 메시지',
+  'conversationDetail.visitorFallback': '방문자',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': '고객 정보',
   'customerProfilePanel.recentTitle': '최근 대화',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     '고객들이 평균 {{time}} 내에 첫 답변을 받고 있습니다 — 이 속도를 유지하세요.',
   'inboxHeroCard.title': '활성 대화',
+  'inboxLayout.navDrawerLabel': '탐색',
+  'inboxLayout.openMenu': '탐색 메뉴 열기',
   'inboxOverview.eyebrow': '오늘의 현황',
   'inboxOverview.heroChange': '{{count}}건 열림',
   'inboxOverview.kpiClosedTrend': '전체 기간',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': '홈페이지 방문',
   'notifications.subheading':
     '할당, @멘션, SLA 위험, CSAT 피드백 및 팀 활동 — 최신순으로 정렬됩니다.',
+  'notifications.subjectFallback': '대화',
+  'notifications.visitorFallback': '방문객',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': '높음',
   'priority.low': '낮음',
+  'priority.normal': '일반',
   'priority.urgent': '긴급',
   'privacy.title': '개인정보 처리방침',
   'reports.agentFallback': '에이전트',

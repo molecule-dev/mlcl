@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Über {{app}}',
+  'appNav.mobileLabel': 'Hauptnavigation',
+  'appNav.primaryLabel': 'Hauptnavigation',
   'billing.actions.confirmCancel':
     'Ihr Abonnement kündigen? Sie können jederzeit wieder abonnieren.',
   'billing.actions.paused': 'Abonnement pausiert.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Jeder Tier ist eine kleine Geschichte. Fügen Sie eine zu Ihrer Warteschlange hinzu oder tauschen Sie sie in Ihren nächsten Monat.',
   'boxThemeCard.perMonth': '/ Monat',
+  'common.goToDashboard': 'Zum Dashboard',
   'customize.eyebrow': 'Machen Sie es zu Ihrem',
   'customize.heading': 'Passen Sie Ihr nächstes Crate an',
   'customize.items.exclude': 'Überspringen',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Diese Saison',
   'landing.editions.heading': 'Editionen, die unsere Kuratoren lieben',
   'landing.footer.contact': 'Mit einem Kurator sprechen',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Starten Sie Ihre Box →',
   'landing.hero.ctaSecondary': 'Tiers ansehen',
   'landing.hero.eyebrow': 'Monatlich kuratiert. Immer persönlich.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'IHR NÄCHSTES CRATE',
   'nextBoxHeroCard.itemsLabel': 'Kuratierte Artikel',
   'nextBoxHeroCard.shipsOnLabel': 'Versand am',
+  'notFound.body':
+    'Die betreffende Seite konnte im {{app}} Archiv nicht gefunden werden. Sie wurde möglicherweise entfernt oder es handelt sich um einen Tippfehler.',
   'notFound.cta.dashboard': 'Zum Dashboard',
   'notFound.eyebrow': 'Leere Box',
   'notFound.heading': 'Dieses Regal ist leer',

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'about.pageTitle': 'Apie {{name}}',
   'auth.footer.about': 'Apie {{name}}',
   'authHeader.subtitle': 'Prisijunkite, kad jūsų skaičiai būtų teisingi.',
   'automations.action.email': 'El. paštas',
+  'automations.action.noop': 'Be operacijos',
   'automations.action.webhook': 'Žiniatinklio kabliukas',
   'automations.confirmDelete': 'Ištrinti " {{name}} "?',
   'automations.empty.headline': 'Kol kas nėra automatizacijų',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Paleidikliai ir veiksmai kiekvienoje darbaknygėje. Kiekvienas paleidimas užregistruoja eilutę, kurią galite patikrinti vėliau.',
   'automations.toggle': 'Perjungti {{name}}',
+  'automations.trigger.dailySchedule': 'Dienos tvarkaraštis',
+  'automations.trigger.rowCreated': 'Eilutė sukurta',
+  'automations.trigger.rowUpdated': 'Eilutė atnaujinta',
   'billing.empty': 'Nėra galimų planų.',
   'billing.error.priceMissing':
     'Šiam lygiui nesukonfigūruota „Stripe“ kaina. Nustatykite STRIPE_*_PRICE_ID aplinkos kintamuosius.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagramos',
   'charts.kpi.totalCharts': 'Iš viso diagramų',
   'charts.list.empty': 'Dar nėra diagramų.',
+  'charts.namePlaceholder': 'Pajamų tendencija',
   'charts.newChart': 'Nauja diagrama',
   'charts.primary.eyebrow': 'Diagramos pagal tipą',
   'charts.primary.headline': 'Darbo srities apžvalga',
   'charts.subhead':
     'Tiesioginės vizualizacijos, susietos su jūsų tinkleliu – iš naujo atvaizduokite kiekvieną kartą redaguojant langelį.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'editor.addColumn': 'Pridėti stulpelį',
+  'editor.addDialogTitle': 'Pridėti stulpelį',
   'editor.addRow': 'Pridėti eilutę',
   'editor.addSheet': 'Pridėti lapą',
   'editor.back': 'Atgal į darbaknyges',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} „Calcite“ – tai formules naudojanti, daugiaperspektyvinė, realaus laiko tinklo analitikų ir finansų komandų įmonė, kurios siekia pirmieji.',
   'landing.nav.formulas': 'Formulės',
+  'login.noAccount': 'Pirmą kartą naudojatės {{name}} ?',
+  'login.signIn': 'Prisijunkite prie {{name}}',
   'login.signUp': 'Sukurkite darbo sritį',
+  'nav.menu': 'Meniu',
+  'nav.openMenu': 'Atidaryti meniu',
   'notFound.cellRef': '#NUORODA!',
   'notFound.formula': '=LOOKUP(UŽKLAUSA.url, „maršrutai“, „puslapis“)',
   'notFound.headline': 'Šios eilutės niekada nebuvo.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Gimtoji automatizacija · „webhook“ ir „cron“ paleidikliai',
   'signup.creating': 'Kuriama darbo sritis…',
   'signup.cta': 'Sukurti mano darbo sritį',
+  'signup.haveAccount': 'Jau esate {{name}} tinkle?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Sukurkite savo pirmąją darbaknygę per 30 sekundžių',
   'team.col.activity': 'Pakviesta',

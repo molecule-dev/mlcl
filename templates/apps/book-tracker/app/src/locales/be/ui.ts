@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Перазапусціце ланцужок',
   'resetPassword.mismatchError': 'Паролі не супадаюць.',
   'resetPassword.subheading': 'Выберыце надзейны. Вашыя кнігі пачакаюць.',
-  'reviewCard.starsAria': 'Ацэнка<x> {{рэйтынг}}</x> з<x> {{з}}</x> зоркі',
+  'reviewCard.starsAria': 'Ацэнка {{rating}} з {{of}} зорак',
   'reviewCard.unratedAria': 'Без рэйтынгу',
   'reviews.eyebrow': 'Што засталося з вамі',
   'reviews.heading': 'Вашыя водгукі',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.tagline': 'සෑම ඒකකයක්ම, එකම වහලක් යටින්.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.addProperty': 'දේපළ එක් කරන්න',
   'dashboard.empty.body':
     'ඔබට දේපළ, ඒකක සහ කුලී ගෙවීම් ලැබුණු පසු, මෙම උපකරණ පුවරුව කළඹ පිළිබඳ අවබෝධයකින් පිරී යයි.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{දේපල}} · ඒකකය {{ඒකකය}} · {{දිනය}}',
   'maintenanceQueueList.subtitle': '{{count}} ප්‍රමුඛතාවය අනුව ඇණවුම් කරන ලද විවෘත වැඩ ඇණවුම්',
   'maintenanceQueueList.title': 'නඩත්තු පෝලිම',
+  'nav.closeMenu': 'මෙනුව වසන්න',
+  'nav.openMenu': 'මෙනුව විවෘත කරන්න',
   'notFound.body': 'ඔබ සොයන පිටුව ගෙන ගොස්, සංරක්ෂණය කර හෝ කිසිදා නොතිබුණි.',
   'notFound.title': 'ඒ දොර ඇරෙන්නේ නැහැ',
   'notifications.empty.body':

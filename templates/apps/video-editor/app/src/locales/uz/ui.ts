@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Xatolik topdingizmi, funksiya so'rovingiz bormi yoki bizga suratga olgan filmingiz haqida gapirib bermoqchimisiz? Har bir xabar jamoadagi haqiqiy odamga yetib boradi — istalgan vaqtda hisob sozlamalaringizdan bog'laning.",
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.eyebrow': '// klip ortidagi studiya',
   'about.pageTitle': 'Haqida {{appName}}',
   'assetDetail.back': 'Kutubxonaga qaytish',
   'assetDetail.confirmDelete': 'O\'chirish " {{name}} "? Buni bekor qilib bo\'lmaydi.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     "{{count}} kliplar, audio yozuvlar va grafikalar vaqt jadvaliga qo'yishga tayyor.",
   'assetLibrary.title': 'Aktivlar',
   'assetLibrary.upload': "Obyekt qo'shish",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.browseTemplates': "Shablonlarni ko'rib chiqish →",
   'dashboard.loading': 'Loyihalar yuklanmoqda…',
   'dashboard.noProjects': "Hali loyiha yo'q — boshlash uchun bittasini yarating.",
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Faqat eslab qoladigan narsani tanlang.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Maxfiylik',
+  'rushesLayout.closeMenu': 'Navigatsiyani yopish',
   'rushesLayout.guest': 'Muharrir',
+  'rushesLayout.navDialog': 'Navigatsiya',
+  'rushesLayout.openMenu': 'Navigatsiyani ochish',
   'rushesLayout.planFree': 'Bepul reja',
   'rushesLayout.tagline': 'Kinematografik vaqt jadvali',
   'settings.billing.confirmCancel': 'Davr oxirida obuna bekor qilinsinmi?',

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Хотите оставить отзыв, предложить новую функцию или сообщить об ошибке? Свяжитесь с командой {{app}} через ссылку «Поддержка» в меню вашего аккаунта — каждое сообщение попадает к реальному сотруднику.',
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'agentDetail.back': 'Все агенты',
   'agentDetail.capabilities': 'Возможности',
   'agentDetail.delete': 'Удалить персону',
   'agentDetail.deleteConfirm': 'Удалить этот образ? Этого уже не вернуть.',
+  'agentDetail.deleteError': 'Не удалось удалить персонаж.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Не удалось загрузить профиль.',
   'agentDetail.save': 'Сохранить персонажа',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Переключение…',
   'billing.updateError': 'Не удалось запустить обновление.',
   'billing.usageHeading': 'Использование голоса в этом цикле',
+  'chatBubble.source.text': 'текст',
+  'chatBubble.source.voice': 'голос',
+  'common.goToDashboard': 'Перейти к панели',
   'conversation.defaultTitle': 'Новый разговор',
   'conversation.empty': 'Сообщений пока нет. Начните, высказав своё мнение или набрав текст ниже.',
   'conversation.eyebrow': 'Прямая трансляция',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Разум, который говорит.',
   'landing.heroSubtitle':
     'Голосовой помощник на основе искусственного интеллекта, который понимает ваш естественный ритм речи. Общайтесь, генерируйте идеи и отдавайте команды — без проблем.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Слушаю…',
   'landing.naturallyBody':
     'Никаких ключевых слов. Никаких жестких команд. Vox понимает контекст, прерывания и нюансы человеческой речи — например, разговор с коллегой.',
@@ -114,6 +122,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Открыть сессию',
   'notFound.home': 'Обратно домой',
   'notFound.title': 'Мы не смогли расслышать эту страницу.',
+  'parlanceLayout.closeMenu': 'Закрыть меню',
+  'parlanceLayout.openMenu': 'Открыть меню навигации',
   'parlanceLayout.primaryNavLabel': 'Основная навигация',
   'pricing.conversations': '{{count}} разговоры',
   'pricing.cta.startFree': 'Начните бесплатно',
@@ -152,6 +162,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Совпадений нет',
   'search.eyebrow': 'Палитра команд',
   'search.fetchError': 'Не удалось загрузить поисковый индекс.',
+  'search.static.profile.preview': 'Отображаемое имя, ник, биография',
   'search.static.voice.title': 'Голос',
   'search.title': 'Поисковая терминология',
   'search.transcriptPreview': 'Открыть стенограмму',

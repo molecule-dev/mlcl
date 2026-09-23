@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Risolvendo…',
   'comments.subtitle':
     'I {{count}} thread ancora in attesa di una risposta o di una risoluzione. Ordinati per età — prima i più vecchi, così nulla marcisce.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'forgotPassword.sentTo': 'Link di reimpostazione inviato a {{email}}',
   'forgotPassword.successSubheading':
     'Controlli la Sua casella di posta — abbiamo appena inviato un link di reimpostazione. Scade tra 30 minuti.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nuova pagina',
   'pageTreeSidebar.workspaceHeader': 'Spazio di lavoro',
   'pageView.breadcrumb': 'Briciole di pane',
+  'pageView.confirmTrash': 'Buttarlo via?',
   'pageView.home': 'Home',
   'pageView.lastEdited': 'Aggiornato {{when}}',
   'pageView.loading': 'Caricamento pagina…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Riepilogando…',
   'pageView.summaryUnavailable': 'Il riepilogo AI non è configurato per questo spazio di lavoro.',
   'pageView.tocTitle': 'In questa pagina',
+  'pageView.trash': 'Cestino',
+  'pageView.trashing': 'Eliminazione…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Distintivi',
   'profile.owned.title': 'Pagine di proprietà',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Spazio di lavoro, profilo, notifiche, integrazioni — tutto in un unico guscio sobrio.',
   'settingsPage.workspace.defaultLanding': 'Schermata iniziale predefinita',
   'settingsPage.workspace.landingHome': 'Casa',
+  'settingsPage.workspace.landingSpaces': 'Spazi',
   'settingsPage.workspace.subdomainLabel': 'Sottodominio',
   'settingsPage.workspace.title': 'Spazio di lavoro',
   'signup.eyebrow': 'Avvia un nuovo spazio di lavoro',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Avvii una pagina da uno stencil, non da una tela bianca. Ogni modello fissa la forma in modo che possa concentrarsi sulla sostanza.',
+  'trash.confirmPurge': 'Purgare per sempre?',
+  'trash.confirmPurgeAria': 'Conferma: eliminare definitivamente {{title}}',
   'trash.daysUntilPurge': '{{days}} giorni rimanenti',
   'trash.empty.body':
     'Le pagine eliminate appariranno qui per 30 giorni prima di essere rimosse definitivamente.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Ripristino in corso…',
   'versionHistory.subtitle': '{{count}} versioni · selezioni una riga per ispezionare il diff',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Chiudi navigazione',
+  'wikiLayout.menu': 'Navigazione',
+  'wikiLayout.openMenu': 'Apri navigazione',
   'wikiLayout.searchPlaceholder': 'Cerca in Cairn — pagine, commenti…',
 }

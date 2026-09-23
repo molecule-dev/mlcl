@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'authShell.brandHeading':
     'Khung vẽ hoàn hảo từng pixel dành cho các đội thiết kế ra mắt sản phẩm cùng nhau.',
   'canvas.redirecting': 'Đang mở trình chỉnh sửa…',
   'collaboratorStack.overflow': '+{{count}}',
   'common.and': 'và',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.retry': 'Thử lại',
   'dashboard.activityEmpty': 'Chưa có hoạt động gần đây — hãy mời một đồng đội để bắt đầu.',
   'dashboard.activityTitle': 'Hôm nay có gì thay đổi',
   'dashboard.activityViewAll': 'Xem tất cả thông báo',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Không gian làm việc · Northwind Studio',
   'dashboard.foldersLabel': 'Thư mục',
   'dashboard.gridTitle': '{{count}} dự án',
+  'dashboard.heroActiveTool': 'Công cụ bút',
   'dashboard.loadingTitle': 'Đang tải dự án…',
   'dashboard.searchPlaceholder': 'Tìm kiếm dự án',
   'dashboard.startFromTemplate': 'Bắt đầu từ mẫu',
   'dashboard.title': 'Dự án của quý vị',
   'dashboard.untitledProject': 'Dự án không có tiêu đề',
   'designCanvasLayout.newProject': 'Dự án mới',
+  'designCanvasLayout.primaryNavLabel': 'Điều hướng chính',
   'editor.backToProjects': 'Quay lại danh sách dự án',
   'editor.deleteShape': 'Xóa hình',
   'editor.errorBody': 'Chúng tôi không thể mở dự án này.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Công cụ thiết kế nhanh theo nhịp tay của quý vị',
   'library.empty': 'Chưa có token nào trong phần này.',
   'library.eyebrow': 'Không gian làm việc · Atelier Design System',
+  'library.loadFailed': 'Không thể tải các mã thiết kế.',
   'library.systemMeta': 'Tình trạng hệ thống',
   'library.systemSummary': '{{tokens}} token · {{components}} thành phần · {{effects}} hiệu ứng',
   'login.emailPlaceholder': 'mara@studio.com',

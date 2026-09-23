@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'about.eyebrow': 'حول',
   'about.pageTitle': 'حول {{appName}}',
   'analytics.empty': 'سجّل أول مقطع لك لرؤية التفاعل هنا.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'مقاطع',
   'billing.usage.views': 'المشاهدات',
   'billing.usage.views.unit': 'مشاهدات',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'landing.cta.title': 'أرسل ملاحظات أفضل. ابدأ مع Glint.',
   'landing.feature.capture.body':
     'تسجيل عبر المتصفح وسطح المكتب والجوال مع الميكروفون والكاميرا والرسم.',
   'landing.feature.capture.title': 'التقاط بنقرة واحدة',
+  'landing.footer.copy': '© {{year}} {{appName}} . غير متزامن، مُضيء.',
   'landing.hero.cardCaption': 'نظرة عامة على مساحة عمل تجريبية — جرّبها مجانًا.',
   'landing.hero.primaryCta': 'ابدأ التسجيل مجانًا',
   'landing.hero.proof.free': 'خطة مجانية إلى الأبد',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'البحث عن التسجيلات',
   'library.searchPlaceholder': 'البحث عن التسجيلات…',
   'library.weeklyChange': '{{value}}٪ مقارنة بالأسبوع الماضي',
+  'nav.openMenu': 'فتح قائمة التنقل',
   'nav.record': 'تسجيل',
   'nav.shared': 'مشاركة معي',
   'nav.startRecording': 'ابدأ التسجيل',

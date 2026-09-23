@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.eyebrow': 'Tungkol sa {{app}}',
   'about.pageTitle': 'Bawat ruta, isang paghahanap.',
   'booking.backToDetail': 'Balik sa mga detalye ng paglipad',
   'booking.continue': 'Magpatuloy sa pagbabayad',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Mga buwis at bayarin',
   'booking.summary.travelers': 'Mga Manlalakbay',
   'common.about': 'Tungkol Sa Amin',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'flightDetail.backToResults': 'Bumalik sa mga resulta',
   'flightDetail.baseFare': 'Pangunahing pamasahe',
   'flightDetail.book': 'Magpatuloy sa pag-book',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 hintuan',
   'flightResultCard.select': 'Piliin',
   'flightResultCard.totalLabel': 'Kabuuang oras',
+  'flightSearchLayout.primaryNavLabel': 'Pangunahing navigation',
   'forgotPassword.subheading':
     'Ilagay ang email sa iyong Skylark account at magpapadala kami ng secure na reset link.',
   'forgotPassword.successBody':
     'Suriin {{email}} para sa isang link upang magtakda ng bagong password. Mag-e-expire ang link sa loob ng 30 minuto.',
   'forgotPassword.successHeading': 'Naipadala na ang link sa pag-reset',
   'landing.cta.explore': 'Subukan ang isang paghahanap',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Hanapin ang susunod na masarap na pagkain bago ang lahat.',
   'landing.cta.signup': 'Simulan ang pagsubaybay sa mga pamasahe',
   'landing.features.eyebrow': 'Bakit Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Magdagdag ng alerto',
   'priceAlerts.deleteConfirm': 'Alisin ang alertong ito?',
   'priceAlerts.empty': 'Wala pang nasubaybayang ruta.',
+  'priceAlerts.emptyCta': 'Maghanap ng rutang susubaybayan',
   'priceAlerts.errorMessage': 'Hindi ma-load ang mga alerto.',
   'priceAlerts.eyebrow': 'Listahan ng mga pinapanood na Skylark',
   'priceAlerts.form.createError': 'Hindi makagawa ng alerto.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': "Itinerary para sa iba't ibang lungsod",
   'results.multiLegHeading': 'Binti {{n}} · {{mula sa}} → {{sa}} · {{petsa}}',
   'results.multiSummary': '{{count}} mga binti · {{passengers}} manlalakbay',
+  'results.sortAriaLabel': 'Ayusin ang mga resulta ayon sa',
   'results.sortLabel': 'Pagbukud-bukurin',
   'results.summary': '{{count}} mga paglipad · {{passengers}} manlalakbay',
   'settings.language.title': 'Wika',

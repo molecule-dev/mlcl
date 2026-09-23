@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Dajte prepitné svojmu nakupujúcemu',
   'checkout.tipLabel': 'Tip',
   'checkout.zipPlaceholder': 'PSČ',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'featuredProductsGrid.addAria': 'Pridať {{name}} do košíka',
   'featuredProductsGrid.outOfStock': 'Nie je na sklade',
   'forgotPassword.emailLabel': 'E-mailová adresa',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Ak je tento e-mail zaregistrovaný, odkaz na resetovanie je na ceste.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Hlavná navigácia',
   'landing.categoriesEyebrow': 'Uličky',
   'landing.categoriesHeading': 'Nakupujte podľa kategórie',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Naplánujte si týždenné dodávky s inteligentným obmieňaním základných potravín a sledovaním vodičov v reálnom čase.',
   'landing.heroTitle': 'Čerstvosť pri vašich dverách, už za pár hodín.',
   'landing.howEyebrow': 'Tri kroky',
+  'landing.howItWorksHeading': 'Ako funguje {{app}}',
   'lists.addAllCta': 'Pridať všetko do košíka',
   'lists.createCta': 'Vytvorte si svoj prvý zoznam',
   'lists.createError': 'Zoznam sa nepodarilo vytvoriť.',

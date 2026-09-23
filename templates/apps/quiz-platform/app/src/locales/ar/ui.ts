@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'about.eyebrow': 'حول',
+  'about.title': 'حول {{app}}',
   'auth.login.noAccount': 'جديد على Sparq؟',
   'auth.login.or': 'أو تابع باستخدام',
   'auth.signup.or': 'أو سجّل باستخدام',
+  'common.confirm': 'تأكيد',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'common.loadError': 'حدث خطأ ما أثناء تحميل هذا المحتوى.',
+  'common.retry': 'إعادة المحاولة',
   'discover.collections.title': 'تصفّح حسب الفئة',
   'discover.collections.viewAll': '← اطّلع على مكتبتك',
   'discover.empty.body': 'جرّب فئة مختلفة أو امسح البحث.',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'سجّل الدخول لإبقاء سلسلتك حيّة، واستضافة مباريات مباشرة، والصعود في قائمة المتصدّرين.',
   'myQuizzes.createButton': 'اختبار جديد',
+  'myQuizzes.deleteConfirm': 'هل تريد حذفها نهائياً؟',
   'myQuizzes.empty.createCta': '← أنشئ أول اختبار لك',
   'myQuizzes.empty.created': 'لم تُنشئ أي اختبارات بعد.',
   'myQuizzes.empty.played': 'لا توجد اختبارات منشورة بعد.',
@@ -77,7 +84,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'جارٍ التحميل…',
   'notifications.subhead':
     '{{count}} شرارة غير مقروءة. الدعوات وتغييرات الترتيب والإنجازات في تدفّق واحد.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.checkoutError': 'تعذّر بدء الدفع. حاول مجدّدًا.',
+  'pricing.heading': 'اختر خطة {{app}} الخاصة بك',
   'pricing.included': 'مشمول',
   'pricing.loadError': 'تعذّر تحميل الخطط.',
   'pricing.maxQuizzes': '{{count}} اختبار',
@@ -96,11 +105,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'لا شيء منشور بعد.',
   'profile.startBuilding': '← ابدأ البناء',
   'profile.tier': 'لاعب Sparq',
+  'quizBuilder.addFailed': 'تعذر إضافة السؤال. حاول مرة أخرى.',
   'quizBuilder.addQuestion': 'إضافة سؤال',
   'quizBuilder.answerPlaceholder': 'اكتب خيارًا…',
   'quizBuilder.answersLabel': 'خيارات الإجابة',
   'quizBuilder.back': 'العودة إلى اختباراتي',
   'quizBuilder.delete': 'حذف السؤال',
+  'quizBuilder.deleteFailed': 'تعذر حذف السؤال.',
   'quizBuilder.firstQuestion': 'أضف سؤالك الأول للبدء.',
   'quizBuilder.idLabel': 'معرّف الاختبار: {{id}}',
   'quizBuilder.loadError': 'تعذّر تحميل الاختبار.',
@@ -114,6 +125,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'أضف خيارَي إجابة على الأقل واختر الإجابة الصحيحة لـ {{count}} من الأسئلة قبل النشر.',
   'quizBuilder.questionsTitle': 'الأسئلة',
+  'quizBuilder.saveFailed': 'تعذر حفظ العنوان. حاول مرة أخرى.',
   'quizBuilder.statusDraft': 'مسوّدة',
   'quizBuilder.subhead':
     'عدّل العنوان، أضف الأسئلة، اضبط الخيارات والإجابة الصحيحة. يتم حفظ التغييرات تلقائيًا.',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} د',
   'quizDetail.hostMultiplayer': 'استضف لعب جماعي',
   'quizDetail.leaderboardEmpty': 'لا توجد مباريات بعد ‏— كن أول من يسجّل نتيجة.',
+  'quizDetail.loadError': 'تعذر تحميل هذا الاختبار.',
   'quizDetail.loading': 'جارٍ تحميل الاختبار…',
   'quizDetail.plays': '{{count}} مباراة',
   'quizDetail.playSolo': 'العب منفردًا',

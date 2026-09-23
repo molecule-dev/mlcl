@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ကျွန်ုပ်တို့ဟာ တစ်ချိန်က ဆူညံတဲ့ စာတိုက်ပုံးထဲမှာ နေ့စဉ် နာရီပေါင်းများစွာ အချိန်ကုန်ခဲ့တဲ့ ဒီဇိုင်နာတွေနဲ့ အင်ဂျင်နီယာတွေ ပါဝင်တဲ့ အဖွဲ့တစ်ဖွဲ့ပါ။ Courier ဆိုတာ ကျွန်ုပ်တို့ကိုယ်တိုင် အသုံးပြုချင်တဲ့ စာတိုက်ပုံးပါ။',
   'about.title': 'အာရုံစူးစိုက်မှုရှိသောအလုပ်အတွက် အီးမေးလ်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'help.cta.about': 'မယ်ရီဒီယန်အကြောင်း',
   'help.cta.pricing': 'ဈေးနှုန်းကြည့်ရန်',
   'help.eyebrow': 'အကူအညီစင်တာ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'ကျွန်ုပ်တို့ အများဆုံးကြားရတဲ့ မေးခွန်းတွေအတွက် အမြန်အဖြေများ။ တစ်ခုခု လိုနေပါသလား။ ဆက်တင်များကို ဖွင့်ပြီး အက်ပ်အတွင်း တုံ့ပြန်ချက်ပုံစံကို အသုံးပြုပါ သို့မဟုတ် support@courier.example သို့ စာရေးပါ။',
   'help.title': 'ကျွန်ုပ်တို့ ဘယ်လိုကူညီနိုင်မလဲ။',
   'landing.brand.scrollTop': 'အပေါ်သို့ ပြန်သွားရန်',
+  'landing.copyright': '© {{year}} {{appName}} — အာရုံစိုက်ရန် တည်ဆောက်ထားသည်။',
   'landing.ctaBody':
     'နေ့လည်စာမစားမီ ၎င်းတို့၏ inbox ကို အပြီးသတ်ခဲ့သော ကျွမ်းကျင်ပညာရှင်ထောင်ပေါင်းများစွာနှင့် ပူးပေါင်းပါ။',
   'landing.ctaTitle': 'ပိုမိုလုပ်ဆောင်ပါ၊ တုံ့ပြန်မှုနည်းနည်းလုပ်ပါ။',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'သရုပ်ပြမှုကို ကြည့်ရှုပါ',
   'landing.heroSubtitle':
     'Courier သည် သတင်းအချက်အလက်များကို တုံ့ပြန်လိုသော ဗဟုသုတလုပ်သားများအတွက် တည်ဆောက်ထားသော တည်ငြိမ်သော three-pane inbox တစ်ခုဖြစ်သည်။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ကမ္ဘာတစ်ဝှမ်းရှိ အာရုံစိုက်ထားသော အဖွဲ့များမှ ယုံကြည်စိတ်ချရသော',
   'landing.signIn': 'ဆိုင်းအင်လုပ်ခြင်း',
   'meridian.archive.empty': 'မော်ကွန်းတိုက်တွင် ဗလာဖြစ်နေသည်။',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'မူကြမ်း',
   'meridian.folder.count': '{{count}} မက်ဆေ့ချ်များ',
+  'meridian.folder.delete': 'ဖျက်ရန်',
   'meridian.folder.deleteForever': 'အပြီးတိုင်ဖျက်ပါ',
   'meridian.folder.restore': 'ဝင်စာပုံးသို့ ရွှေ့ပါ',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ဤနေရာတွင် မက်ဆေ့ချ်များ မရှိသေးပါ။',
   'meridian.inbox.loading': 'တင်နေသည်…',
   'meridian.inbox.next': 'နောက်တစ်ခု',
+  'meridian.inbox.noSender': '(ပို့သူ မရှိပါ)',
   'meridian.inbox.noSubject': '(ဘာသာရပ်မရှိ)',
+  'meridian.inbox.ofTotal': '{{current}} မှ {{total}}',
   'meridian.inbox.openCompose': 'စာစီစာကုံးဖွင့်ပါ',
   'meridian.inbox.previous': 'ယခင်',
   'meridian.inbox.replyFailed':
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'အကောင့်မရှိဘူးလား။',
   'meridian.login.showPassword': 'စကားဝှက်ပြပါ',
   'meridian.message.toLine': 'သို့ {{recipients}}',
+  'meridian.notFound.body':
+    'သင်ရှာဖွေနေသော စာမျက်နှာကို ရှာမတွေ့ပါ။ သင့် {{appName}} ဝင်စာပုံးသို့ ပြန်သွားပါ၊ ကျွန်ုပ်တို့က သင့်အား လမ်းကြောင်းမှန်ပေါ် ရောက်အောင် ကူညီပေးပါမည်။',
   'meridian.notFound.eyebrow': 'အမှား ၄၀၄',
   'meridian.notFound.title': 'ဤ thread ကို မော်ကွန်းတင်ထားပါသည်။',
   'meridian.notFound.toInbox': 'ကျွန်ုပ်၏ ဝင်စာပုံးကို ဖွင့်ပါ',
@@ -137,18 +145,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ကြယ်ပွင့်ထည့်ပါ',
   'meridian.thread.unstar': 'ကြယ်ပွင့်ဖယ်ရှားပါ',
   'meridian.time.yesterday': 'မနေ့က',
+  'meridian.topBar.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'meridian.topBar.searchPlaceholder': 'မေးလ်ရှာရန်',
   'meridian.trash.empty': 'အမှိုက်ပုံး ဗလာဖြစ်နေသည်။',
   'meridian.trash.title': 'အမှိုက်ပုံး',
   'nav.legal': 'ဥပဒေရေးရာ',
   'planUpdated.description':
     'သင်၏စာရင်းသွင်းမှုသည် ယခုအသက်ဝင်နေပြီး သင်၏ငွေတောင်းခံလွှာကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။ ပြန်လည်ဆန်းသစ်ထားသော သင်၏ Courier inbox သို့ ကြိုဆိုပါသည်။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'မူကြမ်းများ',
   'pricing.limit.emails': 'အီးမေးလ်များ',
   'pricing.limit.folders': 'ဖိုင်တွဲများ',
   'pricing.limit.labels': 'တံဆိပ်များ',
   'privacy.collect.account':
     'အကောင့်ဒေတာ- အမည်၊ အီးမေးလ်လိပ်စာ၊ hash လုပ်ထားသော စကားဝှက်နှင့် သင်စာရင်းသွင်းခဲ့သည့်ရက်စွဲ။',
+  'privacy.contact': 'မေးခွန်းများရှိပါသလား။ privacy@courier.example သို့ အီးမေးလ်ပို့ပါ။',
   'privacy.intro':
     'ဤကိုယ်ရေးအချက်အလက်မူဝါဒသည် Courier မှ မည်သည့်ဒေတာများကို စုဆောင်းသည်၊ အဘယ်ကြောင့် ကျွန်ုပ်တို့ ၎င်းကို စုဆောင်းသည်၊ ၎င်းကို မည်သို့လုံခြုံအောင် ထိန်းသိမ်းသည်နှင့် ၎င်းနှင့်ပတ်သက်၍ သင်၌ မည်သည့်ရွေးချယ်စရာများရှိသည်ကို ရှင်းပြသည်။ ကျွန်ုပ်တို့သည် ဥပဒေနှင့်ညီညွတ်မှုမရှိဘဲ တိကျရန် ရည်ရွယ်ပါသည်။ တစ်စုံတစ်ရာ မရှင်းလင်းပါက privacy@courier.example သို့ စာရေးပါ။',
   'privacy.lastUpdated': 'နောက်ဆုံးအပ်ဒိတ်လုပ်ခဲ့သည့်ရက်စွဲ - ၂၀၂၆ ခုနှစ်၊ ဧပြီလ ၁ ရက်',
@@ -168,6 +179,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ဤစည်းကမ်းချက်များသည် Courier ကို သင်အသုံးပြုရာတွင် အကျုံးဝင်ပါသည်။ အကောင့်တစ်ခုဖန်တီးခြင်း သို့မဟုတ် ကျွန်ုပ်တို့မှတစ်ဆင့် အီးမေးလ်ပို့ခြင်းဖြင့် သင်သည် ၎င်းတို့ကို လိုက်နာရန် သဘောတူပါသည်။ လူတစ်ဦး အမှန်တကယ်လိုက်နာနိုင်သော စည်းမျဉ်းများကို ကျွန်ုပ်တို့ ရေးဆွဲရန် ကြိုးစားပါသည်။',
   'terms.lastUpdated': 'အကျိုးသက်ရောက်မှု- ၂၀၂၆ ခုနှစ်၊ ဧပြီလ ၁ ရက်နေ့',
+  'terms.linkPrivacy': 'ကျွန်ုပ်တို့၏ ကိုယ်ရေးအချက်အလက်မူဝါဒကို ဖတ်ရှုပါ →',
   'terms.termination.body':
     'သင့်အကောင့်ကို အချိန်မရွေး ဖျက်ပစ်နိုင်ပါသည်။ ဤစည်းကမ်းချက်များကို ချိုးဖောက်သော အကောင့်ကို ကျွန်ုပ်တို့ ရပ်ဆိုင်းနိုင်ပါသည်။ ထိုသို့ချိုးဖောက်ပါက အကြောင်းရင်းကို ရှင်းပြပြီး သင့်ဒေတာကို ဦးစွာ ထုတ်ယူခွင့်ပြုပါမည်။',
   'terms.warranty.body':

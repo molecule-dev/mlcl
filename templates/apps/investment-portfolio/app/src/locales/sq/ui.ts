@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Rreth {{app}}',
   'argentAuthShell.brandEyebrow': 'Argjend · Mjete Pasurore',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nuk është këshillë investimi.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) sot',
   'argentAuthShell.sampleValue': '1,032,251 dollarë',
   'argentLayout.primaryNavLabel': 'Navigimi kryesor',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Nuk ka transaksione për këtë tiker.',
   'assetDetail.txHeading': 'Transaksionet tuaja',
   'common.and': 'dhe',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Përmbledhje e portofolit',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Ende nuk ka zotërime.',
   'holdings.heading': 'Zotërimet',
   'holdings.loadError': 'Ngarkimi i zotërimeve dështoi.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nuk është këshillë investimi. Performanca e kaluar nuk garanton rezultatet e ardhshme.',
   'landing.eyebrow': 'Argent · Një platformë për mjete pasurie',
   'landing.features.heading': 'Gjithçka që një këshilltar do të ndërtonte për veten e tij.',
   'landing.finalCta.heading': 'Rikthejeni disiplinën në portofolin tuaj.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} orë më parë',
   'news.justNow': 'pikërisht tani',
   'news.loadError': 'Ngarkimi i lajmeve dështoi.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'portfolioHeroCard.label': 'Vlera e Portofolit',
   'pricing.holdingsLabel': 'zotërimet',
   'pricing.newsLabel': 'artikuj lajmesh',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Fshi llogarinë',
   'settings.security.deleting': 'Duke fshirë…',
   'settings.security.heading': 'Siguria',
+  'settings.security.newPassword': 'Fjalëkalim i ri',
   'settings.security.password': 'Fjalëkalimi',
   'settings.security.twoFactorEnable': 'Aktivizo',
+  'settings.security.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.security.twoFactorVerify': 'Verifiko dhe aktivizo',
   'settings.tax.error': 'Metoda e taksës nuk mund të përditësohej.',
   'settings.tax.heading': 'Kontabiliteti i taksave të loteve',
   'settings.tax.method': 'Metoda e parazgjedhur',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Tuntuɓi mu',
   'about.eyebrow': 'Game da',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.connectRepoCta': "Haɗa ma'ajiyar bayanai",
   'dashboard.empty': 'Babu buƙatar jan hankali tukuna - haɗa wurin ajiya don farawa.',
   'dashboard.eyebrow': 'Refract · jerin bita',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Lokacin Aiki',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Maki na ingancin AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Rufe menu',
+  'refractLayout.openMenu': 'Buɗe menu',
   'refractLayout.primaryNavLabel': 'Babban kewayawa',
   'reports.cumulativeScoreLabel': 'Jimlar maki',
   'reports.cumulativeScoreSubtitle': 'duk wuraren ajiya · {{days}} d',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': "An kasa loda ma'aunin bincike.",
   'settings.apiKeys.description':
     'Sarrafa maɓallan API na sirri daga menu na mai amfani a saman-dama.',
+  'settings.apiKeys.integrationsNote':
+    'Ana sarrafa alamun samun damar mai bada sabis a cikin sashin Haɗakarwa da ke sama.',
   'settings.connectError': 'An kasa haɗa mai bada sabis.',
   'settings.disconnectError': 'An kasa cire haɗin mai bada sabis ɗin.',
   'settings.eyebrow': 'Refract · wurin aiki',
   'settings.integration.${provider}.label': 'Ana adanawa…',
   'settings.loadError': 'An kasa loda saituna.',
+  'settings.notificationCenter': 'Cibiyar sanarwa',
   'settings.notifications.description':
     'Ziyarci shafin sanarwa don duba da kuma sarrafa fifikon isarwa.',
   'settings.section.account': 'Asusu & tsaro',

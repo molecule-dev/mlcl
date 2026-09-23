@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'auditLog.empty':
     'Tiada peristiwa audit yang sepadan dengan penapis anda lagi. Edit pekerja atau proses pembayaran dan ia akan dipaparkan di sini.',
   'auditLog.eyebrow': 'Pematuhan',
+  'auditLog.loadError': 'Tidak dapat memuatkan log audit.',
   'auditLog.searchPlaceholder': 'Cari mengikut pelakon, aksi atau perihalan',
   'auditLog.subheading':
     'Setiap kelulusan, suntingan dan pemfailan cukai — dengan pelakon, cap waktu dan medan yang diubah.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Tidak dikonfigurasikan',
   'billing.plansHeading': 'Pelan',
   'billing.subheading': 'Urus pelan anda dan tukar peringkat melalui Stripe.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Cuba semula',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Gambaran ringkas pematuhan',
   'dashboard.compliance.title': 'Semua cek lulus',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Tiada potongan dalam fail.',
   'employeeDetail.notFound': 'Pekerja tidak ditemui.',
   'employeeDetail.payFrequency': 'Kekerapan pembayaran',
+  'employeeDetail.postTax': 'Pasca cukai',
+  'employeeDetail.preTax': 'Pra-cukai',
   'employeeDetail.salary': 'Gaji tahunan',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Dimulakan {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Kekerapan pembayaran',
   'employeeForm.salary': 'Gaji tahunan (USD)',
   'employeeForm.salaryInvalid': 'Gaji mestilah nombor bukan negatif.',
+  'employeeForm.saveError': 'Tidak dapat menyelamatkan pekerja.',
   'employeeForm.semimonthly': 'Separuh bulanan',
   'employeeForm.single': 'Bujang',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Gaji',
   'forgotPassword.subtitle':
     'Masukkan emel kerja anda dan kami akan menghantar pautan tetapan semula.',
+  'landing.copyright': '© {{year}} {{app}} . Tepat, boleh dipercayai, tersusun.',
   'landing.ctaBody':
     'Percuma selama 30 hari. Tiada kad kredit. Tukar bila-bila masa tanpa kehilangan jejak audit anda.',
   'landing.ctaHeading': 'Jalankan kitaran anda yang seterusnya di Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Penyertaan',
   'payRunDetail.noActivity': 'Tiada entri audit untuk tempoh pembayaran ini lagi.',
   'payRunDetail.noStubs': 'Tiada slip gaji lagi — luluskan & proses untuk menjananya.',
+  'payRunDetail.notFound': 'Larian gaji ini tidak dapat ditemui.',
   'payRunDetail.statDeductions': 'Potongan',
   'payRunDetail.statHeadcount': 'Pekerja',
   'payRunDetail.statTaxes': 'Cukai yang ditahan',
@@ -220,7 +229,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Separuh bulanan',
   'settings.signOutDevice': 'Log keluar',
   'settings.subheading': 'Profil syarikat, jadual gaji dan integrasi.',
+  'settings.twoFactorCode': 'Kod pengesahan',
   'settings.twoFactorDisable': 'Lumpuhkan',
+  'settings.twoFactorInvalidCode': 'Kod tidak sah',
+  'settings.twoFactorVerify': 'Sahkan & dayakan',
   'settings.weekly': 'Mingguan',
   'taxCenter.bucket.federal': 'Pendapatan persekutuan',
   'taxCenter.bucket.fica': 'Keselamatan Sosial',

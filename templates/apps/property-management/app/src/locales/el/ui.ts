@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.tagline': 'Κάθε μονάδα, κάτω από μία στέγη.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.addProperty': 'Προσθήκη ακινήτου',
   'dashboard.empty.body':
     'Μόλις έχετε ακίνητα, μονάδες και πληρωμές ενοικίων, αυτός ο πίνακας ελέγχου γεμίζει με πληροφορίες για το χαρτοφυλάκιο.',
@@ -90,6 +93,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} ανοιχτές εντολές εργασίας, ταξινομημένες κατά προτεραιότητα',
   'maintenanceQueueList.title': 'Ουρά συντήρησης',
+  'nav.closeMenu': 'Κλείσιμο μενού',
+  'nav.openMenu': 'Άνοιγμα μενού',
   'notFound.body': 'Η σελίδα που αναζητούσατε έχει μετακινηθεί, αρχειοθετηθεί ή δεν υπήρξε ποτέ.',
   'notFound.title': 'Αυτή η πόρτα δεν ανοίγει',
   'notifications.empty.body':

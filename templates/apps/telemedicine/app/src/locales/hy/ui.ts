@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Նշանակել հանդիպում',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Հիվանդներ չկան ցույց տալու համար։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'consult.backLink': 'Բոլոր հանդիպումները',
   'consult.captions': 'Ենթագրեր',
   'consult.connected': 'Միացված է · 720p · կայուն',
@@ -132,6 +133,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Հիվանդներ',
   'patientVitalsHero.scripts': 'Rx-ը բաց է',
   'patientVitalsHero.subline': '{{count}} խորհրդակցում է ձեր ժամանակացույցի վերաբերյալ այսօր',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'prescriptions.empty': 'Ոչ մի դեղատոմս չի համապատասխանում։',
   'prescriptions.eyebrow': 'Էլեկտրոնային դեղատոմսեր',
   'prescriptions.heading': 'Դեղատոմսեր',
@@ -147,6 +149,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Գաղտնիության ծանուցում',
   'privacy.use.body':
     'Բուժօգնություն մատուցելու, հանդիպումների հիշեցումներ ուղարկելու, դեղատոմսեր նշանակելու և ծառայության հուսալիությունը բարելավելու համար: Մենք երբեք չենք վաճառում ձեր տվյալները և երբեք չենք կիսվում կլինիկական տեղեկատվությամբ գովազդատուների հետ:',
+  'providers.allSpecialties': 'Բոլոր մասնագիտությունները',
+  'providers.loadError': 'Չհաջողվեց բեռնել մատակարարներին։',
+  'providers.loading': 'Բեռնվում է…',
   'providers.noResults': 'Մատակարարներ չեն գտնվել։',
   'providers.searchPlaceholder': 'Որոնել անունով, մասնագիտությամբ...',
   'providers.title': 'Գտեք մատակարար',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Օրվա սկիզբ',
   'settings.availability.heading': 'Հասանելիություն',
   'settings.devices.thisDevice': 'Այս սարքը',
+  'settings.devices.unnamed': 'Անանուն սարք',
   'settings.eyebrow': 'Պրակտիկա և հաշիվ',
   'settings.loadError': 'Չհաջողվեց բեռնել ձեր պրոֆիլը։',
   'settings.notifications.emailMessages':
@@ -180,6 +186,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Անջատել',
   'settings.security.twoFactor.enable': 'Միացնել',
   'settings.security.twoFactor.heading': 'Երկփուլային նույնականացում',
+  'settings.security.twoFactor.invalidCode': 'Այդ կոդը չի համընկնում։ Փորձեք կրկին։',
+  'settings.security.twoFactor.setupFailed':
+    'Հնարավոր չէ սկսել երկփուլ կարգավորումը։ Փորձեք կրկին։',
+  'settings.security.twoFactor.statusOn': 'Երկու գործոնը միացված է',
   'settings.signOutDevice': 'Ելք',
   'settings.subheading': 'Մատակարարի պրոֆիլ, պրակտիկայի կանոններ և կլինիկական զգուշացումներ:',
   'signup.emailLabel': 'ԷԼ. ՓՈՍՏ',
@@ -190,6 +200,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Ստեղծել հաշիվ',
   'signupFooter.hipaa': 'HIPAA-ի համապատասխան',
   'solaceLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'solaceLayout.toggleMenu': 'Ցուցադրել/փակել ցանկը',
   'terms.eligibility.body':
     'Դուք պետք է լինեք առնվազն տասնութ տարեկան, կամ լինեք այն անչափահասի ծնողը կամ օրինական խնամակալը, որի համար խնամք եք փնտրում, և ֆիզիկապես գտնվեք ԱՄՆ այն նահանգում, որտեղ մեր բժիշկներն ունեն լիցենզիա։',
   'terms.payment.body':

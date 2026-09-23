@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'સંપર્કમાં રહો',
   'about.eyebrow': 'વિશે',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.connectRepoCta': 'રિપોઝીટરી કનેક્ટ કરો',
   'dashboard.empty': 'હજુ સુધી કોઈ પુલ વિનંતીઓ નથી — શરૂ કરવા માટે રિપોઝીટરી કનેક્ટ કરો.',
   'dashboard.eyebrow': 'રીફ્રેક્ટ · સમીક્ષા કતાર',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'અપટાઇમ',
   'pullRequestRow.files': '{{count}} એફ',
   'pullRequestRow.scoreAria': 'AI ગુણવત્તા સ્કોર {{score}} / ૧૦',
+  'refractLayout.closeMenu': 'મેનૂ બંધ કરો',
+  'refractLayout.openMenu': 'મેનુ ખોલો',
   'refractLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'reports.cumulativeScoreLabel': 'સંચિત સ્કોર',
   'reports.cumulativeScoreSubtitle': 'બધા રિપોઝ · {{days}} ડી',
@@ -174,11 +177,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'ઇન્ડેક્સિંગ શરૂ કરવા માટે રિપોઝીટરી કનેક્ટ કરો અથવા કસ્ટમ નિયમો ઉમેરો.',
   'search.loadError': 'શોધ અનુક્રમણિકા લોડ કરવામાં નિષ્ફળ.',
   'settings.apiKeys.description': 'ઉપર-જમણી બાજુએ વપરાશકર્તા મેનૂમાંથી વ્યક્તિગત API કી મેનેજ કરો.',
+  'settings.apiKeys.integrationsNote':
+    'પ્રદાતા ઍક્સેસ ટોકન્સ ઉપરના એકીકરણ વિભાગમાં મેનેજ કરવામાં આવે છે.',
   'settings.connectError': 'પ્રદાતાને કનેક્ટ કરવામાં નિષ્ફળ.',
   'settings.disconnectError': 'પ્રદાતાને ડિસ્કનેક્ટ કરવામાં નિષ્ફળ.',
   'settings.eyebrow': 'કાર્યક્ષેત્રનું વક્રીભવન',
   'settings.integration.${provider}.label': 'સાચવી રહ્યું છે...',
   'settings.loadError': 'સેટિંગ્સ લોડ કરવામાં નિષ્ફળ.',
+  'settings.notificationCenter': 'સૂચના કેન્દ્ર',
   'settings.notifications.description':
     'ડિલિવરી પસંદગીઓ જોવા અને મેનેજ કરવા માટે સૂચના પૃષ્ઠની મુલાકાત લો.',
   'settings.section.account': 'એકાઉન્ટ અને સુરક્ષા',

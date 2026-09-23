@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'authShell.brandHeading': 'Lenzos multixogador para equipos de deseño que pensan en voz alta.',
   'billing.canceled': 'Subscrición cancelada.',
   'billing.cancelPlan': 'Cancelar plan',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Comezar desde o modelo',
   'boards.title': 'As túas táboas',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Ir ao panel',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Introduce o correo electrónico vinculado ao teu espazo de traballo e enviarémosche unha ligazón de restablecemento.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Creado para o pensamento desordenado, xerativo e en persoa.',
   'landing.demoBoard.title': 'Taller do primeiro trimestre · Voz de marca',
   'landing.featuresTitle': 'Comentarios rápidos. Lenzos fermosos. Cero fricción.',
+  'landing.hero.body':
+    '{{appName}} é unha pizarra branca multixogador para equipos de deseño, facilitadores de obradoiros e educadores que realizan chuvias de ideas en directo e precisan que as ideas converxan nun só lugar.',
   'landing.hero.primaryCta': 'Comeza un taboleiro de balde',
   'landing.hero.socialProof': 'Con confianza de {{count}} equipos de deseño en todo o mundo',
   'landing.hero.title': 'Un lenzo tan rápido como os teus pensamentos',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Crea un espazo de traballo gratuíto',
   'login.subheading':
     'Retoma o obradoiro onde o deixou: as pizarras, as notas adhesivas e os cursores sincronízanse en tempo real.',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.new': 'Novo',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'notifications.editTitle': 'Edicións en " {{board}} "',
   'notifications.empty.body':
     'As invitacións, os gardados de instantáneas e as edicións recentes do taboleiro aparecerán aquí segundo se produzan.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historial de versións',
   'versionHistory.untitledSnapshot': 'Instantánea sen título',
   'whiteboardLayout.newBoard': 'Nova xunta directiva',
+  'whiteboardLayout.primaryNav': 'Navegación principal',
   'workspace.boardLabel': 'Consello',
   'workspace.eyebrow': '{{name}} · espazo de traballo',
   'workspace.invite': 'Convidar colaboradores',

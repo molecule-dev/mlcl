@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Reserva una cita',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'No hi ha pacients per mostrar.',
+  'common.goToDashboard': 'Anar al panell',
   'consult.backLink': 'Totes les cites',
   'consult.captions': 'Subtítols',
   'consult.connected': 'Connectat · 720p · estable',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'pacients',
   'patientVitalsHero.scripts': 'Recepta oberta',
   'patientVitalsHero.subline': '{{count}} consultes a la teva agenda avui',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'prescriptions.empty': 'Cap recepta coincideix.',
   'prescriptions.eyebrow': 'Recepta electrònica',
   'prescriptions.heading': 'Receptes',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Avís de privacitat',
   'privacy.use.body':
     'Per oferir atenció, enviar recordatoris de cites, programar receptes i millorar la fiabilitat del servei. Mai venem les vostres dades ni mai compartim informació clínica amb anunciants.',
+  'providers.allSpecialties': 'Totes les especialitats',
+  'providers.loadError': "No s'han pogut carregar els proveïdors.",
+  'providers.loading': "S'està carregant…",
   'providers.noResults': "No s'han trobat proveïdors.",
   'providers.searchPlaceholder': 'Cerca per nom, especialitat...',
   'providers.title': 'Troba un proveïdor',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Inici del dia',
   'settings.availability.heading': 'Disponibilitat',
   'settings.devices.thisDevice': 'Aquest dispositiu',
+  'settings.devices.unnamed': 'Dispositiu sense nom',
   'settings.eyebrow': 'Pràctica i compte',
   'settings.loadError': "No s'ha pogut carregar el teu perfil.",
   'settings.notifications.emailMessages':
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Desactiva',
   'settings.security.twoFactor.enable': 'Activa',
   'settings.security.twoFactor.heading': 'Autenticació de dos factors',
+  'settings.security.twoFactor.invalidCode': 'Aquest codi no coincideix. Torna-ho a intentar.',
+  'settings.security.twoFactor.setupFailed':
+    "No s'ha pogut iniciar la configuració de dos factors. Torna-ho a provar.",
+  'settings.security.twoFactor.statusOn': 'El factor de dos està activat',
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.subheading': 'Perfil del proveïdor, normes de pràctica i alertes clíniques.',
   'signup.emailLabel': 'CORREU ELECTRÒNIC',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Crea un compte',
   'signupFooter.hipaa': 'Compliment amb la HIPAA',
   'solaceLayout.primaryNavLabel': 'Navegació principal',
+  'solaceLayout.toggleMenu': 'Menú desplegable',
   'terms.eligibility.body':
     "Heu de tenir almenys divuit anys, o ser el pare o tutor legal d'un menor per al qual busqueu atenció, i estar físicament ubicat en un estat dels EUA on els nostres metges tinguin llicència.",
   'terms.payment.body':

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} 소개',
   'analytics.avgCheckLabel': '평균 객단가',
   'analytics.busiestHour': '가장 바쁜 시간대',
   'analytics.coversToday': '오늘 손님 수',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': '팁(평균)',
   'analytics.topItems': '오늘의 인기 메뉴',
   'authShell.eyebrow': '다시 오신 것을 환영합니다',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     '환대 팀을 위한 따뜻하고 빠른 POS입니다. 주방에 로그인하시고 하던 일을 이어가세요.',
   'authShell.tip': '팁: 키보드 단축키는 어디서나 작동합니다 — / 키를 눌러 검색하세요.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': '또는 {{price}}',
   'billing.priceUnavailable': '이 요금제에는 설정된 가격이 없습니다.',
   'billing.updated': '요금제가 업데이트되었습니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'customerDetail.book': '예약 추가',
   'customerDetail.col.table': '테이블',
   'customerDetail.confirmDelete': '이 손님 기록을 삭제하시겠습니까?',
@@ -123,6 +126,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': '제공 여부',
   'menuItemDetail.available': '오늘 밤 제공 가능',
   'menuItemDetail.backToMenu': '메뉴로 돌아가기',
+  'menuItemDetail.confirmDelete': '이 메뉴 항목을 삭제하시겠습니까?',
   'menuItemDetail.delete': '항목 삭제',
   'menuItemDetail.deleteError': '삭제하지 못했습니다. 다시 시도해 주세요.',
   'menuItemDetail.dietary': '식이 태그',
@@ -133,9 +137,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': '저장하지 못했습니다. 다시 시도해 주세요.',
   'menuItemDetail.subheading': '{{category}} · 사진, 옵션, 식이 정보, 가격을 편집하세요.',
   'menuItemDetail.untitled': '제목 없는 항목',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'notFound.heading': '이 테이블은 플로어에 없습니다.',
   'notFound.subheading':
     '찾으시던 페이지는 다른 자리로 안내되었거나, 처음부터 존재하지 않았습니다.',
+  'notFound.toLanding': '{{app}} 홈',
   'notifications.markError': '모두 읽음으로 표시할 수 없습니다.',
   'orderDashboard.activeDelta': '지금 진행 중',
   'orderDashboard.activeLabel': '진행 중 주문',
@@ -198,6 +205,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': '비밀번호 표시',
   'resetPassword.subtitle': '새 비밀번호를 입력하여 주방 접근 권한을 다시 받으세요.',
   'resetPassword.tokenLabel': '재설정 토큰',
+  'restaurantOrderingLayout.primaryNavLabel': '기본 탐색',
   'revenueHeroCard.activeOrders': '{{count}}건 진행 중',
   'revenueHeroCard.change': '어제 대비 {{sign}}{{amount}}',
   'revenueHeroCard.title': '오늘의 매출',
@@ -216,6 +224,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': '상호',
   'tableDetail.activeOrders': '진행 중 주문',
   'tableDetail.backToFloor': '플로어 플랜',
+  'tableDetail.confirmDelete': '이 표를 삭제하시겠습니까?',
   'tableDetail.delete': '삭제',
   'tableDetail.deleteError': '테이블을 삭제할 수 없습니다.',
   'tableDetail.heading': '테이블 {{label}}',

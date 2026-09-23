@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// à propos de {{app}}',
+  'about.pageTitle': 'Le plan de contrôle du webhook',
+  'about.plansTitle': 'Des plans pour chaque étape',
   'apiKeys.bestPractices': 'Bonnes pratiques',
   'apiKeys.body':
     "Jetons d'accès programmatique. Traitez-les comme des mots de passe : stockez-les dans des variables d'environnement, ne les commitez jamais.",
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'dans les limites du plan',
   'billing.usageWarning': 'proche du plafond',
   'billing.yearly': 'Annuel',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'dashboard.body':
     'Débit en temps réel, tentatives de retransmission en cours et points de terminaison ayant connu un bref incident — sur tous les espaces de travail que vous utilisez.',
   'dashboard.endpointsEmpty': 'Aucun point de terminaison pour le moment.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endpoints',
   'endpointDetail.deliveryTrendSub': 'livraisons / heure, échelle log',
   'endpointDetail.hideSecret': 'Masquer le secret',
+  'endpointDetail.loading': 'Chargement du point de terminaison…',
   'endpointDetail.metric.delivered': 'Livrées 24 h',
   'endpointDetail.metric.deliveredCaption': "depuis {{count}} types d'événement",
   'endpointDetail.metric.failuresCaption': 'réessais : {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Critiques · 24 h',
   'notifications.metric.totalCaption': 'boîte historique',
   'payloadViewer.payload': '// payload',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Initiales affichées — les uploads arrivent avec la prochaine version.',
   'profile.body': 'Votre compte, vos préférences et vos sessions actives.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     "Seule votre session actuelle est active. Aucun autre appareil n'est connecté.",
   'profile.toggle': 'Basculer {{label}}',
+  'pylonShell.closeMenu': 'Fermer le menu de navigation',
+  'pylonShell.openMenu': 'Ouvrir le menu de navigation',
   'pylonShell.primaryNavLabel': 'Navigation principale',
   'resetPassword.subtitle': "Choisissez un mot de passe fort que vous n'avez pas déjà utilisé.",
   'resetPassword.tokenPlaceholder': "coller depuis l'e-mail",

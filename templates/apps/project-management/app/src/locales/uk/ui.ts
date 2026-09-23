@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'accountSettings.confirmEmailLabel': 'Введіть DELETE для підтвердження',
   'accountSettings.deleteError': 'Не вдалося видалити обліковий запис.',
   'accountSettings.passwordError': 'Не вдалося змінити пароль.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Немає найближчих термінів.',
   'dashboard.upcomingTitle': 'Найближчі терміни',
   'deviceSettings.unknownDevice': 'Невідомий пристрій',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Підтримка',
   'forgotPassword.error': 'Не вдалося надіслати посилання для скидання налаштувань.',
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'Неправильний адреса електронної пошти або пароль.',
   'login.pageTitle': 'Увійти',
   'login.signIn': 'Увійти до Forge',
+  'login.subtitle': 'Увійдіть, щоб слідкувати за своїми проектами',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'nav.calendar': 'Календар',
   'nav.legal': 'Юридична інформація',
   'nav.myTasks': 'Мої завдання',

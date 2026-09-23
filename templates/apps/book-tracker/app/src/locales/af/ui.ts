@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Herbegin die ketting',
   'resetPassword.mismatchError': 'Wagwoorde stem nie ooreen nie.',
   'resetPassword.subheading': 'Kies iets sterk. Jou boeke sal wag.',
-  'reviewCard.starsAria': 'Gegradeer<x> {{gradering}}</x> uit<x> {{van}}</x> sterre',
+  'reviewCard.starsAria': 'Gegradeer {{rating}} uit {{of}} sterre',
   'reviewCard.unratedAria': 'Ongegradeer',
   'reviews.eyebrow': 'Wat by jou gebly het',
   'reviews.heading': 'Jou resensies',

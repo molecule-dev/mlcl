@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.pageTitle': 'О {{app}}',
   'achievementBadgeCard.unlockedOn': 'Разблокировано {{date}}',
   'achievements.loadError': 'Не удалось загрузить достижения.',
   'achievements.subheading': '{{unlocked}} из {{total}} разблокировано',
   'achievements.unlockedOn': 'Разблокировано {{date}}',
+  'auth.legalConsent': 'Продолжая, вы соглашаетесь с нашими',
   'calendar.empty': 'Выработайте привычку просматривать свой календарь.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Привычка',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Сетка привычек',
   'category.${c.category}': '{{считать}} привычки',
   'common.and': 'и',
+  'common.goToDashboard': 'Перейти к панели',
   'consistencyHeatmap.ariaLabel': 'Тепловая карта ежедневной стабильности',
   'consistencyHeatmap.caption': 'Последний {{weeks}} недели',
   'consistencyHeatmap.lessLabel': 'Меньше',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Смотрите вживую',
   'landing.heroSubtitle':
     'Формируйте привычки так, чтобы они действительно оставались с вами: небольшие обязательства, ежедневные серии и непосредственное удовольствие от длинной непрерывной цепочки.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Взгляд изнутри на Streak',
   'landing.previewMotivation': 'Девять полос в живых. Держите их всех в тепле.',
   'login.eyebrow': 'Подними цепочку',
@@ -99,7 +104,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Сделайте это по существу. Сделайте это конкретно. Придите завтра.',
   'newHabit.timeLabel': 'Время напоминания',
   'notifications.markError': 'Не удалось отметить все прочитанные записи.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.entries': '{{count}} записи',
+  'pricing.heading': 'Выберите ваш план {{app}}',
   'profile.action.plan': 'Управление подпиской',
   'profile.action.settings': 'Настройки учетной записи',
   'profile.bioEmpty': 'Добавьте краткую биографию в настройках, чтобы представиться.',
@@ -129,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Ежедневное утреннее расписание (8:00)',
   'settings.reminders.heading': 'Напоминания',
   'settings.reminders.weekly': 'Еженедельный обзор (вечером в воскресенье)',
+  'settings.revokeDeviceWarning': 'Доступ этого устройства скоро будет отозван. Выйти?',
   'settings.signOutDevice': 'выход',
   'settings.streaks.freezesPerWeek': 'Заморозки в неделю',
   'settings.streaks.gracePeriod': '6-часовой льготный период после полуночи',
@@ -155,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} активный',
   'streakHeroCard.daysSuffix': 'дни',
   'streakHeroCard.title': 'Самая длинная активная серия',
+  'streakLayout.closeMenu': 'Закрыть меню навигации',
+  'streakLayout.openMenu': 'Открыть меню навигации',
   'streakLayout.primaryNavLabel': 'Основная навигация',
 }

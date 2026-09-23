@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni reagime, një kërkesë për një veçori ose keni gjetur një gabim? Kontaktoni ekipin e {{app}} përmes lidhjes së mbështetjes në menynë e llogarisë suaj - çdo mesazh i shkon një njeriu të vërtetë.',
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
   'agentDetail.back': 'Të gjithë agjentët',
   'agentDetail.capabilities': 'Aftësitë',
   'agentDetail.delete': 'Fshij personazhin',
   'agentDetail.deleteConfirm': 'Të fshihet ky personazh? Kjo nuk mund të zhbëhet.',
+  'agentDetail.deleteError': 'Persona nuk mund të fshihej.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Persona nuk mund të ngarkohej.',
   'agentDetail.save': 'Ruaj personazhin',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Duke ndërruar…',
   'billing.updateError': 'Nuk mundi të nisë përditësimin.',
   'billing.usageHeading': 'Përdorimi i zërit këtë cikël',
+  'chatBubble.source.text': 'tekst',
+  'chatBubble.source.voice': 'zë',
+  'common.goToDashboard': 'Shko te paneli',
   'conversation.defaultTitle': 'Bisedë e re',
   'conversation.empty': 'Nuk ka ende mesazhe. Filloni duke thënë diçka ose duke shkruar më poshtë.',
   'conversation.eyebrow': 'Seancë e drejtpërdrejtë',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligjencë që flet.',
   'landing.heroSubtitle':
     'Asistenti zanor i inteligjencës artificiale që kupton rrjedhën tuaj natyrale. Bisedoni, krijoni ide dhe komandoni — pa probleme.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Duke dëgjuar…',
   'landing.naturallyBody':
     'Pa fjalë nxitëse. Pa komanda të ngurta. Fjalorja kupton kontekstin, ndërprerjet dhe nuancat e të folurit njerëzor — si të bisedosh me një koleg.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Hap një seancë',
   'notFound.home': 'Kthehem në shtëpi',
   'notFound.title': 'Nuk mundëm ta dëgjonim atë faqe.',
+  'parlanceLayout.closeMenu': 'Mbyll menynë',
+  'parlanceLayout.openMenu': 'Hap menynë e navigimit',
   'parlanceLayout.primaryNavLabel': 'Navigimi kryesor',
   'pricing.conversations': '{{count}} biseda',
   'pricing.cta.startFree': 'Filloni falas',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Nuk ka përputhje',
   'search.eyebrow': 'Paleta e komandave',
   'search.fetchError': 'Nuk mund të ngarkohej indeksi i kërkimit.',
+  'search.static.profile.preview': 'Emri i shfaqur, emri i përdoruesit, biografia',
   'search.static.voice.title': 'Zëri',
   'search.title': 'Kërko në Fjalorin e Diturisë',
   'search.transcriptPreview': 'Transkript i hapur',

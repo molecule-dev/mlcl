@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'आमची कथा',
   'aiSuggestionPanel.title': 'सिग्नेट कोपायलट',
   'analytics.col.open': 'खुला दर',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'चेकआउट सुरू करत आहे…',
   'billing.subheading': 'तुम्ही ज्या प्रकारे पैसे पाठवता, त्याला जुळणारी योजना निवडा.',
   'billing.unavailable': 'विक्री विभागाशी संपर्क साधा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'compose.adjustingTone': 'निवडक सुरात पुनर्लेखन…',
   'compose.aiPromptPlaceholder':
     'उदा. "दोन आठवडे प्रतिसाद न मिळाल्यास नम्रपणे पाठपुरावा करा, तो संक्षिप्त ठेवा."',
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'काही पाठवायचे आहे का? सिग्नेट काही सेकंदातच मसुदा तयार करू शकते.',
   'dashboard.composeCtaLabel': 'झटपट रचना',
   'dashboard.heading': 'तुमचा आठवडा, एका रचनेसह',
+  'dashboard.loadFailed': 'तुमचा डॅशबोर्ड लोड होऊ शकला नाही.',
   'dashboard.manageLibrary': 'ग्रंथालय व्यवस्थापित करा →',
   'dashboard.recentEmpty': 'अद्याप पाठवलेले नाही — तुम्ही पाठवलेले ईमेल येथे दिसतील.',
   'dashboard.recentHeading': 'अलीकडील पाठवणी',
@@ -136,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'डीफॉल्ट टोन',
   'settings.toneSubheading': 'तुम्ही ड्राफ्टवर बदल न केल्यास सिग्नेट हाच टोन वापरते.',
   'signetLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
+  'signetLayout.toggleMenu': 'मेनू टॉगल करा',
   'signup.emailLabel': 'ईमेल पत्ता',
   'signup.showPassword': 'पासवर्ड दाखवा',
   'signup.tagline': 'तुमचा पहिला एआय-निर्मित ईमेल एका मिनिटापेक्षा कमी वेळात पाठवा.',

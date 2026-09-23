@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.pageTitle': 'درباره {{app}}',
   'activity.empty':
     'هنوز هیچ فعالیتی انجام نشده است - دستگاه را برگردانید یا صحنه‌ای را فعال کنید.',
   'activity.eyebrow': 'گاهشمار',
   'activity.loadError': 'نتوانست فید فعالیت را بارگیری کند.',
   'activity.subheading': 'هر دستگاه، اتوماسیون و رویداد امنیتی به ترتیب زمانی.',
+  'addDevice.error.failed': 'دستگاه اضافه نشد. دوباره امتحان کنید.',
   'addDevice.error.nameRequired': 'برای ادامه، یک نام به این دستگاه بدهید.',
   'addDevice.field.firmware': 'نسخه میان‌افزار',
   'addDevice.field.manufacturer': 'تولیدکننده',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'آزمایش…',
   'automationEditor.testNew': 'ابتدا اتوماسیون را ذخیره کنید تا آن را آزمایش کنید.',
   'automationRow.lastRun': 'آخرین {{date}} · {{count}} اجرا می‌شود',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'اجرا کنید {{name}} الان',
   'automations.empty': 'هنوز هیچ اتوماسیونی وجود ندارد - اولین روال خود را ایجاد کنید.',
   'automations.eyebrow': 'روال‌ها',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'در حال بارگذاری اتوماسیون‌ها…',
   'automations.newAutomation': '+ جدید',
   'automations.subheading': 'وقتی این اتفاق می‌افتد، این کار را انجام دهید - بدون YAML.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'بارگیری دستگاه ناموفق بود.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'کار کردن…',
   'deviceDetail.unnamed': 'دستگاه',
   'deviceStatusRow.on': 'روشن',
+  'deviceStatusRow.turnOff': 'خاموش کردن',
+  'deviceStatusRow.turnOn': 'روشن کردن',
   'deviceStatusRow.watts': '{{watts}} دبلیو',
   'energy.eyebrow': 'قدرت',
   'energy.heading': 'انرژی',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'طرح‌ها را ببینید',
   'settings.security.heading': 'امنیت',
   'settings.subheading': 'تنظیمات برنامه، هاب‌ها و حساب‌ها.',
+  'smartHomeDashboardLayout.openMenu': 'منوی ناوبری را باز کنید',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ناوبری اولیه',
 }

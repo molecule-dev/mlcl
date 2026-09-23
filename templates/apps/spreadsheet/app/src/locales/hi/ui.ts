@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'about.pageTitle': '{{name}} के बारे में',
   'auth.footer.about': '{{name}} के बारे में',
   'authHeader.subtitle': 'अपनी संख्याओं को सटीक रखने के लिए साइन इन करें।',
   'automations.action.email': 'ईमेल',
+  'automations.action.noop': 'कोई-op',
   'automations.action.webhook': 'वेबहुक',
   'automations.confirmDelete': '"{{name}}" को हटाएँ?',
   'automations.empty.headline': 'अभी तक कोई स्वचालन नहीं',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'हर वर्कबुक में ट्रिगर और क्रियाएँ। प्रत्येक रन एक पंक्ति लॉग करता है जिसे आप बाद में ऑडिट कर सकते हैं।',
   'automations.toggle': '{{name}} को टॉगल करें',
+  'automations.trigger.dailySchedule': 'दैनिक कार्यक्रम',
+  'automations.trigger.rowCreated': 'पंक्ति निर्मित',
+  'automations.trigger.rowUpdated': 'पंक्ति अपडेट की गई',
   'billing.empty': 'कोई योजना उपलब्ध नहीं है।',
   'billing.error.priceMissing':
     'इस श्रेणी के लिए कोई Stripe मूल्य कॉन्फ़िगर नहीं है। STRIPE_*_PRICE_ID env vars सेट करें।',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'चार्ट',
   'charts.kpi.totalCharts': 'कुल चार्ट',
   'charts.list.empty': 'अभी तक कोई चार्ट नहीं।',
+  'charts.namePlaceholder': 'राजस्व प्रवृत्ति',
   'charts.newChart': 'नया चार्ट',
   'charts.primary.eyebrow': 'प्रकार के अनुसार चार्ट',
   'charts.primary.headline': 'कार्यक्षेत्र अवलोकन',
   'charts.subhead': 'आपकी ग्रिड से जुड़े लाइव विज़ुअलाइज़ेशन — हर सेल संपादन पर पुनः रेंडर।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'editor.addColumn': 'कॉलम जोड़ें',
+  'editor.addDialogTitle': 'कॉलम जोड़ें',
   'editor.addRow': 'पंक्ति जोड़ें',
   'editor.addSheet': 'शीट जोड़ें',
   'editor.back': 'वर्कबुक पर वापस',
@@ -96,7 +104,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}। Calcite वह फ़ॉर्मूला-प्रथम, बहु-दृश्य, रीयल-टाइम ग्रिड है जिसे विश्लेषक और वित्त टीमें सबसे पहले उपयोग करती हैं।',
   'landing.nav.formulas': 'फ़ॉर्मूले',
+  'login.noAccount': '{{name}} में नए हैं?',
+  'login.signIn': '{{name}} में साइन इन करें',
   'login.signUp': 'कार्यक्षेत्र बनाएँ',
+  'nav.menu': 'मेनू',
+  'nav.openMenu': 'मेनू खोलें',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'यह पंक्ति कभी अस्तित्व में नहीं थी।',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'मूल स्वचालन · वेबहुक और क्रॉन ट्रिगर',
   'signup.creating': 'कार्यक्षेत्र प्रावधानित किया जा रहा है…',
   'signup.cta': 'मेरा कार्यक्षेत्र बनाएँ',
+  'signup.haveAccount': 'क्या आप पहले से ही {{name}} पर हैं?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': '30 सेकंड में अपनी पहली वर्कबुक शुरू करें',
   'team.col.activity': 'आमंत्रित',

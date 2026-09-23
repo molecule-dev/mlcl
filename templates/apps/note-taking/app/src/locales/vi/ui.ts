@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Đến trang tổng quan',
   'forgot.eyebrow': 'Lạc đường quay lại?',
   'forgot.formSubtitle': 'Xin cho biết email đã đăng ký.',
   'forgot.headline': 'Đặt lại mật khẩu của quý vị.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Tạo một tài khoản',
   'login.subline':
     'Sổ tay, liên kết ngược và các trang nhật ký hàng ngày của bạn vẫn ở nguyên vị trí cũ.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'noteEditor.backToNotes': 'Quay lại ghi chú',
   'noteEditor.bodyPlaceholder': 'Bắt đầu viết — ghi chú của bạn sẽ tự động lưu khi bạn gõ.',
   'noteEditor.confirmTrash': 'Chuyển ghi chú này vào thùng rác?',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Sổ tay mới',
   'notes.newNotebookPrompt': 'Tên sổ tay mới',
   'notes.notebooksHeading': 'Sổ tay',
+  'notes.subtitle':
+    'Chọn một cuốn sổ tay ở bên trái, sau đó nhấn nút "Ghi chú mới" để bắt đầu một mục nhập mới.',
   'planUpdated.confirmation': 'Gói của quý vị đã được cập nhật',
   'pricing.heading': 'Chọn gói ghi chú của bạn',
   'reset.eyebrow': 'Gần như đã trở lại',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Đã cập nhật',
   'versoLayout.nav.graph': 'Đồ thị',
   'versoLayout.nav.home': 'Nhà',
+  'versoLayout.primaryNavLabel': 'Điều hướng chính',
   'versoNoteCard.pinned': 'Đã ghim',
   'versoTodayHero.continueCta': 'Tiếp tục viết',
   'versoTodayHero.createCta': 'Bắt đầu ghi chú hôm nay',

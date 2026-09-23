@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.logout': 'Útskráning',
   'dailyStatsTriad.heartsLabel': 'Hjörtu',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Fundargerð í dag',
   'dailyStatsTriad.minutesValue': '{{count}} mín.',
   'dailyStatsTriad.wordsLabel': 'Orð náð tökum á',
+  'dailyStatsTriad.wordsMasteryHint': 'Orð á meistarastigi 4+',
   'dashboard.continueHeading': 'Haltu áfram þar sem frá var horfið',
   'dashboard.heading': 'Góðan daginn, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Gat ekki hlaðið inn æfingum.',
   'lessonDetail.loading': 'Hleður inn kennslustund…',
   'lessonDetail.submitError': 'Gat ekki sent inn svar.',
+  'lessonDetail.translation': 'Þýddu orðasambandið',
   'lessonDetail.xpEarned': 'XP aflað · {{xp}}',
   'lessons.empty': 'Engar kennslustundir á þessu stigi {{level}} samt — prófið annað stig.',
   'lessons.eyebrow': 'Kennslusafn',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nýr í málfræði?',
   'login.showPassword': 'Sýna lykilorð',
   'login.signUp': 'Byrjaðu ókeypis →',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
+  'parlanceLayout.nav.profile': 'Prófíll',
   'parlanceLayout.primaryNavLabel': 'Aðalflakk',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'practice.empty': 'Engar orðasambönd tiltæk ennþá.',
   'practice.eyebrow': 'Æfing í ræðumennsku',
   'practice.heading': 'Lestu það. Taktu það upp. Fínpússaðu það.',

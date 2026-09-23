@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'accountSettings.confirmEmailLabel': 'Rubuta DELETE domin tabbatarwa',
   'accountSettings.deleteError': 'Ba a iya goge asusu ba.',
   'accountSettings.passwordError': 'Ba za a iya canza kalmar sirri ba.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': "Babu wa'adin da za a ɗauka nan gaba.",
   'dashboard.upcomingTitle': "Wa'adin da ke tafe",
   'deviceSettings.unknownDevice': "Na'urar da ba a sani ba",
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Tallafi',
   'forgotPassword.error': 'An kasa aika hanyar haɗin sake saitawa.',
   'forgotPassword.subtitle':
@@ -68,6 +70,9 @@ export const ui: UiTranslations = {
   'login.error': 'Imel ko kalmar sirri mara inganci.',
   'login.pageTitle': 'Shiga',
   'login.signIn': 'Shiga zuwa Forge',
+  'login.subtitle': 'Shiga don ci gaba da ayyukanka a kan hanya madaidaiciya',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'nav.calendar': 'Kalanda',
   'nav.legal': "Shari'a",
   'nav.myTasks': 'Ayyukana',

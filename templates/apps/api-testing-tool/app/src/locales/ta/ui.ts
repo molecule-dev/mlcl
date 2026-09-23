@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.pageTitle': '{{app}} பற்றி',
   'authShell.statusLabel': 'ஆன்லைன் ஓட்டப்பந்தய வீரர்கள்',
   'collections.createError': 'தொகுப்பை உருவாக்க முடியவில்லை.',
   'collections.defaultName': 'தலைப்பிடப்படாத தொகுப்பு {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'புதிய தொகுப்பு',
   'collections.subheading':
     'கோரிக்கைகளைக் குழுவாக்கி, உங்கள் குழுவினருடன் பகிர்ந்து, அவற்றை ஒரு தொகுப்பாகச் செயல்படுத்துங்கள்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'environmentCard.inactive': 'செயலற்ற',
   'environmentCard.more': 'மேலும்',
   'environmentCard.variables': 'மாறிகள்',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'இலவசமாகப் பதிவிறக்கவும்',
   'landing.heroSubtitle':
     'டெர்மினல்களிலேயே வாழும் பொறியாளர்களுக்காக உருவாக்கப்பட்ட, மின்னல் வேக API சோதனைப் பணித்தளம்.',
+  'landing.heroTitleAccent': 'தீ',
+  'landing.heroTitleLine2': 'நம்பிக்கையை உருவாக்குங்கள்.',
+  'landing.heroTitleRest': 'கோரிக்கைகள்,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ விலை நிர்ணயம் --சாதாரண',
   'landing.pricingHeading': 'எளிய, கணிக்கக்கூடிய விலை நிர்ணயம்',
@@ -59,6 +65,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'இங்கு புதிதா?',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subtitle': 'உங்கள் பைலான் பணிச்சூழலுக்குத் தொடரவும்.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'mocks.createError': 'போலி மாதிரியை உருவாக்க முடியவில்லை.',
   'mocks.defaultName': 'தலைப்பிடப்படாத மாதிரி {{n}}',
   'mocks.deleteError': 'போலிப் பிரதியை நீக்க முடியவில்லை.',
@@ -116,6 +124,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'பணிச்சூழலுக்குத் திரும்பு',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'வழி காணப்படவில்லை',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'privacy.collect.account':
     'கணக்கு: உங்கள் மின்னஞ்சல், ஹேஷ் செய்யப்பட்ட கடவுச்சொல், காட்சிப் பெயர் மற்றும் நீங்கள் கடைசியாக உள்நுழைந்த நேர முத்திரை.',
   'privacy.rights.body':
@@ -142,6 +151,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'இந்தக் கணக்கு தற்போது கொண்டுள்ள தரவுகளின் படிக்க-மட்டும் பார்வை.',
   'settings.unset': 'அமைக்கப்படவில்லை',
   'signup.identityHint': 'உதாரணமாக அலெக்ஸ்',
+  'signup.statusLabel': 'இலவச அடுக்கு · கடன் அட்டை தேவையில்லை',
   'signup.subtitle': 'நிமிடங்களில் கோரிக்கைகளை அனுப்பத் தொடங்குங்கள்.',
   'terms.account.body':
     'உங்கள் கடவுச்சொல்லைப் பாதுகாப்பது உங்கள் பொறுப்பாகும். இலவச அல்லது புரோ திட்டங்களில், ஒரு கணக்கை பலருடன் பகிர்வது அனுமதிக்கப்படவில்லை — பகிரப்பட்ட பணிச்சூழல்களுக்கு குழு சந்தாவை வாங்கவும்.',
@@ -152,6 +162,7 @@ export const ui: UiTranslations = {
     'உங்களுக்குச் சொந்தமில்லாத அல்லது சோதிப்பதற்குத் தெளிவான அனுமதி இல்லாத சேவைகளுக்குக் கோரிக்கைகளை அனுப்ப பைலானைப் பயன்படுத்தாதீர்கள். விகித வரம்புகளை மீறுவதற்கோ அல்லது மோசடி செய்வதற்கோ பைலானைப் பயன்படுத்தாதீர்கள்.',
   'terms.warranty.body':
     'பைலான் எந்தவித உத்தரவாதமும் இன்றி "உள்ளபடியே" வழங்கப்படுகிறது. நாங்கள் 99.9% தடையற்ற செயல்பாட்டை இலக்காகக் கொண்டுள்ளோம், ஆனால் இலவச அல்லது புரோ திட்டங்களில் அதற்கு உத்தரவாதம் அளிக்கவில்லை.',
+  'testRunner.assertionsCount': 'கூற்றுகளின் {{count}}',
   'testRunner.createError': 'சோதனையை உருவாக்க முடியவில்லை.',
   'testRunner.cron':
     'இந்தச் சோதனையுடன் இணைக்கப்பட்ட கோரிக்கையின் மிகச் சமீபத்திய இயக்கத்திற்கு எதிராக உறுதிப்படுத்தல்கள் மதிப்பிடப்படுகின்றன.',
@@ -175,11 +186,33 @@ export const ui: UiTranslations = {
     'தொகுப்பு முடிவுகள், உறுதிப்படுத்தல் வேறுபாடுகள் மற்றும் கடைசி 50 சோதனைகள்.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'உள்நுழைந்தவர்',
+  'workspace.auth.keyName': 'தலைப்பு பெயர்',
+  'workspace.auth.keyValue': 'முக்கிய மதிப்பு',
+  'workspace.auth.password': 'கடவுச்சொல்',
+  'workspace.auth.username': 'பயனர்பெயர்',
+  'workspace.authOption.apikey': 'API விசை',
+  'workspace.authOption.basic': 'அடிப்படை அங்கீகாரம்',
+  'workspace.authOption.bearer': 'தாங்குபவர் டோக்கன்',
+  'workspace.authOption.none': 'ஏதுமில்லை',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'வகை',
   'workspace.authTypeLabel': 'அங்கீகார வகை',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'ஏதுமில்லை',
+  'workspace.body.text': 'மூல உரை',
+  'workspace.body.type': 'வகை',
   'workspace.environment': 'சூழல் இல்லை',
   'workspace.envVar': 'சூழல் மாறி',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'தலைப்பைச் சேர்க்கவும்',
+  'workspace.kv.addParam': 'அளவுருவைச் சேர்க்கவும்',
+  'workspace.kv.headerKey': 'தலைப்பு பெயர்',
+  'workspace.kv.headerValue': 'தலைப்பு மதிப்பு',
+  'workspace.kv.key': 'விசை',
+  'workspace.kv.paramKey': 'வினவல் அளவுரு விசை',
+  'workspace.kv.paramValue': 'வினவல் அளவுரு மதிப்பு',
+  'workspace.kv.removeRow': 'வரிசையை அகற்று',
+  'workspace.kv.value': 'மதிப்பு',
   'workspace.methodLabel': 'HTTP முறை',
   'workspace.metric.latency': 'தாமதம்',
   'workspace.metric.latencyCaption': 'இந்த ஓட்டத்திலிருந்து சென்று திரும்புதல்',
@@ -197,6 +230,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'கோரிக்கை நிராகரிக்கப்பட்டது — பதிலை கீழே காண்க.',
   'workspace.subheading':
     'ஒரு கோரிக்கையை உருவாக்கி, அதைச் செயல்படுத்தி, பின்னர் பதிலை உறுதிப்படுத்துங்கள் — இவை அனைத்தையும் ஒரே சாளரத்தில் செய்யுங்கள்.',
+  'workspace.testResults': 'சோதனை முடிவுகள்',
   'workspace.token': 'டோக்கன்',
   'workspace.tokenHint':
     'அங்கீகாரமாக அனுப்பப்பட்டது: தாங்கி<token> இந்தத் தொகுப்பில் உள்ள ஒவ்வொரு கோரிக்கையின் பேரிலும்.',

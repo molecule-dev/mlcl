@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ի մասին',
   'about.plansTitle': 'Պլաններ, որոնք աճում են ձեզ հետ միասին',
   'brand.tagline': 'Ամեն վայրկյան',
   'clientDetail.back': 'Վերադառնալ հաճախորդներին',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Բոլոր հարաբերությունները մեկ տեղում՝ նախագծեր, աշխատանքային ժամեր, չվճարված հաշիվ-ապրանքագրեր։',
   'clients.title': 'Հաճախորդներ',
   'common.and': 'և',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.activeProjects': 'Ակտիվ նախագծեր',
   'dashboard.empty':
     'Դեռևս գրառումներ չկան։ Գործարկեք ժամանակաչափը՝ ձեր առաջին սեսիան հետևելու համար։',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'Այս հաճախորդի համար հաշիվ-ապրանքագրի համար վճարման ենթակա ժամեր չկան: Նախ գրանցեք որոշ ժամանակ կամ առկա գրառումները վերագրեք այս հաճախորդի նախագծերից մեկին:',
   'invoices.save': 'Ստեղծել հաշիվ-ապրանքագիր',
   'invoices.subtitle': 'Հաշվառված ժամերը ավտոմատ կերպով միավորվում են հաշիվ-ապրանքագրերի մեջ։',
+  'landing.copyright': '© {{year}} {{app}} ։ Հաշվի է առնվում յուրաքանչյուր վայրկյանը։',
   'landing.ctaBody':
     'Անվճար մինչև 3 նախագծի համար: Թարմացրեք, երբ ձեր հաճախորդների ցանկը համալրվի:',
   'landing.eyebrow': 'Վճարովի աշխատանքի ժամանակի հետևում',
@@ -100,13 +103,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Վստահված է անկախների կողմից',
   'landing.testimonial.quote':
     '\\u201cԵս Toggl-ից հեռացա 30 րոպեում։ Միայն բյուջեի սպառումն արդեն արդարացրել է իրեն \\u2014 Ես դադարել եմ թերագնահատել երկու շաբաթ անընդմեջ։\\u201c',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Քրոնո։ Հաշվի է առնված յուրաքանչյուր վայրկյանը։',
   'login.brand.subtitle':
     'Վերցրեք ժամանակաչափը այնտեղից, որտեղ կանգ եք առել. յուրաքանչյուր րոպեն արդեն կապված է նախագծի, հաճախորդի, հաշիվ-ապրանքագրի հետ։',
   'login.brand.tracking': 'Հետևում',
   'login.subheading': 'Վերցրեք ժամանակաչափը այնտեղից, որտեղ կանգ եք առել։',
+  'nav.closeMenu': 'Փակել նավիգացիոն ցանկը',
   'nav.insightsSection': 'Տեղեկություններ',
   'nav.newEntry': 'Նոր գրառում',
+  'nav.openMenu': 'Բացել նավիգացիոն ցանկը',
+  'nav.primary': 'Հիմնական նավիգացիա',
   'nav.workSection': 'Աշխատանք',
   'notFound.body':
     'Ձեր հետևած հղումը, կարծես, դադարել է հետևել։ Վերադարձեք ձեր վահանակ՝ մենք կշարունակենք հաշվել այնտեղից։',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Վճարելի',
   'timer.descriptionPlaceholder': 'Ինչի՞ վրա եք աշխատում։',
   'timer.idle': 'Անգործուն ռեժիմ — սկսել հետևելը',
+  'timer.noProject': 'Ոչ մի նախագիծ',
   'timer.runningWithProject': 'Ոչ մի նախագիծ',
   'timer.start': 'Ժամաչափի մեկնարկ',
   'timer.stop': 'Կանգնեցնել ժամանակաչափը',

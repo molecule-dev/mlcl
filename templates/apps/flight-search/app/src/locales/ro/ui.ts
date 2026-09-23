@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.eyebrow': 'Despre {{app}}',
   'about.pageTitle': 'Fiecare traseu, o singură căutare.',
   'booking.backToDetail': 'Înapoi la detaliile zborului',
   'booking.continue': 'Continuați cu plata',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Taxe și comisioane',
   'booking.summary.travelers': 'Călătorii',
   'common.about': 'Despre',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'flightDetail.backToResults': 'Înapoi la rezultate',
   'flightDetail.baseFare': 'Tarif de bază',
   'flightDetail.book': 'Continuă cu rezervarea',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 oprire',
   'flightResultCard.select': 'Selecta',
   'flightResultCard.totalLabel': 'Timp total',
+  'flightSearchLayout.primaryNavLabel': 'Navigare principală',
   'forgotPassword.subheading':
     'Introdu adresa de e-mail din contul tău Skylark și îți vom trimite un link de resetare securizată.',
   'forgotPassword.successBody':
     'Verifica {{email}} pentru un link pentru a seta o parolă nouă. Linkul expiră în 30 de minute.',
   'forgotPassword.successHeading': 'Linkul de resetare a fost trimis',
   'landing.cta.explore': 'Încercați o căutare',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Găsește următoarea ofertă excelentă înaintea tuturor.',
   'landing.cta.signup': 'Începeți urmărirea tarifelor',
   'landing.features.eyebrow': 'De ce Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Adăugați o alertă',
   'priceAlerts.deleteConfirm': 'Eliminați această alertă?',
   'priceAlerts.empty': 'Încă nu există rute urmărite.',
+  'priceAlerts.emptyCta': 'Căutați o rută de urmărit',
   'priceAlerts.errorMessage': 'Nu s-au putut încărca alertele.',
   'priceAlerts.eyebrow': 'Lista de urmărire Skylark',
   'priceAlerts.form.createError': 'Nu s-a putut crea alerta.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerariu în mai multe orașe',
   'results.multiLegHeading': 'Picior {{n}} · {{din}} → {{la}} · {{data}}',
   'results.multiSummary': '{{count}} picioare · {{passengers}} călător',
+  'results.sortAriaLabel': 'Sortează rezultatele după',
   'results.sortLabel': 'Sorta',
   'results.summary': '{{count}} zboruri · {{passengers}} călător',
   'settings.language.title': 'Limbă',

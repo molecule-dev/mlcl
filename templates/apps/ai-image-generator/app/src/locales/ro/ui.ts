@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'auth.fields.newPassword': 'Parolă nouă',
   'collectionDetail.addImage': 'Creați pentru colecție',
   'collectionDetail.backCta': 'Înapoi la colecții',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Moodboard-uri, brief-uri și serii în desfășurare',
   'collections.title': 'Colecții',
   'collections.untitled': 'Fără titlu · {{stamp}}',
+  'common.closeMenu': 'Închide meniul',
+  'common.dismiss': 'Închide',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.openMenu': 'Deschide meniul de navigare',
   'credits.eyebrow': 'Plan {{plan}}',
   'credits.renewsCopy': 'Planul se reînnoiește pe {{date}}',
   'credits.trail': 'Reverie · {{plan}} nivel',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Activitatea de generare, partajarea și alertele de credit vor apărea aici.',
   'notifications.empty.title': 'Nimic de raportat',
   'notifications.subtitle': 'Evenimente de generare grupate pe zile',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.limits.gallery': 'Galerie {{count}}',
   'privacy.collect.body':
     'Când vă înscrieți, colectăm numele dvs., adresa de e-mail și o parolă hashed. Când utilizați Reverie, stocăm prompturile pe care le trimiteți, imaginile pe care le generăm pentru dvs., stilurile și colecțiile pe care le salvați și metadate precum modelul utilizat, marcajele temporale ale generărilor și soldul creditelor.',
@@ -168,6 +174,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Salvați parola nouă',
   'reset.submitting': 'Se actualizează parola…',
   'settings.account.handle': 'Nume de utilizator',
+  'settings.account.lastSaved': 'Profil activ · {{name}}',
   'settings.account.saved': 'Profil salvat',
   'settings.account.saveFailed': 'Profilul nu a putut fi salvat',
   'settings.account.title': 'Profil de creator',
@@ -189,7 +196,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Imagine nouă',
   'sidebar.secondary': 'Navigare secundară',
   'signup.failed': 'Înscrierea a eșuat. Încercați din nou.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Începeți reveria dvs.',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Creați un cont și revendicați 120 de credite gratuite.',
   'styles.empty': 'Încă nicio presetare de stil — vor apărea după prima conectare.',
   'styles.eyebrow': 'Curatoriat',

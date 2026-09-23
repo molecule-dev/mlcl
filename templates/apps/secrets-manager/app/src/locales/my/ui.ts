@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'about.tagline': 'လျှို့ဝှက်ချက်များသည် ပွင့်ပွင့်လင်းလင်း သေဆုံးကြသည်။',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'တိုကင်ဖန်တီးပါ',
   'apiTokens.kicker': 'API တိုကင်များ',
   'apiTokens.loading': 'တိုကင်များကို တင်နေသည်…',
+  'apiTokens.new': 'တိုကင်အသစ်',
   'apiTokens.revoke': 'တိုကင်ကို ရုပ်သိမ်းပါ',
   'apiTokens.subheading':
     'Arcanum CLI နှင့် SDK အတွက် ကိုယ်ရေးကိုယ်တာနှင့် ဝန်ဆောင်မှုတိုကင်များ။ ဖန်တီးချိန်တွင် တစ်ကြိမ်သာ Plaintext ပြသထားသည်။',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + လျှို့ဝှက်နံပါတ်',
   'authShell.zeroKnowledge': 'သုညဗဟုသုတ ကုဒ်ဝှက်ခြင်း',
   'common.connecting': 'ချိတ်ဆက်နေသည်…',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.inviting': 'ဖိတ်ခေါ်နေသည်…',
   'forgotPassword.checkInbox':
     '{email} ကို မှတ်ပုံတင်ပြီးပါက လက်မှတ်ရေးထိုးထားသော reset link သည် တစ်မိနစ်အတွင်း ရောက်ရှိလာပါမည်။',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ဘဏ္ဍာတိုက်တိုင်းတွင် လည်ပတ်မှုအခြေအနေ၊ ပုံမှန်မဟုတ်သော သတိပေးချက်များနှင့် ခွင့်ပြုချက်တောင်းဆိုမှုများ။',
   'notifications.unreadEmpty': 'ဝင်စာပုံး သုည — အားလုံးပြီးသွားပါပြီ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'လျှို့ဝှက်ချက်များ',
   'pricing.limits.accessPolicies': 'ဝင်ရောက်ခွင့်မူဝါဒများ',
   'pricing.limits.auditLog': 'စာရင်းစစ်မှတ်တမ်းများ',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'သင့်စာရင်းသွင်းမှုကို စီမံခန့်ခွဲပါ၊ ကန့်သတ်ချက်များကိုကြည့်ပါ၊ ထို့နောက် အဆင့်မြှင့်တင်ပါ။',
   'profile.subheading': 'အထောက်အထား၊ ဒုတိယအချက် စက်ပစ္စည်းများနှင့် တက်ကြွသော စက်ရှင်များ။',
+  'profile.twoFactor.code': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'profile.twoFactor.disable': 'ပိတ်ရန်',
   'profile.twoFactor.enable': 'ဖွင့်ပါ',
+  'profile.twoFactor.invalidCode': 'ကုဒ် မမှန်ကန်ပါ',
   'profile.twoFactor.kicker': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း',
+  'profile.twoFactor.off': 'ဖွင့်မထားပါ',
   'profile.twoFactor.on': 'ဖွင့်ထားသည်',
   'resetPassword.email': 'အကောင့်အီးမေးလ်',
   'resetPassword.heading': 'အထောက်အထားအသစ်များ သတ်မှတ်ပါ',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'အမိန့်များ',
   'secretsManagerLayout.encrypted': 'AES-256 · ကုဒ်ဝှက်ထားသည်',
   'secretsManagerLayout.newVault': 'ဘဏ္ဍာတိုက်အသစ်',
+  'secretsManagerLayout.newVaultShort': 'အသစ်',
   'secretsManagerLayout.rotations': 'လှည့်ပတ်မှုများ',
   'secretsManagerLayout.search': 'ရှာဖွေမှု',
   'secretsManagerLayout.searchPlaceholder':
@@ -173,6 +181,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'လျှို့ဝှက်ချက်များ',
   'vaultCard.vaultLabel': 'ဗော့လ်',
   'vaultDetail.addSecret': 'လျှို့ဝှက်ချက်ထည့်ပါ',
+  'vaultDetail.back': 'သိုလှောင်ရုံအားလုံး',
   'vaultDetail.col.key': 'သော့',
   'vaultDetail.col.rotated': 'လှည့်ထားသည်',
   'vaultDetail.col.value': 'တန်ဖိုး',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.eyebrow': 'เกี่ยวกับ {{app}}',
+  'about.intro':
+    '{{app}} คือแอปฝึกสมาธิสำหรับชีวิตจริง — มีการฝึกสมาธิแบบมีผู้แนะนำทุกวัน การฝึกหายใจ และนิทานก่อนนอน โดยมีผู้สอนที่เป็นกันเองเหมือนเพื่อน ไม่ใช่โค้ช ไม่มีความรู้สึกผิดเรื่องทำต่อเนื่อง ไม่มีฟีดข่าวที่วุ่นวาย: มีเพียงสถานที่เงียบสงบที่จะช่วยให้คุณกลับมาอยู่กับลมหายใจของคุณ',
+  'about.missionBody':
+    'เราเชื่อว่าความสงบควรเข้าถึงได้สำหรับทุกคน ในทุกช่วงเวลาของวัน {{app}} ถูกสร้างขึ้นเพื่อทำให้การฝึกฝนความสงบอย่างสม่ำเสมอเป็นเรื่องง่ายดาย — เพื่อให้สิบนาทีที่จริงใจสามารถเปลี่ยนแปลงวิธีที่คุณเผชิญกับสิบชั่วโมงถัดไปได้',
+  'about.missionTitle': 'พันธกิจของเรา',
+  'about.pageTitle': 'ใช้เวลาสงบจิตใจ 10 นาทีต่อวัน',
+  'breathingDial.seconds': 'วินาที',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'common.logout': 'ออกจากระบบ',
   'common.min': 'นาที',
   'common.relative.justNow': 'เมื่อสักครู่',
   'common.relative.now': 'ตอนนี้',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
+  'nav.secondaryNavigation': 'การนำทางบัญชี',
   'sessionCard.with': 'กับ {{name}}',
   'stillpoint.billing.choose': 'เลือก {{plan}}',
   'stillpoint.billing.currentPlan': 'ขณะนี้อยู่ที่ {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'เราไม่สามารถโหลดแผนได้',
   'stillpoint.billing.opening': 'กำลังเปิดช่องชำระเงิน…',
   'stillpoint.billing.perMonthShort': '/ โม',
+  'stillpoint.billing.perYearShort': '/ปี',
   'stillpoint.billing.unknownResult': 'การตอบกลับด้านการเรียกเก็บเงินที่ไม่คาดคิด',
   'stillpoint.billing.yearly': 'รายปี · ประหยัด 17%',
   'stillpoint.courseDetail.back': 'หลักสูตร',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'ยังไม่มีหลักสูตรใดๆ',
   'stillpoint.courses.eyebrow': '{{count}} การเดินทางหลายวัน',
   'stillpoint.courses.heading': 'หลักสูตร',
+  'stillpoint.forgot.checkEmail': 'โปรดตรวจสอบกล่องจดหมายของคุณ — ลิงก์จะหมดอายุใน 30 นาที',
   'stillpoint.forgot.success': 'เราได้ส่งลิงก์รีเซ็ตไปให้แล้ว {{email}} .',
   'stillpoint.home.empty': 'ยังไม่มีรอบการอบรม โปรดตรวจสอบอีกครั้งในภายหลัง',
   'stillpoint.home.friend': 'เพื่อน',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'สร้างบัญชีฟรีของคุณ',
   'stillpoint.landing.cta.title': 'เริ่มต้นความสงบของคุณตั้งแต่วันนี้',
   'stillpoint.landing.features.heading': 'แนวทางปฏิบัติที่เติบโตไปพร้อมกับคุณ',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}',
   'stillpoint.landing.hero.body':
     'การทำสมาธิแบบมีผู้แนะนำ การฝึกหายใจ และนิทานก่อนนอนทุกวัน โดยมีผู้สอนที่ให้ความรู้สึกเหมือนเป็นเพื่อน ไม่ใช่โค้ช',
   'stillpoint.landing.hero.eyebrow': 'ใช้เวลาสงบจิตใจ 10 นาทีต่อวัน',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'เลือกดูตามอารมณ์',
   'stillpoint.login.rememberMe': 'ให้ฉันล็อกอินค้างไว้',
   'stillpoint.login.subheading': 'ลงชื่อเข้าใช้เพื่อฝึกฝนต่อ',
+  'stillpoint.nav.tagline': 'ค้นหาจุดศูนย์กลางที่สงบของคุณ',
+  'stillpoint.notFound.body':
+    'หน้านี้กำลังพักหายใจอยู่สักที่หนึ่ง เรามาหาที่เงียบๆ กว่านี้ให้คุณใน {{app}} กันเถอะ',
   'stillpoint.notFound.title': 'หลงทางอยู่ในความเงียบงัน',
   'stillpoint.notFound.toHome': 'กลับสู่ปัจจุบัน',
   'stillpoint.notFound.toLibrary': 'เรียกดูห้องสมุด',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'ย้อนกลับไป 15 วินาที',
   'stillpoint.player.skipForward': 'ข้ามไปข้างหน้า 30 วินาที',
   'stillpoint.player.with': 'กับ {{name}}',
+  'stillpoint.profile.defaultHandle': 'ตัวชี้หยุด',
   'stillpoint.profile.eyebrow': 'สรุปการปฏิบัติงานของคุณ',
   'stillpoint.profile.locked': 'ล็อก',
   'stillpoint.profile.member': 'สมาชิก Stillpoint',

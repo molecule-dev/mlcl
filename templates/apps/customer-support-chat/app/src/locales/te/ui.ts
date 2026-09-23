@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
   'authShell.samplePreview': 'టీమ్, కొత్త డాష్‌బోర్డ్ అద్భుతంగా ఉంది — మాకు సరిగ్గా ఇదే కావాలి!',
   'authShell.tagline': 'ప్రతి సందేశం ముఖ్యమైనదే. ప్రతి వినియోగదారుడు గుర్తుండిపోతాడు.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/షార్ట్‌కట్',
   'automations.subheading':
     'నియమాలు, ముందే సిద్ధం చేసిన సమాధానాలు మరియు చాట్‌బాట్‌లు — మీ బృందం కష్టమైన పనులపై దృష్టి సారిస్తుండగా, కార్యస్థలాన్ని చురుకుగా ఉంచుతాయి.',
+  'automations.trigger.inboundMessage': 'ఇన్‌బౌండ్ సందేశం',
   'automations.triggerLabel': 'ట్రిగ్గర్',
   'chatBubble.internalNoteLabel': 'అంతర్గత గమనిక',
+  'common.confirmDelete': 'తొలగింపును నిర్ధారించండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'contactDetail.backToContacts': 'అన్ని పరిచయాలు',
   'contactDetail.contactFallback': 'సంప్రదించండి',
   'contactDetail.conversationFallback': 'సంభాషణ',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'చివరిసారిగా కనిపించింది',
   'contacts.empty': 'ఇంకా పరిచయాలు లేవు. మీ మొదటి పరిచయాన్ని పైన జోడించండి.',
   'contacts.eyebrow': 'వినియోగదారుల డైరెక్టరీ',
+  'contacts.form.nameOrEmailRequired': 'కనీసం పేరు లేదా ఇమెయిల్ అందించండి',
   'contacts.form.save': 'పరిచయాన్ని సేవ్ చేయండి',
   'contacts.heading': 'పరిచయాలు',
   'contacts.loading': 'కాంటాక్ట్‌లు లోడ్ అవుతున్నాయి…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'గమనికను సేవ్ చేయండి',
   'conversationDetail.tab.note': 'అంతర్గత గమనిక',
   'conversationDetail.threadAria': 'సంభాషణ సందేశాలు',
+  'conversationDetail.visitorFallback': 'సందర్శకుడు',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'కస్టమర్ వివరాలు',
   'customerProfilePanel.recentTitle': 'ఇటీవలి సంభాషణలు',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'వినియోగదారులు వారి మొదటి ప్రత్యుత్తరాన్ని పొందుతున్నారు {{time}} సగటున — ఈ లయను కొనసాగించండి.',
   'inboxHeroCard.title': 'చురుకైన సంభాషణలు',
+  'inboxLayout.navDrawerLabel': 'నావిగేషన్',
+  'inboxLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'inboxOverview.eyebrow': 'ఈరోజు సంగ్రహావలోకనం',
   'inboxOverview.heroChange': '{{count}} తెరవండి',
   'inboxOverview.kpiClosedTrend': 'ఆల్ టైమ్',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'హోమ్‌పేజీని సందర్శించండి',
   'notifications.subheading':
     'అసైన్‌మెంట్లు, @మెన్షన్‌లు, SLA రిస్క్‌లు, CSAT ఫీడ్‌బ్యాక్ మరియు టీమ్ యాక్టివిటీ — కొత్తవి మొదటగా వచ్చేలా క్రమబద్ధీకరించబడ్డాయి.',
+  'notifications.subjectFallback': 'సంభాషణ',
+  'notifications.visitorFallback': 'ఒక సందర్శకుడు',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'అధిక',
   'priority.low': 'తక్కువ',
+  'priority.normal': 'సాధారణ',
   'priority.urgent': 'అత్యవసరం',
   'privacy.title': 'గోప్యతా విధానం',
   'reports.agentFallback': 'ఏజెంట్',

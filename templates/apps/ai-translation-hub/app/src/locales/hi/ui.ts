@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'billing.canceled': 'सदस्यता रद्द कर दी गई। अवधि समाप्त होने पर आप मुफ्त प्लान पर वापस आ जाएंगे।',
   'billing.contactSales': 'बिक्री से संपर्क करें',
   'billing.free.1': '5 अनुवाद',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'कोई संरक्षण सीमा नहीं',
   'billing.upgradeHint': 'उन्नत AI सुविधाओं को अनलॉक करने के लिए अपग्रेड करें।',
   'billing.yearly': 'वार्षिक',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.activityEmpty':
     'अभी तक कोई गतिविधि नहीं — इस फ़ीड को भरने के लिए कोई परियोजना शुरू करें।',
   'dashboard.eyebrow': 'अवलोकन',
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'हर परियोजना में पिछले अनुवादों का पुन: उपयोग करें। उच्च मिलान स्कोर → कम पुन: कार्य।',
   'memory.title': 'मेमोरी बैंक',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'nav.legal': 'कानूनी',
   'newProject.addLanguage': 'लक्ष्य जोड़ें',
   'newProject.create': 'परियोजना बनाएँ',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'पहले',
   'notifications.markedAllRead': '{{count}} सूचनाओं को पढ़ा हुआ चिह्नित किया।',
   'notifications.subtitle': 'आपके सभी कार्यक्षेत्रों से उल्लेख, समीक्षा अनुरोध और AI ईवेंट।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'privacy.collection.account': 'आपका खाता ईमेल और प्रदर्शन नाम',
   'privacy.deletion.body':
     'आप संबंधित पृष्ठ से किसी भी समय एक परियोजना, सेगमेंट, शब्दावली शब्द, या मेमोरी प्रविष्टि को हटा सकते हैं। सेटिंग्स से अपना खाता हटाने से हमारे डेटाबेस से हर कार्यक्षेत्र-दायरे वाली पंक्ति शुद्ध हो जाती है।',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'परियोजनाएँ लोड करने में विफल।',
   'projects.loading': 'परियोजनाएँ लोड हो रही हैं…',
   'projects.subtitle': 'सभी लोकेल में हर सक्रिय परियोजना।',
+  'renditionLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'reset.backToLogin': '\\u2190 साइन इन पर वापस जाएँ',
   'reset.passwordLabel': 'नया पासवर्ड',
   'review.activeEyebrow': 'सेगमेंट {{number}}',

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.pageTitle': 'O aplikácii {{app}}',
   'achievementBadgeCard.unlockedOn': 'Odomknuté {{date}}',
   'achievements.loadError': 'Načítanie úspechov zlyhalo.',
   'achievements.subheading': '{{unlocked}} z {{total}} odomknutý',
   'achievements.unlockedOn': 'Odomknuté {{date}}',
+  'auth.legalConsent': 'Pokračovaním súhlasíte s našimi',
   'calendar.empty': 'Vytvorte si zvyk pozerať si kalendár.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Zvyk',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Mriežka zvykov',
   'category.${c.category}': '{{počet}} zvyky',
   'common.and': 'a',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'consistencyHeatmap.ariaLabel': 'Denná tepelná mapa konzistencie',
   'consistencyHeatmap.caption': 'Posledný {{weeks}} týždne',
   'consistencyHeatmap.lessLabel': 'Menej',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Pozrite si to naživo',
   'landing.heroSubtitle':
     'Budujte si návyky také, aké sa skutočne držia: malé záväzky, denné série a hlboké potešenie z dlhej neprerušenej reťaze.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Pohľad do Streaku',
   'landing.previewMotivation': 'Deväť živých pruhov. Udržujte ich všetky v teple.',
   'login.eyebrow': 'Zdvihnite reťaz',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Nech je to krátke. Nech je to konkrétne. Príďte zajtra.',
   'newHabit.timeLabel': 'Čas pripomenutia',
   'notifications.markError': 'Nepodarilo sa označiť všetky ako prečítané.',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.entries': '{{count}} záznamy',
+  'pricing.heading': 'Vyberte si svoj {{app}} plán',
   'profile.action.plan': 'Spravovať predplatné',
   'profile.action.settings': 'Nastavenia účtu',
   'profile.bioEmpty': 'Pridajte krátky životopis v Nastaveniach, aby ste sa predstavili.',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Denná ranná výzva (8:00)',
   'settings.reminders.heading': 'Pripomienky',
   'settings.reminders.weekly': 'Týždenný súhrn (nedeľné večery)',
+  'settings.revokeDeviceWarning': 'Prístup tohto zariadenia bude čoskoro zrušený. Odhlásiť ho?',
   'settings.signOutDevice': 'Odhlásiť sa',
   'settings.streaks.freezesPerWeek': 'Zamrznutia za týždeň',
   'settings.streaks.gracePeriod': '6-hodinová lehota po polnoci',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktívny',
   'streakHeroCard.daysSuffix': 'dni',
   'streakHeroCard.title': 'Najdlhšia aktívna séria',
+  'streakLayout.closeMenu': 'Zatvoriť navigačné menu',
+  'streakLayout.openMenu': 'Otvoriť navigačné menu',
   'streakLayout.primaryNavLabel': 'Hlavná navigácia',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
   'activityFeed.empty': 'Դեռևս որևէ գործունեություն չկա՝ ուղարկեք ձեր առաջին հաշիվ-ապրանքագիրը։',
   'authShell.sample.paid': 'Վճարվել է 2 րոպե առաջ',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Ավելացնել նոր հաճախորդ',
   'clients.search': 'Որոնել անունով, ընկերությունով, էլ․ փոստով',
   'clients.title': 'Հաճախորդներ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Նոր հաճախորդ',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Մոռացել եմ գաղտնաբառը',
   'forgotPassword.successBody':
     'Մենք վերագործարկման հրահանգներ ենք ուղարկել {{email}} Հղումը կսպառվի 30 րոպեից։',
+  'invoiceDetail.action.confirmVoid': 'Հաստատե՞լ անվավերությունը։',
   'invoiceDetail.action.download': 'Ներբեռնել PDF-ը',
   'invoiceDetail.action.duplicate': 'Կրկնօրինակ',
   'invoiceDetail.action.edit': 'Խմբագրել',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Հաշիվ-ապրանքագիրը չեղյալ է հայտարարվել։',
   'invoiceDetail.issued': 'Թողարկվել է {{date}}',
   'invoiceDetail.loading': 'Հաշիվ-ապրանքագիրը բեռնվում է…',
+  'invoiceDetail.paidInFull': 'Լրիվ վճարված է',
   'invoiceDetail.summary': '{{client}} · ուղարկված {{date}}',
   'invoiceDetail.tax': 'Հարկ ( {{rate}} %)',
   'invoiceDetail.timeline': 'Ժամանակացույց',
+  'invoiceDetail.voided': 'Անվավեր է',
   'invoiceEditor.addItem': 'Ավելացնել տարր',
   'invoiceEditor.back': '← Վերադառնալ հաշիվ-ապրանքագրերին',
   'invoiceEditor.col.qty': 'Քանակ',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Ուղարկեք ձեր առաջին հաշիվ-ապրանքագիրը',
   'landing.hero.eyebrow': 'Հաշիվ-ապրանքագրեր փոքր բիզնեսի համար',
   'landing.hero.secondary': 'Տեսեք նմուշային հաշիվ-ապրանքագիրը',
+  'landing.hero.subtitle':
+    '{{appName}} ը զուգակցում է հղկված հաշիվ-ապրանքագրերը ներկառուցված վճարումների, կրկնվող հաշվառման և հարկային հաշվետվությունների հետ։ Հաշվապահական հաշվառում չի պահանջում։',
   'landing.hero.title': 'Ուղարկեք հաշիվ-ապրանքագրեր։ Ստացեք ավելի արագ վճարում։',
   'login.signupLink': 'Ստեղծեք մեկը',
   'login.submitting': 'Մուտքագրում…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'վճարումներ',
   'pricing.recurringLabel': 'կրկնվող գրաֆիկներ',
   'remitLayout.newInvoice': 'Նոր հաշիվ-ապրանքագիր',
+  'remitLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'remitLayout.searchPlaceholder': 'Որոնել հաշիվ-ապրանքագրեր, հաճախորդներ...',
   'remitLayout.tagline': 'Ստացեք վճարում, ավելի արագ',
   'reports.chart.aging': 'Հաշիվ-ապրանքագրի ժամկետի ավարտը',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Ժամանակահատվածի եկամուտ',
   'reports.chart.topClients': 'Առաջատար հաճախորդներ',
   'reports.chart.topClientsCaption': 'Ամբողջ կյանքի ընթացքում եկամուտ, լավագույն 5',
+  'reports.empty.aging': 'Չվճարված հաշիվ-ապրանքագրեր չկան։',
+  'reports.empty.methods': 'Վճարման տվյալներ դեռևս չկան։',
+  'reports.empty.revenue': 'Եկամտի վերաբերյալ տվյալներ դեռևս չկան։',
+  'reports.empty.topClients': 'Հաճախորդների եկամտի վերաբերյալ տվյալներ դեռևս չկան։',
   'reports.exporting': 'Արտահանվում է…',
   'reports.exportRequiresPaid':
     'Արտահանումները վճարովի գործառույթ են՝ թարմացրեք այն միացնելու համար։',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Ավելացնել հարկային դրույքաչափ',
   'settings.tax.added': 'Ավելացված հարկի դրույքաչափ։',
   'settings.tax.adding': 'Ավելացվում է…',
+  'settings.tax.addRate': 'Ավելացնել գին',
   'settings.tax.col.region': 'Տարածաշրջան',
   'settings.tax.delete': 'Ջնջել հարկային դրույքաչափը',
   'settings.tax.deleted': 'Հարկային դրույքաչափը հանվել է։',

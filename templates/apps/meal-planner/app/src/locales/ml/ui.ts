@@ -50,7 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'ഇനം ചേർക്കാനായില്ല.',
   'simmer.groceries.clearChecked': 'ചെക്ക് ചെയ്തവ നീക്കം ചെയ്യുക',
   'simmer.groceries.empty.title': 'ഇതുവരെ വാങ്ങാൻ ഒന്നുമില്ല',
-  'simmer.groceries.eyebrow': '{{പരിശോധിച്ചു}} യുടെ<x> {{ആകെ}}</x> ബാഗിൽ വച്ച സാധനങ്ങൾ',
+  'simmer.groceries.eyebrow': '{{total}} ഇനങ്ങളിൽ {{checked}} എണ്ണം ബാഗിൽ എടുത്തു',
   'simmer.groceries.fetchError': 'ലിസ്റ്റ് ലോഡ് ചെയ്യാനായില്ല.',
   'simmer.groceries.heading': 'പലചരക്ക് ലിസ്റ്റ്',
   'simmer.groceries.loading': 'ലിസ്റ്റ് ലോഡ് ചെയ്യുന്നു…',

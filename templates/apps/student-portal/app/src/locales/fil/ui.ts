@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'announcementsFeed.empty': 'Wala pang mga anunsyo.',
   'announcementsFeed.eyebrow': '{{count}} mga update',
   'announcementsFeed.title': 'Mga pinakabagong anunsyo',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Magpalit ng mga filter sa itaas para makita ang mga assignment sa ibang estado.',
   'assignments.eyebrow': 'Lahat ng kurso · Ngayong termino',
+  'assignments.loadError': 'Hindi ma-load ang mga takdang-aralin.',
   'assignments.loading': 'Naglo-load ng mga takdang-aralin…',
   'assignments.subtitle':
     'I-filter ayon sa status para makita kung ano ang dapat ipasa, naisumite, na-grade, o kulang.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Tala',
   'attendance.empty': 'Wala pang mga talaan ng pagdalo.',
   'attendance.eyebrow': 'Termino ng tagsibol · Huling 4 na linggo',
+  'attendance.loadError': 'Hindi ma-load ang mga talaan ng pagdalo.',
   'attendance.loading': 'Naglo-load ng pagdalo…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Ang mga takdang petsa ng pagtatapos ng takdang-aralin ay naka-plot sa isang grid para sa isang buwan — ang mga pagsusulit ay kitang-kita sa pula.',
   'calendar.title': '{{month}} mga kaganapan',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
+  'common.retry': 'Subukan muli',
   'common.yes': '✓',
   'courseDetail.backLink': 'Mga Grado',
   'courseDetail.currentGrade': 'Kasalukuyang grado',
@@ -75,11 +80,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Uso',
   'grades.empty': 'Wala pang nai-post na mga grado.',
   'grades.eyebrow': 'Aklat ng grado',
+  'grades.loadError': 'Hindi ma-load ang iyong mga grado.',
   'grades.loading': 'Naglo-load ng mga grado…',
   'grades.subtitle':
     'Mga aktwal na marka ng letra at porsyento. Ipinapakita ng mga arrow ng trend kung ikaw ay pataas, pantay, o nadudulas.',
   'grades.title': 'Ang iyong mga marka, kurso por kurso',
   'grades.trendStable': 'Kuwadra',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ginawa para sa mga estudyante, ginawa para sa mga pamilya.',
   'landing.ctaHeading':
     'Ang isang mas kalmadong araw ng pasukan ay nagsisimula sa loob ng ilang minuto',
   'landing.eyebrow': 'Para sa mga mag-aaral sa middle at high school',
@@ -115,12 +123,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Mga Takdang-Aralin',
   'nav.attendance': 'Pagdalo',
   'nav.calendar': 'Kalendaryo',
+  'nav.closeMenu': 'Isara ang menu ng nabigasyon',
   'nav.grades': 'Mga Grado',
+  'nav.openMenu': 'Buksan ang menu ng nabigasyon',
   'nav.statusEyebrow': 'GPA sa Termino',
   'nav.statusSubtext': 'Honor roll · Termino ng tagsibol',
+  'nav.unreadMessages': 'Mga hindi pa nababasang mensahe',
   'notifications.eyebrow': '{{count}} mga update',
   'notifications.subtitle':
     'Mga grado, paalala, mensahe, at anunsyo sa paaralan. Ayusin kung aling mga channel ang ginagamit ng bawat notification sa Mga Setting.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.attendanceLabel': 'pagdalo',
   'pricing.gradesLabel': 'mga grado',
   'pricing.heading': 'mga anunsyo',

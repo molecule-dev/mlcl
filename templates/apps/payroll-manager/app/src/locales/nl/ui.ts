@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'auditLog.empty':
     'Er zijn nog geen audit-gebeurtenissen die aan uw filters voldoen. Bewerk een werknemer of verwerk een loonrun en ze verschijnen hier.',
   'auditLog.eyebrow': 'Compliance',
+  'auditLog.loadError': 'Het auditlogboek kon niet worden geladen.',
   'auditLog.searchPlaceholder': 'Zoek op actor, actie of beschrijving',
   'auditLog.subheading':
     'Elke goedkeuring, bewerking en belastingaangifte — met actor, tijdstempel en gewijzigde velden.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Niet geconfigureerd',
   'billing.plansHeading': 'Abonnementen',
   'billing.subheading': 'Beheer uw abonnement en wissel van niveau via Stripe.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Opnieuw proberen',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Compliance-overzicht',
   'dashboard.compliance.title': 'Alle controles geslaagd',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Geen inhoudingen geregistreerd.',
   'employeeDetail.notFound': 'Werknemer niet gevonden.',
   'employeeDetail.payFrequency': 'Betaalfrequentie',
+  'employeeDetail.postTax': 'Na aftrek van belastingen',
+  'employeeDetail.preTax': 'Voor belasting',
   'employeeDetail.salary': 'Jaarsalaris',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Gestart op {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Betaalfrequentie',
   'employeeForm.salary': 'Jaarsalaris (USD)',
   'employeeForm.salaryInvalid': 'Salaris moet een niet-negatief getal zijn.',
+  'employeeForm.saveError': 'Medewerker kon niet worden gered.',
   'employeeForm.semimonthly': 'Halfmaandelijks',
   'employeeForm.single': 'Alleenstaand',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Werknemer',
   'employeesTable.col.salary': 'Salaris',
   'forgotPassword.subtitle': 'Voer uw zakelijke e-mail in en wij sturen u een reset-link.',
+  'landing.copyright': '© {{year}} {{app}} . Nauwkeurig, betrouwbaar, beheerst.',
   'landing.ctaBody':
     '30 dagen gratis. Geen creditcard. Wissel op elk moment zonder uw audittrail te verliezen.',
   'landing.ctaHeading': 'Voer uw volgende cyclus uit op Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Posten',
   'payRunDetail.noActivity': 'Nog geen auditposten voor deze loonrun.',
   'payRunDetail.noStubs': 'Nog geen loonstroken — keur goed en verwerk om ze te genereren.',
+  'payRunDetail.notFound': 'Deze salarisbetaling kon niet worden gevonden.',
   'payRunDetail.statDeductions': 'Inhoudingen',
   'payRunDetail.statHeadcount': 'Werknemers',
   'payRunDetail.statTaxes': 'Ingehouden belastingen',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Halfmaandelijks',
   'settings.signOutDevice': 'Uitloggen',
   'settings.subheading': 'Bedrijfsprofiel, betalingsschema en integraties.',
+  'settings.twoFactorCode': 'Verificatiecode',
   'settings.twoFactorDisable': 'Uitschakelen',
+  'settings.twoFactorInvalidCode': 'Ongeldige code',
+  'settings.twoFactorVerify': 'Controleren en inschakelen',
   'settings.weekly': 'Wekelijks',
   'taxCenter.bucket.federal': 'Federaal inkomen',
   'taxCenter.bucket.fica': 'Sociale zekerheid',

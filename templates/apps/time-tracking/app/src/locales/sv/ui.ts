@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'about.plansTitle': 'Planer som växer med dig',
   'brand.tagline': 'Varje sekund',
   'clientDetail.back': 'Tillbaka till kunder',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Varje relation på ett ställe — projekt, timmar, utestående fakturor.',
   'clients.title': 'Kunder',
   'common.and': 'och',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.activeProjects': 'Aktiva projekt',
   'dashboard.empty': 'Inga poster ännu. Starta timern för att spåra din första session.',
   'dashboard.greeting': 'God dag, {{name}}',
@@ -82,6 +84,7 @@ export const ui: UiTranslations = {
     'Inga fakturerbara timmar att fakturera för denna kund. Spåra lite tid först eller tilldela befintliga poster till ett av denna kunds projekt.',
   'invoices.save': 'Skapa faktura',
   'invoices.subtitle': 'Spårade timmar samlas automatiskt till fakturor.',
+  'landing.copyright': '© {{year}} {{app}} . Varje sekund, redovisad.',
   'landing.ctaBody': 'Gratis för upp till 3 projekt. Uppgradera när din kundlista växer.',
   'landing.eyebrow': 'Tidsspårning för fakturerbart arbete',
   'landing.featuresBody':
@@ -96,13 +99,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Litad på av självständiga',
   'landing.testimonial.quote':
     '”Jag flyttade från Toggl på 30 minuter. Budgetnedbrytningen ensam har betalat sig själv — jag har slutat underprissätta två veckor i rad.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Varje sekund redovisad.',
   'login.brand.subtitle':
     'Plocka upp timern där du slutade — varje minut redan mappad till ett projekt, en kund, en faktura.',
   'login.brand.tracking': 'Spårning',
   'login.subheading': 'Plocka upp timern där du slutade.',
+  'nav.closeMenu': 'Stäng navigeringsmenyn',
   'nav.insightsSection': 'Insikter',
   'nav.newEntry': 'Ny post',
+  'nav.openMenu': 'Öppna navigeringsmenyn',
+  'nav.primary': 'Huvudnavigering',
   'nav.workSection': 'Arbete',
   'notFound.body':
     'Det verkar som att länken du följde har slutat spåra. Gå tillbaka till din instrumentpanel — vi fortsätter räkna därifrån.',
@@ -201,6 +208,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Fakturerbart',
   'timer.descriptionPlaceholder': 'Vad arbetar du med?',
   'timer.idle': 'Inaktiv — börja spåra',
+  'timer.noProject': 'Inget projekt',
   'timer.runningWithProject': 'Inget projekt',
   'timer.start': 'Starta timer',
   'timer.stop': 'Stoppa timer',

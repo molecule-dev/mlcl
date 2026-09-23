@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'authBrandPanel.quote':
     '„Penguin je teraz systém záznamov pre každú podpísanú zmluvu, ktorú vlastníme.“',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'contractDetail.amount': 'Hodnota',
   'contractDetail.back': 'Všetky zmluvy',
   'contractDetail.downloadCta': 'Stiahnuť PDF',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'Platnosť vyprší',
   'contracts.col.owner': 'Majiteľ',
   'contracts.empty': 'Žiadne zmluvy sa nezhodujú.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'Zmluvy',
   'contracts.loadError': 'Nepodarilo sa načítať zmluvy.',
   'contracts.newCta': 'Nová zmluva',
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Ak existuje účet s adresou {{email}}, odkaz na obnovenie hesla je na ceste.',
   'forgotPassword.subtitle': 'Na váš pracovný e-mail vám pošleme odkaz na obnovenie.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Vytvorené pomocou Molecule.',
   'landing.ctaHeading': 'Pozrite sa na to, ako sa vaše portfólio uzatvára hneď v prvý deň.',
   'landing.ctaPrimary': 'Spustenie pracovného priestoru',
   'landing.eyebrow': 'Pre právne operácie a obstarávanie',
@@ -97,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Názov protistrany je povinný.',
   'newContract.errEmail': 'Vyžaduje sa e-mailová adresa podpisujúceho.',
   'newContract.expires': 'Dátum expirácie',
+  'newContract.failed': 'Nepodarilo sa vytvoriť zmluvu.',
   'newContract.heading': 'Nová zmluva',
   'newContract.nextCta': 'Ďalej',
   'newContract.review.counterparty': 'Protistrana',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Názov zmluvy',
   'newContract.titlePlaceholder': 'Hlavná zmluva o poskytovaní služieb',
   'newContract.variablesHeading': 'Premenné zmluvy',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.dataExport': 'Export údajov',
   'pricing.disabled': 'Nie',
   'pricing.enabled': 'Áno',
@@ -144,15 +151,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Účet sa nepodarilo odstrániť.',
   'settings.security.deleting': 'Odstraňuje sa…',
   'settings.security.newPassword': 'Nové heslo',
+  'settings.security.noDevices': 'Nie sú zaregistrované žiadne zariadenia.',
   'settings.security.twoFactor': 'Dvojfaktorové overenie',
   'settings.security.twoFactorDisable': 'Vypnúť',
   'settings.security.twoFactorEnable': 'Zapnúť',
+  'settings.security.twoFactorInvalidCode': 'Neplatný kód.',
   'settings.signatures.body':
     'Vaše meno sa zobrazí v podpisovom riadku každej zmluvy, ktorú podpíšete. Nastavte ho raz a odteraz sa bude automaticky vykresľovať.',
   'settings.signatures.heading': 'Podpisový blok',
   'settings.signatures.save': 'Uložiť podpis',
+  'sign.action': 'Podpíšte tento dokument',
+  'sign.eyebrow': 'Vyžaduje sa podpis',
+  'sign.for': 'Pre {{name}}',
+  'sign.loadError': 'Tento odkaz na prihlásenie je neplatný alebo vypršala jeho platnosť.',
   'sign.loading': 'Načítava sa…',
   'sign.signing': 'Podpisovanie…',
+  'sign.submitError':
+    'Nepodarilo sa zaznamenať váš podpis – platnosť odkazu pravdepodobne vypršala.',
   'signup.brandQuote':
     '\\u201cZa týždeň sme migrovali 8 rokov papierových dokumentov do systému Vellum. Samotná audítorská stopa odôvodňuje túto výmenu.\\u201d',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -186,6 +201,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Otvorená zmluva →',
   'vellumKpiCard.trend': 'Súčasný trend',
+  'vellumLayout.closeMenu': 'Zatvoriť navigačné menu',
+  'vellumLayout.openMenu': 'Otvoriť navigačné menu',
   'vellumLayout.primaryNavLabel': 'Hlavná navigácia',
   'vellumPortfolioHero.expiring': 'Platnosť vyprší o 30 dní',
   'vellumPortfolioHero.label': 'Hodnota portfólia',

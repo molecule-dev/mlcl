@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Жолугушууга жазылуу',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Көрсөтө турган бейтаптар жок.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'consult.backLink': 'Бардык жолугушуулар',
   'consult.captions': 'Коштомо жазуулар',
   'consult.connected': 'Туташкан · 720p · туруктуу',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Бейтаптар',
   'patientVitalsHero.scripts': 'Рецепт боюнча ачык',
   'patientVitalsHero.subline': '{{count}} бүгүн сиздин графигиңиз боюнча консультация берет',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'prescriptions.empty': 'Бир дагы рецепт дал келген жок.',
   'prescriptions.eyebrow': 'Электрондук рецепт боюнча дары-дармек',
   'prescriptions.heading': 'Рецепттер',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Купуялык жөнүндө эскертүү',
   'privacy.use.body':
     'Дарылоону камсыз кылуу, жолугушууларды эскертүү, жол көрсөтмөлөрдү жөнөтүү жана кызматтын ишенимдүүлүгүн жогорулатуу үчүн. Биз сиздин маалыматыңызды эч качан сатпайбыз жана клиникалык маалыматты жарнамачылар менен эч качан бөлүшпөйбүз.',
+  'providers.allSpecialties': 'Бардык адистиктер',
+  'providers.loadError': 'Провайдерлер жүктөлбөй калды.',
+  'providers.loading': 'Жүктөлүүдө…',
   'providers.noResults': 'Эч кандай камсыздоочу табылган жок.',
   'providers.searchPlaceholder': 'Аты-жөнү, адистиги боюнча издөө...',
   'providers.title': 'Камсыздоочуну табуу',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Күндүн башталышы',
   'settings.availability.heading': 'Бош орундар',
   'settings.devices.thisDevice': 'Бул түзмөк',
+  'settings.devices.unnamed': 'Аты жок түзмөк',
   'settings.eyebrow': 'Практика жана эсеп',
   'settings.loadError': 'Профилиңиз жүктөлбөй койду.',
   'settings.notifications.emailMessages':
@@ -180,6 +186,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Өчүрүү',
   'settings.security.twoFactor.enable': 'Иштетүү',
   'settings.security.twoFactor.heading': 'Эки факторлуу аутентификация',
+  'settings.security.twoFactor.invalidCode': 'Ал код дал келген жок. Кайра аракет кылыңыз.',
+  'settings.security.twoFactor.setupFailed':
+    'Эки факторлуу орнотууну баштоо мүмкүн болгон жок. Кайра аракет кылыңыз.',
+  'settings.security.twoFactor.statusOn': 'Эки факторлуу режим күйүк',
   'settings.signOutDevice': 'Чыгуу',
   'settings.subheading': 'Провайдердин профили, практика эрежелери жана клиникалык эскертүүлөр.',
   'signup.emailLabel': 'EMAIL',
@@ -190,6 +200,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Эсеп түзүү',
   'signupFooter.hipaa': 'HIPAAга шайкеш келет',
   'solaceLayout.primaryNavLabel': 'Негизги навигация',
+  'solaceLayout.toggleMenu': 'Менюну которуу/жокко чыгаруу',
   'terms.eligibility.body':
     'Сиз кеминде он сегиз жашта болушуңуз керек, же сиз кам көрүп жаткан жашы жете элек баланын ата-энеси же мыйзамдуу камкорчусу болушуңуз керек жана биздин клиникалар лицензияланган АКШнын штатында физикалык жактан жайгашкан болушуңуз керек.',
   'terms.payment.body':

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'درباره {{app}}',
   'about.plansTitle': 'طرح‌هایی که با شما رشد می‌کنند',
   'brand.tagline': 'هر ثانیه',
   'clientDetail.back': 'بازگشت به مشتریان',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'هر رابطه‌ای در یک مکان - پروژه‌ها، ساعات کاری، فاکتورهای معوقه.',
   'clients.title': 'مشتریان',
   'common.and': 'و',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.activeProjects': 'پروژه‌های فعال',
   'dashboard.empty': 'هنوز هیچ ورودی وجود ندارد. تایمر را برای ثبت اولین جلسه خود شروع کنید.',
   'dashboard.greeting': 'روز بخیر، {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'برای این مشتری ساعات کاری قابل پرداختی جهت صدور فاکتور وجود ندارد. ابتدا بخشی از زمان را پیگیری کنید یا ورودی‌های موجود را به یکی از پروژه‌های این مشتری اختصاص دهید.',
   'invoices.save': 'ایجاد فاکتور',
   'invoices.subtitle': 'ساعات پیگیری شده به طور خودکار در فاکتورها ثبت می‌شوند.',
+  'landing.copyright': '© {{year}} {{app}} . هر ثانیه، محاسبه شده.',
   'landing.ctaBody': 'تا ۳ پروژه رایگان. وقتی لیست مشتریان شما تکمیل شد، ارتقا دهید.',
   'landing.eyebrow': 'ردیابی زمان برای کارهای قابل پرداخت',
   'landing.featuresBody':
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'مورد اعتماد مستقل‌ها',
   'landing.testimonial.quote':
     'من در عرض ۳۰ دقیقه از Toggl نقل مکان کردم. فقط کاهش بودجه هزینه خودش را جبران کرد. من دو هفته است که دیگر قیمت‌ها را کمتر از قیمت واقعی اعلام نمی‌کنم.',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} کرونو. هر ثانیه، به حساب.',
   'login.brand.subtitle':
     'تایمر را از جایی که رها کرده‌اید بردارید - هر دقیقه از قبل به یک پروژه، یک مشتری، یک فاکتور اختصاص داده شده است.',
   'login.brand.tracking': 'ردیابی',
   'login.subheading': 'تایمر را از جایی که رها کرده‌اید، بردارید.',
+  'nav.closeMenu': 'بستن منوی ناوبری',
   'nav.insightsSection': 'بینش‌ها',
   'nav.newEntry': 'ورودی جدید',
+  'nav.openMenu': 'منوی ناوبری را باز کنید',
+  'nav.primary': 'ناوبری اولیه',
   'nav.workSection': 'کار',
   'notFound.body':
     'به نظر می‌رسد لینکی که دنبال می‌کردید، ردیابی را متوقف کرده است. به داشبورد خود برگردید - از آنجا به شمارش ادامه خواهیم داد.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'قابل پرداخت',
   'timer.descriptionPlaceholder': 'روی چه چیزی کار می‌کنی؟',
   'timer.idle': 'بیکار - شروع ردیابی',
+  'timer.noProject': 'بدون پروژه',
   'timer.runningWithProject': 'بدون پروژه',
   'timer.start': 'تایمر شروع',
   'timer.stop': 'تایمر را متوقف کنید',

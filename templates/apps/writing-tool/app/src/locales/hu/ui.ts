@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.title': 'Egy írószoba, amit a zsebedben tarthatsz',
   'billing.cancelConfirm': 'Lemondja az aktív előfizetését?',
   'billing.cancelFailed': 'Nem sikerült megszakítani.',
   'billing.checkingOut': 'Pénztár megnyitása…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'A számlázás nem tölthető be.',
   'billing.loading': 'Számlázás betöltése…',
   'billing.upgradeCta': 'Frissítés erre: {{name}}',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'editor.autosaveOn': 'Automatikus mentés bekapcsolva',
   'editor.backToLibrary': 'Vissza a könyvtárba',
   'editor.charCount': '{{count}} karakter',
   'editor.confirmTrash': 'Áthelyezi ezt a dokumentumot a kukába?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Feloldva',
   'editor.unpublishCta': 'Áthelyezés vázlatba',
   'editor.unpublished': 'Visszaállítva vázlattá',
+  'focus.autosaveOn': 'Automatikus mentés bekapcsolva',
   'focus.backToLibrary': 'Vissza a könyvtárba',
   'focus.bodyPlaceholder': 'Egyszerre egy sor. Senki más nincs itt.',
   'focus.exit': 'Kilépés a fókuszmódból',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Hozz létre egyet',
   'login.subline':
     'A kézirataid, a napi oldalak és az utolsó kurzorpozíció pontosan ott vannak, ahol hagytad őket.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'pricing.exports': 'export',
   'pricing.folders': 'mappák',
   'pricing.heading': 'dokumentumok',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Add meg az e-mailben küldött kódot, és válassz valami emlékezeteset. A mentés után bejelentkeztetünk.',
   'reset.tokenHint': 'Beillesztve a postaládádból.',
+  'settings.appearance.heading': 'Világos vagy sötét',
   'settings.editor.${row.id}.description': 'Nyelv',
   'settings.editor.description':
     'Írógépes görgetés, bekezdés elhalványulása és tétlen fókusz – az alapértelmezett beállítások hosszú munkamenetekhez vannak hangolva.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Harmadik fejezet – Egy csendes óra napkelte előtt',
   'versalDocumentCard.pinned': 'Rögzítve',
   'versalLayout.nav.stats': 'Statisztikák',
+  'versalLayout.primaryNavLabel': 'Elsődleges navigáció',
   'versalManuscriptHero.cta': 'Írás folytatása',
   'versalManuscriptHero.goalLabel': 'A mai szócél',
   'versalManuscriptHero.inProgress': 'Jó úton halad',

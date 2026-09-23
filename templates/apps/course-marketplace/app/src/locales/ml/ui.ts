@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'കോഴ്‌സുകൾ ലോഡ് ചെയ്യുന്നു...',
   'browse.next': 'അടുത്ത പേജ്',
   'browse.results': 'കാണിക്കുന്നു {{count}} കോഴ്സുകൾ',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'ഇങ്ങനെ അടുക്കുക',
   'browse.subtitle':
     'വിഷയം, ലെവൽ, വില എന്നിവ അനുസരിച്ച് എഡിറ്റോറിയൽ ആർക്കൈവ് ഫിൽട്ടർ ചെയ്യുക. ഓരോ കോഴ്‌സും ഞങ്ങളുടെ എഡിറ്റർമാർ നേരിട്ട് ക്യൂറേറ്റ് ചെയ്യുന്നു.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'നിങ്ങളുടെ സർട്ടിഫിക്കറ്റ് ഒപ്പിട്ടു തയ്യാറാണ്. ഇത് ലോകവുമായി പങ്കിടുക അല്ലെങ്കിൽ അത് സമ്പാദിച്ചതിന്റെ ഓർമ്മപ്പെടുത്തലായി സൂക്ഷിക്കുക.',
   'certificate.copyLink': 'പങ്കിടൽ ലിങ്ക് പകർത്തുക',
+  'certificate.copyPrompt': 'ഈ ലിങ്ക് പകർത്തുക:',
   'certificate.download': 'PDF ഡൗൺലോഡ് ചെയ്യുക',
   'certificate.eyebrow': 'നേട്ടം അൺലോക്ക് ചെയ്‌തു',
   'certificate.linkCopied': 'ലിങ്ക് പകർത്തി!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'നിങ്ങൾ എൻറോൾ ചെയ്‌തു!',
   'checkout.verifying': 'നിങ്ങളുടെ എൻറോൾമെന്റ് പരിശോധിച്ചുറപ്പിക്കുന്നു...',
   'checkout.viewLibrary': 'എന്റെ പഠനം കാണുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'courseDetail.about': 'ഈ കോഴ്‌സിനെക്കുറിച്ച്',
   'courseDetail.checkoutPending': 'ചെക്ക്ഔട്ട് ആരംഭിക്കുന്നു…',
   'courseDetail.continueLearning': 'പഠനം തുടരുക',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 ദിവസത്തെ പണം തിരികെ ലഭിക്കുമെന്ന ഗ്യാരണ്ടി',
   'courseDetail.includes.video': '{{hours}} ആവശ്യാനുസരണം വീഡിയോ കാണുന്ന മണിക്കൂറുകൾ',
   'courseDetail.instructor': 'ഇൻസ്ട്രക്ടർ',
+  'courseDetail.languageEnglish': 'ഇംഗ്ലീഷ്',
   'courseDetail.lectures': 'പ്രഭാഷണങ്ങൾ',
   'courseDetail.level': 'ലെവൽ',
   'courseDetail.loading': 'കോഴ്‌സ് ലോഡ് ചെയ്യുന്നു...',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'ഇതുവരെ അവലോകനങ്ങളൊന്നുമില്ല.',
   'instructorProfile.students': 'വിദ്യാർത്ഥികൾ',
   'landing.categories.empty': 'കാറ്റലോഗ് പൂരിപ്പിക്കപ്പെട്ടുകഴിഞ്ഞാൽ വിഭാഗങ്ങൾ ദൃശ്യമാകും.',
+  'landing.categories.heading': 'ആർക്കൈവ് പര്യവേക്ഷണം ചെയ്യുക',
   'landing.hero.eyebrow': 'ലെക്ചറ · എഡിറ്റോറിയൽ ആർക്കൈവ് ഓഫ് മാസ്റ്ററി',
   'landing.hero.proof': 'ഗൂഗിൾ, മെറ്റാ, അഡോബ് എന്നിവയിലെ പഠിതാക്കൾ വിശ്വസിക്കുന്നു.',
   'landing.hero.subtitle':
@@ -158,6 +164,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'ഇന്ന് തന്നെ പഠിച്ചു തുടങ്ങൂ',
   'login.subheading': 'നിങ്ങളുടെ സ്കോളർലി ആർക്കൈവ് ആക്‌സസ് ചെയ്യുക.',
   'myLearning.empty.title': 'ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന കോഴ്‌സുകളൊന്നും ഇതുവരെയില്ല.',
+  'myLearning.error.title': 'നിങ്ങളുടെ ലൈബ്രറി ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'myLearning.filter.notStarted': 'ആരംഭിച്ചിട്ടില്ല',
   'myLearning.hero.subtitle': '{{count}} നിങ്ങളുടെ ലൈബ്രറിയിലെ കോഴ്‌സുകൾ. ഈ ആവേശം തുടരുക.',
   'myLearning.hero.title': 'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങുക.',
@@ -170,6 +177,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'അവലോകനം ചെയ്യാൻ പുതിയ പ്രവർത്തനങ്ങളൊന്നുമില്ല. പുതിയ ഇവന്റുകൾ ഇവിടെ ദൃശ്യമാകും.',
   'notifications.empty.title': 'നിങ്ങൾ എല്ലാം വായിച്ചു കഴിഞ്ഞു.',
+  'notifications.error.title': 'ആക്റ്റിവിറ്റി ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'privacy.title': 'സ്വകാര്യതാ നയം',
   'reset.confirmPlaceholder': 'നിങ്ങളുടെ പുതിയ പാസ്‌വേഡ് വീണ്ടും നൽകുക',
   'reset.errorGeneric': 'പാസ്‌വേഡ് പുനഃസജ്ജമാക്കാൻ കഴിഞ്ഞില്ല. പുതിയ ലിങ്ക് അഭ്യർത്ഥിക്കുക.',
@@ -193,5 +201,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} ഡി മുമ്പ്',
   'timeAgo.hours': '{{count}} മണിക്കൂർ മുമ്പ്',
   'timeAgo.minutes': '{{count}} മിനിറ്റ് മുമ്പ്',
+  'timeAgo.months': '{{count}} മാസം മുമ്പ്',
   'timeAgo.today': 'ഇന്ന്',
+  'timeAgo.weeks': '{{count}} ആഴ്ച മുമ്പ്',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'analytics.channels.empty': 'இன்னும் சேனல் தரவு இல்லை.',
   'analytics.channels.title': 'சேனல் மூலம்',
   'analytics.empty':
@@ -16,12 +17,15 @@ export const ui: UiTranslations = {
   'analytics.title': 'ராப்போர்ட் எப்படி செயல்படுகிறது',
   'analytics.trend.range': 'கடந்த 14 நாட்கள்',
   'analytics.trend.title': 'ஒரு நாளைக்கு உரையாடல்கள்',
+  'chatBubble.avatarAlt': '{{speaker}} அவதார்',
   'common.appName': 'உறவு',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'confidenceMeter.label': 'நம்பிக்கை',
   'conversationDetail.agentName': 'முகவர்',
   'conversationDetail.aiReplyButton': 'போட் பதில்',
   'conversationDetail.aiReplyError': 'செயற்கை நுண்ணறிவு பதிலை உருவாக்க முடியவில்லை',
   'conversationDetail.aiReplyLoading': 'வரைவு செய்தல்…',
+  'conversationDetail.aiReplySourceFallback': 'மாற்று வழி (AI சாவி இல்லை)',
   'conversationDetail.backAria': 'உரையாடல்களுக்குத் திரும்பு',
   'conversationDetail.composerPlaceholder': 'வாடிக்கையாளருக்குப் பதிலளிக்கவும்…',
   'conversationDetail.context.channel': 'சேனல்',
@@ -158,8 +162,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'உங்கள் கணக்கிற்கு ஒரு புதிய கடவுச்சொல்லை அமைக்கவும்',
   'resetPassword.toggleConfirm': 'உறுதிப்படுத்தல் கடவுச்சொல் தெரிவுநிலையை மாற்று',
   'resetPassword.togglePassword': 'கடவுச்சொல் தெரிவுநிலையை மாற்று',
+  'settings.account.emailError': 'மின்னஞ்சலைப் புதுப்பிக்க முடியவில்லை',
   'settings.account.emailLabel': 'மின்னஞ்சல் முகவரி',
+  'settings.account.emailSaved': 'மின்னஞ்சல் புதுப்பிக்கப்பட்டது',
+  'settings.account.nameError': 'பெயரைப் புதுப்பிக்க முடியவில்லை',
   'settings.account.nameLabel': 'காட்சிப் பெயர்',
+  'settings.account.nameSaved': 'பெயர் புதுப்பிக்கப்பட்டது',
   'settings.account.title': 'கணக்கு',
   'settings.api.createCta': 'டோக்கனை உருவாக்கு',
   'settings.api.description':
@@ -172,10 +180,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'மனநிலை குறையும்போது தானாகவே தீவிரமடையும்',
   'settings.bot.greetingLabel': 'முதல் செய்தி வாழ்த்து',
   'settings.bot.title': 'போட் உள்ளமைவு',
+  'settings.bot.toneFormal': 'முறையான',
   'settings.bot.toneLabel': 'குரல் மற்றும் தொனி',
   'settings.danger.deleteAccount': 'கணக்கை நீக்கு',
+  'settings.danger.deleteError': 'கணக்கை நீக்க முடியவில்லை',
+  'settings.danger.deleteWarning':
+    'இது உங்கள் கணக்கையும் அதனுடன் தொடர்புடைய அனைத்து தரவுகளையும் நிரந்தரமாக நீக்கிவிடும். இதை மீண்டும் சரிசெய்ய முடியாது.',
   'settings.danger.deleting': 'நீக்குகிறது…',
+  'settings.danger.passwordLabel': 'உங்கள் கடவுச்சொல்லை உறுதிப்படுத்தவும்',
   'settings.danger.title': 'அபாய மண்டலம்',
+  'settings.devices.empty': 'சாதனங்கள் எதுவும் பதிவு செய்யப்படவில்லை.',
+  'settings.devices.revokeWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
+  'settings.devices.signingOut': 'வெளியேறுகிறது…',
   'settings.devices.signOut': 'வெளியேறு',
   'settings.devices.thisDevice': 'இந்த சாதனம்',
   'settings.devices.title': 'சாதனங்கள்',
@@ -188,9 +205,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'கடவுச்சொல்லை மாற்ற முடியவில்லை',
   'settings.security.currentPassword': 'தற்போதைய கடவுச்சொல்',
   'settings.security.newPassword': 'புதிய கடவுச்சொல்',
+  'settings.security.oauthManaged':
+    'உங்கள் கடவுச்சொல், உங்கள் உள்நுழைவுச் சேவை வழங்குநரால் நிர்வகிக்கப்படுகிறது.',
   'settings.security.title': 'பாதுகாப்பு',
   'settings.security.twoFactorDisable': 'முடக்கு',
   'settings.security.twoFactorEnable': 'இயக்கு',
+  'settings.security.twoFactorInvalid': 'தவறான குறியீடு',
   'settings.subtitle':
     'ராப்போர்ட்டின் குரலையும், அறிவு மூலங்களையும், அது தொடர்பு கொள்ளும் கருவிகளையும் சீரமைக்கவும்.',
   'settings.tokenCreateError': 'டோக்கனை உருவாக்க முடியவில்லை',

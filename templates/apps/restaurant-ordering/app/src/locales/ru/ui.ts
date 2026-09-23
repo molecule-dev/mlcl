@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'О {{app}}',
   'analytics.avgCheckLabel': 'Проверка среднего значения',
   'analytics.busiestHour': 'Самый загруженный час',
   'analytics.coversToday': 'Обложки сегодня',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Чаевые (в среднем)',
   'analytics.topItems': 'Лучшие товары сегодня',
   'authShell.eyebrow': 'Добро пожаловать обратно на службу!',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Удобная и быстрая точка продаж для персонала сферы гостеприимства. Войдите в свою кухню и продолжите с того места, где остановились.',
   'authShell.tip': 'Полезный совет: сочетания клавиш работают везде — нажмите / для поиска.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'или {{price}}',
   'billing.priceUnavailable': 'Для этого тарифного плана не предусмотрена фиксированная цена.',
   'billing.updated': 'План обновлен.',
+  'common.goToDashboard': 'Перейти к панели',
   'customerDetail.book': 'Добавить бронирование',
   'customerDetail.col.table': 'Стол',
   'customerDetail.confirmDelete': 'Удалить эту запись о госте?',
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Доступность',
   'menuItemDetail.available': 'Доступно сегодня вечером',
   'menuItemDetail.backToMenu': 'Вернуться в меню',
+  'menuItemDetail.confirmDelete': 'Удалить этот пункт меню?',
   'menuItemDetail.delete': 'Удалить элемент',
   'menuItemDetail.deleteError': 'Удаление не удалось. Попробуйте еще раз.',
   'menuItemDetail.dietary': 'Диетические метки',
@@ -141,9 +145,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} • Редактирование фотографий, модификаторов, информации о диете и ценах.',
   'menuItemDetail.untitled': 'Без названия',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'notFound.heading': 'Этот стол стоит не на полу.',
   'notFound.subheading':
     'Страница, которую вы искали, находится в другом месте — или её никогда не существовало.',
+  'notFound.toLanding': '{{app}} home',
   'notifications.markError': 'Не удалось отметить все прочитанные записи.',
   'orderDashboard.activeDelta': 'Прямой эфир',
   'orderDashboard.activeLabel': 'Активные заказы',
@@ -208,6 +215,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Показать пароль',
   'resetPassword.subtitle': 'Введите новый пароль, чтобы восстановить доступ к кухне.',
   'resetPassword.tokenLabel': 'Сбросить токен',
+  'restaurantOrderingLayout.primaryNavLabel': 'Основная навигация',
   'revenueHeroCard.activeOrders': '{{count}} активный',
   'revenueHeroCard.change': '{{sign}} {{amount}} против вчерашнего дня',
   'revenueHeroCard.title': 'Сегодняшняя выручка',
@@ -226,6 +234,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Название ресторана',
   'tableDetail.activeOrders': 'Активные заказы',
   'tableDetail.backToFloor': 'План этажа',
+  'tableDetail.confirmDelete': 'Удалить эту таблицу?',
   'tableDetail.delete': 'Удалить',
   'tableDetail.deleteError': 'Не удалось удалить таблицу.',
   'tableDetail.heading': 'Стол {{label}}',

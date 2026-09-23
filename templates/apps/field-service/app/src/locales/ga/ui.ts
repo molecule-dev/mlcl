@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Custaiméirí',
   'customers.loadError': 'Theip ar lódáil custaiméirí.',
   'customers.loading': 'Ag lódáil…',
+  'customers.new.address': 'Seoladh seirbhíse',
   'customers.new.email': 'Ríomhphost',
   'customers.new.error': 'Theip ar chustaiméir a chur leis.',
   'customers.new.heading': 'Custaiméir nua',

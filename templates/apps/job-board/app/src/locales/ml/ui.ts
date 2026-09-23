@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
   'applications.empty': 'ഇതുവരെ അപേക്ഷകളൊന്നുമില്ല \\u2014 ശരിയായ റോളിന് ഒരു അപേക്ഷ കൂടി മതി.',
   'applications.eyebrow': 'നിങ്ങളുടെ പൈപ്പ്‌ലൈൻ',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'നിങ്ങൾ അപേക്ഷിച്ച എല്ലാ റോളുകളും ചലനത്തിലാണ്. ശ്രദ്ധ കേന്ദ്രീകരിക്കാൻ ഘട്ടം അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക.',
   'applications.untitledRole': 'റോൾ # {{id}}',
+  'auth.legalConsent': 'തുടരുന്നതിലൂടെ, ഞങ്ങളുടെ നിബന്ധനകൾ അംഗീകരിക്കുന്നു',
   'common.and': 'ഒപ്പം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'companies.empty':
     'നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന കമ്പനികളൊന്നുമില്ല \\ u2014 മറ്റൊരു പദം പരീക്ഷിക്കുക.',
   'companies.eyebrow': 'ഫീച്ചർ ചെയ്ത തൊഴിലുടമകൾ',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ഈ തസ്തികയിലേക്ക് ഇതുവരെ അപേക്ഷകളൊന്നുമില്ല.',
   'jobApplicants.eyebrow': 'തൊഴിലുടമയുടെ കാഴ്ച',
   'jobApplicants.loading': 'ലോഡ് ചെയ്യുന്നു...',
+  'jobApplicants.statusUpdateFailed': 'ആ ഘട്ടം അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല — വീണ്ടും ശ്രമിക്കുക.',
+  'jobApplicants.subheading':
+    'റെസ്യൂമെകൾ അവലോകനം ചെയ്യുക, സ്ഥാനാർത്ഥികളെ മുന്നോട്ട് കൊണ്ടുപോകുക, ഓഫറുകൾ അയയ്ക്കുക \\u2014 {{count}} പുരോഗമിക്കുന്നു.',
   'jobDetail.applicantCount': '{{count}} ഇതുവരെയുള്ള അപേക്ഷകർ',
   'jobDetail.applied': 'അപേക്ഷ അയച്ചു',
   'jobDetail.apply': 'ഇപ്പോൾ അപേക്ഷിക്കുക',
@@ -85,6 +91,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'തുറന്നിരിക്കുന്ന റോളുകൾ ബ്രൗസ് ചെയ്യുക \\u2192',
   'landing.pricingEyebrow': 'വിലനിർണ്ണയം',
   'landing.pricingHeading': 'ഓരോ ടീമിനും അനുയോജ്യമായ ലളിതമായ പ്ലാനുകൾ.',
+  'login.eyebrow': '{{app}}-ലേക്ക് തിരികെ സ്വാഗതം',
   'login.heading': 'നിങ്ങളുടെ അക്കൗണ്ടിലേക്ക് സൈൻ ഇൻ ചെയ്യുക',
   'login.noAccount': 'നോഷിൽ പുതിയ ആളാണോ?',
   'login.passwordPlaceholder':
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'സൈൻ ഇൻ ചെയ്യുന്നു\\u2026',
   'login.subheading':
     'നിങ്ങളുടെ തിരയൽ ആരംഭിക്കുക, അപേക്ഷകൾ മുന്നോട്ട് കൊണ്ടുപോകുക, വേഗത്തിൽ മറുപടി നൽകുക.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . ടീമുകളെ നിയമിക്കുന്നതിനായി നിർമ്മിച്ചത്.',
   'loginBrandPanel.headline': 'കഴിവുകൾ ഒത്തുചേരുന്നിടത്ത്',
   'loginBrandPanel.headlineLine2': 'ആക്കം.',
   'loginBrandPanel.listing.recruiter': 'ടാലന്റ് പാർട്ണർ',
@@ -109,6 +117,7 @@ export const ui: UiTranslations = {
     'അപേക്ഷാ അപ്‌ഡേറ്റുകൾ, അഭിമുഖ ക്ഷണങ്ങൾ, പുതിയ പൊരുത്തങ്ങൾ \\u2014 ഏറ്റവും പുതിയത് ആദ്യം.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ഈ ആഴ്ച',
   'opportunitiesHero.eyebrow': 'ഇന്ന് തുറന്നിരിക്കുന്നു',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'postJob.addNewCompany': '+ പുതിയൊരു കമ്പനി ചേർക്കുക',
   'postJob.companyCreateFailed': 'കമ്പനി സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല — വീണ്ടും ശ്രമിക്കുക.',
   'postJob.companyNameLabel': 'നിങ്ങളുടെ കമ്പനിയുടെ പേര്',
@@ -169,10 +178,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'അക്കൗണ്ട് സൃഷ്ടിക്കുന്നു\\u2026',
   'signup.ctaEmployer': 'തൊഴിലുടമ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'signup.firstNamePlaceholder': 'മായ',
+  'signup.lastNamePlaceholder': 'ചെൻ',
   'signup.passwordMismatch': 'പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല.',
   'signup.subheading':
     'അന്വേഷകർക്ക് എന്നേക്കും സൗജന്യം. തൊഴിലുടമകൾ 30 ദിവസത്തെ ട്രയൽ ആരംഭിക്കുന്നു.',
   'timeAgo.days': '{{count}} ഡി മുമ്പ്',
   'timeAgo.hours': '{{count}} മണിക്കൂർ മുമ്പ്',
   'timeAgo.justNow': 'ഇപ്പോൾ തന്നെ',
+  'timeAgo.weeks': '{{count}} ആഴ്ച മുമ്പ്',
 }

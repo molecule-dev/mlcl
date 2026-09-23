@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.eyebrow': 'Про {{app}}',
+  'about.intro':
+    '{{app}} – це додаток для медитації для реального життя: щоденні керовані медитації, дихальні вправи та історії для сну від викладачів, які відчуваються як друг, а не тренер. Ніякого смуги провини, ніякого галасливого харчування: лише тихе місце, щоб повернутися до свого дихання.',
+  'about.missionBody':
+    'Ми вважаємо, що спокій має бути доступним кожному, у будь-який момент доби. {{app}} існує для того, щоб спокійна, послідовна практика не вимагала зусиль — щоб десять хвилин чесності могли змінити те, як ви зустрінете наступні десять годин.',
+  'about.missionTitle': 'Наша місія',
+  'about.pageTitle': 'Спокійніші 10 хвилин на день',
+  'breathingDial.seconds': 'секунди',
+  'common.goToDashboard': 'До панелі',
+  'common.logout': 'Вийти',
   'common.min': 'хв',
   'common.relative.justNow': 'щойно',
   'common.relative.now': 'зараз',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
+  'nav.secondaryNavigation': 'Навігація по обліковому запису',
   'sessionCard.with': 'з {{name}}',
   'stillpoint.billing.choose': 'Виберіть {{plan}}',
   'stillpoint.billing.currentPlan': 'Наразі увімкнено {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Не вдалося завантажити плани.',
   'stillpoint.billing.opening': 'Відкриття каси…',
   'stillpoint.billing.perMonthShort': '/ міс.',
+  'stillpoint.billing.perYearShort': '/рік',
   'stillpoint.billing.unknownResult': 'Неочікувана відповідь щодо виставлення рахунків.',
   'stillpoint.billing.yearly': 'Щорічно · заощадьте 17%',
   'stillpoint.courseDetail.back': 'Курси',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Поки що немає курсів.',
   'stillpoint.courses.eyebrow': '{{count}} багатоденні подорожі',
   'stillpoint.courses.heading': 'Курси',
+  'stillpoint.forgot.checkEmail': 'Перевірте свою поштову скриньку — посилання діє 30 хвилин.',
   'stillpoint.forgot.success': 'Ми надіслали посилання для скидання налаштувань {{email}} .',
   'stillpoint.home.empty': 'Поки що немає сеансів — заходьте пізніше.',
   'stillpoint.home.friend': 'друг',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Створіть безкоштовний обліковий запис',
   'stillpoint.landing.cta.title': 'Почніть свій спокій сьогодні',
   'stillpoint.landing.features.heading': 'Практика, яка зростає разом з вами',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Щоденні керовані медитації, дихальні вправи та історії для сну — від викладачів, які відчуваються як друг, а не тренер.',
   'stillpoint.landing.hero.eyebrow': 'Спокійніші 10 хвилин на день',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Перегляд за настроєм',
   'stillpoint.login.rememberMe': 'Залишатися в системі',
   'stillpoint.login.subheading': 'Увійдіть, щоб продовжити свою практику.',
+  'stillpoint.nav.tagline': 'Знайдіть свій центр спокою',
+  'stillpoint.notFound.body':
+    'Ця сторінка десь глибоко дихає. Давайте знайдемо для вас тихіше місце в {{app}} .',
   'stillpoint.notFound.title': 'Загублений у тиші',
   'stillpoint.notFound.toHome': 'Повернутися до сьогоднішнього дня',
   'stillpoint.notFound.toLibrary': 'Переглянути бібліотеку',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Перейти на 15 секунд назад',
   'stillpoint.player.skipForward': 'Перейти на 30 секунд вперед',
   'stillpoint.player.with': 'з {{name}}',
+  'stillpoint.profile.defaultHandle': 'покажчик нерухомості',
   'stillpoint.profile.eyebrow': 'Ваша практика, коротко.',
   'stillpoint.profile.locked': 'Заблоковано',
   'stillpoint.profile.member': 'Член Stillpoint',

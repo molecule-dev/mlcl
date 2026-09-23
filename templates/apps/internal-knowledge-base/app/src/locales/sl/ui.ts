@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'article.notFound': 'Članek ni bil najden',
   'articleEditor.bodyPlaceholder': 'Vtipkajte / za bloke ali pa preprosto začnite pisati.',
+  'articleEditor.loadFailed': 'Članka ni bilo mogoče naložiti',
   'articleEditor.publishing': 'Objavljanje\\u2026',
   'articleEditor.saveFailed': 'Shranjevanje ni uspelo',
   'articleEditor.saving': 'Shranjevanje\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Zaznamek',
   'articleView.bookmarkOn': 'Dodano v zaznamek',
   'articleView.edit': 'Uredi članek',
+  'articleView.loading': 'Odpiranje tega članka …',
   'articleView.readTime': '{{minutes}} min branja',
   'articleView.spaces': 'Prostori',
   'articleView.tocHeading': 'Na tej strani',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Nedavne spremembe, branja in osnutki, ki jih vaša ekipa še vedno zbira.',
   'cairnTrailHero.updated': 'Posodobljeni članki',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'drafts.eyebrow': 'Tvoje nedokončano delo',
   'drafts.heading': 'Osnutki',
+  'drafts.loadFailed': 'Osnutkov ni bilo mogoče naložiti.',
   'drafts.subtitle':
     'Članki, ki ste jih začeli pisati, a še niste objavili. Izberite enega in nadaljujte.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Še ni prostih mest. Odprite enega, da začnete zbirati članke.',
   'home.spacesHeading': 'Vaši prostori',
   'home.subtitle': 'Nedavni članki, vaši zaznamki in kaj je ekipa napisala.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Zgrajeno z Molecule.',
   'landing.ctaBody':
     'Brezplačno za samostojne avtorje. Paketi za ekipe so namenjeni porazdeljenim ekipam, ki pošiljajo runbooke, odločitve in uvajanje.',
   'landing.ctaHeading': 'Danes položite prvi kamen.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Ustvarite delovni prostor',
   'login.submitting': 'Prijava\\u2026',
   'login.subtitle': 'Nadaljujte po poti, kjer ste jo pustili.',
+  'mobileNav.closeMenu': 'Zapri navigacijski meni',
+  'mobileNav.openMenu': 'Odpri navigacijski meni',
+  'newSpace.colorAria': 'Izberite barvo {{color}}',
   'newSpace.colorLabel': 'Poudarjena barva',
+  'newSpace.createFailed': 'Prostora ni bilo mogoče ustvariti',
   'newSpace.descriptionPlaceholder': 'Runbooks, dežurni playbooks, post mortems\\u2026',
   'newSpace.eyebrow': 'Odprite prostor znanja',
   'newSpace.heading': 'Nov prostor',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Nalaganje\\u2026',
   'notifications.subtitle':
     '{{count}} neprebrane \\u2014 omembe, komentarji, spremembe strani in zahteve za pregled.',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.articles': 'članki',
   'pricing.spaces': 'prostori',
   'profile.eyebrow': 'Avtorski profil',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Vnesite novo geslo',
   'resetPassword.subtitle': 'Izberite močno geslo – najmanj 12 znakov.',
   'searchResults.eyebrow': 'Iskanje delovnega prostora',
+  'searchResults.filter.all': 'Vsi prostori',
   'searchResults.heading': 'Iskanje člankov',
   'searchResults.placeholder':
     'Iskanje po priročnikih, dokumentih RFC, pravilnikih, odločitvah\\u2026',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'S tem izbrišete svoj račun in vse članke, ki ste jih napisali. Za potrditev vnesite IZBRIŠI.',
   'settings.danger.confirmInvalid': 'Za potrditev vtipkajte DELETE.',
+  'settings.danger.deleteFailed': 'Računa ni bilo mogoče izbrisati',
   'settings.danger.deleting': 'Brisanje\\u2026',
   'settings.danger.description':
     'Z brisanjem delovnega prostora odstranite vse članke, komentarje in zgodovino različic. Obnovitve ni mogoče.',
   'settings.danger.title': 'Izbriši delovni prostor',
+  'settings.email.confirm': 'Posodobi e-pošto',
+  'settings.email.confirmTitle': 'Potrdi spremembo e-pošte',
   'settings.email.saved': 'E-pošta posodobljena.',
+  'settings.email.updateFailed': 'E-poštnega naslova ni bilo mogoče posodobiti',
   'settings.language.title': 'Jezik',
   'settings.name': 'Ime',
+  'settings.name.saved': 'Ime posodobljeno.',
+  'settings.name.updateFailed': 'Imena ni bilo mogoče posodobiti',
   'settings.notifications.description': 'Izberite, kaj želite prejemati v svoj nabiralnik.',
+  'settings.password.changeFailed': 'Gesla ni bilo mogoče spremeniti',
   'settings.password.current': 'Trenutno geslo',
   'settings.password.new': 'Novo geslo',
   'settings.password.saving': 'Posodabljanje\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Kako se vam članki prikazujejo.',
   'settings.reading.title': 'Branje in pisanje',
   'settings.subtitle': 'Uglašujte obvestila, bralno platno in svoj račun.',
+  'settings.twofa.code': 'Koda za preverjanje pristnosti',
   'settings.twofa.disable': 'Onemogoči',
   'settings.twofa.disabled': 'Onemogočeno',
   'settings.twofa.enable': 'Omogoči',
   'settings.twofa.enabled': 'Omogočeno',
+  'settings.twofa.invalidCode': 'Neveljavna koda',
+  'settings.twofa.unavailable': 'Dvofaktorska avtentikacija ni na voljo za to aplikacijo.',
+  'settings.twofa.verify': 'Preveri in omogoči',
   'signup.brandQuote':
     '\\u201cZapis je prva obljuba, ki jo damo naslednji osebi, ki jo bo potrebovala.\\u201d',
   'signup.eyebrow': 'Odprite delovni prostor',

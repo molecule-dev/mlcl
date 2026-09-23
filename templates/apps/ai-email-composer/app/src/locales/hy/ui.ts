@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր պատմությունը',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Բացման տոկոսադրույք',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Վճարումը սկսվում է…',
   'billing.subheading': 'Ընտրեք այն պլանը, որը համապատասխանում է ձեր ուղարկման եղանակին։',
   'billing.unavailable': 'Կապվեք վաճառքի հետ',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.retry': 'Կրկին փորձել',
   'compose.adjustingTone': 'Վերաշարադրում ընտրված տոնով…',
   'compose.aiPromptPlaceholder':
     'օրինակ՝ «Երկու շաբաթ պատասխան չստանալուց հետո քաղաքավարի հետևողականություն, թող այն կարճ լինի»։',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Ինչ-որ բան ուղարկելու կարիք ունե՞ք: Signet-ը կարող է վայրկյանների ընթացքում պատրաստել սևագիրը:',
   'dashboard.composeCtaLabel': 'Արագ գրում',
   'dashboard.heading': 'Ձեր շաբաթը՝ կազմված',
+  'dashboard.loadFailed': 'Չհաջողվեց բեռնել ձեր վահանակը։',
   'dashboard.manageLibrary': 'Կառավարել գրադարանը →',
   'dashboard.recentEmpty':
     'Դեռևս ուղարկված նամակներ չկան. ձեր ուղարկված նամակները կհայտնվեն այստեղ։',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Լռելյայն տոն',
   'settings.toneSubheading': 'Signet-ը օգտագործում է այս տոնը, եթե դուք չեղարկեք սևագիրը։',
   'signetLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'signetLayout.toggleMenu': 'Ցուցադրել/փակել ցանկը',
   'signup.emailLabel': 'Էլ․ հասցե',
   'signup.showPassword': 'Ցուցադրել գաղտնաբառը',
   'signup.tagline':

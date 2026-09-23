@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'authShell.brandHeading': 'Τέλειοι καμβάδες pixel για ομάδες σχεδιασμού που αποστέλλουν μαζί.',
   'canvas.redirecting': 'Άνοιγμα προγράμματος επεξεργασίας…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'dashboard.activityEmpty':
     'Δεν υπάρχει πρόσφατη δραστηριότητα ακόμη — προσκαλέστε έναν συμπαίκτη για να ξεκινήσει.',
   'dashboard.activityTitle': 'Τι άλλαξε σήμερα',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Χώρος εργασίας · Northwind Studio',
   'dashboard.foldersLabel': 'Φάκελοι',
   'dashboard.gridTitle': '{{count}} έργα',
+  'dashboard.heroActiveTool': 'Εργαλείο πένας',
   'dashboard.loadingTitle': 'Φόρτωση έργων…',
   'dashboard.searchPlaceholder': 'Αναζήτηση έργων',
   'dashboard.startFromTemplate': 'Έναρξη από το πρότυπο',
   'dashboard.title': 'Τα έργα σας',
   'dashboard.untitledProject': 'Έργο χωρίς τίτλο',
   'designCanvasLayout.newProject': 'Νέο έργο',
+  'designCanvasLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'editor.backToProjects': 'Πίσω στα έργα',
   'editor.deleteShape': 'Διαγραφή σχήματος',
   'editor.errorBody': 'Δεν μπορέσαμε να ανοίξουμε αυτό το έργο.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Εργαλεία σχεδιασμού που κινούνται με την ταχύτητα των χεριών σας',
   'library.empty': 'Δεν υπάρχουν ακόμη διακριτικά σε αυτήν την ενότητα.',
   'library.eyebrow': 'Χώρος εργασίας · Σύστημα σχεδιασμού ατελιέ',
+  'library.loadFailed': 'Δεν ήταν δυνατή η φόρτωση διακριτικών σχεδίασης.',
   'library.systemMeta': 'Εύρυθμη λειτουργία συστήματος',
   'library.systemSummary': '{{tokens}} μάρκες · {{συστατικά}} εξαρτήματα · {{υπάρχοντα}} υπάρχοντα',
   'login.emailPlaceholder': 'mara@studio.com',

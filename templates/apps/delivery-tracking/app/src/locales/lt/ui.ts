@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'alerts.acknowledgeLabel': 'Patvirtinti',
   'alerts.customerLabel': 'Klientas: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Jungiamasi…',
   'carriers.requiredError': 'Būtina nurodyti vardą ir kodą.',
   'carriers.subheading': '{{count}} integruotas',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
+  'common.retry': 'Bandyti dar kartą',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Tranzitu + pažymėta',
   'dashboard.activeShipmentsSubtitle': '{{count}} siuntoms reikia dėmesio arba jos jau juda',
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'siuntos',
   'pricing.trackingLabel': 'įvykių stebėjimas',
   'profile.dangerZone.title': 'Pavojinga zona',
+  'profile.devices.signingOut': 'Atsijungiama…',
+  'profile.devices.unnamed': 'Neįvardytas įrenginys',
+  'profile.security.disable2fa': 'Išjungti 2FA',
   'profile.security.enable2fa': 'Įjungti 2FA',
   'profile.security.pwChanged': 'Slaptažodis sėkmingai pakeistas.',
   'profile.security.pwCurrent': 'Dabartinis slaptažodis',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktyvus',
   'profile.security.twoFaCode': '6 skaitmenų kodas',
   'profile.security.twoFaDisable': 'Išjungti',
+  'profile.security.twoFaDisabling': 'Išjungiama…',
   'profile.security.twoFaFailed': 'Nepavyko patvirtinti kodo.',
   'profile.security.twoFaIntro':
     'Nuskaitykite QR kodą savo autentifikavimo programėlėje ir įveskite žemiau esantį 6 skaitmenų kodą patvirtinimui.',
   'profile.security.twoFaOn': 'Šioje paskyroje įjungtas dviejų veiksnių autentifikavimas.',
+  'profile.security.twoFaQrAlt': 'Dviejų veiksnių QR kodas',
   'profile.security.twoFaVerify': 'Patvirtinti ir įgalinti',
   'profile.security.twoFaVerifying': 'Tikrinama…',
   'profile.subheading': 'Šios darbo srities tapatybės ir saugos nustatymai.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Išsaugokite šią paslaptį – ji daugiau nebus rodoma.',
   'settings.api.webhookSecret': '„Webhook“ pasirašymo slaptasis kodas',
   'settings.appearance.description': 'Perjungti šviesų ir tamsų režimus.',
+  'settings.deleteAccountConfirm': 'Ar tikrai? Šio veiksmo atšaukti negalima.',
   'settings.notifications.exceptions': 'Rašykite man el. paštu, kai įvyksta siuntimo išimtis',
   'settings.notifications.heading': 'Pranešimai',
   'settings.notifications.saveFailed': 'Nepavyko išsaugoti nustatymų.',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Siunta nerasta.',
   'shipmentDetail.originHeading': 'Kilmė',
   'shipmentDetail.shippedOn': 'Išsiųsta {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Kol kas nėra sekimo įvykių – čia rodomi atnaujinimai, kai vežėjas nuskaito siuntinį.',
   'shipmentDetail.weightLabel': '{{weight}} svaras',
   'shipments.col.carrier': 'Vežėjas',
   'shipments.col.eta': 'Numatomas laikas',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Prisijungti',
   'signup.submit': 'Sukurti paskyrą',
   'team.emailError': 'Reikalingas galiojantis el. pašto adresas.',
+  'team.empty':
+    'Komandos narių dar nėra. Pakvieskite komandos draugą bendradarbiauti vykdant siuntas.',
   'team.eyebrow': 'Nariai ir leidimai',
   'team.inviteDialog.cancel': 'Atšaukti',
   'team.inviteDialog.heading': 'Pakviesk komandos narį',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Trasa',
   'waypointLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'webhooks.createFailed': 'Nepavyko sukurti žiniatinklio kabliuko galinio taško.',
+  'webhooks.endpointsEmpty':
+    'Dar nėra žiniatinklio kabliuko galinių taškų. Sukurkite vieną, kad gautumėte siuntos būsenos atgalinius iškvietimus.',
   'webhooks.endpointsHeading': 'Galiniai taškai',
   'webhooks.eventCount': '{{count}} renginiai',
   'webhooks.eventsHeading': 'Naujausi pristatymai',

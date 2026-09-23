@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'accountDetail.activeBadge': 'ਕਿਰਿਆਸ਼ੀਲ',
   'accountDetail.availableLabel': '{{amount}} ਉਪਲਬਧ',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'ਖਾਤੇ',
   'accounts.loadError': 'ਖਾਤੇ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'ਜੰਮਿਆ ਹੋਇਆ',
   'accounts.totalBalance': '{{ਰਕਮ}} ਕੁੱਲ',
   'audit.empty': 'ਹਾਲੇ ਕੋਈ ਸਮਾਗਮ ਨਹੀਂ।',
   'audit.eyebrow': 'ਸੁਰੱਖਿਆ ਅਤੇ ਪਹੁੰਚ',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'ਨਕਦੀ ਉਪਲਬਧ ਹੈ',
   'cashCreditCard.creditLabel': 'ਵਰਤਿਆ ਗਿਆ ਕ੍ਰੈਡਿਟ',
   'cashCreditCard.title': 'ਨਕਦ ਅਤੇ ਕ੍ਰੈਡਿਟ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'dashboard.accountsHeading': 'ਖਾਤੇ',
   'dashboard.heading': 'ਸੰਖੇਪ ਜਾਣਕਾਰੀ',
   'dashboard.recentEmpty': 'ਹਾਲੇ ਕੋਈ ਲੈਣ-ਦੇਣ ਨਹੀਂ ਹੋਇਆ।',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'login.signUp': 'ਸਾਇਨ ਅਪ',
   'login.submit': 'ਸਾਈਨ - ਇਨ',
+  'meridianLayout.menu': 'ਮੀਨੂ',
   'meridianLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'notifications.emptyHeading': 'ਤੁਸੀਂ ਸਭ ਕੁਝ ਕਰ ਲਿਆ ਹੈ',
   'notifications.subheading': 'ਲੈਣ-ਦੇਣ, ਸੁਰੱਖਿਆ ਅਤੇ ਸਟੇਟਮੈਂਟਾਂ ਲਈ ਰੀਅਲ-ਟਾਈਮ ਅਲਰਟ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'privacy.dataWeShare':
     'ਨਿੱਜੀ ਬੈਂਕਿੰਗ ਡੇਟਾ ਕਦੇ ਵੀ ਨਹੀਂ ਵੇਚਿਆ ਜਾਂਦਾ। ਅਸੀਂ ਭੁਗਤਾਨ ਪ੍ਰੋਸੈਸਰਾਂ, ਕਾਰਡ ਨੈੱਟਵਰਕਾਂ ਅਤੇ ਰੈਗੂਲੇਟਰਾਂ ਨਾਲ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰਦੇ ਹਾਂ ਸਿਰਫ਼ ਲੈਣ-ਦੇਣ ਦਾ ਨਿਪਟਾਰਾ ਕਰਨ ਜਾਂ ਕਾਨੂੰਨੀ ਜ਼ਿੰਮੇਵਾਰੀਆਂ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ।',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     "ਦੋ-ਕਾਰਕ ਹਰੇਕ ਸਾਈਨ-ਇਨ 'ਤੇ ਇੱਕ ਪ੍ਰਮਾਣਕ ਐਪ ਤੋਂ ਇੱਕ-ਵਾਰੀ ਕੋਡ ਜੋੜਦਾ ਹੈ।",
   'settings.security.twoFactorCta': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ',
+  'settings.security.twoFactorOff': 'ਦੋ-ਗੁਣਕ ਬੰਦ ਹੈ',
   'settings.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
   'settings.subheading': 'ਪ੍ਰੋਫਾਈਲ, ਸੁਰੱਖਿਆ, ਅਤੇ ਸੂਚਨਾਵਾਂ।',
+  'settings.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'settings.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
   'settings.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
+  'settings.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'signup.emailLabel': 'ਈਮੇਲ ਪਤਾ',
   'signup.fullName': 'ਸਾਨੂੰ ਤੁਹਾਨੂੰ ਕਿਵੇਂ ਸੰਬੋਧਨ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ?',
   'signup.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ਹਾਲੇ ਕੋਈ ਲੈਣ-ਦੇਣ ਨਹੀਂ ਹੋਇਆ।',
   'transactions.endDate': 'ਸਮਾਪਤੀ ਮਿਤੀ',
   'transactions.eyebrow': 'ਗਤੀਵਿਧੀ',
+  'transactions.loadError': 'ਲੈਣ-ਦੇਣ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'transactions.merchant': 'ਵਪਾਰੀ',
+  'transactions.subheading': 'ਤੁਹਾਡੇ ਖਾਤਿਆਂ ਵਿੱਚ ਹਰ ਪੋਸਟ ਕੀਤਾ ਅਤੇ ਲੰਬਿਤ ਲੈਣ-ਦੇਣ।',
   'transfers.availableHint': '{{amount}} ਉਪਲਬਧ',
   'transfers.errorGeneric': 'ਟ੍ਰਾਂਸਫਰ ਸਪੁਰਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'transfers.errorMissingFields': 'ਇੱਕ ਸਰੋਤ ਖਾਤਾ ਅਤੇ ਇੱਕ ਮੰਜ਼ਿਲ ਚੁਣੋ।',

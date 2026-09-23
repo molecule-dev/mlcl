@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'article.notFound': 'Artiklu mhux misjub',
   'articleEditor.bodyPlaceholder': 'Ittajpja / għal blokki, jew sempliċement ibda ikteb.',
+  'articleEditor.loadFailed': 'Ma setax jitgħabba l-artiklu',
   'articleEditor.publishing': 'Pubblikazzjoni\\u2026',
   'articleEditor.saveFailed': 'Is-salvataġġ ma rnexxax',
   'articleEditor.saving': 'Iffrankar\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Bookmark',
   'articleView.bookmarkOn': 'Immarkat',
   'articleView.edit': 'Editja l-artiklu',
+  'articleView.loading': 'Niftħu dan l-artiklu…',
   'articleView.readTime': '{{minutes}} qari minimu',
   'articleView.spaces': 'Spazji',
   'articleView.tocHeading': 'F’din il-paġna',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Editjar, qari, u abbozzi riċenti li t-tim tiegħek għadu qed jirkupra.',
   'cairnTrailHero.updated': 'Artikoli aġġornati',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'drafts.eyebrow': 'Ix-xogħol mhux lest tiegħek',
   'drafts.heading': 'Abbozzi',
+  'drafts.loadFailed': "Ma stajtx intella' l-abbozzi tiegħek.",
   'drafts.subtitle': 'Artikoli li bdejt imma għadek ma ppubblikajtx. Agħżel wieħed u kompli.',
   'forgotPassword.sentBody':
     "Jekk jeżisti kont għal {{email}} , link ta' reset ġej fi triqtu. Il-link jiskadi fi żmien 30 minuta.",
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': "Għad m'hemm l-ebda spazju. Iftaħ wieħed biex tibda tiġbor artikli.",
   'home.spacesHeading': 'L-ispazji tiegħek',
   'home.subtitle': 'Artikoli riċenti, il-bookmarks tiegħek, u dak li kien qed jikteb it-tim.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Mibni bil-Molecule.',
   'landing.ctaBody':
     "B'xejn għal awturi individwali. Pjanijiet ta' tim għal timijiet distribwiti li jibagħtu runbooks, deċiżjonijiet, u onboarding.",
   'landing.ctaHeading': 'Poġġi l-ewwel ġebla llum.',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Oħloq spazju tax-xogħol',
   'login.submitting': 'Qed tidħol\\u2026',
   'login.subtitle': "Erġa' kompli t-traċċa minn fejn ħallejtha.",
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
+  'newSpace.colorAria': 'Agħżel kulur {{color}}',
   'newSpace.colorLabel': 'Kulur aċċent',
+  'newSpace.createFailed': 'Ma setax jinħoloq spazju',
   'newSpace.descriptionPlaceholder':
     'Kotba tar-Runs, kotba tal-pjan on-call, analiżi wara l-eżamijiet\\u2026',
   'newSpace.eyebrow': "Iftaħ spazju ta' għarfien",
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Qed jitgħabba\\u2026',
   'notifications.subtitle':
     '{{count}} mhux moqrija \\u2014 semmi, kummenti, bidliet fil-paġna, u talbiet għal reviżjoni.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.articles': 'artikli',
   'pricing.spaces': 'spazji',
   'profile.eyebrow': 'Profil tal-awtur',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Daħħal password ġdida',
   'resetPassword.subtitle': "Agħżel password b'saħħitha — mill-inqas 12-il karattru.",
   'searchResults.eyebrow': 'Tiftix tal-ispazju tax-xogħol',
+  'searchResults.filter.all': 'L-ispazji kollha',
   'searchResults.heading': 'Fittex artikli',
   'searchResults.placeholder': 'Fittex runbooks, RFCs, politiki, deċiżjonijiet\\u2026',
   'searchResults.summary': '{{count}} riżultati għal \\u201c {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Dan iħassar il-kont tiegħek u kull artiklu li ktibt. Ittajpja ĦASSAR biex tikkonferma.',
   'settings.danger.confirmInvalid': 'Ittajpja DELETE biex tikkonferma.',
+  'settings.danger.deleteFailed': 'Ma setax jitħassar il-kont',
   'settings.danger.deleting': 'Tħassir\\u2026',
   'settings.danger.description':
     "It-tħassir tal-ispazju tax-xogħol tiegħek ineħħi l-artikoli, il-kummenti u l-istorja tal-verżjonijiet kollha. M'hemm l-ebda rkupru.",
   'settings.danger.title': 'Ħassar l-ispazju tax-xogħol',
+  'settings.email.confirm': 'Aġġorna l-email',
+  'settings.email.confirmTitle': 'Ikkonferma l-bidla tal-email',
   'settings.email.saved': 'L-email ġiet aġġornata.',
+  'settings.email.updateFailed': 'Ma stajtx naġġorna l-email',
   'settings.language.title': 'Lingwa',
   'settings.name': 'Isem',
+  'settings.name.saved': 'Isem aġġornat.',
+  'settings.name.updateFailed': 'Ma setax jiġi aġġornat l-isem',
   'settings.notifications.description': "Agħżel x'jasal fl-inbox tiegħek.",
+  'settings.password.changeFailed': 'Ma stajtx nibdel il-password',
   'settings.password.current': 'Password attwali',
   'settings.password.new': 'Password ġdida',
   'settings.password.saving': 'Aġġornament\\u2026',
@@ -146,10 +166,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Kif l-artikoli jidhru għalik.',
   'settings.reading.title': 'Qari u kitba',
   'settings.subtitle': "Notifiki ta' aġġustament, il-kanvas tal-qari, u l-kont tiegħek.",
+  'settings.twofa.code': "Kodiċi ta' awtentikazzjoni",
   'settings.twofa.disable': 'Iddiżattiva',
   'settings.twofa.disabled': "Persuna b'diżabilità",
   'settings.twofa.enable': 'Ippermetti',
   'settings.twofa.enabled': 'Attivat',
+  'settings.twofa.invalidCode': 'Kodiċi invalidu',
+  'settings.twofa.unavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
+  'settings.twofa.verify': 'Ivverifika u attiva',
   'signup.brandQuote':
     'Li niktbuha hija l-ewwel wegħda li nagħmlu lill-persuna li jmiss li jkollha bżonnha.',
   'signup.eyebrow': 'Iftaħ spazju tax-xogħol',

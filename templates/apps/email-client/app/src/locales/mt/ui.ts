@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Aħna tim mifrux ta' disinjaturi u inġiniera li darba qattajna wisq sigħat kuljum f'kaxxa tal-posta storbjuża. Courier hija l-inbox li ridna nużaw aħna stess.",
   'about.title': 'Email għal xogħol iffukat',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'help.cta.about': 'Dwar Meridjan',
   'help.cta.pricing': 'Ara l-prezzijiet',
   'help.eyebrow': 'Ċentru tal-għajnuna',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Tweġibiet malajr għall-mistoqsijiet li nisimgħu l-aktar. Hemm xi ħaġa nieqsa? Iftaħ is-Settings u uża l-formola ta' feedback fl-app, jew ikteb lil support@courier.example.",
   'help.title': 'Kif nistgħu ngħinu?',
   'landing.brand.scrollTop': 'Lura għall-bidu',
+  'landing.copyright': '© {{year}} {{appName}} — Magħmul għall-fokus.',
   'landing.ctaBody':
     "Ingħaqad ma' eluf ta' professjonisti li lestew l-inbox tagħhom qabel l-ikel ta' nofsinhar.",
   'landing.ctaTitle': 'Ipproċessa aktar, irreaġixxi inqas.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Ara d-demo',
   'landing.heroSubtitle':
     'Courier hija inbox kalma bi tliet panelli mibnija għal ħaddiema tal-għarfien li jridu jipproċessaw l-informazzjoni, mhux jirreaġixxu għaliha.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Fdat minn timijiet iffukati madwar id-dinja',
   'landing.signIn': 'Idħol',
   'meridian.archive.empty': 'L-arkivju huwa vojt.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Abbozz',
   'meridian.folder.count': '{{count}} messaġġi',
+  'meridian.folder.delete': 'Ħassar',
   'meridian.folder.deleteForever': "Ħassar b'mod permanenti",
   'meridian.folder.restore': 'Mexxi għall-inbox',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': "Għad m'hemm l-ebda messaġġ hawn.",
   'meridian.inbox.loading': 'Qed jitgħabba…',
   'meridian.inbox.next': 'Li jmiss',
+  'meridian.inbox.noSender': '(l-ebda mittent)',
   'meridian.inbox.noSubject': '(bla suġġett)',
+  'meridian.inbox.ofTotal': '{{current}} minn {{total}}',
   'meridian.inbox.openCompose': 'Iftaħ il-kompożizzjoni',
   'meridian.inbox.previous': 'Preċedenti',
   'meridian.inbox.replyFailed': 'It-tweġiba ġiet salvata iżda l-kunsinna falliet: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': "M'għandekx kont?",
   'meridian.login.showPassword': 'Uri l-password',
   'meridian.message.toLine': 'għal {{recipients}}',
+  'meridian.notFound.body':
+    "Il-paġna li qed tfittex ma nstabitx. Mur lura fl-inbox ta' {{appName}} tiegħek u aħna ngħinuk issib ir-riżultat mixtieq.",
   'meridian.notFound.eyebrow': 'Żball 404',
   'meridian.notFound.title': 'Dan is-suġġett ġie arkivjat.',
   'meridian.notFound.toInbox': 'Iftaħ l-inbox tiegħi',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Żid stilla',
   'meridian.thread.unstar': 'Neħħi l-istilla',
   'meridian.time.yesterday': 'Ilbieraħ',
+  'meridian.topBar.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'meridian.topBar.searchPlaceholder': 'Fittex il-posta',
   'meridian.trash.empty': 'It-trash huwa vojt.',
   'meridian.trash.title': 'Trash',
   'nav.legal': 'Legali',
   'planUpdated.description':
     'L-abbonament tiegħek issa huwa attiv u l-kontijiet tiegħek ġew aġġornati. Merħba fl-inbox Courier aġġornata tiegħek.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.heading': 'abbozzi',
   'pricing.limit.emails': 'emails',
   'pricing.limit.folders': 'folders',
   'pricing.limit.labels': 'tikketti',
   'privacy.collect.account':
     'Dejta tal-kont: isem, indirizz elettroniku, password hashed, u d-data li rreġistrajt.',
+  'privacy.contact': 'Mistoqsijiet? Ibgħat email lil privacy@courier.example.',
   'privacy.intro':
     'Din il-politika ta’ privatezza tispjega liema dejta tiġbor Courier, għaliex niġbruha, kif inżommuha sigura, u liema għażliet għandek dwarha. L-għan tagħna hu li nkunu speċifiċi minflok legalistiċi; jekk xi ħaġa mhix ċara, ikteb lil privacy@courier.example.',
   'privacy.lastUpdated': "Aġġornat l-aħħar: 1 ta' April, 2026",
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Dawn it-termini jirregolaw l-użu tiegħek ta' Courier. Billi toħloq kont jew tibgħat email permezz tagħna inti taqbel li tkun marbut bihom. Nippruvaw niktbu regoli li persuna tista' fil-fatt issegwi.",
   'terms.lastUpdated': "Effettiv: 1 ta' April, 2026",
+  'terms.linkPrivacy': "Aqra l-Politika ta' Privatezza tagħna →",
   'terms.termination.body':
     "Tista' tħassar il-kont tiegħek fi kwalunkwe ħin. Nistgħu nissospendu kont li jikser dawn it-termini; jekk nagħmlu dan, se nispjegaw ir-raġuni u nħalluk tesporta d-dejta tiegħek l-ewwel.",
   'terms.warranty.body':

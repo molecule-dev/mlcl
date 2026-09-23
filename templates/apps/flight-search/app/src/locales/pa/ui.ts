@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.eyebrow': '{{app}} ਬਾਰੇ',
   'about.pageTitle': 'ਹਰ ਰਸਤਾ, ਇੱਕ ਖੋਜ।',
   'booking.backToDetail': "ਉਡਾਣ ਵੇਰਵਿਆਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'booking.continue': 'ਭੁਗਤਾਨ ਜਾਰੀ ਰੱਖੋ',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ਟੈਕਸ ਅਤੇ ਫ਼ੀਸ',
   'booking.summary.travelers': 'ਯਾਤਰੀ',
   'common.about': 'ਬਾਰੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'flightDetail.backToResults': "ਨਤੀਜਿਆਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'flightDetail.baseFare': 'ਮੂਲ ਕਿਰਾਇਆ',
   'flightDetail.book': 'ਬੁਕਿੰਗ ਜਾਰੀ ਰੱਖੋ',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ਸਟਾਪ',
   'flightResultCard.select': 'ਚੁਣੋ',
   'flightResultCard.totalLabel': 'ਕੁੱਲ ਸਮਾਂ',
+  'flightSearchLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'forgotPassword.subheading':
     "ਆਪਣੇ ਸਕਾਈਲਾਰਕ ਖਾਤੇ 'ਤੇ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਇੱਕ ਸੁਰੱਖਿਅਤ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।",
   'forgotPassword.successBody':
     'ਚੈੱਕ ਕਰੋ {{email}} ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰਨ ਲਈ ਇੱਕ ਲਿੰਕ ਲਈ। ਲਿੰਕ ਦੀ ਮਿਆਦ 30 ਮਿੰਟਾਂ ਵਿੱਚ ਖਤਮ ਹੋ ਜਾਂਦੀ ਹੈ।',
   'forgotPassword.successHeading': 'ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਿਆ ਗਿਆ',
   'landing.cta.explore': 'ਖੋਜ ਕਰਕੇ ਦੇਖੋ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਅਗਲਾ ਵਧੀਆ ਕਿਰਾਇਆ ਲੱਭੋ।',
   'landing.cta.signup': 'ਕਿਰਾਏ ਟਰੈਕ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.features.eyebrow': 'ਸਕਾਈਲਾਰਕ ਕਿਉਂ',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'ਸੁਚੇਤਨਾ ਸ਼ਾਮਲ ਕਰੋ',
   'priceAlerts.deleteConfirm': 'ਕੀ ਇਸ ਚੇਤਾਵਨੀ ਨੂੰ ਹਟਾਉਣਾ ਹੈ?',
   'priceAlerts.empty': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਟਰੈਕ ਕੀਤੇ ਰਸਤੇ ਨਹੀਂ ਹਨ।',
+  'priceAlerts.emptyCta': 'ਟਰੈਕ ਕਰਨ ਲਈ ਇੱਕ ਰਸਤਾ ਖੋਜੋ',
   'priceAlerts.errorMessage': 'ਸੁਚੇਤਨਾਵਾਂ ਲੋਡ ਨਹੀਂ ਕੀਤੀਆਂ ਜਾ ਸਕੀਆਂ।',
   'priceAlerts.eyebrow': 'ਸਕਾਈਲਾਰਕ ਵਾਚਲਿਸਟ',
   'priceAlerts.form.createError': 'ਚੇਤਾਵਨੀ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕੀ।',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'ਬਹੁ-ਸ਼ਹਿਰ ਯਾਤਰਾ ਯੋਜਨਾ',
   'results.multiLegHeading': 'ਲੱਤ {{ਨ}} · {{ਤੋਂ}} → {{ਨੂੰ}} · {{ਮਿਤੀ}}',
   'results.multiSummary': '{{count}} ਲੱਤਾਂ · {{passengers}} ਯਾਤਰੀ',
+  'results.sortAriaLabel': 'ਨਤੀਜੇ ਇਸ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ',
   'results.sortLabel': 'ਕ੍ਰਮਬੱਧ ਕਰੋ',
   'results.summary': '{{count}} ਉਡਾਣਾਂ · {{passengers}} ਯਾਤਰੀ',
   'settings.language.title': 'ਭਾਸ਼ਾ',

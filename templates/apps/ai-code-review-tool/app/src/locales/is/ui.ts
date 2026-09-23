@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hafðu samband',
   'about.eyebrow': 'Um',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.connectRepoCta': 'Tengja geymslu',
   'dashboard.empty': 'Engar beiðnir um aðgerðir ennþá — tengdu geymslu til að byrja.',
   'dashboard.eyebrow': 'Endurtaka · endurskoðunarröð',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Gangtími',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Gæðastig gervigreindar {{score}} / 10',
+  'refractLayout.closeMenu': 'Loka valmynd',
+  'refractLayout.openMenu': 'Opna valmynd',
   'refractLayout.primaryNavLabel': 'Aðalflakk',
   'reports.cumulativeScoreLabel': 'Uppsafnað stig',
   'reports.cumulativeScoreSubtitle': 'allar geymslur · {{days}} d',
@@ -176,11 +179,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Mistókst að hlaða leitarvísitölu.',
   'settings.apiKeys.description':
     'Stjórnaðu persónulegum API-lyklum úr notendavalmyndinni efst í hægra horninu.',
+  'settings.apiKeys.integrationsNote':
+    'Aðgangskóðar veitenda eru stjórnaðir í hlutanum Samþættingar hér að ofan.',
   'settings.connectError': 'Mistókst að tengjast þjónustuveitunni.',
   'settings.disconnectError': 'Mistókst að aftengja þjónustuveituna.',
   'settings.eyebrow': 'Ljósbrot · vinnusvæði',
   'settings.integration.${provider}.label': 'Vistar…',
   'settings.loadError': 'Mistókst að hlaða stillingum.',
+  'settings.notificationCenter': 'Tilkynningamiðstöð',
   'settings.notifications.description':
     'Farðu á tilkynningasíðuna til að skoða og stjórna afhendingarstillingum.',
   'settings.section.account': 'Reikningur og öryggi',

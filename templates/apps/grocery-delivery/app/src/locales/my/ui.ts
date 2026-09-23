@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'သင့်ဈေးဝယ်သူကို အကြံပေးပါ',
   'checkout.tipLabel': 'အကြံပြုချက်',
   'checkout.zipPlaceholder': 'စာတိုက်ကုဒ်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'featuredProductsGrid.addAria': 'ထည့်ရန် {{name}} လှည်းသို့',
   'featuredProductsGrid.outOfStock': 'ပစ္စည်းပြတ်တောက်နေသည်',
   'forgotPassword.emailLabel': 'အီးမေးလ်လိပ်စာ',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'အဲဒီအီးမေးလ်ကို မှတ်ပုံတင်ပြီးပြီဆိုရင် reset link တစ်ခု ပို့ပေးပါလိမ့်မယ်။',
+  'groceryDeliveryLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'landing.categoriesEyebrow': 'လမ်းကြားများ',
   'landing.categoriesHeading': 'အမျိုးအစားအလိုက် ဈေးဝယ်ပါ',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'စတေပယ်များကို စမတ်ကျကျ ပြန်လည်မှာယူခြင်းနှင့် တိုက်ရိုက်ယာဉ်မောင်းခြေရာခံခြင်းဖြင့် အပတ်စဉ် ပို့ဆောင်မှုများကို အချိန်ဇယားဆွဲပါ။',
   'landing.heroTitle': 'နာရီပိုင်းအတွင်း သင့်တံခါးဝသို့ လတ်ဆတ်မှု။',
   'landing.howEyebrow': 'အဆင့်သုံးဆင့်',
+  'landing.howItWorksHeading': '{{app}} ဘယ်လိုအလုပ်လုပ်လဲ',
   'lists.addAllCta': 'အားလုံးကို လှည်းထဲသို့ထည့်ပါ',
   'lists.createCta': 'သင့်ရဲ့ ပထမဆုံးစာရင်းကို ဖန်တီးပါ',
   'lists.createError': 'စာရင်းဖန်တီး၍မရပါ။',

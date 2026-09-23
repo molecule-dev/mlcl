@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.pageTitle': 'Despre {{app}}',
   'achievementBadgeCard.unlockedOn': 'Deblocat {{date}}',
   'achievements.loadError': 'Nu s-au putut încărca realizările.',
   'achievements.subheading': '{{unlocked}} de {{total}} deblocat',
   'achievements.unlockedOn': 'Deblocat {{date}}',
+  'auth.legalConsent': 'Continuând, ești de acord cu',
   'calendar.empty': 'Creează-ți obiceiul de a-ți vedea calendarul.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Obicei',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Grilă de obiceiuri',
   'category.${c.category}': '{{conta}} obiceiuri',
   'common.and': 'și',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'consistencyHeatmap.ariaLabel': 'Hartă termică a consistenței zilnice',
   'consistencyHeatmap.caption': 'Dura {{weeks}} săptămâni',
   'consistencyHeatmap.lessLabel': 'Mai puțin',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Vezi-o live',
   'landing.heroSubtitle':
     'Construiește-ți obiceiuri așa cum se mențin de fapt: angajamente mici, succese zilnice și plăcerea viscerală a unui lanț lung neîntrerupt.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'O privire în interiorul lui Streak',
   'landing.previewMotivation': 'Nouă dungi în viață. Ține-le pe toate de cald.',
   'login.eyebrow': 'Ridică lanțul',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Fă-o mică. Fă-o specifică. Vino mâine.',
   'newHabit.timeLabel': 'Ora de reamintire',
   'notifications.markError': 'Nu s-au putut marca toate ca citite.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.entries': '{{count}} intrări',
+  'pricing.heading': 'Alege planul {{app}}',
   'profile.action.plan': 'Gestionează abonamentul',
   'profile.action.settings': 'Setări cont',
   'profile.bioEmpty': 'Adaugă o scurtă biografie în Setări pentru a te prezenta.',
@@ -126,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Îndemn zilnic de dimineață (8:00)',
   'settings.reminders.heading': 'Mementouri',
   'settings.reminders.weekly': 'Rezumatul săptămânal (duminică seara)',
+  'settings.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.streaks.freezesPerWeek': 'Înghețuri pe săptămână',
   'settings.streaks.gracePeriod': 'Perioadă de grație de 6 ore după miezul nopții',
@@ -152,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} activ',
   'streakHeroCard.daysSuffix': 'zile',
   'streakHeroCard.title': 'Cea mai lungă serie activă',
+  'streakLayout.closeMenu': 'Închide meniul de navigare',
+  'streakLayout.openMenu': 'Deschide meniul de navigare',
   'streakLayout.primaryNavLabel': 'Navigare principală',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'alerts.acknowledgeLabel': 'تسلیم کرتے ہیں۔',
   'alerts.customerLabel': 'گاہک: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'منسلک ہو رہا ہے…',
   'carriers.requiredError': 'نام اور کوڈ درکار ہے۔',
   'carriers.subheading': '{{count}} مربوط',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ٹرانزٹ میں + جھنڈا لگا ہوا ہے۔',
   'dashboard.activeShipmentsSubtitle': '{{count}} ترسیل پر توجہ کی ضرورت ہے یا آگے بڑھ رہے ہیں۔',
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'ترسیل',
   'pricing.trackingLabel': 'واقعات سے باخبر رہنا',
   'profile.dangerZone.title': 'خطرہ زون',
+  'profile.devices.signingOut': 'سائن آؤٹ ہو رہا ہے…',
+  'profile.devices.unnamed': 'بے نام آلہ',
+  'profile.security.disable2fa': '2FA کو غیر فعال کریں۔',
   'profile.security.enable2fa': '2FA کو فعال کریں۔',
   'profile.security.pwChanged': 'پاس ورڈ کامیابی سے تبدیل ہو گیا۔',
   'profile.security.pwCurrent': 'موجودہ پاس ورڈ',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA فعال',
   'profile.security.twoFaCode': '6 ہندسوں کا کوڈ',
   'profile.security.twoFaDisable': 'غیر فعال کریں۔',
+  'profile.security.twoFaDisabling': 'غیر فعال کر رہا ہے…',
   'profile.security.twoFaFailed': 'کوڈ کی تصدیق نہیں ہو سکی۔',
   'profile.security.twoFaIntro':
     'اپنی تصدیق کنندہ ایپ میں QR کوڈ اسکین کریں، پھر تصدیق کے لیے نیچے 6 ہندسوں کا کوڈ درج کریں۔',
   'profile.security.twoFaOn': 'اس اکاؤنٹ پر دو عنصر کی تصدیق فعال ہے۔',
+  'profile.security.twoFaQrAlt': 'ٹو فیکٹر QR کوڈ',
   'profile.security.twoFaVerify': 'تصدیق کریں اور فعال کریں۔',
   'profile.security.twoFaVerifying': 'تصدیق ہو رہی ہے…',
   'profile.subheading': 'اس ورک اسپیس کے لیے شناخت اور سیکیورٹی کی ترتیبات۔',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'اس راز کو محفوظ کریں — یہ دوبارہ نہیں دکھایا جائے گا۔',
   'settings.api.webhookSecret': 'ویب ہک پر دستخط کرنے کا راز',
   'settings.appearance.description': 'لائٹ اور ڈارک موڈ کے درمیان ٹوگل کریں۔',
+  'settings.deleteAccountConfirm': 'کیا آپ کو یقین ہے؟ اس کارروائی کو کالعدم نہیں کیا جا سکتا۔',
   'settings.notifications.exceptions': 'کھیپ کی رعایت ہونے پر مجھے ای میل کریں۔',
   'settings.notifications.heading': 'اطلاعات',
   'settings.notifications.saveFailed': 'ترجیحات کو محفوظ نہیں کیا جا سکا۔',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'کھیپ نہیں ملی۔',
   'shipmentDetail.originHeading': 'اصل',
   'shipmentDetail.shippedOn': 'بھیج دیا گیا۔ {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'ابھی تک کوئی ٹریکنگ ایونٹس نہیں ہیں — اپ ڈیٹس یہاں ظاہر ہوتے ہیں کیونکہ کیریئر پارسل کو اسکین کرتا ہے۔',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'کیریئر',
   'shipments.col.eta': 'ای ٹی اے',
@@ -172,6 +183,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'سائن ان کریں۔',
   'signup.submit': 'اکاؤنٹ بنائیں',
   'team.emailError': 'ایک درست ای میل پتہ درکار ہے۔',
+  'team.empty':
+    'ابھی تک کوئی ٹیم ممبر نہیں ہے۔ شپمنٹ میں تعاون کرنے کے لیے ٹیم کے ساتھی کو مدعو کریں۔',
   'team.eyebrow': 'ممبران اور اجازتیں۔',
   'team.inviteDialog.cancel': 'منسوخ کریں۔',
   'team.inviteDialog.heading': 'ٹیم کے ساتھی کو مدعو کریں۔',
@@ -194,6 +207,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ٹریک',
   'waypointLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'webhooks.createFailed': 'ویب ہک اینڈ پوائنٹ نہیں بنایا جا سکا۔',
+  'webhooks.endpointsEmpty':
+    'ابھی تک کوئی ویب ہک اینڈ پوائنٹ نہیں ہے۔ شپمنٹ اسٹیٹس کال بیکس وصول کرنے کے لیے ایک بنائیں۔',
   'webhooks.endpointsHeading': 'اینڈ پوائنٹس',
   'webhooks.eventCount': '{{count}} واقعات',
   'webhooks.eventsHeading': 'حالیہ ترسیل',

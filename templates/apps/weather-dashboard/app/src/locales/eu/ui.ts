@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Une honetan zaude {{plan}} plana.',
   'billing.switch': 'Aldatu',
   'billing.upgraded': 'Eguneratua honetara {{plan}} — mugak berehala aplikatu ziren.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'compare.activityHeading': 'Jarduera epaiak',
   'compare.empty.title': 'Gehitu gutxienez bi kokapen alderatzeko',
   'compare.eyebrow': 'Alboz albo',
@@ -136,5 +137,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Altua',
   'trends.summary.low.label': 'Baxua',
   'trends.summary.points.label': 'Egunak',
+  'weatherDashboardLayout.primaryNavLabel': 'Nabigazio nagusia',
   'weatherHeroCard.updated': 'Eguneratua {{time}}',
 }

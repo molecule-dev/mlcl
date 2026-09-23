@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} 소개',
+  'auth.legalConsent': '계속 진행하면 다음에 동의하게 됩니다',
   'bookings.empty.body': '항공권, 호텔 또는 액티비티를 추가해 받은 편지함을 시작하세요.',
   'bookings.empty.heading': '아직 예약이 없습니다.',
   'bookings.errors.create': '예약을 생성할 수 없습니다.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': '확인됨',
   'bookings.summary.pending': '확인 대기 중',
   'bookings.summary.total': '총 약정 금액',
+  'bookings.type.car': '렌터카',
+  'bookings.type.flight': '비행',
+  'bookings.type.hotel': '호텔',
   'bookings.type.other': '다른',
   'budgetSpendCard.budgetTotal': '계획된 {{total}} 중',
   'budgetSpendCard.pct': '{{pct}}%',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     '일정 충돌을 발견하고, 여행 사이의 휴식 일정을 계획하며, 함께 떠나는 동행자의 일정을 확인하세요.',
   'common.and': '및',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.budgetHeading': '예산 흐름',
   'dashboard.empty.heading': '아직 여행이 없습니다 — 지도가 비어 있어요.',
   'dashboard.eyebrow': '미션 컨트롤',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': '진행 중인 여행',
   'dashboard.viewAllExpenses': '모든 지출 보기',
   'dashboard.viewAllTrips': '모든 여행 보기',
+  'dayTimelineRow.category.accommodation': '머무르다',
   'dayTimelineRow.category.transport': '수송',
   'destinationOrbCard.exploreCta': '여행에 추가',
   'destinationOrbCard.tripCount': '여행 {{count}}회',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     '이메일이 도착하지 않았나요? 스팸 폴더를 확인하시거나 다른 이메일로 다시 시도해 보세요.',
   'forgotPassword.successSubheading':
     '{{email}} 주소로 복구 링크를 보냈습니다. 링크는 30분 동안 유효합니다.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': '무료 계정 만들기',
+  'landing.cta.subheading':
+    '무료 플랜에서는 최대 5번의 여정, 5명의 공동 작업자, 5개의 경유지를 이용할 수 있으며 실시간 동기화가 포함됩니다. 플랜이 업그레이드되면 프로 플랜으로 업그레이드하여 이러한 제한을 해제할 수 있습니다.',
   'landing.destinations.eyebrow': '다음 행선지',
   'landing.destinations.heading': '에디터가 엄선한 목적지',
   'landing.features.eyebrow': 'Waypoint 사용법',
   'landing.features.heading': '스프레드시트가 아닌, 여행자를 위해 만들어졌습니다.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': '무료 여행 시작하기',
   'landing.hero.ctaSecondary': '샘플 여행 보기',
   'landing.hero.subtitle':
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     '계정을 만들어 최대 5명의 동행자와 여행을 공유하고, 예약을 동기화하며, 모든 확인서를 한곳에 모으세요.',
+  'signup.termsPrefix': '계정을 생성함으로써 귀하는 당사의',
   'tripCountdownHeroCard.budget': '{{used}} / {{total}} ({{pct}}% 예산)',
   'tripCountdownHeroCard.collaborators': '여행자 {{count}}명',
   'tripCountdownHeroCard.countdownLabel': '카운트다운',
@@ -198,5 +211,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': '아직 여행이 없습니다.',
   'trips.pastHeading': '지난 모험',
   'trips.subheading': '여행 {{count}}건 — 과거, 현재, 그리고 언젠가의.',
+  'waypointLayout.mobileNavClose': '탐색 메뉴 닫기',
   'waypointLayout.primaryNavLabel': '주 탐색',
 }

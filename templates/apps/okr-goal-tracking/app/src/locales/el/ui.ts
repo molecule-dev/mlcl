@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'ascentSideNav.nav.notifications': 'Ειδοποιήσεις',
   'ascentSideNav.newObjective': 'Νέος στόχος',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Ορίστε την κορυφή. Βαθμολογήστε την ανάβαση. Προπονήστε την ομάδα.',
   'authShell.eyebrow': 'OKR που μετακινούν ομάδες',
   'authShell.samplePeriod': "Β' τρίμηνο 2026 · στόχος δείγματος",
@@ -19,6 +22,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Χώρος εργασίας · Χρέωση',
   'billing.heading': 'Πρόγραμμα & τιμολόγια',
   'billing.period.year': 'Ετήσιο',
+  'billing.perk.export': 'Εξαγωγή δεδομένων + πρόσβαση API',
+  'billing.perk.inApp': 'Αναφορά εντός εφαρμογής',
+  'billing.perk.standard': 'Τυπικές αξιολογήσεις',
+  'billing.perk.unlimitedObjectives': 'Απεριόριστοι στόχοι',
+  'billing.perk.unlimitedRetention': 'Απεριόριστη διατήρηση',
   'billing.subheading':
     'Είσαι στο {{name}} σχέδιο. Συγκρίνετε τα επίπεδα και κάντε αναβάθμιση παρακάτω.',
   'billing.tier.unavailable': 'Δεν είναι διαθέσιμο',
@@ -42,11 +50,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'Υποβολή check-in',
   'checkIn.submittedMessage':
     'Το check-in αποθηκεύτηκε. Η πρόοδος και το χρονοδιάγραμμα ενημερώθηκαν.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': 'Οχι',
   'common.relative.daysAgo': '{{count}}η πριν',
   'common.relative.hoursAgo': '{{count}} πριν από μία ώρα',
   'common.relative.justNow': 'μόλις τώρα',
   'common.relative.minutesAgo': '{{count}} λεπτά πριν',
+  'common.retry': 'Επανάληψη',
   'common.yes': 'Ναί',
   'common.you': 'Εσείς',
   'dashboard.allActivity': 'Δείτε όλες τις δραστηριότητες →',
@@ -92,6 +102,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Στείλαμε έναν σύνδεσμο επαναφοράς στο {{email}} Λήγει σε μία ώρα — περιμένετε λίγο στα εισερχόμενα.',
   'forgotPassword.successHeading': 'Ελέγξτε τα εισερχόμενά σας.',
+  'keyResult.metrics.boolean': 'Ναι / Όχι',
+  'keyResult.metrics.currency': 'Νόμισμα $',
+  'keyResult.metrics.number': 'Αριθμός',
+  'keyResult.metrics.percent': 'ποσοστό %',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Θέστε τον πρώτο σας στόχο, προσκαλέστε τρεις συμπαίκτες και πραγματοποιήστε το πρώτο σας εβδομαδιαίο check-in μέχρι την Παρασκευή.',
@@ -103,6 +117,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Πώς ανεβαίνουν οι ομάδες',
   'landing.featuresTitle': 'OKRs επιπέδου προπονητή, χωρίς την εξάπλωση σε υπολογιστικά φύλλα.',
   'landing.footerBuiltOn': 'Χτισμένο στο Molecule.dev',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Το Ascent δίνει σε κάθε ομάδα μια μετρήσιμη πορεία προς την κορυφή — θέστε στόχους, σημειώστε βασικά αποτελέσματα εβδομαδιαίως και επανεξετάστε την ανάβαση κάθε τρίμηνο.',
   'landing.heroProgressLabel': 'Σχέδιο εταιρείας για το δεύτερο τρίμηνο',
@@ -112,6 +127,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'ή συνεχίστε με',
   'login.subheading':
     'Συνεχίστε από εκεί που σταματήσατε — τα check-in, οι αξιολογήσεις και οι κριτικές σας σας περιμένουν.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.mainNavigation': 'Κύρια πλοήγηση',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'newObjective.addKr': 'Προσθήκη KR',
   'newObjective.coachLabel': 'Υπενθυμίσεις προπονητή',
   'newObjective.descriptionPlaceholder': 'Εξηγήστε το στρατηγικό πλαίσιο σε 2-3 προτάσεις.',
@@ -138,6 +156,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Κέντρο δραστηριότητας',
   'notifications.markRead': '● Σήμανση ως αναγνωσμένου',
   'objective.scopes.company': 'Εταιρεία',
+  'objective.scopes.individual': 'Ατομο',
   'objective.scopes.team': 'Ομάδα',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Επιστροφή στους στόχους',
@@ -162,12 +181,18 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Παρακολούθηση {{count}} στόχους. Φιλτράρετε κατά κατάσταση για να βρείτε τι χρειάζεται προσοχή.',
   'profile.achievementCheckInsMany': '{{count}} καταγεγραμμένα check-in',
+  'profile.achievementCheckInsOne': '1 καταγεγραμμένο check-in',
+  'profile.achievementCompletedMany': 'Ολοκληρώθηκαν {{count}} στόχοι',
+  'profile.achievementCompletedOne': 'Ολοκληρώθηκε 1 στόχος',
+  'profile.achievementOnTrackMany': '{{count}} στόχοι σε καλό δρόμο',
+  'profile.achievementOnTrackOne': '1 στόχος σε καλό δρόμο',
   'profile.activeHeading': 'Ενεργοί στόχοι',
   'profile.allObjectives': 'Όλοι οι στόχοι →',
   'profile.empty':
     'Δεν υπάρχουν ακόμη ενεργοί στόχοι — δημιουργήστε τον πρώτο σας για να ξεκινήσετε.',
   'profile.eyebrow': 'Προφίλ ορειβάτη',
   'profile.guestName': 'Ορειβάτης',
+  'profile.loadError': 'Δεν ήταν δυνατή η φόρτωση των στόχων σας.',
   'profile.loading': 'Φόρτωση στόχων…',
   'profile.noAchievements': 'Ολοκληρώστε ένα check-in για να ξεκλειδώσετε το πρώτο σας επίτευγμα.',
   'profile.statCheckIns': 'Check-in',

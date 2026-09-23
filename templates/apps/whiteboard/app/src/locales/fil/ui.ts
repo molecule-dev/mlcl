@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'authShell.brandHeading':
     'Mga multiplayer canvas para sa mga design team na nag-iisip nang malakas.',
   'billing.canceled': 'Subscription nakansela na.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Magsimula sa template',
   'boards.title': 'Ang iyong mga board',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Ilagay ang email na naka-link sa iyong workspace at magpapadala kami ng link sa pag-reset.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Workshop · Boses ng Brand',
   'landing.featuresEyebrow': 'Ano ang nagpapa-tessellate sa Slate',
   'landing.featuresTitle': 'Mabilis na feedback. Magagandang canvas. Walang friction.',
+  'landing.hero.body':
+    '{{appName}} ay isang multiplayer whiteboard para sa mga design team, workshop facilitator, at mga edukador na nagsasagawa ng mga live brainstorming at nangangailangan ng mga ideya na mapagsasama-sama sa iisang lugar.',
   'landing.hero.primaryCta': 'Magsimula ng board nang libre',
   'landing.hero.socialProof':
     'Pinagkakatiwalaan ni {{count}} mga pangkat ng disenyo sa buong mundo',
@@ -95,6 +99,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Gumawa ng libreng workspace',
   'login.subheading':
     'Ipagpatuloy kung saan natapos ang workshop — ang mga board, sticky notes, at cursor ay nagsi-sync nang real time.',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.new': 'Bago',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'notifications.editTitle': 'Mga pagbabago sa " {{board}} "',
   'notifications.empty.body':
     'Ang mga imbitasyon, mga pag-save ng snapshot, at mga kamakailang pag-edit sa board ay lilitaw dito habang nangyayari ang mga ito.',
@@ -178,6 +185,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Kasaysayan ng bersyon',
   'versionHistory.untitledSnapshot': 'Walang pamagat na snapshot',
   'whiteboardLayout.newBoard': 'Bagong board',
+  'whiteboardLayout.primaryNav': 'Pangunahing navigation',
   'workspace.boardLabel': 'Lupon',
   'workspace.eyebrow': '{{name}} · lugar ng trabaho',
   'workspace.invite': 'Mag-imbita ng mga kolaborator',

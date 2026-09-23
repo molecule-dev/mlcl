@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'about.tagline': 'Сырлар ачык жерде өлөт.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Токен түзүү',
   'apiTokens.kicker': 'API токендери',
   'apiTokens.loading': 'Токендер жүктөлүүдө…',
+  'apiTokens.new': 'Жаңы токен',
   'apiTokens.revoke': 'Токенди жокко чыгаруу',
   'apiTokens.subheading':
     'Arcanum CLI жана SDK үчүн жеке жана кызматтык токендер. Түзүлгөндө бир жолу көрсөтүлөт.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + сырсөз',
   'authShell.zeroKnowledge': 'Нөлдүк билимсиз шифрлөө',
   'common.connecting': 'Туташууда…',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.inviting': 'Чакыруу…',
   'forgotPassword.checkInbox':
     'Эгер {email} катталган болсо, кол коюлган баштапкы абалга келтирүү шилтемеси бир мүнөттүн ичинде келет.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Ар бир сейфте айлануу абалы, аномалиялар жөнүндө эскертүүлөр жана бекитүү өтүнүчтөрү.',
   'notifications.unreadEmpty': 'Кирүүчү каттардын кутусу нөл — баары жетишилди.',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.heading': 'сырлар',
   'pricing.limits.accessPolicies': 'кирүү саясаттары',
   'pricing.limits.auditLog': 'аудит журналындагы жазуулар',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Жеке аккаунт',
   'profile.plan.description': 'Жазылууңузду башкарыңыз, чектөөлөрдү көрүңүз жана жаңыртыңыз.',
   'profile.subheading': 'Идентификация, экинчи факторлуу түзмөктөр жана активдүү сеанстар.',
+  'profile.twoFactor.code': 'Аутентификация коду',
   'profile.twoFactor.disable': 'Өчүрүү',
   'profile.twoFactor.enable': 'Иштетүү',
+  'profile.twoFactor.invalidCode': 'Жараксыз код',
   'profile.twoFactor.kicker': 'Эки факторлуу аутентификация',
+  'profile.twoFactor.off': 'Иштетилген эмес',
   'profile.twoFactor.on': 'Иштетилген',
   'resetPassword.email': 'Аккаунттун электрондук почтасы',
   'resetPassword.heading': 'Жаңы реквизиттерди орнотуу',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'буйруктар',
   'secretsManagerLayout.encrypted': 'AES-256 · ШИФРЛЕНГЕН',
   'secretsManagerLayout.newVault': 'Жаңы сейф',
+  'secretsManagerLayout.newVaultShort': 'Жаңы',
   'secretsManagerLayout.rotations': 'Айлануулар',
   'secretsManagerLayout.search': 'издөө',
   'secretsManagerLayout.searchPlaceholder': 'Ачкыч, жол же тег боюнча сырларды издеңиз...',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Сырлар',
   'vaultCard.vaultLabel': 'Сейф',
   'vaultDetail.addSecret': 'Жашыруун сыр кошуу',
+  'vaultDetail.back': 'Бардык сейфтер',
   'vaultDetail.col.key': 'Ачкыч',
   'vaultDetail.col.rotated': 'Айландырылган',
   'vaultDetail.col.value': 'Баалуулук',

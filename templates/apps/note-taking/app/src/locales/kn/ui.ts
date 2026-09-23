@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'forgot.eyebrow': 'ಒಳಗೆ ಹೋಗುವ ದಾರಿ ತಪ್ಪಿ ಹೋಯಿತೇ?',
   'forgot.formSubtitle': 'ಫೈಲ್‌ನಲ್ಲಿರುವ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮಗೆ ತಿಳಿಸಿ.',
   'forgot.headline': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ಒಂದನ್ನು ರಚಿಸಿ',
   'login.subline':
     'ನಿಮ್ಮ ನೋಟ್‌ಬುಕ್‌ಗಳು, ಬ್ಯಾಕ್‌ಲಿಂಕ್‌ಗಳು ಮತ್ತು ದೈನಂದಿನ ಪುಟಗಳು ನೀವು ಅವುಗಳನ್ನು ಬಿಟ್ಟ ಸ್ಥಳದಲ್ಲೇ ಇರುತ್ತವೆ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'noteEditor.backToNotes': 'ಟಿಪ್ಪಣಿಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'noteEditor.bodyPlaceholder':
     'ಬರೆಯಲು ಪ್ರಾರಂಭಿಸಿ — ನೀವು ಟೈಪ್ ಮಾಡಿದಂತೆ ನಿಮ್ಮ ಟಿಪ್ಪಣಿ ಸ್ವಯಂ ಉಳಿಸುತ್ತದೆ.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'ಹೊಸ ನೋಟ್‌ಬುಕ್',
   'notes.newNotebookPrompt': 'ಹೊಸ ನೋಟ್‌ಬುಕ್ ಹೆಸರು',
   'notes.notebooksHeading': 'ನೋಟ್‌ಬುಕ್‌ಗಳು',
+  'notes.subtitle':
+    'ಎಡಭಾಗದಲ್ಲಿರುವ ನೋಟ್‌ಬುಕ್ ಅನ್ನು ಆರಿಸಿ, ನಂತರ ಹೊಸ ನಮೂದನ್ನು ಪ್ರಾರಂಭಿಸಲು ಹೊಸ ಟಿಪ್ಪಣಿ ಬಟನ್ ಒತ್ತಿರಿ.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'ನಿಮ್ಮ ಟಿಪ್ಪಣಿ ತೆಗೆದುಕೊಳ್ಳುವ ಯೋಜನೆಯನ್ನು ಆರಿಸಿ',
   'reset.eyebrow': 'ಬಹುತೇಕ ಮರಳಿ ಬಂದಿದ್ದೇನೆ',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'ನವೀಕರಿಸಲಾಗಿದೆ',
   'versoLayout.nav.graph': 'ಗ್ರಾಫ್',
   'versoLayout.nav.home': 'ಮರಳಿ ಪ್ರಥಮ ಪುಟಕ್ಕೆ',
+  'versoLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'versoNoteCard.pinned': 'ಪಿನ್ ಮಾಡಲಾಗಿದೆ',
   'versoTodayHero.continueCta': 'ಬರೆಯುವುದನ್ನು ಮುಂದುವರಿಸಿ',
   'versoTodayHero.createCta': 'ಇಂದಿನ ಟಿಪ್ಪಣಿಯನ್ನು ಪ್ರಾರಂಭಿಸಿ',

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.title': '{{app}} 소개',
   'activeAgentsCard.agent1AvatarAlt':
     '현대적인 사무실에서 친절한 미소를 짓고 있는 여성 상담원의 전문적인 프로필 사진.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': '고객 지원팀에 문의하세요.',
   'forgotPassword.error': '재설정 이메일을 보내지 못했습니다. 다시 시도해 주세요.',
   'forgotPassword.rememberPassword': '비밀번호가 기억나셨나요?',
   'forgotPassword.subheading': '이메일 주소를 입력하시면 비밀번호 재설정 링크를 보내드립니다.',
@@ -101,6 +103,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': '로그인 — 제니스 지원',
   'login.showPassword': '비밀번호 표시',
   'login.welcomeSubheading': '지원 대시보드에 로그인하세요',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.menu': '탐색',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'nav.legal': '법적 고지',
   'nav.newTicket': '새 티켓',
   'notifications.loadError': '알림을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.',
@@ -112,6 +117,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': '명령 검색',
   'operatorDock.newReport': '새로운 보고서',
   'operatorDock.systemOnline': '시스템 온라인',
+  'planUpdated.subtitle': '감사합니다',
   'planUpdated.title': '플랜이 업데이트되었습니다',
   'pricing.agents': '에이전트',
   'pricing.automation': '자동화 규칙',
@@ -245,6 +251,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': "{{이름}} '의 아바타",
   'ticketDetail.errorTitle': '문제가 발생했습니다',
+  'ticketDetail.loadError': '티켓을 불러오는 데 실패했습니다.',
+  'ticketDetail.notFound': '티켓을 찾을 수 없습니다',
+  'ticketDetail.replyError': '답장을 보내는 데 실패했습니다. 다시 시도해 주세요.',
   'ticketDetail.retry': '다시 시도',
   'ticketDetail.statusUpdateError': '상태를 업데이트할 수 없습니다. 다시 시도해 주세요.',
   'ticketDetailsCard.assigneeLabel': '양수인',
@@ -296,6 +305,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{시간}} 왼쪽',
   'ticketRow.title': '운영 환경에서 데이터베이스 연결에 실패했습니다. {{마디}}',
   'tickets.pageTitle': '티켓 — 제니스 지원',
+  'ticketsFab.newTicket': '새 티켓',
   'ticketsFilterBar.assigneeLabel': '양수인:',
   'ticketsFilterBar.clearFilters': '필터 지우기',
   'ticketsFilterBar.dateRangeDemoHint':

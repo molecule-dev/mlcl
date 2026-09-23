@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} haqida',
+  'about.pageTitle': 'Veb-ilmoq boshqaruv tekisligi',
+  'about.plansTitle': 'Har bir bosqich uchun rejalar',
   'apiKeys.bestPractices': 'Eng yaxshi amaliyotlar',
   'apiKeys.body':
     "Dasturiy kirish tokenlari. Ularga parollar kabi munosabatda bo'ling — env vars da saqlang, hech qachon commit qilmang.",
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'reja doirasida',
   'billing.usageWarning': 'qopqoq yaqinida',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.body':
     "Jonli o'tkazish qobiliyati, parvozdagi qayta urinishlar va hozirgina to'xtab qolgan so'nggi nuqtalar — siz boshqaradigan har bir ish maydonida.",
   'dashboard.endpointsEmpty': "Hali hech qanday oxirgi nuqta yo'q.",
@@ -113,6 +117,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'oxirgi nuqtalar',
   'endpointDetail.deliveryTrendSub': 'yetkazib berish / soat, jurnal shkalasi',
   'endpointDetail.hideSecret': 'Sirni yashirish',
+  'endpointDetail.loading': 'Oxirgi nuqta yuklanmoqda…',
   'endpointDetail.metric.delivered': '24 soat ichida yetkazib berildi',
   'endpointDetail.metric.deliveredCaption': 'dan {{count}} tadbir turlari',
   'endpointDetail.metric.failuresCaption': 'qayta urinishlar: {{retries}}',
@@ -218,6 +223,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Muhim · 24 soat',
   'notifications.metric.totalCaption': 'barcha vaqtlardagi pochta qutisi',
   'payloadViewer.payload': '// foydali yuk',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': "Ko'rsatilgan bosh harflar — keyingi nashr bilan birga yuklangan fayllar.",
   'profile.body': 'Hisobingiz, sozlamalaringiz va faol sessiyalaringiz.',
@@ -233,6 +239,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Faqat joriy sessiyangiz faol. Boshqa hech qanday qurilma tizimga kirilmagan.',
   'profile.toggle': "Yoqish/o'chirish {{label}}",
+  'pylonShell.closeMenu': 'Navigatsiya menyusini yopish',
+  'pylonShell.openMenu': 'Navigatsiya menyusini ochish',
   'pylonShell.primaryNavLabel': 'Asosiy navigatsiya',
   'resetPassword.subtitle': 'Ilgari foydalanmagan kuchli parolni tanlang.',
   'resetPassword.tokenPlaceholder': 'elektron pochtadan joylashtirish',

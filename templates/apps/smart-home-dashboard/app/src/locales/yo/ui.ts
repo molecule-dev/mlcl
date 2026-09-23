@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'about.pageTitle': 'Nípa {{app}}',
   'activity.empty': 'Kò sí ìgbòkègbodò kankan síbẹ̀ — yí ẹ̀rọ kan padà tàbí kí o mú ìṣẹ̀lẹ̀ kan ṣiṣẹ́.',
   'activity.eyebrow': 'Àkókò Àkókò',
   'activity.loadError': 'Kò le gbé ìfọ́síwájú ìṣiṣẹ́ jáde.',
   'activity.subheading': 'Gbogbo ohun èlò, ìdámọ̀, àti ìṣẹ̀lẹ̀ ààbò ní ìtòlẹ́sẹẹsẹ àkókò.',
+  'addDevice.error.failed': 'Kò le fi ẹ̀rọ náà kún un. Gbìyànjú lẹ́ẹ̀kan síi.',
   'addDevice.error.nameRequired': 'Fun ẹrọ yii ni orukọ lati tẹsiwaju.',
   'addDevice.field.firmware': 'Ẹ̀yà Firmware',
   'addDevice.field.manufacturer': 'Olùpèsè',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Idanwo…',
   'automationEditor.testNew': 'Fipamọ adaṣe akọkọ lati ṣe idanwo rẹ.',
   'automationRow.lastRun': 'Ìkẹ́yìn {{date}} · {{count}} àwọn ìsáré',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Sáré {{name}} nisinsinyi',
   'automations.empty': 'Kò sí iṣẹ́ àdánidá kankan síbẹ̀ — ṣẹ̀dá ìṣe àkọ́kọ́ rẹ.',
   'automations.eyebrow': 'Àwọn ìlànà ìṣe',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'N n gbe awọn adaṣe ṣiṣẹ…',
   'automations.newAutomation': '+ Tuntun',
   'automations.subheading': 'Tí èyí bá ṣẹlẹ̀, ṣe èyí — láìsí YAML.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Kò ṣeé ṣe láti gbé ẹ̀rọ náà sókè.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Ṣiṣẹ́…',
   'deviceDetail.unnamed': 'Ẹ̀rọ',
   'deviceStatusRow.on': 'Lórí',
+  'deviceStatusRow.turnOff': 'Paa',
+  'deviceStatusRow.turnOn': 'Tan-an',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Agbára',
   'energy.heading': 'Agbára',
@@ -173,4 +180,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Wo àwọn ètò',
   'settings.security.heading': 'Ààbò',
   'settings.subheading': 'Ètò, àwọn ibùdó, àti àwọn ìfẹ́ àkọọ́lẹ̀.',
+  'smartHomeDashboardLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
 }

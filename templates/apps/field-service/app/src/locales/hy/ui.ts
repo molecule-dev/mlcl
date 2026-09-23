@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Հաճախորդներ',
   'customers.loadError': 'Չհաջողվեց բեռնել հաճախորդներին։',
   'customers.loading': 'Բեռնվում է…',
+  'customers.new.address': 'Սպասարկման հասցե',
   'customers.new.email': 'Էլ․ փոստ',
   'customers.new.error': 'Չհաջողվեց ավելացնել հաճախորդը։',
   'customers.new.heading': 'Նոր հաճախորդ',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.tagline': 'Bawat unit, nasa iisang bubong.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.addProperty': 'Magdagdag ng ari-arian',
   'dashboard.empty.body':
     'Kapag mayroon ka nang mga ari-arian, yunit, at mga bayad sa upa, mapupuno ang dashboard na ito ng mga insight sa portfolio.',
@@ -88,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} mga bukas na order sa trabaho, nakaayos ayon sa prayoridad',
   'maintenanceQueueList.title': 'Pila ng Pagpapanatili',
+  'nav.closeMenu': 'Isara ang menu',
+  'nav.openMenu': 'Buksan ang menu',
   'notFound.body':
     'Ang pahinang iyong hinahanap ay inilipat, na-archive, o hindi na umiral kailanman.',
   'notFound.title': 'Hindi bumubukas ang pintong iyan',

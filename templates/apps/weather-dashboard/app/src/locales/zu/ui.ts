@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Okwamanje use- {{plan}} uhlelo.',
   'billing.switch': 'Shintsha',
   'billing.upgraded': 'Kubuyekezwe ku- {{plan}} — imingcele isetshenziswa ngokushesha.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'compare.activityHeading': 'Izinqumo zomsebenzi',
   'compare.empty.title': 'Engeza okungenani izindawo ezimbili ukuze uqhathanise',
   'compare.eyebrow': 'Icala ngecala',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Phezulu',
   'trends.summary.low.label': 'Phansi',
   'trends.summary.points.label': 'Izinsuku',
+  'weatherDashboardLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'weatherHeroCard.updated': 'Kubuyekeziwe {{time}}',
 }

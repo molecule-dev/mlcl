@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'about.tagline': 'Is-sigrieti jmutu fil-beraħ.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Oħloq token',
   'apiTokens.kicker': 'Tokens tal-API',
   'apiTokens.loading': 'Qed jitgħabbew it-tokens…',
+  'apiTokens.new': 'Token ġdid',
   'apiTokens.revoke': 'Irrevoka t-token',
   'apiTokens.subheading':
     "Tokens personali u ta' servizz għall-Arcanum CLI u l-SDK. Test sempliċi muri darba fil-ħolqien.",
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Ċavetta tal-Password',
   'authShell.zeroKnowledge': "Kriptaġġ b'għarfien żero",
   'common.connecting': 'Qed nikkonnettja…',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.inviting': 'Nistiednu…',
   'forgotPassword.checkInbox':
     "Jekk {email} ikun irreġistrat, link ta' reset iffirmat jasal fi żmien minuta.",
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     "Status tar-rotazzjoni, allerti ta' anomalija, u talbiet għal approvazzjoni f'kull vault.",
   'notifications.unreadEmpty': 'Inbox żero — kollox aġġornat.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.heading': 'sigrieti',
   'pricing.limits.accessPolicies': "politiki ta' aċċess",
   'pricing.limits.auditLog': 'entrati fil-log tal-verifika',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Kont personali',
   'profile.plan.description': 'Immaniġġja l-abbonament tiegħek, ara l-limiti, u aġġorna.',
   'profile.subheading': 'Identità, apparati tat-tieni fattur, u sessjonijiet attivi.',
+  'profile.twoFactor.code': "Kodiċi ta' awtentikazzjoni",
   'profile.twoFactor.disable': 'Iddiżattiva',
   'profile.twoFactor.enable': 'Ippermetti',
+  'profile.twoFactor.invalidCode': 'Kodiċi invalidu',
   'profile.twoFactor.kicker': "Awtentikazzjoni b'żewġ fatturi",
+  'profile.twoFactor.off': 'Mhux attivat',
   'profile.twoFactor.on': 'Attivat',
   'resetPassword.email': 'Indirizz elettroniku tal-kont',
   'resetPassword.heading': 'Issettja kredenzjali ġodda',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'kmandi',
   'secretsManagerLayout.encrypted': 'AES-256 · ENKRIPTAT',
   'secretsManagerLayout.newVault': 'Kassaforti ġdida',
+  'secretsManagerLayout.newVaultShort': 'Ġdid',
   'secretsManagerLayout.rotations': 'Rotazzjonijiet',
   'secretsManagerLayout.search': 'tfittxija',
   'secretsManagerLayout.searchPlaceholder':
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sigrieti',
   'vaultCard.vaultLabel': 'Kaxxaforti',
   'vaultDetail.addSecret': 'Żid sigriet',
+  'vaultDetail.back': 'Il-kmamar tas-sigurtà kollha',
   'vaultDetail.col.key': 'Ċavetta',
   'vaultDetail.col.rotated': 'Imdawwar',
   'vaultDetail.col.value': 'Valur',

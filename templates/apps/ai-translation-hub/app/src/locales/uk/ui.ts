@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'billing.canceled':
     'Підписку скасовано. Ви повернетесь до безкоштовного плану в кінці поточного періоду.',
   'billing.contactSales': "Зв'язатися з відділом продажів",
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Без обмежень зберігання',
   'billing.upgradeHint': 'Оновіть план, щоб отримати розширені функції AI.',
   'billing.yearly': 'Щорічно',
+  'common.goToDashboard': 'До панелі',
   'dashboard.activityEmpty': 'Активності ще немає — почніть проєкт, щоб заповнити цю стрічку.',
   'dashboard.eyebrow': 'Огляд',
   'dashboard.projectsEmpty': 'Проєктів ще немає — створіть перший, щоб побачити його тут.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Повторно використовуйте минулі переклади в усіх проєктах. Вищий показник збігу → менше повторної роботи.',
   'memory.title': "Банк пам'яті",
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'nav.legal': 'Юридична інформація',
   'newProject.addLanguage': 'Додати ціль',
   'newProject.create': 'Створити проєкт',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Позначено {{count}} сповіщень як прочитані.',
   'notifications.subtitle':
     'Згадки, запити на рецензування та події AI з усіх ваших робочих просторів.',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'privacy.collection.account': "Ваша електронна пошта та відображуване ім'я",
   'privacy.deletion.body':
     "Ви можете видалити проєкт, сегмент, термін глосарію або запис пам'яті в будь-який час на відповідній сторінці. Видалення вашого облікового запису через Налаштування видаляє всі рядки робочого простору з нашої бази даних.",
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Не вдалося завантажити проєкти.',
   'projects.loading': 'Завантаження проєктів…',
   'projects.subtitle': 'Усі активні проєкти для всіх локалей.',
+  'renditionLayout.primaryNavLabel': 'Основна навігація',
   'reset.backToLogin': '← Повернутися до входу',
   'reset.passwordLabel': 'Новий пароль',
   'review.activeEyebrow': 'Сегмент {{number}}',

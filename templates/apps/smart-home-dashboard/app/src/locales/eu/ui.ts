@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.pageTitle': '{{app}}(r)i buruz',
   'activity.empty': 'Ez dago jarduerarik oraindik — irauli gailu bat edo aktibatu eszena bat.',
   'activity.eyebrow': 'Denbora-lerroa',
   'activity.loadError': 'Ezin izan da jarduera-jarioa kargatu.',
   'activity.subheading':
     'Gailu, automatizazio eta segurtasun gertaera guztiak ordena kronologikoan.',
+  'addDevice.error.failed': 'Ezin izan da gailua gehitu. Saiatu berriro.',
   'addDevice.error.nameRequired': 'Jarraitzeko, eman izen bat gailu honi.',
   'addDevice.field.firmware': 'Firmware bertsioa',
   'addDevice.field.manufacturer': 'Fabrikatzailea',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Probatzen…',
   'automationEditor.testNew': 'Gorde automatizazioa lehenik probatzeko.',
   'automationRow.lastRun': 'Azkena {{date}} · {{count}} korrika egiten du',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Korrika egin {{name}} orain',
   'automations.empty': 'Oraindik ez dago automatizaziorik — sortu zure lehen errutina.',
   'automations.eyebrow': 'Errutinak',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Automatizazioak kargatzen…',
   'automations.newAutomation': '+ Berria',
   'automations.subheading': 'Hori gertatzen denean, egin hori — YAML gabe.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Ezin izan da gailua kargatu.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Lanean…',
   'deviceDetail.unnamed': 'Gailua',
   'deviceStatusRow.on': 'Piztuta',
+  'deviceStatusRow.turnOff': 'Itzali',
+  'deviceStatusRow.turnOn': 'Piztu',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Potentzia',
   'energy.heading': 'Energia',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Ikusi planak',
   'settings.security.heading': 'Segurtasuna',
   'settings.subheading': 'Plana, guneak eta kontuaren lehentasunak.',
+  'smartHomeDashboardLayout.openMenu': 'Ireki nabigazio menua',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Nabigazio nagusia',
 }

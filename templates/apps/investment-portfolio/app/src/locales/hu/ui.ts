@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'A {{app}} névjegye',
   'argentAuthShell.brandEyebrow': 'Ezüst · Vagyonkezelő eszközök',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nem befektetési tanácsadás.',
   'argentAuthShell.sampleChange': '+2841 dollár (+0,28%) ma',
   'argentAuthShell.sampleValue': '1 032 251 dollár',
   'argentLayout.primaryNavLabel': 'Elsődleges navigáció',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Nincsenek tranzakciók ehhez a tőzsdéhez.',
   'assetDetail.txHeading': 'A tranzakcióid',
   'common.and': 'és',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfólió áttekintése',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Még nincsenek birtokok.',
   'holdings.heading': 'Holdingok',
   'holdings.loadError': 'Nem sikerült betölteni a készleteket.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nem befektetési tanácsadás. A múltbeli teljesítmény nem garantálja a jövőbeni eredményeket.',
   'landing.eyebrow': 'Argent · Vagyonkezelő platform',
   'landing.features.heading': 'Minden, amit egy tanácsadó magának építene.',
   'landing.finalCta.heading': 'Hozd vissza a fegyelmet a portfóliódba.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}ó ezelőtt',
   'news.justNow': 'épp most',
   'news.loadError': 'Nem sikerült betölteni a híreket.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'portfolioHeroCard.label': 'Portfólió értéke',
   'pricing.holdingsLabel': 'holdingok',
   'pricing.newsLabel': 'hírek',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Számla törlése',
   'settings.security.deleting': 'Törlés…',
   'settings.security.heading': 'Biztonság',
+  'settings.security.newPassword': 'Új jelszó',
   'settings.security.password': 'Jelszó',
   'settings.security.twoFactorEnable': 'Engedélyezés',
+  'settings.security.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.security.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'settings.tax.error': 'Nem sikerült frissíteni az adózási módot.',
   'settings.tax.heading': 'Adótétel-számvitel',
   'settings.tax.method': 'Alapértelmezett módszer',

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.title': 'Gbasara {{app}}',
   'auth.login.noAccount': 'Ọ dị ọhụrụ na Sparq?',
   'auth.login.or': "ma ọ bụ gaa n'ihu na",
   'auth.signup.or': 'ma ọ bụ debanye aha na',
+  'common.confirm': 'Kwenye',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.loadError': 'Ihe na-agahie mgbe ị na-ebugo ọdịnaya a.',
+  'common.retry': 'Nwaa ọzọ',
   'discover.collections.title': 'Chọgharịa site na otu',
   'discover.collections.viewAll': 'Lee ọbá akwụkwọ gị →',
   'discover.empty.body': 'Nwaa otu dị iche ma ọ bụ hichapụ ọchụchọ ahụ.',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     "Banye iji mee ka usoro gị dịgide, na-akwado egwuregwu dị ndụ, ma rịgoro n'elu bọọdụ ndị isi.",
   'myQuizzes.createButton': 'Ajụjụ ọhụrụ',
+  'myQuizzes.deleteConfirm': 'Hichapụ ruo mgbe ebighị ebi?',
   'myQuizzes.empty.createCta': 'Wuo ajụjụ mbụ gị →',
   'myQuizzes.empty.created': 'I wubeghi ajụjụ.',
   'myQuizzes.empty.played': 'Enweghị ajụjụ ndị ebipụtara ugbu a.',
@@ -77,7 +84,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Na-ebugo…',
   'notifications.subhead':
     "{{count}} Ihe na-akpali agụụ agụghị. Ọkpụkpọ òkù, mmegharị ndị isi, na ihe ndị a rụzuru niile n'otu iyi.",
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.checkoutError': 'Enweghị m ike ịmalite ịkwụ ụgwọ. Biko nwaa ọzọ.',
+  'pricing.heading': 'Họrọ atụmatụ {{app}} gị',
   'pricing.included': 'Agụnyere',
   'pricing.loadError': 'Enweghị ike ibuli atụmatụ.',
   'pricing.maxQuizzes': '{{count}} ajụjụ ndị a na-ajụkarị',
@@ -97,11 +106,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Ọ dịghị ihe e bipụtara.',
   'profile.startBuilding': 'Malite iwu ụlọ →',
   'profile.tier': 'Onye ọkpụkpọ Sparq',
+  'quizBuilder.addFailed': 'Enweghị m ike itinye ajụjụ ahụ. Nwaa ọzọ.',
   'quizBuilder.addQuestion': 'Tinye ajụjụ',
   'quizBuilder.answerPlaceholder': 'Pịnye nhọrọ...',
   'quizBuilder.answersLabel': 'Nhọrọ azịza',
   'quizBuilder.back': 'Laghachi na ajụjụ m',
   'quizBuilder.delete': 'Hichapụ ajụjụ',
+  'quizBuilder.deleteFailed': 'Enweghị ike ihichapụ ajụjụ ahụ.',
   'quizBuilder.firstQuestion': 'Tinye ajụjụ mbụ gị ka ịmalite.',
   'quizBuilder.idLabel': 'ID ajụjụ: {{id}}',
   'quizBuilder.loadError': 'Enweghị ike ibuli ajụjụ.',
@@ -115,6 +126,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Tinye nhọrọ azịza abụọ ma ọ dịkarịa ala wee họrọ nke ziri ezi maka {{count}} ajụjụ tupu ebipụta ya.',
   'quizBuilder.questionsTitle': 'Ajụjụ',
+  'quizBuilder.saveFailed': 'Enweghị ike ịchekwa aha ahụ. Nwaa ọzọ.',
   'quizBuilder.statusDraft': 'Edemede',
   'quizBuilder.subhead':
     'Dezie aha ahụ, tinye ajụjụ, setịpụ nhọrọ na azịza ziri ezi. Mgbanwe ndị a na-echekwa na akpaghị aka.',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} nkeji',
   'quizDetail.hostMultiplayer': 'Onye ọbịa ọtụtụ mmadụ',
   'quizDetail.leaderboardEmpty': 'Enweghị egwuregwu ọ bụla — bụrụ onye mbụ ga-edobe akara.',
+  'quizDetail.loadError': 'Enweghị ike ibuli ajụjụ a.',
   'quizDetail.loading': 'Na-ebugo ajụjụ...',
   'quizDetail.plays': '{{count}} egwuregwu',
   'quizDetail.playSolo': 'Kpọọ naanị gị',

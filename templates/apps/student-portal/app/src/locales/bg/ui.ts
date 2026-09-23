@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'announcementsFeed.empty': 'Все още няма съобщения.',
   'announcementsFeed.eyebrow': '{{count}} актуализации',
   'announcementsFeed.title': 'Последни съобщения',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Превключете филтрите по-горе, за да видите заданията в различно състояние.',
   'assignments.eyebrow': 'Всички курсове · Този срок',
+  'assignments.loadError': 'Задачите не можаха да се заредят.',
   'assignments.loading': 'Зареждане на задания…',
   'assignments.subtitle':
     'Филтрирайте по статус, за да видите какво е дължимо, подадено, оценено или липсващо.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Забележка',
   'attendance.empty': 'Все още няма данни за посещаемост.',
   'attendance.eyebrow': 'Пролетен срок · Последни 4 седмици',
+  'attendance.loadError': 'Не можаха да се заредят записите за посещаемост.',
   'attendance.loading': 'Зареждане на посещаемостта…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Крайните срокове за предаване на заданията са нанесени в месечна мрежа — изпитите са обозначени в червено.',
   'calendar.title': '{{month}} събития',
+  'common.goToDashboard': 'Към таблото',
   'common.no': '—',
+  'common.retry': 'Опитайте отново',
   'common.yes': '✓',
   'courseDetail.backLink': 'Оценки',
   'courseDetail.currentGrade': 'Текуща оценка',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Тенденция',
   'grades.empty': 'Все още няма публикувани оценки.',
   'grades.eyebrow': 'Оценъчна книга',
+  'grades.loadError': 'Не можах да заредя оценките ви.',
   'grades.loading': 'Зареждане на оценки…',
   'grades.subtitle':
     'Оценки на живо с букви и проценти. Стрелките за тенденции показват дали се движите нагоре, на едно ниво или се изоставате.',
   'grades.title': 'Вашите оценки, курс по курс',
   'grades.trendStable': 'Стабилен',
+  'landing.copyright': '© {{year}} {{app}} . Създадено за студенти, направено за семейства.',
   'landing.ctaHeading': 'По-спокоен учебен ден започва след минути',
   'landing.eyebrow': 'За ученици от средното и горното училище',
   'landing.featuresHeading': 'Учебен ден, организиран около ученика',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Задачи',
   'nav.attendance': 'Присъствие',
   'nav.calendar': 'Календар',
+  'nav.closeMenu': 'Затвори менюто за навигация',
   'nav.grades': 'Оценки',
+  'nav.openMenu': 'Отвори менюто за навигация',
   'nav.statusEyebrow': 'Среден успех за срок',
   'nav.statusSubtext': 'Почетен списък · Пролетен срок',
+  'nav.unreadMessages': 'Непрочетени съобщения',
   'notifications.eyebrow': '{{count}} актуализации',
   'notifications.subtitle':
     'Оценки, напомняния, съобщения и училищни обявления. В „Настройки“ можете да регулирате кои канали да използва всяко известие.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.attendanceLabel': 'посещаемост',
   'pricing.gradesLabel': 'оценки',
   'pricing.heading': 'съобщения',

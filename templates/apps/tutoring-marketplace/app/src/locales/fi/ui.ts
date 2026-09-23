@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Sinun roolisi',
   'account.role.upgradeLink': 'Hae varmennettuna tutorina →',
   'account.title': 'Profiili, maksu ja asetukset.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Opeta liidulla',
   'becomeTutor.form.error': 'Hakemusta ei voitu lähettää.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Aihe',
   'bookingConfirm.title': 'Olet varattu. Me hoidamme loput.',
   'bookingConfirm.with': 'Tutorin kanssa',
+  'common.goToDashboard': 'Siirry etusivulle',
   'earningsHero.eyebrow': 'Tulot • {{month}}',
   'forgotPassword.heading': 'Unohditko salasanasi?',
   'forgotPassword.subheading':
@@ -110,6 +112,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Lähetä viesti',
   'messages.thread.empty': 'Sano hei – aloita keskustelu.',
   'messages.title': 'Keskusteluja tutoreiden kanssa.',
+  'nav.primary': 'Ensisijainen',
   'pricing.dataExport': 'Tietojen vienti:',
   'pricing.headingDefault': 'Edistyneet ominaisuudet:',
   'resetPassword.heading': 'Valitse uusi vahva salasana.',

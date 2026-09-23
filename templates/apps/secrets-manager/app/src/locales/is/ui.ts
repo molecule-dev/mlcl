@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'about.tagline': 'Leyndarmál deyja í opnu rými.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Búa til tákn',
   'apiTokens.kicker': 'API-tákn',
   'apiTokens.loading': 'Hleður inn tákn…',
+  'apiTokens.new': 'Nýtt tákn',
   'apiTokens.revoke': 'Afturkalla tákn',
   'apiTokens.subheading':
     'Persónuleg tákn og þjónustutákn fyrir Arcanum CLI og SDK. Einfaldur texti sýndur einu sinni við stofnun.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Aðgangslykill',
   'authShell.zeroKnowledge': 'Núllþekkingardulkóðun',
   'common.connecting': 'Tengist…',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.inviting': 'Bjóða…',
   'forgotPassword.checkInbox':
     'Ef {email} er skráð, mun undirritaður endurstillingartengill berast innan mínútu.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Staða skiptingar, viðvaranir um frávik og samþykkisbeiðnir í hverju geymsluhólfi.',
   'notifications.unreadEmpty': 'Pósthólf núll — allt komið í lag.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.heading': 'leyndarmál',
   'pricing.limits.accessPolicies': 'aðgangsreglur',
   'pricing.limits.auditLog': 'færslur í endurskoðunarskrá',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Persónulegur reikningur',
   'profile.plan.description': 'Stjórnaðu áskriftinni þinni, sjáðu takmörk og uppfærðu.',
   'profile.subheading': 'Auðkenni, tæki sem nota annan þátt og virkar lotur.',
+  'profile.twoFactor.code': 'Auðkenningarkóði',
   'profile.twoFactor.disable': 'Slökkva',
   'profile.twoFactor.enable': 'Virkja',
+  'profile.twoFactor.invalidCode': 'Ógildur kóði',
   'profile.twoFactor.kicker': 'Tvíþátta auðkenning',
+  'profile.twoFactor.off': 'Ekki virkjað',
   'profile.twoFactor.on': 'Virkt',
   'resetPassword.email': 'Netfang reiknings',
   'resetPassword.heading': 'Setja upp nýjar innskráningarupplýsingar',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'skipanir',
   'secretsManagerLayout.encrypted': 'AES-256 · DULKLÝST',
   'secretsManagerLayout.newVault': 'Nýtt hvelfing',
+  'secretsManagerLayout.newVaultShort': 'Nýtt',
   'secretsManagerLayout.rotations': 'Snúningar',
   'secretsManagerLayout.search': 'leit',
   'secretsManagerLayout.searchPlaceholder': 'Leitaðu að leyndarmálum eftir lykli, slóð eða merki…',
@@ -168,6 +176,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Leyndarmál',
   'vaultCard.vaultLabel': 'Hvelfing',
   'vaultDetail.addSecret': 'Bæta við leyndarmáli',
+  'vaultDetail.back': 'Allar hvelfingar',
   'vaultDetail.col.key': 'Lykill',
   'vaultDetail.col.rotated': 'Snúið',
   'vaultDetail.col.value': 'Gildi',

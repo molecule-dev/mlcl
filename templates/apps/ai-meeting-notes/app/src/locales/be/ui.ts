@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'actions.empty': 'Няма адпаведных пунктаў дзеяння.',
   'actions.heading': 'Задачы',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Папярэдні месяц',
   'calendar.recent': 'Нядаўнія',
   'common.daysAgo': '{{count}} д. таму',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.hoursAgo': '{{count}} г. таму',
   'common.no': '—',
+  'common.retry': 'Паўтарыць',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} элементы дзеяння',
   'dashboard.empty.body':
@@ -42,9 +45,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Увядзіце свой адрас электроннай пошты, і мы дашлем вам спасылку для скіду налад.',
   'integrations.disconnected': 'Адключана',
+  'integrations.loadError': 'Не атрымалася загрузіць інтэграцыі.',
   'integrations.notConnectedTag': 'Не падключана',
   'integrations.subheading':
     'Падключыце календары і відэаплатформы, каб Murmur далучыўся аўтаматычна.',
+  'integrations.updateError': 'Не ўдалося абнавіць.',
   'landing.ctaButton': 'Пачніце — гэта бясплатна',
   'landing.ctaHeading': 'Перастаньце рабіць нататкі. Пачніце прымаць рашэнні.',
   'landing.demo.aiLabel': 'Кароткі змест ШІ, падрыхтаваны ў рэжыме рэальнага часу',
@@ -63,7 +68,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Наступныя дзеянні',
   'meetingDetail.loadError': 'Не атрымалася загрузіць сустрэчу.',
   'meetingDetail.noActions': 'Элементы дзеянняў не выяўлены.',
+  'meetingDetail.none': 'Ніводнага.',
   'meetingDetail.notFound': 'Сустрэча не знойдзена.',
+  'meetingDetail.speakerFallback': 'Спікер {{id}}',
   'meetingDetail.summaryHeading': 'Кароткі змест па штучным інтэлекце',
   'meetingDetail.transcriptHeading': 'Стэнаграма',
   'meetings.empty.body':
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Сустрэчы',
   'meetings.loadError': 'Не атрымалася загрузіць сустрэчы.',
   'meetings.subheading': 'Кожная запісаная, загружаная і сінхранізаваная сустрэча.',
+  'murmurLayout.openMenu': 'Адкрыць меню навігацыі',
   'murmurLayout.primaryNavLabel': 'Асноўная навігацыя',
   'nav.legal': 'Юрыдычная інфармацыя',
   'notifications.loadError': 'Не атрымалася загрузіць апавяшчэнні.',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Як ты выглядаеш унутры Murmur.',
   'record.error.empty': 'Аўдыё не было запісана.',
   'record.error.permission': 'Доступ да мікрафона забаронены.',
+  'record.error.recorder': 'Памылка рэгістратара',
   'record.error.unsupported':
     'Ваш браўзер не падтрымлівае запіс. Паспрабуйце Chrome, Edge або Safari.',
   'record.error.upload': 'Памылка загрузкі. Паспрабуйце яшчэ раз.',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Новы пароль',
   'reset.subheading': 'Выберыце пароль, які вы больш нідзе не выкарыстоўваеце.',
   'search.empty': 'Увядзіце тэкст для пошуку транскрыптаў.',
+  'search.loadError': 'Пошук не ўдаўся. Паспрабуйце яшчэ раз.',
   'search.noResults': 'Няма вынікаў для « {{q}} ».',
   'settings.appearance.description': 'Пераключэнне паміж светлым і цёмным рэжымамі.',
   'settings.appearance.title': 'Знешні выгляд',
@@ -127,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Не атрымалася загрузіць налады.',
   'settings.loading': 'Загрузка…',
   'settings.push.heading': 'Push-апавяшчэнні',
+  'settings.push.subheading': 'Атрымлівайце апавяшчэнні браўзера аб згадках, задачах і зводках.',
   'settings.retention.audio': 'Захоўваць аўдыё на працягу',
   'settings.retention.heading': 'Утрыманне',
   'settings.retention.transcript': 'Захоўвайце транскрыпцыі для',
@@ -144,6 +155,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Пачніце запісваць нататкі з сустрэч за лічаныя хвіліны',
   'signup.terms':
     'Ствараючы ўліковы запіс, вы згаджаецеся з нашымі Умовамі абслугоўвання і Палітыкай прыватнасці.',
+  'signup.termsPrefix': 'Ствараючы ўліковы запіс, вы згаджаецеся з нашымі',
   'team.inviteCta': 'Запрасіць таварыша па камандзе',
   'team.invitedAs': 'Запрошаны як {{role}}',
   'team.inviteFailed': 'Не атрымалася адправіць запрашэнне.',

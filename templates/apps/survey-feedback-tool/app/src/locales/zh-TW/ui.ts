@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '關於 {{app}}',
   'analytics.back': '調查概述',
   'analytics.kpiNps': 'NPS評分',
   'analytics.kpiNpsTrend': '發起人{{p}} % · 批評者{{d}} %',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': '特性',
   'builder.questionNumber': '問{{num}}',
   'builder.surveyTitle': '調查標題',
+  'common.goToDashboard': '前往主控台',
   'forgotPassword.failed': '重設郵件發送失敗，請重試。',
   'forgotPassword.subheading': '請輸入您的電子郵件地址，我們將向您發送恢復連結。',
   'forgotPassword.successBody':
     '如果帳戶匹配{{email}}重置連結正在發送中。請檢查您的收件匣和垃圾郵件資料夾。',
+  'landing.footer.copyright': '© {{year}} {{app}} 。歡迎所有聲音。',
   'landing.footer.startTrial': '開始試用',
   'landing.hero.badge': '調查、NPS 和回饋集中在一個地方',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': '定價',
   'landing.pricing.perMonth': '/月',
   'landing.pricing.popular': '最受歡迎',
+  'landing.pricing.subtitle':
+    '每個套餐都包含問卷創建工具、公開分享連結和 NPS 分析功能。無需信用卡即可開始使用。',
+  'landing.pricing.title': '先免費開始，然後根據需要擴展規模。',
   'landing.sample.eyebrow': 'NPS概覽',
   'landing.sample.title': '批評者、被動者、支持者──一目了然。',
   'login.failed': '登入失敗。請重試。',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'login.showPassword': '顯示密碼',
   'login.signUpLink': '開始免費試用',
   'login.subheading': '登入即可繼續聆聽聽眾的聲音。',
+  'notFound.body': '您要尋找的頁面在{{app}}上不存在。讓我們帶您返回調查頁面。',
   'notFound.cta': '回調查問卷',
   'notFound.eyebrow': '404',
   'notFound.heading': '這項調查被擱置了。',
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': '被動語態 7–8',
   'npsDistributionBar.promoter': '啟動子9-10',
   'profile.identity.description': '對您的團隊和您創建的問卷公開。',
+  'profile.identity.emailRequired': '請輸入電子郵件地址。',
   'profile.identity.saveCta': '保存名稱',
   'profile.password.current': '目前密碼',
   'profile.password.fillFields': '請輸入目前密碼和新密碼。',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}}問題',
   'templates.subheading':
     '選擇經過實戰檢驗的入門範本—每個範本都預先調整了合理的預設值、範例邏輯和簡潔的移動佈局。',
+  'thankYou.body': '您的回覆已記錄。 {{app}}會將其包含在下次分析資料刷新中。',
   'thankYou.eyebrow': '已收到回覆',
   'thankYou.heading': '謝謝——您的意見很重要。',
   'thankYou.home': '訪問 Gauge',

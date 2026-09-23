@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Oor {{app}}',
+  'appNav.mobileLabel': 'Primêre navigasie',
+  'appNav.primaryLabel': 'Primêre navigasie',
   'billing.actions.confirmCancel': 'Kanselleer jou intekening? Jy kan enige tyd weer inteken.',
   'billing.actions.paused': 'Intekening onderbreek.',
   'billing.actions.resumed': 'Subskripsie hervat.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     "Elke vlak is 'n kleinskaalse storie. Voeg een by jou tou of ruil dit na jou volgende maand.",
   'boxThemeCard.perMonth': '/ maand',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'customize.eyebrow': 'Maak dit joune',
   'customize.heading': 'Pasmaak jou volgende Crate',
   'customize.items.exclude': 'Slaan dit oor',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Hierdie seisoen',
   'landing.editions.heading': 'Uitgawes waarvan ons kurators hou',
   'landing.footer.contact': "Praat met 'n kurator",
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Begin jou boks →',
   'landing.hero.ctaSecondary': 'Sien vlakke',
   'landing.hero.eyebrow': 'Maandeliks saamgestel. Altyd persoonlik.',
@@ -111,6 +116,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'JOU VOLGENDE TROEF',
   'nextBoxHeroCard.itemsLabel': 'Gekurateerde items',
   'nextBoxHeroCard.shipsOnLabel': 'Verskeep op',
+  'notFound.body':
+    'Ons kon nie daardie bladsy in die {{app}} -argief vind nie. Dit is dalk afgetree of bloot verkeerd getik.',
   'notFound.cta.dashboard': 'Gaan na die dashboard',
   'notFound.eyebrow': 'Leë boks',
   'notFound.heading': 'Hierdie rak is leeg',

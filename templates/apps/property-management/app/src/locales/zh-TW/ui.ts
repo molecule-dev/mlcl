@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
+  'about.tagline': '所有單元，都在同一屋簷下。',
+  'common.goToDashboard': '前往主控台',
   'dashboard.addProperty': '新增屬性',
   'dashboard.empty.body': '一旦您擁有房產、單元和租金支付信息，此儀表板就會顯示投資組合分析結果。',
   'dashboard.empty.cta': '新增屬性',
@@ -80,6 +83,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{財產}} · 單元{{單元}} · {{日期}}',
   'maintenanceQueueList.subtitle': '{{count}}未完成的工作訂單，依優先順序排序',
   'maintenanceQueueList.title': '維護隊列',
+  'nav.closeMenu': '關閉選單',
+  'nav.openMenu': '開啟選單',
   'notFound.body': '您要尋找的頁面已被移動、存檔或從未存在過。',
   'notFound.title': '那扇門打不開。',
   'notifications.empty.body': '新的租金支付資訊、維修更新和租賃提醒將顯示在此。',

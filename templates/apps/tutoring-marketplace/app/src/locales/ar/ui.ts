@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'دورك',
   'account.role.upgradeLink': '← تقدّم لتصبح معلّماً موثَّقاً',
   'account.title': 'الملف الشخصي والدفع والتفضيلات.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'علِّم على Mentor',
   'becomeTutor.form.error': 'تعذّر إرسال الطلب.',
   'becomeTutor.form.pitchPlaceholder': 'جمل قصيرة سيراها الطلاب على ملفك. اجعلها محدّدة ودافئة.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'المادة',
   'bookingConfirm.title': 'تم حجزك. سنتولّى الباقي.',
   'bookingConfirm.with': 'مع المعلّم',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'earningsHero.eyebrow': 'الأرباح • {{month}}',
   'forgotPassword.heading': 'هل نسيت كلمة المرور؟',
   'forgotPassword.subheading':
@@ -106,6 +108,7 @@ export const ui: UiTranslations = {
   'messages.send': 'إرسال الرسالة',
   'messages.thread.empty': 'قل مرحباً — ابدأ المحادثة.',
   'messages.title': 'محادثاتك مع معلّميك.',
+  'nav.primary': 'أساسي',
   'pricing.dataExport': 'تصدير البيانات:',
   'pricing.headingDefault': 'الميزات المتقدمة:',
   'resetPassword.heading': 'اختر كلمة مرور جديدة قويّة.',

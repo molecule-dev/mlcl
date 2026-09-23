@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.title': 'Giới thiệu {{app}}',
   'comments.addFailed': 'Không thể đăng bình luận.',
   'comments.backToDoc': 'Quay lại bản thảo',
   'comments.deleteFailed': 'Không thể xóa.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Giải quyết',
   'comments.resolveFailed': 'Không thể giải quyết.',
   'comments.subtitle': '{{open}} đang mở · {{resolved}} đã giải quyết',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.activityHeading': 'Điều đang diễn ra',
   'dashboard.createFailed': 'Không thể tạo tài liệu.',
   'dashboard.empty': 'Chưa có bản thảo nào — hãy bắt đầu bằng nút Tài liệu mới.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Không thể chuyển vào thùng rác.',
   'editor.unpublish': 'Hủy xuất bản',
   'editor.untitled': 'Tài liệu Không có tiêu đề',
+  'editor.updatedElsewhere':
+    'Tài liệu này đã được người khác cập nhật — hãy tải lại trang để xem phiên bản mới nhất.',
   'editor.version': 'p{{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Nếu tài khoản tồn tại cho {{email}}, liên kết đặt lại đang được gửi đi.',
   'forgotPassword.subtitle': 'Chúng tôi sẽ gửi cho quý vị liên kết đặt lại qua email.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Được xây dựng bằng Molecule.',
   'landing.ctaHeading': 'Mở trang. Để con trỏ bắt đầu.',
   'landing.ctaPrimary': 'Mở một studio',
   'landing.eyebrow': 'Dành cho nhà văn, biên tập viên và nhóm',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'đã chỉnh sửa {{when}}',
   'quillonDocumentCard.open': 'Mở →',
   'quillonKpiCard.trend': 'Xu hướng gần đây',
+  'quillonLayout.menu': 'Thực đơn',
   'quillonLayout.primaryNavLabel': 'Điều hướng chính',
   'quillonStudioHero.collab': 'Cộng tác viên',
   'quillonStudioHero.docs': 'Tài liệu đã chạm vào',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}n trước',
   'time.hoursAgo': '{{hours}}g trước',
   'time.justNow': 'vừa xong',
+  'trash.confirmDelete': 'Xác nhận xóa',
   'trash.deleteFailed': 'Không thể xóa.',
   'trash.deleteForever': 'Xóa vĩnh viễn',
   'trash.empty': 'Không có gì để khôi phục.',
+  'trash.emptyAll': 'Dọn sạch thùng rác',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Thùng rác',
   'trash.loadFailed': 'Không thể tải thùng rác.',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Na-edozi…',
   'comments.subtitle':
     'Ihe {{count}} E nwere ihe ndị a ka na-eche ka a zaa ha ma ọ bụ mee mkpebi. A haziri ha site na afọ — nke kacha ochie, ka ihe ọ bụla ghara ire ere.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'forgotPassword.sentTo': 'Tụgharịa njikọ e zigara na {{email}}',
   'forgotPassword.successSubheading':
     "Lelee igbe mbata gị — anyị ezitere njikọ nrụpụta. Ọ ga-agwụ n'ime nkeji iri atọ.",
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ibe ọhụrụ',
   'pageTreeSidebar.workspaceHeader': 'Ebe Ọrụ',
   'pageView.breadcrumb': 'Achịcha achịcha',
+  'pageView.confirmTrash': 'Kpoo ya ihe mkpofu?',
   'pageView.home': 'Ebe Obibi',
   'pageView.lastEdited': 'Emelitere {{when}}',
   'pageView.loading': 'Na-ebugo ibe...',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Na-achịkọta...',
   'pageView.summaryUnavailable': 'A hazieghị nchịkọta AI maka ebe ọrụ a.',
   'pageView.tocTitle': 'Na ibe a',
+  'pageView.trash': 'Ahịhịa',
+  'pageView.trashing': 'Ịkpọfu ihe...',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Akara ngosi',
   'profile.owned.title': 'Ibe ndị ejiri mee ihe',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': "Ebe ọrụ, profaịlụ, ọkwa, njikọta - ihe niile dị n'otu shei dị jụụ.",
   'settingsPage.workspace.defaultLanding': 'Ihuenyo ọdịda ndabara',
   'settingsPage.workspace.landingHome': 'Ebe Obibi',
+  'settingsPage.workspace.landingSpaces': 'Oghere',
   'settingsPage.workspace.subdomainLabel': 'Ngalaba nta',
   'settingsPage.workspace.title': 'Ebe Ọrụ',
   'signup.eyebrow': 'Malite ebe ọrụ ọhụrụ',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} nkeji',
   'templates.subtitle':
     "Malite ibe site na stencil, ọ bụghị ákwà efu. Tebụl ọ bụla na-edezi ọdịdị ahụ nke ọma ka i wee nwee ike ilekwasị anya n'ihe dị na ya.",
+  'trash.confirmPurge': 'Sachapụ ruo mgbe ebighị ebi?',
+  'trash.confirmPurgeAria': 'Kwenye: hichapụ {{title}} kpamkpam',
   'trash.daysUntilPurge': '{{days}} ụbọchị fọdụrụ',
   'trash.empty.body': 'Ibe ndị ehichapụrụ ga-apụta ebe a ruo ụbọchị iri atọ tupu e wepụ ha.',
   'trash.empty.title': 'Ahịhịa tọgbọ chakoo.',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Na-eweghachi…',
   'versionHistory.subtitle': '{{count}} ụdị · họrọ ahịrị iji lelee ọdịiche dị na ya',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Mechie nhazigharị',
+  'wikiLayout.menu': 'Nsoroụzọ',
+  'wikiLayout.openMenu': 'Mepee nhazigharị',
   'wikiLayout.searchPlaceholder': 'Chọọ Cairn — peeji, okwu ndị mmadụ kwuru…',
 }

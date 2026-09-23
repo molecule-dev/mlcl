@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'श्रृंखला पुनः शुरू करें',
   'resetPassword.mismatchError': 'पासवर्ड मेल नहीं खाते।',
   'resetPassword.subheading': 'कुछ मजबूत चुनें। आपकी पुस्तकें प्रतीक्षा करेंगी।',
-  'reviewCard.starsAria': 'रेटेड<x> {{rating}}</x> में से<x> {{का}}</x> सितारे',
+  'reviewCard.starsAria': '{{of}} सितारों में से {{rating}} रेटिंग दी गई',
   'reviewCard.unratedAria': 'अनरेटेड',
   'reviews.eyebrow': 'जो आपके साथ रहा',
   'reviews.heading': 'आपकी समीक्षाएँ',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
+  'about.title': 'Стая за писане, която можете да държите в джоба си',
   'billing.cancelConfirm': 'Да анулираме ли активния си абонамент?',
   'billing.cancelFailed': 'Не можа да се отмени.',
   'billing.checkingOut': 'Отваряне на касата…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Не можа да се зареди фактурирането.',
   'billing.loading': 'Зареждане на сметката…',
   'billing.upgradeCta': 'Надстройте до {{name}}',
+  'common.goToDashboard': 'Към таблото',
+  'editor.autosaveOn': 'Автоматичното запазване е включено',
   'editor.backToLibrary': 'Обратно към библиотеката',
   'editor.charCount': '{{count}} символи',
   'editor.confirmTrash': 'Да се премести ли този документ в кошчето?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Откачено',
   'editor.unpublishCta': 'Преместване в чернова',
   'editor.unpublished': 'Върнато към чернова',
+  'focus.autosaveOn': 'Автоматичното запазване е включено',
   'focus.backToLibrary': 'Обратно към библиотеката',
   'focus.bodyPlaceholder': 'Ред по ред. Няма никой друг тук.',
   'focus.exit': 'Изход от режим на фокус',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Създайте такъв',
   'login.subline':
     'Вашите ръкописи, ежедневни страници и последната позиция на курсора са точно там, където сте ги оставили.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'pricing.exports': 'износ',
   'pricing.folders': 'папки',
   'pricing.heading': 'документи',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Въведете кода, който току-що ви изпратихме по имейл, и изберете нещо запомнящо се. Ще ви влезем в профила, след като бъде запазен.',
   'reset.tokenHint': 'Поставено от входящата ви поща.',
+  'settings.appearance.heading': 'Светло или тъмно',
   'settings.editor.${row.id}.description': 'Език',
   'settings.editor.description':
     'Превъртане на пишеща машина, избледняване на параграфи и фокус при неактивност — настройките по подразбиране са настроени за дълги сесии.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Глава трета — Тих час преди изгрев слънце',
   'versalDocumentCard.pinned': 'Закачено',
   'versalLayout.nav.stats': 'Статистика',
+  'versalLayout.primaryNavLabel': 'Основна навигация',
   'versalManuscriptHero.cta': 'Продължи да пишеш',
   'versalManuscriptHero.goalLabel': 'Днешната цел с думи',
   'versalManuscriptHero.inProgress': 'На път',

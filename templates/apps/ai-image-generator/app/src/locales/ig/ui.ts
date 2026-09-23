@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'auth.fields.newPassword': 'Okwuntughe Ọhụrụ',
   'collectionDetail.addImage': 'Ịchọta ihe maka nchịkọta',
   'collectionDetail.backCta': 'Laghachi na nchịkọta',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': "Mkpọtụ ọnọdụ, obere akụkọ na usoro ihe nkiri na-aga n'ihu",
   'collections.title': 'Nchịkọta',
   'collections.untitled': 'Enweghị aha · {{stamp}}',
+  'common.closeMenu': 'Mechie menu',
+  'common.dismiss': 'Kwụpụ',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.openMenu': 'Mepee menu nsoroụzọ',
   'credits.eyebrow': '{{plan}} atụmatụ',
   'credits.renewsCopy': 'Atụmatụ ahụ na-emegharị ọzọ na {{date}}',
   'credits.trail': 'Nchegharị · {{plan}} ọkwa',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Ọrụ mmepụta, nkesa na ọkwa kredit ga-apụta ebe a.',
   'notifications.empty.title': 'Ọ dịghị ihe a ga-akọ',
   'notifications.subtitle': "A na-ahazi ihe omume ọgbọ site n'ụbọchị ruo n'ụbọchị",
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.limits.gallery': '{{count}} ụlọ ngosi ihe ngosi',
   'privacy.collect.body':
     'Mgbe ị debanyere aha, anyị na-anakọta aha gị, adreesị ozi-e, na paswọọdụ hashed. Ka ị na-eji Reverie, anyị na-echekwa ihe ndị ị na-enye, onyonyo anyị na-ewepụtara gị, ụdị na nchịkọta ị na-echekwa, yana metadata dị ka ụdị ejiri mee ihe, akara oge mmepụta, na nguzozi kredit.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Chekwaa paswọọdụ ọhụrụ',
   'reset.submitting': 'Na-emelite paswọọdụ...',
   'settings.account.handle': 'Aka',
+  'settings.account.lastSaved': 'Profaịlụ na-arụ ọrụ · {{name}}',
   'settings.account.saved': 'Echekwara profaịlụ',
   'settings.account.saveFailed': 'Enweghị ike ịchekwa profaịlụ',
   'settings.account.title': 'Profaịlụ onye nrụpụta',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Foto ọhụrụ',
   'sidebar.secondary': 'Ntugharị nke abụọ',
   'signup.failed': 'Ndebanye aha agaghị nke ọma. Nwaa ọzọ.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Malite nyocha gị',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': "Mepụta akaụntụ ma nweta kredit 120 n'efu.",
   'styles.empty': 'Enwebeghị ụdị ihe edobere — ha ga-apụta mgbe ị banyere na mbụ.',
   'styles.eyebrow': 'A họpụtara',

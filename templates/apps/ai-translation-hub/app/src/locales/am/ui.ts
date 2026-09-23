@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'billing.canceled': 'የደንበኝነት ምዝገባ ተሰርዟል። በክፍለ ጊዜው መጨረሻ ላይ ወደ ነጻ ይመለሳሉ።',
   'billing.contactSales': 'ሽያጮችን ያግኙን',
   'billing.free.1': '5 ትርጉሞች',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'የማቆየት ገደብ የለም',
   'billing.upgradeHint': 'የላቁ የAI ባህሪያትን ለመክፈት ያሻሽሉ።',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.activityEmpty': 'እስካሁን ምንም እንቅስቃሴ የለም - ይህንን ምግብ ለመሙላት ፕሮጀክት ይጀምሩ።',
   'dashboard.eyebrow': 'አጠቃላይ እይታ',
   'dashboard.projectsEmpty': 'እስካሁን ምንም ፕሮጀክቶች የሉም - አንዱን ለመጀመር እዚህ ለማየት ይጀምሩ።',
@@ -106,6 +108,8 @@ export const ui: UiTranslations = {
   'memory.submit': 'ግቤትን አስቀምጥ',
   'memory.subtitle': 'ያለፉ ትርጉሞችን በእያንዳንዱ ፕሮጀክት ላይ እንደገና ይጠቀሙ። ከፍተኛ የተዛማጅ ውጤት → ያነሰ ዳግም ስራ።',
   'memory.title': 'የማህደረ ትውስታ ባንክ',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'nav.legal': 'ሕጋዊ',
   'newProject.addLanguage': 'ኢላማ ያክሉ',
   'newProject.create': 'ፕሮጀክት ይፍጠሩ',
@@ -132,6 +136,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'ቀደም ብሎ',
   'notifications.markedAllRead': 'ምልክት የተደረገበት {{count}} ማሳወቂያዎች እንደተነበቡ።',
   'notifications.subtitle': 'ከስራ ቦታዎችዎ የተወሰዱ መጠቀሶች፣ የግምገማ ጥያቄዎች እና የAI ክስተቶች።',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'privacy.collection.account': 'የመለያዎ ኢሜይል እና የማሳያ ስም',
   'privacy.deletion.body':
     'በማንኛውም ጊዜ ከሚመለከተው ገጽ ላይ የፕሮጀክት፣ የክፍል፣ የቃላት መፍቻ ቃል ወይም የማህደረ ትውስታ ግቤት መሰረዝ ይችላሉ። መለያዎን ከቅንብሮች መሰረዝ እያንዳንዱን የስራ ቦታ-ስኬፕ የተደረገ ረድፍ ከመረጃ ቋታችን ያጸዳል።',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ፕሮጀክቶችን መጫን አልተሳካም።',
   'projects.loading': 'ፕሮጀክቶችን በመጫን ላይ…',
   'projects.subtitle': 'በሁሉም አካባቢዎች ውስጥ ያለ እያንዳንዱ ንቁ ፕሮጀክት።',
+  'renditionLayout.primaryNavLabel': 'ዋና አሰሳ',
   'reset.backToLogin': '\\u2190 ወደ መለያ ተመለስ',
   'reset.passwordLabel': 'አዲስ የይለፍ ቃል',
   'review.activeEyebrow': 'ክፍል {{number}}',

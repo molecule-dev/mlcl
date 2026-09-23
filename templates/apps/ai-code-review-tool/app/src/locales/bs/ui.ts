@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nama',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.connectRepoCta': 'Poveži repozitorij',
   'dashboard.empty': 'Još nema zahtjeva za povlačenjem — povežite repozitorij da biste započeli.',
   'dashboard.eyebrow': 'Refract · red za pregled',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Vrijeme rada',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Ocjena kvalitete umjetne inteligencije {{score}} / 10',
+  'refractLayout.closeMenu': 'Zatvori meni',
+  'refractLayout.openMenu': 'Otvori meni',
   'refractLayout.primaryNavLabel': 'Primarna navigacija',
   'reports.cumulativeScoreLabel': 'Kumulativni rezultat',
   'reports.cumulativeScoreSubtitle': 'svi repozitorij · {{days}} dan',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nije uspjelo učitavanje indeksa pretrage.',
   'settings.apiKeys.description':
     'Upravljajte ličnim API ključevima iz korisničkog menija u gornjem desnom uglu.',
+  'settings.apiKeys.integrationsNote':
+    'Tokeni za pristup provajdera se upravljaju u odjeljku Integracije iznad.',
   'settings.connectError': 'Povezivanje s provajderom nije uspjelo.',
   'settings.disconnectError': 'Prekidanje veze s provajderom nije uspjelo.',
   'settings.eyebrow': 'Refract · radni prostor',
   'settings.integration.${provider}.label': 'Spremanje…',
   'settings.loadError': 'Učitavanje postavki nije uspjelo.',
+  'settings.notificationCenter': 'Centar za obavještenja',
   'settings.notifications.description':
     'Posjetite stranicu s obavijestima da biste pregledali i upravljali postavkama dostave.',
   'settings.section.account': 'Račun i sigurnost',

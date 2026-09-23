@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'निराकरण करत आहे…',
   'comments.subtitle':
     '{{count}} ज्या थ्रेड्सना अजूनही उत्तराची किंवा निराकरणाची प्रतीक्षा आहे. वयानुसार क्रमवारी लावली आहे — सर्वात जुने प्रथम, जेणेकरून काहीही पडून राहणार नाही.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'forgotPassword.sentTo': 'रीसेट लिंक पाठवली आहे {{email}}',
   'forgotPassword.successSubheading':
     'तुमचा इनबॉक्स तपासा — आम्ही नुकताच एक रीसेट लिंक पाठवला आहे. त्याची मुदत ३० मिनिटांत संपेल.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'नवीन पृष्ठ',
   'pageTreeSidebar.workspaceHeader': 'कार्यक्षेत्र',
   'pageView.breadcrumb': 'ब्रेडक्रंब',
+  'pageView.confirmTrash': 'फेकून देऊ का?',
   'pageView.home': 'घर',
   'pageView.lastEdited': 'अपडेट केले {{when}}',
   'pageView.loading': 'पृष्ठ लोड होत आहे…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'सारांश…',
   'pageView.summaryUnavailable': 'या वर्कस्पेससाठी एआय सारांश कॉन्फिगर केलेला नाही.',
   'pageView.tocTitle': 'या पानावर',
+  'pageView.trash': 'कचरा',
+  'pageView.trashing': 'कचरा टाकणे…',
   'pageView.versionBadge': 'व्ही{{version}}',
   'profile.badges.title': 'बॅजेस',
   'profile.owned.title': 'मालकीची पृष्ठे',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'वर्कस्पेस, प्रोफाइल, नोटिफिकेशन्स, इंटिग्रेशन्स — सर्व काही एकाच शांत आणि सुलभ प्रणालीमध्ये.',
   'settingsPage.workspace.defaultLanding': 'डीफॉल्ट लँडिंग स्क्रीन',
   'settingsPage.workspace.landingHome': 'घर',
+  'settingsPage.workspace.landingSpaces': 'जागा',
   'settingsPage.workspace.subdomainLabel': 'सबडोमेन',
   'settingsPage.workspace.title': 'कार्यक्षेत्र',
   'signup.eyebrow': 'नवीन कार्यक्षेत्र सुरू करा',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} किमान',
   'templates.subtitle':
     'पानाची सुरुवात कोऱ्या कॅनव्हासपासून न करता, स्टेन्सिलपासून करा. प्रत्येक टेम्पलेटमध्ये आकार आधीच निश्चित केलेला असतो, जेणेकरून तुम्ही मूळ आशयावर लक्ष केंद्रित करू शकाल.',
+  'trash.confirmPurge': 'कायमचे काढून टाकायचे?',
+  'trash.confirmPurgeAria': 'पुष्टी करा: {{title}} कायमचे हटवा',
   'trash.daysUntilPurge': '{{days}} उरलेले दिवस',
   'trash.empty.body': 'हटवलेली पृष्ठे काढून टाकण्यापूर्वी ३० दिवसांसाठी येथे दिसतील.',
   'trash.empty.title': 'कचरापेटी रिकामी आहे.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'पुनर्संचयित करत आहे…',
   'versionHistory.subtitle': '{{count}} आवृत्त्या · फरक तपासण्यासाठी एक ओळ निवडा',
   'versionHistory.versionLabel': 'व्ही{{v}}',
+  'wikiLayout.closeMenu': 'नेव्हिगेशन बंद करा',
+  'wikiLayout.menu': 'नेव्हिगेशन',
+  'wikiLayout.openMenu': 'नेव्हिगेशन उघडा',
   'wikiLayout.searchPlaceholder': 'केर्न शोधा — पृष्ठे, टिप्पण्या…',
 }

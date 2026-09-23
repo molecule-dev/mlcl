@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'billing.canceled': 'سبسکرپشن منسوخ کر دی گئی۔ مدت کے اختتام پر آپ مفت میں واپس آجائیں گے۔',
   'billing.contactSales': 'سیلز سے رابطہ کریں۔',
   'billing.free.1': '5 ترجمہ',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'برقرار رکھنے کی کوئی حد نہیں۔',
   'billing.upgradeHint': 'اعلی درجے کی AI خصوصیات کو غیر مقفل کرنے کے لیے اپ گریڈ کریں۔',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'dashboard.activityEmpty':
     'ابھی تک کوئی سرگرمی نہیں ہے — اس فیڈ کو آباد کرنے کے لیے ایک پروجیکٹ شروع کریں۔',
   'dashboard.eyebrow': 'جائزہ',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ہر پروجیکٹ میں ماضی کے تراجم کو دوبارہ استعمال کریں۔ زیادہ میچ اسکور → کم دوبارہ کام۔',
   'memory.title': 'میموری بینک',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'nav.legal': 'قانونی',
   'newProject.addLanguage': 'ہدف شامل کریں۔',
   'newProject.create': 'پروجیکٹ بنائیں',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'قبل ازیں',
   'notifications.markedAllRead': 'نشان زد {{count}} اطلاعات کے طور پر پڑھا جاتا ہے.',
   'notifications.subtitle': 'آپ کے تمام ورک اسپیس سے تذکرہ، جائزہ لینے کی درخواستیں اور AI ایونٹس۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'privacy.collection.account': 'آپ کے اکاؤنٹ کا ای میل اور ڈسپلے نام',
   'privacy.deletion.body':
     'آپ متعلقہ صفحہ سے کسی بھی وقت پروجیکٹ، سیگمنٹ، لغت کی اصطلاح، یا میموری کے اندراج کو حذف کر سکتے ہیں۔ سیٹنگز سے آپ کے اکاؤنٹ کو حذف کرنا ہمارے ڈیٹا بیس سے ہر ورک اسپیس کے دائرہ کار کو صاف کرتا ہے۔',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'پروجیکٹس لوڈ کرنے میں ناکام۔',
   'projects.loading': 'پروجیکٹس لوڈ ہو رہے ہیں…',
   'projects.subtitle': 'تمام مقامی علاقوں میں ہر فعال پروجیکٹ۔',
+  'renditionLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'reset.backToLogin': '\\u2190 واپس سائن ان کریں۔',
   'reset.passwordLabel': 'نیا پاس ورڈ',
   'review.activeEyebrow': 'طبقہ {{number}}',

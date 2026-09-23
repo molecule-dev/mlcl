@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'analytics.col.quorum': 'ક્વોરમ',
   'analytics.col.votes': 'મતો',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'હજુ સુધી કોઈ પ્રશ્ન બાકી નથી.',
   'audienceQa.onStageEyebrow': 'હવે સ્ટેજ પર',
   'audienceQa.pollId': 'ક્યૂ · {{id}}',
+  'audienceQa.promote': 'પ્રમોટ કરો',
   'audienceQa.queued': 'કતારબદ્ધ',
   'audienceQa.queueEyebrow': 'કતાર',
   'ballot.eyebrow': 'તમારો મતદાન કરો',
@@ -78,6 +80,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'તમે હાલમાં આ પર છો {{plan}} યોજના.',
   'billing.switch': 'સ્વિચ કરો',
   'billing.upgraded': 'અપડેટ કરેલ {{plan}} — મર્યાદાઓ તાત્કાલિક લાગુ.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'createPoll.addOption': 'વિકલ્પ ઉમેરો',
   'createPoll.anonymousHint': 'ઓડિટ લોગમાં મતદારોના નામ છુપાયેલા છે; ગણતરીઓ પ્રમાણિત રહે છે.',
   'createPoll.anonymousLabel': 'અનામી મતદાનની મંજૂરી આપો',
@@ -157,6 +160,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'નોશમાં નવા છો?',
   'login.remember': 'મને 30 દિવસ માટે યાદ રાખો.',
   'login.subheading': 'ફ્લોર ખોલો, રૂમ ચલાવો અને પરિણામ પ્રમાણિત કરો.',
+  'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
+  'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'notFound.body':
     'તમે જે પેજ પર પહોંચવાનો પ્રયાસ કર્યો હતો તે બંધ થઈ ગયું છે અથવા ખસેડવામાં આવ્યું છે. ડેશબોર્ડ પર પાછા જાઓ અથવા એક નવું મતદાન ખોલો.',
   'notFound.eyebrow': 'આ રૂટ પર કોઈ કોરમ નથી',
@@ -183,6 +188,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'આ મતદાન લોડ કરી શકાયું નથી.',
   'pollDetail.loading': 'મતદાન લોડ કરી રહ્યું છે…',
   'pollDetail.notFound': 'મતદાન મળ્યું નથી.',
+  'pollDetail.openBallot': 'ખુલ્લું મતદાન',
   'pollDetail.openLive': 'લાઇવ પરિણામો',
   'pollDetail.pollId': 'મતદાન · {{id}}',
   'pollDetail.published': 'મતદાન પ્રકાશિત થયું — મતદારો હવે મતદાન કરી શકે છે.',
@@ -261,4 +267,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ઇમેઇલ દ્વારા શોધો...',
   'voters.subheading':
     'પાત્ર મતપત્રોની યાદી તૈયાર કરો. ભારિત મતપત્રો માટે સંગઠન દ્વારા મતદારોનું જૂથ બનાવો.',
+  'votingPollingLayout.nav.analytics': 'વિશ્લેષણ',
+  'votingPollingLayout.nav.billing': 'બિલિંગ',
+  'votingPollingLayout.nav.createPoll': 'નવું મતદાન',
+  'votingPollingLayout.nav.dashboard': 'ડેશબોર્ડ',
+  'votingPollingLayout.nav.notifications': 'સૂચનાઓ',
+  'votingPollingLayout.nav.settings': 'સેટિંગ્સ',
+  'votingPollingLayout.nav.team': 'ટીમ',
+  'votingPollingLayout.nav.voters': 'મતદારો',
+  'votingPollingLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
 }

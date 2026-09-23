@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Записаться на прием',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Пациентов нет.',
+  'common.goToDashboard': 'Перейти к панели',
   'consult.backLink': 'Все назначения',
   'consult.captions': 'Подписи',
   'consult.connected': 'Подключено · 720p · стабильная работа',
@@ -132,6 +133,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Пациенты',
   'patientVitalsHero.scripts': 'Rx открыт',
   'patientVitalsHero.subline': '{{count}} Консультации в удобное для вас время уже сегодня',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'prescriptions.empty': 'Ни один рецепт не совпадает.',
   'prescriptions.eyebrow': 'Электронное выписывание рецептов',
   'prescriptions.heading': 'Рецепты',
@@ -147,6 +149,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Уведомление о конфиденциальности',
   'privacy.use.body':
     'Для оказания медицинской помощи, отправки напоминаний о записи на прием, маршрутизации рецептов и повышения надежности обслуживания. Мы никогда не продаем ваши данные и никогда не передаем клиническую информацию рекламодателям.',
+  'providers.allSpecialties': 'Все специальности',
+  'providers.loadError': 'Не удалось загрузить поставщиков услуг.',
+  'providers.loading': 'Загрузка…',
   'providers.noResults': 'Поставщики услуг не найдены.',
   'providers.searchPlaceholder': 'Поиск по имени, специальности...',
   'providers.title': 'Найти поставщика услуг',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Начало дня',
   'settings.availability.heading': 'Доступность',
   'settings.devices.thisDevice': 'Это устройство',
+  'settings.devices.unnamed': 'Устройство без названия',
   'settings.eyebrow': 'Практика и отчетность',
   'settings.loadError': 'Не удалось загрузить ваш профиль.',
   'settings.notifications.emailMessages':
@@ -181,6 +187,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Отключить',
   'settings.security.twoFactor.enable': 'Включить',
   'settings.security.twoFactor.heading': 'Двухфакторная аутентификация',
+  'settings.security.twoFactor.invalidCode': 'Этот код не совпал. Попробуйте еще раз.',
+  'settings.security.twoFactor.setupFailed':
+    'Не удалось запустить настройку двухфакторной аутентификации. Попробуйте еще раз.',
+  'settings.security.twoFactor.statusOn': 'Двухфакторная аутентификация включена.',
   'settings.signOutDevice': 'выход',
   'settings.subheading': 'Профиль врача, правила работы и клинические оповещения.',
   'signup.emailLabel': 'ЭЛЕКТРОННАЯ ПОЧТА',
@@ -191,6 +201,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Создать аккаунт',
   'signupFooter.hipaa': 'Соответствует требованиям HIPAA',
   'solaceLayout.primaryNavLabel': 'Основная навигация',
+  'solaceLayout.toggleMenu': 'Переключить меню',
   'terms.eligibility.body':
     'Вам должно быть не менее восемнадцати лет, или вы должны быть родителем или законным опекуном несовершеннолетнего, которому вы оказываете помощь, и физически находиться в одном из штатов США, где наши специалисты имеют лицензию.',
   'terms.payment.body':

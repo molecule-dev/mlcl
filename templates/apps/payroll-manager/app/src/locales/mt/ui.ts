@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'auditLog.empty':
     "Għad m'hemm l-ebda avveniment ta' awditjar li jaqbel mal-filtri tiegħek. Editja impjegat jew ipproċessa ġirja ta' paga u dawn se jidhru hawn.",
   'auditLog.eyebrow': 'Konformità',
+  'auditLog.loadError': 'Ma setax jitgħabba l-log tal-verifika.',
   'auditLog.searchPlaceholder': 'Fittex skont l-attur, l-azzjoni, jew id-deskrizzjoni',
   'auditLog.subheading':
     'Kull approvazzjoni, editjar, u preżentazzjoni tat-taxxa — bl-attur, it-timestamp, u l-oqsma mibdula.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Mhux ikkonfigurat',
   'billing.plansHeading': 'Pjanijiet',
   'billing.subheading': "Immaniġġja l-pjan tiegħek u ibdel il-livelli permezz ta' Stripe.",
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': "Erġa' pprova",
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Snapshot tal-konformità',
   'dashboard.compliance.title': 'Il-kontrolli kollha jgħaddu',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'L-ebda tnaqqis fil-fajl.',
   'employeeDetail.notFound': 'Impjegat ma nstabx.',
   'employeeDetail.payFrequency': 'Frekwenza tal-ħlas',
+  'employeeDetail.postTax': 'Wara t-taxxa',
+  'employeeDetail.preTax': 'Qabel it-taxxa',
   'employeeDetail.salary': 'Salarju annwali',
   'employeeDetail.ssn': 'Numru tas-Sigurtà Soċjali',
   'employeeDetail.startedOn': 'Beda {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Frekwenza tal-ħlas',
   'employeeForm.salary': 'Salarju annwali (USD)',
   'employeeForm.salaryInvalid': 'Is-salarju għandu jkun numru mhux negattiv.',
+  'employeeForm.saveError': 'Ma setax jiġi salvat l-impjegat.',
   'employeeForm.semimonthly': 'Kull sitt xhur',
   'employeeForm.single': 'Uniku/a',
   'employeeForm.ssn': 'Numru tas-Sigurtà Soċjali',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Impjegat',
   'employeesTable.col.salary': 'Salarju',
   'forgotPassword.subtitle': "Daħħal l-email tax-xogħol tiegħek u aħna nibagħtulek link ta' reset.",
+  'landing.copyright': '© {{year}} {{app}} . Preċiż, affidabbli, kompost.',
   'landing.ctaBody':
     "B'xejn għal 30 jum. Ebda karta ta' kreditu. Ibdel meta trid mingħajr ma titlef ir-rekord tal-verifika tiegħek.",
   'landing.ctaHeading': 'Mexxi ċ-ċiklu li jmiss tiegħek fuq Stipend',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Entrati',
   'payRunDetail.noActivity': "Għad m'hemm l-ebda entrati tal-awditjar għal dan il-pagi.",
   'payRunDetail.noStubs': "Għad m'hemmx sċella tal-paga — approva u pproċessa biex tiġġenerahom.",
+  'payRunDetail.notFound': 'Din il-paga ma setgħetx tinstab.',
   'payRunDetail.statDeductions': 'Tnaqqis',
   'payRunDetail.statHeadcount': 'Impjegati',
   'payRunDetail.statTaxes': 'Taxxi miżmuma',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Kull sitt xhur',
   'settings.signOutDevice': 'Oħroġ',
   'settings.subheading': 'Profil tal-kumpanija, skeda tal-pagi, u integrazzjonijiet.',
+  'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.twoFactorVerify': 'Ivverifika u attiva',
   'settings.weekly': 'Kull ġimgħa',
   'taxCenter.bucket.federal': 'Dħul Federali',
   'taxCenter.bucket.fica': 'Sigurtà Soċjali',

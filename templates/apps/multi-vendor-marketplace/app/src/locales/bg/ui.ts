@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Тестов режим: поръчките се записват и салдата се уреждат, но не се таксува реална карта.',
   'checkout.placeOrderCta': 'Направете поръчка',
+  'checkout.placeOrderError': 'Не можах да направя поръчката ви.',
   'checkout.placingOrder': 'Поръчката се прави…',
   'checkout.review.shipTo': 'Доставка до',
   'checkout.review.subtotal': 'Междинна сума на доставчика',
@@ -56,6 +57,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': 'Станете продавач',
   'landing.footer.copyright': '© {{year}} {{name}} — всеки производител, един пазар.',
   'landing.footer.help': 'Център за помощ',
+  'landing.nav.keepShopping': 'Продължете да пазарувате',
   'landing.nav.sell': 'Продавайте на Vendry',
   'landing.nav.shop': 'Магазин',
   'landing.nav.signUp': 'Присъединете се',
@@ -66,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': 'Какво харесват купувачите',
   'login.accountTypeAria': 'Тип акаунт',
   'login.heading': 'Добре дошли отново във Вендри',
+  'login.legalPrefix': 'С влизането си, вие се съгласявате с нашите',
   'login.subheading': 'Влезте, за да продължите да пазарувате или да се върнете в магазина си.',
   'login.submitShopper': 'Влезте, за да пазарувате',
   'login.submitVendor': 'Влезте в моя магазин',
@@ -90,10 +93,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     'Поставен {{date}} · {{vendorCount}} доставчик(и) · изпълнение на поръчки от множество доставчици',
   'orders.empty': 'Все още няма поръчки, които да отговарят на този филтър.',
+  'orders.emptyTitle': 'Все още няма поръчки тук',
   'orders.eyebrow': 'Вашите покупки',
   'orders.subtitle':
     'Вижте кой какво е изпратил, следете проследяването по доставчици и никога повече не губете пратка.',
   'orders.title': 'Поръчки, групирани по доставчик',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'productDetail.addToCart': 'Добави в количката',
   'productDetail.addToCartError': 'Не можа да се добави в количката.',
   'productDetail.addToCartSuccess': '„ {{name}} „добавено в количката ви.“',
@@ -134,12 +139,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Управлявайте начина, по който пазарувате, как доставчиците достигат до вас и къде отиват парите.',
   'signup.heading': 'Присъединете се към пазара',
+  'signup.legalPrefix': 'С присъединяването си, вие се съгласявате с нашите',
   'signup.mismatch': 'Паролите все още не съвпадат.',
   'signup.subheading':
     'Разгледайте над 4000 независими производители или отворете свой собствен магазин.',
   'status.delivered': 'Доставено',
   'status.refunded': 'Възстановена сума',
+  'userMenu.marketplaceSettings': 'Настройки на Marketplace',
   'vendor.memberSince': 'Член от {{date}}',
+  'vendorDashboard.defaultShop': 'вашият магазин',
   'vendorDashboard.eyebrow': 'Администратор на доставчика · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} Изчистено след комисионна на Vendry. Следващото изплащане е петък.',
@@ -158,12 +166,16 @@ export const ui: UiTranslations = {
   'vendorOnboarding.aboutPlaceholder': 'Къде произвеждате, какво произвеждате, защо това е важно.',
   'vendorOnboarding.currencyLabel': 'Уреждане във валута',
   'vendorOnboarding.errors.shopName': 'Името на магазина е задължително.',
+  'vendorOnboarding.errors.submit': 'Не можах да изпратя заявлението си.',
   'vendorOnboarding.exit': 'Запази и продължи по-късно',
   'vendorOnboarding.eyebrow': 'Кандидатствайте за продажба на Vendry',
+  'vendorOnboarding.field.shopName': 'Име на магазина',
   'vendorOnboarding.heroBody':
     'Фиксирана комисионна от 8%, плащания всеки петък, вашата витрина, вашата история. Разкажете ни малко за вашия магазин и ние ще се свържем с вас до 48 часа.',
   'vendorOnboarding.review.contact': 'Контакт',
   'vendorOnboarding.review.currency': 'Валута',
+  'vendorOnboarding.review.tagline': 'Слоган',
+  'vendorOnboarding.review.website': 'Уебсайт',
   'vendorOnboarding.reviewBody':
     'Изглежда добре. Ще прегледаме магазина ви в рамките на 48 часа и ще изпратим първото ви плащане в петък след първата ви продажба.',
   'vendorOnboarding.samplesLabel': 'Примерни проекти — Instagram, портфолио, снимки',
@@ -172,11 +184,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Заявлението е подадено! Ще прегледаме магазина ви и ще ви изпратим имейл до 48 часа.',
   'vendorOnboarding.taxIdLabel': 'Данъчен номер',
+  'vendorOrders.emptyTitle': 'Все още няма поръчки за изпълнение',
   'vendorOrders.eyebrow': 'Администратор на доставчика',
+  'vendorOrders.kpi.awaiting': 'В очакване на изпълнение',
   'vendorOrders.kpi.inTransit': 'В движение',
   'vendorOrders.subtitle':
     'Печатайте етикети, маркирайте като изпълнени и отговаряйте на въпроси — всичко това, без да напускате Vendry.',
   'vendorOrders.title': 'Входящи поръчки',
+  'vendorPayouts.emptyTitle': 'Все още няма плащания',
   'vendorPayouts.eyebrow': 'Финансиране от доставчици',
   'vendorPayouts.heroCaption': 'Урежда се в Banco BPI {{account}} · 1–2 работни дни',
   'vendorPayouts.history': 'История на плащанията',
@@ -194,7 +209,9 @@ export const ui: UiTranslations = {
   'vendorProductForm.descriptionPlaceholder': 'Къде е направено? Каква история носи?',
   'vendorProductForm.error.name': 'Името на продукта е задължително',
   'vendorProductForm.error.price': 'Въведете положителна цена',
+  'vendorProductForm.error.publish': 'Публикуването не бе успешно',
   'vendorProductForm.eyebrow': 'Нова обява',
+  'vendorProductForm.eyebrowEdit': 'Редактиране на обява',
   'vendorProductForm.images.body':
     'Плъзнете и пуснете до 8 изображения. Първата снимка става корица на магазина.',
   'vendorProductForm.images.cta': 'Плъзнете снимки тук или разгледайте',
@@ -206,6 +223,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': 'Запазване на промените',
   'vendorProductForm.title': 'Разкажете на купувачите за вашата стока',
   'vendorProductForm.variants.colInventory': 'Инвентар',
+  'vendorProductForm.variants.colVariant': 'Вариант',
   'vendorProducts.eyebrow': 'Администратор на доставчика',
   'vendorProducts.kpi.draft': 'Чернови',
   'vendorProducts.kpi.lowStock': 'Ниска наличност',

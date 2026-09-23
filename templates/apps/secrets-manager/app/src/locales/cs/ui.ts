@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
   'about.tagline': 'Tajemství umírají na veřejnosti.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Vytvořit token',
   'apiTokens.kicker': 'Tokeny API',
   'apiTokens.loading': 'Načítání tokenů…',
+  'apiTokens.new': 'Nový token',
   'apiTokens.revoke': 'Zrušit token',
   'apiTokens.subheading':
     'Osobní a servisní tokeny pro rozhraní příkazového řádku a SDK Arcanum. Prostý text se zobrazí jednou při vytvoření.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Přístupový klíč',
   'authShell.zeroKnowledge': 'Šifrování s nulovými znalostmi',
   'common.connecting': 'Spojovací…',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.inviting': 'Odesílání pozvánky…',
   'forgotPassword.checkInbox':
     'Pokud je {email} zaregistrován, do minuty vám dorazí podepsaný resetovací odkaz.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Stav rotace, upozornění na anomálie a žádosti o schválení v každém trezoru.',
   'notifications.unreadEmpty': 'Doručená pošta nula – vše dohlédli.',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.heading': 'tajemství',
   'pricing.limits.accessPolicies': 'zásady přístupu',
   'pricing.limits.auditLog': 'záznamy v protokolu auditu',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Osobní účet',
   'profile.plan.description': 'Spravujte své předplatné, zobrazte si limity a upgradujte.',
   'profile.subheading': 'Identita, zařízení s druhou faktorovou autentizací a aktivní relace.',
+  'profile.twoFactor.code': 'Ověřovací kód',
   'profile.twoFactor.disable': 'Zakázat',
   'profile.twoFactor.enable': 'Povolit',
+  'profile.twoFactor.invalidCode': 'Neplatný kód',
   'profile.twoFactor.kicker': 'Dvoufaktorové ověřování',
+  'profile.twoFactor.off': 'Není povoleno',
   'profile.twoFactor.on': 'Povoleno',
   'resetPassword.email': 'E-mail účtu',
   'resetPassword.heading': 'Nastavit nové přihlašovací údaje',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'příkazy',
   'secretsManagerLayout.encrypted': 'AES-256 · ŠIFROVÁNO',
   'secretsManagerLayout.newVault': 'Nový trezor',
+  'secretsManagerLayout.newVaultShort': 'Nové',
   'secretsManagerLayout.rotations': 'Rotace',
   'secretsManagerLayout.search': 'vyhledávání',
   'secretsManagerLayout.searchPlaceholder':
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Tajné klíče',
   'vaultCard.vaultLabel': 'Klenba',
   'vaultDetail.addSecret': 'Přidat tajný klíč',
+  'vaultDetail.back': 'Všechny trezory',
   'vaultDetail.col.key': 'Klíč',
   'vaultDetail.col.rotated': 'Otočeno',
   'vaultDetail.col.value': 'Hodnota',

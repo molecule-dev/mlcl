@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.featureDiscover.title': 'Inšpirácia, ručne vybraná',
   'account.addPaymentCta': 'Pridať spôsob platby',
   'account.addPaymentError': 'Nepodarilo sa pridať spôsob platby.',
+  'account.confirmRemove': 'Potvrdiť odstránenie',
   'account.defaultBadge': 'Predvolené',
   'account.loyalty.pointsTowardNext': '{{body}} z {{ďalší}} míle do {{nextTier}}',
   'account.loyalty.tier': 'Aktuálna úroveň',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Podrobnosti o ceste',
   'booking.tripSummary': '{{nights}} noci · {{guests}} hostia',
   'common.daysAgo': '{{count}} pred d',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.hoursAgo': '{{count}} pred hodinami',
   'common.minutesAgo': '{{count}} pred m',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Právne',
   'notifications.loading': 'Načítava sa…',
   'notifications.subheading': '{{count}} neprečítané · všetko v jednej pokojnej schránke',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.accommodationsLabel': 'ubytovanie',
   'pricing.bookingsLabel': 'rezervácie',
   'pricing.destinationsLabel': 'uložené destinácie',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Inšpirácia, dôveryhodné pobyty a bezproblémová cesta od snov k rezervácii – naprieč 14 krajinami a viac ako 200 starostlivo preverenými nehnuteľnosťami.',
   'sojournHeroSearchCard.trustProtected': 'Bezplatné zrušenie, plná ochrana',
   'sojournHeroSearchCard.trustVetted': 'Iba ručne overené nehnuteľnosti',
+  'travelBookingLayout.primaryNavLabel': 'Hlavná navigácia',
   'tripDetail.backLink': 'Späť na výlety',
   'tripDetail.cancelCta': 'Zrušiť rezerváciu',
   'tripDetail.cancelHeading': 'Zrušiť túto cestu?',

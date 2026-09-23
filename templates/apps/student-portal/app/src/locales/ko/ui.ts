@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'announcementsFeed.empty': '아직 공지사항이 없습니다.',
   'announcementsFeed.eyebrow': '{{count}}건의 업데이트',
   'announcementsFeed.title': '최신 공지사항',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': '표시할 항목이 없습니다',
   'assignments.emptyBody': '위의 필터를 전환하여 다른 상태의 과제를 확인하세요.',
   'assignments.eyebrow': '모든 과목 · 이번 학기',
+  'assignments.loadError': '과제를 불러올 수 없습니다.',
   'assignments.loading': '과제를 불러오는 중…',
   'assignments.subtitle':
     '상태별로 필터링하여 마감 예정, 제출, 채점 완료, 누락된 항목을 확인하세요.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': '메모',
   'attendance.empty': '출석 기록이 아직 없습니다.',
   'attendance.eyebrow': '봄학기 · 최근 4주',
+  'attendance.loadError': '출석 기록을 불러올 수 없습니다.',
   'attendance.loading': '출석 정보를 불러오는 중…',
   'attendance.noNote': '—',
   'attendance.subtitle': '출석, 결석, 지각의 일일 기록과 해당 사항에 대한 메모입니다.',
@@ -42,7 +45,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': '학년도 · {{year}}',
   'calendar.subtitle': '과제 마감일을 월별 그리드에 표시 — 시험은 빨간색으로 강조됩니다.',
   'calendar.title': '{{month}} 일정',
+  'common.goToDashboard': '대시보드로 이동',
   'common.no': '—',
+  'common.retry': '다시 시도',
   'common.yes': '✓',
   'courseDetail.backLink': '성적',
   'courseDetail.currentGrade': '현재 성적',
@@ -70,11 +75,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': '추이',
   'grades.empty': '아직 등록된 성적이 없습니다.',
   'grades.eyebrow': '성적표',
+  'grades.loadError': '성적을 불러올 수 없습니다.',
   'grades.loading': '성적을 불러오는 중…',
   'grades.subtitle':
     '실시간 문자 등급과 백분율 성적입니다. 추세 화살표는 상승, 유지, 하락 여부를 보여줍니다.',
   'grades.title': '과목별 성적',
   'grades.trendStable': '유지',
+  'landing.copyright':
+    '© {{year}} {{app}} . 학생들을 위해 만들어졌고, 가족들을 위해 만들어졌습니다.',
   'landing.ctaHeading': '보다 차분한 학교 생활은 몇 분이면 시작됩니다',
   'landing.eyebrow': '중·고등학생을 위해',
   'landing.featuresHeading': '학생을 중심으로 정리되는 학교 생활',
@@ -109,12 +117,16 @@ export const ui: UiTranslations = {
   'nav.assignments': '과제',
   'nav.attendance': '출석',
   'nav.calendar': '캘린더',
+  'nav.closeMenu': '탐색 메뉴 닫기',
   'nav.grades': '성적',
+  'nav.openMenu': '탐색 메뉴 열기',
   'nav.statusEyebrow': '학기 GPA',
   'nav.statusSubtext': '우등생 명단 · 봄학기',
+  'nav.unreadMessages': '읽지 않은 메시지',
   'notifications.eyebrow': '{{count}}건의 업데이트',
   'notifications.subtitle':
     '성적, 알림, 메시지, 학교 공지사항입니다. 각 알림 채널은 설정에서 조정할 수 있습니다.',
+  'planUpdated.verifying': '결제 확인 중…',
   'pricing.attendanceLabel': '출석',
   'pricing.gradesLabel': '성적',
   'pricing.heading': '공지',

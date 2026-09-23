@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Pourboire pour votre livreur',
   'checkout.tipLabel': 'Pourboire',
   'checkout.zipPlaceholder': 'Code postal',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'featuredProductsGrid.addAria': 'Ajouter {{name}} au panier',
   'featuredProductsGrid.outOfStock': 'Épuisé',
   'forgotPassword.emailLabel': 'Adresse e-mail',
   'forgotPassword.emailPlaceholder': 'client@bushel.fresh',
   'forgotPassword.successBody':
     'Si cet e-mail est enregistré, un lien de réinitialisation est en route.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Navigation principale',
   'landing.categoriesEyebrow': 'Rayons',
   'landing.categoriesHeading': 'Achetez par catégorie',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Programmez des livraisons hebdomadaires avec réapprovisionnement intelligent des produits de base et suivi en direct du livreur.',
   'landing.heroTitle': 'Du frais à votre porte, en quelques heures.',
   'landing.howEyebrow': 'Trois étapes',
+  'landing.howItWorksHeading': 'Comment fonctionne {{app}}',
   'lists.addAllCta': 'Tout ajouter au panier',
   'lists.createCta': 'Créez votre première liste',
   'lists.createError': 'Impossible de créer la liste.',

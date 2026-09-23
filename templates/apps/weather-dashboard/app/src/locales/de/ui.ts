@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Sie nutzen derzeit den Tarif {{plan}}.',
   'billing.switch': 'Wechseln',
   'billing.upgraded': 'Aktualisiert auf {{plan}} — Limits sofort angewendet.',
+  'common.goToDashboard': 'Zum Dashboard',
   'compare.activityHeading': 'Aktivitätsurteile',
   'compare.empty.title': 'Fügen Sie mindestens zwei Orte zum Vergleich hinzu',
   'compare.eyebrow': 'Direkt nebeneinander',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Hoch',
   'trends.summary.low.label': 'Tief',
   'trends.summary.points.label': 'Tage',
+  'weatherDashboardLayout.primaryNavLabel': 'Hauptnavigation',
   'weatherHeroCard.updated': 'Aktualisiert {{time}}',
 }

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Chargement des informations du forfait…',
   'billing.popular': 'Le préféré',
   'billing.subtitle': "Choisissez le forfait qui correspond à votre rythme d'étude.",
+  'common.goToDashboard': 'Aller au tableau de bord',
   'common.today': "Aujourd'hui",
   'common.yesterday': 'Hier',
   'courseDetail.empty.body': "Ajoutez du matériel d'étude pour commencer à maîtriser ce sujet.",
@@ -82,8 +83,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Nom du paquet',
   'flashcards.subtitle': "Répétition espacée qui s'adapte à votre rythme.",
   'flashcards.title': 'Cartes mémoire',
+  'footer.copyright': '© {{year}} {{app}}. Bien étudier, bien dormir.',
   'forgotPassword.subtitle':
     'Saisissez votre e-mail et nous vous enverrons un lien de réinitialisation.',
+  'koanLayout.closeMenu': 'Fermer le menu',
+  'koanLayout.navLabel': 'Navigation principale',
+  'koanLayout.openMenu': 'Ouvrir le menu',
   'koanLayout.theme': 'Thème',
   'landing.featuresBody':
     'Des outils conçus pour éliminer les distractions et bâtir une compréhension durable.',
@@ -118,11 +123,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Cette URL est inexplorée. Peut-être une faute de frappe, peut-être une leçon supprimée — dans tous les cas, revenons à l'étude.",
   'notFound.heading': 'Page introuvable.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Vous êtes à jour',
   'notifications.filter.${opt}': 'Chargement des notifications…',
   'notifications.markAllError': 'Impossible de tout marquer comme lu.',
   'notifications.markError': 'Impossible de marquer comme lu.',
   'notifications.subtitle': '{{count}} mises à jour non lues',
+  'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.heading': 'quiz',
   'pricing.limits.topics': 'sujets',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Essayez un autre mot-clé ou filtre.',
   'search.empty.title': 'Aucun résultat.',
   'search.error': 'Impossible de charger les résultats.',
+  'search.filters': 'Filtres par type de résultat',
   'search.go': 'Y aller',
   'search.label.flashcard': 'Paquet de cartes',
   'search.label.note': 'Note',

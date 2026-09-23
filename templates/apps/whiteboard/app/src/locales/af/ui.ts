@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'authShell.brandHeading': 'Multispeler-doeke vir ontwerpspanne wat hardop dink.',
   'billing.canceled': 'Subskripsie gekanselleer.',
   'billing.cancelPlan': 'Kanselleer plan',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Begin vanaf sjabloon',
   'boards.title': 'Jou borde',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Voer die e-posadres in wat aan jou werkspasie gekoppel is en ons sal 'n terugstelskakel stuur.",
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'K1 Werkswinkel · Handelsmerkstem',
   'landing.featuresEyebrow': 'Wat maak Slate tesseleer',
   'landing.featuresTitle': 'Vinnige terugvoer. Pragtige doeke. Geen wrywing nie.',
+  'landing.hero.body':
+    "{{appName}} is 'n multispeler-witbord vir ontwerpspanne, werkswinkelfasiliteerders en opvoeders wat regstreekse dinkskrums hou en idees op een plek moet bymekaarbring.",
   'landing.hero.primaryCta': "Begin 'n bord gratis",
   'landing.hero.socialProof': 'Vertrou deur {{count}} ontwerpspanne wêreldwyd',
   'landing.hero.title': "'n Doek so vinnig soos jou gedagtes",
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': "Skep 'n gratis werkruimte",
   'login.subheading':
     'Gaan voort waar die werkswinkel opgehou het — borde, kleefnotas en wysers sinkroniseer alles intyds.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.new': 'Nuut',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'notifications.editTitle': 'Wysigings aan " {{board}} "',
   'notifications.empty.body':
     'Uitnodigings, momentopnames wat gestoor is en onlangse bordwysigings sal hier verskyn soos dit gebeur.',
@@ -173,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Weergawegeskiedenis',
   'versionHistory.untitledSnapshot': 'Ongetitelde momentopname',
   'whiteboardLayout.newBoard': 'Nuwe bord',
+  'whiteboardLayout.primaryNav': 'Primêre navigasie',
   'workspace.boardLabel': 'Raad',
   'workspace.eyebrow': '{{name}} · werkruimte',
   'workspace.invite': 'Nooi medewerkers uit',

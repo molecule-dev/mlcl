@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Kallo',
   'auctionDetail.watchRemoved': 'An cire daga jerin abubuwan da ake sa ido a kansu.',
   'auctionDetail.watchRemoveLabel': 'Cire daga jerin abubuwan da ake sa ido',
+  'auctionPlatformLayout.primaryNavLabel': 'Babban kewayawa',
   'authShell.brandBody':
     'Yi tayi a ainihin lokaci akan agogon da ba kasafai ake samu ba, zane-zane masu kyau, da kayayyaki na musamman na musamman. Takalmin zai faɗi cikin daƙiƙa kaɗan.',
   'authShell.brandEyebrow': 'Kai tsaye yanzu · gwanjo 1,420',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Kasa',
   'browseAuctions.subheading':
     'Tace ta rukuni, tsara ta abin da ya fi muhimmanci, sannan ka yi tayin kafin gavel ya faɗi.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'countdownTimer.ended': 'An ƙare',
   'countdownTimer.endingSoon': 'Ƙarshe',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ɓoye kalmar sirri',
   'login.showPassword': 'Nuna kalmar sirri',
   'login.subtext': 'Ci gaba da bin diddigin gwanjon ku kuma ku sanya tayi kafin gavel ya faɗi.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'myBids.bidAgain': 'Sake yin tayin',
   'myBids.browseCta': 'Duba gwanjon kai tsaye →',
   'myBids.checkoutCta': 'Biya yanzu',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Cibiyar ayyuka',
   'notificationsPage.subheading':
     '{{count}} ba a karanta ba · sabuntawa kai tsaye yayin da gwanjo ke tafiya',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.bidsLabel': 'tayi',
   'pricing.listingsLabel': 'jerin abubuwa',
   'pricing.watchlistLabel': 'jerin abubuwan da ake sa ido',

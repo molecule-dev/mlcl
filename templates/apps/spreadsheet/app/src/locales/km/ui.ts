@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'about.pageTitle': 'អំពី {{name}}',
   'auth.footer.about': 'អំពី {{name}}',
   'authHeader.subtitle': 'ចូលគណនីដើម្បីរក្សាលេខរបស់អ្នកឱ្យស្មោះត្រង់។',
   'automations.action.email': 'អ៊ីមែល',
+  'automations.action.noop': 'គ្មាន​ការ​ធ្វើ​ប្រតិបត្តិការ',
   'automations.action.webhook': 'គេហទំព័រ​ហុក',
   'automations.confirmDelete': 'លុប " {{name}} "?',
   'automations.empty.headline': 'មិនទាន់មានប្រព័ន្ធស្វ័យប្រវត្តិកម្មនៅឡើយទេ',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'កូដ​បង្ក​ឲ្យ​មាន​បញ្ហា និង​សកម្មភាព​នៅ​ទូទាំង​សៀវភៅ​ការងារ​នីមួយៗ។ ការ​ដំណើរការ​នីមួយៗ​កត់ត្រា​ជួរ​ដេក​ដែល​អ្នក​អាច​ធ្វើ​សវនកម្ម​នៅ​ពេល​ក្រោយ។',
   'automations.toggle': 'បិទ/បើក {{name}}',
+  'automations.trigger.dailySchedule': 'កាលវិភាគប្រចាំថ្ងៃ',
+  'automations.trigger.rowCreated': 'ជួរដេកត្រូវបានបង្កើតឡើង',
+  'automations.trigger.rowUpdated': 'បានធ្វើបច្ចុប្បន្នភាពជួរដេក',
   'billing.empty': 'មិនមានផែនការណាមួយដែលអាចប្រើបានទេ។',
   'billing.error.priceMissing':
     'មិន​មាន​តម្លៃ Stripe ដែល​ត្រូវ​បាន​កំណត់​រចនាសម្ព័ន្ធ​សម្រាប់​កម្រិត​នេះ​ទេ។ កំណត់​តម្លៃ env STRIPE_*_PRICE_ID។',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'តារាង',
   'charts.kpi.totalCharts': 'តារាងសរុប',
   'charts.list.empty': 'មិនទាន់មានតារាងនៅឡើយទេ។',
+  'charts.namePlaceholder': 'និន្នាការចំណូល',
   'charts.newChart': 'តារាងថ្មី',
   'charts.primary.eyebrow': 'តារាងតាមប្រភេទ',
   'charts.primary.headline': 'ទិដ្ឋភាពទូទៅនៃកន្លែងធ្វើការ',
   'charts.subhead':
     'ការមើលឃើញផ្ទាល់ដែលភ្ជាប់ទៅក្រឡាចត្រង្គរបស់អ្នក — បង្ហាញឡើងវិញនៅលើការកែសម្រួលក្រឡានីមួយៗ។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'editor.addColumn': 'បន្ថែមជួរឈរ',
+  'editor.addDialogTitle': 'បន្ថែមជួរឈរ',
   'editor.addRow': 'បន្ថែមជួរដេក',
   'editor.addSheet': 'បន្ថែមសន្លឹក',
   'editor.back': 'ត្រឡប់ទៅសៀវភៅការងារវិញ',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite គឺជាអ្នកវិភាគក្រឡាចត្រង្គដែលប្រើរូបមន្តជាមុន មានទិដ្ឋភាពច្រើន និងពេលវេលាជាក់ស្តែង និងក្រុមហិរញ្ញវត្ថុឈានដល់មុនគេ។',
   'landing.nav.formulas': 'រូបមន្ត',
+  'login.noAccount': 'ទើបតែស្គាល់ {{name}} មែនទេ?',
+  'login.signIn': 'ចូលទៅកាន់ {{name}}',
   'login.signUp': 'បង្កើត​កន្លែងធ្វើការ',
+  'nav.menu': 'ម៉ឺនុយ',
+  'nav.openMenu': 'បើកម៉ឺនុយ',
   'notFound.cellRef': '#យោង!',
   'notFound.formula': '=LOOKUP(សំណើ.url, "ផ្លូវ", "ទំព័រ")',
   'notFound.headline': 'ជួរនេះមិនដែលមានទេ។',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ស្វ័យប្រវត្តិកម្មដើម · គន្លឹះ webhook និង cron',
   'signup.creating': 'កំពុង​ផ្ដល់​កន្លែង​ធ្វើការ…',
   'signup.cta': 'បង្កើតកន្លែងធ្វើការរបស់ខ្ញុំ',
+  'signup.haveAccount': 'មាន​នៅ​លើ {{name}} ហើយ​ឬ​នៅ?',
   'signup.namePlaceholder': 'អាវីរី ចេន',
   'signup.tagline': 'បង្វិលសៀវភៅការងារដំបូងរបស់អ្នកក្នុងរយៈពេល 30 វិនាទី',
   'team.col.activity': 'បានអញ្ជើញ',

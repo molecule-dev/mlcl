@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'authShell.brandHeading': 'Мултиплеер платна за дизајнерски тимови кои размислуваат гласно.',
   'billing.canceled': 'Претплатата е откажана.',
   'billing.cancelPlan': 'Откажи план',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Започни од шаблонот',
   'boards.title': 'Вашите табли',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Оди до контролна табла',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Внесете ја е-поштата поврзана со вашиот работен простор и ние ќе ви испратиме линк за ресетирање.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Работилница Q1 · Глас на брендот',
   'landing.featuresEyebrow': 'Што ја прави Slate tessellate?',
   'landing.featuresTitle': 'Брза повратна информација. Прекрасни платна. Нула триење.',
+  'landing.hero.body':
+    '{{appName}} е мултиплеер бела табла за дизајнерски тимови, фасилитатори на работилници и едукатори кои водат бури на идеи во живо и им требаат идеи за да ги спојат на едно место.',
   'landing.hero.primaryCta': 'Започнете табла бесплатно',
   'landing.hero.socialProof': 'Доверливо од {{count}} дизајнерски тимови ширум светот',
   'landing.hero.title': 'Платно брзо како твоите мисли',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Создадете слободен работен простор',
   'login.subheading':
     'Продолжете таму каде што застана работилницата — таблите, лепливите белешки и курсорите се синхронизираат во реално време.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.new': 'Ново',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'notifications.editTitle': 'Уредувања на „ {{board}} „',
   'notifications.empty.body':
     'Поканите, зачуваните снимки и неодамнешните измени на таблата ќе се појават тука како што се случуваат.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Историја на верзии',
   'versionHistory.untitledSnapshot': 'Неименувана слика',
   'whiteboardLayout.newBoard': 'Нова табла',
+  'whiteboardLayout.primaryNav': 'Примарна навигација',
   'workspace.boardLabel': 'Табла',
   'workspace.eyebrow': '{{name}} · работен простор',
   'workspace.invite': 'Покани соработници',

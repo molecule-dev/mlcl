@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'حول {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · أدوات إدارة الثروات',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ليست نصيحة استثمارية.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) اليوم',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'التنقل الرئيسي',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'لا توجد معاملات لهذا الرمز.',
   'assetDetail.txHeading': 'معاملاتك',
   'common.and': 'و',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'نظرة عامة على المحفظة',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'لا توجد مراكز بعد.',
   'holdings.heading': 'المراكز',
   'holdings.loadError': 'تعذّر تحميل المراكز.',
+  'landing.copyright':
+    '© {{year}} {{app}} . ليست نصيحة استثمارية. الأداء السابق لا يضمن النتائج المستقبلية.',
   'landing.eyebrow': 'Argent · منصة لأدوات إدارة الثروات',
   'landing.features.heading': 'كل ما قد يبنيه مستشار لنفسه.',
   'landing.finalCta.heading': 'أعِد الانضباط إلى محفظتك.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'قبل {{count}} ساعة',
   'news.justNow': 'الآن',
   'news.loadError': 'تعذّر تحميل الأخبار.',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'portfolioHeroCard.label': 'قيمة المحفظة',
   'pricing.holdingsLabel': 'الممتلكات',
   'pricing.newsLabel': 'مقالات إخبارية',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'حذف الحساب',
   'settings.security.deleting': 'جارٍ الحذف…',
   'settings.security.heading': 'الأمان',
+  'settings.security.newPassword': 'كلمة المرور الجديدة',
   'settings.security.password': 'كلمة المرور',
   'settings.security.twoFactorEnable': 'تمكين',
+  'settings.security.twoFactorInvalidCode': 'رمز غير صالح',
+  'settings.security.twoFactorVerify': 'التحقق والتفعيل',
   'settings.tax.error': 'تعذّر تحديث طريقة الضرائب.',
   'settings.tax.heading': 'محاسبة الحصص الضريبية',
   'settings.tax.method': 'الطريقة الافتراضية',

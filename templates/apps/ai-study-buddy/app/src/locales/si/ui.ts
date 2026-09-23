@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'සැලසුම් තොරතුරු පූරණය වෙමින්...',
   'billing.popular': 'වඩාත්ම ආදරය කරන ලද',
   'billing.subtitle': 'ඔබේ අධ්‍යයන කාලයට ගැලපෙන සැලැස්ම තෝරන්න.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.today': 'අද',
   'common.yesterday': 'ඊයේ',
   'courseDetail.empty.body':
@@ -81,8 +82,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'තට්ටුවේ නම',
   'flashcards.subtitle': 'ඔබේ වේගයට අනුවර්තනය වන පරතරයකින් යුත් පුනරාවර්තනය.',
   'flashcards.title': 'ෆ්ලෑෂ් කාඩ්',
+  'footer.copyright': '© {{year}} {{app}} . හොඳින් ඉගෙන ගන්න, හොඳින් නිදාගන්න.',
   'forgotPassword.subtitle':
     'ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, එවිට අපි ඔබට යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
+  'koanLayout.closeMenu': 'මෙනුව වසන්න',
+  'koanLayout.navLabel': 'ප්‍රාථමික සංචාලනය',
+  'koanLayout.openMenu': 'මෙනුව විවෘත කරන්න',
   'koanLayout.theme': 'තේමාව',
   'landing.featuresBody':
     'අවධානය වෙනතකට යොමු කිරීම ඉවත් කර කල් පවතින අවබෝධය ගොඩනැගීමට නිර්මාණය කර ඇති මෙවලම්.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ඒ URL එක නම් නොකළ ප්‍රදේශයක්. සමහරවිට අකුරු වැරදීමක් වෙන්න ඇති, සමහරවිට මකා දැමූ පාඩමක් වෙන්න ඇති - කොහොම උනත්, අපි ඔබව නැවත අධ්‍යයනයට යොමු කරමු.',
   'notFound.heading': 'පිටුව හමු නොවීය.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'ඔයා ඔක්කොම ඉවරයි.',
   'notifications.filter.${opt}': 'දැනුම්දීම් පූරණය වෙමින්...',
   'notifications.markAllError': 'සියල්ල කියවූ ලෙස සලකුණු කිරීමට නොහැකි විය.',
   'notifications.markError': 'කියවූ ලෙස සලකුණු කළ නොහැකි විය.',
   'notifications.subtitle': '{{count}} නොකියවූ යාවත්කාලීන කිරීම්',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.heading': 'ප්‍රශ්නාවලිය',
   'pricing.limits.topics': 'මාතෘකා',
   'privacy.collectBody':
@@ -186,6 +193,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'වෙනස් මූල පදයක් හෝ පෙරහනක් උත්සාහ කරන්න.',
   'search.empty.title': 'කිසිවක් ගැලපෙන්නේ නැත.',
   'search.error': 'ප්‍රතිඵල පූරණය කළ නොහැකි විය.',
+  'search.filters': 'ප්‍රතිඵල වර්ග පෙරහන්',
   'search.go': 'යන්න',
   'search.label.flashcard': 'ෆ්ලෑෂ් කාඩ් තට්ටුව',
   'search.label.note': 'සටහන',

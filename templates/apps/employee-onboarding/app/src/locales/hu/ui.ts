@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'auth.forgotPassword.emailPlaceholder': 'nev@azaceged.com',
   'auth.forgotPassword.heading': 'Állítsa vissza a jelszavát.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Feladat megjelölése befejezettként',
   'checklistTaskCard.markIncomplete': 'Feladat megjelölése befejezetlenként',
   'checklistTaskCard.openLabel': 'Feladat megnyitása',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Teljesen naprakész',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Jó úton halad',
   'dashboard.timelineHeading': '30/60/90 mérföldkő',
   'dashboard.viewAllTasks': 'Az összes feladat megtekintése',
+  'dashboard.weekOne': '1. hét',
   'dashboard.yourCohort': 'A csapatod',
   'documents.empty.body': 'A csapatod által hozzáadott dokumentumok itt fognak megjelenni.',
   'documents.empty.title': 'Még nincsenek dokumentumok',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 napos ingyenes próbaidőszak',
   'landing.subhead':
     'Az Embark minden új csapattársat végigvezet az első 90 napon – papírmunka, képzés, mérföldkövek és tartalmas bemutatkozás, mindezt egyetlen nyugodt, magabiztos helyen.',
+  'layout.openMenu': 'Navigációs menü megnyitása',
   'layout.search': 'Feladatok, dokumentumok, csapattársak keresése…',
+  'layout.searchTeammates': 'Csapattársak keresése név vagy szerepkör alapján…',
   'layout.section.onboarding': 'Bevezetés',
   'layout.tagline': 'Az utazásod itt kezdődik',
   'notifications.empty.body': 'Az új tevékenységek itt fognak megjelenni.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'tegnap',
   'planUpdated.message': 'Készen állsz.',
   'planUpdated.preparing': 'A csomag frissítése…',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.documentsLabel': 'dokumentumok',
   'pricing.onboardingsLabel': 'onboardingok',
   'pricing.tasksLabel': 'feladatok',

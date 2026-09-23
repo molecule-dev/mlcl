@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Faoi {{app}}',
   'analytics.avgCheckLabel': 'Seiceáil meánach',
   'analytics.busiestHour': 'Uair an chloig is gnóthaí',
   'analytics.coversToday': 'Clúdaigh inniu',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Leideanna (meán)',
   'analytics.topItems': 'Míreanna is fearr inniu',
   'authShell.eyebrow': 'Fáilte ar ais chuig an tseirbhís',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Pointe díola te, tapa do fhoirne fáilteachais. Sínigh isteach i do chistin agus lean ar aghaidh san áit ar fhág tú.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'nó {{price}}',
   'billing.priceUnavailable': 'Níl praghas cumraithe ag an bplean seo.',
   'billing.updated': 'Plean nuashonraithe.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'customerDetail.book': 'Cuir áirithint leis',
   'customerDetail.col.table': 'Tábla',
   'customerDetail.confirmDelete': 'Scrios an taifead aoi seo?',
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Infhaighteacht',
   'menuItemDetail.available': 'Ar fáil anocht',
   'menuItemDetail.backToMenu': 'Ar ais go dtí an roghchlár',
+  'menuItemDetail.confirmDelete': 'Scrios an mhír roghchláir seo?',
   'menuItemDetail.delete': 'Scrios mír',
   'menuItemDetail.deleteError': 'Theip ar an scriosadh. Déan iarracht eile.',
   'menuItemDetail.dietary': 'Clibeanna aiste bia',
@@ -141,9 +145,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · eagarthóireacht grianghraf, modhnóirí, aiste bia agus praghsáil.',
   'menuItemDetail.untitled': 'Mír gan teideal',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'notFound.heading': 'Níl an tábla seo ar an urlár.',
   'notFound.subheading':
     'Tá an leathanach a bhí á lorg agat suite in áit eile — nó ní raibh sé ann riamh.',
+  'notFound.toLanding': 'Baile {{app}}',
   'notifications.markError': 'Níorbh fhéidir gach rud a mharcáil mar léite.',
   'orderDashboard.activeDelta': 'Cónaigh anois',
   'orderDashboard.activeLabel': 'Orduithe gníomhacha',
@@ -208,6 +215,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'Cuir isteach do phasfhocal nua chun rochtain a fháil ar an gcistin arís.',
   'resetPassword.tokenLabel': 'Athshocraigh an Chomhartha',
+  'restaurantOrderingLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'revenueHeroCard.activeOrders': '{{count}} gníomhach',
   'revenueHeroCard.change': '{{sign}} {{amount}} i gcoinne inné',
   'revenueHeroCard.title': 'Ioncam an lae inniu',
@@ -226,6 +234,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Ainm an bhialann',
   'tableDetail.activeOrders': 'Orduithe gníomhacha',
   'tableDetail.backToFloor': 'Plean urláir',
+  'tableDetail.confirmDelete': 'Scrios an tábla seo?',
   'tableDetail.delete': 'Scrios',
   'tableDetail.deleteError': 'Níorbh fhéidir an tábla a scriosadh.',
   'tableDetail.heading': 'Tábla {{label}}',

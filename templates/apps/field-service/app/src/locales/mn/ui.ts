@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Үйлчлүүлэгчид',
   'customers.loadError': 'Үйлчлүүлэгчдийн мэдээлэл татаж чадсангүй.',
   'customers.loading': 'Ачааллаж байна…',
+  'customers.new.address': 'Үйлчилгээний хаяг',
   'customers.new.email': 'И-мэйл',
   'customers.new.error': 'Үйлчлүүлэгч нэмж чадсангүй.',
   'customers.new.heading': 'Шинэ үйлчлүүлэгч',

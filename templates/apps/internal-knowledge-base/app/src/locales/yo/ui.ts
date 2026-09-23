@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'article.notFound': 'A ko ri nkan naa',
   'articleEditor.bodyPlaceholder': 'Tẹ / fun awọn bulọọki, tabi bẹrẹ kikọ.',
+  'articleEditor.loadFailed': 'Kò le gbé àpilẹ̀kọ jáde',
   'articleEditor.publishing': 'Ìtẹ̀jáde\\u2026',
   'articleEditor.saveFailed': 'Fifipamọ kuna',
   'articleEditor.saving': 'Nfipamọ́\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Bukumaaki',
   'articleView.bookmarkOn': 'Ti fi àmì sí',
   'articleView.edit': 'Ṣe àtúnṣe àpilẹ̀kọ',
+  'articleView.loading': 'Ṣíṣí àpilẹ̀kọ yìí…',
   'articleView.readTime': '{{minutes}} ìṣẹ́jú kíkà',
   'articleView.spaces': 'Àwọn Ààyè',
   'articleView.tocHeading': 'Lórí ojú ìwé yìí',
@@ -36,8 +40,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.readers': 'Àwọn òǹkàwé lónìí',
   'cairnTrailHero.subtitle': 'Àwọn àtúnṣe tuntun, kíkà, àti àkọsílẹ̀ ẹgbẹ́ rẹ ṣì ń tẹ̀síwájú.',
   'cairnTrailHero.updated': 'Àwọn àpilẹ̀kọ tí a ṣe àtúnṣe',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'drafts.eyebrow': 'Iṣẹ́ rẹ tí kò tíì parí',
   'drafts.heading': 'Àwọn àkọsílẹ̀',
+  'drafts.loadFailed': 'Kò le gbé àwọn ìkọsílẹ̀ rẹ jáde.',
   'drafts.subtitle':
     'Àwọn àpilẹ̀kọ tí o ti bẹ̀rẹ̀ ṣùgbọ́n tí o kò tí ì tẹ̀ jáde. Gbé ọ̀kan kalẹ̀ kí o sì máa tẹ̀síwájú.',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Kò sí ààyè kankan síbẹ̀. Ṣí ọ̀kan láti bẹ̀rẹ̀ sí í kó àwọn àpilẹ̀kọ jọ.',
   'home.spacesHeading': 'Àwọn àlàfo rẹ',
   'home.subtitle': 'Àwọn àpilẹ̀kọ tuntun, àwọn àmì ìpamọ́ rẹ, àti ohun tí ẹgbẹ́ náà ti ń kọ.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . A fi Molekulu kọ́ ọ.',
   'landing.ctaBody':
     'Ọfẹ́ fún àwọn òǹkọ̀wé nìkan. Àwọn ètò ẹgbẹ́ fún àwọn ẹgbẹ́ tí a pín kiri tí wọ́n ń fi àwọn ìwé ìròyìn, àwọn ìpinnu, àti ìtẹ̀síwájú ránṣẹ́.',
   'landing.ctaHeading': 'Gbé òkúta àkọ́kọ́ kalẹ̀ lónìí.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Ṣẹda aaye iṣẹ kan',
   'login.submitting': 'Wíwọlé\\u2026',
   'login.subtitle': 'Gbé ipa ọ̀nà tí o fi sílẹ̀.',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
+  'newSpace.colorAria': 'Yan àwọ̀ {{color}}',
   'newSpace.colorLabel': 'Àwọ̀ ohùn',
+  'newSpace.createFailed': 'Kò le ṣẹ̀dá ààyè',
   'newSpace.descriptionPlaceholder':
     'Àwọn ìwé ìṣiṣẹ́, àwọn ìwé eré ìpè, àwọn ìwé ìpamọ́ lẹ́yìn ikú\\u2026',
   'newSpace.eyebrow': 'Ṣí ibi ìmọ̀ kan',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'N n gbe nkan soke\\u2026',
   'notifications.subtitle':
     '{{count}} Àìkà \\u2014 àwọn ìtọ́kasí, àwọn àkíyèsí, àwọn àyípadà ojú ìwé, àti àwọn ìbéèrè àtúnyẹ̀wò.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.articles': 'awọn nkan',
   'pricing.spaces': 'awọn aaye',
   'profile.eyebrow': 'Ìwífúnni òǹkọ̀wé',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Tẹ ọrọ igbaniwọle tuntun sii',
   'resetPassword.subtitle': 'Yan ọrọ igbaniwọle to lagbara — o kere ju awọn ohun kikọ 12 lọ.',
   'searchResults.eyebrow': 'Wíwá ààyè iṣẹ́',
+  'searchResults.filter.all': 'Gbogbo awọn aaye',
   'searchResults.heading': 'Ṣe àwárí àwọn àpilẹ̀kọ',
   'searchResults.placeholder': 'Ṣe àwárí àwọn ìwé ìṣiṣẹ́, àwọn RFC, àwọn ìlànà, àwọn ìpinnu\\u2026',
   'searchResults.summary': '{{count}} Àwọn àbájáde fún \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Èyí á pa àkọọ́lẹ̀ rẹ àti gbogbo àpilẹ̀kọ tí o kọ rẹ́. Tẹ DELETE láti jẹ́rìí sí i.',
   'settings.danger.confirmInvalid': 'Tẹ DELETE lati jẹrisi.',
+  'settings.danger.deleteFailed': 'Kò le pa àkọọ́lẹ̀ rẹ rẹ́',
   'settings.danger.deleting': 'Píparẹ́\\u2026',
   'settings.danger.description':
     'Píparẹ́ ibi iṣẹ́ rẹ kúrò nínú gbogbo àwọn àpilẹ̀kọ, àwọn àkíyèsí, àti ìtàn ẹ̀yà náà. Kò sí ìgbàpadà.',
   'settings.danger.title': 'Pa ibi-iṣẹ́ rẹ́',
+  'settings.email.confirm': 'Ṣe imudojuiwọn imeeli',
+  'settings.email.confirmTitle': 'Jẹ́rìísí ìyípadà ìmeeli',
   'settings.email.saved': 'Ìmeeli ti ṣe àtúnṣe.',
+  'settings.email.updateFailed': 'Kò le ṣe àtúnṣe ìmeeli',
   'settings.language.title': 'Èdè',
   'settings.name': 'Orúkọ',
+  'settings.name.saved': 'Orúkọ tuntun.',
+  'settings.name.updateFailed': 'Kò le ṣe àtúnṣe orúkọ',
   'settings.notifications.description': 'Yan ohun tí ó dé inú àpótí ìforúkọsílẹ̀ rẹ.',
+  'settings.password.changeFailed': 'Kò le yí ọ̀rọ̀ìpamọ́ padà',
   'settings.password.current': 'Ọ̀rọ̀ìpamọ́ lọ́wọ́lọ́wọ́',
   'settings.password.new': 'Ọrọ aṣina Tuntun',
   'settings.password.saving': 'N ṣe àtúnṣe\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Bí àwọn àpilẹ̀kọ ṣe ń ṣe àfihàn fún ọ.',
   'settings.reading.title': 'Kíkà àti kíkọ',
   'settings.subtitle': 'Ṣàtúnṣe àwọn ìfitónilétí, àwòrán kíkà, àti àkọọ́lẹ̀ rẹ.',
+  'settings.twofa.code': 'Kóòdù ìfàṣẹsí',
   'settings.twofa.disable': 'Mu ṣiṣẹ',
   'settings.twofa.disabled': 'A ti daa',
   'settings.twofa.enable': 'Mu ṣiṣẹ',
   'settings.twofa.enabled': 'Ti mu ṣiṣẹ',
+  'settings.twofa.invalidCode': 'Kóòdù tí kò tọ́',
+  'settings.twofa.unavailable': 'Ìfọwọ́sowọ́pọ̀ ìfàṣẹsí méjì kò sí fún àpù yìí.',
+  'settings.twofa.verify': 'Ṣàyẹ̀wò kí o sì mú un ṣiṣẹ́',
   'signup.brandQuote':
     '\\u201cKọ ọ́ sílẹ̀ ni ìlérí àkọ́kọ́ tí a ṣe fún ẹni tí ó tẹ̀lé tí ó nílò rẹ̀.\\u201d',
   'signup.eyebrow': 'Ṣí ibi iṣẹ́ kan',

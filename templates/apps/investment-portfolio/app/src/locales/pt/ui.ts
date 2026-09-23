@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Ferramentas de gestão de patrimônio',
+  'argentAuthShell.brandFootnote':
+    '© {{year}} {{app}} . Não constitui aconselhamento de investimento.',
   'argentAuthShell.sampleChange': '+US$ 2.841 (+0,28%) hoje',
   'argentAuthShell.sampleValue': 'US$ 1.032.251',
   'argentLayout.primaryNavLabel': 'Navegação principal',
@@ -25,6 +28,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Sem transações para este ticker.',
   'assetDetail.txHeading': 'Suas transações',
   'common.and': 'e',
+  'common.goToDashboard': 'Ir para o Painel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Visão geral da carteira',
@@ -51,6 +55,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Ainda sem posições.',
   'holdings.heading': 'Posições',
   'holdings.loadError': 'Falha ao carregar as posições.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Não constitui aconselhamento de investimento. O desempenho passado não garante resultados futuros.',
   'landing.eyebrow': 'Argent · Uma plataforma de gestão de patrimônio',
   'landing.features.heading': 'Tudo o que um assessor construiria para si mesmo.',
   'landing.finalCta.heading': 'Traga disciplina de volta à sua carteira.',
@@ -71,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'há {{count}} h',
   'news.justNow': 'agora mesmo',
   'news.loadError': 'Falha ao carregar as notícias.',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'portfolioHeroCard.label': 'Valor da carteira',
   'pricing.holdingsLabel': 'participações',
   'pricing.newsLabel': 'artigos de notícias',
@@ -134,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Excluir conta',
   'settings.security.deleting': 'Excluindo…',
   'settings.security.heading': 'Segurança',
+  'settings.security.newPassword': 'Nova senha',
   'settings.security.password': 'Senha',
   'settings.security.twoFactorEnable': 'Ativar',
+  'settings.security.twoFactorInvalidCode': 'Código inválido',
+  'settings.security.twoFactorVerify': 'Verificar e ativar',
   'settings.tax.error': 'Não foi possível atualizar o método tributário.',
   'settings.tax.heading': 'Contabilidade de lotes tributários',
   'settings.tax.method': 'Método padrão',

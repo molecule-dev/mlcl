@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.title': 'Tungkol sa {{app}}',
   'comments.addFailed': 'Hindi makapag-post ng komento.',
   'comments.backToDoc': 'Balik sa manuskrito',
   'comments.deleteFailed': 'Hindi mabura.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Lutasin',
   'comments.resolveFailed': 'Hindi malutas.',
   'comments.subtitle': '{{open}} bukas · {{resolved}} nalutas',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.activityHeading': 'Ano ang nangyayari',
   'dashboard.createFailed': 'Hindi makagawa ng dokumento.',
   'dashboard.empty': 'Wala pang mga manuskrito — magsimula sa buton na Bagong dokumento.',
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Hindi mailipat sa basurahan.',
   'editor.unpublish': 'I-unpublish',
   'editor.untitled': 'Dokumentong Walang Pamagat',
+  'editor.updatedElsewhere':
+    'Na-update ng ibang tao ang dokumentong ito — i-reload para makita ang pinakabago.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Kung mayroong account para sa {{email}} , may paparating nang link para sa pag-reset.',
   'forgotPassword.subtitle': 'Mag-e-email kami sa iyo ng link sa pag-reset.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Ginawa gamit ang Molecule.',
   'landing.ctaHeading': 'Buksan ang pahina. Simulan ang cursor.',
   'landing.ctaPrimary': 'Magbukas ng studio',
   'landing.eyebrow': 'Para sa mga manunulat, editor, at mga koponan',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'na-edit {{when}}',
   'quillonDocumentCard.open': 'Buksan →',
   'quillonKpiCard.trend': 'Kamakailang uso',
+  'quillonLayout.menu': 'Menu',
   'quillonLayout.primaryNavLabel': 'Pangunahing navigation',
   'quillonStudioHero.collab': 'Mga Kolaborator',
   'quillonStudioHero.docs': 'Mga dokumentong nahawakan',
@@ -163,9 +170,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ang nakaraan',
   'time.hoursAgo': '{{hours}}h ang nakaraan',
   'time.justNow': 'ngayon lang',
+  'trash.confirmDelete': 'Kumpirmahin ang pagbura',
   'trash.deleteFailed': 'Hindi mabura.',
   'trash.deleteForever': 'Tanggalin nang permanente',
   'trash.empty': 'Walang dapat ibangon.',
+  'trash.emptyAll': 'Linisin ang basurahan',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Basurahan',
   'trash.loadFailed': 'Hindi ma-load ang basurahan.',

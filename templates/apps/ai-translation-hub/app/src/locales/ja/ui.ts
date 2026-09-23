@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'billing.canceled': 'サブスクリプションを解約しました。期間終了時に無料プランに戻ります。',
   'billing.contactSales': '営業に問い合わせる',
   'billing.free.1': '5翻訳',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': '保持制限なし',
   'billing.upgradeHint': 'アップグレードして高度なAI機能を解除しましょう。',
   'billing.yearly': '年額',
+  'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.activityEmpty':
     'まだアクティビティはありません——プロジェクトを開始してこのフィードに反映させましょう。',
   'dashboard.eyebrow': '概要',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     '過去の翻訳をすべてのプロジェクトで再利用。マッチスコアが高いほど→再作業が少なくなります。',
   'memory.title': 'メモリバンク',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'nav.legal': '法的事項',
   'newProject.addLanguage': 'ターゲットを追加',
   'newProject.create': 'プロジェクトを作成',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': '以前',
   'notifications.markedAllRead': '{{count}} 件の通知を既読にしました。',
   'notifications.subtitle': 'ワークスペース全体のメンション、レビュー依頼、AIイベント。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'privacy.collection.account': 'アカウントのメールアドレスと表示名',
   'privacy.deletion.body':
     'プロジェクト、セグメント、用語集、メモリエントリは、関連するページからいつでも削除できます。設定からアカウントを削除すると、ワークスペースに関連するすべての行がデータベースから消去されます。',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'プロジェクトの読み込みに失敗しました。',
   'projects.loading': 'プロジェクトを読み込んでいます…',
   'projects.subtitle': 'すべてのロケールの各アクティブプロジェクト。',
+  'renditionLayout.primaryNavLabel': 'メインナビゲーション',
   'reset.backToLogin': '\\u2190 サインインに戻る',
   'reset.passwordLabel': '新しいパスワード',
   'review.activeEyebrow': 'セグメント {{number}}',

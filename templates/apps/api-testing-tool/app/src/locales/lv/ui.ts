@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.pageTitle': 'Par {{app}}',
   'authShell.statusLabel': 'skrietāji tiešsaistē',
   'collections.createError': 'Nevarēja izveidot kolekciju.',
   'collections.defaultName': 'Bez nosaukuma kolekcija {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Jauna kolekcija',
   'collections.subheading':
     'Grupējiet pieprasījumus, kopīgojiet tos ar savu komandu un palaidiet tos kā komplektu.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'environmentCard.inactive': 'Dīkstāve',
   'environmentCard.more': 'vairāk',
   'environmentCard.variables': 'Mainīgie lielumi',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Lejupielādēt bez maksas',
   'landing.heroSubtitle':
     'Zibenīgi ātrs API testēšanas darbagalds, kas izveidots inženieriem, kuri dzīvo termināļos.',
+  'landing.heroTitleAccent': 'Ugunsgrēks',
+  'landing.heroTitleLine2': 'veidot uzticību.',
+  'landing.heroTitleRest': 'pieprasījumi,',
   'landing.kicker': '$ pilons sūtīt --skatīties',
   'landing.pricingEyebrow': '// $ cenas --vienkāršs',
   'landing.pricingHeading': 'Vienkārša, prognozējama cenu politika',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Jauns šeit?',
   'login.showPassword': 'Rādīt paroli',
   'login.subtitle': 'Dodieties uz savu Pylon darbvietu.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'mocks.createError': 'Nevarēja izveidot imitāciju.',
   'mocks.defaultName': 'Bez nosaukuma imitācija {{n}}',
   'mocks.deleteError': 'Nevarēja izdzēst imitāciju.',
@@ -115,6 +123,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Atpakaļ uz darba vietu',
   'notFound.eyebrow': '$ pylon atrisināt --strict',
   'notFound.title': 'Maršruts nav atrasts',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'privacy.collect.account':
     'Konts: jūsu e-pasts, jauktā parole, parādāmais vārds un pēdējās pierakstīšanās laika zīmogs.',
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Tikai lasāms skats uz datiem, kas pašlaik pieder šim kontam.',
   'settings.unset': 'nav iestatīts',
   'signup.identityHint': 'piemēram, Alekss',
+  'signup.statusLabel': 'bezmaksas pakalpojums · nav nepieciešama kredītkarte',
   'signup.subtitle': 'Sāciet pieprasījumu izpildi dažu minūšu laikā.',
   'terms.account.body':
     'Jūs esat atbildīgs par savas paroles aizsardzību. Viena konta koplietošana ar vairākiem cilvēkiem nav atļauta bezmaksas vai Pro plānos — iegādājieties Team abonementu koplietotām darba telpām.',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     'Neizmantojiet Pylon, lai nosūtītu pieprasījumus pakalpojumos, kas jums nepieder vai kuriem jums nav skaidras atļaujas testēt. Neizmantojiet Pylon, lai apietu ātruma ierobežojumus vai veiktu krāpniecību.',
   'terms.warranty.body':
     'Pylon tiek nodrošināts “tādā stāvoklī, kādā tas ir”, bez jebkāda veida garantijas. Mēs cenšamies nodrošināt 99,9% darbības laiku, taču negarantējam to bezmaksas vai Pro plānos.',
+  'testRunner.assertionsCount': '{{count}} apgalvojumi',
   'testRunner.createError': 'Nevarēja izveidot testu.',
   'testRunner.cron':
     'Apgalvojumi tiek novērtēti, ņemot vērā šī testa saistītā pieprasījuma jaunāko izpildes reizi.',
@@ -173,11 +184,33 @@ export const ui: UiTranslations = {
     'Komplekta rezultāti, apgalvojumu atšķirības un pēdējās 50 palaišanas reizes.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Pierakstījies kā',
+  'workspace.auth.keyName': 'Virsraksta nosaukums',
+  'workspace.auth.keyValue': 'Galvenā vērtība',
+  'workspace.auth.password': 'Parole',
+  'workspace.auth.username': 'Lietotājvārds',
+  'workspace.authOption.apikey': 'API atslēga',
+  'workspace.authOption.basic': 'Pamata autentifikācija',
+  'workspace.authOption.bearer': 'Token uzrādītājam',
+  'workspace.authOption.none': 'Nav',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tips',
   'workspace.authTypeLabel': 'Autorizācijas veids',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Nav',
+  'workspace.body.text': 'Neapstrādāts teksts',
+  'workspace.body.type': 'Tips',
   'workspace.environment': 'Nav vides',
   'workspace.envVar': 'vides mainīgais',
   'workspace.eyebrow': '$ pilona darbvieta --rūts sadalīta',
+  'workspace.kv.addHeader': 'Pievienot galveni',
+  'workspace.kv.addParam': 'Pievienot parametru',
+  'workspace.kv.headerKey': 'Virsraksta nosaukums',
+  'workspace.kv.headerValue': 'Virsraksta vērtība',
+  'workspace.kv.key': 'Atslēga',
+  'workspace.kv.paramKey': 'Vaicājuma parametra atslēga',
+  'workspace.kv.paramValue': 'Vaicājuma parametra vērtība',
+  'workspace.kv.removeRow': 'Dzēst rindu',
+  'workspace.kv.value': 'Vērtība',
   'workspace.methodLabel': 'HTTP metode',
   'workspace.metric.latency': 'Aizture',
   'workspace.metric.latencyCaption': 'Turp un atpakaļ no šī brauciena',
@@ -194,6 +227,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Pieprasījums ir nosūtīts — skatiet atbildi zemāk.',
   'workspace.subheading':
     'Sastādiet pieprasījumu, aktivizējiet to un pēc tam apstipriniet atbildi — tas viss vienā rūtī.',
+  'workspace.testResults': 'Testa rezultāti',
   'workspace.token': 'Žetons',
   'workspace.tokenHint':
     'Nosūtīts kā pilnvarojums: Uzrādītājs<token> uz katru pieprasījumu šajā kolekcijā.',

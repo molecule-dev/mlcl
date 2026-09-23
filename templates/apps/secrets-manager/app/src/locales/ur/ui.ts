@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'about.tagline': 'راز کھلے میں مر جاتے ہیں۔',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ٹوکن بنائیں',
   'apiTokens.kicker': 'API ٹوکنز',
   'apiTokens.loading': 'ٹوکنز لوڈ ہو رہے ہیں…',
+  'apiTokens.new': 'نیا ٹوکن',
   'apiTokens.revoke': 'ٹوکن منسوخ کریں۔',
   'apiTokens.subheading':
     'Arcanum CLI اور SDK کے لیے ذاتی اور سروس ٹوکن۔ تخلیق کے وقت سادہ متن ایک بار دکھایا گیا ہے۔',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + پاسکی',
   'authShell.zeroKnowledge': 'زیرو نالج انکرپشن',
   'common.connecting': 'منسلک ہو رہا ہے…',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.inviting': 'مدعو کیا جا رہا ہے…',
   'forgotPassword.checkInbox':
     'اگر {email} رجسٹرڈ ہے، تو ایک دستخط شدہ ری سیٹ لنک ایک منٹ میں آ جائے گا۔',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ہر والٹ میں گردش کی حیثیت، بے ضابطگی کے انتباہات، اور منظوری کی درخواستیں۔',
   'notifications.unreadEmpty': 'ان باکس صفر - سب پکڑ لیا گیا۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.heading': 'راز',
   'pricing.limits.accessPolicies': 'رسائی کی پالیسیاں',
   'pricing.limits.auditLog': 'آڈٹ لاگ اندراجات',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'ذاتی اکاؤنٹ',
   'profile.plan.description': 'اپنی سبسکرپشن کا نظم کریں، حدود دیکھیں، اور اپ گریڈ کریں۔',
   'profile.subheading': 'شناخت، سیکنڈ فیکٹر ڈیوائسز، اور فعال سیشنز۔',
+  'profile.twoFactor.code': 'تصدیقی کوڈ',
   'profile.twoFactor.disable': 'غیر فعال کریں۔',
   'profile.twoFactor.enable': 'فعال کریں۔',
+  'profile.twoFactor.invalidCode': 'غلط کوڈ',
   'profile.twoFactor.kicker': 'دو عنصر کی توثیق',
+  'profile.twoFactor.off': 'فعال نہیں ہے۔',
   'profile.twoFactor.on': 'فعال',
   'resetPassword.email': 'اکاؤنٹ ای میل',
   'resetPassword.heading': 'نئی اسناد مرتب کریں۔',
@@ -131,6 +138,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'احکامات',
   'secretsManagerLayout.encrypted': 'AES-256 · خفیہ کردہ',
   'secretsManagerLayout.newVault': 'نیا والٹ',
+  'secretsManagerLayout.newVaultShort': 'نیا',
   'secretsManagerLayout.rotations': 'گردشیں',
   'secretsManagerLayout.search': 'تلاش کریں',
   'secretsManagerLayout.searchPlaceholder': 'کلید، راستے یا ٹیگ کے ذریعے راز تلاش کریں…',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'راز',
   'vaultCard.vaultLabel': 'والٹ',
   'vaultDetail.addSecret': 'راز شامل کریں۔',
+  'vaultDetail.back': 'تمام والٹس',
   'vaultDetail.col.key': 'چابی',
   'vaultDetail.col.rotated': 'گھمایا',
   'vaultDetail.col.value': 'قدر',

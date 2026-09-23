@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'about.eyebrow': 'من نحن',
   'authShell.samplePreview':
     '«مرحباً بالفريق، لوحة التحكم الجديدة رائعة — هي بالضبط ما كنا نحتاجه!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/اختصار',
   'automations.subheading':
     'قواعد وردود جاهزة وروبوتات محادثة — حافظ على سلاسة مساحة العمل بينما يركز فريقك على المهام الصعبة.',
+  'automations.trigger.inboundMessage': 'رسالة واردة',
   'automations.triggerLabel': 'المُشغِّل',
   'chatBubble.internalNoteLabel': 'ملاحظة داخلية',
+  'common.confirmDelete': 'تأكيد الحذف',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'contactDetail.backToContacts': 'جميع جهات الاتصال',
   'contactDetail.contactFallback': 'جهة الاتصال',
   'contactDetail.conversationFallback': 'محادثة',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'آخر ظهور',
   'contacts.empty': 'لا توجد جهات اتصال بعد. أضف جهة الاتصال الأولى أعلاه.',
   'contacts.eyebrow': 'دليل العملاء',
+  'contacts.form.nameOrEmailRequired': 'يرجى إدخال اسم أو عنوان بريد إلكتروني على الأقل',
   'contacts.form.save': 'حفظ جهة الاتصال',
   'contacts.heading': 'جهات الاتصال',
   'contacts.loading': 'جارٍ تحميل جهات الاتصال…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'حفظ الملاحظة',
   'conversationDetail.tab.note': 'ملاحظة داخلية',
   'conversationDetail.threadAria': 'رسائل المحادثة',
+  'conversationDetail.visitorFallback': 'زائر',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'تفاصيل العميل',
   'customerProfilePanel.recentTitle': 'المحادثات الأخيرة',
@@ -70,6 +76,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'يحصل العملاء على أول رد خلال {{time}} في المتوسط — حافظ على هذا الإيقاع.',
   'inboxHeroCard.title': 'المحادثات النشطة',
+  'inboxLayout.navDrawerLabel': 'التنقل',
+  'inboxLayout.openMenu': 'فتح قائمة التنقل',
   'inboxOverview.eyebrow': 'اليوم في لمحة',
   'inboxOverview.heroChange': '{{count}} مفتوحة',
   'inboxOverview.kpiClosedTrend': 'إجمالي',
@@ -115,10 +123,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'زيارة الصفحة الرئيسية',
   'notifications.subheading':
     'الإسنادات، و@الإشارات، ومخاطر اتفاقية مستوى الخدمة، وملاحظات CSAT، ونشاط الفريق — مرتبة من الأحدث إلى الأقدم.',
+  'notifications.subjectFallback': 'محادثة',
+  'notifications.visitorFallback': 'زائر',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'عالية',
   'priority.low': 'منخفضة',
+  'priority.normal': 'عادي',
   'priority.urgent': 'عاجلة',
   'privacy.title': 'سياسة الخصوصية',
   'reports.agentFallback': 'الوكيل',

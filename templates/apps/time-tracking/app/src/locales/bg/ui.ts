@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'about.plansTitle': 'Планове, които се развиват заедно с вас',
   'brand.tagline': 'Всяка секунда',
   'clientDetail.back': 'Обратно към клиентите',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Всяка взаимоотношения на едно място — проекти, часове, неплатени фактури.',
   'clients.title': 'Клиенти',
   'common.and': 'и',
+  'common.goToDashboard': 'Към таблото',
   'dashboard.activeProjects': 'Активни проекти',
   'dashboard.empty': 'Все още няма записи. Стартирайте таймера, за да проследите първата си сесия.',
   'dashboard.greeting': 'Здравейте, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'Няма фактурируеми часове за фактуриране за този клиент. Първо проследете известно време или присвоете съществуващи записи към един от проектите на този клиент.',
   'invoices.save': 'Създаване на фактура',
   'invoices.subtitle': 'Проследените часове се натрупват автоматично във фактури.',
+  'landing.copyright': '© {{year}} {{app}} . Всяка секунда е отчетена.',
   'landing.ctaBody':
     'Безплатно за до 3 проекта. Надстройте, когато вашият списък с клиенти го направи.',
   'landing.eyebrow': 'Проследяване на времето за таксувана работа',
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Доверен от независими',
   'landing.testimonial.quote':
     '\\u201cОтказах се от Toggl за 30 минути. Самото изчерпване на бюджета се изплати \\u2014 Спрях да подценявам цените две седмици поред.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Хроно. Всяка секунда, отчетена.',
   'login.brand.subtitle':
     'Продължете с отброяването на времето оттам, където сте спрели – всяка минута вече е свързана с проект, клиент, фактура.',
   'login.brand.tracking': 'Проследяване',
   'login.subheading': 'Продължете с таймера оттам, където сте спрели.',
+  'nav.closeMenu': 'Затвори менюто за навигация',
   'nav.insightsSection': 'Анализи',
   'nav.newEntry': 'Нов запис',
+  'nav.openMenu': 'Отвори менюто за навигация',
+  'nav.primary': 'Основна навигация',
   'nav.workSection': 'Работа',
   'notFound.body':
     'Изглежда, че връзката, която последвахте, е спряла да се проследява. Върнете се в таблото си за управление - ще продължим да броим оттам.',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Фактурируемо',
   'timer.descriptionPlaceholder': 'Върху какво работиш?',
   'timer.idle': 'Неактивен режим — стартиране на проследяване',
+  'timer.noProject': 'Няма проект',
   'timer.runningWithProject': 'Няма проект',
   'timer.start': 'Стартиране на таймера',
   'timer.stop': 'Спиране на таймера',

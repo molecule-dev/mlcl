@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.eyebrow': '// {{appName}} பற்றி',
   'about.pageTitle': 'பற்றி {{appName}}',
   'albumDetail.breadcrumb': '// நூலகம் › ஆல்பங்கள் › {{albumTitle}}',
   'albumDetail.breadcrumb.loading': '// நூலகம் › ஆல்பங்கள்',
@@ -19,6 +21,7 @@ export const ui: UiTranslations = {
     'ஒளியை வடிவமைக்கும் படைப்பாளிகளுக்கான ஒரு துல்லியமான புகைப்பட எடிட்டர்.',
   'authShell.tagline': 'ஒளி உங்கள் விருப்பத்திற்கு வளையும்',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'editor.breadcrumb': '// எடிட்டர்',
   'editor.empty.body':
     'ஒரு ஃபிரேமைத் தேர்ந்தெடுக்க நூலகத்தைத் திறக்கவும், அல்லது புதிய ஒன்றைப் பதிவேற்றவும்.',
@@ -63,6 +66,8 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'photographer@lustra.studio',
   'forgotPassword.eyebrow': '// கடவுச்சொல்லை மீட்டமைக்கவும்',
   'forgotPassword.remembered': 'நினைவிருக்கிறதா?',
+  'forgotPassword.successBody':
+    'ஒரு கணக்கு {{email}} உடன் பொருந்தினால், இணைப்பு அனுப்பப்பட்டுக்கொண்டிருக்கிறது.',
   'landing.cta': 'திறந்த லஸ்ட்ரா',
   'landing.ctaPrimary': 'இலவசமாகத் திருத்தத் தொடங்குங்கள்',
   'landing.eyebrow': '// துல்லியமான புகைப்பட எடிட்டர்',
@@ -107,7 +112,9 @@ export const ui: UiTranslations = {
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — உங்கள் நூலகம், முன்னமைவுகள் மற்றும் வரலாறு உங்களுக்காகக் காத்திருக்கின்றன.',
   'photoEditorLayout.guest': 'புகைப்படக் கலைஞர்',
   'photoEditorLayout.newEdit': 'புதிய திருத்தம்',
+  'photoEditorLayout.planLabel': '{{name}}',
   'photoEditorLayout.planLoading': 'ஏற்றப்படுகிறது…',
+  'photoEditorLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'photoEditorLayout.tagline': 'ஒளி உங்கள் விருப்பத்திற்கு வளையும்',
   'photoTile.edited': 'திருத்தப்பட்டது',
   'presets.breadcrumb': '// முன்னமைவுகள் › நூலகம்',
@@ -139,9 +146,14 @@ export const ui: UiTranslations = {
     'குறைந்தது 8 எழுத்துகள் மற்றும் எண்கள் கலந்த குறியீட்டைப் பயன்படுத்தவும். நாங்கள் மூல உரையை ஒருபோதும் சேமிப்பதில்லை.',
   'resetPassword.tokenPlaceholder': 'மின்னஞ்சலிலிருந்து',
   'settings.account.email': 'மின்னஞ்சல் முகவரி',
+  'settings.account.emailError': 'உங்கள் மின்னஞ்சலைப் புதுப்பிக்க முடியவில்லை.',
+  'settings.account.emailSave': 'மின்னஞ்சலைச் சேமிக்கவும்',
   'settings.account.emailSaved': 'மின்னஞ்சல் புதுப்பிக்கப்பட்டது.',
   'settings.account.emailSaving': 'சேமிப்பு…',
+  'settings.account.nameError': 'உங்கள் பெயரைப் புதுப்பிக்க முடியவில்லை.',
+  'settings.account.nameSaved': 'பெயர் புதுப்பிக்கப்பட்டது.',
   'settings.account.nameSaving': 'சேமிப்பு…',
+  'settings.account.passwordSaved': 'கடவுச்சொல் மாற்றப்பட்டது.',
   'settings.account.title': 'கணக்கு',
   'settings.breadcrumb': '// கணக்கு › விருப்பத்தேர்வுகள்',
   'settings.color.body':
@@ -149,6 +161,8 @@ export const ui: UiTranslations = {
   'settings.color.eyebrow': '//நிறம்',
   'settings.color.recommended': 'பரிந்துரைக்கப்பட்டது',
   'settings.color.title': 'செயல்பாட்டு வண்ண சுயவிவரம்',
+  'settings.devices.empty': 'கோப்பில் வேறு சாதனங்கள் இல்லை.',
+  'settings.devices.eyebrow': '// சாதனங்கள்',
   'settings.devices.signOut': 'வெளியேறு',
   'settings.devices.thisDevice': 'இந்த சாதனம்',
   'settings.devices.title': 'சாதனங்கள்',
@@ -163,6 +177,7 @@ export const ui: UiTranslations = {
   'settings.plan.namedHeading': 'ஏற்றும் திட்டம்…',
   'settings.preferences.eyebrow': '// விருப்பத்தேர்வுகள்',
   'settings.preferences.title': 'ஆசிரியர் நடத்தை',
+  'settings.security.eyebrow': '// பாதுகாப்பு',
   'settings.security.title': 'கடவுச்சொல்',
   'signup.confirmPlaceholder': 'மேலே உள்ள வரியுடன் பொருத்துக',
   'signup.emailPlaceholder': 'photographer@lustra.studio',

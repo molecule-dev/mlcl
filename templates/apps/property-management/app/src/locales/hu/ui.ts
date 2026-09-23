@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.tagline': 'Minden egység, egy fedél alatt.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.addProperty': 'Ingatlan hozzáadása',
   'dashboard.empty.body':
     'Miután megkapta az ingatlanok, egységek és bérleti díjak adatait, ez az irányítópult portfólió-információkkal töltődik fel.',
@@ -44,6 +47,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'Válasszon bérlőt…',
   'leases.new.unit': 'Egység',
   'leases.new.unitPlaceholder': 'Válasszon egységet…',
+  'leases.subheading':
+    '{{count}} aktív bérleti szerződés · {{expiring}} hamarosan lejáró · {{monthly}} / hónap összesen',
   'login.emailLabel': 'E-mail cím',
   'login.noAccount': 'Új vagy a Hearthstone-ban?',
   'login.passwordPlaceholder': '••••••••',
@@ -86,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{ingatlan}} · Egység {{egység}} · {{dátum}}',
   'maintenanceQueueList.subtitle': '{{count}} nyitott munkamegbízások, prioritás szerint rendezve',
   'maintenanceQueueList.title': 'Karbantartási sor',
+  'nav.closeMenu': 'Menü bezárása',
+  'nav.openMenu': 'Menü megnyitása',
   'notFound.body': 'A keresett oldal áthelyezték, archiválták, vagy soha nem létezett.',
   'notFound.title': 'Az ajtó nem nyílik',
   'notifications.empty.body':

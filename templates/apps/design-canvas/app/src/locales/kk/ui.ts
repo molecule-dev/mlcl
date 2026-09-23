@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'authShell.brandHeading':
     'Бірге жеткізетін дизайн топтарына арналған пиксельге сай келетін мінсіз кенептер.',
   'canvas.redirecting': 'Редактор ашылуда…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'және',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.retry': 'Қайталап көру',
   'dashboard.activityEmpty': 'Әлі ешқандай жаңа әрекет жоқ — командаласыңызды бастауға шақырыңыз.',
   'dashboard.activityTitle': 'Бүгін не өзгерді',
   'dashboard.activityViewAll': 'Барлық хабарландыруларды көру',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Жұмыс кеңістігі · Northwind Studio',
   'dashboard.foldersLabel': 'Қалталар',
   'dashboard.gridTitle': '{{count}} жобалар',
+  'dashboard.heroActiveTool': 'Қалам құралы',
   'dashboard.loadingTitle': 'Жобалар жүктелуде…',
   'dashboard.searchPlaceholder': 'Жобаларды іздеу',
   'dashboard.startFromTemplate': 'Үлгіден бастау',
   'dashboard.title': 'Сіздің жобаларыңыз',
   'dashboard.untitledProject': 'Атауы жоқ жоба',
   'designCanvasLayout.newProject': 'Жаңа жоба',
+  'designCanvasLayout.primaryNavLabel': 'Негізгі навигация',
   'editor.backToProjects': 'Жобаларға оралу',
   'editor.deleteShape': 'Пішінді жою',
   'editor.errorBody': 'Біз бұл жобаны аша алмадық.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Қолыңыздың жылдамдығымен қозғалатын құралдарды жобалау',
   'library.empty': 'Бұл бөлімде әлі ешқандай токен жоқ.',
   'library.eyebrow': 'Жұмыс кеңістігі · Atelier Design System',
+  'library.loadFailed': 'Дизайн белгілерін жүктеу мүмкін болмады.',
   'library.systemMeta': 'Жүйе денсаулығы',
   'library.systemSummary':
     '{{токендер}} жетондар · {{компоненттер}} компоненттер · {{әсерлер}} әсерлер',

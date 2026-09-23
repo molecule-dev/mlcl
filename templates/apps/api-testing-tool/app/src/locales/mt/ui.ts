@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
+  'about.pageTitle': 'Dwar {{app}}',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'Ma setgħetx tinħoloq kollezzjoni.',
   'collections.defaultName': 'Kollezzjoni bla titlu {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Kollezzjoni ġdida',
   'collections.subheading':
     'Agħmel talbiet fi grupp, aqsamhom mat-tim tiegħek, u mexxihom bħala suite.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'environmentCard.inactive': 'Inattiv',
   'environmentCard.more': 'aktar',
   'environmentCard.variables': 'Varjabbli',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': "Niżżel b'xejn",
   'landing.heroSubtitle':
     "Il-bank tax-xogħol tal-ittestjar tal-API veloċi ħafna mibni għall-inġiniera li jgħixu f'terminals.",
+  'landing.heroTitleAccent': 'Nar',
+  'landing.heroTitleLine2': 'jibni l-fiduċja.',
+  'landing.heroTitleRest': 'talbiet,',
   'landing.kicker': '$ pylon ibgħat --watch',
   'landing.pricingEyebrow': '// Prezzijiet tal-$ --sempliċi',
   'landing.pricingHeading': 'Prezzijiet sempliċi u prevedibbli',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ġdid hawn?',
   'login.showPassword': 'Uri l-password',
   'login.subtitle': "Kompli lejn l-ispazju tax-xogħol ta' Pylon tiegħek.",
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'mocks.createError': 'Ma setgħetx tinħoloq finta.',
   'mocks.defaultName': 'Mock bla titlu {{n}}',
   'mocks.deleteError': 'Ma setgħetx titħassar il-mock.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Lura għall-ispazju tax-xogħol',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Rotta mhux misjuba',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'privacy.collect.account':
     'Kont: l-email tiegħek, il-password hashed, l-isem tal-wiri, u t-timestamp tal-aħħar login tiegħek.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Veduta read-only tad-dejta li bħalissa għandha dan il-kont.',
   'settings.unset': 'mhux issettjat',
   'signup.identityHint': 'eż. Alex',
+  'signup.statusLabel': "livell bla ħlas · mingħajr karta ta' kreditu",
   'signup.subtitle': 'Ibda tibgħat it-talbiet fi ftit minuti.',
   'terms.account.body':
     "Inti responsabbli biex tissalvagwardja l-password tiegħek. Il-kondiviżjoni ta' kont wieħed ma' diversi bnedmin mhijiex permessa fuq pjanijiet Free jew Pro — ixtri abbonament tat-Tim għal spazji tax-xogħol kondiviżi.",
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     "Tużax Pylon biex tibgħat talbiet lejn servizzi li m'intix tiegħek jew li m'għandekx permess espliċitu biex tittestja. Tużax Pylon biex tevita l-limiti tar-rata jew twettaq frodi.",
   'terms.warranty.body':
     'Pylon huwa pprovdut "kif inhu" mingħajr ebda tip ta\' garanzija. Nimmiraw għal 99.9% uptime iżda ma niggarantixxuhx fuq pjanijiet Free jew Pro.',
+  'testRunner.assertionsCount': '{{count}} asserzjonijiet',
   'testRunner.createError': 'Ma setax jinħoloq test.',
   'testRunner.cron':
     "L-asserzjonijiet huma evalwati kontra l-aktar ġirja reċenti tat-talba marbuta ta' dan it-test.",
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Riżultati tas-suite, differenzi fl-asserzjonijiet, u l-aħħar 50 ġirja.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Illoggjat bħala',
+  'workspace.auth.keyName': 'Isem tal-intestatura',
+  'workspace.auth.keyValue': 'Valur ewlieni',
+  'workspace.auth.password': 'Password',
+  'workspace.auth.username': 'Isem tal-Utent',
+  'workspace.authOption.apikey': 'Ċavetta tal-API',
+  'workspace.authOption.basic': 'Awtorizzazzjoni Bażika',
+  'workspace.authOption.bearer': 'Token tal-Portatur',
+  'workspace.authOption.none': 'Xejn',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tip',
   'workspace.authTypeLabel': "Tip ta' awtorizzazzjoni",
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Xejn',
+  'workspace.body.text': 'Test mhux ipproċessat',
+  'workspace.body.type': 'Tip',
   'workspace.environment': 'L-ebda ambjent',
   'workspace.envVar': 'varjabbli tal-ambjent',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Żid l-intestatura',
+  'workspace.kv.addParam': 'Żid parametru',
+  'workspace.kv.headerKey': 'Isem tal-intestatura',
+  'workspace.kv.headerValue': 'Valur tal-intestatura',
+  'workspace.kv.key': 'Ċavetta',
+  'workspace.kv.paramKey': 'Ċavetta tal-parametru tal-mistoqsija',
+  'workspace.kv.paramValue': 'Valur tal-parametru tal-mistoqsija',
+  'workspace.kv.removeRow': 'Neħħi r-ringiela',
+  'workspace.kv.value': 'Valur',
   'workspace.methodLabel': 'Metodu HTTP',
   'workspace.metric.latency': 'Latenza',
   'workspace.metric.latencyCaption': 'Vjaġġ bir-ritorn minn din il-ġirja',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Talba miċħuda — ara r-risposta hawn taħt.',
   'workspace.subheading':
     "Ikteb talba, ibgħatha, imbagħad afferma r-risposta — kollox f'pannell wieħed.",
+  'workspace.testResults': 'Riżultati tat-test',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     "Mibgħuta bħala Awtorizzazzjoni: Detentur<token> fuq kull talba f'din il-kollezzjoni.",

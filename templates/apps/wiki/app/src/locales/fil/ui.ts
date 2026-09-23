@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Nilulutas…',
   'comments.subtitle':
     'Ang {{count}} May mga thread na naghihintay pa rin ng tugon o solusyon. Inayos ayon sa edad — una ang pinakamatanda, para walang mabulok.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'forgotPassword.sentTo': 'Naipadala na ang link sa pag-reset kay {{email}}',
   'forgotPassword.successSubheading':
     'Tingnan ang iyong inbox — nagpadala lang kami ng link para sa pag-reset. Mag-e-expire ito sa loob ng 30 minuto.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Bagong pahina',
   'pageTreeSidebar.workspaceHeader': 'Lugar ng Trabaho',
   'pageView.breadcrumb': 'Breadcrumb',
+  'pageView.confirmTrash': 'Itapon sa basurahan?',
   'pageView.home': 'Tahanan',
   'pageView.lastEdited': 'Na-update {{when}}',
   'pageView.loading': 'Naglo-load ng pahina…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Sino-summarize…',
   'pageView.summaryUnavailable': 'Hindi naka-configure ang buod ng AI para sa workspace na ito.',
   'pageView.tocTitle': 'Sa pahinang ito',
+  'pageView.trash': 'Basurahan',
+  'pageView.trashing': 'Pagtatapon ng basura…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Mga Badge',
   'profile.owned.title': 'Mga pag-aaring pahina',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Lugar ng trabaho, profile, mga notification, mga integrasyon — lahat sa iisang kalmadong sistema.',
   'settingsPage.workspace.defaultLanding': 'Default na screen ng paglapag',
   'settingsPage.workspace.landingHome': 'Tahanan',
+  'settingsPage.workspace.landingSpaces': 'Mga Espasyo',
   'settingsPage.workspace.subdomainLabel': 'Subdomain',
   'settingsPage.workspace.title': 'Lugar ng Trabaho',
   'signup.eyebrow': 'Magsimula ng bagong workspace',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} minuto',
   'templates.subtitle':
     'Magsimula ng pahina gamit ang stencil, hindi isang blankong canvas. Ang bawat template ay nagdidisenyo ng hugis para makapagpokus ka sa nilalaman.',
+  'trash.confirmPurge': 'Linisin magpakailanman?',
+  'trash.confirmPurgeAria': 'Kumpirmahin: permanenteng burahin ang {{title}}',
   'trash.daysUntilPurge': '{{days}} mga araw na natitira',
   'trash.empty.body':
     'Ang mga tinanggal na pahina ay lilitaw dito sa loob ng 30 araw bago ito alisin.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} mga bersyon · pumili ng hilera upang siyasatin ang pagkakaiba',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Isara ang nabigasyon',
+  'wikiLayout.menu': 'Nabigasyon',
+  'wikiLayout.openMenu': 'Buksan ang nabigasyon',
   'wikiLayout.searchPlaceholder': 'Maghanap sa Cairn — mga pahina, komento…',
 }

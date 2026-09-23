@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Setha kabusha iphasiwedi yakho.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Maka umsebenzi uqediwe',
   'checklistTaskCard.markIncomplete': 'Maka umsebenzi ungaqediwe',
   'checklistTaskCard.openLabel': 'Vula umsebenzi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Nonke nibambekile',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Kusendleleni',
   'dashboard.timelineHeading': 'Izinyathelo ezibalulekile ezingu-30/60/90',
   'dashboard.viewAllTasks': 'Buka yonke imisebenzi',
+  'dashboard.weekOne': 'Isonto 1',
   'dashboard.yourCohort': 'Ithimba lakho',
   'documents.empty.body': 'Amadokhumenti angezwe yithimba lakho azovela lapha.',
   'documents.empty.title': 'Awekho amadokhumenti okwamanje',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Isivivinyo samahhala sezinsuku ezingu-14',
   'landing.subhead':
     'Qala ukuqondisa wonke umuntu omusha osebenza naye ezinsukwini zakhe zokuqala ezingama-90 — amaphepha, ukuqeqeshwa, izigaba ezibalulekile, kanye nezethulo ezinenjongo, konke endaweni eyodwa ezolile neqinisekile.',
+  'layout.openMenu': 'Vula imenyu yokuzulazula',
   'layout.search': 'Sesha imisebenzi, amadokhumenti, ozakwethu beqembu...',
+  'layout.searchTeammates': 'Sesha ozakwethu beqembu ngegama noma indima…',
   'layout.section.onboarding': 'Ukungena',
   'layout.tagline': 'Uhambo lwakho luqala lapha',
   'notifications.empty.body': 'Umsebenzi omusha uzovela lapha.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Usulungile.',
   'planUpdated.preparing': 'Ibuyekeza uhlelo lwakho…',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.documentsLabel': 'imibhalo',
   'pricing.onboardingsLabel': 'ukungeniswa',
   'pricing.tasksLabel': 'imisebenzi',

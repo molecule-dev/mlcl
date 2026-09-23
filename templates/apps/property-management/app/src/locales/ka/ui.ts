@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.tagline': 'ყველა ერთეული, ერთი სახურავის ქვეშ.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.addProperty': 'ქონების დამატება',
   'dashboard.empty.body':
     'როგორც კი გექნებათ ქონება, ერთეულები და ქირის გადასახადები, ეს დაფა ივსება პორტფელის მონაცემებით.',
@@ -88,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} ღია სამუშაო შეკვეთები, დალაგებული პრიორიტეტის მიხედვით',
   'maintenanceQueueList.title': 'ტექნიკური მომსახურების რიგი',
+  'nav.closeMenu': 'მენიუს დახურვა',
+  'nav.openMenu': 'მენიუს გახსნა',
   'notFound.body': 'გვერდი, რომელსაც ეძებდით, გადატანილია, დაარქივებულია ან არასდროს არსებობდა.',
   'notFound.title': 'ეს კარი არ იღება',
   'notifications.empty.body':

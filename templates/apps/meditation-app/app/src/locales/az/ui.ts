@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.eyebrow': '{{app}} haqqında',
+  'about.intro':
+    '{{app}} real həyat üçün nəzərdə tutulmuş meditasiya tətbiqidir — məşqçi yox, dost kimi hiss edən müəllimlər tərəfindən gündəlik idarə olunan meditasiyalar, nəfəs məşqləri və yuxu hekayələri. Heç bir ardıcıl günahkarlıq hissi, səs-küylü yayım yoxdur: sadəcə nəfəsinizə qayıtmaq üçün sakit bir yer.',
+  'about.missionBody':
+    'Biz inanırıq ki, sükunət günün istənilən anında hər kəs üçün əlçatan olmalıdır. {{app}} sakit və ardıcıl bir təcrübəni asanlıqla hiss etdirmək üçün mövcuddur - beləliklə, on dürüst dəqiqə növbəti on saatı necə qarşıladığınızı dəyişə bilər.',
+  'about.missionTitle': 'Missiyamız',
+  'about.pageTitle': 'Gündə 10 dəqiqə daha sakit',
+  'breathingDial.seconds': 'saniyə',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'common.logout': 'Çıxış',
   'common.min': 'dəq',
   'common.relative.justNow': 'elə indicə',
   'common.relative.now': 'indi',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
+  'nav.secondaryNavigation': 'Hesab naviqasiyası',
   'sessionCard.with': 'ilə {{name}}',
   'stillpoint.billing.choose': 'Seçin {{plan}}',
   'stillpoint.billing.currentPlan': 'Hazırda aktivdir {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Planları yükləyə bilmədik.',
   'stillpoint.billing.opening': 'Kassa açılır...',
   'stillpoint.billing.perMonthShort': '/ ay',
+  'stillpoint.billing.perYearShort': '/il',
   'stillpoint.billing.unknownResult': 'Gözlənilməz ödəniş cavabı.',
   'stillpoint.billing.yearly': 'İllik · 17% qənaət edin',
   'stillpoint.courseDetail.back': 'Kurslar',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Hələ ki, kurs yoxdur.',
   'stillpoint.courses.eyebrow': '{{count}} çoxgünlük səyahətlər',
   'stillpoint.courses.heading': 'Kurslar',
+  'stillpoint.forgot.checkEmail': 'Gələnlər qutunuzu yoxlayın — link 30 dəqiqədən sonra bitir.',
   'stillpoint.forgot.success': 'Sıfırlama linki göndərdik {{email}} .',
   'stillpoint.home.empty': 'Hələlik sessiya yoxdur — tezliklə yenidən yoxlayın.',
   'stillpoint.home.friend': 'dost',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Pulsuz hesabınızı yaradın',
   'stillpoint.landing.cta.title': 'Sakitliyinizə bu gün başlayın',
   'stillpoint.landing.features.heading': 'Sizinlə birlikdə böyüyən bir təcrübə',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Özlərini məşqçi yox, dost kimi hiss edən müəllimlər tərəfindən idarə olunan gündəlik meditasiyalar, nəfəs məşqləri və yuxu hekayələri.',
   'stillpoint.landing.hero.eyebrow': 'Gündə 10 dəqiqə daha sakit',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Əhval-ruhiyyəyə görə axtarış',
   'stillpoint.login.rememberMe': 'Məni daxil olmuş vəziyyətdə saxlayın',
   'stillpoint.login.subheading': 'Təcrübənizi davam etdirmək üçün daxil olun.',
+  'stillpoint.nav.tagline': 'Hərəkətsiz mərkəzinizi tapın',
+  'stillpoint.notFound.body':
+    'Bu səhifə haradasa dərin və uzun bir nəfəs alır. Gəlin sizin üçün {{app}} də daha sakit bir yer tapaq.',
   'stillpoint.notFound.title': 'Sükut içində itib',
   'stillpoint.notFound.toHome': 'Bu günə qayıt',
   'stillpoint.notFound.toLibrary': 'Kitabxanaya baxın',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 saniyə geri atlayın',
   'stillpoint.player.skipForward': '30 saniyə irəli keçin',
   'stillpoint.player.with': 'ilə {{name}}',
+  'stillpoint.profile.defaultHandle': 'hərəkətsiz göstərici',
   'stillpoint.profile.eyebrow': 'Təcrübəniz, xülasə.',
   'stillpoint.profile.locked': 'Kilidlənib',
   'stillpoint.profile.member': 'Stillpoint üzvü',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Siguiendo',
   'auctionDetail.watchRemoved': 'Eliminado de la lista de seguimiento.',
   'auctionDetail.watchRemoveLabel': 'Eliminar de la lista de seguimiento',
+  'auctionPlatformLayout.primaryNavLabel': 'Navegación principal',
   'authShell.brandBody':
     'Puja en tiempo real por relojes raros, arte fino y artículos de especialidad únicos. El martillo cae en segundos.',
   'authShell.brandEyebrow': 'En vivo · 1.420 subastas',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ordenar por',
   'browseAuctions.subheading':
     'Filtra por categoría, ordena por lo que más importa y realiza una puja antes de que caiga el martillo.',
+  'common.goToDashboard': 'Ir al panel',
   'countdownTimer.ended': 'Finalizado',
   'countdownTimer.endingSoon': 'Finalizando',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ocultar contraseña',
   'login.showPassword': 'Mostrar contraseña',
   'login.subtext': 'Sigue rastreando tus subastas y realiza pujas antes de que caiga el martillo.',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'myBids.bidAgain': 'Pujar de nuevo',
   'myBids.browseCta': 'Explorar subastas en vivo →',
   'myBids.checkoutCta': 'Pagar ahora',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centro de actividad',
   'notificationsPage.subheading':
     '{{count}} sin leer · actualizaciones en vivo mientras avanzan las subastas',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.bidsLabel': 'ofertas',
   'pricing.listingsLabel': 'listados',
   'pricing.watchlistLabel': 'seguimiento',

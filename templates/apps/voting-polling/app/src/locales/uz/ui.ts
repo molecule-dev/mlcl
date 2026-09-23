@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'analytics.col.quorum': 'Kvorum',
   'analytics.col.votes': 'Ovozlar',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': "Hozircha kutilayotgan savollar yo'q.",
   'audienceQa.onStageEyebrow': 'Hozir sahnada',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': "Targ'ibot qilish",
   'audienceQa.queued': 'navbatda',
   'audienceQa.queueEyebrow': 'Navbat',
   'ballot.eyebrow': 'Ovoz berish',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Siz hozirda ... dasiz {{plan}} reja.',
   'billing.switch': 'Switch',
   'billing.upgraded': "Yangilandi {{plan}} — cheklovlar darhol qo'llaniladi.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'createPoll.addOption': "Variant qo'shish",
   'createPoll.anonymousHint':
     'Saylovchilarning ismlari audit jurnalida yashiringan; hisob-kitoblar haqiqiyligicha qolmoqda.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Noshda yangimisiz?',
   'login.remember': 'Meni 30 kun eslab qoling',
   'login.subheading': 'Zaminni oching, xonani boshqaring va natijani tasdiqlang.',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'notFound.body':
     "Siz kirishga uringan sahifa yopildi yoki boshqa joyga ko'chirildi. Boshqaruv paneliga qayting yoki yangi so'rovnoma oching.",
   'notFound.eyebrow': "Bu yo'nalishda kvorum yo'q",
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': "Bu so'rovnomani yuklab bo'lmadi.",
   'pollDetail.loading': 'Soʻrovnoma yuklanmoqda…',
   'pollDetail.notFound': "So'rovnoma topilmadi.",
+  'pollDetail.openBallot': 'Ochiq ovoz berish',
   'pollDetail.openLive': 'Jonli natijalar',
   'pollDetail.pollId': "so'rovnoma · {{id}}",
   'pollDetail.published': 'Soʻrovnoma eʼlon qilindi — saylovchilar endi ovoz berishlari mumkin.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Elektron pochta orqali qidirish…',
   'voters.subheading':
     "Saylovchilar ro'yxatini tuzing. Saylovchilarni vaznli byulletenlar uchun tashkilot bo'yicha guruhlang.",
+  'votingPollingLayout.nav.analytics': 'Tahlil',
+  'votingPollingLayout.nav.billing': 'Hisob-kitob',
+  'votingPollingLayout.nav.createPoll': "Yangi so'rovnoma",
+  'votingPollingLayout.nav.dashboard': 'Boshqaruv paneli',
+  'votingPollingLayout.nav.notifications': 'Bildirishnomalar',
+  'votingPollingLayout.nav.settings': 'Sozlamalar',
+  'votingPollingLayout.nav.team': 'Jamoa',
+  'votingPollingLayout.nav.voters': 'Saylovchilar',
+  'votingPollingLayout.primaryNavLabel': 'Asosiy navigatsiya',
 }

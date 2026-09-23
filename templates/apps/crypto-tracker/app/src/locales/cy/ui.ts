@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Ynglŷn â',
   'alertConditionCard.condition.${alert.condition}': "Wedi'i sbarduno {{pryd}}",
+  'alertConditionCard.confirmDelete': 'Cadarnhau dileu',
   'alertConditionCard.pauseAriaLabel': 'Rhybudd oedi',
   'alertConditionCard.resumeAriaLabel': 'Rhybudd ailddechrau',
   'alertNew.condition': 'Cyflwr',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': "Gwerthusiad wedi'i wanhau'n llawn",
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Gwefan',
+  'coinDetail.links.whitepaper': 'Papur Gwyn',
   'coinDetail.loadError': 'Methwyd llwytho darn arian.',
   'coinDetail.marketCap': 'Cap marchnad',
   'coinDetail.maxSupply': 'Cyflenwad mwyaf',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Nid yw'r llwybr a sganiwyd gennych yn datrys i ddarn arian neu dudalen hysbys. Ailwiriwch y symbol a cheisiwch eto.",
   'notFound.browseMarkets': 'Pori marchnadoedd',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'portfolio.addError': "Nodwch y symbol, y swm positif, a'r gost.",
   'portfolio.addHoldingCta': '+ Ychwanegu daliad',
   'portfolio.addModal.cost': 'Sail cost (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Mae cyfrinair a gosodiadau dau ffactor yn cael eu rheoli gan eich cyfrif.',
   'settings.signOutDevice': 'Allgofnodi',
+  'settings.twoFactorCode': 'Cod dilysu',
   'settings.twoFactorDisable': 'Analluogi',
   'settings.twoFactorEnable': 'Galluogi',
+  'settings.twoFactorInvalidCode': 'Cod annilys',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Dilysu a galluogi',
   'sigilAuthShell.backHomeCta': '← Yn ôl i Bourse',
   'sigilLayout.primaryNavLabel': 'Prif lywio',
   'signup.eyebrow': 'Agor terfynell',

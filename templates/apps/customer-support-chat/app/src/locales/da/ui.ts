@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om os',
   'authShell.samplePreview':
     '”Hej alle sammen, det nye kontrolpanel er fantastisk – lige hvad vi havde brug for!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/genvej',
   'automations.subheading':
     'Regler, standardsvar og chatbots – sørg for, at arbejdspladsen kører på skinner, mens dit team koncentrerer sig om de vigtige opgaver.',
+  'automations.trigger.inboundMessage': 'Indgående besked',
   'automations.triggerLabel': 'Udløser',
   'chatBubble.internalNoteLabel': 'Intern note',
+  'common.confirmDelete': 'Bekræft sletning',
+  'common.goToDashboard': 'Gå til Dashboard',
   'contactDetail.backToContacts': 'Alle kontakter',
   'contactDetail.contactFallback': 'Kontakt',
   'contactDetail.conversationFallback': 'Samtale',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Sidst set',
   'contacts.empty': 'Der er endnu ingen kontakter. Tilføj din første kontakt ovenfor.',
   'contacts.eyebrow': 'Kundeliste',
+  'contacts.form.nameOrEmailRequired': 'Angiv mindst et navn eller en e-mailadresse',
   'contacts.form.save': 'Gem kontakt',
   'contacts.heading': 'Kontaktoplysninger',
   'contacts.loading': 'Indlæser kontakter…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Gem notat',
   'conversationDetail.tab.note': 'Intern note',
   'conversationDetail.threadAria': 'Samtalebeskeder',
+  'conversationDetail.visitorFallback': 'Besøgende',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Kundeoplysninger',
   'customerProfilePanel.recentTitle': 'Seneste samtaler',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Kunderne modtager i gennemsnit deres første svar inden for {{time}} – sørg for at holde det tempo.',
   'inboxHeroCard.title': 'Aktive samtaler',
+  'inboxLayout.navDrawerLabel': 'Navigation',
+  'inboxLayout.openMenu': 'Åbn navigationsmenuen',
   'inboxOverview.eyebrow': 'Dagens oversigt',
   'inboxOverview.heroChange': '{{count}} åben',
   'inboxOverview.kpiClosedTrend': 'nogensinde',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Besøg hjemmesiden',
   'notifications.subheading':
     'Opgaver, @-henvisninger, SLA-risici, CSAT-feedback og teamaktivitet — sorteret efter nyeste først.',
+  'notifications.subjectFallback': 'en samtale',
+  'notifications.visitorFallback': 'En besøgende',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Høj',
   'priority.low': 'Lav',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Haster',
   'privacy.title': 'Privatlivspolitik',
   'reports.agentFallback': 'Agent',

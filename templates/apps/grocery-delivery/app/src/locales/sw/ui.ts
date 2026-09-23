@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Mpe mnunuzi wako bakshishi',
   'checkout.tipLabel': 'Kidokezo',
   'checkout.zipPlaceholder': 'ZIP',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'featuredProductsGrid.addAria': 'Ongeza {{name}} kwenye mkokoteni',
   'featuredProductsGrid.outOfStock': 'Haipo dukani',
   'forgotPassword.emailLabel': 'Anwani ya Barua Pepe',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Ikiwa barua pepe hiyo imesajiliwa, kiungo cha kuweka upya kiko njiani.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Usogezaji mkuu',
   'landing.categoriesEyebrow': 'Aisles',
   'landing.categoriesHeading': 'Nunua kwa kategoria',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Panga uwasilishaji wa kila wiki kwa kupanga upya bidhaa muhimu kwa njia mahiri na ufuatiliaji wa moja kwa moja wa dereva.',
   'landing.heroTitle': 'Upya mlangoni pako, ndani ya saa.',
   'landing.howEyebrow': 'Hatua tatu',
+  'landing.howItWorksHeading': 'Jinsi {{app}} inavyofanya kazi',
   'lists.addAllCta': 'Ongeza yote kwenye kikapu',
   'lists.createCta': 'Unda orodha yako ya kwanza',
   'lists.createError': 'Haikuweza kuunda orodha.',

@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.pageTitle': '{{app}} жөнүндө',
   'activity.empty': 'Азырынча эч кандай аракет жок — түзмөктү оодарыңыз же көрүнүштү иштетиңиз.',
   'activity.eyebrow': 'Убакыт тилкеси',
   'activity.loadError': 'Иш-аракеттер түрмөгү жүктөлбөй койду.',
   'activity.subheading':
     'Ар бир түзмөк, автоматташтыруу жана коопсуздук окуясы хронологиялык тартипте.',
+  'addDevice.error.failed': 'Түзмөк кошулган жок. Кайра аракет кылыңыз.',
   'addDevice.error.nameRequired': 'Улантуу үчүн бул түзмөккө ат коюңуз.',
   'addDevice.field.firmware': 'Микропрограммалык камсыздоонун версиясы',
   'addDevice.field.manufacturer': 'Өндүрүүчү',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Сыноо…',
   'automationEditor.testNew': 'Автоматташтырууну сынап көрүү үчүн алгач аны сактап коюңуз.',
   'automationRow.lastRun': 'Акыркы {{date}} · {{count}} чуркоолор',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Чуркоо {{name}} азыр',
   'automations.empty': 'Азырынча автоматташтыруу жок — биринчи программаңызды түзүңүз.',
   'automations.eyebrow': 'Тартиптер',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Автоматташтыруулар жүктөлүүдө…',
   'automations.newAutomation': '+ Жаңы',
   'automations.subheading': 'Мындай болгондо, муну YAMLсиз жасаңыз.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Түзмөк жүктөлбөй калды.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Иштеп жатат…',
   'deviceDetail.unnamed': 'Түзмөк',
   'deviceStatusRow.on': 'Күйүк',
+  'deviceStatusRow.turnOff': 'Өчүрүү',
+  'deviceStatusRow.turnOn': 'Күйгүзүү',
   'deviceStatusRow.watts': '{{watts}} В',
   'energy.eyebrow': 'Кубат',
   'energy.heading': 'Энергия',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Пландарды көрүү',
   'settings.security.heading': 'Коопсуздук',
   'settings.subheading': 'План, борборлор жана аккаунттун жөндөөлөрү.',
+  'smartHomeDashboardLayout.openMenu': 'Навигация менюсун ачуу',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Негизги навигация',
 }

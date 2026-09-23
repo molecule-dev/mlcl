@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'analytics.back': 'Enkätöversikt',
   'analytics.kpiNps': 'NPS-poäng',
   'analytics.kpiNpsTrend': 'Främjare {{p}}% · Kritiker {{d}}%',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Egenskaper',
   'builder.questionNumber': 'F{{num}}',
   'builder.surveyTitle': 'Enkättitel',
+  'common.goToDashboard': 'Gå till översikt',
   'forgotPassword.failed': 'Kunde inte skicka återställningsmejl. Försök igen.',
   'forgotPassword.subheading': 'Ange din e-post så skickar vi en återställningslänk.',
   'forgotPassword.successBody':
     'Om ett konto matchar {{email}} är en återställningslänk på väg. Kolla din inkorg och skräppost.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Alla röster är välkomna.',
   'landing.footer.startTrial': 'Starta provperiod',
   'landing.hero.badge': 'Enkäter, NPS och feedback på ett ställe',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Priser',
   'landing.pricing.perMonth': '/mån',
   'landing.pricing.popular': 'Mest populär',
+  'landing.pricing.subtitle':
+    'Varje plan inkluderar enkätbyggaren, offentliga länkar och NPS-analys. Inget kreditkort krävs för att komma igång.',
+  'landing.pricing.title': 'Börja gratis, skala upp när du gör det.',
   'landing.sample.eyebrow': 'NPS i ett ögonkast',
   'landing.sample.title': 'Kritiker, passiva, främjare — direkt avläsbart.',
   'login.failed': 'Inloggning misslyckades. Försök igen.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Visa lösenord',
   'login.signUpLink': 'Starta en gratis provperiod',
   'login.subheading': 'Logga in för att fortsätta lyssna på din publik.',
+  'notFound.body':
+    'Sidan du letar efter finns inte på {{app}} . Nu tar vi dig tillbaka till dina undersökningar.',
   'notFound.cta': 'Tillbaka till enkäter',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Denna enkät har drivit ur kön.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiv 7–8',
   'npsDistributionBar.promoter': 'Främjare 9–10',
   'profile.identity.description': 'Synlig för ditt team och på enkäter du skapar.',
+  'profile.identity.emailRequired': 'Ange en e-postadress.',
   'profile.identity.saveCta': 'Spara namn',
   'profile.password.current': 'Nuvarande lösenord',
   'profile.password.fillFields': 'Ange både nuvarande och nytt lösenord.',
@@ -174,6 +183,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} frågor',
   'templates.subheading':
     'Välj en beprövad startmall — varje mall kommer förinställd med rimliga standarder, exempellogik och en ren mobillayout.',
+  'thankYou.body':
+    'Ditt svar har registrerats. {{app}} kommer att inkludera det i nästa uppdatering av analysrapporten.',
   'thankYou.eyebrow': 'Svar mottaget',
   'thankYou.heading': 'Tack — din röst räknas.',
   'thankYou.home': 'Besök Gauge',

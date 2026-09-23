@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.eyebrow': 'เกี่ยวกับ {{app}}',
   'about.pageTitle': 'ทุกเส้นทาง ค้นหาเพียงครั้งเดียว',
   'booking.backToDetail': 'กลับสู่รายละเอียดเที่ยวบิน',
   'booking.continue': 'ดำเนินการชำระเงินต่อ',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ภาษีและค่าธรรมเนียม',
   'booking.summary.travelers': 'นักเดินทาง',
   'common.about': 'เกี่ยวกับ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'flightDetail.backToResults': 'กลับสู่ผลลัพธ์',
   'flightDetail.baseFare': 'ค่าโดยสารพื้นฐาน',
   'flightDetail.book': 'ดำเนินการจองต่อ',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ป้ายหยุด',
   'flightResultCard.select': 'เลือก',
   'flightResultCard.totalLabel': 'เวลาทั้งหมด',
+  'flightSearchLayout.primaryNavLabel': 'การนำทางหลัก',
   'forgotPassword.subheading':
     'ป้อนอีเมลในบัญชี Skylark ของคุณ แล้วเราจะส่งลิงก์รีเซ็ตที่ปลอดภัยให้คุณ',
   'forgotPassword.successBody':
     'ตรวจสอบ {{email}} ลิงก์สำหรับตั้งรหัสผ่านใหม่ ลิงก์นี้จะหมดอายุใน 30 นาที',
   'forgotPassword.successHeading': 'ส่งลิงก์รีเซ็ตแล้ว',
   'landing.cta.explore': 'ลองค้นหาดู',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'ค้นหาเมนูเด็ดก่อนใคร!',
   'landing.cta.signup': 'เริ่มติดตามราคาค่าโดยสาร',
   'landing.features.eyebrow': 'ทำไมต้องนกสกายลาร์ค?',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'เพิ่มการแจ้งเตือน',
   'priceAlerts.deleteConfirm': 'ลบการแจ้งเตือนนี้?',
   'priceAlerts.empty': 'ยังไม่มีเส้นทางที่ติดตามไว้',
+  'priceAlerts.emptyCta': 'ค้นหาเส้นทางเพื่อติดตาม',
   'priceAlerts.errorMessage': 'ไม่สามารถโหลดการแจ้งเตือนได้',
   'priceAlerts.eyebrow': 'รายชื่อผู้เฝ้าดู Skylark',
   'priceAlerts.form.createError': 'ไม่สามารถสร้างการแจ้งเตือนได้',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'แผนการเดินทางหลายเมือง',
   'results.multiLegHeading': 'ขา {{n}} · {{จาก}} → {{ถึง}} · {{วันที่}}',
   'results.multiSummary': '{{count}} ขา · {{passengers}} นักเดินทาง',
+  'results.sortAriaLabel': 'เรียงลำดับผลลัพธ์ตาม',
   'results.sortLabel': 'เรียงลำดับ',
   'results.summary': '{{count}} เที่ยวบิน · {{passengers}} นักเดินทาง',
   'settings.language.title': 'ภาษา',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
   'authShell.samplePreview':
     '"Hai pasukan, papan pemuka baharu ini sangat cantik — betul-betul apa yang kami perlukan!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/pintasan',
   'automations.subheading':
     'Peraturan, respons tersusun dan chatbot — pastikan ruang kerja sentiasa meriah sementara pasukan anda memberi tumpuan kepada perkara yang sukar.',
+  'automations.trigger.inboundMessage': 'Mesej masuk',
   'automations.triggerLabel': 'Pencetus',
   'chatBubble.internalNoteLabel': 'Nota dalaman',
+  'common.confirmDelete': 'Sahkan pemadaman',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'contactDetail.backToContacts': 'Semua kenalan',
   'contactDetail.contactFallback': 'Kenalan',
   'contactDetail.conversationFallback': 'Perbualan',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Terakhir dilihat',
   'contacts.empty': 'Tiada kenalan lagi. Tambahkan kenalan pertama anda di atas.',
   'contacts.eyebrow': 'Direktori pelanggan',
+  'contacts.form.nameOrEmailRequired': 'Berikan sekurang-kurangnya nama atau emel',
   'contacts.form.save': 'Simpan kenalan',
   'contacts.heading': 'Kenalan',
   'contacts.loading': 'Memuatkan kenalan…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Simpan nota',
   'conversationDetail.tab.note': 'Nota dalaman',
   'conversationDetail.threadAria': 'Mesej perbualan',
+  'conversationDetail.visitorFallback': 'Pelawat',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Butiran pelanggan',
   'customerProfilePanel.recentTitle': 'Perbualan terkini',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Pelanggan mendapat balasan pertama mereka dalam {{time}} secara purata — kekalkan irama.',
   'inboxHeroCard.title': 'Perbualan aktif',
+  'inboxLayout.navDrawerLabel': 'Navigasi',
+  'inboxLayout.openMenu': 'Buka menu navigasi',
   'inboxOverview.eyebrow': 'Sekilas pandang hari ini',
   'inboxOverview.heroChange': '{{count}} buka',
   'inboxOverview.kpiClosedTrend': 'sepanjang masa',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Lawati laman utama',
   'notifications.subheading':
     'Tugasan, @sebutan, risiko SLA, maklum balas CSAT dan aktiviti pasukan — disusun yang terbaru dahulu.',
+  'notifications.subjectFallback': 'perbualan',
+  'notifications.visitorFallback': 'Seorang pelawat',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Tinggi',
   'priority.low': 'Rendah',
+  'priority.normal': 'Biasa',
   'priority.urgent': 'Mendesak',
   'privacy.title': 'Dasar privasi',
   'reports.agentFallback': 'Ejen',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
   'about.pageTitle': '{{appName}}について',
   'analytics.empty': '最初のクリップを録画すると、ここにエンゲージメントが表示されます。',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'クリップ',
   'billing.usage.views': '視聴',
   'billing.usage.views.unit': '視聴',
+  'common.goToDashboard': 'ダッシュボードへ',
   'landing.cta.title': 'より良いフィードバックを送りましょう。Glintから始めましょう。',
   'landing.feature.capture.body':
     'マイク、カメラ、描画機能付きのブラウザ、デスクトップ、モバイル録画。',
   'landing.feature.capture.title': 'ワンタップで録画',
+  'landing.footer.copy': '© {{year}} {{appName}} 。非同期処理で、光り輝く。',
   'landing.hero.cardCaption': 'ワークスペース概要のサンプル — 無料でお試しください。',
   'landing.hero.primaryCta': '無料で録画を始める',
   'landing.hero.proof.free': '永久無料プラン',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': '録画を検索',
   'library.searchPlaceholder': '録画を検索…',
   'library.weeklyChange': '先週比{{value}}%',
+  'nav.openMenu': 'ナビゲーションメニューを開く',
   'nav.record': '録画',
   'nav.shared': '共有されたもの',
   'nav.startRecording': '録画を開始',

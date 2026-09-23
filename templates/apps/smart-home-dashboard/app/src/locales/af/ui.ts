@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.pageTitle': 'Oor {{app}}',
   'activity.empty': "Geen aktiwiteit nog nie — draai 'n toestel om of aktiveer 'n toneel.",
   'activity.eyebrow': 'Tydlyn',
   'activity.loadError': 'Kon nie aktiwiteitsvoer laai nie.',
   'activity.subheading':
     'Elke toestel, outomatisering en sekuriteitsgebeurtenis in chronologiese volgorde.',
+  'addDevice.error.failed': 'Kon nie die toestel byvoeg nie. Probeer weer.',
   'addDevice.error.nameRequired': "Gee hierdie toestel 'n naam om voort te gaan.",
   'addDevice.field.firmware': 'Firmware-weergawe',
   'addDevice.field.manufacturer': 'Vervaardiger',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Toetsing…',
   'automationEditor.testNew': 'Stoor eers die outomatisering om dit te toets.',
   'automationRow.lastRun': 'Laaste {{date}} · {{count}} hardloop',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Hardloop {{name}} nou',
   'automations.empty': 'Geen outomatisasies nog nie — skep jou eerste roetine.',
   'automations.eyebrow': 'Roetines',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Laai tans outomatisasies…',
   'automations.newAutomation': '+ Nuut',
   'automations.subheading': 'Wanneer dit gebeur, doen dit – sonder die YAML.',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Kon nie toestel laai nie.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Werk…',
   'deviceDetail.unnamed': 'Toestel',
   'deviceStatusRow.on': 'Aan',
+  'deviceStatusRow.turnOff': 'Skakel af',
+  'deviceStatusRow.turnOn': 'Skakel aan',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Krag',
   'energy.heading': 'Energie',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Sien planne',
   'settings.security.heading': 'Sekuriteit',
   'settings.subheading': 'Plan-, spilpunt- en rekeningvoorkeure.',
+  'smartHomeDashboardLayout.openMenu': 'Maak navigasiekieslys oop',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Primêre navigasie',
 }

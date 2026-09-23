@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} туралы',
   'analytics.avgCheckLabel': 'Орташа чек',
   'analytics.busiestHour': 'Ең қарбалас сағат',
   'analytics.coversToday': 'Бүгінгі мұқабалар',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Кеңестер (орташа)',
   'analytics.topItems': 'Бүгінгі таңдағы ең үздік тауарлар',
   'authShell.eyebrow': 'Қызметке қайта қош келдіңіз',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Қонақжайлылық командаларына арналған жылы әрі жылдам сатылым орны. Ас үйіңізге кіріп, тоқтаған жеріңізден жалғастырыңыз.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'немесе {{price}}',
   'billing.priceUnavailable': 'Бұл жоспарда бекітілген баға жоқ.',
   'billing.updated': 'Жоспар жаңартылды.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'customerDetail.book': 'Брондау қосу',
   'customerDetail.col.table': 'Үстел',
   'customerDetail.confirmDelete': 'Бұл қонақ жазбасын жою керек пе?',
@@ -130,6 +133,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Қолжетімділік',
   'menuItemDetail.available': 'Бүгін кешке қолжетімді',
   'menuItemDetail.backToMenu': 'Мәзірге оралу',
+  'menuItemDetail.confirmDelete': 'Бұл мәзір элементін жою керек пе?',
   'menuItemDetail.delete': 'Элементті жою',
   'menuItemDetail.deleteError': 'Жою сәтсіз аяқталды. Қайталап көріңіз.',
   'menuItemDetail.dietary': 'Диеталық тегтер',
@@ -141,8 +145,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · фотосуретті, модификаторларды, диетаны және бағаны өңдеу.',
   'menuItemDetail.untitled': 'Атауы жоқ элемент',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'notFound.heading': 'Бұл үстел еденде емес.',
   'notFound.subheading': 'Сіз іздеген бет басқа жерде орналасқан немесе ешқашан болмаған.',
+  'notFound.toLanding': '{{app}} басты беті',
   'notifications.markError': 'Барлығы оқылған деп белгіленбеді.',
   'orderDashboard.activeDelta': 'Қазір тікелей эфирде',
   'orderDashboard.activeLabel': 'Белсенді тапсырыстар',
@@ -207,6 +214,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Құпия сөзді көрсету',
   'resetPassword.subtitle': 'Ас үйге қайта кіру үшін жаңа құпия сөзіңізді енгізіңіз.',
   'resetPassword.tokenLabel': 'Токенді қалпына келтіру',
+  'restaurantOrderingLayout.primaryNavLabel': 'Негізгі навигация',
   'revenueHeroCard.activeOrders': '{{count}} белсенді',
   'revenueHeroCard.change': '{{sign}} {{amount}} кешемен салыстырғанда',
   'revenueHeroCard.title': 'Бүгінгі кіріс',
@@ -225,6 +233,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Мейрамхана атауы',
   'tableDetail.activeOrders': 'Белсенді тапсырыстар',
   'tableDetail.backToFloor': 'Қабат жоспары',
+  'tableDetail.confirmDelete': 'Бұл кестені жою керек пе?',
   'tableDetail.delete': 'Жою',
   'tableDetail.deleteError': 'Кестені жою мүмкін болмады.',
   'tableDetail.heading': 'Үстел {{label}}',

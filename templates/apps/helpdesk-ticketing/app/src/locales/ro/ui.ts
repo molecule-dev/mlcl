@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Contactați-ne',
   'about.eyebrow': 'Despre',
+  'about.title': 'Despre {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Fotografie profesională a unei agent de asistență cu un zâmbet prietenos într-un birou modern',
   'activeAgentsCard.agent2AvatarAlt':
@@ -62,6 +63,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Contactați asistența',
   'forgotPassword.error': 'Nu s-a putut trimite e-mailul de resetare. Încearcă din nou.',
   'forgotPassword.rememberPassword': 'Îți amintești parola?',
   'forgotPassword.subheading':
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Conectare — Asistență Zenith',
   'login.showPassword': 'Afișați parola',
   'login.welcomeSubheading': 'Conectați-vă la tabloul de bord de asistență',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.menu': 'Navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'nav.legal': 'Legal',
   'nav.newTicket': 'Bilet nou',
   'notifications.loadError': 'Nu s-au putut încărca notificările. Încercați din nou imediat.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Căutare comandă',
   'operatorDock.newReport': 'Raport nou',
   'operatorDock.systemOnline': 'Sistem online',
+  'planUpdated.subtitle': 'Mulțumim',
   'planUpdated.title': 'Plan actualizat',
   'pricing.agents': 'agenți',
   'pricing.automation': 'Reguli de automatizare',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{nume}} avatarul lui',
   'ticketDetail.errorTitle': 'Ceva nu a mers bine',
+  'ticketDetail.loadError': 'Nu s-a putut încărca tichetul.',
+  'ticketDetail.notFound': 'Bilet negăsit',
+  'ticketDetail.replyError': 'Nu s-a putut trimite răspunsul. Vă rugăm să încercați din nou.',
   'ticketDetail.retry': 'Încercați din nou',
   'ticketDetail.statusUpdateError': 'Nu s-a putut actualiza starea. Încercați din nou.',
   'ticketDetailsCard.assigneeLabel': 'Cesionar',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{timp}} stânga',
   'ticketRow.title': 'Conexiunea la baza de date eșuează în producție {{nodul}}',
   'tickets.pageTitle': 'Bilete — Asistență Zenith',
+  'ticketsFab.newTicket': 'Bilet nou',
   'ticketsFilterBar.assigneeLabel': 'Cesionar:',
   'ticketsFilterBar.clearFilters': 'Ștergeți filtrele',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

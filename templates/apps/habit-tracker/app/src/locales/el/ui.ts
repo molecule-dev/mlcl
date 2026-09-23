@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'achievementBadgeCard.unlockedOn': 'Ακλείδωτος {{date}}',
   'achievements.loadError': 'Αποτυχία φόρτωσης επιτευγμάτων.',
   'achievements.subheading': '{{unlocked}} του {{total}} ακλείδωτος',
   'achievements.unlockedOn': 'Ακλείδωτος {{date}}',
+  'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'calendar.empty': 'Δημιουργήστε μια συνήθεια να βλέπετε το ημερολόγιό σας.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Συνήθεια',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Πλέγμα συνηθειών',
   'category.${c.category}': '{{κόμης}} συνήθειες',
   'common.and': 'και',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'consistencyHeatmap.ariaLabel': 'Θερμικός χάρτης ημερήσιας συνέπειας',
   'consistencyHeatmap.caption': 'Τελευταίος {{weeks}} εβδομάδες',
   'consistencyHeatmap.lessLabel': 'Μείον',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Δείτε το ζωντανά',
   'landing.heroSubtitle':
     'Χτίστε συνήθειες όπως ακριβώς αυτές στην πραγματικότητα ισχύουν: μικρές δεσμεύσεις, καθημερινές τάσεις και η σπλαχνική απόλαυση μιας μακράς αδιάσπαστης αλυσίδας.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Μια ματιά στο εσωτερικό του Streak',
   'landing.previewMotivation': 'Εννέα ραβδώσεις ζωντανές. Κρατήστε τες όλες ζεστές.',
   'login.eyebrow': 'Πάρε την αλυσίδα',
@@ -99,7 +104,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Κάντε το μικρό. Κάντε το συγκεκριμένο. Εμφανιστείτε αύριο.',
   'newHabit.timeLabel': 'Ώρα υπενθύμισης',
   'notifications.markError': 'Δεν ήταν δυνατή η επισήμανση όλων ως αναγνωσμένων.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.entries': '{{count}} καταχωρήσεις',
+  'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
   'profile.action.plan': 'Διαχείριση συνδρομής',
   'profile.action.settings': 'Ρυθμίσεις λογαριασμού',
   'profile.bioEmpty': 'Προσθέστε ένα σύντομο βιογραφικό στις Ρυθμίσεις για να συστηθείτε.',
@@ -128,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Καθημερινή πρωινή προτροπή (8:00 π.μ.)',
   'settings.reminders.heading': 'Υπενθυμίσεις',
   'settings.reminders.weekly': 'Εβδομαδιαία σύνοψη (Κυριακάτικα βράδια)',
+  'settings.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.streaks.freezesPerWeek': 'Παγώνει ανά εβδομάδα',
   'settings.streaks.gracePeriod': 'Περίοδος χάριτος 6 ωρών μετά τα μεσάνυχτα',
@@ -154,5 +163,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ενεργός',
   'streakHeroCard.daysSuffix': 'ημέρες',
   'streakHeroCard.title': 'Η μεγαλύτερη ενεργή σειρά',
+  'streakLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'streakLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'streakLayout.primaryNavLabel': 'Κύρια πλοήγηση',
 }

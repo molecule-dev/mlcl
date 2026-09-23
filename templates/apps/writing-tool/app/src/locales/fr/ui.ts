@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
+  'about.title': 'Un bureau que vous pouvez garder dans votre poche',
   'billing.cancelConfirm': 'Résilier votre abonnement actif ?',
   'billing.cancelFailed': 'Résiliation impossible.',
   'billing.checkingOut': 'Ouverture du paiement…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Impossible de charger la facturation.',
   'billing.loading': 'Chargement de la facturation…',
   'billing.upgradeCta': 'Passer à {{name}}',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'editor.autosaveOn': 'Sauvegarde automatique activée',
   'editor.backToLibrary': 'Retour à la bibliothèque',
   'editor.charCount': '{{count}} caractères',
   'editor.confirmTrash': 'Déplacer ce document à la corbeille ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Désépinglé',
   'editor.unpublishCta': 'Repasser en brouillon',
   'editor.unpublished': "Revenu à l'état de brouillon",
+  'focus.autosaveOn': 'Sauvegarde automatique activée',
   'focus.backToLibrary': 'Retour à la bibliothèque',
   'focus.bodyPlaceholder': "Une ligne à la fois. Personne d'autre n'est là.",
   'focus.exit': 'Quitter le mode focus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Créez-en un',
   'login.subline':
     'Vos manuscrits, pages quotidiennes et la dernière position du curseur sont exactement là où vous les avez laissés.',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'pricing.exports': 'exports',
   'pricing.folders': 'dossiers',
   'pricing.heading': 'documents',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Saisissez le code que nous venons de vous envoyer et choisissez quelque chose de mémorable. Nous vous connecterons une fois enregistré.',
   'reset.tokenHint': 'Collé depuis votre boîte de réception.',
+  'settings.appearance.heading': 'Lumière ou obscurité',
   'settings.editor.${row.id}.description': 'Langue',
   'settings.editor.description':
     'Défilement de type machine à écrire, fondu enchaîné des paragraphes et mise au point automatique en veille : les paramètres par défaut sont optimisés pour les longues sessions.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': "Chapitre Trois — Une heure calme avant l'aube",
   'versalDocumentCard.pinned': 'Épinglé',
   'versalLayout.nav.stats': 'Statistiques',
+  'versalLayout.primaryNavLabel': 'Navigation principale',
   'versalManuscriptHero.cta': 'Continuer à écrire',
   'versalManuscriptHero.goalLabel': 'Objectif de mots du jour',
   'versalManuscriptHero.inProgress': 'Sur la bonne voie',

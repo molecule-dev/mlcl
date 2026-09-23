@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Game da {{app}}',
+  'auth.legalConsent': 'Ta ci gaba, kun yarda da',
   'bookings.empty.body': 'Ƙara jirgin sama, otal, ko wani aiki don fara akwatin saƙo.',
   'bookings.empty.heading': 'Babu rajista tukuna.',
   'bookings.errors.create': 'Ba za a iya ƙirƙirar yin booking ba.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'An tabbatar',
   'bookings.summary.pending': 'Ana jiran tabbatarwa',
   'bookings.summary.total': 'Jimillar abin da aka yi alƙawari',
+  'bookings.type.car': 'Hayar mota',
+  'bookings.type.flight': 'Jirgin sama',
+  'bookings.type.hotel': 'Otal',
   'bookings.type.other': 'Wani',
   'budgetSpendCard.budgetTotal': 'na {{total}} an tsara',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Gano rikice-rikice, tsara ranakun murmurewa tsakanin tafiye-tafiye, kuma ga lokacin da abokan hulɗa ke tafiya tare da kai.',
   'common.and': 'kuma',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.budgetHeading': 'Bugawar kasafin kuɗi',
   'dashboard.empty.heading': 'Babu tafiye-tafiye tukuna — akwatin taswirarka babu komai a ciki.',
   'dashboard.eyebrow': 'Ikon aiki',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Tafiye-tafiye a cikin motsi',
   'dashboard.viewAllExpenses': 'Duba kowane kuɗi',
   'dashboard.viewAllTrips': 'Duba kowace tafiya',
+  'dayTimelineRow.category.accommodation': 'Zauna',
   'dayTimelineRow.category.transport': 'Sufuri',
   'destinationOrbCard.exploreCta': 'Ƙara zuwa tafiya',
   'destinationOrbCard.tripCount': '{{count}} tafiye-tafiye',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Babu imel tukuna? Duba babban fayil ɗin spam ɗinku, ko gwada sake da wani adireshin daban.',
   'forgotPassword.successSubheading':
     'Mun aika hanyar haɗin murmurewa zuwa {{email}} . Haɗin yana aiki na tsawon mintuna 30.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ƙirƙiri asusu kyauta',
+  'landing.cta.subheading':
+    'Har zuwa tafiye-tafiye biyar, masu haɗin gwiwa biyar, da kuma tasha biyar akan shirin kyauta - tare da daidaitawa na ainihin lokaci, da kuma Pro yana ɗaga iyaka lokacin da shirye-shiryenku suka girma.',
   'landing.destinations.eyebrow': 'Ina zuwa na gaba',
   'landing.destinations.heading': 'Wuraren da edita ya tsara',
   'landing.features.eyebrow': 'Yadda Waypoint ke aiki',
   'landing.features.heading': 'An gina shi ne don matafiya, ba don maƙunsar bayanai ba.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Fara tafiya kyauta',
   'landing.hero.ctaSecondary': 'Duba samfurin tafiya',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Ƙirƙiri asusu don raba tafiye-tafiye tare da har zuwa masu haɗin gwiwa 5, daidaita rajista, da kuma jawo kowane tabbaci zuwa wuri ɗaya.',
+  'signup.termsPrefix': 'Ta hanyar ƙirƙirar asusu, kun yarda da mu',
   'tripCountdownHeroCard.budget': '{{used}} na {{total}} ( {{pct}} Kashi na kasafin kuɗi)',
   'tripCountdownHeroCard.collaborators': '{{count}} matafiya',
   'tripCountdownHeroCard.countdownLabel': 'Kirgawa ƙasa',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Babu tafiye-tafiye tukuna.',
   'trips.pastHeading': 'Kasadar da ta gabata',
   'trips.subheading': '{{count}} tafiye-tafiye - na baya, na yanzu, da kuma na wata rana.',
+  'waypointLayout.mobileNavClose': 'Rufe menu na kewayawa',
   'waypointLayout.primaryNavLabel': 'Babban kewayawa',
 }

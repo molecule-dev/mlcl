@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Stranke',
   'customers.loadError': 'Napaka pri nalaganju strank.',
   'customers.loading': 'Nalaganje …',
+  'customers.new.address': 'Naslov storitve',
   'customers.new.email': 'E-pošta',
   'customers.new.error': 'Napaka pri dodajanju stranke.',
   'customers.new.heading': 'Nova stranka',

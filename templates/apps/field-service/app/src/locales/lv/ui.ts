@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Klienti',
   'customers.loadError': 'Neizdevās ielādēt klientus.',
   'customers.loading': 'Notiek ielāde…',
+  'customers.new.address': 'Apkalpošanas adrese',
   'customers.new.email': 'E-pasts',
   'customers.new.error': 'Neizdevās pievienot klientu.',
   'customers.new.heading': 'Jauns klients',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'authShell.brandHeading': 'Multiplayer-lærreder til designteams, der tænker højt.',
   'billing.canceled': 'Abonnement annulleret.',
   'billing.cancelPlan': 'Annuller plan',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Start fra skabelon',
   'boards.title': 'Dine opslagstavler',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Gå til Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Indtast den e-mailadresse, der er knyttet til dit arbejdsområde, så sender vi dig et nulstillingslink.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Workshop · Brandstemme',
   'landing.featuresEyebrow': 'Hvad gør Slate tesselleret',
   'landing.featuresTitle': 'Hurtig feedback. Smukke lærreder. Ingen friktion.',
+  'landing.hero.body':
+    '{{appName}} er et multiplayer-whiteboard til designteams, workshopledere og undervisere, der afholder live brainstorms og har brug for at samle idéer på ét sted.',
   'landing.hero.primaryCta': 'Start et gratis board',
   'landing.hero.socialProof': 'Tillid til af {{count}} designteams verden over',
   'landing.hero.title': 'Et lærred lige så hurtigt som dine tanker',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Opret et gratis arbejdsområde',
   'login.subheading':
     'Fortsæt hvor workshoppen slap – tavler, gule sedler og markører synkroniseres alle i realtid.',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.new': 'Ny',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'notifications.editTitle': 'Rettelser til " {{board}} "',
   'notifications.empty.body':
     'Invitationer, gemte øjebliksbilleder og seneste redigeringer af opslagstavlen vises her, når de sker.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versionshistorik',
   'versionHistory.untitledSnapshot': 'Unavngivet øjebliksbillede',
   'whiteboardLayout.newBoard': 'Nyt bestyrelse',
+  'whiteboardLayout.primaryNav': 'Primær navigation',
   'workspace.boardLabel': 'Bestyrelse',
   'workspace.eyebrow': '{{name}} · arbejdsområde',
   'workspace.invite': 'Inviter samarbejdspartnere',

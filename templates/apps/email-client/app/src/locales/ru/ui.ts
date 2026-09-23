@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Мы — команда дизайнеров и инженеров, работающих в разных городах, которые когда-то тратили слишком много времени каждый день на переборку сообщений в шумном почтовом ящике. Courier — это почтовый ящик, которым мы сами хотели бы пользоваться.',
   'about.title': 'Электронная почта для сосредоточенной работы',
+  'common.goToDashboard': 'Перейти к панели',
   'help.cta.about': 'О компании Courier',
   'help.cta.pricing': 'Посмотреть цены',
   'help.eyebrow': 'Справочный центр',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Краткие ответы на самые популярные вопросы. Не хватает чего-то? Откройте «Настройки» и воспользуйтесь формой обратной связи в приложении или напишите на support@courier.example.',
   'help.title': 'Чем мы можем помочь?',
   'landing.brand.scrollTop': 'Вернуться к началу страницы',
+  'landing.copyright': '© {{year}} {{appName}} — Создано для концентрации.',
   'landing.ctaBody':
     'Присоединяйтесь к тысячам профессионалов, которые успевают разобраться с почтой ещё до обеда.',
   'landing.ctaTitle': 'Больше действуйте, меньше реагируйте.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Посмотреть демо',
   'landing.heroSubtitle':
     'Courier — это лаконичный почтовый клиент с тремя панелями, созданный для специалистов, которые стремятся анализировать информацию, а не просто реагировать на неё.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Нам доверяют специализированные команды по всему миру',
   'landing.signIn': 'Войти',
   'meridian.archive.empty': 'Архив пуст.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Проект',
   'meridian.folder.count': '{{count}} сообщения',
+  'meridian.folder.delete': 'Удалить',
   'meridian.folder.deleteForever': 'Удалить без возможности восстановления',
   'meridian.folder.restore': 'Переместить в папку «Входящие»',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Здесь пока нет сообщений.',
   'meridian.inbox.loading': 'Загрузка…',
   'meridian.inbox.next': 'Следующий',
+  'meridian.inbox.noSender': '(отправитель не указан)',
   'meridian.inbox.noSubject': '(без темы)',
+  'meridian.inbox.ofTotal': '{{current}} из {{total}}',
   'meridian.inbox.openCompose': 'Открыть окно создания сообщения',
   'meridian.inbox.previous': 'Предыдущий',
   'meridian.inbox.replyFailed': 'Ответ сохранен, но отправка не удалась: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'У вас нет учетной записи?',
   'meridian.login.showPassword': 'Показать пароль',
   'meridian.message.toLine': 'на сайт {{recipients}}',
+  'meridian.notFound.body':
+    'Страница, которую вы ищете, не найдена. Вернитесь в свой почтовый ящик {{appName}} , и мы вам поможем.',
   'meridian.notFound.eyebrow': 'Ошибка 404',
   'meridian.notFound.title': 'Эта ветка была заархивирована.',
   'meridian.notFound.toInbox': 'Открыть папку «Входящие»',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Добавить звездочку',
   'meridian.thread.unstar': 'Снять звездочку',
   'meridian.time.yesterday': 'Вчера',
+  'meridian.topBar.openMenu': 'Открыть меню навигации',
   'meridian.topBar.searchPlaceholder': 'Поиск по почте',
   'meridian.trash.empty': 'Корзина пуста.',
   'meridian.trash.title': 'Корзина',
   'nav.legal': 'Юридические',
   'planUpdated.description':
     'Ваша подписка активирована, и данные для выставления счетов обновлены. Добро пожаловать в обновленный почтовый ящик Courier.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.heading': 'черновики',
   'pricing.limit.emails': 'электронные письма',
   'pricing.limit.folders': 'папки',
   'pricing.limit.labels': 'этикетки',
   'privacy.collect.account':
     'Данные учетной записи: имя, адрес электронной почты, хэшированный пароль и дата регистрации.',
+  'privacy.contact': 'Есть вопросы? Пишите на privacy@courier.example.',
   'privacy.intro':
     'В настоящей Политике конфиденциальности объясняется, какие данные собирает компания Courier, зачем мы их собираем, как мы обеспечиваем их безопасность и какие возможности у вас есть в отношении этих данных. Мы стремимся излагать информацию доступно, а не юридическим языком; если что-то останется неясным, напишите нам по адресу privacy@courier.example.',
   'privacy.lastUpdated': 'Последнее обновление: 1 апреля 2026 года',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Настоящие условия регулируют использование вами сервиса Courier. Создавая учетную запись или отправляя электронные письма через наш сервис, вы соглашаетесь соблюдать эти условия. Мы стараемся составлять правила, которые человек действительно может выполнять.',
   'terms.lastUpdated': 'Вступает в силу: 1 апреля 2026 года',
+  'terms.linkPrivacy': 'Ознакомьтесь с нашей Политикой конфиденциальности →',
   'terms.termination.body':
     'Вы можете удалить свою учетную запись в любое время. Мы оставляем за собой право заблокировать учетную запись, если она нарушает настоящие условия; в таком случае мы объясним причину и сначала предоставим вам возможность экспортировать свои данные.',
   'terms.warranty.body':

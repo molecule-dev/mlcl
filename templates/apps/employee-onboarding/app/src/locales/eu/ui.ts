@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'auth.forgotPassword.emailPlaceholder': 'izena@zureenpresa.com',
   'auth.forgotPassword.heading': 'Berrezarri zure pasahitza.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Markatu zeregina osatuta',
   'checklistTaskCard.markIncomplete': 'Markatu zeregina osatu gabe gisa',
   'checklistTaskCard.openLabel': 'Ireki zeregina',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Guztiok harrapatuta zaudete.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Bide onetik',
   'dashboard.timelineHeading': '30/60/90 mugarriak',
   'dashboard.viewAllTasks': 'Ikusi zeregin guztiak',
+  'dashboard.weekOne': '1. astea',
   'dashboard.yourCohort': 'Zure taldea',
   'documents.empty.body': 'Zure taldeak gehitutako dokumentuak hemen agertuko dira.',
   'documents.empty.title': 'Oraindik ez dago dokumenturik',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 eguneko doako proba',
   'landing.subhead':
     'Embark-ek taldekide berri guztiak gidatzen ditu lehen 90 egunetan zehar — paper-lanak, prestakuntza, mugarriak eta aurkezpen esanguratsuak, dena leku lasai eta konfiantzazko batean.',
+  'layout.openMenu': 'Ireki nabigazio menua',
   'layout.search': 'Bilatu zereginak, dokumentuak, taldekideak…',
+  'layout.searchTeammates': 'Bilatu taldekideak izenaren edo rolaren arabera…',
   'layout.section.onboarding': 'Onboarding-a',
   'layout.tagline': 'Zure bidaia hemen hasten da',
   'notifications.empty.body': 'Jarduera berria hemen agertuko da.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Dena prest duzu.',
   'planUpdated.preparing': 'Zure plana eguneratzen…',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.documentsLabel': 'dokumentuak',
   'pricing.onboardingsLabel': 'sarrerak',
   'pricing.tasksLabel': 'zereginak',

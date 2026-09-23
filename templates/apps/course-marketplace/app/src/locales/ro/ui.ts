@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Se încarcă cursurile…',
   'browse.next': 'Pagina următoare',
   'browse.results': 'Se afișează cursurile de la „{{count}}”',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Sortați după',
   'browse.subtitle':
     'Filtrează arhiva editorială după temă, nivel și preț. Fiecare curs este selectat cu grijă de editorii noștri.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Certificatul tău este semnat și gata. Împărtășește-l cu toată lumea sau păstrează-l ca amintire a efortului depus pentru a-l obține.',
   'certificate.copyLink': 'Copiază linkul de partajare',
+  'certificate.copyPrompt': 'Copiază acest link:',
   'certificate.download': 'Descărcați PDF',
   'certificate.eyebrow': 'Realizare deblocată',
   'certificate.linkCopied': 'Linkul a fost copiat!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Te-ai înscris!',
   'checkout.verifying': 'Se verifică înscrierea dumneavoastră…',
   'checkout.viewLibrary': 'Vizualizează progresul meu',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.retry': 'Încercați din nou',
   'courseDetail.about': 'Despre acest curs',
   'courseDetail.checkoutPending': 'Se inițiază plata…',
   'courseDetail.continueLearning': 'Continuă să înveți',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Garanție de rambursare a banilor în 30 de zile',
   'courseDetail.includes.video': '{{hours}} ore de conținut video la cerere',
   'courseDetail.instructor': 'Instructor',
+  'courseDetail.languageEnglish': 'Engleză',
   'courseDetail.lectures': 'Prelegeri',
   'courseDetail.level': 'Nivel',
   'courseDetail.loading': 'Se încarcă cursul…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Nu există încă recenzii.',
   'instructorProfile.students': 'Studenți',
   'landing.categories.empty': 'Categoriile vor apărea odată ce catalogul va fi completat.',
+  'landing.categories.heading': 'Explorați arhiva',
   'landing.hero.eyebrow': 'Lectura · Arhiva editorială a măiestriei',
   'landing.hero.proof': 'Recunoscut de cursanții de la Google, Meta și Adobe.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Începe să înveți chiar azi',
   'login.subheading': 'Accesați arhiva dvs. academică.',
   'myLearning.empty.title': 'Deocamdată nu există cursuri care să corespundă acestui filtru',
+  'myLearning.error.title': 'Nu s-a putut încărca biblioteca ta',
   'myLearning.filter.notStarted': 'Neînceput',
   'myLearning.hero.subtitle': '{{count}} cursurile din biblioteca ta. Păstrează ritmul.',
   'myLearning.hero.title': 'Reia de unde ai rămas.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Nu există activități noi de verificat. Evenimentele noi vor apărea aici.',
   'notifications.empty.title': 'Sunteți la zi',
+  'notifications.error.title': 'Nu s-a putut încărca activitatea',
   'privacy.title': 'Politică de confidențialitate',
   'reset.confirmPlaceholder': 'Reintroduceți noua parolă',
   'reset.errorGeneric': 'Nu s-a putut reseta parola. Solicită un nou link.',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': 'acum {{count}}z',
   'timeAgo.hours': 'acum {{count}}h',
   'timeAgo.minutes': 'acum {{count}} min',
+  'timeAgo.months': '{{count}} acum câteva luni',
   'timeAgo.today': 'astăzi',
+  'timeAgo.weeks': '{{count}} acum câteva săptămâni',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'billing.canceled': 'Obuna bekor qilindi. Davr oxirida bepul rejimga qaytasiz.',
   'billing.contactSales': "Savdo bilan bog'laning",
   'billing.free.1': '5 ta tarjima',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': "Saqlash chegarasi yo'q",
   'billing.upgradeHint': 'Kengaytirilgan AI xususiyatlarini ochish uchun yangilang.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.activityEmpty':
     "Hali hech qanday faollik yo'q — ushbu tasmani to'ldirish uchun loyihani boshlang.",
   'dashboard.eyebrow': "Umumiy ma'lumot",
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Har bir loyihada oldingi tarjimalardan qayta foydalaning. Yuqori moslik balli → kamroq qayta ishlash.',
   'memory.title': 'Xotira banki',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'nav.legal': 'Huquqiy',
   'newProject.addLanguage': "Maqsad qo'shish",
   'newProject.create': 'Loyiha yaratish',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'Avvalroq',
   'notifications.markedAllRead': "Belgilangan {{count}} o'qilgan bildirishnomalar.",
   'notifications.subtitle': 'Ish joylaringizdagi eslatmalar, sharhlar va AI tadbirlari.',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'privacy.collection.account':
     "Hisobingizning elektron pochta manzili va ko'rsatiladigan ismingiz",
   'privacy.deletion.body':
@@ -178,6 +183,7 @@ export const ui: UiTranslations = {
   'projects.loadError': "Loyihalarni yuklab bo'lmadi.",
   'projects.loading': 'Loyihalar yuklanmoqda…',
   'projects.subtitle': 'Barcha hududlardagi har bir faol loyiha.',
+  'renditionLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'reset.backToLogin': '\\u2190 Kirish uchun qaytish',
   'reset.passwordLabel': 'Yangi parol',
   'review.activeEyebrow': 'Segment {{number}}',

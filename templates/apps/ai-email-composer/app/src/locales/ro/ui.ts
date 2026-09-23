@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Povestea noastră',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Rată de deschidere',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Se inițiază plata…',
   'billing.subheading': 'Alegeți planul care corespunde modului dvs. de trimitere.',
   'billing.unavailable': 'Contactați echipa de vânzări',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.retry': 'Reîncearcă',
   'compose.adjustingTone': 'Se rescrie în tonul selectat…',
   'compose.aiPromptPlaceholder':
     'ex. \\u201EUrmărire politicoasă după niciun răspuns timp de două săptămâni, păstrați scurt.\\u201D',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'Trebuie să trimiteți ceva? Signet poate pregăti o ciornă în câteva secunde.',
   'dashboard.composeCtaLabel': 'Compunere rapidă',
   'dashboard.heading': 'Săptămâna dvs., compusă',
+  'dashboard.loadFailed': 'Nu s-a putut încărca panoul de control.',
   'dashboard.manageLibrary': 'Gestionați biblioteca →',
   'dashboard.recentEmpty': 'Nicio trimitere încă — e-mailurile trimise vor apărea aici.',
   'dashboard.recentHeading': 'Trimiteri recente',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ton implicit',
   'settings.toneSubheading': 'Signet utilizează acest ton dacă nu îl suprascrieți în ciornă.',
   'signetLayout.primaryNavLabel': 'Navigare principală',
+  'signetLayout.toggleMenu': 'Comutare meniu',
   'signup.emailLabel': 'Adresă de e-mail',
   'signup.showPassword': 'Afișați parola',
   'signup.tagline': 'Trimiteți primul dvs. e-mail scris de AI în mai puțin de un minut.',

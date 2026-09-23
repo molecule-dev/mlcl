@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'announcementsFeed.empty': 'ఇంకా ఎలాంటి ప్రకటనలు రాలేదు.',
   'announcementsFeed.eyebrow': '{{count}} నవీకరణలు',
   'announcementsFeed.title': 'తాజా ప్రకటనలు',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'వేరే రాష్ట్రంలోని అసైన్‌మెంట్‌లను చూడటానికి పైన ఉన్న ఫిల్టర్‌లను మార్చండి.',
   'assignments.eyebrow': 'అన్ని కోర్సులు · ఈ టర్మ్',
+  'assignments.loadError': 'అసైన్‌మెంట్‌లను లోడ్ చేయలేకపోయాను.',
   'assignments.loading': 'అసైన్‌మెంట్‌లు లోడ్ అవుతున్నాయి…',
   'assignments.subtitle':
     'గడువు ముగిసినవి, సమర్పించినవి, గ్రేడ్ చేయబడినవి లేదా అందుబాటులో లేనివి ఏమిటో చూడటానికి స్థితిని బట్టి ఫిల్టర్ చేయండి.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'గమనిక',
   'attendance.empty': 'ఇంకా హాజరు రికార్డులు లేవు.',
   'attendance.eyebrow': 'స్ప్రింగ్ టర్మ్ · చివరి 4 వారాలు',
+  'attendance.loadError': 'హాజరు రికార్డులను లోడ్ చేయలేకపోయాను.',
   'attendance.loading': 'హాజరు లోడ్ అవుతోంది…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'నెలవారీ గ్రిడ్‌పై అసైన్‌మెంట్ గడువు తేదీలు గుర్తించబడ్డాయి — పరీక్షలు ఎరుపు రంగులో ప్రత్యేకంగా కనిపిస్తాయి.',
   'calendar.title': '{{month}} ఈవెంట్లు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.yes': '✓',
   'courseDetail.backLink': 'గ్రేడ్లు',
   'courseDetail.currentGrade': 'ప్రస్తుత గ్రేడ్',
@@ -73,11 +78,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ట్రెండ్',
   'grades.empty': 'ఇంకా గ్రేడ్‌లు ప్రకటించలేదు.',
   'grades.eyebrow': 'గ్రేడ్ పుస్తకం',
+  'grades.loadError': 'మీ గ్రేడ్‌లను లోడ్ చేయలేకపోయాము.',
   'grades.loading': 'గ్రేడ్‌లు లోడ్ అవుతున్నాయి…',
   'grades.subtitle':
     'లైవ్ లెటర్ మరియు పర్సెంటేజ్ గ్రేడ్‌లు. మీరు పైకి వెళ్తున్నారా, స్థిరంగా ఉన్నారా, లేదా వెనుకబడుతున్నారా అని ట్రెండ్ బాణాలు చూపుతాయి.',
   'grades.title': 'మీ గ్రేడ్‌లు, కోర్సు వారీగా',
   'grades.trendStable': 'స్థిరమైన',
+  'landing.copyright':
+    '© {{year}} {{app}} . విద్యార్థుల కోసం నిర్మించబడింది, కుటుంబాల కోసం తయారు చేయబడింది.',
   'landing.ctaHeading': 'ప్రశాంతమైన పాఠశాల రోజు నిమిషాల్లో ప్రారంభమవుతుంది',
   'landing.eyebrow': 'మధ్య మరియు ఉన్నత పాఠశాల విద్యార్థుల కోసం',
   'landing.featuresHeading': 'విద్యార్థి చుట్టూ నిర్వహించబడిన పాఠశాల రోజు',
@@ -112,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'అసైన్‌మెంట్లు',
   'nav.attendance': 'హాజరు',
   'nav.calendar': 'క్యాలెండర్',
+  'nav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
   'nav.grades': 'గ్రేడ్లు',
+  'nav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'nav.statusEyebrow': 'టర్మ్ GPA',
   'nav.statusSubtext': 'గౌరవ జాబితా · వసంతకాల సెమిస్టర్',
+  'nav.unreadMessages': 'చదవని సందేశాలు',
   'notifications.eyebrow': '{{count}} నవీకరణలు',
   'notifications.subtitle':
     'గ్రేడ్‌లు, రిమైండర్‌లు, సందేశాలు మరియు పాఠశాల ప్రకటనలు. సెట్టింగ్స్‌లో ప్రతి నోటిఫికేషన్ ఏ ఛానెల్‌లను ఉపయోగించాలో సర్దుబాటు చేయండి.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.attendanceLabel': 'హాజరు',
   'pricing.gradesLabel': 'గ్రేడ్లు',
   'pricing.heading': 'ప్రకటనలు',

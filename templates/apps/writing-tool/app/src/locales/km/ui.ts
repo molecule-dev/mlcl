@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.title': 'បន្ទប់សរសេរដែលអ្នកអាចរក្សាទុកក្នុងហោប៉ៅរបស់អ្នក',
   'billing.cancelConfirm': 'បោះបង់ការជាវសកម្មរបស់អ្នក?',
   'billing.cancelFailed': 'មិនអាចលុបចោលបានទេ។',
   'billing.checkingOut': 'កំពុងបើកការទូទាត់ប្រាក់…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'មិនអាចផ្ទុកវិក្កយបត្របានទេ។',
   'billing.loading': 'កំពុងផ្ទុកវិក្កយបត្រ…',
   'billing.upgradeCta': 'ធ្វើឱ្យប្រសើរឡើងទៅ {{name}}',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'editor.autosaveOn': 'ការរក្សាទុកដោយស្វ័យប្រវត្តិបើក',
   'editor.backToLibrary': 'ត្រឡប់ទៅបណ្ណាល័យវិញ',
   'editor.charCount': '{{count}} តួអង្គ',
   'editor.confirmTrash': 'ផ្លាស់ទីឯកសារនេះទៅធុងសំរាម?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'បានដកខ្ទាស់ចេញ',
   'editor.unpublishCta': 'ផ្លាស់ទីទៅសេចក្តីព្រាង',
   'editor.unpublished': 'បាន​ត្រឡប់​ទៅ​សេចក្តីព្រាង​វិញ',
+  'focus.autosaveOn': 'ការរក្សាទុកដោយស្វ័យប្រវត្តិបើក',
   'focus.backToLibrary': 'ត្រឡប់ទៅបណ្ណាល័យវិញ',
   'focus.bodyPlaceholder': 'ម្តងមួយជួរ។ គ្មានអ្នកណាផ្សេងនៅទីនេះទេ។',
   'focus.exit': 'ចេញពីរបៀបផ្តោតអារម្មណ៍',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'បង្កើតមួយ',
   'login.subline':
     'សាត្រាស្លឹករឹត ទំព័រប្រចាំថ្ងៃ និងទីតាំងទស្សន៍ទ្រនិចចុងក្រោយរបស់អ្នក គឺស្ថិតនៅត្រង់កន្លែងដែលអ្នកទុកវា។',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'pricing.exports': 'ការនាំចេញ',
   'pricing.folders': 'ថតឯកសារ',
   'pricing.heading': 'ឯកសារ',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'បញ្ចូលលេខកូដដែលយើងទើបតែផ្ញើអ៊ីមែលទៅអ្នក ហើយជ្រើសរើសអ្វីដែលគួរឱ្យចងចាំ។ យើងនឹងនាំអ្នកចូលនៅពេលដែលវាត្រូវបានរក្សាទុក។',
   'reset.tokenHint': 'បាន​បិទភ្ជាប់​ពី​ប្រអប់​សារ​របស់​អ្នក។',
+  'settings.appearance.heading': 'ភ្លឺ ឬ ងងឹត',
   'settings.editor.${row.id}.description': 'ភាសា',
   'settings.editor.description':
     'ការរំកិលម៉ាស៊ីនអង្គុលីលេខ ការបន្ថយកថាខណ្ឌ និងការផ្តោតអារម្មណ៍ពេលទំនេរ — លំនាំដើមត្រូវបានលៃតម្រូវសម្រាប់វគ្គវែង។',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'ជំពូកទីបី — ម៉ោងស្ងប់ស្ងាត់មុនពេលថ្ងៃរះ',
   'versalDocumentCard.pinned': 'បានខ្ទាស់',
   'versalLayout.nav.stats': 'ស្ថិតិ',
+  'versalLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'versalManuscriptHero.cta': 'បន្តសរសេរ',
   'versalManuscriptHero.goalLabel': 'គោលដៅពាក្យថ្ងៃនេះ',
   'versalManuscriptHero.inProgress': 'កំពុងដំណើរការ',

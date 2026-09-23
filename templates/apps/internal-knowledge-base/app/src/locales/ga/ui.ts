@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'article.notFound': 'Níor aimsíodh an t-alt',
   'articleEditor.bodyPlaceholder': 'Clóscríobh / le haghaidh bloic, nó tosaigh ag scríobh.',
+  'articleEditor.loadFailed': 'Níorbh fhéidir an t-alt a lódáil',
   'articleEditor.publishing': 'Foilsitheoireacht\\u2026',
   'articleEditor.saveFailed': 'Theip ar shábháil',
   'articleEditor.saving': 'Ag sábháil\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Leabharmharc',
   'articleView.bookmarkOn': 'Leabharmharcáilte',
   'articleView.edit': 'Cuir an t-alt in eagar',
+  'articleView.loading': 'Ag oscailt an ailt seo…',
   'articleView.readTime': '{{minutes}} léamh nóiméid',
   'articleView.spaces': 'Spásanna',
   'articleView.tocHeading': 'Ar an leathanach seo',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Eagarthóireacht, léamh agus dréachtaí le déanaí atá á bpróiseáil ag do fhoireann fós.',
   'cairnTrailHero.updated': 'Airteagail nuashonraithe',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'drafts.eyebrow': 'Do shaothar neamhchríochnaithe',
   'drafts.heading': 'Dréachtaí',
+  'drafts.loadFailed': 'Níorbh fhéidir do dhréachtaí a lódáil.',
   'drafts.subtitle': 'Ailt atá tosaithe agat ach nár foilsíodh fós. Roghnaigh ceann agus lean ort.',
   'forgotPassword.sentBody':
     'Má tá cuntas ann do {{email}} , tá nasc athshocraithe ar an mbealach. Rachaidh an nasc in éag i gceann 30 nóiméad.',
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Gan aon spásanna fós. Oscail ceann chun tús a chur le bailiú altanna.',
   'home.spacesHeading': 'Do spásanna',
   'home.subtitle': 'Ailt le déanaí, do leabharmharcanna, agus a bhfuil á scríobh ag an bhfoireann.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Tógtha le Molecule.',
   'landing.ctaBody':
     'Saor in aisce d’údair aonair. Pleananna foirne do fhoirne dáilte a sheolann leabhair reatha, cinntí agus clárú.',
   'landing.ctaHeading': 'Cruach an chéad chloch inniu.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Cruthaigh spás oibre',
   'login.submitting': 'Ag síniú isteach\\u2026',
   'login.subtitle': 'Tóg an rian san áit ar fhág tú é.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
+  'newSpace.colorAria': 'Roghnaigh dath {{color}}',
   'newSpace.colorLabel': 'Dath béime',
+  'newSpace.createFailed': 'Níorbh fhéidir spás a chruthú',
   'newSpace.descriptionPlaceholder':
     'Leabhair reatha, leabhair súgartha ar ghlao, scrúduithe iarbháis\\u2026',
   'newSpace.eyebrow': 'Oscail spás eolais',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ag luchtú\\u2026',
   'notifications.subtitle':
     '{{count}} neamhléite \\u2014 tráchtanna, tuairimí, athruithe leathanaigh, agus iarratais ar athbhreithniú.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.articles': 'ailt',
   'pricing.spaces': 'spásanna',
   'profile.eyebrow': 'Próifíl údair',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Cuir isteach focal faire nua',
   'resetPassword.subtitle': 'Roghnaigh pasfhocal láidir — 12 charachtar ar a laghad.',
   'searchResults.eyebrow': 'Cuardach spás oibre',
+  'searchResults.filter.all': 'Gach spás',
   'searchResults.heading': 'Cuardaigh ailt',
   'searchResults.placeholder': 'Cuardaigh leabhair reatha, RFCanna, beartais, cinntí\\u2026',
   'searchResults.summary': '{{count}} torthaí do \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Scriosann sé seo do chuntas agus gach alt a scríobh tú. Clóscríobh DELETE le deimhniú.',
   'settings.danger.confirmInvalid': 'Clóscríobh DELETE le deimhniú.',
+  'settings.danger.deleteFailed': 'Níorbh fhéidir cuntas a scriosadh',
   'settings.danger.deleting': 'Ag scriosadh\\u2026',
   'settings.danger.description':
     'Má scriostar do spás oibre, baintear na hailt, na tuairimí agus an stair leaganacha go léir. Níl aon aisghabháil ann.',
   'settings.danger.title': 'Scrios spás oibre',
+  'settings.email.confirm': 'Nuashonraigh ríomhphost',
+  'settings.email.confirmTitle': 'Deimhnigh athrú ríomhphoist',
   'settings.email.saved': 'Ríomhphost nuashonraithe.',
+  'settings.email.updateFailed': 'Níorbh fhéidir an ríomhphost a nuashonrú',
   'settings.language.title': 'Teanga',
   'settings.name': 'Ainm',
+  'settings.name.saved': 'Ainm nuashonraithe.',
+  'settings.name.updateFailed': 'Níorbh fhéidir an t-ainm a nuashonrú',
   'settings.notifications.description': 'Roghnaigh cad a shroicheann do bhosca isteach.',
+  'settings.password.changeFailed': 'Níorbh fhéidir an focal faire a athrú',
   'settings.password.current': 'Focal faire reatha',
   'settings.password.new': 'Pasfhocal nua',
   'settings.password.saving': 'Ag Nuashonrú\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Conas a dhéantar ailt a rindreáil duit.',
   'settings.reading.title': 'Léitheoireacht & scríbhneoireacht',
   'settings.subtitle': 'Tiúnáil fógraí, an chanbhás léitheoireachta, agus do chuntas.',
+  'settings.twofa.code': 'Cód fíordheimhnithe',
   'settings.twofa.disable': 'Díchumasaigh',
   'settings.twofa.disabled': 'Míchumasaithe',
   'settings.twofa.enable': 'Cumasaigh',
   'settings.twofa.enabled': 'Cumasaithe',
+  'settings.twofa.invalidCode': 'Cód neamhbhailí',
+  'settings.twofa.unavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
+  'settings.twofa.verify': 'Fíoraigh & cumasaigh',
   'signup.brandQuote':
     'Is é an chéad ghealltanas a thugaimid don chéad duine eile a bhfuil gá aige leis ná é a scríobh síos.',
   'signup.eyebrow': 'Oscail spás oibre',

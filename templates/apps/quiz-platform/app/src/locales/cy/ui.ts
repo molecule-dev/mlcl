@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.title': 'Ynghylch {{app}}',
   'auth.login.noAccount': 'Newydd i Sparq?',
   'auth.login.or': 'neu barhau gyda',
   'auth.signup.or': 'neu gofrestru gyda',
+  'common.confirm': 'Cadarnhau',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.loadError': "Aeth rhywbeth o'i le wrth lwytho'r cynnwys hwn.",
+  'common.retry': 'Ail-geisio',
   'discover.collections.title': 'Pori yn ôl categori',
   'discover.collections.viewAll': 'Gweld eich llyfrgell →',
   'discover.empty.body': 'Rhowch gynnig ar gategori gwahanol neu gliriwch y chwiliad.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     "Mewngofnodwch i gadw'ch rhediad yn fyw, cynnal gemau byw, a dringo'r bwrdd arweinwyr.",
   'myQuizzes.createButton': 'Cwis newydd',
+  'myQuizzes.deleteConfirm': 'Dileu am byth?',
   'myQuizzes.empty.createCta': 'Adeiladu eich cwis cyntaf →',
   'myQuizzes.empty.created': 'Dydych chi ddim wedi creu cwis eto.',
   'myQuizzes.empty.played': "Dim cwisiau wedi'u cyhoeddi eto.",
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yn llwytho…',
   'notifications.subhead':
     '{{count}} gwreichion heb eu darllen. Gwahoddiadau, symudiadau ar y bwrdd arweinwyr, a chyflawniadau i gyd mewn un ffrwd.',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.checkoutError': 'Methwyd dechrau talu. Rhowch gynnig arall arni.',
+  'pricing.heading': 'Dewis eich cynllun {{app}}',
   'pricing.included': "Wedi'i gynnwys",
   'pricing.loadError': 'Methwyd llwytho cynlluniau.',
   'pricing.maxQuizzes': '{{count}} cwisiau',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': "Dim byd wedi'i gyhoeddi eto.",
   'profile.startBuilding': 'Dechrau adeiladu →',
   'profile.tier': 'Chwaraewr Sparq',
+  'quizBuilder.addFailed': "Methwyd ychwanegu'r cwestiwn. Rhowch gynnig arall arni.",
   'quizBuilder.addQuestion': 'Ychwanegu cwestiwn',
   'quizBuilder.answerPlaceholder': 'Teipiwch opsiwn…',
   'quizBuilder.answersLabel': 'Dewisiadau ateb',
   'quizBuilder.back': 'Yn ôl at fy nghwisiau',
   'quizBuilder.delete': 'Dileu cwestiwn',
+  'quizBuilder.deleteFailed': "Methwyd dileu'r cwestiwn.",
   'quizBuilder.firstQuestion': 'Ychwanegwch eich cwestiwn cyntaf i ddechrau.',
   'quizBuilder.idLabel': 'ID cwis: {{id}}',
   'quizBuilder.loadError': "Methwyd llwytho'r cwis.",
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Ychwanegwch o leiaf ddau ddewis ateb a dewiswch yr un cywir ar gyfer {{count}} cwestiwn(au) cyn cyhoeddi.',
   'quizBuilder.questionsTitle': 'Cwestiynau',
+  'quizBuilder.saveFailed': "Methwyd cadw'r teitl. Rhowch gynnig arall arni.",
   'quizBuilder.statusDraft': 'Drafft',
   'quizBuilder.subhead':
     "Golygwch y teitl, ychwanegwch gwestiynau, gosodwch ddewisiadau a'r ateb cywir. Mae newidiadau'n cael eu cadw'n awtomatig.",
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} munud',
   'quizDetail.hostMultiplayer': 'Cynnal aml-chwaraewr',
   'quizDetail.leaderboardEmpty': 'Dim chwarae eto — byddwch y cyntaf i osod sgôr.',
+  'quizDetail.loadError': "Methwyd llwytho'r cwis hwn.",
   'quizDetail.loading': "Wrthi'n llwytho cwis…",
   'quizDetail.plays': '{{count}} dramâu',
   'quizDetail.playSolo': 'Chwarae ar eich pen eich hun',

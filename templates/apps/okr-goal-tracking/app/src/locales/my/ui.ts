@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'ascentSideNav.nav.notifications': 'အကြောင်းကြားချက်များ',
   'ascentSideNav.newObjective': 'ရည်မှန်းချက်အသစ်',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'ထိပ်ကိုသတ်မှတ်ပါ။ တောင်တက်မှတ်ယူပါ။ အသင်းကို နည်းပြပါ။',
   'authShell.eyebrow': 'အဖွဲ့များကို ရွှေ့ပြောင်းပေးသော OKR များ',
   'authShell.samplePeriod': '၂၀၂၆ ခုနှစ် ဒုတိယသုံးလပတ် · နမူနာရည်မှန်းချက်',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'အလုပ်ခွင် · ငွေတောင်းခံလွှာ',
   'billing.heading': 'အစီအစဉ်နှင့် ငွေတောင်းခံလွှာများ',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'ဒေတာထုတ်ယူမှု + API ဝင်ရောက်ခွင့်',
+  'billing.perk.inApp': 'အက်ပ်အတွင်း အစီရင်ခံခြင်း',
+  'billing.perk.standard': 'စံသတ်မှတ်ထားသော သုံးသပ်ချက်များ',
+  'billing.perk.unlimitedObjectives': 'အကန့်အသတ်မရှိသော ရည်မှန်းချက်များ',
+  'billing.perk.unlimitedRetention': 'အကန့်အသတ်မရှိ ထိန်းသိမ်းခြင်း',
   'billing.subheading':
     'မင်းအပေါ်မှာ {{name}} အစီအစဉ်။ အဆင့်များကို နှိုင်းယှဉ်ပြီး အောက်တွင် အဆင့်မြှင့်တင်ပါ။',
   'billing.tier.unavailable': 'မရရှိနိုင်ပါ',
@@ -43,11 +51,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'စစ်ဆေးဝင်ခြင်း တင်သွင်းပါ',
   'checkIn.submittedMessage':
     'စစ်ဆေးဝင်ခြင်းကို သိမ်းဆည်းပြီးပါပြီ။ တိုးတက်မှုနှင့် အချိန်ဇယားကို အပ်ဒိတ်လုပ်ထားပါသည်။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': 'မဟုတ်ပါ',
   'common.relative.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
   'common.relative.hoursAgo': '{{count}} တစ်နာရီက',
   'common.relative.justNow': 'ယခုပင်',
   'common.relative.minutesAgo': '{{count}} မိနစ်အကြာက',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'common.yes': 'ဟုတ်ကဲ့',
   'common.you': 'မင်း',
   'dashboard.allActivity': 'လုပ်ဆောင်ချက်အားလုံးကိုကြည့်ပါ →',
@@ -90,6 +100,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} တစ်နာရီအတွင်း သက်တမ်းကုန်ဆုံးမည် — inbox ကို ခဏစောင့်ပါ။',
   'forgotPassword.successHeading': 'သင့်ဝင်စာပုံးကို စစ်ဆေးပါ။',
+  'keyResult.metrics.boolean': 'ဟုတ်/မဟုတ်',
+  'keyResult.metrics.currency': 'ငွေကြေး $',
+  'keyResult.metrics.number': 'နံပါတ်',
+  'keyResult.metrics.percent': 'ရာခိုင်နှုန်း ရာခိုင်နှုန်း',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'သင့်ရဲ့ ပထမဆုံးရည်မှန်းချက်ကို သတ်မှတ်ပါ၊ အသင်းဖော်သုံးယောက်ကို ဖိတ်ကြားပြီး သောကြာနေ့မှာ သင့်ရဲ့ ပထမဆုံးအပတ်စဉ် check-in ကို လုပ်ဆောင်ပါ။',
@@ -101,6 +115,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'အသင်းတွေ ဘယ်လိုတက်လှမ်းကြမလဲ',
   'landing.featuresTitle': 'စာရင်းဇယား ပြန့်ကျဲမှုမရှိဘဲ နည်းပြအဆင့် OKR များ။',
   'landing.footerBuiltOn': 'Molecule.dev တွင်တည်ဆောက်ထားသည်',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Ascent က အဖွဲ့တိုင်းကို တောင်တက်လမ်းကြောင်းတစ်ခု ပေးသည် - ရည်မှန်းချက်များ ချမှတ်ပါ၊ အဓိကရလဒ်များကို အပတ်စဉ် ရယူပါ၊ နှင့် တောင်တက်ခြင်းကို သုံးလတစ်ကြိမ် ပြန်လည်သုံးသပ်ပါ။',
   'landing.heroProgressLabel': 'ဒုတိယသုံးလပတ် ကုမ္ပဏီအစီအစဉ်',
@@ -110,6 +125,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
   'login.subheading':
     'သင်ရပ်ထားသည့်နေရာမှ ဆက်သွားပါ — သင်၏ check-in များ၊ KR များနှင့် သုံးသပ်ချက်များက စောင့်ကြိုနေပါသည်။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.mainNavigation': 'အဓိက လမ်းညွှန်ချက်',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'newObjective.addKr': 'KR ထည့်ပါ',
   'newObjective.coachLabel': 'နည်းပြသတိပေးချက်များ',
   'newObjective.descriptionPlaceholder':
@@ -136,6 +154,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'လှုပ်ရှားမှုစင်တာ',
   'notifications.markRead': '● ဖတ်ပြီးဟု မှတ်သားပါ',
   'objective.scopes.company': 'ကုမ္ပဏီ',
+  'objective.scopes.individual': 'တစ်ဦးချင်း',
   'objective.scopes.team': 'အသင်း',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'ရည်မှန်းချက်များဆီသို့ ပြန်သွားပါ',
@@ -158,12 +177,18 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'ခြေရာခံခြင်း {{count}} ရည်မှန်းချက်များ။ အာရုံစိုက်ရန် လိုအပ်သည်များကို ရှာဖွေရန် အခြေအနေအလိုက် စစ်ထုတ်ပါ။',
   'profile.achievementCheckInsMany': '{{count}} မှတ်ပုံတင်ထားသော check-in များ',
+  'profile.achievementCheckInsOne': '၁ ခု စစ်ဆေးဝင်ရောက်မှု မှတ်တမ်းတင်ထားသည်',
+  'profile.achievementCompletedMany': 'ရည်မှန်းချက် {{count}} ပြီးမြောက်ခဲ့သည်',
+  'profile.achievementCompletedOne': 'ရည်မှန်းချက် ၁ ခု ပြီးမြောက်ပါပြီ',
+  'profile.achievementOnTrackMany': '{{count}} ရည်မှန်းချက်များ လမ်းကြောင်းမှန်ပေါ် ရောက်နေပါသည်',
+  'profile.achievementOnTrackOne': 'ရည်မှန်းချက် ၁ ခု လမ်းကြောင်းမှန်ပေါ်ရောက်နေပါပြီ',
   'profile.activeHeading': 'တက်ကြွသော ရည်မှန်းချက်များ',
   'profile.allObjectives': 'ရည်မှန်းချက်အားလုံး →',
   'profile.empty':
     'တက်ကြွသော ရည်မှန်းချက်များ မရှိသေးပါ — စတင်ရန်အတွက် သင်၏ ပထမဆုံးရည်မှန်းချက်ကို ဖန်တီးပါ။',
   'profile.eyebrow': 'တောင်တက်သမားပရိုဖိုင်',
   'profile.guestName': 'တောင်တက်သမား',
+  'profile.loadError': 'သင့်ရည်မှန်းချက်များကို တင်၍မရပါ။',
   'profile.loading': 'ရည်မှန်းချက်များကို တင်နေသည်…',
   'profile.noAchievements': 'သင့်ရဲ့ ပထမဆုံး အောင်မြင်မှုကို ရယူဖို့ check-in ဝင်ပါ။',
   'profile.statCheckIns': 'စစ်ဆေးဝင်ခြင်းများ',

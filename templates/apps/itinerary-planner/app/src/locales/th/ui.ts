@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
+  'auth.legalConsent': 'เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ',
   'bookings.empty.body': 'เพิ่มเที่ยวบิน โรงแรม หรือกิจกรรมเพื่อเริ่มต้นกล่องจดหมายเข้า',
   'bookings.empty.heading': 'ยังไม่มีการจองใดๆ',
   'bookings.errors.create': 'ไม่สามารถสร้างการจองได้',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'ยืนยันแล้ว',
   'bookings.summary.pending': 'กำลังรอการยืนยัน',
   'bookings.summary.total': 'ยอดรวมที่ผูกพัน',
+  'bookings.type.car': 'รถเช่า',
+  'bookings.type.flight': 'เที่ยวบิน',
+  'bookings.type.hotel': 'โรงแรม',
   'bookings.type.other': 'อื่นๆ',
   'budgetSpendCard.budgetTotal': 'ของ {{total}} วางแผน',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'ตรวจสอบความขัดแย้ง วางแผนวันพักผ่อนระหว่างการเดินทาง และดูว่าผู้ร่วมงานจะเดินทางไปกับคุณเมื่อใด',
   'common.and': 'และ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.budgetHeading': 'จังหวะงบประมาณ',
   'dashboard.empty.heading': 'ยังไม่มีการเดินทางใดๆ — แผนที่ของคุณจึงว่างเปล่า',
   'dashboard.eyebrow': 'ศูนย์ควบคุมภารกิจ',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'การเดินทางที่กำลังเคลื่อนไหว',
   'dashboard.viewAllExpenses': 'ตรวจสอบค่าใช้จ่ายทุกรายการ',
   'dashboard.viewAllTrips': 'ดูทุกการเดินทาง',
+  'dayTimelineRow.category.accommodation': 'อยู่',
   'dayTimelineRow.category.transport': 'ขนส่ง',
   'destinationOrbCard.exploreCta': 'เพิ่มลงในทริป',
   'destinationOrbCard.tripCount': '{{count}} การเดินทาง',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'ยังไม่ได้รับอีเมลใช่ไหม ตรวจสอบโฟลเดอร์สแปม หรือลองใหม่อีกครั้งด้วยที่อยู่อีเมลอื่น',
   'forgotPassword.successSubheading':
     'เราได้ส่งลิงก์กู้คืนไปให้แล้ว {{email}} ลิงก์นี้ใช้งานได้ 30 นาที',
+  'landing.cta.heading': '{{tagline}}',
   'landing.cta.signup': 'สร้างบัญชีฟรี',
+  'landing.cta.subheading':
+    'แพ็กเกจฟรีรองรับการเดินทางสูงสุด 5 ครั้ง ผู้ร่วมงาน 5 คน และจุดแวะพัก 5 จุด พร้อมการซิงค์ข้อมูลแบบเรียลไทม์ และแพ็กเกจ Pro จะเพิ่มขีดจำกัดเมื่อแผนการใช้งานของคุณเพิ่มขึ้น',
   'landing.destinations.eyebrow': 'ต่อไปจะไปที่ไหน',
   'landing.destinations.heading': 'จุดหมายปลายทางที่คัดสรรโดยบรรณาธิการ',
   'landing.features.eyebrow': 'วิธีใช้งาน Waypoint',
   'landing.features.heading': 'ออกแบบมาเพื่อนักเดินทาง ไม่ใช่เพื่อโปรแกรมสเปรดชีต',
+  'landing.footer.tagline': '{{tagline}}',
   'landing.hero.ctaPrimary': 'เริ่มต้นการเดินทางฟรี',
   'landing.hero.ctaSecondary': 'ดูตัวอย่างการเดินทาง',
   'landing.hero.subtitle':
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ไอริส ลาร์เซน',
   'signup.subheading':
     'สร้างบัญชีเพื่อแชร์ทริปกับผู้ร่วมงานได้สูงสุด 5 คน ซิงค์การจอง และรวบรวมการยืนยันทั้งหมดไว้ในที่เดียว',
+  'signup.termsPrefix': 'การสร้างบัญชีหมายความว่าคุณยอมรับข้อตกลงของเรา',
   'tripCountdownHeroCard.budget': '{{used}} ของ {{total}} ( {{pct}} (ร้อยละของงบประมาณ)',
   'tripCountdownHeroCard.collaborators': '{{count}} นักเดินทาง',
   'tripCountdownHeroCard.countdownLabel': 'นับถอยหลัง',
@@ -202,5 +215,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ยังไม่มีการเดินทางใดๆ',
   'trips.pastHeading': 'การผจญภัยในอดีต',
   'trips.subheading': '{{count}} แผนการเดินทาง — ในอดีต ปัจจุบัน และในอนาคต',
+  'waypointLayout.mobileNavClose': 'ปิดเมนูนำทาง',
   'waypointLayout.primaryNavLabel': 'การนำทางหลัก',
 }

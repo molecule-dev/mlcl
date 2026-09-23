@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'activity.empty': 'Wala pang aktibidad — i-flip ang isang device o i-activate ang isang eksena.',
   'activity.eyebrow': 'Takdang Panahon',
   'activity.loadError': 'Hindi ma-load ang activity feed.',
   'activity.subheading':
     'Bawat device, automation, at kaganapan sa seguridad ay nakaayos nang kronolohikal.',
+  'addDevice.error.failed': 'Hindi maidagdag ang device. Subukan muli.',
   'addDevice.error.nameRequired': 'Bigyan ng pangalan ang device na ito para magpatuloy.',
   'addDevice.field.firmware': 'Bersyon ng firmware',
   'addDevice.field.manufacturer': 'Tagagawa',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Pagsubok…',
   'automationEditor.testNew': 'I-save muna ang automation para subukan ito.',
   'automationRow.lastRun': 'Huli {{date}} · {{count}} tumatakbo',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Tumakbo {{name}} ngayon',
   'automations.empty': 'Wala pang mga automation — gawin ang iyong unang routine.',
   'automations.eyebrow': 'Mga Rutina',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Naglo-load ng mga automation…',
   'automations.newAutomation': '+ Bago',
   'automations.subheading': 'Kapag nangyari ito, gawin iyon — nang walang YAML.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Nabigong i-load ang device.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Ginagawa…',
   'deviceDetail.unnamed': 'Aparato',
   'deviceStatusRow.on': 'Naka-on',
+  'deviceStatusRow.turnOff': 'Patayin',
+  'deviceStatusRow.turnOn': 'I-on',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Kapangyarihan',
   'energy.heading': 'Enerhiya',
@@ -176,4 +183,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Tingnan ang mga plano',
   'settings.security.heading': 'Seguridad',
   'settings.subheading': 'Plano, mga hub, at mga kagustuhan sa account.',
+  'smartHomeDashboardLayout.openMenu': 'Buksan ang menu ng nabigasyon',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Pangunahing navigation',
 }

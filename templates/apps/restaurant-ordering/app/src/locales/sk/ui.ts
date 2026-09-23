@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikácii {{app}}',
   'analytics.avgCheckLabel': 'Priemerná kontrola',
   'analytics.busiestHour': 'Najrušnejšia hodina',
   'analytics.coversToday': 'Kryty dnes',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Prepitné (priemer)',
   'analytics.topItems': 'Najlepšie položky dnes',
   'authShell.eyebrow': 'Vitajte späť v službe',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Rýchle a príjemné miesto predaja pre tímy v oblasti pohostinstva. Prihláste sa do svojej kuchyne a pokračujte tam, kde ste prestali.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'alebo {{price}}',
   'billing.priceUnavailable': 'Tento plán nemá nastavenú cenu.',
   'billing.updated': 'Plán bol aktualizovaný.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'customerDetail.book': 'Pridať rezerváciu',
   'customerDetail.col.table': 'Tabuľka',
   'customerDetail.confirmDelete': 'Odstrániť tento záznam hosťa?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Dostupnosť',
   'menuItemDetail.available': 'K dispozícii dnes večer',
   'menuItemDetail.backToMenu': 'Späť do menu',
+  'menuItemDetail.confirmDelete': 'Odstrániť túto položku ponuky?',
   'menuItemDetail.delete': 'Odstrániť položku',
   'menuItemDetail.deleteError': 'Odstránenie zlyhalo. Skúste to znova.',
   'menuItemDetail.dietary': 'Diétne štítky',
@@ -137,8 +141,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Uloženie zlyhalo. Skúste to znova.',
   'menuItemDetail.subheading': '{{category}} · upraviť fotografiu, modifikátory, diétu a ceny.',
   'menuItemDetail.untitled': 'Položka bez názvu',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'notFound.heading': 'Tento stôl nie je na podlahe.',
   'notFound.subheading': 'Stránka, ktorú ste hľadali, sa nachádza inde – alebo nikdy neexistovala.',
+  'notFound.toLanding': 'Domovská stránka {{app}}',
   'notifications.markError': 'Nepodarilo sa označiť všetky ako prečítané.',
   'orderDashboard.activeDelta': 'Teraz naživo',
   'orderDashboard.activeLabel': 'Aktívne objednávky',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Zobraziť heslo',
   'resetPassword.subtitle': 'Zadajte nové heslo pre opätovný prístup do kuchyne.',
   'resetPassword.tokenLabel': 'Obnoviť token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Hlavná navigácia',
   'revenueHeroCard.activeOrders': '{{count}} aktívny',
   'revenueHeroCard.change': '{{sign}} {{amount}} oproti včerajšku',
   'revenueHeroCard.title': 'Dnešné príjmy',
@@ -220,6 +228,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Názov reštaurácie',
   'tableDetail.activeOrders': 'Aktívne objednávky',
   'tableDetail.backToFloor': 'Pôdorys',
+  'tableDetail.confirmDelete': 'Odstrániť túto tabuľku?',
   'tableDetail.delete': 'Odstrániť',
   'tableDetail.deleteError': 'Tabuľku sa nepodarilo odstrániť.',
   'tableDetail.heading': 'Tabuľka {{label}}',

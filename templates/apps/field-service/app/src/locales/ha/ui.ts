@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Abokan ciniki',
   'customers.loadError': 'An kasa loda abokan ciniki.',
   'customers.loading': 'Ana lodawa…',
+  'customers.new.address': 'Adireshin sabis',
   'customers.new.email': 'Imel',
   'customers.new.error': 'An kasa ƙara abokin ciniki.',
   'customers.new.heading': 'Sabon abokin ciniki',

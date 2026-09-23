@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.title': 'Poltsikoan gorde dezakezun idazteko gela bat',
   'billing.cancelConfirm': 'Harpidetza aktiboa bertan behera utzi nahi duzu?',
   'billing.cancelFailed': 'Ezin izan da bertan behera utzi.',
   'billing.checkingOut': 'Ordainketa irekitzen…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Ezin izan da fakturazioa kargatu.',
   'billing.loading': 'Fakturazioa kargatzen…',
   'billing.upgradeCta': 'Berritu honetara {{name}}',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'editor.autosaveOn': 'Gordetze automatikoa aktibatuta',
   'editor.backToLibrary': 'Liburutegira itzuli',
   'editor.charCount': '{{count}} pertsonaiak',
   'editor.confirmTrash': 'Dokumentu hau zakarrontzira eraman?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Deskonektatuta',
   'editor.unpublishCta': 'Eraman zirriborrora',
   'editor.unpublished': 'Zirriborrora itzuli da',
+  'focus.autosaveOn': 'Gordetze automatikoa aktibatuta',
   'focus.backToLibrary': 'Liburutegira itzuli',
   'focus.bodyPlaceholder': 'Lerro bana aldi berean. Inor ez dago hemen.',
   'focus.exit': 'Irten fokatze modutik',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Sortu bat',
   'login.subline':
     'Zure eskuizkribuak, eguneroko orrialdeak eta azken kurtsorearen posizioa utzi zenituen lekuan daude.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'pricing.exports': 'esportazioak',
   'pricing.folders': 'karpetak',
   'pricing.heading': 'dokumentuak',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Sartu posta elektronikoz bidali dizugun kodea eta aukeratu zerbait gogoangarria. Gordetakoan saioa hasiko dugu.',
   'reset.tokenHint': 'Zure sarrera-ontzitik itsatsita.',
+  'settings.appearance.heading': 'Argia edo iluna',
   'settings.editor.${row.id}.description': 'Hizkuntza',
   'settings.editor.description':
     'Idazmakinaren korritzea, paragrafoen desagertzea eta foku inaktibo bat — lehenetsitako balioak saio luzeetarako doitzen dira.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Hirugarren kapitulua — Egunsentia baino lehen ordu lasai bat',
   'versalDocumentCard.pinned': 'Pinkatuta',
   'versalLayout.nav.stats': 'Estatistikak',
+  'versalLayout.primaryNavLabel': 'Nabigazio nagusia',
   'versalManuscriptHero.cta': 'Jarraitu idazten',
   'versalManuscriptHero.goalLabel': 'Gaurko hitz helburua',
   'versalManuscriptHero.inProgress': 'Bide onetik',

@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'Kies Tyd',
   'booking.title': 'Bespreek Afspraak',
   'clinicalNotesEditorial.empty': 'Geen pasiënte om te wys nie.',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'consult.backLink': 'Alle afsprake',
   'consult.captions': 'Onderskrifte',
   'consult.connected': 'Gekoppel · 720p · stabiel',
@@ -126,6 +127,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pasiënte',
   'patientVitalsHero.scripts': 'Rx oop',
   'patientVitalsHero.subline': '{{count}} konsultasies op jou skedule vandag',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'prescriptions.empty': 'Geen voorskrifte stem ooreen nie.',
   'prescriptions.eyebrow': 'E-voorskrif',
   'prescriptions.heading': 'Voorskrifte',
@@ -141,6 +143,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Privaatheidskennisgewing',
   'privacy.use.body':
     'Om sorg te lewer, afspraakherinneringe te stuur, voorskrifte te roeteer en diensbetroubaarheid te verbeter. Ons verkoop nooit u data nie en deel nooit kliniese inligting met adverteerders nie.',
+  'providers.allSpecialties': 'Alle Spesialiteite',
+  'providers.loadError': 'Kon nie verskaffers laai nie.',
+  'providers.loading': 'Laai tans…',
   'providers.noResults': 'Geen verskaffers gevind nie.',
   'providers.searchPlaceholder': 'Soek volgens naam, spesialiteit...',
   'providers.title': "Vind 'n Verskaffer",
@@ -160,6 +165,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Dag begin',
   'settings.availability.heading': 'Beskikbaarheid',
   'settings.devices.thisDevice': 'Hierdie toestel',
+  'settings.devices.unnamed': 'Naamlose toestel',
   'settings.eyebrow': 'Oefening en rekening',
   'settings.loadError': 'Kon nie jou profiel laai nie.',
   'settings.notifications.emailMessages': "Stuur vir my 'n e-pos wanneer my sorgspan antwoord",
@@ -173,6 +179,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Deaktiveer',
   'settings.security.twoFactor.enable': 'Aktiveer',
   'settings.security.twoFactor.heading': 'Twee-faktor-verifikasie',
+  'settings.security.twoFactor.invalidCode': 'Daardie kode het nie ooreengestem nie. Probeer weer.',
+  'settings.security.twoFactor.setupFailed':
+    'Kon nie tweefaktor-opstelling begin nie. Probeer weer.',
+  'settings.security.twoFactor.statusOn': 'Twee-faktor is aan',
   'settings.signOutDevice': 'Teken uit',
   'settings.subheading': 'Verskafferprofiel, praktykreëls en kliniese waarskuwings.',
   'signup.emailLabel': 'E-POS',
@@ -183,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Skep Rekening',
   'signupFooter.hipaa': 'HIPAA-voldoenbaar',
   'solaceLayout.primaryNavLabel': 'Primêre navigasie',
+  'solaceLayout.toggleMenu': 'Wissel kieslys',
   'terms.eligibility.body':
     "Jy moet ten minste agtien jaar oud wees, of die ouer of wettige voog van 'n minderjarige vir wie jy sorg soek, en fisies geleë wees in 'n VSA-staat waar ons klinici gelisensieer is.",
   'terms.payment.body':

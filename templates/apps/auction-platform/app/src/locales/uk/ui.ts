@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Спостереження',
   'auctionDetail.watchRemoved': 'Видалено зі списку стеження.',
   'auctionDetail.watchRemoveLabel': 'Видалити зі списку стеження',
+  'auctionPlatformLayout.primaryNavLabel': 'Основна навігація',
   'authShell.brandBody':
     'Робіть ставки в реальному часі на рідкісні годинники, образотворче мистецтво та унікальні предмети. Молоток опускається за секунди.',
   'authShell.brandEyebrow': 'Зараз наживо · 1 420 аукціонів',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Сортувати за',
   'browseAuctions.subheading':
     'Фільтруйте за категорією, сортуйте за найважливішим і робіть ставки до падіння молотка.',
+  'common.goToDashboard': 'До панелі',
   'countdownTimer.ended': 'Завершено',
   'countdownTimer.endingSoon': 'Завершується',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Приховати пароль',
   'login.showPassword': 'Показати пароль',
   'login.subtext': 'Продовжуйте відстежувати аукціони та робити ставки до падіння молотка.',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'myBids.bidAgain': 'Зробити ставку знову',
   'myBids.browseCta': 'Переглянути живі аукціони →',
   'myBids.checkoutCta': 'Оплатити зараз',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Сповіщень ще немає.',
   'notificationsPage.eyebrow': 'Центр активності',
   'notificationsPage.subheading': '{{count}} непрочитаних · живі оновлення по ходу аукціонів',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.bidsLabel': 'ставки',
   'pricing.listingsLabel': 'оголошень',
   'pricing.watchlistLabel': 'список стеження',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Oor {{app}}',
+  'authShell.encryptionBadge': 'Jou inskrywings is end-tot-end geïnkripteer.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'Dag {{day}} — {{mood}}',
   'calendar.distributionHeading': "Hierdie maand in 'n oogopslag",
   'calendar.eyebrow': "Stemming in 'n oogopslag",
@@ -10,6 +13,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'Volgende maand',
   'calendar.prev': 'Vorige maand',
   'calendar.subheading': 'Opgespoor {{tracked}} van {{total}} dae hierdie maand.',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.tryAgain': 'Probeer weer',
   'entryComposer.cancel': 'Terug na joernaal',
   'entryComposer.heading': 'Vandag se besinning',
   'entryComposer.moodLabel': 'Hoe voel jy?',
@@ -20,7 +25,14 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'Kon nie jou inskrywing stoor nie.',
   'entryComposer.titlePlaceholder': "Gee hierdie weerkaatsing 'n naam…",
   'entryDetail.back': 'Terug na joernaal',
+  'entryDetail.delete': 'Vee hierdie inskrywing uit',
+  'entryDetail.deleteConfirm':
+    'Vee hierdie weerkaatsing uit? Dit kan nie ongedaan gemaak word nie.',
+  'entryDetail.deleteConfirmTitle': 'Vee inskrywing uit',
+  'entryDetail.deleteError': 'Kon nie hierdie inskrywing verwyder nie.',
+  'entryDetail.deleteForever': 'Vee vir altyd uit',
   'entryDetail.encryptedBadge': 'End-tot-end geïnkripteer',
+  'entryDetail.keepEntry': 'Hou dit',
   'entryDetail.loadError': 'Kon nie hierdie inskrywing laai nie.',
   'entryDetail.loading': 'Laai weerkaatsing…',
   'entryDetail.notFound': 'Inskrywing nie gevind nie.',
@@ -43,6 +55,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Kon nie insigte laai nie.',
   'insights.subheading':
     'Stemmingspatrone, temas en snellers — liggies versamel uit jou laaste 30 dae.',
+  'insights.themesEmpty':
+    "Geen temas nog nie — voeg 'n etiket of twee by jou inskrywings en hulle sal hier bymekaarkom.",
   'insights.themesHeading': 'Toptemas',
   'insights.triggerFrequency': 'opgemerk {{count}} × hierdie maand',
   'insights.triggersHeading': 'Patrone wat jou gemoedstoestand beïnvloed',
@@ -61,11 +75,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'Begin joernaal hou',
   'landing.heroCta': 'Begin jou eerste inskrywing',
   'landing.heroCtaSecondary': 'Sien dit in aksie',
+  'landing.heroSubtitle':
+    "{{app}} is 'n sagte, privaat joernaal vir daaglikse refleksie, bui-opsporing en dankbaarheid — met deurdagte aanwysings en stil patrone om jou te help om jouself beter te verstaan.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewLabel': "'n Kykie binne Lucid",
   'landing.previewPrompt': 'Wat is een klein dingetjie waarvoor jy vandag dankbaar is?',
   'login.heading': 'Teken aan by jou joernaal',
   'login.signupLink': 'Skep jou joernaal',
   'login.subheading': "'n Sagte ruimte vir daaglikse besinning.",
+  'mentalHealthJournalLayout.closeMenu': 'Maak spyskaart toe',
+  'mentalHealthJournalLayout.openMenu': 'Maak spyskaart oop',
   'moodHeroCard.streakSuffix': 'dagreeks',
   'moodHeroCard.title': 'Vandag se besinning',
   'moodTrendChart.aiBadge': 'KI-insig gereed',
@@ -79,6 +98,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'Langste reeks',
   'profile.memberSince': 'Reflekteer sedert {{date}}',
   'profile.milestones': 'Mylpale',
+  'profile.milestonesEmpty':
+    'Jou eerste mylpaal is een inskrywing weg – skryf wanneer jy gereed voel.',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Refleksies',
   'profile.totalWords': 'Woorde geskryf',
@@ -106,10 +127,10 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Jou ruimte, jou reëls',
   'settings.languageHeading': 'Taal',
   'settings.privacyHeading': 'Privaatheid en enkripsie',
+  'settings.remindersHeading': 'Daaglikse herinnering',
   'settings.reminderToggleDescription':
     "'n Enkele kalm herinnering op die tyd wat jy kies. Geen kentekens of skuldgevoelens nie.",
   'settings.reminderToggleLabel': "Stuur 'n sagte duwtjie",
-  'settings.remindersHeading': 'Daaglikse herinnering',
   'settings.saveError': 'Kon nie stoor nie.',
   'signup.eyebrow': 'Begin jou refleksie',
   'signup.firstNamePlaceholder': 'Sam',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Вырашэнне…',
   'comments.subtitle':
     'Гэты {{count}} Тэмы ўсё яшчэ чакаюць адказу або рашэння. Адсартаваны па ўзросце — спачатку самыя старыя, каб нічога не сапсавалася.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'forgotPassword.sentTo': 'Спасылка для скіду адпраўлена на {{email}}',
   'forgotPassword.successSubheading':
     'Праверце сваю паштовую скрыню — мы толькі што даслалі спасылку для скіду. Яна дзейнічае 30 хвілін.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Новая старонка',
   'pageTreeSidebar.workspaceHeader': 'Працоўная прастора',
   'pageView.breadcrumb': 'Хлебныя крошкі',
+  'pageView.confirmTrash': 'Скінуць у смецце?',
   'pageView.home': 'Галоўная',
   'pageView.lastEdited': 'Абноўлена {{when}}',
   'pageView.loading': 'Загрузка старонкі…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Зводка штучнага інтэлекту не настроена для гэтай працоўнай прасторы.',
   'pageView.tocTitle': 'На гэтай старонцы',
+  'pageView.trash': 'Смецце',
+  'pageView.trashing': 'Выкідванне…',
   'pageView.versionBadge': 'в{{version}}',
   'profile.badges.title': 'Значкі',
   'profile.owned.title': 'Уласныя старонкі',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Працоўная прастора, профіль, апавяшчэнні, інтэграцыі — усё ў адной спакойнай абалонцы.',
   'settingsPage.workspace.defaultLanding': 'Стандартны стартавы экран',
   'settingsPage.workspace.landingHome': 'Галоўная',
+  'settingsPage.workspace.landingSpaces': 'Прасторы',
   'settingsPage.workspace.subdomainLabel': 'Паддамен',
   'settingsPage.workspace.title': 'Працоўная прастора',
   'signup.eyebrow': 'Пачніце новую працоўную прастору',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мін',
   'templates.subtitle':
     'Пачынайце старонку з трафарэта, а не з чыстага палатна. У кожным шаблоне фігура зададзена загадзя, каб вы маглі засяродзіцца на сутнасці.',
+  'trash.confirmPurge': 'Ачысціцца назаўжды?',
+  'trash.confirmPurgeAria': 'Пацвердзіць: назаўсёды выдаліць {{title}}',
   'trash.daysUntilPurge': '{{days}} засталося дзён',
   'trash.empty.body':
     'Выдаленыя старонкі будуць адлюстроўвацца тут на працягу 30 дзён, пасля чаго будуць ачышчаны.',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Аднаўленне…',
   'versionHistory.subtitle': '{{count}} версіі · выберыце радок для праверкі адрозненняў',
   'versionHistory.versionLabel': 'в{{v}}',
+  'wikiLayout.closeMenu': 'Закрыць навігацыю',
+  'wikiLayout.menu': 'Навігацыя',
+  'wikiLayout.openMenu': 'Адкрыць навігацыю',
   'wikiLayout.searchPlaceholder': 'Пошук па Кэрне — старонкі, каментарыі…',
 }

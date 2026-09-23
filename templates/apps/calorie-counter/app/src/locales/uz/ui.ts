@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Har bir luqma, muvozanatli',
   'auth.hidePassword': 'Parolni yashirish',
   'auth.showPassword': "Parolni ko'rsatish",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'nav.legal': 'Huquqiy',
+  'nosh.auth.legalPrefix': 'Davom etish orqali siz bizning',
   'nosh.foodDetail.add': "Kundalikka qo'shish",
   'nosh.foodDetail.added': "Qo'shildi {{ovqat}} .",
   'nosh.foodDetail.addError': "Kundalikka qo'shib bo'lmadi.",
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Elyaf',
   'nosh.foodDetail.micros.sodium': 'Natriy',
   'nosh.foodDetail.micros.sugar': 'Shakar',
+  'nosh.foodDetail.percentDv': '{{pct}} Kunlik daromad foizi',
   'nosh.foodDetail.protein': 'Oqsil',
   'nosh.foodDetail.serving.count': 'Porsiyalar',
   'nosh.foodDetail.serving.meal': "qo'shish",
@@ -49,6 +53,7 @@ export const ui: UiTranslations = {
   'nosh.landing.features.heading':
     "Sizga kerak bo'lgan hamma narsa, sizga kerak bo'lmagan hech narsa",
   'nosh.landing.features.smartRing.title': 'Aqlli kaloriya uzuk',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     "Aybdorlik hissisiz maqsadlaringizga erishishga yordam beradigan do'stona oziq-ovqat jurnali. Faqat raqamlarga emas, balki ovqatlanishga ham e'tibor qarating.",
   'nosh.landing.hero.eyebrow': "Do'stona kaloriyalarni kuzatish",
@@ -83,6 +88,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Siz qanchalik faolsiz?',
   'nosh.onboarding.back': 'Orqaga',
   'nosh.onboarding.macros.heading': 'Mana sizning kunlik maqsadingiz',
+  'nosh.onboarding.saveError': "Maqsadlaringizni saqlab bo'lmadi.",
   'nosh.onboarding.start': 'Qani ketdik',
   'nosh.progress.calorieChart.title': 'Kunlik kaloriyalar',
   'nosh.progress.empty': "Hozircha ma'lumot yo'q — trendingizni boshlash uchun ovqatni qayd eting.",
@@ -145,6 +151,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': "Butunlay o'chirish",
   'nosh.settings.deleteError': "Hisobni o'chirib bo'lmadi.",
   'nosh.settings.export.cta': 'CSV yuklab olish',
+  'nosh.settings.export.description': "To'liq oziq-ovqat jurnalingizni CSV formatida yuklab oling.",
   'nosh.settings.export.label': "Ma'lumotlarni eksport qilish",
   'nosh.settings.export.preparing': 'Tayyorlanmoqda…',
   'nosh.settings.eyebrow': 'Hisob · Bildirishnomalar · Maxfiylik',
@@ -156,6 +163,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': "Do'stona kuzatuv, aybdorlik yo'q.",
   'nosh.today.${mealKey}Empty': 'Jurnalga kirish uchun bosing',
   'nosh.today.addFood': "Ovqat qo'shing",
+  'nosh.today.backToToday': 'Bugungi kunga qaytish',
+  'nosh.today.dateNavLabel': "Kundalik kunni o'zgartiring",
   'nosh.today.loadError': "Bugun yuklab bo'lmadi.",
   'nosh.today.macros.carbs': 'Uglevodlar',
   'nosh.today.macros.fat': "Yog'",
@@ -163,6 +172,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Oqsil',
   'nosh.today.macroTitle': 'Makronutrientlar',
   'nosh.today.meal.${mealKey}': 'kal',
+  'nosh.today.nextDay': 'Keyingi kun',
+  'nosh.today.pastPill': "O'tgan kun",
+  'nosh.today.prevDay': 'Oldingi kun',
   'nosh.today.quickAddError': "Tezkor elementni qayd etib bo'lmadi.",
   'nosh.today.remaining': 'qolgan kaloriyalar',
   'nosh.today.streakHeadline': '{{count}} -kunlik seriya',

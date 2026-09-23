@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ọrụ gị',
   'account.role.upgradeLink': 'Tinye akwụkwọ ka ị bụrụ onye nkuzi akwadoro →',
   'account.title': 'Profaịlụ, ịkwụ ụgwọ na mmasị.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Kụzie ihe na Nzu',
   'becomeTutor.form.error': 'Enweghị m ike itinye akwụkwọ anamachọihe.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Isiokwu',
   'bookingConfirm.title': 'Ị gbaziri akwụkwọ. Anyị ga-edozi ihe ndị ọzọ.',
   'bookingConfirm.with': 'Na onye nkuzi',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'earningsHero.eyebrow': 'Ego a na-enweta • {{month}}',
   'forgotPassword.heading': 'Chefuru okwuntughe gị?',
   'forgotPassword.subheading':
@@ -111,6 +113,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Zipu ozi',
   'messages.thread.empty': 'Kwuo Ndewo — malite mkparịta ụka ahụ.',
   'messages.title': 'Esemokwu na ndị nkuzi gị.',
+  'nav.primary': 'Isiakwụkwọ',
   'pricing.dataExport': 'Mbupụ data:',
   'pricing.headingDefault': 'Atụmatụ dị elu:',
   'resetPassword.heading': 'Họrọ paswọọdụ ọhụrụ siri ike.',

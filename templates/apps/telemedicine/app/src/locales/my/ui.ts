@@ -41,6 +41,7 @@ export const ui: UiTranslations = {
   'booking.title': 'ချိန်းဆိုမှု ကြိုတင်စာရင်းသွင်းပါ',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'ပြသရန် လူနာမရှိပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'consult.backLink': 'ချိန်းဆိုမှုအားလုံး',
   'consult.captions': 'စာတန်းထိုးများ',
   'consult.connected': 'ချိတ်ဆက်ထားသည် · 720p · တည်ငြိမ်သည်',
@@ -133,6 +134,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'လူနာများ',
   'patientVitalsHero.scripts': 'ဆေးဝါးလက်မှတ် ဖွင့်လှစ်ထားသည်',
   'patientVitalsHero.subline': '{{count}} ယနေ့ သင့်အချိန်ဇယားအပေါ် တိုင်ပင်ဆွေးနွေးခြင်း',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'prescriptions.empty': 'ကိုက်ညီသော ဆေးညွှန်းများ မရှိပါ။',
   'prescriptions.eyebrow': 'အီလက်ထရွန်းနစ်နည်းဖြင့် ညွှန်ကြားခြင်း',
   'prescriptions.heading': 'ဆေးညွှန်းများ',
@@ -148,6 +150,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'ကိုယ်ရေးကိုယ်တာအချက်အလက်သတိပေးချက်',
   'privacy.use.body':
     'စောင့်ရှောက်မှုပေးရန်၊ ချိန်းဆိုမှုသတိပေးချက်များပေးပို့ရန်၊ ဆေးညွှန်းများပေးပို့ရန်နှင့် ဝန်ဆောင်မှုယုံကြည်စိတ်ချရမှုကို မြှင့်တင်ရန်။ ကျွန်ုပ်တို့သည် သင့်ဒေတာကို ဘယ်သောအခါမှ ရောင်းချခြင်းမပြုသလို ကြော်ငြာရှင်များနှင့်လည်း ဆေးခန်းဆိုင်ရာအချက်အလက်များကို မျှဝေခြင်းမပြုပါ။',
+  'providers.allSpecialties': 'အထူးပြုဘာသာရပ်အားလုံး',
+  'providers.loadError': 'ဝန်ဆောင်မှုပေးသူများကို တင်၍မရပါ။',
+  'providers.loading': 'တင်နေသည်…',
   'providers.noResults': 'ဝန်ဆောင်မှုပေးသူ မတွေ့ပါ။',
   'providers.searchPlaceholder': 'အမည်၊ အထူးပြုဘာသာရပ်အလိုက် ရှာဖွေပါ...',
   'providers.title': 'ဝန်ဆောင်မှုပေးသူကို ရှာပါ',
@@ -167,6 +172,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'နေ့စတင်ခြင်း',
   'settings.availability.heading': 'ရရှိနိုင်မှု',
   'settings.devices.thisDevice': 'ဒီကိရိယာ',
+  'settings.devices.unnamed': 'အမည်မပေးထားသော စက်ပစ္စည်း',
   'settings.eyebrow': 'အလေ့အကျင့်နှင့် အကောင့်',
   'settings.loadError': 'သင့်ပရိုဖိုင်ကို တင်၍မရပါ။',
   'settings.notifications.emailMessages':
@@ -183,6 +189,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'ပိတ်ရန်',
   'settings.security.twoFactor.enable': 'ဖွင့်ပါ',
   'settings.security.twoFactor.heading': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း',
+  'settings.security.twoFactor.invalidCode': 'ထိုကုဒ်သည် မကိုက်ညီပါ။ ထပ်ကြိုးစားပါ။',
+  'settings.security.twoFactor.setupFailed':
+    'နှစ်ဆင့်စနစ်ထည့်သွင်းမှုကို စတင်၍မရပါ။ ထပ်မံကြိုးစားပါ။',
+  'settings.security.twoFactor.statusOn': 'နှစ်အချက်ဖွင့်ထားသည်',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
   'settings.subheading':
     'ပံ့ပိုးပေးသူပရိုဖိုင်၊ အလေ့အကျင့်စည်းမျဉ်းများနှင့် ဆေးခန်းသတိပေးချက်များ။',
@@ -194,6 +204,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'အကောင့်ပြုလုပ်ပါ',
   'signupFooter.hipaa': 'HIPAA နှင့် ကိုက်ညီမှု',
   'solaceLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'solaceLayout.toggleMenu': 'မီနူးပြောင်းရန်',
   'terms.eligibility.body':
     'သင်သည် အနည်းဆုံး အသက် ၁၈ နှစ်ရှိရမည်၊ သို့မဟုတ် သင်စောင့်ရှောက်မှုရယူလိုသော အရွယ်မရောက်သေးသူ၏ မိဘ သို့မဟုတ် တရားဝင်အုပ်ထိန်းသူဖြစ်ရမည်၊ ထို့အပြင် ကျွန်ုပ်တို့၏ ဆရာဝန်များလိုင်စင်ရရှိသည့် အမေရိကန်ပြည်နယ်တွင် နေထိုင်ရမည်။',
   'terms.payment.body':

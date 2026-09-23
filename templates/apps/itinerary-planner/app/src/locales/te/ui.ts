@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} గురించి',
+  'auth.legalConsent': 'కొనసాగడం ద్వారా, మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'bookings.empty.body':
     'ఇన్‌బాక్స్‌ను ప్రారంభించడానికి విమానం, హోటల్ లేదా కార్యకలాపాన్ని జోడించండి.',
   'bookings.empty.heading': 'ఇంకా బుకింగ్‌లు జరగలేదు.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'ధృవీకరించబడింది',
   'bookings.summary.pending': 'ధృవీకరణ కోసం వేచి ఉంది',
   'bookings.summary.total': 'మొత్తం కట్టుబడి ఉంది',
+  'bookings.type.car': 'అద్దె కారు',
+  'bookings.type.flight': 'విమానం',
+  'bookings.type.hotel': 'హోటల్',
   'bookings.type.other': 'ఇతరం',
   'budgetSpendCard.budgetTotal': 'యొక్క {{total}} ప్రణాళిక',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'సంఘర్షణలను గుర్తించండి, ప్రయాణాల మధ్య విశ్రాంతి రోజులను ప్రణాళిక చేసుకోండి మరియు సహచరులు మీతో ఎప్పుడు ప్రయాణిస్తున్నారో చూసుకోండి.',
   'common.and': 'మరియు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.budgetHeading': 'బడ్జెట్ పల్స్',
   'dashboard.empty.heading': 'ఇంకా ప్రయాణాలు ఏమీ లేవు — మీ అట్లాస్ ఖాళీగా ఉంది.',
   'dashboard.eyebrow': 'మిషన్ నియంత్రణ',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'ప్రయాణంలో ప్రయాణాలు',
   'dashboard.viewAllExpenses': 'ప్రతి ఖర్చును వీక్షించండి',
   'dashboard.viewAllTrips': 'ప్రతి యాత్రను చూడండి',
+  'dayTimelineRow.category.accommodation': 'ఉండు',
   'dayTimelineRow.category.transport': 'రవాణా',
   'destinationOrbCard.exploreCta': 'ప్రయాణానికి జోడించండి',
   'destinationOrbCard.tripCount': '{{count}} పర్యటనలు',
@@ -82,11 +90,15 @@ export const ui: UiTranslations = {
     'ఇంకా ఇమెయిల్ రాలేదా? మీ స్పామ్ ఫోల్డర్‌ను తనిఖీ చేయండి లేదా వేరే చిరునామాతో మళ్లీ ప్రయత్నించండి.',
   'forgotPassword.successSubheading':
     'మేము రికవరీ లింక్‌ను పంపాము {{email}} ఈ లింక్ 30 నిమిషాల పాటు చెల్లుబాటులో ఉంటుంది.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ఉచిత ఖాతాను సృష్టించండి',
+  'landing.cta.subheading':
+    'ఉచిత ప్లాన్‌లో గరిష్టంగా ఐదు ప్రయాణాలు, ఐదుగురు సహచరులు మరియు ఐదు స్టాప్‌లు — రియల్-టైమ్ సింక్‌తో సహా, మరియు మీ ప్రణాళికలు పెరిగినప్పుడు ప్రో ప్లాన్ ఈ పరిమితులను తొలగిస్తుంది.',
   'landing.destinations.eyebrow': 'తరువాత ఎక్కడికి',
   'landing.destinations.heading': 'సంపాదకుడు ఎంపిక చేసిన గమ్యస్థానాలు',
   'landing.features.eyebrow': 'వేపాయింట్ ఎలా పనిచేస్తుంది',
   'landing.features.heading': 'ప్రయాణికుల కోసం నిర్మించబడింది, స్ప్రెడ్‌షీట్‌ల కోసం కాదు.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ఉచిత ప్రయాణాన్ని ప్రారంభించండి',
   'landing.hero.ctaSecondary': 'నమూనా పర్యటనను చూడండి',
   'landing.hero.subtitle':
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'ఐరిస్ లార్సెన్',
   'signup.subheading':
     'గరిష్టంగా 5 మంది సహచరులతో ప్రయాణాలను పంచుకోవడానికి, బుకింగ్‌లను సమకాలీకరించడానికి మరియు ప్రతి నిర్ధారణను ఒకే చోటకి తీసుకురావడానికి ఒక ఖాతాను సృష్టించండి.',
+  'signup.termsPrefix': 'ఖాతాను సృష్టించడం ద్వారా మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'tripCountdownHeroCard.budget': '{{used}} యొక్క {{total}} ( {{pct}} బడ్జెట్‌లో శాతం)',
   'tripCountdownHeroCard.collaborators': '{{count}} ప్రయాణికులు',
   'tripCountdownHeroCard.countdownLabel': 'కౌంట్‌డౌన్',
@@ -203,5 +216,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ఇంకా ప్రయాణాలు ఏమీ లేవు.',
   'trips.pastHeading': 'గత సాహసాలు',
   'trips.subheading': '{{count}} ప్రయాణ ప్రణాళికలు — గతం, వర్తమానం మరియు భవిష్యత్తు.',
+  'waypointLayout.mobileNavClose': 'నావిగేషన్ మెనూను మూసివేయండి',
   'waypointLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
 }

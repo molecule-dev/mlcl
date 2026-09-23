@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.pageTitle': '{{app}} সম্পর্কে',
   'authShell.statusLabel': 'অনলাইনে দৌড়বিদরা',
   'collections.createError': 'কালেকশন তৈরি করা যায়নি।',
   'collections.defaultName': 'শিরোনামহীন সংগ্রহ {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'নতুন সংগ্রহ',
   'collections.subheading':
     'অনুরোধগুলোকে একত্রিত করুন, আপনার দলের সাথে শেয়ার করুন এবং সেগুলোকে একটি স্যুট হিসেবে চালান।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'environmentCard.inactive': 'নিষ্ক্রিয়',
   'environmentCard.more': 'আরও',
   'environmentCard.variables': 'ভেরিয়েবল',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'বিনামূল্যে ডাউনলোড করুন',
   'landing.heroSubtitle':
     'টার্মিনালে কর্মরত ইঞ্জিনিয়ারদের জন্য নির্মিত বিদ্যুৎ-গতিসম্পন্ন এপিআই টেস্টিং ওয়ার্কবেঞ্চ।',
+  'landing.heroTitleAccent': 'আগুন',
+  'landing.heroTitleLine2': 'আত্মবিশ্বাস গড়ে তুলুন।',
+  'landing.heroTitleRest': 'অনুরোধ,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ মূল্য নির্ধারণ --সাধারণ',
   'landing.pricingHeading': 'সহজ, অনুমানযোগ্য মূল্য নির্ধারণ',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'এখানে নতুন?',
   'login.showPassword': 'পাসওয়ার্ড দেখান',
   'login.subtitle': 'আপনার পাইলন ওয়ার্কস্পেসে এগিয়ে যান।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'mocks.createError': 'মক তৈরি করা সম্ভব হয়নি।',
   'mocks.defaultName': 'শিরোনামহীন মক {{n}}',
   'mocks.deleteError': 'মকটি মুছে ফেলা সম্ভব হয়নি।',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'কর্মক্ষেত্রে ফিরে যান',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'রুট খুঁজে পাওয়া যায়নি',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'privacy.collect.account':
     'অ্যাকাউন্ট: আপনার ইমেইল, হ্যাশ করা পাসওয়ার্ড, ডিসপ্লে নেম এবং আপনার সর্বশেষ সাইন-ইন করার টাইমস্ট্যাম্প।',
   'privacy.rights.body':
@@ -137,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'এই অ্যাকাউন্টের বর্তমান ডেটার শুধুমাত্র পঠনযোগ্য দৃশ্য।',
   'settings.unset': 'সেট করা হয়নি',
   'signup.identityHint': 'যেমন অ্যালেক্স',
+  'signup.statusLabel': 'বিনামূল্যে স্তর · কোনো ক্রেডিট কার্ড নেই',
   'signup.subtitle': 'কয়েক মিনিটের মধ্যেই অনুরোধ পাঠানো শুরু করুন।',
   'terms.account.body':
     'আপনার পাসওয়ার্ড সুরক্ষিত রাখার দায়িত্ব আপনার। ফ্রি বা প্রো প্ল্যানে একাধিক ব্যক্তির সাথে একটি অ্যাকাউন্ট শেয়ার করার অনুমতি নেই — শেয়ার্ড ওয়ার্কস্পেসের জন্য একটি টিম সাবস্ক্রিপশন কিনুন।',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
     'যেসব সার্ভিসের মালিক আপনি নন অথবা যেগুলো পরীক্ষা করার সুস্পষ্ট অনুমতি আপনার নেই, সেগুলোতে অনুরোধ পাঠাতে পাইলন ব্যবহার করবেন না। রেট লিমিট এড়াতে বা জালিয়াতি করতে পাইলন ব্যবহার করবেন না।',
   'terms.warranty.body':
     'পাইলন কোনো প্রকার ওয়ারেন্টি ছাড়াই "যেমন আছে তেমন" ভিত্তিতে প্রদান করা হয়। আমরা ৯৯.৯% আপটাইমের লক্ষ্য রাখি, কিন্তু ফ্রি বা প্রো প্ল্যানে এর নিশ্চয়তা দিই না।',
+  'testRunner.assertionsCount': '{{count}} অ্যাসারশন',
   'testRunner.createError': 'টেস্ট তৈরি করা যায়নি।',
   'testRunner.cron':
     'এই পরীক্ষার লিঙ্ক করা অনুরোধের সর্বশেষ রানের সাপেক্ষে অ্যাসারশনগুলো মূল্যায়ন করা হয়।',
@@ -169,11 +180,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'সুইটের ফলাফল, অ্যাসারশন ডিফস এবং শেষ ৫০টি রান।',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'সাইন ইন করা হয়েছে',
+  'workspace.auth.keyName': 'হেডার নাম',
+  'workspace.auth.keyValue': 'মূল মান',
+  'workspace.auth.password': 'পাসওয়ার্ড',
+  'workspace.auth.username': 'ব্যবহারকারীর নাম',
+  'workspace.authOption.apikey': 'এপিআই কী',
+  'workspace.authOption.basic': 'বেসিক অথেন্টিকেশন',
+  'workspace.authOption.bearer': 'বাহক টোকেন',
+  'workspace.authOption.none': 'কোনোটিই না',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'প্রকার',
   'workspace.authTypeLabel': 'প্রমাণীকরণ প্রকার',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'কোনোটিই না',
+  'workspace.body.text': 'কাঁচা পাঠ্য',
+  'workspace.body.type': 'প্রকার',
   'workspace.environment': 'কোন পরিবেশ নেই',
   'workspace.envVar': 'পরিবেশ ভেরিয়েবল',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'হেডার যোগ করুন',
+  'workspace.kv.addParam': 'প্যারামিটার যোগ করুন',
+  'workspace.kv.headerKey': 'হেডার নাম',
+  'workspace.kv.headerValue': 'হেডার মান',
+  'workspace.kv.key': 'চাবি',
+  'workspace.kv.paramKey': 'কোয়েরি প্যারাম কী',
+  'workspace.kv.paramValue': 'কোয়েরি প্যারাম মান',
+  'workspace.kv.removeRow': 'সারিটি সরান',
+  'workspace.kv.value': 'মূল্য',
   'workspace.methodLabel': 'HTTP পদ্ধতি',
   'workspace.metric.latency': 'লেটেন্সি',
   'workspace.metric.latencyCaption': 'এই দৌড় থেকে আসা-যাওয়ার খরচ',
@@ -190,6 +223,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'অনুরোধ পাঠানো হয়েছে — উত্তর নিচে দেখুন।',
   'workspace.subheading':
     'একটি অনুরোধ তৈরি করুন, সেটি পাঠান, তারপর প্রতিক্রিয়াটি নিশ্চিত করুন — সবকিছু এক প্যানেই।',
+  'workspace.testResults': 'পরীক্ষার ফলাফল',
   'workspace.token': 'টোকেন',
   'workspace.tokenHint': 'অনুমোদন হিসেবে পাঠানো হয়েছে: বাহক<token> এই সংগ্রহের প্রতিটি অনুরোধে।',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

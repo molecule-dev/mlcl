@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Uchrashuvni bron qilish',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': "Ko'rsatish uchun bemorlar yo'q.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'consult.backLink': 'Barcha uchrashuvlar',
   'consult.captions': 'Taglavhalar',
   'consult.connected': 'Ulangan · 720p · barqaror',
@@ -132,6 +133,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Bemorlar',
   'patientVitalsHero.scripts': "Retsept bo'yicha ochiq",
   'patientVitalsHero.subline': "{{count}} bugun sizning jadvalingiz bo'yicha maslahatlar",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'prescriptions.empty': 'Hech qanday retsept mos kelmadi.',
   'prescriptions.eyebrow': "Elektron retsept bo'yicha",
   'prescriptions.heading': 'Retseptlar',
@@ -147,6 +149,9 @@ export const ui: UiTranslations = {
   'privacy.title': "Maxfiylik to'g'risidagi bildirishnoma",
   'privacy.use.body':
     "Tibbiy yordam ko'rsatish, uchrashuvga yozilish haqida eslatmalar yuborish, retseptlarni yo'naltirish va xizmat ishonchliligini oshirish uchun. Biz hech qachon sizning ma'lumotlaringizni sotmaymiz va klinik ma'lumotlarni reklama beruvchilar bilan baham ko'rmaymiz.",
+  'providers.allSpecialties': 'Barcha mutaxassisliklar',
+  'providers.loadError': "Provayderlarni yuklab bo'lmadi.",
+  'providers.loading': 'Yuklanmoqda…',
   'providers.noResults': 'Hech qanday provayder topilmadi.',
   'providers.searchPlaceholder': "Ism, mutaxassislik bo'yicha qidiruv...",
   'providers.title': 'Provayderni toping',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Kun boshlanishi',
   'settings.availability.heading': 'Mavjudlik',
   'settings.devices.thisDevice': 'Ushbu qurilma',
+  'settings.devices.unnamed': 'Nomsiz qurilma',
   'settings.eyebrow': 'Amaliyot va hisob',
   'settings.loadError': "Profilingizni yuklab bo'lmadi.",
   'settings.notifications.emailMessages':
@@ -181,6 +187,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': "O'chirish",
   'settings.security.twoFactor.enable': 'Yoqish',
   'settings.security.twoFactor.heading': 'Ikki faktorli autentifikatsiya',
+  'settings.security.twoFactor.invalidCode': "Bu kod mos kelmadi. Qaytadan urinib ko'ring.",
+  'settings.security.twoFactor.setupFailed':
+    "Ikki faktorli sozlashni boshlab bo'lmadi. Qaytadan urinib ko'ring.",
+  'settings.security.twoFactor.statusOn': 'Ikki faktorli rejim yoqilgan',
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.subheading': 'Provayder profili, amaliyot qoidalari va klinik ogohlantirishlar.',
   'signup.emailLabel': 'EMAIL',
@@ -191,6 +201,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Hisob yaratish',
   'signupFooter.hipaa': 'HIPAAga mos keladi',
   'solaceLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'solaceLayout.toggleMenu': "Menyuni ochish/o'chirish",
   'terms.eligibility.body':
     "Siz kamida o'n sakkiz yoshda bo'lishingiz yoki parvarish so'rayotgan voyaga yetmaganning ota-onasi yoki qonuniy vasiysi bo'lishingiz va jismonan bizning shifokorlarimiz litsenziyalangan AQSh shtatida joylashgan bo'lishingiz kerak.",
   'terms.payment.body':

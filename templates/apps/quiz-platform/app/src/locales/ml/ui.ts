@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.title': '{{app}} നെക്കുറിച്ച്',
   'auth.login.noAccount': 'സ്പാർക്കിൽ പുതിയ ആളാണോ?',
   'auth.login.or': 'അല്ലെങ്കിൽ തുടരുക',
   'auth.signup.or': 'അല്ലെങ്കിൽ സൈൻ അപ്പ് ചെയ്യുക',
+  'common.confirm': 'സ്ഥിരീകരിക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.loadError': 'ഈ ഉള്ളടക്കം ലോഡ് ചെയ്യുന്നതിൽ എന്തോ കുഴപ്പം സംഭവിച്ചു.',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'discover.collections.title': 'വിഭാഗം അനുസരിച്ച് ബ്രൗസ് ചെയ്യുക',
   'discover.collections.viewAll': 'നിങ്ങളുടെ ലൈബ്രറി കാണുക →',
   'discover.empty.body': 'മറ്റൊരു വിഭാഗം പരീക്ഷിക്കുക അല്ലെങ്കിൽ തിരയൽ മായ്‌ക്കുക.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'നിങ്ങളുടെ സ്ട്രീക്ക് സജീവമായി നിലനിർത്താൻ സൈൻ ഇൻ ചെയ്യുക, തത്സമയ ഗെയിമുകൾ ഹോസ്റ്റ് ചെയ്യുക, ലീഡർബോർഡിൽ കയറുക.',
   'myQuizzes.createButton': 'പുതിയ ക്വിസ്',
+  'myQuizzes.deleteConfirm': 'എന്നെന്നേക്കുമായി ഇല്ലാതാക്കണോ?',
   'myQuizzes.empty.createCta': 'നിങ്ങളുടെ ആദ്യ ക്വിസ് നിർമ്മിക്കുക →',
   'myQuizzes.empty.created': 'നിങ്ങൾ ഇതുവരെ ഒരു ക്വിസ് നിർമ്മിച്ചിട്ടില്ല.',
   'myQuizzes.empty.played': 'ഇതുവരെ പ്രസിദ്ധീകരിച്ച ക്വിസുകളൊന്നുമില്ല.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.subhead':
     '{{count}} വായിക്കാത്ത സ്പാർക്കുകൾ. ക്ഷണങ്ങൾ, ലീഡർബോർഡ് നീക്കങ്ങൾ, നേട്ടങ്ങൾ എന്നിവയെല്ലാം ഒരു സ്ട്രീമിൽ.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.checkoutError': 'ചെക്ക്ഔട്ട് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
+  'pricing.heading': 'നിങ്ങളുടെ {{app}} പ്ലാൻ തിരഞ്ഞെടുക്കുക',
   'pricing.included': 'ഉൾപ്പെടുത്തിയത്',
   'pricing.loadError': 'പ്ലാനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'pricing.maxQuizzes': '{{count}} ക്വിസുകൾ',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ഇതുവരെ ഒന്നും പ്രസിദ്ധീകരിച്ചിട്ടില്ല.',
   'profile.startBuilding': 'നിർമ്മാണം ആരംഭിക്കുക →',
   'profile.tier': 'സ്പാർക്ക് പ്ലെയർ',
+  'quizBuilder.addFailed': 'ചോദ്യം ചേർക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'quizBuilder.addQuestion': 'ചോദ്യം ചേർക്കുക',
   'quizBuilder.answerPlaceholder': 'ഒരു ഓപ്ഷൻ ടൈപ്പ് ചെയ്യുക...',
   'quizBuilder.answersLabel': 'ഉത്തര ചോയ്‌സുകൾ',
   'quizBuilder.back': 'എന്റെ ക്വിസുകളിലേക്ക് തിരികെ പോകുക',
   'quizBuilder.delete': 'ചോദ്യം ഇല്ലാതാക്കുക',
+  'quizBuilder.deleteFailed': 'ചോദ്യം ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'quizBuilder.firstQuestion': 'ആരംഭിക്കാൻ നിങ്ങളുടെ ആദ്യ ചോദ്യം ചേർക്കുക.',
   'quizBuilder.idLabel': 'ക്വിസ് ഐഡി: {{id}}',
   'quizBuilder.loadError': 'ക്വിസ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'കുറഞ്ഞത് രണ്ട് ഉത്തരങ്ങളെങ്കിലും ചേർത്ത് ശരിയായത് തിരഞ്ഞെടുക്കുക. {{count}} പ്രസിദ്ധീകരിക്കുന്നതിന് മുമ്പുള്ള ചോദ്യം(ങ്ങൾ).',
   'quizBuilder.questionsTitle': 'ചോദ്യങ്ങൾ',
+  'quizBuilder.saveFailed': 'ശീർഷകം സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'quizBuilder.statusDraft': 'ഡ്രാഫ്റ്റ്',
   'quizBuilder.subhead':
     'ശീർഷകം എഡിറ്റ് ചെയ്യുക, ചോദ്യങ്ങൾ ചേർക്കുക, ചോയ്‌സുകൾ സജ്ജമാക്കുക, ശരിയായ ഉത്തരം നൽകുക. മാറ്റങ്ങൾ സ്വയമേവ സംരക്ഷിക്കപ്പെടും.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} മിനിറ്റ്',
   'quizDetail.hostMultiplayer': 'ഹോസ്റ്റ് മൾട്ടിപ്ലെയർ',
   'quizDetail.leaderboardEmpty': 'ഇതുവരെ കളികളൊന്നുമില്ല — സ്കോർ നിശ്ചയിക്കുന്ന ആദ്യത്തെയാളാകൂ.',
+  'quizDetail.loadError': 'ഈ ക്വിസ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'quizDetail.loading': 'ക്വിസ് ലോഡ് ചെയ്യുന്നു...',
   'quizDetail.plays': '{{count}} നാടകങ്ങൾ',
   'quizDetail.playSolo': 'സോളോ പ്ലേ ചെയ്യുക',

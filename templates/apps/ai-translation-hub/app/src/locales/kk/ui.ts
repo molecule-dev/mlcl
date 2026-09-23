@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'billing.canceled': 'Жазылым тоқтатылды. Мерзімнің соңында тегін нұсқасына ораласыз.',
   'billing.contactSales': 'Сату бөліміне хабарласыңыз',
   'billing.free.1': '5 аударма',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Сақтау шегі жоқ',
   'billing.upgradeHint': 'Кеңейтілген жасанды интеллект мүмкіндіктерін ашу үшін жаңартыңыз.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.activityEmpty': 'Әзірге ешқандай әрекет жоқ — осы арнаны толтыру үшін жоба бастаңыз.',
   'dashboard.eyebrow': 'Шолу',
   'dashboard.projectsEmpty': 'Әлі жобалар жоқ — осы жерден көру үшін біреуін бастаңыз.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Әрбір жобада бұрынғы аудармаларды қайта пайдаланыңыз. Сәйкестік ұпайы жоғарырақ → қайта жұмыс азырақ.',
   'memory.title': 'Жад банкі',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'nav.legal': 'Заңды',
   'newProject.addLanguage': 'Мақсатты қосу',
   'newProject.create': 'Жоба жасау',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Белгіленген {{count}} оқылған хабарландырулар.',
   'notifications.subtitle':
     'Жұмыс кеңістіктеріңіздегі атап өтулер, шолу сұраулары және жасанды интеллект оқиғалары.',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'privacy.collection.account': 'Тіркелгіңіздің электрондық поштасы және көрсетілетін аты',
   'privacy.deletion.body':
     'Жобаны, сегментті, глоссарий терминін немесе жад жазбасын кез келген уақытта тиісті беттен жоя аласыз. Тіркелгіңізді Параметрлерден жою біздің дерекқорымыздан жұмыс кеңістігінің барлық ауқымы бар жолдарды жояды.',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Жобаларды жүктеу сәтсіз аяқталды.',
   'projects.loading': 'Жобалар жүктелуде…',
   'projects.subtitle': 'Барлық жергілікті жерлерде белсенді жоба.',
+  'renditionLayout.primaryNavLabel': 'Негізгі навигация',
   'reset.backToLogin': '\\u2190 Кіру үшін оралу',
   'reset.passwordLabel': 'Жаңа құпия сөз',
   'review.activeEyebrow': 'Сегмент {{number}}',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ہم ڈیزائنرز اور انجینئرز کی تقسیم شدہ ٹیم ہیں جنہوں نے ایک بار شور مچانے والے میل باکس میں ہر دن کے بہت زیادہ گھنٹے گزارے۔ میریڈیئن وہ ان باکس ہے جسے ہم خود استعمال کرنا چاہتے تھے۔',
   'about.title': 'فوکسڈ کام کے لیے ای میل',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'help.cta.about': 'میریڈیئن کے بارے میں',
   'help.cta.pricing': 'قیمتوں کا تعین دیکھیں',
   'help.eyebrow': 'امدادی مرکز',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'ہم سب سے زیادہ سننے والے سوالات کے فوری جوابات۔ کچھ غائب؟ ترتیبات کھولیں اور ایپ فیڈ بیک فارم استعمال کریں، یا support@courier.example پر لکھیں۔',
   'help.title': 'ہم کس طرح مدد کر سکتے ہیں؟',
   'landing.brand.scrollTop': 'واپس اوپر',
+  'landing.copyright': '© {{year}} {{appName}} — توجہ مرکوز کرنے کے لیے بنایا گیا ہے۔',
   'landing.ctaBody':
     'ان ہزاروں پیشہ ور افراد میں شامل ہوں جنہوں نے لنچ سے پہلے اپنا ان باکس مکمل کر لیا۔',
   'landing.ctaTitle': 'زیادہ عمل کریں، کم ردعمل دیں۔',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'ڈیمو دیکھیں',
   'landing.heroSubtitle':
     'Courier ایک پرسکون تھری پین ان باکس ہے جو علمی کارکنوں کے لیے بنایا گیا ہے جو معلومات پر کارروائی کرنا چاہتے ہیں، اس پر ردعمل ظاہر نہیں کرتے۔',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'دنیا بھر میں مرکوز ٹیموں کے ذریعے بھروسہ کیا جاتا ہے۔',
   'landing.signIn': 'سائن ان کریں۔',
   'meridian.archive.empty': 'آرکائیو خالی ہے۔',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'مسودہ',
   'meridian.folder.count': '{{count}} پیغامات',
+  'meridian.folder.delete': 'حذف کریں۔',
   'meridian.folder.deleteForever': 'مستقل طور پر حذف کریں۔',
   'meridian.folder.restore': 'ان باکس میں منتقل کریں۔',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ابھی تک یہاں کوئی پیغام نہیں ہے۔',
   'meridian.inbox.loading': 'لوڈ ہو رہا ہے…',
   'meridian.inbox.next': 'اگلا',
+  'meridian.inbox.noSender': '(کوئی بھیجنے والا نہیں)',
   'meridian.inbox.noSubject': '(کوئی موضوع نہیں)',
+  'meridian.inbox.ofTotal': '{{total}} میں سے {{current}}',
   'meridian.inbox.openCompose': 'کمپوز کھولیں۔',
   'meridian.inbox.previous': 'پچھلا',
   'meridian.inbox.replyFailed': 'جواب محفوظ ہو گیا لیکن ترسیل ناکام ہو گئی: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'اکاؤنٹ نہیں ہے؟',
   'meridian.login.showPassword': 'پاس ورڈ دکھائیں۔',
   'meridian.message.toLine': 'کو {{recipients}}',
+  'meridian.notFound.body':
+    'آپ جس صفحہ کو تلاش کر رہے ہیں اسے نہیں مل سکا۔ اپنے {{appName}} ان باکس میں واپس جائیں اور ہم آپ کو ٹریک پر لے آئیں گے۔',
   'meridian.notFound.eyebrow': 'نقص 404',
   'meridian.notFound.title': 'اس تھریڈ کو آرکائیو کر دیا گیا تھا۔',
   'meridian.notFound.toInbox': 'میرا ان باکس کھولیں۔',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ستارہ شامل کریں۔',
   'meridian.thread.unstar': 'ستارہ ہٹا دیں۔',
   'meridian.time.yesterday': 'کل',
+  'meridian.topBar.openMenu': 'نیویگیشن مینو کھولیں۔',
   'meridian.topBar.searchPlaceholder': 'میل تلاش کریں۔',
   'meridian.trash.empty': 'ردی کی ٹوکری خالی ہے۔',
   'meridian.trash.title': 'ردی کی ٹوکری',
   'nav.legal': 'قانونی',
   'planUpdated.description':
     'آپ کی رکنیت اب فعال ہے اور آپ کی بلنگ کو اپ ڈیٹ کر دیا گیا ہے۔ آپ کے تازہ دم مریڈین ان باکس میں خوش آمدید۔',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.heading': 'مسودے',
   'pricing.limit.emails': 'ای میلز',
   'pricing.limit.folders': 'فولڈرز',
   'pricing.limit.labels': 'لیبلز',
   'privacy.collect.account':
     'اکاؤنٹ کا ڈیٹا: نام، ای میل پتہ، ہیش شدہ پاس ورڈ، اور آپ کے سائن اپ کی تاریخ۔',
+  'privacy.contact': 'سوالات؟ privacy@courier.example پر ای میل کریں۔',
   'privacy.intro':
     'یہ رازداری کی پالیسی بتاتی ہے کہ Courier کون سا ڈیٹا اکٹھا کرتا ہے، ہم اسے کیوں جمع کرتے ہیں، ہم اسے کیسے محفوظ رکھتے ہیں، اور اس پر آپ کے پاس کون سے انتخاب ہیں۔ ہمارا مقصد قانونی کی بجائے مخصوص ہونا ہے۔ اگر کچھ واضح نہ ہو تو privacy@courier.example پر لکھیں۔',
   'privacy.lastUpdated': 'آخری بار اپ ڈیٹ کیا گیا: 1 اپریل 2026',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'یہ شرائط آپ کے میریڈیئن کے استعمال کو کنٹرول کرتی ہیں۔ ایک اکاؤنٹ بنا کر یا ہمارے ذریعے ای میل بھیج کر آپ ان کے پابند ہونے سے اتفاق کرتے ہیں۔ ہم ان اصولوں کو لکھنے کی کوشش کرتے ہیں جو ایک شخص اصل میں پیروی کر سکتا ہے۔',
   'terms.lastUpdated': 'مؤثر: 1 اپریل 2026',
+  'terms.linkPrivacy': 'ہماری پرائیویسی پالیسی → پڑھیں',
   'terms.termination.body':
     'آپ کسی بھی وقت اپنا اکاؤنٹ حذف کر سکتے ہیں۔ ہم ان شرائط کی خلاف ورزی کرنے والے اکاؤنٹ کو معطل کر سکتے ہیں۔ اگر ہم ایسا کرتے ہیں تو ہم اس کی وجہ بیان کریں گے اور پہلے آپ کو اپنا ڈیٹا ایکسپورٹ کرنے دیں گے۔',
   'terms.warranty.body':

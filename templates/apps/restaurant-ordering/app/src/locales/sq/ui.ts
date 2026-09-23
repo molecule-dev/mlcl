@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Rreth {{app}}',
   'analytics.avgCheckLabel': 'Kontroll mesatar',
   'analytics.busiestHour': 'Ora më e ngarkuar',
   'analytics.coversToday': 'Mbulon sot',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Bakshishet (mesatarisht)',
   'analytics.topItems': 'Artikujt kryesorë sot',
   'authShell.eyebrow': 'Mirë se vini përsëri në shërbim',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Një pikë shitjeje e ngrohtë dhe e shpejtë për ekipet e mikpritjes. Hyni në kuzhinën tuaj dhe vazhdoni aty ku e latë.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ose {{price}}',
   'billing.priceUnavailable': 'Ky plan nuk ka një çmim të konfiguruar.',
   'billing.updated': 'Plani u përditësua.',
+  'common.goToDashboard': 'Shko te paneli',
   'customerDetail.book': 'Shto rezervim',
   'customerDetail.col.table': 'Tavolinë',
   'customerDetail.confirmDelete': 'Të fshihet ky regjistrim i mysafirit?',
@@ -129,6 +132,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponueshmëria',
   'menuItemDetail.available': 'Në dispozicion sonte',
   'menuItemDetail.backToMenu': 'Kthehu te menyja',
+  'menuItemDetail.confirmDelete': 'Të fshihet ky artikull i menusë?',
   'menuItemDetail.delete': 'Fshij artikullin',
   'menuItemDetail.deleteError': 'Fshirja dështoi. Provo përsëri.',
   'menuItemDetail.dietary': 'Etiketat dietike',
@@ -139,8 +143,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Ruajtja dështoi. Provo përsëri.',
   'menuItemDetail.subheading': '{{category}} · modifikoni foton, modifikuesit, dietën dhe çmimet.',
   'menuItemDetail.untitled': 'Artikull pa titull',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'notFound.heading': 'Kjo tavolinë nuk është në dysheme.',
   'notFound.subheading': 'Faqja që po kërkonit ka qenë diku tjetër — ose nuk ka ekzistuar kurrë.',
+  'notFound.toLanding': 'Faqja kryesore {{app}}',
   'notifications.markError': 'Nuk mund të shënoheshin të gjitha si të lexuara.',
   'orderDashboard.activeDelta': 'Drejtpërdrejt tani',
   'orderDashboard.activeLabel': 'Porosi aktive',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Shfaq fjalëkalimin',
   'resetPassword.subtitle': 'Fut fjalëkalimin tënd të ri për të rifituar aksesin në kuzhinë.',
   'resetPassword.tokenLabel': 'Rivendosni Tokenin',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigimi kryesor',
   'revenueHeroCard.activeOrders': '{{count}} aktiv',
   'revenueHeroCard.change': '{{sign}} {{amount}} krahasuar me dje',
   'revenueHeroCard.title': 'Të ardhurat e sotme',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Emri i restorantit',
   'tableDetail.activeOrders': 'Porosi aktive',
   'tableDetail.backToFloor': 'Plani i katit',
+  'tableDetail.confirmDelete': 'Të fshihet kjo tabelë?',
   'tableDetail.delete': 'Fshij',
   'tableDetail.deleteError': 'Tabela nuk mund të fshihej.',
   'tableDetail.heading': 'Tavolinë {{label}}',

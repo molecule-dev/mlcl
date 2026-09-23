@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా కథ',
   'aiSuggestionPanel.title': 'సిగ్నెట్ కోపైలట్',
   'analytics.col.open': 'ఓపెన్ రేట్',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'చెక్అవుట్ ప్రారంభమవుతోంది…',
   'billing.subheading': 'మీరు పంపే విధానానికి సరిపోయే ప్లాన్‌ను ఎంచుకోండి.',
   'billing.unavailable': 'అమ్మకాల విభాగాన్ని సంప్రదించండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'compose.adjustingTone': 'ఎంచుకున్న స్వరంలో తిరిగి రాయడం…',
   'compose.aiPromptPlaceholder':
     'ఉదాహరణకు, "రెండు వారాల పాటు సమాధానం రాకపోతే మర్యాదపూర్వకంగా ఫాలో అప్ చేయండి, సంక్షిప్తంగా ఉంచండి."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'ఏదైనా పంపించాలా? సిగ్నెట్ క్షణాల్లో డ్రాఫ్ట్‌ను సిద్ధం చేయగలదు.',
   'dashboard.composeCtaLabel': 'త్వరిత కూర్పు',
   'dashboard.heading': 'మీ వారం, కూర్పు',
+  'dashboard.loadFailed': 'మీ డాష్‌బోర్డ్‌ను లోడ్ చేయలేకపోయాము.',
   'dashboard.manageLibrary': 'లైబ్రరీని నిర్వహించండి →',
   'dashboard.recentEmpty': 'ఇంకా ఏవీ పంపలేదు — మీరు పంపిన ఇమెయిల్‌లు ఇక్కడ కనిపిస్తాయి.',
   'dashboard.recentHeading': 'ఇటీవలి పంపకాలు',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'మీరు డ్రాఫ్ట్‌లో మార్పు చేస్తే తప్ప, సిగ్నెట్ ఈ టోన్‌ను ఉపయోగిస్తుంది.',
   'signetLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'signetLayout.toggleMenu': 'మెనూని టోగుల్ చేయండి',
   'signup.emailLabel': 'ఇమెయిల్ చిరునామా',
   'signup.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'signup.tagline': 'మీ మొదటి AI-రూపొందించిన ఇమెయిల్‌ను నిమిషంలోపు పంపండి.',

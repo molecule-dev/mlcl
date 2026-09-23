@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אודותינו',
   'authShell.samplePreview': '"היי צוות, לוח המחוונים החדש מהמם - בדיוק מה שהיינו צריכים!"',
   'authShell.tagline': 'כל הודעה חשובה. כל לקוח נזכר.',
@@ -21,8 +22,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/קיצור דרך',
   'automations.subheading':
     "כללים, תגובות מוכנות מראש וצ'אטבוטים - שמרו על סביבת העבודה פעילה בזמן שהצוות שלכם מתמקד בדברים הקשים.",
+  'automations.trigger.inboundMessage': 'הודעה נכנסת',
   'automations.triggerLabel': 'לְהַפְעִיל',
   'chatBubble.internalNoteLabel': 'הערה פנימית',
+  'common.confirmDelete': 'אישור מחיקה',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'contactDetail.backToContacts': 'כל אנשי הקשר',
   'contactDetail.contactFallback': 'מַגָע',
   'contactDetail.conversationFallback': 'שִׂיחָה',
@@ -40,6 +44,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'נראה לאחרונה',
   'contacts.empty': 'אין עדיין אנשי קשר. הוסף את איש הקשר הראשון שלך למעלה.',
   'contacts.eyebrow': 'מדריך לקוחות',
+  'contacts.form.nameOrEmailRequired': 'ציין לפחות שם או כתובת דוא"ל',
   'contacts.form.save': 'שמור איש קשר',
   'contacts.heading': 'אנשי קשר',
   'contacts.loading': 'טוען אנשי קשר…',
@@ -54,6 +59,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'שמור הערה',
   'conversationDetail.tab.note': 'הערה פנימית',
   'conversationDetail.threadAria': 'הודעות שיחה',
+  'conversationDetail.visitorFallback': 'אוֹרֵחַ',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'פרטי הלקוח',
   'customerProfilePanel.recentTitle': 'שיחות אחרונות',
@@ -70,6 +76,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'לקוחות מקבלים את התגובה הראשונה שלהם ב {{time}} בממוצע - לשמור על הקצב.',
   'inboxHeroCard.title': 'שיחות פעילות',
+  'inboxLayout.navDrawerLabel': 'ניווט',
+  'inboxLayout.openMenu': 'פתח את תפריט הניווט',
   'inboxOverview.eyebrow': 'היום במבט חטוף',
   'inboxOverview.heroChange': '{{count}} לִפְתוֹחַ',
   'inboxOverview.kpiClosedTrend': 'כל הזמנים',
@@ -114,10 +122,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'בקר בדף הבית',
   'notifications.subheading':
     'מטלות, @mentions, סיכוני SLA, משוב CSAT ופעילות צוות - ממוינים לפי החדשים ביותר.',
+  'notifications.subjectFallback': 'שיחה',
+  'notifications.visitorFallback': 'מבקר',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'גָבוֹהַ',
   'priority.low': 'נָמוּך',
+  'priority.normal': 'נוֹרמָלִי',
   'priority.urgent': 'דָחוּף',
   'privacy.title': 'מדיניות הפרטיות',
   'reports.agentFallback': 'סוֹכֵן',

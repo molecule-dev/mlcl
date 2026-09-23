@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqida',
   'argentAuthShell.brandEyebrow': 'Argent · Boylik vositalari',
+  'argentAuthShell.brandFootnote': "© {{year}} {{app}} . Investitsiya bo'yicha maslahat emas.",
   'argentAuthShell.sampleChange': 'Bugun +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Asosiy navigatsiya',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Ushbu tiker uchun hech qanday tranzaksiya yo’q.',
   'assetDetail.txHeading': 'Sizning tranzaksiyalaringiz',
   'common.and': 'va',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfelga umumiy nuqtai nazar',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Hali hech qanday mulk yo’q.',
   'holdings.heading': 'Xoldinglar',
   'holdings.loadError': 'Xoldinglarni yuklab bo’lmadi.',
+  'landing.copyright':
+    "© {{year}} {{app}} . Investitsiya bo'yicha maslahat emas. O'tmishdagi natijalar kelajakdagi natijalarni kafolatlamaydi.",
   'landing.eyebrow': 'Argent · Boylik vositalarini yaratish platformasi',
   'landing.features.heading': 'Maslahatchi o’zi uchun quradigan hamma narsa.',
   'landing.finalCta.heading': 'Portfelingizga intizomni qaytaring.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} soat oldin',
   'news.justNow': 'hozirgina',
   'news.loadError': 'Yangiliklarni yuklab bo’lmadi.',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'portfolioHeroCard.label': 'Portfel qiymati',
   'pricing.holdingsLabel': 'xoldinglar',
   'pricing.newsLabel': 'yangiliklar maqolalari',
@@ -135,8 +141,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': "Hisobni o'chirish",
   'settings.security.deleting': "O'chirilmoqda…",
   'settings.security.heading': 'Xavfsizlik',
+  'settings.security.newPassword': 'Yangi parol',
   'settings.security.password': 'Parol',
   'settings.security.twoFactorEnable': 'Yoqish',
+  'settings.security.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.security.twoFactorVerify': 'Tasdiqlash va yoqish',
   'settings.tax.error': 'Soliq usulini yangilab bo’lmadi.',
   'settings.tax.heading': 'Soliq uchastkasini hisobga olish',
   'settings.tax.method': 'Standart usul',

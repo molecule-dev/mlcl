@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'නැරඹීම',
   'auctionDetail.watchRemoved': 'නැරඹුම් ලැයිස්තුවෙන් ඉවත් කරන ලදී.',
   'auctionDetail.watchRemoveLabel': 'නැරඹුම් ලැයිස්තුවෙන් ඉවත් කරන්න',
+  'auctionPlatformLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'authShell.brandBody':
     'දුර්ලභ ඔරලෝසු, ලලිත කලා සහ අද්විතීය විශේෂිත අයිතම සඳහා තත්‍ය කාලීනව ලංසු තබන්න. තත්පර කිහිපයකින් තෑග්ග වැටේ.',
   'authShell.brandEyebrow': 'දැන් සජීවීව · වෙන්දේසි 1,420ක්',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'අනුව තෝරන්න',
   'browseAuctions.subheading':
     'කාණ්ඩය අනුව පෙරහන් කරන්න, වඩාත්ම වැදගත් දේ අනුව වර්ග කරන්න, සහ ත්‍යාගය වැටීමට පෙර ලංසුවක් තබන්න.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'countdownTimer.ended': 'අවසන් විය',
   'countdownTimer.endingSoon': 'අවසන් වීම',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'මුරපදය සඟවන්න',
   'login.showPassword': 'මුරපදය පෙන්වන්න',
   'login.subtext': 'ඔබේ වෙන්දේසි නිරීක්ෂණය කිරීම දිගටම කරගෙන ගොස් තුණ්ඩුව වැටීමට පෙර ලංසු තබන්න.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'myBids.bidAgain': 'නැවත ලංසු තබන්න',
   'myBids.browseCta': 'සජීවී වෙන්දේසි පිරික්සන්න →',
   'myBids.checkoutCta': 'දැන් ගෙවන්න',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'ක්‍රියාකාරකම් මධ්‍යස්ථානය',
   'notificationsPage.subheading':
     '{{count}} නොකියවූ · වෙන්දේසි චලනය වන විට සජීවී යාවත්කාලීන කිරීම්',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.bidsLabel': 'ලංසු',
   'pricing.listingsLabel': 'ලැයිස්තුගත කිරීම්',
   'pricing.watchlistLabel': 'මුර ලැයිස්තුව',

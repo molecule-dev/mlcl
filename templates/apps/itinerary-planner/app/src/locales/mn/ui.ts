@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}}-ийн тухай',
+  'auth.legalConsent': 'Үргэлжлүүлснээр та манай',
   'bookings.empty.body':
     'Ирсэн имэйлийг эхлүүлэхийн тулд нислэг, зочид буудал эсвэл үйл ажиллагаа нэмнэ үү.',
   'bookings.empty.heading': 'Одоогоор захиалга алга.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Баталгаажсан',
   'bookings.summary.pending': 'Баталгаажуулалт хүлээж байна',
   'bookings.summary.total': 'Нийт үүрэг амлалт',
+  'bookings.type.car': 'Түрээсийн машин',
+  'bookings.type.flight': 'Нислэг',
+  'bookings.type.hotel': 'Зочид буудал',
   'bookings.type.other': 'Бусад',
   'budgetSpendCard.budgetTotal': '-ын {{total}} төлөвлөсөн',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Зөрчилдөөнийг олж тогтоож, аяллуудын хооронд нөхөн сэргээх өдрүүдийг төлөвлөж, хамтран ажиллагсад тантай хамт хэзээ аялж байгааг хараарай.',
   'common.and': 'мөн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.budgetHeading': 'Төсвийн импульс',
   'dashboard.empty.heading': 'Одоогоор аялал алга — таны атлас хоосон байна.',
   'dashboard.eyebrow': 'Даалгаврын хяналт',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Хөдөлгөөнт аялалууд',
   'dashboard.viewAllExpenses': 'Зардал бүрийг харах',
   'dashboard.viewAllTrips': 'Аялал бүрийг харах',
+  'dayTimelineRow.category.accommodation': 'Үлдэх',
   'dayTimelineRow.category.transport': 'Тээвэр',
   'destinationOrbCard.exploreCta': 'Аялалд нэмэх',
   'destinationOrbCard.tripCount': '{{count}} аялал',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Имэйл алга уу? Спам хавтасаа шалгах эсвэл өөр хаягаар дахин оролдоно уу.',
   'forgotPassword.successSubheading':
     'Бид сэргээх холбоосыг илгээсэн {{email}} Холбоос нь 30 минутын хугацаанд хүчинтэй.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Үнэгүй бүртгэл үүсгэх',
+  'landing.cta.subheading':
+    'Үнэгүй төлөвлөгөөнд таван хүртэлх аялал, таван хамтрагч, таван зогсолт багтсан — бодит цагийн синхрончлол багтсан бөгөөд таны төлөвлөгөө өсөх үед Pro хязгаарыг нэмэгдүүлнэ.',
   'landing.destinations.eyebrow': 'Дараагийнх нь хаана',
   'landing.destinations.heading': 'Редакторын сонгосон газрууд',
   'landing.features.eyebrow': 'Waypoint хэрхэн ажилладаг вэ',
   'landing.features.heading': 'Хүснэгт биш, аялагчдад зориулан бүтээгдсэн.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Үнэгүй аялал эхлүүлэх',
   'landing.hero.ctaSecondary': 'Аяллын жишээг үзнэ үү',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
     'Аяллаа 5 хүртэлх хамтран ажиллагчтай хуваалцах, захиалгыг синк хийх, баталгаажуулалт бүрийг нэг дор татахын тулд бүртгэл үүсгээрэй.',
+  'signup.termsPrefix': 'Бүртгэл үүсгэснээр та манайхыг зөвшөөрч байна',
   'tripCountdownHeroCard.budget': '{{used}} -ын {{total}} ( {{pct}} төсвийн %)',
   'tripCountdownHeroCard.collaborators': '{{count}} аялагчид',
   'tripCountdownHeroCard.countdownLabel': 'Тоолуур',
@@ -202,5 +215,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Одоогоор аялал байхгүй байна.',
   'trips.pastHeading': 'Өнгөрсөн адал явдлууд',
   'trips.subheading': '{{count}} аяллын хөтөлбөрүүд - өнгөрсөн, одоо, хэзээ нэгэн цагт.',
+  'waypointLayout.mobileNavClose': 'Навигацийн цэсийг хаах',
   'waypointLayout.primaryNavLabel': 'Үндсэн навигаци',
 }

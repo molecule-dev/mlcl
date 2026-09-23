@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Khởi động lại chuỗi ngày',
   'resetPassword.mismatchError': 'Mật khẩu không khớp.',
   'resetPassword.subheading': 'Chọn một mật khẩu mạnh. Sách của bạn sẽ đợi.',
-  'reviewCard.starsAria': 'Đã được xếp hạng<x> {{rating}}</x> ngoài<x> {{của}}</x> ngôi sao',
+  'reviewCard.starsAria': 'Được đánh giá {{rating}} trên {{of}} sao',
   'reviewCard.unratedAria': 'Chưa được xếp hạng',
   'reviews.eyebrow': 'Điều gì còn đọng lại',
   'reviews.heading': 'Nhận xét của bạn',

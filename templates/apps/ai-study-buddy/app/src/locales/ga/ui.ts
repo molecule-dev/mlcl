@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Ag lódáil eolas faoin bplean…',
   'billing.popular': 'An-ghrámhar',
   'billing.subtitle': 'Roghnaigh an plean a oireann do do luas staidéir.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.today': 'Inniu',
   'common.yesterday': 'Inné',
   'courseDetail.empty.body':
@@ -84,8 +85,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Ainm an deic',
   'flashcards.subtitle': 'Athrá spásáilte a oireann do do luas.',
   'flashcards.title': 'Cártaí Flash',
+  'footer.copyright': '© {{year}} {{app}} . Foghlaim go maith, codail go maith.',
   'forgotPassword.subtitle':
     'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc athshocraithe chugat.',
+  'koanLayout.closeMenu': 'Dún an roghchlár',
+  'koanLayout.navLabel': 'Príomh-loingseoireacht',
+  'koanLayout.openMenu': 'Oscail an roghchlár',
   'koanLayout.theme': 'Téama',
   'landing.featuresBody':
     'Uirlisí atá deartha chun seachrán a dhíchur agus tuiscint bhuan a thógáil.',
@@ -120,11 +125,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Tá an URL sin anaithnid. B’fhéidir clóscríobh, b’fhéidir ceacht scriosta — ar aon nós, lig dúinn filleadh ar an staidéar thú.',
   'notFound.heading': 'Leathanach gan aimsiú.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Tá tú gafa suas leis an scéal go léir.',
   'notifications.filter.${opt}': 'Fógraí á lódáil…',
   'notifications.markAllError': 'Níorbh fhéidir gach rud a mharcáil mar léite.',
   'notifications.markError': 'Níorbh fhéidir a mharcáil mar léite.',
   'notifications.subtitle': '{{count}} nuashonruithe neamhléite',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.heading': 'tráth na gceist',
   'pricing.limits.topics': 'topaicí',
   'privacy.collectBody':
@@ -192,6 +199,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Bain triail as eochairfhocal nó scagaire difriúil.',
   'search.empty.title': 'Ní raibh aon rud ag teacht leis.',
   'search.error': 'Níorbh fhéidir na torthaí a lódáil.',
+  'search.filters': 'Scagairí cineál torthaí',
   'search.go': 'Téigh',
   'search.label.flashcard': 'Deic cártaí flash',
   'search.label.note': 'Nóta',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'applications.empty': 'Vēl nav pieteikumu \\2014 pareizā vakance ir viena pieteikuma attālumā.',
   'applications.eyebrow': 'Jūsu cauruļvads',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Katra loma, uz kuru esat pieteicies, kustībā. Filtrējiet pēc posma, lai koncentrētos uz galveno.',
   'applications.untitledRole': 'Lomas Nr. {{id}}',
+  'auth.legalConsent': 'Turpinot, jūs piekrītat mūsu',
   'common.and': 'un',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'companies.empty':
     'Nav uzņēmumu, kas atbilstu jūsu meklēšanas vaicājumam \\u2014 izmēģiniet citu terminu.',
   'companies.eyebrow': 'Ieteicamie darba devēji',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Šai vakancei vēl nav pieteikumu.',
   'jobApplicants.eyebrow': 'Darba devēja viedoklis',
   'jobApplicants.loading': 'Notiek ielāde\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Nevarēja atjaunināt šo posmu. Mēģiniet vēlreiz.',
+  'jobApplicants.subheading':
+    'Pārskatiet CV, virziet kandidātus uz priekšu, nosūtiet piedāvājumus \\u2014 {{count}} darbībā.',
   'jobDetail.applicantCount': '{{count}} līdz šim pretendenti',
   'jobDetail.applied': 'Pieteikums nosūtīts',
   'jobDetail.apply': 'Pieteikties tūlīt',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Pārlūkot vakances \\u2192',
   'landing.pricingEyebrow': 'Cenu noteikšana',
   'landing.pricingHeading': 'Vienkārši plāni jebkura lieluma komandai.',
+  'login.eyebrow': 'Laipni lūgti atpakaļ {{app}}',
   'login.heading': 'Pierakstieties savā kontā',
   'login.noAccount': 'Vai esi jauns Nosh lietotājs?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Pieslēgties\\u2026',
   'login.subheading':
     'Uzsāciet meklēšanu, virziet pieteikumus uz priekšu un saņemiet atbildi ātrāk.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Radīta komandu atlasei.',
   'loginBrandPanel.headline': 'Kur satiekas talanti',
   'loginBrandPanel.headlineLine2': 'impulss.',
   'loginBrandPanel.listing.recruiter': 'Talantu partneris',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'Pieteikumu atjauninājumi, ielūgumi uz intervijām, jaunākās atbilstības — jaunākās vispirms.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} šonedēļ',
   'opportunitiesHero.eyebrow': 'Atvērts šodien',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'postJob.addNewCompany': '+ Pievienot jaunu uzņēmumu',
   'postJob.companyCreateFailed': 'Nevarēja izveidot uzņēmumu — mēģiniet vēlreiz.',
   'postJob.companyNameLabel': 'Jūsu uzņēmuma nosaukums',
@@ -167,10 +176,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Notiek konta izveide\\u2026',
   'signup.ctaEmployer': 'Izveidot darba devēja kontu',
   'signup.firstNamePlaceholder': 'Maja',
+  'signup.lastNamePlaceholder': 'Čens',
   'signup.passwordMismatch': 'Paroles nesakrīt.',
   'signup.subheading':
     'Meklētājiem bez maksas, uz visiem laikiem. Darba devēji sāk ar 30 dienu izmēģinājuma periodu.',
   'timeAgo.days': '{{count}} pirms dienas',
   'timeAgo.hours': '{{count}} pirms stundām',
   'timeAgo.justNow': 'tikko',
+  'timeAgo.weeks': 'pirms {{count}} nedēļas',
 }

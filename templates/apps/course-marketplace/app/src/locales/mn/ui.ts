@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Курсуудыг ачаалж байна…',
   'browse.next': 'Дараагийн хуудас',
   'browse.results': 'Үзүүлж байна {{count}} курсууд',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Эрэмбэлэх',
   'browse.subtitle':
     'Редакцийн архивыг сэдэв, түвшин, үнээр нь шүүнэ үү. Сургалт бүрийг манай редакторууд гараар бэлтгэдэг.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Таны гэрчилгээнд гарын үсэг зурсан бөгөөд бэлэн боллоо. Үүнийг дэлхийтэй хуваалцах эсвэл олж авахад зарцуулсан хөдөлмөрийн сануулга болгон хадгалаарай.',
   'certificate.copyLink': 'Хуваалцах холбоосыг хуулах',
+  'certificate.copyPrompt': 'Энэ холбоосыг хуулах:',
   'certificate.download': 'PDF татаж авах',
   'certificate.eyebrow': 'Амжилт нээгдлээ',
   'certificate.linkCopied': 'Холбоосыг хуулсан!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Та бүртгүүллээ!',
   'checkout.verifying': 'Таны бүртгэлийг баталгаажуулж байна...',
   'checkout.viewLibrary': 'Миний сургалтыг харах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.retry': 'Дахин оролдоно уу',
   'courseDetail.about': 'Энэ сургалтын тухай',
   'courseDetail.checkoutPending': 'Төлбөр тооцоог эхлүүлж байна...',
   'courseDetail.continueLearning': 'Үргэлжлүүлэн суралцах',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 хоногийн мөнгө буцааж өгөх баталгаа',
   'courseDetail.includes.video': '{{hours}} хэдэн цагийн хүсэлтийн видео',
   'courseDetail.instructor': 'Багш',
+  'courseDetail.languageEnglish': 'Англи хэл',
   'courseDetail.lectures': 'Лекцүүд',
   'courseDetail.level': 'Түвшин',
   'courseDetail.loading': 'Курс ачаалагдаж байна…',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Одоогоор ямар ч сэтгэгдэл алга.',
   'instructorProfile.students': 'Оюутнууд',
   'landing.categories.empty': 'Каталогийг дүүргэсний дараа ангиллууд гарч ирнэ.',
+  'landing.categories.heading': 'Архивыг судлах',
   'landing.hero.eyebrow': 'Лектура · Мастерын редакцийн архив',
   'landing.hero.proof': 'Google, Meta, Adobe зэрэг суралцагчдын итгэлийг хүлээсэн.',
   'landing.hero.subtitle':
@@ -153,6 +159,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Өнөөдөр суралцаж эхэл',
   'login.subheading': 'Эрдэм шинжилгээний архивтаа хандах.',
   'myLearning.empty.title': 'Энэ шүүлтүүрт тохирох курс хараахан алга',
+  'myLearning.error.title': 'Таны санг ачаалж чадсангүй',
   'myLearning.filter.notStarted': 'Эхлээгүй байна',
   'myLearning.hero.subtitle': '{{count}} Номын сан дахь хичээлүүд. Эрч хүчээ үргэлжлүүлээрэй.',
   'myLearning.hero.title': 'Түр зогссон газраасаа үргэлжлүүлээрэй.',
@@ -165,6 +172,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Шалгах шинэ үйл ажиллагаа алга байна. Шинэ үйл явдлууд энд гарч ирнэ.',
   'notifications.empty.title': 'Та бүгдийг нь дуусгалаа',
+  'notifications.error.title': 'Үйл ажиллагааг ачаалж чадсангүй',
   'privacy.title': 'Нууцлалын бодлого',
   'reset.confirmPlaceholder': 'Шинэ нууц үгээ дахин оруулна уу',
   'reset.errorGeneric': 'Нууц үгийг дахин тохируулж чадсангүй. Шинэ холбоос хүсэх.',
@@ -188,5 +196,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} өдрийн өмнө',
   'timeAgo.hours': '{{count}} цагийн өмнө',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} сарын өмнө',
   'timeAgo.today': 'өнөөдөр',
+  'timeAgo.weeks': '{{count}} долоо хоногийн өмнө',
 }

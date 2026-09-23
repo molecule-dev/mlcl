@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Nalaganje tečajev…',
   'browse.next': 'Naslednja stran',
   'browse.results': 'Prikaz tečajev »{{count}}«',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Razvrsti po',
   'browse.subtitle':
     'Arhiv člankov lahko filtrirate po temi, stopnji zahtevnosti in ceni. Vsak tečaj so skrbno izbrali naši uredniki.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Vaše potrdilo je podpisano in pripravljeno. Delite ga s svetom ali ga shranite kot spomin na trud, ki ste ga vložili v njegovo pridobitev.',
   'certificate.copyLink': 'Kopiraj povezavo za deljenje',
+  'certificate.copyPrompt': 'Kopiraj to povezavo:',
   'certificate.download': 'Prenesi PDF',
   'certificate.eyebrow': 'Dosežek odklenjen',
   'certificate.linkCopied': 'Povezava je shranjena!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Vpisani ste!',
   'checkout.verifying': 'Preverjanje vaše prijave…',
   'checkout.viewLibrary': 'Poglej moje učenje',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
+  'common.retry': 'Poskusi še enkrat',
   'courseDetail.about': 'O tem tečaju',
   'courseDetail.checkoutPending': 'Začetek plačila…',
   'courseDetail.continueLearning': 'Nadaljuj z učenjem',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-dnevno jamstvo za vračilo denarja',
   'courseDetail.includes.video': '{{hours}} ure videov na zahtevo',
   'courseDetail.instructor': 'Inštruktor',
+  'courseDetail.languageEnglish': 'angleščina',
   'courseDetail.lectures': 'Predavanja',
   'courseDetail.level': 'Raven',
   'courseDetail.loading': 'Nalaganje tečaja…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Še ni nobenih ocen.',
   'instructorProfile.students': 'Študenti',
   'landing.categories.empty': 'Kategorije se bodo prikazale, ko bo katalog napolnjen.',
+  'landing.categories.heading': 'Raziščite arhiv',
   'landing.hero.eyebrow': 'Lectura · Uredniški arhiv mojstrstva',
   'landing.hero.proof': 'Zaupanje so nam izkazali udeleženci iz podjetij Google, Meta in Adobe.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Začnite se učiti še danes',
   'login.subheading': 'Dostopajte do svojega znanstvenega arhiva.',
   'myLearning.empty.title': 'Zaenkrat ni nobenega tečaja, ki bi ustrezal temu filtru',
+  'myLearning.error.title': 'Knjižnice ni bilo mogoče naložiti',
   'myLearning.filter.notStarted': 'Še ni začelo',
   'myLearning.hero.subtitle': '{{count}} tečaji v vaši knjižnici. Ohranite zagon.',
   'myLearning.hero.title': 'Nadaljujte tam, kjer ste končali.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Ni novih dejavnosti za pregled. Novi dogodki se bodo prikazali tukaj.',
   'notifications.empty.title': 'Vse ste nadoknadili',
+  'notifications.error.title': 'Dejavnosti ni bilo mogoče naložiti',
   'privacy.title': 'Politika zasebnosti',
   'reset.confirmPlaceholder': 'Ponovno vnesite novo geslo',
   'reset.errorGeneric': 'Gesla ni bilo mogoče ponastaviti. Zahtevajte novo povezavo.',
@@ -190,5 +198,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} pred dnevi',
   'timeAgo.hours': '{{count}} pred h',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} pred nekaj meseci',
   'timeAgo.today': 'danes',
+  'timeAgo.weeks': '{{count}} pred nekaj tedni',
 }

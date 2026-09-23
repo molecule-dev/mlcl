@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
+  'about.featureDiscover.title': 'إلهام، منتقى بعناية',
   'account.addPaymentCta': 'إضافة طريقة دفع',
   'account.addPaymentError': 'تعذّر إضافة طريقة الدفع.',
+  'account.confirmRemove': 'تأكيد الحذف',
   'account.defaultBadge': 'افتراضي',
   'account.loyalty.pointsTowardNext': '{{points}} من {{next}} ميل للوصول إلى {{nextTier}}',
   'account.loyalty.tier': 'المستوى الحالي',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'تفاصيل الرحلة',
   'booking.tripSummary': '{{nights}} ليالٍ · {{guests}} ضيوف',
   'common.daysAgo': 'قبل {{count}} يوم',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.hoursAgo': 'قبل {{count}} ساعة',
   'common.minutesAgo': 'منذ {{count}} دقيقة',
   'common.no': '—',
@@ -76,6 +80,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'قانوني',
   'notifications.loading': 'جارٍ التحميل…',
   'notifications.subheading': '{{count}} غير مقروء · كل شيء في صندوق وارد هادئ واحد',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.accommodationsLabel': 'أماكن الإقامة',
   'pricing.bookingsLabel': 'حجوزات',
   'pricing.destinationsLabel': 'الوجهات المحفوظة',
@@ -127,6 +132,7 @@ export const ui: UiTranslations = {
     'إلهام وإقامات موثوقة ومسار سلس من حلم اليقظة إلى الحجز — في 14 دولة وأكثر من 200 عقار مختار بعناية.',
   'sojournHeroSearchCard.trustProtected': 'إلغاء مجاني وحماية كاملة',
   'sojournHeroSearchCard.trustVetted': 'عقارات مختارة بعناية فقط',
+  'travelBookingLayout.primaryNavLabel': 'التنقل الرئيسي',
   'tripDetail.backLink': 'العودة إلى الرحلات',
   'tripDetail.cancelCta': 'إلغاء الحجز',
   'tripDetail.cancelHeading': 'إلغاء هذه الرحلة؟',

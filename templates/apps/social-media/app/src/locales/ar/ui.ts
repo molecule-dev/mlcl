@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
+  'about.pageTitle': 'نبذة عن شركة «{{app}}»',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'common.retry': 'إعادة المحاولة',
   'compose.cancel': 'إلغاء',
   'compose.captionPlaceholder': 'بماذا تفكر؟',
   'compose.heading': 'شارك لحظة',
@@ -92,6 +96,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'حساب موثّق',
   'resetPassword.newPassword': 'كلمة مرور جديدة',
   'resetPassword.subheading': 'اختر كلمة مرور قوية — 12 حرفًا على الأقل.',
+  'search.clearAria': 'مسح',
+  'search.error': 'فشل البحث. حاول مرة أخرى.',
   'search.noPeople': 'لا يوجد صنّاع محتوى يطابقون "{{q}}".',
   'search.noPosts': 'لا توجد منشورات تطابق "{{q}}".',
   'search.noTags': 'لا وسوم رائجة بعد.',
@@ -119,6 +125,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'إخفاء كلمة المرور',
   'signup.showPassword': 'إظهار كلمة المرور',
   'signup.subheading': 'أنشئ حسابًا لبدء المشاركة.',
+  'socialMediaLayout.closeMenu': 'إغلاق قائمة التنقل',
+  'socialMediaLayout.openMenu': 'فتح قائمة التنقل',
+  'socialMediaLayout.primaryNavLabel': 'التنقل الرئيسي',
   'storyRail.heading': 'القصص',
   'storyRail.label': 'القصص',
   'storyRail.openAria': 'افتح قصة {{handle}}',

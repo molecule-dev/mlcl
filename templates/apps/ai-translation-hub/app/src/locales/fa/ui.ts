@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'billing.canceled': 'اشتراک لغو شد. در پایان دوره به حالت رایگان برمی‌گردید.',
   'billing.contactSales': 'تماس با فروش',
   'billing.free.1': '۵ ترجمه',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'بدون محدودیت نگهداری',
   'billing.upgradeHint': 'برای باز کردن ویژگی‌های پیشرفته هوش مصنوعی، ارتقا دهید.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.activityEmpty':
     'هنوز فعالیتی انجام نشده است - پروژه‌ای را برای پر کردن این فید شروع کنید.',
   'dashboard.eyebrow': 'نمای کلی',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'از ترجمه‌های قبلی در هر پروژه دوباره استفاده کنید. امتیاز تطابق بالاتر → دوباره‌کاری کمتر.',
   'memory.title': 'بانک حافظه',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'nav.legal': 'قانونی',
   'newProject.addLanguage': 'هدف را اضافه کنید',
   'newProject.create': 'ایجاد پروژه',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'علامت گذاری شده {{count}} اعلان‌ها به محض خوانده شدن',
   'notifications.subtitle':
     'منشن‌ها، درخواست‌های بررسی و رویدادهای هوش مصنوعی از سراسر فضاهای کاری شما.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'privacy.collection.account': 'ایمیل و نام نمایشی حساب کاربری شما',
   'privacy.deletion.body':
     'شما می‌توانید هر زمان که بخواهید یک پروژه، بخش، اصطلاح واژه‌نامه یا ورودی حافظه را از صفحه مربوطه حذف کنید. حذف حساب کاربری از تنظیمات، هر ردیف مربوط به فضای کاری را از پایگاه داده ما پاک می‌کند.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'بارگیری پروژه‌ها ناموفق بود.',
   'projects.loading': 'در حال بارگذاری پروژه‌ها…',
   'projects.subtitle': 'هر پروژه فعال در تمام مناطق.',
+  'renditionLayout.primaryNavLabel': 'ناوبری اولیه',
   'reset.backToLogin': '\\u2190 بازگشت به ورود',
   'reset.passwordLabel': 'رمز عبور جدید',
   'review.activeEyebrow': 'بخش {{number}}',

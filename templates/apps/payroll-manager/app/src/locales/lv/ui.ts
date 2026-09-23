@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'auditLog.empty':
     'Vēl nav audita notikumu, kas atbilst jūsu filtriem. Rediģējiet darbinieku vai apstrādājiet algas aprēķinu, un tie tiks parādīti šeit.',
   'auditLog.eyebrow': 'Atbilstība',
+  'auditLog.loadError': 'Nevarēja ielādēt audita žurnālu.',
   'auditLog.searchPlaceholder': 'Meklēt pēc aktiera, darbības vai apraksta',
   'auditLog.subheading':
     'Katrs apstiprinājums, labojums un nodokļu deklarēšana — ar izpildītāju, laika zīmogu un mainītajiem laukiem.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nav konfigurēts',
   'billing.plansHeading': 'Plāni',
   'billing.subheading': 'Pārvaldiet savu plānu un pārslēdziet līmeņus, izmantojot Stripe.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Mēģināt vēlreiz',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Atbilstības momentuzņēmums',
   'dashboard.compliance.title': 'Visas pārbaudes ir veiksmīgas',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Nav reģistrētu atskaitījumu.',
   'employeeDetail.notFound': 'Darbinieks nav atrasts.',
   'employeeDetail.payFrequency': 'Maksājumu biežums',
+  'employeeDetail.postTax': 'Pēc nodokļu nomaksas',
+  'employeeDetail.preTax': 'Pirms nodokļu nomaksas',
   'employeeDetail.salary': 'Gada alga',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.taxes': 'Nodokļu ieturējumi',
@@ -51,6 +57,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Maksājumu biežums',
   'employeeForm.salary': 'Gada alga (USD)',
   'employeeForm.salaryInvalid': 'Alga nedrīkst būt negatīvam skaitlim.',
+  'employeeForm.saveError': 'Nevarēja glābt darbinieku.',
   'employeeForm.semimonthly': 'Divreiz mēnesī',
   'employeeForm.single': 'Vientuļš',
   'employeeForm.ssn': 'SSN',
@@ -67,11 +74,13 @@ export const ui: UiTranslations = {
   'employees.eyebrow': 'Sastāvs',
   'employees.heading': 'Darbinieki',
   'employees.searchPlaceholder': 'Meklēt pēc vārda, e-pasta adreses vai amata',
+  'employees.subheading': '{{count}} sarakstā · {{total}} gada algas fonds',
   'employeesTable.col.department': 'Nodaļa',
   'employeesTable.col.name': 'Darbinieks',
   'employeesTable.col.salary': 'Alga',
   'forgotPassword.subtitle':
     'Ievadiet savu darba e-pasta adresi, un mēs nosūtīsim jums atiestatīšanas saiti.',
+  'landing.copyright': '© {{year}} {{app}} . Precīzs, uzticams, nosvērts.',
   'landing.ctaBody':
     '30 dienas bez maksas. Nav nepieciešama kredītkarte. Pārslēdzieties jebkurā laikā, nezaudējot savu auditācijas vēsturi.',
   'landing.ctaHeading': 'Veiciet nākamo ciklu ar Stipend',
@@ -89,6 +98,7 @@ export const ui: UiTranslations = {
   'payrollHeroCard.change': '{{sign}} {{amount}} salīdzinājumā ar iepriekšējo ciklu',
   'payrollHeroCard.cta': 'Pārskatīt un palaist',
   'payrollHeroCard.employees': '{{count}} darbinieki',
+  'payrollHeroCard.eyebrow': 'Nākamā algas kārta · {{date}}',
   'payrollKpiTriad.annualSub': 'Bruto, pašreizējais finanšu gads',
   'payrollKpiTriad.employeesSub': 'Nākamajā algas dienā',
   'payrollKpiTriad.nextPayNone': '—',
@@ -104,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Šim algas periodam vēl nav audita ierakstu.',
   'payRunDetail.noStubs':
     'Vēl nav algas aprēķinu — apstipriniet un apstrādājiet, lai tos ģenerētu.',
+  'payRunDetail.notFound': 'Šo algas aprēķinu nevarēja atrast.',
   'payRunDetail.statDeductions': 'Atskaitījumi',
   'payRunDetail.statHeadcount': 'Darbinieki',
   'payRunDetail.statTaxes': 'Ieturētie nodokļi',
@@ -111,6 +122,7 @@ export const ui: UiTranslations = {
   'payRuns.eyebrow': 'Cikla vēsture',
   'payRuns.heading': 'Algu skrējieni',
   'payRuns.runNow': 'Veikt algas aprēķinu',
+  'payRuns.subheading': '{{processed}} apstrādāts · {{pending}} gaida · {{total}} šis skats',
   'payRunsList.employeeCount': '{{count}}',
   'payRunsList.empty': 'Algas vēl nav izlaistas. Ieplānojiet savu pirmo ciklu.',
   'payRunsList.viewAll': 'Skatīt visus algas maksājumus →',
@@ -214,7 +226,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Divreiz mēnesī',
   'settings.signOutDevice': 'Izrakstīties',
   'settings.subheading': 'Uzņēmuma profils, atalgojuma grafiks un integrācijas.',
+  'settings.twoFactorCode': 'Autentifikācijas kods',
   'settings.twoFactorDisable': 'Atspējot',
+  'settings.twoFactorInvalidCode': 'Nepareizs kods',
+  'settings.twoFactorVerify': 'Verificēt un iespējot',
   'settings.weekly': 'Iknedēļas',
   'taxCenter.bucket.federal': 'Federālie ienākumi',
   'taxCenter.bucket.fica': 'Sociālā apdrošināšana',

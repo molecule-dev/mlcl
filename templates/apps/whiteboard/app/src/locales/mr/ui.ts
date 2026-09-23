@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'authShell.brandHeading': 'स्पष्टपणे विचार करणाऱ्या डिझाइन टीमसाठी मल्टीप्लेअर कॅनव्हास.',
   'billing.canceled': 'सदस्यता रद्द केली.',
   'billing.cancelPlan': 'योजना रद्द करा',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'टेम्पलेटपासून सुरुवात करा',
   'boards.title': 'तुमचे बोर्ड',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'तुमच्या वर्कस्पेसशी जोडलेला ईमेल प्रविष्ट करा आणि आम्ही तुम्हाला एक रीसेट लिंक पाठवू.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'अव्यवस्थित, फलदायी आणि प्रत्यक्ष विचारांसाठी तयार केलेले.',
   'landing.demoBoard.title': 'Q1 कार्यशाळा · ब्रँड व्हॉइस',
   'landing.featuresTitle': 'त्वरित प्रतिसाद. सुंदर कॅनव्हास. कोणताही अडथळा नाही.',
+  'landing.hero.body':
+    '{{appName}} हे डिझाइन टीम, कार्यशाळा सुलभक आणि शिक्षकांसाठी एक मल्टीप्लेअर व्हाइटबोर्ड आहे, जे थेट विचारमंथन करतात आणि ज्यांना कल्पना एकाच ठिकाणी एकत्र आणण्याची आवश्यकता असते.',
   'landing.hero.primaryCta': 'मोफत बोर्ड सुरू करा',
   'landing.hero.socialProof': 'विश्वास ठेवला {{count}} जगभरातील डिझाइन टीम्स',
   'landing.hero.title': 'तुमच्या विचारांइतकाच वेगवान कॅनव्हास',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'मोकळी कामाची जागा तयार करा',
   'login.subheading':
     'कार्यशाळा जिथे संपली होती तिथून पुढे सुरू करा — बोर्ड, स्टिकी नोट्स आणि कर्सर हे सर्व रिअल टाइममध्ये सिंक होतात.',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.new': 'नवीन',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'notifications.editTitle': '"मधील संपादने {{board}} "',
   'notifications.empty.body':
     'आमंत्रणे, स्नॅपशॉट सेव्ह आणि अलीकडील बोर्डमधील बदल जसे घडतील तसे येथे दिसतील.',
@@ -173,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'आवृत्ती इतिहास',
   'versionHistory.untitledSnapshot': 'शीर्षक नसलेला स्नॅपशॉट',
   'whiteboardLayout.newBoard': 'नवीन बोर्ड',
+  'whiteboardLayout.primaryNav': 'प्राथमिक नेव्हिगेशन',
   'workspace.boardLabel': 'मंडळ',
   'workspace.eyebrow': '{{name}} · कार्यक्षेत्र',
   'workspace.invite': 'सहकाऱ्यांना आमंत्रित करा',

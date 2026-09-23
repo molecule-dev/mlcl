@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Ynghylch {{app}}',
   'about.plansTitle': "Cynlluniau sy'n tyfu gyda chi",
   'brand.tagline': 'Bob eiliad',
   'clientDetail.back': 'Yn ôl at gleientiaid',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Pob perthynas mewn un lle — prosiectau, oriau, anfonebau heb eu talu.',
   'clients.title': 'Cleientiaid',
   'common.and': 'a',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.activeProjects': 'Prosiectau gweithredol',
   'dashboard.empty': 'Dim cofnodion eto. Dechreuwch yr amserydd i olrhain eich sesiwn gyntaf.',
   'dashboard.greeting': 'Diwrnod da, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     "Dim oriau biliadwy i'w hanfonebu ar gyfer y cleient hwn. Traciwch rywfaint o amser yn gyntaf neu aseinio cofnodion presennol i un o brosiectau'r cleient hwn.",
   'invoices.save': 'Creu anfoneb',
   'invoices.subtitle': "Mae oriau sy'n cael eu holrhain yn cronni'n anfonebau, yn awtomatig.",
+  'landing.copyright': "© {{year}} {{app}} . Bob eiliad, wedi'i gyfrif.",
   'landing.ctaBody':
     'Am ddim ar gyfer hyd at 3 phrosiect. Uwchraddiwch pan fydd eich rhestr cleientiaid yn gwneud hynny.',
   'landing.eyebrow': 'Olrhain amser ar gyfer gwaith biladwy',
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Ymddiriedir gan gwmnïau annibynnol',
   'landing.testimonial.quote':
     "\\u201cSymudais oddi ar Toggl mewn 30 munud. Mae'r gostyngiad cyllidebol ynddo'i hun wedi talu amdano'i hun \\u2014 Rydw i wedi rhoi'r gorau i dan-ddyfynnu pythefnos yn olynol.\\u201d",
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': "© {{year}} Crono. Pob eiliad, wedi'i gyfrif.",
   'login.brand.subtitle':
     "Codwch yr amserydd lle gwnaethoch chi adael — pob munud eisoes wedi'i fapio i brosiect, cleient, anfoneb.",
   'login.brand.tracking': 'Olrhain',
   'login.subheading': 'Codwch yr amserydd lle gwnaethoch chi adael.',
+  'nav.closeMenu': "Cau'r ddewislen lywio",
   'nav.insightsSection': 'Mewnwelediadau',
   'nav.newEntry': 'Cofnod Newydd',
+  'nav.openMenu': 'Agor y ddewislen lywio',
+  'nav.primary': 'Prif lywio',
   'nav.workSection': 'Gwaith',
   'notFound.body':
     "Mae'n ymddangos bod y ddolen a ddilynwyd gennych wedi rhoi'r gorau i olrhain. Ewch yn ôl i'ch dangosfwrdd \\u2014 byddwn yn parhau i gyfrif o'r fan honno.",
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Biladwy',
   'timer.descriptionPlaceholder': "Beth wyt ti'n gweithio arno?",
   'timer.idle': 'Segur — dechrau olrhain',
+  'timer.noProject': 'Dim prosiect',
   'timer.runningWithProject': 'Dim prosiect',
   'timer.start': "Dechrau'r amserydd",
   'timer.stop': 'Stopiwch yr amserydd',

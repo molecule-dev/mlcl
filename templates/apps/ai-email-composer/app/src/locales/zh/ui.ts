@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '我们的故事',
   'aiSuggestionPanel.title': 'Signet 副驾驶',
   'analytics.col.open': '打开率',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': '正在启动结账…',
   'billing.subheading': '选择最符合您发送习惯的套餐。',
   'billing.unavailable': '联系销售',
+  'common.goToDashboard': '前往仪表盘',
+  'common.retry': '重试',
   'compose.adjustingTone': '正在以所选语气重写…',
   'compose.aiPromptPlaceholder': '例如："两周未回复后的礼貌跟进，保持简短。"',
   'compose.aiReady': '草稿已就绪——请审阅，满意后发送。',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': '需要发送什么？Signet 几秒内即可备好草稿。',
   'dashboard.composeCtaLabel': '快速撰写',
   'dashboard.heading': '您本周的撰写',
+  'dashboard.loadFailed': '无法加载您的仪表盘。',
   'dashboard.manageLibrary': '管理库 →',
   'dashboard.recentEmpty': '暂无发送记录——您发送的邮件会显示在这里。',
   'dashboard.recentHeading': '最近发送',
@@ -130,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': '默认语气',
   'settings.toneSubheading': '除非您在草稿中覆盖，否则 Signet 会使用此语气。',
   'signetLayout.primaryNavLabel': '主导航',
+  'signetLayout.toggleMenu': '切换菜单',
   'signup.emailLabel': '电子邮件地址',
   'signup.showPassword': '显示密码',
   'signup.tagline': '在一分钟内发出您的第一封 AI 撰写邮件。',

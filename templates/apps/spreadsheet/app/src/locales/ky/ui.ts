@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'about.pageTitle': 'Жөнүндө {{name}}',
   'auth.footer.about': 'Жөнүндө {{name}}',
   'authHeader.subtitle': 'Сандарыңыздын чынчылдыгын сактоо үчүн кириңиз.',
   'automations.action.email': 'Электрондук почта',
+  'automations.action.noop': 'Операцияга тыюу салынат',
   'automations.action.webhook': 'Вебхук',
   'automations.confirmDelete': 'Өчүрүү " {{name}} "?',
   'automations.empty.headline': 'Азырынча автоматташтыруулар жок',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Ар бир жумуш китебиндеги триггерлер жана аракеттер. Ар бир аткарылган иш кийинчерээк текшере турган сапты каттайт.',
   'automations.toggle': 'Көчүрүү/жокко чыгаруу {{name}}',
+  'automations.trigger.dailySchedule': 'Күнүмдүк график',
+  'automations.trigger.rowCreated': 'Катар түзүлдү',
+  'automations.trigger.rowUpdated': 'Катар жаңыртылды',
   'billing.empty': 'Эч кандай пландар жок.',
   'billing.error.priceMissing':
     'Бул деңгээл үчүн Stripe баасы конфигурацияланган эмес. STRIPE_*_PRICE_ID env өзгөрмөлөрүн коюңуз.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Диаграммалар',
   'charts.kpi.totalCharts': 'Жалпы диаграммалар',
   'charts.list.empty': 'Азырынча эч кандай диаграммалар жок.',
+  'charts.namePlaceholder': 'Киреше тенденциясы',
   'charts.newChart': 'Жаңы диаграмма',
   'charts.primary.eyebrow': 'Диаграммалардын түрлөрү боюнча',
   'charts.primary.headline': 'Жумуш мейкиндигине сереп',
   'charts.subhead':
     'Торчого байланган түз эфирдеги визуализациялар — ар бир уяча түзөтүүсүндө кайра көрсөтүлөт.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'editor.addColumn': 'Тилке кошуу',
+  'editor.addDialogTitle': 'Тилке кошуу',
   'editor.addRow': 'Катар кошуу',
   'editor.addSheet': 'Барак кошуу',
   'editor.back': 'Жумушчу дептерлерге кайтуу',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Кальцит – бул формула биринчи, көп көрүнүштүү, реалдуу убакыт режиминдеги тор аналитиктери жана каржы топтору биринчи орунга чыккан.',
   'landing.nav.formulas': 'Формулалар',
+  'login.noAccount': '{{name}} менен жаңы тааныштыңызбы?',
+  'login.signIn': '{{name}} аккаунтуна кириңиз',
   'login.signUp': 'Жумуш ордун түзүү',
+  'nav.menu': 'Меню',
+  'nav.openMenu': 'Менюну ачуу',
   'notFound.cellRef': '#ШИЛТЕМЕ!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "жолдор", "баракча")',
   'notFound.headline': 'Бул катар эч качан болгон эмес.',
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Жергиликтүү автоматташтыруулар · вебхук жана cron триггерлери',
   'signup.creating': 'Жумуш орду камсыз кылынууда…',
   'signup.cta': 'Менин жумуш ордумду түзүү',
+  'signup.haveAccount': '{{name}} сайтында мурунтан эле барсызбы?',
   'signup.namePlaceholder': 'Эйвери Чен',
   'signup.tagline': 'Биринчи жумуш дептериңизди 30 секундда түзүңүз',
   'team.col.activity': 'Чакырылган',

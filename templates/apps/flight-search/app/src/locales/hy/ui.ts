@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.eyebrow': '{{app}}-ի մասին',
   'about.pageTitle': 'Յուրաքանչյուր երթուղի՝ մեկ որոնում։',
   'booking.backToDetail': 'Վերադառնալ թռիչքի մանրամասներին',
   'booking.continue': 'Շարունակել վճարմանը',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Հարկեր և վճարներ',
   'booking.summary.travelers': 'Ճանապարհորդներ',
   'common.about': 'Մասին',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'flightDetail.backToResults': 'Վերադառնալ արդյունքներին',
   'flightDetail.baseFare': 'Հիմնական վճար',
   'flightDetail.book': 'Շարունակել ամրագրումը',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 կանգառ',
   'flightResultCard.select': 'Ընտրել',
   'flightResultCard.totalLabel': 'Ընդհանուր ժամանակ',
+  'flightSearchLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'forgotPassword.subheading':
     'Մուտքագրեք ձեր Skylark հաշվի էլ․ հասցեն, և մենք կուղարկենք անվտանգ վերակայման հղում։',
   'forgotPassword.successBody':
     'Ստուգել {{email}} նոր գաղտնաբառ սահմանելու հղում ստանալու համար։ Հղումը կսպառվի 30 րոպեից։',
   'forgotPassword.successHeading': 'Վերագործարկման հղումն ուղարկվեց',
   'landing.cta.explore': 'Փորձեք որոնումը',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Գտեք հաջորդ հիանալի գինը բոլորից առաջ։',
   'landing.cta.signup': 'Սկսեք հետևել վճարներին',
   'landing.features.eyebrow': 'Ինչո՞ւ Սքայլարկ',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Ավելացնել ծանուցում',
   'priceAlerts.deleteConfirm': 'Հեռացնե՞լ այս ծանուցումը։',
   'priceAlerts.empty': 'Հետևյալ երթուղիներ դեռևս չկան։',
+  'priceAlerts.emptyCta': 'Որոնել հետևման երթուղի',
   'priceAlerts.errorMessage': 'Չհաջողվեց բեռնել ծանուցումները։',
   'priceAlerts.eyebrow': 'Skylark-ի դիտացանկը',
   'priceAlerts.form.createError': 'Չհաջողվեց ստեղծել ծանուցում։',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Բազմաքաղաքային երթուղի',
   'results.multiLegHeading': 'Ոտք {{n}} · {{from}} → {{մինչև}} · {{ամսաթիվ}}',
   'results.multiSummary': '{{count}} ոտքեր · {{passengers}} ճանապարհորդ',
+  'results.sortAriaLabel': 'Դասավորել արդյունքները ըստ',
   'results.sortLabel': 'Դասավորել',
   'results.summary': '{{count}} թռիչքներ · {{passengers}} ճանապարհորդ',
   'settings.language.title': 'Լեզու',

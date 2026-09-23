@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
+  'about.eyebrow': 'حول {{app}}',
   'about.pageTitle': 'كل مسار، بحث واحد.',
   'booking.backToDetail': 'العودة إلى تفاصيل الرحلة',
   'booking.continue': 'المتابعة إلى الدفع',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'الضرائب والرسوم',
   'booking.summary.travelers': 'المسافرون',
   'common.about': 'حول',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'flightDetail.backToResults': 'العودة إلى النتائج',
   'flightDetail.baseFare': 'السعر الأساسي',
   'flightDetail.book': 'المتابعة إلى الحجز',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'توقّف واحد',
   'flightResultCard.select': 'اختيار',
   'flightResultCard.totalLabel': 'المدة الإجمالية',
+  'flightSearchLayout.primaryNavLabel': 'التنقل الرئيسي',
   'forgotPassword.subheading':
     'أدخل البريد الإلكتروني لحساب Skylark، وسنرسل لك رابطاً آمناً لإعادة التعيين.',
   'forgotPassword.successBody':
     'تحقّق من {{email}} للحصول على رابط لتعيين كلمة مرور جديدة. ينتهي الرابط بعد 30 دقيقة.',
   'forgotPassword.successHeading': 'تم إرسال رابط إعادة التعيين',
   'landing.cta.explore': 'جرّب البحث',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'اعثر على أفضل سعر قبل الآخرين.',
   'landing.cta.signup': 'تتبّع الأسعار',
   'landing.features.eyebrow': 'لماذا Skylark؟',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'إضافة تنبيه',
   'priceAlerts.deleteConfirm': 'هل تريد إزالة هذا التنبيه؟',
   'priceAlerts.empty': 'لا توجد مسارات متابَعة بعد.',
+  'priceAlerts.emptyCta': 'ابحث عن مسار لتتبعه',
   'priceAlerts.errorMessage': 'تعذّر تحميل التنبيهات.',
   'priceAlerts.eyebrow': 'قائمة متابعة Skylark',
   'priceAlerts.form.createError': 'تعذّر إنشاء التنبيه.',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'خطة متعدّدة المدن',
   'results.multiLegHeading': 'المرحلة {{n}} ⟵ {{from}} ⟵ {{to}} ⟵ {{date}}',
   'results.multiSummary': '{{count}} مراحل ⟵ {{passengers}} مسافر',
+  'results.sortAriaLabel': 'فرز النتائج حسب',
   'results.sortLabel': 'ترتيب',
   'results.summary': '{{count}} رحلات ⟵ {{passengers}} مسافر',
   'settings.language.title': 'اللغة',

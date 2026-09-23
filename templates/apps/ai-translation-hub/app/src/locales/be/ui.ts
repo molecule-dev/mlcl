@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'billing.canceled':
     'Падпіска адменена. Пасля заканчэння перыяду вы вернецеся да бясплатнага рэжыму.',
   'billing.contactSales': 'Звязацца з аддзелам продажаў',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Няма абмежавання ўтрымання',
   'billing.upgradeHint': 'Абнавіце, каб разблакаваць пашыраныя функцыі штучнага інтэлекту.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.activityEmpty': 'Пакуль няма актыўнасці — пачніце праект па запаўненні гэтай стужкі.',
   'dashboard.eyebrow': 'Агляд',
   'dashboard.projectsEmpty': 'Пакуль няма праектаў — пачніце адзін, каб убачыць яго тут.',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Выкарыстоўвайце папярэднія пераклады паўторна ў кожным праекце. Вышэйшы бал супадзення → менш пераробак.',
   'memory.title': 'Банк памяці',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'nav.legal': 'Юрыдычная інфармацыя',
   'newProject.addLanguage': 'Дадаць мэту',
   'newProject.create': 'Стварыць праект',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Пазначана {{count}} апавяшчэнні як прачытаныя.',
   'notifications.subtitle':
     'Згадкі, запыты на водгукі і падзеі штучнага інтэлекту з вашых працоўных прастор.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'privacy.collection.account':
     'Адрас электроннай пошты і імя для адлюстравання вашага ўліковага запісу',
   'privacy.deletion.body':
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Не атрымалася загрузіць праекты.',
   'projects.loading': 'Загрузка праектаў…',
   'projects.subtitle': 'Кожны актыўны праект ва ўсіх лакацыях.',
+  'renditionLayout.primaryNavLabel': 'Асноўная навігацыя',
   'reset.backToLogin': '\\u2190 Назад да ўваходу',
   'reset.passwordLabel': 'Новы пароль',
   'review.activeEyebrow': 'Сегмент {{number}}',

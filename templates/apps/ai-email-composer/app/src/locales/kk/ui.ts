@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Біздің әңгімеміз',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Ашылу көрсеткіші',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Касса басталуда…',
   'billing.subheading': 'Жіберу тәсіліне сәйкес келетін жоспарды таңдаңыз.',
   'billing.unavailable': 'Сату бөліміне хабарласыңыз',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.retry': 'Қайталап көру',
   'compose.adjustingTone': 'Таңдалған дыбыста қайта жазылуда…',
   'compose.aiPromptPlaceholder':
     'мысалы, «Екі апта бойы жауап болмағаннан кейін сыпайы түрде қайта хабарласыңыз, қысқаша айтыңыз».',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Бірдеңе жіберу керек пе? Signet жобаны бірнеше секунд ішінде дайындай алады.',
   'dashboard.composeCtaLabel': 'Жылдам жазу',
   'dashboard.heading': 'Сіздің аптаңыз, жазылған',
+  'dashboard.loadFailed': 'Басқару тақтасын жүктеу мүмкін болмады.',
   'dashboard.manageLibrary': 'Кітапхананы басқару →',
   'dashboard.recentEmpty':
     'Әлі жіберілген хаттар жоқ — жіберілген электрондық хаттарыңыз осында көрсетіледі.',
@@ -145,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Әдепкі дыбыс',
   'settings.toneSubheading': 'Жобада қайта жазбасаңыз, Signet осы дыбысты пайдаланады.',
   'signetLayout.primaryNavLabel': 'Негізгі навигация',
+  'signetLayout.toggleMenu': 'Мәзірді ауыстыру/жасыру',
   'signup.emailLabel': 'Электрондық поштаның адресі',
   'signup.showPassword': 'Құпия сөзді көрсету',
   'signup.tagline':

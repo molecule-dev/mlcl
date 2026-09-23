@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Ipa rẹ',
   'account.role.upgradeLink': 'Fi ìbéèrè sílẹ̀ láti di olùkọ́ tí a ti fìdí rẹ̀ múlẹ̀ →',
   'account.title': 'Ìwífún, ìsanwó & àwọn ohun tí a fẹ́.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Kọ́ni lórí Ṣíìkì',
   'becomeTutor.form.error': 'Kò le fi ìbéèrè sílẹ̀.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Kókó ọ̀rọ̀',
   'bookingConfirm.title': 'O ti gba iwe. Awa yoo ṣe gbogbo ohun ti o ku.',
   'bookingConfirm.with': 'Pẹ̀lú olùkọ́',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'earningsHero.eyebrow': 'èrè • {{month}}',
   'forgotPassword.heading': 'Gbagbe oruku abawole re?',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Fi ifiranṣẹ ranṣẹ',
   'messages.thread.empty': 'Sọ kí o — bẹ̀rẹ̀ ìjíròrò náà.',
   'messages.title': 'Awọn ọrọ pẹlu awọn olukọni rẹ.',
+  'nav.primary': 'Àkọ́bẹ̀rẹ̀',
   'pricing.dataExport': 'Gbigbe data jade:',
   'pricing.headingDefault': 'Awọn ẹya ara ẹrọ to ti ni ilọsiwaju:',
   'resetPassword.heading': 'Yan ọrọ igbaniwọle tuntun ti o lagbara.',

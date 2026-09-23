@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meist',
   'authShell.samplePreview':
     '„Tere, meeskond, uus juhtpaneel on suurepärane – just see, mida me vajasime!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/otsetee',
   'automations.subheading':
     'Reeglid, valmisvastused ja chatbotid – hoia töökeskkond sujuvalt töös, kui su meeskond keskendub keerulisematele ülesannetele.',
+  'automations.trigger.inboundMessage': 'Saabuv sõnum',
   'automations.triggerLabel': 'Päästik',
   'chatBubble.internalNoteLabel': 'Sisemine märkus',
+  'common.confirmDelete': 'Kinnita kustutamine',
+  'common.goToDashboard': 'Mine töölauani',
   'contactDetail.backToContacts': 'Kõik kontaktid',
   'contactDetail.contactFallback': 'Kontakt',
   'contactDetail.conversationFallback': 'Vestlus',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Viimati nähtud',
   'contacts.empty': 'Kontakte pole veel. Lisa oma esimene kontakt ülevalt.',
   'contacts.eyebrow': 'Klientide nimekiri',
+  'contacts.form.nameOrEmailRequired': 'Esitage vähemalt nimi või e-posti aadress',
   'contacts.form.save': 'Salvesta kontakt',
   'contacts.heading': 'Kontaktid',
   'contacts.loading': 'Laaditakse kontakte…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Salvesta märkus',
   'conversationDetail.tab.note': 'Sisemine märkus',
   'conversationDetail.threadAria': 'Vestlusteadete',
+  'conversationDetail.visitorFallback': 'Külastaja',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Kliendi andmed',
   'customerProfilePanel.recentTitle': 'Viimased vestlused',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Kliendid saavad „{{time}}is“ keskmiselt esimese vastuse – hoidke seda tempot.',
   'inboxHeroCard.title': 'Aktiivsed vestlused',
+  'inboxLayout.navDrawerLabel': 'Navigatsioon',
+  'inboxLayout.openMenu': 'Ava navigeerimismenüü',
   'inboxOverview.eyebrow': 'Tänane ülevaade',
   'inboxOverview.heroChange': '{{count}} avatud',
   'inboxOverview.kpiClosedTrend': 'kõigi aegade',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Külasta kodulehte',
   'notifications.subheading':
     'Ülesanded, @mainimised, SLA-riskid, CSAT-tagasiside ja meeskonna tegevus – järjestatud uuemate järgi.',
+  'notifications.subjectFallback': 'vestlus',
+  'notifications.visitorFallback': 'Külastaja',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Kõrge',
   'priority.low': 'Madal',
+  'priority.normal': 'Tavaline',
   'priority.urgent': 'Kiireloomuline',
   'privacy.title': 'Andmekaitsepoliitika',
   'reports.agentFallback': 'Agent',

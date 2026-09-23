@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.pageTitle': '{{app}} کے بارے میں',
   'authShell.statusLabel': 'رنرز آن لائن',
   'collections.createError': 'مجموعہ نہیں بنایا جا سکا۔',
   'collections.defaultName': 'بلا عنوان مجموعہ {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'نیا مجموعہ',
   'collections.subheading':
     'گروپ کی درخواستیں، اپنی ٹیم کے ساتھ اشتراک کریں، اور انہیں ایک سویٹ کے طور پر چلائیں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'environmentCard.inactive': 'بیکار',
   'environmentCard.more': 'مزید',
   'environmentCard.variables': 'متغیرات',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'مفت ڈاؤن لوڈ کریں۔',
   'landing.heroSubtitle':
     'بجلی کا تیز رفتار API ٹیسٹنگ ورک بینچ ٹرمینلز میں رہنے والے انجینئرز کے لیے بنایا گیا ہے۔',
+  'landing.heroTitleAccent': 'آگ',
+  'landing.heroTitleLine2': 'اعتماد پیدا کریں.',
+  'landing.heroTitleRest': 'درخواستیں،',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ قیمتوں کا تعین --plain',
   'landing.pricingHeading': 'سادہ، متوقع قیمت',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'یہاں نیا؟',
   'login.showPassword': 'پاس ورڈ دکھائیں۔',
   'login.subtitle': 'اپنے Pylon ورک اسپیس پر جاری رکھیں۔',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'mocks.createError': 'موک نہیں بنا سکا۔',
   'mocks.defaultName': 'بلا عنوان مذاق {{n}}',
   'mocks.deleteError': 'موک کو حذف نہیں کیا جا سکا۔',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'کام کی جگہ پر واپس جائیں۔',
   'notFound.eyebrow': '$ pylon حل -- سخت',
   'notFound.title': 'راستہ نہیں ملا',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'privacy.collect.account':
     'اکاؤنٹ: آپ کا ای میل، ہیشڈ پاس ورڈ، ڈسپلے نام، اور آپ کے آخری سائن ان کا ٹائم اسٹیمپ۔',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'اس اکاؤنٹ کے پاس موجود ڈیٹا کا صرف پڑھنے کا منظر۔',
   'settings.unset': 'مقرر نہیں',
   'signup.identityHint': 'جیسے ایلکس',
+  'signup.statusLabel': 'مفت درجے · کوئی کریڈٹ کارڈ نہیں۔',
   'signup.subtitle': 'منٹوں میں درخواستوں کو فائر کرنا شروع کریں۔',
   'terms.account.body':
     'آپ اپنے پاس ورڈ کی حفاظت کے ذمہ دار ہیں۔ ایک سے زیادہ انسانوں کے ساتھ ایک اکاؤنٹ شیئر کرنے کی مفت یا پرو پلانز پر اجازت نہیں ہے — مشترکہ ورک اسپیس کے لیے ٹیم سبسکرپشن خریدیں۔',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'ایسی خدمات پر درخواستوں کو برطرف کرنے کے لیے Pylon کا استعمال نہ کریں جو آپ کے پاس نہیں ہیں یا آپ کے پاس ٹیسٹ کرنے کی واضح اجازت نہیں ہے۔ شرح کی حدود کو روکنے یا دھوکہ دہی کے ارتکاب کے لیے Pylon کا استعمال نہ کریں۔',
   'terms.warranty.body':
     'پائلن کسی بھی قسم کی وارنٹی کے بغیر "جیسا ہے" فراہم کیا جاتا ہے۔ ہمارا مقصد 99.9% اپ ٹائم ہے لیکن مفت یا پرو پلانز پر اس کی ضمانت نہیں دیتے۔',
+  'testRunner.assertionsCount': '{{count}} دعوے',
   'testRunner.createError': 'ٹیسٹ نہیں بنایا جا سکا۔',
   'testRunner.cron':
     'دعوے کا جائزہ اس ٹیسٹ کی منسلک درخواست کے حالیہ ترین رن کے خلاف لگایا جاتا ہے۔',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'سویٹ کے نتائج، دعوے میں فرق، اور آخری 50 رنز۔',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'بطور سائن ان',
+  'workspace.auth.keyName': 'ہیڈر کا نام',
+  'workspace.auth.keyValue': 'کلیدی قدر',
+  'workspace.auth.password': 'پاس ورڈ',
+  'workspace.auth.username': 'صارف نام',
+  'workspace.authOption.apikey': 'API کلید',
+  'workspace.authOption.basic': 'بنیادی تصدیق',
+  'workspace.authOption.bearer': 'بیئرر ٹوکن',
+  'workspace.authOption.none': 'کوئی نہیں۔',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'قسم',
   'workspace.authTypeLabel': 'سند کی قسم',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'کوئی نہیں۔',
+  'workspace.body.text': 'خام متن',
+  'workspace.body.type': 'قسم',
   'workspace.environment': 'کوئی env',
   'workspace.envVar': 'env متغیر',
   'workspace.eyebrow': '$ pylon ورک اسپیس --پین تقسیم',
+  'workspace.kv.addHeader': 'ہیڈر شامل کریں۔',
+  'workspace.kv.addParam': 'پیرا شامل کریں۔',
+  'workspace.kv.headerKey': 'ہیڈر کا نام',
+  'workspace.kv.headerValue': 'ہیڈر کی قدر',
+  'workspace.kv.key': 'چابی',
+  'workspace.kv.paramKey': 'سوال پیرم کلید',
+  'workspace.kv.paramValue': 'سوال پیرم قدر',
+  'workspace.kv.removeRow': 'قطار کو ہٹا دیں۔',
+  'workspace.kv.value': 'قدر',
   'workspace.methodLabel': 'HTTP طریقہ',
   'workspace.metric.latency': 'تاخیر',
   'workspace.metric.latencyCaption': 'اس رن سے راؤنڈ ٹرپ',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'درخواست برطرف کر دی گئی — نیچے جواب دیکھیں۔',
   'workspace.subheading':
     'ایک درخواست تحریر کریں، اسے فائر کریں، پھر جواب پر زور دیں - سب ایک پین میں۔',
+  'workspace.testResults': 'ٹیسٹ کے نتائج',
   'workspace.token': 'ٹوکن',
   'workspace.tokenHint': 'اجازت کے طور پر بھیجا گیا: بیئرر<token> اس مجموعہ میں ہر درخواست پر۔',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

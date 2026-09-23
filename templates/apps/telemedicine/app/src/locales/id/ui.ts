@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Pesan Janji Temu',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Tidak ada pasien untuk ditampilkan.',
+  'common.goToDashboard': 'Ke Dashboard',
   'consult.backLink': 'Semua janji temu',
   'consult.captions': 'Teks terjemahan',
   'consult.connected': 'Terhubung · 720p · stabil',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pasien',
   'patientVitalsHero.scripts': 'Rx terbuka',
   'patientVitalsHero.subline': '{{count}} konsultasi di jadwal Anda hari ini',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'prescriptions.empty': 'Tidak ada resep yang cocok.',
   'prescriptions.eyebrow': 'E-resep',
   'prescriptions.heading': 'Resep',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Pemberitahuan Privasi',
   'privacy.use.body':
     'Untuk memberikan perawatan, mengirim pengingat janji temu, mengarahkan resep, dan meningkatkan keandalan layanan. Kami tidak pernah menjual data Anda dan tidak pernah membagikan informasi klinis dengan pengiklan.',
+  'providers.allSpecialties': 'Semua Spesialisasi',
+  'providers.loadError': 'Gagal memuat penyedia.',
+  'providers.loading': 'Memuat…',
   'providers.noResults': 'Tidak ada dokter ditemukan.',
   'providers.searchPlaceholder': 'Cari berdasarkan nama, spesialisasi...',
   'providers.title': 'Cari Dokter',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Awal hari',
   'settings.availability.heading': 'Ketersediaan',
   'settings.devices.thisDevice': 'Perangkat ini',
+  'settings.devices.unnamed': 'Perangkat tanpa nama',
   'settings.eyebrow': 'Praktik dan akun',
   'settings.loadError': 'Tidak dapat memuat profil Anda.',
   'settings.notifications.emailMessages':
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Nonaktifkan',
   'settings.security.twoFactor.enable': 'Aktifkan',
   'settings.security.twoFactor.heading': 'Autentikasi dua faktor',
+  'settings.security.twoFactor.invalidCode': 'Kode tersebut tidak cocok. Coba lagi.',
+  'settings.security.twoFactor.setupFailed':
+    'Pengaturan otentikasi dua faktor tidak dapat dimulai. Coba lagi.',
+  'settings.security.twoFactor.statusOn': 'Otentikasi dua faktor aktif.',
   'settings.signOutDevice': 'Keluar',
   'settings.subheading': 'Profil dokter, aturan praktik, dan peringatan klinis.',
   'signup.emailLabel': 'EMAIL',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Buat Akun',
   'signupFooter.hipaa': 'Mematuhi HIPAA',
   'solaceLayout.primaryNavLabel': 'Navigasi utama',
+  'solaceLayout.toggleMenu': 'Alihkan menu',
   'terms.eligibility.body':
     'Anda harus berusia minimal delapan belas tahun, atau menjadi orang tua atau wali sah dari anak di bawah umur yang Anda cari perawatannya, dan secara fisik berada di negara bagian A.S. tempat dokter kami berlisensi.',
   'terms.payment.body':

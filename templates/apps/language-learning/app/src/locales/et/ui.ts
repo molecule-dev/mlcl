@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meist',
+  'common.goToDashboard': 'Mine töölauani',
+  'common.logout': 'Logi välja',
   'dailyStatsTriad.heartsLabel': 'Südamed',
   'dailyStatsTriad.minutesLabel': 'Minutid täna',
   'dailyStatsTriad.minutesValue': '{{count}} minuti',
   'dailyStatsTriad.wordsLabel': 'Sõnad valdatud',
+  'dailyStatsTriad.wordsMasteryHint': 'Sõnad meisterlikkuse tasemel 4+',
   'dashboard.continueHeading': 'Jätka sealt, kus pooleli jäid',
   'dashboard.heading': 'Buenos päeva {{name}} .',
   'dashboard.loadError':
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Harjutusi ei õnnestunud laadida.',
   'lessonDetail.loading': 'Õppetundi laaditakse…',
   'lessonDetail.submitError': 'Vastust ei õnnestunud esitada.',
+  'lessonDetail.translation': 'Tõlgi fraas',
   'lessonDetail.xpEarned': 'Teenitud kogemuspunkte · {{xp}}',
   'lessons.empty': 'Sellel tasemel tunde pole {{level}} veel — proovige teist taset.',
   'lessons.eyebrow': 'Tunnikogu',
@@ -66,7 +71,11 @@ export const ui: UiTranslations = {
   'login.noAccount': "Kas oled Parlance'is uus?",
   'login.showPassword': 'Näita parooli',
   'login.signUp': 'Alusta tasuta →',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
+  'parlanceLayout.nav.profile': 'Profiil',
   'parlanceLayout.primaryNavLabel': 'Peamine navigeerimine',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'practice.empty': 'Ühtegi fraasi pole veel saadaval.',
   'practice.eyebrow': 'Kõnelemisharjutus',
   'practice.heading': 'Loe seda. Salvesta see. Täpsusta seda.',
@@ -133,6 +142,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.tagline':
     '{{totalXp}} Teenitud kogemusepunktid. Säilita rütm – nädalamärgini on jäänud veel kolm päeva.',
   'streakHeroCard.xpToday': '+ {{xp}} XP täna',
+  'vocabReviewCard.due': 'Tähtaeg {{date}}',
   'vocabReviewCard.dueUnknown': 'Läbivaatamise tähtaeg',
   'vocabReviewCard.forgot': 'Unustasin',
   'vocabReviewCard.gotIt': 'Sain aru',

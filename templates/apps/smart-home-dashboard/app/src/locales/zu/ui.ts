@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'activity.empty': 'Akukho msebenzi okwamanje — phendula idivayisi noma uvule isigcawu.',
   'activity.eyebrow': 'Umugqa wesikhathi',
   'activity.loadError': 'Ayikwazanga ukulayisha okuphakelayo komsebenzi.',
   'activity.subheading':
     'Yonke idivayisi, ukuzenzekela, kanye nomcimbi wokuphepha ngokulandelana kwezikhathi.',
+  'addDevice.error.failed': 'Ayikwazanga ukwengeza idivayisi. Zama futhi.',
   'addDevice.error.nameRequired': 'Nika le divayisi igama ukuze uqhubeke.',
   'addDevice.field.firmware': 'Inguqulo ye-Firmware',
   'addDevice.field.manufacturer': 'Umkhiqizi',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Ukuhlola…',
   'automationEditor.testNew': 'Londoloza ukuzenzakalela kuqala ukuze ukuhlole.',
   'automationRow.lastRun': 'Okokugcina {{date}} · {{count}} ukugijima',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Gijima {{name}} manje',
   'automations.empty': 'Azikho izinto ezenzakalelayo okwamanje — dala inqubo yakho yokuqala.',
   'automations.eyebrow': 'Imizila',
@@ -53,6 +57,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Ilayisha okuzenzakalelayo…',
   'automations.newAutomation': '+ Okusha',
   'automations.subheading': 'Uma lokhu kwenzeka, yenza lokho — ngaphandle kwe-YAML.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Yehlulekile ukulayisha idivayisi.',
@@ -72,6 +77,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Kuyasebenza…',
   'deviceDetail.unnamed': 'Idivayisi',
   'deviceStatusRow.on': 'Kuvuliwe',
+  'deviceStatusRow.turnOff': 'Vala',
+  'deviceStatusRow.turnOn': 'Vula',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Amandla',
   'energy.heading': 'Amandla',
@@ -180,4 +187,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Bona izinhlelo',
   'settings.security.heading': 'Ukuphepha',
   'settings.subheading': 'Uhlelo, ama-hub, kanye nezintandokazi ze-akhawunti.',
+  'smartHomeDashboardLayout.openMenu': 'Vula imenyu yokuzulazula',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
 }

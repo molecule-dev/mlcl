@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'authShell.brandHeading': 'Բազմախաղացող կտավներ բարձրաձայն մտածող դիզայներական թիմերի համար։',
   'billing.canceled': 'Բաժանորդագրությունը չեղարկվել է։',
   'billing.cancelPlan': 'Չեղարկել պլանը',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Սկսել ձևանմուշից',
   'boards.title': 'Ձեր տախտակները',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Մուտքագրեք ձեր աշխատանքային տարածքին կցված էլ. փոստը, և մենք կուղարկենք վերակայման հղումը։',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 սեմինար · Բրենդի ձայն',
   'landing.featuresEyebrow': 'Ի՞նչն է Slate-ն դարձնում խճանկարային',
   'landing.featuresTitle': 'Արագ արձագանք։ Գեղեցիկ կտավներ։ Առանց շփման։',
+  'landing.hero.body':
+    '{{appName}} ը բազմախաղացող սպիտակ տախտակ է դիզայներական թիմերի, սեմինարների ֆասիլիտատորների և մանկավարժների համար, ովքեր անցկացնում են ուղիղ ուղեղային փոթորիկներ և կարիք ունեն գաղափարների մեկ տեղում համախմբման։',
   'landing.hero.primaryCta': 'Սկսեք անվճար տախտակ',
   'landing.hero.socialProof': 'Վստահված է {{count}} դիզայներական թիմեր ամբողջ աշխարհում',
   'landing.hero.title': 'Կտավ՝ ձեր մտքերի պես արագ',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Ստեղծեք ազատ աշխատանքային տարածք',
   'login.subheading':
     'Շարունակեք այնտեղից, որտեղ սեմինարն ավարտվեց. տախտակները, կպչուն թղթերը և կուրսորները՝ բոլորը համաժամեցվում են իրական ժամանակում։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.new': 'Նոր',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'notifications.editTitle': 'Խմբագրումներ «» {{board}} «',
   'notifications.empty.body':
     'Հրավերները, պահված լուսանկարները և ֆորումի վերջին փոփոխությունները կհայտնվեն այստեղ՝ դրանց տեղի ունենալուն պես։',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Տարբերակների պատմություն',
   'versionHistory.untitledSnapshot': 'Անանուն լուսանկար',
   'whiteboardLayout.newBoard': 'Նոր տախտակ',
+  'whiteboardLayout.primaryNav': 'Հիմնական նավիգացիա',
   'workspace.boardLabel': 'Տախտակ',
   'workspace.eyebrow': '{{name}} · աշխատանքային տարածք',
   'workspace.invite': 'Հրավիրեք համագործակիցների',

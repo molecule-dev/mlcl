@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Névjegy',
+  'appShell.closeNav': 'Navigáció bezárása',
+  'appShell.openNav': 'Navigáció megnyitása',
+  'common.dashboard': 'Irányítópult',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.eyebrow': 'Ma a bajnokságban',
   'dashboard.loading': 'A mai esti eredmények lehívogatása…',
   'dashboard.scoringLeaders': 'Gólvezetők',
@@ -147,4 +151,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}}n ezelőtt',
   'time.hoursAgo': '{{count}}ó ezelőtt',
   'time.minutesAgo': '{{count}} perccel ezelőtt',
+  'time.secondsAgo': '{{count}} másodperccel ezelőtt',
 }

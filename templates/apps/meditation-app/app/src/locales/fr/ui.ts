@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
+  'about.eyebrow': 'À propos de {{app}}',
+  'about.intro':
+    '{{app}} est une application de méditation pour la vraie vie : des méditations guidées quotidiennes, des exercices de respiration et des histoires pour s’endormir, animés par des professeurs bienveillants et attentifs. Pas de pression, pas de flux d’informations intempestif : juste un espace de calme pour se recentrer sur sa respiration.',
+  'about.missionBody':
+    "Nous croyons que la quiétude devrait être accessible à tous, à tout moment de la journée. {{app}} a été conçue pour rendre une pratique calme et régulière naturelle, afin que dix minutes de méditation puissent transformer votre façon d'aborder les dix heures suivantes.",
+  'about.missionTitle': 'Notre mission',
+  'about.pageTitle': 'Dix minutes de calme par jour',
+  'breathingDial.seconds': 'secondes',
+  'common.goToDashboard': 'Aller au tableau de bord',
+  'common.logout': 'Se déconnecter',
   'common.min': 'min',
   'common.relative.justNow': "tout à l' heure",
   'common.relative.now': 'maintenant',
+  'mobileNav.closeMenu': 'Fermer le menu de navigation',
+  'mobileNav.openMenu': 'Ouvrir le menu de navigation',
+  'nav.secondaryNavigation': 'Navigation du compte',
   'sessionCard.with': 'avec {{name}}',
   'stillpoint.billing.choose': 'Choisir {{plan}}',
   'stillpoint.billing.currentPlan': 'Vous êtes sur {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Impossible de charger les forfaits.',
   'stillpoint.billing.opening': 'Ouverture du paiement…',
   'stillpoint.billing.perMonthShort': '/ mois',
+  'stillpoint.billing.perYearShort': '/an',
   'stillpoint.billing.unknownResult': 'Réponse de facturation inattendue.',
   'stillpoint.billing.yearly': 'Annuel · économisez 17 %',
   'stillpoint.courseDetail.back': 'Cours',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Aucun cours pour l’instant.',
   'stillpoint.courses.eyebrow': '{{count}} parcours de plusieurs jours',
   'stillpoint.courses.heading': 'Cours',
+  'stillpoint.forgot.checkEmail':
+    'Consultez votre boîte de réception — le lien expire dans 30 minutes.',
   'stillpoint.forgot.success': 'Nous avons envoyé un lien de réinitialisation à {{email}}.',
   'stillpoint.home.empty': 'Aucune séance pour l’instant — revenez bientôt.',
   'stillpoint.home.friend': 'ami',
@@ -49,6 +66,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Créer votre compte gratuit',
   'stillpoint.landing.cta.title': 'Commencez votre quiétude dès aujourd’hui',
   'stillpoint.landing.features.heading': 'Une pratique qui grandit avec vous',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Méditations guidées quotidiennes, respiration et histoires pour s’endormir — au rythme d’enseignants qui ressemblent à des amis, pas à des coachs.',
   'stillpoint.landing.hero.eyebrow': '10 minutes plus calmes par jour',
@@ -65,6 +83,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Parcourir par humeur',
   'stillpoint.login.rememberMe': 'Rester connecté',
   'stillpoint.login.subheading': 'Connectez-vous pour reprendre votre pratique.',
+  'stillpoint.nav.tagline': 'Trouvez votre centre de calme.',
+  'stillpoint.notFound.body':
+    'Cette page est en train de se recharger. Trouvons-vous un endroit plus calme dans {{app}} .',
   'stillpoint.notFound.title': 'Perdu dans le silence',
   'stillpoint.notFound.toHome': 'Retour à aujourd’hui',
   'stillpoint.notFound.toLibrary': 'Parcourir la bibliothèque',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Reculer de 15 s',
   'stillpoint.player.skipForward': 'Avancer de 30 s',
   'stillpoint.player.with': 'avec {{name}}',
+  'stillpoint.profile.defaultHandle': 'Stillpointer',
   'stillpoint.profile.eyebrow': 'Votre pratique, résumée.',
   'stillpoint.profile.locked': 'Verrouillé',
   'stillpoint.profile.member': 'Membre Stillpoint',

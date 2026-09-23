@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'auditLog.empty':
     'Ní thagann aon imeachtaí iniúchta le do scagairí go fóill. Cuir fostaí in eagar nó próiseáil rith pá agus beidh siad le feiceáil anseo.',
   'auditLog.eyebrow': 'Comhlíonadh',
+  'auditLog.loadError': 'Níorbh fhéidir an log iniúchta a luchtú.',
   'auditLog.searchPlaceholder': 'Cuardaigh de réir aisteora, gnímh, nó cur síos',
   'auditLog.subheading':
     'Gach ceadú, eagarthóireacht, agus comhdú cánach — leis an aisteoir, an stampa ama, agus na réimsí athraithe.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Gan chumrú',
   'billing.plansHeading': 'Pleananna',
   'billing.subheading': 'Bainistigh do phlean agus aistrigh leibhéil trí Stripe.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Déan iarracht eile',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Léargas comhlíontachta',
   'dashboard.compliance.title': 'Gach seic ag dul tharainn',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Gan aon asbhaintí ar chomhad.',
   'employeeDetail.notFound': 'Níor aimsíodh an fostaí.',
   'employeeDetail.payFrequency': 'Minicíocht pá',
+  'employeeDetail.postTax': 'Iar-chánach',
+  'employeeDetail.preTax': 'Réamhcháin',
   'employeeDetail.salary': 'Tuarastal bliantúil',
   'employeeDetail.ssn': 'Uimhir aitheantais slándála sóisialta',
   'employeeDetail.startedOn': 'Thosaigh {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Minicíocht pá',
   'employeeForm.salary': 'Tuarastal bliantúil (USD)',
   'employeeForm.salaryInvalid': 'Ní mór don tuarastal a bheith ina uimhir neamh-dhiúltach.',
+  'employeeForm.saveError': 'Níorbh fhéidir an fostaí a shábháil.',
   'employeeForm.semimonthly': 'Leathmhíosúil',
   'employeeForm.single': 'Singil',
   'employeeForm.ssn': 'Uimhir aitheantais slándála sóisialta',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Tuarastal',
   'forgotPassword.subtitle':
     'Cuir isteach do sheoladh ríomhphoist oibre agus seolfaimid nasc athshocraithe chugat.',
+  'landing.copyright': '© {{year}} {{app}} . Beacht, iontaofa, comhdhéanta.',
   'landing.ctaBody':
     'Saor in aisce ar feadh 30 lá. Gan cárta creidmheasa. Athraigh am ar bith gan do rian iniúchta a chailleadh.',
   'landing.ctaHeading': 'Rith do chéad timthriall eile ar Stipend',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Iontrálacha',
   'payRunDetail.noActivity': 'Gan aon iontrálacha iniúchta don rith pá seo go fóill.',
   'payRunDetail.noStubs': 'Gan aon slipeanna pá fós — ceadaigh & próiseáil chun iad a ghiniúint.',
+  'payRunDetail.notFound': 'Níorbh fhéidir an rith pá seo a aimsiú.',
   'payRunDetail.statDeductions': 'Asbhaintí',
   'payRunDetail.statHeadcount': 'Fostaithe',
   'payRunDetail.statTaxes': 'Cánacha a coinníodh siar',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Leathmhíosúil',
   'settings.signOutDevice': 'Sínigh amach',
   'settings.subheading': 'Próifíl na cuideachta, sceideal pá, agus comhtháthú.',
+  'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'settings.weekly': 'Seachtainiúil',
   'taxCenter.bucket.federal': 'Ioncam cónaidhme',
   'taxCenter.bucket.fica': 'Slándáil Shóisialta',

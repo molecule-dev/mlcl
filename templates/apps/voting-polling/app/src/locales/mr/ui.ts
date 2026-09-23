@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
   'analytics.col.quorum': 'कोरम',
   'analytics.col.votes': 'मते',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'अद्याप कोणतेही प्रलंबित प्रश्न नाहीत.',
   'audienceQa.onStageEyebrow': 'आता रंगमंचावर',
   'audienceQa.pollId': 'प्रश्नोत्तर · {{id}}',
+  'audienceQa.promote': 'प्रोत्साहन द्या',
   'audienceQa.queued': 'रांगेत',
   'audienceQa.queueEyebrow': 'रांग',
   'ballot.eyebrow': 'आपले मत नोंदवा',
@@ -79,6 +81,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'तुम्ही सध्या यावर आहात {{plan}} योजना.',
   'billing.switch': 'स्विच',
   'billing.upgraded': 'अद्यतनित केले {{plan}} मर्यादा तात्काळ लागू झाल्या.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'createPoll.addOption': 'पर्याय जोडा',
   'createPoll.anonymousHint': 'ऑडिट लॉगमध्ये मतदारांची नावे लपवली जातात; मतमोजणी प्रमाणित राहते.',
   'createPoll.anonymousLabel': 'अनामिक मतदानास परवानगी द्या',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'तुम्ही Nosh वर नवीन आहात का?',
   'login.remember': 'मला ३० दिवसांसाठी लक्षात ठेवा',
   'login.subheading': 'कामकाज सुरू करा, खोलीची पाहणी करा आणि निकालाची पडताळणी करा.',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'notFound.body':
     'तुम्ही ज्या पानावर जाण्याचा प्रयत्न केला ते बंद झाले आहे किंवा हलवले गेले आहे. डॅशबोर्डवर परत जा किंवा नवीन मतदान सुरू करा.',
   'notFound.eyebrow': 'या मार्गावर पुरेसे सदस्य नाहीत.',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'हे मतदान लोड होऊ शकले नाही.',
   'pollDetail.loading': 'मतदान लोड होत आहे…',
   'pollDetail.notFound': 'मतदान आढळले नाही.',
+  'pollDetail.openBallot': 'खुली मतपत्रिका',
   'pollDetail.openLive': 'थेट निकाल',
   'pollDetail.pollId': 'मतदान · {{id}}',
   'pollDetail.published': 'मतदान जाहीर झाले आहे — मतदार आता मतदान करू शकतात.',
@@ -264,4 +270,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ईमेलद्वारे शोधा…',
   'voters.subheading':
     'पात्र मतदार यादी तयार करा. भारित मतपत्रिकांसाठी मतदारांना संस्थेनुसार गटबद्ध करा.',
+  'votingPollingLayout.nav.analytics': 'विश्लेषण',
+  'votingPollingLayout.nav.billing': 'बिलिंग',
+  'votingPollingLayout.nav.createPoll': 'नवीन सर्वेक्षण',
+  'votingPollingLayout.nav.dashboard': 'डॅशबोर्ड',
+  'votingPollingLayout.nav.notifications': 'सूचना',
+  'votingPollingLayout.nav.settings': 'सेटिंग्ज',
+  'votingPollingLayout.nav.team': 'संघ',
+  'votingPollingLayout.nav.voters': 'मतदार',
+  'votingPollingLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
 }

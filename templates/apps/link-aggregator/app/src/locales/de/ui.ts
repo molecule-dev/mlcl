@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Über „{{app}}“',
+  'brandHeader.tagline': '{{tagline}}',
   'commentThreadItem.collapse': 'Einklappen',
   'commentThreadItem.expand': 'Ausklappen',
   'commentThreadItem.karma': '{{karma}} Karma',
   'common.and': 'und',
+  'common.goToDashboard': 'Zum Dashboard',
   'feed.clearTag': 'Tag-Filter entfernen',
   'feed.controls': 'Feed sortieren',
   'feed.empty': 'Hier ist noch nichts — markieren Sie als Erste*r einen Weg.',
+  'feed.heroEyebrow': 'Ihre Titelseite',
   'feed.heroHeadline': 'Drei Communitys. Eine langsam geteilte Zeitleiste.',
   'feed.loadError': 'Beiträge konnten nicht geladen werden.',
   'feed.loading': 'Startseite wird geladen…',
@@ -17,6 +23,8 @@ export const ui: UiTranslations = {
   'forgotPassword.subtitle':
     'Geben Sie die E-Mail-Adresse Ihres Kontos ein und wir senden Ihnen einen Link zum Zurücksetzen.',
   'forgotPassword.success': 'Prüfen Sie {{email}} auf den Zurücksetz-Link.',
+  'landing.eyebrow': '{{tagline}}',
+  'landing.footerCopy': '\\u00a9 {{appName}} \\u2014 Markiere den Pfad.',
   'landing.headline': 'Ein kleiner, ruhiger Ort für Links, die es wert sind, markiert zu werden.',
   'landing.heroPreview': 'Digest-Vorschau',
   'landing.subsEyebrow': 'Aktive Subs',
@@ -24,11 +32,16 @@ export const ui: UiTranslations = {
   'landing.todayEyebrow': 'Heute auf Digest',
   'landing.todayHeadline': 'Ein Blick auf die Startseite.',
   'landing.trendingEyebrow': 'Heute im Trend',
+  'linkAggregatorLayout.mobileNav': 'Primär',
+  'linkAggregatorLayout.searchAria': 'Vox durchsuchen',
   'linkAggregatorLayout.searchPlaceholder': 'Links, Tags, Nutzer*innen suchen…',
   'linkAggregatorLayout.sectionFeeds': 'Feeds',
   'linkAggregatorLayout.settings': 'Einstellungen',
   'linkDetail.backToFeed': 'Zurück zum Feed',
   'linkDetail.byUser': 'eingereicht von {{user}}',
+  'linkDetail.commentAria': 'Schreiben Sie einen Kommentar',
+  'linkDetail.commentError':
+    'Kommentar konnte nicht veröffentlicht werden – bitte versuchen Sie es erneut.',
   'linkDetail.commentPlaceholder': 'Fügen Sie eine durchdachte Antwort hinzu…',
   'linkDetail.commentsHeading': '{{count}} Kommentare',
   'linkDetail.commentSubmit': 'Kommentar veröffentlichen',
@@ -41,13 +54,18 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Neu bei Tessera?',
   'login.orContinue': 'oder fortfahren mit',
   'login.signingIn': 'Anmelden…',
+  'login.subtitle': '{{tagline}}',
   'login.welcome': 'Willkommen zurück am Cairn.',
   'nav.legal': 'Rechtliches',
   'notifications.heroHeadline': 'Antworten, Erwähnungen und Meilensteine.',
   'notifications.loading': 'Posteingang wird geladen…',
   'notifications.title.mention': 'Du wurdest erwähnt',
   'notifications.title.milestone': 'Meilenstein erreicht',
+  'notifications.title.modmail': 'Moderatorhinweis',
+  'notifications.title.reply': 'Neue Antwort',
+  'notifications.title.vote': 'Dein Beitrag hat eine Stimme erhalten',
   'notifications.view': 'Thread ansehen',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'privacy.lastUpdated': 'Zuletzt aktualisiert: {{date}}',
   'privacy.section.collected.body':
     'Wir erfassen Kontodaten (Nutzername, E-Mail), die von Ihnen geposteten Inhalte (Links, Kommentare, Stimmen, gespeicherte Elemente, Sub-Mitgliedschaften) und Standardprotokolle des Betriebs (IP, User-Agent, Zeitstempel).',
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'resetPassword.submitting': 'Wird zurückgesetzt…',
   'resetPassword.subtitle':
     'Wählen Sie ein starkes, einzigartiges Passwort, um die Freigabe Ihres Kontos abzuschließen.',
+  'saved.allCollection': 'Alle gespeichert',
   'saved.empty':
     'Noch nichts gespeichert — tippen Sie auf das Lesezeichen eines Beitrags, um Ihre Bibliothek aufzubauen.',
   'saved.heroBody':
@@ -102,6 +121,7 @@ export const ui: UiTranslations = {
   'settings.privacy.body':
     'Digest hält Ihre gespeicherten Links und Ihren Suchverlauf privat. Tippen Sie unten, um Ihre Daten herunterzuladen oder Ihr Konto zu schließen.',
   'settings.privacy.export': 'Meine Daten exportieren',
+  'settings.privacy.exporting': 'Exportvorbereitungen…',
   'settings.saveFailed': 'Einstellungen konnten nicht gespeichert werden.',
   'settings.saving': 'Wird gespeichert…',
   'signup.heading': 'Erstellen Sie Ihr Digest-Konto.',
@@ -134,6 +154,7 @@ export const ui: UiTranslations = {
   'submitLink.urlLabel': 'URL',
   'submitLink.urlRequired': 'Für Link-Beiträge ist eine URL erforderlich.',
   'subs.empty': 'Noch keine Subs — seien Sie die erste Person, die einen erstellt.',
+  'subs.heroEyebrow': 'Teilgemeinschaften',
   'subs.heroHeadline': 'Wählen Sie Ihre Steine. Bauen Sie Ihren Cairn.',
   'subs.loadError': 'Subs konnten nicht geladen werden.',
   'subs.loading': 'Subs werden gesammelt…',

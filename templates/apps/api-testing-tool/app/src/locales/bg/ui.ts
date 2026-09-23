@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
+  'about.pageTitle': 'За {{app}}',
   'authShell.statusLabel': 'бегачи онлайн',
   'collections.createError': 'Не можа да се създаде колекция.',
   'collections.defaultName': 'Неозаглавена колекция {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Нова колекция',
   'collections.subheading':
     'Групирайте заявките, споделяйте ги с екипа си и ги изпълнявайте като пакет.',
+  'common.goToDashboard': 'Към таблото',
   'environmentCard.inactive': 'Бездействие',
   'environmentCard.more': 'повече',
   'environmentCard.variables': 'Променливи',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Изтеглете безплатно',
   'landing.heroSubtitle':
     'Светкавично бързата работна среда за API тестване, създадена за инженери, които работят в терминали.',
+  'landing.heroTitleAccent': 'Пожар',
+  'landing.heroTitleLine2': 'да изгради увереност.',
+  'landing.heroTitleRest': 'заявки,',
   'landing.kicker': '$ pylon изпращане --гледайте',
   'landing.pricingEyebrow': '// $ ценообразуване --обикновено',
   'landing.pricingHeading': 'Проста и предвидима ценова политика',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Нов тук?',
   'login.showPassword': 'Покажи паролата',
   'login.subtitle': 'Продължете към работното си пространство на Pylon.',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'mocks.createError': 'Не можа да се създаде макет.',
   'mocks.defaultName': 'Безименен макет {{n}}',
   'mocks.deleteError': 'Не можа да се изтрие макетът.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Обратно към работното пространство',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрутът не е намерен',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'privacy.collect.account':
     'Акаунт: вашият имейл, хеширана парола, показвано име и времевият печат на последното ви влизане.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Изглед само за четене на данните, които този акаунт притежава в момента.',
   'settings.unset': 'не е зададено',
   'signup.identityHint': 'например Алекс',
+  'signup.statusLabel': 'безплатен план · без кредитна карта',
   'signup.subtitle': 'Започнете да изпълнявате заявки след минути.',
   'terms.account.body':
     'Вие носите отговорност за защитата на паролата си. Споделянето на един акаунт с няколко души не е разрешено в безплатните или професионалните планове — закупете екипен абонамент за споделени работни пространства.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'Не използвайте Pylon, за да изпращате заявки към услуги, които не притежавате или нямате изрично разрешение да тествате. Не използвайте Pylon, за да заобикаляте ограниченията на скоростта или да извършвате измами.',
   'terms.warranty.body':
     'Pylon се предоставя „както е“ без каквато и да е гаранция. Целим 99,9% време на работа, но не го гарантираме за безплатни или професионалисти планове.',
+  'testRunner.assertionsCount': '{{count}} твърдения',
   'testRunner.createError': 'Не можа да се създаде тест.',
   'testRunner.cron':
     'Твърденията се оценяват спрямо най-скорошното изпълнение на свързаната заявка на този тест.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Резултати от пакета, разлики в твърденията и последните 50 изпълнения.',
   'userMenu.shortcut': '⌘Л',
   'userMenu.signedInAs': 'Влезли сте като',
+  'workspace.auth.keyName': 'Име на заглавието',
+  'workspace.auth.keyValue': 'Ключова стойност',
+  'workspace.auth.password': 'Парола',
+  'workspace.auth.username': 'Потребителско име',
+  'workspace.authOption.apikey': 'API ключ',
+  'workspace.authOption.basic': 'Основна автентификация',
+  'workspace.authOption.bearer': 'Токен на притежателя',
+  'workspace.authOption.none': 'Няма',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип удостоверяване',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Няма',
+  'workspace.body.text': 'Неотредактиран текст',
+  'workspace.body.type': 'Тип',
   'workspace.environment': 'Без обкръжение',
   'workspace.envVar': 'променлива на околната среда',
   'workspace.eyebrow': '$ pylon работно пространство --pane разделяне',
+  'workspace.kv.addHeader': 'Добавяне на заглавка',
+  'workspace.kv.addParam': 'Добави параметър',
+  'workspace.kv.headerKey': 'Име на заглавието',
+  'workspace.kv.headerValue': 'Стойност на заглавката',
+  'workspace.kv.key': 'Ключ',
+  'workspace.kv.paramKey': 'Ключ на параметър на заявката',
+  'workspace.kv.paramValue': 'Стойност на параметъра на заявката',
+  'workspace.kv.removeRow': 'Премахване на ред',
+  'workspace.kv.value': 'Стойност',
   'workspace.methodLabel': 'HTTP метод',
   'workspace.metric.latency': 'Забавяне',
   'workspace.metric.latencyCaption': 'Обиколка от това бягане',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Заявката е отхвърлена — вижте отговора по-долу.',
   'workspace.subheading':
     'Съставете заявка, задействайте я и след това потвърдете отговора – всичко това в един панел.',
+  'workspace.testResults': 'Резултати от тестовете',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Изпратено като оторизация: Приносител<token> по всяко запитване в тази колекция.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'forgot.eyebrow': "Qaytib kirish yo'lini adashtirdingizmi?",
   'forgot.formSubtitle': 'Fayldagi elektron pochta manzilini bizga ayting.',
   'forgot.headline': 'Parolingizni qayta tiklang.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.headline': "Sahifa to'xtatilgan joydan davom eting.",
   'login.signupLink': 'Bittasini yarating',
   'login.subline': 'Daftarlaringiz, havolalaringiz va kundalik sahifalaringiz siz qoldirgan joyda.',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'noteEditor.backToNotes': 'Qaydlarga qaytish',
   'noteEditor.bodyPlaceholder':
     'Yozishni boshlang — yozuvingiz yozayotganingizda avtomatik ravishda saqlanadi.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Yangi daftar',
   'notes.newNotebookPrompt': 'Yangi daftar nomi',
   'notes.notebooksHeading': 'Daftarlar',
+  'notes.subtitle':
+    'Chapdagi daftarni tanlang, so\'ngra yangi yozuvni boshlash uchun "Yangi yozuv" tugmasini bosing.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Qayd olish rejangizni tanlang',
   'reset.eyebrow': 'Deyarli qaytib kirdi',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Yangilandi',
   'versoLayout.nav.graph': 'Grafik',
   'versoLayout.nav.home': 'Uy',
+  'versoLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'versoNoteCard.pinned': 'Mahkamlangan',
   'versoTodayHero.continueCta': 'Yozishni davom eting',
   'versoTodayHero.createCta': 'Bugungi eslatmani boshlang',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Perihal {{app}}',
+  'appNav.mobileLabel': 'Navigasi utama',
+  'appNav.primaryLabel': 'Navigasi utama',
   'billing.actions.confirmCancel':
     'Batalkan langganan anda? Anda boleh melanggan semula pada bila-bila masa.',
   'billing.actions.paused': 'Langganan dijeda.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Setiap peringkat merupakan cerita kelompok kecil. Tambahkan satu pada baris gilir anda atau tukarkannya ke bulan seterusnya.',
   'boxThemeCard.perMonth': '/ bulan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'customize.eyebrow': 'Jadikan ia milik anda',
   'customize.heading': 'Sesuaikan Crate anda yang seterusnya',
   'customize.items.exclude': 'Langkau ini',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Musim ini',
   'landing.editions.heading': 'Edisi yang disayangi oleh kurator kami',
   'landing.footer.contact': 'Bercakap dengan kurator',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Mulakan kotak anda →',
   'landing.hero.ctaSecondary': 'Lihat peringkat',
   'landing.hero.eyebrow': 'Dikurasi setiap bulan. Sentiasa peribadi.',
@@ -115,6 +120,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'KEKAYAAN ANDA YANG SETERUSNYA',
   'nextBoxHeroCard.itemsLabel': 'Item yang dipilih susun',
   'nextBoxHeroCard.shipsOnLabel': 'Dihantar pada',
+  'notFound.body':
+    'Kami tidak dapat menemui halaman itu dalam arkib {{app}} . Ia mungkin telah dihentikan atau hanya tersilap taip.',
   'notFound.cta.dashboard': 'Pergi ke papan pemuka',
   'notFound.eyebrow': 'Kotak kosong',
   'notFound.heading': 'Rak ini kosong',

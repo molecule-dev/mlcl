@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'announcementsFeed.empty': 'Noch keine Ankündigungen.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Aktuelle Ankündigungen',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Wechseln Sie oben die Filter, um Aufgaben in einem anderen Status zu sehen.',
   'assignments.eyebrow': 'Alle Kurse · Dieses Quartal',
+  'assignments.loadError': 'Die Aufgaben konnten nicht geladen werden.',
   'assignments.loading': 'Aufgaben werden geladen…',
   'assignments.subtitle':
     'Nach Status filtern, um zu sehen, was fällig, eingereicht, bewertet oder ausstehend ist.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Notiz',
   'attendance.empty': 'Noch keine Anwesenheitsdaten.',
   'attendance.eyebrow': 'Frühjahrsquartal · Letzte 4 Wochen',
+  'attendance.loadError': 'Anwesenheitsdaten konnten nicht geladen werden.',
   'attendance.loading': 'Anwesenheit wird geladen…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Abgabetermine auf einem Monatsraster — Prüfungen erscheinen rot hervorgehoben.',
   'calendar.title': 'Termine im {{month}}',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
+  'common.retry': 'Erneut versuchen',
   'common.yes': '✓',
   'courseDetail.backLink': 'Noten',
   'courseDetail.currentGrade': 'Aktuelle Note',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Noch keine Noten veröffentlicht.',
   'grades.eyebrow': 'Notenbuch',
+  'grades.loadError': 'Ihre Noten konnten nicht geladen werden.',
   'grades.loading': 'Noten werden geladen…',
   'grades.subtitle':
     'Live-Buchstaben- und Prozentnoten. Trendpfeile zeigen, ob es aufwärts, gleich oder abwärts geht.',
   'grades.title': 'Ihre Noten, Kurs für Kurs',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Entwickelt für Schüler, gemacht für Familien.',
   'landing.ctaHeading': 'Ein ruhigerer Schultag beginnt in wenigen Minuten',
   'landing.eyebrow': 'Für Mittel- und Oberstufenschüler',
   'landing.featuresHeading': 'Ein Schultag, organisiert rund um den Schüler',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Aufgaben',
   'nav.attendance': 'Anwesenheit',
   'nav.calendar': 'Kalender',
+  'nav.closeMenu': 'Navigationsmenü schließen',
   'nav.grades': 'Noten',
+  'nav.openMenu': 'Navigationsmenü öffnen',
   'nav.statusEyebrow': 'Quartals-GPA',
   'nav.statusSubtext': 'Ehrentafel · Frühjahrsquartal',
+  'nav.unreadMessages': 'Ungelesene Nachrichten',
   'notifications.eyebrow': '{{count}} updates',
   'notifications.subtitle':
     'Noten, Erinnerungen, Nachrichten und Schulankündigungen. Kanäle in den Einstellungen anpassen.',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.attendanceLabel': 'Anwesenheit',
   'pricing.gradesLabel': 'Noten',
   'pricing.heading': 'Ankündigungen',

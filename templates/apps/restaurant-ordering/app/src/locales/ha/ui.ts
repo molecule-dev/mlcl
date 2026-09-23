@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Game da {{app}}',
   'analytics.avgCheckLabel': 'Matsakaicin duba',
   'analytics.busiestHour': 'Lokacin da ya fi aiki',
   'analytics.coversToday': 'Mujallu na yau',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Nasihu (matsakaici)',
   'analytics.topItems': 'Manyan abubuwa a yau',
   'authShell.eyebrow': 'Barka da dawowa aiki',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Wurin sayarwa mai daɗi da sauri ga ƙungiyoyin baƙi. Shiga cikin kicin ɗinka ka ci gaba daga inda ka tsaya.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ko {{price}}',
   'billing.priceUnavailable': 'Wannan shirin ba shi da farashi mai tsari.',
   'billing.updated': 'An sabunta shirin.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'customerDetail.book': 'Ƙara yin rajista',
   'customerDetail.col.table': 'Tebur',
   'customerDetail.confirmDelete': 'A goge wannan bayanin baƙon?',
@@ -126,6 +129,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Samuwa',
   'menuItemDetail.available': 'Akwai yau da dare',
   'menuItemDetail.backToMenu': 'Koma zuwa menu',
+  'menuItemDetail.confirmDelete': 'A goge wannan abun menu?',
   'menuItemDetail.delete': 'Goge abu',
   'menuItemDetail.deleteError': 'Sharewa ya gaza. Gwada kuma.',
   'menuItemDetail.dietary': 'Alamun abinci',
@@ -136,9 +140,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Ajiye ya gaza. Gwada kuma.',
   'menuItemDetail.subheading': '{{category}} · gyara hoto, gyare-gyare, abinci, da farashi.',
   'menuItemDetail.untitled': 'Abu mara suna',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'notFound.heading': 'Wannan teburin ba ya kan bene.',
   'notFound.subheading':
     'Shafin da kake nema an ajiye shi a wani wuri — ko kuma bai taɓa wanzuwa ba.',
+  'notFound.toLanding': '{{app}} gida',
   'notifications.markError': 'Ba za a iya yiwa duk wanda aka karanta alama ba.',
   'orderDashboard.activeDelta': 'Rayuwa yanzu',
   'orderDashboard.activeLabel': 'Umarni masu aiki',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Nuna kalmar sirri',
   'resetPassword.subtitle': 'Shigar da sabuwar kalmar sirrinka don sake samun damar shiga kicin.',
   'resetPassword.tokenLabel': 'Sake saita Alamar',
+  'restaurantOrderingLayout.primaryNavLabel': 'Babban kewayawa',
   'revenueHeroCard.activeOrders': '{{count}} mai aiki',
   'revenueHeroCard.change': '{{sign}} {{amount}} idan aka kwatanta da jiya',
   'revenueHeroCard.title': 'Kuɗin shiga na yau',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Sunan gidan cin abinci',
   'tableDetail.activeOrders': 'Umarni masu aiki',
   'tableDetail.backToFloor': 'Tsarin bene',
+  'tableDetail.confirmDelete': 'Share wannan teburin?',
   'tableDetail.delete': 'Goge',
   'tableDetail.deleteError': 'Ba a iya goge tebur ba.',
   'tableDetail.heading': 'Tebur {{label}}',

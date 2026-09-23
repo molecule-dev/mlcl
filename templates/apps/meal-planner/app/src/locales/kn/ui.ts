@@ -50,7 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'ಐಟಂ ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'simmer.groceries.clearChecked': 'ಚೆಕ್ ಮಾಡಿದ್ದನ್ನು ತೆರವುಗೊಳಿಸಿ',
   'simmer.groceries.empty.title': 'ಇನ್ನೂ ಶಾಪಿಂಗ್ ಮಾಡಲು ಏನೂ ಇಲ್ಲ',
-  'simmer.groceries.eyebrow': '{{ಪರಿಶೀಲಿಸಲಾಗಿದೆ}} ನ<x> {{ಒಟ್ಟು}}</x> ಚೀಲದಲ್ಲಿರುವ ವಸ್ತುಗಳು',
+  'simmer.groceries.eyebrow': '{{total}} ರಲ್ಲಿ {{checked}} ಐಟಂಗಳನ್ನು ಬ್ಯಾಗ್ ಮಾಡಲಾಗಿದೆ',
   'simmer.groceries.fetchError': 'ಪಟ್ಟಿ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'simmer.groceries.heading': 'ಕಿರಾಣಿ ಪಟ್ಟಿ',
   'simmer.groceries.loading': 'ಪಟ್ಟಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',

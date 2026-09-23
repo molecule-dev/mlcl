@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'O nama',
   'alerts.acknowledgeLabel': 'Potvrdi',
   'alerts.customerLabel': 'Kupac: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Povezivanje…',
   'carriers.requiredError': 'Ime i kod su obavezni.',
   'carriers.subheading': '{{count}} integrirani',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.no': '—',
+  'common.retry': 'Pokušaj ponovo',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'U tranzitu + označeno',
   'dashboard.activeShipmentsSubtitle': '{{count}} pošiljke zahtijevaju pažnju ili su u pokretu',
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'pošiljke',
   'pricing.trackingLabel': 'praćenje događaja',
   'profile.dangerZone.title': 'Opasna zona',
+  'profile.devices.signingOut': 'Odjava…',
+  'profile.devices.unnamed': 'Neimenovani uređaj',
+  'profile.security.disable2fa': 'Onemogući 2FA',
   'profile.security.enable2fa': 'Omogući 2FA',
   'profile.security.pwChanged': 'Lozinka je uspješno promijenjena.',
   'profile.security.pwCurrent': 'Trenutna lozinka',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktivna',
   'profile.security.twoFaCode': '6-cifreni kod',
   'profile.security.twoFaDisable': 'Onemogući',
+  'profile.security.twoFaDisabling': 'Onemogućavanje…',
   'profile.security.twoFaFailed': 'Nije moguće potvrditi kod.',
   'profile.security.twoFaIntro':
     'Skenirajte QR kod u aplikaciji za autentifikaciju, a zatim unesite 6-cifreni kod ispod za potvrdu.',
   'profile.security.twoFaOn': 'Dvofaktorska autentifikacija je omogućena na ovom računu.',
+  'profile.security.twoFaQrAlt': 'Dvofaktorski QR kod',
   'profile.security.twoFaVerify': 'Potvrdi i omogući',
   'profile.security.twoFaVerifying': 'Potvrđivanje…',
   'profile.subheading': 'Postavke identiteta i sigurnosti za ovaj radni prostor.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Sačuvajte ovu tajnu — neće biti ponovo prikazana.',
   'settings.api.webhookSecret': 'Tajni kod potpisivanja webhooka',
   'settings.appearance.description': 'Prebacivanje između svijetlog i tamnog načina rada.',
+  'settings.deleteAccountConfirm': 'Jeste li sigurni? Ova radnja se ne može poništiti.',
   'settings.notifications.exceptions':
     'Pošalji mi e-poštu kada se dogodi izuzetak prilikom slanja pošiljke',
   'settings.notifications.heading': 'Obavještenja',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Pošiljka nije pronađena.',
   'shipmentDetail.originHeading': 'Porijeklo',
   'shipmentDetail.shippedOn': 'Poslano {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Još nema događaja praćenja — ažuriranja se prikazuju ovdje dok dostavljač skenira paket.',
   'shipmentDetail.weightLabel': '{{weight}} funta',
   'shipments.col.carrier': 'Nosilac',
   'shipments.col.eta': 'Očekivano vrijeme dolaska',
@@ -175,6 +186,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Prijava',
   'signup.submit': 'Kreiraj račun',
   'team.emailError': 'Potrebna je važeća adresa e-pošte.',
+  'team.empty': 'Još nema članova tima. Pozovite člana tima da sarađuje na pošiljkama.',
   'team.eyebrow': 'Članovi i dozvole',
   'team.inviteDialog.cancel': 'Otkaži',
   'team.inviteDialog.heading': 'Pozovi saigrača',
@@ -197,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Staza',
   'waypointLayout.primaryNavLabel': 'Primarna navigacija',
   'webhooks.createFailed': 'Nije moguće kreirati krajnju tačku webhooka.',
+  'webhooks.endpointsEmpty':
+    'Još nema krajnjih tačaka webhooka. Kreirajte jednu da biste primali povratne pozive o statusu pošiljke.',
   'webhooks.endpointsHeading': 'Krajnje tačke',
   'webhooks.eventCount': '{{count}} događaji',
   'webhooks.eventsHeading': 'Nedavne isporuke',

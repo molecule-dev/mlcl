@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'billing.canceled': '구독이 취소되었습니다. 기간이 끝나면 무료 플랜으로 전환됩니다.',
   'billing.contactSales': '영업팀 문의',
   'billing.free.1': '번역 5건',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': '보관 기간 제한 없음',
   'billing.upgradeHint': '업그레이드하여 고급 AI 기능을 사용해 보세요.',
   'billing.yearly': '연간',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.activityEmpty': '아직 활동이 없습니다 — 프로젝트를 시작하여 이 피드를 채워보세요.',
   'dashboard.eyebrow': '개요',
   'dashboard.projectsEmpty': '아직 프로젝트가 없습니다 — 새로 시작하면 여기에 표시됩니다.',
@@ -109,6 +111,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     '모든 프로젝트에서 과거 번역을 재사용하세요. 일치 점수가 높을수록 → 재작업이 줄어듭니다.',
   'memory.title': '메모리 뱅크',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'nav.legal': '법적 고지',
   'newProject.addLanguage': '대상 추가',
   'newProject.create': '프로젝트 만들기',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': '이전',
   'notifications.markedAllRead': '알림 {{count}}개를 읽음으로 표시했습니다.',
   'notifications.subtitle': '워크스페이스 전반의 멘션, 검토 요청 및 AI 이벤트입니다.',
+  'planUpdated.verifying': '결제 확인 중…',
   'privacy.collection.account': '계정 이메일 및 표시 이름',
   'privacy.deletion.body':
     '관련 페이지에서 언제든지 프로젝트, 세그먼트, 용어집 용어 또는 메모리 항목을 삭제하실 수 있습니다. 설정에서 계정을 삭제하시면 데이터베이스에서 모든 워크스페이스 범위 행이 제거됩니다.',
@@ -172,6 +177,7 @@ export const ui: UiTranslations = {
   'projects.loadError': '프로젝트를 불러오지 못했습니다.',
   'projects.loading': '프로젝트를 불러오는 중…',
   'projects.subtitle': '모든 로케일의 모든 활성 프로젝트입니다.',
+  'renditionLayout.primaryNavLabel': '기본 탐색',
   'reset.backToLogin': '\\u2190 로그인으로 돌아가기',
   'reset.passwordLabel': '새 비밀번호',
   'review.activeEyebrow': '세그먼트 {{number}}',

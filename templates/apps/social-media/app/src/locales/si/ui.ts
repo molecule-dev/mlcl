@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.pageTitle': '{{app}} පිළිබඳව',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'compose.cancel': 'අවලංගු කරන්න',
   'compose.captionPlaceholder': 'ඔයාගේ ඔලුවේ තියෙන්නේ කුමක් ද?',
   'compose.heading': 'මොහොතක් බෙදා ගන්න',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'සත්‍යාපිත ගිණුම',
   'resetPassword.newPassword': 'නව මුරපදය',
   'resetPassword.subheading': 'ශක්තිමත් දෙයක් තෝරන්න - අවම වශයෙන් අක්ෂර 12 ක්.',
+  'search.clearAria': 'පැහැදිලි',
+  'search.error': 'සෙවීම අසාර්ථක විය. නැවත උත්සාහ කරන්න.',
   'search.noPeople': '"ගැළපෙන නිර්මාණකරුවන් නැත" {{q}} ".',
   'search.noPosts': '"ගැලපෙන පළ කිරීම් නොමැත" {{q}} ".',
   'search.noTags': 'තවමත් ප්‍රවණතා හැෂ් ටැග් නොමැත.',
@@ -125,6 +131,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'මුරපදය සඟවන්න',
   'signup.showPassword': 'මුරපදය පෙන්වන්න',
   'signup.subheading': 'බෙදා ගැනීම ආරම්භ කිරීමට ගිණුමක් සාදන්න.',
+  'socialMediaLayout.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'socialMediaLayout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
+  'socialMediaLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'storyRail.heading': 'කතා',
   'storyRail.label': 'කතා',
   'storyRail.openAria': 'විවෘත {{handle}} කතාව',

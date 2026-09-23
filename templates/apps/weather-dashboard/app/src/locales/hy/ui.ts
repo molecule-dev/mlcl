@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Դուք ներկայումս գտնվում եք {{plan}} պլան',
   'billing.switch': 'Փոխարկիչ',
   'billing.upgraded': 'Թարմացվել է {{plan}} — սահմանափակումները կիրառվում են անմիջապես։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'compare.activityHeading': 'Գործունեության վերաբերյալ դատողություններ',
   'compare.empty.title': 'Ավելացրեք առնվազն երկու վայր համեմատելու համար',
   'compare.eyebrow': 'Կողք կողքի',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Բարձր',
   'trends.summary.low.label': 'Ցածր',
   'trends.summary.points.label': 'Օրեր',
+  'weatherDashboardLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'weatherHeroCard.updated': 'Թարմացված է {{time}}',
 }

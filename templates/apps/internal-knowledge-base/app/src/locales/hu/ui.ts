@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'article.notFound': 'A cikk nem található',
   'articleEditor.bodyPlaceholder': 'Írd be a / karaktereket a blokkokhoz, vagy kezdj el írni.',
+  'articleEditor.loadFailed': 'Nem sikerült betölteni a cikket',
   'articleEditor.publishing': 'Kiadás\\u2026',
   'articleEditor.saveFailed': 'Mentés sikertelen',
   'articleEditor.saving': 'Mentés…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Könyvjelző',
   'articleView.bookmarkOn': 'Könyvjelzővel ellátva',
   'articleView.edit': 'Cikk szerkesztése',
+  'articleView.loading': 'A cikk megnyitása…',
   'articleView.readTime': '{{minutes}} perc olvasás',
   'articleView.spaces': 'Terek',
   'articleView.tocHeading': 'Ezen az oldalon',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'A csapatod által még feldolgozott legutóbbi szerkesztések, olvasmányok és vázlatok.',
   'cairnTrailHero.updated': 'Cikkek frissítve',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'drafts.eyebrow': 'A befejezetlen munkád',
   'drafts.heading': 'Vázlatok',
+  'drafts.loadFailed': 'Nem sikerült betölteni a piszkozatokat.',
   'drafts.subtitle': 'Elkezdett, de még nem publikált cikkek. Válassz egyet, és folytasd.',
   'forgotPassword.sentBody':
     'Ha létezik egy fiók a következőhöz: {{email}} Úton van egy visszaállító link. A link 30 perc múlva lejár.',
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
     'Még nincsenek szabad helyek. Nyisson egyet, hogy elkezdhesse a cikkek gyűjtését.',
   'home.spacesHeading': 'A te tereid',
   'home.subtitle': 'Legutóbbi cikkek, a könyvjelzőid és a csapat írásai.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molekulával készült.',
   'landing.ctaBody':
     'Ingyenes egyéni szerzők számára. Csapatcsomagok elosztott csapatok számára, amelyek runbookokat, döntéseket és bevezetési folyamatokat biztosítanak.',
   'landing.ctaHeading': 'Tedd rakásba az első követ még ma.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Munkaterület létrehozása',
   'login.submitting': 'Bejelentkezés…',
   'login.subtitle': 'Vedd fel az ösvényt ott, ahol abbahagytad.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
+  'newSpace.colorAria': 'Válasszon színt {{color}}',
   'newSpace.colorLabel': 'hangsúlyos szín',
+  'newSpace.createFailed': 'Nem sikerült létrehozni a helyet',
   'newSpace.descriptionPlaceholder':
     'Runbookok, ügyeleti forgatókönyvek, utólagos elemzések\\u2026',
   'newSpace.eyebrow': 'Tudástér megnyitása',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Betöltés…',
   'notifications.subtitle':
     '{{count}} olvasatlan \\u2014 említések, hozzászólások, oldalmódosítások és felülvizsgálati kérelmek.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.articles': 'cikkek',
   'pricing.spaces': 'terek',
   'profile.eyebrow': 'Szerzői profil',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Írjon be egy új jelszót',
   'resetPassword.subtitle': 'Válasszon egy erős jelszót – legalább 12 karakterből állót.',
   'searchResults.eyebrow': 'Munkaterület keresése',
+  'searchResults.filter.all': 'Minden hely',
   'searchResults.heading': 'Cikkek keresése',
   'searchResults.placeholder': 'Runbookok, RFC-k, szabályzatok, döntések keresése\\u2026',
   'searchResults.summary': '{{count}} találatok a következőre: \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Ez törli a fiókodat és az összes általad írt cikket. A megerősítéshez írd be a TÖRLÉS billentyűt.',
   'settings.danger.confirmInvalid': 'A megerősítéshez írja be a DELETE billentyűt.',
+  'settings.danger.deleteFailed': 'Nem sikerült törölni a fiókot',
   'settings.danger.deleting': 'Törlés\\u2026',
   'settings.danger.description':
     'A munkaterület törlésével az összes cikk, megjegyzés és verzióelőzmény eltávolításra kerül. A visszaállítás nem lehetséges.',
   'settings.danger.title': 'Munkaterület törlése',
+  'settings.email.confirm': 'E-mail frissítése',
+  'settings.email.confirmTitle': 'E-mail-cím módosításának megerősítése',
   'settings.email.saved': 'E-mail frissítve.',
+  'settings.email.updateFailed': 'Nem sikerült frissíteni az e-mailt',
   'settings.language.title': 'Nyelv',
   'settings.name': 'Név',
+  'settings.name.saved': 'Név frissítve.',
+  'settings.name.updateFailed': 'Nem sikerült frissíteni a nevet',
   'settings.notifications.description': 'Válaszd ki, mi kerüljön a beérkező levelek mappádba.',
+  'settings.password.changeFailed': 'Nem sikerült megváltoztatni a jelszót',
   'settings.password.current': 'Jelenlegi jelszó',
   'settings.password.new': 'Új jelszó',
   'settings.password.saving': 'Frissítés\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Hogyan jelennek meg a cikkek az Ön számára.',
   'settings.reading.title': 'Olvasás és írás',
   'settings.subtitle': 'Értesítések, az olvasási felület és a fiókod finomhangolása.',
+  'settings.twofa.code': 'Hitelesítési kód',
   'settings.twofa.disable': 'Letiltás',
   'settings.twofa.disabled': 'Mozgáskorlátozott',
   'settings.twofa.enable': 'Engedélyezés',
   'settings.twofa.enabled': 'Engedélyezve',
+  'settings.twofa.invalidCode': 'Érvénytelen kód',
+  'settings.twofa.unavailable': 'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
+  'settings.twofa.verify': 'Ellenőrzés és engedélyezés',
   'signup.brandQuote':
     '\\u201cLeírni az első ígéret, amit a következő rászorulónak teszünk.\\u201d',
   'signup.eyebrow': 'Munkaterület megnyitása',

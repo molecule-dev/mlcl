@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ما یک تیم پراکنده از طراحان و مهندسان هستیم که زمانی ساعت‌های زیادی از روز را در یک صندوق پستی پر سر و صدا می‌گذراندیم. Courier صندوق ورودی است که می‌خواستیم خودمان از آن استفاده کنیم.',
   'about.title': 'ایمیل برای کار متمرکز',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'help.cta.about': 'درباره مریدین',
   'help.cta.pricing': 'مشاهده قیمت‌ها',
   'help.eyebrow': 'مرکز راهنما',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'پاسخ‌های سریع به سوالاتی که بیشتر می‌شنویم. چیزی از قلم افتاده؟ تنظیمات را باز کنید و از فرم بازخورد درون برنامه استفاده کنید، یا به support@courier.example بنویسید.',
   'help.title': 'چطور می‌توانیم کمک کنیم؟',
   'landing.brand.scrollTop': 'بازگشت به بالا',
+  'landing.copyright': '© {{year}} {{appName}} — ساخته شده برای تمرکز.',
   'landing.ctaBody': 'به هزاران متخصصی بپیوندید که قبل از ناهار صندوق ورودی خود را تمام کردند.',
   'landing.ctaTitle': 'بیشتر پردازش کن، کمتر واکنش نشان بده.',
   'landing.eyebrow': 'ایمیل برای کار متمرکز',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'تماشای نسخه آزمایشی',
   'landing.heroSubtitle':
     'Courier یک صندوق ورودی سه قسمتی آرام است که برای کارکنان دانش‌محوری ساخته شده که می‌خواهند اطلاعات را پردازش کنند، نه اینکه به آن واکنش نشان دهند.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'مورد اعتماد تیم‌های متمرکز در سراسر جهان',
   'landing.signIn': 'ورود',
   'meridian.archive.empty': 'بایگانی خالی است.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'پیش نویس',
   'meridian.folder.count': '{{count}} پیام‌ها',
+  'meridian.folder.delete': 'حذف',
   'meridian.folder.deleteForever': 'حذف دائمی',
   'meridian.folder.restore': 'انتقال به صندوق ورودی',
   'meridian.forgot.subtitle':
@@ -84,7 +88,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'هنوز هیچ پیامی اینجا نیست.',
   'meridian.inbox.loading': 'در حال بارگذاری…',
   'meridian.inbox.next': 'بعدی',
+  'meridian.inbox.noSender': '(فرستنده‌ای وجود ندارد)',
   'meridian.inbox.noSubject': '(بدون موضوع)',
+  'meridian.inbox.ofTotal': '{{current}} از {{total}}',
   'meridian.inbox.openCompose': 'باز کردن نوشتن',
   'meridian.inbox.previous': 'قبلی',
   'meridian.inbox.replyFailed': 'پاسخ ذخیره شد اما ارسال ناموفق بود: {{error}}',
@@ -97,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'حساب کاربری ندارید؟',
   'meridian.login.showPassword': 'نمایش رمز عبور',
   'meridian.message.toLine': 'به {{recipients}}',
+  'meridian.notFound.body':
+    'صفحه‌ای که به دنبال آن هستید پیدا نشد. به صندوق ورودی {{appName}} خود برگردید، ما شما را در جریان خواهیم گذاشت.',
   'meridian.notFound.eyebrow': 'خطای ۴۰۴',
   'meridian.notFound.title': 'این تاپیک بایگانی شد.',
   'meridian.notFound.toInbox': 'صندوق ورودی من را باز کنید',
@@ -132,17 +140,20 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'اضافه کردن ستاره',
   'meridian.thread.unstar': 'حذف ستاره',
   'meridian.time.yesterday': 'دیروز',
+  'meridian.topBar.openMenu': 'منوی ناوبری را باز کنید',
   'meridian.topBar.searchPlaceholder': 'جستجوی ایمیل',
   'meridian.trash.empty': 'سطل زباله خالی است.',
   'meridian.trash.title': 'سطل زباله',
   'nav.legal': 'قانونی',
   'planUpdated.description':
     'اشتراک شما اکنون فعال شده و صورتحساب شما به‌روزرسانی شده است. به صندوق ورودی به‌روزرسانی‌شده‌ی Courier خود خوش آمدید.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.heading': 'پیش نویس ها',
   'pricing.limit.emails': 'ایمیل‌ها',
   'pricing.limit.folders': 'پوشه‌ها',
   'pricing.limit.labels': 'برچسب‌ها',
   'privacy.collect.account': 'اطلاعات حساب: نام، آدرس ایمیل، رمز عبور هش شده و تاریخ ثبت نام.',
+  'privacy.contact': 'سوالی دارید؟ به privacy@courier.exmple ایمیل بزنید.',
   'privacy.intro':
     'این سیاست حفظ حریم خصوصی توضیح می‌دهد که Courier چه داده‌هایی را جمع‌آوری می‌کند، چرا آنها را جمع‌آوری می‌کند، چگونه آنها را ایمن نگه می‌دارد و شما چه گزینه‌هایی در مورد آنها دارید. هدف ما این است که به جای قانون‌گرایی، دقیق باشیم؛ اگر چیزی مبهم است، به privacy@courier.example بنویسید.',
   'privacy.lastUpdated': 'آخرین به‌روزرسانی: ۱ آوریل ۲۰۲۶',
@@ -162,6 +173,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'این شرایط، استفاده شما از Courier را تعیین می‌کند. با ایجاد حساب کاربری یا ارسال ایمیل از طریق ما، شما موافقت می‌کنید که به آنها پایبند باشید. ما سعی می‌کنیم قوانینی بنویسیم که یک شخص واقعاً بتواند از آنها پیروی کند.',
   'terms.lastUpdated': 'لازم الاجرا: ۱ آوریل ۲۰۲۶',
+  'terms.linkPrivacy': 'سیاست حفظ حریم خصوصی ما را بخوانید →',
   'terms.termination.body':
     'شما می‌توانید حساب کاربری خود را در هر زمانی حذف کنید. ما ممکن است حسابی را که این شرایط را نقض می‌کند، به حالت تعلیق درآوریم؛ در این صورت، دلیل آن را توضیح داده و اجازه می‌دهیم ابتدا داده‌های خود را صادر کنید.',
   'terms.warranty.body':

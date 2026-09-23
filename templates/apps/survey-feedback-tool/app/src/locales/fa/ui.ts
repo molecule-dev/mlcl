@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'درباره {{app}}',
   'analytics.back': 'نمای کلی نظرسنجی',
   'analytics.kpiNps': 'امتیاز NPS',
   'analytics.kpiNpsTrend': 'مروجین {{p}} % · مخالفان {{d}} %',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'خواص',
   'builder.questionNumber': 'س {{num}}',
   'builder.surveyTitle': 'عنوان نظرسنجی',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'forgotPassword.failed': 'ارسال ایمیل بازیابی ناموفق بود. لطفاً دوباره امتحان کنید.',
   'forgotPassword.subheading': 'ایمیل خود را وارد کنید، لینک بازیابی برای شما ارسال خواهد شد.',
   'forgotPassword.successBody':
     'اگر یک حساب مطابقت داشته باشد {{email}} ، لینک بازنشانی در راه است. پوشه‌های صندوق ورودی و هرزنامه خود را بررسی کنید.',
+  'landing.footer.copyright': '© {{year}} {{app}} . از همه نظرات استقبال می‌شود.',
   'landing.footer.startTrial': 'شروع محاکمه',
   'landing.hero.badge': 'نظرسنجی‌ها، NPS و بازخورد در یک مکان',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'قیمت‌گذاری',
   'landing.pricing.perMonth': '/ماه',
   'landing.pricing.popular': 'محبوب ترین',
+  'landing.pricing.subtitle':
+    'هر طرح شامل سازنده نظرسنجی، لینک‌های اشتراک‌گذاری عمومی و تحلیل NPS است. برای شروع نیازی به کارت اعتباری نیست.',
+  'landing.pricing.title': 'آزادانه شروع کنید، وقتی انجامش دادید، آن را گسترش دهید.',
   'landing.sample.eyebrow': 'NPS در یک نگاه',
   'landing.sample.title': 'مخالفان، منفعلان، مروجان - فوراً قابل خواندن هستند.',
   'login.failed': 'ورود ناموفق بود. لطفا دوباره امتحان کنید.',
@@ -55,6 +61,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'نمایش رمز عبور',
   'login.signUpLink': 'شروع یک دوره آزمایشی رایگان',
   'login.subheading': 'برای گوش دادن به مخاطبان خود، وارد سیستم شوید.',
+  'notFound.body':
+    'صفحه‌ای که به دنبال آن هستید در {{app}} وجود ندارد. بیایید شما را به نظرسنجی‌هایتان برگردانیم.',
   'notFound.cta': 'بازگشت به نظرسنجی‌ها',
   'notFound.eyebrow': '۴۰۴',
   'notFound.heading': 'این نظرسنجی از صف خارج شد.',
@@ -71,6 +79,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'منفعل ۷–۸',
   'npsDistributionBar.promoter': 'مروج ۹–۱۰',
   'profile.identity.description': 'برای تیم شما و در نظرسنجی‌هایی که شما می‌نویسید، عمومی باشد.',
+  'profile.identity.emailRequired': 'یک آدرس ایمیل وارد کنید.',
   'profile.identity.saveCta': 'ذخیره نام',
   'profile.password.current': 'رمز عبور فعلی',
   'profile.password.fillFields': 'رمز عبور فعلی و جدید را وارد کنید.',
@@ -176,6 +185,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} سوالات',
   'templates.subheading':
     'یک قالب آماده‌ی امتحان‌شده انتخاب کنید - هر قالب با پیش‌فرض‌های معقول، منطق نمونه و یک طرح‌بندی تمیز برای موبایل از پیش تنظیم شده است.',
+  'thankYou.body':
+    'پاسخ شما ثبت شد. {{app}} آن را در به‌روزرسانی بعدی تجزیه و تحلیل لحاظ خواهد کرد.',
   'thankYou.eyebrow': 'پاسخ دریافت شد',
   'thankYou.heading': 'متشکرم - نظر شما مهم است.',
   'thankYou.home': 'از مورمور دیدن کنید',

@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
   'authShell.brandHeading':
     'Биргелешип жөнөткөн дизайн топтору үчүн пикселге ылайыкташтырылган кемчиликсиз полотнолор.',
   'canvas.redirecting': 'Редактор ачылууда…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'жана',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.retry': 'Кайра аракет',
   'dashboard.activityEmpty': 'Акыркы иш-аракеттер жок — командалашыңызды баштоого чакырыңыз.',
   'dashboard.activityTitle': 'Бүгүн эмне өзгөрдү',
   'dashboard.activityViewAll': 'Бардык эскертмелерди көрүү',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Жумуш орду · Northwind Studio',
   'dashboard.foldersLabel': 'Папкалар',
   'dashboard.gridTitle': '{{count}} долбоорлор',
+  'dashboard.heroActiveTool': 'Калем куралы',
   'dashboard.loadingTitle': 'Долбоорлор жүктөлүүдө…',
   'dashboard.searchPlaceholder': 'Долбоорлорду издөө',
   'dashboard.startFromTemplate': 'Шаблондон баштоо',
   'dashboard.title': 'Сиздин долбоорлоруңуз',
   'dashboard.untitledProject': 'Аталышы жок долбоор',
   'designCanvasLayout.newProject': 'Жаңы долбоор',
+  'designCanvasLayout.primaryNavLabel': 'Негизги навигация',
   'editor.backToProjects': 'Долбоорлорго кайтуу',
   'editor.deleteShape': 'Форманы жок кылуу',
   'editor.errorBody': 'Биз бул долбоорду ача алган жокпуз.',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Колуңуздай ылдамдыкта кыймылдаган шаймандарды долбоорлоо',
   'library.empty': 'Бул бөлүмдө азырынча эч кандай токен жок.',
   'library.eyebrow': 'Жумуш орду · Atelier Design System',
+  'library.loadFailed': 'Дизайн токендери жүктөлбөй койду.',
   'library.systemMeta': 'Системанын абалы',
   'library.systemSummary':
     '{{токендер}} жетондор · {{компоненттер}} компоненттер · {{эффекттер}} эффекттер',

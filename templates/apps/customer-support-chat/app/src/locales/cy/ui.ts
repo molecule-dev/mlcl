@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Amdanom ni',
   'authShell.samplePreview':
     '“Hei dîm, mae’r dangosfwrdd newydd yn hyfryd — yn union yr hyn oedd ei angen arnom ni!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/llwybr byr',
   'automations.subheading':
     "Rheolau, ymatebion tun a robotiaid sgwrsio — cadwch y gweithle'n fywiog tra bod eich tîm yn canolbwyntio ar y pethau anodd.",
+  'automations.trigger.inboundMessage': "Neges sy'n dod i mewn",
   'automations.triggerLabel': 'Sbardun',
   'chatBubble.internalNoteLabel': 'Nodyn mewnol',
+  'common.confirmDelete': 'Cadarnhau dileu',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'contactDetail.backToContacts': 'Pob cyswllt',
   'contactDetail.contactFallback': 'Cyswllt',
   'contactDetail.conversationFallback': 'Sgwrs',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Gwelwyd ddiwethaf',
   'contacts.empty': 'Dim cysylltiadau eto. Ychwanegwch eich cyswllt cyntaf uchod.',
   'contacts.eyebrow': 'Cyfeiriadur cwsmeriaid',
+  'contacts.form.nameOrEmailRequired': 'Rhowch o leiaf enw neu gyfeiriad e-bost',
   'contacts.form.save': 'Cadw cyswllt',
   'contacts.heading': 'Cysylltiadau',
   'contacts.loading': "Wrthi'n llwytho cysylltiadau…",
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Cadw nodyn',
   'conversationDetail.tab.note': 'Nodyn mewnol',
   'conversationDetail.threadAria': 'Negeseuon sgwrs',
+  'conversationDetail.visitorFallback': 'Ymwelydd',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Manylion y cwsmer',
   'customerProfilePanel.recentTitle': 'Sgyrsiau diweddar',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Mae cwsmeriaid yn cael eu hateb cyntaf yn {{time}} ar gyfartaledd — cadwch y cadans i fynd.',
   'inboxHeroCard.title': 'Sgyrsiau gweithredol',
+  'inboxLayout.navDrawerLabel': 'Mordwyo',
+  'inboxLayout.openMenu': 'Agor y ddewislen lywio',
   'inboxOverview.eyebrow': 'Cipolwg ar heddiw',
   'inboxOverview.heroChange': '{{count}} agored',
   'inboxOverview.kpiClosedTrend': 'bob amser',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': "Ymweld â'r hafan",
   'notifications.subheading':
     "Aseiniadau, @crybwylliadau, risgiau SLA, adborth CSAT a gweithgaredd tîm — wedi'u didoli gyda'r rhai mwyaf newydd yn gyntaf.",
+  'notifications.subjectFallback': 'sgwrs',
+  'notifications.visitorFallback': 'Ymwelydd',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Uchel',
   'priority.low': 'Isel',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Brys',
   'privacy.title': 'Polisi preifatrwydd',
   'reports.agentFallback': 'Asiant',

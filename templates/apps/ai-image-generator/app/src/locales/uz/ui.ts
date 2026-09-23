@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'auth.fields.newPassword': 'Yangi parol',
   'collectionDetail.addImage': "To'plash uchun sehrlash",
   'collectionDetail.backCta': 'Kolleksiyalarga qaytish',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': "Kayfiyat taxtalari, qisqacha ma'lumotlar va davom etayotgan seriyalar",
   'collections.title': "To'plamlar",
   'collections.untitled': 'Nomsiz · {{stamp}}',
+  'common.closeMenu': 'Menyuni yopish',
+  'common.dismiss': 'Bekor qilish',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.openMenu': 'Navigatsiya menyusini ochish',
   'credits.eyebrow': '{{plan}} reja',
   'credits.renewsCopy': 'Reja yangilanadi {{date}}',
   'credits.trail': 'Reverie · {{plan}} daraja',
@@ -136,6 +141,7 @@ export const ui: UiTranslations = {
     "Avlod faoliyati, ulashish va kredit ogohlantirishlari bu yerda ko'rsatiladi.",
   'notifications.empty.title': "Xabar berish uchun hech narsa yo'q",
   'notifications.subtitle': "Kun bo'yicha guruhlangan avlod tadbirlari",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.limits.gallery': '{{count}} galereya',
   'privacy.collect.body':
     "Ro'yxatdan o'tganingizda biz sizning ismingiz, elektron pochta manzilingiz va xeshlangan parolingizni to'playmiz. Reverie'dan foydalanganingizda biz siz yuborgan so'rovlarni, siz uchun yaratgan rasmlarni, saqlagan uslublar va to'plamlarni, shuningdek, ishlatilgan model, generatsiya vaqt belgilari va kredit balansi kabi metama'lumotlarni saqlaymiz.",
@@ -171,6 +177,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Yangi parolni saqlang',
   'reset.submitting': 'Parol yangilanmoqda…',
   'settings.account.handle': 'Tutqich',
+  'settings.account.lastSaved': 'Faol profil · {{name}}',
   'settings.account.saved': 'Profil saqlandi',
   'settings.account.saveFailed': "Profilni saqlab bo'lmadi",
   'settings.account.title': 'Ijodkor profili',
@@ -193,7 +200,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Yangi rasm',
   'sidebar.secondary': 'Ikkilamchi navigatsiya',
   'signup.failed': 'Ro‘yxatdan o‘tish amalga oshmadi. Qaytadan urinib ko‘ring.',
+  'signup.firstNamePlaceholder': 'Ariya',
   'signup.heading': 'Xayolingizni boshlang',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Hisob yarating va 120 ta bepul kredit oling.',
   'styles.empty':
     "Hali uslub sozlamalari yo'q — ular birinchi marta tizimga kirgandan so'ng paydo bo'ladi.",

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Разрешаване…',
   'comments.subtitle':
     'The {{count}} Темите все още чакат отговор или решение. Сортирани по възраст — първо най-старите, за да не се провали нищо.',
+  'common.goToDashboard': 'Към таблото',
   'forgotPassword.sentTo': 'Връзката за нулиране е изпратена до {{email}}',
   'forgotPassword.successSubheading':
     'Проверете входящата си поща — току-що ви изпратихме линк за нулиране. Той изтича след 30 минути.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Нова страница',
   'pageTreeSidebar.workspaceHeader': 'Работно пространство',
   'pageView.breadcrumb': 'Навигационна троха',
+  'pageView.confirmTrash': 'Да го изхвърлим?',
   'pageView.home': 'Дом',
   'pageView.lastEdited': 'Актуализирано {{when}}',
   'pageView.loading': 'Зареждане на страницата…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Обобщението на ИИ не е конфигурирано за това работно пространство.',
   'pageView.tocTitle': 'На тази страница',
+  'pageView.trash': 'Кошче',
+  'pageView.trashing': 'Изхвърляне…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Значки',
   'profile.owned.title': 'Притежавани страници',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Работно пространство, профил, известия, интеграции — всичко в една спокойна обвивка.',
   'settingsPage.workspace.defaultLanding': 'Стандартен начален екран',
   'settingsPage.workspace.landingHome': 'Дом',
+  'settingsPage.workspace.landingSpaces': 'Пространства',
   'settingsPage.workspace.subdomainLabel': 'Поддомейн',
   'settingsPage.workspace.title': 'Работно пространство',
   'signup.eyebrow': 'Започнете ново работно пространство',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин.',
   'templates.subtitle':
     'Започнете страница от шаблон, а не от празно платно. Всеки шаблон твърдо кодира формата, за да можете да се съсредоточите върху съдържанието.',
+  'trash.confirmPurge': 'Прочистване завинаги?',
+  'trash.confirmPurgeAria': 'Потвърди: изтрий завинаги {{title}}',
   'trash.daysUntilPurge': '{{days}} оставащи дни',
   'trash.empty.body': 'Изтритите страници ще се показват тук 30 дни, преди да бъдат премахнати.',
   'trash.empty.title': 'Кошчето е празно.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Възстановява се…',
   'versionHistory.subtitle': '{{count}} версии · изберете ред, за да проверите разликата',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Затвори навигацията',
+  'wikiLayout.menu': 'Навигация',
+  'wikiLayout.openMenu': 'Отваряне на навигацията',
   'wikiLayout.searchPlaceholder': 'Търсене в Cairn — страници, коментари…',
 }

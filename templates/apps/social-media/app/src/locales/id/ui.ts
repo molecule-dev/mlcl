@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.pageTitle': 'Tentang {{app}}',
+  'common.goToDashboard': 'Ke Dashboard',
+  'common.retry': 'Coba lagi',
   'compose.cancel': 'Batal',
   'compose.captionPlaceholder': 'Apa yang Anda pikirkan?',
   'compose.heading': 'Bagikan sebuah momen',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Akun terverifikasi',
   'resetPassword.newPassword': 'Kata sandi baru',
   'resetPassword.subheading': 'Pilih sesuatu yang kuat — minimal 12 karakter.',
+  'search.clearAria': 'Bersihkan',
+  'search.error': 'Pencarian gagal. Coba lagi.',
   'search.noPeople': 'Tidak ada kreator yang cocok dengan "{{q}}".',
   'search.noPosts': 'Tidak ada postingan yang cocok dengan "{{q}}".',
   'search.noTags': 'Belum ada tagar yang sedang tren.',
@@ -123,6 +129,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Sembunyikan kata sandi',
   'signup.showPassword': 'Tampilkan kata sandi',
   'signup.subheading': 'Buat akun untuk mulai berbagi.',
+  'socialMediaLayout.closeMenu': 'Tutup menu navigasi',
+  'socialMediaLayout.openMenu': 'Buka menu navigasi',
+  'socialMediaLayout.primaryNavLabel': 'Navigasi utama',
   'storyRail.heading': 'Cerita',
   'storyRail.label': 'Cerita',
   'storyRail.openAria': 'Buka cerita {{handle}}',

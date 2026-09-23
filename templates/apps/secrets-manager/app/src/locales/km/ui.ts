@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'about.tagline': 'អាថ៌កំបាំងស្លាប់នៅទីចំហ។',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'បង្កើតសញ្ញាសម្ងាត់',
   'apiTokens.kicker': 'ថូខឹន API',
   'apiTokens.loading': 'កំពុងផ្ទុកសញ្ញាសម្ងាត់…',
+  'apiTokens.new': 'សញ្ញាសម្ងាត់ថ្មី',
   'apiTokens.revoke': 'លុបចោលសញ្ញាសម្ងាត់',
   'apiTokens.subheading':
     'ថូខឹនផ្ទាល់ខ្លួន និងថូខឹនសេវាកម្មសម្រាប់ Arcanum CLI និង SDK។ អក្សរសាមញ្ញត្រូវបានបង្ហាញម្តងនៅពេលបង្កើត។',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + លេខសម្ងាត់',
   'authShell.zeroKnowledge': 'ការអ៊ិនគ្រីបដោយគ្មានចំណេះដឹង',
   'common.connecting': 'កំពុងភ្ជាប់…',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.inviting': 'កំពុងអញ្ជើញ…',
   'forgotPassword.checkInbox':
     'ប្រសិនបើ {email} ត្រូវបានចុះឈ្មោះ តំណភ្ជាប់កំណត់ឡើងវិញដែលបានចុះហត្ថលេខានឹងមកដល់ក្នុងរយៈពេលមួយនាទី។',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ស្ថានភាពបង្វិល ការជូនដំណឹងអំពីភាពមិនប្រក្រតី និងសំណើសុំការអនុម័តនៅទូទាំងឃ្លាំងនីមួយៗ។',
   'notifications.unreadEmpty': 'ប្រអប់​ទទួល​សូន្យ — ចប់​សព្វគ្រប់​ហើយ។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.heading': 'អាថ៌កំបាំង',
   'pricing.limits.accessPolicies': 'គោលការណ៍ចូលប្រើ',
   'pricing.limits.auditLog': 'ធាតុកំណត់ហេតុសវនកម្ម',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'គណនីផ្ទាល់ខ្លួន',
   'profile.plan.description': 'គ្រប់គ្រងការជាវរបស់អ្នក មើលដែនកំណត់ និងធ្វើឱ្យប្រសើរឡើង។',
   'profile.subheading': 'អត្តសញ្ញាណ ឧបករណ៍​កត្តា​ទីពីរ និង​វគ្គ​សកម្ម។',
+  'profile.twoFactor.code': 'លេខកូដផ្ទៀងផ្ទាត់',
   'profile.twoFactor.disable': 'បិទ',
   'profile.twoFactor.enable': 'បើកដំណើរការ',
+  'profile.twoFactor.invalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
   'profile.twoFactor.kicker': 'ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'profile.twoFactor.off': 'មិនទាន់បើកដំណើរការ',
   'profile.twoFactor.on': 'បានបើកដំណើរការ',
   'resetPassword.email': 'អ៊ីមែលគណនី',
   'resetPassword.heading': 'កំណត់​ព័ត៌មាន​សម្គាល់​ថ្មី',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ពាក្យបញ្ជា',
   'secretsManagerLayout.encrypted': 'AES-256 · បានអ៊ិនគ្រីប',
   'secretsManagerLayout.newVault': 'ឃ្លាំងថ្មី',
+  'secretsManagerLayout.newVaultShort': 'ថ្មី',
   'secretsManagerLayout.rotations': 'ការបង្វិល',
   'secretsManagerLayout.search': 'ស្វែងរក',
   'secretsManagerLayout.searchPlaceholder': 'ស្វែងរកអាថ៌កំបាំងតាមសោ ផ្លូវ ឬស្លាក...',
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'អាថ៌កំបាំង',
   'vaultCard.vaultLabel': 'បន្ទប់​សុវត្ថិភាព',
   'vaultDetail.addSecret': 'បន្ថែម​ព័ត៌មាន​សម្ងាត់',
+  'vaultDetail.back': 'ឃ្លាំងទាំងអស់',
   'vaultDetail.col.key': 'សោ',
   'vaultDetail.col.rotated': 'បានបង្វិល',
   'vaultDetail.col.value': 'តម្លៃ',

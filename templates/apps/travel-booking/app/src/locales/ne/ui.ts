@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
+  'about.featureDiscover.title': 'प्रेरणा, हातले छनोट गरिएको',
   'account.addPaymentCta': 'भुक्तानी विधि थप्नुहोस्',
   'account.addPaymentError': 'भुक्तानी विधि थप्न सकिएन।',
+  'account.confirmRemove': 'हटाउने पुष्टि गर्नुहोस्',
   'account.defaultBadge': 'पूर्वनिर्धारित',
   'account.loyalty.pointsTowardNext': '{{अङ्क}} को {{अर्को}} माइल सम्म {{अर्को तह}}',
   'account.loyalty.tier': 'हालको तह',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'यात्रा विवरणहरू',
   'booking.tripSummary': '{{nights}} रातहरू · {{guests}} पाहुनाहरू',
   'common.daysAgo': '{{count}} दिन अगाडि',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.hoursAgo': '{{count}} घण्टा अघि',
   'common.minutesAgo': '{{count}} मिनेट अगाडि',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'कानुनी',
   'notifications.loading': 'लोड हुँदै...',
   'notifications.subheading': '{{count}} नपढिएको · सबै कुरा एउटै शान्त इनबक्समा',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.accommodationsLabel': 'आवासहरू',
   'pricing.bookingsLabel': 'बुकिङहरू',
   'pricing.destinationsLabel': 'सुरक्षित गरिएका गन्तव्यहरू',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'प्रेरणा, भरपर्दो बसाइ, र दिवास्वप्नदेखि बुकिङसम्मको घर्षणरहित बाटो — १४ देशहरू र २००+ हस्त-परीक्षण गरिएका सम्पत्तिहरूमा।',
   'sojournHeroSearchCard.trustProtected': 'नि:शुल्क रद्द, पूर्ण रूपमा सुरक्षित',
   'sojournHeroSearchCard.trustVetted': 'हस्त-परीक्षण गरिएका सम्पत्तिहरू मात्र',
+  'travelBookingLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'tripDetail.backLink': 'यात्राहरूमा फर्कनुहोस्',
   'tripDetail.cancelCta': 'बुकिङ रद्द गर्नुहोस्',
   'tripDetail.cancelHeading': 'यो यात्रा रद्द गर्ने हो?',

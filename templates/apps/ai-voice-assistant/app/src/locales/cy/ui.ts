@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych chi adborth, cais am nodwedd, neu wedi dod o hyd i nam? Cysylltwch â thîm {{app}} drwy'r ddolen gymorth yn newislen eich cyfrif — mae pob neges yn mynd at fod dynol go iawn.",
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'agentDetail.back': 'Pob asiant',
   'agentDetail.capabilities': 'Galluoedd',
   'agentDetail.delete': 'Dileu persona',
   'agentDetail.deleteConfirm': "Dileu'r persona hwn? Ni ellir dadwneud hyn.",
+  'agentDetail.deleteError': "Methu dileu'r persona.",
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': "Methu llwytho'r persona.",
   'agentDetail.save': 'Cadw persona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Yn newid…',
   'billing.updateError': "Methwyd dechrau'r diweddariad.",
   'billing.usageHeading': 'Defnydd llais y cylch hwn',
+  'chatBubble.source.text': 'testun',
+  'chatBubble.source.voice': 'llais',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'conversation.defaultTitle': 'Sgwrs newydd',
   'conversation.empty': 'Dim negeseuon eto. Dechreuwch drwy ddweud rhywbeth neu deipio isod.',
   'conversation.eyebrow': 'Sesiwn fyw',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': "Deallusrwydd sy'n siarad.",
   'landing.heroSubtitle':
     "Y cynorthwyydd llais AI sy'n deall eich llif naturiol. Sgwrsio, creu syniadau, a gorchymyn - yn ddi-dor.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Gwrando…',
   'landing.naturallyBody':
     'Dim geiriau sbarduno. Dim gorchmynion anhyblyg. Mae iaith yn deall cyd-destun, ymyriadau, a naws lleferydd dynol — fel sgwrsio â chydweithiwr.',
@@ -114,6 +122,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Agor sesiwn',
   'notFound.home': 'Yn ôl adref',
   'notFound.title': 'Doedden ni ddim yn gallu clywed y dudalen honno.',
+  'parlanceLayout.closeMenu': "Cau'r ddewislen",
+  'parlanceLayout.openMenu': 'Agor y ddewislen lywio',
   'parlanceLayout.primaryNavLabel': 'Prif lywio',
   'pricing.conversations': '{{count}} sgyrsiau',
   'pricing.cta.startFree': 'Dechreuwch am ddim',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Dim gemau',
   'search.eyebrow': 'Palet gorchymyn',
   'search.fetchError': 'Methwyd llwytho mynegai chwilio.',
+  'search.static.profile.preview': 'Enw arddangos, enw defnyddiwr, bywgraffiad',
   'search.static.voice.title': 'Llais',
   'search.title': 'Chwilio Iaith',
   'search.transcriptPreview': 'Agor trawsgrifiad',

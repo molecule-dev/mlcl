@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
   'actions.empty': 'Эч бир аракет дал келген жок.',
   'actions.heading': 'Аракет элементтери',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Мурунку ай',
   'calendar.recent': 'Акыркы',
   'common.daysAgo': '{{count}} күн мурун',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.hoursAgo': '{{count}} саат мурун',
   'common.no': '—',
+  'common.retry': 'Кайра аракет',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} аракет элементтери',
   'dashboard.empty.body':
@@ -43,9 +46,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Электрондук почтаңызды киргизиңиз, биз калыбына келтирүү шилтемесин жөнөтөбүз.',
   'integrations.disconnected': 'Ажыратылган',
+  'integrations.loadError': 'Интеграциялар жүктөлбөй калды.',
   'integrations.notConnectedTag': 'Байланышкан эмес',
   'integrations.subheading':
     'Murmur автоматтык түрдө кошулушу үчүн календарларды жана видео платформаларды туташтырыңыз.',
+  'integrations.updateError': 'Жаңыртуу ишке ашкан жок.',
   'landing.ctaButton': 'Баштоо — бул бекер',
   'landing.ctaHeading': 'Жазууларды жазууну токтотуңуз. Чечим кабыл ала баштаңыз.',
   'landing.demo.aiLabel': 'Жасалма интеллекттин кыскача баяндамасы, түз эфирде даярдалган',
@@ -65,7 +70,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Кийинки билдирүүлөр',
   'meetingDetail.loadError': 'Жолугушуу жүктөлбөй калды.',
   'meetingDetail.noActions': 'Эч кандай аракет табылган жок.',
+  'meetingDetail.none': 'Жок.',
   'meetingDetail.notFound': 'Жолугушуу табылган жок.',
+  'meetingDetail.speakerFallback': 'Спикер {{id}}',
   'meetingDetail.summaryHeading': 'Жасалма интеллекттин кыскача баяндамасы',
   'meetingDetail.transcriptHeading': 'Транскрипт',
   'meetings.empty.body':
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Жолугушуулар',
   'meetings.loadError': 'Жолугушуулар жүктөлбөй калды.',
   'meetings.subheading': 'Ар бир жаздырылган, жүктөлгөн жана шайкештештирилген жолугушуу.',
+  'murmurLayout.openMenu': 'Навигация менюсун ачуу',
   'murmurLayout.primaryNavLabel': 'Негизги навигация',
   'nav.legal': 'Юридикалык',
   'notifications.loadError': 'Эскертмелер жүктөлбөй калды.',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmurдун ичинде кандай көрүнөсүз.',
   'record.error.empty': 'Аудио жаздырылган жок.',
   'record.error.permission': 'Микрофонду колдонууга уруксат берилген жок.',
+  'record.error.recorder': 'Жаздыргыч катасы',
   'record.error.unsupported':
     'Браузериңиз жаздырууну колдобойт. Chrome, Edge же Safari’ни колдонуп көрүңүз.',
   'record.error.upload': 'Жүктөө ишке ашкан жок. Кайра аракет кылыңыз.',
@@ -122,6 +131,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Жаңы сыр сөз',
   'reset.subheading': 'Башка эч жерде колдонбогон сырсөз тандаңыз.',
   'search.empty': 'Транскрипттерди издөө үчүн териңиз.',
+  'search.loadError': 'Издөө ишке ашкан жок. Кайра аракет кылыңыз.',
   'search.noResults': '"" боюнча эч кандай жыйынтык жок {{q}} ".',
   'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
   'settings.appearance.title': 'Көрүнүшү',
@@ -130,6 +140,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Жөндөөлөр жүктөлбөй калды.',
   'settings.loading': 'Жүктөлүүдө…',
   'settings.push.heading': 'Push билдирмелери',
+  'settings.push.subheading':
+    'Эскертүүлөр, аракет пункттары жана кыскача мазмундар үчүн браузер эскертмелерин алыңыз.',
   'settings.retention.audio': 'Аудиону төмөнкү убакытка сактоо',
   'settings.retention.heading': 'Сактоо',
   'settings.retention.transcript': 'Транскрипттерди сактоо',
@@ -147,6 +159,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Жолугушуу жазууларын бир нече мүнөттүн ичинде жазып баштаңыз',
   'signup.terms':
     'Аккаунт түзүү менен сиз биздин Тейлөө шарттарына жана Купуялык саясатына макул болосуз.',
+  'signup.termsPrefix': 'Аккаунт түзүү менен сиз биздин шарттарыбызга макул болосуз',
   'team.inviteCta': 'Командалашты чакырыңыз',
   'team.invitedAs': 'Чакырылган катары {{role}}',
   'team.inviteFailed': 'Чакыруу жөнөтүлгөн жок.',

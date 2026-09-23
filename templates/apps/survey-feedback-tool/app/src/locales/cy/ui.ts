@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Ynghylch {{app}}',
   'analytics.back': "Trosolwg o'r arolwg",
   'analytics.kpiNps': 'Sgôr NPS',
   'analytics.kpiNpsTrend': 'Hyrwyddwyr {{p}} % · Difrïwyr {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Priodweddau',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Teitl yr arolwg',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'forgotPassword.failed': 'Methwyd anfon e-bost ailosod. Rhowch gynnig arall arni.',
   'forgotPassword.subheading': 'Rhowch eich cyfeiriad e-bost a byddwn yn anfon dolen adfer atoch.',
   'forgotPassword.successBody':
     "Os yw cyfrif yn cyfateb {{email}} , mae dolen ailosod ar ei ffordd. Gwiriwch eich mewnflwch a'ch ffolderi sbam.",
+  'landing.footer.copyright': '© {{year}} {{app}} . Croeso i bob llais.',
   'landing.footer.startTrial': 'Dechrau treial',
   'landing.hero.badge': 'Arolygon, NPS ac adborth mewn un lle',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Prisio',
   'landing.pricing.perMonth': '/mis',
   'landing.pricing.popular': 'Mwyaf poblogaidd',
+  'landing.pricing.subtitle':
+    'Mae pob cynllun yn cynnwys yr adeiladwr arolygon, dolenni rhannu cyhoeddus, a dadansoddeg NPS. Nid oes angen cerdyn credyd i ddechrau.',
+  'landing.pricing.title': 'Dechreuwch am ddim, graddiwch pan fyddwch chi.',
   'landing.sample.eyebrow': 'Cipolwg ar NPS',
   'landing.sample.title': 'Difrïwyr, goddefol, hyrwyddwyr — yn ddarllenadwy ar unwaith.',
   'login.failed': 'Methodd mewngofnodi. Rhowch gynnig arall arni.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Dangos cyfrinair',
   'login.signUpLink': 'Dechreuwch gyfnod prawf am ddim',
   'login.subheading': 'Mewngofnodwch i barhau i wrando ar eich cynulleidfa.',
+  'notFound.body':
+    "Nid yw'r dudalen rydych chi'n chwilio amdani yn bodoli ar {{app}} . Gadewch i ni eich tywys yn ôl at eich arolygon.",
   'notFound.cta': "Yn ôl i'r arolygon",
   'notFound.eyebrow': '404',
   'notFound.heading': 'Driflodd yr arolwg hwn oddi ar y ciw.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.promoter': 'Hyrwyddwr 9–10',
   'profile.identity.description':
     "Cyhoeddus i'ch tîm ac ar yr arolygon rydych chi'n eu hawdurdodi.",
+  'profile.identity.emailRequired': 'Rhowch gyfeiriad e-bost.',
   'profile.identity.saveCta': 'Cadw enw',
   'profile.password.current': 'Cyfrinair cyfredol',
   'profile.password.fillFields': "Rhowch y cyfrinair cyfredol a'r cyfrinair newydd.",
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} cwestiynau',
   'templates.subheading':
     "Dewiswch gychwynnwr sydd wedi'i brofi o ran brwydr — mae pob templed wedi'i diwnio ymlaen llaw gyda rhagosodiadau synhwyrol, rhesymeg sampl, a chynllun symudol glân.",
+  'thankYou.body':
+    "Mae eich ymateb wedi'i gofnodi. Bydd {{app}} yn ei gynnwys yn yr adnewyddiad dadansoddeg nesaf.",
   'thankYou.eyebrow': 'Ymateb a dderbyniwyd',
   'thankYou.heading': 'Diolch - mae eich llais yn bwysig.',
   'thankYou.home': 'Ymwelwch â Gauge',

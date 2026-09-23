@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '有任何意見回饋、功能請求，或是發現了錯誤嗎？請透過您帳戶選單中的「支援」連結聯絡 {{app}} 團隊——每則訊息都會由真人處理。',
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
   'agentDetail.back': '所有代理',
   'agentDetail.capabilities': '能力',
   'agentDetail.delete': '刪除角色',
   'agentDetail.deleteConfirm': '刪除這個角色？無法撤銷。',
+  'agentDetail.deleteError': '無法刪除角色。',
   'agentDetail.eyebrow': '人格面具',
   'agentDetail.fetchError': '無法載入角色資訊。',
   'agentDetail.save': '儲存角色',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': '交換…',
   'billing.updateError': '更新無法開始。',
   'billing.usageHeading': '本週期語音使用情況',
+  'chatBubble.source.text': '文字',
+  'chatBubble.source.voice': '聲音',
+  'common.goToDashboard': '前往主控台',
   'conversation.defaultTitle': '新對話',
   'conversation.empty': '暫無消息。您可以先說點什麼，或是在下方輸入文字。',
   'conversation.eyebrow': '直播',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': '會說話的智能。',
   'landing.heroSubtitle':
     '這款人工智慧語音助理能夠理解你的自然語流。對話、構思、下達指令──一切盡在掌握。',
+  'landing.heroTitle': '{{tagline}}。',
   'landing.listening': '正在聽…',
   'landing.naturallyBody':
     '沒有觸發詞，沒有生硬的命令。 Vox 能理解語境、應對打斷，並捕捉人類語言的細微差別——就像和同事聊天一樣。',
@@ -108,6 +116,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': '開啟會話',
   'notFound.home': '回家',
   'notFound.title': '我們聽不到那一頁的聲音。',
+  'parlanceLayout.closeMenu': '關閉選單',
+  'parlanceLayout.openMenu': '開啟導覽選單',
   'parlanceLayout.primaryNavLabel': '主導航',
   'pricing.conversations': '{{count}}對話',
   'pricing.cta.startFree': '免費開始使用',
@@ -144,6 +154,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': '沒有匹配項',
   'search.eyebrow': '命令面板',
   'search.fetchError': '無法載入搜尋索引。',
+  'search.static.profile.preview': '顯示名稱、暱稱、個人簡介',
   'search.static.voice.title': '嗓音',
   'search.title': '搜尋術語',
   'search.transcriptPreview': '打開文字稿',

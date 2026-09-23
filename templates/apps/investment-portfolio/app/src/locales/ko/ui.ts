@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} 소개',
   'argentAuthShell.brandEyebrow': 'Argent · 자산 관리 도구',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . 투자 조언이 아닙니다.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) 오늘',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': '기본 내비게이션',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': '이 종목에 대한 거래 내역이 없습니다.',
   'assetDetail.txHeading': '회원님의 거래 내역',
   'common.and': '및',
+  'common.goToDashboard': '대시보드로 이동',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': '포트폴리오 개요',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': '아직 보유 종목이 없습니다.',
   'holdings.heading': '보유 종목',
   'holdings.loadError': '보유 종목을 불러오지 못했습니다.',
+  'landing.copyright':
+    '© {{year}} {{app}} . 투자 조언이 아닙니다. 과거 실적이 미래 결과를 보장하지 않습니다.',
   'landing.eyebrow': 'Argent · 자산 관리 플랫폼',
   'landing.features.heading': '자문가가 직접 만들 법한 모든 것.',
   'landing.finalCta.heading': '포트폴리오에 다시 규율을 되찾으세요.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}시간 전',
   'news.justNow': '방금 전',
   'news.loadError': '뉴스를 불러오지 못했습니다.',
+  'planUpdated.verifying': '결제 확인 중…',
   'portfolioHeroCard.label': '포트폴리오 가치',
   'pricing.holdingsLabel': '지주',
   'pricing.newsLabel': '뉴스 기사',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': '계정 삭제',
   'settings.security.deleting': '삭제 중…',
   'settings.security.heading': '보안',
+  'settings.security.newPassword': '새 비밀번호',
   'settings.security.password': '비밀번호',
   'settings.security.twoFactorEnable': '활성화',
+  'settings.security.twoFactorInvalidCode': '잘못된 코드',
+  'settings.security.twoFactorVerify': '확인 및 활성화',
   'settings.tax.error': '세금 방식을 업데이트하지 못했습니다.',
   'settings.tax.heading': '세무 단위 회계',
   'settings.tax.method': '기본 방식',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'forgot.eyebrow': 'Shin ka rasa hanyar komawa?',
   'forgot.formSubtitle': 'Faɗa mana imel ɗin da ke kan fayil ɗin.',
   'forgot.headline': 'Sake saita kalmar sirrinka.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ƙirƙiri ɗaya',
   'login.subline':
     'Littattafan rubutunka, hanyoyin haɗin yanar gizo, da shafukan yau da kullun suna nan daidai inda ka bar su.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'noteEditor.backToNotes': 'Komawa ga bayanin kula',
   'noteEditor.bodyPlaceholder':
     'Fara rubutu - bayanin kula yana adanawa ta atomatik yayin da kake rubutu.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Sabon littafin rubutu',
   'notes.newNotebookPrompt': 'Sabon sunan littafin rubutu',
   'notes.notebooksHeading': 'Littattafan Rubutu',
+  'notes.subtitle':
+    'Zaɓi littafin rubutu a gefen hagu, sannan danna maɓallin Sabon bayanin kula don fara sabon shigarwa.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Zaɓi tsarin ɗaukar bayanin kula',
   'reset.eyebrow': 'Kusan dawowa ciki',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'An sabunta',
   'versoLayout.nav.graph': 'Jadawalin zane',
   'versoLayout.nav.home': 'Gida',
+  'versoLayout.primaryNavLabel': 'Babban kewayawa',
   'versoNoteCard.pinned': 'An haɗa',
   'versoTodayHero.continueCta': 'Ci gaba da rubutu',
   'versoTodayHero.createCta': 'Fara bayanin yau',

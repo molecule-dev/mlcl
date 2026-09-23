@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'article.notFound': 'Grein fannst ekki',
   'articleEditor.bodyPlaceholder': 'Sláðu inn / fyrir blokkir, eða byrjaðu bara að skrifa.',
+  'articleEditor.loadFailed': 'Gat ekki hlaðið greininni',
   'articleEditor.publishing': 'Útgáfa\\u2026',
   'articleEditor.saveFailed': 'Vista mistókst',
   'articleEditor.saving': 'Vistar\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Bókamerki',
   'articleView.bookmarkOn': 'Bókamerkt',
   'articleView.edit': 'Breyta grein',
+  'articleView.loading': 'Að opna þessa grein…',
   'articleView.readTime': '{{minutes}} mín lestur',
   'articleView.spaces': 'Rými',
   'articleView.tocHeading': 'Á þessari síðu',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Nýlegar breytingar, lestrar og drög sem teymið þitt er enn að vinna í.',
   'cairnTrailHero.updated': 'Greinar uppfærðar',
+  'common.goToDashboard': 'Fara á yfirlit',
   'drafts.eyebrow': 'Óklárað verk þitt',
   'drafts.heading': 'Drög',
+  'drafts.loadFailed': 'Ekki tókst að hlaða inn drögin þín.',
   'drafts.subtitle':
     'Greinar sem þú hefur byrjað á en ekki enn gefið út. Veldu eina og haltu áfram.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Engin rými ennþá. Opnaðu eitt til að byrja að safna greinum.',
   'home.spacesHeading': 'Rýmin þín',
   'home.subtitle': 'Nýlegar greinar, bókamerkin þín og það sem teymið hefur verið að skrifa.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Smíðað með Molecule.',
   'landing.ctaBody':
     'Ókeypis fyrir einstaklingshöfunda. Teymisáætlanir fyrir dreifð teymi sem senda út keyrslubækur, ákvarðanir og innleiðingu.',
   'landing.ctaHeading': 'Leggðu fyrsta steininn í dag.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Búa til vinnusvæði',
   'login.submitting': 'Innskráning\\u2026',
   'login.subtitle': 'Taktu upp slóðina þar sem þú skildir hana eftir.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
+  'newSpace.colorAria': 'Veldu lit {{color}}',
   'newSpace.colorLabel': 'Litur á áherslu',
+  'newSpace.createFailed': 'Gat ekki búið til rými',
   'newSpace.descriptionPlaceholder': 'Hlaupbækur, vaktbækur, krufningar\\u2026',
   'newSpace.eyebrow': 'Opnaðu þekkingarrými',
   'newSpace.heading': 'Nýtt rými',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Hleður\\u2026',
   'notifications.subtitle':
     '{{count}} ólesnar og umtal, athugasemdir, síðubreytingar og beiðnir um endurskoðun.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.articles': 'greinar',
   'pricing.spaces': 'rými',
   'profile.eyebrow': 'Höfundarprófíll',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Sláðu inn nýtt lykilorð',
   'resetPassword.subtitle': 'Veldu sterkt lykilorð — að minnsta kosti 12 stafir.',
   'searchResults.eyebrow': 'Leit að vinnusvæði',
+  'searchResults.filter.all': 'Öll rými',
   'searchResults.heading': 'Leita að greinum',
   'searchResults.placeholder': 'Leita í keyrslubókum, RFC-um, stefnum, ákvörðunum\\u2026',
   'searchResults.summary': '{{count}} niðurstöður fyrir \\u201c {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Þetta eyðir aðganginum þínum og öllum greinum sem þú hefur skrifað. Sláðu inn DELETE til að staðfesta.',
   'settings.danger.confirmInvalid': 'Sláðu inn DELETE til að staðfesta.',
+  'settings.danger.deleteFailed': 'Gat ekki eytt reikningi',
   'settings.danger.deleting': 'Eyðir\\u2026',
   'settings.danger.description':
     'Ef þú eyðir vinnusvæðinu þínu verða allar greinar, athugasemdir og útgáfusaga fjarlægð. Það er engin endurheimt í boði.',
   'settings.danger.title': 'Eyða vinnusvæði',
+  'settings.email.confirm': 'Uppfæra netfang',
+  'settings.email.confirmTitle': 'Staðfesta breytingu á netfangi',
   'settings.email.saved': 'Netfang uppfært.',
+  'settings.email.updateFailed': 'Gat ekki uppfært netfangið',
   'settings.language.title': 'Tungumál',
   'settings.name': 'Nafn',
+  'settings.name.saved': 'Nafn uppfært.',
+  'settings.name.updateFailed': 'Gat ekki uppfært nafnið',
   'settings.notifications.description': 'Veldu hvað berst í pósthólfið þitt.',
+  'settings.password.changeFailed': 'Gat ekki breytt lykilorðinu',
   'settings.password.current': 'Núverandi lykilorð',
   'settings.password.new': 'Nýtt lykilorð',
   'settings.password.saving': 'Uppfærir\\u2026',
@@ -146,10 +166,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Hvernig greinar birtast fyrir þig.',
   'settings.reading.title': 'Lestur og ritun',
   'settings.subtitle': 'Stilltu tilkynningar, lestrarsvæðið og reikninginn þinn.',
+  'settings.twofa.code': 'Auðkenningarkóði',
   'settings.twofa.disable': 'Slökkva',
   'settings.twofa.disabled': 'Óvirkur',
   'settings.twofa.enable': 'Virkja',
   'settings.twofa.enabled': 'Virkt',
+  'settings.twofa.invalidCode': 'Ógildur kóði',
+  'settings.twofa.unavailable': 'Tvíþátta auðkenning er ekki í boði fyrir þetta forrit.',
+  'settings.twofa.verify': 'Staðfesta og virkja',
   'signup.brandQuote':
     'Að skrifa það niður er fyrsta loforðið sem við gefum næsta manneskju sem þarfnast þess.',
   'signup.eyebrow': 'Opna vinnusvæði',

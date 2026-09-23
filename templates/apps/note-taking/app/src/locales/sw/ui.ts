@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'forgot.eyebrow': 'Umepoteza njia ya kurudi ndani?',
   'forgot.formSubtitle': 'Tuambie barua pepe iliyo kwenye faili.',
   'forgot.headline': 'Weka upya nenosiri lako.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Unda moja',
   'login.subline':
     'Madaftari yako, viungo vya nyuma, na kurasa za kila siku ziko pale pale ulipoziacha.',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'noteEditor.backToNotes': 'Rudi kwenye madokezo',
   'noteEditor.bodyPlaceholder': 'Anza kuandika — daftari lako huhifadhiwa kiotomatiki unapoandika.',
   'noteEditor.confirmTrash': 'Ungependa kuhamisha dokezo hili hadi kwenye tupio?',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Daftari jipya',
   'notes.newNotebookPrompt': 'Jina jipya la daftari',
   'notes.notebooksHeading': 'Madaftari',
+  'notes.subtitle':
+    'Chagua daftari upande wa kushoto, kisha bonyeza kitufe cha Dokezo Jipya ili kuanza kuingiza mpya.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Chagua mpango wako wa Kuandika Madokezo',
   'reset.eyebrow': 'Karibu kurudi ndani',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Imesasishwa',
   'versoLayout.nav.graph': 'Grafu',
   'versoLayout.nav.home': 'Nyumbani',
+  'versoLayout.primaryNavLabel': 'Usogezaji mkuu',
   'versoNoteCard.pinned': 'Imebandikwa',
   'versoTodayHero.continueCta': 'Endelea kuandika',
   'versoTodayHero.createCta': 'Anza kuandika barua ya leo',

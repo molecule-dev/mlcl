@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.featureDiscover.title': 'Įkvėpimas, atrinktas rankomis',
   'account.addPaymentCta': 'Pridėti mokėjimo būdą',
   'account.addPaymentError': 'Nepavyko pridėti mokėjimo būdo.',
+  'account.confirmRemove': 'Patvirtinti pašalinimą',
   'account.defaultBadge': 'Numatytasis',
   'account.loyalty.pointsTowardNext': '{{taškai}} iš {{toliau}} mylių iki {{kitasPakopa}}',
   'account.loyalty.tier': 'Dabartinis lygis',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Kelionės detalės',
   'booking.tripSummary': '{{nights}} naktys · {{guests}} svečiai',
   'common.daysAgo': '{{count}} prieš d.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.hoursAgo': '{{count}} prieš val.',
   'common.minutesAgo': '{{count}} prieš min.',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Teisinis',
   'notifications.loading': 'Kraunama…',
   'notifications.subheading': '{{count}} neskaityta · viskas vienoje ramioje gautuosiuose',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.accommodationsLabel': 'apgyvendinimas',
   'pricing.bookingsLabel': 'užsakymai',
   'pricing.destinationsLabel': 'išsaugotos kelionės tikslai',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Įkvėpimas, patikimos viešnagės ir sklandus kelias nuo svajonės iki užsakymo – 14 šalių ir daugiau nei 200 kruopščiai patikrintų objektų.',
   'sojournHeroSearchCard.trustProtected': 'Nemokamas atšaukimas, visiškai apsaugota',
   'sojournHeroSearchCard.trustVetted': 'Tik rankiniu būdu patikrintos nuosavybės',
+  'travelBookingLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'tripDetail.backLink': 'Grįžti į keliones',
   'tripDetail.cancelCta': 'Atšaukti užsakymą',
   'tripDetail.cancelHeading': 'Atšaukti šią kelionę?',

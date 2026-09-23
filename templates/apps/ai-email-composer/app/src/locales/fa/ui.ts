@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'داستان ما',
   'aiSuggestionPanel.title': 'کمک خلبان سیگنت',
   'analytics.col.open': 'نرخ باز شدن',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'شروع تسویه حساب…',
   'billing.subheading': 'طرحی را انتخاب کنید که با نحوه ارسال شما مطابقت داشته باشد.',
   'billing.unavailable': 'تماس با فروش',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.retry': 'دوباره امتحان کنید',
   'compose.adjustingTone': 'بازنویسی با لحن انتخاب شده…',
   'compose.aiPromptPlaceholder': 'مثلاً «پیگیری مودبانه بعد از دو هفته عدم پاسخ، کوتاه باشد.»',
   'compose.aiReady': 'پیش‌نویس آماده - بررسی کنید و وقتی از آن راضی بودید، ارسال کنید.',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'آیا نیاز به ارسال چیزی دارید؟ Signet می‌تواند در عرض چند ثانیه پیش‌نویس آن را آماده کند.',
   'dashboard.composeCtaLabel': 'نوشتن سریع',
   'dashboard.heading': 'هفته شما، متشکل از',
+  'dashboard.loadFailed': 'داشبورد شما بارگیری نشد.',
   'dashboard.manageLibrary': 'مدیریت کتابخانه →',
   'dashboard.recentEmpty':
     'هنوز ارسالی انجام نشده است — ایمیل‌های ارسالی شما اینجا نمایش داده می‌شوند.',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'Signet از این لحن استفاده می‌کند، مگر اینکه در پیش‌نویس آن را لغو کنید.',
   'signetLayout.primaryNavLabel': 'ناوبری اولیه',
+  'signetLayout.toggleMenu': 'منو را تغییر دهید',
   'signup.emailLabel': 'آدرس ایمیل',
   'signup.showPassword': 'نمایش رمز عبور',
   'signup.tagline': 'اولین ایمیل طراحی‌شده با هوش مصنوعی خود را در کمتر از یک دقیقه ارسال کنید.',

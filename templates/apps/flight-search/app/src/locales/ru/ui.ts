@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.eyebrow': 'О {{app}}',
   'about.pageTitle': 'Для каждого маршрута — один поиск.',
   'booking.backToDetail': 'Вернуться к подробностям рейса',
   'booking.continue': 'Продолжить оплату',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Налоги и сборы',
   'booking.summary.travelers': 'Путешественники',
   'common.about': 'О',
+  'common.goToDashboard': 'Перейти к панели',
   'flightDetail.backToResults': 'Вернуться к результатам',
   'flightDetail.baseFare': 'Базовый тариф',
   'flightDetail.book': 'Перейти к бронированию',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 остановка',
   'flightResultCard.select': 'Выбирать',
   'flightResultCard.totalLabel': 'Общее время',
+  'flightSearchLayout.primaryNavLabel': 'Основная навигация',
   'forgotPassword.subheading':
     'Введите адрес электронной почты, указанный в вашем аккаунте Skylark, и мы вышлем вам защищенную ссылку для сброса пароля.',
   'forgotPassword.successBody':
     'Проверять {{email}} Ссылка для установки нового пароля. Ссылка действительна в течение 30 минут.',
   'forgotPassword.successHeading': 'Ссылка для сброса отправлена.',
   'landing.cta.explore': 'Попробуйте поиск',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Найдите следующий отличный товар раньше всех.',
   'landing.cta.signup': 'Начните отслеживать тарифы',
   'landing.features.eyebrow': 'Почему именно жаворонок?',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Добавить оповещение',
   'priceAlerts.deleteConfirm': 'Удалить это оповещение?',
   'priceAlerts.empty': 'Маршруты пока не отслеживаются.',
+  'priceAlerts.emptyCta': 'Найти маршрут для отслеживания',
   'priceAlerts.errorMessage': 'Не удалось загрузить оповещения.',
   'priceAlerts.eyebrow': 'Список наблюдения за жаворонком',
   'priceAlerts.form.createError': 'Не удалось создать оповещение.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Маршрут по нескольким городам',
   'results.multiLegHeading': 'Нога {{n}} · {{от}} → {{к}} · {{дата}}',
   'results.multiSummary': '{{count}} ноги · {{passengers}} путешественник',
+  'results.sortAriaLabel': 'Сортировать результаты по',
   'results.sortLabel': 'Сортировка',
   'results.summary': '{{count}} рейсы · {{passengers}} путешественник',
   'settings.language.title': 'Язык',

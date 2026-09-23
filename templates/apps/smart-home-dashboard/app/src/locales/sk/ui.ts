@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.pageTitle': 'O aplikácii {{app}}',
   'activity.empty': 'Zatiaľ žiadna aktivita – otočte zariadenie alebo aktivujte scénu.',
   'activity.eyebrow': 'Časová os',
   'activity.loadError': 'Nepodarilo sa načítať informačný kanál aktivity.',
   'activity.subheading':
     'Každé zariadenie, automatizácia a bezpečnostná udalosť v chronologickom poradí.',
+  'addDevice.error.failed': 'Zariadenie sa nepodarilo pridať. Skúste to znova.',
   'addDevice.error.nameRequired': 'Ak chcete pokračovať, pomenujte toto zariadenie.',
   'addDevice.field.firmware': 'Verzia firmvéru',
   'addDevice.field.manufacturer': 'Výrobca',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testovanie…',
   'automationEditor.testNew': 'Najprv si uložte automatizáciu, aby ste ju mohli otestovať.',
   'automationRow.lastRun': 'Posledný {{date}} · {{count}} beží',
+  'automationRow.on': 'Dňa',
   'automationRow.runNowAria': 'Beh {{name}} teraz',
   'automations.empty': 'Zatiaľ žiadne automatizácie – vytvorte si svoju prvú rutinu.',
   'automations.eyebrow': 'Rutiny',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Načítavajú sa automatizácie…',
   'automations.newAutomation': '+ Nové',
   'automations.subheading': 'Keď sa to stane, urobte to – bez YAML.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Nepodarilo sa načítať zariadenie.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Pracuje…',
   'deviceDetail.unnamed': 'Zariadenie',
   'deviceStatusRow.on': 'Zapnuté',
+  'deviceStatusRow.turnOff': 'Vypnúť',
+  'deviceStatusRow.turnOn': 'Zapnúť',
   'deviceStatusRow.watts': '{{watts}} Z',
   'energy.eyebrow': 'Výkon',
   'energy.heading': 'Energia',
@@ -178,4 +185,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Zobraziť plány',
   'settings.security.heading': 'Bezpečnosť',
   'settings.subheading': 'Predvoľby plánu, centier a účtu.',
+  'smartHomeDashboardLayout.openMenu': 'Otvoriť navigačné menu',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Hlavná navigácia',
 }

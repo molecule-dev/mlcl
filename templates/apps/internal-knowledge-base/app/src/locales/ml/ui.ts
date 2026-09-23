@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'article.notFound': 'ലേഖനം കണ്ടെത്തിയില്ല.',
   'articleEditor.bodyPlaceholder':
     'ബ്ലോക്കുകൾക്ക് / എന്ന് ടൈപ്പ് ചെയ്യുക, അല്ലെങ്കിൽ എഴുതാൻ തുടങ്ങുക.',
+  'articleEditor.loadFailed': 'ലേഖനം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'articleEditor.publishing': 'പ്രസിദ്ധീകരിക്കുന്നു\\u2026',
   'articleEditor.saveFailed': 'സംരക്ഷിക്കാനായില്ല',
   'articleEditor.saving': 'സംരക്ഷിക്കുന്നു\\u2026',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'ബുക്ക്മാർക്ക്',
   'articleView.bookmarkOn': 'ബുക്ക്മാർക്ക് ചെയ്തു',
   'articleView.edit': 'ലേഖനം എഡിറ്റ് ചെയ്യുക',
+  'articleView.loading': 'ഈ ലേഖനം തുറക്കുന്നു...',
   'articleView.readTime': '{{minutes}} കുറഞ്ഞത് വായിച്ചു',
   'articleView.spaces': 'സ്പെയ്സുകൾ',
   'articleView.tocHeading': 'ഈ പേജിൽ',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'നിങ്ങളുടെ ടീം ഇപ്പോഴും ശേഖരിച്ചുകൊണ്ടിരിക്കുന്ന സമീപകാല എഡിറ്റുകൾ, വായനകൾ, ഡ്രാഫ്റ്റുകൾ എന്നിവ.',
   'cairnTrailHero.updated': 'ലേഖനങ്ങൾ അപ്ഡേറ്റ് ചെയ്തു',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'drafts.eyebrow': 'നിങ്ങളുടെ പൂർത്തിയാകാത്ത ജോലി',
   'drafts.heading': 'ഡ്രാഫ്റ്റുകൾ',
+  'drafts.loadFailed': 'നിങ്ങളുടെ ഡ്രാഫ്റ്റുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'drafts.subtitle':
     'നിങ്ങൾ തുടങ്ങിയതും എന്നാൽ ഇതുവരെ പ്രസിദ്ധീകരിച്ചിട്ടില്ലാത്തതുമായ ലേഖനങ്ങൾ. ഒരെണ്ണം എടുത്ത് തുടരുക.',
   'forgotPassword.sentBody':
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
     'ഇതുവരെ സ്‌പെയ്‌സുകളൊന്നുമില്ല. ലേഖനങ്ങൾ ശേഖരിക്കാൻ ആരംഭിക്കാൻ ഒന്ന് തുറക്കുക.',
   'home.spacesHeading': 'നിങ്ങളുടെ സ്‌പെയ്‌സുകൾ',
   'home.subtitle': 'സമീപകാല ലേഖനങ്ങൾ, നിങ്ങളുടെ ബുക്ക്മാർക്കുകൾ, ടീം എന്താണ് എഴുതുന്നത്.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . തന്മാത്ര ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
   'landing.ctaBody':
     'സോളോ എഴുത്തുകാർക്ക് സൗജന്യം. റൺബുക്കുകൾ, തീരുമാനങ്ങൾ, ഓൺബോർഡിംഗ് എന്നിവ അയയ്ക്കുന്ന വിതരണം ചെയ്ത ടീമുകൾക്കുള്ള ടീം പ്ലാനുകൾ.',
   'landing.ctaHeading': 'ഇന്ന് തന്നെ ആദ്യത്തെ കല്ല് ഇടൂ.',
@@ -85,7 +92,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'ഒരു വർക്ക്‌സ്‌പെയ്‌സ് സൃഷ്‌ടിക്കുക',
   'login.submitting': 'സൈൻ ഇൻ ചെയ്യുന്നു\\u2026',
   'login.subtitle': 'നീ പോയ ഇടത്തു നിന്ന് തന്നെ വണ്ടി എടുക്ക്.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'newSpace.colorAria': 'നിറം തിരഞ്ഞെടുക്കുക {{color}}',
   'newSpace.colorLabel': 'ആക്സന്റ് നിറം',
+  'newSpace.createFailed': 'സ്പെയ്സ് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല',
   'newSpace.descriptionPlaceholder': 'റൺബുക്കുകൾ, ഓൺ-കോൾ പ്ലേബുക്കുകൾ, പോസ്റ്റ്‌മോർട്ടങ്ങൾ\\u2026',
   'newSpace.eyebrow': 'ഒരു വിജ്ഞാന ഇടം തുറക്കുക',
   'newSpace.heading': 'പുതിയ സ്ഥലം',
@@ -109,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.subtitle':
     '{{count}} വായിക്കാത്ത \\u2014 പരാമർശങ്ങൾ, അഭിപ്രായങ്ങൾ, പേജ് മാറ്റങ്ങൾ, അവലോകന അഭ്യർത്ഥനകൾ.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.articles': 'ലേഖനങ്ങൾ',
   'pricing.spaces': 'ഇടങ്ങൾ',
   'profile.eyebrow': 'രചയിതാവിന്റെ പ്രൊഫൈൽ',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'ഒരു പുതിയ പാസ്‌വേഡ് നൽകുക',
   'resetPassword.subtitle': 'ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 12 പ്രതീകങ്ങൾ.',
   'searchResults.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് തിരയൽ',
+  'searchResults.filter.all': 'എല്ലാ സ്‌പെയ്‌സുകളും',
   'searchResults.heading': 'ലേഖനങ്ങൾ തിരയുക',
   'searchResults.placeholder': 'റൺബുക്കുകൾ, RFC-കൾ, നയങ്ങൾ, തീരുമാനങ്ങൾ എന്നിവ തിരയുക\\u2026',
   'searchResults.summary': '{{count}} \\u201c എന്നതിനായുള്ള ഫലങ്ങൾ {{query}} \\u201d',
@@ -136,15 +149,22 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'ഇത് നിങ്ങളുടെ അക്കൗണ്ടും നിങ്ങൾ രചിച്ച എല്ലാ ലേഖനങ്ങളും ഇല്ലാതാക്കുന്നു. സ്ഥിരീകരിക്കാൻ DELETE എന്ന് ടൈപ്പ് ചെയ്യുക.',
   'settings.danger.confirmInvalid': 'സ്ഥിരീകരിക്കാൻ DELETE എന്ന് ടൈപ്പ് ചെയ്യുക.',
+  'settings.danger.deleteFailed': 'അക്കൗണ്ട് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'settings.danger.deleting': 'ഇല്ലാതാക്കുന്നു\\u2026',
   'settings.danger.description':
     'നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സ് ഇല്ലാതാക്കുന്നത് എല്ലാ ലേഖനങ്ങളും, കമന്റുകളും, പതിപ്പ് ചരിത്രവും നീക്കം ചെയ്യുന്നു. വീണ്ടെടുക്കൽ സാധ്യമല്ല.',
   'settings.danger.title': 'വർക്ക്‌സ്‌പെയ്‌സ് ഇല്ലാതാക്കുക',
+  'settings.email.confirm': 'ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്യുക',
+  'settings.email.confirmTitle': 'ഇമെയിൽ മാറ്റം സ്ഥിരീകരിക്കുക',
   'settings.email.saved': 'ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്തു.',
+  'settings.email.updateFailed': 'ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.language.title': 'ഭാഷ',
   'settings.name': 'പേര്',
+  'settings.name.saved': 'പേര് അപ്ഡേറ്റ് ചെയ്തു.',
+  'settings.name.updateFailed': 'പേര് അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല',
   'settings.notifications.description':
     'നിങ്ങളുടെ ഇൻബോക്സിൽ എന്താണ് എത്തേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക.',
+  'settings.password.changeFailed': 'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല',
   'settings.password.current': 'നിലവിലെ പാസ്വേഡ്',
   'settings.password.new': 'പുതിയ പാസ്വേഡ്',
   'settings.password.saving': 'അപ്‌ഡേറ്റ് ചെയ്യുന്നു\\u2026',
@@ -152,10 +172,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'ലേഖനങ്ങൾ നിങ്ങൾക്കായി എങ്ങനെ റെൻഡർ ചെയ്യുന്നു.',
   'settings.reading.title': 'വായനയും എഴുത്തും',
   'settings.subtitle': 'അറിയിപ്പുകൾ, വായനാ ക്യാൻവാസ്, നിങ്ങളുടെ അക്കൗണ്ട് എന്നിവ ട്യൂൺ ചെയ്യുക.',
+  'settings.twofa.code': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twofa.disable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twofa.disabled': 'അപ്രാപ്തമാക്കി',
   'settings.twofa.enable': 'പ്രാപ്തമാക്കുക',
   'settings.twofa.enabled': 'പ്രവർത്തനക്ഷമമാക്കി',
+  'settings.twofa.invalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twofa.unavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
+  'settings.twofa.verify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'signup.brandQuote':
     '\\u201cഅത് എഴുതി വയ്ക്കുക എന്നത് അത് ആവശ്യമുള്ള അടുത്ത വ്യക്തിക്ക് നമ്മൾ നൽകുന്ന ആദ്യ വാഗ്ദാനമാണ്.\\u201d',
   'signup.eyebrow': 'ഒരു വർക്ക്‌സ്‌പെയ്‌സ് തുറക്കുക',

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.logout': 'ಲಾಗ್ಔಟ್',
   'dailyStatsTriad.heartsLabel': 'ಹೃದಯಗಳು',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'ಇಂದಿನ ನಿಮಿಷಗಳು',
   'dailyStatsTriad.minutesValue': '{{count}} ನಿಮಿಷ',
   'dailyStatsTriad.wordsLabel': 'ಪದಗಳನ್ನು ಕರಗತ ಮಾಡಿಕೊಂಡರು',
+  'dailyStatsTriad.wordsMasteryHint': 'ಪಾಂಡಿತ್ಯದಲ್ಲಿ ಪದಗಳು 4+',
   'dashboard.continueHeading': 'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಮುಂದುವರಿಸಿ',
   'dashboard.heading': 'ಬ್ಯೂನಸ್ ಡಿಯಾಸ್, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'ವ್ಯಾಯಾಮಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'lessonDetail.loading': 'ಪಾಠವನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'lessonDetail.submitError': 'ಉತ್ತರವನ್ನು ಸಲ್ಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'lessonDetail.translation': 'ವಾಕ್ಯವನ್ನು ಅನುವಾದಿಸಿ',
   'lessonDetail.xpEarned': 'XP ಗಳಿಸಲಾಗಿದೆ · {{xp}}',
   'lessons.empty': 'ಮಟ್ಟದಲ್ಲಿ ಯಾವುದೇ ಪಾಠಗಳಿಲ್ಲ. {{level}} ಇನ್ನೂ — ಇನ್ನೊಂದು ಹಂತವನ್ನು ಪ್ರಯತ್ನಿಸಿ.',
   'lessons.eyebrow': 'ಪಾಠ ಗ್ರಂಥಾಲಯ',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ಪಾರ್ಲೆನ್ಸ್‌ಗೆ ಹೊಸಬರೇ?',
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.signUp': 'ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ →',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
+  'parlanceLayout.nav.profile': 'ಪ್ರೊಫೈಲ್',
   'parlanceLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'practice.empty': 'ಇನ್ನೂ ಯಾವುದೇ ನುಡಿಗಟ್ಟುಗಳು ಲಭ್ಯವಿಲ್ಲ.',
   'practice.eyebrow': 'ಮಾತನಾಡುವ ಅಭ್ಯಾಸ',
   'practice.heading': 'ಓದಿ. ರೆಕಾರ್ಡ್ ಮಾಡಿ. ಪರಿಷ್ಕರಿಸಿ.',

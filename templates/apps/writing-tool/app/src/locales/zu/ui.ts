@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.title': 'Igumbi lokubhala ongaligcina ephaketheni lakho',
   'billing.cancelConfirm': 'Khansela okubhalisele kwakho okusebenzayo?',
   'billing.cancelFailed': 'Ayikwazanga ukukhansela.',
   'billing.checkingOut': 'Ivula ukukhokha…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Ayikwazanga ukulayisha inkokhelo.',
   'billing.loading': 'Ilayisha inkokhelo…',
   'billing.upgradeCta': 'Thuthukela ku- {{name}}',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'editor.autosaveOn': 'Ukulondoloza okuzenzakalelayo kuvuliwe',
   'editor.backToLibrary': 'Buyela kulabhulali',
   'editor.charCount': '{{count}} abalingiswa',
   'editor.confirmTrash': 'Hambisa le dokhumenti kudoti?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Kususwe ukuphinwa',
   'editor.unpublishCta': 'Hambisa kokusalungiswa',
   'editor.unpublished': 'Kubuyiselwe kokusalungiswa',
+  'focus.autosaveOn': 'Ukulondoloza okuzenzakalelayo kuvuliwe',
   'focus.backToLibrary': 'Buyela kulabhulali',
   'focus.bodyPlaceholder': 'Umugqa ngesikhathi. Akekho omunye umuntu lapha.',
   'focus.exit': 'Phuma kwimodi yokugxila',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Dala eyodwa',
   'login.subline':
     'Imibhalo yakho yesandla, amakhasi ansuku zonke, kanye nendawo yokugcina yesikhombisi kulapho ushiye khona.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'pricing.exports': 'ukuthunyelwa kwamanye amazwe',
   'pricing.folders': 'amafolda',
   'pricing.heading': 'imibhalo',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Faka ikhodi esisanda kukuthumelela yona nge-imeyili bese ukhetha into ekhumbulekayo. Sizokungenisa ngemvume uma isigciniwe.',
   'reset.tokenHint': 'Kunamathiselwe ebhokisini lakho lokungenayo.',
+  'settings.appearance.heading': 'Ukukhanya noma ubumnyama',
   'settings.editor.${row.id}.description': 'Ulimi',
   'settings.editor.description':
     'Ukuskrola komshini wokubhala, ukufiphala kwesigaba, kanye nokugxila okungenamsebenzi — okuzenzakalelayo kulungiselelwe izikhathi ezinde.',
@@ -139,6 +147,7 @@ export const ui: UiTranslations = {
     'Isahluko Sesithathu — Ihora Elithule Ngaphambi Kokuphuma Kwelanga',
   'versalDocumentCard.pinned': 'Kuphiniwe',
   'versalLayout.nav.stats': 'Izibalo',
+  'versalLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'versalManuscriptHero.cta': 'Qhubeka ubhala',
   'versalManuscriptHero.goalLabel': 'Umgomo wamagama wanamuhla',
   'versalManuscriptHero.inProgress': 'Kusendleleni',

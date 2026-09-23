@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.featureDiscover.title': 'Frymëzim, i zgjedhur me kujdes',
   'account.addPaymentCta': 'Shto metodën e pagesës',
   'account.addPaymentError': 'Nuk mund të shtohej metoda e pagesës.',
+  'account.confirmRemove': 'Konfirmo heqjen',
   'account.defaultBadge': 'Parazgjedhur',
   'account.loyalty.pointsTowardNext': '{{pikë}} e {{tjetër}} milje për në {{NextTier}}',
   'account.loyalty.tier': 'Niveli aktual',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Detajet e udhëtimit',
   'booking.tripSummary': '{{nights}} netë · {{guests}} mysafirë',
   'common.daysAgo': '{{count}} ditë më parë',
+  'common.goToDashboard': 'Shko te paneli',
   'common.hoursAgo': '{{count}} orë më parë',
   'common.minutesAgo': '{{count}} m më parë',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Ligjore',
   'notifications.loading': 'Duke u ngarkuar…',
   'notifications.subheading': '{{count}} të palexuara · gjithçka në një kuti hyrëse të qetë',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.accommodationsLabel': 'akomodime',
   'pricing.bookingsLabel': 'rezervime',
   'pricing.destinationsLabel': 'destinacionet e ruajtura',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Frymëzim, qëndrime të besueshme dhe një rrugë e lehtë nga ëndrra me sy hapur tek rezervimi — në 14 vende dhe mbi 200 prona të verifikuara me kujdes.',
   'sojournHeroSearchCard.trustProtected': 'Anulim falas, i mbrojtur plotësisht',
   'sojournHeroSearchCard.trustVetted': 'Vetëm prona të verifikuara me dorë',
+  'travelBookingLayout.primaryNavLabel': 'Navigimi kryesor',
   'tripDetail.backLink': 'Kthehu te udhëtimet',
   'tripDetail.cancelCta': 'Anulo rezervimin',
   'tripDetail.cancelHeading': 'Të anulohet ky udhëtim?',

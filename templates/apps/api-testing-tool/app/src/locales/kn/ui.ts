@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'authShell.statusLabel': 'ಓಟಗಾರರು ಆನ್‌ಲೈನ್',
   'collections.createError': 'ಸಂಗ್ರಹವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'collections.defaultName': 'ಶೀರ್ಷಿಕೆರಹಿತ ಸಂಗ್ರಹ {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'ಹೊಸ ಸಂಗ್ರಹ',
   'collections.subheading':
     'ಗುಂಪು ವಿನಂತಿಗಳನ್ನು ಮಾಡಿ, ನಿಮ್ಮ ತಂಡದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ ಮತ್ತು ಅವುಗಳನ್ನು ಸೂಟ್‌ನಂತೆ ಚಲಾಯಿಸಿ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'environmentCard.inactive': 'ಐಡಲ್',
   'environmentCard.more': 'ಹೆಚ್ಚು',
   'environmentCard.variables': 'ಅಸ್ಥಿರಗಳು',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'ಉಚಿತ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ',
   'landing.heroSubtitle':
     'ಟರ್ಮಿನಲ್‌ಗಳಲ್ಲಿ ವಾಸಿಸುವ ಎಂಜಿನಿಯರ್‌ಗಳಿಗಾಗಿ ನಿರ್ಮಿಸಲಾದ ಮಿಂಚಿನ ವೇಗದ API ಪರೀಕ್ಷಾ ವರ್ಕ್‌ಬೆಂಚ್.',
+  'landing.heroTitleAccent': 'ಬೆಂಕಿ',
+  'landing.heroTitleLine2': 'ಆತ್ಮವಿಶ್ವಾಸವನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಿ.',
+  'landing.heroTitleRest': 'ವಿನಂತಿಗಳು,',
   'landing.kicker': '$ ಪೈಲಾನ್ ಕಳುಹಿಸಿ --ವೀಕ್ಷಿಸಿ',
   'landing.pricingEyebrow': '// $ ಬೆಲೆ ನಿಗದಿ --ಸರಳ',
   'landing.pricingHeading': 'ಸರಳ, ಊಹಿಸಬಹುದಾದ ಬೆಲೆ ನಿಗದಿ',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ಇಲ್ಲಿ ಹೊಸಬರೇ?',
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.subtitle': 'ನಿಮ್ಮ ಪೈಲಾನ್ ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಮುಂದುವರಿಯಿರಿ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'mocks.createError': 'ಅಣಕು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'mocks.defaultName': 'ಶೀರ್ಷಿಕೆರಹಿತ ಅಣಕು {{n}}',
   'mocks.deleteError': 'ಅಣಕು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'notFound.eyebrow': '$ ಪೈಲಾನ್ ರೆಸಲ್ಯೂವ್ --ಸ್ಟ್ರಿಕ್ಟ್',
   'notFound.title': 'ಮಾರ್ಗ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'privacy.collect.account':
     'ಖಾತೆ: ನಿಮ್ಮ ಇಮೇಲ್, ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್, ಪ್ರದರ್ಶನ ಹೆಸರು ಮತ್ತು ನಿಮ್ಮ ಕೊನೆಯ ಸೈನ್-ಇನ್‌ನ ಸಮಯಸ್ಟ್ಯಾಂಪ್.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'ಈ ಖಾತೆಯು ಪ್ರಸ್ತುತ ಹೊಂದಿರುವ ಡೇಟಾದ ಓದಲು-ಮಾತ್ರ ವೀಕ್ಷಣೆ.',
   'settings.unset': 'ಹೊಂದಿಸಲಾಗಿಲ್ಲ',
   'signup.identityHint': 'ಉದಾ. ಅಲೆಕ್ಸ್',
+  'signup.statusLabel': 'ಉಚಿತ ಶ್ರೇಣಿ · ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಇಲ್ಲ',
   'signup.subtitle': 'ಕೆಲವೇ ನಿಮಿಷಗಳಲ್ಲಿ ವಿನಂತಿಗಳನ್ನು ಕಳುಹಿಸಲು ಪ್ರಾರಂಭಿಸಿ.',
   'terms.account.body':
     'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ರಕ್ಷಿಸುವ ಜವಾಬ್ದಾರಿ ನಿಮ್ಮದು. ಉಚಿತ ಅಥವಾ ಪ್ರೊ ಯೋಜನೆಗಳಲ್ಲಿ ಒಂದೇ ಖಾತೆಯನ್ನು ಬಹು ವ್ಯಕ್ತಿಗಳೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಲು ಅನುಮತಿ ಇಲ್ಲ - ಹಂಚಿಕೆಯ ಕಾರ್ಯಸ್ಥಳಗಳಿಗಾಗಿ ತಂಡದ ಚಂದಾದಾರಿಕೆಯನ್ನು ಖರೀದಿಸಿ.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'ನೀವು ಹೊಂದಿರದ ಅಥವಾ ಪರೀಕ್ಷಿಸಲು ಸ್ಪಷ್ಟ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರದ ಸೇವೆಗಳಲ್ಲಿ ವಿನಂತಿಗಳನ್ನು ಸಲ್ಲಿಸಲು ಪೈಲಾನ್ ಅನ್ನು ಬಳಸಬೇಡಿ. ದರ ಮಿತಿಗಳನ್ನು ತಪ್ಪಿಸಲು ಅಥವಾ ವಂಚನೆ ಮಾಡಲು ಪೈಲಾನ್ ಅನ್ನು ಬಳಸಬೇಡಿ.',
   'terms.warranty.body':
     'ಪೈಲಾನ್ ಅನ್ನು ಯಾವುದೇ ರೀತಿಯ ಖಾತರಿಯಿಲ್ಲದೆ "ಇರುವಂತೆಯೇ" ಒದಗಿಸಲಾಗಿದೆ. ನಾವು 99.9% ಅಪ್‌ಟೈಮ್ ಅನ್ನು ಗುರಿಯಾಗಿಸಿಕೊಂಡಿದ್ದೇವೆ ಆದರೆ ಉಚಿತ ಅಥವಾ ಪ್ರೊ ಯೋಜನೆಗಳಲ್ಲಿ ಅದನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ.',
+  'testRunner.assertionsCount': '{{count}} ಹೇಳಿಕೆಗಳು',
   'testRunner.createError': 'ಪರೀಕ್ಷೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'testRunner.cron':
     'ಈ ಪರೀಕ್ಷೆಯ ಲಿಂಕ್ ಮಾಡಲಾದ ವಿನಂತಿಯ ಇತ್ತೀಚಿನ ರನ್ ವಿರುದ್ಧ ಸಮರ್ಥನೆಗಳನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಲಾಗುತ್ತದೆ.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'ಸೂಟ್ ಫಲಿತಾಂಶಗಳು, ಪ್ರತಿಪಾದನಾ ವ್ಯತ್ಯಾಸಗಳು ಮತ್ತು ಕೊನೆಯ 50 ರನ್‌ಗಳು.',
   'userMenu.shortcut': '⌘ಎಲ್',
   'userMenu.signedInAs': 'ಸೈನ್ ಇನ್ ಮಾಡಲಾಗಿದೆ',
+  'workspace.auth.keyName': 'ಶಿರೋಲೇಖದ ಹೆಸರು',
+  'workspace.auth.keyValue': 'ಪ್ರಮುಖ ಮೌಲ್ಯ',
+  'workspace.auth.password': 'ಪಾಸ್ವರ್ಡ್',
+  'workspace.auth.username': 'ಬಳಕೆದಾರಹೆಸರು',
+  'workspace.authOption.apikey': 'API ಕೀ',
+  'workspace.authOption.basic': 'ಮೂಲ ದೃಢೀಕರಣ',
+  'workspace.authOption.bearer': 'ಬೇರರ್ ಟೋಕನ್',
+  'workspace.authOption.none': 'ಯಾವುದೂ ಇಲ್ಲ',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'ಪ್ರಕಾರ',
   'workspace.authTypeLabel': 'ದೃಢೀಕರಣ ಪ್ರಕಾರ',
+  'workspace.body.json': 'ಜೆಎಸ್ಒಎನ್',
+  'workspace.body.none': 'ಯಾವುದೂ ಇಲ್ಲ',
+  'workspace.body.text': 'ಕಚ್ಚಾ ಪಠ್ಯ',
+  'workspace.body.type': 'ಪ್ರಕಾರ',
   'workspace.environment': 'env ಇಲ್ಲ',
   'workspace.envVar': 'env ವೇರಿಯೇಬಲ್',
   'workspace.eyebrow': '$ ಪೈಲಾನ್ ಕಾರ್ಯಕ್ಷೇತ್ರ --ಪೇನ್ ಸ್ಪ್ಲಿಟ್',
+  'workspace.kv.addHeader': 'ಶಿರೋಲೇಖವನ್ನು ಸೇರಿಸಿ',
+  'workspace.kv.addParam': 'ಪ್ಯಾರಾಮ್ ಸೇರಿಸಿ',
+  'workspace.kv.headerKey': 'ಶಿರೋಲೇಖದ ಹೆಸರು',
+  'workspace.kv.headerValue': 'ಶಿರೋಲೇಖ ಮೌಲ್ಯ',
+  'workspace.kv.key': 'ಕೀ',
+  'workspace.kv.paramKey': 'ಪ್ರಶ್ನೆ ಪ್ಯಾರಾಮ್ ಕೀ',
+  'workspace.kv.paramValue': 'ಪ್ರಶ್ನೆ ಪ್ಯಾರಾಮೀಟರ್ ಮೌಲ್ಯ',
+  'workspace.kv.removeRow': 'ಸಾಲನ್ನು ತೆಗೆದುಹಾಕಿ',
+  'workspace.kv.value': 'ಮೌಲ್ಯ',
   'workspace.methodLabel': 'HTTP ವಿಧಾನ',
   'workspace.metric.latency': 'ವಿಳಂಬ',
   'workspace.metric.latencyCaption': 'ಈ ಓಟದಿಂದ ರೌಂಡ್-ಟ್ರಿಪ್',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'ವಿನಂತಿಯನ್ನು ವಜಾಗೊಳಿಸಲಾಗಿದೆ — ಕೆಳಗಿನ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ನೋಡಿ.',
   'workspace.subheading':
     'ವಿನಂತಿಯನ್ನು ರಚಿಸಿ, ಅದನ್ನು ಸಲ್ಲಿಸಿ, ನಂತರ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ದೃಢೀಕರಿಸಿ - ಎಲ್ಲವೂ ಒಂದೇ ಫಲಕದಲ್ಲಿ.',
+  'workspace.testResults': 'ಪರೀಕ್ಷಾ ಫಲಿತಾಂಶಗಳು',
   'workspace.token': 'ಟೋಕನ್',
   'workspace.tokenHint':
     'ಅಧಿಕಾರವಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ: ಬೇರರ್<token> ಈ ಸಂಗ್ರಹದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದು ವಿನಂತಿಯ ಮೇಲೂ.',

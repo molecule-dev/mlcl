@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pronašli ste grešku, imate zahtjev za novu funkciju ili nam želite reći nešto o filmu koji ste snimili? Svaka poruka stiže do stvarne osobe u timu - kontaktirajte nas bilo kada iz postavki vašeg računa.',
+  'about.contactTitle': 'Razgovarajte s nama',
+  'about.eyebrow': '// studio koji stoji iza snimanja',
   'about.pageTitle': 'O nama {{appName}}',
   'assetDetail.back': 'Nazad u biblioteku',
   'assetDetail.confirmDelete': 'Izbriši " {{name}} "? Ovo se ne može poništiti."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipovi, audio snimci i grafika spremni za postavljanje na vremensku liniju.',
   'assetLibrary.title': 'Imovina',
   'assetLibrary.upload': 'Dodaj resurs',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.browseTemplates': 'Pregledaj predloške →',
   'dashboard.loading': 'Učitavanje projekata…',
   'dashboard.noProjects': 'Još nema projekata — kreirajte jedan da biste započeli.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Izaberi nešto čega ćeš se samo ti sjećati.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privatnost',
+  'rushesLayout.closeMenu': 'Zatvori navigaciju',
   'rushesLayout.guest': 'Urednik',
+  'rushesLayout.navDialog': 'Navigacija',
+  'rushesLayout.openMenu': 'Otvori navigaciju',
   'rushesLayout.planFree': 'Besplatan plan',
   'rushesLayout.tagline': 'Filmska vremenska linija',
   'settings.billing.confirmCancel': 'Otkazati pretplatu na kraju perioda?',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.pageTitle': '{{app}}(r)i buruz',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.retry': 'Saiatu berriro',
   'compose.cancel': 'Utzi',
   'compose.captionPlaceholder': 'Zer duzu buruan?',
   'compose.heading': 'Partekatu une bat',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Kontu egiaztatua',
   'resetPassword.newPassword': 'Pasahitz berria',
   'resetPassword.subheading': 'Aukeratu zerbait sendoa — gutxienez 12 karaktere.',
+  'search.clearAria': 'Garbitu',
+  'search.error': 'Bilaketak huts egin du. Saiatu berriro.',
   'search.noPeople': 'Ez dago bat datorren sortzailerik " {{q}} ".',
   'search.noPosts': 'Ez dago bat datorren mezurik " {{q}} ".',
   'search.noTags': 'Ez dago joera nagusiko traolarik oraindik.',
@@ -126,6 +132,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ezkutatu pasahitza',
   'signup.showPassword': 'Erakutsi pasahitza',
   'signup.subheading': 'Sortu kontu bat partekatzen hasteko.',
+  'socialMediaLayout.closeMenu': 'Itxi nabigazio menua',
+  'socialMediaLayout.openMenu': 'Ireki nabigazio menua',
+  'socialMediaLayout.primaryNavLabel': 'Nabigazio nagusia',
   'storyRail.heading': 'Istorioak',
   'storyRail.label': 'Istorioak',
   'storyRail.openAria': 'Ireki {{handle}} ren istorioa.',

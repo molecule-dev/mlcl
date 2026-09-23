@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'alerts.acknowledgeLabel': 'ਸਵੀਕਾਰ ਕਰੋ',
   'alerts.customerLabel': 'ਗਾਹਕ: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'ਕਨੈਕਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
   'carriers.requiredError': 'ਨਾਮ ਅਤੇ ਕੋਡ ਲੋੜੀਂਦਾ ਹੈ।',
   'carriers.subheading': '{{count}} ਏਕੀਕ੍ਰਿਤ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ਆਵਾਜਾਈ ਵਿੱਚ + ਫਲੈਗ ਕੀਤਾ ਗਿਆ',
   'dashboard.activeShipmentsSubtitle':
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'ਸ਼ਿਪਮੈਂਟ',
   'pricing.trackingLabel': 'ਟਰੈਕਿੰਗ ਇਵੈਂਟਸ',
   'profile.dangerZone.title': 'ਖ਼ਤਰੇ ਵਾਲਾ ਖੇਤਰ',
+  'profile.devices.signingOut': 'ਸਾਈਨ ਆਉਟ ਕਰ ਰਿਹਾ ਹੈ…',
+  'profile.devices.unnamed': 'ਬੇਨਾਮ ਡਿਵਾਈਸ',
+  'profile.security.disable2fa': '2FA ਨੂੰ ਅਯੋਗ ਕਰੋ',
   'profile.security.enable2fa': '2FA ਚਾਲੂ ਕਰੋ',
   'profile.security.pwChanged': 'ਪਾਸਵਰਡ ਸਫਲਤਾਪੂਰਵਕ ਬਦਲਿਆ ਗਿਆ।',
   'profile.security.pwCurrent': 'ਵਰਤਮਾਨ ਪਾਸਵਰਡ',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA ਸਰਗਰਮ',
   'profile.security.twoFaCode': '6-ਅੰਕਾਂ ਵਾਲਾ ਕੋਡ',
   'profile.security.twoFaDisable': 'ਅਯੋਗ ਕਰੋ',
+  'profile.security.twoFaDisabling': 'ਅਯੋਗ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
   'profile.security.twoFaFailed': 'ਕੋਡ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
   'profile.security.twoFaIntro':
     'ਆਪਣੀ ਪ੍ਰਮਾਣਕ ਐਪ ਵਿੱਚ QR ਕੋਡ ਨੂੰ ਸਕੈਨ ਕਰੋ, ਫਿਰ ਪੁਸ਼ਟੀ ਕਰਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤਾ 6-ਅੰਕਾਂ ਵਾਲਾ ਕੋਡ ਦਾਖਲ ਕਰੋ।',
   'profile.security.twoFaOn': "ਇਸ ਖਾਤੇ 'ਤੇ ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਯੋਗ ਹੈ।",
+  'profile.security.twoFaQrAlt': 'ਦੋ-ਪੜਾਅ QR ਕੋਡ',
   'profile.security.twoFaVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'profile.security.twoFaVerifying': 'ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...',
   'profile.subheading': 'ਇਸ ਵਰਕਸਪੇਸ ਲਈ ਪਛਾਣ ਅਤੇ ਸੁਰੱਖਿਆ ਸੈਟਿੰਗਾਂ।',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'ਇਸ ਰਾਜ਼ ਨੂੰ ਸੰਭਾਲੋ — ਇਹ ਦੁਬਾਰਾ ਨਹੀਂ ਦਿਖਾਇਆ ਜਾਵੇਗਾ।',
   'settings.api.webhookSecret': 'ਵੈੱਬਹੁੱਕ ਦਸਤਖਤ ਗੁਪਤ',
   'settings.appearance.description': 'ਲਾਈਟ ਅਤੇ ਡਾਰਕ ਮੋਡ ਵਿਚਕਾਰ ਟੌਗਲ ਕਰੋ।',
+  'settings.deleteAccountConfirm': 'ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।',
   'settings.notifications.exceptions': 'ਜਦੋਂ ਕੋਈ ਸ਼ਿਪਮੈਂਟ ਅਪਵਾਦ ਆਉਂਦਾ ਹੈ ਤਾਂ ਮੈਨੂੰ ਈਮੇਲ ਕਰੋ',
   'settings.notifications.heading': 'ਸੂਚਨਾਵਾਂ',
   'settings.notifications.saveFailed': 'ਤਰਜੀਹਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'ਮਾਲ ਨਹੀਂ ਮਿਲਿਆ।',
   'shipmentDetail.originHeading': 'ਮੂਲ',
   'shipmentDetail.shippedOn': 'ਭੇਜਿਆ ਗਿਆ {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'ਅਜੇ ਤੱਕ ਕੋਈ ਟਰੈਕਿੰਗ ਇਵੈਂਟ ਨਹੀਂ ਹਨ — ਜਿਵੇਂ ਹੀ ਕੈਰੀਅਰ ਪਾਰਸਲ ਨੂੰ ਸਕੈਨ ਕਰਦਾ ਹੈ, ਅੱਪਡੇਟ ਇੱਥੇ ਦਿਖਾਈ ਦਿੰਦੇ ਹਨ।',
   'shipmentDetail.weightLabel': '{{weight}} ਪੌਂਡ',
   'shipments.col.carrier': 'ਕੈਰੀਅਰ',
   'shipments.col.eta': 'ਪਹੁੰਚਣ ਦਾ ਸਮਾਂ',
@@ -173,6 +184,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'ਸਾਈਨ - ਇਨ',
   'signup.submit': 'ਖਾਤਾ ਬਣਾਉ',
   'team.emailError': 'ਇੱਕ ਵੈਧ ਈਮੇਲ ਪਤਾ ਲੋੜੀਂਦਾ ਹੈ।',
+  'team.empty':
+    "ਹਾਲੇ ਤੱਕ ਕੋਈ ਟੀਮ ਮੈਂਬਰ ਨਹੀਂ ਹੈ। ਸ਼ਿਪਮੈਂਟ 'ਤੇ ਸਹਿਯੋਗ ਕਰਨ ਲਈ ਕਿਸੇ ਸਾਥੀ ਨੂੰ ਸੱਦਾ ਦਿਓ।",
   'team.eyebrow': 'ਮੈਂਬਰ ਅਤੇ ਇਜਾਜ਼ਤਾਂ',
   'team.inviteDialog.cancel': 'ਰੱਦ ਕਰੋ',
   'team.inviteDialog.heading': 'ਕਿਸੇ ਸਾਥੀ ਨੂੰ ਸੱਦਾ ਦਿਓ',
@@ -195,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ਟਰੈਕ',
   'waypointLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'webhooks.createFailed': 'ਵੈੱਬਹੁੱਕ ਐਂਡਪੁਆਇੰਟ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ।',
+  'webhooks.endpointsEmpty':
+    'ਹਾਲੇ ਕੋਈ ਵੈੱਬਹੁੱਕ ਐਂਡਪੁਆਇੰਟ ਨਹੀਂ ਹਨ। ਸ਼ਿਪਮੈਂਟ ਸਥਿਤੀ ਕਾਲਬੈਕ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਇੱਕ ਬਣਾਓ।',
   'webhooks.endpointsHeading': 'ਅੰਤਮ ਬਿੰਦੂ',
   'webhooks.eventCount': '{{count}} ਸਮਾਗਮ',
   'webhooks.eventsHeading': 'ਹਾਲੀਆ ਡਿਲੀਵਰੀਆਂ',

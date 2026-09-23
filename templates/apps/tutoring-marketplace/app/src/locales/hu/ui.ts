@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'A szereped',
   'account.role.upgradeLink': 'Jelentkezz hitelesített oktatónak →',
   'account.title': 'Profil, fizetés és beállítások.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Taníts krétával',
   'becomeTutor.form.error': 'Nem sikerült benyújtani a jelentkezést.',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Tárgy',
   'bookingConfirm.title': 'Foglalva vagy. A többit mi intézzük.',
   'bookingConfirm.with': 'Oktatóval',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'earningsHero.eyebrow': 'Bevételek • {{month}}',
   'forgotPassword.heading': 'Elfelejtette jelszavát?',
   'forgotPassword.subheading':
@@ -115,6 +117,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Üzenet küldése',
   'messages.thread.empty': 'Köszönj – kezdjük a beszélgetést.',
   'messages.title': 'Beszélgetések a tanáraiddal.',
+  'nav.primary': 'Elsődleges',
   'pricing.dataExport': 'Adatexport:',
   'pricing.headingDefault': 'Speciális funkciók:',
   'resetPassword.heading': 'Válassz egy erős új jelszót.',

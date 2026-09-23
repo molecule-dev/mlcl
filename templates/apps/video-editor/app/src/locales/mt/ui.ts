@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Sibt xi bug, għandek talba għal xi karatteristika, jew trid tgħidilna dwar il-film li tajt? Kull messaġġ jasal għand persuna reali fit-tim — ikkuntattjana fi kwalunkwe ħin mis-settings tal-kont tiegħek.',
+  'about.contactTitle': 'Kellem magħna',
+  'about.eyebrow': '// l-istudjo wara l-qtugħ',
   'about.pageTitle': 'Dwar {{appName}}',
   'assetDetail.back': 'Lura lejn il-librerija',
   'assetDetail.confirmDelete': 'Ħassar " {{name}} "? Dan ma jistax jitneħħa."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipps, sodod awdjo, u grafika lesti biex jitpoġġew fuq it-timeline.',
   'assetLibrary.title': 'Assi',
   'assetLibrary.upload': 'Żid assi',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.browseTemplates': 'Fittex il-mudelli →',
   'dashboard.loading': 'Qed jitgħabbew il-proġetti…',
   'dashboard.noProjects': "Għad m'hemm l-ebda proġett — oħloq wieħed biex tibda.",
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Agħżel xi ħaġa li tiftakar int biss.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privatezza',
+  'rushesLayout.closeMenu': 'Agħlaq in-navigazzjoni',
   'rushesLayout.guest': 'Editur',
+  'rushesLayout.navDialog': 'Navigazzjoni',
+  'rushesLayout.openMenu': 'Navigazzjoni miftuħa',
   'rushesLayout.planFree': "Pjan b'xejn",
   'rushesLayout.tagline': 'Kronoloġija ċinematika',
   'settings.billing.confirmCancel': 'Tikkanċella l-abbonament fi tmiem il-perjodu?',

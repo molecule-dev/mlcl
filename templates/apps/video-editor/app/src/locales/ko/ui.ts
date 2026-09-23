@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '버그를 발견했거나, 기능 개선을 요청하고 싶거나, 편집한 영화에 대해 이야기하고 싶으신가요? 모든 메시지는 담당자에게 직접 전달됩니다. 계정 설정에서 언제든지 문의해 주세요.',
+  'about.contactTitle': '문의하기',
+  'about.eyebrow': '// 이 컷을 제작한 스튜디오',
   'about.pageTitle': '{{appName}} 소개',
   'assetDetail.back': '라이브러리로 돌아가기',
   'assetDetail.confirmDelete': '"{{name}}"을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '타임라인에 바로 올릴 수 있는 클립, 오디오 베드, 그래픽 {{count}}개입니다.',
   'assetLibrary.title': '에셋',
   'assetLibrary.upload': '에셋 추가',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.browseTemplates': '템플릿 둘러보기 →',
   'dashboard.loading': '프로젝트를 불러오는 중…',
   'dashboard.noProjects': '아직 프로젝트가 없습니다 — 만들어서 시작해 보세요.',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': '본인만 기억할 수 있는 비밀번호를 선택하세요.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': '개인정보 처리방침',
+  'rushesLayout.closeMenu': '닫기',
   'rushesLayout.guest': '에디터',
+  'rushesLayout.navDialog': '탐색',
+  'rushesLayout.openMenu': '내비게이션 열기',
   'rushesLayout.planFree': '무료 플랜',
   'rushesLayout.tagline': '시네마틱 타임라인',
   'settings.billing.confirmCancel': '결제 기간 종료 시 구독을 취소하시겠습니까?',

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.title': 'Giới thiệu {{app}}',
   'auth.login.noAccount': 'Mới đến với Sparq?',
   'auth.login.or': 'hoặc tiếp tục với',
   'auth.signup.or': 'hoặc đăng ký với',
+  'common.confirm': 'Xác nhận',
+  'common.goToDashboard': 'Đến trang tổng quan',
+  'common.loadError': 'Đã xảy ra lỗi khi tải nội dung này.',
+  'common.retry': 'Thử lại',
   'discover.collections.title': 'Duyệt theo danh mục',
   'discover.collections.viewAll': 'Xem thư viện của quý vị →',
   'discover.empty.body': 'Hãy thử danh mục khác hoặc xóa tìm kiếm.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Đăng nhập để duy trì chuỗi, tổ chức trò chơi trực tiếp và leo lên bảng xếp hạng.',
   'myQuizzes.createButton': 'Bài đố mới',
+  'myQuizzes.deleteConfirm': 'Xóa vĩnh viễn?',
   'myQuizzes.empty.createCta': 'Tạo bài đố đầu tiên của quý vị →',
   'myQuizzes.empty.created': 'Quý vị chưa tạo bài đố nào.',
   'myQuizzes.empty.played': 'Chưa có bài đố nào được xuất bản.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Đang tải…',
   'notifications.subhead':
     '{{count}} tia lửa chưa đọc. Lời mời, biến động bảng xếp hạng và thành tích trong một luồng.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.checkoutError': 'Không thể bắt đầu thanh toán. Vui lòng thử lại.',
+  'pricing.heading': 'Chọn gói {{app}} của bạn',
   'pricing.included': 'Đã bao gồm',
   'pricing.loadError': 'Không thể tải các gói.',
   'pricing.maxQuizzes': '{{count}} bài đố',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Chưa có gì được xuất bản.',
   'profile.startBuilding': 'Bắt đầu xây dựng →',
   'profile.tier': 'Người chơi Sparq',
+  'quizBuilder.addFailed': 'Không thể thêm câu hỏi. Vui lòng thử lại.',
   'quizBuilder.addQuestion': 'Thêm câu hỏi',
   'quizBuilder.answerPlaceholder': 'Nhập một lựa chọn…',
   'quizBuilder.answersLabel': 'Lựa chọn câu trả lời',
   'quizBuilder.back': 'Quay lại bài đố của tôi',
   'quizBuilder.delete': 'Xóa câu hỏi',
+  'quizBuilder.deleteFailed': 'Không thể xóa câu hỏi.',
   'quizBuilder.firstQuestion': 'Thêm câu hỏi đầu tiên để bắt đầu.',
   'quizBuilder.idLabel': 'ID bài đố: {{id}}',
   'quizBuilder.loadError': 'Không thể tải bài đố.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Hãy thêm ít nhất hai lựa chọn câu trả lời và chọn câu đúng cho {{count}} câu hỏi trước khi xuất bản.',
   'quizBuilder.questionsTitle': 'Câu hỏi',
+  'quizBuilder.saveFailed': 'Không thể lưu tiêu đề. Hãy thử lại.',
   'quizBuilder.statusDraft': 'Bản nháp',
   'quizBuilder.subhead':
     'Chỉnh sửa tiêu đề, thêm câu hỏi, đặt lựa chọn và câu trả lời đúng. Thay đổi được lưu tự động.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} phút',
   'quizDetail.hostMultiplayer': 'Tổ chức nhiều người chơi',
   'quizDetail.leaderboardEmpty': 'Chưa có lượt chơi nào — hãy là người đầu tiên ghi điểm.',
+  'quizDetail.loadError': 'Không thể tải bài kiểm tra này.',
   'quizDetail.loading': 'Đang tải bài đố…',
   'quizDetail.plays': '{{count}} lượt chơi',
   'quizDetail.playSolo': 'Chơi một mình',

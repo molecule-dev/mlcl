@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Холбоо барих',
   'about.eyebrow': 'Тухай',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.connectRepoCta': 'Холбох сан',
   'dashboard.empty': 'Одоогоор татах хүсэлт алга байна — эхлүүлэхийн тулд репозиторыг холбоно уу.',
   'dashboard.eyebrow': 'Хугаралт · хянах дараалал',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Ажиллах хугацаа',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Хиймэл оюун ухааны чанарын оноо {{score}} / 10',
+  'refractLayout.closeMenu': 'Цэсийг хаах',
+  'refractLayout.openMenu': 'Цэсийг нээх',
   'refractLayout.primaryNavLabel': 'Үндсэн навигаци',
   'reports.cumulativeScoreLabel': 'Хуримтлагдсан оноо',
   'reports.cumulativeScoreSubtitle': 'бүх репозиторууд · {{days}} д',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Хайлтын индексийг ачаалж чадсангүй.',
   'settings.apiKeys.description':
     'Баруун дээд буланд байрлах хэрэглэгчийн цэснээс хувийн API түлхүүрүүдийг удирдана уу.',
+  'settings.apiKeys.integrationsNote':
+    'Үйлчилгээ үзүүлэгчийн хандалтын токенуудыг дээрх Интеграцийн хэсэгт удирддаг.',
   'settings.connectError': 'Үйлчилгээ үзүүлэгчтэй холбогдож чадсангүй.',
   'settings.disconnectError': 'Үйлчилгээ үзүүлэгчийг салгаж чадсангүй.',
   'settings.eyebrow': 'Хугарлын · ажлын талбар',
   'settings.integration.${provider}.label': 'Хадгалж байна…',
   'settings.loadError': 'Тохиргоог ачаалж чадсангүй.',
+  'settings.notificationCenter': 'Мэдэгдлийн төв',
   'settings.notifications.description':
     'Хүргэлтийн тохиргоог харах болон удирдахын тулд мэдэгдлийн хуудсанд зочилно уу.',
   'settings.section.account': 'Бүртгэл ба аюулгүй байдал',

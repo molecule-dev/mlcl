@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'about.tagline': "Mae cyfrinachau'n marw yn yr awyr agored.",
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Creu tocyn',
   'apiTokens.kicker': 'Tocynnau API',
   'apiTokens.loading': "Wrthi'n llwytho tocynnau…",
+  'apiTokens.new': 'Tocyn newydd',
   'apiTokens.revoke': 'Diddymu tocyn',
   'apiTokens.subheading':
     'Tocynnau personol a gwasanaeth ar gyfer CLI ac SDK Arcanum. Testun plaen yn cael ei ddangos unwaith wrth ei greu.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Allwedd Gyfrinair',
   'authShell.zeroKnowledge': 'Amgryptio gwybodaeth sero',
   'common.connecting': 'Yn cysylltu…',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.inviting': 'Yn gwahodd…',
   'forgotPassword.checkInbox':
     "Os yw {email} wedi'i gofrestru, bydd dolen ailosod wedi'i llofnodi yn cyrraedd o fewn munud.",
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Statws cylchdro, rhybuddion anomaledd, a cheisiadau cymeradwyo ar draws pob ffowld.',
   'notifications.unreadEmpty': "Blwch derbyn sero — popeth wedi'i ddal i fyny.",
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.heading': 'cyfrinachau',
   'pricing.limits.accessPolicies': 'polisïau mynediad',
   'pricing.limits.auditLog': 'cofnodion log archwilio',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Cyfrif personol',
   'profile.plan.description': 'Rheoli eich tanysgrifiad, gweld terfynau, ac uwchraddio.',
   'profile.subheading': 'Hunaniaeth, dyfeisiau ail ffactor, a sesiynau gweithredol.',
+  'profile.twoFactor.code': 'Cod dilysu',
   'profile.twoFactor.disable': 'Analluogi',
   'profile.twoFactor.enable': 'Galluogi',
+  'profile.twoFactor.invalidCode': 'Cod annilys',
   'profile.twoFactor.kicker': 'Dilysu dau ffactor',
+  'profile.twoFactor.off': 'Heb ei alluogi',
   'profile.twoFactor.on': "Wedi'i alluogi",
   'resetPassword.email': 'E-bost cyfrif',
   'resetPassword.heading': 'Gosod manylion mewngofnodi newydd',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'gorchmynion',
   'secretsManagerLayout.encrypted': "AES-256 · Wedi'i Amgryptio",
   'secretsManagerLayout.newVault': 'Siambr newydd',
+  'secretsManagerLayout.newVaultShort': 'Newydd',
   'secretsManagerLayout.rotations': 'Cylchdroadau',
   'secretsManagerLayout.search': 'chwilio',
   'secretsManagerLayout.searchPlaceholder':
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Cyfrinachau',
   'vaultCard.vaultLabel': 'Siop',
   'vaultDetail.addSecret': 'Ychwanegu cyfrinach',
+  'vaultDetail.back': 'Pob cromen',
   'vaultDetail.col.key': 'Allwedd',
   'vaultDetail.col.rotated': "Wedi'i gylchdroi",
   'vaultDetail.col.value': 'Gwerth',

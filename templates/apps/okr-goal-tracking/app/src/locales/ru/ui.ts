@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'ascentSideNav.nav.notifications': 'Уведомления',
   'ascentSideNav.newObjective': 'Новая цель',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Определите вершину. Оцените восхождение. Тренируйте команду.',
   'authShell.eyebrow': 'OKR, которые мотивируют команды',
   'authShell.samplePeriod': '2 квартал 2026 г. · пример задачи',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Рабочее пространство · Оплата',
   'billing.heading': 'Планы и счета-фактуры',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'Экспорт данных + доступ к API',
+  'billing.perk.inApp': 'Отчетность в приложении',
+  'billing.perk.standard': 'Стандартные обзоры',
+  'billing.perk.unlimitedObjectives': 'Неограниченное количество целей',
+  'billing.perk.unlimitedRetention': 'Неограниченное хранение',
   'billing.subheading':
     'Вы находитесь на {{name}} План. Сравните уровни и выберите более дорогой вариант ниже.',
   'billing.tier.unavailable': 'Нет в наличии',
@@ -43,11 +51,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'Отправить заявку на регистрацию',
   'checkIn.submittedMessage':
     'Отметка о прибытии сохранена. Информация о ходе выполнения и хронологии обновлена.',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': 'Нет',
   'common.relative.daysAgo': '{{count}} д назад',
   'common.relative.hoursAgo': '{{count}} час назад',
   'common.relative.justNow': 'только что',
   'common.relative.minutesAgo': '{{count}} мин назад',
+  'common.retry': 'Повторить попытку',
   'common.yes': 'Да',
   'common.you': 'Ты',
   'dashboard.allActivity': 'Посмотреть все активности →',
@@ -92,6 +102,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Мы отправили ссылку для сброса настроек. {{email}} Срок действия истекает через час — подождите секунду, пока письмо загрузится в почтовый ящик.',
   'forgotPassword.successHeading': 'Проверьте свой почтовый ящик.',
+  'keyResult.metrics.boolean': 'Да / Нет',
+  'keyResult.metrics.currency': 'Валюта $',
+  'keyResult.metrics.number': 'Число',
+  'keyResult.metrics.percent': '% процент',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Определите свою первую задачу, пригласите трех членов команды и проведите первую еженедельную проверку к пятнице.',
@@ -104,6 +118,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle':
     'OKR, достойные тренерской работы, без необходимости разбрасываться электронными таблицами.',
   'landing.footerBuiltOn': 'Создано на платформе Molecule.dev',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Ascent предоставляет каждой команде измеримый путь к вершине горы — ставьте цели, еженедельно оценивайте ключевые результаты и анализируйте восхождение каждый квартал.',
   'landing.heroProgressLabel': 'План компании на 2 квартал',
@@ -113,6 +128,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'или продолжить',
   'login.subheading':
     'Продолжайте с того места, где остановились — ваши отметки о посещении, ключевые отзывы и обзоры ждут вас.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.mainNavigation': 'Главная навигация',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'newObjective.addKr': 'Добавить KR',
   'newObjective.coachLabel': 'Напоминания тренеру',
   'newObjective.descriptionPlaceholder': 'В 2-3 предложениях объясните стратегический контекст.',
@@ -138,6 +156,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'центр активности',
   'notifications.markRead': '● Отметить как прочитанное',
   'objective.scopes.company': 'Компания',
+  'objective.scopes.individual': 'Индивидуальный',
   'objective.scopes.team': 'Команда',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Вернуться к целям',
@@ -161,11 +180,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Отслеживание {{count}} Цели. Используйте фильтр по статусу, чтобы найти то, что требует внимания.',
   'profile.achievementCheckInsMany': '{{count}} зарегистрированы отметки о посещении',
+  'profile.achievementCheckInsOne': 'Зарегистрирована 1 регистрация.',
+  'profile.achievementCompletedMany': 'Выполнено {{count}} задач',
+  'profile.achievementCompletedOne': 'Выполнена 1 задача.',
+  'profile.achievementOnTrackMany': '{{count}} целей на пути к цели',
+  'profile.achievementOnTrackOne': '1 задача выполняется в соответствии с планом.',
   'profile.activeHeading': 'Активные цели',
   'profile.allObjectives': 'Все цели →',
   'profile.empty': 'Пока нет активных целей — создайте свою первую, чтобы начать.',
   'profile.eyebrow': 'Профиль альпиниста',
   'profile.guestName': 'Альпинист',
+  'profile.loadError': 'Не удалось загрузить ваши цели.',
   'profile.loading': 'Цели загрузки…',
   'profile.noAchievements': 'Пройдите регистрацию, чтобы разблокировать свое первое достижение.',
   'profile.statCheckIns': 'Регистрация',

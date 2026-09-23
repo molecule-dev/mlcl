@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ඔබ දැනට සිටින්නේ {{plan}} සැලැස්ම.',
   'billing.switch': 'මාරු කරන්න',
   'billing.upgraded': 'යාවත්කාලීන කරන ලද්දේ {{plan}} — සීමාවන් වහාම අදාළ වේ.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'compare.activityHeading': 'ක්‍රියාකාරකම් විනිශ්චයන්',
   'compare.empty.title': 'සංසන්දනය කිරීමට අවම වශයෙන් ස්ථාන දෙකක්වත් එක් කරන්න.',
   'compare.eyebrow': 'පැත්තෙන් පැත්තට',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'ඉහළ',
   'trends.summary.low.label': 'අඩු',
   'trends.summary.points.label': 'දින',
+  'weatherDashboardLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'weatherHeroCard.updated': 'යාවත්කාලීන කරන ලදී {{time}}',
 }

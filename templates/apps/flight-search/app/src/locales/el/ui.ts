@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.eyebrow': 'Σχετικά με το {{app}}',
   'about.pageTitle': 'Κάθε διαδρομή, μία αναζήτηση.',
   'booking.backToDetail': 'Επιστροφή στις λεπτομέρειες της πτήσης',
   'booking.continue': 'Συνέχεια στην πληρωμή',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Φόροι και τέλη',
   'booking.summary.travelers': 'Ταξιδιώτες',
   'common.about': 'Σχετικά',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'flightDetail.backToResults': 'Επιστροφή στα αποτελέσματα',
   'flightDetail.baseFare': 'Βασικό εισιτήριο',
   'flightDetail.book': 'Συνέχεια στην κράτηση',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 στάση',
   'flightResultCard.select': 'Επιλέγω',
   'flightResultCard.totalLabel': 'Συνολικός χρόνος',
+  'flightSearchLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'forgotPassword.subheading':
     'Εισαγάγετε το email στον λογαριασμό σας Skylark και θα σας στείλουμε έναν ασφαλή σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
     'Ελεγχος {{email}} για έναν σύνδεσμο για να ορίσετε έναν νέο κωδικό πρόσβασης. Ο σύνδεσμος λήγει σε 30 λεπτά.',
   'forgotPassword.successHeading': 'Ο σύνδεσμος επαναφοράς στάλθηκε',
   'landing.cta.explore': 'Δοκιμάστε μια αναζήτηση',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Βρείτε την επόμενη εξαιρετική προσφορά πριν από όλους τους άλλους.',
   'landing.cta.signup': 'Έναρξη παρακολούθησης τιμών',
   'landing.features.eyebrow': 'Γιατί Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Προσθήκη ειδοποίησης',
   'priceAlerts.deleteConfirm': 'Κατάργηση αυτής της ειδοποίησης;',
   'priceAlerts.empty': 'Δεν υπάρχουν ακόμη εντοπισμένες διαδρομές.',
+  'priceAlerts.emptyCta': 'Αναζήτηση διαδρομής για παρακολούθηση',
   'priceAlerts.errorMessage': 'Δεν ήταν δυνατή η φόρτωση των ειδοποιήσεων.',
   'priceAlerts.eyebrow': 'Λίστα παρακολούθησης Skylark',
   'priceAlerts.form.createError': 'Δεν ήταν δυνατή η δημιουργία ειδοποίησης.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Δρομολόγιο πολλαπλών πόλεων',
   'results.multiLegHeading': 'Πόδι {{n}} · {{από}} → {{να}} · {{ημερομηνία}}',
   'results.multiSummary': '{{count}} πόδια · {{passengers}} ταξιδιώτης',
+  'results.sortAriaLabel': 'Ταξινόμηση αποτελεσμάτων κατά',
   'results.sortLabel': 'Είδος',
   'results.summary': '{{count}} πτήσεις · {{passengers}} ταξιδιώτης',
   'settings.language.title': 'Γλώσσα',

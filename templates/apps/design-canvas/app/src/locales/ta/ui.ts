@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'authShell.brandHeading':
     'ஒன்றாகப் பணியாற்றும் வடிவமைப்பு அணிகளுக்கான, பிக்சல் பிழையற்ற கேன்வாஸ்கள்.',
   'canvas.redirecting': 'எடிட்டரைத் திறத்தல்…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'dashboard.activityEmpty':
     'சமீபத்தில் எந்தச் செயல்பாடும் இல்லை — தொடங்குவதற்கு ஒரு அணி வீரரை அழைக்கவும்.',
   'dashboard.activityTitle': 'இன்று என்ன மாறியது',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'பணியிடம் · நார்த்விண்ட் ஸ்டுடியோ',
   'dashboard.foldersLabel': 'கோப்புறைகள்',
   'dashboard.gridTitle': '{{count}} திட்டங்கள்',
+  'dashboard.heroActiveTool': 'பேனா கருவி',
   'dashboard.loadingTitle': 'திட்டங்கள் ஏற்றப்படுகின்றன…',
   'dashboard.searchPlaceholder': 'தேடல் திட்டங்கள்',
   'dashboard.startFromTemplate': 'வார்ப்புருவிலிருந்து தொடங்குங்கள்',
   'dashboard.title': 'உங்கள் திட்டங்கள்',
   'dashboard.untitledProject': 'பெயரிடப்படாத திட்டம்',
   'designCanvasLayout.newProject': 'புதிய திட்டம்',
+  'designCanvasLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'editor.backToProjects': 'திட்டங்களுக்குத் திரும்பு',
   'editor.deleteShape': 'வடிவத்தை நீக்கு',
   'editor.errorBody': 'எங்களால் இந்தத் திட்டத்தைத் திறக்க முடியவில்லை.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'உங்கள் கைகளின் வேகத்தில் இயங்கும் வடிவமைப்பு கருவிகள்',
   'library.empty': 'இந்தப் பிரிவில் இன்னும் டோக்கன்கள் இல்லை.',
   'library.eyebrow': 'பணியிடம் · அட்லியர் வடிவமைப்பு அமைப்பு',
+  'library.loadFailed': 'வடிவமைப்பு டோக்கன்களை ஏற்ற முடியவில்லை.',
   'library.systemMeta': 'அமைப்பு ஆரோக்கியம்',
   'library.systemSummary': '{{டோக்கன்கள்}} டோக்கன்கள் · கூறுகள் கூறுகள் · {{விளைவுகள்}} விளைவுகள்',
   'login.emailPlaceholder': 'mara@studio.com',

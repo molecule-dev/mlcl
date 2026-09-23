@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'auditLog.empty':
     'သင့်စစ်ထုတ်မှုများနှင့် ကိုက်ညီသော စာရင်းစစ်ဖြစ်ရပ်များ မရှိသေးပါ။ ဝန်ထမ်းတစ်ဦးကို တည်းဖြတ်ပါ သို့မဟုတ် လစာပေးသည့်လုပ်ငန်းစဉ်ကို လုပ်ဆောင်ပါ၊ ၎င်းတို့သည် ဤနေရာတွင် ပေါ်လာပါလိမ့်မည်။',
   'auditLog.eyebrow': 'လိုက်နာမှု',
+  'auditLog.loadError': 'စာရင်းစစ်မှတ်တမ်းကို တင်၍မရပါ။',
   'auditLog.searchPlaceholder': 'သရုပ်ဆောင်၊ အက်ရှင် သို့မဟုတ် ဖော်ပြချက်အလိုက် ရှာဖွေပါ',
   'auditLog.subheading':
     'ခွင့်ပြုချက်၊ တည်းဖြတ်မှုနှင့် အခွန်တင်သွင်းမှုတိုင်း — သရုပ်ဆောင်၊ အချိန်တံဆိပ်နှင့် ပြောင်းလဲထားသော အကွက်များပါရှိသည်။',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ပြင်ဆင်သတ်မှတ်မထားပါ',
   'billing.plansHeading': 'အစီအစဉ်များ',
   'billing.subheading': 'Stripe မှတစ်ဆင့် သင့်အစီအစဉ်ကို စီမံခန့်ခွဲပြီး အဆင့်များကို ပြောင်းလဲပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'လိုက်နာမှုဆိုင်ရာ အကျဉ်းချုပ်',
   'dashboard.compliance.title': 'စစ်ဆေးချက်အားလုံးအောင်မြင်ပါသည်',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'နုတ်ယူငွေများ မှတ်တမ်းတွင် မရှိပါ။',
   'employeeDetail.notFound': 'ဝန်ထမ်းကို ရှာမတွေ့ပါ။',
   'employeeDetail.payFrequency': 'ငွေပေးချေမှုကြိမ်နှုန်း',
+  'employeeDetail.postTax': 'အခွန်အပြီး',
+  'employeeDetail.preTax': 'အခွန်မဆောင်မီ',
   'employeeDetail.salary': 'နှစ်စဉ်လစာ',
   'employeeDetail.ssn': 'လူမှုဖူလုံရေးနံပါတ်',
   'employeeDetail.startedOn': 'စတင်ခဲ့သည် {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ငွေပေးချေမှုကြိမ်နှုန်း',
   'employeeForm.salary': 'နှစ်စဉ်လစာ (အမေရိကန်ဒေါ်လာ)',
   'employeeForm.salaryInvalid': 'လစာသည် အနုတ်မဟုတ်သော ဂဏန်းဖြစ်ရမည်။',
+  'employeeForm.saveError': 'ဝန်ထမ်းကို မကယ်တင်နိုင်ခဲ့ဘူး။',
   'employeeForm.semimonthly': 'ခြောက်လတစ်ကြိမ်',
   'employeeForm.single': 'တစ်ကိုယ်တည်း',
   'employeeForm.ssn': 'လူမှုဖူလုံရေးနံပါတ်',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'လစာ',
   'forgotPassword.subtitle':
     'သင့်အလုပ်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
+  'landing.copyright': '© {{year}} {{app}} . တိကျသည်၊ ယုံကြည်စိတ်ချရသည်၊ စည်းချက်ညီသည်။',
   'landing.ctaBody':
     'ရက် ၃၀ အခမဲ့။ ခရက်ဒစ်ကတ်မလိုပါ။ သင်၏စာရင်းစစ်မှတ်တမ်းကို မဆုံးရှုံးဘဲ အချိန်မရွေးပြောင်းလဲနိုင်ပါသည်။',
   'landing.ctaHeading': 'Stipend မှာ နောက်တစ်ကြိမ် လည်ပတ်ပါ',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'ဤငွေပေးချေမှုအတွက် စာရင်းစစ်မှတ်တမ်းများ မရှိသေးပါ။',
   'payRunDetail.noStubs':
     'လစာဖြတ်ပိုင်းများ မရှိသေးပါ — အတည်ပြုပြီး ၎င်းတို့ကို ထုတ်ပေးရန် လုပ်ဆောင်ပါ။',
+  'payRunDetail.notFound': 'ဤငွေပေးချေမှုလုပ်ငန်းစဉ်ကို ရှာမတွေ့ပါ။',
   'payRunDetail.statDeductions': 'နုတ်ယူမှုများ',
   'payRunDetail.statHeadcount': 'ဝန်ထမ်းတွေ',
   'payRunDetail.statTaxes': 'နုတ်ယူထားသော အခွန်များ',
@@ -224,7 +233,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'ခြောက်လတစ်ကြိမ်',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
   'settings.subheading': 'ကုမ္ပဏီပရိုဖိုင်၊ လစာပေးချိန်ဇယားနှင့် ပေါင်းစပ်မှုများ။',
+  'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.weekly': 'အပတ်စဉ်',
   'taxCenter.bucket.federal': 'ဖက်ဒရယ်ဝင်ငွေ',
   'taxCenter.bucket.fica': 'လူမှုဖူလုံရေး',

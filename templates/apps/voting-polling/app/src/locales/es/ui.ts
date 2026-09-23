@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
   'analytics.col.quorum': 'Cuórum',
   'analytics.col.votes': 'Votos',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Aún no hay preguntas pendientes.',
   'audienceQa.onStageEyebrow': 'Ahora en escena',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promover',
   'audienceQa.queued': 'en cola',
   'audienceQa.queueEyebrow': 'Cola',
   'ballot.eyebrow': 'Emite tu voto',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Estás actualmente en el plan {{plan}}.',
   'billing.switch': 'Cambiar',
   'billing.upgraded': 'Actualizado a {{plan}} — los límites se aplican de inmediato.',
+  'common.goToDashboard': 'Ir al panel',
   'createPoll.addOption': 'Añadir opción',
   'createPoll.anonymousHint':
     'Los nombres se ocultan en el log de auditoría; los recuentos siguen autenticados.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': '¿Nuevo en Nosh?',
   'login.remember': 'Recordarme durante 30 días',
   'login.subheading': 'Abre la palabra, dirige la sala y certifica el resultado.',
+  'mobileNav.closeMenu': 'Cerrar el menú de navegación',
+  'mobileNav.openMenu': 'Abrir el menú de navegación',
   'notFound.body':
     'La página a la que intentaste acceder se cerró o se movió. Vuelve al panel o abre una encuesta nueva.',
   'notFound.eyebrow': 'Sin cuórum en esta ruta',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'No se pudo cargar esta encuesta.',
   'pollDetail.loading': 'Cargando encuesta…',
   'pollDetail.notFound': 'Encuesta no encontrada.',
+  'pollDetail.openBallot': 'Votación abierta',
   'pollDetail.openLive': 'Resultados en vivo',
   'pollDetail.pollId': 'encuesta · {{id}}',
   'pollDetail.published': 'Encuesta publicada — los votantes ya pueden emitir boletas.',
@@ -264,4 +270,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Buscar por correo…',
   'voters.subheading':
     'Cura el padrón elegible. Agrupa votantes por organización para boletas ponderadas.',
+  'votingPollingLayout.nav.analytics': 'Analítica',
+  'votingPollingLayout.nav.billing': 'Facturación',
+  'votingPollingLayout.nav.createPoll': 'Nueva encuesta',
+  'votingPollingLayout.nav.dashboard': 'Panel',
+  'votingPollingLayout.nav.notifications': 'Notificaciones',
+  'votingPollingLayout.nav.settings': 'Ajustes',
+  'votingPollingLayout.nav.team': 'Equipo',
+  'votingPollingLayout.nav.voters': 'Votantes',
+  'votingPollingLayout.primaryNavLabel': 'Navegación principal',
 }

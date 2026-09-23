@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'actions.empty': 'ಯಾವುದೇ ಕ್ರಿಯಾ ಐಟಂಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'actions.heading': 'ಕ್ರಿಯಾಶೀಲ ವಸ್ತುಗಳು',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'ಹಿಂದಿನ ತಿಂಗಳು',
   'calendar.recent': 'ಇತ್ತೀಚಿನದು',
   'common.daysAgo': '{{count}} ಡಿ ಹಿಂದೆ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.hoursAgo': '{{count}} ಗಂ ಹಿಂದೆ',
   'common.no': '—',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ಕ್ರಿಯಾಶೀಲ ವಸ್ತುಗಳು',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್‌ಗಾಗಿ ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ.',
   'forgot.subheading': 'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'integrations.disconnected': 'ಸಂಪರ್ಕ ಕಡಿತ',
+  'integrations.loadError': 'ಸಂಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'integrations.notConnectedTag': 'ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ',
   'integrations.subheading':
     'ಕ್ಯಾಲೆಂಡರ್‌ಗಳು ಮತ್ತು ವೀಡಿಯೊ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳನ್ನು ಸಂಪರ್ಕಿಸಿ ಇದರಿಂದ ಗೊಣಗಾಟ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೇರುತ್ತದೆ.',
+  'integrations.updateError': 'ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ.',
   'landing.ctaButton': 'ಪ್ರಾರಂಭಿಸಿ — ಇದು ಉಚಿತ',
   'landing.ctaHeading':
     'ಟಿಪ್ಪಣಿಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವುದನ್ನು ನಿಲ್ಲಿಸಿ. ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಪ್ರಾರಂಭಿಸಿ.',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ಅನುಸರಣೆಗಳು',
   'meetingDetail.loadError': 'ಸಭೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'meetingDetail.noActions': 'ಯಾವುದೇ ಕ್ರಿಯಾ ವಸ್ತುಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ.',
+  'meetingDetail.none': 'ಯಾವುದೂ ಇಲ್ಲ.',
   'meetingDetail.notFound': 'ಸಭೆ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'meetingDetail.speakerFallback': 'ಸ್ಪೀಕರ್ {{id}}',
   'meetingDetail.summaryHeading': 'AI ಸಾರಾಂಶ',
   'meetingDetail.transcriptHeading': 'ಪ್ರತಿಲಿಪಿ',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'ಸಭೆಗಳು',
   'meetings.loadError': 'ಸಭೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'meetings.subheading': 'ಪ್ರತಿ ರೆಕಾರ್ಡ್ ಮಾಡಿದ, ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಮತ್ತು ಸಿಂಕ್ ಮಾಡಿದ ಸಭೆ.',
+  'murmurLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'murmurLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'notifications.loadError': 'ಅಧಿಸೂಚನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'ಗೊಣಗಾಟದೊಳಗೆ ನೀವು ಹೇಗೆ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತೀರಿ.',
   'record.error.empty': 'ಯಾವುದೇ ಆಡಿಯೊ ಸೆರೆಹಿಡಿಯಲಾಗಿಲ್ಲ.',
   'record.error.permission': 'ಮೈಕ್ರೋಫೋನ್ ಅನುಮತಿ ನಿರಾಕರಿಸಲಾಗಿದೆ.',
+  'record.error.recorder': 'ರೆಕಾರ್ಡರ್ ದೋಷ',
   'record.error.unsupported':
     'ನಿಮ್ಮ ಬ್ರೌಸರ್ ರೆಕಾರ್ಡಿಂಗ್ ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. Chrome, Edge, ಅಥವಾ Safari ಅನ್ನು ಪ್ರಯತ್ನಿಸಿ.',
   'record.error.upload': 'ಅಪ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'reset.subheading': 'ನೀವು ಬೇರೆಲ್ಲಿಯೂ ಬಳಸದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ.',
   'search.empty': 'ಟ್ರಾನ್ಸ್‌ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ಹುಡುಕಲು ಟೈಪ್ ಮಾಡಿ.',
+  'search.loadError': 'ಹುಡುಕಾಟ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'search.noResults': '"" ಗಾಗಿ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ. {{q}} ”.',
   'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
   'settings.appearance.title': 'ಗೋಚರತೆ',
@@ -124,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'settings.push.heading': 'ಪುಶ್ ಅಧಿಸೂಚನೆಗಳು',
+  'settings.push.subheading':
+    'ಉಲ್ಲೇಖಗಳು, ಕ್ರಿಯಾ ಐಟಂಗಳು ಮತ್ತು ಸಾರಾಂಶಗಳಿಗಾಗಿ ಬ್ರೌಸರ್ ಎಚ್ಚರಿಕೆಗಳನ್ನು ಪಡೆಯಿರಿ.',
   'settings.retention.audio': 'ಆಡಿಯೋವನ್ನು ಇರಿಸಿ',
   'settings.retention.heading': 'ಧಾರಣ',
   'settings.retention.transcript': 'ಪ್ರತಿಲಿಪಿಗಳನ್ನು ಇರಿಸಿ',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'ಖಾತೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'signup.subheading': 'ನಿಮಿಷಗಳಲ್ಲಿ ಸಭೆಯ ಟಿಪ್ಪಣಿಗಳನ್ನು ಸೆರೆಹಿಡಿಯಲು ಪ್ರಾರಂಭಿಸಿ',
   'signup.terms': 'ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು ನಮ್ಮ ಸೇವಾ ನಿಯಮಗಳು ಮತ್ತು ಗೌಪ್ಯತಾ ನೀತಿಗೆ ಒಪ್ಪುತ್ತೀರಿ.',
+  'signup.termsPrefix': 'ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು ನಮ್ಮ',
   'team.inviteCta': 'ತಂಡದ ಸಹ ಆಟಗಾರನನ್ನು ಆಹ್ವಾನಿಸಿ',
   'team.invitedAs': 'ಆಹ್ವಾನಿಸಲಾಗಿದೆ {{role}}',
   'team.inviteFailed': 'ಆಹ್ವಾನ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',

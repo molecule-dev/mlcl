@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Mayelana ne-{{app}}',
+  'auth.legalConsent': 'Ngokuqhubeka, uyavuma',
   'bookings.empty.body':
     'Engeza indiza, ihhotela, noma umsebenzi ukuze uqale ibhokisi lokungenayo.',
   'bookings.empty.heading': 'Akukho ukubhukha okwamanje.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Kuqinisekisiwe',
   'bookings.summary.pending': 'Kulinde ukuqinisekiswa',
   'bookings.summary.total': 'Isamba esiphelele',
+  'bookings.type.car': 'Imoto yokuqasha',
+  'bookings.type.flight': 'Indiza',
+  'bookings.type.hotel': 'Ihhotela',
   'bookings.type.other': 'Okunye',
   'budgetSpendCard.budgetTotal': 'kwe {{total}} kuhlelwe',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Thola izingxabano, hlela izinsuku zokululama phakathi kohambo, bese ubona ukuthi ozakwethu bazohamba nini nawe.',
   'common.and': 'futhi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.budgetHeading': 'Ukwanda kwesabelomali',
   'dashboard.empty.heading': 'Azikho izinkambo okwamanje — i-atlas yakho ayinalutho.',
   'dashboard.eyebrow': 'Ukulawula umsebenzi',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Uhambo oluhambayo',
   'dashboard.viewAllExpenses': 'Buka zonke izindleko',
   'dashboard.viewAllTrips': 'Bona lonke uhambo',
+  'dayTimelineRow.category.accommodation': 'Hlala',
   'dayTimelineRow.category.transport': 'Ezokuthutha',
   'destinationOrbCard.exploreCta': 'Engeza ohambweni',
   'destinationOrbCard.tripCount': '{{count}} uhambo',
@@ -82,11 +90,15 @@ export const ui: UiTranslations = {
     'Awunayo i-imeyili okwamanje? Hlola ifolda yakho yogaxekile, noma zama futhi ngekheli elihlukile.',
   'forgotPassword.successSubheading':
     'Sithumele isixhumanisi sokutakula ku- {{email}} . Isixhumanisi sisebenza imizuzu engama-30.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Dala i-akhawunti yamahhala',
+  'landing.cta.subheading':
+    'Uhambo olufika kwezinhlanu, abahlanganyeli abahlanu, kanye nokuma okuhlanu ohlelweni lwamahhala — kufakwe ukuvumelanisa kwesikhathi sangempela, kanye nochwepheshe ophakamisa ama-cap lapho izinhlelo zakho zikhula.',
   'landing.destinations.eyebrow': 'Lapho uya khona ngokulandelayo',
   'landing.destinations.heading': 'Izindawo ezikhethwe ngabahleli',
   'landing.features.eyebrow': 'Indlela i-Waypoint esebenza ngayo',
   'landing.features.heading': 'Yakhelwe abahambi, hhayi amaspredishithi.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qala uhambo lwamahhala',
   'landing.hero.ctaSecondary': 'Bona uhambo oluyisibonelo',
   'landing.hero.subtitle':
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'U-Iris Larsen',
   'signup.subheading':
     'Dala i-akhawunti ukuze wabelane ngohambo nabalingani abangafika kwabayi-5, uvumelanise ukubhukha, bese udonsa konke ukuqinisekiswa endaweni eyodwa.',
+  'signup.termsPrefix': 'Ngokudala i-akhawunti uyavuma ukuthi',
   'tripCountdownHeroCard.budget': '{{used}} kwe {{total}} ( {{pct}} % yesabelomali)',
   'tripCountdownHeroCard.collaborators': '{{count}} abahambi',
   'tripCountdownHeroCard.countdownLabel': 'Ukubala phansi',
@@ -206,5 +219,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Azikho izinkambo okwamanje.',
   'trips.pastHeading': 'Izinto ezenzeka esikhathini esidlule',
   'trips.subheading': '{{count}} uhambo — esikhathini esidlule, samanje, kanye nosuku oluthile.',
+  'waypointLayout.mobileNavClose': 'Vala imenyu yokuzulazula',
   'waypointLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
 }

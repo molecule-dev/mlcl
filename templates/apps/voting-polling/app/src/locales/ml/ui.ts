@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'analytics.col.quorum': 'ക്വാറം',
   'analytics.col.votes': 'വോട്ടുകൾ',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ഇതുവരെ ചോദ്യങ്ങളൊന്നുമില്ല.',
   'audienceQa.onStageEyebrow': 'ഇപ്പോൾ സ്റ്റേജിലാണ്',
   'audienceQa.pollId': 'ക്യുഎ · {{id}}',
+  'audienceQa.promote': 'പ്രൊമോട്ട് ചെയ്യുക',
   'audienceQa.queued': 'ക്യൂവിലാക്കി',
   'audienceQa.queueEyebrow': 'ക്യൂ',
   'ballot.eyebrow': 'നിങ്ങളുടെ ബാലറ്റ് രേഖപ്പെടുത്തുക',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'നിങ്ങൾ നിലവിൽ ഇതിൽ ആണ് {{plan}} പദ്ധതി.',
   'billing.switch': 'മാറുക',
   'billing.upgraded': 'അപ്ഡേറ്റ് ചെയ്തത് {{plan}} — പരിധികൾ ഉടനടി ബാധകമാക്കി.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'createPoll.addOption': 'ഓപ്ഷൻ ചേർക്കുക',
   'createPoll.anonymousHint':
     'ഓഡിറ്റ് ലോഗിൽ വോട്ടർമാരുടെ പേരുകൾ മറച്ചിരിക്കുന്നു; ടാലികൾ ആധികാരികമായി തുടരുന്നു.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'നോഷിൽ പുതിയ ആളാണോ?',
   'login.remember': 'എന്നെ 30 ദിവസത്തേക്ക് ഓർമ്മിക്കൂ',
   'login.subheading': 'തറ തുറക്കുക, മുറി മുഴുവൻ ഓടിക്കുക, ഫലം സാക്ഷ്യപ്പെടുത്തുക.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'notFound.body':
     'നിങ്ങൾ എത്താൻ ശ്രമിച്ച പേജ് അടച്ചുപൂട്ടി അല്ലെങ്കിൽ നീക്കി. ഡാഷ്‌ബോർഡിലേക്ക് മടങ്ങുക അല്ലെങ്കിൽ പുതിയൊരു പോൾ തുറക്കുക.',
   'notFound.eyebrow': 'ഈ റൂട്ടിൽ ക്വാറം ഇല്ല.',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ഈ പോൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'pollDetail.loading': 'പോൾ ലോഡ് ചെയ്യുന്നു...',
   'pollDetail.notFound': 'പോൾ കണ്ടെത്തിയില്ല.',
+  'pollDetail.openBallot': 'ഓപ്പൺ ബാലറ്റ്',
   'pollDetail.openLive': 'തത്സമയ ഫലങ്ങൾ',
   'pollDetail.pollId': 'പോൾ · {{id}}',
   'pollDetail.published': 'പോൾ പ്രസിദ്ധീകരിച്ചു — വോട്ടർമാർക്ക് ഇപ്പോൾ ബാലറ്റ് രേഖപ്പെടുത്താം.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ഇമെയിൽ വഴി തിരയുക...',
   'voters.subheading':
     'യോഗ്യരായ റോൾ ക്യൂറേറ്റ് ചെയ്യുക. വെയ്റ്റഡ് ബാലറ്റുകൾക്കായി ഓർഗനൈസേഷൻ വഴി വോട്ടർമാരെ ഗ്രൂപ്പുചെയ്യുക.',
+  'votingPollingLayout.nav.analytics': 'അനലിറ്റിക്സ്',
+  'votingPollingLayout.nav.billing': 'ബില്ലിംഗ്',
+  'votingPollingLayout.nav.createPoll': 'പുതിയ പോൾ',
+  'votingPollingLayout.nav.dashboard': 'ഡാഷ്ബോർഡ്',
+  'votingPollingLayout.nav.notifications': 'അറിയിപ്പുകൾ',
+  'votingPollingLayout.nav.settings': 'ക്രമീകരണങ്ങൾ',
+  'votingPollingLayout.nav.team': 'ടീം',
+  'votingPollingLayout.nav.voters': 'വോട്ടർമാർ',
+  'votingPollingLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
 }

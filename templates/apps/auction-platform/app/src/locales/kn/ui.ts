@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'ನೋಡುತ್ತಿದ್ದೇನೆ',
   'auctionDetail.watchRemoved': 'ವೀಕ್ಷಣೆ ಪಟ್ಟಿಯಿಂದ ತೆಗೆದುಹಾಕಲಾಗಿದೆ.',
   'auctionDetail.watchRemoveLabel': 'ವೀಕ್ಷಣೆ ಪಟ್ಟಿಯಿಂದ ತೆಗೆದುಹಾಕಿ',
+  'auctionPlatformLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'authShell.brandBody':
     'ಅಪರೂಪದ ಕೈಗಡಿಯಾರಗಳು, ಲಲಿತಕಲೆ ಮತ್ತು ವಿಶಿಷ್ಟವಾದ ವಿಶೇಷ ವಸ್ತುಗಳ ಮೇಲೆ ನೈಜ ಸಮಯದಲ್ಲಿ ಬಿಡ್ ಮಾಡಿ. ಗಿವೆಲ್ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಬೀಳುತ್ತದೆ.',
   'authShell.brandEyebrow': 'ಈಗ ಲೈವ್ · 1,420 ಹರಾಜುಗಳು',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'ವಿಂಗಡಿಸಿ',
   'browseAuctions.subheading':
     'ವರ್ಗದ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ, ಹೆಚ್ಚು ಮುಖ್ಯವಾದುದನ್ನು ವಿಂಗಡಿಸಿ ಮತ್ತು ಗಿವೆಲ್ ಬೀಳುವ ಮೊದಲು ಬಿಡ್ ಮಾಡಿ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'countdownTimer.ended': 'ಕೊನೆಗೊಂಡಿದೆ',
   'countdownTimer.endingSoon': 'ಕೊನೆಗೊಳ್ಳುತ್ತಿದೆ',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.subtext':
     'ನಿಮ್ಮ ಹರಾಜನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವುದನ್ನು ಮುಂದುವರಿಸಿ ಮತ್ತು ಗವೆಲ್ ಬೀಳುವ ಮೊದಲು ಬಿಡ್‌ಗಳನ್ನು ಇರಿಸಿ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'myBids.bidAgain': 'ಮತ್ತೊಮ್ಮೆ ಬಿಡ್ ಮಾಡಿ',
   'myBids.browseCta': 'ಲೈವ್ ಹರಾಜುಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
   'myBids.checkoutCta': 'ಈಗಲೇ ಪಾವತಿಸಿ',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಅಧಿಸೂಚನೆಗಳಿಲ್ಲ.',
   'notificationsPage.eyebrow': 'ಚಟುವಟಿಕೆ ಕೇಂದ್ರ',
   'notificationsPage.subheading': '{{count}} ಓದದಿರುವುದು · ಹರಾಜುಗಳು ಚಲಿಸುವಾಗ ಲೈವ್ ನವೀಕರಣಗಳು',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.bidsLabel': 'ಬಿಡ್‌ಗಳು',
   'pricing.listingsLabel': 'ಪಟ್ಟಿಗಳು',
   'pricing.watchlistLabel': 'ವೀಕ್ಷಣೆ ಪಟ್ಟಿ',

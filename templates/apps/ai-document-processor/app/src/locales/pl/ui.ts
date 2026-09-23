@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Skontaktuj się',
+  'about.title': 'O {{app}}',
   'authShell.backToLanding': '← Powrót do strony powitalnej',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
+  'common.retry': 'Spróbuj ponownie',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Dzisiaj · Przegląd operacji',
   'dashboard.heading': 'Inteligencja dokumentów',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Żaden dokument nie pasuje do bieżących filtrów.',
   'documents.heading': 'Wszystkie dokumenty',
   'documents.loadError': 'Nie udało się załadować dokumentów.',
+  'documents.loading': 'Ładowanie biblioteki…',
   'documents.searchLabel': 'Szukaj dokumentów',
   'documents.searchPlaceholder': 'Szukaj dokumentów…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ukryj hasło',
   'login.showPassword': 'Pokaż hasło',
   'login.subtitle': 'Proszę się zalogować, aby Pana/Pani dokumenty płynęły dalej.',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'notFound.body':
     'Dokument lub trasa, którą próbował Pan/Pani otworzyć, już tu nie ma. Proszę wrócić do pulpitu lub wybrać sekcję z paska bocznego.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Otwórz stronę powitalną',
   'notFound.title': 'Ta strona nie jest w archiwum',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% wzgl. wczoraj',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Aktywne reguły',
   'rules.empty': 'Brak reguł archiwizacji. Proszę użyć Nowa reguła, aby dodać jedną.',
   'rules.eyebrow': 'Automatyzacja',
+  'rules.fieldsCount': '{{count}} pola',
   'rules.form.destination': 'Archiwizuj do',
   'rules.form.name': 'Nazwa reguły',
   'rules.form.save': 'Zapisz regułę',

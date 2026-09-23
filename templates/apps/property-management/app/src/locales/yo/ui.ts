@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'about.tagline': 'Gbogbo ẹyọ kan, labẹ orule kan.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.addProperty': 'Fi ohun ìní kún un',
   'dashboard.empty.body':
     'Nígbà tí o bá ní àwọn dúkìá, àwọn ẹyọ kan, àti owó ilé, ojú-ọ̀nà yìí yóò kún fún àwọn ìmọ̀ nípa àkójọ owó.',
@@ -85,6 +88,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{dúkìá}} · Ẹyọ {{ẹ̀yà}} · {{ọjọ}}',
   'maintenanceQueueList.subtitle': '{{count}} Àwọn àṣẹ iṣẹ́ ṣíṣí sílẹ̀, tí a ṣètò gẹ́gẹ́ bí ipò àkọ́kọ́',
   'maintenanceQueueList.title': 'Ìlà Ìtọ́jú',
+  'nav.closeMenu': 'Ti akojọ aṣayan pa',
+  'nav.openMenu': 'Ṣí àkójọ oúnjẹ',
   'notFound.body':
     'Ojú ìwé tí o ń wá yìí ti gbéra, wọ́n ti kó o sí àkójọ ìwé, tàbí wọn kò tíì wà níbẹ̀ rí.',
   'notFound.title': 'Ilẹ̀kùn yẹn kò ṣí',

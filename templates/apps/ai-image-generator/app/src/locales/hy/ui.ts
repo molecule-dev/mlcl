@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'auth.fields.newPassword': 'Նոր գաղտնաբառ',
   'collectionDetail.addImage': 'Հավաքածուի համար կախարդանք',
   'collectionDetail.backCta': 'Վերադառնալ հավաքածուներին',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Տրամադրության տախտակներ, համառոտ ակնարկներ և շարունակական շարքեր',
   'collections.title': 'Հավաքածուներ',
   'collections.untitled': 'Անվերնագիր · {{stamp}}',
+  'common.closeMenu': 'Փակել ընտրացանկը',
+  'common.dismiss': 'Փակել',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.openMenu': 'Բացել նավիգացիոն ցանկը',
   'credits.eyebrow': '{{plan}} պլան',
   'credits.renewsCopy': 'Պլանը երկարաձգվում է {{date}}',
   'credits.trail': 'Երազանք · {{plan}} շերտ',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Այստեղ կհայտնվեն ստեղծման ակտիվությունը, համօգտագործման և վարկային ծանուցումները։',
   'notifications.empty.title': 'Հաղորդելու բան չկա',
   'notifications.subtitle': 'Օրվա ընթացքում խմբավորված սերնդի իրադարձություններ',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.limits.gallery': '{{count}} պատկերասրահ',
   'privacy.collect.body':
     'Երբ դուք գրանցվում եք, մենք հավաքում ենք ձեր անունը, էլեկտրոնային փոստի հասցեն և հեշավորված գաղտնաբառը: Երբ դուք օգտագործում եք Reverie-ն, մենք պահպանում ենք ձեր կողմից ուղարկված հարցումները, ձեզ համար ստեղծված պատկերները, ձեր կողմից պահպանված ոճերն ու հավաքածուները, ինչպես նաև մետատվյալները, ինչպիսիք են օգտագործված մոդելը, ստեղծման ժամանակային նշագրերը և վարկային մնացորդը:',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Պահպանել նոր գաղտնաբառը',
   'reset.submitting': 'Գաղտնաբառի թարմացում…',
   'settings.account.handle': 'Բռնակ',
+  'settings.account.lastSaved': 'Ակտիվ պրոֆիլ · {{name}}',
   'settings.account.saved': 'Պրոֆիլը պահպանված է',
   'settings.account.saveFailed': 'Հնարավոր չէ պահպանել պրոֆիլը',
   'settings.account.title': 'Ստեղծողի պրոֆիլ',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Նոր պատկեր',
   'sidebar.secondary': 'Երկրորդական նավիգացիա',
   'signup.failed': 'Գրանցումը ձախողվեց։ Փորձեք կրկին։',
+  'signup.firstNamePlaceholder': 'Արիա',
   'signup.heading': 'Սկսեք ձեր մտորումները',
+  'signup.lastNamePlaceholder': 'Լին',
   'signup.subheading': 'Ստեղծեք հաշիվ և ստացեք 120 անվճար կրեդիտ։',
   'styles.empty': 'Դեռևս ոճի նախադրված կարգավորումներ չկան. դրանք կհայտնվեն առաջին մուտքից հետո։',
   'styles.eyebrow': 'Ընտրված',

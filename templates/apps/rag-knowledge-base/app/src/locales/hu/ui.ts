@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.pageTitle': 'A {{appName}}-ről',
   'analytics.error': 'Az analitika nem tölthető be.',
   'analytics.heading': 'Visszakeresési elemzések',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nincsenek konfigurált árképzési szintek.',
   'billing.plans.heading': 'Csomagok',
   'billing.subheading': 'Előfizetés, használat és Stripe által kezelt fizetés.',
+  'common.confirm': 'Megerősítés',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.retry': 'Újra',
   'documentCard.open': 'Nyitva \\u2192',
   'documentDetail.back': 'Vissza a dokumentumokhoz',
   'documentDetail.chunks.empty':
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'A dokumentum címe',
   'documents.emptyAll':
     'Még nincsenek dokumentumok. Töltsön fel egyet, hogy kérdéseket kezdhessen.',
+  'documents.error.load': 'A dokumentumok betöltése nem sikerült.',
   'documents.heading': 'Indexelt dokumentumok',
   'documents.loading': 'Dokumentumok betöltése…',
   'documents.metric.chunks': 'Összes darab',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Eltávolítás\\u2026',
   'members.subheading': 'Hívd meg a csapattársakat és oszd meg a szerepeket.',
   'members.tableHeading': 'Névsor',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'notFound.askCta': 'Kérdezze meg a tudásbázist',
+  'notFound.body':
+    'A(z {{app}} nem találta az oldalt. Lehet, hogy a link hibás, vagy az oldalt egy újraindexelés során eltávolították.',
   'notFound.eyebrow': 'Nem lehet lekérni',
   'notFound.title': 'Nincs ilyen rész az indexben',
   'notifications.dismiss': 'Bezárás',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Az első csatlakozó bekötéséhez kattintson a \\u201cForrás hozzáadása\\u201d gombra.',
   'sources.empty.title': 'Még nincsenek források.',
+  'sources.error.add': 'Nem sikerült hozzáadni a forrást.',
   'sources.error.labelRequired': 'Címke megadása kötelező.',
   'sources.error.load': 'Nem sikerült betölteni a forrásokat.',
   'sources.error.urlRequired': 'Ehhez a forrástípushoz URL szükséges.',

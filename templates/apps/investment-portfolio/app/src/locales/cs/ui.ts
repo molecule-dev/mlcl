@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaci {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Nástroje pro správu majetku',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nejedná se o investiční poradenství.',
   'argentAuthShell.sampleChange': '+2 841 USD (+0,28 %) dnes',
   'argentAuthShell.sampleValue': '1 032 251 dolarů',
   'argentLayout.primaryNavLabel': 'Primární navigace',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Pro tento ticker nebyly provedeny žádné transakce.',
   'assetDetail.txHeading': 'Vaše transakce',
   'common.and': 'a',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Přehled portfolia',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Zatím žádné podíly.',
   'holdings.heading': 'Držby',
   'holdings.loadError': 'Načtení fondů se nezdařilo.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nejedná se o investiční poradenství. Minulá výkonnost nezaručuje výsledky budoucí.',
   'landing.eyebrow': 'Argent · Platforma pro budování bohatství',
   'landing.features.heading': 'Všechno, co by si poradce postavil sám pro sebe.',
   'landing.finalCta.heading': 'Vraťte do svého portfolia disciplínu.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'před {{count}} h',
   'news.justNow': 'právě teď',
   'news.loadError': 'Nepodařilo se načíst novinky.',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'portfolioHeroCard.label': 'Hodnota portfolia',
   'pricing.holdingsLabel': 'podíly',
   'pricing.newsLabel': 'novinové články',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Smazat účet',
   'settings.security.deleting': 'Mazání…',
   'settings.security.heading': 'Zabezpečení',
+  'settings.security.newPassword': 'Nové heslo',
   'settings.security.password': 'Heslo',
   'settings.security.twoFactorEnable': 'Povolit',
+  'settings.security.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.security.twoFactorVerify': 'Ověřit a povolit',
   'settings.tax.error': 'Nepodařilo se aktualizovat metodu zdanění.',
   'settings.tax.heading': 'Účetnictví daňových položek',
   'settings.tax.method': 'Výchozí metoda',

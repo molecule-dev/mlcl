@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
+  'about.eyebrow': 'Info su {{app}}',
   'about.pageTitle': 'Ogni rotta, una sola ricerca.',
   'booking.backToDetail': 'Torna ai dettagli del volo',
   'booking.continue': 'Procedi al pagamento',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Tasse e commissioni',
   'booking.summary.travelers': 'Viaggiatori',
   'common.about': 'Informazioni',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'flightDetail.backToResults': 'Torna ai risultati',
   'flightDetail.baseFare': 'Tariffa base',
   'flightDetail.book': 'Procedi alla prenotazione',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 scalo',
   'flightResultCard.select': 'Seleziona',
   'flightResultCard.totalLabel': 'Durata totale',
+  'flightSearchLayout.primaryNavLabel': 'Navigazione principale',
   'forgotPassword.subheading':
     "Inserisca l'email del Suo account Skylark e Le invieremo un link sicuro per il reset.",
   'forgotPassword.successBody':
     'Controlli {{email}} per il link con cui impostare una nuova password. Il link scade dopo 30 minuti.',
   'forgotPassword.successHeading': 'Link di reset inviato',
   'landing.cta.explore': 'Prova la ricerca',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Trovi la prossima tariffa migliore prima di tutti.',
   'landing.cta.signup': 'Monitora le tariffe',
   'landing.features.eyebrow': 'Perché Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Aggiungi avviso',
   'priceAlerts.deleteConfirm': 'Rimuovere questo avviso?',
   'priceAlerts.empty': 'Nessuna rotta monitorata.',
+  'priceAlerts.emptyCta': 'Cerca un percorso da tracciare',
   'priceAlerts.errorMessage': 'Impossibile caricare gli avvisi.',
   'priceAlerts.eyebrow': 'Watchlist Skylark',
   'priceAlerts.form.createError': "Impossibile creare l'avviso.",
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerario multi-città',
   'results.multiLegHeading': 'Tratta {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} tratte · {{passengers}} viaggiatore',
+  'results.sortAriaLabel': 'Ordina i risultati per',
   'results.sortLabel': 'Ordina',
   'results.summary': '{{count}} voli · {{passengers}} viaggiatore',
   'settings.language.title': 'Lingua',

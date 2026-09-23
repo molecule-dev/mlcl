@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'analytics.channels.empty': "Għad m'hemm l-ebda dejta tal-kanal.",
   'analytics.channels.title': 'Skont il-kanal',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Konversazzjonijiet kuljum',
   'chatBubble.avatarAlt': '{{speaker}} avatar',
   'common.appName': 'Rapport',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'confidenceMeter.label': 'Kunfidenza',
   'conversationDetail.agentName': 'Aġent',
   'conversationDetail.aiReplyButton': 'Tweġiba tal-bot',
   'conversationDetail.aiReplyError': 'Ma setgħetx tiġi ġġenerata tweġiba bl-AI',
   'conversationDetail.aiReplyLoading': 'Abbozzar…',
+  'conversationDetail.aiReplySourceFallback': 'riżerva (l-ebda ċavetta tal-AI)',
   'conversationDetail.backAria': 'Lura għall-konversazzjonijiet',
   'conversationDetail.composerPlaceholder': 'Tweġiba lill-klijent…',
   'conversationDetail.context.channel': 'Kanal',
@@ -158,8 +161,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Issettja password ġdida għall-kont tiegħek',
   'resetPassword.toggleConfirm': "Ikkonferma l-viżibilità tal-password b'mod awtomatiku",
   'resetPassword.togglePassword': 'Ibdel il-viżibilità tal-password',
+  'settings.account.emailError': 'Ma rnexxiex naġġorna l-email',
   'settings.account.emailLabel': 'Indirizz elettroniku',
+  'settings.account.emailSaved': 'L-email ġiet aġġornata',
+  'settings.account.nameError': 'Ma rnexxiex naġġorna l-isem',
   'settings.account.nameLabel': 'Isem tal-wiri',
+  'settings.account.nameSaved': 'Isem aġġornat',
   'settings.account.title': 'Kont',
   'settings.api.createCta': 'Oħloq token',
   'settings.api.description':
@@ -172,10 +179,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Eskalazzjoni awtomatika meta s-sentiment jonqos',
   'settings.bot.greetingLabel': "L-ewwel messaġġ ta' tislima",
   'settings.bot.title': 'Konfigurazzjoni tal-bot',
+  'settings.bot.toneFormal': 'Formali',
   'settings.bot.toneLabel': 'Vuċi u ton',
   'settings.danger.deleteAccount': 'Ħassar il-kont',
+  'settings.danger.deleteError': 'Ma rnexxiex inħassar il-kont',
+  'settings.danger.deleteWarning':
+    "Dan iħassar b'mod permanenti l-kont tiegħek u d-dejta kollha assoċjata. Dan ma jistax jitneħħa.",
   'settings.danger.deleting': 'Qed tħassar…',
+  'settings.danger.passwordLabel': 'Ikkonferma l-password tiegħek',
   'settings.danger.title': "Żona ta' periklu",
+  'settings.devices.empty': 'L-ebda apparati rreġistrati.',
+  'settings.devices.revokeWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
+  'settings.devices.signingOut': 'Qed joħroġ…',
   'settings.devices.signOut': 'Oħroġ',
   'settings.devices.thisDevice': 'Dan l-apparat',
   'settings.devices.title': 'Apparati',
@@ -188,9 +204,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Ma rnexxiliex nibdel il-password',
   'settings.security.currentPassword': 'Password attwali',
   'settings.security.newPassword': 'Password ġdida',
+  'settings.security.oauthManaged':
+    'Il-password tiegħek hija ġestita mill-fornitur tas-sign-in tiegħek.',
   'settings.security.title': 'Sigurtà',
   'settings.security.twoFactorDisable': 'Iddiżattiva',
   'settings.security.twoFactorEnable': 'Ippermetti',
+  'settings.security.twoFactorInvalid': 'Kodiċi invalidu',
   'settings.subtitle':
     "Aġġusta l-vuċi ta' Rapport, is-sorsi tal-għarfien, u l-għodod li jikkomunika magħhom.",
   'settings.tokenCreateError': 'Ma rnexxiex noħloq it-token',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.pageTitle': 'Despre {{app}}',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'Colecția nu a putut fi creată.',
   'collections.defaultName': 'Colecție fără nume {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Cereri',
   'collections.newCollection': 'Colecție nouă',
   'collections.subheading': 'Grupați cererile, partajați-le cu echipa și rulați-le ca o suită.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'environmentCard.inactive': 'Inactiv',
   'environmentCard.more': 'mai mult',
   'environmentCard.variables': 'Variabile',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Descărcați gratuit',
   'landing.heroSubtitle':
     'Bancul de lucru extrem de rapid pentru testarea API, conceput pentru inginerii care locuiesc în terminale.',
+  'landing.heroTitleAccent': 'Foc',
+  'landing.heroTitleLine2': 'să inspire încredere.',
+  'landing.heroTitleRest': 'solicitări,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Prețuri simple și previzibile',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nou aici?',
   'login.showPassword': 'Arată parola',
   'login.subtitle': 'Continuați în spațiul de lucru Pylon.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'mocks.createError': 'Mock-ul nu a putut fi creat.',
   'mocks.defaultName': 'Mock fără nume {{n}}',
   'mocks.deleteError': 'Mock-ul nu a putut fi șters.',
@@ -112,6 +120,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Înapoi la spațiul de lucru',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Ruta nu a fost găsită',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'privacy.collect.account':
     'Cont: e-mailul, parola hash, numele afișat și marca temporală a ultimei autentificări.',
   'privacy.rights.body':
@@ -137,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'O vizualizare doar în citire a datelor deținute de acest cont.',
   'settings.unset': 'nesetat',
   'signup.identityHint': 'ex. Alex',
+  'signup.statusLabel': 'plan gratuit · fără card de credit',
   'signup.subtitle': 'Începeți să trimiteți cereri în câteva minute.',
   'terms.account.body':
     'Sunteți responsabil pentru protejarea parolei. Partajarea unui singur cont cu mai multe persoane nu este permisă în planurile Free sau Pro — cumpărați un abonament Team pentru spații de lucru partajate.',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
     'Nu utilizați Pylon pentru a trimite cereri către servicii pe care nu le dețineți sau pentru care nu aveți permisiunea explicită de a le testa. Nu utilizați Pylon pentru a eluda limitele de viteză sau a comite fraude.',
   'terms.warranty.body':
     'Pylon este furnizat "ca atare" fără nicio garanție. Vizăm o disponibilitate de 99,9%, dar nu o garantăm pentru planurile Free sau Pro.',
+  'testRunner.assertionsCount': '{{count}} afirmații',
   'testRunner.createError': 'Testul nu a putut fi creat.',
   'testRunner.cron':
     'Afirmațiile sunt evaluate față de cea mai recentă rulare a cererii legate de acest test.',
@@ -169,11 +180,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Rezultatele suitei, diferențele afirmațiilor și ultimele 50 de rulări.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Conectat ca',
+  'workspace.auth.keyName': 'Numele antetului',
+  'workspace.auth.keyValue': 'Valoarea cheie',
+  'workspace.auth.password': 'Parolă',
+  'workspace.auth.username': 'Nume de utilizator',
+  'workspace.authOption.apikey': 'Cheie API',
+  'workspace.authOption.basic': 'Autentificare de bază',
+  'workspace.authOption.bearer': 'Token la purtător',
+  'workspace.authOption.none': 'Niciuna',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tip',
   'workspace.authTypeLabel': 'Tip autentificare',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Niciuna',
+  'workspace.body.text': 'Text brut',
+  'workspace.body.type': 'Tip',
   'workspace.environment': 'Fără mediu',
   'workspace.envVar': 'variabilă de mediu',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Adăugați antet',
+  'workspace.kv.addParam': 'Adăugare parametru',
+  'workspace.kv.headerKey': 'Numele antetului',
+  'workspace.kv.headerValue': 'Valoarea antetului',
+  'workspace.kv.key': 'Cheie',
+  'workspace.kv.paramKey': 'Cheia parametrului de interogare',
+  'workspace.kv.paramValue': 'Valoarea parametrului de interogare',
+  'workspace.kv.removeRow': 'Elimină rândul',
+  'workspace.kv.value': 'Valoare',
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Latență',
   'workspace.metric.latencyCaption': 'Dus-întors din această rulare',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Cerere trimisă — vedeți response-ul mai jos.',
   'workspace.subheading':
     'Compuneți o cerere, trimiteți-o și verificați response-ul — totul într-un singur panou.',
+  'workspace.testResults': 'Rezultatele testelor',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Trimis ca Authorization: Bearer <token> pentru fiecare cerere din această colecție.',

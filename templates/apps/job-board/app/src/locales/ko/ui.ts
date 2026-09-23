@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '회사 소개',
   'applications.empty':
     '아직 지원 내역이 없습니다 — 알맞은 자리는 지원 한 번이면 닿을 수 있습니다.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     '지원하신 모든 직무를 단계별로 확인하세요. 단계별로 필터링하여 집중해서 보실 수 있습니다.',
   'applications.untitledRole': '포지션 #{{id}}',
+  'auth.legalConsent': '계속 진행하면 다음에 동의하게 됩니다',
   'common.and': '및',
+  'common.goToDashboard': '대시보드로 이동',
   'companies.empty': '검색에 해당하는 회사가 없습니다 — 다른 검색어를 시도해 보세요.',
   'companies.eyebrow': '주요 채용 기업',
   'companies.searchPlaceholder': '회사명, 산업, 지역으로 검색',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': '이 포지션에 아직 지원자가 없습니다.',
   'jobApplicants.eyebrow': '고용주 보기',
   'jobApplicants.loading': '불러오는 중…',
+  'jobApplicants.statusUpdateFailed': '해당 단계를 업데이트할 수 없습니다. 다시 시도해 주세요.',
+  'jobApplicants.subheading':
+    '이력서를 검토하고, 후보자를 선별하고, 채용 제안을 보내는 {{count}} 가 진행 중입니다.',
   'jobDetail.applicantCount': '현재까지 지원자 {{count}}명',
   'jobDetail.applied': '지원이 완료되었습니다',
   'jobDetail.apply': '지금 지원하기',
@@ -82,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': '채용 공고를 살펴보세요 ➡',
   'landing.pricingEyebrow': '요금제',
   'landing.pricingHeading': '어떤 규모의 팀에도 어울리는 간결한 요금제.',
+  'login.eyebrow': '{{app}}에 다시 오신 것을 환영합니다',
   'login.heading': '계정에 로그인',
   'login.noAccount': 'Nosh가 처음이신가요?',
   'login.passwordPlaceholder': '••••••••',
   'login.remember': '30일 동안 로그인 유지',
   'login.signingIn': '로그인 중…',
   'login.subheading': '검색을 이어가고, 지원을 진행하고, 더 빠르게 회신을 받으세요.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . 채용팀을 위해 제작되었습니다.',
   'loginBrandPanel.headline': '인재가 만나는 곳',
   'loginBrandPanel.headlineLine2': '기세.',
   'loginBrandPanel.listing.recruiter': '인재 파트너',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': '지원 현황, 면접 초대, 새로운 매칭 — 최신순으로 보여드립니다.',
   'opportunitiesHero.delta': '이번 주 {{sign}}{{amount}}',
   'opportunitiesHero.eyebrow': '오늘 오픈',
+  'planUpdated.verifying': '결제 확인 중…',
   'postJob.addNewCompany': '+ 새 회사 추가',
   'postJob.companyCreateFailed': '회사를 등록하지 못했습니다 — 다시 시도해 주세요.',
   'postJob.companyNameLabel': '회사 이름',
@@ -159,10 +168,12 @@ export const ui: UiTranslations = {
   'signup.creating': '계정 생성 중…',
   'signup.ctaEmployer': '고용주 계정 만들기',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': '첸',
   'signup.passwordMismatch': '비밀번호가 일치하지 않습니다.',
   'signup.subheading':
     '구직자는 평생 무료로 이용할 수 있습니다. 고용주는 30일 무료 체험으로 시작할 수 있습니다.',
   'timeAgo.days': '{{count}}일 전',
   'timeAgo.hours': '{{count}}시간 전',
   'timeAgo.justNow': '방금 전',
+  'timeAgo.weeks': '{{count}} w 전',
 }

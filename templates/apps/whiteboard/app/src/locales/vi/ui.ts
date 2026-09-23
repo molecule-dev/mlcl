@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'authShell.brandHeading': 'Canvas đa người chơi dành cho các nhóm thiết kế suy nghĩ thành tiếng.',
   'billing.canceled': 'Đã hủy đăng ký.',
   'billing.cancelPlan': 'Hủy gói',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Bắt đầu từ mẫu',
   'boards.title': 'Bảng của quý vị',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Xin quý vị nhập email liên kết với không gian làm việc của mình và chúng tôi sẽ gửi liên kết đặt lại.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Hội thảo Q1 · Tiếng nói thương hiệu',
   'landing.featuresEyebrow': 'Điều khiến Slate khớp với nhau',
   'landing.featuresTitle': 'Phản hồi nhanh. Canvas đẹp. Không có ma sát.',
+  'landing.hero.body':
+    '{{appName}} là một bảng trắng đa người dùng dành cho các nhóm thiết kế, người điều phối hội thảo và các nhà giáo dục tổ chức các buổi động não trực tiếp và cần tập hợp các ý tưởng tại một nơi.',
   'landing.hero.primaryCta': 'Bắt đầu bảng miễn phí',
   'landing.hero.socialProof': 'Được tin dùng bởi {{count}} nhóm thiết kế trên toàn thế giới',
   'landing.hero.title': 'Một canvas nhanh như suy nghĩ của quý vị',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Tạo không gian làm việc miễn phí',
   'login.subheading':
     'Tiếp tục từ nơi hội thảo dừng lại — bảng, giấy nhớ và con trỏ đều đồng bộ theo thời gian thực.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.new': 'Mới',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
   'notifications.editTitle': 'Chỉnh sửa cho "{{board}}"',
   'notifications.empty.body':
     'Lời mời, ảnh chụp màn hình và các chỉnh sửa bảng gần đây sẽ xuất hiện ở đây ngay khi chúng được thực hiện.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Lịch sử phiên bản',
   'versionHistory.untitledSnapshot': 'Ảnh chụp không có tiêu đề',
   'whiteboardLayout.newBoard': 'Bảng mới',
+  'whiteboardLayout.primaryNav': 'Điều hướng chính',
   'workspace.boardLabel': 'Bảng',
   'workspace.eyebrow': '{{name}} · không gian làm việc',
   'workspace.invite': 'Mời cộng tác viên',

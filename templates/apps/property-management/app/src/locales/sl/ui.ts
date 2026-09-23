@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.tagline': 'Vsaka enota, pod eno streho.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'dashboard.addProperty': 'Dodaj nepremičnino',
   'dashboard.empty.body':
     'Ko imate nepremičnine, enote in plačila najemnin, se ta nadzorna plošča napolni z vpogledi v portfelj.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{lastnost}} · Enota {{enota}} · {{datum}}',
   'maintenanceQueueList.subtitle': '{{count}} odprti delovni nalogi, razvrščeni po prioriteti',
   'maintenanceQueueList.title': 'Čakalna vrsta za vzdrževanje',
+  'nav.closeMenu': 'Zapri meni',
+  'nav.openMenu': 'Odpri meni',
   'notFound.body':
     'Stran, ki ste jo iskali, je bila premaknjena, arhivirana ali pa nikoli ni obstajala.',
   'notFound.title': 'Ta vrata se ne odprejo',

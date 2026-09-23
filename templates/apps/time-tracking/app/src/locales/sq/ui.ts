@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Rreth {{app}}',
   'about.plansTitle': 'Planet që rriten me ju',
   'brand.tagline': 'Çdo sekondë',
   'clientDetail.back': 'Kthehu te klientët',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Çdo marrëdhënie në një vend - projekte, orë, fatura të papaguara.',
   'clients.title': 'Klientët',
   'common.and': 'dhe',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.activeProjects': 'Projekte aktive',
   'dashboard.empty': 'Ende nuk ka hyrje. Filloni kohëmatësin për të ndjekur seancën tuaj të parë.',
   'dashboard.greeting': 'Ditë e mirë, {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     "Nuk ka orë të faturueshme për t'u faturuar për këtë klient. Gjurmo pak kohë më parë ose cakto hyrjet ekzistuese në një nga projektet e këtij klienti.",
   'invoices.save': 'Krijo faturë',
   'invoices.subtitle': 'Orët e ndjekura grumbullohen automatikisht në fatura.',
+  'landing.copyright': '© {{year}} {{app}} . Çdo sekondë, e llogaritur.',
   'landing.ctaBody':
     'Falas për deri në 3 projekte. Përmirësojeni kur lista juaj e klientëve të plotësohet.',
   'landing.eyebrow': 'Ndjekja e kohës për punë të faturueshme',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'I besuar nga të pavarurit',
   'landing.testimonial.quote':
     '\\u201cE lashë Toggl-in brenda 30 minutash. Vetëm shpenzimi i buxhetit e ka paguar veten \\u2014 Kam ndaluar së nënvlerësuari çmimin për dy javë rresht.\\u201c',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Çdo sekondë, e llogaritur.',
   'login.brand.subtitle':
     'Vazhdo kohëmatësin nga vendi ku e latë — çdo minutë është tashmë e lidhur me një projekt, një klient, një faturë.',
   'login.brand.tracking': 'Ndjekja',
   'login.subheading': 'Merrni kohëmatësin aty ku e keni lënë.',
+  'nav.closeMenu': 'Mbyll menynë e navigimit',
   'nav.insightsSection': 'Njohuri',
   'nav.newEntry': 'Hyrje e Re',
+  'nav.openMenu': 'Hap menynë e navigimit',
+  'nav.primary': 'Navigimi kryesor',
   'nav.workSection': 'Punë',
   'notFound.body':
     'Me sa duket lidhja që ndoqët ka ndaluar së ndjekuri. Kthehuni te paneli juaj i kontrollit \\u2014 ne do të vazhdojmë të numërojmë që andej.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'I faturueshëm',
   'timer.descriptionPlaceholder': 'Për çfarë po punoni?',
   'timer.idle': 'Në gjendje joaktive — fillo gjurmimin',
+  'timer.noProject': 'Asnjë projekt',
   'timer.runningWithProject': 'Asnjë projekt',
   'timer.start': 'Filloni kohëmatësin',
   'timer.stop': 'Ndalo kohëmatësin',

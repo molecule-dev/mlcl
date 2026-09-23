@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'authShell.brandHeading': 'Ucadan düşünən dizayn qrupları üçün çoxoyunçulu kətan rəsmləri.',
   'billing.canceled': 'Abunəlik ləğv edildi.',
   'billing.cancelPlan': 'Planı ləğv edin',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Şablondan başlayın',
   'boards.title': 'Lövhələriniz',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'İş sahənizlə əlaqəli e-poçtu daxil edin və biz sıfırlama linki göndərəcəyik.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1-ci rüb seminarı · Brend səsi',
   'landing.featuresEyebrow': 'Slate tessellatını nə yaradır',
   'landing.featuresTitle': 'Sürətli rəy. Gözəl kətan rəsmləri. Sıfır sürtünmə.',
+  'landing.hero.body':
+    '{{appName}} canlı beyin fırtınaları aparan və ideyaların bir yerdə toplaşmasına ehtiyacı olan dizayn qrupları, seminar fasilitatorları və müəllimlər üçün nəzərdə tutulmuş çoxoyunçulu ağ lövhədir.',
   'landing.hero.primaryCta': 'Pulsuz bir lövhəyə başlayın',
   'landing.hero.socialProof': 'Etibarlı {{count}} dünya miqyasında dizayn qrupları',
   'landing.hero.title': 'Düşüncələriniz qədər sürətli bir kətan',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Pulsuz bir iş sahəsi yaradın',
   'login.subheading':
     'Seminarın qaldığı yerdən davam edin — lövhələr, yapışqan qeydlər və kursorlar real vaxt rejimində sinxronizasiya olunur.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.new': 'Yeni',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'notifications.editTitle': '""-ə düzəlişlər {{board}} "',
   'notifications.empty.body':
     'Dəvətnamələr, yadda saxlanılan anlıq görüntülər və son lövhə düzəlişləri baş verdikləri kimi burada görünəcək.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versiya tarixçəsi',
   'versionHistory.untitledSnapshot': 'Başlıqsız anlıq görüntü',
   'whiteboardLayout.newBoard': 'Yeni lövhə',
+  'whiteboardLayout.primaryNav': 'Əsas naviqasiya',
   'workspace.boardLabel': 'Lövhə',
   'workspace.eyebrow': '{{name}} · iş sahəsi',
   'workspace.invite': 'Əməkdaşları dəvət edin',

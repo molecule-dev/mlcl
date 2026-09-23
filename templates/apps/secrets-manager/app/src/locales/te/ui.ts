@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'about.tagline': 'బహిరంగమైతే రహస్యాలు మరుగునపడతాయి.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'టోకెన్‌ను సృష్టించండి',
   'apiTokens.kicker': 'API టోకెన్లు',
   'apiTokens.loading': 'టోకెన్‌లు లోడ్ అవుతున్నాయి…',
+  'apiTokens.new': 'కొత్త టోకెన్',
   'apiTokens.revoke': 'టోకెన్‌ను రద్దు చేయండి',
   'apiTokens.subheading':
     'ఆర్కానమ్ CLI మరియు SDK కోసం వ్యక్తిగత మరియు సేవా టోకెన్లు. సృష్టించేటప్పుడు ఒకసారి సాదా వచనంలో చూపబడుతుంది.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + పాస్‌కీ',
   'authShell.zeroKnowledge': 'జీరో-నాలెడ్జ్ ఎన్‌క్రిప్షన్',
   'common.connecting': 'కనెక్ట్ అవుతోంది…',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.inviting': 'ఆహ్వానిస్తూ…',
   'forgotPassword.checkInbox':
     '{email} రిజిస్టర్ చేయబడి ఉంటే, ఒక నిమిషంలోపు సంతకం చేసిన రీసెట్ లింక్ వస్తుంది.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'ప్రతి వాల్ట్‌లో రొటేషన్ స్థితి, అసాధారణ హెచ్చరికలు మరియు ఆమోద అభ్యర్థనలు.',
   'notifications.unreadEmpty': 'ఇన్‌బాక్స్ సున్నా — అన్నీ చూసేశాను.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.heading': 'రహస్యాలు',
   'pricing.limits.accessPolicies': 'యాక్సెస్ విధానాలు',
   'pricing.limits.auditLog': 'ఆడిట్-లాగ్ ఎంట్రీలు',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'మీ సబ్‌స్క్రిప్షన్‌ను నిర్వహించండి, పరిమితులను చూడండి మరియు అప్‌గ్రేడ్ చేసుకోండి.',
   'profile.subheading': 'గుర్తింపు, ద్వితీయ కారక పరికరాలు మరియు క్రియాశీల సెషన్‌లు.',
+  'profile.twoFactor.code': 'ప్రమాణీకరణ కోడ్',
   'profile.twoFactor.disable': 'నిలిపివేయండి',
   'profile.twoFactor.enable': 'ప్రారంభించండి',
+  'profile.twoFactor.invalidCode': 'చెల్లని కోడ్',
   'profile.twoFactor.kicker': 'రెండు-కారకాల ప్రమాణీకరణ',
+  'profile.twoFactor.off': 'ప్రారంభించబడలేదు',
   'profile.twoFactor.on': 'ప్రారంభించబడింది',
   'resetPassword.email': 'ఖాతా ఇమెయిల్',
   'resetPassword.heading': 'కొత్త ఆధారాలను సెట్ చేయండి',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ఆదేశాలు',
   'secretsManagerLayout.encrypted': 'AES-256 · ఎన్‌క్రిప్టెడ్',
   'secretsManagerLayout.newVault': 'కొత్త ఖజానా',
+  'secretsManagerLayout.newVaultShort': 'కొత్త',
   'secretsManagerLayout.rotations': 'భ్రమణాలు',
   'secretsManagerLayout.search': 'శోధన',
   'secretsManagerLayout.searchPlaceholder': 'కీ, మార్గం లేదా ట్యాగ్ ద్వారా రహస్యాలను శోధించండి…',
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'రహస్యాలు',
   'vaultCard.vaultLabel': 'వాల్ట్',
   'vaultDetail.addSecret': 'రహస్యాన్ని జోడించండి',
+  'vaultDetail.back': 'అన్ని ఖజానాలు',
   'vaultDetail.col.key': 'కీ',
   'vaultDetail.col.rotated': 'తిప్పబడింది',
   'vaultDetail.col.value': 'విలువ',

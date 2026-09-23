@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'compose.cancel': 'ਰੱਦ ਕਰੋ',
   'compose.captionPlaceholder': 'ਤੁਹਾਡੇ ਮਨ ਵਿੱਚ ਕੀ ਹੈ?',
   'compose.heading': 'ਇੱਕ ਪਲ ਸਾਂਝਾ ਕਰੋ',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'ਤਸਦੀਕਸ਼ੁਦਾ ਖਾਤਾ',
   'resetPassword.newPassword': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.subheading': 'ਕੁਝ ਮਜ਼ਬੂਤ ਚੁਣੋ — ਘੱਟੋ-ਘੱਟ 12 ਅੱਖਰ।',
+  'search.clearAria': 'ਸਾਫ਼',
+  'search.error': 'ਖੋਜ ਅਸਫਲ ਰਹੀ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'search.noPeople': 'ਕੋਈ ਸਿਰਜਣਹਾਰ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ " {{q}} ".',
   'search.noPosts': 'ਕੋਈ ਪੋਸਟ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ " {{q}} ".',
   'search.noTags': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਟ੍ਰੈਂਡਿੰਗ ਹੈਸ਼ਟੈਗ ਨਹੀਂ ਹਨ।',
@@ -126,6 +132,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'signup.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'signup.subheading': 'ਸਾਂਝਾ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਖਾਤਾ ਬਣਾਓ।',
+  'socialMediaLayout.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'socialMediaLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
+  'socialMediaLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'storyRail.heading': 'ਕਹਾਣੀਆਂ',
   'storyRail.label': 'ਕਹਾਣੀਆਂ',
   'storyRail.openAria': 'ਖੋਲ੍ਹੋ {{handle}} ਦੀ ਕਹਾਣੀ',

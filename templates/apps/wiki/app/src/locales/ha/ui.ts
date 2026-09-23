@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Ana warwarewa…',
   'comments.subtitle':
     'The {{count}} Zaren har yanzu suna jiran amsa ko shawara. An tsara su ta hanyar shekaru - da farko mafi tsufa, don haka babu abin da zai ruɓe.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'forgotPassword.sentTo': 'An aika da hanyar haɗin sake saitawa zuwa {{email}}',
   'forgotPassword.successSubheading':
     'Duba akwatin saƙonka — mun aika hanyar haɗin sake saitawa. Zai ƙare cikin mintuna 30.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Sabon shafi',
   'pageTreeSidebar.workspaceHeader': 'Wurin Aiki',
   'pageView.breadcrumb': 'Burodi',
+  'pageView.confirmTrash': 'Za a yi shara a kai?',
   'pageView.home': 'Gida',
   'pageView.lastEdited': 'An sabunta {{when}}',
   'pageView.loading': 'Ana loda shafi…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'A taƙaice…',
   'pageView.summaryUnavailable': 'Ba a saita taƙaitaccen bayanin AI don wannan wurin aiki ba.',
   'pageView.tocTitle': 'A wannan shafin',
+  'pageView.trash': 'Shara',
+  'pageView.trashing': 'Shara…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Bajoji',
   'profile.owned.title': 'Shafukan da aka mallaka',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Wurin aiki, bayanin martaba, sanarwa, haɗewa — duk a cikin wani yanayi mai natsuwa.',
   'settingsPage.workspace.defaultLanding': 'Allon saukowa na asali',
   'settingsPage.workspace.landingHome': 'Gida',
+  'settingsPage.workspace.landingSpaces': 'Sarari',
   'settingsPage.workspace.subdomainLabel': 'Ƙaramin yanki',
   'settingsPage.workspace.title': 'Wurin Aiki',
   'signup.eyebrow': 'Fara sabon wurin aiki',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} minti',
   'templates.subtitle':
     'Fara shafi daga stencil, ba zane mara komai ba. Kowace samfuri tana da tsari mai ƙarfi don haka za ku iya mai da hankali kan abin da ke ciki.',
+  'trash.confirmPurge': 'A tsarkake har abada?',
+  'trash.confirmPurgeAria': 'Tabbatar: goge {{title}} har abada',
   'trash.daysUntilPurge': '{{days}} kwanaki da suka rage',
   'trash.empty.body':
     'Shafukan da aka goge za su bayyana a nan na tsawon kwanaki 30 kafin a share su.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Ana maidowa…',
   'versionHistory.subtitle': '{{count}} sigar · zaɓi layi don duba bambancin',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Rufe kewayawa',
+  'wikiLayout.menu': 'Kewaya',
+  'wikiLayout.openMenu': 'Buɗe kewayawa',
   'wikiLayout.searchPlaceholder': 'Bincika Cairn — shafuka, sharhi…',
 }

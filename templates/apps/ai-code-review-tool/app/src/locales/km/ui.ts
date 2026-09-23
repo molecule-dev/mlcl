@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ទាក់ទងមកយើងខ្ញុំ',
   'about.eyebrow': 'អំពី',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.connectRepoCta': 'ភ្ជាប់ឃ្លាំង',
   'dashboard.empty': 'មិនទាន់មានសំណើទាញយកនៅឡើយទេ — ភ្ជាប់ឃ្លាំងដើម្បីចាប់ផ្តើម។',
   'dashboard.eyebrow': 'ចំណាំងបែរ · ជួរពិនិត្យឡើងវិញ',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'រយៈពេលដំណើរការ',
   'pullRequestRow.files': '{{count}} ច',
   'pullRequestRow.scoreAria': 'ពិន្ទុគុណភាព AI {{score}} / ១០',
+  'refractLayout.closeMenu': 'បិទម៉ឺនុយ',
+  'refractLayout.openMenu': 'បើកម៉ឺនុយ',
   'refractLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'reports.cumulativeScoreLabel': 'ពិន្ទុសរុប',
   'reports.cumulativeScoreSubtitle': 'ឃ្លាំងទាំងអស់ · {{days}} ឃ',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'បរាជ័យក្នុងការផ្ទុកលិបិក្រមស្វែងរក។',
   'settings.apiKeys.description':
     'គ្រប់គ្រង​សោ API ផ្ទាល់ខ្លួន​ពី​ម៉ឺនុយ​អ្នកប្រើប្រាស់​នៅ​ផ្នែក​ខាងស្តាំ​ខាងលើ។',
+  'settings.apiKeys.integrationsNote':
+    'ថូខឹនចូលប្រើរបស់អ្នកផ្តល់សេវាត្រូវបានគ្រប់គ្រងនៅក្នុងផ្នែកសមាហរណកម្មខាងលើ។',
   'settings.connectError': 'មិនអាចភ្ជាប់អ្នកផ្តល់សេវាបានទេ។',
   'settings.disconnectError': 'មិនអាចផ្ដាច់អ្នកផ្តល់សេវាបានទេ។',
   'settings.eyebrow': 'ចំណាំងបែរ · កន្លែងធ្វើការ',
   'settings.integration.${provider}.label': 'កំពុងរក្សាទុក...',
   'settings.loadError': 'បរាជ័យក្នុងការផ្ទុកការកំណត់។',
+  'settings.notificationCenter': 'មជ្ឈមណ្ឌលជូនដំណឹង',
   'settings.notifications.description':
     'ចូលទៅកាន់ទំព័រជូនដំណឹង ដើម្បីមើល និងគ្រប់គ្រងចំណូលចិត្តនៃការដឹកជញ្ជូន។',
   'settings.section.account': 'គណនី និងសុវត្ថិភាព',

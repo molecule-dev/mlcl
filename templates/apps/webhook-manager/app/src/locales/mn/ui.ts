@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} н тухай',
+  'about.pageTitle': 'Вэб дэгээний хяналтын хавтгай',
+  'about.plansTitle': 'Бүх үе шатны төлөвлөгөө',
   'apiKeys.bestPractices': 'Шилдэг туршлагууд',
   'apiKeys.body':
     'Программчилсан хандалтын жетонууд. Тэдгээрийг нууц үг шиг харьц — env vars дотор хадгал, хэзээ ч битгий коммит хий.',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'төлөвлөгөөний хүрээнд',
   'billing.usageWarning': 'тагны ойролцоо',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.body':
     'Таны ажиллуулж буй ажлын талбар бүрт шууд дамжуулах хурд, нислэгийн үеэр дахин оролдлого хийх, мөн дөнгөж сая саатсан төгсгөлийн цэгүүд.',
   'dashboard.endpointsEmpty': 'Одоогоор төгсгөлийн цэгүүд алга байна.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'төгсгөлийн цэгүүд',
   'endpointDetail.deliveryTrendSub': 'хүргэлт / цаг, бүртгэлийн хэмжээс',
   'endpointDetail.hideSecret': 'Нууцыг нуух',
+  'endpointDetail.loading': 'Төгсгөлийн цэгийг ачаалж байна…',
   'endpointDetail.metric.delivered': '24 цагийн дотор хүргэгдсэн',
   'endpointDetail.metric.deliveredCaption': '-аас {{count}} үйл явдлын төрлүүд',
   'endpointDetail.metric.failuresCaption': 'дахин оролдлого: {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Чухал · 24 цаг',
   'notifications.metric.totalCaption': 'бүх цаг үеийн ирсэн имэйл',
   'payloadViewer.payload': '// ачааны ачаалал',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint': 'Эхний үсгийг харуулав — дараагийн хувилбартай хамт байршуулсан зүйлс.',
   'profile.body': 'Таны бүртгэл, тохиргоо болон идэвхтэй сессүүд.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Зөвхөн таны одоогийн сесс идэвхтэй байна. Өөр ямар ч төхөөрөмж нэвтэрсэнгүй.',
   'profile.toggle': 'Асаах/унтраах {{label}}',
+  'pylonShell.closeMenu': 'Навигацийн цэсийг хаах',
+  'pylonShell.openMenu': 'Навигацийн цэсийг нээх',
   'pylonShell.primaryNavLabel': 'Үндсэн навигаци',
   'resetPassword.subtitle': 'Өмнө нь ашиглаж байгаагүй хүчтэй нууц үг сонгоно уу.',
   'resetPassword.tokenPlaceholder': 'имэйлээс буулгах',

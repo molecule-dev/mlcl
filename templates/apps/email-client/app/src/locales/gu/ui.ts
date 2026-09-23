@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'અમે ડિઝાઇનર્સ અને એન્જિનિયરોની એક વિતરિત ટીમ છીએ જેમણે એક સમયે દરરોજ ઘણા કલાકો ઘોંઘાટીયા મેઇલબોક્સમાં વિતાવ્યા હતા. મેરિડીયન એ ઇનબોક્સ છે જેનો અમે જાતે ઉપયોગ કરવા માંગતા હતા.',
   'about.title': 'ધ્યાન કેન્દ્રિત કાર્ય માટે ઇમેઇલ',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'help.cta.about': 'મેરિડીયન વિશે',
   'help.cta.pricing': 'કિંમત જુઓ',
   'help.eyebrow': 'મદદ કેન્દ્ર',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'આપણે સૌથી વધુ સાંભળતા પ્રશ્નોના ઝડપી જવાબો. શું કંઈ ખૂટે છે? સેટિંગ્સ ખોલો અને ઇન-એપ ફીડબેક ફોર્મનો ઉપયોગ કરો, અથવા support@courier.example પર લખો.',
   'help.title': 'આપણે કેવી રીતે મદદ કરી શકીએ?',
   'landing.brand.scrollTop': 'ટોચ પર પાછા',
+  'landing.copyright': '© {{year}} {{appName}} — ધ્યાન કેન્દ્રિત કરવા માટે બનાવેલ.',
   'landing.ctaBody': 'લંચ પહેલાં પોતાનો ઇનબોક્સ પૂર્ણ કરનારા હજારો વ્યાવસાયિકો સાથે જોડાઓ.',
   'landing.ctaTitle': 'વધુ પ્રક્રિયા કરો, ઓછી પ્રતિક્રિયા આપો.',
   'landing.eyebrow': 'ધ્યાન કેન્દ્રિત કાર્ય માટે ઇમેઇલ',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'ડેમો જુઓ',
   'landing.heroSubtitle':
     'મેરિડીયન એ એક શાંત ત્રણ-પેન ઇનબોક્સ છે જે જ્ઞાન કાર્યકરો માટે બનાવવામાં આવ્યું છે જેઓ માહિતી પર પ્રતિક્રિયા આપવા માંગતા નથી, પરંતુ પ્રક્રિયા કરવા માંગે છે.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'વિશ્વભરમાં ધ્યાન કેન્દ્રિત ટીમો દ્વારા વિશ્વસનીય',
   'landing.signIn': 'સાઇન ઇન કરો',
   'meridian.archive.empty': 'આર્કાઇવ ખાલી છે.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ડ્રાફ્ટ',
   'meridian.folder.count': '{{count}} સંદેશાઓ',
+  'meridian.folder.delete': 'કાઢી નાખો',
   'meridian.folder.deleteForever': 'કાયમી રૂપે કાઢી નાખો',
   'meridian.folder.restore': 'ઇનબોક્સમાં ખસેડો',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'અહીં હજુ સુધી કોઈ સંદેશા નથી.',
   'meridian.inbox.loading': 'લોડ કરી રહ્યું છે...',
   'meridian.inbox.next': 'આગળ',
+  'meridian.inbox.noSender': '(કોઈ મોકલનાર નથી)',
   'meridian.inbox.noSubject': '(કોઈ વિષય નથી)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'કંપોઝ ખોલો',
   'meridian.inbox.previous': 'પાછલું',
   'meridian.inbox.replyFailed': 'જવાબ સાચવવામાં આવ્યો પણ ડિલિવરી નિષ્ફળ ગઈ: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'શું તમારી પાસે ખાતું નથી?',
   'meridian.login.showPassword': 'પાસવર્ડ બતાવો',
   'meridian.message.toLine': 'થી {{recipients}}',
+  'meridian.notFound.body':
+    'તમે જે પેજ શોધી રહ્યા છો તે મળી શક્યું નથી. તમારા {{appName}} ઇનબોક્સ પર પાછા જાઓ અને અમે તમને ટ્રેક પર લઈ જઈશું.',
   'meridian.notFound.eyebrow': 'ભૂલ 404',
   'meridian.notFound.title': 'આ થ્રેડ આર્કાઇવ કરવામાં આવ્યો હતો.',
   'meridian.notFound.toInbox': 'મારું ઇનબોક્સ ખોલો',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'તારો ઉમેરો',
   'meridian.thread.unstar': 'તારો દૂર કરો',
   'meridian.time.yesterday': 'ગઈકાલે',
+  'meridian.topBar.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'meridian.topBar.searchPlaceholder': 'મેઇલ શોધો',
   'meridian.trash.empty': 'કચરાપેટી ખાલી છે.',
   'meridian.trash.title': 'કચરો',
   'nav.legal': 'કાનૂની',
   'planUpdated.description':
     'તમારું સબ્સ્ક્રિપ્શન હવે સક્રિય છે અને તમારું બિલિંગ અપડેટ કરવામાં આવ્યું છે. તમારા રિફ્રેશ કરેલા મેરિડીયન ઇનબોક્સમાં આપનું સ્વાગત છે.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.heading': 'ડ્રાફ્ટ્સ',
   'pricing.limit.emails': 'ઇમેઇલ્સ',
   'pricing.limit.folders': 'ફોલ્ડર્સ',
   'pricing.limit.labels': 'લેબલ્સ',
   'privacy.collect.account':
     'એકાઉન્ટ ડેટા: નામ, ઇમેઇલ સરનામું, હેશ કરેલ પાસવર્ડ અને તમે સાઇન અપ કર્યાની તારીખ.',
+  'privacy.contact': 'કોઈ પ્રશ્નો છે? privacy@courier.example પર ઇમેઇલ કરો.',
   'privacy.intro':
     'આ ગોપનીયતા નીતિ સમજાવે છે કે મેરિડિયન કયો ડેટા એકત્રિત કરે છે, અમે તેને શા માટે એકત્રિત કરીએ છીએ, અમે તેને કેવી રીતે સુરક્ષિત રાખીએ છીએ અને તેના પર તમારી પાસે કયા વિકલ્પો છે. અમારું લક્ષ્ય કાયદાકીય હોવાને બદલે ચોક્કસ રહેવાનું છે; જો કંઈ સ્પષ્ટ ન હોય, તો privacy@courier.example પર લખો.',
   'privacy.lastUpdated': 'છેલ્લે અપડેટ: ૧ એપ્રિલ, ૨૦૨૬',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'આ શરતો મેરિડીયનના તમારા ઉપયોગને નિયંત્રિત કરે છે. એકાઉન્ટ બનાવીને અથવા અમારા દ્વારા ઇમેઇલ મોકલીને તમે તેમના દ્વારા બંધાયેલા રહેવા માટે સંમત થાઓ છો. અમે એવા નિયમો લખવાનો પ્રયાસ કરીએ છીએ જે વ્યક્તિ ખરેખર અનુસરી શકે.',
   'terms.lastUpdated': 'અમલી: ૧ એપ્રિલ, ૨૦૨૬',
+  'terms.linkPrivacy': 'અમારી ગોપનીયતા નીતિ વાંચો →',
   'terms.termination.body':
     'તમે ગમે ત્યારે તમારું એકાઉન્ટ ડિલીટ કરી શકો છો. અમે આ શરતોનું ઉલ્લંઘન કરતા એકાઉન્ટને સસ્પેન્ડ કરી શકીએ છીએ; જો અમે આમ કરીશું, તો અમે તેનું કારણ સમજાવીશું અને પહેલા તમને તમારો ડેટા નિકાસ કરવા દઈશું.',
   'terms.warranty.body':

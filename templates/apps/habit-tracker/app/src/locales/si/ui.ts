@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'achievementBadgeCard.unlockedOn': 'අගුළු හරින ලදී {{date}}',
   'achievements.loadError': 'ජයග්‍රහණ පූරණය කිරීමට අසමත් විය.',
   'achievements.subheading': '{{unlocked}} වල {{total}} අගුළු හරින ලදී',
   'achievements.unlockedOn': 'අගුළු හරින ලදී {{date}}',
+  'auth.legalConsent': 'ඉදිරියට යාමෙන්, ඔබ අපගේ කොන්දේසි වලට එකඟ වේ',
   'calendar.empty': 'ඔබේ දින දර්ශනය දැකීමේ පුරුද්දක් ඇති කරගන්න.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'පුරුද්ද',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'පුරුදු ජාලය',
   'category.${c.category}': '{{ගණන්}} පුරුදු',
   'common.and': 'සහ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'consistencyHeatmap.ariaLabel': 'දෛනික අනුකූලතා තාප සිතියම',
   'consistencyHeatmap.caption': 'අවසන් {{weeks}} සති',
   'consistencyHeatmap.lessLabel': 'අඩු',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'එය සජීවීව බලන්න',
   'landing.heroSubtitle':
     'පුරුදු ඇත්තටම ඇලී සිටින ආකාරයටම ගොඩනඟා ගන්න: කුඩා කැපවීම්, දෛනික ඉරි සහ දිගු නොබිඳුණු දාමයක අභ්‍යන්තර සතුට.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'ස්ට්‍රීක් ඇතුළත එබී බැලීමක්',
   'landing.previewMotivation': 'නව ඉරි ජීවමානයි. ඒ සියල්ල උණුසුම්ව තබා ගන්න.',
   'login.eyebrow': 'දාමය ගන්න.',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ඒක පොඩි කරන්න. නිශ්චිත කරන්න. හෙට එන්න.',
   'newHabit.timeLabel': 'මතක් කිරීමේ වේලාව',
   'notifications.markError': 'සියල්ල කියවූ ලෙස සලකුණු කිරීමට නොහැකි විය.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.entries': '{{count}} ඇතුළත් කිරීම්',
+  'pricing.heading': 'ඔබේ {{app}} සැලැස්ම තෝරන්න',
   'profile.action.plan': 'දායකත්වය කළමනාකරණය කරන්න',
   'profile.action.settings': 'ගිණුම් සැකසුම්',
   'profile.bioEmpty': 'ඔබව හඳුන්වා දීමට සැකසීම් තුළ කෙටි චරිතාපදානයක් එක් කරන්න.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'දිනපතා උදෑසන විමසුම (පෙ.ව. 8:00)',
   'settings.reminders.heading': 'මතක් කිරීම්',
   'settings.reminders.weekly': 'සතිපතා සාරාංශය (ඉරිදා සවස)',
+  'settings.revokeDeviceWarning': 'මෙම උපාංගයේ ප්‍රවේශය ඉක්මනින් අහෝසි වනු ඇත. එයින් පිටවෙන්න ද?',
   'settings.signOutDevice': 'වරන්න',
   'settings.streaks.freezesPerWeek': 'සතියකට කැටි වේ',
   'settings.streaks.gracePeriod': 'මධ්‍යම රාත්‍රියෙන් පසු පැය 6ක සහන කාලයක්',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ක්‍රියාකාරී',
   'streakHeroCard.daysSuffix': 'දින',
   'streakHeroCard.title': 'දිගම ක්‍රියාකාරී ස්ට්‍රීක්',
+  'streakLayout.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'streakLayout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'streakLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
 }

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Poseu-vos en contacte',
   'about.eyebrow': 'Sobre',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.connectRepoCta': 'Connecta el repositori',
   'dashboard.empty':
     "Encara no hi ha cap sol·licitud d'extracció; connecteu un repositori per començar.",
@@ -82,6 +83,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Temps de funcionament',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Puntuació de qualitat de la IA {{score}} / 10',
+  'refractLayout.closeMenu': 'Tanca el menú',
+  'refractLayout.openMenu': 'Obre el menú',
   'refractLayout.primaryNavLabel': 'Navegació principal',
   'reports.cumulativeScoreLabel': 'Puntuació acumulada',
   'reports.cumulativeScoreSubtitle': 'tots els repositoris · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': "No s'ha pogut carregar l'índex de cerca.",
   'settings.apiKeys.description':
     "Gestioneu les claus API personals des del menú d'usuari a la part superior dreta.",
+  'settings.apiKeys.integrationsNote':
+    "Els tokens d'accés del proveïdor es gestionen a la secció Integracions que hi ha més amunt.",
   'settings.connectError': "No s'ha pogut connectar el proveïdor.",
   'settings.disconnectError': "No s'ha pogut desconnectar el proveïdor.",
   'settings.eyebrow': 'Refractar · espai de treball',
   'settings.integration.${provider}.label': 'Desant…',
   'settings.loadError': "No s'ha pogut carregar la configuració.",
+  'settings.notificationCenter': 'Centre de notificacions',
   'settings.notifications.description':
     'Visita la pàgina de notificacions per veure i gestionar les preferències de lliurament.',
   'settings.section.account': 'Compte i seguretat',

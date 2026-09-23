@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
   'authBrandPanel.quote':
     '“Is é an véilim an córas taifead anois do gach comhaontú sínithe atá againn.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'contractDetail.amount': 'Luach',
   'contractDetail.back': 'Gach conradh',
   'contractDetail.downloadCta': 'Íoslódáil PDF',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'Éagaíonn',
   'contracts.col.owner': 'Úinéir',
   'contracts.empty': 'Níl aon chonarthaí ag teacht le chéile.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'Conarthaí',
   'contracts.loadError': 'Theip ar chonarthaí a lódáil.',
   'contracts.newCta': 'Conradh nua',
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Má tá cuntas ann do {{email}} , tá nasc athshocraithe ar an mbealach.',
   'forgotPassword.subtitle': 'Seolfaimid nasc athshocraithe chuig do ríomhphost oibre.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Tógtha le Molecule.',
   'landing.ctaHeading': 'Féach ar do phunann ag dúnadh ar an gcéad lá.',
   'landing.ctaPrimary': 'Tosaigh spás oibre',
   'landing.eyebrow': 'Le haghaidh Oibríochtaí Dlí & Soláthair',
@@ -97,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Tá ainm an chontrapháirtí riachtanach.',
   'newContract.errEmail': 'Tá ríomhphost an tsínitheora ag teastáil.',
   'newContract.expires': 'Dáta éaga',
+  'newContract.failed': 'Níorbh fhéidir conradh a chruthú.',
   'newContract.heading': 'Conradh nua',
   'newContract.nextCta': 'Ar Aghaidh',
   'newContract.review.counterparty': 'Contrapháirtí',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Teideal an chonartha',
   'newContract.titlePlaceholder': 'Comhaontú Seirbhísí Máistir',
   'newContract.variablesHeading': 'Athróga conartha',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.dataExport': 'Easpórtáil sonraí',
   'pricing.disabled': 'Níl',
   'pricing.enabled': 'Tá',
@@ -144,15 +151,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Níorbh fhéidir an cuntas a scriosadh.',
   'settings.security.deleting': 'Ag scriosadh…',
   'settings.security.newPassword': 'Pasfhocal nua',
+  'settings.security.noDevices': 'Níl aon fheistí cláraithe.',
   'settings.security.twoFactor': 'Fíordheimhniú dhá fhachtóir',
   'settings.security.twoFactorDisable': 'Díchumasaigh',
   'settings.security.twoFactorEnable': 'Cumasaigh',
+  'settings.security.twoFactorInvalidCode': 'Cód neamhbhailí.',
   'settings.signatures.body':
     'Feictear d’ainm clóscríofa ar líne shínithe gach conartha a shíníonn tú. Socraigh uair amháin é agus rindreálfar go huathoibríoch é feasta.',
   'settings.signatures.heading': 'Bloc sínithe',
   'settings.signatures.save': 'Sábháil síniú',
+  'sign.action': 'Sínigh an doiciméad seo',
+  'sign.eyebrow': 'Síniú iarrtha',
+  'sign.for': 'Do {{name}}',
+  'sign.loadError': 'Tá an nasc sínithe seo neamhbhailí nó imithe in éag.',
   'sign.loading': 'Ag lódáil…',
   'sign.signing': 'Ag síniú…',
+  'sign.submitError':
+    "Níorbh fhéidir do shíniú a thaifeadadh — b'fhéidir go bhfuil an nasc imithe in éag.",
   'signup.brandQuote':
     "D'aistrigh muid 8 mbliana de pháipéar go Vellum i seachtain. Is é an rian iniúchta amháin a thugann údar maith leis an malartú.",
   'signup.companyPlaceholder': 'Trádálaithe Northwind',
@@ -187,6 +202,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Conradh oscailte →',
   'vellumKpiCard.trend': 'Treocht le déanaí',
+  'vellumLayout.closeMenu': 'Dún an roghchlár nascleanúna',
+  'vellumLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'vellumLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'vellumPortfolioHero.expiring': 'Ag dul in éag i gceann 30 lá',
   'vellumPortfolioHero.label': 'Luach punainne',

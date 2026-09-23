@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'about.pageTitle': 'Noin {{name}}',
   'auth.footer.about': 'Noin {{name}}',
   'authHeader.subtitle': 'Kirjaudu sisään pitääksesi numerosi rehellisinä.',
   'automations.action.email': 'Sähköposti',
+  'automations.action.noop': 'Ei toimintoa',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Poista " {{name}} "?',
   'automations.empty.headline': 'Ei vielä automaatioita',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Käynnistimet ja toiminnot jokaisessa työkirjassa. Jokainen suoritus kirjaa rivin, jonka voit tarkastaa myöhemmin.',
   'automations.toggle': 'Vaihda {{name}}',
+  'automations.trigger.dailySchedule': 'Päiväohjelma',
+  'automations.trigger.rowCreated': 'Rivi luotu',
+  'automations.trigger.rowUpdated': 'Rivi päivitetty',
   'billing.empty': 'Ei saatavilla olevia suunnitelmia.',
   'billing.error.priceMissing':
     'Tälle tasolle ei ole määritetty Stripe-hintaa. Aseta STRIPE_*_PRICE_ID ympäristömuuttujiksi.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Kaaviot',
   'charts.kpi.totalCharts': 'Yhteensä kaavioita',
   'charts.list.empty': 'Ei vielä kaavioita.',
+  'charts.namePlaceholder': 'Tulotrendi',
   'charts.newChart': 'Uusi kaavio',
   'charts.primary.eyebrow': 'Kaaviot tyypin mukaan',
   'charts.primary.headline': 'Työtilan yleiskatsaus',
   'charts.subhead':
     'Ruudukkoosi sidotut reaaliaikaiset visualisoinnit – renderöi uudelleen jokaisen solun muokkauksen yhteydessä.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'editor.addColumn': 'Lisää sarake',
+  'editor.addDialogTitle': 'Lisää sarake',
   'editor.addRow': 'Lisää rivi',
   'editor.addSheet': 'Lisää taulukko',
   'editor.back': 'Takaisin työkirjoihin',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite on kaavapohjainen, moninäkymäinen, reaaliaikainen verkkoanalyytikko ja taloustiimit, jotka tavoittelevat ensimmäisenä.',
   'landing.nav.formulas': 'Kaavat',
+  'login.noAccount': 'Oletko uusi {{name}} -käyttäjä?',
+  'login.signIn': 'Kirjaudu sisään {{name}} -palveluun',
   'login.signUp': 'Luo työtila',
+  'nav.menu': 'Valikko',
+  'nav.openMenu': 'Avaa valikko',
   'notFound.cellRef': '#VIITE!',
   'notFound.formula': '=HAKU(PYYNTÖ.url; "reitit"; "sivu")',
   'notFound.headline': 'Tätä riviä ei ole koskaan ollut olemassa.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Natiivit automaatiot · webhook- ja cron-käynnistimet',
   'signup.creating': 'Työtilan valmistelu…',
   'signup.cta': 'Luo työtilani',
+  'signup.haveAccount': 'Oletko jo {{name}} -palvelussa?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Käynnistä ensimmäinen työkirjasi 30 sekunnissa',
   'team.col.activity': 'Kutsuttu',

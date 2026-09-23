@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
+  'about.pageTitle': 'نبذة عن شركة «{{app}}»',
   'activity.empty': 'لا يوجد نشاط بعد — قم بتشغيل جهاز أو تفعيل مشهد.',
   'activity.eyebrow': 'الجدول الزمني',
   'activity.loadError': 'تعذّر تحميل موجز النشاط.',
   'activity.subheading': 'كل جهاز وأتمتة وحدث أمني بترتيب زمني.',
+  'addDevice.error.failed': 'تعذر إضافة الجهاز. حاول مرة أخرى.',
   'addDevice.error.nameRequired': 'أعطِ هذا الجهاز اسمًا للمتابعة.',
   'addDevice.field.firmware': 'إصدار البرنامج الثابت',
   'addDevice.field.manufacturer': 'الشركة المصنعة',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'جارٍ الاختبار…',
   'automationEditor.testNew': 'احفظ عملية التشغيل الآلي أولاً لاختبارها.',
   'automationRow.lastRun': 'آخر تشغيل {{date}} · {{count}} مرة',
+  'automationRow.on': 'في',
   'automationRow.runNowAria': 'تشغيل {{name}} الآن',
   'automations.empty': 'لا توجد عمليات أتمتة حتى الآن - أنشئ روتينك الأول.',
   'automations.eyebrow': 'الإجراءات الروتينية',
@@ -50,6 +54,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'جارٍ تحميل الأتمتات…',
   'automations.newAutomation': '+ جديدة',
   'automations.subheading': 'عندما يحدث هذا، نفّذ ذلك — دون الحاجة إلى YAML.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'تعذّر تحميل الجهاز.',
@@ -69,6 +74,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'جارٍ التنفيذ…',
   'deviceDetail.unnamed': 'جهاز',
   'deviceStatusRow.on': 'يعمل',
+  'deviceStatusRow.turnOff': 'إيقاف',
+  'deviceStatusRow.turnOn': 'تشغيل',
   'deviceStatusRow.watts': '{{watts}} واط',
   'energy.eyebrow': 'الطاقة',
   'energy.heading': 'الطاقة',
@@ -171,4 +178,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'عرض الخطط',
   'settings.security.heading': 'الأمان',
   'settings.subheading': 'الخطة والموزّعات وتفضيلات الحساب.',
+  'smartHomeDashboardLayout.openMenu': 'فتح قائمة التنقل',
+  'smartHomeDashboardLayout.primaryNavLabel': 'التنقل الرئيسي',
 }

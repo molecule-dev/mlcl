@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
   'authShell.samplePreview':
     '"Сайн уу баг аа, шинэ хяналтын самбар үнэхээр гайхалтай байна - бидэнд яг хэрэгтэй зүйл байна!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/товчлол',
   'automations.subheading':
     'Дүрэм, бэлэн хариултууд болон чатботууд — баг тань хэцүү зүйл дээр анхаарлаа төвлөрүүлж байх хооронд ажлын талбарыг чимээгүй байлгаарай.',
+  'automations.trigger.inboundMessage': 'Ирж буй мессеж',
   'automations.triggerLabel': 'Триггер',
   'chatBubble.internalNoteLabel': 'Дотоод тэмдэглэл',
+  'common.confirmDelete': 'Устгахыг баталгаажуулах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'contactDetail.backToContacts': 'Бүх харилцагчид',
   'contactDetail.contactFallback': 'Холбоо барих',
   'contactDetail.conversationFallback': 'Харилцан яриа',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Сүүлд харсан',
   'contacts.empty': 'Харилцагч байхгүй байна. Дээрх анхны харилцагчаа нэмнэ үү.',
   'contacts.eyebrow': 'Харилцагчийн лавлах',
+  'contacts.form.nameOrEmailRequired': 'Наад зах нь нэр эсвэл имэйл хаяг оруулна уу',
   'contacts.form.save': 'Харилцагчийг хадгалах',
   'contacts.heading': 'Холбоо барих хаягууд',
   'contacts.loading': 'Харилцагчдыг ачаалж байна…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Тэмдэглэл хадгалах',
   'conversationDetail.tab.note': 'Дотоод тэмдэглэл',
   'conversationDetail.threadAria': 'Харилцан ярианы мессежүүд',
+  'conversationDetail.visitorFallback': 'Зочин',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Харилцагчийн мэдээлэл',
   'customerProfilePanel.recentTitle': 'Саяхны харилцан ярианууд',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Үйлчлүүлэгчид анхны хариултаа авч байна {{time}} дунджаар — хэмнэлийг үргэлжлүүлээрэй.',
   'inboxHeroCard.title': 'Идэвхтэй харилцан яриа',
+  'inboxLayout.navDrawerLabel': 'Навигаци',
+  'inboxLayout.openMenu': 'Навигацийн цэсийг нээх',
   'inboxOverview.eyebrow': 'Өнөөдөр товчхондоо',
   'inboxOverview.heroChange': '{{count}} нээлттэй',
   'inboxOverview.kpiClosedTrend': 'бүх цаг үеийн',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Нүүр хуудас руу зочлох',
   'notifications.subheading':
     'Даалгавар, @дурдалт, Үйлчилгээний гэрээний эрсдэл, CSAT санал хүсэлт болон багийн үйл ажиллагаа — хамгийн шинээр нь эхэлж эрэмбэлэгдсэн.',
+  'notifications.subjectFallback': 'яриа',
+  'notifications.visitorFallback': 'Зочин',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Өндөр',
   'priority.low': 'Бага',
+  'priority.normal': 'Хэвийн',
   'priority.urgent': 'Яаралтай',
   'privacy.title': 'Нууцлалын бодлого',
   'reports.agentFallback': 'Агент',

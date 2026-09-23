@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'قيد المتابعة',
   'auctionDetail.watchRemoved': 'أُزيل من قائمة المتابعة.',
   'auctionDetail.watchRemoveLabel': 'أزل من قائمة المتابعة',
+  'auctionPlatformLayout.primaryNavLabel': 'التنقل الرئيسي',
   'authShell.brandBody':
     'زايد في الوقت الحقيقي على ساعات نادرة وأعمال فنية وقطع متخصصة فريدة. تسقط المطرقة في ثوانٍ.',
   'authShell.brandEyebrow': 'مباشر الآن · 1,420 مزادًا',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'ترتيب حسب',
   'browseAuctions.subheading':
     'صفِّ حسب الفئة، ورتِّب حسب الأهم لك، وقدّم مزايدة قبل أن تسقط المطرقة.',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'countdownTimer.ended': 'انتهى',
   'countdownTimer.endingSoon': 'ينتهي',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'إخفاء كلمة المرور',
   'login.showPassword': 'إظهار كلمة المرور',
   'login.subtext': 'تابع متابعة مزاداتك وقدّم مزايدات قبل أن تسقط المطرقة.',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'myBids.bidAgain': 'زايد مجددًا',
   'myBids.browseCta': 'تصفّح المزادات المباشرة ←',
   'myBids.checkoutCta': 'ادفع الآن',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'لا توجد إشعارات بعد.',
   'notificationsPage.eyebrow': 'مركز النشاط',
   'notificationsPage.subheading': '{{count}} غير مقروءة · تحديثات مباشرة مع تطوّر المزادات',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.bidsLabel': 'العطاءات',
   'pricing.listingsLabel': 'قوائم',
   'pricing.watchlistLabel': 'قائمة المتابعة',

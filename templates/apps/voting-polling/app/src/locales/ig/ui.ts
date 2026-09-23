@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'analytics.col.quorum': 'KỌỌRỤM',
   'analytics.col.votes': 'Votu',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Enweghị ajụjụ ndị na-echere ugbu a.',
   'audienceQa.onStageEyebrow': "N'elu ikpo okwu ugbu a",
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Kwalite',
   'audienceQa.queued': "nọ n'ahịrị n'ahịrị",
   'audienceQa.queueEyebrow': "Kwụ n'ahịrị",
   'ballot.eyebrow': 'Tụọ votu gị',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': "Ị nọ n'ọnọdụ ugbu a {{plan}} atụmatụ.",
   'billing.switch': 'Mgbanwe',
   'billing.upgraded': 'Emelitere na {{plan}} — a na-etinye oke ozugbo.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'createPoll.addOption': 'Tinye nhọrọ',
   'createPoll.anonymousHint':
     "E zoro aha ndị ntuli aka n'akwụkwọ ndekọ nyocha; a ka nwere nkwenye na ọnụọgụgụ ndị ahụ.",
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ọ dị ọhụrụ na Nosh?',
   'login.remember': 'Cheta m ruo ụbọchị iri atọ',
   'login.subheading': 'Mepee ala, gbaa ụlọ ahụ ọsọ, ma kwado ihe si na ya pụta.',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'notFound.body':
     'Emechiri ma ọ bụ bugharịa ibe ị gbalịrị iru. Laghachi na dashboard ma ọ bụ mepee ntuli aka ọhụrụ.',
   'notFound.eyebrow': "Enweghị quorum n'ụzọ a",
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Enweghị ike ibuli ntuli aka a.',
   'pollDetail.loading': 'Na-ebugo ntuli aka…',
   'pollDetail.notFound': 'Achọtaghị ntuli aka.',
+  'pollDetail.openBallot': 'Akwụkwọ ntuli aka mepere emepe',
   'pollDetail.openLive': 'Nsonaazụ dị ndụ',
   'pollDetail.pollId': 'ntuli aka · {{id}}',
   'pollDetail.published': 'E bipụtara ntuli aka - ndị ntuli aka nwere ike ịtụ vootu ugbu a.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Chọọ site na email…',
   'voters.subheading':
     'Hazie ndị ruru eru maka ntuli aka. Kpọkọta ndị ntuli aka site na org maka ntuli aka dị arọ.',
+  'votingPollingLayout.nav.analytics': 'Nchịkọta',
+  'votingPollingLayout.nav.billing': 'Ịkwụ ụgwọ',
+  'votingPollingLayout.nav.createPoll': 'Ntuli aka ọhụrụ',
+  'votingPollingLayout.nav.dashboard': 'Dashboard',
+  'votingPollingLayout.nav.notifications': 'Ọkwa',
+  'votingPollingLayout.nav.settings': 'Ntọala',
+  'votingPollingLayout.nav.team': 'Ndị otu',
+  'votingPollingLayout.nav.voters': 'Ndị ntuli aka',
+  'votingPollingLayout.primaryNavLabel': 'Ntugharị isi',
 }

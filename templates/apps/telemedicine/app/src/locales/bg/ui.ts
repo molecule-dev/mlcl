@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Запазете час',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Няма пациенти за показване.',
+  'common.goToDashboard': 'Към таблото',
   'consult.backLink': 'Всички срещи',
   'consult.captions': 'Субтитри',
   'consult.connected': 'Свързан · 720p · стабилен',
@@ -132,6 +133,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Пациенти',
   'patientVitalsHero.scripts': 'Отворена рецепта',
   'patientVitalsHero.subline': '{{count}} консултации по вашия график днес',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'prescriptions.empty': 'Няма съвпадащи рецепти.',
   'prescriptions.eyebrow': 'Електронно предписване',
   'prescriptions.heading': 'Рецепти',
@@ -147,6 +149,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Известие за поверителност',
   'privacy.use.body':
     'За да предоставяме грижи, да изпращаме напомняния за срещи, да насочваме рецепти и да подобряваме надеждността на услугите. Никога не продаваме вашите данни и никога не споделяме клинична информация с рекламодатели.',
+  'providers.allSpecialties': 'Всички специалности',
+  'providers.loadError': 'Зареждането на доставчиците не бе успешно.',
+  'providers.loading': 'Зареждане…',
   'providers.noResults': 'Не са намерени доставчици.',
   'providers.searchPlaceholder': 'Търсене по име, специалност...',
   'providers.title': 'Намерете доставчик',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Начало на деня',
   'settings.availability.heading': 'Наличност',
   'settings.devices.thisDevice': 'Това устройство',
+  'settings.devices.unnamed': 'Устройство без име',
   'settings.eyebrow': 'Практика и отчет',
   'settings.loadError': 'Не успяхме да заредим профила ви.',
   'settings.notifications.emailMessages': 'Изпращайте ми имейл, когато екипът ми за грижи отговори',
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Деактивирай',
   'settings.security.twoFactor.enable': 'Активирай',
   'settings.security.twoFactor.heading': 'Двуфакторно удостоверяване',
+  'settings.security.twoFactor.invalidCode': 'Кодът не съвпада. Опитайте отново.',
+  'settings.security.twoFactor.setupFailed':
+    'Не можа да се стартира двуфакторната настройка. Опитайте отново.',
+  'settings.security.twoFactor.statusOn': 'Двуфакторният режим е включен',
   'settings.signOutDevice': 'Изход',
   'settings.subheading': 'Профил на доставчика, правила за практика и клинични предупреждения.',
   'signup.emailLabel': 'Имейл',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Създай профил',
   'signupFooter.hipaa': 'Съответства на HIPAA',
   'solaceLayout.primaryNavLabel': 'Основна навигация',
+  'solaceLayout.toggleMenu': 'Превключване на менюто',
   'terms.eligibility.body':
     'Трябва да сте навършили осемнадесет години или да сте родител или законен настойник на непълнолетно лице, за което търсите грижи, и да се намирате физически в щат на САЩ, където нашите клиницисти са лицензирани.',
   'terms.payment.body':

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.eyebrow': 'Mayelana ne-{{app}}',
   'about.pageTitle': 'Yonke indlela, usesho olulodwa.',
   'booking.backToDetail': 'Buyela emininingwaneni yendiza',
   'booking.continue': 'Qhubeka uye ekukhokhweni',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Intela kanye nezimali',
   'booking.summary.travelers': 'Abahambi',
   'common.about': 'Mayelana',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'flightDetail.backToResults': 'Buyela emiphumeleni',
   'flightDetail.baseFare': 'Imali yokugibela eyisisekelo',
   'flightDetail.book': 'Qhubeka nokubhukha',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'Indawo yokuma engu-1',
   'flightResultCard.select': 'Khetha',
   'flightResultCard.totalLabel': 'Isikhathi esiphelele',
+  'flightSearchLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'forgotPassword.subheading':
     'Faka i-imeyili ku-akhawunti yakho ye-Skylark futhi sizokuthumela isixhumanisi sokusetha kabusha esiphephile.',
   'forgotPassword.successBody':
     'Isheke {{email}} ukuze uthole isixhumanisi sokusetha iphasiwedi entsha. Isixhumanisi siphelelwa yisikhathi ngemizuzu engama-30.',
   'forgotPassword.successHeading': 'Setha kabusha isixhumanisi sithunyelwe',
   'landing.cta.explore': 'Zama usesho',
+  'landing.cta.eyebrow': 'I-{{app}} Pro',
   'landing.cta.heading': 'Thola imali elandelayo enhle ngaphambi kwawo wonke umuntu.',
   'landing.cta.signup': 'Qala ukulandelela amanani okukhokha',
   'landing.features.eyebrow': 'Kungani iSkylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Engeza isaziso',
   'priceAlerts.deleteConfirm': 'Susa lesi saziso?',
   'priceAlerts.empty': 'Azikho izindlela ezilandelwayo okwamanje.',
+  'priceAlerts.emptyCta': 'Sesha indlela yokulandelela',
   'priceAlerts.errorMessage': 'Ayikwazanga ukulayisha izexwayiso.',
   'priceAlerts.eyebrow': 'Uhlu lokubuka lwe-Skylark',
   'priceAlerts.form.createError': 'Ayikwazanga ukudala isexwayiso.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Uhlelo lohambo lwamadolobha amaningi',
   'results.multiLegHeading': 'Umlenze {{n}} · {{kusuka}} → {{kuya}} · {{usuku}}',
   'results.multiSummary': '{{count}} imilenze · {{passengers}} isihambi',
+  'results.sortAriaLabel': 'Hlela imiphumela ngokwe',
   'results.sortLabel': 'Hlela',
   'results.summary': '{{count}} izindiza · {{passengers}} isihambi',
   'settings.language.title': 'Ulimi',

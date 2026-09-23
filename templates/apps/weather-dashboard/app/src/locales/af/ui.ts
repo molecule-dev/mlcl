@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Jy is tans op die {{plan}} plan.',
   'billing.switch': 'Skakel',
   'billing.upgraded': 'Opgedateer na {{plan}} — perke word onmiddellik toegepas.',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'compare.activityHeading': 'Aktiwiteitsuitsprake',
   'compare.empty.title': 'Voeg ten minste twee liggings by om te vergelyk',
   'compare.eyebrow': 'Sy aan sy',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Hoog',
   'trends.summary.low.label': 'Laag',
   'trends.summary.points.label': 'Dae',
+  'weatherDashboardLayout.primaryNavLabel': 'Primêre navigasie',
   'weatherHeroCard.updated': 'Opgedateer {{time}}',
 }

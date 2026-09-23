@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// ስለ {{app}}',
+  'about.pageTitle': 'የድር መንጠቆ መቆጣጠሪያ አውሮፕላን',
+  'about.plansTitle': 'ለእያንዳንዱ ደረጃ ዕቅዶች',
   'apiKeys.bestPractices': 'ምርጥ ልምዶች',
   'apiKeys.body': 'ፕሮግራማዊ የመዳረሻ ቶከኖች። እንደ የይለፍ ቃል ይይዟቸው — በ env vars ውስጥ ያስቀምጡ፣ በጭራሽ አይስማሙ።',
   'apiKeys.col.created': 'የተፈጠረ',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'በእቅዱ ውስጥ',
   'billing.usageWarning': 'ከኮፍያ አጠገብ',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.body': 'የቀጥታ ስርጭት፣ በበረራ ጊዜ እንደገና ይሞክራል፣ እና የተቋረጡ የመጨረሻ ነጥቦች - በሚሰሩበት እያንዳንዱ የስራ ቦታ።',
   'dashboard.endpointsEmpty': 'እስካሁን ምንም የመጨረሻ ነጥቦች የሉም።',
   'dashboard.endpointsEmptyCta': 'የመጀመሪያዎን ይፍጠሩ →',
@@ -103,6 +107,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'የመጨረሻ ነጥቦች',
   'endpointDetail.deliveryTrendSub': 'ማድረስ / ሰዓት፣ የምዝግብ ማስታወሻ ሚዛን',
   'endpointDetail.hideSecret': 'ሚስጥርን ደብቅ',
+  'endpointDetail.loading': 'የመጨረሻ ነጥብ በመጫን ላይ…',
   'endpointDetail.metric.delivered': 'በ24 ሰዓት ይላካል',
   'endpointDetail.metric.deliveredCaption': 'ከ {{count}} የክስተት ዓይነቶች',
   'endpointDetail.metric.failuresCaption': 'እንደገና ይሞክራል፡ {{retries}}',
@@ -199,6 +204,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'ወሳኝ · 24 ሰዓት',
   'notifications.metric.totalCaption': 'የሁሉም ጊዜ የገቢ መልእክት ሳጥን',
   'payloadViewer.payload': '// የክፍያ ጭነት',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'profile.avatarHeader': 'አምሳያ',
   'profile.avatarHint': 'የመጀመሪያ ፊደላት ይታያሉ - ሰቀላዎች ከሚቀጥለው ልቀት ጋር ይመጣሉ።',
   'profile.body': 'የእርስዎ መለያ፣ ምርጫዎች እና ንቁ ክፍለ ጊዜዎች።',
@@ -213,6 +219,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ ተቀምጧል',
   'profile.sessionsEmpty': 'የአሁኑ ክፍለ ጊዜዎ ብቻ ነው የሚሰራው። ሌሎች መሳሪያዎች በመለያ አልገቡም።',
   'profile.toggle': 'ቀያይር {{label}}',
+  'pylonShell.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'pylonShell.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'pylonShell.primaryNavLabel': 'ዋና አሰሳ',
   'resetPassword.subtitle': 'ከዚህ በፊት ተጠቅመውበት የማያውቁትን ጠንካራ የይለፍ ቃል ይምረጡ።',
   'resetPassword.tokenPlaceholder': 'ከኢሜይል ለጥፍ',

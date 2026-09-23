@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.title': 'Tietoa {{app}}sta',
   'activeAgentsCard.agent1AvatarAlt':
     'ammattimainen kasvokuva naispuolisesta tukiedustajasta ystävällisellä hymyllä modernissa toimistossa',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Ota yhteyttä tukeen',
   'forgotPassword.error': 'Palautussähköpostin lähettäminen epäonnistui. Yritä uudelleen.',
   'forgotPassword.rememberPassword': 'Muistatko salasanasi?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Kirjaudu sisään — Zenith-tuki',
   'login.showPassword': 'Näytä salasana',
   'login.welcomeSubheading': 'Kirjaudu tukipaneeliisi',
+  'mobileNav.closeMenu': 'Sulje navigointi',
+  'mobileNav.menu': 'Navigointi',
+  'mobileNav.openMenu': 'Avaa navigointi',
   'nav.legal': 'Lainsäädäntö',
   'nav.newTicket': 'Uusi lippu',
   'notifications.loadError': 'Ilmoitusten lataaminen epäonnistui. Yritä uudelleen hetken kuluttua.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Komentohaku',
   'operatorDock.newReport': 'Uusi raportti',
   'operatorDock.systemOnline': 'Järjestelmä verkossa',
+  'planUpdated.subtitle': 'Kiitos',
   'planUpdated.title': 'Tilaus päivitetty',
   'pricing.agents': 'agentit',
   'pricing.automation': 'Automaatiosäännöt',
@@ -238,6 +244,7 @@ export const ui: UiTranslations = {
   'ticketAgentMessage.agentRole': 'Agentti',
   'ticketBreadcrumbHeader.tickets': 'Liput',
   'ticketConversationThread.empty': 'Ei vielä viestejä — vastaa ensimmäisenä.',
+  'ticketConversationThread.internalNoteDate': '• {{date}}',
   'ticketConversationThread.unknownAuthorInitials': '?',
   'ticketCustomerInfoCard.previousTickets': 'Aiemmat liput',
   'ticketCustomerInfoCard.satisfaction': 'Tyytyväisyys',
@@ -247,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{nimi}} käyttäjän avatar',
   'ticketDetail.errorTitle': 'Jokin meni pieleen',
+  'ticketDetail.loadError': 'Tiketin lataaminen epäonnistui.',
+  'ticketDetail.notFound': 'Lippua ei löytynyt',
+  'ticketDetail.replyError': 'Vastauksen lähettäminen epäonnistui. Yritä uudelleen.',
   'ticketDetail.retry': 'Yritä uudelleen',
   'ticketDetail.statusUpdateError': 'Tilan päivittäminen epäonnistui. Yritä uudelleen.',
   'ticketDetailsCard.assigneeLabel': 'Määräysvaltalainen',
@@ -298,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{aika}} vasemmalle',
   'ticketRow.title': 'Tietokantayhteys katkeaa tuotantoympäristössä {{solmu}}',
   'tickets.pageTitle': 'Liput — Zenith-tuki',
+  'ticketsFab.newTicket': 'Uusi lippu',
   'ticketsFilterBar.assigneeLabel': 'Vastuunsaaja:',
   'ticketsFilterBar.clearFilters': 'Tyhjennä suodattimet',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'alerts.acknowledgeLabel': 'Viðurkenna',
   'alerts.customerLabel': 'Viðskiptavinur: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Tengist…',
   'carriers.requiredError': 'Nafn og kóði eru nauðsynleg.',
   'carriers.subheading': '{{count}} samþætt',
+  'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
+  'common.retry': 'Reyna aftur',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Í flutningi + merkt með flaggi',
   'dashboard.activeShipmentsSubtitle': '{{count}} Sendingar þarfnast athygli eða eru á ferðinni',
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'sendingar',
   'pricing.trackingLabel': 'mælingar á atburðum',
   'profile.dangerZone.title': 'Hættusvæði',
+  'profile.devices.signingOut': 'Skrái út…',
+  'profile.devices.unnamed': 'Nafnlaust tæki',
+  'profile.security.disable2fa': 'Slökkva á 2FA',
   'profile.security.enable2fa': 'Virkja 2FA',
   'profile.security.pwChanged': 'Lykilorði breytt með góðum árangri.',
   'profile.security.pwCurrent': 'Núverandi lykilorð',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA virkt',
   'profile.security.twoFaCode': '6 stafa kóði',
   'profile.security.twoFaDisable': 'Slökkva',
+  'profile.security.twoFaDisabling': 'Slökkvi á…',
   'profile.security.twoFaFailed': 'Gat ekki staðfest kóðann.',
   'profile.security.twoFaIntro':
     'Skannaðu QR kóðann í auðkenningarforritinu þínu og sláðu síðan inn sex stafa kóðann hér að neðan til að staðfesta.',
   'profile.security.twoFaOn': 'Tvíþátta auðkenning er virk á þessum reikningi.',
+  'profile.security.twoFaQrAlt': 'Tveggja þátta QR kóði',
   'profile.security.twoFaVerify': 'Staðfesta og virkja',
   'profile.security.twoFaVerifying': 'Staðfestir…',
   'profile.subheading': 'Auðkennis- og öryggisstillingar fyrir þetta vinnusvæði.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Vistaðu þetta leyndarmál — það verður ekki sýnt aftur.',
   'settings.api.webhookSecret': 'Leyndarmál undirritunar á vefhook',
   'settings.appearance.description': 'Skipta á milli ljóss og dökks stillingar.',
+  'settings.deleteAccountConfirm': 'Ertu viss? Ekki er hægt að afturkalla þessa aðgerð.',
   'settings.notifications.exceptions':
     'Sendu mér tölvupóst þegar undantekning á sér stað í sendingu',
   'settings.notifications.heading': 'Tilkynningar',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Sending fannst ekki.',
   'shipmentDetail.originHeading': 'Uppruni',
   'shipmentDetail.shippedOn': 'Sent {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Engar rakningarviðburðir ennþá — uppfærslur birtast hér þegar flutningsaðilinn skannar pakkann.',
   'shipments.col.carrier': 'Flutningafyrirtæki',
   'shipments.col.eta': 'Áætlaður tími',
   'shipments.col.route': 'Leið',
@@ -174,6 +185,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Innskráning',
   'signup.submit': 'Stofna aðgang',
   'team.emailError': 'Gilt netfang er krafist.',
+  'team.empty': 'Engir liðsmenn ennþá. Bjóddu liðsfélaga að vinna saman að sendingum.',
   'team.eyebrow': 'Meðlimir og heimildir',
   'team.inviteDialog.cancel': 'Hætta við',
   'team.inviteDialog.heading': 'Bjóða liðsfélaga',
@@ -196,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Rás',
   'waypointLayout.primaryNavLabel': 'Aðalflakk',
   'webhooks.createFailed': 'Gat ekki búið til endapunkt fyrir veftengingu.',
+  'webhooks.endpointsEmpty':
+    'Engir endapunktar fyrir veftengingu ennþá. Búðu til einn til að fá svarköll um stöðu sendingar.',
   'webhooks.endpointsHeading': 'Endapunktar',
   'webhooks.eventCount': '{{count}} viðburðir',
   'webhooks.eventsHeading': 'Nýlegar afhendingar',

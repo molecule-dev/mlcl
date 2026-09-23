@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'కోర్సులు లోడ్ అవుతున్నాయి…',
   'browse.next': 'తదుపరి పేజీ',
   'browse.results': 'చూపిస్తోంది {{count}} కోర్సులు',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'క్రమబద్ధీకరించు',
   'browse.subtitle':
     'సంపాదకీయ ఆర్కైవ్‌ను అంశం, స్థాయి మరియు ధర ఆధారంగా ఫిల్టర్ చేయండి. ప్రతి కోర్సు మా సంపాదకులచే ప్రత్యేకంగా ఎంపిక చేయబడింది.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'మీ సర్టిఫికేట్ సంతకం చేయబడి సిద్ధంగా ఉంది. దానిని ప్రపంచంతో పంచుకోండి లేదా దానిని సంపాదించడానికి పడిన శ్రమకు గుర్తుగా ఉంచుకోండి.',
   'certificate.copyLink': 'షేర్ లింక్‌ను కాపీ చేయండి',
+  'certificate.copyPrompt': 'ఈ లింక్‌ను కాపీ చేయండి:',
   'certificate.download': 'PDFని డౌన్‌లోడ్ చేయండి',
   'certificate.eyebrow': 'విజయం సాధించబడింది',
   'certificate.linkCopied': 'లింక్ కాపీ చేయబడింది!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'మీరు నమోదు చేసుకున్నారు!',
   'checkout.verifying': 'మీ నమోదును ధృవీకరిస్తోంది…',
   'checkout.viewLibrary': 'నా అభ్యాసాన్ని వీక్షించండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'courseDetail.about': 'ఈ కోర్సు గురించి',
   'courseDetail.checkoutPending': 'చెక్అవుట్ ప్రారంభమవుతోంది…',
   'courseDetail.continueLearning': 'నేర్చుకోవడం కొనసాగించండి',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 రోజుల మనీ-బ్యాక్ గ్యారెంటీ',
   'courseDetail.includes.video': '{{hours}} గంటల కొద్దీ ఆన్-డిమాండ్ వీడియో',
   'courseDetail.instructor': 'బోధకుడు',
+  'courseDetail.languageEnglish': 'ఇంగ్లీష్',
   'courseDetail.lectures': 'ఉపన్యాసాలు',
   'courseDetail.level': 'స్థాయి',
   'courseDetail.loading': 'కోర్సు లోడ్ అవుతోంది…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'ఇంకా సమీక్షలు లేవు.',
   'instructorProfile.students': 'విద్యార్థులు',
   'landing.categories.empty': 'కేటలాగ్ నింపబడిన తర్వాత వర్గాలు కనిపిస్తాయి.',
+  'landing.categories.heading': 'ఆర్కైవ్‌ను అన్వేషించండి',
   'landing.hero.eyebrow': 'లెక్చురా · పాండిత్య సంపాదకీయ సంగ్రహం',
   'landing.hero.proof': 'గూగుల్, మెటా మరియు అడోబిలోని అభ్యాసకులచే విశ్వసించబడింది.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'ఈరోజే నేర్చుకోవడం ప్రారంభించండి',
   'login.subheading': 'మీ విద్యాసంబంధ ఆర్కైవ్‌ను యాక్సెస్ చేయండి.',
   'myLearning.empty.title': 'ఈ ఫిల్టర్‌కు సరిపోయే కోర్సులు ఇంకా ఏవీ లేవు',
+  'myLearning.error.title': 'మీ లైబ్రరీని లోడ్ చేయలేకపోయాము',
   'myLearning.filter.notStarted': 'ప్రారంభించబడలేదు',
   'myLearning.hero.subtitle': '{{count}} మీ లైబ్రరీలోని కోర్సులు. ఈ ఊపును కొనసాగించండి.',
   'myLearning.hero.title': 'మీరు ఎక్కడ ఆపారో అక్కడి నుండి కొనసాగించండి.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'సమీక్షించడానికి కొత్త కార్యకలాపాలు ఏమీ లేవు. కొత్త ఈవెంట్‌లు ఇక్కడ కనిపిస్తాయి.',
   'notifications.empty.title': 'మీరు అంతా తెలుసుకున్నారు',
+  'notifications.error.title': 'యాక్టివిటీని లోడ్ చేయలేకపోయింది',
   'privacy.title': 'గోప్యతా విధానం',
   'reset.confirmPlaceholder': 'మీ కొత్త పాస్‌వర్డ్‌ను మళ్లీ నమోదు చేయండి',
   'reset.errorGeneric': 'పాస్‌వర్డ్‌ను రీసెట్ చేయలేకపోయాము. దయచేసి కొత్త లింక్‌ను అభ్యర్థించండి.',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} డి క్రితం',
   'timeAgo.hours': '{{count}} గంటల క్రితం',
   'timeAgo.minutes': '{{count}} నిమిషాల క్రితం',
+  'timeAgo.months': '{{count}} నెలల క్రితం',
   'timeAgo.today': 'ఈరోజు',
+  'timeAgo.weeks': '{{count}} వారాల క్రితం',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'អំពី {{app}}',
   'about.plansTitle': 'ផែនការដែលរីកចម្រើនជាមួយអ្នក',
   'brand.tagline': 'រាល់វិនាទី',
   'clientDetail.back': 'ត្រឡប់ទៅអតិថិជនវិញ',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'ទំនាក់ទំនងនីមួយៗនៅកន្លែងតែមួយ — គម្រោង ម៉ោងធ្វើការ វិក្កយបត្រដែលមិនទាន់បង់។',
   'clients.title': 'អតិថិជន',
   'common.and': 'និង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.activeProjects': 'គម្រោងសកម្ម',
   'dashboard.empty':
     'មិនទាន់មានធាតុចូលនៅឡើយទេ។ ចាប់ផ្តើមកម្មវិធីកំណត់ម៉ោងដើម្បីតាមដានវគ្គដំបូងរបស់អ្នក។',
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
   'invoices.save': 'បង្កើតវិក្កយបត្រ',
   'invoices.subtitle':
     'ម៉ោង​ដែល​បាន​តាមដាន​នឹង​ត្រូវ​បាន​បញ្ចូល​ទៅ​ក្នុង​វិក្កយបត្រ​ដោយ​ស្វ័យប្រវត្តិ។',
+  'landing.copyright': '© {{year}} {{app}} ។ រាល់វិនាទី ត្រូវបានគិតគូរ។',
   'landing.ctaBody':
     'ឥតគិតថ្លៃសម្រាប់គម្រោងរហូតដល់ 3។ ធ្វើការអាប់ក្រេតនៅពេលដែលបញ្ជីអតិថិជនរបស់អ្នកធ្វើ។',
   'landing.eyebrow': 'ការតាមដានពេលវេលាសម្រាប់ការងារដែលអាចគិតថ្លៃបាន',
@@ -101,13 +104,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'ទុកចិត្តដោយអ្នកឯករាជ្យ',
   'landing.testimonial.quote':
     '\\u201cខ្ញុំបានឈប់ប្រើប្រាស់ Toggl ក្នុងរយៈពេល 30 នាទី។ ការខាតបង់ថវិកាតែមួយមុខបានទទួលផលហើយ \\u2014 ខ្ញុំបានឈប់ប៉ាន់ស្មានតម្លៃទាបអស់រយៈពេលពីរសប្តាហ៍ជាប់ៗគ្នា។\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono។ រាល់វិនាទី ត្រូវបានរាប់បញ្ចូល។',
   'login.brand.subtitle':
     'ជ្រើសរើសកម្មវិធីកំណត់ម៉ោងនៅកន្លែងដែលអ្នកបានឈប់ — រាល់នាទីត្រូវបានផ្គូផ្គងទៅនឹងគម្រោង អតិថិជន ឬវិក្កយបត្ររួចហើយ។',
   'login.brand.tracking': 'ការតាមដាន',
   'login.subheading': 'លើក​កម្មវិធី​កំណត់​ពេល​វេលា​នៅ​កន្លែង​ដែល​អ្នក​បាន​ឈប់។',
+  'nav.closeMenu': 'បិទម៉ឺនុយរុករក',
   'nav.insightsSection': 'ការយល់ដឹង',
   'nav.newEntry': 'ធាតុថ្មី',
+  'nav.openMenu': 'បើកម៉ឺនុយរុករក',
+  'nav.primary': 'ការរុករកចម្បង',
   'nav.workSection': 'ការងារ',
   'notFound.body':
     'មើលទៅដូចជាតំណភ្ជាប់ដែលអ្នកបានតាមដានបានឈប់តាមដានហើយ។ សូមត្រឡប់ទៅផ្ទាំងគ្រប់គ្រងរបស់អ្នកវិញ \\u2014 យើងនឹងបន្តរាប់ចាប់ពីទីនោះ។',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'អាចគិតប្រាក់បាន',
   'timer.descriptionPlaceholder': 'តើអ្នកកំពុងធ្វើការលើអ្វី?',
   'timer.idle': 'ទំនេរ — ចាប់ផ្តើមតាមដាន',
+  'timer.noProject': 'គ្មានគម្រោងទេ',
   'timer.runningWithProject': 'គ្មានគម្រោងទេ',
   'timer.start': 'ចាប់ផ្តើមកម្មវិធីកំណត់ម៉ោង',
   'timer.stop': 'បញ្ឈប់កម្មវិធីកំណត់ម៉ោង',

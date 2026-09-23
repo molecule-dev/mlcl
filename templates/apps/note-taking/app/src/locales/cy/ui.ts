@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'forgot.eyebrow': "Colli'r ffordd yn ôl i mewn?",
   'forgot.formSubtitle': 'Dywedwch wrthym yr e-bost sydd ar ffeil.',
   'forgot.headline': 'Ailosod eich cyfrinair.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Creu un',
   'login.subline':
     'Mae eich llyfrau nodiadau, dolenni ôl, a thudalennau dyddiol yn union lle gwnaethoch chi eu gadael.',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'noteEditor.backToNotes': 'Yn ôl at y nodiadau',
   'noteEditor.bodyPlaceholder':
     "Dechreuwch ysgrifennu — bydd eich nodyn yn cael ei gadw'n awtomatig wrth i chi deipio.",
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Llyfr nodiadau newydd',
   'notes.newNotebookPrompt': 'Enw llyfr nodiadau newydd',
   'notes.notebooksHeading': 'Llyfrau nodiadau',
+  'notes.subtitle':
+    'Dewiswch lyfr nodiadau ar y chwith, yna pwyswch y botwm Nodyn Newydd i ddechrau cofnod newydd.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Dewiswch eich cynllun Cymryd Nodiadau',
   'reset.eyebrow': 'Bron yn ôl i mewn',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': "Wedi'i ddiweddaru",
   'versoLayout.nav.graph': 'Graff',
   'versoLayout.nav.home': 'Cartref',
+  'versoLayout.primaryNavLabel': 'Prif lywio',
   'versoNoteCard.pinned': "Wedi'i binio",
   'versoTodayHero.continueCta': 'Parhau i ysgrifennu',
   'versoTodayHero.createCta': 'Dechreuwch nodyn heddiw',

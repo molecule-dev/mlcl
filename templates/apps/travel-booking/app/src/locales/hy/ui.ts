@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.featureDiscover.title': 'Ոգեշնչում, ձեռքով ընտրված',
   'account.addPaymentCta': 'Ավելացնել վճարման եղանակ',
   'account.addPaymentError': 'Չհաջողվեց ավելացնել վճարման եղանակը։',
+  'account.confirmRemove': 'Հաստատեք հեռացումը',
   'account.defaultBadge': 'Լռելյայն',
   'account.loyalty.pointsTowardNext':
     '{{միավորներ}} -ի {{հաջորդ}} մղոններ դեպի {{հաջորդ մակարդակ}}',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Ուղևորության մանրամասները',
   'booking.tripSummary': '{{nights}} գիշերներ · {{guests}} հյուրեր',
   'common.daysAgo': '{{count}} օր առաջ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.hoursAgo': '{{count}} ժամ առաջ',
   'common.minutesAgo': '{{count}} մ առաջ',
   'common.no': '—',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Իրավական',
   'notifications.loading': 'Բեռնվում է…',
   'notifications.subheading': '{{count}} չկարդացված · ամեն ինչ մեկ հանգիստ էլ. փոստարկղում',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.accommodationsLabel': 'կացարաններ',
   'pricing.bookingsLabel': 'ամրագրումներ',
   'pricing.destinationsLabel': 'պահպանված ուղղություններ',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Ոգեշնչում, վստահելի կացարաններ և անխոչընդոտ ճանապարհ՝ երազանքից մինչև ամրագրված՝ 14 երկրներում և 200+ ձեռքով ստուգված հյուրանոցներում։',
   'sojournHeroSearchCard.trustProtected': 'Անվճար չեղարկում, լիովին պաշտպանված',
   'sojournHeroSearchCard.trustVetted': 'Միայն ձեռքով ստուգված անշարժ գույք',
+  'travelBookingLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'tripDetail.backLink': 'Վերադառնալ դեպի ճամփորդություններ',
   'tripDetail.cancelCta': 'Չեղարկել ամրագրումը',
   'tripDetail.cancelHeading': 'Չեղարկե՞լ այս ուղևորությունը։',

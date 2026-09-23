@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Leysir upp…',
   'comments.subtitle':
     'Hinn {{count}} Þræðir bíða enn eftir svari eða lausn. Raðað eftir aldri — elsti fyrst, svo ekkert rotni.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'forgotPassword.sentTo': 'Endurstilla tengil sem sendur var til {{email}}',
   'forgotPassword.successSubheading':
     'Kíktu á pósthólfið þitt — við sendum þér endurstillingarhlekk. Hann rennur út eftir 30 mínútur.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ný síða',
   'pageTreeSidebar.workspaceHeader': 'Vinnusvæði',
   'pageView.breadcrumb': 'Brauðmylsna',
+  'pageView.confirmTrash': 'Rusla því?',
   'pageView.home': 'Heim',
   'pageView.lastEdited': 'Uppfært {{when}}',
   'pageView.loading': 'Hleður síðu…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Að draga saman…',
   'pageView.summaryUnavailable': 'Samantekt gervigreindar er ekki stillt fyrir þetta vinnusvæði.',
   'pageView.tocTitle': 'Á þessari síðu',
+  'pageView.trash': 'Ruslið',
+  'pageView.trashing': 'Að rusla…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Merki',
   'profile.owned.title': 'Síður í eigu',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Vinnusvæði, prófíll, tilkynningar, samþættingar — allt í einni rólegri skel.',
   'settingsPage.workspace.defaultLanding': 'Sjálfgefinn lendingarskjár',
   'settingsPage.workspace.landingHome': 'Heim',
+  'settingsPage.workspace.landingSpaces': 'Rými',
   'settingsPage.workspace.subdomainLabel': 'Undirlén',
   'settingsPage.workspace.title': 'Vinnusvæði',
   'signup.eyebrow': 'Byrja nýtt vinnusvæði',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} mín.',
   'templates.subtitle':
     'Byrjaðu síðu með stencil, ekki auðum striga. Hvert sniðmát kóðar lögunina fast svo þú getir einbeitt þér að efninu.',
+  'trash.confirmPurge': 'Hreinsa að eilífu?',
+  'trash.confirmPurgeAria': 'Staðfesta: eyða {{title}} varanlega',
   'trash.daysUntilPurge': '{{days}} dagar eftir',
   'trash.empty.body': 'Eyddar síður birtast hér í 30 daga áður en þær eru fjarlægðar.',
   'trash.empty.title': 'Ruslið er tómt.',
@@ -146,5 +153,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Endurheimtir…',
   'versionHistory.subtitle': '{{count}} útgáfur · veldu röð til að skoða mismuninn',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Loka flakki',
+  'wikiLayout.menu': 'Leiðsögn',
+  'wikiLayout.openMenu': 'Opna flakk',
   'wikiLayout.searchPlaceholder': 'Leita í Cairn — síður, athugasemdir…',
 }

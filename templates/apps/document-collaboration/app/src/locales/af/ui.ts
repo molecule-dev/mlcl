@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
+  'about.title': 'Oor {{app}}',
   'comments.addFailed': 'Kon nie kommentaar plaas nie.',
   'comments.backToDoc': 'Terug na manuskrip',
   'comments.deleteFailed': 'Kon nie verwyder nie.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Los op',
   'comments.resolveFailed': 'Kon nie oplos nie.',
   'comments.subtitle': '{{open}} oop · {{resolved}} opgelos',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.activityHeading': 'Wat gebeur',
   'dashboard.createFailed': "Kon nie 'n dokument skep nie.",
   'dashboard.empty': 'Geen manuskripte nog nie — begin met die Nuwe dokument-knoppie.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Kon nie na die asblik skuif nie.',
   'editor.unpublish': 'Depubliseer',
   'editor.untitled': 'Ongetitelde Dokument',
+  'editor.updatedElsewhere':
+    'Hierdie dokument is deur iemand anders opgedateer — herlaai om die nuutste te sien.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'skrywer@studio.com',
   'forgotPassword.sentBody':
     "Indien 'n rekening bestaan vir {{email}} , 'n terugstelskakel is oppad.",
   'forgotPassword.subtitle': "Ons sal vir jou 'n terugstelskakel per e-pos stuur.",
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Gebou met Molecule.',
   'landing.ctaHeading': 'Maak die bladsy oop. Laat die wyser begin.',
   'landing.ctaPrimary': "Maak 'n ateljee oop",
   'landing.eyebrow': 'Vir skrywers, redakteurs en spanne',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'geredigeer {{when}}',
   'quillonDocumentCard.open': 'Oop →',
   'quillonKpiCard.trend': 'Onlangse tendens',
+  'quillonLayout.menu': 'Kieslys',
   'quillonLayout.primaryNavLabel': 'Primêre navigasie',
   'quillonStudioHero.collab': 'Medewerkers',
   'quillonStudioHero.docs': 'Dokumente aangeraak',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'nou net',
+  'trash.confirmDelete': 'Bevestig verwydering',
   'trash.deleteFailed': 'Kon nie verwyder nie.',
   'trash.deleteForever': 'Vee vir altyd uit',
   'trash.empty': 'Niks om te herstel nie.',
+  'trash.emptyAll': 'Maak asblik leeg',
   'trash.eyebrow': 'Ateljee',
   'trash.heading': 'Asblik',
   'trash.loadFailed': 'Kon nie asblik laai nie.',

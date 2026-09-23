@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '关于{{app}}',
+  'appNav.mobileLabel': '主导航',
+  'appNav.primaryLabel': '主导航',
   'billing.actions.confirmCancel': '要取消订阅吗？您可以随时重新订阅。',
   'billing.actions.paused': '订阅已暂停。',
   'billing.actions.resumed': '订阅已恢复。',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'boxes.search.placeholder': '搜索版本…',
   'boxes.subtitle': '每个层级都是一个小故事。添加到您的队列或换到下个月。',
   'boxThemeCard.perMonth': '/ 月',
+  'common.goToDashboard': '前往仪表盘',
   'customize.eyebrow': '打造您的专属',
   'customize.heading': '自定义您的下一个Crate',
   'customize.items.exclude': '跳过此项',
@@ -89,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': '本季',
   'landing.editions.heading': '策展人钟爱的版本',
   'landing.footer.contact': '与策展人交谈',
+  'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': '开启您的盒子 →',
   'landing.hero.ctaSecondary': '查看层级',
   'landing.hero.eyebrow': '每月精选。始终个性化。',
@@ -106,6 +111,7 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': '您的下一个CRATE',
   'nextBoxHeroCard.itemsLabel': '精选物品',
   'nextBoxHeroCard.shipsOnLabel': '发货日期',
+  'notFound.body': '我们在{{app}}存档中找不到该页面。它可能已被弃用，或者只是拼写错误。',
   'notFound.cta.dashboard': '前往仪表板',
   'notFound.eyebrow': '空盒子',
   'notFound.heading': '这个货架是空的',

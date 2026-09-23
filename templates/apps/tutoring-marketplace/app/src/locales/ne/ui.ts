@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'तपाईंको भूमिका',
   'account.role.upgradeLink': 'प्रमाणित शिक्षक बन्न आवेदन दिनुहोस् →',
   'account.title': 'प्रोफाइल, भुक्तानी र प्राथमिकताहरू।',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'चकमा सिकाउनुहोस्',
   'becomeTutor.form.error': 'आवेदन बुझाउन सकिएन।',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'विषय',
   'bookingConfirm.title': 'तपाईंको बुकिङ भइसकेको छ। बाँकी हामी गर्छौं।',
   'bookingConfirm.with': 'शिक्षकसँग',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'earningsHero.eyebrow': 'आम्दानी • {{month}}',
   'forgotPassword.heading': 'आफ्नो पासवर्ड बिर्सनुभयो?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'सन्देश पठाउनुहोस्',
   'messages.thread.empty': 'नमस्ते भन्नुहोस् — कुराकानी सुरु गर्नुहोस्।',
   'messages.title': 'तपाईंका शिक्षकहरूसँगका थ्रेडहरू।',
+  'nav.primary': 'प्राथमिक',
   'pricing.dataExport': 'डाटा निर्यात:',
   'pricing.headingDefault': 'उन्नत सुविधाहरू:',
   'resetPassword.heading': 'एउटा बलियो नयाँ पासवर्ड छान्नुहोस्।',

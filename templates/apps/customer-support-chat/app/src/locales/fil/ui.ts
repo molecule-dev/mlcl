@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
   'authShell.samplePreview':
     '“Uy team, ang ganda ng bagong dashboard — eksakto kung ano ang kailangan namin!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/shortcut',
   'automations.subheading':
     'Mga patakaran, mga naka-kahong tugon, at mga chatbot — panatilihing masigla ang workspace habang ang iyong team ay nakatuon sa mga mahihirap na bagay.',
+  'automations.trigger.inboundMessage': 'Papasok na mensahe',
   'automations.triggerLabel': 'Trigger',
   'chatBubble.internalNoteLabel': 'Panloob na tala',
+  'common.confirmDelete': 'Kumpirmahin ang pagbura',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'contactDetail.backToContacts': 'Lahat ng mga contact',
   'contactDetail.contactFallback': 'Makipag-ugnayan',
   'contactDetail.conversationFallback': 'Pag-uusap',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Huling nakita',
   'contacts.empty': 'Wala pang mga contact. Idagdag ang iyong unang contact sa itaas.',
   'contacts.eyebrow': 'Direktoryo ng kostumer',
+  'contacts.form.nameOrEmailRequired': 'Magbigay ng kahit man lang pangalan o email',
   'contacts.form.save': 'I-save ang contact',
   'contacts.heading': 'Mga Kontak',
   'contacts.loading': 'Naglo-load ng mga contact…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'I-save ang tala',
   'conversationDetail.tab.note': 'Panloob na tala',
   'conversationDetail.threadAria': 'Mga mensahe sa pag-uusap',
+  'conversationDetail.visitorFallback': 'Bisita',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Mga detalye ng customer',
   'customerProfilePanel.recentTitle': 'Mga kamakailang pag-uusap',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Nakukuha ng mga customer ang kanilang unang tugon sa {{time}} sa karaniwan — panatilihin ang ritmo.',
   'inboxHeroCard.title': 'Mga aktibong usapan',
+  'inboxLayout.navDrawerLabel': 'Nabigasyon',
+  'inboxLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'inboxOverview.eyebrow': 'Ngayon sa isang sulyap',
   'inboxOverview.heroChange': '{{count}} bukas',
   'inboxOverview.kpiClosedTrend': 'lahat ng panahon',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Bisitahin ang homepage',
   'notifications.subheading':
     'Mga takdang-aralin, @pagbanggit, mga panganib sa SLA, feedback sa CSAT at aktibidad ng pangkat — inayos muna kung pinakabago.',
+  'notifications.subjectFallback': 'isang pag-uusap',
+  'notifications.visitorFallback': 'Isang bisita',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Mataas',
   'priority.low': 'Mababa',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Kagyat',
   'privacy.title': 'Patakaran sa privacy',
   'reports.agentFallback': 'Ahente',

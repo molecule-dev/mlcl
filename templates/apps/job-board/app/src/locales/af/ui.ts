@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor ons',
   'applications.empty': 'Geen aansoeke nog nie \\u2014 die regte rol is een aansoek weg.',
   'applications.eyebrow': 'Jou pyplyn',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Elke rol waarvoor jy aansoek gedoen het, in beweging. Filtreer volgens stadium om te fokus.',
   'applications.untitledRole': 'Rol # {{id}}',
+  'auth.legalConsent': 'Deur voort te gaan, stem jy in tot ons',
   'common.and': 'en',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'companies.empty':
     'Geen maatskappye stem ooreen met jou soektog nie \\u2014 probeer ’n ander term.',
   'companies.eyebrow': 'Aanbevole werkgewers',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Geen aansoeke nog vir hierdie rol nie.',
   'jobApplicants.eyebrow': 'Werkgewer se siening',
   'jobApplicants.loading': 'Laai tans\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Kon nie daardie stadium opdateer nie — probeer weer.',
+  'jobApplicants.subheading':
+    "Hersien CV's, bevorder kandidate, stuur aanbiedinge \\u2014 {{count}} in beweging.",
   'jobDetail.applicantCount': '{{count}} aansoekers tot dusver',
   'jobDetail.applied': 'Aansoek gestuur',
   'jobDetail.apply': 'Doen nou aansoek',
@@ -83,12 +89,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Blaai deur oop rolle \\u2192',
   'landing.pricingEyebrow': 'Pryse',
   'landing.pricingHeading': 'Eenvoudige planne vir elke spangrootte.',
+  'login.eyebrow': 'Welkom terug by {{app}}',
   'login.heading': 'Meld aan by jou rekening',
   'login.noAccount': 'Nuut by Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Onthou my vir 30 dae',
   'login.signingIn': 'Aanmelding\\u2026',
   'login.subheading': 'Tel jou soektog op, bevorder jou aansoeke, hoor vinniger terug.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Gebou vir die aanstelling van spanne.',
   'loginBrandPanel.headline': 'Waar talent ontmoet',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Talentvennoot',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
     'Aansoekopdaterings, onderhouduitnodigings, vars pasmaats en nuutste eerste.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} hierdie week',
   'opportunitiesHero.eyebrow': 'Oop vandag',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'postJob.addNewCompany': '+ Voeg ’n nuwe maatskappy by',
   'postJob.companyCreateFailed': 'Kon nie maatskappy skep nie — probeer weer.',
   'postJob.companyNameLabel': 'Jou maatskappy se naam',
@@ -162,10 +171,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Rekening word geskep\\u2026',
   'signup.ctaEmployer': 'Skep werkgewerrekening',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Wagwoorde stem nie ooreen nie.',
   'signup.subheading':
     'Gratis vir soekers, vir altyd. Werkgewers begin met ’n 30-dae proeftydperk.',
   'timeAgo.days': '{{count}} d gelede',
   'timeAgo.hours': '{{count}} uur gelede',
   'timeAgo.justNow': 'nou net',
+  'timeAgo.weeks': '{{count}} w gelede',
 }

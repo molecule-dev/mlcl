@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai sugestii, vrei să soliciți o funcție sau ai găsit o eroare? Contactează echipa {{app}} prin linkul de asistență din meniul contului tău — fiecare mesaj ajunge la o persoană reală.',
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'agentDetail.back': 'Toți agenții',
   'agentDetail.capabilities': 'Capacități',
   'agentDetail.delete': 'Șterge persoana',
   'agentDetail.deleteConfirm': 'Ștergeți această persoană? Această acțiune nu poate fi anulată.',
+  'agentDetail.deleteError': 'Nu s-a putut șterge persona.',
   'agentDetail.eyebrow': 'Persoană',
   'agentDetail.fetchError': 'Nu s-a putut încărca persoana.',
   'agentDetail.save': 'Salvează persoana',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Se comută…',
   'billing.updateError': 'Nu s-a putut iniția actualizarea.',
   'billing.usageHeading': 'Utilizare vocală în acest ciclu',
+  'chatBubble.source.text': 'text',
+  'chatBubble.source.voice': 'voce',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'conversation.defaultTitle': 'Conversație nouă',
   'conversation.empty': 'Niciun mesaj încă. Începeți prin a spune ceva sau tastând mai jos.',
   'conversation.eyebrow': 'Sesiune live',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligență care vorbește.',
   'landing.heroSubtitle':
     'Asistentul vocal AI care înțelege fluxul dvs. natural. Conversați, ideați și comandați – fără efort.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Ascultă…',
   'landing.naturallyBody':
     'Fără cuvinte de activare. Fără comenzi rigide. Vox înțelege contextul, întreruperile și nuanțele vorbirii umane – ca o discuție cu un coleg.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Deschideți o sesiune',
   'notFound.home': 'Înapoi acasă',
   'notFound.title': 'Nu am auzit acea pagină.',
+  'parlanceLayout.closeMenu': 'Închide meniul',
+  'parlanceLayout.openMenu': 'Deschide meniul de navigare',
   'parlanceLayout.primaryNavLabel': 'Navigare primară',
   'pricing.conversations': '{{count}} conversații',
   'pricing.cta.startFree': 'Începeți gratuit',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Nicio potrivire',
   'search.eyebrow': 'Paletă de comenzi',
   'search.fetchError': 'Nu s-a putut încărca indexul de căutare.',
+  'search.static.profile.preview': 'Numele afișat, pseudonimul, biografia',
   'search.static.voice.title': 'Voce',
   'search.title': 'Căutare în Vox',
   'search.transcriptPreview': 'Deschideți transcrierea',

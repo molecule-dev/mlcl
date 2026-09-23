@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.pageTitle': 'A {{app}} névjegye',
   'achievementBadgeCard.unlockedOn': 'Feloldva {{date}}',
   'achievements.loadError': 'Nem sikerült betölteni az elért eredményeket.',
   'achievements.subheading': '{{unlocked}} a {{total}} feloldva',
   'achievements.unlockedOn': 'Feloldva {{date}}',
+  'auth.legalConsent': 'A folytatással elfogadod a',
   'calendar.empty': 'Szokásoddá tedd, hogy mindig nézed a naptárad.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Szokás',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Szokásrács',
   'category.${c.category}': '{{count}} szokások',
   'common.and': 'és',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'consistencyHeatmap.ariaLabel': 'Napi konzisztencia hőtérkép',
   'consistencyHeatmap.caption': 'Utolsó {{weeks}} hetek',
   'consistencyHeatmap.lessLabel': 'Kevesebb',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Nézd meg élőben',
   'landing.heroSubtitle':
     'Úgy építsd ki a szokásaidat, ahogyan azok valójában megmaradnak: apró elkötelezettségek, napi sikersorozatok és egy hosszú, megszakítatlan láncolat zsigeri öröme.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Pillantás Streak belsejébe',
   'landing.previewMotivation': 'Kilenc csík él. Tartsd őket melegen.',
   'login.eyebrow': 'Vedd fel a láncot',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Fogalmazd meg kicsiben. Fogalmazd meg konkrétan. Jelentkezz meg holnap.',
   'newHabit.timeLabel': 'Emlékeztető ideje',
   'notifications.markError': 'Nem sikerült az összeset olvasottként megjelölni.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.entries': '{{count}} bejegyzések',
+  'pricing.heading': 'Válaszd ki {{app}} csomagod',
   'profile.action.plan': 'Előfizetés kezelése',
   'profile.action.settings': 'Fiókbeállítások',
   'profile.bioEmpty': 'Írj egy rövid bemutatkozást a Beállításokban.',
@@ -127,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Napi reggeli felszólítás (8:00)',
   'settings.reminders.heading': 'Emlékeztetők',
   'settings.reminders.weekly': 'Heti összefoglaló (vasárnap esténként)',
+  'settings.revokeDeviceWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
   'settings.signOutDevice': 'Kijelentkezés',
   'settings.streaks.freezesPerWeek': 'Heti fagyások száma',
   'settings.streaks.gracePeriod': '6 órás türelmi időszak éjfél után',
@@ -153,5 +162,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktív',
   'streakHeroCard.daysSuffix': 'nap',
   'streakHeroCard.title': 'Leghosszabb aktív sorozat',
+  'streakLayout.closeMenu': 'A navigációs menü bezárása',
+  'streakLayout.openMenu': 'Navigációs menü megnyitása',
   'streakLayout.primaryNavLabel': 'Elsődleges navigáció',
 }

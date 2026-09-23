@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'درباره {{app}}',
   'analytics.avgCheckLabel': 'بررسی میانگین',
   'analytics.busiestHour': 'شلوغ‌ترین ساعت',
   'analytics.coversToday': 'پوشش‌های امروز',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'نکات (میانگین)',
   'analytics.topItems': 'برترین مطالب امروز',
   'authShell.eyebrow': 'به خدمت خوش آمدید',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'یک نقطه فروش گرم و سریع برای تیم‌های مهمان‌نوازی. وارد آشپزخانه خود شوید و از جایی که رها کرده‌اید، ادامه دهید.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'یا {{price}}',
   'billing.priceUnavailable': 'این طرح قیمت مشخصی ندارد.',
   'billing.updated': 'طرح به‌روزرسانی شد.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'customerDetail.book': 'اضافه کردن رزرو',
   'customerDetail.col.table': 'میز',
   'customerDetail.confirmDelete': 'این رکورد مهمان حذف شود؟',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'در دسترس بودن',
   'menuItemDetail.available': 'امشب موجود است',
   'menuItemDetail.backToMenu': 'بازگشت به منو',
+  'menuItemDetail.confirmDelete': 'این مورد از منو حذف شود؟',
   'menuItemDetail.delete': 'حذف مورد',
   'menuItemDetail.deleteError': 'حذف ناموفق بود. دوباره امتحان کنید.',
   'menuItemDetail.dietary': 'برچسب‌های غذایی',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · ویرایش عکس، اصلاح‌کننده‌ها، رژیم غذایی و قیمت‌گذاری.',
   'menuItemDetail.untitled': 'مورد بدون عنوان',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'notFound.heading': 'این میز روی زمین نیست.',
   'notFound.subheading':
     'صفحه‌ای که به دنبالش بودید، جای دیگری قرار دارد - یا اصلاً وجود نداشته است.',
+  'notFound.toLanding': 'خانه {{app}}',
   'notifications.markError': 'نتوانستم همه را علامت بزنم خوانده شده.',
   'orderDashboard.activeDelta': 'همین حالا زندگی کن',
   'orderDashboard.activeLabel': 'سفارش‌های فعال',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'نمایش رمز عبور',
   'resetPassword.subtitle': 'برای دسترسی مجدد به آشپزخانه، رمز عبور جدید خود را وارد کنید.',
   'resetPassword.tokenLabel': 'بازنشانی توکن',
+  'restaurantOrderingLayout.primaryNavLabel': 'ناوبری اولیه',
   'revenueHeroCard.activeOrders': '{{count}} فعال',
   'revenueHeroCard.change': '{{sign}} {{amount}} در مقابل دیروز',
   'revenueHeroCard.title': 'درآمد امروز',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'نام رستوران',
   'tableDetail.activeOrders': 'سفارش‌های فعال',
   'tableDetail.backToFloor': 'پلان طبقه',
+  'tableDetail.confirmDelete': 'این جدول حذف شود؟',
   'tableDetail.delete': 'حذف',
   'tableDetail.deleteError': 'جدول حذف نشد.',
   'tableDetail.heading': 'میز {{label}}',

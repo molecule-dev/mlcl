@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Стапете во контакт',
   'about.eyebrow': 'За',
+  'common.goToDashboard': 'Оди до контролна табла',
   'dashboard.connectRepoCta': 'Поврзи го складиштето',
   'dashboard.empty': 'Сè уште нема барања за повлекување — поврзете репозиториум за да започнете.',
   'dashboard.eyebrow': 'Рефракција · ред за преглед',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Време на работа',
   'pullRequestRow.files': '{{count}} ф',
   'pullRequestRow.scoreAria': 'Резултат за квалитет на вештачка интелигенција {{score}} / 10',
+  'refractLayout.closeMenu': 'Затвори мени',
+  'refractLayout.openMenu': 'Отвори мени',
   'refractLayout.primaryNavLabel': 'Примарна навигација',
   'reports.cumulativeScoreLabel': 'Кумулативен резултат',
   'reports.cumulativeScoreSubtitle': 'сите репозиториуми · {{days}} д',
@@ -179,11 +182,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Не успеа да се вчита индексот на пребарување.',
   'settings.apiKeys.description':
     'Управувајте со личните API клучеви од менито за корисници во горниот десен агол.',
+  'settings.apiKeys.integrationsNote':
+    'Токените за пристап на давателите на услуги се управуваат во делот Интеграции погоре.',
   'settings.connectError': 'Неуспешно поврзување со давателот на услуги.',
   'settings.disconnectError': 'Неуспешно исклучување на операторот.',
   'settings.eyebrow': 'Рефракција · работен простор',
   'settings.integration.${provider}.label': 'Се зачувува…',
   'settings.loadError': 'Неуспешно вчитување на поставките.',
+  'settings.notificationCenter': 'Центар за известувања',
   'settings.notifications.description':
     'Посетете ја страницата за известувања за да ги видите и управувате со преференциите за испорака.',
   'settings.section.account': 'Сметка и безбедност',

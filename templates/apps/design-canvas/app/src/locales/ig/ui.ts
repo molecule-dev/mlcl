@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'authShell.brandHeading': 'Kanvas zuru oke maka ndị otu imewe na-ebuga ọnụ.',
   'canvas.redirecting': 'Onye nchịkọta akụkọ na-emepe…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'na',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.retry': 'Nwaa ọzọ',
   'dashboard.activityEmpty': 'Enwebeghị ihe omume ọhụrụ — kpọọ onye otu egwuregwu ka ọ malite.',
   'dashboard.activityTitle': 'Ihe gbanwere taa',
   'dashboard.activityViewAll': 'Lee ọkwa niile',
@@ -16,12 +19,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Ebe Ọrụ · Ụlọ Ọrụ Northwind',
   'dashboard.foldersLabel': 'Faịlị',
   'dashboard.gridTitle': '{{count}} ọrụ',
+  'dashboard.heroActiveTool': 'Ngwa mkpịsị pen',
   'dashboard.loadingTitle': 'Na-ebugo ọrụ…',
   'dashboard.searchPlaceholder': 'Chọọ ọrụ',
   'dashboard.startFromTemplate': 'Malite site na ndebiri',
   'dashboard.title': 'Ọrụ gị',
   'dashboard.untitledProject': 'Ọrụ enweghị aha',
   'designCanvasLayout.newProject': 'Ọrụ ọhụrụ',
+  'designCanvasLayout.primaryNavLabel': 'Ntugharị isi',
   'editor.backToProjects': 'Laghachi na ọrụ',
   'editor.deleteShape': 'Hichapụ ọdịdị',
   'editor.errorBody': 'Anyị enweghị ike imepe ọrụ a.',
@@ -61,6 +66,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': "Mepụta ngwaọrụ ndị ga-agagharị n'ọsọ aka gị dịka o kwesịrị",
   'library.empty': 'Enweghị ihe akaebe ọ bụla na ngalaba a.',
   'library.eyebrow': 'Ebe Ọrụ · Sistemụ Nhazi Atelier',
+  'library.loadFailed': 'Enweghị ike ibuli ihe ngosi imewe.',
   'library.systemMeta': 'Ahụike sistemụ',
   'library.systemSummary':
     '{{ihe nnọchianya}} ihe nrịbama · {{ihe mejupụtara}} ihe mejupụtara · {{mmetụta}} mmetụta',

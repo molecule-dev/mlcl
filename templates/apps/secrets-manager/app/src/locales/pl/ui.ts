@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'about.tagline': 'Sekrety umierają na otwartej przestrzeni.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Utwórz token',
   'apiTokens.kicker': 'Tokeny API',
   'apiTokens.loading': 'Ładowanie tokenów…',
+  'apiTokens.new': 'Nowy token',
   'apiTokens.revoke': 'Unieważnij token',
   'apiTokens.subheading':
     'Osobiste i serwisowe tokeny do CLI Arcanum oraz SDK. Tekst jawny pokazywany jednorazowo przy tworzeniu.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Passkey',
   'authShell.zeroKnowledge': 'Szyfrowanie zero-knowledge',
   'common.connecting': 'Łączenie…',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.inviting': 'Zapraszanie…',
   'forgotPassword.checkInbox':
     'Jeśli {email} jest zarejestrowany, podpisany link resetujący przyjdzie w ciągu minuty.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Status rotacji, alerty anomalii i prośby o zatwierdzenie w każdym sejfie.',
   'notifications.unreadEmpty': 'Skrzynka pusta — wszystko nadrobione.',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.heading': 'tajniki',
   'pricing.limits.accessPolicies': 'polityki dostępu',
   'pricing.limits.auditLog': 'wpisy dziennika audytu',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Konto osobiste',
   'profile.plan.description': 'Zarządzaj subskrypcją, sprawdź limity i uaktualnij.',
   'profile.subheading': 'Tożsamość, urządzenia drugiego składnika i aktywne sesje.',
+  'profile.twoFactor.code': 'Kod uwierzytelniający',
   'profile.twoFactor.disable': 'Wyłącz',
   'profile.twoFactor.enable': 'Włącz',
+  'profile.twoFactor.invalidCode': 'Nieprawidłowy kod',
   'profile.twoFactor.kicker': 'Uwierzytelnianie dwuskładnikowe',
+  'profile.twoFactor.off': 'Nie włączono',
   'profile.twoFactor.on': 'Włączone',
   'resetPassword.email': 'Email konta',
   'resetPassword.heading': 'Ustaw nowe poświadczenia',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'polecenia',
   'secretsManagerLayout.encrypted': 'AES-256 · ZASZYFROWANE',
   'secretsManagerLayout.newVault': 'Nowy sejf',
+  'secretsManagerLayout.newVaultShort': 'Nowe',
   'secretsManagerLayout.rotations': 'Rotacje',
   'secretsManagerLayout.search': 'szukaj',
   'secretsManagerLayout.searchPlaceholder': 'Szukaj sekretów według klucza, ścieżki lub tagu…',
@@ -170,6 +178,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Sekrety',
   'vaultCard.vaultLabel': 'Sejf',
   'vaultDetail.addSecret': 'Dodaj sekret',
+  'vaultDetail.back': 'Wszystkie skarbce',
   'vaultDetail.col.key': 'Klucz',
   'vaultDetail.col.rotated': 'Zrotowano',
   'vaultDetail.col.value': 'Wartość',

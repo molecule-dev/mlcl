@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'accountDetail.activeBadge': 'တက်ကြွသော',
   'accountDetail.availableLabel': '{{amount}} ရရှိနိုင်သော',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'အကောင့်များ',
   'accounts.loadError': 'အကောင့်များကို တင်၍မရပါ။',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'အေးခဲထားသည်',
   'accounts.totalBalance': '{{ပမာဏ}} စုစုပေါင်း',
   'audit.empty': 'ပွဲများ မရှိသေးပါ။',
   'audit.eyebrow': 'လုံခြုံရေးနှင့် ဝင်ရောက်ခွင့်',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'လက်ထဲတွင် ငွေသားရှိနေခြင်း',
   'cashCreditCard.creditLabel': 'အသုံးပြုထားသော ခရက်ဒစ်',
   'cashCreditCard.title': 'ငွေသားနှင့် ခရက်ဒစ်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.accountsHeading': 'အကောင့်များ',
   'dashboard.heading': 'ခြုံငုံသုံးသပ်ချက်',
   'dashboard.recentEmpty': 'ငွေပေးငွေယူ မရှိသေးပါ။',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.signUp': 'ဆိုင်းအပ်',
   'login.submit': 'ဆိုင်းအင်လုပ်ခြင်း',
+  'meridianLayout.menu': 'မီနူး',
   'meridianLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'nav.legal': 'ဥပဒေရေးရာ',
   'notifications.emptyHeading': 'အားလုံးပြီးသွားပါပြီ',
   'notifications.subheading':
     'ငွေပေးငွေယူများ၊ လုံခြုံရေးနှင့် စာရင်းရှင်းတမ်းများအတွက် အချိန်နှင့်တပြေးညီ သတိပေးချက်များ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'privacy.dataWeShare':
     'ကိုယ်ရေးကိုယ်တာဘဏ်လုပ်ငန်းဒေတာများကို ဘယ်တော့မှ ရောင်းချခြင်းမပြုပါ။ ငွေပေးငွေယူများကို ဖြေရှင်းရန် သို့မဟုတ် ဥပဒေရေးရာတာဝန်ဝတ္တရားများကို ဖြည့်ဆည်းရန် လိုအပ်သည့်အခါတွင်သာ ငွေပေးချေမှုလုပ်ဆောင်သူများ၊ ကတ်ကွန်ရက်များနှင့် စည်းမျဉ်းထိန်းသိမ်းရေးအဖွဲ့များနှင့် ကျွန်ုပ်တို့သည် အချက်အလက်များကို မျှဝေပါသည်။',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Two-factor သည် authenticator အက်ပ်မှ တစ်ကြိမ်သုံးကုဒ်ကို အကောင့်ဝင်တိုင်း ထည့်သွင်းပေးသည်။',
   'settings.security.twoFactorCta': 'နှစ်ဆင့် ခွင့်ပြုချက်ကို စီမံခန့်ခွဲပါ',
+  'settings.security.twoFactorOff': 'နှစ်အချက် ပိတ်ထားသည်',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
   'settings.subheading': 'ပရိုဖိုင်၊ လုံခြုံရေးနှင့် အကြောင်းကြားချက်များ။',
+  'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'signup.emailLabel': 'အီးမေးလ်လိပ်စာ',
   'signup.fullName': 'ကျွန်ုပ်တို့ သင့်ကို ဘယ်လို ဆက်ဆံသင့်ပါသလဲ။',
   'signup.showPassword': 'စကားဝှက်ပြပါ',
@@ -106,7 +115,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ငွေပေးငွေယူ မရှိသေးပါ။',
   'transactions.endDate': 'ပြီးဆုံးရက်',
   'transactions.eyebrow': 'လှုပ်ရှားမှု',
+  'transactions.loadError': 'ငွေပေးငွေယူများကို တင်၍မရပါ။',
   'transactions.merchant': 'ကုန်သည်',
+  'transactions.subheading':
+    'သင့်အကောင့်များတွင် တင်ထားသော နှင့် ဆိုင်းငံ့ထားသော ငွေပေးငွေယူတိုင်း။',
   'transfers.availableHint': '{{amount}} ရရှိနိုင်သော',
   'transfers.errorGeneric': 'လွှဲပြောင်းမှုကို တင်သွင်း၍မရပါ။',
   'transfers.errorMissingFields': 'ရင်းမြစ်အကောင့်နှင့် ဦးတည်ရာအကောင့်ကို ရွေးချယ်ပါ။',

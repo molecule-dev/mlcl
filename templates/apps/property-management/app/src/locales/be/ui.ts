@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.tagline': 'Кожная адзінка пад адным дахам.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.addProperty': 'Дадаць уласцівасць',
   'dashboard.empty.body':
     "Пасля таго, як у вас ёсць аб'екты нерухомасці, кватэры і арэндныя плацяжы, гэтая панэль кіравання запоўніцца інфармацыяй аб партфелі.",
@@ -87,6 +90,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{уласнасць}} · Адзінка {{адзінка}} · {{дата}}',
   'maintenanceQueueList.subtitle': '{{count}} адкрытыя заказы на працу, адсартаваныя па прыярытэце',
   'maintenanceQueueList.title': 'Чарга на абслугоўванне',
+  'nav.closeMenu': 'Закрыць меню',
+  'nav.openMenu': 'Адкрыць меню',
   'notFound.body': 'Старонка, якую вы шукалі, была перамешчана, архівавана або ніколі не існавала.',
   'notFound.title': 'Гэтыя дзверы не адчыняюцца',
   'notifications.empty.body':

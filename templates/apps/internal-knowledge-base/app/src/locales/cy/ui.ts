@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'article.notFound': 'Erthygl heb ei chanfod',
   'articleEditor.bodyPlaceholder': 'Teipiwch / ar gyfer blociau, neu dechreuwch ysgrifennu.',
+  'articleEditor.loadFailed': "Methwyd llwytho'r erthygl",
   'articleEditor.publishing': 'Cyhoeddi\\u2026',
   'articleEditor.saveFailed': 'Methodd y cadw',
   'articleEditor.saving': 'Arbed\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Nod tudalen',
   'articleView.bookmarkOn': 'Nod tudalen',
   'articleView.edit': 'Golygu erthygl',
+  'articleView.loading': 'Wrth agor yr erthygl hon…',
   'articleView.readTime': '{{minutes}} darlleniad munud',
   'articleView.spaces': 'Mannau',
   'articleView.tocHeading': 'Ar y dudalen hon',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     "Golygiadau, darlleniadau a drafftiau diweddar y mae eich tîm yn dal i'w casglu.",
   'cairnTrailHero.updated': "Erthyglau wedi'u diweddaru",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'drafts.eyebrow': 'Eich gwaith anorffenedig',
   'drafts.heading': 'Drafftiau',
+  'drafts.loadFailed': 'Methwyd llwytho eich drafftiau.',
   'drafts.subtitle':
     "Erthyglau rydych chi wedi'u dechrau ond heb eu cyhoeddi eto. Dewiswch un a daliwch ati.",
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesHeading': 'Eich mannau',
   'home.subtitle':
     "Erthyglau diweddar, eich nodau tudalen, a'r hyn y mae'r tîm wedi bod yn ei ysgrifennu.",
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Adeiladwyd gyda Molecule.',
   'landing.ctaBody':
     "Am ddim i awduron unigol. Cynlluniau tîm ar gyfer timau dosbarthedig sy'n cludo llyfrau rhedeg, penderfyniadau, a chyfleusterau ymsefydlu.",
   'landing.ctaHeading': 'Pentyrrwch y garreg gyntaf heddiw.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Creu man gwaith',
   'login.submitting': 'Mewngofnodi\\u2026',
   'login.subtitle': 'Codwch y llwybr lle gwnaethoch chi ei adael.',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
+  'newSpace.colorAria': 'Dewiswch liw {{color}}',
   'newSpace.colorLabel': 'Lliw acen',
+  'newSpace.createFailed': 'Methu creu gofod',
   'newSpace.descriptionPlaceholder':
     'Llyfrau rhedeg, llyfrau chwarae ar alwad, post mortems\\u2026',
   'newSpace.eyebrow': 'Agor gofod gwybodaeth',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yn llwytho\\u2026',
   'notifications.subtitle':
     '{{count}} heb eu darllen \\u2014 sôn, sylwadau, newidiadau tudalen, a cheisiadau adolygu.',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.articles': 'erthyglau',
   'pricing.spaces': 'bylchau',
   'profile.eyebrow': 'Proffil awduro',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Rhowch gyfrinair newydd',
   'resetPassword.subtitle': 'Dewiswch gyfrinair cryf — o leiaf 12 nod.',
   'searchResults.eyebrow': 'Chwilio am y gweithle',
+  'searchResults.filter.all': 'Pob lle',
   'searchResults.heading': 'Chwilio erthyglau',
   'searchResults.placeholder': 'Chwiliwch am lyfrau rhedeg, RFCs, polisïau, penderfyniadau\\u2026',
   'searchResults.summary': '{{count}} canlyniadau ar gyfer \\u201c {{query}} \\u201d',
@@ -134,14 +147,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     "Mae hyn yn dileu eich cyfrif a phob erthygl rydych chi wedi'i hysgrifennu. Teipiwch DELETE i gadarnhau.",
   'settings.danger.confirmInvalid': 'Teipiwch DILEU i gadarnhau.',
+  'settings.danger.deleteFailed': 'Methu dileu cyfrif',
   'settings.danger.deleting': 'Yn dileu\\u2026',
   'settings.danger.description':
     "Mae dileu eich gweithle yn dileu'r holl erthyglau, sylwadau a hanes fersiynau. Nid oes modd adfer.",
   'settings.danger.title': "Dileu'r gweithle",
+  'settings.email.confirm': 'Diweddaru e-bost',
+  'settings.email.confirmTitle': 'Cadarnhau newid e-bost',
   'settings.email.saved': "E-bost wedi'i ddiweddaru.",
+  'settings.email.updateFailed': "Methu diweddaru'r e-bost",
   'settings.language.title': 'Iaith',
   'settings.name': 'Enw',
+  'settings.name.saved': "Enw wedi'i ddiweddaru.",
+  'settings.name.updateFailed': "Methu diweddaru'r enw",
   'settings.notifications.description': "Dewiswch beth sy'n cyrraedd eich mewnflwch.",
+  'settings.password.changeFailed': 'Methu newid y cyfrinair',
   'settings.password.current': 'Cyfrinair cyfredol',
   'settings.password.new': 'Cyfrinair newydd',
   'settings.password.saving': 'Yn diweddaru\\u2026',
@@ -149,10 +169,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': "Sut mae erthyglau'n cael eu rendro i chi.",
   'settings.reading.title': 'Darllen ac ysgrifennu',
   'settings.subtitle': "Tiwniwch hysbysiadau, y cynfas darllen, a'ch cyfrif.",
+  'settings.twofa.code': 'Cod dilysu',
   'settings.twofa.disable': 'Analluogi',
   'settings.twofa.disabled': 'Anabl',
   'settings.twofa.enable': 'Galluogi',
   'settings.twofa.enabled': "Wedi'i alluogi",
+  'settings.twofa.invalidCode': 'Cod annilys',
+  'settings.twofa.unavailable': 'Nid yw dilysu dau ffactor ar gael ar gyfer yr ap hwn.',
+  'settings.twofa.verify': 'Dilysu a galluogi',
   'signup.brandQuote':
     "Ei ysgrifennu i lawr yw'r addewid cyntaf a wnawn i'r person nesaf sydd ei angen.",
   'signup.eyebrow': 'Agor gweithle',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
+  'about.title': '{{app}} பற்றி',
   'authShell.backToLanding': '← தரையிறக்கத்திற்குத் திரும்பு',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
+  'common.retry': 'மீண்டும் முயற்சி',
   'common.yes': '✓',
   'dashboard.eyebrow': 'இன்று · செயல்பாடுகள் கண்ணோட்டம்',
   'dashboard.heading': 'ஆவண நுண்ணறிவு',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'தற்போதைய வடிகட்டிகளுடன் எந்த ஆவணங்களும் பொருந்தவில்லை.',
   'documents.heading': 'அனைத்து ஆவணங்களும்',
   'documents.loadError': 'ஆவணங்களை ஏற்ற முடியவில்லை.',
+  'documents.loading': 'நூலகம் ஏற்றப்படுகிறது…',
   'documents.searchLabel': 'ஆவணங்களைத் தேடு',
   'documents.searchPlaceholder': 'ஆவணங்களைத் தேடுங்கள்…',
   'documents.subheading':
@@ -67,8 +71,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subtitle': 'உங்கள் ஆவணங்கள் தொடர்ந்து வந்து செல்ல, உள்நுழையுங்கள்.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'notFound.body':
     'நீங்கள் திறக்க முயன்ற ஆவணம் அல்லது வழித்தடம் இப்போது இங்கு இல்லை. டாஷ்போர்டுக்குத் திரும்பிச் செல்லுங்கள் அல்லது பக்கப் பட்டியில் இருந்து ஒரு பகுதியைத் தேர்ந்தெடுக்கவும்.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'முகப்புப் பக்கத்தைத் திறக்கவும்',
   'notFound.title': 'அந்தப் பக்கம் கோப்பில் இல்லை.',
   'parcelaHeroCard.change': '{{sign}} {{amount}} நேற்றைய தினத்துடன் ஒப்பிடுகையில் சதவீதம்',
@@ -85,6 +92,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     "இன்னும் தாக்கல் விதிகள் இல்லை. புதிய விதியைச் சேர்க்க, 'புதிய விதி' என்பதைப் பயன்படுத்தவும்.",
   'rules.eyebrow': 'ஆட்டோமேஷன்',
+  'rules.fieldsCount': '{{count}} புலங்கள்',
   'rules.form.destination': 'கோப்புக்கு',
   'rules.form.name': 'விதியின் பெயர்',
   'rules.form.save': 'விதியைச் சேமிக்கவும்',

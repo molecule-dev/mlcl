@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.pageTitle': 'Par {{app}}',
   'activity.empty': 'Vēl nav aktivitātes — apgrieziet ierīci vai aktivizējiet ainu.',
   'activity.eyebrow': 'Laika skala',
   'activity.loadError': 'Nevarēja ielādēt aktivitāšu plūsmu.',
   'activity.subheading': 'Katra ierīce, automatizācija un drošības notikums hronoloģiskā secībā.',
+  'addDevice.error.failed': 'Nevarēja pievienot ierīci. Mēģiniet vēlreiz.',
   'addDevice.error.nameRequired': 'Lai turpinātu, piešķiriet šai ierīcei nosaukumu.',
   'addDevice.field.firmware': 'Programmatūras versija',
   'addDevice.field.manufacturer': 'Ražotājs',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Tiek veikti testi…',
   'automationEditor.testNew': 'Vispirms saglabājiet automatizāciju, lai to pārbaudītu.',
   'automationRow.lastRun': 'Last {{date}} · {{count}} runs',
+  'automationRow.on': 'Par',
   'automationRow.runNowAria': 'Skrien {{name}} tagad',
   'automations.empty': 'Vēl nav automatizāciju — izveidojiet savu pirmo rutīnu.',
   'automations.eyebrow': 'Rutīnas',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Notiek automatizāciju ielāde…',
   'automations.newAutomation': '+ Jauns',
   'automations.subheading': 'Kad tas notiek, dariet to — bez YAML.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Neizdevās ielādēt ierīci.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Strādāju…',
   'deviceDetail.unnamed': 'Ierīce',
   'deviceStatusRow.on': 'Ieslēgts',
+  'deviceStatusRow.turnOff': 'Izslēgt',
+  'deviceStatusRow.turnOn': 'Ieslēgt',
   'deviceStatusRow.watts': '{{watts}} R',
   'energy.eyebrow': 'Jauda',
   'energy.heading': 'Enerģija',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Skatīt plānus',
   'settings.security.heading': 'Drošība',
   'settings.subheading': 'Plāna, centru un konta preferences.',
+  'smartHomeDashboardLayout.openMenu': 'Atvērt navigācijas izvēlni',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Galvenā navigācija',
 }

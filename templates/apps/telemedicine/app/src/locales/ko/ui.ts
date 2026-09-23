@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': '예약 신청',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': '표시할 환자가 없습니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'consult.backLink': '모든 예약',
   'consult.captions': '자막',
   'consult.connected': '연결됨 · 720p · 안정적',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': '환자',
   'patientVitalsHero.scripts': '처방 진행 중',
   'patientVitalsHero.subline': '오늘 일정에 {{count}}건의 진료가 있습니다',
+  'planUpdated.verifying': '결제 확인 중…',
   'prescriptions.empty': '일치하는 처방이 없습니다.',
   'prescriptions.eyebrow': '전자 처방',
   'prescriptions.heading': '처방',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': '개인정보 처리방침',
   'privacy.use.body':
     '진료 제공, 예약 알림 발송, 처방 전달, 서비스 안정성 향상을 위해 사용됩니다. 데이터를 판매하거나 임상 정보를 광고주와 공유하지 않습니다.',
+  'providers.allSpecialties': '모든 전문 분야',
+  'providers.loadError': '공급자를 불러오는 데 실패했습니다.',
+  'providers.loading': '불러오는 중…',
   'providers.noResults': '담당의를 찾을 수 없습니다.',
   'providers.searchPlaceholder': '이름, 전문 분야로 검색...',
   'providers.title': '담당의 찾기',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': '근무 시작',
   'settings.availability.heading': '근무 가능 시간',
   'settings.devices.thisDevice': '현재 기기',
+  'settings.devices.unnamed': '이름이 지정되지 않은 장치',
   'settings.eyebrow': '진료소 및 계정',
   'settings.loadError': '프로필을 불러올 수 없습니다.',
   'settings.notifications.emailMessages': '진료팀이 답변하면 이메일로 알림 받기',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': '비활성화',
   'settings.security.twoFactor.enable': '활성화',
   'settings.security.twoFactor.heading': '2단계 인증',
+  'settings.security.twoFactor.invalidCode': '해당 코드가 일치하지 않습니다. 다시 시도해 주세요.',
+  'settings.security.twoFactor.setupFailed':
+    '이중 인증 설정을 시작할 수 없습니다. 다시 시도해 주세요.',
+  'settings.security.twoFactor.statusOn': '이중 인증이 켜져 있습니다',
   'settings.signOutDevice': '로그아웃',
   'settings.subheading': '담당의 프로필, 진료 규칙, 임상 알림입니다.',
   'signup.emailLabel': '이메일',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': '계정 만들기',
   'signupFooter.hipaa': 'HIPAA 준수',
   'solaceLayout.primaryNavLabel': '주요 탐색',
+  'solaceLayout.toggleMenu': '메뉴 전환',
   'terms.eligibility.body':
     '만 18세 이상이거나, 진료를 받는 미성년자의 부모 또는 법적 보호자여야 하며, 저희 임상의가 면허를 보유한 미국 주에 물리적으로 위치해야 합니다.',
   'terms.payment.body':

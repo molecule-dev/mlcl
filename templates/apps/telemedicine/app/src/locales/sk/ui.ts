@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Rezervovať si termín',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Žiadni pacienti na zobrazenie.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'consult.backLink': 'Všetky termíny',
   'consult.captions': 'Titulky',
   'consult.connected': 'Pripojené · 720p · stabilné',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacienti',
   'patientVitalsHero.scripts': 'Lekársky predpis otvorený',
   'patientVitalsHero.subline': '{{count}} konzultácie podľa vášho dnešného rozvrhu',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'prescriptions.empty': 'Žiadne recepty sa nezhodujú.',
   'prescriptions.eyebrow': 'Elektronické predpisovanie liekov',
   'prescriptions.heading': 'Recepty',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Oznámenie o ochrane osobných údajov',
   'privacy.use.body':
     'Na poskytovanie starostlivosti, zasielanie pripomienok na termíny, smerovanie receptov a zlepšovanie spoľahlivosti služieb. Vaše údaje nikdy nepredávame a nikdy nezdieľame klinické informácie s inzerentmi.',
+  'providers.allSpecialties': 'Všetky špecializácie',
+  'providers.loadError': 'Načítanie poskytovateľov zlyhalo.',
+  'providers.loading': 'Načítava sa…',
   'providers.noResults': 'Nenašli sa žiadni poskytovatelia.',
   'providers.searchPlaceholder': 'Hľadať podľa mena, odbornosti...',
   'providers.title': 'Nájsť poskytovateľa',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Začiatok dňa',
   'settings.availability.heading': 'Dostupnosť',
   'settings.devices.thisDevice': 'Toto zariadenie',
+  'settings.devices.unnamed': 'Neznáme zariadenie',
   'settings.eyebrow': 'Cvičenie a účet',
   'settings.loadError': 'Nepodarilo sa načítať tvoj profil.',
   'settings.notifications.emailMessages':
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Vypnúť',
   'settings.security.twoFactor.enable': 'Zapnúť',
   'settings.security.twoFactor.heading': 'Dvojfaktorové overenie',
+  'settings.security.twoFactor.invalidCode': 'Kód sa nezhoduje. Skúste to znova.',
+  'settings.security.twoFactor.setupFailed':
+    'Nepodarilo sa spustiť dvojfaktorové nastavenie. Skúste to znova.',
+  'settings.security.twoFactor.statusOn': 'Dvojfaktor je zapnutý',
   'settings.signOutDevice': 'Odhlásiť sa',
   'settings.subheading': 'Profil poskytovateľa, pravidlá praxe a klinické upozornenia.',
   'signup.emailLabel': 'E-MAIL',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Vytvoriť účet',
   'signupFooter.hipaa': 'V súlade s HIPAA',
   'solaceLayout.primaryNavLabel': 'Hlavná navigácia',
+  'solaceLayout.toggleMenu': 'Prepnúť ponuku',
   'terms.eligibility.body':
     'Musíte mať najmenej osemnásť rokov alebo byť rodičom či zákonným zástupcom maloletej osoby, o ktorú hľadáte starostlivosť, a fyzicky sa nachádzať v štáte USA, kde majú naši klinickí lekári licenciu.',
   'terms.payment.body':

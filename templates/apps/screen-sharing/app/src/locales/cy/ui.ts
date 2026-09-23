@@ -1,12 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'about.pageTitle': 'Ynglŷn â {{appName}}',
   'analytics.empty': 'Recordiwch eich clip cyntaf i weld ymgysylltiad yma.',
   'analytics.error.load': 'Methwyd llwytho dadansoddeg.',
   'analytics.error.shape': 'Roedd llwyth y dadansoddeg yn annisgwyl.',
   'analytics.eyebrow': 'Dadansoddeg ymgysylltu',
+  'analytics.heatmap.bar': 'Segment {{index}} : {{value}} gwylwyr',
   'analytics.heatmap.subtitle': "Wedi'i fwcedi ar draws yr holl recordiadau a wyliwyd",
   'analytics.heatmap.title': 'Map gwres sylw gwylwyr',
   'analytics.kpi.avgWatchTime': 'Amser gwylio cyfartalog',
@@ -38,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'clipiau',
   'billing.usage.views': 'Golygfeydd',
   'billing.usage.views.unit': 'golygfeydd',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'landing.cta.title': 'Anfonwch adborth gwell. Dechreuwch gyda Glint.',
   'landing.feature.capture.body':
     'Recordio ar borwr, bwrdd gwaith, a ffôn symudol gyda meicroffon, camera, a lluniadu.',
   'landing.feature.capture.title': 'Cipio un tap',
+  'landing.footer.copy': "© {{year}} {{appName}} . Async, wedi'i wneud yn llachar.",
   'landing.hero.cardCaption': "Trosolwg o'r gweithle enghreifftiol — rhowch gynnig arni am ddim.",
   'landing.hero.primaryCta': 'Dechreuwch recordio am ddim',
   'landing.hero.proof.free': 'Haen am ddim am byth',
@@ -61,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Chwilio recordiadau',
   'library.searchPlaceholder': 'Chwilio am recordiadau…',
   'library.weeklyChange': "{{value}} % o'i gymharu â'r wythnos diwethaf",
+  'nav.openMenu': 'Agor y ddewislen lywio',
   'nav.record': 'Record',
   'nav.shared': "Wedi'i rannu gyda mi",
   'nav.startRecording': 'Dechrau recordio',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'analytics.col.quorum': 'Quorum',
   'analytics.col.votes': 'Stemmen',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Nog geen openstaande vragen.',
   'audienceQa.onStageEyebrow': 'Nu op het podium',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Bevorderen',
   'audienceQa.queued': 'in wachtrij',
   'audienceQa.queueEyebrow': 'Wachtrij',
   'ballot.eyebrow': 'Breng uw stem uit',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'U gebruikt momenteel het {{plan}}-plan.',
   'billing.switch': 'Wisselen',
   'billing.upgraded': 'Bijgewerkt naar {{plan}} — limieten direct toegepast.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'createPoll.addOption': 'Optie toevoegen',
   'createPoll.anonymousHint':
     'Kiezersnamen verborgen in het auditlogboek; tellingen blijven geauthenticeerd.',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nieuw bij Nosh?',
   'login.remember': 'Onthoud mij 30 dagen',
   'login.subheading': 'Open de zitting, leid de zaal en certificeer het resultaat.',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'notFound.body':
     'De pagina die u probeerde te bereiken is gesloten of verplaatst. Ga terug naar het dashboard of open een nieuwe peiling.',
   'notFound.eyebrow': 'Geen quorum op deze route',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Kon deze peiling niet laden.',
   'pollDetail.loading': 'Peiling laden…',
   'pollDetail.notFound': 'Peiling niet gevonden.',
+  'pollDetail.openBallot': 'Openbare stemming',
   'pollDetail.openLive': 'Live resultaten',
   'pollDetail.pollId': 'peiling · {{id}}',
   'pollDetail.published': 'Peiling gepubliceerd — kiezers kunnen nu stemmen uitbrengen.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Zoeken op e-mail…',
   'voters.subheading':
     'Beheer de geschiktheidslijst. Groepeer kiezers per organisatie voor gewogen stembiljetten.',
+  'votingPollingLayout.nav.analytics': 'Analyse',
+  'votingPollingLayout.nav.billing': 'Facturering',
+  'votingPollingLayout.nav.createPoll': 'Nieuwe peiling',
+  'votingPollingLayout.nav.dashboard': 'Dashboard',
+  'votingPollingLayout.nav.notifications': 'Meldingen',
+  'votingPollingLayout.nav.settings': 'Instellingen',
+  'votingPollingLayout.nav.team': 'Team',
+  'votingPollingLayout.nav.voters': 'Kiezers',
+  'votingPollingLayout.primaryNavLabel': 'Hoofdnavigatie',
 }

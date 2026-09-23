@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက်ရှိပါသလား၊ အင်္ဂါရပ်တောင်းဆိုချက်ရှိပါသလား၊ သို့မဟုတ် bug တစ်ခုတွေ့ပါသလား။ သင့်အကောင့်မီနူးရှိ ပံ့ပိုးမှုလင့်ခ်မှတစ်ဆင့် {{app}} အဖွဲ့ထံ ဆက်သွယ်ပါ — မက်ဆေ့ချ်တိုင်းသည် လူသားအစစ်အမှန်ထံ ရောက်ရှိပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'agentDetail.back': 'အေးဂျင့်အားလုံး',
   'agentDetail.capabilities': 'စွမ်းရည်များ',
   'agentDetail.delete': 'ပုဂ္ဂိုလ်ရေးကို ဖျက်ပါ',
   'agentDetail.deleteConfirm': 'ဒီပုဂ္ဂိုလ်ကို ဖျက်မလား။ ဒါကို ပြန်ပြင်လို့မရပါဘူး။',
+  'agentDetail.deleteError': 'ပုဂ္ဂိုလ်ရေးကို ဖျက်၍မရပါ။',
   'agentDetail.eyebrow': 'ပုဂ္ဂိုလ်ရေး',
   'agentDetail.fetchError': 'ပုဂ္ဂိုလ်ရေးကို တင်၍မရပါ။',
   'agentDetail.save': 'ပုဂ္ဂိုလ်ရေးကို သိမ်းဆည်းပါ',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'ပြောင်းလဲနေသည်…',
   'billing.updateError': 'အပ်ဒိတ်လုပ်ခြင်းကို စတင်၍မရပါ။',
   'billing.usageHeading': 'ဤစက်ဝန်းတွင် အသံအသုံးပြုမှု',
+  'chatBubble.source.text': 'စာသား',
+  'chatBubble.source.voice': 'အသံ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'conversation.defaultTitle': 'စကားဝိုင်းအသစ်',
   'conversation.empty':
     'မက်ဆေ့ချ်များ မရှိသေးပါ။ တစ်ခုခုပြောခြင်း သို့မဟုတ် အောက်တွင် ရိုက်ထည့်ခြင်းဖြင့် စတင်ပါ။',
@@ -97,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'စကားပြောတတ်သော ဉာဏ်ရည်။',
   'landing.heroSubtitle':
     'သင့်ရဲ့ သဘာဝစီးဆင်းမှုကို နားလည်တဲ့ AI အသံလက်ထောက်။ ချောမွေ့စွာ စကားပြောဆို၊ အကြံဉာဏ်ပေး၊ အမိန့်ပေး။',
+  'landing.heroTitle': '{{tagline}}။',
   'landing.listening': 'နားထောင်နေသည်…',
   'landing.naturallyBody':
     'လှုံ့ဆော်ပေးသည့် စကားလုံးများ မပါရှိပါ။ တင်းကျပ်သော အမိန့်ပေးချက်များ မပါရှိပါ။ စကားအပြောအဆိုသည် အခြေအနေ၊ အနှောင့်အယှက်များနှင့် လူသားစကားပြောဆိုမှု၏ သိမ်မွေ့နက်နဲမှုများကို လုပ်ဖော်ကိုင်ဖက်တစ်ဦးနှင့် စကားပြောဆိုခြင်းကဲ့သို့ နားလည်သည်။',
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'အစည်းအဝေးတစ်ခုဖွင့်ပါ',
   'notFound.home': 'အိမ်ပြန်',
   'notFound.title': 'အဲဒီစာမျက်နှာကို ကျွန်တော်တို့ မကြားရဘူး။',
+  'parlanceLayout.closeMenu': 'မီနူးကို ပိတ်ပါ',
+  'parlanceLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'parlanceLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'pricing.conversations': '{{count}} စကားပြောဆိုမှုများ',
   'pricing.cta.startFree': 'အခမဲ့စတင်လိုက်ပါ',
@@ -153,6 +163,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ကိုက်ညီမှုမရှိပါ',
   'search.eyebrow': 'ညွှန်ကြားချက် ပြား',
   'search.fetchError': 'ရှာဖွေမှုအညွှန်းကို တင်၍မရပါ။',
+  'search.static.profile.preview': 'ပြသရန်အမည်၊ လက်ကိုင်၊ အတ္ထုပ္ပတ္တိ',
   'search.static.voice.title': 'အသံ',
   'search.title': 'စကားအသုံးအနှုန်းရှာဖွေခြင်း',
   'search.transcriptPreview': 'မှတ်တမ်းဖွင့်ပါ',

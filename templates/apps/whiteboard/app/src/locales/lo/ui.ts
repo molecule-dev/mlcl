@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'authShell.brandHeading': 'ຮູບແຕ້ມຫຼາຍຄົນສຳລັບທີມອອກແບບທີ່ຄິດອອກມາດັງໆ.',
   'billing.canceled': 'ຍົກເລີກການສະໝັກໃຊ້ແລ້ວ.',
   'billing.cancelPlan': 'ຍົກເລີກແຜນການ',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ເລີ່ມຈາກແມ່ແບບ',
   'boards.title': 'ກະດານຂອງທ່ານ',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'ໃສ່ອີເມວທີ່ເຊື່ອມໂຍງກັບພື້ນທີ່ເຮັດວຽກຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່.',
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'ກອງປະຊຸມໄຕມາດທີ 1 · ສຽງຂອງຍີ່ຫໍ້',
   'landing.featuresEyebrow': 'ສິ່ງທີ່ເຮັດໃຫ້ Slate tessellate',
   'landing.featuresTitle': 'ການຕອບສະໜອງໄວ. ຜ້າໃບທີ່ສວຍງາມ. ບໍ່ມີແຮງສຽດທານ.',
+  'landing.hero.body':
+    '{{appName}} ເປັນກະດານຂາວສຳລັບຜູ້ຫຼິ້ນຫຼາຍຄົນສຳລັບທີມງານອອກແບບ, ຜູ້ອຳນວຍຄວາມສະດວກໃນກອງປະຊຸມ, ແລະ ນັກການສຶກສາຜູ້ທີ່ດຳເນີນການລະດົມສະໝອງສົດ ແລະ ຕ້ອງການແນວຄວາມຄິດເພື່ອມາລວມເຂົ້າກັນໃນບ່ອນດຽວ.',
   'landing.hero.primaryCta': 'ເລີ່ມຕົ້ນກະດານໂດຍບໍ່ເສຍຄ່າ',
   'landing.hero.socialProof': 'ໄດ້ຮັບຄວາມໄວ້ວາງໃຈຈາກ {{count}} ທີມງານອອກແບບທົ່ວໂລກ',
   'landing.hero.title': 'ຜ້າໃບທີ່ໄວເທົ່າກັບຄວາມຄິດຂອງເຈົ້າ',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ສ້າງພື້ນທີ່ເຮັດວຽກໂດຍບໍ່ເສຍຄ່າ',
   'login.subheading':
     'ສືບຕໍ່ຈາກບ່ອນທີ່ກອງປະຊຸມຢຸດໄວ້ — ກະດານ, ບັນທຶກຕິດ, ແລະ ລູກສອນທັງໝົດຈະຊິ້ງກັນແບບສົດໆ.',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.new': 'ໃໝ່',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'notifications.editTitle': 'ແກ້ໄຂໃສ່ " {{board}} "',
   'notifications.empty.body':
     'ການເຊີນ, ການບັນທຶກພາບຖ່າຍ, ແລະ ການແກ້ໄຂກະດານຫຼ້າສຸດຈະປາກົດຢູ່ບ່ອນນີ້ທັນທີ.',
@@ -170,6 +177,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ປະຫວັດເວີຊັນ',
   'versionHistory.untitledSnapshot': 'ພາບຖ່າຍທີ່ບໍ່ມີຊື່',
   'whiteboardLayout.newBoard': 'ກະດານໃໝ່',
+  'whiteboardLayout.primaryNav': 'ການນຳທາງຫຼັກ',
   'workspace.boardLabel': 'ກະດານ',
   'workspace.eyebrow': '{{name}} · ພື້ນທີ່ເຮັດວຽກ',
   'workspace.invite': 'ເຊີນຜູ້ຮ່ວມມື',

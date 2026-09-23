@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'compose.cancel': 'ยกเลิก',
   'compose.captionPlaceholder': 'คุณกำลังคิดอะไรอยู่?',
   'compose.heading': 'แบ่งปันช่วงเวลาดีๆ',
@@ -93,6 +97,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'บัญชีที่ได้รับการยืนยัน',
   'resetPassword.newPassword': 'รหัสผ่านใหม่',
   'resetPassword.subheading': 'เลือกคำที่มีความหมายแรงๆ อย่างน้อย 12 ตัวอักษร',
+  'search.clearAria': 'ชัดเจน',
+  'search.error': 'การค้นหาล้มเหลว โปรดลองอีกครั้ง',
   'search.noPeople': 'ไม่มีผู้สร้างรายใดเทียบเท่า " {{q}} ".',
   'search.noPosts': 'ไม่พบโพสต์ใดตรงกับ " {{q}} ".',
   'search.noTags': 'ยังไม่มีแฮชแท็กที่กำลังเป็นที่นิยม',
@@ -120,6 +126,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'ซ่อนรหัสผ่าน',
   'signup.showPassword': 'แสดงรหัสผ่าน',
   'signup.subheading': 'สร้างบัญชีเพื่อเริ่มแชร์ได้เลย',
+  'socialMediaLayout.closeMenu': 'ปิดเมนูนำทาง',
+  'socialMediaLayout.openMenu': 'เปิดเมนูนำทาง',
+  'socialMediaLayout.primaryNavLabel': 'การนำทางหลัก',
   'storyRail.heading': 'เรื่องราว',
   'storyRail.label': 'เรื่องราว',
   'storyRail.openAria': 'เปิด {{handle}} เรื่องราวของเขา',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'billing.canceled': "Kagbuola ndenye aha. Ị ga-alaghachi na N'efu na njedebe nke oge ahụ.",
   'billing.contactSales': 'Kpọtụrụ ahịa',
   'billing.free.1': 'Nsụgharị ise',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Enweghị oke njigide',
   'billing.upgradeHint': 'Kwalite iji mepee atụmatụ AI dị elu.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.activityEmpty': 'Enweghị ihe omume ọ bụla — malite ọrụ iji jupụta na ndepụta a.',
   'dashboard.eyebrow': 'Nchịkọta',
   'dashboard.projectsEmpty': 'Enwebeghị ọrụ ọ bụla — malite otu iji hụ ya ebe a.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     "Jiri nsụgharị ndị gara aga mee ihe ọzọ n'ọrụ ọ bụla. Akara asọmpi ka elu → obere ọrụ.",
   'memory.title': 'Ụlọ nchekwa ebe nchekwa',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'nav.legal': 'Iwu kwadoro',
   'newProject.addLanguage': 'Tinye ebumnuche',
   'newProject.create': 'Mepụta ọrụ',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'Na mbụ',
   'notifications.markedAllRead': 'Akara akara {{count}} ọkwa dịka agụpụtara.',
   'notifications.subtitle': "Nkọwa, arịrịọ nyocha, na ihe omume AI site n'ofe ebe ọrụ gị.",
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'privacy.collection.account': 'Aha email na ngosipụta akaụntụ gị',
   'privacy.deletion.body':
     "I nwere ike ihichapụ ọrụ, nkebi, okwu nkọwa, ma ọ bụ ntinye ebe nchekwa n'oge ọ bụla na ibe dị mkpa. Ihichapụ akaụntụ gị na Ntọala na-ehichapụ ahịrị ọ bụla a na-enyocha ebe ọrụ na nchekwa data anyị.",
@@ -173,6 +178,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Ịbulighị ọrụ ndị a.',
   'projects.loading': 'Na-ebugo ọrụ…',
   'projects.subtitle': "Ọrụ ọ bụla na-arụ ọrụ n'ofe mpaghara niile.",
+  'renditionLayout.primaryNavLabel': 'Ntugharị isi',
   'reset.backToLogin': '\\u2190 Laghachi ka ị banye',
   'reset.passwordLabel': 'Okwuntughe Ọhụrụ',
   'review.activeEyebrow': 'Nkebi {{number}}',

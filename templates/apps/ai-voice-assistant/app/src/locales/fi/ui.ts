@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla palautetta, ominaisuuspyyntö tai oletko löytänyt virheen? Ota yhteyttä {{app}}-tiimiin tilisi valikossa olevan tukilinkin kautta – jokainen viesti menee oikealle ihmiselle.',
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
   'agentDetail.back': 'Kaikki agentit',
   'agentDetail.capabilities': 'Ominaisuudet',
   'agentDetail.delete': 'Poista persoona',
   'agentDetail.deleteConfirm': 'Poistetaanko tämä persoona? Toimintoa ei voi kumota.',
+  'agentDetail.deleteError': 'Personaa ei voitu poistaa.',
   'agentDetail.eyebrow': 'Persoona',
   'agentDetail.fetchError': 'Persoonaa ei voitu ladata.',
   'agentDetail.save': 'Tallenna persoona',
@@ -44,6 +48,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Vaihdetaan…',
   'billing.updateError': 'Päivityksen aloittaminen epäonnistui.',
   'billing.usageHeading': 'Äänikäyttö tällä jaksolla',
+  'chatBubble.source.text': 'teksti',
+  'chatBubble.source.voice': 'ääni',
+  'common.goToDashboard': 'Siirry etusivulle',
   'conversation.defaultTitle': 'Uusi keskustelu',
   'conversation.empty': 'Ei viestejä vielä. Aloita sanomalla jotain tai kirjoittamalla alla.',
   'conversation.eyebrow': 'Live-istunto',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Älykkyys, joka puhuu.',
   'landing.heroSubtitle':
     'Tekoälyääniavustaja, joka ymmärtää luonnollisen virtauksesi. Keskustele, ideoi ja anna komentoja – saumattomasti.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Kuuntelee…',
   'landing.naturallyBody':
     'Ei aktivointisanoja. Ei jäykkiä komentoja. Vox ymmärtää kontekstin, keskeytykset ja ihmispuheen vivahteet – kuin juttelisi työkaverin kanssa.',
@@ -110,6 +118,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Avaa istunto',
   'notFound.home': 'Takaisin etusivulle',
   'notFound.title': 'Emme kuulleet tuota sivua.',
+  'parlanceLayout.closeMenu': 'Sulje valikko',
+  'parlanceLayout.openMenu': 'Avaa navigointivalikko',
   'parlanceLayout.primaryNavLabel': 'Päänavigaatio',
   'pricing.conversations': '{{count}} keskustelua',
   'pricing.cta.startFree': 'Aloita ilmaiseksi',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Ei osumia',
   'search.eyebrow': 'Komentopaletti',
   'search.fetchError': 'Hakuhakemistoa ei voitu ladata.',
+  'search.static.profile.preview': 'Näytönimi, käyttäjätunnus, esittelyteksti',
   'search.static.voice.title': 'Ääni',
   'search.title': 'Hae Voxsta',
   'search.transcriptPreview': 'Avaa litterointi',

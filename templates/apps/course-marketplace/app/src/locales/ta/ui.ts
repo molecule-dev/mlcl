@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'பாடநெறிகள் ஏற்றப்படுகின்றன…',
   'browse.next': 'அடுத்த பக்கம்',
   'browse.results': 'காண்பிக்கப்படுகிறது {{count}} படிப்புகள்',
+  'browse.searchChip': '{{query}} ”',
   'browse.sort': 'வரிசைப்படுத்து',
   'browse.subtitle':
     'தலைப்பு, நிலை மற்றும் விலை ஆகியவற்றின் அடிப்படையில் பதிப்புத் தொகுப்பை வடிகட்டவும். ஒவ்வொரு பாடநெறியும் எங்கள் பதிப்பாசிரியர்களால் கவனமாகத் தொகுக்கப்பட்டுள்ளது.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'உங்கள் சான்றிதழ் கையொப்பமிடப்பட்டு தயாராக உள்ளது. அதை உலகத்துடன் பகிர்ந்து கொள்ளுங்கள் அல்லது அதைப் பெறுவதற்கு நீங்கள் பட்ட உழைப்பின் நினைவூட்டலாக உங்களிடமே வைத்துக் கொள்ளுங்கள்.',
   'certificate.copyLink': 'பகிர் இணைப்பை நகலெடுக்கவும்',
+  'certificate.copyPrompt': 'இந்த இணைப்பை நகலெடுக்கவும்:',
   'certificate.download': 'PDF-ஐ பதிவிறக்கவும்',
   'certificate.eyebrow': 'சாதனை திறக்கப்பட்டது',
   'certificate.linkCopied': 'இணைப்பு நகலெடுக்கப்பட்டது!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'நீங்கள் பதிவு செய்யப்பட்டுள்ளீர்கள்!',
   'checkout.verifying': 'உங்கள் பதிவைச் சரிபார்க்கிறது…',
   'checkout.viewLibrary': 'எனது கற்றலைக் காண்க',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சிக்கவும்',
   'courseDetail.about': 'இந்த பாடநெறி பற்றி',
   'courseDetail.checkoutPending': 'பணம் செலுத்தும் செயல்முறை தொடங்குகிறது…',
   'courseDetail.continueLearning': 'தொடர்ந்து கற்கவும்',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 நாள் பணம் திரும்பப் பெறும் உத்தரவாதம்',
   'courseDetail.includes.video': '{{hours}} பல மணிநேர ஆன்-டிமாண்ட் வீடியோ',
   'courseDetail.instructor': 'பயிற்றுவிப்பாளர்',
+  'courseDetail.languageEnglish': 'ஆங்கிலம்',
   'courseDetail.lectures': 'விரிவுரைகள்',
   'courseDetail.level': 'நிலை',
   'courseDetail.loading': 'பாடநெறி ஏற்றப்படுகிறது…',
@@ -121,6 +126,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'இன்னும் மதிப்புரைகள் இல்லை.',
   'instructorProfile.students': 'மாணவர்கள்',
   'landing.categories.empty': 'பட்டியல் நிரப்பப்பட்டவுடன் பிரிவுகள் தோன்றும்.',
+  'landing.categories.heading': 'காப்பகத்தை ஆராயுங்கள்',
   'landing.hero.eyebrow': 'லெக்டுரா · தேர்ச்சியின் பதிப்பாசிரியக் காப்பகம்',
   'landing.hero.proof':
     'கூகிள், மெட்டா மற்றும் அடோபி நிறுவனங்களில் உள்ள கற்பவர்களால் நம்பப்படுகிறது.',
@@ -162,6 +168,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'இன்றே கற்கத் தொடங்குங்கள்',
   'login.subheading': 'உங்கள் கல்விசார் காப்பகத்தை அணுகவும்.',
   'myLearning.empty.title': 'இந்த வடிகட்டிக்கு இன்னும் எந்தப் படிப்புகளும் பொருந்தவில்லை.',
+  'myLearning.error.title': 'உங்கள் நூலகத்தை ஏற்ற முடியவில்லை',
   'myLearning.filter.notStarted': 'தொடங்கவில்லை',
   'myLearning.hero.subtitle':
     '{{count}} உங்கள் நூலகத்தில் உள்ள பாடநெறிகள். இந்த வேகத்தைத் தொடருங்கள்.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'மதிப்பாய்வு செய்ய புதிய செயல்பாடு எதுவும் இல்லை. புதிய நிகழ்வுகள் இங்கே தோன்றும்.',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்து கொண்டீர்கள்',
+  'notifications.error.title': 'செயல்பாட்டை ஏற்ற முடியவில்லை',
   'privacy.title': 'தனியுரிமைக் கொள்கை',
   'reset.confirmPlaceholder': 'உங்கள் புதிய கடவுச்சொல்லை மீண்டும் உள்ளிடவும்',
   'reset.errorGeneric': 'கடவுச்சொல்லை மீட்டமைக்க முடியவில்லை. புதிய இணைப்பைக் கோரவும்.',
@@ -199,5 +207,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} டி நோ',
   'timeAgo.hours': '{{count}} எச் முன்பு',
   'timeAgo.minutes': '{{count}} ஒரு நிமிடத்திற்கு முன்பு',
+  'timeAgo.months': '{{count}} மாதங்களுக்கு முன்பு',
   'timeAgo.today': 'இன்று',
+  'timeAgo.weeks': '{{count}} வாரங்களுக்கு முன்பு',
 }

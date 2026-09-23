@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
+  'about.title': 'Соба за пишување што можете да ја чувате во џеб',
   'billing.cancelConfirm': 'Да се откаже активната претплата?',
   'billing.cancelFailed': 'Не можеше да се откаже.',
   'billing.checkingOut': 'Отворање на касата…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Не може да се вчита фактурирањето.',
   'billing.loading': 'Се вчитува фактурирањето…',
   'billing.upgradeCta': 'Надгради на {{name}}',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'editor.autosaveOn': 'Автоматско зачувување вклучено',
   'editor.backToLibrary': 'Назад кон библиотеката',
   'editor.charCount': '{{count}} ликови',
   'editor.confirmTrash': 'Да се премести документот во корпа?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Откачено',
   'editor.unpublishCta': 'Премести во нацрт',
   'editor.unpublished': 'Вратено на нацрт',
+  'focus.autosaveOn': 'Автоматско зачувување вклучено',
   'focus.backToLibrary': 'Назад кон библиотеката',
   'focus.bodyPlaceholder': 'Ред по ред. Никој друг не е тука.',
   'focus.exit': 'Излезете од режимот на фокусирање',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Создај еден',
   'login.subline':
     'Вашите ракописи, дневните страници и последната позиција на курсорот се токму таму каде што сте ги оставиле.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'pricing.exports': 'извоз',
   'pricing.folders': 'папки',
   'pricing.heading': 'документи',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Внесете го кодот што ви го испративме по е-пошта и изберете нешто што ќе го запомните. Ќе ве најавиме откако ќе биде зачувано.',
   'reset.tokenHint': 'Залепено од вашето сандаче.',
+  'settings.appearance.heading': 'Светло или темно',
   'settings.editor.${row.id}.description': 'Јазик',
   'settings.editor.description':
     'Лизгање на машина за пишување, бледеење на пасус и фокус во мирување - стандардните поставки се подесени за долги сесии.',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Трето поглавје — Тивок час пред изгрејсонце',
   'versalDocumentCard.pinned': 'Закачено',
   'versalLayout.nav.stats': 'Статистика',
+  'versalLayout.primaryNavLabel': 'Примарна навигација',
   'versalManuscriptHero.cta': 'Продолжи со пишување',
   'versalManuscriptHero.goalLabel': 'Денешна цел на зборови',
   'versalManuscriptHero.inProgress': 'На вистинскиот пат',

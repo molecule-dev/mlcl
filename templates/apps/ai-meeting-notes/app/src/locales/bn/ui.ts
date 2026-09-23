@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'আমাদের সম্পর্কে',
   'actions.empty': 'কোনো করণীয় বিষয় মেলেনি।',
   'actions.heading': 'করণীয় বিষয়সমূহ',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'আগের মাস',
   'calendar.recent': 'সাম্প্রতিক',
   'common.daysAgo': '{{count}} দিন আগে',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.hoursAgo': '{{count}} কয়েক ঘন্টা আগে',
   'common.no': '—',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} করণীয় বিষয়সমূহ',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'রিসেট লিঙ্কের জন্য আপনার ইনবক্স দেখুন।',
   'forgot.subheading': 'আপনার ইমেল দিন এবং আমরা একটি রিসেট লিঙ্ক পাঠিয়ে দেব।',
   'integrations.disconnected': 'সংযোগ বিচ্ছিন্ন',
+  'integrations.loadError': 'ইন্টিগ্রেশনগুলো লোড করা সম্ভব হয়নি।',
   'integrations.notConnectedTag': 'সংযুক্ত নয়',
   'integrations.subheading':
     'ক্যালেন্ডার ও ভিডিও প্ল্যাটফর্মগুলো সংযুক্ত করুন, যাতে Murmur স্বয়ংক্রিয়ভাবে যুক্ত হয়ে যায়।',
+  'integrations.updateError': 'আপডেট ব্যর্থ হয়েছে।',
   'landing.ctaButton': 'শুরু করুন — এটি বিনামূল্যে',
   'landing.ctaHeading': 'নোট নেওয়া বন্ধ করুন। সিদ্ধান্ত নেওয়া শুরু করুন।',
   'landing.demo.aiLabel': 'এআই সারাংশ, সরাসরি খসড়া করা হয়েছে',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'ফলোআপ',
   'meetingDetail.loadError': 'মিটিং লোড করা সম্ভব হয়নি।',
   'meetingDetail.noActions': 'কোনো করণীয় বিষয় শনাক্ত করা যায়নি।',
+  'meetingDetail.none': 'কিছুই না।',
   'meetingDetail.notFound': 'মিটিং খুঁজে পাওয়া যায়নি।',
+  'meetingDetail.speakerFallback': 'বক্তা {{id}}',
   'meetingDetail.summaryHeading': 'এআই সারাংশ',
   'meetingDetail.transcriptHeading': 'প্রতিলিপি',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'সভা',
   'meetings.loadError': 'মিটিংগুলো লোড করা সম্ভব হয়নি।',
   'meetings.subheading': 'প্রতিটি রেকর্ড করা, আপলোড করা এবং সিঙ্ক করা মিটিং।',
+  'murmurLayout.openMenu': 'নেভিগেশন মেনু খুলুন',
   'murmurLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'nav.legal': 'আইনি',
   'notifications.loadError': 'নোটিফিকেশন লোড করা সম্ভব হয়নি।',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'মারমার-এর ভিতরে আপনি যেভাবে উপস্থিত হন।',
   'record.error.empty': 'কোনো অডিও রেকর্ড করা হয়নি।',
   'record.error.permission': 'মাইক্রোফোন ব্যবহারের অনুমতি নেই।',
+  'record.error.recorder': 'রেকর্ডার ত্রুটি',
   'record.error.unsupported':
     'আপনার ব্রাউজার রেকর্ডিং সমর্থন করে না। Chrome, Edge বা Safari ব্যবহার করে দেখুন।',
   'record.error.upload': 'আপলোড ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'নতুন পাসওয়ার্ড',
   'reset.subheading': 'এমন একটি পাসওয়ার্ড বেছে নিন যা আপনি অন্য কোথাও ব্যবহার করেন না।',
   'search.empty': 'ট্রান্সক্রিপ্ট অনুসন্ধান করতে টাইপ করুন।',
+  'search.loadError': 'অনুসন্ধান ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
   'search.noResults': '“এর জন্য কোন ফলাফল নেই {{q}} ”',
   'settings.appearance.description': 'লাইট ও ডার্ক মোডের মধ্যে পরিবর্তন করুন।',
   'settings.appearance.title': 'চেহারা',
@@ -124,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'সেটিংস লোড করা সম্ভব হয়নি।',
   'settings.loading': 'লোড হচ্ছে…',
   'settings.push.heading': 'পুশ বিজ্ঞপ্তি',
+  'settings.push.subheading': 'মেনশন, অ্যাকশন আইটেম এবং সারাংশের জন্য ব্রাউজার অ্যালার্ট পান।',
   'settings.retention.audio': 'অডিও রাখুন',
   'settings.retention.heading': 'ধরে রাখা',
   'settings.retention.transcript': 'প্রতিলিপি রাখুন',
@@ -141,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'কয়েক মিনিটের মধ্যেই মিটিংয়ের নোট লেখা শুরু করুন',
   'signup.terms':
     'অ্যাকাউন্ট তৈরি করার মাধ্যমে আপনি আমাদের পরিষেবার শর্তাবলী এবং গোপনীয়তা নীতিতে সম্মত হচ্ছেন।',
+  'signup.termsPrefix': 'অ্যাকাউন্ট তৈরি করার মাধ্যমে আপনি আমাদের শর্তাবলীতে সম্মত হচ্ছেন।',
   'team.inviteCta': 'সতীর্থকে আমন্ত্রণ জানান',
   'team.invitedAs': 'আমন্ত্রিত হিসাবে {{role}}',
   'team.inviteFailed': 'আমন্ত্রণ পাঠানো যায়নি।',

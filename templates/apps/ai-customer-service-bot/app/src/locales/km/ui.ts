@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'analytics.channels.empty': 'មិនទាន់មានទិន្នន័យឆានែលនៅឡើយទេ។',
   'analytics.channels.title': 'តាមឆានែល',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'ការសន្ទនាក្នុងមួយថ្ងៃ',
   'chatBubble.avatarAlt': '{{speaker}} រូបតំណាង',
   'common.appName': 'របាយការណ៍​សង្ខេប',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'confidenceMeter.label': 'ទំនុកចិត្ត',
   'conversationDetail.agentName': 'ភ្នាក់ងារ',
   'conversationDetail.aiReplyButton': 'ការឆ្លើយតបរបស់បូត',
   'conversationDetail.aiReplyError': 'មិនអាចបង្កើតការឆ្លើយតប AI បានទេ',
   'conversationDetail.aiReplyLoading': 'កំពុងព្រាង…',
+  'conversationDetail.aiReplySourceFallback': 'បម្រុង (គ្មានគ្រាប់ចុច AI)',
   'conversationDetail.backAria': 'ត្រឡប់ទៅការសន្ទនាវិញ',
   'conversationDetail.composerPlaceholder': 'ឆ្លើយតបទៅកាន់អតិថិជន…',
   'conversationDetail.context.channel': 'ឆានែល',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'កំណត់ពាក្យសម្ងាត់ថ្មីសម្រាប់គណនីរបស់អ្នក',
   'resetPassword.toggleConfirm': 'បិទ/បើកការបញ្ជាក់ភាពមើលឃើញពាក្យសម្ងាត់',
   'resetPassword.togglePassword': 'បិទ/បើកភាពមើលឃើញពាក្យសម្ងាត់',
+  'settings.account.emailError': 'បរាជ័យក្នុងការធ្វើបច្ចុប្បន្នភាពអ៊ីមែល',
   'settings.account.emailLabel': 'អាសយដ្ឋានអ៊ីមែល',
+  'settings.account.emailSaved': 'អ៊ីមែលត្រូវបានធ្វើបច្ចុប្បន្នភាព',
+  'settings.account.nameError': 'មិនអាចធ្វើបច្ចុប្បន្នភាពឈ្មោះបានទេ',
   'settings.account.nameLabel': 'ឈ្មោះបង្ហាញ',
+  'settings.account.nameSaved': 'ឈ្មោះត្រូវបានធ្វើបច្ចុប្បន្នភាព',
   'settings.account.title': 'គណនី',
   'settings.api.createCta': 'បង្កើតសញ្ញាសម្ងាត់',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'បង្កើនដោយស្វ័យប្រវត្តិនៅពេលដែលអារម្មណ៍ធ្លាក់ចុះ',
   'settings.bot.greetingLabel': 'សារស្វាគមន៍ដំបូង',
   'settings.bot.title': 'ការកំណត់រចនាសម្ព័ន្ធបូត',
+  'settings.bot.toneFormal': 'ផ្លូវការ',
   'settings.bot.toneLabel': 'សំឡេង និង​សម្លេង',
   'settings.danger.deleteAccount': 'លុបគណនី',
+  'settings.danger.deleteError': 'មិនអាចលុបគណនីបានទេ',
+  'settings.danger.deleteWarning':
+    'វានឹងលុបគណនីរបស់អ្នក និងទិន្នន័យពាក់ព័ន្ធទាំងអស់ជាអចិន្ត្រៃយ៍។ វាមិនអាចត្រឡប់វិញបានទេ។',
   'settings.danger.deleting': 'កំពុងលុប…',
+  'settings.danger.passwordLabel': 'បញ្ជាក់ពាក្យសម្ងាត់របស់អ្នក',
   'settings.danger.title': 'តំបន់គ្រោះថ្នាក់',
+  'settings.devices.empty': 'គ្មានឧបករណ៍ណាមួយត្រូវបានចុះឈ្មោះទេ។',
+  'settings.devices.revokeWarning':
+    'ការចូលប្រើរបស់ឧបករណ៍នេះនឹងត្រូវបានដកហូតក្នុងពេលឆាប់ៗ។ ចាកចេញវា?',
+  'settings.devices.signingOut': 'កំពុងចាកចេញ…',
   'settings.devices.signOut': 'ចាកចេញ',
   'settings.devices.thisDevice': 'ឧបករណ៍នេះ',
   'settings.devices.title': 'ឧបករណ៍',
@@ -186,9 +202,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'មិនអាចប្តូរពាក្យសម្ងាត់បានទេ',
   'settings.security.currentPassword': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
   'settings.security.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
+  'settings.security.oauthManaged':
+    'ពាក្យសម្ងាត់របស់អ្នកត្រូវបានគ្រប់គ្រងដោយអ្នកផ្តល់សេវាចូលគណនីរបស់អ្នក។',
   'settings.security.title': 'សន្តិសុខ',
   'settings.security.twoFactorDisable': 'បិទ',
   'settings.security.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.security.twoFactorInvalid': 'លេខកូដមិនត្រឹមត្រូវ',
   'settings.subtitle': 'សំឡេងរបស់ Tune Rapport ប្រភពចំណេះដឹង និងឧបករណ៍ដែលវានិយាយជាមួយ។',
   'settings.tokenCreateError': 'បរាជ័យក្នុងការបង្កើតសញ្ញាសម្ងាត់',
   'settings.tokenRevokeError': 'មិនអាចលុបចោលសញ្ញាសម្ងាត់បានទេ',

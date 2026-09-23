@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.pageTitle': '{{app}} 소개',
   'activity.empty': '아직 활동이 없습니다 — 기기를 켜거나 장면을 활성화해 보세요.',
   'activity.eyebrow': '타임라인',
   'activity.loadError': '활동 피드를 불러오지 못했습니다.',
   'activity.subheading': '모든 기기, 자동화, 보안 이벤트를 시간순으로 보여드립니다.',
+  'addDevice.error.failed': '기기를 추가할 수 없습니다. 다시 시도해 주세요.',
   'addDevice.error.nameRequired': '계속하려면 이 기기에 이름을 지정해 주세요.',
   'addDevice.field.firmware': '펌웨어 버전',
   'addDevice.field.manufacturer': '제조사',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': '테스트 중…',
   'automationEditor.testNew': '자동화 기능을 먼저 저장하여 테스트하세요.',
   'automationRow.lastRun': '마지막 실행 {{date}} · {{count}}회 실행됨',
+  'automationRow.on': '~에',
   'automationRow.runNowAria': '{{name}} 지금 실행',
   'automations.empty': '아직 자동화 기능이 없습니다. 첫 번째 루틴을 만들어 보세요.',
   'automations.eyebrow': '루틴',
@@ -50,6 +54,7 @@ export const ui: UiTranslations = {
   'automations.loading': '자동화를 불러오는 중…',
   'automations.newAutomation': '+ 새 항목',
   'automations.subheading': '이 일이 일어나면 저 일을 실행하세요 — YAML 없이도.',
+  'common.goToDashboard': '대시보드로 이동',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': '기기를 불러오지 못했습니다.',
@@ -69,6 +74,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': '처리 중…',
   'deviceDetail.unnamed': '기기',
   'deviceStatusRow.on': '켜짐',
+  'deviceStatusRow.turnOff': '끄기',
+  'deviceStatusRow.turnOn': '켜기',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': '전력',
   'energy.heading': '에너지',
@@ -172,4 +179,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': '요금제 보기',
   'settings.security.heading': '보안',
   'settings.subheading': '요금제, 허브, 계정 환경설정입니다.',
+  'smartHomeDashboardLayout.openMenu': '탐색 메뉴 열기',
+  'smartHomeDashboardLayout.primaryNavLabel': '기본 탐색',
 }

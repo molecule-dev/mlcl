@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'ဆက်သွယ်ပါ',
+  'about.title': '{{app}} အကြောင်း',
   'authShell.backToLanding': '← ဆင်းသက်ခြင်းသို့ ပြန်သွားရန်',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ယနေ့ · လုပ်ငန်းလည်ပတ်မှုခြုံငုံသုံးသပ်ချက်',
   'dashboard.heading': 'စာရွက်စာတမ်း ထောက်လှမ်းရေး',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'လက်ရှိစစ်ထုတ်မှုများနှင့် ကိုက်ညီသော စာရွက်စာတမ်းများ မရှိပါ။',
   'documents.heading': 'စာရွက်စာတမ်းအားလုံး',
   'documents.loadError': 'စာရွက်စာတမ်းများကို တင်၍မရပါ။',
+  'documents.loading': 'စာကြည့်တိုက်ကို တင်နေသည်…',
   'documents.searchLabel': 'စာရွက်စာတမ်းများ ရှာဖွေပါ',
   'documents.searchPlaceholder': 'စာရွက်စာတမ်းများ ရှာဖွေရန်…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.subtitle': 'သင့်စာရွက်စာတမ်းများ ဆက်လက်စီးဆင်းနေစေရန် လက်မှတ်ထိုးဝင်ပါ။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'notFound.body':
     'သင်ဖွင့်ရန်ကြိုးစားခဲ့သော စာရွက်စာတမ်း သို့မဟုတ် လမ်းကြောင်းသည် ဤနေရာတွင် မရှိတော့ပါ။ ဒက်ရှ်ဘုတ်သို့ ပြန်သွားပါ သို့မဟုတ် ဘေးဘက်ဘားမှ အပိုင်းတစ်ခုကို ရွေးချယ်ပါ။',
+  'notFound.eyebrow': '{{app}} · ၄၀၄',
   'notFound.home': 'ဆင်းသက်စာမျက်နှာကို ဖွင့်ပါ',
   'notFound.title': 'ထိုစာမျက်နှာသည် မှတ်တမ်းတွင် မရှိပါ။',
   'parcelaHeroCard.change': '{{sign}} {{amount}} မနေ့ကနှင့် နှိုင်းယှဉ်ပါက %',
@@ -82,6 +89,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'အသက်ဝင်သော စည်းမျဉ်းများ',
   'rules.empty': 'ဖိုင်တင်စည်းမျဉ်းများ မရှိသေးပါ။ ထည့်သွင်းရန် စည်းမျဉ်းအသစ်ကို အသုံးပြုပါ။',
   'rules.eyebrow': 'အလိုအလျောက်စနစ်',
+  'rules.fieldsCount': '{{count}} ကွက်လပ်များ',
   'rules.form.destination': 'ဖိုင်သို့',
   'rules.form.name': 'စည်းမျဉ်းအမည်',
   'rules.form.save': 'စည်းမျဉ်းကို သိမ်းဆည်းပါ',

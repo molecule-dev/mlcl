@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'تماس بگیرید',
+  'about.title': 'درباره {{app}}',
   'authShell.backToLanding': '← بازگشت به فرود',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
+  'common.retry': 'دوباره امتحان کنید',
   'common.yes': '✓',
   'dashboard.eyebrow': 'امروز · مرور کلی عملیات',
   'dashboard.heading': 'هوش اسنادی',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'هیچ سندی با فیلترهای فعلی مطابقت ندارد.',
   'documents.heading': 'همه اسناد',
   'documents.loadError': 'بارگیری اسناد ناموفق بود.',
+  'documents.loading': 'در حال بارگذاری کتابخانه…',
   'documents.searchLabel': 'جستجوی اسناد',
   'documents.searchPlaceholder': 'جستجوی اسناد…',
   'documents.subheading': '{{count}} اسناد موجود در کتابخانه شما، به ترتیب جدیدترین‌ها.',
@@ -63,8 +67,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'مخفی کردن رمز عبور',
   'login.showPassword': 'نمایش رمز عبور',
   'login.subtitle': 'برای ادامه‌ی روند کار اسناد خود، وارد سیستم شوید.',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'notFound.body':
     'سند یا مسیری که سعی در باز کردن آن داشتید دیگر اینجا نیست. به داشبورد برگردید یا بخشی را از نوار کناری انتخاب کنید.',
+  'notFound.eyebrow': '{{app}} · ۴۰۴',
   'notFound.home': 'صفحه فرود را باز کنید',
   'notFound.title': 'آن صفحه در پرونده نیست',
   'parcelaHeroCard.change': '{{sign}} {{amount}} درصد در مقابل دیروز',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'هنوز هیچ قانونی برای ثبت وجود ندارد. برای اضافه کردن یک قانون جدید، از «قانون جدید» استفاده کنید.',
   'rules.eyebrow': 'اتوماسیون',
+  'rules.fieldsCount': '{{count}} فیلدها',
   'rules.form.destination': 'فایل به',
   'rules.form.name': 'نام قانون',
   'rules.form.save': 'ذخیره قانون',

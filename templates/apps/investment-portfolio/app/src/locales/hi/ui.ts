@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} के बारे में',
   'argentAuthShell.brandEyebrow': 'Argent · संपत्ति प्रबंधन उपकरण',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . यह निवेश संबंधी सलाह नहीं है।',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) आज',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'मुख्य नेविगेशन',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'इस टिकर के लिए कोई लेन-देन नहीं।',
   'assetDetail.txHeading': 'आपके लेन-देन',
   'common.and': 'और',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'पोर्टफ़ोलियो अवलोकन',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'अभी तक कोई होल्डिंग नहीं।',
   'holdings.heading': 'होल्डिंग्स',
   'holdings.loadError': 'होल्डिंग्स लोड करने में विफल।',
+  'landing.copyright':
+    '© {{year}} {{app}} . यह निवेश संबंधी सलाह नहीं है। पिछला प्रदर्शन भविष्य के परिणामों की गारंटी नहीं देता।',
   'landing.eyebrow': 'Argent · एक संपत्ति-प्रबंधन प्लेटफ़ॉर्म',
   'landing.features.heading': 'वह सब कुछ जो एक सलाहकार स्वयं के लिए बनाएगा।',
   'landing.finalCta.heading': 'अपने पोर्टफ़ोलियो में अनुशासन वापस लाएँ।',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} घंटे पहले',
   'news.justNow': 'अभी',
   'news.loadError': 'समाचार लोड करने में विफल।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'portfolioHeroCard.label': 'पोर्टफ़ोलियो मूल्य',
   'pricing.holdingsLabel': 'जोत',
   'pricing.newsLabel': 'समाचार लेख',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'खाता हटाएँ',
   'settings.security.deleting': 'हटाया जा रहा है…',
   'settings.security.heading': 'सुरक्षा',
+  'settings.security.newPassword': 'नया पासवर्ड',
   'settings.security.password': 'पासवर्ड',
   'settings.security.twoFactorEnable': 'सक्षम करें',
+  'settings.security.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.security.twoFactorVerify': 'सत्यापित करें और सक्षम करें',
   'settings.tax.error': 'कर विधि अपडेट नहीं की जा सकी।',
   'settings.tax.heading': 'कर लॉट लेखांकन',
   'settings.tax.method': 'डिफ़ॉल्ट विधि',

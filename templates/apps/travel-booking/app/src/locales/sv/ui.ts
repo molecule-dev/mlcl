@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
+  'about.featureDiscover.title': 'Inspiration, handplockad',
   'account.addPaymentCta': 'Lägg till betalningsmetod',
   'account.addPaymentError': 'Kunde inte lägga till betalningsmetod.',
+  'account.confirmRemove': 'Bekräfta borttagning',
   'account.defaultBadge': 'Standard',
   'account.loyalty.pointsTowardNext': '{{points}} av {{next}} miles till {{nextTier}}',
   'account.loyalty.tier': 'Nuvarande nivå',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Resedetaljer',
   'booking.tripSummary': '{{nights}} nätter · {{guests}} gäster',
   'common.daysAgo': '{{count}}d sedan',
+  'common.goToDashboard': 'Gå till översikt',
   'common.hoursAgo': '{{count}}h sedan',
   'common.minutesAgo': '{{count}}m sedan',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Juridiskt',
   'notifications.loading': 'Laddar…',
   'notifications.subheading': '{{count}} olästa · allt i en lugn inkorg',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.accommodationsLabel': 'boende',
   'pricing.bookingsLabel': 'bokningar',
   'pricing.destinationsLabel': 'sparade destinationer',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Inspiration, pålitliga boenden och en friktionsfri väg från dagdröm till bokat — i 14 länder och 200+ handplockade boenden.',
   'sojournHeroSearchCard.trustProtected': 'Gratis avbokning, helt skyddad',
   'sojournHeroSearchCard.trustVetted': 'Endast handplockade boenden',
+  'travelBookingLayout.primaryNavLabel': 'Huvudnavigering',
   'tripDetail.backLink': 'Tillbaka till resor',
   'tripDetail.cancelCta': 'Avboka',
   'tripDetail.cancelHeading': 'Avboka denna resa?',

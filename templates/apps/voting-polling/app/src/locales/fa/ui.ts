@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'analytics.col.quorum': 'حد نصاب',
   'analytics.col.votes': 'آرا',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'هنوز هیچ سوالی در انتظار بررسی نیست.',
   'audienceQa.onStageEyebrow': 'هم اکنون روی صحنه',
   'audienceQa.pollId': 'قا · {{id}}',
+  'audienceQa.promote': 'تبلیغ کنید',
   'audienceQa.queued': 'صف کشیده',
   'audienceQa.queueEyebrow': 'صف',
   'ballot.eyebrow': 'رأی خود را به صندوق بیندازید',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'شما در حال حاضر در {{plan}} طرح.',
   'billing.switch': 'سوئیچ',
   'billing.upgraded': 'به‌روزرسانی‌شده به {{plan}} — محدودیت‌ها بلافاصله اعمال می‌شوند.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'createPoll.addOption': 'گزینه اضافه کنید',
   'createPoll.anonymousHint':
     'نام رأی‌دهندگان در گزارش حسابرسی پنهان است؛ شمارش آرا همچنان معتبر است.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'تازه به نوش آمده‌اید؟',
   'login.remember': 'مرا به مدت 30 روز به خاطر بسپار',
   'login.subheading': 'کف را باز کنید، اتاق را اجرا کنید و نتیجه را تأیید کنید.',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'notFound.body':
     'صفحه‌ای که سعی در دسترسی به آن داشتید بسته یا منتقل شده است. به داشبورد برگردید یا یک نظرسنجی جدید باز کنید.',
   'notFound.eyebrow': 'حد نصاب در این مسیر وجود ندارد',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'این نظرسنجی بارگذاری نشد.',
   'pollDetail.loading': 'در حال بارگذاری نظرسنجی…',
   'pollDetail.notFound': 'نظرسنجی یافت نشد.',
+  'pollDetail.openBallot': 'رأی‌گیری علنی',
   'pollDetail.openLive': 'نتایج زنده',
   'pollDetail.pollId': 'نظرسنجی · {{id}}',
   'pollDetail.published': 'نظرسنجی منتشر شد - رأی‌دهندگان اکنون می‌توانند رأی بدهند.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'جستجو بر اساس ایمیل…',
   'voters.subheading':
     'فهرست واجدین شرایط را جمع‌آوری کنید. رأی‌دهندگان را بر اساس سازمان گروه‌بندی کنید تا آرای وزن‌دار داشته باشید.',
+  'votingPollingLayout.nav.analytics': 'تجزیه و تحلیل',
+  'votingPollingLayout.nav.billing': 'صورتحساب',
+  'votingPollingLayout.nav.createPoll': 'نظرسنجی جدید',
+  'votingPollingLayout.nav.dashboard': 'داشبورد',
+  'votingPollingLayout.nav.notifications': 'اعلان‌ها',
+  'votingPollingLayout.nav.settings': 'تنظیمات',
+  'votingPollingLayout.nav.team': 'تیم',
+  'votingPollingLayout.nav.voters': 'رأی‌دهندگان',
+  'votingPollingLayout.primaryNavLabel': 'ناوبری اولیه',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Gaan na Dashboard',
   'forgot.eyebrow': 'Die pad terug in verloor?',
   'forgot.formSubtitle': 'Vertel ons van die e-posadres wat ons op lêer het.',
   'forgot.headline': 'Stel jou wagwoord terug.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Skep een',
   'login.subline':
     'Jou notaboeke, terugskakels en daaglikse bladsye is presies waar jy hulle gelos het.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'noteEditor.backToNotes': 'Terug na notas',
   'noteEditor.bodyPlaceholder': 'Begin skryf — jou nota word outomaties gestoor terwyl jy tik.',
   'noteEditor.confirmTrash': 'Skuif hierdie nota na die asblik?',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Nuwe notaboek',
   'notes.newNotebookPrompt': 'Nuwe notaboeknaam',
   'notes.notebooksHeading': 'Notaboeke',
+  'notes.subtitle':
+    "Kies 'n notaboek aan die linkerkant en druk dan die Nuwe nota-knoppie om 'n nuwe inskrywing te begin.",
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Kies jou Nota-neemplan',
   'reset.eyebrow': 'Amper terug in',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Opgedateer',
   'versoLayout.nav.graph': 'Grafiek',
   'versoLayout.nav.home': 'Tuis',
+  'versoLayout.primaryNavLabel': 'Primêre navigasie',
   'versoNoteCard.pinned': 'Vasgepen',
   'versoTodayHero.continueCta': 'Gaan voort met skryf',
   'versoTodayHero.createCta': 'Begin vandag se nota',

@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
   'authBrandPanel.quote':
     '"ഞങ്ങളുടെ ഉടമസ്ഥതയിലുള്ള എല്ലാ ഒപ്പിട്ട കരാറുകളുടെയും രേഖാ സംവിധാനമാണ് വെല്ലം ഇപ്പോൾ."',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'contractDetail.amount': 'വില',
   'contractDetail.back': 'എല്ലാ കരാറുകളും',
   'contractDetail.downloadCta': 'PDF ഡൗൺലോഡ് ചെയ്യുക',
@@ -28,6 +31,7 @@ export const ui: UiTranslations = {
   'contracts.col.expires': 'കാലഹരണപ്പെടുന്നു',
   'contracts.col.owner': 'ഉടമസ്ഥൻ',
   'contracts.empty': 'ഒരു കരാറും പൊരുത്തപ്പെടുന്നില്ല.',
+  'contracts.filter.all': 'All',
   'contracts.heading': 'കരാറുകൾ',
   'contracts.loadError': 'കരാറുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'contracts.newCta': 'പുതിയ കരാർ',
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
     'ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ {{email}} , ഒരു പുനഃസജ്ജീകരണ ലിങ്ക് വന്നുകൊണ്ടിരിക്കുകയാണ്.',
   'forgotPassword.subtitle':
     'നിങ്ങളുടെ ഔദ്യോഗിക ഇമെയിലിലേക്ക് ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . തന്മാത്ര ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
   'landing.ctaHeading':
     'ആദ്യ ദിവസം തന്നെ നിങ്ങളുടെ പോർട്ട്ഫോളിയോ എങ്ങനെ അവസാനിക്കുന്നു എന്ന് കാണുക.',
   'landing.ctaPrimary': 'ഒരു വർക്ക്‌സ്‌പെയ്‌സ് ആരംഭിക്കുക',
@@ -101,6 +106,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'എതിർകക്ഷിയുടെ പേര് ആവശ്യമാണ്.',
   'newContract.errEmail': 'ഒപ്പിട്ടയാളുടെ ഇമെയിൽ വിലാസം ആവശ്യമാണ്.',
   'newContract.expires': 'കാലഹരണപ്പെടുന്ന തീയതി',
+  'newContract.failed': 'കരാർ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'newContract.heading': 'പുതിയ കരാർ',
   'newContract.nextCta': 'അടുത്തത്',
   'newContract.review.counterparty': 'എതിർകക്ഷി',
@@ -116,6 +122,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'കരാറിന്റെ പേര്',
   'newContract.titlePlaceholder': 'മാസ്റ്റർ സർവീസസ് കരാർ',
   'newContract.variablesHeading': 'കരാർ വേരിയബിളുകൾ',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.dataExport': 'ഡാറ്റ കയറ്റുമതി',
   'pricing.disabled': 'ഇല്ല',
   'pricing.enabled': 'അതെ',
@@ -148,15 +155,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'settings.security.deleting': 'ഇല്ലാതാക്കുന്നു...',
   'settings.security.newPassword': 'പുതിയ പാസ്വേഡ്',
+  'settings.security.noDevices': 'ഉപകരണങ്ങളൊന്നും രജിസ്റ്റർ ചെയ്തിട്ടില്ല.',
   'settings.security.twoFactor': 'രണ്ട്-ഘടക പ്രാമാണീകരണം',
   'settings.security.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'settings.security.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.security.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്.',
   'settings.signatures.body':
     'നിങ്ങൾ ഒപ്പിടുന്ന ഓരോ കരാറിന്റെയും ഒപ്പ് വരിയിൽ നിങ്ങളുടെ ടൈപ്പ് ചെയ്ത പേര് ദൃശ്യമാകും. ഒരിക്കൽ അത് സജ്ജമാക്കിയാൽ മുന്നോട്ട് പോകുമ്പോൾ അത് യാന്ത്രികമായി റെൻഡർ ചെയ്യപ്പെടും.',
   'settings.signatures.heading': 'സിഗ്നേച്ചർ ബ്ലോക്ക്',
   'settings.signatures.save': 'ഒപ്പ് സംരക്ഷിക്കുക',
+  'sign.action': 'ഈ പ്രമാണത്തിൽ ഒപ്പിടുക',
+  'sign.eyebrow': 'ഒപ്പ് അഭ്യർത്ഥിച്ചു',
+  'sign.for': '{{name}} എന്നതിന്',
+  'sign.loadError': 'ഈ ഒപ്പിടൽ ലിങ്ക് അസാധുവാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു.',
   'sign.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'sign.signing': 'ഒപ്പിടുന്നു...',
+  'sign.submitError': 'നിങ്ങളുടെ ഒപ്പ് രേഖപ്പെടുത്താൻ കഴിഞ്ഞില്ല — ലിങ്ക് കാലഹരണപ്പെട്ടിരിക്കാം.',
   'signup.brandQuote':
     '\\u201cഞങ്ങൾ 8 വർഷത്തെ പേപ്പർ ഒരു ആഴ്ചയ്ക്കുള്ളിൽ വെല്ലത്തിലേക്ക് മാറ്റി. ഓഡിറ്റ് ട്രയൽ മാത്രമാണ് കൈമാറ്റത്തെ ന്യായീകരിക്കുന്നത്.\\u201d',
   'signup.companyPlaceholder': 'നോർത്ത്‌വിൻഡ് ട്രേഡേഴ്‌സ്',
@@ -192,6 +206,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'ഓപ്പൺ കോൺട്രാക്റ്റ് →',
   'vellumKpiCard.trend': 'സമീപകാല പ്രവണത',
+  'vellumLayout.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'vellumLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'vellumLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'vellumPortfolioHero.expiring': '30 ദിവസം കാലഹരണപ്പെടുന്നു',
   'vellumPortfolioHero.label': 'പോർട്ട്ഫോളിയോ മൂല്യം',

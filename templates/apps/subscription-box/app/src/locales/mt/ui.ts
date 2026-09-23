@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Dwar {{app}}',
+  'appNav.mobileLabel': 'Navigazzjoni primarja',
+  'appNav.primaryLabel': 'Navigazzjoni primarja',
   'billing.actions.confirmCancel':
     "Tikkanċella l-abbonament tiegħek? Tista' terġa' tabbona f'kull ħin.",
   'billing.actions.paused': 'L-abbonament waqaf.',
@@ -46,6 +49,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     "Kull livell huwa storja ta' lott żgħir. Żid waħda mal-kju tiegħek jew ibdelha għax-xahar li jmiss.",
   'boxThemeCard.perMonth': '/ xahar',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'customize.eyebrow': 'Agħmilha tiegħek',
   'customize.heading': 'Ippersonalizza t-Crate li jmiss tiegħek',
   'customize.items.exclude': 'Aqbeż dan',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Dan l-istaġun',
   'landing.editions.heading': 'Edizzjonijiet li l-kuraturi tagħna qed iħobbu',
   'landing.footer.contact': 'Kellem lil kuratur',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ibda l-kaxxa tiegħek →',
   'landing.hero.ctaSecondary': 'Ara l-livelli',
   'landing.hero.eyebrow': 'Magħmul kull xahar. Dejjem personali.',
@@ -114,6 +119,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'IT-TEŻOR LI JMISS TIEGĦEK',
   'nextBoxHeroCard.itemsLabel': 'Oġġetti kkurati',
   'nextBoxHeroCard.shipsOnLabel': 'Vapuri fuq',
+  'notFound.body':
+    "Ma stajniex insibu dik il-paġna fl-arkivju {{app}} . Jista' jkun li ġiet irtirata jew sempliċement ġiet ittajpjata ħażin.",
   'notFound.cta.dashboard': 'Mur fid-dashboard',
   'notFound.eyebrow': 'Kaxxa vojta',
   'notFound.heading': 'Dan l-ixkaffa huwa vojt',

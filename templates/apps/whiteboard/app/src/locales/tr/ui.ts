@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'authShell.brandHeading': 'Yüksek sesle düşünen tasarım ekipleri için çok oyunculu tuvaller.',
   'billing.canceled': 'Abonelik iptal edildi.',
   'billing.cancelPlan': 'Planı iptal et',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Şablondan başla',
   'boards.title': 'Panolarınız',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Panele Git',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Çalışma alanınıza bağlı e-postayı girin, size bir sıfırlama bağlantısı gönderelim.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Q1 Atölyesi · Marka Sesi',
   'landing.featuresEyebrow': "Slate'yı uyumlu kılan şey",
   'landing.featuresTitle': 'Hızlı geri bildirim. Güzel tuvaller. Sıfır sürtüşme.',
+  'landing.hero.body':
+    '{{appName}} canlı beyin fırtınası yapan ve fikirlerin tek bir yerde bir araya gelmesine ihtiyaç duyan tasarım ekipleri, atölye kolaylaştırıcıları ve eğitimciler için çok oyunculu bir beyaz tahtadır.',
   'landing.hero.primaryCta': 'Ücretsiz pano başlat',
   'landing.hero.socialProof': 'Dünya çapında {{count}} tasarım ekibinin güvendiği',
   'landing.hero.title': 'Düşünceleriniz kadar hızlı bir tuval',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Ücretsiz çalışma alanı oluştur',
   'login.subheading':
     'Atölyenin bıraktığı yerden devam edin — panolar, yapışkan notlar ve imleçler gerçek zamanlı olarak senkronize olur.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.new': 'Yeni',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'notifications.editTitle': '"{{board}}" üzerindeki düzenlemeler',
   'notifications.empty.body':
     'Davetiyeler, anlık görüntü kayıtları ve son pano düzenlemeleri gerçekleştiği anda burada görünecektir.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Sürüm geçmişi',
   'versionHistory.untitledSnapshot': 'Başlıksız anlık görüntü',
   'whiteboardLayout.newBoard': 'Yeni pano',
+  'whiteboardLayout.primaryNav': 'Birincil gezinme',
   'workspace.boardLabel': 'Pano',
   'workspace.eyebrow': '{{name}} · çalışma alanı',
   'workspace.invite': 'İşbirlikçileri davet et',

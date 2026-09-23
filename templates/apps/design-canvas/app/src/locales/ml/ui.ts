@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'authShell.brandHeading':
     'ഒരുമിച്ച് ഷിപ്പ് ചെയ്യുന്ന ഡിസൈൻ ടീമുകൾക്കായി പിക്സൽ-പെർഫെക്റ്റ് ക്യാൻവാസുകൾ.',
   'canvas.redirecting': 'ഓപ്പണിംഗ് എഡിറ്റർ…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'ഒപ്പം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'dashboard.activityEmpty':
     'ഇതുവരെ പുതിയ പ്രവർത്തനങ്ങളൊന്നുമില്ല — ആരംഭിക്കാൻ ഒരു സഹതാരത്തെ ക്ഷണിക്കുക.',
   'dashboard.activityTitle': 'ഇന്ന് എന്താണ് മാറിയത്?',
@@ -19,12 +22,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'ജോലിസ്ഥലം · നോർത്ത്‌വിൻഡ് സ്റ്റുഡിയോ',
   'dashboard.foldersLabel': 'ഫോൾഡറുകൾ',
   'dashboard.gridTitle': '{{count}} പദ്ധതികൾ',
+  'dashboard.heroActiveTool': 'പേന ഉപകരണം',
   'dashboard.loadingTitle': 'പ്രോജക്റ്റുകൾ ലോഡ് ചെയ്യുന്നു...',
   'dashboard.searchPlaceholder': 'പ്രോജക്റ്റുകൾ തിരയുക',
   'dashboard.startFromTemplate': 'ടെംപ്ലേറ്റിൽ നിന്ന് ആരംഭിക്കുക',
   'dashboard.title': 'നിങ്ങളുടെ പ്രോജക്റ്റുകൾ',
   'dashboard.untitledProject': 'പേരില്ലാത്ത പ്രോജക്റ്റ്',
   'designCanvasLayout.newProject': 'പുതിയ പ്രോജക്റ്റ്',
+  'designCanvasLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'editor.backToProjects': 'പ്രോജക്റ്റുകളിലേക്ക് മടങ്ങുക',
   'editor.deleteShape': 'ആകൃതി ഇല്ലാതാക്കുക',
   'editor.errorBody': 'ഞങ്ങൾക്ക് ഈ പ്രോജക്റ്റ് തുറക്കാൻ കഴിഞ്ഞില്ല.',
@@ -65,6 +70,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'നിങ്ങളുടെ കൈകളുടെ വേഗതയിൽ ചലിക്കുന്ന ഉപകരണങ്ങൾ രൂപകൽപ്പന ചെയ്യുക',
   'library.empty': 'ഈ വിഭാഗത്തിൽ ഇതുവരെ ടോക്കണുകളൊന്നുമില്ല.',
   'library.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് · അറ്റ്ലിയർ ഡിസൈൻ സിസ്റ്റം',
+  'library.loadFailed': 'ഡിസൈൻ ടോക്കണുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'library.systemMeta': 'സിസ്റ്റത്തിന്റെ ആരോഗ്യം',
   'library.systemSummary':
     '{{ടോക്കണുകൾ}} ടോക്കണുകൾ · {{ഘടകങ്ങൾ}} ഘടകങ്ങൾ · {{ഇഫക്റ്റുകൾ}} ഇഫക്റ്റുകൾ',

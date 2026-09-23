@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'billing.canceled':
     'Harpidetza bertan behera utzi da. Doako bertsiora itzuliko zara epea amaitzean.',
   'billing.contactSales': 'Jarri harremanetan salmenta-zerbitzuarekin',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Atxikipen mugarik ez',
   'billing.upgradeHint': 'Eguneratu AI funtzio aurreratuak desblokeatzeko.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.activityEmpty':
     'Oraindik ez dago jarduerarik — hasi proiektu bat jario hau betetzeko.',
   'dashboard.eyebrow': 'Orokorra',
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Berrerabili aurreko itzulpenak proiektu guztietan. Bat etortze puntuazio handiagoa → berriro lan gutxiago.',
   'memory.title': 'Memoria bankua',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'nav.legal': 'Legezko',
   'newProject.addLanguage': 'Gehitu helburua',
   'newProject.create': 'Sortu proiektua',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Markatuta {{count}} irakurritako jakinarazpenak.',
   'notifications.subtitle':
     'Aipamenak, berrikuspen eskaerak eta adimen artifizialaren gertaerak zure lan-eremu guztietan.',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'privacy.collection.account': 'Zure kontuaren helbide elektronikoa eta bistaratzeko izena',
   'privacy.deletion.body':
     'Proiektu, segmentu, glosarioko termino edo memoria sarrera bat edozein unetan ezaba dezakezu dagokion orrialdetik. Zure kontua Ezarpenetatik ezabatzen baduzu, lan-eremuaren esparruko errenkada guztiak gure datu-basetik ezabatzen dira.',
@@ -178,6 +183,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Proiektuak kargatzea huts egin da.',
   'projects.loading': 'Proiektuak kargatzen…',
   'projects.subtitle': 'Tokiko proiektu aktibo guztiak.',
+  'renditionLayout.primaryNavLabel': 'Nabigazio nagusia',
   'reset.backToLogin': 'Saioa hasteko itzuli',
   'reset.passwordLabel': 'Pasahitz berria',
   'review.activeEyebrow': 'Segmentua {{number}}',

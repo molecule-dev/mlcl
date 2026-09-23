@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'authShell.statusLabel': 'ධාවකයන් සබැඳිව',
   'collections.createError': 'එකතුව නිර්මාණය කිරීමට නොහැකි විය.',
   'collections.defaultName': 'නම් නොකළ එකතුව {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'නව එකතුව',
   'collections.subheading':
     'කණ්ඩායම් ඉල්ලීම්, ඔබේ කණ්ඩායම සමඟ බෙදා ගන්න, සහ ඒවා කට්ටලයක් ලෙස ක්‍රියාත්මක කරන්න.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'environmentCard.inactive': 'අක්‍රිය',
   'environmentCard.more': 'තව',
   'environmentCard.variables': 'විචල්‍යයන්',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'නොමිලේ බාගන්න',
   'landing.heroSubtitle':
     'පර්යන්තවල ජීවත් වන ඉංජිනේරුවන් සඳහා ඉදිකරන ලද අකුණු-වේග API පරීක්ෂණ වැඩ බංකුව.',
+  'landing.heroTitleAccent': 'ගින්න',
+  'landing.heroTitleLine2': 'විශ්වාසය ගොඩනඟා ගන්න.',
+  'landing.heroTitleRest': 'ඉල්ලීම්,',
   'landing.kicker': '$ පයිලෝන් යවන්න --watch',
   'landing.pricingEyebrow': '// $ මිලකරණය --plain',
   'landing.pricingHeading': 'සරල, පුරෝකථනය කළ හැකි මිලකරණය',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'මෙහෙට අලුත්ද?',
   'login.showPassword': 'මුරපදය පෙන්වන්න',
   'login.subtitle': 'ඔබේ පයිලෝන් වැඩබිමට යන්න.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'mocks.createError': 'අනුකරණයක් නිර්මාණය කිරීමට නොහැකි විය.',
   'mocks.defaultName': 'නම් නොකළ අනුකරණය {{n}}',
   'mocks.deleteError': 'අනුකරණය මැකීමට නොහැකි විය.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'ආපසු වැඩබිමට',
   'notFound.eyebrow': '$ පයිලෝන් විසඳුම --strict',
   'notFound.title': 'මාර්ගය හමු නොවීය.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'privacy.collect.account':
     'ගිණුම: ඔබගේ විද්‍යුත් තැපෑල, හැෂ් මුරපදය, දර්ශන නාමය සහ ඔබගේ අවසන් පිවිසුමේ වේලා මුද්‍රාව.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'මෙම ගිණුම සතුව දැනට ඇති දත්ත කියවීමට පමණක් හැකි දසුනක්.',
   'settings.unset': 'සකසා නැත',
   'signup.identityHint': 'උදාහරණයක් ලෙස ඇලෙක්ස්',
+  'signup.statusLabel': 'නොමිලේ ස්ථරය · ණයපත් නැත',
   'signup.subtitle': 'මිනිත්තු කිහිපයකින් ඉල්ලීම් යැවීම ආරම්භ කරන්න.',
   'terms.account.body':
     'ඔබගේ මුරපදය ආරක්ෂා කර ගැනීම ඔබේ වගකීමකි. නොමිලේ හෝ වෘත්තීය සැලසුම් වලදී එක් ගිණුමක් බහු පුද්ගලයින් සමඟ බෙදා ගැනීමට අවසර නැත - බෙදාගත් වැඩබිම් සඳහා කණ්ඩායම් දායකත්වයක් මිලදී ගන්න.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'ඔබට හිමිකමක් නැති හෝ පරීක්ෂා කිරීමට පැහැදිලි අවසරයක් නොමැති සේවාවන් සඳහා ඉල්ලීම් ඉදිරිපත් කිරීමට Pylon භාවිතා නොකරන්න. අනුපාත සීමාවන් මග හැරීමට හෝ වංචා කිරීමට Pylon භාවිතා නොකරන්න.',
   'terms.warranty.body':
     'කිසිදු ආකාරයක වගකීමක් නොමැතිව "පවතින ආකාරයටම" පයිලෝන් සපයනු ලැබේ. අපි 99.9% ක ක්‍රියාකාරී කාලයක් ඉලක්ක කරමු, නමුත් නොමිලේ හෝ වෘත්තීය සැලසුම් සඳහා එය සහතික නොකරමු.',
+  'testRunner.assertionsCount': 'ප්‍රකාශ {{count}}',
   'testRunner.createError': 'පරීක්ෂණය නිර්මාණය කිරීමට නොහැකි විය.',
   'testRunner.cron':
     'මෙම පරීක්ෂණයේ සම්බන්ධිත ඉල්ලීමේ මෑත කාලීන ධාවනයට එරෙහිව ප්‍රකාශ ඇගයීමට ලක් කෙරේ.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'සූට් ප්‍රතිඵල, ප්‍රකාශ වෙනස්කම් සහ අවසාන ලකුණු 50.',
   'userMenu.shortcut': '⌘එල්',
   'userMenu.signedInAs': 'ලෙස පුරනය වී ඇත',
+  'workspace.auth.keyName': 'ශීර්ෂක නම',
+  'workspace.auth.keyValue': 'ප්‍රධාන අගය',
+  'workspace.auth.password': 'මුරපදය',
+  'workspace.auth.username': 'පරිශීලක නාමය',
+  'workspace.authOption.apikey': 'API යතුර',
+  'workspace.authOption.basic': 'මූලික සත්‍යාපනය',
+  'workspace.authOption.bearer': 'දරන්නා ටෝකනය',
+  'workspace.authOption.none': 'කිසිවක් නැත',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'වර්ගය',
   'workspace.authTypeLabel': 'සත්‍යාපන වර්ගය',
+  'workspace.body.json': 'JSON (ජේඑස්ඕඑන්)',
+  'workspace.body.none': 'කිසිවක් නැත',
+  'workspace.body.text': 'අමු පෙළ',
+  'workspace.body.type': 'වර්ගය',
   'workspace.environment': 'env නැත',
   'workspace.envVar': 'env විචල්‍යය',
   'workspace.eyebrow': '$ පයිලෝන් වැඩබිම --කවුළු බෙදීම',
+  'workspace.kv.addHeader': 'ශීර්ෂකය එක් කරන්න',
+  'workspace.kv.addParam': 'පරාමිතිය එක් කරන්න',
+  'workspace.kv.headerKey': 'ශීර්ෂක නම',
+  'workspace.kv.headerValue': 'ශීර්ෂක අගය',
+  'workspace.kv.key': 'යතුර',
+  'workspace.kv.paramKey': 'විමසුම් පරාමිති යතුර',
+  'workspace.kv.paramValue': 'විමසුම් පරාමිති අගය',
+  'workspace.kv.removeRow': 'පේළිය ඉවත් කරන්න',
+  'workspace.kv.value': 'වටිනාකම',
   'workspace.methodLabel': 'HTTP ක්‍රමය',
   'workspace.metric.latency': 'ප්‍රමාදය',
   'workspace.metric.latencyCaption': 'මෙම ධාවනයෙන් වට-ගමන',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'ඉල්ලීම නිෂ්ප්‍රභ කරන ලදී — පහත ප්‍රතිචාරය බලන්න.',
   'workspace.subheading':
     'ඉල්ලීමක් රචනා කරන්න, එය ක්‍රියාත්මක කරන්න, පසුව ප්‍රතිචාරය තහවුරු කරන්න - සියල්ල එක කවුළුවකින්.',
+  'workspace.testResults': 'පරීක්ෂණ ප්‍රතිඵල',
   'workspace.token': 'ටෝකන්',
   'workspace.tokenHint': 'අවසරය ලෙස යවන ලදී: දරන්නා<token> මෙම එකතුවේ ඇති සෑම ඉල්ලීමක් සඳහාම.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Tún ẹ̀wọ̀n bẹ̀rẹ̀',
   'resetPassword.mismatchError': 'Àwọn ọ̀rọ̀ aṣínà kò bá ara wọn mu.',
   'resetPassword.subheading': 'Yan èyí tó lágbára. Àwọn ìwé rẹ yóò dúró.',
-  'reviewCard.starsAria': 'A ṣe ìdíyelé rẹ̀<x> {{ìdíwọ̀n}}</x> láti inú<x> {{ti}}</x> àwọn ìràwọ̀',
+  'reviewCard.starsAria': 'A ṣe ìdíyelé {{rating}} nínú {{of}} ìràwọ̀',
   'reviewCard.unratedAria': 'A ko ni idiyele',
   'reviews.eyebrow': 'Èyí tó dúró pẹ̀lú rẹ',
   'reviews.heading': 'Àwọn àtúnyẹ̀wò rẹ',

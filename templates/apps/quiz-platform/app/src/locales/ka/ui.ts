@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.title': '{{app}}-ის შესახებ',
   'auth.login.noAccount': 'ახალი ხართ Sparq-ში?',
   'auth.login.or': 'ან გააგრძელეთ',
   'auth.signup.or': 'ან დარეგისტრირდით',
+  'common.confirm': 'დადასტურება',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.loadError': 'ამ კონტენტის ჩატვირთვისას რაღაც შეცდომა მოხდა.',
+  'common.retry': 'ხელახლა ცდა',
   'discover.collections.title': 'დაათვალიერეთ კატეგორიის მიხედვით',
   'discover.collections.viewAll': 'იხილეთ თქვენი ბიბლიოთეკა →',
   'discover.empty.body': 'სცადეთ სხვა კატეგორია ან გაასუფთავეთ ძიება.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'შედით სისტემაში, რათა შეინარჩუნოთ თქვენი სერია, უმასპინძლოთ პირდაპირ ეთერში თამაშებს და ავიდეთ ლიდერბორდში.',
   'myQuizzes.createButton': 'ახალი ვიქტორინა',
+  'myQuizzes.deleteConfirm': 'სამუდამოდ წაშლა?',
   'myQuizzes.empty.createCta': 'შექმენით თქვენი პირველი ვიქტორინა →',
   'myQuizzes.empty.created': 'თქვენ ჯერ არ შეგიქმნიათ ვიქტორინა.',
   'myQuizzes.empty.played': 'ჯერ არ არის გამოქვეყნებული ვიქტორინები.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'იტვირთება…',
   'notifications.subhead':
     '{{count}} წაუკითხავი ნაპერწკლები. მოწვევები, ლიდერბორდში სვლები და მიღწევები - ყველაფერი ერთ ნაკადში.',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.checkoutError': 'შეკვეთის გაფორმების დაწყება ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
+  'pricing.heading': 'აირჩიეთ თქვენი {{app}} ტარიფი',
   'pricing.included': 'შედის',
   'pricing.loadError': 'გეგმების ჩატვირთვა ვერ მოხერხდა.',
   'pricing.maxQuizzes': '{{count}} ვიქტორინები',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ჯერ არაფერი გამოქვეყნებულა.',
   'profile.startBuilding': 'მშენებლობის დაწყება →',
   'profile.tier': 'სპარკის მოთამაშე',
+  'quizBuilder.addFailed': 'კითხვის დამატება ვერ მოხერხდა. სცადეთ ხელახლა.',
   'quizBuilder.addQuestion': 'კითხვის დამატება',
   'quizBuilder.answerPlaceholder': 'აკრიფეთ ვარიანტი…',
   'quizBuilder.answersLabel': 'პასუხის ვარიანტები',
   'quizBuilder.back': 'დავუბრუნდეთ ჩემს ვიქტორინებს',
   'quizBuilder.delete': 'კითხვის წაშლა',
+  'quizBuilder.deleteFailed': 'კითხვის წაშლა ვერ მოხერხდა.',
   'quizBuilder.firstQuestion': 'დასაწყებად დაამატეთ თქვენი პირველი კითხვა.',
   'quizBuilder.idLabel': 'ვიქტორინის ID: {{id}}',
   'quizBuilder.loadError': 'ტესტის ჩატვირთვა ვერ მოხერხდა.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'დაამატეთ მინიმუმ ორი პასუხი და აირჩიეთ სწორი {{count}} კითხვა(ები) გამოქვეყნებამდე.',
   'quizBuilder.questionsTitle': 'კითხვები',
+  'quizBuilder.saveFailed': 'სათაურის შენახვა ვერ მოხერხდა. სცადეთ ხელახლა.',
   'quizBuilder.statusDraft': 'პროექტი',
   'quizBuilder.subhead':
     'სათაურის რედაქტირება, კითხვების დამატება, არჩევანის ვარიანტებისა და სწორი პასუხის დაყენება. ცვლილებები ავტომატურად ინახება.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} წთ',
   'quizDetail.hostMultiplayer': 'მასპინძელი მრავალმოთამაშიანი რეჟიმი',
   'quizDetail.leaderboardEmpty': 'ჯერ არ არის პიესები — დააწესეთ პირველი ანგარიში.',
+  'quizDetail.loadError': 'ამ ტესტის ჩატვირთვა ვერ მოხერხდა.',
   'quizDetail.loading': 'ვიქტორინა იტვირთება…',
   'quizDetail.plays': '{{count}} პიესები',
   'quizDetail.playSolo': 'სოლო თამაში',

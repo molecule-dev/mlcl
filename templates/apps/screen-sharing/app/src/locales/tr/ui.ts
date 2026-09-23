@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
   'about.pageTitle': '{{appName}} hakkında',
   'analytics.empty': 'Burada etkileşimi görmek için ilk klibinizi kaydedin.',
@@ -39,9 +40,11 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klip',
   'billing.usage.views': 'Görüntülenmeler',
   'billing.usage.views.unit': 'görüntülenme',
+  'common.goToDashboard': 'Panele Git',
   'landing.cta.title': 'Daha iyi geri bildirim gönderin. Glint ile başlayın.',
   'landing.feature.capture.body': 'Mikrofon, kamera ve çizimle tarayıcı, masaüstü ve mobil kayıt.',
   'landing.feature.capture.title': 'Tek dokunuşla kayıt',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asenkron, ışıl ışıl hale getirildi.',
   'landing.hero.cardCaption': 'Örnek çalışma alanı genel bakışı — ücretsiz deneyin.',
   'landing.hero.primaryCta': 'Ücretsiz kayda başlayın',
   'landing.hero.proof.free': 'Sonsuza dek ücretsiz katman',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Kayıtları ara',
   'library.searchPlaceholder': 'Kayıtları ara…',
   'library.weeklyChange': 'Geçen haftaya göre %{{value}}',
+  'nav.openMenu': 'Gezinti menüsünü aç',
   'nav.record': 'Kaydet',
   'nav.shared': 'Benimle paylaşılanlar',
   'nav.startRecording': 'Kayda başla',

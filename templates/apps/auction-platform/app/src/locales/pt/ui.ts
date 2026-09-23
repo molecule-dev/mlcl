@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Acompanhando',
   'auctionDetail.watchRemoved': 'Removido da lista de interesses.',
   'auctionDetail.watchRemoveLabel': 'Remover da lista de interesses',
+  'auctionPlatformLayout.primaryNavLabel': 'Navegação principal',
   'authShell.brandBody':
     'Dê lances em tempo real em relógios raros, arte fina e itens de especialidade únicos. O martelo cai em segundos.',
   'authShell.brandEyebrow': 'Ao vivo · 1.420 leilões',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ordenar por',
   'browseAuctions.subheading':
     'Filtre por categoria, ordene pelo que mais importa e dê um lance antes do martelo cair.',
+  'common.goToDashboard': 'Ir para o Painel',
   'countdownTimer.ended': 'Encerrado',
   'countdownTimer.endingSoon': 'Encerrando',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ocultar senha',
   'login.showPassword': 'Mostrar senha',
   'login.subtext': 'Continue acompanhando seus leilões e dê lances antes que o martelo caia.',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'myBids.bidAgain': 'Dar lance novamente',
   'myBids.browseCta': 'Explorar leilões ao vivo →',
   'myBids.checkoutCta': 'Pagar agora',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centro de atividade',
   'notificationsPage.subheading':
     '{{count}} não lidas · atualizações ao vivo conforme os leilões avançam',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.bidsLabel': 'lances',
   'pricing.listingsLabel': 'anúncios',
   'pricing.watchlistLabel': 'lista de interesses',

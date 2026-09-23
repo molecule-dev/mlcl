@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'forgot.eyebrow': 'Ai pierdut drumul înapoi?',
   'forgot.formSubtitle': 'Spuneți-ne adresa de e-mail înregistrată.',
   'forgot.headline': 'Resetează-ți parola.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Creați unul',
   'login.subline':
     'Notebook-urile, backlink-urile și paginile zilnice sunt exact acolo unde le-ai lăsat.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'noteEditor.backToNotes': 'Înapoi la note',
   'noteEditor.bodyPlaceholder':
     'Începeți să scrieți — nota se salvează automat pe măsură ce tastați.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Caiet nou',
   'notes.newNotebookPrompt': 'Nume nou pentru caiet',
   'notes.notebooksHeading': 'Caiete',
+  'notes.subtitle':
+    'Alegeți un caiet din stânga, apoi apăsați butonul Notă nouă pentru a începe o intrare nouă.',
   'planUpdated.confirmation': 'Planul dumneavoastră a fost actualizat',
   'pricing.heading': 'Alege-ți planul de luare a notițelor',
   'reset.eyebrow': 'Aproape din nou înăuntru',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Actualizat',
   'versoLayout.nav.graph': 'Grafic',
   'versoLayout.nav.home': 'Acasă',
+  'versoLayout.primaryNavLabel': 'Navigare principală',
   'versoNoteCard.pinned': 'Fixate',
   'versoTodayHero.continueCta': 'Continuă să scrii',
   'versoTodayHero.createCta': 'Începeți nota de astăzi',

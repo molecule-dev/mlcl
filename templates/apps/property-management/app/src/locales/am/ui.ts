@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
+  'about.tagline': 'እያንዳንዱ ክፍል፣ በአንድ ጣሪያ ስር።',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.addProperty': 'ንብረት ያክሉ',
   'dashboard.empty.body': 'ንብረቶች፣ ክፍሎች እና የኪራይ ክፍያዎች አንዴ ካገኙ በኋላ፣ ይህ ዳሽቦርድ በፖርትፎሊዮ ግንዛቤዎች ይሞላል።',
   'dashboard.empty.cta': 'ንብረት ያክሉ',
@@ -79,6 +82,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{ንብረት}} · ዩኒት {{ዩኒት}} · {{ቀን}}',
   'maintenanceQueueList.subtitle': '{{count}} ክፍት የሥራ ትዕዛዞች፣ በቅድሚያ የታዘዙ',
   'maintenanceQueueList.title': 'የጥገና ወረፋ',
+  'nav.closeMenu': 'ምናሌን ዝጋ',
+  'nav.openMenu': 'ምናሌን ክፈት',
   'notFound.body': 'የሚፈልጉት ገጽ ተዛውሯል፣ ተከማችቷል ወይም ጨርሶ አልነበረም።',
   'notFound.title': 'ያ በር አይከፈትም',
   'notifications.empty.body': 'አዳዲስ የኪራይ ክፍያዎች፣ የጥገና ዝመናዎች እና የሊዝ ማንቂያዎች እዚህ ይታያሉ።',

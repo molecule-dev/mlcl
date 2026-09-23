@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'auth.fields.newPassword': 'Uusi salasana',
   'collectionDetail.addImage': 'Loihdi kokoelmaan',
   'collectionDetail.backCta': 'Takaisin kokoelmiin',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Tunnelmataulut, briiffit ja jatkuvat sarjat',
   'collections.title': 'Kokoelmat',
   'collections.untitled': 'Nimetön · {{stamp}}',
+  'common.closeMenu': 'Sulje valikko',
+  'common.dismiss': 'Sulje',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.openMenu': 'Avaa navigointivalikko',
   'credits.eyebrow': '{{plan}}-tilaus',
   'credits.renewsCopy': 'Tilaus uusiutuu {{date}}',
   'credits.trail': 'Haaveilu · {{plan}} taso',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'Generointitoiminta, jakamiset ja krediittihälytykset näkyvät täällä.',
   'notifications.empty.title': 'Ei raportoitavaa',
   'notifications.subtitle': 'Generointitapahtumat ryhmiteltynä päivittäin',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.limits.gallery': '{{count}} galleria',
   'privacy.collect.body':
     'Kun rekisteröidyt, keräämme nimesi, sähköpostiosoitteesi ja tiivistetyn salasanan. Käyttäessäsi Reverieä tallennamme lähettämäsi kehotteet, generoimamme kuvat, tallentamasi tyylit ja kokoelmat sekä metatietoja kuten käytetyn mallin, generoinnin aikaleimat ja krediittisaldon.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Tallenna uusi salasana',
   'reset.submitting': 'Päivitetään salasanaa…',
   'settings.account.handle': 'Käyttäjätunnus',
+  'settings.account.lastSaved': 'Aktiivinen profiili · {{name}}',
   'settings.account.saved': 'Profiili tallennettu',
   'settings.account.saveFailed': 'Profiilia ei voitu tallentaa',
   'settings.account.title': 'Tekijäprofiili',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Uusi kuva',
   'sidebar.secondary': 'Toissijainen navigaatio',
   'signup.failed': 'Rekisteröinti epäonnistui. Yritä uudelleen.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Aloita reveriesi',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Luo tili ja saat 120 ilmaista krediittiä.',
   'styles.empty':
     'Ei vielä tyyliesiasetuksia — ne ilmestyvät ensimmäisen sisäänkirjautumisen jälkeen.',

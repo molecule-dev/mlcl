@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'alerts.acknowledgeLabel': 'Bekräfta',
   'alerts.customerLabel': 'Kund: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Ansluter…',
   'carriers.requiredError': 'Namn och kod är obligatoriska.',
   'carriers.subheading': '{{count}} integrerade',
+  'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
+  'common.retry': 'Försök igen',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'I transit + flaggade',
   'dashboard.activeShipmentsSubtitle': '{{count}} sändningar behöver uppmärksamhet eller är på väg',
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'sändningar',
   'pricing.trackingLabel': 'spårningshändelser',
   'profile.dangerZone.title': 'Farozon',
+  'profile.devices.signingOut': 'Loggar ut…',
+  'profile.devices.unnamed': 'Enhet utan namn',
+  'profile.security.disable2fa': 'Inaktivera tvåfaktorsautentisering',
   'profile.security.enable2fa': 'Aktivera 2FA',
   'profile.security.pwChanged': 'Lösenordet har ändrats.',
   'profile.security.pwCurrent': 'Nuvarande lösenord',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktiv',
   'profile.security.twoFaCode': '6-siffrig kod',
   'profile.security.twoFaDisable': 'Inaktivera',
+  'profile.security.twoFaDisabling': 'Inaktiverar…',
   'profile.security.twoFaFailed': 'Kunde inte verifiera koden.',
   'profile.security.twoFaIntro':
     'Skanna QR-koden i din autentiseringsapp och ange sedan den 6-siffriga koden nedan för att verifiera.',
   'profile.security.twoFaOn': 'Tvåfaktorsautentisering är aktiverad på detta konto.',
+  'profile.security.twoFaQrAlt': 'QR-kod för tvåfaktor',
   'profile.security.twoFaVerify': 'Verifiera och aktivera',
   'profile.security.twoFaVerifying': 'Verifierar…',
   'profile.subheading': 'Identitets- och säkerhetsinställningar för denna arbetsyta.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Spara denna hemlighet — den kommer inte att visas igen.',
   'settings.api.webhookSecret': 'Webhook-signeringshemlighet',
   'settings.appearance.description': 'Växla mellan ljust och mörkt läge.',
+  'settings.deleteAccountConfirm': 'Är du säker? Den här åtgärden går inte att ångra.',
   'settings.notifications.exceptions': 'Mejla mig när en sändningsavvikelse inträffar',
   'settings.notifications.heading': 'Aviseringar',
   'settings.notifications.saveFailed': 'Kunde inte spara inställningar.',
@@ -145,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Sändning hittades inte.',
   'shipmentDetail.originHeading': 'Ursprung',
   'shipmentDetail.shippedOn': 'Skickad {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Inga spårningshändelser ännu — uppdateringar visas här när transportören skannar paketet.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Transportör',
   'shipments.col.eta': 'ETA',
@@ -174,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Logga in',
   'signup.submit': 'Skapa konto',
   'team.emailError': 'En giltig e-postadress krävs.',
+  'team.empty':
+    'Inga teammedlemmar ännu. Bjud in en teammedlem för att samarbeta kring leveranser.',
   'team.eyebrow': 'Medlemmar och behörigheter',
   'team.inviteDialog.cancel': 'Avbryt',
   'team.inviteDialog.heading': 'Bjud in en teammedlem',
@@ -196,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Spåra',
   'waypointLayout.primaryNavLabel': 'Primär navigering',
   'webhooks.createFailed': 'Kunde inte skapa webhook-slutpunkt.',
+  'webhooks.endpointsEmpty':
+    'Det finns inga webhook-ändpunkter ännu. Skapa en för att ta emot återkopplingar om leveransstatus.',
   'webhooks.endpointsHeading': 'Slutpunkter',
   'webhooks.eventCount': '{{count}} händelser',
   'webhooks.eventsHeading': 'Senaste leveranser',

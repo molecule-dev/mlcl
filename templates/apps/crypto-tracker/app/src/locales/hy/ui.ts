@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Մասին',
   'alertConditionCard.condition.${alert.condition}': 'Ակտիվացված {{երբ}}',
+  'alertConditionCard.confirmDelete': 'Հաստատեք ջնջումը',
   'alertConditionCard.pauseAriaLabel': 'Դադարեցնել ծանուցումը',
   'alertConditionCard.resumeAriaLabel': 'Վերականգնման ծանուցում',
   'alertNew.condition': 'Վիճակը',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Լիովին նոսրացված գնահատում',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Կայք',
+  'coinDetail.links.whitepaper': 'Սպիտակ թուղթ',
   'coinDetail.loadError': 'Մետաղադրամը չհաջողվեց բեռնել։',
   'coinDetail.marketCap': 'Շուկայական կապիտալիզացիա',
   'coinDetail.maxSupply': 'Առավելագույն մատակարարում',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ձեր սկանավորված երթուղին չի համապատասխանում հայտնի մետաղադրամին կամ էջին: Վերստուգեք խորհրդանիշը և փորձեք կրկին:',
   'notFound.browseMarkets': 'Զննել շուկաները',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'portfolio.addError': 'Մուտքագրեք նշանը, դրական գումարը և արժեքը։',
   'portfolio.addHoldingCta': '+ Ավելացնել պահուստ',
   'portfolio.addModal.cost': 'Արժեքի հիմքը (ԱՄՆ դոլար)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Գաղտնաբառը և երկփուլային կարգավորումները կառավարվում են ձեր հաշվի կողմից։',
   'settings.signOutDevice': 'Ելք',
+  'settings.twoFactorCode': 'Հաստատման կոդ',
   'settings.twoFactorDisable': 'Անջատել',
   'settings.twoFactorEnable': 'Միացնել',
+  'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Հաստատել և միացնել',
   'sigilAuthShell.backHomeCta': '← Վերադառնալ Սիգիլ',
   'sigilLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'signup.eyebrow': 'Բացել տերմինալ',

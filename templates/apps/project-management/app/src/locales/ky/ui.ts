@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'accountSettings.confirmEmailLabel': 'Ырастоо үчүн DELETE деп териңиз',
   'accountSettings.deleteError': 'Аккаунт өчүрүлгөн жок.',
   'accountSettings.passwordError': 'Сырсөздү өзгөртө алган жок.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Жакында келе жаткан мөөнөттөр жок.',
   'dashboard.upcomingTitle': 'Алдыдагы мөөнөттөр',
   'deviceSettings.unknownDevice': 'Белгисиз түзмөк',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Колдоо',
   'forgotPassword.error': 'Баштапкы абалга келтирүү шилтемеси жөнөтүлбөй калды.',
   'forgotPassword.subtitle':
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Жараксыз электрондук почта дареги же сырсөз.',
   'login.pageTitle': 'Кирүү',
   'login.signIn': "Forge'го кириңиз",
+  'login.subtitle': 'Долбоорлоруңузду ишке ашыруу үчүн аккаунтуңузга кириңиз',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'nav.calendar': 'Календарь',
   'nav.legal': 'Юридикалык',
   'nav.myTasks': 'Менин тапшырмаларым',

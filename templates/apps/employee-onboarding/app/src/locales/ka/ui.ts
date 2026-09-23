@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
   'auth.forgotPassword.emailPlaceholder': 'სახელი@თქვენიკომპანია.com',
   'auth.forgotPassword.heading': 'პაროლის აღდგენა.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'დავალების დასრულებულად მონიშვნა',
   'checklistTaskCard.markIncomplete': 'დავალების დაუსრულებლად მონიშვნა',
   'checklistTaskCard.openLabel': 'დავალების გახსნა',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'ყველაფერი გასაგებია',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'გზაზე',
   'dashboard.timelineHeading': '30/60/90 წლების ეტაპები',
   'dashboard.viewAllTasks': 'ყველა ამოცანის ნახვა',
+  'dashboard.weekOne': 'კვირა 1',
   'dashboard.yourCohort': 'თქვენი გუნდი',
   'documents.empty.body': 'თქვენი გუნდის მიერ დამატებული დოკუმენტები აქ გამოჩნდება.',
   'documents.empty.title': 'დოკუმენტები ჯერ არ არის',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-დღიანი უფასო საცდელი პერიოდი',
   'landing.subhead':
     'Embark-ი ყველა ახალ თანაგუნდელს პირველი 90 დღის განმავლობაში ეხმარება — საბუთების მომზადებაში, ტრენინგებში, მნიშვნელოვან ეტაპებსა და შინაარსიან გაცნობაში, ყველაფერი ერთ მშვიდ და თავდაჯერებულ ადგილას.',
+  'layout.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'layout.search': 'დავალებების, დოკუმენტების, თანაგუნდელების ძიება…',
+  'layout.searchTeammates': 'მოძებნეთ თანაგუნდელები სახელის ან როლის მიხედვით…',
   'layout.section.onboarding': 'რეგისტრაცია',
   'layout.tagline': 'თქვენი მოგზაურობა აქ იწყება',
   'notifications.empty.body': 'ახალი აქტივობა აქ გამოჩნდება.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'გუშინ',
   'planUpdated.message': 'მზად ხარ.',
   'planUpdated.preparing': 'თქვენი გეგმის განახლება…',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.documentsLabel': 'დოკუმენტები',
   'pricing.onboardingsLabel': 'რეგისტრაცია',
   'pricing.tasksLabel': 'ამოცანები',

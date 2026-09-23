@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.featureDiscover.title': 'Inspiratsioon, hoolikalt valitud',
   'account.addPaymentCta': 'Lisa makseviis',
   'account.addPaymentError': 'Makseviisi ei õnnestunud lisada.',
+  'account.confirmRemove': 'Kinnita eemaldamine',
   'account.defaultBadge': 'Vaikimisi',
   'account.loyalty.pointsTowardNext': '{{punkti}} kohta {{järgmine}} miili kuni {{järgmine aste}}',
   'account.loyalty.tier': 'Praegune tase',
@@ -41,6 +44,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Reisi üksikasjad',
   'booking.tripSummary': '{{nights}} ööd · {{guests}} külalised',
   'common.daysAgo': '{{count}} päeva tagasi',
+  'common.goToDashboard': 'Mine töölauani',
   'common.hoursAgo': '{{count}} tund aega tagasi',
   'common.minutesAgo': '{{count}} minutit tagasi',
   'common.no': '—',
@@ -78,6 +82,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Õiguslik',
   'notifications.loading': 'Laadimine…',
   'notifications.subheading': '{{count}} lugemata · kõik ühes rahulikus postkastis',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.accommodationsLabel': 'majutus',
   'pricing.bookingsLabel': 'broneeringud',
   'pricing.destinationsLabel': 'salvestatud sihtkohad',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
     'Inspiratsioon, usaldusväärsed majutused ja sujuv teekond unistusest broneeringuni – 14 riigis ja enam kui 200 hoolikalt kontrollitud majutusasutuses.',
   'sojournHeroSearchCard.trustProtected': 'Tasuta tühistamine, täielikult kaitstud',
   'sojournHeroSearchCard.trustVetted': 'Ainult käsitsi kontrollitud kinnisvaraobjektid',
+  'travelBookingLayout.primaryNavLabel': 'Peamine navigeerimine',
   'tripDetail.backLink': 'Tagasi reiside juurde',
   'tripDetail.cancelCta': 'Tühista broneering',
   'tripDetail.cancelHeading': 'Kas tühistada see reis?',

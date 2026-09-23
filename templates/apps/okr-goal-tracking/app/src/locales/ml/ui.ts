@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'ascentSideNav.nav.notifications': 'അറിയിപ്പുകൾ',
   'ascentSideNav.newObjective': 'പുതിയ ലക്ഷ്യം',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'കൊടുമുടി നിശ്ചയിക്കുക. കയറ്റം സ്കോർ ചെയ്യുക. ടീമിനെ പരിശീലിപ്പിക്കുക.',
   'authShell.eyebrow': 'ടീമുകളെ മാറ്റുന്ന OKR-കൾ',
   'authShell.samplePeriod': '2026 ലെ രണ്ടാം പാദം · സാമ്പിൾ ലക്ഷ്യം',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് · ബില്ലിംഗ്',
   'billing.heading': 'പ്ലാനും ഇൻവോയ്‌സുകളും',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'ഡാറ്റ എക്‌സ്‌പോർട്ട് + API ആക്‌സസ്',
+  'billing.perk.inApp': 'ഇൻ-ആപ്പ് റിപ്പോർട്ടിംഗ്',
+  'billing.perk.standard': 'സ്റ്റാൻഡേർഡ് അവലോകനങ്ങൾ',
+  'billing.perk.unlimitedObjectives': 'പരിധിയില്ലാത്ത ലക്ഷ്യങ്ങൾ',
+  'billing.perk.unlimitedRetention': 'പരിധിയില്ലാത്ത നിലനിർത്തൽ',
   'billing.subheading':
     'നിങ്ങൾ ഇതിൽ ആണ് {{name}} പ്ലാൻ. ടയറുകൾ താരതമ്യം ചെയ്ത് താഴെ അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'billing.tier.unavailable': 'ലഭ്യമല്ല',
@@ -42,11 +50,13 @@ export const ui: UiTranslations = {
     'ഓരോ KR-നും നിലവിലെ മൂല്യം അപ്ഡേറ്റ് ചെയ്യുക, കോൺഫിഡൻസ് അടയാളപ്പെടുത്തുക, ഒരു കുറിപ്പ് ഇടുക, തുടർന്ന് സമർപ്പിക്കുക.',
   'checkIn.submit': 'ചെക്ക്-ഇൻ സമർപ്പിക്കുക',
   'checkIn.submittedMessage': 'ചെക്ക്-ഇൻ സംരക്ഷിച്ചു. പുരോഗതിയും ടൈംലൈനും അപ്‌ഡേറ്റ് ചെയ്‌തു.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': 'ഇല്ല',
   'common.relative.daysAgo': '{{count}} ഡി മുമ്പ്',
   'common.relative.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'common.relative.justNow': 'ഇപ്പോൾ തന്നെ',
   'common.relative.minutesAgo': '{{count}} മിനിറ്റ് മുമ്പ്',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'common.yes': 'അതെ',
   'common.you': 'നീ',
   'dashboard.allActivity': 'എല്ലാ പ്രവർത്തനങ്ങളും കാണുക →',
@@ -90,6 +100,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} . ഒരു മണിക്കൂറിനുള്ളിൽ കാലഹരണപ്പെടും — ഇൻബോക്സിന് ഒരു നിമിഷം നൽകുക.',
   'forgotPassword.successHeading': 'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
+  'keyResult.metrics.boolean': 'അതെ / ഇല്ല',
+  'keyResult.metrics.currency': 'കറൻസി $',
+  'keyResult.metrics.number': 'നമ്പർ',
+  'keyResult.metrics.percent': '% ശതമാനം',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'നിങ്ങളുടെ ആദ്യ ലക്ഷ്യം സജ്ജമാക്കുക, മൂന്ന് സഹതാരങ്ങളെ ക്ഷണിക്കുക, വെള്ളിയാഴ്ചയ്ക്കകം നിങ്ങളുടെ ആദ്യത്തെ പ്രതിവാര ചെക്ക്-ഇൻ നടത്തുക.',
@@ -101,6 +115,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'ടീമുകൾ എങ്ങനെ മുന്നേറുന്നു',
   'landing.featuresTitle': 'സ്‌പ്രെഡ്‌ഷീറ്റ് വ്യാപനമില്ലാതെ, കോച്ചിംഗ്-ഗ്രേഡ് OKR-കൾ.',
   'landing.footerBuiltOn': 'Molecule.dev-ൽ നിർമ്മിച്ചത്',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'അസെന്റ് ഓരോ ടീമിനും മലമുകളിലേക്ക് അളക്കാവുന്ന പാത നൽകുന്നു - ലക്ഷ്യങ്ങൾ നിശ്ചയിക്കുക, ആഴ്ചതോറും പ്രധാന ഫലങ്ങൾ നേടുക, ഓരോ പാദത്തിലും കയറ്റം അവലോകനം ചെയ്യുക.',
   'landing.heroProgressLabel': 'രണ്ടാം പാദത്തിലെ കമ്പനി പദ്ധതി',
@@ -110,6 +125,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'അല്ലെങ്കിൽ തുടരുക',
   'login.subheading':
     'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങൂ — നിങ്ങളുടെ ചെക്ക്-ഇന്നുകൾ, KR-കൾ, അവലോകനങ്ങൾ എന്നിവ കാത്തിരിക്കുന്നു.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.mainNavigation': 'പ്രധാന നാവിഗേഷൻ',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'newObjective.addKr': 'KR ചേർക്കുക',
   'newObjective.coachLabel': 'കോച്ച് ഓർമ്മപ്പെടുത്തലുകൾ',
   'newObjective.descriptionPlaceholder': 'തന്ത്രപരമായ സന്ദർഭം 2-3 വാക്യങ്ങളിൽ വിശദീകരിക്കുക.',
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'പ്രവർത്തന കേന്ദ്രം',
   'notifications.markRead': '● വായിച്ചതായി അടയാളപ്പെടുത്തുക',
   'objective.scopes.company': 'കമ്പനി',
+  'objective.scopes.individual': 'വ്യക്തി',
   'objective.scopes.team': 'ടീം',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'ലക്ഷ്യങ്ങളിലേക്ക് മടങ്ങുക',
@@ -156,12 +175,18 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'ട്രാക്കിംഗ് {{count}} ലക്ഷ്യങ്ങൾ. ശ്രദ്ധ ആവശ്യമുള്ളത് കണ്ടെത്താൻ സ്റ്റാറ്റസ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക.',
   'profile.achievementCheckInsMany': '{{count}} ചെക്ക്-ഇന്നുകൾ ലോഗിൻ ചെയ്‌തു',
+  'profile.achievementCheckInsOne': '1 ചെക്ക്-ഇൻ ലോഗിൻ ചെയ്തു',
+  'profile.achievementCompletedMany': '{{count}} ലക്ഷ്യങ്ങൾ പൂർത്തിയാക്കി',
+  'profile.achievementCompletedOne': 'ഒരു ലക്ഷ്യം പൂർത്തിയാക്കി',
+  'profile.achievementOnTrackMany': '{{count}} ലക്ഷ്യങ്ങൾ ട്രാക്കിൽ',
+  'profile.achievementOnTrackOne': 'ട്രാക്കിൽ ഒരു ലക്ഷ്യം',
   'profile.activeHeading': 'സജീവ ലക്ഷ്യങ്ങൾ',
   'profile.allObjectives': 'എല്ലാ ലക്ഷ്യങ്ങളും →',
   'profile.empty':
     'ഇതുവരെ സജീവ ലക്ഷ്യങ്ങളൊന്നുമില്ല - ആരംഭിക്കുന്നതിന് നിങ്ങളുടെ ആദ്യത്തേത് സൃഷ്ടിക്കുക.',
   'profile.eyebrow': 'ക്ലൈംബർ പ്രൊഫൈൽ',
   'profile.guestName': 'മലകയറ്റക്കാരൻ',
+  'profile.loadError': 'നിങ്ങളുടെ ലക്ഷ്യങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'profile.loading': 'ലക്ഷ്യങ്ങൾ ലോഡ് ചെയ്യുന്നു…',
   'profile.noAchievements': 'നിങ്ങളുടെ ആദ്യ നേട്ടം അൺലോക്ക് ചെയ്യാൻ ഒരു ചെക്ക്-ഇൻ പൂർത്തിയാക്കുക.',
   'profile.statCheckIns': 'ചെക്ക്-ഇന്നുകൾ',

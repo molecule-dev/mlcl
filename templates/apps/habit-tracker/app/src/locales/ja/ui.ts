@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
+  'about.pageTitle': '{{app}}について',
   'achievementBadgeCard.unlockedOn': '{{date}}に解除しました',
   'achievements.loadError': '実績の読み込みに失敗しました。',
   'achievements.subheading': '{{unlocked}}件中{{total}}件を解除',
   'achievements.unlockedOn': '{{date}}に解除しました',
+  'auth.legalConsent': '続行することで、以下に同意したことになります',
   'calendar.empty': 'カレンダーを表示するには習慣を作成してください。',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': '習慣',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': '習慣グリッド',
   'category.${c.category}': '{{カウント}}習慣',
   'common.and': 'および',
+  'common.goToDashboard': 'ダッシュボードへ',
   'consistencyHeatmap.ariaLabel': '毎日の継続性ヒートマップ',
   'consistencyHeatmap.caption': '直近{{weeks}}週間',
   'consistencyHeatmap.lessLabel': '少ない',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': '実際に見る',
   'landing.heroSubtitle':
     '本当に身につく方法で習慣を作りましょう。小さな約束、毎日の連続記録、そして途切れない長いチェーンが生む直感的な喜びがあります。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streakの中をのぞき見',
   'landing.previewMotivation': '9つの連続記録が継続中です。すべて絶やさないようにしましょう。',
   'login.eyebrow': 'チェーンを再開',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': '小さく。具体的に。明日も顔を出してください。',
   'newHabit.timeLabel': 'リマインダー時刻',
   'notifications.markError': 'すべてを既読にできませんでした。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.entries': '{{count}}件',
+  'pricing.heading': '{{app}}プランを選択',
   'profile.action.plan': 'サブスクリプションを管理',
   'profile.action.settings': 'アカウント設定',
   'profile.bioEmpty': '設定で短い自己紹介を追加して、自分を紹介しましょう。',
@@ -124,6 +131,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': '毎朝のリマインダー(8:00)',
   'settings.reminders.heading': 'リマインダー',
   'settings.reminders.weekly': '週次サマリー(日曜の夜)',
+  'settings.revokeDeviceWarning':
+    'このデバイスのアクセスはまもなく取り消されます。サインアウトしますか?',
   'settings.signOutDevice': 'サインアウト',
   'settings.streaks.freezesPerWeek': '週ごとのフリーズ数',
   'settings.streaks.gracePeriod': '深夜以降6時間の猶予期間',
@@ -150,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}}件進行中',
   'streakHeroCard.daysSuffix': '日',
   'streakHeroCard.title': '進行中の最長連続記録',
+  'streakLayout.closeMenu': 'ナビゲーションメニューを閉じる',
+  'streakLayout.openMenu': 'ナビゲーションメニューを開く',
   'streakLayout.primaryNavLabel': 'メインナビゲーション',
 }

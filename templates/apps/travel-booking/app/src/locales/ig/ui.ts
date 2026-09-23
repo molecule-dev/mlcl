@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.featureDiscover.title': 'Mkpali, nke ejiri aka họrọ',
   'account.addPaymentCta': 'Tinye usoro ịkwụ ụgwọ',
   'account.addPaymentError': 'Enweghị ike itinye usoro ịkwụ ụgwọ.',
+  'account.confirmRemove': 'Kwenye na ewepụla ya',
   'account.defaultBadge': 'Ntọala ndabara',
   'account.loyalty.pointsTowardNext': '{{isi}} nke {{Osote}} maịlụ ruo {{Ọkwa nke na-esote}}',
   'account.loyalty.tier': 'Ọkwa dị ugbu a',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Nkọwa njem ahụ',
   'booking.tripSummary': '{{nights}} abalị · {{guests}} ndị ọbịa',
   'common.daysAgo': '{{count}} gara aga',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.hoursAgo': '{{count}} awa gara aga',
   'common.minutesAgo': '{{count}} ọnwa gara aga',
   'common.no': '—',
@@ -78,6 +82,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Iwu kwadoro',
   'notifications.loading': 'Na-ebugo…',
   'notifications.subheading': "{{count}} agụghị · ihe niile dị n'otu igbe mbata dị jụụ",
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.accommodationsLabel': 'ebe obibi',
   'pricing.bookingsLabel': 'ndoputa',
   'pricing.destinationsLabel': 'ebe ndị echekwara',
@@ -129,6 +134,7 @@ export const ui: UiTranslations = {
     'Mkpali, ọnụnọ a pụrụ ịtụkwasị obi, na ụzọ na-enweghị nsogbu site na nrọ ehihie ruo na akwụkwọ ndekọ - gafee mba 14 na ihe karịrị 200 nke ejiri aka nyochaa.',
   'sojournHeroSearchCard.trustProtected': 'Mkagbu efu, echekwara ya nke ọma',
   'sojournHeroSearchCard.trustVetted': 'Naanị ihe onwunwe ejiri aka nyochaa',
+  'travelBookingLayout.primaryNavLabel': 'Ntugharị isi',
   'tripDetail.backLink': 'Laghachi na njem',
   'tripDetail.cancelCta': 'Kagbuo ndoputa',
   'tripDetail.cancelHeading': 'Kagbuo njem a?',

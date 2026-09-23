@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// nípa {{app}}',
+  'about.pageTitle': 'Ọkọ̀ òfúrufú ìdarí webhook',
+  'about.plansTitle': 'Àwọn ètò fún gbogbo ìpele',
   'apiKeys.bestPractices': 'Àwọn ìlànà tó dára jùlọ',
   'apiKeys.body':
     'Àwọn àmì ìwọ̀lé tí a fi ń ṣe ètò. Ṣe wọ́n bí ọ̀rọ̀ìpamọ́ — tọ́jú wọn sínú env vars, má ṣe dá ara rẹ lẹ́bi rárá.',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'laarin eto naa',
   'billing.usageWarning': 'nitosi ibori',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.body':
     'Ìgbésẹ̀ tó ń lọ lọ́wọ́lọ́wọ́, tún gbìyànjú nígbà tí o bá ń fò, àti àwọn ibi tí ó ṣẹ̀ṣẹ̀ dẹ́kun — ní gbogbo ibi iṣẹ́ tí o ń ṣiṣẹ́.',
   'dashboard.endpointsEmpty': 'Ko si awọn opin aaye sibẹsibẹ.',
@@ -107,6 +111,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'awọn opin',
   'endpointDetail.deliveryTrendSub': 'ifijiṣẹ / wakati, iwọn log',
   'endpointDetail.hideSecret': 'Fi àṣírí pamọ́',
+  'endpointDetail.loading': 'N n gbe opin aaye soke…',
   'endpointDetail.metric.delivered': 'A fi jiṣẹ́ ní wákàtí 24',
   'endpointDetail.metric.deliveredCaption': 'láti {{count}} awọn iru iṣẹlẹ',
   'endpointDetail.metric.failuresCaption': 'tún gbìyànjú: {{retries}}',
@@ -211,6 +216,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Pataki · wakati 24',
   'notifications.metric.totalCaption': 'àpótí ìforúkọsílẹ̀ gbogbo ìgbà',
   'payloadViewer.payload': '// ẹrù iṣẹ́',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'profile.avatarHeader': 'Àfàtà',
   'profile.avatarHint': 'Àwọn ìbẹ̀rẹ̀ tí a fi hàn — àwọn ìgbésókè tí ó ń bọ̀ pẹ̀lú ìtújáde tí ó tẹ̀lé.',
   'profile.body': 'Àkọọ́lẹ̀ rẹ, àwọn ohun tí o fẹ́, àti àwọn àkókò tí ń ṣiṣẹ́.',
@@ -225,6 +231,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ ti o ti fipamọ',
   'profile.sessionsEmpty': 'Ìpàdé rẹ lọ́wọ́lọ́wọ́ nìkan ló ń ṣiṣẹ́. Kò sí àwọn ẹ̀rọ míì tí wọ́n wọlé.',
   'profile.toggle': 'Yípadà {{label}}',
+  'pylonShell.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'pylonShell.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'pylonShell.primaryNavLabel': 'Lilọ kiri akọkọ',
   'resetPassword.subtitle': 'Yan ọrọ igbaniwọle to lagbara ti o ko ti lo tẹlẹ.',
   'resetPassword.tokenPlaceholder': 'lẹẹmọ lati inu imeeli',

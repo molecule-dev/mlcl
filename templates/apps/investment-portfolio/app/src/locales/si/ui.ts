@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} පිළිබඳව',
   'argentAuthShell.brandEyebrow': 'ආර්ජන්ට් · ධන මෙවලම්',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ආයෝජන උපදෙස් නොවේ.',
   'argentAuthShell.sampleChange': 'අද +$2,841 (+0.28%)',
   'argentAuthShell.sampleValue': 'ඩොලර් 1,032,251',
   'argentLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'මෙම ටිකර් එක සඳහා ගනුදෙනු නොමැත.',
   'assetDetail.txHeading': 'ඔබේ ගනුදෙනු',
   'common.and': 'සහ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'කළඹ දළ විශ්ලේෂණය',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'තවමත් හිමිකාරිත්වයක් නොමැත.',
   'holdings.heading': 'හෝල්ඩින්ග්ස්',
   'holdings.loadError': 'හෝල්ඩින් පූරණය කිරීමට අසමත් විය.',
+  'landing.copyright':
+    '© {{year}} {{app}} . ආයෝජන උපදෙස් නොවේ. අතීත කාර්ය සාධනය අනාගත ප්‍රතිඵල සහතික නොකරයි.',
   'landing.eyebrow': 'ආර්ජන්ට් · ධන මෙවලම් වේදිකාවක්',
   'landing.features.heading': 'උපදේශකයෙකු තමන් වෙනුවෙන් ගොඩනගා ගන්නා සියල්ල.',
   'landing.finalCta.heading': 'ඔබේ කළඹට විනය නැවත ගෙන එන්න.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} පැයකට පෙර',
   'news.justNow': 'මේ දැන්',
   'news.loadError': 'පුවත් පූරණය කිරීමට අසමත් විය.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'portfolioHeroCard.label': 'කළඹ වටිනාකම',
   'pricing.holdingsLabel': 'හිමිකාරීත්වයන්',
   'pricing.newsLabel': 'පුවත් ලිපි',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'ගිණුම මකන්න',
   'settings.security.deleting': 'මකමින්...',
   'settings.security.heading': 'ආරක්ෂාව',
+  'settings.security.newPassword': 'නව මුරපදය',
   'settings.security.password': 'මුරපදය',
   'settings.security.twoFactorEnable': 'සක්‍රීය කරන්න',
+  'settings.security.twoFactorInvalidCode': 'අවලංගු කේතයකි',
+  'settings.security.twoFactorVerify': 'සත්‍යාපනය කර සබල කරන්න',
   'settings.tax.error': 'බදු ක්‍රමය යාවත්කාලීන කළ නොහැකි විය.',
   'settings.tax.heading': 'බදු කොටස් ගිණුම්කරණය',
   'settings.tax.method': 'පෙරනිමි ක්‍රමය',

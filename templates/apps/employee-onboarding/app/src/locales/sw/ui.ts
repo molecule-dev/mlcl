@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Weka upya nenosiri lako.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Tia alama kuwa kazi imekamilika',
   'checklistTaskCard.markIncomplete': 'Tia alama kuwa kazi haijakamilika',
   'checklistTaskCard.openLabel': 'Kazi iliyo wazi',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Nyote mmeshaelewa',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Kwenye wimbo',
   'dashboard.timelineHeading': 'Hatua muhimu za 30/60/90',
   'dashboard.viewAllTasks': 'Tazama kazi zote',
+  'dashboard.weekOne': 'Wiki ya 1',
   'dashboard.yourCohort': 'Timu yako',
   'documents.empty.body': 'Hati zilizoongezwa na timu yako zitaonekana hapa.',
   'documents.empty.title': 'Hakuna hati bado',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Jaribio la bure la siku 14',
   'landing.subhead':
     'Anza kuongoza kila mwenzake mpya katika siku zao 90 za kwanza — makaratasi, mafunzo, hatua muhimu, na utangulizi wenye maana, yote katika sehemu moja tulivu na yenye ujasiri.',
+  'layout.openMenu': 'Fungua menyu ya kusogeza',
   'layout.search': 'Tafuta kazi, hati, wachezaji wenzako...',
+  'layout.searchTeammates': 'Tafuta wachezaji wenzako kwa jina au jukumu…',
   'layout.section.onboarding': 'Kuingia',
   'layout.tagline': 'Safari yako inaanzia hapa',
   'notifications.empty.body': 'Shughuli mpya itaonekana hapa.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Uko tayari kabisa.',
   'planUpdated.preparing': 'Inasasisha mpango wako…',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.documentsLabel': 'hati',
   'pricing.onboardingsLabel': 'uandikishaji',
   'pricing.tasksLabel': 'kazi',

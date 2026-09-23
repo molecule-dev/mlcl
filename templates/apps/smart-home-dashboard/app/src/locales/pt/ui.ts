@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.pageTitle': 'Sobre {{app}}',
   'activity.empty': 'Ainda sem atividade — ligue um dispositivo ou ative uma cena.',
   'activity.eyebrow': 'Linha do tempo',
   'activity.loadError': 'Não foi possível carregar o feed de atividade.',
   'activity.subheading': 'Cada dispositivo, automação e evento de segurança em ordem cronológica.',
+  'addDevice.error.failed': 'Não foi possível adicionar o dispositivo. Tente novamente.',
   'addDevice.error.nameRequired': 'Dê um nome a este dispositivo para continuar.',
   'addDevice.field.firmware': 'Versão do firmware',
   'addDevice.field.manufacturer': 'Fabricante',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Testando…',
   'automationEditor.testNew': 'Primeiro, salve a automação para testá-la.',
   'automationRow.lastRun': 'Última {{date}} · {{count}} execuções',
+  'automationRow.on': 'Em',
   'automationRow.runNowAria': 'Executar {{name}} agora',
   'automations.empty': 'Ainda não há automações — crie sua primeira rotina.',
   'automations.eyebrow': 'Rotinas',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Carregando automações…',
   'automations.newAutomation': '+ Nova',
   'automations.subheading': 'Quando isto acontecer, faça aquilo — sem YAML.',
+  'common.goToDashboard': 'Ir para o Painel',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Falha ao carregar o dispositivo.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Processando…',
   'deviceDetail.unnamed': 'Dispositivo',
   'deviceStatusRow.on': 'Ligado',
+  'deviceStatusRow.turnOff': 'Desativar',
+  'deviceStatusRow.turnOn': 'Ativar',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Energia',
   'energy.heading': 'Energia',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Ver planos',
   'settings.security.heading': 'Segurança',
   'settings.subheading': 'Plano, hubs e preferências de conta.',
+  'smartHomeDashboardLayout.openMenu': 'Abrir menu de navegação',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Navegação principal',
 }

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.tagline': 'എല്ലാ യൂണിറ്റുകളും, ഒരു മേൽക്കൂരയ്ക്കു കീഴിൽ.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.addProperty': 'പ്രോപ്പർട്ടി ചേർക്കുക',
   'dashboard.empty.body':
     'പ്രോപ്പർട്ടികൾ, യൂണിറ്റുകൾ, വാടക പേയ്‌മെന്റുകൾ എന്നിവ ലഭിച്ചുകഴിഞ്ഞാൽ, ഈ ഡാഷ്‌ബോർഡ് പോർട്ട്‌ഫോളിയോ ഉൾക്കാഴ്ചകൾ കൊണ്ട് നിറയും.',
@@ -89,6 +92,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} മുൻഗണനാക്രമത്തിൽ ക്രമീകരിച്ചിരിക്കുന്ന ഓപ്പൺ വർക്ക് ഓർഡറുകൾ',
   'maintenanceQueueList.title': 'മെയിന്റനൻസ് ക്യൂ',
+  'nav.closeMenu': 'മെനു അടയ്ക്കുക',
+  'nav.openMenu': 'മെനു തുറക്കുക',
   'notFound.body':
     'നിങ്ങൾ തിരയുന്ന പേജ് നീക്കുകയോ ആർക്കൈവ് ചെയ്യുകയോ ഒരിക്കലും നിലവിലില്ലാതിരിക്കുകയോ ചെയ്‌തിരിക്കുന്നു.',
   'notFound.title': 'ആ വാതിൽ തുറക്കുന്നില്ല.',

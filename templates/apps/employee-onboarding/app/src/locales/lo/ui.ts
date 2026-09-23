@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'ຕັ້ງລະຫັດຜ່ານຂອງທ່ານຄືນໃໝ່.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ໝາຍໜ້າວຽກວ່າສຳເລັດແລ້ວ',
   'checklistTaskCard.markIncomplete': 'ໝາຍໜ້າວຽກວ່າຍັງບໍ່ແລ້ວ',
   'checklistTaskCard.openLabel': 'ເປີດໜ້າວຽກ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'ທ່ານອ່ານໝົດແລ້ວ',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ກຳລັງຕິດຕາມ',
   'dashboard.timelineHeading': 'ເປົ້າໝາຍ 30/60/90',
   'dashboard.viewAllTasks': 'ເບິ່ງໜ້າວຽກທັງໝົດ',
+  'dashboard.weekOne': 'ອາທິດທີ 1',
   'dashboard.yourCohort': 'ທີມຂອງທ່ານ',
   'documents.empty.body': 'ເອກະສານທີ່ເພີ່ມໂດຍທີມງານຂອງທ່ານຈະປາກົດຢູ່ບ່ອນນີ້.',
   'documents.empty.title': 'ຍັງບໍ່ມີເອກະສານເທື່ອ',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'ທົດລອງໃຊ້ຟຣີ 14 ມື້',
   'landing.subhead':
     'Embark ນຳພາເພື່ອນຮ່ວມທີມໃໝ່ທຸກຄົນຜ່ານ 90 ວັນທຳອິດຂອງເຂົາເຈົ້າ - ເອກະສານ, ການຝຶກອົບຮົມ, ຈຸດສຳຄັນ, ແລະ ການແນະນຳຕົວທີ່ມີຄວາມໝາຍ, ທັງໝົດຢູ່ໃນສະຖານທີ່ທີ່ສະຫງົບ ແລະ ໝັ້ນໃຈ.',
+  'layout.openMenu': 'ເປີດເມນູນຳທາງ',
   'layout.search': 'ຄົ້ນຫາໜ້າວຽກ, ເອກະສານ, ເພື່ອນຮ່ວມທີມ...',
+  'layout.searchTeammates': 'ຄົ້ນຫາເພື່ອນຮ່ວມທີມຕາມຊື່ ຫຼື ບົດບາດ…',
   'layout.section.onboarding': 'ການເລີ່ມຕົ້ນເຮັດວຽກ',
   'layout.tagline': 'ການເດີນທາງຂອງທ່ານເລີ່ມຕົ້ນທີ່ນີ້',
   'notifications.empty.body': 'ກິດຈະກຳໃໝ່ຈະປາກົດຢູ່ບ່ອນນີ້.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ມື້ວານນີ້',
   'planUpdated.message': 'ທ່ານພ້ອມແລ້ວ.',
   'planUpdated.preparing': 'ກຳລັງອັບເດດແຜນການຂອງທ່ານ…',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.documentsLabel': 'ເອກະສານ',
   'pricing.onboardingsLabel': 'ການເຂົ້າຮ່ວມ',
   'pricing.tasksLabel': 'ໜ້າວຽກ',

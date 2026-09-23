@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
   'applications.empty': 'Ei vielä hakemuksia \\2014 oikea tehtävä on yhden hakemuksen päässä.',
   'applications.eyebrow': 'Sinun myyntiputkesi',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Jokainen hakemasi rooli liikkeessä. Suodata vaiheen mukaan keskittyäksesi.',
   'applications.untitledRole': 'Rooli # {{id}}',
+  'auth.legalConsent': 'Jatkamalla hyväksyt',
   'common.and': 'ja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'companies.empty': 'Hakuasi vastaavia yrityksiä ei löytynyt \\u2014 kokeile toista hakusanaa.',
   'companies.eyebrow': 'Suositellut työnantajat',
   'companies.searchPlaceholder': 'Hae nimen, toimialan tai sijainnin mukaan',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Ei vielä hakemuksia tähän tehtävään.',
   'jobApplicants.eyebrow': 'Työnantajan näkökulma',
   'jobApplicants.loading': 'Ladataan…',
+  'jobApplicants.statusUpdateFailed': 'Etappia ei voitu päivittää – yritä uudelleen.',
+  'jobApplicants.subheading':
+    'Tarkista ansioluettelot, edistä ehdokkaita, lähetä tarjouksia \\u2014 {{count}} käynnissä.',
   'jobDetail.applicantCount': '{{count}} hakijat tähän mennessä',
   'jobDetail.applied': 'Hakemus lähetetty',
   'jobDetail.apply': 'Hae nyt',
@@ -84,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Selaa avoimia työpaikkoja \\u2192',
   'landing.pricingEyebrow': 'Hinnoittelu',
   'landing.pricingHeading': 'Yksinkertaisia suunnitelmia kaikenkokoisille joukkueille.',
+  'login.eyebrow': 'Tervetuloa takaisin {{app}}',
   'login.heading': 'Kirjaudu tilillesi',
   'login.noAccount': 'Uusi Nosh-käyttäjä?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Muista minut 30 päivää',
   'login.signingIn': 'Kirjaudu sisään...',
   'login.subheading': 'Aloita haku, siirry hakemukseesi ja kuulet vastauksen nopeammin.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Rakennettu rekrytointitiimejä varten.',
   'loginBrandPanel.headline': 'Missä lahjakkuus kohtaa',
   'loginBrandPanel.headlineLine2': 'vauhtia.',
   'loginBrandPanel.listing.recruiter': 'Kykyjenetsintäkumppani',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Hakemuspäivitykset, haastattelukutsut, tuoreet osumat \\u2014 uusin ensin.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} tällä viikolla',
   'opportunitiesHero.eyebrow': 'Avoinna tänään',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'postJob.addNewCompany': '+ Lisää uusi yritys',
   'postJob.companyCreateFailed': 'Yritystä ei voitu luoda – yritä uudelleen.',
   'postJob.companyNameLabel': 'Yrityksesi nimi',
@@ -164,10 +173,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Tiliä luodaan\\u2026',
   'signup.ctaEmployer': 'Luo työnantajatili',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Salasanat eivät täsmää.',
   'signup.subheading':
     'Ilmainen hakijoille, ikuisesti. Työnantajat aloittavat 30 päivän kokeilujaksolla.',
   'timeAgo.days': '{{count}}pv sitten',
   'timeAgo.hours': '{{count}}t sitten',
   'timeAgo.justNow': 'juuri nyt',
+  'timeAgo.weeks': '{{count}} vk sitten',
 }

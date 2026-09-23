@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.pageTitle': 'Apie {{app}}',
   'achievementBadgeCard.unlockedOn': 'Atrakinta {{date}}',
   'achievements.loadError': 'Nepavyko įkelti pasiekimų.',
   'achievements.subheading': '{{unlocked}} iš {{total}} atrakinta',
   'achievements.unlockedOn': 'Atrakinta {{date}}',
+  'auth.legalConsent': 'Tęsdami sutinkate su mūsų',
   'calendar.empty': 'Įpraskite žiūrėti į savo kalendorių.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Įprotis',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Įpročių tinklelis',
   'category.${c.category}': '{{skaičius}} įpročiai',
   'common.and': 'ir',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'consistencyHeatmap.ariaLabel': 'Dienos nuoseklumo šilumos žemėlapis',
   'consistencyHeatmap.caption': 'Paskutinis {{weeks}} savaitės',
   'consistencyHeatmap.lessLabel': 'Mažiau',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Pamatykite tai gyvai',
   'landing.heroSubtitle':
     'Ugdykite įpročius tokius, kokie jie iš tikrųjų lieka: maži įsipareigojimai, kasdieniai pasiekimai ir ilgos nenutrūkstamos grandinės teikiamas visceralinis malonumas.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Žvilgsnis į „Streak“ vidų',
   'landing.previewMotivation': 'Devyni gyvi dryželiai. Laikykite juos visus šiltai.',
   'login.eyebrow': 'Pakelkite grandinę',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Tegul tai būna smulkmena. Tegul tai būna konkretu. Ateik rytoj.',
   'newHabit.timeLabel': 'Priminimo laikas',
   'notifications.markError': 'Nepavyko pažymėti visų kaip perskaitytų.',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.entries': '{{count}} įrašai',
+  'pricing.heading': 'Pasirinkite savo {{app}} planą',
   'profile.action.plan': 'Tvarkyti prenumeratą',
   'profile.action.settings': 'Paskyros nustatymai',
   'profile.bioEmpty': 'Nustatymuose pridėkite trumpą biografiją, kad prisistatytumėte.',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Dienos rytinė užuomina (8:00 val.)',
   'settings.reminders.heading': 'Priminimai',
   'settings.reminders.weekly': 'Savaitės santrauka (sekmadienio vakarais)',
+  'settings.revokeDeviceWarning': 'Šio įrenginio prieiga netrukus bus atšaukta. Atjungti jį?',
   'settings.signOutDevice': 'Atsijungti',
   'settings.streaks.freezesPerWeek': 'Užšalimų per savaitę',
   'settings.streaks.gracePeriod': '6 valandų atidėjimo laikotarpis po vidurnakčio',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktyvus',
   'streakHeroCard.daysSuffix': 'dienos',
   'streakHeroCard.title': 'Ilgiausia aktyvių rungtynių serija',
+  'streakLayout.closeMenu': 'Uždaryti navigacijos meniu',
+  'streakLayout.openMenu': 'Atidaryti navigacijos meniu',
   'streakLayout.primaryNavLabel': 'Pagrindinė navigacija',
 }

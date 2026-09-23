@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'billing.canceled': 'Předplatné zrušeno. Na konci období přejdete zpět na Free.',
   'billing.contactSales': 'Kontaktovat obchod',
   'billing.free.1': '5 překladů',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Bez limitu uchovávání',
   'billing.upgradeHint': 'Upgradujte pro odemknutí pokročilých funkcí AI.',
   'billing.yearly': 'Ročně',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.activityEmpty': 'Zatím žádná aktivita — spusťte projekt pro naplnění tohoto kanálu.',
   'dashboard.eyebrow': 'Přehled',
   'dashboard.projectsEmpty': 'Zatím žádné projekty — spusťte jeden a uvidíte ho zde.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Opakovaně používejte dřívější překlady napříč všemi projekty. Vyšší skóre shody → méně opakované práce.',
   'memory.title': 'Paměťová banka',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
   'nav.legal': 'Právní',
   'newProject.addLanguage': 'Přidat cíl',
   'newProject.create': 'Vytvořit projekt',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': '{{count}} oznámení označeno jako přečtené.',
   'notifications.subtitle':
     'Zmínky, požadavky na recenzi a události AI ze všech Vašich pracovních prostorů.',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'privacy.collection.account': 'E-mail a zobrazované jméno Vašeho účtu',
   'privacy.deletion.body':
     'Projekt, segment, termín glosáře nebo záznam paměti můžete kdykoli smazat na příslušné stránce. Smazáním účtu v Nastavení odstraníte každý řádek vázaný na pracovní prostor z naší databáze.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Načtení projektů se nezdařilo.',
   'projects.loading': 'Načítání projektů…',
   'projects.subtitle': 'Každý aktivní projekt napříč všemi jazyky.',
+  'renditionLayout.primaryNavLabel': 'Primární navigace',
   'reset.backToLogin': '← Zpět na přihlášení',
   'reset.passwordLabel': 'Nové heslo',
   'review.activeEyebrow': 'Segment {{number}}',

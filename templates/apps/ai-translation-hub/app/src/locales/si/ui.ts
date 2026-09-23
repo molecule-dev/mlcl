@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'billing.canceled': 'දායකත්වය අවලංගු කරන ලදී. කාල සීමාව අවසානයේ ඔබ නොමිලේ වෙත ආපසු යනු ඇත.',
   'billing.contactSales': 'අලෙවිකරුවන් අමතන්න',
   'billing.free.1': 'පරිවර්තන 5ක්',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'රඳවා ගැනීමේ සීමාවක් නැත',
   'billing.upgradeHint': 'උසස් AI විශේෂාංග අගුළු ඇරීමට උත්ශ්‍රේණි කරන්න.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.activityEmpty':
     'තවම ක්‍රියාකාරකමක් නැත — මෙම සංග්‍රහය පිරවීම සඳහා ව්‍යාපෘතියක් ආරම්භ කරන්න.',
   'dashboard.eyebrow': 'දළ විශ්ලේෂණය',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'සෑම ව්‍යාපෘතියක් හරහාම අතීත පරිවර්තන නැවත භාවිතා කරන්න. ඉහළ ගැළපුම් ලකුණු → නැවත වැඩ කිරීම අඩු කරන්න.',
   'memory.title': 'මතක බැංකුව',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'nav.legal': 'නීතිමය',
   'newProject.addLanguage': 'ඉලක්කය එක් කරන්න',
   'newProject.create': 'ව්‍යාපෘතිය සාදන්න',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'කලින්',
   'notifications.markedAllRead': 'සලකුණු කරන ලදී {{count}} කියවූ පරිදි දැනුම්දීම්.',
   'notifications.subtitle': 'ඔබගේ වැඩබිම් හරහා සඳහන් කිරීම්, සමාලෝචන ඉල්ලීම් සහ AI සිදුවීම්.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'privacy.collection.account': 'ඔබගේ ගිණුම් ඊමේල් ලිපිනය සහ දර්ශන නාමය',
   'privacy.deletion.body':
     'ඔබට අදාළ පිටුවෙන් ඕනෑම වේලාවක ව්‍යාපෘතියක්, කොටසක්, පාරිභාෂික පදයක් හෝ මතක ඇතුළත් කිරීමක් මකා දැමිය හැකිය. සැකසීම් වලින් ඔබගේ ගිණුම මකා දැමීමෙන් අපගේ දත්ත සමුදායෙන් සෑම වැඩබිම-විෂය පථයක්ම ඉවත් කරයි.',
@@ -174,6 +179,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ව්‍යාපෘති පූරණය කිරීමට අසමත් විය.',
   'projects.loading': 'ව්‍යාපෘති පූරණය වෙමින්...',
   'projects.subtitle': 'සියලුම ප්‍රදේශ හරහා සෑම ක්‍රියාකාරී ව්‍යාපෘතියක්ම.',
+  'renditionLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'reset.backToLogin': '\\u2190 නැවත පුරනය වීමට',
   'reset.passwordLabel': 'නව මුරපදය',
   'review.activeEyebrow': 'කොටස {{number}}',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.pageTitle': 'Maka {{appName}}',
   'analytics.error': 'Enweghị ike ibuli nyocha.',
   'analytics.heading': 'Nyocha mwepụta',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Enweghị ọkwa ọnụahịa ahaziri.',
   'billing.plans.heading': 'Atụmatụ',
   'billing.subheading': 'Atụmatụ, ojiji, na ịkwụ ụgwọ Stripe na-achịkwa.',
+  'common.confirm': 'Kwenye',
+  'common.goToDashboard': 'Gaa na Dashboard',
+  'common.retry': 'Nwaa ọzọ',
   'documentCard.open': 'Mepee \\u2192',
   'documentDetail.back': 'Laghachi na akwụkwọ',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Akwụkwọ ndeksi',
   'documents.composer.titlePlaceholder': 'Aha akwụkwọ',
   'documents.emptyAll': 'Enwebeghị akwụkwọ ọ bụla. Bulite otu iji malite ịjụ ajụjụ.',
+  'documents.error.load': 'Enweghị ike ibuli akwụkwọ.',
   'documents.heading': 'Akwụkwọ ndị e depụtara aha ha',
   'documents.loading': 'Na-ebugo akwụkwọ...',
   'documents.metric.chunks': 'Ngụkọta iberibe',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Iwepụ\\u2026',
   'members.subheading': 'Kpọọ ndị otu gị ma setịpụ ọrụ.',
   'members.tableHeading': 'Ndepụta aha',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'notFound.askCta': 'Jụọ isi ihe ọmụma',
+  'notFound.body':
+    "{{app}} enweghị ike ịchọta ibe ahụ. Njikọ ahụ nwere ike gbajiri, ma ọ bụ na ibe ahụ ewepụla n'oge nhazigharị.",
   'notFound.eyebrow': 'Enweghị ike ịchọta ya',
   'notFound.title': 'Enweghị akụkụ dị otu a na index',
   'notifications.dismiss': 'Kwụpụ',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL Isi Mmalite',
   'sources.empty.body': 'Pịa \\u201cTinye isi mmalite\\u201d iji jikọọ njikọ mbụ gị waya.',
   'sources.empty.title': 'Enweghị ebe isi mmalite.',
+  'sources.error.add': 'Enweghị ike itinye isi mmalite.',
   'sources.error.labelRequired': 'A chọrọ akara.',
   'sources.error.load': 'Enweghị ike ibuli isi mmalite.',
   'sources.error.urlRequired': 'A chọrọ URL maka ụdị isi mmalite a.',

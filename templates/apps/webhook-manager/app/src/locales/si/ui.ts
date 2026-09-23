@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// {{app}} ගැන',
+  'about.pageTitle': 'වෙබ් හුක් පාලන තලය',
+  'about.plansTitle': 'සෑම අදියරකටම සැලසුම්',
   'apiKeys.bestPractices': 'හොඳම භාවිතයන්',
   'apiKeys.body':
     'ක්‍රමලේඛන ප්‍රවේශ ටෝකන. ඒවා මුරපද මෙන් සලකන්න - env vars හි ගබඩා කරන්න, කිසි විටෙකත් කැප නොවන්න.',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'සැලැස්ම තුළ',
   'billing.usageWarning': 'කැප් එක ළඟ',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.body':
     'ඔබ ක්‍රියාත්මක කරන සෑම වැඩබිමකම - සජීවී ප්‍රතිදානය, පියාසර කිරීමේදී නැවත උත්සාහ කිරීම් සහ බාධා ඇති වූ අන්ත ලක්ෂ්‍ය.',
   'dashboard.endpointsEmpty': 'තවමත් අන්ත ලක්ෂ්‍ය නොමැත.',
@@ -109,6 +113,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'අන්ත ලක්ෂ්‍ය',
   'endpointDetail.deliveryTrendSub': 'බෙදාහැරීම් / පැය, ලොග් පරිමාණය',
   'endpointDetail.hideSecret': 'රහස සඟවන්න',
+  'endpointDetail.loading': 'අන්ත ලක්ෂ්‍යය පූරණය වෙමින්…',
   'endpointDetail.metric.delivered': 'පැය 24 පුරාම බෙදා හරිනු ලැබේ',
   'endpointDetail.metric.deliveredCaption': 'සිට {{count}} සිදුවීම් වර්ග',
   'endpointDetail.metric.failuresCaption': 'නැවත උත්සාහයන්: {{retries}}',
@@ -213,6 +218,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'තීරණාත්මක · පැය 24',
   'notifications.metric.totalCaption': 'සර්වකාලීන එන ලිපි',
   'payloadViewer.payload': '// බර පැටවීම',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'profile.avatarHeader': 'අවතාරය',
   'profile.avatarHint': 'මුලකුරු පෙන්වා ඇත — ඊළඟ නිකුතුව සමඟ එන උඩුගත කිරීම්.',
   'profile.body': 'ඔබගේ ගිණුම, මනාපයන් සහ ක්‍රියාකාරී සැසි.',
@@ -228,6 +234,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'ඔබගේ වත්මන් සැසිය පමණක් සක්‍රිය වේ. වෙනත් උපාංග කිසිවක් පුරනය වී නොමැත.',
   'profile.toggle': 'ටොගල් කරන්න {{label}}',
+  'pylonShell.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'pylonShell.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'pylonShell.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'resetPassword.subtitle': 'ඔබ මීට පෙර භාවිතා නොකළ ශක්තිමත් මුරපදයක් තෝරන්න.',
   'resetPassword.tokenPlaceholder': 'ඊමේල් එකෙන් අලවන්න',

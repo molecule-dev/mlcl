@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
+  'about.pageTitle': '{{app}} के बारे में',
   'achievementBadgeCard.unlockedOn': '{{date}} को अनलॉक किया गया',
   'achievements.loadError': 'उपलब्धियाँ लोड करने में विफल।',
   'achievements.subheading': '{{unlocked}} में से {{total}} अनलॉक',
   'achievements.unlockedOn': '{{date}} को अनलॉक किया गया',
+  'auth.legalConsent': 'जारी रखकर, आप हमारी सहमति देते हैं',
   'calendar.empty': 'अपना कैलेंडर देखने के लिए एक आदत बनाएँ।',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'आदत',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'आदत ग्रिड',
   'category.${c.category}': '{{गिनती करना}} आदतें',
   'common.and': 'और',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'consistencyHeatmap.ariaLabel': 'दैनिक निरंतरता हीटमैप',
   'consistencyHeatmap.caption': 'पिछले {{weeks}} सप्ताह',
   'consistencyHeatmap.lessLabel': 'कम',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'इसे लाइव देखें',
   'landing.heroSubtitle':
     'आदतों को इस तरह बनाएँ जैसे वे वास्तव में टिकती हैं: छोटी प्रतिबद्धताएँ, दैनिक लकीरें, और एक लंबी अटूट श्रृंखला का गहरा आनंद।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Streak के अंदर एक झलक',
   'landing.previewMotivation': 'नौ लकीरें जीवित हैं। उन सभी को गर्म रखें।',
   'login.eyebrow': 'लकीर उठाएँ',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'इसे छोटा रखें। इसे विशिष्ट बनाएँ। कल फिर आएँ।',
   'newHabit.timeLabel': 'रिमाइंडर समय',
   'notifications.markError': 'सभी को पढ़ा हुआ चिह्नित नहीं किया जा सका।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.entries': '{{count}} प्रविष्टियाँ',
+  'pricing.heading': 'अपनी {{app}} योजना चुनें',
   'profile.action.plan': 'सदस्यता प्रबंधित करें',
   'profile.action.settings': 'खाता सेटिंग्स',
   'profile.bioEmpty': 'अपना परिचय देने के लिए सेटिंग्स में एक संक्षिप्त बायो जोड़ें।',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'दैनिक प्रातः संकेत (सुबह 8:00 बजे)',
   'settings.reminders.heading': 'रिमाइंडर',
   'settings.reminders.weekly': 'साप्ताहिक सारांश (रविवार शाम)',
+  'settings.revokeDeviceWarning': 'इस डिवाइस की पहुँच शीघ्र ही निरस्त हो जाएगी। इसे साइन आउट करें?',
   'settings.signOutDevice': 'साइन आउट',
   'settings.streaks.freezesPerWeek': 'प्रति सप्ताह फ़्रीज़',
   'settings.streaks.gracePeriod': 'आधी रात के बाद 6-घंटे की छूट अवधि',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} सक्रिय',
   'streakHeroCard.daysSuffix': 'दिन',
   'streakHeroCard.title': 'सबसे लंबी सक्रिय लकीर',
+  'streakLayout.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'streakLayout.openMenu': 'नेविगेशन मेनू खोलें',
   'streakLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
 }

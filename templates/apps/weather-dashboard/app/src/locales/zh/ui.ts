@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.subheading': '您当前使用的是 {{plan}} 套餐。',
   'billing.switch': '切换',
   'billing.upgraded': '已更新至 {{plan}}——限额已立即生效。',
+  'common.goToDashboard': '前往仪表盘',
   'compare.activityHeading': '活动适宜性',
   'compare.empty.title': '至少添加两个地点以进行比较',
   'compare.eyebrow': '并排比较',
@@ -129,5 +130,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': '最高',
   'trends.summary.low.label': '最低',
   'trends.summary.points.label': '天数',
+  'weatherDashboardLayout.primaryNavLabel': '主导航',
   'weatherHeroCard.updated': '更新于 {{time}}',
 }

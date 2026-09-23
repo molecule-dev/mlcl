@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
   'about.tagline': 'Saladused surevad avalikkuse ees.',
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Loo token',
   'apiTokens.kicker': 'API märgid',
   'apiTokens.loading': 'Tokenite laadimine…',
+  'apiTokens.new': 'Uus märk',
   'apiTokens.revoke': 'Tühista luba',
   'apiTokens.subheading':
     'Arcanumi CLI ja SDK isiklikud ja teenusetokenid. Lihttekst kuvatakse loomisel üks kord.',
@@ -29,6 +31,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + parool',
   'authShell.zeroKnowledge': 'Nullteadmiste krüptimine',
   'common.connecting': 'Ühendamine…',
+  'common.goToDashboard': 'Mine töölauani',
   'common.inviting': 'Kutsumine…',
   'forgotPassword.checkInbox':
     'Kui {email} on registreeritud, saabub allkirjastatud lähtestamise link minuti jooksul.',
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotatsiooni olek, anomaaliateated ja kinnitustaotlused igas hoidlas.',
   'notifications.unreadEmpty': 'Postkast null – kõik on tehtud.',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.heading': 'saladused',
   'pricing.limits.accessPolicies': 'juurdepääsupoliitikad',
   'pricing.limits.auditLog': 'auditilogi kirjed',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Isiklik konto',
   'profile.plan.description': 'Halda oma tellimust, vaata limiite ja uuenda.',
   'profile.subheading': 'Identiteet, teisejärgulised seadmed ja aktiivsed seansid.',
+  'profile.twoFactor.code': 'Autentimiskood',
   'profile.twoFactor.disable': 'Keela',
   'profile.twoFactor.enable': 'Luba',
+  'profile.twoFactor.invalidCode': 'Kehtetu kood',
   'profile.twoFactor.kicker': 'Kahefaktoriline autentimine',
+  'profile.twoFactor.off': 'Pole lubatud',
   'profile.twoFactor.on': 'Lubatud',
   'resetPassword.email': 'Konto e-posti aadress',
   'resetPassword.heading': 'Määrake uued volitused',
@@ -130,6 +137,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'käskud',
   'secretsManagerLayout.encrypted': 'AES-256 · KRÜPTITUD',
   'secretsManagerLayout.newVault': 'Uus seif',
+  'secretsManagerLayout.newVaultShort': 'Uus',
   'secretsManagerLayout.rotations': 'Pöörded',
   'secretsManagerLayout.search': 'otsing',
   'secretsManagerLayout.searchPlaceholder': 'Otsi saladusi võtme, tee või sildi järgi…',
@@ -166,6 +174,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Saladused',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Lisa salasõna',
+  'vaultDetail.back': 'Kõik võlvid',
   'vaultDetail.col.key': 'Võti',
   'vaultDetail.col.rotated': 'Pööratud',
   'vaultDetail.col.value': 'Väärtus',

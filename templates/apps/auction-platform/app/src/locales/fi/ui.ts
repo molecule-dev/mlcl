@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Katselu',
   'auctionDetail.watchRemoved': 'Poistettu seurantalistalta.',
   'auctionDetail.watchRemoveLabel': 'Poista seurantalistalta',
+  'auctionPlatformLayout.primaryNavLabel': 'Päänavigaatio',
   'authShell.brandBody':
     'Tarjoa reaaliajassa harvinaisista kelloista, hienoista taideteoksista ja ainutlaatuisista erikoistuotteista. Vasara putoaa sekunneissa.',
   'authShell.brandEyebrow': 'Live nyt · 1 420 huutokauppaa',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Järjestä',
   'browseAuctions.subheading':
     'Suodata kategorian mukaan, järjestä tärkeimmän mukaan ja jätä tarjous ennen vasaran putoamista.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'countdownTimer.ended': 'Päättynyt',
   'countdownTimer.endingSoon': 'Päättyy',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Piilota salasana',
   'login.showPassword': 'Näytä salasana',
   'login.subtext': 'Jatka huutokauppojesi seuraamista ja jätä tarjouksia ennen vasaran putoamista.',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'myBids.bidAgain': 'Tarjoa uudelleen',
   'myBids.browseCta': 'Selaa live-huutokauppoja →',
   'myBids.checkoutCta': 'Maksa nyt',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Toimintakeskus',
   'notificationsPage.subheading':
     '{{count}} lukematonta · reaaliaikaiset päivitykset huutokauppojen edetessä',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.bidsLabel': 'tarjoukset',
   'pricing.listingsLabel': 'ilmoitusta',
   'pricing.watchlistLabel': 'seurantalista',

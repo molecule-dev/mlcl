@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om oss',
   'authShell.samplePreview':
     '“Hej teamet, den nya instrumentpanelen är fantastisk — precis vad vi behövde!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/genväg',
   'automations.subheading':
     'Regler, färdiga svar och chatbottar — håll arbetsytan i gång medan teamet fokuserar på det svåra.',
+  'automations.trigger.inboundMessage': 'Inkommande meddelande',
   'automations.triggerLabel': 'Utlösare',
   'chatBubble.internalNoteLabel': 'Intern anteckning',
+  'common.confirmDelete': 'Bekräfta borttagning',
+  'common.goToDashboard': 'Gå till översikt',
   'contactDetail.backToContacts': 'Alla kontakter',
   'contactDetail.contactFallback': 'Kontakt',
   'contactDetail.conversationFallback': 'Konversation',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Senast sedd',
   'contacts.empty': 'Inga kontakter än. Lägg till din första kontakt ovan.',
   'contacts.eyebrow': 'Kundkatalog',
+  'contacts.form.nameOrEmailRequired': 'Ange åtminstone ett namn eller en e-postadress',
   'contacts.form.save': 'Spara kontakt',
   'contacts.heading': 'Kontakter',
   'contacts.loading': 'Laddar kontakter…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Spara anteckning',
   'conversationDetail.tab.note': 'Intern anteckning',
   'conversationDetail.threadAria': 'Konversationsmeddelanden',
+  'conversationDetail.visitorFallback': 'Besökare',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Kunddetaljer',
   'customerProfilePanel.recentTitle': 'Senaste konversationer',
@@ -70,6 +76,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.slaLabel': 'SLA denna vecka',
   'inboxHeroCard.subtitle': 'Kunder får sitt första svar inom {{time}} i snitt — håll tempot uppe.',
   'inboxHeroCard.title': 'Aktiva konversationer',
+  'inboxLayout.navDrawerLabel': 'Navigering',
+  'inboxLayout.openMenu': 'Öppna navigeringsmenyn',
   'inboxOverview.eyebrow': 'Idag på en blick',
   'inboxOverview.heroChange': '{{count}} öppna',
   'inboxOverview.kpiClosedTrend': 'totalt',
@@ -115,10 +123,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Besök startsidan',
   'notifications.subheading':
     'Tilldelningar, @omnämnanden, SLA-risker, CSAT-feedback och teamaktivitet — sorterade med nyast först.',
+  'notifications.subjectFallback': 'ett samtal',
+  'notifications.visitorFallback': 'En besökare',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Hög',
   'priority.low': 'Låg',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Brådskande',
   'privacy.title': 'Integritetspolicy',
   'reports.agentFallback': 'Agent',

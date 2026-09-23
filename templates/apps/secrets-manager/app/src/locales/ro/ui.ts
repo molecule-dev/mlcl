@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'about.tagline': 'Secretele mor la vedere.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Creați token',
   'apiTokens.kicker': 'Jetoane API',
   'apiTokens.loading': 'Se încarcă tokenurile…',
+  'apiTokens.new': 'Jeton nou',
   'apiTokens.revoke': 'Revocare token',
   'apiTokens.subheading':
     'Jetoane personale și de serviciu pentru Arcanum CLI și SDK. Textul simplu este afișat o singură dată la creare.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Cheie de acces',
   'authShell.zeroKnowledge': 'Criptare cu cunoștințe zero',
   'common.connecting': 'Se conectează…',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.inviting': 'Se trimite invitația…',
   'forgotPassword.checkInbox':
     'Dacă {email} este înregistrat, un link de resetare semnat va sosi în decurs de un minut.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Starea rotației, alertele de anomalii și solicitările de aprobare în fiecare seif.',
   'notifications.unreadEmpty': 'Inbox zero — totul a fost pus la zi.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.heading': 'secrete',
   'pricing.limits.accessPolicies': 'politici de acces',
   'pricing.limits.auditLog': 'intrări în jurnalul de audit',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Cont personal',
   'profile.plan.description': 'Gestionează-ți abonamentul, vezi limitele și fă upgrade.',
   'profile.subheading': 'Identitate, dispozitive cu factor secundar și sesiuni active.',
+  'profile.twoFactor.code': 'Cod de autentificare',
   'profile.twoFactor.disable': 'Dezactivați',
   'profile.twoFactor.enable': 'Activați',
+  'profile.twoFactor.invalidCode': 'Cod nevalid',
   'profile.twoFactor.kicker': 'Autentificare cu doi factori',
+  'profile.twoFactor.off': 'Neactivat',
   'profile.twoFactor.on': 'Activat',
   'resetPassword.email': 'Adresă de e-mail a contului',
   'resetPassword.heading': 'Setați noi acreditări',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'comenzi',
   'secretsManagerLayout.encrypted': 'AES-256 · CRIPTAT',
   'secretsManagerLayout.newVault': 'Seif nou',
+  'secretsManagerLayout.newVaultShort': 'Nou',
   'secretsManagerLayout.rotations': 'Rotații',
   'secretsManagerLayout.search': 'căutare',
   'secretsManagerLayout.searchPlaceholder': 'Căutați secrete după cheie, cale sau etichetă…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Secrete',
   'vaultCard.vaultLabel': 'Seif',
   'vaultDetail.addSecret': 'Adaugă secret',
+  'vaultDetail.back': 'Toate seifurile',
   'vaultDetail.col.key': 'Cheie',
   'vaultDetail.col.rotated': 'Rotit',
   'vaultDetail.col.value': 'Valoare',

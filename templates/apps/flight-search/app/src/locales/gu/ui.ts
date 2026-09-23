@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
+  'about.eyebrow': '{{app}} વિશે',
   'about.pageTitle': 'દરેક રસ્તો, એક શોધ.',
   'booking.backToDetail': 'ફ્લાઇટ વિગતો પર પાછા',
   'booking.continue': 'ચુકવણી ચાલુ રાખો',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'કર અને ફી',
   'booking.summary.travelers': 'પ્રવાસીઓ',
   'common.about': 'વિશે',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'flightDetail.backToResults': 'પરિણામો પર પાછા જાઓ',
   'flightDetail.baseFare': 'મૂળ ભાડું',
   'flightDetail.book': 'બુકિંગ ચાલુ રાખો',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 સ્ટોપ',
   'flightResultCard.select': 'પસંદ કરો',
   'flightResultCard.totalLabel': 'કુલ સમય',
+  'flightSearchLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'forgotPassword.subheading':
     'તમારા સ્કાયલાર્ક એકાઉન્ટ પર ઇમેઇલ દાખલ કરો અને અમે તમને એક સુરક્ષિત રીસેટ લિંક મોકલીશું.',
   'forgotPassword.successBody':
     'તપાસો {{email}} નવો પાસવર્ડ સેટ કરવા માટે લિંક માટે. લિંક 30 મિનિટમાં સમાપ્ત થાય છે.',
   'forgotPassword.successHeading': 'રીસેટ લિંક મોકલી',
   'landing.cta.explore': 'શોધ કરવાનો પ્રયાસ કરો',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'બીજા બધા પહેલાં આગામી શ્રેષ્ઠ ભાડું શોધો.',
   'landing.cta.signup': 'ભાડા ટ્રેક કરવાનું શરૂ કરો',
   'landing.features.eyebrow': 'શા માટે સ્કાયલાર્ક',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'ચેતવણી ઉમેરો',
   'priceAlerts.deleteConfirm': 'આ ચેતવણી દૂર કરીએ?',
   'priceAlerts.empty': 'હજુ સુધી કોઈ ટ્રેક કરેલા રૂટ નથી.',
+  'priceAlerts.emptyCta': 'ટ્રેક કરવા માટેનો રસ્તો શોધો',
   'priceAlerts.errorMessage': 'ચેતવણીઓ લોડ કરી શકાઈ નથી.',
   'priceAlerts.eyebrow': 'સ્કાયલાર્ક વોચલિસ્ટ',
   'priceAlerts.form.createError': 'ચેતવણી બનાવી શકાઈ નથી.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'બહુ-શહેરી પ્રવાસ યોજના',
   'results.multiLegHeading': 'પગ {{n}} · {{માંથી}} → {{થી}} · {{તારીખ}}',
   'results.multiSummary': '{{count}} પગ · {{passengers}} પ્રવાસી',
+  'results.sortAriaLabel': 'પરિણામોને આ પ્રમાણે સૉર્ટ કરો',
   'results.sortLabel': 'સૉર્ટ કરો',
   'results.summary': '{{count}} ફ્લાઇટ્સ · {{passengers}} પ્રવાસી',
   'settings.language.title': 'ભાષા',

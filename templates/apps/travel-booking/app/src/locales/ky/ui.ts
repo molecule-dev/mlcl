@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.featureDiscover.title': 'Илхам, кол менен тандалып алынган',
   'account.addPaymentCta': 'Төлөм ыкмасын кошуу',
   'account.addPaymentError': 'Төлөм ыкмасы кошулган жок.',
+  'account.confirmRemove': 'Алып салууну ырастоо',
   'account.defaultBadge': 'Демейки',
   'account.loyalty.pointsTowardNext': '{{упайлар}} ...нын {{кийинки}} миляга чейин {{кийинкиТиер}}',
   'account.loyalty.tier': 'Учурдагы деңгээл',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Сапардын чоо-жайы',
   'booking.tripSummary': '{{nights}} түндөр · {{guests}} коноктор',
   'common.daysAgo': '{{count}} күн мурун',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.hoursAgo': '{{count}} саат мурун',
   'common.minutesAgo': '{{count}} м мурун',
   'common.no': '—',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Юридикалык',
   'notifications.loading': 'Жүктөлүүдө…',
   'notifications.subheading': '{{count}} окула элек · баары бир тынч почта кутусунда',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.accommodationsLabel': 'турак жайлар',
   'pricing.bookingsLabel': 'брондоолор',
   'pricing.destinationsLabel': 'сакталган көздөгөн жерлер',
@@ -133,6 +138,7 @@ export const ui: UiTranslations = {
     'Илхам, ишенимдүү турак жайлар жана кыялдануудан брондоого чейинки оңой жол — 14 өлкөдө жана 200дөн ашык кол менен текшерилген мүлк.',
   'sojournHeroSearchCard.trustProtected': 'Акысыз жокко чыгаруу, толук корголгон',
   'sojournHeroSearchCard.trustVetted': 'Кол менен текшерилген мүлктөр гана',
+  'travelBookingLayout.primaryNavLabel': 'Негизги навигация',
   'tripDetail.backLink': 'Сапарларга кайтуу',
   'tripDetail.cancelCta': 'Брондоону жокко чыгаруу',
   'tripDetail.cancelHeading': 'Бул сапарды жокко чыгарасызбы?',

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
   'about.pageTitle': 'O {{name}}',
   'auth.footer.about': 'O {{name}}',
   'authHeader.subtitle': 'Přihlaste se, aby vaše čísla zůstala poctivá.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Bez možnosti operace',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Smazat " {{name}} "?',
   'automations.empty.headline': 'Zatím žádné automatizace',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Triggery a akce napříč každým sešitem. Každé spuštění zaznamenává řádek, který můžete později auditovat.',
   'automations.toggle': 'Přepnout {{name}}',
+  'automations.trigger.dailySchedule': 'Denní rozvrh',
+  'automations.trigger.rowCreated': 'Řádek vytvořen',
+  'automations.trigger.rowUpdated': 'Řádek aktualizován',
   'billing.empty': 'Žádné plány nejsou k dispozici.',
   'billing.error.priceMissing':
     'Pro tuto úroveň není nakonfigurována žádná cena Stripe. Nastavte proměnné prostředí STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafy',
   'charts.kpi.totalCharts': 'Celkové grafy',
   'charts.list.empty': 'Zatím žádné grafy.',
+  'charts.namePlaceholder': 'Trend tržeb',
   'charts.newChart': 'Nový graf',
   'charts.primary.eyebrow': 'Grafy podle typu',
   'charts.primary.headline': 'Přehled pracovního prostoru',
   'charts.subhead':
     'Živé vizualizace vázané na vaši mřížku – znovu vykreslete při každé úpravě buňky.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'editor.addColumn': 'Přidat sloupec',
+  'editor.addDialogTitle': 'Přidat sloupec',
   'editor.addRow': 'Přidat řádek',
   'editor.addSheet': 'Přidat list',
   'editor.back': 'Zpět k pracovním sešitům',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'formulaPlayground.headline': 'Vzorce, které se čtou jako angličtina',
   'gridPreview.emptyFormula': '– vyberte buňku pro zobrazení jejího vzorce',
   'history.backToGrid': 'Zpět k mřížce',
+  'history.composition': '{{sheets}} listů · {{cols}} sloupců · {{rows}} řádků',
   'history.confirmRestore': 'Obnovit tuto verzi? Živé buňky budou nahrazeny.',
   'history.empty.headline': 'Zatím žádné snímky',
   'history.empty.subhead': 'Vytvořte snímek sešitu a zobrazte zde jeho verze.',
@@ -99,7 +108,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite je analytik mřížek s více pohledy v reálném čase, který jako první využívá vzorce a finanční týmy se snaží získat první informace.',
   'landing.nav.formulas': 'Vzorce',
+  'login.noAccount': 'Jste na {{name}} noví?',
+  'login.signIn': 'Přihlásit se do {{name}}',
   'login.signUp': 'Vytvořte pracovní prostor',
+  'nav.menu': 'Nabídka',
+  'nav.openMenu': 'Otevřít nabídku',
   'notFound.cellRef': '#ROZHLAS!',
   'notFound.formula': '=LOOKUP(ŽÁDOST.url; "trasy"; "stránka")',
   'notFound.headline': 'Tato řada nikdy neexistovala.',
@@ -128,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Nativní automatizace · webhooky a cron triggery',
   'signup.creating': 'Zřizování pracovního prostoru…',
   'signup.cta': 'Vytvořit můj pracovní prostor',
+  'signup.haveAccount': 'Už používáte {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Vytvořte si svůj první sešit za 30 sekund',
   'team.col.activity': 'Pozván/a',

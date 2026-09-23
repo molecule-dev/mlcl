@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
   'about.pageTitle': 'ስለ {{name}}',
   'auth.footer.about': 'ስለ {{name}}',
   'authHeader.subtitle': 'ቁጥሮችዎን በሐቀኝነት ለማቆየት ይግቡ።',
   'automations.action.email': 'ኢሜይል',
+  'automations.action.noop': 'ኦፕ-ኦፕ የለም',
   'automations.action.webhook': 'ዌብ መንጠቆ',
   'automations.confirmDelete': 'ሰርዝ " {{name}} "?',
   'automations.empty.headline': 'እስካሁን ምንም አውቶሜሽን የለም',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'በእያንዳንዱ የስራ ደብተር ውስጥ ቀስቅሴዎች እና እርምጃዎች። እያንዳንዱ ሩጫ በኋላ ላይ ኦዲት ማድረግ የሚችሉትን ረድፍ ይመዘግባል።',
   'automations.toggle': 'ቀያይር {{name}}',
+  'automations.trigger.dailySchedule': 'ዕለታዊ የጊዜ ሰሌዳ',
+  'automations.trigger.rowCreated': 'ረድፍ ተፈጥሯል',
+  'automations.trigger.rowUpdated': 'ረድፍ ተዘምኗል',
   'billing.empty': 'ምንም ዕቅዶች የሉም።',
   'billing.error.priceMissing':
     'ለዚህ ደረጃ ምንም አይነት የስትራይፕ ዋጋ አልተዋቀረም። የSTRIPE_*_PRICE_ID env varsን ያዘጋጁ።',
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'ገበታዎች',
   'charts.kpi.totalCharts': 'ጠቅላላ ገበታዎች',
   'charts.list.empty': 'እስካሁን ምንም ገበታዎች የሉም።',
+  'charts.namePlaceholder': 'የገቢ አዝማሚያ',
   'charts.newChart': 'አዲስ ገበታ',
   'charts.primary.eyebrow': 'ገበታዎች በአይነት',
   'charts.primary.headline': 'የስራ ቦታ አጠቃላይ እይታ',
   'charts.subhead': 'ከፍርግርግዎ ጋር የተያያዙ የቀጥታ ምስሎች - በእያንዳንዱ የሕዋስ ማስተካከያ ላይ እንደገና ይሳሉ።',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'editor.addColumn': 'አምድ ያክሉ',
+  'editor.addDialogTitle': 'አምድ ያክሉ',
   'editor.addRow': 'ረድፍ ያክሉ',
   'editor.addSheet': 'ሉህ ያክሉ',
   'editor.back': 'ወደ የስራ መጽሐፍት ተመለስ',
@@ -94,7 +102,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} ካልሳይት ቀመር ሲሆን የመጀመሪያው፣ ባለብዙ እይታ፣ በእውነተኛ ጊዜ የፍርግርግ ተንታኞች እና የፋይናንስ ቡድኖች የመጀመሪያውን ደረጃ ይይዛሉ።',
   'landing.nav.formulas': 'ቀመሮች',
+  'login.noAccount': 'ለ {{name}} አዲስ ነዎት?',
+  'login.signIn': 'ወደ {{name}} ይግቡ',
   'login.signUp': 'የስራ ቦታ ይፍጠሩ',
+  'nav.menu': 'ምናሌ',
+  'nav.openMenu': 'ምናሌን ክፈት',
   'notFound.cellRef': '#ማጣቀሻ!',
   'notFound.formula': '=LookUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'ይህ ረድፍ በጭራሽ አልነበረም።',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'ቤተኛ አውቶሜሽኖች · የድር መንጠቆ እና የክሮን ቀስቅሴዎች',
   'signup.creating': 'የስራ ቦታን በማቅረብ ላይ…',
   'signup.cta': 'የስራ ቦታዬን ፍጠር',
+  'signup.haveAccount': 'አስቀድመህ {{name}} ላይ ነህ?',
   'signup.namePlaceholder': 'አቨሪ ቼን',
   'signup.tagline': 'የመጀመሪያውን የስራ ደብተርዎን በ30 ሰከንዶች ውስጥ ያሽከርክሩ',
   'team.col.activity': 'ተጋብዘዋል',

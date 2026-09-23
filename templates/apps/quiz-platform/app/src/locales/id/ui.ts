@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.title': 'Tentang {{app}}',
   'auth.login.noAccount': 'Baru di Sparq?',
   'auth.login.or': 'atau lanjutkan dengan',
   'auth.signup.or': 'atau daftar dengan',
+  'common.confirm': 'Konfirmasi',
+  'common.goToDashboard': 'Ke Dashboard',
+  'common.loadError': 'Terjadi kesalahan saat memuat konten ini.',
+  'common.retry': 'Coba lagi',
   'discover.collections.title': 'Telusuri menurut kategori',
   'discover.collections.viewAll': 'Lihat pustaka Anda →',
   'discover.empty.body': 'Coba kategori lain atau hapus pencarian.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Masuk untuk menjaga rentetan Anda, menjadi tuan rumah permainan langsung, dan naik di papan peringkat.',
   'myQuizzes.createButton': 'Kuis baru',
+  'myQuizzes.deleteConfirm': 'Hapus selamanya?',
   'myQuizzes.empty.createCta': 'Buat kuis pertama Anda →',
   'myQuizzes.empty.created': 'Anda belum membuat kuis.',
   'myQuizzes.empty.played': 'Belum ada kuis yang diterbitkan.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Memuat…',
   'notifications.subhead':
     '{{count}} percikan belum dibaca. Undangan, perubahan papan peringkat, dan pencapaian dalam satu aliran.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.checkoutError': 'Tidak dapat memulai checkout. Silakan coba lagi.',
+  'pricing.heading': 'Pilih paket {{app}} Anda',
   'pricing.included': 'Termasuk',
   'pricing.loadError': 'Tidak dapat memuat paket.',
   'pricing.maxQuizzes': '{{count}} kuis',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Belum ada yang diterbitkan.',
   'profile.startBuilding': 'Mulai membangun →',
   'profile.tier': 'Pemain Sparq',
+  'quizBuilder.addFailed': 'Pertanyaan tidak dapat ditambahkan. Coba lagi.',
   'quizBuilder.addQuestion': 'Tambah pertanyaan',
   'quizBuilder.answerPlaceholder': 'Ketik opsi…',
   'quizBuilder.answersLabel': 'Pilihan jawaban',
   'quizBuilder.back': 'Kembali ke kuis saya',
   'quizBuilder.delete': 'Hapus pertanyaan',
+  'quizBuilder.deleteFailed': 'Pertanyaan tidak dapat dihapus.',
   'quizBuilder.firstQuestion': 'Tambahkan pertanyaan pertama Anda untuk memulai.',
   'quizBuilder.idLabel': 'ID kuis: {{id}}',
   'quizBuilder.loadError': 'Tidak dapat memuat kuis.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Tambahkan setidaknya dua pilihan jawaban dan pilih yang benar untuk {{count}} pertanyaan sebelum menerbitkan.',
   'quizBuilder.questionsTitle': 'Pertanyaan',
+  'quizBuilder.saveFailed': 'Judul tidak dapat disimpan. Coba lagi.',
   'quizBuilder.statusDraft': 'Draf',
   'quizBuilder.subhead':
     'Edit judul, tambahkan pertanyaan, atur pilihan dan jawaban yang benar. Perubahan disimpan otomatis.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} mnt',
   'quizDetail.hostMultiplayer': 'Tuan rumah multipemain',
   'quizDetail.leaderboardEmpty': 'Belum ada permainan — jadilah yang pertama mencetak skor.',
+  'quizDetail.loadError': 'Kuis ini tidak dapat dimuat.',
   'quizDetail.loading': 'Memuat kuis…',
   'quizDetail.plays': '{{count}} kali dimainkan',
   'quizDetail.playSolo': 'Main sendiri',

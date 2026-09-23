@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Susisiekite',
   'about.eyebrow': 'Apie',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.connectRepoCta': 'Prisijungti prie saugyklos',
   'dashboard.empty':
     'Kol kas nėra jokių prašymų įtraukti pakeitimus — norėdami pradėti, susiekite savo repozitoriją.',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Veikimo laikas',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI kokybės balas: {{score}} / 10',
+  'refractLayout.closeMenu': 'Uždaryti meniu',
+  'refractLayout.openMenu': 'Atidaryti meniu',
   'refractLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'reports.cumulativeScoreLabel': 'Bendras balas',
   'reports.cumulativeScoreSubtitle': 'visi repozitoriai · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nepavyko įkelti paieškos indekso.',
   'settings.apiKeys.description':
     'Asmeninius API raktus galite valdyti naudodamiesi vartotojo meniu, esančiu dešinėje viršuje.',
+  'settings.apiKeys.integrationsNote':
+    'Paslaugų teikėjų prieigos žetonai tvarkomi aukščiau esančiame skyriuje „Integracijos“.',
   'settings.connectError': 'Nepavyko prisijungti prie paslaugų teikėjo.',
   'settings.disconnectError': 'Nepavyko atsijungti nuo paslaugų teikėjo.',
   'settings.eyebrow': 'Refract · darbo erdvė',
   'settings.integration.${provider}.label': 'Įrašoma…',
   'settings.loadError': 'Nepavyko įkelti nustatymų.',
+  'settings.notificationCenter': 'Pranešimų centras',
   'settings.notifications.description':
     'Apsilankykite pranešimų puslapyje, kad peržiūrėtumėte ir tvarkytumėte pranešimų gavimo nustatymus.',
   'settings.section.account': 'Paskyra ir saugumas',

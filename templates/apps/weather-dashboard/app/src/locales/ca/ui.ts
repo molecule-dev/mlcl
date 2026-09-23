@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Actualment ets a la {{plan}} pla.',
   'billing.switch': 'Interruptor',
   'billing.upgraded': 'Actualitzat a {{plan}} — límits aplicats immediatament.',
+  'common.goToDashboard': 'Anar al panell',
   'compare.activityHeading': "Veredictes d'activitat",
   'compare.empty.title': 'Afegeix com a mínim dues ubicacions per comparar',
   'compare.eyebrow': 'Costat al costat',
@@ -139,5 +140,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Alt',
   'trends.summary.low.label': 'Baix',
   'trends.summary.points.label': 'Dies',
+  'weatherDashboardLayout.primaryNavLabel': 'Navegació principal',
   'weatherHeroCard.updated': 'Actualitzat {{time}}',
 }

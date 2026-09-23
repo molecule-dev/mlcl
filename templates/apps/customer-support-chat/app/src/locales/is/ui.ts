@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
   'authShell.samplePreview':
     '„Hæ starfsfólk, nýja mælaborðið er stórkostlegt — nákvæmlega það sem við þurftum!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/flýtileið',
   'automations.subheading':
     'Reglur, forstillt svör og spjallþjónar — haldið vinnusvæðinu gangandi á meðan teymið þitt einbeitir sér að erfiðustu hlutunum.',
+  'automations.trigger.inboundMessage': 'Innkomandi skilaboð',
   'automations.triggerLabel': 'Kveikja',
   'chatBubble.internalNoteLabel': 'Innri athugasemd',
+  'common.confirmDelete': 'Staðfesta eyðingu',
+  'common.goToDashboard': 'Fara á yfirlit',
   'contactDetail.backToContacts': 'Allir tengiliðir',
   'contactDetail.contactFallback': 'Hafðu samband',
   'contactDetail.conversationFallback': 'Samtal',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Síðast séð',
   'contacts.empty': 'Engir tengiliðir ennþá. Bættu við fyrsta tengiliðnum þínum hér að ofan.',
   'contacts.eyebrow': 'Viðskiptavinaskrá',
+  'contacts.form.nameOrEmailRequired': 'Gefðu upp að minnsta kosti nafn eða netfang',
   'contacts.form.save': 'Vista tengilið',
   'contacts.heading': 'Tengiliðir',
   'contacts.loading': 'Hleður tengiliði…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Vista athugasemd',
   'conversationDetail.tab.note': 'Innri athugasemd',
   'conversationDetail.threadAria': 'Samtalsskilaboð',
+  'conversationDetail.visitorFallback': 'Gestir',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Upplýsingar um viðskiptavin',
   'customerProfilePanel.recentTitle': 'Nýleg samtöl',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Viðskiptavinir fá fyrsta svarið sitt í {{time}} að meðaltali — halda hraðanum gangandi.',
   'inboxHeroCard.title': 'Virk samtöl',
+  'inboxLayout.navDrawerLabel': 'Leiðsögn',
+  'inboxLayout.openMenu': 'Opna flakkvalmynd',
   'inboxOverview.eyebrow': 'Í dag í hnotskurn',
   'inboxOverview.heroChange': '{{count}} opið',
   'inboxOverview.kpiClosedTrend': 'allra tíma',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Heimsækja heimasíðu',
   'notifications.subheading':
     'Verkefni, @minningar, áhætta við SLA, CSAT endurgjöf og teymisvirkni — raðað eftir nýjustu fyrst.',
+  'notifications.subjectFallback': 'samtal',
+  'notifications.visitorFallback': 'Gestur',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Hátt',
   'priority.low': 'Lágt',
+  'priority.normal': 'Venjulegt',
   'priority.urgent': 'Áríðandi',
   'privacy.title': 'Persónuverndarstefna',
   'reports.agentFallback': 'Umboðsmaður',

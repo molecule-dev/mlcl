@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Atopaches un erro, tes algunha solicitude para engadir unha función ou queres contarnos sobre a película que gravaches? Todas as mensaxes chegan a unha persoa real do equipo. Ponte en contacto connosco en calquera momento desde a configuración da túa conta.',
+  'about.contactTitle': 'Fala connosco',
+  'about.eyebrow': '// o estudio detrás do montaxe',
   'about.pageTitle': 'Acerca de {{appName}}',
   'assetDetail.back': 'Volver á biblioteca',
   'assetDetail.confirmDelete': 'Eliminar " {{name}} Isto non se pode desfacer.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} clips, camas de audio e gráficos listos para colocar na liña de tempo.',
   'assetLibrary.title': 'Activos',
   'assetLibrary.upload': 'Engadir recurso',
+  'common.goToDashboard': 'Ir ao panel',
   'dashboard.browseTemplates': 'Explorar modelos →',
   'dashboard.loading': 'Cargando proxectos…',
   'dashboard.noProjects': 'Aínda non hai proxectos. Crea un para comezar.',
@@ -164,7 +169,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Escolle algo que só ti lembrarías.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privacidade',
+  'rushesLayout.closeMenu': 'Pechar navegación',
   'rushesLayout.guest': 'Editor/a',
+  'rushesLayout.navDialog': 'Navegación',
+  'rushesLayout.openMenu': 'Abrir navegación',
   'rushesLayout.planFree': 'Plan gratuíto',
   'rushesLayout.tagline': 'Liña de tempo cinematográfica',
   'settings.billing.confirmCancel': 'Cancelar a subscrición ao final do período?',

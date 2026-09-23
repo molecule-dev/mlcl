@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.pageTitle': 'Rreth {{app}}',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.retry': 'Riprovo',
   'compose.cancel': 'Anulo',
   'compose.captionPlaceholder': 'Çfarë ke në mendje?',
   'compose.heading': 'Ndani një moment',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Llogari e verifikuar',
   'resetPassword.newPassword': 'Fjalëkalim i ri',
   'resetPassword.subheading': 'Zgjidh diçka të fortë — të paktën 12 karaktere.',
+  'search.clearAria': 'Pastro',
+  'search.error': 'Kërkimi dështoi. Provo përsëri.',
   'search.noPeople': 'Nuk ka krijues që përputhen " {{q}} ".',
   'search.noPosts': 'Nuk ka postime që përputhen " {{q}} ".',
   'search.noTags': 'Ende nuk ka hashtag në trend.',
@@ -126,6 +132,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Fshih fjalëkalimin',
   'signup.showPassword': 'Shfaq fjalëkalimin',
   'signup.subheading': 'Krijo një llogari për të filluar ndarjen.',
+  'socialMediaLayout.closeMenu': 'Mbyll menynë e navigimit',
+  'socialMediaLayout.openMenu': 'Hap menynë e navigimit',
+  'socialMediaLayout.primaryNavLabel': 'Navigimi kryesor',
   'storyRail.heading': 'Historitë',
   'storyRail.label': 'Historitë',
   'storyRail.openAria': 'Hap {{handle}} historia e',

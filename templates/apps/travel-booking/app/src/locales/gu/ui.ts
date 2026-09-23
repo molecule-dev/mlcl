@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
+  'about.featureDiscover.title': 'પ્રેરણા, હાથથી પસંદ કરેલ',
   'account.addPaymentCta': 'ચુકવણી પદ્ધતિ ઉમેરો',
   'account.addPaymentError': 'ચુકવણી પદ્ધતિ ઉમેરી શકાઈ નથી.',
+  'account.confirmRemove': 'દૂર કરવાની પુષ્ટિ કરો',
   'account.defaultBadge': 'ડિફોલ્ટ',
   'account.loyalty.pointsTowardNext': '{{પોઇન્ટ્સ}} ના {{આગળ}} માઇલ સુધી {{આગામી સ્તર}}',
   'account.loyalty.tier': 'વર્તમાન સ્તર',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ટ્રિપની વિગતો',
   'booking.tripSummary': '{{nights}} રાતો · {{guests}} મહેમાનો',
   'common.daysAgo': '{{count}} દિવસ પહેલા',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.hoursAgo': '{{count}} કલાક પહેલા',
   'common.minutesAgo': '{{count}} મિનિટ પહેલા',
   'common.no': '—',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'કાનૂની',
   'notifications.loading': 'લોડ કરી રહ્યું છે...',
   'notifications.subheading': '{{count}} વાંચ્યા વગરનું · બધું એક શાંત ઇનબોક્સમાં',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.accommodationsLabel': 'રહેવાની સગવડ',
   'pricing.bookingsLabel': 'બુકિંગ',
   'pricing.destinationsLabel': 'સાચવેલા સ્થળો',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'પ્રેરણા, વિશ્વસનીય રોકાણ, અને દિવાસ્વપ્નથી બુક કરાવવા સુધીનો ઘર્ષણ રહિત માર્ગ - 14 દેશો અને 200+ હાથથી ચકાસાયેલ મિલકતોમાં.',
   'sojournHeroSearchCard.trustProtected': 'મફત રદ, સંપૂર્ણપણે સુરક્ષિત',
   'sojournHeroSearchCard.trustVetted': 'ફક્ત હાથથી તપાસેલી મિલકતો',
+  'travelBookingLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'tripDetail.backLink': 'ટ્રિપ્સ પર પાછા જાઓ',
   'tripDetail.cancelCta': 'બુકિંગ રદ કરો',
   'tripDetail.cancelHeading': 'આ ટ્રિપ રદ કરીએ?',

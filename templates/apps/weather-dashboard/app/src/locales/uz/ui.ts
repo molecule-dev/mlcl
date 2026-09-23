@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Siz hozirda ... dasiz {{plan}} reja.',
   'billing.switch': 'Switch',
   'billing.upgraded': "Yangilandi {{plan}} — cheklovlar darhol qo'llaniladi.",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'compare.activityHeading': 'Faoliyat hukmlari',
   'compare.empty.title': "Taqqoslash uchun kamida ikkita joylashuv qo'shing",
   'compare.eyebrow': 'Yonma-yon',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Yuqori',
   'trends.summary.low.label': 'Past',
   'trends.summary.points.label': 'Kunlar',
+  'weatherDashboardLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'weatherHeroCard.updated': 'Yangilandi {{time}}',
 }

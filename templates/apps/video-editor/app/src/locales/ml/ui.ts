@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു ബഗ് കണ്ടെത്തിയോ, ഫീച്ചർ അഭ്യർത്ഥന ലഭിച്ചോ, അല്ലെങ്കിൽ നിങ്ങൾ കട്ട് ചെയ്ത സിനിമയെക്കുറിച്ച് ഞങ്ങളോട് പറയണോ? എല്ലാ സന്ദേശങ്ങളും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു — നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും ബന്ധപ്പെടുക.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.eyebrow': '// കട്ടിന് പിന്നിലെ സ്റ്റുഡിയോ',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
   'assetDetail.back': 'ലൈബ്രറിയിലേക്ക് മടങ്ങുക',
   'assetDetail.confirmDelete': 'ഇല്ലാതാക്കുക " {{name}} "? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} ക്ലിപ്പുകളും ഓഡിയോ ബെഡുകളും ഗ്രാഫിക്സും ടൈംലൈനിൽ ഇടാൻ തയ്യാറാണ്.',
   'assetLibrary.title': 'ആസ്തികൾ',
   'assetLibrary.upload': 'അസറ്റ് ചേർക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.browseTemplates': 'ടെംപ്ലേറ്റുകൾ ബ്രൗസ് ചെയ്യുക →',
   'dashboard.loading': 'പ്രോജക്റ്റുകൾ ലോഡ് ചെയ്യുന്നു...',
   'dashboard.noProjects': 'ഇതുവരെ പ്രോജക്റ്റുകളൊന്നുമില്ല — ആരംഭിക്കാൻ ഒന്ന് സൃഷ്ടിക്കുക.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'നിങ്ങൾക്ക് മാത്രം ഓർമ്മയുള്ള എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക.',
   'rushesAuthShell.footer.copyright': '© റഷസ് സ്റ്റുഡിയോ',
   'rushesAuthShell.footer.privacy': 'സ്വകാര്യത',
+  'rushesLayout.closeMenu': 'നാവിഗേഷൻ അടയ്ക്കുക',
   'rushesLayout.guest': 'എഡിറ്റർ',
+  'rushesLayout.navDialog': 'നാവിഗേഷൻ',
+  'rushesLayout.openMenu': 'നാവിഗേഷൻ തുറക്കുക',
   'rushesLayout.planFree': 'സൗജന്യ പ്ലാൻ',
   'rushesLayout.tagline': 'സിനിമാറ്റിക് ടൈംലൈൻ',
   'settings.billing.confirmCancel': 'കാലയളവ് അവസാനിക്കുമ്പോൾ സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കണോ?',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
+  'about.title': 'በኪስዎ ውስጥ ማስቀመጥ የሚችሉት የጽሕፈት ክፍል',
   'billing.cancelConfirm': 'ንቁ የደንበኝነት ምዝገባዎን ይሰርዙ?',
   'billing.cancelFailed': 'መሰረዝ አልተቻለም።',
   'billing.checkingOut': 'ክፍያ በመክፈት ላይ…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'የሂሳብ አከፋፈልን መጫን አልተቻለም።',
   'billing.loading': 'የሂሳብ አከፋፈልን በመጫን ላይ…',
   'billing.upgradeCta': 'ወደ ያሻሽሉ {{name}}',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
+  'editor.autosaveOn': 'በራስ-ሰር አስቀምጥ በርቷል',
   'editor.backToLibrary': 'ወደ ቤተ-መጽሐፍት ተመለስ',
   'editor.charCount': '{{count}} ገፀ-ባህሪያት',
   'editor.confirmTrash': 'ይህ ሰነድ ወደ መጣያ ይወሰድ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ተነቅሏል',
   'editor.unpublishCta': 'ወደ ረቂቅ ውሰድ',
   'editor.unpublished': 'ወደ ረቂቅ ተመልሷል',
+  'focus.autosaveOn': 'በራስ-ሰር አስቀምጥ በርቷል',
   'focus.backToLibrary': 'ወደ ቤተ-መጽሐፍት ተመለስ',
   'focus.bodyPlaceholder': 'በአንድ ጊዜ አንድ መስመር። ሌላ ማንም እዚህ የለም።',
   'focus.exit': 'ከትኩረት ሁነታ ውጣ',
@@ -78,6 +83,8 @@ export const ui: UiTranslations = {
   'login.headline': 'የተቀመጠውን መስመር ይምረጡ።',
   'login.signupLink': 'አንድ ፍጠር',
   'login.subline': 'የእጅ ጽሑፎችህ፣ የዕለታዊ ገጾችህ እና የመጨረሻው የጠቋሚ አቀማመጥህ አንተ ባስቀመጥካቸው ቦታ ላይ ናቸው።',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'pricing.exports': 'ኤክስፖርት',
   'pricing.folders': 'አቃፊዎች',
   'pricing.heading': 'ሰነዶች',
@@ -88,6 +95,7 @@ export const ui: UiTranslations = {
   'reset.passwordHint': 'ቢያንስ 8 ቁምፊዎች።',
   'reset.subline': 'አሁን በኢሜይል የላክንልዎትን ኮድ ያስገቡና የማይረሳ ነገር ይምረጡ። አንዴ ከተቀመጠ በኋላ እናስገባዎታለን።',
   'reset.tokenHint': 'ከገቢ መልዕክት ሳጥንዎ ተለጥፏል።',
+  'settings.appearance.heading': 'ብርሃንም ይሁን ጨለማ',
   'settings.editor.${row.id}.description': 'ቋንቋ',
   'settings.editor.description':
     'የጽሕፈት መኪና ማሸብለል፣ የአንቀጽ ፋድ እና የስራ ፈት ትኩረት — ነባሪዎች ለረጅም ክፍለ ጊዜዎች የተስተካከሉ ናቸው።',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'ምዕራፍ ሶስት - ፀሐይ ከመውጣቷ በፊት ጸጥ ያለ ሰዓት',
   'versalDocumentCard.pinned': 'ተሰክቷል',
   'versalLayout.nav.stats': 'ስታቲስቲክስ',
+  'versalLayout.primaryNavLabel': 'ዋና አሰሳ',
   'versalManuscriptHero.cta': 'መጻፍዎን ይቀጥሉ',
   'versalManuscriptHero.goalLabel': 'የዛሬው የቃላት ግብ',
   'versalManuscriptHero.inProgress': 'በትራክ ላይ',

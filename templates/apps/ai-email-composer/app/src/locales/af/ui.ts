@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Ons storie',
   'aiSuggestionPanel.title': 'Seëlkopiloot',
   'analytics.col.open': 'Oopmaakkoers',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Begin afhandeling…',
   'billing.subheading': 'Kies die plan wat ooreenstem met hoe jy stuur.',
   'billing.unavailable': 'Kontak verkope',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.retry': 'Probeer weer',
   'compose.adjustingTone': 'Herskryf in gekose toon…',
   'compose.aiPromptPlaceholder':
     'bv. "Beleefde opvolg na geen antwoord vir twee weke nie, hou dit kort."',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     "Moet jy iets stuur? Signet kan binne sekondes 'n konsep gereed hê.",
   'dashboard.composeCtaLabel': 'Vinnige skryfwerk',
   'dashboard.heading': 'Jou week, saamgestel',
+  'dashboard.loadFailed': 'Kon nie jou dashboard laai nie.',
   'dashboard.manageLibrary': 'Bestuur biblioteek →',
   'dashboard.recentEmpty':
     'Geen gestuurde e-posse nog nie — jou gestuurde e-posse sal hier verskyn.',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Standaardtoon',
   'settings.toneSubheading': 'Signet gebruik hierdie toon tensy jy die konsep oorskryf.',
   'signetLayout.primaryNavLabel': 'Primêre navigasie',
+  'signetLayout.toggleMenu': 'Wissel kieslys',
   'signup.emailLabel': 'E-posadres',
   'signup.showPassword': 'Wys wagwoord',
   'signup.tagline': "Stuur jou eerste KI-geskrewe e-pos in minder as 'n minuut.",

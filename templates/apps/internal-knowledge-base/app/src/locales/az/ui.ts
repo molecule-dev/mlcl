@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'article.notFound': 'Məqalə tapılmadı',
   'articleEditor.bodyPlaceholder': 'Bloklar üçün / yazın və ya sadəcə yazmağa başlayın.',
+  'articleEditor.loadFailed': 'Məqaləni yükləmək mümkün olmadı',
   'articleEditor.publishing': 'Nəşriyyat\\u2026',
   'articleEditor.saveFailed': 'Yadda saxlamaq alınmadı',
   'articleEditor.saving': 'Yadda saxlanılır\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Əlfəcin',
   'articleView.bookmarkOn': 'Əlfəcinlənmiş',
   'articleView.edit': 'Məqaləni redaktə edin',
+  'articleView.loading': 'Bu məqaləni açmaq…',
   'articleView.readTime': '{{minutes}} minimum oxuma',
   'articleView.spaces': 'Məkanlar',
   'articleView.tocHeading': 'Bu səhifədə',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Komandanızın son redaktələri, oxunuşları və layihələndirmələri hələ də davam edir.',
   'cairnTrailHero.updated': 'Məqalələr yeniləndi',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'drafts.eyebrow': 'Yarımçıq qalmış işiniz',
   'drafts.heading': 'Qaralamalar',
+  'drafts.loadFailed': 'Qaralamalarınızı yükləmək mümkün olmadı.',
   'drafts.subtitle':
     'Başladığınız, lakin hələ dərc etmədiyiniz məqalələr. Birini seçin və davam edin.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Hələlik boşluq yoxdur. Məqalələr toplamağa başlamaq üçün birini açın.',
   'home.spacesHeading': 'Məkanlarınız',
   'home.subtitle': 'Son məqalələr, əlfəcinləriniz və komandanın yazdıqları.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule ilə qurulub.',
   'landing.ctaBody':
     'Solo müəlliflər üçün pulsuzdur. Kitablar, qərarlar və uyğunlaşdırma göndərən paylanmış komandalar üçün komanda planları.',
   'landing.ctaHeading': 'İlk daşı bu gün üst-üstə yığ.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'İş sahəsi yaradın',
   'login.submitting': 'Daxil olma\\u2026',
   'login.subtitle': 'Cığırı qoyub getdiyin yerdən davam et.',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
+  'newSpace.colorAria': '{{color}} rəngini seçin',
   'newSpace.colorLabel': 'Vurğu rəngi',
+  'newSpace.createFailed': 'Boşluq yaratmaq mümkün olmadı',
   'newSpace.descriptionPlaceholder':
     'Qaçış kitabçaları, növbədə olan oyun kitabçaları, ölüm sonrası məlumatlar\\u2026',
   'newSpace.eyebrow': 'Bilik məkanı açın',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yüklənir\\u2026',
   'notifications.subtitle':
     '{{count}} oxunmamış \\u2014 qeydlər, şərhlər, səhifə dəyişiklikləri və rəy sorğuları.',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.articles': 'məqalələr',
   'pricing.spaces': 'boşluqlar',
   'profile.eyebrow': 'Müəllif profili',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Yeni parol daxil edin',
   'resetPassword.subtitle': 'Güclü bir parol seçin — ən azı 12 simvol.',
   'searchResults.eyebrow': 'İş sahəsi axtarışı',
+  'searchResults.filter.all': 'Bütün məkanlar',
   'searchResults.heading': 'Məqalələr axtarın',
   'searchResults.placeholder': 'Axtarış kitabçaları, RFC-lər, siyasətlər, qərarlar\\u2026',
   'searchResults.summary': '{{count}} üçün nəticələr {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Bu, hesabınızı və müəllifi olduğunuz hər bir məqaləni silir. Təsdiqləmək üçün DELETE yazın.',
   'settings.danger.confirmInvalid': 'Təsdiqləmək üçün DELETE yazın.',
+  'settings.danger.deleteFailed': 'Hesabı silmək mümkün olmadı',
   'settings.danger.deleting': 'Silinir\\u2026',
   'settings.danger.description':
     'İş sahənizi silmək bütün məqalələri, şərhləri və versiya tarixçəsini silir. Bərpa yoxdur.',
   'settings.danger.title': 'İş sahəsini silin',
+  'settings.email.confirm': 'E-poçtu yeniləyin',
+  'settings.email.confirmTitle': 'E-poçt dəyişikliyini təsdiqləyin',
   'settings.email.saved': 'E-poçt yeniləndi.',
+  'settings.email.updateFailed': 'E-poçtu yeniləmək mümkün olmadı',
   'settings.language.title': 'Dil',
   'settings.name': 'Ad',
+  'settings.name.saved': 'Ad yeniləndi.',
+  'settings.name.updateFailed': 'Adı yeniləmək mümkün olmadı',
   'settings.notifications.description': 'Gələnlər qutunuza nəyin çatdığını seçin.',
+  'settings.password.changeFailed': 'Şifrəni dəyişdirmək mümkün olmadı',
   'settings.password.current': 'Cari parol',
   'settings.password.new': 'Yeni parol',
   'settings.password.saving': 'Yenilənir\\u2026',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Məqalələr sizin üçün necə təqdim olunur.',
   'settings.reading.title': 'Oxu və yazı',
   'settings.subtitle': 'Bildirişləri, oxu kətanını və hesabınızı tənzimləyin.',
+  'settings.twofa.code': 'Doğrulama kodu',
   'settings.twofa.disable': 'Deaktiv edin',
   'settings.twofa.disabled': 'Əlil',
   'settings.twofa.enable': 'Aktivləşdirin',
   'settings.twofa.enabled': 'Aktivləşdirilib',
+  'settings.twofa.invalidCode': 'Yanlış kod',
+  'settings.twofa.unavailable': 'Bu tətbiq üçün iki faktorlu identifikasiya mövcud deyil.',
+  'settings.twofa.verify': 'Təsdiqləyin və aktivləşdirin',
   'signup.brandQuote':
     '\\u201cOnu yazmaq, ehtiyacı olan növbəti insana verdiyimiz ilk vəddir.\\u201d',
   'signup.eyebrow': 'İş sahəsi açın',

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.pageTitle': 'Game da {{app}}',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.retry': 'Sake gwadawa',
   'compose.cancel': 'Soke',
   'compose.captionPlaceholder': 'Me ke zuciyarka?',
   'compose.heading': 'Raba lokaci ɗaya',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Asusun da aka tabbatar',
   'resetPassword.newPassword': 'Sabuwar kalmar sirri',
   'resetPassword.subheading': 'Zaɓi wani abu mai ƙarfi — aƙalla haruffa 12.',
+  'search.clearAria': 'Share',
+  'search.error': 'Bincike ya gaza. Gwada kuma.',
   'search.noPeople': 'Babu wanda ya dace da masu ƙirƙira " {{q}} ".',
   'search.noPosts': 'Babu wani rubutu da ya dace " {{q}} ".',
   'search.noTags': 'Babu hashtags masu tasowa tukuna.',
@@ -125,6 +131,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ɓoye kalmar sirri',
   'signup.showPassword': 'Nuna kalmar sirri',
   'signup.subheading': 'Ƙirƙiri asusu don fara rabawa.',
+  'socialMediaLayout.closeMenu': 'Rufe menu na kewayawa',
+  'socialMediaLayout.openMenu': 'Buɗe menu na kewayawa',
+  'socialMediaLayout.primaryNavLabel': 'Babban kewayawa',
   'storyRail.heading': 'Labarai',
   'storyRail.label': 'Labarai',
   'storyRail.openAria': 'A buɗe {{handle}} Labarin',

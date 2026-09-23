@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.pageTitle': 'Game da {{appName}}',
   'analytics.error': 'Ba a iya loda nazarin ba.',
   'analytics.heading': 'Nazarin dawowa',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Babu matakan farashi da aka tsara.',
   'billing.plans.heading': 'Tsare-tsare',
   'billing.subheading': 'Tsarin, amfani, da kuma wurin biya da Stripe ke sarrafawa.',
+  'common.confirm': 'Tabbatar',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.retry': 'Sake gwadawa',
   'documentCard.open': 'A buɗe \\u2192',
   'documentDetail.back': 'Komawa ga takardu',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Takardar fihirisa',
   'documents.composer.titlePlaceholder': 'Taken daftarin aiki',
   'documents.emptyAll': 'Babu takardu tukuna. Loda ɗaya don fara yin tambayoyi.',
+  'documents.error.load': 'Ba a iya loda takardu ba.',
   'documents.heading': 'Takardun da aka yi wa alama',
   'documents.loading': 'Ana loda takardu…',
   'documents.metric.chunks': 'Jimillar guntu',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Cirewa\\u2026',
   'members.subheading': 'Gayyaci abokan aiki kuma ku tsara rawar da za ku taka.',
   'members.tableHeading': 'Jerin sunayen',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'notFound.askCta': 'Tambayi tushen ilimi',
+  'notFound.body':
+    '{{app}} ba zai iya gano wannan shafin ba. Haɗin yanar gizon yana iya karyewa, ko kuma shafin ya daina aiki yayin sake yin amfani da shi.',
   'notFound.eyebrow': 'Ba za a iya dawo da shi ba',
   'notFound.title': 'Babu wani ɓangare a cikin index kamar haka',
   'notifications.dismiss': 'Kore',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Adireshin URL na Tushe',
   'sources.empty.body': 'Danna \\u201cƘara tushe\\u201d don haɗa haɗin farko.',
   'sources.empty.title': 'Babu majiyoyi tukuna.',
+  'sources.error.add': 'Ba za a iya ƙara tushe ba.',
   'sources.error.labelRequired': 'Ana buƙatar lakabi.',
   'sources.error.load': 'Ba za a iya loda majiyoyi ba.',
   'sources.error.urlRequired': "Ana buƙatar URL don wannan nau'in tushe.",

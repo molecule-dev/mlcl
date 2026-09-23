@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Перайсці да панэлі',
   'forgot.eyebrow': 'Згубілі дарогу назад?',
   'forgot.formSubtitle': 'Паведаміце нам адрас электроннай пошты, які ёсць у файле.',
   'forgot.headline': 'Скіньце пароль.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Стварыць',
   'login.subline':
     'Вашы нататнікі, зваротныя спасылкі і штодзённыя старонкі знаходзяцца менавіта там, дзе вы іх пакінулі.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'noteEditor.backToNotes': 'Назад да нататак',
   'noteEditor.bodyPlaceholder':
     'Пачніце пісаць — ваша нататка будзе захоўвацца аўтаматычна па меры ўводу.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Новы нататнік',
   'notes.newNotebookPrompt': 'Новая назва нататніка',
   'notes.notebooksHeading': 'Нататнікі',
+  'notes.subtitle':
+    'Выберыце нататнік злева, а затым націсніце кнопку «Новая нататка», каб пачаць новы запіс.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Выберыце свой план нататак',
   'reset.eyebrow': 'Амаль вярнуўся',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Абноўлена',
   'versoLayout.nav.graph': 'Графік',
   'versoLayout.nav.home': 'Галоўная',
+  'versoLayout.primaryNavLabel': 'Асноўная навігацыя',
   'versoNoteCard.pinned': 'Замацавана',
   'versoTodayHero.continueCta': 'Працягвайце пісаць',
   'versoTodayHero.createCta': 'Пачніце сённяшнюю нататку',

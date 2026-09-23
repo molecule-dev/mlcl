@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureDiscover.title': 'Inspirasyon, pinili ng kamay',
   'account.addPaymentCta': 'Magdagdag ng paraan ng pagbabayad',
   'account.addPaymentError': 'Hindi maidagdag ang paraan ng pagbabayad.',
+  'account.confirmRemove': 'Kumpirmahin ang pag-alis',
   'account.defaultBadge': 'Default',
   'account.loyalty.pointsTowardNext': '{{mga puntos}} ng {{susunod}} milya papunta {{nextTier}}',
   'account.loyalty.tier': 'Kasalukuyang antas',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Mga detalye ng biyahe',
   'booking.tripSummary': '{{nights}} mga gabi · {{guests}} mga bisita',
   'common.daysAgo': '{{count}}a nakalipas',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.hoursAgo': '{{count}}o nakalipas',
   'common.minutesAgo': '{{count}} buwan ang nakalipas',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Legal',
   'notifications.loading': 'Naglo-load…',
   'notifications.subheading': '{{count}} hindi pa nababasa · lahat sa isang tahimik na inbox',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.accommodationsLabel': 'mga akomodasyon',
   'pricing.bookingsLabel': 'mga booking',
   'pricing.destinationsLabel': 'mga naka-save na destinasyon',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Inspirasyon, mapagkakatiwalaang mga pamamalagi, at isang walang aberya na landas mula sa pangangarap hanggang sa pag-book — sa 14 na bansa at mahigit 200 na mga ari-ariang sinuri nang mabuti.',
   'sojournHeroSearchCard.trustProtected': 'Libreng pagkansela, ganap na protektado',
   'sojournHeroSearchCard.trustVetted': 'Mga ari-ariang sinuri nang mano-mano lamang',
+  'travelBookingLayout.primaryNavLabel': 'Pangunahing navigation',
   'tripDetail.backLink': 'Balik sa mga biyahe',
   'tripDetail.cancelCta': 'Kanselahin ang booking',
   'tripDetail.cancelHeading': 'Kanselahin ang biyaheng ito?',

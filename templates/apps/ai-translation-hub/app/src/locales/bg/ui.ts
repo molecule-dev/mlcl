@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'billing.canceled':
     'Абонаментът е анулиран. Ще се върнете към безплатен режим в края на периода.',
   'billing.contactSales': 'Свържете се с отдела за продажби',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Няма ограничение за задържане',
   'billing.upgradeHint': 'Надстройте, за да отключите разширени функции на изкуствения интелект.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Към таблото',
   'dashboard.activityEmpty':
     'Все още няма активност — започнете проект за попълване на тази емисия.',
   'dashboard.eyebrow': 'Общ преглед',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Използвайте повторно минали преводи във всеки проект. По-висок резултат за съвпадение → по-малко преработка.',
   'memory.title': 'Банка памет',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'nav.legal': 'Правни',
   'newProject.addLanguage': 'Добавяне на цел',
   'newProject.create': 'Създаване на проект',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Маркирано {{count}} известията като прочетени.',
   'notifications.subtitle':
     'Споменавания, заявки за прегледи и събития с изкуствен интелект от всички ваши работни пространства.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'privacy.collection.account': 'Имейл адресът и показваното име на вашия акаунт',
   'privacy.deletion.body':
     'Можете да изтриете проект, сегмент, термин от речника или запис в паметта по всяко време от съответната страница. Изтриването на акаунта ви от „Настройки“ изчиства всеки ред, обхващащ работното пространство, от нашата база данни.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Зареждането на проектите не бе успешно.',
   'projects.loading': 'Зареждане на проекти…',
   'projects.subtitle': 'Всеки активен проект във всички локали.',
+  'renditionLayout.primaryNavLabel': 'Основна навигация',
   'reset.backToLogin': '\\u2190 Обратно към входа',
   'reset.passwordLabel': 'Нова парола',
   'review.activeEyebrow': 'Сегмент {{number}}',

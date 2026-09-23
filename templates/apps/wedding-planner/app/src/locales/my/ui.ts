@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'seating.form.submit': 'စားပွဲထည့်ပါ',
   'seating.poolTitle': 'မထိုင်သေးသော ဧည့်သည်များ',
   'seating.subtitle':
-    '{{ထိုင်}} ထိုင်နေသော<x> {{စွမ်းရည်}}</x> ထိုင်ခုံများ ·<x> {{ရေကန်}}</x> ရေကူးကန်ထဲမှာ ဧည့်သည်တွေ စောင့်နေကြတယ်',
+    '{{seated}} ထိုင်ခုံ {{capacity}} တွင် ထိုင်ပြီး · {{pool}} ဧည့်သည်များသည် ရေကူးကန်ထဲတွင် စောင့်ဆိုင်းနေကြသည်။',
   'seating.title': 'ထိုင်ခုံအစီအစဉ်',
   'settings.billing': 'ငွေတောင်းခံမှု',
   'settings.changePassword': 'စကားဝှက်ပြောင်းပါ',

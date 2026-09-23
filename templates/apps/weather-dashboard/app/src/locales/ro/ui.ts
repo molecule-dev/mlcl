@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'În prezent, vă aflați pe {{plan}} plan.',
   'billing.switch': 'Comutați',
   'billing.upgraded': 'Actualizat la {{plan}} — limite aplicate imediat.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'compare.activityHeading': 'Verdicte de activitate',
   'compare.empty.title': 'Adăugați cel puțin două locații pentru comparare',
   'compare.eyebrow': 'Alături',
@@ -139,5 +140,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Înaltă',
   'trends.summary.low.label': 'Scăzută',
   'trends.summary.points.label': 'Zile',
+  'weatherDashboardLayout.primaryNavLabel': 'Navigare principală',
   'weatherHeroCard.updated': 'Actualizat {{time}}',
 }

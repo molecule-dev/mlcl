@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'alerts.acknowledgeLabel': 'Αναγνωρίζω',
   'alerts.customerLabel': 'Πελάτης: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Συνδετικός…',
   'carriers.requiredError': 'Απαιτούνται όνομα και κωδικός.',
   'carriers.subheading': '{{count}} ολοκληρωμένος',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
+  'common.retry': 'Επανάληψη',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Σε διαμετακόμιση + με σημαία',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'αποστολές',
   'pricing.trackingLabel': 'παρακολούθηση συμβάντων',
   'profile.dangerZone.title': 'Επικίνδυνη ζώνη',
+  'profile.devices.signingOut': 'Αποσύνδεση…',
+  'profile.devices.unnamed': 'Άγνωστη συσκευή',
+  'profile.security.disable2fa': 'Απενεργοποίηση της διπλής επαλήθευσης (2FA)',
   'profile.security.enable2fa': 'Ενεργοποίηση 2FA',
   'profile.security.pwChanged': 'Ο κωδικός πρόσβασης άλλαξε με επιτυχία.',
   'profile.security.pwCurrent': 'Τρέχων κωδικός',
@@ -111,11 +117,13 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA ενεργό',
   'profile.security.twoFaCode': '6ψήφιος κωδικός',
   'profile.security.twoFaDisable': 'Απενεργοποίηση',
+  'profile.security.twoFaDisabling': 'Απενεργοποίηση…',
   'profile.security.twoFaFailed': 'Δεν ήταν δυνατή η επαλήθευση του κωδικού.',
   'profile.security.twoFaIntro':
     'Σαρώστε τον κωδικό QR στην εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό παρακάτω για επαλήθευση.',
   'profile.security.twoFaOn':
     'Ο έλεγχος ταυτότητας δύο παραγόντων είναι ενεργοποιημένος σε αυτόν τον λογαριασμό.',
+  'profile.security.twoFaQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
   'profile.security.twoFaVerify': 'Επαλήθευση και ενεργοποίηση',
   'profile.security.twoFaVerifying': 'Επαλήθευση…',
   'profile.subheading': 'Ρυθμίσεις ταυτότητας και ασφάλειας για αυτόν τον χώρο εργασίας.',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Αποθηκεύστε αυτό το μυστικό — δεν θα εμφανιστεί ξανά.',
   'settings.api.webhookSecret': 'Μυστικό υπογραφής Webhook',
   'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
+  'settings.deleteAccountConfirm': 'Είσαι σίγουρος; Αυτή η ενέργεια δεν μπορεί να ανακληθεί.',
   'settings.notifications.exceptions':
     'Στείλτε μου email όταν προκύψει εξαίρεση αποστολής, στείλτε μου email όταν προκύψει κάποια εξαίρεση αποστολής.',
   'settings.notifications.heading': 'Ειδοποιήσεις',
@@ -149,6 +158,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Η αποστολή δεν βρέθηκε.',
   'shipmentDetail.originHeading': 'Προέλευση',
   'shipmentDetail.shippedOn': 'Αποστέλλεται {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Δεν υπάρχουν ακόμη συμβάντα παρακολούθησης — οι ενημερώσεις εμφανίζονται εδώ καθώς ο μεταφορέας σαρώνει το δέμα.',
   'shipmentDetail.weightLabel': '{{weight}} λίβρα',
   'shipments.col.carrier': 'Φορέας',
   'shipments.col.eta': 'ΕΩΑ',
@@ -178,6 +189,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Σύνδεση',
   'signup.submit': 'Δημιουργία λογαριασμού',
   'team.emailError': 'Απαιτείται μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου.',
+  'team.empty':
+    'Δεν υπάρχουν ακόμη μέλη στην ομάδα. Προσκαλέστε έναν συνάδελφο για να συνεργαστείτε στις αποστολές.',
   'team.eyebrow': 'Μέλη και δικαιώματα',
   'team.inviteDialog.cancel': 'Ακύρωση',
   'team.inviteDialog.heading': 'Πρόσκληση μέλους ομάδας',
@@ -200,6 +213,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Τροχιά',
   'waypointLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'webhooks.createFailed': 'Δεν ήταν δυνατή η δημιουργία τελικού σημείου webhook.',
+  'webhooks.endpointsEmpty':
+    'Δεν υπάρχουν ακόμη σημεία τερματισμού webhook. Δημιουργήστε ένα για να λαμβάνετε ειδοποιήσεις σχετικά με την κατάσταση της αποστολής.',
   'webhooks.endpointsHeading': 'Endpoints',
   'webhooks.eventCount': '{{count}} εκδηλώσεις',
   'webhooks.eventsHeading': 'Πρόσφατες παραδόσεις',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'authShell.brandHeading': '소리내어 생각하는 디자인 팀을 위한 멀티플레이어 캔버스입니다.',
   'billing.canceled': '구독이 취소되었습니다.',
   'billing.cancelPlan': '요금제 취소',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': '템플릿으로 시작',
   'boards.title': '내 보드',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': '대시보드로 이동',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': '워크스페이스에 연결된 이메일을 입력하시면 재설정 링크를 보내드립니다.',
   'forgot.success.body':
@@ -81,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1분기 워크숍 · 브랜드 보이스',
   'landing.featuresEyebrow': 'Slate가 잘 어우러지는 이유',
   'landing.featuresTitle': '빠른 피드백. 아름다운 캔버스. 마찰 없음.',
+  'landing.hero.body':
+    '{{appName}} 은 디자인 팀, 워크숍 진행자, 교육자 등 실시간 브레인스토밍을 진행하고 아이디어를 한곳에 모아야 할 때 유용한 멀티플레이어 화이트보드입니다.',
   'landing.hero.primaryCta': '무료로 보드 시작하기',
   'landing.hero.socialProof': '전 세계 {{count}}개 디자인 팀이 신뢰합니다',
   'landing.hero.title': '생각만큼 빠른 캔버스',
@@ -91,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': '무료 워크스페이스 만들기',
   'login.subheading':
     '워크숍이 끝난 지점에서 이어가세요 — 보드, 스티커 메모, 커서가 모두 실시간으로 동기화됩니다.',
+  'mobileNav.closeMenu': '탐색 메뉴 닫기',
+  'mobileNav.new': '신규',
+  'mobileNav.openMenu': '탐색 메뉴 열기',
   'notifications.editTitle': '"{{board}}"에 대한 편집',
   'notifications.empty.body':
     '초대, 스냅샷 저장, 최근 보드 편집 내역이 여기에 실시간으로 표시됩니다.',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': '버전 기록',
   'versionHistory.untitledSnapshot': '제목 없는 스냅샷',
   'whiteboardLayout.newBoard': '새 보드',
+  'whiteboardLayout.primaryNav': '기본 탐색',
   'workspace.boardLabel': '보드',
   'workspace.eyebrow': '{{name}} · 워크스페이스',
   'workspace.invite': '공동 작업자 초대',

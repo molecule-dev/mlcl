@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Sinu roll',
   'account.role.upgradeLink': 'Kandideeri kinnitatud juhendajaks →',
   'account.title': 'Profiil, makse ja eelistused.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Õpeta kriidil',
   'becomeTutor.form.error': 'Avaldust ei õnnestunud esitada.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Teema',
   'bookingConfirm.title': 'Oled broneeritud. Meie tegeleme ülejäänuga.',
   'bookingConfirm.with': 'Juhendajaga',
+  'common.goToDashboard': 'Mine töölauani',
   'earningsHero.eyebrow': 'Tulu • {{month}}',
   'forgotPassword.heading': 'Unustasid parooli?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Saada sõnum',
   'messages.thread.empty': 'Ütle tere – alusta vestlust.',
   'messages.title': 'Teemad oma juhendajatega.',
+  'nav.primary': 'Esmane',
   'pricing.dataExport': 'Andmete eksport:',
   'pricing.headingDefault': 'Täiustatud funktsioonid:',
   'resetPassword.heading': 'Vali uus tugev parool.',

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.logout': 'Mag-logout',
   'dailyStatsTriad.heartsLabel': 'Mga Puso',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minuto ngayon',
   'dailyStatsTriad.minutesValue': '{{count}} minuto',
   'dailyStatsTriad.wordsLabel': 'Mga salitang pinag-aralan',
+  'dailyStatsTriad.wordsMasteryHint': 'Mga salita sa mastery 4+',
   'dashboard.continueHeading': 'Magpatuloy kung saan ka tumigil',
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
@@ -60,6 +64,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Hindi ma-load ang mga ehersisyo.',
   'lessonDetail.loading': 'Naglo-load ng aralin…',
   'lessonDetail.submitError': 'Hindi maisumite ang sagot.',
+  'lessonDetail.translation': 'Isalin ang parirala',
   'lessonDetail.xpEarned': 'XP na nakuha · {{xp}}',
   'lessons.empty': 'Walang mga aralin sa antas {{level}} pa — subukan ang ibang baitang.',
   'lessons.eyebrow': 'Aklatan ng Aralin',
@@ -72,7 +77,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Bago sa Parlance?',
   'login.showPassword': 'Ipakita ang password',
   'login.signUp': 'Magsimula nang libre →',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'parlanceLayout.nav.profile': 'Profile',
   'parlanceLayout.primaryNavLabel': 'Pangunahing navigation',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'practice.empty': 'Wala pang magagamit na mga parirala.',
   'practice.eyebrow': 'Pagsasanay sa pagsasalita',
   'practice.heading': 'Basahin ito. Itala ito. Pinuhin ito.',

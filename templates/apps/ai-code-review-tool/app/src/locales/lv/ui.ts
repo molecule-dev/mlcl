@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.connectRepoCta': 'Pievienot repozitoriju',
   'dashboard.empty':
     'Vēl nav iesniegts neviens pull pieprasījums — sākšanai pievienojiet repozitoriju.',
@@ -80,6 +81,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Darbības laiks',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'AI kvalitātes novērtējums: {{score}} / 10',
+  'refractLayout.closeMenu': 'Aizvērt izvēlni',
+  'refractLayout.openMenu': 'Atvērt izvēlni',
   'refractLayout.primaryNavLabel': 'Galvenā navigācija',
   'reports.cumulativeScoreLabel': 'Kopējais punktu skaits',
   'reports.cumulativeScoreSubtitle': 'visi repozitoriji · {{days}} d',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Neizdevās ielādēt meklēšanas indeksu.',
   'settings.apiKeys.description':
     'Pārvaldiet personīgās API atslēgas, izmantojot lietotāja izvēlni augšējā labajā stūrī.',
+  'settings.apiKeys.integrationsNote':
+    'Pakalpojumu sniedzēju piekļuves žetoni tiek pārvaldīti iepriekš minētajā sadaļā „Integrācijas”.',
   'settings.connectError': 'Neizdevās izveidot savienojumu ar pakalpojuma sniedzēju.',
   'settings.disconnectError': 'Neizdevās atvienot pakalpojuma sniedzēju.',
   'settings.eyebrow': 'Refract · darba vide',
   'settings.integration.${provider}.label': 'Saglabāšana…',
   'settings.loadError': 'Neizdevās ielādēt iestatījumus.',
+  'settings.notificationCenter': 'Paziņojumu centrs',
   'settings.notifications.description':
     'Apmeklējiet paziņojumu lapu, lai apskatītu un pārvaldītu piegādes iestatījumus.',
   'settings.section.account': 'Konts un drošība',

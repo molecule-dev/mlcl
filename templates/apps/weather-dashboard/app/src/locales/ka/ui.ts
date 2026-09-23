@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ამჟამად თქვენ იმყოფებით {{plan}} გეგმა.',
   'billing.switch': 'გადამრთველი',
   'billing.upgraded': 'განახლებულია {{plan}} — ლიმიტები დაუყოვნებლივ გამოიყენება.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'compare.activityHeading': 'აქტივობის განაჩენები',
   'compare.empty.title': 'შედარებისთვის დაამატეთ მინიმუმ ორი ადგილმდებარეობა',
   'compare.eyebrow': 'გვერდიგვერდ',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'მაღალი',
   'trends.summary.low.label': 'დაბალი',
   'trends.summary.points.label': 'დღეები',
+  'weatherDashboardLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'weatherHeroCard.updated': 'განახლებულია {{time}}',
 }

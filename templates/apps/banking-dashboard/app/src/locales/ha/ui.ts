@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'accountDetail.activeBadge': 'Mai aiki',
   'accountDetail.availableLabel': '{{amount}} akwai',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Asusun',
   'accounts.loadError': 'An kasa loda asusu.',
   'accounts.status.closed': 'A rufe',
+  'accounts.status.frozen': 'Daskararre',
   'accounts.totalBalance': '{{adadi}} jimilla',
   'audit.empty': 'Babu wani taron da aka yi tukuna.',
   'audit.eyebrow': 'Tsaro & samun dama',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Kuɗi a hannu',
   'cashCreditCard.creditLabel': 'An yi amfani da bashi',
   'cashCreditCard.title': 'Kuɗi & Bashi',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.accountsHeading': 'Asusun',
   'dashboard.heading': 'Bayani',
   'dashboard.recentEmpty': "Babu ma'amaloli tukuna.",
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Nuna kalmar sirri',
   'login.signUp': 'Yi Rijista',
   'login.submit': 'Shiga',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Babban kewayawa',
   'nav.legal': "Shari'a",
   'notifications.emptyHeading': 'Kun kama komai',
   'notifications.subheading': "Faɗakarwa ta lokaci-lokaci don ma'amaloli, tsaro, da bayanai.",
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'privacy.dataWeShare':
     "Ba a taɓa sayar da bayanan banki na mutum ba. Muna raba bayanai da masu sarrafa biyan kuɗi, hanyoyin sadarwar kati, da masu kula da harkokin kuɗi ne kawai idan an buƙata don daidaita ma'amaloli ko cika wajibcin doka.",
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Two-factor yana ƙara lambar sau ɗaya daga manhajar tantancewa akan kowace shiga.',
   'settings.security.twoFactorCta': 'Sarrafa authors mai matakai biyu',
+  'settings.security.twoFactorOff': 'An kashe abubuwa biyu',
   'settings.signOutDevice': 'Fita',
   'settings.subheading': 'Bayanin martaba, tsaro, da sanarwa.',
+  'settings.twoFactorCode': 'Lambar tabbatarwa',
   'settings.twoFactorDisable': 'A kashe',
   'settings.twoFactorEnable': 'Kunna',
+  'settings.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
+  'settings.twoFactorVerify': 'Tabbatar & kunna',
   'signup.emailLabel': 'Adireshin i-mel',
   'signup.fullName': 'Ta yaya ya kamata mu yi muku magana?',
   'signup.showPassword': 'Nuna kalmar sirri',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': "Babu ma'amaloli tukuna.",
   'transactions.endDate': 'Ranar ƙarshe',
   'transactions.eyebrow': 'Aiki',
+  'transactions.loadError': "An kasa loda ma'amaloli.",
   'transactions.merchant': 'Ɗan kasuwa',
+  'transactions.subheading': "Kowace ma'amala da aka buga kuma ake jira a cikin asusunka.",
   'transfers.availableHint': '{{amount}} akwai',
   'transfers.errorGeneric': 'Ban iya ƙaddamar da canja wurin ba.',
   'transfers.errorMissingFields': 'Zaɓi asusun tushe da kuma wurin da za a je.',

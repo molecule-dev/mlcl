@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'forgot.eyebrow': 'Sesat jalan masuk semula?',
   'forgot.formSubtitle': 'Beritahu kami emel yang ada dalam fail.',
   'forgot.headline': 'Tetapkan semula kata laluan anda.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Buat satu',
   'login.subline':
     'Buku nota, pautan balik dan halaman harian anda berada betul-betul di tempat anda meletakkannya.',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'noteEditor.backToNotes': 'Kembali ke nota',
   'noteEditor.bodyPlaceholder':
     'Mula menulis — nota anda disimpan secara automatik semasa anda menaip.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Buku nota baharu',
   'notes.newNotebookPrompt': 'Nama buku nota baharu',
   'notes.notebooksHeading': 'Buku Nota',
+  'notes.subtitle':
+    'Pilih buku nota di sebelah kiri, kemudian tekan butang Nota baharu untuk memulakan entri baharu.',
   'planUpdated.confirmation': 'Pelan anda telah dikemas kini',
   'pricing.heading': 'Pilih pelan Mencatat Nota anda',
   'reset.eyebrow': 'Hampir kembali',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Dikemas kini',
   'versoLayout.nav.graph': 'Graf',
   'versoLayout.nav.home': 'Laman Utama',
+  'versoLayout.primaryNavLabel': 'Navigasi utama',
   'versoNoteCard.pinned': 'Dipinkan',
   'versoTodayHero.continueCta': 'Teruskan menulis',
   'versoTodayHero.createCta': 'Mulakan nota hari ini',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Somos un equipo distribuído de deseñadores e enxeñeiros que antes pasabamos demasiadas horas do día nunha caixa de correo ruidosa. Courier é a caixa de entrada que queriamos usar nós mesmos.',
   'about.title': 'Correo electrónico para traballos centrados',
+  'common.goToDashboard': 'Ir ao panel',
   'help.cta.about': 'Acerca de Courier',
   'help.cta.pricing': 'Ver prezos',
   'help.eyebrow': 'Centro de axuda',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Respostas rápidas ás preguntas que máis escoitamos. Falta algo? Abre Configuración e usa o formulario de comentarios da aplicación ou escribe a support@courier.example.',
   'help.title': 'Como podemos axudar?',
   'landing.brand.scrollTop': 'Volver arriba',
+  'landing.copyright': '© {{year}} {{appName}} — Deseñado para centrarse na atención.',
   'landing.ctaBody':
     'Únete a miles de profesionais que remataron a súa caixa de entrada antes de xantar.',
   'landing.ctaTitle': 'Procesa máis, reacciona menos.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Ver demostración',
   'landing.heroSubtitle':
     'Courier é unha caixa de entrada tranquila de tres paneis deseñada para traballadores do coñecemento que queren procesar información, non reaccionar a ela.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Con a confianza de equipos especializados de todo o mundo',
   'landing.signIn': 'Iniciar sesión',
   'meridian.archive.empty': 'O arquivo está baleiro.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Borrador',
   'meridian.folder.count': '{{count}} mensaxes',
+  'meridian.folder.delete': 'Eliminar',
   'meridian.folder.deleteForever': 'Eliminar permanentemente',
   'meridian.folder.restore': 'Mover á caixa de entrada',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Aínda non hai mensaxes aquí.',
   'meridian.inbox.loading': 'Cargando…',
   'meridian.inbox.next': 'Seguinte',
+  'meridian.inbox.noSender': '(sen remitente)',
   'meridian.inbox.noSubject': '(sen asunto)',
+  'meridian.inbox.ofTotal': '{{current}} de {{total}}',
   'meridian.inbox.openCompose': 'Abrir redacción',
   'meridian.inbox.previous': 'Anterior',
   'meridian.inbox.replyFailed': 'Resposta gardada pero fallou a entrega: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Non tes unha conta?',
   'meridian.login.showPassword': 'Mostrar contrasinal',
   'meridian.message.toLine': 'a {{recipients}}',
+  'meridian.notFound.body':
+    'Non se puido atopar a páxina que estás buscando. Volve á túa caixa de entrada de {{appName}} e axudarémosche a seguir o camiño correcto.',
   'meridian.notFound.eyebrow': 'Erro 404',
   'meridian.notFound.title': 'Este fío foi arquivado.',
   'meridian.notFound.toInbox': 'Abrir a miña caixa de entrada',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Engadir estrela',
   'meridian.thread.unstar': 'Eliminar estrela',
   'meridian.time.yesterday': 'Onte',
+  'meridian.topBar.openMenu': 'Abrir menú de navegación',
   'meridian.topBar.searchPlaceholder': 'Buscar correo',
   'meridian.trash.empty': 'A papeleira está baleira.',
   'meridian.trash.title': 'Lixo',
   'nav.legal': 'Legal',
   'planUpdated.description':
     'A túa subscrición xa está activa e a túa facturación actualizouse. Benvido á túa caixa de entrada actualizada de Courier.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.heading': 'borradores',
   'pricing.limit.emails': 'correos electrónicos',
   'pricing.limit.folders': 'carpetas',
   'pricing.limit.labels': 'etiquetas',
   'privacy.collect.account':
     'Datos da conta: nome, enderezo de correo electrónico, contrasinal con hash e data de rexistro.',
+  'privacy.contact': 'Dúbidas? Envía un correo electrónico a privacy@courier.example.',
   'privacy.intro':
     'Esta política de privacidade explica que datos recompila Courier, por que os recompilamos, como os mantemos seguros e que opcións tes ao respecto. O noso obxectivo é ser específicos en lugar de legalistas; se algo non está claro, escribe a privacy@courier.example.',
   'privacy.lastUpdated': 'Última actualización: 1 de abril de 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Estas condicións rexen o teu uso de Courier. Ao crear unha conta ou enviar un correo electrónico a través de nós, aceptas estar suxeito a elas. Tentamos escribir regras que unha persoa poida seguir.',
   'terms.lastUpdated': 'En vigor: 1 de abril de 2026',
+  'terms.linkPrivacy': 'Lea a nosa Política de privacidade →',
   'terms.termination.body':
     'Podes eliminar a túa conta en calquera momento. Podemos suspender unha conta que infrinxa estas condicións; se o facemos, explicarémosche o motivo e permitirémosche exportar primeiro os teus datos.',
   'terms.warranty.body':

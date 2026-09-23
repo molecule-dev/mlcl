@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Таны үүрэг',
   'account.role.upgradeLink': 'Баталгаажсан багш болохын тулд өргөдөл гаргана уу →',
   'account.title': 'Профайл, төлбөр болон тохиргоо.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Шохойгоор заах',
   'becomeTutor.form.error': 'Өргөдөл илгээж чадсангүй.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Гарчиг',
   'bookingConfirm.title': 'Та захиалгатай байна. Үлдсэнийг нь бид хариуцна.',
   'bookingConfirm.with': 'Багштай хамт',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'earningsHero.eyebrow': 'Орлого • {{month}}',
   'forgotPassword.heading': 'Нууц үгээ мартсан уу?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Зурвас илгээх',
   'messages.thread.empty': 'Сайн уу гэж хэлээрэй - яриагаа эхлүүлээрэй.',
   'messages.title': 'Багш нартайгаа холбоотой сэдвүүд.',
+  'nav.primary': 'Үндсэн',
   'pricing.dataExport': 'Өгөгдөл экспортлох:',
   'pricing.headingDefault': 'Дэвшилтэт онцлогууд:',
   'resetPassword.heading': 'Хүчтэй шинэ нууц үг сонгоно уу.',

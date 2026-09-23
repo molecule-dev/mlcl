@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Хазалт бүр тэнцвэртэй',
   'auth.hidePassword': 'Нууц үгийг нуух',
   'auth.showPassword': 'Нууц үгийг харуулах',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'nav.legal': 'Хууль эрх зүйн',
+  'nosh.auth.legalPrefix': 'Үргэлжлүүлснээр та бидний',
   'nosh.foodDetail.add': 'Өдрийн тэмдэглэлд нэмэх',
   'nosh.foodDetail.added': 'Нэмэгдсэн {{хоол}} .',
   'nosh.foodDetail.addError': 'Өдрийн тэмдэглэлд нэмж чадсангүй.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Эслэг',
   'nosh.foodDetail.micros.sodium': 'Натри',
   'nosh.foodDetail.micros.sugar': 'Элсэн чихэр',
+  'nosh.foodDetail.percentDv': '{{pct}} ХДХ-ийн %',
   'nosh.foodDetail.protein': 'Уураг',
   'nosh.foodDetail.serving.count': 'Нэг удаагийн порц',
   'nosh.foodDetail.serving.meal': 'Нэмэх',
@@ -47,6 +51,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Илүү ухаалаг түлшээр цэнэглэж эхэл',
   'nosh.landing.features.heading': 'Танд хэрэгтэй бүх зүйл, хэрэггүй зүйл байхгүй',
   'nosh.landing.features.smartRing.title': 'Ухаалаг Калорийн Бөгж',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Гэм буруугүйгээр зорилгодоо хүрэхэд тань туслах ээлтэй хоолны тэмдэглэл. Зөвхөн тоонд биш, харин хоол тэжээлд анхаарлаа хандуулаарай.',
   'nosh.landing.hero.eyebrow': 'Эерэг калори хянах',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Та хэр идэвхтэй вэ?',
   'nosh.onboarding.back': 'Буцах',
   'nosh.onboarding.macros.heading': 'Таны өдөр тутмын зорилго энд байна',
+  'nosh.onboarding.saveError': 'Таны зорилгыг хадгалж чадсангүй.',
   'nosh.onboarding.start': 'Явцгаая',
   'nosh.progress.calorieChart.title': 'Өдрийн илчлэг',
   'nosh.progress.empty':
@@ -142,6 +148,8 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Бүрмөсөн устгах',
   'nosh.settings.deleteError': 'Бүртгэлийг устгаж чадсангүй.',
   'nosh.settings.export.cta': 'CSV татаж авах',
+  'nosh.settings.export.description':
+    'Хоол хүнсний бүртгэлээ бүрэн хэмжээгээр CSV хэлбэрээр татаж аваарай.',
   'nosh.settings.export.label': 'Өгөгдөл экспортлох',
   'nosh.settings.export.preparing': 'Бэлтгэж байна…',
   'nosh.settings.eyebrow': 'Бүртгэл · Мэдэгдэл · Нууцлал',
@@ -153,6 +161,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Эелдэг хяналт, ямар ч гэм буруугүй.',
   'nosh.today.${mealKey}Empty': 'Бүртгүүлэхийн тулд товшино уу',
   'nosh.today.addFood': 'Хоол нэмэх',
+  'nosh.today.backToToday': 'Өнөөдөр рүү буцах',
+  'nosh.today.dateNavLabel': 'Өдрийн тэмдэглэлийн өдрийг өөрчлөх',
   'nosh.today.loadError': 'Өнөөдөр ачаалж чадсангүй.',
   'nosh.today.macros.carbs': 'Нүүрс ус',
   'nosh.today.macros.fat': 'Өөх',
@@ -160,6 +170,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Уураг',
   'nosh.today.macroTitle': 'Макронутриентууд',
   'nosh.today.meal.${mealKey}': 'кал',
+  'nosh.today.nextDay': 'Дараагийн өдөр',
+  'nosh.today.pastPill': 'Өнгөрсөн өдөр',
+  'nosh.today.prevDay': 'Өмнөх өдөр',
   'nosh.today.quickAddError': 'Шуурхай зүйлийг бүртгэж чадсангүй.',
   'nosh.today.remaining': 'үлдсэн калори',
   'nosh.today.streakHeadline': '{{count}} - өдрийн цуврал',

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.featureDiscover.title': 'Msukumo, uliochaguliwa kwa mkono',
   'account.addPaymentCta': 'Ongeza njia ya malipo',
   'account.addPaymentError': 'Haikuweza kuongeza njia ya malipo.',
+  'account.confirmRemove': 'Thibitisha kuondoa',
   'account.defaultBadge': 'Chaguo-msingi',
   'account.loyalty.pointsTowardNext': '{{pointi}} ya {{ijayo}} maili hadi {{Awamu inayofuata}}',
   'account.loyalty.tier': 'Daraja la sasa',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Maelezo ya safari',
   'booking.tripSummary': '{{nights}} usiku · {{guests}} wageni',
   'common.daysAgo': '{{count}} siku iliyopita',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.hoursAgo': '{{count}} h iliyopita',
   'common.minutesAgo': '{{count}} iliyopita',
   'common.no': '—',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Kisheria',
   'notifications.loading': 'Inapakia…',
   'notifications.subheading': '{{count}} haijasomwa · kila kitu katika kikasha kimoja tulivu',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.accommodationsLabel': 'malazi',
   'pricing.bookingsLabel': 'nafasi',
   'pricing.destinationsLabel': 'maeneo yaliyohifadhiwa',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'Msukumo, makao ya kuaminika, na njia isiyo na msuguano kutoka ndoto za mchana hadi zilizohifadhiwa — katika nchi 14 na mali zaidi ya 200 zilizothibitishwa kwa mkono.',
   'sojournHeroSearchCard.trustProtected': 'Kughairi bila malipo, kulindwa kikamilifu',
   'sojournHeroSearchCard.trustVetted': 'Mali zilizopimwa kwa mkono pekee',
+  'travelBookingLayout.primaryNavLabel': 'Usogezaji mkuu',
   'tripDetail.backLink': 'Rudi kwenye safari',
   'tripDetail.cancelCta': 'Ghairi nafasi',
   'tripDetail.cancelHeading': 'Ungependa kughairi safari hii?',

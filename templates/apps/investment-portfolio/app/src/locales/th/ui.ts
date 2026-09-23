@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'argentAuthShell.brandEyebrow': 'อาร์เจนท์ · เครื่องมือสร้างความมั่งคั่ง',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ไม่ใช่คำแนะนำด้านการลงทุน',
   'argentAuthShell.sampleChange': 'วันนี้ได้รับเงิน 2,841 ดอลลาร์ (+0.28%)',
   'argentAuthShell.sampleValue': '1,032,251 เหรียญสหรัฐ',
   'argentLayout.primaryNavLabel': 'การนำทางหลัก',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'ไม่มีการทำธุรกรรมใดๆ สำหรับหุ้นตัวนี้',
   'assetDetail.txHeading': 'ธุรกรรมของคุณ',
   'common.and': 'และ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ภาพรวมผลงาน',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'ยังไม่มีการถือครองหุ้นใดๆ',
   'holdings.heading': 'โฮลดิ้งส์',
   'holdings.loadError': 'ไม่สามารถโหลดข้อมูลการถือครองได้',
+  'landing.copyright':
+    '© {{year}} {{app}} . ไม่ใช่คำแนะนำการลงทุน ผลการดำเนินงานในอดีตไม่ได้รับประกันผลลัพธ์ในอนาคต',
   'landing.eyebrow': 'Argent · แพลตฟอร์มเครื่องมือบริหารความมั่งคั่ง',
   'landing.features.heading': 'ทุกสิ่งที่ที่ปรึกษาจะสร้างขึ้นเพื่อตัวเอง',
   'landing.finalCta.heading': 'นำระเบียบวินัยกลับคืนสู่พอร์ตโฟลิโอของคุณ',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ฮ. ที่ผ่านมา',
   'news.justNow': 'เมื่อสักครู่',
   'news.loadError': 'ไม่สามารถโหลดข่าวได้',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'portfolioHeroCard.label': 'มูลค่าพอร์ตโฟลิโอ',
   'pricing.holdingsLabel': 'โฮลดิ้งส์',
   'pricing.newsLabel': 'บทความข่าว',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'ลบบัญชี',
   'settings.security.deleting': 'กำลังลบ…',
   'settings.security.heading': 'ความปลอดภัย',
+  'settings.security.newPassword': 'รหัสผ่านใหม่',
   'settings.security.password': 'รหัสผ่าน',
   'settings.security.twoFactorEnable': 'เปิดใช้งาน',
+  'settings.security.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
+  'settings.security.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
   'settings.tax.error': 'ไม่สามารถอัปเดตวิธีการคำนวณภาษีได้',
   'settings.tax.heading': 'การบัญชีภาษีที่ดิน',
   'settings.tax.method': 'วิธีเริ่มต้น',

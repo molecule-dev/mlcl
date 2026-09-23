@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Ana loda bayanan shirin…',
   'billing.popular': 'Mafi ƙauna',
   'billing.subtitle': 'Zaɓi tsarin da ya dace da lokacin karatun ku.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.today': 'A yau',
   'common.yesterday': 'Jiya',
   'courseDetail.empty.body': 'Ƙara kayan karatu don fara ƙwarewa a wannan batu.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Sunan bene',
   'flashcards.subtitle': 'Maimaitawar lokaci mai tsawo wanda ya dace da saurinka.',
   'flashcards.title': 'Katunan walƙiya',
+  'footer.copyright': '© {{year}} {{app}} . Koyi da kyau, yi barci da kyau.',
   'forgotPassword.subtitle':
     'Shigar da imel ɗinka kuma za mu aiko maka da hanyar haɗin sake saitawa.',
+  'koanLayout.closeMenu': 'Rufe menu',
+  'koanLayout.navLabel': 'Babban kewayawa',
+  'koanLayout.openMenu': 'Buɗe menu',
   'koanLayout.theme': 'Jigo',
   'landing.featuresBody':
     'Kayan aiki da aka tsara don kawar da abubuwan da ke raba hankali da kuma gina fahimta mai ɗorewa.',
@@ -116,11 +121,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Wannan adireshin URL ɗin yanki ne da ba a tantance shi ba. Wataƙila kuskuren rubutu ne, wataƙila darasi da aka goge - ko ta yaya, bari mu mayar da kai ga karatu.',
   'notFound.heading': 'Ba a sami shafi ba.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Kun kama komai',
   'notifications.filter.${opt}': 'Ana loda sanarwa…',
   'notifications.markAllError': 'Ba za a iya yiwa duka alama a matsayin an karanta ba.',
   'notifications.markError': 'Ba za a iya yiwa alama a matsayin wanda aka karanta ba.',
   'notifications.subtitle': '{{count}} sabuntawar da ba a karanta ba',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.heading': 'tambayoyi',
   'pricing.limits.topics': 'batutuwa',
   'privacy.collectBody':
@@ -185,6 +192,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Gwada wani maɓalli ko matattara daban.',
   'search.empty.title': 'Babu wani abu da ya yi daidai.',
   'search.error': 'Ba a iya loda sakamako ba.',
+  'search.filters': "Matatun Nau'in Sakamako",
   'search.go': 'Tafi',
   'search.label.flashcard': 'Katin Flashcard',
   'search.label.note': 'Bayani',

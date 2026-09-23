@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} အကြောင်း',
+  'appNav.mobileLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'appNav.primaryLabel': 'အဓိက လမ်းညွှန်ချက်',
   'billing.actions.confirmCancel':
     'သင့်စာရင်းသွင်းမှုကို ပယ်ဖျက်မလား။ အချိန်မရွေး ပြန်လည်စာရင်းသွင်းနိုင်ပါသည်။',
   'billing.actions.paused': 'စာရင်းသွင်းမှုကို ခေတ္တရပ်ထားသည်။',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'အဆင့်တစ်ခုစီသည် အသုတ်ငယ်ဇာတ်လမ်းတစ်ပုဒ်ဖြစ်သည်။ သင့်စာရင်းဇယားထဲသို့ တစ်ခုကိုထည့်ပါ သို့မဟုတ် ၎င်းကို သင့်နောက်လတွင် လဲလှယ်ပါ။',
   'boxThemeCard.perMonth': '/ လ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'customize.eyebrow': 'သင့်စိတ်ကြိုက်ဖြစ်အောင်လုပ်ပါ',
   'customize.heading': 'သင့်ရဲ့ နောက်ထပ် Crate ကို စိတ်ကြိုက်ပြင်ဆင်ပါ',
   'customize.items.exclude': 'ဒါကိုကျော်သွားပါ',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'ဒီရာသီ',
   'landing.editions.heading': 'ကျွန်ုပ်တို့၏ ပြတိုက်မှူးများ နှစ်သက်သော ထုတ်ဝေမှုများ',
   'landing.footer.contact': 'ပြတိုက်မှူးတစ်ဦးနှင့် စကားပြောပါ',
+  'landing.footer.tagline': '{{tagline}}။',
   'landing.hero.ctaPrimary': 'သင့်အကွက်ကို စတင်ပါ →',
   'landing.hero.ctaSecondary': 'အဆင့်များကိုကြည့်ပါ',
   'landing.hero.eyebrow': 'လစဉ် ရွေးချယ်ထားသည်။ အမြဲတမ်း ကိုယ်ရေးကိုယ်တာဆန်သည်။',
@@ -116,6 +121,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'မင်းရဲ့ နောက်ထပ် ရတနာသိုက်',
   'nextBoxHeroCard.itemsLabel': 'ရွေးချယ်ထားသော အရာများ',
   'nextBoxHeroCard.shipsOnLabel': 'ပို့ဆောင်မည့်ရက်များ',
+  'notFound.body':
+    '{{app}} မော်ကွန်းတိုက်မှာ အဲဒီစာမျက်နှာကို ရှာမတွေ့ပါဘူး။ ဖြုတ်လိုက်တာ ဒါမှမဟုတ် မှားယွင်းစွာ ရိုက်မိသွားတာ ဖြစ်နိုင်ပါတယ်။',
   'notFound.cta.dashboard': 'ဒက်ရှ်ဘုတ်သို့ သွားပါ',
   'notFound.eyebrow': 'ဗလာသေတ္တာ',
   'notFound.heading': 'ဒီစင်က ဗလာနေတယ်',

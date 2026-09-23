@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'auditLog.empty':
     'Чыпкаларыңызга азырынча эч кандай аудит иш-чаралары дал келе элек. Кызматкерди түзөтүңүз же эмгек акыны эсептөөнү иштетиңиз, ошондо алар бул жерде көрсөтүлөт.',
   'auditLog.eyebrow': 'Шайкештик',
+  'auditLog.loadError': 'Аудит журналы жүктөлбөй койду.',
   'auditLog.searchPlaceholder': 'Актер, аракет же сүрөттөмө боюнча издөө',
   'auditLog.subheading':
     'Ар бир бекитүү, түзөтүү жана салык декларациясы — аткаруучу, убакыт белгиси жана өзгөртүлгөн талаалар менен.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Конфигурацияланган эмес',
   'billing.plansHeading': 'Пландар',
   'billing.subheading': 'Stripe аркылуу планыңызды башкарыңыз жана деңгээлдерди алмаштырыңыз.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Кайра аракет',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Шайкештик боюнча кыскача маалымат',
   'dashboard.compliance.title': 'Бардык текшерүүлөрдөн өтүүдө',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Эч кандай чегерүүлөр жок.',
   'employeeDetail.notFound': 'Кызматкер табылган жок.',
   'employeeDetail.payFrequency': 'Төлөм жыштыгы',
+  'employeeDetail.postTax': 'Салыктан кийинки',
+  'employeeDetail.preTax': 'Салыкка чейинки',
   'employeeDetail.salary': 'Жылдык эмгек акы',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': 'Башталды {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Төлөм жыштыгы',
   'employeeForm.salary': 'Жылдык эмгек акы (АКШ доллары)',
   'employeeForm.salaryInvalid': 'Айлык акы терс сан болбошу керек.',
+  'employeeForm.saveError': 'Кызматкерди сактап калуу мүмкүн болгон жок.',
   'employeeForm.semimonthly': 'Жарым айлык',
   'employeeForm.single': 'Жалгыз',
   'employeeForm.ssn': 'SSN',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Айлык акы',
   'forgotPassword.subtitle':
     'Жумуш электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
+  'landing.copyright': '© {{year}} {{app}} . Так, ишенимдүү, жазылган.',
   'landing.ctaBody':
     '30 күн акысыз. Кредиттик картанын кереги жок. Аудиттик изиңизди жоготпостон каалаган убакта алмаштырсаңыз болот.',
   'landing.ctaHeading': 'Кийинки циклиңизди Stipendде иштетиңиз',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Бул төлөм боюнча азырынча аудитордук жазуулар жок.',
   'payRunDetail.noStubs':
     'Азырынча эмгек акы жөнүндө квитанциялар жок — аларды түзүү үчүн бекитип, иштетиңиз.',
+  'payRunDetail.notFound': 'Бул төлөм агымы табылган жок.',
   'payRunDetail.statDeductions': 'Чыгарып салуулар',
   'payRunDetail.statHeadcount': 'Кызматкерлер',
   'payRunDetail.statTaxes': 'Салыктар кармалып калды',
@@ -221,7 +230,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Жарым айлык',
   'settings.signOutDevice': 'Чыгуу',
   'settings.subheading': 'Компаниянын профили, эмгек акы графиги жана интеграциялар.',
+  'settings.twoFactorCode': 'Аутентификация коду',
   'settings.twoFactorDisable': 'Өчүрүү',
+  'settings.twoFactorInvalidCode': 'Жараксыз код',
+  'settings.twoFactorVerify': 'Текшерүү жана иштетүү',
   'settings.weekly': 'Апта сайын',
   'taxCenter.bucket.federal': 'Федералдык киреше',
   'taxCenter.bucket.fica': 'Коомдук коопсуздук',

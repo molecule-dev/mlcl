@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'analytics.col.quorum': 'Quòrum',
   'analytics.col.votes': 'Vots',
@@ -42,6 +43,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Encara no hi ha cap pregunta pendent.',
   'audienceQa.onStageEyebrow': "Ara a l'escenari",
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promoure',
   'audienceQa.queued': 'en cua',
   'audienceQa.queueEyebrow': 'Cua',
   'ballot.eyebrow': 'Vota',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Actualment ets a la {{plan}} pla.',
   'billing.switch': 'Interruptor',
   'billing.upgraded': 'Actualitzat a {{plan}} — límits aplicats immediatament.',
+  'common.goToDashboard': 'Anar al panell',
   'createPoll.addOption': 'Afegeix una opció',
   'createPoll.anonymousHint':
     "Noms dels votants ocults al registre d'auditoria; els recomptes romanen autenticats.",
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ets nou a Nosh?',
   'login.remember': "Recorda'm durant 30 dies",
   'login.subheading': 'Obre la planta, dirigeix la sala i certifica el resultat.',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'notFound.body':
     "La pàgina a la qual heu intentat accedir s'ha tancat o mogut. Torneu al tauler de control o obriu una enquesta nova.",
   'notFound.eyebrow': 'No hi ha quòrum en aquesta ruta',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': "No s'ha pogut carregar aquesta enquesta.",
   'pollDetail.loading': "S'està carregant l'enquesta…",
   'pollDetail.notFound': "No s'ha trobat l'enquesta.",
+  'pollDetail.openBallot': 'Votació oberta',
   'pollDetail.openLive': 'Resultats en directe',
   'pollDetail.pollId': 'enquesta · {{id}}',
   'pollDetail.published': 'Enquesta publicada: els votants ja poden votar.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Cerca per correu electrònic…',
   'voters.subheading':
     'Selecciona la llista de votants elegibles. Agrupa els votants per organització per obtenir paperetes ponderades.',
+  'votingPollingLayout.nav.analytics': 'Analítica',
+  'votingPollingLayout.nav.billing': 'Facturació',
+  'votingPollingLayout.nav.createPoll': 'Nova enquesta',
+  'votingPollingLayout.nav.dashboard': 'Tauler de control',
+  'votingPollingLayout.nav.notifications': 'Notificacions',
+  'votingPollingLayout.nav.settings': 'Configuració',
+  'votingPollingLayout.nav.team': 'Equip',
+  'votingPollingLayout.nav.voters': 'Votants',
+  'votingPollingLayout.primaryNavLabel': 'Navegació principal',
 }

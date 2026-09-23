@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'accountSettings.confirmEmailLabel': 'برای تأیید، DELETE را تایپ کنید',
   'accountSettings.deleteError': 'نشد حساب کاربری رو حذف کنم.',
   'accountSettings.passwordError': 'رمز عبور را نتوانستم تغییر دهم.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'هیچ مهلتی در آینده نزدیک وجود ندارد.',
   'dashboard.upcomingTitle': 'مهلت‌های آتی',
   'deviceSettings.unknownDevice': 'دستگاه ناشناخته',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'پشتیبانی',
   'forgotPassword.error': 'ارسال لینک بازنشانی ناموفق بود.',
   'forgotPassword.subtitle':
@@ -68,6 +70,9 @@ export const ui: UiTranslations = {
   'login.error': 'ایمیل یا رمز عبور نامعتبر است.',
   'login.pageTitle': 'ورود',
   'login.signIn': 'ورود به فورج',
+  'login.subtitle': 'برای پیگیری پروژه‌هایتان وارد شوید',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'nav.calendar': 'تقویم',
   'nav.legal': 'قانونی',
   'nav.myTasks': 'وظایف من',

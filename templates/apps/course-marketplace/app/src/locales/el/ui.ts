@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Φόρτωση μαθημάτων…',
   'browse.next': 'Επόμενη σελίδα',
   'browse.results': 'Εμφάνιση μαθημάτων του «{{count}}»',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Ταξινόμηση κατά',
   'browse.subtitle':
     'Φιλτράρετε το αρχείο των άρθρων ανά θέμα, επίπεδο και τιμή. Κάθε μάθημα επιλέγεται προσεκτικά από τους συντάκτες μας.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Το πιστοποιητικό σου έχει υπογραφεί και είναι έτοιμο. Μοιράσου το με τον κόσμο ή κράτησέ το ως ενθύμιο της προσπάθειας που κατέβαλες για να το αποκτήσεις.',
   'certificate.copyLink': 'Αντιγραφή συνδέσμου κοινοποίησης',
+  'certificate.copyPrompt': 'Αντιγράψτε αυτόν τον σύνδεσμο:',
   'certificate.download': 'Λήψη PDF',
   'certificate.eyebrow': 'Το επίτευγμα ξεκλειδώθηκε',
   'certificate.linkCopied': 'Ο σύνδεσμος αντιγράφηκε!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Η εγγραφή σου ολοκληρώθηκε!',
   'checkout.verifying': 'Επαλήθευση της εγγραφής σας…',
   'checkout.viewLibrary': 'Προβολή της μάθησής μου',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Δοκιμάστε ξανά',
   'courseDetail.about': 'Σχετικά με αυτό το μάθημα',
   'courseDetail.checkoutPending': 'Εκκίνηση checkout…',
   'courseDetail.continueLearning': 'Συνέχισε να μαθαίνεις',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Εγγύηση επιστροφής χρημάτων 30 ημερών',
   'courseDetail.includes.video': '{{hours}} ώρες βίντεο κατά παραγγελία',
   'courseDetail.instructor': 'Εκπαιδευτής',
+  'courseDetail.languageEnglish': 'Αγγλικά',
   'courseDetail.lectures': 'Διαλέξεις',
   'courseDetail.level': 'Επίπεδο',
   'courseDetail.loading': 'Φόρτωση μαθήματος…',
@@ -120,6 +125,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Δεν υπάρχουν ακόμη κριτικές.',
   'instructorProfile.students': 'Μαθητές',
   'landing.categories.empty': 'Οι κατηγορίες θα εμφανιστούν μόλις συμπληρωθεί ο κατάλογος.',
+  'landing.categories.heading': 'Εξερευνήστε το αρχείο',
   'landing.hero.eyebrow': 'Lectura · Εκδοτικό αρχείο της δεξιοτεχνίας',
   'landing.hero.proof':
     'Έχει κερδίσει την εμπιστοσύνη των μαθητών της Google, της Meta και της Adobe.',
@@ -160,6 +166,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Ξεκινήστε να μαθαίνετε από σήμερα',
   'login.subheading': 'Αποκτήστε πρόσβαση στο ακαδημαϊκό σας αρχείο.',
   'myLearning.empty.title': 'Δεν υπάρχουν ακόμη μαθήματα που να ταιριάζουν με αυτό το φίλτρο',
+  'myLearning.error.title': 'Δεν ήταν δυνατή η φόρτωση της βιβλιοθήκης σας',
   'myLearning.filter.notStarted': 'Δεν ξεκίνησε',
   'myLearning.hero.subtitle': '{{count}} τα μαθήματα στη βιβλιοθήκη σου. Μην χάνεις το ρυθμό σου.',
   'myLearning.hero.title': 'Συνεχίστε από εκεί που το αφήσατε.',
@@ -172,6 +179,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Δεν υπάρχουν νέες δραστηριότητες προς έλεγχο. Τα νέα γεγονότα θα εμφανίζονται εδώ.',
   'notifications.empty.title': 'Είστε πλήρως ενημερωμένοι',
+  'notifications.error.title': 'Δεν ήταν δυνατή η φόρτωση της δραστηριότητας',
   'privacy.title': 'Πολιτική απορρήτου',
   'reset.confirmPlaceholder': 'Εισάγετε ξανά τον νέο σας κωδικό',
   'reset.errorGeneric':
@@ -198,5 +206,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}}η πριν',
   'timeAgo.hours': '{{count}}ω πριν',
   'timeAgo.minutes': '{{count}} λεπτά πριν',
+  'timeAgo.months': '{{count}} πριν από μερικούς μήνες',
   'timeAgo.today': 'σήμερα',
+  'timeAgo.weeks': '{{count}} πριν από μερικές εβδομάδες',
 }

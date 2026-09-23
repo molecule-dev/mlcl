@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'İletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.title': '{{app}} hakkında',
   'activeAgentsCard.agent1AvatarAlt':
     'Modern bir ofiste güler yüzlü bir kadın destek temsilcisinin profesyonel portre fotoğrafı.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Destek ile iletişime geçin.',
   'forgotPassword.error': 'Sıfırlama e-postası gönderilemedi. Lütfen tekrar deneyin.',
   'forgotPassword.rememberPassword': 'Şifrenizi hatırladınız mı?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Giriş yap — Zenith Destek',
   'login.showPassword': 'Parolayı göster',
   'login.welcomeSubheading': 'Destek panelinize giriş yapın.',
+  'mobileNav.closeMenu': 'Gezintiyi kapat',
+  'mobileNav.menu': 'Gezinti',
+  'mobileNav.openMenu': 'Gezintiyi aç',
   'nav.legal': 'Hukuki',
   'nav.newTicket': 'Yeni Bilet',
   'notifications.loadError': 'Bildirimler yüklenemedi. Lütfen birazdan tekrar deneyin.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Komut Arama',
   'operatorDock.newReport': 'Yeni Rapor',
   'operatorDock.systemOnline': 'Sistem Çevrimiçi',
+  'planUpdated.subtitle': 'Teşekkür ederiz',
   'planUpdated.title': 'Plan güncellendi',
   'pricing.agents': 'ajanlar',
   'pricing.automation': 'Otomasyon kuralları',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': "{{isim}} 'nin avatarı",
   'ticketDetail.errorTitle': 'Bir şeyler ters gitti',
+  'ticketDetail.loadError': 'Bilet yüklenemedi.',
+  'ticketDetail.notFound': 'Bilet bulunamadı.',
+  'ticketDetail.replyError': 'Yanıt gönderilemedi. Lütfen tekrar deneyin.',
   'ticketDetail.retry': 'Tekrar dene',
   'ticketDetail.statusUpdateError': 'Durum güncellenemedi. Tekrar deneyin.',
   'ticketDetailsCard.assigneeLabel': 'Atanan kişi',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{zaman}} sol',
   'ticketRow.title': 'Üretim ortamında veritabanı bağlantısı başarısız oluyor. {{node}}',
   'tickets.pageTitle': 'Biletler — Zenith Desteği',
+  'ticketsFab.newTicket': 'Yeni bilet',
   'ticketsFilterBar.assigneeLabel': 'Atanan kişi:',
   'ticketsFilterBar.clearFilters': 'Filtreleri Temizle',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

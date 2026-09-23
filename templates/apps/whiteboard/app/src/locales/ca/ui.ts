@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'authShell.brandHeading': 'Llenços multijugador per a equips de disseny que pensen en veu alta.',
   'billing.canceled': 'Subscripció cancel·lada.',
   'billing.cancelPlan': 'Cancel·la el pla',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Comença des de la plantilla',
   'boards.title': 'Els vostres taulers',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Anar al panell',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Introdueix el correu electrònic vinculat al teu espai de treball i t'enviarem un enllaç de restabliment.",
@@ -82,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Creat per al pensament desordenat, generatiu i presencial.',
   'landing.demoBoard.title': 'Taller Q1 · Veu de marca',
   'landing.featuresTitle': 'Retroalimentació ràpida. Lones precioses. Zero fricció.',
+  'landing.hero.body':
+    "{{appName}} és una pissarra blanca multijugador per a equips de disseny, facilitadors de tallers i educadors que realitzen pluja d'idees en directe i necessiten que les idees convergeixin en un sol lloc.",
   'landing.hero.primaryCta': 'Comença un tauler gratuïtament',
   'landing.hero.socialProof': 'De confiança per {{count}} equips de disseny a tot el món',
   'landing.hero.title': 'Un llenç tan ràpid com els teus pensaments',
@@ -92,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Crea un espai de treball gratuït',
   'login.subheading':
     'Continua on ho vas deixar el taller: les pissarres, les notes adhesives i els cursors es sincronitzen en temps real.',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.new': 'Nou',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'notifications.editTitle': 'Edicions a " {{board}} "',
   'notifications.empty.body':
     'Les invitacions, les instantànies desades i les edicions recents del tauler apareixeran aquí a mesura que es produeixin.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historial de versions',
   'versionHistory.untitledSnapshot': 'Instantània sense títol',
   'whiteboardLayout.newBoard': 'Nova junta',
+  'whiteboardLayout.primaryNav': 'Navegació principal',
   'workspace.boardLabel': 'Junta',
   'workspace.eyebrow': '{{name}} · espai de treball',
   'workspace.invite': 'Convida col·laboradors',

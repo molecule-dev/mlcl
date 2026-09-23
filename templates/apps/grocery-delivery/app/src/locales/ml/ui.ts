@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'നിങ്ങളുടെ ഷോപ്പർക്ക് ടിപ്പ് നൽകുക',
   'checkout.tipLabel': 'ടിപ്പ്',
   'checkout.zipPlaceholder': 'പിൻകോഡ്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'featuredProductsGrid.addAria': 'ചേർക്കുക {{name}} കാർട്ടിലേക്ക്',
   'featuredProductsGrid.outOfStock': 'സ്റ്റോക്കില്ല',
   'forgotPassword.emailLabel': 'ഇമെയിൽ വിലാസം',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'ആ ഇമെയിൽ രജിസ്റ്റർ ചെയ്തിട്ടുണ്ടെങ്കിൽ, ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കുന്നതാണ്.',
+  'groceryDeliveryLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'landing.categoriesEyebrow': 'ഇടനാഴികൾ',
   'landing.categoriesHeading': 'വിഭാഗം അനുസരിച്ച് ഷോപ്പുചെയ്യുക',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'സ്റ്റേപ്പിൾസിന്റെ സ്മാർട്ട് റീഓർഡറും തത്സമയ ഡ്രൈവർ ട്രാക്കിംഗും ഉപയോഗിച്ച് പ്രതിവാര ഡെലിവറികൾ ഷെഡ്യൂൾ ചെയ്യുക.',
   'landing.heroTitle': 'മണിക്കൂറുകൾക്കുള്ളിൽ നിങ്ങളുടെ വാതിൽക്കൽ പുതുമ.',
   'landing.howEyebrow': 'മൂന്ന് ഘട്ടങ്ങൾ',
+  'landing.howItWorksHeading': '{{app}} എങ്ങനെ പ്രവർത്തിക്കുന്നു',
   'lists.addAllCta': 'എല്ലാം കാർട്ടിലേക്ക് ചേർക്കുക',
   'lists.createCta': 'നിങ്ങളുടെ ആദ്യ ലിസ്റ്റ് സൃഷ്ടിക്കുക',
   'lists.createError': 'ലിസ്റ്റ് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'accountDetail.activeBadge': 'Kuyasebenza',
   'accountDetail.availableLabel': '{{amount}} kuyatholakala',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Yehlulekile ukulayisha ama-akhawunti.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Iqandisiwe',
   'accounts.totalBalance': '{{inani}} isamba',
   'audit.empty': 'Azikho izehlakalo okwamanje.',
   'audit.eyebrow': 'Ukuphepha nokufinyelela',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Imali ikhona esandleni',
   'cashCreditCard.creditLabel': 'Ikhredithi esetshenzisiwe',
   'cashCreditCard.title': 'Imali Nesikweletu',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Ukubuka konke',
   'dashboard.recentEmpty': 'Akukho ukuthengiselana okwamanje.',
@@ -44,11 +47,13 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.signUp': 'Bhalisela',
   'login.submit': 'Ngena ngemvume',
+  'meridianLayout.menu': 'Imenyu',
   'meridianLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'nav.legal': 'Ezomthetho',
   'notifications.emptyHeading': 'Usuvele ubambekile',
   'notifications.subheading':
     'Izexwayiso zesikhathi sangempela zokuthengiselana, ukuphepha, kanye nezitatimende.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'privacy.dataWeShare':
     'Idatha yasebhange yomuntu siqu ayithengiswa. Sabelana ngolwazi nabacubunguli bokukhokha, amanethiwekhi amakhadi, kanye nabalawuli kuphela uma kudingeka ukuze kuxazululwe ukuthengiselana noma kuhlangatshezwane nezibopho zomthetho.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'I-Two-factor ingeza ikhodi yesikhathi esisodwa evela kuhlelo lokusebenza lokufakazela ubuqiniso kukho konke ukungena ngemvume.',
   'settings.security.twoFactorCta': 'Phatha igunya lezinto ezimbili',
+  'settings.security.twoFactorOff': 'Izinto ezimbili zivaliwe',
   'settings.signOutDevice': 'Phuma ngemvume',
   'settings.subheading': 'Iphrofayela, ukuphepha, kanye nezaziso.',
+  'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'signup.emailLabel': 'Ikheli le-imeyili',
   'signup.fullName': 'Kufanele sikubize kanjani?',
   'signup.showPassword': 'Bonisa iphasiwedi',
@@ -106,7 +115,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Akukho ukuthengiselana okwamanje.',
   'transactions.endDate': 'Usuku lokuphela',
   'transactions.eyebrow': 'Umsebenzi',
+  'transactions.loadError': 'Yehlulekile ukulayisha ukuthengiselana.',
   'transactions.merchant': 'Umthengisi',
+  'transactions.subheading': 'Konke ukuthengiselana okuthunyelwe nokulindile kuma-akhawunti akho.',
   'transfers.availableHint': '{{amount}} kuyatholakala',
   'transfers.errorGeneric': 'Ayikwazanga ukuthumela ukudluliselwa.',
   'transfers.errorMissingFields': 'Khetha i-akhawunti yomthombo kanye nendawo oya kuyo.',

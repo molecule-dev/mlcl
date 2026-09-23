@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.pageTitle': '{{app}} haqqında',
+  'common.goToDashboard': 'İdarə panelinə keç',
+  'common.retry': 'Təkrar cəhd edin',
   'compose.cancel': 'Ləğv et',
   'compose.captionPlaceholder': 'Ağlınızda nə var?',
   'compose.heading': 'Bir an paylaşın',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Təsdiqlənmiş hesab',
   'resetPassword.newPassword': 'Yeni parol',
   'resetPassword.subheading': 'Güclü bir şey seçin — ən azı 12 simvol.',
+  'search.clearAria': 'Təmiz',
+  'search.error': 'Axtarış uğursuz oldu. Yenidən cəhd edin.',
   'search.noPeople': 'Yaradıcılar uyğun gəlmir " {{q}} ".',
   'search.noPosts': 'Uyğun gələn paylaşım yoxdur" {{q}} ".',
   'search.noTags': 'Hələ ki, trenddə olan heşteq yoxdur.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Şifrəni gizlət',
   'signup.showPassword': 'Şifrəni göstər',
   'signup.subheading': 'Paylaşmağa başlamaq üçün hesab yaradın.',
+  'socialMediaLayout.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'socialMediaLayout.openMenu': 'Naviqasiya menyusunu açın',
+  'socialMediaLayout.primaryNavLabel': 'Əsas naviqasiya',
   'storyRail.heading': 'Hekayələr',
   'storyRail.label': 'Hekayələr',
   'storyRail.openAria': 'Açıq {{handle}} nin hekayəsi',

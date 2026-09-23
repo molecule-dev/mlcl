@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Mu ƙungiya ce mai rarraba ta masu zane-zane da injiniyoyi waɗanda a da suke ɓatar da sa'o'i da yawa a kowace rana a cikin akwatin saƙo mai hayaniya. Courier ita ce akwatin saƙon da muke son amfani da shi da kanmu.",
   'about.title': 'Imel don aikin da aka mayar da hankali a kai',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'help.cta.about': 'Game da Courier',
   'help.cta.pricing': 'Duba farashi',
   'help.eyebrow': 'Cibiyar taimako',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Amsoshi cikin sauri ga tambayoyin da muka fi ji. Akwai wani abu da ya ɓace? Buɗe Saituna kuma yi amfani da fom ɗin ra'ayoyin cikin manhaja, ko rubuta zuwa support@courier.example.",
   'help.title': 'Ta yaya za mu iya taimakawa?',
   'landing.brand.scrollTop': 'Komawa sama',
+  'landing.copyright': '© {{year}} {{appName}} — An gina shi don mai da hankali.',
   'landing.ctaBody':
     'Shiga dubban ƙwararru waɗanda suka gama akwatin saƙonsu kafin cin abincin rana.',
   'landing.ctaTitle': 'Sarrafa abubuwa da yawa, rage amsawa.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Kalli gwajin gwaji',
   'landing.heroSubtitle':
     "Courier akwatin saƙo ne mai sassa uku masu natsuwa wanda aka gina don ma'aikatan ilimi waɗanda ke son sarrafa bayanai, ba su mayar da martani a kai ba.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Ƙungiyoyin da aka mayar da hankali a kansu a duk duniya sun amince da su',
   'landing.signIn': 'Shiga',
   'meridian.archive.empty': 'Rumbun adana bayanai babu komai a ciki.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Daftarin daftarin',
   'meridian.folder.count': '{{count}} saƙonni',
+  'meridian.folder.delete': 'Goge',
   'meridian.folder.deleteForever': 'Sharewa har abada',
   'meridian.folder.restore': 'Matsar zuwa akwatin saƙo',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Babu saƙonni a nan tukuna.',
   'meridian.inbox.loading': 'Ana lodawa…',
   'meridian.inbox.next': 'Na gaba',
+  'meridian.inbox.noSender': '(babu mai aikawa)',
   'meridian.inbox.noSubject': '(babu wani batu)',
+  'meridian.inbox.ofTotal': '{{current}} na {{total}}',
   'meridian.inbox.openCompose': 'Buɗe rubutawa',
   'meridian.inbox.previous': 'Na Baya',
   'meridian.inbox.replyFailed': 'An adana amsa amma isarwa ta gaza: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Ba ka da asusu?',
   'meridian.login.showPassword': 'Nuna kalmar sirri',
   'meridian.message.toLine': 'zuwa {{recipients}}',
+  'meridian.notFound.body':
+    'Ba a sami shafin da kake nema ba. Koma zuwa akwatin saƙonka na {{appName}} kuma za mu sa ka kan hanya madaidaiciya.',
   'meridian.notFound.eyebrow': 'Kuskure 404',
   'meridian.notFound.title': 'An adana wannan zaren.',
   'meridian.notFound.toInbox': 'Bude akwatin saƙo na',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Ƙara tauraro',
   'meridian.thread.unstar': 'Cire tauraro',
   'meridian.time.yesterday': 'Jiya',
+  'meridian.topBar.openMenu': 'Buɗe menu na kewayawa',
   'meridian.topBar.searchPlaceholder': 'Bincika wasiku',
   'meridian.trash.empty': 'Shara babu komai a ciki.',
   'meridian.trash.title': 'Shara',
   'nav.legal': "Shari'a",
   'planUpdated.description':
     'Biyan kuɗin ku yana aiki yanzu kuma an sabunta lissafin kuɗin ku. Barka da zuwa akwatin saƙon ku da aka sabunta na Courier.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.heading': 'daftarin aiki',
   'pricing.limit.emails': 'imel',
   'pricing.limit.folders': 'manyan fayiloli',
   'pricing.limit.labels': 'lakabi',
   'privacy.collect.account':
     'Bayanan asusu: suna, adireshin imel, kalmar sirri mai hashed, da kuma ranar da kuka yi rajista.',
+  'privacy.contact': 'Tambayoyi? Aika imel zuwa privacy@courier.example.',
   'privacy.intro':
     'Wannan manufar tsare sirri tana bayyana irin bayanan da Courier ke tattarawa, dalilin da yasa muke tattarawa, yadda muke kiyaye shi lafiya, da kuma irin zaɓin da kuke da shi a kai. Muna da nufin yin takamaiman bayani maimakon yin dokoki; idan wani abu bai bayyana ba, rubuta zuwa ga privacy@courier.example.',
   'privacy.lastUpdated': 'An sabunta shi na ƙarshe: 1 ga Afrilu, 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Waɗannan sharuɗɗan suna sarrafa yadda kake amfani da Courier. Ta hanyar ƙirƙirar asusu ko aika imel ta hanyarmu, ka yarda ka bi su. Muna ƙoƙarin rubuta ƙa'idodi da mutum zai iya bi.",
   'terms.lastUpdated': 'Mai Inganci: 1 ga Afrilu, 2026',
+  'terms.linkPrivacy': 'Karanta Dokar Sirrinmu →',
   'terms.termination.body':
     'Za ka iya share asusunka a kowane lokaci. Za mu iya dakatar da asusun da ya karya waɗannan sharuɗɗan; idan muka yi, za mu bayyana dalilin kuma mu bar ka ka fara fitar da bayananka.',
   'terms.warranty.body':

@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Stopite v stik',
   'about.eyebrow': 'O nas',
+  'about.title': 'O aplikaciji {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Profesionalna fotografija podporne agentke s prijaznim nasmehom v sodobni pisarni',
   'activeAgentsCard.agent2AvatarAlt':
@@ -62,6 +63,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontaktirajte podporo',
   'forgotPassword.error':
     'E-poštnega sporočila za ponastavitev ni bilo mogoče poslati. Poskusite znova.',
   'forgotPassword.rememberPassword': 'Se spomniš gesla?',
@@ -105,6 +107,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Prijava — Podpora Zenith',
   'login.showPassword': 'Pokaži geslo',
   'login.welcomeSubheading': 'Prijavite se v nadzorno ploščo za podporo',
+  'mobileNav.closeMenu': 'Zapri navigacijo',
+  'mobileNav.menu': 'Navigacija',
+  'mobileNav.openMenu': 'Odpri navigacijo',
   'nav.legal': 'Pravno',
   'nav.newTicket': 'Nova vstopnica',
   'notifications.loadError': 'Obvestil ni bilo mogoče naložiti. Poskusite znova čez trenutek.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Iskanje ukazov',
   'operatorDock.newReport': 'Novo poročilo',
   'operatorDock.systemOnline': 'Sistem na spletu',
+  'planUpdated.subtitle': 'Hvala',
   'planUpdated.title': 'Načrt posodobljen',
   'pricing.agents': 'posredniki',
   'pricing.automation': 'Pravila avtomatizacije',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{ime}} avatar',
   'ticketDetail.errorTitle': 'Nekaj je šlo narobe',
+  'ticketDetail.loadError': 'Nalaganje vozovnice ni uspelo.',
+  'ticketDetail.notFound': 'Vstopnice ni bilo mogoče najti',
+  'ticketDetail.replyError': 'Odgovora ni bilo mogoče poslati. Poskusite znova.',
   'ticketDetail.retry': 'Poskusi še enkrat',
   'ticketDetail.statusUpdateError': 'Stanja ni bilo mogoče posodobiti. Poskusite znova.',
   'ticketDetailsCard.assigneeLabel': 'Prejemnik',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{čas}} levo',
   'ticketRow.title': 'Povezava z zbirko podatkov v produkcijskem okolju ni uspela {{vozlišče}}',
   'tickets.pageTitle': 'Vstopnice — Podpora Zenith',
+  'ticketsFab.newTicket': 'Nova vozovnica',
   'ticketsFilterBar.assigneeLabel': 'Prejemnik:',
   'ticketsFilterBar.clearFilters': 'Počisti filtre',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

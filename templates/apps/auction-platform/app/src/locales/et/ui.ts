@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Vaadates',
   'auctionDetail.watchRemoved': 'Jälgimisloendist eemaldatud.',
   'auctionDetail.watchRemoveLabel': 'Eemalda jälgimisloendist',
+  'auctionPlatformLayout.primaryNavLabel': 'Peamine navigeerimine',
   'authShell.brandBody':
     'Tee pakkumisi reaalajas haruldastele kelladele, kunstile ja ainulaadsetele eriesemetele. Haamer langeb sekunditega.',
   'authShell.brandEyebrow': 'Otseülekanne · 1420 oksjonit',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sorteeri',
   'browseAuctions.subheading':
     'Filtreeri kategooria järgi, sorteeri kõige olulisema järgi ja tee pakkumine enne, kui haamer langeb.',
+  'common.goToDashboard': 'Mine töölauani',
   'countdownTimer.ended': 'Lõppenud',
   'countdownTimer.endingSoon': 'Lõpp',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Peida parool',
   'login.showPassword': 'Näita parooli',
   'login.subtext': 'Jätka oma oksjonite jälgimist ja tee pakkumisi enne, kui haamer langeb.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'myBids.bidAgain': 'Paku uuesti',
   'myBids.browseCta': 'Sirvi reaalajas oksjoneid →',
   'myBids.checkoutCta': 'Maksa kohe',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Teavitusi pole veel.',
   'notificationsPage.eyebrow': 'Tegevuskeskus',
   'notificationsPage.subheading': '{{count}} lugemata · reaalajas värskendused oksjonite edenedes',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.bidsLabel': 'pakkumised',
   'pricing.listingsLabel': 'kuulutused',
   'pricing.watchlistLabel': 'jälgimisnimekiri',

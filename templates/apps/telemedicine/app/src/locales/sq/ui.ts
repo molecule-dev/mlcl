@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Rezervoni Takim',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Nuk ka pacientë për të paraqitur.',
+  'common.goToDashboard': 'Shko te paneli',
   'consult.backLink': 'Të gjitha takimet',
   'consult.captions': 'Titra',
   'consult.connected': 'I lidhur · 720p · i qëndrueshëm',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacientët',
   'patientVitalsHero.scripts': 'Rx i hapur',
   'patientVitalsHero.subline': '{{count}} konsultohet për axhendën tuaj sot',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'prescriptions.empty': 'Asnjë recetë nuk përputhet.',
   'prescriptions.eyebrow': 'Receta elektronike',
   'prescriptions.heading': 'Recetat',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Njoftim për Privatësinë',
   'privacy.use.body':
     'Për të ofruar kujdes, për të dërguar përkujtues për takime, për të caktuar receta dhe për të përmirësuar besueshmërinë e shërbimit. Ne nuk i shesim kurrë të dhënat tuaja dhe nuk ndajmë kurrë informacion klinik me reklamuesit.',
+  'providers.allSpecialties': 'Të gjitha specialitetet',
+  'providers.loadError': 'Dështoi në ngarkimin e ofruesve.',
+  'providers.loading': 'Duke u ngarkuar…',
   'providers.noResults': 'Nuk u gjet asnjë ofrues.',
   'providers.searchPlaceholder': 'Kërko sipas emrit, specialitetit...',
   'providers.title': 'Gjeni një ofrues',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Fillimi i ditës',
   'settings.availability.heading': 'Disponueshmëria',
   'settings.devices.thisDevice': 'Kjo pajisje',
+  'settings.devices.unnamed': 'Pajisje pa emër',
   'settings.eyebrow': 'Praktikë dhe llogari',
   'settings.loadError': 'Profili juaj nuk mund të ngarkohej.',
   'settings.notifications.emailMessages':
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Çaktivizo',
   'settings.security.twoFactor.enable': 'Aktivizo',
   'settings.security.twoFactor.heading': 'Autentifikimi me dy faktorë',
+  'settings.security.twoFactor.invalidCode': 'Ai kod nuk përputhej. Provo përsëri.',
+  'settings.security.twoFactor.setupFailed':
+    'Nuk mund të niste konfigurimi me dy faktorë. Provo përsëri.',
+  'settings.security.twoFactor.statusOn': 'Dyfaktorët janë aktivë',
   'settings.signOutDevice': 'Dil nga llogaria',
   'settings.subheading': 'Profili i ofruesit, rregullat e praktikës dhe alarmet klinike.',
   'signup.emailLabel': 'EMAIL',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Krijo llogari',
   'signupFooter.hipaa': 'Në përputhje me HIPAA-n',
   'solaceLayout.primaryNavLabel': 'Navigimi kryesor',
+  'solaceLayout.toggleMenu': 'Hap/çaktivizo menynë',
   'terms.eligibility.body':
     'Duhet të jeni të paktën tetëmbëdhjetë vjeç, ose prindi ose kujdestari ligjor i një të mituri për të cilin kërkoni kujdes, dhe të ndodheni fizikisht në një shtet të SHBA-së ku klinicistët tanë janë të licencuar.',
   'terms.payment.body':

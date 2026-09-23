@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'auth.fields.newPassword': 'စကားဝှက်အသစ်',
   'collectionDetail.addImage': 'စုဆောင်းမှုအတွက် စိတ်ကူးပုံဖော်ပါ',
   'collectionDetail.backCta': 'စုစည်းမှုများသို့ ပြန်သွားရန်',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood-board များ၊ အကျဉ်းချုပ်များနှင့် လက်ရှိစီးရီးများ',
   'collections.title': 'စုစည်းမှုများ',
   'collections.untitled': 'ခေါင်းစဉ်မရှိ · {{stamp}}',
+  'common.closeMenu': 'မီနူးကို ပိတ်ပါ',
+  'common.dismiss': 'ပယ်ချပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'credits.eyebrow': '{{plan}} အစီအစဉ်',
   'credits.renewsCopy': 'အစီအစဉ်သက်တမ်းတိုးမည် {{date}}',
   'credits.trail': 'စိတ်ကူးယဉ်ဆန်သော · {{plan}} အဆင့်',
@@ -135,6 +140,7 @@ export const ui: UiTranslations = {
     'ထုတ်လုပ်မှုလုပ်ဆောင်ချက်၊ မျှဝေခြင်းနှင့် ခရက်ဒစ်သတိပေးချက်များကို ဤနေရာတွင် ပေါ်လာပါမည်။',
   'notifications.empty.title': 'အစီရင်ခံစရာ ဘာမှမရှိ',
   'notifications.subtitle': 'မျိုးဆက်ပွဲများကို နေ့အလိုက် အုပ်စုဖွဲ့ထားသည်',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.limits.gallery': '{{count}} ပြခန်း',
   'privacy.collect.body':
     'သင်စာရင်းသွင်းသောအခါ သင့်အမည်၊ အီးမေးလ်လိပ်စာနှင့် hash လုပ်ထားသော စကားဝှက်ကို ကျွန်ုပ်တို့စုဆောင်းပါသည်။ Reverie ကိုအသုံးပြုသည့်အခါ သင်တင်သွင်းသော prompts များ၊ သင့်အတွက် ကျွန်ုပ်တို့ထုတ်ပေးသော ရုပ်ပုံများ၊ သင်သိမ်းဆည်းသော style များနှင့် collection များနှင့် အသုံးပြုထားသော model၊ generation timestamps နှင့် credit balance ကဲ့သို့သော metadata များကို ကျွန်ုပ်တို့သိမ်းဆည်းပါသည်။',
@@ -172,6 +178,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'စကားဝှက်အသစ်ကို သိမ်းဆည်းပါ',
   'reset.submitting': 'စကားဝှက်ကို အပ်ဒိတ်လုပ်နေသည်…',
   'settings.account.handle': 'လက်ကိုင်',
+  'settings.account.lastSaved': 'လက်ရှိပရိုဖိုင် · {{name}}',
   'settings.account.saved': 'ပရိုဖိုင်ကို သိမ်းဆည်းပြီးပါပြီ',
   'settings.account.saveFailed': 'ပရိုဖိုင်ကို သိမ်းဆည်း၍မရပါ',
   'settings.account.title': 'ဖန်တီးသူပရိုဖိုင်',
@@ -193,7 +200,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'ပုံအသစ်',
   'sidebar.secondary': 'ဒုတိယ လမ်းညွှန်ချက်',
   'signup.failed': 'အကောင့်ဖွင့်၍မရပါ။ ထပ်ကြိုးစားပါ။',
+  'signup.firstNamePlaceholder': 'အာရီယာ',
   'signup.heading': 'သင့်ရဲ့ စိတ်ကူးယဉ်အိပ်မက်ကို စတင်လိုက်ပါ',
+  'signup.lastNamePlaceholder': 'လင်း',
   'signup.subheading': 'အကောင့်တစ်ခုဖွင့်ပြီး အခမဲ့ခရက်ဒစ် ၁၂၀ ရယူလိုက်ပါ။',
   'styles.empty':
     'စတိုင်ကြိုတင်သတ်မှတ်ချက်များ မရှိသေးပါ — ၎င်းတို့သည် ပထမဆုံးအကြိမ် အကောင့်ဝင်ပြီးနောက် ပေါ်လာပါလိမ့်မည်။',

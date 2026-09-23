@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.pageTitle': 'Nípa {{appName}}',
   'analytics.error': 'Kò le gbé àwọn àgbéyẹ̀wò jáde.',
   'analytics.heading': 'Àwọn àtúpalẹ̀ ìgbàpadà',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ko si awọn ipele idiyele ti a ṣeto.',
   'billing.plans.heading': 'Àwọn ètò',
   'billing.subheading': 'Ètò, lílò, àti ìsanwó tí Stripe ń ṣàkóso.',
+  'common.confirm': 'Jẹ́rìísí',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'documentCard.open': 'Ṣí \\u2192',
   'documentDetail.back': 'Pada si awọn iwe aṣẹ',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Ìwé àtọ́ka',
   'documents.composer.titlePlaceholder': 'Àkọlé ìwé',
   'documents.emptyAll': 'Kò sí ìwé kankan síbẹ̀. Fi ọ̀kan sílẹ̀ láti bẹ̀rẹ̀ sí í béèrè ìbéèrè.',
+  'documents.error.load': 'Kò le gbé àwọn ìwé jáde.',
   'documents.heading': 'Àwọn ìwé tí a tọ́ka sí',
   'documents.loading': 'N n gbe awọn iwe aṣẹ…',
   'documents.metric.chunks': 'Àròpọ̀ àwọn ègé',
@@ -142,7 +147,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Yíyọkúrò\\u2026',
   'members.subheading': 'Pe àwọn ẹlẹgbẹ́ rẹ kí o sì yan àwọn ipa.',
   'members.tableHeading': 'Àkójọ ìwé',
+  'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
+  'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'notFound.askCta': 'Beere ipilẹ imọ',
+  'notFound.body':
+    '{{app}} kò le\\u2019 rí ojú ìwé náà. Ó ṣeé ṣe kí ìjápọ̀ náà ti bàjẹ́, tàbí kí ojú ìwé náà ti dẹ́kun nígbà àtúntò.',
   'notFound.eyebrow': 'Kò le gba pada',
   'notFound.title': 'Kò sí irú ìpín bẹ́ẹ̀ nínú àkọlé náà',
   'notifications.dismiss': 'Kúrò',
@@ -209,6 +218,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Orísun URL',
   'sources.empty.body': 'Tẹ \\u201cFi orisun kun\\u201d lati fi okun waya so asopọ akọkọ rẹ.',
   'sources.empty.title': 'Ko si awọn orisun sibẹsibẹ.',
+  'sources.error.add': 'Kò le fi orísun kún un.',
   'sources.error.labelRequired': 'Àmì ni a nílò.',
   'sources.error.load': 'Kò le gbé àwọn orísun jáde.',
   'sources.error.urlRequired': 'A nílò URL fún irú orísun yìí.',

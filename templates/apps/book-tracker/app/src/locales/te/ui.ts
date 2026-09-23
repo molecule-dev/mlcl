@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'చైన్‌ను రీస్టార్ట్ చేయండి',
   'resetPassword.mismatchError': 'పాస్‌వర్డ్‌లు సరిపోలలేదు.',
   'resetPassword.subheading': 'బలమైనది ఎంచుకోండి. మీ పుస్తకాలు వేచి ఉంటాయి.',
-  'reviewCard.starsAria': 'రేట్ చేయబడింది<x> {{రేటింగ్}}</x> బయట<x> {{యొక్క}}</x> నక్షత్రాలు',
+  'reviewCard.starsAria': '{{of}} నక్షత్రాలకు గాను {{rating}} రేటింగ్ ఇవ్వబడింది',
   'reviewCard.unratedAria': 'రేటింగ్ లేదు',
   'reviews.eyebrow': 'మీతో ఏమి ఉండిపోయింది',
   'reviews.heading': 'మీ సమీక్షలు',

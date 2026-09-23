@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Labarinmu',
   'aiSuggestionPanel.title': 'Matukin jirgi na Signet',
   'analytics.col.open': 'Farashin buɗewa',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'An fara biyan kuɗi…',
   'billing.subheading': 'Zaɓi tsarin da ya dace da yadda kake aikawa.',
   'billing.unavailable': 'Tuntuɓi tallace-tallace',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.retry': 'Sake gwadawa',
   'compose.adjustingTone': 'Sake rubutawa a cikin sautin da aka zaɓa…',
   'compose.aiPromptPlaceholder':
     'misali "Bincike mai kyau bayan babu amsa na tsawon makonni biyu, a takaice."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Kana buƙatar aika wani abu? Signet zai iya samun daftarin aiki a cikin daƙiƙa kaɗan.',
   'dashboard.composeCtaLabel': 'Rubuta da sauri',
   'dashboard.heading': 'Makonku, an rubuta shi',
+  'dashboard.loadFailed': 'An kasa loda dashboard ɗinka.',
   'dashboard.manageLibrary': 'Sarrafa ɗakin karatu →',
   'dashboard.recentEmpty': 'Babu aikawa tukuna — imel ɗin da aka aika za su bayyana a nan.',
   'dashboard.recentHeading': 'Aika kwanan nan',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Sautin asali',
   'settings.toneSubheading': 'Signet yana amfani da wannan sautin sai dai idan kun canza tsarin.',
   'signetLayout.primaryNavLabel': 'Babban kewayawa',
+  'signetLayout.toggleMenu': 'Sauya menu',
   'signup.emailLabel': 'Adireshin i-mel',
   'signup.showPassword': 'Nuna kalmar sirri',
   'signup.tagline': 'Aika imel ɗinka na farko da aka tsara ta hanyar AI cikin ƙasa da minti ɗaya.',

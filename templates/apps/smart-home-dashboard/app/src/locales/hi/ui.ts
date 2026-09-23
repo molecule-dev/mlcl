@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
+  'about.pageTitle': '{{app}} के बारे में',
   'activity.empty': 'अभी कोई गतिविधि नहीं — कोई डिवाइस चालू करें या कोई दृश्य सक्रिय करें।',
   'activity.eyebrow': 'टाइमलाइन',
   'activity.loadError': 'गतिविधि फ़ीड लोड नहीं हो सका।',
   'activity.subheading': 'हर डिवाइस, स्वचालन और सुरक्षा घटना कालानुक्रमिक क्रम में।',
+  'addDevice.error.failed': 'डिवाइस को जोड़ा नहीं जा सका। कृपया पुनः प्रयास करें।',
   'addDevice.error.nameRequired': 'जारी रखने के लिए इस डिवाइस को एक नाम दें।',
   'addDevice.field.firmware': 'फर्मवेयर संस्करण',
   'addDevice.field.manufacturer': 'निर्माता',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'परीक्षण किया जा रहा है…',
   'automationEditor.testNew': 'परीक्षण करने के लिए पहले ऑटोमेशन को सेव करें।',
   'automationRow.lastRun': 'अंतिम {{date}} · {{count}} रन',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': '{{name}} अभी चलाएं',
   'automations.empty': 'अभी कोई ऑटोमेशन नहीं है — अपनी पहली दिनचर्या बनाएं।',
   'automations.eyebrow': 'रूटीन',
@@ -50,6 +54,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'स्वचालन लोड हो रहे हैं…',
   'automations.newAutomation': '+ नया',
   'automations.subheading': 'जब यह हो, तो वह करें — YAML के बिना।',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'डिवाइस लोड करने में विफल।',
@@ -69,6 +74,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'हो रहा है…',
   'deviceDetail.unnamed': 'डिवाइस',
   'deviceStatusRow.on': 'चालू',
+  'deviceStatusRow.turnOff': 'बंद करें',
+  'deviceStatusRow.turnOn': 'चालू करें',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'पावर',
   'energy.heading': 'ऊर्जा',
@@ -172,4 +179,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'योजनाएं देखें',
   'settings.security.heading': 'सुरक्षा',
   'settings.subheading': 'योजना, हब और खाता प्राथमिकताएँ।',
+  'smartHomeDashboardLayout.openMenu': 'नेविगेशन मेनू खोलें',
+  'smartHomeDashboardLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
 }

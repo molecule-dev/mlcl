@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Kurse werden geladen…',
   'browse.next': 'Nächste Seite',
   'browse.results': '{{count}} Kurse werden angezeigt',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Sortieren nach',
   'browse.subtitle':
     'Filtern Sie das redaktionelle Archiv nach Thema, Niveau und Preis. Jeder Kurs wird von unseren Redakteuren handverlesen.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Ihr Zertifikat ist signiert und bereit. Teilen Sie es mit der Welt oder bewahren Sie es als Erinnerung an die geleistete Arbeit auf.',
   'certificate.copyLink': 'Freigabelink kopieren',
+  'certificate.copyPrompt': 'Kopiere diesen Link:',
   'certificate.download': 'PDF herunterladen',
   'certificate.eyebrow': 'Erfolg freigeschaltet',
   'certificate.linkCopied': 'Link kopiert!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Sie sind eingeschrieben!',
   'checkout.verifying': 'Ihre Einschreibung wird überprüft…',
   'checkout.viewLibrary': 'Mein Lernen anzeigen',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.retry': 'Erneut versuchen',
   'courseDetail.about': 'Über diesen Kurs',
   'courseDetail.checkoutPending': 'Bezahlvorgang wird gestartet…',
   'courseDetail.continueLearning': 'Lernen fortsetzen',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-Tage-Geld-zurück-Garantie',
   'courseDetail.includes.video': '{{hours}} Stunden On-Demand-Video',
   'courseDetail.instructor': 'Dozent',
+  'courseDetail.languageEnglish': 'Englisch',
   'courseDetail.lectures': 'Vorträge',
   'courseDetail.level': 'Niveau',
   'courseDetail.loading': 'Kurs wird geladen…',
@@ -121,6 +126,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Noch keine Bewertungen.',
   'instructorProfile.students': 'Lernende',
   'landing.categories.empty': 'Kategorien werden angezeigt, sobald der Katalog gefüllt ist.',
+  'landing.categories.heading': 'Das Archiv erkunden',
   'landing.hero.eyebrow': 'Lectura · Redaktionelles Archiv der Meisterschaft',
   'landing.hero.proof': 'Vertraut von Lernenden bei Google, Meta und Adobe.',
   'landing.hero.subtitle':
@@ -159,6 +165,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Heute mit dem Lernen beginnen',
   'login.subheading': 'Greifen Sie auf Ihr wissenschaftliches Archiv zu.',
   'myLearning.empty.title': 'Noch keine Kurse für diesen Filter',
+  'myLearning.error.title': 'Ihre Bibliothek konnte nicht geladen werden',
   'myLearning.filter.notStarted': 'Nicht begonnen',
   'myLearning.hero.subtitle':
     '{{count}} Kurse in Ihrer Bibliothek. Halten Sie den Schwung aufrecht.',
@@ -171,6 +178,7 @@ export const ui: UiTranslations = {
   'notFound.title': 'Lektion nicht gefunden',
   'notifications.empty.body': 'Keine neuen Aktivitäten zu prüfen. Neue Ereignisse erscheinen hier.',
   'notifications.empty.title': 'Sie sind auf dem neuesten Stand',
+  'notifications.error.title': 'Aktivität konnte nicht geladen werden',
   'privacy.title': 'Datenschutzerklärung',
   'reset.confirmPlaceholder': 'Geben Sie Ihr neues Passwort erneut ein',
   'reset.errorGeneric':
@@ -195,5 +203,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': 'vor {{count}} T',
   'timeAgo.hours': 'vor {{count}} Std',
   'timeAgo.minutes': 'vor {{count}} Min',
+  'timeAgo.months': '{{count}} vor einigen Monaten',
   'timeAgo.today': 'heute',
+  'timeAgo.weeks': '{{count}} vor einigen Wochen',
 }

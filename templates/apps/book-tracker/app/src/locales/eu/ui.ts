@@ -151,7 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Berrabiarazi katea',
   'resetPassword.mismatchError': 'Pasahitzak ez datoz bat.',
   'resetPassword.subheading': 'Aukeratu sendo bat. Zure liburuak itxarongo dute.',
-  'reviewCard.starsAria': 'Sailkatua<x> {{balorazioa}}</x> kanpoan<x> {{-ko}}</x> izarrak',
+  'reviewCard.starsAria': '{{rating}} izarretik {{of}} izarrekin baloratua',
   'reviewCard.unratedAria': 'Sailkapenik gabe',
   'reviews.eyebrow': 'Zer geratu da zurekin',
   'reviews.heading': 'Zure iritziak',

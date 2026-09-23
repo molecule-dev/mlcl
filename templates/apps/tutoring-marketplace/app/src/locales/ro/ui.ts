@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Rolul tău',
   'account.role.upgradeLink': 'Aplică pentru a deveni un tutore verificat →',
   'account.title': 'Profil, plată și preferințe.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Predă pe cretă',
   'becomeTutor.form.error': 'Nu s-a putut trimite aplicația.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Subiect',
   'bookingConfirm.title': 'Ești rezervat. De restul ne ocupăm noi.',
   'bookingConfirm.with': 'Cu tutore',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'earningsHero.eyebrow': 'Câștiguri • {{month}}',
   'forgotPassword.heading': 'Ați uitat parola?',
   'forgotPassword.subheading':
@@ -112,6 +114,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Trimite mesaj',
   'messages.thread.empty': 'Salută — începe conversația.',
   'messages.title': 'Subiecte de discuție cu tutorii tăi.',
+  'nav.primary': 'Principal',
   'pricing.dataExport': 'Export de date:',
   'pricing.headingDefault': 'Funcții avansate:',
   'resetPassword.heading': 'Alege o parolă nouă și puternică.',

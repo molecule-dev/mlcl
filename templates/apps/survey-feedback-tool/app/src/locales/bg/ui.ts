@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'За {{app}}',
   'analytics.back': 'Общ преглед на анкетата',
   'analytics.kpiNps': 'NPS резултат',
   'analytics.kpiNpsTrend': 'Промоутъри {{p}} % · Критици {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Имоти',
   'builder.questionNumber': 'В {{num}}',
   'builder.surveyTitle': 'Заглавие на анкетата',
+  'common.goToDashboard': 'Към таблото',
   'forgotPassword.failed': 'Не можа да се изпрати имейл за нулиране. Моля, опитайте отново.',
   'forgotPassword.subheading': 'Въведете имейл адреса си и ще ви изпратим линк за възстановяване.',
   'forgotPassword.successBody':
     'Ако даден акаунт съвпада {{email}} , линк за нулиране е на път. Проверете входящата си поща и папките за спам.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Всички гласове са добре дошли.',
   'landing.footer.startTrial': 'Започнете пробен период',
   'landing.hero.badge': 'Анкети, NPS и обратна връзка на едно място',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Ценообразуване',
   'landing.pricing.perMonth': '/месец',
   'landing.pricing.popular': 'Най-популярни',
+  'landing.pricing.subtitle':
+    'Всеки план включва инструмент за създаване на анкети, връзки за публично споделяне и анализ на NPS. Не е необходима кредитна карта, за да започнете.',
+  'landing.pricing.title': 'Започнете безплатно, мащабирайте, когато е необходимо.',
   'landing.sample.eyebrow': 'НПС с един поглед',
   'landing.sample.title': 'Критици, пасивни, поддръжници — веднага четимо.',
   'login.failed': 'Влизането не успя. Моля, опитайте отново.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Покажи паролата',
   'login.signUpLink': 'Започнете безплатен пробен период',
   'login.subheading': 'Влезте, за да продължите да слушате аудиторията си.',
+  'notFound.body':
+    'Страницата, която търсите, не съществува в {{app}} . Нека ви върнем към анкетите ви.',
   'notFound.cta': 'Обратно към анкетите',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Това проучване се отклони от опашката.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Пасивно 7–8',
   'npsDistributionBar.promoter': 'Промоутър 9–10',
   'profile.identity.description': 'Публично за вашия екип и в анкетите, които създавате.',
+  'profile.identity.emailRequired': 'Въведете имейл адрес.',
   'profile.identity.saveCta': 'Запазване на името',
   'profile.password.current': 'Текуща парола',
   'profile.password.fillFields': 'Въведете както текущата, така и новата парола.',
@@ -179,6 +188,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} въпроси',
   'templates.subheading':
     'Изберете изпитан в битки стартов шаблон — всеки шаблон е предварително настроен с разумни настройки по подразбиране, примерна логика и изчистено мобилно оформление.',
+  'thankYou.body':
+    'Вашият отговор е записан. {{app}} ще го включи при следващото обновяване на анализите.',
   'thankYou.eyebrow': 'Получен отговор',
   'thankYou.heading': 'Благодаря - вашият глас е важен.',
   'thankYou.home': 'Посетете Gauge',

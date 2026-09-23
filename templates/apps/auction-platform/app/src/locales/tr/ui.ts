@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Takip ediliyor',
   'auctionDetail.watchRemoved': 'İzleme listesinden kaldırıldı.',
   'auctionDetail.watchRemoveLabel': 'İzleme listesinden kaldır',
+  'auctionPlatformLayout.primaryNavLabel': 'Birincil gezinme',
   'authShell.brandBody':
     'Nadir saatler, güzel sanatlar ve eşi benzeri olmayan özel ürünler için gerçek zamanlı teklif verin. Tokmak saniyeler içinde düşer.',
   'authShell.brandEyebrow': 'Şu anda canlı · 1.420 açık artırma',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Sıralama ölçütü',
   'browseAuctions.subheading':
     'Kategoriye göre filtreleyin, sizin için en önemli olana göre sıralayın ve tokmak düşmeden önce teklif verin.',
+  'common.goToDashboard': 'Panele Git',
   'countdownTimer.ended': 'Sona erdi',
   'countdownTimer.endingSoon': 'Bitiyor',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Parolayı göster',
   'login.subtext':
     'Açık artırmalarınızı takip etmeye devam edin ve tokmak düşmeden önce teklif verin.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'myBids.bidAgain': 'Tekrar teklif ver',
   'myBids.browseCta': 'Canlı açık artırmalara göz at →',
   'myBids.checkoutCta': 'Şimdi öde',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Etkinlik merkezi',
   'notificationsPage.subheading':
     '{{count}} okunmamış · açık artırmalar değiştikçe canlı güncellemeler',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.bidsLabel': 'teklifler',
   'pricing.listingsLabel': 'liste',
   'pricing.watchlistLabel': 'izleme listesi',

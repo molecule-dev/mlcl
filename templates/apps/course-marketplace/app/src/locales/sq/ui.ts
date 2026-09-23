@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Po ngarkohen kurset…',
   'browse.next': 'Faqja tjetër',
   'browse.results': 'Duke shfaqur {{count}} kurse',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Rendit sipas',
   'browse.subtitle':
     'Filtroni arkivin editorial sipas temës, nivelit dhe çmimit. Çdo kurs është i kuruar me kujdes nga redaktorët tanë.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Certifikata juaj është nënshkruar dhe gati. Ndani atë me botën ose ruajeni si një kujtesë për punën e kërkuar për ta fituar.',
   'certificate.copyLink': 'Kopjo lidhjen e ndarjes',
+  'certificate.copyPrompt': 'Kopjo këtë lidhje:',
   'certificate.download': 'Shkarko PDF-në',
   'certificate.eyebrow': 'Arritja u zhbllokua',
   'certificate.linkCopied': 'Lidhja u kopjua!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Je i regjistruar!',
   'checkout.verifying': 'Duke verifikuar regjistrimin tuaj…',
   'checkout.viewLibrary': 'Shiko Mësimin Tim',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.retry': 'Provo përsëri',
   'courseDetail.about': 'Rreth këtij kursi',
   'courseDetail.checkoutPending': 'Duke filluar arkëtimin…',
   'courseDetail.continueLearning': 'Vazhdo të mësosh',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Garanci 30-ditore për kthimin e parave',
   'courseDetail.includes.video': '{{hours}} orë të tëra video sipas kërkesës',
   'courseDetail.instructor': 'Instruktor',
+  'courseDetail.languageEnglish': 'Anglisht',
   'courseDetail.lectures': 'Leksione',
   'courseDetail.level': 'Niveli',
   'courseDetail.loading': 'Duke ngarkuar kursin…',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Nuk ka ende vlerësime.',
   'instructorProfile.students': 'Studentët',
   'landing.categories.empty': 'Kategoritë do të shfaqen pasi të plotësohet katalogu.',
+  'landing.categories.heading': 'Eksploro arkivin',
   'landing.hero.eyebrow': 'Leksion · Arkivi editorial i mjeshtërisë',
   'landing.hero.proof': 'I besuar nga nxënësit në Google, Meta dhe Adobe.',
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Filloni të mësoni sot',
   'login.subheading': 'Hyni në arkivin tuaj shkencor.',
   'myLearning.empty.title': 'Asnjë kurs nuk përputhet ende me këtë filtër',
+  'myLearning.error.title': 'Nuk mund të ngarkohej biblioteka juaj',
   'myLearning.filter.notStarted': 'Nuk ka filluar',
   'myLearning.hero.subtitle':
     '{{count}} kurse në bibliotekën tuaj. Vazhdoni të vazhdoni me ritmin.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     "Nuk ka aktivitet të ri për t'u shqyrtuar. Ngjarjet e reja do të shfaqen këtu.",
   'notifications.empty.title': 'Je i informuar plotësisht',
+  'notifications.error.title': 'Nuk mund të ngarkohej aktiviteti',
   'privacy.title': 'Politika e privatësisë',
   'reset.confirmPlaceholder': 'Rifutni fjalëkalimin tuaj të ri',
   'reset.errorGeneric': 'Nuk mundi të rivendoste fjalëkalimin. Kërko një lidhje të re.',
@@ -190,5 +198,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} ditë më parë',
   'timeAgo.hours': '{{count}} orë më parë',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} muaj më parë',
   'timeAgo.today': 'sot',
+  'timeAgo.weeks': '{{count}} javë më parë',
 }

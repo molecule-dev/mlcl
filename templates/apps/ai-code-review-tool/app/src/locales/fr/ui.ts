@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Nous contacter',
   'about.eyebrow': 'À propos',
+  'common.goToDashboard': 'Aller au tableau de bord',
   'dashboard.connectRepoCta': 'Connecter un dépôt',
   'dashboard.empty': 'Aucune pull request pour le moment — connectez un dépôt pour commencer.',
   'dashboard.eyebrow': 'Refract · file de revue',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Disponibilité',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Score de qualité IA {{score}} / 10',
+  'refractLayout.closeMenu': 'Fermer le menu',
+  'refractLayout.openMenu': 'Ouvrir le menu',
   'refractLayout.primaryNavLabel': 'Navigation principale',
   'reports.cumulativeScoreLabel': 'Score cumulé',
   'reports.cumulativeScoreSubtitle': 'tous les dépôts · {{days}} j',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': "Impossible de charger l'index de recherche.",
   'settings.apiKeys.description':
     "Gérez vos clés d'API personnelles depuis le menu utilisateur en haut à droite.",
+  'settings.apiKeys.integrationsNote':
+    "Les jetons d'accès des fournisseurs sont gérés dans la section « Intégrations » ci-dessus.",
   'settings.connectError': 'Impossible de connecter le fournisseur.',
   'settings.disconnectError': 'Impossible de déconnecter le fournisseur.',
   'settings.eyebrow': 'Refract · espace de travail',
   'settings.integration.${provider}.label': 'Enregistrement…',
   'settings.loadError': 'Impossible de charger les paramètres.',
+  'settings.notificationCenter': 'Centre de notifications',
   'settings.notifications.description':
     'Rendez-vous sur la page des notifications pour consulter et gérer les préférences de livraison.',
   'settings.section.account': 'Compte & sécurité',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Um {{app}}',
   'analytics.back': 'Yfirlit yfir könnun',
   'analytics.kpiNps': 'NPS-stig',
   'analytics.kpiNpsTrend': 'Kynningarfulltrúar {{p}} % · Gagnrýnendur {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Eiginleikar',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Titill könnunar',
+  'common.goToDashboard': 'Fara á yfirlit',
   'forgotPassword.failed': 'Gat ekki sent endurstillingartölvupóst. Reyndu aftur.',
   'forgotPassword.subheading': 'Sláðu inn netfangið þitt og við sendum þér endurheimtartengil.',
   'forgotPassword.successBody':
     'Ef reikningur passar við {{email}} , tengill fyrir endurstillingu er væntanlegur. Athugaðu pósthólfið þitt og ruslpóstmöppurnar.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Allar raddir velkomnar.',
   'landing.footer.startTrial': 'Hefja prufu',
   'landing.hero.badge': 'Kannanir, NPS og endurgjöf á einum stað',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Verðlagning',
   'landing.pricing.perMonth': '/mán',
   'landing.pricing.popular': 'Vinsælast',
+  'landing.pricing.subtitle':
+    'Allar áætlanir innihalda kannanagerð, tengla til að deila opinberlega og NPS greiningar. Engin þörf á kreditkorti til að byrja.',
+  'landing.pricing.title': 'Byrjaðu frítt, stækkaðu þegar þú getur.',
   'landing.sample.eyebrow': 'NPS í hnotskurn',
   'landing.sample.title': 'Gagnrýnendur, óvirkir þættir, stuðningsmenn — læsilegir samstundis.',
   'login.failed': 'Innskráning mistókst. Vinsamlegast reyndu aftur.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Sýna lykilorð',
   'login.signUpLink': 'Byrjaðu ókeypis prufuáskrift',
   'login.subheading': 'Skráðu þig inn til að halda áfram að hlusta á áhorfendur þína.',
+  'notFound.body':
+    'Síðan sem þú ert að leita að er ekki til á {{app}} . Förum aftur yfir í kannanirnar þínar.',
   'notFound.cta': 'Til baka í kannanir',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Þessi könnun rann út af biðröðinni.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Óvirkt 7–8',
   'npsDistributionBar.promoter': 'Kynningarfulltrúi 9–10',
   'profile.identity.description': 'Opinberlega fyrir teymið þitt og í könnunum sem þú skrifar.',
+  'profile.identity.emailRequired': 'Sláðu inn netfang.',
   'profile.identity.saveCta': 'Vista nafn',
   'profile.password.current': 'Núverandi lykilorð',
   'profile.password.fillFields': 'Sláðu inn bæði núverandi og nýja lykilorð.',
@@ -176,6 +185,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} spurningar',
   'templates.subheading':
     'Veldu prófaðan ræsingarmáta — hvert sniðmát er forstillt með skynsamlegum sjálfgefnum stillingum, dæmi um rökfræði og hreinu útliti fyrir farsíma.',
+  'thankYou.body':
+    'Svar þitt hefur verið skráð. {{app}} mun taka það með í næstu uppfærslu greiningarinnar.',
   'thankYou.eyebrow': 'Svar móttekið',
   'thankYou.heading': 'Takk - rödd þín skiptir máli.',
   'thankYou.home': 'Heimsæktu Gauge',

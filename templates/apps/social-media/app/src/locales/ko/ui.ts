@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.pageTitle': '{{app}} 소개',
+  'common.goToDashboard': '대시보드로 이동',
+  'common.retry': '다시 시도',
   'compose.cancel': '취소',
   'compose.captionPlaceholder': '지금 무슨 생각을 하고 계신가요?',
   'compose.heading': '순간을 공유하세요',
@@ -92,6 +96,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': '인증된 계정',
   'resetPassword.newPassword': '새 비밀번호',
   'resetPassword.subheading': '강력한 비밀번호를 선택하세요 — 12자 이상이어야 합니다.',
+  'search.clearAria': '지우기',
+  'search.error': '검색이 실패했습니다. 다시 시도해 주세요.',
   'search.noPeople': '"{{q}}"와 일치하는 크리에이터가 없습니다.',
   'search.noPosts': '"{{q}}"와 일치하는 게시물이 없습니다.',
   'search.noTags': '아직 트렌드 해시태그가 없습니다.',
@@ -119,6 +125,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': '비밀번호 숨기기',
   'signup.showPassword': '비밀번호 표시',
   'signup.subheading': '공유를 시작하려면 계정을 만드세요.',
+  'socialMediaLayout.closeMenu': '탐색 메뉴 닫기',
+  'socialMediaLayout.openMenu': '탐색 메뉴 열기',
+  'socialMediaLayout.primaryNavLabel': '기본 탐색',
   'storyRail.heading': '스토리',
   'storyRail.label': '스토리',
   'storyRail.openAria': '{{handle}}님의 스토리 열기',

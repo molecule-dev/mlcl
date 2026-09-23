@@ -152,7 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Atosaigh an slabhra',
   'resetPassword.mismatchError': 'Ní hionann na pasfhocail.',
   'resetPassword.subheading': 'Roghnaigh rud láidir. Fanfaidh do leabhair.',
-  'reviewCard.starsAria': 'Rátáilte<x> {{rátáil}}</x> as<x> {{de}}</x> réaltaí',
+  'reviewCard.starsAria': 'Rátáil {{rating}} as {{of}} réalta',
   'reviewCard.unratedAria': 'Gan rátáil',
   'reviews.eyebrow': "Cad a d'fhan leat",
   'reviews.heading': 'Do léirmheasanna',

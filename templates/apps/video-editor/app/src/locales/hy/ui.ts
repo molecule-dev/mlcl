@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Գտե՞լ եք սխալ, ունե՞ք որևէ առանձնահատկություն ավելացնելու հայտ, թե՞ ուզում եք մեզ պատմել ձեր մոնտաժած ֆիլմի մասին: Յուրաքանչյուր հաղորդագրություն հասնում է թիմի իրական անդամին. կապվեք մեզ հետ ցանկացած պահի ձեր հաշվի կարգավորումներից:',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.eyebrow': '// ստուդիան, որը հետևում է կտրվածքին',
   'about.pageTitle': 'Մասին {{appName}}',
   'assetDetail.back': 'Վերադառնալ գրադարան',
   'assetDetail.confirmDelete': 'Ջնջել " {{name}} «՞՞՞ Սա չի կարող չեղարկվել։»',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} տեսահոլովակներ, աուդիո մահճակալներ և գրաֆիկա՝ պատրաստ ժամանակացույցում տեղադրելու համար։',
   'assetLibrary.title': 'Ակտիվներ',
   'assetLibrary.upload': 'Ավելացնել ակտիվ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.browseTemplates': 'Դիտարկել ձևանմուշները →',
   'dashboard.loading': 'Նախագծերը բեռնվում են…',
   'dashboard.noProjects': 'Դեռևս նախագծեր չկան՝ ստեղծեք մեկը՝ սկսելու համար։',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Ընտրեք մի բան, որը միայն դուք կհիշեք։',
   'rushesAuthShell.footer.copyright': '© Ռաշես ստուդիա',
   'rushesAuthShell.footer.privacy': 'Գաղտնիություն',
+  'rushesLayout.closeMenu': 'Փակել նավիգացիան',
   'rushesLayout.guest': 'Խմբագիր',
+  'rushesLayout.navDialog': 'Նավիգացիա',
+  'rushesLayout.openMenu': 'Բացել նավիգացիան',
   'rushesLayout.planFree': 'Անվճար պլան',
   'rushesLayout.tagline': 'Կինեմատիկական ժամանակագրություն',
   'settings.billing.confirmCancel': 'Չեղարկե՞լ բաժանորդագրությունը ժամանակահատվածի ավարտին:',

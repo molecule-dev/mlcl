@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} बद्दल',
   'about.plansTitle': 'तुमच्यासोबत वाढणाऱ्या योजना',
   'brand.tagline': 'प्रत्येक सेकंद',
   'clientDetail.back': 'ग्राहकांकडे परत',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'सर्व संबंध एकाच ठिकाणी — प्रकल्प, कामाचे तास, थकीत बिले.',
   'clients.title': 'ग्राहक',
   'common.and': 'आणि',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.activeProjects': 'सक्रिय प्रकल्प',
   'dashboard.empty':
     'अद्याप एकही नोंद नाही. तुमच्या पहिल्या सत्राचा मागोवा घेण्यासाठी टायमर सुरू करा.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'या क्लायंटसाठी बिल करण्यायोग्य तासांचे बिल बनवता येणार नाही. प्रथम काही वेळेचा मागोवा घ्या किंवा विद्यमान नोंदी या क्लायंटच्या प्रकल्पांपैकी एकाला नियुक्त करा.',
   'invoices.save': 'इनव्हॉइस तयार करा',
   'invoices.subtitle': 'नोंदवलेले तास आपोआप बिलांमध्ये समाविष्ट होतात.',
+  'landing.copyright': '© {{year}} {{app}} . प्रत्येक सेकंदाचा हिशोब ठेवला जातो.',
   'landing.ctaBody':
     '३ प्रकल्पांपर्यंत मोफत. तुमच्या ग्राहकांची यादी अपग्रेड झाल्यावर अपग्रेड करा.',
   'landing.eyebrow': 'बिल करण्यायोग्य कामासाठी वेळेचा मागोवा घेणे',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'स्वतंत्र व्यावसायिकांचा विश्वास',
   'landing.testimonial.quote':
     '• “मी ३० मिनिटांत टॉगल वापरणे बंद केले. केवळ बजेटच्या तपशिलामुळेच खर्च वसूल झाला आहे – मी सलग दोन आठवडे कमी दर सांगणे थांबवले आहे.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} क्रोनो. प्रत्येक सेकंदाचा हिशोब.',
   'login.brand.subtitle':
     'तुम्ही जिथे थांबला होता तिथूनच टायमर पुन्हा सुरू करा — प्रत्येक मिनिट आधीच एका प्रोजेक्ट, क्लायंट किंवा इनव्हॉइसशी जोडलेले आहे.',
   'login.brand.tracking': 'ट्रॅकिंग',
   'login.subheading': 'तुम्ही जिथे थांबला होता तिथून टायमर पुन्हा सुरू करा.',
+  'nav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
   'nav.insightsSection': 'अंतर्दृष्टी',
   'nav.newEntry': 'नवीन प्रवेश',
+  'nav.openMenu': 'नेव्हिगेशन मेनू उघडा',
+  'nav.primary': 'प्राथमिक नेव्हिगेशन',
   'nav.workSection': 'काम',
   'notFound.body':
     'असे दिसते की तुम्ही फॉलो केलेल्या लिंकने ट्रॅकिंग थांबवले आहे. तुमच्या डॅशबोर्डवर परत जा — आम्ही तिथून पुढे मोजणी सुरू ठेवू.',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'बिल करण्यायोग्य',
   'timer.descriptionPlaceholder': 'तुम्ही कशावर काम करत आहात?',
   'timer.idle': 'निष्क्रिय — ट्रॅकिंग सुरू करा',
+  'timer.noProject': 'कोणताही प्रकल्प नाही',
   'timer.runningWithProject': 'कोणताही प्रकल्प नाही',
   'timer.start': 'टाइमर सुरू करा',
   'timer.stop': 'टाइमर थांबवा',

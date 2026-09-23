@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'auditLog.empty':
     'Сүзгілеріңізге әлі ешқандай аудит оқиғалары сәйкес келмейді. Қызметкерді өңдеңіз немесе жалақы есебін өңдеңіз, сонда олар осында көрсетіледі.',
   'auditLog.eyebrow': 'Сәйкестік',
+  'auditLog.loadError': 'Аудит журналын жүктеу мүмкін болмады.',
   'auditLog.searchPlaceholder': 'Актер, әрекет немесе сипаттама бойынша іздеу',
   'auditLog.subheading':
     'Әрбір бекіту, өңдеу және салық декларациясы — орындаушымен, уақыт белгісімен және өзгертілген өрістермен.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Конфигурацияланбаған',
   'billing.plansHeading': 'Жоспарлар',
   'billing.subheading': 'Stripe арқылы жоспарыңызды басқарыңыз және деңгейлерді ауыстырыңыз.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Қайталап көру',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Сәйкестік туралы қысқаша ақпарат',
   'dashboard.compliance.title': 'Барлық тексерулер өтеді',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Есепте ешқандай шегерімдер жоқ.',
   'employeeDetail.notFound': 'Қызметкер табылмады.',
   'employeeDetail.payFrequency': 'Төлем жиілігі',
+  'employeeDetail.postTax': 'Салықтан кейінгі',
+  'employeeDetail.preTax': 'Салыққа дейінгі',
   'employeeDetail.salary': 'Жылдық жалақы',
   'employeeDetail.ssn': 'Әлеуметтік сақтандыру нөмірі',
   'employeeDetail.startedOn': 'Басталды {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Төлем жиілігі',
   'employeeForm.salary': 'Жылдық жалақы (АҚШ доллары)',
   'employeeForm.salaryInvalid': 'Жалақы теріс емес сан болуы керек.',
+  'employeeForm.saveError': 'Қызметкерді құтқару мүмкін болмады.',
   'employeeForm.semimonthly': 'Жарты айлық',
   'employeeForm.single': 'Жалғыз',
   'employeeForm.ssn': 'Әлеуметтік сақтандыру нөмірі',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Жалақы',
   'forgotPassword.subtitle':
     'Жұмыс электрондық поштаңызды енгізіңіз, сонда біз қалпына келтіру сілтемесін жібереміз.',
+  'landing.copyright': '© {{year}} {{app}} . Дәл, сенімді, құрастырылған.',
   'landing.ctaBody':
     '30 күн тегін. Несие картасы қажет емес. Тексеру ізіңізді жоғалтпай кез келген уақытта ауыстырыңыз.',
   'landing.ctaHeading': 'Келесі циклды Stipend-де іске қосыңыз',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Бұл төлем кезеңі үшін әлі аудиторлық жазбалар жоқ.',
   'payRunDetail.noStubs':
     'Әзірге жалақы туралы түбіртектер жоқ — оларды жасау үшін бекітіп, өңдеңіз.',
+  'payRunDetail.notFound': 'Бұл төлем ағыны табылмады.',
   'payRunDetail.statDeductions': 'Шегерімдер',
   'payRunDetail.statHeadcount': 'Қызметкерлер',
   'payRunDetail.statTaxes': 'Ұсталған салықтар',
@@ -220,7 +229,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Жарты айлық',
   'settings.signOutDevice': 'Шығу',
   'settings.subheading': 'Компания профилі, жалақы кестесі және интеграциялар.',
+  'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
+  'settings.twoFactorInvalidCode': 'Жарамсыз код',
+  'settings.twoFactorVerify': 'Тексеру және қосу',
   'settings.weekly': 'Апта сайын',
   'taxCenter.bucket.federal': 'Федералдық кіріс',
   'taxCenter.bucket.fica': 'Әлеуметтік қамсыздандыру',

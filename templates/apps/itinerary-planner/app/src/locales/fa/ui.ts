@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'درباره {{app}}',
+  'auth.legalConsent': 'با ادامه، شما با شرایط ما موافقت می‌کنید',
   'bookings.empty.body': 'برای شروع صندوق ورودی، یک پرواز، هتل یا فعالیت اضافه کنید.',
   'bookings.empty.heading': 'هنوز رزروی انجام نشده است.',
   'bookings.errors.create': 'امکان ایجاد رزرو وجود نداشت.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'تأیید شد',
   'bookings.summary.pending': 'در انتظار تأیید',
   'bookings.summary.total': 'کل متعهد',
+  'bookings.type.car': 'ماشین اجاره‌ای',
+  'bookings.type.flight': 'پرواز',
+  'bookings.type.hotel': 'هتل',
   'bookings.type.other': 'سایر',
   'budgetSpendCard.budgetTotal': 'از {{total}} برنامه‌ریزی شده',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'اختلافات را تشخیص دهید، روزهای استراحت بین سفرها را برنامه‌ریزی کنید و ببینید همکاران چه زمانی با شما سفر می‌کنند.',
   'common.and': 'و',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.budgetHeading': 'نبض بودجه',
   'dashboard.empty.heading': 'هنوز سفری انجام نشده است - نقشه شما خالی است.',
   'dashboard.eyebrow': 'کنترل ماموریت',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'سفرهای در حال حرکت',
   'dashboard.viewAllExpenses': 'مشاهده هر هزینه',
   'dashboard.viewAllTrips': 'هر سفر را ببینید',
+  'dayTimelineRow.category.accommodation': 'اقامت',
   'dayTimelineRow.category.transport': 'حمل و نقل',
   'destinationOrbCard.exploreCta': 'به سفر اضافه کنید',
   'destinationOrbCard.tripCount': '{{count}} سفرها',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'هنوز ایمیلی دریافت نکرده‌اید؟ پوشه هرزنامه (spam) خود را بررسی کنید، یا با آدرس دیگری دوباره امتحان کنید.',
   'forgotPassword.successSubheading':
     'ما یک لینک بازیابی برای شما ارسال کردیم {{email}} لینک به مدت 30 دقیقه معتبر است.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ایجاد حساب کاربری رایگان',
+  'landing.cta.subheading':
+    'تا پنج سفر، پنج همکار و پنج توقف در طرح رایگان - با همگام‌سازی بلادرنگ و افزایش محدودیت‌ها در نسخه حرفه‌ای با افزایش برنامه‌ها.',
   'landing.destinations.eyebrow': 'کجای بعدی',
   'landing.destinations.heading': 'مقاصد انتخاب‌شده توسط ویراستار',
   'landing.features.eyebrow': 'نحوه کار Waypoint',
   'landing.features.heading': 'برای مسافران ساخته شده است، نه برای صفحات گسترده.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'شروع یک سفر رایگان',
   'landing.hero.ctaSecondary': 'نمونه سفر را ببینید',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'آیریس لارسن',
   'signup.subheading':
     'یک حساب کاربری ایجاد کنید تا سفرها را با حداکثر ۵ همکار به اشتراک بگذارید، رزروها را همگام‌سازی کنید و تمام تأییدیه‌ها را در یک جا دریافت کنید.',
+  'signup.termsPrefix': 'با ایجاد حساب کاربری، شما با ما موافقت می‌کنید',
   'tripCountdownHeroCard.budget': '{{used}} از {{total}} ( {{pct}} درصد بودجه)',
   'tripCountdownHeroCard.collaborators': '{{count}} مسافران',
   'tripCountdownHeroCard.countdownLabel': 'شمارش معکوس',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'هنوز هیچ سفری انجام نشده است.',
   'trips.pastHeading': 'ماجراهای گذشته',
   'trips.subheading': '{{count}} برنامه‌های سفر - گذشته، حال و روزی.',
+  'waypointLayout.mobileNavClose': 'بستن منوی ناوبری',
   'waypointLayout.primaryNavLabel': 'ناوبری اولیه',
 }

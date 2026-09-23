@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'analytics.byChannelTitle': 'ချန်နယ်အလိုက် အသိအမှတ်ပြုမှုနှုန်း',
   'analytics.colAck': 'အသိအမှတ်ပြု/ဖြစ်နိုင်သည်',
@@ -14,12 +15,17 @@ export const ui: UiTranslations = {
   'analytics.kpiPostsDelta': '{{count}} ack လိုအပ်တယ်',
   'analytics.kpiTtaEmpty': 'အက်ခ်တွေ မရှိသေးပါ',
   'analytics.loading': 'ဂဏန်းတွေကို လိမ်နေတာ…',
+  'analytics.title':
+    'ဆက်သွယ်ရန်၊ ကျေးဇူးတင်ကြောင်း ပြောကြားချက်များနှင့် သင်စကားပြောဆိုသည့် အခန်းများ။',
   'analytics.trendLabel': 'အက်ခ်စ် · နောက်ဆုံး {{days}} ရက်များ',
   'announcementCard.ackCount': '{{acknowledged}} / {{total}} အက်ခ်ခံရသည်',
   'announcementCard.adminBadge': 'အက်ဒမင်',
   'announcementCard.commentCount': '{{count}} မှတ်ချက်များ',
   'announcementCard.openAndAck': 'ဖွင့်ပြီး အသိအမှတ်ပြုပါ',
   'announcementCard.viewAck': 'အသိအမှတ်ပြုပြီး · ဖွင့်ထားသည်',
+  'announcements.unknownAuthor': 'အမည်မသိ စာရေးသူ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.teammate': 'အသင်းဖော်',
   'composer.channelDescription': '# သို့ ပို့စ်တင်နေသည် {{name}} ။',
   'composer.channelLabel': 'ချန်နယ်',
   'composer.eyebrow': 'ကြေငြာချက်အသစ်',
@@ -48,6 +54,7 @@ export const ui: UiTranslations = {
   'detail.replyPlaceholder':
     'မေးခွန်းတစ်ခုမေးပါ၊ နောက်ဆက်တွဲတစ်ခု အကြံပြုပါ၊ သို့မဟုတ် ကျေးဇူးတင်ကြောင်း ပြောပါ...',
   'feed.allChannels': 'ချန်နယ်အားလုံး',
+  'feed.authorFilterClear': 'စာရေးသူ filter ကို ဖယ်ရှားပါ',
   'feed.compose': 'ကြေငြာချက်အသစ်',
   'feed.emptyAllSubtitle':
     'သင့်ရဲ့ ပထမဆုံး မက်ဆေ့ချ်ကို ထုတ်ဝေဖို့ အပေါ်က "ကြေငြာချက်အသစ်" ကို နှိပ်ပါ — ထုတ်ဝေရန် နှိပ်လိုက်တာနဲ့ feed က ပြန်လည်စတင်ပါလိမ့်မယ်။',
@@ -85,7 +92,10 @@ export const ui: UiTranslations = {
     'တိုက်ရိုက်နမူနာကတ်။ သင့်အဖွဲ့သည် မြင်တွေ့ရမည့် အစိတ်အပိုင်းတူ — gradient priority border၊ ack progress နှင့် threaded comments များကို တစ်ချက်နှိပ်ရုံဖြင့် မြင်တွေ့နိုင်ပါသည်။',
   'landing.previewTitle': 'အသင်းတွေက feed မှာ ဘာတွေမြင်ရလဲ။',
   'layout.channelsTitle': 'ချန်နယ်များ',
+  'layout.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'layout.guestName': 'အဖွဲ့ဝင်',
+  'layout.navDialogLabel': 'လမ်းညွှန်',
+  'layout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'login.description': 'သင့်အာရုံစိုက်မှုကို စောင့်မျှော်နေသော ကြေငြာချက်များကို ကောက်ယူပါ။',
   'login.emailPlaceholder': 'you@northwindlabs.com',
   'login.heading': 'Herald သို့ ဝင်ရောက်ပါ',
@@ -107,6 +117,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '၄၀၄ — ချန်နယ်ပြင်ပ',
   'notFound.title': 'ဒီကြေငြာချက် ပျောက်ဆုံးနေပါတယ်။',
   'notifications.ackUpdate': 'ack update ကို မျှဝေထားသည်',
+  'notifications.loadError': 'အကြောင်းကြားချက်များကို တင်၍မရပါ- {{message}}',
   'notifications.loading': 'လန်းဆန်းစေသည်…',
   'notifications.repliedTo': 'ပြန်ကြားခဲ့သည်',
   'notifications.subtitle': 'သင်မှာ .... ရှိသည် {{count}} မဖတ်ရသေးသော အသိပေးချက်များ။',
@@ -117,6 +128,7 @@ export const ui: UiTranslations = {
   'people.eyebrow': '{{company}} · လမ်းညွှန်',
   'people.loading': 'အသင်းဖော်များကို တင်နေသည်…',
   'people.searchPlaceholder': 'အသင်းဖော်တွေကို ရှာဖွေပါ…',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.announcements': 'ကြေငြာချက်များ',
   'pricing.categories': 'အမျိုးအစားများ',
   'pricing.comments': 'မှတ်ချက်များ',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'profile.bio':
     'ဤအလုပ်ခွင်ရှိ သင်၏လုပ်ဆောင်ချက်များကို တစ်ချက်ကြည့်လိုက်ပါ။ သင်ရေးသားခဲ့သော ပို့စ်များ၊ သင်မှတ်တမ်းတင်ထားသော acks များ၊ သင့်အမည်ဖြင့် ရောက်ရှိလာသော mention များနှင့် reply များ။',
   'profile.emptyPosts': 'သင်သည် ကြေညာချက်တစ်ခု မထုတ်ဝေရသေးပါ။',
+  'profile.loadError': 'သင့်ပရိုဖိုင်ဒေတာကို တင်၍မရပါ- {{message}}',
   'profile.you': 'မင်း',
   'resetPassword.description':
     'ခိုင်မာတဲ့ တစ်ခုကို ရွေးပါ။ ပြန်လည်သတ်မှတ်ခြင်း အောင်မြင်သည်နှင့် ကျွန်ုပ်တို့ သင့်အား လက်မှတ်ထိုးဝင်ပေးပါမည်။',
@@ -132,7 +145,11 @@ export const ui: UiTranslations = {
   'search.emptyAll': 'ရှာဖွေရန် ဘာမှ မရှိသေးပါ။',
   'search.emptyQuery': '"အတွက် ရလဒ်မရှိပါ {{query}} ".',
   'search.eyebrow': 'ဘာမဆိုရှာပါ',
+  'search.loadError': 'ရှာဖွေမှုဒေတာကို တင်၍မရပါ- {{message}}',
   'search.loading': 'အညွှန်းကို တင်နေသည်…',
+  'search.metaAdmin': 'အက်ဒမင်',
+  'search.metaAnnouncement': 'ကြေငြာချက်',
+  'search.metaTeammate': 'အသင်းဖော်',
   'search.title': 'ကလာရီယွန်ကို ရှာပါ',
   'settings.adminOnly': 'အက်ဒမင်သာ',
   'settings.appearance.title': 'အသွင်အပြင်',

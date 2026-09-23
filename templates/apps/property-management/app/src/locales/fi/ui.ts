@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.tagline': 'Jokainen yksikkö saman katon alla.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.addProperty': 'Lisää ominaisuus',
   'dashboard.empty.body':
     'Kun sinulla on kiinteistöt, yksiköt ja vuokrat, tämä kojelauta täyttyy portfolion tiedoilla.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} avoimet työmääräykset prioriteetin mukaan järjestettynä',
   'maintenanceQueueList.title': 'Huoltojono',
+  'nav.closeMenu': 'Sulje valikko',
+  'nav.openMenu': 'Avaa valikko',
   'notFound.body': 'Etsimäsi sivu on siirretty, arkistoitu tai sitä ei ole koskaan ollut olemassa.',
   'notFound.title': 'Tuo ovi ei avaudu',
   'notifications.empty.body':

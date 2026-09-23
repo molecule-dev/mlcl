@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.pageTitle': 'Tietoa {{app}}sta',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.retry': 'Yritä uudelleen',
   'compose.cancel': 'Peruuta',
   'compose.captionPlaceholder': 'Mitä mielessäsi on?',
   'compose.heading': 'Jaa hetki',
@@ -94,6 +98,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Vahvistettu tili',
   'resetPassword.newPassword': 'Uusi salasana',
   'resetPassword.subheading': 'Valitse jotain vahvaa – vähintään 12 merkkiä.',
+  'search.clearAria': 'Tyhjennä',
+  'search.error': 'Haku epäonnistui. Yritä uudelleen.',
   'search.noPeople': 'Ei osumia luojista {{q}} ".',
   'search.noPosts': 'Ei osumia viesteissä {{q}} ".',
   'search.noTags': 'Ei vielä trendaavia hashtageja.',
@@ -122,6 +128,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Piilota salasana',
   'signup.showPassword': 'Näytä salasana',
   'signup.subheading': 'Luo tili aloittaaksesi jakamisen.',
+  'socialMediaLayout.closeMenu': 'Sulje navigointivalikko',
+  'socialMediaLayout.openMenu': 'Avaa navigointivalikko',
+  'socialMediaLayout.primaryNavLabel': 'Päänavigaatio',
   'storyRail.heading': 'Tarinoita',
   'storyRail.label': 'Tarinoita',
   'storyRail.openAria': 'Avata {{handle}} tarina',

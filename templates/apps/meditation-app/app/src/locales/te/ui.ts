@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.eyebrow': '{{app}} గురించి',
+  'about.intro':
+    '{{app}} అనేది నిజ జీవితం కోసం రూపొందించిన ఒక ధ్యాన యాప్ — ఇందులో ప్రతిరోజూ మార్గదర్శక ధ్యానాలు, శ్వాస వ్యాయామాలు, మరియు నిద్రకు సంబంధించిన కథలు ఉంటాయి. ఇవన్నీ ఒక కోచ్‌లా కాకుండా, స్నేహితుడిలా అనిపించే గురువుల పర్యవేక్షణలో లభిస్తాయి. పదే పదే ధ్యానం చేస్తున్నాననే అపరాధ భావన ఉండదు, అనవసరమైన శబ్దాలతో కూడిన ఫీడ్ ఉండదు: కేవలం మీ శ్వాసపై దృష్టి సారించడానికి ఒక ప్రశాంతమైన ప్రదేశం.',
+  'about.missionBody':
+    'రోజులో ఏ క్షణంలోనైనా, ప్రతి ఒక్కరికీ ప్రశాంతత అందుబాటులో ఉండాలని మేము నమ్ముతాము. ప్రశాంతమైన, స్థిరమైన అభ్యాసాన్ని అప్రయత్నంగా అనిపించేలా చేయడానికి {{app}} ఉంది — తద్వారా పది నిజాయితీ నిమిషాలు, మీరు రాబోయే పది గంటలను ఎదుర్కొనే విధానాన్ని మార్చగలవు.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.pageTitle': 'రోజుకు 10 నిమిషాలు మరింత ప్రశాంతంగా',
+  'breathingDial.seconds': 'సెకన్లు',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.logout': 'లాగ్ అవుట్ చేయండి',
   'common.min': 'నిమిషాలు',
   'common.relative.justNow': 'ఇప్పుడే',
   'common.relative.now': 'ఇప్పుడు',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
+  'nav.secondaryNavigation': 'ఖాతా నావిగేషన్',
   'sessionCard.with': 'తో {{name}}',
   'stillpoint.billing.choose': 'ఎంచుకోండి {{plan}}',
   'stillpoint.billing.currentPlan': 'ప్రస్తుతం ఆన్‌లో ఉంది {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'మేము ప్లాన్‌లను లోడ్ చేయలేకపోయాము.',
   'stillpoint.billing.opening': 'చెక్అవుట్ ప్రారంభమవుతోంది…',
   'stillpoint.billing.perMonthShort': '/ మో',
+  'stillpoint.billing.perYearShort': '/సంవత్సరం',
   'stillpoint.billing.unknownResult': 'అనూహ్యమైన బిల్లింగ్ ప్రతిస్పందన.',
   'stillpoint.billing.yearly': 'వార్షికంగా · 17% ఆదా చేసుకోండి',
   'stillpoint.courseDetail.back': 'కోర్సులు',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'ఇంకా కోర్సులు ఏవీ లేవు.',
   'stillpoint.courses.eyebrow': '{{count}} బహుళ-రోజుల ప్రయాణాలు',
   'stillpoint.courses.heading': 'కోర్సులు',
+  'stillpoint.forgot.checkEmail':
+    'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేసుకోండి — ఈ లింక్ 30 నిమిషాలలో గడువు ముగుస్తుంది.',
   'stillpoint.forgot.success': 'మేము రీసెట్ లింక్‌ను పంపాము {{email}} .',
   'stillpoint.home.empty': 'ఇంకా సెషన్‌లు ఏవీ లేవు — త్వరలో మళ్ళీ చూడండి.',
   'stillpoint.home.friend': 'స్నేహితుడు',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'మీ ఉచిత ఖాతాను సృష్టించండి',
   'stillpoint.landing.cta.title': 'మీ ప్రశాంతతను ఈరోజే ప్రారంభించండి',
   'stillpoint.landing.features.heading': 'మీతో పాటు అభివృద్ధి చెందే అభ్యాసం',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'కోచ్‌లా కాకుండా, స్నేహితుడిలా అనిపించే ఉపాధ్యాయుల పర్యవేక్షణలో ప్రతిరోజూ మార్గదర్శక ధ్యానాలు, శ్వాస వ్యాయామాలు మరియు నిద్ర కథలు.',
   'stillpoint.landing.hero.eyebrow': 'రోజుకు 10 నిమిషాలు మరింత ప్రశాంతంగా',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'మానసిక స్థితి ప్రకారం బ్రౌజ్ చేయండి',
   'stillpoint.login.rememberMe': 'నన్ను లాగిన్ చేసి ఉంచండి',
   'stillpoint.login.subheading': 'మీ అభ్యాసాన్ని కొనసాగించడానికి సైన్ ఇన్ చేయండి.',
+  'stillpoint.nav.tagline': 'మీ నిశ్చల కేంద్రాన్ని కనుగొనండి',
+  'stillpoint.notFound.body':
+    'ఈ పేజీ ఎక్కడో ఒకచోట దీర్ఘంగా, లోతుగా శ్వాస తీసుకుంటోంది. {{app}} లో మీ కోసం మరింత ప్రశాంతమైన ప్రదేశాన్ని కనుగొందాం.',
   'stillpoint.notFound.title': 'నిశ్శబ్దంలో లీనమై',
   'stillpoint.notFound.toHome': 'ఈ రోజుకు తిరిగి వెళ్దాం',
   'stillpoint.notFound.toLibrary': 'లైబ్రరీని బ్రౌజ్ చేయండి',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 సెకన్లు వెనక్కి వెళ్లండి',
   'stillpoint.player.skipForward': '30 సెకన్లు ముందుకు వెళ్లండి',
   'stillpoint.player.with': 'తో {{name}}',
+  'stillpoint.profile.defaultHandle': 'నిశ్చల సూచిక',
   'stillpoint.profile.eyebrow': 'మీ అభ్యాసం, సంగ్రహంగా.',
   'stillpoint.profile.locked': 'లాక్ చేయబడింది',
   'stillpoint.profile.member': 'స్టిల్‌పాయింట్ సభ్యుడు',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Gbasara {{app}}',
   'analytics.avgCheckLabel': 'Nlele nkezi',
   'analytics.busiestHour': 'Awa kachasị arụ ọrụ',
   'analytics.coversToday': 'Mkpuchi taa',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Ndụmọdụ (nkezi)',
   'analytics.topItems': 'Ihe ndị kacha mma taa',
   'authShell.eyebrow': "Nnọọ na ọrụ alọghachi n'ọrụ",
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Ebe a na-ere ahịa nke ọma ma dị ngwa maka ndị otu nnabata ọbịa. Banye na kichin gị wee malite ebe ị kwụsịrị.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ma ọ bụ {{price}}',
   'billing.priceUnavailable': 'Atụmatụ a enweghị ọnụahịa ahaziri ahazi.',
   'billing.updated': 'Emelitere atụmatụ ahụ.',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'customerDetail.book': 'Tinye ndoputa',
   'customerDetail.col.table': 'Tebụl',
   'customerDetail.confirmDelete': 'Hichapụ ndekọ ọbịa a?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Nnweta dị',
   'menuItemDetail.available': 'Dị taa',
   'menuItemDetail.backToMenu': 'Laghachi na menu',
+  'menuItemDetail.confirmDelete': 'Hichapụ ihe a na menu?',
   'menuItemDetail.delete': 'Hichapụ ihe',
   'menuItemDetail.deleteError': 'Ihichapụ agaghị. Nwaa ọzọ.',
   'menuItemDetail.dietary': 'Mkpado nri',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · dezie foto, ihe ndị na-agbanwe ihe, nri, na ọnụahịa.',
   'menuItemDetail.untitled': 'Ihe na-enweghị aha',
+  'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
   'notFound.heading': "Tebụl a adịghị n'ala.",
   'notFound.subheading': 'E tinyela ibe ị na-achọ ebe ọzọ — maọbụ na ọ dịbeghị.',
+  'notFound.toLanding': '{{app}} ụlọ',
   'notifications.markError': 'Enweghị ike ịde akara niile agụpụtara.',
   'orderDashboard.activeDelta': 'Biri ndụ ugbu a',
   'orderDashboard.activeLabel': 'Iwu ndị na-arụ ọrụ',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Gosi paswọọdụ',
   'resetPassword.subtitle': 'Tinye paswọọdụ ọhụrụ gị iji nwetaghachi ohere ịbanye na kichin.',
   'resetPassword.tokenLabel': 'Tọgharịa akara ngosi',
+  'restaurantOrderingLayout.primaryNavLabel': 'Ntugharị isi',
   'revenueHeroCard.activeOrders': '{{count}} na-arụ ọrụ',
   'revenueHeroCard.change': '{{sign}} {{amount}} vs ụnyaahụ',
   'revenueHeroCard.title': 'Ego taa na-enweta',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Aha ụlọ oriri na ọṅụṅụ',
   'tableDetail.activeOrders': 'Iwu ndị na-arụ ọrụ',
   'tableDetail.backToFloor': 'Atụmatụ ala',
+  'tableDetail.confirmDelete': 'Hichapụ tebụl a?',
   'tableDetail.delete': 'Hichapụ',
   'tableDetail.deleteError': 'Enweghị ike ihichapụ tebụl.',
   'tableDetail.heading': 'Tebụl {{label}}',

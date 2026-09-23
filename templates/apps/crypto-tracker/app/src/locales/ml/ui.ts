@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'കുറിച്ച്',
   'alertConditionCard.condition.${alert.condition}': 'ട്രിഗർ ചെയ്‌തു {{എപ്പോൾ}}',
+  'alertConditionCard.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
   'alertConditionCard.pauseAriaLabel': 'അലേർട്ട് താൽക്കാലികമായി നിർത്തുക',
   'alertConditionCard.resumeAriaLabel': 'അലേർട്ട് പുനരാരംഭിക്കുക',
   'alertNew.condition': 'അവസ്ഥ',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'പൂർണ്ണമായും നേർപ്പിച്ച മൂല്യനിർണ്ണയം',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'വെബ്സൈറ്റ്',
+  'coinDetail.links.whitepaper': 'വൈറ്റ്പേപ്പർ',
   'coinDetail.loadError': 'നാണയം ലോഡ് ചെയ്യാനായില്ല.',
   'coinDetail.marketCap': 'മാർക്കറ്റ് ക്യാപ്പ്',
   'coinDetail.maxSupply': 'പരമാവധി വിതരണം',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'നിങ്ങൾ സ്കാൻ ചെയ്ത റൂട്ട് ഒരു അറിയപ്പെടുന്ന നാണയത്തിലേക്കോ പേജിലേക്കോ എത്തിയില്ല. ചിഹ്നം വീണ്ടും പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'notFound.browseMarkets': 'മാർക്കറ്റുകൾ ബ്രൗസ് ചെയ്യുക',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'portfolio.addError': 'ചിഹ്നം, പോസിറ്റീവ് തുക, വില എന്നിവ നൽകുക.',
   'portfolio.addHoldingCta': '+ ഹോൾഡിംഗ് ചേർക്കുക',
   'portfolio.addModal.cost': 'ചെലവ് അടിസ്ഥാനം (USD)',
@@ -136,9 +139,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'പാസ്‌വേഡും ടു-ഫാക്ടർ ക്രമീകരണങ്ങളും നിങ്ങളുടെ അക്കൗണ്ട് കൈകാര്യം ചെയ്യുന്നു.',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
+  'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'sigilAuthShell.backHomeCta': '← സിഗിലിലേക്ക് മടങ്ങുക',
   'sigilLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'signup.eyebrow': 'ഒരു ടെർമിനൽ തുറക്കുക',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} बद्दल',
   'analytics.avgCheckLabel': 'सरासरी तपासणी',
   'analytics.busiestHour': 'सर्वात व्यस्त तास',
   'analytics.coversToday': 'आजचे कव्हर',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'टिपा (सरासरी)',
   'analytics.topItems': 'आजच्या प्रमुख वस्तू',
   'authShell.eyebrow': 'सेवेत पुन्हा स्वागत आहे',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'हॉस्पिटॅलिटी टीम्ससाठी एक सुलभ आणि वेगवान विक्री केंद्र. तुमच्या किचनमध्ये साइन इन करा आणि जिथे थांबला होता तिथून पुढे काम सुरू करा.',
   'authShell.tip': 'एक उपयुक्त सल्ला: कीबोर्ड शॉर्टकट सर्वत्र काम करतात — शोधण्यासाठी / दाबा.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'किंवा {{price}}',
   'billing.priceUnavailable': 'या योजनेची किंमत निश्चित नाही.',
   'billing.updated': 'योजना अद्ययावत केली आहे.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'customerDetail.book': 'आरक्षण जोडा',
   'customerDetail.col.table': 'टेबल',
   'customerDetail.confirmDelete': 'ही अतिथी नोंद हटवायची आहे का?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'उपलब्धता',
   'menuItemDetail.available': 'आज रात्री उपलब्ध',
   'menuItemDetail.backToMenu': 'मेनूवर परत जा',
+  'menuItemDetail.confirmDelete': 'हा मेनू आयटम हटवायचा आहे का?',
   'menuItemDetail.delete': 'आयटम हटवा',
   'menuItemDetail.deleteError': 'हटवण्यात अयशस्वी झाले. पुन्हा प्रयत्न करा.',
   'menuItemDetail.dietary': 'आहाराचे टॅग',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · फोटो, मॉडिफायर्स, आहारासंबंधी आणि किंमती संपादित करा.',
   'menuItemDetail.untitled': 'शीर्षक नसलेला आयटम',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'notFound.heading': 'हे टेबल फरशीवर नाही.',
   'notFound.subheading': 'तुम्ही शोधत असलेले पान दुसरीकडे आहे — किंवा ते कधी अस्तित्वातच नव्हते.',
+  'notFound.toLanding': '{{app}} होम',
   'notifications.markError': 'सर्व वाचले म्हणून चिन्हांकित करता आले नाही.',
   'orderDashboard.activeDelta': 'आता थेट प्रक्षेपण',
   'orderDashboard.activeLabel': 'सक्रिय ऑर्डर',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'पासवर्ड दाखवा',
   'resetPassword.subtitle': 'स्वयंपाकघरात पुन्हा प्रवेश मिळवण्यासाठी तुमचा नवीन पासवर्ड टाका.',
   'resetPassword.tokenLabel': 'टोकन रीसेट करा',
+  'restaurantOrderingLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'revenueHeroCard.activeOrders': '{{count}} सक्रिय',
   'revenueHeroCard.change': '{{sign}} {{amount}} विरुद्ध काल',
   'revenueHeroCard.title': 'आजचा महसूल',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'रेस्टॉरंटचे नाव',
   'tableDetail.activeOrders': 'सक्रिय ऑर्डर',
   'tableDetail.backToFloor': 'मजल्याचा आराखडा',
+  'tableDetail.confirmDelete': 'हा टेबल हटवायचा का?',
   'tableDetail.delete': 'हटवा',
   'tableDetail.deleteError': 'टेबल हटवता आला नाही.',
   'tableDetail.heading': 'टेबल {{label}}',
@@ -243,4 +252,5 @@ export const ui: UiTranslations = {
   'tables.loading': 'लोडिंग फ्लोअर…',
   'tables.subheading':
     'टेबल स्वच्छ होत आहे, उपलब्ध आहे असे चिन्हांकित करण्यासाठी किंवा त्याची स्थिती बदलण्यासाठी त्यावर टॅप करा.',
+  'tableTile.seats': '{{guests}} / {{seats}}',
 }

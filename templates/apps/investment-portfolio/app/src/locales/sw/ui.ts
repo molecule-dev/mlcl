@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Kuhusu {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Vifaa vya utajiri',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Sio ushauri wa uwekezaji.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) leo',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Usogezaji mkuu',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Hakuna miamala kwa kitika hiki.',
   'assetDetail.txHeading': 'Miamala yako',
   'common.and': 'na',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Muhtasari wa kwingineko',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Hakuna hisa bado.',
   'holdings.heading': 'Umiliki',
   'holdings.loadError': 'Imeshindwa kupakia sehemu zilizohifadhiwa.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Sio ushauri wa uwekezaji. Utendaji wa zamani hauhakikishi matokeo ya baadaye.',
   'landing.eyebrow': 'Argent · Jukwaa la zana za utajiri',
   'landing.features.heading': 'Kila kitu ambacho mshauri angejijengea mwenyewe.',
   'landing.finalCta.heading': 'Rudisha nidhamu kwenye jalada lako.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} h iliyopita',
   'news.justNow': 'sasa hivi',
   'news.loadError': 'Imeshindwa kupakia habari.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'portfolioHeroCard.label': 'Thamani ya Kwingineko',
   'pricing.holdingsLabel': 'mali zilizomilikiwa',
   'pricing.newsLabel': 'makala za habari',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Futa akaunti',
   'settings.security.deleting': 'Inafuta…',
   'settings.security.heading': 'Usalama',
+  'settings.security.newPassword': 'Nenosiri jipya',
   'settings.security.password': 'Nenosiri',
   'settings.security.twoFactorEnable': 'Washa',
+  'settings.security.twoFactorInvalidCode': 'Nambari batili',
+  'settings.security.twoFactorVerify': 'Thibitisha na uwashe',
   'settings.tax.error': 'Haikuweza kusasisha mbinu ya kodi.',
   'settings.tax.heading': 'Uhasibu wa kodi',
   'settings.tax.method': 'Mbinu chaguomsingi',

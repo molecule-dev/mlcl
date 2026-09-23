@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.pageTitle': 'O {{appName}}',
   'analytics.error': 'Nie udało się załadować analiz.',
   'analytics.heading': 'Analizy wyszukiwania',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nie skonfigurowano żadnych planów cenowych.',
   'billing.plans.heading': 'Plany',
   'billing.subheading': 'Plan, użycie oraz płatność zarządzana przez Stripe.',
+  'common.confirm': 'Potwierdź',
+  'common.goToDashboard': 'Przejdź do panelu',
+  'common.retry': 'Spróbuj ponownie',
   'documentCard.open': 'Otwórz →',
   'documentDetail.back': 'Powrót do dokumentów',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Zindeksuj dokument',
   'documents.composer.titlePlaceholder': 'Tytuł dokumentu',
   'documents.emptyAll': 'Brak dokumentów. Proszę przesłać jeden, aby zacząć zadawać pytania.',
+  'documents.error.load': 'Nie można załadować dokumentów.',
   'documents.heading': 'Zindeksowane dokumenty',
   'documents.loading': 'Ładowanie dokumentów…',
   'documents.metric.chunks': 'Łączne fragmenty',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Usuwanie…',
   'members.subheading': 'Proszę zaprosić współpracowników i ustawić role.',
   'members.tableHeading': 'Lista',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'notFound.askCta': 'Zapytaj bazę wiedzy',
+  'notFound.body':
+    '{{app}} nie mógł znaleźć tej strony. Link mógł być uszkodzony lub strona mogła zostać usunięta podczas ponownego indeksowania.',
   'notFound.eyebrow': 'Nie można pobrać',
   'notFound.title': 'Brak takiego fragmentu w indeksie',
   'notifications.dismiss': 'Zamknij',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Adres URL źródła',
   'sources.empty.body': 'Proszę kliknąć „Dodaj źródło”, aby podłączyć pierwszy konektor.',
   'sources.empty.title': 'Brak źródeł.',
+  'sources.error.add': 'Nie można dodać źródła.',
   'sources.error.labelRequired': 'Etykieta jest wymagana.',
   'sources.error.load': 'Nie udało się załadować źródeł.',
   'sources.error.urlRequired': 'Adres URL jest wymagany dla tego rodzaju źródła.',

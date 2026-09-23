@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'ყურება',
   'auctionDetail.watchRemoved': 'ამოღებულია სათვალთვალო სიიდან.',
   'auctionDetail.watchRemoveLabel': 'სანახავი სიიდან ამოღება',
+  'auctionPlatformLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'authShell.brandBody':
     'რეალურ დროში შესთავაზეთ იშვიათ საათებს, ხელოვნების ნიმუშებსა და უნიკალურ, სპეციალურ ნივთებს. ჩაქუჩი წამებში ეცემა.',
   'authShell.brandEyebrow': 'პირდაპირ ეთერში · 1,420 აუქციონი',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'დალაგება',
   'browseAuctions.subheading':
     'გაფილტრეთ კატეგორიის მიხედვით, დაალაგეთ ყველაზე მნიშვნელოვანის მიხედვით და განათავსეთ ფსონი ჩაქუჩის დაცემამდე.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'countdownTimer.ended': 'დასრულდა',
   'countdownTimer.endingSoon': 'დასასრული',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'პაროლის ჩვენება',
   'login.subtext':
     'განაგრძეთ თქვენი აუქციონების თვალყურის დევნება და განათავსეთ ფსონები ჩაქუჩის დაცემამდე.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'myBids.bidAgain': 'ხელახლა შესთავაზეთ შეთავაზება',
   'myBids.browseCta': 'დაათვალიერეთ ონლაინ აუქციონები →',
   'myBids.checkoutCta': 'გადაიხადეთ ახლავე',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'აქტივობების ცენტრი',
   'notificationsPage.subheading':
     '{{count}} წაუკითხავი · პირდაპირი განახლებები აუქციონების გადაადგილებისას',
+  'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.bidsLabel': 'ფასები',
   'pricing.listingsLabel': 'ჩამონათვალი',
   'pricing.watchlistLabel': 'სათვალთვალო სია',

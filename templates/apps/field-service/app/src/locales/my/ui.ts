@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'ဖောက်သည်များ',
   'customers.loadError': 'ဖောက်သည်များကို ဖွင့်၍မရပါ။',
   'customers.loading': 'တင်နေသည်…',
+  'customers.new.address': 'ဝန်ဆောင်မှုလိပ်စာ',
   'customers.new.email': 'အီးမေးလ်',
   'customers.new.error': 'ဖောက်သည်ထည့်၍မရပါ။',
   'customers.new.heading': 'ဖောက်သည်အသစ်',

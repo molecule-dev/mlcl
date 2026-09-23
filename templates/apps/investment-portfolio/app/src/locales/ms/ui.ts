@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Perihal {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Peralatan kekayaan',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Bukan nasihat pelaburan.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) hari ini',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Navigasi utama',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Tiada transaksi untuk ticker ini.',
   'assetDetail.txHeading': 'Transaksi anda',
   'common.and': 'dan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Gambaran keseluruhan portfolio',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Tiada pegangan lagi.',
   'holdings.heading': 'Pegangan',
   'holdings.loadError': 'Gagal memuatkan pegangan.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Bukan nasihat pelaburan. Prestasi lepas tidak menjamin keputusan masa hadapan.',
   'landing.eyebrow': 'Argent · Platform alat pengumpulan kekayaan',
   'landing.features.heading': 'Semua yang akan dibina oleh penasihat untuk diri mereka sendiri.',
   'landing.finalCta.heading': 'Kembalikan disiplin ke dalam portfolio anda.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}j lalu',
   'news.justNow': 'baru sahaja',
   'news.loadError': 'Gagal memuatkan berita.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'portfolioHeroCard.label': 'Nilai Portfolio',
   'pricing.holdingsLabel': 'pegangan',
   'pricing.newsLabel': 'artikel berita',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Padam akaun',
   'settings.security.deleting': 'Memadam…',
   'settings.security.heading': 'Keselamatan',
+  'settings.security.newPassword': 'Kata laluan baharu',
   'settings.security.password': 'Kata laluan',
   'settings.security.twoFactorEnable': 'Aktifkan',
+  'settings.security.twoFactorInvalidCode': 'Kod tidak sah',
+  'settings.security.twoFactorVerify': 'Sahkan & dayakan',
   'settings.tax.error': 'Tidak dapat mengemas kini kaedah cukai.',
   'settings.tax.heading': 'Perakaunan lot cukai',
   'settings.tax.method': 'Kaedah lalai',

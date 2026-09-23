@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} کے بارے میں',
   'analytics.back': 'سروے کا جائزہ',
   'analytics.kpiNps': 'این پی ایس سکور',
   'analytics.kpiNpsTrend': 'پروموٹرز {{p}} % · مخالف {{d}} %',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'پراپرٹیز',
   'builder.questionNumber': 'سوال {{num}}',
   'builder.surveyTitle': 'سروے کا عنوان',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'forgotPassword.failed': 'ری سیٹ ای میل نہیں بھیجی جا سکی۔ براہ کرم دوبارہ کوشش کریں۔',
   'forgotPassword.subheading': 'اپنا ای میل درج کریں اور ہم آپ کو بازیابی کا لنک بھیجیں گے۔',
   'forgotPassword.successBody':
     'اگر کوئی اکاؤنٹ ملتا ہے۔ {{email}} ، ایک ری سیٹ لنک اس کے راستے پر ہے۔ اپنے ان باکس اور اسپام فولڈرز کو چیک کریں۔',
+  'landing.footer.copyright': '© {{year}} {{app}} . تمام آوازوں کا استقبال ہے۔',
   'landing.footer.startTrial': 'ٹرائل شروع کریں۔',
   'landing.hero.badge': 'سروے، این پی ایس اور فیڈ بیک ایک جگہ',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'قیمتوں کا تعین',
   'landing.pricing.perMonth': '/ماہ',
   'landing.pricing.popular': 'سب سے زیادہ مقبول',
+  'landing.pricing.subtitle':
+    'ہر پلان میں سروے بلڈر، پبلک شیئر لنکس اور NPS اینالیٹکس شامل ہوتے ہیں۔ شروع کرنے کے لیے کسی کریڈٹ کارڈ کی ضرورت نہیں ہے۔',
+  'landing.pricing.title': 'مفت شروع کریں، جب آپ ایسا کریں تو اسکیل کریں۔',
   'landing.sample.eyebrow': 'ایک نظر میں NPS',
   'landing.sample.title': 'مخالف، غیر فعال، فروغ دینے والے — فوری طور پر پڑھنے کے قابل۔',
   'login.failed': 'لاگ ان ناکام ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔',
@@ -55,6 +61,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'پاس ورڈ دکھائیں۔',
   'login.signUpLink': 'ایک مفت آزمائش شروع کریں۔',
   'login.subheading': 'اپنے سامعین کو سنتے رہنے کے لیے سائن ان کریں۔',
+  'notFound.body':
+    'آپ جس صفحہ کی تلاش کر رہے ہیں وہ {{app}} پر موجود نہیں ہے۔ آئیے آپ کو اپنے سروے پر واپس لاتے ہیں۔',
   'notFound.cta': 'سروے پر واپس جائیں۔',
   'notFound.eyebrow': '404',
   'notFound.heading': 'یہ سروے قطار سے ہٹ گیا۔',
@@ -71,6 +79,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'غیر فعال 7–8',
   'npsDistributionBar.promoter': 'پروموٹر 9-10',
   'profile.identity.description': 'آپ کی ٹیم کے لیے عوامی اور ان سروے پر جو آپ لکھتے ہیں۔',
+  'profile.identity.emailRequired': 'ایک ای میل ایڈریس درج کریں۔',
   'profile.identity.saveCta': 'نام محفوظ کریں۔',
   'profile.password.current': 'موجودہ پاس ورڈ',
   'profile.password.fillFields': 'موجودہ اور نیا دونوں پاس ورڈ درج کریں۔',
@@ -176,6 +185,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} سوالات',
   'templates.subheading':
     'جنگ کا تجربہ کرنے والا اسٹارٹر چنیں — ہر ٹیمپلیٹ سمجھدار ڈیفالٹس، نمونہ منطق، اور صاف موبائل لے آؤٹ کے ساتھ پہلے سے تیار ہوتا ہے۔',
+  'thankYou.body':
+    'آپ کا جواب ریکارڈ کر لیا گیا ہے۔ {{app}} اسے اگلی تجزیاتی ریفریش میں شامل کرے گا۔',
   'thankYou.eyebrow': 'جواب موصول ہوا۔',
   'thankYou.heading': 'شکریہ - آپ کی آواز اہم ہے۔',
   'thankYou.home': 'مرمر کا دورہ کریں۔',

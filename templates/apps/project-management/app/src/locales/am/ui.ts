@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'accountSettings.confirmEmailLabel': 'ለማረጋገጥ DELETE ብለው ይተይቡ',
   'accountSettings.deleteError': 'መለያ መሰረዝ አልተቻለም።',
   'accountSettings.passwordError': 'የይለፍ ቃል መቀየር አልተቻለም።',
@@ -50,6 +51,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'ምንም የሚቀሩ የጊዜ ገደቦች የሉም።',
   'dashboard.upcomingTitle': 'መጪ የጊዜ ገደቦች',
   'deviceSettings.unknownDevice': 'ያልታወቀ መሳሪያ',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'ድጋፍ',
   'forgotPassword.error': 'የዳግም አስጀምር አገናኝ መላክ አልተሳካም።',
   'forgotPassword.subtitle': 'ኢሜይልዎን ያስገቡ እና የመልሶ ማስጀመሪያ አገናኝ እንልክልዎታለን።',
@@ -64,6 +66,9 @@ export const ui: UiTranslations = {
   'login.error': 'ልክ ያልሆነ ኢሜይል ወይም የይለፍ ቃል።',
   'login.pageTitle': 'ይግቡ',
   'login.signIn': 'ወደ ፎርጅ ይግቡ',
+  'login.subtitle': 'ፕሮጀክቶችዎን በትክክለኛው መንገድ ላይ ለማቆየት ይግቡ',
+  'mobileNav.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'mobileNav.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'nav.calendar': 'የቀን መቁጠሪያ',
   'nav.legal': 'ሕጋዊ',
   'nav.myTasks': 'የእኔ ተግባራት',

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.featureDiscover.title': 'ແຮງບັນດານໃຈ, ເລືອກດ້ວຍມື',
   'account.addPaymentCta': 'ເພີ່ມວິທີການຊໍາລະ',
   'account.addPaymentError': 'ບໍ່ສາມາດເພີ່ມວິທີການຈ່າຍເງິນໄດ້.',
+  'account.confirmRemove': 'ຢືນຢັນການລຶບ',
   'account.defaultBadge': 'ຄ່າເລີ່ມຕົ້ນ',
   'account.loyalty.pointsTowardNext': '{{ຄະແນນ}} ຂອງ {{ຕໍ່ໄປ}} ໄມລ໌ໄປຫາ {{nextTier}}',
   'account.loyalty.tier': 'ຊັ້ນປັດຈຸບັນ',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'ລາຍລະອຽດການເດີນທາງ',
   'booking.tripSummary': '{{nights}} ຄືນ · {{guests}} ແຂກ',
   'common.daysAgo': '{{count}} ມື້ກ່ອນ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.hoursAgo': '{{count}} ຊົ່ວໂມງກ່ອນ',
   'common.minutesAgo': '{{count}} ກ່ອນໜ້ານີ້',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'notifications.loading': 'ກຳລັງໂຫຼດ…',
   'notifications.subheading': '{{count}} ຍັງບໍ່ໄດ້ອ່ານ · ທຸກຢ່າງຢູ່ໃນກ່ອງຈົດໝາຍດຽວທີ່ງຽບສະຫງົບ',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.accommodationsLabel': 'ທີ່ພັກ',
   'pricing.bookingsLabel': 'ການຈອງ',
   'pricing.destinationsLabel': 'ຈຸດໝາຍປາຍທາງທີ່ບັນທຶກໄວ້',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'ແຮງບັນດານໃຈ, ການພັກເຊົາທີ່ໜ້າເຊື່ອຖື, ແລະເສັ້ນທາງທີ່ບໍ່ມີອຸປະສັກຈາກຄວາມຝັນໄປສູ່ການຈອງ — ໃນ 14 ປະເທດ ແລະ ຫຼາຍກວ່າ 200 ໂຮງແຮມທີ່ໄດ້ຮັບການກວດສອບດ້ວຍມື.',
   'sojournHeroSearchCard.trustProtected': 'ຍົກເລີກໄດ້ຟຣີ, ໄດ້ຮັບການປົກປ້ອງຢ່າງເຕັມທີ່',
   'sojournHeroSearchCard.trustVetted': 'ຊັບສິນທີ່ຜ່ານການກວດສອບດ້ວຍມືເທົ່ານັ້ນ',
+  'travelBookingLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'tripDetail.backLink': 'ກັບໄປທີ່ການເດີນທາງ',
   'tripDetail.cancelCta': 'ຍົກເລີກການຈອງ',
   'tripDetail.cancelHeading': 'ຍົກເລີກການເດີນທາງນີ້ບໍ?',

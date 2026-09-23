@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'analytics.col.quorum': 'Kworum',
   'analytics.col.votes': 'Stemme',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Geen hangende vrae nog nie.',
   'audienceQa.onStageEyebrow': 'Nou op die verhoog',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Bevorder',
   'audienceQa.queued': 'in die ry',
   'audienceQa.queueEyebrow': 'Waglys',
   'ballot.eyebrow': 'Gooi jou stem uit',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Jy is tans op die {{plan}} plan.',
   'billing.switch': 'Skakel',
   'billing.upgraded': 'Opgedateer na {{plan}} — perke word onmiddellik toegepas.',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'createPoll.addOption': 'Voeg opsie by',
   'createPoll.anonymousHint': 'Kiesername versteek in ouditlogboek; tellings bly geverifieer.',
   'createPoll.anonymousLabel': 'Laat anonieme stemming toe',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nuut by Nosh?',
   'login.remember': 'Onthou my vir 30 dae',
   'login.subheading': 'Maak die vloer oop, laat die kamer loop en sertifiseer die resultaat.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'notFound.body':
     "Die bladsy wat jy probeer bereik het, is gesluit of geskuif. Gaan terug na die dashboard of maak 'n nuwe peiling oop.",
   'notFound.eyebrow': 'Geen kworum op hierdie roete nie',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Kon nie hierdie peiling laai nie.',
   'pollDetail.loading': 'Laai peiling…',
   'pollDetail.notFound': 'Peiling nie gevind nie.',
+  'pollDetail.openBallot': 'Oop stembrief',
   'pollDetail.openLive': 'Regstreekse resultate',
   'pollDetail.pollId': 'peiling · {{id}}',
   'pollDetail.published': 'Meningspeiling gepubliseer — kiesers kan nou stem.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Soek per e-pos…',
   'voters.subheading':
     'Stel die stemgeregtigde lys saam. Groepeer kiesers volgens organisasie vir geweegde stembriewe.',
+  'votingPollingLayout.nav.analytics': 'Analise',
+  'votingPollingLayout.nav.billing': 'Fakturering',
+  'votingPollingLayout.nav.createPoll': 'Nuwe peiling',
+  'votingPollingLayout.nav.dashboard': 'Dashboard',
+  'votingPollingLayout.nav.notifications': 'Kennisgewings',
+  'votingPollingLayout.nav.settings': 'Instellings',
+  'votingPollingLayout.nav.team': 'Span',
+  'votingPollingLayout.nav.voters': 'Kiesers',
+  'votingPollingLayout.primaryNavLabel': 'Primêre navigasie',
 }

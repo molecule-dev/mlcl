@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Andke ostjale jootraha',
   'checkout.tipLabel': 'Jootraha',
   'checkout.zipPlaceholder': 'Postiindeks',
+  'common.goToDashboard': 'Mine töölauani',
   'featuredProductsGrid.addAria': 'Lisa {{name}} ostukorvi',
   'featuredProductsGrid.outOfStock': 'Laost otsas',
   'forgotPassword.emailLabel': 'E-posti aadress',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Kui see e-posti aadress on registreeritud, on lähtestamise link teel.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Peamine navigeerimine',
   'landing.categoriesEyebrow': 'Vahekäigud',
   'landing.categoriesHeading': 'Osta kategooria järgi',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Planeeri iganädalasi tarneid nutika põhitoidu ümbertellimise ja reaalajas juhte jälgides.',
   'landing.heroTitle': 'Värskus teie ukse ees, tundidega.',
   'landing.howEyebrow': 'Kolm sammu',
+  'landing.howItWorksHeading': 'Kuidas {{app}} töötab',
   'lists.addAllCta': 'Lisa kõik ostukorvi',
   'lists.createCta': 'Loo oma esimene nimekiri',
   'lists.createError': 'Loendi loomine ebaõnnestus.',

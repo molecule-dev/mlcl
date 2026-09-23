@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.pageTitle': 'Par mums {{appName}}',
   'analytics.error': 'Neizdevās ielādēt analītikas datus.',
   'analytics.heading': 'Ieguves analītika',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nav konfigurēti cenu līmeņi.',
   'billing.plans.heading': 'Plāni',
   'billing.subheading': 'Plāns, lietošana un Stripe pārvaldīta norēķināšanās.',
+  'common.confirm': 'Apstiprināt',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'common.retry': 'Mēģināt vēlreiz',
   'documentCard.open': 'Atvērts \\u2192',
   'documentDetail.back': 'Atpakaļ pie dokumentiem',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksa dokuments',
   'documents.composer.titlePlaceholder': 'Dokumenta nosaukums',
   'documents.emptyAll': 'Vēl nav dokumentu. Augšupielādējiet vienu, lai sāktu uzdot jautājumus.',
+  'documents.error.load': 'Neizdevās ielādēt dokumentus.',
   'documents.heading': 'Indeksēti dokumenti',
   'documents.loading': 'Notiek dokumentu ielāde…',
   'documents.metric.chunks': 'Kopējais skaits',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Noņem\\u2026',
   'members.subheading': 'Uzaiciniet komandas biedrus un nosakiet lomas.',
   'members.tableHeading': 'Sastāvs',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'notFound.askCta': 'Jautājiet zināšanu bāzei',
+  'notFound.body':
+    '{{app}} nevarēja atrast šo lapu. Iespējams, saite nedarbojas vai lapa ir noņemta atkārtotas indeksēšanas laikā.',
   'notFound.eyebrow': 'Nevar atgūt',
   'notFound.title': 'Indeksā nav šāda fragmenta',
   'notifications.dismiss': 'Noraidīt',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'Noklikšķiniet uz \\u201cPievienot avotu\\u201d, lai pievienotu savu pirmo savienotāju.',
   'sources.empty.title': 'Vēl nav avotu.',
+  'sources.error.add': 'Nevarēja pievienot avotu.',
   'sources.error.labelRequired': 'Etiķete ir obligāta.',
   'sources.error.load': 'Nevarēja ielādēt avotus.',
   'sources.error.urlRequired': 'Šim avota veidam ir nepieciešams URL.',

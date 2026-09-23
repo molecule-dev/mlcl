@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'analytics.back': 'Pangkalahatang-ideya ng survey',
   'analytics.kpiNps': 'Iskor ng NPS',
   'analytics.kpiNpsTrend': 'Mga Promoter {{p}} % · Mga Tagasaway {{d}} %',
@@ -31,11 +32,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Mga Ari-arian',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Pamagat ng survey',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'forgotPassword.failed': 'Hindi mapadala ang reset email. Subukan muli.',
   'forgotPassword.subheading':
     'Ilagay ang iyong email at padadalhan ka namin ng link para sa pagbawi.',
   'forgotPassword.successBody':
     'Kung tumutugma ang isang account {{email}} , may paparating nang reset link. Tingnan ang iyong inbox at mga spam folder.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Lahat ng boses ay malugod na tinatanggap.',
   'landing.footer.startTrial': 'Simulan ang pagsubok',
   'landing.hero.badge': 'Mga survey, NPS at feedback sa iisang lugar',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Presyo',
   'landing.pricing.perMonth': '/buwan',
   'landing.pricing.popular': 'Pinakasikat',
+  'landing.pricing.subtitle':
+    'Kasama sa bawat plano ang survey builder, mga public share link, at NPS analytics. Hindi kinakailangan ng credit card para makapagsimula.',
+  'landing.pricing.title': 'Magsimula nang libre, lumago kapag nagawa mo na.',
   'landing.sample.eyebrow': 'NPS sa isang sulyap',
   'landing.sample.title': 'Mga kritiko, pasibo, tagapagtaguyod — agad na mababasa.',
   'login.failed': 'Nabigo ang pag-login. Pakisubukang muli.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ipakita ang password',
   'login.signUpLink': 'Magsimula ng libreng pagsubok',
   'login.subheading': 'Mag-sign in para patuloy na makinig sa iyong audience.',
+  'notFound.body':
+    'Wala sa {{app}} ang pahinang hinahanap mo. Balikan na lang natin ang mga survey mo.',
   'notFound.cta': 'Balik sa mga survey',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Nawala sa pila ang survey na ito.',
@@ -74,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passive 7–8',
   'npsDistributionBar.promoter': 'Tagataguyod 9–10',
   'profile.identity.description': 'Ipaalam sa iyong team at sa mga survey na iyong isinulat.',
+  'profile.identity.emailRequired': 'Maglagay ng email address.',
   'profile.identity.saveCta': 'I-save ang pangalan',
   'profile.password.current': 'Kasalukuyang password',
   'profile.password.fillFields': 'Ilagay ang kasalukuyan at bagong password.',
@@ -180,6 +189,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} mga tanong',
   'templates.subheading':
     'Pumili ng isang starter na subok na sa labanan — bawat template ay may pre-tune na may mga makatwirang default, sample logic, at isang malinis na mobile layout.',
+  'thankYou.body':
+    'Naitala na ang iyong tugon. Isasama ito ng {{app}} sa susunod na pag-refresh ng analytics.',
   'thankYou.eyebrow': 'Natanggap na tugon',
   'thankYou.heading': 'Salamat — mahalaga ang boses mo.',
   'thankYou.home': 'Bisitahin ang Gauge',

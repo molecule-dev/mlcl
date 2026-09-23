@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Atjaunojiet savu paroli.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Atzīmēt uzdevumu pabeigtu',
   'checklistTaskCard.markIncomplete': 'Atzīmēt uzdevumu kā nepabeigtu',
   'checklistTaskCard.openLabel': 'Atvērt uzdevumu',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Jūs esat pilnībā informēti',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Uz pareizā ceļa',
   'dashboard.timelineHeading': '30/60/90 atskaites punkti',
   'dashboard.viewAllTasks': 'Skatīt visus uzdevumus',
+  'dashboard.weekOne': '1. nedēļa',
   'dashboard.yourCohort': 'Jūsu komanda',
   'documents.empty.body': 'Jūsu komandas pievienotie dokumenti parādīsies šeit.',
   'documents.empty.title': 'Vēl nav dokumentu',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 dienu bezmaksas izmēģinājuma versija',
   'landing.subhead':
     'Embark vada katru jauno komandas biedru pirmajās 90 dienās — dokumentācija, apmācība, atskaites punkti un jēgpilnas iepazīšanās, viss vienuviet mierīgā un pārliecinātā vietā.',
+  'layout.openMenu': 'Atvērt navigācijas izvēlni',
   'layout.search': 'Meklēt uzdevumus, dokumentus, komandas biedrus…',
+  'layout.searchTeammates': 'Meklēt komandas biedrus pēc vārda vai lomas…',
   'layout.section.onboarding': 'Iesācēju apmācība',
   'layout.tagline': 'Tavs ceļojums sākas šeit',
   'notifications.empty.body': 'Šeit tiks parādītas jaunas aktivitātes.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Viss ir gatavs.',
   'planUpdated.preparing': 'Notiek plāna atjaunināšana…',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'iesācēju apmācības',
   'pricing.tasksLabel': 'uzdevumi',

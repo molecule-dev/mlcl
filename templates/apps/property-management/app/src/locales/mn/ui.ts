@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.tagline': 'Нэгж бүр нэг дээвэр дор.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.addProperty': 'Үл хөдлөх хөрөнгө нэмэх',
   'dashboard.empty.body':
     'Үл хөдлөх хөрөнгө, нэгж, түрээсийн төлбөртэй болсны дараа энэхүү хяналтын самбар нь портфолиогийн мэдээллийг дүүргэнэ.',
@@ -90,6 +93,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} нээлттэй ажлын захиалгууд, тэргүүлэх чиглэлээр эрэмбэлэгдсэн',
   'maintenanceQueueList.title': 'Засвар үйлчилгээний дараалал',
+  'nav.closeMenu': 'Цэсийг хаах',
+  'nav.openMenu': 'Цэсийг нээх',
   'notFound.body': 'Таны хайж байсан хуудас зөөгдсөн, архивлагдсан эсвэл огт байгаагүй байна.',
   'notFound.title': 'Тэр хаалга онгойдоггүй',
   'notifications.empty.body':

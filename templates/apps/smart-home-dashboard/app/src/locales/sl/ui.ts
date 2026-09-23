@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'activity.empty': 'Še ni aktivnosti – obrnite napravo ali aktivirajte prizor.',
   'activity.eyebrow': 'Časovnica',
   'activity.loadError': 'Vira dejavnosti ni bilo mogoče naložiti.',
   'activity.subheading':
     'Vsak dogodek, povezan z napravo, avtomatizacijo in varnostjo, v kronološkem vrstnem redu.',
+  'addDevice.error.failed': 'Naprave ni bilo mogoče dodati. Poskusite znova.',
   'addDevice.error.nameRequired': 'Za nadaljevanje poimenujte to napravo.',
   'addDevice.field.firmware': 'Različica vdelane programske opreme',
   'addDevice.field.manufacturer': 'Proizvajalec',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Preizkušanje…',
   'automationEditor.testNew': 'Najprej shranite avtomatizacijo, da jo preizkusite.',
   'automationRow.lastRun': 'Zadnji {{date}} · {{count}} teče',
+  'automationRow.on': 'Na',
   'automationRow.runNowAria': 'Teči {{name}} zdaj',
   'automations.empty': 'Še ni avtomatizacije – ustvarite svojo prvo rutino.',
   'automations.eyebrow': 'Rutine',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Nalaganje avtomatizacij …',
   'automations.newAutomation': '+ Novo',
   'automations.subheading': 'Ko se to zgodi, storite to – brez YAML.',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Naprave ni bilo mogoče naložiti.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Delam…',
   'deviceDetail.unnamed': 'Naprava',
   'deviceStatusRow.on': 'Vklopljeno',
+  'deviceStatusRow.turnOff': 'Izklopi',
+  'deviceStatusRow.turnOn': 'Vklopi',
   'deviceStatusRow.watts': '{{watts}} Z',
   'energy.eyebrow': 'Moč',
   'energy.heading': 'Energija',
@@ -175,4 +182,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Oglejte si načrte',
   'settings.security.heading': 'Varnost',
   'settings.subheading': 'Nastavitve paketa, središč in računa.',
+  'smartHomeDashboardLayout.openMenu': 'Odpri navigacijski meni',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Primarna navigacija',
 }

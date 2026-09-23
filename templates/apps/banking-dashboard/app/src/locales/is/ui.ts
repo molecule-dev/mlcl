@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'accountDetail.activeBadge': 'Virk',
   'accountDetail.availableLabel': '{{amount}} tiltækt',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Mistókst að hlaða reikninga.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Frosinn',
   'accounts.totalBalance': '{{upphæð}} samtals',
   'audit.empty': 'Engir viðburðir ennþá.',
   'audit.eyebrow': 'Öryggi og aðgangur',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Reiðufé í höndunum',
   'cashCreditCard.creditLabel': 'Notað inneign',
   'cashCreditCard.title': 'Reiðufé og lánsfé',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Yfirlit',
   'dashboard.recentEmpty': 'Engar færslur ennþá.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Sýna lykilorð',
   'login.signUp': 'Skráning',
   'login.submit': 'Innskráning',
+  'meridianLayout.menu': 'Matseðill',
   'meridianLayout.primaryNavLabel': 'Aðalflakk',
   'nav.legal': 'Löglegt',
   'notifications.emptyHeading': 'Þú ert alveg kominn með það',
   'notifications.subheading': 'Rauntímaviðvaranir um færslur, öryggi og yfirlit.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'privacy.dataWeShare':
     'Persónuupplýsingar um bankastarfsemi eru aldrei seldar. Við deilum upplýsingum með greiðslumiðlurum, kortakerfum og eftirlitsaðilum eingöngu eftir því sem þörf krefur til að ganga frá viðskiptum eða uppfylla lagaskyldur.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Tvíþátta aðferð bætir við einskiptis kóða úr auðkenningarforriti við hverja innskráningu.',
   'settings.security.twoFactorCta': 'Stjórna tveggja þátta auðkenningu',
+  'settings.security.twoFactorOff': 'Tvíþáttastilling er slökkt',
   'settings.signOutDevice': 'Skrá út',
   'settings.subheading': 'Prófíll, öryggi og tilkynningar.',
+  'settings.twoFactorCode': 'Auðkenningarkóði',
   'settings.twoFactorDisable': 'Slökkva',
   'settings.twoFactorEnable': 'Virkja',
+  'settings.twoFactorInvalidCode': 'Ógildur kóði',
+  'settings.twoFactorVerify': 'Staðfesta og virkja',
   'signup.emailLabel': 'Netfang',
   'signup.fullName': 'Hvernig eigum við að ávarpa þig?',
   'signup.showPassword': 'Sýna lykilorð',
@@ -104,7 +113,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Engar færslur ennþá.',
   'transactions.endDate': 'Lokadagur',
   'transactions.eyebrow': 'Virkni',
+  'transactions.loadError': 'Mistókst að hlaða færslum.',
   'transactions.merchant': 'Kaupmaður',
+  'transactions.subheading': 'Allar skráðar og í vinnslu á reikningum þínum.',
   'transfers.availableHint': '{{amount}} tiltækt',
   'transfers.errorGeneric': 'Gat ekki sent inn millifærsluna.',
   'transfers.errorMissingFields': 'Veldu upprunareikning og áfangastað.',

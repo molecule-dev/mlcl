@@ -170,8 +170,7 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'ઉમેરી રહ્યા છીએ...',
   'seating.form.submit': 'ટેબલ ઉમેરો',
   'seating.poolTitle': 'બેઠક વગરના મહેમાનો',
-  'seating.subtitle':
-    '{{બેઠેલા}} બેઠેલું<x> {{ક્ષમતા}}</x> બેઠકો ·<x> {{પૂલ}}</x> પૂલમાં રાહ જોઈ રહેલા મહેમાનો',
+  'seating.subtitle': '{{seated}} {{capacity}} · {{pool}} મહેમાનો પૂલમાં રાહ જોઈ રહ્યા છે',
   'seating.title': 'બેઠક ચાર્ટ',
   'settings.billing': 'બિલિંગ',
   'settings.changePassword': 'પાસવર્ડ બદલો',

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.pageTitle': 'Faoi {{app}}',
   'achievementBadgeCard.unlockedOn': 'Díghlasáilte {{date}}',
   'achievements.loadError': 'Theip ar na héachtaí a lódáil.',
   'achievements.subheading': '{{unlocked}} de {{total}} díghlasáilte',
   'achievements.unlockedOn': 'Díghlasáilte {{date}}',
+  'auth.legalConsent': 'Trí leanúint ar aghaidh, aontaíonn tú lenár',
   'calendar.empty': 'Cruthaigh nós chun do fhéilire a fheiceáil.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Nós',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Greille nósanna',
   'category.${c.category}': '{{count}} nósanna',
   'common.and': 'agus',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'consistencyHeatmap.ariaLabel': 'Léarscáil teasa comhsheasmhachta laethúil',
   'consistencyHeatmap.caption': 'Deireanach {{weeks}} seachtainí',
   'consistencyHeatmap.lessLabel': 'Níos lú',
@@ -82,6 +86,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Féach air beo',
   'landing.heroSubtitle':
     'Tóg nósanna ar an mbealach a chloíonn siad i ndáiríre: gealltanais bheaga, sraitheanna laethúla, agus an pléisiúr visceral a bhaineann le slabhra fada gan bhriseadh.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Súil istigh i Streak',
   'landing.previewMotivation': 'Naoi stríoca beo. Coinnigh te iad go léir.',
   'login.eyebrow': 'Tóg suas an slabhra',
@@ -99,7 +104,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Déan beag é. Déan sonrach é. Bí ann amárach.',
   'newHabit.timeLabel': 'Am meabhrúcháin',
   'notifications.markError': 'Níorbh fhéidir gach rud a mharcáil mar léite.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.entries': '{{count}} iontrálacha',
+  'pricing.heading': 'Roghnaigh do phlean {{app}}',
   'profile.action.plan': 'Bainistigh an síntiús',
   'profile.action.settings': 'Socruithe cuntais',
   'profile.bioEmpty': 'Cuir beathaisnéis ghearr sna Socruithe chun tú féin a chur in aithne.',
@@ -127,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Leid laethúil ar maidin (8:00am)',
   'settings.reminders.heading': 'Meabhrúcháin',
   'settings.reminders.weekly': 'Achoimre sheachtainiúil (tráthnónta Dé Domhnaigh)',
+  'settings.revokeDeviceWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.signOutDevice': 'Sínigh amach',
   'settings.streaks.freezesPerWeek': 'Reoite in aghaidh na seachtaine',
   'settings.streaks.gracePeriod': 'Tréimhse ghrásta 6 uair an chloig tar éis meán oíche',
@@ -153,5 +162,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} gníomhach',
   'streakHeroCard.daysSuffix': 'laethanta',
   'streakHeroCard.title': 'An tsraith ghníomhach is faide',
+  'streakLayout.closeMenu': 'Dún an roghchlár nascleanúna',
+  'streakLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'streakLayout.primaryNavLabel': 'Príomh-loingseoireacht',
 }

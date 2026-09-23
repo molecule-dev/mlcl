@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'about.pageTitle': 'အကြောင်း {{name}}',
   'auth.footer.about': 'အကြောင်း {{name}}',
   'authHeader.subtitle': 'သင့်နံပါတ်များကို ရိုးသားစေရန် အကောင့်ဝင်ပါ။',
   'automations.action.email': 'အီးမေးလ်',
+  'automations.action.noop': 'လုပ်ဆောင်ချက်မရှိပါ',
   'automations.action.webhook': 'ဝဘ်ဟွတ်ခ်',
   'automations.confirmDelete': 'ဖျက်ပစ်ပါ" {{name}} "?',
   'automations.empty.headline': 'အလိုအလျောက်စနစ်များ မရှိသေးပါ',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'workbook တိုင်းတွင် trigger များနှင့် လုပ်ဆောင်ချက်များ။ လုပ်ဆောင်ချက်တစ်ခုစီသည် နောက်မှ audit လုပ်နိုင်သော row တစ်ခုကို မှတ်တမ်းတင်သည်။',
   'automations.toggle': 'ပြောင်းရန် {{name}}',
+  'automations.trigger.dailySchedule': 'နေ့စဉ်အချိန်ဇယား',
+  'automations.trigger.rowCreated': 'အတန်း ဖန်တီးပြီးပါပြီ',
+  'automations.trigger.rowUpdated': 'အတန်းကို အပ်ဒိတ်လုပ်ထားသည်',
   'billing.empty': 'ရရှိနိုင်သော အစီအစဉ်မရှိပါ။',
   'billing.error.priceMissing':
     'ဤအဆင့်အတွက် Stripe ဈေးနှုန်းကို ပြင်ဆင်သတ်မှတ်ထားခြင်း မရှိပါ။ STRIPE_*_PRICE_ID env vars များကို သတ်မှတ်ပါ။',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ဇယားများ',
   'charts.kpi.totalCharts': 'စုစုပေါင်းဇယားများ',
   'charts.list.empty': 'ဇယားတွေ မရှိသေးပါဘူး။',
+  'charts.namePlaceholder': 'ဝင်ငွေလမ်းကြောင်း',
   'charts.newChart': 'ဇယားအသစ်',
   'charts.primary.eyebrow': 'အမျိုးအစားအလိုက်ဇယားများ',
   'charts.primary.headline': 'အလုပ်ခွင်ခြုံငုံသုံးသပ်ချက်',
   'charts.subhead':
     'သင့် grid နှင့် ချိတ်ဆက်ထားသော တိုက်ရိုက်မြင်ယောင်မှုများ — ဆဲလ်တည်းဖြတ်မှုတိုင်းတွင် ပြန်လည်ပြသခြင်း။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'editor.addColumn': 'ကော်လံထည့်ပါ',
+  'editor.addDialogTitle': 'ကော်လံထည့်ပါ',
   'editor.addRow': 'အတန်းထည့်ပါ',
   'editor.addSheet': 'စာရွက်ထည့်ပါ',
   'editor.back': 'အလုပ်စာအုပ်များသို့ ပြန်သွားပါ',
@@ -103,7 +111,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite သည် ဖော်မြူလာကိုဦးစားပေးသော၊ ဘက်စုံမြင်ကွင်း၊ အချိန်နှင့်တပြေးညီ grid ခွဲခြမ်းစိတ်ဖြာသူများနှင့် ဘဏ္ဍာရေးအဖွဲ့များသည် ပထမဆုံးရရှိရန် လက်လှမ်းမီကြသည်။',
   'landing.nav.formulas': 'ဖော်မြူလာများ',
+  'login.noAccount': '{{name}} မှာ အသစ်လား။',
+  'login.signIn': '{{name}} သို့ ဝင်ရောက်ပါ',
   'login.signUp': 'အလုပ်ခွင်တစ်ခု ဖန်တီးပါ',
+  'nav.menu': 'မီနူး',
+  'nav.openMenu': 'မီနူးဖွင့်ပါ',
   'notFound.cellRef': '#ကိုးကားချက်!',
   'notFound.formula': '=LOOKUP(တောင်းဆိုချက်.url, "လမ်းကြောင်းများ", "စာမျက်နှာ")',
   'notFound.headline': 'ဒီတန်းက ဘယ်တုန်းကမှ မရှိခဲ့ဘူး။',
@@ -133,6 +145,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'မူရင်းအလိုအလျောက်စနစ်များ · webhook နှင့် cron trigger များ',
   'signup.creating': 'အလုပ်ခွင်ကို ပံ့ပိုးပေးနေသည်…',
   'signup.cta': 'ကျွန်ုပ်၏ အလုပ်ခွင်ကို ဖန်တီးပါ',
+  'signup.haveAccount': '{{name}} မှာ ရှိပြီးသားလား။',
   'signup.namePlaceholder': 'အေဗရီ ချန်',
   'signup.tagline': 'သင့်ရဲ့ ပထမဆုံး workbook ကို စက္ကန့် ၃၀ အတွင်း လှန်လှောကြည့်ပါ။',
   'team.col.activity': 'ဖိတ်ကြားထားသည်',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
   'auth.forgotPassword.emailPlaceholder': 'όνομα@ηεταιρίασας.com',
   'auth.forgotPassword.heading': 'Επαναφέρετε τον κωδικό πρόσβασής σας.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Σήμανση εργασίας ως ολοκληρωμένης',
   'checklistTaskCard.markIncomplete': 'Σημειώστε την εργασία ως μη ολοκληρωμένη',
   'checklistTaskCard.openLabel': 'Άνοιγμα εργασίας',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Είστε πλήρως ενημερωμένοι',
@@ -53,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Σε καλό δρόμο',
   'dashboard.timelineHeading': 'Ορόσημα 30/60/90',
   'dashboard.viewAllTasks': 'Δείτε όλες τις εργασίες',
+  'dashboard.weekOne': 'Εβδομάδα 1',
   'dashboard.yourCohort': 'Η ομάδα σας',
   'documents.empty.body': 'Τα έγγραφα που προστέθηκαν από την ομάδα σας θα εμφανίζονται εδώ.',
   'documents.empty.title': 'Δεν υπάρχουν ακόμη έγγραφα',
@@ -111,7 +114,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Δωρεάν δοκιμή 14 ημερών',
   'landing.subhead':
     'Το Embark καθοδηγεί κάθε νέο συμπαίκτη κατά τη διάρκεια των πρώτων 90 ημερών του — γραφειοκρατικές διαδικασίες, εκπαίδευση, ορόσημα και ουσιαστικές συστάσεις, όλα σε ένα ήρεμο και σίγουρο μέρος.',
+  'layout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'layout.search': 'Αναζήτηση εργασιών, εγγράφων, συναδέλφων…',
+  'layout.searchTeammates': 'Αναζήτηση συμπαικτών με βάση το όνομα ή τον ρόλο τους…',
   'layout.section.onboarding': 'Ενσωμάτωση',
   'layout.tagline': 'Το ταξίδι σας ξεκινάει εδώ',
   'notifications.empty.body': 'Η νέα δραστηριότητα θα εμφανίζεται εδώ.',
@@ -120,6 +125,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'εχθές',
   'planUpdated.message': 'Είστε έτοιμοι.',
   'planUpdated.preparing': 'Ενημέρωση του προγράμματός σας…',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.documentsLabel': 'έγγραφα',
   'pricing.onboardingsLabel': 'εντάξεις',
   'pricing.tasksLabel': 'εργασίες',

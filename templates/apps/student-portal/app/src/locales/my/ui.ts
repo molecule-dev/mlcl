@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'announcementsFeed.empty': 'ကြေငြာချက်များ မရှိသေးပါ။',
   'announcementsFeed.eyebrow': '{{count}} အပ်ဒိတ်များ',
   'announcementsFeed.title': 'နောက်ဆုံးရ ကြေငြာချက်များ',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'မတူညီသောအခြေအနေရှိ တာဝန်များကိုကြည့်ရှုရန် အထက်ပါ filter များကိုပြောင်းပါ။',
   'assignments.eyebrow': 'သင်တန်းအားလုံး · ယခုသင်တန်းကာလ',
+  'assignments.loadError': 'တာဝန်များကို ဖွင့်၍မရပါ။',
   'assignments.loading': 'တာဝန်များကို တင်နေသည်…',
   'assignments.subtitle':
     'ပေးရန်ကျန်ရှိသည်များ၊ တင်သွင်းထားသည်များ၊ အဆင့်သတ်မှတ်ပြီးသည်များ သို့မဟုတ် ပျောက်ဆုံးနေသည်များကို ကြည့်ရှုရန် အခြေအနေအလိုက် စစ်ထုတ်ပါ။',
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'မှတ်ချက်',
   'attendance.empty': 'တက်ရောက်မှုမှတ်တမ်းများ မရှိသေးပါ။',
   'attendance.eyebrow': 'နွေဦးရာသီသင်တန်း · ပြီးခဲ့သည့် ၄ ပတ်',
+  'attendance.loadError': 'တက်ရောက်မှုမှတ်တမ်းများကို တင်၍မရပါ။',
   'attendance.loading': 'တက်ရောက်မှုကို တင်နေသည်…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -47,7 +50,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'လတစ်ဇယားကွက်ပေါ်တွင် ရေးဆွဲထားသော အိမ်စာပေးရမည့်ရက်စွဲများ - စာမေးပွဲများကို အနီရောင်ဖြင့် ထင်ရှားစွာ ဖော်ပြထားသည်',
   'calendar.title': '{{month}} ဖြစ်ရပ်များ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
+  'common.retry': 'ထပ်ကြိုးစားပါ',
   'common.yes': '✓',
   'courseDetail.backLink': 'အဆင့်များ',
   'courseDetail.currentGrade': 'လက်ရှိအဆင့်',
@@ -77,11 +82,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'ခေတ်ရေစီးကြောင်း',
   'grades.empty': 'အဆင့်သတ်မှတ်ချက်တွေ မတင်ရသေးပါဘူး။',
   'grades.eyebrow': 'အဆင့်စာအုပ်',
+  'grades.loadError': 'သင့်အဆင့်များကို တင်၍မရပါ။',
   'grades.loading': 'အဆင့်များကို တင်နေသည်…',
   'grades.subtitle':
     'တိုက်ရိုက်စာနှင့် ရာခိုင်နှုန်းအဆင့်များ။ လမ်းကြောင်းမြှားများသည် သင်တက်လှမ်းနေသလား၊ အဆင့်တက်နေသလား သို့မဟုတ် ချော်လဲနေသလားကို ပြသသည်။',
   'grades.title': 'သင့်ရဲ့ အဆင့်တွေ၊ သင်တန်းတစ်ခုချင်းစီ',
   'grades.trendStable': 'တည်ငြိမ်သော',
+  'landing.copyright': '© {{year}} {{app}} . ကျောင်းသားများအတွက်၊ မိသားစုများအတွက် ဖန်တီးထားသည်။',
   'landing.ctaHeading': 'တိတ်ဆိတ်ငြိမ်သက်သော ကျောင်းနေ့တစ်နေ့သည် မိနစ်ပိုင်းအတွင်း စတင်သည်',
   'landing.eyebrow': 'အလယ်တန်းနှင့်အထက်တန်းကျောင်းသားများအတွက်',
   'landing.featuresHeading': 'ကျောင်းသားကို အခြေခံပြီး စီစဉ်ထားတဲ့ ကျောင်းတက်ရက်',
@@ -116,12 +123,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'တာဝန်များ',
   'nav.attendance': 'တက်ရောက်မှု',
   'nav.calendar': 'ပြက္ခဒိန်',
+  'nav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'nav.grades': 'အဆင့်များ',
+  'nav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'nav.statusEyebrow': 'သက်တမ်း GPA',
   'nav.statusSubtext': 'ဂုဏ်ထူးဆောင်စာရင်း · နွေဦးရာသီသင်တန်း',
+  'nav.unreadMessages': 'မဖတ်ရသေးသော မက်ဆေ့ချ်များ',
   'notifications.eyebrow': '{{count}} အပ်ဒိတ်များ',
   'notifications.subtitle':
     'အဆင့်များ၊ သတိပေးချက်များ၊ မက်ဆေ့ချ်များနှင့် ကျောင်းကြေငြာချက်များ။ အကြောင်းကြားချက်တစ်ခုစီက မည်သည့်ချန်နယ်များကို အသုံးပြုသည်ကို ဆက်တင်များတွင် ချိန်ညှိပါ။',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.attendanceLabel': 'တက်ရောက်မှု',
   'pricing.gradesLabel': 'အဆင့်များ',
   'pricing.heading': 'ကြေငြာချက်များ',

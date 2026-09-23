@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'သင့်စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပါ။',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ပြီးမြောက်အောင် လုပ်ဆောင်စရာကို မှတ်သားပါ',
   'checklistTaskCard.markIncomplete': 'လုပ်ငန်းစဉ် မပြီးပြတ်သေးဟု မှတ်သားပါ',
   'checklistTaskCard.openLabel': 'လုပ်ဆောင်စရာကို ဖွင့်ပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'အားလုံးပြီးသွားပါပြီ',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'လမ်းကြောင်းမှန်ပေါ် ရောက်နေပါပြီ',
   'dashboard.timelineHeading': '၃၀/၆၀/၉၀ မှတ်တိုင်များ',
   'dashboard.viewAllTasks': 'လုပ်ဆောင်စရာအားလုံးကို ကြည့်ရန်',
+  'dashboard.weekOne': 'အပတ် ၁',
   'dashboard.yourCohort': 'သင့်အဖွဲ့',
   'documents.empty.body': 'သင့်အဖွဲ့မှ ထည့်သွင်းထားသော စာရွက်စာတမ်းများကို ဤနေရာတွင် ပေါ်လာပါမည်။',
   'documents.empty.title': 'စာရွက်စာတမ်းများ မရှိသေးပါ',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '၁၄ ရက် အခမဲ့ အစမ်းသုံးခွင့်',
   'landing.subhead':
     'Embark သည် အသင်းဖော်အသစ်တိုင်းကို ၎င်းတို့၏ ပထမ ၉၀ ရက်များ — စာရွက်စာတမ်းများ၊ လေ့ကျင့်မှု၊ မှတ်တိုင်များနှင့် အဓိပ္ပာယ်ရှိသော မိတ်ဆက်ခြင်းများအားလုံးကို တည်ငြိမ်ပြီး ယုံကြည်မှုရှိသော နေရာတစ်ခုတည်းတွင် လမ်းညွှန်ပေးပါသည်။',
+  'layout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'layout.search': 'အလုပ်များ၊ စာရွက်စာတမ်းများ၊ အသင်းဖော်များကို ရှာဖွေပါ...',
+  'layout.searchTeammates': 'အသင်းဖော်များ၏ အမည် သို့မဟုတ် အခန်းကဏ္ဍအလိုက် ရှာဖွေပါ...',
   'layout.section.onboarding': 'စာရင်းသွင်းခြင်း',
   'layout.tagline': 'သင့်ခရီးက ဒီကနေစတင်ပါတယ်',
   'notifications.empty.body': 'ဤနေရာတွင် လုပ်ဆောင်ချက်အသစ်များ ပေါ်လာပါမည်။',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'မနေ့က',
   'planUpdated.message': 'အားလုံး အဆင်သင့်ဖြစ်ပါပြီ။',
   'planUpdated.preparing': 'သင့်အစီအစဉ်ကို အပ်ဒိတ်လုပ်နေသည်…',
+  'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.documentsLabel': 'စာရွက်စာတမ်းများ',
   'pricing.onboardingsLabel': 'စာရင်းသွင်းခြင်း',
   'pricing.tasksLabel': 'တာဝန်များ',

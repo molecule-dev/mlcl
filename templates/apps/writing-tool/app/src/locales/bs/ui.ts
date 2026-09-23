@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
+  'about.title': 'Soba za pisanje koju možete držati u džepu',
   'billing.cancelConfirm': 'Želite li otkazati aktivnu pretplatu?',
   'billing.cancelFailed': 'Nije moguće otkazati.',
   'billing.checkingOut': 'Otvaranje blagajne…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nije moguće učitati naplatu.',
   'billing.loading': 'Učitavanje naplate…',
   'billing.upgradeCta': 'Nadogradite na {{name}}',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
+  'editor.autosaveOn': 'Automatsko spremanje uključeno',
   'editor.backToLibrary': 'Nazad u biblioteku',
   'editor.charCount': '{{count}} likovi',
   'editor.confirmTrash': 'Premjestiti ovaj dokument u smeće?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Otkvačeno',
   'editor.unpublishCta': 'Premjesti u nacrt',
   'editor.unpublished': 'Vraćeno na nacrt',
+  'focus.autosaveOn': 'Automatsko spremanje uključeno',
   'focus.backToLibrary': 'Nazad u biblioteku',
   'focus.bodyPlaceholder': 'Red po red. Nema nikoga drugog ovdje.',
   'focus.exit': 'Izlaz iz načina rada za fokusiranje',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Napravi jedan',
   'login.subline':
     'Vaši rukopisi, dnevne stranice i posljednja pozicija kursora su tačno tamo gdje ste ih ostavili.',
+  'mobileNav.closeMenu': 'Zatvori navigacijski meni',
+  'mobileNav.openMenu': 'Otvori navigacijski meni',
   'pricing.exports': 'izvoz',
   'pricing.folders': 'mape',
   'pricing.heading': 'dokumenti',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Unesite kod koji smo vam upravo poslali e-poštom i odaberite nešto nezaboravno. Prijavit ćemo vas čim ga sačuvate.',
   'reset.tokenHint': 'Zalijepljeno iz vaše pristigle pošte.',
+  'settings.appearance.heading': 'Svijetlo ili tamno',
   'settings.editor.${row.id}.description': 'Jezik',
   'settings.editor.description':
     'Pomicanje pisaće mašine, postepeno smanjivanje paragrafa i fokus u stanju mirovanja — podrazumijevane postavke su prilagođene dugim sesijama.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Treće poglavlje - Miran sat prije izlaska sunca',
   'versalDocumentCard.pinned': 'Zakačeno',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Primarna navigacija',
   'versalManuscriptHero.cta': 'Nastavi pisati',
   'versalManuscriptHero.goalLabel': 'Današnji cilj riječi',
   'versalManuscriptHero.inProgress': 'Na pravom putu',

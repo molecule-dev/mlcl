@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'billing.canceled': 'การสมัครสมาชิกถูกยกเลิก คุณจะกลับไปใช้แบบฟรีเมื่อสิ้นสุดระยะเวลา',
   'billing.contactSales': 'ติดต่อฝ่ายขาย',
   'billing.free.1': '5 คำแปล',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'ไม่มีข้อจำกัดด้านระยะเวลาการเก็บรักษา',
   'billing.upgradeHint': 'อัปเกรดเพื่อปลดล็อกคุณสมบัติ AI ขั้นสูง',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.activityEmpty': 'ยังไม่มีความเคลื่อนไหวใดๆ — เริ่มโครงการเพื่อเพิ่มข้อมูลลงในฟีดนี้',
   'dashboard.eyebrow': 'ภาพรวม',
   'dashboard.projectsEmpty': 'ยังไม่มีโปรเจกต์ใดๆ — เริ่มสร้างโปรเจกต์เพื่อดูได้ที่นี่',
@@ -108,6 +110,8 @@ export const ui: UiTranslations = {
   'memory.submit': 'บันทึกรายการ',
   'memory.subtitle': 'นำคำแปลเก่ามาใช้ซ้ำในทุกโปรเจกต์ คะแนนความตรงกันสูง → ลดการทำงานซ้ำ',
   'memory.title': 'ธนาคารความทรงจำ',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'nav.legal': 'ถูกกฎหมาย',
   'newProject.addLanguage': 'เพิ่มเป้าหมาย',
   'newProject.create': 'สร้างโปรเจ็กต์',
@@ -134,6 +138,7 @@ export const ui: UiTranslations = {
   'notifications.earlier': 'ก่อนหน้านี้',
   'notifications.markedAllRead': 'ทำเครื่องหมาย {{count}} การแจ้งเตือนถูกอ่านเรียบร้อยแล้ว',
   'notifications.subtitle': 'การกล่าวถึง คำขอรีวิว และกิจกรรม AI จากพื้นที่ทำงานต่างๆ ของคุณ',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'privacy.collection.account': 'อีเมลบัญชีของคุณและชื่อที่แสดง',
   'privacy.deletion.body':
     'คุณสามารถลบโปรเจ็กต์ เซ็กเมนต์ คำศัพท์ หรือรายการบันทึกความทรงจำได้ตลอดเวลาจากหน้าเว็บที่เกี่ยวข้อง การลบบัญชีของคุณจากหน้าการตั้งค่าจะลบข้อมูลทุกแถวที่เกี่ยวข้องกับพื้นที่ทำงานออกจากฐานข้อมูลของเรา',
@@ -168,6 +173,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ไม่สามารถโหลดโปรเจ็กต์ได้',
   'projects.loading': 'กำลังโหลดโปรเจ็กต์…',
   'projects.subtitle': 'ทุกโครงการที่กำลังดำเนินการอยู่ทั่วทุกพื้นที่',
+  'renditionLayout.primaryNavLabel': 'การนำทางหลัก',
   'reset.backToLogin': '• กลับไปที่หน้าเข้าสู่ระบบ',
   'reset.passwordLabel': 'รหัสผ่านใหม่',
   'review.activeEyebrow': 'เซ็กเมนต์ {{number}}',

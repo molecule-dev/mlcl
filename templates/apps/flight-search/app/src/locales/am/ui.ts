@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
+  'about.eyebrow': 'ስለ {{app}}',
   'about.pageTitle': 'እያንዳንዱ መንገድ፣ አንድ ፍለጋ።',
   'booking.backToDetail': 'ወደ በረራ ዝርዝሮች ተመለስ',
   'booking.continue': 'ክፍያውን መቀጠልዎን ይቀጥሉ',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ግብሮች እና ክፍያዎች',
   'booking.summary.travelers': 'ተጓዦች',
   'common.about': 'ስለ',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'flightDetail.backToResults': 'ወደ ውጤቶች ተመለስ',
   'flightDetail.baseFare': 'መሰረታዊ ክፍያ',
   'flightDetail.book': 'ቦታ ማስያዝዎን ይቀጥሉ',
@@ -53,11 +56,13 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 ማቆሚያ',
   'flightResultCard.select': 'ምረጥ',
   'flightResultCard.totalLabel': 'ጠቅላላ ጊዜ',
+  'flightSearchLayout.primaryNavLabel': 'ዋና አሰሳ',
   'forgotPassword.subheading':
     'በSkylark መለያዎ ላይ ኢሜይሉን ያስገቡ እና ደህንነቱ የተጠበቀ ዳግም ማስጀመሪያ አገናኝ እንልክልዎታለን።',
   'forgotPassword.successBody': 'ቼክ {{email}} አዲስ የይለፍ ቃል ለማዘጋጀት አገናኝ። አገናኙ በ30 ደቂቃዎች ውስጥ ያበቃል።',
   'forgotPassword.successHeading': 'ዳግም አስጀምር አገናኝ ተልኳል',
   'landing.cta.explore': 'ፍለጋ ይሞክሩ',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'የሚቀጥለውን ምርጥ ዋጋ ከሌሎች ሁሉ በፊት ያግኙ።',
   'landing.cta.signup': 'ዋጋዎችን መከታተል ይጀምሩ',
   'landing.features.eyebrow': 'ስካይላር ለምን',
@@ -80,6 +85,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'ማንቂያ ያክሉ',
   'priceAlerts.deleteConfirm': 'ይህ ማንቂያ ይወገድ?',
   'priceAlerts.empty': 'እስካሁን ምንም ክትትል የሚደረግባቸው መንገዶች የሉም።',
+  'priceAlerts.emptyCta': 'ለመከታተል መንገድ ይፈልጉ',
   'priceAlerts.errorMessage': 'ማንቂያዎችን መጫን አልተቻለም።',
   'priceAlerts.eyebrow': 'የስካይላርክ የክትትል ዝርዝር',
   'priceAlerts.form.createError': 'ማንቂያ መፍጠር አልተቻለም።',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'የብዙ ከተማ የጉዞ መርሃ ግብር',
   'results.multiLegHeading': 'እግር {{n}} · {{ከ}} → {{ወደ}} · {{ቀን}}',
   'results.multiSummary': '{{count}} እግሮች · {{passengers}} ተጓዥ',
+  'results.sortAriaLabel': 'ውጤቶችን በሚከተለው ደርድር',
   'results.sortLabel': 'ደርድር',
   'results.summary': '{{count}} በረራዎች · {{passengers}} ተጓዥ',
   'settings.language.title': 'ቋንቋ',

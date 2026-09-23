@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'about.pageTitle': 'A {{appName}}-ről',
   'analytics.empty': 'Rögzítsd az első klipedet, hogy itt lásd az elköteleződést.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipek',
   'billing.usage.views': 'Megtekintések',
   'billing.usage.views.unit': 'nézetek',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'landing.cta.title': 'Küldj jobb visszajelzéseket. Kezdd a Glinttel.',
   'landing.feature.capture.body':
     'Böngészőből, asztali gépről és mobilról történő felvétel mikrofonnal, kamerával és rajzolással.',
   'landing.feature.capture.title': 'Egyérintéses rögzítés',
+  'landing.footer.copy': '© {{year}} {{appName}} . Aszinkron, világítóvá téve.',
   'landing.hero.cardCaption': 'Minta munkaterület áttekintése – próbálja ki ingyenesen.',
   'landing.hero.primaryCta': 'Ingyenes felvétel indítása',
   'landing.hero.proof.free': 'Ingyenes örök szint',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Felvételek keresése',
   'library.searchPlaceholder': 'Felvételek keresése…',
   'library.weeklyChange': '{{value}} % az előző héthez képest',
+  'nav.openMenu': 'Navigációs menü megnyitása',
   'nav.record': 'Felvétel',
   'nav.shared': 'Megosztotta velem',
   'nav.startRecording': 'Felvétel indítása',

@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'auditLog.empty':
     'உங்கள் வடிகட்டிகளுடன் இதுவரை எந்தத் தணிக்கை நிகழ்வுகளும் பொருந்தவில்லை. ஒரு பணியாளரைத் திருத்தினாலோ அல்லது ஊதியச் சுழற்சியைச் செயல்படுத்தினாலோ, அவை இங்கே தோன்றும்.',
   'auditLog.eyebrow': 'இணக்கம்',
+  'auditLog.loadError': 'தணிக்கைப் பதிவேட்டை ஏற்ற முடியவில்லை.',
   'auditLog.searchPlaceholder': 'நடிகர், செயல் அல்லது விளக்கத்தின் மூலம் தேடவும்',
   'auditLog.subheading':
     'ஒவ்வொரு ஒப்புதல், திருத்தம் மற்றும் வரித் தாக்கல் — இதில் சம்பந்தப்பட்டவர், நேரமுத்திரை மற்றும் மாற்றப்பட்ட புலங்கள் அடங்கும்.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.plansHeading': 'திட்டங்கள்',
   'billing.subheading':
     'ஸ்ட்ரைப் வழியாக உங்கள் திட்டத்தை நிர்வகிக்கவும் மற்றும் அடுக்குகளை மாற்றவும்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'மீண்டும் முயற்சி',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'ஒருங்கிணைப்பு ஸ்னாப்ஷாட்',
   'dashboard.compliance.title': 'அனைத்து சோதனைகளிலும் தேர்ச்சி',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'பதிவேட்டில் பிடித்தங்கள் எதுவும் இல்லை.',
   'employeeDetail.notFound': 'பணியாளர் காணப்படவில்லை.',
   'employeeDetail.payFrequency': 'ஊதிய அதிர்வெண்',
+  'employeeDetail.postTax': 'வரிக்குப் பின்',
+  'employeeDetail.preTax': 'வரிக்கு முந்தைய',
   'employeeDetail.salary': 'ஆண்டு சம்பளம்',
   'employeeDetail.ssn': 'எஸ்.எஸ்.என்.',
   'employeeDetail.startedOn': 'தொடங்கப்பட்டது {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'ஊதிய அதிர்வெண்',
   'employeeForm.salary': 'ஆண்டுச் சம்பளம் (அமெரிக்க டாலர்)',
   'employeeForm.salaryInvalid': 'சம்பளம் எதிர்மறையற்ற எண்ணாக இருக்க வேண்டும்.',
+  'employeeForm.saveError': 'ஊழியரைக் காப்பாற்ற முடியவில்லை.',
   'employeeForm.semimonthly': 'மாதத்திற்கு இருமுறை',
   'employeeForm.single': 'தனி',
   'employeeForm.ssn': 'எஸ்.எஸ்.என்.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'சம்பளம்',
   'forgotPassword.subtitle':
     'உங்கள் அலுவலக மின்னஞ்சலை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
+  'landing.copyright': '© {{year}} {{app}} . துல்லியமான, நம்பகமான, சீரான.',
   'landing.ctaBody':
     '30 நாட்களுக்கு இலவசம். கடன் அட்டை தேவையில்லை. உங்கள் தணிக்கைப் பதிவை இழக்காமல் எப்போது வேண்டுமானாலும் மாற்றிக்கொள்ளலாம்.',
   'landing.eyebrow': 'சிறு மற்றும் நடுத்தர வணிகங்களுக்கான ஊதியப் பட்டியல்',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'இந்த ஊதியப் பட்டியலுக்கான தணிக்கைப் பதிவுகள் இன்னும் இல்லை.',
   'payRunDetail.noStubs':
     'இன்னும் சம்பளச் சீட்டுகள் வழங்கப்படவில்லை — அவற்றை உருவாக்க ஒப்புதல் அளித்து செயலாக்கவும்.',
+  'payRunDetail.notFound': 'இந்த ஊதியச் சுழற்சியைக் கண்டறிய முடியவில்லை.',
   'payRunDetail.statDeductions': 'கழிவுகள்',
   'payRunDetail.statHeadcount': 'ஊழியர்கள்',
   'payRunDetail.statTaxes': 'பிடித்தம் செய்யப்பட்ட வரிகள்',
@@ -114,6 +123,8 @@ export const ui: UiTranslations = {
   'payRuns.eyebrow': 'சுழற்சி வரலாறு',
   'payRuns.heading': 'ஊதியச் சுழற்சிகள்',
   'payRuns.runNow': 'ஊதியப் பட்டியலை இயக்கவும்',
+  'payRuns.subheading':
+    '{{processed}} செயலாக்கப்பட்டது · {{pending}} நிலுவையில் உள்ளது · {{total}} இந்தப் பார்வை',
   'payRunsList.employeeCount': '{{count}}',
   'payRunsList.empty': 'இன்னும் ஊதியம் வழங்கப்படவில்லை. உங்கள் முதல் சுழற்சியைத் திட்டமிடுங்கள்.',
   'payRunsList.payDate': 'சம்பள தேதி · {{date}}',
@@ -199,6 +210,8 @@ export const ui: UiTranslations = {
   'runPayroll.heading': 'ஊதியப் பட்டியலை இயக்கவும்',
   'runPayroll.netPay': 'ஊழியர்களுக்கு நிகரம்',
   'runPayroll.noDraft': 'அங்கீகரிக்க வரைவு எதுவும் இல்லை',
+  'runPayroll.subheading':
+    '{{count}} பதிவுகள் · விடுப்பில் அல்லது விலக்கப்பட்ட {{flagged}} நபர்கள்',
   'runPayroll.summary': 'சுழற்சி சுருக்கம்',
   'runPayroll.taxes': 'பிடித்தம் செய்யப்பட்ட வரிகள்',
   'settings.address': 'முதன்மை முகவரி',
@@ -218,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'மாதத்திற்கு இருமுறை',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.subheading': 'நிறுவன விவரக்குறிப்பு, ஊதிய அட்டவணை மற்றும் ஒருங்கிணைப்புகள்.',
+  'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.weekly': 'வாராந்திர',
   'taxCenter.bucket.federal': 'கூட்டாட்சி வருமானம்',
   'taxCenter.bucket.fica': 'சமூகப் பாதுகாப்பு',

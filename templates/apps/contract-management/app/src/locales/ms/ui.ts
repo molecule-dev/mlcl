@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
   'authBrandPanel.quote':
     '"Vellum kini merupakan sistem rekod bagi setiap perjanjian yang ditandatangani yang kami miliki."',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'contractDetail.amount': 'Nilai',
   'contractDetail.back': 'Semua kontrak',
   'contractDetail.downloadCta': 'Muat Turun PDF',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Jika akaun wujud untuk {{email}} , pautan tetapan semula sedang dalam proses.',
   'forgotPassword.subtitle': 'Kami akan menghantar pautan tetapan semula ke e-mel kerja anda.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Dibina dengan Molekul.',
   'landing.ctaHeading': 'Lihat portfolio anda ditutup pada hari pertama.',
   'landing.ctaPrimary': 'Mulakan ruang kerja',
   'landing.eyebrow': 'Untuk Operasi Perundangan & Perolehan',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Nama pihak lawan diperlukan.',
   'newContract.errEmail': 'Emel penandatangan diperlukan.',
   'newContract.expires': 'Tarikh luput',
+  'newContract.failed': 'Tidak dapat membuat kontrak.',
   'newContract.heading': 'Kontrak baharu',
   'newContract.nextCta': 'Seterusnya',
   'newContract.review.counterparty': 'Pihak Berlawanan',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Tajuk kontrak',
   'newContract.titlePlaceholder': 'Perjanjian Perkhidmatan Induk',
   'newContract.variablesHeading': 'Pembolehubah kontrak',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.dataExport': 'Eksport data',
   'pricing.disabled': 'Tidak',
   'pricing.enabled': 'Ya',
@@ -145,15 +151,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Tidak dapat memadam akaun.',
   'settings.security.deleting': 'Memadam…',
   'settings.security.newPassword': 'Kata laluan baharu',
+  'settings.security.noDevices': 'Tiada peranti berdaftar.',
   'settings.security.twoFactor': 'Pengesahan dua faktor',
   'settings.security.twoFactorDisable': 'Lumpuhkan',
   'settings.security.twoFactorEnable': 'Aktifkan',
+  'settings.security.twoFactorInvalidCode': 'Kod tidak sah.',
   'settings.signatures.body':
     'Nama yang ditaip anda akan dipaparkan pada baris tandatangan setiap kontrak yang anda tandatangani. Tetapkannya sekali dan ia akan dipaparkan secara automatik selepas ini.',
   'settings.signatures.heading': 'Blok tandatangan',
   'settings.signatures.save': 'Simpan tandatangan',
+  'sign.action': 'Tandatangani dokumen ini',
+  'sign.eyebrow': 'Tandatangan diminta',
+  'sign.for': 'Untuk {{name}}',
+  'sign.loadError': 'Pautan tandatangan ini tidak sah atau telah tamat tempoh.',
   'sign.loading': 'Memuatkan…',
   'sign.signing': 'Menandatangani…',
+  'sign.submitError':
+    'Tidak dapat merekodkan tandatangan anda — pautan mungkin telah tamat tempoh.',
   'signup.brandQuote':
     'Kami memindahkan kertas selama 8 tahun ke dalam Vellum dalam masa seminggu. Jejak audit sahaja telah mewajarkan pertukaran itu.',
   'signup.companyPlaceholder': 'Pedagang Northwind',
@@ -188,6 +202,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Kontrak terbuka →',
   'vellumKpiCard.trend': 'Trend terkini',
+  'vellumLayout.closeMenu': 'Tutup menu navigasi',
+  'vellumLayout.openMenu': 'Buka menu navigasi',
   'vellumLayout.primaryNavLabel': 'Navigasi utama',
   'vellumPortfolioHero.expiring': 'Tamat tempoh pada 30hb',
   'vellumPortfolioHero.label': 'Nilai portfolio',

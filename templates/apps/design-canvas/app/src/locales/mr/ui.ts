@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
   'authShell.brandHeading': 'एकत्रितपणे काम करणाऱ्या डिझाइन टीमसाठी अचूक कॅनव्हास.',
   'canvas.redirecting': 'संपादकाचे उद्घाटन…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'आणि',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'dashboard.activityEmpty':
     'अद्याप कोणतीही अलीकडील हालचाल नाही — सुरुवात करण्यासाठी एका सहकाऱ्याला आमंत्रित करा.',
   'dashboard.activityTitle': 'आज काय बदलले',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'कार्यक्षेत्र · नॉर्थविंड स्टुडिओ',
   'dashboard.foldersLabel': 'फोल्डर्स',
   'dashboard.gridTitle': '{{count}} प्रकल्प',
+  'dashboard.heroActiveTool': 'पेन टूल',
   'dashboard.loadingTitle': 'प्रकल्प लोड होत आहेत…',
   'dashboard.searchPlaceholder': 'प्रकल्प शोधा',
   'dashboard.startFromTemplate': 'टेम्पलेटपासून सुरुवात करा',
   'dashboard.title': 'तुमचे प्रकल्प',
   'dashboard.untitledProject': 'शीर्षक नसलेला प्रकल्प',
   'designCanvasLayout.newProject': 'नवीन प्रकल्प',
+  'designCanvasLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'editor.backToProjects': 'प्रकल्पांकडे परत जा',
   'editor.deleteShape': 'आकार हटवा',
   'editor.errorBody': 'आम्ही हा प्रकल्प सुरू करू शकलो नाही.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'तुमच्या हातांच्या गतीने काम करणारी साधने डिझाइन करा.',
   'library.empty': 'या विभागात अद्याप कोणतेही टोकन नाहीत.',
   'library.eyebrow': 'कार्यक्षेत्र · ॲटेलियर डिझाइन सिस्टम',
+  'library.loadFailed': 'डिझाइन टोकन लोड करता आले नाहीत.',
   'library.systemMeta': 'सिस्टम आरोग्य',
   'library.systemSummary': '{{tokens}} टोकन · {{घटक}} घटक · {{परिणाम}} परिणाम',
   'login.emailPlaceholder': 'mara@studio.com',

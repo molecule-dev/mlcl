@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie mus',
   'applications.empty':
     'Kol kas paraiškų nėra \\2014 tinkamas vaidmuo – tereikia vienos paraiškos.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Kiekvienas vaidmuo, į kurį kreipėtės, judesyje. Filtruokite pagal etapą, kad sutelktumėte dėmesį.',
   'applications.untitledRole': 'Rolės nr. {{id}}',
+  'auth.legalConsent': 'Tęsdami sutinkate su mūsų',
   'common.and': 'ir',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'companies.empty': 'Nėra įmonių, atitinkančių jūsų paiešką \\u2014 bandykite kitą terminą.',
   'companies.eyebrow': 'Rekomenduojami darbdaviai',
   'companies.searchPlaceholder': 'Ieškoti pagal pavadinimą, pramonės šaką, vietą',
@@ -52,6 +55,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Šiam vaidmeniui dar nėra paraiškų.',
   'jobApplicants.eyebrow': 'Darbdavio požiūris',
   'jobApplicants.loading': 'Kraunama\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Nepavyko atnaujinti to etapo – bandykite dar kartą.',
+  'jobApplicants.subheading':
+    'Peržiūrėkite gyvenimo aprašymus, siūlykite kandidatams aukštesnius reitingus, siųskite pasiūlymus ir siųskite {{count}} į priekį.',
   'jobDetail.applicantCount': '{{count}} pareiškėjai iki šiol',
   'jobDetail.applied': 'Paraiška išsiųsta',
   'jobDetail.apply': 'Pateikti paraišką dabar',
@@ -85,12 +91,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Naršyti laisvas darbo vietas \\u2192',
   'landing.pricingEyebrow': 'Kainodara',
   'landing.pricingHeading': 'Paprasti planai bet kokio dydžio komandai.',
+  'login.eyebrow': 'Sveiki sugrįžę į {{app}}',
   'login.heading': 'Prisijunkite prie savo paskyros',
   'login.noAccount': 'Naujokas Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Prisiminti mane 30 dienų',
   'login.signingIn': 'Prisijungimas...',
   'login.subheading': 'Pradėkite paiešką, patobulinkite paraiškas ir greičiau gaukite atsakymą.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Sukurta komandų įdarbinimui.',
   'loginBrandPanel.headline': 'Kur susitinka talentai',
   'loginBrandPanel.headlineLine2': 'pagreitis.',
   'loginBrandPanel.listing.recruiter': 'Talentų partneris',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'Paraiškų atnaujinimai, kvietimai į pokalbius, naujausi atitikmenys ir naujausios nuorodos.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} šią savaitę',
   'opportunitiesHero.eyebrow': 'Šiandien atidaryta',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'postJob.addNewCompany': '+ Pridėti naują įmonę',
   'postJob.companyCreateFailed': 'Nepavyko sukurti įmonės – bandykite dar kartą.',
   'postJob.companyNameLabel': 'Jūsų įmonės pavadinimas',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Kuriama paskyra\\u2026',
   'signup.ctaEmployer': 'Sukurti darbdavio paskyrą',
   'signup.firstNamePlaceholder': 'Maja',
+  'signup.lastNamePlaceholder': 'Čenas',
   'signup.passwordMismatch': 'Slaptažodžiai nesutampa.',
   'signup.subheading':
     'Ieškantiems nemokamai, amžinai. Darbdaviai pradeda su 30 dienų bandomuoju laikotarpiu.',
   'timeAgo.days': '{{count}} prieš d.',
   'timeAgo.hours': '{{count}} prieš val.',
   'timeAgo.justNow': 'ką tik',
+  'timeAgo.weeks': '{{count}} sav.',
 }

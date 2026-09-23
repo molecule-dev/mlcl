@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
   'actions.empty': 'Uyğun əməliyyat elementi yoxdur.',
   'actions.heading': 'Fəaliyyət elementləri',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Əvvəlki ay',
   'calendar.recent': 'Son',
   'common.daysAgo': '{{count}} gün əvvəl',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.hoursAgo': '{{count}} saat əvvəl',
   'common.no': '—',
+  'common.retry': 'Təkrar cəhd edin',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} fəaliyyət elementləri',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Sıfırlama linki üçün gələnlər qutunuzu yoxlayın.',
   'forgot.subheading': 'E-poçtunuzu daxil edin və biz sıfırlama linki göndərəcəyik.',
   'integrations.disconnected': 'Bağlantı kəsilib',
+  'integrations.loadError': 'İnteqrasiyaları yükləmək alınmadı.',
   'integrations.notConnectedTag': 'Qoşulmamışdır',
   'integrations.subheading':
     'Murmur avtomatik olaraq qoşulması üçün təqvimləri və video platformalarını birləşdirin.',
+  'integrations.updateError': 'Yeniləmə uğursuz oldu.',
   'landing.ctaButton': 'Başlayın — pulsuzdur',
   'landing.ctaHeading': 'Qeydlər götürməyi dayandırın. Qərarlar verməyə başlayın.',
   'landing.demo.aiLabel': 'Süni intellekt xülasəsi, canlı hazırlanıb',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'İzləmələr',
   'meetingDetail.loadError': 'Görüşü yükləmək alınmadı.',
   'meetingDetail.noActions': 'Heç bir əməliyyat elementi aşkarlanmadı.',
+  'meetingDetail.none': 'Heç biri.',
   'meetingDetail.notFound': 'Görüş tapılmadı.',
+  'meetingDetail.speakerFallback': 'Spiker {{id}}',
   'meetingDetail.summaryHeading': 'Süni intellekt xülasəsi',
   'meetingDetail.transcriptHeading': 'Transkript',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Görüşlər',
   'meetings.loadError': 'Görüşləri yükləmək alınmadı.',
   'meetings.subheading': 'Hər qeydə alınmış, yüklənmiş və sinxronlaşdırılmış görüş.',
+  'murmurLayout.openMenu': 'Naviqasiya menyusunu açın',
   'murmurLayout.primaryNavLabel': 'Əsas naviqasiya',
   'nav.legal': 'Hüquqi',
   'notifications.loadError': 'Bildirişləri yükləmək alınmadı.',
@@ -100,6 +108,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmurun içində necə göründüyünüz.',
   'record.error.empty': 'Heç bir səs yazısı qeydə alınmadı.',
   'record.error.permission': 'Mikrofon icazəsi rədd edildi.',
+  'record.error.recorder': 'Səsyazma cihazı xətası',
   'record.error.unsupported':
     'Brauzeriniz qeyd etməyi dəstəkləmir. Chrome, Edge və ya Safari-ni sınayın.',
   'record.error.upload': 'Yükləmə uğursuz oldu. Yenidən cəhd edin.',
@@ -114,6 +123,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Yeni parol',
   'reset.subheading': 'Başqa yerdə istifadə etmədiyiniz bir parol seçin.',
   'search.empty': 'Transkriptləri axtarmaq üçün yazın.',
+  'search.loadError': 'Axtarış uğursuz oldu. Yenidən cəhd edin.',
   'search.noResults': '"" üçün nəticə yoxdur {{q}} ".',
   'settings.appearance.description': 'İşıq və qaranlıq rejim arasında keçid edin.',
   'settings.appearance.title': 'Görünüş',
@@ -122,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Parametrləri yükləmək alınmadı.',
   'settings.loading': 'Yüklənir…',
   'settings.push.heading': 'Push bildirişləri',
+  'settings.push.subheading':
+    'Qeydlər, fəaliyyət elementləri və xülasələr üçün brauzer bildirişləri alın.',
   'settings.retention.audio': 'Audionu saxlayın',
   'settings.retention.heading': 'Saxlama',
   'settings.retention.transcript': 'Transkriptləri saxlayın',
@@ -139,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Görüş qeydlərini dəqiqələr ərzində çəkməyə başlayın',
   'signup.terms':
     'Hesab yaratmaqla, Xidmət Şərtlərimizi və Məxfilik Siyasətimizi qəbul etmiş olursunuz.',
+  'signup.termsPrefix': 'Hesab yaratmaqla siz bizimlə razılaşırsınız',
   'team.inviteCta': 'Komanda yoldaşını dəvət et',
   'team.invitedAs': 'Dəvət olunmuş kimi {{role}}',
   'team.inviteFailed': 'Dəvət göndərilə bilmədi.',

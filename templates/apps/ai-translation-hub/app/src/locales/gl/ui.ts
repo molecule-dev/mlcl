@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'billing.canceled': 'Subscrición cancelada. Volverás á versión gratuíta ao final do período.',
   'billing.contactSales': 'Contactar con vendas',
   'billing.free.1': '5 traducións',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Sen límite de retención',
   'billing.upgradeHint': 'Actualiza para desbloquear funcións avanzadas de IA.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Ir ao panel',
   'dashboard.activityEmpty': 'Aínda sen actividade: inicia un proxecto para poboar esta fonte.',
   'dashboard.eyebrow': 'Visión xeral',
   'dashboard.projectsEmpty': 'Aínda non hai proxectos. Comeza un para velo aquí.',
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Reutiliza traducións anteriores en cada proxecto. Maior puntuación de coincidencia → menos retraballo.',
   'memory.title': 'Banco de memoria',
+  'mobileNav.closeMenu': 'Pechar o menú de navegación',
+  'mobileNav.openMenu': 'Abrir menú de navegación',
   'nav.legal': 'Legal',
   'newProject.addLanguage': 'Engadir obxectivo',
   'newProject.create': 'Crear proxecto',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Marcado {{count}} notificacións segundo a lectura.',
   'notifications.subtitle':
     'Mencións, solicitudes de revisión e eventos de IA desde todos os teus espazos de traballo.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'privacy.collection.account': 'Correo electrónico e nome para mostrar da túa conta',
   'privacy.deletion.body':
     'Podes eliminar un proxecto, segmento, termo do glosario ou entrada de memoria en calquera momento desde a páxina correspondente. Ao eliminar a túa conta desde Configuración, elimínanse todas as filas do ámbito do espazo de traballo da nosa base de datos.',
@@ -177,6 +182,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Non se puideron cargar os proxectos.',
   'projects.loading': 'Cargando proxectos…',
   'projects.subtitle': 'Todos os proxectos activos en todas as localizacións.',
+  'renditionLayout.primaryNavLabel': 'Navegación principal',
   'reset.backToLogin': 'Volver ao inicio de sesión',
   'reset.passwordLabel': 'Novo contrasinal',
   'review.activeEyebrow': 'Segmento {{number}}',

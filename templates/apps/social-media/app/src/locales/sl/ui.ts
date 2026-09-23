@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.pageTitle': 'O aplikaciji {{app}}',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
+  'common.retry': 'Poskusi znova',
   'compose.cancel': 'Prekliči',
   'compose.captionPlaceholder': 'Kaj imaš na umu?',
   'compose.heading': 'Delite trenutek',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Preverjen račun',
   'resetPassword.newPassword': 'Novo geslo',
   'resetPassword.subheading': 'Izberite nekaj močnega – vsaj 12 znakov.',
+  'search.clearAria': 'Jasno',
+  'search.error': 'Iskanje ni uspelo. Poskusite znova.',
   'search.noPeople': 'Ni ujemajočih se ustvarjalcev {{q}} ".',
   'search.noPosts': 'Ni ujemajočih se objav " {{q}} ".',
   'search.noTags': 'Še ni trendovskih hashtagov.',
@@ -125,6 +131,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Skrij geslo',
   'signup.showPassword': 'Pokaži geslo',
   'signup.subheading': 'Ustvarite račun, da začnete deliti.',
+  'socialMediaLayout.closeMenu': 'Zapri navigacijski meni',
+  'socialMediaLayout.openMenu': 'Odpri navigacijski meni',
+  'socialMediaLayout.primaryNavLabel': 'Primarna navigacija',
   'storyRail.heading': 'Zgodbe',
   'storyRail.label': 'Zgodbe',
   'storyRail.openAria': 'Odprto {{handle}} zgodba',

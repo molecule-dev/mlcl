@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'analytics.col.quorum': 'Kvorum',
   'analytics.col.votes': 'Stemmer',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Ingen ventende spørgsmål endnu.',
   'audienceQa.onStageEyebrow': 'På scenen nu',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Fremhæv',
   'audienceQa.queued': 'i kø',
   'audienceQa.queueEyebrow': 'Kø',
   'ballot.eyebrow': 'Afgiv din stemme',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Du er i øjeblikket på {{plan}} plan.',
   'billing.switch': 'Skift',
   'billing.upgraded': 'Opdateret til {{plan}} — grænser anvendes øjeblikkeligt.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'createPoll.addOption': 'Tilføj valgmulighed',
   'createPoll.anonymousHint':
     'Vælgernavne skjult i revisionsloggen; optællinger forbliver autentificerede.',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ny til Nosh?',
   'login.remember': 'Husk mig i 30 dage',
   'login.subheading': 'Åbn gulvet, kør rummet, og certificer resultatet.',
+  'mobileNav.closeMenu': 'Luk navigationsmenuen',
+  'mobileNav.openMenu': 'Åbn navigationsmenuen',
   'notFound.body':
     'Den side, du forsøgte at nå, er blevet lukket eller flyttet. Gå tilbage til dashboardet, eller åbn en ny afstemning.',
   'notFound.eyebrow': 'Intet quorum på denne rute',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Kunne ikke indlæse denne afstemning.',
   'pollDetail.loading': 'Indlæser afstemning…',
   'pollDetail.notFound': 'Afstemning ikke fundet.',
+  'pollDetail.openBallot': 'Åben afstemning',
   'pollDetail.openLive': 'Live-resultater',
   'pollDetail.pollId': 'afstemning · {{id}}',
   'pollDetail.published': 'Afstemning offentliggjort – vælgere kan nu afgive stemme.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Søg via e-mail…',
   'voters.subheading':
     'Udvælg den berettigede stemmeseddel. Gruppér vælgerne efter organisation for at få vægtede stemmesedler.',
+  'votingPollingLayout.nav.analytics': 'Analyser',
+  'votingPollingLayout.nav.billing': 'Fakturering',
+  'votingPollingLayout.nav.createPoll': 'Ny afstemning',
+  'votingPollingLayout.nav.dashboard': 'Oversigt',
+  'votingPollingLayout.nav.notifications': 'Notifikationer',
+  'votingPollingLayout.nav.settings': 'Indstillinger',
+  'votingPollingLayout.nav.team': 'Hold',
+  'votingPollingLayout.nav.voters': 'vælgere',
+  'votingPollingLayout.primaryNavLabel': 'Primær navigation',
 }

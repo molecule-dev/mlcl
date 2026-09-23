@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'မင်းရဲ့ အခန်းကဏ္ဍ',
   'account.role.upgradeLink': 'အတည်ပြုထားသော ကျူရှင်ဆရာ ဖြစ်လာရန် လျှောက်ထားပါ →',
   'account.title': 'ပရိုဖိုင်၊ ငွေပေးချေမှုနှင့် ဦးစားပေးမှုများ။',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'ချော့ခဲပေါ်မှာ သင်ပေး',
   'becomeTutor.form.error': 'လျှောက်လွှာတင်၍မရပါ။',
   'becomeTutor.form.pitchPlaceholder':
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'ဘာသာရပ်',
   'bookingConfirm.title': 'မင်းစာရင်းသွင်းပြီးပြီ။ ကျန်တာငါတို့ကိုင်တွယ်ပေးမယ်။',
   'bookingConfirm.with': 'ကျူရှင်ဆရာနှင့်အတူ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'earningsHero.eyebrow': 'ဝင်ငွေ • {{month}}',
   'forgotPassword.heading': 'သင့်စကားဝှက်ကိုမေ့နေပါသလား?',
   'forgotPassword.subheading':
@@ -116,6 +118,7 @@ export const ui: UiTranslations = {
   'messages.send': 'မက်ဆေ့ချ်ပို့ပါ',
   'messages.thread.empty': 'နှုတ်ဆက်ပါ - စကားစမြည်စပြောပါ။',
   'messages.title': 'သင့်ရဲ့ ကျူရှင်ဆရာတွေနဲ့ ပတ်သက်တဲ့ အကြောင်းအရာတွေ။',
+  'nav.primary': 'မူလတန်း',
   'pricing.dataExport': 'ဒေတာ ထုတ်ယူမှု-',
   'pricing.headingDefault': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'resetPassword.heading': 'ခိုင်မာတဲ့ စကားဝှက်အသစ်ကို ရွေးချယ်ပါ။',

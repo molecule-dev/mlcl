@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
   'about.tagline': 'رازها در آشکار شدن می‌میرند.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'ایجاد توکن',
   'apiTokens.kicker': 'توکن‌های API',
   'apiTokens.loading': 'در حال بارگذاری توکن‌ها…',
+  'apiTokens.new': 'توکن جدید',
   'apiTokens.revoke': 'توکن را لغو کنید',
   'apiTokens.subheading':
     'توکن‌های شخصی و خدماتی برای رابط خط فرمان و کیت توسعه نرم‌افزار آرکانوم. متن ساده یک بار در هنگام ایجاد نمایش داده می‌شود.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + رمز عبور',
   'authShell.zeroKnowledge': 'رمزگذاری بدون دانش',
   'common.connecting': 'در حال اتصال…',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'common.inviting': 'دعوت کننده…',
   'forgotPassword.checkInbox':
     'اگر {email} ثبت شده باشد، یک لینک بازنشانی امضا شده ظرف یک دقیقه دریافت خواهد شد.',
@@ -74,6 +77,7 @@ export const ui: UiTranslations = {
   'notifications.kicker': 'صندوق ورودی',
   'notifications.subheading': 'وضعیت چرخش، هشدارهای ناهنجاری و درخواست‌های تأیید در هر گاوصندوق.',
   'notifications.unreadEmpty': 'صندوق ورودی صفر - همه چیز حل شد.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.heading': 'اسرار',
   'pricing.limits.accessPolicies': 'سیاست‌های دسترسی',
   'pricing.limits.auditLog': 'ورودی‌های گزارش حسابرسی',
@@ -82,9 +86,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'حساب شخصی',
   'profile.plan.description': 'اشتراک خود را مدیریت کنید، محدودیت‌ها را ببینید و ارتقا دهید.',
   'profile.subheading': 'هویت، دستگاه‌های عامل دوم و جلسات فعال.',
+  'profile.twoFactor.code': 'کد احراز هویت',
   'profile.twoFactor.disable': 'غیرفعال کردن',
   'profile.twoFactor.enable': 'فعال کردن',
+  'profile.twoFactor.invalidCode': 'کد نامعتبر',
   'profile.twoFactor.kicker': 'احراز هویت دو عاملی',
+  'profile.twoFactor.off': 'فعال نشده',
   'profile.twoFactor.on': 'فعال شده',
   'resetPassword.email': 'ایمیل حساب کاربری',
   'resetPassword.heading': 'تنظیم اعتبارنامه‌های جدید',
@@ -129,6 +136,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'دستورات',
   'secretsManagerLayout.encrypted': 'AES-256 · رمزگذاری شده',
   'secretsManagerLayout.newVault': 'خزانه جدید',
+  'secretsManagerLayout.newVaultShort': 'جدید',
   'secretsManagerLayout.rotations': 'چرخش‌ها',
   'secretsManagerLayout.search': 'جستجو',
   'secretsManagerLayout.searchPlaceholder': 'جستجوی اسرار بر اساس کلید، مسیر یا برچسب…',
@@ -167,6 +175,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'اسرار',
   'vaultCard.vaultLabel': 'خزانه',
   'vaultDetail.addSecret': 'راز اضافه کنید',
+  'vaultDetail.back': 'همه خزانه‌ها',
   'vaultDetail.col.key': 'کلید',
   'vaultDetail.col.rotated': 'چرخانده شده',
   'vaultDetail.col.value': 'ارزش',

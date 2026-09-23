@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'authShell.brandHeading': 'لوحات تعاونية متعددة المستخدمين لفرق التصميم التي تفكر بصوت عالٍ.',
   'billing.canceled': 'تم إلغاء الاشتراك.',
   'billing.cancelPlan': 'إلغاء الخطة',
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ابدأ من قالب',
   'boards.title': 'لوحاتك',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading': 'أدخل البريد الإلكتروني المرتبط بمساحة العمل وسنرسل لك رابط إعادة التعيين.',
   'forgot.success.body':
@@ -81,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'ورشة الربع الأول · صوت العلامة التجارية',
   'landing.featuresEyebrow': 'ما يجعل Slate متناسقة',
   'landing.featuresTitle': 'تعليقات سريعة. لوحات جميلة. صفر احتكاك.',
+  'landing.hero.body':
+    '{{appName}} عبارة عن لوحة بيضاء متعددة اللاعبين لفرق التصميم، وميسري ورش العمل، والمعلمين الذين يديرون جلسات عصف ذهني مباشرة ويحتاجون إلى تجميع الأفكار في مكان واحد.',
   'landing.hero.primaryCta': 'ابدأ لوحة مجاناً',
   'landing.hero.socialProof': 'موثوقة من قبل {{count}} فريق تصميم حول العالم',
   'landing.hero.title': 'لوحة بسرعة أفكارك',
@@ -91,6 +95,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'أنشئ مساحة عمل مجانية',
   'login.subheading':
     'أكمل من حيث توقفت الورشة — اللوحات والملاحظات اللاصقة والمؤشرات تتزامن جميعها في الوقت الفعلي.',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.new': 'جديد',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'notifications.editTitle': 'تعديلات على "{{board}}"',
   'notifications.empty.body': 'ستظهر الدعوات وحفظ اللقطات وتعديلات اللوحة الأخيرة هنا فور حدوثها.',
   'notifications.empty.title': 'لا جديد في صندوق الوارد',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'سجل الإصدارات',
   'versionHistory.untitledSnapshot': 'لقطة بدون عنوان',
   'whiteboardLayout.newBoard': 'لوحة جديدة',
+  'whiteboardLayout.primaryNav': 'التنقل الرئيسي',
   'workspace.boardLabel': 'اللوحة',
   'workspace.eyebrow': '{{name}} · مساحة العمل',
   'workspace.invite': 'دعوة متعاونين',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'analytics.col.quorum': 'ಕೋರಂ',
   'analytics.col.votes': 'ಮತಗಳು',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳು ಬಾಕಿ ಉಳಿದಿಲ್ಲ.',
   'audienceQa.onStageEyebrow': 'ಈಗ ವೇದಿಕೆಯಲ್ಲಿದ್ದೇನೆ',
   'audienceQa.pollId': 'ಕ್ವಾ · {{id}}',
+  'audienceQa.promote': 'ಪ್ರಚಾರ ಮಾಡಿ',
   'audienceQa.queued': 'ಸರದಿಯಲ್ಲಿದೆ',
   'audienceQa.queueEyebrow': 'ಸರದಿ',
   'ballot.eyebrow': 'ನಿಮ್ಮ ಮತಪತ್ರವನ್ನು ಚಲಾಯಿಸಿ',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ನೀವು ಪ್ರಸ್ತುತ ಇಲ್ಲಿದ್ದೀರಿ {{plan}} ಯೋಜನೆ.',
   'billing.switch': 'ಬದಲಿಸಿ',
   'billing.upgraded': 'ನವೀಕರಿಸಲಾಗಿದೆ {{plan}} - ಮಿತಿಗಳನ್ನು ತಕ್ಷಣವೇ ಅನ್ವಯಿಸಲಾಗುತ್ತದೆ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'createPoll.addOption': 'ಆಯ್ಕೆಯನ್ನು ಸೇರಿಸಿ',
   'createPoll.anonymousHint':
     'ಆಡಿಟ್ ಲಾಗ್‌ನಲ್ಲಿ ಮತದಾರರ ಹೆಸರುಗಳನ್ನು ಮರೆಮಾಡಲಾಗಿದೆ; ತಾಳೆ ಮಾಡುವಿಕೆಗಳು ದೃಢೀಕರಿಸಲ್ಪಟ್ಟಿವೆ.',
@@ -161,6 +164,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ನೋಶ್‌ಗೆ ಹೊಸಬರೇ?',
   'login.remember': 'ನನ್ನನ್ನು 30 ದಿನಗಳವರೆಗೆ ನೆನಪಿಡಿ',
   'login.subheading': 'ನೆಲವನ್ನು ತೆರೆಯಿರಿ, ಕೊಠಡಿಯನ್ನು ಓಡಿಸಿ ಮತ್ತು ಫಲಿತಾಂಶವನ್ನು ಪ್ರಮಾಣೀಕರಿಸಿ.',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'notFound.body':
     'ನೀವು ತಲುಪಲು ಪ್ರಯತ್ನಿಸಿದ ಪುಟವನ್ನು ಮುಚ್ಚಲಾಗಿದೆ ಅಥವಾ ಸರಿಸಲಾಗಿದೆ. ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹಿಂತಿರುಗಿ ಅಥವಾ ಹೊಸ ಸಮೀಕ್ಷೆಯನ್ನು ತೆರೆಯಿರಿ.',
   'notFound.eyebrow': 'ಈ ಮಾರ್ಗದಲ್ಲಿ ಕೋರಂ ಇಲ್ಲ.',
@@ -187,6 +192,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'ಈ ಸಮೀಕ್ಷೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'pollDetail.loading': 'ಸಮೀಕ್ಷೆಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'pollDetail.notFound': 'ಸಮೀಕ್ಷೆ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'pollDetail.openBallot': 'ಮುಕ್ತ ಮತಪತ್ರ',
   'pollDetail.openLive': 'ನೇರ ಫಲಿತಾಂಶಗಳು',
   'pollDetail.pollId': 'ಸಮೀಕ್ಷೆ · {{id}}',
   'pollDetail.published': 'ಸಮೀಕ್ಷೆ ಪ್ರಕಟವಾಗಿದೆ — ಮತದಾರರು ಈಗ ಮತಪತ್ರಗಳನ್ನು ಚಲಾಯಿಸಬಹುದು.',
@@ -269,4 +275,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'ಇಮೇಲ್ ಮೂಲಕ ಹುಡುಕಿ...',
   'voters.subheading':
     'ಅರ್ಹ ಮತದಾರರ ಪಟ್ಟಿಯನ್ನು ಕ್ಯುರೇಟ್ ಮಾಡಿ. ತೂಕದ ಮತಪತ್ರಗಳಿಗಾಗಿ ಸಂಸ್ಥೆಯ ಮೂಲಕ ಮತದಾರರನ್ನು ಗುಂಪು ಮಾಡಿ.',
+  'votingPollingLayout.nav.analytics': 'ವಿಶ್ಲೇಷಣೆ',
+  'votingPollingLayout.nav.billing': 'ಬಿಲ್ಲಿಂಗ್',
+  'votingPollingLayout.nav.createPoll': 'ಹೊಸ ಸಮೀಕ್ಷೆ',
+  'votingPollingLayout.nav.dashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
+  'votingPollingLayout.nav.notifications': 'ಅಧಿಸೂಚನೆಗಳು',
+  'votingPollingLayout.nav.settings': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
+  'votingPollingLayout.nav.team': 'ತಂಡ',
+  'votingPollingLayout.nav.voters': 'ಮತದಾರರು',
+  'votingPollingLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
 }

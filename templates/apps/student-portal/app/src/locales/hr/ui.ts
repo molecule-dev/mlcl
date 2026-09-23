@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'announcementsFeed.empty': 'Još nema najava.',
   'announcementsFeed.eyebrow': '{{count}} ažuriranja',
   'announcementsFeed.title': 'Najnovije najave',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Ništa ovdje',
   'assignments.emptyBody': 'Promijenite filtere iznad da biste vidjeli zadatke u drugom stanju.',
   'assignments.eyebrow': 'Svi tečajevi · Ovaj semestar',
+  'assignments.loadError': 'Nije moguće učitati zadatke.',
   'assignments.loading': 'Učitavanje zadataka…',
   'assignments.subtitle':
     'Filtrirajte po statusu da biste vidjeli što je dospjelo, predano, ocijenjeno ili nedostaje.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Bilješka',
   'attendance.empty': 'Još nema evidencije o posjećenosti.',
   'attendance.eyebrow': 'Proljetni semestar · Posljednja 4 tjedna',
+  'attendance.loadError': 'Nije moguće učitati zapise o prisutnosti.',
   'attendance.loading': 'Učitavanje prisutnosti…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Rokovi predaje zadataka prikazani su na mjesečnoj mreži - ispiti su označeni crvenom bojom.',
   'calendar.title': '{{month}} događaji',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.no': '—',
+  'common.retry': 'Pokušajte ponovno',
   'common.yes': '✓',
   'courseDetail.backLink': 'Ocjene',
   'courseDetail.currentGrade': 'Trenutna ocjena',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Još nije objavljena nijedna ocjena.',
   'grades.eyebrow': 'Knjiga ocjena',
+  'grades.loadError': 'Nije moguće učitati vaše ocjene.',
   'grades.loading': 'Učitavanje ocjena…',
   'grades.subtitle':
     'Ocjene uživo u obliku slova i postotka. Strelice trenda pokazuju krećete li se prema gore, na istoj razini ili padate.',
   'grades.title': 'Vaše ocjene, tečaj po tečaj',
   'grades.trendStable': 'Stabilan',
+  'landing.copyright': '© {{year}} {{app}} . Izrađeno za studente, napravljeno za obitelji.',
   'landing.ctaHeading': 'Mirniji školski dan počinje za nekoliko minuta',
   'landing.eyebrow': 'Za srednjoškolce i srednjoškolce',
   'landing.featuresHeading': 'Školski dan organiziran oko učenika',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Zadaci',
   'nav.attendance': 'Prisutnost',
   'nav.calendar': 'Kalendar',
+  'nav.closeMenu': 'Zatvori navigacijski izbornik',
   'nav.grades': 'Ocjene',
+  'nav.openMenu': 'Otvori navigacijski izbornik',
   'nav.statusEyebrow': 'Prosjek ocjena za semestar',
   'nav.statusSubtext': 'Popis počasnih osoba · Proljetni semestar',
+  'nav.unreadMessages': 'Nepročitane poruke',
   'notifications.eyebrow': '{{count}} ažuriranja',
   'notifications.subtitle':
     'Ocjene, podsjetnici, poruke i školske obavijesti. U Postavkama prilagodite koje kanale svaka obavijest koristi.',
+  'planUpdated.verifying': 'Potvrda vaše uplate…',
   'pricing.attendanceLabel': 'posjećenost',
   'pricing.gradesLabel': 'ocjene',
   'pricing.heading': 'najave',

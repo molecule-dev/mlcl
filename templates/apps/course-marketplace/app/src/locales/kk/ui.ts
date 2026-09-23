@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Курстар жүктелуде…',
   'browse.next': 'Келесі бет',
   'browse.results': 'Көрсетілуде {{count}} курстар',
+  'browse.searchChip': '« {{query}} »',
   'browse.sort': 'Бойынша сұрыптау',
   'browse.subtitle':
     'Редакциялық мұрағатты тақырып, деңгей және баға бойынша сүзгіден өткізіңіз. Әрбір курсты біздің редакторларымыз қолмен таңдайды.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Сертификатыңызға қол қойылды және дайын. Оны әлеммен бөлісіңіз немесе табыс табу үшін жұмсалған еңбекті еске салу үшін сақтаңыз.',
   'certificate.copyLink': 'Бөлісу сілтемесін көшіру',
+  'certificate.copyPrompt': 'Осы сілтемені көшіріңіз:',
   'certificate.download': 'PDF жүктеп алу',
   'certificate.eyebrow': 'Жетістік ашылды',
   'certificate.linkCopied': 'Сілтеме көшірілді!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Сіз тіркелдіңіз!',
   'checkout.verifying': 'Тіркелуіңіз тексерілуде…',
   'checkout.viewLibrary': 'Менің оқуымды қарау',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.retry': 'Қайтадан байқап көріңіз',
   'courseDetail.about': 'Бұл курс туралы',
   'courseDetail.checkoutPending': 'Касса басталуда…',
   'courseDetail.continueLearning': 'Оқуды жалғастыру',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 күндік ақшаны қайтару кепілдігі',
   'courseDetail.includes.video': '{{hours}} сұраныс бойынша сағаттық бейне',
   'courseDetail.instructor': 'Нұсқаушы',
+  'courseDetail.languageEnglish': 'ағылшын',
   'courseDetail.lectures': 'Дәрістер',
   'courseDetail.level': 'Деңгей',
   'courseDetail.loading': 'Курс жүктелуде…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Әзірге ешқандай пікір жоқ.',
   'instructorProfile.students': 'Студенттер',
   'landing.categories.empty': 'Каталог толтырылғаннан кейін санаттар пайда болады.',
+  'landing.categories.heading': 'Мұрағатты зерттеу',
   'landing.hero.eyebrow': 'Дәріс · Шеберліктің редакциялық мұрағаты',
   'landing.hero.proof': 'Google, Meta және Adobe оқушыларының сеніміне ие.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Бүгін үйренуді бастаңыз',
   'login.subheading': 'Ғылыми мұрағатыңызға қол жеткізіңіз.',
   'myLearning.empty.title': 'Бұл сүзгіге әлі сәйкес келетін курстар жоқ',
+  'myLearning.error.title': 'Кітапханаңызды жүктеу мүмкін болмады',
   'myLearning.filter.notStarted': 'Басталмаған',
   'myLearning.hero.subtitle': '{{count}} Кітапханаңыздағы курстар. Қарқынды жалғастырыңыз.',
   'myLearning.hero.title': 'Тоқтаған жеріңізден жалғастырыңыз.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Қарастырылатын жаңа әрекет жоқ. Жаңа іс-шаралар осында пайда болады.',
   'notifications.empty.title': 'Барлық жаңалықтарды тауып алдыңыз',
+  'notifications.error.title': 'Әрекетті жүктеу мүмкін болмады',
   'privacy.title': 'Құпиялылық саясаты',
   'reset.confirmPlaceholder': 'Жаңа құпия сөзіңізді қайта енгізіңіз',
   'reset.errorGeneric': 'Құпия сөзді қалпына келтіру мүмкін болмады. Жаңа сілтеме сұраңыз.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} күн бұрын',
   'timeAgo.hours': '{{count}} сағат бұрын',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} ай бұрын',
   'timeAgo.today': 'бүгін',
+  'timeAgo.weeks': '{{count}} апта бұрын',
 }

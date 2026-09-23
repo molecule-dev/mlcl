@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Về chúng tôi',
   'actions.empty': 'Không có mục hành động nào khớp.',
   'actions.heading': 'Mục hành động',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Tháng trước',
   'calendar.recent': 'Gần đây',
   'common.daysAgo': '{{count}} ngày trước',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'common.hoursAgo': '{{count}} giờ trước',
   'common.no': '—',
+  'common.retry': 'Thử lại',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} mục hành động',
   'dashboard.empty.body':
@@ -40,8 +43,10 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Vui lòng kiểm tra hộp thư đến của quý vị để xem liên kết đặt lại.',
   'forgot.subheading': 'Vui lòng nhập email và chúng tôi sẽ gửi liên kết đặt lại.',
   'integrations.disconnected': 'Đã ngắt kết nối',
+  'integrations.loadError': 'Không thể tải các tích hợp.',
   'integrations.notConnectedTag': 'Chưa kết nối',
   'integrations.subheading': 'Kết nối lịch và nền tảng video để Murmur tự động tham gia.',
+  'integrations.updateError': 'Cập nhật thất bại.',
   'landing.ctaButton': 'Bắt đầu — miễn phí',
   'landing.ctaHeading': 'Ngừng ghi chú. Bắt đầu đưa ra quyết định.',
   'landing.demo.aiLabel': 'Tóm tắt AI, soạn thảo trực tiếp',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Theo dõi',
   'meetingDetail.loadError': 'Không tải được cuộc họp.',
   'meetingDetail.noActions': 'Không phát hiện mục hành động nào.',
+  'meetingDetail.none': 'Không có.',
   'meetingDetail.notFound': 'Không tìm thấy cuộc họp.',
+  'meetingDetail.speakerFallback': 'Người phát ngôn {{id}}',
   'meetingDetail.summaryHeading': 'Tóm tắt AI',
   'meetingDetail.transcriptHeading': 'Bản ghi',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Cuộc họp',
   'meetings.loadError': 'Không tải được cuộc họp.',
   'meetings.subheading': 'Mọi cuộc họp đã ghi, đã tải lên và đồng bộ.',
+  'murmurLayout.openMenu': 'Mở menu điều hướng',
   'murmurLayout.primaryNavLabel': 'Điều hướng chính',
   'nav.legal': 'Pháp lý',
   'notifications.loadError': 'Không tải được thông báo.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Cách quý vị xuất hiện trong Murmur.',
   'record.error.empty': 'Không có âm thanh nào được ghi lại.',
   'record.error.permission': 'Quyền microphone bị từ chối.',
+  'record.error.recorder': 'Lỗi máy ghi',
   'record.error.unsupported':
     'Trình duyệt của quý vị không hỗ trợ ghi âm. Vui lòng thử Chrome, Edge hoặc Safari.',
   'record.error.upload': 'Tải lên thất bại. Vui lòng thử lại.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Mật khẩu mới',
   'reset.subheading': 'Vui lòng chọn mật khẩu mà quý vị không dùng ở nơi khác.',
   'search.empty': 'Vui lòng nhập để tìm kiếm bản ghi.',
+  'search.loadError': 'Tìm kiếm không thành công. Hãy thử lại.',
   'search.noResults': 'Không có kết quả cho “{{q}}”.',
   'settings.appearance.description': 'Chuyển đổi giữa chế độ sáng và tối.',
   'settings.appearance.title': 'Giao diện',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Không thể tải cài đặt.',
   'settings.loading': 'Đang tải…',
   'settings.push.heading': 'Thông báo đẩy',
+  'settings.push.subheading':
+    'Nhận thông báo trên trình duyệt về các đề cập, mục hành động và tóm tắt.',
   'settings.retention.audio': 'Giữ âm thanh trong',
   'settings.retention.heading': 'Lưu giữ',
   'settings.retention.transcript': 'Giữ bản ghi trong',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Bắt đầu ghi lại ghi chú cuộc họp trong vài phút',
   'signup.terms':
     'Bằng cách tạo tài khoản, quý vị đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của chúng tôi.',
+  'signup.termsPrefix': 'Bằng cách tạo tài khoản, bạn đồng ý với các điều khoản của chúng tôi.',
   'team.inviteCta': 'Mời đồng đội',
   'team.invitedAs': 'Được mời với vai trò {{role}}',
   'team.inviteFailed': 'Không thể gửi lời mời.',

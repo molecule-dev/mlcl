@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.title': 'သင့်အိတ်ကပ်ထဲမှာ သိမ်းထားနိုင်တဲ့ စာရေးခန်းတစ်ခု',
   'billing.cancelConfirm': 'သင်၏ လက်ရှိစာရင်းသွင်းမှုကို ပယ်ဖျက်လိုပါသလား။',
   'billing.cancelFailed': 'ပယ်ဖျက်၍မရပါ။',
   'billing.checkingOut': 'ငွေရှင်းကောင်တာဖွင့်နေသည်…',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'ငွေတောင်းခံလွှာကို ဖွင့်၍မရပါ။',
   'billing.loading': 'ငွေတောင်းခံလွှာတင်နေသည်…',
   'billing.upgradeCta': 'အဆင့်မြှင့်တင်ရန် {{name}}',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'editor.autosaveOn': 'အလိုအလျောက်သိမ်းဆည်းခြင်း ဖွင့်ထားသည်',
   'editor.backToLibrary': 'စာကြည့်တိုက်သို့ ပြန်သွားပါ',
   'editor.charCount': '{{count}} ဇာတ်ကောင်များ',
   'editor.confirmTrash': 'ဤစာရွက်စာတမ်းကို အမှိုက်ပုံးထဲသို့ ရွှေ့မလား။',
@@ -37,6 +41,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'ပင်ဖြုတ်ထားသည်',
   'editor.unpublishCta': 'မူကြမ်းသို့ ရွှေ့ပါ',
   'editor.unpublished': 'မူကြမ်းသို့ ပြန်ပြောင်းထားသည်',
+  'focus.autosaveOn': 'အလိုအလျောက်သိမ်းဆည်းခြင်း ဖွင့်ထားသည်',
   'focus.backToLibrary': 'စာကြည့်တိုက်သို့ ပြန်သွားပါ',
   'focus.bodyPlaceholder': 'တစ်ကြောင်းချင်းစီ။ ဒီမှာ ဘယ်သူမှ မရှိဘူး။',
   'focus.exit': 'အာရုံစူးစိုက်မှုမုဒ်မှ ထွက်ရန်',
@@ -83,6 +88,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'တစ်ခု ဖန်တီးပါ',
   'login.subline':
     'သင့်ရဲ့ လက်ရေးစာမူတွေ၊ နေ့စဉ်စာမျက်နှာတွေနဲ့ နောက်ဆုံး cursor နေရာက သင်ထားခဲ့တဲ့ နေရာမှာပဲ ရှိနေပါတယ်။',
+  'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'pricing.exports': 'ပို့ကုန်များ',
   'pricing.folders': 'ဖိုင်တွဲများ',
   'pricing.heading': 'စာရွက်စာတမ်းများ',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'ကျွန်ုပ်တို့ အီးမေးလ်ပို့ထားသော ကုဒ်ကို ရိုက်ထည့်ပြီး အမှတ်ရစရာတစ်ခုခုကို ရွေးချယ်ပါ။ သိမ်းဆည်းပြီးသည်နှင့် ကျွန်ုပ်တို့ လက်မှတ်ထိုးဝင်ပေးပါမည်။',
   'reset.tokenHint': 'သင့်ဝင်စာပုံးမှ ကူးထည့်ထားသည်။',
+  'settings.appearance.heading': 'အလင်း သို့မဟုတ် မှောင်',
   'settings.editor.${row.id}.description': 'ဘာသာစကား',
   'settings.editor.description':
     'စာရိုက်စက် လှိမ့်ခြင်း၊ စာပိုဒ် မှိန်ခြင်းနှင့် အားလပ်ချိန် အာရုံစိုက်ခြင်း — ပုံသေများကို ရှည်လျားသော အစည်းအဝေးများအတွက် ချိန်ညှိထားပါသည်။',
@@ -140,6 +148,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'အခန်းသုံး — နေထွက်ချိန်မတိုင်မီ တိတ်ဆိတ်ငြိမ်သက်သော တစ်နာရီ',
   'versalDocumentCard.pinned': 'ပင်ထိုးထားသည်',
   'versalLayout.nav.stats': 'စာရင်းအင်းများ',
+  'versalLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'versalManuscriptHero.cta': 'ဆက်လက်ရေးသားပါ',
   'versalManuscriptHero.goalLabel': 'ဒီနေ့ စကားလုံးရည်မှန်းချက်',
   'versalManuscriptHero.inProgress': 'လမ်းကြောင်းမှန်ပေါ် ရောက်နေပါပြီ',

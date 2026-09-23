@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'about.pageTitle': '{{appName}} 소개',
   'analytics.empty': '첫 클립을 녹화하시면 참여도가 여기에 표시됩니다.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': '개',
   'billing.usage.views': '조회수',
   'billing.usage.views.unit': '회',
+  'common.goToDashboard': '대시보드로 이동',
   'landing.cta.title': '더 나은 피드백을 전달하세요. Glint와 함께 시작하세요.',
   'landing.feature.capture.body':
     '마이크, 카메라, 그리기 기능을 갖춘 브라우저, 데스크톱, 모바일 녹화.',
   'landing.feature.capture.title': '원터치 녹화',
+  'landing.footer.copy': '© {{year}} {{appName}} . 비동기, 빛나는 존재가 되다.',
   'landing.hero.cardCaption': '샘플 워크스페이스 개요 — 무료로 사용해 보세요.',
   'landing.hero.primaryCta': '무료로 녹화 시작하기',
   'landing.hero.proof.free': '영구 무료 등급',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': '녹화본 검색',
   'library.searchPlaceholder': '녹화본 검색…',
   'library.weeklyChange': '지난주 대비 {{value}}%',
+  'nav.openMenu': '탐색 메뉴 열기',
   'nav.record': '녹화',
   'nav.shared': '공유받은 항목',
   'nav.startRecording': '녹화 시작',

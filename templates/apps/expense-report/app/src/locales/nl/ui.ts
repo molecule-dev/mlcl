@@ -4,6 +4,7 @@ export const ui: UiTranslations = {
   'about.eyebrow': 'Over',
   'approvals.approve': 'Goedkeuren',
   'approvals.approving': 'Bezig met goedkeuren…',
+  'approvals.confirmReject': 'Afwijzen bevestigen',
   'approvals.eyebrow': 'Wachtrij manager',
   'approvals.kpi.flaggedLabel': 'Beleidsmelding',
   'approvals.kpi.totalLabel': 'Openstaand bedrag',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'approvals.review': 'Beoordelen',
   'approvals.title': 'Openstaande goedkeuringen',
   'approvalTimeline.actor': 'door {{actor}}',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addExpense': 'Nieuwe uitgave',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
     'Vergoedingen uitgekeerd in de afgelopen 12 weken over 17 goedgekeurde rapporten.',
   'landing.sampleCardLabel': 'Teruggevorderde vergoedingen · Q2',
   'landing.socialProof': 'Vertrouwd door financiële teams bij',
+  'layout.openMenu': 'Navigatiemenu openen',
   'layout.workspace': 'Financiële werkruimte',
   'login.hidePassword': 'Wachtwoord verbergen',
   'login.noAccount': 'Nieuw bij Recoup?',
@@ -78,6 +81,8 @@ export const ui: UiTranslations = {
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Beschikbare uitgaven',
   'newReport.createFailed': 'Rapport kon niet worden aangemaakt. Probeer het opnieuw.',
+  'newReport.draftsFallback':
+    'Live onkostenoverzicht niet beschikbaar — er worden geselecteerde demo-gegevens weergegeven.',
   'newReport.includedCount': '{{count}} opgenomen',
   'newReport.purposeLabel': 'Zakelijk doel',
   'newReport.purposePlaceholder':
@@ -90,6 +95,7 @@ export const ui: UiTranslations = {
     '{{count}} uitgaven opgenomen. Goedkeuring loopt via uw manager en daarna financiën.',
   'newReport.title': 'Nieuw onkostenrapport',
   'newReport.titleLabel': 'Rapporttitel',
+  'newReport.titlePlaceholder': 'Verkoop buiten de vestiging in Berlijn',
   'newReport.toggleAria': '{{merchant}} opnemen',
   'notifications.eyebrow': 'Werkruimte-activiteit',
   'notifications.feedFallback':
@@ -132,10 +138,12 @@ export const ui: UiTranslations = {
   'settings.policies.empty': 'Nog geen beleid.',
   'settings.policies.error':
     'Beleidsregels konden niet worden geladen — probeer de pagina te vernieuwen.',
+  'settings.policies.managerApproval': 'Goedkeuring van de manager',
   'settings.policies.receipt': 'Bon vereist boven',
   'settings.policies.scope': 'Hele werkruimte · alleen beheerders',
   'settings.policies.title': 'Goedkeuringsbeleid',
   'settings.policies.unnamed': 'Beleid',
+  'settings.prefsSaveFailed': 'Voorkeuren konden niet worden opgeslagen. Probeer het opnieuw.',
   'settings.profile.saved': 'Opgeslagen ✓',
   'settings.profileSaveFailed': 'Profiel kon niet worden bijgewerkt. Probeer het opnieuw.',
   'signup.heading': 'Maak uw Recoup-account aan',

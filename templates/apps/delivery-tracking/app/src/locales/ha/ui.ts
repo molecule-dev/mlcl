@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'alerts.acknowledgeLabel': 'Amincewa',
   'alerts.customerLabel': 'Abokin Ciniki: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Haɗawa…',
   'carriers.requiredError': 'Ana buƙatar suna da lambar.',
   'carriers.subheading': '{{count}} haɗe-haɗe',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
+  'common.retry': 'Sake gwadawa',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Ana cikin tafiya + an yi masa alama',
   'dashboard.activeShipmentsSubtitle':
@@ -103,6 +106,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'jigilar kaya',
   'pricing.trackingLabel': 'bin diddigin abubuwan da suka faru',
   'profile.dangerZone.title': 'Yankin haɗari',
+  'profile.devices.signingOut': 'Ana fitarwa…',
+  'profile.devices.unnamed': "Na'urar da ba a san suna ba",
+  'profile.security.disable2fa': 'Kashe 2FA',
   'profile.security.enable2fa': 'Kunna 2FA',
   'profile.security.pwChanged': 'An canza kalmar sirri cikin nasara.',
   'profile.security.pwCurrent': 'Kalmar shiga na halin yanzu',
@@ -112,10 +118,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA yana aiki',
   'profile.security.twoFaCode': 'Lambar lambobi 6',
   'profile.security.twoFaDisable': 'A kashe',
+  'profile.security.twoFaDisabling': 'Ana kashewa…',
   'profile.security.twoFaFailed': 'An kasa tabbatar da lambar.',
   'profile.security.twoFaIntro':
     'Duba lambar QR a cikin manhajar tantancewa, sannan shigar da lambar lambobi 6 a ƙasa don tabbatarwa.',
   'profile.security.twoFaOn': 'An kunna tantance abubuwa biyu akan wannan asusun.',
+  'profile.security.twoFaQrAlt': 'Lambar QR ta matakai biyu',
   'profile.security.twoFaVerify': 'Tabbatar kuma kunna',
   'profile.security.twoFaVerifying': 'Ana tabbatarwa…',
   'profile.subheading': 'Saitunan asali da tsaro na wannan wurin aiki.',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Ajiye wannan sirrin — ba za a sake nuna shi ba.',
   'settings.api.webhookSecret': 'Sirrin sanya hannu a Webhook',
   'settings.appearance.description': 'Canja tsakanin yanayin haske da duhu.',
+  'settings.deleteAccountConfirm': 'Ka tabbata? Ba za a iya gyara wannan aikin ba.',
   'settings.notifications.exceptions':
     'Aika min da imel idan aka sami keɓancewa game da jigilar kaya',
   'settings.notifications.heading': 'Sanarwa',
@@ -149,6 +158,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Ba a sami jigilar kaya ba.',
   'shipmentDetail.originHeading': 'Asali',
   'shipmentDetail.shippedOn': 'An aika {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Babu wani taron bin diddigin bayanai tukuna - sabuntawa suna bayyana a nan yayin da mai ɗaukar kaya ke duba kunshin.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Mai ɗaukar kaya',
   'shipments.col.eta': 'ETA',
@@ -178,6 +189,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Shiga',
   'signup.submit': 'Kirkira ajiya',
   'team.emailError': 'Ana buƙatar adireshin imel mai inganci.',
+  'team.empty':
+    'Babu membobin ƙungiyar tukuna. Gayyaci abokin aiki don yin aiki tare kan jigilar kaya.',
   'team.eyebrow': 'Membobi & izini',
   'team.inviteDialog.cancel': 'Soke',
   'team.inviteDialog.heading': 'Gayyaci abokin aiki',
@@ -200,6 +213,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Waƙa',
   'waypointLayout.primaryNavLabel': 'Babban kewayawa',
   'webhooks.createFailed': 'Ba za a iya ƙirƙirar ƙarshen hanyar haɗin yanar gizo ba.',
+  'webhooks.endpointsEmpty':
+    'Babu wuraren ƙarshe na webhook tukuna. Ƙirƙiri ɗaya don karɓar kiran dawowar yanayin jigilar kaya.',
   'webhooks.endpointsHeading': 'Ƙarshen maki',
   'webhooks.eventCount': '{{count}} abubuwan da suka faru',
   'webhooks.eventsHeading': 'Isassun kaya na baya-bayan nan',

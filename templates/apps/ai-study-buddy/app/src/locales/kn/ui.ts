@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'ಯೋಜನಾ ಮಾಹಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'billing.popular': 'ಅತ್ಯಂತ ಪ್ರಿಯವಾದದ್ದು',
   'billing.subtitle': 'ನಿಮ್ಮ ಅಧ್ಯಯನದ ಮಟ್ಟಕ್ಕೆ ಸರಿಹೊಂದುವ ಯೋಜನೆಯನ್ನು ಆರಿಸಿ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.today': 'ಇಂದು',
   'common.yesterday': 'ನಿನ್ನೆ',
   'courseDetail.empty.body': 'ಈ ವಿಷಯದ ಮೇಲೆ ಪಾಂಡಿತ್ಯ ಸಾಧಿಸಲು ಒಂದು ಅಧ್ಯಯನ ಸಾಮಗ್ರಿಯನ್ನು ಸೇರಿಸಿ.',
@@ -82,8 +83,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'ಡೆಕ್ ಹೆಸರು',
   'flashcards.subtitle': 'ನಿಮ್ಮ ವೇಗಕ್ಕೆ ಹೊಂದಿಕೊಳ್ಳುವ ಅಂತರದ ಪುನರಾವರ್ತನೆ.',
   'flashcards.title': 'ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳು',
+  'footer.copyright': '© {{year}} {{app}} . ಚೆನ್ನಾಗಿ ಕಲಿಯಿರಿ, ಚೆನ್ನಾಗಿ ನಿದ್ದೆ ಮಾಡಿ.',
   'forgotPassword.subtitle':
     'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ನಿಮಗೆ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
+  'koanLayout.closeMenu': 'ಮೆನು ಮುಚ್ಚಿ',
+  'koanLayout.navLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'koanLayout.openMenu': 'ಮೆನು ತೆರೆಯಿರಿ',
   'koanLayout.theme': 'ಥೀಮ್',
   'landing.featuresBody':
     'ಗಮನ ಬೇರೆಡೆ ಸೆಳೆಯುವುದನ್ನು ನಿವಾರಿಸಲು ಮತ್ತು ಶಾಶ್ವತವಾದ ಗ್ರಹಿಕೆಯನ್ನು ನಿರ್ಮಿಸಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಪರಿಕರಗಳು.',
@@ -118,11 +123,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ಆ URL ಗುರುತು ಹಾಕದ ಪ್ರದೇಶ. ಬಹುಶಃ ಮುದ್ರಣದೋಷವಾಗಿರಬಹುದು, ಬಹುಶಃ ಅಳಿಸಲಾದ ಪಾಠವಾಗಿರಬಹುದು - ಎರಡೂ ಸಂದರ್ಭಗಳಲ್ಲಿ, ನಿಮ್ಮನ್ನು ಮತ್ತೆ ಅಧ್ಯಯನಕ್ಕೆ ಕರೆದೊಯ್ಯೋಣ.',
   'notFound.heading': 'ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'ನೀವು ಎಲ್ಲವನ್ನೂ ಓದಿದ್ದೀರಿ.',
   'notifications.filter.${opt}': 'ಅಧಿಸೂಚನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'notifications.markAllError': 'ಎಲ್ಲವನ್ನೂ ಓದಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'notifications.markError': 'ಓದಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'notifications.subtitle': '{{count}} ಓದದಿರುವ ನವೀಕರಣಗಳು',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.heading': 'ರಸಪ್ರಶ್ನೆಗಳು',
   'pricing.limits.topics': 'ವಿಷಯಗಳು',
   'privacy.collectBody':
@@ -188,6 +195,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'ಬೇರೆ ಕೀವರ್ಡ್ ಅಥವಾ ಫಿಲ್ಟರ್ ಪ್ರಯತ್ನಿಸಿ.',
   'search.empty.title': 'ಯಾವುದೂ ಹೊಂದಿಕೆಯಾಗಲಿಲ್ಲ.',
   'search.error': 'ಫಲಿತಾಂಶಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'search.filters': 'ಫಲಿತಾಂಶ ಪ್ರಕಾರದ ಫಿಲ್ಟರ್‌ಗಳು',
   'search.go': 'ಹೋಗು',
   'search.label.flashcard': 'ಫ್ಲಾಶ್‌ಕಾರ್ಡ್ ಡೆಕ್',
   'search.label.note': 'ಸೂಚನೆ',

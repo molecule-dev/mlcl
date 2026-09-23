@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'رابطہ کریں۔',
   'about.eyebrow': 'کے بارے میں',
+  'about.title': '{{app}} کے بارے میں',
   'activeAgentsCard.agent1AvatarAlt':
     'ایک جدید دفتر میں دوستانہ مسکراہٹ کے ساتھ خاتون سپورٹ ایجنٹ کا پیشہ ورانہ ہیڈ شاٹ',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'سپورٹ سے رابطہ کریں۔',
   'forgotPassword.error': 'ری سیٹ ای میل نہیں بھیجی جا سکی۔ براہ کرم دوبارہ کوشش کریں۔',
   'forgotPassword.rememberPassword': 'اپنا پاس ورڈ یاد ہے؟',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'سائن ان کریں — زینتھ سپورٹ',
   'login.showPassword': 'پاس ورڈ دکھائیں۔',
   'login.welcomeSubheading': 'اپنے سپورٹ ڈیش بورڈ میں سائن ان کریں۔',
+  'mobileNav.closeMenu': 'نیویگیشن بند کریں۔',
+  'mobileNav.menu': 'نیویگیشن',
+  'mobileNav.openMenu': 'نیویگیشن کھولیں۔',
   'nav.legal': 'قانونی',
   'nav.newTicket': 'نیا ٹکٹ',
   'notifications.loadError': 'اطلاعات کو لوڈ نہیں کیا جا سکا۔ ایک لمحے میں دوبارہ کوشش کریں۔',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'کمانڈ تلاش کریں۔',
   'operatorDock.newReport': 'نئی رپورٹ',
   'operatorDock.systemOnline': 'سسٹم آن لائن',
+  'planUpdated.subtitle': 'شکریہ',
   'planUpdated.title': 'پلان اپ ڈیٹ ہو گیا۔',
   'pricing.agents': 'ایجنٹس',
   'pricing.automation': 'آٹومیشن کے قوانین',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{نام}}',
   'ticketCustomerReply.avatarAlt': '{{نام}} کا اوتار',
   'ticketDetail.errorTitle': 'کچھ غلط ہو گیا۔',
+  'ticketDetail.loadError': 'ٹکٹ لوڈ کرنے میں ناکام۔',
+  'ticketDetail.notFound': 'ٹکٹ نہیں ملا',
+  'ticketDetail.replyError': 'جواب بھیجنے میں ناکام۔ براہ کرم دوبارہ کوشش کریں۔',
   'ticketDetail.retry': 'دوبارہ کوشش کریں۔',
   'ticketDetail.statusUpdateError': 'اسٹیٹس کو اپ ڈیٹ نہیں کیا جا سکا۔ دوبارہ کوشش کریں۔',
   'ticketDetailsCard.assigneeLabel': 'تفویض کرنے والا',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{وقت}} چھوڑ دیا',
   'ticketRow.title': 'ڈیٹا بیس کنکشن پروڈکشن میں ناکام ہو رہا ہے۔ {{نوڈ}}',
   'tickets.pageTitle': 'ٹکٹ - زینتھ سپورٹ',
+  'ticketsFab.newTicket': 'نیا ٹکٹ',
   'ticketsFilterBar.assigneeLabel': 'تفویض کرنے والا:',
   'ticketsFilterBar.clearFilters': 'فلٹرز صاف کریں۔',
   'ticketsFilterBar.dateRangeDemoHint': 'اس ڈیمو بلڈ میں تاریخ کی حد کا فلٹرنگ فعال نہیں ہے۔',

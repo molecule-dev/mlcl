@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'រឿងរបស់យើង',
   'aiSuggestionPanel.title': 'សហអ្នកបើកយន្តហោះសញ្ញា',
   'analytics.col.open': 'អត្រាបើកចំហ',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'កំពុងចាប់ផ្តើមទូទាត់ប្រាក់...',
   'billing.subheading': 'ជ្រើសរើសផែនការដែលត្រូវនឹងរបៀបដែលអ្នកផ្ញើ។',
   'billing.unavailable': 'ទាក់ទងផ្នែកលក់',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'compose.adjustingTone': 'សរសេរឡើងវិញតាមសម្លេងដែលបានជ្រើសរើស…',
   'compose.aiPromptPlaceholder':
     'ឧទាហរណ៍ "សូមតាមដានដោយគួរសមបន្ទាប់ពីគ្មានការឆ្លើយតបរយៈពេលពីរសប្តាហ៍ សូមសរសេរវាឱ្យខ្លី"។',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'ត្រូវការផ្ញើអ្វីមួយមែនទេ? Signet អាចមានសេចក្តីព្រាងរួចរាល់ក្នុងរយៈពេលប៉ុន្មានវិនាទី។',
   'dashboard.composeCtaLabel': 'សរសេររហ័ស',
   'dashboard.heading': 'សប្តាហ៍របស់អ្នក ត្រូវបានតែងនិពន្ធ',
+  'dashboard.loadFailed': 'មិនអាចផ្ទុកផ្ទាំងគ្រប់គ្រងរបស់អ្នកបានទេ។',
   'dashboard.manageLibrary': 'គ្រប់គ្រងបណ្ណាល័យ →',
   'dashboard.recentEmpty': 'មិនទាន់មាន​ការផ្ញើ​នៅឡើយទេ — អ៊ីមែល​ដែលអ្នក​បានផ្ញើ​នឹងបង្ហាញនៅទីនេះ។',
   'dashboard.recentHeading': 'ការផ្ញើថ្មីៗ',
@@ -121,6 +125,7 @@ export const ui: UiTranslations = {
   'profile.unnamedUser': 'អ្នកប្រើប្រាស់អនាមិក',
   'recentSentList.aiBadge': 'បញ្ញាសិប្បនិម្មិត',
   'recentSentList.empty': 'មិនទាន់មានអ៊ីមែលផ្ញើចេញនៅឡើយទេ — ការផ្ញើដំបូងរបស់អ្នកនឹងបង្ហាញនៅទីនេះ។',
+  'recentSentList.toLine': 'ជូនចំពោះ {{recipient}}',
   'resetPassword.confirmPasswordPlaceholder': 'វាយពាក្យសម្ងាត់របស់អ្នកឡើងវិញ',
   'resetPassword.newPasswordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
@@ -136,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'សំឡេងលំនាំដើម',
   'settings.toneSubheading': 'សញ្ញាសម្គាល់ប្រើសម្លេងនេះ លុះត្រាតែអ្នកសរសេរជាន់លើសេចក្តីព្រាង។',
   'signetLayout.primaryNavLabel': 'ការរុករកចម្បង',
+  'signetLayout.toggleMenu': 'បិទ/បើកម៉ឺនុយ',
   'signup.emailLabel': 'អាសយដ្ឋានអ៊ីមែល',
   'signup.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'signup.tagline': 'ផ្ញើអ៊ីមែលព្រាងដោយ AI ដំបូងរបស់អ្នកក្នុងរយៈពេលតិចជាងមួយនាទី។',

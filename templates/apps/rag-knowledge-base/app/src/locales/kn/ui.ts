@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.pageTitle': 'ನಮ್ಮ ಬಗ್ಗೆ {{appName}}',
   'analytics.error': 'ವಿಶ್ಲೇಷಣೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'analytics.heading': 'ಮರುಪಡೆಯುವಿಕೆ ವಿಶ್ಲೇಷಣೆಗಳು',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'ಯಾವುದೇ ಬೆಲೆ ಶ್ರೇಣಿಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ.',
   'billing.plans.heading': 'ಯೋಜನೆಗಳು',
   'billing.subheading': 'ಯೋಜನೆ, ಬಳಕೆ ಮತ್ತು ಸ್ಟ್ರೈಪ್-ನಿರ್ವಹಣೆಯ ಚೆಕ್ಔಟ್.',
+  'common.confirm': 'ದೃಢೀಕರಿಸಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'documentCard.open': 'ತೆರೆಯಿರಿ \\u2192',
   'documentDetail.back': 'ದಾಖಲೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'ಸೂಚ್ಯಂಕ ದಾಖಲೆ',
   'documents.composer.titlePlaceholder': 'ಡಾಕ್ಯುಮೆಂಟ್ ಶೀರ್ಷಿಕೆ',
   'documents.emptyAll': 'ಇನ್ನೂ ಯಾವುದೇ ದಾಖಲೆಗಳಿಲ್ಲ. ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಲು ಒಂದನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.',
+  'documents.error.load': 'ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'documents.heading': 'ಸೂಚ್ಯಂಕಿತ ದಾಖಲೆಗಳು',
   'documents.loading': 'ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'documents.metric.chunks': 'ಒಟ್ಟು ಭಾಗಗಳು',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ\\u2026',
   'members.subheading': 'ತಂಡದ ಸದಸ್ಯರನ್ನು ಆಹ್ವಾನಿಸಿ ಮತ್ತು ಪಾತ್ರಗಳನ್ನು ಹೊಂದಿಸಿ.',
   'members.tableHeading': 'ರೋಸ್ಟರ್',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'notFound.askCta': 'ಜ್ಞಾನದ ಮೂಲವನ್ನು ಕೇಳಿ',
+  'notFound.body':
+    '{{app}} ಆ ಪುಟವನ್ನು ಪತ್ತೆ ಮಾಡಲಾಗಲಿಲ್ಲ. ಲಿಂಕ್ ಮುರಿದುಹೋಗಿರಬಹುದು ಅಥವಾ ಮರು-ಸೂಚಿಕೆಯ ಸಮಯದಲ್ಲಿ ಪುಟವು ನಿವೃತ್ತಿಗೊಂಡಿರಬಹುದು.',
   'notFound.eyebrow': 'ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ',
   'notFound.title': 'ಸೂಚ್ಯಂಕದಲ್ಲಿ ಅಂತಹ ಭಾಗವಿಲ್ಲ.',
   'notifications.dismiss': 'ವಜಾಗೊಳಿಸಿ',
@@ -205,6 +214,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'ನಿಮ್ಮ ಮೊದಲ ಕನೆಕ್ಟರ್ ಅನ್ನು ವೈರ್ ಮಾಡಲು \\u201cಮೂಲವನ್ನು ಸೇರಿಸಿ\\u201d ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'sources.empty.title': 'ಇನ್ನೂ ಯಾವುದೇ ಮೂಲಗಳಿಲ್ಲ.',
+  'sources.error.add': 'ಮೂಲವನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'sources.error.labelRequired': 'ಲೇಬಲ್ ಅಗತ್ಯವಿದೆ.',
   'sources.error.load': 'ಮೂಲಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'sources.error.urlRequired': 'ಈ ಮೂಲ ಪ್ರಕಾರಕ್ಕೆ URL ಅಗತ್ಯವಿದೆ.',

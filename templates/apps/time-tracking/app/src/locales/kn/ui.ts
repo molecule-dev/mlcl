@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'about.plansTitle': 'ನಿಮ್ಮೊಂದಿಗೆ ಬೆಳೆಯುವ ಯೋಜನೆಗಳು',
   'brand.tagline': 'ಪ್ರತಿ ಸೆಕೆಂಡ್',
   'clientDetail.back': 'ಕ್ಲೈಂಟ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'ಪ್ರತಿಯೊಂದು ಸಂಬಂಧವೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ - ಯೋಜನೆಗಳು, ಗಂಟೆಗಳು, ಬಾಕಿ ಇರುವ ಇನ್‌ವಾಯ್ಸ್‌ಗಳು.',
   'clients.title': 'ಗ್ರಾಹಕರು',
   'common.and': 'ಮತ್ತು',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.activeProjects': 'ಸಕ್ರಿಯ ಯೋಜನೆಗಳು',
   'dashboard.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ನಮೂದುಗಳಿಲ್ಲ. ನಿಮ್ಮ ಮೊದಲ ಸೆಶನ್ ಅನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಟೈಮರ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
@@ -85,6 +87,7 @@ export const ui: UiTranslations = {
     'ಈ ಕ್ಲೈಂಟ್‌ಗೆ ಇನ್‌ವಾಯ್ಸ್ ಮಾಡಲು ಬಿಲ್ ಮಾಡಬಹುದಾದ ಗಂಟೆಗಳಿಲ್ಲ. ಮೊದಲು ಸ್ವಲ್ಪ ಸಮಯವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಅಥವಾ ಈ ಕ್ಲೈಂಟ್‌ನ ಯೋಜನೆಗಳಲ್ಲಿ ಒಂದಕ್ಕೆ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ನಮೂದುಗಳನ್ನು ನಿಯೋಜಿಸಿ.',
   'invoices.save': 'ಇನ್‌ವಾಯ್ಸ್ ರಚಿಸಿ',
   'invoices.subtitle': 'ಟ್ರ್ಯಾಕ್ ಮಾಡಿದ ಗಂಟೆಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಇನ್‌ವಾಯ್ಸ್‌ಗಳಾಗಿ ಬದಲಾಗುತ್ತವೆ.',
+  'landing.copyright': '© {{year}} {{app}} . ಪ್ರತಿ ಸೆಕೆಂಡ್, ಲೆಕ್ಕಕ್ಕೆ ಬರುತ್ತದೆ.',
   'landing.ctaBody': '3 ಯೋಜನೆಗಳವರೆಗೆ ಉಚಿತ. ನಿಮ್ಮ ಕ್ಲೈಂಟ್ ಪಟ್ಟಿಯಲ್ಲಿರುವಾಗ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
   'landing.eyebrow': 'ಬಿಲ್ ಮಾಡಬಹುದಾದ ಕೆಲಸಕ್ಕಾಗಿ ಸಮಯ ಟ್ರ್ಯಾಕಿಂಗ್',
   'landing.featuresBody':
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'ಸ್ವತಂತ್ರರಿಂದ ವಿಶ್ವಾಸಾರ್ಹ',
   'landing.testimonial.quote':
     '\\u201cನಾನು 30 ನಿಮಿಷಗಳಲ್ಲಿ ಟಾಗಲ್ ಅನ್ನು ಬಿಟ್ಟೆ. ಬಜೆಟ್ ಬರ್ನ್-ಡೌನ್ ಮಾತ್ರ ತನ್ನಷ್ಟಕ್ಕೆ ತಾನೇ ಹಣ ನೀಡಿದೆ \\u2014 ನಾನು ಎರಡು ವಾರಗಳ ಕಾಲ ಕಡಿಮೆ ಉಲ್ಲೇಖಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿದ್ದೇನೆ.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ಕ್ರೊನೊ. ಪ್ರತಿ ಸೆಕೆಂಡ್, ಲೆಕ್ಕಕ್ಕೆ ತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ.',
   'login.brand.subtitle':
     'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಟೈಮರ್ ಅನ್ನು ಎತ್ತಿಕೊಳ್ಳಿ — ಪ್ರತಿ ನಿಮಿಷವನ್ನು ಈಗಾಗಲೇ ಒಂದು ಯೋಜನೆ, ಕ್ಲೈಂಟ್, ಇನ್‌ವಾಯ್ಸ್‌ಗೆ ಮ್ಯಾಪ್ ಮಾಡಲಾಗಿದೆ.',
   'login.brand.tracking': 'ಟ್ರ್ಯಾಕಿಂಗ್',
   'login.subheading': 'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಟೈಮರ್ ಅನ್ನು ಎತ್ತಿಕೊಳ್ಳಿ.',
+  'nav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'nav.insightsSection': 'ಒಳನೋಟಗಳು',
   'nav.newEntry': 'ಹೊಸ ನಮೂದು',
+  'nav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
+  'nav.primary': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'nav.workSection': 'ಕೆಲಸ',
   'notFound.body':
     'ನೀವು ಅನುಸರಿಸಿದ ಲಿಂಕ್ ಟ್ರ್ಯಾಕ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸಿದಂತೆ ಕಾಣುತ್ತಿದೆ. ನಿಮ್ಮ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹಿಂತಿರುಗಿ \\u2014 ನಾವು ಅಲ್ಲಿಂದ ಎಣಿಸುತ್ತಲೇ ಇರುತ್ತೇವೆ.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'ಬಿಲ್ ಮಾಡಬಹುದಾದ',
   'timer.descriptionPlaceholder': 'ನೀವು ಏನು ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೀರಿ?',
   'timer.idle': 'ನಿಷ್ಕ್ರಿಯ — ಟ್ರ್ಯಾಕಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ',
+  'timer.noProject': 'ಯಾವುದೇ ಯೋಜನೆ ಇಲ್ಲ',
   'timer.runningWithProject': 'ಯಾವುದೇ ಯೋಜನೆ ಇಲ್ಲ',
   'timer.start': 'ಟೈಮರ್ ಪ್ರಾರಂಭಿಸಿ',
   'timer.stop': 'ಟೈಮರ್ ನಿಲ್ಲಿಸಿ',

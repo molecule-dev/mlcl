@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'announcementsFeed.empty': 'Tiada pengumuman lagi.',
   'announcementsFeed.eyebrow': '{{count}} kemas kini',
   'announcementsFeed.title': 'Pengumuman terkini',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Tukar penapis di atas untuk melihat tugasan dalam keadaan yang berbeza.',
   'assignments.eyebrow': 'Semua kursus · Penggal ini',
+  'assignments.loadError': 'Tidak dapat memuatkan tugasan.',
   'assignments.loading': 'Memuatkan tugasan…',
   'assignments.subtitle':
     'Tapis mengikut status untuk melihat apa yang perlu dihantar, dihantar, dinilai atau tiada.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': 'Tiada rekod kehadiran lagi.',
   'attendance.eyebrow': 'Penggal musim bunga · 4 minggu terakhir',
+  'attendance.loadError': 'Tidak dapat memuatkan rekod kehadiran.',
   'attendance.loading': 'Memuatkan kehadiran…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Tarikh akhir tugasan diplotkan pada grid bulan — peperiksaan menonjol dalam warna merah.',
   'calendar.title': '{{month}} acara',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
+  'common.retry': 'Cuba lagi',
   'common.yes': '✓',
   'courseDetail.backLink': 'Gred',
   'courseDetail.currentGrade': 'Gred semasa',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Tiada gred yang dipaparkan lagi.',
   'grades.eyebrow': 'Buku gred',
+  'grades.loadError': 'Tidak dapat memuatkan gred anda.',
   'grades.loading': 'Memuatkan gred…',
   'grades.subtitle':
     'Gred huruf dan peratusan langsung. Anak panah trend menunjukkan sama ada anda bergerak ke atas, mendatar atau tergelincir.',
   'grades.title': 'Gred anda, kursus demi kursus',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Dibina untuk pelajar, dibuat untuk keluarga.',
   'landing.ctaHeading': 'Hari persekolahan yang lebih tenang bermula dalam beberapa minit',
   'landing.eyebrow': 'Untuk pelajar sekolah menengah & menengah',
   'landing.featuresHeading': 'Hari persekolahan yang dianjurkan di sekitar pelajar',
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tugasan',
   'nav.attendance': 'Kehadiran',
   'nav.calendar': 'Kalendar',
+  'nav.closeMenu': 'Tutup menu navigasi',
   'nav.grades': 'Gred',
+  'nav.openMenu': 'Buka menu navigasi',
   'nav.statusEyebrow': 'GPA Penggal',
   'nav.statusSubtext': 'Senarai penghormatan · Penggal musim bunga',
+  'nav.unreadMessages': 'Mesej yang belum dibaca',
   'notifications.eyebrow': '{{count}} kemas kini',
   'notifications.subtitle':
     'Gred, peringatan, mesej dan pengumuman sekolah. Laraskan saluran yang digunakan oleh setiap pemberitahuan dalam Tetapan.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.attendanceLabel': 'kehadiran',
   'pricing.gradesLabel': 'gred',
   'pricing.heading': 'pengumuman',

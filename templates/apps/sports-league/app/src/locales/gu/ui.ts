@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'વિશે',
+  'appShell.closeNav': 'નેવિગેશન બંધ કરો',
+  'appShell.openNav': 'નેવિગેશન ખોલો',
+  'common.dashboard': 'ડેશબોર્ડ',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.eyebrow': 'આજે લીગની આસપાસ',
   'dashboard.loading': 'આજ રાતના સ્કોર્સ મેળવી રહ્યા છીએ…',
   'dashboard.scoringLeaders': 'સ્કોરિંગ લીડર્સ',
@@ -145,4 +149,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}} દિવસ પહેલા',
   'time.hoursAgo': '{{count}} કલાક પહેલા',
   'time.minutesAgo': '{{count}} મિનિટ પહેલા',
+  'time.secondsAgo': '{{count}} સેકન્ડ પહેલા',
 }

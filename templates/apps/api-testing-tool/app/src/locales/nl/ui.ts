@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.pageTitle': 'Over {{app}}',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'Verzameling kon niet worden aangemaakt.',
   'collections.defaultName': 'Naamloze verzameling {{n}}',
@@ -15,6 +17,7 @@ export const ui: UiTranslations = {
   'collections.metric.requests': 'Aanvragen',
   'collections.newCollection': 'Nieuwe verzameling',
   'collections.subheading': 'Groepeer aanvragen, deel ze met uw team en voer ze uit als suite.',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'environmentCard.inactive': 'Inactief',
   'environmentCard.more': 'meer',
   'environmentCard.variables': 'Variabelen',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Gratis downloaden',
   'landing.heroSubtitle':
     'De razendsnelle API-testomgeving, speciaal ontwikkeld voor engineers die veel tijd in de terminal doorbrengen.',
+  'landing.heroTitleAccent': 'Brand',
+  'landing.heroTitleLine2': 'vertrouwen opbouwen.',
+  'landing.heroTitleRest': 'verzoeken,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Eenvoudige, voorspelbare prijzen',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nieuw hier?',
   'login.showPassword': 'Wachtwoord tonen',
   'login.subtitle': 'Doorgaan naar uw Pylon-werkruimte.',
+  'mobileNav.closeMenu': 'Navigatiemenu sluiten',
+  'mobileNav.openMenu': 'Navigatiemenu openen',
   'mocks.createError': 'Mock kon niet worden aangemaakt.',
   'mocks.defaultName': 'Naamloze mock {{n}}',
   'mocks.deleteError': 'Mock kon niet worden verwijderd.',
@@ -112,6 +120,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Terug naar werkruimte',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Route niet gevonden',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'privacy.collect.account':
     'Account: uw e-mailadres, gehasht wachtwoord, weergavenaam en het tijdstip van uw laatste aanmelding.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
     'Een alleen-lezen overzicht van de gegevens die dit account momenteel bezit.',
   'settings.unset': 'niet ingesteld',
   'signup.identityHint': 'bv. Alex',
+  'signup.statusLabel': 'gratis abonnement · geen creditcard nodig',
   'signup.subtitle': 'Begin binnen enkele minuten aanvragen af te vuren.',
   'terms.account.body':
     'U bent verantwoordelijk voor het beschermen van uw wachtwoord. Eén account delen met meerdere personen is niet toegestaan op Free- of Pro-plannen — koop een Team-abonnement voor gedeelde werkruimtes.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'Gebruik Pylon niet om aanvragen af te vuren op diensten die u niet bezit of waarvoor u geen expliciete toestemming hebt om te testen. Gebruik Pylon niet om snelheidslimieten te omzeilen of fraude te plegen.',
   'terms.warranty.body':
     'Pylon wordt geleverd "as is" zonder enige garantie. We streven naar 99,9% uptime maar garanderen dit niet op Free- of Pro-plannen.',
+  'testRunner.assertionsCount': '{{count}} beweringen',
   'testRunner.createError': 'Test kon niet worden aangemaakt.',
   'testRunner.cron':
     'Asserties worden geëvalueerd op de meest recente uitvoering van de aanvraag die aan deze test is gekoppeld.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite-resultaten, assertieverschillen en de laatste 50 uitvoeringen.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Ingelogd als',
+  'workspace.auth.keyName': 'Naam van de koptekst',
+  'workspace.auth.keyValue': 'Sleutelwaarde',
+  'workspace.auth.password': 'Wachtwoord',
+  'workspace.auth.username': 'Gebruikersnaam',
+  'workspace.authOption.apikey': 'API-sleutel',
+  'workspace.authOption.basic': 'Basisauthenticatie',
+  'workspace.authOption.bearer': 'Token aan toonder',
+  'workspace.authOption.none': 'Geen',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Type',
   'workspace.authTypeLabel': 'Authenticatietype',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Geen',
+  'workspace.body.text': 'Onbewerkte tekst',
+  'workspace.body.type': 'Type',
   'workspace.environment': 'Geen omgeving',
   'workspace.envVar': 'env-variabele',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'Koptekst toevoegen',
+  'workspace.kv.addParam': 'Parameter toevoegen',
+  'workspace.kv.headerKey': 'Naam van de koptekst',
+  'workspace.kv.headerValue': 'Waarde van de koptekst',
+  'workspace.kv.key': 'Sleutel',
+  'workspace.kv.paramKey': 'Sleutel van de queryparameter',
+  'workspace.kv.paramValue': 'Waarde van de queryparameter',
+  'workspace.kv.removeRow': 'Rij verwijderen',
+  'workspace.kv.value': 'Waarde',
   'workspace.methodLabel': 'HTTP-methode',
   'workspace.metric.latency': 'Latentie',
   'workspace.metric.latencyCaption': 'Retourtijd van deze uitvoering',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Aanvraag afgevuurd — zie het antwoord hieronder.',
   'workspace.subheading':
     'Stel een aanvraag samen, vuur hem af en controleer dan het antwoord — allemaal in één paneel.',
+  'workspace.testResults': 'Testresultaten',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Verzonden als Authorization: Bearer <token> op elke aanvraag in deze verzameling.',

@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Roli juaj',
   'account.role.upgradeLink': "Aplikoni për t'u bërë një mësues privat i verifikuar →",
   'account.title': 'Profili, pagesa dhe preferencat.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mëso me shkumës',
   'becomeTutor.form.error': 'Nuk mund të dërgohej aplikimi.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Subjekti',
   'bookingConfirm.title': 'Je i rezervuar. Për pjesën tjetër do të merremi ne.',
   'bookingConfirm.with': 'Me mësues privat',
+  'common.goToDashboard': 'Shko te paneli',
   'earningsHero.eyebrow': 'Fitimet • {{month}}',
   'forgotPassword.heading': 'Harruat fjalëkalimin?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Dërgo mesazh',
   'messages.thread.empty': 'Përshëndetje — fillo bisedën.',
   'messages.title': 'Tema me tutorët tuaj.',
+  'nav.primary': 'Kryesore',
   'pricing.dataExport': 'Eksporti i të dhënave:',
   'pricing.headingDefault': 'Karakteristika të avancuara:',
   'resetPassword.heading': 'Zgjidh një fjalëkalim të ri të fortë.',

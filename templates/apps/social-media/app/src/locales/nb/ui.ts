@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
+  'about.pageTitle': 'Om {{app}}',
+  'common.goToDashboard': 'Gå til oversikt',
+  'common.retry': 'Prøv igjen',
   'compose.cancel': 'Avbryt',
   'compose.captionPlaceholder': 'Hva tenker du på?',
   'compose.heading': 'Del et øyeblikk',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Verifisert konto',
   'resetPassword.newPassword': 'Nytt passord',
   'resetPassword.subheading': 'Velg noe sterkt – minst 12 tegn.',
+  'search.clearAria': 'Tøm',
+  'search.error': 'Søket mislyktes. Prøv på nytt.',
   'search.noPeople': 'Ingen samsvarende skapere {{q}} ".',
   'search.noPosts': 'Ingen innlegg samsvarer {{q}} ".',
   'search.noTags': 'Ingen trending emneknagger ennå.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Skjul passord',
   'signup.showPassword': 'Vis passord',
   'signup.subheading': 'Opprett en konto for å begynne å dele.',
+  'socialMediaLayout.closeMenu': 'Lukk navigasjonsmenyen',
+  'socialMediaLayout.openMenu': 'Åpne navigasjonsmenyen',
+  'socialMediaLayout.primaryNavLabel': 'Primær navigasjon',
   'storyRail.heading': 'Historier',
   'storyRail.label': 'Historier',
   'storyRail.openAria': 'Åpne {{handle}} s historie',

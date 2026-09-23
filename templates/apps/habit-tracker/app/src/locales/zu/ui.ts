@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'achievementBadgeCard.unlockedOn': 'Kuvuliwe {{date}}',
   'achievements.loadError': 'Yehlulekile ukulayisha izimpumelelo.',
   'achievements.subheading': '{{unlocked}} kwe {{total}} kuvuliwe',
   'achievements.unlockedOn': 'Kuvuliwe {{date}}',
+  'auth.legalConsent': 'Ngokuqhubeka, uyavuma',
   'calendar.empty': 'Dala umkhuba wokubona ikhalenda lakho.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Umkhuba',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Igridi yemikhuba',
   'category.${c.category}': '{{inani}} imikhuba',
   'common.and': 'futhi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'consistencyHeatmap.ariaLabel': 'Imephu yokushisa ehambisanayo yansuku zonke',
   'consistencyHeatmap.caption': 'Okokugcina {{weeks}} amasonto',
   'consistencyHeatmap.lessLabel': 'Ngaphansi',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Yibone bukhoma',
   'landing.heroSubtitle':
     'Yakha imikhuba ngendlela enamathela ngayo: izibopho ezincane, imigqa yansuku zonke, kanye nenjabulo ejulile yeketanga elide elinganqamuki.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Ukubheka ngaphakathi kwe-Streak',
   'landing.previewMotivation': 'Imigqa eyisishiyagalolunye iphila. Zigcine zifudumele zonke.',
   'login.eyebrow': 'Thatha uchungechunge',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Kwenze kube kuncane. Kwenze kube ngqo. Veza kusasa.',
   'newHabit.timeLabel': 'Isikhathi sesikhumbuzo',
   'notifications.markError': 'Ayikwazanga ukumaka konke okufundiwe.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.entries': '{{count}} okufakiwe',
+  'pricing.heading': 'Khetha uhlelo lwakho lwe-{{app}}',
   'profile.action.plan': 'Phatha okubhaliselwe',
   'profile.action.settings': 'Amasethingi we-akhawunti',
   'profile.bioEmpty': 'Faka i-bio emfushane kuzilungiselelo ukuze uzethule.',
@@ -126,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Isaziso sasekuseni sansuku zonke (8:00am)',
   'settings.reminders.heading': 'Izikhumbuzi',
   'settings.reminders.weekly': 'Isifinyezo samasonto onke (ngeSonto kusihlwa)',
+  'settings.revokeDeviceWarning': 'Ukufinyelela kwaledivayisi kuyokhishwa maduze. Yiphulise?',
   'settings.signOutDevice': 'Phuma ngemvume',
   'settings.streaks.freezesPerWeek': 'Iqandisa ngesonto',
   'settings.streaks.gracePeriod': 'Isikhathi somusa samahora ayi-6 ngemva kwamabili',
@@ -152,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} esebenzayo',
   'streakHeroCard.daysSuffix': 'izinsuku',
   'streakHeroCard.title': 'Uchungechunge olude kakhulu olusebenzayo',
+  'streakLayout.closeMenu': 'Vala imenyu yokuzulazula',
+  'streakLayout.openMenu': 'Vula imenyu yokuzulazula',
   'streakLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
 }

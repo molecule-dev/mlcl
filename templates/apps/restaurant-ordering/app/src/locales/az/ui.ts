@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqqında',
   'analytics.avgCheckLabel': 'Orta yoxlama',
   'analytics.busiestHour': 'Ən işlək saat',
   'analytics.coversToday': 'Bu gün əhatə edir',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Məsləhətlər (orta hesabla)',
   'analytics.topItems': 'Bu gün ən çox bəyənilən məhsullar',
   'authShell.eyebrow': 'Xidmətə xoş gəlmisiniz',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Qonaqpərvərlik komandaları üçün isti və sürətli satış nöqtəsi. Mətbəxinizə daxil olun və qaldığınız yerdən davam edin.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'və ya {{price}}',
   'billing.priceUnavailable': 'Bu planın konfiqurasiya edilmiş qiyməti yoxdur.',
   'billing.updated': 'Plan yeniləndi.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'customerDetail.book': 'Rezervasiya əlavə edin',
   'customerDetail.col.table': 'Masa',
   'customerDetail.confirmDelete': 'Bu qonaq qeydi silinsin?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Mövcudluq',
   'menuItemDetail.available': 'Bu gecə əlçatandır',
   'menuItemDetail.backToMenu': 'Menyuya qayıt',
+  'menuItemDetail.confirmDelete': 'Bu menyu elementi silinsin?',
   'menuItemDetail.delete': 'Elementi silin',
   'menuItemDetail.deleteError': 'Silinmə uğursuz oldu. Yenidən cəhd edin.',
   'menuItemDetail.dietary': 'Pəhriz etiketləri',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · fotonu, dəyişdiriciləri, pəhrizi və qiymətləri redaktə edin.',
   'menuItemDetail.untitled': 'Başlıqsız element',
+  'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
+  'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'notFound.heading': 'Bu masa yerdə deyil.',
   'notFound.subheading':
     'Axtardığınız səhifə başqa yerdə yerləşdirilib — ya da heç vaxt mövcud olmayıb.',
+  'notFound.toLanding': '{{app}} ana səhifə',
   'notifications.markError': 'Hamısını oxunmuş kimi qeyd etmək mümkün olmadı.',
   'orderDashboard.activeDelta': 'İndi canlı yayımda',
   'orderDashboard.activeLabel': 'Aktiv sifarişlər',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Şifrəni göstər',
   'resetPassword.subtitle': 'Mətbəxə yenidən giriş əldə etmək üçün yeni şifrənizi daxil edin.',
   'resetPassword.tokenLabel': 'Tokeni sıfırlayın',
+  'restaurantOrderingLayout.primaryNavLabel': 'Əsas naviqasiya',
   'revenueHeroCard.activeOrders': '{{count}} aktiv',
   'revenueHeroCard.change': '{{sign}} {{amount}} dünənə qarşı',
   'revenueHeroCard.title': 'Bugünkü gəlir',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Restoran adı',
   'tableDetail.activeOrders': 'Aktiv sifarişlər',
   'tableDetail.backToFloor': 'Mərtəbə planı',
+  'tableDetail.confirmDelete': 'Bu cədvəl silinsin?',
   'tableDetail.delete': 'Sil',
   'tableDetail.deleteError': 'Cədvəli silmək mümkün olmadı.',
   'tableDetail.heading': 'Masa {{label}}',

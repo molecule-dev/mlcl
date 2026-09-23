@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.pageTitle': 'Tietoja {{appName}}',
   'analytics.error': 'Analytiikkaa ei voitu ladata.',
   'analytics.heading': 'Hakuanalytiikka',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ei määritettyjä hinnoitteluportaita.',
   'billing.plans.heading': 'Tilaukset',
   'billing.subheading': 'Suunnitelma, käyttö ja Stripen hallinnoima kassaprosessi.',
+  'common.confirm': 'Vahvistaa',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.retry': 'Yritä uudelleen',
   'documentCard.open': 'Avoinna \\u2192',
   'documentDetail.back': 'Takaisin dokumentteihin',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Hakemistoasiakirja',
   'documents.composer.titlePlaceholder': 'Asiakirjan nimi',
   'documents.emptyAll': 'Ei vielä asiakirjoja. Lataa yksi aloittaaksesi kysymysten esittämisen.',
+  'documents.error.load': 'Asiakirjoja ei voitu ladata.',
   'documents.heading': 'Indeksoidut asiakirjat',
   'documents.loading': 'Ladataan asiakirjoja…',
   'documents.metric.chunks': 'Kokonaispalat',
@@ -140,7 +145,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Poistetaan\\u2026',
   'members.subheading': 'Kutsu tiimikavereita ja määritä roolit.',
   'members.tableHeading': 'Luettelo',
+  'mobileNav.closeMenu': 'Sulje navigointivalikko',
+  'mobileNav.openMenu': 'Avaa navigointivalikko',
   'notFound.askCta': 'Kysy tietokannasta',
+  'notFound.body':
+    '{{app}} ei löytänyt kyseistä sivua. Linkki voi olla rikki tai sivu on saatettu poistaa käytöstä uudelleenindeksoinnin aikana.',
   'notFound.eyebrow': 'Ei voida hakea',
   'notFound.title': 'Hakemistossa ei ole tällaista osaa',
   'notifications.dismiss': 'Sulje',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Lähde-URL',
   'sources.empty.body': 'Napsauta \\u201cLisää lähde\\u201d kytkeäksesi ensimmäisen liittimen.',
   'sources.empty.title': 'Ei vielä lähteitä.',
+  'sources.error.add': 'Lähteen lisääminen epäonnistui.',
   'sources.error.labelRequired': 'Nimi on pakollinen.',
   'sources.error.load': 'Lähteitä ei voitu ladata.',
   'sources.error.urlRequired': 'URL-osoite vaaditaan tälle lähdetyypille.',

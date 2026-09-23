@@ -171,7 +171,7 @@ export const ui: UiTranslations = {
   'seating.form.submit': 'टेबल जोडा',
   'seating.poolTitle': 'न बसलेले पाहुणे',
   'seating.subtitle':
-    '<x>बसलेले</x> बसलेले<x> {{क्षमता}}</x> जागा ·<x> {{pool}}</x> पूलमध्ये वाट पाहणारे पाहुणे',
+    '{{seated}} {{capacity}} आसनांची बसण्याची व्यवस्था · {{pool}} पाहुणे तलावात वाट पाहत आहेत',
   'seating.title': 'बसण्याचा चार्ट',
   'settings.billing': 'बिलिंग',
   'settings.changePassword': 'पासवर्ड बदला',

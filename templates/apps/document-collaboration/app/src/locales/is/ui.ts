@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.title': 'Um {{app}}',
   'comments.addFailed': 'Gat ekki skrifað athugasemd.',
   'comments.backToDoc': 'Til baka í handritið',
   'comments.deleteFailed': 'Gat ekki eytt.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Leysa',
   'comments.resolveFailed': 'Gat ekki leyst.',
   'comments.subtitle': '{{open}} opið · {{resolved}} leyst',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.activityHeading': 'Hvað er að gerast',
   'dashboard.createFailed': 'Gat ekki búið til skjal.',
   'dashboard.empty': 'Engin handrit ennþá — byrjaðu með hnappinum Nýtt skjal.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Gat ekki fært í ruslið.',
   'editor.unpublish': 'Afbirta',
   'editor.untitled': 'Ónefnd skjal',
+  'editor.updatedElsewhere':
+    'Þetta skjal var uppfært af einhverjum öðrum — endurhlaðið til að sjá nýjustu upplýsingarnar.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'rithöfundur@studio.com',
   'forgotPassword.sentBody':
     'Ef reikningur er til staðar fyrir {{email}} , tengill fyrir endurstillingu er á leiðinni.',
   'forgotPassword.subtitle': 'Við sendum þér tölvupóst með tengil til að endurstilla.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Smíðað með Molecule.',
   'landing.ctaHeading': 'Opnaðu síðuna. Láttu bendilinn byrja.',
   'landing.ctaPrimary': 'Opna vinnustofu',
   'landing.eyebrow': 'Fyrir rithöfunda, ritstjóra og teymi',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'breytt {{when}}',
   'quillonDocumentCard.open': 'Opna →',
   'quillonKpiCard.trend': 'Nýleg þróun',
+  'quillonLayout.menu': 'Matseðill',
   'quillonLayout.primaryNavLabel': 'Aðalflakk',
   'quillonStudioHero.collab': 'Samstarfsaðilar',
   'quillonStudioHero.docs': 'Skjöl snert',
@@ -156,9 +163,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'rétt í þessu',
+  'trash.confirmDelete': 'Staðfesta eyðingu',
   'trash.deleteFailed': 'Gat ekki eytt.',
   'trash.deleteForever': 'Eyða fyrir fullt og allt',
   'trash.empty': 'Ekkert til að endurheimta.',
+  'trash.emptyAll': 'Tæma ruslið',
   'trash.eyebrow': 'Stúdíó',
   'trash.heading': 'Ruslið',
   'trash.loadFailed': 'Gat ekki hlaðið ruslinu.',

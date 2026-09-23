@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Mine töölauani',
   'forgot.eyebrow': 'Kas kaotasid tee tagasi sisse?',
   'forgot.formSubtitle': 'Andke meile teada failis olev e-posti aadress.',
   'forgot.headline': 'Taasta oma parool.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Loo üks',
   'login.subline':
     'Sinu märkmikud, tagasilingid ja päevaleheküljed on täpselt seal, kus sa need jätsid.',
+  'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
+  'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'noteEditor.backToNotes': 'Tagasi märkmete juurde',
   'noteEditor.bodyPlaceholder':
     'Hakka kirjutama – sinu märge salvestub kirjutamise ajal automaatselt.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Uus märkmik',
   'notes.newNotebookPrompt': 'Uue märkmiku nimi',
   'notes.notebooksHeading': 'Märkmikud',
+  'notes.subtitle':
+    'Valige vasakult märkmik ja seejärel vajutage uue sissekande alustamiseks nuppu Uus märge.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Valige oma märkmete tegemise plaan',
   'reset.eyebrow': 'Peaaegu tagasi',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Uuendatud',
   'versoLayout.nav.graph': 'Graafik',
   'versoLayout.nav.home': 'Avaleht',
+  'versoLayout.primaryNavLabel': 'Peamine navigeerimine',
   'versoNoteCard.pinned': 'Kinnitatud',
   'versoTodayHero.continueCta': 'Jätka kirjutamist',
   'versoTodayHero.createCta': 'Alusta tänast märkmikku',

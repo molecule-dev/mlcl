@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'हमारे बारे में',
   'actions.empty': 'कोई कार्य आइटम मेल नहीं खाते।',
   'actions.heading': 'कार्य आइटम',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'पिछला माह',
   'calendar.recent': 'हाल का',
   'common.daysAgo': '{{count}} दिन पहले',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.hoursAgo': '{{count}} घंटे पहले',
   'common.no': '—',
+  'common.retry': 'पुनः प्रयास करें',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} कार्य आइटम',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'रीसेट लिंक के लिए अपना इनबॉक्स देखें।',
   'forgot.subheading': 'अपना ईमेल दर्ज करें और हम एक रीसेट लिंक भेजेंगे।',
   'integrations.disconnected': 'डिस्कनेक्ट किया गया',
+  'integrations.loadError': 'एकीकरण लोड करने में विफल।',
   'integrations.notConnectedTag': 'कनेक्ट नहीं है',
   'integrations.subheading':
     'कैलेंडर और वीडियो प्लेटफ़ॉर्म कनेक्ट करें ताकि Murmur स्वचालित रूप से शामिल हो सके।',
+  'integrations.updateError': 'अपडेट विफल रहा।',
   'landing.ctaButton': 'आरंभ करें — यह मुफ़्त है',
   'landing.ctaHeading': 'नोट्स लेना बंद करें। निर्णय लेना शुरू करें।',
   'landing.demo.aiLabel': 'AI सारांश, लाइव तैयार किया गया',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'अनुवर्ती',
   'meetingDetail.loadError': 'बैठक लोड करने में विफल।',
   'meetingDetail.noActions': 'कोई कार्य आइटम नहीं पाया गया।',
+  'meetingDetail.none': 'कोई नहीं।',
   'meetingDetail.notFound': 'बैठक नहीं मिली।',
+  'meetingDetail.speakerFallback': 'वक्ता {{id}}',
   'meetingDetail.summaryHeading': 'AI सारांश',
   'meetingDetail.transcriptHeading': 'ट्रांसक्रिप्ट',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'बैठकें',
   'meetings.loadError': 'बैठकें लोड करने में विफल।',
   'meetings.subheading': 'हर रिकॉर्ड की गई, अपलोड की गई और सिंक की गई बैठक।',
+  'murmurLayout.openMenu': 'नेविगेशन मेनू खोलें',
   'murmurLayout.primaryNavLabel': 'मुख्य नेविगेशन',
   'nav.legal': 'कानूनी',
   'notifications.loadError': 'सूचनाएँ लोड करने में विफल।',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'आप Murmur के अंदर कैसे दिखाई देते हैं।',
   'record.error.empty': 'कोई ऑडियो कैप्चर नहीं हुआ।',
   'record.error.permission': 'माइक्रोफ़ोन की अनुमति अस्वीकृत।',
+  'record.error.recorder': 'रिकॉर्डर त्रुटि',
   'record.error.unsupported':
     'आपका ब्राउज़र रिकॉर्डिंग का समर्थन नहीं करता। Chrome, Edge, या Safari आज़माएँ।',
   'record.error.upload': 'अपलोड विफल। फिर से प्रयास करें।',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'नया पासवर्ड',
   'reset.subheading': 'ऐसा पासवर्ड चुनें जिसे आप कहीं और उपयोग नहीं करते।',
   'search.empty': 'ट्रांसक्रिप्ट खोजने के लिए टाइप करें।',
+  'search.loadError': 'खोज विफल रही। पुनः प्रयास करें।',
   'search.noResults': '“{{q}}” के लिए कोई परिणाम नहीं।',
   'settings.appearance.description': 'लाइट और डार्क मोड के बीच टॉगल करें।',
   'settings.appearance.title': 'रूप',
@@ -124,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'सेटिंग्स लोड करने में विफल।',
   'settings.loading': 'लोड हो रहा है…',
   'settings.push.heading': 'पुश सूचनाएँ',
+  'settings.push.subheading':
+    'उल्लेखों, कार्रवाई योग्य मदों और सारांशों के लिए ब्राउज़र अलर्ट प्राप्त करें।',
   'settings.retention.audio': 'ऑडियो रखें',
   'settings.retention.heading': 'प्रतिधारण',
   'settings.retention.transcript': 'ट्रांसक्रिप्ट रखें',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'खाता नहीं बनाया जा सका। कृपया पुनः प्रयास करें।',
   'signup.subheading': 'मिनटों में बैठक नोट्स कैप्चर करना शुरू करें',
   'signup.terms': 'खाता बनाकर आप हमारी सेवा शर्तों और गोपनीयता नीति से सहमत हैं।',
+  'signup.termsPrefix': 'खाता बनाकर आप हमारी शर्तों से सहमत होते हैं।',
   'team.inviteCta': 'टीम के साथी को आमंत्रित करें',
   'team.invitedAs': '{{role}} के रूप में आमंत्रित',
   'team.inviteFailed': 'आमंत्रण नहीं भेजा जा सका।',

@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Dă bacșiș cumpărătorului tău',
   'checkout.tipLabel': 'Sfat',
   'checkout.zipPlaceholder': 'Cod poștal',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'featuredProductsGrid.addAria': 'Adăuga {{name}} în coș',
   'featuredProductsGrid.outOfStock': 'Epuizat',
   'forgotPassword.emailLabel': 'Adresă de e-mail',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Dacă adresa de e-mail este înregistrată, un link de resetare este pe drum.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Navigare principală',
   'landing.categoriesEyebrow': 'Alei',
   'landing.categoriesHeading': 'Cumpărături după categorie',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Programați livrări săptămânale cu rearanjarea inteligentă a produselor de bază și urmărirea live a șoferilor.',
   'landing.heroTitle': 'Prospețime la ușa ta, în câteva ore.',
   'landing.howEyebrow': 'Trei pași',
+  'landing.howItWorksHeading': 'Cum funcționează {{app}}',
   'lists.addAllCta': 'Adaugă totul în coș',
   'lists.createCta': 'Creați prima listă',
   'lists.createError': 'Nu s-a putut crea lista.',

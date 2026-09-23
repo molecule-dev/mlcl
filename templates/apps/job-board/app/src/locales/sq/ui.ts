@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
   'applications.empty': 'Nuk ka ende aplikime \\u2014 Roli i duhur është vetëm një aplikim larg.',
   'applications.eyebrow': 'Tubacioni juaj',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Çdo rol për të cilin keni aplikuar, në lëvizje. Filtro sipas fazës për t’u përqendruar.',
   'applications.untitledRole': 'Roli # {{id}}',
+  'auth.legalConsent': 'Duke vazhduar, ju pranoni',
   'common.and': 'dhe',
+  'common.goToDashboard': 'Shko te paneli',
   'companies.empty':
     'Nuk ka kompani që përputhen me kërkimin tuaj \\u2014 provoni një term tjetër.',
   'companies.eyebrow': 'Punëdhënës të paraqitur',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Ende nuk ka aplikime për këtë rol.',
   'jobApplicants.eyebrow': 'Pikëpamja e punëdhënësit',
   'jobApplicants.loading': 'Duke u ngarkuar\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Nuk mundi ta përditësojë atë fazë — provo përsëri.',
+  'jobApplicants.subheading':
+    'Rishikoni CV-të, avanconi kandidatët, dërgoni ofertat \\u2014 {{count}} në lëvizje.',
   'jobDetail.applicantCount': '{{count}} aplikantët deri më tani',
   'jobDetail.applied': 'Aplikimi u dërgua',
   'jobDetail.apply': 'Apliko tani',
@@ -83,6 +89,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Shfleto rolet e hapura \\u2192',
   'landing.pricingEyebrow': 'Çmimet',
   'landing.pricingHeading': 'Plane të thjeshta për çdo madhësi ekipi.',
+  'login.eyebrow': 'Mirë se erdhet përsëri te {{app}}',
   'login.heading': 'Hyr në llogarinë tënde',
   'login.noAccount': 'I ri në Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -90,6 +97,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Duke u identifikuar\\u2026',
   'login.subheading':
     'Filloni kërkimin tuaj, përparoni aplikimet tuaja, merrni përgjigje më shpejt.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Ndërtuar për ekipet e punësimit.',
   'loginBrandPanel.headline': 'Ku takohet talenti',
   'loginBrandPanel.headlineLine2': 'momentum.',
   'loginBrandPanel.listing.recruiter': 'Partner Talenti',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Përditësime aplikimesh, ftesa për intervistë, përputhje të reja \\u2014 më të rejat të parat.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} këtë javë',
   'opportunitiesHero.eyebrow': 'Hapur sot',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'postJob.addNewCompany': '+ Shto një kompani të re',
   'postJob.companyCreateFailed': 'Nuk mundi të krijonte kompaninë — provo përsëri.',
   'postJob.companyNameLabel': 'Emri i kompanisë suaj',
@@ -165,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Duke krijuar llogarinë…',
   'signup.ctaEmployer': 'Krijo llogari punëdhënësi',
   'signup.firstNamePlaceholder': 'Maja',
+  'signup.lastNamePlaceholder': 'Çen',
   'signup.passwordMismatch': 'Fjalëkalimet nuk përputhen.',
   'signup.subheading':
     'Falas për kërkuesit, përgjithmonë. Punëdhënësit fillojnë me një periudhë prove 30-ditore.',
   'timeAgo.days': '{{count}} ditë më parë',
   'timeAgo.hours': '{{count}} orë më parë',
   'timeAgo.justNow': 'pikërisht tani',
+  'timeAgo.weeks': '{{count}} javë më parë',
 }

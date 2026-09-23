@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.connectRepoCta': 'Připojit repozitář',
   'dashboard.empty': 'Žádné pull requesty — připojte repozitář a začněte.',
   'dashboard.eyebrow': 'Refract · fronta kontrol',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Dostupnost',
   'pullRequestRow.files': '{{count}} s',
   'pullRequestRow.scoreAria': 'Skóre kvality AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Zavřít nabídku',
+  'refractLayout.openMenu': 'Otevřít nabídku',
   'refractLayout.primaryNavLabel': 'Primární navigace',
   'reports.cumulativeScoreLabel': 'Kumulativní skóre',
   'reports.cumulativeScoreSubtitle': 'všechna repa · {{days}}d',
@@ -173,11 +176,14 @@ export const ui: UiTranslations = {
   'search.indexEmpty': 'Připojte repozitář nebo přidejte vlastní pravidla pro spuštění indexace.',
   'search.loadError': 'Nepodařilo se načíst vyhledávací index.',
   'settings.apiKeys.description': 'Spravujte osobní API klíče z uživatelského menu vpravo nahoře.',
+  'settings.apiKeys.integrationsNote':
+    'Přístupové tokeny poskytovatelů se spravují v sekci „Integrace“ výše.',
   'settings.connectError': 'Nepodařilo se připojit poskytovatele.',
   'settings.disconnectError': 'Nepodařilo se odpojit poskytovatele.',
   'settings.eyebrow': 'Refract · pracovní prostor',
   'settings.integration.${provider}.label': 'Ukládání…',
   'settings.loadError': 'Nepodařilo se načíst nastavení.',
+  'settings.notificationCenter': 'Centrum oznámení',
   'settings.notifications.description':
     'Navštivte stránku oznámení pro zobrazení a správu preferencí doručování.',
   'settings.section.account': 'Účet a zabezpečení',

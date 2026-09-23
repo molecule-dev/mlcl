@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'אודות {{app}}',
+  'appNav.mobileLabel': 'ניווט ראשי',
+  'appNav.primaryLabel': 'ניווט ראשי',
   'billing.actions.confirmCancel': 'לבטל את המנוי שלך? תוכל להירשם מחדש בכל עת.',
   'billing.actions.paused': 'המנוי הושהה.',
   'billing.actions.resumed': 'המנוי חודש.',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'boxes.search.placeholder': 'חפש מהדורות…',
   'boxes.subtitle': 'כל רמה היא סיפור בכמות קטנה. הוסיפו אחד לתור שלכם או החליפו אותו לחודש הבא.',
   'boxThemeCard.perMonth': '/ חודש',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'customize.eyebrow': 'הפוך את זה לשלך',
   'customize.heading': 'התאם אישית את ה-Crate הבא שלך',
   'customize.items.exclude': 'דלג על זה',
@@ -89,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'העונה הזו',
   'landing.editions.heading': 'מהדורות שהאוצרים שלנו אוהבים',
   'landing.footer.contact': 'דבר עם אוצר',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'התחל את הקופסה שלך →',
   'landing.hero.ctaSecondary': 'ראה שכבות',
   'landing.hero.eyebrow': 'נבחר מדי חודש. תמיד אישי.',
@@ -155,4 +160,5 @@ export const ui: UiTranslations = {
   'signup.submit': 'התחל את הקופסה שלך',
   'signup.submitting': 'מסכם את זה...',
   'signup.subtitle': 'אין טפסים ארוכים. ניתן לבטל בכל עת - להשהות ללא קנס.',
+  'tierPlanCard.savingsBadge': 'חסכו {{savings}}',
 }

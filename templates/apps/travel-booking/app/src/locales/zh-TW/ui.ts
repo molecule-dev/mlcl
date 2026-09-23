@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
+  'about.featureDiscover.title': '靈感，精挑細選',
   'account.addPaymentCta': '新增付款方式',
   'account.addPaymentError': '無法新增付款方式。',
+  'account.confirmRemove': '確認刪除',
   'account.defaultBadge': '預設',
   'account.loyalty.pointsTowardNext': '{{points}}的{{下一個}}數英里{{nextTier}}',
   'account.loyalty.tier': '目前層級',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': '行程詳情',
   'booking.tripSummary': '{{nights}}夜晚{{guests}}客人',
   'common.daysAgo': '{{count}} d 前',
+  'common.goToDashboard': '前往主控台',
   'common.hoursAgo': '{{count}}一小時前',
   'common.minutesAgo': '{{count}}米前',
   'common.no': '—',
@@ -75,6 +79,7 @@ export const ui: UiTranslations = {
   'nav.legal': '合法的',
   'notifications.loading': '載入中…',
   'notifications.subheading': '{{count}}未讀 · 所有資訊都集中在一個平靜的收件匣中',
+  'planUpdated.verifying': '確認您的付款中…',
   'pricing.accommodationsLabel': '住宿',
   'pricing.bookingsLabel': '預訂',
   'pricing.destinationsLabel': '已儲存的目的地',
@@ -124,6 +129,7 @@ export const ui: UiTranslations = {
     '靈感、值得信賴的住宿，以及從夢想到預訂的無縫銜接——涵蓋 14 個國家和 200 多個經過精心篩選的房源。',
   'sojournHeroSearchCard.trustProtected': '免費取消，全程保障',
   'sojournHeroSearchCard.trustVetted': '僅經過人工篩選的房產',
+  'travelBookingLayout.primaryNavLabel': '主導航',
   'tripDetail.backLink': '返回行程',
   'tripDetail.cancelCta': '取消預訂',
   'tripDetail.cancelHeading': '取消這次行程？',

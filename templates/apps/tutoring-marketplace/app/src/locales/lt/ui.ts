@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Jūsų vaidmuo',
   'account.role.upgradeLink': 'Pateikite paraišką tapti patvirtintu korepetitoriumi →',
   'account.title': 'Profilis, mokėjimas ir nuostatos.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mokyk ant kreidos',
   'becomeTutor.form.error': 'Nepavyko pateikti paraiškos.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Tema',
   'bookingConfirm.title': 'Jūs rezervuotas. Mes pasirūpinsime visa kita.',
   'bookingConfirm.with': 'Su korepetitoriumi',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'earningsHero.eyebrow': 'Pajamos • {{month}}',
   'forgotPassword.heading': 'Pamiršote slaptažodį?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Siųsti žinutę',
   'messages.thread.empty': 'Pasisveikink – pradėk pokalbį.',
   'messages.title': 'Temos su jūsų mokytojais.',
+  'nav.primary': 'Pirminis',
   'pricing.dataExport': 'Duomenų eksportas:',
   'pricing.headingDefault': 'Išplėstinės funkcijos:',
   'resetPassword.heading': 'Pasirinkite naują stiprų slaptažodį.',

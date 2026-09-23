@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.connectRepoCta': 'Sambung repositori',
   'dashboard.empty': 'Tiada permintaan pull lagi — sambungkan repositori untuk bermula.',
   'dashboard.eyebrow': 'Refract · baris gilir semakan',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Masa operasi',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Skor kualiti AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Tutup menu',
+  'refractLayout.openMenu': 'Buka menu',
   'refractLayout.primaryNavLabel': 'Navigasi utama',
   'reports.cumulativeScoreLabel': 'Skor kumulatif',
   'reports.cumulativeScoreSubtitle': 'semua repositori · {{days}}h',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Gagal memuatkan indeks carian.',
   'settings.apiKeys.description':
     'Urus kunci API peribadi dari menu pengguna di penjuru kanan atas.',
+  'settings.apiKeys.integrationsNote':
+    'Token akses pembekal diuruskan dalam bahagian Integrasi di atas.',
   'settings.connectError': 'Gagal menyambung pembekal.',
   'settings.disconnectError': 'Gagal memutuskan sambungan pembekal.',
   'settings.eyebrow': 'Refract · ruang kerja',
   'settings.integration.${provider}.label': 'Menyimpan…',
   'settings.loadError': 'Gagal memuatkan tetapan.',
+  'settings.notificationCenter': 'Pusat pemberitahuan',
   'settings.notifications.description':
     'Lawati halaman pemberitahuan untuk melihat dan mengurus pilihan penghantaran.',
   'settings.section.account': 'Akaun & keselamatan',

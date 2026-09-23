@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'article.notFound': 'Artikel nie gevind nie',
   'articleEditor.bodyPlaceholder': 'Tik / vir blokke, of begin net skryf.',
+  'articleEditor.loadFailed': 'Kon nie artikel laai nie',
   'articleEditor.publishing': 'Uitgewery\\u2026',
   'articleEditor.saveFailed': 'Stoor het misluk',
   'articleEditor.saving': 'Spaar\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Boekmerk',
   'articleView.bookmarkOn': 'Geboekmerk',
   'articleView.edit': 'Wysig artikel',
+  'articleView.loading': 'Maak hierdie artikel oop…',
   'articleView.readTime': '{{minutes}} min lees',
   'articleView.spaces': 'Ruimtes',
   'articleView.tocHeading': 'Op hierdie bladsy',
@@ -36,8 +40,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.readers': 'Lesers vandag',
   'cairnTrailHero.subtitle': 'Onlangse wysigings, lesings en konsepte wat jou span steeds optel.',
   'cairnTrailHero.updated': 'Artikels opgedateer',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'drafts.eyebrow': 'Jou onvoltooide werk',
   'drafts.heading': 'Konsepte',
+  'drafts.loadFailed': 'Kon nie jou konsepte laai nie.',
   'drafts.subtitle':
     'Artikels wat jy begin het, maar nog nie gepubliseer het nie. Kies een en gaan voort.',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Geen spasies nog nie. Maak een oop om artikels te begin versamel.',
   'home.spacesHeading': 'Jou ruimtes',
   'home.subtitle': 'Onlangse artikels, jou boekmerke en wat die span geskryf het.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Gebou met Molecule.',
   'landing.ctaBody':
     'Gratis vir solo-outeurs. Spanplanne vir verspreide spanne wat loopboeke, besluite en aanboordproses verskaf.',
   'landing.ctaHeading': 'Stapel die eerste klip vandag.',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': "Skep 'n werkruimte",
   'login.submitting': 'Aanmelding\\u2026',
   'login.subtitle': 'Tel die spoor op waar jy dit gelos het.',
+  'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
+  'mobileNav.openMenu': 'Maak navigasiekieslys oop',
+  'newSpace.colorAria': 'Kies kleur {{color}}',
   'newSpace.colorLabel': 'Aksentkleur',
+  'newSpace.createFailed': 'Kon nie spasie skep nie',
   'newSpace.descriptionPlaceholder':
     'Loopboeke, aanspreeklikheidsboeke, nadoodse ondersoeke\\u2026',
   'newSpace.eyebrow': "Maak 'n kennisruimte oop",
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laai tans\\u2026',
   'notifications.subtitle':
     '{{count}} ongeleesde \\u2014 vermeldings, kommentaar, bladsyveranderings en hersieningsversoeke.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.articles': 'artikels',
   'pricing.spaces': 'ruimtes',
   'profile.eyebrow': 'Outeurprofiel',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': "Voer 'n nuwe wagwoord in",
   'resetPassword.subtitle': "Kies 'n sterk wagwoord — ten minste 12 karakters.",
   'searchResults.eyebrow': 'Werkruimte-soektog',
+  'searchResults.filter.all': 'Alle ruimtes',
   'searchResults.heading': 'Soek artikels',
   'searchResults.placeholder': "Soek runbooks, RFC's, beleide, besluite\\u2026",
   'searchResults.summary': '{{count}} resultate vir \\u201c {{query}} \\u201d',
@@ -131,14 +144,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Dit verwyder jou rekening en elke artikel wat jy geskryf het. Tik DELETE om te bevestig.',
   'settings.danger.confirmInvalid': 'Tik DELETE om te bevestig.',
+  'settings.danger.deleteFailed': 'Kon nie rekening uitvee nie',
   'settings.danger.deleting': 'Vee tans uit\\u2026',
   'settings.danger.description':
     'As jy jou werkspasie uitvee, word alle artikels, kommentare en weergawegeskiedenis verwyder. Daar is geen herstel nie.',
   'settings.danger.title': 'Vee werkspasie uit',
+  'settings.email.confirm': 'Opdateer e-pos',
+  'settings.email.confirmTitle': 'Bevestig e-posverandering',
   'settings.email.saved': 'E-pos opgedateer.',
+  'settings.email.updateFailed': 'Kon nie e-pos opdateer nie',
   'settings.language.title': 'Taal',
   'settings.name': 'Naam',
+  'settings.name.saved': 'Naam opgedateer.',
+  'settings.name.updateFailed': 'Kon nie naam opdateer nie',
   'settings.notifications.description': 'Kies wat jou inboks bereik.',
+  'settings.password.changeFailed': 'Kon nie wagwoord verander nie',
   'settings.password.current': 'Huidige wagwoord',
   'settings.password.new': 'Nuwe wagwoord',
   'settings.password.saving': 'Opdateer\\u2026',
@@ -146,10 +166,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Hoe artikels vir jou weergee.',
   'settings.reading.title': 'Lees en skryf',
   'settings.subtitle': 'Stem kennisgewings, die leesdoek en jou rekening in.',
+  'settings.twofa.code': 'Verifikasiekode',
   'settings.twofa.disable': 'Deaktiveer',
   'settings.twofa.disabled': 'Gestremd',
   'settings.twofa.enable': 'Aktiveer',
   'settings.twofa.enabled': 'Geaktiveer',
+  'settings.twofa.invalidCode': 'Ongeldige kode',
+  'settings.twofa.unavailable':
+    'Tweefaktor-verifikasie is nie vir hierdie toepassing beskikbaar nie.',
+  'settings.twofa.verify': 'Verifieer en aktiveer',
   'signup.brandQuote':
     'Om dit neer te skryf is die eerste belofte wat ons maak aan die volgende persoon wat dit nodig het.',
   'signup.eyebrow': "Maak 'n werkruimte oop",

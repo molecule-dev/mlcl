@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.pageTitle': 'Rreth {{appName}}',
   'analytics.error': 'Nuk mund të ngarkoheshin të dhënat analitike.',
   'analytics.heading': 'Analitika e rikuperimit',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Nuk janë konfiguruar nivele çmimesh.',
   'billing.plans.heading': 'Planet',
   'billing.subheading': 'Plani, përdorimi dhe arkëtimi i menaxhuar nga Stripe.',
+  'common.confirm': 'Konfirmo',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.retry': 'Riprovo',
   'documentCard.open': 'Hapur \\u2192',
   'documentDetail.back': 'Kthehu te dokumentet',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Dokument indeksi',
   'documents.composer.titlePlaceholder': 'Titulli i dokumentit',
   'documents.emptyAll': 'Nuk ka ende dokumente. Ngarko një për të filluar të bësh pyetje.',
+  'documents.error.load': 'Nuk mund të ngarkoheshin dokumentet.',
   'documents.heading': 'Dokumente të indeksuara',
   'documents.loading': 'Duke ngarkuar dokumentet…',
   'documents.metric.chunks': 'Totali i copave',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Duke u hequr\\u2026',
   'members.subheading': 'Ftoni shokët e ekipit dhe caktoni rolet.',
   'members.tableHeading': 'Regjistri',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
   'notFound.askCta': 'Pyetni bazën e njohurive',
+  'notFound.body':
+    '{{app}} nuk mundi ta gjente atë faqe. Lidhja mund të jetë e prishur ose faqja mund të jetë hequr gjatë një riindeksimi.',
   'notFound.eyebrow': 'Nuk mund të rikuperohet',
   'notFound.title': 'Nuk ka një pjesë të tillë në indeks',
   'notifications.dismiss': 'Hiq',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL-ja e burimit',
   'sources.empty.body': 'Klikoni \\u201cShto burimin\\u201d për të lidhur lidhësin e parë.',
   'sources.empty.title': 'Ende nuk ka burime.',
+  'sources.error.add': 'Nuk mund të shtohej burimi.',
   'sources.error.labelRequired': 'Etiketa është e detyrueshme.',
   'sources.error.load': 'Burimet nuk mund të ngarkoheshin.',
   'sources.error.urlRequired': 'URL-ja është e nevojshme për këtë lloj burimi.',

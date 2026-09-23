@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'auth.fields.newPassword': 'Iphasiwedi Entsha',
   'collectionDetail.addImage': 'I-Conjure yokuqoqa',
   'collectionDetail.backCta': 'Buyela emaqoqweni',
@@ -18,6 +19,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Amabhodi emizwa, izincwajana kanye nochungechunge oluqhubekayo',
   'collections.title': 'Amaqoqo',
   'collections.untitled': 'Akunasihloko · {{stamp}}',
+  'common.closeMenu': 'Vala imenyu',
+  'common.dismiss': 'Lahla',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.openMenu': 'Vula imenyu yokuzulazula',
   'credits.eyebrow': '{{plan}} uhlelo',
   'credits.renewsCopy': 'Uhlelo luvuselelwa ngo- {{date}}',
   'credits.trail': 'I-Reverie · {{plan}} izinga',
@@ -134,6 +139,7 @@ export const ui: UiTranslations = {
     'Imisebenzi yokukhiqiza, ukwabelana kanye nezexwayiso zekhredithi kuzovela lapha.',
   'notifications.empty.title': 'Akukho okufanele kubikwe',
   'notifications.subtitle': 'Imicimbi yesizukulwane ihlelwe ngokwezinsuku',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.limits.gallery': '{{count}} igalari',
   'privacy.collect.body':
     'Uma ubhalisa siqoqa igama lakho, ikheli le-imeyili, kanye nephasiwedi esheshisiwe. Njengoba usebenzisa i-Reverie sigcina izixwayiso ozithumelayo, izithombe esizikhiqizela wena, izitayela namaqoqo owalondolozayo, kanye nemethadatha efana nemodeli esetshenzisiwe, izitembu zesikhathi zokukhiqiza, kanye nebhalansi yesikweletu.',
@@ -170,6 +176,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Londoloza iphasiwedi entsha',
   'reset.submitting': 'Ibuyekeza iphasiwedi…',
   'settings.account.handle': 'Isibambo',
+  'settings.account.lastSaved': 'Iphrofayela esebenzayo · {{name}}',
   'settings.account.saved': 'Iphrofayela ilondoloziwe',
   'settings.account.saveFailed': 'Ayikwazanga ukulondoloza iphrofayela',
   'settings.account.title': 'Iphrofayela yomdali',
@@ -192,7 +199,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Isithombe esisha',
   'sidebar.secondary': 'Ukuzulazula kwesibili',
   'signup.failed': 'Ukubhalisa kwehlulekile. Zama futhi.',
+  'signup.firstNamePlaceholder': 'I-Aria',
   'signup.heading': 'Qala i-reverie yakho',
+  'signup.lastNamePlaceholder': 'uLin',
   'signup.subheading': 'Dala i-akhawunti bese uthola amakhredithi angu-120 mahhala.',
   'styles.empty':
     'Azikho izilungiselelo zesitayela okwamanje — zizovela ngemva kokungena ngemvume kokuqala.',

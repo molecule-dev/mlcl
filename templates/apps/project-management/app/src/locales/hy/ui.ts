@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'accountSettings.confirmEmailLabel': 'Մուտքագրեք DELETE՝ հաստատելու համար',
   'accountSettings.deleteError': 'Հաշիվը չհաջողվեց ջնջել։',
   'accountSettings.passwordError': 'Հնարավոր չէ փոխել գաղտնաբառը։',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Առաջիկա վերջնաժամկետներ չկան։',
   'dashboard.upcomingTitle': 'Առաջիկա վերջնաժամկետները',
   'deviceSettings.unknownDevice': 'Անհայտ սարք',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Աջակցություն',
   'forgotPassword.error': 'Չհաջողվեց ուղարկել վերակայման հղումը։',
   'forgotPassword.subtitle': 'Մուտքագրեք ձեր էլ. փոստը, և մենք ձեզ կուղարկենք վերակայման հղում։',
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Անվավեր էլ․ հասցե կամ գաղտնաբառ։',
   'login.pageTitle': 'Մուտք գործել',
   'login.signIn': 'Մուտք գործեք Forge-ում',
+  'login.subtitle': 'Մուտք գործեք՝ ձեր նախագծերը ճիշտ ուղու վրա պահելու համար',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'nav.calendar': 'Օրացույց',
   'nav.legal': 'Իրավական',
   'nav.myTasks': 'Իմ առաջադրանքները',

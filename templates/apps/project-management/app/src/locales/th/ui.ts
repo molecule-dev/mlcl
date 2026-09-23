@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'accountSettings.confirmEmailLabel': 'พิมพ์ DELETE เพื่อยืนยัน',
   'accountSettings.deleteError': 'ไม่สามารถลบบัญชีได้',
   'accountSettings.passwordError': 'ไม่สามารถเปลี่ยนรหัสผ่านได้',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'ไม่มีกำหนดส่งงานในเร็วๆ นี้',
   'dashboard.upcomingTitle': 'กำหนดส่งงานที่กำลังจะมาถึง',
   'deviceSettings.unknownDevice': 'อุปกรณ์ที่ไม่รู้จัก',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'สนับสนุน',
   'forgotPassword.error': 'ไม่สามารถส่งลิงก์รีเซ็ตได้',
   'forgotPassword.subtitle': 'กรอกอีเมลของคุณ แล้วเราจะส่งลิงก์สำหรับรีเซ็ตให้คุณ',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'อีเมลหรือรหัสผ่านไม่ถูกต้อง',
   'login.pageTitle': 'เข้าสู่ระบบ',
   'login.signIn': 'เข้าสู่ระบบ Forge',
+  'login.subtitle': 'ลงชื่อเข้าใช้เพื่อติดตามความคืบหน้าของโครงการของคุณ',
+  'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
+  'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'nav.calendar': 'ปฏิทิน',
   'nav.legal': 'ถูกกฎหมาย',
   'nav.myTasks': 'งานของฉัน',

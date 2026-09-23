@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Անցնել վահանակ',
   'forgot.eyebrow': 'Կորցրե՞լ եք վերադարձի ճանապարհը։',
   'forgot.formSubtitle': 'Մեզ հայտնեք ֆայլում առկա էլ. փոստի հասցեն։',
   'forgot.headline': 'Վերագործարկեք ձեր գաղտնաբառը։',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ստեղծեք մեկը',
   'login.subline':
     'Ձեր տետրերը, հետադարձ հղումները և ամենօրյա էջերը հենց այնտեղ են, որտեղ դուք թողել եք դրանք։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'noteEditor.backToNotes': 'Վերադառնալ նշումներին',
   'noteEditor.bodyPlaceholder':
     'Սկսեք գրել՝ ձեր նշումը ավտոմատ կերպով պահպանվում է մուտքագրելուն զուգընթաց։',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Նոր տետր',
   'notes.newNotebookPrompt': 'Նոր տետրակի անուն',
   'notes.notebooksHeading': 'Նոթատետրեր',
+  'notes.subtitle':
+    'Ընտրեք ձախ կողմում գտնվող տետրը, այնուհետև սեղմեք «Նոր նշում» կոճակը՝ նոր գրառում սկսելու համար։',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Ընտրեք ձեր նշումներ կատարելու պլանը',
   'reset.eyebrow': 'Գրեթե վերադարձել է',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Թարմացված է',
   'versoLayout.nav.graph': 'Գրաֆիկ',
   'versoLayout.nav.home': 'Տուն',
+  'versoLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'versoNoteCard.pinned': 'Ամրացված է',
   'versoTodayHero.continueCta': 'Շարունակեք գրել',
   'versoTodayHero.createCta': 'Սկսեք այսօրվա նշումը',

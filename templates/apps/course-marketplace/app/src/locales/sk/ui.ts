@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Načítavanie kurzov…',
   'browse.next': 'Ďalšia strana',
   'browse.results': 'Zobrazenie kurzov v rámci programu „{{count}}“',
+  'browse.searchChip': '“{{query}}”',
   'browse.sort': 'Zoradiť podľa',
   'browse.subtitle':
     'Filtrovajte archív článkov podľa témy, úrovne a ceny. Každý kurz je starostlivo vybraný našimi redaktormi.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Váš certifikát je podpísaný a pripravený. Zdieľajte ho so svetom alebo si ho nechajte ako spomienku na úsilie, ktoré ste vynaložili na jeho získanie.',
   'certificate.copyLink': 'Kopírovať odkaz na zdieľanie',
+  'certificate.copyPrompt': 'Skopírujte tento odkaz:',
   'certificate.download': 'Stiahnuť PDF',
   'certificate.eyebrow': 'Úspech odomknutý',
   'certificate.linkCopied': 'Odkaz bol skopírovaný!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Ste zaregistrovaní!',
   'checkout.verifying': 'Overujeme vašu registráciu…',
   'checkout.viewLibrary': 'Zobraziť moje štúdium',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.retry': 'Skúste to znova',
   'courseDetail.about': 'O tomto kurze',
   'courseDetail.checkoutPending': 'Začína sa platba…',
   'courseDetail.continueLearning': 'Pokračovať v učení',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-dňová záruka vrátenia peňazí',
   'courseDetail.includes.video': '{{hours}} hodiny videa na požiadanie',
   'courseDetail.instructor': 'Lektor',
+  'courseDetail.languageEnglish': 'angličtina',
   'courseDetail.lectures': 'Prednášky',
   'courseDetail.level': 'Úroveň',
   'courseDetail.loading': 'Načítavanie kurzu…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Zatiaľ žiadne recenzie.',
   'instructorProfile.students': 'Študenti',
   'landing.categories.empty': 'Kategórie sa zobrazia, akonáhle bude katalóg naplnený.',
+  'landing.categories.heading': 'Prezrite si archív',
   'landing.hero.eyebrow': 'Lectura · Archív vydavateľstva Mastery',
   'landing.hero.proof': 'Dôverujú mu študenti v spoločnostiach Google, Meta a Adobe.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Začnite sa učiť ešte dnes',
   'login.subheading': 'Získajte prístup k svojmu vedeckému archívu.',
   'myLearning.empty.title': 'Zatiaľ sa nenašli žiadne kurzy, ktoré by zodpovedali tomuto filtru',
+  'myLearning.error.title': 'Nepodarilo sa načítať vašu knižnicu',
   'myLearning.filter.notStarted': 'Ešte sa nezačalo',
   'myLearning.hero.subtitle': '{{count}} kurzy vo vašej knižnici. Nech vám to ide aj naďalej.',
   'myLearning.hero.title': 'Pokračujte tam, kde ste prestali.',
@@ -167,6 +174,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Žiadne nové aktivity na prehliadnutie. Nové udalosti sa zobrazia tu.',
   'notifications.empty.title': 'Už ste v obraze',
+  'notifications.error.title': 'Nepodarilo sa načítať aktivitu',
   'privacy.title': 'Zásady ochrany osobných údajov',
   'reset.confirmPlaceholder': 'Zadajte nové heslo',
   'reset.errorGeneric': 'Heslo sa nepodarilo obnoviť. Vyžiadajte si nový odkaz.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} pred d',
   'timeAgo.hours': '{{count}} pred hodinami',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} pred niekoľkými mesiacmi',
   'timeAgo.today': 'dnes',
+  'timeAgo.weeks': '{{count}} pred niekoľkými týždňami',
 }

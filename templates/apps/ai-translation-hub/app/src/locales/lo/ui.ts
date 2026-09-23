@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'billing.canceled': 'ການສະໝັກໃຊ້ຖືກຍົກເລີກແລ້ວ. ທ່ານຈະປ່ຽນກັບຄືນໄປໃຊ້ແບບຟຣີໃນຕອນທ້າຍຂອງໄລຍະເວລາ.',
   'billing.contactSales': 'ຕິດຕໍ່ຝ່າຍຂາຍ',
   'billing.free.1': '5 ການແປພາສາ',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'ບໍ່ມີຂີດຈຳກັດການເກັບຮັກສາ',
   'billing.upgradeHint': 'ອັບເກຣດເພື່ອປົດລັອກຄຸນສົມບັດ AI ຂັ້ນສູງ.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.activityEmpty': 'ຍັງບໍ່ມີກິດຈະກຳເທື່ອ — ເລີ່ມໂຄງການເພື່ອຕື່ມຂໍ້ມູນໃສ່ຟີດນີ້.',
   'dashboard.eyebrow': 'ພາບລວມ',
   'dashboard.projectsEmpty': 'ຍັງບໍ່ມີໂຄງການເທື່ອ — ເລີ່ມຕົ້ນໂຄງການເພື່ອເບິ່ງມັນຢູ່ທີ່ນີ້.',
@@ -109,6 +111,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ນຳໃຊ້ການແປທີ່ຜ່ານມາຄືນໃໝ່ໃນທຸກໆໂຄງການ. ຄະແນນການຈັບຄູ່ທີ່ສູງຂຶ້ນ → ການເຮັດວຽກຄືນໃໝ່ໜ້ອຍລົງ.',
   'memory.title': 'ທະນາຄານຄວາມຈຳ',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'newProject.addLanguage': 'ເພີ່ມເປົ້າໝາຍ',
   'newProject.create': 'ສ້າງໂຄງການ',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'ໝາຍແລ້ວ {{count}} ການແຈ້ງເຕືອນຕາມທີ່ອ່ານແລ້ວ.',
   'notifications.subtitle':
     'ການກ່າວເຖິງ, ຄຳຮ້ອງຂໍການທົບທວນຄືນ ແລະ ເຫດການ AI ຈາກທົ່ວພື້ນທີ່ເຮັດວຽກຂອງທ່ານ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'privacy.collection.account': 'ອີເມວບັນຊີຂອງທ່ານ ແລະ ຊື່ທີ່ສະແດງ',
   'privacy.deletion.body':
     'ທ່ານສາມາດລຶບໂຄງການ, ສ່ວນ, ຄຳສັບໃນປະມວນຄຳສັບ ຫຼື ລາຍການຄວາມຊົງຈຳໄດ້ທຸກເວລາຈາກໜ້າທີ່ກ່ຽວຂ້ອງ. ການລຶບບັນຊີຂອງທ່ານອອກຈາກການຕັ້ງຄ່າຈະລຶບແຖວທີ່ກຳນົດຂອບເຂດພື້ນທີ່ເຮັດວຽກອອກຈາກຖານຂໍ້ມູນຂອງພວກເຮົາ.',
@@ -172,6 +177,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ໂຫຼດໂຄງການບໍ່ສຳເລັດ.',
   'projects.loading': 'ກຳລັງໂຫຼດໂຄງການ…',
   'projects.subtitle': 'ທຸກໆໂຄງການທີ່ມີການເຄື່ອນໄຫວໃນທົ່ວທຸກທ້ອງຖິ່ນ.',
+  'renditionLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'reset.backToLogin': '\\u2190 ກັບໄປທີ່ການເຂົ້າສູ່ລະບົບ',
   'reset.passwordLabel': 'ລະຫັດຜ່ານໃໝ່',
   'review.activeEyebrow': 'ພາກສ່ວນ {{number}}',
@@ -279,6 +285,7 @@ export const ui: UiTranslations = {
   'translate.tmInsertedStatus': 'ໃສ່ຈາກໜ່ວຍຄວາມຈຳການແປແລ້ວ.',
   'translate.untitled': 'ໂຄງການບໍ່ມີຫົວຂໍ້',
   'translationActivityTimeline.empty': 'ຍັງບໍ່ມີກິດຈະກຳໃໝ່ໆເທື່ອ.',
+  'translationHeroCard.change': '{{sign}} {{amount}} ທຽບກັບໄລຍະເວລາທີ່ຜ່ານມາ',
   'translationHeroCard.confidenceLabel': 'ຄວາມໝັ້ນໃຈຂອງ AI',
   'translationHeroCard.label': 'ຄຳສັບທີ່ແປແລ້ວ · 30 ມື້ທີ່ຜ່ານມາ',
   'translationStatsQuad.qualityTrend': '+2.4 ທຽບກັບເດືອນທີ່ຜ່ານມາ',

@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'तुमची भूमिका',
   'account.role.upgradeLink': 'प्रमाणित शिक्षक होण्यासाठी अर्ज करा →',
   'account.title': 'प्रोफाइल, पेमेंट आणि प्राधान्ये.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'खडूने शिकवा',
   'becomeTutor.form.error': 'अर्ज सादर करता आला नाही.',
   'becomeTutor.form.pitchPlaceholder':
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'विषय',
   'bookingConfirm.title': 'तुमचं बुकिंग झालं आहे. बाकी सगळं आम्ही सांभाळून घेऊ.',
   'bookingConfirm.with': 'शिक्षकासोबत',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'earningsHero.eyebrow': 'कमाई • {{month}}',
   'forgotPassword.heading': 'तुम्ही तुमचा पासवर्ड विसरलात का?',
   'forgotPassword.subheading':
@@ -115,6 +117,7 @@ export const ui: UiTranslations = {
   'messages.send': 'संदेश पाठवा',
   'messages.thread.empty': 'नमस्कार करा — संभाषणाला सुरुवात करा.',
   'messages.title': 'तुमच्या शिक्षकांसोबत चर्चा.',
+  'nav.primary': 'प्राथमिक',
   'pricing.dataExport': 'डेटा निर्यात:',
   'pricing.headingDefault': 'प्रगत वैशिष्ट्ये:',
   'resetPassword.heading': 'एक मजबूत नवीन पासवर्ड निवडा.',
@@ -164,6 +167,7 @@ export const ui: UiTranslations = {
   'sessionDetail.start': 'सत्र सुरू करा',
   'sessionDetail.startedFeedback': 'सत्र सुरू झाले — आनंदी शिक्षण.',
   'sessionDetail.startError': 'सत्र सुरू करता आले नाही.',
+  'sessionDetail.subtitle': '{{name}} सोबत • {{when}} • {{mins}} मिनिटे',
   'sessionDetail.timeline.afterEnd': 'सत्र संपल्यानंतर',
   'sessionDetail.timeline.auto': 'ऑटो',
   'sessionDetail.timeline.booked': 'बुक केले',

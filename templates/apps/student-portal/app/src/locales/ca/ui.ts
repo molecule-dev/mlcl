@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'announcementsFeed.empty': 'Encara no hi ha anuncis.',
   'announcementsFeed.eyebrow': '{{count}} actualitzacions',
   'announcementsFeed.title': 'Últims anuncis',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Canvia els filtres que hi ha a sobre per veure les tasques en un estat diferent.',
   'assignments.eyebrow': 'Tots els cursos · Aquest trimestre',
+  'assignments.loadError': "No s'han pogut carregar les tasques.",
   'assignments.loading': "S'estan carregant les tasques…",
   'assignments.subtitle':
     'Filtra per estat per veure què està pendent, enviat, qualificat o falta.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': "Encara no hi ha registres d'assistència.",
   'attendance.eyebrow': 'Trimestre de primavera · Últimes 4 setmanes',
+  'attendance.loadError': "No s'han pogut carregar els registres d'assistència.",
   'attendance.loading': "S'està carregant l'assistència…",
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Dates de lliurament de les tasques representades en una quadrícula mensual: els exàmens destaquen en vermell.',
   'calendar.title': '{{month}} esdeveniments',
+  'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
+  'common.retry': 'Torna-ho a intentar',
   'common.yes': '✓',
   'courseDetail.backLink': 'Qualificacions',
   'courseDetail.currentGrade': 'Grau actual',
@@ -74,11 +79,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendència',
   'grades.empty': "Encara no s'han publicat qualificacions.",
   'grades.eyebrow': 'Llibre de notes',
+  'grades.loadError': "No s'han pogut carregar les notes.",
   'grades.loading': "S'estan carregant les notes…",
   'grades.subtitle':
     'Qualificacions en temps real amb lletres i percentatges. Les fletxes de tendència mostren si estàs pujant, anivellant o baixant.',
   'grades.title': 'Les teves notes, curs a curs',
   'grades.trendStable': 'Estable',
+  'landing.copyright': '© {{year}} {{app}} . Creat per a estudiants, fet per a famílies.',
   'landing.ctaHeading': 'Un dia escolar més tranquil comença en minuts',
   'landing.eyebrow': 'Per a estudiants de secundària i batxillerat',
   'landing.featuresHeading': "Una jornada escolar organitzada al voltant de l'alumne/a",
@@ -113,12 +120,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tasques',
   'nav.attendance': 'Assistència',
   'nav.calendar': 'Calendari',
+  'nav.closeMenu': 'Tanca el menú de navegació',
   'nav.grades': 'Qualificacions',
+  'nav.openMenu': 'Obre el menú de navegació',
   'nav.statusEyebrow': 'GPA del trimestre',
   'nav.statusSubtext': "Quadre d'honor · Trimestre de primavera",
+  'nav.unreadMessages': 'Missatges no llegits',
   'notifications.eyebrow': '{{count}} actualitzacions',
   'notifications.subtitle':
     "Notes, recordatoris, missatges i anuncis de l'escola. Ajusta els canals que utilitza cada notificació a Configuració.",
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.attendanceLabel': 'assistència',
   'pricing.gradesLabel': 'qualificacions',
   'pricing.heading': 'anuncis',

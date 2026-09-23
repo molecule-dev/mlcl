@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'forgot.eyebrow': 'Ulahlekelwe indlela yokubuyela emuva?',
   'forgot.formSubtitle': 'Sitshele i-imeyili efayeleni.',
   'forgot.headline': 'Setha kabusha iphasiwedi yakho.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.headline': 'Qhubeka lapho ikhasi limiswe khona.',
   'login.signupLink': 'Dala eyodwa',
   'login.subline': 'Amanothi akho, ama-backlink, namakhasi ansuku zonke alapho uwashiye khona.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'noteEditor.backToNotes': 'Buyela kumanothi',
   'noteEditor.bodyPlaceholder':
     'Qala ukubhala — inothi lakho ligcina ngokuzenzakalelayo njengoba uthayipha.',
@@ -55,6 +58,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Incwadi yamanothi entsha',
   'notes.newNotebookPrompt': 'Igama lenothibhuku elisha',
   'notes.notebooksHeading': 'Amabhuku okubhala',
+  'notes.subtitle':
+    'Khetha incwadi yamanothi ngakwesobunxele, bese ucindezela inkinobho ethi Inothi Elisha ukuze uqale ukufaka okusha.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'Khetha uhlelo lwakho lokuThatha Amanothi',
   'reset.eyebrow': 'Cishe sengibuyile',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Kubuyekeziwe',
   'versoLayout.nav.graph': 'Igrafu',
   'versoLayout.nav.home': 'Ikhaya',
+  'versoLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'versoNoteCard.pinned': 'Kuphiniwe',
   'versoTodayHero.continueCta': 'Qhubeka ubhala',
   'versoTodayHero.createCta': 'Qala inothi lanamuhla',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Rješavanje…',
   'comments.subtitle':
     'The {{count}} Teme koje još čekaju odgovor ili rješenje. Sortirano po starosti - prvo najstarije, tako da ništa ne istrune.',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'forgotPassword.sentTo': 'Poništi vezu poslanu na {{email}}',
   'forgotPassword.successSubheading':
     'Provjerite pristiglu poštu — upravo smo vam poslali poveznicu za resetiranje. Istječe za 30 minuta.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nova stranica',
   'pageTreeSidebar.workspaceHeader': 'Radni prostor',
   'pageView.breadcrumb': 'Putna mrvica',
+  'pageView.confirmTrash': 'U smeće?',
   'pageView.home': 'Dom',
   'pageView.lastEdited': 'Ažurirano {{when}}',
   'pageView.loading': 'Učitavanje stranice…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Sažetak umjetne inteligencije nije konfiguriran za ovaj radni prostor.',
   'pageView.tocTitle': 'Na ovoj stranici',
+  'pageView.trash': 'Smeće',
+  'pageView.trashing': 'Bacanje u smeće…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Značke',
   'profile.owned.title': 'Vlasničke stranice',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Radni prostor, profil, obavijesti, integracije — sve u jednoj mirnoj ljusci.',
   'settingsPage.workspace.defaultLanding': 'Zadani početni zaslon',
   'settingsPage.workspace.landingHome': 'Dom',
+  'settingsPage.workspace.landingSpaces': 'Prostori',
   'settingsPage.workspace.subdomainLabel': 'Poddomena',
   'settingsPage.workspace.title': 'Radni prostor',
   'signup.eyebrow': 'Započnite novi radni prostor',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Započnite stranicu s šablonom, a ne s praznim platnom. Svaki predložak čvrsto kodira oblik kako biste se mogli usredotočiti na sadržaj.',
+  'trash.confirmPurge': 'Očistiti zauvijek?',
+  'trash.confirmPurgeAria': 'Potvrdi: trajno izbriši {{title}}',
   'trash.daysUntilPurge': '{{days}} preostalih dana',
   'trash.empty.body':
     'Izbrisane stranice će se ovdje prikazivati 30 dana prije nego što budu izbrisane.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Vraćanje…',
   'versionHistory.subtitle': '{{count}} verzije · odaberite redak za pregled razlike',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Zatvori navigaciju',
+  'wikiLayout.menu': 'Navigacija',
+  'wikiLayout.openMenu': 'Otvori navigaciju',
   'wikiLayout.searchPlaceholder': 'Pretraži Cairn — stranice, komentari…',
 }

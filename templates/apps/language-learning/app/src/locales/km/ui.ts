@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពីយើង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.logout': 'ចាកចេញ',
   'dailyStatsTriad.heartsLabel': 'បេះដូង',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'នាទីថ្ងៃនេះ',
   'dailyStatsTriad.minutesValue': '{{count}} នាទី',
   'dailyStatsTriad.wordsLabel': 'ពាក្យស្ទាត់ជំនាញ',
+  'dailyStatsTriad.wordsMasteryHint': 'ពាក្យស្ទាត់ជំនាញ ៤+',
   'dashboard.continueHeading': 'បន្ត​ពី​កន្លែង​ដែល​អ្នក​បាន​ចាកចេញ',
   'dashboard.heading': 'សួស្តីថ្ងៃ, {{name}} ។',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'មិនអាចផ្ទុកលំហាត់បានទេ។',
   'lessonDetail.loading': 'កំពុងផ្ទុកមេរៀន…',
   'lessonDetail.submitError': 'មិនអាចដាក់ស្នើចម្លើយបានទេ។',
+  'lessonDetail.translation': 'បកប្រែឃ្លា',
   'lessonDetail.xpEarned': 'XP ដែលទទួលបាន · {{xp}}',
   'lessons.empty': 'គ្មានមេរៀននៅកម្រិត {{level}} នៅឡើយទេ - សាកល្បងកម្រិតមួយផ្សេងទៀត។',
   'lessons.eyebrow': 'បណ្ណាល័យមេរៀន',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'ទើបតែស្គាល់ Parlance?',
   'login.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'login.signUp': 'ចាប់ផ្តើមដោយឥតគិតថ្លៃ →',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
+  'parlanceLayout.nav.profile': 'ប្រវត្តិរូប',
   'parlanceLayout.primaryNavLabel': 'ការរុករកចម្បង',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'practice.empty': 'មិនទាន់មានឃ្លាណាមួយដែលអាចប្រើបាននៅឡើយទេ។',
   'practice.eyebrow': 'ការអនុវត្តការនិយាយ',
   'practice.heading': 'អានវា។ កត់ត្រាវា។ កែលម្អវា។',

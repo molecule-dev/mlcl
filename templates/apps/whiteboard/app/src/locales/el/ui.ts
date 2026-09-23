@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'authShell.brandHeading':
     'Καμβάδες για πολλούς παίκτες για ομάδες σχεδιασμού που σκέφτονται δυνατά.',
   'billing.canceled': 'Η συνδρομή ακυρώθηκε.',
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Έναρξη από το πρότυπο',
   'boards.title': 'Οι πίνακές σας',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Εισαγάγετε το email που είναι συνδεδεμένο με τον χώρο εργασίας σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
@@ -85,6 +87,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Εργαστήριο 1ου τριμήνου · Φωνή επωνυμίας',
   'landing.featuresEyebrow': 'Τι κάνει την Slate να έχει σχήμα ψηφίδας;',
   'landing.featuresTitle': 'Γρήγορη ανατροφοδότηση. Όμορφοι καμβάδες. Μηδενική τριβή.',
+  'landing.hero.body':
+    '{{appName}} είναι ένας πίνακας για πολλούς παίκτες για ομάδες σχεδιασμού, συντονιστές εργαστηρίων και εκπαιδευτικούς που διεξάγουν ζωντανές καταιγίδες ιδεών και χρειάζονται ιδέες για να συγκεντρωθούν σε ένα μέρος.',
   'landing.hero.primaryCta': 'Ξεκινήστε έναν πίνακα δωρεάν',
   'landing.hero.socialProof': 'Αξιόπιστο από {{count}} ομάδες σχεδιασμού παγκοσμίως',
   'landing.hero.title': 'Ένας καμβάς τόσο γρήγορος όσο οι σκέψεις σου',
@@ -95,6 +99,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Δημιουργήστε έναν ελεύθερο χώρο εργασίας',
   'login.subheading':
     'Συνεχίστε από εκεί που σταμάτησε το εργαστήριο — οι πίνακες, οι αυτοκόλλητες σημειώσεις και οι κέρσορες συγχρονίζονται σε πραγματικό χρόνο.',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.new': 'Νέα',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'notifications.editTitle': 'Επεξεργασίες σε " {{board}} "',
   'notifications.empty.body':
     'Οι προσκλήσεις, οι αποθηκευμένες εικόνες και οι πρόσφατες επεξεργασίες σε πίνακες θα εμφανίζονται εδώ τη στιγμή που συμβαίνουν.',
@@ -178,6 +185,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Ιστορικό εκδόσεων',
   'versionHistory.untitledSnapshot': 'Στιγμιότυπο χωρίς τίτλο',
   'whiteboardLayout.newBoard': 'Νέος πίνακας',
+  'whiteboardLayout.primaryNav': 'Κύρια πλοήγηση',
   'workspace.boardLabel': 'Επιτροπή',
   'workspace.eyebrow': '{{name}} · χώρος εργασίας',
   'workspace.invite': 'Πρόσκληση συνεργατών',

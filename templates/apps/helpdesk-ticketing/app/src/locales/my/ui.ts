@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.title': '{{app}} အကြောင်း',
   'activeAgentsCard.agent1AvatarAlt':
     'ခေတ်မီရုံးခန်းတစ်ခုတွင် ဖော်ရွေသောအပြုံးဖြင့် အမျိုးသမီးပံ့ပိုးမှုအေးဂျင့်တစ်ဦး၏ ပရော်ဖက်ရှင်နယ်ဓာတ်ပုံ',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'ပံ့ပိုးမှုထံ ဆက်သွယ်ပါ',
   'forgotPassword.error': 'ပြန်လည်သတ်မှတ်သည့် အီးမေးလ်ကို ပို့၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'forgotPassword.rememberPassword': 'သင့်စကားဝှက်ကို မှတ်မိပါသလား။',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'အကောင့်ဝင်ပါ — Zenith ပံ့ပိုးမှု',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.welcomeSubheading': 'သင့်ပံ့ပိုးမှု ဒက်ရှ်ဘုတ်သို့ လက်မှတ်ထိုးဝင်ပါ',
+  'mobileNav.closeMenu': 'လမ်းညွှန်ချက်ကို ပိတ်ပါ',
+  'mobileNav.menu': 'လမ်းညွှန်',
+  'mobileNav.openMenu': 'လမ်းညွှန်ချက်ဖွင့်ပါ',
   'nav.legal': 'ဥပဒေရေးရာ',
   'nav.newTicket': 'လက်မှတ်အသစ်',
   'notifications.loadError': 'အကြောင်းကြားချက်များကို တင်၍မရပါ။ ခဏနေမှ ထပ်ကြိုးစားပါ။',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'အမိန့်ပေးရှာဖွေမှု',
   'operatorDock.newReport': 'အစီရင်ခံစာအသစ်',
   'operatorDock.systemOnline': 'အွန်လိုင်းစနစ်',
+  'planUpdated.subtitle': 'ကျေးဇူးတင်ပါသည်',
   'planUpdated.title': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ထားသည်',
   'pricing.agents': 'အေးဂျင့်များ',
   'pricing.automation': 'အလိုအလျောက်စနစ် စည်းမျဉ်းများ',
@@ -249,6 +255,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{အမည်}}',
   'ticketCustomerReply.avatarAlt': '{{အမည်}} ရဲ့ ကိုယ်ပွား',
   'ticketDetail.errorTitle': 'တစ်ခုခု မှားသွားတယ်',
+  'ticketDetail.loadError': 'လက်မှတ်ကို တင်၍မရပါ။',
+  'ticketDetail.notFound': 'လက်မှတ်မတွေ့ပါ',
+  'ticketDetail.replyError': 'ပြန်ကြားချက်ပေးပို့၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'ticketDetail.retry': 'ထပ်ကြိုးစားပါ',
   'ticketDetail.statusUpdateError': 'အခြေအနေကို အပ်ဒိတ်လုပ်၍မရပါ။ ထပ်ကြိုးစားပါ။',
   'ticketDetailsCard.assigneeLabel': 'တာဝန်ပေးအပ်ခံရသူ',
@@ -300,6 +309,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{အချိန်}} ဘယ်ဘက်',
   'ticketRow.title': 'ထုတ်လုပ်မှုတွင် ဒေတာဘေ့စ်ချိတ်ဆက်မှု မအောင်မြင်ပါ {{နုတ်}}',
   'tickets.pageTitle': 'လက်မှတ်များ — Zenith ပံ့ပိုးမှု',
+  'ticketsFab.newTicket': 'လက်မှတ်အသစ်',
   'ticketsFilterBar.assigneeLabel': 'တာဝန်ပေးအပ်သူ-',
   'ticketsFilterBar.clearFilters': 'စစ်ထုတ်မှုများကို ရှင်းလင်းပါ',
   'ticketsFilterBar.dateRangeDemoHint':

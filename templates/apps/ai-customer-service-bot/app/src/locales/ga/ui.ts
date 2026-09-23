@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'analytics.channels.empty': 'Gan aon sonraí cainéil fós.',
   'analytics.channels.title': 'De réir cainéal',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Comhráite in aghaidh an lae',
   'chatBubble.avatarAlt': '{{speaker}} avatár',
   'common.appName': 'Dea-chaidreamh',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'confidenceMeter.label': 'Muinín',
   'conversationDetail.agentName': 'Gníomhaire',
   'conversationDetail.aiReplyButton': 'Freagra bot',
   'conversationDetail.aiReplyError': 'Níorbh fhéidir freagra AI a ghiniúint',
   'conversationDetail.aiReplyLoading': 'Ag dréachtú…',
+  'conversationDetail.aiReplySourceFallback': 'cúltaca (gan eochair AI)',
   'conversationDetail.backAria': 'Ar ais chuig na comhráite',
   'conversationDetail.composerPlaceholder': 'Freagra don chustaiméir…',
   'conversationDetail.context.channel': 'Cainéal',
@@ -157,8 +160,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Socraigh pasfhocal nua do do chuntas',
   'resetPassword.toggleConfirm': 'Scoránaigh infheictheacht pasfhocail a dheimhniú',
   'resetPassword.togglePassword': 'Infheictheacht pasfhocail a scoránaigh',
+  'settings.account.emailError': 'Theip ar an ríomhphost a nuashonrú',
   'settings.account.emailLabel': 'Seoladh ríomhphoist',
+  'settings.account.emailSaved': 'Ríomhphost nuashonraithe',
+  'settings.account.nameError': 'Theip ar an ainm a nuashonrú',
   'settings.account.nameLabel': 'Ainm taispeána',
+  'settings.account.nameSaved': 'Ainm nuashonraithe',
   'settings.account.title': 'Cuntas',
   'settings.api.createCta': 'Cruthaigh comhartha',
   'settings.api.description':
@@ -171,10 +178,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Uath-ardú nuair a thiteann an meon',
   'settings.bot.greetingLabel': 'Beannacht an chéad teachtaireachta',
   'settings.bot.title': 'Cumraíocht an bhota',
+  'settings.bot.toneFormal': 'Foirmiúil',
   'settings.bot.toneLabel': 'Guth & ton',
   'settings.danger.deleteAccount': 'Scrios cuntas',
+  'settings.danger.deleteError': 'Theip ar an gcuntas a scriosadh',
+  'settings.danger.deleteWarning':
+    'Scriosfaidh sé seo do chuntas agus na sonraí gaolmhara go léir go buan. Ní féidir é seo a chealú.',
   'settings.danger.deleting': 'Ag scriosadh…',
+  'settings.danger.passwordLabel': 'Deimhnigh do phasfhocal',
   'settings.danger.title': 'Crios contúirte',
+  'settings.devices.empty': 'Níl aon fheistí cláraithe.',
+  'settings.devices.revokeWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
+  'settings.devices.signingOut': 'Á shíniú amach…',
   'settings.devices.signOut': 'Sínigh amach',
   'settings.devices.thisDevice': 'An gléas seo',
   'settings.devices.title': 'Gléasanna',
@@ -187,9 +203,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Theip ar an bpasfhocal a athrú',
   'settings.security.currentPassword': 'Focal faire reatha',
   'settings.security.newPassword': 'Pasfhocal nua',
+  'settings.security.oauthManaged':
+    'Déanann do sholáthraí logála isteach do phasfhocal a bhainistiú.',
   'settings.security.title': 'Slándáil',
   'settings.security.twoFactorDisable': 'Díchumasaigh',
   'settings.security.twoFactorEnable': 'Cumasaigh',
+  'settings.security.twoFactorInvalid': 'Cód neamhbhailí',
   'settings.subtitle':
     'Coigeartaigh guth Rapport, foinsí eolais, agus na huirlisí a labhraíonn sé leo.',
   'settings.tokenCreateError': 'Theip ar chomhartha a chruthú',

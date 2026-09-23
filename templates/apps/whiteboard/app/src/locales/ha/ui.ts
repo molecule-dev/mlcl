@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'authShell.brandHeading': 'Tambayoyi ga ƙungiyoyin ƙira da yawa waɗanda ke tunani da ƙarfi.',
   'billing.canceled': 'An soke biyan kuɗi.',
   'billing.cancelPlan': 'Soke shirin',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Fara daga samfuri',
   'boards.title': 'Allonku',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Shigar da imel ɗin da aka haɗa da wurin aikinku kuma za mu aika hanyar haɗin sake saitawa.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Bita na 1 na Taro · Muryar Alamar Kasuwanci',
   'landing.featuresEyebrow': 'Abin da ke sa Slate tessellate',
   'landing.featuresTitle': "Ra'ayoyi masu sauri. Kyawawan zane. Babu gogayya.",
+  'landing.hero.body':
+    "{{appName}} wani allo ne na 'yan wasa da yawa don ƙungiyoyin ƙira, masu shirya bita, da masu ilimi waɗanda ke gudanar da tunani kai tsaye kuma suna buƙatar ra'ayoyi don haɗuwa a wuri ɗaya.",
   'landing.hero.primaryCta': 'Fara kwamiti kyauta',
   'landing.hero.socialProof': 'Amintacce daga {{count}} ƙungiyoyin ƙira a duk duniya',
   'landing.hero.title': 'Zane mai sauri kamar yadda tunaninka yake',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Ƙirƙiri wurin aiki kyauta',
   'login.subheading':
     'Ci gaba daga inda taron ya tsaya - allunan rubutu, manne, da kuma maɓallan rubutu duk suna aiki tare a ainihin lokaci.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.new': 'Sabo',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'notifications.editTitle': 'Gyara zuwa " {{board}} "',
   'notifications.empty.body':
     'Gayyata, adana hotuna, da gyare-gyaren allo na baya-bayan nan za su bayyana a nan yayin da suke faruwa.',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Tarihin sigar',
   'versionHistory.untitledSnapshot': 'Hoton da ba shi da lakabi',
   'whiteboardLayout.newBoard': 'Sabon allo',
+  'whiteboardLayout.primaryNav': 'Babban kewayawa',
   'workspace.boardLabel': 'Allon allo',
   'workspace.eyebrow': '{{name}} · wurin aiki',
   'workspace.invite': 'Gayyaci masu haɗin gwiwa',

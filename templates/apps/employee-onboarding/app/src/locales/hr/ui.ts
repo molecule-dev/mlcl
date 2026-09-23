@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
   'auth.forgotPassword.emailPlaceholder': 'ime@vasatvrtka.com',
   'auth.forgotPassword.heading': 'Resetirajte lozinku.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Označi zadatak kao dovršen',
   'checklistTaskCard.markIncomplete': 'Označi zadatak kao nedovršen',
   'checklistTaskCard.openLabel': 'Otvori zadatak',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Sve ste pročitali',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Na pravom putu',
   'dashboard.timelineHeading': '30/60/90 prekretnica',
   'dashboard.viewAllTasks': 'Prikaži sve zadatke',
+  'dashboard.weekOne': '1. tjedan',
   'dashboard.yourCohort': 'Vaš tim',
   'documents.empty.body': 'Dokumenti koje je dodao vaš tim prikazat će se ovdje.',
   'documents.empty.title': 'Još nema dokumenata',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-dnevno besplatno probno razdoblje',
   'landing.subhead':
     'Embark vodi svakog novog suigrača kroz prvih 90 dana - papirologija, obuka, prekretnice i smislena upoznavanja, sve na jednom mirnom i sigurnom mjestu.',
+  'layout.openMenu': 'Otvori navigacijski izbornik',
   'layout.search': 'Pretraživanje zadataka, dokumenata, suigrača…',
+  'layout.searchTeammates': 'Pretraživanje suigrača po imenu ili ulozi…',
   'layout.section.onboarding': 'Uvođenje u posao',
   'layout.tagline': 'Vaše putovanje počinje ovdje',
   'notifications.empty.body': 'Nova aktivnost će se prikazati ovdje.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Spremni ste.',
   'planUpdated.preparing': 'Ažuriranje vašeg plana…',
+  'planUpdated.verifying': 'Potvrda vaše uplate…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'uvođenja',
   'pricing.tasksLabel': 'zadaci',

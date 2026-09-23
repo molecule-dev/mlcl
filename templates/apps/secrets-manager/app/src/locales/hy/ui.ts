@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'about.tagline': 'Գաղտնիքները մահանում են բացահայտության մեջ։',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Ստեղծել թոքեն',
   'apiTokens.kicker': 'API տոկեններ',
   'apiTokens.loading': 'Բեռնվում են տոկեններ…',
+  'apiTokens.new': 'Նոր տոկեն',
   'apiTokens.revoke': 'Հետ կանչել տոկենը',
   'apiTokens.subheading':
     'Անձնական և ծառայողական տոկեններ Arcanum CLI-ի և SDK-ի համար: Պարզ տեքստը ցուցադրվում է մեկ անգամ ստեղծման ժամանակ:',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + գաղտնաբառ',
   'authShell.zeroKnowledge': 'Զրոյական գիտելիքների կոդավորում',
   'common.connecting': 'Միանում է…',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.inviting': 'Հրավիրում է…',
   'forgotPassword.checkInbox':
     'Եթե {email}-ը գրանցված է, ստորագրված վերակայման հղումը կհասնի մեկ րոպեի ընթացքում։',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Պտտման կարգավիճակ, անոմալիաների մասին ծանուցումներ և հաստատման հարցումներ յուրաքանչյուր պահոցում։',
   'notifications.unreadEmpty': 'Զրոյական էլ. փոստարկղ՝ ամեն ինչ պատրաստ է։',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.heading': 'գաղտնիքներ',
   'pricing.limits.accessPolicies': 'մուտքի քաղաքականություններ',
   'pricing.limits.auditLog': 'աուդիտի գրանցամատյանի գրառումներ',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'Կառավարեք ձեր բաժանորդագրությունը, տեսեք սահմանաչափերը և արդիականացրեք այն։',
   'profile.subheading': 'Նույնականացում, երկրորդային գործոնների սարքեր և ակտիվ սեսիաներ։',
+  'profile.twoFactor.code': 'Հաստատման կոդ',
   'profile.twoFactor.disable': 'Անջատել',
   'profile.twoFactor.enable': 'Միացնել',
+  'profile.twoFactor.invalidCode': 'Անվավեր կոդ',
   'profile.twoFactor.kicker': 'Երկփուլային նույնականացում',
+  'profile.twoFactor.off': 'Միացված չէ',
   'profile.twoFactor.on': 'Միացված է',
   'resetPassword.email': 'Հաշվի էլ․ հասցե',
   'resetPassword.heading': 'Սահմանեք նոր մուտքի տվյալներ',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'հրամաններ',
   'secretsManagerLayout.encrypted': 'AES-256 · Ծածկագրված',
   'secretsManagerLayout.newVault': 'Նոր պահոց',
+  'secretsManagerLayout.newVaultShort': 'Նոր',
   'secretsManagerLayout.rotations': 'Պտտումներ',
   'secretsManagerLayout.search': 'որոնում',
   'secretsManagerLayout.searchPlaceholder': 'Որոնեք գաղտնիքները բանալիով, ուղով կամ պիտակով…',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Գաղտնիքներ',
   'vaultCard.vaultLabel': 'Պահոց',
   'vaultDetail.addSecret': 'Ավելացնել գաղտնիք',
+  'vaultDetail.back': 'Բոլոր պահոցները',
   'vaultDetail.col.key': 'Բանալի',
   'vaultDetail.col.rotated': 'Պտտված',
   'vaultDetail.col.value': 'Արժեք',

@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
   'authShell.brandHeading':
     '共に届ける、デザインチームのためのピクセルパーフェクトなキャンバスです。',
   'canvas.redirecting': 'エディターを開いています…',
   'collaboratorStack.overflow': '+{{count}}',
   'common.and': 'および',
+  'common.goToDashboard': 'ダッシュボードへ',
+  'common.retry': '再試行',
   'dashboard.activityEmpty':
     '最近のアクティビティはまだありません — チームメイトを招待して始めましょう。',
   'dashboard.activityTitle': '今日変更された内容',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'ワークスペース · Northwind Studio',
   'dashboard.foldersLabel': 'フォルダー',
   'dashboard.gridTitle': '{{count}} 件のプロジェクト',
+  'dashboard.heroActiveTool': 'ペンツール',
   'dashboard.loadingTitle': 'プロジェクトを読み込んでいます…',
   'dashboard.searchPlaceholder': 'プロジェクトを検索',
   'dashboard.startFromTemplate': 'テンプレートから始める',
   'dashboard.title': 'あなたのプロジェクト',
   'dashboard.untitledProject': '無題のプロジェクト',
   'designCanvasLayout.newProject': '新しいプロジェクト',
+  'designCanvasLayout.primaryNavLabel': 'メインナビゲーション',
   'editor.backToProjects': 'プロジェクトに戻る',
   'editor.deleteShape': 'シェイプを削除',
   'editor.errorBody': 'このプロジェクトを開けませんでした。',
@@ -63,6 +68,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'あなたの手のスピードで動くデザインツール',
   'library.empty': 'このセクションにはまだトークンがありません。',
   'library.eyebrow': 'ワークスペース · Atelier デザインシステム',
+  'library.loadFailed': 'デザイントークンを読み込めませんでした。',
   'library.systemMeta': 'システム健全性',
   'library.systemSummary':
     '{{tokens}} トークン · {{components}} コンポーネント · {{effects}} エフェクト',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'announcementsFeed.empty': 'Henüz duyuru yok.',
   'announcementsFeed.eyebrow': '{{count}} güncelleme',
   'announcementsFeed.title': 'En son duyurular',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Farklı bir durumdaki ödevleri görmek için yukarıdaki filtreleri değiştirin.',
   'assignments.eyebrow': 'Tüm dersler · Bu dönem',
+  'assignments.loadError': 'Ödevler yüklenemedi.',
   'assignments.loading': 'Ödevler yükleniyor…',
   'assignments.subtitle':
     'Neyin teslim edileceğini, teslim edildiğini, notlandırıldığını veya eksik olduğunu görmek için duruma göre filtreleyin.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Not',
   'attendance.empty': 'Henüz devam kaydı yok.',
   'attendance.eyebrow': 'Bahar dönemi · Son 4 hafta',
+  'attendance.loadError': 'Katılım kayıtları yüklenemedi.',
   'attendance.loading': 'Devam bilgisi yükleniyor…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -45,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Aylık bir ızgarada işaretlenmiş ödev teslim tarihleri — sınavlar kırmızıyla öne çıkar.',
   'calendar.title': '{{month}} etkinlikleri',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
+  'common.retry': 'Tekrar dene',
   'common.yes': '✓',
   'courseDetail.backLink': 'Notlar',
   'courseDetail.currentGrade': 'Mevcut not',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Eğilim',
   'grades.empty': 'Henüz not yayınlanmadı.',
   'grades.eyebrow': 'Not defteri',
+  'grades.loadError': 'Notlarınız yüklenemedi.',
   'grades.loading': 'Notlar yükleniyor…',
   'grades.subtitle':
     'Canlı harf ve yüzde notları. Eğilim okları yukarı mı, sabit mi yoksa düşüşte mi olduğunuzu gösterir.',
   'grades.title': 'Notlarınız, ders ders',
   'grades.trendStable': 'Sabit',
+  'landing.copyright': '© {{year}} {{app}} . Öğrenciler için tasarlandı, aileler için yapıldı.',
   'landing.ctaHeading': 'Daha sakin bir okul günü dakikalar içinde başlar',
   'landing.eyebrow': 'Ortaokul ve lise öğrencileri için',
   'landing.featuresHeading': 'Öğrenci etrafında düzenlenmiş bir okul günü',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Ödevler',
   'nav.attendance': 'Devam',
   'nav.calendar': 'Takvim',
+  'nav.closeMenu': 'Gezinme menüsünü kapat',
   'nav.grades': 'Notlar',
+  'nav.openMenu': 'Gezinti menüsünü aç',
   'nav.statusEyebrow': 'Dönem GPA',
   'nav.statusSubtext': 'Onur listesi · Bahar dönemi',
+  'nav.unreadMessages': 'Okunmamış mesajlar',
   'notifications.eyebrow': '{{count}} güncelleme',
   'notifications.subtitle':
     "Notlar, hatırlatıcılar, mesajlar ve okul duyuruları. Her bildirimin hangi kanalları kullanacağını Ayarlar'dan ayarlayın.",
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.attendanceLabel': 'devam',
   'pricing.gradesLabel': 'notlar',
   'pricing.heading': 'duyurular',

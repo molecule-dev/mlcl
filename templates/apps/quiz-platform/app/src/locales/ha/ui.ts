@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.title': 'Game da {{app}}',
   'auth.login.noAccount': 'Sabo ne zuwa Sparq?',
   'auth.login.or': 'ko ci gaba da',
   'auth.signup.or': 'ko kuma yi rijista da',
+  'common.confirm': 'Tabbatar',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.loadError': 'Akwai matsala wajen loda wannan abun ciki.',
+  'common.retry': 'Sake gwadawa',
   'discover.collections.title': 'Bincika ta rukuni',
   'discover.collections.viewAll': 'Duba ɗakin karatun ku →',
   'discover.empty.body': 'Gwada wani rukuni daban ko kuma share binciken.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Shiga don ci gaba da kasancewa cikin jerin wasanninku, shirya wasannin kai tsaye, da kuma hawa kan allon jagora.',
   'myQuizzes.createButton': 'Sabuwar jarabawar gwaji',
+  'myQuizzes.deleteConfirm': 'A goge har abada?',
   'myQuizzes.empty.createCta': 'Gina tambayoyinku na farko →',
   'myQuizzes.empty.created': 'Ba ka gina jarabawar gwaji ba tukuna.',
   'myQuizzes.empty.played': 'Babu jarrabawar da aka buga tukuna.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ana lodawa…',
   'notifications.subhead':
     '{{count}} Abubuwan da ba a karanta ba. Gayyata, motsin jagora, da nasarori duk a cikin rafi ɗaya.',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.checkoutError': 'Ban iya fara biyan kuɗi ba. Da fatan za a sake gwadawa.',
+  'pricing.heading': 'Zaɓi tsarin {{app}} ku',
   'pricing.included': 'An haɗa',
   'pricing.loadError': 'Ba a iya loda tsare-tsare ba.',
   'pricing.maxQuizzes': '{{count}} tambayoyi',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Babu wani abu da aka buga tukuna.',
   'profile.startBuilding': 'Fara ginawa →',
   'profile.tier': 'Ɗan wasan Sparq',
+  'quizBuilder.addFailed': 'Ban iya ƙara tambayar ba. Gwada kuma.',
   'quizBuilder.addQuestion': 'Ƙara tambaya',
   'quizBuilder.answerPlaceholder': 'Rubuta zaɓi…',
   'quizBuilder.answersLabel': 'Zaɓuɓɓukan amsa',
   'quizBuilder.back': 'Komawa ga tambayoyi na',
   'quizBuilder.delete': 'Goge tambayar',
+  'quizBuilder.deleteFailed': 'Ba a iya goge tambayar ba.',
   'quizBuilder.firstQuestion': 'Ƙara tambayarka ta farko don farawa.',
   'quizBuilder.idLabel': 'Lambar tambaya: {{id}}',
   'quizBuilder.loadError': 'Ba za a iya loda tambayoyin ba.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Ƙara aƙalla zaɓin amsoshi guda biyu sannan ka zaɓi wanda ya dace don {{count}} tambaya(tambayoyi) kafin bugawa.',
   'quizBuilder.questionsTitle': 'Tambayoyi',
+  'quizBuilder.saveFailed': 'Ba a iya adana taken ba. Gwada kuma.',
   'quizBuilder.statusDraft': 'Daftarin daftarin',
   'quizBuilder.subhead':
     'Gyara taken, ƙara tambayoyi, saita zaɓuɓɓuka da amsar da ta dace. Canje-canje suna adanawa ta atomatik.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} minti',
   'quizDetail.hostMultiplayer': 'Mai masaukin baki da yawa',
   'quizDetail.leaderboardEmpty': 'Babu wasa tukuna — zama na farko da zai kafa maki.',
+  'quizDetail.loadError': 'Ba za a iya loda wannan tambayoyin ba.',
   'quizDetail.loading': 'Ana loda tambayoyi…',
   'quizDetail.plays': '{{count}} wasan kwaikwayo',
   'quizDetail.playSolo': 'Yi wasa kai kaɗai',

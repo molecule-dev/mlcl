@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// អំពី {{app}}',
+  'about.pageTitle': 'យន្តហោះត្រួតពិនិត្យ webhook',
+  'about.plansTitle': 'ផែនការសម្រាប់ដំណាក់កាលនីមួយៗ',
   'apiKeys.bestPractices': 'ការអនុវត្តល្អបំផុត',
   'apiKeys.body':
     'ថូខឹនចូលប្រើដោយកម្មវិធី។ ចាត់ទុកពួកវាដូចជាពាក្យសម្ងាត់ — រក្សាទុកក្នុង env vars កុំ commit។',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'ក្នុង​ផែនការ',
   'billing.usageWarning': 'ជិត​មួក',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.body':
     'អត្រា​បញ្ជូន​បន្តផ្ទាល់ ការព្យាយាម​ឡើងវិញ​ក្នុង​ពេល​ហោះហើរ និង​ចំណុច​បញ្ចប់​ដែល​ទើបតែ​មាន​បញ្ហា — នៅទូទាំង​កន្លែងធ្វើការ​ទាំងអស់​ដែល​អ្នក​ធ្វើប្រតិបត្តិការ។',
   'dashboard.endpointsEmpty': 'មិនទាន់មានចំណុចបញ្ចប់នៅឡើយទេ។',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'ចំណុចបញ្ចប់',
   'endpointDetail.deliveryTrendSub': 'ការដឹកជញ្ជូន / ម៉ោង, មាត្រដ្ឋានកំណត់ហេតុ',
   'endpointDetail.hideSecret': 'លាក់​អាថ៌កំបាំង',
+  'endpointDetail.loading': 'កំពុងផ្ទុកចំណុចបញ្ចប់…',
   'endpointDetail.metric.delivered': 'ដឹកជញ្ជូន 24 ម៉ោង',
   'endpointDetail.metric.deliveredCaption': 'ពី {{count}} ប្រភេទព្រឹត្តិការណ៍',
   'endpointDetail.metric.failuresCaption': 'ការព្យាយាមឡើងវិញ៖ {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'សំខាន់ · 24 ម៉ោង',
   'notifications.metric.totalCaption': 'ប្រអប់សំបុត្រគ្រប់ពេល',
   'payloadViewer.payload': '// បន្ទុក',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'profile.avatarHeader': 'រូប​តំណាង',
   'profile.avatarHint': 'អក្សរកាត់ត្រូវបានបង្ហាញ — ការផ្ទុកឡើងនឹងមកដល់ជាមួយនឹងការចេញផ្សាយបន្ទាប់។',
   'profile.body': 'គណនី ចំណូលចិត្ត និងវគ្គសកម្មរបស់អ្នក។',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'មានតែវគ្គបច្ចុប្បន្នរបស់អ្នកប៉ុណ្ណោះដែលសកម្ម។ គ្មានឧបករណ៍ផ្សេងទៀតត្រូវបានចូលទេ។',
   'profile.toggle': 'បិទ/បើក {{label}}',
+  'pylonShell.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'pylonShell.openMenu': 'បើកម៉ឺនុយរុករក',
   'pylonShell.primaryNavLabel': 'ការរុករកចម្បង',
   'resetPassword.subtitle': 'សូមជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំដែលអ្នកមិនធ្លាប់ប្រើពីមុនមក។',
   'resetPassword.tokenPlaceholder': 'បិទភ្ជាប់ពីអ៊ីមែល',

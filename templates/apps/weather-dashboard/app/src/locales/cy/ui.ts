@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Rydych chi ar hyn o bryd ar y {{plan}} cynllun.',
   'billing.switch': 'Newid',
   'billing.upgraded': "Wedi'i ddiweddaru i {{plan}} — terfynau'n cael eu cymhwyso ar unwaith.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'compare.activityHeading': 'Dyfarniadau gweithgaredd',
   'compare.empty.title': 'Ychwanegwch o leiaf ddau leoliad i gymharu',
   'compare.eyebrow': 'Ochr yn ochr',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Uchel',
   'trends.summary.low.label': 'Isel',
   'trends.summary.points.label': 'Dyddiau',
+  'weatherDashboardLayout.primaryNavLabel': 'Prif lywio',
   'weatherHeroCard.updated': "Wedi'i ddiweddaru {{time}}",
 }

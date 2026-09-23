@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqqında',
   'analytics.back': 'Sorğuya ümumi baxış',
   'analytics.kpiNps': 'NPS balı',
   'analytics.kpiNpsTrend': 'Təşviqatçılar {{p}} % · Tənqidçilər {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Əmlaklar',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Sorğu başlığı',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'forgotPassword.failed': 'Sıfırlama e-poçtu göndərilə bilmədi. Zəhmət olmasa, yenidən cəhd edin.',
   'forgotPassword.subheading': 'E-poçtunuzu daxil edin və sizə bərpa linki göndərəcəyik.',
   'forgotPassword.successBody':
     'Hesab uyğun gəlirsə {{email}} , sıfırlama linki göndərilir. Gələnlər qutunuzu və spam qovluqlarınızı yoxlayın.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Bütün səslər xoş gəlmisiniz.',
   'landing.footer.startTrial': 'Sınaq rejiminə başlayın',
   'landing.hero.badge': 'Sorğular, NPS və rəylər bir yerdə',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Qiymətləndirmə',
   'landing.pricing.perMonth': '/ay',
   'landing.pricing.popular': 'Ən populyar',
+  'landing.pricing.subtitle':
+    'Hər plana sorğu qurucusu, ictimai paylaşım linkləri və NPS analitikası daxildir. Başlamaq üçün kredit kartı tələb olunmur.',
+  'landing.pricing.title': 'Pulsuz başlayın, bacardığınız zaman miqyaslanın.',
   'landing.sample.eyebrow': 'NPS-ə qısa baxış',
   'landing.sample.title': 'Tənqidçilər, passivlər, təbliğatçılar — dərhal oxuna bilən.',
   'login.failed': 'Giriş uğursuz oldu. Zəhmət olmasa, yenidən cəhd edin.',
@@ -56,6 +62,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Şifrəni göstər',
   'login.signUpLink': 'Pulsuz sınaq müddətinə başlayın',
   'login.subheading': 'Dinləyicilərinizi dinləməyə davam etmək üçün hesaba daxil olun.',
+  'notFound.body': 'Axtardığınız səhifə {{app}} saytında yoxdur. Gəlin sorğularınıza qayıdaq.',
   'notFound.cta': 'Sorğulara qayıt',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Bu sorğu növbədən kənara çıxdı.',
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiv 7–8',
   'npsDistributionBar.promoter': 'Təşviqatçı 9–10',
   'profile.identity.description': 'Komandanız və müəllifi olduğunuz sorğular üçün açıqdır.',
+  'profile.identity.emailRequired': 'E-poçt ünvanı daxil edin.',
   'profile.identity.saveCta': 'Adını yadda saxla',
   'profile.password.current': 'Cari parol',
   'profile.password.fillFields': 'Həm cari, həm də yeni şifrəni daxil edin.',
@@ -176,6 +184,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} suallar',
   'templates.subheading':
     'Döyüşdə sınaqdan keçirilmiş başlanğıc seçin — hər şablon əvvəlcədən tənzimlənmiş, ağlabatan standart parametrlər, nümunə məntiqi və təmiz mobil düzülüşlə gəlir.',
+  'thankYou.body': 'Cavabınız qeydə alınıb. {{app}} onu növbəti analitik yeniləmədə əlavə edəcək.',
   'thankYou.eyebrow': 'Cavab alındı',
   'thankYou.heading': 'Təşəkkürlər - səsiniz vacibdir.',
   'thankYou.home': 'Gaugeu ziyarət edin',

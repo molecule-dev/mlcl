@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị hụtara njehie, ị nwere arịrịọ maka atụmatụ, ma ọ bụ ịchọrọ ịgwa anyị gbasara ihe nkiri ị bepụrụ? Ozi ọ bụla na-erute onye dị adị n'etiti ndị otu ahụ — kpọtụrụ anyị oge ọ bụla site na ntọala akaụntụ gị.",
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.eyebrow': "// ụlọ ọrụ dị n'azụ nkebi ahụ",
   'about.pageTitle': 'Maka {{appName}}',
   'assetDetail.back': 'Laghachi na ọbá akwụkwọ',
   'assetDetail.confirmDelete': 'Hichapụ " {{name}} "? Enweghị ike iwepụ nke a."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} ihe nkiri, ihe ndina ọdịyo, na eserese dị njikere ịpụta na usoro iheomume.',
   'assetLibrary.title': 'Akụ',
   'assetLibrary.upload': 'Tinye ihe onwunwe',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.browseTemplates': 'Chọgharịa ndebiri →',
   'dashboard.loading': 'Na-ebugo ọrụ…',
   'dashboard.noProjects': 'Enwebeghị ọrụ ọ bụla — mepụta otu ka ịmalite.',
@@ -161,7 +166,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Họrọ ihe ị ga-echeta naanị.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Nzuzo',
+  'rushesLayout.closeMenu': 'Mechie nhazigharị',
   'rushesLayout.guest': 'Onye nchịkọta akụkọ',
+  'rushesLayout.navDialog': 'Nsoroụzọ',
+  'rushesLayout.openMenu': 'Mepee nhazigharị',
   'rushesLayout.planFree': 'Atụmatụ efu',
   'rushesLayout.tagline': 'Usoro iheomume nke sinima',
   'settings.billing.confirmCancel': 'Kagbuo ndenye aha na njedebe oge?',

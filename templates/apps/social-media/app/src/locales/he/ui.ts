@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
+  'about.pageTitle': 'אודות {{app}}',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
+  'common.retry': 'נסה שוב',
   'compose.cancel': 'לְבַטֵל',
   'compose.captionPlaceholder': 'מה עובר לך בראש?',
   'compose.heading': 'שתפו רגע',
@@ -92,6 +96,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'חשבון מאומת',
   'resetPassword.newPassword': 'סיסמה חדשה',
   'resetPassword.subheading': 'בחר משהו חזק - לפחות 12 תווים.',
+  'search.clearAria': 'בָּרוּר',
+  'search.error': 'החיפוש נכשל. נסה שוב.',
   'search.noPeople': 'אין יוצרים תואמים ‏{{q}} ".',
   'search.noPosts': 'אין פוסטים תואמים {{q}} ".',
   'search.noTags': 'אין עדיין האשטגים פופולריים.',
@@ -119,6 +125,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'הסתר סיסמה',
   'signup.showPassword': 'הצג סיסמה',
   'signup.subheading': 'צור חשבון כדי להתחיל לשתף.',
+  'socialMediaLayout.closeMenu': 'סגור את תפריט הניווט',
+  'socialMediaLayout.openMenu': 'פתח את תפריט הניווט',
+  'socialMediaLayout.primaryNavLabel': 'ניווט ראשי',
   'storyRail.heading': 'סיפורים',
   'storyRail.label': 'סיפורים',
   'storyRail.openAria': 'לִפְתוֹחַ {{handle}} הסיפור של',

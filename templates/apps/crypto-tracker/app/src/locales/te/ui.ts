@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'గురించి',
   'alertConditionCard.condition.${alert.condition}': 'ప్రేరేపించబడింది {{ఎప్పుడు}}',
+  'alertConditionCard.confirmDelete': 'తొలగింపును నిర్ధారించండి',
   'alertConditionCard.pauseAriaLabel': 'పాజ్ అలర్ట్',
   'alertConditionCard.resumeAriaLabel': 'పునఃప్రారంభ హెచ్చరిక',
   'alertNew.condition': 'పరిస్థితి',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'పూర్తిగా పలుచన చేయబడిన విలువ',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'వెబ్‌సైట్',
+  'coinDetail.links.whitepaper': 'శ్వేతపత్రం',
   'coinDetail.loadError': 'కాయిన్ లోడ్ చేయడంలో విఫలమైంది.',
   'coinDetail.marketCap': 'మార్కెట్ క్యాప్',
   'coinDetail.maxSupply': 'గరిష్ట సరఫరా',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'మీరు స్కాన్ చేసిన మార్గం తెలిసిన నాణెం లేదా పేజీకి దారితీయడం లేదు. చిహ్నాన్ని మళ్లీ తనిఖీ చేసి, తిరిగి ప్రయత్నించండి.',
   'notFound.browseMarkets': 'మార్కెట్లను బ్రౌజ్ చేయండి',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'portfolio.addError': 'గుర్తు, ధనాత్మక మొత్తం మరియు ధరను నమోదు చేయండి.',
   'portfolio.addHoldingCta': '+ హోల్డింగ్ జోడించండి',
   'portfolio.addModal.cost': 'ఖర్చు ఆధారం (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'పాస్‌వర్డ్ మరియు టూ-ఫ్యాక్టర్ సెట్టింగ్‌లు మీ ఖాతా ద్వారా నిర్వహించబడతాయి.',
   'settings.signOutDevice': 'సైన్ అవుట్',
+  'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
   'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'sigilAuthShell.backHomeCta': '← సిగిల్‌కు తిరిగి వెళ్లండి',
   'sigilLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'signup.eyebrow': 'టెర్మినల్ తెరవండి',

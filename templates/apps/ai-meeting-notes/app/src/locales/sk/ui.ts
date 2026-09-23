@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'actions.empty': 'Nenašli sa žiadne úlohy.',
   'actions.heading': 'Úlohy',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Predchádzajúci mesiac',
   'calendar.recent': 'Nedávne',
   'common.daysAgo': '{{count}} pred d',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.hoursAgo': '{{count}} pred hodinami',
   'common.no': '—',
+  'common.retry': 'Skúsiť znova',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} úlohy',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Skontrolujte si doručenú poštu, kde nájdete odkaz na obnovenie hesla.',
   'forgot.subheading': 'Zadajte svoju e-mailovú adresu a my vám pošleme odkaz na obnovenie hesla.',
   'integrations.disconnected': 'Odpojené',
+  'integrations.loadError': 'Načítanie integrácií sa nepodarilo.',
   'integrations.notConnectedTag': 'Nie je pripojené',
   'integrations.subheading':
     'Prepojte kalendáre a videoplatformy, aby sa Murmur pripojil automaticky.',
+  'integrations.updateError': 'Aktualizácia zlyhala.',
   'landing.ctaButton': 'Začnite – je to zadarmo',
   'landing.ctaHeading': 'Prestaňte si robiť poznámky. Začnite sa rozhodovať.',
   'landing.demo.aiLabel': 'Súhrn vygenerovaný umelou inteligenciou v reálnom čase',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Ďalšie kroky',
   'meetingDetail.loadError': 'Načítanie stretnutia sa nepodarilo.',
   'meetingDetail.noActions': 'Neboli zistené žiadne úlohy na vykonanie.',
+  'meetingDetail.none': 'Žiadne.',
   'meetingDetail.notFound': 'Zasadnutie nebolo nájdené.',
+  'meetingDetail.speakerFallback': 'Prednášajúca{{id}}',
   'meetingDetail.summaryHeading': 'Súhrn generovaný umelou inteligenciou',
   'meetingDetail.transcriptHeading': 'Prepis',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Stretnutia',
   'meetings.loadError': 'Načítanie stretnutí sa nepodarilo.',
   'meetings.subheading': 'Každá zaznamenaná, nahratá a synchronizovaná schôdza.',
+  'murmurLayout.openMenu': 'Otvoriť navigačné menu',
   'murmurLayout.primaryNavLabel': 'Hlavná navigácia',
   'nav.legal': 'Právne',
   'notifications.loadError': 'Načítanie upozornení zlyhalo.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Ako sa zobrazujete v aplikácii Murmur.',
   'record.error.empty': 'Nezaznamenal sa žiadny zvuk.',
   'record.error.permission': 'Prístup k mikrofónu bol zamietnutý.',
+  'record.error.recorder': 'Chyba záznamníka',
   'record.error.unsupported':
     'Váš prehliadač nepodporuje nahrávanie. Skúste prehliadač Chrome, Edge alebo Safari.',
   'record.error.upload': 'Nahratie sa nepodarilo. Skúste to znovu.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nové heslo',
   'reset.subheading': 'Zvoľte si heslo, ktoré nikde inde nepoužívate.',
   'search.empty': 'Napíšte text, ktorý chcete vyhľadať v prepisoch.',
+  'search.loadError': 'Vyhľadávanie sa nepodarilo. Skúste to znova.',
   'search.noResults': 'Nenašli sa žiadne výsledky pre „{{q}}“.',
   'settings.appearance.description': 'Prepínanie medzi svetlým a tmavým režimom.',
   'settings.appearance.title': 'Vzhľad',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Načítanie nastavení sa nepodarilo.',
   'settings.loading': 'Načítava sa…',
   'settings.push.heading': 'Push notifikácie',
+  'settings.push.subheading':
+    'Nechajte si v prehliadači zasielať upozornenia na zmienky, úlohy a súhrny.',
   'settings.retention.audio': 'Zachovať zvuk pre',
   'settings.retention.heading': 'Udržiavanie',
   'settings.retention.transcript': 'Uchovávajte výpisy',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Začnite si robiť poznámky zo schôdzí už za pár minút',
   'signup.terms':
     'Vytvorením účtu súhlasíte s našimi podmienkami používania a zásadami ochrany osobných údajov.',
+  'signup.termsPrefix': 'Vytvorením účtu súhlasíte s našimi',
   'team.inviteCta': 'Pozvi spoluhráča',
   'team.invitedAs': 'Pozvaný ako „{{role}}“',
   'team.inviteFailed': 'Nepodarilo sa odoslať pozvánku.',

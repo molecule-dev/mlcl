@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Løser…',
   'comments.subtitle':
     'De {{count}} Tråder venter fortsatt på svar eller en løsning. Sortert etter alder – eldst først, så ingenting råtner.',
+  'common.goToDashboard': 'Gå til oversikt',
   'forgotPassword.sentTo': 'Tilbakestill lenke sendt til {{email}}',
   'forgotPassword.successSubheading':
     'Sjekk innboksen din – vi sendte nettopp en tilbakestillingslenke. Den utløper om 30 minutter.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ny side',
   'pageTreeSidebar.workspaceHeader': 'Arbeidsområde',
   'pageView.breadcrumb': 'Brødsmule',
+  'pageView.confirmTrash': 'Kaste det i søpla?',
   'pageView.home': 'Hjem',
   'pageView.lastEdited': 'Oppdatert {{when}}',
   'pageView.loading': 'Laster inn side…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Oppsummerer…',
   'pageView.summaryUnavailable': 'AI-sammendraget er ikke konfigurert for dette arbeidsområdet.',
   'pageView.tocTitle': 'På denne siden',
+  'pageView.trash': 'Papirkurv',
+  'pageView.trashing': 'Kaster bort …',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Merker',
   'profile.owned.title': 'Eide sider',
@@ -97,6 +101,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'Arbeidsområde, profil, varsler, integrasjoner – alt i ett rolig skall.',
   'settingsPage.workspace.defaultLanding': 'Standard landingsskjerm',
   'settingsPage.workspace.landingHome': 'Hjem',
+  'settingsPage.workspace.landingSpaces': 'Mellomrom',
   'settingsPage.workspace.subdomainLabel': 'Underdomene',
   'settingsPage.workspace.title': 'Arbeidsområde',
   'signup.eyebrow': 'Start et nytt arbeidsområde',
@@ -124,6 +129,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Start en side fra en sjablong, ikke et blankt lerret. Hver mal hardkoder formen slik at du kan fokusere på substansen.',
+  'trash.confirmPurge': 'Rens ut for alltid?',
+  'trash.confirmPurgeAria': 'Bekreft: slett {{title}} permanent',
   'trash.daysUntilPurge': '{{days}} dager igjen',
   'trash.empty.body': 'Slettede sider vil vises her i 30 dager før de blir fjernet.',
   'trash.empty.title': 'Søppelkurven er tom.',
@@ -143,5 +150,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Gjenoppretter…',
   'versionHistory.subtitle': '{{count}} versjoner · velg en rad for å inspisere diff',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Lukk navigasjonen',
+  'wikiLayout.menu': 'Navigasjon',
+  'wikiLayout.openMenu': 'Åpne navigasjon',
   'wikiLayout.searchPlaceholder': 'Søk i Cairn — sider, kommentarer…',
 }

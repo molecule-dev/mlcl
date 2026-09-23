@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'O nas',
   'alertConditionCard.condition.${alert.condition}': 'Sproženo {{kdaj}}',
+  'alertConditionCard.confirmDelete': 'Potrdi izbris',
   'alertConditionCard.pauseAriaLabel': 'Začasno ustavi opozorilo',
   'alertConditionCard.resumeAriaLabel': 'Opozorilo o nadaljevanju',
   'alertNew.condition': 'Stanje',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Popolnoma razredčena vrednost',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Spletno mesto',
+  'coinDetail.links.whitepaper': 'Bela knjiga',
   'coinDetail.loadError': 'Nalaganje kovanca ni uspelo.',
   'coinDetail.marketCap': 'Tržna kapitalizacija',
   'coinDetail.maxSupply': 'Največja ponudba',
@@ -90,6 +92,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Skenirana pot ne odkrije znanega kovanca ali strani. Ponovno preverite simbol in poskusite znova.',
   'notFound.browseMarkets': 'Brskaj po trgih',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'portfolio.addError': 'Vnesite simbol, pozitivni znesek in ceno.',
   'portfolio.addHoldingCta': '+ Dodaj holding',
   'portfolio.addModal.cost': 'Stroški (USD)',
@@ -133,9 +136,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Geslo in nastavitve dvofaktorske varnostne zaščite upravlja vaš račun.',
   'settings.signOutDevice': 'Odjava',
+  'settings.twoFactorCode': 'Koda za avtentifikacijo',
   'settings.twoFactorDisable': 'Onemogoči',
   'settings.twoFactorEnable': 'Omogoči',
+  'settings.twoFactorInvalidCode': 'Neveljavna koda',
   'settings.twoFactorOn': 'Na',
+  'settings.twoFactorVerify': 'Preveri in omogoči',
   'sigilAuthShell.backHomeCta': '← Nazaj na Bourse',
   'sigilLayout.primaryNavLabel': 'Primarna navigacija',
   'signup.eyebrow': 'Odprite terminal',

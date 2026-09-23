@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
+  'about.title': 'Una stanza per scrivere che puoi tenere in tasca',
   'billing.cancelConfirm': 'Annullare il Suo abbonamento attivo?',
   'billing.cancelFailed': 'Impossibile annullare.',
   'billing.checkingOut': 'Apertura del pagamento…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Impossibile caricare la fatturazione.',
   'billing.loading': 'Caricamento fatturazione…',
   'billing.upgradeCta': 'Passa a {{name}}',
+  'common.goToDashboard': 'Vai alla Dashboard',
+  'editor.autosaveOn': 'Salvataggio automatico attivo',
   'editor.backToLibrary': 'Torna alla libreria',
   'editor.charCount': '{{count}} caratteri',
   'editor.confirmTrash': 'Spostare questo documento nel cestino?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Rimosso',
   'editor.unpublishCta': 'Sposta in bozza',
   'editor.unpublished': 'Riportato in bozza',
+  'focus.autosaveOn': 'Salvataggio automatico attivo',
   'focus.backToLibrary': 'Torna alla libreria',
   'focus.bodyPlaceholder': "Una riga alla volta. Qui non c'è nessun altro.",
   'focus.exit': 'Esci dalla modalità focus',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Ne crei uno',
   'login.subline':
     "I Suoi manoscritti, le pagine quotidiane e l'ultima posizione del cursore sono esattamente dove li ha lasciati.",
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'pricing.exports': 'esportazioni',
   'pricing.folders': 'cartelle',
   'pricing.heading': 'documenti',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Inserisca il codice che Le abbiamo appena inviato per email e scelga qualcosa di memorabile. La connetteremo non appena verrà salvato.',
   'reset.tokenHint': 'Incollato dalla Sua casella di posta.',
+  'settings.appearance.heading': 'Chiaro o scuro',
   'settings.editor.${row.id}.description': 'Lingua',
   'settings.editor.description':
     'Scorrimento a macchina da scrivere, dissolvenza dei paragrafi e messa a fuoco automatica in stato di inattività: le impostazioni predefinite sono ottimizzate per sessioni prolungate.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': "Capitolo Tre — Un'ora tranquilla prima dell'alba",
   'versalDocumentCard.pinned': 'Fissato',
   'versalLayout.nav.stats': 'Statistiche',
+  'versalLayout.primaryNavLabel': 'Navigazione principale',
   'versalManuscriptHero.cta': 'Continua a scrivere',
   'versalManuscriptHero.goalLabel': 'Obiettivo di parole di oggi',
   'versalManuscriptHero.inProgress': 'In linea',

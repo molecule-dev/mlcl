@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte připomínky, návrh na novou funkci nebo jste narazili na chybu? Kontaktujte tým {{app}} prostřednictvím odkazu na podporu v nabídce vašeho účtu – každá zpráva se dostane přímo k živému člověku.',
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
   'agentDetail.back': 'Všichni agenti',
   'agentDetail.capabilities': 'Schopnosti',
   'agentDetail.delete': 'Smazat personu',
   'agentDetail.deleteConfirm': 'Smazat tuto personu? Tuto akci nelze vrátit.',
+  'agentDetail.deleteError': 'Nepodařilo se odstranit profil.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Personu se nepodařilo načíst.',
   'agentDetail.save': 'Uložit personu',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Přepínání…',
   'billing.updateError': 'Nepodařilo se spustit aktualizaci.',
   'billing.usageHeading': 'Využití hlasu v tomto cyklu',
+  'chatBubble.source.text': 'text',
+  'chatBubble.source.voice': 'hlas',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'conversation.defaultTitle': 'Nová konverzace',
   'conversation.empty': 'Zatím žádné zprávy. Začněte něco říct nebo napište níže.',
   'conversation.eyebrow': 'Živá relace',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligence, která mluví.',
   'landing.heroSubtitle':
     'Hlasový asistent AI, který rozumí vašemu přirozenému proudu. Konverzujte, tvořte nápady a zadávejte příkazy – plynule.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Naslouchám…',
   'landing.naturallyBody':
     'Žádná aktivační slova. Žádné rigidní příkazy. Vox rozumí kontextu, přerušením a nuancím lidské řeči – jako rozhovor s kolegou.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Otevřít relaci',
   'notFound.home': 'Zpět domů',
   'notFound.title': 'Tuto stránku jsme neslyšeli.',
+  'parlanceLayout.closeMenu': 'Zavřít nabídku',
+  'parlanceLayout.openMenu': 'Otevřít navigační menu',
   'parlanceLayout.primaryNavLabel': 'Primární navigace',
   'pricing.conversations': '{{count}} konverzací',
   'pricing.cta.startFree': 'Začít zdarma',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Žádné shody',
   'search.eyebrow': 'Paleta příkazů',
   'search.fetchError': 'Index vyhledávání se nepodařilo načíst.',
+  'search.static.profile.preview': 'Zobrazované jméno, přezdívka, profil',
   'search.static.voice.title': 'Hlas',
   'search.title': 'Hledat v Vox',
   'search.transcriptPreview': 'Otevřít přepis',

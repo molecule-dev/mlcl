@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'alerts.acknowledgeLabel': 'Elismerés',
   'alerts.customerLabel': 'Vevő: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Kapcsolódás…',
   'carriers.requiredError': 'Név és kód megadása kötelező.',
   'carriers.subheading': '{{count}} integrált',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
+  'common.retry': 'Újra',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Úton van + megjelölve',
   'dashboard.activeShipmentsSubtitle':
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'szállítmányok',
   'pricing.trackingLabel': 'események követése',
   'profile.dangerZone.title': 'Veszélyzóna',
+  'profile.devices.signingOut': 'Kijelentkeztetés…',
+  'profile.devices.unnamed': 'Névtelen eszköz',
+  'profile.security.disable2fa': 'A kétfaktoros hitelesítés letiltása',
   'profile.security.enable2fa': '2FA engedélyezése',
   'profile.security.pwChanged': 'Jelszó sikeresen megváltoztatva.',
   'profile.security.pwCurrent': 'Jelenlegi jelszó',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktív',
   'profile.security.twoFaCode': '6 jegyű kód',
   'profile.security.twoFaDisable': 'Letiltás',
+  'profile.security.twoFaDisabling': 'Letiltás…',
   'profile.security.twoFaFailed': 'Nem sikerült ellenőrizni a kódot.',
   'profile.security.twoFaIntro':
     'Olvasd be a QR-kódot a hitelesítő alkalmazásodban, majd add meg az alábbi 6 számjegyű kódot az ellenőrzéshez.',
   'profile.security.twoFaOn': 'A kétfaktoros hitelesítés engedélyezve van ezen a fiókon.',
+  'profile.security.twoFaQrAlt': 'Kétfaktoros QR-kód',
   'profile.security.twoFaVerify': 'Ellenőrzés és engedélyezés',
   'profile.security.twoFaVerifying': 'Ellenőrzés…',
   'profile.subheading': 'Az adott munkaterület identitás- és biztonsági beállításai.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Mentsd el ezt a titkos kódot – nem fog újra megjelenni.',
   'settings.api.webhookSecret': 'Webhook aláírási titok',
   'settings.appearance.description': 'Váltás a világos és sötét mód között.',
+  'settings.deleteAccountConfirm': 'Biztos vagy benne? Ez a művelet visszafordíthatatlan.',
   'settings.notifications.exceptions': 'E-mailt kérek, ha szállítási kivétel történik',
   'settings.notifications.heading': 'Értesítések',
   'settings.notifications.saveFailed': 'A beállítások mentése sikertelen.',
@@ -145,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'A szállítmány nem található.',
   'shipmentDetail.originHeading': 'Származás',
   'shipmentDetail.shippedOn': 'Szállítva {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Még nincsenek nyomonkövetési események — a frissítések itt jelennek meg, amint a fuvarozó beolvassa a csomagot.',
   'shipmentDetail.weightLabel': '{{weight}} font',
   'shipments.col.carrier': 'Hordozó',
   'shipments.col.eta': 'Várható érkezés',
@@ -174,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Bejelentkezés',
   'signup.submit': 'Fiók létrehozása',
   'team.emailError': 'Érvényes e-mail cím megadása szükséges.',
+  'team.empty':
+    'Még nincsenek csapattagok. Hívj meg egy csapattársat, hogy közösen dolgozzatok a szállítmányokon.',
   'team.eyebrow': 'Tagok és engedélyek',
   'team.inviteDialog.cancel': 'Mégse',
   'team.inviteDialog.heading': 'Csapattag meghívása',
@@ -196,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Pálya',
   'waypointLayout.primaryNavLabel': 'Elsődleges navigáció',
   'webhooks.createFailed': 'Nem sikerült létrehozni a webhook végpontot.',
+  'webhooks.endpointsEmpty':
+    'Még nincsenek webhook-végpontok. Hozzon létre egyet a szállítási állapotra vonatkozó visszahívások fogadásához.',
   'webhooks.endpointsHeading': 'Endpointok',
   'webhooks.eventCount': '{{count}} események',
   'webhooks.eventsHeading': 'Legutóbbi szállítások',

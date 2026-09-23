@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Amdanom ni',
   'actions.empty': 'Dim eitemau gweithredu yn cyfateb.',
   'actions.heading': 'Eitemau gweithredu',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Mis blaenorol',
   'calendar.recent': 'Diweddar',
   'common.daysAgo': '{{count}} d yn ôl',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.hoursAgo': '{{count}} awr yn ôl',
   'common.no': '—',
+  'common.retry': 'Ail-geisio',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} eitemau gweithredu',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Gwiriwch eich mewnflwch am y ddolen ailosod.',
   'forgot.subheading': 'Rhowch eich cyfeiriad e-bost a byddwn yn anfon dolen ailosod atoch.',
   'integrations.disconnected': 'Wedi Datgysylltu',
+  'integrations.loadError': 'Methwyd llwytho integreiddiadau.',
   'integrations.notConnectedTag': 'Heb ei gysylltu',
   'integrations.subheading':
     'Cysylltwch galendrau a llwyfannau fideo fel bod Murmur yn ymuno’n awtomatig.',
+  'integrations.updateError': 'Methodd y diweddariad.',
   'landing.ctaButton': 'Dechreuwch — mae am ddim',
   'landing.ctaHeading': 'Stopiwch gymryd nodiadau. Dechreuwch wneud penderfyniadau.',
   'landing.demo.aiLabel': 'Crynodeb AI, wedi’i ddrafftio’n fyw',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Dilyniannau',
   'meetingDetail.loadError': 'Methwyd llwytho’r cyfarfod.',
   'meetingDetail.noActions': 'Ni chanfuwyd unrhyw eitemau gweithredu.',
+  'meetingDetail.none': 'Dim.',
   'meetingDetail.notFound': 'Ni chanfuwyd y cyfarfod.',
+  'meetingDetail.speakerFallback': 'Siaradwr {{id}}',
   'meetingDetail.summaryHeading': 'Crynodeb AI',
   'meetingDetail.transcriptHeading': 'Trawsgrifiad',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Cyfarfodydd',
   'meetings.loadError': 'Methwyd llwytho cyfarfodydd.',
   'meetings.subheading': 'Pob cyfarfod sydd wedi’i recordio, ei uwchlwytho a’i gysoni.',
+  'murmurLayout.openMenu': 'Agor y ddewislen lywio',
   'murmurLayout.primaryNavLabel': 'Prif lywio',
   'nav.legal': 'Cyfreithiol',
   'notifications.loadError': 'Methwyd llwytho hysbysiadau.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Sut rydych chi’n ymddangos y tu mewn i Murmur.',
   'record.error.empty': 'Ni chafodd unrhyw sain ei recordio.',
   'record.error.permission': 'Caniatâd meicroffon wedi’i wrthod.',
+  'record.error.recorder': 'Gwall recordydd',
   'record.error.unsupported':
     'Nid yw eich porwr yn cefnogi recordio. Rhowch gynnig ar Chrome, Edge, neu Safari.',
   'record.error.upload': 'Methodd yr uwchlwytho. Rhowch gynnig arall arni.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Cyfrinair newydd',
   'reset.subheading': 'Dewiswch gyfrinair nad ydych chi’n ei ddefnyddio yn unman arall.',
   'search.empty': 'Teipiwch i chwilio am drawsgrifiadau.',
+  'search.loadError': 'Methodd y chwiliad. Rhowch gynnig arall arni.',
   'search.noResults': 'Dim canlyniadau ar gyfer “ {{q}} ".',
   'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
   'settings.appearance.title': 'Ymddangosiad',
@@ -123,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Methwyd llwytho gosodiadau.',
   'settings.loading': 'Yn llwytho…',
   'settings.push.heading': 'Hysbysiadau gwthio',
+  'settings.push.subheading':
+    'Derbyniwch rybuddion porwr am sôn, eitemau gweithredu, a chrynodebau.',
   'settings.retention.audio': 'Cadwch sain am',
   'settings.retention.heading': 'Cadw',
   'settings.retention.transcript': 'Cadwch drawsgrifiadau ar gyfer',
@@ -140,6 +152,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Dechreuwch gofnodi nodiadau cyfarfod mewn munudau',
   'signup.terms':
     'Drwy greu cyfrif rydych chi’n cytuno i’n Telerau Gwasanaeth a’n Polisi Preifatrwydd.',
+  'signup.termsPrefix': "Drwy greu cyfrif rydych chi'n cytuno i'n",
   'team.inviteCta': 'Gwahodd cyd-chwaraewr',
   'team.invitedAs': 'Wedi’i wahodd fel {{role}}',
   'team.inviteFailed': 'Methwyd anfon gwahoddiad.',

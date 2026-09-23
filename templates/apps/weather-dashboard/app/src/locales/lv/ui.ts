@@ -2,6 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.pageTitle': 'Par mums {{appName}}',
+  'alertBanner.expires': 'Līdz {{time}}',
   'alerts.activeCount': '{{count}} aktīvs',
   'alerts.activeHeading': 'Aktīvie brīdinājumi',
   'alerts.empty': 'Viss ir skaidrs jūsu saglabātajās atrašanās vietās.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Jūs pašlaik atrodaties sadaļā {{plan}} plāns.',
   'billing.switch': 'Slēdzis',
   'billing.upgraded': 'Atjaunināts uz {{plan}} — nekavējoties piemērojamie ierobežojumi.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'compare.activityHeading': 'Aktivitātes spriedumi',
   'compare.empty.title': 'Pievienojiet salīdzināšanai vismaz divas atrašanās vietas',
   'compare.eyebrow': 'Blakus',
@@ -137,4 +139,5 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Augsts',
   'trends.summary.low.label': 'Zems',
   'trends.summary.points.label': 'Dienas',
+  'weatherDashboardLayout.primaryNavLabel': 'Galvenā navigācija',
 }

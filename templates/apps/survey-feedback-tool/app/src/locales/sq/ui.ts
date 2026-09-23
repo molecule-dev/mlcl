@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Rreth {{app}}',
   'analytics.back': 'Përmbledhje e anketës',
   'analytics.kpiNps': 'Rezultati i NPS-së',
   'analytics.kpiNpsTrend': 'Promovuesit {{p}} % · Kritikët {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Prona',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Titulli i anketës',
+  'common.goToDashboard': 'Shko te paneli',
   'forgotPassword.failed':
     'Nuk mundi të dërgonte email-in e rivendosjes. Ju lutemi provoni përsëri.',
   'forgotPassword.subheading':
     "Shkruani email-in tuaj dhe ne do t'ju dërgojmë një lidhje rikuperimi.",
   'forgotPassword.successBody':
     'Nëse një llogari përputhet {{email}} , një lidhje rivendosjeje është duke ardhur. Kontrolloni dosjet tuaja të postës hyrëse dhe të spamit.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Të gjitha zërat janë të mirëseardhura.',
   'landing.footer.startTrial': 'Fillo provën',
   'landing.hero.badge': 'Sondazhe, NPS dhe reagime në një vend',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Çmimet',
   'landing.pricing.perMonth': '/muaj',
   'landing.pricing.popular': 'Më të popullarizuara',
+  'landing.pricing.subtitle':
+    'Çdo plan përfshin ndërtuesin e anketave, lidhjet e ndarjes publike dhe analizat NPS. Nuk kërkohet kartë krediti për të filluar.',
+  'landing.pricing.title': 'Filloni falas, shkallëzohuni kur të doni.',
   'landing.sample.eyebrow': 'NPS në një vështrim',
   'landing.sample.title': 'Kritikët, pasivët, promovuesit — të lexueshëm menjëherë.',
   'login.failed': 'Hyrja dështoi. Ju lutemi provoni përsëri.',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.signUpLink': 'Filloni një provë falas',
   'login.subheading': 'Kyçu për të vazhduar të dëgjosh audiencën tënde.',
+  'notFound.body':
+    "Faqja që po kërkoni nuk ekziston në {{app}} . Le t'ju kthehemi te anketat tuaja.",
   'notFound.cta': 'Kthehu te anketat',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Ky sondazh u hoq nga radha.',
@@ -75,6 +83,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasiv 7–8',
   'npsDistributionBar.promoter': 'Promovuesi 9–10',
   'profile.identity.description': 'Publike për ekipin tuaj dhe në anketat që ju hartoni.',
+  'profile.identity.emailRequired': 'Fut një adresë email-i.',
   'profile.identity.saveCta': 'Ruaj emrin',
   'profile.password.current': 'Fjalëkalimi aktual',
   'profile.password.fillFields': 'Futni fjalëkalimin aktual dhe të ri.',
@@ -179,6 +188,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} pyetje',
   'templates.subheading':
     'Zgjidhni një model fillestar të testuar në betejë — çdo shabllon vjen i parapërgatitur me parazgjedhje të arsyeshme, logjikë shembullore dhe një paraqitje të pastër për celularë.',
+  'thankYou.body':
+    'Përgjigja juaj është regjistruar. {{app}} do ta përfshijë atë në rifreskimin e ardhshëm të analitikës.',
   'thankYou.eyebrow': 'Përgjigja u mor',
   'thankYou.heading': 'Faleminderit — zëri juaj ka rëndësi.',
   'thankYou.home': 'Vizitoni Gaugein',

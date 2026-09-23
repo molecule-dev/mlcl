@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'billing.canceled':
     'సభ్యత్వం రద్దు చేయబడింది. కాలపరిమితి ముగిసిన తర్వాత మీరు ఉచిత సభ్యత్వానికి తిరిగి మారతారు.',
   'billing.contactSales': 'అమ్మకాల విభాగాన్ని సంప్రదించండి',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'నిలుపుదల పరిమితి లేదు',
   'billing.upgradeHint': 'అధునాతన AI ఫీచర్‌లను అన్‌లాక్ చేయడానికి అప్‌గ్రేడ్ చేయండి.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.activityEmpty':
     'ఇంకా ఏ కార్యకలాపం లేదు — ఈ ఫీడ్‌ను నింపడానికి ఒక ప్రాజెక్ట్‌ను ప్రారంభించండి.',
   'dashboard.eyebrow': 'అవలోకనం',
@@ -115,6 +117,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ప్రతి ప్రాజెక్ట్‌లో గత అనువాదాలను తిరిగి ఉపయోగించుకోండి. సరిపోలిక స్కోరు పెరిగితే, తిరిగి చేయాల్సిన పని తగ్గుతుంది.',
   'memory.title': 'మెమరీ బ్యాంక్',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'nav.legal': 'చట్టపరమైన',
   'newProject.addLanguage': 'లక్ష్యాన్ని జోడించండి',
   'newProject.create': 'ప్రాజెక్ట్‌ను సృష్టించండి',
@@ -144,6 +148,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'గుర్తించబడింది {{count}} నోటిఫికేషన్‌లు చదివినట్లుగా.',
   'notifications.subtitle':
     'మీ వర్క్‌స్పేస్‌ల నుండి ప్రస్తావనలు, సమీక్ష అభ్యర్థనలు మరియు AI ఈవెంట్‌లు.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'privacy.collection.account': 'మీ ఖాతా ఇమెయిల్ మరియు ప్రదర్శన పేరు',
   'privacy.deletion.body':
     'మీరు సంబంధిత పేజీ నుండి ప్రాజెక్ట్, విభాగం, పదకోశ పదం లేదా మెమరీ ఎంట్రీని ఎప్పుడైనా తొలగించవచ్చు. సెట్టింగ్‌ల నుండి మీ ఖాతాను తొలగించడం వలన మా డేటాబేస్ నుండి వర్క్‌స్పేస్ పరిధిలోని ప్రతి వరుస తొలగించబడుతుంది.',
@@ -180,6 +185,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ప్రాజెక్ట్‌లను లోడ్ చేయడంలో విఫలమైంది.',
   'projects.loading': 'ప్రాజెక్ట్‌లు లోడ్ అవుతున్నాయి…',
   'projects.subtitle': 'అన్ని ప్రాంతాలలో ఉన్న ప్రతి క్రియాశీల ప్రాజెక్ట్.',
+  'renditionLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'reset.backToLogin': '\\u2190 తిరిగి సైన్ ఇన్ చేయడానికి',
   'reset.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'review.activeEyebrow': 'విభాగం {{number}}',

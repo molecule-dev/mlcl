@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Nípa {{app}}',
   'about.plansTitle': 'Àwọn ètò tó ń dàgbà pẹ̀lú rẹ',
   'brand.tagline': 'Ni iṣẹju-aaya kọọkan',
   'clientDetail.back': 'Pada si awọn alabara',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Gbogbo ìbáṣepọ̀ ní ibi kan — àwọn iṣẹ́ àkànṣe, wákàtí, àti àwọn ìwé-ìròyìn tí a kò san.',
   'clients.title': 'Àwọn oníbàárà',
   'common.and': 'àti',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.activeProjects': 'Àwọn iṣẹ́ àgbékalẹ̀ tó ń ṣiṣẹ́',
   'dashboard.empty': 'Kò sí àwọn ìkọsílẹ̀ kankan. Bẹ̀rẹ̀ aago náà láti tọ́pasẹ̀ àkókò àkọ́kọ́ rẹ.',
   'dashboard.greeting': 'Ojo dada, {{name}}',
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     'Kò sí wákàtí tí a lè san owó fún oníbàárà yìí. Tọ́pin àkókò díẹ̀ ní àkọ́kọ́ tàbí kí o yan àwọn àkọsílẹ̀ tó wà tẹ́lẹ̀ sí ọ̀kan lára àwọn iṣẹ́ àgbékalẹ̀ oníbàárà yìí.',
   'invoices.save': 'Ṣẹ̀dá ìwé ìsanwó',
   'invoices.subtitle': 'Awọn wakati ti a tọpinpin yoo yi pada si awọn iwe-owo, laifọwọṣe.',
+  'landing.copyright': '© {{year}} {{app}} . Gbogbo ìṣẹ́jú-àáyá, a ti ṣe àyẹ̀wò rẹ̀.',
   'landing.ctaBody':
     'Ọfẹ́ fún àwọn iṣẹ́ tó tó mẹ́ta. Ṣe àtúnṣe sí i nígbà tí àkójọ àwọn oníbàárà rẹ bá ṣe bẹ́ẹ̀.',
   'landing.eyebrow': 'Ìtọ́pinpin àkókò fún iṣẹ́ tí a lè san owó rẹ̀',
@@ -101,13 +104,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Àwọn olómìnira ni wọ́n gbẹ́kẹ̀ lé',
   'landing.testimonial.quote':
     '\\u201cMo ṣí kúrò ní Toggl ní ìṣẹ́jú 30. Ìnáwó tí ó ti bàjẹ́ nìkan ti san án \\u2014 Mo ti dẹ́kun sísọ̀rọ̀ nípa àwọn nǹkan tí kò tọ́ ní ọ̀sẹ̀ méjì.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Gbogbo ìṣẹ́jú-àáyá, ló ṣe pàtàkì.',
   'login.brand.subtitle':
     'Gbé aago náà níbi tí o ti dúró — ní ìṣẹ́jú kọ̀ọ̀kan tí a ti yàwòrán rẹ̀ sí iṣẹ́ àkànṣe kan, oníbàárà kan, àti ìwé-ìròyìn kan.',
   'login.brand.tracking': 'Ìtẹ̀lé',
   'login.subheading': 'Gbé aago náà níbi tí o ti dúró.',
+  'nav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
   'nav.insightsSection': 'Àwọn Ìmọ̀ràn',
   'nav.newEntry': 'Ìwọlé Tuntun',
+  'nav.openMenu': 'Ṣí àkójọ ìlọ kiri',
+  'nav.primary': 'Lilọ kiri akọkọ',
   'nav.workSection': 'Iṣẹ́',
   'notFound.body':
     'Ó dà bíi pé ìjápọ̀ tí o tẹ̀lé ti dẹ́kun títẹ̀lé. Padà sí dasibodu rẹ \\u2014 a ó máa kà á láti ibẹ̀.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'A le san owo sisan',
   'timer.descriptionPlaceholder': 'Kí ni ẹ̀ ń ṣiṣẹ́ lé lórí?',
   'timer.idle': 'Iṣẹ́ Àìṣiṣẹ́ — bẹ̀rẹ̀ títẹ̀lé',
+  'timer.noProject': 'Ko si ise agbese',
   'timer.runningWithProject': 'Ko si ise agbese',
   'timer.start': 'Aago ìbẹ̀rẹ̀',
   'timer.stop': 'Dá aago dúró',

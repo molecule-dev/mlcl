@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ダッシュボードへ',
   'forgot.eyebrow': '戻り道に迷いましたか?',
   'forgot.formSubtitle': '登録のメールアドレスを教えてください。',
   'forgot.headline': 'パスワードをリセットします。',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': '作成',
   'login.subline':
     'ノートブック、バックリンク、デイリーページは、あなたが最後に保存した場所にそのまま残っています。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'noteEditor.backToNotes': 'メモに戻る',
   'noteEditor.bodyPlaceholder': '書き始めてください。入力すると自動的に保存されます。',
   'noteEditor.confirmTrash': 'このメモをゴミ箱に移動しますか？',
@@ -54,6 +57,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': '新しいノートパソコン',
   'notes.newNotebookPrompt': '新しいノートブック名',
   'notes.notebooksHeading': 'ノート',
+  'notes.subtitle':
+    '左側のノートブックを選択し、「新規ノート」ボタンを押して新しいエントリを開始してください。',
   'planUpdated.confirmation': 'プランが更新されました',
   'pricing.heading': 'ノートの取り方プランを選択してください',
   'reset.eyebrow': 'ほぼ戻ってきました',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': '更新日',
   'versoLayout.nav.graph': 'グラフ',
   'versoLayout.nav.home': 'ホーム',
+  'versoLayout.primaryNavLabel': 'メインナビゲーション',
   'versoNoteCard.pinned': 'ピン留め',
   'versoTodayHero.continueCta': '執筆を続ける',
   'versoTodayHero.createCta': '今日のメモを始めましょう',

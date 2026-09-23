@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
+  'about.eyebrow': 'Game da {{app}}',
   'about.pageTitle': 'Kowace hanya, bincike ɗaya.',
   'booking.backToDetail': 'Cikakkun bayanai game da jirgin sama',
   'booking.continue': 'Ci gaba da biyan kuɗi',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Haraji & kuɗaɗe',
   'booking.summary.travelers': 'Matafiya',
   'common.about': 'Game da',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'flightDetail.backToResults': 'Komawa ga sakamako',
   'flightDetail.baseFare': 'Kudin farko',
   'flightDetail.book': 'Ci gaba da yin booking',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'tasha 1',
   'flightResultCard.select': 'Zaɓi',
   'flightResultCard.totalLabel': 'Jimlar lokaci',
+  'flightSearchLayout.primaryNavLabel': 'Babban kewayawa',
   'forgotPassword.subheading':
     'Shigar da imel ɗin a asusun Skylark ɗinku kuma za mu aika hanyar haɗin sake saitawa mai tsaro.',
   'forgotPassword.successBody':
     'Duba {{email}} don hanyar haɗi don saita sabuwar kalmar sirri. Hanyar haɗin za ta ƙare cikin mintuna 30.',
   'forgotPassword.successHeading': 'An aika da hanyar haɗin sake saitawa',
   'landing.cta.explore': 'Gwada bincike',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Nemo farashi mai kyau na gaba kafin kowa.',
   'landing.cta.signup': 'Fara bin diddigin farashin',
   'landing.features.eyebrow': 'Me yasa Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Ƙara faɗakarwa',
   'priceAlerts.deleteConfirm': 'Cire wannan faɗakarwar?',
   'priceAlerts.empty': 'Babu wata hanyar da aka bi diddiginta tukuna.',
+  'priceAlerts.emptyCta': 'Bincika hanyar da za a bi don bin diddigin',
   'priceAlerts.errorMessage': 'Ba a iya loda faɗakarwa ba.',
   'priceAlerts.eyebrow': 'Jerin abubuwan da Skylark ke kallo',
   'priceAlerts.form.createError': 'Ba a iya ƙirƙirar faɗakarwa ba.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Jadawalin birane da yawa',
   'results.multiLegHeading': 'ƙafa {{n}} · {{daga}} → {{zuwa}} · {{kwanan wata}}',
   'results.multiSummary': '{{count}} ƙafafu · {{passengers}} matafiyi',
+  'results.sortAriaLabel': 'Tsara sakamakon ta hanyar',
   'results.sortLabel': 'Tsara',
   'results.summary': '{{count}} jiragen sama · {{passengers}} matafiyi',
   'settings.language.title': 'Harshe',

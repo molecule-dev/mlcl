@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.title': '{{app}} बद्दल',
   'auth.login.noAccount': 'तुम्ही Sparq साठी नवीन आहात का?',
   'auth.login.or': 'किंवा पुढे चालू ठेवा',
   'auth.signup.or': 'किंवा सोबत नोंदणी करा',
+  'common.confirm': 'पुष्टी करा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.loadError': 'ही सामग्री लोड करताना काहीतरी चूक झाली.',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'discover.collections.title': 'श्रेणीनुसार ब्राउझ करा',
   'discover.collections.viewAll': 'तुमचे ग्रंथालय पहा →',
   'discover.empty.body': 'वेगळी श्रेणी वापरून पहा किंवा शोध रद्द करा.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'तुमची सलग विजयांची मालिका कायम ठेवण्यासाठी, थेट खेळ आयोजित करण्यासाठी आणि लीडरबोर्डवर वर चढण्यासाठी साइन इन करा.',
   'myQuizzes.createButton': 'नवीन प्रश्नमंजुषा',
+  'myQuizzes.deleteConfirm': 'कायमचे हटवायचे आहे का?',
   'myQuizzes.empty.createCta': 'तुमची पहिली प्रश्नमंजुषा तयार करा →',
   'myQuizzes.empty.created': 'तुम्ही अजून प्रश्नमंजुषा तयार केलेली नाही.',
   'myQuizzes.empty.played': 'अद्याप एकही प्रश्नमंजुषा प्रकाशित झालेली नाही.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'लोडिंग…',
   'notifications.subhead':
     '{{count}} न वाचलेले स्पार्क्स. आमंत्रणे, लीडरबोर्डवरील हालचाली आणि यश, सर्व काही एकाच स्ट्रीममध्ये.',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'pricing.checkoutError': 'चेकआउट सुरू करता आले नाही. कृपया पुन्हा प्रयत्न करा.',
+  'pricing.heading': 'तुमची {{app}} योजना निवडा',
   'pricing.included': 'समाविष्ट',
   'pricing.loadError': 'योजना लोड करता आल्या नाहीत.',
   'pricing.maxQuizzes': '{{count}} प्रश्नमंजुषा',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'अद्याप काहीही प्रकाशित झालेले नाही.',
   'profile.startBuilding': 'बांधकाम सुरू करा →',
   'profile.tier': 'स्पार्क खेळाडू',
+  'quizBuilder.addFailed': 'प्रश्न जोडता आला नाही. पुन्हा प्रयत्न करा.',
   'quizBuilder.addQuestion': 'प्रश्न जोडा',
   'quizBuilder.answerPlaceholder': 'एक पर्याय टाईप करा…',
   'quizBuilder.answersLabel': 'उत्तर पर्याय',
   'quizBuilder.back': 'माझ्या प्रश्नमंजुषांकडे परत जा',
   'quizBuilder.delete': 'प्रश्न हटवा',
+  'quizBuilder.deleteFailed': 'प्रश्न हटवता आला नाही.',
   'quizBuilder.firstQuestion': 'सुरुवात करण्यासाठी तुमचा पहिला प्रश्न जोडा.',
   'quizBuilder.idLabel': 'क्विझ आयडी: {{id}}',
   'quizBuilder.loadError': 'क्विझ लोड होऊ शकली नाही.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'किमान दोन उत्तरांचे पर्याय जोडा आणि योग्य पर्याय निवडा {{count}} प्रकाशित करण्यापूर्वी प्रश्न.',
   'quizBuilder.questionsTitle': 'प्रश्न',
+  'quizBuilder.saveFailed': 'शीर्षक जतन करता आले नाही. पुन्हा प्रयत्न करा.',
   'quizBuilder.statusDraft': 'मसुदा',
   'quizBuilder.subhead':
     'शीर्षक संपादित करा, प्रश्न जोडा, पर्याय आणि अचूक उत्तर निश्चित करा. केलेले बदल आपोआप जतन होतात.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} किमान',
   'quizDetail.hostMultiplayer': 'मल्टीप्लेअर होस्ट करा',
   'quizDetail.leaderboardEmpty': 'अद्याप एकही डाव नाही — गुण नोंदवणारे पहिले व्हा.',
+  'quizDetail.loadError': 'ही प्रश्नमंजुषा लोड होऊ शकली नाही.',
   'quizDetail.loading': 'क्विझ लोड होत आहे…',
   'quizDetail.plays': '{{count}} खेळ',
   'quizDetail.playSolo': 'एकट्याने खेळा',

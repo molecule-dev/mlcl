@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'সময় নির্বাচন করুন',
   'booking.title': 'অ্যাপয়েন্টমেন্ট বুক করুন',
   'clinicalNotesEditorial.empty': 'দেখানোর মতো কোনো রোগী নেই।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'consult.backLink': 'সমস্ত অ্যাপয়েন্টমেন্ট',
   'consult.captions': 'ক্যাপশন',
   'consult.connected': 'সংযুক্ত · ৭২০পি · স্থিতিশীল',
@@ -124,6 +125,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'রোগীদের',
   'patientVitalsHero.scripts': 'প্রেসক্রিপশন খোলা',
   'patientVitalsHero.subline': '{{count}} আজই আপনার সুবিধামত সময়ে পরামর্শ করুন।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'prescriptions.empty': 'কোনো প্রেসক্রিপশনই মেলেনি।',
   'prescriptions.eyebrow': 'ই-প্রেসক্রিপশন',
   'prescriptions.heading': 'প্রেসক্রিপশন',
@@ -139,6 +141,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'গোপনীয়তা বিজ্ঞপ্তি',
   'privacy.use.body':
     'সেবা প্রদান করতে, অ্যাপয়েন্টমেন্টের রিমাইন্ডার পাঠাতে, প্রেসক্রিপশন সঠিক জায়গায় পাঠাতে এবং পরিষেবার নির্ভরযোগ্যতা উন্নত করতে। আমরা আপনার ডেটা কখনো বিক্রি করি না এবং বিজ্ঞাপনদাতাদের সাথে ক্লিনিক্যাল তথ্য কখনো শেয়ার করি না।',
+  'providers.allSpecialties': 'সকল বিশেষত্ব',
+  'providers.loadError': 'প্রোভাইডার লোড করতে ব্যর্থ হয়েছে।',
+  'providers.loading': 'লোড হচ্ছে…',
   'providers.noResults': 'কোনো সরবরাহকারী খুঁজে পাওয়া যায়নি।',
   'providers.searchPlaceholder': 'নাম, বিশেষত্ব অনুযায়ী অনুসন্ধান করুন...',
   'providers.title': 'একজন সরবরাহকারী খুঁজুন',
@@ -158,6 +163,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'দিনের শুরু',
   'settings.availability.heading': 'প্রাপ্যতা',
   'settings.devices.thisDevice': 'এই ডিভাইসটি',
+  'settings.devices.unnamed': 'নামবিহীন ডিভাইস',
   'settings.eyebrow': 'অনুশীলন ও হিসাব',
   'settings.loadError': 'আপনার প্রোফাইল লোড করা যায়নি।',
   'settings.notifications.emailMessages': 'আমার কেয়ার টিম উত্তর দিলে আমাকে ইমেইল করবেন।',
@@ -171,6 +177,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'অক্ষম করুন',
   'settings.security.twoFactor.enable': 'সক্ষম করুন',
   'settings.security.twoFactor.heading': 'দ্বি-স্তর প্রমাণীকরণ',
+  'settings.security.twoFactor.invalidCode': 'কোডটি মেলেনি। আবার চেষ্টা করুন।',
+  'settings.security.twoFactor.setupFailed':
+    'টু-ফ্যাক্টর অথেনটিকেশন সেটআপ শুরু করা যায়নি। আবার চেষ্টা করুন।',
+  'settings.security.twoFactor.statusOn': 'টু-ফ্যাক্টর চালু আছে',
   'settings.signOutDevice': 'সাইন আউট',
   'settings.subheading': 'প্রদানকারীর প্রোফাইল, অনুশীলনের নিয়মাবলী এবং ক্লিনিক্যাল সতর্কতা।',
   'signup.emailLabel': 'ইমেইল',
@@ -181,6 +191,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'অ্যাকাউন্ট তৈরি করুন',
   'signupFooter.hipaa': 'HIPAA অনুবর্তী',
   'solaceLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
+  'solaceLayout.toggleMenu': 'মেনু টগল করুন',
   'terms.eligibility.body':
     'আপনার বয়স অবশ্যই কমপক্ষে আঠারো বছর হতে হবে, অথবা আপনি যে নাবালকের জন্য চিকিৎসা নিচ্ছেন তার পিতা-মাতা বা আইনগত অভিভাবক হতে হবে এবং শারীরিকভাবে মার্কিন যুক্তরাষ্ট্রের এমন একটি রাজ্যে অবস্থান করতে হবে যেখানে আমাদের চিকিৎসকরা লাইসেন্সপ্রাপ্ত।',
   'terms.payment.body':

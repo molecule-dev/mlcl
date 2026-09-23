@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.title': 'O aplikaci {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'profesionální portrétní snímek agentky podpory s přátelským úsměvem v moderní kanceláři',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontaktovat podporu',
   'forgotPassword.error': 'E-mail pro obnovení hesla se nepodařilo odeslat. Zkuste to znovu.',
   'forgotPassword.rememberPassword': 'Pamatujete si heslo?',
   'forgotPassword.subheading': 'Zadejte svůj e-mail a my vám zašleme odkaz pro obnovení hesla.',
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Přihlásit se — Podpora Zenith',
   'login.showPassword': 'Zobrazit heslo',
   'login.welcomeSubheading': 'Přihlaste se do svého panelu podpory',
+  'mobileNav.closeMenu': 'Zavřít navigaci',
+  'mobileNav.menu': 'Navigace',
+  'mobileNav.openMenu': 'Otevřít navigaci',
   'nav.legal': 'Právní',
   'nav.newTicket': 'Nová jízdenka',
   'notifications.loadError': 'Nepodařilo se načíst oznámení. Zkuste to znovu za chvíli.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Vyhledávání příkazů',
   'operatorDock.newReport': 'Nová zpráva',
   'operatorDock.systemOnline': 'Systém online',
+  'planUpdated.subtitle': 'Děkujeme',
   'planUpdated.title': 'Plán aktualizován',
   'pricing.agents': 'agenti',
   'pricing.automation': 'Pravidla automatizace',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{jméno}} avatar uživatele',
   'ticketDetail.errorTitle': 'Něco se pokazilo',
+  'ticketDetail.loadError': 'Načtení tiketu se nezdařilo.',
+  'ticketDetail.notFound': 'Jízdenka nenalezena',
+  'ticketDetail.replyError': 'Odpověď se nepodařilo odeslat. Zkuste to prosím znovu.',
   'ticketDetail.retry': 'Zkusit znovu',
   'ticketDetail.statusUpdateError': 'Stav se nepodařilo aktualizovat. Zkuste to znovu.',
   'ticketDetailsCard.assigneeLabel': 'Nabyvatel',
@@ -298,6 +307,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{čas}} vlevo',
   'ticketRow.title': 'Připojení k databázi selhává v produkčním prostředí {{uzel}}',
   'tickets.pageTitle': 'Vstupenky — Podpora Zenithu',
+  'ticketsFab.newTicket': 'Nová jízdenka',
   'ticketsFilterBar.assigneeLabel': 'Nabyvatel:',
   'ticketsFilterBar.clearFilters': 'Vymazat filtry',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

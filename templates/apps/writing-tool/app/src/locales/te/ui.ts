@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.title': 'మీ జేబులో పెట్టుకోగలిగే ఒక రాత గది',
   'billing.cancelConfirm': 'మీ ప్రస్తుత సభ్యత్వాన్ని రద్దు చేయాలనుకుంటున్నారా?',
   'billing.cancelFailed': 'రద్దు చేయలేకపోయాను.',
   'billing.checkingOut': 'చెక్అవుట్ ప్రారంభమవుతోంది…',
@@ -15,6 +17,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'బిల్లింగ్‌ను లోడ్ చేయలేకపోయింది.',
   'billing.loading': 'బిల్లింగ్ లోడ్ అవుతోంది…',
   'billing.upgradeCta': 'అప్‌గ్రేడ్ చేయండి {{name}}',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'editor.autosaveOn': 'ఆటోసేవ్ ఆన్‌లో ఉంది',
   'editor.backToLibrary': 'గ్రంథాలయానికి తిరిగి వెళ్లండి',
   'editor.charCount': '{{count}} పాత్రలు',
   'editor.confirmTrash': 'ఈ పత్రాన్ని ట్రాష్‌కు తరలించాలా?',
@@ -37,6 +41,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'అన్‌పిన్ చేయబడింది',
   'editor.unpublishCta': 'డ్రాఫ్ట్‌కు వెళ్లండి',
   'editor.unpublished': 'డ్రాఫ్ట్‌కి మార్చబడింది',
+  'focus.autosaveOn': 'ఆటోసేవ్ ఆన్‌లో ఉంది',
   'focus.backToLibrary': 'గ్రంథాలయానికి తిరిగి వెళ్లండి',
   'focus.bodyPlaceholder': 'ఒక్కో వరుస చొప్పున. ఇక్కడ ఇంకెవరూ లేరు.',
   'focus.exit': 'నిష్క్రమణ ఫోకస్ మోడ్',
@@ -82,6 +87,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ఒకటి సృష్టించండి',
   'login.subline':
     'మీ వ్రాతప్రతులు, రోజువారీ పేజీలు మరియు చివరి కర్సర్ స్థానం మీరు వదిలిపెట్టిన చోటే ఉన్నాయి.',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'pricing.exports': 'ఎగుమతులు',
   'pricing.folders': 'ఫోల్డర్లు',
   'pricing.heading': 'పత్రాలు',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'మేము మీకు ఇప్పుడే ఇమెయిల్ చేసిన కోడ్‌ను నమోదు చేసి, గుర్తుండిపోయేదాన్ని ఎంచుకోండి. అది సేవ్ అయిన తర్వాత మేము మిమ్మల్ని సైన్ ఇన్ చేస్తాము.',
   'reset.tokenHint': 'మీ ఇన్‌బాక్స్ నుండి కాపీ చేయబడింది.',
+  'settings.appearance.heading': 'కాంతి లేదా చీకటి',
   'settings.editor.${row.id}.description': 'భాష',
   'settings.editor.description':
     'టైప్‌రైటర్ స్క్రోల్, పేరాగ్రాఫ్ ఫేడ్ మరియు ఐడిల్ ఫోకస్ — డిఫాల్ట్‌లు సుదీర్ఘ సెషన్‌ల కోసం ట్యూన్ చేయబడ్డాయి.',
@@ -139,6 +147,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'మూడవ అధ్యాయం — సూర్యోదయానికి ముందు ఒక ప్రశాంతమైన గంట',
   'versalDocumentCard.pinned': 'పిన్ చేయబడింది',
   'versalLayout.nav.stats': 'గణాంకాలు',
+  'versalLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'versalManuscriptHero.cta': 'రాయడం కొనసాగించండి',
   'versalManuscriptHero.goalLabel': 'నేటి పద లక్ష్యం',
   'versalManuscriptHero.inProgress': 'సరైన మార్గంలో',

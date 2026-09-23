@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'आमच्याबद्दल',
   'applications.empty':
     'अद्याप एकही अर्ज आलेला नाही — योग्य भूमिका फक्त एका अर्जाच्या अंतरावर आहे.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'तुम्ही अर्ज केलेली प्रत्येक भूमिका, आता कार्यरत. लक्ष केंद्रित करण्यासाठी टप्प्यानुसार फिल्टर करा.',
   'applications.untitledRole': 'भूमिका # {{id}}',
+  'auth.legalConsent': 'सुरू ठेवून, तुम्ही आमच्या यांना सहमती देता',
   'common.and': 'आणि',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'companies.empty': 'तुमच्या शोधाशी जुळणारी कोणतीही कंपनी नाही — वेगळा शब्द वापरून पहा.',
   'companies.eyebrow': 'प्रमुख नियोक्ते',
   'companies.searchPlaceholder': 'नाव, उद्योग, स्थानानुसार शोधा',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'या पदासाठी अद्याप एकही अर्ज आलेला नाही.',
   'jobApplicants.eyebrow': 'नियोक्त्याचा दृष्टिकोन',
   'jobApplicants.loading': 'लोडिंग •',
+  'jobApplicants.statusUpdateFailed': 'तो टप्पा अद्ययावत करता आला नाही — पुन्हा प्रयत्न करा.',
+  'jobApplicants.subheading':
+    'बायोडाटा तपासा, उमेदवारांना पुढील टप्प्यात न्या, ऑफर पाठवा – {{count}} जण कामाला लागले आहेत.',
   'jobDetail.applicantCount': '{{count}} आतापर्यंतचे अर्जदार',
   'jobDetail.applied': 'अर्ज पाठवला.',
   'jobDetail.apply': 'आता अर्ज करा',
@@ -83,12 +89,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'उपलब्ध पदांची माहिती मिळवा',
   'landing.pricingEyebrow': 'किंमत',
   'landing.pricingHeading': 'प्रत्येक संघाच्या आकारासाठी सोप्या योजना.',
+  'login.eyebrow': '{{app}} मध्ये परत स्वागत आहे',
   'login.heading': 'तुमच्या खात्यात साइन इन करा',
   'login.noAccount': 'तुम्ही Nosh वर नवीन आहात का?',
   'login.passwordPlaceholder': '•२०२२ •२०२२ •२०२२ •२०२२ •२०२२ •२०२२',
   'login.remember': 'मला ३० दिवसांसाठी लक्षात ठेवा',
   'login.signingIn': 'साइन इन करत आहे—',
   'login.subheading': 'आपला शोध सुरू करा, आपले अर्ज पुढे न्या, आणि अधिक जलद प्रतिसाद मिळवा.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . भरती करणाऱ्या टीम्ससाठी तयार केलेले.',
   'loginBrandPanel.headline': 'जिथे प्रतिभेचा संगम होतो',
   'loginBrandPanel.headlineLine2': 'गती.',
   'loginBrandPanel.listing.recruiter': 'प्रतिभा भागीदार',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
     'अर्जातील अद्यतने, मुलाखतीची आमंत्रणे, नवीन जुळणारे निकाल – सर्वात नवीन सर्वप्रथम.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} या आठवड्यात',
   'opportunitiesHero.eyebrow': 'आज उघडे',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'postJob.addNewCompany': '+ नवीन कंपनी जोडा',
   'postJob.companyCreateFailed': 'कंपनी तयार करता आली नाही — पुन्हा प्रयत्न करा.',
   'postJob.companyNameLabel': 'तुमच्या कंपनीचे नाव',
@@ -163,10 +172,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'खाते तयार करत आहे\\u2026',
   'signup.ctaEmployer': 'नियोक्ता खाते तयार करा',
   'signup.firstNamePlaceholder': 'माया',
+  'signup.lastNamePlaceholder': 'चेन',
   'signup.passwordMismatch': 'पासवर्ड जुळत नाहीत.',
   'signup.subheading':
     'इच्छुकांसाठी कायमस्वरूपी मोफत. नियोक्त्यांना ३० दिवसांची चाचणी सुरू करता येते.',
   'timeAgo.days': '{{count}} डी पूर्वी',
   'timeAgo.hours': '{{count}} h पूर्वी',
   'timeAgo.justNow': 'आत्ताच',
+  'timeAgo.weeks': '{{count}} आठवड्यांपूर्वी',
 }

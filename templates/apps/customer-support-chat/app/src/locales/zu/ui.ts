@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
   'authShell.samplePreview':
     '"Sawubona thimba, ideshibhodi entsha inhle kakhulu — yilokho kanye ebesikudinga!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/isinqamuleli',
   'automations.subheading':
     'Imithetho, izimpendulo ezihleliwe kanye nama-chatbot — gcina indawo yokusebenza icula ngenkathi ithimba lakho ligxile ezintweni ezinzima.',
+  'automations.trigger.inboundMessage': 'Umlayezo ongenayo',
   'automations.triggerLabel': 'Isiqalisi',
   'chatBubble.internalNoteLabel': 'Inothi langaphakathi',
+  'common.confirmDelete': 'Qinisekisa ukususa',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'contactDetail.backToContacts': 'Bonke oxhumana nabo',
   'contactDetail.contactFallback': 'Xhumana',
   'contactDetail.conversationFallback': 'Ingxoxo',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Ugcine ukubonwa',
   'contacts.empty': 'Abekho oxhumana nabo okwamanje. Faka oxhumana naye wokuqala ngenhla.',
   'contacts.eyebrow': 'Uhla lwemibhalo lwamakhasimende',
+  'contacts.form.nameOrEmailRequired': 'Nikeza okungenani igama noma i-imeyili',
   'contacts.form.save': 'Londoloza oxhumana naye',
   'contacts.heading': 'Oxhumana nabo',
   'contacts.loading': 'Ilayisha oxhumana nabo…',
@@ -56,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Londoloza inothi',
   'conversationDetail.tab.note': 'Inothi langaphakathi',
   'conversationDetail.threadAria': 'Imiyalezo yengxoxo',
+  'conversationDetail.visitorFallback': 'Isivakashi',
   'customerProfilePanel.csatLabel': 'I-CSAT',
   'customerProfilePanel.propertiesTitle': 'Imininingwane yekhasimende',
   'customerProfilePanel.recentTitle': 'Izingxoxo zakamuva',
@@ -73,6 +79,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Amakhasimende athola impendulo yawo yokuqala ku- {{time}} ngokwesilinganiso — qhubeka ne-cadence.',
   'inboxHeroCard.title': 'Izingxoxo ezisebenzayo',
+  'inboxLayout.navDrawerLabel': 'Ukuzulazula',
+  'inboxLayout.openMenu': 'Vula imenyu yokuzulazula',
   'inboxOverview.eyebrow': 'Namuhla ngokubuka nje',
   'inboxOverview.heroChange': '{{count}} vula',
   'inboxOverview.kpiClosedTrend': 'isikhathi sonke',
@@ -118,10 +126,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Vakashela ikhasi eliyisiqalo',
   'notifications.subheading':
     'Imisebenzi, @mentions, izingozi ze-SLA, impendulo ye-CSAT kanye nomsebenzi weqembu — kuhlelwe okusha kuqala.',
+  'notifications.subjectFallback': 'ingxoxo',
+  'notifications.visitorFallback': 'Isivakashi',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Phezulu',
   'priority.low': 'Phansi',
+  'priority.normal': 'Okuvamile',
   'priority.urgent': 'Okuphuthumayo',
   'privacy.title': 'Inqubomgomo yobumfihlo',
   'reports.agentFallback': 'I-ejenti',

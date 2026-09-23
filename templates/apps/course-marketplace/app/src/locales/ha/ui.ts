@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Ana loda darussa…',
   'browse.next': 'Shafi na gaba',
   'browse.results': 'Ana nunawa {{count}} darussa',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'Kasa',
   'browse.subtitle':
     'Tace tarihin edita ta hanyar jigo, mataki, da farashi. Editocinmu ne suka tsara kowane darasi da hannu.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'An sanya hannu kan takardar shaidarka kuma a shirye take. Raba ta ga duniya ko kuma ka ajiye ta a matsayin tunatarwa game da aikin da aka yi don samun kuɗi.',
   'certificate.copyLink': 'Kwafi hanyar haɗin raba',
+  'certificate.copyPrompt': 'Kwafi wannan hanyar haɗin:',
   'certificate.download': 'Sauke PDF',
   'certificate.eyebrow': 'An buɗe nasarar',
   'certificate.linkCopied': 'An kwafi hanyar haɗin!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'An yi maka rajista!',
   'checkout.verifying': 'Ana tabbatar da rajistar ku…',
   'checkout.viewLibrary': 'Duba Koyo Na',
+  'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.retry': 'Gwada kuma',
   'courseDetail.about': 'Game da wannan kwas ɗin',
   'courseDetail.checkoutPending': 'An fara biyan kuɗi…',
   'courseDetail.continueLearning': 'Ci gaba da koyo',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Garanti na dawo da kuɗi na kwanaki 30',
   'courseDetail.includes.video': "{{hours}} sa'o'i na bidiyo akan buƙata",
   'courseDetail.instructor': 'Malami',
+  'courseDetail.languageEnglish': 'Turanci',
   'courseDetail.lectures': 'Lakcoci',
   'courseDetail.level': 'Mataki',
   'courseDetail.loading': 'Ana loda kwas ɗin…',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Babu sake dubawa tukuna.',
   'instructorProfile.students': 'Dalibai',
   'landing.categories.empty': 'Rukuni za su bayyana da zarar an cika kundin.',
+  'landing.categories.heading': 'Bincika rumbun adana kayan tarihi',
   'landing.hero.eyebrow': 'Lectura · Taskar Edita ta ƙwarewa',
   'landing.hero.proof': 'Masu koyo a Google, Meta, da Adobe sun amince da su.',
   'landing.hero.subtitle':
@@ -153,6 +159,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Fara koyo yau',
   'login.subheading': 'Shiga cikin taskar ilimin ku.',
   'myLearning.empty.title': 'Babu kwasa-kwasan da suka dace da wannan matatar tukuna',
+  'myLearning.error.title': 'An kasa loda ɗakin karatunka',
   'myLearning.filter.notStarted': 'Ba a fara ba',
   'myLearning.hero.subtitle':
     '{{count}} Darussa a ɗakin karatunku. Ku ci gaba da ci gaba da himma.',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Babu wani sabon aiki da za a yi bita a kai. Sabbin abubuwan da suka faru za su bayyana a nan.',
   'notifications.empty.title': 'Kun kama komai',
+  'notifications.error.title': 'Ba za a iya loda ayyuka ba',
   'privacy.title': 'Takardar kebantawa',
   'reset.confirmPlaceholder': 'Sake shigar da sabuwar kalmar sirrinka',
   'reset.errorGeneric': 'Ba za a iya sake saita kalmar sirri ba. Nemi sabuwar hanyar haɗi.',
@@ -189,5 +197,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} d da suka wuce',
   'timeAgo.hours': '{{count}} h da ya wuce',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': 'watanni {{count}} da suka wuce',
   'timeAgo.today': 'yau',
+  'timeAgo.weeks': 'makonni {{count}} da suka wuce',
 }

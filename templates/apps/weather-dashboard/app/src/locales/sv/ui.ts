@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Du använder för närvarande planen {{plan}}.',
   'billing.switch': 'Byt',
   'billing.upgraded': 'Uppdaterat till {{plan}} — gränser tillämpade omedelbart.',
+  'common.goToDashboard': 'Gå till översikt',
   'compare.activityHeading': 'Aktivitetsbedömningar',
   'compare.empty.title': 'Lägg till minst två platser att jämföra',
   'compare.eyebrow': 'Sida vid sida',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Högsta',
   'trends.summary.low.label': 'Lägsta',
   'trends.summary.points.label': 'Dagar',
+  'weatherDashboardLayout.primaryNavLabel': 'Huvudnavigering',
   'weatherHeroCard.updated': 'Uppdaterat {{time}}',
 }

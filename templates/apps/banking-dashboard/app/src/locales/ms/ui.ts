@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
   'accountDetail.activeBadge': 'Aktif',
   'accountDetail.availableLabel': '{{amount}} tersedia',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Akaun',
   'accounts.loadError': 'Gagal memuatkan akaun.',
   'accounts.status.closed': 'Ditutup',
+  'accounts.status.frozen': 'Beku',
   'accounts.totalBalance': '{{amount}} jumlah',
   'audit.empty': 'Tiada peristiwa lagi.',
   'audit.eyebrow': 'Keselamatan & akses',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Tunai di tangan',
   'cashCreditCard.creditLabel': 'Kredit digunakan',
   'cashCreditCard.title': 'Tunai & Kredit',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'dashboard.accountsHeading': 'Akaun',
   'dashboard.heading': 'Gambaran Keseluruhan',
   'dashboard.recentEmpty': 'Tiada transaksi lagi.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Tunjukkan kata laluan',
   'login.signUp': 'Daftar',
   'login.submit': 'Log Masuk',
+  'meridianLayout.menu': 'Menu',
   'meridianLayout.primaryNavLabel': 'Navigasi utama',
   'nav.legal': 'Undang-undang',
   'notifications.emptyHeading': 'Anda sudah terkini',
   'notifications.subheading': 'Makluman masa nyata untuk transaksi, keselamatan dan penyata.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'privacy.dataWeShare':
     'Data perbankan peribadi tidak pernah dijual. Kami berkongsi maklumat dengan pemproses pembayaran, rangkaian kad dan pengawal selia hanya sekadar yang diperlukan untuk menyelesaikan transaksi atau memenuhi kewajipan undang-undang.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Pengesahan dua faktor menambah kod sekali guna daripada aplikasi pengesah pada setiap log masuk.',
   'settings.security.twoFactorCta': 'Urus pengesahan dua faktor',
+  'settings.security.twoFactorOff': 'Dua faktor dimatikan',
   'settings.signOutDevice': 'Log keluar',
   'settings.subheading': 'Profil, keselamatan dan pemberitahuan.',
+  'settings.twoFactorCode': 'Kod pengesahan',
   'settings.twoFactorDisable': 'Lumpuhkan',
   'settings.twoFactorEnable': 'Aktifkan',
+  'settings.twoFactorInvalidCode': 'Kod tidak sah',
+  'settings.twoFactorVerify': 'Sahkan & dayakan',
   'signup.emailLabel': 'Alamat E-mel',
   'signup.fullName': 'Bagaimana kami harus memanggil anda?',
   'signup.showPassword': 'Tunjukkan kata laluan',
@@ -103,7 +112,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Tiada transaksi lagi.',
   'transactions.endDate': 'Tarikh tamat',
   'transactions.eyebrow': 'Aktiviti',
+  'transactions.loadError': 'Gagal memuatkan transaksi.',
   'transactions.merchant': 'Pedagang',
+  'transactions.subheading':
+    'Setiap transaksi yang disiarkan dan belum selesai merentasi akaun anda.',
   'transfers.availableHint': '{{amount}} tersedia',
   'transfers.errorGeneric': 'Tidak dapat menghantar pindahan.',
   'transfers.errorMissingFields': 'Pilih akaun sumber dan destinasi.',

@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.subheading': '현재 {{plan}} 플랜을 이용 중입니다.',
   'billing.switch': '전환',
   'billing.upgraded': '{{plan}}(으)로 업데이트됨 — 한도가 즉시 적용되었습니다.',
+  'common.goToDashboard': '대시보드로 이동',
   'compare.activityHeading': '활동 추천',
   'compare.empty.title': '비교하려면 위치를 두 개 이상 추가하세요',
   'compare.eyebrow': '나란히 보기',
@@ -131,5 +132,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': '최고',
   'trends.summary.low.label': '최저',
   'trends.summary.points.label': '일수',
+  'weatherDashboardLayout.primaryNavLabel': '기본 탐색',
   'weatherHeroCard.updated': '{{time}} 업데이트',
 }

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': '正在解決…',
   'comments.subtitle':
     '這{{count}}仍在等待回應或解決的帖子。依發佈時間排序－最早的貼文排在最前面，以免貼文過期。',
+  'common.goToDashboard': '前往主控台',
   'forgotPassword.sentTo': '重置連結已發送至{{email}}',
   'forgotPassword.successSubheading':
     '請查看您的收件匣——我們剛剛發送了一個重置連結。該連結將在30分鐘後失效。',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': '新頁面',
   'pageTreeSidebar.workspaceHeader': '工作區',
   'pageView.breadcrumb': '麵包屑',
+  'pageView.confirmTrash': '丟掉嗎？',
   'pageView.home': '家',
   'pageView.lastEdited': '更新{{when}}',
   'pageView.loading': '頁面正在載入…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': '總結一下…',
   'pageView.summaryUnavailable': '此工作區未配置 AI 摘要。',
   'pageView.tocTitle': '本頁',
+  'pageView.trash': '垃圾',
+  'pageView.trashing': '垃圾…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': '徽章',
   'profile.owned.title': '擁有的頁面',
@@ -96,6 +100,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': '工作區、個人資料、通知、整合——所有功能都集中在一個簡潔的介面中。',
   'settingsPage.workspace.defaultLanding': '預設登入畫面',
   'settingsPage.workspace.landingHome': '家',
+  'settingsPage.workspace.landingSpaces': '空格',
   'settingsPage.workspace.subdomainLabel': '子域',
   'settingsPage.workspace.title': '工作區',
   'signup.eyebrow': '建立新工作區',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}}最小',
   'templates.subtitle':
     '用模板而不是空白畫布來創作頁面。每個模板都預先設定了形狀，這樣你就可以專注於內容本身。',
+  'trash.confirmPurge': '徹底清除？',
+  'trash.confirmPurgeAria': '確認：永久刪除{{title}}',
   'trash.daysUntilPurge': '{{days}}剩餘天數',
   'trash.empty.body': '已刪除的頁面將在此處顯示 30 天，然後清除。',
   'trash.empty.title': '垃圾桶已清空。',
@@ -141,5 +148,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': '恢復中…',
   'versionHistory.subtitle': '{{count}}版本 · 選擇一行以查看差異',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': '關閉導覽列',
+  'wikiLayout.menu': '導覽',
+  'wikiLayout.openMenu': '開啟導覽欄',
   'wikiLayout.searchPlaceholder': '搜尋 Cairn — 頁面、評論…',
 }

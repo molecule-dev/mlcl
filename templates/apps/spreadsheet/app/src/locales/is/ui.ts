@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
   'about.pageTitle': 'Um {{name}}',
   'auth.footer.about': 'Um {{name}}',
   'authHeader.subtitle': 'Skráðu þig inn til að halda tölunum þínum réttum.',
   'automations.action.email': 'Tölvupóstur',
+  'automations.action.noop': 'Engin aðgerð',
   'automations.action.webhook': 'Vefkrókur',
   'automations.confirmDelete': 'Eyða " {{name}} "?',
   'automations.empty.headline': 'Engar sjálfvirkar breytingar ennþá',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Kveikjarar og aðgerðir í hverri vinnubók. Hver keyrsla skráir röð sem þú getur endurskoðað síðar.',
   'automations.toggle': 'Skipta {{name}}',
+  'automations.trigger.dailySchedule': 'Dagleg áætlun',
+  'automations.trigger.rowCreated': 'Röð búin til',
+  'automations.trigger.rowUpdated': 'Röð uppfærð',
   'billing.empty': 'Engar áætlanir tiltækar.',
   'billing.error.priceMissing':
     'Ekkert Stripe verð stillt fyrir þetta stig. Setja STRIPE_*_PRICE_ID umhverfisbreytur.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Myndrit',
   'charts.kpi.totalCharts': 'Heildartöflur',
   'charts.list.empty': 'Engar töflur ennþá.',
+  'charts.namePlaceholder': 'Tekjuþróun',
   'charts.newChart': 'Nýtt graf',
   'charts.primary.eyebrow': 'Myndrit eftir gerð',
   'charts.primary.headline': 'Yfirlit yfir vinnusvæði',
   'charts.subhead':
     'Lifandi sjónræn framsetning tengd við hnitanetið þitt — endurbirtu í hverri breytingu á reit.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'editor.addColumn': 'Bæta við dálki',
+  'editor.addDialogTitle': 'Bæta við dálki',
   'editor.addRow': 'Bæta við röð',
   'editor.addSheet': 'Bæta við blaði',
   'editor.back': 'Til baka í vinnubækur',
@@ -98,7 +106,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite er fremst í flokki, með fjölsýn og rauntíma netgreiningaraðila og fjármálateymi sem leita fyrst.',
   'landing.nav.formulas': 'Formúlur',
+  'login.noAccount': 'Nýr hjá {{name}} ?',
+  'login.signIn': 'Skráðu þig inn á {{name}}',
   'login.signUp': 'Búa til vinnusvæði',
+  'nav.menu': 'Matseðill',
+  'nav.openMenu': 'Opna valmynd',
   'notFound.cellRef': '#TILVÍSUN!',
   'notFound.formula': '=LEITA(BEIDNI.slóð, "leiðir", "síða")',
   'notFound.headline': 'Þessi röð hefur aldrei verið til.',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Innbyggðar sjálfvirkniaðgerðir · webhook og cron kveikjur',
   'signup.creating': 'Útbúa vinnurými…',
   'signup.cta': 'Búa til vinnusvæðið mitt',
+  'signup.haveAccount': 'Ertu nú þegar á {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Snúðu fyrstu vinnubókinni þinni í gang á 30 sekúndum',
   'team.col.activity': 'Boðið',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.title': '{{app}}-ийн тухай',
   'comments.addFailed': 'Сэтгэгдэл оруулж чадсангүй.',
   'comments.backToDoc': 'Гар бичмэл рүү буцах',
   'comments.deleteFailed': 'Устгаж чадсангүй.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Шийдвэрлэх',
   'comments.resolveFailed': 'Шийдэж чадсангүй.',
   'comments.subtitle': '{{open}} нээлттэй · {{resolved}} шийдвэрлэгдсэн',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.activityHeading': 'Юу болж байна вэ',
   'dashboard.createFailed': 'Баримт бичиг үүсгэж чадсангүй.',
   'dashboard.empty': 'Гар бичмэл хараахан алга байна — Шинэ баримт бичиг товчлуураар эхэлнэ үү.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Хогийн сав руу зөөж чадсангүй.',
   'editor.unpublish': 'Нийтлэхээ болих',
   'editor.untitled': 'Гарчиггүй баримт бичиг',
+  'editor.updatedElsewhere':
+    'Энэ баримт бичгийг өөр хэн нэгэн шинэчилсэн байна — хамгийн сүүлийн үеийнхийг харахын тулд дахин ачаална уу.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Хэрэв данс байгаа бол {{email}} , дахин тохируулах холбоос гарч байна.',
   'forgotPassword.subtitle': 'Бид танд дахин тохируулах холбоосыг имэйлээр илгээх болно.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Молекулаар бүтээгдсэн.',
   'landing.ctaHeading': 'Хуудсыг нээнэ үү. Курсорыг ажиллуулж эхэлнэ үү.',
   'landing.ctaPrimary': 'Студи нээх',
   'landing.eyebrow': 'Зохиолчид, редакторууд болон багуудад зориулсан',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'засварласан {{when}}',
   'quillonDocumentCard.open': 'Нээх →',
   'quillonKpiCard.trend': 'Сүүлийн үеийн чиг хандлага',
+  'quillonLayout.menu': 'Цэс',
   'quillonLayout.primaryNavLabel': 'Үндсэн навигаци',
   'quillonStudioHero.collab': 'Хамтран ажиллагсад',
   'quillonStudioHero.docs': 'Баримт бичигт хүрсэн',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'дөнгөж сая',
+  'trash.confirmDelete': 'Устгахыг баталгаажуулах',
   'trash.deleteFailed': 'Устгаж чадсангүй.',
   'trash.deleteForever': 'Бүрмөсөн устгах',
   'trash.empty': 'Сэргээх зүйл алга.',
+  'trash.emptyAll': 'Хогийн савыг хоослох',
   'trash.eyebrow': 'Студио',
   'trash.heading': 'Хогийн сав',
   'trash.loadFailed': 'Хогийн савыг ачаалж чадсангүй.',

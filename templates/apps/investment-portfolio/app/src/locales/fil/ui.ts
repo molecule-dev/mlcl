@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tungkol sa {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Paggawa ng mga kagamitan para sa kayamanan',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Hindi ito payo sa pamumuhunan.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) ngayon',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Pangunahing navigation',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Walang transaksyon para sa ticker na ito.',
   'assetDetail.txHeading': 'Ang iyong mga transaksyon',
   'common.and': 'at',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Pangkalahatang-ideya ng portfolio',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Wala pang mga hawak.',
   'holdings.heading': 'Mga Pagmamay-ari',
   'holdings.loadError': 'Nabigong i-load ang mga holdings.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Hindi ito payo sa pamumuhunan. Ang nakaraang pagganap ay hindi garantiya ng mga resulta sa hinaharap.',
   'landing.eyebrow': 'Argent · Isang plataporma para sa pangangalakal ng kayamanan',
   'landing.features.heading':
     'Lahat ng bagay ay itatayo ng isang tagapayo para sa kanilang sarili.',
@@ -72,6 +77,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}o nakalipas',
   'news.justNow': 'ngayon lang',
   'news.loadError': 'Nabigong i-load ang balita.',
+  'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'portfolioHeroCard.label': 'Halaga ng Portfolio',
   'pricing.holdingsLabel': 'mga ari-arian',
   'pricing.newsLabel': 'mga artikulo sa balita',
@@ -136,8 +142,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Burahin ang account',
   'settings.security.deleting': 'Binubura…',
   'settings.security.heading': 'Seguridad',
+  'settings.security.newPassword': 'Bagong password',
   'settings.security.password': 'Password',
   'settings.security.twoFactorEnable': 'I-enable',
+  'settings.security.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.security.twoFactorVerify': 'I-verify at paganahin',
   'settings.tax.error': 'Hindi ma-update ang paraan ng buwis.',
   'settings.tax.heading': 'Pagtutuos ng lote ng buwis',
   'settings.tax.method': 'Pamamaraan ng default',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'అపాయింట్‌మెంట్ బుక్ చేసుకోండి',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'చూపించడానికి రోగులు ఎవరూ లేరు.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'consult.backLink': 'అన్ని అపాయింట్‌మెంట్లు',
   'consult.captions': 'శీర్షికలు',
   'consult.connected': 'కనెక్ట్ చేయబడింది · 720p · స్థిరమైనది',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'రోగులు',
   'patientVitalsHero.scripts': 'Rx ఓపెన్',
   'patientVitalsHero.subline': '{{count}} మీ షెడ్యూల్ ప్రకారం ఈరోజే సంప్రదింపులు',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'prescriptions.empty': 'ప్రిస్క్రిప్షన్లు ఏవీ సరిపోలడం లేదు.',
   'prescriptions.eyebrow': 'ఇ-ప్రిస్క్రైబింగ్',
   'prescriptions.heading': 'ప్రిస్క్రిప్షన్లు',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'గోప్యతా ప్రకటన',
   'privacy.use.body':
     'సంరక్షణను అందించడానికి, అపాయింట్‌మెంట్ రిమైండర్‌లను పంపడానికి, ప్రిస్క్రిప్షన్‌లను పంపడానికి మరియు సేవా విశ్వసనీయతను మెరుగుపరచడానికి. మేము మీ డేటాను ఎప్పటికీ విక్రయించము మరియు వైద్య సమాచారాన్ని ప్రకటనకర్తలతో ఎప్పటికీ పంచుకోము.',
+  'providers.allSpecialties': 'అన్ని ప్రత్యేకతలు',
+  'providers.loadError': 'ప్రొవైడర్లను లోడ్ చేయడంలో విఫలమైంది.',
+  'providers.loading': 'లోడ్ అవుతోంది…',
   'providers.noResults': 'ప్రొవైడర్లు ఎవరూ కనుగొనబడలేదు.',
   'providers.searchPlaceholder': 'పేరు, ప్రత్యేకత ఆధారంగా శోధించండి...',
   'providers.title': 'ప్రొవైడర్‌ను కనుగొనండి',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'రోజు ప్రారంభం',
   'settings.availability.heading': 'లభ్యత',
   'settings.devices.thisDevice': 'ఈ పరికరం',
+  'settings.devices.unnamed': 'పేరులేని పరికరం',
   'settings.eyebrow': 'అభ్యాసం & ఖాతా',
   'settings.loadError': 'మీ ప్రొఫైల్‌ను లోడ్ చేయలేకపోయాము.',
   'settings.notifications.emailMessages':
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'నిలిపివేయండి',
   'settings.security.twoFactor.enable': 'ప్రారంభించండి',
   'settings.security.twoFactor.heading': 'రెండు-కారకాల ప్రమాణీకరణ',
+  'settings.security.twoFactor.invalidCode': 'ఆ కోడ్ సరిపోలలేదు. మళ్ళీ ప్రయత్నించండి.',
+  'settings.security.twoFactor.setupFailed':
+    'టూ-ఫ్యాక్టర్ సెటప్‌ను ప్రారంభించలేకపోయాము. మళ్ళీ ప్రయత్నించండి.',
+  'settings.security.twoFactor.statusOn': 'టూ-ఫ్యాక్టర్ ఆన్‌లో ఉంది',
   'settings.signOutDevice': 'సైన్ అవుట్',
   'settings.subheading': 'ప్రొవైడర్ ప్రొఫైల్, ప్రాక్టీస్ నియమాలు మరియు క్లినికల్ హెచ్చరికలు.',
   'signup.emailLabel': 'ఇమెయిల్',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'ఖాతాను సృష్టించండి',
   'signupFooter.hipaa': 'HIPAA కంప్లైంట్',
   'solaceLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'solaceLayout.toggleMenu': 'మెనూని టోగుల్ చేయండి',
   'terms.eligibility.body':
     'మీకు కనీసం పద్దెనిమిది సంవత్సరాల వయస్సు ఉండాలి, లేదా మీరు సంరక్షణ కోరుతున్న మైనర్‌కు తల్లిదండ్రులు లేదా చట్టపరమైన సంరక్షకులు అయి ఉండాలి, మరియు మా క్లినిషియన్‌లకు లైసెన్స్ ఉన్న US రాష్ట్రంలో భౌతికంగా నివసిస్తూ ఉండాలి.',
   'terms.payment.body':

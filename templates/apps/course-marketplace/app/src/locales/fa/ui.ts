@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'در حال بارگذاری دوره‌ها…',
   'browse.next': 'صفحه بعدی',
   'browse.results': 'نمایش {{count}} دوره‌ها',
+  'browse.searchChip': '« {{query}} »',
   'browse.sort': 'مرتب سازی بر اساس',
   'browse.subtitle':
     'آرشیو مطالب را بر اساس موضوع، سطح و قیمت فیلتر کنید. هر دوره توسط ویراستاران ما به صورت دستی انتخاب شده است.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'گواهی شما امضا شده و آماده است. آن را با دنیا به اشتراک بگذارید یا آن را به عنوان یادآوری زحماتی که برای کسب آن کشیده‌اید، نگه دارید.',
   'certificate.copyLink': 'کپی کردن لینک اشتراک گذاری',
+  'certificate.copyPrompt': 'این لینک را کپی کنید:',
   'certificate.download': 'دانلود پی دی اف',
   'certificate.eyebrow': 'دستاورد قفل‌گشایی شد',
   'certificate.linkCopied': 'لینک کپی شد!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'شما ثبت نام شده اید!',
   'checkout.verifying': 'در حال تایید ثبت نام شما…',
   'checkout.viewLibrary': 'مشاهده آموزش من',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.retry': 'دوباره امتحان کنید',
   'courseDetail.about': 'درباره این دوره',
   'courseDetail.checkoutPending': 'شروع تسویه حساب…',
   'courseDetail.continueLearning': 'ادامه یادگیری',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'ضمانت بازگشت وجه ۳۰ روزه',
   'courseDetail.includes.video': '{{hours}} ساعت‌ها ویدیوی درخواستی',
   'courseDetail.instructor': 'مربی',
+  'courseDetail.languageEnglish': 'انگلیسی',
   'courseDetail.lectures': 'سخنرانی‌ها',
   'courseDetail.level': 'سطح',
   'courseDetail.loading': 'در حال بارگذاری دوره…',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'هنوز هیچ نقدی وجود ندارد.',
   'instructorProfile.students': 'دانشجویان',
   'landing.categories.empty': 'دسته‌ها پس از پر شدن کاتالوگ ظاهر می‌شوند.',
+  'landing.categories.heading': 'بایگانی را کاوش کنید',
   'landing.hero.eyebrow': 'سخنرانی · آرشیو تحریریه تسلط',
   'landing.hero.proof': 'مورد اعتماد زبان‌آموزان در گوگل، متا و ادوبی.',
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'همین امروز یادگیری را شروع کنید',
   'login.subheading': 'به آرشیو علمی خود دسترسی پیدا کنید.',
   'myLearning.empty.title': 'هنوز هیچ دوره‌ای با این فیلتر مطابقت ندارد',
+  'myLearning.error.title': 'کتابخانه شما بارگیری نشد',
   'myLearning.filter.notStarted': 'شروع نشده',
   'myLearning.hero.subtitle': '{{count}} دوره‌های آموزشی در کتابخانه شما. به این روند ادامه دهید.',
   'myLearning.hero.title': 'از جایی که رها کردید، ادامه دهید.',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'فعالیت جدیدی برای بررسی وجود ندارد. رویدادهای جدید اینجا نمایش داده می‌شوند.',
   'notifications.empty.title': 'همه شما گرفتار هستید',
+  'notifications.error.title': 'فعالیت بارگیری نشد',
   'privacy.title': 'سیاست حفظ حریم خصوصی',
   'reset.confirmPlaceholder': 'رمز عبور جدید خود را دوباره وارد کنید',
   'reset.errorGeneric': 'رمز عبور بازیابی نشد. درخواست لینک جدید بدهید.',
@@ -189,5 +197,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} د پیش',
   'timeAgo.hours': '{{count}} ساعت پیش',
   'timeAgo.minutes': '{{count}} دقیقه پیش',
+  'timeAgo.months': '{{count}} ماه پیش',
   'timeAgo.today': 'امروز',
+  'timeAgo.weeks': '{{count}} هفته پیش',
 }

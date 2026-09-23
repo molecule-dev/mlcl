@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'compose.cancel': 'റദ്ദാക്കുക',
   'compose.captionPlaceholder': 'നിങ്ങളുടെ മനസ്സിൽ എന്താണ്?',
   'compose.heading': 'ഒരു നിമിഷം പങ്കിടൂ',
@@ -100,6 +104,8 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'ശക്തമായ എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 12 പ്രതീകങ്ങളെങ്കിലും.',
+  'search.clearAria': 'വ്യക്തം',
+  'search.error': 'തിരയൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'search.noPeople': 'പൊരുത്തപ്പെടുന്ന സ്രഷ്ടാക്കളൊന്നുമില്ല " {{q}} ".',
   'search.noPosts': '"" എന്നതുമായി പൊരുത്തപ്പെടുന്ന പോസ്റ്റുകളൊന്നുമില്ല. {{q}} ".',
   'search.noTags': 'ഇതുവരെ ട്രെൻഡിംഗ് ഹാഷ്‌ടാഗുകളൊന്നുമില്ല.',
@@ -130,6 +136,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'signup.subheading': 'പങ്കിടൽ ആരംഭിക്കാൻ ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുക.',
+  'socialMediaLayout.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'socialMediaLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'socialMediaLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'storyRail.heading': 'കഥകൾ',
   'storyRail.label': 'കഥകൾ',
   'storyRail.openAria': 'തുറക്കുക {{handle}} കഥ',

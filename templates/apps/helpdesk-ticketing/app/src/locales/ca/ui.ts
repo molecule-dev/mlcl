@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Poseu-vos en contacte',
   'about.eyebrow': 'Sobre',
+  'about.title': 'Sobre {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     "retrat professional d'una agent de suport femenina amb un somriure amable en una oficina moderna",
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': "Contacta amb l'assistència",
   'forgotPassword.error':
     "No s'ha pogut enviar el correu electrònic de restabliment. Si us plau, torneu-ho a intentar.",
   'forgotPassword.rememberPassword': 'Recordes la teva contrasenya?',
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Inicia la sessió — Assistència de Zenith',
   'login.showPassword': 'Mostra la contrasenya',
   'login.welcomeSubheading': "Inicia la sessió al teu tauler de control d'assistència",
+  'mobileNav.closeMenu': 'Tanca la navegació',
+  'mobileNav.menu': 'Navegació',
+  'mobileNav.openMenu': 'Obre la navegació',
   'nav.legal': 'Legal',
   'nav.newTicket': 'Bitllet nou',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Cerca de comandaments',
   'operatorDock.newReport': 'Nou informe',
   'operatorDock.systemOnline': 'Sistema en línia',
+  'planUpdated.subtitle': 'Gràcies',
   'planUpdated.title': 'Pla actualitzat',
   'pricing.agents': 'agents',
   'pricing.automation': "Regles d'automatització",
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{nom}}',
   'ticketCustomerReply.avatarAlt': '{{nom}} avatar de',
   'ticketDetail.errorTitle': 'Alguna cosa ha anat malament',
+  'ticketDetail.loadError': "No s'ha pogut carregar el tiquet.",
+  'ticketDetail.notFound': "No s'ha trobat el bitllet",
+  'ticketDetail.replyError': "No s'ha pogut enviar la resposta. Torna-ho a intentar.",
   'ticketDetail.retry': 'Torna-ho a intentar',
   'ticketDetail.statusUpdateError': "No s'ha pogut actualitzar l'estat. Torna-ho a provar.",
   'ticketDetailsCard.assigneeLabel': 'Assignatari',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{hora}} esquerra',
   'ticketRow.title': 'La connexió a la base de dades falla en producció {{node}}',
   'tickets.pageTitle': 'Entrades — Suport de Zenith',
+  'ticketsFab.newTicket': 'Bitllet nou',
   'ticketsFilterBar.assigneeLabel': 'Assignatari:',
   'ticketsFilterBar.clearFilters': 'Esborra els filtres',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

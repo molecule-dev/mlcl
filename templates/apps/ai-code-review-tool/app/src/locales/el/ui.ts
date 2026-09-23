@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.connectRepoCta': 'Σύνδεση αποθετηρίου',
   'dashboard.empty':
     'Δεν υπάρχουν ακόμα αιτήματα pull — συνδέστε ένα αποθετήριο για να ξεκινήσετε.',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Λειτουργία',
   'pullRequestRow.files': '{{count}} αρχ.',
   'pullRequestRow.scoreAria': 'Βαθμολογία ποιότητας AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Κλείσιμο μενού',
+  'refractLayout.openMenu': 'Άνοιγμα μενού',
   'refractLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'reports.cumulativeScoreLabel': 'Σωρευτική βαθμολογία',
   'reports.cumulativeScoreSubtitle': 'όλα τα αποθετήρια · {{days}}ημ.',
@@ -181,11 +184,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Αποτυχία φόρτωσης ευρετηρίου αναζήτησης.',
   'settings.apiKeys.description':
     'Διαχειριστείτε προσωπικά κλειδιά API από το μενού χρήστη πάνω δεξιά.',
+  'settings.apiKeys.integrationsNote':
+    'Τα διακριτικά πρόσβασης των παρόχων διαχειρίζονται στην ενότητα «Ενσωματώσεις» παραπάνω.',
   'settings.connectError': 'Αποτυχία σύνδεσης παρόχου.',
   'settings.disconnectError': 'Αποτυχία αποσύνδεσης παρόχου.',
   'settings.eyebrow': 'Refract · χώρος εργασίας',
   'settings.integration.${provider}.label': 'Αποθήκευση…',
   'settings.loadError': 'Αποτυχία φόρτωσης ρυθμίσεων.',
+  'settings.notificationCenter': 'Κέντρο ειδοποιήσεων',
   'settings.notifications.description':
     'Επισκεφθείτε τη σελίδα ειδοποιήσεων για να δείτε και να διαχειριστείτε τις προτιμήσεις παράδοσης.',
   'settings.section.account': 'Λογαριασμός και ασφάλεια',

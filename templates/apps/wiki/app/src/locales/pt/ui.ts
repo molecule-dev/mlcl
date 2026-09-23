@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Resolvendo…',
   'comments.subtitle':
     'Os {{count}} tópicos que ainda aguardam uma resposta ou solução. Ordenados por idade — os mais antigos primeiro, para que nada apodreça.',
+  'common.goToDashboard': 'Ir para o Painel',
   'forgotPassword.sentTo': 'Link de redefinição enviado para {{email}}',
   'forgotPassword.successSubheading':
     'Verifique sua caixa de entrada — acabamos de enviar um link de redefinição. Ele expira em 30 minutos.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nova página',
   'pageTreeSidebar.workspaceHeader': 'Espaço',
   'pageView.breadcrumb': 'Trilha',
+  'pageView.confirmTrash': 'Jogar fora?',
   'pageView.home': 'Início',
   'pageView.lastEdited': 'Atualizado {{when}}',
   'pageView.loading': 'Carregando página…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Resumindo…',
   'pageView.summaryUnavailable': 'O resumo com IA não está configurado para este workspace.',
   'pageView.tocTitle': 'Nesta página',
+  'pageView.trash': 'Lixeira',
+  'pageView.trashing': 'Movendo para a lixeira…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Selos',
   'profile.owned.title': 'Páginas próprias',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
     'Workspace, perfil, notificações, integrações — tudo em uma única casca tranquila.',
   'settingsPage.workspace.defaultLanding': 'Tela inicial padrão',
   'settingsPage.workspace.landingHome': 'Casa',
+  'settingsPage.workspace.landingSpaces': 'Espaços',
   'settingsPage.workspace.subdomainLabel': 'Subdomínio',
   'settingsPage.workspace.title': 'Workspace',
   'signup.eyebrow': 'Iniciar um novo workspace',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Comece uma página a partir de um molde, não de uma tela em branco. Cada modelo fixa a forma para você se concentrar no conteúdo.',
+  'trash.confirmPurge': 'Expurgar para sempre?',
+  'trash.confirmPurgeAria': 'Confirmar: excluir permanentemente {{title}}',
   'trash.daysUntilPurge': '{{days}} dias restantes',
   'trash.empty.body': 'Páginas excluídas aparecerão aqui por 30 dias antes de serem expurgadas.',
   'trash.empty.title': 'A lixeira está vazia.',
@@ -146,5 +153,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Restaurando…',
   'versionHistory.subtitle': '{{count}} versões · selecione uma linha para inspecionar a diferença',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Fechar navegação',
+  'wikiLayout.menu': 'Navegação',
+  'wikiLayout.openMenu': 'Abrir navegação',
   'wikiLayout.searchPlaceholder': 'Buscar no Cairn — páginas, comentários…',
 }

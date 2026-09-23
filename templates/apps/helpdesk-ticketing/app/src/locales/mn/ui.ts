@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Холбоо барих',
   'about.eyebrow': 'Тухай',
+  'about.title': '{{app}}-ийн тухай',
   'activeAgentsCard.agent1AvatarAlt':
     'орчин үеийн оффист эелдэг инээмсэглэл тодруулсан эмэгтэй туслах агентын мэргэжлийн зураг',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Дэмжлэгтэй холбоо барих',
   'forgotPassword.error': 'Дахин тохируулах имэйл илгээж чадсангүй. Дахин оролдоно уу.',
   'forgotPassword.rememberPassword': 'Нууц үгээ санаж байна уу?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Нэвтрэх — Зенитийн дэмжлэг',
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.welcomeSubheading': 'Дэмжлэгийн хяналтын самбартаа нэвтэрнэ үү',
+  'mobileNav.closeMenu': 'Навигацийг хаах',
+  'mobileNav.menu': 'Навигаци',
+  'mobileNav.openMenu': 'Навигацийг нээх',
   'nav.legal': 'Хууль эрх зүйн',
   'nav.newTicket': 'Шинэ тасалбар',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Командын хайлт',
   'operatorDock.newReport': 'Шинэ тайлан',
   'operatorDock.systemOnline': 'Системийн онлайн',
+  'planUpdated.subtitle': 'Баярлалаа',
   'planUpdated.title': 'Төлөвлөгөө шинэчлэгдсэн',
   'pricing.agents': 'агентууд',
   'pricing.automation': 'Автоматжуулалтын дүрэм',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{нэр}}',
   'ticketCustomerReply.avatarAlt': '{{нэр}} -ын аватар',
   'ticketDetail.errorTitle': 'Ямар нэгэн зүйл буруу болсон',
+  'ticketDetail.loadError': 'Тасалбарыг ачаалж чадсангүй.',
+  'ticketDetail.notFound': 'Тасалбар олдсонгүй',
+  'ticketDetail.replyError': 'Хариу илгээж чадсангүй. Дахин оролдоно уу.',
   'ticketDetail.retry': 'Дахин оролдоно уу',
   'ticketDetail.statusUpdateError': 'Статусыг шинэчилж чадсангүй. Дахин оролдоно уу.',
   'ticketDetailsCard.assigneeLabel': 'Даалгавар өгөгч',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{цаг}} зүүн',
   'ticketRow.title': 'Өгөгдлийн сангийн холболт үйлдвэрлэл дээр алдаа гарлаа {{зангилаа}}',
   'tickets.pageTitle': 'Тасалбарууд — Зенитийн дэмжлэг',
+  'ticketsFab.newTicket': 'Шинэ тасалбар',
   'ticketsFilterBar.assigneeLabel': 'Даалгавар өгөгч:',
   'ticketsFilterBar.clearFilters': 'Шүүлтүүрийг цэвэрлэх',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

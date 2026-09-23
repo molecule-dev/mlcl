@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'analytics.back': 'Oversikt over undersøkelsen',
   'analytics.kpiNps': 'NPS-poengsum',
   'analytics.kpiNpsTrend': 'Arrangører {{p}} % · Kritikere {{d}} %',
@@ -29,11 +30,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Eiendommer',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Undersøkelsestittel',
+  'common.goToDashboard': 'Gå til oversikt',
   'forgotPassword.failed': 'Kunne ikke sende tilbakestillingslenke. Prøv igjen.',
   'forgotPassword.subheading':
     'Skriv inn e-postadressen din, så sender vi deg en gjenopprettingslenke.',
   'forgotPassword.successBody':
     'Hvis en konto samsvarer {{email}} En tilbakestillingslenke er på vei. Sjekk innboksen og søppelpostmappene dine.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Alle stemmer er velkomne.',
   'landing.footer.startTrial': 'Start prøveperioden',
   'landing.hero.badge': 'Undersøkelser, NPS og tilbakemeldinger på ett sted',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Priser',
   'landing.pricing.perMonth': '/mnd.',
   'landing.pricing.popular': 'Mest populær',
+  'landing.pricing.subtitle':
+    'Hver plan inkluderer spørreundersøkelsesbyggeren, offentlige delingslenker og NPS-analyse. Ingen kredittkort kreves for å komme i gang.',
+  'landing.pricing.title': 'Start gratis, skaler når du gjør det.',
   'landing.sample.eyebrow': 'NPS i korte trekk',
   'landing.sample.title': 'Kritikere, passive verb, forkjempere – umiddelbart lesbare.',
   'login.failed': 'Innloggingen mislyktes. Prøv på nytt.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Vis passord',
   'login.signUpLink': 'Start en gratis prøveperiode',
   'login.subheading': 'Logg inn for å fortsette å lytte til publikummet ditt.',
+  'notFound.body':
+    'Siden du leter etter finnes ikke på {{app}} . La oss ta deg tilbake til undersøkelsene dine.',
   'notFound.cta': 'Tilbake til undersøkelser',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Denne undersøkelsen gjemte ut av køen.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Passiv 7–8',
   'npsDistributionBar.promoter': 'Arrangør 9–10',
   'profile.identity.description': 'Offentlig for teamet ditt og på undersøkelsene du foretar.',
+  'profile.identity.emailRequired': 'Skriv inn en e-postadresse.',
   'profile.identity.saveCta': 'Lagre navn',
   'profile.password.current': 'Nåværende passord',
   'profile.password.fillFields': 'Skriv inn både nåværende og nytt passord.',
@@ -176,6 +185,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} spørsmål',
   'templates.subheading':
     'Velg en velprøvd startmal – hver mal leveres forhåndsinnstilt med fornuftige standardinnstillinger, eksempellogikk og et rent mobiloppsett.',
+  'thankYou.body':
+    'Svaret ditt er registrert. {{app}} vil inkludere det i neste analyseoppdatering.',
   'thankYou.eyebrow': 'Svar mottatt',
   'thankYou.heading': 'Takk – stemmen din teller.',
   'thankYou.home': 'Besøk Gauge',

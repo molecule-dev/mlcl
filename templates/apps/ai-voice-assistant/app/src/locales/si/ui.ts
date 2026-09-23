@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිපෝෂණ, විශේෂාංග ඉල්ලීමක් හෝ දෝෂයක් සොයා ගත්තාද? ඔබේ ගිණුම් මෙනුවේ ඇති සහාය සබැඳිය හරහා {{app}} කණ්ඩායම වෙත ළඟා වන්න — සෑම පණිවිඩයක්ම සැබෑ මිනිසෙකු වෙත යයි.',
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'agentDetail.back': 'සියලුම නියෝජිතයන්',
   'agentDetail.capabilities': 'හැකියාවන්',
   'agentDetail.delete': 'පුද්ගලයා මකන්න',
   'agentDetail.deleteConfirm': 'මෙම පුද්ගලයා මකන්නද? මෙය අහෝසි කළ නොහැක.',
+  'agentDetail.deleteError': 'පුද්ගලාරෝපිතය මැකීමට නොහැකි විය.',
   'agentDetail.eyebrow': 'පර්සෝනා',
   'agentDetail.fetchError': 'පුද්ගලාරෝපණය පූරණය කළ නොහැකි විය.',
   'agentDetail.save': 'පුද්ගලාරෝපණය සුරකින්න',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'මාරු වෙමින්...',
   'billing.updateError': 'යාවත්කාලීන කිරීම ආරම්භ කිරීමට නොහැකි විය.',
   'billing.usageHeading': 'මෙම චක්‍රයේ හඬ භාවිතය',
+  'chatBubble.source.text': 'පෙළ',
+  'chatBubble.source.voice': 'හඬ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'conversation.defaultTitle': 'නව සංවාදය',
   'conversation.empty': 'තවම පණිවිඩ නැත. යමක් පැවසීමෙන් හෝ පහතින් ටයිප් කිරීමෙන් ආරම්භ කරන්න.',
   'conversation.eyebrow': 'සජීවී සැසිය',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'කතා කරන බුද්ධිය.',
   'landing.heroSubtitle':
     'ඔබේ ස්වභාවික ප්‍රවාහය තේරුම් ගන්නා AI හඬ සහායක. සංවාද කරන්න, අදහස් දක්වන්න සහ අණ කරන්න — බාධාවකින් තොරව.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'සවන් දෙමින්...',
   'landing.naturallyBody':
     'ප්‍රේරක වචන නැත. දැඩි විධාන නැත. සගයෙකු සමඟ කතාබස් කරනවාක් මෙන් - සන්දර්භය, බාධා කිරීම් සහ මිනිස් කතාවේ සියුම් බව භාෂාව තේරුම් ගනී.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'සැසියක් විවෘත කරන්න',
   'notFound.home': 'ආපසු ගෙදර',
   'notFound.title': 'අපට ඒ පිටුව ඇසීමට නොහැකි විය.',
+  'parlanceLayout.closeMenu': 'මෙනුව වසන්න',
+  'parlanceLayout.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'parlanceLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'pricing.conversations': '{{count}} සංවාද',
   'pricing.cta.startFree': 'නොමිලේ ආරම්භ කරන්න',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ගැළපීම් නැත',
   'search.eyebrow': 'විධාන පුවරුව',
   'search.fetchError': 'සෙවුම් දර්ශකය පූරණය කළ නොහැකි විය.',
+  'search.static.profile.preview': 'සංදර්ශක නාමය, හසුරුව, ජීව දත්ත',
   'search.static.voice.title': 'හඬ',
   'search.title': 'සෙවුම් භාෂාව',
   'search.transcriptPreview': 'පිටපත විවෘත කරන්න',

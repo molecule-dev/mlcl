@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'auth.fields.newPassword': 'Ọrọ aṣina Tuntun',
   'collectionDetail.addImage': 'Àkójọpọ̀ fún ìkójọpọ̀',
   'collectionDetail.backCta': 'Pada si awọn akojọpọ',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Àwọn ìtòlẹ́sẹẹsẹ ìṣesí, àwọn àkótán àti àwọn eré tí ń lọ lọ́wọ́',
   'collections.title': 'Àwọn àkójọ',
   'collections.untitled': 'Àìní àkọlé · {{stamp}}',
+  'common.closeMenu': 'Ti akojọ aṣayan pa',
+  'common.dismiss': 'Kúrò',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'credits.eyebrow': '{{plan}} ètò',
   'credits.renewsCopy': 'Ètò náà ń túnṣe ní {{date}}',
   'credits.trail': 'Revenue · {{plan}} ipele',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Ìṣẹ̀dá ìgbòkègbodò, pínpín àti àwọn ìkìlọ̀ gbèsè yóò farahàn níbí.',
   'notifications.empty.title': 'Kò sí ohunkóhun láti ròyìn',
   'notifications.subtitle': 'Àwọn ìṣẹ̀lẹ̀ ìran tí a kójọpọ̀ ní ọjọ́ kan',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.limits.gallery': '{{count}} ibi ìkópamọ́ àwòrán',
   'privacy.collect.body':
     'Nígbà tí o bá forúkọ sílẹ̀, a máa gba orúkọ rẹ, àdírẹ́sì ìméèlì, àti ọ̀rọ̀ìpamọ́ hashed. Bí o ṣe ń lo Reverie, a máa ń tọ́jú àwọn ìbéèrè tí o fi sílẹ̀, àwọn àwòrán tí a ń ṣe fún ọ, àwọn àṣà àti àkójọpọ̀ tí o fipamọ́, àti àwọn metadata bí àpẹẹrẹ tí a lò, àwọn àmì àkókò tí a fi ń ṣe ìran, àti ìwọ̀n gbèsè.',
@@ -166,6 +172,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Fipamọ ọrọ igbaniwọle tuntun',
   'reset.submitting': 'N ṣe àtúnṣe ọ̀rọ̀ìpamọ́…',
   'settings.account.handle': 'Mu ọwọ',
+  'settings.account.lastSaved': 'Ìrísí tó ń ṣiṣẹ́ · {{name}}',
   'settings.account.saved': 'Ti fi profaili pamọ',
   'settings.account.saveFailed': 'Kò le fi profaili pamọ',
   'settings.account.title': 'Ìwífúnni ẹlẹ́dàá',
@@ -187,7 +194,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Àwòrán tuntun',
   'sidebar.secondary': 'Lilọ kiri keji',
   'signup.failed': 'Ìforúkọsílẹ̀ kò yọrí sí rere. Gbìyànjú lẹ́ẹ̀kan síi.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Bẹ̀rẹ̀ àtúnyẹ̀wò rẹ',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Ṣẹ̀dá àkọọ́lẹ̀ kan kí o sì béèrè fún àwọn kirediti ọ̀fẹ́ 120.',
   'styles.empty':
     'Kò sí àwọn àtúnṣe àṣà tí a ti ṣe tẹ́lẹ̀ — wọn yóò farahàn lẹ́yìn ìgbà àkọ́kọ́ tí a bá kọ́kọ́ wọlé.',

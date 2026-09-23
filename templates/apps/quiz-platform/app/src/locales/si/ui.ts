@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.title': '{{app}} පිළිබඳව',
   'auth.login.noAccount': 'Sparq වලට අලුත්ද?',
   'auth.login.or': 'නැතහොත් ඉදිරියට යන්න',
   'auth.signup.or': 'හෝ ලියාපදිංචි වන්න',
+  'common.confirm': 'තහවුරු කරන්න',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.loadError': 'මෙම අන්තර්ගතය පූරණය කිරීමේදී යම් දෙයක් වැරදී ඇත.',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'discover.collections.title': 'කාණ්ඩය අනුව බ්‍රවුස් කරන්න',
   'discover.collections.viewAll': 'ඔබේ පුස්තකාලය බලන්න →',
   'discover.empty.body': 'වෙනත් ප්‍රවර්ගයක් උත්සාහ කරන්න හෝ සෙවුම හිස් කරන්න.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'ඔබේ ප්‍රවාහය සජීවීව තබා ගැනීමට, සජීවී ක්‍රීඩා සත්කාරකත්වය ලබා ගැනීමට සහ ප්‍රමුඛ පුවරුවට නැගීමට පුරන්න.',
   'myQuizzes.createButton': 'නව ප්‍රශ්නාවලිය',
+  'myQuizzes.deleteConfirm': 'සදහටම මකන්නද?',
   'myQuizzes.empty.createCta': 'ඔබේ පළමු ප්‍රශ්නාවලිය ගොඩනඟන්න →',
   'myQuizzes.empty.created': 'ඔබ තවමත් ප්‍රශ්නාවලියක් සාදා නැත.',
   'myQuizzes.empty.played': 'තවමත් ප්‍රකාශිත ප්‍රශ්නාවලියක් නොමැත.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'පූරණය වෙමින්...',
   'notifications.subhead':
     '{{count}} නොකියවූ ගිනි පුපුරු. ආරාධනා, ප්‍රමුඛ පුවරු චලනයන් සහ ජයග්‍රහණ සියල්ල එකම ප්‍රවාහයකින්.',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.checkoutError': 'පිටවීම ආරම්භ කළ නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
+  'pricing.heading': 'ඔබේ {{app}} සැලැස්ම තෝරන්න',
   'pricing.included': 'ඇතුළත්',
   'pricing.loadError': 'සැලසුම් පූරණය කළ නොහැකි විය.',
   'pricing.maxQuizzes': '{{count}} ප්‍රශ්නාවලිය',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'තවම කිසිවක් ප්‍රකාශයට පත් කර නැත.',
   'profile.startBuilding': 'ගොඩනැගීම ආරම්භ කරන්න →',
   'profile.tier': 'ස්පාර්ක් වාදකයා',
+  'quizBuilder.addFailed': 'ප්‍රශ්නය එක් කිරීමට නොහැකි විය. නැවත උත්සාහ කරන්න.',
   'quizBuilder.addQuestion': 'ප්‍රශ්නය එක් කරන්න',
   'quizBuilder.answerPlaceholder': 'විකල්පයක් ටයිප් කරන්න...',
   'quizBuilder.answersLabel': 'පිළිතුරු තේරීම්',
   'quizBuilder.back': 'මගේ ප්‍රශ්නාවලිය වෙත ආපසු යන්න',
   'quizBuilder.delete': 'ප්‍රශ්නය මකන්න',
+  'quizBuilder.deleteFailed': 'ප්‍රශ්නය මැකීමට නොහැකි විය.',
   'quizBuilder.firstQuestion': 'ආරම්භ කිරීමට ඔබේ පළමු ප්‍රශ්නය එක් කරන්න.',
   'quizBuilder.idLabel': 'ප්‍රශ්නාවලිය හැඳුනුම්පත: {{id}}',
   'quizBuilder.loadError': 'ප්‍රශ්නාවලිය පූරණය කිරීමට නොහැකි විය.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'අවම වශයෙන් පිළිතුරු විකල්ප දෙකක් එකතු කර නිවැරදි එක තෝරන්න. {{count}} ප්‍රකාශනයට පෙර ප්‍රශ්න(ය).',
   'quizBuilder.questionsTitle': 'ප්‍රශ්න',
+  'quizBuilder.saveFailed': 'මාතෘකාව සුරැකීමට නොහැකි විය. නැවත උත්සාහ කරන්න.',
   'quizBuilder.statusDraft': 'කෙටුම්පත',
   'quizBuilder.subhead':
     'මාතෘකාව සංස්කරණය කරන්න, ප්‍රශ්න එකතු කරන්න, තේරීම් සකසන්න සහ නිවැරදි පිළිතුර. වෙනස්කම් ස්වයංක්‍රීයව සුරකිනු ඇත.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} මිනි',
   'quizDetail.hostMultiplayer': 'සත්කාරක බහු ක්‍රීඩකයා',
   'quizDetail.leaderboardEmpty': 'තවම ක්‍රීඩා නැත — ලකුණු නියම කළ පළමු පුද්ගලයා වන්න.',
+  'quizDetail.loadError': 'මෙම පැන විසඳුම පූරණය කළ නොහැකි විය.',
   'quizDetail.loading': 'ප්‍රශ්නාවලිය පූරණය වෙමින්…',
   'quizDetail.plays': '{{count}} සෙල්ලම් කරනවා',
   'quizDetail.playSolo': 'තනිව වාදනය කරන්න',

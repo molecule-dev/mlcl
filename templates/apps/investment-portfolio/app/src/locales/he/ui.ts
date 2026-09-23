@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'אודות {{app}}',
   'argentAuthShell.brandEyebrow': 'ארג’נט · כלי עושר',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . לא ייעוץ השקעות.',
   'argentAuthShell.sampleChange': '2,841 דולר (0.28%) היום',
   'argentAuthShell.sampleValue': '1,032,251 דולר',
   'argentLayout.primaryNavLabel': 'ניווט ראשי',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'אין עסקאות עבור טיקר זה.',
   'assetDetail.txHeading': 'העסקאות שלך',
   'common.and': 'ו',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'סקירת תיק עבודות',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'עדיין אין אחזקות.',
   'holdings.heading': 'אחזקות',
   'holdings.loadError': 'טעינת האחזקות נכשלה.',
+  'landing.copyright':
+    '© {{year}} {{app}} . לא ייעוץ השקעות. ביצועי העבר אינם מבטיחים תוצאות עתידיות.',
   'landing.eyebrow': 'Argent · פלטפורמה לגיוס עושר',
   'landing.features.heading': 'כל מה שיועץ היה בונה לעצמו.',
   'landing.finalCta.heading': 'החזירו את המשמעת לתיק העבודות שלכם.',
@@ -70,6 +75,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} לפני שעה',
   'news.justNow': 'הרגע',
   'news.loadError': 'טעינת החדשות נכשלה.',
+  'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'portfolioHeroCard.label': 'ערך תיק ההשקעות',
   'pricing.holdingsLabel': 'אחזקות',
   'pricing.newsLabel': 'מאמרי חדשות',
@@ -132,8 +138,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'מחיקת חשבון',
   'settings.security.deleting': 'מוחק...',
   'settings.security.heading': 'בִּטָחוֹן',
+  'settings.security.newPassword': 'סיסמה חדשה',
   'settings.security.password': 'סִיסמָה',
   'settings.security.twoFactorEnable': 'לְאַפשֵׁר',
+  'settings.security.twoFactorInvalidCode': 'קוד לא תקין',
+  'settings.security.twoFactorVerify': 'אימות והפעלה',
   'settings.tax.error': 'לא ניתן היה לעדכן את שיטת המס.',
   'settings.tax.heading': 'חשבונאות מס',
   'settings.tax.method': 'שיטת ברירת מחדל',

@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': "S'estan carregant els cursos…",
   'browse.next': 'Pàgina següent',
   'browse.results': 'Mostrant {{count}} cursos',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Ordena per',
   'browse.subtitle':
     "Filtra l'arxiu editorial per tema, nivell i preu. Cada curs està seleccionat a mà pels nostres editors.",
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     "El teu certificat està signat i llest. Comparteix-lo amb el món o guarda'l com a recordatori de la feina que has fet per aconseguir-lo.",
   'certificate.copyLink': "Copia l'enllaç per compartir",
+  'certificate.copyPrompt': 'Copia aquest enllaç:',
   'certificate.download': 'Descarrega el PDF',
   'certificate.eyebrow': 'Assoliment desbloquejat',
   'certificate.linkCopied': 'Enllaç copiat!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Estàs inscrit/a!',
   'checkout.verifying': 'Verificant la teva inscripció…',
   'checkout.viewLibrary': 'Veure el meu aprenentatge',
+  'common.goToDashboard': 'Anar al panell',
+  'common.retry': 'Torna-ho a intentar',
   'courseDetail.about': 'Sobre aquest curs',
   'courseDetail.checkoutPending': 'Iniciant el procés de compra…',
   'courseDetail.continueLearning': 'Continua aprenent',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Garantia de devolució de 30 dies',
   'courseDetail.includes.video': '{{hours}} hores de vídeo a la carta',
   'courseDetail.instructor': 'Instructor/a',
+  'courseDetail.languageEnglish': 'Anglès',
   'courseDetail.lectures': 'Conferències',
   'courseDetail.level': 'Nivell',
   'courseDetail.loading': "S'està carregant el curs…",
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Encara no hi ha ressenyes.',
   'instructorProfile.students': 'Estudiants',
   'landing.categories.empty': "Les categories apareixeran un cop s'hagi omplert el catàleg.",
+  'landing.categories.heading': "Explora l'arxiu",
   'landing.hero.eyebrow': 'Lectura · Arxiu editorial de mestratge',
   'landing.hero.proof': 'Amb la confiança dels estudiants de Google, Meta i Adobe.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Comença a aprendre avui mateix',
   'login.subheading': 'Accedeix al teu arxiu acadèmic.',
   'myLearning.empty.title': 'Encara no hi ha cap curs que coincideixi amb aquest filtre',
+  'myLearning.error.title': "No s'ha pogut carregar la biblioteca",
   'myLearning.filter.notStarted': 'No iniciat',
   'myLearning.hero.subtitle': "{{count}} cursos a la teva biblioteca. Mantén l'impuls.",
   'myLearning.hero.title': 'Repren on ho havies deixat.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'No hi ha cap activitat nova per revisar. Aquí apareixeran nous esdeveniments.',
   'notifications.empty.title': 'Esteu tots atrapats',
+  'notifications.error.title': "No s'ha pogut carregar l'activitat",
   'privacy.title': 'Política de privacitat',
   'reset.confirmPlaceholder': 'Torneu a introduir la vostra nova contrasenya',
   'reset.errorGeneric': "No s'ha pogut restablir la contrasenya. Sol·licita un enllaç nou.",
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} fa uns dies',
   'timeAgo.hours': '{{count}} fa h',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} mesos',
   'timeAgo.today': 'avui',
+  'timeAgo.weeks': '{{count}} setmanes',
 }

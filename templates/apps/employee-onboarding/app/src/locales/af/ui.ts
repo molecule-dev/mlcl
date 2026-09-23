@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'auth.forgotPassword.emailPlaceholder': 'naam@joumaatskappy.com',
   'auth.forgotPassword.heading': 'Stel jou wagwoord terug.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Merk taak voltooi',
   'checklistTaskCard.markIncomplete': 'Merk taak onvoltooid',
   'checklistTaskCard.openLabel': 'Maak taak oop',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Julle is almal ingehaal',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Op koers',
   'dashboard.timelineHeading': '30/60/90 mylpale',
   'dashboard.viewAllTasks': 'Bekyk alle take',
+  'dashboard.weekOne': 'Week 1',
   'dashboard.yourCohort': 'Jou span',
   'documents.empty.body': 'Dokumente wat deur jou span bygevoeg is, sal hier verskyn.',
   'documents.empty.title': 'Geen dokumente nog nie',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-dae gratis proeflopie',
   'landing.subhead':
     'Embark lei elke nuwe spanmaat deur hul eerste 90 dae – papierwerk, opleiding, mylpale en betekenisvolle bekendstellings, alles op een kalm, selfversekerde plek.',
+  'layout.openMenu': 'Maak navigasiekieslys oop',
   'layout.search': 'Soek take, dokumente, spanmaats…',
+  'layout.searchTeammates': 'Soek spanmaats volgens naam of rol…',
   'layout.section.onboarding': 'Aanboord',
   'layout.tagline': 'Jou reis begin hier',
   'notifications.empty.body': 'Nuwe aktiwiteit sal hier verskyn.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': "Jy's gereed.",
   'planUpdated.preparing': 'Opdatering van jou plan…',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.documentsLabel': 'dokumente',
   'pricing.onboardingsLabel': 'aanboordings',
   'pricing.tasksLabel': 'take',

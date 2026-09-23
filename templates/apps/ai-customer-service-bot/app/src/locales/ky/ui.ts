@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'analytics.channels.empty': 'Азырынча каналдын дайындары жок.',
   'analytics.channels.title': 'Канал боюнча',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'Күнүмдүк сүйлөшүүлөр',
   'chatBubble.avatarAlt': '{{speaker}} аватар',
   'common.appName': 'Баяндама',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'confidenceMeter.label': 'Ишеним',
   'conversationDetail.agentName': 'Агент',
   'conversationDetail.aiReplyButton': 'Боттун жообу',
   'conversationDetail.aiReplyError': 'Жасалма интеллект жообун түзүү мүмкүн болгон жок',
   'conversationDetail.aiReplyLoading': 'Чиймеленүүдө…',
+  'conversationDetail.aiReplySourceFallback': 'резервдик көчүрмө (AI ачкычы жок)',
   'conversationDetail.backAria': 'Сүйлөшүүлөргө кайтуу',
   'conversationDetail.composerPlaceholder': 'Кардарга жооп…',
   'conversationDetail.context.channel': 'Канал',
@@ -160,8 +163,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'Аккаунтуңуз үчүн жаңы сырсөз коюңуз',
   'resetPassword.toggleConfirm': 'Сырсөздүн көрүнүү мүмкүнчүлүгүн ырастоону өчүрүү/күйгүзүү',
   'resetPassword.togglePassword': 'Сырсөздүн көрүнүүсүн өчүрүү/күйгүзүү',
+  'settings.account.emailError': 'Электрондук почта жаңыртылбай калды',
   'settings.account.emailLabel': 'Электрондук почта дареги',
+  'settings.account.emailSaved': 'Электрондук почта жаңыртылды',
+  'settings.account.nameError': 'Аты-жөнү жаңыртылбай калды',
   'settings.account.nameLabel': 'Көрсөтүлүүчү ат',
+  'settings.account.nameSaved': 'Аты-жөнү жаңыртылды',
   'settings.account.title': 'Аккаунт',
   'settings.api.createCta': 'Токен түзүү',
   'settings.api.description':
@@ -174,10 +181,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'Сезим төмөндөгөндө автоматтык түрдө жогорулоо',
   'settings.bot.greetingLabel': 'Биринчи куттуктоо билдирүүсү',
   'settings.bot.title': 'Боттун конфигурациясы',
+  'settings.bot.toneFormal': 'Расмий',
   'settings.bot.toneLabel': 'Үн жана тон',
   'settings.danger.deleteAccount': 'Аккаунтту өчүрүү',
+  'settings.danger.deleteError': 'Аккаунт өчүрүлгөн жок',
+  'settings.danger.deleteWarning':
+    'Бул аккаунтуңузду жана ага байланыштуу бардык дайындарды биротоло жок кылат. Муну кайтаруу мүмкүн эмес.',
   'settings.danger.deleting': 'Жок кылынууда…',
+  'settings.danger.passwordLabel': 'Сырсөзүңүздү ырастаңыз',
   'settings.danger.title': 'Коркунучтуу аймак',
+  'settings.devices.empty': 'Катталган түзмөктөр жок.',
+  'settings.devices.revokeWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
+  'settings.devices.signingOut': 'Чыгарылууда…',
   'settings.devices.signOut': 'Чыгуу',
   'settings.devices.thisDevice': 'Бул түзмөк',
   'settings.devices.title': 'Түзмөктөр',
@@ -190,9 +206,11 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'Сырсөз өзгөртүлбөй калды',
   'settings.security.currentPassword': 'Учурдагы сырсөз',
   'settings.security.newPassword': 'Жаңы сыр сөз',
+  'settings.security.oauthManaged': 'Сырсөзүңүз кирүү провайдериңиз тарабынан башкарылат.',
   'settings.security.title': 'Коопсуздук',
   'settings.security.twoFactorDisable': 'Өчүрүү',
   'settings.security.twoFactorEnable': 'Иштетүү',
+  'settings.security.twoFactorInvalid': 'Жараксыз код',
   'settings.subtitle':
     'Tune Rapportтун үнүн, билим булактарын жана ал колдонгон куралдарды угуңуз.',
   'settings.tokenCreateError': 'Токен түзүлбөй калды',

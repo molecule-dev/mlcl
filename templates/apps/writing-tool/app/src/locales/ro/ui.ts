@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
+  'about.title': 'O cameră de scris pe care o poți ține în buzunar',
   'billing.cancelConfirm': 'Anulați abonamentul activ?',
   'billing.cancelFailed': 'Nu s-a putut anula.',
   'billing.checkingOut': 'Se deschide finalizarea comenzii…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nu s-a putut încărca facturarea.',
   'billing.loading': 'Se încarcă facturarea…',
   'billing.upgradeCta': 'Actualizați la {{name}}',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'editor.autosaveOn': 'Salvare automată activată',
   'editor.backToLibrary': 'Înapoi la bibliotecă',
   'editor.charCount': '{{count}} caractere',
   'editor.confirmTrash': 'Mutați acest document în coșul de gunoi?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Nefixat',
   'editor.unpublishCta': 'Mută în schiță',
   'editor.unpublished': 'Revenit la starea de schiță',
+  'focus.autosaveOn': 'Salvare automată activată',
   'focus.backToLibrary': 'Înapoi la bibliotecă',
   'focus.bodyPlaceholder': 'Un rând pe rând. Nu mai e nimeni aici.',
   'focus.exit': 'Ieșiți din modul de focalizare',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Creați unul',
   'login.subline':
     'Manuscrisele, paginile zilnice și ultima poziție a cursorului sunt exact acolo unde le-ați lăsat.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'pricing.exports': 'exporturi',
   'pricing.folders': 'dosare',
   'pricing.heading': 'documente',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Introdu codul pe care tocmai ți l-am trimis prin e-mail și alege ceva memorabil. Te vom conecta imediat ce este salvat.',
   'reset.tokenHint': 'Lipit din căsuța ta poștală.',
+  'settings.appearance.heading': 'Luminos sau întunecat',
   'settings.editor.${row.id}.description': 'Limbă',
   'settings.editor.description':
     'Derulare la mașină de scris, estompare paragraf și focalizare în așteptare — setările implicite sunt reglate pentru sesiuni lungi.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Capitolul trei — O oră liniștită înainte de răsăritul soarelui',
   'versalDocumentCard.pinned': 'Fixate',
   'versalLayout.nav.stats': 'Statistici',
+  'versalLayout.primaryNavLabel': 'Navigare principală',
   'versalManuscriptHero.cta': 'Continuă să scrii',
   'versalManuscriptHero.goalLabel': 'Scopul cuvintelor de astăzi',
   'versalManuscriptHero.inProgress': 'Pe drumul cel bun',

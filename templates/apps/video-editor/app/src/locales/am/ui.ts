@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ስህተት አጋጥሞዎታል፣ የባህሪ ጥያቄ አለዎት ወይም ስለቆረጡት ፊልም ሊነግሩን ይፈልጋሉ? እያንዳንዱ መልእክት በቡድኑ ውስጥ ላለ እውነተኛ ሰው ይደርሳል - በማንኛውም ጊዜ ከአካውንት ቅንብሮችዎ ያግኙ።',
+  'about.contactTitle': 'አግኙን',
+  'about.eyebrow': '// ከቅጥሩ ጀርባ ያለው ስቱዲዮ',
   'about.pageTitle': 'ስለ {{appName}}',
   'assetDetail.back': 'ወደ ቤተ-መጽሐፍት ተመለስ',
   'assetDetail.confirmDelete': 'ሰርዝ " {{name}} "? ይህ ሊቀለበስ አይችልም።"',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} በጊዜ ሰሌዳው ላይ ለመለጠፍ ዝግጁ የሆኑ ክሊፖች፣ የድምጽ አልጋዎች እና ግራፊክስ።',
   'assetLibrary.title': 'ንብረቶች',
   'assetLibrary.upload': 'ንብረት ያክሉ',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'dashboard.browseTemplates': 'አብነቶችን ያስሱ →',
   'dashboard.loading': 'ፕሮጀክቶችን በመጫን ላይ…',
   'dashboard.noProjects': 'እስካሁን ምንም ፕሮጀክቶች የሉም - ለመጀመር አንድ ይፍጠሩ።',
@@ -155,7 +160,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'የምታስታውሰውን ብቻ ምረጥ።',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'ግላዊነት',
+  'rushesLayout.closeMenu': 'አሰሳን ዝጋ',
   'rushesLayout.guest': 'አርታኢ',
+  'rushesLayout.navDialog': 'አሰሳ',
+  'rushesLayout.openMenu': 'አሰሳን ክፈት',
   'rushesLayout.planFree': 'ነፃ ዕቅድ',
   'rushesLayout.tagline': 'የሲኒማ የጊዜ መስመር',
   'settings.billing.confirmCancel': 'በጊዜ ማብቂያ ላይ የደንበኝነት ምዝገባ ይሰረዝ?',

@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'দেখা',
   'auctionDetail.watchRemoved': 'পর্যবেক্ষণ তালিকা থেকে সরানো হয়েছে।',
   'auctionDetail.watchRemoveLabel': 'ওয়াচলিস্ট থেকে সরান',
+  'auctionPlatformLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'authShell.brandBody':
     'দুর্লভ ঘড়ি, চারুকলা এবং অদ্বিতীয় বিশেষ সামগ্রীর জন্য রিয়েল-টাইমে বিড করুন। কয়েক সেকেন্ডের মধ্যেই নিলামের হাতুড়ি পড়ে।',
   'authShell.brandEyebrow': 'এখন লাইভ · ১,৪২০টি নিলাম',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'অনুসারে সাজান',
   'browseAuctions.subheading':
     'বিভাগ অনুযায়ী ফিল্টার করুন, সবচেয়ে গুরুত্বপূর্ণ বিষয় অনুসারে সাজান, এবং নিলামের শেষ হওয়ার আগেই দর দিন।',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'countdownTimer.ended': 'শেষ হয়েছে',
   'countdownTimer.endingSoon': 'সমাপ্তি',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'পাসওয়ার্ড লুকান',
   'login.showPassword': 'পাসওয়ার্ড দেখান',
   'login.subtext': 'আপনার নিলামগুলো ট্র্যাক করতে থাকুন এবং নিলামের শেষ হওয়ার আগেই বিড করুন।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'myBids.bidAgain': 'আবার দর দিন',
   'myBids.browseCta': 'সরাসরি নিলামগুলো দেখুন →',
   'myBids.checkoutCta': 'এখনই পরিশোধ করুন',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'এখনো কোনো বিজ্ঞপ্তি আসেনি।',
   'notificationsPage.eyebrow': 'কার্যকলাপ কেন্দ্র',
   'notificationsPage.subheading': '{{count}} অপঠিত · নিলাম চলার সাথে সাথে সরাসরি আপডেট',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.bidsLabel': 'দরপত্র',
   'pricing.listingsLabel': 'তালিকা',
   'pricing.watchlistLabel': 'ওয়াচলিস্ট',
@@ -201,6 +206,8 @@ export const ui: UiTranslations = {
   'sellListing.detailsHeading': 'তালিকার বিবরণ',
   'sellListing.durationDays': '{{count}} দিন',
   'sellListing.eyebrow': 'তালিকা তৈরি করুন',
+  'sellListing.feeNotice':
+    'চূড়ান্ত মূল্যায়ন ফি: বিক্রয় মূল্যের {{fee}} অংশ। এর মধ্যে পেমেন্ট প্রক্রিয়াকরণ অন্তর্ভুক্ত।',
   'sellListing.heading': 'একটি পণ্য বিক্রি করুন',
   'sellListing.photosHint':
     'সর্বোচ্চ ৮টি উচ্চ-রেজোলিউশনের ছবি যোগ করুন। ৪টির বেশি ছবিযুক্ত লিস্টিংগুলো ৩৮% বেশি বিড পায়।',

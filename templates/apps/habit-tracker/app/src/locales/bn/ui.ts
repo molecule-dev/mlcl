@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.pageTitle': '{{app}} সম্পর্কে',
   'achievementBadgeCard.unlockedOn': 'আনলক করা {{date}}',
   'achievements.loadError': 'কৃতিত্ব লোড করতে ব্যর্থ হয়েছে।',
   'achievements.unlockedOn': 'আনলক করা {{date}}',
+  'auth.legalConsent': 'অব্যাহত রেখে, আপনি আমাদের সাথে সম্মত হচ্ছেন',
   'calendar.empty': 'আপনার ক্যালেন্ডার দেখার অভ্যাস গড়ে তুলুন।',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'অভ্যাস',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'অভ্যাস গ্রিড',
   'category.${c.category}': '{{count}} অভ্যাস',
   'common.and': 'এবং',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'consistencyHeatmap.ariaLabel': 'দৈনিক সামঞ্জস্য হিটম্যাপ',
   'consistencyHeatmap.caption': 'শেষ {{weeks}} সপ্তাহ',
   'consistencyHeatmap.lessLabel': 'কম',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'সরাসরি দেখুন',
   'landing.heroSubtitle':
     'অভ্যাস গড়ে তুলুন সেভাবেই, যেভাবে তা স্থায়ী হয়: ছোট ছোট অঙ্গীকার, প্রতিদিনের ধারাবাহিক সাফল্য এবং একটি দীর্ঘ অবিচ্ছিন্ন ধারার গভীর আনন্দ।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'স্ট্রিকের ভিতরে এক ঝলক',
   'landing.previewMotivation': 'নয়টি রেখা জীবন্ত। সবগুলোকে উষ্ণ রাখুন।',
   'login.eyebrow': 'চেইনটা তুলে নাও',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'এটাকে ছোট করুন। সুনির্দিষ্ট করুন। আগামীকাল হাজির হন।',
   'newHabit.timeLabel': 'অনুস্মারক সময়',
   'notifications.markError': 'সবগুলো পঠিত হিসেবে চিহ্নিত করা সম্ভব হয়নি।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.entries': '{{count}} এন্ট্রিগুলি',
+  'pricing.heading': 'আপনার {{app}} প্ল্যান নির্বাচন করুন',
   'profile.action.plan': 'সাবস্ক্রিপশন পরিচালনা করুন',
   'profile.action.settings': 'অ্যাকাউন্ট সেটিংস',
   'profile.bioEmpty': 'নিজের পরিচয় দিতে সেটিংসে একটি সংক্ষিপ্ত পরিচিতি যোগ করুন।',
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'প্রতিদিন সকালের তাড়া (সকাল ৮:০০ টা)',
   'settings.reminders.heading': 'অনুস্মারক',
   'settings.reminders.weekly': 'সাপ্তাহিক সারসংক্ষেপ (রবিবার সন্ধ্যায়)',
+  'settings.revokeDeviceWarning':
+    'এই ডিভাইসের অ্যাক্সেস শীঘ্রই প্রত্যাহার করা হবে। এটি সাইন আউট করবেন?',
   'settings.signOutDevice': 'সাইন আউট',
   'settings.streaks.freezesPerWeek': 'প্রতি সপ্তাহে হিমায়িত হয়',
   'settings.streaks.gracePeriod': 'মধ্যরাতের পর ৬ ঘণ্টার অতিরিক্ত সময়',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} সক্রিয়',
   'streakHeroCard.daysSuffix': 'দিন',
   'streakHeroCard.title': 'দীর্ঘতম সক্রিয় ধারা',
+  'streakLayout.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'streakLayout.openMenu': 'নেভিগেশন মেনু খুলুন',
   'streakLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
 }

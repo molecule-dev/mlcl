@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'బగ్ కనుగొన్నారా, ఫీచర్ కోసం అభ్యర్థన ఉందా, లేదా మీరు ఎడిట్ చేసిన సినిమా గురించి మాకు చెప్పాలనుకుంటున్నారా? ప్రతి సందేశం బృందంలోని నిజమైన వ్యక్తికి చేరుతుంది — మీ ఖాతా సెట్టింగ్‌ల నుండి ఎప్పుడైనా మమ్మల్ని సంప్రదించండి.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.eyebrow': '// ది స్టూడియో బిహైండ్ ది కట్',
   'about.pageTitle': 'గురించి {{appName}}',
   'assetDetail.back': 'గ్రంథాలయానికి తిరిగి వెళ్లండి',
   'assetDetail.confirmDelete': 'తొలగించు {{name}} దీన్ని వెనక్కి తీసుకోలేము.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} టైమ్‌లైన్‌లో చేర్చడానికి క్లిప్‌లు, ఆడియో సెట్‌లు మరియు గ్రాఫిక్స్ సిద్ధంగా ఉన్నాయి.',
   'assetLibrary.title': 'ఆస్తులు',
   'assetLibrary.upload': 'ఆస్తిని జోడించండి',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.browseTemplates': 'టెంప్లేట్‌లను బ్రౌజ్ చేయండి →',
   'dashboard.loading': 'ప్రాజెక్ట్‌లు లోడ్ అవుతున్నాయి…',
   'dashboard.noProjects':
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'మీకు మాత్రమే గుర్తుండేదాన్ని ఎంచుకోండి.',
   'rushesAuthShell.footer.copyright': '© రషెస్ స్టూడియో',
   'rushesAuthShell.footer.privacy': 'గోప్యత',
+  'rushesLayout.closeMenu': 'నావిగేషన్‌ను మూసివేయండి',
   'rushesLayout.guest': 'సంపాదకుడు',
+  'rushesLayout.navDialog': 'నావిగేషన్',
+  'rushesLayout.openMenu': 'నావిగేషన్‌ను తెరవండి',
   'rushesLayout.planFree': 'ఉచిత ప్రణాళిక',
   'rushesLayout.tagline': 'సినిమాటిక్ టైమ్‌లైన్',
   'settings.billing.confirmCancel': 'కాలపరిమితి ముగింపులో సభ్యత్వాన్ని రద్దు చేయాలా?',

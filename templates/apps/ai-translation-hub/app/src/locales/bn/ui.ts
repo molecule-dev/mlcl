@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'billing.canceled':
     'সাবস্ক্রিপশন বাতিল করা হয়েছে। মেয়াদ শেষে আপনি পুনরায় বিনামূল্যে সাবস্ক্রিপশন পাবেন।',
   'billing.contactSales': 'বিক্রয় প্রতিনিধির সাথে যোগাযোগ করুন',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'ধারণের কোনো সীমা নেই',
   'billing.upgradeHint': 'উন্নত এআই ফিচারগুলো আনলক করতে আপগ্রেড করুন।',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.activityEmpty':
     'এখনো কোনো কার্যকলাপ হয়নি — এই ফিডটি পূরণ করতে একটি প্রকল্প শুরু করুন।',
   'dashboard.eyebrow': 'সংক্ষিপ্ত বিবরণ',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'প্রতিটি প্রকল্পে পূর্বের অনুবাদ পুনরায় ব্যবহার করুন। ম্যাচ স্কোর যত বেশি হবে, পুনরায় কাজ করার প্রয়োজন তত কম হবে।',
   'memory.title': 'স্মৃতি ব্যাংক',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'nav.legal': 'আইনি',
   'newProject.addLanguage': 'লক্ষ্য যোগ করুন',
   'newProject.create': 'প্রজেক্ট তৈরি করুন',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'চিহ্নিত {{count}} বিজ্ঞপ্তিগুলো পড়া হয়েছে।',
   'notifications.subtitle':
     'আপনার বিভিন্ন ওয়ার্কস্পেস থেকে আসা মেনশন, রিভিউ রিকোয়েস্ট এবং এআই ইভেন্ট।',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'privacy.collection.account': 'আপনার অ্যাকাউন্টের ইমেল এবং প্রদর্শিত নাম',
   'privacy.deletion.body':
     'আপনি যেকোনো সময় সংশ্লিষ্ট পৃষ্ঠা থেকে একটি প্রজেক্ট, সেগমেন্ট, গ্লসারি টার্ম বা মেমোরি এন্ট্রি মুছে ফেলতে পারেন। সেটিংস থেকে আপনার অ্যাকাউন্ট মুছে ফেললে আমাদের ডেটাবেস থেকে ওয়ার্কস্পেস-ভিত্তিক প্রতিটি সারি মুছে যায়।',
@@ -177,10 +182,12 @@ export const ui: UiTranslations = {
   'projects.loadError': 'প্রজেক্টগুলো লোড করা যায়নি।',
   'projects.loading': 'প্রকল্পগুলি লোড হচ্ছে…',
   'projects.subtitle': 'সকল লোকাল জুড়ে প্রতিটি সক্রিয় প্রকল্প।',
+  'renditionLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'reset.backToLogin': '➡ সাইন ইন করতে ফিরে যান',
   'reset.passwordLabel': 'নতুন পাসওয়ার্ড',
   'review.activeEyebrow': 'সেগমেন্ট {{number}}',
   'review.approve': 'অনুবাদ অনুমোদন করুন',
+  'review.commentsCount': '{{count}} মন্তব্য · {{reviewer}} দ্বারা পর্যালোচিত',
   'review.currentLabel': 'বর্তমান অনুবাদ',
   'review.decisionApproved': 'অনুবাদ অনুমোদিত।',
   'review.decisionRejected': 'অনুবাদটি প্রত্যাখ্যাত হয়েছে।',
@@ -281,6 +288,7 @@ export const ui: UiTranslations = {
   'translate.tmInsertedStatus': 'অনুবাদ মেমরি থেকে সন্নিবেশিত।',
   'translate.untitled': 'শিরোনামহীন প্রকল্প',
   'translationActivityTimeline.empty': 'এখনো কোনো সাম্প্রতিক কার্যকলাপ দেখা যায়নি।',
+  'translationHeroCard.change': '{{sign}} বনাম {{amount}}',
   'translationHeroCard.confidenceLabel': 'এআই আত্মবিশ্বাস',
   'translationHeroCard.label': 'অনূদিত শব্দসমূহ · গত ৩০ দিন',
   'translationStatsQuad.qualityTrend': 'গত মাসের তুলনায় +২.৪',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ikkuntattjana',
+  'about.title': 'Dwar {{app}}',
   'authShell.backToLanding': '← Lura għall-inżul',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
+  'common.retry': "Erġa' pprova",
   'common.yes': '✓',
   'dashboard.eyebrow': 'Illum · Ħarsa ġenerali lejn l-operazzjonijiet',
   'dashboard.heading': 'Intelliġenza tad-dokumenti',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'L-ebda dokument ma jaqbel mal-filtri attwali.',
   'documents.heading': 'Id-dokumenti kollha',
   'documents.loadError': "Ma rnexxiex ittella' d-dokumenti.",
+  'documents.loading': 'Qed tiċċarġja l-librerija…',
   'documents.searchLabel': 'Fittex dokumenti',
   'documents.searchPlaceholder': 'Fittex dokumenti…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Aħbi l-password',
   'login.showPassword': 'Uri l-password',
   'login.subtitle': 'Idħol biex iżżomm id-dokumenti tiegħek għaddejjin.',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'notFound.body':
     "Id-dokument jew ir-rotta li ppruvajt tiftaħ m'għadhiex hawn. Mur lura fid-dashboard jew agħżel sezzjoni mis-sidebar.",
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Iftaħ il-paġna tal-inżul',
   'notFound.title': 'Dik il-paġna mhix fil-fajl',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % meta mqabbel mal-bieraħ',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'Regoli attivi',
   'rules.empty': "Għad m'hemm l-ebda regola għall-iffajljar. Uża Regola ġdida biex iżżid waħda.",
   'rules.eyebrow': 'Awtomazzjoni',
+  'rules.fieldsCount': '{{count}} oqsma',
   'rules.form.destination': 'Iffajlja lil',
   'rules.form.name': 'Isem tar-regola',
   'rules.form.save': 'Salva r-regola',

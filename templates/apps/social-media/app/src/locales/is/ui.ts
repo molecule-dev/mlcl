@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.pageTitle': 'Um {{app}}',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.retry': 'Reyna aftur',
   'compose.cancel': 'Hætta við',
   'compose.captionPlaceholder': 'Hvað liggur þér á hjarta?',
   'compose.heading': 'Deildu augnabliki',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Staðfestur reikningur',
   'resetPassword.newPassword': 'Nýtt lykilorð',
   'resetPassword.subheading': 'Veldu eitthvað sterkt — að minnsta kosti 12 stafi.',
+  'search.clearAria': 'Hreinsa',
+  'search.error': 'Leit mistókst. Reyndu aftur.',
   'search.noPeople': 'Engir skaparar passa við " {{q}} ".',
   'search.noPosts': 'Engar færslur passa við " {{q}} ".',
   'search.noTags': 'Engin vinsæl myllumerki ennþá.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Fela lykilorð',
   'signup.showPassword': 'Sýna lykilorð',
   'signup.subheading': 'Stofnaðu aðgang til að byrja að deila.',
+  'socialMediaLayout.closeMenu': 'Loka flakkvalmynd',
+  'socialMediaLayout.openMenu': 'Opna flakkvalmynd',
+  'socialMediaLayout.primaryNavLabel': 'Aðalflakk',
   'storyRail.heading': 'Sögur',
   'storyRail.label': 'Sögur',
   'storyRail.openAria': 'Opið {{handle}} sagan',

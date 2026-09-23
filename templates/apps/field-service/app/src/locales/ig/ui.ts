@@ -45,6 +45,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Ndị ahịa',
   'customers.loadError': 'Enweghị ike ibu ndị ahịa.',
   'customers.loading': 'Na-ebugo…',
+  'customers.new.address': 'Adreesị ọrụ',
   'customers.new.email': 'Ozi-e',
   'customers.new.error': 'Enweghị ike ịgbakwunye onye ahịa.',
   'customers.new.heading': 'Onye ahịa ọhụrụ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'authShell.brandHeading':
     'வெளிப்படையாகச் சிந்திக்கும் வடிவமைப்பு அணிகளுக்கான பல்பயனர் கேன்வாஸ்கள்.',
   'billing.canceled': 'சந்தா ரத்து செய்யப்பட்டது.',
@@ -74,6 +75,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'வார்ப்புருவிலிருந்து தொடங்குங்கள்',
   'boards.title': 'உங்கள் பலகைகள்',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'உங்கள் பணிச்சூழலுடன் இணைக்கப்பட்ட மின்னஞ்சலை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'ஒழுங்கற்ற, ஆக்கப்பூர்வமான, நேருக்கு நேர் சிந்தனைக்காக உருவாக்கப்பட்டது.',
   'landing.demoBoard.title': 'Q1 பயிலரங்கம் · பிராண்ட் குரல்',
   'landing.featuresTitle': 'விரைவான பின்னூட்டம். அழகான கேன்வாஸ்கள். சிரமமே இல்லை.',
+  'landing.hero.body':
+    'வடிவமைப்புக் குழுக்கள், பயிலரங்க ஒருங்கிணைப்பாளர்கள் மற்றும் நேரலைக் கலந்துரையாடல்களை நடத்தி, புதிய யோசனைகளை ஒரே இடத்தில் திரட்ட விரும்பும் கல்வியாளர்களுக்கான ஒரு பல்பயனர் ஒயிட்போர்டு தான் {{appName}} .',
   'landing.hero.primaryCta': 'இலவசமாக ஒரு குழுவைத் தொடங்குங்கள்',
   'landing.hero.socialProof': 'நம்பகமான {{count}} உலகெங்கிலும் உள்ள வடிவமைப்பு குழுக்கள்',
   'landing.hero.title': 'உங்கள் எண்ணங்களின் வேகத்திற்கு நிகரான ஒரு கேன்வாஸ்',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'ஒரு இலவசப் பணியிடத்தை உருவாக்குங்கள்',
   'login.subheading':
     'பயிற்சிப் பட்டறை விட்ட இடத்திலிருந்து தொடருங்கள் — பலகைகள், ஒட்டும் குறிப்புகள் மற்றும் சுட்டிக்கருவிகள் அனைத்தும் நிகழ் நேரத்தில் ஒத்திசைக்கப்படுகின்றன.',
+  'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'mobileNav.new': 'புதிய',
+  'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'notifications.editTitle': '"க்கான திருத்தங்கள் {{board}} "',
   'notifications.empty.body':
     'அழைப்பிதழ்கள், ஸ்னாப்ஷாட் சேமிப்புகள் மற்றும் சமீபத்திய போர்டு திருத்தங்கள் ஆகியவை நிகழும்போது இங்கே தோன்றும்.',
@@ -176,6 +183,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'பதிப்பு வரலாறு',
   'versionHistory.untitledSnapshot': 'தலைப்பிடப்படாத ஸ்னாப்ஷாட்',
   'whiteboardLayout.newBoard': 'புதிய வாரியம்',
+  'whiteboardLayout.primaryNav': 'முதன்மை வழிசெலுத்தல்',
   'workspace.boardLabel': 'வாரியம்',
   'workspace.eyebrow': '{{name}} பணியிடம்',
   'workspace.invite': 'ஒத்துழைப்பாளர்களை அழைக்கவும்',

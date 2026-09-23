@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'authShell.brandHeading': 'Vairāku spēlētāju audekli dizaina komandām, kas domā skaļi.',
   'billing.canceled': 'Abonements ir atcelts.',
   'billing.cancelPlan': 'Atcelt plānu',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'billing.usage.collaborators': 'Sadarbības partneri',
   'billing.usageOf': 'no {{max}} iekļauts',
   'boardCanvas.backToBoards': 'Visi dēļi',
+  'boardCanvas.changeColor': 'Mainīt krāsu {{color}}',
   'boardCanvas.deleteElement': 'Dzēst elementu',
   'boardCanvas.deselect': 'Noņemt atlasi',
   'boardCanvas.elementsCount': '{{count}} elementi',
@@ -70,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Sākt no veidnes',
   'boards.title': 'Jūsu dēļi',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Ievadiet e-pasta adresi, kas saistīta ar jūsu darba vietu, un mēs nosūtīsim atiestatīšanas saiti.',
@@ -81,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1. ceturkšņa seminārs · Zīmola balss',
   'landing.featuresEyebrow': 'Kas padara Slate mozaīku',
   'landing.featuresTitle': 'Ātra atgriezeniskā saite. Skaisti audekli. Nulle berzes.',
+  'landing.hero.body':
+    '{{appName}} ir vairāku spēlētāju baltā tāfele dizaina komandām, semināru vadītājiem un pedagogiem, kuri vada tiešraides prāta vētras un kuriem idejas ir jāapvieno vienuviet.',
   'landing.hero.primaryCta': 'Izveidojiet dēli bez maksas',
   'landing.hero.socialProof': 'Uzticams {{count}} dizaina komandas visā pasaulē',
   'landing.hero.title': 'Audekls tikpat ātrs kā tavas domas',
@@ -91,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Izveidojiet bezmaksas darba vietu',
   'login.subheading':
     'Turpiniet semināru no vietas, kur tas tika pārtraukts — tāfeles, piezīmju lapiņas un kursori tiek sinhronizēti reāllaikā.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.new': 'Jauns',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'notifications.editTitle': 'Labojumi sadaļā " {{board}} "',
   'notifications.empty.body':
     'Ielūgumi, saglabātie momentuzņēmumi un nesen veiktie dēļa labojumi tiks parādīti šeit, tiklīdz tie tiks veikti.',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versiju vēsture',
   'versionHistory.untitledSnapshot': 'Bez nosaukuma momentuzņēmums',
   'whiteboardLayout.newBoard': 'Jauna valde',
+  'whiteboardLayout.primaryNav': 'Galvenā navigācija',
   'workspace.boardLabel': 'Valde',
   'workspace.eyebrow': '{{name}} · darba vieta',
   'workspace.invite': 'Uzaicināt līdzstrādniekus',

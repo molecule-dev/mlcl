@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
   'authBrandPanel.quote':
     '„Mostantól a Vellum a nyilvántartási rendszerünk minden aláírt megállapodáshoz.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'contractDetail.amount': 'Érték',
   'contractDetail.back': 'Minden szerződés',
   'contractDetail.downloadCta': 'PDF letöltése',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Ha létezik fiókja a {{email}} címen, hamarosan megkapja a jelszó-visszaállítási linket.',
   'forgotPassword.subtitle': 'Küldünk egy visszaállítási linket a munkahelyi e-mail címére.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. A Molecule segítségével készült.',
   'landing.ctaHeading': 'Láthatja portfóliója zárását már az első napon.',
   'landing.ctaPrimary': 'Munkaterület indítása',
   'landing.eyebrow': 'Jogi műveletekhez és beszerzéshez',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'A partner nevének megadása kötelező.',
   'newContract.errEmail': 'Az aláíró e-mail címének megadása kötelező.',
   'newContract.expires': 'Lejárati idő',
+  'newContract.failed': 'Nem sikerült létrehozni a szerződést.',
   'newContract.heading': 'Új szerződés',
   'newContract.nextCta': 'Következő',
   'newContract.review.counterparty': 'Partner',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Szerződés címe',
   'newContract.titlePlaceholder': 'Keretszolgáltatási Szerződés',
   'newContract.variablesHeading': 'Szerződésváltozók',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.dataExport': 'Adatexport',
   'pricing.disabled': 'Nem',
   'pricing.enabled': 'Igen',
@@ -145,15 +151,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Nem sikerült törölni a fiókot.',
   'settings.security.deleting': 'Törlés…',
   'settings.security.newPassword': 'Új jelszó',
+  'settings.security.noDevices': 'Nincs regisztrált eszköz.',
   'settings.security.twoFactor': 'Kétfaktoros hitelesítés',
   'settings.security.twoFactorDisable': 'Letiltás',
   'settings.security.twoFactorEnable': 'Engedélyezés',
+  'settings.security.twoFactorInvalidCode': 'Érvénytelen kód.',
   'settings.signatures.body':
     'A begépelt neved minden aláírt szerződés aláírássorában megjelenik. Ha egyszer beállítod, a továbbiakban automatikusan megjelenik.',
   'settings.signatures.heading': 'Aláírás blokk',
   'settings.signatures.save': 'Aláírás mentése',
+  'sign.action': 'Írja alá ezt a dokumentumot',
+  'sign.eyebrow': 'Aláírás szükséges',
+  'sign.for': '{{name}} számára',
+  'sign.loadError': 'Ez az aláírási link érvénytelen vagy lejárt.',
   'sign.loading': 'Betöltés…',
   'sign.signing': 'Aláírás…',
+  'sign.submitError':
+    'Nem sikerült rögzíteni az aláírását — lehetséges, hogy a link érvényessége lejárt.',
   'signup.brandQuote':
     'Egy hét alatt 8 évnyi papírt migráltunk a Vellumba. Már önmagában az auditnapló is indokolja a cserét.',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -188,6 +202,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Nyitott szerződés →',
   'vellumKpiCard.trend': 'Legújabb trend',
+  'vellumLayout.closeMenu': 'A navigációs menü bezárása',
+  'vellumLayout.openMenu': 'Navigációs menü megnyitása',
   'vellumLayout.primaryNavLabel': 'Elsődleges navigáció',
   'vellumPortfolioHero.expiring': 'Lejár 30 nap múlva',
   'vellumPortfolioHero.label': 'Portfólió értéke',

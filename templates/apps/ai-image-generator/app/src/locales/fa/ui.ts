@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'auth.fields.newPassword': 'رمز عبور جدید',
   'collectionDetail.addImage': 'برای جمع آوری دعا کنید',
   'collectionDetail.backCta': 'بازگشت به مجموعه‌ها',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'تابلوهای خلق و خو، خلاصه‌ها و مجموعه‌های در حال انجام',
   'collections.title': 'مجموعه‌ها',
   'collections.untitled': 'بدون عنوان · {{stamp}}',
+  'common.closeMenu': 'بستن منو',
+  'common.dismiss': 'رد کردن',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.openMenu': 'منوی ناوبری را باز کنید',
   'credits.eyebrow': '{{plan}} طرح',
   'credits.renewsCopy': 'طرح تمدید می‌شود {{date}}',
   'credits.trail': 'خیال‌پردازی · {{plan}} ردیف',
@@ -132,6 +137,7 @@ export const ui: UiTranslations = {
     'هشدارهای مربوط به فعالیت تولید، اشتراک‌گذاری و اعتبار در اینجا نمایش داده می‌شوند.',
   'notifications.empty.title': 'چیزی برای گزارش دادن وجود ندارد',
   'notifications.subtitle': 'رویدادهای نسلی بر اساس روز گروه‌بندی شده‌اند',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.limits.gallery': '{{count}} گالری',
   'privacy.collect.body':
     'هنگام ثبت‌نام، ما نام، آدرس ایمیل و رمز عبور هش‌شده شما را جمع‌آوری می‌کنیم. هنگام استفاده از Reverie، ما درخواست‌هایی را که ارسال می‌کنید، تصاویری که برای شما تولید می‌کنیم، سبک‌ها و مجموعه‌هایی که ذخیره می‌کنید و ابرداده‌هایی مانند مدل استفاده شده، مهرهای زمانی تولید و موجودی اعتبار را ذخیره می‌کنیم.',
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'ذخیره رمز عبور جدید',
   'reset.submitting': 'در حال به‌روزرسانی رمز عبور…',
   'settings.account.handle': 'دسته',
+  'settings.account.lastSaved': 'نمایه فعال · {{name}}',
   'settings.account.saved': 'پروفایل ذخیره شد',
   'settings.account.saveFailed': 'پروفایل ذخیره نشد',
   'settings.account.title': 'مشخصات خالق',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'تصویر جدید',
   'sidebar.secondary': 'ناوبری ثانویه',
   'signup.failed': 'ثبت نام ناموفق بود. دوباره امتحان کنید.',
+  'signup.firstNamePlaceholder': 'آریا',
   'signup.heading': 'خیال‌پردازی خود را آغاز کنید',
+  'signup.lastNamePlaceholder': 'لین',
   'signup.subheading': 'یک حساب کاربری ایجاد کنید و 120 اعتبار رایگان دریافت کنید.',
   'styles.empty':
     'هنوز هیچ پیش‌تنظیمی برای سبک وجود ندارد - آنها پس از اولین ورود به سیستم ظاهر می‌شوند.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'accountSettings.confirmEmailLabel': 'Potvrďte stlačením klávesu DELETE',
   'accountSettings.deleteError': 'Účet sa nepodarilo odstrániť.',
   'accountSettings.passwordError': 'Heslo sa nepodarilo zmeniť.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Žiadne najbližšie termíny.',
   'dashboard.upcomingTitle': 'Nadchádzajúce termíny',
   'deviceSettings.unknownDevice': 'Neznáme zariadenie',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Podpora',
   'forgotPassword.error': 'Odoslanie odkazu na obnovenie zlyhalo.',
   'forgotPassword.subtitle': 'Zadajte svoj e-mail a my vám pošleme odkaz na obnovenie.',
@@ -68,6 +70,9 @@ export const ui: UiTranslations = {
   'login.error': 'Neplatná e-mailová adresa alebo heslo.',
   'login.pageTitle': 'Prihlásiť sa',
   'login.signIn': 'Prihláste sa do Forge',
+  'login.subtitle': 'Prihláste sa, aby ste mali svoje projekty pod kontrolou',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'nav.calendar': 'Kalendár',
   'nav.legal': 'Právne',
   'nav.myTasks': 'My Tasks',

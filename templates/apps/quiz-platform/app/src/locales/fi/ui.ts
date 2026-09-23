@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.title': 'Tietoa {{app}}sta',
   'auth.login.noAccount': 'Uusi Sparqissa?',
   'auth.login.or': 'tai jatka käyttäen',
   'auth.signup.or': 'tai rekisteröidy',
+  'common.confirm': 'Vahvistaa',
+  'common.goToDashboard': 'Siirry etusivulle',
+  'common.loadError': 'Tämän sisällön lataamisessa tapahtui virhe.',
+  'common.retry': 'Yritä uudelleen',
   'discover.collections.title': 'Selaa luokittain',
   'discover.collections.viewAll': 'Katso kirjastosi →',
   'discover.empty.body': 'Kokeile toista luokkaa tai tyhjennä hakukenttä.',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Kirjaudu sisään pitääksesi voittoputkesi käynnissä, isännöidäksesi live-pelejä ja kiivetäksesi tulostaulukossa.',
   'myQuizzes.createButton': 'Uusi tietokilpailu',
+  'myQuizzes.deleteConfirm': 'Poistetaanko pysyvästi?',
   'myQuizzes.empty.createCta': 'Rakenna ensimmäinen tietokilpailusi →',
   'myQuizzes.empty.created': 'Et ole vielä rakentanut tietokilpailua.',
   'myQuizzes.empty.played': 'Ei vielä julkaistuja tietokilpailuja.',
@@ -77,7 +84,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ladataan…',
   'notifications.subhead':
     '{{count}} lukemattomia kipinöitä. Kutsut, tulostaulukon siirrot ja saavutukset – kaikki yhdessä virrassa.',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.checkoutError': 'Kassaa ei voitu käynnistää. Yritä uudelleen.',
+  'pricing.heading': 'Valitse {{app}}-pakettisi',
   'pricing.included': 'Mukana',
   'pricing.loadError': 'Suunnitelmia ei voitu ladata.',
   'pricing.maxQuizzes': '{{count}} tietokilpailut',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Mitään ei ole vielä julkaistu.',
   'profile.startBuilding': 'Aloita rakentaminen →',
   'profile.tier': 'Sparq-pelaaja',
+  'quizBuilder.addFailed': 'Kysymystä ei voitu lisätä. Yritä uudelleen.',
   'quizBuilder.addQuestion': 'Lisää kysymys',
   'quizBuilder.answerPlaceholder': 'Kirjoita vaihtoehto…',
   'quizBuilder.answersLabel': 'Vastausvaihtoehdot',
   'quizBuilder.back': 'Takaisin omiin tietokilpailuihini',
   'quizBuilder.delete': 'Poista kysymys',
+  'quizBuilder.deleteFailed': 'Kysymystä ei voitu poistaa.',
   'quizBuilder.firstQuestion': 'Lisää ensimmäinen kysymyksesi aloittaaksesi.',
   'quizBuilder.idLabel': 'Tietovisan tunnus: {{id}}',
   'quizBuilder.loadError': 'Visan lataaminen epäonnistui.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Lisää vähintään kaksi vastausvaihtoehtoa ja valitse niistä oikea {{count}} kysymys(iä) ennen julkaisua.',
   'quizBuilder.questionsTitle': 'Kysymykset',
+  'quizBuilder.saveFailed': 'Otsikkoa ei voitu tallentaa. Yritä uudelleen.',
   'quizBuilder.statusDraft': 'Luonnos',
   'quizBuilder.subhead':
     'Muokkaa otsikkoa, lisää kysymyksiä, aseta vaihtoehdot ja oikea vastaus. Muutokset tallentuvat automaattisesti.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Isännöi moninpeliä',
   'quizDetail.leaderboardEmpty': 'Ei vielä näytelmiä – ole ensimmäinen, joka tekee pisteet.',
+  'quizDetail.loadError': 'Tämän visan lataaminen epäonnistui.',
   'quizDetail.loading': 'Tietovisaa ladataan…',
   'quizDetail.plays': '{{count}} näytelmiä',
   'quizDetail.playSolo': 'Pelaa yksin',

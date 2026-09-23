@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Formueværktøjer',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ikke investeringsrådgivning.',
   'argentAuthShell.sampleChange': '+2.841 USD (+0,28%) i dag',
   'argentAuthShell.sampleValue': '1.032.251 dollars',
   'argentLayout.primaryNavLabel': 'Primær navigation',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Ingen transaktioner for denne ticker.',
   'assetDetail.txHeading': 'Dine transaktioner',
   'common.and': 'og',
+  'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Porteføljeoversigt',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Ingen beholdninger endnu.',
   'holdings.heading': 'Beholdninger',
   'holdings.loadError': 'Kunne ikke indlæse holdinger.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Ikke investeringsrådgivning. Tidligere resultater er ikke en garanti for fremtidige resultater.',
   'landing.eyebrow': 'Argent · En platform til formueopbygning',
   'landing.features.heading': 'Alt hvad en rådgiver ville bygge for sig selv.',
   'landing.finalCta.heading': 'Få disciplinen tilbage i din portefølje.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}t siden',
   'news.justNow': 'lige nu',
   'news.loadError': 'Kunne ikke indlæse nyheder.',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'portfolioHeroCard.label': 'Porteføljeværdi',
   'pricing.holdingsLabel': 'beholdninger',
   'pricing.newsLabel': 'nyhedsartikler',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Slet konto',
   'settings.security.deleting': 'Sletter…',
   'settings.security.heading': 'Sikkerhed',
+  'settings.security.newPassword': 'Ny adgangskode',
   'settings.security.password': 'Adgangskode',
   'settings.security.twoFactorEnable': 'Aktivér',
+  'settings.security.twoFactorInvalidCode': 'Ugyldig kode',
+  'settings.security.twoFactorVerify': 'Bekræft og aktiver',
   'settings.tax.error': 'Skattemetoden kunne ikke opdateres.',
   'settings.tax.heading': 'Skattepartiregnskab',
   'settings.tax.method': 'Standardmetode',

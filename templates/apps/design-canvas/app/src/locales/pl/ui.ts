@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'authShell.brandHeading':
     'Pikselowo dopracowane kanwy dla zespołów projektowych, które wydają razem.',
   'canvas.redirecting': 'Otwieranie edytora…',
   'collaboratorStack.overflow': '+{{count}}',
   'common.and': 'i',
+  'common.goToDashboard': 'Przejdź do panelu',
+  'common.retry': 'Spróbuj ponownie',
   'dashboard.activityEmpty':
     'Brak ostatniej aktywności — proszę zaprosić kolegę z zespołu, aby rozpocząć.',
   'dashboard.activityTitle': 'Co się zmieniło dzisiaj',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Przestrzeń robocza · Northwind Studio',
   'dashboard.foldersLabel': 'Foldery',
   'dashboard.gridTitle': '{{count}} projektów',
+  'dashboard.heroActiveTool': 'Narzędzie pióra',
   'dashboard.loadingTitle': 'Wczytywanie projektów…',
   'dashboard.searchPlaceholder': 'Szukaj projektów',
   'dashboard.startFromTemplate': 'Zacznij od szablonu',
   'dashboard.title': 'Pana/Pani projekty',
   'dashboard.untitledProject': 'Projekt bez tytułu',
   'designCanvasLayout.newProject': 'Nowy projekt',
+  'designCanvasLayout.primaryNavLabel': 'Nawigacja główna',
   'editor.backToProjects': 'Powrót do projektów',
   'editor.deleteShape': 'Usuń kształt',
   'editor.errorBody': 'Nie udało się otworzyć tego projektu.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Narzędzia projektowe poruszające się w rytmie Pana/Pani rąk',
   'library.empty': 'Brak tokenów w tej sekcji.',
   'library.eyebrow': 'Przestrzeń robocza · System projektowy Atelier',
+  'library.loadFailed': 'Nie można załadować tokenów projektu.',
   'library.systemMeta': 'Stan systemu',
   'library.systemSummary': '{{tokens}} tokenów · {{components}} komponentów · {{effects}} efektów',
   'login.emailPlaceholder': 'mara@studio.com',

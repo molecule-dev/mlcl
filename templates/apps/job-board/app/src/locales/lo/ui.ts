@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບພວກເຮົາ',
   'applications.empty': 'ຍັງບໍ່ມີໃບສະໝັກເທື່ອ \\u2014 ຕຳແໜ່ງທີ່ເໝາະສົມແມ່ນສະໝັກຄົນດຽວເທົ່ານັ້ນ.',
   'applications.eyebrow': 'ທໍ່ສົ່ງຂອງທ່ານ',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ທຸກໆບົດບາດທີ່ທ່ານໄດ້ສະໝັກ, ກຳລັງເຄື່ອນໄຫວ. ກັ່ນຕອງຕາມຂັ້ນຕອນເພື່ອສຸມໃສ່.',
   'applications.untitledRole': 'ຕຳແໜ່ງທີ # {{id}}',
+  'auth.legalConsent': 'ໂດຍການດຳເນີນການຕໍ່, ທ່ານຍອມຮັບ',
   'common.and': 'ແລະ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'companies.empty': 'ບໍ່ມີບໍລິສັດໃດກົງກັບການຄົ້ນຫາຂອງທ່ານ \\u2014 ລອງໃຊ້ຄຳສັບອື່ນ.',
   'companies.eyebrow': 'ນາຍຈ້າງທີ່ໂດດເດັ່ນ',
   'companies.searchPlaceholder': 'ຄົ້ນຫາຕາມຊື່, ອຸດສາຫະກຳ, ສະຖານທີ່',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ຍັງບໍ່ມີໃບສະໝັກສຳລັບຕຳແໜ່ງນີ້ເທື່ອ.',
   'jobApplicants.eyebrow': 'ມຸມມອງຂອງນາຍຈ້າງ',
   'jobApplicants.loading': 'ກຳລັງໂຫຼດ\\u2026',
+  'jobApplicants.statusUpdateFailed': 'ບໍ່ສາມາດອັບເດດຂັ້ນຕອນນັ້ນໄດ້ — ລອງໃໝ່ອີກຄັ້ງ.',
+  'jobApplicants.subheading':
+    'ກວດສອບຊີວະປະຫວັດ, ສະໝັກຜູ້ສະໝັກລ່ວງໜ້າ, ສົ່ງຂໍ້ສະເໜີ \\u2014 {{count}} ທີ່ກຳລັງດຳເນີນການ.',
   'jobDetail.applicantCount': '{{count}} ຜູ້ສະໝັກມາຮອດປະຈຸບັນ',
   'jobDetail.applied': 'ສົ່ງໃບສະໝັກແລ້ວ',
   'jobDetail.apply': 'ສະໝັກດຽວນີ້',
@@ -82,12 +88,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ເລືອກເບິ່ງບົດບາດທີ່ຍັງຫວ່າງຢູ່ \\u2192',
   'landing.pricingEyebrow': 'ລາຄາ',
   'landing.pricingHeading': 'ແຜນການງ່າຍໆສຳລັບທຸກຂະໜາດຂອງທີມ.',
+  'login.eyebrow': 'ຍິນດີຕ້ອນຮັບກັບຄືນສູ່ {{app}}',
   'login.heading': 'ເຂົ້າສູ່ລະບົບບັນຊີຂອງທ່ານ',
   'login.noAccount': 'ຫາກໍ່ຮູ້ຈັກ Nosh ບໍ?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'ຈື່ຂ້ອຍໄວ້ເປັນເວລາ 30 ມື້',
   'login.signingIn': 'ກຳລັງເຂົ້າສູ່ລະບົບ...',
   'login.subheading': 'ເລືອກການຄົ້ນຫາຂອງທ່ານ, ພັດທະນາແອັບພລິເຄຊັນຂອງທ່ານ, ແລະ ຮັບຄຳຕອບໄວຂຶ້ນ.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . ສ້າງຂຶ້ນສຳລັບທີມງານທີ່ກຳລັງຮັບສະໝັກ.',
   'loginBrandPanel.headline': 'ບ່ອນທີ່ພອນສະຫວັນພົບກັນ',
   'loginBrandPanel.headlineLine2': 'ຈັງຫວະ.',
   'loginBrandPanel.listing.recruiter': 'ຄູ່ຮ່ວມງານດ້ານພອນສະຫວັນ',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': 'ການອັບເດດໃບສະໝັກ, ການເຊີນສຳພາດ, ການຈັບຄູ່ໃໝ່ \\u2014 ໃໝ່ສຸດກ່ອນ.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ອາທິດນີ້',
   'opportunitiesHero.eyebrow': 'ເປີດມື້ນີ້',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'postJob.addNewCompany': '+ ເພີ່ມບໍລິສັດໃໝ່',
   'postJob.companyCreateFailed': 'ບໍ່ສາມາດສ້າງບໍລິສັດໄດ້ — ລອງໃໝ່ອີກຄັ້ງ.',
   'postJob.companyNameLabel': 'ຊື່ບໍລິສັດຂອງທ່ານ',
@@ -159,9 +168,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'ກຳລັງສ້າງບັນຊີ\\u2026',
   'signup.ctaEmployer': 'ສ້າງບັນຊີນາຍຈ້າງ',
   'signup.firstNamePlaceholder': 'ມາຢາ',
+  'signup.lastNamePlaceholder': 'ເຊນ',
   'signup.passwordMismatch': 'ລະຫັດຜ່ານບໍ່ກົງກັນ.',
   'signup.subheading': 'ຟຣີສຳລັບຜູ້ຊອກຫາວຽກ, ຕະຫຼອດໄປ. ນາຍຈ້າງເລີ່ມຕົ້ນດ້ວຍການທົດລອງໃຊ້ 30 ມື້.',
   'timeAgo.days': '{{count}} ມື້ກ່ອນ',
   'timeAgo.hours': '{{count}} ຊົ່ວໂມງກ່ອນ',
   'timeAgo.justNow': 'ຫາກໍ່',
+  'timeAgo.weeks': '{{count}} ອາທິດກ່ອນ',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'about.pageTitle': 'Om {{appName}}',
   'analytics.empty': 'Spela in ditt första klipp för att se engagemang här.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipp',
   'billing.usage.views': 'Visningar',
   'billing.usage.views.unit': 'visningar',
+  'common.goToDashboard': 'Gå till översikt',
   'landing.cta.title': 'Skicka bättre feedback. Börja med Glint.',
   'landing.feature.capture.body':
     'Inspelning från webbläsare, dator och mobil med mikrofon, kamera och ritning.',
   'landing.feature.capture.title': 'Inspelning med ett tryck',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asynkron, gjord självlysande.',
   'landing.hero.cardCaption': 'Översikt av exempelarbetsyta — prova gratis.',
   'landing.hero.primaryCta': 'Börja spela in gratis',
   'landing.hero.proof.free': 'Gratis för alltid-nivå',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Sök inspelningar',
   'library.searchPlaceholder': 'Sök inspelningar…',
   'library.weeklyChange': '{{value}} % mot förra veckan',
+  'nav.openMenu': 'Öppna navigeringsmenyn',
   'nav.record': 'Spela in',
   'nav.shared': 'Delat med mig',
   'nav.startRecording': 'Starta inspelning',

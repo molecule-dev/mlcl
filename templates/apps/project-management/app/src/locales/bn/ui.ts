@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'accountSettings.confirmEmailLabel': 'নিশ্চিত করতে DELETE টাইপ করুন',
   'accountSettings.deleteError': 'অ্যাকাউন্টটি মুছে ফেলা সম্ভব হয়নি।',
   'accountSettings.passwordError': 'পাসওয়ার্ড পরিবর্তন করা যায়নি।',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'আসন্ন কোনো সময়সীমা নেই।',
   'dashboard.upcomingTitle': 'আসন্ন সময়সীমা',
   'deviceSettings.unknownDevice': 'অজানা ডিভাইস',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'সমর্থন',
   'forgotPassword.error': 'রিসেট লিঙ্ক পাঠানো সম্ভব হয়নি।',
   'forgotPassword.subtitle': 'আপনার ইমেল দিন এবং আমরা আপনাকে একটি রিসেট লিঙ্ক পাঠিয়ে দেব।',
@@ -67,6 +69,9 @@ export const ui: UiTranslations = {
   'login.error': 'অবৈধ ইমেল বা পাসওয়ার্ড।',
   'login.pageTitle': 'সাইন ইন করুন',
   'login.signIn': 'ফোর্জে সাইন ইন করুন',
+  'login.subtitle': 'আপনার প্রকল্পগুলির অগ্রগতি বজায় রাখতে সাইন ইন করুন।',
+  'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'nav.calendar': 'ক্যালেন্ডার',
   'nav.legal': 'আইনি',
   'nav.myTasks': 'আমার কাজ',

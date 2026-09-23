@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'about.pageTitle': 'વિશે {{name}}',
   'auth.footer.about': 'વિશે {{name}}',
   'authHeader.subtitle': 'તમારા નંબરો પ્રમાણિક રાખવા માટે સાઇન ઇન કરો.',
   'automations.action.email': 'ઇમેઇલ',
+  'automations.action.noop': 'નો-ઓપ',
   'automations.action.webhook': 'વેબહૂક',
   'automations.confirmDelete': 'કાઢી નાખો " {{name}} "?',
   'automations.empty.headline': 'હજુ સુધી કોઈ ઓટોમેશન નથી',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'દરેક વર્કબુકમાં ટ્રિગર્સ અને ક્રિયાઓ. દરેક રન એક પંક્તિને લોગ કરે છે જે તમે પછીથી ઑડિટ કરી શકો છો.',
   'automations.toggle': 'ટૉગલ કરો {{name}}',
+  'automations.trigger.dailySchedule': 'દૈનિક સમયપત્રક',
+  'automations.trigger.rowCreated': 'પંક્તિ બનાવી',
+  'automations.trigger.rowUpdated': 'પંક્તિ અપડેટ કરી',
   'billing.empty': 'કોઈ યોજના ઉપલબ્ધ નથી.',
   'billing.error.priceMissing':
     'આ સ્તર માટે કોઈ સ્ટ્રાઇપ કિંમત ગોઠવેલ નથી. STRIPE_*_PRICE_ID env vars સેટ કરો.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'ચાર્ટ્સ',
   'charts.kpi.totalCharts': 'કુલ ચાર્ટ',
   'charts.list.empty': 'હજુ સુધી કોઈ ચાર્ટ નથી.',
+  'charts.namePlaceholder': 'આવકનો ટ્રેન્ડ',
   'charts.newChart': 'નવો ચાર્ટ',
   'charts.primary.eyebrow': 'પ્રકાર દ્વારા ચાર્ટ્સ',
   'charts.primary.headline': 'કાર્યસ્થળનો ઝાંખી',
   'charts.subhead':
     'તમારા ગ્રીડ સાથે જોડાયેલા લાઇવ વિઝ્યુલાઇઝેશન - દરેક સેલ એડિટ પર ફરીથી રેન્ડર કરો.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'editor.addColumn': 'કૉલમ ઉમેરો',
+  'editor.addDialogTitle': 'કૉલમ ઉમેરો',
   'editor.addRow': 'પંક્તિ ઉમેરો',
   'editor.addSheet': 'શીટ ઉમેરો',
   'editor.back': 'વર્કબુક પર પાછા',
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} . કેલ્સાઇટ એ ફોર્મ્યુલા-ફર્સ્ટ, મલ્ટી-વ્યૂ, રીઅલ-ટાઇમ ગ્રીડ વિશ્લેષકો અને ફાઇનાન્સ ટીમો પ્રથમ સ્થાને પહોંચે છે.',
   'landing.nav.formulas': 'સૂત્રો',
+  'login.noAccount': '{{name}} માં નવા છો?',
+  'login.signIn': '{{name}} માં સાઇન ઇન કરો',
   'login.signUp': 'કાર્યસ્થળ બનાવો',
+  'nav.menu': 'મેનુ',
+  'nav.openMenu': 'મેનુ ખોલો',
   'notFound.cellRef': '#સંદર્ભ!',
   'notFound.formula': '=લુકઅપ(REQUEST.url, "રૂટ્સ", "પૃષ્ઠ")',
   'notFound.headline': 'આ પંક્તિ ક્યારેય અસ્તિત્વમાં નહોતી.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'મૂળ ઓટોમેશન · વેબહૂક અને ક્રોન ટ્રિગર્સ',
   'signup.creating': 'કાર્યસ્થળની જોગવાઈ કરી રહ્યું છે…',
   'signup.cta': 'મારું કાર્યસ્થળ બનાવો',
+  'signup.haveAccount': 'પહેલેથી જ {{name}} પર છો?',
   'signup.namePlaceholder': 'એવરી ચેન',
   'signup.tagline': '30 સેકન્ડમાં તમારી પહેલી વર્કબુક ફેરવો',
   'team.col.activity': 'આમંત્રિત',

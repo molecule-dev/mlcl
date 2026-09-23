@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.pageTitle': 'Par {{app}}',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'common.retry': 'Mēģināt vēlreiz',
   'compose.cancel': 'Atcelt',
   'compose.captionPlaceholder': 'Kas tev ir prātā?',
   'compose.heading': 'Dalieties mirklī',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Verificēts konts',
   'resetPassword.newPassword': 'Jauna parole',
   'resetPassword.subheading': 'Izvēlies kaut ko spēcīgu — vismaz 12 rakstzīmes.',
+  'search.clearAria': 'Skaidrs',
+  'search.error': 'Meklēšana neizdevās. Mēģiniet vēlreiz.',
   'search.noPeople': 'Nav atbilstošu veidotāju. {{q}} ".',
   'search.noPosts': 'Nav atbilstošu ierakstu " {{q}} ".',
   'search.noTags': 'Vēl nav populāru heštegu.',
@@ -125,6 +131,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Paslēpt paroli',
   'signup.showPassword': 'Rādīt paroli',
   'signup.subheading': 'Izveidojiet kontu, lai sāktu kopīgošanu.',
+  'socialMediaLayout.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'socialMediaLayout.openMenu': 'Atvērt navigācijas izvēlni',
+  'socialMediaLayout.primaryNavLabel': 'Galvenā navigācija',
   'storyRail.heading': 'Stāsti',
   'storyRail.label': 'Stāsti',
   'storyRail.openAria': 'Atvērt {{handle}} stāsts',

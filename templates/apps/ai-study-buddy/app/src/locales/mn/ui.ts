@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Төлөвлөгөөний мэдээллийг ачаалж байна…',
   'billing.popular': 'Хамгийн их хайртай',
   'billing.subtitle': 'Өөрийн суралцах хэмнэлд тохирсон төлөвлөгөөг сонгоорой.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.today': 'Өнөөдөр',
   'common.yesterday': 'Өчигдөр',
   'courseDetail.empty.body': 'Энэ сэдвийг эзэмшиж эхлэхийн тулд судалгааны материал нэмнэ үү.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Тавцангийн нэр',
   'flashcards.subtitle': 'Таны хурдад тохируулан зайтай давталт хийх.',
   'flashcards.title': 'Флаш картууд',
+  'footer.copyright': '© {{year}} {{app}} . Сайн сур, сайн унт.',
   'forgotPassword.subtitle':
     'Имэйл хаягаа оруулна уу, бид танд дахин тохируулах холбоос илгээх болно.',
+  'koanLayout.closeMenu': 'Цэсийг хаах',
+  'koanLayout.navLabel': 'Үндсэн навигаци',
+  'koanLayout.openMenu': 'Цэсийг нээх',
   'koanLayout.theme': 'Сэдэв',
   'landing.featuresBody':
     'Анхаарал сарниулахыг арилгах, удаан хугацааны ойлголтыг бий болгоход зориулагдсан хэрэгслүүд.',
@@ -116,11 +121,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Энэ URL нь тодорхойгүй газар нутаг юм. Магадгүй бичгийн алдаа, магадгүй устгасан хичээл байж магадгүй - ямар ч байсан та бүхнийг судалгаандаа эргэн оръё.',
   'notFound.heading': 'Хуудас олдсонгүй.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Та бүгдийг нь дуусгалаа',
   'notifications.filter.${opt}': 'Мэдэгдлүүдийг ачаалж байна…',
   'notifications.markAllError': 'Бүгдийг нь уншсан гэж тэмдэглэж чадсангүй.',
   'notifications.markError': 'Уншсан гэж тэмдэглэж чадсангүй.',
   'notifications.subtitle': '{{count}} уншаагүй шинэчлэлтүүд',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.heading': 'асуулт хариулт',
   'pricing.limits.topics': 'сэдвүүд',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Өөр түлхүүр үг эсвэл шүүлтүүр туршиж үзнэ үү.',
   'search.empty.title': 'Юу ч таарсангүй.',
   'search.error': 'Илэрцийг ачаалж чадсангүй.',
+  'search.filters': 'Үр дүнгийн төрлийн шүүлтүүрүүд',
   'search.go': 'Явах',
   'search.label.flashcard': 'Флаш картын тавцан',
   'search.label.note': 'Тэмдэглэл',

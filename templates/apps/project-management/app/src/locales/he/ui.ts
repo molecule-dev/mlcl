@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'accountSettings.confirmEmailLabel': 'הקלד DELETE כדי לאשר',
   'accountSettings.deleteError': 'לא ניתן היה למחוק את החשבון.',
   'accountSettings.passwordError': 'לא ניתן היה לשנות את הסיסמה.',
@@ -50,6 +51,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'אין מועדים קרובים.',
   'dashboard.upcomingTitle': 'מועדים קרובים',
   'deviceSettings.unknownDevice': 'מכשיר לא ידוע',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'תְמִיכָה',
   'forgotPassword.error': 'שליחת קישור לאיפוס נכשלה.',
   'forgotPassword.subtitle': 'הזן את כתובת האימייל שלך ונשלח לך קישור לאיפוס.',
@@ -64,6 +66,9 @@ export const ui: UiTranslations = {
   'login.error': 'כתובת דוא"ל או סיסמה לא חוקיים.',
   'login.pageTitle': 'כניסה',
   'login.signIn': "כניסה לפורג'",
+  'login.subtitle': 'היכנס כדי לשמור על הפרויקטים שלך במסלול הנכון',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'nav.calendar': 'לוּחַ שָׁנָה',
   'nav.legal': 'מִשׁפָּטִי',
   'nav.myTasks': 'המשימות שלי',

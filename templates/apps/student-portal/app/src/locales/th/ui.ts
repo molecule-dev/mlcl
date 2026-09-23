@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'announcementsFeed.empty': 'ยังไม่มีการประกาศใดๆ',
   'announcementsFeed.eyebrow': '{{count}} การอัปเดต',
   'announcementsFeed.title': 'ประกาศล่าสุด',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'ไม่มีอะไรที่นี่',
   'assignments.emptyBody': 'เปลี่ยนตัวกรองด้านบนเพื่อดูงานที่ได้รับมอบหมายในรัฐอื่น',
   'assignments.eyebrow': 'ทุกหลักสูตร · ภาคเรียนนี้',
+  'assignments.loadError': 'ไม่สามารถโหลดงานที่มอบหมายได้',
   'assignments.loading': 'กำลังโหลดงานที่ได้รับมอบหมาย…',
   'assignments.subtitle':
     'กรองตามสถานะเพื่อดูว่ามีงานใดบ้างที่ครบกำหนดส่ง ส่งแล้ว ตรวจเสร็จแล้ว หรือยังไม่ครบ',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'บันทึก',
   'attendance.empty': 'ยังไม่มีบันทึกการเข้าเรียน',
   'attendance.eyebrow': 'ภาคเรียนฤดูใบไม้ผลิ · 4 สัปดาห์สุดท้าย',
+  'attendance.loadError': 'ไม่สามารถโหลดข้อมูลการเข้าเรียนได้',
   'attendance.loading': 'กำลังโหลดข้อมูลผู้เข้าร่วม...',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +46,9 @@ export const ui: UiTranslations = {
   'calendar.eyebrow': 'ปีการศึกษา · {{year}}',
   'calendar.subtitle': 'กำหนดส่งงานแสดงไว้ในตารางรายเดือน โดยวันสอบจะแสดงด้วยสีแดง',
   'calendar.title': '{{month}} กิจกรรม',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
+  'common.retry': 'ลองอีกครั้ง',
   'common.yes': '✓',
   'courseDetail.backLink': 'เกรด',
   'courseDetail.currentGrade': 'เกรดปัจจุบัน',
@@ -71,11 +76,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'แนวโน้ม',
   'grades.empty': 'ยังไม่มีการประกาศผลการเรียน',
   'grades.eyebrow': 'สมุดบันทึกคะแนน',
+  'grades.loadError': 'ไม่สามารถโหลดเกรดของคุณได้',
   'grades.loading': 'กำลังขนถ่ายสินค้า…',
   'grades.subtitle':
     'เกรดที่แสดงแบบเรียลไทม์ทั้งในรูปแบบตัวอักษรและเปอร์เซ็นต์ ลูกศรแสดงแนวโน้มจะบอกว่าเกรดของคุณกำลังขึ้น ลง หรือคงที่',
   'grades.title': 'เกรดของคุณในแต่ละวิชา',
   'grades.trendStable': 'มั่นคง',
+  'landing.copyright': '© {{year}} {{app}} . สร้างขึ้นเพื่อนักเรียน สร้างมาเพื่อครอบครัว',
   'landing.ctaHeading': 'วันเรียนที่สงบสุขยิ่งขึ้นเริ่มต้นได้ในเวลาเพียงไม่กี่นาที',
   'landing.eyebrow': 'สำหรับนักเรียนระดับมัธยมต้นและมัธยมปลาย',
   'landing.featuresHeading': 'วันเรียนที่จัดขึ้นโดยคำนึงถึงนักเรียนเป็นหลัก',
@@ -110,12 +117,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'การมอบหมายงาน',
   'nav.attendance': 'การเข้าร่วม',
   'nav.calendar': 'ปฏิทิน',
+  'nav.closeMenu': 'ปิดเมนูนำทาง',
   'nav.grades': 'เกรด',
+  'nav.openMenu': 'เปิดเมนูนำทาง',
   'nav.statusEyebrow': 'เกรดเฉลี่ยภาคเรียน',
   'nav.statusSubtext': 'รายชื่อนักเรียนเรียนดี · ภาคเรียนฤดูใบไม้ผลิ',
+  'nav.unreadMessages': 'ข้อความที่ยังไม่ได้อ่าน',
   'notifications.eyebrow': '{{count}} การอัปเดต',
   'notifications.subtitle':
     'คะแนนสอบ การแจ้งเตือน ข้อความ และประกาศจากโรงเรียน ปรับช่องทางการแจ้งเตือนแต่ละอย่างได้ใน การตั้งค่า',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.attendanceLabel': 'การเข้าร่วม',
   'pricing.gradesLabel': 'เกรด',
   'pricing.heading': 'ประกาศ',

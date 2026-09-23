@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ご意見・ご要望、機能のリクエスト、または不具合を発見されましたか？アカウントメニューにある「サポート」リンクから{{app}}チームまでご連絡ください。すべてのメッセージは担当者が直接対応いたします。',
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
   'agentDetail.back': 'すべてのエージェント',
   'agentDetail.capabilities': '機能',
   'agentDetail.delete': 'ペルソナを削除',
   'agentDetail.deleteConfirm': 'このペルソナを削除しますか？この操作は取り消せません。',
+  'agentDetail.deleteError': 'ペルソナを削除できませんでした。',
   'agentDetail.eyebrow': 'ペルソナ',
   'agentDetail.fetchError': 'ペルソナを読み込めませんでした。',
   'agentDetail.save': 'ペルソナを保存',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': '切り替え中…',
   'billing.updateError': '更新を開始できませんでした。',
   'billing.usageHeading': '今回の音声使用量',
+  'chatBubble.source.text': 'text',
+  'chatBubble.source.voice': '音声',
+  'common.goToDashboard': 'ダッシュボードへ',
   'conversation.defaultTitle': '新しい会話',
   'conversation.empty': 'まだメッセージはありません。話しかけるか、下に入力してください。',
   'conversation.eyebrow': 'ライブセッション',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': '話す知能。',
   'landing.heroSubtitle':
     'あなたの自然な流れを理解するAI音声アシスタント。会話、発想、コマンドをシームレスに。',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': '聞いています…',
   'landing.naturallyBody':
     'トリガーワードも厳格なコマンドも不要です。Voxは文脈、割り込み、人間の話し方のニュアンスを理解します — 同僚と話すように。',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'セッションを開く',
   'notFound.home': 'ホームに戻る',
   'notFound.title': 'そのページが聞こえませんでした。',
+  'parlanceLayout.closeMenu': 'メニューを閉じる',
+  'parlanceLayout.openMenu': 'ナビゲーションメニューを開く',
   'parlanceLayout.primaryNavLabel': 'メインナビゲーション',
   'pricing.conversations': '{{count}}件の会話',
   'pricing.cta.startFree': '無料ではじめる',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': '一致なし',
   'search.eyebrow': 'コマンドパレット',
   'search.fetchError': '検索インデックスを読み込めませんでした。',
+  'search.static.profile.preview': '表示名、ハンドル名、プロフィール',
   'search.static.voice.title': '声',
   'search.title': 'Voxを検索',
   'search.transcriptPreview': 'トランスクリプトを開く',

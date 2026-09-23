@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ի մասին',
   'analytics.back': 'Հարցման ամփոփում',
   'analytics.kpiNps': 'NPS միավոր',
   'analytics.kpiNpsTrend': 'Խթանողներ {{p}} % · Հակառակորդներ {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Հատկություններ',
   'builder.questionNumber': 'Ք {{num}}',
   'builder.surveyTitle': 'Հարցման վերնագիր',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'forgotPassword.failed': 'Չհաջողվեց ուղարկել վերակայման էլ. նամակը։ Խնդրում ենք կրկին փորձել։',
   'forgotPassword.subheading':
     'Մուտքագրեք ձեր էլ. փոստը, և մենք ձեզ կուղարկենք վերականգնման հղում։',
   'forgotPassword.successBody':
     'Եթե հաշիվը համընկնում է {{email}} , վերակայման հղումը ճանապարհին է։ Ստուգեք ձեր մուտքի արկղը և սպամի թղթապանակները։',
+  'landing.footer.copyright': '© {{year}} {{app}} . Բոլոր ձայները ողջունելի են։',
   'landing.footer.startTrial': 'Սկսել փորձաշրջանը',
   'landing.hero.badge': 'Հարցումներ, NPS և հետադարձ կապ մեկ տեղում',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Գնագոյացում',
   'landing.pricing.perMonth': '/ամիս',
   'landing.pricing.popular': 'Ամենատարածվածը',
+  'landing.pricing.subtitle':
+    'Յուրաքանչյուր պլան ներառում է հարցումների կառուցող գործիք, հանրային հղումներ և NPS վերլուծություններ: Սկսելու համար վարկային քարտ անհրաժեշտ չէ:',
+  'landing.pricing.title': 'Սկսե՛ք ազատ, մասշտաբն ավելացրե՛ք, երբ դա անեք։',
   'landing.sample.eyebrow': 'NPS-ը մի հայացքով',
   'landing.sample.title': 'Քննադատներ, պասիվներ, խթանողներ՝ անմիջապես ընթեռնելի։',
   'login.failed': 'Մուտք գործելը ձախողվեց։ Խնդրում ենք կրկին փորձել։',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.signUpLink': 'Սկսեք անվճար փորձաշրջան',
   'login.subheading': 'Մուտք գործեք՝ ձեր լսարանին շարունակելու համար։',
+  'notFound.body':
+    'Ձեր որոնած էջը գոյություն չունի {{app}} ում։ Եկեք վերադառնանք ձեր հարցումներին։',
   'notFound.cta': 'Վերադառնալ հարցումներին',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Այս հարցումը դուրս մնաց հերթից։',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Պասիվ 7–8',
   'npsDistributionBar.promoter': 'Խթանող 9–10',
   'profile.identity.description': 'Հանրային է ձեր թիմի և ձեր կողմից հեղինակած հարցումների համար։',
+  'profile.identity.emailRequired': 'Մուտքագրեք էլեկտրոնային փոստի հասցե։',
   'profile.identity.saveCta': 'Պահպանել անունը',
   'profile.password.current': 'Ընթացիկ գաղտնաբառ',
   'profile.password.fillFields': 'Մուտքագրեք ինչպես ընթացիկ, այնպես էլ նոր գաղտնաբառը։',
@@ -177,6 +186,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} հարցեր',
   'templates.subheading':
     'Ընտրեք մարտական փորձություն անցած մեկնարկային սարք՝ յուրաքանչյուր ձևանմուշ գալիս է նախապես կարգավորված՝ խելամիտ լռելյայն կարգավորումներով, նմուշային տրամաբանությամբ և մաքուր բջջային դասավորությամբ։',
+  'thankYou.body':
+    'Ձեր պատասխանը գրանցվել է։ {{app}} ը այն կներառի հաջորդ վերլուծական թարմացման մեջ։',
   'thankYou.eyebrow': 'Պատասխանը ստացվել է',
   'thankYou.heading': 'Շնորհակալություն, ձեր ձայնը կարևոր է։',
   'thankYou.home': 'Այցելեք Մուրմուր',

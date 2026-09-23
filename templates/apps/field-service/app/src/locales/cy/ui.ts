@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Cwsmeriaid',
   'customers.loadError': 'Methwyd llwytho cwsmeriaid.',
   'customers.loading': 'Yn llwytho…',
+  'customers.new.address': 'Cyfeiriad gwasanaeth',
   'customers.new.email': 'E-bost',
   'customers.new.error': 'Methwyd ychwanegu cwsmer.',
   'customers.new.heading': 'Cwsmer newydd',

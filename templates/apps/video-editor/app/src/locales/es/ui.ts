@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '¿Has encontrado un error, tienes una sugerencia para una nueva función o quieres contarnos sobre el vídeo que editaste? Cada mensaje llega a una persona real del equipo. Ponte en contacto con nosotros cuando quieras desde la configuración de tu cuenta.',
+  'about.contactTitle': 'Habla con nosotros',
+  'about.eyebrow': '// el estudio detrás del corte',
   'about.pageTitle': 'Acerca de {{appName}}',
   'assetDetail.back': 'Volver a la biblioteca',
   'assetDetail.confirmDelete': '¿Eliminar "{{name}}"? Esta acción no se puede deshacer.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} clips, pistas de audio y gráficos listos para arrastrar a la línea de tiempo.',
   'assetLibrary.title': 'Recursos',
   'assetLibrary.upload': 'Añadir recurso',
+  'common.goToDashboard': 'Ir al panel',
   'dashboard.browseTemplates': 'Ver plantillas →',
   'dashboard.loading': 'Cargando proyectos…',
   'dashboard.noProjects': 'Aún no hay proyectos: crea uno para empezar.',
@@ -163,7 +168,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Elige algo que solo tú recuerdes.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privacidad',
+  'rushesLayout.closeMenu': 'Cerrar navegación',
   'rushesLayout.guest': 'Editor',
+  'rushesLayout.navDialog': 'Navegación',
+  'rushesLayout.openMenu': 'Abrir navegación',
   'rushesLayout.planFree': 'Plan gratuito',
   'rushesLayout.tagline': 'Línea de tiempo cinematográfica',
   'settings.billing.confirmCancel': '¿Cancelar la suscripción al final del período?',

@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Bezeroak',
   'customers.loadError': 'Ezin izan dira bezeroak kargatu.',
   'customers.loading': 'Kargatzen…',
+  'customers.new.address': 'Zerbitzu helbidea',
   'customers.new.email': 'Posta elektronikoa',
   'customers.new.error': 'Ezin izan da bezeroa gehitu.',
   'customers.new.heading': 'Bezero berria',

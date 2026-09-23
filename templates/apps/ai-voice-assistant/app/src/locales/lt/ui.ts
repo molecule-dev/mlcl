@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, norite pasiūlyti naują funkciją ar radote klaidą? Susisiekite su „{{app}}“ komanda naudodamiesi pagalbos nuoroda, esančia jūsų paskyros meniu – kiekvieną žinutę perskaito tikras žmogus.',
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'agentDetail.back': 'Visi agentai',
   'agentDetail.capabilities': 'Galimybės',
   'agentDetail.delete': 'Ištrinti asmenį',
   'agentDetail.deleteConfirm': 'Ištrinti šią asmenybę? Šio veiksmo negalima atšaukti.',
+  'agentDetail.deleteError': 'Nepavyko ištrinti persona.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Nepavyko įkelti asmens.',
   'agentDetail.save': 'Išsaugoti personažą',
@@ -44,6 +48,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Perjungimas…',
   'billing.updateError': 'Nepavyko pradėti atnaujinimo.',
   'billing.usageHeading': 'Balso naudojimas šiame cikle',
+  'chatBubble.source.text': 'tekstas',
+  'chatBubble.source.voice': 'balsas',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'conversation.defaultTitle': 'Naujas pokalbis',
   'conversation.empty':
     'Kol kas nėra pranešimų. Pradėkite ką nors pasakydami arba įrašydami žemiau.',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelektas, kuris kalba.',
   'landing.heroSubtitle':
     'Dirbtinio intelekto balso asistentas, suprantantis jūsų natūralų pokalbių ritmą. Sklandžiai bendraukite, generuokite idėjas ir valdykite komandas.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Klausymasis…',
   'landing.naturallyBody':
     'Jokių įkyrių žodžių. Jokių griežtų komandų. Kalba supranta kontekstą, pertraukimus ir žmogaus kalbos niuansus – tarsi pokalbis su kolega.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Atidaryti sesiją',
   'notFound.home': 'Grįžau namo',
   'notFound.title': 'Negalėjome išgirsti to puslapio.',
+  'parlanceLayout.closeMenu': 'Uždaryti meniu',
+  'parlanceLayout.openMenu': 'Atidaryti navigacijos meniu',
   'parlanceLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'pricing.conversations': '{{count}} pokalbiai',
   'pricing.cta.startFree': 'Pradėkite nemokamai',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Nėra atitikmenų',
   'search.eyebrow': 'Komandų paletė',
   'search.fetchError': 'Nepavyko įkelti paieškos indekso.',
+  'search.static.profile.preview': 'Rodomasis vardas, slapyvardis, aprašymas',
   'search.static.voice.title': 'Balsas',
   'search.title': 'Paieškos terminologija',
   'search.transcriptPreview': 'Atidaryti transkriptą',

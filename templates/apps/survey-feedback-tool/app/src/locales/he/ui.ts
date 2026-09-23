@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'אודות {{app}}',
   'analytics.back': 'סקירת הסקר',
   'analytics.kpiNps': 'ציון NPS',
   'analytics.kpiPromoterTrend': '{{count}} תגובות המקדמים',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'builder.propsAria': 'מאפייני השאלה',
   'builder.propsTitle': 'נכסים',
   'builder.surveyTitle': 'כותרת הסקר',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'forgotPassword.failed': 'לא ניתן היה לשלוח אימייל לאיפוס. אנא נסה שוב.',
   'forgotPassword.subheading': 'הזן את כתובת האימייל שלך ונשלח לך קישור שחזור.',
   'forgotPassword.successBody':
@@ -47,6 +49,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'תמחור',
   'landing.pricing.perMonth': '/חודש',
   'landing.pricing.popular': 'הכי פופולרי',
+  'landing.pricing.subtitle':
+    'כל תוכנית כוללת את בונה הסקרים, קישורי שיתוף ציבוריים וניתוחי NPS. אין צורך בכרטיס אשראי כדי להתחיל.',
+  'landing.pricing.title': 'התחילו בחינם, התרחבו כשאתם רוצים.',
   'landing.sample.eyebrow': 'NPS במבט חטוף',
   'landing.sample.title': 'מתנגדים, פסיביים, מקדמי תוכן - קריאים באופן מיידי.',
   'login.failed': 'הכניסה נכשלה. אנא נסה שוב.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'פסיבי 7–8',
   'npsDistributionBar.promoter': 'מקדם 9–10',
   'profile.identity.description': 'ציבורי לצוות שלך ולסקרים שאתה כותב.',
+  'profile.identity.emailRequired': 'הזן כתובת דוא"ל.',
   'profile.identity.saveCta': 'שמור שם',
   'profile.password.current': 'סיסמה נוכחית',
   'profile.password.fillFields': 'הזן את הסיסמה הנוכחית והחדשה.',
@@ -137,6 +143,7 @@ export const ui: UiTranslations = {
   'surveyDetail.heroChange': '{{count}} סך התגובות',
   'surveyDetail.kpiCompletion': 'סִיוּם',
   'surveyDetail.kpiCompletionTrend': '{{count}} הושלם',
+  'surveyDetail.kpiNpsTrend': '{{p}} מקדמי {{d}} מתנגדים',
   'surveyDetail.kpiResponses': 'סך התגובות',
   'surveyDetail.kpiResponsesTrend': 'ספירה בכל הזמנים',
   'surveyDetail.loading': 'טוען את הסקר…',

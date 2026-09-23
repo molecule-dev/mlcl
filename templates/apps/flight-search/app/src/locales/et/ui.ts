@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.eyebrow': 'Teave rakenduse {{app}} kohta',
   'about.pageTitle': 'Iga marsruut, üks otsing.',
   'booking.backToDetail': 'Tagasi lennu üksikasjade juurde',
   'booking.continue': 'Jätka maksmisega',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Maksud ja tasud',
   'booking.summary.travelers': 'Reisijad',
   'common.about': 'Teave',
+  'common.goToDashboard': 'Mine töölauani',
   'flightDetail.backToResults': 'Tagasi tulemuste juurde',
   'flightDetail.baseFare': 'Baashind',
   'flightDetail.book': 'Jätka broneerimisega',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 peatus',
   'flightResultCard.select': 'Vali',
   'flightResultCard.totalLabel': 'Koguaeg',
+  'flightSearchLayout.primaryNavLabel': 'Peamine navigeerimine',
   'forgotPassword.subheading':
     'Sisesta oma Skylarki konto e-posti aadress ja me saadame sulle turvalise lähtestamise lingi.',
   'forgotPassword.successBody':
     'Kontrolli {{email}} uue parooli määramise lingi jaoks. Link aegub 30 minuti pärast.',
   'forgotPassword.successHeading': 'Lähtestamise link saadetud',
   'landing.cta.explore': 'Proovige otsingut',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Leia järgmine suurepärane hind enne kõiki teisi.',
   'landing.cta.signup': 'Alusta hindade jälgimist',
   'landing.features.eyebrow': 'Miks Skylark',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Lisa märguanne',
   'priceAlerts.deleteConfirm': 'Kas eemaldada see hoiatus?',
   'priceAlerts.empty': 'Jälgitud marsruute pole veel.',
+  'priceAlerts.emptyCta': 'Otsi jälgitavat marsruuti',
   'priceAlerts.errorMessage': 'Teavituste laadimine ebaõnnestus.',
   'priceAlerts.eyebrow': 'Skylarki jälgimisnimekiri',
   'priceAlerts.form.createError': 'Teavitust ei õnnestunud luua.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Mitme linna reisiplaan',
   'results.multiLegHeading': 'Jalg {{n}} · {{alates}} → {{kuni}} · kuupäev',
   'results.multiSummary': '{{count}} jalad · {{passengers}} rändur',
+  'results.sortAriaLabel': 'Sorteeri tulemusi',
   'results.sortLabel': 'Sorteeri',
   'results.summary': '{{count}} lennud · {{passengers}} rändur',
   'settings.language.title': 'Keel',
@@ -150,6 +157,7 @@ export const ui: UiTranslations = {
   'tripDetail.checkingIn': 'Sisse registreerimine…',
   'tripDetail.dates': '{{dep}} → {{ret}}',
   'tripDetail.errorMessage': 'Reisi laadimine ebaõnnestus.',
+  'tripDetail.gate': 'Värav {{value}}',
   'tripDetail.loading': 'Reisi laadimine…',
   'tripDetail.nonstop': 'Otsepeatus',
   'tripDetail.notFound': 'Reisi ei leitud.',
@@ -159,6 +167,7 @@ export const ui: UiTranslations = {
   'tripDetail.shareCopied': 'Link kopeeritud',
   'tripDetail.shareError': 'Ei saanud jagada',
   'tripDetail.shareTitle': 'Reis {{code}}',
+  'tripDetail.terminal': 'Terminali {{value}}',
   'tripDetail.tripId': 'Reis {{id}}',
   'tripItineraryCard.passengers': '{{count}} rändur',
   'tripItineraryCard.totalLabel': 'Kokku',

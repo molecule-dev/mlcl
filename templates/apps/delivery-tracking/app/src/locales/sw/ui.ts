@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'alerts.acknowledgeLabel': 'Kiri',
   'alerts.customerLabel': 'Mteja: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Inaunganisha…',
   'carriers.requiredError': 'Jina na msimbo vinahitajika.',
   'carriers.subheading': '{{count}} jumuishi',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
+  'common.retry': 'Jaribu tena',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Katika usafiri + imetiwa alama',
   'dashboard.activeShipmentsSubtitle': '{{count}} usafirishaji unahitaji umakini au uko safarini',
@@ -102,6 +105,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'usafirishaji',
   'pricing.trackingLabel': 'matukio ya kufuatilia',
   'profile.dangerZone.title': 'Eneo la hatari',
+  'profile.devices.signingOut': 'Inatoka…',
+  'profile.devices.unnamed': 'Kifaa kisicho na jina',
+  'profile.security.disable2fa': 'Zima 2FA',
   'profile.security.enable2fa': 'Washa 2FA',
   'profile.security.pwChanged': 'Nenosiri limebadilishwa kwa mafanikio.',
   'profile.security.pwCurrent': 'Nenosiri la sasa',
@@ -111,10 +117,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA inafanya kazi',
   'profile.security.twoFaCode': 'Msimbo wa tarakimu 6',
   'profile.security.twoFaDisable': 'Zima',
+  'profile.security.twoFaDisabling': 'Inalemaza…',
   'profile.security.twoFaFailed': 'Haikuweza kuthibitisha msimbo.',
   'profile.security.twoFaIntro':
     'Changanua msimbo wa QR katika programu yako ya kithibitishaji, kisha weka msimbo wa tarakimu 6 ulio hapa chini ili kuthibitisha.',
   'profile.security.twoFaOn': 'Uthibitishaji wa vipengele viwili umewezeshwa kwenye akaunti hii.',
+  'profile.security.twoFaQrAlt': 'Msimbo wa QR wa hatua mbili',
   'profile.security.twoFaVerify': 'Thibitisha na uwashe',
   'profile.security.twoFaVerifying': 'Inathibitisha…',
   'profile.subheading': 'Mipangilio ya utambulisho na usalama kwa nafasi hii ya kazi.',
@@ -133,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Hifadhi siri hii — haitaonyeshwa tena.',
   'settings.api.webhookSecret': 'Siri ya kusaini kwenye mtandao',
   'settings.appearance.description': 'Badilisha kati ya hali ya mwanga na giza.',
+  'settings.deleteAccountConfirm': 'Una uhakika? Kitendo hiki hakiwezi kutenduliwa.',
   'settings.notifications.exceptions':
     'Nitumie barua pepe wakati ubaguzi wa usafirishaji unapotokea',
   'settings.notifications.heading': 'Arifa',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Usafirishaji haukupatikana.',
   'shipmentDetail.originHeading': 'Asili',
   'shipmentDetail.shippedOn': 'Imesafirishwa {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Hakuna matukio ya ufuatiliaji bado — masasisho yanaonekana hapa huku mtoa huduma akichanganua kifurushi.',
   'shipmentDetail.weightLabel': '{{weight}} pauni',
   'shipments.col.carrier': 'Mtoa huduma',
   'shipments.col.eta': 'ETA',
@@ -177,6 +188,7 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Ingia',
   'signup.submit': 'Fungua Akaunti',
   'team.emailError': 'Anwani halali ya barua pepe inahitajika.',
+  'team.empty': 'Hakuna wanachama wa timu bado. Mwalike mwenzako ashirikiane katika usafirishaji.',
   'team.eyebrow': 'Wanachama na ruhusa',
   'team.inviteDialog.cancel': 'Ghairi',
   'team.inviteDialog.heading': 'Mwalike mwenzako',
@@ -199,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Wimbo',
   'waypointLayout.primaryNavLabel': 'Usogezaji mkuu',
   'webhooks.createFailed': 'Haikuweza kuunda sehemu ya mwisho ya wavuti.',
+  'webhooks.endpointsEmpty':
+    'Hakuna sehemu za mwisho za wavuti bado. Unda moja ili kupokea simu za hali ya usafirishaji.',
   'webhooks.endpointsHeading': 'Sehemu za mwisho',
   'webhooks.eventCount': '{{count}} matukio',
   'webhooks.eventsHeading': 'Usafirishaji wa hivi karibuni',

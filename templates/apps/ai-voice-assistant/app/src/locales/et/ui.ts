@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on tagasisidet, soovid mõnda funktsiooni või leidsid vea? Võta ühendust {{app}} meeskonnaga oma konto menüüs oleva tugilinki kaudu – iga sõnum jõuab päris inimeseni.',
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
   'agentDetail.back': 'Kõik agendid',
   'agentDetail.capabilities': 'Võimed',
   'agentDetail.delete': 'Kustuta persona',
   'agentDetail.deleteConfirm': 'Kas kustutada see persona? Seda ei saa tagasi võtta.',
+  'agentDetail.deleteError': 'Personaat ei õnnestunud kustutada.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Persona laadimine ebaõnnestus.',
   'agentDetail.save': 'Salvesta persona',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Vahetamine…',
   'billing.updateError': 'Värskendamist ei õnnestunud alustada.',
   'billing.usageHeading': 'Häälekasutus selles tsüklis',
+  'chatBubble.source.text': 'tekst',
+  'chatBubble.source.voice': 'hääl',
+  'common.goToDashboard': 'Mine töölauani',
   'conversation.defaultTitle': 'Uus vestlus',
   'conversation.empty': 'Sõnumeid veel pole. Alustage midagi öeldes või allpool kirjutades.',
   'conversation.eyebrow': 'Otseülekanne',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelligentsus, mis räägib.',
   'landing.heroSubtitle':
     'Tehisintellektiga häälassistent, mis mõistab sinu loomulikku sujuvust. Vestle, genereeri ideid ja anna käske – sujuvalt.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Kuulamine…',
   'landing.naturallyBody':
     'Ei mingeid päästikuid. Ei mingeid jäiku käske. Kõnepruuk mõistab konteksti, katkestusi ja inimkõne nüansse – nagu vestlus kolleegiga.',
@@ -111,6 +119,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Ava seanss',
   'notFound.home': 'Tagasi kodus',
   'notFound.title': 'Me ei kuulnud seda lehekülge.',
+  'parlanceLayout.closeMenu': 'Sulge menüü',
+  'parlanceLayout.openMenu': 'Ava navigeerimismenüü',
   'parlanceLayout.primaryNavLabel': 'Peamine navigeerimine',
   'pricing.conversations': '{{count}} vestlused',
   'pricing.cta.startFree': 'Alusta tasuta',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Vasteid pole',
   'search.eyebrow': 'Käskude palett',
   'search.fetchError': 'Otsinguindeksi laadimine ebaõnnestus.',
+  'search.static.profile.preview': 'Näidatav nimi, kasutajanimi, lühitutvustus',
   'search.static.voice.title': 'Hääl',
   'search.title': 'Otsinguterminoloogia',
   'search.transcriptPreview': 'Ava transkriptsioon',

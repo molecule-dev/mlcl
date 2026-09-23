@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Mayelana ne-{{app}}',
   'about.plansTitle': 'Izinhlelo ezikhula nawe',
   'brand.tagline': 'Njalo ngomzuzwana',
   'clientDetail.back': 'Buyela kumakhasimende',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'Ubudlelwano bonke busendaweni eyodwa — amaphrojekthi, amahora, ama-invoyisi asele.',
   'clients.title': 'Amaklayenti',
   'common.and': 'futhi',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.activeProjects': 'Amaphrojekthi asebenzayo',
   'dashboard.empty':
     'Akukho okufakiwe okwamanje. Qala isibali sikhathi ukuze ulandelele iseshini yakho yokuqala.',
@@ -86,6 +88,7 @@ export const ui: UiTranslations = {
     'Awekho amahora akhokhiswayo okufaka i-invoyisi yaleli klayenti. Landelela isikhathi esithile kuqala noma unikeze okufakiwe okukhona kwenye yamaphrojekthi aleli klayenti.',
   'invoices.save': 'Dala i-invoyisi',
   'invoices.subtitle': 'Amahora alandelwayo angena kuma-invoyisi, ngokuzenzakalelayo.',
+  'landing.copyright': '© {{year}} {{app}} . Njalo ngomzuzwana, kwabalwa.',
   'landing.ctaBody':
     'Kumahhala kumaphrojekthi afinyelela kwangu-3. Thuthukisa uma uhlu lwakho lwamakhasimende lukwenza lokho.',
   'landing.eyebrow': 'Ukulandelela isikhathi somsebenzi okhokhiswayo',
@@ -101,13 +104,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Kuthenjwe ngabantu abazimele',
   'landing.testimonial.quote':
     '\\u201cNgithuthile eToggl ngemizuzu engama-30. Ukushiswa kwesabelomali kukodwa kuzikhokhele \\u2014 Ngiyekile ukucaphuna amasonto amabili alandelanayo.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Njalo ngomzuzwana, kwakubalulekile.',
   'login.brand.subtitle':
     'Qhubeka ne-timer lapho ugcine khona — yonke iminithi isivele iqondiswe kuphrojekthi, iklayenti, i-invoyisi.',
   'login.brand.tracking': 'Ukulandelela',
   'login.subheading': 'Sebenzisa isibali sikhathi lapho ushiye khona.',
+  'nav.closeMenu': 'Vala imenyu yokuzulazula',
   'nav.insightsSection': 'Ukuqonda',
   'nav.newEntry': 'Okufakiwe Okusha',
+  'nav.openMenu': 'Vula imenyu yokuzulazula',
+  'nav.primary': 'Ukuzulazula okuyinhloko',
   'nav.workSection': 'Umsebenzi',
   'notFound.body':
     'Kubonakala sengathi isixhumanisi osilandelile siyeke ukulandelela. Buyela kudeshibhodi yakho \\u2014 sizoqhubeka nokubala kusukela lapho.',
@@ -208,6 +215,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Ingakhokhiswa',
   'timer.descriptionPlaceholder': 'Usebenza ngani?',
   'timer.idle': 'Ukungenzi lutho — qala ukulandelela',
+  'timer.noProject': 'Ayikho iphrojekthi',
   'timer.runningWithProject': 'Ayikho iphrojekthi',
   'timer.start': 'Qala isibali sikhathi',
   'timer.stop': 'Isibali sikhathi sokuma',

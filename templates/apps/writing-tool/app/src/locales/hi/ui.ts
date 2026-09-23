@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
+  'about.title': 'एक ऐसा लेखन कक्ष जिसे आप अपनी जेब में रख सकते हैं',
   'billing.cancelConfirm': 'क्या आप अपनी सक्रिय सदस्यता रद्द करना चाहते हैं?',
   'billing.cancelFailed': 'रद्द नहीं किया जा सका।',
   'billing.checkingOut': 'चेकआउट खोला जा रहा है…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'बिलिंग लोड नहीं की जा सकी।',
   'billing.loading': 'बिलिंग लोड हो रही है…',
   'billing.upgradeCta': '{{name}} पर अपग्रेड करें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'editor.autosaveOn': 'ऑटोसेव चालू',
   'editor.backToLibrary': 'लाइब्रेरी पर वापस जाएँ',
   'editor.charCount': '{{count}} अक्षर',
   'editor.confirmTrash': 'इस दस्तावेज़ को ट्रैश में ले जाएँ?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'पिन हटाया गया',
   'editor.unpublishCta': 'ड्राफ़्ट में ले जाएँ',
   'editor.unpublished': 'ड्राफ़्ट पर वापस लाया गया',
+  'focus.autosaveOn': 'ऑटोसेव चालू',
   'focus.backToLibrary': 'लाइब्रेरी पर वापस जाएँ',
   'focus.bodyPlaceholder': 'एक समय में एक पंक्ति। यहाँ और कोई नहीं है।',
   'focus.exit': 'फ़ोकस मोड से बाहर निकलें',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'एक बनाएँ',
   'login.subline':
     'आपकी पांडुलिपियाँ, दैनिक पन्ने और कर्सर की अंतिम स्थिति ठीक वहीं हैं जहाँ आपने छोड़ी थीं।',
+  'mobileNav.closeMenu': 'नेविगेशन मेनू बंद करें',
+  'mobileNav.openMenu': 'नेविगेशन मेनू खोलें',
   'pricing.exports': 'निर्यात',
   'pricing.folders': 'फ़ोल्डर',
   'pricing.heading': 'दस्तावेज़',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'हमने जो कोड अभी ईमेल किया है उसे दर्ज करें और कुछ ऐसा चुनें जो याद रहे। सहेजते ही हम आपको साइन इन कर देंगे।',
   'reset.tokenHint': 'आपके इनबॉक्स से पेस्ट किया हुआ।',
+  'settings.appearance.heading': 'हल्का या गहरा',
   'settings.editor.${row.id}.description': 'भाषा',
   'settings.editor.description':
     'टाइपराइटर स्क्रॉल, पैराग्राफ फेड और आइडल फोकस — ये डिफ़ॉल्ट सेटिंग्स लंबे समय तक चलने वाले कंप्यूटर सत्रों के लिए उपयुक्त हैं।',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'तीसरा अध्याय — सूर्योदय से पहले का एक शांत घंटा',
   'versalDocumentCard.pinned': 'पिन किया गया',
   'versalLayout.nav.stats': 'आँकड़े',
+  'versalLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'versalManuscriptHero.cta': 'लिखना जारी रखें',
   'versalManuscriptHero.goalLabel': 'आज का शब्द-लक्ष्य',
   'versalManuscriptHero.inProgress': 'ट्रैक पर',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.tagline': 'Unitate guztiak, teilatu beraren azpian.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.addProperty': 'Gehitu propietatea',
   'dashboard.empty.body':
     'Behin propietateak, unitateak eta alokairu-ordainketak dituzunean, aginte-panel hau zorroaren informazioz betetzen da.',
@@ -88,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.subtitle':
     '{{count}} lehentasunaren arabera ordenatutako lan-eskaera irekiak',
   'maintenanceQueueList.title': 'Mantentze-ilara',
+  'nav.closeMenu': 'Itxi menua',
+  'nav.openMenu': 'Ireki menua',
   'notFound.body': 'Bilatzen ari zinen orrialdea mugitu, artxibatu edo ez da inoiz existitu.',
   'notFound.title': 'Ate hori ez da irekitzen',
   'notifications.empty.body':

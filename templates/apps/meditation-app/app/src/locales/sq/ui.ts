@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.eyebrow': 'Rreth {{app}}',
+  'about.intro':
+    "{{app}} është një aplikacion meditimi për jetën reale — meditime të përditshme me udhëzime, ushtrime frymëmarrjeje dhe histori gjumi të zhvilluara nga mësues që ndihen si miq, jo si trajner. Pa ndjenja faji, pa ushqim të zhurmshëm: vetëm një vend i qetë për t'u rikthyer te frymëmarrja juaj.",
+  'about.missionBody':
+    'Ne besojmë se qetësia duhet të jetë e arritshme për të gjithë, në çdo moment të ditës. {{app}} ekziston për ta bërë një praktikë të qetë dhe të vazhdueshme të ndihet pa mundim - në mënyrë që dhjetë minuta të ndershme të mund të ndryshojnë mënyrën se si i përballoni dhjetë orët e ardhshme.',
+  'about.missionTitle': 'Misioni ynë',
+  'about.pageTitle': '10 minuta më të qeta në ditë',
+  'breathingDial.seconds': 'sekonda',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.logout': 'Dil',
   'common.min': 'min',
   'common.relative.justNow': 'pikërisht tani',
   'common.relative.now': 'tani',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
+  'nav.secondaryNavigation': 'Navigimi i llogarisë',
   'sessionCard.with': 'me {{name}}',
   'stillpoint.billing.choose': 'Zgjidh {{plan}}',
   'stillpoint.billing.currentPlan': 'Aktualisht në {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': "Nuk mundëm t'i ngarkonim planet.",
   'stillpoint.billing.opening': 'Duke hapur arkë…',
   'stillpoint.billing.perMonthShort': '/ muaj',
+  'stillpoint.billing.perYearShort': '/vit',
   'stillpoint.billing.unknownResult': 'Përgjigje e papritur për faturimin.',
   'stillpoint.billing.yearly': 'Çdo vit · kurseni 17%',
   'stillpoint.courseDetail.back': 'Kurset',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Ende nuk ka kurse.',
   'stillpoint.courses.eyebrow': '{{count}} udhëtime shumëditore',
   'stillpoint.courses.heading': 'Kurset',
+  'stillpoint.forgot.checkEmail':
+    'Kontrolloni kutinë tuaj postare — lidhja skadon pas 30 minutash.',
   'stillpoint.forgot.success': 'Ne kemi dërguar një lidhje rivendosjeje te {{email}} .',
   'stillpoint.home.empty': 'Ende nuk ka seanca — kontrolloni përsëri së shpejti.',
   'stillpoint.home.friend': 'mik',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Krijo llogarinë tënde falas',
   'stillpoint.landing.cta.title': 'Filloni qetësinë tuaj sot',
   'stillpoint.landing.features.heading': 'Një praktikë që rritet me ju',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Meditime të përditshme me udhëzues, ushtrime frymëmarrjeje dhe histori gjumi — të ritmuara nga mësues që ndihen si miq, jo si trajner.',
   'stillpoint.landing.hero.eyebrow': '10 minuta më të qeta në ditë',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Shfleto sipas gjendjes shpirtërore',
   'stillpoint.login.rememberMe': 'Më mbaj të kyçur',
   'stillpoint.login.subheading': 'Kyçu për të vazhduar praktikën tënde.',
+  'stillpoint.nav.tagline': 'Gjeni qendrën tuaj të qetë',
+  'stillpoint.notFound.body':
+    'Kjo faqe po merr frymë thellë e gjatë diku. Le të gjejmë një vend më të qetë për ty në {{app}} .',
   'stillpoint.notFound.title': 'I humbur në heshtje',
   'stillpoint.notFound.toHome': 'Kthehu në ditët e sotme',
   'stillpoint.notFound.toLibrary': 'Shfleto bibliotekën',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Kapërce 15 sekonda prapa',
   'stillpoint.player.skipForward': 'Kapërce përpara 30 sekonda',
   'stillpoint.player.with': 'me {{name}}',
+  'stillpoint.profile.defaultHandle': 'tregues i palëvizshëm',
   'stillpoint.profile.eyebrow': 'Praktika juaj, e përmbledhur.',
   'stillpoint.profile.locked': 'I kyçur',
   'stillpoint.profile.member': 'Anëtar i Stillpoint',

@@ -36,6 +36,7 @@ export const ui: UiTranslations = {
   'checkout.payment.testNote':
     'Sinov rejimi: buyurtmalar qayd etiladi va qoldiqlar hal qilinadi, ammo haqiqiy kartadan yechib olinmaydi.',
   'checkout.placeOrderCta': 'Buyurtma bering',
+  'checkout.placeOrderError': "Buyurtmangizni joylashtirib bo'lmadi.",
   'checkout.placingOrder': 'Buyurtma berilmoqda…',
   'checkout.review.shipTo': 'Yetkazib berish manzili',
   'checkout.review.subtotal': 'Sotuvchining umumiy summasi',
@@ -57,6 +58,7 @@ export const ui: UiTranslations = {
   'landing.footer.becomeVendor': "Sotuvchi bo'ling",
   'landing.footer.copyright': '© {{year}} {{name}} — har bir ishlab chiqaruvchi, bitta bozor.',
   'landing.footer.help': 'Yordam markazi',
+  'landing.nav.keepShopping': 'Xarid qilishda davom eting',
   'landing.nav.sell': "Vendry'da soting",
   'landing.nav.shop': "Do'kon",
   'landing.nav.signUp': "Qo'shiling",
@@ -67,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.trending.title': "Xaridorlar nimani yaxshi ko'rishadi",
   'login.accountTypeAria': 'Hisob turi',
   'login.heading': 'Vendryga yana xush kelibsiz',
+  'login.legalPrefix': 'Tizimga kirish orqali siz bizning shartlarimizga rozilik bildirasiz',
   'login.subheading':
     "Xarid qilishni davom ettirish uchun tizimga kiring yoki do'koningizga qayting.",
   'login.submitShopper': 'Xarid qilish uchun tizimga kiring',
@@ -92,10 +95,12 @@ export const ui: UiTranslations = {
   'orderDetail.summary':
     "Joylashtirilgan {{date}} · {{vendorCount}} sotuvchi(lar) · ko'p sotuvchi bilan ishlash",
   'orders.empty': 'Bu filtrga hali hech qanday buyurtma mos kelmadi.',
+  'orders.emptyTitle': "Bu yerda hali buyurtma yo'q",
   'orders.eyebrow': 'Xaridlaringiz',
   'orders.subtitle':
     "Kim nima jo'natganini ko'ring, har bir sotuvchining kuzatuvini kuzatib boring va boshqa hech qachon posilkani yo'qotmang.",
   'orders.title': "Buyurtmalar, yetkazib beruvchi bo'yicha guruhlangan",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'productDetail.addToCart': "Savatchaga qo'shish",
   'productDetail.addToCartError': "Savatga qo'shib bo'lmadi.",
   'productDetail.addToCartSuccess': '" {{name}} "Savatingizga qo\'shildi."',
@@ -137,12 +142,15 @@ export const ui: UiTranslations = {
   'settings.subtitle':
     'Qanday xarid qilishingizni, sotuvchilar sizga qanday murojaat qilishini va pul qayerga ketishini boshqaring.',
   'signup.heading': "Bozorga qo'shiling",
+  'signup.legalPrefix': "Qo'shilish orqali siz bizning shartlarimizga rozilik bildirasiz",
   'signup.mismatch': 'Parollar hali mos kelmadi.',
   'signup.subheading':
     "4000 dan ortiq mustaqil ishlab chiqaruvchilarni ko'rib chiqing yoki o'zingizning do'koningizni oching.",
   'status.delivered': 'Yetkazib berildi',
   'status.refunded': 'Qaytarilgan pul',
+  'userMenu.marketplaceSettings': 'Bozor sozlamalari',
   'vendor.memberSince': "A'zo bo'lganidan beri {{date}}",
+  'vendorDashboard.defaultShop': "sizning do'koningiz",
   'vendorDashboard.eyebrow': 'Sotuvchi administratori · {{vendor}}',
   'vendorDashboard.heroCaption':
     "{{payout}} Vendry komissiyasidan keyin tozalandi. Keyingi to'lov juma kuni.",
@@ -162,12 +170,16 @@ export const ui: UiTranslations = {
     'Qayerda ishlab chiqarasiz, nimani ishlab chiqarasiz va nima uchun bu muhim.',
   'vendorOnboarding.currencyLabel': 'Valyutada hisob-kitob qilish',
   'vendorOnboarding.errors.shopName': "Do'kon nomi talab qilinadi.",
+  'vendorOnboarding.errors.submit': "Arizangizni yuborib bo'lmadi.",
   'vendorOnboarding.exit': 'Saqlash va keyinroq davom etish',
   'vendorOnboarding.eyebrow': 'Vendry’da sotish uchun ariza bering',
+  'vendorOnboarding.field.shopName': "Do'kon nomi",
   'vendorOnboarding.heroBody':
     "8% miqdorida komissiya, har juma kuni to'lovlar, vitrinangiz, hikoyangiz. Do'koningiz haqida ozgina gapirib bering, biz 48 soat ichida siz bilan bog'lanamiz.",
   'vendorOnboarding.review.contact': 'Aloqa',
   'vendorOnboarding.review.currency': 'Valyuta',
+  'vendorOnboarding.review.tagline': 'Shior',
+  'vendorOnboarding.review.website': 'Veb-sayt',
   'vendorOnboarding.reviewBody':
     "Yaxshi ko'rinadi. Biz sizning do'koningizni 48 soat ichida ko'rib chiqamiz va birinchi to'lovingizni birinchi savdodan keyingi juma kuni yuboramiz.",
   'vendorOnboarding.samplesLabel': 'Namunaviy ish — Instagram, portfolio, fotosuratlar',
@@ -176,11 +188,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     "Ariza topshirildi! Biz sizning do'koningizni ko'rib chiqamiz va 48 soat ichida sizga elektron pochta orqali xabar yuboramiz.",
   'vendorOnboarding.taxIdLabel': 'Soliq identifikatori',
+  'vendorOrders.emptyTitle': "Hali bajarilishi kerak bo'lgan buyurtmalar yo'q",
   'vendorOrders.eyebrow': 'Sotuvchi administratori',
+  'vendorOrders.kpi.awaiting': 'Bajarilishini kutmoqda',
   'vendorOrders.kpi.inTransit': "Yo'lda",
   'vendorOrders.subtitle':
     "Vendry'dan chiqmasdan yorliqlarni chop eting, bajarilgan deb belgilang va savollarga javob bering.",
   'vendorOrders.title': 'Kiruvchi buyurtmalar',
+  'vendorPayouts.emptyTitle': "Hali to'lovlar yo'q",
   'vendorPayouts.eyebrow': 'Sotuvchi moliyalashtirish',
   'vendorPayouts.heroCaption': 'Banco BPI ga joylashadi {{account}} · 1–2 ish kuni',
   'vendorPayouts.history': "To'lov tarixi",
@@ -199,7 +214,9 @@ export const ui: UiTranslations = {
     "U qayerda ishlab chiqarilgan? U qanday hikoyani o'z ichiga oladi?",
   'vendorProductForm.error.name': 'Mahsulot nomi talab qilinadi',
   'vendorProductForm.error.price': 'Ijobiy narxni kiriting',
+  'vendorProductForm.error.publish': 'Nashr qilinmadi',
   'vendorProductForm.eyebrow': "Yangi ro'yxat",
+  'vendorProductForm.eyebrowEdit': "Ro'yxatni tahrirlash",
   'vendorProductForm.images.body':
     "8 tagacha rasmni sudrab tashlang. Birinchi rasm vitrina muqovasi bo'ladi.",
   'vendorProductForm.images.cta': "Rasmlarni bu yerga sudrab torting yoki ko'rib chiqing",
@@ -211,6 +228,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.saveCta': "O'zgarishlarni saqlash",
   'vendorProductForm.title': "Xaridorlarga o'z mahsulotingiz haqida gapirib bering",
   'vendorProductForm.variants.colInventory': 'Inventarizatsiya',
+  'vendorProductForm.variants.colVariant': 'Variant',
   'vendorProducts.eyebrow': 'Sotuvchi administratori',
   'vendorProducts.kpi.draft': 'Qoralamalar',
   'vendorProducts.kpi.lowStock': 'Kam zaxira',

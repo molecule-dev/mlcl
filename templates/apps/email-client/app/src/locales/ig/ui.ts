@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     "Anyị bụ ndị otu ndị na-emepụta ihe na ndị injinia kesara, bụ́ ndị na-anọkarị ọtụtụ awa kwa ụbọchị n'ime igbe ozi na-eme mkpọtụ. Courier bụ igbe ozi anyị chọrọ iji onwe anyị.",
   'about.title': 'Email maka ọrụ lekwasịrị anya',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'help.cta.about': 'Banyere Courier',
   'help.cta.pricing': 'Lee ọnụahịa',
   'help.eyebrow': 'Ebe enyemaka',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     "Azịza ngwa ngwa nye ajụjụ ndị anyị na-anụkarị. Ọ dị ihe na-efu? Mepee Ntọala ma jiri fọm nzaghachi n'ime ngwa ahụ, ma ọ bụ dega na support@courier.example.",
   'help.title': 'Kedu ka anyị ga-esi nyere aka?',
   'landing.brand.scrollTop': "Laghachi n'elu",
+  'landing.copyright': '© {{year}} {{appName}} — E wuru ya maka ilekwasị anya.',
   'landing.ctaBody':
     'Soro ọtụtụ puku ndị ọkachamara ndị mechara igbe ozi ha tupu ha eri nri ehihie.',
   'landing.ctaTitle': 'Hazie ihe karịa, meghachi omume obere.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Lelee ngosi ngosi',
   'landing.heroSubtitle':
     'Courier bụ igbe ozi atọ dị jụụ nke e wuru maka ndị ọrụ ihe ọmụma bụ ndị chọrọ ịhazi ozi, ọ bụghị imeghachi omume na ya.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': "Ndị otu lekwasịrị anya n'ụwa niile tụkwasịrị obi",
   'landing.signIn': 'banye',
   'meridian.archive.empty': 'Ebe nchekwa dị efu.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Edemede',
   'meridian.folder.count': '{{count}} ozi',
+  'meridian.folder.delete': 'Hichapụ',
   'meridian.folder.deleteForever': 'Hichapụ kpamkpam',
   'meridian.folder.restore': 'Bugharịa na igbe mbata',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Enweghị ozi ebe a ugbu a.',
   'meridian.inbox.loading': 'Na-ebugo…',
   'meridian.inbox.next': 'Osote',
+  'meridian.inbox.noSender': '(enweghị onye zitere ya)',
   'meridian.inbox.noSubject': '(enweghị isiokwu)',
+  'meridian.inbox.ofTotal': '{{current}} nke {{total}}',
   'meridian.inbox.openCompose': 'Mepee ide ihe',
   'meridian.inbox.previous': 'Nke gara aga',
   'meridian.inbox.replyFailed': 'Echekwara azịza mana nnyefe ahụ adaala: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Ị nweghị akaụntụ?',
   'meridian.login.showPassword': 'Gosi paswọọdụ',
   'meridian.message.toLine': 'na {{recipients}}',
+  'meridian.notFound.body':
+    'Enweghị ike ịchọta ibe ị na-achọ. Laghachi na igbe mbata {{appName}} gị, anyị ga-eduzi gị nke ọma.',
   'meridian.notFound.eyebrow': 'Njehie 404',
   'meridian.notFound.title': "E debere eriri a n'ebe nchekwa.",
   'meridian.notFound.toInbox': 'Mepee igbe mbata m',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Tinye kpakpando',
   'meridian.thread.unstar': 'Wepụ kpakpando',
   'meridian.time.yesterday': 'Ụnyaahụ',
+  'meridian.topBar.openMenu': 'Mepee menu nsoroụzọ',
   'meridian.topBar.searchPlaceholder': 'Chọọ ozi email',
   'meridian.trash.empty': 'Ahịhịa tọgbọ chakoo.',
   'meridian.trash.title': 'Ahịhịa',
   'nav.legal': 'Iwu kwadoro',
   'planUpdated.description':
     'Ndebanye aha gị na-arụ ọrụ ugbu a, emelitekwala ịkwụ ụgwọ gị. Nnọọ na igbe mbata Courier gị emelitere.',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.heading': 'ihe osise',
   'pricing.limit.emails': 'ozi ịntanetị',
   'pricing.limit.folders': 'folda',
   'pricing.limit.labels': 'aha ụlọọrụ',
   'privacy.collect.account':
     'Data akaụntụ: aha, adreesị ozi-e, paswọọdụ hashed, na ụbọchị ị debanyere aha.',
+  'privacy.contact': 'Ajụjụ dị? Ziga ozi-e na privacy@courier.example.',
   'privacy.intro':
     'Amụma nzuzo a na-akọwa data Courier na-anakọta, ihe mere anyị ji anakọta ya, otu anyị si echekwa ya, na nhọrọ ndị ị nwere maka ya. Ebumnuche anyị bụ ịkọwa kpọmkwem kama ịgbaso iwu; ọ bụrụ na ihe ọ bụla edoghị anya, degaara privacy@courier.example.',
   'privacy.lastUpdated': 'Emelitere ikpeazụ: Eprel 1, 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Usoro ndị a na-achịkwa ojiji Courier gị. Site n'ịmepụta akaụntụ ma ọ bụ izipu ozi-e site na anyị, ị kwenyere ka e jiri ha mee ihe. Anyị na-agbalị ide iwu mmadụ nwere ike ịgbaso n'ezie.",
   'terms.lastUpdated': 'Dị irè: Eprel 1, 2026',
+  'terms.linkPrivacy': 'Gụọ Amụma Nzuzo anyị →',
   'terms.termination.body':
     "Ị nwere ike ihichapụ akaụntụ gị n'oge ọ bụla. Anyị nwere ike ịkwụsịtụ akaụntụ nke mebiri usoro ndị a; ọ bụrụ na anyị emee ya, anyị ga-akọwa ihe kpatara ya ma kwe ka ị bufee data gị mbụ.",
   'terms.warranty.body':

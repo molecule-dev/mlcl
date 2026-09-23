@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.pageTitle': 'O aplikácii {{app}}',
+  'common.goToDashboard': 'Prejsť na prehľad',
+  'common.retry': 'Skúsiť znova',
   'compose.cancel': 'Zrušiť',
   'compose.captionPlaceholder': 'Čo máš na mysli?',
   'compose.heading': 'Zdieľajte chvíľku',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Overený účet',
   'resetPassword.newPassword': 'Nové heslo',
   'resetPassword.subheading': 'Vyberte niečo silné – aspoň 12 znakov.',
+  'search.clearAria': 'Jasné',
+  'search.error': 'Vyhľadávanie sa nepodarilo. Skúste to znovu.',
   'search.noPeople': 'Žiadni tvorcovia nezodpovedajú {{q}} ".',
   'search.noPosts': 'Žiadne príspevky nezodpovedajú výrazu " {{q}} ".',
   'search.noTags': 'Zatiaľ žiadne trendové hashtagy.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Skryť heslo',
   'signup.showPassword': 'Zobraziť heslo',
   'signup.subheading': 'Vytvorte si účet a začnite zdieľať.',
+  'socialMediaLayout.closeMenu': 'Zatvoriť navigačné menu',
+  'socialMediaLayout.openMenu': 'Otvoriť navigačné menu',
+  'socialMediaLayout.primaryNavLabel': 'Hlavná navigácia',
   'storyRail.heading': 'Príbehy',
   'storyRail.label': 'Príbehy',
   'storyRail.openAria': 'OTVORENÉ {{handle}} príbeh',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// Giới thiệu về {{app}}',
+  'about.pageTitle': 'Mặt phẳng điều khiển webhook',
+  'about.plansTitle': 'Kế hoạch cho từng giai đoạn',
   'apiKeys.bestPractices': 'Thực hành tốt nhất',
   'apiKeys.body':
     'Mã thông báo truy cập theo cách lập trình. Quý vị hãy đối xử với chúng như mật khẩu — lưu trữ trong biến môi trường, không bao giờ commit.',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'trong gói',
   'billing.usageWarning': 'gần giới hạn',
   'billing.yearly': 'Hàng năm',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.body':
     'Thông tin về lưu lượng truy cập trực tiếp, số lần thử lại đang thực hiện và các điểm cuối vừa gặp sự cố — trên mọi không gian làm việc mà bạn đang vận hành.',
   'dashboard.endpointsEmpty': 'Chưa có điểm cuối nào.',
@@ -108,6 +112,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endpoint',
   'endpointDetail.deliveryTrendSub': 'lần giao / giờ, thang log',
   'endpointDetail.hideSecret': 'Ẩn bí mật',
+  'endpointDetail.loading': 'Đang tải điểm cuối…',
   'endpointDetail.metric.delivered': 'Đã giao 24h',
   'endpointDetail.metric.deliveredCaption': 'từ {{count}} loại sự kiện',
   'endpointDetail.metric.failuresCaption': 'lần thử: {{retries}}',
@@ -212,6 +217,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Nghiêm trọng · 24h',
   'notifications.metric.totalCaption': 'hộp thư toàn thời gian',
   'payloadViewer.payload': '// payload',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'profile.avatarHeader': 'Ảnh đại diện',
   'profile.avatarHint': 'Hiển thị chữ cái đầu — tải lên sẽ có trong bản phát hành tiếp theo.',
   'profile.body': 'Tài khoản, tùy chọn và phiên hoạt động của quý vị.',
@@ -227,6 +233,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Chỉ phiên hiện tại của quý vị đang hoạt động. Không có thiết bị nào khác đăng nhập.',
   'profile.toggle': 'Chuyển đổi {{label}}',
+  'pylonShell.closeMenu': 'Đóng menu điều hướng',
+  'pylonShell.openMenu': 'Mở menu điều hướng',
   'pylonShell.primaryNavLabel': 'Điều hướng chính',
   'resetPassword.subtitle': 'Xin chọn một mật khẩu mạnh mà bạn chưa từng sử dụng.',
   'resetPassword.tokenPlaceholder': 'dán từ email',

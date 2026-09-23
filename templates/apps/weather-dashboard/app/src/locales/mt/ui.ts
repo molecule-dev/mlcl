@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Bħalissa inti fuq {{plan}} pjan.',
   'billing.switch': 'Swiċċ',
   'billing.upgraded': 'Aġġornat għal {{plan}} — limiti applikati immedjatament.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'compare.activityHeading': 'Verdetti tal-attività',
   'compare.empty.title': 'Żid mill-inqas żewġ postijiet biex tqabbel',
   'compare.eyebrow': "Ġenb ma' ġenb",
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Għoli',
   'trends.summary.low.label': 'Baxx',
   'trends.summary.points.label': 'Jiem',
+  'weatherDashboardLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'weatherHeroCard.updated': 'Aġġornat {{time}}',
 }

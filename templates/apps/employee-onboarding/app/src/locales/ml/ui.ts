@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'നിങ്ങളുടെ പാസ്‌വേഡ് പുനഃസജ്ജമാക്കുക.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'ടാസ്‌ക് പൂർത്തിയായതായി അടയാളപ്പെടുത്തുക',
   'checklistTaskCard.markIncomplete': 'ടാസ്‌ക് പൂർത്തിയായില്ലെന്ന് അടയാളപ്പെടുത്തുക',
   'checklistTaskCard.openLabel': 'ടാസ്‌ക് തുറക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'നിങ്ങൾ എല്ലാം വായിച്ചു കഴിഞ്ഞു.',
@@ -53,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ട്രാക്കിൽ',
   'dashboard.timelineHeading': '30/60/90 നാഴികക്കല്ലുകൾ',
   'dashboard.viewAllTasks': 'എല്ലാ ടാസ്‌ക്കുകളും കാണുക',
+  'dashboard.weekOne': 'ആഴ്ച 1',
   'dashboard.yourCohort': 'നിങ്ങളുടെ ടീം',
   'documents.empty.body': 'നിങ്ങളുടെ ടീം ചേർത്ത പ്രമാണങ്ങൾ ഇവിടെ ദൃശ്യമാകും.',
   'documents.empty.title': 'ഇതുവരെ രേഖകളൊന്നുമില്ല.',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 ദിവസത്തെ സൗജന്യ ട്രയൽ',
   'landing.subhead':
     'പുതിയ സഹതാരങ്ങളെ ആദ്യ 90 ദിവസങ്ങളിൽ ശാന്തവും ആത്മവിശ്വാസമുള്ളതുമായ ഒരു സ്ഥലത്ത് - പേപ്പർ വർക്കുകൾ, പരിശീലനം, നാഴികക്കല്ലുകൾ, അർത്ഥവത്തായ പരിചയപ്പെടുത്തലുകൾ - എംബാർക്ക് വഴികാട്ടുന്നു.',
+  'layout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'layout.search': 'തിരയൽ ജോലികൾ, പ്രമാണങ്ങൾ, സഹപ്രവർത്തകർ...',
+  'layout.searchTeammates': 'പേരോ റോളോ അനുസരിച്ച് സഹതാരങ്ങളെ തിരയുക...',
   'layout.section.onboarding': 'ഓൺബോർഡിംഗ്',
   'layout.tagline': 'നിങ്ങളുടെ യാത്ര ഇവിടെ ആരംഭിക്കുന്നു',
   'notifications.empty.body': 'പുതിയ പ്രവർത്തനം ഇവിടെ ദൃശ്യമാകും.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ഇന്നലെ',
   'planUpdated.message': 'നിങ്ങൾ തയ്യാറായിക്കഴിഞ്ഞു.',
   'planUpdated.preparing': 'നിങ്ങളുടെ പ്ലാൻ അപ്ഡേറ്റ് ചെയ്യുന്നു...',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.documentsLabel': 'രേഖകൾ',
   'pricing.onboardingsLabel': 'ഓൺബോർഡിംഗുകൾ',
   'pricing.tasksLabel': 'ചുമതലകൾ',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကျွန်ုပ်တို့ရဲ့ ဇာတ်လမ်း',
   'aiSuggestionPanel.title': 'ဆိုင်းနက် တွဲဖက်လေယာဉ်မှူး',
   'analytics.col.open': 'ပွင့်လင်းနှုန်း',
@@ -26,6 +27,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ငွေရှင်းခြင်းစတင်နေပါပြီ…',
   'billing.subheading': 'သင်ပေးပို့ပုံနှင့် ကိုက်ညီသော အစီအစဉ်ကို ရွေးချယ်ပါ။',
   'billing.unavailable': 'အရောင်းဌာနကို ဆက်သွယ်ပါ',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'compose.adjustingTone': 'ရွေးချယ်ထားသော လေသံဖြင့် ပြန်လည်ရေးသားခြင်း…',
   'compose.aiPromptPlaceholder':
     'ဥပမာ "နှစ်ပတ်ကြာ အကြောင်းပြန်မှု မရှိပြီးနောက် ယဉ်ကျေးစွာ နောက်ဆက်တွဲ မေးမြန်းပါ၊ တိုတိုတုတ်တုတ် လုပ်ပါ။"',
@@ -63,6 +66,7 @@ export const ui: UiTranslations = {
     'တစ်ခုခုပို့ဖို့ လိုအပ်ပါသလား။ Signet က စက္ကန့်ပိုင်းအတွင်း မူကြမ်းတစ်စောင် အဆင်သင့်ဖြစ်အောင် လုပ်ပေးနိုင်ပါတယ်။',
   'dashboard.composeCtaLabel': 'အမြန်ရေးသားခြင်း',
   'dashboard.heading': 'မင်းရဲ့တစ်ပတ်စာ၊ ရေးစပ်ထားတာ',
+  'dashboard.loadFailed': 'သင့်ဒက်ရှ်ဘုတ်ကို တင်၍မရပါ။',
   'dashboard.manageLibrary': 'စာကြည့်တိုက်ကို စီမံခန့်ခွဲပါ →',
   'dashboard.recentEmpty':
     'ပေးပို့မှု မရှိသေးပါ — သင်ပေးပို့ထားသော အီးမေးလ်များကို ဤနေရာတွင် ပေါ်လာပါမည်။',
@@ -149,6 +153,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'မူရင်းသံစဉ်',
   'settings.toneSubheading': 'မူကြမ်းကို ပယ်ဖျက်ခြင်းမရှိပါက Signet သည် ဤလေသံကို အသုံးပြုသည်။',
   'signetLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'signetLayout.toggleMenu': 'မီနူးပြောင်းရန်',
   'signup.emailLabel': 'အီးမေးလ်လိပ်စာ',
   'signup.showPassword': 'စကားဝှက်ပြပါ',
   'signup.tagline': 'သင့်ရဲ့ ပထမဆုံး AI ရေးဆွဲထားတဲ့ အီးမေးလ်ကို တစ်မိနစ်အတွင်း ပေးပို့လိုက်ပါ။',

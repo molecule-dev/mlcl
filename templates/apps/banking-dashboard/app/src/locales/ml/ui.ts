@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
   'accountDetail.activeBadge': 'സജീവം',
   'accountDetail.availableLabel': '{{amount}} ലഭ്യമാണ്',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'അക്കൗണ്ടുകൾ',
   'accounts.loadError': 'അക്കൗണ്ടുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'മരവിച്ചത്',
   'accounts.totalBalance': '{{തുക}} ആകെ',
   'audit.empty': 'ഇതുവരെ പരിപാടികളൊന്നുമില്ല.',
   'audit.eyebrow': 'സുരക്ഷയും ആക്‌സസും',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'കൈയിലുള്ള പണം',
   'cashCreditCard.creditLabel': 'ഉപയോഗിച്ച ക്രെഡിറ്റ്',
   'cashCreditCard.title': 'പണവും ക്രെഡിറ്റും',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.accountsHeading': 'അക്കൗണ്ടുകൾ',
   'dashboard.heading': 'അവലോകനം',
   'dashboard.recentEmpty': 'ഇതുവരെ ഇടപാടുകളൊന്നുമില്ല.',
@@ -45,10 +48,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.signUp': 'സൈൻ അപ്പ് ചെയ്യുക',
   'login.submit': 'സൈൻ ഇൻ',
+  'meridianLayout.menu': 'മെനു',
   'meridianLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'nav.legal': 'നിയമപരമായ',
   'notifications.emptyHeading': 'നിങ്ങൾ എല്ലാം പൂർത്തിയാക്കി.',
   'notifications.subheading': 'ഇടപാടുകൾ, സുരക്ഷ, പ്രസ്താവനകൾ എന്നിവയ്‌ക്കുള്ള തത്സമയ അലേർട്ടുകൾ.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'privacy.dataWeShare':
     'വ്യക്തിഗത ബാങ്കിംഗ് ഡാറ്റ ഒരിക്കലും വിൽക്കില്ല. ഇടപാടുകൾ തീർപ്പാക്കുന്നതിനോ നിയമപരമായ ബാധ്യതകൾ നിറവേറ്റുന്നതിനോ ആവശ്യമായ വിവരങ്ങൾ മാത്രമേ ഞങ്ങൾ പേയ്‌മെന്റ് പ്രോസസ്സർമാർ, കാർഡ് നെറ്റ്‌വർക്കുകൾ, റെഗുലേറ്റർമാർ എന്നിവരുമായി പങ്കിടൂ.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'ഓരോ സൈൻ-ഇന്നിലും ഒരു ഓതന്റിക്കേറ്റർ ആപ്പിൽ നിന്ന് ടു-ഫാക്ടർ ഒരു ഒറ്റത്തവണ കോഡ് ചേർക്കുന്നു.',
   'settings.security.twoFactorCta': 'ടു-ഫാക്ടർ ഓത്ത് കൈകാര്യം ചെയ്യുക',
+  'settings.security.twoFactorOff': 'ടു-ഫാക്ടർ ഓഫാണ്',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.subheading': 'പ്രൊഫൈൽ, സുരക്ഷ, അറിയിപ്പുകൾ.',
+  'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'signup.emailLabel': 'ഇമെയിൽ വിലാസം',
   'signup.fullName': 'ഞങ്ങൾ നിങ്ങളെ എങ്ങനെ അഭിസംബോധന ചെയ്യണം?',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
@@ -105,7 +114,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ഇതുവരെ ഇടപാടുകളൊന്നുമില്ല.',
   'transactions.endDate': 'അവസാന തീയതി',
   'transactions.eyebrow': 'പ്രവർത്തനം',
+  'transactions.loadError': 'ഇടപാടുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'transactions.merchant': 'വ്യാപാരി',
+  'transactions.subheading':
+    'നിങ്ങളുടെ അക്കൗണ്ടുകളിലുടനീളം പോസ്റ്റ് ചെയ്തതും തീർപ്പുകൽപ്പിക്കാത്തതുമായ എല്ലാ ഇടപാടുകളും.',
   'transfers.availableHint': '{{amount}} ലഭ്യമാണ്',
   'transfers.errorGeneric': 'കൈമാറ്റം സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല.',
   'transfers.errorMissingFields': 'ഒരു ഉറവിട അക്കൗണ്ടും ലക്ഷ്യസ്ഥാനവും തിരഞ്ഞെടുക്കുക.',

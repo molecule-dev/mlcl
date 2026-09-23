@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'achievementBadgeCard.unlockedOn': 'ปลดล็อกแล้ว {{date}}',
   'achievements.loadError': 'ไม่สามารถโหลดความสำเร็จได้',
   'achievements.subheading': '{{unlocked}} ของ {{total}} ปลดล็อกแล้ว',
   'achievements.unlockedOn': 'ปลดล็อกแล้ว {{date}}',
+  'auth.legalConsent': 'เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ',
   'calendar.empty': 'สร้างนิสัยในการตรวจสอบปฏิทินของคุณเป็นประจำ',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'นิสัย',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ตารางนิสัย',
   'category.${c.category}': '{{นับ}} นิสัย',
   'common.and': 'และ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'consistencyHeatmap.ariaLabel': 'แผนภูมิแสดงความสัมพันธ์รายวัน',
   'consistencyHeatmap.caption': 'ล่าสุด {{weeks}} สัปดาห์',
   'consistencyHeatmap.lessLabel': 'น้อย',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'ชมสดๆ ได้เลย',
   'landing.heroSubtitle':
     'สร้างนิสัยด้วยวิธีที่มันจะคงอยู่จริง ๆ นั่นคือ การเริ่มต้นจากพันธสัญญาเล็ก ๆ การทำต่อเนื่องทุกวัน และความสุขที่แท้จริงจากการทำต่อเนื่องยาวนานโดยไม่ขาดตอน',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'แอบดูภายใน Streak',
   'landing.previewMotivation': 'เก้าเส้นยังคงมีชีวิตอยู่ จงรักษาความอบอุ่นให้พวกมันทั้งหมด',
   'login.eyebrow': 'หยิบโซ่ขึ้นมา',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ทำให้เล็ก ทำให้เฉพาะเจาะจง และมาปรากฏตัวในวันพรุ่งนี้',
   'newHabit.timeLabel': 'ถึงเวลาเตือนแล้ว',
   'notifications.markError': 'ไม่สามารถทำเครื่องหมายว่าอ่านแล้วทั้งหมดได้',
+  'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.entries': '{{count}} รายการ',
+  'pricing.heading': 'เลือกแผน {{app}} ของคุณ',
   'profile.action.plan': 'จัดการการสมัครสมาชิก',
   'profile.action.settings': 'การตั้งค่าบัญชี',
   'profile.bioEmpty': 'เพิ่มประวัติย่อในเมนูการตั้งค่าเพื่อแนะนำตัวคุณ',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'ข้อความแจ้งเตือนประจำวันตอนเช้า (8:00 น.)',
   'settings.reminders.heading': 'การแจ้งเตือน',
   'settings.reminders.weekly': 'สรุปข่าวประจำสัปดาห์ (เย็นวันอาทิตย์)',
+  'settings.revokeDeviceWarning': 'การเข้าถึงของอุปกรณ์นี้จะถูกเพิกถอนในไม่ช้า ออกจากระบบหรือไม่?',
   'settings.signOutDevice': 'ออกจากระบบ',
   'settings.streaks.freezesPerWeek': 'แช่แข็งต่อสัปดาห์',
   'settings.streaks.gracePeriod': 'มีเวลาผ่อนผัน 6 ชั่วโมงหลังเที่ยงคืน',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} คล่องแคล่ว',
   'streakHeroCard.daysSuffix': 'วัน',
   'streakHeroCard.title': 'สตรีคที่ใช้งานอยู่ยาวนานที่สุด',
+  'streakLayout.closeMenu': 'ปิดเมนูนำทาง',
+  'streakLayout.openMenu': 'เปิดเมนูนำทาง',
   'streakLayout.primaryNavLabel': 'การนำทางหลัก',
 }

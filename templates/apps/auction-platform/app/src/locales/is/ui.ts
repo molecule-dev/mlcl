@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Að horfa',
   'auctionDetail.watchRemoved': 'Fjarlægt af eftirlitslista.',
   'auctionDetail.watchRemoveLabel': 'Fjarlægja af eftirlitslista',
+  'auctionPlatformLayout.primaryNavLabel': 'Aðalflakk',
   'authShell.brandBody':
     'Bjóðið í rauntíma í sjaldgæfar úr, listaverk og einstaka sérvörur. Hamarinn fellur á nokkrum sekúndum.',
   'authShell.brandEyebrow': 'Í beinni · 1.420 uppboð',
@@ -48,6 +49,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Raða eftir',
   'browseAuctions.subheading':
     'Síaðu eftir flokkum, raðaðu eftir því sem skiptir mestu máli og leggðu inn tilboð áður en hamarinn fellur.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'countdownTimer.ended': 'Lokið',
   'countdownTimer.endingSoon': 'Endir',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Sýna lykilorð',
   'login.subtext':
     'Haltu áfram að fylgjast með uppboðunum þínum og leggðu inn tilboð áður en hamarinn fellur.',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'myBids.bidAgain': 'Bjóðið aftur',
   'myBids.browseCta': 'Skoðaðu uppboð í beinni →',
   'myBids.checkoutCta': 'Borgaðu núna',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'Engar tilkynningar ennþá.',
   'notificationsPage.eyebrow': 'Afþreyingarmiðstöð',
   'notificationsPage.subheading': '{{count}} ólesið · uppfærslur í beinni þegar uppboð færast yfir',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.bidsLabel': 'tilboð',
   'pricing.listingsLabel': 'skráningar',
   'pricing.watchlistLabel': 'eftirlitslisti',

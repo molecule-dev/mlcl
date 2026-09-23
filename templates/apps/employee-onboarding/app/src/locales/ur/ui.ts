@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'اپنا پاس ورڈ دوبارہ ترتیب دیں۔',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'کام کو مکمل طور پر نشان زد کریں۔',
   'checklistTaskCard.markIncomplete': 'کام کو نامکمل نشان زد کریں۔',
   'checklistTaskCard.openLabel': 'کام کھولیں۔',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'تم سب پکڑے گئے ہو۔',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ٹریک پر',
   'dashboard.timelineHeading': '30/60/90 سنگ میل',
   'dashboard.viewAllTasks': 'تمام کام دیکھیں',
+  'dashboard.weekOne': 'ہفتہ 1',
   'dashboard.yourCohort': 'آپ کی ٹیم',
   'documents.empty.body': 'آپ کی ٹیم کے ذریعے شامل کیے گئے دستاویزات یہاں ظاہر ہوں گے۔',
   'documents.empty.title': 'ابھی تک کوئی دستاویزات نہیں ہیں۔',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 دن کی مفت آزمائش',
   'landing.subhead':
     'Embark ہر نئے ساتھی ساتھی کو ان کے پہلے 90 دنوں میں رہنمائی کرتا ہے — کاغذی کارروائی، تربیت، سنگ میل، اور بامعنی تعارف، سب ایک پرسکون، پر اعتماد جگہ پر۔',
+  'layout.openMenu': 'نیویگیشن مینو کھولیں۔',
   'layout.search': 'تلاش کے کام، دستاویزات، ٹیم کے ساتھی…',
+  'layout.searchTeammates': 'ٹیم کے ساتھیوں کو نام یا کردار سے تلاش کریں…',
   'layout.section.onboarding': 'آن بورڈنگ',
   'layout.tagline': 'آپ کا سفر یہاں سے شروع ہوتا ہے۔',
   'notifications.empty.body': 'نئی سرگرمی یہاں نظر آئے گی۔',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'کل',
   'planUpdated.message': 'آپ بالکل تیار ہیں۔',
   'planUpdated.preparing': 'آپ کا پلان اپ ڈیٹ ہو رہا ہے…',
+  'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.documentsLabel': 'دستاویزات',
   'pricing.onboardingsLabel': 'آن بورڈنگ',
   'pricing.tasksLabel': 'کام',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'О {{app}}',
+  'appNav.mobileLabel': 'Основная навигация',
+  'appNav.primaryLabel': 'Основная навигация',
   'billing.actions.confirmCancel':
     'Хотите отменить подписку? Вы можете продлить подписку в любое время.',
   'billing.actions.paused': 'Подписка приостановлена.',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Каждый уровень — это небольшая партия историй. Добавьте одну в свою очередь или перенесите её на следующий месяц.',
   'boxThemeCard.perMonth': '/ месяц',
+  'common.goToDashboard': 'Перейти к панели',
   'customize.eyebrow': 'Сделайте это своим',
   'customize.heading': 'Настройте свой следующий Crate',
   'customize.items.exclude': 'Пропустите это',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'В этом сезоне',
   'landing.editions.heading': 'Издания, которые так нравятся нашим кураторам.',
   'landing.footer.contact': 'Поговорите с куратором',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Начните создавать свою коробку →',
   'landing.hero.ctaSecondary': 'См. уровни',
   'landing.hero.eyebrow': 'Ежемесячная подборка. Всегда индивидуальный подход.',
@@ -117,6 +122,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ВАШ СЛЕДУЮЩИЙ ЗАХВАТЫВАЮЩИЙ КЛАД',
   'nextBoxHeroCard.itemsLabel': 'Подборка товаров',
   'nextBoxHeroCard.shipsOnLabel': 'Корабли на',
+  'notFound.body':
+    'Мы не смогли найти эту страницу в архиве {{app}} . Возможно, она была удалена или просто опечатка.',
   'notFound.cta.dashboard': 'Перейдите на панель управления',
   'notFound.eyebrow': 'Пустая коробка',
   'notFound.heading': 'Эта полка пуста.',

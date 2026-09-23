@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
   'about.pageTitle': 'Körülbelül {{name}}',
   'auth.footer.about': 'Körülbelül {{name}}',
   'authHeader.subtitle': 'Jelentkezz be, hogy a számok pontosak maradjanak.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Nincs művelet',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Törlés " {{name}} "?',
   'automations.empty.headline': 'Még nincsenek automatizálások',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Eseményindítók és műveletek minden munkafüzetben. Minden futtatás naplóz egy sort, amelyet később naplózhat.',
   'automations.toggle': 'Váltás {{name}}',
+  'automations.trigger.dailySchedule': 'Napi beosztás',
+  'automations.trigger.rowCreated': 'Sor létrehozva',
+  'automations.trigger.rowUpdated': 'Sor frissítve',
   'billing.empty': 'Nincsenek elérhető tervek.',
   'billing.error.priceMissing':
     'Nincs Stripe ár konfigurálva ehhez a szinthez. Állítsa be a STRIPE_*_PRICE_ID környezeti változókat.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Diagramok',
   'charts.kpi.totalCharts': 'Összes diagram',
   'charts.list.empty': 'Még nincsenek diagramok.',
+  'charts.namePlaceholder': 'Bevételi trend',
   'charts.newChart': 'Új diagram',
   'charts.primary.eyebrow': 'Diagramok típus szerint',
   'charts.primary.headline': 'Munkaterület áttekintése',
   'charts.subhead':
     'Élő vizualizációk a rácshoz kötve – minden cellaszerkesztéskor újrarenderelés.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'editor.addColumn': 'Oszlop hozzáadása',
+  'editor.addDialogTitle': 'Oszlop hozzáadása',
   'editor.addRow': 'Sor hozzáadása',
   'editor.addSheet': 'Lap hozzáadása',
   'editor.back': 'Vissza a munkafüzetekhez',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} A Calcite az a formula-első, több nézetet megjelenítő, valós idejű hálózati elemző és pénzügyi csapat, amely az elsők között ragadja meg az erejét.',
   'landing.nav.formulas': 'Képletek',
+  'login.noAccount': 'Új vagy a {{name}} oldalon?',
+  'login.signIn': 'Jelentkezzen be a {{name}} fiókba',
   'login.signUp': 'Munkaterület létrehozása',
+  'nav.menu': 'Menü',
+  'nav.openMenu': 'Menü megnyitása',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=KERES(KÉRÉS.url; "útvonalak"; "oldal")',
   'notFound.headline': 'Ez a sor soha nem létezett.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Natív automatizálások · webhook és cron triggerek',
   'signup.creating': 'Munkaterület kiépítése…',
   'signup.cta': 'Munkaterület létrehozása',
+  'signup.haveAccount': 'Már {{name}} on vagy?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Pörgesd fel az első munkafüzetedet 30 másodperc alatt',
   'team.col.activity': 'Meghívott',

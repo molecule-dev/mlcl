@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'कोर्स लोड हो रहे हैं…',
   'browse.next': 'अगला पृष्ठ',
   'browse.results': '{{count}} कोर्स दिखाए जा रहे हैं',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'इसके अनुसार क्रमबद्ध करें',
   'browse.subtitle':
     'विषय, स्तर और मूल्य के अनुसार संपादकीय संग्रह को फ़िल्टर करें। हर कोर्स हमारे संपादकों द्वारा सावधानीपूर्वक चुना गया है।',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'आपका प्रमाणपत्र हस्ताक्षरित और तैयार है। इसे दुनिया के साथ साझा करें या इसे अर्जित करने के लिए की गई मेहनत की याद के रूप में रखें।',
   'certificate.copyLink': 'शेयर लिंक कॉपी करें',
+  'certificate.copyPrompt': 'इस लिंक को कॉपी करें:',
   'certificate.download': 'PDF डाउनलोड करें',
   'certificate.eyebrow': 'उपलब्धि अनलॉक',
   'certificate.linkCopied': 'लिंक कॉपी हो गया!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'आप नामांकित हो गए हैं!',
   'checkout.verifying': 'आपका नामांकन सत्यापित किया जा रहा है…',
   'checkout.viewLibrary': 'मेरी पढ़ाई देखें',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.retry': 'फिर से प्रयास करें',
   'courseDetail.about': 'इस कोर्स के बारे में',
   'courseDetail.checkoutPending': 'चेकआउट शुरू हो रहा है…',
   'courseDetail.continueLearning': 'सीखना जारी रखें',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-दिन की धन-वापसी गारंटी',
   'courseDetail.includes.video': '{{hours}} घंटे का ऑन-डिमांड वीडियो',
   'courseDetail.instructor': 'प्रशिक्षक',
+  'courseDetail.languageEnglish': 'अंग्रेज़ी',
   'courseDetail.lectures': 'व्याख्यान',
   'courseDetail.level': 'स्तर',
   'courseDetail.loading': 'कोर्स लोड हो रहा है…',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'अभी तक कोई समीक्षा नहीं।',
   'instructorProfile.students': 'छात्र',
   'landing.categories.empty': 'कैटलॉग के पॉपुलेट होने पर श्रेणियाँ दिखाई देंगी।',
+  'landing.categories.heading': 'पुरालेख देखें',
   'landing.hero.eyebrow': 'Lectura · निपुणता का संपादकीय संग्रह',
   'landing.hero.proof': 'Google, Meta और Adobe के शिक्षार्थियों द्वारा भरोसेमंद।',
   'landing.hero.subtitle':
@@ -154,6 +160,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'आज ही सीखना शुरू करें',
   'login.subheading': 'अपने विद्वत्तापूर्ण संग्रह तक पहुँचें।',
   'myLearning.empty.title': 'इस फ़िल्टर से अभी तक कोई कोर्स मेल नहीं खाता',
+  'myLearning.error.title': 'आपकी लाइब्रेरी लोड नहीं हो सकी',
   'myLearning.filter.notStarted': 'शुरू नहीं किया',
   'myLearning.hero.subtitle':
     '{{count}} अपनी लाइब्रेरी में पाठ्यक्रम उपलब्ध कराएं। इस गति को बनाए रखें।',
@@ -166,6 +173,7 @@ export const ui: UiTranslations = {
   'notFound.title': 'पाठ नहीं मिला',
   'notifications.empty.body': 'समीक्षा के लिए कोई नई गतिविधि नहीं। नई घटनाएँ यहाँ दिखाई देंगी।',
   'notifications.empty.title': 'आप पूरी तरह अप-टू-डेट हैं',
+  'notifications.error.title': 'गतिविधि लोड नहीं हो सकी',
   'privacy.title': 'गोपनीयता नीति',
   'reset.confirmPlaceholder': 'अपना नया पासवर्ड पुनः दर्ज करें',
   'reset.errorGeneric': 'पासवर्ड रीसेट नहीं किया जा सका। नया लिंक का अनुरोध करें।',
@@ -188,5 +196,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} दिन पहले',
   'timeAgo.hours': '{{count}} घंटे पहले',
   'timeAgo.minutes': '{{count}} मिनट पहले',
+  'timeAgo.months': '{{count}} महीने पहले',
   'timeAgo.today': 'आज',
+  'timeAgo.weeks': '{{count}} सप्ताह पहले',
 }

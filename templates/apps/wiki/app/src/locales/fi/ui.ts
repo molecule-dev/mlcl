@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Ratkaistaan…',
   'comments.subtitle':
     'The {{count}} Ketjut odottavat edelleen vastausta tai ratkaisua. Lajiteltu iän mukaan – vanhin ensin, joten mikään ei mätäne.',
+  'common.goToDashboard': 'Siirry etusivulle',
   'forgotPassword.sentTo': 'Nollauslinkki lähetetty osoitteeseen {{email}}',
   'forgotPassword.successSubheading':
     'Tarkista sähköpostisi – lähetimme juuri nollauslinkin. Se vanhenee 30 minuutin kuluttua.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Uusi sivu',
   'pageTreeSidebar.workspaceHeader': 'Työtila',
   'pageView.breadcrumb': 'Navigointipolku',
+  'pageView.confirmTrash': 'Heitätkö sen roskiin?',
   'pageView.home': 'Kotiin',
   'pageView.lastEdited': 'Päivitetty {{when}}',
   'pageView.loading': 'Sivua ladataan…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Tiivistetään…',
   'pageView.summaryUnavailable': 'Tekoälyyhteenvetoa ei ole määritetty tälle työtilalle.',
   'pageView.tocTitle': 'Tällä sivulla',
+  'pageView.trash': 'Roskakori',
+  'pageView.trashing': 'Roskaaminen…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Merkit',
   'profile.owned.title': 'Omistetut sivut',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Työtila, profiili, ilmoitukset, integraatiot – kaikki yhdessä rauhallisessa kuoressa.',
   'settingsPage.workspace.defaultLanding': 'Oletuslaskeutumisnäyttö',
   'settingsPage.workspace.landingHome': 'Kotiin',
+  'settingsPage.workspace.landingSpaces': 'Tilat',
   'settingsPage.workspace.subdomainLabel': 'Aliverkkotunnus',
   'settingsPage.workspace.title': 'Työtila',
   'signup.eyebrow': 'Aloita uusi työtila',
@@ -130,6 +135,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Aloita sivu sapluunasta, älä tyhjältä kankaalta. Jokainen mallipohja koodaa muodon kiinteästi, jotta voit keskittyä sisältöön.',
+  'trash.confirmPurge': 'Tyhjennä lopullisesti?',
+  'trash.confirmPurgeAria': 'Vahvista: poista {{title}} pysyvästi',
   'trash.daysUntilPurge': '{{days}} päivää jäljellä',
   'trash.empty.body': 'Poistetut sivut näkyvät täällä 30 päivää ennen kuin ne tyhjennetään.',
   'trash.empty.title': 'Roskakori on tyhjä.',
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Palautetaan…',
   'versionHistory.subtitle': '{{count}} versiot · valitse rivi tarkastellaksesi eroja',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Sulje navigointi',
+  'wikiLayout.menu': 'Navigointi',
+  'wikiLayout.openMenu': 'Avaa navigointi',
   'wikiLayout.searchPlaceholder': 'Hae Cairnista — sivuja, kommentteja…',
 }

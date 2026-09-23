@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Qed issolvi…',
   'comments.subtitle':
     'Il- {{count}} Is-suġġetti għadhom qed jistennew tweġiba jew soluzzjoni. Magħżula skont l-età — l-eqdem l-ewwel, sabiex xejn ma jitmermer.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'forgotPassword.sentTo': 'Ir-reset link intbagħat lil {{email}}',
   'forgotPassword.successSubheading':
     "Iċċekkja l-inbox tiegħek — għadna kemm bgħatna link ta' reset. Jiskadi fi żmien 30 minuta.",
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Paġna ġdida',
   'pageTreeSidebar.workspaceHeader': 'Spazju tax-xogħol',
   'pageView.breadcrumb': 'Frak tal-ħobż',
+  'pageView.confirmTrash': 'Tarmih?',
   'pageView.home': 'Dar',
   'pageView.lastEdited': 'Aġġornat {{when}}',
   'pageView.loading': 'Qed tiċċarġja l-paġna…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Is-sommarju tal-AI mhux ikkonfigurat għal dan l-ispazju tax-xogħol.',
   'pageView.tocTitle': 'F’din il-paġna',
+  'pageView.trash': 'Trash',
+  'pageView.trashing': 'Qed inneħħi...',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Badges',
   'profile.owned.title': "Paġni li huma proprjetà ta' ħaddieħor",
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     "Spazju tax-xogħol, profil, notifiki, integrazzjonijiet — kollox f'qoxra waħda kalma.",
   'settingsPage.workspace.defaultLanding': 'Skrin tal-inżul awtomatiku',
   'settingsPage.workspace.landingHome': 'Dar',
+  'settingsPage.workspace.landingSpaces': 'Spazji',
   'settingsPage.workspace.subdomainLabel': 'Sottodominju',
   'settingsPage.workspace.title': 'Spazju tax-xogħol',
   'signup.eyebrow': 'Ibda spazju tax-xogħol ġdid',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} minuta',
   'templates.subtitle':
     "Ibda paġna minn stencil, mhux minn kanvas vojt. Kull template jikkodifika l-forma sabiex tkun tista' tiffoka fuq is-sustanza.",
+  'trash.confirmPurge': 'Tindif għal dejjem?',
+  'trash.confirmPurgeAria': "Ikkonferma: ħassar {{title}} b'mod permanenti",
   'trash.daysUntilPurge': '{{days}} jiem li fadal',
   'trash.empty.body': 'Il-paġni mħassra se jidhru hawn għal 30 jum qabel ma jitneħħew.',
   'trash.empty.title': 'It-trash huwa vojt.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} verżjonijiet · agħżel ringiela biex tispezzjona d-differenza',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Agħlaq in-navigazzjoni',
+  'wikiLayout.menu': 'Navigazzjoni',
+  'wikiLayout.openMenu': 'Navigazzjoni miftuħa',
   'wikiLayout.searchPlaceholder': "Fittex f'Cairn — paġni, kummenti…",
 }

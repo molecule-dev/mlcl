@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'సంప్రదించండి',
   'about.eyebrow': 'గురించి',
+  'about.title': '{{app}} గురించి',
   'activeAgentsCard.agent1AvatarAlt':
     'ఆధునిక కార్యాలయంలో స్నేహపూర్వక చిరునవ్వుతో ఉన్న ఒక మహిళా సపోర్ట్ ఏజెంట్ యొక్క ప్రొఫెషనల్ హెడ్‌షాట్',
   'activeAgentsCard.agent2AvatarAlt':
@@ -60,6 +61,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'మద్దతును సంప్రదించండి',
   'forgotPassword.error': 'రీసెట్ ఇమెయిల్ పంపలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'forgotPassword.rememberPassword': 'మీ పాస్‌వర్డ్ గుర్తుందా?',
   'forgotPassword.subheading':
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'సైన్ ఇన్ చేయండి — జెనిత్ సపోర్ట్',
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.welcomeSubheading': 'మీ సపోర్ట్ డాష్‌బోర్డ్‌లోకి సైన్ ఇన్ చేయండి',
+  'mobileNav.closeMenu': 'నావిగేషన్‌ను మూసివేయండి',
+  'mobileNav.menu': 'నావిగేషన్',
+  'mobileNav.openMenu': 'నావిగేషన్‌ను తెరవండి',
   'nav.legal': 'చట్టపరమైన',
   'nav.newTicket': 'కొత్త టిక్కెట్',
   'notifications.loadError': 'నోటిఫికేషన్‌లను లోడ్ చేయలేకపోయాము. కాసేపట్లో మళ్ళీ ప్రయత్నించండి.',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'కమాండ్ శోధన',
   'operatorDock.newReport': 'కొత్త నివేదిక',
   'operatorDock.systemOnline': 'సిస్టమ్ ఆన్‌లైన్',
+  'planUpdated.subtitle': 'ధన్యవాదాలు',
   'planUpdated.title': 'ప్రణాళిక నవీకరించబడింది',
   'pricing.agents': 'ఏజెంట్లు',
   'pricing.automation': 'ఆటోమేషన్ నియమాలు',
@@ -247,6 +253,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': "{{name}} 's అవతార్",
   'ticketDetail.errorTitle': 'ఏదో తప్పు జరిగింది',
+  'ticketDetail.loadError': 'టికెట్ లోడ్ చేయడంలో విఫలమైంది.',
+  'ticketDetail.notFound': 'టికెట్ కనుగొనబడలేదు',
+  'ticketDetail.replyError': 'ప్రత్యుత్తరం పంపడంలో విఫలమయ్యాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'ticketDetail.retry': 'మళ్ళీ ప్రయత్నించండి',
   'ticketDetail.statusUpdateError': 'స్థితిని నవీకరించలేకపోయాము. మళ్ళీ ప్రయత్నించండి.',
   'ticketDetailsCard.assigneeLabel': 'కేటాయించబడిన వ్యక్తి',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{సమయం}} ఎడమవైపు',
   'ticketRow.title': 'ప్రొడక్షన్‌లో డేటాబేస్ కనెక్షన్ విఫలమవుతోంది {{నోడ్}}',
   'tickets.pageTitle': 'టిక్కెట్లు — జెనిత్ సపోర్ట్',
+  'ticketsFab.newTicket': 'కొత్త టిక్కెట్',
   'ticketsFilterBar.assigneeLabel': 'కేటాయించబడిన వ్యక్తి:',
   'ticketsFilterBar.clearFilters': 'ఫిల్టర్‌లను క్లియర్ చేయండి',
   'ticketsFilterBar.dateRangeDemoHint': 'ఈ డెమో బిల్డ్‌లో తేదీ పరిధి వడపోత ప్రారంభించబడలేదు.',

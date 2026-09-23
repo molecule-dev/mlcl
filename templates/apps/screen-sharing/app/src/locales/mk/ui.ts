@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
   'about.pageTitle': 'За {{appName}}',
   'analytics.empty': 'Снимете го вашиот прв клип за да ја видите ангажманот овде.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'клипови',
   'billing.usage.views': 'Прегледи',
   'billing.usage.views.unit': 'прегледи',
+  'common.goToDashboard': 'Оди до контролна табла',
   'landing.cta.title': 'Испраќајте подобри повратни информации. Започнете со Glint.',
   'landing.feature.capture.body':
     'Снимање во прелистувач, десктоп и мобилен телефон со микрофон, камера и цртање.',
   'landing.feature.capture.title': 'Снимање со еден допир',
+  'landing.footer.copy': '© {{year}} {{appName}} . Асинхронизирано, направено луминисцентно.',
   'landing.hero.cardCaption': 'Примерок на преглед на работен простор — пробајте го бесплатно.',
   'landing.hero.primaryCta': 'Започнете со снимање бесплатно',
   'landing.hero.proof.free': 'Бесплатно ниво засекогаш',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Пребарување снимки',
   'library.searchPlaceholder': 'Пребарувајте снимки…',
   'library.weeklyChange': '{{value}} % во споредба со минатата недела',
+  'nav.openMenu': 'Отвори мени за навигација',
   'nav.record': 'Снимање',
   'nav.shared': 'Споделено со мене',
   'nav.startRecording': 'Започни снимање',

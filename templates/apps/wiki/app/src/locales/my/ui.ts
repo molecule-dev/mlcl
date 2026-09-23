@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'ဖြေရှင်းနေသည်…',
   'comments.subtitle':
     'ထို {{count}} အကြောင်းပြန်ချက် သို့မဟုတ် ဖြေရှင်းချက်ကို စောင့်မျှော်နေဆဲ ချည်နှောင်မှုများ။ အသက်အလိုက် စီထားသည် - အဟောင်းဆုံးကို အရင်စီသောကြောင့် မည်သည့်အရာမှ ပုပ်မသွားပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'forgotPassword.sentTo': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ပို့ထားသည် {{email}}',
   'forgotPassword.successSubheading':
     'သင့်ရဲ့ inbox ကို စစ်ဆေးပါ — reset link ကို ကျွန်တော်တို့ ပို့လိုက်ပါပြီ။ မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးပါမယ်။',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'စာမျက်နှာအသစ်',
   'pageTreeSidebar.workspaceHeader': 'အလုပ်ခွင်',
   'pageView.breadcrumb': 'ပေါင်မုန့်အစအန',
+  'pageView.confirmTrash': 'အမှိုက်ပစ်မလား။',
   'pageView.home': 'အိမ်',
   'pageView.lastEdited': 'အပ်ဒိတ်လုပ်ထားသည် {{when}}',
   'pageView.loading': 'စာမျက်နှာကို တင်နေသည်…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'အကျဉ်းချုပ်နေသည်…',
   'pageView.summaryUnavailable': 'ဤအလုပ်နေရာအတွက် AI အကျဉ်းချုပ်ကို ပြင်ဆင်သတ်မှတ်မထားပါ။',
   'pageView.tocTitle': 'ဤစာမျက်နှာတွင်',
+  'pageView.trash': 'အမှိုက်ပုံး',
+  'pageView.trashing': 'အမှိုက်ပစ်ခြင်း…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'တံဆိပ်များ',
   'profile.owned.title': 'ပိုင်ဆိုင်သော စာမျက်နှာများ',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'အလုပ်ခွင်၊ ပရိုဖိုင်၊ အသိပေးချက်များ၊ ပေါင်းစပ်မှုများ — အားလုံးကို တည်ငြိမ်သော အခွံတစ်ခုတည်းတွင် ပေါင်းစပ်ထားသည်။',
   'settingsPage.workspace.defaultLanding': 'မူရင်းဆင်းသက်မျက်နှာပြင်',
   'settingsPage.workspace.landingHome': 'အိမ်',
+  'settingsPage.workspace.landingSpaces': 'နေရာလွတ်များ',
   'settingsPage.workspace.subdomainLabel': 'ဆပ်ဒိုမိန်း',
   'settingsPage.workspace.title': 'အလုပ်ခွင်',
   'signup.eyebrow': 'အလုပ်ခွင်အသစ်တစ်ခု စတင်ပါ',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} မိနစ်',
   'templates.subtitle':
     'စာမျက်နှာတစ်ခုကို ဗလာကင်းဗတ်စ်ဖြင့်မဟုတ်ဘဲ စတန်းစယ်လ်ဖြင့် စတင်ပါ။ ပုံစံတစ်ခုစီသည် ပုံသဏ္ဍာန်ကို hard-code လုပ်ထားသောကြောင့် သင်သည် အနှစ်သာရကို အာရုံစိုက်နိုင်မည်ဖြစ်သည်။',
+  'trash.confirmPurge': 'ထာဝရ သန့်စင်ပစ်မှာလား?',
+  'trash.confirmPurgeAria': 'အတည်ပြုပါ- {{title}} ကို အပြီးအပိုင် ဖျက်ပစ်ပါ',
   'trash.daysUntilPurge': '{{days}} ကျန်ရက်များ',
   'trash.empty.body':
     'ဖျက်လိုက်သော စာမျက်နှာများကို သန့်စင်ခြင်းမပြုမီ ဤနေရာတွင် ရက် ၃၀ ကြာ ပေါ်လာပါမည်။',
@@ -152,5 +159,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} ဗားရှင်းများ · ကွာခြားချက်ကို စစ်ဆေးရန် အတန်းတစ်တန်း ရွေးချယ်ပါ',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'လမ်းညွှန်ချက်ကို ပိတ်ပါ',
+  'wikiLayout.menu': 'လမ်းညွှန်',
+  'wikiLayout.openMenu': 'လမ်းညွှန်ချက်ဖွင့်ပါ',
   'wikiLayout.searchPlaceholder': 'Cairn ကိုရှာပါ — စာမျက်နှာများ၊ မှတ်ချက်များ…',
 }

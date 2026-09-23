@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Tungkol sa {{app}}',
+  'auth.legalConsent': 'Sa pagpapatuloy, sumasang-ayon ka sa aming',
   'bookings.empty.body': 'Magdagdag ng flight, hotel, o aktibidad para simulan ang inbox.',
   'bookings.empty.heading': 'Wala pang booking.',
   'bookings.errors.create': 'Hindi makagawa ng booking.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Nakumpirma',
   'bookings.summary.pending': 'Naghihintay ng kumpirmasyon',
   'bookings.summary.total': 'Kabuuang nakatuon',
+  'bookings.type.car': 'Paupahang kotse',
+  'bookings.type.flight': 'Paglipad',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Iba pa',
   'budgetSpendCard.budgetTotal': 'ng {{total}} pinaplano',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Maghanap ng mga hindi pagkakatugma, planuhin ang mga araw ng paggaling sa pagitan ng mga biyahe, at tingnan kung kailan kasama mo sa paglalakbay ang mga kasama mo sa trabaho.',
   'common.and': 'at',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.budgetHeading': 'Pulso ng badyet',
   'dashboard.empty.heading': 'Wala pang mga biyahe — blangko ang iyong atlas.',
   'dashboard.eyebrow': 'Kontrol ng misyon',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Mga biyaheng gumagalaw',
   'dashboard.viewAllExpenses': 'Tingnan ang bawat gastos',
   'dashboard.viewAllTrips': 'Tingnan ang bawat biyahe',
+  'dayTimelineRow.category.accommodation': 'Manatili',
   'dayTimelineRow.category.transport': 'Transportasyon',
   'destinationOrbCard.exploreCta': 'Idagdag sa isang biyahe',
   'destinationOrbCard.tripCount': '{{count}} mga biyahe',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Wala pang email? Tingnan ang iyong spam folder, o subukan muli gamit ang ibang address.',
   'forgotPassword.successSubheading':
     'Nagpadala kami ng link sa pagbawi sa {{email}} Ang link ay may bisa sa loob ng 30 minuto.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Gumawa ng libreng account',
+  'landing.cta.subheading':
+    'Hanggang limang biyahe, limang kolaborator, at limang hintuan sa libreng plano — kasama ang real-time sync, at inaalis ng Pro ang mga limitasyon kapag lumaki ang iyong mga plano.',
   'landing.destinations.eyebrow': 'Saan susunod',
   'landing.destinations.heading': 'Mga destinasyong pinili ng editor',
   'landing.features.eyebrow': 'Paano gumagana ang Waypoint',
   'landing.features.heading': 'Ginawa para sa mga manlalakbay, hindi para sa mga spreadsheet.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Magsimula ng libreng biyahe',
   'landing.hero.ctaSecondary': 'Tingnan ang isang halimbawang biyahe',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Gumawa ng account para magbahagi ng mga biyahe sa hanggang 5 na collaborator, i-sync ang mga booking, at kunin ang bawat kumpirmasyon sa iisang lugar.',
+  'signup.termsPrefix': 'Sa pamamagitan ng paggawa ng account, sumasang-ayon ka sa aming',
   'tripCountdownHeroCard.budget': '{{used}} ng {{total}} ( {{pct}} % ng badyet)',
   'tripCountdownHeroCard.collaborators': '{{count}} mga manlalakbay',
   'tripCountdownHeroCard.countdownLabel': 'Pagbibilang',
@@ -205,5 +218,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Wala pang mga biyahe.',
   'trips.pastHeading': 'Mga nakaraang pakikipagsapalaran',
   'trips.subheading': '{{count}} mga itineraryo — nakaraan, kasalukuyan, at balang araw.',
+  'waypointLayout.mobileNavClose': 'Isara ang menu ng nabigasyon',
   'waypointLayout.primaryNavLabel': 'Pangunahing navigation',
 }

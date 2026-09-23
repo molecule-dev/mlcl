@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.title': 'Um {{app}}',
   'auth.login.noAccount': 'Nýr í Sparq?',
   'auth.login.or': 'eða halda áfram með',
   'auth.signup.or': 'eða skrá þig með',
+  'common.confirm': 'Staðfesta',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.loadError': 'Eitthvað fór úrskeiðis við að hlaða þessu efni.',
+  'common.retry': 'Reyna aftur',
   'discover.collections.title': 'Skoða eftir flokki',
   'discover.collections.viewAll': 'Sjáðu bókasafnið þitt →',
   'discover.empty.body': 'Prófaðu annan flokk eða hreinsaðu leitina.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Skráðu þig inn til að halda leikjaröðinni þinni lifandi, halda leiki í beinni og klifra upp stigatöfluna.',
   'myQuizzes.createButton': 'Nýtt próf',
+  'myQuizzes.deleteConfirm': 'Eyða fyrir fullt og allt?',
   'myQuizzes.empty.createCta': 'Búðu til fyrsta prófið þitt →',
   'myQuizzes.empty.created': 'Þú hefur ekki búið til próf ennþá.',
   'myQuizzes.empty.played': 'Engar birtar próf enn.',
@@ -79,7 +86,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Hleður…',
   'notifications.subhead':
     '{{count}} Ólesnir neistar. Boð, stigatöflur og afrek, allt í einum straumi.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.checkoutError': 'Gat ekki hafið greiðslu. Vinsamlegast reyndu aftur.',
+  'pricing.heading': 'Veldu {{app}} áætlunina þína',
   'pricing.included': 'Innifalið',
   'pricing.loadError': 'Gat ekki hlaðið inn áætlunum.',
   'pricing.maxQuizzes': '{{count}} spurningakeppnir',
@@ -100,11 +109,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Ekkert gefið út ennþá.',
   'profile.startBuilding': 'Byrja að byggja →',
   'profile.tier': 'Sparq spilari',
+  'quizBuilder.addFailed': 'Gat ekki bætt við spurningunni. Reyndu aftur.',
   'quizBuilder.addQuestion': 'Bæta við spurningu',
   'quizBuilder.answerPlaceholder': 'Sláðu inn valkost…',
   'quizBuilder.answersLabel': 'Svarmöguleikar',
   'quizBuilder.back': 'Til baka í prófin mín',
   'quizBuilder.delete': 'Eyða spurningu',
+  'quizBuilder.deleteFailed': 'Gat ekki eytt spurningunni.',
   'quizBuilder.firstQuestion': 'Bættu við fyrstu spurningu þinni til að byrja.',
   'quizBuilder.idLabel': 'Prófauðkenni: {{id}}',
   'quizBuilder.loadError': 'Gat ekki hlaðið prófinu.',
@@ -118,6 +129,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Bættu við að minnsta kosti tveimur svarmöguleikum og veldu þann rétta fyrir {{count}} spurning(ar) áður en þær eru birtar.',
   'quizBuilder.questionsTitle': 'Spurningar',
+  'quizBuilder.saveFailed': 'Gat ekki vistað titilinn. Reyndu aftur.',
   'quizBuilder.statusDraft': 'Drög',
   'quizBuilder.subhead':
     'Breyttu titlinum, bættu við spurningum, veldu valkosti og rétt svar. Breytingar vistast sjálfkrafa.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} mín.',
   'quizDetail.hostMultiplayer': 'Hýsa fjölspilunarforrit',
   'quizDetail.leaderboardEmpty': 'Engar leikir ennþá — vertu fyrstur til að setja stig.',
+  'quizDetail.loadError': 'Gat ekki hlaðið þessari prófun.',
   'quizDetail.loading': 'Hleður spurningakeppni…',
   'quizDetail.plays': '{{count}} leikrit',
   'quizDetail.playSolo': 'Spila einn',

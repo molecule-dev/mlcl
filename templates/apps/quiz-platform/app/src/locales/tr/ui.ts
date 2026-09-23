@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.title': '{{app}} hakkında',
   'auth.login.noAccount': "Sparq'ta yeni misiniz?",
   'auth.login.or': 'veya şununla devam edin',
   'auth.signup.or': 'veya şununla kaydolun',
+  'common.confirm': 'Onayla',
+  'common.goToDashboard': 'Panele Git',
+  'common.loadError': 'Bu içeriği yüklerken bir sorun oluştu.',
+  'common.retry': 'Tekrar dene',
   'discover.collections.title': 'Kategoriye göre göz atın',
   'discover.collections.viewAll': 'Kütüphanenizi görün →',
   'discover.empty.body': 'Farklı bir kategori deneyin veya aramayı temizleyin.',
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Serinizi canlı tutmak, canlı oyunlar düzenlemek ve liderlik tablosunda tırmanmak için oturum açın.',
   'myQuizzes.createButton': 'Yeni sınav',
+  'myQuizzes.deleteConfirm': 'Sonsuza dek silmek mi?',
   'myQuizzes.empty.createCta': 'İlk sınavınızı oluşturun →',
   'myQuizzes.empty.created': 'Henüz bir sınav oluşturmadınız.',
   'myQuizzes.empty.played': 'Henüz yayınlanmış sınav yok.',
@@ -78,7 +85,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yükleniyor…',
   'notifications.subhead':
     '{{count}} okunmamış kıvılcım. Davetler, liderlik tablosu hareketleri ve başarılar tek bir akışta.',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.checkoutError': 'Ödeme başlatılamadı. Lütfen tekrar deneyin.',
+  'pricing.heading': '{{app}} planınızı seçin',
   'pricing.included': 'Dahil',
   'pricing.loadError': 'Planlar yüklenemedi.',
   'pricing.maxQuizzes': '{{count}} sınav',
@@ -98,11 +107,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Henüz hiçbir şey yayınlanmadı.',
   'profile.startBuilding': 'Oluşturmaya başlayın →',
   'profile.tier': 'Sparq oyuncusu',
+  'quizBuilder.addFailed': 'Soru eklenemedi. Tekrar deneyin.',
   'quizBuilder.addQuestion': 'Soru ekle',
   'quizBuilder.answerPlaceholder': 'Bir seçenek yazın…',
   'quizBuilder.answersLabel': 'Cevap seçenekleri',
   'quizBuilder.back': 'Sınavlarıma dön',
   'quizBuilder.delete': 'Soruyu sil',
+  'quizBuilder.deleteFailed': 'Soruyu silemedim.',
   'quizBuilder.firstQuestion': 'Başlamak için ilk sorunuzu ekleyin.',
   'quizBuilder.idLabel': 'Sınav kimliği: {{id}}',
   'quizBuilder.loadError': 'Sınav yüklenemedi.',
@@ -116,6 +127,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Yayınlamadan önce {{count}} soru için en az iki cevap seçeneği ekleyin ve doğru olanı seçin.',
   'quizBuilder.questionsTitle': 'Sorular',
+  'quizBuilder.saveFailed': 'Başlık kaydedilemedi. Tekrar deneyin.',
   'quizBuilder.statusDraft': 'Taslak',
   'quizBuilder.subhead':
     'Başlığı düzenleyin, sorular ekleyin, seçenekleri ve doğru cevabı belirleyin. Değişiklikler otomatik olarak kaydedilir.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~{{minutes}} dk',
   'quizDetail.hostMultiplayer': 'Çok oyunculu ana bilgisayar',
   'quizDetail.leaderboardEmpty': 'Henüz oyun yok — puan koyan ilk siz olun.',
+  'quizDetail.loadError': 'Bu sınav yüklenemedi.',
   'quizDetail.loading': 'Sınav yükleniyor…',
   'quizDetail.plays': '{{count}} oynama',
   'quizDetail.playSolo': 'Tek başına oyna',

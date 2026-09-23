@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Kisah kami',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Kadar buka',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Memulakan checkout…',
   'billing.subheading': 'Pilih pelan yang sesuai dengan cara Anda menghantar.',
   'billing.unavailable': 'Hubungi bahagian jualan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.retry': 'Cuba semula',
   'compose.adjustingTone': 'Menulis semula dengan nada yang dipilih…',
   'compose.aiPromptPlaceholder':
     'cth. "Susulan sopan selepas tiada balasan selama dua minggu, pastikan ringkas."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Perlu menghantar sesuatu? Signet boleh sediakan draf dalam beberapa saat.',
   'dashboard.composeCtaLabel': 'Karang pantas',
   'dashboard.heading': 'Minggu Anda, dikarang',
+  'dashboard.loadFailed': 'Tidak dapat memuatkan papan pemuka anda.',
   'dashboard.manageLibrary': 'Urus perpustakaan →',
   'dashboard.recentEmpty': 'Belum ada penghantaran — e-mel yang dihantar akan muncul di sini.',
   'dashboard.recentHeading': 'Penghantaran terkini',
@@ -137,6 +141,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Nada lalai',
   'settings.toneSubheading': 'Signet menggunakan nada ini melainkan Anda mengatasi pada draf.',
   'signetLayout.primaryNavLabel': 'Navigasi utama',
+  'signetLayout.toggleMenu': 'Togol menu',
   'signup.emailLabel': 'Alamat e-mel',
   'signup.showPassword': 'Tunjukkan kata laluan',
   'signup.tagline': 'Hantar e-mel pertama draf AI Anda dalam masa kurang dari seminit.',

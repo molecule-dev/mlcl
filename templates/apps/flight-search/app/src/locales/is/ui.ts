@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.eyebrow': 'Um {{app}}',
   'about.pageTitle': 'Hver leið, ein leit.',
   'booking.backToDetail': 'Til baka í upplýsingar um flug',
   'booking.continue': 'Halda áfram að greiðslu',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Skattar og gjöld',
   'booking.summary.travelers': 'Ferðalangar',
   'common.about': 'Um',
+  'common.goToDashboard': 'Fara á yfirlit',
   'flightDetail.backToResults': 'Til baka í niðurstöður',
   'flightDetail.baseFare': 'Grunnfargjald',
   'flightDetail.book': 'Halda áfram að bóka',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 stoppistöð',
   'flightResultCard.select': 'Veldu',
   'flightResultCard.totalLabel': 'Heildartími',
+  'flightSearchLayout.primaryNavLabel': 'Aðalflakk',
   'forgotPassword.subheading':
     'Sláðu inn netfangið á Skylark reikningnum þínum og við sendum þér öruggan endurstillingarhlekk.',
   'forgotPassword.successBody':
     'Athugaðu {{email}} fyrir tengil til að setja upp nýtt lykilorð. Tengillinn rennur út eftir 30 mínútur.',
   'forgotPassword.successHeading': 'Endurstilla tengil sendur',
   'landing.cta.explore': 'Prófaðu leit',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Finndu næsta frábæra fargjald á undan öllum öðrum.',
   'landing.cta.signup': 'Byrjaðu að fylgjast með fargjöldum',
   'landing.features.eyebrow': 'Af hverju Skyrki',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Bæta við viðvörun',
   'priceAlerts.deleteConfirm': 'Fjarlægja þessa viðvörun?',
   'priceAlerts.empty': 'Engar rekjaðar leiðir ennþá.',
+  'priceAlerts.emptyCta': 'Leita að leið til að rekja',
   'priceAlerts.errorMessage': 'Ekki tókst að hlaða tilkynningum.',
   'priceAlerts.eyebrow': 'Skylarki eftirlitslisti',
   'priceAlerts.form.createError': 'Gat ekki búið til viðvörun.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Ferðaáætlun fyrir margar borgir',
   'results.multiLegHeading': 'Fótur {{n}} · {{frá}} → {{til}} · {{dagsetning}}',
   'results.multiSummary': '{{count}} fætur · {{passengers}} ferðamaður',
+  'results.sortAriaLabel': 'Raða niðurstöðum eftir',
   'results.sortLabel': 'Raða',
   'results.summary': '{{count}} flug · {{passengers}} ferðamaður',
   'settings.language.title': 'Tungumál',

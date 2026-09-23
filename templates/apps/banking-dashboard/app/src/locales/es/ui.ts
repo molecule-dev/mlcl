@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
   'accountDetail.activeBadge': 'Activa',
   'accountDetail.availableLabel': '{{amount}} disponibles',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Cuentas',
   'accounts.loadError': 'No se pudieron cargar las cuentas.',
   'accounts.status.closed': 'Cerrada',
+  'accounts.status.frozen': 'Frozen',
   'accounts.totalBalance': '{{amount}} en total',
   'audit.empty': 'Aún no hay eventos.',
   'audit.eyebrow': 'Seguridad y acceso',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Efectivo disponible',
   'cashCreditCard.creditLabel': 'Crédito utilizado',
   'cashCreditCard.title': 'Efectivo y crédito',
+  'common.goToDashboard': 'Ir al panel',
   'dashboard.accountsHeading': 'Cuentas',
   'dashboard.heading': 'Resumen',
   'dashboard.recentEmpty': 'Aún no hay transacciones.',
@@ -44,10 +47,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostrar contraseña',
   'login.signUp': 'Registrarse',
   'login.submit': 'Iniciar sesión',
+  'meridianLayout.menu': 'Menú',
   'meridianLayout.primaryNavLabel': 'Navegación principal',
   'nav.legal': 'Legal',
   'notifications.emptyHeading': 'Estás al día',
   'notifications.subheading': 'Alertas en tiempo real sobre transacciones, seguridad y extractos.',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'privacy.dataWeShare':
     'Nunca vendemos los datos bancarios personales. Compartimos información con procesadores de pagos, redes de tarjetas y reguladores solo cuando es necesario para liquidar transacciones o cumplir obligaciones legales.',
   'privacy.dataWeStore':
@@ -79,10 +84,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'El doble factor añade un código único de una app de autenticación en cada inicio de sesión.',
   'settings.security.twoFactorCta': 'Gestionar doble factor',
+  'settings.security.twoFactorOff': 'La autenticación de dos factores está desactivada',
   'settings.signOutDevice': 'Cerrar sesión',
   'settings.subheading': 'Perfil, seguridad y notificaciones.',
+  'settings.twoFactorCode': 'Código de autenticación',
   'settings.twoFactorDisable': 'Desactivar',
   'settings.twoFactorEnable': 'Activar',
+  'settings.twoFactorInvalidCode': 'Código no válido',
+  'settings.twoFactorVerify': 'Comprobar y activar',
   'signup.emailLabel': 'Correo electrónico',
   'signup.fullName': '¿Cómo deberíamos llamarte?',
   'signup.showPassword': 'Mostrar contraseña',
@@ -104,7 +113,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Aún no hay transacciones.',
   'transactions.endDate': 'Fecha de fin',
   'transactions.eyebrow': 'Actividad',
+  'transactions.loadError': 'No se pudieron cargar las transacciones.',
   'transactions.merchant': 'Comercio',
+  'transactions.subheading':
+    'Todas las transacciones contabilizadas y pendientes de todas tus cuentas.',
   'transfers.availableHint': '{{amount}} disponibles',
   'transfers.errorGeneric': 'No se pudo enviar la transferencia.',
   'transfers.errorMissingFields': 'Elige una cuenta de origen y un destino.',

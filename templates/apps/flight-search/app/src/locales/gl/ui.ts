@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
+  'about.eyebrow': 'Acerca de {{app}}',
   'about.pageTitle': 'Cada ruta, unha busca.',
   'booking.backToDetail': 'Volver aos detalles do voo',
   'booking.continue': 'Continuar co pago',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Impostos e taxas',
   'booking.summary.travelers': 'Viaxeiros',
   'common.about': 'Acerca de',
+  'common.goToDashboard': 'Ir ao panel',
   'flightDetail.backToResults': 'Volver aos resultados',
   'flightDetail.baseFare': 'Tarifa base',
   'flightDetail.book': 'Continuar coa reserva',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 parada',
   'flightResultCard.select': 'Seleccionar',
   'flightResultCard.totalLabel': 'Tempo total',
+  'flightSearchLayout.primaryNavLabel': 'Navegación principal',
   'forgotPassword.subheading':
     'Introduce o correo electrónico da túa conta de Skylark e enviarémosche unha ligazón de restablecemento seguro.',
   'forgotPassword.successBody':
     'Comprobar {{email}} para unha ligazón para establecer un novo contrasinal. A ligazón caduca en 30 minutos.',
   'forgotPassword.successHeading': 'Ligazón de restablecemento enviada',
   'landing.cta.explore': 'Tenta unha busca',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Atopa a seguinte gran oferta antes que ninguén.',
   'landing.cta.signup': 'Comezar a rastrexar as tarifas',
   'landing.features.eyebrow': 'Por que Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Engadir alerta',
   'priceAlerts.deleteConfirm': 'Queres eliminar esta alerta?',
   'priceAlerts.empty': 'Aínda non hai rutas rastreadas.',
+  'priceAlerts.emptyCta': 'Buscar unha ruta para rastrexar',
   'priceAlerts.errorMessage': 'Non se puideron cargar as alertas.',
   'priceAlerts.eyebrow': 'Lista de vixilancia de Skylark',
   'priceAlerts.form.createError': 'Non se puido crear a alerta.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Itinerario por varias cidades',
   'results.multiLegHeading': 'Perna {{n}} · {{de}} → {{a}} · {{data}}',
   'results.multiSummary': '{{count}} pernas · {{passengers}} viaxeiro',
+  'results.sortAriaLabel': 'Ordenar resultados por',
   'results.sortLabel': 'Ordenar',
   'results.summary': '{{count}} voos · {{passengers}} viaxeiro',
   'settings.language.title': 'Lingua',

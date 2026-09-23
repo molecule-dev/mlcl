@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'analytics.byChannelTitle': 'சேனல் வாரியான ஒப்புதல் விகிதம்',
   'analytics.colAck': 'ஒப்புதல் அளிக்கப்பட்டது / சாத்தியம்',
@@ -13,12 +14,16 @@ export const ui: UiTranslations = {
   'analytics.kpiPostsDelta': '{{count}} ஒப்புதல் தேவை',
   'analytics.kpiTtaEmpty': 'இன்னும் ஒப்புதல்கள் வரவில்லை',
   'analytics.loading': 'எண்களை அலசி ஆராய்தல்…',
+  'analytics.title': 'சென்றடைதல், ஒப்புதல்கள் மற்றும் நீங்கள் உரையாடும் அறைகள்.',
   'analytics.trendLabel': 'ஒப்புதல்கள் · கடைசி {{days}} நாட்கள்',
   'announcementCard.ackCount': '{{acknowledged}} / {{total}} ஒப்புக்கொண்டது',
   'announcementCard.adminBadge': 'நிர்வாகி',
   'announcementCard.commentCount': '{{count}} பதிவுகள்',
   'announcementCard.openAndAck': 'திறந்து &ஒப்புக்கொள்',
   'announcementCard.viewAck': 'ஏற்றுக்கொள்ளப்பட்டது · திறக்கப்பட்டது',
+  'announcements.unknownAuthor': 'அறியப்படாத ஆசிரியர்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.teammate': 'அணி வீரர்',
   'composer.channelDescription': '# க்கு இடுகையிடுகிறது {{name}}.',
   'composer.channelLabel': 'சேனல்',
   'composer.eyebrow': 'புதிய அறிவிப்பு',
@@ -46,6 +51,7 @@ export const ui: UiTranslations = {
   'detail.replyPlaceholder':
     'ஒரு கேள்வி கேளுங்கள், மேற்கொண்டு என்ன செய்வது என்று பரிந்துரை செய்யுங்கள், அல்லது வெறுமனே நன்றி சொல்லுங்கள்…',
   'feed.allChannels': 'அனைத்து சேனல்களும்',
+  'feed.authorFilterClear': 'ஆசிரியர் வடிகட்டியை அழிக்கவும்',
   'feed.compose': 'புதிய அறிவிப்பு',
   'feed.emptyAllSubtitle':
     'உங்கள் முதல் செய்தியை வெளியிட, மேலே உள்ள "புதிய அறிவிப்பு" என்பதைக் கிளிக் செய்யவும் — நீங்கள் \'வெளியிடு\' என்பதை அழுத்தியவுடன் ஃபீட் புதுப்பிக்கப்படும்.',
@@ -54,6 +60,8 @@ export const ui: UiTranslations = {
   'feed.eyebrow': 'உள் · அறிவிப்புகள்',
   'feed.loadError': 'அறிவிப்புகளை ஏற்ற முடியவில்லை: {{message}}',
   'feed.loading': 'புத்துணர்ச்சியூட்டும்…',
+  'feed.subtitle':
+    '{{unacked}} உங்கள் ஒப்புதல் இன்னும் தேவை. நீங்கள் படிக்கும்போதே ஒப்புதல் அளியுங்கள், அப்போதுதான் தலைமைக்கு இது தேவையற்ற சத்தமாகத் தெரியாமல், ஒரு சமிக்ஞையாகத் தெரியும்.',
   'feed.totalCount': '{{count}} வெளியிடப்பட்டது',
   'forgotPassword.emailPlaceholder': 'you@northwindlabs.com',
   'forgotPassword.successBody':
@@ -81,7 +89,10 @@ export const ui: UiTranslations = {
     'ஒரு நேரடி மாதிரி அட்டை. உங்கள் குழுவினர் காணும் அதே கூறுகள் — சாய்வு முன்னுரிமை விளிம்பு, ஒப்புதல் முன்னேற்றம், மற்றும் தொடர் கருத்துரைகள் ஒரே தட்டலில் கிடைக்கும்.',
   'landing.previewTitle': 'ஃபீடில் அணிகள் காண்பவை.',
   'layout.channelsTitle': 'சேனல்கள்',
+  'layout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'layout.guestName': 'குழு உறுப்பினர்',
+  'layout.navDialogLabel': 'வழிசெலுத்தல்',
+  'layout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'login.description':
     'உங்கள் கவனத்திற்காகக் காத்திருக்கும் அறிவிப்புகளைப் படித்துத் தெரிந்துகொள்ளுங்கள்.',
   'login.emailPlaceholder': 'you@northwindlabs.com',
@@ -104,6 +115,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 — ஆஃப்-சேனல்',
   'notFound.title': 'இந்த அறிவிப்பு காணவில்லை.',
   'notifications.ackUpdate': 'ஒப்புதல் புதுப்பிப்பு ஒன்றைப் பகிர்ந்தார்',
+  'notifications.loadError': 'அறிவிப்புகளை ஏற்ற முடியவில்லை: {{message}}',
   'notifications.loading': 'புத்துணர்ச்சியூட்டும்…',
   'notifications.repliedTo': 'பதிலளித்தது',
   'notifications.subtitle': 'உங்களிடம் {{count}} படிக்காத அறிவிப்புகள்.',
@@ -114,6 +126,7 @@ export const ui: UiTranslations = {
   'people.eyebrow': '{{company}} · அடைவு',
   'people.loading': 'அணி வீரர்களை ஏற்றுகிறது…',
   'people.searchPlaceholder': 'அணி வீரர்களைத் தேடுங்கள்…',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.announcements': 'அறிவிப்புகள்',
   'pricing.categories': 'பிரிவுகள்',
   'pricing.comments': 'பதிவுகள்',
@@ -121,6 +134,7 @@ export const ui: UiTranslations = {
   'profile.bio':
     'இந்தப் பணித்தளத்தில் உங்கள் செயல்பாடுகள் ஒரு பார்வையில். நீங்கள் எழுதிய பதிவுகள், நீங்கள் பதிவுசெய்த ஒப்புதல்கள், உங்கள் பெயரில் வந்த குறிப்புகள் மற்றும் பதில்கள்.',
   'profile.emptyPosts': 'நீங்கள் இன்னும் அறிவிப்பு எதையும் வெளியிடவில்லை.',
+  'profile.loadError': 'உங்கள் சுயவிவரத் தரவை ஏற்ற முடியவில்லை: {{message}}',
   'profile.you': 'நீங்கள்',
   'resetPassword.description':
     'வலிமையான ஒன்றைத் தேர்ந்தெடுங்கள். மீட்டமைப்பு வெற்றிகரமாக முடிந்தவுடன் நாங்கள் உங்களை உள்நுழையச் செய்வோம்.',
@@ -129,7 +143,11 @@ export const ui: UiTranslations = {
   'search.emptyAll': 'இன்னும் தேடுவதற்கு எதுவும் இல்லை.',
   'search.emptyQuery': '"இதற்கான முடிவுகள் எதுவும் இல்லை" {{query}}.',
   'search.eyebrow': 'எதையும் கண்டுபிடி',
+  'search.loadError': 'தேடல் தரவை ஏற்ற முடியவில்லை: {{message}}',
   'search.loading': 'அட்டவணை ஏற்றப்படுகிறது…',
+  'search.metaAdmin': 'நிர்வாகி',
+  'search.metaAnnouncement': 'அறிவிப்பு',
+  'search.metaTeammate': 'அணி வீரர்',
   'search.title': 'தேடல் கிளாரியன்',
   'settings.adminOnly': 'நிர்வாகி மட்டும்',
   'settings.appearance.title': 'தோற்றம்',

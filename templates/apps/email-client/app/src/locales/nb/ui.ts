@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Vi er et team av designere og ingeniører spredt over hele verden, som en gang brukte altfor mange timer hver dag i en støyende innboks. Courier er innboksen vi selv ønsket å bruke.',
   'about.title': 'E-post for konsentrert arbeid',
+  'common.goToDashboard': 'Gå til oversikt',
   'help.cta.about': 'Om Courier',
   'help.cta.pricing': 'Se priser',
   'help.eyebrow': 'Hjelpesenter',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Korte svar på de vanligste spørsmålene. Mangler det noe? Åpne Innstillinger og bruk tilbakemeldingsskjemaet i appen, eller send en e-post til support@courier.example.',
   'help.title': 'Hvordan kan vi hjelpe?',
   'landing.brand.scrollTop': 'Tilbake til toppen',
+  'landing.copyright': '© {{year}} {{appName}} — Bygget for fokus.',
   'landing.ctaBody': 'Bli en av de tusenvis av fagfolkene som har ryddet innboksen sin før lunsj.',
   'landing.ctaTitle': 'Gjør mer, reager mindre.',
   'landing.eyebrow': 'E-post for konsentrert arbeid',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Se demo',
   'landing.heroSubtitle':
     'Courier er en oversiktlig innboks med tre ruter, utviklet for kunnskapsarbeidere som ønsker å bearbeide informasjon, ikke bare reagere på den.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Anbefalt av målrettede team over hele verden',
   'landing.signIn': 'Logg inn',
   'meridian.archive.empty': 'Arkivet er tomt.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Til',
   'meridian.drafts.watermark': 'Utkast',
   'meridian.folder.count': '{{count}} meldinger',
+  'meridian.folder.delete': 'Slett',
   'meridian.folder.deleteForever': 'Slett permanent',
   'meridian.folder.restore': 'Flytt til innboks',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Det er ingen meldinger her ennå.',
   'meridian.inbox.loading': 'Laster…',
   'meridian.inbox.next': 'Neste',
+  'meridian.inbox.noSender': '(ingen avsender)',
   'meridian.inbox.noSubject': '(uten emne)',
+  'meridian.inbox.ofTotal': '{{current}} av {{total}}',
   'meridian.inbox.openCompose': 'Åpne skrivevinduet',
   'meridian.inbox.previous': 'Forrige',
   'meridian.inbox.replyFailed': 'Svaret er lagret, men leveringen mislyktes: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Har du ikke en konto?',
   'meridian.login.showPassword': 'Vis passord',
   'meridian.message.toLine': 'til {{recipients}}',
+  'meridian.notFound.body':
+    'Siden du leter etter ble ikke funnet. Gå tilbake til innboksen din {{appName}} , så hjelper vi deg på rett spor.',
   'meridian.notFound.eyebrow': 'Feil 404',
   'meridian.notFound.title': 'Denne tråden er arkivert.',
   'meridian.notFound.toInbox': 'Åpne innboksen min',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Legg til stjerne',
   'meridian.thread.unstar': 'Fjern stjerne',
   'meridian.time.yesterday': 'I går',
+  'meridian.topBar.openMenu': 'Åpne navigasjonsmenyen',
   'meridian.topBar.searchPlaceholder': 'Søk i e-post',
   'meridian.trash.empty': 'Søppelkurven er tom.',
   'meridian.trash.title': 'Papirkurv',
   'nav.legal': 'Juridisk',
   'planUpdated.description':
     'Abonnementet ditt er nå aktivert, og faktureringsopplysningene dine er oppdatert. Velkommen til den oppdaterte Courier-innboksen din.',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.heading': 'trekk',
   'pricing.limit.emails': 'e-poster',
   'pricing.limit.folders': 'mapper',
   'pricing.limit.labels': 'etiketter',
   'privacy.collect.account':
     'Kontoopplysninger: navn, e-postadresse, hashet passord og datoen du registrerte deg.',
+  'privacy.contact': 'Spørsmål? Send e-post til privacy@courier.example.',
   'privacy.intro':
     'Denne personvernerklæringen forklarer hvilke opplysninger Courier samler inn, hvorfor vi gjør det, hvordan vi sikrer dem, og hvilke valgmuligheter du har i denne sammenheng. Vi ønsker å være konkrete fremfor juridiske; hvis noe er uklart, kan du skrive til privacy@courier.example.',
   'privacy.lastUpdated': 'Sist oppdatert: 1. april 2026',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Disse vilkårene regulerer din bruk av Courier. Ved å opprette en konto eller sende e-post via oss, samtykker du i å være bundet av dem. Vi prøver å lage regler som folk faktisk kan følge.',
   'terms.lastUpdated': 'Trer i kraft: 1. april 2026',
+  'terms.linkPrivacy': 'Les vår personvernerklæring →',
   'terms.termination.body':
     'Du kan slette kontoen din når som helst. Vi kan suspendere en konto som bryter med disse vilkårene; hvis vi gjør det, vil vi forklare årsaken og gi deg mulighet til å eksportere dataene dine først.',
   'terms.warranty.body':

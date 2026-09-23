@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Pelanggan',
   'customers.loadError': 'Gagal memuatkan pelanggan.',
   'customers.loading': 'Memuatkan…',
+  'customers.new.address': 'Alamat perkhidmatan',
   'customers.new.email': 'E-mel',
   'customers.new.error': 'Gagal menambah pelanggan.',
   'customers.new.heading': 'Pelanggan baharu',

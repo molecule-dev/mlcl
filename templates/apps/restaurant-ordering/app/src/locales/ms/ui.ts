@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Perihal {{app}}',
   'analytics.avgCheckLabel': 'Semakan purata',
   'analytics.busiestHour': 'Waktu paling sibuk',
   'analytics.coversToday': 'Sarung hari ini',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Petua (purata)',
   'analytics.topItems': 'Item teratas hari ini',
   'authShell.eyebrow': 'Selamat kembali berkhidmat',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Tempat jualan yang mesra dan pantas untuk pasukan hospitaliti. Log masuk ke dapur anda dan sambung dari tempat anda berhenti.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'atau {{price}}',
   'billing.priceUnavailable': 'Pelan ini tidak mempunyai harga yang dikonfigurasikan.',
   'billing.updated': 'Pelan dikemas kini.',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'customerDetail.book': 'Tambah tempahan',
   'customerDetail.col.table': 'Meja',
   'customerDetail.confirmDelete': 'Padam rekod tetamu ini?',
@@ -128,6 +131,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Ketersediaan',
   'menuItemDetail.available': 'Tersedia malam ini',
   'menuItemDetail.backToMenu': 'Kembali ke menu',
+  'menuItemDetail.confirmDelete': 'Padam item menu ini?',
   'menuItemDetail.delete': 'Padam item',
   'menuItemDetail.deleteError': 'Pemadaman gagal. Cuba lagi.',
   'menuItemDetail.dietary': 'Tag pemakanan',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Gagal menyimpan. Cuba lagi.',
   'menuItemDetail.subheading': '{{category}} · sunting foto, pengubah suai, pemakanan dan harga.',
   'menuItemDetail.untitled': 'Item tanpa tajuk',
+  'mobileNav.closeMenu': 'Tutup menu navigasi',
+  'mobileNav.openMenu': 'Buka menu navigasi',
   'notFound.heading': 'Meja ini bukan di atas lantai.',
   'notFound.subheading':
     'Halaman yang anda cari telah diletakkan di tempat lain — atau tidak pernah wujud.',
+  'notFound.toLanding': 'Laman Utama {{app}}',
   'notifications.markError': 'Tidak dapat menanda semua telah dibaca.',
   'orderDashboard.activeDelta': 'Live sekarang',
   'orderDashboard.activeLabel': 'Pesanan aktif',
@@ -205,6 +212,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     'Masukkan kata laluan baharu anda untuk mendapatkan semula akses ke dapur.',
   'resetPassword.tokenLabel': 'Token Tetapan Semula',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigasi utama',
   'revenueHeroCard.activeOrders': '{{count}} aktif',
   'revenueHeroCard.change': '{{sign}} {{amount}} berbanding semalam',
   'revenueHeroCard.title': 'Pendapatan hari ini',
@@ -223,6 +231,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nama restoran',
   'tableDetail.activeOrders': 'Pesanan aktif',
   'tableDetail.backToFloor': 'Pelan lantai',
+  'tableDetail.confirmDelete': 'Padam jadual ini?',
   'tableDetail.delete': 'Padam',
   'tableDetail.deleteError': 'Tidak dapat memadam jadual.',
   'tableDetail.heading': 'Meja {{label}}',

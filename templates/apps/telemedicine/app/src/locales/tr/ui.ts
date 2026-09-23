@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Randevu Alın',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Gösterilecek hasta yok.',
+  'common.goToDashboard': 'Panele Git',
   'consult.backLink': 'Tüm randevular',
   'consult.captions': 'Altyazılar',
   'consult.connected': 'Bağlı · 720p · stabil',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Hastalar',
   'patientVitalsHero.scripts': 'Açık Rx',
   'patientVitalsHero.subline': 'Bugün programınızda {{count}} konsültasyon var',
+  'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'prescriptions.empty': 'Eşleşen reçete yok.',
   'prescriptions.eyebrow': 'E-reçete',
   'prescriptions.heading': 'Reçeteler',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Gizlilik Bildirimi',
   'privacy.use.body':
     'Bakım sağlamak, randevu hatırlatmaları göndermek, reçeteleri yönlendirmek ve hizmet güvenilirliğini artırmak için. Verilerinizi asla satmıyoruz ve klinik bilgilerinizi asla reklamcılarla paylaşmıyoruz.',
+  'providers.allSpecialties': 'Tüm Uzmanlık Alanları',
+  'providers.loadError': 'Sağlayıcılar yüklenemedi.',
+  'providers.loading': 'Yükleniyor…',
   'providers.noResults': 'Hekim bulunamadı.',
   'providers.searchPlaceholder': 'Ad, uzmanlık ile arayın...',
   'providers.title': 'Hekim Bulun',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Gün başlangıcı',
   'settings.availability.heading': 'Uygunluk',
   'settings.devices.thisDevice': 'Bu cihaz',
+  'settings.devices.unnamed': 'İsimsiz cihaz',
   'settings.eyebrow': 'Uygulama ve hesap',
   'settings.loadError': 'Profiliniz yüklenemedi.',
   'settings.notifications.emailMessages': 'Bakım ekibim yanıt verdiğinde bana e-posta gönder',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Devre dışı bırak',
   'settings.security.twoFactor.enable': 'Etkinleştir',
   'settings.security.twoFactor.heading': 'İki faktörlü kimlik doğrulama',
+  'settings.security.twoFactor.invalidCode': 'Bu kod eşleşmedi. Tekrar deneyin.',
+  'settings.security.twoFactor.setupFailed':
+    'İki faktörlü kimlik doğrulama başlatılamadı. Tekrar deneyin.',
+  'settings.security.twoFactor.statusOn': 'İki faktörlü kimlik doğrulama açık.',
   'settings.signOutDevice': 'Oturumu kapat',
   'settings.subheading': 'Hekim profili, uygulama kuralları ve klinik uyarılar.',
   'signup.emailLabel': 'E-POSTA',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Hesap Oluştur',
   'signupFooter.hipaa': 'HIPAA Uyumlu',
   'solaceLayout.primaryNavLabel': 'Ana gezinme',
+  'solaceLayout.toggleMenu': 'Menüyü aç/kapat',
   'terms.eligibility.body':
     'En az on sekiz yaşında olmalı veya bakım talep ettiğiniz reşit olmayan birinin ebeveyni ya da yasal vasisi olmalısınız ve fiziksel olarak hekimlerimizin lisanslı olduğu bir A.B.D. eyaletinde bulunmalısınız.',
   'terms.payment.body':

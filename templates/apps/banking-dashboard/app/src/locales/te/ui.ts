@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'accountDetail.activeBadge': 'యాక్టివ్',
   'accountDetail.availableLabel': '{{amount}} అందుబాటులో ఉంది',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'ఖాతాలు',
   'accounts.loadError': 'ఖాతాలను లోడ్ చేయడంలో విఫలమైంది.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'ఘనీభవించిన',
   'accounts.totalBalance': '{{మొత్తం}} మొత్తం',
   'audit.empty': 'ఇంకా ఎలాంటి కార్యక్రమాలు లేవు.',
   'audit.eyebrow': 'భద్రత & యాక్సెస్',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'చేతిలో ఉన్న నగదు',
   'cashCreditCard.creditLabel': 'క్రెడిట్ ఉపయోగించబడింది',
   'cashCreditCard.title': 'నగదు & క్రెడిట్',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.accountsHeading': 'ఖాతాలు',
   'dashboard.heading': 'అవలోకనం',
   'dashboard.recentEmpty': 'ఇంకా లావాదేవీలు జరగలేదు.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.signUp': 'సైన్ అప్',
   'login.submit': 'సైన్ ఇన్',
+  'meridianLayout.menu': 'మెనూ',
   'meridianLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'nav.legal': 'చట్టపరమైన',
   'notifications.emptyHeading': 'మీరు అంతా తెలుసుకున్నారు',
   'notifications.subheading': 'లావాదేవీలు, భద్రత మరియు స్టేట్‌మెంట్‌ల కోసం రియల్-టైమ్ హెచ్చరికలు.',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'privacy.dataWeShare':
     'వ్యక్తిగత బ్యాంకింగ్ డేటా ఎన్నటికీ అమ్మబడదు. లావాదేవీలను పరిష్కరించడానికి లేదా చట్టపరమైన బాధ్యతలను నెరవేర్చడానికి అవసరమైనప్పుడు మాత్రమే మేము చెల్లింపు ప్రాసెసర్‌లు, కార్డ్ నెట్‌వర్క్‌లు మరియు నియంత్రణ సంస్థలతో సమాచారాన్ని పంచుకుంటాము.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'టూ-ఫ్యాక్టర్ ప్రతి సైన్-ఇన్‌లో అథెంటికేటర్ యాప్ నుండి ఒక వన్-టైమ్ కోడ్‌ను జోడిస్తుంది.',
   'settings.security.twoFactorCta': 'రెండు-కారకాల ప్రమాణీకరణను నిర్వహించండి',
+  'settings.security.twoFactorOff': 'టూ-ఫ్యాక్టర్ ఆఫ్‌లో ఉంది',
   'settings.signOutDevice': 'సైన్ అవుట్',
   'settings.subheading': 'ప్రొఫైల్, భద్రత మరియు నోటిఫికేషన్‌లు.',
+  'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
   'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'signup.emailLabel': 'ఇమెయిల్ చిరునామా',
   'signup.fullName': 'మేము మిమ్మల్ని ఎలా సంబోధించాలి?',
   'signup.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'ఇంకా లావాదేవీలు జరగలేదు.',
   'transactions.endDate': 'ముగింపు తేదీ',
   'transactions.eyebrow': 'కార్యాచరణ',
+  'transactions.loadError': 'లావాదేవీలను లోడ్ చేయడంలో విఫలమైంది.',
   'transactions.merchant': 'వ్యాపారి',
+  'transactions.subheading': 'మీ ఖాతాలలో పోస్ట్ చేయబడిన మరియు పెండింగ్‌లో ఉన్న ప్రతి లావాదేవీ.',
   'transfers.availableHint': '{{amount}} అందుబాటులో ఉంది',
   'transfers.errorGeneric': 'బదిలీని సమర్పించలేకపోయాము.',
   'transfers.errorMissingFields': 'మూల ఖాతాను మరియు గమ్యస్థానాన్ని ఎంచుకోండి.',

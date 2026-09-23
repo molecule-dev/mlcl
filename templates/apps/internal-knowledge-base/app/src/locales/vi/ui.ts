@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'article.notFound': 'Không tìm thấy bài viết',
   'articleEditor.bodyPlaceholder': 'Gõ / để chọn khối, hoặc bắt đầu viết.',
+  'articleEditor.loadFailed': 'Không thể tải bài viết',
   'articleEditor.publishing': 'Đang xuất bản…',
   'articleEditor.saveFailed': 'Lưu thất bại',
   'articleEditor.saving': 'Đang lưu…',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Đánh dấu',
   'articleView.bookmarkOn': 'Đã đánh dấu',
   'articleView.edit': 'Chỉnh sửa bài viết',
+  'articleView.loading': 'Mở bài viết này…',
   'articleView.readTime': 'Đọc trong {{minutes}} phút',
   'articleView.spaces': 'Không gian',
   'articleView.tocHeading': 'Trên trang này',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Những chỉnh sửa, lượt đọc và bản nháp gần đây mà nhóm vẫn đang tiếp tục.',
   'cairnTrailHero.updated': 'Bài viết được cập nhật',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'drafts.eyebrow': 'Công việc còn dang dở của quý vị',
   'drafts.heading': 'Bản nháp',
+  'drafts.loadFailed': 'Không thể tải bản nháp của bạn.',
   'drafts.subtitle':
     'Những bài viết quý vị đã bắt đầu nhưng chưa xuất bản. Hãy chọn một bài và tiếp tục.',
   'forgotPassword.sentBody':
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Chưa có không gian nào. Hãy mở một không gian để bắt đầu thu thập bài viết.',
   'home.spacesHeading': 'Không gian của quý vị',
   'home.subtitle': 'Bài viết gần đây, dấu trang của quý vị, và những gì nhóm đang viết.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Được xây dựng bằng Molecule.',
   'landing.ctaBody':
     'Miễn phí cho tác giả cá nhân. Gói dành cho nhóm làm việc từ xa, chuyên soạn thảo sổ tay vận hành, quyết định và quy trình hội nhập nhân viên mới.',
   'landing.ctaHeading': 'Hãy xếp viên đá đầu tiên hôm nay.',
@@ -83,7 +90,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Tạo một không gian làm việc',
   'login.submitting': 'Đang đăng nhập…',
   'login.subtitle': 'Tiếp tục lối mòn từ nơi quý vị đã dừng lại.',
+  'mobileNav.closeMenu': 'Đóng menu điều hướng',
+  'mobileNav.openMenu': 'Mở menu điều hướng',
+  'newSpace.colorAria': 'Chọn màu {{color}}',
   'newSpace.colorLabel': 'Màu nhấn',
+  'newSpace.createFailed': 'Không thể tạo khoảng trống',
   'newSpace.descriptionPlaceholder': 'Sổ tay vận hành, kịch bản trực, báo cáo sự cố…',
   'newSpace.eyebrow': 'Mở một không gian tri thức',
   'newSpace.heading': 'Không gian mới',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Đang tải…',
   'notifications.subtitle':
     '{{count}} chưa đọc — lượt nhắc tên, bình luận, thay đổi trang và yêu cầu xem xét.',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.articles': 'bài viết',
   'pricing.spaces': 'không gian',
   'profile.eyebrow': 'Hồ sơ tác giả',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Nhập mật khẩu mới',
   'resetPassword.subtitle': 'Hãy chọn mật khẩu mạnh — ít nhất 12 ký tự.',
   'searchResults.eyebrow': 'Tìm kiếm trong không gian làm việc',
+  'searchResults.filter.all': 'Tất cả các không gian',
   'searchResults.heading': 'Tìm kiếm bài viết',
   'searchResults.placeholder': 'Tìm sổ tay vận hành, RFC, chính sách, quyết định…',
   'searchResults.summary': '{{count}} kết quả cho “{{query}}”',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Thao tác này xóa tài khoản và mọi bài viết quý vị đã tạo. Vui lòng nhập DELETE để xác nhận.',
   'settings.danger.confirmInvalid': 'Vui lòng nhập DELETE để xác nhận.',
+  'settings.danger.deleteFailed': 'Không thể xóa tài khoản',
   'settings.danger.deleting': 'Đang xóa…',
   'settings.danger.description':
     'Xóa không gian làm việc sẽ gỡ tất cả bài viết, bình luận và lịch sử phiên bản. Không thể khôi phục.',
   'settings.danger.title': 'Vùng nguy hiểm',
+  'settings.email.confirm': 'Cập nhật email',
+  'settings.email.confirmTitle': 'Xác nhận thay đổi email',
   'settings.email.saved': 'Email đã được cập nhật.',
+  'settings.email.updateFailed': 'Không thể cập nhật email',
   'settings.language.title': 'Ngôn ngữ',
   'settings.name': 'Tên',
+  'settings.name.saved': 'Tên đã được cập nhật.',
+  'settings.name.updateFailed': 'Không thể cập nhật tên',
   'settings.notifications.description': 'Chọn nội dung được gửi đến hộp thư của quý vị.',
+  'settings.password.changeFailed': 'Không thể thay đổi mật khẩu.',
   'settings.password.current': 'Mật khẩu hiện tại',
   'settings.password.new': 'Mật khẩu mới',
   'settings.password.saving': 'Đang cập nhật…',
@@ -148,10 +168,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Cách hiển thị bài viết cho quý vị.',
   'settings.reading.title': 'Đọc và viết',
   'settings.subtitle': 'Tinh chỉnh thông báo, khung đọc và tài khoản của quý vị.',
+  'settings.twofa.code': 'Mã xác thực',
   'settings.twofa.disable': 'Vô hiệu hóa',
   'settings.twofa.disabled': 'Đã tắt',
   'settings.twofa.enable': 'Kích hoạt',
   'settings.twofa.enabled': 'Đã bật',
+  'settings.twofa.invalidCode': 'Mã không hợp lệ',
+  'settings.twofa.unavailable': 'Ứng dụng này không hỗ trợ xác thực hai yếu tố.',
+  'settings.twofa.verify': 'Xác minh và kích hoạt',
   'signup.brandQuote':
     '“Ghi nó lại là lời hứa đầu tiên chúng ta dành cho người sẽ cần đến nó sau này.”',
   'signup.eyebrow': 'Mở một không gian làm việc',

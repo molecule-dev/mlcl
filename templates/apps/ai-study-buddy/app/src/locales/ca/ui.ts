@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': "S'està carregant la informació del pla…",
   'billing.popular': 'El més estimat',
   'billing.subtitle': "Trieu el pla que s'adapti al vostre ritme d'estudi.",
+  'common.goToDashboard': 'Anar al panell',
   'common.today': 'Avui',
   'common.yesterday': 'Ahir',
   'courseDetail.empty.body': "Afegeix un material d'estudi per començar a dominar aquest tema.",
@@ -81,8 +82,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Nom de la baralla',
   'flashcards.subtitle': "Repetició espaiada que s'adapta al teu ritme.",
   'flashcards.title': 'Targetes didàctiques',
+  'footer.copyright': '© {{year}} {{app}} . Aprèn bé, dorm bé.',
   'forgotPassword.subtitle':
     "Introdueix el teu correu electrònic i t'enviarem un enllaç de restabliment.",
+  'koanLayout.closeMenu': 'Tanca el menú',
+  'koanLayout.navLabel': 'Navegació principal',
+  'koanLayout.openMenu': 'Obre el menú',
   'koanLayout.theme': 'Tema',
   'landing.featuresBody':
     'Eines dissenyades per eliminar distraccions i construir una comprensió duradora.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Aquesta URL és territori desconegut. Potser una errada tipogràfica, potser una lliçó suprimida... Sigui com sigui, tornem a estudiar.',
   'notFound.heading': 'Pàgina no trobada.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Estàs tot al dia',
   'notifications.filter.${opt}': "S'estan carregant les notificacions…",
   'notifications.markAllError': "No s'ha pogut marcar tot com a llegit.",
   'notifications.markError': "No s'ha pogut marcar com llegit.",
   'notifications.subtitle': '{{count}} actualitzacions no llegides',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.heading': 'qüestionaris',
   'pricing.limits.topics': 'temes',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Prova una paraula clau o un filtre diferent.',
   'search.empty.title': 'Res no coincidia.',
   'search.error': "No s'han pogut carregar els resultats.",
+  'search.filters': 'Filtres de tipus de resultat',
   'search.go': 'Anar',
   'search.label.flashcard': 'Joc de targetes didàctiques',
   'search.label.note': 'Nota',

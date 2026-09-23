@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.pageTitle': '{{appName}} hakkında',
   'analytics.error': 'Analitikler yüklenemedi.',
   'analytics.heading': 'Erişim analitikleri',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Yapılandırılmış fiyat kademesi yok.',
   'billing.plans.heading': 'Planlar',
   'billing.subheading': 'Plan, kullanım ve Stripe ile yönetilen ödeme.',
+  'common.confirm': 'Onayla',
+  'common.goToDashboard': 'Panele Git',
+  'common.retry': 'Tekrar dene',
   'documentCard.open': 'Aç →',
   'documentDetail.back': 'Dokümanlara dön',
   'documentDetail.chunks.empty':
@@ -71,6 +75,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Dokümanı dizinle',
   'documents.composer.titlePlaceholder': 'Doküman başlığı',
   'documents.emptyAll': 'Henüz doküman yok. Soru sormaya başlamak için bir tane yükleyin.',
+  'documents.error.load': 'Belgeler yüklenemedi.',
   'documents.heading': 'Dizinlenmiş dokümanlar',
   'documents.loading': 'Dokümanlar yükleniyor…',
   'documents.metric.chunks': 'Toplam parça',
@@ -139,7 +144,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Kaldırılıyor…',
   'members.subheading': 'Takım arkadaşlarını davet edin ve roller belirleyin.',
   'members.tableHeading': 'Kadro',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'notFound.askCta': 'Bilgi tabanına sorun',
+  'notFound.body':
+    '{{app}} bu sayfayı bulamadı. Bağlantı bozuk olabilir veya sayfa yeniden indeksleme sırasında kaldırılmış olabilir.',
   'notFound.eyebrow': 'Erişilemiyor',
   'notFound.title': 'Dizinde böyle bir parça yok',
   'notifications.dismiss': 'Kapat',
@@ -203,6 +212,7 @@ export const ui: UiTranslations = {
   'sources.add.url': "Kaynak URL'si",
   'sources.empty.body': 'İlk konektörünüzü bağlamak için “Kaynak ekle”ye tıklayın.',
   'sources.empty.title': 'Henüz kaynak yok.',
+  'sources.error.add': 'Kaynak eklenemedi.',
   'sources.error.labelRequired': 'Etiket gerekli.',
   'sources.error.load': 'Kaynaklar yüklenemedi.',
   'sources.error.urlRequired': 'Bu kaynak türü için URL gerekli.',

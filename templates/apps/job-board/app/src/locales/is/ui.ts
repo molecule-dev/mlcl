@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
   'applications.empty': 'Engar umsóknir ennþá \\u2014 rétta starfið er einni umsókn frá.',
   'applications.eyebrow': 'Leiðslan þín',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Öll hlutverk sem þú hefur sótt um, í gangi. Síaðu eftir stigum til að einbeita þér.',
   'applications.untitledRole': 'Hlutverk # {{id}}',
+  'auth.legalConsent': 'Með því að halda áfram samþykkir þú',
   'common.and': 'og',
+  'common.goToDashboard': 'Fara á yfirlit',
   'companies.empty': 'Engin fyrirtæki passa við leitina þína \\u2014 prófaðu aðra leitarorð.',
   'companies.eyebrow': 'Valdir vinnuveitendur',
   'companies.searchPlaceholder': 'Leita eftir nafni, atvinnugrein, staðsetningu',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Engar umsóknir enn um þetta starf.',
   'jobApplicants.eyebrow': 'Sjónarmið vinnuveitanda',
   'jobApplicants.loading': 'Hleður\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Gat ekki uppfært þetta stig — reyndu aftur.',
+  'jobApplicants.subheading':
+    'Farið yfir ferilskrár, kynnt umsækjendur, sendið tilboð \\u2014 {{count}} í gangi.',
   'jobDetail.applicantCount': '{{count}} umsækjendur hingað til',
   'jobDetail.applied': 'Umsókn send',
   'jobDetail.apply': 'Sækja um núna',
@@ -83,12 +89,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Skoða laus störf \\u2192',
   'landing.pricingEyebrow': 'Verðlagning',
   'landing.pricingHeading': 'Einfaldar áætlanir fyrir allar stærðir liða.',
+  'login.eyebrow': 'Velkomin aftur í {{app}}',
   'login.heading': 'Skráðu þig inn á reikninginn þinn',
   'login.noAccount': 'Nýr í Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Mundu eftir mér í 30 daga',
   'login.signingIn': 'Innskráning\\u2026',
   'login.subheading': 'Taktu upp leitina, farðu áfram með umsóknir þínar og fáðu hraðari svör.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Hannað fyrir ráðningarteymi.',
   'loginBrandPanel.headline': 'Þar sem hæfileikar mætast',
   'loginBrandPanel.headlineLine2': 'skriðþunga.',
   'loginBrandPanel.listing.recruiter': 'Hæfileikafélagi',
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
     'Uppfærslur á umsóknum, boð um viðtöl, nýir einstaklingar og nýjustu fyrst.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} í þessari viku',
   'opportunitiesHero.eyebrow': 'Opið í dag',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'postJob.addNewCompany': '+ Bæta við nýju fyrirtæki',
   'postJob.companyCreateFailed': 'Gat ekki stofnað fyrirtæki — reyndu aftur.',
   'postJob.companyNameLabel': 'Nafn fyrirtækisins þíns',
@@ -164,10 +173,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Að stofna reikning\\u2026',
   'signup.ctaEmployer': 'Stofna vinnuveitandareikning',
   'signup.firstNamePlaceholder': 'Maja',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Lykilorðin stemma ekki.',
   'signup.subheading':
     'Ókeypis fyrir umsækjendur, að eilífu. Vinnuveitendur byrja með 30 daga prufuáskrift.',
   'timeAgo.days': '{{count}} fyrir dögum',
   'timeAgo.hours': '{{count}} fyrir klst.',
   'timeAgo.justNow': 'rétt í þessu',
+  'timeAgo.weeks': '{{count}} vikum',
 }

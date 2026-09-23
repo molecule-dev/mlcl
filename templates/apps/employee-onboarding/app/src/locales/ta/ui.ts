@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மீட்டமைக்கவும்.',
@@ -38,6 +39,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'பணி நிறைவுற்றதாகக் குறிக்கவும்',
   'checklistTaskCard.markIncomplete': 'பணியை முடிக்கப்படாததாகக் குறிக்கவும்',
   'checklistTaskCard.openLabel': 'திறந்த பணி',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'நீங்கள் அனைத்தையும் தெரிந்து கொண்டீர்கள்',
@@ -54,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'சரியான பாதையில்',
   'dashboard.timelineHeading': '30/60/90 மைல்கற்கள்',
   'dashboard.viewAllTasks': 'அனைத்து பணிகளையும் காண்க',
+  'dashboard.weekOne': 'வாரம் 1',
   'dashboard.yourCohort': 'உங்கள் அணி',
   'documents.empty.body': 'உங்கள் குழுவால் சேர்க்கப்பட்ட ஆவணங்கள் இங்கே தோன்றும்.',
   'documents.empty.title': 'இன்னும் ஆவணங்கள் இல்லை',
@@ -111,7 +114,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 நாள் இலவச சோதனை',
   'landing.subhead':
     'எம்பார்க் ஒவ்வொரு புதிய குழு உறுப்பினரையும் அவர்களின் முதல் 90 நாட்களுக்கு வழிகாட்டுகிறது — ஆவணப் பணிகள், பயிற்சி, மைல்கற்கள் மற்றும் அர்த்தமுள்ள அறிமுகங்கள் என அனைத்தையும் ஒரே அமைதியான, நம்பிக்கையான இடத்தில் வழங்குகிறது.',
+  'layout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'layout.search': 'பணிகள், ஆவணங்கள், சக குழு உறுப்பினர்கள் ஆகியவற்றைத் தேடுங்கள்…',
+  'layout.searchTeammates': 'பெயர் அல்லது பதவி மூலம் சக அணி வீரர்களைத் தேடுங்கள்…',
   'layout.section.onboarding': 'பணியமர்த்தல்',
   'layout.tagline': 'உங்கள் பயணம் இங்கிருந்து தொடங்குகிறது.',
   'notifications.empty.body': 'புதிய செயல்பாடு இங்கே தோன்றும்.',
@@ -120,6 +125,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'நேற்று',
   'planUpdated.message': 'நீங்கள் தயாராகிவிட்டீர்கள்.',
   'planUpdated.preparing': 'உங்கள் திட்டத்தைப் புதுப்பித்தல்…',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.documentsLabel': 'ஆவணங்கள்',
   'pricing.onboardingsLabel': 'பணியமர்த்தல்கள்',
   'pricing.tasksLabel': 'பணிகள்',

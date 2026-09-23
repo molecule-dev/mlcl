@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
   'authBrandPanel.quote':
     '„Vellum jest teraz systemem ewidencji każdej podpisanej przez nas umowy.”',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Przejdź do panelu',
   'contractDetail.amount': 'Wartość',
   'contractDetail.back': 'Wszystkie umowy',
   'contractDetail.downloadCta': 'Pobierz PDF',
@@ -72,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Jeśli istnieje konto dla adresu {{email}}, link do resetu jest w drodze.',
   'forgotPassword.subtitle': 'Wyślemy link resetujący na służbowy adres e-mail.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Strona stworzona przy użyciu Molecule.',
   'landing.ctaHeading': 'Niech Pan/Pani zobaczy, jak portfel zamyka się już pierwszego dnia.',
   'landing.ctaPrimary': 'Uruchom obszar roboczy',
   'landing.eyebrow': 'Dla działów Legal Ops i zakupów',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Nazwa kontrahenta jest wymagana.',
   'newContract.errEmail': 'E-mail podpisującego jest wymagany.',
   'newContract.expires': 'Data wygaśnięcia',
+  'newContract.failed': 'Nie udało się utworzyć umowy.',
   'newContract.heading': 'Nowa umowa',
   'newContract.nextCta': 'Dalej',
   'newContract.review.counterparty': 'Kontrahent',
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Tytuł umowy',
   'newContract.titlePlaceholder': 'Master Services Agreement',
   'newContract.variablesHeading': 'Zmienne umowy',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'pricing.dataExport': 'Eksport danych',
   'pricing.disabled': 'Nie',
   'pricing.enabled': 'Tak',
@@ -145,15 +151,22 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Nie udało się usunąć konta.',
   'settings.security.deleting': 'Usuwanie…',
   'settings.security.newPassword': 'Nowe hasło',
+  'settings.security.noDevices': 'Nie ma zarejestrowanych urządzeń.',
   'settings.security.twoFactor': 'Uwierzytelnianie dwuskładnikowe',
   'settings.security.twoFactorDisable': 'Wyłącz',
   'settings.security.twoFactorEnable': 'Włącz',
+  'settings.security.twoFactorInvalidCode': 'Nieprawidłowy kod.',
   'settings.signatures.body':
     'Wpisane imię i nazwisko pojawia się na linii podpisu w każdej podpisywanej przez Pana/Panią umowie. Wystarczy ustawić raz, a będzie wstawiane automatycznie.',
   'settings.signatures.heading': 'Blok podpisu',
   'settings.signatures.save': 'Zapisz podpis',
+  'sign.action': 'Podpisz ten dokument',
+  'sign.eyebrow': 'Wymagany podpis',
+  'sign.for': 'Dla {{name}}',
+  'sign.loadError': 'Ten link do rejestracji jest nieprawidłowy lub wygasł.',
   'sign.loading': 'Ładowanie…',
   'sign.signing': 'Podpisywanie…',
+  'sign.submitError': 'Nie udało się zarejestrować Twojego podpisu — link mógł stracić ważność.',
   'signup.brandQuote':
     '„Przenieśliśmy 8 lat papierowych dokumentów do Vellum w tydzień. Sam ślad audytu uzasadnia zmianę.”',
   'signup.companyPlaceholder': 'Northwind Traders',
@@ -188,6 +201,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Otwórz umowę →',
   'vellumKpiCard.trend': 'Ostatni trend',
+  'vellumLayout.closeMenu': 'Zamknij menu nawigacyjne',
+  'vellumLayout.openMenu': 'Otwórz menu nawigacyjne',
   'vellumLayout.primaryNavLabel': 'Nawigacja główna',
   'vellumPortfolioHero.expiring': 'Wygasające 30d',
   'vellumPortfolioHero.label': 'Wartość portfela',

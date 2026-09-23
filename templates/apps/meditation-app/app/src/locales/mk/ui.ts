@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
+  'about.eyebrow': 'За {{app}}',
+  'about.intro':
+    '{{app}} е апликација за медитација за реалниот живот — дневни водени медитации, вежби за дишење и приказни за спиење водени од наставници кои се чувствуваат како пријатели, а не како тренер. Без постојана вина, без бучно хранење: само тивко место за да се вратите на вашето дишење.',
+  'about.missionBody':
+    'Веруваме дека тишината треба да биде достапна за секого, во кој било момент од денот. {{app}} постои за да направи мирната, конзистентна практика да се чувствува без напор - така што десет искрени минути можат да го променат начинот на кој ги исполнувате следните десет часа.',
+  'about.missionTitle': 'Нашата мисија',
+  'about.pageTitle': 'Помирни 10 минути на ден',
+  'breathingDial.seconds': 'секунди',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'common.logout': 'Одјави се',
   'common.min': 'мин',
   'common.relative.justNow': 'токму сега',
   'common.relative.now': 'сега',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
+  'nav.secondaryNavigation': 'Навигација на сметка',
   'sessionCard.with': 'со {{name}}',
   'stillpoint.billing.choose': 'Изберете {{plan}}',
   'stillpoint.billing.currentPlan': 'Моментално вклучено {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Не можевме да ги вчитаме плановите.',
   'stillpoint.billing.opening': 'Отворање на касата…',
   'stillpoint.billing.perMonthShort': '/ месечно',
+  'stillpoint.billing.perYearShort': '/год.',
   'stillpoint.billing.unknownResult': 'Неочекуван одговор за фактурирање.',
   'stillpoint.billing.yearly': 'Годишно · заштедете 17%',
   'stillpoint.courseDetail.back': 'Курсеви',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Сè уште нема курсеви.',
   'stillpoint.courses.eyebrow': '{{count}} повеќедневни патувања',
   'stillpoint.courses.heading': 'Курсеви',
+  'stillpoint.forgot.checkEmail': 'Проверете го вашето сандаче — линкот истекува за 30 минути.',
   'stillpoint.forgot.success': 'Испративме линк за ресетирање до {{email}} .',
   'stillpoint.home.empty': 'Сè уште нема сесии - проверете повторно наскоро.',
   'stillpoint.home.friend': 'пријател',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Креирајте ја вашата бесплатна сметка',
   'stillpoint.landing.cta.title': 'Започнете ја вашата тишина денес',
   'stillpoint.landing.features.heading': 'Пракса што расте со вас',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Дневни водени медитации, вежби за дишење и приказни за спиење — темпо од наставници кои се чувствуваат како пријатели, а не како тренер.',
   'stillpoint.landing.hero.eyebrow': 'Помирни 10 минути на ден',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Прелистај по расположение',
   'stillpoint.login.rememberMe': 'Задржи ме најавен',
   'stillpoint.login.subheading': 'Најавете се за да продолжите со вашата пракса.',
+  'stillpoint.nav.tagline': 'Пронајдете го вашиот центар на мирување',
+  'stillpoint.notFound.body':
+    'Оваа страница длабоко и длабоко вдишува некаде. Ајде да најдеме потивко место за вас во {{app}} .',
   'stillpoint.notFound.title': 'Изгубен во тишината',
   'stillpoint.notFound.toHome': 'Назад кон денес',
   'stillpoint.notFound.toLibrary': 'Прелистај ја библиотеката',
@@ -80,6 +100,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Прескокни назад 15 секунди',
   'stillpoint.player.skipForward': 'Прескокни напред 30 секунди',
   'stillpoint.player.with': 'со {{name}}',
+  'stillpoint.profile.defaultHandle': 'покажувач на стабилизирање',
   'stillpoint.profile.eyebrow': 'Вашата пракса, сумирана.',
   'stillpoint.profile.locked': 'Заклучено',
   'stillpoint.profile.member': 'Член на Стилпоинт',

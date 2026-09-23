@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'உங்கள் பங்கு',
   'account.role.upgradeLink': 'சரிபார்க்கப்பட்ட பயிற்றுநராக ஆவதற்கு விண்ணப்பிக்கவும் →',
   'account.title': 'சுயவிவரம், கட்டணம் மற்றும் விருப்பத்தேர்வுகள்.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'சுண்ணக்கட்டியில் கற்பிக்கவும்',
   'becomeTutor.form.error': 'விண்ணப்பத்தைச் சமர்ப்பிக்க முடியவில்லை.',
   'becomeTutor.form.pitchPlaceholder':
@@ -75,6 +76,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'பொருள்',
   'bookingConfirm.title': 'உங்கள் முன்பதிவு முடிந்துவிட்டது. மீதியை நாங்கள் பார்த்துக்கொள்வோம்.',
   'bookingConfirm.with': 'ஆசிரியருடன்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'earningsHero.eyebrow': 'வருமானம் • {{month}}',
   'forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
   'forgotPassword.subheading':
@@ -118,6 +120,7 @@ export const ui: UiTranslations = {
   'messages.send': 'செய்திகளை அனுப்பு',
   'messages.thread.empty': 'வணக்கம் சொல்லுங்கள் — உரையாடலைத் தொடங்குங்கள்.',
   'messages.title': 'உங்கள் பயிற்றுநர்களுடனான உரையாடல்கள்.',
+  'nav.primary': 'முதன்மை',
   'pricing.dataExport': 'தரவு ஏற்றுமதி:',
   'pricing.headingDefault': 'மேம்பட்ட அம்சங்கள்:',
   'resetPassword.heading': 'வலிமையான புதிய கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',

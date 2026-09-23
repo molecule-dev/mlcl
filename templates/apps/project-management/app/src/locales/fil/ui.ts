@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'accountSettings.confirmEmailLabel': 'I-type ang DELETE para kumpirmahin',
   'accountSettings.deleteError': 'Hindi mabura ang account.',
   'accountSettings.passwordError': 'Hindi mabago ang password.',
@@ -54,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Walang paparating na mga deadline.',
   'dashboard.upcomingTitle': 'Mga Paparating na Deadline',
   'deviceSettings.unknownDevice': 'Hindi kilalang aparato',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Suporta',
   'forgotPassword.error': 'Nabigong ipadala ang link sa pag-reset.',
   'forgotPassword.subtitle': 'Ilagay ang inyong email at magpapadala kami ng link sa pag-reset.',
@@ -68,6 +70,9 @@ export const ui: UiTranslations = {
   'login.error': 'Hindi wastong email o password.',
   'login.pageTitle': 'Mag-sign In',
   'login.signIn': 'Mag-sign in sa Forge',
+  'login.subtitle': 'Mag-sign in para mapanatiling nasa tamang landas ang iyong mga proyekto',
+  'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
+  'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'nav.calendar': 'Kalendaryo',
   'nav.legal': 'Legal',
   'nav.myTasks': 'My Tasks',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie mus',
   'authShell.samplePreview':
     '„Sveiki, komanda, naujoji valdymo panelė atrodo puikiai – būtent tokia, kokios mums ir reikėjo!“',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/sutrumpinimas',
   'automations.subheading':
     'Taisyklės, iš anksto parengti atsakymai ir pokalbių robotai – užtikrinkite sklandų darbo eigą, kol jūsų komanda sutelkia dėmesį į sudėtingesnius uždavinius.',
+  'automations.trigger.inboundMessage': 'Gaunama žinutė',
   'automations.triggerLabel': 'Sparnelis',
   'chatBubble.internalNoteLabel': 'Vidinė pastaba',
+  'common.confirmDelete': 'Patvirtinti ištrynimą',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'contactDetail.backToContacts': 'Visi kontaktai',
   'contactDetail.contactFallback': 'Kontaktas',
   'contactDetail.conversationFallback': 'Pokalbis',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Paskutinį kartą matytas',
   'contacts.empty': 'Kol kas nėra kontaktų. Įtraukite savo pirmąjį kontaktą aukščiau.',
   'contacts.eyebrow': 'Klientų sąrašas',
+  'contacts.form.nameOrEmailRequired': 'Įveskite bent vardą arba el. pašto adresą',
   'contacts.form.save': 'Išsaugoti kontaktą',
   'contacts.heading': 'Kontaktai',
   'contacts.loading': 'Įkeliami kontaktai…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Išsaugoti pastabą',
   'conversationDetail.tab.note': 'Vidinė pastaba',
   'conversationDetail.threadAria': 'Pokalbių pranešimai',
+  'conversationDetail.visitorFallback': 'Lankytojas',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Kliento duomenys',
   'customerProfilePanel.recentTitle': 'Naujausi pokalbiai',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Klientai vidutiniškai gauna pirmąjį atsakymą per „{{time}}“ – išlaikykite šį tempą.',
   'inboxHeroCard.title': 'Aktyvios diskusijos',
+  'inboxLayout.navDrawerLabel': 'Navigacija',
+  'inboxLayout.openMenu': 'Atidaryti navigacijos meniu',
   'inboxOverview.eyebrow': 'Šiandienos apžvalga',
   'inboxOverview.heroChange': '{{count}} atidaryti',
   'inboxOverview.kpiClosedTrend': 'visų laikų',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Apsilankykite pagrindiniame puslapyje',
   'notifications.subheading':
     'Užduotys, @paminėjimai, SLA rizika, CSAT atsiliepimai ir komandos veikla — surūšiuoti pagal naujausius pirmiausia.',
+  'notifications.subjectFallback': 'pokalbis',
+  'notifications.visitorFallback': 'Lankytojas',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Aukštas',
   'priority.low': 'Žemas',
+  'priority.normal': 'Įprasta',
   'priority.urgent': 'Skubu',
   'privacy.title': 'Privatumo politika',
   'reports.agentFallback': 'Agentas',

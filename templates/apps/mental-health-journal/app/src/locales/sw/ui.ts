@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Kuhusu {{app}}',
+  'authShell.encryptionBadge':
+    'Maingizo yako yamesimbwa kwa njia fiche kuanzia mwanzo hadi mwisho.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'calendar.cellMood': 'Siku {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Mwezi huu kwa muhtasari',
   'calendar.eyebrow': 'Hisia kwa mtazamo',
@@ -10,6 +14,8 @@ export const ui: UiTranslations = {
   'calendar.next': 'Mwezi ujao',
   'calendar.prev': 'Mwezi uliopita',
   'calendar.subheading': 'Imefuatiliwa {{tracked}} ya {{total}} siku za mwezi huu.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.tryAgain': 'Jaribu tena',
   'entryComposer.cancel': 'Rudi kwenye jarida',
   'entryComposer.heading': 'Tafakari ya leo',
   'entryComposer.moodLabel': 'Unajisikiaje?',
@@ -20,7 +26,13 @@ export const ui: UiTranslations = {
   'entryComposer.saveError': 'Haikuweza kuhifadhi ingizo lako.',
   'entryComposer.titlePlaceholder': 'Ipe tafakari hii jina…',
   'entryDetail.back': 'Rudi kwenye jarida',
+  'entryDetail.delete': 'Futa ingizo hili',
+  'entryDetail.deleteConfirm': 'Futa tafakari hii? Hii haiwezi kutenduliwa.',
+  'entryDetail.deleteConfirmTitle': 'Futa ingizo',
+  'entryDetail.deleteError': 'Haikuweza kufuta ingizo hili.',
+  'entryDetail.deleteForever': 'Futa milele',
   'entryDetail.encryptedBadge': 'Imesimbwa kwa njia fiche kuanzia mwanzo hadi mwisho',
+  'entryDetail.keepEntry': 'Itunze',
   'entryDetail.loadError': 'Haikuweza kupakia ingizo hili.',
   'entryDetail.loading': 'Inapakia tafakari…',
   'entryDetail.notFound': 'Ingizo halikupatikana.',
@@ -43,6 +55,8 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Haikuweza kupakia maarifa.',
   'insights.subheading':
     'Mifumo ya hisia, mandhari, na vichocheo — vilivyokusanywa polepole kutoka kwa siku zako 30 zilizopita.',
+  'insights.themesEmpty':
+    'Hakuna mada bado — ongeza lebo moja au mbili kwenye maingizo yako na yatakusanyika hapa.',
   'insights.themesHeading': 'Mandhari kuu',
   'insights.triggerFrequency': 'niliona {{count}} × mwezi huu',
   'insights.triggersHeading': 'Mifumo inayogusa hisia zako',
@@ -61,11 +75,16 @@ export const ui: UiTranslations = {
   'landing.getStarted': 'Anza kuandika shajara',
   'landing.heroCta': 'Anza ingizo lako la kwanza',
   'landing.heroCtaSecondary': 'Ione kwa vitendo',
+  'landing.heroSubtitle':
+    '{{app}} ni jarida la faragha na la upole la kutafakari kila siku, kufuatilia hisia, na shukrani — lenye vidokezo vya kufikiria na mifumo tulivu ili kukusaidia kujielewa vyema.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.previewLabel': 'Kuchungulia ndani ya Lucid',
   'landing.previewPrompt': 'Ni jambo gani dogo unaloshukuru kwa leo?',
   'login.heading': 'Ingia kwenye shajara yako',
   'login.signupLink': 'Unda shajara yako',
   'login.subheading': 'Nafasi nzuri ya kutafakari kila siku.',
+  'mentalHealthJournalLayout.closeMenu': 'Funga menyu',
+  'mentalHealthJournalLayout.openMenu': 'Fungua menyu',
   'moodHeroCard.streakSuffix': 'mfululizo wa siku',
   'moodHeroCard.title': 'Tafakari ya leo',
   'moodTrendChart.aiBadge': 'Ufahamu wa akili bandia uko tayari',
@@ -79,6 +98,8 @@ export const ui: UiTranslations = {
   'profile.longestStreak': 'Mfululizo mrefu zaidi',
   'profile.memberSince': 'Kutafakari tangu {{date}}',
   'profile.milestones': 'Hatua Muhimu',
+  'profile.milestonesEmpty':
+    'Hatua yako ya kwanza muhimu ni kuingia mara moja tu - andika wakati wowote unapohisi uko tayari.',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Tafakari',
   'profile.totalWords': 'Maneno yaliyoandikwa',
@@ -105,10 +126,10 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Nafasi yako, sheria zako',
   'settings.languageHeading': 'Lugha',
   'settings.privacyHeading': 'Faragha na usimbaji fiche',
+  'settings.remindersHeading': 'Kikumbusho cha kila siku',
   'settings.reminderToggleDescription':
     'Kikumbusho kimoja cha utulivu wakati unaochagua. Hakuna beji au hatia ya mstari.',
   'settings.reminderToggleLabel': 'Tuma msukumo mpole',
-  'settings.remindersHeading': 'Kikumbusho cha kila siku',
   'settings.saveError': 'Haikuweza kuhifadhi.',
   'signup.eyebrow': 'Anza kutafakari kwako',
   'signup.firstNamePlaceholder': 'Sam',

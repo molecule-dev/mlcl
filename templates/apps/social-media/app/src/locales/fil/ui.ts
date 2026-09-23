@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.pageTitle': 'Tungkol sa {{app}}',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'compose.cancel': 'Kanselahin',
   'compose.captionPlaceholder': 'Ano ang nasa isip mo?',
   'compose.heading': 'Magbahagi ng isang sandali',
@@ -100,6 +104,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Na-verify na account',
   'resetPassword.newPassword': 'Bagong password',
   'resetPassword.subheading': 'Pumili ng isang bagay na malakas — kahit man lang 12 karakter.',
+  'search.clearAria': 'I-clear',
+  'search.error': 'Nabigo ang paghahanap. Subukan muli.',
   'search.noPeople': 'Walang tugmang tagalikha " {{q}} ".',
   'search.noPosts': 'Walang tugmang mga post " {{q}} ".',
   'search.noTags': 'Wala pang mga nagte-trend na hashtag.',
@@ -129,6 +135,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Itago ang password',
   'signup.showPassword': 'Ipakita ang password',
   'signup.subheading': 'Gumawa ng account para simulan ang pagbabahagi.',
+  'socialMediaLayout.closeMenu': 'Isara ang menu ng nabigasyon',
+  'socialMediaLayout.openMenu': 'Buksan ang menu ng nabigasyon',
+  'socialMediaLayout.primaryNavLabel': 'Pangunahing navigation',
   'storyRail.heading': 'Mga Kwento',
   'storyRail.label': 'Mga Kwento',
   'storyRail.openAria': 'Bukas {{handle}} kwento ni',

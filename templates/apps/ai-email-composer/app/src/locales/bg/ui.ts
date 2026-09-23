@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Нашата история',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Процент на отваряне',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Започва плащането…',
   'billing.subheading': 'Изберете плана, който съответства на начина, по който изпращате.',
   'billing.unavailable': 'Свържете се с отдела за продажби',
+  'common.goToDashboard': 'Към таблото',
+  'common.retry': 'Опитай отново',
   'compose.adjustingTone': 'Пренаписване с избран тон…',
   'compose.aiPromptPlaceholder':
     'напр. „Учтиво последващо запитване след липса на отговор в продължение на две седмици, бъдете кратки.“',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Трябва да изпратите нещо? Signet може да подготви чернова за секунди.',
   'dashboard.composeCtaLabel': 'Бързо писане',
   'dashboard.heading': 'Вашата седмица, написана',
+  'dashboard.loadFailed': 'Не успяхме да заредим таблото ви.',
   'dashboard.manageLibrary': 'Управление на библиотеката →',
   'dashboard.recentEmpty':
     'Все още няма изпратени имейли — изпратените ви имейли ще се появят тук.',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Тон по подразбиране',
   'settings.toneSubheading': 'Signet използва този тон, освен ако не го презапишете в черновата.',
   'signetLayout.primaryNavLabel': 'Основна навигация',
+  'signetLayout.toggleMenu': 'Превключване на менюто',
   'signup.emailLabel': 'Имейл адрес',
   'signup.showPassword': 'Покажи паролата',
   'signup.tagline':

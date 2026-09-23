@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.pageTitle': 'За {{appName}}',
   'analytics.error': 'Не можеше да се вчита аналитиката.',
   'analytics.heading': 'Аналитика за пребарување',
@@ -53,6 +54,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Не се конфигурирани нивоа на цени.',
   'billing.plans.heading': 'Планови',
   'billing.subheading': 'План, употреба и наплата управувана од Stripe.',
+  'common.confirm': 'Потврди',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'common.retry': 'Обидете се повторно',
   'documentCard.open': 'Отворено \\u2192',
   'documentDetail.back': 'Назад кон документите',
   'documentDetail.chunks.empty':
@@ -73,6 +77,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Наслов на документот',
   'documents.emptyAll':
     'Сè уште нема документи. Поставете еден за да започнете да поставувате прашања.',
+  'documents.error.load': 'Не можеше да се вчитаат документите.',
   'documents.heading': 'Индексирани документи',
   'documents.loading': 'Се вчитуваат документи…',
   'documents.metric.chunks': 'Вкупно парчиња',
@@ -143,7 +148,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Отстранување\\u2026',
   'members.subheading': 'Поканете соиграчи и поставете улоги.',
   'members.tableHeading': 'Список',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'notFound.askCta': 'Прашајте ја базата на знаење',
+  'notFound.body':
+    '{{app}} не можеше да ја пронајде таа страница. Врската можеби е нефункционална или страницата можеби е повлечена за време на повторно индексирање.',
   'notFound.eyebrow': 'Не може да се преземе',
   'notFound.title': 'Нема таков дел во индексот',
   'notifications.dismiss': 'Отфрли',
@@ -206,6 +215,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Изворна URL-адреса',
   'sources.empty.body': 'Кликнете на „Додај извор“ за да го поврзете вашиот прв конектор.',
   'sources.empty.title': 'Сè уште нема извори.',
+  'sources.error.add': 'Не може да се додаде извор.',
   'sources.error.labelRequired': 'Етикетата е задолжителна.',
   'sources.error.load': 'Не може да се вчитаат изворите.',
   'sources.error.urlRequired': 'URL-адресата е потребна за овој вид извор.',

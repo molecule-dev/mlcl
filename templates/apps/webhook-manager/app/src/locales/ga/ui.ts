@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// faoi {{app}}',
+  'about.pageTitle': 'An plána rialaithe webhook',
+  'about.plansTitle': 'Pleananna do gach céim',
   'apiKeys.bestPractices': 'Dea-chleachtais',
   'apiKeys.body':
     'Comharthaí rochtana ríomhchláraithe. Déan iad a láimhseáil mar phasfhocail — stóráil i variableanna timpeallachta, ná déan iad a thiomnú choíche.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'laistigh den phlean',
   'billing.usageWarning': 'in aice leis an gcaipín',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.body':
     'Tréchur beo, athiarrachtaí le linn eitilte, agus na críochphointí a raibh teip orthu díreach — ar fud gach spás oibre a oibríonn tú.',
   'dashboard.endpointsEmpty': 'Gan aon chríochphointí fós.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'críochphointí',
   'endpointDetail.deliveryTrendSub': 'seachadtaí / uair an chloig, scála loga',
   'endpointDetail.hideSecret': 'Folaigh rún',
+  'endpointDetail.loading': 'Ag lódáil críochphointe…',
   'endpointDetail.metric.delivered': 'Seachadta 24 uair an chloig',
   'endpointDetail.metric.deliveredCaption': 'ó {{count}} cineálacha imeachtaí',
   'endpointDetail.metric.failuresCaption': 'ath-iarrachtaí: {{retries}}',
@@ -216,6 +221,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Criticiúil · 24 uair an chloig',
   'notifications.metric.totalCaption': 'bosca isteach i gcónaí',
   'payloadViewer.payload': '// ualach',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'profile.avatarHeader': 'Avatár',
   'profile.avatarHint':
     'Túslitreacha léirithe — uaslódálacha ag teacht leis an gcéad eisiúint eile.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Níl ach do sheisiún reatha gníomhach. Níl aon fheistí eile sínithe isteach.',
   'profile.toggle': 'Toggle {{label}}',
+  'pylonShell.closeMenu': 'Dún an roghchlár nascleanúna',
+  'pylonShell.openMenu': 'Oscail an roghchlár nascleanúna',
   'pylonShell.primaryNavLabel': 'Príomh-loingseoireacht',
   'resetPassword.subtitle': 'Roghnaigh pasfhocal láidir nár úsáid tú cheana.',
   'resetPassword.tokenPlaceholder': 'greamaigh ó ríomhphost',

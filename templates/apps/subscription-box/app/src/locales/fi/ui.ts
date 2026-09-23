@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Tietoa {{app}}sta',
+  'appNav.mobileLabel': 'Päänavigaatio',
+  'appNav.primaryLabel': 'Päänavigaatio',
   'billing.actions.confirmCancel':
     'Peruutatko tilauksesi? Voit tilata sen uudelleen milloin tahansa.',
   'billing.actions.paused': 'Tilaus keskeytetty.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Jokainen taso on pieni erätarina. Lisää yksi jonoosi tai siirrä se seuraavaan kuukauteen.',
   'boxThemeCard.perMonth': '/ kuukausi',
+  'common.goToDashboard': 'Siirry etusivulle',
   'customize.eyebrow': 'Tee siitä omasi',
   'customize.heading': 'Mukauta seuraavaa Crate-löytöäsi',
   'customize.items.exclude': 'Ohita tämä',
@@ -92,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Tämä kausi',
   'landing.editions.heading': 'Kuraattoriemme rakastamat painokset',
   'landing.footer.contact': 'Keskustele kuraattorin kanssa',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Aloita laatikkosi →',
   'landing.hero.ctaSecondary': 'Katso tasot',
   'landing.hero.eyebrow': 'Kuukausittain kuratoitu. Aina henkilökohtainen.',
@@ -110,6 +115,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'SEURAAVA LÖYTÖSI',
   'nextBoxHeroCard.itemsLabel': 'Kuratoituja kohteita',
   'nextBoxHeroCard.shipsOnLabel': 'Lähetetään',
+  'notFound.body':
+    'Emme löytäneet kyseistä sivua {{app}} arkistosta. Se on saattanut poistua käytöstä tai siinä on yksinkertaisesti kirjoitusvirhe.',
   'notFound.cta.dashboard': 'Siirry kojelautaan',
   'notFound.eyebrow': 'Tyhjä laatikko',
   'notFound.heading': 'Tämä hylly on tyhjä',

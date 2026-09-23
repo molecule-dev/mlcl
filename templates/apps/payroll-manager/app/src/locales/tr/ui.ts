@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'auditLog.empty':
     'Filtrelerinize uyan denetim olayı henüz yok. Bir çalışanı düzenleyin veya bir bordro döngüsü işleyin, burada görüneceklerdir.',
   'auditLog.eyebrow': 'Uyumluluk',
+  'auditLog.loadError': 'Denetim günlüğü yüklenemedi.',
   'auditLog.searchPlaceholder': 'Aktör, eylem veya açıklamaya göre ara',
   'auditLog.subheading':
     'Her onay, düzenleme ve vergi beyannamesi — aktör, zaman damgası ve değiştirilen alanlarla birlikte.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Yapılandırılmamış',
   'billing.plansHeading': 'Planlar',
   'billing.subheading': 'Planınızı yönetin ve Stripe üzerinden katmanları değiştirin.',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Tekrar dene',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Uyumluluk anlık görüntüsü',
   'dashboard.compliance.title': 'Tüm kontroller başarılı',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Dosyada kesinti yok.',
   'employeeDetail.notFound': 'Çalışan bulunamadı.',
   'employeeDetail.payFrequency': 'Ödeme sıklığı',
+  'employeeDetail.postTax': 'Vergi sonrası',
+  'employeeDetail.preTax': 'Vergi öncesi',
   'employeeDetail.salary': 'Yıllık maaş',
   'employeeDetail.ssn': 'SSN',
   'employeeDetail.startedOn': '{{date}} tarihinde başladı',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Ödeme sıklığı',
   'employeeForm.salary': 'Yıllık maaş (USD)',
   'employeeForm.salaryInvalid': 'Maaş negatif olmayan bir sayı olmalıdır.',
+  'employeeForm.saveError': 'Çalışanı kurtaramadım.',
   'employeeForm.semimonthly': 'Ayda iki kez',
   'employeeForm.single': 'Bekar',
   'employeeForm.ssn': 'SSN',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Çalışan',
   'employeesTable.col.salary': 'Maaş',
   'forgotPassword.subtitle': 'İş e-postanızı girin, size bir sıfırlama bağlantısı gönderelim.',
+  'landing.copyright': '© {{year}} {{app}} . Hassas, güvenilir, derli toplu.',
   'landing.ctaBody':
     '30 gün ücretsiz. Kredi kartı yok. Denetim izinizi kaybetmeden istediğiniz zaman geçiş yapın.',
   'landing.ctaHeading': "Bir sonraki döngünüzü Stipend'da çalıştırın",
@@ -105,6 +113,7 @@ export const ui: UiTranslations = {
   'payRunDetail.entriesHeading': 'Girişler',
   'payRunDetail.noActivity': 'Bu bordro döngüsü için henüz denetim girişi yok.',
   'payRunDetail.noStubs': 'Henüz bordro yok — oluşturmak için onaylayın ve işleyin.',
+  'payRunDetail.notFound': 'Bu ödeme işlemi bulunamadı.',
   'payRunDetail.statDeductions': 'Kesintiler',
   'payRunDetail.statHeadcount': 'Çalışanlar',
   'payRunDetail.statTaxes': 'Kesilen vergiler',
@@ -218,7 +227,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Ayda iki kez',
   'settings.signOutDevice': 'Oturumu kapat',
   'settings.subheading': 'Şirket profili, ödeme programı ve entegrasyonlar.',
+  'settings.twoFactorCode': 'Doğrulama kodu',
   'settings.twoFactorDisable': 'Devre dışı bırak',
+  'settings.twoFactorInvalidCode': 'Geçersiz kod',
+  'settings.twoFactorVerify': 'Doğrula ve etkinleştir',
   'settings.weekly': 'Haftalık',
   'taxCenter.bucket.federal': 'Federal gelir',
   'taxCenter.bucket.fica': 'Sosyal Güvenlik',

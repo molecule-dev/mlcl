@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'نبذة عن شركة «{{app}}»',
+  'appNav.mobileLabel': 'التنقل الرئيسي',
+  'appNav.primaryLabel': 'التنقل الرئيسي',
   'billing.actions.confirmCancel': 'هل تريد إلغاء اشتراكك؟ يمكنك إعادة الاشتراك في أي وقت.',
   'billing.actions.paused': 'تم إيقاف الاشتراك مؤقتاً.',
   'billing.actions.resumed': 'تم استئناف الاشتراك.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'كل مستوى هو قصة بكميات صغيرة. أضف واحداً إلى قائمة انتظارك أو استبدله بصندوق الشهر القادم.',
   'boxThemeCard.perMonth': '/ شهر',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'customize.eyebrow': 'اجعله خاصاً بك',
   'customize.heading': 'خصص Crate التالي',
   'customize.items.exclude': 'تخطَّ هذا',
@@ -92,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'هذا الموسم',
   'landing.editions.heading': 'الإصدارات التي يعشقها منسقونا',
   'landing.footer.contact': 'تحدث مع منسق',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': '← ابدأ صندوقك',
   'landing.hero.ctaSecondary': 'عرض المستويات',
   'landing.hero.eyebrow': 'منتقى شهرياً. شخصي دائماً.',
@@ -109,6 +114,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'CRATE التالي الخاص بك',
   'nextBoxHeroCard.itemsLabel': 'العناصر المنتقاة',
   'nextBoxHeroCard.shipsOnLabel': 'يُشحن في',
+  'notFound.body':
+    'لم نتمكن من العثور على تلك الصفحة في أرشيف {{app}} . ربما تم إيقافها أو أنها ببساطة مكتوبة بشكل خاطئ.',
   'notFound.cta.dashboard': 'الذهاب إلى لوحة التحكم',
   'notFound.eyebrow': 'صندوق فارغ',
   'notFound.heading': 'هذا الرف فارغ',

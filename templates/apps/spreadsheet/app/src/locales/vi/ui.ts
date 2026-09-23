@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
   'about.pageTitle': 'Về {{name}}',
   'auth.footer.about': 'Về {{name}}',
   'authHeader.subtitle': 'Đăng nhập để giữ các con số của quý vị luôn chính xác.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Không phẫu thuật',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Xóa "{{name}}"?',
   'automations.empty.headline': 'Chưa có tự động hóa',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Trình kích hoạt và hành động trên mọi sổ làm việc. Mỗi lần chạy sẽ ghi một hàng mà quý vị có thể kiểm tra sau.',
   'automations.toggle': 'Bật/tắt {{name}}',
+  'automations.trigger.dailySchedule': 'Lịch trình hàng ngày',
+  'automations.trigger.rowCreated': 'Hàng đã được tạo',
+  'automations.trigger.rowUpdated': 'Hàng đã được cập nhật',
   'billing.empty': 'Không có gói nào khả dụng.',
   'billing.error.priceMissing':
     'Không có giá Stripe nào được cấu hình cho cấp này. Hãy đặt các biến môi trường STRIPE_*_PRICE_ID.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Biểu đồ',
   'charts.kpi.totalCharts': 'Tổng số biểu đồ',
   'charts.list.empty': 'Chưa có biểu đồ.',
+  'charts.namePlaceholder': 'Xu hướng doanh thu',
   'charts.newChart': 'Biểu đồ mới',
   'charts.primary.eyebrow': 'Biểu đồ theo loại',
   'charts.primary.headline': 'Tổng quan không gian làm việc',
   'charts.subhead':
     'Hình ảnh trực quan trực tiếp gắn với lưới của quý vị — kết xuất lại mỗi khi chỉnh sửa ô.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'editor.addColumn': 'Thêm cột',
+  'editor.addDialogTitle': 'Thêm cột',
   'editor.addRow': 'Thêm hàng',
   'editor.addSheet': 'Thêm trang',
   'editor.back': 'Trở về sổ làm việc',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite là lưới ưu tiên công thức, đa chế độ xem, thời gian thực mà các nhà phân tích và đội tài chính tìm đến đầu tiên.',
   'landing.nav.formulas': 'Công thức',
+  'login.noAccount': 'Bạn mới đến với {{name}} ?',
+  'login.signIn': 'Đăng nhập vào {{name}}',
   'login.signUp': 'Tạo một không gian làm việc',
+  'nav.menu': 'Thực đơn',
+  'nav.openMenu': 'Mở menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Hàng này chưa bao giờ tồn tại.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Tự động hóa gốc · trình kích hoạt webhook & cron',
   'signup.creating': 'Đang khởi tạo không gian làm việc…',
   'signup.cta': 'Tạo không gian làm việc của tôi',
+  'signup.haveAccount': 'Bạn đã có tài khoản trên {{name}} chưa?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Khởi tạo sổ làm việc đầu tiên trong 30 giây',
   'team.col.activity': 'Đã mời',

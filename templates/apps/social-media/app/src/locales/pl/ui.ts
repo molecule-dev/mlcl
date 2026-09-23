@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.pageTitle': 'O {{app}}',
+  'common.goToDashboard': 'Przejdź do panelu',
+  'common.retry': 'Spróbuj ponownie',
   'compose.cancel': 'Anuluj',
   'compose.captionPlaceholder': 'O czym Pan/Pani myśli?',
   'compose.heading': 'Podziel się chwilą',
@@ -96,6 +100,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Zweryfikowane konto',
   'resetPassword.newPassword': 'Nowe hasło',
   'resetPassword.subheading': 'Proszę wybrać coś mocnego — co najmniej 12 znaków.',
+  'search.clearAria': 'Wyczyść',
+  'search.error': 'Wyszukiwanie nie powiodło się. Spróbuj ponownie.',
   'search.noPeople': 'Żaden twórca nie pasuje do "{{q}}".',
   'search.noPosts': 'Żaden post nie pasuje do "{{q}}".',
   'search.noTags': 'Jeszcze brak popularnych hashtagów.',
@@ -125,6 +131,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Ukryj hasło',
   'signup.showPassword': 'Pokaż hasło',
   'signup.subheading': 'Proszę utworzyć konto, aby zacząć się dzielić.',
+  'socialMediaLayout.closeMenu': 'Zamknij menu nawigacyjne',
+  'socialMediaLayout.openMenu': 'Otwórz menu nawigacyjne',
+  'socialMediaLayout.primaryNavLabel': 'Nawigacja główna',
   'storyRail.heading': 'Relacje',
   'storyRail.label': 'Relacje',
   'storyRail.openAria': 'Otwórz relację {{handle}}',

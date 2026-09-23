@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'auth.forgotPassword.emailPlaceholder': 'navn@dinvirksomhed.com',
   'auth.forgotPassword.heading': 'Nulstil din adgangskode.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Markér opgave som fuldført',
   'checklistTaskCard.markIncomplete': 'Markér opgave som ufuldendt',
   'checklistTaskCard.openLabel': 'Åbn opgave',
+  'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Du er helt opdateret',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'På rette spor',
   'dashboard.timelineHeading': '30/60/90 milepæle',
   'dashboard.viewAllTasks': 'Se alle opgaver',
+  'dashboard.weekOne': 'Uge 1',
   'dashboard.yourCohort': 'Dit hold',
   'documents.empty.body': 'Dokumenter tilføjet af dit team vises her.',
   'documents.empty.title': 'Ingen dokumenter endnu',
@@ -106,7 +109,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-dages gratis prøveperiode',
   'landing.subhead':
     'Embark guider alle nye holdkammerater gennem deres første 90 dage – papirarbejde, træning, milepæle og meningsfulde introduktioner, alt sammen på ét roligt og trygt sted.',
+  'layout.openMenu': 'Åbn navigationsmenuen',
   'layout.search': 'Søg i opgaver, dokumenter, holdkammerater…',
+  'layout.searchTeammates': 'Søg efter holdkammerater efter navn eller rolle…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Din rejse starter her',
   'notifications.empty.body': 'Ny aktivitet vil blive vist her.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'i går',
   'planUpdated.message': 'Du er klar.',
   'planUpdated.preparing': 'Opdaterer din plan…',
+  'planUpdated.verifying': 'Bekræfter din betaling…',
   'pricing.documentsLabel': 'dokumenter',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'opgaver',

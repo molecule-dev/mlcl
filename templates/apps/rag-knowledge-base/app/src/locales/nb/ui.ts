@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.pageTitle': 'Om {{appName}}',
   'analytics.error': 'Kunne ikke laste analyse.',
   'analytics.heading': 'Hentingsanalyse',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Ingen prisnivåer konfigurert.',
   'billing.plans.heading': 'Planer',
   'billing.subheading': 'Plan, bruk og Stripe-administrert betaling.',
+  'common.confirm': 'Bekrefte',
+  'common.goToDashboard': 'Gå til oversikt',
+  'common.retry': 'Prøv igjen',
   'documentCard.open': 'Åpne \\u2192',
   'documentDetail.back': 'Tilbake til dokumentene',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indeksdokument',
   'documents.composer.titlePlaceholder': 'Dokumenttittel',
   'documents.emptyAll': 'Ingen dokumenter ennå. Last opp et for å begynne å stille spørsmål.',
+  'documents.error.load': 'Kunne ikke laste dokumenter.',
   'documents.heading': 'Indekserte dokumenter',
   'documents.loading': 'Laster inn dokumenter …',
   'documents.metric.chunks': 'Totalt antall biter',
@@ -137,7 +142,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Fjerner\\u2026',
   'members.subheading': 'Inviter lagkamerater og angi roller.',
   'members.tableHeading': 'Lagliste',
+  'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
+  'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'notFound.askCta': 'Spør kunnskapsbasen',
+  'notFound.body':
+    '{{app}} fant ikke siden. Lenken kan være ødelagt, eller siden kan ha blitt fjernet under en ny indeksering.',
   'notFound.eyebrow': 'Kan ikke hente',
   'notFound.title': 'Ingen slik del i indeksen',
   'notifications.dismiss': 'Lukk',
@@ -201,6 +210,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Kilde-URL',
   'sources.empty.body': 'Klikk på «Legg til kilde» for å koble til den første kontakten.',
   'sources.empty.title': 'Ingen kilder ennå.',
+  'sources.error.add': 'Kunne ikke legge til kilde.',
   'sources.error.labelRequired': 'Etikett er påkrevd.',
   'sources.error.load': 'Kunne ikke laste inn kilder.',
   'sources.error.urlRequired': 'URL er nødvendig for denne kildetypen.',

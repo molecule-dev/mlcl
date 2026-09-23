@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Agendar consulta',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Nenhum paciente para exibir.',
+  'common.goToDashboard': 'Ir para o Painel',
   'consult.backLink': 'Todas as consultas',
   'consult.captions': 'Legendas',
   'consult.connected': 'Conectado · 720p · estável',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Pacientes',
   'patientVitalsHero.scripts': 'Rx em aberto',
   'patientVitalsHero.subline': '{{count}} atendimentos na sua agenda de hoje',
+  'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'prescriptions.empty': 'Nenhuma prescrição encontrada.',
   'prescriptions.eyebrow': 'Prescrição eletrônica',
   'prescriptions.heading': 'Prescrições',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Aviso de privacidade',
   'privacy.use.body':
     'Para prestar cuidado, enviar lembretes de consulta, encaminhar prescrições e melhorar a confiabilidade do serviço. Nunca vendemos seus dados e nunca compartilhamos informações clínicas com anunciantes.',
+  'providers.allSpecialties': 'Todas as especialidades',
+  'providers.loadError': 'Falha ao carregar os provedores.',
+  'providers.loading': 'Carregando…',
   'providers.noResults': 'Nenhum profissional encontrado.',
   'providers.searchPlaceholder': 'Buscar por nome, especialidade...',
   'providers.title': 'Encontrar um profissional',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Início do expediente',
   'settings.availability.heading': 'Disponibilidade',
   'settings.devices.thisDevice': 'Este dispositivo',
+  'settings.devices.unnamed': 'Dispositivo sem nome',
   'settings.eyebrow': 'Consultório e conta',
   'settings.loadError': 'Não foi possível carregar seu perfil.',
   'settings.notifications.emailMessages': 'Enviar e-mail quando minha equipe de cuidado responder',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Desativar',
   'settings.security.twoFactor.enable': 'Ativar',
   'settings.security.twoFactor.heading': 'Autenticação de dois fatores',
+  'settings.security.twoFactor.invalidCode': 'Esse código não corresponde. Tente novamente.',
+  'settings.security.twoFactor.setupFailed':
+    'Não foi possível iniciar a configuração de autenticação de dois fatores. Tente novamente.',
+  'settings.security.twoFactor.statusOn': 'A autenticação de dois fatores está ativada.',
   'settings.signOutDevice': 'Sair',
   'settings.subheading': 'Perfil do profissional, regras do consultório e alertas clínicos.',
   'signup.emailLabel': 'E-MAIL',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Criar conta',
   'signupFooter.hipaa': 'Em conformidade com HIPAA',
   'solaceLayout.primaryNavLabel': 'Navegação principal',
+  'solaceLayout.toggleMenu': 'Alternar menu',
   'terms.eligibility.body':
     'Você precisa ter pelo menos dezoito anos, ou ser pai, mãe ou responsável legal de um menor para quem busca cuidado, e estar fisicamente em um estado dos EUA onde nossos clínicos sejam licenciados.',
   'terms.payment.body':

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Parolingizni qayta tiklang.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Vazifani bajarilgan deb belgilash',
   'checklistTaskCard.markIncomplete': 'Vazifani bajarilmadi deb belgilash',
   'checklistTaskCard.openLabel': 'Vazifani ochish',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Hammangiz yetib keldingiz',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': "Yo'lda",
   'dashboard.timelineHeading': '30/60/90 bosqichlari',
   'dashboard.viewAllTasks': "Barcha vazifalarni ko'rish",
+  'dashboard.weekOne': '1-hafta',
   'dashboard.yourCohort': 'Sizning jamoangiz',
   'documents.empty.body': "Jamoangiz tomonidan qo'shilgan hujjatlar bu yerda ko'rsatiladi.",
   'documents.empty.title': "Hali hech qanday hujjat yo'q",
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 kunlik bepul sinov muddati',
   'landing.subhead':
     "Embark har bir yangi jamoadoshiga dastlabki 90 kun davomida — hujjatlarni rasmiylashtirish, mashg'ulotlar, muhim bosqichlar va mazmunli tanishuvlar davomida — barchasini bitta xotirjam va ishonchli joyda boshqaradi.",
+  'layout.openMenu': 'Navigatsiya menyusini ochish',
   'layout.search': 'Vazifalar, hujjatlar, jamoadoshlarni qidirish...',
+  'layout.searchTeammates': "Jamoadoshlarni ismi yoki roli bo'yicha qidiring…",
   'layout.section.onboarding': 'Ishga qabul qilish',
   'layout.tagline': 'Sayohatingiz shu yerdan boshlanadi',
   'notifications.empty.body': "Yangi faollik bu yerda ko'rsatiladi.",
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'kecha',
   'planUpdated.message': 'Hammasi tayyor.',
   'planUpdated.preparing': 'Rejangiz yangilanmoqda…',
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.documentsLabel': 'hujjatlar',
   'pricing.onboardingsLabel': 'ishga qabul qilish',
   'pricing.tasksLabel': 'vazifalar',

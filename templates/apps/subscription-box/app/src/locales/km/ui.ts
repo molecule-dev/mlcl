@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'អំពី {{app}}',
+  'appNav.mobileLabel': 'ការរុករកចម្បង',
+  'appNav.primaryLabel': 'ការរុករកចម្បង',
   'billing.actions.confirmCancel': 'បោះបង់ការជាវរបស់អ្នក? អ្នកអាចជាវឡើងវិញនៅពេលណាក៏បាន។',
   'billing.actions.paused': 'ការជាវត្រូវបានផ្អាក។',
   'billing.actions.resumed': 'ការជាវបានបន្ត។',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'កម្រិតនីមួយៗគឺជារឿងមួយក្រុមតូច។ បន្ថែមមួយទៅក្នុងជួររបស់អ្នក ឬប្តូរវាទៅក្នុងជួរបន្ទាប់របស់អ្នក។',
   'boxThemeCard.perMonth': '/ ខែ',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'customize.eyebrow': 'ធ្វើវាជារបស់អ្នក',
   'customize.heading': 'ប្ដូរតាមបំណង Crate បន្ទាប់របស់អ្នក',
   'customize.items.exclude': 'រំលង​វា',
@@ -94,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'រដូវកាលនេះ',
   'landing.editions.heading': 'ការបោះពុម្ពផ្សាយដែលអ្នកថែរក្សារបស់យើងពេញចិត្ត',
   'landing.footer.contact': 'និយាយជាមួយអ្នកថែរក្សា',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ចាប់ផ្តើមប្រអប់របស់អ្នក →',
   'landing.hero.ctaSecondary': 'មើល​កម្រិត',
   'landing.hero.eyebrow': 'រៀបចំ​ជា​រៀងរាល់ខែ។ តែងតែ​ជា​លក្ខណៈ​ផ្ទាល់ខ្លួន។',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'កំណប់ទ្រព្យបន្ទាប់របស់អ្នក',
   'nextBoxHeroCard.itemsLabel': 'ធាតុដែលបានជ្រើសរើស',
   'nextBoxHeroCard.shipsOnLabel': 'ដឹកជញ្ជូននៅលើ',
+  'notFound.body':
+    'យើងរកមិនឃើញទំព័រនោះនៅក្នុងបណ្ណសារ {{app}} ទេ។ វាអាចត្រូវបានលុបចោល ឬគ្រាន់តែវាយខុស។',
   'notFound.cta.dashboard': 'ចូលទៅកាន់ផ្ទាំងគ្រប់គ្រង',
   'notFound.eyebrow': 'ប្រអប់ទទេ',
   'notFound.heading': 'ធ្នើរនេះទទេស្អាត',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.tagline': 'દરેક યુનિટ, એક જ છત નીચે.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.addProperty': 'મિલકત ઉમેરો',
   'dashboard.empty.body':
     'એકવાર તમારી પાસે મિલકતો, એકમો અને ભાડાની ચુકવણી થઈ જાય, પછી આ ડેશબોર્ડ પોર્ટફોલિયો આંતરદૃષ્ટિથી ભરાઈ જાય છે.',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{મિલકત}} · એકમ {{યુનિટ}} · {{તારીખ}}',
   'maintenanceQueueList.subtitle': '{{count}} પ્રાથમિકતા મુજબ ક્રમાંકિત, ખુલ્લા કાર્ય ઓર્ડર',
   'maintenanceQueueList.title': 'જાળવણી કતાર',
+  'nav.closeMenu': 'મેનૂ બંધ કરો',
+  'nav.openMenu': 'મેનુ ખોલો',
   'notFound.body':
     'તમે જે પૃષ્ઠ શોધી રહ્યા હતા તે ખસેડવામાં આવ્યું છે, આર્કાઇવ કરવામાં આવ્યું છે, અથવા ક્યારેય અસ્તિત્વમાં નથી.',
   'notFound.title': 'તે દરવાજો ખુલતો નથી',

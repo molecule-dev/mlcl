@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт, функцийн хүсэлт эсвэл алдаа олсон уу? Бүртгэлийнхээ цэсэн дэх дэмжлэгийн холбоосоор дамжуулан {{app}} багтай холбогдоорой — мессеж бүр жинхэнэ хүнд очно.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'agentDetail.back': 'Бүх агентууд',
   'agentDetail.capabilities': 'Чадварууд',
   'agentDetail.delete': 'Хувь хүнийг устгах',
   'agentDetail.deleteConfirm': 'Энэ дүрийг устгах уу? Үүнийг буцаах боломжгүй.',
+  'agentDetail.deleteError': 'Хувь хүнийг устгаж чадсангүй.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Хувь хүнийг ачаалж чадсангүй.',
   'agentDetail.save': 'Хувь хүнийг хадгалах',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Шилжүүлж байна…',
   'billing.updateError': 'Шинэчлэлтийг эхлүүлж чадсангүй.',
   'billing.usageHeading': 'Энэ мөчлөгт дуу хоолойн хэрэглээ',
+  'chatBubble.source.text': 'текст',
+  'chatBubble.source.voice': 'дуу хоолой',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'conversation.defaultTitle': 'Шинэ харилцан яриа',
   'conversation.empty':
     'Одоогоор мессеж алга. Эхлээд ямар нэгэн зүйл хэлэх эсвэл доор бичиж эхэлнэ үү.',
@@ -98,6 +105,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Ярьдаг оюун ухаан.',
   'landing.heroSubtitle':
     'Таны байгалийн урсгалыг ойлгодог хиймэл оюун ухааны дуут туслах. Ярилцаж, санаа гаргаж, удирдан чиглүүлээрэй — саадгүй.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Сонсож байна…',
   'landing.naturallyBody':
     'Өдөөгч үг байхгүй. Хатуу тушаал байхгүй. Vox нь хам сэдэв, тасалдал, хүний ярианы нарийн ширийн зүйлийг ойлгодог - яг л хамт ажиллагчтайгаа ярилцаж байгаа мэт.',
@@ -116,6 +124,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Хуралдаан нээх',
   'notFound.home': 'Гэртээ буцаж ирэх',
   'notFound.title': 'Бид тэр хуудсыг сонсож чадсангүй.',
+  'parlanceLayout.closeMenu': 'Цэсийг хаах',
+  'parlanceLayout.openMenu': 'Навигацийн цэсийг нээх',
   'parlanceLayout.primaryNavLabel': 'Үндсэн навигаци',
   'pricing.conversations': '{{count}} харилцан яриа',
   'pricing.cta.startFree': 'Үнэгүй эхлүүлээрэй',
@@ -152,6 +162,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Тохирох зүйл алга',
   'search.eyebrow': 'Командын палитр',
   'search.fetchError': 'Хайлтын индексийг ачаалж чадсангүй.',
+  'search.static.profile.preview': 'Дэлгэцийн нэр, хаяг, намтар',
   'search.static.voice.title': 'Дуу хоолой',
   'search.title': 'Хайлтын хэл',
   'search.transcriptPreview': 'Нээлттэй хуулбар',

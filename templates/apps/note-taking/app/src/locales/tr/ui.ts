@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'Panele Git',
   'forgot.eyebrow': 'Geri dönüş yolunu mu kaybettiniz?',
   'forgot.formSubtitle': 'Bize kayıtlı e-posta adresinizi söyleyin.',
   'forgot.headline': 'Şifrenizi sıfırlayın.',
@@ -40,6 +41,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Bir tane oluşturun',
   'login.subline':
     'Not defterleriniz, geri bağlantılarınız ve günlük sayfalarınız bıraktığınız yerde duruyor.',
+  'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
+  'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'noteEditor.backToNotes': 'Notlara geri dön',
   'noteEditor.bodyPlaceholder':
     'Yazmaya başlayın; siz yazarken notunuz otomatik olarak kaydedilir.',
@@ -56,6 +59,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'Yeni defter',
   'notes.newNotebookPrompt': 'Yeni defter adı',
   'notes.notebooksHeading': 'Defterler',
+  'notes.subtitle':
+    'Soldaki defterlerden birini seçin, ardından yeni bir giriş başlatmak için Yeni not düğmesine basın.',
   'planUpdated.confirmation': 'Planınız güncellendi',
   'pricing.heading': 'Not alma planınızı seçin.',
   'reset.eyebrow': 'Neredeyse geri döndüm.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'Güncellendi',
   'versoLayout.nav.graph': 'Grafik',
   'versoLayout.nav.home': 'Ev',
+  'versoLayout.primaryNavLabel': 'Birincil gezinme',
   'versoNoteCard.pinned': 'Sabitlenmiş',
   'versoTodayHero.continueCta': 'Yazmaya devam et',
   'versoTodayHero.createCta': 'Bugünkü nota başla',

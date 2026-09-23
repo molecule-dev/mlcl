@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
   'analytics.col.quorum': 'Quorum',
   'analytics.col.votes': 'Stimmen',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Noch keine offenen Fragen.',
   'audienceQa.onStageEyebrow': 'Jetzt auf der Bühne',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Fördern',
   'audienceQa.queued': 'in der Warteschlange',
   'audienceQa.queueEyebrow': 'Warteschlange',
   'ballot.eyebrow': 'Geben Sie Ihre Stimme ab',
@@ -81,6 +83,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Sie befinden sich derzeit im Plan {{plan}}.',
   'billing.switch': 'Wechseln',
   'billing.upgraded': 'Auf {{plan}} aktualisiert — Limits gelten sofort.',
+  'common.goToDashboard': 'Zum Dashboard',
   'createPoll.addOption': 'Option hinzufügen',
   'createPoll.anonymousHint':
     'Namen werden im Auditprotokoll verborgen; die Auszählung bleibt authentifiziert.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.remember': '30 Tage angemeldet bleiben',
   'login.subheading':
     'Eröffnen Sie das Wort, führen Sie den Raum und zertifizieren Sie das Ergebnis.',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'notFound.body':
     'Die aufgerufene Seite wurde geschlossen oder verschoben. Kehren Sie zum Dashboard zurück oder starten Sie eine neue Abstimmung.',
   'notFound.eyebrow': 'Auf dieser Route kein Quorum',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Diese Abstimmung konnte nicht geladen werden.',
   'pollDetail.loading': 'Abstimmung wird geladen…',
   'pollDetail.notFound': 'Abstimmung nicht gefunden.',
+  'pollDetail.openBallot': 'Offene Wahl',
   'pollDetail.openLive': 'Live-Ergebnisse',
   'pollDetail.pollId': 'Abstimmung · {{id}}',
   'pollDetail.published': 'Abstimmung veröffentlicht — Wählende können nun abstimmen.',
@@ -268,4 +274,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Per E-Mail suchen…',
   'voters.subheading':
     'Pflegen Sie das Register der Wahlberechtigten. Gruppieren Sie nach Organisation für gewichtete Stimmzettel.',
+  'votingPollingLayout.nav.analytics': 'Analytik',
+  'votingPollingLayout.nav.billing': 'Abrechnung',
+  'votingPollingLayout.nav.createPoll': 'Neue Umfrage',
+  'votingPollingLayout.nav.dashboard': 'Armaturenbrett',
+  'votingPollingLayout.nav.notifications': 'Benachrichtigungen',
+  'votingPollingLayout.nav.settings': 'Einstellungen',
+  'votingPollingLayout.nav.team': 'Team',
+  'votingPollingLayout.nav.voters': 'Wähler',
+  'votingPollingLayout.primaryNavLabel': 'Hauptnavigation',
 }

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
+  'about.pageTitle': '{{app}} बारे',
   'achievementBadgeCard.unlockedOn': 'अनलक गरियो {{date}}',
   'achievements.loadError': 'उपलब्धिहरू लोड गर्न असफल भयो।',
   'achievements.subheading': '{{unlocked}} को {{total}} अनलक गरिएको',
   'achievements.unlockedOn': 'अनलक गरियो {{date}}',
+  'auth.legalConsent': 'जारी राखेर, तपाईं हाम्रो सहमत हुनुहुन्छ',
   'calendar.empty': 'आफ्नो क्यालेन्डर हेर्ने बानी बसाल्नुहोस्।',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'बानी',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'बानी ग्रिड',
   'category.${c.category}': '{{गणना}} बानीहरू',
   'common.and': 'र',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'consistencyHeatmap.ariaLabel': 'दैनिक स्थिरता ताप नक्सा',
   'consistencyHeatmap.caption': 'अन्तिम {{weeks}} हप्ताहरू',
   'consistencyHeatmap.lessLabel': 'कम',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'यसलाई प्रत्यक्ष हेर्नुहोस्',
   'landing.heroSubtitle':
     'बानीहरू वास्तवमा टिके जस्तै बनाउनुहोस्: साना प्रतिबद्धताहरू, दैनिक लहरहरू, र लामो अटुट शृङ्खलाको आन्तरिक आनन्द।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'स्ट्रीक भित्रको झलक',
   'landing.previewMotivation': 'नौ धारहरू जीवित छन्। ती सबैलाई न्यानो राख्नुहोस्।',
   'login.eyebrow': 'चेन उठाउनुहोस्',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'यसलाई सानो बनाउनुहोस्। यसलाई विशिष्ट बनाउनुहोस्। भोलि आउनुहोस्।',
   'newHabit.timeLabel': 'रिमाइन्डर समय',
   'notifications.markError': 'सबै पढिएको चिन्ह लगाउन सकिएन।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.entries': '{{count}} प्रविष्टिहरू',
+  'pricing.heading': 'आफ्नो {{app}} योजना छनोट गर्नुहोस्',
   'profile.action.plan': 'सदस्यता व्यवस्थापन गर्नुहोस्',
   'profile.action.settings': 'खाता सेटिङहरू',
   'profile.bioEmpty': 'आफ्नो परिचय दिन सेटिङ्समा छोटो बायो थप्नुहोस्।',
@@ -125,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'दैनिक बिहानको प्रम्प्ट (बिहान ८:०० बजे)',
   'settings.reminders.heading': 'रिमाइन्डरहरू',
   'settings.reminders.weekly': 'साप्ताहिक सारांश (आइतबार साँझ)',
+  'settings.revokeDeviceWarning': 'यो उपकरणको पहुँच छिट्टै रद्द हुनेछ। यसलाई साइन आउट गर्ने?',
   'settings.signOutDevice': 'साइन आउट गर्नुहोस्',
   'settings.streaks.freezesPerWeek': 'प्रति हप्ता फ्रिज',
   'settings.streaks.gracePeriod': 'मध्यरात पछि ६ घण्टाको अनुग्रह अवधि',
@@ -151,5 +159,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} सक्रिय',
   'streakHeroCard.daysSuffix': 'दिनहरू',
   'streakHeroCard.title': 'सबैभन्दा लामो सक्रिय स्ट्रिक',
+  'streakLayout.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'streakLayout.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'streakLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
 }

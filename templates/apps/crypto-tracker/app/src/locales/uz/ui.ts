@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Haqida',
   'alertConditionCard.condition.${alert.condition}': 'Tetiklandi {{qachon}}',
+  'alertConditionCard.confirmDelete': "O'chirishni tasdiqlang",
   'alertConditionCard.pauseAriaLabel': 'Ogohlantirishni to’xtatib turish',
   'alertConditionCard.resumeAriaLabel': 'Davom etish haqida ogohlantirish',
   'alertNew.condition': 'Ahvoli',
@@ -28,6 +29,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': "To'liq suyultirilgan baholash",
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Veb-sayt',
+  'coinDetail.links.whitepaper': "Oq qog'oz",
   'coinDetail.loadError': "Tangani yuklab bo'lmadi.",
   'coinDetail.marketCap': 'Bozor kapitallashuvi',
   'coinDetail.maxSupply': "Maksimal ta'minot",
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Siz skanerlagan yo'nalish ma'lum tanga yoki sahifaga mos kelmayapti. Belgini qayta tekshiring va qaytadan urinib ko'ring.",
   'notFound.browseMarkets': "Bozorlarni ko'rib chiqing",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'portfolio.addError': 'Belgini, musbat miqdorni va narxni kiriting.',
   'portfolio.addHoldingCta': "+ Xolding qo'shish",
   'portfolio.addModal.cost': 'Xarajatlar bazasi (AQSh dollari)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Parol va ikki faktorli sozlamalar sizning hisobingiz tomonidan boshqariladi.',
   'settings.signOutDevice': 'tizimdan chiqish',
+  'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorInvalidCode': "Noto'g'ri kod",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'sigilAuthShell.backHomeCta': '← Bourse qaytish',
   'sigilLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'signup.eyebrow': 'Terminalni oching',

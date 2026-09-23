@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}について',
   'about.plansTitle': 'あなたと共に成長するプラン',
   'brand.tagline': '一秒一秒を大切に',
   'clientDetail.back': 'クライアント一覧へ戻る',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'プロジェクト、時間、未払い請求まで、すべての関係を一か所に。',
   'clients.title': 'クライアント',
   'common.and': 'および',
+  'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.activeProjects': '進行中プロジェクト',
   'dashboard.empty':
     'エントリーはまだありません。タイマーを開始して最初のセッションを記録しましょう。',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'このクライアントには請求対象の時間がありません。先に時間を記録するか、既存のエントリーをこのクライアントのプロジェクトに割り当ててください。',
   'invoices.save': '請求書を作成',
   'invoices.subtitle': '記録した時間がそのまま請求書になります。',
+  'landing.copyright': '© {{year}} {{app}} 。毎秒、すべてが記録されています。',
   'landing.ctaBody': 'プロジェクト3件まで無料。クライアントが増えたらアップグレードを。',
   'landing.eyebrow': '請求対象作業のための時間管理',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': '独立して働く人たちに選ばれています',
   'landing.testimonial.quote':
     '「30分で Toggl から移行しました。予算の消費を見える化できただけでも元が取れています。ここ2週間、見積もりを安く出しすぎることがなくなりました。」',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. 一秒一秒を正確に。',
   'login.brand.subtitle':
     'タイマーを止めたところから再開しましょう。すべての分はすでに案件・クライアント・請求書と紐付いています。',
   'login.brand.tracking': '計測中',
   'login.subheading': 'タイマーを止めたところから再開しましょう。',
+  'nav.closeMenu': 'ナビゲーションメニューを閉じる',
   'nav.insightsSection': '分析',
   'nav.newEntry': '新規エントリー',
+  'nav.openMenu': 'ナビゲーションメニューを開く',
+  'nav.primary': 'メインナビゲーション',
   'nav.workSection': 'ワーク',
   'notFound.body':
     'たどったリンクは計測を止めてしまったようです。ダッシュボードに戻ってそこから続けましょう。',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': '請求対象',
   'timer.descriptionPlaceholder': '何に取り組んでいますか?',
   'timer.idle': '停止中 — 計測を開始',
+  'timer.noProject': 'プロジェクトなし',
   'timer.runningWithProject': 'プロジェクトなし',
   'timer.start': 'タイマー開始',
   'timer.stop': 'タイマー停止',

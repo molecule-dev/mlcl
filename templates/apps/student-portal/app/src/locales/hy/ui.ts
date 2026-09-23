@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'announcementsFeed.empty': 'Դեռևս հայտարարություններ չկան։',
   'announcementsFeed.eyebrow': '{{count}} թարմացումներ',
   'announcementsFeed.title': 'Վերջին հայտարարությունները',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Փոխեք վերևում գտնվող ֆիլտրերը՝ այլ վիճակում գտնվող նշանակումները տեսնելու համար։',
   'assignments.eyebrow': 'Բոլոր դասընթացները · Այս կիսամյակը',
+  'assignments.loadError': 'Հնարավոր չէ բեռնել առաջադրանքները։',
   'assignments.loading': 'Բեռնվում են առաջադրանքները…',
   'assignments.subtitle':
     'Զտեք կարգավիճակով՝ տեսնելու համար, թե ինչն է պետք, ինչն է ներկայացվել, ինչն է գնահատվել կամ ինչն է բացակայում։',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Նշում',
   'attendance.empty': 'Մասնակցության գրանցումներ դեռևս չկան։',
   'attendance.eyebrow': 'Գարնանային կիսամյակ · Վերջին 4 շաբաթները',
+  'attendance.loadError': 'Չհաջողվեց բեռնել ներկայության գրառումները։',
   'attendance.loading': 'Բեռնվում է մասնակցությունը…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Առաջադրանքների հանձնման վերջնաժամկետները գծագրված են ամսական ցանցի վրա՝ քննությունները առանձնանում են կարմիրով։',
   'calendar.title': '{{month}} միջոցառումներ',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
+  'common.retry': 'Փորձեք կրկին',
   'common.yes': '✓',
   'courseDetail.backLink': 'Գնահատականներ',
   'courseDetail.currentGrade': 'Ընթացիկ դասարան',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Թրենդ',
   'grades.empty': 'Գնահատականներ դեռ հրապարակված չեն։',
   'grades.eyebrow': 'Գնահատականների տետր',
+  'grades.loadError': 'Չհաջողվեց բեռնել ձեր գնահատականները։',
   'grades.loading': 'Գնահատականները բեռնվում են…',
   'grades.subtitle':
     'Տառային և տոկոսային գնահատականներ։ Միտման սլաքները ցույց են տալիս՝ դուք բարձրանում եք, մակարդակ եք բարձրանում, թե՞ սահում եք։',
   'grades.title': 'Ձեր գնահատականները՝ դասընթաց առ դասընթաց',
   'grades.trendStable': 'Կայուն',
+  'landing.copyright': '© {{year}} {{app}} ։ Ստեղծված է ուսանողների, ընտանիքների համար։',
   'landing.ctaHeading': 'Ավելի հանգիստ դպրոցական օրը կսկսվի րոպեների ընթացքում',
   'landing.eyebrow': 'Միջին և ավագ դպրոցի աշակերտների համար',
   'landing.featuresHeading': 'Դպրոցական օր՝ կազմակերպված աշակերտի շուրջ',
@@ -114,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Առաջադրանքներ',
   'nav.attendance': 'Մասնակցություն',
   'nav.calendar': 'Օրացույց',
+  'nav.closeMenu': 'Փակել նավիգացիոն ցանկը',
   'nav.grades': 'Գնահատականներ',
+  'nav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'nav.statusEyebrow': 'Կիսամյակի միջին գնահատականը',
   'nav.statusSubtext': 'Պատվո ցուցակ · Գարնանային կիսամյակ',
+  'nav.unreadMessages': 'Չկարդացված հաղորդագրություններ',
   'notifications.eyebrow': '{{count}} թարմացումներ',
   'notifications.subtitle':
     'Գնահատականներ, հիշեցումներ, հաղորդագրություններ և դպրոցական հայտարարություններ: Կարգավորումներում կարգավորեք, թե որ ալիքներն է օգտագործում յուրաքանչյուր ծանուցումը:',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.attendanceLabel': 'ներկայություն',
   'pricing.gradesLabel': 'գնահատականներ',
   'pricing.heading': 'հայտարարություններ',

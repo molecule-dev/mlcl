@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.eyebrow': 'Giới thiệu {{app}}',
   'about.pageTitle': 'Mọi tuyến đường, một tìm kiếm.',
   'booking.backToDetail': 'Quay lại chi tiết chuyến bay',
   'booking.continue': 'Tiếp tục đến thanh toán',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Thuế và phí',
   'booking.summary.travelers': 'Người du hành',
   'common.about': 'Giới thiệu',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'flightDetail.backToResults': 'Quay lại kết quả',
   'flightDetail.baseFare': 'Giá cơ bản',
   'flightDetail.book': 'Tiếp tục đặt chỗ',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 điểm dừng',
   'flightResultCard.select': 'Chọn',
   'flightResultCard.totalLabel': 'Tổng thời gian',
+  'flightSearchLayout.primaryNavLabel': 'Điều hướng chính',
   'forgotPassword.subheading':
     'Nhập email trên tài khoản Skylark của quý vị và chúng tôi sẽ gửi một liên kết đặt lại an toàn.',
   'forgotPassword.successBody':
     'Kiểm tra {{email}} để nhận liên kết đặt mật khẩu mới. Liên kết sẽ hết hạn sau 30 phút.',
   'forgotPassword.successHeading': 'Đã gửi liên kết đặt lại',
   'landing.cta.explore': 'Thử một tìm kiếm',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Tìm giá vé tuyệt vời tiếp theo trước mọi người khác.',
   'landing.cta.signup': 'Bắt đầu theo dõi giá vé',
   'landing.features.eyebrow': 'Tại sao chọn Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Thêm cảnh báo',
   'priceAlerts.deleteConfirm': 'Loại bỏ cảnh báo này?',
   'priceAlerts.empty': 'Chưa có tuyến đường nào được theo dõi.',
+  'priceAlerts.emptyCta': 'Tìm kiếm tuyến đường để theo dõi',
   'priceAlerts.errorMessage': 'Không thể tải cảnh báo.',
   'priceAlerts.eyebrow': 'Danh sách theo dõi Skylark',
   'priceAlerts.form.createError': 'Không thể tạo cảnh báo.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Hành trình đa thành phố',
   'results.multiLegHeading': 'Chặng {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} chặng · {{passengers}} hành khách',
+  'results.sortAriaLabel': 'Sắp xếp kết quả theo',
   'results.sortLabel': 'Sắp xếp',
   'results.summary': '{{count}} chuyến bay · {{passengers}} hành khách',
   'settings.language.title': 'Ngôn ngữ',

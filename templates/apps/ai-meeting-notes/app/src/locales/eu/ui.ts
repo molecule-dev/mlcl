@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
   'actions.empty': 'Ez dago bat datorren ekintza-elementurik.',
   'actions.heading': 'Ekintza-elementuak',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Aurreko hilabetea',
   'calendar.recent': 'Azkenak',
   'common.daysAgo': '{{count}} duela egun batzuk',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'common.hoursAgo': '{{count}} duela ordu batzuk',
   'common.no': '—',
+  'common.retry': 'Saiatu berriro',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} ekintza-elementuak',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Sartu zure helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
   'integrations.disconnected': 'Deskonektatuta',
+  'integrations.loadError': 'Integrazioak kargatzea huts egin du.',
   'integrations.notConnectedTag': 'Ez dago konektatuta',
   'integrations.subheading':
     'Konektatu egutegiak eta bideo plataformak Murmur automatikoki batu dadin.',
+  'integrations.updateError': 'Eguneraketak huts egin du.',
   'landing.ctaButton': 'Hasi zaitez — doakoa da',
   'landing.ctaHeading': 'Utzi oharrak hartzeari. Hasi erabakiak hartzen.',
   'landing.demo.aiLabel': 'IA laburpena, zuzenean idatzia',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Jarraipenak',
   'meetingDetail.loadError': 'Bilera kargatzea huts egin da.',
   'meetingDetail.noActions': 'Ez da ekintza-elementurik detektatu.',
+  'meetingDetail.none': 'Bat ere ez.',
   'meetingDetail.notFound': 'Bilera ez da aurkitu.',
+  'meetingDetail.speakerFallback': 'Hizlaria {{id}}',
   'meetingDetail.summaryHeading': 'IA laburpena',
   'meetingDetail.transcriptHeading': 'Transkripzioa',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Bilerak',
   'meetings.loadError': 'Bilerak kargatzea huts egin da.',
   'meetings.subheading': 'Grabatutako, igotako eta sinkronizatutako bilera guztiak.',
+  'murmurLayout.openMenu': 'Ireki nabigazio menua',
   'murmurLayout.primaryNavLabel': 'Nabigazio nagusia',
   'nav.legal': 'Legezko',
   'notifications.loadError': 'Ezin izan dira jakinarazpenak kargatu.',
@@ -103,6 +111,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Nola agertzen zaren Murmurren barruan.',
   'record.error.empty': 'Ez da audiorik grabatu.',
   'record.error.permission': 'Mikrofonoaren baimena ukatuta.',
+  'record.error.recorder': 'Grabagailuaren errorea',
   'record.error.unsupported':
     'Zure arakatzaileak ez du grabaketa onartzen. Saiatu Chrome, Edge edo Safari erabiltzen.',
   'record.error.upload': 'Kargatzeak huts egin du. Saiatu berriro.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Pasahitz berria',
   'reset.subheading': 'Aukeratu beste inon erabiltzen ez duzun pasahitz bat.',
   'search.empty': 'Idatzi transkripzioak bilatzeko.',
+  'search.loadError': 'Bilaketak huts egin du. Saiatu berriro.',
   'search.noResults': 'Ez dago emaitzarik " {{q}} ".',
   'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
   'settings.appearance.title': 'Itxura',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Ezarpenak kargatzea huts egin da.',
   'settings.loading': 'Kargatzen…',
   'settings.push.heading': 'Push jakinarazpenak',
+  'settings.push.subheading':
+    'Jaso arakatzailearen alertak aipamen, ekintza-elementu eta laburpenetarako.',
   'settings.retention.audio': 'Gorde audioa honetarako',
   'settings.retention.heading': 'Atxikipena',
   'settings.retention.transcript': 'Gorde transkripzioak honetarako',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Hasi bileraren oharrak minutu gutxitan hartzen',
   'signup.terms':
     'Kontu bat sortzean, gure Zerbitzu Baldintzak eta Pribatutasun Politika onartzen dituzu.',
+  'signup.termsPrefix': 'Kontu bat sortzean gure baldintzak onartzen dituzu',
   'team.inviteCta': 'Gonbidatu taldekidea',
   'team.invitedAs': 'Gonbidatuta honela {{role}}',
   'team.inviteFailed': 'Ezin izan da gonbidapena bidali.',

@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
+  'about.pageTitle': 'ስለ {{app}}',
   'achievementBadgeCard.unlockedOn': 'ተከፍቷል {{date}}',
   'achievements.loadError': 'ስኬቶችን መጫን አልተሳካም።',
   'achievements.subheading': '{{unlocked}} የ {{total}} ተከፍቷል',
   'achievements.unlockedOn': 'ተከፍቷል {{date}}',
+  'auth.legalConsent': 'በመቀጠል የእኛን ተቀብለዋል',
   'calendar.empty': 'የቀን መቁጠሪያህን የማየት ልማድ ፍጠር።',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ልማድ',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'የልማድ ፍርግርግ',
   'category.${c.category}': '{{ቆጠራ}} ልማዶች',
   'common.and': 'እና',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'consistencyHeatmap.ariaLabel': 'የዕለት ወጥነት የሙቀት ካርታ',
   'consistencyHeatmap.caption': 'የመጨረሻ {{weeks}} ሳምንታት',
   'consistencyHeatmap.lessLabel': 'ያነሰ',
@@ -77,6 +81,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'በቀጥታ ይመልከቱት',
   'landing.heroSubtitle':
     'ልማዶችን በትክክል በሚከተሉበት መንገድ ይገንቡ፡ ትናንሽ ግዴታዎች፣ የዕለት ተዕለት እንቅስቃሴዎች እና ረጅም ያልተሰበረ ሰንሰለት ውስጣዊ ደስታ።',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'ስትሬክ ውስጥ አፍጥጦ ማየት',
   'landing.previewMotivation': 'ዘጠኝ ጅረቶች በሕይወት። ሁሉንም ሞቅ አድርገው።',
   'login.eyebrow': 'ሰንሰለቱን አንሳ',
@@ -94,7 +99,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ትንሽ ያድርጉት። ለይተው ያስቀምጡት። ነገ ይምጡ።',
   'newHabit.timeLabel': 'የማስታወሻ ጊዜ',
   'notifications.markError': 'ሁሉም እንደተነበቡ ምልክት ማድረግ አልተቻለም።',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'pricing.entries': '{{count}} ግቤቶች',
+  'pricing.heading': 'የእርስዎን {{app}} እቅድ ይምረጡ',
   'profile.action.plan': 'የደንበኝነት ምዝገባን ያቀናብሩ',
   'profile.action.settings': 'የመለያ ቅንብሮች',
   'profile.bioEmpty': 'እራስዎን ለማስተዋወቅ በቅንብሮች ውስጥ አጭር የህይወት ታሪክ ያክሉ።',
@@ -121,6 +128,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'በየቀኑ የጠዋት ጥያቄ (8:00 ጥዋት)',
   'settings.reminders.heading': 'አስታዋሾች',
   'settings.reminders.weekly': 'ሳምንታዊ ማጠቃለያ (እሁድ ምሽቶች)',
+  'settings.revokeDeviceWarning': 'የዚህ መሳሪያ መዳረሻ በቅርቡ ይሰረዛል። ያስወጡት?',
   'settings.signOutDevice': 'ውጣ',
   'settings.streaks.freezesPerWeek': 'በሳምንት ይቀዘቅዛል',
   'settings.streaks.gracePeriod': 'ከእኩለ ሌሊት በኋላ የ6-ሰዓት የእፎይታ ጊዜ',
@@ -147,5 +155,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ንቁ',
   'streakHeroCard.daysSuffix': 'ቀናት',
   'streakHeroCard.title': 'ረጅሙ ንቁ ተከታታይ',
+  'streakLayout.closeMenu': 'የአሰሳ ምናሌን ዝጋ',
+  'streakLayout.openMenu': 'የአሰሳ ምናሌን ክፈት',
   'streakLayout.primaryNavLabel': 'ዋና አሰሳ',
 }

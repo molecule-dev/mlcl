@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Gjetët ndonjë gabim, keni një kërkesë për një veçori tjetër ose doni të na tregoni për filmin që keni prerë? Çdo mesazh arrin te një person i vërtetë në ekip - na kontaktoni në çdo kohë nga cilësimet e llogarisë suaj.',
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.eyebrow': '// studioja pas prerjes',
   'about.pageTitle': 'Rreth {{appName}}',
   'assetDetail.back': 'Kthehu në bibliotekë',
   'assetDetail.confirmDelete': 'Fshij " {{name}} "? Kjo nuk mund të zhbëhet.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     "{{count}} klipe, shtretër audio dhe grafikë gati për t'u vendosur në vijën kohore.",
   'assetLibrary.title': 'Asetet',
   'assetLibrary.upload': 'Shto aset',
+  'common.goToDashboard': 'Shko te paneli',
   'dashboard.browseTemplates': 'Shfleto shabllonet →',
   'dashboard.loading': 'Duke ngarkuar projektet…',
   'dashboard.noProjects': 'Nuk ka ende projekte — krijoni një për të filluar.',
@@ -164,7 +169,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Zgjidhni diçka që vetëm ju do ta mbani mend.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privatësia',
+  'rushesLayout.closeMenu': 'Mbyll navigimin',
   'rushesLayout.guest': 'Redaktor',
+  'rushesLayout.navDialog': 'Navigimi',
+  'rushesLayout.openMenu': 'Hap navigimin',
   'rushesLayout.planFree': 'Plan falas',
   'rushesLayout.tagline': 'Kronologjia kinematografike',
   'settings.billing.confirmCancel': 'Të anulohet abonimi në fund të periudhës?',

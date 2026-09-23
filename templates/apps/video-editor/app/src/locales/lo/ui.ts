@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ພົບຂໍ້ຜິດພາດ, ມີການຮ້ອງຂໍຄຸນສົມບັດ, ຫຼືຕ້ອງການບອກພວກເຮົາກ່ຽວກັບຮູບເງົາທີ່ທ່ານຕັດ? ທຸກໆຂໍ້ຄວາມຈະສົ່ງເຖິງບຸກຄົນຕົວຈິງໃນທີມ - ຕິດຕໍ່ໄດ້ທຸກເວລາຈາກການຕັ້ງຄ່າບັນຊີຂອງທ່ານ.',
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.eyebrow': '// ສະຕູດິໂອທີ່ຢູ່ເບື້ອງຫຼັງການຕັດ',
   'about.pageTitle': 'ກ່ຽວກັບ {{appName}}',
   'assetDetail.back': 'ກັບໄປຫ້ອງສະໝຸດ',
   'assetDetail.confirmDelete': 'ລຶບ " {{name}} "? ສິ່ງນີ້ບໍ່ສາມາດຍົກເລີກໄດ້.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} ຄລິບ, ຕຽງສຽງ, ແລະຮູບພາບທີ່ພ້ອມທີ່ຈະລົງໃນເສັ້ນເວລາ.',
   'assetLibrary.title': 'ຊັບສິນ',
   'assetLibrary.upload': 'ເພີ່ມເນື້ອຫາ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'dashboard.browseTemplates': 'ເລືອກແມ່ແບບ →',
   'dashboard.loading': 'ກຳລັງໂຫຼດໂຄງການ…',
   'dashboard.noProjects': 'ຍັງບໍ່ມີໂຄງການເທື່ອ — ສ້າງໂຄງການໜຶ່ງເພື່ອເລີ່ມຕົ້ນ.',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'newProject.section.template': 'ແມ່ແບບ (ບໍ່ບັງຄັບ)',
   'newProject.subhead':
     'ເລືອກຄ່າທີ່ກຳນົດໄວ້ລ່ວງໜ້າ, ຕັ້ງຊື່ໂຄງການ, ແລະທ່ານຈະຢູ່ໃນຕົວແກ້ໄຂພາຍໃນວິນາທີ.',
+  'newProject.summary': '// {{aspect}} · {{fps}} fps',
   'notFound.body':
     'ເສັ້ນທາງ " {{path}} ” ບໍ່ໄດ້ຢູ່ໃນໂຄງການນີ້. ກວດສອບ URL ຫຼື ກັບຄືນໄປທີ່ແຜງຄວບຄຸມ.',
   'notFound.dashboard': 'ເປີດແຜງຄວບຄຸມ',
@@ -149,6 +155,7 @@ export const ui: UiTranslations = {
   'projectThumbCard.preview': 'ເປີດໃນຕົວແກ້ໄຂ',
   'projectThumbCard.untitledClient': 'ໂຄງການສ່ວນຕົວ',
   'renderJobCard.empty': 'ຄິວວ່າງແລ້ວ. ສົ່ງອອກໂຄງການເພື່ອເລີ່ມຕົ້ນການສະແດງຜົນໃໝ່.',
+  'renderJobCard.eta': 'ຄາດຄະເນ {{eta}}',
   'renderJobCard.jobCount': '{{count}} ເຄື່ອນໄຫວ',
   'renderJobCard.title': 'ຄິວການສະແດງຜົນ',
   'renderJobCard.viewAll': 'ເປີດຄິວສົ່ງອອກ →',
@@ -157,7 +164,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'ເລືອກສິ່ງດຽວທີ່ເຈົ້າຈື່ໄດ້ເທົ່ານັ້ນ.',
   'rushesAuthShell.footer.copyright': '© ສະຕູດິໂອ Rushes',
   'rushesAuthShell.footer.privacy': 'ຄວາມເປັນສ່ວນຕົວ',
+  'rushesLayout.closeMenu': 'ປິດການນຳທາງ',
   'rushesLayout.guest': 'ບັນນາທິການ',
+  'rushesLayout.navDialog': 'ການນຳທາງ',
+  'rushesLayout.openMenu': 'ເປີດການນຳທາງ',
   'rushesLayout.planFree': 'ແຜນຟຣີ',
   'rushesLayout.tagline': 'ໄລຍະເວລາຂອງຮູບເງົາ',
   'settings.billing.confirmCancel': 'ຍົກເລີກການສະໝັກໃຊ້ໃນຕອນທ້າຍໄລຍະເວລາບໍ?',

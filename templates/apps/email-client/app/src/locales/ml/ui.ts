@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ഒരുകാലത്ത് ദിവസവും മണിക്കൂറുകളോളം ശബ്ദായമാനമായ മെയിൽബോക്സിൽ ചെലവഴിച്ചിരുന്ന ഡിസൈനർമാരുടെയും എഞ്ചിനീയർമാരുടെയും ഒരു വിതരണ സംഘമാണ് ഞങ്ങൾ. ഞങ്ങൾ സ്വയം ഉപയോഗിക്കാൻ ആഗ്രഹിച്ച ഇൻബോക്സാണ് മെറിഡിയൻ.',
   'about.title': 'ശ്രദ്ധ കേന്ദ്രീകരിച്ച ജോലിക്കുള്ള ഇമെയിൽ',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'help.cta.about': 'മെറിഡിയനെക്കുറിച്ച്',
   'help.cta.pricing': 'വിലനിർണ്ണയം കാണുക',
   'help.eyebrow': 'സഹായ കേന്ദ്രം',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'നമ്മൾ ഏറ്റവും കൂടുതൽ കേൾക്കുന്ന ചോദ്യങ്ങൾക്കുള്ള ദ്രുത ഉത്തരങ്ങൾ. എന്തെങ്കിലും നഷ്ടപ്പെട്ടിട്ടുണ്ടോ? ക്രമീകരണങ്ങൾ തുറന്ന് ആപ്പിലെ ഫീഡ്‌ബാക്ക് ഫോം ഉപയോഗിക്കുക, അല്ലെങ്കിൽ support@courier.example എന്ന വിലാസത്തിൽ എഴുതുക.',
   'help.title': 'ഞങ്ങൾക്ക് എങ്ങനെ സഹായിക്കാനാകും?',
   'landing.brand.scrollTop': 'മുകളിലേക്ക് മടങ്ങുക',
+  'landing.copyright': '© {{year}} {{appName}} — ശ്രദ്ധ കേന്ദ്രീകരിക്കുന്നതിനായി നിർമ്മിച്ചത്.',
   'landing.ctaBody':
     'ഉച്ചഭക്ഷണത്തിന് മുമ്പ് ഇൻബോക്സ് പൂർത്തിയാക്കിയ ആയിരക്കണക്കിന് പ്രൊഫഷണലുകൾക്കൊപ്പം ചേരൂ.',
   'landing.ctaTitle': 'കൂടുതൽ പ്രോസസ്സ് ചെയ്യുക, കുറച്ച് പ്രതികരിക്കുക.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'ഡെമോ കാണുക',
   'landing.heroSubtitle':
     'മെറിഡിയൻ എന്നത് വിവരങ്ങൾ പ്രോസസ്സ് ചെയ്യാൻ ആഗ്രഹിക്കുന്ന, അവയോട് പ്രതികരിക്കാൻ ആഗ്രഹിക്കുന്ന നോളജ് വർക്കർമാർക്കായി നിർമ്മിച്ച ശാന്തമായ മൂന്ന് പാളികളുള്ള ഒരു ഇൻബോക്സാണ്.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'ലോകമെമ്പാടുമുള്ള ശ്രദ്ധാകേന്ദ്രീകൃത ടീമുകളുടെ വിശ്വാസം.',
   'landing.signIn': 'സൈൻ ഇൻ',
   'meridian.archive.empty': 'ആർക്കൈവ് ശൂന്യമാണ്.',
@@ -79,6 +82,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ഡ്രാഫ്റ്റ്',
   'meridian.folder.count': '{{count}} സന്ദേശങ്ങൾ',
+  'meridian.folder.delete': 'ഇല്ലാതാക്കുക',
   'meridian.folder.deleteForever': 'ശാശ്വതമായി ഇല്ലാതാക്കുക',
   'meridian.folder.restore': 'ഇൻബോക്സിലേക്ക് നീക്കുക',
   'meridian.forgot.subtitle':
@@ -88,7 +92,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ഇവിടെ ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല.',
   'meridian.inbox.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'meridian.inbox.next': 'അടുത്തത്',
+  'meridian.inbox.noSender': '(അയച്ചയാളില്ല)',
   'meridian.inbox.noSubject': '(വിഷയമില്ല)',
+  'meridian.inbox.ofTotal': '{{current}} {{total}}',
   'meridian.inbox.openCompose': 'രചന തുറക്കുക',
   'meridian.inbox.previous': 'മുമ്പത്തേത്',
   'meridian.inbox.replyFailed': 'മറുപടി സേവ് ചെയ്‌തു, പക്ഷേ ഡെലിവറി പരാജയപ്പെട്ടു: {{error}}',
@@ -101,6 +107,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'അക്കൗണ്ട് ഇല്ലേ?',
   'meridian.login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'meridian.message.toLine': 'വരെ {{recipients}}',
+  'meridian.notFound.body':
+    'നിങ്ങൾ തിരയുന്ന പേജ് കണ്ടെത്താനായില്ല. നിങ്ങളുടെ {{appName}} ഇൻബോക്സിലേക്ക് തിരികെ പോകൂ, ഞങ്ങൾ നിങ്ങളെ ശരിയായ ദിശയിലേക്ക് നയിക്കും.',
   'meridian.notFound.eyebrow': 'പിശക് 404',
   'meridian.notFound.title': 'ഈ ത്രെഡ് ആർക്കൈവ് ചെയ്‌തു.',
   'meridian.notFound.toInbox': 'എന്റെ ഇൻബോക്സ് തുറക്കുക',
@@ -136,18 +144,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'നക്ഷത്രം ചേർക്കുക',
   'meridian.thread.unstar': 'നക്ഷത്രചിഹ്നം നീക്കം ചെയ്യുക',
   'meridian.time.yesterday': 'ഇന്നലെ',
+  'meridian.topBar.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'meridian.topBar.searchPlaceholder': 'മെയിൽ തിരയുക',
   'meridian.trash.empty': 'ചവറ്റുകുട്ട ശൂന്യമാണ്.',
   'meridian.trash.title': 'ചവറ്റുകുട്ട',
   'nav.legal': 'നിയമപരമായ',
   'planUpdated.description':
     'നിങ്ങളുടെ സബ്‌സ്‌ക്രിപ്‌ഷൻ ഇപ്പോൾ സജീവമാണ്, ബില്ലിംഗ് അപ്‌ഡേറ്റ് ചെയ്‌തു. നിങ്ങളുടെ പുതുക്കിയ മെറിഡിയൻ ഇൻബോക്‌സിലേക്ക് സ്വാഗതം.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.heading': 'ഡ്രാഫ്റ്റുകൾ',
   'pricing.limit.emails': 'ഇമെയിലുകൾ',
   'pricing.limit.folders': 'ഫോൾഡറുകൾ',
   'pricing.limit.labels': 'ലേബലുകൾ',
   'privacy.collect.account':
     'അക്കൗണ്ട് ഡാറ്റ: പേര്, ഇമെയിൽ വിലാസം, ഹാഷ് ചെയ്ത പാസ്‌വേഡ്, നിങ്ങൾ സൈൻ അപ്പ് ചെയ്ത തീയതി.',
+  'privacy.contact': 'ചോദ്യങ്ങളുണ്ടോ? privacy@courier.example എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക.',
   'privacy.intro':
     'മെറിഡിയൻ എന്ത് ഡാറ്റയാണ് ശേഖരിക്കുന്നത്, എന്തിനാണ് ഞങ്ങൾ അത് ശേഖരിക്കുന്നത്, എങ്ങനെ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു, നിങ്ങൾക്ക് അതിൽ എന്തെല്ലാം തിരഞ്ഞെടുപ്പുകൾ ഉണ്ടെന്ന് ഈ സ്വകാര്യതാ നയം വിശദീകരിക്കുന്നു. നിയമപരമായി പ്രവർത്തിക്കുന്നതിനുപകരം വ്യക്തമായി പറയാൻ ഞങ്ങൾ ലക്ഷ്യമിടുന്നു; എന്തെങ്കിലും വ്യക്തതയില്ലെങ്കിൽ, privacy@courier.example എന്ന വിലാസത്തിൽ എഴുതുക.',
   'privacy.lastUpdated': 'അവസാനം അപ്ഡേറ്റ് ചെയ്തത്: ഏപ്രിൽ 1, 2026',
@@ -167,6 +178,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'മെറിഡിയന്റെ നിങ്ങളുടെ ഉപയോഗത്തെ ഈ നിബന്ധനകൾ നിയന്ത്രിക്കുന്നു. ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെയോ ഞങ്ങളിലൂടെ ഇമെയിൽ അയയ്ക്കുന്നതിലൂടെയോ നിങ്ങൾ അവ പാലിക്കാൻ ബാധ്യസ്ഥരാണെന്ന് സമ്മതിക്കുന്നു. ഒരു വ്യക്തിക്ക് യഥാർത്ഥത്തിൽ പാലിക്കാൻ കഴിയുന്ന നിയമങ്ങൾ എഴുതാൻ ഞങ്ങൾ ശ്രമിക്കുന്നു.',
   'terms.lastUpdated': 'പ്രാബല്യത്തിൽ വരുന്നത്: 2026 ഏപ്രിൽ 1',
+  'terms.linkPrivacy': 'ഞങ്ങളുടെ സ്വകാര്യതാ നയം വായിക്കുക →',
   'terms.termination.body':
     'നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കാം. ഈ നിബന്ധനകൾ ലംഘിക്കുന്ന ഒരു അക്കൗണ്ട് ഞങ്ങൾ താൽക്കാലികമായി നിർത്തിവച്ചേക്കാം; ഞങ്ങൾ അങ്ങനെ ചെയ്താൽ, കാരണം ഞങ്ങൾ വിശദീകരിക്കുകയും ആദ്യം നിങ്ങളുടെ ഡാറ്റ എക്സ്പോർട്ട് ചെയ്യാൻ നിങ്ങളെ അനുവദിക്കുകയും ചെയ്യും.',
   'terms.warranty.body':

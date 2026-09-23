@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.logout': 'Чыгуу',
   'dailyStatsTriad.heartsLabel': 'Жүрөктөр',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Бүгүнкү мүнөттөр',
   'dailyStatsTriad.minutesValue': '{{count}} мин',
   'dailyStatsTriad.wordsLabel': 'Сөздөр өздөштүрүлдү',
+  'dailyStatsTriad.wordsMasteryHint': '4+ деңгээлдеги өздөштүрүү деңгээлиндеги сөздөр',
   'dashboard.continueHeading': 'Токтоткон жериңизден улантыңыз',
   'dashboard.heading': 'Буэнос-Диас, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Көнүгүүлөр жүктөлбөй койду.',
   'lessonDetail.loading': 'Сабак жүктөлүүдө…',
   'lessonDetail.submitError': 'Жооп жөнөтө алган жок.',
+  'lessonDetail.translation': 'Фразаны которуңуз',
   'lessonDetail.xpEarned': 'XP топтолду · {{xp}}',
   'lessons.empty':
     'Деңгээл боюнча сабактар жок {{level}} бирок - дагы бир деңгээлди байкап көрүңүз.',
@@ -72,7 +77,11 @@ export const ui: UiTranslations = {
   'login.noAccount': "Parlance'ке жаңысызбы?",
   'login.showPassword': 'Сырсөздү көрсөтүү',
   'login.signUp': 'Акысыз баштаңыз →',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
+  'parlanceLayout.nav.profile': 'Профиль',
   'parlanceLayout.primaryNavLabel': 'Негизги навигация',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'practice.empty': 'Азырынча эч кандай сөз айкаштары жок.',
   'practice.eyebrow': 'Сүйлөө практикасы',
   'practice.heading': 'Окуңуз. Жаздырып алыңыз. Тактап чыгыңыз.',

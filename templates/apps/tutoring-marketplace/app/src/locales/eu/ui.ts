@@ -22,6 +22,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Zure rola',
   'account.role.upgradeLink': 'Eskatu egiaztatutako tutore izateko →',
   'account.title': 'Profila, ordainketa eta lehentasunak.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Klarionez irakatsi',
   'becomeTutor.form.error': 'Ezin izan da eskaera bidali.',
   'becomeTutor.form.pitchPlaceholder':
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Gaia',
   'bookingConfirm.title': 'Erreserbatuta zaude. Gainerakoa gu arduratuko gara.',
   'bookingConfirm.with': 'Tutorearekin.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'earningsHero.eyebrow': 'Irabaziak • {{month}}',
   'forgotPassword.heading': 'Pasahitza ahaztu duzu?',
   'forgotPassword.subheading':
@@ -113,6 +115,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Bidali mezua',
   'messages.thread.empty': 'Kaixo esan — hasi elkarrizketa.',
   'messages.title': 'Hariak zure tutoreekin.',
+  'nav.primary': 'Lehen mailakoa',
   'pricing.dataExport': 'Datuen esportazioa:',
   'pricing.headingDefault': 'Ezaugarri aurreratuak:',
   'resetPassword.heading': 'Aukeratu pasahitz berri sendo bat.',

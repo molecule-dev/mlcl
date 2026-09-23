@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'آپ کا کردار',
   'account.role.upgradeLink': 'تصدیق شدہ ٹیوٹر بننے کے لیے درخواست دیں →',
   'account.title': 'پروفائل، ادائیگی اور ترجیحات۔',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'چاک پر سکھائیں۔',
   'becomeTutor.form.error': 'درخواست جمع نہیں ہو سکی۔',
   'becomeTutor.form.pitchPlaceholder':
@@ -70,6 +71,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'موضوع',
   'bookingConfirm.title': 'آپ بک گئے ہیں۔ باقی ہم سنبھال لیں گے۔',
   'bookingConfirm.with': 'ٹیوٹر کے ساتھ',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'earningsHero.eyebrow': 'کمائی • {{month}}',
   'forgotPassword.heading': 'اپنا پاس ورڈ بھول گئے؟',
   'forgotPassword.subheading':
@@ -111,6 +113,7 @@ export const ui: UiTranslations = {
   'messages.send': 'پیغام بھیجیں۔',
   'messages.thread.empty': 'ہیلو کہو - گفتگو شروع کریں۔',
   'messages.title': 'اپنے ٹیوٹرز کے ساتھ تھریڈز۔',
+  'nav.primary': 'پرائمری',
   'pricing.dataExport': 'ڈیٹا ایکسپورٹ:',
   'pricing.headingDefault': 'اعلی درجے کی خصوصیات:',
   'resetPassword.heading': 'ایک مضبوط نیا پاس ورڈ چنیں۔',

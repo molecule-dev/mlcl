@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Gbasara anyị',
   'authShell.samplePreview':
     '"Ndeewo ndị otu, dashboard ọhụrụ ahụ mara mma nke ukwuu — kpọmkwem ihe anyị chọrọ!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ụzọ mkpirisi',
   'automations.subheading':
     "Iwu, nzaghachi akpaka na chatbots - mee ka ebe ọrụ na-ada ụda ebe ndị otu gị na-elekwasị anya n'ihe siri ike.",
+  'automations.trigger.inboundMessage': 'Ozi mbata',
   'automations.triggerLabel': 'Ihe mkpali',
   'chatBubble.internalNoteLabel': "Ihe dị n'ime",
+  'common.confirmDelete': 'Kwenye nhichapụ',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'contactDetail.backToContacts': 'Kọntaktị niile',
   'contactDetail.contactFallback': 'Kpọtụrụ',
   'contactDetail.conversationFallback': 'Mkparịta ụka',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Ahụrụ ikpeazụ',
   'contacts.empty': "Enwebeghị kọntaktị. Tinye kọntaktị mbụ gị n'elu.",
   'contacts.eyebrow': 'Ndekọ ndị ahịa',
+  'contacts.form.nameOrEmailRequired': 'Nye ma ọ dịkarịa ala aha ma ọ bụ ozi-e',
   'contacts.form.save': 'Chekwaa kọntaktị',
   'contacts.heading': 'Ndị kọntaktị',
   'contacts.loading': 'Na-ebugo kọntaktị…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Chekwaa ndetu',
   'conversationDetail.tab.note': "Ihe dị n'ime",
   'conversationDetail.threadAria': 'Ozi mkparịta ụka',
+  'conversationDetail.visitorFallback': 'Onye ọbịa',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Nkọwa ndị ahịa',
   'customerProfilePanel.recentTitle': 'Mkparịta ụka ndị na-adịbeghị anya',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     "Ndị ahịa na-enweta azịza mbụ ha na {{time}} na nkezi - nọgide na-eme ka ihe na-aga n'ihu.",
   'inboxHeroCard.title': 'Mkparịta ụka na-arụ ọrụ',
+  'inboxLayout.navDrawerLabel': 'Nsoroụzọ',
+  'inboxLayout.openMenu': 'Mepee menu nsoroụzọ',
   'inboxOverview.eyebrow': 'Taa na nlele anya',
   'inboxOverview.heroChange': '{{count}} meghee',
   'inboxOverview.kpiClosedTrend': 'oge niile',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Gaa na ibe mbụ',
   'notifications.subheading':
     'Ọrụ, @mentions, ihe egwu SLA, nzaghachi CSAT na ọrụ otu — ha ga-abụ nke mbụ.',
+  'notifications.subjectFallback': 'mkparịta ụka',
+  'notifications.visitorFallback': 'Onye ọbịa',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Elu',
   'priority.low': 'Dị ala',
+  'priority.normal': 'Nkịtị',
   'priority.urgent': 'Ngwa ngwa',
   'privacy.title': 'Amụma nzuzo',
   'reports.agentFallback': 'Onye nnọchite anya',

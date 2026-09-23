@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'about.plansTitle': 'Planovi koji rastu s vama',
   'brand.tagline': 'Svake sekunde',
   'clientDetail.back': 'Natrag klijentima',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Svaki odnos na jednom mjestu - projekti, sati, nepodmireni računi.',
   'clients.title': 'Klijenti',
   'common.and': 'i',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.activeProjects': 'Aktivni projekti',
   'dashboard.empty': 'Još nema unosa. Pokrenite mjerač vremena za praćenje vaše prve sesije.',
   'dashboard.greeting': 'Dobar dan, {{name}}',
@@ -82,6 +84,7 @@ export const ui: UiTranslations = {
     'Nema naplativih sati za fakturiranje za ovog klijenta. Prvo pratite neko vrijeme ili dodijelite postojeće unose jednom od projekata ovog klijenta.',
   'invoices.save': 'Izradi fakturu',
   'invoices.subtitle': 'Praćeni sati se automatski zbrajaju u fakture.',
+  'landing.copyright': '© {{year}} {{app}} . Svaka sekunda, obračunata.',
   'landing.ctaBody': 'Besplatno za do 3 projekta. Nadogradite kada vaša lista klijenata to učini.',
   'landing.eyebrow': 'Praćenje vremena za naplativi rad',
   'landing.featuresBody':
@@ -96,13 +99,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Vjeruju mu neovisni',
   'landing.testimonial.quote':
     '\\u201cPrekinuo sam Toggl za 30 minuta. Samo smanjenje proračuna se isplatilo \\u2014 Prestao sam podcjenjivati dva tjedna zaredom.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Krono. Svaka sekunda, obračunata.',
   'login.brand.subtitle':
     'Nastavite s mjerenjem vremena tamo gdje ste stali - svaka minuta je već mapirana na projekt, klijenta, račun.',
   'login.brand.tracking': 'Praćenje',
   'login.subheading': 'Nastavite s mjerenjem vremena tamo gdje ste stali.',
+  'nav.closeMenu': 'Zatvori navigacijski izbornik',
   'nav.insightsSection': 'Uvidi',
   'nav.newEntry': 'Novi unos',
+  'nav.openMenu': 'Otvori navigacijski izbornik',
+  'nav.primary': 'Primarna navigacija',
   'nav.workSection': 'Raditi',
   'notFound.body':
     'Izgleda da je praćenje poveznice koju ste slijedili prestalo. Vratite se na svoju nadzornu ploču - nastavit ćemo brojati odatle.',
@@ -202,6 +209,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Naplativo',
   'timer.descriptionPlaceholder': 'Na čemu radiš?',
   'timer.idle': 'Mirovanje — početak praćenja',
+  'timer.noProject': 'Nema projekta',
   'timer.runningWithProject': 'Nema projekta',
   'timer.start': 'Pokreni tajmer',
   'timer.stop': 'Zaustavi tajmer',

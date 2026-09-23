@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'auth.fields.newPassword': 'كلمة المرور الجديدة',
   'collectionDetail.addImage': 'استحضر للمجموعة',
   'collectionDetail.backCta': 'العودة إلى المجموعات',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'لوحات مزاج وموجزات وسلاسل مستمرة',
   'collections.title': 'المجموعات',
   'collections.untitled': 'بدون عنوان · {{stamp}}',
+  'common.closeMenu': 'إغلاق القائمة',
+  'common.dismiss': 'تجاهل',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'common.openMenu': 'فتح قائمة التنقل',
   'credits.eyebrow': 'خطة {{plan}}',
   'credits.renewsCopy': 'تتجدد الخطة في {{date}}',
   'credits.trail': 'حلم · {{plan}} المستوى',
@@ -127,6 +132,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ستظهر هنا نشاط التوليد والمشاركة وتنبيهات الرصيد.',
   'notifications.empty.title': 'لا شيء للإبلاغ عنه',
   'notifications.subtitle': 'أحداث التوليد مجمعة حسب اليوم',
+  'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.limits.gallery': '{{count}} معرض',
   'privacy.collect.body':
     'عند التسجيل، نجمع اسمك وعنوان بريدك الإلكتروني وكلمة مرور مُجزّأة. أثناء استخدامك Reverie، نخزن الموجهات التي ترسلها، والصور التي نولدها لك، والأنماط والمجموعات التي تحفظها، وبيانات وصفية مثل النموذج المستخدم وطوابع وقت التوليد ورصيد الكريديت.',
@@ -162,6 +168,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'حفظ كلمة المرور الجديدة',
   'reset.submitting': 'جارٍ تحديث كلمة المرور…',
   'settings.account.handle': 'المعرّف',
+  'settings.account.lastSaved': 'ملف تعريف نشط · {{name}}',
   'settings.account.saved': 'تم حفظ الملف',
   'settings.account.saveFailed': 'تعذر حفظ الملف',
   'settings.account.title': 'ملف المبدع',
@@ -183,7 +190,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'صورة جديدة',
   'sidebar.secondary': 'التنقل الثانوي',
   'signup.failed': 'فشلت عملية التسجيل. حاول مرة أخرى.',
+  'signup.firstNamePlaceholder': 'آريا',
   'signup.heading': 'ابدأ حلمك',
+  'signup.lastNamePlaceholder': 'لين',
   'signup.subheading': 'أنشئ حساباً واحصل على 120 رصيداً مجانياً.',
   'styles.empty': 'لا توجد إعدادات نمط مسبقة بعد — ستظهر بعد تسجيل الدخول الأول.',
   'styles.eyebrow': 'مُنسّق',

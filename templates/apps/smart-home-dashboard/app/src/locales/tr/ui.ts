@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.pageTitle': '{{app}} hakkında',
   'activity.empty': 'Henüz etkinlik yok — bir cihazı açın veya bir sahne etkinleştirin.',
   'activity.eyebrow': 'Zaman çizelgesi',
   'activity.loadError': 'Etkinlik akışı yüklenemedi.',
   'activity.subheading': 'Her cihaz, otomasyon ve güvenlik olayı kronolojik sırayla.',
+  'addDevice.error.failed': 'Cihaz eklenemedi. Tekrar deneyin.',
   'addDevice.error.nameRequired': 'Devam etmek için bu cihaza bir ad verin.',
   'addDevice.field.firmware': 'Donanım yazılımı sürümü',
   'addDevice.field.manufacturer': 'Üretici',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Test ediliyor…',
   'automationEditor.testNew': 'Otomasyonu önce kaydedip test edin.',
   'automationRow.lastRun': 'Son {{date}} · {{count}} çalıştırma',
+  'automationRow.on': 'Tarih',
   'automationRow.runNowAria': '{{name}} şimdi çalıştır',
   'automations.empty': 'Henüz otomasyon yok — ilk rutininizi oluşturun.',
   'automations.eyebrow': 'Rutinler',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Otomasyonlar yükleniyor…',
   'automations.newAutomation': '+ Yeni',
   'automations.subheading': 'Bu olduğunda, şunu yap — YAML olmadan.',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Cihaz yüklenemedi.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Çalışıyor…',
   'deviceDetail.unnamed': 'Cihaz',
   'deviceStatusRow.on': 'Açık',
+  'deviceStatusRow.turnOff': 'Kapat',
+  'deviceStatusRow.turnOn': 'Aç',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'Güç',
   'energy.heading': 'Enerji',
@@ -173,4 +180,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Planları görüntüle',
   'settings.security.heading': 'Güvenlik',
   'settings.subheading': "Plan, hub'lar ve hesap tercihleri.",
+  'smartHomeDashboardLayout.openMenu': 'Gezinti menüsünü aç',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Birincil gezinme',
 }

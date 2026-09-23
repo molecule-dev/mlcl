@@ -17,6 +17,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     '我们是一支由设计师与工程师组成的分布式团队，曾经每天有太多时间花在嘈杂的邮箱里。Courier 就是我们自己想用的收件箱。',
   'about.title': '为专注工作而生的邮件',
+  'common.goToDashboard': '前往仪表盘',
   'help.cta.about': '关于 Courier',
   'help.cta.pricing': '查看价格',
   'help.eyebrow': '帮助中心',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
     '对我们最常被问到的问题给出快速答复。还少了点什么？打开设置使用应用内反馈表单，或写信到 support@courier.example。',
   'help.title': '我们如何为你提供帮助？',
   'landing.brand.scrollTop': '回到顶部',
+  'landing.copyright': '© {{year}} {{appName}} — 专为专注而生。',
   'landing.ctaBody': '加入数千名在午餐前清空收件箱的专业人士。',
   'landing.ctaTitle': '多处理，少反应。',
   'landing.eyebrow': '为专注工作而生的邮件',
@@ -46,6 +48,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': '观看演示',
   'landing.heroSubtitle':
     'Courier 是一款三栏式的安静收件箱，专为希望处理信息而非对信息作出反应的知识工作者打造。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': '受到全球专注团队的信赖',
   'landing.signIn': '登录',
   'meridian.archive.empty': '归档为空。',
@@ -74,6 +77,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': '收件人',
   'meridian.drafts.watermark': '草稿',
   'meridian.folder.count': '{{count}} 封邮件',
+  'meridian.folder.delete': '删除',
   'meridian.folder.deleteForever': '永久删除',
   'meridian.folder.restore': '移至收件箱',
   'meridian.forgot.subtitle': '输入与你收件箱关联的邮箱，我们会发送一个重置链接。',
@@ -81,7 +85,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': '这里还没有邮件。',
   'meridian.inbox.loading': '加载中…',
   'meridian.inbox.next': '下一封',
+  'meridian.inbox.noSender': '（无发件人）',
   'meridian.inbox.noSubject': '（无主题）',
+  'meridian.inbox.ofTotal': '{{current}}共{{total}}',
   'meridian.inbox.openCompose': '打开撰写',
   'meridian.inbox.previous': '上一封',
   'meridian.inbox.replyFailed': '回复已保存但投递失败：{{error}}',
@@ -94,6 +100,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': '还没有账户？',
   'meridian.login.showPassword': '显示密码',
   'meridian.message.toLine': '致 {{recipients}}',
+  'meridian.notFound.body':
+    '您要查找的页面无法找到。请返回您的{{appName}}收件箱，我们会帮您解决问题。',
   'meridian.notFound.eyebrow': '错误 404',
   'meridian.notFound.title': '此会话已归档。',
   'meridian.notFound.toInbox': '打开我的收件箱',
@@ -129,16 +137,19 @@ export const ui: UiTranslations = {
   'meridian.thread.star': '添加星标',
   'meridian.thread.unstar': '取消星标',
   'meridian.time.yesterday': '昨天',
+  'meridian.topBar.openMenu': '打开导航菜单',
   'meridian.topBar.searchPlaceholder': '搜索邮件',
   'meridian.trash.empty': '废纸篓为空。',
   'meridian.trash.title': '废纸篓',
   'nav.legal': '法律',
   'planUpdated.description': '你的订阅已生效，账单已更新。欢迎回到焕新后的 Courier 收件箱。',
+  'planUpdated.verifying': '确认您的付款中…',
   'pricing.heading': '草稿',
   'pricing.limit.emails': '邮件',
   'pricing.limit.folders': '文件夹',
   'pricing.limit.labels': '标签',
   'privacy.collect.account': '账户数据：姓名、邮箱地址、密码哈希以及注册日期。',
+  'privacy.contact': '如有疑问？请发送电子邮件至 privacy@courier.example。',
   'privacy.intro':
     '本隐私政策说明 Courier 收集哪些数据、为何收集、如何保护，以及你拥有哪些选择。我们力求具体而非法律化；如有不清楚之处，请写信至 privacy@courier.example。',
   'privacy.lastUpdated': '最后更新：2026 年 4 月 1 日',
@@ -158,6 +169,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     '本条款规范你对 Courier 的使用。创建账户或通过本服务发送邮件即表示你同意受其约束。我们尽量编写实际可以遵守的规则。',
   'terms.lastUpdated': '生效日期：2026 年 4 月 1 日',
+  'terms.linkPrivacy': '阅读我们的隐私政策 →',
   'terms.termination.body':
     '你可以随时删除账户。如账户违反本条款，我们可能予以暂停；若发生此情况，我们会说明原因并先让你导出数据。',
   'terms.warranty.body':

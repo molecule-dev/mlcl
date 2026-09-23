@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'ਸੰਪਰਕ ਕਰੋ',
+  'about.title': '{{app}} ਬਾਰੇ',
   'authShell.backToLanding': "← ਲੈਂਡਿੰਗ 'ਤੇ ਵਾਪਸ ਜਾਓ",
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
+  'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ਅੱਜ · ਕਾਰਜਾਂ ਦਾ ਸੰਖੇਪ ਜਾਣਕਾਰੀ',
   'dashboard.heading': 'ਦਸਤਾਵੇਜ਼ ਖੁਫੀਆ ਜਾਣਕਾਰੀ',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'ਕੋਈ ਦਸਤਾਵੇਜ਼ ਮੌਜੂਦਾ ਫਿਲਟਰਾਂ ਨਾਲ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।',
   'documents.heading': 'ਸਾਰੇ ਦਸਤਾਵੇਜ਼',
   'documents.loadError': 'ਦਸਤਾਵੇਜ਼ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'documents.loading': 'ਲਾਇਬ੍ਰੇਰੀ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'documents.searchLabel': 'ਦਸਤਾਵੇਜ਼ ਖੋਜੋ',
   'documents.searchPlaceholder': 'ਦਸਤਾਵੇਜ਼ ਖੋਜੋ…',
   'documents.subheading':
@@ -64,8 +68,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'login.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'login.subtitle': 'ਆਪਣੇ ਦਸਤਾਵੇਜ਼ਾਂ ਨੂੰ ਚਲਦਾ ਰੱਖਣ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ।',
+  'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'notFound.body':
     "ਜਿਸ ਦਸਤਾਵੇਜ਼ ਜਾਂ ਰੂਟ ਨੂੰ ਤੁਸੀਂ ਖੋਲ੍ਹਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਸੀ ਉਹ ਹੁਣ ਇੱਥੇ ਨਹੀਂ ਹੈ। ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਵਾਪਸ ਜਾਓ ਜਾਂ ਸਾਈਡਬਾਰ ਤੋਂ ਇੱਕ ਭਾਗ ਚੁਣੋ।",
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ਲੈਂਡਿੰਗ ਪੰਨਾ ਖੋਲ੍ਹੋ',
   'notFound.title': 'ਉਹ ਪੰਨਾ ਫਾਈਲ ਵਿੱਚ ਨਹੀਂ ਹੈ।',
   'parcelaHeroCard.change': '{{sign}} {{amount}} ਕੱਲ੍ਹ ਦੇ ਮੁਕਾਬਲੇ %',
@@ -81,6 +88,7 @@ export const ui: UiTranslations = {
   'rules.activeHeading': 'ਕਿਰਿਆਸ਼ੀਲ ਨਿਯਮ',
   'rules.empty': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਫਾਈਲਿੰਗ ਨਿਯਮ ਨਹੀਂ ਹਨ। ਇੱਕ ਜੋੜਨ ਲਈ ਨਵਾਂ ਨਿਯਮ ਵਰਤੋ।',
   'rules.eyebrow': 'ਆਟੋਮੇਸ਼ਨ',
+  'rules.fieldsCount': '{{count}} ਖੇਤਰ',
   'rules.form.destination': 'ਫਾਈਲ ਕਰੋ',
   'rules.form.name': 'ਨਿਯਮ ਦਾ ਨਾਮ',
   'rules.form.save': 'ਨਿਯਮ ਰੱਖਿਅਤ ਕਰੋ',

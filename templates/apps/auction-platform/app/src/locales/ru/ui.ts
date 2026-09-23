@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Наблюдение',
   'auctionDetail.watchRemoved': 'Удалено из списка наблюдения.',
   'auctionDetail.watchRemoveLabel': 'Удалить из списка наблюдения',
+  'auctionPlatformLayout.primaryNavLabel': 'Основная навигация',
   'authShell.brandBody':
     'Делайте ставки в режиме реального времени на редкие часы, произведения искусства и уникальные предметы коллекционирования. Молоток ударяет через несколько секунд.',
   'authShell.brandEyebrow': 'Прямо сейчас · 1420 аукций',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Сортировать по',
   'browseAuctions.subheading':
     'Фильтруйте по категориям, сортируйте по наиболее важным параметрам и делайте ставки до того, как прозвучит удар молотка.',
+  'common.goToDashboard': 'Перейти к панели',
   'countdownTimer.ended': 'Завершено',
   'countdownTimer.endingSoon': 'Завершение',
   'forgotPassword.checkEmailBody':
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Показать пароль',
   'login.subtext':
     'Продолжайте отслеживать ход аукционов и делайте ставки до того, как прозвучит удар молотка.',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
   'myBids.bidAgain': 'Сделать ставку снова',
   'myBids.browseCta': 'Просмотрите аукционы в режиме реального времени →',
   'myBids.checkoutCta': 'Оплатить сейчас',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'центр активности',
   'notificationsPage.subheading':
     '{{count}} непрочитано · обновления в режиме реального времени по мере проведения аукционов',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.bidsLabel': 'ставки',
   'pricing.listingsLabel': 'объявления',
   'pricing.watchlistLabel': 'список наблюдения',

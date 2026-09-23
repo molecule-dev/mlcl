@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Narzędzia do zarządzania majątkiem',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nie stanowi porady inwestycyjnej.',
   'argentAuthShell.sampleChange': '+$2 841 (+0,28%) dziś',
   'argentAuthShell.sampleValue': '$1 032 251',
   'argentLayout.primaryNavLabel': 'Nawigacja główna',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Brak transakcji dla tego tickera.',
   'assetDetail.txHeading': 'Pana/Pani transakcje',
   'common.and': 'i',
+  'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Przegląd portfela',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Brak pozycji.',
   'holdings.heading': 'Pozycje',
   'holdings.loadError': 'Nie udało się załadować pozycji.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nie stanowi porady inwestycyjnej. Wyniki osiągnięte w przeszłości nie gwarantują wyników w przyszłości.',
   'landing.eyebrow': 'Argent · Platforma do zarządzania majątkiem',
   'landing.features.heading': 'Wszystko, co doradca zbudowałby dla siebie.',
   'landing.finalCta.heading': 'Przywróć portfelowi dyscyplinę.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} godz. temu',
   'news.justNow': 'przed chwilą',
   'news.loadError': 'Nie udało się załadować wiadomości.',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'portfolioHeroCard.label': 'Wartość portfela',
   'pricing.holdingsLabel': 'zasoby',
   'pricing.newsLabel': 'artykuły',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Usuń konto',
   'settings.security.deleting': 'Usuwanie…',
   'settings.security.heading': 'Bezpieczeństwo',
+  'settings.security.newPassword': 'Nowe hasło',
   'settings.security.password': 'Hasło',
   'settings.security.twoFactorEnable': 'Włącz',
+  'settings.security.twoFactorInvalidCode': 'Nieprawidłowy kod',
+  'settings.security.twoFactorVerify': 'Zweryfikuj i włącz',
   'settings.tax.error': 'Nie udało się zaktualizować metody podatkowej.',
   'settings.tax.heading': 'Księgowanie lotów podatkowych',
   'settings.tax.method': 'Metoda domyślna',

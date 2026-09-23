@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Akats bat aurkitu duzu, funtzioren bat eskatu duzu edo grabatu duzun filmaren berri eman nahi diguzu? Mezu guztiak taldeko pertsona erreal bati iristen zaizkio — jarri gurekin harremanetan edozein unetan zure kontuaren ezarpenetatik.',
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.eyebrow': '// muntaketaren atzean dagoen estudioa',
   'about.pageTitle': 'Buruz {{appName}}',
   'assetDetail.back': 'Liburutegira itzuli',
   'assetDetail.confirmDelete': 'Ezabatu " {{name}} "? Hau ezin da desegin."',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipak, audio oheak eta grafikoak denbora-lerroan jartzeko prest.',
   'assetLibrary.title': 'Aktiboak',
   'assetLibrary.upload': 'Gehitu aktiboa',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.browseTemplates': 'Txantiloiak arakatu →',
   'dashboard.loading': 'Proiektuak kargatzen…',
   'dashboard.noProjects': 'Oraindik ez dago proiekturik — sortu bat hasteko.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Aukeratu zuk bakarrik gogoratuko duzun zerbait.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Pribatutasuna',
+  'rushesLayout.closeMenu': 'Itxi nabigazioa',
   'rushesLayout.guest': 'Editorea',
+  'rushesLayout.navDialog': 'Nabigazioa',
+  'rushesLayout.openMenu': 'Ireki nabigazioa',
   'rushesLayout.planFree': 'Doako plana',
   'rushesLayout.tagline': 'Zinema-denbora',
   'settings.billing.confirmCancel': 'Harpidetza bertan behera utzi nahi duzu epea amaitzean?',

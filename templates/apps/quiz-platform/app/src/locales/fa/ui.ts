@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.title': 'درباره {{app}}',
   'auth.login.noAccount': 'تازه با اسپارک آشنا شده‌اید؟',
   'auth.login.or': 'یا ادامه دادن با',
   'auth.signup.or': 'یا ثبت نام با',
+  'common.confirm': 'تأیید',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.loadError': 'هنگام بارگیری این محتوا مشکلی پیش آمد.',
+  'common.retry': 'دوباره امتحان کنید',
   'discover.collections.title': 'مرور بر اساس دسته بندی',
   'discover.collections.viewAll': 'کتابخانه خود را ببینید →',
   'discover.empty.body': 'دسته دیگری را امتحان کنید یا جستجو را پاک کنید.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'برای زنده نگه داشتن رکورد خود، میزبانی بازی‌های زنده و صعود به جدول امتیازات، وارد شوید.',
   'myQuizzes.createButton': 'مسابقه جدید',
+  'myQuizzes.deleteConfirm': 'برای همیشه حذف شود؟',
   'myQuizzes.empty.createCta': 'اولین آزمون خود را بسازید →',
   'myQuizzes.empty.created': 'شما هنوز آزمونی نساخته‌اید.',
   'myQuizzes.empty.played': 'هنوز هیچ آزمونی منتشر نشده است.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'در حال بارگذاری…',
   'notifications.subhead':
     '{{count}} جرقه‌های خوانده نشده. دعوت‌نامه‌ها، جابجایی در جدول امتیازات و دستاوردها، همه در یک جریان.',
+  'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.checkoutError': 'پرداخت شروع نشد. لطفا دوباره امتحان کنید.',
+  'pricing.heading': 'طرح {{app}} خود را انتخاب کنید',
   'pricing.included': 'شامل',
   'pricing.loadError': 'نتوانستم طرح‌ها را بارگذاری کنم.',
   'pricing.maxQuizzes': '{{count}} آزمون‌ها',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'هنوز چیزی منتشر نشده.',
   'profile.startBuilding': 'شروع به ساختن کنید →',
   'profile.tier': 'بازیکن اسپارک',
+  'quizBuilder.addFailed': 'سوال اضافه نشد. دوباره امتحان کنید.',
   'quizBuilder.addQuestion': 'سوال اضافه کنید',
   'quizBuilder.answerPlaceholder': 'یک گزینه تایپ کنید…',
   'quizBuilder.answersLabel': 'گزینه‌های پاسخ',
   'quizBuilder.back': 'بازگشت به آزمون‌های من',
   'quizBuilder.delete': 'حذف سوال',
+  'quizBuilder.deleteFailed': 'امکان حذف سوال وجود نداشت.',
   'quizBuilder.firstQuestion': 'برای شروع، اولین سوال خود را اضافه کنید.',
   'quizBuilder.idLabel': 'شناسه آزمون: {{id}}',
   'quizBuilder.loadError': 'نتوانستم آزمون را بارگذاری کنم.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'حداقل دو گزینه برای پاسخ اضافه کنید و گزینه صحیح را انتخاب کنید. {{count}} سوال(هایی) قبل از انتشار.',
   'quizBuilder.questionsTitle': 'سوالات',
+  'quizBuilder.saveFailed': 'عنوان ذخیره نشد. دوباره امتحان کنید.',
   'quizBuilder.statusDraft': 'پیش نویس',
   'quizBuilder.subhead':
     'عنوان را ویرایش کنید، سوالات را اضافه کنید، گزینه‌ها و پاسخ صحیح را تنظیم کنید. تغییرات به طور خودکار ذخیره می‌شوند.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'میزبان چند نفره',
   'quizDetail.leaderboardEmpty':
     'هنوز هیچ بازی‌ای انجام نشده است - اولین نفری باشید که امتیاز می‌دهد.',
+  'quizDetail.loadError': 'این آزمون بارگذاری نشد.',
   'quizDetail.loading': 'در حال بارگذاری آزمون…',
   'quizDetail.plays': '{{count}} نمایشنامه‌ها',
   'quizDetail.playSolo': 'بازی انفرادی',

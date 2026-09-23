@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een verzoek om een nieuwe functie of heb je een bug ontdekt? Neem dan contact op met het {{app}}-team via de ondersteuningslink in je accountmenu — elk bericht wordt door een echte medewerker beantwoord.',
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'agentDetail.back': 'Alle agents',
   'agentDetail.capabilities': 'Mogelijkheden',
   'agentDetail.delete': 'Persona verwijderen',
   'agentDetail.deleteConfirm': 'Deze persona verwijderen? Dit kan niet ongedaan worden gemaakt.',
+  'agentDetail.deleteError': 'De persona kon niet worden verwijderd.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Persona kon niet worden geladen.',
   'agentDetail.save': 'Persona opslaan',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Wisselen…',
   'billing.updateError': 'Update kon niet worden gestart.',
   'billing.usageHeading': 'Spraakgebruik deze cyclus',
+  'chatBubble.source.text': 'tekst',
+  'chatBubble.source.voice': 'stem',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'conversation.defaultTitle': 'Nieuw gesprek',
   'conversation.empty': 'Nog geen berichten. Begin door iets te zeggen of hieronder te typen.',
   'conversation.eyebrow': 'Live sessie',
@@ -94,6 +101,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelligentie die spreekt.',
   'landing.heroSubtitle':
     'De AI-spraakassistent die uw natuurlijke flow begrijpt. Converseer, brainstorm en commandeer — naadloos.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Luisteren…',
   'landing.naturallyBody':
     "Geen triggerwoorden. Geen starre commando's. Vox begrijpt context, onderbrekingen en de nuance van menselijke spraak — alsof u met een collega kletst.",
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Sessie openen',
   'notFound.home': 'Terug naar home',
   'notFound.title': 'We konden die pagina niet horen.',
+  'parlanceLayout.closeMenu': 'Menu sluiten',
+  'parlanceLayout.openMenu': 'Navigatiemenu openen',
   'parlanceLayout.primaryNavLabel': 'Primaire navigatie',
   'pricing.conversations': '{{count}} gesprekken',
   'pricing.cta.startFree': 'Begin gratis',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Geen overeenkomsten',
   'search.eyebrow': 'Opdrachtpalet',
   'search.fetchError': 'Zoekindex kon niet worden geladen.',
+  'search.static.profile.preview': 'Weergavenaam, gebruikersnaam, biografie',
   'search.static.voice.title': 'Stem',
   'search.title': 'Vox doorzoeken',
   'search.transcriptPreview': 'Transcript openen',

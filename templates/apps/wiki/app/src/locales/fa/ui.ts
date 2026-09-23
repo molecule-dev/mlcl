@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'حل و فصل…',
   'comments.subtitle':
     '{{count}} تاپیک‌هایی که هنوز منتظر پاسخ یا راه‌حل هستند. مرتب‌سازی بر اساس سن - قدیمی‌ترین‌ها اول، بنابراین هیچ چیز از قلم نمی‌افتد.',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'forgotPassword.sentTo': 'لینک ارسال شده را بازنشانی کنید {{email}}',
   'forgotPassword.successSubheading':
     'صندوق ورودی خود را بررسی کنید - ما همین الان یک لینک بازنشانی ارسال کردیم. این لینک ظرف 30 دقیقه منقضی می‌شود.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'صفحه جدید',
   'pageTreeSidebar.workspaceHeader': 'فضای کاری',
   'pageView.breadcrumb': 'خرده نان',
+  'pageView.confirmTrash': 'بندازمش سطل آشغال؟',
   'pageView.home': 'خانه',
   'pageView.lastEdited': 'به‌روزرسانی‌شده {{when}}',
   'pageView.loading': 'در حال بارگذاری صفحه…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'خلاصه کردن…',
   'pageView.summaryUnavailable': 'خلاصه هوش مصنوعی برای این فضای کاری پیکربندی نشده است.',
   'pageView.tocTitle': 'در این صفحه',
+  'pageView.trash': 'سطل زباله',
+  'pageView.trashing': 'زباله‌دانی…',
   'pageView.versionBadge': 'وی{{version}}',
   'profile.badges.title': 'نشان‌ها',
   'profile.owned.title': 'صفحات متعلق به',
@@ -99,6 +103,7 @@ export const ui: UiTranslations = {
   'settingsPage.subtitle': 'فضای کاری، پروفایل، اعلان‌ها، یکپارچه‌سازی‌ها - همه در یک پوسته آرام.',
   'settingsPage.workspace.defaultLanding': 'صفحه فرود پیش‌فرض',
   'settingsPage.workspace.landingHome': 'خانه',
+  'settingsPage.workspace.landingSpaces': 'فضاها',
   'settingsPage.workspace.subdomainLabel': 'زیردامنه',
   'settingsPage.workspace.title': 'فضای کاری',
   'signup.eyebrow': 'شروع یک فضای کاری جدید',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} دقیقه',
   'templates.subtitle':
     'یک صفحه را از یک شابلون شروع کنید، نه از یک بوم خالی. هر الگو، شکل را به طور واضح نشان می‌دهد تا بتوانید روی اصل مطلب تمرکز کنید.',
+  'trash.confirmPurge': 'برای همیشه پاک شدن؟',
+  'trash.confirmPurgeAria': 'تأیید: حذف دائمی {{title}}',
   'trash.daysUntilPurge': '{{days}} روزهای باقی مانده',
   'trash.empty.body': 'صفحات حذف‌شده به مدت ۳۰ روز در اینجا نمایش داده می‌شوند و سپس پاک می‌شوند.',
   'trash.empty.title': 'سطل زباله خالی است.',
@@ -146,5 +153,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'در حال بازیابی…',
   'versionHistory.subtitle': '{{count}} نسخه‌ها · یک ردیف را برای بررسی تفاوت انتخاب کنید',
   'versionHistory.versionLabel': 'وی{{v}}',
+  'wikiLayout.closeMenu': 'بستن ناوبری',
+  'wikiLayout.menu': 'ناوبری',
+  'wikiLayout.openMenu': 'ناوبری باز',
   'wikiLayout.searchPlaceholder': 'جستجوی Cairn — صفحات، نظرات…',
 }

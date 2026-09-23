@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om oss',
   'actions.empty': 'Ingen handlingspunkter samsvarer.',
   'actions.heading': 'Handlingspunkter',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Forrige måned',
   'calendar.recent': 'Nylig',
   'common.daysAgo': '{{count}}d siden',
+  'common.goToDashboard': 'Gå til oversikt',
   'common.hoursAgo': '{{count}}t siden',
   'common.no': '—',
+  'common.retry': 'Prøv igjen',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} handlingspunkter',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Sjekk innboksen din for tilbakestillingslenken.',
   'forgot.subheading': 'Skriv inn e-postadressen din, så sender vi en tilbakestillingslenke.',
   'integrations.disconnected': 'Frakoblet',
+  'integrations.loadError': 'Det gikk ikke å laste inn integrasjonene.',
   'integrations.notConnectedTag': 'Ikke tilkoblet',
   'integrations.subheading':
     'Koble til kalendere og videoplattformer slik at Murmur automatisk deltar.',
+  'integrations.updateError': 'Oppdatering mislyktes.',
   'landing.ctaButton': 'Kom i gang – det er gratis',
   'landing.ctaHeading': 'Slutt å ta notater. Begynn å ta beslutninger.',
   'landing.demo.aiLabel': 'AI-sammendrag, utarbeidet live',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Oppfølginger',
   'meetingDetail.loadError': 'Kunne ikke laste møte.',
   'meetingDetail.noActions': 'Ingen handlingspunkter oppdaget.',
+  'meetingDetail.none': 'Ingen.',
   'meetingDetail.notFound': 'Møtet ble ikke funnet.',
+  'meetingDetail.speakerFallback': 'Foredragsholder{{id}}',
   'meetingDetail.summaryHeading': 'AI-sammendrag',
   'meetingDetail.transcriptHeading': 'Transkripsjon',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Møter',
   'meetings.loadError': 'Kunne ikke laste møter.',
   'meetings.subheading': 'Hvert tatt opp, opplastet og synkronisert møte.',
+  'murmurLayout.openMenu': 'Åpne navigasjonsmenyen',
   'murmurLayout.primaryNavLabel': 'Primær navigasjon',
   'nav.legal': 'Juridisk',
   'notifications.loadError': 'Kunne ikke laste varsler.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Hvordan du fremstår i Murmur.',
   'record.error.empty': 'Ingen lyd ble fanget opp.',
   'record.error.permission': 'Mikrofontillatelse nektet.',
+  'record.error.recorder': 'Feil i opptakeren',
   'record.error.unsupported':
     'Nettleseren din støtter ikke opptak. Prøv Chrome, Edge eller Safari.',
   'record.error.upload': 'Opplasting mislyktes. Prøv igjen.',
@@ -115,6 +124,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Nytt passord',
   'reset.subheading': 'Velg et passord du ikke bruker andre steder.',
   'search.empty': 'Skriv for å søke i transkripsjoner.',
+  'search.loadError': 'Søket mislyktes. Prøv på nytt.',
   'search.noResults': 'Ingen resultater for «{{q}}».',
   'settings.appearance.description': 'Bytt mellom lys og mørk modus.',
   'settings.appearance.title': 'Utseende',
@@ -123,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Kunne ikke laste innstillinger.',
   'settings.loading': 'Laster…',
   'settings.push.heading': 'Push-varsler',
+  'settings.push.subheading': 'Få varsler i nettleseren om omtaler, oppgaver og sammendrag.',
   'settings.retention.audio': 'Behold lyd i',
   'settings.retention.heading': 'Oppbevaring',
   'settings.retention.transcript': 'Behold transkripsjoner i',
@@ -139,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Kunne ikke opprette konto. Prøv igjen.',
   'signup.subheading': 'Begynn å ta opp møtenotater på noen minutter',
   'signup.terms': 'Ved å opprette en konto godtar du våre Bruksvilkår og Personvernpolicy.',
+  'signup.termsPrefix': 'Ved å opprette en konto samtykker du til våre',
   'team.inviteCta': 'Inviter teammedlem',
   'team.invitedAs': 'Invitert som {{role}}',
   'team.inviteFailed': 'Kunne ikke sende invitasjon.',

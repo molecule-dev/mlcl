@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.eyebrow': '{{app}} жөнүндө',
+  'about.intro':
+    '{{app}} – бул реалдуу жашоо үчүн медитация колдонмосу — күн сайын жетектелген медитациялар, дем алуу көнүгүүлөрү жана уйку окуялары, алар өздөрүн машыктыруучу эмес, дос катары сезген мугалимдер тарабынан аткарылат. Эч кандай күнөө сезими жок, ызы-чуу жок: жөн гана дем алуу үчүн тынч жер.',
+  'about.missionBody':
+    'Биз тынчтык ар бир адам үчүн күндүн кайсы убагында болбосун жеткиликтүү болушу керек деп эсептейбиз. {{app}} тынч жана ырааттуу машыгууну оңой сезүү үчүн бар — ошондо он чынчыл мүнөт кийинки он саатты кантип өткөрүүңүздү өзгөртө алат.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.pageTitle': 'Күнүнө 10 мүнөт тынчыраак',
+  'breathingDial.seconds': 'секунд',
+  'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.logout': 'Чыгуу',
   'common.min': 'мин',
   'common.relative.justNow': 'азыр эле',
   'common.relative.now': 'азыр',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
+  'nav.secondaryNavigation': 'Аккаунтту башкаруу',
   'sessionCard.with': 'менен {{name}}',
   'stillpoint.billing.choose': 'Тандоо {{plan}}',
   'stillpoint.billing.currentPlan': 'Учурда күйүк {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Пландар жүктөлбөй калды.',
   'stillpoint.billing.opening': 'Касса ачылууда…',
   'stillpoint.billing.perMonthShort': '/ ай',
+  'stillpoint.billing.perYearShort': '/жыл',
   'stillpoint.billing.unknownResult': 'Күтүлбөгөн эсеп-фактура жообу.',
   'stillpoint.billing.yearly': 'Жылына · 17% үнөмдөңүз',
   'stillpoint.courseDetail.back': 'Курстар',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Азырынча курстар жок.',
   'stillpoint.courses.eyebrow': '{{count}} көп күндүк саякаттар',
   'stillpoint.courses.heading': 'Курстар',
+  'stillpoint.forgot.checkEmail':
+    'Почтаңызды текшериңиз — шилтеме 30 мүнөттөн кийин жараксыз болуп калат.',
   'stillpoint.forgot.success': 'Биз баштапкы абалга келтирүү шилтемесин жөнөттүк {{email}} .',
   'stillpoint.home.empty': 'Азырынча эч кандай сессия жок — жакында кайра кириңиз.',
   'stillpoint.home.friend': 'дос',
@@ -49,6 +66,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Акысыз аккаунтуңузду түзүңүз',
   'stillpoint.landing.cta.title': 'Тынчтыкты бүгүн баштаңыз',
   'stillpoint.landing.features.heading': 'Сиз менен кошо өсүп келе жаткан практика',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Күн сайын жетектелген медитациялар, дем алуу көнүгүүлөрү жана уйку окуялары — машыктыруучу эмес, дос катары сезген мугалимдердин темпи.',
   'stillpoint.landing.hero.eyebrow': 'Күнүнө 10 мүнөт тынчыраак',
@@ -65,6 +83,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Маанай боюнча карап чыгуу',
   'stillpoint.login.rememberMe': 'Мени кирген бойдон калтырыңыз',
   'stillpoint.login.subheading': 'Машыгууңузду улантуу үчүн кириңиз.',
+  'stillpoint.nav.tagline': 'Тынчсыздануу борборун табыңыз',
+  'stillpoint.notFound.body':
+    'Бул баракча кайсы бир жерден терең дем алып жатат. Келгиле {{app}} ичинен сиз үчүн тынчыраак жер таап берели.',
   'stillpoint.notFound.title': 'Тынчтыкта адашып',
   'stillpoint.notFound.toHome': 'Бүгүнкү күнгө кайтуу',
   'stillpoint.notFound.toLibrary': 'Китепкананы карап чыгуу',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 секунд артка жылдыруу',
   'stillpoint.player.skipForward': '30 секунд алдыга жылдыруу',
   'stillpoint.player.with': 'менен {{name}}',
+  'stillpoint.profile.defaultHandle': 'кыймылсыз көрсөткүч',
   'stillpoint.profile.eyebrow': 'Сиздин практикаңыз кыскача баяндалган.',
   'stillpoint.profile.locked': 'Кулпуланган',
   'stillpoint.profile.member': 'Stillpoint мүчөсү',

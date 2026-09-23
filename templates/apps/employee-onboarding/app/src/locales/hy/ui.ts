@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
   'auth.forgotPassword.emailPlaceholder': 'name@ձերընկերությունը.com',
   'auth.forgotPassword.heading': 'Վերագործարկեք ձեր գաղտնաբառը։',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Նշել առաջադրանքն ավարտված',
   'checklistTaskCard.markIncomplete': 'Նշել առաջադրանքը անավարտ',
   'checklistTaskCard.openLabel': 'Բացել առաջադրանքը',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Դուք ամեն ինչ գիտեք',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Ճանապարհին է',
   'dashboard.timelineHeading': '30/60/90 կարևորագույն նվաճումներ',
   'dashboard.viewAllTasks': 'Դիտել բոլոր առաջադրանքները',
+  'dashboard.weekOne': 'Շաբաթ 1',
   'dashboard.yourCohort': 'Ձեր թիմը',
   'documents.empty.body': 'Ձեր թիմի կողմից ավելացված փաստաթղթերը կհայտնվեն այստեղ։',
   'documents.empty.title': 'Դեռևս փաստաթղթեր չկան',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-օրյա անվճար փորձաշրջան',
   'landing.subhead':
     'Embark-ը ուղեկցում է յուրաքանչյուր նոր թիմակցի առաջին 90 օրերի ընթացքում՝ թղթաբանություն, մարզումներ, կարևորագույն իրադարձություններ և իմաստալից ծանոթություններ, բոլորը մեկ հանգիստ և վստահ վայրում։',
+  'layout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'layout.search': 'Որոնել առաջադրանքներ, փաստաթղթեր, թիմակիցներ…',
+  'layout.searchTeammates': 'Որոնեք թիմակիցներին անունով կամ դերով…',
   'layout.section.onboarding': 'Ներգրավում',
   'layout.tagline': 'Ձեր ճանապարհորդությունը սկսվում է այստեղ',
   'notifications.empty.body': 'Նոր գործունեությունը կհայտնվի այստեղ։',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'երեկ',
   'planUpdated.message': 'Դուք պատրաստ եք։',
   'planUpdated.preparing': 'Ձեր պլանը թարմացվում է…',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.documentsLabel': 'փաստաթղթեր',
   'pricing.onboardingsLabel': 'ներգրավումներ',
   'pricing.tasksLabel': 'առաջադրանքներ',

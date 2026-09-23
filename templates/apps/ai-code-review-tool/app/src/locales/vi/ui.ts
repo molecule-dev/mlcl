@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Liên hệ',
   'about.eyebrow': 'Giới thiệu',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.connectRepoCta': 'Kết nối kho lưu trữ',
   'dashboard.empty': 'Chưa có pull request nào — vui lòng kết nối kho lưu trữ để bắt đầu.',
   'dashboard.eyebrow': 'Refract · hàng đợi đánh giá',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Thời gian hoạt động',
   'pullRequestRow.files': '{{count}} t',
   'pullRequestRow.scoreAria': 'Điểm chất lượng AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Đóng menu',
+  'refractLayout.openMenu': 'Mở menu',
   'refractLayout.primaryNavLabel': 'Điều hướng chính',
   'reports.cumulativeScoreLabel': 'Điểm tích lũy',
   'reports.cumulativeScoreSubtitle': 'tất cả kho · {{days}}n',
@@ -177,11 +180,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Không thể tải chỉ mục tìm kiếm.',
   'settings.apiKeys.description':
     'Quản lý các khóa API cá nhân từ menu người dùng ở góc trên bên phải.',
+  'settings.apiKeys.integrationsNote':
+    'Mã thông báo truy cập của nhà cung cấp được quản lý trong phần Tích hợp ở trên.',
   'settings.connectError': 'Không thể kết nối nhà cung cấp.',
   'settings.disconnectError': 'Không thể ngắt kết nối nhà cung cấp.',
   'settings.eyebrow': 'Refract · không gian làm việc',
   'settings.integration.${provider}.label': 'Đang lưu…',
   'settings.loadError': 'Không thể tải cài đặt.',
+  'settings.notificationCenter': 'Trung tâm thông báo',
   'settings.notifications.description': 'Truy cập trang thông báo để xem và quản lý tùy chọn gửi.',
   'settings.section.account': 'Tài khoản và bảo mật',
   'settings.section.apiKeys': 'Khóa API',

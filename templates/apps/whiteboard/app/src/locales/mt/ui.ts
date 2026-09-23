@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'authShell.brandHeading':
     "Kanvasijiet għal diversi plejers għal timijiet tad-disinn li jaħsbu b'leħen għoli.",
   'billing.canceled': 'Abbonament ikkanċellat.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Ibda mit-template',
   'boards.title': 'Il-bordijiet tiegħek',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Daħħal l-email marbuta mal-ispazju tax-xogħol tiegħek u aħna nibagħtulek link ta' reset.",
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Workshop tal-Q1 · Il-Vuċi tal-Marka',
   'landing.featuresEyebrow': "X'jagħmel it-Slate tessellata",
   'landing.featuresTitle': 'Rispons veloċi. Kanvasijiet sbieħ. Frizzjoni żero.',
+  'landing.hero.body':
+    "{{appName}} hija whiteboard multiplayer għal timijiet tad-disinn, faċilitaturi ta' workshops, u edukaturi li jmexxu brainstorms diretti u jeħtieġu li l-ideat jikkonverġu f'post wieħed.",
   'landing.hero.primaryCta': "Ibda bord b'xejn",
   'landing.hero.socialProof': 'Fdat minn {{count}} timijiet tad-disinn madwar id-dinja',
   'landing.hero.title': 'Kanvas veloċi daqs ħsibijietek',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Oħloq spazju tax-xogħol ħieles',
   'login.subheading':
     "Kompli minn fejn ħalla l-workshop — il-bordijiet, in-noti li jwaħħlu, u l-cursors kollha jissinkronizzaw f'ħin reali.",
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.new': 'Ġdid',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'notifications.editTitle': 'Editjar għal " {{board}} "',
   'notifications.empty.body':
     "L-istediniet, is-sejvjar ta' snapshots, u l-editjar riċenti tal-bord se jidhru hawn hekk kif iseħħu.",
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Storja tal-verżjoni',
   'versionHistory.untitledSnapshot': 'Snapshot bla titlu',
   'whiteboardLayout.newBoard': 'Bord ġdid',
+  'whiteboardLayout.primaryNav': 'Navigazzjoni primarja',
   'workspace.boardLabel': 'Bord',
   'workspace.eyebrow': '{{name}} · spazju tax-xogħol',
   'workspace.invite': 'Stieden kollaboraturi',

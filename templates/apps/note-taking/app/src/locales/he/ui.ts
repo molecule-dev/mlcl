@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'forgot.eyebrow': 'איבדתם את הדרך חזרה פנימה?',
   'forgot.formSubtitle': 'ספר לנו את האימייל השמור במערכת.',
   'forgot.headline': 'אפס את הסיסמה שלך.',
@@ -38,6 +39,8 @@ export const ui: UiTranslations = {
   'login.headline': 'המשך מהנקודה שבה העמוד נעצר.',
   'login.signupLink': 'צור אחד',
   'login.subline': 'המחברות, הקישורים הנכנסים והדפים היומיים שלך נמצאים בדיוק איפה שהשארת אותם.',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'noteEditor.backToNotes': 'חזרה להערות',
   'noteEditor.bodyPlaceholder': 'התחל לכתוב - ההערה שלך נשמרת אוטומטית תוך כדי הקלדה.',
   'noteEditor.confirmTrash': 'להעביר את ההערה הזו לאשפה?',
@@ -53,6 +56,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'מחברת חדשה',
   'notes.newNotebookPrompt': 'שם חדש של המחברת',
   'notes.notebooksHeading': 'מחברות',
+  'notes.subtitle': 'בחר מחברת משמאל, ולאחר מכן לחץ על כפתור הערה חדשה כדי להתחיל רשומה חדשה.',
   'planUpdated.confirmation': 'התוכנית שלך עודכנה',
   'pricing.heading': 'בחר את תוכנית רישום ההערות שלך',
   'reset.eyebrow': 'כמעט חוזר פנימה',
@@ -109,6 +113,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'מְעוּדכָּן',
   'versoLayout.nav.graph': 'גרָף',
   'versoLayout.nav.home': 'בַּיִת',
+  'versoLayout.primaryNavLabel': 'ניווט ראשי',
   'versoNoteCard.pinned': 'מוצמד',
   'versoTodayHero.continueCta': 'המשך לכתוב',
   'versoTodayHero.createCta': 'התחל את ההערה של היום',

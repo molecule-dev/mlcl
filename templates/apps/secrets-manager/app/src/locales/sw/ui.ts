@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'about.tagline': 'Siri hufa hadharani.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Unda tokeni',
   'apiTokens.kicker': 'Tokeni za API',
   'apiTokens.loading': 'Inapakia tokeni…',
+  'apiTokens.new': 'Tokeni mpya',
   'apiTokens.revoke': 'Batilisha tokeni',
   'apiTokens.subheading':
     'Tokeni za kibinafsi na za huduma kwa Arcanum CLI na SDK. Maandishi wazi yanaonyeshwa mara moja wakati wa uundaji.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Nenosiri',
   'authShell.zeroKnowledge': 'Usimbaji fiche wa maarifa yasiyo na kikomo',
   'common.connecting': 'Inaunganisha…',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.inviting': 'Inaalika…',
   'forgotPassword.checkInbox':
     'Ikiwa {email} imesajiliwa, kiungo cha kuweka upya kilichosainiwa kitawasili ndani ya dakika moja.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Hali ya mzunguko, arifa zisizo za kawaida, na maombi ya idhini katika kila hifadhi.',
   'notifications.unreadEmpty': 'Kisanduku pokezi sifuri — yote yamehifadhiwa.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.heading': 'siri',
   'pricing.limits.accessPolicies': 'sera za ufikiaji',
   'pricing.limits.auditLog': 'maingizo ya kumbukumbu ya ukaguzi',
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Akaunti ya kibinafsi',
   'profile.plan.description': 'Dhibiti usajili wako, angalia mipaka, na uboreshe.',
   'profile.subheading': 'Utambulisho, vifaa vya vipengele vya pili, na vipindi vinavyoendelea.',
+  'profile.twoFactor.code': 'Nambari ya uthibitishaji',
   'profile.twoFactor.disable': 'Zima',
   'profile.twoFactor.enable': 'Washa',
+  'profile.twoFactor.invalidCode': 'Nambari batili',
   'profile.twoFactor.kicker': 'Uthibitishaji wa vipengele viwili',
+  'profile.twoFactor.off': 'Haijawezeshwa',
   'profile.twoFactor.on': 'Imewezeshwa',
   'resetPassword.email': 'Barua pepe ya akaunti',
   'resetPassword.heading': 'Weka vitambulisho vipya',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'amri',
   'secretsManagerLayout.encrypted': 'AES-256 · IMESIMBIKISHWA',
   'secretsManagerLayout.newVault': 'Hifadhi mpya',
+  'secretsManagerLayout.newVaultShort': 'Mpya',
   'secretsManagerLayout.rotations': 'Mizunguko',
   'secretsManagerLayout.search': 'utafutaji',
   'secretsManagerLayout.searchPlaceholder': 'Tafuta siri kwa ufunguo, njia, au lebo…',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Siri',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Ongeza siri',
+  'vaultDetail.back': 'Mabanda yote',
   'vaultDetail.col.key': 'Ufunguo',
   'vaultDetail.col.rotated': 'Imezungushwa',
   'vaultDetail.col.value': 'Thamani',

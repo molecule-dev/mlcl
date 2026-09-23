@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'analytics.col.quorum': 'Kvórum',
   'analytics.col.votes': 'Hlasy',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Zatiaľ žiadne čakajúce otázky.',
   'audienceQa.onStageEyebrow': 'Teraz na pódiu',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Propagovať',
   'audienceQa.queued': 'v rade',
   'audienceQa.queueEyebrow': 'Rad',
   'ballot.eyebrow': 'Odovzdajte svoj hlasovací lístok',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Momentálne sa nachádzate na {{plan}} plán.',
   'billing.switch': 'Prepínač',
   'billing.upgraded': 'Aktualizované na {{plan}} — limity sa uplatňujú okamžite.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'createPoll.addOption': 'Pridať možnosť',
   'createPoll.anonymousHint':
     'Mená voličov sú skryté v protokole auditu; sčítanie hlasov zostáva overené.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Ste v Noshe noví?',
   'login.remember': 'Zapamätaj si ma 30 dní',
   'login.subheading': 'Otvorte podlahu, spustite miestnosť a overte výsledok.',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'notFound.body':
     'Stránka, na ktorú ste sa pokúšali dostať, bola zatvorená alebo presunutá. Vráťte sa na ovládací panel alebo otvorte novú anketu.',
   'notFound.eyebrow': 'Na tejto trase nie je kvórum',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Túto anketu sa nepodarilo načítať.',
   'pollDetail.loading': 'Načítava sa anketa…',
   'pollDetail.notFound': 'Anketa sa nenašla.',
+  'pollDetail.openBallot': 'Otvorené hlasovanie',
   'pollDetail.openLive': 'Živé výsledky',
   'pollDetail.pollId': 'anketa · {{id}}',
   'pollDetail.published': 'Prieskum bol zverejnený – voliči teraz môžu odovzdať hlasovací lístok.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Hľadať podľa e-mailu…',
   'voters.subheading':
     'Upravte oprávnený zoznam voličov. Zoskupte voličov podľa organizácie a získajte vážené hlasovacie lístky.',
+  'votingPollingLayout.nav.analytics': 'Analytika',
+  'votingPollingLayout.nav.billing': 'Fakturácia',
+  'votingPollingLayout.nav.createPoll': 'Nová anketa',
+  'votingPollingLayout.nav.dashboard': 'Prístrojová doska',
+  'votingPollingLayout.nav.notifications': 'Upozornenia',
+  'votingPollingLayout.nav.settings': 'Nastavenia',
+  'votingPollingLayout.nav.team': 'Tím',
+  'votingPollingLayout.nav.voters': 'Voliči',
+  'votingPollingLayout.primaryNavLabel': 'Hlavná navigácia',
 }

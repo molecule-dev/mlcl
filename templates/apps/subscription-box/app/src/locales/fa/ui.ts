@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'درباره {{app}}',
+  'appNav.mobileLabel': 'ناوبری اولیه',
+  'appNav.primaryLabel': 'ناوبری اولیه',
   'billing.actions.confirmCancel': 'اشتراک خود را لغو کنید؟ می‌توانید هر زمان دوباره مشترک شوید.',
   'billing.actions.paused': 'اشتراک متوقف شد.',
   'billing.actions.resumed': 'اشتراک از سر گرفته شد.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'هر ردیف یک داستان کوچک است. یکی را به صف خود اضافه کنید یا آن را به ماه بعدی خود منتقل کنید.',
   'boxThemeCard.perMonth': '/ ماه',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'customize.eyebrow': 'مال خودت کن',
   'customize.heading': 'گنجینه بعدی خود را سفارشی کنید',
   'customize.items.exclude': 'از این بگذرید',
@@ -93,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'این فصل',
   'landing.editions.heading': 'نسخه‌هایی که متصدیان ما دوست دارند',
   'landing.footer.contact': 'با یک متصدی صحبت کنید',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'جعبه خود را شروع کنید →',
   'landing.hero.ctaSecondary': 'مشاهده‌ی ردیف‌ها',
   'landing.hero.eyebrow': 'ماهانه گردآوری می‌شود. همیشه شخصی است.',
@@ -111,6 +116,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'گنجینه بعدی شما',
   'nextBoxHeroCard.itemsLabel': 'اقلام گزینش‌شده',
   'nextBoxHeroCard.shipsOnLabel': 'کشتی‌ها روشن هستند',
+  'notFound.body':
+    'ما نتوانستیم آن صفحه را در آرشیو {{app}} پیدا کنیم. ممکن است حذف شده باشد یا صرفاً اشتباه تایپی شده باشد.',
   'notFound.cta.dashboard': 'رفتن به داشبورد',
   'notFound.eyebrow': 'جعبه خالی',
   'notFound.heading': 'این قفسه خالی است',

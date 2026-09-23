@@ -171,8 +171,7 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'थप्दै...',
   'seating.form.submit': 'टेबल थप्नुहोस्',
   'seating.poolTitle': 'नबसेका अतिथिहरू',
-  'seating.subtitle':
-    '{{बसेको}} बसेको<x> {{क्षमता}}</x> सिटहरू ·<x> {{पोखरी}}</x> पोखरीमा पर्खिरहेका पाहुनाहरू',
+  'seating.subtitle': '{{seated}} {{capacity}} · {{pool}} पोखरीमा पर्खिरहेका पाहुनाहरू',
   'seating.title': 'बसाइ चार्ट',
   'settings.billing': 'बिलिङ',
   'settings.changePassword': 'पासवर्ड परिवर्तन गर्नुहोस्',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'N ṣe ìpinnu…',
   'comments.subtitle':
     'Àwọn {{count}} Àwọn ìlà ìfọ̀rọ̀wérọ̀ náà ṣì ń dúró de ìdáhùn tàbí ìpinnu kan. A to àwọn ọ̀rọ̀ náà sí ìpele ọjọ́ orí — àtijọ́ jùlọ ni àkọ́kọ́, kí ohunkóhun má baà jẹrà.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'forgotPassword.sentTo': 'A ti fi ọna asopọ pada si {{email}}',
   'forgotPassword.successSubheading':
     'Ṣàyẹ̀wò àpótí ìforúkọsílẹ̀ rẹ — a ṣẹ̀ṣẹ̀ fi ìjápọ̀ àtúntò ránṣẹ́. Ó parí ní ìṣẹ́jú 30.',
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ojú ìwé tuntun',
   'pageTreeSidebar.workspaceHeader': 'Ààyè Iṣẹ́',
   'pageView.breadcrumb': 'Àkàrà ìpara',
+  'pageView.confirmTrash': 'Ṣe o n da idọti si?',
   'pageView.home': 'Ilé',
   'pageView.lastEdited': 'Ti ṣe imudojuiwọn {{when}}',
   'pageView.loading': 'N n gbe oju-iwe soke…',
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Ṣàkópọ̀…',
   'pageView.summaryUnavailable': 'A ko ṣe atunto akopọ AI fun aaye iṣẹ yii.',
   'pageView.tocTitle': 'Lórí ojú ìwé yìí',
+  'pageView.trash': 'Idọ̀tí',
+  'pageView.trashing': 'Ṣíṣe ìdọ̀tí…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Àwọn àmì',
   'profile.owned.title': 'Àwọn ojú ìwé tí a ni',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Ibi iṣẹ́, profaili, awọn iwifunni, awọn isọdọkan — gbogbo wọn ni ikarahun idakẹjẹ kan.',
   'settingsPage.workspace.defaultLanding': 'Iboju ibalẹ aiyipada',
   'settingsPage.workspace.landingHome': 'Ilé',
+  'settingsPage.workspace.landingSpaces': 'Àwọn Ààyè',
   'settingsPage.workspace.subdomainLabel': 'Ẹ̀ka-ìpínlẹ̀ kékeré',
   'settingsPage.workspace.title': 'Ààyè Iṣẹ́',
   'signup.eyebrow': 'Bẹrẹ aaye iṣẹ tuntun',
@@ -127,6 +132,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} iṣẹju',
   'templates.subtitle':
     'Bẹ̀rẹ̀ ojú ìwé kan láti inú stencil, kìí ṣe àwọ̀ òfo. Àwòrán kọ̀ọ̀kan ní àmì ìdámọ̀-àwòrán kí o lè dojúkọ ohun tí ó wà nínú rẹ̀.',
+  'trash.confirmPurge': 'Ṣe ìwẹ̀nùmọ́ títí láé?',
+  'trash.confirmPurgeAria': 'Jẹ́rìísí: pa {{title}} rẹ́ pátápátá',
   'trash.daysUntilPurge': '{{days}} awọn ọjọ ti o ku',
   'trash.empty.body':
     'Àwọn ojú ìwé tí a ti yọ kúrò yóò farahàn níbí fún ọgbọ̀n ọjọ́ kí a tó mú wọn kúrò.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Nmu pada sipo…',
   'versionHistory.subtitle': '{{count}} àwọn ẹ̀yà · yan ìlà kan láti ṣàyẹ̀wò ìyàtọ̀ náà',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Ti lilọ kiri pa',
+  'wikiLayout.menu': 'Lilọ kiri',
+  'wikiLayout.openMenu': 'Ṣí ìlọ kiri',
   'wikiLayout.searchPlaceholder': 'Ṣe àwárí Cairn — àwọn ojú ìwé, àwọn àkíyèsí…',
 }

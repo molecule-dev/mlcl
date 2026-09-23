@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.title': 'О {{app}}',
   'auth.login.noAccount': 'Впервые используете Sparq?',
   'auth.login.or': 'или продолжить',
   'auth.signup.or': 'или зарегистрироваться с',
+  'common.confirm': 'Подтверждать',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.loadError': 'Произошла ошибка при загрузке этого контента.',
+  'common.retry': 'Повторить попытку',
   'discover.collections.title': 'Просмотр по категориям',
   'discover.collections.viewAll': 'Посмотреть вашу библиотеку →',
   'discover.empty.body': 'Попробуйте выбрать другую категорию или очистить поиск.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Войдите в систему, чтобы продолжить свою серию побед, проводить игры в прямом эфире и подниматься в таблице лидеров.',
   'myQuizzes.createButton': 'Новая викторина',
+  'myQuizzes.deleteConfirm': 'Удалить навсегда?',
   'myQuizzes.empty.createCta': 'Создайте свой первый тест →',
   'myQuizzes.empty.created': 'Вы ещё не создали викторину.',
   'myQuizzes.empty.played': 'Пока нет опубликованных викторин.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Загрузка…',
   'notifications.subhead':
     '{{count}} Непрочитанные сообщения. Приглашения, изменения в таблице лидеров и достижения — всё в одном потоке.',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.checkoutError': 'Не удалось начать оформление заказа. Пожалуйста, попробуйте еще раз.',
+  'pricing.heading': 'Выберите ваш план {{app}}',
   'pricing.included': 'Включено',
   'pricing.loadError': 'Не удалось загрузить планы.',
   'pricing.maxQuizzes': '{{count}} викторины',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Пока ничего не опубликовано.',
   'profile.startBuilding': 'Начать создание →',
   'profile.tier': 'Игрок Sparq',
+  'quizBuilder.addFailed': 'Не удалось добавить вопрос. Попробуйте еще раз.',
   'quizBuilder.addQuestion': 'Добавить вопрос',
   'quizBuilder.answerPlaceholder': 'Введите вариант…',
   'quizBuilder.answersLabel': 'Варианты ответов',
   'quizBuilder.back': 'Вернуться к моим викторинам',
   'quizBuilder.delete': 'Удалить вопрос',
+  'quizBuilder.deleteFailed': 'Удалить вопрос не удалось.',
   'quizBuilder.firstQuestion': 'Для начала задайте свой первый вопрос.',
   'quizBuilder.idLabel': 'Идентификатор викторины: {{id}}',
   'quizBuilder.loadError': 'Не удалось загрузить викторину.',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Добавьте как минимум два варианта ответа и выберите правильный. {{count}} Вопросы перед публикацией.',
   'quizBuilder.questionsTitle': 'Вопросы',
+  'quizBuilder.saveFailed': 'Не удалось сохранить заголовок. Попробуйте еще раз.',
   'quizBuilder.statusDraft': 'Проект',
   'quizBuilder.subhead':
     'Отредактируйте заголовок, добавьте вопросы, установите варианты ответов и правильный ответ. Изменения сохраняются автоматически.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Создать многопользовательскую игру',
   'quizDetail.leaderboardEmpty': 'Пока нет ни одной игры — станьте первым, кто установит счет.',
+  'quizDetail.loadError': 'Не удалось загрузить этот тест.',
   'quizDetail.loading': 'Загрузка викторины…',
   'quizDetail.plays': '{{count}} играет',
   'quizDetail.playSolo': 'Играть в одиночку',

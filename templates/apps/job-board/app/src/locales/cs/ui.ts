@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'applications.empty': 'Zatím žádné žádosti \\u2014 ta správná pozice je jen jedna žádost daleko.',
   'applications.eyebrow': 'Váš kanál',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Každá pozice, o kterou jste se ucházeli, v pohybu. Filtrujte podle fáze a zaměřte se.',
   'applications.untitledRole': 'Role č. {{id}}',
+  'auth.legalConsent': 'Pokračováním souhlasíte s našimi',
   'common.and': 'a',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'companies.empty': 'Žádné firmy neodpovídají vašemu vyhledávání \\u2014 zkuste jiný výraz.',
   'companies.eyebrow': 'Doporučení zaměstnavatelé',
   'companies.searchPlaceholder': 'Hledat podle názvu, odvětví, lokality',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Na tuto pozici zatím žádné žádosti.',
   'jobApplicants.eyebrow': 'Názor zaměstnavatele',
   'jobApplicants.loading': 'Načítám…',
+  'jobApplicants.statusUpdateFailed': 'Tuto fázi se nepodařilo aktualizovat – zkuste to znovu.',
+  'jobApplicants.subheading':
+    'Procházejte životopisy, povyšujte kandidáty, zasílejte nabídky \\u2014 {{count}} v akci.',
   'jobDetail.applicantCount': '{{count}} dosavadní uchazeči',
   'jobDetail.applied': 'Žádost odeslána',
   'jobDetail.apply': 'Přihlásit se nyní',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Procházet volné pozice \\u2192',
   'landing.pricingEyebrow': 'Ceny',
   'landing.pricingHeading': 'Jednoduché plány pro týmy všech velikostí.',
+  'login.eyebrow': 'Vítejte zpět v {{app}}',
   'login.heading': 'Přihlásit se k účtu',
   'login.noAccount': 'Nový v Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Přihlášení\\u2026',
   'login.subheading':
     'Zlepšete své vyhledávání, posuňte své žádosti dopředu a dostávejte odpověď rychleji.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Vytvořeno pro náborové týmy.',
   'loginBrandPanel.headline': 'Kde se setkává talent',
   'loginBrandPanel.headlineLine2': 'hybnost.',
   'loginBrandPanel.listing.recruiter': 'Talentový partner',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'Aktualizace přihlášek, pozvánky na pohovory, nové shody a nejnovější od začátku.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} tento týden',
   'opportunitiesHero.eyebrow': 'Otevřeno dnes',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'postJob.addNewCompany': '+ Přidat novou společnost',
   'postJob.companyCreateFailed': 'Nepodařilo se vytvořit společnost – zkuste to znovu.',
   'postJob.companyNameLabel': 'Název vaší společnosti',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Vytváření účtu\\u2026',
   'signup.ctaEmployer': 'Vytvořit zaměstnavatelský účet',
   'signup.firstNamePlaceholder': 'Maya',
+  'signup.lastNamePlaceholder': 'Čchen',
   'signup.passwordMismatch': 'Hesla se neshodují.',
   'signup.subheading':
     'Zdarma pro uchazeče, navždy. Zaměstnavatelé začínají s 30denní zkušební verzí.',
   'timeAgo.days': 'před {{count}} d',
   'timeAgo.hours': 'před {{count}} h',
   'timeAgo.justNow': 'právě teď',
+  'timeAgo.weeks': 'před {{count}} týdny',
 }

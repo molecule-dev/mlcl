@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkımızda',
   'activityFeed.empty': 'Henüz etkinlik yok — ilk faturanızı gönderin.',
   'authShell.sample.paid': '2 dakika önce ödendi',
@@ -29,6 +30,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Yeni bir müşteri ekleyin',
   'clients.search': 'Ad, şirket veya e-posta ile arayın',
   'clients.title': 'Müşteriler',
+  'common.goToDashboard': 'Panele Git',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Yeni müşteri',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Parolayı unuttum',
   'forgotPassword.successBody':
     'Sıfırlama talimatlarını {{email}} adresine gönderdik. Bağlantı 30 dakika içinde sona erer.',
+  'invoiceDetail.action.confirmVoid': 'Geçersizliği onaylıyor musunuz?',
   'invoiceDetail.action.download': 'PDF indir',
   'invoiceDetail.action.duplicate': 'Çoğalt',
   'invoiceDetail.action.edit': 'Düzenle',
@@ -73,9 +76,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Fatura geçersiz kılındı.',
   'invoiceDetail.issued': '{{date}} tarihinde düzenlendi',
   'invoiceDetail.loading': 'Fatura yükleniyor…',
+  'invoiceDetail.paidInFull': 'Ödemenin tamamı yapıldı.',
   'invoiceDetail.summary': '{{client}} · {{date}} tarihinde gönderildi',
   'invoiceDetail.tax': 'Vergi (%{{rate}})',
   'invoiceDetail.timeline': 'Zaman çizelgesi',
+  'invoiceDetail.voided': 'Geçersiz kılındı',
   'invoiceEditor.addItem': 'Öğe ekle',
   'invoiceEditor.back': '← Faturalara dön',
   'invoiceEditor.col.qty': 'Mik.',
@@ -120,6 +125,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'İlk faturanızı gönderin',
   'landing.hero.eyebrow': 'Küçük işletmeler için faturalandırma',
   'landing.hero.secondary': 'Örnek faturayı görün',
+  'landing.hero.subtitle':
+    '{{appName}} özenle hazırlanmış faturaları, yerleşik ödemeleri, yinelenen faturalandırmayı ve vergiye hazır raporları bir araya getiriyor. Muhasebe gerektirmez.',
   'landing.hero.title': 'Fatura gönderin.\nDaha hızlı ödeme alın.',
   'login.signupLink': 'Oluşturun',
   'login.submitting': 'Oturum açılıyor…',
@@ -141,6 +148,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'ödeme',
   'pricing.recurringLabel': 'yinelenen plan',
   'remitLayout.newInvoice': 'Yeni Fatura',
+  'remitLayout.openMenu': 'Gezinti menüsünü aç',
   'remitLayout.searchPlaceholder': 'Fatura, müşteri arayın...',
   'remitLayout.tagline': 'Daha hızlı ödeme alın',
   'reports.chart.aging': 'Fatura yaşlandırma',
@@ -150,6 +158,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Dönem geliri',
   'reports.chart.topClients': 'En iyi müşteriler',
   'reports.chart.topClientsCaption': 'Toplam gelir, en iyi 5',
+  'reports.empty.aging': 'Ödenmemiş fatura bulunmamaktadır.',
+  'reports.empty.methods': 'Henüz ödeme bilgisi yok.',
+  'reports.empty.revenue': 'Henüz gelir verisi yok.',
+  'reports.empty.topClients': 'Henüz müşteri gelir verileri mevcut değil.',
   'reports.exporting': 'Dışa aktarılıyor…',
   'reports.exportRequiresPaid':
     'Dışa aktarma ücretli bir özelliktir — etkinleştirmek için yükseltin.',
@@ -191,6 +203,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Vergi oranı ekle',
   'settings.tax.added': 'Vergi oranı eklendi.',
   'settings.tax.adding': 'Ekleniyor…',
+  'settings.tax.addRate': 'Oran ekle',
   'settings.tax.col.region': 'Bölge',
   'settings.tax.delete': 'Vergi oranını sil',
   'settings.tax.deleted': 'Vergi oranı kaldırıldı.',

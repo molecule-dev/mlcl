@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'אודות {{app}}',
+  'auth.legalConsent': 'בהמשך, אתה מסכים ל',
   'bookings.empty.body': 'הוסף טיסה, מלון או פעילות כדי להתחיל את תיבת הדואר הנכנס.',
   'bookings.empty.heading': 'אין עדיין הזמנות.',
   'bookings.errors.create': 'לא ניתן היה ליצור הזמנה.',
@@ -21,6 +24,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'מְאוּשָׁר',
   'bookings.summary.pending': 'ממתין לאישור',
   'bookings.summary.total': 'סך הכל מחויב',
+  'bookings.type.car': 'רכב להשכרה',
+  'bookings.type.flight': 'טִיסָה',
+  'bookings.type.hotel': 'מָלוֹן',
   'bookings.type.other': 'אחר',
   'budgetSpendCard.budgetTotal': 'שֶׁל {{total}} מְתוּכנָן',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -32,6 +38,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'זהרו התנגשויות, תכננו ימי התאוששות בין נסיעות וראו מתי משתפי פעולה נוסעים אתכם.',
   'common.and': 'ו',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.budgetHeading': 'דופק תקציבי',
   'dashboard.empty.heading': 'אין עדיין טיולים - האטלס שלך ריק.',
   'dashboard.eyebrow': 'בקרת משימה',
@@ -40,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'טיולים בתנועה',
   'dashboard.viewAllExpenses': 'צפה בכל הוצאה',
   'dashboard.viewAllTrips': 'ראה כל נסיעה',
+  'dayTimelineRow.category.accommodation': 'שָׁהוּת',
   'dayTimelineRow.category.transport': 'תַחְבּוּרָה',
   'destinationOrbCard.exploreCta': 'הוסף לטיול',
   'destinationOrbCard.tripCount': '{{count}} טיולים',
@@ -76,11 +84,15 @@ export const ui: UiTranslations = {
   'forgotPassword.successHint':
     'אין לך עדיין אימייל? בדוק את תיקיית הספאם שלך, או נסה שוב עם כתובת אחרת.',
   'forgotPassword.successSubheading': 'שלחנו קישור שחזור אל {{email}} הקישור תקף למשך 30 דקות.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'צור חשבון חינמי',
+  'landing.cta.subheading':
+    'עד חמש נסיעות, חמישה משתפי פעולה וחמש עצירות בתוכנית החינמית - כולל סנכרון בזמן אמת, ו-Pro שמוריד את המגבלות כשהתוכניות שלכם גדלות.',
   'landing.destinations.eyebrow': 'לאן הלאה',
   'landing.destinations.heading': 'יעדים שנבחרו על ידי עורך',
   'landing.features.eyebrow': 'איך עובד נקודת ציון',
   'landing.features.heading': 'נבנה עבור מטיילים, לא עבור גיליונות אלקטרוניים.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'התחל טיול חינם',
   'landing.hero.ctaSecondary': 'ראה טיול לדוגמה',
   'landing.hero.subtitle':
@@ -121,11 +133,13 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'איריס לרסן',
   'signup.subheading':
     'צור חשבון כדי לשתף טיולים עם עד 5 משתפי פעולה, לסנכרן הזמנות ולאסוף כל אישור למקום אחד.',
+  'signup.termsPrefix': 'על ידי יצירת חשבון הנך מסכים לתנאים שלנו',
   'tripCountdownHeroCard.budget': '{{used}} שֶׁל {{total}} ( {{pct}} אחוז מהתקציב)',
   'tripCountdownHeroCard.collaborators': '{{count}} מטיילים',
   'tripCountdownHeroCard.countdownLabel': 'סְפִירָה לְאָחוֹר',
   'tripCountdownHeroCard.ctaPrimary': 'פתח את המסלול',
   'tripCountdownHeroCard.ctaSecondary': 'תכננו טיול נוסף',
+  'tripCountdownHeroCard.daysLabel': 'נותרו עוד {{days}} ימים',
   'tripCoverCard.stops': '{{count}} עצירות',
   'tripCoverCard.travelers': '{{count}} מטיילים',
   'tripDetail.addActivity': 'הוסף פעילות',
@@ -192,5 +206,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'אין עדיין טיולים.',
   'trips.pastHeading': 'הרפתקאות עבר',
   'trips.subheading': '{{count}} מסלולי טיול - עבר, הווה ויום אחד.',
+  'waypointLayout.mobileNavClose': 'סגור את תפריט הניווט',
   'waypointLayout.primaryNavLabel': 'ניווט ראשי',
 }

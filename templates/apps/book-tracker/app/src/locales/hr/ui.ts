@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'Ponovno pokrenite lanac',
   'resetPassword.mismatchError': 'Lozinke se ne podudaraju.',
   'resetPassword.subheading': 'Odaberite nešto snažno. Vaše knjige će pričekati.',
-  'reviewCard.starsAria': 'Ocijenjeno<x> {{ocjena}}</x> od<x> {{od}}</x> zvijezde',
+  'reviewCard.starsAria': 'Ocjena {{rating}} od {{of}} zvjezdica',
   'reviewCard.unratedAria': 'Bez ocjene',
   'reviews.eyebrow': 'Što vam je ostalo u sjećanju',
   'reviews.heading': 'Vaše recenzije',

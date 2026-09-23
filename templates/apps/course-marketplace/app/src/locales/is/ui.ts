@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Hleður námskeið…',
   'browse.next': 'Næsta síða',
   'browse.results': 'Sýnir {{count}} námskeið',
+  'browse.searchChip': '„ {{query}} “',
   'browse.sort': 'Raða eftir',
   'browse.subtitle':
     'Síaðu ritstjórnarsafnið eftir efni, stigi og verði. Ritstjórar okkar hafa valið hvert námskeið handvirkt.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Skírteinið þitt er undirritað og tilbúið. Deildu því með heiminum eða geymdu það sem áminningu um vinnuna sem það kostaði að vinna sér inn vottunina.',
   'certificate.copyLink': 'Afrita deilitengil',
+  'certificate.copyPrompt': 'Afritaðu þennan tengil:',
   'certificate.download': 'Sækja PDF-skjal',
   'certificate.eyebrow': 'Afrek opnað',
   'certificate.linkCopied': 'Tengill afritaður!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Þú ert skráður!',
   'checkout.verifying': 'Staðfestir skráningu þína…',
   'checkout.viewLibrary': 'Skoða nám mitt',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.retry': 'Reyndu aftur',
   'courseDetail.about': 'Um þetta námskeið',
   'courseDetail.checkoutPending': 'Byrjar greiðslu…',
   'courseDetail.continueLearning': 'Haltu áfram að læra',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30 daga peningaábyrgð',
   'courseDetail.includes.video': '{{hours}} klukkustundir af myndbandi eftir þörfum',
   'courseDetail.instructor': 'Leiðbeinandi',
+  'courseDetail.languageEnglish': 'Enska',
   'courseDetail.lectures': 'Fyrirlestrar',
   'courseDetail.level': 'Stig',
   'courseDetail.loading': 'Hleður námskeið…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Engar umsagnir ennþá.',
   'instructorProfile.students': 'Nemendur',
   'landing.categories.empty': 'Flokkar birtast þegar búið er að fylla út vörulistann.',
+  'landing.categories.heading': 'Skoðaðu skjalasafnið',
   'landing.hero.eyebrow': 'Lectura · Ritstjórnarsafn meistarans',
   'landing.hero.proof': 'Treyst af nemendum hjá Google, Meta og Adobe.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Byrjaðu að læra í dag',
   'login.subheading': 'Fáðu aðgang að fræðisafni þínu.',
   'myLearning.empty.title': 'Engin námskeið passa við þessa síu ennþá',
+  'myLearning.error.title': 'Gat ekki hlaðið inn bókasafninu þínu',
   'myLearning.filter.notStarted': 'Ekki byrjað',
   'myLearning.hero.subtitle':
     '{{count}} námskeið í bókasafninu þínu. Haltu áfram að efla samfélagið.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notFound.title': 'Kennsla fannst ekki',
   'notifications.empty.body': 'Engin ný virkni til að skoða. Nýir viðburðir munu birtast hér.',
   'notifications.empty.title': 'Þið eruð öll með í ráðum',
+  'notifications.error.title': 'Gat ekki hlaðið virkni',
   'privacy.title': 'Persónuverndarstefna',
   'reset.confirmPlaceholder': 'Sláðu inn nýja lykilorðið þitt aftur',
   'reset.errorGeneric': 'Gat ekki endurstillt lykilorðið. Óska eftir nýjum tengli.',
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} fyrir dögum',
   'timeAgo.hours': '{{count}} fyrir klst.',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': 'Fyrir {{count}} mánuðum',
   'timeAgo.today': 'í dag',
+  'timeAgo.weeks': '{{count}} vikum',
 }

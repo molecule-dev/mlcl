@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Om {{app}}',
+  'auth.legalConsent': 'Genom att fortsätta godkänner du våra',
   'bookings.empty.body': 'Lägg till ett flyg, hotell eller aktivitet för att starta inkorgen.',
   'bookings.empty.heading': 'Inga bokningar än.',
   'bookings.errors.create': 'Kunde inte skapa bokning.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Bekräftad',
   'bookings.summary.pending': 'Väntar på bekräftelse',
   'bookings.summary.total': 'Totalt åtagit',
+  'bookings.type.car': 'Hyrbil',
+  'bookings.type.flight': 'Flyg',
+  'bookings.type.hotel': 'Hotell',
   'bookings.type.other': 'Andra',
   'budgetSpendCard.budgetTotal': 'av {{total}} planerat',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Upptäck konflikter, planera vilodagar mellan resor och se när medarbetare reser med dig.',
   'common.and': 'och',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.budgetHeading': 'Budgetpuls',
   'dashboard.empty.heading': 'Inga resor än — din atlas är tom.',
   'dashboard.eyebrow': 'Uppdragskontroll',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Resor i rörelse',
   'dashboard.viewAllExpenses': 'Se alla utgifter',
   'dashboard.viewAllTrips': 'Se alla resor',
+  'dayTimelineRow.category.accommodation': 'Vistelse',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Lägg till i en resa',
   'destinationOrbCard.tripCount': '{{count}} resor',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     'Inget mejl än? Kolla skräpkorgen, eller försök igen med en annan adress.',
   'forgotPassword.successSubheading':
     'Vi skickade en återställningslänk till {{email}}. Länken är giltig i 30 minuter.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Skapa gratiskonto',
+  'landing.cta.subheading':
+    'Upp till fem resor, fem samarbetspartners och fem stopp med gratisplanen – med realtidssynkronisering inkluderad och Pro som lyfter gränserna när dina planer växer.',
   'landing.destinations.eyebrow': 'Vart härnäst',
   'landing.destinations.heading': 'Redaktörsutvalda destinationer',
   'landing.features.eyebrow': 'Så fungerar Waypoint',
   'landing.features.heading': 'Byggt för resenärer, inte kalkylblad.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Starta en gratis resa',
   'landing.hero.ctaSecondary': 'Se en exempelresa',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Skapa ett konto för att dela resor med upp till 5 medarbetare, synka bokningar och dra in varje bekräftelse på ett ställe.',
+  'signup.termsPrefix': 'Genom att skapa ett konto godkänner du våra',
   'tripCountdownHeroCard.budget': '{{used}} av {{total}} ({{pct}} % av budget)',
   'tripCountdownHeroCard.collaborators': '{{count}} resenärer',
   'tripCountdownHeroCard.countdownLabel': 'Nedräkning',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Inga resor än.',
   'trips.pastHeading': 'Tidigare äventyr',
   'trips.subheading': '{{count}} resplaner — förr, nu och en dag.',
+  'waypointLayout.mobileNavClose': 'Stäng navigeringsmenyn',
   'waypointLayout.primaryNavLabel': 'Primär navigering',
 }

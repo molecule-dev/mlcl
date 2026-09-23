@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Àwa jẹ́ ẹgbẹ́ àwọn ayàwòrán àti onímọ̀ ẹ̀rọ tí wọ́n ti lo ọ̀pọ̀lọpọ̀ wákàtí ní ọjọ́ kan rí nínú àpótí ìfìwéránṣẹ́ tí ó kún fún ariwo. Courier ni àpótí ìfìwéránṣẹ́ tí a fẹ́ lò fúnra wa.',
   'about.title': 'Imeeli fun iṣẹ ti a dojukọ',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'help.cta.about': 'Nípa Courier',
   'help.cta.pricing': 'Wo idiyele',
   'help.eyebrow': 'Ile-iṣẹ iranlọwọ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Àwọn ìdáhùn kíákíá sí àwọn ìbéèrè tí a ń gbọ́ jùlọ. Ǹjẹ́ ohunkóhun tí ó sọnù? Ṣí àwọn Ètò kí o sì lo fọ́ọ̀mù ìdáhùn inú-àpù, tàbí kọ̀wé sí support@courier.example.',
   'help.title': 'Báwo la ṣe lè ran lọ́wọ́?',
   'landing.brand.scrollTop': 'Pada si oke',
+  'landing.copyright': '© {{year}} {{appName}} — A ṣe é fún àfiyèsí.',
   'landing.ctaBody':
     'Darapọ mọ ẹgbẹẹgbẹ̀rún àwọn ògbóǹtarìgì tí wọ́n parí àpótí ìforúkọsílẹ̀ wọn kí wọ́n tó jẹun ọ̀sán.',
   'landing.ctaTitle': 'Ṣíṣe iṣẹ́ síi, má ṣe dáadáá.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Wo àfihàn',
   'landing.heroSubtitle':
     'Courier jẹ́ àpótí ìforúkọsílẹ̀ onípele mẹ́ta tí a ṣe fún àwọn òṣìṣẹ́ ìmọ̀ tí wọ́n fẹ́ ṣe àgbékalẹ̀ ìwífún, kìí ṣe láti dáhùn sí i.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Àwọn ẹgbẹ́ tó gbájúmọ́ kárí ayé gbẹ́kẹ̀lé e',
   'landing.signIn': 'wọle',
   'meridian.archive.empty': 'Àkójọ ìwé ti ṣofo.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Àkọsílẹ̀',
   'meridian.folder.count': '{{count}} awọn ifiranṣẹ',
+  'meridian.folder.delete': 'Paarẹ́',
   'meridian.folder.deleteForever': 'Paarẹ́ títí láé',
   'meridian.folder.restore': 'Gbé lọ sí àpótí ìforúkọsílẹ̀',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Ko si awọn ifiranṣẹ nibi sibẹsibẹ.',
   'meridian.inbox.loading': 'N n gbe…',
   'meridian.inbox.next': 'Itele',
+  'meridian.inbox.noSender': '(kò sí olùránṣẹ́)',
   'meridian.inbox.noSubject': '(kò sí kókó ọ̀rọ̀ kankan)',
+  'meridian.inbox.ofTotal': '{{current}} ti {{total}}',
   'meridian.inbox.openCompose': 'Ṣí ìkọ̀wé',
   'meridian.inbox.previous': 'Ti tẹ́lẹ̀',
   'meridian.inbox.replyFailed': 'A ti fi ìdáhùn pamọ́ ṣùgbọ́n ìfijiṣẹ́ kùnà: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Ṣé o kò ní àkọọ́lẹ̀ kan?',
   'meridian.login.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'meridian.message.toLine': 'si {{recipients}}',
+  'meridian.notFound.body':
+    'Ojú ìwé tí o ń wá kò lè rí. Padà sí àpótí ìforúkọsílẹ̀ {{appName}} rẹ, a ó sì jẹ́ kí o mọ ọ̀nà tí o fẹ́ gbà.',
   'meridian.notFound.eyebrow': 'Àṣìṣe 404',
   'meridian.notFound.title': 'A ti fi àkójọpọ̀ ọ̀rọ̀ yìí sí àkójọpọ̀.',
   'meridian.notFound.toInbox': 'Ṣí àpótí ìforúkọsílẹ̀ mi',
@@ -133,18 +141,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Fi ìràwọ̀ kún un',
   'meridian.thread.unstar': 'Yọ ìràwọ̀ kúrò',
   'meridian.time.yesterday': 'Àná',
+  'meridian.topBar.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'meridian.topBar.searchPlaceholder': 'Ṣe àwárí àwọn ìwé-ìròyìn',
   'meridian.trash.empty': 'Idọ̀tí ti ṣofo.',
   'meridian.trash.title': 'Idọ̀tí',
   'nav.legal': 'Ofin',
   'planUpdated.description':
     'Ìforúkọsílẹ̀ rẹ ti ń ṣiṣẹ́ báyìí, a sì ti ṣe àtúnṣe sí ìsanwó rẹ. Ẹ kú àbọ̀ sí àpótí ìforúkọsílẹ̀ Courier rẹ tí a túnṣe.',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.heading': 'àwọn àkọsílẹ̀',
   'pricing.limit.emails': 'àwọn ìmeeli',
   'pricing.limit.folders': 'àwọn fódà',
   'pricing.limit.labels': 'àwọn àmì',
   'privacy.collect.account':
     'Dátà àkọọ́lẹ̀: orúkọ, àdírẹ́sì ìmeeli, ọ̀rọ̀ìpamọ́ hashed, àti ọjọ́ tí o forúkọ sílẹ̀.',
+  'privacy.contact': 'Àwọn ìbéèrè wo? Fi imeeli ranṣẹ si privacy@courier.example.',
   'privacy.intro':
     'Ètò ìpamọ́ yìí ṣàlàyé àwọn dátà tí Courier ń kó jọ, ìdí tí a fi ń kó o jọ, bí a ṣe ń pa á mọ́ ní ààbò, àti àwọn àṣàyàn tí o ní lórí rẹ̀. A fẹ́ ṣe pàtó dípò òfin; tí ohunkóhun kò bá yé wa, kọ̀wé sí privacy@courier.example.',
   'privacy.lastUpdated': 'Àtúnṣe ìkẹyìn: April 1, 2026',
@@ -164,6 +175,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Àwọn òfin wọ̀nyí ló ń darí lílo Courier rẹ. Nípa ṣíṣẹ̀dá àkọọ́lẹ̀ kan tàbí fífi ìméèlì ránṣẹ́ nípasẹ̀ wa, o gbà láti jẹ́ kí wọ́n dè ọ́. A gbìyànjú láti kọ àwọn òfin tí ẹnìkan lè tẹ̀lé ní gidi.',
   'terms.lastUpdated': 'Muṣẹ: Oṣù Kẹrin 1, 2026',
+  'terms.linkPrivacy': 'Ka Ìlànà Ìpamọ́ wa →',
   'terms.termination.body':
     'O le pa akọọlẹ rẹ rẹ́ nígbàkigbà. A le da akọọlẹ kan duro ti o ba rú awọn ofin wọnyi; ti a ba ṣe bẹẹ, a yoo ṣalaye idi rẹ ki o si jẹ ki o gbe data rẹ jade ni akọkọ.',
   'terms.warranty.body':

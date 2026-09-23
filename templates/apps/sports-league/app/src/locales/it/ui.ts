@@ -2,6 +2,10 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.eyebrow': 'Informazioni',
+  'appShell.closeNav': 'Chiudi navigazione',
+  'appShell.openNav': 'Apri navigazione',
+  'common.dashboard': 'Pannello di controllo',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.eyebrow': 'Oggi nel campionato',
   'dashboard.loading': 'Recupero dei punteggi di stasera…',
   'dashboard.scoringLeaders': 'Migliori marcatori',
@@ -146,4 +150,5 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{count}}g fa',
   'time.hoursAgo': '{{count}}h fa',
   'time.minutesAgo': '{{count}}m fa',
+  'time.secondsAgo': '{{count}} secondi fa',
 }

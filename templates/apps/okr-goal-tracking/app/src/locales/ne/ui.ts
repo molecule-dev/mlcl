@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'हाम्रो बारेमा',
+  'ascentSideNav.nav.notifications': 'सूचनाहरू',
   'ascentSideNav.newObjective': 'नयाँ उद्देश्य',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'शिखर चुम्नुहोस्। आरोहणको लक्ष्य हासिल गर्नुहोस्। टोलीलाई प्रशिक्षण दिनुहोस्।',
   'authShell.eyebrow': 'टोलीहरूलाई सार्ने OKR हरू',
@@ -20,6 +23,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'कार्यस्थान · बिलिङ',
   'billing.heading': 'योजना र बीजकहरू',
   'billing.period.year': 'Yearly',
+  'billing.perk.export': 'डेटा निर्यात + API पहुँच',
+  'billing.perk.inApp': 'इन-एप रिपोर्टिङ',
+  'billing.perk.standard': 'मानक समीक्षाहरू',
+  'billing.perk.unlimitedObjectives': 'असीमित उद्देश्यहरू',
+  'billing.perk.unlimitedRetention': 'असीमित अवधारण',
   'billing.subheading':
     'तपाईं यसमा हुनुहुन्छ {{name}} योजना। तलका तहहरू तुलना गर्नुहोस् र स्तरोन्नति गर्नुहोस्।',
   'billing.tier.unavailable': 'उपलब्ध छैन',
@@ -42,11 +50,13 @@ export const ui: UiTranslations = {
     'प्रत्येक KR को लागि हालको मान अपडेट गर्नुहोस्, आत्मविश्वास चिन्ह लगाउनुहोस्, एउटा नोट छोड्नुहोस्, र पेश गर्नुहोस्।',
   'checkIn.submit': 'चेक-इन बुझाउनुहोस्',
   'checkIn.submittedMessage': 'चेक-इन सेभ गरियो। प्रगति र समयरेखा अद्यावधिक गरियो।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': 'होइन',
   'common.relative.daysAgo': '{{count}} दिन अगाडि',
   'common.relative.hoursAgo': '{{count}} घण्टा अघि',
   'common.relative.justNow': 'भर्खरै',
   'common.relative.minutesAgo': '{{count}} मिनेट अगाडि',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'common.yes': 'हो',
   'common.you': 'तपाईं',
   'dashboard.allActivity': 'सबै गतिविधि हेर्नुहोस् →',
@@ -90,6 +100,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'हामीले रिसेट लिङ्क पठायौं {{email}} । यो एक घण्टामा समाप्त हुन्छ — इनबक्सलाई एक सेकेन्ड दिनुहोस्।',
   'forgotPassword.successHeading': 'आफ्नो इनबक्स जाँच गर्नुहोस्।',
+  'keyResult.metrics.boolean': 'हो होइन',
+  'keyResult.metrics.currency': 'मुद्रा $',
+  'keyResult.metrics.number': 'नम्बर',
+  'keyResult.metrics.percent': '% प्रतिशत',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'आफ्नो पहिलो उद्देश्य सेट गर्नुहोस्, तीन जना टोली साथीहरूलाई आमन्त्रित गर्नुहोस्, र शुक्रबार सम्ममा आफ्नो पहिलो साप्ताहिक चेक-इन गर्नुहोस्।',
@@ -101,6 +115,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'टोलीहरू कसरी चढ्छन्',
   'landing.featuresTitle': 'स्प्रेडसिट फैलावट बिना कोचिंग-ग्रेड OKRs।',
   'landing.footerBuiltOn': 'Molecule.dev मा निर्मित',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'एसेन्टले प्रत्येक टोलीलाई पहाड माथिको मापनयोग्य बाटो दिन्छ — उद्देश्यहरू सेट गर्नुहोस्, साप्ताहिक रूपमा प्रमुख परिणामहरू प्राप्त गर्नुहोस्, र प्रत्येक त्रैमासिकमा आरोहणको समीक्षा गर्नुहोस्।',
   'landing.heroProgressLabel': 'कम्पनीको दोस्रो त्रैमासिक योजना',
@@ -110,6 +125,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'वा जारी राख्नुहोस्',
   'login.subheading':
     'तपाईंले छोड्नुभएको ठाउँबाट सुरु गर्नुहोस् — तपाईंको चेक-इन, KR र समीक्षाहरू पर्खिरहेका छन्।',
+  'mobileNav.closeMenu': 'नेभिगेसन मेनु बन्द गर्नुहोस्',
+  'mobileNav.mainNavigation': 'मुख्य नेभिगेसन',
+  'mobileNav.openMenu': 'नेभिगेसन मेनु खोल्नुहोस्',
   'newObjective.addKr': 'KR थप्नुहोस्',
   'newObjective.coachLabel': 'प्रशिक्षक रिमाइन्डरहरू',
   'newObjective.descriptionPlaceholder': 'रणनीतिक सन्दर्भलाई २-३ वाक्यमा व्याख्या गर्नुहोस्।',
@@ -134,6 +152,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'गतिविधि केन्द्र',
   'notifications.markRead': '● पढिएको रूपमा चिन्ह लगाउनुहोस्',
   'objective.scopes.company': 'कम्पनी',
+  'objective.scopes.individual': 'व्यक्तिगत',
   'objective.scopes.team': 'टोली',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'उद्देश्यहरूमा फर्कनुहोस्',
@@ -156,12 +175,18 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'ट्र्याकिङ {{count}} उद्देश्यहरू। ध्यान दिनुपर्ने कुरा पत्ता लगाउन स्थिति अनुसार फिल्टर गर्नुहोस्।',
   'profile.achievementCheckInsMany': '{{count}} चेक-इनहरू लग गरियो',
+  'profile.achievementCheckInsOne': '१ चेक-इन लग गरियो',
+  'profile.achievementCompletedMany': 'पूरा भएका {{count}} उद्देश्यहरू',
+  'profile.achievementCompletedOne': '१ उद्देश्य पूरा भयो',
+  'profile.achievementOnTrackMany': '{{count}} उद्देश्यहरू ट्रयाकमा छन्',
+  'profile.achievementOnTrackOne': '१ उद्देश्य ट्रयाकमा छ',
   'profile.activeHeading': 'सक्रिय उद्देश्यहरू',
   'profile.allObjectives': 'सबै उद्देश्यहरू →',
   'profile.empty':
     'अहिलेसम्म कुनै सक्रिय उद्देश्यहरू छैनन् — सुरु गर्न आफ्नो पहिलो उद्देश्य सिर्जना गर्नुहोस्।',
   'profile.eyebrow': 'आरोही प्रोफाइल',
   'profile.guestName': 'आरोही',
+  'profile.loadError': 'तपाईंका उद्देश्यहरू लोड गर्न सकिएन।',
   'profile.loading': 'उद्देश्यहरू लोड गर्दै...',
   'profile.noAchievements': 'आफ्नो पहिलो उपलब्धि अनलक गर्न चेक-इन पूरा गर्नुहोस्।',
   'profile.statCheckIns': 'चेक-इनहरू',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
   'applications.empty':
     'Դիմումներ դեռ չկան \\u2014 Ճիշտ պաշտոնը գտնելու համար դիմեք մեկ դիմումի միջոցով։',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Յուրաքանչյուր դեր, որին դուք դիմել եք, շարժման մեջ է: Ֆիլտրեք ըստ փուլի՝ կենտրոնանալու համար:',
   'applications.untitledRole': 'Դեր # {{id}}',
+  'auth.legalConsent': 'Շարունակելով՝ դուք համաձայնում եք մեր',
   'common.and': 'և',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'companies.empty': 'Ձեր որոնմանը համապատասխանող ընկերություններ չկան։ Փորձեք այլ տերմին։',
   'companies.eyebrow': 'Առաջարկվող գործատուներ',
   'companies.searchPlaceholder': 'Որոնել ըստ անվանման, արդյունաբերության, գտնվելու վայրի',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Այս պաշտոնի համար դեռևս հայտեր չկան։',
   'jobApplicants.eyebrow': 'Գործատուի տեսակետը',
   'jobApplicants.loading': 'Բեռնվում է\\u2026',
+  'jobApplicants.statusUpdateFailed': 'Այդ փուլը չհաջողվեց թարմացնել՝ կրկին փորձեք։',
+  'jobApplicants.subheading':
+    'Վերանայել ռեզյումեները, առաջ մղել թեկնածուներին, ուղարկել առաջարկներ \\u2014 {{count}} գործողության մեջ է։',
   'jobDetail.applicantCount': '{{count}} դիմորդները մինչ այժմ',
   'jobDetail.applied': 'Դիմումն ուղարկվել է',
   'jobDetail.apply': 'Դիմել հիմա',
@@ -84,12 +90,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Դիտել բաց դերերը \\u2192',
   'landing.pricingEyebrow': 'Գնագոյացում',
   'landing.pricingHeading': 'Պարզ պլաններ յուրաքանչյուր չափի թիմի համար։',
+  'login.eyebrow': 'Բարի վերադարձ {{app}}',
   'login.heading': 'Մուտք գործեք ձեր հաշիվ',
   'login.noAccount': 'Նորեկ եք Նոշում՞',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'Հիշել ինձ 30 օր',
   'login.signingIn': 'Մուտք գործելը…',
   'login.subheading': 'Շարունակեք որոնումը, առաջխաղացրեք դիմումները, ավելի արագ պատասխան ստացեք։',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} ։ Ստեղծված է վարձող թիմերի համար։',
   'loginBrandPanel.headline': 'Որտեղ տաղանդը հանդիպում է',
   'loginBrandPanel.headlineLine2': 'իմպուլս',
   'loginBrandPanel.listing.recruiter': 'Տաղանդավոր գործընկեր',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
     'Դիմումների թարմացումներ, հարցազրույցի հրավերներ, նոր համընկնումներ և նորագույնները՝ առաջինը։',
   'opportunitiesHero.delta': '{{sign}} {{amount}} այս շաբաթ',
   'opportunitiesHero.eyebrow': 'Բաց է այսօր',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'postJob.addNewCompany': '+ Ավելացնել նոր ընկերություն',
   'postJob.companyCreateFailed': 'Չհաջողվեց ստեղծել ընկերությունը՝ փորձեք կրկին։',
   'postJob.companyNameLabel': 'Ձեր ընկերության անվանումը',
@@ -166,10 +175,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Հաշիվ է ստեղծվում…',
   'signup.ctaEmployer': 'Ստեղծեք գործատուի հաշիվ',
   'signup.firstNamePlaceholder': 'Մայա',
+  'signup.lastNamePlaceholder': 'Չեն',
   'signup.passwordMismatch': 'Գաղտնաբառերը չեն համընկնում։',
   'signup.subheading':
     'Անվճար է որոնողների համար, ընդմիշտ։ Աշխատանքատուները սկսում են 30-օրյա փորձաշրջանից։',
   'timeAgo.days': '{{count}} օր առաջ',
   'timeAgo.hours': '{{count}} ժամ առաջ',
   'timeAgo.justNow': 'հենց հիմա',
+  'timeAgo.weeks': '{{count}} շաբաթ առաջ',
 }

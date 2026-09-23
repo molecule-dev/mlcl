@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.eyebrow': '{{app}} haqida',
+  'about.intro':
+    '{{app}} – bu haqiqiy hayot uchun moʻljallangan meditatsiya ilovasi — oʻzini murabbiy emas, balki doʻstdek his qiladigan oʻqituvchilar tomonidan boshqariladigan kundalik meditatsiyalar, nafas mashqlari va uyqu hikoyalari. Hech qanday ketma-ket aybdorlik hissi, shovqinli eshittirish yoʻq: shunchaki nafasingizni qayta tiklash uchun tinch joy.',
+  'about.missionBody':
+    "Biz kunning istalgan vaqtida sukunat hamma uchun ochiq bo'lishi kerakligiga ishonamiz. {{app}} xotirjam va izchil mashqni oson his qilish uchun mavjud — shunda o'n daqiqa sizning keyingi o'n soatga qanday yondashishingizni o'zgartirishi mumkin.",
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.pageTitle': 'Kuniga 10 daqiqa tinchroq',
+  'breathingDial.seconds': 'soniya',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.logout': 'Chiqish',
   'common.min': 'daqiqa',
   'common.relative.justNow': 'hozirgina',
   'common.relative.now': 'hozir',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
+  'nav.secondaryNavigation': 'Hisob navigatsiyasi',
   'sessionCard.with': 'bilan {{name}}',
   'stillpoint.billing.choose': 'Tanlang {{plan}}',
   'stillpoint.billing.currentPlan': 'Hozirda yoqilgan {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Rejalarni yuklay olmadik.',
   'stillpoint.billing.opening': 'Kassa ochilmoqda…',
   'stillpoint.billing.perMonthShort': '/ oy',
+  'stillpoint.billing.perYearShort': '/yil',
   'stillpoint.billing.unknownResult': "Kutilmagan to'lov javobi.",
   'stillpoint.billing.yearly': 'Yillik · 17% tejang',
   'stillpoint.courseDetail.back': 'Kurslar',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': "Hali kurslar yo'q.",
   'stillpoint.courses.eyebrow': "{{count}} ko'p kunlik sayohatlar",
   'stillpoint.courses.heading': 'Kurslar',
+  'stillpoint.forgot.checkEmail':
+    "Pochta qutingizni tekshiring — havola 30 daqiqadan so'ng tugaydi.",
   'stillpoint.forgot.success': 'Biz qayta tiklash havolasini yubordik {{email}} .',
   'stillpoint.home.empty': "Hali mashg'ulotlar yo'q — tez orada qayta tekshirib ko'ring.",
   'stillpoint.home.friend': "do'st",
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Bepul hisobingizni yarating',
   'stillpoint.landing.cta.title': 'Bugun tinchlanishni boshlang',
   'stillpoint.landing.features.heading': "Siz bilan birga o'sib boradigan amaliyot",
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     "Kundalik meditatsiyalar, nafas mashqlari va uyqu hikoyalari — o'zini murabbiy emas, balki do'stdek his qiladigan o'qituvchilar tomonidan sur'atda.",
   'stillpoint.landing.hero.eyebrow': 'Kuniga 10 daqiqa tinchroq',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': "Kayfiyat bo'yicha ko'rib chiqish",
   'stillpoint.login.rememberMe': 'Meni tizimga kirgan holda qoldirish',
   'stillpoint.login.subheading': "Mashg'ulotingizni davom ettirish uchun tizimga kiring.",
+  'stillpoint.nav.tagline': 'Harakatsiz markazingizni toping',
+  'stillpoint.notFound.body':
+    'Bu sahifa qayerdadir uzoq va chuqur nafas olmoqda. Keling {{app}} ichida siz uchun tinchroq joy topaylik.',
   'stillpoint.notFound.title': 'Sukunatda adashib qoldim',
   'stillpoint.notFound.toHome': 'Bugungi kunga qaytish',
   'stillpoint.notFound.toLibrary': "Kutubxonani ko'rib chiqish",
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': "15 soniya orqaga o'tkazib yuboring",
   'stillpoint.player.skipForward': "30 soniya oldinga o'tish",
   'stillpoint.player.with': 'bilan {{name}}',
+  'stillpoint.profile.defaultHandle': "harakatsiz ko'rsatkich",
   'stillpoint.profile.eyebrow': 'Sizning amaliyotingiz umumlashtirildi.',
   'stillpoint.profile.locked': 'Qulflangan',
   'stillpoint.profile.member': "Stillpoint a'zosi",

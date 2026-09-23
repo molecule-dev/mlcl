@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Đặt lịch hẹn',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Không có bệnh nhân để hiển thị.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'consult.backLink': 'Tất cả lịch hẹn',
   'consult.captions': 'Phụ đề',
   'consult.connected': 'Đã kết nối · 720p · ổn định',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Bệnh nhân',
   'patientVitalsHero.scripts': 'Rx đang mở',
   'patientVitalsHero.subline': '{{count}} buổi tư vấn trong lịch của quý vị hôm nay',
+  'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'prescriptions.empty': 'Không có đơn thuốc nào khớp.',
   'prescriptions.eyebrow': 'Kê đơn điện tử',
   'prescriptions.heading': 'Đơn thuốc',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Thông báo quyền riêng tư',
   'privacy.use.body':
     'Để cung cấp dịch vụ chăm sóc, gửi nhắc nhở lịch hẹn, định tuyến đơn thuốc và cải thiện độ tin cậy của dịch vụ. Chúng tôi không bao giờ bán dữ liệu của quý vị và không bao giờ chia sẻ thông tin lâm sàng với nhà quảng cáo.',
+  'providers.allSpecialties': 'Tất cả các chuyên khoa',
+  'providers.loadError': 'Không thể tải các nhà cung cấp.',
+  'providers.loading': 'Đang tải…',
   'providers.noResults': 'Không tìm thấy bác sĩ nào.',
   'providers.searchPlaceholder': 'Tìm theo tên, chuyên khoa...',
   'providers.title': 'Tìm bác sĩ',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Bắt đầu ngày',
   'settings.availability.heading': 'Khả dụng',
   'settings.devices.thisDevice': 'Thiết bị này',
+  'settings.devices.unnamed': 'Thiết bị không tên',
   'settings.eyebrow': 'Phòng khám và tài khoản',
   'settings.loadError': 'Không thể tải hồ sơ của quý vị.',
   'settings.notifications.emailMessages': 'Gửi email cho tôi khi đội ngũ chăm sóc trả lời',
@@ -176,6 +182,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Vô hiệu hóa',
   'settings.security.twoFactor.enable': 'Kích hoạt',
   'settings.security.twoFactor.heading': 'Xác thực hai yếu tố',
+  'settings.security.twoFactor.invalidCode': 'Mã đó không khớp. Hãy thử lại.',
+  'settings.security.twoFactor.setupFailed':
+    'Không thể bắt đầu thiết lập xác thực hai yếu tố. Vui lòng thử lại.',
+  'settings.security.twoFactor.statusOn': 'Xác thực hai yếu tố đang bật',
   'settings.signOutDevice': 'Đăng xuất',
   'settings.subheading': 'Hồ sơ bác sĩ, quy tắc phòng khám và cảnh báo lâm sàng.',
   'signup.emailLabel': 'EMAIL',
@@ -186,6 +196,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Tạo tài khoản',
   'signupFooter.hipaa': 'Tuân thủ HIPAA',
   'solaceLayout.primaryNavLabel': 'Điều hướng chính',
+  'solaceLayout.toggleMenu': 'Chuyển menu',
   'terms.eligibility.body':
     'Quý vị phải từ mười tám tuổi trở lên, hoặc là cha mẹ hay người giám hộ hợp pháp của trẻ vị thành niên mà quý vị đang tìm dịch vụ chăm sóc, và có mặt thực tế tại một tiểu bang Hoa Kỳ nơi các bác sĩ của chúng tôi được cấp phép.',
   'terms.payment.body':

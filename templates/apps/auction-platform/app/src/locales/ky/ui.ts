@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Көрүү',
   'auctionDetail.watchRemoved': 'Көрүү тизмесинен алынып салынды.',
   'auctionDetail.watchRemoveLabel': 'Көрүү тизмесинен алып салуу',
+  'auctionPlatformLayout.primaryNavLabel': 'Негизги навигация',
   'authShell.brandBody':
     'Сейрек кездешүүчү сааттарга, көркөм өнөр чыгармаларына жана уникалдуу атайын буюмдарга реалдуу убакыт режиминде коюмдарды коюңуз. Балка бир нече секунданын ичинде кулайт.',
   'authShell.brandEyebrow': 'Азыр түз эфирде · 1420 аукцион',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Иреттөө боюнча',
   'browseAuctions.subheading':
     'Категория боюнча чыпкалаңыз, эң маанилүүлөрү боюнча иреттеңиз жана балка түшкөнгө чейин коюмду коюңуз.',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'countdownTimer.ended': 'Аяктады',
   'countdownTimer.endingSoon': 'Аяктоо',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Сырсөздү жашыруу',
   'login.showPassword': 'Сырсөздү көрсөтүү',
   'login.subtext': 'Балка кулап түшө электе аукциондоруңузду көзөмөлдөп, коюмдарды коюңуз.',
+  'mobileNav.closeMenu': 'Навигация менюсун жабуу',
+  'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'myBids.bidAgain': 'Кайрадан сунуштоо',
   'myBids.browseCta': 'Түз аукциондорду карап чыгуу →',
   'myBids.checkoutCta': 'Азыр төлөө',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Иш-аракеттер борбору',
   'notificationsPage.subheading':
     '{{count}} окула элек · аукциондор өткөн сайын түз эфирдеги жаңыртуулар',
+  'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.bidsLabel': 'коюмдар',
   'pricing.listingsLabel': 'тизмелер',
   'pricing.watchlistLabel': 'байкоо тизмеси',

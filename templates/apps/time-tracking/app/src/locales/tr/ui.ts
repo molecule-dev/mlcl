@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} hakkında',
   'about.plansTitle': 'Sizinle büyüyen planlar',
   'brand.tagline': 'Her saniye',
   'clientDetail.back': 'Müşterilere dön',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Tüm ilişkileriniz tek yerde — projeler, saatler, bekleyen faturalar.',
   'clients.title': 'Müşteriler',
   'common.and': 've',
+  'common.goToDashboard': 'Panele Git',
   'dashboard.activeProjects': 'Aktif projeler',
   'dashboard.empty': 'Henüz kayıt yok. İlk oturumunuzu takip etmek için zamanlayıcıyı başlatın.',
   'dashboard.greeting': 'İyi günler, {{name}}',
@@ -83,6 +85,7 @@ export const ui: UiTranslations = {
     'Bu müşteri için faturalandırılacak faturalandırılabilir saat yok. Önce biraz zaman takip edin veya mevcut kayıtları bu müşterinin projelerinden birine atayın.',
   'invoices.save': 'Fatura oluştur',
   'invoices.subtitle': 'İzlenen saatler otomatik olarak faturalara dönüşür.',
+  'landing.copyright': '© {{year}} {{app}} . Her saniye kayıt altına alındı.',
   'landing.ctaBody': '3 projeye kadar ücretsiz. Müşteri listeniz büyüdüğünde yükseltin.',
   'landing.eyebrow': 'Faturalandırılabilir iş için zaman takibi',
   'landing.featuresBody':
@@ -97,13 +100,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Bağımsızların güvendiği',
   'landing.testimonial.quote':
     "“Toggl'dan 30 dakikada çıktım. Sadece bütçe burn-down kendini geri ödedi — üst üste iki hafta düşük teklif vermeyi bıraktım.”",
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Her saniye hesaba katıldı.',
   'login.brand.subtitle':
     'Zamanlayıcıyı bıraktığınız yerden alın — her dakika zaten bir projeye, bir müşteriye, bir faturaya eşlenmiş.',
   'login.brand.tracking': 'Takip',
   'login.subheading': 'Zamanlayıcıyı bıraktığınız yerden alın.',
+  'nav.closeMenu': 'Gezinme menüsünü kapat',
   'nav.insightsSection': 'İçgörüler',
   'nav.newEntry': 'Yeni kayıt',
+  'nav.openMenu': 'Gezinti menüsünü aç',
+  'nav.primary': 'Birincil gezinme',
   'nav.workSection': 'İş',
   'notFound.body':
     'Takip ettiğiniz bağlantı takibi durdurmuş gibi görünüyor. Panonuza dönün — oradan saymaya devam edeceğiz.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Faturalandırılabilir',
   'timer.descriptionPlaceholder': 'Ne üzerinde çalışıyorsunuz?',
   'timer.idle': 'Boşta — takibe başlayın',
+  'timer.noProject': 'Proje yok',
   'timer.runningWithProject': 'Proje yok',
   'timer.start': 'Zamanlayıcıyı başlat',
   'timer.stop': 'Zamanlayıcıyı durdur',

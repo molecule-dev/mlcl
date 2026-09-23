@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.title': 'لکھنے کا کمرہ جو آپ اپنی جیب میں رکھ سکتے ہیں۔',
   'billing.cancelConfirm': 'اپنی فعال رکنیت منسوخ کریں؟',
   'billing.cancelFailed': 'منسوخ نہیں ہو سکا۔',
   'billing.checkingOut': 'چیک آؤٹ کھول رہا ہے…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'بلنگ لوڈ نہیں ہو سکی۔',
   'billing.loading': 'بلنگ لوڈ ہو رہی ہے…',
   'billing.upgradeCta': 'میں اپ گریڈ کریں۔ {{name}}',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'editor.autosaveOn': 'آٹو سیو آن',
   'editor.backToLibrary': 'لائبریری پر واپس جائیں۔',
   'editor.charCount': '{{count}} حروف',
   'editor.confirmTrash': 'اس دستاویز کو کوڑے دان میں منتقل کریں؟',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'پن ہٹا دیا گیا۔',
   'editor.unpublishCta': 'ڈرافٹ میں منتقل کریں۔',
   'editor.unpublished': 'ڈرافٹ میں واپس کر دیا گیا۔',
+  'focus.autosaveOn': 'آٹو سیو آن',
   'focus.backToLibrary': 'لائبریری پر واپس جائیں۔',
   'focus.bodyPlaceholder': 'ایک وقت میں ایک لائن۔ یہاں کوئی اور نہیں ہے۔',
   'focus.exit': 'فوکس موڈ سے باہر نکلیں۔',
@@ -80,6 +85,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'ایک بنائیں',
   'login.subline':
     'آپ کے مخطوطات، روزانہ کے صفحات، اور آخری کرسر کی پوزیشن وہیں ہے جہاں آپ نے انہیں چھوڑا تھا۔',
+  'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
+  'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'pricing.exports': 'برآمدات',
   'pricing.folders': 'فولڈرز',
   'pricing.heading': 'دستاویزات',
@@ -91,6 +98,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'وہ کوڈ درج کریں جو ہم نے ابھی آپ کو ای میل کیا ہے اور کوئی یادگار چیز چنیں۔ اس کے محفوظ ہونے کے بعد ہم آپ کو سائن ان کریں گے۔',
   'reset.tokenHint': 'آپ کے ان باکس سے پیسٹ کیا گیا۔',
+  'settings.appearance.heading': 'ہلکا یا اندھیرا',
   'settings.editor.${row.id}.description': 'زبان',
   'settings.editor.description':
     'ٹائپ رائٹر اسکرول، پیراگراف فیڈ، اور آئیڈل فوکس — ڈیفالٹس کو طویل سیشنز کے لیے ٹیون کیا جاتا ہے۔',
@@ -137,6 +145,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'باب تین - طلوع آفتاب سے پہلے ایک پرسکون گھنٹہ',
   'versalDocumentCard.pinned': 'پن لگا ہوا',
   'versalLayout.nav.stats': 'اعدادوشمار',
+  'versalLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'versalManuscriptHero.cta': 'لکھنا جاری رکھیں',
   'versalManuscriptHero.goalLabel': 'آج کا لفظ گول',
   'versalManuscriptHero.inProgress': 'ٹریک پر',

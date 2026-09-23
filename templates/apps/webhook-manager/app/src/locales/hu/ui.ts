@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// a {{app}}',
+  'about.pageTitle': 'A webhook vezérlősíkja',
+  'about.plansTitle': 'Tervek minden szakaszra',
   'apiKeys.bestPractices': 'Bevált gyakorlatok',
   'apiKeys.body':
     'Programozott hozzáférési tokenek. Kezeld őket jelszavakként — tárold őket env vars-ban, soha ne commitold.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'terv szerint',
   'billing.usageWarning': 'sapka közelében',
   'billing.yearly': 'Éves',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.body':
     'Élő átviteli sebesség, működő újrapróbálkozások és a megakadt végpontok – minden egyes munkaterületen, amelyet üzemeltetsz.',
   'dashboard.endpointsEmpty': 'Még nincsenek végpontok.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'végpontok',
   'endpointDetail.deliveryTrendSub': 'szállítások / óra, naplóskálán',
   'endpointDetail.hideSecret': 'Titkos információ elrejtése',
+  'endpointDetail.loading': 'Végpont betöltése…',
   'endpointDetail.metric.delivered': '24 órán belül kézbesítve',
   'endpointDetail.metric.deliveredCaption': '-tól {{count}} eseménytípusok',
   'endpointDetail.metric.failuresCaption': 'újrapróbálkozások: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritikus · 24 óra',
   'notifications.metric.totalCaption': 'minden idők beérkező levelei',
   'payloadViewer.payload': '// hasznos teher',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint':
     'A kezdőbetűk láthatók – a következő kiadással együtt feltöltendő tartalmak.',
@@ -230,6 +236,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Csak a jelenlegi munkameneted aktív. Más eszközön nem vagy bejelentkezve.',
   'profile.toggle': 'Váltás {{label}}',
+  'pylonShell.closeMenu': 'A navigációs menü bezárása',
+  'pylonShell.openMenu': 'Navigációs menü megnyitása',
   'pylonShell.primaryNavLabel': 'Elsődleges navigáció',
   'resetPassword.subtitle': 'Válasszon egy erős jelszót, amelyet még nem használt.',
   'resetPassword.tokenPlaceholder': 'illessze be az e-mailből',

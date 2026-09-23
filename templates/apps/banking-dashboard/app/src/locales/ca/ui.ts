@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'accountDetail.activeBadge': 'Actiu',
   'accountDetail.availableLabel': '{{amount}} disponible',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': "No s'han pogut carregar els comptes.",
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Congelat',
   'accounts.totalBalance': '{{quantitat}} total',
   'audit.empty': 'Encara no hi ha esdeveniments.',
   'audit.eyebrow': 'Seguretat i accés',
@@ -26,6 +28,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Efectiu en mà',
   'cashCreditCard.creditLabel': 'Crèdit utilitzat',
   'cashCreditCard.title': 'Efectiu i crèdit',
+  'common.goToDashboard': 'Anar al panell',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Visió general',
   'dashboard.recentEmpty': 'Encara no hi ha transaccions.',
@@ -45,10 +48,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostra la contrasenya',
   'login.signUp': "Registra't",
   'login.submit': 'Inicia la sessió',
+  'meridianLayout.menu': 'Menú',
   'meridianLayout.primaryNavLabel': 'Navegació principal',
   'nav.legal': 'Legal',
   'notifications.emptyHeading': 'Estàs tot al dia',
   'notifications.subheading': 'Alertes en temps real per a transaccions, seguretat i extractes.',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'privacy.dataWeShare':
     'Les dades bancàries personals no es venen mai. Compartim informació amb processadors de pagaments, xarxes de targetes i reguladors només quan sigui necessari per liquidar transaccions o complir obligacions legals.',
   'privacy.dataWeStore':
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     "El sistema de dos factors afegeix un codi d'un sol ús d'una aplicació d'autenticació a cada inici de sessió.",
   'settings.security.twoFactorCta': "Gestiona l'autenticació de dos factors",
+  'settings.security.twoFactorOff': 'El factor de dos està desactivat',
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.subheading': 'Perfil, seguretat i notificacions.',
+  'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.twoFactorVerify': 'Verifica i activa',
   'signup.emailLabel': 'Adreça electrònica',
   'signup.fullName': "Com ens hem d'adreçar a tu?",
   'signup.showPassword': 'Mostra la contrasenya',
@@ -105,7 +114,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Encara no hi ha transaccions.',
   'transactions.endDate': 'Data de finalització',
   'transactions.eyebrow': 'Activitat',
+  'transactions.loadError': "No s'han pogut carregar les transaccions.",
   'transactions.merchant': 'comerciant',
+  'transactions.subheading': 'Totes les transaccions registrades i pendents als vostres comptes.',
   'transfers.availableHint': '{{amount}} disponible',
   'transfers.errorGeneric': "No s'ha pogut enviar la transferència.",
   'transfers.errorMissingFields': "Trieu un compte d'origen i una destinació.",

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} hakkında',
   'analytics.back': 'Anket genel bakışı',
   'analytics.kpiNps': 'NPS puanı',
   'analytics.kpiNpsTrend': 'Tavsiye edenler %{{p}} · Eleştirenler %{{d}}',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Özellikler',
   'builder.questionNumber': 'S{{num}}',
   'builder.surveyTitle': 'Anket başlığı',
+  'common.goToDashboard': 'Panele Git',
   'forgotPassword.failed': 'Sıfırlama e-postası gönderilemedi. Lütfen tekrar deneyin.',
   'forgotPassword.subheading': 'E-postanızı girin, size bir kurtarma bağlantısı gönderelim.',
   'forgotPassword.successBody':
     '{{email}} ile eşleşen bir hesap varsa, sıfırlama bağlantısı yola çıktı. Gelen kutunuzu ve spam klasörünüzü kontrol edin.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Tüm sesler memnuniyetle karşılanır.',
   'landing.footer.startTrial': 'Denemeyi başlat',
   'landing.hero.badge': 'Anketler, NPS ve geri bildirim tek bir yerde',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Fiyatlandırma',
   'landing.pricing.perMonth': '/ay',
   'landing.pricing.popular': 'En popüler',
+  'landing.pricing.subtitle':
+    'Her plan anket oluşturucu, herkese açık paylaşım bağlantıları ve NPS analizlerini içerir. Başlamak için kredi kartı gerekmez.',
+  'landing.pricing.title': 'Ücretsiz başlayın, büyüdükçe ölçeklendirin.',
   'landing.sample.eyebrow': 'Bir bakışta NPS',
   'landing.sample.title': 'Eleştirenler, pasifler, tavsiye edenler — anında okunabilir.',
   'login.failed': 'Oturum açma başarısız. Lütfen tekrar deneyin.',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Şifreyi göster',
   'login.signUpLink': 'Ücretsiz deneme başlatın',
   'login.subheading': 'Kitlenizi dinlemeye devam etmek için oturum açın.',
+  'notFound.body':
+    'Aradığınız sayfa {{app}} üzerinde mevcut değil. Sizi anketlerinize geri döndürelim.',
   'notFound.cta': 'Anketlere geri dön',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Bu anket kuyruktan kaymış.',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasif 7–8',
   'npsDistributionBar.promoter': 'Tavsiye eden 9–10',
   'profile.identity.description': 'Ekibinize ve yazdığınız anketlerde herkese açıktır.',
+  'profile.identity.emailRequired': 'Bir e-posta adresi girin.',
   'profile.identity.saveCta': 'Adı kaydet',
   'profile.password.current': 'Mevcut şifre',
   'profile.password.fillFields': 'Hem mevcut hem de yeni şifreyi girin.',
@@ -175,6 +184,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} soru',
   'templates.subheading':
     'Denenmiş bir başlangıç seçin — her şablon mantıklı varsayılanlar, örnek mantık ve temiz bir mobil düzenle önceden ayarlanmış olarak gelir.',
+  'thankYou.body':
+    'Yanıtınız kaydedildi. {{app}} bunu bir sonraki analiz güncellemesinde dahil edecek.',
   'thankYou.eyebrow': 'Yanıt alındı',
   'thankYou.heading': 'Teşekkürler — sesiniz önemli.',
   'thankYou.home': "Gauge'u ziyaret edin",

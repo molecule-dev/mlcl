@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.pageTitle': 'អំពី {{appName}}',
   'analytics.error': 'មិនអាចផ្ទុកការវិភាគបានទេ។',
   'analytics.heading': 'ការវិភាគទាញយក',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'គ្មានកម្រិតតម្លៃត្រូវបានកំណត់រចនាសម្ព័ន្ធទេ។',
   'billing.plans.heading': 'ផែនការ',
   'billing.subheading': 'ផែនការ ការប្រើប្រាស់ និងការទូទាត់ដែលគ្រប់គ្រងដោយ Stripe។',
+  'common.confirm': 'បញ្ជាក់',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'documentCard.open': 'បើក \\u2192',
   'documentDetail.back': 'ត្រឡប់ទៅឯកសារវិញ',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'ឯកសារ​លិបិក្រម',
   'documents.composer.titlePlaceholder': 'ចំណងជើងឯកសារ',
   'documents.emptyAll': 'មិនទាន់មានឯកសារនៅឡើយទេ។ សូមផ្ទុកឡើងឯកសារមួយដើម្បីចាប់ផ្តើមសួរសំណួរ។',
+  'documents.error.load': 'មិនអាចផ្ទុកឯកសារបានទេ។',
   'documents.heading': 'ឯកសារដែលបានធ្វើលិបិក្រម',
   'documents.loading': 'កំពុងផ្ទុកឯកសារ…',
   'documents.metric.chunks': 'ដុំសរុប',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'កំពុង​ដកចេញ...',
   'members.subheading': 'អញ្ជើញមិត្តរួមក្រុម និងកំណត់តួនាទី។',
   'members.tableHeading': 'បញ្ជីឈ្មោះ',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'notFound.askCta': 'សួរមូលដ្ឋានចំណេះដឹង',
+  'notFound.body':
+    '{{app}} មិនអាចកំណត់ទីតាំងទំព័រនោះបានទេ។ តំណភ្ជាប់អាចខូច ឬទំព័រអាចនឹងត្រូវបានលុបចោលក្នុងអំឡុងពេលធ្វើលិបិក្រមឡើងវិញ។',
   'notFound.eyebrow': 'មិនអាចទាញយកបានទេ',
   'notFound.title': 'គ្មាន​ដុំ​បែបនេះ​នៅក្នុង​លិបិក្រម​ទេ',
   'notifications.dismiss': 'បដិសេធ',
@@ -200,6 +209,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'អាសយដ្ឋាន​ប្រភព',
   'sources.empty.body': 'ចុច \\u201cបន្ថែមប្រភព\\u201d ដើម្បីភ្ជាប់ឧបករណ៍ភ្ជាប់ដំបូងរបស់អ្នក។',
   'sources.empty.title': 'មិនទាន់មានប្រភពនៅឡើយទេ។',
+  'sources.error.add': 'មិនអាចបន្ថែមប្រភពបានទេ។',
   'sources.error.labelRequired': 'តម្រូវ​ឲ្យ​មាន​ស្លាក។',
   'sources.error.load': 'មិនអាចផ្ទុកប្រភពបានទេ។',
   'sources.error.urlRequired': 'តម្រូវ​ឱ្យ​មាន URL សម្រាប់​ប្រភេទ​ប្រភព​នេះ។',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
   'analytics.col.quorum': 'Quórum',
   'analytics.col.votes': 'Votos',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Nenhuma pergunta pendente ainda.',
   'audienceQa.onStageEyebrow': 'Agora no palco',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Promover',
   'audienceQa.queued': 'na fila',
   'audienceQa.queueEyebrow': 'Fila',
   'ballot.eyebrow': 'Registre seu voto',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Você está atualmente no plano {{plan}}.',
   'billing.switch': 'Trocar',
   'billing.upgraded': 'Atualizado para {{plan}} — limites aplicados imediatamente.',
+  'common.goToDashboard': 'Ir para o Painel',
   'createPoll.addOption': 'Adicionar opção',
   'createPoll.anonymousHint':
     'Nomes ocultos no log de auditoria; as contagens permanecem autenticadas.',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Novo no Nosh?',
   'login.remember': 'Lembrar de mim por 30 dias',
   'login.subheading': 'Abra a palavra, conduza a sala e certifique o resultado.',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'notFound.body':
     'A página que você tentou acessar foi fechada ou movida. Volte ao painel ou abra uma nova enquete.',
   'notFound.eyebrow': 'Sem quórum nesta rota',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Não foi possível carregar esta enquete.',
   'pollDetail.loading': 'Carregando enquete…',
   'pollDetail.notFound': 'Enquete não encontrada.',
+  'pollDetail.openBallot': 'Votação aberta',
   'pollDetail.openLive': 'Resultados ao vivo',
   'pollDetail.pollId': 'enquete · {{id}}',
   'pollDetail.published': 'Enquete publicada — os votantes já podem registrar suas cédulas.',
@@ -263,4 +269,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Buscar por e-mail…',
   'voters.subheading':
     'Curador do cadastro de elegíveis. Agrupe votantes por organização para cédulas ponderadas.',
+  'votingPollingLayout.nav.analytics': 'Análises',
+  'votingPollingLayout.nav.billing': 'Cobrança',
+  'votingPollingLayout.nav.createPoll': 'Nova pesquisa',
+  'votingPollingLayout.nav.dashboard': 'Painel',
+  'votingPollingLayout.nav.notifications': 'Notificações',
+  'votingPollingLayout.nav.settings': 'Configurações',
+  'votingPollingLayout.nav.team': 'Equipe',
+  'votingPollingLayout.nav.voters': 'Eleitores',
+  'votingPollingLayout.primaryNavLabel': 'Navegação principal',
 }

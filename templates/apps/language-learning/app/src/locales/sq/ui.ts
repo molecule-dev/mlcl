@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.logout': 'Dilni',
   'dailyStatsTriad.heartsLabel': 'Zemra',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Minutat e sotme',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Fjalë të zotëruara',
+  'dailyStatsTriad.wordsMasteryHint': 'Fjalë në zotërim 4+',
   'dashboard.continueHeading': 'Vazhdo aty ku e latë',
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Ushtrimet nuk mund të ngarkoheshin.',
   'lessonDetail.loading': 'Duke ngarkuar mësimin…',
   'lessonDetail.submitError': 'Nuk mund të dërgohej përgjigja.',
+  'lessonDetail.translation': 'Përkthe frazën',
   'lessonDetail.xpEarned': 'XP të fituara · {{xp}}',
   'lessons.empty': 'Asnjë mësim në nivel {{level}} megjithatë - provoni një nivel tjetër.',
   'lessons.eyebrow': 'Biblioteka e mësimeve',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'I ri në Parlance?',
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.signUp': 'Filloni falas →',
+  'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
+  'mobileNav.openMenu': 'Hap menynë e navigimit',
+  'parlanceLayout.nav.profile': 'Profili',
   'parlanceLayout.primaryNavLabel': 'Navigimi kryesor',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'practice.empty': 'Nuk ka ende fraza të disponueshme.',
   'practice.eyebrow': 'Praktikë e të folurit',
   'practice.heading': 'Lexoje. Regjistroje. Përmirësoje.',

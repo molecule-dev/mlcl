@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Сбросить пароль.',
@@ -38,6 +39,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Отметьте задачу как выполненную',
   'checklistTaskCard.markIncomplete': 'Отметить задание как не выполненное',
   'checklistTaskCard.openLabel': 'Открытое задание',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Вы уже всё наверстали',
@@ -54,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'На верном пути',
   'dashboard.timelineHeading': '30/60/90 этапов',
   'dashboard.viewAllTasks': 'Просмотреть все задачи',
+  'dashboard.weekOne': 'Неделя 1',
   'dashboard.yourCohort': 'Ваша команда',
   'documents.empty.body': 'Здесь отобразятся документы, добавленные вашей командой.',
   'documents.empty.title': 'Документов пока нет.',
@@ -110,7 +113,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-дневная бесплатная пробная версия',
   'landing.subhead':
     'Embark сопровождает каждого нового члена команды на протяжении первых 90 дней — оформление документов, обучение, достижение важных этапов и знакомство с новыми коллегами — всё в одном спокойном и уверенном месте.',
+  'layout.openMenu': 'Открыть меню навигации',
   'layout.search': 'Поиск задач, документов, коллег…',
+  'layout.searchTeammates': 'Поиск коллег по команде по имени или роли…',
   'layout.section.onboarding': 'Ввод в должность',
   'layout.tagline': 'Ваше путешествие начинается здесь.',
   'notifications.empty.body': 'Здесь будут отображаться новые события.',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'вчера',
   'planUpdated.message': 'Всё готово.',
   'planUpdated.preparing': 'Обновление вашего плана…',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.documentsLabel': 'документы',
   'pricing.onboardingsLabel': 'ввод в должность',
   'pricing.tasksLabel': 'задачи',

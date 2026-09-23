@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ እኛ',
   'applications.empty': 'እስካሁን ምንም ማመልከቻዎች የሉም \\u2014 ትክክለኛው ሚና አንድ ማመልከቻ ብቻ ነው።',
   'applications.eyebrow': 'የቧንቧ መስመርዎ',
@@ -9,7 +10,9 @@ export const ui: UiTranslations = {
   'applications.loading': 'በመጫን ላይ…',
   'applications.subheading': 'በእንቅስቃሴ ላይ ያተገበሯቸው እያንዳንዱ ሚናዎች። ለማተኮር በደረጃ ያጣሩ።',
   'applications.untitledRole': 'ሚና # {{id}}',
+  'auth.legalConsent': 'በመቀጠል የእኛን ተቀብለዋል',
   'common.and': 'እና',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'companies.empty': 'ከፍለጋዎ ጋር የሚዛመዱ ኩባንያዎች የሉም። የተለየ ቃል ይሞክሩ።',
   'companies.eyebrow': 'ተለይተው የቀረቡ አሠሪዎች',
   'companies.searchPlaceholder': 'በስም፣ በኢንዱስትሪ፣ በቦታ ይፈልጉ',
@@ -46,6 +49,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ለዚህ ሚና እስካሁን ምንም ማመልከቻዎች የሉም።',
   'jobApplicants.eyebrow': 'የአሠሪ እይታ',
   'jobApplicants.loading': 'በመጫን ላይ…',
+  'jobApplicants.statusUpdateFailed': 'ያንን ደረጃ ማዘመን አልተቻለም - እንደገና ይሞክሩ።',
+  'jobApplicants.subheading':
+    'የስራ ልምድ ማስረጃዎችን ይገምግሙ፣ እጩዎችን ያስፋፉ፣ ቅናሾችን ይላኩ \\u2014 {{count}} በእንቅስቃሴ ላይ።',
   'jobDetail.applicantCount': '{{count}} እስካሁን ድረስ አመልካቾች',
   'jobDetail.applied': 'ማመልከቻ ተልኳል',
   'jobDetail.apply': 'አሁኑኑ ያመልክቱ',
@@ -77,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ክፍት ሚናዎችን ያስሱ \\u2192',
   'landing.pricingEyebrow': 'የዋጋ አወጣጥ',
   'landing.pricingHeading': 'ለእያንዳንዱ የቡድን መጠን ቀላል እቅዶች።',
+  'login.eyebrow': 'ወደ {{app}} እንኳን በደህና መጡ',
   'login.heading': 'ወደ መለያዎ ይግቡ',
   'login.noAccount': 'ለኖሽ አዲስ ነዎት?',
   'login.passwordPlaceholder':
@@ -84,6 +91,7 @@ export const ui: UiTranslations = {
   'login.remember': 'ለ30 ቀናት አስታውሰኝ',
   'login.signingIn': 'በመግባት ላይ\\u2026',
   'login.subheading': 'ፍለጋዎን ይውሰዱ፣ መተግበሪያዎችዎን ያሳድጉ፣ በፍጥነት መልስ ይስሙ።',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} ። ለቡድኖች ለቅጥር የተገነባ።',
   'loginBrandPanel.headline': 'ተሰጥኦ የሚገናኝበት ቦታ',
   'loginBrandPanel.headlineLine2': 'ሞመንተም።',
   'loginBrandPanel.listing.recruiter': 'የተሰጥኦ አጋር',
@@ -98,6 +106,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': 'የማመልከቻ ዝማኔዎች፣ የቃለ መጠይቅ ግብዣዎች፣ አዲስ ተዛማጆች \\u2014 መጀመሪያ አዲስ።',
   'opportunitiesHero.delta': '{{sign}} {{amount}} በዚህ ሳምንት',
   'opportunitiesHero.eyebrow': 'ዛሬ ክፍት ነው',
+  'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'postJob.addNewCompany': '+ አዲስ ኩባንያ ያክሉ',
   'postJob.companyCreateFailed': 'ኩባንያ መፍጠር አልተቻለም - እንደገና ይሞክሩ።',
   'postJob.companyNameLabel': 'የኩባንያዎ ስም',
@@ -151,9 +160,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'መለያ በመፍጠር ላይ…',
   'signup.ctaEmployer': 'የአሠሪ መለያ ይፍጠሩ',
   'signup.firstNamePlaceholder': 'ማያ',
+  'signup.lastNamePlaceholder': 'ቼን',
   'signup.passwordMismatch': 'የይለፍ ቃላት አይዛመዱም።',
   'signup.subheading': 'ለፈላጊዎች ለዘላለም ነፃ። አሠሪዎች የሚጀምሩት በ30 ቀናት የሙከራ ጊዜ ነው።',
   'timeAgo.days': '{{count}} ከ d በፊት',
   'timeAgo.hours': '{{count}} ከሰዓታት በፊት',
   'timeAgo.justNow': 'አሁን',
+  'timeAgo.weeks': '{{count}} ወ በፊት',
 }

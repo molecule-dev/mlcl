@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'announcementsFeed.empty': "Għad m'hemm l-ebda avviż.",
   'announcementsFeed.eyebrow': '{{count}} aġġornamenti',
   'announcementsFeed.title': 'L-aħħar avviżi',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     "Ibdel il-filtri ta' hawn fuq biex tara l-assenjazzjonijiet fi stat differenti.",
   'assignments.eyebrow': 'Il-korsijiet kollha · Dan it-terminu',
+  'assignments.loadError': 'Ma stajtx nitgħabba l-assenjazzjonijiet.',
   'assignments.loading': 'Qed jitgħabbew l-assenjazzjonijiet…',
   'assignments.subtitle':
     "Iffiltra skont l-istatus biex tara x'inhu dovut, sottomess, gradat, jew nieqes.",
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': "Għad m'hemm l-ebda rekords ta' attendenza.",
   'attendance.eyebrow': 'Terminu tar-rebbiegħa · L-aħħar 4 ġimgħat',
+  'attendance.loadError': 'Ma setgħux jitgħabbew ir-rekords tal-attendenza.',
   'attendance.loading': 'Qed tiċċarġja l-attendenza…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -47,7 +50,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     "Dati ta' skadenza tal-assenjazzjonijiet imfassla fuq grilja ta' xahar — l-eżamijiet jispikkaw bl-aħmar.",
   'calendar.title': '{{month}} avvenimenti',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
+  'common.retry': 'Erġa’ pprova',
   'common.yes': '✓',
   'courseDetail.backLink': 'Gradi',
   'courseDetail.currentGrade': 'Grad attwali',
@@ -76,11 +81,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Xejra',
   'grades.empty': "Għad m'hemm l-ebda gradi ppubblikati.",
   'grades.eyebrow': 'Ktieb tal-gradi',
+  'grades.loadError': "Ma stajtx intella' l-gradi tiegħek.",
   'grades.loading': 'Qed jitgħabbew il-gradi…',
   'grades.subtitle':
     'Gradi diretti bl-ittri u bil-perċentwali. Il-vleġeġ tax-xejriet juru jekk intix qed titla’ ’l fuq, titla’ fil-livell, jew tiżloq.',
   'grades.title': "Il-gradi tiegħek, kors b'kors",
   'grades.trendStable': 'Stabbli',
+  'landing.copyright': '© {{year}} {{app}} . Magħmul għall-istudenti, magħmul għall-familji.',
   'landing.ctaHeading': 'Ġurnata tal-iskola aktar kalma tibda fi ftit minuti',
   'landing.eyebrow': 'Għal studenti tal-iskola medja u sekondarja',
   'landing.featuresHeading': 'Ġurnata tal-iskola organizzata madwar l-istudent',
@@ -115,12 +122,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Assenjazzjonijiet',
   'nav.attendance': 'Attendenza',
   'nav.calendar': 'Kalendarju',
+  'nav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
   'nav.grades': 'Gradi',
+  'nav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'nav.statusEyebrow': 'GPA tat-Terminu',
   'nav.statusSubtext': 'Reġistru tal-Unur · Terminu tar-Rebbiegħa',
+  'nav.unreadMessages': 'Messaġġi mhux moqrija',
   'notifications.eyebrow': '{{count}} aġġornamenti',
   'notifications.subtitle':
     'Gradi, tfakkiriet, messaġġi, u avviżi tal-iskola. Aġġusta liema kanali tuża kull notifika fis-Settings.',
+  'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.attendanceLabel': 'attendenza',
   'pricing.gradesLabel': 'gradi',
   'pricing.heading': 'avviżi',

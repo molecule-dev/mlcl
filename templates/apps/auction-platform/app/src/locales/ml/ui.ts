@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'കാണുന്നു',
   'auctionDetail.watchRemoved': 'വാച്ച് ലിസ്റ്റിൽ നിന്ന് നീക്കം ചെയ്തു.',
   'auctionDetail.watchRemoveLabel': 'വാച്ച് ലിസ്റ്റിൽ നിന്ന് നീക്കം ചെയ്യുക',
+  'auctionPlatformLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'authShell.brandBody':
     'അപൂർവ വാച്ചുകൾ, ഫൈൻ ആർട്ട്, അതുല്യമായ സ്പെഷ്യാലിറ്റി ഇനങ്ങൾ എന്നിവയ്ക്ക് തത്സമയം ലേലം വിളിക്കൂ. സമ്മാനം സെക്കൻഡുകൾക്കുള്ളിൽ ലഭിക്കും.',
   'authShell.brandEyebrow': 'ഇപ്പോൾ തത്സമയം · 1,420 ലേലങ്ങൾ',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'ഇങ്ങനെ അടുക്കുക',
   'browseAuctions.subheading':
     'വിഭാഗം അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക, ഏറ്റവും പ്രധാനപ്പെട്ടത് അനുസരിച്ച് അടുക്കുക, വില വീഴുന്നതിന് മുമ്പ് ഒരു ലേലം വിളിക്കുക.',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'countdownTimer.ended': 'അവസാനിച്ചു',
   'countdownTimer.endingSoon': 'അവസാനിക്കുന്നു',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.subtext':
     'നിങ്ങളുടെ ലേലങ്ങൾ ട്രാക്ക് ചെയ്യുന്നത് തുടരുക, ഗാവൽ വീഴുന്നതിന് മുമ്പ് ബിഡുകൾ നൽകുക.',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'myBids.bidAgain': 'വീണ്ടും ബിഡ് ചെയ്യുക',
   'myBids.browseCta': 'തത്സമയ ലേലങ്ങൾ ബ്രൗസ് ചെയ്യുക →',
   'myBids.checkoutCta': 'ഇപ്പോൾ പണമടയ്ക്കുക',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': 'ഇതുവരെ അറിയിപ്പുകളൊന്നുമില്ല.',
   'notificationsPage.eyebrow': 'പ്രവർത്തന കേന്ദ്രം',
   'notificationsPage.subheading': '{{count}} വായിക്കാത്തവ · ലേലം നീങ്ങുമ്പോൾ തത്സമയ അപ്‌ഡേറ്റുകൾ',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.bidsLabel': 'ബിഡുകൾ',
   'pricing.listingsLabel': 'ലിസ്റ്റിംഗുകൾ',
   'pricing.watchlistLabel': 'വാച്ച് ലിസ്റ്റ്',

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Ми смо дистрибуирани тим дизајнера и инжењера који је некада проводио превише сати сваког дана у бучном поштанском сандучету. Меридијан је пријемно сандуче које смо и сами желели да користимо.',
   'about.title': 'Е-пошта за фокусиран рад',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'help.cta.about': 'О Меридијану',
   'help.cta.pricing': 'Погледајте цене',
   'help.eyebrow': 'Центар за помоћ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Брзи одговори на питања која најчешће чујемо. Да ли нешто недостаје? Отворите Подешавања и користите образац за повратне информације у апликацији или пишите на support@courier.example.',
   'help.title': 'Како можемо помоћи?',
   'landing.brand.scrollTop': 'Назад на врх',
+  'landing.copyright': '© {{year}} {{appName}} — Направљено за фокус.',
   'landing.ctaBody':
     'Придружите се хиљадама професионалаца који су завршили са пријемним сандучетом пре ручка.',
   'landing.ctaTitle': 'Више обрађујте, мање реагујте.',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Погледајте демо',
   'landing.heroSubtitle':
     'Меридијан је мирно пријемно сандуче са три панела направљено за раднике знања који желе да обрађују информације, а не да реагују на њих.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Поверење усмерених тимова широм света',
   'landing.signIn': 'Пријавите се',
   'meridian.archive.empty': 'Архива је празна.',
@@ -78,6 +81,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Нацрт',
   'meridian.folder.count': '{{count}} поруке',
+  'meridian.folder.delete': 'Обриши',
   'meridian.folder.deleteForever': 'Трајно избриши',
   'meridian.folder.restore': 'Премести у пријемно сандуче',
   'meridian.forgot.subtitle':
@@ -87,7 +91,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Још нема порука овде.',
   'meridian.inbox.loading': 'Учитавање…',
   'meridian.inbox.next': 'Следеће',
+  'meridian.inbox.noSender': '(нема пошиљаоца)',
   'meridian.inbox.noSubject': '(без теме)',
+  'meridian.inbox.ofTotal': '{{current}} од {{total}}',
   'meridian.inbox.openCompose': 'Отвори писање поруке',
   'meridian.inbox.previous': 'Претходно',
   'meridian.inbox.replyFailed': 'Одговор је сачуван, али испорука није успела: {{error}}',
@@ -100,6 +106,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Немате налог?',
   'meridian.login.showPassword': 'Прикажи лозинку',
   'meridian.message.toLine': 'до {{recipients}}',
+  'meridian.notFound.body':
+    'Страница коју тражите није пронађена. Вратите се у пријемно сандуче ваше {{appName}} и ми ћемо вас покренути.',
   'meridian.notFound.eyebrow': 'Грешка 404',
   'meridian.notFound.title': 'Ова тема је архивирана.',
   'meridian.notFound.toInbox': 'Отвори моје пријемно сандуче',
@@ -135,18 +143,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Додај звездицу',
   'meridian.thread.unstar': 'Уклони звездицу',
   'meridian.time.yesterday': 'Јуче',
+  'meridian.topBar.openMenu': 'Отвори мени за навигацију',
   'meridian.topBar.searchPlaceholder': 'Претражи пошту',
   'meridian.trash.empty': 'Отпад је празан.',
   'meridian.trash.title': 'Смеће',
   'nav.legal': 'Правни',
   'planUpdated.description':
     'Ваша претплата је сада активна и ваш рачун је ажуриран. Добродошли у ваше освежено пријемно сандуче Courier.',
+  'planUpdated.verifying': 'Потврђивање уплате…',
   'pricing.heading': 'нацрти',
   'pricing.limit.emails': 'имејлови',
   'pricing.limit.folders': 'фасцикле',
   'pricing.limit.labels': 'етикете',
   'privacy.collect.account':
     'Подаци о налогу: име, адреса е-поште, хеширана лозинка и датум регистрације.',
+  'privacy.contact': 'Питања? Пошаљите имејл на privacy@courier.example.',
   'privacy.intro':
     'Ова политика приватности објашњава које податке Меридијан прикупља, зашто их прикупљамо, како их чувамо и које изборе имате у вези са њима. Циљ нам је да будемо конкретни уместо правнички; ако нешто није јасно, пишите на privacy@courier.example.',
   'privacy.lastUpdated': 'Последње ажурирање: 1. април 2026.',
@@ -166,6 +177,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Ови услови регулишу ваше коришћење Меридијана. Креирањем налога или слањем е-поште преко нас, пристајете да будете обавезни њима. Трудимо се да напишемо правила којих се особа може заиста придржавати.',
   'terms.lastUpdated': 'Ступа на снагу: 1. априла 2026.',
+  'terms.linkPrivacy': 'Прочитајте нашу Политику приватности →',
   'terms.termination.body':
     'Можете обрисати свој налог у било ком тренутку. Можемо суспендовати налог који крши ове услове; ако то учинимо, објаснићемо разлог и дозволити вам да прво извезете своје податке.',
   'terms.warranty.body':

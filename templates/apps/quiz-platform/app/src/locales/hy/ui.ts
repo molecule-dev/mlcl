@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.title': '{{app}}-ի մասին',
   'auth.login.noAccount': 'Նորեկ եք Sparq-ում։',
   'auth.login.or': 'կամ շարունակեք հետ',
   'auth.signup.or': 'կամ գրանցվեք՝',
+  'common.confirm': 'Հաստատել',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.loadError': 'Այս բովանդակությունը բեռնելիս ինչ-որ բան սխալ է տեղի ունեցել։',
+  'common.retry': 'Կրկին փորձել',
   'discover.collections.title': 'Զննել ըստ կատեգորիայի',
   'discover.collections.viewAll': 'Դիտեք ձեր գրադարանը →',
   'discover.empty.body': 'Փորձեք այլ կատեգորիա կամ մաքրեք որոնումը։',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Մուտք գործեք՝ ձեր շարքը շարունակելու, ուղիղ խաղեր վարելու և առաջատարների ցուցակում բարձրանալու համար։',
   'myQuizzes.createButton': 'Նոր վիկտորինա',
+  'myQuizzes.deleteConfirm': 'Ջնջե՞լ ընդմիշտ։',
   'myQuizzes.empty.createCta': 'Կազմեք ձեր առաջին թեստը →',
   'myQuizzes.empty.created': 'Դուք դեռ թեստ չեք կազմել։',
   'myQuizzes.empty.played': 'Դեռևս հրապարակված թեստեր չկան։',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Բեռնվում է…',
   'notifications.subhead':
     '{{count}} չկարդացված կայծեր։ Հրավերներ, առաջատարների ցուցակում տեղաշարժեր և նվաճումներ՝ բոլորը մեկ հոսքում։',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.checkoutError': 'Հնարավոր չէ սկսել վճարումը։ Խնդրում ենք կրկին փորձել։',
+  'pricing.heading': 'Ընտրեք ձեր {{app}} պլանը',
   'pricing.included': 'Ներառված է',
   'pricing.loadError': 'Չհաջողվեց բեռնել պլանները։',
   'pricing.maxQuizzes': '{{count}} վիկտորինաներ',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Դեռ ոչինչ հրապարակված չէ։',
   'profile.startBuilding': 'Սկսել շինարարությունը →',
   'profile.tier': 'Sparq խաղացող',
+  'quizBuilder.addFailed': 'Հարցը չհաջողվեց ավելացնել։ Փորձեք կրկին։',
   'quizBuilder.addQuestion': 'Ավելացնել հարց',
   'quizBuilder.answerPlaceholder': 'Մուտքագրեք տարբերակ…',
   'quizBuilder.answersLabel': 'Պատասխանների տարբերակներ',
   'quizBuilder.back': 'Վերադառնալ իմ թեստերին',
   'quizBuilder.delete': 'Ջնջել հարցը',
+  'quizBuilder.deleteFailed': 'Հարցը չհաջողվեց ջնջել։',
   'quizBuilder.firstQuestion': 'Սկսելու համար ավելացրեք ձեր առաջին հարցը։',
   'quizBuilder.idLabel': 'Հարցաշարի ID: {{id}}',
   'quizBuilder.loadError': 'Չհաջողվեց բեռնել թեստը։',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Ավելացրեք առնվազն երկու պատասխանի տարբերակ և ընտրեք ճիշտը {{count}} հարց(եր) հրապարակելուց առաջ։',
   'quizBuilder.questionsTitle': 'Հարցեր',
+  'quizBuilder.saveFailed': 'Անհնար է պահպանել վերնագիրը։ Փորձեք կրկին։',
   'quizBuilder.statusDraft': 'Սևագիր',
   'quizBuilder.subhead':
     'Խմբագրեք վերնագիրը, ավելացրեք հարցեր, սահմանեք տարբերակներ և ճիշտ պատասխանը: Փոփոխությունները պահպանվում են ավտոմատ կերպով:',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} րոպե',
   'quizDetail.hostMultiplayer': 'Հյուրընկալող բազմախաղացող ռեժիմ',
   'quizDetail.leaderboardEmpty': 'Դեռևս խաղարկումներ չկան՝ առաջինը գրանցեք հաշիվը։',
+  'quizDetail.loadError': 'Չհաջողվեց բեռնել այս թեստը։',
   'quizDetail.loading': 'Հարցաշարը բեռնվում է…',
   'quizDetail.plays': '{{count}} պիեսներ',
   'quizDetail.playSolo': 'Նվագել մենակ',

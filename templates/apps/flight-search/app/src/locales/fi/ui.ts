@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.eyebrow': 'Tietoa {{app}}sta',
   'about.pageTitle': 'Jokainen reitti, yksi haku.',
   'booking.backToDetail': 'Takaisin lentotietoihin',
   'booking.continue': 'Jatka maksuun',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Verot ja maksut',
   'booking.summary.travelers': 'Matkustajat',
   'common.about': 'Tietoja',
+  'common.goToDashboard': 'Siirry etusivulle',
   'flightDetail.backToResults': 'Takaisin tuloksiin',
   'flightDetail.baseFare': 'Perushinta',
   'flightDetail.book': 'Jatka varaamiseen',
@@ -53,10 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 pysähdys',
   'flightResultCard.select': 'Valitse',
   'flightResultCard.totalLabel': 'Kokonaisaika',
+  'flightSearchLayout.primaryNavLabel': 'Päänavigaatio',
   'forgotPassword.subheading':
     'Syötä Skylark-tilisi sähköpostiosoite, niin lähetämme sinulle suojatun palautuslinkin.',
+  'forgotPassword.successBody':
+    'Tarkista {{email}} – sinne on lähetetty linkki uuden salasanan asettamiseen. Linkki vanhenee 30 minuutissa.',
   'forgotPassword.successHeading': 'Nollauslinkki lähetetty',
   'landing.cta.explore': 'Kokeile hakua',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Löydä seuraava loistava hinta ennen muita.',
   'landing.cta.signup': 'Aloita hintojen seuranta',
   'landing.features.eyebrow': 'Miksi Skylark',
@@ -80,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Lisää hälytys',
   'priceAlerts.deleteConfirm': 'Poistetaanko tämä ilmoitus?',
   'priceAlerts.empty': 'Ei vielä seurattuja reittejä.',
+  'priceAlerts.emptyCta': 'Hae reittiä seurattavaksi',
   'priceAlerts.errorMessage': 'Hälytysten lataaminen epäonnistui.',
   'priceAlerts.eyebrow': 'Skylark-seurantalista',
   'priceAlerts.form.createError': 'Hälytystä ei voitu luoda.',
@@ -109,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Usean kaupungin matkasuunnitelma',
   'results.multiLegHeading': 'Jalka {{n}} · {{alkaen}} → {{kohteeseen}} · päivämäärä',
   'results.multiSummary': '{{count}} jalat · {{passengers}} matkustaja',
+  'results.sortAriaLabel': 'Lajittele tulokset',
   'results.sortLabel': 'Järjestellä',
   'results.summary': '{{count}} lennot · {{passengers}} matkustaja',
   'settings.language.title': 'Kieli',

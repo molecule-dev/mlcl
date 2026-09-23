@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Dwar {{app}}',
+  'auth.legalConsent': 'Billi tkompli, taqbel mal-',
   'bookings.empty.body': 'Żid titjira, lukanda, jew attività biex tibda l-inbox.',
   'bookings.empty.heading': "Għad m'hemm l-ebda prenotazzjoni.",
   'bookings.errors.create': 'Ma setgħetx tinħoloq prenotazzjoni.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Ikkonfermat',
   'bookings.summary.pending': 'Nistenna konferma',
   'bookings.summary.total': 'Total impenjat',
+  'bookings.type.car': 'Karozza tal-kiri',
+  'bookings.type.flight': 'Titjira',
+  'bookings.type.hotel': 'Lukanda',
   'bookings.type.other': 'Ohra',
   'budgetSpendCard.budgetTotal': "ta' {{total}} ippjanat",
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Innota l-kunflitti, ippjana ġranet ta’ rkupru bejn vjaġġi, u ara meta l-kollaboraturi jkunu qed jivvjaġġaw miegħek.',
   'common.and': 'u',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.budgetHeading': 'Polz tal-baġit',
   'dashboard.empty.heading': "Għad m'hemm l-ebda vjaġġi — l-atlas tiegħek huwa vojt.",
   'dashboard.eyebrow': 'Kontroll tal-missjoni',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': "Vjaġġi f'moviment",
   'dashboard.viewAllExpenses': 'Ara kull spiża',
   'dashboard.viewAllTrips': 'Ara kull vjaġġ',
+  'dayTimelineRow.category.accommodation': "Ibqa'",
   'dayTimelineRow.category.transport': 'Trasport',
   'destinationOrbCard.exploreCta': "Żid ma' vjaġġ",
   'destinationOrbCard.tripCount': '{{count}} vjaġġi',
@@ -80,11 +88,15 @@ export const ui: UiTranslations = {
     "Għad m'għandekx email? Iċċekkja l-folder tal-ispam tiegħek, jew erġa' pprova b'indirizz differenti.",
   'forgotPassword.successSubheading':
     "Bgħatna link ta' rkupru lil {{email}} Il-link huwa validu għal 30 minuta.",
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': "Oħloq kont b'xejn",
+  'landing.cta.subheading':
+    "Sa ħames vjaġġi, ħames kollaboraturi, u ħames waqfiet fuq il-pjan bla ħlas — b'sinkronizzazzjoni f'ħin reali inkluża, u Pro jneħħi l-limiti meta l-pjanijiet tiegħek jikbru.",
   'landing.destinations.eyebrow': 'Fejn imiss',
   'landing.destinations.heading': 'Destinazzjonijiet magħżula mill-editur',
   'landing.features.eyebrow': 'Kif jaħdem il-Waypoint',
   'landing.features.heading': 'Maħdum għall-vjaġġaturi, mhux għal spreadsheets.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': "Ibda vjaġġ b'xejn",
   'landing.hero.ctaSecondary': 'Ara vjaġġ kampjun',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     "Oħloq kont biex taqsam vjaġġi ma' sa 5 kollaboraturi, tissinkronizza l-bookings, u iġbor kull konferma f'post wieħed.",
+  'signup.termsPrefix': "Billi toħloq kont inti taqbel ma' tagħna",
   'tripCountdownHeroCard.budget': "{{used}} ta' {{total}} ( {{pct}} % tal-baġit)",
   'tripCountdownHeroCard.collaborators': '{{count}} vjaġġaturi',
   'tripCountdownHeroCard.countdownLabel': 'Countdown',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': "Għad m'hemm l-ebda vjaġġi.",
   'trips.pastHeading': 'Avventuri tal-passat',
   'trips.subheading': '{{count}} itinerarji — passat, preżent, u xi darba.',
+  'waypointLayout.mobileNavClose': 'Agħlaq il-menù tan-navigazzjoni',
   'waypointLayout.primaryNavLabel': 'Navigazzjoni primarja',
 }

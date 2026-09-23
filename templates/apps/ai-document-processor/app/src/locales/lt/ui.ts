@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Susisiekite',
+  'about.title': 'Apie {{app}}',
   'authShell.backToLanding': '← Grįžti į pradinį puslapį',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
+  'common.retry': 'Bandyti dar kartą',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Šiandien · Veiklos apžvalga',
   'dashboard.heading': 'Dokumentų analizė',
@@ -48,6 +51,7 @@ export const ui: UiTranslations = {
   'documents.empty': 'Nėra dokumentų, atitinkančių dabartinius filtrus.',
   'documents.heading': 'Visi dokumentai',
   'documents.loadError': 'Nepavyko įkelti dokumentų.',
+  'documents.loading': 'Kraunama biblioteka…',
   'documents.searchLabel': 'Ieškoti dokumentų',
   'documents.searchPlaceholder': 'Ieškoti dokumentų…',
   'documents.subheading':
@@ -66,8 +70,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Paslėpti slaptažodį',
   'login.showPassword': 'Rodyti slaptažodį',
   'login.subtitle': 'Prisijunkite, kad galėtumėte toliau tvarkyti savo dokumentus.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'notFound.body':
     'Dokumento ar maršruto, kurį bandėte atidaryti, čia nebėra. Grįžkite į pagrindinį puslapį arba pasirinkite skyrių iš šoninės juostos.',
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Atidaryti pradinį puslapį',
   'notFound.title': 'Šio puslapio nėra',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % palyginti su vakardiena',
@@ -84,6 +91,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     'Kol kas nėra jokių tvarkymo taisyklių. Norėdami pridėti taisyklę, naudokite funkciją „Nauja taisyklė“.',
   'rules.eyebrow': 'Automatizavimas',
+  'rules.fieldsCount': '{{count}} laukeliai',
   'rules.form.destination': 'Pateikti',
   'rules.form.name': 'Taisyklės pavadinimas',
   'rules.form.save': 'Išsaugoti taisyklę',

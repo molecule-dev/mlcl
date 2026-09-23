@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.title': '{{app}} നെക്കുറിച്ച്',
   'activeAgentsCard.agent1AvatarAlt':
     'ഒരു ആധുനിക ഓഫീസിലെ സൗഹൃദ പുഞ്ചിരിയോടെയുള്ള ഒരു വനിതാ സപ്പോർട്ട് ഏജന്റിന്റെ പ്രൊഫഷണൽ ഹെഡ്ഷോട്ട്.',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'പിന്തുണയെ ബന്ധപ്പെടുക',
   'forgotPassword.error': 'പുനഃസജ്ജീകരണ ഇമെയിൽ അയയ്ക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'forgotPassword.rememberPassword': 'നിങ്ങളുടെ പാസ്‌വേഡ് ഓർമ്മയുണ്ടോ?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'സൈൻ ഇൻ — സെനിത്ത് പിന്തുണ',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.welcomeSubheading': 'നിങ്ങളുടെ പിന്തുണാ ഡാഷ്‌ബോർഡിൽ സൈൻ ഇൻ ചെയ്യുക',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ അടയ്ക്കുക',
+  'mobileNav.menu': 'നാവിഗേഷൻ',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ തുറക്കുക',
   'nav.legal': 'നിയമപരമായ',
   'nav.newTicket': 'പുതിയ ടിക്കറ്റ്',
   'notifications.loadError':
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'കമാൻഡ് തിരയൽ',
   'operatorDock.newReport': 'പുതിയ റിപ്പോർട്ട്',
   'operatorDock.systemOnline': 'സിസ്റ്റം ഓൺലൈൻ',
+  'planUpdated.subtitle': 'നന്ദി',
   'planUpdated.title': 'പ്ലാൻ അപ്ഡേറ്റ് ചെയ്തു',
   'pricing.agents': 'ഏജന്റുമാർ',
   'pricing.automation': 'ഓട്ടോമേഷൻ നിയമങ്ങൾ',
@@ -250,6 +256,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{പേര്}}',
   'ticketCustomerReply.avatarAlt': '{{പേര്}} ന്റെ അവതാർ',
   'ticketDetail.errorTitle': 'എന്തോ കുഴപ്പം സംഭവിച്ചു.',
+  'ticketDetail.loadError': 'ടിക്കറ്റ് ലോഡ് ചെയ്യാനായില്ല.',
+  'ticketDetail.notFound': 'ടിക്കറ്റ് കണ്ടെത്തിയില്ല.',
+  'ticketDetail.replyError': 'മറുപടി അയയ്ക്കുന്നതിൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'ticketDetail.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'ticketDetail.statusUpdateError': 'സ്റ്റാറ്റസ് അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'ticketDetailsCard.assigneeLabel': 'നിയോഗിക്കപ്പെട്ടയാൾ',
@@ -301,6 +310,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{സമയം}} ഇടത്',
   'ticketRow.title': 'പ്രൊഡക്ഷനിൽ ഡാറ്റാബേസ് കണക്ഷൻ പരാജയപ്പെടുന്നു. {{നോഡ്}}',
   'tickets.pageTitle': 'ടിക്കറ്റുകൾ — സെനിത്ത് സപ്പോർട്ട്',
+  'ticketsFab.newTicket': 'പുതിയ ടിക്കറ്റ്',
   'ticketsFilterBar.assigneeLabel': 'നിയോഗിക്കപ്പെട്ടയാൾ:',
   'ticketsFilterBar.clearFilters': 'ഫിൽട്ടറുകൾ മായ്‌ക്കുക',
   'ticketsFilterBar.dateRangeDemoHint': 'ഈ ഡെമോ ബിൽഡിൽ തീയതി ശ്രേണി ഫിൽട്ടറിംഗ് പ്രവർത്തനക്ഷമമല്ല.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
   'authShell.samplePreview':
     '„Sziasztok, srácok, az új irányítópult egyszerűen fantasztikus – pontosan erre volt szükségünk!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/parancsikon',
   'automations.subheading':
     'Szabályok, sablonválaszok és csevegőrobotok – gondoskodnak a munkafolyamatok zökkenőmentes működéséről, miközben a csapatod a fontosabb feladatokra koncentrálhat.',
+  'automations.trigger.inboundMessage': 'Beérkező üzenet',
   'automations.triggerLabel': 'Trigger',
   'chatBubble.internalNoteLabel': 'Belső megjegyzés',
+  'common.confirmDelete': 'Törlés megerősítése',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'contactDetail.backToContacts': 'Minden névjegy',
   'contactDetail.contactFallback': 'Kapcsolat',
   'contactDetail.conversationFallback': 'Beszélgetés',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Utoljára látták',
   'contacts.empty': 'Még nincs névjegyed. Fent add hozzá az első névjegyedet.',
   'contacts.eyebrow': 'Ügyféljegyzék',
+  'contacts.form.nameOrEmailRequired': 'Adjon meg legalább egy nevet vagy e-mail-címet',
   'contacts.form.save': 'Névjegy mentése',
   'contacts.heading': 'Kapcsolat',
   'contacts.loading': 'Névjegyek betöltése…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Jegyzet mentése',
   'conversationDetail.tab.note': 'Belső megjegyzés',
   'conversationDetail.threadAria': 'Beszélgetési üzenetek',
+  'conversationDetail.visitorFallback': 'Látogató',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Ügyféladatok',
   'customerProfilePanel.recentTitle': 'Legutóbbi beszélgetések',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Az ügyfelek átlagosan {{time}}-on kapják meg az első válaszukat – tartsuk fenn ezt a tempót.',
   'inboxHeroCard.title': 'Aktív beszélgetések',
+  'inboxLayout.navDrawerLabel': 'Navigáció',
+  'inboxLayout.openMenu': 'Navigációs menü megnyitása',
   'inboxOverview.eyebrow': 'A mai nap rövid áttekintése',
   'inboxOverview.heroChange': '{{count}} nyitott',
   'inboxOverview.kpiClosedTrend': 'minden idők',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Látogasson el a honlapra',
   'notifications.subheading':
     'Feladatok, @említések, SLA-kockázatok, ügyfél-elégedettségi visszajelzések és a csapat tevékenysége – a legújabbakkal az élen.',
+  'notifications.subjectFallback': 'egy beszélgetés',
+  'notifications.visitorFallback': 'Egy látogató',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Magas',
   'priority.low': 'Alacsony',
+  'priority.normal': 'Normál',
   'priority.urgent': 'Sürgős',
   'privacy.title': 'Adatvédelmi szabályzat',
   'reports.agentFallback': 'Ügynök',

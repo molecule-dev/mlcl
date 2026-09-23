@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.eyebrow': 'អំពី {{app}}',
   'about.pageTitle': 'ផ្លូវនីមួយៗ ការស្វែងរកមួយ។',
   'booking.backToDetail': 'ត្រឡប់ទៅព័ត៌មានលម្អិតអំពីជើងហោះហើរវិញ',
   'booking.continue': 'បន្តទៅការទូទាត់',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'ពន្ធ និងថ្លៃសេវា',
   'booking.summary.travelers': 'អ្នកធ្វើដំណើរ',
   'common.about': 'អំពី',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'flightDetail.backToResults': 'ត្រឡប់ទៅលទ្ធផលវិញ',
   'flightDetail.baseFare': 'តម្លៃសំបុត្រមូលដ្ឋាន',
   'flightDetail.book': 'បន្តទៅការកក់',
@@ -52,12 +55,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': 'ឈប់ 1 ដង',
   'flightResultCard.select': 'ជ្រើសរើស',
   'flightResultCard.totalLabel': 'រយៈពេលសរុប',
+  'flightSearchLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'forgotPassword.subheading':
     'បញ្ចូលអ៊ីមែលនៅលើគណនី Skylark របស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញដែលមានសុវត្ថិភាព។',
   'forgotPassword.successBody':
     'ពិនិត្យ {{email}} សម្រាប់តំណភ្ជាប់ដើម្បីកំណត់ពាក្យសម្ងាត់ថ្មី។ តំណភ្ជាប់ផុតកំណត់ក្នុងរយៈពេល 30 នាទី។',
   'forgotPassword.successHeading': 'បានផ្ញើតំណឡើងវិញ',
   'landing.cta.explore': 'សាកល្បងការស្វែងរក',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'ស្វែងរកតម្លៃសំបុត្រដ៏អស្ចារ្យបន្ទាប់មុនអ្នកដទៃ។',
   'landing.cta.signup': 'ចាប់ផ្តើមតាមដានតម្លៃសំបុត្រ',
   'landing.features.eyebrow': 'ហេតុអ្វីបានជា Skylark',
@@ -80,6 +85,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'បន្ថែមការជូនដំណឹង',
   'priceAlerts.deleteConfirm': 'លុបការជូនដំណឹងនេះចេញ?',
   'priceAlerts.empty': 'មិនទាន់មានផ្លូវដែលបានតាមដាននៅឡើយទេ។',
+  'priceAlerts.emptyCta': 'ស្វែងរកផ្លូវដើម្បីតាមដាន',
   'priceAlerts.errorMessage': 'មិនអាចផ្ទុកការជូនដំណឹងបានទេ។',
   'priceAlerts.eyebrow': 'បញ្ជីតាមដាន Skylark',
   'priceAlerts.form.createError': 'មិនអាចបង្កើតការជូនដំណឹងបានទេ។',
@@ -109,6 +115,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'ដំណើរកម្សាន្តពហុទីក្រុង',
   'results.multiLegHeading': 'ជើង {{ន}} · {{ពី}} → {{ទៅ}} · {{កាលបរិច្ឆេទ}}',
   'results.multiSummary': '{{count}} ជើង · {{passengers}} អ្នកធ្វើដំណើរ',
+  'results.sortAriaLabel': 'តម្រៀបលទ្ធផលតាម',
   'results.sortLabel': 'តម្រៀប',
   'results.summary': '{{count}} ជើងហោះហើរ · {{passengers}} អ្នកធ្វើដំណើរ',
   'settings.language.title': 'ភាសា',

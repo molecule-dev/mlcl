@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'あなたのロール',
   'account.role.upgradeLink': '認証済み講師に応募する →',
   'account.title': 'プロフィール、支払い、設定。',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mentorで教える',
   'becomeTutor.form.error': '応募を送信できませんでした。',
   'becomeTutor.form.pitchPlaceholder':
@@ -70,6 +71,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': '科目',
   'bookingConfirm.title': '予約完了。あとはお任せください。',
   'bookingConfirm.with': '講師',
+  'common.goToDashboard': 'ダッシュボードへ',
   'earningsHero.eyebrow': '収益 • {{month}}',
   'forgotPassword.heading': 'パスワードをお忘れですか?',
   'forgotPassword.subheading':
@@ -109,6 +111,7 @@ export const ui: UiTranslations = {
   'messages.send': 'メッセージを送信',
   'messages.thread.empty': 'ご挨拶しましょう — 会話を始めましょう。',
   'messages.title': '講師とのスレッド。',
+  'nav.primary': 'プライマリ',
   'pricing.dataExport': 'データエクスポート:',
   'pricing.headingDefault': '高度な機能:',
   'resetPassword.heading': '強力な新しいパスワードを選択してください。',

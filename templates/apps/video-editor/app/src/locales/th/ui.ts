@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'พบข้อผิดพลาด มีข้อเสนอแนะเกี่ยวกับฟีเจอร์ หรือต้องการบอกเล่าเกี่ยวกับภาพยนตร์ที่คุณตัดต่อ? ทุกข้อความจะส่งถึงบุคคลจริงในทีมของคุณ — ติดต่อเราได้ทุกเมื่อจากหน้าการตั้งค่าบัญชีของคุณ',
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.eyebrow': '// สตูดิโอที่อยู่เบื้องหลังการตัดต่อ',
   'about.pageTitle': 'เกี่ยวกับ {{appName}}',
   'assetDetail.back': 'กลับไปที่ห้องสมุด',
   'assetDetail.confirmDelete': 'ลบ " {{name}} "สิ่งนี้แก้ไขไม่ได้แล้ว"',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} คลิป เสียงประกอบ และกราฟิกพร้อมใช้งานสำหรับลากลงบนไทม์ไลน์',
   'assetLibrary.title': 'สินทรัพย์',
   'assetLibrary.upload': 'เพิ่มสินทรัพย์',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.browseTemplates': 'เรียกดูเทมเพลต →',
   'dashboard.loading': 'กำลังโหลดโปรเจ็กต์…',
   'dashboard.noProjects': 'ยังไม่มีโปรเจ็กต์ใดๆ — สร้างโปรเจ็กต์เพื่อเริ่มต้นได้เลย',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'เลือกสิ่งที่คุณเท่านั้นที่จะจำได้',
   'rushesAuthShell.footer.copyright': '© รัชเชส สตูดิโอ',
   'rushesAuthShell.footer.privacy': 'ความเป็นส่วนตัว',
+  'rushesLayout.closeMenu': 'ปิดการนำทาง',
   'rushesLayout.guest': 'บรรณาธิการ',
+  'rushesLayout.navDialog': 'การนำทาง',
+  'rushesLayout.openMenu': 'เปิดการนำทาง',
   'rushesLayout.planFree': 'แผนฟรี',
   'rushesLayout.tagline': 'ลำดับเหตุการณ์ในภาพยนตร์',
   'settings.billing.confirmCancel': 'ยกเลิกการสมัครสมาชิกเมื่อสิ้นสุดระยะเวลา?',

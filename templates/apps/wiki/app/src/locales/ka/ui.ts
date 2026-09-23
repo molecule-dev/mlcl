@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'გადაწყვეტა…',
   'comments.subtitle':
     'ის {{count}} თემები ჯერ კიდევ ელოდება პასუხს ან გადაწყვეტილებას. დალაგებულია ასაკის მიხედვით — ჯერ უფროსები, რომ არაფერი დაირღვეს.',
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'forgotPassword.sentTo': 'გადაყენების ბმული გაიგზავნა {{email}}',
   'forgotPassword.successSubheading':
     'შეამოწმეთ თქვენი შემოსული წერილები — ჩვენ ახლახან გამოგიგზავნეთ გადატვირთვის ბმული. მისი ვადა 30 წუთში იწურება.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'ახალი გვერდი',
   'pageTreeSidebar.workspaceHeader': 'სამუშაო სივრცე',
   'pageView.breadcrumb': 'პურის ნამცეცები',
+  'pageView.confirmTrash': 'ნაგავში გადაყრა?',
   'pageView.home': 'სახლი',
   'pageView.lastEdited': 'განახლებულია {{when}}',
   'pageView.loading': 'გვერდი იტვირთება…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'ხელოვნური ინტელექტის შეჯამება ამ სამუშაო სივრცისთვის არ არის კონფიგურირებული.',
   'pageView.tocTitle': 'ამ გვერდზე',
+  'pageView.trash': 'ნაგავი',
+  'pageView.trashing': 'ნაგავში გადატანა…',
   'pageView.versionBadge': 'ვ{{version}}',
   'profile.badges.title': 'ბეიჯები',
   'profile.owned.title': 'საკუთრებაში არსებული გვერდები',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'სამუშაო სივრცე, პროფილი, შეტყობინებები, ინტეგრაციები — ყველაფერი ერთ მშვიდ ნაჭუჭში.',
   'settingsPage.workspace.defaultLanding': 'ნაგულისხმევი სადესანტო ეკრანი',
   'settingsPage.workspace.landingHome': 'სახლი',
+  'settingsPage.workspace.landingSpaces': 'სივრცეები',
   'settingsPage.workspace.subdomainLabel': 'ქვედომენი',
   'settingsPage.workspace.title': 'სამუშაო სივრცე',
   'signup.eyebrow': 'ახალი სამუშაო სივრცის დაწყება',
@@ -130,6 +135,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} წთ',
   'templates.subtitle':
     'დაიწყეთ გვერდი ტრაფარეტიდან და არა ცარიელი ტილოდან. თითოეული შაბლონი ფორმას კოდირებს, რათა კონცენტრირება შეძლოთ ნივთიერებაზე.',
+  'trash.confirmPurge': 'სამუდამოდ გასუფთავება?',
+  'trash.confirmPurgeAria': 'დადასტურება: სამუდამოდ წაშალეთ {{title}}',
   'trash.daysUntilPurge': '{{days}} დარჩენილი დღეები',
   'trash.empty.body':
     'წაშლილი გვერდები აქ 30 დღის განმავლობაში გამოჩნდება, სანამ ისინი გაიწმინდება.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'აღდგენა…',
   'versionHistory.subtitle': '{{count}} ვერსიები · აირჩიეთ რიგი განსხვავების შესამოწმებლად',
   'versionHistory.versionLabel': 'ვ{{v}}',
+  'wikiLayout.closeMenu': 'ნავიგაციის დახურვა',
+  'wikiLayout.menu': 'ნავიგაცია',
+  'wikiLayout.openMenu': 'ნავიგაციის გახსნა',
   'wikiLayout.searchPlaceholder': 'Cairn-ის ძიება — გვერდები, კომენტარები…',
 }

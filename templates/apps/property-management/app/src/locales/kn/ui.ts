@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.tagline': 'ಪ್ರತಿಯೊಂದು ಘಟಕ, ಒಂದೇ ಸೂರಿನಡಿ.',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.addProperty': 'ಆಸ್ತಿಯನ್ನು ಸೇರಿಸಿ',
   'dashboard.empty.body':
     'ಒಮ್ಮೆ ನೀವು ಆಸ್ತಿಗಳು, ಘಟಕಗಳು ಮತ್ತು ಬಾಡಿಗೆ ಪಾವತಿಗಳನ್ನು ಹೊಂದಿದ್ದರೆ, ಈ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಒಳನೋಟಗಳಿಂದ ತುಂಬುತ್ತದೆ.',
@@ -86,6 +89,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{ಆಸ್ತಿ}} · ಘಟಕ {{ಘಟಕ}} · {{ದಿನಾಂಕ}}',
   'maintenanceQueueList.subtitle': '{{count}} ಆದ್ಯತೆಯ ಮೇರೆಗೆ ಆದೇಶಿಸಲಾದ ಮುಕ್ತ ಕೆಲಸದ ಆದೇಶಗಳು',
   'maintenanceQueueList.title': 'ನಿರ್ವಹಣೆ ಸರತಿ ಸಾಲು',
+  'nav.closeMenu': 'ಮೆನು ಮುಚ್ಚಿ',
+  'nav.openMenu': 'ಮೆನು ತೆರೆಯಿರಿ',
   'notFound.body':
     'ನೀವು ಹುಡುಕುತ್ತಿದ್ದ ಪುಟವನ್ನು ಸರಿಸಲಾಗಿದೆ, ಆರ್ಕೈವ್ ಮಾಡಲಾಗಿದೆ ಅಥವಾ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ.',
   'notFound.title': 'ಆ ಬಾಗಿಲು ತೆರೆಯುವುದಿಲ್ಲ.',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// gbasara {{app}}',
+  'about.pageTitle': 'Ụgbọelu njikwa webhook',
+  'about.plansTitle': 'Atụmatụ maka ọkwa ọ bụla',
   'apiKeys.bestPractices': 'Omume kacha mma',
   'apiKeys.body':
     'Ihe nrịbama ohere mmemme. Were ha dị ka okwuntughe — chekwaa na env vars, emela nkwa.',
@@ -57,6 +60,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': "n'ime atụmatụ",
   'billing.usageWarning': 'dị nso okpu',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.body':
     "Nsonaazụ dị ndụ, na-anwale ọzọ n'ụgbọelu, na njedebe ndị gbagọrọ agbagọ — n'ebe ọrụ ọ bụla ị na-arụ ọrụ.",
   'dashboard.endpointsEmpty': 'Enwebeghị njedebe ọ bụla.',
@@ -106,6 +110,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'njedebe',
   'endpointDetail.deliveryTrendSub': 'nnyefe / awa, ọnụ ọgụgụ ndekọ',
   'endpointDetail.hideSecret': 'Zoo ihe nzuzo',
+  'endpointDetail.loading': 'Na-ebugo njedebe...',
   'endpointDetail.metric.delivered': 'E zigara ya awa 24',
   'endpointDetail.metric.deliveredCaption': 'site na {{count}} ụdị ihe omume',
   'endpointDetail.metric.failuresCaption': 'na-anwa ọzọ: {{retries}}',
@@ -209,6 +214,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Ihe dị oke mkpa · awa 24',
   'notifications.metric.totalCaption': 'igbe mbata oge niile',
   'payloadViewer.payload': '// ibu ọrụ',
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Egosiri mpụta mbụ — ntinye na-abịa na mwepụta na-esote.',
   'profile.body': 'Akaụntụ gị, mmasị gị, na nnọkọ ndị na-arụ ọrụ.',
@@ -224,6 +230,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Naanị nnọkọ gị dị ugbu a ka na-arụ ọrụ. Enweghị ngwaọrụ ndị ọzọ abanyela.',
   'profile.toggle': 'Gbanwee {{label}}',
+  'pylonShell.closeMenu': 'Mechie menu nsoroụzọ',
+  'pylonShell.openMenu': 'Mepee menu nsoroụzọ',
   'pylonShell.primaryNavLabel': 'Ntugharị isi',
   'resetPassword.subtitle': 'Họrọ paswọọdụ siri ike nke ị na-ejibeghị mbụ.',
   'resetPassword.tokenPlaceholder': 'mado site na email',

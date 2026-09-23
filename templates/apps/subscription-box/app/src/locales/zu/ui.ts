@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Mayelana ne-{{app}}',
+  'appNav.mobileLabel': 'Ukuzulazula okuyinhloko',
+  'appNav.primaryLabel': 'Ukuzulazula okuyinhloko',
   'billing.actions.confirmCancel': 'Khansela okubhalisele kwakho? Ungabhalisa kabusha noma nini.',
   'billing.actions.paused': 'Ukubhalisa kumiswe okwesikhashana.',
   'billing.actions.resumed': 'Ukubhalisa kuqaliswe kabusha.',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Isigaba ngasinye siyindaba encane. Faka esisodwa emgqeni wakho noma usishintshele enyangeni yakho ezayo.',
   'boxThemeCard.perMonth': '/ inyanga',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'customize.eyebrow': 'Kwenze kube okwakho',
   'customize.heading': 'Yenza ngokwezifiso i-Crate yakho elandelayo',
   'customize.items.exclude': 'Yeqa lokhu',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Lesi sizini',
   'landing.editions.heading': 'Izinhlelo abagcini bethu abazithandayo',
   'landing.footer.contact': 'Khuluma nomgcini wezincwadi',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qala ibhokisi lakho →',
   'landing.hero.ctaSecondary': 'Bona amazinga',
   'landing.hero.eyebrow': 'Kukhethwa nyanga zonke. Kuhlala kuyimfihlo.',
@@ -113,6 +118,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'ISIQINISEKISO SAKHO ESILANDELAYO',
   'nextBoxHeroCard.itemsLabel': 'Izinto ezikhethiwe',
   'nextBoxHeroCard.shipsOnLabel': 'Kuthunyelwa ku',
+  'notFound.body':
+    'Asikwazanga ukuthola lelo khasi kungobo yomlando ye {{app}} . Kungenzeka ukuthi lisusiwe noma limane libhalwe kabi.',
   'notFound.cta.dashboard': 'Iya kudeshibhodi',
   'notFound.eyebrow': 'Ibhokisi elingenalutho',
   'notFound.heading': 'Leli shelufu lingenalutho',

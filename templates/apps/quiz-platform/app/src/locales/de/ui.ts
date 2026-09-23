@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.title': 'Über „{{app}}“',
   'auth.login.noAccount': 'Neu bei Sparq?',
   'auth.login.or': 'oder weiter mit',
   'auth.signup.or': 'oder registrieren mit',
+  'common.confirm': 'Bestätigen',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.loadError': 'Beim Laden dieses Inhalts ist ein Fehler aufgetreten.',
+  'common.retry': 'Erneut versuchen',
   'discover.collections.title': 'Nach Kategorie durchsuchen',
   'discover.collections.viewAll': 'Ihre Bibliothek ansehen →',
   'discover.empty.body': 'Versuchen Sie eine andere Kategorie oder leeren Sie die Suche.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Melden Sie sich an, um Ihre Serie aufrechtzuerhalten, Live-Spiele zu hosten und in der Bestenliste aufzusteigen.',
   'myQuizzes.createButton': 'Neues Quiz',
+  'myQuizzes.deleteConfirm': 'Für immer löschen?',
   'myQuizzes.empty.createCta': 'Erstellen Sie Ihr erstes Quiz →',
   'myQuizzes.empty.created': 'Sie haben noch kein Quiz erstellt.',
   'myQuizzes.empty.played': 'Noch keine veröffentlichten Quizze.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Wird geladen…',
   'notifications.subhead':
     '{{count}} ungelesene Funken. Einladungen, Bewegungen in der Bestenliste und Erfolge in einem Stream.',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.checkoutError': 'Checkout konnte nicht gestartet werden. Bitte versuchen Sie es erneut.',
+  'pricing.heading': 'Wählen Sie Ihren {{app}}-Tarif',
   'pricing.included': 'Enthalten',
   'pricing.loadError': 'Pläne konnten nicht geladen werden.',
   'pricing.maxQuizzes': '{{count}} Quizze',
@@ -101,11 +110,14 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Noch nichts veröffentlicht.',
   'profile.startBuilding': 'Mit dem Erstellen beginnen →',
   'profile.tier': 'Sparq-Spieler',
+  'quizBuilder.addFailed':
+    'Die Frage konnte nicht hinzugefügt werden. Bitte versuchen Sie es erneut.',
   'quizBuilder.addQuestion': 'Frage hinzufügen',
   'quizBuilder.answerPlaceholder': 'Option eingeben…',
   'quizBuilder.answersLabel': 'Antwortmöglichkeiten',
   'quizBuilder.back': 'Zurück zu meinen Quizzen',
   'quizBuilder.delete': 'Frage löschen',
+  'quizBuilder.deleteFailed': 'Die Frage konnte nicht gelöscht werden.',
   'quizBuilder.firstQuestion': 'Fügen Sie Ihre erste Frage hinzu, um zu beginnen.',
   'quizBuilder.idLabel': 'Quiz-ID: {{id}}',
   'quizBuilder.loadError': 'Quiz konnte nicht geladen werden.',
@@ -119,6 +131,8 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Fügen Sie mindestens zwei Antwortmöglichkeiten hinzu und wählen Sie die richtige für {{count}} Frage(n) vor der Veröffentlichung.',
   'quizBuilder.questionsTitle': 'Fragen',
+  'quizBuilder.saveFailed':
+    'Der Titel konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.',
   'quizBuilder.statusDraft': 'Entwurf',
   'quizBuilder.subhead':
     'Bearbeiten Sie den Titel, fügen Sie Fragen hinzu, legen Sie Optionen und die richtige Antwort fest. Änderungen werden automatisch gespeichert.',
@@ -130,6 +144,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'Mehrspieler hosten',
   'quizDetail.leaderboardEmpty':
     'Noch keine Spiele — seien Sie der oder die Erste, der eine Punktzahl setzt.',
+  'quizDetail.loadError': 'Dieses Quiz konnte nicht geladen werden.',
   'quizDetail.loading': 'Quiz wird geladen…',
   'quizDetail.plays': '{{count}} Spiele',
   'quizDetail.playSolo': 'Allein spielen',

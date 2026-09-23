@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Over {{app}}',
+  'appNav.mobileLabel': 'Hoofdnavigatie',
+  'appNav.primaryLabel': 'Hoofdnavigatie',
   'billing.actions.confirmCancel':
     'Wilt u uw abonnement opzeggen? U kunt zich op elk moment opnieuw abonneren.',
   'billing.actions.paused': 'Abonnement gepauzeerd.',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'Elke laag is een kleine oplage. Voeg er een toe aan uw wachtrij of wissel het in voor uw volgende maand.',
   'boxThemeCard.perMonth': '/ maand',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'customize.eyebrow': 'Maak hem van u',
   'customize.heading': 'Pas uw volgende Crate aan',
   'customize.items.exclude': 'Sla over',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'Dit seizoen',
   'landing.editions.heading': 'Edities waar onze curatoren van houden',
   'landing.footer.contact': 'Spreek met een curator',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start uw box →',
   'landing.hero.ctaSecondary': 'Bekijk lagen',
   'landing.hero.eyebrow': 'Maandelijks geselecteerd. Altijd persoonlijk.',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'UW VOLGENDE CRATE',
   'nextBoxHeroCard.itemsLabel': 'Geselecteerde items',
   'nextBoxHeroCard.shipsOnLabel': 'Verzonden op',
+  'notFound.body':
+    'We konden die pagina niet vinden in het {{app}} archief. Deze is mogelijk verwijderd of er is een typefout gemaakt.',
   'notFound.cta.dashboard': 'Naar dashboard',
   'notFound.eyebrow': 'Lege box',
   'notFound.heading': 'Deze plank is leeg',

@@ -152,7 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.mismatchError': 'പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല.',
   'resetPassword.subheading':
     'ശക്തമായ എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക. നിങ്ങളുടെ പുസ്തകങ്ങൾ കാത്തിരിക്കും.',
-  'reviewCard.starsAria': 'റേറ്റുചെയ്തത്<x> {{റേറ്റിംഗ്}}</x> പുറത്ത്<x> {{ന്റെ}}</x> നക്ഷത്രങ്ങൾ',
+  'reviewCard.starsAria': '{{rating}} ൽ {{of}} നക്ഷത്രങ്ങൾ റേറ്റുചെയ്തു',
   'reviewCard.unratedAria': 'റേറ്റുചെയ്യാത്തത്',
   'reviews.eyebrow': 'എന്താണ് മനസ്സിൽ നിലനിന്നത്',
   'reviews.heading': 'നിങ്ങളുടെ റിവ്യൂകൾ',

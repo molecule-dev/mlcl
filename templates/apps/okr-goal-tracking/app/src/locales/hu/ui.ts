@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
+  'ascentSideNav.nav.notifications': 'Értesítések',
   'ascentSideNav.newObjective': 'Új célkitűzés',
+  'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Tűzd ki a csúcsot. Pontozd a mászást. Eddd a csapatot.',
   'authShell.eyebrow': 'OKR-ek, amelyek csapatokat mozgatnak',
   'authShell.samplePeriod': '2026. második negyedév · minta célkitűzés',
@@ -19,6 +22,11 @@ export const ui: UiTranslations = {
   'billing.eyebrow': 'Munkaterület · Számlázás',
   'billing.heading': 'Terv és számlák',
   'billing.period.year': 'Éves',
+  'billing.perk.export': 'Adatexport + API hozzáférés',
+  'billing.perk.inApp': 'Alkalmazáson belüli jelentéskészítés',
+  'billing.perk.standard': 'Standard vélemények',
+  'billing.perk.unlimitedObjectives': 'Korlátlan célok',
+  'billing.perk.unlimitedRetention': 'Korlátlan megtartási idő',
   'billing.subheading':
     'Te vagy a {{name}} csomag. Hasonlítsa össze a csomagokat és váltson magasabb szintre az alábbiakban.',
   'billing.tier.unavailable': 'Nem elérhető',
@@ -41,11 +49,13 @@ export const ui: UiTranslations = {
   'checkIn.submit': 'Bejelentkezés elküldése',
   'checkIn.submittedMessage':
     'Bejelentkezés mentve. A folyamat előrehaladása és az idővonal frissítve.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': 'Nem',
   'common.relative.daysAgo': '{{count}}n ezelőtt',
   'common.relative.hoursAgo': '{{count}} órával ezelőtt',
   'common.relative.justNow': 'épp most',
   'common.relative.minutesAgo': '{{count}} perc ezelőtt',
+  'common.retry': 'Újra',
   'common.yes': 'Igen',
   'common.you': 'Ön',
   'dashboard.allActivity': 'Az összes tevékenység megtekintése →',
@@ -89,6 +99,10 @@ export const ui: UiTranslations = {
   'forgotPassword.successBody':
     'Elküldtünk egy visszaállító linket ide: {{email}} Egy óra múlva lejár – várj egy kicsit a postaládáddal.',
   'forgotPassword.successHeading': 'Ellenőrizze a postaládáját.',
+  'keyResult.metrics.boolean': 'Igen / Nem',
+  'keyResult.metrics.currency': 'Valuta $',
+  'keyResult.metrics.number': 'Szám',
+  'keyResult.metrics.percent': 'százalékos arány',
   'kpiSummaryCard.srLabel': '{{label}} : {{value}}',
   'landing.ctaBody':
     'Tűzzétek ki az első célotokat, hívjatok meg három csapattársatokat, és péntekig tartsátok meg az első heti egyeztetést.',
@@ -100,6 +114,7 @@ export const ui: UiTranslations = {
   'landing.featuresEyebrow': 'Hogyan emelkednek a csapatok',
   'landing.featuresTitle': 'Edzői szintű OKR-ek, táblázatkezelő túlzás nélkül.',
   'landing.footerBuiltOn': 'Molecule.dev-n készült',
+  'landing.footerCopyright': '© {{year}} {{name}} — {{tagline}}',
   'landing.heroBody':
     'Az Ascent minden csapatnak mérhető utat kínál a hegyre fel – tűzz ki célokat, szerezz fontos eredményeket hetente, és negyedévente tekintsd át a mászást.',
   'landing.heroProgressLabel': '2. negyedéves vállalati terv',
@@ -109,6 +124,9 @@ export const ui: UiTranslations = {
   'login.orContinueWith': 'vagy folytassa ezzel:',
   'login.subheading':
     'Folytassa ott, ahol abbahagyta – bejelentkezései, krízispontjai és értékelései várnak Önre.',
+  'mobileNav.closeMenu': 'A navigációs menü bezárása',
+  'mobileNav.mainNavigation': 'Fő navigáció',
+  'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'newObjective.addKr': 'KR hozzáadása',
   'newObjective.coachLabel': 'Edzői emlékeztetők',
   'newObjective.descriptionPlaceholder': 'Magyarázd el a stratégiai kontextust 2-3 mondatban.',
@@ -133,6 +151,7 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Tevékenységközpont',
   'notifications.markRead': '● Megjelölés olvasottként',
   'objective.scopes.company': 'Cég',
+  'objective.scopes.individual': 'Egyedi',
   'objective.scopes.team': 'Csapat',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Vissza a célokhoz',
@@ -155,11 +174,17 @@ export const ui: UiTranslations = {
   'objectives.subheading':
     'Követés {{count}} célok. Szűrés állapot szerint, hogy megtaláld, mire kell odafigyelni.',
   'profile.achievementCheckInsMany': '{{count}} bejelentkezések naplózva',
+  'profile.achievementCheckInsOne': '1 bejelentkezés naplózva',
+  'profile.achievementCompletedMany': 'Teljesített {{count}} célkitűzés',
+  'profile.achievementCompletedOne': '1 célkitűzés teljesítve',
+  'profile.achievementOnTrackMany': '{{count}} célkitűzés halad a tervek szerint',
+  'profile.achievementOnTrackOne': '1 célkitűzés a tervek szerint halad',
   'profile.activeHeading': 'Aktív célok',
   'profile.allObjectives': 'Minden célkitűzés →',
   'profile.empty': 'Még nincsenek aktív céljaid – hozd létre az elsőt a kezdéshez.',
   'profile.eyebrow': 'Mászó profilja',
   'profile.guestName': 'Hegymászó',
+  'profile.loadError': 'Nem sikerült betölteni a céljaidat.',
   'profile.loading': 'Célok betöltése…',
   'profile.noAchievements': 'Jelentkezz be az első eredményed feloldásához.',
   'profile.statCheckIns': 'Bejelentkezések',

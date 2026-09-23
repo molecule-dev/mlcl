@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'Mayelana',
   'alertConditionCard.condition.${alert.condition}': 'Kuqaliswe {{nini}}',
+  'alertConditionCard.confirmDelete': 'Qinisekisa ukususa',
   'alertConditionCard.pauseAriaLabel': 'Misa okwesikhashana isexwayiso',
   'alertConditionCard.resumeAriaLabel': 'Isexwayiso sokuqhubeka kabusha',
   'alertNew.condition': 'Isimo',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'Ukulinganisa okuncishisiwe ngokuphelele',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'Iwebhusayithi',
+  'coinDetail.links.whitepaper': 'Iphepha Elimhlophe',
   'coinDetail.loadError': 'Yehlulekile ukulayisha uhlamvu lwemali.',
   'coinDetail.marketCap': 'Intengo yemakethe',
   'coinDetail.maxSupply': 'Ukunikezwa okuphezulu',
@@ -91,6 +93,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Indlela oyiskenile ayifinyeleli kuhlamvu lwemali noma ikhasi elaziwayo. Hlola kabusha uphawu bese uzama futhi.',
   'notFound.browseMarkets': 'Dlulisa amehlo ezimakethe',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'portfolio.addError': 'Faka uphawu, inani eliqondile, kanye nezindleko.',
   'portfolio.addHoldingCta': '+ Engeza ukubamba',
   'portfolio.addModal.cost': 'Isisekelo sezindleko (i-USD)',
@@ -134,9 +137,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'Iphasiwedi kanye nezilungiselelo zezici ezimbili ziphathwa yi-akhawunti yakho.',
   'settings.signOutDevice': 'Phuma ngemvume',
+  'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'sigilAuthShell.backHomeCta': '← Buyela ku-Bourse',
   'sigilLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'signup.eyebrow': 'Vula i-terminal',

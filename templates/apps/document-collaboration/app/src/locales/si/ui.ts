@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.title': '{{app}} පිළිබඳව',
   'comments.addFailed': 'අදහස පළ කිරීමට නොහැකි විය.',
   'comments.backToDoc': 'අත්පිටපත වෙත ආපසු',
   'comments.deleteFailed': 'මැකීමට නොහැකි විය.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'විසඳන්න',
   'comments.resolveFailed': 'විසඳා ගැනීමට නොහැකි විය.',
   'comments.subtitle': '{{open}} විවෘත · {{resolved}} විසඳා ඇත',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.activityHeading': 'මොකද වෙන්නේ',
   'dashboard.createFailed': 'ලේඛනයක් නිර්මාණය කිරීමට නොහැකි විය.',
   'dashboard.empty': 'තවමත් අත්පිටපත් නොමැත — නව ලේඛන බොත්තම සමඟ ආරම්භ කරන්න.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'කුණු කූඩයට ගෙන යාමට නොහැකි විය.',
   'editor.unpublish': 'ප්‍රකාශයට පත් නොකරන්න',
   'editor.untitled': 'මාතෘකා නොකළ ලේඛනය',
+  'editor.updatedElsewhere':
+    'මෙම ලේඛනය වෙනත් අයෙකු විසින් යාවත්කාලීන කරන ලදී — නවතම දේ බැලීමට නැවත පූරණය කරන්න.',
   'editor.version': 'තුල {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'ගිණුමක් තිබේ නම් {{email}} , යළි පිහිටුවීමේ සබැඳියක් පැමිණෙමින් තිබේ.',
   'forgotPassword.subtitle': 'අපි ඔබට යළි පිහිටුවීමේ සබැඳියක් ඊමේල් කරන්නෙමු.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . අණු සමඟ ගොඩනගා ඇත.',
   'landing.ctaHeading': 'පිටුව විවෘත කරන්න. කර්සරය ආරම්භ කිරීමට ඉඩ දෙන්න.',
   'landing.ctaPrimary': 'චිත්‍රාගාරයක් විවෘත කරන්න',
   'landing.eyebrow': 'ලේඛකයින්, සංස්කාරකවරුන් සහ කණ්ඩායම් සඳහා',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'සංස්කරණය කරන ලදී {{when}}',
   'quillonDocumentCard.open': 'විවෘත කරන්න →',
   'quillonKpiCard.trend': 'මෑත කාලීන ප්‍රවණතාවය',
+  'quillonLayout.menu': 'මෙනුව',
   'quillonLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'quillonStudioHero.collab': 'සහයෝගිතාකරුවන්',
   'quillonStudioHero.docs': 'ස්පර්ශ කළ ලේඛන',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'මේ දැන්',
+  'trash.confirmDelete': 'මැකීම තහවුරු කරන්න',
   'trash.deleteFailed': 'මැකීමට නොහැකි විය.',
   'trash.deleteForever': 'සදහටම මකන්න',
   'trash.empty': 'නැවත ලබා ගැනීමට කිසිවක් නැත.',
+  'trash.emptyAll': 'කුණු කූඩය හිස් කරන්න',
   'trash.eyebrow': 'ස්ටුඩියෝ',
   'trash.heading': 'කුණු කූඩය',
   'trash.loadFailed': 'කුණු කූඩය පූරණය කළ නොහැකි විය.',

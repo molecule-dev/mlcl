@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.title': '{{app}} વિશે',
   'auth.login.noAccount': 'સ્પાર્કમાં નવા છો?',
   'auth.login.or': 'અથવા ચાલુ રાખો',
   'auth.signup.or': 'અથવા સાઇન અપ કરો',
+  'common.confirm': 'પુષ્ટિ કરો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.loadError': 'આ સામગ્રી લોડ કરવામાં કંઈક ખોટું થયું.',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'discover.collections.title': 'શ્રેણી દ્વારા બ્રાઉઝ કરો',
   'discover.collections.viewAll': 'તમારી લાઇબ્રેરી જુઓ →',
   'discover.empty.body': 'કોઈ અલગ શ્રેણી અજમાવી જુઓ અથવા શોધ સાફ કરો.',
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'તમારા સિલસિલાને જીવંત રાખવા, લાઇવ રમતો હોસ્ટ કરવા અને લીડરબોર્ડ પર ચઢવા માટે સાઇન ઇન કરો.',
   'myQuizzes.createButton': 'નવી ક્વિઝ',
+  'myQuizzes.deleteConfirm': 'કાયમ માટે કાઢી નાખીએ?',
   'myQuizzes.empty.createCta': 'તમારી પહેલી ક્વિઝ બનાવો →',
   'myQuizzes.empty.created': 'તમે હજુ સુધી ક્વિઝ બનાવી નથી.',
   'myQuizzes.empty.played': 'હજુ સુધી કોઈ પ્રકાશિત ક્વિઝ નથી.',
@@ -77,7 +84,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'લોડ કરી રહ્યું છે...',
   'notifications.subhead':
     '{{count}} વાંચ્યા વગરના સ્પાર્ક્સ. આમંત્રણો, લીડરબોર્ડ ચાલ અને સિદ્ધિઓ બધું એક જ સ્ટ્રીમમાં.',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.checkoutError': 'ચેકઆઉટ શરૂ કરી શકાયું નથી. કૃપા કરીને ફરી પ્રયાસ કરો.',
+  'pricing.heading': 'તમારો {{app}} પ્લાન પસંદ કરો',
   'pricing.included': 'સમાવેશ થાય છે',
   'pricing.loadError': 'પ્લાન લોડ કરી શકાયા નથી.',
   'pricing.maxQuizzes': '{{count}} ક્વિઝ',
@@ -97,11 +106,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'હજુ સુધી કંઈ પ્રકાશિત થયું નથી.',
   'profile.startBuilding': 'બાંધકામ શરૂ કરો →',
   'profile.tier': 'સ્પાર્ક પ્લેયર',
+  'quizBuilder.addFailed': 'પ્રશ્ન ઉમેરી શકાયો નથી. ફરી પ્રયાસ કરો.',
   'quizBuilder.addQuestion': 'પ્રશ્ન ઉમેરો',
   'quizBuilder.answerPlaceholder': 'એક વિકલ્પ લખો...',
   'quizBuilder.answersLabel': 'જવાબ પસંદગીઓ',
   'quizBuilder.back': 'મારી ક્વિઝ પર પાછા',
   'quizBuilder.delete': 'પ્રશ્ન કાઢી નાખો',
+  'quizBuilder.deleteFailed': 'પ્રશ્ન ડિલીટ કરી શકાયો નથી.',
   'quizBuilder.firstQuestion': 'શરૂ કરવા માટે તમારો પહેલો પ્રશ્ન ઉમેરો.',
   'quizBuilder.idLabel': 'ક્વિઝ આઈડી: {{id}}',
   'quizBuilder.loadError': 'ક્વિઝ લોડ કરી શકાયું નથી.',
@@ -115,6 +126,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'ઓછામાં ઓછા બે જવાબ વિકલ્પો ઉમેરો અને સાચો એક પસંદ કરો {{count}} પ્રકાશન પહેલાં પ્રશ્નો.',
   'quizBuilder.questionsTitle': 'પ્રશ્નો',
+  'quizBuilder.saveFailed': 'શીર્ષક સાચવી શકાયું નથી. ફરી પ્રયાસ કરો.',
   'quizBuilder.statusDraft': 'ડ્રાફ્ટ',
   'quizBuilder.subhead':
     'શીર્ષક સંપાદિત કરો, પ્રશ્નો ઉમેરો, પસંદગીઓ સેટ કરો અને સાચો જવાબ આપો. ફેરફારો આપમેળે સાચવવામાં આવે છે.',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} મિનિટ',
   'quizDetail.hostMultiplayer': 'મલ્ટિપ્લેયર હોસ્ટ કરો',
   'quizDetail.leaderboardEmpty': 'હજુ સુધી કોઈ નાટક નથી — સ્કોર સેટ કરનાર પ્રથમ બનો.',
+  'quizDetail.loadError': 'આ ક્વિઝ લોડ કરી શકાયું નથી.',
   'quizDetail.loading': 'ક્વિઝ લોડ કરી રહ્યું છે…',
   'quizDetail.plays': '{{count}} નાટકો',
   'quizDetail.playSolo': 'સોલો વગાડો',

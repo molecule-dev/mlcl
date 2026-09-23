@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ, ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿ ಇದೆಯೇ ಅಥವಾ ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ? ನಿಮ್ಮ ಖಾತೆ ಮೆನುವಿನಲ್ಲಿರುವ ಬೆಂಬಲ ಲಿಂಕ್ ಮೂಲಕ {{app}} ತಂಡವನ್ನು ತಲುಪಿ — ಪ್ರತಿಯೊಂದು ಸಂದೇಶವು ನಿಜವಾದ ಮನುಷ್ಯನಿಗೆ ಹೋಗುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'agentDetail.back': 'ಎಲ್ಲಾ ಏಜೆಂಟ್‌ಗಳು',
   'agentDetail.capabilities': 'ಸಾಮರ್ಥ್ಯಗಳು',
   'agentDetail.delete': 'ವ್ಯಕ್ತಿತ್ವವನ್ನು ಅಳಿಸಿ',
   'agentDetail.deleteConfirm': 'ಈ ವ್ಯಕ್ತಿತ್ವವನ್ನು ಅಳಿಸಬೇಕೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
+  'agentDetail.deleteError': 'ವ್ಯಕ್ತಿತ್ವವನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'agentDetail.eyebrow': 'ಪರ್ಸೋನಾ',
   'agentDetail.fetchError': 'ವ್ಯಕ್ತಿತ್ವವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'agentDetail.save': 'ವ್ಯಕ್ತಿತ್ವವನ್ನು ಉಳಿಸಿ',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'ಬದಲಾಯಿಸಲಾಗುತ್ತಿದೆ...',
   'billing.updateError': 'ನವೀಕರಣವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'billing.usageHeading': 'ಈ ಚಕ್ರದಲ್ಲಿ ಧ್ವನಿ ಬಳಕೆ',
+  'chatBubble.source.text': 'ಪಠ್ಯ',
+  'chatBubble.source.voice': 'ಧ್ವನಿ',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'conversation.defaultTitle': 'ಹೊಸ ಸಂಭಾಷಣೆ',
   'conversation.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ಸಂದೇಶಗಳಿಲ್ಲ. ಏನನ್ನಾದರೂ ಹೇಳುವ ಮೂಲಕ ಅಥವಾ ಕೆಳಗೆ ಟೈಪ್ ಮಾಡುವ ಮೂಲಕ ಪ್ರಾರಂಭಿಸಿ.',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'ಮಾತನಾಡುವ ಬುದ್ಧಿಮತ್ತೆ.',
   'landing.heroSubtitle':
     'ನಿಮ್ಮ ನೈಸರ್ಗಿಕ ಹರಿವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವ AI ಧ್ವನಿ ಸಹಾಯಕ. ಸಂವಾದ, ಕಲ್ಪನೆ ಮತ್ತು ಆಜ್ಞೆ — ಸರಾಗವಾಗಿ.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'ಆಲಿಸಲಾಗುತ್ತಿದೆ...',
   'landing.naturallyBody':
     'ಯಾವುದೇ ಪ್ರಚೋದಕ ಪದಗಳಿಲ್ಲ. ಯಾವುದೇ ಕಟ್ಟುನಿಟ್ಟಿನ ಆಜ್ಞೆಗಳಿಲ್ಲ. ಸಹೋದ್ಯೋಗಿಯೊಂದಿಗೆ ಚಾಟ್ ಮಾಡಿದಂತೆ, ಸಂದರ್ಭ, ಅಡಚಣೆಗಳು ಮತ್ತು ಮಾನವ ಮಾತಿನ ಸೂಕ್ಷ್ಮತೆಯನ್ನು ಪ್ಯಾರ್ಲಾನ್ಸ್ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುತ್ತದೆ.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'ಸೆಷನ್ ತೆರೆಯಿರಿ',
   'notFound.home': 'ಮನೆಗೆ ಹಿಂತಿರುಗಿ',
   'notFound.title': 'ನಮಗೆ ಆ ಪುಟ ಕೇಳಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'parlanceLayout.closeMenu': 'ಮೆನು ಮುಚ್ಚಿ',
+  'parlanceLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'parlanceLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'pricing.conversations': '{{count}} ಸಂಭಾಷಣೆಗಳು',
   'pricing.cta.startFree': 'ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'ಯಾವುದೇ ಹೊಂದಾಣಿಕೆಗಳಿಲ್ಲ',
   'search.eyebrow': 'ಕಮಾಂಡ್ ಪ್ಯಾಲೆಟ್',
   'search.fetchError': 'ಹುಡುಕಾಟ ಸೂಚಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'search.static.profile.preview': 'ಪ್ರದರ್ಶನ ಹೆಸರು, ಹ್ಯಾಂಡಲ್, ಜೀವನ ಚರಿತ್ರೆ',
   'search.static.voice.title': 'ಧ್ವನಿ',
   'search.title': 'ಪರಿಭಾಷೆಯಲ್ಲಿ ಹುಡುಕಿ',
   'search.transcriptPreview': 'ಪ್ರತಿಲೇಖನವನ್ನು ತೆರೆಯಿರಿ',

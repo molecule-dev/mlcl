@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.logout': 'Saioa itxi',
   'dailyStatsTriad.heartsLabel': 'Bihotzak',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Gaurko minutuak',
   'dailyStatsTriad.minutesValue': '{{count}} minutu',
   'dailyStatsTriad.wordsLabel': 'Hitzak menperatuta',
+  'dailyStatsTriad.wordsMasteryHint': 'Hitzak maisutasunez 4+',
   'dashboard.continueHeading': 'Jarraitu utzi zenuen tokitik',
   'dashboard.heading': 'Egun on, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Ezin izan dira ariketak kargatu.',
   'lessonDetail.loading': 'Ikasgaia kargatzen…',
   'lessonDetail.submitError': 'Ezin izan da erantzuna bidali.',
+  'lessonDetail.translation': 'Itzuli esaldia',
   'lessonDetail.xpEarned': 'Lortutako XP · {{xp}}',
   'lessons.empty': 'Ez dago mailan ikasgairik {{level}} hala ere — saiatu beste maila bat.',
   'lessons.eyebrow': 'Ikasgai liburutegia',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Berria zara Hizkeran?',
   'login.showPassword': 'Erakutsi pasahitza',
   'login.signUp': 'Hasi doan →',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
+  'parlanceLayout.nav.profile': 'Profila',
   'parlanceLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'practice.empty': 'Ez dago esaldirik eskuragarri oraindik.',
   'practice.eyebrow': 'Ahozko praktika',
   'practice.heading': 'Irakurri. Grabatu. Findu.',

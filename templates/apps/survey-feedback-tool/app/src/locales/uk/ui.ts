@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Про {{app}}',
   'analytics.back': 'Огляд опитування',
   'analytics.kpiNps': 'Оцінка NPS',
   'analytics.kpiNpsTrend': 'Промоутери {{p}} % · Критики {{d}} %',
@@ -30,11 +31,13 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Властивості',
   'builder.questionNumber': 'П {{num}}',
   'builder.surveyTitle': 'Назва опитування',
+  'common.goToDashboard': 'До панелі',
   'forgotPassword.failed': 'Не вдалося надіслати лист для скидання пароля. Спробуй ще раз.',
   'forgotPassword.subheading':
     'Введіть свою електронну адресу, і ми надішлемо вам посилання для відновлення.',
   'forgotPassword.successBody':
     'Якщо обліковий запис збігається {{email}} , посилання для скидання вже в дорозі. Перевірте папку "Вхідні" та "Спам".',
+  'landing.footer.copyright': '© {{year}} {{app}} . Ласкаво просимо до будь-якого голосу.',
   'landing.footer.startTrial': 'Почати пробний період',
   'landing.hero.badge': 'Опитування, NPS та відгуки в одному місці',
   'landing.hero.subtitle':
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Ціни',
   'landing.pricing.perMonth': '/міс.',
   'landing.pricing.popular': 'Найпопулярніший',
+  'landing.pricing.subtitle':
+    'Кожен план включає конструктор опитувань, посилання для публічного доступу та аналітику NPS. Для початку роботи кредитна картка не потрібна.',
+  'landing.pricing.title': 'Почніть безкоштовно, масштабуйте, коли забажаєте.',
   'landing.sample.eyebrow': 'Короткий огляд NPS',
   'landing.sample.title': 'Критики, пасивні опоненти, промоутери — миттєво читабельно.',
   'login.failed': 'Вхід не вдався. Спробуйте ще раз.',
@@ -57,6 +63,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Показати пароль',
   'login.signUpLink': 'Почніть безкоштовний пробний період',
   'login.subheading': 'Увійдіть, щоб продовжувати слухати свою аудиторію.',
+  'notFound.body':
+    'Сторінка, яку ви шукаєте, не існує в {{app}} . Давайте повернемося до ваших опитувань.',
   'notFound.cta': 'Назад до опитувань',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Це опитування відійшло від черги.',
@@ -73,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Пасивний 7–8',
   'npsDistributionBar.promoter': 'Промоутер 9–10',
   'profile.identity.description': 'Публічно для вашої команди та в опитуваннях, які ви створюєте.',
+  'profile.identity.emailRequired': 'Введіть адресу електронної пошти.',
   'profile.identity.saveCta': "Зберегти ім'я",
   'profile.password.current': 'Поточний пароль',
   'profile.password.fillFields': 'Введіть як поточний, так і новий пароль.',
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} питання',
   'templates.subheading':
     'Оберіть перевірений часом шаблон для початку роботи — кожен шаблон має попередньо налаштовані параметри за замовчуванням, зразки логіки та зрозумілий мобільний макет.',
+  'thankYou.body':
+    'Вашу відповідь записано. {{app}} включить її до наступного оновлення аналітики.',
   'thankYou.eyebrow': 'Отримано відповідь',
   'thankYou.heading': 'Дякую — ваш голос має значення.',
   'thankYou.home': 'Відвідайте Gauge',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'billing.canceled': 'Usajili umeghairiwa. Utarudi kwenye Bure mwishoni mwa kipindi.',
   'billing.contactSales': 'Wasiliana na mauzo',
   'billing.free.1': 'Tafsiri 5',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Hakuna kikomo cha uhifadhi',
   'billing.upgradeHint': 'Boresha ili ufungue vipengele vya hali ya juu vya AI.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.activityEmpty': 'Hakuna shughuli bado — anza mradi wa kujaza mlisho huu.',
   'dashboard.eyebrow': 'Muhtasari',
   'dashboard.projectsEmpty': 'Hakuna miradi bado — anza moja ili kuiona hapa.',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Tumia tena tafsiri zilizopita katika kila mradi. Alama za juu zaidi za ulinganifu → punguza kazi tena.',
   'memory.title': 'Benki ya kumbukumbu',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'nav.legal': 'Kisheria',
   'newProject.addLanguage': 'Ongeza lengo',
   'newProject.create': 'Unda mradi',
@@ -141,6 +145,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Imetiwa alama {{count}} arifa kama zilivyosomwa.',
   'notifications.subtitle':
     'Kutaja, maombi ya mapitio, na matukio ya AI kutoka sehemu zako zote za kazi.',
+  'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'privacy.collection.account': 'Anwani yako ya barua pepe na jina la onyesho',
   'privacy.deletion.body':
     'Unaweza kufuta mradi, sehemu, neno la msamiati, au ingizo la kumbukumbu wakati wowote kutoka kwenye ukurasa husika. Kufuta akaunti yako kutoka kwa Mipangilio huondoa kila safu mlalo yenye nafasi ya kazi kutoka kwa hifadhidata yetu.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Imeshindwa kupakia miradi.',
   'projects.loading': 'Inapakia miradi…',
   'projects.subtitle': 'Kila mradi unaoendelea katika maeneo yote.',
+  'renditionLayout.primaryNavLabel': 'Usogezaji mkuu',
   'reset.backToLogin': '\\u2190 Rudi kwenye kuingia',
   'reset.passwordLabel': 'Nenosiri jipya',
   'review.activeEyebrow': 'Sehemu {{number}}',

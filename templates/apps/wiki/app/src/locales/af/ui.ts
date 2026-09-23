@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Oplossing…',
   'comments.subtitle':
     "Die {{count}} Drade wag steeds op 'n antwoord of 'n oplossing. Gesorteer volgens ouderdom — oudste eerste, sodat niks verrot nie.",
+  'common.goToDashboard': 'Gaan na Dashboard',
   'forgotPassword.sentTo': 'Herstel skakel gestuur na {{email}}',
   'forgotPassword.successSubheading':
     "Gaan jou inboks na — ons het sopas 'n terugstelskakel gestuur. Dit verval oor 30 minute.",
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nuwe bladsy',
   'pageTreeSidebar.workspaceHeader': 'Werkruimte',
   'pageView.breadcrumb': 'Broodkrummel',
+  'pageView.confirmTrash': 'Asblik dit?',
   'pageView.home': 'Tuis',
   'pageView.lastEdited': 'Opgedateer {{when}}',
   'pageView.loading': 'Laai bladsy…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Opsomming…',
   'pageView.summaryUnavailable': 'KI-opsomming is nie vir hierdie werkspasie gekonfigureer nie.',
   'pageView.tocTitle': 'Op hierdie bladsy',
+  'pageView.trash': 'Asblik',
+  'pageView.trashing': 'Asblikke…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Kentekens',
   'profile.owned.title': 'Besitte bladsye',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Werkruimte, profiel, kennisgewings, integrasies — alles in een kalm dop.',
   'settingsPage.workspace.defaultLanding': 'Standaard landingskerm',
   'settingsPage.workspace.landingHome': 'Tuis',
+  'settingsPage.workspace.landingSpaces': 'Ruimtes',
   'settingsPage.workspace.subdomainLabel': 'Subdomein',
   'settingsPage.workspace.title': 'Werkruimte',
   'signup.eyebrow': "Begin 'n nuwe werkruimte",
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     "Begin 'n bladsy vanaf 'n stensil, nie 'n leë doek nie. Elke sjabloon kodeer die vorm hard sodat jy op die inhoud kan fokus.",
+  'trash.confirmPurge': 'Vir altyd suiwer?',
+  'trash.confirmPurgeAria': 'Bevestig: verwyder {{title}} permanent',
   'trash.daysUntilPurge': '{{days}} dae oor',
   'trash.empty.body': 'Uitgevee bladsye sal hier vir 30 dae verskyn voordat dit uitgevee word.',
   'trash.empty.title': 'Asblik is leeg.',
@@ -147,5 +154,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Herstel tans…',
   'versionHistory.subtitle': "{{count}} weergawes · kies 'n ry om die verskil te inspekteer",
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Maak navigasie toe',
+  'wikiLayout.menu': 'Navigasie',
+  'wikiLayout.openMenu': 'Maak navigasie oop',
   'wikiLayout.searchPlaceholder': 'Soek Cairn — bladsye, kommentaar…',
 }

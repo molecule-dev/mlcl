@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Acerca de {{app}}',
   'analytics.back': 'Visión xeral da enquisa',
   'analytics.kpiNps': 'Puntuación NPS',
   'analytics.kpiNpsTrend': 'Promotores {{p}} % · Detractores {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Propiedades',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Título da enquisa',
+  'common.goToDashboard': 'Ir ao panel',
   'forgotPassword.failed':
     'Non se puido enviar o correo electrónico de restablecemento. Téntao de novo.',
   'forgotPassword.subheading':
     'Introduce o teu correo electrónico e enviarémosche unha ligazón de recuperación.',
   'forgotPassword.successBody':
     'Se unha conta coincide {{email}} , unha ligazón de restablecemento está en camiño. Revisa a túa caixa de entrada e os cartafoles de correo non desexado.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Todas as voces son benvidas.',
   'landing.footer.startTrial': 'Iniciar proba',
   'landing.hero.badge': 'Enquisas, NPS e comentarios nun só lugar',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Prezos',
   'landing.pricing.perMonth': '/mes',
   'landing.pricing.popular': 'Máis popular',
+  'landing.pricing.subtitle':
+    'Todos os plans inclúen o creador de enquisas, ligazóns para compartir públicamente e análises de NPS. Non se require tarxeta de crédito para comezar.',
+  'landing.pricing.title': 'Comeza de balde e amplía as túas posibilidades.',
   'landing.sample.eyebrow': 'NPS dunha ollada',
   'landing.sample.title': 'Detractores, pasivos, promotores: lexibles ao instante.',
   'login.failed': 'Fallou o inicio de sesión. Téntao de novo.',
@@ -58,6 +64,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostrar contrasinal',
   'login.signUpLink': 'Comezar unha proba gratuíta',
   'login.subheading': 'Inicia sesión para seguir escoitando ao teu público.',
+  'notFound.body': 'A páxina que estás buscando non existe en {{app}} . Volvamos ás túas enquisas.',
   'notFound.cta': 'Volver ás enquisas',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Esta enquisa quedou fóra da cola.',
@@ -75,6 +82,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasivo 7–8',
   'npsDistributionBar.promoter': 'Promotor 9–10',
   'profile.identity.description': 'Público para o teu equipo e nas enquisas que creas.',
+  'profile.identity.emailRequired': 'Introduza un enderezo de correo electrónico.',
   'profile.identity.saveCta': 'Gardar nome',
   'profile.password.current': 'Contrasinal actual',
   'profile.password.fillFields': 'Introduza o contrasinal actual e o novo.',
@@ -182,6 +190,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} preguntas',
   'templates.subheading':
     'Escolle un modelo inicial probado en batalla: cada modelo vén predefinido con valores predeterminados sensatos, lóxica de exemplo e un deseño móbil limpo.',
+  'thankYou.body':
+    'A túa resposta foi rexistrada. {{app}} incluiraa na seguinte actualización das analíticas.',
   'thankYou.eyebrow': 'Resposta recibida',
   'thankYou.heading': 'Grazas, a túa voz importa.',
   'thankYou.home': 'Visita Gauge',

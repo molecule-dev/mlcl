@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikácii {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Nástroje na budovanie bohatstva',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nie je to investičné poradenstvo.',
   'argentAuthShell.sampleChange': '+2 841 USD (+0,28 %) dnes',
   'argentAuthShell.sampleValue': '1 032 251 dolárov',
   'argentLayout.primaryNavLabel': 'Hlavná navigácia',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Pre tento ticker neboli vykonané žiadne transakcie.',
   'assetDetail.txHeading': 'Vaše transakcie',
   'common.and': 'a',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Prehľad portfólia',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Zatiaľ žiadne podiely.',
   'holdings.heading': 'Držieb',
   'holdings.loadError': 'Nepodarilo sa načítať súbory.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nie je to investičné poradenstvo. Minulá výkonnosť nezaručuje budúce výsledky.',
   'landing.eyebrow': 'Argent · Platforma na budovanie bohatstva',
   'landing.features.heading': 'Všetko, čo by si poradca vybudoval pre seba.',
   'landing.finalCta.heading': 'Vráťte do svojho portfólia disciplínu.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} pred hodinami',
   'news.justNow': 'práve teraz',
   'news.loadError': 'Nepodarilo sa načítať správy.',
+  'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'portfolioHeroCard.label': 'Hodnota portfólia',
   'pricing.holdingsLabel': 'držby',
   'pricing.newsLabel': 'novinové články',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Odstrániť účet',
   'settings.security.deleting': 'Odstraňuje sa…',
   'settings.security.heading': 'Bezpečnosť',
+  'settings.security.newPassword': 'Nové heslo',
   'settings.security.password': 'Heslo',
   'settings.security.twoFactorEnable': 'Zapnúť',
+  'settings.security.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.security.twoFactorVerify': 'Overiť a povoliť',
   'settings.tax.error': 'Nepodarilo sa aktualizovať spôsob dane.',
   'settings.tax.heading': 'Účtovníctvo daňových poplatkov',
   'settings.tax.method': 'Predvolená metóda',

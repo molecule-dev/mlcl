@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
   'actions.empty': 'ఏ యాక్షన్ ఐటమ్స్ సరిపోలడం లేదు.',
   'actions.heading': 'కార్యాచరణ అంశాలు',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'గత నెల',
   'calendar.recent': 'ఇటీవలి',
   'common.daysAgo': '{{count}} డి క్రితం',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.hoursAgo': '{{count}} గంటల క్రితం',
   'common.no': '—',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} కార్యాచరణ అంశాలు',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'రీసెట్ లింక్ కోసం మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
   'forgot.subheading': 'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ లింక్‌ను పంపుతాము.',
   'integrations.disconnected': 'డిస్‌కనెక్ట్',
+  'integrations.loadError': 'ఇంటిగ్రేషన్‌లను లోడ్ చేయడంలో విఫలమైంది.',
   'integrations.notConnectedTag': 'కనెక్ట్ కాలేదు',
   'integrations.subheading':
     'మర్మర్ స్వయంచాలకంగా చేరడానికి క్యాలెండర్‌లు మరియు వీడియో ప్లాట్‌ఫారమ్‌లను అనుసంధానించండి.',
+  'integrations.updateError': 'అప్‌డేట్ విఫలమైంది.',
   'landing.ctaButton': 'ప్రారంభించండి — ఇది ఉచితం',
   'landing.ctaHeading': 'నోట్స్ తీసుకోవడం ఆపండి. నిర్ణయాలు తీసుకోవడం మొదలుపెట్టండి.',
   'landing.demo.aiLabel': 'AI సారాంశం, ప్రత్యక్షంగా రూపొందించబడింది',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'తదుపరి చర్యలు',
   'meetingDetail.loadError': 'సమావేశాన్ని లోడ్ చేయడంలో విఫలమైంది.',
   'meetingDetail.noActions': 'చర్య అంశాలు ఏవీ కనుగొనబడలేదు.',
+  'meetingDetail.none': 'ఏమీ లేదు.',
   'meetingDetail.notFound': 'సమావేశం కనుగొనబడలేదు.',
+  'meetingDetail.speakerFallback': 'స్పీకర్ {{id}}',
   'meetingDetail.summaryHeading': 'AI సారాంశం',
   'meetingDetail.transcriptHeading': 'ట్రాన్స్క్రిప్ట్',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'సమావేశాలు',
   'meetings.loadError': 'సమావేశాలను లోడ్ చేయడంలో విఫలమైంది.',
   'meetings.subheading': 'రికార్డ్ చేయబడిన, అప్‌లోడ్ చేయబడిన మరియు సింక్ చేయబడిన ప్రతి సమావేశం.',
+  'murmurLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'murmurLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'nav.legal': 'చట్టపరమైన',
   'notifications.loadError': 'నోటిఫికేషన్‌లను లోడ్ చేయడంలో విఫలమైంది.',
@@ -101,6 +109,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'మర్మర్ లోపల మీరు ఎలా కనిపిస్తారు.',
   'record.error.empty': 'ఆడియో రికార్డ్ అవ్వలేదు.',
   'record.error.permission': 'మైక్రోఫోన్ అనుమతి నిరాకరించబడింది.',
+  'record.error.recorder': 'రికార్డర్ లోపం',
   'record.error.unsupported':
     'మీ బ్రౌజర్ రికార్డింగ్‌కు మద్దతు ఇవ్వదు. Chrome, Edge, లేదా Safariని ప్రయత్నించండి.',
   'record.error.upload': 'అప్‌లోడ్ విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'కొత్త పాస్‌వర్డ్',
   'reset.subheading': 'మీరు మరెక్కడా ఉపయోగించని పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'search.empty': 'ట్రాన్స్క్రిప్ట్‌లను శోధించడానికి టైప్ చేయండి.',
+  'search.loadError': 'శోధన విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
   'search.noResults': 'ఫలితాలు లేవు {{q}} ”',
   'settings.appearance.description': 'లైట్ మరియు డార్క్ మోడ్‌ల మధ్య మారండి.',
   'settings.appearance.title': 'స్వరూపం',
@@ -124,6 +134,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'సెట్టింగ్‌లను లోడ్ చేయడంలో విఫలమైంది.',
   'settings.loading': 'లోడ్ అవుతోంది…',
   'settings.push.heading': 'పుష్ నోటిఫికేషన్లు',
+  'settings.push.subheading':
+    'ప్రస్తావనలు, కార్యాచరణ అంశాలు మరియు సారాంశాల కోసం బ్రౌజర్ హెచ్చరికలను పొందండి.',
   'settings.retention.audio': 'ఆడియోను ఉంచండి',
   'settings.retention.heading': 'నిలుపుదల',
   'settings.retention.transcript': 'ట్రాన్స్క్రిప్ట్‌లను ఉంచండి',
@@ -141,6 +153,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'నిమిషాల్లో సమావేశపు గమనికలను నమోదు చేయడం ప్రారంభించండి',
   'signup.terms':
     'ఖాతాను సృష్టించడం ద్వారా మీరు మా సేవా నిబంధనలు మరియు గోప్యతా విధానానికి అంగీకరిస్తున్నారు.',
+  'signup.termsPrefix': 'ఖాతాను సృష్టించడం ద్వారా మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'team.inviteCta': 'సహచరుడిని ఆహ్వానించండి',
   'team.invitedAs': 'ఆహ్వానించబడినట్లుగా {{role}}',
   'team.inviteFailed': 'ఆహ్వానాన్ని పంపలేకపోయాము.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
   'analytics.error': 'അനലിറ്റിക്സ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'analytics.heading': 'വീണ്ടെടുക്കൽ അനലിറ്റിക്സ്',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'വിലനിർണ്ണയ ശ്രേണികളൊന്നും കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'billing.plans.heading': 'പദ്ധതികൾ',
   'billing.subheading': 'പ്ലാൻ, ഉപയോഗം, സ്ട്രൈപ്പ് മാനേജ്ഡ് ചെക്ക്ഔട്ട്.',
+  'common.confirm': 'സ്ഥിരീകരിക്കുക',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'documentCard.open': 'തുറക്കുക \\u2192',
   'documentDetail.back': 'പ്രമാണങ്ങളിലേക്ക് മടങ്ങുക',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'പ്രമാണത്തിന്റെ പേര്',
   'documents.emptyAll':
     'ഇതുവരെ ഡോക്യുമെന്റുകളൊന്നുമില്ല. ചോദ്യങ്ങൾ ചോദിക്കാൻ ഒന്ന് അപ്‌ലോഡ് ചെയ്യുക.',
+  'documents.error.load': 'പ്രമാണങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'documents.heading': 'സൂചികയിലാക്കിയ പ്രമാണങ്ങൾ',
   'documents.loading': 'പ്രമാണങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'documents.metric.chunks': 'ആകെ കഷണങ്ങൾ',
@@ -145,7 +150,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'നീക്കം ചെയ്യുന്നു\\u2026',
   'members.subheading': 'സഹതാരങ്ങളെ ക്ഷണിച്ച് റോളുകൾ സജ്ജമാക്കുക.',
   'members.tableHeading': 'റോസ്റ്റർ',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'notFound.askCta': 'വിജ്ഞാന കേന്ദ്രത്തോട് ചോദിക്കുക',
+  'notFound.body':
+    '{{app}} ആ പേജ് കണ്ടെത്താൻ കഴിഞ്ഞില്ല. ലിങ്ക് തകരാറിലായിരിക്കാം, അല്ലെങ്കിൽ റീ-ഇൻഡെക്സ് ചെയ്യുമ്പോൾ പേജ് വിരമിച്ചിരിക്കാം.',
   'notFound.eyebrow': 'വീണ്ടെടുക്കാൻ കഴിയില്ല',
   'notFound.title': 'സൂചികയിൽ അത്തരമൊരു ഭാഗം ഇല്ല.',
   'notifications.dismiss': 'നിരസിക്കുക',
@@ -216,6 +225,7 @@ export const ui: UiTranslations = {
   'sources.empty.body':
     'നിങ്ങളുടെ ആദ്യത്തെ കണക്ടർ വയർ ചെയ്യാൻ \\u201cഉറവിടം ചേർക്കുക\\u201d ക്ലിക്ക് ചെയ്യുക.',
   'sources.empty.title': 'ഇതുവരെ ഉറവിടങ്ങളൊന്നുമില്ല.',
+  'sources.error.add': 'ഉറവിടം ചേർക്കാൻ കഴിഞ്ഞില്ല.',
   'sources.error.labelRequired': 'ലേബൽ ആവശ്യമാണ്.',
   'sources.error.load': 'ഉറവിടങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'sources.error.urlRequired': 'ഈ ഉറവിട തരത്തിന് URL ആവശ്യമാണ്.',

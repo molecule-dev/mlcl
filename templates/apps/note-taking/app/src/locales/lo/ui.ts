@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'forgot.eyebrow': 'ຫຼົງທາງກັບຄືນບໍ?',
   'forgot.formSubtitle': 'ບອກພວກເຮົາກ່ຽວກັບອີເມວທີ່ບັນທຶກໄວ້.',
   'forgot.headline': 'ຕັ້ງລະຫັດຜ່ານຂອງທ່ານຄືນໃໝ່.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.headline': 'ເລືອກບ່ອນທີ່ໜ້າເວັບຢຸດຊົ່ວຄາວ.',
   'login.signupLink': 'ສ້າງອັນໜຶ່ງ',
   'login.subline': 'ປື້ມບັນທຶກ, ລິ້ງເຊື່ອມຕໍ່ ແລະ ໜ້າປະຈຳວັນຂອງທ່ານຢູ່ໃນບ່ອນທີ່ເຈົ້າປະໄວ້.',
+  'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
+  'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'noteEditor.backToNotes': 'ກັບໄປທີ່ບັນທຶກ',
   'noteEditor.bodyPlaceholder': 'ເລີ່ມຂຽນ — ບັນທຶກຂອງທ່ານຈະບັນທຶກອັດຕະໂນມັດໃນຂະນະທີ່ທ່ານພິມ.',
   'noteEditor.confirmTrash': 'ຍ້າຍບັນທຶກນີ້ໄປໃສ່ຖັງຂີ້ເຫຍື້ອບໍ?',
@@ -54,6 +57,7 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'ປື້ມບັນທຶກໃໝ່',
   'notes.newNotebookPrompt': 'ຊື່ປື້ມບັນທຶກໃໝ່',
   'notes.notebooksHeading': 'ປື້ມບັນທຶກ',
+  'notes.subtitle': 'ເລືອກປື້ມບັນທຶກຢູ່ເບື້ອງຊ້າຍ, ຈາກນັ້ນກົດປຸ່ມບັນທຶກໃໝ່ເພື່ອເລີ່ມຕົ້ນລາຍການໃໝ່.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'ເລືອກແຜນການຈົດບັນທຶກຂອງທ່ານ',
   'reset.eyebrow': 'ເກືອບກັບມາອີກແລ້ວ',
@@ -114,6 +118,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'ອັບເດດແລ້ວ',
   'versoLayout.nav.graph': 'ກຣາຟ',
   'versoLayout.nav.home': 'ບ້ານ',
+  'versoLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
   'versoNoteCard.pinned': 'ປັກໝຸດແລ້ວ',
   'versoTodayHero.continueCta': 'ສືບຕໍ່ຂຽນ',
   'versoTodayHero.createCta': 'ເລີ່ມບັນທຶກຂອງມື້ນີ້',

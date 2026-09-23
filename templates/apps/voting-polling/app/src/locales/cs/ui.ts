@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
   'analytics.col.quorum': 'Kvorum',
   'analytics.col.votes': 'Hlasy',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Zatím žádné nevyřešené otázky.',
   'audienceQa.onStageEyebrow': 'Nyní na pódiu',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Podporovat',
   'audienceQa.queued': 've frontě',
   'audienceQa.queueEyebrow': 'Fronta',
   'ballot.eyebrow': 'Odevzdejte svůj hlas',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Momentálně se nacházíte na {{plan}} plán.',
   'billing.switch': 'Přepnout',
   'billing.upgraded': 'Aktualizováno na {{plan}} — limity uplatněné okamžitě.',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'createPoll.addOption': 'Přidat možnost',
   'createPoll.anonymousHint':
     'Jména voličů jsou v protokolu auditu skryta; sčítání hlasů zůstává ověřeno.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nový v Nosh?',
   'login.remember': 'Zapamatovat si mě na 30 dní',
   'login.subheading': 'Otevřete podlahu, projděte místnost a ověřte výsledek.',
+  'mobileNav.closeMenu': 'Zavřít navigační menu',
+  'mobileNav.openMenu': 'Otevřít navigační menu',
   'notFound.body':
     'Stránka, na kterou jste se pokoušeli dostat, byla uzavřena nebo přesunuta. Vraťte se na řídicí panel nebo otevřete novou anketu.',
   'notFound.eyebrow': 'Na této trase není kvórum',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Tuto anketu se nepodařilo načíst.',
   'pollDetail.loading': 'Načítání ankety…',
   'pollDetail.notFound': 'Anketa nenalezena.',
+  'pollDetail.openBallot': 'Otevřené hlasování',
   'pollDetail.openLive': 'Živé výsledky',
   'pollDetail.pollId': 'anketa · {{id}}',
   'pollDetail.published': 'Anketa zveřejněna – voliči nyní mohou odevzdat hlasovací lístky.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Hledat podle e-mailu…',
   'voters.subheading':
     'Upravte seznam oprávněných voličů. Seskupte voliče podle organizace pro získání vážených hlasovacích lístků.',
+  'votingPollingLayout.nav.analytics': 'Analytika',
+  'votingPollingLayout.nav.billing': 'Fakturace',
+  'votingPollingLayout.nav.createPoll': 'Nová anketa',
+  'votingPollingLayout.nav.dashboard': 'Přehled',
+  'votingPollingLayout.nav.notifications': 'Oznámení',
+  'votingPollingLayout.nav.settings': 'Nastavení',
+  'votingPollingLayout.nav.team': 'Tým',
+  'votingPollingLayout.nav.voters': 'Voliči',
+  'votingPollingLayout.primaryNavLabel': 'Primární navigace',
 }

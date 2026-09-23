@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Цаг захиалах',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Үзүүлэх өвчтөн байхгүй.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'consult.backLink': 'Бүх цаг товлолт',
   'consult.captions': 'Тайлбарууд',
   'consult.connected': 'Холбогдсон · 720p · тогтвортой',
@@ -132,6 +133,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Өвчтөнүүд',
   'patientVitalsHero.scripts': 'Рецептээр нээлттэй',
   'patientVitalsHero.subline': '{{count}} өнөөдөр таны хуваарийн дагуу зөвлөгөө өгнө',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'prescriptions.empty': 'Ямар ч жор тохирохгүй байна.',
   'prescriptions.eyebrow': 'Цахим жороор олгох',
   'prescriptions.heading': 'Эмийн жор',
@@ -147,6 +149,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Нууцлалын мэдэгдэл',
   'privacy.use.body':
     'Тусламж үйлчилгээ үзүүлэх, цаг товлох сануулга илгээх, жор бичих, үйлчилгээний найдвартай байдлыг сайжруулах. Бид таны өгөгдлийг хэзээ ч зардаггүй бөгөөд эмнэлзүйн мэдээллийг зар сурталчилгааны компаниудтай хэзээ ч хуваалцдаггүй.',
+  'providers.allSpecialties': 'Бүх мэргэжил',
+  'providers.loadError': 'Үйлчилгээ үзүүлэгчдийг ачаалж чадсангүй.',
+  'providers.loading': 'Ачааллаж байна…',
   'providers.noResults': 'Үйлчилгээ үзүүлэгч олдсонгүй.',
   'providers.searchPlaceholder': 'Нэр, мэргэжлээр хайх...',
   'providers.title': 'Нийлүүлэгч олох',
@@ -166,6 +171,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Өдрийн эхлэл',
   'settings.availability.heading': 'Бэлэн байдал',
   'settings.devices.thisDevice': 'Энэ төхөөрөмж',
+  'settings.devices.unnamed': 'Нэргүй төхөөрөмж',
   'settings.eyebrow': 'Дадлага ба бүртгэл',
   'settings.loadError': 'Таны профайлыг ачаалж чадсангүй.',
   'settings.notifications.emailMessages': 'Асрамжийн баг маань хариу өгөхөд надад имэйл илгээнэ үү',
@@ -179,6 +185,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Идэвхгүй болгох',
   'settings.security.twoFactor.enable': 'Идэвхжүүлэх',
   'settings.security.twoFactor.heading': 'Хоёр хүчин зүйлийн баталгаажуулалт',
+  'settings.security.twoFactor.invalidCode': 'Энэ код таарахгүй байна. Дахин оролдоно уу.',
+  'settings.security.twoFactor.setupFailed':
+    'Хоёр хүчин зүйлийн тохиргоог эхлүүлж чадсангүй. Дахин оролдоно уу.',
+  'settings.security.twoFactor.statusOn': 'Хоёр хүчин зүйл асаалттай байна',
   'settings.signOutDevice': 'Гарах',
   'settings.subheading': 'Үйлчилгээ үзүүлэгчийн профайл, дадлагын дүрэм, клиник сэрэмжлүүлэг.',
   'signup.emailLabel': 'И-МЭЙЛ',
@@ -189,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Бүртгэл үүсгэх',
   'signupFooter.hipaa': 'HIPAA-тай нийцсэн',
   'solaceLayout.primaryNavLabel': 'Үндсэн навигаци',
+  'solaceLayout.toggleMenu': 'Цэсийг асаах/унтраах',
   'terms.eligibility.body':
     'Та арван найман нас хүрсэн, эсвэл асрамж авах гэж буй насанд хүрээгүй хүүхдийн эцэг эх эсвэл хууль ёсны асран хамгаалагч байх ёстой бөгөөд манай эмч нар үйл ажиллагаа эрхлэх зөвшөөрөлтэй АНУ-ын мужид бодитоор оршин суудаг байх ёстой.',
   'terms.payment.body':

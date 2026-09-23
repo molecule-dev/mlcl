@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.eyebrow': 'Perihal {{app}}',
   'about.pageTitle': 'Setiap laluan, satu carian.',
   'booking.backToDetail': 'Kembali ke butiran penerbangan',
   'booking.continue': 'Teruskan ke pembayaran',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Cukai & yuran',
   'booking.summary.travelers': 'Pengembara',
   'common.about': 'Tentang',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'flightDetail.backToResults': 'Kembali ke hasil',
   'flightDetail.baseFare': 'Tambang asas',
   'flightDetail.book': 'Teruskan membuat tempahan',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 perhentian',
   'flightResultCard.select': 'Pilih',
   'flightResultCard.totalLabel': 'Jumlah masa',
+  'flightSearchLayout.primaryNavLabel': 'Navigasi utama',
   'forgotPassword.subheading':
     'Masukkan e-mel pada akaun Skylark anda dan kami akan menghantar pautan tetapan semula yang selamat.',
   'forgotPassword.successBody':
     'Semak {{email}} untuk pautan bagi menetapkan kata laluan baharu. Pautan tamat tempoh dalam masa 30 minit.',
   'forgotPassword.successHeading': 'Tetapkan semula pautan dihantar',
   'landing.cta.explore': 'Cuba cari',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Cari hidangan hebat seterusnya sebelum orang lain.',
   'landing.cta.signup': 'Mula menjejaki tambang',
   'landing.features.eyebrow': 'Mengapa Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Tambah makluman',
   'priceAlerts.deleteConfirm': 'Alih keluar makluman ini?',
   'priceAlerts.empty': 'Tiada laluan yang dijejaki lagi.',
+  'priceAlerts.emptyCta': 'Cari laluan untuk dijejaki',
   'priceAlerts.errorMessage': 'Tidak dapat memuatkan makluman.',
   'priceAlerts.eyebrow': 'Senarai pantauan Skylark',
   'priceAlerts.form.createError': 'Tidak dapat mencipta makluman.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Jadual perjalanan berbilang bandar',
   'results.multiLegHeading': 'Kaki {{n}} · {{daripada}} → {{kepada}} · {{tarikh}}',
   'results.multiSummary': '{{count}} kaki · {{passengers}} pengembara',
+  'results.sortAriaLabel': 'Isih hasil mengikut',
   'results.sortLabel': 'Isih',
   'results.summary': '{{count}} penerbangan · {{passengers}} pengembara',
   'settings.language.title': 'Bahasa',

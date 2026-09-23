@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'பதிவுகள்',
   'categoryDetail.stat.threads': 'இழைகள்',
   'categoryDetail.threadCount': 'காண்பிக்கப்படுகிறது {{count}} இழைகள்',
+  'categoryDetail.threadsFailed': 'இழைகளை ஏற்ற முடியவில்லை.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'compose.bodyPlaceholder':
     'அதை வடிவமைத்துக் கொள்ளுங்கள். பிரிவுகளுக்கு ## குறியீட்டையும், மேற்கோள் குறிகளுக்கு > குறியீட்டையும், குறியீட்டுத் தொகுதிகளுக்கு ``` குறியீட்டையும் பயன்படுத்துங்கள்.',
+  'compose.categoriesFailed': 'பிரிவுகளை ஏற்ற முடியவில்லை.',
   'compose.eyebrow': 'புதிய இழை',
   'compose.failed': 'உரையாடலைத் தொடங்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'compose.field.body': 'உடல்',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — நீங்கள் படிக்காத பதிவுகள் உங்களுக்காகக் காத்திருக்கின்றன.',
   'login.twoFactor': 'இரு காரணி டோக்கன் (விருப்பத்திற்குரியது)',
+  'moderationQueue.actionFailed': 'செயல்பாடு தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
   'moderationQueue.eyebrow': 'நெறியாளர் பணிச்சூழல்',
   'moderationQueue.heading': 'மதிப்பாய்வு வரிசை {{count}} திறந்த உருப்படிகள்',
   'moderationQueue.kind.${item.kind}': '{{count}} கொடிகள்',
@@ -79,7 +84,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'இரண்டு மணி நேரத்திற்குள் முதல் தொடர்பை ஏற்படுத்த முயற்சி செய்யுங்கள். தெளிவற்ற அழைப்புகளுக்கு admin@stoa-விற்குப் புகாரளியுங்கள்.',
   'nav.browseHeader': 'உலாவுக',
+  'nav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'nav.communityGuidelinesTitle': 'சமூக வழிகாட்டுதல்கள்',
+  'nav.drawerTitle': 'மெனு',
+  'nav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'nav.primaryNavLabel': 'மன்ற வழிசெலுத்தல்',
   'notFound.body':
     'அது காப்பகத்தில் பூட்டப்பட்டிருக்கலாம், அல்லது URL மாறியிருக்கலாம். அகோராவுக்குத் திரும்பிச் சென்று மற்றொரு உரையாடலைத் தொடருங்கள்.',
   'notFound.browseCta': 'பிரிவுகளை உலாவுக',
@@ -90,6 +99,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'அறிவிப்புகள் · {{count}} படிக்காத',
   'postCard.edited': '(திருத்தப்பட்டது)',
   'postCard.flag': 'கொடி',
+  'postCard.flagged': 'கொடியிடப்பட்டது',
   'postCard.markSolution': 'மார்க் தீர்வு',
   'postCard.originalPost': 'அசல் பதிவு',
   'postCard.quote': 'மேற்கோள்',
@@ -110,6 +120,14 @@ export const ui: UiTranslations = {
   'search.heading': 'ஒரு இழையை, ஒரு பதிவை, ஒரு நபரைக் கண்டறியுங்கள்.',
   'search.resultsCount': '{{count}} முடிவுகள்',
   'search.searching': 'தேடிக் கொண்டிருக்கிறேன்…',
+  'settings.currentPasswordHint':
+    'உங்கள் மின்னஞ்சலை மாற்றுவதற்கு உங்கள் கடவுச்சொல் தேவைப்படும். உறுதிப்படுத்த, Enter விசையை அழுத்தவும் அல்லது அந்தப் புலத்தை அப்படியே விட்டுவிடவும்.',
+  'settings.currentPasswordLabel': 'தற்போதைய கடவுச்சொல்',
+  'settings.currentPasswordRequired':
+    'இந்த மாற்றத்தை உங்கள் தற்போதைய கடவுச்சொல்லைக் கொண்டு உறுதிப்படுத்தவும்.',
+  'settings.failedToUpdateProfile': 'சுயவிவரத்தைப் புதுப்பிக்க முடியவில்லை',
+  'settings.name': 'பெயர்',
+  'settings.saved': 'சேமிக்கப்பட்டது.',
   'signup.confirm': 'உறுதிப்படுத்து',
   'signup.emailPlaceholder': 'நீங்கள்@ஸ்டோவா.சமூகம்',
   'signup.eyebrow': 'ஸ்டோவாவில் சேருங்கள்',

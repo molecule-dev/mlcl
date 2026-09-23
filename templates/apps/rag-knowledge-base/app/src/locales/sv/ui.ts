@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.pageTitle': 'Om {{appName}}',
   'analytics.error': 'Det gick inte att läsa in analyser.',
   'analytics.heading': 'Hämtningsanalys',
@@ -50,6 +51,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Inga prisnivåer konfigurerade.',
   'billing.plans.heading': 'Planer',
   'billing.subheading': 'Plan, användning och Stripe-hanterad utcheckning.',
+  'common.confirm': 'Bekräfta',
+  'common.goToDashboard': 'Gå till översikt',
+  'common.retry': 'Försök igen',
   'documentCard.open': 'Öppna →',
   'documentDetail.back': 'Tillbaka till dokument',
   'documentDetail.chunks.empty':
@@ -69,6 +73,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Indexera dokument',
   'documents.composer.titlePlaceholder': 'Dokumenttitel',
   'documents.emptyAll': 'Inga dokument ännu. Ladda upp ett för att börja ställa frågor.',
+  'documents.error.load': 'Det gick inte att läsa in dokument.',
   'documents.heading': 'Indexerade dokument',
   'documents.loading': 'Läser in dokument…',
   'documents.metric.chunks': 'Totalt antal delar',
@@ -137,7 +142,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Tar bort…',
   'members.subheading': 'Bjud in teammedlemmar och ställ in roller.',
   'members.tableHeading': 'Lista',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'notFound.askCta': 'Fråga kunskapsbasen',
+  'notFound.body':
+    '{{app}} kunde inte hitta sidan. Länken kan vara trasig, eller så kan sidan ha tagits bort under en omindexering.',
   'notFound.eyebrow': 'Kan inte hämta',
   'notFound.title': 'Ingen sådan del i indexet',
   'notifications.dismiss': 'Avfärda',
@@ -200,6 +209,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Källans URL',
   'sources.empty.body': 'Klicka på ”Lägg till källa” för att koppla in din första anslutning.',
   'sources.empty.title': 'Inga källor ännu.',
+  'sources.error.add': 'Kunde inte lägga till källa.',
   'sources.error.labelRequired': 'Etikett krävs.',
   'sources.error.load': 'Kunde inte läsa in källor.',
   'sources.error.urlRequired': 'URL krävs för denna källtyp.',

@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte pripomienky, návrh na novú funkciu alebo ste narazili na chybu? Kontaktujte tím {{app}} prostredníctvom odkazu na podporu v ponuke vášho účtu – každá správa sa dostane priamo k skutočnému človeku.',
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'agentDetail.back': 'Všetci agenti',
   'agentDetail.capabilities': 'Schopnosti',
   'agentDetail.delete': 'Odstrániť personu',
   'agentDetail.deleteConfirm': 'Chcete odstrániť túto personu? Túto akciu nemožno vrátiť späť.',
+  'agentDetail.deleteError': 'Nepodarilo sa odstrániť profil.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Nepodarilo sa načítať profil.',
   'agentDetail.save': 'Uložiť personu',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Prepínanie…',
   'billing.updateError': 'Aktualizáciu sa nepodarilo spustiť.',
   'billing.usageHeading': 'Používanie hlasu v tomto cykle',
+  'chatBubble.source.text': 'text',
+  'chatBubble.source.voice': 'hlas',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'conversation.defaultTitle': 'Nová konverzácia',
   'conversation.empty':
     'Zatiaľ žiadne správy. Začnite tým, že niečo napíšete alebo napíšete nižšie.',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Inteligencia, ktorá hovorí.',
   'landing.heroSubtitle':
     'Hlasový asistent s umelou inteligenciou, ktorý rozumie vášmu prirodzenému rytmu. Konverzujte, vymýšľajte a ovládajte – bez problémov.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Počúvanie…',
   'landing.naturallyBody':
     'Žiadne spúšťacie slová. Žiadne rigidné príkazy. Žurnalizácia rozumie kontextu, prerušovaniam a nuansám ľudskej reči – ako keby ste sa rozprávali s kolegom.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Otvoriť reláciu',
   'notFound.home': 'Späť doma',
   'notFound.title': 'Tú stránku sme nepočuli.',
+  'parlanceLayout.closeMenu': 'Zatvoriť ponuku',
+  'parlanceLayout.openMenu': 'Otvoriť navigačné menu',
   'parlanceLayout.primaryNavLabel': 'Hlavná navigácia',
   'pricing.conversations': '{{count}} rozhovory',
   'pricing.cta.startFree': 'Začnite zadarmo',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Žiadne zhody',
   'search.eyebrow': 'Paleta príkazov',
   'search.fetchError': 'Nepodarilo sa načítať index vyhľadávania.',
+  'search.static.profile.preview': 'Zobrazené meno, prezývka, profil',
   'search.static.voice.title': 'Hlas',
   'search.title': 'Hľadať v jazyku',
   'search.transcriptPreview': 'Otvoriť prepis',

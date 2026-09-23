@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз, мүмкіндік сұрауыңыз бар ма немесе қате таптыңыз ба? Аккаунт мәзіріндегі қолдау сілтемесі арқылы {{app}} командасына хабарласыңыз — әрбір хабарлама нақты адамға жіберіледі.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'agentDetail.back': 'Барлық агенттер',
   'agentDetail.capabilities': 'Мүмкіндіктер',
   'agentDetail.delete': 'Персонаны жою',
   'agentDetail.deleteConfirm': 'Бұл кейіпкерді жою керек пе? Мұны қайтару мүмкін емес.',
+  'agentDetail.deleteError': 'Жеке тұлғаны жою мүмкін болмады.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Жеке тұлғаны жүктеу мүмкін болмады.',
   'agentDetail.save': 'Жеке тұлғаны сақтау',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Ауыстыруда…',
   'billing.updateError': 'Жаңартуды бастау мүмкін болмады.',
   'billing.usageHeading': 'Бұл циклде дауысты пайдалану',
+  'chatBubble.source.text': 'мәтін',
+  'chatBubble.source.voice': 'дауыс',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'conversation.defaultTitle': 'Жаңа әңгіме',
   'conversation.empty': 'Әлі хабарлама жоқ. Алдымен бірдеңе айтыңыз немесе төменге теріңіз.',
   'conversation.eyebrow': 'Тікелей эфирдегі сессия',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Сөйлейтін ақыл.',
   'landing.heroSubtitle':
     'Табиғи ағымыңызды түсінетін жасанды интеллект дауыстық көмекшісі. Әңгімелесіңіз, ойларыңызды жинақтаңыз және басқарыңыз — кедергісіз.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Тыңдалуда…',
   'landing.naturallyBody':
     'Триггерлік сөздер жоқ. Қатаң бұйрықтар жоқ. Vox контекстті, үзілістерді және адам сөйлеуінің нюанстарын түсінеді — әріптесімен әңгімелесу сияқты.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Сессияны ашу',
   'notFound.home': 'Үйге оралу',
   'notFound.title': 'Біз ол бетті ести алмадық.',
+  'parlanceLayout.closeMenu': 'Мәзірді жабу',
+  'parlanceLayout.openMenu': 'Навигация мәзірін ашу',
   'parlanceLayout.primaryNavLabel': 'Негізгі навигация',
   'pricing.conversations': '{{count}} әңгімелер',
   'pricing.cta.startFree': 'Тегін бастаңыз',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Сәйкестік жоқ',
   'search.eyebrow': 'Команда палитрасы',
   'search.fetchError': 'Іздеу индексін жүктеу мүмкін болмады.',
+  'search.static.profile.preview': 'Көрсетілетін атауы, аты-жөні, өмірбаяны',
   'search.static.voice.title': 'Дауыс',
   'search.title': 'Vox іздеу',
   'search.transcriptPreview': 'Ашық транскрипция',

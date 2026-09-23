@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
   'analytics.col.quorum': 'I-Quorum',
   'analytics.col.votes': 'Amavoti',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Akukho mibuzo elindile okwamanje.',
   'audienceQa.onStageEyebrow': 'Esiteji manje',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Khuthaza',
   'audienceQa.queued': 'kufakwe emgqeni',
   'audienceQa.queueEyebrow': 'Umugqa',
   'ballot.eyebrow': 'Faka ivoti lakho',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Okwamanje use- {{plan}} uhlelo.',
   'billing.switch': 'Shintsha',
   'billing.upgraded': 'Kubuyekezwe ku- {{plan}} — imingcele isetshenziswa ngokushesha.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'createPoll.addOption': 'Engeza inketho',
   'createPoll.anonymousHint':
     'Amagama abavoti afihliwe ohlwini lokuhlola; izibalo ziyaqhubeka nokuqinisekiswa.',
@@ -161,6 +164,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Umusha kuNosh?',
   'login.remember': 'Ngikhumbule izinsuku ezingu-30',
   'login.subheading': 'Vula phansi, vula igumbi, bese uqinisekisa umphumela.',
+  'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
+  'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'notFound.body':
     'Ikhasi ozame ukulifinyelela livaliwe noma lithuthelwe. Buyela emuva kudeshibhodi noma uvule inhlolovo entsha.',
   'notFound.eyebrow': 'Akukho quorum kule ndlela',
@@ -187,6 +192,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Ayikwazanga ukulayisha le nhlolovo.',
   'pollDetail.loading': 'Ilayisha inhlolovo...',
   'pollDetail.notFound': 'Inhlolovo ayitholakalanga.',
+  'pollDetail.openBallot': 'Ivoti elivulekile',
   'pollDetail.openLive': 'Imiphumela ebukhoma',
   'pollDetail.pollId': 'inhlolovo · {{id}}',
   'pollDetail.published': 'Inhlolovo ishicilelwe — abavoti sebengakwazi manje ukuphonsa amavoti.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Sesha nge-imeyili…',
   'voters.subheading':
     'Hlela uhlu lwabafanelekile. Qoqa abavoti ngenhlangano ukuze bavotelwe ngesisindo.',
+  'votingPollingLayout.nav.analytics': 'Ukuhlaziya',
+  'votingPollingLayout.nav.billing': 'Ukukhokhisa',
+  'votingPollingLayout.nav.createPoll': 'Inhlolovo entsha',
+  'votingPollingLayout.nav.dashboard': 'Ideshibhodi',
+  'votingPollingLayout.nav.notifications': 'Izaziso',
+  'votingPollingLayout.nav.settings': 'Izilungiselelo',
+  'votingPollingLayout.nav.team': 'Ithimba',
+  'votingPollingLayout.nav.voters': 'Abavoti',
+  'votingPollingLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
 }

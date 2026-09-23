@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Info su {{app}}',
   'analytics.avgCheckLabel': 'Scontrino medio',
   'analytics.busiestHour': 'Ora di punta',
   'analytics.coversToday': 'Coperti oggi',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Mance (media)',
   'analytics.topItems': 'Piatti più richiesti oggi',
   'authShell.eyebrow': 'Bentornato al servizio',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     "Un punto vendita caldo e veloce per i team dell'ospitalità. Acceda alla Sua cucina e riprenda da dove aveva lasciato.",
   'authShell.tip':
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'oppure {{price}}',
   'billing.priceUnavailable': 'Questo piano non ha un prezzo configurato.',
   'billing.updated': 'Piano aggiornato.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'customerDetail.book': 'Aggiungi prenotazione',
   'customerDetail.col.table': 'Tavolo',
   'customerDetail.confirmDelete': 'Eliminare questa scheda ospite?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponibilità',
   'menuItemDetail.available': 'Disponibile stasera',
   'menuItemDetail.backToMenu': 'Torna al menù',
+  'menuItemDetail.confirmDelete': 'Eliminare questa voce di menu?',
   'menuItemDetail.delete': 'Elimina voce',
   'menuItemDetail.deleteError': 'Eliminazione non riuscita. Riprovi.',
   'menuItemDetail.dietary': 'Tag alimentari',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · modifichi foto, varianti, indicazioni alimentari e prezzo.',
   'menuItemDetail.untitled': 'Voce senza titolo',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'notFound.heading': 'Questo tavolo non è in sala.',
   'notFound.subheading': 'La pagina che cercava è stata accomodata altrove — o non è mai esistita.',
+  'notFound.toLanding': '{{app}} home',
   'notifications.markError': 'Impossibile segnare tutto come letto.',
   'orderDashboard.activeDelta': 'In corso',
   'orderDashboard.activeLabel': 'Ordini attivi',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Mostra password',
   'resetPassword.subtitle': 'Inserisca la nuova password per riaccedere alla cucina.',
   'resetPassword.tokenLabel': 'Token di reimpostazione',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigazione principale',
   'revenueHeroCard.activeOrders': '{{count}} attivi',
   'revenueHeroCard.change': '{{sign}}{{amount}} vs ieri',
   'revenueHeroCard.title': 'Ricavi di oggi',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nome del ristorante',
   'tableDetail.activeOrders': 'Ordini attivi',
   'tableDetail.backToFloor': 'Piantina della sala',
+  'tableDetail.confirmDelete': 'Eliminare questa tabella?',
   'tableDetail.delete': 'Elimina',
   'tableDetail.deleteError': 'Impossibile eliminare il tavolo.',
   'tableDetail.heading': 'Tavolo {{label}}',

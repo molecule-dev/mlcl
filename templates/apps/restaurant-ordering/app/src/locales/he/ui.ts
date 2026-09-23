@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'אודות {{app}}',
   'analytics.avgCheckLabel': 'בדיקת ממוצע',
   'analytics.busiestHour': 'השעה העמוסה ביותר',
   'analytics.coversToday': 'כריכות היום',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'טיפים (ממוצע)',
   'analytics.topItems': 'הפריטים המובילים היום',
   'authShell.eyebrow': 'ברוכים השבים לשירות',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'נקודת מכירה חמה ומהירה לצוותי אירוח. התחברו למטבח שלכם והמשיכו מהמקום בו הפסקתם.',
   'authShell.tip': 'טיפ מקצועי: קיצורי מקלדת פועלים בכל מקום - לחצו על / כדי לחפש.',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'אוֹ {{price}}',
   'billing.priceUnavailable': 'לתוכנית זו אין מחיר מוגדר.',
   'billing.updated': 'התוכנית עודכנה.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'customerDetail.book': 'הוסף הזמנה',
   'customerDetail.col.table': 'לוּחַ',
   'customerDetail.confirmDelete': 'למחוק את רשומת האורח הזו?',
@@ -123,6 +126,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'זְמִינוּת',
   'menuItemDetail.available': 'זמין הערב',
   'menuItemDetail.backToMenu': 'חזרה לתפריט',
+  'menuItemDetail.confirmDelete': 'למחוק את פריט התפריט הזה?',
   'menuItemDetail.delete': 'מחיקת פריט',
   'menuItemDetail.deleteError': 'המחיקה נכשלה. נסה שוב.',
   'menuItemDetail.dietary': 'תגיות תזונתיות',
@@ -133,6 +137,8 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'השמירה נכשלה. נסה שוב.',
   'menuItemDetail.subheading': '{{category}} · עריכת תמונה, שינויים, תזונה ותמחור.',
   'menuItemDetail.untitled': 'פריט ללא שם',
+  'mobileNav.closeMenu': 'סגור את תפריט הניווט',
+  'mobileNav.openMenu': 'פתח את תפריט הניווט',
   'notFound.heading': 'השולחן הזה לא על הרצפה.',
   'notFound.subheading': 'הדף שחיפשת נמצא במקום אחר - או שמעולם לא היה קיים.',
   'notFound.toLanding': 'אפליקציה בַּיִת',
@@ -198,6 +204,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'הצג סיסמה',
   'resetPassword.subtitle': 'הזן את הסיסמה החדשה שלך כדי לקבל גישה חוזרת למטבח.',
   'resetPassword.tokenLabel': 'איפוס אסימון',
+  'restaurantOrderingLayout.primaryNavLabel': 'ניווט ראשי',
   'revenueHeroCard.activeOrders': '{{count}} פָּעִיל',
   'revenueHeroCard.change': '{{sign}} {{amount}} לעומת אתמול',
   'revenueHeroCard.title': 'ההכנסות של היום',
@@ -216,6 +223,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'שם המסעדה',
   'tableDetail.activeOrders': 'הזמנות פעילות',
   'tableDetail.backToFloor': 'תוכנית קומה',
+  'tableDetail.confirmDelete': 'למחוק את הטבלה הזו?',
   'tableDetail.delete': 'לִמְחוֹק',
   'tableDetail.deleteError': 'לא ניתן היה למחוק את הטבלה.',
   'tableDetail.heading': 'לוּחַ {{label}}',
@@ -237,4 +245,5 @@ export const ui: UiTranslations = {
   'tables.loadError': 'לא ניתן היה לטעון את הטבלאות.',
   'tables.loading': 'קומת טעינה…',
   'tables.subheading': 'הקש על שולחן כדי לסמן אותו כמנוקה, זמין או לשנות את הסטטוס שלו.',
+  'tableTile.seats': '{{guests}} / {{seats}}',
 }

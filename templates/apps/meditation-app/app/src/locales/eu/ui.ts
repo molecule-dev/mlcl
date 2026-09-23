@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.eyebrow': '{{app}}(r)i buruz',
+  'about.intro':
+    '{{app}} bizitza errealeko meditazio aplikazio bat da — eguneroko meditazio gidatuak, arnasketa-lanak eta loaren istorioak, irakasleek erritmatuta, lagun gisa sentitzen direnak, ez entrenatzaile gisa. Ez erruduntasunik, ez jario zaratatsurik: arnasketara itzultzeko leku lasai bat besterik ez.',
+  'about.missionBody':
+    'Uste dugu isiltasuna guztiontzat eskuragarri egon behar dela, eguneko edozein unetan. {{app}} praktika lasai eta koherente bat ahaleginik gabekoa izan dadin existitzen da — hamar minutu zintzoek hurrengo hamar orduei aurre egiteko modua alda dezaten.',
+  'about.missionTitle': 'Gure misioa',
+  'about.pageTitle': 'Egunean 10 minutu lasaiago',
+  'breathingDial.seconds': 'segundoak',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.logout': 'Itxi saioa',
   'common.min': 'minutu',
   'common.relative.justNow': 'oraintxe bertan',
   'common.relative.now': 'orain',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
+  'nav.secondaryNavigation': 'Kontuaren nabigazioa',
   'sessionCard.with': '-rekin {{name}}',
   'stillpoint.billing.choose': 'Aukeratu {{plan}}',
   'stillpoint.billing.currentPlan': 'Gaur egun martxan {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Ezin izan ditugu planak kargatu.',
   'stillpoint.billing.opening': 'Ordainketa irekitzen…',
   'stillpoint.billing.perMonthShort': '/ hilabete',
+  'stillpoint.billing.perYearShort': '/urte',
   'stillpoint.billing.unknownResult': 'Fakturazio-erantzun ustekabekoa.',
   'stillpoint.billing.yearly': 'Urtero · aurreztu % 17',
   'stillpoint.courseDetail.back': 'Ikastaroak',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Oraindik ez dago ikastarorik.',
   'stillpoint.courses.eyebrow': '{{count}} egun anitzeko bidaiak',
   'stillpoint.courses.heading': 'Ikastaroak',
+  'stillpoint.forgot.checkEmail':
+    'Begiratu zure sarrera-ontzia — esteka 30 minutu barru iraungitzen da.',
   'stillpoint.forgot.success': 'Berrezartzeko esteka bat bidali dizugu honera: {{email}} .',
   'stillpoint.home.empty': 'Oraindik ez dago saiorik — itzuli laster.',
   'stillpoint.home.friend': 'lagun',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Sortu zure doako kontua',
   'stillpoint.landing.cta.title': 'Hasi zure lasaitasuna gaur',
   'stillpoint.landing.features.heading': 'Zurekin batera hazten den praktika bat',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Eguneroko meditazio gidatuak, arnasketa-lanak eta loaren istorioak — entrenatzaile gisa ez, lagun gisa sentitzen diren irakasleek erritmoan.',
   'stillpoint.landing.hero.eyebrow': 'Egunean 10 minutu lasaiago',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Arakatu aldartearen arabera',
   'stillpoint.login.rememberMe': 'Mantendu saioa hasita',
   'stillpoint.login.subheading': 'Hasi saioa praktikatzen jarraitzeko.',
+  'stillpoint.nav.tagline': 'Aurkitu zure geldiune-zentroa',
+  'stillpoint.notFound.body':
+    'Orrialde honek arnasa sakon eta luze hartzen ari da nonbait. Bilatu dezagun toki lasaiago bat zuretzat {{app}} .',
   'stillpoint.notFound.title': 'Isiltasunean galduta.',
   'stillpoint.notFound.toHome': 'Gaur egunera itzuli',
   'stillpoint.notFound.toLibrary': 'Arakatu liburutegia',
@@ -81,6 +102,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Atzera egin 15 segundo',
   'stillpoint.player.skipForward': 'Aurrera egin 30 segundotan',
   'stillpoint.player.with': '-rekin {{name}}',
+  'stillpoint.profile.defaultHandle': 'geldi-puntu',
   'stillpoint.profile.eyebrow': 'Zure praktika, laburbilduta.',
   'stillpoint.profile.locked': 'Blokeatuta',
   'stillpoint.profile.member': 'Stillpoint kidea',

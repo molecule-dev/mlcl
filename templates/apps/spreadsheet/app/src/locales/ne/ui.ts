@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'about.pageTitle': 'बारेमा {{name}}',
   'auth.footer.about': 'बारेमा {{name}}',
   'authHeader.subtitle': 'आफ्नो नम्बरहरू इमानदार राख्न साइन इन गर्नुहोस्।',
   'automations.action.email': 'इमेल',
+  'automations.action.noop': 'नो-अप',
   'automations.action.webhook': 'वेबहुक',
   'automations.confirmDelete': 'मेटाउनुहोस् " {{name}} "?',
   'automations.empty.headline': 'अहिलेसम्म कुनै स्वचालन छैन',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'प्रत्येक कार्यपुस्तिकामा ट्रिगर र कार्यहरू। प्रत्येक रनले तपाईंले पछि अडिट गर्न सक्ने पङ्क्ति लग गर्छ।',
   'automations.toggle': 'टगल गर्नुहोस् {{name}}',
+  'automations.trigger.dailySchedule': 'दैनिक तालिका',
+  'automations.trigger.rowCreated': 'पङ्क्ति सिर्जना गरियो',
+  'automations.trigger.rowUpdated': 'पङ्क्ति अद्यावधिक गरियो',
   'billing.empty': 'कुनै योजना उपलब्ध छैन।',
   'billing.error.priceMissing':
     'यस तहको लागि कुनै स्ट्राइप मूल्य कन्फिगर गरिएको छैन। STRIPE_*_PRICE_ID env vars सेट गर्नुहोस्।',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'चार्टहरू',
   'charts.kpi.totalCharts': 'कुल चार्टहरू',
   'charts.list.empty': 'अहिलेसम्म कुनै चार्ट छैन।',
+  'charts.namePlaceholder': 'राजस्व प्रवृत्ति',
   'charts.newChart': 'नयाँ चार्ट',
   'charts.primary.eyebrow': 'प्रकार अनुसार चार्टहरू',
   'charts.primary.headline': 'कार्यस्थानको सिंहावलोकन',
   'charts.subhead':
     'तपाईंको ग्रिडमा बाँधिएका प्रत्यक्ष दृश्यहरू — प्रत्येक सेल सम्पादनमा पुन: रेन्डर गर्नुहोस्।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'editor.addColumn': 'स्तम्भ थप्नुहोस्',
+  'editor.addDialogTitle': 'स्तम्भ थप्नुहोस्',
   'editor.addRow': 'पङ्क्ति थप्नुहोस्',
   'editor.addSheet': 'पाना थप्नुहोस्',
   'editor.back': 'कार्यपुस्तिकाहरूमा फर्कनुहोस्',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} । क्याल्साइट भनेको सूत्र-प्रथम, बहु-दृश्य, वास्तविक-समय ग्रिड विश्लेषकहरू र वित्त टोलीहरू पहिलो स्थानमा पुग्ने माध्यम हो।',
   'landing.nav.formulas': 'सूत्रहरू',
+  'login.noAccount': '{{name}} मा नयाँ हुनुहुन्छ?',
+  'login.signIn': '{{name}} मा साइन इन गर्नुहोस्',
   'login.signUp': 'कार्यस्थान सिर्जना गर्नुहोस्',
+  'nav.menu': 'मेनु',
+  'nav.openMenu': 'मेनु खोल्नुहोस्',
   'notFound.cellRef': '#सन्दर्भ!',
   'notFound.formula': '=LOOKUP(अनुरोध.url, "मार्गहरू", "पृष्ठ")',
   'notFound.headline': 'यो पङ्क्ति कहिल्यै अस्तित्वमा थिएन।',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'नेटिभ स्वचालन · वेबहुक र क्रोन ट्रिगरहरू',
   'signup.creating': 'कार्यस्थानको प्रावधान गर्दै...',
   'signup.cta': 'मेरो कार्यस्थान सिर्जना गर्नुहोस्',
+  'signup.haveAccount': 'पहिले नै {{name}} मा हुनुहुन्छ?',
   'signup.namePlaceholder': 'एभरी चेन',
   'signup.tagline': '३० सेकेन्डमा आफ्नो पहिलो कार्यपुस्तिका घुमाउनुहोस्',
   'team.col.activity': 'आमन्त्रित',

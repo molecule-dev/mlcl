@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
   'alerts.acknowledgeLabel': 'Потврди',
   'alerts.customerLabel': 'Клиент: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Се поврзува…',
   'carriers.requiredError': 'Задолжително е име и код.',
   'carriers.subheading': '{{count}} интегриран',
+  'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
+  'common.retry': 'Обидете се повторно',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Во транзит + означено',
   'dashboard.activeShipmentsSubtitle': '{{count}} пратките бараат внимание или се во движење',
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'пратки',
   'pricing.trackingLabel': 'следење на настани',
   'profile.dangerZone.title': 'Опасна зона',
+  'profile.devices.signingOut': 'Се одјавува…',
+  'profile.devices.unnamed': 'Неименуван уред',
+  'profile.security.disable2fa': 'Оневозможи 2FA',
   'profile.security.enable2fa': 'Овозможи 2FA',
   'profile.security.pwChanged': 'Лозинката е успешно променета.',
   'profile.security.pwCurrent': 'Тековна лозинка',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA активен',
   'profile.security.twoFaCode': '6-цифрен код',
   'profile.security.twoFaDisable': 'Оневозможи',
+  'profile.security.twoFaDisabling': 'Оневозможување…',
   'profile.security.twoFaFailed': 'Не можеше да се потврди кодот.',
   'profile.security.twoFaIntro':
     'Скенирајте го QR-кодот во вашата апликација за автентикација, а потоа внесете го 6-цифрениот код подолу за да потврдите.',
   'profile.security.twoFaOn': 'Двофакторската автентикација е овозможена на оваа сметка.',
+  'profile.security.twoFaQrAlt': 'Двофакторски QR код',
   'profile.security.twoFaVerify': 'Потврди и овозможи',
   'profile.security.twoFaVerifying': 'Се проверува…',
   'profile.subheading': 'Поставки за идентитет и безбедност за овој работен простор.',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Зачувај ја оваа тајна — нема да биде прикажана повторно.',
   'settings.api.webhookSecret': 'Тајна за потпишување на вебхук',
   'settings.appearance.description': 'Префрлувајте помеѓу светлиот и темниот режим.',
+  'settings.deleteAccountConfirm': 'Дали сте сигурни? Ова дејство не може да се врати.',
   'settings.notifications.exceptions':
     'Испрати ми е-пошта кога ќе се појави исклучок за испораката Испрати ми е-пошта кога ќе се појави исклучок за испорака',
   'settings.notifications.heading': 'Известувања',
@@ -146,6 +155,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Пратката не е пронајдена.',
   'shipmentDetail.originHeading': 'Потекло',
   'shipmentDetail.shippedOn': 'Испратено {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Сè уште нема настани за следење — ажурирањата се појавуваат тука додека превозникот го скенира пакетот.',
   'shipmentDetail.weightLabel': '{{weight}} фунти',
   'shipments.col.carrier': 'Носач',
   'shipments.col.eta': 'ВПО',
@@ -175,6 +186,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Најави се',
   'signup.submit': 'Креирај сметка',
   'team.emailError': 'Потребна е важечка е-адреса.',
+  'team.empty':
+    'Сè уште нема членови на тимот. Поканете колега од тимот да соработува на испораките.',
   'team.eyebrow': 'Членови и дозволи',
   'team.inviteDialog.cancel': 'Откажи',
   'team.inviteDialog.heading': 'Покани соиграч',
@@ -197,6 +210,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Песна',
   'waypointLayout.primaryNavLabel': 'Примарна навигација',
   'webhooks.createFailed': 'Не може да се креира крајна точка на webhook.',
+  'webhooks.endpointsEmpty':
+    'Сè уште нема крајни точки на webhook. Создадете една за да добивате повратни повици за статусот на пратката.',
   'webhooks.endpointsHeading': 'Крајни точки',
   'webhooks.eventCount': '{{count}} настани',
   'webhooks.eventsHeading': 'Неодамнешни испораки',

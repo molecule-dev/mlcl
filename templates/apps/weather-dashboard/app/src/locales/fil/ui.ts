@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Kasalukuyan kang nasa {{plan}} plano.',
   'billing.switch': 'Palitan',
   'billing.upgraded': 'Na-update sa {{plan}} — mga limitasyong agad na inilalapat.',
+  'common.goToDashboard': 'Pumunta sa Dashboard',
   'compare.activityHeading': 'Mga hatol sa aktibidad',
   'compare.empty.title': 'Magdagdag ng kahit dalawang lokasyon para ihambing',
   'compare.eyebrow': 'Magkatabi',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Mataas',
   'trends.summary.low.label': 'Mababa',
   'trends.summary.points.label': 'Mga Araw',
+  'weatherDashboardLayout.primaryNavLabel': 'Pangunahing navigation',
   'weatherHeroCard.updated': 'Na-update {{time}}',
 }

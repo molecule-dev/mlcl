@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Résolution…',
   'comments.subtitle':
     "Les {{count}} fils qui attendent encore une réponse ou une résolution. Triés par âge — les plus anciens d'abord, pour que rien ne moisisse.",
+  'common.goToDashboard': 'Aller au tableau de bord',
   'forgotPassword.sentTo': 'Lien de réinitialisation envoyé à {{email}}',
   'forgotPassword.successSubheading':
     'Consultez votre boîte de réception — nous venons de vous envoyer un lien de réinitialisation. Il expire dans 30 minutes.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Nouvelle page',
   'pageTreeSidebar.workspaceHeader': 'Espace',
   'pageView.breadcrumb': "Fil d'Ariane",
+  'pageView.confirmTrash': 'Le jeter ?',
   'pageView.home': 'Accueil',
   'pageView.lastEdited': 'Mis à jour {{when}}',
   'pageView.loading': 'Chargement de la page…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Résumé en cours…',
   'pageView.summaryUnavailable': "Le résumé IA n'est pas configuré pour cet espace.",
   'pageView.tocTitle': 'Sur cette page',
+  'pageView.trash': 'Corbeille',
+  'pageView.trashing': 'Mise à la corbeille…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Badges',
   'profile.owned.title': 'Pages possédées',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Espace, profil, notifications, intégrations — le tout dans une seule coque paisible.',
   'settingsPage.workspace.defaultLanding': "Écran d'accueil par défaut",
   'settingsPage.workspace.landingHome': 'Maison',
+  'settingsPage.workspace.landingSpaces': 'Espaces',
   'settingsPage.workspace.subdomainLabel': 'Sous-domaine',
   'settingsPage.workspace.title': 'Espace',
   'signup.eyebrow': 'Démarrer un nouvel espace',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     "Commencez une page à partir d'un gabarit, pas d'une toile vierge. Chaque gabarit fige la forme pour que vous vous concentriez sur le fond.",
+  'trash.confirmPurge': 'Purger pour toujours ?',
+  'trash.confirmPurgeAria': 'Confirmer : supprimer définitivement {{title}}',
   'trash.daysUntilPurge': '{{days}} jours restants',
   'trash.empty.body':
     "Les pages supprimées apparaîtront ici pendant 30 jours avant d'être purgées.",
@@ -149,5 +156,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Restauration…',
   'versionHistory.subtitle': '{{count}} versions · sélectionnez une ligne pour inspecter le diff',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Fermer la navigation',
+  'wikiLayout.menu': 'Navigation',
+  'wikiLayout.openMenu': 'Ouvrir la navigation',
   'wikiLayout.searchPlaceholder': 'Rechercher dans Cairn — pages, commentaires…',
 }

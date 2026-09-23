@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'analytics.avgCheckLabel': 'Prosječna provjera',
   'analytics.busiestHour': 'Najprometniji sat',
   'analytics.coversToday': 'Naslovi danas',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Napojnice (prosj.)',
   'analytics.topItems': 'Najpopularnije stavke danas',
   'authShell.eyebrow': 'Dobrodošli natrag u službu',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Toplo i brzo prodajno mjesto za ugostiteljske timove. Prijavite se u svoju kuhinju i nastavite tamo gdje ste stali.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ili {{price}}',
   'billing.priceUnavailable': 'Ovaj plan nema konfiguriranu cijenu.',
   'billing.updated': 'Plan ažuriran.',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'customerDetail.book': 'Dodaj rezervaciju',
   'customerDetail.col.table': 'Stol',
   'customerDetail.confirmDelete': 'Izbrisati ovaj zapis gosta?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Dostupnost',
   'menuItemDetail.available': 'Dostupno večeras',
   'menuItemDetail.backToMenu': 'Natrag na izbornik',
+  'menuItemDetail.confirmDelete': 'Izbrisati ovu stavku izbornika?',
   'menuItemDetail.delete': 'Izbriši stavku',
   'menuItemDetail.deleteError': 'Brisanje nije uspjelo. Pokušajte ponovno.',
   'menuItemDetail.dietary': 'Dijetetske oznake',
@@ -138,9 +142,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · uredite fotografiju, modifikatore, prehranu i cijene.',
   'menuItemDetail.untitled': 'Neimenovana stavka',
+  'mobileNav.closeMenu': 'Zatvori navigacijski izbornik',
+  'mobileNav.openMenu': 'Otvori navigacijski izbornik',
   'notFound.heading': 'Ovaj stol nije na podu.',
   'notFound.subheading':
     'Stranica koju ste tražili nalazi se negdje drugdje — ili nikada nije postojala.',
+  'notFound.toLanding': 'Početna stranica {{app}}',
   'notifications.markError': 'Nije moguće označiti sve kao pročitano.',
   'orderDashboard.activeDelta': 'Uživo sada',
   'orderDashboard.activeLabel': 'Aktivne narudžbe',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Prikaži lozinku',
   'resetPassword.subtitle': 'Unesite svoju novu lozinku kako biste ponovno dobili pristup kuhinji.',
   'resetPassword.tokenLabel': 'Resetiraj token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Primarna navigacija',
   'revenueHeroCard.activeOrders': '{{count}} aktivan',
   'revenueHeroCard.change': '{{sign}} {{amount}} u odnosu na jučer',
   'revenueHeroCard.title': 'Današnji prihod',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Naziv restorana',
   'tableDetail.activeOrders': 'Aktivne narudžbe',
   'tableDetail.backToFloor': 'Tlocrt',
+  'tableDetail.confirmDelete': 'Izbrisati ovu tablicu?',
   'tableDetail.delete': 'Izbrisati',
   'tableDetail.deleteError': 'Nije moguće izbrisati tablicu.',
   'tableDetail.heading': 'Stol {{label}}',

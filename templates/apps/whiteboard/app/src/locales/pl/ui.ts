@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'authShell.brandHeading': 'Wieloosobowe płótna dla zespołów projektowych, które myślą na głos.',
   'billing.canceled': 'Subskrypcja anulowana.',
   'billing.cancelPlan': 'Anuluj plan',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Zacznij od szablonu',
   'boards.title': 'Pana/Pani tablice',
   'collaboratorStack.overflow': '+{{count}}',
+  'common.goToDashboard': 'Przejdź do panelu',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Proszę wpisać e-mail powiązany z obszarem roboczym, a my wyślemy link resetujący.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Warsztat Q1 · Głos marki',
   'landing.featuresEyebrow': 'Co sprawia, że Slate pasuje',
   'landing.featuresTitle': 'Szybka informacja zwrotna. Piękne płótna. Zero tarcia.',
+  'landing.hero.body':
+    '{{appName}} to wieloosobowa tablica przeznaczona dla zespołów projektowych, organizatorów warsztatów i nauczycieli, którzy prowadzą burze mózgów i potrzebują, aby ich pomysły skupiały się w jednym miejscu.',
   'landing.hero.primaryCta': 'Rozpocznij tablicę za darmo',
   'landing.hero.socialProof': 'Zaufało nam {{count}} zespołów projektowych na całym świecie',
   'landing.hero.title': 'Płótno tak szybkie jak Pana/Pani myśli',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Utwórz darmowy obszar roboczy',
   'login.subheading':
     'Proszę kontynuować od miejsca, w którym warsztat się zakończył — tablice, karteczki samoprzylepne i kursory synchronizują się w czasie rzeczywistym.',
+  'mobileNav.closeMenu': 'Zamknij menu nawigacyjne',
+  'mobileNav.new': 'Nowe',
+  'mobileNav.openMenu': 'Otwórz menu nawigacyjne',
   'notifications.editTitle': 'Edycje w "{{board}}"',
   'notifications.empty.body':
     'Zaproszenia, zapisane migawki i ostatnie edycje tablicy będą się tutaj pojawiać na bieżąco.',
@@ -175,6 +182,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Historia wersji',
   'versionHistory.untitledSnapshot': 'Migawka bez tytułu',
   'whiteboardLayout.newBoard': 'Nowa tablica',
+  'whiteboardLayout.primaryNav': 'Nawigacja główna',
   'workspace.boardLabel': 'Tablica',
   'workspace.eyebrow': '{{name}} · obszar roboczy',
   'workspace.invite': 'Zaproś współpracowników',

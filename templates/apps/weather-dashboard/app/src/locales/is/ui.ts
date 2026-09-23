@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Þú ert núna á {{plan}} áætlun.',
   'billing.switch': 'Skipta',
   'billing.upgraded': 'Uppfært í {{plan}} — takmörkunum beitt þegar í stað.',
+  'common.goToDashboard': 'Fara á yfirlit',
   'compare.activityHeading': 'Virkniúrskurðir',
   'compare.empty.title': 'Bættu við að minnsta kosti tveimur stöðum til að bera saman',
   'compare.eyebrow': 'Hlið við hlið',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Hátt',
   'trends.summary.low.label': 'Lágt',
   'trends.summary.points.label': 'Dagar',
+  'weatherDashboardLayout.primaryNavLabel': 'Aðalflakk',
   'weatherHeroCard.updated': 'Uppfært {{time}}',
 }

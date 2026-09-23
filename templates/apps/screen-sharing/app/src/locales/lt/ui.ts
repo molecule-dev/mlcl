@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
   'about.pageTitle': 'Apie {{appName}}',
   'analytics.empty': 'Įrašykite savo pirmąjį vaizdo įrašą, kad pamatytumėte įsitraukimą čia.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipai',
   'billing.usage.views': 'Peržiūros',
   'billing.usage.views.unit': 'peržiūros',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'landing.cta.title': 'Siųskite geresnius atsiliepimus. Pradėkite nuo „Glint“.',
   'landing.feature.capture.body':
     'Įrašymas naršyklėje, darbalaukyje ir mobiliajame įrenginyje su mikrofonu, kamera ir piešimo galimybe.',
   'landing.feature.capture.title': 'Vieno bakstelėjimo fiksavimas',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asinchroninis, šviečiantis.',
   'landing.hero.cardCaption': 'Pavyzdinės darbo vietos apžvalga – išbandykite nemokamai.',
   'landing.hero.primaryCta': 'Pradėkite įrašymą nemokamai',
   'landing.hero.proof.free': 'Nemokamas amžinas lygis',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Ieškoti įrašų',
   'library.searchPlaceholder': 'Ieškoti įrašų…',
   'library.weeklyChange': '{{value}} % palyginti su praėjusia savaite',
+  'nav.openMenu': 'Atidaryti navigacijos meniu',
   'nav.record': 'Įrašas',
   'nav.shared': 'Pasidalino su manimi',
   'nav.startRecording': 'Pradėti įrašymą',

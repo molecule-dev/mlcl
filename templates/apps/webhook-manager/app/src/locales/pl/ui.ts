@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// o {{app}}',
+  'about.pageTitle': 'Płaszczyzna sterowania webhookiem',
+  'about.plansTitle': 'Plany na każdy etap',
   'apiKeys.bestPractices': 'Najlepsze praktyki',
   'apiKeys.body':
     'Programowe tokeny dostępu. Niech Pan/Pani traktuje je jak hasła — przechowywać w zmiennych środowiskowych, nigdy nie commitować.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'w ramach planu',
   'billing.usageWarning': 'blisko limitu',
   'billing.yearly': 'Roczny',
+  'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.body':
     'Przepustowość na żywo, ponowne próby w trakcie przesyłania danych i punkty końcowe, które właśnie zawiodły — w każdej obsługiwanej przestrzeni roboczej.',
   'dashboard.endpointsEmpty': 'Na razie nie ma punktów końcowych.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'punkty końcowe',
   'endpointDetail.deliveryTrendSub': 'dostawy / godzinę, skala logarytmiczna',
   'endpointDetail.hideSecret': 'Ukryj sekret',
+  'endpointDetail.loading': 'Ładowanie punktu końcowego…',
   'endpointDetail.metric.delivered': 'Dostarczone 24h',
   'endpointDetail.metric.deliveredCaption': 'z {{count}} typów zdarzeń',
   'endpointDetail.metric.failuresCaption': 'ponowienia: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Krytyczne · 24h',
   'notifications.metric.totalCaption': 'skrzynka od zawsze',
   'payloadViewer.payload': '// ładunek',
+  'planUpdated.verifying': 'Potwierdzanie płatności…',
   'profile.avatarHeader': 'Awatar',
   'profile.avatarHint': 'Pokazywane są inicjały — przesyłanie pojawi się w następnym wydaniu.',
   'profile.body': 'Państwa konto, preferencje i aktywne sesje.',
@@ -229,6 +235,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Aktywna jest tylko bieżąca sesja. Żadne inne urządzenia nie są zalogowane.',
   'profile.toggle': 'Dźwignia kolankowa {{label}}',
+  'pylonShell.closeMenu': 'Zamknij menu nawigacyjne',
+  'pylonShell.openMenu': 'Otwórz menu nawigacyjne',
   'pylonShell.primaryNavLabel': 'Nawigacja główna',
   'resetPassword.subtitle': 'Proszę wybrać silne hasło, którego wcześniej nie używano.',
   'resetPassword.tokenPlaceholder': 'wklej z e-maila',

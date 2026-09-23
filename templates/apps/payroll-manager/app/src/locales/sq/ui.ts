@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'auditLog.empty':
     'Asnjë ngjarje auditimi nuk përputhet ende me filtrat tuaj. Modifikoni një punonjës ose përpunoni një pagesë dhe ato do të shfaqen këtu.',
   'auditLog.eyebrow': 'Pajtueshmëria',
+  'auditLog.loadError': 'Nuk mund të ngarkohej regjistri i auditimit.',
   'auditLog.searchPlaceholder': 'Kërko sipas aktorit, veprimit ose përshkrimit',
   'auditLog.subheading':
     'Çdo miratim, modifikim dhe deklarim tatimor — me aktorin, vulën kohore dhe fushat e ndryshuara.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nuk është konfiguruar',
   'billing.plansHeading': 'Planet',
   'billing.subheading': 'Menaxhoni planin tuaj dhe ndërroni nivelet përmes Stripe.',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Riprovo',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Pamje e përgjithshme e pajtueshmërisë',
   'dashboard.compliance.title': 'Të gjitha kontrollet kalojnë',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Nuk ka zbritje në dosje.',
   'employeeDetail.notFound': 'Punonjësi nuk u gjet.',
   'employeeDetail.payFrequency': 'Frekuenca e pagesës',
+  'employeeDetail.postTax': 'Pas taksave',
+  'employeeDetail.preTax': 'Para taksave',
   'employeeDetail.salary': 'Paga vjetore',
   'employeeDetail.ssn': 'Numri i Sigurimeve Shoqërore',
   'employeeDetail.startedOn': 'Filloi {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Frekuenca e pagesës',
   'employeeForm.salary': 'Paga vjetore (USD)',
   'employeeForm.salaryInvalid': 'Paga duhet të jetë një numër jo-negativ.',
+  'employeeForm.saveError': 'Nuk mundi ta ruante punonjësin.',
   'employeeForm.semimonthly': 'Gjysmëmujore',
   'employeeForm.single': 'Beqar/e',
   'employeeForm.ssn': 'Numri i Sigurimeve Shoqërore',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.salary': 'Paga',
   'forgotPassword.subtitle':
     "Shkruani email-in tuaj të punës dhe ne do t'ju dërgojmë një lidhje rivendosjeje.",
+  'landing.copyright': '© {{year}} {{app}} . I saktë, i besueshëm, i qetë.',
   'landing.ctaBody':
     'Falas për 30 ditë. Pa kartë krediti. Ndërroni në çdo kohë pa humbur gjurmët e auditimit.',
   'landing.ctaHeading': 'Kryeni ciklin tuaj të ardhshëm në Stipend',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
   'payRunDetail.noActivity': 'Ende nuk ka regjistrime auditimi për këtë pagesë.',
   'payRunDetail.noStubs':
     "Ende nuk ka fletëpagesa — miratojini dhe përpunojini për t'i gjeneruar ato.",
+  'payRunDetail.notFound': 'Kjo pagesë nuk mund të gjendej.',
   'payRunDetail.statDeductions': 'Zbritjet',
   'payRunDetail.statHeadcount': 'Punonjësit',
   'payRunDetail.statTaxes': 'Tatimet e mbajtura në burim',
@@ -222,7 +231,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Gjysmëmujore',
   'settings.signOutDevice': 'Dil nga llogaria',
   'settings.subheading': 'Profili i kompanisë, orari i pagave dhe integrimet.',
+  'settings.twoFactorCode': 'Kodi i vërtetimit',
   'settings.twoFactorDisable': 'Çaktivizo',
+  'settings.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
   'settings.weekly': 'Javore',
   'taxCenter.bucket.federal': 'Të ardhurat federale',
   'taxCenter.bucket.fica': 'Sigurimet Shoqërore',

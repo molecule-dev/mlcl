@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.title': 'Ystafell ysgrifennu y gallwch ei chadw yn eich poced',
   'billing.cancelConfirm': 'Canslo eich tanysgrifiad gweithredol?',
   'billing.cancelFailed': 'Methwyd canslo.',
   'billing.checkingOut': "Wrthi'n agor y ddesg dalu…",
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Methwyd llwytho bilio.',
   'billing.loading': "Wrthi'n llwytho biliau…",
   'billing.upgradeCta': 'Uwchraddio i {{name}}',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'editor.autosaveOn': "Cadw'n awtomatig ymlaen",
   'editor.backToLibrary': "Yn ôl i'r llyfrgell",
   'editor.charCount': '{{count}} cymeriadau',
   'editor.confirmTrash': "Symud y ddogfen hon i'r bin sbwriel?",
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': "Wedi'i ddad-binio",
   'editor.unpublishCta': "Symud i'r drafft",
   'editor.unpublished': 'Wedi dychwelyd i ddrafft',
+  'focus.autosaveOn': "Cadw'n awtomatig ymlaen",
   'focus.backToLibrary': "Yn ôl i'r llyfrgell",
   'focus.bodyPlaceholder': 'Llinell ar y tro. Does neb arall yma.',
   'focus.exit': "Allannu'r modd ffocws",
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Creu un',
   'login.subline':
     'Mae eich llawysgrifau, tudalennau dyddiol, a safle olaf y cyrchwr yn union lle gwnaethoch chi eu gadael.',
+  'mobileNav.closeMenu': "Cau'r ddewislen lywio",
+  'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'pricing.exports': 'allforion',
   'pricing.folders': 'ffolderi',
   'pricing.heading': 'dogfennau',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     "Rhowch y cod rydyn ni newydd ei e-bostio atoch chi a dewiswch rywbeth cofiadwy. Byddwn ni'n eich mewngofnodi unwaith y bydd wedi'i gadw.",
   'reset.tokenHint': "Wedi'i gludo o'ch mewnflwch.",
+  'settings.appearance.heading': 'Golau neu dywyll',
   'settings.editor.${row.id}.description': 'Iaith',
   'settings.editor.description':
     "Sgrolio teipiadur, pylu paragraff, a ffocws segur — mae'r rhagosodiadau wedi'u tiwnio ar gyfer sesiynau hir.",
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Pennod Tri — Awr Dawel Cyn Codiad Haul',
   'versalDocumentCard.pinned': "Wedi'i binio",
   'versalLayout.nav.stats': 'Ystadegau',
+  'versalLayout.primaryNavLabel': 'Prif lywio',
   'versalManuscriptHero.cta': 'Parhau i ysgrifennu',
   'versalManuscriptHero.goalLabel': 'Nod geiriau heddiw',
   'versalManuscriptHero.inProgress': 'Ar y trywydd iawn',

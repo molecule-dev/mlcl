@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.eyebrow': 'Par {{app}}',
   'about.pageTitle': 'Katrs maršruts, viena meklēšana.',
   'booking.backToDetail': 'Atpakaļ pie lidojuma informācijas',
   'booking.continue': 'Turpināt ar maksājumu',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Nodokļi un nodevas',
   'booking.summary.travelers': 'Ceļotāji',
   'common.about': 'Par mums',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'flightDetail.backToResults': 'Atpakaļ pie rezultātiem',
   'flightDetail.baseFare': 'Pamatcena',
   'flightDetail.book': 'Turpināt ar rezervāciju',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 pietura',
   'flightResultCard.select': 'Atlasīt',
   'flightResultCard.totalLabel': 'Kopējais laiks',
+  'flightSearchLayout.primaryNavLabel': 'Galvenā navigācija',
   'forgotPassword.subheading':
     'Ievadiet savā Skylark kontā norādīto e-pasta adresi, un mēs nosūtīsim drošu atiestatīšanas saiti.',
   'forgotPassword.successBody':
     'Pārbaudiet {{email}} lai iegūtu saiti jaunas paroles iestatīšanai. Saite beigsies pēc 30 minūtēm.',
   'forgotPassword.successHeading': 'Atiestatīšanas saite nosūtīta',
   'landing.cta.explore': 'Izmēģiniet meklēšanu',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Atrodi nākamo lielisko cenu pirms visiem pārējiem.',
   'landing.cta.signup': 'Sāciet izsekot cenām',
   'landing.features.eyebrow': 'Kāpēc Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Pievienot brīdinājumu',
   'priceAlerts.deleteConfirm': 'Vai noņemt šo brīdinājumu?',
   'priceAlerts.empty': 'Vēl nav izsekotu maršrutu.',
+  'priceAlerts.emptyCta': 'Meklēt maršrutu, ko izsekot',
   'priceAlerts.errorMessage': 'Nevarēja ielādēt brīdinājumus.',
   'priceAlerts.eyebrow': 'Skylark vērošanas saraksts',
   'priceAlerts.form.createError': 'Nevarēja izveidot brīdinājumu.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Maršruts ar vairākām pilsētām',
   'results.multiLegHeading': 'Kāja {{n}} · {{no}} → {{uz}} · datums',
   'results.multiSummary': '{{count}} kājas · {{passengers}} ceļotājs',
+  'results.sortAriaLabel': 'Kārtot rezultātus pēc',
   'results.sortLabel': 'Kārtot',
   'results.summary': '{{count}} lidojumi · {{passengers}} ceļotājs',
   'settings.language.title': 'Valoda',

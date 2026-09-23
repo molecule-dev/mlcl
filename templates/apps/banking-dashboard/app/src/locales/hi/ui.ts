@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'accountDetail.activeBadge': 'सक्रिय',
   'accountDetail.availableLabel': '{{amount}} उपलब्ध',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'खाते',
   'accounts.loadError': 'खाते लोड करने में विफल।',
   'accounts.status.closed': 'बंद',
+  'accounts.status.frozen': 'जमा हुआ',
   'accounts.totalBalance': '{{amount}} कुल',
   'audit.empty': 'अभी तक कोई घटना नहीं।',
   'audit.eyebrow': 'सुरक्षा एवं पहुँच',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'नकद उपलब्ध',
   'cashCreditCard.creditLabel': 'उपयोग किया गया क्रेडिट',
   'cashCreditCard.title': 'नकद एवं क्रेडिट',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.accountsHeading': 'खाते',
   'dashboard.heading': 'अवलोकन',
   'dashboard.recentEmpty': 'अभी तक कोई लेनदेन नहीं।',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'पासवर्ड दिखाएँ',
   'login.signUp': 'साइन अप करें',
   'login.submit': 'साइन इन करें',
+  'meridianLayout.menu': 'मेनू',
   'meridianLayout.primaryNavLabel': 'मुख्य नेविगेशन',
   'nav.legal': 'कानूनी',
   'notifications.emptyHeading': 'आप पूरी तरह अद्यतन हैं',
   'notifications.subheading': 'लेनदेन, सुरक्षा और विवरणों के लिए रीयल-टाइम अलर्ट।',
+  'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'privacy.dataWeShare':
     'व्यक्तिगत बैंकिंग डेटा कभी नहीं बेचा जाता। हम लेनदेन निपटाने या कानूनी दायित्वों को पूरा करने के लिए आवश्यक रूप में ही भुगतान प्रोसेसर, कार्ड नेटवर्क और नियामकों के साथ जानकारी साझा करते हैं।',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'दो-कारक प्रत्येक साइन-इन पर ऑथेंटिकेटर ऐप से एकल-उपयोग कोड जोड़ता है।',
   'settings.security.twoFactorCta': 'दो-कारक प्रमाणीकरण प्रबंधित करें',
+  'settings.security.twoFactorOff': 'दो-कारक प्रमाणीकरण बंद है',
   'settings.signOutDevice': 'साइन आउट',
   'settings.subheading': 'प्रोफ़ाइल, सुरक्षा और सूचनाएँ।',
+  'settings.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.twoFactorDisable': 'अक्षम करें',
   'settings.twoFactorEnable': 'सक्षम करें',
+  'settings.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.twoFactorVerify': 'सत्यापित करें और सक्षम करें',
   'signup.emailLabel': 'ईमेल पता',
   'signup.fullName': 'हम आपको कैसे संबोधित करें?',
   'signup.showPassword': 'पासवर्ड दिखाएँ',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'अभी तक कोई लेनदेन नहीं।',
   'transactions.endDate': 'समाप्ति दिनांक',
   'transactions.eyebrow': 'गतिविधि',
+  'transactions.loadError': 'लेन-देन लोड करने में विफल।',
   'transactions.merchant': 'व्यापारी',
+  'transactions.subheading': 'आपके खातों में दर्ज और लंबित सभी लेनदेन।',
   'transfers.availableHint': '{{amount}} उपलब्ध',
   'transfers.errorGeneric': 'स्थानांतरण प्रस्तुत नहीं किया जा सका।',
   'transfers.errorMissingFields': 'स्रोत खाता और गंतव्य चुनें।',

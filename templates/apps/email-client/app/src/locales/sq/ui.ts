@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Ne jemi një ekip i shpërndarë projektuesish dhe inxhinierësh që dikur kalonim shumë orë të ditës në një kuti postare me zhurmë. Courier është kutia postare që donim të përdornim vetë.',
   'about.title': 'Email për punë të fokusuar',
+  'common.goToDashboard': 'Shko te paneli',
   'help.cta.about': 'Rreth Courierit',
   'help.cta.pricing': 'Shiko çmimet',
   'help.eyebrow': 'Qendra e ndihmës',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Përgjigje të shpejta për pyetjet që dëgjojmë më shumë. Mungon ndonjë gjë? Hapni Cilësimet dhe përdorni formularin e reagimeve brenda aplikacionit ose shkruani në support@courier.example.',
   'help.title': 'Si mund të ndihmojmë?',
   'landing.brand.scrollTop': 'Kthehu në krye',
+  'landing.copyright': '© {{year}} {{appName}} — Ndërtuar për fokus.',
   'landing.ctaBody':
     'Bashkohuni me mijëra profesionistë që i mbaruan postat e tyre postare para drekës.',
   'landing.ctaTitle': 'Përpuno më shumë, reago më pak.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Shiko demonstrimin',
   'landing.heroSubtitle':
     'Courier është një kuti hyrëse e qetë me tre panele e ndërtuar për punonjësit e dijes që duan të përpunojnë informacionin, jo të reagojnë ndaj tij.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'I besuar nga ekipe të fokusuara në të gjithë botën',
   'landing.signIn': 'Hyr',
   'meridian.archive.empty': 'Arkivi është bosh.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Draft',
   'meridian.folder.count': '{{count}} mesazhe',
+  'meridian.folder.delete': 'Fshij',
   'meridian.folder.deleteForever': 'Fshije përgjithmonë',
   'meridian.folder.restore': 'Zhvendos në kutinë hyrëse',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Nuk ka ende mesazhe këtu.',
   'meridian.inbox.loading': 'Duke u ngarkuar…',
   'meridian.inbox.next': 'Tjetra',
+  'meridian.inbox.noSender': '(pa dërgues)',
   'meridian.inbox.noSubject': '(pa subjekt)',
+  'meridian.inbox.ofTotal': '{{current}} nga {{total}}',
   'meridian.inbox.openCompose': 'Hap shkrimin',
   'meridian.inbox.previous': 'Mëparshme',
   'meridian.inbox.replyFailed': 'Përgjigja u ruajt, por dërgimi dështoi: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Nuk keni një llogari?',
   'meridian.login.showPassword': 'Shfaq fjalëkalimin',
   'meridian.message.toLine': 'për {{recipients}}',
+  'meridian.notFound.body':
+    "Faqja që po kërkoni nuk u gjet. Kthehuni te kutia juaj postare e {{appName}} dhe ne do t'ju ndihmojmë të gjeni rrugën e duhur.",
   'meridian.notFound.eyebrow': 'Gabim 404',
   'meridian.notFound.title': 'Kjo temë u arkivua.',
   'meridian.notFound.toInbox': 'Hap kutinë time postare',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Shto yll',
   'meridian.thread.unstar': 'Hiq yllin',
   'meridian.time.yesterday': 'Dje',
+  'meridian.topBar.openMenu': 'Hap menynë e navigimit',
   'meridian.topBar.searchPlaceholder': 'Kërko në email',
   'meridian.trash.empty': 'Koshi i mbeturinave është bosh.',
   'meridian.trash.title': 'Mbeturina',
   'nav.legal': 'Ligjore',
   'planUpdated.description':
     'Abonimi juaj është tani aktiv dhe faturimi juaj është përditësuar. Mirë se vini në kutinë tuaj të rifreskuar të Courier.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.heading': 'draftet',
   'pricing.limit.emails': 'email-e',
   'pricing.limit.folders': 'dosje',
   'pricing.limit.labels': 'etiketat',
   'privacy.collect.account':
     'Të dhënat e llogarisë: emri, adresa e email-it, fjalëkalimi i hashuar dhe data kur jeni regjistruar.',
+  'privacy.contact': 'Pyetje? Dërgoni email në privacy@courier.example.',
   'privacy.intro':
     'Kjo politikë privatësie shpjegon se çfarë të dhënash mbledh Courier, pse i mbledhim ne, si i mbajmë të sigurta dhe çfarë zgjedhjesh keni mbi to. Ne synojmë të jemi specifikë në vend që të jemi legalistë; nëse diçka është e paqartë, shkruani në privacy@courier.example.',
   'privacy.lastUpdated': 'Përditësuar për herë të fundit: 1 prill 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     "Këto kushte rregullojnë përdorimin tuaj të Courier. Duke krijuar një llogari ose duke dërguar email përmes nesh, ju pranoni t'i zbatoni ato. Ne përpiqemi të shkruajmë rregulla që një person mund t'i ndjekë realisht.",
   'terms.lastUpdated': 'Në fuqi: 1 prill 2026',
+  'terms.linkPrivacy': 'Lexoni Politikën tonë të Privatësisë →',
   'terms.termination.body':
     "Mund ta fshini llogarinë tuaj në çdo kohë. Ne mund ta pezullojmë një llogari që shkel këto kushte; nëse e bëjmë këtë, do t'ju shpjegojmë arsyen dhe do t'ju lejojmë të eksportoni të dhënat tuaja më parë.",
   'terms.warranty.body':

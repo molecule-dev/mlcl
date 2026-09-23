@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
   'about.pageTitle': 'Su {{name}}',
   'auth.footer.about': 'Su {{name}}',
   'authHeader.subtitle': 'Acceda per mantenere i Suoi numeri onesti.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Nessun intervento chirurgico',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Eliminare "{{name}}"?',
   'automations.empty.headline': 'Nessuna automazione ancora',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Trigger e azioni su ogni cartella di lavoro. Ogni esecuzione registra una riga che potrà verificare in seguito.',
   'automations.toggle': 'Attiva/disattiva {{name}}',
+  'automations.trigger.dailySchedule': 'Programma giornaliero',
+  'automations.trigger.rowCreated': 'Riga creata',
+  'automations.trigger.rowUpdated': 'Riga aggiornata',
   'billing.empty': 'Nessun piano disponibile.',
   'billing.error.priceMissing':
     "Nessun prezzo Stripe configurato per questo livello. Imposti le variabili d'ambiente STRIPE_*_PRICE_ID.",
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafici',
   'charts.kpi.totalCharts': 'Totale grafici',
   'charts.list.empty': 'Nessun grafico ancora.',
+  'charts.namePlaceholder': 'andamento dei ricavi',
   'charts.newChart': 'Nuovo grafico',
   'charts.primary.eyebrow': 'Grafici per tipo',
   'charts.primary.headline': "Panoramica dell'area di lavoro",
   'charts.subhead':
     'Visualizzazioni in tempo reale collegate alla Sua griglia — si ridisegnano a ogni modifica di cella.',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'editor.addColumn': 'Aggiungi colonna',
+  'editor.addDialogTitle': 'Aggiungi colonna',
   'editor.addRow': 'Aggiungi riga',
   'editor.addSheet': 'Aggiungi foglio',
   'editor.back': 'Torna alle cartelle di lavoro',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}}. Calcite è la griglia in tempo reale, multi-vista e basata sulle formule che analisti e team finanziari cercano per primi.',
   'landing.nav.formulas': 'Formule',
+  'login.noAccount': 'Sei nuovo/a su {{name}} ?',
+  'login.signIn': 'Accedi a {{name}}',
   'login.signUp': "Crea un'area di lavoro",
+  'nav.menu': 'Menu',
+  'nav.openMenu': 'Apri menu',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "routes", "page")',
   'notFound.headline': 'Questa riga non è mai esistita.',
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automazioni native · trigger webhook e cron',
   'signup.creating': 'Provisioning area di lavoro…',
   'signup.cta': 'Crea la mia area di lavoro',
+  'signup.haveAccount': 'Sei già su {{name}} ?',
   'signup.namePlaceholder': 'Marco Rossi',
   'signup.tagline': 'Avvii la Sua prima cartella di lavoro in 30 secondi',
   'team.col.activity': 'Invitato',

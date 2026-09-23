@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
   'auth.forgotPassword.emailPlaceholder': 'navn@dittselskap.com',
   'auth.forgotPassword.heading': 'Tilbakestill passordet ditt.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Merk oppgaven som fullført',
   'checklistTaskCard.markIncomplete': 'Merk oppgaven som ufullført',
   'checklistTaskCard.openLabel': 'Åpne oppgave',
+  'common.goToDashboard': 'Gå til oversikt',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Du er helt oppdatert',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'På rett spor',
   'dashboard.timelineHeading': '30/60/90 milepæler',
   'dashboard.viewAllTasks': 'Se alle oppgaver',
+  'dashboard.weekOne': 'Uke 1',
   'dashboard.yourCohort': 'Teamet ditt',
   'documents.empty.body': 'Dokumenter lagt til av teamet ditt vil vises her.',
   'documents.empty.title': 'Ingen dokumenter ennå',
@@ -105,7 +108,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14-dagers gratis prøveperiode',
   'landing.subhead':
     'Embark veileder alle nye lagkamerater gjennom de første 90 dagene – papirarbeid, opplæring, milepæler og meningsfulle introduksjoner, alt på ett rolig og trygt sted.',
+  'layout.openMenu': 'Åpne navigasjonsmenyen',
   'layout.search': 'Søk i oppgaver, dokumenter, lagkamerater…',
+  'layout.searchTeammates': 'Søk etter lagkamerater etter navn eller rolle…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Reisen din starter her',
   'notifications.empty.body': 'Ny aktivitet vil vises her.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'i går',
   'planUpdated.message': 'Du er klar.',
   'planUpdated.preparing': 'Oppdaterer planen din …',
+  'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.documentsLabel': 'dokumenter',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'oppgaver',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
+  'about.eyebrow': '{{app}} 소개',
   'about.pageTitle': '모든 노선, 하나의 검색.',
   'booking.backToDetail': '항공편 상세 정보로 돌아가기',
   'booking.continue': '결제로 진행',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': '세금 및 수수료',
   'booking.summary.travelers': '여행자',
   'common.about': '소개',
+  'common.goToDashboard': '대시보드로 이동',
   'flightDetail.backToResults': '검색 결과로 돌아가기',
   'flightDetail.baseFare': '기본 운임',
   'flightDetail.book': '예약으로 진행',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1회 경유',
   'flightResultCard.select': '선택',
   'flightResultCard.totalLabel': '총 소요 시간',
+  'flightSearchLayout.primaryNavLabel': '기본 탐색',
   'forgotPassword.subheading':
     'Skylark 계정 이메일을 입력하시면 안전한 재설정 링크를 보내드립니다.',
   'forgotPassword.successBody':
     '{{email}}에서 새 비밀번호 설정 링크를 확인해 주세요. 링크는 30분 후 만료됩니다.',
   'forgotPassword.successHeading': '재설정 링크 전송 완료',
   'landing.cta.explore': '검색 체험하기',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': '최고의 항공권을 누구보다 먼저 찾으세요.',
   'landing.cta.signup': '운임 추적 시작',
   'landing.features.eyebrow': '왜 Skylark인가',
@@ -81,6 +86,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': '알림 추가',
   'priceAlerts.deleteConfirm': '이 알림을 제거하시겠어요?',
   'priceAlerts.empty': '아직 추적 중인 노선이 없습니다.',
+  'priceAlerts.emptyCta': '추적할 경로를 검색하세요',
   'priceAlerts.errorMessage': '알림을 불러올 수 없습니다.',
   'priceAlerts.eyebrow': 'Skylark 관심 노선',
   'priceAlerts.form.createError': '알림을 생성할 수 없습니다.',
@@ -110,6 +116,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': '멀티 시티 여정',
   'results.multiLegHeading': '구간 {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}}개 구간 · {{passengers}}명 탑승',
+  'results.sortAriaLabel': '결과를 다음 기준으로 정렬하세요:',
   'results.sortLabel': '정렬',
   'results.summary': '{{count}}개 항공편 · {{passengers}}명 탑승',
   'settings.language.title': '언어',

@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Шешілуде…',
   'comments.subtitle':
     'The {{count}} Жауап немесе шешім күтіп тұрған тақырыптар. Жасы бойынша сұрыпталған — ең үлкені алдымен, сондықтан ештеңе шіріп кетпейді.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'forgotPassword.sentTo': 'Бастапқы күйге келтіру сілтемесі жіберілді {{email}}',
   'forgotPassword.successSubheading':
     'Кіріс жәшігіңізді тексеріңіз — біз жаңа ғана қалпына келтіру сілтемесін жібердік. Ол 30 минуттан кейін жарамдылық мерзімін аяқтайды.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Жаңа бет',
   'pageTreeSidebar.workspaceHeader': 'Жұмыс кеңістігі',
   'pageView.breadcrumb': 'Нан үгіндісі',
+  'pageView.confirmTrash': 'Қоқысқа тастау керек пе?',
   'pageView.home': 'Үй',
   'pageView.lastEdited': 'Жаңартылды {{when}}',
   'pageView.loading': 'Бет жүктелуде…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Жасанды интеллект қорытындысы бұл жұмыс кеңістігі үшін конфигурацияланбаған.',
   'pageView.tocTitle': 'Осы бетте',
+  'pageView.trash': 'Қоқыс',
+  'pageView.trashing': 'Себетке тастау…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Белгілер',
   'profile.owned.title': 'Меншіктегі беттер',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Жұмыс кеңістігі, профиль, хабарландырулар, интеграциялар — барлығы бір тыныш қабықта.',
   'settingsPage.workspace.defaultLanding': 'Әдепкі қону экраны',
   'settingsPage.workspace.landingHome': 'Үй',
+  'settingsPage.workspace.landingSpaces': 'Бос орындар',
   'settingsPage.workspace.subdomainLabel': 'Қосалқы домен',
   'settingsPage.workspace.title': 'Жұмыс кеңістігі',
   'signup.eyebrow': 'Жаңа жұмыс кеңістігін бастау',
@@ -131,6 +136,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} мин',
   'templates.subtitle':
     'Бетті бос кенептен емес, трафареттен бастаңыз. Әрбір шаблон пішінді қатаң кодтайды, сондықтан сіз мазмұнға назар аудара аласыз.',
+  'trash.confirmPurge': 'Мәңгілікке тазарту?',
+  'trash.confirmPurgeAria': 'Растау: {{title}} біржола жою',
   'trash.daysUntilPurge': '{{days}} күндер қалды',
   'trash.empty.body': 'Жойылған беттер жойылғанға дейін 30 күн бойы осында көрсетіледі.',
   'trash.empty.title': 'Себет бос.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Қалпына келтіру…',
   'versionHistory.subtitle': '{{count}} нұсқалар · айырмашылықты тексеру үшін жолды таңдаңыз',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Навигацияны жабу',
+  'wikiLayout.menu': 'Навигация',
+  'wikiLayout.openMenu': 'Навигацияны ашу',
   'wikiLayout.searchPlaceholder': 'Cairn іздеу — беттер, пікірлер…',
 }

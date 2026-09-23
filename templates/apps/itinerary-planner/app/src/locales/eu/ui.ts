@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}}(r)i buruz',
+  'auth.legalConsent': 'Jarraituz gero, onartzen dituzu gure',
   'bookings.empty.body': 'Gehitu hegaldi, hotel edo jarduera bat sarrera-ontzia hasteko.',
   'bookings.empty.heading': 'Ez dago erreserbarik oraindik.',
   'bookings.errors.create': 'Ezin izan da erreserba sortu.',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Baieztatuta',
   'bookings.summary.pending': 'Baieztapenaren zain',
   'bookings.summary.total': 'Konprometitutako guztira',
+  'bookings.type.car': 'Alokairuko autoa',
+  'bookings.type.flight': 'Hegaldia',
+  'bookings.type.hotel': 'Hotela',
   'bookings.type.other': 'Bestelakoa',
   'budgetSpendCard.budgetTotal': '-ren {{total}} planifikatuta',
   'budgetSpendCard.pct': '{{pct}} %',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'Antzeman gatazkak, planifikatu errekuperazio egunak bidaien artean eta ikusi noiz bidaiatzen duten kolaboratzaileak zurekin.',
   'common.and': 'eta',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.budgetHeading': 'Aurrekontu-pultsua',
   'dashboard.empty.heading': 'Oraindik ez duzu bidaiarik egin — zure atlasa hutsik dago.',
   'dashboard.eyebrow': 'Misioaren kontrol',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Mugimenduan bidaiak.',
   'dashboard.viewAllExpenses': 'Ikusi gastu guztiak',
   'dashboard.viewAllTrips': 'Ikusi bidaia guztiak',
+  'dayTimelineRow.category.accommodation': 'Egon',
   'dayTimelineRow.category.transport': 'Garraioa',
   'destinationOrbCard.exploreCta': 'Gehitu bidaia bati',
   'destinationOrbCard.tripCount': '{{count}} bidaiak',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'Oraindik ez duzu e-postarik? Begiratu spam karpeta edo saiatu berriro beste helbide batekin.',
   'forgotPassword.successSubheading':
     'Berreskuratzeko esteka bat bidali dugu honera: {{email}} Esteka 30 minutuz balio du.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Sortu doako kontua',
+  'landing.cta.subheading':
+    'Doako planean bost bidaia, bost kolaboratzaile eta bost geldialdi gehienez — denbora errealeko sinkronizazioarekin barne, eta Pro-k mugak kenduz zure planak hazten direnean.',
   'landing.destinations.eyebrow': 'Nora hurrengoa',
   'landing.destinations.heading': 'Editoreak aukeratutako helmugak',
   'landing.features.eyebrow': 'Waypoint-ak nola funtzionatzen duen',
   'landing.features.heading': 'Bidaiarientzat eraikia, ez kalkulu-orrientzat.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Doako bidaia bat hasi',
   'landing.hero.ctaSecondary': 'Ikusi bidaia-lagin bat',
   'landing.hero.subtitle':
@@ -129,6 +141,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Sortu kontu bat gehienez 5 kolaboratzailerekin bidaiak partekatzeko, erreserbak sinkronizatzeko eta baieztapen guztiak leku bakarrean biltzeko.',
+  'signup.termsPrefix': 'Kontu bat sortzean gure baldintzak onartzen dituzu',
   'tripCountdownHeroCard.budget': '{{used}} -ren {{total}} ( {{pct}} aurrekontuaren ehunekoa)',
   'tripCountdownHeroCard.collaborators': '{{count}} bidaiariak',
   'tripCountdownHeroCard.countdownLabel': 'Atzerako kontaketa',
@@ -201,5 +214,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Bidaiarik ez oraindik.',
   'trips.pastHeading': 'Iraganeko abenturak',
   'trips.subheading': '{{count}} ibilbideak — iragana, oraina eta noizbait.',
+  'waypointLayout.mobileNavClose': 'Itxi nabigazio menua',
   'waypointLayout.primaryNavLabel': 'Nabigazio nagusia',
 }

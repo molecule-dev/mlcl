@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'about.pageTitle': 'Пра {{appName}}',
   'analytics.empty': 'Запішыце свой першы кліп, каб убачыць тут узаемадзеянне.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'кліпы',
   'billing.usage.views': 'Прагляды',
   'billing.usage.views.unit': 'праглядаў',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'landing.cta.title': 'Дасылайце лепшыя водгукі. Пачніце з Glint.',
   'landing.feature.capture.body':
     "Запіс з дапамогай мікрафона, камеры і малюнка ў браўзеры, на камп'ютары і мабільным тэлефоне.",
   'landing.feature.capture.title': 'Здымка адным дотыкам',
+  'landing.footer.copy': '© {{year}} {{appName}} . Асінхронны, зроблены яркім.',
   'landing.hero.cardCaption': 'Прыклад агляду працоўнай прасторы — паспрабуйце бясплатна.',
   'landing.hero.primaryCta': 'Пачніце запіс бясплатна',
   'landing.hero.proof.free': 'Бясплатны назаўсёды ўзровень',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Пошук запісаў',
   'library.searchPlaceholder': 'Пошук запісаў…',
   'library.weeklyChange': '{{value}} % у параўнанні з мінулым тыднем',
+  'nav.openMenu': 'Адкрыць меню навігацыі',
   'nav.record': 'Запіс',
   'nav.shared': 'Падзяліліся са мной',
   'nav.startRecording': 'Пачаць запіс',

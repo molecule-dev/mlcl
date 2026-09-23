@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.pageTitle': 'Относно {{appName}}',
   'analytics.error': 'Не можа да се зареди статистиката.',
   'analytics.heading': 'Анализ на извличането',
@@ -52,6 +53,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Няма конфигурирани ценови нива.',
   'billing.plans.heading': 'Планове',
   'billing.subheading': 'План, употреба и управление на плащането от Stripe.',
+  'common.confirm': 'Потвърди',
+  'common.goToDashboard': 'Към таблото',
+  'common.retry': 'Опитай отново',
   'documentCard.open': 'Отворено \\u2192',
   'documentDetail.back': 'Обратно към документите',
   'documentDetail.chunks.empty':
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'documents.composer.titlePlaceholder': 'Заглавие на документа',
   'documents.emptyAll':
     'Все още няма документи. Качете такъв, за да започнете да задавате въпроси.',
+  'documents.error.load': 'Не можаха да се заредят документите.',
   'documents.heading': 'Индексирани документи',
   'documents.loading': 'Зареждане на документи…',
   'documents.metric.chunks': 'Общо парчета',
@@ -141,7 +146,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Премахване\\u2026',
   'members.subheading': 'Поканете съотборници и задайте роли.',
   'members.tableHeading': 'Състав',
+  'mobileNav.closeMenu': 'Затвори менюто за навигация',
+  'mobileNav.openMenu': 'Отвори менюто за навигация',
   'notFound.askCta': 'Попитайте базата знания',
+  'notFound.body':
+    '{{app}} не можа да намери тази страница. Връзката може да е прекъсната или страницата може да е била премахната по време на повторно индексиране.',
   'notFound.eyebrow': 'Не може да се извлече',
   'notFound.title': 'Няма такъв фрагмент в индекса',
   'notifications.dismiss': 'Отхвърляне',
@@ -204,6 +213,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'URL адрес на източника',
   'sources.empty.body': 'Кликнете върху „Добавяне на източник“, за да свържете първия си конектор.',
   'sources.empty.title': 'Все още няма източници.',
+  'sources.error.add': 'Не можа да се добави източник.',
   'sources.error.labelRequired': 'Етикетът е задължителен.',
   'sources.error.load': 'Не можаха да се заредят източниците.',
   'sources.error.urlRequired': 'За този вид източник е необходим URL адрес.',

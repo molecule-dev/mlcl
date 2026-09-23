@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} туралы',
   'analytics.back': 'Сауалнамаға шолу',
   'analytics.kpiNps': 'NPS ұпайы',
   'analytics.kpiNpsTrend': 'Промоутерлер {{p}} % · Қарсыластар {{d}} %',
@@ -30,12 +31,14 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Мүліктері',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Сауалнама тақырыбы',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'forgotPassword.failed':
     'Қалпына келтіру электрондық поштасын жіберу мүмкін болмады. Қайталап көріңіз.',
   'forgotPassword.subheading':
     'Электрондық поштаңызды енгізіңіз, сонда біз сізге қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.successBody':
     'Егер тіркелгі сәйкес келсе {{email}} , бастапқы қалпына келтіру сілтемесі жолда. Кіріс жәшігіңіз бен спам қалталарыңызды тексеріңіз.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Барлық дауыстар қабылданады.',
   'landing.footer.startTrial': 'Сынақ нұсқасын бастау',
   'landing.hero.badge': 'Сауалнамалар, Ұлттық әлеуметтік қызметтер және кері байланыс бір жерде',
   'landing.hero.subtitle':
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Баға белгілеу',
   'landing.pricing.perMonth': '/ай',
   'landing.pricing.popular': 'Ең танымал',
+  'landing.pricing.subtitle':
+    'Әрбір жоспарға сауалнама құрастырушысы, жалпыға ортақ сілтемелер және NPS аналитикасы кіреді. Бастау үшін несие картасы қажет емес.',
+  'landing.pricing.title': 'Тегін бастаңыз, жасаған кезде масштабтаңыз.',
   'landing.sample.eyebrow': 'NPS туралы қысқаша ақпарат',
   'landing.sample.title': 'Қарсыластар, пассивтілер, насихаттаушылар — бірден оқылады.',
   'login.failed': 'Жүйеге кіру сәтсіз аяқталды. Қайталап көріңіз.',
@@ -58,6 +64,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Құпия сөзді көрсету',
   'login.signUpLink': 'Тегін сынақ нұсқасын бастаңыз',
   'login.subheading': 'Аудиторияңызды тыңдай беру үшін жүйеге кіріңіз.',
+  'notFound.body': 'Сіз іздеп отырған бет {{app}} қызметінде жоқ. Сауалнамаларыңызға оралайық.',
   'notFound.cta': 'Сауалнамаларға оралу',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Бұл сауалнама кезектен шығып кетті.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Пассивті 7–8',
   'npsDistributionBar.promoter': '9–10 промоутері',
   'profile.identity.description': 'Командаңызға және сіз жасаған сауалнамаларға жария етіңіз.',
+  'profile.identity.emailRequired': 'Электрондық пошта мекенжайын енгізіңіз.',
   'profile.identity.saveCta': 'Атын сақтау',
   'profile.password.current': 'Ағымдағы құпия сөз',
   'profile.password.fillFields': 'Ағымдағы және жаңа құпия сөзді енгізіңіз.',
@@ -179,6 +187,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} сұрақтар',
   'templates.subheading':
     'Соғыс кезінде сынақтан өткен бастаушыны таңдаңыз — әрбір үлгі ақылға қонымды әдепкі параметрлермен, үлгі логикасымен және таза мобильді орналасумен алдын ала реттеледі.',
+  'thankYou.body': 'Сіздің жауабыңыз жазылды. {{app}} оны келесі аналитикалық жаңартуға қосады.',
   'thankYou.eyebrow': 'Жауап алынды',
   'thankYou.heading': 'Рақмет - сіздің дауысыңыз маңызды.',
   'thankYou.home': 'Мурмурға барыңыз',

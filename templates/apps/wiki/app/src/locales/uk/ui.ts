@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Вирішення…',
   'comments.subtitle':
     'The {{count}} Теми все ще очікують на відповідь або вирішення. Відсортовано за віком — спочатку найстаріші, щоб нічого не зіпсувалося.',
+  'common.goToDashboard': 'До панелі',
   'forgotPassword.sentTo': 'Скинути посилання, надіслане на адресу {{email}}',
   'forgotPassword.successSubheading':
     'Перевірте свою поштову скриньку — ми щойно надіслали посилання для скидання. Воно дійсне 30 хвилин.',
@@ -69,6 +70,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Нова сторінка',
   'pageTreeSidebar.workspaceHeader': 'Робочий простір',
   'pageView.breadcrumb': 'Хлібні крихти',
+  'pageView.confirmTrash': 'Викинути це?',
   'pageView.home': 'Дім',
   'pageView.lastEdited': 'Оновлено {{when}}',
   'pageView.loading': 'Завантаження сторінки…',
@@ -78,6 +80,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Зведення штучного інтелекту не налаштовано для цієї робочої області.',
   'pageView.tocTitle': 'На цій сторінці',
+  'pageView.trash': 'Кошик',
+  'pageView.trashing': 'Викидання…',
   'pageView.versionBadge': 'в{{version}}',
   'profile.badges.title': 'Значки',
   'profile.owned.title': 'Сторінки, що належать',
@@ -103,6 +107,7 @@ export const ui: UiTranslations = {
     'Робочий простір, профіль, сповіщення, інтеграції — все в одній спокійній оболонці.',
   'settingsPage.workspace.defaultLanding': 'Цільовий екран за замовчуванням',
   'settingsPage.workspace.landingHome': 'Дім',
+  'settingsPage.workspace.landingSpaces': 'Простори',
   'settingsPage.workspace.subdomainLabel': 'Субдомен',
   'settingsPage.workspace.title': 'Робочий простір',
   'signup.eyebrow': 'Створіть нову робочу область',
@@ -132,6 +137,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} хв',
   'templates.subtitle':
     'Почніть сторінку з трафарету, а не з чистого полотна. Кожен шаблон жорстко кодує форму, щоб ви могли зосередитися на суті.',
+  'trash.confirmPurge': 'Очиститися назавжди?',
+  'trash.confirmPurgeAria': 'Підтвердити: остаточно видалити {{title}}',
   'trash.daysUntilPurge': '{{days}} залишилося днів',
   'trash.empty.body':
     'Видалені сторінки відображатимуться тут протягом 30 днів, перш ніж їх буде видалено.',
@@ -152,5 +159,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Відновлення…',
   'versionHistory.subtitle': '{{count}} версії · виберіть рядок для перевірки різниці',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Закрити навігацію',
+  'wikiLayout.menu': 'Навігація',
+  'wikiLayout.openMenu': 'Відкрити навігацію',
   'wikiLayout.searchPlaceholder': 'Пошук у Керні — сторінки, коментарі…',
 }

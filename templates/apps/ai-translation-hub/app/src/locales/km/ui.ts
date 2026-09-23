@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'billing.canceled': 'ការជាវត្រូវបានលុបចោល។ អ្នកនឹងត្រឡប់ទៅជា "ឥតគិតថ្លៃ" វិញនៅចុងបញ្ចប់នៃរយៈពេល។',
   'billing.contactSales': 'ទាក់ទងផ្នែកលក់',
   'billing.free.1': 'ការបកប្រែចំនួន ៥',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'គ្មានដែនកំណត់នៃការរក្សាទុក',
   'billing.upgradeHint': 'ធ្វើឱ្យប្រសើរឡើងដើម្បីដោះសោមុខងារ AI កម្រិតខ្ពស់។',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.activityEmpty': 'មិនទាន់មានសកម្មភាពនៅឡើយទេ — ចាប់ផ្តើមគម្រោងដើម្បីបំពេញព័ត៌មាននេះ។',
   'dashboard.eyebrow': 'ទិដ្ឋភាពទូទៅ',
   'dashboard.projectsEmpty': 'មិនទាន់មានគម្រោងនៅឡើយទេ — ចាប់ផ្តើមមួយដើម្បីមើលវានៅទីនេះ។',
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ប្រើប្រាស់ការបកប្រែពីមុនឡើងវិញនៅទូទាំងគម្រោងនីមួយៗ។ ពិន្ទុផ្គូផ្គងខ្ពស់ជាង → ការធ្វើការឡើងវិញតិចជាង។',
   'memory.title': 'ធនាគារអង្គចងចាំ',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'nav.legal': 'ផ្នែកច្បាប់',
   'newProject.addLanguage': 'បន្ថែមគោលដៅ',
   'newProject.create': 'បង្កើតគម្រោង',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'បានសម្គាល់ {{count}} ការជូនដំណឹងដូចដែលបានអាន។',
   'notifications.subtitle':
     'ការលើកឡើង សំណើសុំពិនិត្យ និងព្រឹត្តិការណ៍ AI ពីទូទាំងកន្លែងធ្វើការរបស់អ្នក។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'privacy.collection.account': 'អ៊ីមែលគណនី និងឈ្មោះបង្ហាញរបស់អ្នក',
   'privacy.deletion.body':
     'អ្នកអាចលុបគម្រោង ផ្នែក ពាក្យសទ្ទានុក្រម ឬការបញ្ចូលអង្គចងចាំនៅពេលណាក៏បានពីទំព័រពាក់ព័ន្ធ។ ការលុបគណនីរបស់អ្នកចេញពីការកំណត់នឹងលុបជួរដេកនីមួយៗដែលមានវិសាលភាពក្នុងកន្លែងធ្វើការចេញពីមូលដ្ឋានទិន្នន័យរបស់យើង។',
@@ -175,6 +180,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'បរាជ័យក្នុងការផ្ទុកគម្រោង។',
   'projects.loading': 'កំពុងផ្ទុកគម្រោង…',
   'projects.subtitle': 'គម្រោងសកម្មនីមួយៗនៅទូទាំងមូលដ្ឋានទាំងអស់។',
+  'renditionLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'reset.backToLogin': '\\u2190 ត្រឡប់​ទៅ​ចូល​វិញ',
   'reset.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'review.activeEyebrow': 'ផ្នែក {{number}}',
@@ -281,6 +287,7 @@ export const ui: UiTranslations = {
   'translate.tmInsertedStatus': 'បានបញ្ចូលពីអង្គចងចាំបកប្រែ។',
   'translate.untitled': 'គម្រោងគ្មានចំណងជើង',
   'translationActivityTimeline.empty': 'មិនទាន់មានសកម្មភាពថ្មីៗនៅឡើយទេ។',
+  'translationHeroCard.change': '{{sign}} {{amount}} ធៀបនឹងរយៈពេលចុងក្រោយ',
   'translationHeroCard.confidenceLabel': 'ទំនុកចិត្ត AI',
   'translationHeroCard.label': 'ពាក្យដែលបានបកប្រែ · ៣០ថ្ងៃចុងក្រោយ',
   'translationStatsQuad.qualityTrend': '+២.៤ ធៀបនឹងខែមុន',

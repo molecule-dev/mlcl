@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'A történetünk',
   'aiSuggestionPanel.title': 'Signet-copilot',
   'analytics.col.open': 'Megnyitási arány',
@@ -23,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Fizetés indítása…',
   'billing.subheading': 'Válassza a küldési stílusához illő csomagot.',
   'billing.unavailable': 'Lépjen kapcsolatba az értékesítési csapattal',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.retry': 'Újra',
   'compose.adjustingTone': 'Átírás a kiválasztott hangnemben…',
   'compose.aiPromptPlaceholder':
     'pl. „Udvarias megkeresés két hétnyi válasz hiánya után, röviden.”',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
     'Küldeni kell valamit? Signet másodpercek alatt elkészíti a tervezetet.',
   'dashboard.composeCtaLabel': 'Gyors szerkesztés',
   'dashboard.heading': 'Az Ön hete, megszerkesztve',
+  'dashboard.loadFailed': 'Az irányítópultod betöltése nem sikerült.',
   'dashboard.manageLibrary': 'Könyvtár kezelése →',
   'dashboard.recentEmpty': 'Még nincs küldés — az elküldött e-mailek itt jelennek meg.',
   'dashboard.recentHeading': 'Legutóbbi küldések',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     'A Signet ezt a hangnemet használja, hacsak nem írja felül a tervezeten.',
   'signetLayout.primaryNavLabel': 'Elsődleges navigáció',
+  'signetLayout.toggleMenu': 'Menü megjelenítése/elrejtése',
   'signup.emailLabel': 'E-mail cím',
   'signup.showPassword': 'Jelszó megjelenítése',
   'signup.tagline': 'Küldje el első AI által írt e-mailjét egy percen belül.',

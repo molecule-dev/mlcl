@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Xaridoringizga choychaqa bering',
   'checkout.tipLabel': 'Maslahat',
   'checkout.zipPlaceholder': 'Pochta indeksi',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'featuredProductsGrid.addAria': "Qo'shish {{name}} savatga",
   'featuredProductsGrid.outOfStock': "Sotuvda yo'q",
   'forgotPassword.emailLabel': 'E-pochta manzili',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     "Agar o'sha elektron pochta ro'yxatdan o'tgan bo'lsa, qayta tiklash havolasi yo'lda.",
+  'groceryDeliveryLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'landing.categoriesEyebrow': "Yo'laklar",
   'landing.categoriesHeading': "Kategoriya bo'yicha xarid qiling",
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Zaxira buyumlarni aqlli qayta buyurtma qilish va haydovchilarni jonli kuzatish orqali haftalik yetkazib berishlarni rejalashtiring.',
   'landing.heroTitle': 'Bir necha soat ichida eshigingizda yangilik.',
   'landing.howEyebrow': 'Uch qadam',
+  'landing.howItWorksHeading': '{{app}} qanday ishlaydi',
   'lists.addAllCta': "Hammasini savatga qo'shish",
   'lists.createCta': "Birinchi ro'yxatingizni yarating",
   'lists.createError': "Ro'yxat yaratib bo'lmadi.",

@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Om {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Förmögenhetsverktyg',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Inte investeringsrådgivning.',
   'argentAuthShell.sampleChange': '+$2,841 (+0,28 %) idag',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Huvudnavigering',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Inga transaktioner för denna ticker.',
   'assetDetail.txHeading': 'Dina transaktioner',
   'common.and': 'och',
+  'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portföljöversikt',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Inga innehav ännu.',
   'holdings.heading': 'Innehav',
   'holdings.loadError': 'Det gick inte att läsa in innehav.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Inte investeringsrådgivning. Tidigare resultat garanterar inte framtida resultat.',
   'landing.eyebrow': 'Argent · En plattform för förmögenhetsverktyg',
   'landing.features.heading': 'Allt en rådgivare skulle bygga åt sig själv.',
   'landing.finalCta.heading': 'Återinför disciplin i din portfölj.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}h sedan',
   'news.justNow': 'just nu',
   'news.loadError': 'Det gick inte att läsa in nyheter.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'portfolioHeroCard.label': 'Portföljvärde',
   'pricing.holdingsLabel': 'innehav',
   'pricing.newsLabel': 'nyhetsartiklar',
@@ -133,8 +139,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Ta bort konto',
   'settings.security.deleting': 'Tar bort…',
   'settings.security.heading': 'Säkerhet',
+  'settings.security.newPassword': 'Nytt lösenord',
   'settings.security.password': 'Lösenord',
   'settings.security.twoFactorEnable': 'Aktivera',
+  'settings.security.twoFactorInvalidCode': 'Ogiltig kod',
+  'settings.security.twoFactorVerify': 'Kontrollera och aktivera',
   'settings.tax.error': 'Det gick inte att uppdatera skattemetoden.',
   'settings.tax.heading': 'Bokföring av skattelotter',
   'settings.tax.method': 'Standardmetod',

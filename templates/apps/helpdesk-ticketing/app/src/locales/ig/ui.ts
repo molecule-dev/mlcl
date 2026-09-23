@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kpọtụrụ anyị',
   'about.eyebrow': 'Banyere',
+  'about.title': 'Gbasara {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     "Foto ọkachamara nke onye na-akwado nwanyị nwere ihu ọchị enyi na enyi n'ọfịs ọgbara ọhụrụ",
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Ụlọ ọrụ',
   'demoTicket.thread.customer':
     'Edogharịrị m paswọọdụ m ụnyaahụ, ugbua enweghị m ike ịbanye na ọnụ ụzọ ịkwụ ụgwọ. Ị nwere ike inye aka?',
+  'floatingHelp.contactSupport': 'Nkwado kọntaktị',
   'forgotPassword.error': 'Enweghị ike izipu ozi-e nrụpụta. Biko nwaa ọzọ.',
   'forgotPassword.rememberPassword': 'Cheta paswọọdụ gị?',
   'forgotPassword.subheading': 'Tinye ozi-e gị, anyị ga-ezitere gị njikọ iji tọgharịa paswọọdụ gị.',
@@ -102,6 +104,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Banye — Nkwado Zenith',
   'login.showPassword': 'Gosi paswọọdụ',
   'login.welcomeSubheading': 'Banye na dashboard nkwado gị',
+  'mobileNav.closeMenu': 'Mechie nhazigharị',
+  'mobileNav.menu': 'Nsoroụzọ',
+  'mobileNav.openMenu': 'Mepee nhazigharị',
   'nav.legal': 'Iwu kwadoro',
   'nav.newTicket': 'Tiketi Ọhụrụ',
   'notifications.loadError': "Enweghị ike ibugo ọkwa. Nwaa ọzọ n'ime obere oge.",
@@ -113,6 +118,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Nchọ Iwu',
   'operatorDock.newReport': 'Akụkọ Ọhụrụ',
   'operatorDock.systemOnline': "Sistemụ dị n'ịntanetị",
+  'planUpdated.subtitle': 'Daalụ',
   'planUpdated.title': 'Emelitere atụmatụ',
   'pricing.agents': 'ndị nnọchiteanya',
   'pricing.automation': 'Iwu akpaaka',
@@ -246,6 +252,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{aha}}',
   'ticketCustomerReply.avatarAlt': '{{aha}} avatar nke',
   'ticketDetail.errorTitle': 'Ihe na-agahie',
+  'ticketDetail.loadError': 'Ịbupughị tiketi ahụ.',
+  'ticketDetail.notFound': 'Ahụghị tiketi ahụ',
+  'ticketDetail.replyError': 'Ezitereghị azịza. Biko nwaa ọzọ.',
   'ticketDetail.retry': 'Nwaa ọzọ',
   'ticketDetail.statusUpdateError': 'Enweghị ike imelite ọnọdụ. Nwaa ọzọ.',
   'ticketDetailsCard.assigneeLabel': 'Onye enyere ikike',
@@ -297,6 +306,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{oge}} aka ekpe',
   'ticketRow.title': 'Njikọ nchekwa data na-ada ada na mmepụta {{ọnụọgụ}}',
   'tickets.pageTitle': 'Tiketi — Nkwado Zenith',
+  'ticketsFab.newTicket': 'Tiketi ọhụrụ',
   'ticketsFilterBar.assigneeLabel': 'Onye enyere ọrụ:',
   'ticketsFilterBar.clearFilters': 'Kpochapụ Nzacha',
   'ticketsFilterBar.dateRangeDemoHint': 'A naghị arụ ọrụ nzacha ụbọchị na nrụpụta ngosi a.',

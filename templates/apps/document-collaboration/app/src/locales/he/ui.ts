@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
+  'about.title': 'אודות {{app}}',
   'comments.addFailed': 'לא ניתן היה לפרסם תגובה.',
   'comments.backToDoc': 'חזרה לכתב היד',
   'comments.deleteFailed': 'לא ניתן היה למחוק.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'לִפְתוֹר',
   'comments.resolveFailed': 'לא ניתן היה לפתור.',
   'comments.subtitle': '{{open}} פתוח · {{resolved}} נפתר',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'dashboard.activityHeading': 'מה קורה',
   'dashboard.createFailed': 'לא ניתן היה ליצור מסמך.',
   'dashboard.empty': 'אין עדיין כתבי יד - התחל עם כפתור מסמך חדש.',
@@ -54,6 +57,8 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'לא ניתן היה להעביר לאשפה.',
   'editor.unpublish': 'בטל פרסום',
   'editor.untitled': 'מסמך ללא שם',
+  'editor.updatedElsewhere':
+    'מסמך זה עודכן על ידי מישהו אחר - טען מחדש כדי לראות את העדכונים האחרונים.',
   'editor.version': 'ו {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'אם קיים חשבון עבור {{email}} , קישור לאיפוס בדרך.',
@@ -105,6 +110,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'עָרוּך {{when}}',
   'quillonDocumentCard.open': 'פתח →',
   'quillonKpiCard.trend': 'מגמה אחרונה',
+  'quillonLayout.menu': 'תַפרִיט',
   'quillonLayout.primaryNavLabel': 'ניווט ראשי',
   'quillonStudioHero.collab': 'משתפי פעולה',
   'quillonStudioHero.docs': 'מסמכים שנגעו בהם',
@@ -152,9 +158,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'הרגע',
+  'trash.confirmDelete': 'אישור מחיקה',
   'trash.deleteFailed': 'לא ניתן היה למחוק.',
   'trash.deleteForever': 'מחיקה לתמיד',
   'trash.empty': 'אין מה לשחזר.',
+  'trash.emptyAll': 'רוקנו את האשפה',
   'trash.eyebrow': 'סטוּדִיוֹ',
   'trash.heading': 'אַשׁפָּה',
   'trash.loadFailed': 'לא ניתן היה לטעון את האשפה.',

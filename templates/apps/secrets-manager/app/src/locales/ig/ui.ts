@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
   'about.tagline': "Ihe nzuzo na-anwụ n'èzí.",
   'apiTokens.col.actions': '',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Mepụta ihe nrịbama',
   'apiTokens.kicker': 'Ihe nrịbama API',
   'apiTokens.loading': 'Na-ebugo ihe nrịbama...',
+  'apiTokens.new': 'Akara ngosi ọhụrụ',
   'apiTokens.revoke': 'Kagbuo akara ngosi',
   'apiTokens.subheading':
     "Ihe nrịbama nkeonwe na ọrụ maka Arcanum CLI na SDK. E gosiri ederede doro anya otu ugboro n'oge e kere ya.",
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + paswọọdụ',
   'authShell.zeroKnowledge': 'Nzochi ihe ọmụma efu',
   'common.connecting': 'Na-ejikọ…',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'common.inviting': 'Na-akpọ oku…',
   'forgotPassword.checkInbox':
     "Ọ bụrụ na e debanyere aha {email}, njikọ nrụpụta edebanyere aha ga-abata n'ime otu nkeji.",
@@ -75,6 +78,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     "Ọnọdụ ntụgharị, ịdọ aka ná ntị ihe na-adịghị mma, na arịrịọ nkwenye n'ofe ebe nchekwa ọ bụla.",
   'notifications.unreadEmpty': "E tinyere ihe niile n'ime igbe mbata efu.",
+  'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.heading': 'ihe nzuzo',
   'pricing.limits.accessPolicies': 'iwu ohere',
   'pricing.limits.auditLog': 'Ntinye nyocha-log',
@@ -83,9 +87,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Akaụntụ nkeonwe',
   'profile.plan.description': 'Jikwaa ndenye aha gị, hụ oke, ma melite.',
   'profile.subheading': 'Njirimara, ngwaọrụ ndị na-eme ihe abụọ, na nnọkọ ndị na-arụ ọrụ.',
+  'profile.twoFactor.code': 'Koodu nyocha',
   'profile.twoFactor.disable': 'Gbanyụọ',
   'profile.twoFactor.enable': 'Mee ka ọ rụọ ọrụ',
+  'profile.twoFactor.invalidCode': 'Koodu na-ezighi ezi',
   'profile.twoFactor.kicker': 'Nyocha ihe abụọ',
+  'profile.twoFactor.off': 'Agbanyeghị ya',
   'profile.twoFactor.on': 'Agbanyere ya',
   'resetPassword.email': 'Ozi email akaụntụ',
   'resetPassword.heading': 'Tọọ nzere ọhụrụ',
@@ -130,6 +137,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'iwu',
   'secretsManagerLayout.encrypted': 'AES-256 · EDEZIGHỊ EDEZI',
   'secretsManagerLayout.newVault': 'Ụlọ nchekwa ọhụrụ',
+  'secretsManagerLayout.newVaultShort': 'Ọhụrụ',
   'secretsManagerLayout.rotations': 'Mgbanwe',
   'secretsManagerLayout.search': 'chọọ',
   'secretsManagerLayout.searchPlaceholder': 'Chọọ ihe nzuzo site na igodo, ụzọ, ma ọ bụ mkpado…',
@@ -166,6 +174,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Ihe nzuzo',
   'vaultCard.vaultLabel': 'Vault',
   'vaultDetail.addSecret': 'Tinye ihe nzuzo',
+  'vaultDetail.back': 'Ụlọ elu niile',
   'vaultDetail.col.key': 'Igodo',
   'vaultDetail.col.rotated': 'Atụgharịrị',
   'vaultDetail.col.value': 'Uru',

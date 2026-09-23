@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'អំពី {{app}}',
   'analytics.back': 'ទិដ្ឋភាពទូទៅនៃការស្ទង់មតិ',
   'analytics.kpiNps': 'ពិន្ទុ NPS',
   'analytics.kpiNpsTrend': 'អ្នកផ្សព្វផ្សាយ {{p}} % · អ្នករិះគន់ {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'លក្ខណៈសម្បត្តិ',
   'builder.questionNumber': 'សំណួរ {{num}}',
   'builder.surveyTitle': 'ចំណងជើងនៃការស្ទង់មតិ',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'forgotPassword.failed': 'មិនអាចផ្ញើអ៊ីមែលកំណត់ឡើងវិញបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'forgotPassword.subheading': 'សូមបញ្ចូលអ៊ីមែលរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់សង្គ្រោះទៅអ្នក។',
   'forgotPassword.successBody':
     'ប្រសិនបើគណនីត្រូវគ្នា {{email}} តំណ​កំណត់​ឡើង​វិញ​កំពុង​មក​ដល់។ សូម​ពិនិត្យ​មើល​ប្រអប់​សំបុត្រ​ចូល និង​ថត​សារ​ឥត​បាន​ការ​របស់​អ្នក។',
+  'landing.footer.copyright': '© {{year}} {{app}} ។ សូមស្វាគមន៍ចំពោះមតិយោបល់ទាំងអស់។',
   'landing.footer.startTrial': 'ចាប់ផ្តើមការសាកល្បង',
   'landing.hero.badge': 'ការស្ទង់មតិ ទិន្នន័យជាតិ (NPS) និងមតិប្រតិកម្មនៅកន្លែងតែមួយ',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'តម្លៃ',
   'landing.pricing.perMonth': '/ខែ',
   'landing.pricing.popular': 'ពេញនិយមបំផុត',
+  'landing.pricing.subtitle':
+    'ផែនការនីមួយៗរួមមានឧបករណ៍បង្កើតការស្ទង់មតិ តំណភ្ជាប់ចែករំលែកសាធារណៈ និងការវិភាគ NPS។ មិនតម្រូវឱ្យមានកាតឥណទានដើម្បីចាប់ផ្តើមទេ។',
+  'landing.pricing.title': 'ចាប់ផ្តើមដោយឥតគិតថ្លៃ ពង្រីកទំហំនៅពេលអ្នកធ្វើ។',
   'landing.sample.eyebrow': 'ទិដ្ឋភាពទូទៅនៃ NPS',
   'landing.sample.title': 'អ្នករិះគន់ អ្នកអសកម្ម អ្នកផ្សព្វផ្សាយ — អាចអានបានភ្លាមៗ។',
   'login.failed': 'ការចូលប្រព័ន្ធបរាជ័យ។ សូមព្យាយាមម្តងទៀត។',
@@ -56,6 +62,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'login.signUpLink': 'ចាប់ផ្តើមការសាកល្បងឥតគិតថ្លៃ',
   'login.subheading': 'ចូលគណនីដើម្បីបន្តស្តាប់ទស្សនិកជនរបស់អ្នក។',
+  'notFound.body':
+    'ទំព័រដែលអ្នកកំពុងស្វែងរកមិនមាននៅលើ {{app}} ទេ។ ចូរយើងត្រលប់ទៅការស្ទង់មតិរបស់អ្នកវិញ។',
   'notFound.cta': 'ត្រឡប់ទៅការស្ទង់មតិវិញ',
   'notFound.eyebrow': '៤០៤',
   'notFound.heading': 'ការស្ទង់មតិនេះបានរសាត់ចេញពីជួរ។',
@@ -72,6 +80,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'អកម្ម ៧–៨',
   'npsDistributionBar.promoter': 'អ្នកផ្សព្វផ្សាយ ៩–១០',
   'profile.identity.description': 'ជាសាធារណៈដល់ក្រុមរបស់អ្នក និងនៅលើការស្ទង់មតិដែលអ្នកសរសេរ។',
+  'profile.identity.emailRequired': 'បញ្ចូលអាសយដ្ឋានអ៊ីមែល។',
   'profile.identity.saveCta': 'រក្សាទុកឈ្មោះ',
   'profile.password.current': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
   'profile.password.fillFields': 'បញ្ចូលទាំងពាក្យសម្ងាត់បច្ចុប្បន្ន និងពាក្យសម្ងាត់ថ្មី។',
@@ -178,6 +187,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} សំណួរ',
   'templates.subheading':
     'ជ្រើសរើសកម្មវិធីចាប់ផ្តើមដែលបានសាកល្បងសមរភូមិ — គំរូនីមួយៗត្រូវបានលៃតម្រូវជាមុនជាមួយនឹងលំនាំដើមដែលសមហេតុផល តក្កវិជ្ជាគំរូ និងប្លង់ចល័តស្អាត។',
+  'thankYou.body':
+    'ការឆ្លើយតបរបស់អ្នកត្រូវបានកត់ត្រាទុក។ {{app}} នឹងបញ្ចូលវានៅក្នុងការធ្វើឱ្យស្រស់ការវិភាគលើកក្រោយ។',
   'thankYou.eyebrow': 'បានទទួលការឆ្លើយតប',
   'thankYou.heading': 'អរគុណ — សំឡេងរបស់អ្នកគឺសំខាន់។',
   'thankYou.home': 'ទស្សនា Gauge',

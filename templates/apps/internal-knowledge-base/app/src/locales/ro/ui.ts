@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'article.notFound': 'Articol negăsit',
   'articleEditor.bodyPlaceholder':
     'Tastați / pentru blocuri sau pur și simplu începeți să scrieți.',
+  'articleEditor.loadFailed': 'Nu s-a putut încărca articolul',
   'articleEditor.publishing': 'Publicare\\u2026',
   'articleEditor.saveFailed': 'Salvarea a eșuat',
   'articleEditor.saving': 'Se salvează…',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Marcaj',
   'articleView.bookmarkOn': 'Adăugat la favorite',
   'articleView.edit': 'Editează articolul',
+  'articleView.loading': 'Deschizând acest articol…',
   'articleView.readTime': '{{minutes}} citire minimă',
   'articleView.spaces': 'Spații',
   'articleView.tocHeading': 'Pe această pagină',
@@ -38,8 +42,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.readers': 'Cititorii de astăzi',
   'cairnTrailHero.subtitle': 'Editări, citiri și schițe recente pe care echipa ta încă le preia.',
   'cairnTrailHero.updated': 'Articole actualizate',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'drafts.eyebrow': 'Lucrarea ta neterminată',
   'drafts.heading': 'Schițe',
+  'drafts.loadFailed': 'Nu s-au putut încărca schițele.',
   'drafts.subtitle':
     'Articole pe care le-ați început, dar nu le-ați publicat încă. Alegeți unul și continuați.',
   'forgotPassword.sentBody':
@@ -63,6 +69,7 @@ export const ui: UiTranslations = {
     'Încă nu există spații. Deschideți unul pentru a începe să colectați articole.',
   'home.spacesHeading': 'Spațiile tale',
   'home.subtitle': 'Articole recente, marcajele dvs. și ce a scris echipa.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Construit cu Molecule.',
   'landing.ctaBody':
     'Gratuit pentru autori individuali. Planuri de echipă pentru echipe distribuite care livrează runbook-uri, decizii și onboarding.',
   'landing.ctaHeading': 'Pune prima piatră astăzi.',
@@ -84,7 +91,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Creați un spațiu de lucru',
   'login.submitting': 'Autentificare...',
   'login.subtitle': 'Reia urma de unde ai lăsat-o.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
+  'newSpace.colorAria': 'Alege culoarea {{color}}',
   'newSpace.colorLabel': 'Culoare accentuată',
+  'newSpace.createFailed': 'Nu s-a putut crea spațiu',
   'newSpace.descriptionPlaceholder': 'Runbook-uri, strategii de gardă, analize post-operatorii',
   'newSpace.eyebrow': 'Deschide un spațiu al cunoașterii',
   'newSpace.heading': 'Spațiu nou',
@@ -107,6 +118,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Se încarcă…',
   'notifications.subtitle':
     '{{count}} mențiuni, comentarii, modificări de pagină și solicitări de recenzie necitite.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.articles': 'articole',
   'pricing.spaces': 'spații',
   'profile.eyebrow': 'Profil de autor',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Introduceți o nouă parolă',
   'resetPassword.subtitle': 'Alegeți o parolă puternică — de cel puțin 12 caractere.',
   'searchResults.eyebrow': 'Căutare spațiu de lucru',
+  'searchResults.filter.all': 'Toate spațiile',
   'searchResults.heading': 'Căutați articole',
   'searchResults.placeholder': 'Căutați în runbook-uri, RFC-uri, politici, decizii\\u2026',
   'searchResults.summary': '{{count}} rezultate pentru \\u201c {{query}} \\u201d',
@@ -133,14 +146,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Aceasta șterge contul dvs. și toate articolele pe care le-ați scris. Tastați ȘTERGE pentru a confirma.',
   'settings.danger.confirmInvalid': 'Tastați DELETE pentru a confirma.',
+  'settings.danger.deleteFailed': 'Nu s-a putut șterge contul',
   'settings.danger.deleting': 'Se șterge',
   'settings.danger.description':
     'Ștergerea spațiului de lucru elimină toate articolele, comentariile și istoricul versiunilor. Nu există nicio posibilitate de recuperare.',
   'settings.danger.title': 'Ștergeți spațiul de lucru',
+  'settings.email.confirm': 'Actualizați adresa de e-mail',
+  'settings.email.confirmTitle': 'Confirmați schimbarea adresei de e-mail',
   'settings.email.saved': 'E-mail actualizat.',
+  'settings.email.updateFailed': 'Nu s-a putut actualiza adresa de e-mail',
   'settings.language.title': 'Limbă',
   'settings.name': 'Nume',
+  'settings.name.saved': 'Nume actualizat.',
+  'settings.name.updateFailed': 'Nu s-a putut actualiza numele',
   'settings.notifications.description': 'Alege ce primești în căsuța de e-mail.',
+  'settings.password.changeFailed': 'Nu s-a putut schimba parola',
   'settings.password.current': 'Parola actuală',
   'settings.password.new': 'Parolă nouă',
   'settings.password.saving': 'Se actualizează\\u2026',
@@ -148,10 +168,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Cum se afișează articolele pentru tine.',
   'settings.reading.title': 'Citire și scriere',
   'settings.subtitle': 'Notificări Tune, pânza de citire și contul tău.',
+  'settings.twofa.code': 'Cod de autentificare',
   'settings.twofa.disable': 'Dezactivați',
   'settings.twofa.disabled': 'Persoane cu dizabilități',
   'settings.twofa.enable': 'Activați',
   'settings.twofa.enabled': 'Activat',
+  'settings.twofa.invalidCode': 'Cod nevalid',
+  'settings.twofa.unavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
+  'settings.twofa.verify': 'Verificați și activați',
   'signup.brandQuote':
     'A o scrie este prima promisiune pe care o facem următoarei persoane care are nevoie de ea.',
   'signup.eyebrow': 'Deschideți un spațiu de lucru',

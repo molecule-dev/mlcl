@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
   'auth.forgotPassword.emailPlaceholder': 'jméno@vasefirma.com',
   'auth.forgotPassword.heading': 'Obnovte si heslo.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Označit úkol jako dokončený',
   'checklistTaskCard.markIncomplete': 'Označit úkol jako nedokončený',
   'checklistTaskCard.openLabel': 'Otevřít úkol',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Jste zcela v obraze',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Na dobré cestě',
   'dashboard.timelineHeading': '30/60/90 milníků',
   'dashboard.viewAllTasks': 'Zobrazit všechny úkoly',
+  'dashboard.weekOne': '1. týden',
   'dashboard.yourCohort': 'Váš tým',
   'documents.empty.body': 'Zde se zobrazí dokumenty přidané vaším týmem.',
   'documents.empty.title': 'Zatím žádné dokumenty',
@@ -105,7 +108,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14denní bezplatná zkušební verze',
   'landing.subhead':
     'Embark provede každého nového kolegu jeho prvními 90 dny – papírování, školení, milníky a smysluplné představení, to vše na jednom klidném a sebevědomém místě.',
+  'layout.openMenu': 'Otevřít navigační menu',
   'layout.search': 'Hledat úkoly, dokumenty, spoluhráče…',
+  'layout.searchTeammates': 'Hledat spoluhráče podle jména nebo role…',
   'layout.section.onboarding': 'Nástupní proces',
   'layout.tagline': 'Vaše cesta začíná zde',
   'notifications.empty.body': 'Zde se zobrazí nová aktivita.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'včera',
   'planUpdated.message': 'Jste připraveni.',
   'planUpdated.preparing': 'Aktualizace vašeho tarifu…',
+  'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.documentsLabel': 'dokumenty',
   'pricing.onboardingsLabel': 'nástupní procesy',
   'pricing.tasksLabel': 'úkoly',

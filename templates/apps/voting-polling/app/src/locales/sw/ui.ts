@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
   'analytics.col.quorum': 'Akidi',
   'analytics.col.votes': 'Kura',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Hakuna maswali yanayosubiri bado.',
   'audienceQa.onStageEyebrow': 'Jukwaani sasa',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Tangaza',
   'audienceQa.queued': 'imepangwa kwenye foleni',
   'audienceQa.queueEyebrow': 'Foleni',
   'ballot.eyebrow': 'Piga kura yako',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Kwa sasa uko kwenye {{plan}} mpango.',
   'billing.switch': 'Swichi',
   'billing.upgraded': 'Imesasishwa hadi {{plan}} — mipaka inatumika mara moja.',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'createPoll.addOption': 'Ongeza chaguo',
   'createPoll.anonymousHint':
     'Majina ya wapiga kura yamefichwa kwenye kumbukumbu ya ukaguzi; hesabu za wapiga kura bado zinathibitishwa.',
@@ -160,6 +163,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Mgeni kwa Nosh?',
   'login.remember': 'Nikumbuke kwa siku 30',
   'login.subheading': 'Fungua sakafu, endesha chumba, na uthibitishe matokeo.',
+  'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
+  'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'notFound.body':
     'Ukurasa uliojaribu kufikia umefungwa au umehamishwa. Rudi kwenye dashibodi au fungua kura mpya.',
   'notFound.eyebrow': 'Hakuna akidi katika njia hii',
@@ -186,6 +191,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Haikuweza kupakia kura hii.',
   'pollDetail.loading': 'Inapakia kura ya maoni…',
   'pollDetail.notFound': 'Kura ya maoni haipatikani.',
+  'pollDetail.openBallot': 'Kura ya wazi',
   'pollDetail.openLive': 'Matokeo ya moja kwa moja',
   'pollDetail.pollId': 'kura ya maoni · {{id}}',
   'pollDetail.published': 'Kura ya maoni imechapishwa — wapiga kura sasa wanaweza kupiga kura.',
@@ -264,4 +270,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Tafuta kwa barua pepe…',
   'voters.subheading':
     'Panga orodha ya wapiga kura wanaostahiki. Panga wapiga kura kwa kila shirika kwa ajili ya kura zenye uzito.',
+  'votingPollingLayout.nav.analytics': 'Uchanganuzi',
+  'votingPollingLayout.nav.billing': 'Bili',
+  'votingPollingLayout.nav.createPoll': 'Kura mpya',
+  'votingPollingLayout.nav.dashboard': 'Dashibodi',
+  'votingPollingLayout.nav.notifications': 'Arifa',
+  'votingPollingLayout.nav.settings': 'Mipangilio',
+  'votingPollingLayout.nav.team': 'Timu',
+  'votingPollingLayout.nav.voters': 'Wapiga kura',
+  'votingPollingLayout.primaryNavLabel': 'Usogezaji mkuu',
 }

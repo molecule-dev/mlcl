@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
   'auth.forgotPassword.emailPlaceholder': 'ainm@dochuideachta.com',
   'auth.forgotPassword.heading': 'Athshocraigh do phasfhocal.',
@@ -37,6 +38,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Marcáil tasc críochnaithe',
   'checklistTaskCard.markIncomplete': 'Marcáil tasc neamhchríochnaithe',
   'checklistTaskCard.openLabel': 'Oscail tasc',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Tá sibh go léir gafa suas',
@@ -53,6 +55,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Ar an mbóthar ceart',
   'dashboard.timelineHeading': 'Clocha míle 30/60/90',
   'dashboard.viewAllTasks': 'Féach ar na tascanna uile',
+  'dashboard.weekOne': 'Seachtain 1',
   'dashboard.yourCohort': 'Do fhoireann',
   'documents.empty.body': 'Beidh doiciméid a chuir do fhoireann leis le feiceáil anseo.',
   'documents.empty.title': 'Gan aon doiciméid fós',
@@ -110,7 +113,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Triail saor in aisce 14 lá',
   'landing.subhead':
     'Treoraíonn Embark gach comhghleacaí foirne nua trína gcéad 90 lá — páipéarachas, oiliúint, clocha míle, agus réamhrá bríoch, ar fad in aon áit chiúin, mhuiníneach amháin.',
+  'layout.openMenu': 'Oscail an roghchlár nascleanúna',
   'layout.search': 'Cuardaigh tascanna, doiciméid, comhghleacaithe…',
+  'layout.searchTeammates': 'Cuardaigh comhghleacaithe de réir ainm nó róil…',
   'layout.section.onboarding': 'Ionduchtú',
   'layout.tagline': 'Tosaíonn do thuras anseo',
   'notifications.empty.body': 'Beidh gníomhaíocht nua le feiceáil anseo.',
@@ -119,6 +124,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Tá tú réidh.',
   'planUpdated.preparing': 'Ag nuashonrú do phlean…',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.documentsLabel': 'doiciméid',
   'pricing.onboardingsLabel': 'clárúcháin',
   'pricing.tasksLabel': 'tascanna',

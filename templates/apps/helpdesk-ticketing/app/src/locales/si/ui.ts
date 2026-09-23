@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.title': '{{app}} පිළිබඳව',
   'activeAgentsCard.agent1AvatarAlt':
     'නවීන කාර්යාලයක මිත්‍රශීලී සිනහවක් සහිත කාන්තා සහායක නියෝජිතවරියකගේ වෘත්තීය හිස් ඡායාරූපයක්',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'සහාය අමතන්න',
   'forgotPassword.error':
     'යළි පිහිටුවීමේ විද්‍යුත් තැපෑල යැවීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'forgotPassword.rememberPassword': 'ඔබේ මුරපදය මතකද?',
@@ -104,6 +106,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'පුරනය වන්න — සෙනිත් සහාය',
   'login.showPassword': 'මුරපදය පෙන්වන්න',
   'login.welcomeSubheading': 'ඔබගේ සහාය උපකරණ පුවරුවට පුරන්න',
+  'mobileNav.closeMenu': 'සංචාලනය වසන්න',
+  'mobileNav.menu': 'සංචලනය',
+  'mobileNav.openMenu': 'සංචාලනය විවෘත කරන්න',
   'nav.legal': 'නීතිමය',
   'nav.newTicket': 'නව ටිකට්පත',
   'notifications.loadError': 'දැනුම්දීම් පූරණය කළ නොහැකි විය. මොහොතකින් නැවත උත්සාහ කරන්න.',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'විධාන සෙවීම',
   'operatorDock.newReport': 'නව වාර්තාව',
   'operatorDock.systemOnline': 'පද්ධතිය මාර්ගගතව',
+  'planUpdated.subtitle': 'ස්තූතියි',
   'planUpdated.title': 'සැලැස්ම යාවත්කාලීන කරන ලදී',
   'pricing.agents': 'නියෝජිතයන්',
   'pricing.automation': 'ස්වයංක්‍රීයකරණ නීති',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{නම}}',
   'ticketCustomerReply.avatarAlt': '{{නම}} ගේ අවතාරය',
   'ticketDetail.errorTitle': 'යමක් වැරදී ඇත.',
+  'ticketDetail.loadError': 'ටිකට්පත පූරණය කිරීමට අසමත් විය.',
+  'ticketDetail.notFound': 'ටිකට්පත හමු නොවීය',
+  'ticketDetail.replyError': 'පිළිතුර යැවීමට අසමත් විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'ticketDetail.retry': 'නැවත උත්සාහ කරන්න',
   'ticketDetail.statusUpdateError': 'තත්ත්වය යාවත්කාලීන කළ නොහැකි විය. නැවත උත්සාහ කරන්න.',
   'ticketDetailsCard.assigneeLabel': 'පැවරුම්ලාභියා',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{වේලාව}} වම්',
   'ticketRow.title': 'නිෂ්පාදනයේදී දත්ත සමුදා සම්බන්ධතාවය අසාර්ථක වීම {{නෝඩය}}',
   'tickets.pageTitle': 'ටිකට්පත් — සෙනිත් සහාය',
+  'ticketsFab.newTicket': 'නව ටිකට්පත',
   'ticketsFilterBar.assigneeLabel': 'පැවරුම්ලාභියා:',
   'ticketsFilterBar.clearFilters': 'පෙරහන් හිස් කරන්න',
   'ticketsFilterBar.dateRangeDemoHint': 'මෙම ආදර්ශන සංස්කරණයේ දින පරාස පෙරහන සක්‍රීය නැත.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
   'actions.empty': 'Ni ustreznih nalog.',
   'actions.heading': 'Naloge',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Prejšnji mesec',
   'calendar.recent': 'Nedavno',
   'common.daysAgo': '{{count}} pred dnevi',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.hoursAgo': '{{count}} pred h',
   'common.no': '—',
+  'common.retry': 'Poskusi znova',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} naloge',
   'dashboard.empty.body':
@@ -40,9 +43,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Preverite svoj nabiralnik za povezavo za ponastavitev.',
   'forgot.subheading': 'Vpišite svoj e-naslov in poslali vam bomo povezavo za ponastavitev gesla.',
   'integrations.disconnected': 'Prekinjeno',
+  'integrations.loadError': 'Integracije ni bilo mogoče naložiti.',
   'integrations.notConnectedTag': 'Ni povezave',
   'integrations.subheading':
     'Povežite koledarje in video platforme, da se Murmur samodejno pridruži.',
+  'integrations.updateError': 'Posodobitev ni uspela.',
   'landing.ctaButton': 'Začnite – brezplačno',
   'landing.ctaHeading': 'Nehajte si delati zapiske. Začnite sprejemati odločitve.',
   'landing.demo.aiLabel': 'Povzetek z umetno inteligenco, pripravljen v realnem času',
@@ -61,7 +66,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Nadaljnje ukrepe',
   'meetingDetail.loadError': 'Srečanja ni bilo mogoče naložiti.',
   'meetingDetail.noActions': 'Ni bilo zaznanih nalog za izvedbo.',
+  'meetingDetail.none': 'Nič.',
   'meetingDetail.notFound': 'Sestanka ni bilo mogoče najti.',
+  'meetingDetail.speakerFallback': 'Govornik{{id}}',
   'meetingDetail.summaryHeading': 'Povzetek z umetno inteligenco',
   'meetingDetail.transcriptHeading': 'Prepis',
   'meetings.empty.body':
@@ -70,6 +77,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Sestanki',
   'meetings.loadError': 'Srečanj ni bilo mogoče naložiti.',
   'meetings.subheading': 'Vsak posnet, naložen in sinhroniziran sestanek.',
+  'murmurLayout.openMenu': 'Odpri navigacijski meni',
   'murmurLayout.primaryNavLabel': 'Primarna navigacija',
   'nav.legal': 'Pravno',
   'notifications.loadError': 'Obvestil ni bilo mogoče naložiti.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Kako se prikažeš v aplikaciji Murmur.',
   'record.error.empty': 'Zvok ni bil posnet.',
   'record.error.permission': 'Dovoljenje za uporabo mikrofona je bilo zavrnjeno.',
+  'record.error.recorder': 'Napaka pri snemanju',
   'record.error.unsupported':
     'Vaš brskalnik ne podpira snemanja. Poskusite z brskalniki Chrome, Edge ali Safari.',
   'record.error.upload': 'Prenos ni uspel. Poskusi znova.',
@@ -116,6 +125,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Novo geslo',
   'reset.subheading': 'Izberite geslo, ki ga nikjer drugje ne uporabljate.',
   'search.empty': 'Vnesite besedilo za iskanje v zapisih.',
+  'search.loadError': 'Iskanje ni uspelo. Poskusite znova.',
   'search.noResults': 'Ni rezultatov za »{{q}}«.',
   'settings.appearance.description': 'Preklapljanje med svetlim in temnim načinom.',
   'settings.appearance.title': 'Videz',
@@ -124,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nastavitev ni bilo mogoče naložiti.',
   'settings.loading': 'Nalaganje …',
   'settings.push.heading': 'Potisna obvestila',
+  'settings.push.subheading': 'Prejemajte obvestila v brskalniku o omembah, nalogah in povzetkih.',
   'settings.retention.audio': 'Ohrani zvok za',
   'settings.retention.heading': 'Zadrževanje',
   'settings.retention.transcript': 'Hranite prepise za',
@@ -140,6 +151,7 @@ export const ui: UiTranslations = {
   'signup.failed': 'Računa ni bilo mogoče ustvariti. Poskusite znova.',
   'signup.subheading': 'Začnite zapisovati zapiske s sestankov v nekaj minutah',
   'signup.terms': 'Z odprtjem računa se strinjate z našimi pogoji uporabe in politiko zasebnosti.',
+  'signup.termsPrefix': 'Z odprtjem računa se strinjate z našimi',
   'team.inviteCta': 'Povabi soigralca',
   'team.invitedAs': 'Povabljen kot »{{role}}«',
   'team.inviteFailed': 'Vabila ni bilo mogoče poslati.',

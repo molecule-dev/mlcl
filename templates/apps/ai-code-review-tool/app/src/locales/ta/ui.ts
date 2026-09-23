@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.connectRepoCta': 'கனெக்ட் ரெபாசிட்டரி',
   'dashboard.empty':
     'இன்னும் புல் ரிக்வெஸ்ட்கள் வரவில்லை — தொடங்குவதற்கு ஒரு ரெபாசிட்டரியை இணைக்கவும்.',
@@ -81,6 +82,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'இயக்க நேரம்',
   'pullRequestRow.files': '{{count}} எஃப்',
   'pullRequestRow.scoreAria': 'AI தர மதிப்பெண் {{score}} / 10',
+  'refractLayout.closeMenu': 'மெனுவை மூடுக',
+  'refractLayout.openMenu': 'மெனுவைத் திறக்கவும்',
   'refractLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'reports.cumulativeScoreLabel': 'ஒட்டுமொத்த மதிப்பெண்',
   'reports.cumulativeScoreSubtitle': 'அனைத்து ரெப்போக்களும் · {{days}} டி',
@@ -183,11 +186,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'தேடல் அட்டவணையை ஏற்ற முடியவில்லை.',
   'settings.apiKeys.description':
     'மேல் வலதுபுறத்தில் உள்ள பயனர் மெனுவிலிருந்து தனிப்பட்ட API திறவிகளை நிர்வகிக்கவும்.',
+  'settings.apiKeys.integrationsNote':
+    'வழங்குநர் அணுகல் டோக்கன்கள் மேலே உள்ள ஒருங்கிணைப்புகள் பிரிவில் நிர்வகிக்கப்படுகின்றன.',
   'settings.connectError': 'சேவை வழங்குநரை இணைக்க முடியவில்லை.',
   'settings.disconnectError': 'சேவை வழங்குநரின் இணைப்பைத் துண்டிக்க முடியவில்லை.',
   'settings.eyebrow': 'ஒளிவிலகல் · பணியிடம்',
   'settings.integration.${provider}.label': 'சேமிப்பு…',
   'settings.loadError': 'அமைப்புகளை ஏற்ற முடியவில்லை.',
+  'settings.notificationCenter': 'அறிவிப்பு மையம்',
   'settings.notifications.description':
     'விநியோக விருப்பங்களைக் காணவும் நிர்வகிக்கவும் அறிவிப்புகள் பக்கத்திற்குச் செல்லவும்.',
   'settings.section.account': 'கணக்கு மற்றும் பாதுகாப்பு',

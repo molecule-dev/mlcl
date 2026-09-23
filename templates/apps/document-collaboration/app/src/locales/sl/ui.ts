@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.title': 'O aplikaciji {{app}}',
   'comments.addFailed': 'Komentarja ni bilo mogoče objaviti.',
   'comments.backToDoc': 'Nazaj k rokopisu',
   'comments.deleteFailed': 'Izbrisati ni bilo mogoče.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Rešitev',
   'comments.resolveFailed': 'Ni bilo mogoče rešiti.',
   'comments.subtitle': '{{open}} odprto · {{resolved}} rešeno',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'dashboard.activityHeading': 'Kaj se dogaja',
   'dashboard.createFailed': 'Dokumenta ni bilo mogoče ustvariti.',
   'dashboard.empty': 'Zaenkrat še ni rokopisov – začnite s klikom na gumb »Nov dokument«.',
@@ -54,12 +57,15 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Ni bilo mogoče premakniti v koš.',
   'editor.unpublish': 'Prekliči objavo',
   'editor.untitled': 'Dokument brez naslova',
+  'editor.updatedElsewhere':
+    'Ta dokument je posodobil nekdo drug – znova ga naložite, da si ogledate najnovejše informacije.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Če obstaja račun z naslovom {{email}}, vam bomo kmalu poslali povezavo za ponastavitev gesla.',
   'forgotPassword.subtitle':
     'Na vaš e-poštni naslov vam bomo poslali povezavo za ponastavitev gesla.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Zgrajeno z Molecule.',
   'landing.ctaHeading': 'Odpri stran. Naj se začne.',
   'landing.ctaPrimary': 'Odpri studio',
   'landing.eyebrow': 'Za avtorje, urednike in ekipe',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'urejeno {{when}}',
   'quillonDocumentCard.open': 'Odpri →',
   'quillonKpiCard.trend': 'Najnovejši trend',
+  'quillonLayout.menu': 'Meni',
   'quillonLayout.primaryNavLabel': 'Primarna navigacija',
   'quillonStudioHero.collab': 'Sodelavci',
   'quillonStudioHero.docs': 'Dokumenti, ki so bili pregledani',
@@ -157,9 +164,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ravnokar',
+  'trash.confirmDelete': 'Potrdi izbris',
   'trash.deleteFailed': 'Izbrisati ni bilo mogoče.',
   'trash.deleteForever': 'Trajno izbriši',
   'trash.empty': 'Ni ničesar za obnoviti.',
+  'trash.emptyAll': 'Izprazni koš',
   'trash.eyebrow': 'Studio',
   'trash.heading': 'Koš',
   'trash.loadFailed': 'Koš ni bil naložen.',

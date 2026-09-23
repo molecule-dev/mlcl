@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.title': 'Perihal {{app}}',
   'auth.login.noAccount': 'Baru kenal Sparq?',
   'auth.login.or': 'atau teruskan dengan',
   'auth.signup.or': 'atau daftar dengan',
+  'common.confirm': 'Sahkan',
+  'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.loadError': 'Sesuatu telah berlaku semasa memuatkan kandungan ini.',
+  'common.retry': 'Cuba semula',
   'discover.collections.title': 'Layari mengikut kategori',
   'discover.collections.viewAll': 'Lihat perpustakaan anda →',
   'discover.empty.body': 'Cuba kategori lain atau kosongkan carian.',
@@ -65,6 +71,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Daftar masuk untuk mengekalkan rentak kemenangan anda, menganjurkan perlawanan langsung dan mendaki papan pendahulu.',
   'myQuizzes.createButton': 'Kuiz baharu',
+  'myQuizzes.deleteConfirm': 'Padam selama-lamanya?',
   'myQuizzes.empty.createCta': 'Bina kuiz pertama anda →',
   'myQuizzes.empty.created': 'Anda belum membina kuiz lagi.',
   'myQuizzes.empty.played': 'Tiada kuiz yang diterbitkan lagi.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Memuatkan…',
   'notifications.subhead':
     '{{count}} percikan api yang belum dibaca. Jemputan, pergerakan papan pendahulu dan pencapaian semuanya dalam satu strim.',
+  'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.checkoutError': 'Tidak dapat memulakan daftar keluar. Sila cuba lagi.',
+  'pricing.heading': 'Pilih pelan {{app}} anda',
   'pricing.included': 'Termasuk',
   'pricing.loadError': 'Tidak dapat memuatkan pelan.',
   'pricing.maxQuizzes': '{{count}} kuiz',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Tiada apa yang diterbitkan lagi.',
   'profile.startBuilding': 'Mula membina →',
   'profile.tier': 'Pemain Sparq',
+  'quizBuilder.addFailed': 'Tidak dapat menambah soalan. Cuba lagi.',
   'quizBuilder.addQuestion': 'Tambah soalan',
   'quizBuilder.answerPlaceholder': 'Taip pilihan…',
   'quizBuilder.answersLabel': 'Pilihan jawapan',
   'quizBuilder.back': 'Kembali kepada kuiz saya',
   'quizBuilder.delete': 'Padam soalan',
+  'quizBuilder.deleteFailed': 'Tidak dapat memadam soalan.',
   'quizBuilder.firstQuestion': 'Tambahkan soalan pertama anda untuk bermula.',
   'quizBuilder.idLabel': 'ID kuiz: {{id}}',
   'quizBuilder.loadError': 'Tidak dapat memuatkan kuiz.',
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Tambahkan sekurang-kurangnya dua pilihan jawapan dan pilih yang betul untuk {{count}} soalan sebelum diterbitkan.',
   'quizBuilder.questionsTitle': 'Soalan',
+  'quizBuilder.saveFailed': 'Tidak dapat menyimpan tajuk. Cuba lagi.',
   'quizBuilder.statusDraft': 'Draf',
   'quizBuilder.subhead':
     'Edit tajuk, tambah soalan, tetapkan pilihan dan jawapan yang betul. Perubahan disimpan secara automatik.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': 'Hos berbilang pemain',
   'quizDetail.leaderboardEmpty':
     'Belum ada permainan lagi — jadilah yang pertama untuk menetapkan skor.',
+  'quizDetail.loadError': 'Tidak dapat memuatkan kuiz ini.',
   'quizDetail.loading': 'Memuatkan kuiz…',
   'quizDetail.plays': '{{count}} bermain',
   'quizDetail.playSolo': 'Bermain solo',

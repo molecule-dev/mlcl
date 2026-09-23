@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'ስለ {{app}}',
   'analytics.back': 'የዳሰሳ ጥናት አጠቃላይ እይታ',
   'analytics.kpiNps': 'የNPS ውጤት',
   'analytics.kpiNpsTrend': 'አስተዋዋቂዎች {{p}} % · ዲትራክተሮች {{d}} %',
@@ -29,10 +30,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'ንብረቶች',
   'builder.questionNumber': 'ኪው (Q) {{num}}',
   'builder.surveyTitle': 'የዳሰሳ ጥናት ርዕስ',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'forgotPassword.failed': 'ዳግም ማስጀመሪያ ኢሜይል መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።',
   'forgotPassword.subheading': 'ኢሜይልዎን ያስገቡ እና የመልሶ ማግኛ አገናኝ እንልክልዎታለን።',
   'forgotPassword.successBody':
     'መለያው የሚዛመድ ከሆነ {{email}} , ዳግም የማስጀመሪያ አገናኝ እየመጣ ነው። የገቢ መልዕክት ሳጥንዎን እና የአይፈለጌ መልዕክት አቃፊዎችዎን ያረጋግጡ።',
+  'landing.footer.copyright': '© {{year}} {{app}} . ሁሉም ሰው እንኳን ደህና መጡ።',
   'landing.footer.startTrial': 'ሙከራ ጀምር',
   'landing.hero.badge': 'የዳሰሳ ጥናቶች፣ NPS እና ግብረመልሶች በአንድ ቦታ',
   'landing.hero.subtitle':
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'የዋጋ አወጣጥ',
   'landing.pricing.perMonth': '/ወር',
   'landing.pricing.popular': 'በጣም ተወዳጅ',
+  'landing.pricing.subtitle':
+    'እያንዳንዱ ዕቅድ የዳሰሳ ጥናት ገንቢውን፣ የህዝብ ማጋሪያ አገናኞችን እና የNPS ትንታኔዎችን ያካትታል። ለመጀመር ምንም የክሬዲት ካርድ አያስፈልግም።',
+  'landing.pricing.title': 'በነፃ ይጀምሩ፣ ሲያደርጉት መጠን ይስጡ።',
   'landing.sample.eyebrow': 'የኤንፒኤስ አጠቃላይ እይታ',
   'landing.sample.title': 'ዲትራክተሮች፣ ተገብሮዎች፣ ፕሮሞተሮች — ወዲያውኑ ሊነበቡ የሚችሉ።',
   'login.failed': 'መግባት አልተሳካም። እባክዎ እንደገና ይሞክሩ።',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'የይለፍ ቃል አሳይ',
   'login.signUpLink': 'ነፃ ሙከራ ይጀምሩ',
   'login.subheading': 'ታዳሚዎችዎን ማዳመጥዎን ለመቀጠል ይግቡ።',
+  'notFound.body': 'የሚፈልጉት ገጽ በ {{app}} ላይ የለም። ወደ የዳሰሳ ጥናቶችዎ እንመለስልዎ።',
   'notFound.cta': 'ወደ ጥናቶች ተመለስ',
   'notFound.eyebrow': '404',
   'notFound.heading': 'ይህ የዳሰሳ ጥናት ከወረፋው ወጣ።',
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'ተገብሮ 7–8',
   'npsDistributionBar.promoter': 'አስተዋዋቂ 9–10',
   'profile.identity.description': 'ለቡድንዎ እና ለጻፏቸው የዳሰሳ ጥናቶች ይፋዊ።',
+  'profile.identity.emailRequired': 'የኢሜይል አድራሻ ያስገቡ።',
   'profile.identity.saveCta': 'ስም አስቀምጥ',
   'profile.password.current': 'የአሁኑ ሚስጥራዊ ማለፊያ ቁልፍ',
   'profile.password.fillFields': 'የአሁኑን እና አዲሱን የይለፍ ቃል ያስገቡ።',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} ጥያቄዎች',
   'templates.subheading':
     'በውጊያ የተፈተነ አስጀማሪ ይምረጡ - እያንዳንዱ አብነት በተመጣጣኝ ነባሪዎች፣ የናሙና አመክንዮ እና ንጹህ የሞባይል አቀማመጥ አስቀድሞ ተስተካክሎ ይመጣል።',
+  'thankYou.body': 'ምላሽዎ ተመዝግቧል። {{app}} በሚቀጥለው የትንታኔ ማደሻ ውስጥ ያካትታል።',
   'thankYou.eyebrow': 'ምላሽ ተቀብሏል',
   'thankYou.heading': 'አመሰግናለሁ - ድምጽህ አስፈላጊ ነው።',
   'thankYou.home': 'ሙርመርን ይጎብኙ',

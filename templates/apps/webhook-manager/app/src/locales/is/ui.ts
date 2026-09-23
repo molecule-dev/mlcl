@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// um {{app}}',
+  'about.pageTitle': 'Stjórnunarplan vefhooksins',
+  'about.plansTitle': 'Áætlanir fyrir hvert stig',
   'apiKeys.bestPractices': 'Bestu starfsvenjur',
   'apiKeys.body':
     'Forritræn aðgangsmerki. Meðhöndlið þau eins og lykilorð — geymið í umgjörðarbreytum, aldrei framfylgið þeim.',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'innan áætlunar',
   'billing.usageWarning': 'nálægt lokinu',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.body':
     'Lifandi afköst, endurteknar tilraunir í vinnslu og endapunktarnir sem hikuðu — á öllum vinnusvæðum sem þú starfar á.',
   'dashboard.endpointsEmpty': 'Engir endapunktar ennþá.',
@@ -110,6 +114,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'endapunktar',
   'endpointDetail.deliveryTrendSub': 'afhendingar / klukkustund, logskala',
   'endpointDetail.hideSecret': 'Fela leyndarmál',
+  'endpointDetail.loading': 'Hleður endapunkt…',
   'endpointDetail.metric.delivered': 'Afhent innan sólarhrings',
   'endpointDetail.metric.deliveredCaption': 'frá {{count}} gerðir viðburða',
   'endpointDetail.metric.failuresCaption': 'endurtekningar: {{retries}}',
@@ -214,6 +219,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Mikilvægt · 24 klst.',
   'notifications.metric.totalCaption': 'pósthólf allra tíma',
   'payloadViewer.payload': '// farmur',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Upphafsstafir sýndir — upphleðslur koma með næstu útgáfu.',
   'profile.body': 'Aðgangur þinn, stillingar og virkar lotur.',
@@ -228,6 +234,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ vistað',
   'profile.sessionsEmpty': 'Aðeins núverandi lota þín er virk. Engin önnur tæki eru innskráð.',
   'profile.toggle': 'Skipta {{label}}',
+  'pylonShell.closeMenu': 'Loka flakkvalmynd',
+  'pylonShell.openMenu': 'Opna flakkvalmynd',
   'pylonShell.primaryNavLabel': 'Aðalflakk',
   'resetPassword.subtitle': 'Veldu sterkt lykilorð sem þú hefur ekki notað áður.',
   'resetPassword.tokenPlaceholder': 'líma úr tölvupósti',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{app}} সম্পর্কে',
+  'about.pageTitle': 'ওয়েবহুক নিয়ন্ত্রণ প্লেন',
+  'about.plansTitle': 'প্রতিটি পর্যায়ের জন্য পরিকল্পনা',
   'apiKeys.bestPractices': 'সর্বোত্তম অনুশীলন',
   'apiKeys.body':
     'প্রোগ্রাম্যাটিক অ্যাক্সেস টোকেন। এগুলোকে পাসওয়ার্ডের মতোই ব্যবহার করুন — এনভায়রনমেন্ট ভেরিয়েবলে সংরক্ষণ করুন, কখনো কমিট করবেন না।',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'পরিকল্পনার মধ্যে',
   'billing.usageWarning': 'কাছাকাছি ক্যাপ',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.body':
     'আপনার পরিচালিত প্রতিটি ওয়ার্কস্পেস জুড়ে লাইভ থ্রুপুট, চলমান রিট্রাই এবং যে এন্ডপয়েন্টগুলোতে এইমাত্র সমস্যা দেখা দিয়েছে।',
   'dashboard.endpointsEmpty': 'এখনো কোনো শেষবিন্দু নেই।',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'শেষবিন্দু',
   'endpointDetail.deliveryTrendSub': 'ডেলিভারি/ঘণ্টা, লগ স্কেল',
   'endpointDetail.hideSecret': 'গোপন রহস্য লুকান',
+  'endpointDetail.loading': 'এন্ডপয়েন্ট লোড হচ্ছে…',
   'endpointDetail.metric.delivered': '২৪ ঘন্টার মধ্যে ডেলিভারি করা হয়',
   'endpointDetail.metric.deliveredCaption': 'থেকে {{count}} ইভেন্টের প্রকার',
   'endpointDetail.metric.failuresCaption': 'পুনরায় চেষ্টা: {{retries}}',
@@ -216,12 +221,14 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'গুরুতর · ২৪ ঘণ্টা',
   'notifications.metric.totalCaption': 'সর্বকালের ইনবক্স',
   'payloadViewer.payload': '// পেলোড',
+  'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'profile.avatarHeader': 'অবতার',
   'profile.avatarHint': 'প্রদর্শিত আদ্যক্ষর — পরবর্তী রিলিজের সাথে আপলোড করা হবে।',
   'profile.body': 'আপনার অ্যাকাউন্ট, পছন্দসমূহ এবং সক্রিয় সেশনসমূহ।',
   'profile.confirmRevokeSession': 'এই ডিভাইসটি সাইন আউট করবেন?',
   'profile.dangerBody':
     'আপনার অ্যাকাউন্ট মুছে ফেললে আপনাকে সমস্ত ওয়ার্কস্পেস থেকে সরিয়ে দেওয়া হবে। আপনার অডিট-লগ এন্ট্রিগুলি সংরক্ষিত থাকবে, তবে সেগুলি পরিচয় গোপন করে রাখা হবে।',
+  'profile.deleteConfirmPrompt': 'এটি স্থায়ী। নিশ্চিত করতে {{confirm}} টাইপ করুন:',
   'profile.deleteConfirmText': 'মুছে ফেলুন',
   'profile.email': 'ইমেল (শুধুমাত্র পঠনযোগ্য)',
   'profile.eyebrow': 'আপনার · ব্যক্তিগত অ্যাকাউন্ট',
@@ -230,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'শুধুমাত্র আপনার বর্তমান সেশনটি সক্রিয় আছে। অন্য কোনো ডিভাইস সাইন ইন করা নেই।',
   'profile.toggle': 'টগল {{label}}',
+  'pylonShell.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
+  'pylonShell.openMenu': 'নেভিগেশন মেনু খুলুন',
   'pylonShell.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'resetPassword.subtitle': 'এমন একটি শক্তিশালী পাসওয়ার্ড বেছে নিন যা আপনি আগে ব্যবহার করেননি।',
   'resetPassword.tokenPlaceholder': 'ইমেল থেকে পেস্ট করুন',

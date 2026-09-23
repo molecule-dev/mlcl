@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Asiakkaat',
   'customers.loadError': 'Asiakkaiden lataaminen epäonnistui.',
   'customers.loading': 'Ladataan…',
+  'customers.new.address': 'Palveluosoite',
   'customers.new.email': 'Sähköposti',
   'customers.new.error': 'Asiakkaan lisääminen epäonnistui.',
   'customers.new.heading': 'Uusi asiakas',

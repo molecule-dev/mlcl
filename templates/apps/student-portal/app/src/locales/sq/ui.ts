@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'announcementsFeed.empty': 'Ende nuk ka njoftime.',
   'announcementsFeed.eyebrow': '{{count}} përditësime',
   'announcementsFeed.title': 'Njoftimet më të fundit',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Asgjë këtu',
   'assignments.emptyBody': 'Ndërro filtrat më sipër për të parë caktimet në një gjendje tjetër.',
   'assignments.eyebrow': 'Të gjitha kurset · Këtë semestër',
+  'assignments.loadError': 'Detyrat nuk mund të ngarkoheshin.',
   'assignments.loading': 'Duke ngarkuar detyrat…',
   'assignments.subtitle':
     'Filtro sipas statusit për të parë se çfarë duhet të dorëzohet, çfarë është dorëzuar, çfarë është vlerësuar ose çfarë mungon.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Shënim',
   'attendance.empty': 'Ende nuk ka të dhëna për pjesëmarrjen.',
   'attendance.eyebrow': 'Semestri i pranverës · 4 javët e fundit',
+  'attendance.loadError': 'Nuk mund të ngarkoheshin të dhënat e pjesëmarrjes.',
   'attendance.loading': 'Duke ngarkuar pjesëmarrjen…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Datat e dorëzimit të detyrave të paraqitura në një rrjetë mujore — provimet dallohen me të kuqe.',
   'calendar.title': '{{month}} ngjarje',
+  'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
+  'common.retry': 'Provo përsëri',
   'common.yes': '✓',
   'courseDetail.backLink': 'Notat',
   'courseDetail.currentGrade': 'Nota aktuale',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Nuk janë postuar ende nota.',
   'grades.eyebrow': 'Libri i notave',
+  'grades.loadError': 'Notat tuaja nuk mund të ngarkoheshin.',
   'grades.loading': 'Po ngarkohen notat…',
   'grades.subtitle':
     'Notat me shkronja dhe përqindje të gjalla. Shigjetat e trendit tregojnë nëse po lëvizni lart, në nivel apo po rrëshqasni.',
   'grades.title': 'Notat tuaja, kurs pas kursi',
   'grades.trendStable': 'Stallë',
+  'landing.copyright': '© {{year}} {{app}} . Ndërtuar për studentë, krijuar për familje.',
   'landing.ctaHeading': 'Një ditë më e qetë shkollore fillon brenda pak minutash',
   'landing.eyebrow': 'Për nxënësit e shkollave të mesme dhe të larta',
   'landing.featuresHeading': 'Një ditë shkollore e organizuar rreth nxënësit',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Detyrat',
   'nav.attendance': 'Pjesëmarrja',
   'nav.calendar': 'Kalendari',
+  'nav.closeMenu': 'Mbyll menynë e navigimit',
   'nav.grades': 'Notat',
+  'nav.openMenu': 'Hap menynë e navigimit',
   'nav.statusEyebrow': 'GPA e semestrit',
   'nav.statusSubtext': 'Lista e nderit · Semestri i pranverës',
+  'nav.unreadMessages': 'Mesazhe të palexuara',
   'notifications.eyebrow': '{{count}} përditësime',
   'notifications.subtitle':
     'Notat, përkujtuesit, mesazhet dhe njoftimet e shkollës. Rregulloni kanalet që përdor secili njoftim te Cilësimet.',
+  'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.attendanceLabel': 'pjesëmarrje',
   'pricing.gradesLabel': 'notat',
   'pricing.heading': 'njoftime',

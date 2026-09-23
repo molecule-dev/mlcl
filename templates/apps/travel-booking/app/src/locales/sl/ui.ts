@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.featureDiscover.title': 'Navdih, izbran ročno',
   'account.addPaymentCta': 'Dodaj način plačila',
   'account.addPaymentError': 'Plačilnega načina ni bilo mogoče dodati.',
+  'account.confirmRemove': 'Potrdi odstranitev',
   'account.defaultBadge': 'Privzeto',
   'account.loyalty.pointsTowardNext': '{{točke}} od {{naslednji}} milj do {{nextTier}}',
   'account.loyalty.tier': 'Trenutna raven',
@@ -43,6 +46,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Podrobnosti potovanja',
   'booking.tripSummary': '{{nights}} noči · {{guests}} gostje',
   'common.daysAgo': '{{count}} pred dnevi',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.hoursAgo': '{{count}} pred h',
   'common.minutesAgo': '{{count}} pred m',
   'common.no': '—',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Pravno',
   'notifications.loading': 'Nalaganje …',
   'notifications.subheading': '{{count}} neprebrano · vse v enem mirnem nabiralniku',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'pricing.accommodationsLabel': 'nastanitve',
   'pricing.bookingsLabel': 'rezervacije',
   'pricing.destinationsLabel': 'shranjeni cilji',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Navdih, zaupanja vredna bivanja in brezhibna pot od sanjarjenja do rezervacije – v 14 državah in več kot 200 skrbno preverjenih namestitvah.',
   'sojournHeroSearchCard.trustProtected': 'Brezplačna odpoved, popolna zaščita',
   'sojournHeroSearchCard.trustVetted': 'Samo ročno preverjene nepremičnine',
+  'travelBookingLayout.primaryNavLabel': 'Primarna navigacija',
   'tripDetail.backLink': 'Nazaj na potovanja',
   'tripDetail.cancelCta': 'Prekliči rezervacijo',
   'tripDetail.cancelHeading': 'Želite odpovedati to potovanje?',

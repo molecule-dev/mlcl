@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
   'about.pageTitle': 'Sobre {{appName}}',
   'analytics.empty': 'Grave seu primeiro clipe para ver o engajamento aqui.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'clipes',
   'billing.usage.views': 'Visualizações',
   'billing.usage.views.unit': 'visualizações',
+  'common.goToDashboard': 'Ir para o Painel',
   'landing.cta.title': 'Envie feedback melhor. Comece com o Glint.',
   'landing.feature.capture.body':
     'Gravação em navegador, desktop e mobile com microfone, câmera e desenho.',
   'landing.feature.capture.title': 'Captura em um toque',
+  'landing.footer.copy': '© {{year}} {{appName}} . Assíncrono, iluminado.',
   'landing.hero.cardCaption': 'Visão geral do workspace de exemplo — teste grátis.',
   'landing.hero.primaryCta': 'Comece a gravar grátis',
   'landing.hero.proof.free': 'Nível gratuito para sempre',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Pesquisar gravações',
   'library.searchPlaceholder': 'Pesquisar gravações…',
   'library.weeklyChange': '{{value}}% vs semana passada',
+  'nav.openMenu': 'Abrir menu de navegação',
   'nav.record': 'Gravar',
   'nav.shared': 'Compartilhado comigo',
   'nav.startRecording': 'Começar a gravar',

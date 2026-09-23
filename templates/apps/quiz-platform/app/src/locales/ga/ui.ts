@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.title': 'Faoi {{app}}',
   'auth.login.noAccount': 'Nua le Sparq?',
   'auth.login.or': 'nó lean ar aghaidh le',
   'auth.signup.or': 'nó cláraigh le',
+  'common.confirm': 'Deimhnigh',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.loadError': 'Tharla fadhb agus an t-ábhar seo á luchtú.',
+  'common.retry': 'Déan iarracht eile',
   'discover.collections.title': 'Brabhsáil de réir catagóire',
   'discover.collections.viewAll': 'Féach ar do leabharlann →',
   'discover.empty.body': 'Bain triail as catagóir dhifriúil nó glan an cuardach.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Sínigh isteach chun do shraith cluichí a choinneáil beo, cluichí beo a óstáil, agus dreapadh suas an clár ceannaireachta.',
   'myQuizzes.createButton': 'Tráth na gCeist Nua',
+  'myQuizzes.deleteConfirm': 'Scriosadh go deo?',
   'myQuizzes.empty.createCta': 'Tóg do chéad tráth na gceist →',
   'myQuizzes.empty.created': 'Níl tráth na gceist cruthaithe agat fós.',
   'myQuizzes.empty.played': 'Níl aon tráth na gceist foilsithe fós.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ag lódáil…',
   'notifications.subhead':
     '{{count}} spréacha gan léamh. Cuirí, gluaiseachtaí ar chlár ceannaireachta, agus éachtaí ar fad in aon sruth amháin.',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.checkoutError': 'Níorbh fhéidir an tseiceáil amach a thosú. Déan iarracht arís.',
+  'pricing.heading': 'Roghnaigh do phlean {{app}}',
   'pricing.included': 'San áireamh',
   'pricing.loadError': 'Níorbh fhéidir pleananna a lódáil.',
   'pricing.maxQuizzes': '{{count}} tráth na gceist',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Níl aon rud foilsithe fós.',
   'profile.startBuilding': 'Tosaigh ag tógáil →',
   'profile.tier': 'Imreoir Sparq',
+  'quizBuilder.addFailed': 'Níorbh fhéidir an cheist a chur leis. Déan iarracht eile.',
   'quizBuilder.addQuestion': 'Cuir ceist leis',
   'quizBuilder.answerPlaceholder': 'Clóscríobh rogha…',
   'quizBuilder.answersLabel': 'Roghanna freagraí',
   'quizBuilder.back': 'Ar ais chuig mo thráth na gceist',
   'quizBuilder.delete': 'Scrios ceist',
+  'quizBuilder.deleteFailed': 'Níorbh fhéidir an cheist a scriosadh.',
   'quizBuilder.firstQuestion': 'Cuir do chéad cheist leis le tosú.',
   'quizBuilder.idLabel': 'Aitheantas tráth na gceist: {{id}}',
   'quizBuilder.loadError': 'Níorbh fhéidir an tráth na gceist a lódáil.',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Cuir dhá rogha freagra ar a laghad leis agus roghnaigh an ceann ceart. {{count}} ceist(eanna) roimh fhoilsiú.',
   'quizBuilder.questionsTitle': 'Ceisteanna',
+  'quizBuilder.saveFailed': 'Níorbh fhéidir an teideal a shábháil. Déan iarracht eile.',
   'quizBuilder.statusDraft': 'Dréacht',
   'quizBuilder.subhead':
     'Cuir an teideal in eagar, cuir ceisteanna leis, socraigh roghanna agus an freagra ceart. Sábháiltear athruithe go huathoibríoch.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} nóim',
   'quizDetail.hostMultiplayer': 'Óstach il-imreora',
   'quizDetail.leaderboardEmpty': 'Gan aon drámaí fós — bí ar an gcéad duine chun scór a shocrú.',
+  'quizDetail.loadError': 'Níorbh fhéidir an tráth na gceist seo a lódáil.',
   'quizDetail.loading': 'Ag lódáil tráth na gceist…',
   'quizDetail.plays': '{{count}} drámaí',
   'quizDetail.playSolo': 'Seinn ina n-aonar',

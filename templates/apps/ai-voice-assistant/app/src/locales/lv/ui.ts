@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai vēlaties sniegt atsauksmi, ierosināt jaunu funkciju vai ziņot par kļūdu? Sazinieties ar „{{app}}” komandu, izmantojot atbalsta saiti savā konta izvēlnē — katrs ziņojums nonāk pie īsta cilvēka.',
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'agentDetail.back': 'Visi aģenti',
   'agentDetail.capabilities': 'Iespējas',
   'agentDetail.delete': 'Dzēst personu',
   'agentDetail.deleteConfirm': 'Vai dzēst šo personu? To nevar atsaukt.',
+  'agentDetail.deleteError': 'Neizdevās dzēst personu.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Nevarēja ielādēt personu.',
   'agentDetail.save': 'Saglabāt personu',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Pārslēgšanās…',
   'billing.updateError': 'Nevarēja sākt atjaunināšanu.',
   'billing.usageHeading': 'Balss lietojums šajā ciklā',
+  'chatBubble.source.text': 'teksts',
+  'chatBubble.source.voice': 'balss',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'conversation.defaultTitle': 'Jauna saruna',
   'conversation.empty': 'Vēl nav ziņojumu. Sāciet, pasakot kaut ko vai ierakstot zemāk.',
   'conversation.eyebrow': 'Tiešraides sesija',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intelekts, kas runā.',
   'landing.heroSubtitle':
     'Mākslīgā intelekta balss asistents, kas saprot jūsu dabisko gaitu. Sarunājieties, ģenerējiet idejas un pavēliet — nemanāmi.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Klausīšanās…',
   'landing.naturallyBody':
     'Nav nekādu uzrunājošu vārdu. Nav stingru pavēļu. Runas valoda saprot kontekstu, pārtraukumus un cilvēka runas nianses — kā sarunā ar kolēģi.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Atvērt sesiju',
   'notFound.home': 'Atpakaļ mājās',
   'notFound.title': 'Mēs nevarējām dzirdēt šo lapu.',
+  'parlanceLayout.closeMenu': 'Aizvērt izvēlni',
+  'parlanceLayout.openMenu': 'Atvērt navigācijas izvēlni',
   'parlanceLayout.primaryNavLabel': 'Galvenā navigācija',
   'pricing.conversations': '{{count}} sarunas',
   'pricing.cta.startFree': 'Sāciet bez maksas',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Nav atbilstību',
   'search.eyebrow': 'Komandu palete',
   'search.fetchError': 'Nevarēja ielādēt meklēšanas indeksu.',
+  'search.static.profile.preview': 'Parādāmais vārds, lietotājvārds, biogrāfija',
   'search.static.voice.title': 'Balss',
   'search.title': 'Meklēšanas terminoloģija',
   'search.transcriptPreview': 'Atvērt transkriptu',

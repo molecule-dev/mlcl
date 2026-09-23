@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
   'about.plansTitle': 'ਤੁਹਾਡੇ ਨਾਲ ਵਧਣ ਵਾਲੀਆਂ ਯੋਜਨਾਵਾਂ',
   'brand.tagline': 'ਹਰ ਸਕਿੰਟ',
   'clientDetail.back': "ਗਾਹਕਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': "ਹਰ ਰਿਸ਼ਤਾ ਇੱਕੋ ਥਾਂ 'ਤੇ — ਪ੍ਰੋਜੈਕਟ, ਘੰਟੇ, ਬਕਾਇਆ ਇਨਵੌਇਸ।",
   'clients.title': 'ਗਾਹਕ',
   'common.and': 'ਅਤੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'dashboard.activeProjects': 'ਸਰਗਰਮ ਪ੍ਰੋਜੈਕਟ',
   'dashboard.empty': 'ਹਾਲੇ ਕੋਈ ਐਂਟਰੀਆਂ ਨਹੀਂ ਹਨ। ਆਪਣੇ ਪਹਿਲੇ ਸੈਸ਼ਨ ਨੂੰ ਟਰੈਕ ਕਰਨ ਲਈ ਟਾਈਮਰ ਸ਼ੁਰੂ ਕਰੋ।',
   'dashboard.greeting': 'ਚੰਗਾ ਦਿਨ, {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'ਇਸ ਕਲਾਇੰਟ ਲਈ ਇਨਵੌਇਸ ਕਰਨ ਲਈ ਕੋਈ ਬਿਲਯੋਗ ਘੰਟੇ ਨਹੀਂ ਹਨ। ਪਹਿਲਾਂ ਕੁਝ ਸਮਾਂ ਟ੍ਰੈਕ ਕਰੋ ਜਾਂ ਇਸ ਕਲਾਇੰਟ ਦੇ ਪ੍ਰੋਜੈਕਟਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਇੱਕ ਲਈ ਮੌਜੂਦਾ ਐਂਟਰੀਆਂ ਨਿਰਧਾਰਤ ਕਰੋ।',
   'invoices.save': 'ਇਨਵੌਇਸ ਬਣਾਓ',
   'invoices.subtitle': 'ਟਰੈਕ ਕੀਤੇ ਘੰਟੇ ਆਪਣੇ ਆਪ ਹੀ ਇਨਵੌਇਸਾਂ ਵਿੱਚ ਬਦਲ ਜਾਂਦੇ ਹਨ।',
+  'landing.copyright': '© {{year}} {{app}} . ਹਰ ਸਕਿੰਟ, ਹਿਸਾਬ ਨਾਲ।',
   'landing.ctaBody':
     '3 ਪ੍ਰੋਜੈਕਟਾਂ ਤੱਕ ਮੁਫ਼ਤ। ਜਦੋਂ ਤੁਹਾਡੀ ਕਲਾਇੰਟ ਸੂਚੀ ਅੱਪਗ੍ਰੇਡ ਕਰੇ ਤਾਂ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।',
   'landing.eyebrow': 'ਬਿੱਲਯੋਗ ਕੰਮ ਲਈ ਸਮਾਂ ਟਰੈਕਿੰਗ',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'ਆਜ਼ਾਦ ਲੋਕਾਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ',
   'landing.testimonial.quote':
     '\\u201cਮੈਂ 30 ਮਿੰਟਾਂ ਵਿੱਚ ਟੌਗਲ ਛੱਡ ਦਿੱਤਾ। ਬਜਟ ਬਰਨ-ਡਾਊਨ ਨੇ ਹੀ ਆਪਣਾ ਭੁਗਤਾਨ ਕੀਤਾ ਹੈ \\u2014 ਮੈਂ ਦੋ ਹਫ਼ਤੇ ਚੱਲਦੇ ਹੋਏ ਘੱਟ-ਕੋਟ ਕਰਨਾ ਬੰਦ ਕਰ ਦਿੱਤਾ ਹੈ।\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ਕ੍ਰੋਨੋ। ਹਰ ਸਕਿੰਟ, ਹਿਸਾਬ-ਕਿਤਾਬ।',
   'login.brand.subtitle':
     'ਟਾਈਮਰ ਉੱਥੋਂ ਹੀ ਸ਼ੁਰੂ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ — ਹਰ ਮਿੰਟ ਪਹਿਲਾਂ ਹੀ ਕਿਸੇ ਪ੍ਰੋਜੈਕਟ, ਕਲਾਇੰਟ, ਇਨਵੌਇਸ ਨਾਲ ਮੈਪ ਕੀਤਾ ਹੋਇਆ ਹੈ।',
   'login.brand.tracking': 'ਟਰੈਕਿੰਗ',
   'login.subheading': 'ਟਾਈਮਰ ਉੱਥੋਂ ਚੁੱਕੋ ਜਿੱਥੋਂ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ।',
+  'nav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
   'nav.insightsSection': 'ਸੂਝ-ਬੂਝ',
   'nav.newEntry': 'ਨਵੀਂ ਐਂਟਰੀ',
+  'nav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
+  'nav.primary': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'nav.workSection': 'ਕੰਮ',
   'notFound.body':
     "ਲੱਗਦਾ ਹੈ ਕਿ ਤੁਹਾਡੇ ਦੁਆਰਾ ਫਾਲੋ ਕੀਤੇ ਲਿੰਕ ਨੇ ਟਰੈਕ ਕਰਨਾ ਬੰਦ ਕਰ ਦਿੱਤਾ ਹੈ। ਆਪਣੇ ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਵਾਪਸ ਜਾਓ \\u2014 ਅਸੀਂ ਉੱਥੋਂ ਗਿਣਤੀ ਕਰਦੇ ਰਹਾਂਗੇ।",
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'ਬਿੱਲ ਕਰਨ ਯੋਗ',
   'timer.descriptionPlaceholder': "ਤੁਸੀਂ ਕਿਸ 'ਤੇ ਕੰਮ ਕਰ ਰਹੇ ਹੋ?",
   'timer.idle': 'ਵਿਹਲਾ — ਟਰੈਕਿੰਗ ਸ਼ੁਰੂ ਕਰੋ',
+  'timer.noProject': 'ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ',
   'timer.runningWithProject': 'ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ',
   'timer.start': 'ਟਾਈਮਰ ਸ਼ੁਰੂ ਕਰੋ',
   'timer.stop': 'ਟਾਈਮਰ ਬੰਦ ਕਰੋ',

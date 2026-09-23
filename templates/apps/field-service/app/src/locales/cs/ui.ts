@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Zákazníci',
   'customers.loadError': 'Nepodařilo se načíst zákazníky.',
   'customers.loading': 'Načítání…',
+  'customers.new.address': 'Adresa servisu',
   'customers.new.email': 'E-mail',
   'customers.new.error': 'Nepodařilo se přidat zákazníka.',
   'customers.new.heading': 'Nový zákazník',

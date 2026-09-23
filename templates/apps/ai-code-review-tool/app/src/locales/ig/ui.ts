@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kpọtụrụ anyị',
   'about.eyebrow': 'Banyere',
+  'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.connectRepoCta': 'Jikọọ ebe nchekwa',
   'dashboard.empty': 'Enwebeghị arịrịọ ịdọrọ — jikọọ ebe nchekwa iji malite.',
   'dashboard.eyebrow': 'Ntugharị · usoro nyocha',
@@ -79,6 +80,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Oge ọrụ',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Akara ogo AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Mechie menu',
+  'refractLayout.openMenu': 'Mepee menu',
   'refractLayout.primaryNavLabel': 'Ntugharị isi',
   'reports.cumulativeScoreLabel': 'Akara mkpokọta',
   'reports.cumulativeScoreSubtitle': 'ebe niile dị · {{days}} d',
@@ -175,11 +178,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Itinyeghị ihe nchọta ahụ.',
   'settings.apiKeys.description':
     "Jikwaa igodo API nkeonwe site na menu onye ọrụ dị n'elu-aka nri.",
+  'settings.apiKeys.integrationsNote':
+    "A na-ejikwa ihe nrịbama ndị na-enye ọrụ na ngalaba njikọta dị n'elu.",
   'settings.connectError': 'Njikọghị onye na-eweta ọrụ ahụ.',
   'settings.disconnectError': 'Ịkwụsịghị onye na-eweta ọrụ ahụ.',
   'settings.eyebrow': 'Refract · ebe ọrụ',
   'settings.integration.${provider}.label': 'Na-echekwa…',
   'settings.loadError': 'Ịbulighị ntọala.',
+  'settings.notificationCenter': 'Ebe ngosi',
   'settings.notifications.description': 'Gaa na ibe ọkwa iji hụ ma jikwaa mmasị nnyefe.',
   'settings.section.account': 'Akaụntụ na nchekwa',
   'settings.section.apiKeys': 'Igodo API',

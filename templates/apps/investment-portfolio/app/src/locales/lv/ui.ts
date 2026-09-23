@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Par {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Bagātības instrumenti',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nav ieguldījumu padoms.',
   'argentAuthShell.sampleChange': '+2841 ASV dolāri (+0,28 %) šodien',
   'argentAuthShell.sampleValue': '1 032 251 ASV dolāru',
   'argentLayout.primaryNavLabel': 'Galvenā navigācija',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'Šim biržas rādītājam nav darījumu.',
   'assetDetail.txHeading': 'Jūsu darījumi',
   'common.and': 'un',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'Portfeļa pārskats',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'Vēl nav īpašumu.',
   'holdings.heading': 'Holdings',
   'holdings.loadError': 'Neizdevās ielādēt krājumus.',
+  'landing.copyright':
+    '© {{year}} {{app}} . Nav ieguldījumu ieteikums. Iepriekšējie rezultāti negarantē turpmākos rezultātus.',
   'landing.eyebrow': 'Argent · Bagātības veidošanas platforma',
   'landing.features.heading': 'Viss, ko konsultants pats sev uzbūvētu.',
   'landing.finalCta.heading': 'Atjaunojiet disciplīnu savā portfelī.',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} pirms stundām',
   'news.justNow': 'tikko',
   'news.loadError': 'Neizdevās ielādēt ziņas.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'portfolioHeroCard.label': 'Portfeļa vērtība',
   'pricing.holdingsLabel': 'saimniecības',
   'pricing.newsLabel': 'ziņu raksti',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'Dzēst kontu',
   'settings.security.deleting': 'Dzēš…',
   'settings.security.heading': 'Drošība',
+  'settings.security.newPassword': 'Jauna parole',
   'settings.security.password': 'Parole',
   'settings.security.twoFactorEnable': 'Ieslēgt',
+  'settings.security.twoFactorInvalidCode': 'Nepareizs kods',
+  'settings.security.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'settings.tax.error': 'Nevarēja atjaunināt nodokļu metodi.',
   'settings.tax.heading': 'Nodokļu partijas uzskaite',
   'settings.tax.method': 'Noklusējuma metode',

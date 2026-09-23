@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Ilayisha ulwazi lohlelo…',
   'billing.popular': 'Okuthandwa kakhulu',
   'billing.subtitle': 'Khetha uhlelo olufanelana ne-cadence yakho yokufunda.',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.today': 'Namuhla',
   'common.yesterday': 'Izolo',
   'courseDetail.empty.body': 'Engeza izinto zokufunda ukuze uqale ukuqonda lesi sihloko.',
@@ -80,8 +81,12 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Igama ledekhi',
   'flashcards.subtitle': 'Ukuphindaphinda okunezikhala okuhambisana nejubane lakho.',
   'flashcards.title': 'Amakhadi e-Flashcard',
+  'footer.copyright': '© {{year}} {{app}} . Funda kahle, ulale kahle.',
   'forgotPassword.subtitle':
     'Faka i-imeyili yakho bese sizokuthumelela isixhumanisi sokusetha kabusha.',
+  'koanLayout.closeMenu': 'Vala imenyu',
+  'koanLayout.navLabel': 'Ukuzulazula okuyinhloko',
+  'koanLayout.openMenu': 'Vula imenyu',
   'koanLayout.theme': 'Itimu',
   'landing.featuresBody':
     'Amathuluzi aklanyelwe ukuqeda ukuphazamiseka nokwakha ukuqonda okuhlala isikhathi eside.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Leyo URL ayiyona indawo engakahlelwanga. Mhlawumbe iphutha lokubhala, mhlawumbe isifundo esisusiwe — noma ngabe yikuphi, ake sikubuyisele ekufundeni.',
   'notFound.heading': 'Ikhasi alitholakalanga.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Usuvele ubambekile',
   'notifications.filter.${opt}': 'Ilayisha izaziso…',
   'notifications.markAllError': 'Ayikwazanga ukumaka konke njengokufundiwe.',
   'notifications.markError': 'Ayikwazanga ukumaka njengokufundiwe.',
   'notifications.subtitle': '{{count}} izibuyekezo ezingafundiwe',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.heading': 'imibuzo',
   'pricing.limits.topics': 'izihloko',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Zama igama elingukhiye noma isihlungi esihlukile.',
   'search.empty.title': 'Akukho okufana.',
   'search.error': 'Ayikwazanga ukulayisha imiphumela.',
+  'search.filters': 'Izihlungi zohlobo lwemiphumela',
   'search.go': 'Hamba',
   'search.label.flashcard': 'Idekhi yekhadi le-Flashcard',
   'search.label.note': 'Inothi',

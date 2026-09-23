@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je een bug gevonden, een functieverzoek of wil je ons iets vertellen over de film die je hebt gemonteerd? Elk bericht komt bij een echt teamlid terecht – neem op elk moment contact met ons op via je accountinstellingen.',
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.eyebrow': '// de studio achter de montage',
   'about.pageTitle': 'Over {{appName}}',
   'assetDetail.back': 'Terug naar bibliotheek',
   'assetDetail.confirmDelete': '"{{name}}" verwijderen? Dit kan niet ongedaan worden gemaakt.',
@@ -26,6 +30,7 @@ export const ui: UiTranslations = {
   'assetLibrary.subhead': '{{count}} clips, audiobedden en graphics klaar voor de tijdlijn.',
   'assetLibrary.title': 'Assets',
   'assetLibrary.upload': 'Asset toevoegen',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'dashboard.browseTemplates': 'Sjablonen bekijken →',
   'dashboard.loading': 'Projecten laden…',
   'dashboard.noProjects': 'Nog geen projecten — maak er een om te beginnen.',
@@ -160,7 +165,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Kies iets dat alleen u zou onthouden.',
   'rushesAuthShell.footer.copyright': '© Rushes Studio',
   'rushesAuthShell.footer.privacy': 'Privacy',
+  'rushesLayout.closeMenu': 'Navigatie sluiten',
   'rushesLayout.guest': 'Bewerker',
+  'rushesLayout.navDialog': 'Navigatie',
+  'rushesLayout.openMenu': 'Navigatie openen',
   'rushesLayout.planFree': 'Gratis abonnement',
   'rushesLayout.tagline': 'Cinematografische tijdlijn',
   'settings.billing.confirmCancel': 'Abonnement opzeggen aan einde periode?',

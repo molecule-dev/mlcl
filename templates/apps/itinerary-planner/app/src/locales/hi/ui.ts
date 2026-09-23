@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': '{{app}} के बारे में',
+  'auth.legalConsent': 'जारी रखकर, आप हमारी सहमति देते हैं',
   'bookings.empty.body': 'इनबॉक्स शुरू करने के लिए एक उड़ान, होटल, या गतिविधि जोड़ें।',
   'bookings.empty.heading': 'अभी तक कोई बुकिंग नहीं।',
   'bookings.errors.create': 'बुकिंग नहीं बनाई जा सकी।',
@@ -22,6 +25,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'पुष्ट',
   'bookings.summary.pending': 'पुष्टि की प्रतीक्षा में',
   'bookings.summary.total': 'कुल प्रतिबद्ध',
+  'bookings.type.car': 'किराए की कार',
+  'bookings.type.flight': 'उड़ान',
+  'bookings.type.hotel': 'होटल',
   'bookings.type.other': 'अन्य',
   'budgetSpendCard.budgetTotal': '{{total}} योजनाबद्ध में से',
   'budgetSpendCard.pct': '{{pct}}%',
@@ -33,6 +39,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     'टकराव पहचानें, यात्राओं के बीच विश्राम के दिन योजना करें, और देखें कब सहयोगी आपके साथ यात्रा कर रहे हैं।',
   'common.and': 'और',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'dashboard.budgetHeading': 'बजट स्पंदन',
   'dashboard.empty.heading': 'अभी तक कोई यात्रा नहीं — आपका एटलस खाली है।',
   'dashboard.eyebrow': 'मिशन कंट्रोल',
@@ -41,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'गतिमान यात्राएँ',
   'dashboard.viewAllExpenses': 'हर खर्च देखें',
   'dashboard.viewAllTrips': 'हर यात्रा देखें',
+  'dayTimelineRow.category.accommodation': 'रहना',
   'dayTimelineRow.category.transport': 'परिवहन',
   'destinationOrbCard.exploreCta': 'एक यात्रा में जोड़ें',
   'destinationOrbCard.tripCount': '{{count}} यात्राएँ',
@@ -81,11 +89,15 @@ export const ui: UiTranslations = {
     'अभी तक कोई ईमेल नहीं? अपना स्पैम फ़ोल्डर देखें, या किसी अन्य पते से पुनः प्रयास करें।',
   'forgotPassword.successSubheading':
     'हमने {{email}} पर एक पुनर्प्राप्ति लिंक भेजा है। लिंक 30 मिनट के लिए वैध है।',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'निःशुल्क खाता बनाएँ',
+  'landing.cta.subheading':
+    'फ्री प्लान में अधिकतम पांच ट्रिप, पांच सहयोगी और पांच स्टॉप की सुविधा है — जिसमें रियल-टाइम सिंक शामिल है, और जब आपकी योजनाएं बढ़ती हैं तो प्रो प्लान सीमा को हटा देता है।',
   'landing.destinations.eyebrow': 'आगे कहाँ',
   'landing.destinations.heading': 'संपादक-चयनित गंतव्य',
   'landing.features.eyebrow': 'Waypoint कैसे काम करता है',
   'landing.features.heading': 'यात्रियों के लिए बनाया गया, स्प्रेडशीट के लिए नहीं।',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'एक निःशुल्क यात्रा शुरू करें',
   'landing.hero.ctaSecondary': 'नमूना यात्रा देखें',
   'landing.hero.subtitle':
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     '5 सहयोगियों तक यात्राएँ साझा करने, बुकिंग सिंक करने, और हर पुष्टिकरण को एक जगह खींचने के लिए एक खाता बनाएँ।',
+  'signup.termsPrefix': 'खाता बनाकर आप हमारी शर्तों से सहमत होते हैं।',
   'tripCountdownHeroCard.budget': '{{used}} में से {{total}} (बजट का {{pct}}%)',
   'tripCountdownHeroCard.collaborators': '{{count}} यात्री',
   'tripCountdownHeroCard.countdownLabel': 'उलटी गिनती',
@@ -200,5 +213,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'अभी तक कोई यात्रा नहीं।',
   'trips.pastHeading': 'पिछले साहसिक कार्य',
   'trips.subheading': '{{count}} यात्राक्रम — अतीत, वर्तमान, और कभी।',
+  'waypointLayout.mobileNavClose': 'नेविगेशन मेनू बंद करें',
   'waypointLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
 }

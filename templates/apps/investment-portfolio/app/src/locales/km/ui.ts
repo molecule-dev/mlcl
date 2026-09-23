@@ -1,7 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'អំពី {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · ឧបករណ៍​សម្រាប់​គ្រប់គ្រង​ទ្រព្យសម្បត្តិ',
+  'argentAuthShell.brandFootnote': '© {{year}} {{app}} ។ មិនមែនជាដំបូន្មានវិនិយោគទេ។',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) ថ្ងៃនេះ',
   'argentAuthShell.sampleValue': '១,០៣២,២៥១ ដុល្លារ',
   'argentLayout.primaryNavLabel': 'ការរុករកចម្បង',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'assetDetail.txEmpty': 'គ្មានប្រតិបត្តិការសម្រាប់សញ្ញាសម្គាល់នេះទេ។',
   'assetDetail.txHeading': 'ប្រតិបត្តិការរបស់អ្នក',
   'common.and': 'និង',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.eyebrow': 'ទិដ្ឋភាពទូទៅនៃផលប័ត្រ',
@@ -51,6 +54,8 @@ export const ui: UiTranslations = {
   'holdings.empty': 'មិនទាន់មានភាគហ៊ុននៅឡើយទេ។',
   'holdings.heading': 'ភាគហ៊ុន',
   'holdings.loadError': 'បរាជ័យក្នុងការផ្ទុកភាគហ៊ុន។',
+  'landing.copyright':
+    '© {{year}} {{app}} ។ មិនមែនជាដំបូន្មានវិនិយោគទេ។ ការអនុវត្តកន្លងមកមិនធានានូវលទ្ធផលនាពេលអនាគតទេ។',
   'landing.eyebrow': 'Argent · វេទិកាឧបករណ៍សម្រាប់ទ្រព្យសម្បត្តិ',
   'landing.features.heading': 'អ្វីគ្រប់យ៉ាងដែលអ្នកប្រឹក្សានឹងសាងសង់សម្រាប់ខ្លួនឯង។',
   'landing.finalCta.heading': 'នាំយកវិន័យត្រឡប់ទៅក្នុងផលប័ត្ររបស់អ្នកវិញ។',
@@ -71,6 +76,7 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ម៉ោងមុន',
   'news.justNow': 'អម្បាញ់មិញ',
   'news.loadError': 'បរាជ័យក្នុងការផ្ទុកព័ត៌មាន។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'portfolioHeroCard.label': 'តម្លៃផលប័ត្រ',
   'pricing.holdingsLabel': 'ការកាន់កាប់',
   'pricing.newsLabel': 'អត្ថបទព័ត៌មាន',
@@ -134,8 +140,11 @@ export const ui: UiTranslations = {
   'settings.security.deleteHeading': 'លុបគណនី',
   'settings.security.deleting': 'កំពុងលុប…',
   'settings.security.heading': 'សន្តិសុខ',
+  'settings.security.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
   'settings.security.password': 'ពាក្យសម្ងាត់',
   'settings.security.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.security.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
+  'settings.security.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'settings.tax.error': 'មិនអាចធ្វើបច្ចុប្បន្នភាពវិធីសាស្ត្របង់ពន្ធបានទេ។',
   'settings.tax.heading': 'គណនេយ្យពន្ធដារ',
   'settings.tax.method': 'វិធីសាស្ត្រលំនាំដើម',

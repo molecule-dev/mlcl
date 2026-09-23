@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'accountSettings.confirmEmailLabel': 'నిర్ధారించడానికి DELETE అని టైప్ చేయండి',
   'accountSettings.deleteError': 'ఖాతాను తొలగించలేకపోయాను.',
   'accountSettings.passwordError': 'పాస్‌వర్డ్‌ను మార్చలేకపోయాను.',
@@ -52,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'రాబోయే గడువులు ఏవీ లేవు.',
   'dashboard.upcomingTitle': 'రాబోయే గడువులు',
   'deviceSettings.unknownDevice': 'తెలియని పరికరం',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'మద్దతు',
   'forgotPassword.error': 'రీసెట్ లింక్‌ను పంపడంలో విఫలమైంది.',
   'forgotPassword.subtitle': 'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ లింక్‌ను పంపుతాము.',
@@ -66,6 +68,9 @@ export const ui: UiTranslations = {
   'login.error': 'చెల్లని ఇమెయిల్ లేదా పాస్‌వర్డ్.',
   'login.pageTitle': 'సైన్ ఇన్',
   'login.signIn': 'ఫోర్జ్‌లోకి సైన్ ఇన్ చేయండి',
+  'login.subtitle': 'మీ ప్రాజెక్ట్‌లను సక్రమంగా కొనసాగించడానికి సైన్ ఇన్ చేయండి',
+  'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
+  'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'nav.calendar': 'క్యాలెండర్',
   'nav.legal': 'చట్టపరమైన',
   'nav.myTasks': 'నా టాస్క్‌లు',

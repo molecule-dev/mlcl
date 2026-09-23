@@ -37,6 +37,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Jelenleg a következőn tartózkodik: {{plan}} terv.',
   'billing.switch': 'Váltás',
   'billing.upgraded': 'Frissítve erre: {{plan}} — azonnal alkalmazott korlátozások.',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'compare.activityHeading': 'Aktivitási ítéletek',
   'compare.empty.title': 'Adjon hozzá legalább két helyszínt az összehasonlításhoz',
   'compare.eyebrow': 'Egymás mellett',
@@ -137,5 +138,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Magas',
   'trends.summary.low.label': 'Alacsony',
   'trends.summary.points.label': 'Napok',
+  'weatherDashboardLayout.primaryNavLabel': 'Elsődleges navigáció',
   'weatherHeroCard.updated': 'Frissítve {{time}}',
 }

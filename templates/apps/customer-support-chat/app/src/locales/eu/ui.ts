@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
   'authShell.samplePreview':
     '"Kaixo talde, aginte-panela berria zoragarria da — behar genuena, hain zuzen!"',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/lasterbidea',
   'automations.subheading':
     'Arauak, erantzun aurrez prestatuak eta txatbotak — mantendu lan-eremua martxan zure taldeak gauza zailetan zentratzen den bitartean.',
+  'automations.trigger.inboundMessage': 'Sarrerako mezua',
   'automations.triggerLabel': 'Abiarazlea',
   'chatBubble.internalNoteLabel': 'Barne oharra',
+  'common.confirmDelete': 'Berretsi ezabatzea',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'contactDetail.backToContacts': 'Kontaktu guztiak',
   'contactDetail.contactFallback': 'Kontaktua',
   'contactDetail.conversationFallback': 'Elkarrizketa',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Azken aldiz ikusia',
   'contacts.empty': 'Ez dago kontakturik oraindik. Gehitu zure lehen kontaktua goian.',
   'contacts.eyebrow': 'Bezeroen direktorioa',
+  'contacts.form.nameOrEmailRequired': 'Eman gutxienez izena edo helbide elektronikoa',
   'contacts.form.save': 'Gorde kontaktua',
   'contacts.heading': 'Kontaktuak',
   'contacts.loading': 'Kontaktuak kargatzen…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Gorde oharra',
   'conversationDetail.tab.note': 'Barne oharra',
   'conversationDetail.threadAria': 'Elkarrizketa-mezuak',
+  'conversationDetail.visitorFallback': 'Bisitaria',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Bezeroaren xehetasunak',
   'customerProfilePanel.recentTitle': 'Azken elkarrizketak',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Bezeroek lehen erantzuna jasotzen ari dira {{time}} batez beste — kadentzia mantendu.',
   'inboxHeroCard.title': 'Elkarrizketa aktiboak',
+  'inboxLayout.navDrawerLabel': 'Nabigazioa',
+  'inboxLayout.openMenu': 'Ireki nabigazio menua',
   'inboxOverview.eyebrow': 'Gaur begirada batean',
   'inboxOverview.heroChange': '{{count}} ireki',
   'inboxOverview.kpiClosedTrend': 'betiko',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Bisitatu hasierako orria',
   'notifications.subheading':
     'Esleipenak, @aipamenak, SLA arriskuak, CSAT iritzia eta taldearen jarduera — berrienetik lehenengo ordenatuta.',
+  'notifications.subjectFallback': 'elkarrizketa bat',
+  'notifications.visitorFallback': 'Bisitari bat',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Altua',
   'priority.low': 'Baxua',
+  'priority.normal': 'Normala',
   'priority.urgent': 'Larrialdi',
   'privacy.title': 'Pribatutasun politika',
   'reports.agentFallback': 'Agente',

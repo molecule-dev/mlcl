@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
   'about.pageTitle': 'Despre {{name}}',
   'auth.footer.about': 'Despre {{name}}',
   'authHeader.subtitle': 'Conectați-vă pentru a vă menține cifrele corecte.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Fără operațiune',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Ștergeți " {{name}} „?“',
   'automations.empty.headline': 'Încă nu există automatizări',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Declanșatoare și acțiuni în fiecare registru de lucru. Fiecare rulare înregistrează un rând pe care îl puteți audita ulterior.',
   'automations.toggle': 'Comutare {{name}}',
+  'automations.trigger.dailySchedule': 'Program zilnic',
+  'automations.trigger.rowCreated': 'Rând creat',
+  'automations.trigger.rowUpdated': 'Rând actualizat',
   'billing.empty': 'Nu sunt disponibile planuri.',
   'billing.error.priceMissing':
     'Nu este configurat niciun preț Stripe pentru acest nivel. Setați variabilele de mediu STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafice',
   'charts.kpi.totalCharts': 'Total grafice',
   'charts.list.empty': 'Încă nu există grafice.',
+  'charts.namePlaceholder': 'Tendința veniturilor',
   'charts.newChart': 'Diagramă nouă',
   'charts.primary.eyebrow': 'Diagrame după tip',
   'charts.primary.headline': 'Prezentare generală a spațiului de lucru',
   'charts.subhead':
     'Vizualizări live legate de grila dvs. — re-randare la fiecare editare a celulei.',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'editor.addColumn': 'Adăugați o coloană',
+  'editor.addDialogTitle': 'Adăugați o coloană',
   'editor.addRow': 'Adăugați un rând',
   'editor.addSheet': 'Adăugați o foaie',
   'editor.back': 'Înapoi la registrele de lucru',
@@ -103,7 +111,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite este soluția de calcul în timp real, cu vizualizări multiple și bazată pe formule, pe care analiștii și echipele financiare o caută primii.',
   'landing.nav.formulas': 'Formule',
+  'login.noAccount': 'Nou pe {{name}} ?',
+  'login.signIn': 'Conectați-vă la {{name}}',
   'login.signUp': 'Creați un spațiu de lucru',
+  'nav.menu': 'Meniu',
+  'nav.openMenu': 'Deschideți meniul',
   'notFound.cellRef': '#REF!',
   'notFound.formula': '=CĂUTARE(CERERE.url, "rute", "pagină")',
   'notFound.headline': 'Acest rând nu a existat niciodată.',
@@ -132,6 +144,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Automatizări native · webhook și declanșatoare cron',
   'signup.creating': 'Se aprovizionează spațiul de lucru…',
   'signup.cta': 'Creează-mi spațiul de lucru',
+  'signup.haveAccount': 'Deja pe {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Învârte primul tău registru de lucru în 30 de secunde',
   'team.col.activity': 'Invitat',

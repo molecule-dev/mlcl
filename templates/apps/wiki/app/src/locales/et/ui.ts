@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Lahendamine…',
   'comments.subtitle':
     'See {{count}} Teemad, mis ootavad endiselt vastust või lahendust. Sorteeritud vanuse järgi – vanimad esimesena, et miski ei mädaneks.',
+  'common.goToDashboard': 'Mine töölauani',
   'forgotPassword.sentTo': 'Lähtesta link, mis saadeti aadressile {{email}}',
   'forgotPassword.successSubheading':
     'Kontrolli oma postkasti – saatsime just lähtestamislingi. See aegub 30 minuti pärast.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Uus leht',
   'pageTreeSidebar.workspaceHeader': 'Tööruum',
   'pageView.breadcrumb': 'Leivapuru',
+  'pageView.confirmTrash': 'Viska prügikasti?',
   'pageView.home': 'Avaleht',
   'pageView.lastEdited': 'Uuendatud {{when}}',
   'pageView.loading': 'Lehe laadimine…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Selle tööruumi jaoks pole tehisintellekti kokkuvõtet konfigureeritud.',
   'pageView.tocTitle': 'Sellel lehel',
+  'pageView.trash': 'Prügikast',
+  'pageView.trashing': 'Prügikasti viskamine…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Märgid',
   'profile.owned.title': 'Omandis olevad lehed',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Tööruum, profiil, teavitused, integratsioonid – kõik ühes rahulikus kestas.',
   'settingsPage.workspace.defaultLanding': 'Vaikimisi maandumiskuva',
   'settingsPage.workspace.landingHome': 'Avaleht',
+  'settingsPage.workspace.landingSpaces': 'Ruumid',
   'settingsPage.workspace.subdomainLabel': 'Alamdomeen',
   'settingsPage.workspace.title': 'Tööruum',
   'signup.eyebrow': 'Alusta uut tööruumi',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} minuti',
   'templates.subtitle':
     'Alusta lehe loomist šabloonilt, mitte tühjalt lõuendilt. Iga mall kodeerib kuju kindlalt, et saaksid keskenduda sisule.',
+  'trash.confirmPurge': 'Puhastada igaveseks?',
+  'trash.confirmPurgeAria': 'Kinnita: kustuta {{title}} jäädavalt',
   'trash.daysUntilPurge': '{{days}} päeva jäänud',
   'trash.empty.body': 'Kustutatud lehed kuvatakse siin 30 päeva enne puhastamist.',
   'trash.empty.title': 'Prügikast on tühi.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Taastamine…',
   'versionHistory.subtitle': '{{count}} versioonid · valige rida erinevuste kontrollimiseks',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Sulge navigeerimisriba',
+  'wikiLayout.menu': 'Navigatsioon',
+  'wikiLayout.openMenu': 'Ava navigeerimisriba',
   'wikiLayout.searchPlaceholder': 'Otsi Cairnist — lehed, kommentaarid…',
 }

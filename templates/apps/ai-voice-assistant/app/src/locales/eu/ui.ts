@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, funtzio eskaera bat edo akats bat aurkitu duzu? Jarri harremanetan {{app}} taldearekin zure kontuaren menuko laguntza estekaren bidez — mezu guztiak benetako gizaki bati bidaltzen zaizkio.',
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'agentDetail.back': 'Agente guztiak',
   'agentDetail.capabilities': 'Gaitasunak',
   'agentDetail.delete': 'Ezabatu pertsona',
   'agentDetail.deleteConfirm': 'Pertsonaia hau ezabatu? Ezin da ekintza hau desegin.',
+  'agentDetail.deleteError': 'Ezin izan da pertsona ezabatu.',
   'agentDetail.eyebrow': 'Pertsonaia',
   'agentDetail.fetchError': 'Ezin izan da persona kargatu.',
   'agentDetail.save': 'Gorde pertsona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Aldatzen…',
   'billing.updateError': 'Ezin izan da eguneratzea hasi.',
   'billing.usageHeading': 'Ahotsaren erabilera ziklo honetan',
+  'chatBubble.source.text': 'testua',
+  'chatBubble.source.voice': 'ahotsa',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'conversation.defaultTitle': 'Elkarrizketa berria',
   'conversation.empty': 'Ez dago mezurik oraindik. Hasi behean zerbait esanez edo idatziz.',
   'conversation.eyebrow': 'Zuzeneko saioa',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Hitz egiten duen adimena.',
   'landing.heroSubtitle':
     'Zure erritmo naturala ulertzen duen IA ahots-laguntzailea. Elkarrizketatu, ideiak sortu eta aginduak eman — modu ezin hobean.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Entzuten…',
   'landing.naturallyBody':
     'Ez hitz eragilerik. Ez agindu zurrunik. Hizkerak testuingurua, etenaldiak eta giza hizkeraren ñabardurak ulertzen ditu — lankide batekin berriketan aritzea bezala.',
@@ -112,6 +120,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Ireki saio bat',
   'notFound.home': 'Etxera itzuli',
   'notFound.title': 'Ezin genuen orrialde hori entzun.',
+  'parlanceLayout.closeMenu': 'Itxi menua',
+  'parlanceLayout.openMenu': 'Ireki nabigazio menua',
   'parlanceLayout.primaryNavLabel': 'Nabigazio nagusia',
   'pricing.conversations': '{{count}} elkarrizketak',
   'pricing.cta.startFree': 'Hasi doan',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Ez dago bat etortzerik',
   'search.eyebrow': 'Komando-paleta',
   'search.fetchError': 'Ezin izan da bilaketa-indizea kargatu.',
+  'search.static.profile.preview': 'Bistaratzeko izena, erabiltzaile-izena, biografia',
   'search.static.voice.title': 'Ahotsa',
   'search.title': 'Bilatu hizkera',
   'search.transcriptPreview': 'Ireki transkripzioa',

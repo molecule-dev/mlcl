@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'اگر باگی پیدا کردید، درخواست ویژگی جدیدی دارید یا می‌خواهید درباره فیلمی که تدوین کرده‌اید به ما بگویید، هر پیام به یک شخص واقعی در تیم می‌رسد - هر زمان که خواستید از طریق تنظیمات حساب کاربری خود با ما تماس بگیرید.',
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.eyebrow': '// استودیوی پشت تدوین',
   'about.pageTitle': 'درباره {{appName}}',
   'assetDetail.back': 'بازگشت به کتابخانه',
   'assetDetail.confirmDelete': 'حذف " {{name}} «? این قابل برگشت نیست.»',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} کلیپ‌ها، بسترهای صوتی و گرافیک‌های آماده برای قرار گرفتن در تایم‌لاین.',
   'assetLibrary.title': 'دارایی‌ها',
   'assetLibrary.upload': 'افزودن دارایی',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.browseTemplates': 'مرور الگوها →',
   'dashboard.loading': 'در حال بارگذاری پروژه‌ها…',
   'dashboard.noProjects': 'هنوز پروژه‌ای وجود ندارد - برای شروع، یکی ایجاد کنید.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'چیزی را انتخاب کنید که فقط خودتان به خاطر داشته باشید.',
   'rushesAuthShell.footer.copyright': '© استودیو راشز',
   'rushesAuthShell.footer.privacy': 'حریم خصوصی',
+  'rushesLayout.closeMenu': 'بستن ناوبری',
   'rushesLayout.guest': 'ویرایشگر',
+  'rushesLayout.navDialog': 'ناوبری',
+  'rushesLayout.openMenu': 'ناوبری باز',
   'rushesLayout.planFree': 'طرح رایگان',
   'rushesLayout.tagline': 'جدول زمانی سینمایی',
   'settings.billing.confirmCancel': 'اشتراک را در پایان دوره لغو کنید؟',

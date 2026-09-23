@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'אתה נמצא כרגע על {{plan}} לְתַכְנֵן.',
   'billing.switch': 'מֶתֶג',
   'billing.upgraded': 'עודכן ל {{plan}} — מגבלות יוחלו באופן מיידי.',
+  'common.goToDashboard': 'עבור ללוח הבקרה',
   'compare.activityHeading': 'פסקי דין של פעילות',
   'compare.empty.title': 'הוסף לפחות שני מיקומים להשוואה',
   'compare.eyebrow': 'זֶה בְּצַד זֶה',
@@ -131,5 +132,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'גָבוֹהַ',
   'trends.summary.low.label': 'נָמוּך',
   'trends.summary.points.label': 'ימים',
+  'weatherDashboardLayout.primaryNavLabel': 'ניווט ראשי',
   'weatherHeroCard.updated': 'מְעוּדכָּן {{time}}',
 }

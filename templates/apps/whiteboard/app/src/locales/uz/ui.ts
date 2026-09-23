@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'authShell.brandHeading':
     "Ovoz chiqarib fikrlaydigan dizayn guruhlari uchun ko'p o'yinchili tuvallar.",
   'billing.canceled': 'Obuna bekor qilindi.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Shablondan boshlang',
   'boards.title': 'Sizning forumlaringiz',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     "Ish joyingizga bog'langan elektron pochta manzilini kiriting, shunda biz qayta tiklash havolasini yuboramiz.",
@@ -84,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1-choraklik seminar · Brend ovozi',
   'landing.featuresEyebrow': 'Slate tessellatini nima yaratadi',
   'landing.featuresTitle': 'Tezkor fikr-mulohaza. Chiroyli tuvallar. Nol ishqalanish.',
+  'landing.hero.body':
+    '{{appName}} – bu jonli miya hujumlarini boshqaradigan va gʻoyalarni bir joyda birlashtirishga muhtoj boʻlgan dizayn guruhlari, seminar fasilitatorlari va oʻqituvchilar uchun moʻljallangan koʻp oʻyinchili oq doska.',
   'landing.hero.primaryCta': 'Bepul forumni boshlang',
   'landing.hero.socialProof': "Ishonchli {{count}} butun dunyo bo'ylab dizayn guruhlari",
   'landing.hero.title': 'Fikrlaringiz kabi tez tuval',
@@ -94,6 +98,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Bepul ish maydoni yarating',
   'login.subheading':
     'Seminar tugagan joydan davom eting — doskalar, yopishqoq yozuvlar va kursorlar real vaqt rejimida sinxronlashtiriladi.',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.new': 'Yangi',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'notifications.editTitle': '"ga tahrirlar {{board}} "',
   'notifications.empty.body':
     "Taklifnomalar, saqlangan suratlar va so'nggi tahrirlar shu yerda paydo bo'ladi.",
@@ -177,6 +184,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versiya tarixi',
   'versionHistory.untitledSnapshot': 'Nomsiz surat',
   'whiteboardLayout.newBoard': 'Yangi kengash',
+  'whiteboardLayout.primaryNav': 'Asosiy navigatsiya',
   'workspace.boardLabel': 'Kengash',
   'workspace.eyebrow': '{{name}} · ish maydoni',
   'workspace.invite': 'Hamkorlarni taklif qiling',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.pageTitle': 'Um {{appName}}',
   'analytics.error': 'Ekki tókst að hlaða greiningum.',
   'analytics.heading': 'Sóknargreiningar',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'Engin verðlagningarstig stillt.',
   'billing.plans.heading': 'Áætlanir',
   'billing.subheading': 'Áætlun, notkun og Stripe-stýrð afgreiðslu.',
+  'common.confirm': 'Staðfesta',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.retry': 'Reyna aftur',
   'documentCard.open': 'Opna \\u2192',
   'documentDetail.back': 'Til baka í skjöl',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'Yfirlitsskjal',
   'documents.composer.titlePlaceholder': 'Titill skjals',
   'documents.emptyAll': 'Engin skjöl ennþá. Hladdu inn einu til að byrja að spyrja spurninga.',
+  'documents.error.load': 'Gat ekki hlaðið inn skjölum.',
   'documents.heading': 'Vísitölubundin skjöl',
   'documents.loading': 'Hleður skjöl…',
   'documents.metric.chunks': 'Heildarfjöldi bita',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'Fjarlægir\\u2026',
   'members.subheading': 'Bjóðið liðsfélögum og ákveðið hlutverk.',
   'members.tableHeading': 'Leikmannalisti',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
   'notFound.askCta': 'Spyrjið þekkingargrunninn',
+  'notFound.body':
+    '{{app}} fann ekki þessa síðu. Tengillinn gæti verið bilaður eða síðan gæti hafa verið hætt við endurskráningu.',
   'notFound.eyebrow': 'Get ekki sótt',
   'notFound.title': 'Enginn slíkur hluti í vísitölunni',
   'notifications.dismiss': 'Hafna',
@@ -202,6 +211,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'Upprunalega vefslóðin',
   'sources.empty.body': 'Smelltu á „Bæta við uppsprettu“ til að tengja fyrsta tengið.',
   'sources.empty.title': 'Engar heimildir ennþá.',
+  'sources.error.add': 'Gat ekki bætt við heimild.',
   'sources.error.labelRequired': 'Merkimiði er nauðsynlegur.',
   'sources.error.load': 'Gat ekki hlaðið inn heimildum.',
   'sources.error.urlRequired': 'Vefslóð er nauðsynleg fyrir þessa tegund heimildar.',

@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'article.notFound': 'Հոդվածը չի գտնվել',
   'articleEditor.bodyPlaceholder': 'Մուտքագրեք / բլոկների համար, կամ պարզապես սկսեք գրել։',
+  'articleEditor.loadFailed': 'Հոդվածը չհաջողվեց բեռնել',
   'articleEditor.publishing': 'Հրատարակչություն\\u2026',
   'articleEditor.saveFailed': 'Պահպանումը ձախողվեց',
   'articleEditor.saving': 'Պահպանվում է\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Էջանշել',
   'articleView.bookmarkOn': 'Ավելացված է էջանիշների մեջ',
   'articleView.edit': 'Խմբագրել հոդվածը',
+  'articleView.loading': 'Այս հոդվածը բացելը…',
   'articleView.readTime': '{{minutes}} ընթերցանության րոպե',
   'articleView.spaces': 'Տարածքներ',
   'articleView.tocHeading': 'Այս էջում',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Ձեր թիմը դեռևս շարունակում է ակտիվացնել վերջին խմբագրումները, ընթերցումները և նախագծերը։',
   'cairnTrailHero.updated': 'Հոդվածները թարմացվել են',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'drafts.eyebrow': 'Ձեր անավարտ աշխատանքը',
   'drafts.heading': 'Սևագրեր',
+  'drafts.loadFailed': 'Չհաջողվեց բեռնել ձեր սևագրերը։',
   'drafts.subtitle':
     'Հոդվածներ, որոնք սկսել եք, բայց դեռ չեք հրապարակել։ Վերցրեք մեկը և շարունակեք։',
   'forgotPassword.sentBody':
@@ -60,6 +66,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Դեռևս տեղեր չկան։ Բացեք մեկը՝ հոդվածներ հավաքելու համար։',
   'home.spacesHeading': 'Ձեր տարածքները',
   'home.subtitle': 'Վերջին հոդվածները, ձեր էջանիշները և թիմի գրածը։',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} ։ Կառուցված է Molecule-ով։',
   'landing.ctaBody':
     'Անվճար անհատական հեղինակների համար: Թիմային ծրագրեր բաշխված թիմերի համար, որոնք ուղարկում են գրքույկներ, որոշումներ և ներգրավում:',
   'landing.ctaHeading': 'Առաջին քարը դիր այսօր։',
@@ -81,7 +88,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Ստեղծեք աշխատանքային տարածք',
   'login.submitting': 'Մուտք գործելը…',
   'login.subtitle': 'Վերցրեք հետքը այնտեղից, որտեղ թողել եք։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
+  'newSpace.colorAria': 'Ընտրեք գույնը {{color}}',
   'newSpace.colorLabel': 'Ակցենտային գույն',
+  'newSpace.createFailed': 'Հնարավոր չէ ստեղծել տարածք',
   'newSpace.descriptionPlaceholder':
     'Գործառնական գրքույկներ, հերթապահության գրքույկներ, հետմահու փորձաքննություններ\\u2026',
   'newSpace.eyebrow': 'Բացեք գիտելիքների տարածք',
@@ -105,6 +116,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Բեռնվում է\\u2026',
   'notifications.subtitle':
     '{{count}} չկարդացված հիշատակումներ, մեկնաբանություններ, էջի փոփոխություններ և վերանայման հարցումներ:',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.articles': 'հոդվածներ',
   'pricing.spaces': 'տարածքներ',
   'profile.eyebrow': 'Հեղինակային պրոֆիլ',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Մուտքագրեք նոր գաղտնաբառ',
   'resetPassword.subtitle': 'Ընտրեք ուժեղ գաղտնաբառ՝ առնվազն 12 նիշ։',
   'searchResults.eyebrow': 'Աշխատանքային տարածքի որոնում',
+  'searchResults.filter.all': 'Բոլոր տարածքները',
   'searchResults.heading': 'Որոնել հոդվածներ',
   'searchResults.placeholder':
     'Որոնել վազքի գրքեր, RFC-ներ, քաղաքականություններ, որոշումներ\\u2026',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Սա կջնջի ձեր հաշիվը և ձեր հեղինակած բոլոր հոդվածները: Հաստատելու համար մուտքագրեք DELETE:',
   'settings.danger.confirmInvalid': 'Մուտքագրեք DELETE՝ հաստատելու համար։',
+  'settings.danger.deleteFailed': 'Հաշիվը չհաջողվեց ջնջել',
   'settings.danger.deleting': 'Ջնջվում է…',
   'settings.danger.description':
     'Աշխատանքային տարածքը ջնջելով՝ կհեռացվեն բոլոր հոդվածները, մեկնաբանությունները և տարբերակների պատմությունը։ Վերականգնում հնարավոր չէ։',
   'settings.danger.title': 'Ջնջել աշխատանքային տարածքը',
+  'settings.email.confirm': 'Թարմացնել էլ. փոստը',
+  'settings.email.confirmTitle': 'Հաստատեք էլ․ հասցեի փոփոխությունը',
   'settings.email.saved': 'Էլ․ հասցեն թարմացված է։',
+  'settings.email.updateFailed': 'Հնարավոր չէ թարմացնել էլ․ հասցեն',
   'settings.language.title': 'Լեզու',
   'settings.name': 'Անուն',
+  'settings.name.saved': 'Անունը թարմացված է։',
+  'settings.name.updateFailed': 'Անունը չհաջողվեց թարմացնել',
   'settings.notifications.description': 'Ընտրեք, թե ինչ է հասնում ձեր էլ. փոստին։',
+  'settings.password.changeFailed': 'Հնարավոր չէ փոխել գաղտնաբառը',
   'settings.password.current': 'Ընթացիկ գաղտնաբառ',
   'settings.password.new': 'Նոր գաղտնաբառ',
   'settings.password.saving': 'Թարմացվում է…',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Ինչպես են հոդվածները ցուցադրվում ձեզ համար։',
   'settings.reading.title': 'Կարդալ և գրել',
   'settings.subtitle': 'Կարգավորեք ծանուցումները, ընթերցանության կտավը և ձեր հաշիվը։',
+  'settings.twofa.code': 'Հաստատման կոդ',
   'settings.twofa.disable': 'Անջատել',
   'settings.twofa.disabled': 'Հաշմանդամ',
   'settings.twofa.enable': 'Միացնել',
   'settings.twofa.enabled': 'Միացված է',
+  'settings.twofa.invalidCode': 'Անվավեր կոդ',
+  'settings.twofa.unavailable': 'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
+  'settings.twofa.verify': 'Հաստատել և միացնել',
   'signup.brandQuote':
     '\\u201cԳրի առնելը առաջին խոստումն է, որ մենք տալիս ենք հաջորդ մարդուն, ով դրա կարիքը կունենա։\\u201d',
   'signup.eyebrow': 'Բացել աշխատանքային տարածք',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Дауыстар',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Әзірге күтіп тұрған сұрақтар жоқ.',
   'audienceQa.onStageEyebrow': 'Қазір сахнада',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Жарнамалау',
   'audienceQa.queued': 'кезекте тұрған',
   'audienceQa.queueEyebrow': 'Кезек',
   'ballot.eyebrow': 'Дауыс беру',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Сіз қазіргі уақытта мына жердесіз: {{plan}} жоспар.',
   'billing.switch': 'Ауыстыру',
   'billing.upgraded': 'Жаңартылды {{plan}} — шектеулер дереу қолданылады.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'createPoll.addOption': 'Опция қосу',
   'createPoll.anonymousHint':
     'Дауыс берушілердің аты-жөндері аудит журналында жасырылған; санақ нәтижелері расталған күйінде қалады.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Nosh-қа жаңадан келдіңіз бе?',
   'login.remember': 'Мені 30 күн бойы есте сақтаңыз',
   'login.subheading': 'Еденді ашыңыз, бөлмені аралаңыз және нәтижені растаңыз.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'notFound.body':
     'Сіз кіруге тырысқан бет жабылды немесе басқа жерге көшірілді. Басқару тақтасына оралыңыз немесе жаңа сауалнама ашыңыз.',
   'notFound.eyebrow': 'Бұл бағытта кворум жоқ',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Бұл сауалнаманы жүктеу мүмкін болмады.',
   'pollDetail.loading': 'Сауалнама жүктелуде…',
   'pollDetail.notFound': 'Сауалнама табылмады.',
+  'pollDetail.openBallot': 'Ашық дауыс беру',
   'pollDetail.openLive': 'Тікелей нәтижелер',
   'pollDetail.pollId': 'сауалнама · {{id}}',
   'pollDetail.published': 'Сауалнама жарияланды — сайлаушылар енді дауыс бере алады.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Электрондық пошта арқылы іздеу…',
   'voters.subheading':
     'Тиісті тізімді таңдаңыз. Салмақталған бюллетеньдер үшін дауыс берушілерді ұйым бойынша топтастырыңыз.',
+  'votingPollingLayout.nav.analytics': 'Аналитика',
+  'votingPollingLayout.nav.billing': 'Есеп айырысу',
+  'votingPollingLayout.nav.createPoll': 'Жаңа сауалнама',
+  'votingPollingLayout.nav.dashboard': 'Басқару тақтасы',
+  'votingPollingLayout.nav.notifications': 'Хабарландырулар',
+  'votingPollingLayout.nav.settings': 'Параметрлер',
+  'votingPollingLayout.nav.team': 'Команда',
+  'votingPollingLayout.nav.voters': 'Дауыс берушілер',
+  'votingPollingLayout.primaryNavLabel': 'Негізгі навигация',
 }

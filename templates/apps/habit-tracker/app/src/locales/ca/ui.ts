@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.pageTitle': 'Sobre {{app}}',
   'achievementBadgeCard.unlockedOn': 'Desbloquejat {{date}}',
   'achievements.loadError': "No s'han pogut carregar els assoliments.",
   'achievements.subheading': '{{unlocked}} de {{total}} desbloquejat',
   'achievements.unlockedOn': 'Desbloquejat {{date}}',
+  'auth.legalConsent': 'En continuar, acceptes les nostres',
   'calendar.empty': "Crea l'hàbit de veure el teu calendari.",
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Hàbit',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': "Graella d'hàbits",
   'category.${c.category}': '{{count}} hàbits',
   'common.and': 'i',
+  'common.goToDashboard': 'Anar al panell',
   'consistencyHeatmap.ariaLabel': 'Mapa de calor de consistència diària',
   'consistencyHeatmap.caption': 'Últim {{weeks}} setmanes',
   'consistencyHeatmap.lessLabel': 'Menys',
@@ -81,6 +85,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Veure-ho en directe',
   'landing.heroSubtitle':
     "Construeix hàbits de la manera que realment es mantenen: petits compromisos, ratxes diàries i el plaer visceral d'una llarga cadena ininterrompuda.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': "Una ullada a l'interior de Streak",
   'landing.previewMotivation': 'Nou ratlles vives. Mantingueu-les totes calentes.',
   'login.eyebrow': 'Agafa la cadena.',
@@ -98,7 +103,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': "Fes-ho petit. Fes-ho específic. Presenta't demà.",
   'newHabit.timeLabel': 'Hora de recordatori',
   'notifications.markError': "No s'ha pogut marcar tot com a llegit.",
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.entries': '{{count}} entrades',
+  'pricing.heading': 'Tria el teu pla de {{app}}',
   'profile.action.plan': 'Gestiona la subscripció',
   'profile.action.settings': 'Configuració del compte',
   'profile.bioEmpty': 'Afegeix una breu biografia a Configuració per presentar-te.',
@@ -126,6 +133,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Suggeriment diari del matí (8:00 h)',
   'settings.reminders.heading': 'Recordatoris',
   'settings.reminders.weekly': 'Resum setmanal (diumenges al vespre)',
+  'settings.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.streaks.freezesPerWeek': 'Congelacions per setmana',
   'settings.streaks.gracePeriod': 'Període de gràcia de 6 hores després de la mitjanit',
@@ -152,5 +161,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} actiu',
   'streakHeroCard.daysSuffix': 'dies',
   'streakHeroCard.title': 'Ratxa activa més llarga',
+  'streakLayout.closeMenu': 'Tanca el menú de navegació',
+  'streakLayout.openMenu': 'Obre el menú de navegació',
   'streakLayout.primaryNavLabel': 'Navegació principal',
 }

@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'కస్టమర్‌లు',
   'customers.loadError': 'కస్టమర్‌లను లోడ్ చేయడం విఫలమైంది.',
   'customers.loading': 'లోడ్ అవుతోంది…',
+  'customers.new.address': 'సేవ చిరునామా',
   'customers.new.email': 'ఇమెయిల్',
   'customers.new.error': 'కస్టమర్‌ను జోడించడం విఫలమైంది.',
   'customers.new.heading': 'కొత్త కస్టమర్',

@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '{{tagline}}',
+  'about.pageTitle': 'Info su {{app}}',
+  'auth.legalConsent': 'Continuando, accetti i nostri',
   'bookings.empty.body':
     "Aggiunga un volo, un hotel o un'attività per iniziare la posta in arrivo.",
   'bookings.empty.heading': 'Ancora nessuna prenotazione.',
@@ -23,6 +26,9 @@ export const ui: UiTranslations = {
   'bookings.summary.confirmed': 'Confermate',
   'bookings.summary.pending': 'In attesa di conferma',
   'bookings.summary.total': 'Totale impegnato',
+  'bookings.type.car': 'Auto a noleggio',
+  'bookings.type.flight': 'Volo',
+  'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Altro',
   'budgetSpendCard.budgetTotal': 'di {{total}} pianificati',
   'budgetSpendCard.pct': '{{pct}}%',
@@ -34,6 +40,7 @@ export const ui: UiTranslations = {
   'calendar.subheading':
     "Individui conflitti, pianifichi giorni di recupero tra un viaggio e l'altro e veda quando i collaboratori viaggiano con Lei.",
   'common.and': 'e',
+  'common.goToDashboard': 'Vai alla Dashboard',
   'dashboard.budgetHeading': 'Andamento budget',
   'dashboard.empty.heading': 'Ancora nessun viaggio — il Suo atlante è vuoto.',
   'dashboard.eyebrow': 'Centro di controllo',
@@ -42,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.tripsHeading': 'Viaggi in corso',
   'dashboard.viewAllExpenses': 'Vedi tutte le spese',
   'dashboard.viewAllTrips': 'Vedi tutti i viaggi',
+  'dayTimelineRow.category.accommodation': 'Rimanere',
   'dayTimelineRow.category.transport': 'Trasporto',
   'destinationOrbCard.exploreCta': 'Aggiungi a un viaggio',
   'destinationOrbCard.tripCount': '{{count}} viaggi',
@@ -83,11 +91,15 @@ export const ui: UiTranslations = {
     'Ancora nessuna email? Controlli la cartella spam o riprovi con un altro indirizzo.',
   'forgotPassword.successSubheading':
     'Abbiamo inviato un link di recupero a {{email}}. Il link è valido per 30 minuti.',
+  'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Crea un account gratuito',
+  'landing.cta.subheading':
+    'Fino a cinque viaggi, cinque collaboratori e cinque tappe con il piano gratuito, con sincronizzazione in tempo reale inclusa. Il piano Pro elimina i limiti man mano che i tuoi progetti si evolvono.',
   'landing.destinations.eyebrow': 'La prossima meta',
   'landing.destinations.heading': "Destinazioni selezionate dall'editor",
   'landing.features.eyebrow': 'Come funziona Waypoint',
   'landing.features.heading': 'Pensato per chi viaggia, non per i fogli di calcolo.',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Inizia un viaggio gratis',
   'landing.hero.ctaSecondary': 'Vedi un viaggio di esempio',
   'landing.hero.subtitle':
@@ -131,6 +143,7 @@ export const ui: UiTranslations = {
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
     'Crei un account per condividere viaggi con un massimo di 5 collaboratori, sincronizzare le prenotazioni e raccogliere ogni conferma in un unico posto.',
+  'signup.termsPrefix': 'Creando un account accetti le nostre',
   'tripCountdownHeroCard.budget': '{{used}} di {{total}} ({{pct}}% del budget)',
   'tripCountdownHeroCard.collaborators': '{{count}} viaggiatori',
   'tripCountdownHeroCard.countdownLabel': 'Conto alla rovescia',
@@ -204,5 +217,6 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ancora nessun viaggio.',
   'trips.pastHeading': 'Avventure passate',
   'trips.subheading': '{{count}} itinerari — passati, presenti e di domani.',
+  'waypointLayout.mobileNavClose': 'Chiudi il menu di navigazione',
   'waypointLayout.primaryNavLabel': 'Navigazione principale',
 }

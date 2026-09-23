@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
   'activityFeed.empty': 'Δεν υπάρχει ακόμη δραστηριότητα — στείλτε το πρώτο σας τιμολόγιο.',
   'authShell.sample.paid': 'Πληρώθηκε πριν από 2 λεπτά',
@@ -31,6 +32,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Προσθήκη νέου πελάτη',
   'clients.search': 'Αναζήτηση με όνομα, εταιρεία, email',
   'clients.title': 'Πελάτες',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Νέος πελάτης',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Ξεχασμένος κωδικός',
   'forgotPassword.successBody':
     'Στείλαμε οδηγίες επαναφοράς στο {{email}} Ο σύνδεσμος λήγει σε 30 λεπτά.',
+  'invoiceDetail.action.confirmVoid': 'Επιβεβαίωση ακυρότητας;',
   'invoiceDetail.action.download': 'Λήψη PDF',
   'invoiceDetail.action.duplicate': 'Αντίγραφο',
   'invoiceDetail.action.edit': 'Επεξεργασία',
@@ -75,9 +78,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Το τιμολόγιο ακυρώθηκε.',
   'invoiceDetail.issued': 'Εκδοθείς {{date}}',
   'invoiceDetail.loading': 'Φόρτωση τιμολογίου…',
+  'invoiceDetail.paidInFull': 'Πληρώθηκε πλήρως',
   'invoiceDetail.summary': '{{client}} · έστειλε {{date}}',
   'invoiceDetail.tax': 'Φόρος ({{rate}}%)',
   'invoiceDetail.timeline': 'Χρονολόγιο',
+  'invoiceDetail.voided': 'Ακυρώθηκε',
   'invoiceEditor.addItem': 'Προσθήκη στοιχείου',
   'invoiceEditor.back': '← Επιστροφή στα τιμολόγια',
   'invoiceEditor.col.qty': 'Ποσ.',
@@ -123,6 +128,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Στείλτε το πρώτο σας τιμολόγιο',
   'landing.hero.eyebrow': 'Τιμολόγηση για μικρές επιχειρήσεις',
   'landing.hero.secondary': 'Δείτε ένα δείγμα τιμολογίου',
+  'landing.hero.subtitle':
+    '{{appName}} συνδυάζει τα βελτιωμένα τιμολόγια με ενσωματωμένες πληρωμές, επαναλαμβανόμενη χρέωση και φορολογικά έτοιμες αναφορές. Χωρίς λογιστική.',
   'landing.hero.title': 'Στείλτε τιμολόγια. Πληρωθείτε πιο γρήγορα.',
   'login.signupLink': 'Δημιουργήστε ένα',
   'login.submitting': 'Σύνδεση…',
@@ -144,6 +151,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'πληρωμές',
   'pricing.recurringLabel': 'επαναλαμβανόμενα χρονοδιαγράμματα',
   'remitLayout.newInvoice': 'Νέο Τιμολόγιο',
+  'remitLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'remitLayout.searchPlaceholder': 'Αναζήτηση τιμολογίων, πελατών...',
   'remitLayout.tagline': 'Πληρωθείτε, πιο γρήγορα',
   'reports.chart.aging': 'Γήρανση τιμολογίων',
@@ -153,6 +161,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Έσοδα περιόδου',
   'reports.chart.topClients': 'Κορυφαίοι πελάτες',
   'reports.chart.topClientsCaption': "Έσοδα εφ' όρου ζωής, κορυφαία 5",
+  'reports.empty.aging': 'Δεν υπάρχουν εκκρεμή τιμολόγια.',
+  'reports.empty.methods': 'Δεν υπάρχουν ακόμη δεδομένα πληρωμής.',
+  'reports.empty.revenue': 'Δεν υπάρχουν ακόμη στοιχεία για τα έσοδα.',
+  'reports.empty.topClients': 'Δεν υπάρχουν ακόμη δεδομένα εσόδων πελατών.',
   'reports.exporting': 'Εξαγωγή…',
   'reports.exportRequiresPaid':
     'Οι εξαγωγές είναι μια λειτουργία επί πληρωμή — κάντε αναβάθμιση για να την ενεργοποιήσετε.',
@@ -198,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Προσθήκη φορολογικού συντελεστή',
   'settings.tax.added': 'Προστέθηκε φορολογικός συντελεστής.',
   'settings.tax.adding': 'Προσθήκη…',
+  'settings.tax.addRate': 'Προσθήκη τιμής',
   'settings.tax.col.region': 'Περιοχή',
   'settings.tax.delete': 'Διαγραφή φορολογικού συντελεστή',
   'settings.tax.deleted': 'Ο φορολογικός συντελεστής καταργήθηκε.',

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'common.goToDashboard': 'Перейти к панели',
+  'common.logout': 'Выйти',
   'dailyStatsTriad.heartsLabel': 'Сердца',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Минуты сегодня',
   'dailyStatsTriad.minutesValue': '{{count}} мин',
   'dailyStatsTriad.wordsLabel': 'Слова освоены',
+  'dailyStatsTriad.wordsMasteryHint': 'Слова, уровень владения которыми 4+',
   'dashboard.continueHeading': 'Продолжите с того места, где остановились.',
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
@@ -58,6 +62,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Не удалось загрузить упражнения.',
   'lessonDetail.loading': 'Загрузка урока…',
   'lessonDetail.submitError': 'Не удалось отправить ответ.',
+  'lessonDetail.translation': 'Переведите фразу',
   'lessonDetail.xpEarned': 'Начисленные очки опыта (XP) {{xp}}',
   'lessons.empty': 'Нет уроков на этом уровне. {{level}} Однако — попробуйте другой уровень.',
   'lessons.eyebrow': 'Библиотека уроков',
@@ -70,7 +75,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Впервые сталкиваетесь с Parlance?',
   'login.showPassword': 'Показать пароль',
   'login.signUp': 'Начните бесплатно →',
+  'mobileNav.closeMenu': 'Закрыть меню навигации',
+  'mobileNav.openMenu': 'Открыть меню навигации',
+  'parlanceLayout.nav.profile': 'Профиль',
   'parlanceLayout.primaryNavLabel': 'Основная навигация',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'practice.empty': 'Фразы пока недоступны.',
   'practice.eyebrow': 'Практика устной речи',
   'practice.heading': 'Прочитайте. Запишите. Доработайте.',

@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Trenutno ste na {{plan}} plan.',
   'billing.switch': 'Prekidač',
   'billing.upgraded': 'Ažurirano na {{plan}} — ograničenja se primjenjuju odmah.',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
   'compare.activityHeading': 'Presude o aktivnosti',
   'compare.empty.title': 'Dodajte barem dvije lokacije za poređenje',
   'compare.eyebrow': 'Jedan pored drugog',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Visoko',
   'trends.summary.low.label': 'Nisko',
   'trends.summary.points.label': 'Dani',
+  'weatherDashboardLayout.primaryNavLabel': 'Primarna navigacija',
   'weatherHeroCard.updated': 'Ažurirano {{time}}',
 }

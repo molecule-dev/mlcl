@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ເລື່ອງລາວຂອງພວກເຮົາ',
   'aiSuggestionPanel.title': 'ຜູ້ຮ່ວມບິນສັນຍາລັກ',
   'analytics.col.open': 'ອັດຕາເປີດ',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'ກຳລັງເລີ່ມຊຳລະເງິນ...',
   'billing.subheading': 'ເລືອກແຜນທີ່ກົງກັບວິທີທີ່ທ່ານສົ່ງ.',
   'billing.unavailable': 'ຕິດຕໍ່ຝ່າຍຂາຍ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.retry': 'ລອງໃໝ່',
   'compose.adjustingTone': 'ຂຽນໃໝ່ໃນໂທນສີທີ່ເລືອກ…',
   'compose.aiPromptPlaceholder':
     'ຕົວຢ່າງ "ຕິດຕາມຜົນຢ່າງສຸພາບຫຼັງຈາກບໍ່ມີການຕອບກັບເປັນເວລາສອງອາທິດ, ໃຫ້ສັ້ນລົງ."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'ຕ້ອງການສົ່ງບາງສິ່ງບາງຢ່າງບໍ? Signet ສາມາດສ້າງຮ່າງໃຫ້ພ້ອມພາຍໃນວິນາທີ.',
   'dashboard.composeCtaLabel': 'ຂຽນໄວ',
   'dashboard.heading': 'ອາທິດຂອງເຈົ້າ, ແຕ່ງຂຶ້ນ',
+  'dashboard.loadFailed': 'ບໍ່ສາມາດໂຫຼດແຜງໜ້າປັດຂອງທ່ານໄດ້.',
   'dashboard.manageLibrary': 'ຈັດການຫ້ອງສະໝຸດ →',
   'dashboard.recentEmpty': 'ຍັງບໍ່ມີການສົ່ງເທື່ອ - ອີເມວທີ່ທ່ານສົ່ງແລ້ວຈະປາກົດຢູ່ທີ່ນີ້.',
   'dashboard.recentHeading': 'ການສົ່ງຫຼ້າສຸດ',
@@ -133,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'ສຽງເລີ່ມຕົ້ນ',
   'settings.toneSubheading': 'ເຄື່ອງໝາຍໃຊ້ສຽງນີ້ ເວັ້ນເສຍແຕ່ວ່າທ່ານຈະຂຽນທັບໃສ່ຮ່າງ.',
   'signetLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
+  'signetLayout.toggleMenu': 'ສະຫຼັບເມນູ',
   'signup.emailLabel': 'ທີ່ຢູ່ອີເມວ',
   'signup.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'signup.tagline': 'ສົ່ງອີເມວສະບັບທຳອິດຂອງທ່ານທີ່ຮ່າງດ້ວຍ AI ພາຍໃນໜຶ່ງນາທີ.',

@@ -2,8 +2,11 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': "Bog'laning",
+  'about.title': '{{app}} haqida',
   'authShell.backToLanding': "← Qo'nish joyiga qaytish",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
+  'common.retry': 'Qayta urinish',
   'common.yes': '✓',
   'dashboard.eyebrow': "Bugun · Operatsiyalar haqida umumiy ma'lumot",
   'dashboard.heading': 'Hujjatlarni tahlil qilish',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'documents.empty': "Joriy filtrlarga mos keladigan hujjatlar yo'q.",
   'documents.heading': 'Barcha hujjatlar',
   'documents.loadError': "Hujjatlarni yuklab bo'lmadi.",
+  'documents.loading': 'Kutubxona yuklanmoqda…',
   'documents.searchLabel': 'Hujjatlarni qidirish',
   'documents.searchPlaceholder': 'Hujjatlarni qidirish…',
   'documents.subheading':
@@ -65,8 +69,11 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Parolni yashirish',
   'login.showPassword': "Parolni ko'rsatish",
   'login.subtitle': 'Hujjatlaringiz oqimini saqlab qolish uchun tizimga kiring.',
+  'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
+  'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'notFound.body':
     "Siz ochmoqchi bo'lgan hujjat yoki yo'nalish endi bu yerda yo'q. Boshqaruv paneliga qayting yoki yon paneldan bo'limni tanlang.",
+  'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': "Qo'nish sahifasini ochish",
   'notFound.title': "Bu sahifa faylda yo'q",
   'parcelaHeroCard.change': '{{sign}} {{amount}} kechagiga nisbatan %',
@@ -83,6 +90,7 @@ export const ui: UiTranslations = {
   'rules.empty':
     "Hozircha hujjatlashtirish qoidalari yo'q. Qo'shish uchun yangi qoidadan foydalaning.",
   'rules.eyebrow': 'Avtomatlashtirish',
+  'rules.fieldsCount': '{{count}} ta maydon',
   'rules.form.destination': 'Faylga',
   'rules.form.name': 'Qoida nomi',
   'rules.form.save': 'Qoidani saqlash',

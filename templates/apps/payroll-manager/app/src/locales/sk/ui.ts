@@ -1,9 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'auditLog.empty':
     'Zatiaľ nezodpovedajú vašim filtrom žiadne udalosti auditu. Upravte zamestnanca alebo spracujte výplatnú pásku a zobrazia sa tu.',
   'auditLog.eyebrow': 'Súlad s predpismi',
+  'auditLog.loadError': 'Nepodarilo sa načítať protokol auditu.',
   'auditLog.searchPlaceholder': 'Vyhľadávanie podľa herca, akcie alebo popisu',
   'auditLog.subheading':
     'Každé schválenie, úprava a daňové priznanie – s údajmi o aktérovi, časovou pečiatkou a zmenenými poľami.',
@@ -12,8 +14,10 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'Nenastavené',
   'billing.plansHeading': 'Plány',
   'billing.subheading': 'Spravujte svoj plán a prepínajte úrovne cez Stripe.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'common.no': '—',
   'common.noValue': '—',
+  'common.retry': 'Skúsiť znova',
   'common.yes': '✓',
   'dashboard.compliance.eyebrow': 'Snímka súladu s predpismi',
   'dashboard.compliance.title': 'Všetky kontroly prešli',
@@ -32,6 +36,8 @@ export const ui: UiTranslations = {
   'employeeDetail.noDeductions': 'Žiadne zrážky v evidencii.',
   'employeeDetail.notFound': 'Zamestnanec sa nenašiel.',
   'employeeDetail.payFrequency': 'Frekvencia platieb',
+  'employeeDetail.postTax': 'Po zdanení',
+  'employeeDetail.preTax': 'Pred zdanením',
   'employeeDetail.salary': 'Ročný plat',
   'employeeDetail.ssn': 'Číslo sociálneho zabezpečenia',
   'employeeDetail.startedOn': 'Začaté {{date}}',
@@ -52,6 +58,7 @@ export const ui: UiTranslations = {
   'employeeForm.payFrequency': 'Frekvencia platieb',
   'employeeForm.salary': 'Ročný plat (USD)',
   'employeeForm.salaryInvalid': 'Plat musí byť nezáporné číslo.',
+  'employeeForm.saveError': 'Zamestnanca sa nepodarilo uložiť.',
   'employeeForm.semimonthly': 'Polmesačne',
   'employeeForm.single': 'Jednotlivec',
   'employeeForm.ssn': 'Číslo sociálneho zabezpečenia',
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'employeesTable.col.name': 'Zamestnanec',
   'employeesTable.col.salary': 'Plat',
   'forgotPassword.subtitle': 'Zadajte svoj pracovný e-mail a my vám pošleme odkaz na obnovenie.',
+  'landing.copyright': '© {{year}} {{app}} . Presné, spoľahlivé, vyrovnané.',
   'landing.ctaBody':
     'Zadarmo na 30 dní. Bez kreditnej karty. Prepnite kedykoľvek bez straty záznamov o audite.',
   'landing.ctaHeading': 'Spustite svoj ďalší cyklus na Stipendi',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'Pre túto výplatnú pásku zatiaľ neboli zaznamenané žiadne audítorské záznamy.',
   'payRunDetail.noStubs':
     'Zatiaľ žiadne výplatné pásky – schváľte a spracujte ich na vygenerovanie.',
+  'payRunDetail.notFound': 'Túto výplatnú pásku sa nepodarilo nájsť.',
   'payRunDetail.statDeductions': 'Zrážky',
   'payRunDetail.statHeadcount': 'Zamestnanci',
   'payRunDetail.statTaxes': 'Zrazené dane',
@@ -219,7 +228,10 @@ export const ui: UiTranslations = {
   'settings.semimonthly': 'Polmesačne',
   'settings.signOutDevice': 'Odhlásiť sa',
   'settings.subheading': 'Profil spoločnosti, výplatný harmonogram a integrácie.',
+  'settings.twoFactorCode': 'Overovací kód',
   'settings.twoFactorDisable': 'Vypnúť',
+  'settings.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.twoFactorVerify': 'Overiť a aktivovať',
   'settings.weekly': 'Týždenne',
   'taxCenter.bucket.federal': 'Federálny príjem',
   'taxCenter.bucket.fica': 'Sociálne zabezpečenie',

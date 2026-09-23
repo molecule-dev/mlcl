@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '有反馈、功能请求或发现 bug 了吗？请通过账户菜单中的支持链接联系 {{app}} 团队——每条消息都会由真人处理。',
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
   'agentDetail.back': '所有代理',
   'agentDetail.capabilities': '能力',
   'agentDetail.delete': '删除角色',
   'agentDetail.deleteConfirm': '删除此角色？此操作无法撤销。',
+  'agentDetail.deleteError': '无法删除该角色。',
   'agentDetail.eyebrow': '角色',
   'agentDetail.fetchError': '无法加载角色。',
   'agentDetail.save': '保存角色',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': '正在切换…',
   'billing.updateError': '无法开始更新。',
   'billing.usageHeading': '本周期语音用量',
+  'chatBubble.source.text': '文本',
+  'chatBubble.source.voice': '语音',
+  'common.goToDashboard': '前往仪表盘',
   'conversation.defaultTitle': '新对话',
   'conversation.empty': '暂无消息。请开口说话或在下方输入。',
   'conversation.eyebrow': '实时会话',
@@ -90,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.featuresSubtitle': '为自然对话而生——适应您的速度、语调和上下文。',
   'landing.featuresTitle': '会说话的智能。',
   'landing.heroSubtitle': '理解您自然流畅表达的AI语音助手。无缝对话、构思和发出指令。',
+  'landing.heroTitle': '{{tagline}}。',
   'landing.listening': '正在聆听…',
   'landing.naturallyBody':
     '无需触发词，无需僵硬指令。Vox理解上下文、打断以及人类语言的细微差别——就像与同事交谈一样。',
@@ -107,6 +115,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': '开启会话',
   'notFound.home': '返回首页',
   'notFound.title': '我们没听清那个页面。',
+  'parlanceLayout.closeMenu': '关闭菜单',
+  'parlanceLayout.openMenu': '打开导航菜单',
   'parlanceLayout.primaryNavLabel': '主导航',
   'pricing.conversations': '{{count}}次对话',
   'pricing.cta.startFree': '免费开始',
@@ -142,6 +152,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': '无匹配',
   'search.eyebrow': '命令面板',
   'search.fetchError': '无法加载搜索索引。',
+  'search.static.profile.preview': '显示名称、昵称、个人简介',
   'search.static.voice.title': '嗓音',
   'search.title': '搜索Vox',
   'search.transcriptPreview': '打开文字记录',

@@ -1,8 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über',
+  'aiVerdict.action': 'Maßnahme:',
   'aiVerdict.confidence': 'Konfidenz',
+  'aiVerdict.heading': 'KI-Empfehlung',
+  'aiVerdict.policyViolations': 'Verstöße gegen die Richtlinien',
+  'aiVerdict.reasoning': 'Begründung',
   'analytics.cat.approved': 'Genehmigt',
   'analytics.cat.escalated': 'Eskaliert',
   'analytics.cat.rejected': 'Abgelehnt',
@@ -28,9 +33,15 @@ export const ui: UiTranslations = {
   'analytics.summaryHeading': 'Entscheidungsübersicht',
   'analytics.verdictTrend': 'Verdikt-Trend',
   'auth.brandHeading': 'Signal im Rauschen.',
+  'auth.passwordMinHint': 'Mindestens 12 Zeichen',
+  'auth.reenterPasswordHint': 'Passwort erneut eingeben',
+  'common.closeMenu': 'Navigation schließen',
+  'common.goToDashboard': 'Zum Dashboard',
+  'common.openMenu': 'Navigation öffnen',
   'dashboard.activeRules': 'Aktive Regeln',
   'dashboard.activeRulesBody': 'Verwalten Sie Automatisierungsregeln im Regelbaukasten.',
   'dashboard.approvedTotal': 'Genehmigt',
+  'dashboard.autoBadge': 'AUTO',
   'dashboard.editRules': 'Regeln bearbeiten',
   'dashboard.heading': 'Übersicht',
   'dashboard.items': 'Elemente',
@@ -53,6 +64,7 @@ export const ui: UiTranslations = {
   'dashboard.volumeEmpty': 'Noch kein Volumen – Einreichungen erscheinen hier.',
   'dashboard.volumeLoading': 'Volumen wird geladen …',
   'dashboard.weeklyVolume': '7-Tage-Volumen',
+  'footer.legalNav': 'Fußzeile',
   'forgot.emailHint': 'sie@ihredomain.com',
   'forgot.failed':
     'Der Zurücksetzungsvorgang konnte nicht gestartet werden. Bitte in Kürze erneut versuchen.',
@@ -106,6 +118,8 @@ export const ui: UiTranslations = {
   'queue.col.source': 'Quelle',
   'queue.col.time': 'Zeit',
   'queue.col.verdict': 'Verdikt',
+  'queue.decideError':
+    'Die Entscheidung konnte nicht aufgezeichnet werden. Bitte versuchen Sie es erneut.',
   'queue.heading': 'Moderationswarteschlange',
   'queue.kpi.decided': 'Entschieden',
   'queue.kpi.escalated': 'Eskaliert',
@@ -129,6 +143,8 @@ export const ui: UiTranslations = {
   'review.backToQueue': 'Zurück zur Warteschlange',
   'review.confirmReject': 'Ablehnung bestätigen',
   'review.contentDetails': 'Inhaltsdetails',
+  'review.escalate': 'An einen leitenden Moderator weiterleiten',
+  'review.escalateError': 'Die Eskalation des Inhalts ist fehlgeschlagen.',
   'review.field.contentId': 'Inhalts-ID',
   'review.field.contentText': 'Inhaltstext',
   'review.field.contentUrl': 'Inhalts-URL',
@@ -145,6 +161,8 @@ export const ui: UiTranslations = {
   'review.rejectError': 'Inhalt konnte nicht abgelehnt werden.',
   'review.rejectReason': 'Ablehnungsgrund',
   'review.rejectReasonRequired': 'Bitte wählen Sie einen Ablehnungsgrund.',
+  'review.reopen': 'Überprüfung wieder aufnehmen',
+  'review.reopenError': 'Die Überprüfung konnte nicht erneut geöffnet werden.',
   'review.runAi': 'KI-Prüfung ausführen',
   'review.selectReason': '— Grund auswählen —',
   'review.status.${normalizedStatus}': 'Abgelehnt wegen:',
@@ -184,6 +202,8 @@ export const ui: UiTranslations = {
     'Erstellen Sie UND/ODER-Bedingungen, sehen Sie sich Treffer in der Vorschau an und veröffentlichen Sie, um sie auf alle Warteschlangen anzuwenden.',
   'rules.testResult': 'Testlauf fehlgeschlagen.',
   'rules.updateError': 'Regel konnte nicht aktualisiert werden.',
+  'settings.accountSecurity.body':
+    'Passwort, Zwei-Faktor-Authentifizierung, Push-Benachrichtigungen, Geräte und Kontoaktionen.',
   'settings.accountSecurity.heading': 'Konto & Sicherheit',
   'settings.api.body':
     'Verwenden Sie diese Zugangsdaten, um Inhalte programmatisch an die Moderations-API zu senden.',

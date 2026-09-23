@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
   'alerts.acknowledgeLabel': 'Agħraf',
   'alerts.customerLabel': 'Klijent: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Qed nikkonnettja…',
   'carriers.requiredError': 'L-isem u l-kodiċi huma meħtieġa.',
   'carriers.subheading': '{{count}} integrat',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
+  'common.retry': "Erġa' pprova",
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Fi tranżitu + immarkat',
   'dashboard.activeShipmentsSubtitle':
@@ -103,6 +106,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'vjeġġi',
   'pricing.trackingLabel': "avvenimenti ta' traċċar",
   'profile.dangerZone.title': "Żona ta' periklu",
+  'profile.devices.signingOut': 'Qed joħroġ…',
+  'profile.devices.unnamed': 'Apparat bla isem',
+  'profile.security.disable2fa': 'Iddiżattiva 2FA',
   'profile.security.enable2fa': 'Ippermetti 2FA',
   'profile.security.pwChanged': "Il-password inbidlet b'suċċess.",
   'profile.security.pwCurrent': 'Password attwali',
@@ -112,10 +118,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA attiv',
   'profile.security.twoFaCode': "Kodiċi ta' 6 ċifri",
   'profile.security.twoFaDisable': 'Iddiżattiva',
+  'profile.security.twoFaDisabling': 'Diżattivazzjoni…',
   'profile.security.twoFaFailed': 'Ma stajtx nivverifika l-kodiċi.',
   'profile.security.twoFaIntro':
     "Skennja l-kodiċi QR fl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri hawn taħt biex tivverifika.",
   'profile.security.twoFaOn': "L-awtentikazzjoni b'żewġ fatturi hija attivata fuq dan il-kont.",
+  'profile.security.twoFaQrAlt': 'Kodiċi QR taż-żewġ fatturi',
   'profile.security.twoFaVerify': 'Ivverifika u attiva',
   'profile.security.twoFaVerifying': 'Qed tivverifika…',
   'profile.subheading': 'Is-settings tal-identità u s-sigurtà għal dan l-ispazju tax-xogħol.',
@@ -134,6 +142,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': "Salva dan is-sigriet — mhux se jerġa' jintwera.",
   'settings.api.webhookSecret': 'Sigriet tal-iffirmar tal-Webhook',
   'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
+  'settings.deleteAccountConfirm': 'Żgur/a? Din l-azzjoni ma tistax titħassar/tirrevoka.',
   'settings.notifications.exceptions': 'Ibgħatli email meta sseħħ eċċezzjoni fil-kunsinna.',
   'settings.notifications.heading': 'Notifiki',
   'settings.notifications.saveFailed': 'Ma setgħux jiġu salvati l-preferenzi.',
@@ -148,6 +157,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Il-konsenja ma nstabitx.',
   'shipmentDetail.originHeading': 'Oriġini',
   'shipmentDetail.shippedOn': 'Mibgħut {{date}}',
+  'shipmentDetail.timelineEmpty':
+    "Għad m'hemm l-ebda avveniment ta' traċċar — l-aġġornamenti jidhru hawn hekk kif it-trasportatur jiskennja l-pakkett.",
   'shipmentDetail.weightLabel': '{{weight}} libbra',
   'shipments.col.carrier': 'Trasportatur',
   'shipments.col.eta': "Ħin ta' Għodda",
@@ -177,6 +188,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Idħol',
   'signup.submit': 'Oħloq Kont',
   'team.emailError': 'Indirizz elettroniku validu huwa meħtieġ.',
+  'team.empty':
+    "Għad m'hemm l-ebda membru tat-tim. Stieden membru tat-tim biex jikkollabora fuq il-konsenji.",
   'team.eyebrow': 'Membri u permessi',
   'team.inviteDialog.cancel': 'Ikkanċella',
   'team.inviteDialog.heading': 'Stieden lil sieħeb fit-tim',
@@ -199,6 +212,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Trakka',
   'waypointLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'webhooks.createFailed': 'Ma setax jinħoloq endpoint tal-webhook.',
+  'webhooks.endpointsEmpty':
+    "Għad m'hemm l-ebda endpoints tal-webhook. Oħloq wieħed biex tirċievi callbacks tal-istatus tal-konsenja.",
   'webhooks.endpointsHeading': 'Punti tat-tmiem',
   'webhooks.eventCount': '{{count}} avvenimenti',
   'webhooks.eventsHeading': 'Kunsinni riċenti',

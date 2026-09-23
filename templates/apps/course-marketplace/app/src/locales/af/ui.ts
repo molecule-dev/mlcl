@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'Laai kursusse…',
   'browse.next': 'Volgende bladsy',
   'browse.results': 'Wys {{count}} kursusse',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'Sorteer volgens',
   'browse.subtitle':
     'Filtreer die redaksionele argief volgens onderwerp, vlak en prys. Elke kursus word met die hand deur ons redakteurs saamgestel.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     "Jou sertifikaat is geteken en gereed. Deel dit met die wêreld of hou dit as 'n herinnering aan die werk wat dit geneem het om te verdien.",
   'certificate.copyLink': 'Kopieer deelskakel',
+  'certificate.copyPrompt': 'Kopieer hierdie skakel:',
   'certificate.download': 'Laai PDF af',
   'certificate.eyebrow': 'Prestasie ontsluit',
   'certificate.linkCopied': 'Skakel gekopieer!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'Jy is ingeskryf!',
   'checkout.verifying': 'Verifieer tans jou inskrywing…',
   'checkout.viewLibrary': 'Bekyk My Leer',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.retry': 'Probeer weer',
   'courseDetail.about': 'Oor hierdie kursus',
   'courseDetail.checkoutPending': 'Begin afhandeling…',
   'courseDetail.continueLearning': 'Gaan voort met leer',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '30-dae geldterugwaarborg',
   'courseDetail.includes.video': '{{hours}} ure se video op aanvraag',
   'courseDetail.instructor': 'Instrukteur',
+  'courseDetail.languageEnglish': 'Engels',
   'courseDetail.lectures': 'Lesings',
   'courseDetail.level': 'Vlak',
   'courseDetail.loading': 'Laai kursus…',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Geen resensies nog nie.',
   'instructorProfile.students': 'Studente',
   'landing.categories.empty': 'Kategorieë sal verskyn sodra die katalogus gevul is.',
+  'landing.categories.heading': 'Verken die argief',
   'landing.hero.eyebrow': 'Lectura · Redaksionele argief van meesterskap',
   'landing.hero.proof': 'Vertrou deur leerders by Google, Meta en Adobe.',
   'landing.hero.subtitle':
@@ -155,6 +161,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Begin vandag leer',
   'login.subheading': 'Kry toegang tot jou akademiese argief.',
   'myLearning.empty.title': 'Geen kursusse stem nog ooreen met hierdie filter nie',
+  'myLearning.error.title': 'Kon nie jou biblioteek laai nie',
   'myLearning.filter.notStarted': 'Nie begin nie',
   'myLearning.hero.subtitle':
     '{{count}} kursusse in jou biblioteek. Hou die momentum aan die gang.',
@@ -168,6 +175,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Geen nuwe aktiwiteit om te hersien nie. Nuwe gebeurtenisse sal hier verskyn.',
   'notifications.empty.title': 'Julle is almal ingehaal',
+  'notifications.error.title': 'Kon nie aktiwiteit laai nie',
   'privacy.title': 'Privaatheidsbeleid',
   'reset.confirmPlaceholder': 'Voer jou nuwe wagwoord weer in',
   'reset.errorGeneric': "Kon nie wagwoord herstel nie. Versoek 'n nuwe skakel.",
@@ -191,5 +199,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} d gelede',
   'timeAgo.hours': '{{count}} uur gelede',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': '{{count}} maande gelede',
   'timeAgo.today': 'vandag',
+  'timeAgo.weeks': '{{count}} weke gelede',
 }

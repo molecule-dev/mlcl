@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// о приложении {{app}}',
+  'about.pageTitle': 'Плоскость управления веб-перехватчиком',
+  'about.plansTitle': 'Планы на каждом этапе',
   'apiKeys.bestPractices': 'Передовые методы',
   'apiKeys.body':
     'Токены доступа, используемые в программном обеспечении. Относитесь к ним как к паролям — храните в переменных окружения, никогда не фиксируйте изменения.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'в рамках плана',
   'billing.usageWarning': 'около вершины',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Перейти к панели',
   'dashboard.body':
     'Отслеживание производительности в реальном времени, повторные попытки и сбои в работе конечных точек — во всех рабочих пространствах, которыми вы управляете.',
   'dashboard.endpointsEmpty': 'Конечных точек пока нет.',
@@ -111,6 +115,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'конечные точки',
   'endpointDetail.deliveryTrendSub': 'количество доставок в час, шкала учета рабочего времени.',
   'endpointDetail.hideSecret': 'Скрыть секрет',
+  'endpointDetail.loading': 'Конечная точка загрузки…',
   'endpointDetail.metric.delivered': 'Доставка в течение 24 часов.',
   'endpointDetail.metric.deliveredCaption': 'от {{count}} типы событий',
   'endpointDetail.metric.failuresCaption': 'повторные попытки: {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Критическое состояние · 24 часа',
   'notifications.metric.totalCaption': 'все входящие сообщения за все время',
   'payloadViewer.payload': '// полезная нагрузка',
+  'planUpdated.verifying': 'Подтверждение платежа…',
   'profile.avatarHeader': 'Аватар',
   'profile.avatarHint': 'Показаны инициалы — новые версии будут загружены в следующем релизе.',
   'profile.body': 'Ваша учетная запись, настройки и активные сессии.',
@@ -231,6 +237,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ сохранено',
   'profile.sessionsEmpty': 'Активна только ваша текущая сессия. Другие устройства не подключены.',
   'profile.toggle': 'Переключать {{label}}',
+  'pylonShell.closeMenu': 'Закрыть меню навигации',
+  'pylonShell.openMenu': 'Открыть меню навигации',
   'pylonShell.primaryNavLabel': 'Основная навигация',
   'resetPassword.subtitle': 'Выберите надежный пароль, который вы ранее не использовали.',
   'resetPassword.tokenPlaceholder': 'вставить из электронного письма',

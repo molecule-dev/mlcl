@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.pageTitle': 'Σχετικά με το {{app}}',
   'activity.empty':
     'Δεν υπάρχει ακόμη δραστηριότητα — αναστρέψτε μια συσκευή ή ενεργοποιήστε μια σκηνή.',
   'activity.eyebrow': 'Χρονολόγιο',
   'activity.loadError': 'Δεν ήταν δυνατή η φόρτωση της ροής δραστηριότητας.',
   'activity.subheading': 'Κάθε συσκευή, αυτοματισμός και συμβάν ασφαλείας με χρονολογική σειρά.',
+  'addDevice.error.failed': 'Δεν ήταν δυνατή η προσθήκη της συσκευής. Δοκιμάστε ξανά.',
   'addDevice.error.nameRequired': 'Δώστε σε αυτήν τη συσκευή ένα όνομα για να συνεχίσετε.',
   'addDevice.field.firmware': 'Έκδοση υλικολογισμικού',
   'addDevice.field.manufacturer': 'Κατασκευαστής',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Δοκιμή…',
   'automationEditor.testNew': 'Αποθηκεύστε πρώτα τον αυτοματισμό για να τον δοκιμάσετε.',
   'automationRow.lastRun': 'Τελευταίος {{date}} · {{count}} τρέχει',
+  'automationRow.on': 'Στις',
   'automationRow.runNowAria': 'Τρέξιμο {{name}} τώρα',
   'automations.empty': 'Δεν υπάρχουν ακόμη αυτοματοποιήσεις — δημιουργήστε την πρώτη σας ρουτίνα.',
   'automations.eyebrow': 'Ρουτίνες',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Φόρτωση αυτοματισμών…',
   'automations.newAutomation': '+ Νέο',
   'automations.subheading': 'Όταν συμβεί αυτό, κάντε το — χωρίς το YAML.',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Αποτυχία φόρτωσης συσκευής.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Εργασία…',
   'deviceDetail.unnamed': 'Συσκευή',
   'deviceStatusRow.on': 'Επί',
+  'deviceStatusRow.turnOff': 'Κλείνω',
+  'deviceStatusRow.turnOn': 'Ανάβω',
   'deviceStatusRow.watts': '{{watts}} Δ',
   'energy.eyebrow': 'Εξουσία',
   'energy.heading': 'Ενέργεια',
@@ -179,4 +186,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Δείτε τα πλάνα',
   'settings.security.heading': 'Ασφάλεια',
   'settings.subheading': 'Προτιμήσεις προγράμματος, κόμβων και λογαριασμού.',
+  'smartHomeDashboardLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Κύρια πλοήγηση',
 }

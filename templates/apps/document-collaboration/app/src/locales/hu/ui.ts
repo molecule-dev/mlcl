@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.title': 'A {{app}} névjegye',
   'comments.addFailed': 'Nem sikerült hozzászólást küldeni.',
   'comments.backToDoc': 'Vissza a kézirathoz',
   'comments.deleteFailed': 'Nem sikerült törölni.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Megoldás',
   'comments.resolveFailed': 'Nem sikerült feloldani.',
   'comments.subtitle': '{{open}} nyitva · „{{resolved}}” megoldva',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.activityHeading': 'Mi történik?',
   'dashboard.createFailed': 'Nem sikerült létrehozni a dokumentumot.',
   'dashboard.empty': 'Még nincs kézirat – kezdje az Új dokumentum gombbal.',
@@ -54,11 +57,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Nem sikerült a kukába helyezni.',
   'editor.unpublish': 'Közzététel visszavonása',
   'editor.untitled': 'Cím nélküli dokumentum',
+  'editor.updatedElsewhere':
+    'Ezt a dokumentumot valaki más frissítette – töltse be újra a legfrissebb verzió megtekintéséhez.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ha létezik fiókja a {{email}} címen, hamarosan megkapja a jelszó-visszaállítási linket.',
   'forgotPassword.subtitle': 'Küldünk Önnek egy visszaállítási linket e-mailben.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. A Molecule segítségével készült.',
   'landing.ctaHeading': 'Nyissa meg az oldalt. Indítsa el a kurzort.',
   'landing.ctaPrimary': 'Stúdió megnyitása',
   'landing.eyebrow': 'Íróknak, szerkesztőknek és csapatoknak',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': '{{when}} szerkesztette',
   'quillonDocumentCard.open': 'Nyitás →',
   'quillonKpiCard.trend': 'Legújabb trend',
+  'quillonLayout.menu': 'Menü',
   'quillonLayout.primaryNavLabel': 'Elsődleges navigáció',
   'quillonStudioHero.collab': 'Közreműködők',
   'quillonStudioHero.docs': 'Érintett dokumentumok',
@@ -159,9 +166,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}} napja',
   'time.hoursAgo': '{{hours}} órája',
   'time.justNow': 'épp most',
+  'trash.confirmDelete': 'Törlés megerősítése',
   'trash.deleteFailed': 'Nem sikerült törölni.',
   'trash.deleteForever': 'Végleges törlés',
   'trash.empty': 'Nincs mit helyreállítani.',
+  'trash.emptyAll': 'Kuka ürítése',
   'trash.eyebrow': 'Stúdió',
   'trash.heading': 'Kuka',
   'trash.loadFailed': 'A kuka betöltése nem sikerült.',

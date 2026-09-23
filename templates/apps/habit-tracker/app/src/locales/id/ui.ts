@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
+  'about.pageTitle': 'Tentang {{app}}',
   'achievementBadgeCard.unlockedOn': 'Dibuka {{date}}',
   'achievements.loadError': 'Gagal memuat pencapaian.',
   'achievements.subheading': '{{unlocked}} dari {{total}} terbuka',
   'achievements.unlockedOn': 'Dibuka {{date}}',
+  'auth.legalConsent': 'Dengan melanjutkan, Anda menyetujui',
   'calendar.empty': 'Buat kebiasaan untuk melihat kalender Anda.',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'Kebiasaan',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'Kisi kebiasaan',
   'category.${c.category}': '{{menghitung}} kebiasaan',
   'common.and': 'dan',
+  'common.goToDashboard': 'Ke Dashboard',
   'consistencyHeatmap.ariaLabel': 'Peta panas konsistensi harian',
   'consistencyHeatmap.caption': '{{weeks}} minggu terakhir',
   'consistencyHeatmap.lessLabel': 'Kurang',
@@ -79,6 +83,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'Lihat secara langsung',
   'landing.heroSubtitle':
     'Bangun kebiasaan seperti yang benar-benar melekat: komitmen kecil, rentetan harian, dan kenikmatan nyata dari rantai panjang yang tak terputus.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'Intip ke dalam Streak',
   'landing.previewMotivation': 'Sembilan rentetan hidup. Jaga semuanya tetap hangat.',
   'login.eyebrow': 'Ambil rantai',
@@ -96,7 +101,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'Buat kecil. Buat spesifik. Hadir besok.',
   'newHabit.timeLabel': 'Waktu pengingat',
   'notifications.markError': 'Tidak dapat menandai semua sebagai dibaca.',
+  'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.entries': '{{count}} entri',
+  'pricing.heading': 'Pilih paket {{app}} Anda',
   'profile.action.plan': 'Kelola langganan',
   'profile.action.settings': 'Pengaturan akun',
   'profile.bioEmpty': 'Tambahkan bio singkat di Pengaturan untuk memperkenalkan diri.',
@@ -123,6 +130,7 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'Petunjuk pagi harian (08:00)',
   'settings.reminders.heading': 'Pengingat',
   'settings.reminders.weekly': 'Ringkasan mingguan (Minggu malam)',
+  'settings.revokeDeviceWarning': 'Akses perangkat ini akan segera dicabut. Keluarkan?',
   'settings.signOutDevice': 'Keluar',
   'settings.streaks.freezesPerWeek': 'Pembekuan per minggu',
   'settings.streaks.gracePeriod': 'Periode tenggang 6 jam setelah tengah malam',
@@ -149,5 +157,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} aktif',
   'streakHeroCard.daysSuffix': 'hari',
   'streakHeroCard.title': 'Rentetan aktif terpanjang',
+  'streakLayout.closeMenu': 'Tutup menu navigasi',
+  'streakLayout.openMenu': 'Buka menu navigasi',
   'streakLayout.primaryNavLabel': 'Navigasi utama',
 }

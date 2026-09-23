@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'alerts.acknowledgeLabel': 'स्वीकार गर्नुहोस्',
   'alerts.customerLabel': 'ग्राहक: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'जडान गर्दै...',
   'carriers.requiredError': 'नाम र कोड आवश्यक छ।',
   'carriers.subheading': '{{count}} एकीकृत',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'ट्रान्जिटमा + फ्ल्याग गरिएको',
   'dashboard.activeShipmentsSubtitle':
@@ -100,6 +103,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'ढुवानी',
   'pricing.trackingLabel': 'घटनाहरू ट्र्याक गर्दै',
   'profile.dangerZone.title': 'खतरा क्षेत्र',
+  'profile.devices.signingOut': 'साइन आउट हुँदैछ…',
+  'profile.devices.unnamed': 'नाम नभएको यन्त्र',
+  'profile.security.disable2fa': '2FA असक्षम पार्नुहोस्',
   'profile.security.enable2fa': '२एफए सक्षम पार्नुहोस्',
   'profile.security.pwChanged': 'पासवर्ड सफलतापूर्वक परिवर्तन भयो।',
   'profile.security.pwCurrent': 'हालको पासवर्ड',
@@ -109,10 +115,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '२एफए सक्रिय',
   'profile.security.twoFaCode': '६-अङ्कको कोड',
   'profile.security.twoFaDisable': 'असक्षम पार्नुहोस्',
+  'profile.security.twoFaDisabling': 'असक्षम पार्दै...',
   'profile.security.twoFaFailed': 'कोड प्रमाणित गर्न सकिएन।',
   'profile.security.twoFaIntro':
     'आफ्नो प्रमाणक एपमा रहेको QR कोड स्क्यान गर्नुहोस्, त्यसपछि पुष्टि गर्न तल दिइएको ६-अङ्कको कोड प्रविष्टि गर्नुहोस्।',
   'profile.security.twoFaOn': 'यस खातामा दुई-कारक प्रमाणीकरण सक्षम पारिएको छ।',
+  'profile.security.twoFaQrAlt': 'दुई-कारक QR कोड',
   'profile.security.twoFaVerify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
   'profile.security.twoFaVerifying': 'प्रमाणित गर्दै...',
   'profile.subheading': 'यस कार्यस्थानको लागि पहिचान र सुरक्षा सेटिङहरू।',
@@ -131,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'यो गोप्य कुरा सुरक्षित गर्नुहोस् — यो फेरि देखाइने छैन।',
   'settings.api.webhookSecret': 'वेबहुकमा हस्ताक्षर गर्ने गोप्य कुरा',
   'settings.appearance.description': 'लाइट र डार्क मोड बीच टगल गर्नुहोस्।',
+  'settings.deleteAccountConfirm': 'के तपाईं निश्चित हुनुहुन्छ? यो कार्य पूर्ववत गर्न सकिँदैन।',
   'settings.notifications.exceptions': 'ढुवानी अपवाद हुँदा मलाई इमेल गर्नुहोस्।',
   'settings.notifications.heading': 'सूचनाहरू',
   'settings.notifications.saveFailed': 'प्राथमिकताहरू बचत गर्न सकिएन।',
@@ -145,6 +154,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'ढुवानी भेटिएन।',
   'shipmentDetail.originHeading': 'उत्पत्ति',
   'shipmentDetail.shippedOn': 'पठाइयो {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'अहिलेसम्म कुनै ट्र्याकिङ घटनाहरू छैनन् — वाहकले पार्सल स्क्यान गर्दा अपडेटहरू यहाँ देखा पर्छन्।',
   'shipmentDetail.weightLabel': '{{weight}} पाउन्ड',
   'shipments.col.carrier': 'वाहक',
   'shipments.col.eta': 'आगमन समय',
@@ -174,6 +185,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'साइन इन गर्नुहोस्',
   'signup.submit': 'खाता बनाउनुहोस्',
   'team.emailError': 'मान्य इमेल ठेगाना आवश्यक छ।',
+  'team.empty':
+    'अहिलेसम्म कुनै पनि टोली सदस्य छैन। ढुवानीमा सहकार्य गर्न एक जना टोली साथीलाई आमन्त्रित गर्नुहोस्।',
   'team.eyebrow': 'सदस्यहरू र अनुमतिहरू',
   'team.inviteDialog.cancel': 'रद्द गर्नुहोस्',
   'team.inviteDialog.heading': 'साथीलाई आमन्त्रित गर्नुहोस्',
@@ -196,6 +209,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'ट्र्याक',
   'waypointLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'webhooks.createFailed': 'वेबहुक एन्डपोइन्ट सिर्जना गर्न सकिएन।',
+  'webhooks.endpointsEmpty':
+    'अहिलेसम्म कुनै वेबहुक एन्डपोइन्ट छैन। ढुवानी स्थिति कलब्याकहरू प्राप्त गर्न एउटा सिर्जना गर्नुहोस्।',
   'webhooks.endpointsHeading': 'अन्तिम बिन्दुहरू',
   'webhooks.eventCount': '{{count}} घटनाहरू',
   'webhooks.eventsHeading': 'हालसालैका डेलिभरीहरू',

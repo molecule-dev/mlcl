@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'In osservazione',
   'auctionDetail.watchRemoved': 'Rimosso dagli osservati.',
   'auctionDetail.watchRemoveLabel': 'Rimuovi dagli osservati',
+  'auctionPlatformLayout.primaryNavLabel': 'Navigazione principale',
   'authShell.brandBody':
     "Faccia offerte in tempo reale su orologi rari, opere d'arte e pezzi unici speciali. Il martello cade in pochi secondi.",
   'authShell.brandEyebrow': 'Live ora · 1.420 aste',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Ordina per',
   'browseAuctions.subheading':
     "Filtri per categoria, ordini per ciò che conta di più e faccia un'offerta prima che cada il martello.",
+  'common.goToDashboard': 'Vai alla Dashboard',
   'countdownTimer.ended': 'Terminata',
   'countdownTimer.endingSoon': 'In chiusura',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Mostra password',
   'login.subtext':
     'Continui a seguire le sue aste e a presentare offerte prima che cada il martello.',
+  'mobileNav.closeMenu': 'Chiudi il menu di navigazione',
+  'mobileNav.openMenu': 'Apri il menu di navigazione',
   'myBids.bidAgain': 'Rilancia',
   'myBids.browseCta': 'Sfoglia le aste live →',
   'myBids.checkoutCta': 'Paga ora',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Centro attività',
   'notificationsPage.subheading':
     '{{count}} non lette · aggiornamenti live mentre le aste si muovono',
+  'planUpdated.verifying': 'Conferma del pagamento…',
   'pricing.bidsLabel': 'offerte',
   'pricing.listingsLabel': 'inserzioni',
   'pricing.watchlistLabel': 'osservati',

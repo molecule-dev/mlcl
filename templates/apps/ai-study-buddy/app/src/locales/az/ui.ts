@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'billing.loading': 'Plan məlumatı yüklənir…',
   'billing.popular': 'Ən çox sevilən',
   'billing.subtitle': 'Təhsil tempinizlə uyğun planı seçin.',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'common.today': 'Bu gün',
   'common.yesterday': 'Dünən',
   'courseDetail.empty.body':
@@ -82,7 +83,11 @@ export const ui: UiTranslations = {
   'flashcards.nameLabel': 'Göyərtə adı',
   'flashcards.subtitle': 'Sürətinizə uyğunlaşan aralıqlı təkrarlama.',
   'flashcards.title': 'Fləşkartlar',
+  'footer.copyright': '© {{year}} {{app}} . Yaxşı öyrən, rahat yat.',
   'forgotPassword.subtitle': 'E-poçtunuzu daxil edin və sizə sıfırlama linki göndərəcəyik.',
+  'koanLayout.closeMenu': 'Menyunu bağlayın',
+  'koanLayout.navLabel': 'Əsas naviqasiya',
+  'koanLayout.openMenu': 'Menyunu açın',
   'koanLayout.theme': 'Mövzu',
   'landing.featuresBody':
     'Diqqəti yayındıran amilləri aradan qaldırmaq və davamlı anlayış yaratmaq üçün hazırlanmış vasitələr.',
@@ -117,11 +122,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Bu URL hələ də dəqiqləşdirilməmiş bir ərazidir. Bəlkə də səhv yazıb, bəlkə də silinmiş dərsdir — hər iki halda da, gəlin sizi yenidən öyrənməyə qaytaraq.',
   'notFound.heading': 'Səhifə tapılmadı.',
+  'notFound.label': '{{appName}} · 404',
   'notifications.empty.title': 'Hamınız məlumatlısınız',
   'notifications.filter.${opt}': 'Bildirişlər yüklənir…',
   'notifications.markAllError': 'Hamısını oxunmuş kimi qeyd etmək mümkün olmadı.',
   'notifications.markError': 'Oxunmuş kimi qeyd etmək mümkün olmadı.',
   'notifications.subtitle': '{{count}} oxunmamış yeniləmələr',
+  'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.heading': 'viktorinalar',
   'pricing.limits.topics': 'mövzular',
   'privacy.collectBody':
@@ -187,6 +194,7 @@ export const ui: UiTranslations = {
   'search.empty.body': 'Fərqli açar söz və ya filtr sınayın.',
   'search.empty.title': 'Heç nə uyğun gəlmədi.',
   'search.error': 'Nəticələri yükləmək mümkün olmadı.',
+  'search.filters': 'Nəticə növü filtrləri',
   'search.go': 'Get',
   'search.label.flashcard': 'Fləşkart dəsti',
   'search.label.note': 'Qeyd',

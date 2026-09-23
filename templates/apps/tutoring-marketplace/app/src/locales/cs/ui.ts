@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'account.role.title': 'Vaše role',
   'account.role.upgradeLink': 'Přihlaste se a staňte se ověřeným lektorem →',
   'account.title': 'Profil, platba a preference.',
+  'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Učte na křídě',
   'becomeTutor.form.error': 'Žádost se nepodařilo odeslat.',
   'becomeTutor.form.pitchPlaceholder':
@@ -71,6 +72,7 @@ export const ui: UiTranslations = {
   'bookingConfirm.subject': 'Předmět',
   'bookingConfirm.title': 'Máte rezervaci. O zbytek se postaráme my.',
   'bookingConfirm.with': 'S lektorem',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'earningsHero.eyebrow': 'Výdělky • {{month}}',
   'forgotPassword.heading': 'Zapomněli jste heslo?',
   'forgotPassword.subheading':
@@ -111,6 +113,7 @@ export const ui: UiTranslations = {
   'messages.send': 'Odeslat zprávu',
   'messages.thread.empty': 'Řekni ahoj – začni konverzaci.',
   'messages.title': 'Vlákna s tvými lektory.',
+  'nav.primary': 'Primární',
   'pricing.dataExport': 'Export dat:',
   'pricing.headingDefault': 'Pokročilé funkce:',
   'resetPassword.heading': 'Vyberte si silné nové heslo.',

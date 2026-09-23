@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Про {{app}}',
   'analytics.avgCheckLabel': 'Середня перевірка',
   'analytics.busiestHour': 'Найзавантаженіша година',
   'analytics.coversToday': 'Обкладинки сьогодні',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Чайові (середнє)',
   'analytics.topItems': 'Найпопулярніші товари сьогодні',
   'authShell.eyebrow': 'Ласкаво просимо назад до служби',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Тепла та швидка точка продажу для команд гостинності. Увійдіть у свою кухню та продовжуйте з того місця, де зупинилися.',
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'або {{price}}',
   'billing.priceUnavailable': 'Цей план не має налаштованої ціни.',
   'billing.updated': 'План оновлено.',
+  'common.goToDashboard': 'До панелі',
   'customerDetail.book': 'Додати бронювання',
   'customerDetail.col.table': 'Стіл',
   'customerDetail.confirmDelete': 'Видалити цей запис гостя?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Наявність',
   'menuItemDetail.available': 'Доступно сьогодні ввечері',
   'menuItemDetail.backToMenu': 'Назад до меню',
+  'menuItemDetail.confirmDelete': 'Видалити цей пункт меню?',
   'menuItemDetail.delete': 'Видалити елемент',
   'menuItemDetail.deleteError': 'Видалити не вдалося. Спробуйте ще раз.',
   'menuItemDetail.dietary': 'Дієтичні теги',
@@ -138,8 +142,11 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · редагувати фотографії, модифікації, дієтичні продукти та ціни.',
   'menuItemDetail.untitled': 'Без назви',
+  'mobileNav.closeMenu': 'Закрити меню навігації',
+  'mobileNav.openMenu': 'Відкрити меню навігації',
   'notFound.heading': 'Цей стіл не стоїть на підлозі.',
   'notFound.subheading': 'Сторінка, яку ви шукали, була розміщена деінде або ніколи не існувала.',
+  'notFound.toLanding': 'Головна сторінка {{app}}',
   'notifications.markError': 'Не вдалося позначити все як прочитане.',
   'orderDashboard.activeDelta': 'Зараз наживо',
   'orderDashboard.activeLabel': 'Активні замовлення',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Показати пароль',
   'resetPassword.subtitle': 'Введіть свій новий пароль, щоб відновити доступ до кухні.',
   'resetPassword.tokenLabel': 'Токен скидання',
+  'restaurantOrderingLayout.primaryNavLabel': 'Основна навігація',
   'revenueHeroCard.activeOrders': '{{count}} активний',
   'revenueHeroCard.change': '{{sign}} {{amount}} порівняно з вчорашнім днем',
   'revenueHeroCard.title': 'Сьогоднішній дохід',
@@ -222,6 +230,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Назва ресторану',
   'tableDetail.activeOrders': 'Активні замовлення',
   'tableDetail.backToFloor': 'План поверху',
+  'tableDetail.confirmDelete': 'Видалити цю таблицю?',
   'tableDetail.delete': 'Видалити',
   'tableDetail.deleteError': 'Не вдалося видалити таблицю.',
   'tableDetail.heading': 'Стіл {{label}}',

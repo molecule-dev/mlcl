@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Við erum dreifð hópur hönnuða og verkfræðinga sem eyddum eitt sinn of mörgum klukkustundum á hverjum degi í hávaðasömum pósthólfi. Courier er pósthólfið sem við vildum nota sjálf.',
   'about.title': 'Tölvupóstur fyrir markvissa vinnu',
+  'common.goToDashboard': 'Fara á yfirlit',
   'help.cta.about': 'Um Courier',
   'help.cta.pricing': 'Skoða verðlagningu',
   'help.eyebrow': 'Hjálparmiðstöð',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Skjót svör við þeim spurningum sem við heyrum oftast. Vantar eitthvað? Opnaðu Stillingar og notaðu ábendingareyðublaðið í forritinu eða skrifaðu á support@courier.example.',
   'help.title': 'Hvernig getum við hjálpað?',
   'landing.brand.scrollTop': 'Til baka efst',
+  'landing.copyright': '© {{year}} {{appName}} — Hannað til að einbeita sér.',
   'landing.ctaBody': 'Vertu meðal þúsunda fagfólks sem kláruðu pósthólfið sitt fyrir hádegi.',
   'landing.ctaTitle': 'Vinna meira, bregðast minna við.',
   'landing.eyebrow': 'Tölvupóstur fyrir markvissa vinnu',
@@ -48,6 +50,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Horfa á kynningu',
   'landing.heroSubtitle':
     'Courier er rólegur þriggja rúðu pósthólf hannaður fyrir þekkingarstarfsmenn sem vilja vinna úr upplýsingum, ekki bregðast við þeim.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Treyst af einbeittum teymum um allan heim',
   'landing.signIn': 'Innskráning',
   'meridian.archive.empty': 'Skjalasafn er tómt.',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Drög',
   'meridian.folder.count': '{{count}} skilaboð',
+  'meridian.folder.delete': 'Eyða',
   'meridian.folder.deleteForever': 'Eyða varanlega',
   'meridian.folder.restore': 'Færa í pósthólfið',
   'meridian.forgot.subtitle':
@@ -85,7 +89,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Engin skilaboð hér ennþá.',
   'meridian.inbox.loading': 'Hleður…',
   'meridian.inbox.next': 'Næst',
+  'meridian.inbox.noSender': '(enginn sendandi)',
   'meridian.inbox.noSubject': '(ekkert efni)',
+  'meridian.inbox.ofTotal': '{{current}} af {{total}}',
   'meridian.inbox.openCompose': 'Opna skrif',
   'meridian.inbox.previous': 'Fyrri',
   'meridian.inbox.replyFailed': 'Svar vistað en afhending mistókst: {{error}}',
@@ -98,6 +104,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Ertu ekki með aðgang?',
   'meridian.login.showPassword': 'Sýna lykilorð',
   'meridian.message.toLine': 'til {{recipients}}',
+  'meridian.notFound.body':
+    'Síðan sem þú varst að leita að fannst ekki. Farðu aftur í pósthólfið þitt hjá {{appName}} og við munum hjálpa þér að komast á rétta braut.',
   'meridian.notFound.eyebrow': 'Villa 404',
   'meridian.notFound.title': 'Þessi þráður var geymdur.',
   'meridian.notFound.toInbox': 'Opna pósthólfið mitt',
@@ -133,17 +141,20 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Bæta við stjörnu',
   'meridian.thread.unstar': 'Fjarlægja stjörnu',
   'meridian.time.yesterday': 'Í gær',
+  'meridian.topBar.openMenu': 'Opna flakkvalmynd',
   'meridian.topBar.searchPlaceholder': 'Leita í pósti',
   'meridian.trash.empty': 'Ruslið er tómt.',
   'meridian.trash.title': 'Ruslið',
   'nav.legal': 'Löglegt',
   'planUpdated.description':
     'Áskriftin þín er nú virk og reikningurinn hefur verið uppfærður. Velkomin(n) í uppfærða Courier pósthólfið þitt.',
+  'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.heading': 'drög',
   'pricing.limit.emails': 'tölvupóstar',
   'pricing.limit.folders': 'möppur',
   'pricing.limit.labels': 'merkimiðar',
   'privacy.collect.account': 'Reikningsgögn: nafn, netfang, dulkóðað lykilorð og skráningardagur.',
+  'privacy.contact': 'Spurningar? Sendið tölvupóst á privacy@courier.example.',
   'privacy.intro':
     'Þessi persónuverndarstefna útskýrir hvaða gögn Courier safnar, hvers vegna við söfnum þeim, hvernig við geymum þau örugg og hvaða valkosti þú hefur varðandi þau. Við stefnum að því að vera nákvæm frekar en lagaleg; ef eitthvað er óljóst, skrifaðu þá á privacy@courier.example.',
   'privacy.lastUpdated': 'Síðast uppfært: 1. apríl 2026',
@@ -163,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Þessir skilmálar gilda um notkun þína á Courier. Með því að stofna aðgang eða senda tölvupóst í gegnum okkur samþykkir þú að vera bundinn af þeim. Við reynum að skrifa reglur sem einstaklingur getur í raun fylgt.',
   'terms.lastUpdated': 'Tekur gildi: 1. apríl 2026',
+  'terms.linkPrivacy': 'Lesið persónuverndarstefnu okkar →',
   'terms.termination.body':
     'Þú getur eytt aðganginum þínum hvenær sem er. Við gætum lokað aðgangi sem brýtur gegn þessum skilmálum; ef við gerum það munum við útskýra ástæðuna og leyfa þér að flytja út gögnin þín fyrst.',
   'terms.warranty.body':

@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
+  'about.pageTitle': 'O aplikaciji {{app}}',
+  'common.goToDashboard': 'Idi na kontrolnu ploču',
+  'common.retry': 'Pokušaj ponovno',
   'compose.cancel': 'Otkazati',
   'compose.captionPlaceholder': 'Što ti je na umu?',
   'compose.heading': 'Podijelite trenutak',
@@ -95,6 +99,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'Potvrđeni račun',
   'resetPassword.newPassword': 'Nova lozinka',
   'resetPassword.subheading': 'Odaberite nešto snažno - barem 12 znakova.',
+  'search.clearAria': 'Jasan',
+  'search.error': 'Pretraživanje nije uspjelo. Pokušajte ponovno.',
   'search.noPeople': 'Nema podudaranja kreatora {{q}} ".',
   'search.noPosts': 'Nema odgovarajućih objava " {{q}} ".',
   'search.noTags': 'Još nema trendovskih hashtagova.',
@@ -124,6 +130,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'Sakrij lozinku',
   'signup.showPassword': 'Prikaži lozinku',
   'signup.subheading': 'Izradite račun da biste započeli dijeljenje.',
+  'socialMediaLayout.closeMenu': 'Zatvori navigacijski izbornik',
+  'socialMediaLayout.openMenu': 'Otvori navigacijski izbornik',
+  'socialMediaLayout.primaryNavLabel': 'Primarna navigacija',
   'storyRail.heading': 'Priče',
   'storyRail.label': 'Priče',
   'storyRail.openAria': 'Otvoriti {{handle}} priča',

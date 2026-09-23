@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'accountDetail.activeBadge': 'Gweithredol',
   'accountDetail.availableLabel': '{{amount}} ar gael',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Methwyd llwytho cyfrifon.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': 'Rhewedig',
   'accounts.totalBalance': '{{swm}} cyfanswm',
   'audit.empty': 'Dim digwyddiadau eto.',
   'audit.eyebrow': 'Diogelwch a mynediad',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Arian parod wrth law',
   'cashCreditCard.creditLabel': 'Credyd a ddefnyddiwyd',
   'cashCreditCard.title': 'Arian Parod a Chredyd',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Trosolwg',
   'dashboard.recentEmpty': 'Dim trafodion eto.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Dangos cyfrinair',
   'login.signUp': 'Cofrestru',
   'login.submit': 'Mewngofnodi',
+  'meridianLayout.menu': 'Dewislen',
   'meridianLayout.primaryNavLabel': 'Prif lywio',
   'nav.legal': 'Cyfreithiol',
   'notifications.emptyHeading': 'Rydych chi wedi dal i fyny',
   'notifications.subheading': 'Rhybuddion amser real ar gyfer trafodion, diogelwch a datganiadau.',
+  'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'privacy.dataWeShare':
     'Ni werthir data bancio personol byth. Rydym yn rhannu gwybodaeth gyda phroseswyr taliadau, rhwydweithiau cardiau a rheoleiddwyr dim ond yn ôl yr angen i setlo trafodion neu fodloni rhwymedigaethau cyfreithiol.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Mae dau ffactor yn ychwanegu cod untro o ap dilysu ar bob mewngofnodi.',
   'settings.security.twoFactorCta': 'Rheoli awdurdodiad dau ffactor',
+  'settings.security.twoFactorOff': 'Mae dau ffactor i ffwrdd',
   'settings.signOutDevice': 'Allgofnodi',
   'settings.subheading': 'Proffil, diogelwch, a hysbysiadau.',
+  'settings.twoFactorCode': 'Cod dilysu',
   'settings.twoFactorDisable': 'Analluogi',
   'settings.twoFactorEnable': 'Galluogi',
+  'settings.twoFactorInvalidCode': 'Cod annilys',
+  'settings.twoFactorVerify': 'Dilysu a galluogi',
   'signup.emailLabel': 'Cyfeiriad E-bost',
   'signup.fullName': 'Sut ddylem ni eich annerch chi?',
   'signup.showPassword': 'Dangos cyfrinair',
@@ -103,7 +112,10 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Dim trafodion eto.',
   'transactions.endDate': 'Dyddiad gorffen',
   'transactions.eyebrow': 'Gweithgaredd',
+  'transactions.loadError': 'Methwyd llwytho trafodion.',
   'transactions.merchant': 'Masnachwr',
+  'transactions.subheading':
+    "Pob trafodiad sydd wedi'i bostio ac sydd ar y gweill ar draws eich cyfrifon.",
   'transfers.availableHint': '{{amount}} ar gael',
   'transfers.errorGeneric': "Methwyd cyflwyno'r trosglwyddiad.",
   'transfers.errorMissingFields': 'Dewiswch gyfrif ffynhonnell a chyrchfan.',

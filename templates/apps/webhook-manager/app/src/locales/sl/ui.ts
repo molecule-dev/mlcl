@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// o aplikaciji {{app}}',
+  'about.pageTitle': 'Nadzorna ravnina spletnega kavlja',
+  'about.plansTitle': 'Načrti za vsako fazo',
   'apiKeys.bestPractices': 'Najboljše prakse',
   'apiKeys.body':
     'Žetoni za programski dostop. Obravnavajte jih kot gesla – shranite jih v spremenljivke okolja, nikoli jih ne potrdite.',
@@ -59,6 +62,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'znotraj načrta',
   'billing.usageWarning': 'blizu zgornje meje',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'dashboard.body':
     'Pretočnost v živo, ponovni poskusi med delovanjem in končne točke, ki so se pravkar zataknile – v vsakem delovnem prostoru, ki ga upravljate.',
   'dashboard.endpointsEmpty': 'Končnih točk še ni.',
@@ -109,6 +113,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'končne točke',
   'endpointDetail.deliveryTrendSub': 'dostave/uro, logaritemsko merilo',
   'endpointDetail.hideSecret': 'Skrij skrivnost',
+  'endpointDetail.loading': 'Nalaganje končne točke …',
   'endpointDetail.metric.delivered': 'Dostavljeno v 24 urah',
   'endpointDetail.metric.deliveredCaption': 'od {{count}} vrste dogodkov',
   'endpointDetail.metric.failuresCaption': 'ponovni poskusi: {{retries}}',
@@ -212,6 +217,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Kritično · 24 ur',
   'notifications.metric.totalCaption': 'ves čas',
   'payloadViewer.payload': '// koristni tovor',
+  'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Prikazane začetnice – nalaganja prihajajo z naslednjo izdajo.',
   'profile.body': 'Vaš račun, nastavitve in aktivne seje.',
@@ -226,6 +232,8 @@ export const ui: UiTranslations = {
   'profile.saved': '✓ shranjeno',
   'profile.sessionsEmpty': 'Aktivna je samo vaša trenutna seja. Druge naprave niso prijavljene.',
   'profile.toggle': 'Preklopi {{label}}',
+  'pylonShell.closeMenu': 'Zapri navigacijski meni',
+  'pylonShell.openMenu': 'Odpri navigacijski meni',
   'pylonShell.primaryNavLabel': 'Primarna navigacija',
   'resetPassword.subtitle': 'Izberite močno geslo, ki ga še niste uporabili.',
   'resetPassword.tokenPlaceholder': 'prilepi iz e-pošte',

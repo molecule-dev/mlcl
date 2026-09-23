@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'auth.fields.newPassword': 'Nuwe wagwoord',
   'collectionDetail.addImage': 'Toor vir versameling',
   'collectionDetail.backCta': 'Terug na versamelings',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Stemmingsborde, kortverhale en deurlopende reekse',
   'collections.title': 'Versamelings',
   'collections.untitled': 'Ongetiteld · {{stamp}}',
+  'common.closeMenu': 'Maak spyskaart toe',
+  'common.dismiss': 'Maak toe',
+  'common.goToDashboard': 'Gaan na Dashboard',
+  'common.openMenu': 'Maak navigasiekieslys oop',
   'credits.eyebrow': '{{plan}} plan',
   'credits.renewsCopy': 'Plan hernu op {{date}}',
   'credits.trail': 'Dagdroom · {{plan}} vlak',
@@ -131,6 +136,7 @@ export const ui: UiTranslations = {
     'Generasie-aktiwiteit, deling en kredietwaarskuwings sal hier verskyn.',
   'notifications.empty.title': 'Niks om te rapporteer nie',
   'notifications.subtitle': 'Generasiegebeurtenisse gegroepeer volgens dag',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.limits.gallery': '{{count}} galery',
   'privacy.collect.body':
     "Wanneer jy registreer, versamel ons jou naam, e-posadres en 'n gehashte wagwoord. Terwyl jy Reverie gebruik, stoor ons die aanwysings wat jy indien, die beelde wat ons vir jou genereer, die style en versamelings wat jy stoor, en metadata soos die model wat gebruik is, generasie-tydstempels en kredietbalans.",
@@ -167,6 +173,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Stoor nuwe wagwoord',
   'reset.submitting': 'Wagwoord word opgedateer…',
   'settings.account.handle': 'Hanteer',
+  'settings.account.lastSaved': 'Aktiewe profiel · {{name}}',
   'settings.account.saved': 'Profiel gestoor',
   'settings.account.saveFailed': 'Kon nie profiel stoor nie',
   'settings.account.title': 'Skepperprofiel',
@@ -188,7 +195,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nuwe beeld',
   'sidebar.secondary': 'Sekondêre navigasie',
   'signup.failed': 'Registrasie het misluk. Probeer weer.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Begin jou dagdroom',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': "Skep 'n rekening en eis 120 gratis krediete.",
   'styles.empty': 'Geen stylvoorinstellings nog nie — hulle sal verskyn na die eerste aanmelding.',
   'styles.eyebrow': 'Gekurateerde',

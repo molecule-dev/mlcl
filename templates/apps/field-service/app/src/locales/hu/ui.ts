@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'Ügyfelek',
   'customers.loadError': 'Az ügyfelek betöltése sikertelen.',
   'customers.loading': 'Betöltés…',
+  'customers.new.address': 'Szerviz cím',
   'customers.new.email': 'E-mail',
   'customers.new.error': 'Az ügyfél hozzáadása sikertelen.',
   'customers.new.heading': 'Új ügyfél',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'about.tagline': 'Els secrets moren a la vista.',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Crea un testimoni',
   'apiTokens.kicker': "Tokens d'API",
   'apiTokens.loading': "S'estan carregant els tokens…",
+  'apiTokens.new': 'Nou testimoni',
   'apiTokens.revoke': 'Revoca el testimoni',
   'apiTokens.subheading':
     "Testimonis personals i de servei per a la CLI i l'SDK d'Arcanum. Text sense format es mostra una vegada en la creació.",
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': "SSO + Clau d'accés",
   'authShell.zeroKnowledge': 'Xifratge de coneixement zero',
   'common.connecting': 'Connectant…',
+  'common.goToDashboard': 'Anar al panell',
   'common.inviting': 'Convidant…',
   'forgotPassword.checkInbox':
     'Si {email} està registrat, un enllaç de restabliment signat arribarà en un minut.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     "Estat de rotació, alertes d'anomalies i sol·licituds d'aprovació a cada volta.",
   'notifications.unreadEmpty': "Safata d'entrada zero: tot posat al dia.",
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.heading': 'secrets',
   'pricing.limits.accessPolicies': "polítiques d'accés",
   'pricing.limits.auditLog': "entrades del registre d'auditoria",
@@ -85,9 +89,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Compte personal',
   'profile.plan.description': 'Gestiona la teva subscripció, consulta els límits i actualitza.',
   'profile.subheading': 'Identitat, dispositius de segon factor i sessions actives.',
+  'profile.twoFactor.code': "Codi d'autenticació",
   'profile.twoFactor.disable': 'Desactiva',
   'profile.twoFactor.enable': 'Activa',
+  'profile.twoFactor.invalidCode': 'Codi no vàlid',
   'profile.twoFactor.kicker': 'Autenticació de dos factors',
+  'profile.twoFactor.off': 'No habilitat',
   'profile.twoFactor.on': 'Activat',
   'resetPassword.email': 'Correu electrònic del compte',
   'resetPassword.heading': 'Estableix les noves credencials',
@@ -133,6 +140,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'ordres',
   'secretsManagerLayout.encrypted': 'AES-256 · ENCRIPTAT',
   'secretsManagerLayout.newVault': 'Nova volta',
+  'secretsManagerLayout.newVaultShort': 'Nou',
   'secretsManagerLayout.rotations': 'Rotacions',
   'secretsManagerLayout.search': 'cerca',
   'secretsManagerLayout.searchPlaceholder': 'Cerca secrets per clau, camí o etiqueta…',
@@ -171,6 +179,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Secrets',
   'vaultCard.vaultLabel': 'Volta',
   'vaultDetail.addSecret': 'Afegeix un secret',
+  'vaultDetail.back': 'Totes les voltes',
   'vaultDetail.col.key': 'Clau',
   'vaultDetail.col.rotated': 'Girat',
   'vaultDetail.col.value': 'Valor',

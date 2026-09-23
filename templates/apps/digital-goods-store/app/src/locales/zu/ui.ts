@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'checkout.subtitle':
     'Into ngayinye ivula i-checkout yayo ephethwe yi-Stripe. Izinkinobho zelayisensi zikhishwa uma sekuqinisekisiwe.',
   'checkout.title': 'Isinyathelo esisodwa kusukela ekulandweni kwakho',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'creatorStatGrid.label': 'Okuvelele kwabadali',
   'dashboard.eyebrow': 'Ideshibhodi yabadali',
   'dashboard.range30': '30d',
@@ -31,6 +32,8 @@ export const ui: UiTranslations = {
   'dashboard.subtitle':
     '{{count}} ukuthengisa ezinsukwini ezingu-30 ezedlule. Qhubeka nokuthumela.',
   'dashboard.topProducts': 'Imikhiqizo ephezulu',
+  'dashboard.topProductsEmpty':
+    'Akukho ukuthengisa okwamanje — okuthengiswa kakhulu kwakho kuzovela lapha.',
   'forgotPassword.emailPlaceholder': 'wena@studio.co',
   'forgotPassword.subtitle':
     'Faka i-imeyili yakho — sizokuthumela isixhumanisi sokusetha kabusha kanye.',
@@ -95,11 +98,13 @@ export const ui: UiTranslations = {
   'orderHistory.downloadError': 'Ukulanda akutholakali njengamanje.',
   'orderHistory.downloading': 'Iyalanda…',
   'orderHistory.empty': 'Awekho ama-oda okwamanje',
+  'orderHistory.eyebrow': 'Amarisidi',
   'orderHistory.free': 'Mahhala',
   'orderHistory.title': 'Umlando we-oda',
   'orderHistory.viewReceipt': 'Buka irisidi',
   'planUpdated.settings': 'Vula izilungiselelo',
   'planUpdated.toDashboard': 'Iya kudeshibhodi',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.feature.downloads': 'okulandwayo',
   'pricing.heading': 'imikhiqizo',
   'product.notFound': 'Umkhiqizo awutholakalanga',
@@ -122,9 +127,11 @@ export const ui: UiTranslations = {
   'productEditor.newTitle': 'Umkhiqizo omusha',
   'productEditor.notFound': 'Umkhiqizo awutholakalanga.',
   'productEditor.pricing.price': 'Intengo (i-USD)',
+  'productEditor.published': 'Umkhiqizo ushicilelwe.',
   'productEditor.saved': 'Okusalungiswa kulondoloziwe.',
   'products.col.sales': 'Ukuthengisa',
   'products.col.updated': 'Kubuyekeziwe',
+  'products.emptyTitle': 'Akukho mikhiqizo okwamanje',
   'products.eyebrow': 'Ikhathalogi',
   'products.subtitle': '{{count}} uhlu olusebenzayo',
   'products.title': 'Imikhiqizo yakho',

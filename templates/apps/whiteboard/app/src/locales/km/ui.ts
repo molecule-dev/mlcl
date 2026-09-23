@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'authShell.brandHeading': 'ផ្ទាំងគំនូរអ្នកលេងច្រើនសម្រាប់ក្រុមរចនាដែលគិតខ្លាំងៗ។',
   'billing.canceled': 'ការជាវត្រូវបានលុបចោល។',
   'billing.cancelPlan': 'លុបចោលផែនការ',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'ចាប់ផ្តើមពីគំរូ',
   'boards.title': 'ក្តាររបស់អ្នក',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'សូមបញ្ចូលអ៊ីមែលដែលភ្ជាប់ជាមួយកន្លែងធ្វើការរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញ។',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'សិក្ខាសាលាត្រីមាសទី 1 · សំឡេងម៉ាកយីហោ',
   'landing.featuresEyebrow': 'អ្វីដែលធ្វើឱ្យ Slate tessellate',
   'landing.featuresTitle': 'មតិប្រតិកម្មរហ័ស។ ផ្ទាំងក្រណាត់ដ៏ស្រស់ស្អាត។ គ្មានការកកិត។',
+  'landing.hero.body':
+    '{{appName}} គឺជាក្ដារខៀនសម្រាប់ក្រុមរចនា អ្នកសម្របសម្រួលសិក្ខាសាលា និងអ្នកអប់រំ ដែលរៀបចំការបំផុសគំនិតផ្ទាល់ និងត្រូវការគំនិតដើម្បីបញ្ចូលគ្នានៅកន្លែងតែមួយ។',
   'landing.hero.primaryCta': 'ចាប់ផ្តើមក្តារដោយឥតគិតថ្លៃ',
   'landing.hero.socialProof': 'ទុកចិត្តដោយ {{count}} ក្រុមរចនាទូទាំងពិភពលោក',
   'landing.hero.title': 'ផ្ទាំងក្រណាត់លឿនដូចគំនិតរបស់អ្នក',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'បង្កើតកន្លែងធ្វើការដោយឥតគិតថ្លៃ',
   'login.subheading':
     'បន្តពីកន្លែងដែលសិក្ខាសាលាបានឈប់ — ក្ដារខៀន កំណត់ចំណាំ និងទស្សន៍ទ្រនិចទាំងអស់ធ្វើសមកាលកម្មក្នុងពេលជាក់ស្តែង។',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.new': 'ថ្មី',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'notifications.editTitle': 'កែសម្រួល​ទៅ " {{board}} "',
   'notifications.empty.body':
     'ការអញ្ជើញ ការរក្សាទុករូបថតអេក្រង់ និងការកែសម្រួលក្ដារថ្មីៗនឹងបង្ហាញនៅទីនេះភ្លាមៗ។',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'ប្រវត្តិកំណែ',
   'versionHistory.untitledSnapshot': 'រូបថត​គ្មាន​ចំណងជើង',
   'whiteboardLayout.newBoard': 'ក្តារថ្មី',
+  'whiteboardLayout.primaryNav': 'ការរុករកចម្បង',
   'workspace.boardLabel': 'ក្តារ',
   'workspace.eyebrow': '{{name}} · កន្លែងធ្វើការ',
   'workspace.invite': 'អញ្ជើញអ្នកសហការ',

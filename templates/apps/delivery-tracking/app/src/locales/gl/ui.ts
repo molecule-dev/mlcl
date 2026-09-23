@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
   'alerts.acknowledgeLabel': 'Recoñecer',
   'alerts.customerLabel': 'Cliente: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Conectando…',
   'carriers.requiredError': 'O nome e o código son obrigatorios.',
   'carriers.subheading': '{{count}} integrado',
+  'common.goToDashboard': 'Ir ao panel',
   'common.no': '—',
+  'common.retry': 'Reintentar',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'En tránsito + sinalizado',
   'dashboard.activeShipmentsSubtitle':
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'envíos',
   'pricing.trackingLabel': 'eventos de seguimento',
   'profile.dangerZone.title': 'Zona de perigo',
+  'profile.devices.signingOut': 'Pechando sesión…',
+  'profile.devices.unnamed': 'Dispositivo sen nome',
+  'profile.security.disable2fa': 'Desactivar a autenticación en dous factores',
   'profile.security.enable2fa': 'Activar a autenticación a dúas forzas',
   'profile.security.pwChanged': 'Contrasinal modificado correctamente.',
   'profile.security.pwCurrent': 'Contrasinal actual',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA activo',
   'profile.security.twoFaCode': 'código de 6 díxitos',
   'profile.security.twoFaDisable': 'Desactivar',
+  'profile.security.twoFaDisabling': 'Desactivando…',
   'profile.security.twoFaFailed': 'Non se puido verificar o código.',
   'profile.security.twoFaIntro':
     'Escanea o código QR na túa aplicación de autenticación e, a seguir, introduce o código de 6 díxitos que aparece a continuación para verificalo.',
   'profile.security.twoFaOn': 'A autenticación en dous pasos está activada nesta conta.',
+  'profile.security.twoFaQrAlt': 'Código QR de dous factores',
   'profile.security.twoFaVerify': 'Verificar e activar',
   'profile.security.twoFaVerifying': 'Verificando…',
   'profile.subheading': 'Configuración de identidade e seguranza para este espazo de traballo.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Garda este segredo: non se volverá mostrar.',
   'settings.api.webhookSecret': 'Segredo de sinatura de Webhook',
   'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
+  'settings.deleteAccountConfirm': 'Seguro? Esta acción non se pode desfacer.',
   'settings.notifications.exceptions':
     'Enviar correo electrónico cando se produza unha excepción de envío',
   'settings.notifications.heading': 'Notificacións',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Non se atopou o envío.',
   'shipmentDetail.originHeading': 'Orixe',
   'shipmentDetail.shippedOn': 'Enviado {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Aínda non hai eventos de seguimento: as actualizacións aparecen aquí mentres o transportista escanea o paquete.',
   'shipmentDetail.weightLabel': '{{weight}} libra',
   'shipments.col.carrier': 'Transportista',
   'shipments.col.eta': 'Hora estimada de chegada',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Iniciar sesión',
   'signup.submit': 'Crear conta',
   'team.emailError': 'É necesario un enderezo de correo electrónico válido.',
+  'team.empty':
+    'Aínda non hai membros do equipo. Convida a un compañeiro de equipo a colaborar nos envíos.',
   'team.eyebrow': 'Membros e permisos',
   'team.inviteDialog.cancel': 'Cancelar',
   'team.inviteDialog.heading': 'Convidar a un compañeiro de equipo',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Pista',
   'waypointLayout.primaryNavLabel': 'Navegación principal',
   'webhooks.createFailed': 'Non se puido crear o punto final do webhook.',
+  'webhooks.endpointsEmpty':
+    'Aínda non hai puntos finais de webhook. Crea un para recibir chamadas de retroalimentación do estado do envío.',
   'webhooks.endpointsHeading': 'Puntos finais',
   'webhooks.eventCount': '{{count}} eventos',
   'webhooks.eventsHeading': 'Entregas recentes',

@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.eyebrow': 'Um {{app}}',
+  'about.intro':
+    '{{app}} er hugleiðsluapp fyrir raunveruleikann — daglegar leiðsagnir í hugleiðslu, öndunaræfingar og svefnsögur í gegnum kennara sem líða eins og vinir, ekki þjálfarar. Engin sektarkennd, engin hávaðasöm næring: bara rólegur staður til að koma aftur til andardráttarins.',
+  'about.missionBody':
+    'Við teljum að kyrrð ætti að vera aðgengileg öllum, hvenær sem er sólarhringsins. {{app}} er til staðar til að gera rólega og stöðuga iðkun áreynslulausa — svo að tíu heiðarlegar mínútur geti breytt því hvernig þú mætir næstu tíu klukkustundum.',
+  'about.missionTitle': 'Markmið okkar',
+  'about.pageTitle': 'Rólegri 10 mínútur á dag',
+  'breathingDial.seconds': 'sekúndur',
+  'common.goToDashboard': 'Fara á yfirlit',
+  'common.logout': 'Skrá út',
   'common.min': 'mín.',
   'common.relative.justNow': 'rétt í þessu',
   'common.relative.now': 'núna',
+  'mobileNav.closeMenu': 'Loka flakkvalmynd',
+  'mobileNav.openMenu': 'Opna flakkvalmynd',
+  'nav.secondaryNavigation': 'Reikningsflakk',
   'sessionCard.with': 'með {{name}}',
   'stillpoint.billing.choose': 'Veldu {{plan}}',
   'stillpoint.billing.currentPlan': 'Nú á {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Við gátum ekki hlaðið inn áætlunum.',
   'stillpoint.billing.opening': 'Opnar afgreiðslu…',
   'stillpoint.billing.perMonthShort': '/ mán',
+  'stillpoint.billing.perYearShort': '/ár',
   'stillpoint.billing.unknownResult': 'Óvænt svar við reikningi.',
   'stillpoint.billing.yearly': 'Árlega · sparaðu 17%',
   'stillpoint.courseDetail.back': 'Námskeið',
@@ -24,6 +39,8 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Engin námskeið ennþá.',
   'stillpoint.courses.eyebrow': '{{count}} margra daga ferðir',
   'stillpoint.courses.heading': 'Námskeið',
+  'stillpoint.forgot.checkEmail':
+    'Kíktu á pósthólfið þitt — tengillinn rennur út eftir 30 mínútur.',
   'stillpoint.forgot.success': 'Við höfum sent endurstillingarhlekk til {{email}} .',
   'stillpoint.home.empty': 'Engar lotur ennþá — kíkið aftur bráðlega.',
   'stillpoint.home.friend': 'vinur',
@@ -48,6 +65,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Búðu til ókeypis aðganginn þinn',
   'stillpoint.landing.cta.title': 'Byrjaðu kyrrð þína í dag',
   'stillpoint.landing.features.heading': 'Æfing sem vex með þér',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'stillpoint.landing.hero.body':
     'Daglegar hugleiðslur, öndunaræfingar og svefnsögur — undir stjórn kennara sem líða eins og vinur, ekki þjálfari.',
   'stillpoint.landing.hero.eyebrow': 'Rólegri 10 mínútur á dag',
@@ -64,6 +82,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Skoða eftir skapi',
   'stillpoint.login.rememberMe': 'Halda mér innskráðum',
   'stillpoint.login.subheading': 'Skráðu þig inn til að halda áfram æfingunni.',
+  'stillpoint.nav.tagline': 'Finndu kyrrstöðumiðstöð þína',
+  'stillpoint.notFound.body':
+    'Þessi síða er að draga djúpt andann einhvers staðar. Við skulum finna rólegri stað fyrir þig í {{app}} .',
   'stillpoint.notFound.title': 'Týnd í þögninni',
   'stillpoint.notFound.toHome': 'Til baka til dagsins í dag',
   'stillpoint.notFound.toLibrary': 'Skoða bókasafn',
@@ -80,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': 'Fara aftur 15 sekúndur',
   'stillpoint.player.skipForward': 'Hoppa áfram 30 sekúndur',
   'stillpoint.player.with': 'með {{name}}',
+  'stillpoint.profile.defaultHandle': 'kyrrvísir',
   'stillpoint.profile.eyebrow': 'Starfshættir þínar, í stuttu máli.',
   'stillpoint.profile.locked': 'Læst',
   'stillpoint.profile.member': 'Meðlimur í Stillpoint',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Нууц үгээ дахин тохируулна уу.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Даалгаврыг дууссан гэж тэмдэглэх',
   'checklistTaskCard.markIncomplete': 'Даалгаврыг дуусаагүй гэж тэмдэглэх',
   'checklistTaskCard.openLabel': 'Нээлттэй даалгавар',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Та бүгдийг нь дуусгалаа',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Замдаа',
   'dashboard.timelineHeading': '30/60/90 оны гол амжилтууд',
   'dashboard.viewAllTasks': 'Бүх даалгаврыг харах',
+  'dashboard.weekOne': '1 дэх долоо хоног',
   'dashboard.yourCohort': 'Танай баг',
   'documents.empty.body': 'Танай багийн нэмсэн баримт бичгүүд энд харагдах болно.',
   'documents.empty.title': 'Одоогоор баримт бичиг алга',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 хоногийн үнэгүй туршилт',
   'landing.subhead':
     'Embark нь шинэ багийн гишүүн бүрийг эхний 90 хоногт нь - бичиг цаасны ажил, сургалт, чухал үйл явдлууд, утга учиртай танилцуулга зэрэг бүх ажлыг нэг тайван, өөртөө итгэлтэй газар зохион байгуулдаг.',
+  'layout.openMenu': 'Навигацийн цэсийг нээх',
   'layout.search': 'Даалгавар, баримт бичиг, багийн гишүүдийг хайх...',
+  'layout.searchTeammates': 'Багийн гишүүдээ нэр эсвэл үүргээр нь хайх...',
   'layout.section.onboarding': 'Шинээр элсүүлэх',
   'layout.tagline': 'Таны аялал эндээс эхэлнэ',
   'notifications.empty.body': 'Шинэ үйл ажиллагаа энд харагдах болно.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Та бэлэн боллоо.',
   'planUpdated.preparing': 'Таны төлөвлөгөөг шинэчилж байна…',
+  'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.documentsLabel': 'баримт бичиг',
   'pricing.onboardingsLabel': 'элсэлт',
   'pricing.tasksLabel': 'даалгаварууд',

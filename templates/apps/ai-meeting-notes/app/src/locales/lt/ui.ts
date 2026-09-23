@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie mus',
   'actions.empty': 'Nerasta atitinkančių užduočių.',
   'actions.heading': 'Veiksmai',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Praėjusį mėnesį',
   'calendar.recent': 'Naujausi',
   'common.daysAgo': '{{count}} prieš d.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'common.hoursAgo': '{{count}} prieš val.',
   'common.no': '—',
+  'common.retry': 'Bandyti dar kartą',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} veiksmai',
   'dashboard.empty.body':
@@ -43,9 +46,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Įveskite savo el. pašto adresą, ir mes atsiųsime nuorodą, kuria galėsite atkurti slaptažodį.',
   'integrations.disconnected': 'Atjungtas',
+  'integrations.loadError': 'Nepavyko įkelti integracijų.',
   'integrations.notConnectedTag': 'Nesijungta',
   'integrations.subheading':
     'Susiekite kalendorius ir vaizdo platformas, kad „Murmur“ prisijungtų automatiškai.',
+  'integrations.updateError': 'Atnaujinti nepavyko.',
   'landing.ctaButton': 'Pradėkite — tai nemokama',
   'landing.ctaHeading': 'Nustokite daryti užrašus. Pradėkite priimti sprendimus.',
   'landing.demo.aiLabel': 'AI santrauka, parengta realiuoju laiku',
@@ -64,7 +69,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Tolesni veiksmai',
   'meetingDetail.loadError': 'Nepavyko įkelti susitikimo.',
   'meetingDetail.noActions': 'Nenustatyta jokių veiksmų, kuriuos reikia atlikti.',
+  'meetingDetail.none': 'Nėra.',
   'meetingDetail.notFound': 'Susitikimo nerasta.',
+  'meetingDetail.speakerFallback': 'Pranešėja{{id}}',
   'meetingDetail.summaryHeading': 'AI santrauka',
   'meetingDetail.transcriptHeading': 'Transkripcija',
   'meetings.empty.body':
@@ -73,6 +80,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Susitikimai',
   'meetings.loadError': 'Nepavyko įkelti susitikimų.',
   'meetings.subheading': 'Kiekvienas įrašytas, įkeltas ir sinchronizuotas susitikimas.',
+  'murmurLayout.openMenu': 'Atidaryti navigacijos meniu',
   'murmurLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'nav.legal': 'Teisinis',
   'notifications.loadError': 'Nepavyko įkelti pranešimų.',
@@ -106,6 +114,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Kaip jūs atrodote „Murmur“ platformoje.',
   'record.error.empty': 'Garso įrašas nebuvo įrašytas.',
   'record.error.permission': 'Leidimas naudoti mikrofoną nesuteiktas.',
+  'record.error.recorder': 'Įrašymo klaida',
   'record.error.unsupported':
     'Jūsų naršyklė nepalaiko įrašymo funkcijos. Išbandykite „Chrome“, „Edge“ arba „Safari“.',
   'record.error.upload': 'Įkėlimas nepavyko. Bandykite dar kartą.',
@@ -122,6 +131,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Naujas slaptažodis',
   'reset.subheading': 'Pasirinkite slaptažodį, kurio nenaudojate niekur kitur.',
   'search.empty': 'Įveskite tekstą, kad ieškotumėte transkripcijų.',
+  'search.loadError': 'Paieška nepavyko. Bandykite dar kartą.',
   'search.noResults': 'Nerasta rezultatų pagal užklausą „{{q}}“.',
   'settings.appearance.description': 'Perjungti šviesų ir tamsų režimus.',
   'settings.appearance.title': 'Išvaizda',
@@ -130,6 +140,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Nepavyko įkelti nustatymų.',
   'settings.loading': 'Kraunama…',
   'settings.push.heading': 'Tiesioginiai pranešimai',
+  'settings.push.subheading':
+    'Gaukite naršyklės pranešimus apie paminėjimus, atliktinus veiksmus ir santraukas.',
   'settings.retention.audio': 'Išsaugoti garso įrašą',
   'settings.retention.heading': 'Išsaugojimas',
   'settings.retention.transcript': 'Saugokite pažymėjimus',
@@ -147,6 +159,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Pradėkite užsirašinėti susitikimų pastabas per kelias minutes',
   'signup.terms':
     'Sukurdami paskyrą, jūs sutinkate su mūsų Naudojimo sąlygomis ir Privatumo politika.',
+  'signup.termsPrefix': 'Sukurdami paskyrą, jūs sutinkate su mūsų',
   'team.inviteCta': 'Pakviesk komandos narį',
   'team.invitedAs': 'Pakviestas kaip „{{role}}“',
   'team.inviteFailed': 'Nepavyko išsiųsti kvietimo.',

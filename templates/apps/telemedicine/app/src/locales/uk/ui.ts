@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Записатися на прийом',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Немає пацієнтів для показу.',
+  'common.goToDashboard': 'До панелі',
   'consult.backLink': 'Усі зустрічі',
   'consult.captions': 'Субтитри',
   'consult.connected': 'Підключено · 720p · стабільно',
@@ -131,6 +132,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Пацієнти',
   'patientVitalsHero.scripts': 'Рецепт відкритий',
   'patientVitalsHero.subline': '{{count}} консультації за вашим розкладом сьогодні',
+  'planUpdated.verifying': 'Підтвердження платежу…',
   'prescriptions.empty': 'Жоден рецепт не відповідає рецепту.',
   'prescriptions.eyebrow': 'Електронне призначення рецептів',
   'prescriptions.heading': 'Рецепти',
@@ -146,6 +148,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Повідомлення про конфіденційність',
   'privacy.use.body':
     'Щоб надавати медичну допомогу, надсилати нагадування про зустрічі, виписувати рецепти та підвищувати надійність послуг. Ми ніколи не продаємо ваші дані та ніколи не передаємо клінічну інформацію рекламодавцям.',
+  'providers.allSpecialties': 'Всі спеціальності',
+  'providers.loadError': 'Не вдалося завантажити постачальників.',
+  'providers.loading': 'Завантаження…',
   'providers.noResults': 'Не знайдено жодного постачальника.',
   'providers.searchPlaceholder': 'Пошук за назвою, спеціальністю...',
   'providers.title': 'Знайти постачальника',
@@ -165,6 +170,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Початок дня',
   'settings.availability.heading': 'Наявність',
   'settings.devices.thisDevice': 'Цей пристрій',
+  'settings.devices.unnamed': 'Безіменний пристрій',
   'settings.eyebrow': 'Практика та облік',
   'settings.loadError': 'Не вдалося завантажити ваш профіль.',
   'settings.notifications.emailMessages': 'Напишіть мені, коли моя команда з догляду відповість',
@@ -178,6 +184,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Вимкнути',
   'settings.security.twoFactor.enable': 'Увімкнути',
   'settings.security.twoFactor.heading': 'Двофакторна автентифікація',
+  'settings.security.twoFactor.invalidCode': 'Цей код не збігається. Спробуйте ще раз.',
+  'settings.security.twoFactor.setupFailed':
+    'Не вдалося розпочати двофакторне налаштування. Спробуйте ще раз.',
+  'settings.security.twoFactor.statusOn': 'Двофакторний підхід увімкнено',
   'settings.signOutDevice': 'Вийти',
   'settings.subheading': 'Профіль постачальника послуг, правила практики та клінічні сповіщення.',
   'signup.emailLabel': 'E-MAIL',
@@ -188,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Створити акаунт',
   'signupFooter.hipaa': 'Відповідає HIPAA',
   'solaceLayout.primaryNavLabel': 'Основна навігація',
+  'solaceLayout.toggleMenu': 'Перемикання меню',
   'terms.eligibility.body':
     'Вам має бути щонайменше вісімнадцять років, або ви повинні бути батьком чи законним опікуном неповнолітньої особи, для якої ви шукаєте допомоги, та фізично перебувати в штаті США, де наші клініцисти мають ліцензію.',
   'terms.payment.body':

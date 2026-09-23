@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
+  'about.featureDiscover.title': '厳選されたインスピレーション',
   'account.addPaymentCta': '支払い方法を追加',
   'account.addPaymentError': '支払い方法を追加できませんでした。',
+  'account.confirmRemove': '削除を確認',
   'account.defaultBadge': 'デフォルト',
   'account.loyalty.pointsTowardNext': '{{nextTier}}まで{{next}}マイル中{{points}}マイル',
   'account.loyalty.tier': '現在のティア',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': '旅行の詳細',
   'booking.tripSummary': '{{nights}}泊 · {{guests}}名',
   'common.daysAgo': '{{count}}日前',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.hoursAgo': '{{count}}時間前',
   'common.minutesAgo': '{{count}}分前',
   'common.no': '—',
@@ -77,6 +81,7 @@ export const ui: UiTranslations = {
   'nav.legal': '法的事項',
   'notifications.loading': '読み込み中…',
   'notifications.subheading': '未読{{count}}件 · すべてが1つの落ち着いた受信トレイに',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.accommodationsLabel': '宿泊施設',
   'pricing.bookingsLabel': '予約',
   'pricing.destinationsLabel': '保存した目的地',
@@ -128,6 +133,7 @@ export const ui: UiTranslations = {
     'インスピレーション、信頼できる宿泊先、そして夢から予約までの摩擦のない道のり — 14カ国200以上の厳選物件で。',
   'sojournHeroSearchCard.trustProtected': '無料キャンセル、完全保護',
   'sojournHeroSearchCard.trustVetted': '厳選された物件のみ',
+  'travelBookingLayout.primaryNavLabel': 'メインナビゲーション',
   'tripDetail.backLink': '旅行に戻る',
   'tripDetail.cancelCta': '予約をキャンセル',
   'tripDetail.cancelHeading': 'この旅行をキャンセルしますか?',

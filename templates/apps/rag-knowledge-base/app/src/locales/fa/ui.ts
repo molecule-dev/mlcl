@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.pageTitle': 'درباره {{appName}}',
   'analytics.error': 'نتوانستیم تحلیل‌ها را بارگذاری کنیم.',
   'analytics.heading': 'تجزیه و تحلیل بازیابی',
@@ -51,6 +52,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'هیچ سطح قیمت‌گذاری پیکربندی نشده است.',
   'billing.plans.heading': 'طرح‌ها',
   'billing.subheading': 'برنامه‌ریزی، استفاده و پرداخت مدیریت‌شده توسط Stripe.',
+  'common.confirm': 'تأیید',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.retry': 'دوباره امتحان کنید',
   'documentCard.open': 'باز کردن',
   'documentDetail.back': 'بازگشت به اسناد',
   'documentDetail.chunks.empty':
@@ -70,6 +74,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'سند فهرست',
   'documents.composer.titlePlaceholder': 'عنوان سند',
   'documents.emptyAll': 'هنوز سندی وجود ندارد. برای شروع پرسیدن سوال، یکی را آپلود کنید.',
+  'documents.error.load': 'اسناد بارگیری نشدند.',
   'documents.heading': 'اسناد نمایه شده',
   'documents.loading': 'در حال بارگذاری اسناد…',
   'documents.metric.chunks': 'کل قطعات',
@@ -138,7 +143,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'حذف کردن\\u2026',
   'members.subheading': 'از هم‌تیمی‌ها دعوت کنید و نقش‌ها را تعیین کنید.',
   'members.tableHeading': 'فهرست',
+  'mobileNav.closeMenu': 'بستن منوی ناوبری',
+  'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'notFound.askCta': 'از پایگاه دانش بپرسید',
+  'notFound.body':
+    '{{app}} نتوانست آن صفحه را پیدا کند. ممکن است لینک خراب باشد، یا صفحه در حین فهرست‌بندی مجدد از دسترس خارج شده باشد.',
   'notFound.eyebrow': 'قابل بازیابی نیست',
   'notFound.title': 'چنین بخشی در فهرست وجود ندارد',
   'notifications.dismiss': 'رد کردن',
@@ -202,6 +211,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'آدرس اینترنتی منبع',
   'sources.empty.body': 'برای سیم‌کشی اولین کانکتور خود، روی \\u201cAdd source\\u201d کلیک کنید.',
   'sources.empty.title': 'هنوز هیچ منبعی وجود ندارد.',
+  'sources.error.add': 'نتونستم منبع اضافه کنم.',
   'sources.error.labelRequired': 'برچسب الزامی است.',
   'sources.error.load': 'منابع بارگذاری نشدند.',
   'sources.error.urlRequired': 'برای این نوع منبع، URL لازم است.',

@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
+  'about.title': 'Seomra scríbhneoireachta is féidir leat a choinneáil i do phóca',
   'billing.cancelConfirm': 'Do shíntiús gníomhach a chealú?',
   'billing.cancelFailed': 'Níorbh fhéidir cealú.',
   'billing.checkingOut': 'Ag oscailt an tseiceáil amach…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Níorbh fhéidir billeáil a lódáil.',
   'billing.loading': 'Billeáil á lódáil…',
   'billing.upgradeCta': 'Uasghrádaigh go {{name}}',
+  'common.goToDashboard': 'Téigh chuig an Deais',
+  'editor.autosaveOn': 'Uathshábháil ar siúl',
   'editor.backToLibrary': 'Ar ais chuig an leabharlann',
   'editor.charCount': '{{count}} carachtair',
   'editor.confirmTrash': 'An bhfuil tú ag iarraidh an doiciméad seo a bhogadh chuig an mbruscar?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Díbhriontáilte',
   'editor.unpublishCta': 'Bog go dtí an dréacht',
   'editor.unpublished': 'Ar ais chuig dréacht',
+  'focus.autosaveOn': 'Uathshábháil ar siúl',
   'focus.backToLibrary': 'Ar ais chuig an leabharlann',
   'focus.bodyPlaceholder': 'Líne amháin ag an am. Níl aon duine eile anseo.',
   'focus.exit': 'Scoir an mód fócais',
@@ -81,6 +86,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Cruthaigh ceann',
   'login.subline':
     'Tá do lámhscríbhinní, do leathanaigh laethúla, agus suíomh deireanach an chúrsóra díreach san áit ar fhág tú iad.',
+  'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
+  'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'pricing.exports': 'onnmhairí',
   'pricing.folders': 'fillteáin',
   'pricing.heading': 'doiciméid',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Cuir isteach an cód a sheolamar ríomhphost chugat agus roghnaigh rud éigin a bheidh cuimhneach ort. Logálfaimid isteach thú a luaithe a bheidh sé sábháilte.',
   'reset.tokenHint': 'Greamaithe ó do bhosca isteach.',
+  'settings.appearance.heading': 'Solas nó dorchadas',
   'settings.editor.${row.id}.description': 'Teanga',
   'settings.editor.description':
     'Scrolláil clóscríbhneora, céimniú míre, agus fócas díomhaoin — tá na réamhshocruithe coigeartaithe le haghaidh seisiún fada.',
@@ -138,6 +146,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Caibidil a Trí — Uair an Chiúin Roimh Éirí Gréine',
   'versalDocumentCard.pinned': 'Priontáilte',
   'versalLayout.nav.stats': 'Staitisticí',
+  'versalLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'versalManuscriptHero.cta': 'Lean ort ag scríobh',
   'versalManuscriptHero.goalLabel': 'Sprioc focal an lae inniu',
   'versalManuscriptHero.inProgress': 'Ar an mbóthar ceart',

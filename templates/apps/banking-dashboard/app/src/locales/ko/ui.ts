@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
   'accountDetail.activeBadge': '활성',
   'accountDetail.availableLabel': '{{amount}} 사용 가능',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': '계좌',
   'accounts.loadError': '계좌를 불러오지 못했습니다.',
   'accounts.status.closed': '닫힘',
+  'accounts.status.frozen': '겨울왕국',
   'accounts.totalBalance': '총 {{amount}}',
   'audit.empty': '아직 이벤트가 없습니다.',
   'audit.eyebrow': '보안 및 접근',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': '보유 현금',
   'cashCreditCard.creditLabel': '사용한 신용',
   'cashCreditCard.title': '현금 및 신용',
+  'common.goToDashboard': '대시보드로 이동',
   'dashboard.accountsHeading': '계좌',
   'dashboard.heading': '개요',
   'dashboard.recentEmpty': '아직 거래 내역이 없습니다.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': '비밀번호 표시',
   'login.signUp': '회원가입',
   'login.submit': '로그인',
+  'meridianLayout.menu': '메뉴',
   'meridianLayout.primaryNavLabel': '기본 탐색',
   'nav.legal': '법적 고지',
   'notifications.emptyHeading': '모든 알림을 확인하셨습니다',
   'notifications.subheading': '거래, 보안, 명세서에 대한 실시간 알림입니다.',
+  'planUpdated.verifying': '결제 확인 중…',
   'privacy.dataWeShare':
     '개인 뱅킹 데이터는 절대 판매되지 않습니다. 거래 정산이나 법적 의무 이행을 위해 필요한 경우에만 결제 처리업체, 카드 네트워크, 규제 기관과 정보를 공유합니다.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     '이중 인증은 로그인할 때마다 인증 앱의 일회용 코드를 추가로 요구합니다.',
   'settings.security.twoFactorCta': '이중 인증 관리',
+  'settings.security.twoFactorOff': '2단계 인증이 꺼져 있습니다',
   'settings.signOutDevice': '로그아웃',
   'settings.subheading': '프로필, 보안, 알림.',
+  'settings.twoFactorCode': '인증 코드',
   'settings.twoFactorDisable': '비활성화',
   'settings.twoFactorEnable': '활성화',
+  'settings.twoFactorInvalidCode': '잘못된 코드',
+  'settings.twoFactorVerify': '확인 및 활성화',
   'signup.emailLabel': '이메일 주소',
   'signup.fullName': '어떻게 불러 드릴까요?',
   'signup.showPassword': '비밀번호 표시',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': '아직 거래 내역이 없습니다.',
   'transactions.endDate': '종료일',
   'transactions.eyebrow': '활동',
+  'transactions.loadError': '거래를 불러오지 못했습니다.',
   'transactions.merchant': '가맹점',
+  'transactions.subheading': '귀하의 모든 계좌에 걸쳐 게시된 거래 및 처리 중인 거래.',
   'transfers.availableHint': '{{amount}} 사용 가능',
   'transfers.errorGeneric': '이체를 제출할 수 없습니다.',
   'transfers.errorMissingFields': '출금 계좌와 수령처를 선택해 주세요.',

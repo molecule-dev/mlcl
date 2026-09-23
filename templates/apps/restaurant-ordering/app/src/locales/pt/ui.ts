@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Sobre {{app}}',
   'analytics.avgCheckLabel': 'Ticket médio',
   'analytics.busiestHour': 'Horário de pico',
   'analytics.coversToday': 'Couvers hoje',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Gorjeta (média)',
   'analytics.topItems': 'Mais vendidos hoje',
   'authShell.eyebrow': 'Bem-vindo de volta ao serviço',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     'Um ponto de venda caloroso e rápido para equipes de hospitalidade. Entre na sua cozinha e continue de onde parou.',
   'authShell.tip':
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'ou {{price}}',
   'billing.priceUnavailable': 'Este plano não tem preço configurado.',
   'billing.updated': 'Plano atualizado.',
+  'common.goToDashboard': 'Ir para o Painel',
   'customerDetail.book': 'Adicionar reserva',
   'customerDetail.col.table': 'Mesa',
   'customerDetail.confirmDelete': 'Excluir este registro de cliente?',
@@ -127,6 +130,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponibilidade',
   'menuItemDetail.available': 'Disponível hoje à noite',
   'menuItemDetail.backToMenu': 'Voltar ao menu',
+  'menuItemDetail.confirmDelete': 'Excluir este item do menu?',
   'menuItemDetail.delete': 'Excluir item',
   'menuItemDetail.deleteError': 'Falha ao excluir. Tente novamente.',
   'menuItemDetail.dietary': 'Restrições alimentares',
@@ -137,9 +141,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.saveError': 'Falha ao salvar. Tente novamente.',
   'menuItemDetail.subheading': '{{category}} · edite foto, modificadores, restrições e preço.',
   'menuItemDetail.untitled': 'Item sem título',
+  'mobileNav.closeMenu': 'Fechar menu de navegação',
+  'mobileNav.openMenu': 'Abrir menu de navegação',
   'notFound.heading': 'Esta mesa não está no salão.',
   'notFound.subheading':
     'A página que você procurava foi acomodada em outro lugar — ou nunca existiu.',
+  'notFound.toLanding': 'Página inicial {{app}}',
   'notifications.markError': 'Não foi possível marcar tudo como lido.',
   'orderDashboard.activeDelta': 'Em andamento',
   'orderDashboard.activeLabel': 'Pedidos ativos',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Mostrar senha',
   'resetPassword.subtitle': 'Digite sua nova senha para recuperar o acesso à cozinha.',
   'resetPassword.tokenLabel': 'Token de redefinição',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navegação principal',
   'revenueHeroCard.activeOrders': '{{count}} ativos',
   'revenueHeroCard.change': '{{sign}}{{amount}} vs ontem',
   'revenueHeroCard.title': 'Receita de hoje',
@@ -221,6 +229,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Nome do restaurante',
   'tableDetail.activeOrders': 'Pedidos ativos',
   'tableDetail.backToFloor': 'Mapa do salão',
+  'tableDetail.confirmDelete': 'Excluir esta tabela?',
   'tableDetail.delete': 'Excluir',
   'tableDetail.deleteError': 'Não foi possível excluir a mesa.',
   'tableDetail.heading': 'Mesa {{label}}',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
+  'about.tagline': 'Свака јединица, под једним кровом.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'dashboard.addProperty': 'Додај својину',
   'dashboard.empty.body':
     'Када имате некретнине, јединице и плаћања закупнине, ова контролна табла се пуни увидима у портфолио.',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{некретнина}} Јединица {{јединица}} · {{датум}}',
   'maintenanceQueueList.subtitle': '{{count}} отворени радни налози, поређани по приоритету',
   'maintenanceQueueList.title': 'Ред за одржавање',
+  'nav.closeMenu': 'Затвори мени',
+  'nav.openMenu': 'Отвори мени',
   'notFound.body': 'Страница коју сте тражили је премештена, архивирана или никада није постојала.',
   'notFound.title': 'Та врата се не отварају',
   'notifications.empty.body':

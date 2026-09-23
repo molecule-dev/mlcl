@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'analytics.col.quorum': 'Quorum',
   'analytics.col.votes': "Kuri'u",
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Babu tambayoyi da ake jira tukuna.',
   'audienceQa.onStageEyebrow': 'A kan mataki yanzu',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Talla',
   'audienceQa.queued': 'an yi layi',
   'audienceQa.queueEyebrow': 'Layi',
   'ballot.eyebrow': "Ka jefa ƙuri'arka",
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'A halin yanzu kuna kan hanya {{plan}} shirin.',
   'billing.switch': 'Canjawa',
   'billing.upgraded': 'An sabunta zuwa {{plan}} - an yi amfani da iyaka nan da nan.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'createPoll.addOption': 'Ƙara zaɓi',
   'createPoll.anonymousHint':
     'An ɓoye sunayen masu zaɓe a cikin rajistar tantance kuɗi; har yanzu ana tabbatar da adadin masu zaɓe.',
@@ -163,6 +166,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Sabo a Nosh?',
   'login.remember': 'Ka tuna da ni tsawon kwanaki 30',
   'login.subheading': 'Buɗe bene, gudanar da ɗakin, sannan a tabbatar da sakamakon.',
+  'mobileNav.closeMenu': 'Rufe menu na kewayawa',
+  'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'notFound.body':
     'An rufe ko kuma an motsa shafin da kuka yi ƙoƙarin isa gare shi. Komawa zuwa dashboard ɗin ko kuma buɗe sabon zaɓe.',
   'notFound.eyebrow': 'Babu kwamitocin da za su yi aiki a wannan hanyar',
@@ -189,6 +194,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Ba a iya ɗora wannan zaɓen ba.',
   'pollDetail.loading': "Ana loda kuri'a…",
   'pollDetail.notFound': "Ba a sami kuri'ar jin ra'ayin jama'a ba.",
+  'pollDetail.openBallot': "Buɗe ƙuri'a",
   'pollDetail.openLive': 'Sakamako kai tsaye',
   'pollDetail.pollId': 'zaɓe · {{id}}',
   'pollDetail.published':
@@ -268,4 +274,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Bincika ta imel…',
   'voters.subheading':
     "Shirya kuri'un da suka cancanta. Rukunin masu jefa ƙuri'a ta hanyar org don samun kuri'un da aka auna.",
+  'votingPollingLayout.nav.analytics': 'Nazarin Nazari',
+  'votingPollingLayout.nav.billing': 'Biyan kuɗi',
+  'votingPollingLayout.nav.createPoll': 'Sabuwar zaɓe',
+  'votingPollingLayout.nav.dashboard': 'Allon allo',
+  'votingPollingLayout.nav.notifications': 'Sanarwa',
+  'votingPollingLayout.nav.settings': 'Saituna',
+  'votingPollingLayout.nav.team': 'Ƙungiyar',
+  'votingPollingLayout.nav.voters': "Masu jefa ƙuri'a",
+  'votingPollingLayout.primaryNavLabel': 'Babban kewayawa',
 }

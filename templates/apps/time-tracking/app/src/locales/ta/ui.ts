@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} பற்றி',
   'about.plansTitle': 'உங்களுடன் வளரும் திட்டங்கள்',
   'brand.tagline': 'ஒவ்வொரு நொடியும்',
   'clientDetail.back': 'வாடிக்கையாளர்களுக்குத் திரும்பு',
@@ -33,6 +34,7 @@ export const ui: UiTranslations = {
     'அனைத்துத் தொடர்புகளும் ஒரே இடத்தில் — திட்டங்கள், வேலை நேரங்கள், நிலுவையில் உள்ள விலைப்பட்டியல்கள்.',
   'clients.title': 'வாடிக்கையாளர்கள்',
   'common.and': 'மற்றும்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.activeProjects': 'செயலில் உள்ள திட்டங்கள்',
   'dashboard.empty': 'இன்னும் பதிவுகள் இல்லை. உங்கள் முதல் அமர்வைக் கண்காணிக்க டைமரைத் தொடங்கவும்.',
   'dashboard.greeting': 'வணக்கம், {{name}}',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.viewReports': 'அறிக்கைகளைப் பார்க்கவும்',
   'dashboard.viewTimesheet': 'நேர அட்டவணையைப் பார்க்கவும்',
   'durationKpiCard.label': '{{label}}',
+  'durationKpiCard.trend': '{{trend}}',
   'durationKpiCard.value': '{{value}}',
   'forgotPassword.sentBody':
     'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இது 60 நிமிடங்களில் காலாவதியாகிறது.',
@@ -87,6 +90,7 @@ export const ui: UiTranslations = {
   'invoices.save': 'விலைப்பட்டியலை உருவாக்கு',
   'invoices.subtitle':
     'பதிவுசெய்யப்பட்ட வேலை நேரங்கள், விலைப்பட்டியல்களில் தானாகவே சேர்க்கப்படுகின்றன.',
+  'landing.copyright': '© {{year}} {{app}} . ஒவ்வொரு நொடியும் கணக்கில் எடுத்துக்கொள்ளப்பட்டது.',
   'landing.ctaBody':
     '3 திட்டங்கள் வரை இலவசம். உங்கள் வாடிக்கையாளர் பட்டியல் மேம்படுத்தும்போது நீங்களும் மேம்படுத்திக்கொள்ளுங்கள்.',
   'landing.eyebrow': 'கட்டணம் வசூலிக்கக்கூடிய பணிகளுக்கான நேரக் கண்காணிப்பு',
@@ -102,13 +106,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'சுயேச்சைகளால் நம்பப்படுகிறது',
   'landing.testimonial.quote':
     '“நான் 30 நிமிடங்களில் Toggl-லிருந்து வெளியேறிவிட்டேன். பட்ஜெட்டைக் குறைத்ததே அதற்கான செலவை ஈடுசெய்துவிட்டது – நான் தொடர்ந்து இரண்டு வாரங்களாகக் குறைந்த விலைக்குப் பேசுவதை நிறுத்திவிட்டேன்.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} க்ரோனோ. ஒவ்வொரு நொடியும் கணக்கிடப்பட்டது.',
   'login.brand.subtitle':
     'நீங்கள் விட்ட இடத்திலிருந்து டைமரைத் தொடருங்கள் — ஒவ்வொரு நிமிடமும் ஏற்கனவே ஒரு திட்டம், ஒரு வாடிக்கையாளர், ஒரு விலைப்பட்டியல் ஆகியவற்றுடன் இணைக்கப்பட்டுள்ளது.',
   'login.brand.tracking': 'கண்காணிப்பு',
   'login.subheading': 'நீங்கள் விட்ட இடத்திலிருந்து டைமரைத் தொடரவும்.',
+  'nav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'nav.insightsSection': 'உள்நோக்குகள்',
   'nav.newEntry': 'புதிய பதிவு',
+  'nav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'nav.primary': 'முதன்மை வழிசெலுத்தல்',
   'nav.workSection': 'வேலை',
   'notFound.body':
     'நீங்கள் பின்தொடர்ந்த இணைப்பு கண்காணிப்பதை நிறுத்திவிட்டது போல் தெரிகிறது. உங்கள் டாஷ்போர்டுக்குத் திரும்பிச் செல்லுங்கள் – அங்கிருந்து நாங்கள் தொடர்ந்து கணக்கிடுவோம்.',
@@ -211,6 +219,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'கட்டணம் வசூலிக்கக்கூடிய',
   'timer.descriptionPlaceholder': 'நீங்கள் என்ன வேலை செய்துகொண்டிருக்கிறீர்கள்?',
   'timer.idle': 'செயலற்ற நிலை — கண்காணிப்பைத் தொடங்கு',
+  'timer.noProject': 'திட்டம் இல்லை',
   'timer.runningWithProject': 'திட்டம் இல்லை',
   'timer.start': 'டைமரைத் தொடங்கு',
   'timer.stop': 'நிறுத்த டைமர்',

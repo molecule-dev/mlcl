@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da mu',
   'authBrandPanel.quote':
     '"Vellum yanzu shine tsarin tarihi ga kowace yarjejeniya da muka sanya hannu a kai."',
+  'authBrandPanel.tagline': '{{tagline}}.',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'contractDetail.amount': 'darajar',
   'contractDetail.back': 'Duk kwangiloli',
   'contractDetail.downloadCta': 'Sauke PDF',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentBody':
     'Idan akwai asusu don {{email}} , hanyar haɗin sake saitawa tana kan hanya.',
   'forgotPassword.subtitle': 'Za mu aika hanyar haɗin sake saitawa zuwa imel ɗin aikinku.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . An gina shi da ƙwayoyin halitta.',
   'landing.ctaHeading': 'Duba fayil ɗin ku a rufe a rana ta farko.',
   'landing.ctaPrimary': 'Fara wurin aiki',
   'landing.eyebrow': "Don Ayyukan Shari'a da Sayayya",
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
   'newContract.errCounterparty': 'Ana buƙatar sunan abokin hamayya.',
   'newContract.errEmail': 'Ana buƙatar imel ɗin mai sa hannu.',
   'newContract.expires': 'Ranar ƙarewa',
+  'newContract.failed': 'Ban iya ƙirƙirar kwangila ba.',
   'newContract.heading': 'Sabuwar kwangila',
   'newContract.nextCta': 'Na gaba',
   'newContract.review.counterparty': 'Abokin hamayya',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'newContract.title': 'Taken kwangila',
   'newContract.titlePlaceholder': 'Yarjejeniyar Ayyukan Babban',
   'newContract.variablesHeading': 'Masu canjin kwangila',
+  'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.dataExport': 'Fitar da bayanai',
   'pricing.disabled': "A'a",
   'pricing.enabled': 'Ee',
@@ -147,15 +153,23 @@ export const ui: UiTranslations = {
   'settings.security.deleteError': 'Ba a iya goge asusu ba.',
   'settings.security.deleting': 'Ana gogewa…',
   'settings.security.newPassword': 'Sabuwar kalmar sirri',
+  'settings.security.noDevices': "Babu na'urori da aka yi rijista.",
   'settings.security.twoFactor': 'Tantancewa ta abu biyu',
   'settings.security.twoFactorDisable': 'A kashe',
   'settings.security.twoFactorEnable': 'Kunna',
+  'settings.security.twoFactorInvalidCode': 'Lambar da ba ta aiki ba.',
   'settings.signatures.body':
     'Sunanka da aka rubuta yana bayyana a layin sa hannun kowace kwangila da ka sanya hannu. Saita shi sau ɗaya kuma zai fara aiki ta atomatik nan gaba.',
   'settings.signatures.heading': 'Bangon sa hannu',
   'settings.signatures.save': 'Ajiye sa hannu',
+  'sign.action': 'Sanya hannu a kan wannan takardar',
+  'sign.eyebrow': 'An nemi sa hannu',
+  'sign.for': 'Don {{name}}',
+  'sign.loadError': 'Wannan hanyar haɗin sa hannu ba ta da inganci ko kuma ta ƙare.',
   'sign.loading': 'Ana lodawa…',
   'sign.signing': 'Sa hannu…',
+  'sign.submitError':
+    'Ban iya yin rikodin sa hannunka ba — hanyar haɗin yanar gizon na iya ƙarewa.',
   'signup.brandQuote':
     '\\u201cMun yi shekaru 8 na takarda zuwa Vellum cikin mako guda. Hanyar binciken kuɗi kaɗai ta tabbatar da musayar.\\u201d',
   'signup.companyPlaceholder': "'Yan kasuwar Northwind",
@@ -189,6 +203,8 @@ export const ui: UiTranslations = {
   'vellumContractRow.counterparty': '{{name}}',
   'vellumContractRow.view': 'Kwantiragi a bude →',
   'vellumKpiCard.trend': 'Yanayin kwanan nan',
+  'vellumLayout.closeMenu': 'Rufe menu na kewayawa',
+  'vellumLayout.openMenu': 'Buɗe menu na kewayawa',
   'vellumLayout.primaryNavLabel': 'Babban kewayawa',
   'vellumPortfolioHero.expiring': 'Yana ƙarewa 30d',
   'vellumPortfolioHero.label': 'Darajar fayil',

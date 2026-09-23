@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.title': 'Rakstāmgalds, ko var turēt kabatā',
   'billing.cancelConfirm': 'Vai atcelt aktīvo abonementu?',
   'billing.cancelFailed': 'Nevarēja atcelt.',
   'billing.checkingOut': 'Atverot kasi…',
@@ -14,6 +16,8 @@ export const ui: UiTranslations = {
   'billing.loadFailed': 'Nevarēja ielādēt norēķinu informāciju.',
   'billing.loading': 'Tiek ielādēts rēķins…',
   'billing.upgradeCta': 'Jaunināt uz {{name}}',
+  'common.goToDashboard': 'Uz informācijas paneli',
+  'editor.autosaveOn': 'Automātiskā saglabāšana ieslēgta',
   'editor.backToLibrary': 'Atpakaļ uz bibliotēku',
   'editor.charCount': '{{count}} rakstzīmes',
   'editor.confirmTrash': 'Vai pārvietot šo dokumentu uz miskasti?',
@@ -36,6 +40,7 @@ export const ui: UiTranslations = {
   'editor.unpinned': 'Atsprausts',
   'editor.unpublishCta': 'Pārvietot uz melnrakstu',
   'editor.unpublished': 'Atgriezts melnraksta statusā',
+  'focus.autosaveOn': 'Automātiskā saglabāšana ieslēgta',
   'focus.backToLibrary': 'Atpakaļ uz bibliotēku',
   'focus.bodyPlaceholder': 'Pa vienai rindai vienlaikus. Šeit neviena cita nav.',
   'focus.exit': 'Iziet no fokusa režīma',
@@ -82,6 +87,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Izveidot vienu',
   'login.subline':
     'Jūsu manuskripti, ikdienas lappuses un pēdējā kursora pozīcija atrodas tieši tur, kur tos atstājāt.',
+  'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
+  'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'pricing.exports': 'eksports',
   'pricing.folders': 'mapes',
   'pricing.heading': 'dokumenti',
@@ -93,6 +100,7 @@ export const ui: UiTranslations = {
   'reset.subline':
     'Ievadiet kodu, ko tikko nosūtījām pa e-pastu, un izvēlieties kaut ko neaizmirstamu. Mēs jūs pierakstīsim, tiklīdz tas būs saglabāts.',
   'reset.tokenHint': 'Ielīmēts no jūsu iesūtnes.',
+  'settings.appearance.heading': 'Gaišs vai tumšs',
   'settings.editor.${row.id}.description': 'Valoda',
   'settings.editor.description':
     'Rakstāmmašīnas ritināšana, rindkopas izbalēšana un dīkstāves fokuss — noklusējuma iestatījumi ir pielāgoti ilgām sesijām.',
@@ -139,6 +147,7 @@ export const ui: UiTranslations = {
   'versalAuthShell.sample.title': 'Trešā nodaļa — Klusa stunda pirms saullēkta',
   'versalDocumentCard.pinned': 'Piesprausts',
   'versalLayout.nav.stats': 'Statistika',
+  'versalLayout.primaryNavLabel': 'Galvenā navigācija',
   'versalManuscriptHero.cta': 'Turpināt rakstīt',
   'versalManuscriptHero.goalLabel': 'Šodienas vārdu mērķis',
   'versalManuscriptHero.inProgress': 'Uz pareizā ceļa',

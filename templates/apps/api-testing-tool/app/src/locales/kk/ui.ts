@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.pageTitle': '{{app}} туралы',
   'authShell.statusLabel': 'онлайн жүгірушілер',
   'collections.createError': 'Жинақ жасалмады.',
   'collections.defaultName': 'Атауы жоқ жинақ {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Жаңа жинақ',
   'collections.subheading':
     'Топтық сұраныстар жасаңыз, командаңызбен бөлісіңіз және оларды жиынтық ретінде іске қосыңыз.',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'environmentCard.inactive': 'Бос режимде',
   'environmentCard.more': 'көбірек',
   'environmentCard.variables': 'Айнымалылар',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Тегін жүктеп алыңыз',
   'landing.heroSubtitle':
     'Терминалдарда жұмыс істейтін инженерлерге арналған найзағайдай жылдам API тестілеу жұмыс үстелі.',
+  'landing.heroTitleAccent': 'Өрт',
+  'landing.heroTitleLine2': 'сенімділікті нығайту.',
+  'landing.heroTitleRest': 'өтініштер,',
   'landing.kicker': '$ pylon жіберу --watch',
   'landing.pricingEyebrow': '// $ баға белгілеу --қарапайым',
   'landing.pricingHeading': 'Қарапайым, болжамды баға',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Жаңадан келдіңіз бе?',
   'login.showPassword': 'Құпия сөзді көрсету',
   'login.subtitle': 'Pylon жұмыс кеңістігіңізге өтіңіз.',
+  'mobileNav.closeMenu': 'Навигация мәзірін жабу',
+  'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'mocks.createError': 'Жалған нұсқа жасау мүмкін болмады.',
   'mocks.defaultName': 'Атауы жоқ мазақ {{n}}',
   'mocks.deleteError': 'Жалған нұсқаны жою мүмкін болмады.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Жұмыс орнына оралу',
   'notFound.eyebrow': '$ пилон шешімі --strict',
   'notFound.title': 'Бағыт табылмады',
+  'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'privacy.collect.account':
     'Тіркелгі: электрондық поштаңыз, хэштелген құпия сөзіңіз, көрсетілетін атыңыз және соңғы кіру уақытыңыздың белгісі.',
   'privacy.rights.body':
@@ -139,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Осы тіркелгіге тиесілі деректердің тек оқуға арналған көрінісі.',
   'settings.unset': 'орнатылмаған',
   'signup.identityHint': 'мысалы, Алекс',
+  'signup.statusLabel': 'тегін деңгей · несие картасы жоқ',
   'signup.subtitle': 'Бірнеше минут ішінде сұраныстарды іске қоса бастаңыз.',
   'terms.account.body':
     'Құпия сөзіңізді қорғауға сіз жауаптысыз. Тегін немесе Pro жоспарларында бір тіркелгіні бірнеше адаммен ортақ пайдалануға рұқсат етілмейді — ортақ жұмыс кеңістіктері үшін Team жазылымын сатып алыңыз.',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
     'Pylon қызметін сізге тиесілі емес немесе тексеруге нақты рұқсаты жоқ қызметтерге сұраныс жіберу үшін пайдаланбаңыз. Pylon қызметін тариф шектеулерін айналып өту немесе алаяқтық жасау үшін пайдаланбаңыз.',
   'terms.warranty.body':
     'Pylon ешқандай кепілдіксіз «қазіргі қалпында» ұсынылады. Біз 99,9% жұмыс уақытын қамтамасыз етуге тырысамыз, бірақ тегін немесе кәсіби жоспарларда оған кепілдік бермейміз.',
+  'testRunner.assertionsCount': '{{count}} тұжырымдама',
   'testRunner.createError': 'Тест жасау мүмкін болмады.',
   'testRunner.cron':
     'Тұжырымдарды осы сынақтың байланыстырылған сұрауының ең соңғы нұсқасымен салыстыру жүргізіледі.',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Suite нәтижелері, бекіту айырмашылықтары және соңғы 50 іске қосу.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Кірген пайдаланушы:',
+  'workspace.auth.keyName': 'Тақырып атауы',
+  'workspace.auth.keyValue': 'Кілт мәні',
+  'workspace.auth.password': 'Құпия сөз',
+  'workspace.auth.username': 'Пайдаланушы аты',
+  'workspace.authOption.apikey': 'API кілті',
+  'workspace.authOption.basic': 'Негізгі аутентификация',
+  'workspace.authOption.bearer': 'Тасымалдаушы токені',
+  'workspace.authOption.none': 'Жоқ',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Түрі',
   'workspace.authTypeLabel': 'Авторизация түрі',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Жоқ',
+  'workspace.body.text': 'Шикі мәтін',
+  'workspace.body.type': 'Түрі',
   'workspace.environment': 'Конверт жоқ',
   'workspace.envVar': 'қоршаған орта айнымалысы',
   'workspace.eyebrow': '$ pylon жұмыс кеңістігі --pane split',
+  'workspace.kv.addHeader': 'Тақырып қосу',
+  'workspace.kv.addParam': 'Параметр қосу',
+  'workspace.kv.headerKey': 'Тақырып атауы',
+  'workspace.kv.headerValue': 'Тақырып мәні',
+  'workspace.kv.key': 'Кілт',
+  'workspace.kv.paramKey': 'Сұрау параметрінің кілті',
+  'workspace.kv.paramValue': 'Сұрау параметрінің мәні',
+  'workspace.kv.removeRow': 'Жолды жою',
+  'workspace.kv.value': 'Құндылық',
   'workspace.methodLabel': 'HTTP әдісі',
   'workspace.metric.latency': 'Кідіріс',
   'workspace.metric.latencyCaption': 'Осы жүгірістен кейін екі жаққа сапар',
@@ -192,6 +225,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Сұрау қабылданды — төмендегі жауапты қараңыз.',
   'workspace.subheading':
     'Сұрау жазыңыз, оны орындаңыз, содан кейін жауапты растаңыз — барлығы бір панельде.',
+  'workspace.testResults': 'Тест нәтижелері',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Авторизация ретінде жіберілді: Тасымалдаушы<token> осы жинақтағы әрбір сұраныс бойынша.',

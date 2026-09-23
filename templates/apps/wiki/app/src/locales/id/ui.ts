@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Menyelesaikan…',
   'comments.subtitle':
     '{{count}} utas yang masih menunggu balasan atau penyelesaian. Diurutkan berdasarkan usia — paling lama dulu, agar tidak ada yang membusuk.',
+  'common.goToDashboard': 'Ke Dashboard',
   'forgotPassword.sentTo': 'Tautan pengaturan ulang dikirim ke {{email}}',
   'forgotPassword.successSubheading':
     'Silakan periksa kotak masuk Anda — kami baru saja mengirim tautan pengaturan ulang. Tautan ini kedaluwarsa dalam 30 menit.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Halaman baru',
   'pageTreeSidebar.workspaceHeader': 'Ruang kerja',
   'pageView.breadcrumb': 'Breadcrumb',
+  'pageView.confirmTrash': 'Buang saja?',
   'pageView.home': 'Beranda',
   'pageView.lastEdited': 'Diperbarui {{when}}',
   'pageView.loading': 'Memuat halaman…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Meringkas…',
   'pageView.summaryUnavailable': 'Ringkasan AI tidak dikonfigurasi untuk ruang kerja ini.',
   'pageView.tocTitle': 'Di halaman ini',
+  'pageView.trash': 'Sampah',
+  'pageView.trashing': 'Memindahkan ke tempat sampah…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Lencana',
   'profile.owned.title': 'Halaman milik',
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Ruang kerja, profil, notifikasi, integrasi — semua dalam satu cangkang yang tenang.',
   'settingsPage.workspace.defaultLanding': 'Layar awal bawaan',
   'settingsPage.workspace.landingHome': 'Rumah',
+  'settingsPage.workspace.landingSpaces': 'Ruang',
   'settingsPage.workspace.subdomainLabel': 'Subdomain',
   'settingsPage.workspace.title': 'Ruang kerja',
   'signup.eyebrow': 'Mulai ruang kerja baru',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} menit',
   'templates.subtitle':
     'Mulai halaman dari stensil, bukan dari kanvas kosong. Setiap templat menetapkan bentuk sehingga Anda dapat fokus pada substansi.',
+  'trash.confirmPurge': 'Pembersihan selamanya?',
+  'trash.confirmPurgeAria': 'Konfirmasi: hapus secara permanen {{title}}',
   'trash.daysUntilPurge': 'Tersisa {{days}} hari',
   'trash.empty.body':
     'Halaman yang dihapus akan muncul di sini selama 30 hari sebelum dihapus permanen.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Memulihkan…',
   'versionHistory.subtitle': '{{count}} versi · pilih satu baris untuk memeriksa diff',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Tutup navigasi',
+  'wikiLayout.menu': 'Navigasi',
+  'wikiLayout.openMenu': 'Buka navigasi',
   'wikiLayout.searchPlaceholder': 'Cari di Cairn — halaman, komentar…',
 }

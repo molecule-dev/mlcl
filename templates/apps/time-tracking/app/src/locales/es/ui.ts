@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Acerca de {{app}}',
   'about.plansTitle': 'Planes que crecen contigo',
   'brand.tagline': 'Cada segundo',
   'clientDetail.back': 'Volver a clientes',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Cada relación en un solo lugar: proyectos, horas, facturas pendientes.',
   'clients.title': 'Clientes',
   'common.and': 'y',
+  'common.goToDashboard': 'Ir al panel',
   'dashboard.activeProjects': 'Proyectos activos',
   'dashboard.empty':
     'Aún no hay entradas. Inicia el temporizador para registrar tu primera sesión.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'No hay horas facturables para este cliente. Registra tiempo primero o asigna entradas existentes a uno de sus proyectos.',
   'invoices.save': 'Crear factura',
   'invoices.subtitle': 'Las horas registradas se convierten en facturas automáticamente.',
+  'landing.copyright': '© {{year}} {{app}} . Cada segundo, contabilizado.',
   'landing.ctaBody': 'Gratis hasta 3 proyectos. Mejora el plan cuando crezca tu cartera.',
   'landing.eyebrow': 'Registro de tiempo para trabajo facturable',
   'landing.featuresBody':
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Con la confianza de independientes',
   'landing.testimonial.quote':
     '“Migré desde Toggl en 30 minutos. El control de presupuesto ya se ha pagado solo: llevo dos semanas sin quedarme corto en mis cotizaciones.”',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Cada segundo, contabilizado.',
   'login.brand.subtitle':
     'Retoma el temporizador donde lo dejaste: cada minuto ya vinculado a un proyecto, un cliente, una factura.',
   'login.brand.tracking': 'Registrando',
   'login.subheading': 'Retoma el temporizador donde lo dejaste.',
+  'nav.closeMenu': 'Cerrar el menú de navegación',
   'nav.insightsSection': 'Análisis',
   'nav.newEntry': 'Nueva entrada',
+  'nav.openMenu': 'Abrir el menú de navegación',
+  'nav.primary': 'Navegación principal',
   'nav.workSection': 'Trabajo',
   'notFound.body':
     'Parece que el enlace que seguiste dejó de registrar. Vuelve a tu panel: seguiremos contando desde allí.',
@@ -204,6 +211,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Facturable',
   'timer.descriptionPlaceholder': '¿En qué estás trabajando?',
   'timer.idle': 'Inactivo — inicia el registro',
+  'timer.noProject': 'Sin proyecto',
   'timer.runningWithProject': 'Sin proyecto',
   'timer.start': 'Iniciar temporizador',
   'timer.stop': 'Detener temporizador',

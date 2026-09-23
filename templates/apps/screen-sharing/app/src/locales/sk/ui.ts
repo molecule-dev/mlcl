@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'about.pageTitle': 'O nás {{appName}}',
   'analytics.empty': 'Nahrajte si svoj prvý klip a pozrite si zapojenie tu.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'klipy',
   'billing.usage.views': 'Zobrazenia',
   'billing.usage.views.unit': 'zobrazenia',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'landing.cta.title': 'Posielajte lepšiu spätnú väzbu. Začnite s Glintom.',
   'landing.feature.capture.body':
     'Nahrávanie z prehliadača, počítača a mobilu pomocou mikrofónu, kamery a kreslenia.',
   'landing.feature.capture.title': 'Snímanie jedným klepnutím',
+  'landing.footer.copy': '© {{year}} {{appName}} . Asynchrónne, skrášlené.',
   'landing.hero.cardCaption': 'Prehľad vzorového pracovného priestoru – vyskúšajte si ho zadarmo.',
   'landing.hero.primaryCta': 'Začnite nahrávať zadarmo',
   'landing.hero.proof.free': 'Úroveň navždy zadarmo',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Vyhľadávanie nahrávok',
   'library.searchPlaceholder': 'Hľadať nahrávky…',
   'library.weeklyChange': '{{value}} % oproti minulému týždňu',
+  'nav.openMenu': 'Otvoriť navigačné menu',
   'nav.record': 'Záznam',
   'nav.shared': 'Zdieľali so mnou',
   'nav.startRecording': 'Spustiť nahrávanie',

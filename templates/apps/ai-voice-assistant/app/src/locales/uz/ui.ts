@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohazangiz, funksiya so'rovingiz bormi yoki xato topdingizmi? Hisobingiz menyusidagi qo'llab-quvvatlash havolasi orqali {{app}} jamoasi bilan bog'laning — har bir xabar haqiqiy insonga yuboriladi.",
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
   'agentDetail.back': 'Barcha agentlar',
   'agentDetail.capabilities': 'Imkoniyatlar',
   'agentDetail.delete': "Personajni o'chirish",
   'agentDetail.deleteConfirm':
     "Bu personajni o'chirib tashlamoqchimisiz? Buni ortga qaytarib bo'lmaydi.",
+  'agentDetail.deleteError': "Shaxsiy ma'lumotlarni o'chirib bo'lmadi.",
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': "Shaxsiy ma'lumotlarni yuklab bo'lmadi.",
   'agentDetail.save': 'Shaxsiyatni saqlang',
@@ -47,6 +51,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Almashtirilmoqda…',
   'billing.updateError': "Yangilashni boshlab bo'lmadi.",
   'billing.usageHeading': 'Ushbu siklda ovozdan foydalanish',
+  'chatBubble.source.text': 'matn',
+  'chatBubble.source.voice': 'ovoz',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'conversation.defaultTitle': 'Yangi suhbat',
   'conversation.empty': "Hali xabar yo'q. Biror narsa deyishdan yoki pastga yozishdan boshlang.",
   'conversation.eyebrow': 'Jonli sessiya',
@@ -97,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Gapiradigan aql.',
   'landing.heroSubtitle':
     'Tabiiy oqimingizni tushunadigan AI ovozli yordamchisi. Muloqot qiling, fikr bildiring va buyruq bering — uzluksiz.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Tinglanmoqda…',
   'landing.naturallyBody':
     "Tetiklantiruvchi so'zlar yo'q. Qattiq buyruqlar yo'q. Vox kontekstni, uzilishlarni va inson nutqining nozik jihatlarini tushunadi - xuddi hamkasb bilan suhbatlashish kabi.",
@@ -115,6 +123,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Sessiyani ochish',
   'notFound.home': 'Uyga qaytish',
   'notFound.title': 'Biz u sahifani eshita olmadik.',
+  'parlanceLayout.closeMenu': 'Menyuni yopish',
+  'parlanceLayout.openMenu': 'Navigatsiya menyusini ochish',
   'parlanceLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'pricing.conversations': '{{count}} suhbatlar',
   'pricing.cta.startFree': 'Bepul boshlang',
@@ -154,6 +164,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': "Mosliklar yo'q",
   'search.eyebrow': 'Buyruqlar palitrasi',
   'search.fetchError': "Qidiruv indeksini yuklab bo'lmadi.",
+  'search.static.profile.preview': "Ko'rsatiladigan ism, manzil, tarjimai hol",
   'search.static.voice.title': 'Ovoz',
   'search.title': 'Vox qidiruvi',
   'search.transcriptPreview': 'Transkriptni ochish',

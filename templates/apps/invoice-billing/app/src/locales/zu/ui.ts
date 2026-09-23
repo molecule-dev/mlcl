@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
   'activityFeed.empty': 'Akukho msebenzi okwamanje — thumela i-invoyisi yakho yokuqala.',
   'authShell.sample.paid': 'Ikhokhwe imizuzu emi-2 edlule',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Engeza iklayenti elisha',
   'clients.search': 'Sesha ngegama, inkampani, i-imeyili',
   'clients.title': 'Amaklayenti',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Iklayenti elisha',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Ukhohlwe iphasiwedi',
   'forgotPassword.successBody':
     'Sithumele imiyalelo yokusetha kabusha ku {{email}} . Isixhumanisi siphelelwa yisikhathi ngemizuzu engama-30.',
+  'invoiceDetail.action.confirmVoid': 'Qinisekisa ukuthi akukho lutho?',
   'invoiceDetail.action.download': 'Landa i-PDF',
   'invoiceDetail.action.duplicate': 'Okuphindwe kabili',
   'invoiceDetail.action.edit': 'Hlela',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Irisidi isusiwe.',
   'invoiceDetail.issued': 'Kukhishwe {{date}}',
   'invoiceDetail.loading': 'Ilayisha i-invoyisi…',
+  'invoiceDetail.paidInFull': 'Ikhokhwe ngokugcwele',
   'invoiceDetail.summary': '{{client}} · kuthunyelwe {{date}}',
   'invoiceDetail.tax': 'Intela ( {{rate}} %)',
   'invoiceDetail.timeline': 'Umugqa wesikhathi',
+  'invoiceDetail.voided': 'Kuvaliwe',
   'invoiceEditor.addItem': 'Engeza into',
   'invoiceEditor.back': '← Buyela kuma-invoyisi',
   'invoiceEditor.col.qty': 'Ubuningi',
@@ -122,6 +127,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Thumela i-invoyisi yakho yokuqala',
   'landing.hero.eyebrow': 'Ukufaka ama-invoyisi amabhizinisi amancane',
   'landing.hero.secondary': 'Bona i-invoyisi yesampula',
+  'landing.hero.subtitle':
+    '{{appName}} ihlanganisa ama-invoyisi acwebezelisiwe anezinkokhelo ezakhelwe ngaphakathi, ukukhokhisa okuphindaphindiwe, kanye nemibiko yokulungiselela intela. Akukho ukugcinwa kwezincwadi.',
   'landing.hero.title': 'Thumela ama-invoyisi. Khokhelwa ngokushesha.',
   'login.signupLink': 'Dala eyodwa',
   'login.submitting': 'Ikungenisa ngemvume...',
@@ -143,6 +150,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'izinkokhelo',
   'pricing.recurringLabel': 'amashejuli aphindaphindwayo',
   'remitLayout.newInvoice': 'Irisidi Entsha',
+  'remitLayout.openMenu': 'Vula imenyu yokuzulazula',
   'remitLayout.searchPlaceholder': 'Sesha ama-invoyisi, amaklayenti...',
   'remitLayout.tagline': 'Khokhelwa, ngokushesha',
   'reports.chart.aging': 'Ukuguga kwe-invoyisi',
@@ -152,6 +160,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Imali engenayo yesikhathi esithile',
   'reports.chart.topClients': 'Amakhasimende aphezulu',
   'reports.chart.topClientsCaption': 'Imali engenayo yempilo yonke, eziphezulu ezi-5',
+  'reports.empty.aging': 'Awekho ama-invoyisi angakakhokhwa.',
+  'reports.empty.methods': 'Ayikho idatha yokukhokha okwamanje.',
+  'reports.empty.revenue': 'Ayikho idatha yemali engenayo okwamanje.',
+  'reports.empty.topClients': 'Ayikho idatha yemali engenayo yeklayenti okwamanje.',
   'reports.exporting': 'Iyathumela ngaphandle…',
   'reports.exportRequiresPaid':
     'Ukuthunyelwa kwamanye amazwe kuyisici esikhokhelwayo — thuthukisa ukuze uvumele.',
@@ -194,6 +206,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Engeza izinga lentela',
   'settings.tax.added': 'Izinga lentela lingeziwe.',
   'settings.tax.adding': 'Kungezwa…',
+  'settings.tax.addRate': 'Engeza isilinganiso',
   'settings.tax.col.region': 'Isifunda',
   'settings.tax.delete': 'Susa izinga lentela',
   'settings.tax.deleted': 'Izinga lentela lisusiwe.',

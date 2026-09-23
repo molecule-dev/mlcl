@@ -1,9 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.eyebrow': '{{app}}-ի մասին',
+  'about.intro':
+    '{{app}} ը մեդիտացիայի հավելված է իրական կյանքի համար՝ ամենօրյա ուղղորդվող մեդիտացիաներ, շնչառական վարժություններ և քնի պատմություններ, որոնք կազմակերպվում են ուսուցիչների կողմից, ովքեր իրենց զգում են որպես ընկեր, այլ ոչ թե մարզիչ: Առանց մեղքի զգացողության, առանց աղմկոտ կերակրման. պարզապես հանգիստ վայր՝ ձեր շնչառությանը վերադառնալու համար:',
+  'about.missionBody':
+    'Մենք հավատում ենք, որ լռությունը պետք է հասանելի լինի բոլորին՝ օրվա ցանկացած պահի։ {{app}} ը գոյություն ունի, որպեսզի հանգիստ, հետևողական պարապմունքները լինեն անխափան, որպեսզի տասը անկեղծ րոպեները կարողանան փոխել, թե ինչպես եք դուք դիմավորում հաջորդ տասը ժամերը։',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.pageTitle': 'Օրական ավելի հանգիստ 10 րոպե',
+  'breathingDial.seconds': 'վայրկյաններ',
+  'common.goToDashboard': 'Անցնել վահանակ',
+  'common.logout': 'Դուրս գալ',
   'common.min': 'րոպե',
   'common.relative.justNow': 'հենց հիմա',
   'common.relative.now': 'հիմա',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
+  'nav.secondaryNavigation': 'Հաշվի նավիգացիա',
   'sessionCard.with': 'հետ {{name}}',
   'stillpoint.billing.choose': 'Ընտրեք {{plan}}',
   'stillpoint.billing.currentPlan': 'Այժմ միացված է {{plan}}',
@@ -12,6 +26,7 @@ export const ui: UiTranslations = {
   'stillpoint.billing.loadError': 'Մենք չկարողացանք բեռնել պլանները։',
   'stillpoint.billing.opening': 'Վճարման կետի բացում…',
   'stillpoint.billing.perMonthShort': '/ ամիս',
+  'stillpoint.billing.perYearShort': '/տարի',
   'stillpoint.billing.unknownResult': 'Անսպասելի վճարային պատասխան։',
   'stillpoint.billing.yearly': 'Տարեկան · խնայեք 17%',
   'stillpoint.courseDetail.back': 'Դասընթացներ',
@@ -24,6 +39,7 @@ export const ui: UiTranslations = {
   'stillpoint.courses.empty': 'Դեռևս դասընթացներ չկան։',
   'stillpoint.courses.eyebrow': '{{count}} բազմօրյա ուղևորություններ',
   'stillpoint.courses.heading': 'Դասընթացներ',
+  'stillpoint.forgot.checkEmail': 'Ստուգեք ձեր էլ. փոստը. հղումը կսպառվի 30 րոպեից։',
   'stillpoint.forgot.success': 'Մենք վերակայման հղում ենք ուղարկել հետևյալ հասցեին՝ {{email}} .',
   'stillpoint.home.empty': 'Դեռևս նիստեր չկան՝ շուտով կրկին ստուգեք։',
   'stillpoint.home.friend': 'ընկեր',
@@ -48,6 +64,7 @@ export const ui: UiTranslations = {
   'stillpoint.landing.cta.primary': 'Ստեղծեք ձեր անվճար հաշիվը',
   'stillpoint.landing.cta.title': 'Սկսեք ձեր լռությունը այսօր',
   'stillpoint.landing.features.heading': 'Մի պրակտիկա, որը զարգանում է ձեզ հետ միասին',
+  'stillpoint.landing.footer.tagline': '© {{app}} — {{tagline}}։',
   'stillpoint.landing.hero.body':
     'Ամենօրյա ուղղորդվող մեդիտացիաներ, շնչառական վարժություններ և քնի պատմություններ՝ վարժեցված ուսուցիչների կողմից, ովքեր իրենց զգում են ընկեր, այլ ոչ թե մարզիչ։',
   'stillpoint.landing.hero.eyebrow': 'Օրական ավելի հանգիստ 10 րոպե',
@@ -64,6 +81,9 @@ export const ui: UiTranslations = {
   'stillpoint.library.featuredCats': 'Զննել ըստ տրամադրության',
   'stillpoint.login.rememberMe': 'Մնա մուտքագրված',
   'stillpoint.login.subheading': 'Մուտք գործեք՝ ձեր պրակտիկան շարունակելու համար։',
+  'stillpoint.nav.tagline': 'Գտեք ձեր անշարժ կենտրոնը',
+  'stillpoint.notFound.body':
+    'Այս էջը ինչ-որ տեղ երկար ու խորը շունչ է քաշում։ Եկեք ձեզ համար ավելի հանգիստ տեղ գտնենք {{app}} ում։',
   'stillpoint.notFound.title': 'Կորած լռության մեջ',
   'stillpoint.notFound.toHome': 'Վերադառնալով այսօր',
   'stillpoint.notFound.toLibrary': 'Զննել գրադարանը',
@@ -81,6 +101,7 @@ export const ui: UiTranslations = {
   'stillpoint.player.skipBack': '15 վայրկյան հետ անցնել',
   'stillpoint.player.skipForward': '30 վայրկյան առաջ անցնել',
   'stillpoint.player.with': 'հետ {{name}}',
+  'stillpoint.profile.defaultHandle': 'սթիլփոյնթեր',
   'stillpoint.profile.eyebrow': 'Ձեր պրակտիկան՝ ամփոփված։',
   'stillpoint.profile.locked': 'Կողպված է',
   'stillpoint.profile.member': 'Stillpoint անդամ',

@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'Ṣe Ìpàdé Ìforúkọsílẹ̀',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'Ko si awọn alaisan lati fihan.',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'consult.backLink': 'Gbogbo àwọn ìpàdé',
   'consult.captions': 'Àwọn àkọlé',
   'consult.connected': 'A ti sopọ̀ mọ́ · 720p · ìdúróṣinṣin',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Àwọn Àìsàn',
   'patientVitalsHero.scripts': 'Rx ṣii',
   'patientVitalsHero.subline': '{{count}} ìjíròrò lórí ìtòlẹ́sẹẹsẹ rẹ lónìí',
+  'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'prescriptions.empty': 'Kò sí ìwé-oògùn tó bára mu.',
   'prescriptions.eyebrow': 'Oníṣẹ́-oògùn-ẹ̀rọ-ìbánisọ̀rọ̀',
   'prescriptions.heading': 'Àwọn ìwé ìlànà',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Àkíyèsí Ìpamọ́',
   'privacy.use.body':
     'Láti fi ìtọ́jú ránṣẹ́, fi àwọn olùránnilétí ìpàdé ránṣẹ́, fi àwọn ìwé ìlànà ránṣẹ́, àti láti mú kí iṣẹ́ náà túbọ̀ gbẹ́kẹ̀lé. A kì í ta dátà rẹ, a kì í sì í pín ìwífún nípa ìṣègùn pẹ̀lú àwọn olùpolówó.',
+  'providers.allSpecialties': 'Gbogbo Àwọn Pàtàkì',
+  'providers.loadError': 'Kò ṣeéṣe láti gbé àwọn olùpèsè sórí ayélujára.',
+  'providers.loading': 'N n gbe…',
   'providers.noResults': 'A ko ri awọn olupese kankan.',
   'providers.searchPlaceholder': 'Ṣe àwárí nípa orúkọ, iṣẹ́ pàtàkì...',
   'providers.title': 'Wa Olupese Kan',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Ìbẹ̀rẹ̀ ọjọ́',
   'settings.availability.heading': 'Wíwà nílẹ̀',
   'settings.devices.thisDevice': 'Ẹ̀rọ yìí',
+  'settings.devices.unnamed': 'Ẹ̀rọ tí a kò dárúkọ',
   'settings.eyebrow': 'Ìwà àti àkọọ́lẹ̀',
   'settings.loadError': 'Kò le gbé ìwífún rẹ jáde.',
   'settings.notifications.emailMessages': 'Fi imeeli ranṣẹ si mi nigbati ẹgbẹ abojuto mi ba dahun',
@@ -178,6 +184,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Mu ṣiṣẹ',
   'settings.security.twoFactor.enable': 'Mu ṣiṣẹ',
   'settings.security.twoFactor.heading': 'Ìfọwọ́sí onífekítọ̀ méjì',
+  'settings.security.twoFactor.invalidCode': 'Kóòdù yẹn kò bá ara rẹ̀ mu. Gbìyànjú lẹ́ẹ̀kan síi.',
+  'settings.security.twoFactor.setupFailed':
+    'Kò le bẹ̀rẹ̀ sí í ṣe ètò ìpele méjì. Gbìyànjú lẹ́ẹ̀kan sí i.',
+  'settings.security.twoFactor.statusOn': 'Meji-ipo wa lori',
   'settings.signOutDevice': 'Jáde',
   'settings.subheading': 'Profaili olupese, awọn ofin iṣe, ati awọn itaniji ile-iwosan.',
   'signup.emailLabel': 'Í-MẸ́Ẹ̀LÌ',
@@ -188,6 +198,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Se akanti fun ra re',
   'signupFooter.hipaa': 'Ìbámu HIPAA',
   'solaceLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
+  'solaceLayout.toggleMenu': 'Yí àtòjọ-àtòjọ padà',
   'terms.eligibility.body':
     'O gbọ́dọ̀ jẹ́ ọmọ ọdún méjìdínlógún ó kéré tán, tàbí òbí tàbí olùtọ́jú ọmọ kékeré tí o ń wá ìtọ́jú fún, àti pé o gbọ́dọ̀ wà ní ìpínlẹ̀ Amẹ́ríkà níbi tí àwọn oníṣègùn wa ti ní ìwé àṣẹ.',
   'terms.payment.body':

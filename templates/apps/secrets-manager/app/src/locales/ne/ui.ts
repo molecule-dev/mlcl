@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
   'about.tagline': 'रहस्यहरू खुलेआम मर्छन्।',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'टोकन सिर्जना गर्नुहोस्',
   'apiTokens.kicker': 'API टोकनहरू',
   'apiTokens.loading': 'टोकनहरू लोड गर्दै...',
+  'apiTokens.new': 'नयाँ टोकन',
   'apiTokens.revoke': 'टोकन रद्द गर्नुहोस्',
   'apiTokens.subheading':
     'Arcanum CLI र SDK का लागि व्यक्तिगत र सेवा टोकनहरू। सिर्जना गर्दा एक पटक प्लेनटेक्स्ट देखाइएको छ।',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + पासकी',
   'authShell.zeroKnowledge': 'शून्य-ज्ञान इन्क्रिप्शन',
   'common.connecting': 'जडान गर्दै...',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.inviting': 'आमन्त्रित गर्दै...',
   'forgotPassword.checkInbox':
     'यदि {email} दर्ता गरिएको छ भने, एक मिनेट भित्रमा हस्ताक्षर गरिएको रिसेट लिङ्क आइपुग्नेछ।',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'प्रत्येक भल्टमा घुमाउने स्थिति, विसंगति अलर्टहरू, र अनुमोदन अनुरोधहरू।',
   'notifications.unreadEmpty': 'इनबक्स शून्य - सबै कुरा सकियो।',
+  'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.heading': 'रहस्यहरू',
   'pricing.limits.accessPolicies': 'पहुँच नीतिहरू',
   'pricing.limits.auditLog': 'अडिट-लग प्रविष्टिहरू',
@@ -86,9 +90,12 @@ export const ui: UiTranslations = {
   'profile.plan.description':
     'आफ्नो सदस्यता व्यवस्थापन गर्नुहोस्, सीमा हेर्नुहोस्, र स्तरवृद्धि गर्नुहोस्।',
   'profile.subheading': 'पहिचान, दोस्रो-कारक उपकरणहरू, र सक्रिय सत्रहरू।',
+  'profile.twoFactor.code': 'प्रमाणीकरण कोड',
   'profile.twoFactor.disable': 'असक्षम पार्नुहोस्',
   'profile.twoFactor.enable': 'सक्षम पार्नुहोस्',
+  'profile.twoFactor.invalidCode': 'अमान्य कोड',
   'profile.twoFactor.kicker': 'दुई-कारक प्रमाणीकरण',
+  'profile.twoFactor.off': 'सक्षम पारिएको छैन',
   'profile.twoFactor.on': 'सक्षम पारिएको',
   'resetPassword.email': 'खाता इमेल',
   'resetPassword.heading': 'नयाँ प्रमाणपत्रहरू सेट गर्नुहोस्',
@@ -134,6 +141,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'आदेशहरू',
   'secretsManagerLayout.encrypted': 'AES-256 · इन्क्रिप्ट गरिएको',
   'secretsManagerLayout.newVault': 'नयाँ भल्ट',
+  'secretsManagerLayout.newVaultShort': 'नयाँ',
   'secretsManagerLayout.rotations': 'परिक्रमाहरू',
   'secretsManagerLayout.search': 'खोज्नुहोस्',
   'secretsManagerLayout.searchPlaceholder':
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'रहस्यहरू',
   'vaultCard.vaultLabel': 'भल्ट',
   'vaultDetail.addSecret': 'गोप्य कुरा थप्नुहोस्',
+  'vaultDetail.back': 'सबै भल्टहरू',
   'vaultDetail.col.key': 'कुञ्जी',
   'vaultDetail.col.rotated': 'घुमाइएको',
   'vaultDetail.col.value': 'मूल्य',

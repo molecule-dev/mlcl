@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
   'alerts.acknowledgeLabel': 'Підтвердити',
   'alerts.customerLabel': 'Клієнт: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Підключення…',
   'carriers.requiredError': "Ім'я та код обов'язкові.",
   'carriers.subheading': '{{count}} інтегрований',
+  'common.goToDashboard': 'До панелі',
   'common.no': '—',
+  'common.retry': 'Спробувати ще раз',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'У дорозі + позначено',
   'dashboard.activeShipmentsSubtitle': '{{count}} вантажі потребують уваги або перебувають у русі',
@@ -101,6 +104,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'відвантаження',
   'pricing.trackingLabel': 'відстеження подій',
   'profile.dangerZone.title': 'Небезпечна зона',
+  'profile.devices.signingOut': 'Вихід…',
+  'profile.devices.unnamed': 'Пристрій без назви',
+  'profile.security.disable2fa': 'Вимкнути 2FA',
   'profile.security.enable2fa': 'Увімкнути 2FA',
   'profile.security.pwChanged': 'Пароль успішно змінено.',
   'profile.security.pwCurrent': 'Поточний пароль',
@@ -110,10 +116,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': 'Активна 2FA',
   'profile.security.twoFaCode': '6-значний код',
   'profile.security.twoFaDisable': 'Вимкнути',
+  'profile.security.twoFaDisabling': 'Вимкнення…',
   'profile.security.twoFaFailed': 'Не вдалося перевірити код.',
   'profile.security.twoFaIntro':
     'Відскануйте QR-код у вашому застосунку для автентифікації, а потім введіть 6-значний код нижче для підтвердження.',
   'profile.security.twoFaOn': 'У цьому обліковому записі ввімкнено двофакторну автентифікацію.',
+  'profile.security.twoFaQrAlt': 'QR-код двофакторної автентифікації',
   'profile.security.twoFaVerify': 'Перевірити та ввімкнути',
   'profile.security.twoFaVerifying': 'Перевірка…',
   'profile.subheading': 'Налаштування ідентифікації та безпеки для цієї робочої області.',
@@ -132,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Збережіть цей секрет — він більше не буде показаний.',
   'settings.api.webhookSecret': 'Секрет підпису вебхука',
   'settings.appearance.description': 'Перемикання між світлим і темним режимом.',
+  'settings.deleteAccountConfirm': 'Ви впевнені? Цю дію не можна скасувати.',
   'settings.notifications.exceptions':
     'Надіслати мені електронного листа, коли виникне виняток щодо доставки',
   'settings.notifications.heading': 'Сповіщення',
@@ -147,6 +156,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Відправлення не знайдено.',
   'shipmentDetail.originHeading': 'Походження',
   'shipmentDetail.shippedOn': 'Відправлено {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Подій відстеження поки що немає — оновлення з’являються тут, коли перевізник сканує посилку.',
   'shipmentDetail.weightLabel': '{{weight}} фунт',
   'shipments.col.carrier': 'Перевізник',
   'shipments.col.eta': 'Очікуваний час прибуття',
@@ -176,6 +187,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Увійти',
   'signup.submit': 'Створити акаунт',
   'team.emailError': 'Потрібна дійсна адреса електронної пошти.',
+  'team.empty':
+    'Поки що немає членів команди. Запросіть товариша по команді до співпраці над відправленнями.',
   'team.eyebrow': 'Учасники та дозволи',
   'team.inviteDialog.cancel': 'Скасувати',
   'team.inviteDialog.heading': 'Запросити члена команди',
@@ -198,6 +211,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Трек',
   'waypointLayout.primaryNavLabel': 'Основна навігація',
   'webhooks.createFailed': 'Не вдалося створити кінцеву точку вебхука.',
+  'webhooks.endpointsEmpty':
+    'Кінцевих точок вебхука поки що немає. Створіть її, щоб отримувати зворотні виклики статусу відправлення.',
   'webhooks.endpointsHeading': 'Endpoints',
   'webhooks.eventCount': '{{count}} події',
   'webhooks.eventsHeading': 'Нещодавні доставки',

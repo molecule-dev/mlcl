@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'announcementsFeed.empty': 'இதுவரை எந்த அறிவிப்புகளும் இல்லை.',
   'announcementsFeed.eyebrow': '{{count}} புதுப்பிப்புகள்',
   'announcementsFeed.title': 'சமீபத்திய அறிவிப்புகள்',
@@ -8,6 +9,7 @@ export const ui: UiTranslations = {
   'assignmentDetail.backLink': 'பணிகளுக்குத் திரும்பு',
   'assignmentDetail.dropButton': 'கோப்புகளைத் தேர்ந்தெடுக்கவும்',
   'assignmentDetail.due': 'காரணமாக {{due}}',
+  'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'வழிமுறைகள்',
   'assignmentDetail.loadError': 'ஒதுக்கீட்டை ஏற்ற முடியவில்லை.',
   'assignmentDetail.noInstructions': 'கூடுதல் அறிவுறுத்தல்கள் எதுவும் வழங்கப்படவில்லை.',
@@ -19,9 +21,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusTitle': 'சமர்ப்பிப்பு நிலைகள்',
   'assignmentDetail.submitted':
     'சமர்ப்பிப்பு பதிவு செய்யப்பட்டது — உங்கள் ஆசிரியருக்குத் தகவல் தெரிவிக்கப்பட்டுள்ளது.',
+  'assignmentRow.courseDue': '{{course}} · Due {{due}}',
   'assignments.empty': 'இங்கே ஒன்றுமில்லை',
   'assignments.emptyBody': 'வேறு மாநிலத்தில் உள்ள பணிகளைக் காண, மேலே உள்ள வடிப்பான்களை மாற்றவும்.',
   'assignments.eyebrow': 'அனைத்து பாடப்பிரிவுகள் · இந்தப் பருவம்',
+  'assignments.loadError': 'பணிகளை ஏற்ற முடியவில்லை.',
   'assignments.loading': 'பணிகள் ஏற்றப்படுகின்றன…',
   'assignments.subtitle':
     'சமர்ப்பிக்கப்பட வேண்டியவை, சமர்ப்பிக்கப்பட்டவை, மதிப்பிடப்பட்டவை அல்லது விடுபட்டவை ஆகியவற்றைக் காண, நிலையின் அடிப்படையில் வடிகட்டவும்.',
@@ -30,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'குறிப்பு',
   'attendance.empty': 'இன்னும் வருகைப் பதிவுகள் இல்லை.',
   'attendance.eyebrow': 'வசந்த காலப் பருவம் · கடைசி 4 வாரங்கள்',
+  'attendance.loadError': 'வருகைப் பதிவேடுகளை ஏற்ற முடியவில்லை.',
   'attendance.loading': 'வருகைப் பதிவு ஏற்றப்படுகிறது…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -43,7 +48,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'ஒப்படைப்புகளைச் சமர்ப்பிப்பதற்கான இறுதித் தேதிகள் மாத அட்டவணையில் குறிக்கப்பட்டுள்ளன — தேர்வுகள் சிவப்பு நிறத்தில் தனித்துக் காட்டப்பட்டுள்ளன.',
   'calendar.title': '{{month}} நிகழ்வுகள்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
+  'common.retry': 'மீண்டும் முயற்சிக்கவும்',
   'common.yes': '✓',
   'courseDetail.backLink': 'தரங்கள்',
   'courseDetail.currentGrade': 'தற்போதைய தரம்',
@@ -73,11 +80,14 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'போக்கு',
   'grades.empty': 'இன்னும் மதிப்பெண்கள் வெளியிடப்படவில்லை.',
   'grades.eyebrow': 'தரப் புத்தகம்',
+  'grades.loadError': 'உங்கள் மதிப்பெண்களை ஏற்ற முடியவில்லை.',
   'grades.loading': 'தரங்கள் ஏற்றப்படுகின்றன…',
   'grades.subtitle':
     'நிகழ்நேர எழுத்து மற்றும் சதவீத மதிப்பெண்கள். உங்கள் மதிப்பெண்கள் உயர்கின்றனவா, ஒரே நிலையில் உள்ளனவா அல்லது பின்தங்குகின்றனவா என்பதைப் போக்கு அம்புக்குறிகள் காட்டுகின்றன.',
   'grades.title': 'ஒவ்வொரு பாடத்திலும் உங்கள் மதிப்பெண்கள்',
   'grades.trendStable': 'நிலையான',
+  'landing.copyright':
+    '© {{year}} {{app}} . மாணவர்களுக்காக உருவாக்கப்பட்டது, குடும்பங்களுக்காக வடிவமைக்கப்பட்டது.',
   'landing.ctaHeading': 'ஒரு அமைதியான பள்ளி நாள் சில நிமிடங்களில் தொடங்குகிறது.',
   'landing.eyebrow': 'நடுநிலை மற்றும் உயர்நிலைப் பள்ளி மாணவர்களுக்கு',
   'landing.featuresHeading': 'மாணவரை மையமாகக் கொண்டு ஒழுங்கமைக்கப்பட்ட ஒரு பள்ளி நாள்',
@@ -113,12 +123,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'பணிகள்',
   'nav.attendance': 'வருகை',
   'nav.calendar': 'டெம்ப்ளேட்',
+  'nav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'nav.grades': 'தரங்கள்',
+  'nav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'nav.statusEyebrow': 'பருவ ஜிபிஏ',
   'nav.statusSubtext': 'கௌரவப் பட்டியல் · வசந்த காலப் பருவம்',
+  'nav.unreadMessages': 'படிக்காத செய்திகள்',
   'notifications.eyebrow': '{{count}} புதுப்பிப்புகள்',
   'notifications.subtitle':
     'மதிப்பெண்கள், நினைவூட்டல்கள், செய்திகள் மற்றும் பள்ளி அறிவிப்புகள். அமைப்புகளில், ஒவ்வொரு அறிவிப்பும் எந்தெந்த சேனல்களைப் பயன்படுத்த வேண்டும் என்பதைச் சரிசெய்யவும்.',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.attendanceLabel': 'வருகை',
   'pricing.gradesLabel': 'தரங்கள்',
   'pricing.heading': 'அறிவிப்புகள்',

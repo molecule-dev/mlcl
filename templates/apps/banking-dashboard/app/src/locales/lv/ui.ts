@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
   'accountDetail.activeBadge': 'Aktīvs',
   'accountDetail.availableLabel': '{{amount}} pieejams',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Accounts',
   'accounts.loadError': 'Neizdevās ielādēt kontus.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': '„Frozen“',
   'accounts.totalBalance': '{{summa}} kopā',
   'audit.empty': 'Vēl nav notikumu.',
   'audit.eyebrow': 'Drošība un piekļuve',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Skaidrā nauda',
   'cashCreditCard.creditLabel': 'Izmantotais kredīts',
   'cashCreditCard.title': 'Skaidra nauda un kredīts',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.accountsHeading': 'Accounts',
   'dashboard.heading': 'Pārskats',
   'dashboard.recentEmpty': 'Vēl nav veikti darījumi.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Rādīt paroli',
   'login.signUp': 'Reģistrēties',
   'login.submit': 'Pieslēgties',
+  'meridianLayout.menu': 'Izvēlne',
   'meridianLayout.primaryNavLabel': 'Galvenā navigācija',
   'nav.legal': 'Juridiskā informācija',
   'notifications.emptyHeading': 'Jūs visu esat iepazinies',
   'notifications.subheading': 'Reāllaika brīdinājumi par darījumiem, drošību un izrakstiem.',
+  'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'privacy.dataWeShare':
     'Personīgie bankas dati nekad netiek pārdoti. Mēs kopīgojam informāciju ar maksājumu apstrādātājiem, karšu tīkliem un regulatoriem tikai tiktāl, cik tas nepieciešams darījumu norēķināšanai vai juridisko saistību izpildei.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Divfaktoru autentifikācija katrā pierakstīšanās reizē pievieno vienreizēju kodu no autentifikācijas lietotnes.',
   'settings.security.twoFactorCta': 'Pārvaldīt divfaktoru autentifikāciju',
+  'settings.security.twoFactorOff': 'Divpakāpju autentifikācija ir atspējota',
   'settings.signOutDevice': 'Izrakstīties',
   'settings.subheading': 'Profils, drošība un paziņojumi.',
+  'settings.twoFactorCode': 'Autentifikācijas kods',
   'settings.twoFactorDisable': 'Atspējot',
   'settings.twoFactorEnable': 'Ieslēgt',
+  'settings.twoFactorInvalidCode': 'Nepareizs kods',
+  'settings.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'signup.emailLabel': 'E-pasta adrese',
   'signup.fullName': 'Kā mums Jūs uzrunāt?',
   'signup.showPassword': 'Rādīt paroli',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Vēl nav veikti darījumi.',
   'transactions.endDate': 'Beigu datums',
   'transactions.eyebrow': 'Aktivitāte',
+  'transactions.loadError': 'Neizdevās ielādēt darījumus.',
   'transactions.merchant': 'Tirgotājs',
+  'transactions.subheading': 'Visi jūsu kontos reģistrētie un gaidāmie darījumi.',
   'transfers.availableHint': '{{amount}} pieejams',
   'transfers.errorGeneric': 'Nevarēja iesniegt pārskaitījumu.',
   'transfers.errorMissingFields': 'Izvēlieties avota kontu un galamērķi.',

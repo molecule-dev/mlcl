@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Napiwek dla osoby kompletującej',
   'checkout.tipLabel': 'Napiwek',
   'checkout.zipPlaceholder': 'Kod pocztowy',
+  'common.goToDashboard': 'Przejdź do panelu',
   'featuredProductsGrid.addAria': 'Dodaj {{name}} do koszyka',
   'featuredProductsGrid.outOfStock': 'Brak w magazynie',
   'forgotPassword.emailLabel': 'Adres e-mail',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Jeśli ten e-mail jest zarejestrowany, link resetujący jest w drodze.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Nawigacja główna',
   'landing.categoriesEyebrow': 'Alejki',
   'landing.categoriesHeading': 'Kupuj według kategorii',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Proszę planować cotygodniowe dostawy z inteligentnym ponawianiem zamówień podstawowych produktów i śledzeniem kierowcy na żywo.',
   'landing.heroTitle': 'Świeżość pod Pana/Pani drzwiami, w kilka godzin.',
   'landing.howEyebrow': 'Trzy kroki',
+  'landing.howItWorksHeading': 'Jak działa {{app}}',
   'lists.addAllCta': 'Dodaj wszystko do koszyka',
   'lists.createCta': 'Utwórz pierwszą listę',
   'lists.createError': 'Nie udało się utworzyć listy.',

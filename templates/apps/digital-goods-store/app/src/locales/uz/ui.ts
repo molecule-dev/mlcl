@@ -21,6 +21,7 @@ export const ui: UiTranslations = {
   'checkout.subtitle':
     "Har bir mahsulot o'zining Stripe-hosting kassasini ochadi. Litsenziya kalitlari tasdiqdan so'ng beriladi.",
   'checkout.title': 'Yuklab olishlaringizdan bir qadam oldin',
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'creatorStatGrid.label': 'Ijodkorlarning diqqatga sazovor joylari',
   'dashboard.eyebrow': 'Ijodkor boshqaruv paneli',
   'dashboard.range30': '30 kun',
@@ -31,6 +32,8 @@ export const ui: UiTranslations = {
   'dashboard.subtitle':
     "{{count}} So'nggi 30 kun ichidagi savdolar. Yetkazib berishda davom eting.",
   'dashboard.topProducts': 'Eng yaxshi mahsulotlar',
+  'dashboard.topProductsEmpty':
+    "Hali sotuvlar yo'q — eng ko'p sotilgan kitoblaringiz shu yerda paydo bo'ladi.",
   'forgotPassword.emailPlaceholder': 'you@studio.co',
   'forgotPassword.subtitle':
     'Elektron pochtangizni kiriting — biz bir martalik tiklash havolasini yuboramiz.',
@@ -95,11 +98,13 @@ export const ui: UiTranslations = {
   'orderHistory.downloadError': "Hozir yuklab olish imkoni yo'q.",
   'orderHistory.downloading': 'Yuklab olinmoqda…',
   'orderHistory.empty': "Hali buyurtma yo'q",
+  'orderHistory.eyebrow': 'Cheklar',
   'orderHistory.free': 'Bepul',
   'orderHistory.title': 'Buyurtma tarixi',
   'orderHistory.viewReceipt': "Chekni ko'rish",
   'planUpdated.settings': 'Sozlamalarni ochish',
   'planUpdated.toDashboard': "Boshqaruv paneliga o'tish",
+  'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.feature.downloads': 'yuklab olishlar',
   'pricing.heading': 'mahsulotlar',
   'product.notFound': 'Mahsulot topilmadi',
@@ -124,9 +129,11 @@ export const ui: UiTranslations = {
   'productEditor.newTitle': 'Yangi mahsulot',
   'productEditor.notFound': 'Mahsulot topilmadi.',
   'productEditor.pricing.price': 'Narxi (AQSh dollari)',
+  'productEditor.published': 'Mahsulot nashr etildi.',
   'productEditor.saved': 'Qoralama saqlandi.',
   'products.col.sales': 'Savdo',
   'products.col.updated': 'Yangilandi',
+  'products.emptyTitle': "Hali mahsulot yo'q",
   'products.eyebrow': 'Katalog',
   'products.subtitle': "{{count}} faol ro'yxatlar",
   'products.title': 'Mahsulotlaringiz',

@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'तपाईं हाल यसमा हुनुहुन्छ {{plan}} योजना।',
   'billing.switch': 'स्विच गर्नुहोस्',
   'billing.upgraded': 'अद्यावधिक गरिएको: {{plan}} — सीमाहरू तुरुन्तै लागू हुन्छन्।',
+  'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'compare.activityHeading': 'गतिविधि निर्णयहरू',
   'compare.empty.title': 'तुलना गर्न कम्तीमा दुई स्थानहरू थप्नुहोस्',
   'compare.eyebrow': 'छेउछाउमा',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'उच्च',
   'trends.summary.low.label': 'कम',
   'trends.summary.points.label': 'दिनहरू',
+  'weatherDashboardLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'weatherHeroCard.updated': 'अद्यावधिक गरियो {{time}}',
 }

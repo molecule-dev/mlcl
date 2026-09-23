@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.title': 'Sobre {{app}}',
   'auth.login.noAccount': 'Ets nou a Sparq?',
   'auth.login.or': 'o continuar amb',
   'auth.signup.or': "o registra't amb",
+  'common.confirm': 'Confirma',
+  'common.goToDashboard': 'Anar al panell',
+  'common.loadError': 'Alguna cosa ha fallat en carregar aquest contingut.',
+  'common.retry': 'Torna-ho a intentar',
   'discover.collections.title': 'Navega per categoria',
   'discover.collections.viewAll': 'Veure la teva biblioteca →',
   'discover.empty.body': 'Prova una categoria diferent o esborra la cerca.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Inicia la sessió per mantenir viva la teva ratxa, organitzar partits en directe i pujar a la classificació.',
   'myQuizzes.createButton': 'Nou qüestionari',
+  'myQuizzes.deleteConfirm': 'Voleu suprimir per sempre?',
   'myQuizzes.empty.createCta': 'Crea el teu primer qüestionari →',
   'myQuizzes.empty.created': 'Encara no has creat un qüestionari.',
   'myQuizzes.empty.played': 'Encara no hi ha cap qüestionari publicat.',
@@ -80,7 +87,9 @@ export const ui: UiTranslations = {
   'notifications.loading': "S'està carregant…",
   'notifications.subhead':
     '{{count}} espurnes no llegides. Invitacions, moviments de la taula de classificació i assoliments, tot en un sol flux.',
+  'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.checkoutError': "No s'ha pogut iniciar el procés de compra. Torna-ho a provar.",
+  'pricing.heading': 'Tria el teu pla de {{app}}',
   'pricing.included': 'Inclòs',
   'pricing.loadError': "No s'han pogut carregar els plans.",
   'pricing.maxQuizzes': '{{count}} qüestionaris',
@@ -101,11 +110,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': "Encara no s'ha publicat res.",
   'profile.startBuilding': 'Comença a construir →',
   'profile.tier': 'Jugador de Sparq',
+  'quizBuilder.addFailed': "No s'ha pogut afegir la pregunta. Torna-ho a provar.",
   'quizBuilder.addQuestion': 'Afegeix una pregunta',
   'quizBuilder.answerPlaceholder': 'Escriu una opció…',
   'quizBuilder.answersLabel': 'Opcions de resposta',
   'quizBuilder.back': 'Tornant als meus qüestionaris',
   'quizBuilder.delete': 'Suprimeix la pregunta',
+  'quizBuilder.deleteFailed': "No s'ha pogut suprimir la pregunta.",
   'quizBuilder.firstQuestion': 'Afegeix la teva primera pregunta per començar.',
   'quizBuilder.idLabel': 'Identificador del qüestionari: {{id}}',
   'quizBuilder.loadError': "No s'ha pogut carregar el qüestionari.",
@@ -119,6 +130,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Afegeix almenys dues opcions de resposta i tria la correcta per a {{count}} pregunta(es) abans de publicar.',
   'quizBuilder.questionsTitle': 'Preguntes',
+  'quizBuilder.saveFailed': "No s'ha pogut desar el títol. Torna-ho a provar.",
   'quizBuilder.statusDraft': 'Esborrany',
   'quizBuilder.subhead':
     'Edita el títol, afegeix preguntes, defineix opcions i la resposta correcta. Els canvis es desen automàticament.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.hostMultiplayer': "Multijugador d'amfitrió",
   'quizDetail.leaderboardEmpty':
     'Encara no hi ha cap jugada; sigues el primer a marcar una puntuació.',
+  'quizDetail.loadError': "No s'ha pogut carregar aquest qüestionari.",
   'quizDetail.loading': "S'està carregant el qüestionari…",
   'quizDetail.plays': '{{count}} obres de teatre',
   'quizDetail.playSolo': 'Juga sol',

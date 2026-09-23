@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'article.notFound': 'រកមិនឃើញអត្ថបទ',
   'articleEditor.bodyPlaceholder': 'វាយ / សម្រាប់ប្លុក ឬគ្រាន់តែចាប់ផ្តើមសរសេរ។',
+  'articleEditor.loadFailed': 'មិនអាចផ្ទុកអត្ថបទបានទេ',
   'articleEditor.publishing': 'ការបោះពុម្ពផ្សាយ\\u2026',
   'articleEditor.saveFailed': 'ការរក្សាទុកបរាជ័យ',
   'articleEditor.saving': 'កំពុងរក្សាទុក\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'ចំណាំ',
   'articleView.bookmarkOn': 'បានចំណាំ',
   'articleView.edit': 'កែសម្រួលអត្ថបទ',
+  'articleView.loading': 'កំពុងបើកអត្ថបទនេះ…',
   'articleView.readTime': '{{minutes}} អាន​នាទី',
   'articleView.spaces': 'ចន្លោះ',
   'articleView.tocHeading': 'នៅលើទំព័រនេះ',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'ការកែសម្រួល ការអាន និងសេចក្តីព្រាងថ្មីៗ ដែលក្រុមរបស់អ្នកនៅតែកំពុងទទួលបានលទ្ធផលល្អ។',
   'cairnTrailHero.updated': 'អត្ថបទដែលបានធ្វើបច្ចុប្បន្នភាព',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'drafts.eyebrow': 'ការងារដែលមិនទាន់បានបញ្ចប់របស់អ្នក',
   'drafts.heading': 'សេចក្តីព្រាង',
+  'drafts.loadFailed': 'មិនអាចផ្ទុកសេចក្តីព្រាងរបស់អ្នកបានទេ។',
   'drafts.subtitle':
     'អត្ថបទដែលអ្នកបានចាប់ផ្តើមហើយ ប៉ុន្តែមិនទាន់បានបោះពុម្ពផ្សាយនៅឡើយទេ។ ជ្រើសរើសយកមួយ ហើយបន្តទៅមុខទៀត។',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'មិនទាន់មានកន្លែងទំនេរនៅឡើយទេ។ សូមបើកកន្លែងមួយដើម្បីចាប់ផ្តើមប្រមូលអត្ថបទ។',
   'home.spacesHeading': 'ទីកន្លែងរបស់អ្នក',
   'home.subtitle': 'អត្ថបទថ្មីៗ ចំណាំរបស់អ្នក និងអ្វីដែលក្រុមបានសរសេរ។',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} ។ បង្កើតឡើងដោយម៉ូលេគុល។',
   'landing.ctaBody':
     'ឥតគិតថ្លៃសម្រាប់អ្នកនិពន្ធទោល។ ផែនការក្រុមសម្រាប់ក្រុមចែកចាយដែលដឹកជញ្ជូនសៀវភៅណែនាំ ការសម្រេចចិត្ត និងការណែនាំ។',
   'landing.ctaHeading': 'ដាក់ដុំថ្មដំបូងនៅថ្ងៃនេះ។',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'បង្កើត​កន្លែងធ្វើការ',
   'login.submitting': 'កំពុងចូល...',
   'login.subtitle': 'រើសយកផ្លូវដែលអ្នកបានទុកវា។',
+  'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
+  'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
+  'newSpace.colorAria': 'ជ្រើសរើសពណ៌ {{color}}',
   'newSpace.colorLabel': 'ពណ៌​លេចធ្លោ',
+  'newSpace.createFailed': 'មិនអាចបង្កើតកន្លែងទំនេរបានទេ',
   'newSpace.descriptionPlaceholder':
     'សៀវភៅណែនាំសម្រាប់រត់, សៀវភៅណែនាំសម្រាប់លេងពេលមានអាសន្ន, របាយការណ៍មរណភាពក្រោយស្លាប់',
   'newSpace.eyebrow': 'បើកកន្លែងចំណេះដឹង',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'កំពុងផ្ទុក\\u2026',
   'notifications.subtitle':
     '{{count}} ការលើកឡើងដែលមិនទាន់អាន \\u2014 មតិយោបល់ ការផ្លាស់ប្ដូរទំព័រ និងសំណើសុំពិនិត្យ។',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.articles': 'អត្ថបទ',
   'pricing.spaces': 'ចន្លោះ',
   'profile.eyebrow': 'ទម្រង់អ្នកនិពន្ធ',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'បញ្ចូលពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subtitle': 'ជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំមួយ — យ៉ាងហោចណាស់ ១២ តួអក្សរ។',
   'searchResults.eyebrow': 'ការស្វែងរកកន្លែងធ្វើការ',
+  'searchResults.filter.all': 'លំហទាំងអស់',
   'searchResults.heading': 'ស្វែងរកអត្ថបទ',
   'searchResults.placeholder': 'ស្វែងរកសៀវភៅដំណើរការ, RFCs, គោលនយោបាយ, ការសម្រេចចិត្ត\\u2026',
   'searchResults.summary': '{{count}} លទ្ធផលសម្រាប់ \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'វានឹងលុបគណនីរបស់អ្នក និងអត្ថបទនីមួយៗដែលអ្នកបានសរសេរ។ វាយបញ្ចូល DELETE ដើម្បីបញ្ជាក់។',
   'settings.danger.confirmInvalid': 'វាយបញ្ចូល DELETE ដើម្បីបញ្ជាក់។',
+  'settings.danger.deleteFailed': 'មិនអាចលុបគណនីបានទេ',
   'settings.danger.deleting': 'កំពុងលុប\\u2026',
   'settings.danger.description':
     'ការលុបកន្លែងធ្វើការរបស់អ្នកនឹងលុបអត្ថបទ មតិយោបល់ និងប្រវត្តិកំណែទាំងអស់។ មិនមានការសង្គ្រោះឡើងវិញទេ។',
   'settings.danger.title': 'លុប​កន្លែងធ្វើការ',
+  'settings.email.confirm': 'ធ្វើបច្ចុប្បន្នភាពអ៊ីមែល',
+  'settings.email.confirmTitle': 'បញ្ជាក់ការផ្លាស់ប្តូរអ៊ីមែល',
   'settings.email.saved': 'អ៊ីមែលត្រូវបានធ្វើបច្ចុប្បន្នភាព។',
+  'settings.email.updateFailed': 'មិនអាចធ្វើបច្ចុប្បន្នភាពអ៊ីមែលបានទេ',
   'settings.language.title': 'ភាសា',
   'settings.name': 'ឈ្មោះ',
+  'settings.name.saved': 'ឈ្មោះត្រូវបានធ្វើបច្ចុប្បន្នភាព។',
+  'settings.name.updateFailed': 'មិនអាចធ្វើបច្ចុប្បន្នភាពឈ្មោះបានទេ',
   'settings.notifications.description': 'ជ្រើសរើស​អ្វីដែល​ទៅដល់​ប្រអប់សំបុត្រ​របស់អ្នក។',
+  'settings.password.changeFailed': 'មិនអាចផ្លាស់ប្តូរពាក្យសម្ងាត់បានទេ',
   'settings.password.current': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
   'settings.password.new': 'ពាក្យសម្ងាត់ថ្មី',
   'settings.password.saving': 'កំពុងធ្វើបច្ចុប្បន្នភាព\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'របៀបដែលអត្ថបទបង្ហាញសម្រាប់អ្នក។',
   'settings.reading.title': 'ការអាន និងការសរសេរ',
   'settings.subtitle': 'កែសម្រួលការជូនដំណឹង ផ្ទាំងអាន និងគណនីរបស់អ្នក។',
+  'settings.twofa.code': 'លេខកូដផ្ទៀងផ្ទាត់',
   'settings.twofa.disable': 'បិទ',
   'settings.twofa.disabled': 'ពិការ',
   'settings.twofa.enable': 'បើកដំណើរការ',
   'settings.twofa.enabled': 'បានបើកដំណើរការ',
+  'settings.twofa.invalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
+  'settings.twofa.unavailable': 'ការផ្ទៀងផ្ទាត់ពីរកត្តាមិនអាចប្រើសម្រាប់កម្មវិធីនេះបានទេ។',
+  'settings.twofa.verify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'signup.brandQuote': 'ការសរសេរវាចុះ គឺជាការសន្យាដំបូងដែលយើងធ្វើចំពោះមនុស្សបន្ទាប់ដែលត្រូវការវា។',
   'signup.eyebrow': 'បើកកន្លែងធ្វើការ',
   'signup.firstNamePlaceholder': 'ម៉ាយ៉ា',

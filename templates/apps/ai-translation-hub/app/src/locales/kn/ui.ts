@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'billing.canceled': 'ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಂಡಿದೆ. ಅವಧಿಯ ಕೊನೆಯಲ್ಲಿ ನೀವು ಉಚಿತಕ್ಕೆ ಹಿಂತಿರುಗುತ್ತೀರಿ.',
   'billing.contactSales': 'ಮಾರಾಟವನ್ನು ಸಂಪರ್ಕಿಸಿ',
   'billing.free.1': '5 ಅನುವಾದಗಳು',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'ಯಾವುದೇ ಧಾರಣ ಮಿತಿಯಿಲ್ಲ',
   'billing.upgradeHint': 'ಸುಧಾರಿತ AI ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.activityEmpty':
     'ಇನ್ನೂ ಯಾವುದೇ ಚಟುವಟಿಕೆ ಇಲ್ಲ — ಈ ಫೀಡ್ ಅನ್ನು ತುಂಬಲು ಒಂದು ಯೋಜನೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'dashboard.eyebrow': 'ಅವಲೋಕನ',
@@ -113,6 +115,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'ಪ್ರತಿಯೊಂದು ಯೋಜನೆಯಾದ್ಯಂತ ಹಿಂದಿನ ಅನುವಾದಗಳನ್ನು ಮರುಬಳಕೆ ಮಾಡಿ. ಹೆಚ್ಚಿನ ಹೊಂದಾಣಿಕೆಯ ಸ್ಕೋರ್ → ಕಡಿಮೆ ಮರು-ಕೆಲಸ.',
   'memory.title': 'ಮೆಮೊರಿ ಬ್ಯಾಂಕ್',
+  'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
+  'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'newProject.addLanguage': 'ಗುರಿಯನ್ನು ಸೇರಿಸಿ',
   'newProject.create': 'ಯೋಜನೆಯನ್ನು ರಚಿಸಿ',
@@ -142,6 +146,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'ಗುರುತಿಸಲಾಗಿದೆ {{count}} ಓದಿದಂತೆ ಅಧಿಸೂಚನೆಗಳು.',
   'notifications.subtitle':
     'ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳಗಳಾದ್ಯಂತ ಉಲ್ಲೇಖಗಳು, ವಿಮರ್ಶೆ ವಿನಂತಿಗಳು ಮತ್ತು AI ಈವೆಂಟ್‌ಗಳು.',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'privacy.collection.account': 'ನಿಮ್ಮ ಖಾತೆಯ ಇಮೇಲ್ ವಿಳಾಸ ಮತ್ತು ಪ್ರದರ್ಶನ ಹೆಸರು',
   'privacy.deletion.body':
     'ನೀವು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಸಂಬಂಧಿತ ಪುಟದಿಂದ ಪ್ರಾಜೆಕ್ಟ್, ವಿಭಾಗ, ಪದಕೋಶ ಪದ ಅಥವಾ ಮೆಮೊರಿ ನಮೂದನ್ನು ಅಳಿಸಬಹುದು. ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸುವುದರಿಂದ ನಮ್ಮ ಡೇಟಾಬೇಸ್‌ನಿಂದ ಪ್ರತಿಯೊಂದು ಕಾರ್ಯಕ್ಷೇತ್ರ-ವ್ಯಾಪ್ತಿಯ ಸಾಲನ್ನು ಶುದ್ಧೀಕರಿಸಲಾಗುತ್ತದೆ.',
@@ -176,6 +181,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'projects.loading': 'ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'projects.subtitle': 'ಎಲ್ಲಾ ಸ್ಥಳಗಳಲ್ಲಿ ಪ್ರತಿಯೊಂದು ಸಕ್ರಿಯ ಯೋಜನೆ.',
+  'renditionLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'reset.backToLogin': '\\u2190 ಸೈನ್ ಇನ್‌ಗೆ ಹಿಂತಿರುಗಿ',
   'reset.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'review.activeEyebrow': 'ವಿಭಾಗ {{number}}',

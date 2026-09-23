@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
   'accountDetail.activeBadge': 'Активен',
   'accountDetail.availableLabel': '{{amount}} наличен',
@@ -13,6 +14,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Акаунти',
   'accounts.loadError': 'Не успях да заредя профилите.',
   'accounts.status.closed': 'Closed',
+  'accounts.status.frozen': '„Замръзналото кралство“',
   'accounts.totalBalance': '{{сума}} общо',
   'audit.empty': 'Все още няма събития.',
   'audit.eyebrow': 'Сигурност и достъп',
@@ -24,6 +26,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Парични средства в брой',
   'cashCreditCard.creditLabel': 'Използван кредит',
   'cashCreditCard.title': 'Пари в брой и кредит',
+  'common.goToDashboard': 'Към таблото',
   'dashboard.accountsHeading': 'Акаунти',
   'dashboard.heading': 'Общ преглед',
   'dashboard.recentEmpty': 'Все още няма транзакции.',
@@ -42,10 +45,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Покажи паролата',
   'login.signUp': 'Регистрирай се',
   'login.submit': 'Вход',
+  'meridianLayout.menu': 'Меню',
   'meridianLayout.primaryNavLabel': 'Основна навигация',
   'nav.legal': 'Правни',
   'notifications.emptyHeading': 'Всичко е наред',
   'notifications.subheading': 'Сигнали в реално време за транзакции, сигурност и извлечения.',
+  'planUpdated.verifying': 'Потвърждаване на плащането…',
   'privacy.dataWeShare':
     'Личните банкови данни никога не се продават. Споделяме информация с платежни оператори, картови мрежи и регулаторни органи само когато е необходимо за уреждане на транзакции или изпълнение на законови задължения.',
   'privacy.dataWeStore':
@@ -77,10 +82,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Двуфакторната технология добавя еднократен код от приложение за удостоверяване при всяко влизане.',
   'settings.security.twoFactorCta': 'Управление на двуфакторно удостоверяване',
+  'settings.security.twoFactorOff': 'Двуфакторната автентификация е изключена',
   'settings.signOutDevice': 'Изход',
   'settings.subheading': 'Профил, сигурност и известия.',
+  'settings.twoFactorCode': 'Код за удостоверяване',
   'settings.twoFactorDisable': 'Деактивирай',
   'settings.twoFactorEnable': 'Активирай',
+  'settings.twoFactorInvalidCode': 'Невалиден код',
+  'settings.twoFactorVerify': 'Провери и активирай',
   'signup.emailLabel': 'Имейл адрес',
   'signup.fullName': 'Как да се обръщаме към Вас?',
   'signup.showPassword': 'Покажи паролата',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Все още няма транзакции.',
   'transactions.endDate': 'Крайна дата',
   'transactions.eyebrow': 'Дейност',
+  'transactions.loadError': 'Не успях да заредя транзакциите.',
   'transactions.merchant': 'Търговец',
+  'transactions.subheading': 'Всички осчетоводени и чакащи транзакции по всичките ви сметки.',
   'transfers.availableHint': '{{amount}} наличен',
   'transfers.errorGeneric': 'Преводът не можа да бъде изпратен.',
   'transfers.errorMissingFields': 'Изберете изходен акаунт и дестинация.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Habla con nosotros',
   'auth.fields.newPassword': 'Nueva contraseña',
   'collectionDetail.addImage': 'Conjurar para la colección',
   'collectionDetail.backCta': 'Volver a colecciones',
@@ -17,6 +18,10 @@ export const ui: UiTranslations = {
   'collections.subtitle': 'Mood boards, briefs y series en curso',
   'collections.title': 'Colecciones',
   'collections.untitled': 'Sin título · {{stamp}}',
+  'common.closeMenu': 'Cerrar menú',
+  'common.dismiss': 'Descartar',
+  'common.goToDashboard': 'Ir al panel',
+  'common.openMenu': 'Abrir el menú de navegación',
   'credits.eyebrow': 'Plan {{plan}}',
   'credits.renewsCopy': 'El plan se renueva el {{date}}',
   'credits.trail': 'Ensueño · {{plan}} nivel',
@@ -130,6 +135,7 @@ export const ui: UiTranslations = {
     'La actividad de generación, las acciones de compartir y las alertas de créditos aparecerán aquí.',
   'notifications.empty.title': 'Nada que reportar',
   'notifications.subtitle': 'Eventos de generación agrupados por día',
+  'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.limits.gallery': 'Galería de {{count}}',
   'privacy.collect.body':
     'Cuando te registras recopilamos tu nombre, correo electrónico y una contraseña en formato hash. Mientras usas Reverie almacenamos los prompts que envías, las imágenes que generamos para ti, los estilos y colecciones que guardas, y metadatos como el modelo utilizado, las marcas de tiempo de generación y el saldo de créditos.',
@@ -165,6 +171,7 @@ export const ui: UiTranslations = {
   'reset.submit': 'Guardar nueva contraseña',
   'reset.submitting': 'Actualizando contraseña…',
   'settings.account.handle': 'Usuario',
+  'settings.account.lastSaved': 'Perfil activo · {{name}}',
   'settings.account.saved': 'Perfil guardado',
   'settings.account.saveFailed': 'No se pudo guardar el perfil',
   'settings.account.title': 'Perfil de creador',
@@ -186,7 +193,9 @@ export const ui: UiTranslations = {
   'sidebar.newImage': 'Nueva imagen',
   'sidebar.secondary': 'Navegación secundaria',
   'signup.failed': 'Error al registrarse. Inténtalo de nuevo.',
+  'signup.firstNamePlaceholder': 'Aria',
   'signup.heading': 'Comienza tu reverie',
+  'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crea una cuenta y reclama 120 créditos gratis.',
   'styles.empty': 'Aún no hay presets de estilo — aparecerán tras el primer inicio de sesión.',
   'styles.eyebrow': 'Curado',

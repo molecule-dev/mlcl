@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Sobre nós',
   'activityFeed.empty': 'Aínda sen actividade: envía a túa primeira factura.',
   'authShell.sample.paid': 'Pagou hai 2 minutos',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Engadir un novo cliente',
   'clients.search': 'Buscar por nome, empresa, correo electrónico',
   'clients.title': 'Clientes',
+  'common.goToDashboard': 'Ir ao panel',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Novo cliente',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Esquecín o contrasinal?',
   'forgotPassword.successBody':
     'Enviamos instrucións de restablecemento a {{email}} A ligazón caduca en 30 minutos.',
+  'invoiceDetail.action.confirmVoid': 'Confirmar anulación?',
   'invoiceDetail.action.download': 'Descargar PDF',
   'invoiceDetail.action.duplicate': 'Duplicado',
   'invoiceDetail.action.edit': 'Editar',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Factura anulada.',
   'invoiceDetail.issued': 'Emitido {{date}}',
   'invoiceDetail.loading': 'Cargando factura…',
+  'invoiceDetail.paidInFull': 'Pagado na súa totalidade',
   'invoiceDetail.summary': '{{client}} · enviado {{date}}',
   'invoiceDetail.tax': 'Impostos ( {{rate}} %)',
   'invoiceDetail.timeline': 'Liña de tempo',
+  'invoiceDetail.voided': 'Anulado',
   'invoiceEditor.addItem': 'Engadir elemento',
   'invoiceEditor.back': '← Volver ás facturas',
   'invoiceEditor.col.qty': 'Cantidade',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Envía a túa primeira factura',
   'landing.hero.eyebrow': 'Facturación para pequenas empresas',
   'landing.hero.secondary': 'Ver unha factura de mostra',
+  'landing.hero.subtitle':
+    '{{appName}} combina facturas personalizadas con pagamentos integrados, facturación recorrente e informes listos para impostos. Sen necesidade de contabilidade.',
   'landing.hero.title': 'Envía facturas. Cobra máis rápido.',
   'login.signupLink': 'Crear un',
   'login.submitting': 'Iniciando sesión…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'pagamentos',
   'pricing.recurringLabel': 'horarios recorrentes',
   'remitLayout.newInvoice': 'Nova factura',
+  'remitLayout.openMenu': 'Abrir menú de navegación',
   'remitLayout.searchPlaceholder': 'Buscar facturas, clientes...',
   'remitLayout.tagline': 'Cobra máis rápido',
   'reports.chart.aging': 'Facturas envellecidas',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Ingresos do período',
   'reports.chart.topClients': 'Principais clientes',
   'reports.chart.topClientsCaption': 'Ingresos vitalicios, os 5 mellores',
+  'reports.empty.aging': 'Sen facturas pendentes.',
+  'reports.empty.methods': 'Aínda non hai datos de pagamento.',
+  'reports.empty.revenue': 'Aínda non hai datos de ingresos.',
+  'reports.empty.topClients': 'Aínda non hai datos de ingresos dos clientes.',
   'reports.exporting': 'Exportando…',
   'reports.exportRequiresPaid':
     'As exportacións son unha función de pago; actualízaa para activalas.',
@@ -193,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Engadir tipo impositivo',
   'settings.tax.added': 'Tipo impositivo engadido.',
   'settings.tax.adding': 'Engadindo…',
+  'settings.tax.addRate': 'Engadir taxa',
   'settings.tax.col.region': 'Rexión',
   'settings.tax.delete': 'Eliminar tipo impositivo',
   'settings.tax.deleted': 'Eliminouse o tipo impositivo.',

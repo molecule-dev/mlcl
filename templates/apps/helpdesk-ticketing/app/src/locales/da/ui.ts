@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.title': 'Om {{app}}',
   'activeAgentsCard.agent1AvatarAlt':
     'Professionelt portrætbillede af en kvindelig supportmedarbejder med et venligt smil på et moderne kontor',
   'activeAgentsCard.agent2AvatarAlt':
@@ -61,6 +62,7 @@ export const ui: UiTranslations = {
   'demoTicket.plan.enterprise': 'Enterprise',
   'demoTicket.thread.customer':
     "I reset my password yesterday and now I can't log into the billing portal. Can you help?",
+  'floatingHelp.contactSupport': 'Kontakt support',
   'forgotPassword.error': 'Kunne ikke sende nulstillingsmail. Prøv igen.',
   'forgotPassword.rememberPassword': 'Husk din adgangskode?',
   'forgotPassword.subheading':
@@ -103,6 +105,9 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Log ind — Zenith Support',
   'login.showPassword': 'Vis adgangskode',
   'login.welcomeSubheading': 'Log ind på dit supportdashboard',
+  'mobileNav.closeMenu': 'Luk navigation',
+  'mobileNav.menu': 'Navigation',
+  'mobileNav.openMenu': 'Åbn navigation',
   'nav.legal': 'Juridisk',
   'nav.newTicket': 'Ny billet',
   'notifications.loadError': 'Kunne ikke indlæse notifikationer. Prøv igen om et øjeblik.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Kommandosøgning',
   'operatorDock.newReport': 'Ny rapport',
   'operatorDock.systemOnline': 'System online',
+  'planUpdated.subtitle': 'Tak',
   'planUpdated.title': 'Plan opdateret',
   'pricing.agents': 'agenter',
   'pricing.automation': 'Automatiseringsregler',
@@ -248,6 +254,9 @@ export const ui: UiTranslations = {
   'ticketCustomerMessage.customerName': '{{name}}',
   'ticketCustomerReply.avatarAlt': '{{navn}} s avatar',
   'ticketDetail.errorTitle': 'Noget gik galt',
+  'ticketDetail.loadError': 'Kunne ikke indlæse billetten.',
+  'ticketDetail.notFound': 'Billet ikke fundet',
+  'ticketDetail.replyError': 'Kunne ikke sende svar. Prøv igen.',
   'ticketDetail.retry': 'Prøv igen',
   'ticketDetail.statusUpdateError': 'Status kunne ikke opdateres. Prøv igen.',
   'ticketDetailsCard.assigneeLabel': 'Tildeler',
@@ -299,6 +308,7 @@ export const ui: UiTranslations = {
   'ticketRow.timeLeft': '{{tid}} venstre',
   'ticketRow.title': 'Databaseforbindelse mislykkes i produktion {{node}}',
   'tickets.pageTitle': 'Billetter — Zenith Support',
+  'ticketsFab.newTicket': 'Ny billet',
   'ticketsFilterBar.assigneeLabel': 'Tildeler:',
   'ticketsFilterBar.clearFilters': 'Ryd filtre',
   'ticketsFilterBar.dateRangeDemoHint': 'Date range filtering is not enabled in this demo build.',

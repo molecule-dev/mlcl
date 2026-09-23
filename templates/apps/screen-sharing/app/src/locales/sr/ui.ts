@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
   'about.pageTitle': 'О нама {{appName}}',
   'analytics.empty': 'Снимите свој први клип да бисте видели ангажовање овде.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'клипови',
   'billing.usage.views': 'Прегледи',
   'billing.usage.views.unit': 'прегледи',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'landing.cta.title': 'Шаљите боље повратне информације. Почните са Глинтом.',
   'landing.feature.capture.body':
     'Снимање преко прегледача, рачунара и мобилног телефона помоћу микрофона, камере и цртања.',
   'landing.feature.capture.title': 'Снимање једним додиром',
+  'landing.footer.copy': '© {{year}} {{appName}} . Асинхроно, направљено светло.',
   'landing.hero.cardCaption': 'Преглед примера радног простора — испробајте бесплатно.',
   'landing.hero.primaryCta': 'Почните снимање бесплатно',
   'landing.hero.proof.free': 'Бесплатни ниво заувек',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'Претражи снимке',
   'library.searchPlaceholder': 'Претражи снимке…',
   'library.weeklyChange': '{{value}} % у односу на прошлу недељу',
+  'nav.openMenu': 'Отвори мени за навигацију',
   'nav.record': 'Запис',
   'nav.shared': 'Дељено са мном',
   'nav.startRecording': 'Почни снимање',

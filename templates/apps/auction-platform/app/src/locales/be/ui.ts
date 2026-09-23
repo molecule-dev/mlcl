@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Глядзець',
   'auctionDetail.watchRemoved': 'Выдалена са спісу назірання.',
   'auctionDetail.watchRemoveLabel': 'Выдаліць са спісу назірання',
+  'auctionPlatformLayout.primaryNavLabel': 'Асноўная навігацыя',
   'authShell.brandBody':
     'Рабіце стаўкі ў рэжыме рэальнага часу на рэдкія гадзіннікі, творы мастацтва і ўнікальныя спецыяльныя рэчы. Малаток падае за лічаныя секунды.',
   'authShell.brandEyebrow': 'Цяпер даступна · 1420 аўкцыёнаў',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Сартаваць па',
   'browseAuctions.subheading':
     'Фільтруйце па катэгорыях, сартуйце па найбольш важных рысах і рабіце стаўку, перш чым ударыць малаток.',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'countdownTimer.ended': 'Скончылася',
   'countdownTimer.endingSoon': 'Канец',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Схаваць пароль',
   'login.showPassword': 'Паказаць пароль',
   'login.subtext': 'Працягвайце адсочваць свае аўкцыёны і рабіце стаўкі, перш чым ударыць малаток.',
+  'mobileNav.closeMenu': 'Закрыць меню навігацыі',
+  'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'myBids.bidAgain': 'Зрабіце стаўку яшчэ раз',
   'myBids.browseCta': 'Праглядзець жывыя аўкцыёны →',
   'myBids.checkoutCta': 'Аплаціць зараз',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Цэнтр актыўнага адпачынку',
   'notificationsPage.subheading':
     '{{count}} непрачытаныя · абнаўленні ў рэжыме рэальнага часу па меры прасоўвання аўкцыёнаў',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.bidsLabel': 'стаўкі',
   'pricing.listingsLabel': "аб'явы",
   'pricing.watchlistLabel': 'спіс назірання',

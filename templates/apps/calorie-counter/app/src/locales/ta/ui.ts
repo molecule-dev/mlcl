@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'ஒவ்வொரு கடியும், சமநிலை',
   'auth.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'auth.showPassword': 'கடவுச்சொல்லைக் காட்டு',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'nav.legal': 'சட்டப்பூர்வமான',
+  'nosh.auth.legalPrefix': 'தொடர்வதன் மூலம் எங்கள்',
   'nosh.foodDetail.add': 'டைரியில் சேர்க்கவும்',
   'nosh.foodDetail.added': 'சேர்க்கப்பட்டது உணவு .',
   'nosh.foodDetail.addError': 'நாட்குறிப்பில் சேர்க்க முடியவில்லை.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'நார்',
   'nosh.foodDetail.micros.sodium': 'சோடியம்',
   'nosh.foodDetail.micros.sugar': 'சர்க்கரை',
+  'nosh.foodDetail.percentDv': '{{pct}} % DV',
   'nosh.foodDetail.protein': 'புரதம்',
   'nosh.foodDetail.serving.count': 'பரிமாறல்கள்',
   'nosh.foodDetail.serving.meal': 'சேர்க்கவும்',
@@ -49,6 +53,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'புத்திசாலித்தனமாக எரிபொருள் நிரப்பத் தொடங்குங்கள்',
   'nosh.landing.features.heading': 'உங்களுக்குத் தேவையான அனைத்தும், தேவையில்லாத எதுவும் இல்லை.',
   'nosh.landing.features.smartRing.title': 'ஸ்மார்ட் கலோரி ரிங்',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'குற்றவுணர்ச்சி இல்லாமல் உங்கள் இலக்குகளை அடைய உதவும் ஒரு நட்பான உணவுப் பதிவேடு. வெறும் எண்களில் கவனம் செலுத்தாமல், ஊட்டச்சத்தில் கவனம் செலுத்துங்கள்.',
   'nosh.landing.hero.eyebrow': 'நட்பான கலோரி கண்காணிப்பு',
@@ -84,6 +89,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'நீங்கள் எவ்வளவு சுறுசுறுப்பாக இருக்கிறீர்கள்?',
   'nosh.onboarding.back': 'திரும்பி',
   'nosh.onboarding.macros.heading': 'இதோ உங்கள் தினசரி இலக்கு',
+  'nosh.onboarding.saveError': 'உங்கள் இலக்குகளைக் காப்பாற்ற முடியவில்லை.',
   'nosh.onboarding.start': 'போகலாம்',
   'nosh.progress.calorieChart.title': 'ஒரு நாளைக்கு கலோரிகள்',
   'nosh.progress.empty':
@@ -148,6 +154,8 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'நிரந்தரமாக நீக்கு',
   'nosh.settings.deleteError': 'கணக்கை நீக்க முடியவில்லை.',
   'nosh.settings.export.cta': 'CSV-ஐ பதிவிறக்கவும்',
+  'nosh.settings.export.description':
+    'உங்கள் முழு உணவுப் பதிவேட்டையும் CSV கோப்பாகப் பதிவிறக்கம் செய்யவும்.',
   'nosh.settings.export.label': 'ஏற்றுமதி தரவு',
   'nosh.settings.export.preparing': 'தயாராகிறது…',
   'nosh.settings.eyebrow': 'கணக்கு · அறிவிப்புகள் · தனியுரிமை',
@@ -159,6 +167,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'நட்பான கண்காணிப்பு, குற்றவுணர்ச்சி இல்லை.',
   'nosh.today.${mealKey}Empty': 'உள்நுழைய தட்டவும்',
   'nosh.today.addFood': 'உணவைச் சேர்க்கவும்',
+  'nosh.today.backToToday': 'இன்றைய தினத்திற்குத் திரும்பு',
+  'nosh.today.dateNavLabel': 'மாற்ற நாட்குறிப்பு நாள்',
   'nosh.today.loadError': 'இன்று ஏற்ற முடியவில்லை.',
   'nosh.today.macros.carbs': 'கார்போஹைட்ரேட்டுகள்',
   'nosh.today.macros.fat': 'கொழுப்பு',
@@ -166,6 +176,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'புரதம்',
   'nosh.today.macroTitle': 'பேரூட்டச்சத்துக்கள்',
   'nosh.today.meal.${mealKey}': 'கால்',
+  'nosh.today.nextDay': 'அடுத்த நாள்',
+  'nosh.today.pastPill': 'கடந்த நாள்',
+  'nosh.today.prevDay': 'முந்தைய நாள்',
   'nosh.today.quickAddError': 'விரைவுப் பதிவை மேற்கொள்ள முடியவில்லை.',
   'nosh.today.remaining': 'மீதமுள்ள கலோரிகள்',
   'nosh.today.streakHeadline': '{{count}} -நாள் தொடர்',

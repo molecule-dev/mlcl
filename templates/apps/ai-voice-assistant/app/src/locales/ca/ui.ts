@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, sol·licituds de funcions o has trobat un error? Contacta amb l'equip de {{app}} a través de l'enllaç d'assistència del menú del teu compte; cada missatge va a parar a una persona real.",
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'agentDetail.back': 'Tots els agents',
   'agentDetail.capabilities': 'Capacitats',
   'agentDetail.delete': 'Suprimeix la persona',
   'agentDetail.deleteConfirm': 'Voleu suprimir aquesta persona? Això no es pot desfer.',
+  'agentDetail.deleteError': "No s'ha pogut suprimir la persona.",
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': "No s'ha pogut carregar la persona.",
   'agentDetail.save': 'Desa la persona',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Canviant…',
   'billing.updateError': "No s'ha pogut iniciar l'actualització.",
   'billing.usageHeading': 'Ús de la veu en aquest cicle',
+  'chatBubble.source.text': 'text',
+  'chatBubble.source.voice': 'veu',
+  'common.goToDashboard': 'Anar al panell',
   'conversation.defaultTitle': 'Nova conversa',
   'conversation.empty':
     'Encara no hi ha missatges. Comença dient alguna cosa o escrivint a continuació.',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Intel·ligència que parla.',
   'landing.heroSubtitle':
     "L'assistent de veu amb IA que entén el teu flux natural. Conversa, idea i comanda, sense problemes.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Escoltant…',
   'landing.naturallyBody':
     'Sense paraules detonants. Sense ordres rígides. El llenguatge comprèn el context, les interrupcions i els matisos de la parla humana, com ara xerrar amb un company.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Obre una sessió',
   'notFound.home': 'De tornada a casa',
   'notFound.title': 'No podíem sentir aquella pàgina.',
+  'parlanceLayout.closeMenu': 'Tanca el menú',
+  'parlanceLayout.openMenu': 'Obre el menú de navegació',
   'parlanceLayout.primaryNavLabel': 'Navegació principal',
   'pricing.conversations': '{{count}} converses',
   'pricing.cta.startFree': 'Comença gratuïtament',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Sense coincidències',
   'search.eyebrow': "Paleta d'ordres",
   'search.fetchError': "No s'ha pogut carregar l'índex de cerca.",
+  'search.static.profile.preview': 'Nom de visualització, identificació, biografia',
   'search.static.voice.title': 'Veu',
   'search.title': 'Cercar llenguatge',
   'search.transcriptPreview': 'Obre la transcripció',

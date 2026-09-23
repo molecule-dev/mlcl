@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.featureDiscover.title': 'Inspiraatiota, käsin poimittua',
   'account.addPaymentCta': 'Lisää maksutapa',
   'account.addPaymentError': 'Maksutapaa ei voitu lisätä.',
+  'account.confirmRemove': 'Vahvista poisto',
   'account.defaultBadge': 'Oletus',
   'account.loyalty.pointsTowardNext': '{{pistettä}} jostakin {{seuraava}} mailia {{seuraavataso}}',
   'account.loyalty.tier': 'Nykyinen taso',
@@ -42,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.tripHeading': 'Matkan tiedot',
   'booking.tripSummary': '{{nights}} yöt · {{guests}} vieraat',
   'common.daysAgo': '{{count}}pv sitten',
+  'common.goToDashboard': 'Siirry etusivulle',
   'common.hoursAgo': '{{count}}t sitten',
   'common.minutesAgo': '{{count}} minuuttia sitten',
   'common.no': '—',
@@ -57,6 +61,8 @@ export const ui: UiTranslations = {
     '{{count}} tallennettu · automaattisesti hinnoiteltu matkapäivillesi, kun vaellat',
   'forgotPassword.subheading':
     'Syötä tilisi sähköpostiosoite, niin lähetämme sinulle suojatun nollauslinkin.',
+  'forgotPassword.successBody':
+    'Olemme lähettäneet palautusohjeet osoitteeseen {{email}} . Linkki vanhenee 30 minuutin kuluttua.',
   'landing.cta.eyebrow': 'Oleskelujäsenet',
   'landing.cta.heading': 'Vaella huoletta. Jokaisella matkareitillä, joka kerta.',
   'landing.cta.signup': 'Luo ilmainen tili',
@@ -77,6 +83,7 @@ export const ui: UiTranslations = {
   'nav.legal': 'Lainsäädäntö',
   'notifications.loading': 'Ladataan…',
   'notifications.subheading': '{{count}} lukematon · kaikki yhdessä rauhallisessa postilaatikossa',
+  'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.accommodationsLabel': 'majoitus',
   'pricing.bookingsLabel': 'varaukset',
   'pricing.destinationsLabel': 'tallennetut kohteet',
@@ -128,6 +135,7 @@ export const ui: UiTranslations = {
     'Inspiraatiota, luotettavia yöpymisiä ja kitkaton polku unelmasta varatuksi – 14 maassa ja yli 200 huolellisesti tarkistetussa majoituspaikassa.',
   'sojournHeroSearchCard.trustProtected': 'Ilmainen peruutus, täysin suojattu',
   'sojournHeroSearchCard.trustVetted': 'Vain käsin tarkastetut kiinteistöt',
+  'travelBookingLayout.primaryNavLabel': 'Päänavigaatio',
   'tripDetail.backLink': 'Takaisin matkoihin',
   'tripDetail.cancelCta': 'Peruuta varaus',
   'tripDetail.cancelHeading': 'Perutaanko tämä matka?',

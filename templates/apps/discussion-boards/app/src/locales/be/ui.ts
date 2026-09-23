@@ -28,8 +28,12 @@ export const ui: UiTranslations = {
   'categoryDetail.stat.posts': 'Паведамленні',
   'categoryDetail.stat.threads': 'Тэмы',
   'categoryDetail.threadCount': 'Паказ {{count}} ніткі',
+  'categoryDetail.threadsFailed': 'Не атрымалася загрузіць тэмы.',
+  'common.goToDashboard': 'Перайсці да панэлі',
+  'common.retry': 'Паўтарыць',
   'compose.bodyPlaceholder':
     'Зрабіце план. Выкарыстоўвайце ## для раздзелаў, > для двукоссяў, ``` для блокаў кода.',
+  'compose.categoriesFailed': 'Не атрымалася загрузіць катэгорыі.',
   'compose.eyebrow': 'Новая тэма',
   'compose.failed': 'Не атрымалася пачаць тэму. Паспрабуйце яшчэ раз.',
   'compose.field.body': 'Цела',
@@ -72,6 +76,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Працягвайце з таго месца, дзе спыніліся — вашы непрачытаныя тэмы чакаюць вас.',
   'login.twoFactor': 'Двухфактарны токен (неабавязкова)',
+  'moderationQueue.actionFailed': 'Дзеянне не атрымалася. Паспрабуйце яшчэ раз.',
   'moderationQueue.eyebrow': 'Працоўная прастора мадэратара',
   'moderationQueue.heading': 'Чарга мадэрацыі · {{count}} адкрытыя элементы',
   'moderationQueue.kind.${item.kind}': '{{count}} сцягі',
@@ -79,7 +84,11 @@ export const ui: UiTranslations = {
   'moderationQueue.slaBody':
     'Імкніцеся да першага кантакту менш чым за дзве гадзіны. У выпадку неадназначных званкоў звяртайцеся па адрасе admin@stoa.',
   'nav.browseHeader': 'Праглядзець',
+  'nav.closeMenu': 'Закрыць меню навігацыі',
   'nav.communityGuidelinesTitle': 'Правілы супольнасці',
+  'nav.drawerTitle': 'Меню',
+  'nav.openMenu': 'Адкрыць меню навігацыі',
+  'nav.primaryNavLabel': 'Навігацыя па форуме',
   'notFound.body':
     'Магчыма, размова была заблакаваная ў архіве, альбо URL-адрас знік. Вярніцеся на агору і пачніце іншую размову.',
   'notFound.browseCta': 'Праглядзець катэгорыі',
@@ -90,6 +99,7 @@ export const ui: UiTranslations = {
   'notifications.heading': 'Апавяшчэнні · {{count}} непрачытаныя',
   'postCard.edited': '(рэдагавана)',
   'postCard.flag': 'Сцяг',
+  'postCard.flagged': 'Пазначана',
   'postCard.markSolution': 'Рашэнне адзнакі',
   'postCard.originalPost': 'Арыгінальная публікацыя',
   'postCard.quote': 'Цытата',
@@ -110,6 +120,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Знайдзіце тэму, паведамленне, чалавека.',
   'search.resultsCount': '{{count}} вынікі',
   'search.searching': 'Пошук…',
+  'settings.currentPasswordHint':
+    'Для змены электроннай пошты патрабуецца пароль. Націсніце Enter або пакіньце поле для пацверджання.',
+  'settings.currentPasswordLabel': 'Бягучы пароль',
+  'settings.currentPasswordRequired':
+    'Пацвердзіце гэтую змену, выкарыстоўваючы свой бягучы пароль.',
+  'settings.failedToUpdateProfile': 'Не атрымалася абнавіць профіль',
+  'settings.name': 'Імя',
+  'settings.saved': 'Захавана.',
   'signup.confirm': 'Пацвердзіць',
   'signup.emailPlaceholder': 'you@stoa.community',
   'signup.eyebrow': 'Далучайцеся да Стоа',

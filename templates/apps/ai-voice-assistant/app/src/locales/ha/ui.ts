@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Shin kuna da ra'ayi, buƙatar fasali, ko kun sami matsala? Ku isa ga ƙungiyar {{app}} ta hanyar hanyar haɗin tallafi a cikin menu na asusunku - kowane saƙo yana zuwa ga ainihin mutum.",
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
   'agentDetail.back': 'Duk wakilai',
   'agentDetail.capabilities': 'Ƙarfi',
   'agentDetail.delete': 'Share halin mutum',
   'agentDetail.deleteConfirm': 'A goge wannan halin? Ba za a iya gyara wannan ba.',
+  'agentDetail.deleteError': 'Ba za a iya goge persona ba.',
   'agentDetail.eyebrow': 'Persona',
   'agentDetail.fetchError': 'Ba za a iya loda persona ba.',
   'agentDetail.save': 'Ajiye halin mutum',
@@ -46,6 +50,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Canjawa…',
   'billing.updateError': 'Ba a iya fara sabuntawa ba.',
   'billing.usageHeading': 'Amfani da murya a wannan zagayen',
+  'chatBubble.source.text': 'rubutu',
+  'chatBubble.source.voice': 'murya',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'conversation.defaultTitle': 'Sabuwar tattaunawa',
   'conversation.empty': 'Babu saƙonni tukuna. Fara da faɗin wani abu ko rubuta a ƙasa.',
   'conversation.eyebrow': 'Zaman kai tsaye',
@@ -96,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Hankali wanda ke magana.',
   'landing.heroSubtitle':
     'Mataimakin muryar AI wanda ke fahimtar yadda kake gudanar da ayyukanka na halitta. Yi magana, yi tunani, da kuma yin umarni — ba tare da wata matsala ba.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Ana sauraro…',
   'landing.naturallyBody':
     'Babu kalmomin da ke haifar da tashin hankali. Babu umarni masu tsauri. Vox yana fahimtar mahallin, katsewa, da kuma bambancin magana ta ɗan adam - kamar yin hira da abokin aiki.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Bude zaman',
   'notFound.home': 'Komawa gida',
   'notFound.title': 'Ba mu ji wannan shafin ba.',
+  'parlanceLayout.closeMenu': 'Rufe menu',
+  'parlanceLayout.openMenu': 'Buɗe menu na kewayawa',
   'parlanceLayout.primaryNavLabel': 'Babban kewayawa',
   'pricing.conversations': '{{count}} tattaunawa',
   'pricing.cta.startFree': 'Fara kyauta',
@@ -149,6 +159,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Babu daidaituwa',
   'search.eyebrow': 'Paletin umarni',
   'search.fetchError': "Ba a iya loda ma'aunin bincike ba.",
+  'search.static.profile.preview': 'Sunan nuni, maƙallin hannu, tarihin rayuwa',
   'search.static.voice.title': 'Murya',
   'search.title': 'Fassarar Bincike',
   'search.transcriptPreview': 'Buɗe rubutun',

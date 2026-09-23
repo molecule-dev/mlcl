@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'আপনার কোনো মতামত, নতুন ফিচারের অনুরোধ আছে, বা কোনো বাগ খুঁজে পেয়েছেন? আপনার অ্যাকাউন্ট মেনুতে থাকা সাপোর্ট লিঙ্কের মাধ্যমে {{app}} টিমের সাথে যোগাযোগ করুন — প্রতিটি বার্তা একজন প্রকৃত মানুষের কাছে পৌঁছায়।',
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
   'agentDetail.back': 'সকল এজেন্ট',
   'agentDetail.capabilities': 'সক্ষমতা',
   'agentDetail.delete': 'পরিচয় মুছে ফেলুন',
   'agentDetail.deleteConfirm': 'এই পরিচয়টি মুছে ফেলবেন? এটি আর পূর্বাবস্থায় ফেরানো যাবে না।',
+  'agentDetail.deleteError': 'পার্সোনাটি মুছে ফেলা সম্ভব হয়নি।',
   'agentDetail.eyebrow': 'ব্যক্তিত্ব',
   'agentDetail.fetchError': 'পার্সোনা লোড করা যায়নি।',
   'agentDetail.save': 'ব্যক্তিত্ব সংরক্ষণ করুন',
@@ -43,6 +47,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'পরিবর্তন করা…',
   'billing.updateError': 'আপডেট শুরু করা যায়নি।',
   'billing.usageHeading': 'এই চক্রে কণ্ঠস্বর ব্যবহার',
+  'chatBubble.source.text': 'পাঠ্য',
+  'chatBubble.source.voice': 'কণ্ঠস্বর',
+  'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'conversation.defaultTitle': 'নতুন কথোপকথন',
   'conversation.empty': 'এখনো কোনো বার্তা আসেনি। কিছু বলে বা নিচে টাইপ করে শুরু করুন।',
   'conversation.eyebrow': 'সরাসরি অধিবেশন',
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'যে বুদ্ধিমত্তা কথা বলে।',
   'landing.heroSubtitle':
     'এআই ভয়েস অ্যাসিস্ট্যান্ট যা আপনার স্বাভাবিক কথাবার্তার ধরণ বোঝে। নির্বিঘ্নে কথা বলুন, নতুন ধারণা তৈরি করুন এবং নির্দেশ দিন।',
+  'landing.heroTitle': '{{tagline}}।',
   'landing.listening': 'শুনছি…',
   'landing.naturallyBody':
     'কোনো নির্দিষ্ট নির্দেশক শব্দ নেই। কোনো কঠোর নির্দেশ নেই। পার্ল্যান্স প্রসঙ্গ, কথার মাঝে বাধা এবং মানুষের কথার সূক্ষ্মতা বোঝে — ঠিক যেন কোনো সহকর্মীর সাথে গল্প করা।',
@@ -110,6 +118,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'একটি সেশন খুলুন',
   'notFound.home': 'বাড়ি ফিরে',
   'notFound.title': 'আমরা ওই পৃষ্ঠাটি শুনতে পাইনি।',
+  'parlanceLayout.closeMenu': 'মেনু বন্ধ করুন',
+  'parlanceLayout.openMenu': 'নেভিগেশন মেনু খুলুন',
   'parlanceLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'pricing.conversations': '{{count}} কথোপকথন',
   'pricing.cta.startFree': 'বিনামূল্যে শুরু করুন',
@@ -147,6 +157,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'কোনো মিল নেই',
   'search.eyebrow': 'কমান্ড প্যালেট',
   'search.fetchError': 'সার্চ ইনডেক্স লোড করা যায়নি।',
+  'search.static.profile.preview': 'প্রদর্শনের নাম, হ্যান্ডেল, বায়ো',
   'search.static.voice.title': 'কণ্ঠস্বর',
   'search.title': 'সার্চ পার্লেন্স',
   'search.transcriptPreview': 'খোলা প্রতিলিপি',

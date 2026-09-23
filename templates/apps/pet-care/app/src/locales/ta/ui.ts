@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'addPet.breed': 'இனம் (விருப்பத்திற்குரியது)',
   'addPet.dob': 'பிறந்த தேதி (விருப்பப்பட்டால்)',
   'addPet.errors.failed': 'செல்லப்பிராணியைச் சேர்க்க முடியவில்லை.',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'bookings.loading': 'முன்பதிவுகள் ஏற்றப்படுகின்றன…',
   'bookings.newCta': 'புதிய முன்பதிவு',
   'bookings.title': 'முன்பதிவுகள்',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.keepIt': 'புத்தகத்தை வைத்திருங்கள்',
+  'common.loadError.title': 'ஏதோ தவறு நடந்தது',
   'dashboard.addFirstPet':
     'பராமரிப்பு, கால்நடை மருத்துவ வருகைகள் மற்றும் மருந்துகளைக் கண்காணிக்கத் தொடங்க, ஒரு செல்லப்பிராணியைச் சேர்க்கவும்.',
   'dashboard.addPetCta': 'ஒரு செல்லப்பிராணியைச் சேர்க்கவும்',
@@ -97,9 +100,12 @@ export const ui: UiTranslations = {
   'login.subtitle':
     'உங்கள் செல்லப்பிராணிகள், பராமரிப்பாளர்கள் மற்றும் முன்பதிவுகளைச் சரிபார்க்க உள்நுழையவும்.',
   'medications.add.dosage': 'மருந்தளவு',
+  'medications.add.dosagePlaceholder': '5 மி.கி.',
   'medications.add.end': 'முடிவு (விருப்பத்திற்குரியது)',
   'medications.add.frequency': 'அதிர்வெண்',
   'medications.add.instructions': 'வழிமுறைகள்',
+  'medications.add.namePlaceholder': 'ஹார்ட்கார்ட் பிளஸ்',
+  'medications.add.noPets': '— முதலில் ஒரு செல்லப்பிராணியைச் சேர்க்கவும் —',
   'medications.add.pet': 'செல்லப்பிராணி',
   'medications.add.prescriber': 'பரிந்துரைக்கப்பட்டது',
   'medications.add.submit': 'மருந்தை சேமிக்கவும்',
@@ -121,6 +127,8 @@ export const ui: UiTranslations = {
     'ஒவ்வொரு முன்பதிவிற்கும் அதற்கென ஒரு தனி உரையாடல் உள்ளது. குழந்தைப் பராமரிப்பாளருடன் உரையாட ஒரு முன்பதிவைத் தேர்ந்தெடுக்கவும்.',
   'notifications.empty.body': 'புதிய செயல்பாடு இங்கே தோன்றும்.',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்',
+  'notifications.title.bookingCancelled': 'முன்பதிவை ரத்துசெய்',
+  'notifications.title.healthReminder': 'சுகாதார நினைவூட்டல்',
   'notifications.title.newMessage': 'புதிய செய்தி',
   'nuzzleLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'petDetail.aboutEmpty':
@@ -128,6 +136,8 @@ export const ui: UiTranslations = {
   'petDetail.back': 'செல்லப்பிராணிகளுக்குத் திரும்பு',
   'petDetail.eyebrow': 'செல்லப்பிராணி சுயவிவரம்',
   'petDetail.facts.age': 'வயது',
+  'petDetail.facts.breed': 'இனம்',
+  'petDetail.facts.microchip': 'மைக்ரோசிப்',
   'petDetail.facts.species': 'இனங்கள்',
   'petDetail.facts.weight': 'எடை',
   'petDetail.loading': 'செல்லப்பிராணி ஏற்றப்படுகிறது…',
@@ -163,6 +173,8 @@ export const ui: UiTranslations = {
   'signup.subtitle':
     'ஒவ்வொரு வாலாட்டத்தையும், உறுமலையும், கீச்சிடலையும் ஒரே இடத்தில் பதிவு செய்யுங்கள்.',
   'sitterCard.hourlyRate': '$ {{rate}} /மணி',
+  'sitterCard.ratingAria': 'மதிப்பீடு: {{rating}} 5க்கு',
+  'sitterCard.ratingMeta': '{{rating}} · {{reviews}} விமர்சனங்கள்',
   'sitterCard.viewProfile': 'சுயவிவரத்தைப் பார்க்கவும்',
   'sitterDetail.anonymousReviewer': 'அநாமதேய',
   'sitterDetail.available': 'இணையம்',
@@ -172,6 +184,7 @@ export const ui: UiTranslations = {
   'sitterDetail.eyebrow': 'பராமரிப்பாளர் சுயவிவரம்',
   'sitterDetail.loading': 'பராமரிப்பாளர் ஏற்றப்படுகிறார்…',
   'sitterDetail.notFound': 'குழந்தை பராமரிப்பாளர் காணப்படவில்லை.',
+  'sitterDetail.ratingAria': '{{rating}} out of 5',
   'sitterDetail.reviewsTitle': 'சமீபத்திய மதிப்புரைகள் · {{count}}',
   'sitterDetail.unavailable': 'கிடைக்கவில்லை',
   'sitterDetail.verified': 'சரிபார்க்கப்பட்டது',
@@ -182,6 +195,7 @@ export const ui: UiTranslations = {
   'sitters.subtitle':
     'உங்களுக்கு அருகிலுள்ள உண்மையான செல்லப்பிராணி உரிமையாளர்களால் சரிபார்க்கப்பட்டு, காப்பீடு செய்யப்பட்டு, மதிப்பாய்வு செய்யப்பட்டது.',
   'sitters.title': 'குழந்தைப் பராமரிப்பாளரைக் கண்டுபிடியுங்கள்',
+  'sitters.unnamed': 'பெயரிடப்படாத பராமரிப்பாளர்',
   'vetRecordDetail.back': 'பதிவுகளுக்குத் திரும்பு',
   'vetRecordDetail.empty': 'பதிவு செய்யப்படவில்லை.',
   'vetRecordDetail.eyebrow': 'கால்நடை மருத்துவப் பதிவு',
@@ -189,9 +203,11 @@ export const ui: UiTranslations = {
   'vetRecordDetail.petLabel': 'செல்லப்பிராணி',
   'vetRecordDetail.vetLabel': 'கால்நடை மருத்துவர்',
   'vetRecords.add.followUp': 'பின்தொடர்தல்',
+  'vetRecords.add.noPets': '— முதலில் ஒரு செல்லப்பிராணியைச் சேர்க்கவும் —',
   'vetRecords.add.pet': 'செல்லப்பிராணி',
   'vetRecords.add.submit': 'பதிவைச் சேமிக்கவும்',
   'vetRecords.add.title': 'கால்நடை மருத்துவப் பதிவைச் சேர்க்கவும்',
+  'vetRecords.add.titlePlaceholder': 'வருடாந்திர பரிசோதனை',
   'vetRecords.add.vet': 'கால்நடை மருத்துவர் (விருப்பப்பட்டால்)',
   'vetRecords.columns.pet': 'செல்லப்பிராணி',
   'vetRecords.columns.record': 'பதிவு',
@@ -203,6 +219,7 @@ export const ui: UiTranslations = {
   'vetRecords.errors.pet': 'ஒரு செல்லப்பிராணியைத் தேர்ந்தெடுங்கள்.',
   'vetRecords.errors.title': 'ஒரு சிறிய தலைப்பைச் சேர்க்கவும்.',
   'vetRecords.eyebrow': 'மருத்துவ வரலாறு',
+  'vetRecords.fallbackTitle': 'கால்நடை மருத்துவரைச் சந்தித்தல்',
   'vetRecords.loading': 'பதிவுகள் ஏற்றப்படுகின்றன…',
   'vetRecords.title': 'கால்நடை மருத்துவர் பதிவுகள்',
   'vetRecords.uploadCta': 'பதிவுகளைச் சேர்க்கவும்',

@@ -1,12 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За нас',
+  'common.goToDashboard': 'Оди до контролна табла',
+  'common.logout': 'Одјави се',
   'dailyStatsTriad.heartsLabel': 'Срца',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
   'dailyStatsTriad.minutesLabel': 'Минути денес',
   'dailyStatsTriad.minutesValue': '{{count}} мин',
   'dailyStatsTriad.wordsLabel': 'Зборови совладани',
+  'dailyStatsTriad.wordsMasteryHint': 'Зборови на совладување 4+',
   'dashboard.continueHeading': 'Продолжете каде што застанавте',
   'dashboard.heading': 'Буенос дијас, {{name}} .',
   'dashboard.loadError':
@@ -59,6 +63,7 @@ export const ui: UiTranslations = {
   'lessonDetail.loadError': 'Не можеше да се вчитаат вежбите.',
   'lessonDetail.loading': 'Се вчитува лекцијата…',
   'lessonDetail.submitError': 'Не можеше да се испрати одговорот.',
+  'lessonDetail.translation': 'Преведете ја фразата',
   'lessonDetail.xpEarned': 'Заработени XP · {{xp}}',
   'lessons.empty': 'Нема лекции на ниво {{level}} сепак - пробајте друго ниво.',
   'lessons.eyebrow': 'Библиотека со лекции',
@@ -71,7 +76,11 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Нов во Парланс?',
   'login.showPassword': 'Прикажи лозинка',
   'login.signUp': 'Започнете бесплатно →',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
+  'parlanceLayout.nav.profile': 'Профил',
   'parlanceLayout.primaryNavLabel': 'Примарна навигација',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'practice.empty': 'Сè уште нема достапни фрази.',
   'practice.eyebrow': 'Вежбање на говор',
   'practice.heading': 'Прочитај го. Запиши го. Прецизирај го.',

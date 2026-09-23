@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
   'about.pageTitle': 'ກ່ຽວກັບ {{appName}}',
   'analytics.empty': 'ບັນທຶກຄລິບທຳອິດຂອງເຈົ້າເພື່ອເບິ່ງການມີສ່ວນຮ່ວມຢູ່ບ່ອນນີ້.',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'ຍອດເບິ່ງມື້ນີ້',
   'analytics.loading': 'ກຳລັງໂຫຼດການວິເຄາະ…',
   'analytics.recent.empty': 'ຍັງບໍ່ມີຜູ້ຊົມເທື່ອ.',
+  'analytics.recent.watching': 'ເບິ່ງແລ້ວ {{title}} · {{percent}} %',
   'analytics.title': 'ວິທີການທີ່ພາບໜ້າຈໍຂອງທ່ານເດີນທາງ',
   'analytics.top.empty': 'ຍັງບໍ່ມີການບັນທຶກສຽງເທື່ອ.',
   'analytics.top.title': 'ບັນທຶກສຽງຍອດນິຍົມ',
@@ -38,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ຄລິບ',
   'billing.usage.views': 'ຍອດວິວ',
   'billing.usage.views.unit': 'ມຸມມອງ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'landing.cta.title': 'ສົ່ງຄຳຕິຊົມທີ່ດີກວ່າ. ເລີ່ມຕົ້ນດ້ວຍ Glint.',
   'landing.feature.capture.body':
     'ການບັນທຶກສຽງໃນໂປຣແກຣມທ່ອງເວັບ, ຄອມພິວເຕີຕັ້ງໂຕະ ແລະ ມືຖືພ້ອມດ້ວຍໄມໂຄຣໂຟນ, ກ້ອງຖ່າຍຮູບ ແລະ ຮູບແຕ້ມ.',
   'landing.feature.capture.title': 'ຖ່າຍຮູບດ້ວຍການແຕະພຽງຄັ້ງດຽວ',
+  'landing.footer.copy': '© {{year}} {{appName}} . ບໍ່ສະໝໍ່າສະເໝີ, ເຮັດໃຫ້ສະຫວ່າງ.',
   'landing.hero.cardCaption': 'ຕົວຢ່າງພາບລວມພື້ນທີ່ເຮັດວຽກ — ລອງໃຊ້ຟຣີ.',
   'landing.hero.primaryCta': 'ເລີ່ມບັນທຶກໂດຍບໍ່ເສຍຄ່າ',
   'landing.hero.proof.free': 'ຊັ້ນຟຣີຕະຫຼອດໄປ',
@@ -61,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ຄົ້ນຫາການບັນທຶກສຽງ',
   'library.searchPlaceholder': 'ຄົ້ນຫາການບັນທຶກສຽງ…',
   'library.weeklyChange': '{{value}} % ທຽບກັບອາທິດທີ່ຜ່ານມາ',
+  'nav.openMenu': 'ເປີດເມນູນຳທາງ',
   'nav.record': 'ບັນທຶກ',
   'nav.shared': 'ແບ່ງປັນກັບຂ້ອຍ',
   'nav.startRecording': 'ເລີ່ມການບັນທຶກ',

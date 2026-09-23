@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
   'authShell.brandHeading':
     'Llenços perfectes a nivell de píxel per a equips de disseny que envien conjuntament.',
   'canvas.redirecting': "Obrint l'editor…",
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'i',
+  'common.goToDashboard': 'Anar al panell',
+  'common.retry': 'Torna-ho a intentar',
   'dashboard.activityEmpty':
     "Encara no hi ha activitat recent; convida un company d'equip a començar.",
   'dashboard.activityTitle': 'Què ha canviat avui',
@@ -18,12 +21,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Espai de treball · Northwind Studio',
   'dashboard.foldersLabel': 'Carpetes',
   'dashboard.gridTitle': '{{count}} projectes',
+  'dashboard.heroActiveTool': 'Eina de ploma',
   'dashboard.loadingTitle': "S'estan carregant els projectes…",
   'dashboard.searchPlaceholder': 'Cerca projectes',
   'dashboard.startFromTemplate': 'Comença des de la plantilla',
   'dashboard.title': 'Els vostres projectes',
   'dashboard.untitledProject': 'Projecte sense títol',
   'designCanvasLayout.newProject': 'Nou projecte',
+  'designCanvasLayout.primaryNavLabel': 'Navegació principal',
   'editor.backToProjects': 'Torna als projectes',
   'editor.deleteShape': 'Suprimeix la forma',
   'editor.errorBody': 'No hem pogut obrir aquest projecte.',
@@ -64,6 +69,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Dissenya eines que es mouen a la velocitat de les teves mans',
   'library.empty': 'Encara no hi ha cap fitxa en aquesta secció.',
   'library.eyebrow': "Espai de treball · Sistema de disseny d'Atelier",
+  'library.loadFailed': "No s'han pogut carregar els tokens de disseny.",
   'library.systemMeta': 'Salut del sistema',
   'library.systemSummary': '{{fitxes}} fitxes · {{components}} components · {{efectes}} efectes',
   'login.emailPlaceholder': 'mara@studio.com',

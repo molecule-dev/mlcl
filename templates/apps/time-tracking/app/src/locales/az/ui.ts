@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} haqqında',
   'about.plansTitle': 'Sizinlə böyüyən planlar',
   'brand.tagline': 'Hər saniyə',
   'clientDetail.back': 'Müştərilərə qayıt',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Hər münasibət bir yerdə — layihələr, saatlar, ödənilməmiş fakturalar.',
   'clients.title': 'Müştərilər',
   'common.and': 'və',
+  'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.activeProjects': 'Aktiv layihələr',
   'dashboard.empty': 'Hələ ki, giriş yoxdur. İlk sessiyanızı izləmək üçün taymeri işə salın.',
   'dashboard.greeting': 'Gününüz xeyir, {{name}}',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Bu müştəri üçün faktura göndəriləcək saatlar yoxdur. Əvvəlcə vaxtı izləyin və ya mövcud qeydləri bu müştərinin layihələrindən birinə təyin edin.',
   'invoices.save': 'Faktura yaradın',
   'invoices.subtitle': 'İzlənən saatlar avtomatik olaraq fakturalara daxil edilir.',
+  'landing.copyright': '© {{year}} {{app}} . Hər saniyə, hesablanır.',
   'landing.ctaBody': '3 layihəyə qədər pulsuz. Müştəri siyahınız yaradıldıqda təkmilləşdirin.',
   'landing.eyebrow': 'Ödəniləcək iş üçün vaxt izləmə',
   'landing.featuresBody':
@@ -98,13 +101,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Müstəqil şəxslər tərəfindən etibar edilir',
   'landing.testimonial.quote':
     '\\u201cToggl-dan 30 dəqiqəyə ayrıldım. Büdcənin təkcə azalması özünü doğrultdu \\u2014 Ardıcıl iki həftə ərzində az sitat gətirməyi dayandırdım.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Chrono. Hər saniyə hesaba alındı.',
   'login.brand.subtitle':
     'Taymeri qaldığınız yerdən götürün — hər dəqiqə artıq bir layihəyə, müştəriyə, fakturaya uyğunlaşdırılıb.',
   'login.brand.tracking': 'İzləmə',
   'login.subheading': 'Taymeri qaldığınız yerdən götürün.',
+  'nav.closeMenu': 'Naviqasiya menyusunu bağlayın',
   'nav.insightsSection': 'Məlumatlar',
   'nav.newEntry': 'Yeni Giriş',
+  'nav.openMenu': 'Naviqasiya menyusunu açın',
+  'nav.primary': 'Əsas naviqasiya',
   'nav.workSection': 'İş',
   'notFound.body':
     'Görünür, izlədiyiniz link izləməni dayandırıb. İdarəetmə panelinizə qayıdın - biz oradan saymağa davam edəcəyik.',
@@ -203,6 +210,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Ödənilə bilən',
   'timer.descriptionPlaceholder': 'Nə üzərində işləyirsən?',
   'timer.idle': 'Boş — izləməyə başlayın',
+  'timer.noProject': 'Layihə yoxdur',
   'timer.runningWithProject': 'Layihə yoxdur',
   'timer.start': 'Taymeri başlat',
   'timer.stop': 'Taymeri dayandırın',

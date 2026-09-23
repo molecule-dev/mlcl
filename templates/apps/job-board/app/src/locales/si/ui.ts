@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'අපි ගැන',
   'applications.empty':
     'තවම අයදුම්පත් නැත \\u2014 නිවැරදි භූමිකාවට අයදුම් කිරීමට ඇත්තේ එක් අයෙකු පමණි.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ඔබ අයදුම් කළ සෑම භූමිකාවක්ම, චලනය වෙමින් පවතී. අවධානය යොමු කිරීමට අදියර අනුව පෙරහන් කරන්න.',
   'applications.untitledRole': 'භූමිකාව # {{id}}',
+  'auth.legalConsent': 'ඉදිරියට යාමෙන්, ඔබ අපගේ කොන්දේසි වලට එකඟ වේ',
   'common.and': 'සහ',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'companies.empty': 'ඔබේ සෙවුමට ගැලපෙන සමාගම් නොමැත \\u2014 වෙනත් පදයක් උත්සාහ කරන්න.',
   'companies.eyebrow': 'විශේෂාංගගත සේවායෝජකයින්',
   'companies.searchPlaceholder': 'නම, කර්මාන්තය, ස්ථානය අනුව සොයන්න',
@@ -51,6 +54,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'මෙම තනතුර සඳහා තවමත් අයදුම්පත් නොමැත.',
   'jobApplicants.eyebrow': 'සේවායෝජක දර්ශනය',
   'jobApplicants.loading': 'පූරණය වෙමින්...',
+  'jobApplicants.statusUpdateFailed': 'එම අදියර යාවත්කාලීන කිරීමට නොහැකි විය — නැවත උත්සාහ කරන්න.',
+  'jobApplicants.subheading':
+    'ජීව දත්ත පත්‍රිකා සමාලෝචනය කරන්න, අපේක්ෂකයින් ඉදිරියට යවන්න, දීමනා යවන්න \\u2014 {{count}} ක්‍රියාත්මකයි.',
   'jobDetail.applicantCount': '{{count}} මේ දක්වා අයදුම්කරුවන්',
   'jobDetail.applied': 'අයදුම්පත යවන ලදී',
   'jobDetail.apply': 'දැන්ම අයදුම් කරන්න',
@@ -84,6 +90,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'විවෘත භූමිකාවන් බ්‍රවුස් කරන්න \\u2192',
   'landing.pricingEyebrow': 'මිල ගණන්',
   'landing.pricingHeading': 'සෑම කණ්ඩායම් ප්‍රමාණයකටම සරල සැලසුම්.',
+  'login.eyebrow': '{{app}} වෙත නැවත පිළිගනිමු',
   'login.heading': 'ඔබගේ ගිණුමට පුරනය වන්න',
   'login.noAccount': 'නොෂ් වලට අලුත්ද?',
   'login.passwordPlaceholder':
@@ -92,6 +99,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'පුරනය වෙමින්...',
   'login.subheading':
     'ඔබගේ සෙවුම ලබා ගන්න, ඔබගේ අයදුම්පත් ඉදිරියට ගෙන යන්න, ඉක්මනින් ප්‍රතිචාර දක්වන්න.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . කණ්ඩායම් බඳවා ගැනීම සඳහා ඉදිකරන ලද්දකි.',
   'loginBrandPanel.headline': 'දක්ෂතා හමුවන තැන',
   'loginBrandPanel.headlineLine2': 'ගම්‍යතාවය.',
   'loginBrandPanel.listing.recruiter': 'දක්ෂතා සහකරු',
@@ -107,6 +115,7 @@ export const ui: UiTranslations = {
     'අයදුම්පත් යාවත්කාලීන කිරීම්, සම්මුඛ පරීක්ෂණ ආරාධනා, නැවුම් තරඟ \\u2014 නවතම පළමුව.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} මෙම සතිය',
   'opportunitiesHero.eyebrow': 'අද විවෘතයි',
+  'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'postJob.addNewCompany': '+ නව සමාගමක් එක් කරන්න',
   'postJob.companyCreateFailed': 'සමාගමක් නිර්මාණය කිරීමට නොහැකි විය — නැවත උත්සාහ කරන්න.',
   'postJob.companyNameLabel': 'ඔබේ සමාගමේ නම',
@@ -165,10 +174,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'ගිණුමක් සාදමින්\\u2026',
   'signup.ctaEmployer': 'සේවායෝජක ගිණුමක් සාදන්න',
   'signup.firstNamePlaceholder': 'මායා',
+  'signup.lastNamePlaceholder': 'චෙන්',
   'signup.passwordMismatch': 'මුරපද නොගැලපේ.',
   'signup.subheading':
     'සොයන්නන් සඳහා සදහටම නොමිලේ. සේවා යෝජකයින් දින 30ක අත්හදා බැලීමක් සමඟින් ආරම්භ වේ.',
   'timeAgo.days': '{{count}} ඈට පෙර',
   'timeAgo.hours': '{{count}} පැයකට පෙර',
   'timeAgo.justNow': 'මේ දැන්',
+  'timeAgo.weeks': '{{count}} කට පෙර',
 }

@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'customers.heading': 'לקוחות',
   'customers.loadError': 'טעינת לקוחות נכשלה.',
   'customers.loading': 'טְעִינָה…',
+  'customers.new.address': 'כתובת שירות',
   'customers.new.email': 'אֶלֶקטרוֹנִי',
   'customers.new.error': 'הוספת הלקוח נכשלה.',
   'customers.new.heading': 'לקוח חדש',

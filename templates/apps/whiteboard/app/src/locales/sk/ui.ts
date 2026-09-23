@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'authShell.brandHeading':
     'Plátna pre viacerých hráčov pre dizajnérske tímy, ktoré myslia nahlas.',
   'billing.canceled': 'Predplatné bolo zrušené.',
@@ -73,6 +74,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Začať od šablóny',
   'boards.title': 'Vaše nástenky',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Zadajte e-mailovú adresu prepojenú s vaším pracovným priestorom a my vám pošleme odkaz na obnovenie.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.title': 'Vytvorené pre chaotické, generatívne a osobné myslenie.',
   'landing.demoBoard.title': 'Workshop pre 1. štvrťrok · Hlas značky',
   'landing.featuresTitle': 'Rýchla spätná väzba. Krásne plátna. Nulové trenie.',
+  'landing.hero.body':
+    '{{appName}} je multiplayerová biela tabuľa pre dizajnérske tímy, moderátorov workshopov a pedagógov, ktorí organizujú živé brainstormingy a potrebujú zhromaždiť nápady na jednom mieste.',
   'landing.hero.primaryCta': 'Založte si nástenku zadarmo',
   'landing.hero.socialProof': 'Dôveryhodné od {{count}} dizajnérske tímy po celom svete',
   'landing.hero.title': 'Plátno také rýchle ako vaše myšlienky',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Vytvorte si bezplatný pracovný priestor',
   'login.subheading':
     'Pokračujte tam, kde ste vo workshope skončili – nástenky, lepiace poznámky a kurzory sa synchronizujú v reálnom čase.',
+  'mobileNav.closeMenu': 'Zatvoriť navigačné menu',
+  'mobileNav.new': 'Nové',
+  'mobileNav.openMenu': 'Otvoriť navigačné menu',
   'notifications.editTitle': 'Úpravy " {{board}} "',
   'notifications.empty.body':
     'Pozvánky, uložené snímky a nedávne úpravy nástenky sa tu zobrazia hneď, ako k nim dôjde.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'História verzií',
   'versionHistory.untitledSnapshot': 'Snímka bez názvu',
   'whiteboardLayout.newBoard': 'Nová doska',
+  'whiteboardLayout.primaryNav': 'Hlavná navigácia',
   'workspace.boardLabel': 'Rada',
   'workspace.eyebrow': '{{name}} · pracovný priestor',
   'workspace.invite': 'Pozvať spolupracovníkov',

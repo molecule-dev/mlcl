@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'authShell.brandHeading':
     'Elkarrekin bidaltzen duten diseinu-taldeentzako pixel-perfektuko mihiseak.',
   'canvas.redirecting': 'Editorea irekitzen…',
   'collaboratorStack.overflow': '+ {{count}}',
   'common.and': 'eta',
+  'common.goToDashboard': 'Joan aginte-panelera',
+  'common.retry': 'Saiatu berriro',
   'dashboard.activityEmpty': 'Ez dago jarduerarik azkenaldian — gonbidatu taldekide bat hasteko.',
   'dashboard.activityTitle': 'Zer aldatu da gaur?',
   'dashboard.activityViewAll': 'Ikusi jakinarazpen guztiak',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'Lan-eremua · Northwind estudioa',
   'dashboard.foldersLabel': 'Karpetak',
   'dashboard.gridTitle': '{{count}} proiektuak',
+  'dashboard.heroActiveTool': 'Luma tresna',
   'dashboard.loadingTitle': 'Proiektuak kargatzen…',
   'dashboard.searchPlaceholder': 'Bilatu proiektuak',
   'dashboard.startFromTemplate': 'Txantiloitik hasi',
   'dashboard.title': 'Zure proiektuak',
   'dashboard.untitledProject': 'Izenik gabeko proiektua',
   'designCanvasLayout.newProject': 'Proiektu berria',
+  'designCanvasLayout.primaryNavLabel': 'Nabigazio nagusia',
   'editor.backToProjects': 'Proiektuetara itzuli',
   'editor.deleteShape': 'Ezabatu forma',
   'editor.errorBody': 'Ezin izan dugu proiektu hau ireki.',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'Zure eskuen abiaduran mugitzen diren tresnak diseinatu',
   'library.empty': 'Ez dago tokenik atal honetan oraindik.',
   'library.eyebrow': 'Lan-eremua · Atelier Design System',
+  'library.loadFailed': 'Ezin izan dira diseinu-tokenak kargatu.',
   'library.systemMeta': 'Sistemaren osasuna',
   'library.systemSummary': '{{tokenak}} tokenak · {{osagaiak}} osagaiak · {{efektuak}} efektuak',
   'login.emailPlaceholder': 'mara@studio.com',

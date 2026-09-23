@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'article.notFound': 'Статијата не е пронајдена',
   'articleEditor.bodyPlaceholder': 'Внесете / за блокови или само започнете да пишувате.',
+  'articleEditor.loadFailed': 'Не може да се вчита статијата',
   'articleEditor.publishing': 'Објавување\\u2026',
   'articleEditor.saveFailed': 'Зачувувањето не успеа',
   'articleEditor.saving': 'Зачувување\\u2026',
@@ -15,6 +18,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Обележувач',
   'articleView.bookmarkOn': 'Обележано',
   'articleView.edit': 'Уреди ја статијата',
+  'articleView.loading': 'Отворање на оваа статија…',
   'articleView.readTime': '{{minutes}} мин. читање',
   'articleView.spaces': 'Празници',
   'articleView.tocHeading': 'На оваа страница',
@@ -37,8 +41,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Неодамнешните уредувања, читања и нацрти што вашиот тим сè уште ги зголемува.',
   'cairnTrailHero.updated': 'Статиите се ажурирани',
+  'common.goToDashboard': 'Оди до контролна табла',
   'drafts.eyebrow': 'Твојата недовршена работа',
   'drafts.heading': 'Нацрти',
+  'drafts.loadFailed': 'Не можев да ги вчитам вашите нацрти.',
   'drafts.subtitle':
     'Статии што сте ги започнале, но сè уште не сте ги објавиле. Земете една и продолжете.',
   'forgotPassword.sentBody':
@@ -61,6 +67,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Сè уште нема места. Отворете еден за да започнете со собирање статии.',
   'home.spacesHeading': 'Вашите простори',
   'home.subtitle': 'Неодамнешни статии, вашите обележувачи и што пишува тимот.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}} . Изградено со Molecule.',
   'landing.ctaBody':
     'Бесплатно за соло автори. Тимски планови за дистрибуирани тимови кои испраќаат книги за извршување, одлуки и вклучување во тимот.',
   'landing.ctaHeading': 'Наредете го првиот камен денес.',
@@ -82,7 +89,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Креирај работен простор',
   'login.submitting': 'Најавување\\u2026',
   'login.subtitle': 'Продолжи ја патеката таму каде што си ја оставил.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
+  'newSpace.colorAria': 'Изберете боја {{color}}',
   'newSpace.colorLabel': 'Акцентна боја',
+  'newSpace.createFailed': 'Не можеше да се создаде простор',
   'newSpace.descriptionPlaceholder':
     'Работни книги, прирачници за повик, постмортални анализи\\u2026',
   'newSpace.eyebrow': 'Отворете простор на знаење',
@@ -106,6 +117,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Вчитување\\u2026',
   'notifications.subtitle':
     '{{count}} непрочитани споменувања, коментари, промени на страници и барања за преглед.',
+  'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.articles': 'статии',
   'pricing.spaces': 'простори',
   'profile.eyebrow': 'Профил на авторство',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Внесете нова лозинка',
   'resetPassword.subtitle': 'Изберете силна лозинка - најмалку 12 знаци.',
   'searchResults.eyebrow': 'Пребарување на работен простор',
+  'searchResults.filter.all': 'Сите простори',
   'searchResults.heading': 'Пребарување статии',
   'searchResults.placeholder': 'Пребарувајте книги за извршување, RFC-а, политики, одлуки\\u2026',
   'searchResults.summary': '{{count}} резултати за \\u201c {{query}} \\u201d',
@@ -132,14 +145,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Ова ја брише вашата сметка и секоја статија што сте ја напишале. Внесете DELETE за да потврдите.',
   'settings.danger.confirmInvalid': 'Внесете DELETE за да потврдите.',
+  'settings.danger.deleteFailed': 'Не може да се избрише сметката',
   'settings.danger.deleting': 'Бришење\\u2026',
   'settings.danger.description':
     'Бришењето на вашиот работен простор ги отстранува сите статии, коментари и историја на верзии. Нема обновување.',
   'settings.danger.title': 'Избриши работен простор',
+  'settings.email.confirm': 'Ажурирај е-пошта',
+  'settings.email.confirmTitle': 'Потврдете ја промената на е-поштата',
   'settings.email.saved': 'Е-поштата е ажурирана.',
+  'settings.email.updateFailed': 'Не може да се ажурира е-поштата',
   'settings.language.title': 'Јазик',
   'settings.name': 'Име',
+  'settings.name.saved': 'Името е ажурирано.',
+  'settings.name.updateFailed': 'Не може да се ажурира името',
   'settings.notifications.description': 'Изберете што ќе ви стигне во сандачето.',
+  'settings.password.changeFailed': 'Не може да се промени лозинката',
   'settings.password.current': 'Тековна лозинка',
   'settings.password.new': 'Нова лозинка',
   'settings.password.saving': 'Се ажурира\\u2026',
@@ -147,10 +167,14 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Како се прикажуваат статиите за вас.',
   'settings.reading.title': 'Читање и пишување',
   'settings.subtitle': 'Прилагодете ги известувањата, платното за читање и вашата сметка.',
+  'settings.twofa.code': 'Код за автентикација',
   'settings.twofa.disable': 'Оневозможи',
   'settings.twofa.disabled': 'Оневозможено',
   'settings.twofa.enable': 'Овозможи',
   'settings.twofa.enabled': 'Овозможено',
+  'settings.twofa.invalidCode': 'Неважечки код',
+  'settings.twofa.unavailable': 'Двофакторската автентикација не е достапна за оваа апликација.',
+  'settings.twofa.verify': 'Потврди и овозможи',
   'signup.brandQuote':
     '\\u201cЗапишувањето е првото ветување што го даваме на следната личност на која ѝ е потребно.\\u201d',
   'signup.eyebrow': 'Отвори работен простор',

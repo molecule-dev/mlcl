@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'announcementsFeed.empty': 'Még nincsenek bejelentések.',
   'announcementsFeed.eyebrow': '{{count}} frissítések',
   'announcementsFeed.title': 'Legfrissebb bejelentések',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Semmi itt',
   'assignments.emptyBody': 'Váltson szűrőkre a fentiekben, hogy más állapotú feladatokat lásson.',
   'assignments.eyebrow': 'Minden kurzus · Ebben a félévben',
+  'assignments.loadError': 'Nem sikerült betölteni a feladatokat.',
   'assignments.loading': 'Feladatok betöltése…',
   'assignments.subtitle':
     'Szűrés állapot szerint, hogy lásd, mi esedékes, mi beküldött, mi osztályozott vagy mi hiányzik.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Jegyzet',
   'attendance.empty': 'Még nincsenek jelenléti nyilvántartások.',
   'attendance.eyebrow': 'Tavaszi félév · Utolsó 4 hét',
+  'attendance.loadError': 'Nem sikerült betölteni a jelenléti adatokat.',
   'attendance.loading': 'Jelenléti adatok betöltése…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'A beadási határidők havi rácson vannak ábrázolva – a vizsgák pirossal kiemelkednek.',
   'calendar.title': '{{month}} események',
+  'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
+  'common.retry': 'Próbálja újra',
   'common.yes': '✓',
   'courseDetail.backLink': 'Osztályzatok',
   'courseDetail.currentGrade': 'Jelenlegi osztályzat',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Trend',
   'grades.empty': 'Még nincsenek közzétett osztályzatok.',
   'grades.eyebrow': 'Osztálykönyv',
+  'grades.loadError': 'Nem sikerült betölteni az osztályzataidat.',
   'grades.loading': 'Érdemjegyek betöltése…',
   'grades.subtitle':
     'Élő betű- és százalékos osztályzatok. A trendnyilak mutatják, hogy felfelé, vízszintesen vagy csúszásban vagy.',
   'grades.title': 'Az osztályzataid kurzusról kurzusra',
   'grades.trendStable': 'Stabil',
+  'landing.copyright': '© {{year}} {{app}} . Diákoknak készült, családoknak.',
   'landing.ctaHeading': 'Egy nyugodt iskolai nap perceken belül elkezdődik',
   'landing.eyebrow': 'Középiskolásoknak és gimnazistáknak',
   'landing.featuresHeading': 'Egy diák köré szervezett iskolai nap',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Feladatok',
   'nav.attendance': 'Részvétel',
   'nav.calendar': 'Naptár',
+  'nav.closeMenu': 'A navigációs menü bezárása',
   'nav.grades': 'Osztályzatok',
+  'nav.openMenu': 'Navigációs menü megnyitása',
   'nav.statusEyebrow': 'Féléves átlag',
   'nav.statusSubtext': 'Becsületlista · Tavaszi félév',
+  'nav.unreadMessages': 'Olvasatlan üzenetek',
   'notifications.eyebrow': '{{count}} frissítések',
   'notifications.subtitle':
     'Jegyek, emlékeztetők, üzenetek és iskolai bejelentések. A Beállításokban módosíthatod, hogy az egyes értesítések melyik csatornát használják.',
+  'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.attendanceLabel': 'részvétel',
   'pricing.gradesLabel': 'osztályzatok',
   'pricing.heading': 'bejelentések',

@@ -150,7 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.eyebrow': 'הפעל מחדש את השרשרת',
   'resetPassword.mismatchError': 'הסיסמאות לא תואמות.',
   'resetPassword.subheading': 'בחר משהו חזק. הספרים שלך יחכו.',
-  'reviewCard.starsAria': 'מדורג<x> {{דֵרוּג}}</x> מִתוֹך<x> {{שֶׁל}}</x> כוכבים',
+  'reviewCard.starsAria': 'דירוג של {{rating}} מתוך {{of}} כוכבים',
   'reviewCard.unratedAria': 'ללא דירוג',
   'reviews.eyebrow': 'מה נשאר איתך',
   'reviews.heading': 'הביקורות שלך',

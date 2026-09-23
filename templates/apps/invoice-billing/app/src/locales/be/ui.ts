@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'activityFeed.empty': 'Пакуль няма актыўнасці — дашліце свой першы рахунак-фактуру.',
   'authShell.sample.paid': 'Аплачана 2 хвіліны таму',
@@ -30,6 +31,7 @@ export const ui: UiTranslations = {
   'clients.modal.title': 'Дадаць новага кліента',
   'clients.search': 'Пошук па імені, кампаніі, электроннай пошце',
   'clients.title': 'Кліенты',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addClient': 'Новы кліент',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Забылі пароль',
   'forgotPassword.successBody':
     'Мы даслалі інструкцыі па скідзе налад {{email}} Спасылка дзейнічае 30 хвілін.',
+  'invoiceDetail.action.confirmVoid': 'Пацвердзіць несапраўднасць?',
   'invoiceDetail.action.download': 'Спампаваць PDF',
   'invoiceDetail.action.duplicate': 'Дублікат',
   'invoiceDetail.action.edit': 'Рэдагаваць',
@@ -74,9 +77,11 @@ export const ui: UiTranslations = {
   'invoiceDetail.feedback.voided': 'Рахунак-фактура ануляваны.',
   'invoiceDetail.issued': 'Выдадзена {{date}}',
   'invoiceDetail.loading': 'Загрузка рахунку-фактуры…',
+  'invoiceDetail.paidInFull': 'Аплачана цалкам',
   'invoiceDetail.summary': '{{client}} · адпраўлена {{date}}',
   'invoiceDetail.tax': 'Падатак ( {{rate}} %)',
   'invoiceDetail.timeline': 'Храналогія',
+  'invoiceDetail.voided': 'Анулявана',
   'invoiceEditor.addItem': 'Дадаць элемент',
   'invoiceEditor.back': '← Назад да рахункаў-фактур',
   'invoiceEditor.col.qty': 'Колькасць',
@@ -121,6 +126,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta': 'Адпраўце свой першы рахунак-фактуру',
   'landing.hero.eyebrow': 'Выстаўленне рахункаў-фактур для малога бізнесу',
   'landing.hero.secondary': 'Глядзіце ўзор рахунку-фактуры',
+  'landing.hero.subtitle':
+    '{{appName}} спалучае ў сабе адшліфаваныя рахункі-фактуры з убудаванымі плацяжамі, рэгулярнымі рахункамі і справаздачамі, гатовымі да падатковага выплаты. Без бухгалтарскага ўліку.',
   'landing.hero.title': 'Адпраўляйце рахункі-фактуры. Атрымлівайце аплату хутчэй.',
   'login.signupLink': 'Стварыць',
   'login.submitting': 'Уваход у сістэму…',
@@ -142,6 +149,7 @@ export const ui: UiTranslations = {
   'pricing.paymentsLabel': 'плацяжы',
   'pricing.recurringLabel': 'паўтаральныя расклады',
   'remitLayout.newInvoice': 'Новы рахунак-фактура',
+  'remitLayout.openMenu': 'Адкрыць меню навігацыі',
   'remitLayout.searchPlaceholder': 'Пошук рахункаў-фактур, кліентаў...',
   'remitLayout.tagline': 'Атрымлівайце грошы хутчэй',
   'reports.chart.aging': 'Тэрмін дзеяння рахункаў-фактур',
@@ -151,6 +159,10 @@ export const ui: UiTranslations = {
   'reports.chart.revenueCaption': 'Даход за перыяд',
   'reports.chart.topClients': 'Найлепшыя кліенты',
   'reports.chart.topClientsCaption': 'Даход за ўвесь час, топ-5',
+  'reports.empty.aging': 'Няма неаплачаных рахункаў-фактур.',
+  'reports.empty.methods': 'Пакуль няма дадзеных аб аплаце.',
+  'reports.empty.revenue': 'Пакуль няма дадзеных аб даходах.',
+  'reports.empty.topClients': 'Пакуль няма дадзеных аб даходах кліентаў.',
   'reports.exporting': 'Экспарт…',
   'reports.exportRequiresPaid':
     'Экспарт — гэта платная функцыя, якую трэба ўключыць, каб яе актываваць.',
@@ -191,6 +203,7 @@ export const ui: UiTranslations = {
   'settings.tax.add': '+ Дадаць падатковую стаўку',
   'settings.tax.added': 'Дададзена падатковая стаўка.',
   'settings.tax.adding': 'Дадаецца…',
+  'settings.tax.addRate': 'Дадаць стаўку',
   'settings.tax.col.region': 'Рэгіён',
   'settings.tax.delete': 'Выдаліць падатковую стаўку',
   'settings.tax.deleted': 'Падатковая стаўка выдалена.',

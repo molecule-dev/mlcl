@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
   'auth.forgotPassword.emailPlaceholder': 'naam@uwbedrijf.com',
   'auth.forgotPassword.heading': 'Stel uw wachtwoord opnieuw in.',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Taak als voltooid markeren',
   'checklistTaskCard.markIncomplete': 'Taak als onvoltooid markeren',
   'checklistTaskCard.openLabel': 'Taak openen',
+  'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'U bent helemaal bij',
@@ -50,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Op koers',
   'dashboard.timelineHeading': '30/60/90 mijlpalen',
   'dashboard.viewAllTasks': 'Bekijk alle taken',
+  'dashboard.weekOne': 'Week 1',
   'dashboard.yourCohort': 'Uw team',
   'documents.empty.body': 'Documenten die door uw team worden toegevoegd, verschijnen hier.',
   'documents.empty.title': 'Nog geen documenten',
@@ -107,7 +110,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': 'Gratis proefperiode van 14 dagen',
   'landing.subhead':
     'Embark begeleidt elke nieuwe collega door de eerste 90 dagen — papierwerk, training, mijlpalen en betekenisvolle introducties, allemaal op één rustige, vol-vertrouwen plek.',
+  'layout.openMenu': 'Navigatiemenu openen',
   'layout.search': 'Zoek taken, documenten, teamleden…',
+  'layout.searchTeammates': 'Zoek teamleden op naam of functie…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Uw reis begint hier',
   'notifications.empty.body': 'Nieuwe activiteit verschijnt hier.',
@@ -116,6 +121,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'gisteren',
   'planUpdated.message': 'Je bent er helemaal klaar voor.',
   'planUpdated.preparing': 'Uw plan wordt bijgewerkt…',
+  'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.documentsLabel': 'documenten',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'taken',

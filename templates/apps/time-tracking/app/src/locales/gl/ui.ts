@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Acerca de {{app}}',
   'about.plansTitle': 'Plans que medran contigo',
   'brand.tagline': 'Cada segundo',
   'clientDetail.back': 'Volver aos clientes',
@@ -32,6 +33,7 @@ export const ui: UiTranslations = {
   'clients.subtitle': 'Todas as relacións nun só lugar: proxectos, horas, facturas pendentes.',
   'clients.title': 'Clientes',
   'common.and': 'e',
+  'common.goToDashboard': 'Ir ao panel',
   'dashboard.activeProjects': 'Proxectos activos',
   'dashboard.empty':
     'Aínda non hai entradas. Inicia o cronómetro para rexistrar a túa primeira sesión.',
@@ -84,6 +86,7 @@ export const ui: UiTranslations = {
     'Non hai horas facturables para este cliente. Primeiro, rexístrate algún tempo ou asigna entradas existentes a un dos proxectos deste cliente.',
   'invoices.save': 'Crear factura',
   'invoices.subtitle': 'As horas rexistradas acumúlanse automaticamente nas facturas.',
+  'landing.copyright': '© {{year}} {{app}} . Cada segundo, contabilizado.',
   'landing.ctaBody':
     'Gratis para un máximo de 3 proxectos. Actualiza cando o faga a túa lista de clientes.',
   'landing.eyebrow': 'Seguimento do tempo para traballos facturables',
@@ -99,13 +102,17 @@ export const ui: UiTranslations = {
   'landing.testimonial.eyebrow': 'Con confianza dos independentes',
   'landing.testimonial.quote':
     '\\u201cDeixei de usar Toggl en 30 minutos. Só o gasto orzamentario xa se pagou por si só \\u2014 Deixei de subestimar dúas semanas seguidas.\\u201d',
+  'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} Crono. Cada segundo, contabilizado.',
   'login.brand.subtitle':
     'Retoma o cronómetro onde o paraches: cada minuto xa está asignado a un proxecto, un cliente ou unha factura.',
   'login.brand.tracking': 'Seguimento',
   'login.subheading': 'Retoma o cronómetro onde o paraches.',
+  'nav.closeMenu': 'Pechar o menú de navegación',
   'nav.insightsSection': 'Información',
   'nav.newEntry': 'Nova entrada',
+  'nav.openMenu': 'Abrir menú de navegación',
+  'nav.primary': 'Navegación principal',
   'nav.workSection': 'Traballo',
   'notFound.body':
     'Parece que a ligazón que seguiches deixou de rastrexarse. Volve ao teu panel de control e seguiremos contando a partir de aí.',
@@ -206,6 +213,7 @@ export const ui: UiTranslations = {
   'timer.billable': 'Facturable',
   'timer.descriptionPlaceholder': 'En que estás traballando?',
   'timer.idle': 'Inactivo: iniciar o seguimento',
+  'timer.noProject': 'Sen proxecto',
   'timer.runningWithProject': 'Sen proxecto',
   'timer.start': 'Iniciar temporizador',
   'timer.stop': 'Deter o temporizador',

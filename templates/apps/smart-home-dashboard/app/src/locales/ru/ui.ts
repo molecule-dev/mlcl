@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.pageTitle': 'О {{app}}',
   'activity.empty': 'Пока нет активности — переверните устройство или активируйте сценарий.',
   'activity.eyebrow': 'Хронология',
   'activity.loadError': 'Не удалось загрузить ленту активности.',
   'activity.subheading':
     'Все события, связанные с устройствами, автоматизацией и безопасностью, в хронологическом порядке.',
+  'addDevice.error.failed': 'Не удалось добавить устройство. Попробуйте еще раз.',
   'addDevice.error.nameRequired': 'Присвойте этому устройству имя, чтобы продолжить.',
   'addDevice.field.firmware': 'Версия прошивки',
   'addDevice.field.manufacturer': 'Производитель',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Тестирование…',
   'automationEditor.testNew': 'Сначала сохраните автоматизацию, чтобы протестировать её.',
   'automationRow.lastRun': 'Последний {{date}} · {{count}} пробеги',
+  'automationRow.on': 'О',
   'automationRow.runNowAria': 'Бегать {{name}} сейчас',
   'automations.empty': 'Пока нет автоматизированных процессов — создайте свою первую процедуру.',
   'automations.eyebrow': 'Рутины',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Загрузка автоматизированных процессов…',
   'automations.newAutomation': '+ Новое',
   'automations.subheading': 'В этом случае сделайте это — без использования YAML-файла.',
+  'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Не удалось загрузить устройство.',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Работающий…',
   'deviceDetail.unnamed': 'Устройство',
   'deviceStatusRow.on': 'На',
+  'deviceStatusRow.turnOff': 'Выключать',
+  'deviceStatusRow.turnOn': 'Включать',
   'deviceStatusRow.watts': '{{watts}} В',
   'energy.eyebrow': 'Власть',
   'energy.heading': 'Энергия',
@@ -179,4 +186,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'См. планы',
   'settings.security.heading': 'Безопасность',
   'settings.subheading': 'Тарифный план, центры обработки данных и настройки учетной записи.',
+  'smartHomeDashboardLayout.openMenu': 'Открыть меню навигации',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Основная навигация',
 }

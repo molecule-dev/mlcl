@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
   'about.pageTitle': 'អំពី {{appName}}',
   'analytics.empty': 'ថតវីដេអូឃ្លីបដំបូងរបស់អ្នកដើម្បីមើលការចូលរួមនៅទីនេះ។',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ឈុតខ្លីៗ',
   'billing.usage.views': 'ទិដ្ឋភាព',
   'billing.usage.views.unit': 'ទស្សនៈ',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'landing.cta.title': 'ផ្ញើមតិកែលម្អកាន់តែប្រសើរ។ ចាប់ផ្តើមជាមួយ Glint។',
   'landing.feature.capture.body':
     'ការថតសំឡេងតាមរយៈកម្មវិធីរុករកតាមអ៊ីនធឺណិត កុំព្យូទ័រលើតុ និងទូរសព្ទដៃ ជាមួយមីក្រូហ្វូន កាមេរ៉ា និងគំនូរ។',
   'landing.feature.capture.title': 'ការចាប់យកដោយចុចតែម្តង',
+  'landing.footer.copy': '© {{year}} {{appName}} ។ អសមកាលកម្ម ធ្វើឱ្យភ្លឺ។',
   'landing.hero.cardCaption': 'ទិដ្ឋភាពទូទៅនៃកន្លែងធ្វើការគំរូ — សាកល្បងវាដោយឥតគិតថ្លៃ។',
   'landing.hero.primaryCta': 'ចាប់ផ្តើមថតដោយឥតគិតថ្លៃ',
   'landing.hero.proof.free': 'កម្រិតឥតគិតថ្លៃជារៀងរហូត',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ស្វែងរក​ការថតសំឡេង',
   'library.searchPlaceholder': 'ស្វែងរក​ការថតសំឡេង…',
   'library.weeklyChange': '{{value}} % ធៀបនឹងសប្តាហ៍មុន',
+  'nav.openMenu': 'បើកម៉ឺនុយរុករក',
   'nav.record': 'ថត',
   'nav.shared': 'បានចែករំលែកជាមួយខ្ញុំ',
   'nav.startRecording': 'ចាប់ផ្តើមថត',

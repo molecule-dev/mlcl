@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'accountSettings.confirmEmailLabel': 'Πληκτρολογήστε DELETE για επιβεβαίωση',
   'accountSettings.deleteError': 'Αδύνατη η διαγραφή λογαριασμού.',
   'accountSettings.passwordError': 'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης.',
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Δεν υπάρχουν επερχόμενες προθεσμίες.',
   'dashboard.upcomingTitle': 'Προσεχείς προθεσμίες',
   'deviceSettings.unknownDevice': 'Άγνωστη συσκευή',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Υποστήριξη',
   'forgotPassword.error': 'Αποτυχία αποστολής συνδέσμου επαναφοράς.',
   'forgotPassword.subtitle': 'Εισάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
@@ -69,6 +71,9 @@ export const ui: UiTranslations = {
   'login.error': 'Το email ή ο κωδικός πρόσβασης δεν είναι σωστός.',
   'login.pageTitle': 'Σύνδεση',
   'login.signIn': 'Συνδεθείτε στο Forge',
+  'login.subtitle': 'Συνδεθείτε για να διατηρείτε τα έργα σας σε καλό δρόμο',
+  'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
+  'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'nav.calendar': 'Ημερολόγιο',
   'nav.legal': 'Νομικά',
   'nav.myTasks': 'Οι εργασίες μου',

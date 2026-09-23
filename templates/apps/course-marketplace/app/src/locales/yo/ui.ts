@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'N n gbe awọn ikẹkọ…',
   'browse.next': 'Ojú ìwé tó kàn',
   'browse.results': 'Ifihan {{count}} awọn iṣẹ ikẹkọ',
+  'browse.searchChip': '“ {{query}} ”',
   'browse.sort': 'Sa pelu',
   'browse.subtitle':
     'Ṣe àtúnṣe àkójọ ìwé ìròyìn nípa kókó ọ̀rọ̀, ìpele, àti iye owó. Àwọn olóòtú wa ni ó ṣe àkójọ gbogbo ẹ̀kọ́ náà ní ọwọ́.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'Ìwé ẹ̀rí rẹ ti fọwọ́ sí i, ó sì ti ṣetán. Pín in pẹ̀lú gbogbo ayé tàbí kí o pa á mọ́ gẹ́gẹ́ bí ìrántí iṣẹ́ tí ó gbà láti ṣe.',
   'certificate.copyLink': 'Daakọ ọna asopọ pinpin',
+  'certificate.copyPrompt': 'Da ìjápọ̀ yìí kọ:',
   'certificate.download': 'Ṣe ìgbàsókè PDF',
   'certificate.eyebrow': 'Aṣeyọri ti ṣii silẹ',
   'certificate.linkCopied': 'A ti daakọ ọna asopọ naa!',
@@ -42,6 +44,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'O ti forukọsilẹ!',
   'checkout.verifying': 'N fìdí ìforúkọsílẹ̀ rẹ múlẹ̀…',
   'checkout.viewLibrary': 'Wo Ẹ̀kọ́ Mi',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.retry': 'Gbiyanju lẹẹkansi',
   'courseDetail.about': 'Nípa ẹ̀kọ́ yìí',
   'courseDetail.checkoutPending': 'Bíbẹ̀rẹ̀ sí í san owó…',
   'courseDetail.continueLearning': 'Tẹ̀síwájú kíkọ́ ẹ̀kọ́',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': 'Atilẹyin owo-pada ọjọ 30',
   'courseDetail.includes.video': '{{hours}} wakati fidio lori ibeere',
   'courseDetail.instructor': 'Olùkọ́ni',
+  'courseDetail.languageEnglish': 'Èdè Gẹ̀ẹ́sì',
   'courseDetail.lectures': 'Àwọn ẹ̀kọ́',
   'courseDetail.level': 'Ipele',
   'courseDetail.loading': 'N n gbe ikẹkọ…',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'Ko si awon atunyewo sibẹsibẹ.',
   'instructorProfile.students': 'Àwọn akẹ́kọ̀ọ́',
   'landing.categories.empty': 'Àwọn ẹ̀ka yóò farahàn nígbà tí àkójọ ìwé bá kún.',
+  'landing.categories.heading': 'Ṣawari ibi ipamọ akọọlẹ',
   'landing.hero.eyebrow': 'Ẹ̀kọ́ · Àkójọ ìwé ìròyìn nípa ìmọ̀',
   'landing.hero.proof': 'Àwọn akẹ́kọ̀ọ́ ní Google, Meta, àti Adobe gbẹ́kẹ̀lé e.',
   'landing.hero.subtitle':
@@ -153,6 +159,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'Bẹ̀rẹ̀ sí í kọ́ ẹ̀kọ́ lónìí',
   'login.subheading': 'Wọlé sí ibi ìkópamọ́ ẹ̀kọ́ rẹ.',
   'myLearning.empty.title': 'Kò sí àwọn kọ́ọ̀sì tó bá àlẹ̀mọ́ yìí mu síbẹ̀',
+  'myLearning.error.title': 'Kò le gbé ìkàwé rẹ sórí ìkànnì rẹ',
   'myLearning.filter.notStarted': 'Kò bẹ̀rẹ̀',
   'myLearning.hero.subtitle': '{{count}} Àwọn ẹ̀kọ́ ní ilé ìkàwé rẹ. Máa tẹ̀síwájú nínú ìtara náà.',
   'myLearning.hero.title': 'Bẹ̀rẹ̀ sí ibi tí o dúró sí.',
@@ -165,6 +172,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'Kò sí iṣẹ́ tuntun láti ṣe àtúnyẹ̀wò. Àwọn ìṣẹ̀lẹ̀ tuntun yóò farahàn níbí.',
   'notifications.empty.title': 'Gbogbo yin ti gba gbogbo yin',
+  'notifications.error.title': 'Kò le gbé ìgbòkègbodò sókè',
   'privacy.title': 'Ètò ìpamọ́',
   'reset.confirmPlaceholder': 'Tún tẹ ọ̀rọ̀ìpamọ́ tuntun rẹ sii',
   'reset.errorGeneric': 'Kò le ṣe àtúntò ọ̀rọ̀ìpamọ́. Béèrè fún ìjápọ̀ tuntun.',
@@ -188,5 +196,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} ọdun sẹyin',
   'timeAgo.hours': '{{count}} h ti o ti kọja',
   'timeAgo.minutes': '{{count}} min ago',
+  'timeAgo.months': 'Oṣù {{count}} sẹ́yìn',
   'timeAgo.today': 'loni',
+  'timeAgo.weeks': '{{count}} ọ̀sẹ̀ sẹ́yìn',
 }

@@ -1,12 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.pageTitle': '{{app}}-ի մասին',
   'activity.empty': 'Դեռևս ակտիվություն չկա՝ շրջեք սարքը կամ ակտիվացրեք տեսարանը։',
   'activity.eyebrow': 'Ժամանակացույց',
   'activity.loadError': 'Հնարավոր չէ բեռնել ակտիվության լրահոսը։',
   'activity.subheading':
     'Յուրաքանչյուր սարք, ավտոմատացում և անվտանգության իրադարձություն՝ ժամանակագրական կարգով։',
+  'addDevice.error.failed': 'Սարքը չհաջողվեց ավելացնել։ Փորձեք կրկին։',
   'addDevice.error.nameRequired': 'Շարունակելու համար անվանեք այս սարքը։',
   'addDevice.field.firmware': 'Ներկառուցված ծրագրի տարբերակը',
   'addDevice.field.manufacturer': 'Արտադրող',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Փորձարկում…',
   'automationEditor.testNew': 'Նախ պահպանեք ավտոմատացումը՝ այն փորձարկելու համար։',
   'automationRow.lastRun': 'Վերջին {{date}} · {{count}} վազում է',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Վազել {{name}} հիմա',
   'automations.empty': 'Դեռևս ավտոմատացումներ չկան՝ ստեղծեք ձեր առաջին ռեժիմը։',
   'automations.eyebrow': 'Ընթացակարգեր',
@@ -52,6 +56,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'Ավտոմատացումների բեռնում…',
   'automations.newAutomation': '+ Նոր',
   'automations.subheading': 'Երբ սա տեղի ունենա, արեք դա՝ առանց YAML-ի։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'Սարքը չհաջողվեց բեռնել։',
@@ -71,6 +76,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Աշխատում է…',
   'deviceDetail.unnamed': 'Սարքը',
   'deviceStatusRow.on': 'Միացված է',
+  'deviceStatusRow.turnOff': 'Անջատել',
+  'deviceStatusRow.turnOn': 'Միացնել',
   'deviceStatusRow.watts': '{{watts}} Վ',
   'energy.eyebrow': 'Հզորություն',
   'energy.heading': 'Էներգիա',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Տեսնել պլանները',
   'settings.security.heading': 'Անվտանգություն',
   'settings.subheading': 'Պլան, հանգույցներ և հաշվի նախընտրություններ։',
+  'smartHomeDashboardLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
 }

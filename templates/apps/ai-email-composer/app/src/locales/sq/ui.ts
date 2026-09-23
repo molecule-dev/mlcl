@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Historia jonë',
   'aiSuggestionPanel.title': 'Bashkëpilot i Signet',
   'analytics.col.open': 'Norma e hapjes',
@@ -24,6 +25,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Duke filluar arkëtimin…',
   'billing.subheading': 'Zgjidh planin që përputhet me mënyrën se si dërgon.',
   'billing.unavailable': 'Kontaktoni shitjet',
+  'common.goToDashboard': 'Shko te paneli',
+  'common.retry': 'Riprovo',
   'compose.adjustingTone': 'Rishkrimi në tonin e zgjedhur…',
   'compose.aiPromptPlaceholder':
     'p.sh. "Ndjesë e sjellshme pas mungesës së përgjigjes për dy javë, mbajeni të shkurtër."',
@@ -60,6 +63,7 @@ export const ui: UiTranslations = {
     'Keni nevojë të dërgoni diçka? Signet mund ta ketë një draft gati brenda sekondash.',
   'dashboard.composeCtaLabel': 'Shkrim i shpejtë',
   'dashboard.heading': 'Java juaj, e përbërë',
+  'dashboard.loadFailed': 'Paneli juaj i kontrollit nuk mund të ngarkohej.',
   'dashboard.manageLibrary': 'Menaxho bibliotekën →',
   'dashboard.recentEmpty': 'Nuk ka ende dërgesa — email-et e dërguara do të shfaqen këtu.',
   'dashboard.recentHeading': 'Dërgimet e fundit',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Toni i parazgjedhur',
   'settings.toneSubheading': 'Signet përdor këtë ton përveç nëse e anashkalon draftin.',
   'signetLayout.primaryNavLabel': 'Navigimi kryesor',
+  'signetLayout.toggleMenu': 'Hap/çaktivizo menynë',
   'signup.emailLabel': 'Adresa e email-it',
   'signup.showPassword': 'Shfaq fjalëkalimin',
   'signup.tagline':

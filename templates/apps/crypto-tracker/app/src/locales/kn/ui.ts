@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'alertConditionCard.condition.${alert.condition}': 'ಪ್ರಚೋದಿಸಲಾಗಿದೆ {{ಯಾವಾಗ}}',
+  'alertConditionCard.confirmDelete': 'ಅಳಿಸುವಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ',
   'alertConditionCard.pauseAriaLabel': 'ಎಚ್ಚರಿಕೆಯನ್ನು ವಿರಾಮಗೊಳಿಸಿ',
   'alertConditionCard.resumeAriaLabel': 'ಎಚ್ಚರಿಕೆಯನ್ನು ಪುನರಾರಂಭಿಸಿ',
   'alertNew.condition': 'ಸ್ಥಿತಿ',
@@ -27,6 +28,7 @@ export const ui: UiTranslations = {
   'coinDetail.fdv': 'ಸಂಪೂರ್ಣವಾಗಿ ದುರ್ಬಲಗೊಳಿಸಿದ ಮೌಲ್ಯಮಾಪನ',
   'coinDetail.links.twitter': 'Twitter',
   'coinDetail.links.website': 'ವೆಬ್‌ಸೈಟ್',
+  'coinDetail.links.whitepaper': 'ಶ್ವೇತಪತ್ರ',
   'coinDetail.loadError': 'ನಾಣ್ಯವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'coinDetail.marketCap': 'ಮಾರುಕಟ್ಟೆ ಮಿತಿ',
   'coinDetail.maxSupply': 'ಗರಿಷ್ಠ ಪೂರೈಕೆ',
@@ -92,6 +94,7 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ನೀವು ಸ್ಕ್ಯಾನ್ ಮಾಡಿದ ಮಾರ್ಗವು ತಿಳಿದಿರುವ ನಾಣ್ಯ ಅಥವಾ ಪುಟಕ್ಕೆ ತಲುಪುತ್ತಿಲ್ಲ. ಚಿಹ್ನೆಯನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'notFound.browseMarkets': 'ಮಾರುಕಟ್ಟೆಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
+  'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'portfolio.addError': 'ಚಿಹ್ನೆ, ಧನಾತ್ಮಕ ಮೊತ್ತ ಮತ್ತು ವೆಚ್ಚವನ್ನು ನಮೂದಿಸಿ.',
   'portfolio.addHoldingCta': '+ ಹೋಲ್ಡಿಂಗ್ ಸೇರಿಸಿ',
   'portfolio.addModal.cost': 'ವೆಚ್ಚದ ಆಧಾರ (USD)',
@@ -135,9 +138,12 @@ export const ui: UiTranslations = {
   'settings.security.body':
     'ಪಾಸ್‌ವರ್ಡ್ ಮತ್ತು ಎರಡು ಅಂಶಗಳ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ನಿಮ್ಮ ಖಾತೆಯಿಂದ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ.',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
+  'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'sigilAuthShell.backHomeCta': '← ಸಿಗಿಲ್‌ಗೆ ಹಿಂತಿರುಗಿ',
   'sigilLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'signup.eyebrow': 'ಟರ್ಮಿನಲ್ ತೆರೆಯಿರಿ',

@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.pageTitle': '{{app}} గురించి',
   'activity.empty': 'ఇంకా ఏ చర్య జరగలేదు — పరికరాన్ని తిప్పండి లేదా ఒక దృశ్యాన్ని సక్రియం చేయండి.',
   'activity.eyebrow': 'కాలక్రమం',
   'activity.loadError': 'యాక్టివిటీ ఫీడ్‌ను లోడ్ చేయలేకపోయింది.',
   'activity.subheading': 'ప్రతి పరికరం, ఆటోమేషన్ మరియు భద్రతా సంఘటన కాలక్రమానుసారం.',
+  'addDevice.error.failed': 'పరికరాన్ని జోడించలేకపోయాము. మళ్ళీ ప్రయత్నించండి.',
   'addDevice.error.nameRequired': 'కొనసాగించడానికి ఈ పరికరానికి ఒక పేరు ఇవ్వండి.',
   'addDevice.field.firmware': 'ఫర్మ్‌వేర్ వెర్షన్',
   'addDevice.field.manufacturer': 'తయారీదారు',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'పరీక్షిస్తోంది…',
   'automationEditor.testNew': 'పరీక్షించడానికి ముందుగా ఆటోమేషన్‌ను సేవ్ చేయండి.',
   'automationRow.lastRun': 'చివరిది {{date}} · {{count}} పరుగు',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'పరుగెత్తు {{name}} ఇప్పుడు',
   'automations.empty': 'ఇంకా ఆటోమేషన్లు లేవు — మీ మొదటి రొటీన్‌ను రూపొందించుకోండి.',
   'automations.eyebrow': 'దినచర్యలు',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ఆటోమేషన్‌లు లోడ్ అవుతున్నాయి…',
   'automations.newAutomation': '+ కొత్త',
   'automations.subheading': 'ఇలా జరిగినప్పుడు, YAML లేకుండా అలా చేయండి.',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'పరికరాన్ని లోడ్ చేయడంలో విఫలమైంది.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'పని చేస్తోంది…',
   'deviceDetail.unnamed': 'పరికరం',
   'deviceStatusRow.on': 'ఆన్',
+  'deviceStatusRow.turnOff': 'ఆపివేయండి',
+  'deviceStatusRow.turnOn': 'ఆన్ చేయండి',
   'deviceStatusRow.watts': '{{watts}} డబ్ల్యూ',
   'energy.eyebrow': 'శక్తి',
   'energy.heading': 'శక్తి',
@@ -177,4 +184,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'ప్రణాళికలను చూడండి',
   'settings.security.heading': 'భద్రత',
   'settings.subheading': 'ప్లాన్, హబ్‌లు మరియు ఖాతా ప్రాధాన్యతలు.',
+  'smartHomeDashboardLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
+  'smartHomeDashboardLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
 }

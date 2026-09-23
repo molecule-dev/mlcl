@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
   'analytics.col.quorum': 'Кворум',
   'analytics.col.votes': 'Гласови',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Сè уште нема отворени прашања.',
   'audienceQa.onStageEyebrow': 'На сцената сега',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Промовирајте',
   'audienceQa.queued': 'во ред',
   'audienceQa.queueEyebrow': 'Ред',
   'ballot.eyebrow': 'Дајте го вашиот глас',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Моментално сте на {{plan}} план.',
   'billing.switch': 'Прекинувач',
   'billing.upgraded': 'Ажурирано на {{plan}} — ограничувањата се применуваат веднаш.',
+  'common.goToDashboard': 'Оди до контролна табла',
   'createPoll.addOption': 'Додај опција',
   'createPoll.anonymousHint':
     'Имињата на гласачите се скриени во евиденцијата за ревизија; пребројувањата остануваат автентицирани.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Нов во Нош?',
   'login.remember': 'Запомни ме 30 дена',
   'login.subheading': 'Отворете го подот, проверете ја просторијата и потврдете го резултатот.',
+  'mobileNav.closeMenu': 'Затвори го менито за навигација',
+  'mobileNav.openMenu': 'Отвори мени за навигација',
   'notFound.body':
     'Страницата до која се обидовте да стигнете е затворена или преместена. Вратете се на контролната табла или отворете нова анкета.',
   'notFound.eyebrow': 'Нема кворум на оваа рута',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Не можеше да се вчита оваа анкета.',
   'pollDetail.loading': 'Анкетата се вчитува…',
   'pollDetail.notFound': 'Анкетата не е пронајдена.',
+  'pollDetail.openBallot': 'Отворено гласачко ливче',
   'pollDetail.openLive': 'Резултати во живо',
   'pollDetail.pollId': 'анкета · {{id}}',
   'pollDetail.published': 'Анкетата е објавена — гласачите сега можат да гласаат.',
@@ -266,4 +272,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Пребарување преку е-пошта…',
   'voters.subheading':
     'Соберете го списокот на лица кои ги исполнуваат условите. Групирајте ги гласачите по организации за пондерирани гласачки ливчиња.',
+  'votingPollingLayout.nav.analytics': 'Аналитика',
+  'votingPollingLayout.nav.billing': 'Фактурирање',
+  'votingPollingLayout.nav.createPoll': 'Нова анкета',
+  'votingPollingLayout.nav.dashboard': 'Контролна табла',
+  'votingPollingLayout.nav.notifications': 'Известувања',
+  'votingPollingLayout.nav.settings': 'Поставки',
+  'votingPollingLayout.nav.team': 'Тим',
+  'votingPollingLayout.nav.voters': 'Гласачи',
+  'votingPollingLayout.primaryNavLabel': 'Примарна навигација',
 }

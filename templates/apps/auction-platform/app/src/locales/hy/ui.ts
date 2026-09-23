@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'Դիտում եմ',
   'auctionDetail.watchRemoved': 'Հեռացված է դիտացանկից։',
   'auctionDetail.watchRemoveLabel': 'Հեռացնել դիտացանկից',
+  'auctionPlatformLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'authShell.brandBody':
     'Առաջարկներ արեք իրական ժամանակում հազվագյուտ ժամացույցների, գեղարվեստական նմուշների և եզակի մասնագիտացված իրերի համար: Մուրճը ընկնում է վայրկյանների ընթացքում:',
   'authShell.brandEyebrow': 'Հիմա ուղիղ եթերում · 1420 աճուրդ',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': 'Դասավորել ըստ',
   'browseAuctions.subheading':
     'Զտեք ըստ կատեգորիայի, տեսակավորեք ըստ ամենակարևորի և կատարեք գին մինչև մուրճի ընկնելը։',
+  'common.goToDashboard': 'Անցնել վահանակ',
   'countdownTimer.ended': 'Ավարտված է',
   'countdownTimer.endingSoon': 'Ավարտ',
   'forgotPassword.checkEmailBody':
@@ -112,6 +114,8 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.subtext':
     'Շարունակեք հետևել ձեր աճուրդներին և կատարեք գնային առաջարկներ մինչև մուրճի ընկնելը։',
+  'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
+  'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'myBids.bidAgain': 'Կրկին առաջարկեք',
   'myBids.browseCta': 'Դիտեք կենդանի աճուրդները →',
   'myBids.checkoutCta': 'Վճարեք հիմա',
@@ -140,6 +144,7 @@ export const ui: UiTranslations = {
   'notificationsPage.eyebrow': 'Գործունեության կենտրոն',
   'notificationsPage.subheading':
     '{{count}} չկարդացված · ուղիղ թարմացումներ աճուրդների տեղափոխման հետ մեկտեղ',
+  'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.bidsLabel': 'առաջարկներ',
   'pricing.listingsLabel': 'ցուցակներ',
   'pricing.watchlistLabel': 'դիտացանկը',

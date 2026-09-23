@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
   'about.tagline': 'シークレットは光のもとで死ぬ。',
   'apiTokens.col.actions': '',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'トークンを作成',
   'apiTokens.kicker': 'APIトークン',
   'apiTokens.loading': 'トークンを読み込んでいます…',
+  'apiTokens.new': '新しいトークン',
   'apiTokens.revoke': 'トークンを失効',
   'apiTokens.subheading':
     'Arcanum CLIおよびSDK用の個人トークンとサービストークンです。平文は作成時に一度だけ表示されます。',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + パスキー',
   'authShell.zeroKnowledge': 'ゼロ知識暗号化',
   'common.connecting': '接続中…',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.inviting': '招待中…',
   'forgotPassword.checkInbox':
     '{email} が登録されている場合、1分以内に署名付きリセットリンクが届きます。',
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'すべてのボルトにわたるローテーションの状態、異常アラート、承認リクエスト。',
   'notifications.unreadEmpty': '受信箱はゼロです — すべて対応済みです。',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.heading': '秘密',
   'pricing.limits.accessPolicies': 'アクセスポリシー',
   'pricing.limits.auditLog': '監査ログエントリ',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': '個人アカウント',
   'profile.plan.description': 'サブスクリプションの管理、上限の確認、アップグレードを行います。',
   'profile.subheading': 'アイデンティティ、第2要素デバイス、アクティブなセッション。',
+  'profile.twoFactor.code': '認証コード',
   'profile.twoFactor.disable': '無効化',
   'profile.twoFactor.enable': '有効化',
+  'profile.twoFactor.invalidCode': '無効なコード',
   'profile.twoFactor.kicker': '二要素認証',
+  'profile.twoFactor.off': '有効になっていません',
   'profile.twoFactor.on': '有効',
   'resetPassword.email': 'アカウントのメールアドレス',
   'resetPassword.heading': '新しい認証情報を設定',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'コマンド',
   'secretsManagerLayout.encrypted': 'AES-256 · 暗号化',
   'secretsManagerLayout.newVault': '新しいボルト',
+  'secretsManagerLayout.newVaultShort': '新規',
   'secretsManagerLayout.rotations': 'ローテーション',
   'secretsManagerLayout.search': '検索',
   'secretsManagerLayout.searchPlaceholder': 'キー、パス、またはタグでシークレットを検索…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'シークレット',
   'vaultCard.vaultLabel': 'ボルト',
   'vaultDetail.addSecret': 'シークレットを追加',
+  'vaultDetail.back': 'すべての金庫',
   'vaultDetail.col.key': 'キー',
   'vaultDetail.col.rotated': 'ローテーション',
   'vaultDetail.col.value': '値',

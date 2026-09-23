@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Ви зараз перебуваєте на {{plan}} план.',
   'billing.switch': 'Змінити',
   'billing.upgraded': 'Оновлено до {{plan}} — обмеження застосовуються негайно.',
+  'common.goToDashboard': 'До панелі',
   'compare.activityHeading': 'Вердикти щодо активності',
   'compare.empty.title': 'Додайте принаймні два місця для порівняння',
   'compare.eyebrow': 'Пліч-о-пліч',
@@ -139,5 +140,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'Високий',
   'trends.summary.low.label': 'Низький',
   'trends.summary.points.label': 'Дні',
+  'weatherDashboardLayout.primaryNavLabel': 'Основна навігація',
   'weatherHeroCard.updated': 'Оновлено {{time}}',
 }

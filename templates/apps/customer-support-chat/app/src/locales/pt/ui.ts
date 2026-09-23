@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre nós',
   'authShell.samplePreview':
     '“Olá equipe, o novo painel está lindo — exatamente o que precisávamos!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/atalho',
   'automations.subheading':
     'Regras, respostas prontas e chatbots — mantenha o workspace fluindo enquanto sua equipe foca no que é difícil.',
+  'automations.trigger.inboundMessage': 'Mensagem recebida',
   'automations.triggerLabel': 'Gatilho',
   'chatBubble.internalNoteLabel': 'Nota interna',
+  'common.confirmDelete': 'Confirmar exclusão',
+  'common.goToDashboard': 'Ir para o Painel',
   'contactDetail.backToContacts': 'Todos os contatos',
   'contactDetail.contactFallback': 'Contato',
   'contactDetail.conversationFallback': 'Conversa',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'Visto por último',
   'contacts.empty': 'Ainda não há contatos. Adicione seu primeiro contato acima.',
   'contacts.eyebrow': 'Diretório de clientes',
+  'contacts.form.nameOrEmailRequired': 'Insira pelo menos um nome ou um e-mail',
   'contacts.form.save': 'Salvar contato',
   'contacts.heading': 'Contatos',
   'contacts.loading': 'Carregando contatos…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'Salvar nota',
   'conversationDetail.tab.note': 'Nota interna',
   'conversationDetail.threadAria': 'Mensagens da conversa',
+  'conversationDetail.visitorFallback': 'Visitante',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'Detalhes do cliente',
   'customerProfilePanel.recentTitle': 'Conversas recentes',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'Os clientes recebem a primeira resposta em {{time}} em média — mantenha o ritmo.',
   'inboxHeroCard.title': 'Conversas ativas',
+  'inboxLayout.navDrawerLabel': 'Navegação',
+  'inboxLayout.openMenu': 'Abrir menu de navegação',
   'inboxOverview.eyebrow': 'Hoje em um relance',
   'inboxOverview.heroChange': '{{count}} abertas',
   'inboxOverview.kpiClosedTrend': 'desde sempre',
@@ -115,10 +123,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'Visitar página inicial',
   'notifications.subheading':
     'Atribuições, @menções, riscos de SLA, feedback de CSAT e atividade da equipe — ordenadas das mais recentes para as mais antigas.',
+  'notifications.subjectFallback': 'uma conversa',
+  'notifications.visitorFallback': 'Um visitante',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'Alta',
   'priority.low': 'Baixa',
+  'priority.normal': 'Normal',
   'priority.urgent': 'Urgente',
   'privacy.title': 'Política de privacidade',
   'reports.agentFallback': 'Agente',

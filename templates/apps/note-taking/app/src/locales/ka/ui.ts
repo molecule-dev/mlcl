@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'forgot.eyebrow': 'უკან დაბრუნების გზა დაკარგე?',
   'forgot.formSubtitle': 'გვითხარით ფაილში არსებული ელ. ფოსტის მისამართი.',
   'forgot.headline': 'პაროლის აღდგენა.',
@@ -39,6 +40,8 @@ export const ui: UiTranslations = {
   'login.signupLink': 'შექმენით ერთი',
   'login.subline':
     'თქვენი ბლოკნოტები, ბექლინკები და ყოველდღიური გვერდები ზუსტად იქ არის, სადაც დატოვეთ.',
+  'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
+  'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'noteEditor.backToNotes': 'ჩანაწერებზე დაბრუნება',
   'noteEditor.bodyPlaceholder': 'დაიწყეთ წერა — თქვენი ჩანაწერი ავტომატურად ინახება აკრეფისას.',
   'noteEditor.confirmTrash': 'გადავიტანო ეს შენიშვნა წაშლილებში?',
@@ -54,6 +57,8 @@ export const ui: UiTranslations = {
   'notes.newNotebook': 'ახალი რვეული',
   'notes.newNotebookPrompt': 'ახალი ბლოკნოტის სახელი',
   'notes.notebooksHeading': 'ბლოკნოტები',
+  'notes.subtitle':
+    'მარცხნივ აირჩიეთ რვეული, შემდეგ დააჭირეთ ღილაკს „ახალი ჩანაწერი“ ახალი ჩანაწერის დასაწყებად.',
   'planUpdated.confirmation': 'Your plan has been updated',
   'pricing.heading': 'აირჩიეთ თქვენი ჩანაწერების გეგმა',
   'reset.eyebrow': 'თითქმის ისევ',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'versoEditorCanvas.updated': 'განახლებულია',
   'versoLayout.nav.graph': 'გრაფიკი',
   'versoLayout.nav.home': 'სახლი',
+  'versoLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'versoNoteCard.pinned': 'მიმაგრებულია',
   'versoTodayHero.continueCta': 'განაგრძეთ წერა',
   'versoTodayHero.createCta': 'დაიწყეთ დღევანდელი ჩანაწერი',

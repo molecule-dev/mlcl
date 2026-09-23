@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
   'about.pageTitle': 'Ynglŷn â {{name}}',
   'auth.footer.about': 'Ynglŷn â {{name}}',
   'authHeader.subtitle': "Mewngofnodwch i gadw'ch niferoedd yn onest.",
   'automations.action.email': 'E-bost',
+  'automations.action.noop': 'Dim-op',
   'automations.action.webhook': 'Webbook',
   'automations.confirmDelete': 'Dileu " {{name}} "?',
   'automations.empty.headline': 'Dim awtomeiddio eto',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Sbardunau a chamau gweithredu ar draws pob llyfr gwaith. Mae pob rhediad yn cofnodi rhes y gallwch ei harchwilio yn ddiweddarach.',
   'automations.toggle': 'Togl {{name}}',
+  'automations.trigger.dailySchedule': 'Amserlen ddyddiol',
+  'automations.trigger.rowCreated': "Rhes wedi'i chreu",
+  'automations.trigger.rowUpdated': "Rhes wedi'i diweddaru",
   'billing.empty': 'Dim cynlluniau ar gael.',
   'billing.error.priceMissing':
     "Dim pris Stripe wedi'i ffurfweddu ar gyfer yr haen hon. Gosodwch amrywiadau amgylchynol STRIPE_*_PRICE_ID.",
@@ -42,11 +47,14 @@ export const ui: UiTranslations = {
   'charts.headline': 'Siartiau',
   'charts.kpi.totalCharts': 'Cyfanswm y siartiau',
   'charts.list.empty': 'Dim siartiau eto.',
+  'charts.namePlaceholder': 'Tuedd refeniw',
   'charts.newChart': 'Siart newydd',
   'charts.primary.eyebrow': 'Siartiau yn ôl math',
   'charts.primary.headline': "Trosolwg o'r gweithle",
   'charts.subhead': "Delweddiadau byw wedi'u rhwymo i'ch grid — ail-rendro ar bob golygiad cell.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'editor.addColumn': 'Ychwanegu colofn',
+  'editor.addDialogTitle': 'Ychwanegu colofn',
   'editor.addRow': 'Ychwanegu rhes',
   'editor.addSheet': 'Ychwanegu dalen',
   'editor.back': "Yn ôl i'r llyfrau gwaith",
@@ -97,7 +105,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     "{{name}} Calcite yw'r fformiwla gyntaf, aml-olygfa, mae dadansoddwyr grid amser real a thimau cyllid yn cyrraedd am y lle cyntaf.",
   'landing.nav.formulas': 'Fformwlâu',
+  'login.noAccount': 'Newydd i {{name}} ?',
+  'login.signIn': 'Mewngofnodwch i {{name}}',
   'login.signUp': 'Creu man gwaith',
+  'nav.menu': 'Dewislen',
+  'nav.openMenu': 'Agor y ddewislen',
   'notFound.cellRef': '#CYF!',
   'notFound.formula': '=CHWILIO(CAIS.url, "llwybrau", "tudalen")',
   'notFound.headline': 'Ni fodolodd y rhes hon erioed.',
@@ -126,6 +138,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Awtomeiddio brodorol · sbardunau gwe-fach a chron',
   'signup.creating': 'Darparu gweithle…',
   'signup.cta': 'Creu fy ngweithle',
+  'signup.haveAccount': 'Eisoes ar {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Troellwch eich llyfr gwaith cyntaf mewn 30 eiliad',
   'team.col.activity': 'Gwahoddedig',

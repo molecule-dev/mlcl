@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.title': 'ກ່ຽວກັບ {{app}}',
   'auth.login.noAccount': 'ຫາກໍ່ຮູ້ຈັກ Sparq ບໍ?',
   'auth.login.or': 'ຫຼື ສືບຕໍ່ດ້ວຍ',
   'auth.signup.or': 'ຫຼືລົງທະບຽນກັບ',
+  'common.confirm': 'ຢືນຢັນ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
+  'common.loadError': 'ມີບາງຢ່າງຜິດພາດໃນການໂຫຼດເນື້ອຫານີ້.',
+  'common.retry': 'ລອງໃໝ່',
   'discover.collections.title': 'ເລືອກຕາມໝວດໝູ່',
   'discover.collections.viewAll': 'ເບິ່ງຫໍສະໝຸດຂອງທ່ານ →',
   'discover.empty.body': 'ລອງໃຊ້ໝວດໝູ່ອື່ນ ຫຼື ລຶບລ້າງການຄົ້ນຫາ.',
@@ -62,6 +68,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'ເຂົ້າສູ່ລະບົບເພື່ອຮັກສາສະຖິຕິການແຂ່ງຂັນຂອງທ່ານໃຫ້ຍັງຄົງຢູ່, ເປັນເຈົ້າພາບຈັດການແຂ່ງຂັນສົດ, ແລະ ປີນຂຶ້ນກະດານຈັດອັນດັບ.',
   'myQuizzes.createButton': 'ແບບທົດສອບໃໝ່',
+  'myQuizzes.deleteConfirm': 'ລຶບອອກຖາວອນບໍ?',
   'myQuizzes.empty.createCta': 'ສ້າງແບບສອບຖາມທຳອິດຂອງເຈົ້າ →',
   'myQuizzes.empty.created': 'ເຈົ້າຍັງບໍ່ທັນໄດ້ສ້າງແບບທົດສອບເທື່ອ.',
   'myQuizzes.empty.played': 'ຍັງບໍ່ມີແບບທົດສອບທີ່ເຜີຍແຜ່ເທື່ອ.',
@@ -76,7 +83,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ກຳລັງໂຫຼດ…',
   'notifications.subhead':
     '{{count}} ประกายไฟທີ່ຍັງບໍ່ໄດ້ອ່ານ. ການເຊີນ, ການເຄື່ອນໄຫວໃນກະດານຈັດອັນດັບ ແລະ ຜົນສຳເລັດທັງໝົດຢູ່ໃນກະແສດຽວ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.checkoutError': 'ບໍ່ສາມາດເລີ່ມການຈ່າຍເງິນໄດ້. ກະລຸນາລອງໃໝ່.',
+  'pricing.heading': 'ເລືອກແຜນ {{app}} ຂອງທ່ານ',
   'pricing.included': 'ລວມມີ',
   'pricing.loadError': 'ບໍ່ສາມາດໂຫຼດແຜນການໄດ້.',
   'pricing.maxQuizzes': '{{count}} ແບບທົດສອບ',
@@ -97,11 +106,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'ຍັງບໍ່ມີຫຍັງເຜີຍແຜ່ເທື່ອ.',
   'profile.startBuilding': 'ເລີ່ມກໍ່ສ້າງ →',
   'profile.tier': 'ຜູ້ຫຼິ້ນ Sparq',
+  'quizBuilder.addFailed': 'ບໍ່ສາມາດເພີ່ມຄຳຖາມໄດ້. ລອງໃໝ່ອີກຄັ້ງ.',
   'quizBuilder.addQuestion': 'ເພີ່ມຄຳຖາມ',
   'quizBuilder.answerPlaceholder': 'ພິມຕົວເລືອກ…',
   'quizBuilder.answersLabel': 'ຕົວເລືອກຄຳຕອບ',
   'quizBuilder.back': 'ກັບໄປຫາແບບທົດສອບຂອງຂ້ອຍ',
   'quizBuilder.delete': 'ລຶບຄຳຖາມ',
+  'quizBuilder.deleteFailed': 'ບໍ່ສາມາດລຶບຄຳຖາມໄດ້.',
   'quizBuilder.firstQuestion': 'ເພີ່ມຄຳຖາມທຳອິດຂອງທ່ານເພື່ອເລີ່ມຕົ້ນ.',
   'quizBuilder.idLabel': 'ລະຫັດແບບສອບຖາມ: {{id}}',
   'quizBuilder.loadError': 'ບໍ່ສາມາດໂຫຼດແບບທົດສອບໄດ້.',
@@ -115,6 +126,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'ຕື່ມຢ່າງໜ້ອຍສອງທາງເລືອກຄຳຕອບ ແລະ ເລືອກເອົາຄຳຕອບທີ່ຖືກຕ້ອງສຳລັບ {{count}} ຄຳຖາມກ່ອນການເຜີຍແຜ່.',
   'quizBuilder.questionsTitle': 'ຄຳຖາມຕ່າງໆ',
+  'quizBuilder.saveFailed': 'ບໍ່ສາມາດບັນທຶກຫົວຂໍ້ໄດ້. ລອງໃໝ່ອີກຄັ້ງ.',
   'quizBuilder.statusDraft': 'ຮ່າງ',
   'quizBuilder.subhead':
     'ແກ້ໄຂຫົວຂໍ້, ເພີ່ມຄຳຖາມ, ຕັ້ງຕົວເລືອກ ແລະ ຄຳຕອບທີ່ຖືກຕ້ອງ. ການປ່ຽນແປງຈະຖືກບັນທຶກໂດຍອັດຕະໂນມັດ.',
@@ -125,6 +137,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} ນາທີ',
   'quizDetail.hostMultiplayer': 'ຜູ້ຫຼິ້ນຫຼາຍຄົນເປັນເຈົ້າພາບ',
   'quizDetail.leaderboardEmpty': 'ຍັງບໍ່ມີລາຍການຫຼິ້ນເທື່ອ — ຈົ່ງເປັນຄົນທຳອິດທີ່ສ້າງຄະແນນໄດ້.',
+  'quizDetail.loadError': 'ບໍ່ສາມາດໂຫຼດແບບທົດສອບນີ້ໄດ້.',
   'quizDetail.loading': 'ກຳລັງໂຫຼດແບບທົດສອບ…',
   'quizDetail.plays': '{{count}} ຫຼິ້ນ',
   'quizDetail.playSolo': 'ຫຼິ້ນດ່ຽວ',

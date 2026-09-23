@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.eyebrow': '{{app}} жөнүндө',
   'about.pageTitle': 'Ар бир маршрут, бир издөө.',
   'booking.backToDetail': 'Учуунун чоо-жайына кайтуу',
   'booking.continue': 'Төлөмдү улантуу',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Салыктар жана төлөмдөр',
   'booking.summary.travelers': 'Саякатчылар',
   'common.about': 'Жөнүндө',
+  'common.goToDashboard': 'Башкы бетке өтүү',
   'flightDetail.backToResults': 'Натыйжаларга кайтуу',
   'flightDetail.baseFare': 'Базалык тариф',
   'flightDetail.book': 'Брондоону улантуу',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 аялдама',
   'flightResultCard.select': 'Тандоо',
   'flightResultCard.totalLabel': 'Жалпы убакыт',
+  'flightSearchLayout.primaryNavLabel': 'Негизги навигация',
   'forgotPassword.subheading':
     'Skylark аккаунтуңуздагы электрондук почта дарегин киргизиңиз, биз коопсуз баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.successBody':
     'Текшерүү {{email}} жаңы сырсөз орнотуу үчүн шилтеме. Шилтеме 30 мүнөттөн кийин жараксыз болуп калат.',
   'forgotPassword.successHeading': 'Баштапкы абалга келтирүү шилтемеси жөнөтүлдү',
   'landing.cta.explore': 'Издеп көрүңүз',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Башкалардан мурун кийинки эң сонун тамакты табыңыз.',
   'landing.cta.signup': 'Бааларды көзөмөлдөй баштаңыз',
   'landing.features.eyebrow': 'Эмне үчүн Скайларк',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Эскертүү кошуу',
   'priceAlerts.deleteConfirm': 'Бул эскертүүнү алып салыңызбы?',
   'priceAlerts.empty': 'Азырынча көзөмөлдөнгөн маршруттар жок.',
+  'priceAlerts.emptyCta': 'Жолду издөө',
   'priceAlerts.errorMessage': 'Эскертүүлөр жүктөлбөй койду.',
   'priceAlerts.eyebrow': 'Skylark байкоо тизмеси',
   'priceAlerts.form.createError': 'Эскертүү түзүлбөй койду.',
@@ -112,6 +118,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Көп шаарлуу саякат маршруту',
   'results.multiLegHeading': 'Бут {{n}} · {{from}} → {{to}} · {{дат}}',
   'results.multiSummary': '{{count}} буттар · {{passengers}} саякатчы',
+  'results.sortAriaLabel': 'Жыйынтыктарды иреттөө боюнча',
   'results.sortLabel': 'Иреттөө',
   'results.summary': '{{count}} каттамдар · {{passengers}} саякатчы',
   'settings.language.title': 'Тил',

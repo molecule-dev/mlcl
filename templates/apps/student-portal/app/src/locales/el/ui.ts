@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'announcementsFeed.empty': 'Δεν υπάρχουν ακόμη ανακοινώσεις.',
   'announcementsFeed.eyebrow': '{{count}} ενημερώσεις',
   'announcementsFeed.title': 'Τελευταίες ανακοινώσεις',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'assignments.emptyBody':
     'Αλλάξτε τα φίλτρα παραπάνω για να δείτε τις αναθέσεις σε διαφορετική κατάσταση.',
   'assignments.eyebrow': 'Όλα τα μαθήματα · Αυτό το τρίμηνο',
+  'assignments.loadError': 'Δεν ήταν δυνατή η φόρτωση των εργασιών.',
   'assignments.loading': 'Φόρτωση εργασιών…',
   'assignments.subtitle':
     'Φιλτράρετε κατά κατάσταση για να δείτε τι οφείλεται, τι έχει υποβληθεί, τι έχει βαθμολογηθεί ή τι λείπει.',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Σημείωση',
   'attendance.empty': 'Δεν υπάρχουν ακόμη αρχεία παρουσίας.',
   'attendance.eyebrow': 'Εαρινό τρίμηνο · Τελευταίες 4 εβδομάδες',
+  'attendance.loadError': 'Δεν ήταν δυνατή η φόρτωση των αρχείων παρουσίας.',
   'attendance.loading': 'Φόρτωση παρουσίας…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -46,7 +49,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Οι ημερομηνίες παράδοσης των εργασιών απεικονίζονται σε ένα μηνιαίο πλέγμα — οι εξετάσεις ξεχωρίζουν με κόκκινο χρώμα.',
   'calendar.title': '{{month}} εκδηλώσεις',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
+  'common.retry': 'Δοκιμάστε ξανά',
   'common.yes': '✓',
   'courseDetail.backLink': 'Βαθμοί',
   'courseDetail.currentGrade': 'Τρέχουσα τάξη',
@@ -75,11 +80,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Τάση',
   'grades.empty': 'Δεν έχουν δημοσιευτεί ακόμη βαθμοί.',
   'grades.eyebrow': 'Βαθμολόγιο',
+  'grades.loadError': 'Δεν ήταν δυνατή η φόρτωση των βαθμών σας.',
   'grades.loading': 'Φόρτωση βαθμών…',
   'grades.subtitle':
     'Βαθμοί με ζωντανά γράμματα και ποσοστά. Τα βέλη τάσης δείχνουν εάν κινείστε προς τα πάνω, επίπεδο ή ολισθαίνετε.',
   'grades.title': 'Οι βαθμοί σας, μάθημα προς μάθημα',
   'grades.trendStable': 'Σταθερός',
+  'landing.copyright': '© {{year}} {{app}} . Σχεδιασμένο για μαθητές, φτιαγμένο για οικογένειες.',
   'landing.ctaHeading': 'Μια πιο ήρεμη σχολική μέρα ξεκινά σε λίγα λεπτά',
   'landing.eyebrow': 'Για μαθητές γυμνασίου και λυκείου',
   'landing.featuresHeading': 'Μια σχολική ημέρα οργανωμένη γύρω από τον μαθητή',
@@ -114,12 +121,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Εργασίες',
   'nav.attendance': 'Παρουσία',
   'nav.calendar': 'Ημερολόγιο',
+  'nav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'nav.grades': 'Βαθμοί',
+  'nav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'nav.statusEyebrow': 'Μ.Ο. Εξαμήνου',
   'nav.statusSubtext': 'Τιμητικός κατάλογος · Εαρινό τρίμηνο',
+  'nav.unreadMessages': 'Μη αναγνωσμένα μηνύματα',
   'notifications.eyebrow': '{{count}} ενημερώσεις',
   'notifications.subtitle':
     'Βαθμοί, υπενθυμίσεις, μηνύματα και σχολικές ανακοινώσεις. Προσαρμόστε τα κανάλια που χρησιμοποιεί κάθε ειδοποίηση στις Ρυθμίσεις.',
+  'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.attendanceLabel': 'παρουσία',
   'pricing.gradesLabel': 'βαθμοί',
   'pricing.heading': 'ανακοινώσεις',

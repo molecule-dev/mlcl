@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.pageTitle': 'O aplikaciji {{app}}',
   'authShell.statusLabel': 'тркачи на мрежи',
   'collections.createError': 'Није могуће креирати колекцију.',
   'collections.defaultName': 'Неименована колекција {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Нова колекција',
   'collections.subheading':
     'Групишите захтеве, делите их са својим тимом и покрећите их као пакет.',
+  'common.goToDashboard': 'Иди на контролну таблу',
   'environmentCard.inactive': 'Мировање',
   'environmentCard.more': 'више',
   'environmentCard.variables': 'Променљиве',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Преузми бесплатно',
   'landing.heroSubtitle':
     'Муњевито брза радна површина за тестирање API-ја направљена за инжењере који живе у терминалима.',
+  'landing.heroTitleAccent': 'Ватра',
+  'landing.heroTitleLine2': 'стећи самопоуздање.',
+  'landing.heroTitleRest': 'захтеви,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ цена --плаин',
   'landing.pricingHeading': 'Једноставно, предвидљиво одређивање цена',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Нови овде?',
   'login.showPassword': 'Прикажи лозинку',
   'login.subtitle': 'Наставите до свог Pylon радног простора.',
+  'mobileNav.closeMenu': 'Затвори мени за навигацију',
+  'mobileNav.openMenu': 'Отвори мени за навигацију',
   'mocks.createError': 'Није могуће направити макет.',
   'mocks.defaultName': 'Безименска лажна верзија {{n}}',
   'mocks.deleteError': 'Није могуће обрисати фалсификат.',
@@ -113,6 +121,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Назад на радни простор',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Рута није пронађена',
+  'planUpdated.verifying': 'Потврђивање уплате…',
   'privacy.collect.account':
     'Налог: ваша имејл адреса, хеширана лозинка, приказано име и временска ознака вашег последњег пријављивања.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Приказ само за читање података које овај налог тренутно поседује.',
   'settings.unset': 'није подешено',
   'signup.identityHint': 'нпр. Алекс',
+  'signup.statusLabel': 'бесплатни ниво · без кредитне картице',
   'signup.subtitle': 'Почните са отпуштањем захтева за неколико минута.',
   'terms.account.body':
     'Ви сте одговорни за заштиту своје лозинке. Дељење једног налога са више људи није дозвољено на бесплатним или Про плановима — купите тимску претплату за дељене радне просторе.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'Не користите Pylon за слање захтева ка сервисима које не поседујете или за које немате експлицитну дозволу за тестирање. Не користите Pylon за заобилажење ограничења брзине или вршење преваре.',
   'terms.warranty.body':
     'Пајлон се пружа „какав јесте“ без икакве гаранције. Циљ нам је 99,9% времена непрекидног рада, али то не гарантујемо за бесплатне или Про планове.',
+  'testRunner.assertionsCount': '{{count}} тврдњи',
   'testRunner.createError': 'Није могуће креирати тест.',
   'testRunner.cron':
     'Тврдње се процењују у односу на најновије покретање повезаног захтева овог теста.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Резултати пакета, разлике у тврдњама и последњих 50 извршавања.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Пријављен/а као',
+  'workspace.auth.keyName': 'Назив заглавља',
+  'workspace.auth.keyValue': 'Кључна вредност',
+  'workspace.auth.password': 'Лозинка',
+  'workspace.auth.username': 'Корисничко име',
+  'workspace.authOption.apikey': 'API кључ',
+  'workspace.authOption.basic': 'Основна аутентификација',
+  'workspace.authOption.bearer': 'Токен носиоца',
+  'workspace.authOption.none': 'Ниједан',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип овлашћења',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Ниједан',
+  'workspace.body.text': 'Сирови текст',
+  'workspace.body.type': 'Тип',
   'workspace.environment': 'Без окружења',
   'workspace.envVar': 'променљива окружења',
   'workspace.eyebrow': '$ pylon радни простор --pane подељен',
+  'workspace.kv.addHeader': 'Додај заглавље',
+  'workspace.kv.addParam': 'Додај параметар',
+  'workspace.kv.headerKey': 'Назив заглавља',
+  'workspace.kv.headerValue': 'Вредност заглавља',
+  'workspace.kv.key': 'Кључ',
+  'workspace.kv.paramKey': 'Кључ параметра упита',
+  'workspace.kv.paramValue': 'Вредност параметра упита',
+  'workspace.kv.removeRow': 'Уклони ред',
+  'workspace.kv.value': 'Вредност',
   'workspace.methodLabel': 'HTTP метод',
   'workspace.metric.latency': 'Латенција',
   'workspace.metric.latencyCaption': 'Повратно путовање са ове вожње',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Захтев је одбијен — погледајте одговор испод.',
   'workspace.subheading':
     'Саставите захтев, покрените га, а затим потврдите одговор — све у једном окну.',
+  'workspace.testResults': 'Резултати теста',
   'workspace.token': 'Токен',
   'workspace.tokenHint': 'Послато као овлашћење: Носилац<token> на сваки захтев у овој колекцији.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'Dwar {{app}}',
   'analytics.avgCheckLabel': 'Verifika medja',
   'analytics.busiestHour': 'L-aktar siegħa impenjattiva',
   'analytics.coversToday': 'Tkopri llum',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'analytics.tipsAvgPct': 'Tips (medja)',
   'analytics.topItems': 'L-aqwa oġġetti llum',
   'authShell.eyebrow': 'Merħba lura għas-servizz',
+  'authShell.heading': '{{tagline}}.',
   'authShell.subheading':
     "Punt ta' bejgħ sħun u veloċi għat-timijiet tal-ospitalità. Idħol fil-kċina tiegħek u kompli minn fejn ħallejt.",
   'authShell.tip':
@@ -33,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.orYearly': 'jew {{price}}',
   'billing.priceUnavailable': "Dan il-pjan m'għandux prezz ikkonfigurat.",
   'billing.updated': 'Pjan aġġornat.',
+  'common.goToDashboard': 'Mur għad-Dashboard',
   'customerDetail.book': 'Żid ir-riżervazzjoni',
   'customerDetail.col.table': 'Tabella',
   'customerDetail.confirmDelete': 'Tħassar dan ir-rekord tal-mistieden?',
@@ -131,6 +134,7 @@ export const ui: UiTranslations = {
   'menuItemDetail.availability': 'Disponibbiltà',
   'menuItemDetail.available': 'Disponibbli llejla',
   'menuItemDetail.backToMenu': 'Lura għall-menù',
+  'menuItemDetail.confirmDelete': 'Tħassar dan l-oġġett tal-menù?',
   'menuItemDetail.delete': 'Ħassar l-oġġett',
   'menuItemDetail.deleteError': "It-tħassir falla. Erġa' pprova.",
   'menuItemDetail.dietary': 'Tikketti tad-dieta',
@@ -142,9 +146,12 @@ export const ui: UiTranslations = {
   'menuItemDetail.subheading':
     '{{category}} · editja r-ritratti, il-modifikaturi, id-dieta, u l-prezzijiet.',
   'menuItemDetail.untitled': 'Oġġett bla titlu',
+  'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
+  'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'notFound.heading': 'Din il-mejda mhix mal-art.',
   'notFound.subheading':
     'Il-paġna li kont qed tfittex kienet tinsab xi mkien ieħor — jew qatt ma eżistiet.',
+  'notFound.toLanding': '{{app}} dar',
   'notifications.markError': 'Ma stajtx immarka kollox bħala moqri.',
   'orderDashboard.activeDelta': 'Ħajja issa',
   'orderDashboard.activeLabel': 'Ordnijiet attivi',
@@ -209,6 +216,7 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle':
     "Daħħal il-password il-ġdida tiegħek biex terġa' tikseb aċċess għall-kċina.",
   'resetPassword.tokenLabel': 'Irrisettja t-Token',
+  'restaurantOrderingLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'revenueHeroCard.activeOrders': '{{count}} attiv',
   'revenueHeroCard.change': '{{sign}} {{amount}} kontra lbieraħ',
   'revenueHeroCard.title': 'Id-dħul tal-lum',
@@ -227,6 +235,7 @@ export const ui: UiTranslations = {
   'signup.restaurant': 'Isem tar-ristorant',
   'tableDetail.activeOrders': 'Ordnijiet attivi',
   'tableDetail.backToFloor': 'Pjanta tal-art',
+  'tableDetail.confirmDelete': 'Tħassar din it-tabella?',
   'tableDetail.delete': 'Ħassar',
   'tableDetail.deleteError': 'Ma setgħetx titħassar it-tabella.',
   'tableDetail.heading': 'Tabella {{label}}',

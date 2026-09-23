@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
+  'about.eyebrow': '// über {{appName}}',
   'about.pageTitle': 'Über {{appName}}',
   'albumDetail.breadcrumb': '// bibliothek › alben › {{albumTitle}}',
   'albumDetail.breadcrumb.loading': '// bibliothek › alben',
@@ -18,6 +20,7 @@ export const ui: UiTranslations = {
   'authShell.brandHeading': 'Ein Präzisions-Fotoeditor für Kreative, die Licht formen.',
   'authShell.tagline': 'Das Licht beugt sich Ihrem Willen',
   'common.and': 'und',
+  'common.goToDashboard': 'Zum Dashboard',
   'editor.breadcrumb': '// editor',
   'editor.empty.body':
     'Öffnen Sie die Bibliothek, um ein Bild auszuwählen, oder laden Sie ein neues hoch.',
@@ -62,6 +65,8 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'fotograf@lustra.studio',
   'forgotPassword.eyebrow': '// passwort zurücksetzen',
   'forgotPassword.remembered': 'Wieder eingefallen?',
+  'forgotPassword.successBody':
+    'Wenn ein Konto mit {{email}} übereinstimmt, wird der Link bereits versendet.',
   'landing.cta': 'Lustra öffnen',
   'landing.ctaPrimary': 'Kostenlos mit dem Bearbeiten beginnen',
   'landing.eyebrow': '// der Präzisions-Fotoeditor',
@@ -106,7 +111,9 @@ export const ui: UiTranslations = {
     'Machen Sie dort weiter, wo Sie aufgehört haben — Ihre Bibliothek, Voreinstellungen und Ihr Verlauf warten.',
   'photoEditorLayout.guest': 'Fotograf',
   'photoEditorLayout.newEdit': 'Neue Bearbeitung',
+  'photoEditorLayout.planLabel': '{{name}} Plan',
   'photoEditorLayout.planLoading': 'Wird geladen…',
+  'photoEditorLayout.primaryNavLabel': 'Hauptnavigation',
   'photoEditorLayout.tagline': 'Das Licht beugt sich Ihrem Willen',
   'photoTile.edited': 'Bearbeitet',
   'presets.breadcrumb': '// voreinstellungen › bibliothek',
@@ -138,9 +145,14 @@ export const ui: UiTranslations = {
     'Verwenden Sie mindestens 8 Zeichen mit einer Mischung aus Buchstaben und Ziffern. Wir speichern niemals den Klartext.',
   'resetPassword.tokenPlaceholder': 'Aus der E-Mail',
   'settings.account.email': 'E-Mail-Adresse',
+  'settings.account.emailError': 'Ihre E-Mail-Adresse konnte nicht aktualisiert werden.',
+  'settings.account.emailSave': 'E-Mail speichern',
   'settings.account.emailSaved': 'E-Mail aktualisiert.',
   'settings.account.emailSaving': 'Wird gespeichert…',
+  'settings.account.nameError': 'Ihr Name konnte nicht aktualisiert werden.',
+  'settings.account.nameSaved': 'Name aktualisiert.',
   'settings.account.nameSaving': 'Wird gespeichert…',
+  'settings.account.passwordSaved': 'Passwort geändert.',
   'settings.account.title': 'Konto',
   'settings.breadcrumb': '// konto › einstellungen',
   'settings.color.body':
@@ -148,6 +160,8 @@ export const ui: UiTranslations = {
   'settings.color.eyebrow': '// farbe',
   'settings.color.recommended': 'Empfohlen',
   'settings.color.title': 'Arbeitsfarbprofil',
+  'settings.devices.empty': 'Es sind keine weiteren Geräte registriert.',
+  'settings.devices.eyebrow': '// Geräte',
   'settings.devices.signOut': 'Abmelden',
   'settings.devices.thisDevice': 'Dieses Gerät',
   'settings.devices.title': 'Geräte',
@@ -162,6 +176,7 @@ export const ui: UiTranslations = {
   'settings.plan.namedHeading': 'Tarif wird geladen…',
   'settings.preferences.eyebrow': '// einstellungen',
   'settings.preferences.title': 'Editor-Verhalten',
+  'settings.security.eyebrow': '// Sicherheit',
   'settings.security.title': 'Passwort',
   'signup.confirmPlaceholder': 'Stimmt mit der Zeile oben überein',
   'signup.emailPlaceholder': 'fotograf@lustra.studio',

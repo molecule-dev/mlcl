@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.tagline': 'Tất cả các đơn vị đều nằm dưới một mái nhà.',
+  'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.addProperty': 'Thêm bất động sản',
   'dashboard.empty.body':
     'Khi quý vị đã có bất động sản, đơn vị và các khoản thanh toán tiền thuê, bảng điều khiển này sẽ hiển thị các thông tin chi tiết về danh mục.',
@@ -84,6 +87,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{property}} · Đơn vị {{unit}} · {{date}}',
   'maintenanceQueueList.subtitle': '{{count}} lệnh công việc đang mở, sắp xếp theo mức ưu tiên',
   'maintenanceQueueList.title': 'Hàng đợi bảo trì',
+  'nav.closeMenu': 'Đóng menu',
+  'nav.openMenu': 'Mở menu',
   'notFound.body': 'Trang quý vị đang tìm đã bị di chuyển, lưu trữ hoặc chưa bao giờ tồn tại.',
   'notFound.title': 'Cánh cửa đó không mở',
   'notifications.empty.body':

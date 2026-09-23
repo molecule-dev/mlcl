@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'authShell.brandHeading': 'Kelių žaidėjų drobės dizaino komandoms, kurios mąsto garsiai.',
   'billing.canceled': 'Prenumerata atšaukta.',
   'billing.cancelPlan': 'Atšaukti planą',
@@ -16,6 +17,7 @@ export const ui: UiTranslations = {
   'billing.usage.collaborators': 'Bendradarbiai',
   'billing.usageOf': 'iš {{max}} įtraukta',
   'boardCanvas.backToBoards': 'Visos lentos',
+  'boardCanvas.changeColor': 'Keisti spalvą {{color}}',
   'boardCanvas.deleteElement': 'Ištrinti elementą',
   'boardCanvas.deselect': 'Atšaukti pasirinkimą',
   'boardCanvas.elementsCount': '{{count}} elementai',
@@ -70,6 +72,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Pradėti nuo šablono',
   'boards.title': 'Jūsų lentos',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Įveskite su jūsų darbo sritimi susietą el. pašto adresą ir mes atsiųsime jums nustatymo iš naujo nuorodą.',
@@ -81,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': '1 ketvirčio seminaras · Prekės ženklo balsas',
   'landing.featuresEyebrow': 'Kas daro Slate mozaikinę',
   'landing.featuresTitle': 'Greitas atsiliepimas. Gražios drobės. Jokių trikdžių.',
+  'landing.hero.body':
+    '{{appName}} yra kelių žaidėjų interaktyvi lenta dizaino komandoms, seminarų vedėjams ir pedagogams, kurie rengia tiesiogines minčių audras ir kuriems reikia idėjų, kurios būtų sujungtos vienoje vietoje.',
   'landing.hero.primaryCta': 'Sukurkite nemokamą lentą',
   'landing.hero.socialProof': 'Pasitikima {{count}} dizaino komandos visame pasaulyje',
   'landing.hero.title': 'Drobė, tokia pat greita kaip ir jūsų mintys',
@@ -91,6 +96,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Sukurkite nemokamą darbo erdvę',
   'login.subheading':
     'Tęskite dirbtuves nuo ten, kur jos buvo baigtos – lentos, lipdukai ir žymekliai sinchronizuojami realiuoju laiku.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.new': 'Naujas',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'notifications.editTitle': 'Redagavimai „“ {{board}} "',
   'notifications.empty.body':
     'Kvietimai, momentinių kopijų įrašai ir naujausi lentos redagavimai bus rodomi čia, kai tik jie bus atlikti.',
@@ -172,6 +180,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Versijų istorija',
   'versionHistory.untitledSnapshot': 'Be pavadinimo momentinė nuotrauka',
   'whiteboardLayout.newBoard': 'Nauja lenta',
+  'whiteboardLayout.primaryNav': 'Pagrindinė navigacija',
   'workspace.boardLabel': 'Valdyba',
   'workspace.eyebrow': '{{name}} · darbo vieta',
   'workspace.invite': 'Pakviesti bendradarbius',

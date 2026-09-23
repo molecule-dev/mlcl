@@ -42,12 +42,14 @@ export const ui: UiTranslations = {
   'checkout.tipHeading': 'Худалдан авагчдаа цайны мөнгө өг',
   'checkout.tipLabel': 'Зөвлөгөө',
   'checkout.zipPlaceholder': 'ЗАХИП',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'featuredProductsGrid.addAria': 'Нэмэх {{name}} сагсанд',
   'featuredProductsGrid.outOfStock': 'Бараа дууссан',
   'forgotPassword.emailLabel': 'И-мэйл хаяг',
   'forgotPassword.emailPlaceholder': 'shopper@bushel.fresh',
   'forgotPassword.successBody':
     'Хэрэв тухайн имэйл бүртгэлтэй бол дахин тохируулах холбоос гарч ирнэ.',
+  'groceryDeliveryLayout.primaryNavLabel': 'Үндсэн навигаци',
   'landing.categoriesEyebrow': 'Замууд',
   'landing.categoriesHeading': 'Ангиллаар нь дэлгүүр хэсэх',
   'landing.ctaBody':
@@ -63,6 +65,7 @@ export const ui: UiTranslations = {
     'Үндсэн барааны ухаалаг дахин захиалга болон жолоочийн шууд хяналтаар долоо хоног тутмын хүргэлтийг төлөвлөөрэй.',
   'landing.heroTitle': 'Хэдэн цагийн дотор танай үүдэнд шинэлэг байдал.',
   'landing.howEyebrow': 'Гурван алхам',
+  'landing.howItWorksHeading': '{{app}} хэрхэн ажилладаг вэ',
   'lists.addAllCta': 'Бүгдийг сагсанд нэмэх',
   'lists.createCta': 'Анхны жагсаалтаа үүсгээрэй',
   'lists.createError': 'Жагсаалт үүсгэж чадсангүй.',

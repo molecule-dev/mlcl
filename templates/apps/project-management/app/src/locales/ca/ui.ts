@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'accountSettings.confirmEmailLabel': 'Escriu SUPRIMEIX per confirmar',
   'accountSettings.deleteError': "No s'ha pogut eliminar el compte.",
   'accountSettings.passwordError': "No s'ha pogut canviar la contrasenya.",
@@ -55,6 +56,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Sense terminis propers.',
   'dashboard.upcomingTitle': 'Propers terminis',
   'deviceSettings.unknownDevice': 'Dispositiu desconegut',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Suport',
   'forgotPassword.error': "No s'ha pogut enviar l'enllaç de restabliment.",
   'forgotPassword.subtitle':
@@ -70,6 +72,9 @@ export const ui: UiTranslations = {
   'login.error': 'Correu electrònic o contrasenya no vàlids.',
   'login.pageTitle': 'Inicia la sessió',
   'login.signIn': 'Inicia la sessió a Forge',
+  'login.subtitle': 'Inicia la sessió per mantenir els teus projectes en marxa',
+  'mobileNav.closeMenu': 'Tanca el menú de navegació',
+  'mobileNav.openMenu': 'Obre el menú de navegació',
   'nav.calendar': 'Calendari',
   'nav.legal': 'Legal',
   'nav.myTasks': 'My Tasks',

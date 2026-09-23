@@ -11,6 +11,7 @@ export const ui: UiTranslations = {
   'browse.loading': 'अभ्यासक्रम लोड होत आहेत…',
   'browse.next': 'पुढील पृष्ठ',
   'browse.results': 'दाखवत आहे {{count}} अभ्यासक्रम',
+  'browse.searchChip': '" {{query}} "',
   'browse.sort': 'यानुसार क्रमवारी लावा',
   'browse.subtitle':
     'विषय, स्तर आणि किंमतीनुसार संपादकीय संग्रह फिल्टर करा. प्रत्येक कोर्स आमच्या संपादकांद्वारे काळजीपूर्वक निवडला जातो.',
@@ -19,6 +20,7 @@ export const ui: UiTranslations = {
   'certificate.body':
     'तुमचे प्रमाणपत्र स्वाक्षरी करून तयार आहे. ते जगासोबत शेअर करा किंवा ते मिळवण्यासाठी घेतलेल्या मेहनतीची आठवण म्हणून जपून ठेवा.',
   'certificate.copyLink': 'शेअर लिंक कॉपी करा',
+  'certificate.copyPrompt': 'ही लिंक कॉपी करा:',
   'certificate.download': 'पीडीएफ डाउनलोड करा',
   'certificate.eyebrow': 'यश प्राप्त झाले',
   'certificate.linkCopied': 'लिंक कॉपी केली!',
@@ -43,6 +45,8 @@ export const ui: UiTranslations = {
   'checkout.success.title': 'तुमची नोंदणी झाली आहे!',
   'checkout.verifying': 'तुमच्या नोंदणीची पडताळणी होत आहे…',
   'checkout.viewLibrary': 'माझे शिक्षण पहा',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'courseDetail.about': 'या कोर्सबद्दल',
   'courseDetail.checkoutPending': 'चेकआउट सुरू करत आहे…',
   'courseDetail.continueLearning': 'शिकणे सुरू ठेवा',
@@ -55,6 +59,7 @@ export const ui: UiTranslations = {
   'courseDetail.guarantee': '३० दिवसांची पैसे परत मिळण्याची हमी',
   'courseDetail.includes.video': '{{hours}} मागणीनुसार व्हिडिओचे तास',
   'courseDetail.instructor': 'प्रशिक्षक',
+  'courseDetail.languageEnglish': 'इंग्रजी',
   'courseDetail.lectures': 'व्याख्याने',
   'courseDetail.level': 'पातळी',
   'courseDetail.loading': 'कोर्स लोड होत आहे…',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'instructorProfile.reviewsEmpty': 'अद्याप एकही अभिप्राय नाही.',
   'instructorProfile.students': 'विद्यार्थी',
   'landing.categories.empty': 'कॅटलॉग भरल्यानंतर श्रेणी दिसतील.',
+  'landing.categories.heading': 'संग्रह शोधा',
   'landing.hero.eyebrow': 'लेक्टुरा · प्राविण्याचा संपादकीय संग्रह',
   'landing.hero.proof': 'गुगल, मेटा आणि ॲडोबी येथील शिकाऊ उमेदवारांचा विश्वास.',
   'landing.hero.subtitle':
@@ -156,6 +162,7 @@ export const ui: UiTranslations = {
   'login.startLearning': 'आजच शिकायला सुरुवात करा',
   'login.subheading': 'तुमच्या विद्वत्तापूर्ण संग्रहात प्रवेश करा.',
   'myLearning.empty.title': 'या फिल्टरशी जुळणारे कोणतेही अभ्यासक्रम अद्याप नाहीत.',
+  'myLearning.error.title': 'तुमची लायब्ररी लोड करता आली नाही.',
   'myLearning.filter.notStarted': 'सुरू केले नाही',
   'myLearning.hero.subtitle':
     '{{count}} तुमच्या ग्रंथालयात अभ्यासक्रम उपलब्ध आहेत. ही गती कायम ठेवा.',
@@ -169,6 +176,7 @@ export const ui: UiTranslations = {
   'notifications.empty.body':
     'पुनरावलोकन करण्यासाठी कोणतीही नवीन घडामोड नाही. नवीन कार्यक्रम येथे दिसतील.',
   'notifications.empty.title': 'तुम्ही सर्व अद्ययावत आहात.',
+  'notifications.error.title': 'क्रियाकलाप लोड करता आला नाही.',
   'privacy.title': 'गोपनीयता धोरण',
   'reset.confirmPlaceholder': 'तुमचा नवीन पासवर्ड पुन्हा प्रविष्ट करा',
   'reset.errorGeneric': 'पासवर्ड रीसेट करता आला नाही. कृपया नवीन लिंक पाठवा.',
@@ -192,5 +200,7 @@ export const ui: UiTranslations = {
   'timeAgo.daysShort': '{{count}} डी पूर्वी',
   'timeAgo.hours': '{{count}} h पूर्वी',
   'timeAgo.minutes': '{{count}} मिनिटांपूर्वी',
+  'timeAgo.months': '{{count}} महिन्यांपूर्वी',
   'timeAgo.today': 'आज',
+  'timeAgo.weeks': '{{count}} आठवड्यांपूर्वी',
 }

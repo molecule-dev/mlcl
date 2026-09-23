@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'about.pageTitle': 'حول {{appName}}',
   'analytics.error': 'تعذّر تحميل التحليلات.',
   'analytics.heading': 'تحليلات الاسترجاع',
@@ -50,6 +51,9 @@ export const ui: UiTranslations = {
   'billing.plans.empty': 'لا توجد خطط تسعير مُهيَّأة.',
   'billing.plans.heading': 'الخطط',
   'billing.subheading': 'الخطة والاستخدام والدفع المُدار عبر Stripe.',
+  'common.confirm': 'تأكيد',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'common.retry': 'إعادة المحاولة',
   'documentCard.open': 'فتح ←',
   'documentDetail.back': 'العودة إلى المستندات',
   'documentDetail.chunks.empty':
@@ -69,6 +73,7 @@ export const ui: UiTranslations = {
   'documents.composer.save': 'فهرسة المستند',
   'documents.composer.titlePlaceholder': 'عنوان المستند',
   'documents.emptyAll': 'لا توجد مستندات بعد. ارفع مستندًا لبدء طرح الأسئلة.',
+  'documents.error.load': 'تعذر تحميل المستندات.',
   'documents.heading': 'المستندات المفهرسة',
   'documents.loading': 'جاري تحميل المستندات…',
   'documents.metric.chunks': 'إجمالي المقاطع',
@@ -136,7 +141,11 @@ export const ui: UiTranslations = {
   'members.revoke.loading': 'جاري الإزالة…',
   'members.subheading': 'ادعُ الزملاء وحدّد الأدوار.',
   'members.tableHeading': 'القائمة',
+  'mobileNav.closeMenu': 'إغلاق قائمة التنقل',
+  'mobileNav.openMenu': 'فتح قائمة التنقل',
   'notFound.askCta': 'اسأل قاعدة المعرفة',
+  'notFound.body':
+    'لم يتمكن {{app}} من العثور على تلك الصفحة. قد يكون الرابط معطلاً، أو ربما تم حذف الصفحة أثناء إعادة فهرسة الموقع.',
   'notFound.eyebrow': 'تعذّر الاسترجاع',
   'notFound.title': 'لا يوجد مثل هذا المقطع في الفهرس',
   'notifications.dismiss': 'تجاهل',
@@ -198,6 +207,7 @@ export const ui: UiTranslations = {
   'sources.add.url': 'رابط المصدر',
   'sources.empty.body': 'انقر «إضافة مصدر» لربط أوّل موصِّل لديك.',
   'sources.empty.title': 'لا توجد مصادر بعد.',
+  'sources.error.add': 'تعذر إضافة المصدر.',
   'sources.error.labelRequired': 'التسمية مطلوبة.',
   'sources.error.load': 'تعذّر تحميل المصادر.',
   'sources.error.urlRequired': 'الرابط مطلوب لهذا النوع من المصادر.',

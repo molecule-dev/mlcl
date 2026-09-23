@@ -40,6 +40,7 @@ export const ui: UiTranslations = {
   'booking.title': 'ਮੁਲਾਕਾਤ ਬੁੱਕ ਕਰੋ',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'ਦਿਖਾਉਣ ਲਈ ਕੋਈ ਮਰੀਜ਼ ਨਹੀਂ।',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'consult.backLink': 'ਸਾਰੀਆਂ ਮੁਲਾਕਾਤਾਂ',
   'consult.captions': 'ਸੁਰਖੀਆਂ',
   'consult.connected': 'ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ · 720p · ਸਥਿਰ',
@@ -130,6 +131,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'ਮਰੀਜ਼',
   'patientVitalsHero.scripts': 'Rx ਖੁੱਲ੍ਹਾ',
   'patientVitalsHero.subline': "{{count}} ਅੱਜ ਤੁਹਾਡੇ ਸ਼ਡਿਊਲ 'ਤੇ ਸਲਾਹ-ਮਸ਼ਵਰਾ ਕਰਦਾ ਹੈ",
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'prescriptions.empty': 'ਕੋਈ ਨੁਸਖ਼ਾ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।',
   'prescriptions.eyebrow': 'ਈ-ਨੁਸਖ਼ਾ',
   'prescriptions.heading': 'ਨੁਸਖੇ',
@@ -145,6 +147,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'ਗੋਪਨੀਯਤਾ ਨੋਟਿਸ',
   'privacy.use.body':
     'ਦੇਖਭਾਲ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ, ਮੁਲਾਕਾਤ ਰੀਮਾਈਂਡਰ ਭੇਜੋ, ਰੂਟ ਨੁਸਖੇ ਭੇਜੋ, ਅਤੇ ਸੇਵਾ ਭਰੋਸੇਯੋਗਤਾ ਨੂੰ ਬਿਹਤਰ ਬਣਾਓ। ਅਸੀਂ ਕਦੇ ਵੀ ਤੁਹਾਡਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦੇ ਅਤੇ ਕਦੇ ਵੀ ਇਸ਼ਤਿਹਾਰ ਦੇਣ ਵਾਲਿਆਂ ਨਾਲ ਕਲੀਨਿਕਲ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਨਹੀਂ ਕਰਦੇ।',
+  'providers.allSpecialties': 'ਸਾਰੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ',
+  'providers.loadError': 'ਪ੍ਰਦਾਤਾਵਾਂ ਨੂੰ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'providers.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'providers.noResults': 'ਕੋਈ ਪ੍ਰਦਾਤਾ ਨਹੀਂ ਮਿਲਿਆ।',
   'providers.searchPlaceholder': 'ਨਾਮ, ਵਿਸ਼ੇਸ਼ਤਾ ਦੁਆਰਾ ਖੋਜ ਕਰੋ...',
   'providers.title': 'ਇੱਕ ਪ੍ਰਦਾਤਾ ਲੱਭੋ',
@@ -164,6 +169,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'ਦਿਨ ਦੀ ਸ਼ੁਰੂਆਤ',
   'settings.availability.heading': 'ਉਪਲਬਧਤਾ',
   'settings.devices.thisDevice': 'ਇਹ ਡਿਵਾਈਸ',
+  'settings.devices.unnamed': 'ਬੇਨਾਮ ਡਿਵਾਈਸ',
   'settings.eyebrow': 'ਅਭਿਆਸ ਅਤੇ ਖਾਤਾ',
   'settings.loadError': 'ਤੁਹਾਡਾ ਪ੍ਰੋਫਾਈਲ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'settings.notifications.emailMessages': 'ਜਦੋਂ ਮੇਰੀ ਦੇਖਭਾਲ ਟੀਮ ਜਵਾਬ ਦੇਵੇ ਤਾਂ ਮੈਨੂੰ ਈਮੇਲ ਕਰੋ',
@@ -177,6 +183,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'ਅਯੋਗ ਕਰੋ',
   'settings.security.twoFactor.enable': 'ਯੋਗ ਬਣਾਓ',
   'settings.security.twoFactor.heading': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ',
+  'settings.security.twoFactor.invalidCode': 'ਉਹ ਕੋਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+  'settings.security.twoFactor.setupFailed':
+    'ਦੋ-ਕਾਰਕ ਸੈੱਟਅੱਪ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+  'settings.security.twoFactor.statusOn': 'ਦੋ-ਕਾਰਕ ਚਾਲੂ ਹੈ',
   'settings.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
   'settings.subheading': 'ਪ੍ਰਦਾਤਾ ਪ੍ਰੋਫਾਈਲ, ਅਭਿਆਸ ਨਿਯਮ, ਅਤੇ ਕਲੀਨਿਕਲ ਚੇਤਾਵਨੀਆਂ।',
   'signup.emailLabel': 'ਈਮੇਲ',
@@ -187,6 +197,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'ਖਾਤਾ ਬਣਾਉ',
   'signupFooter.hipaa': 'HIPAA ਅਨੁਕੂਲ',
   'solaceLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
+  'solaceLayout.toggleMenu': 'ਮੀਨੂ ਟੌਗਲ ਕਰੋ',
   'terms.eligibility.body':
     "ਤੁਹਾਡੀ ਉਮਰ ਘੱਟੋ-ਘੱਟ ਅਠਾਰਾਂ ਸਾਲ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ, ਜਾਂ ਕਿਸੇ ਨਾਬਾਲਗ ਦੇ ਮਾਤਾ-ਪਿਤਾ ਜਾਂ ਕਾਨੂੰਨੀ ਸਰਪ੍ਰਸਤ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ ਜਿਸਦੀ ਤੁਸੀਂ ਦੇਖਭਾਲ ਦੀ ਮੰਗ ਕਰ ਰਹੇ ਹੋ, ਅਤੇ ਸਰੀਰਕ ਤੌਰ 'ਤੇ ਕਿਸੇ ਅਮਰੀਕੀ ਰਾਜ ਵਿੱਚ ਸਥਿਤ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ ਜਿੱਥੇ ਸਾਡੇ ਡਾਕਟਰ ਲਾਇਸੰਸਸ਼ੁਦਾ ਹਨ।",
   'terms.payment.body':

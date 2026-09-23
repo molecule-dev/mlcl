@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره ما',
   'authShell.samplePreview':
     '«سلام تیم، داشبورد جدید فوق‌العاده‌ست — دقیقاً همون چیزیه که لازم داشتیم!»',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/میانبر',
   'automations.subheading':
     'قوانین، پاسخ‌های از پیش تعیین‌شده و ربات‌های چت - فضای کاری را پویا نگه دارید در حالی که تیم شما روی کارهای سخت تمرکز می‌کند.',
+  'automations.trigger.inboundMessage': 'پیام ورودی',
   'automations.triggerLabel': 'ماشه',
   'chatBubble.internalNoteLabel': 'یادداشت داخلی',
+  'common.confirmDelete': 'تأیید حذف',
+  'common.goToDashboard': 'رفتن به داشبورد',
   'contactDetail.backToContacts': 'همه مخاطبین',
   'contactDetail.contactFallback': 'تماس',
   'contactDetail.conversationFallback': 'مکالمه',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'آخرین بازدید',
   'contacts.empty': 'هنوز هیچ مخاطبی وجود ندارد. اولین مخاطب خود را در بالا اضافه کنید.',
   'contacts.eyebrow': 'دایرکتوری مشتری',
+  'contacts.form.nameOrEmailRequired': 'حداقل یه اسم یا ایمیل بده',
   'contacts.form.save': 'ذخیره مخاطب',
   'contacts.heading': 'مخاطبین',
   'contacts.loading': 'در حال بارگذاری مخاطبین…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'ذخیره یادداشت',
   'conversationDetail.tab.note': 'یادداشت داخلی',
   'conversationDetail.threadAria': 'پیام‌های مکالمه',
+  'conversationDetail.visitorFallback': 'بازدیدکننده',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'جزئیات مشتری',
   'customerProfilePanel.recentTitle': 'گفتگوهای اخیر',
@@ -72,6 +78,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'مشتریان اولین پاسخ خود را دریافت می‌کنند {{time}} به طور متوسط - ریتم را حفظ کنید.',
   'inboxHeroCard.title': 'گفتگوهای فعال',
+  'inboxLayout.navDrawerLabel': 'ناوبری',
+  'inboxLayout.openMenu': 'منوی ناوبری را باز کنید',
   'inboxOverview.eyebrow': 'امروز در یک نگاه',
   'inboxOverview.heroChange': '{{count}} باز',
   'inboxOverview.kpiClosedTrend': 'تمام وقت',
@@ -117,10 +125,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'به صفحه اصلی مراجعه کنید',
   'notifications.subheading':
     'تکالیف، @mentionها، ریسک‌های SLA، بازخورد CSAT و فعالیت تیمی — جدیدترین‌ها اول مرتب شوند.',
+  'notifications.subjectFallback': 'یک مکالمه',
+  'notifications.visitorFallback': 'یک بازدیدکننده',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'بالا',
   'priority.low': 'کم',
+  'priority.normal': 'عادی',
   'priority.urgent': 'فوری',
   'privacy.title': 'سیاست حفظ حریم خصوصی',
   'reports.agentFallback': 'عامل',

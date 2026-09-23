@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über',
   'auth.forgotPassword.emailPlaceholder': 'name@ihrunternehmen.com',
   'auth.forgotPassword.heading': 'Setzen Sie Ihr Passwort zurück.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'Aufgabe als erledigt markieren',
   'checklistTaskCard.markIncomplete': 'Aufgabe als unerledigt markieren',
   'checklistTaskCard.openLabel': 'Aufgabe öffnen',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'Sie sind auf dem aktuellen Stand',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'Auf Kurs',
   'dashboard.timelineHeading': '30/60/90-Meilensteine',
   'dashboard.viewAllTasks': 'Alle Aufgaben anzeigen',
+  'dashboard.weekOne': 'Woche 1',
   'dashboard.yourCohort': 'Ihr Team',
   'documents.empty.body': 'Von Ihrem Team hinzugefügte Dokumente erscheinen hier.',
   'documents.empty.title': 'Noch keine Dokumente',
@@ -109,7 +112,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 Tage kostenlos testen',
   'landing.subhead':
     'Embark begleitet jede neue Kollegin und jeden neuen Kollegen durch die ersten 90 Tage — Formulare, Schulungen, Meilensteine und bedeutsame Vorstellungen, alles an einem ruhigen, vertrauenswürdigen Ort.',
+  'layout.openMenu': 'Navigationsmenü öffnen',
   'layout.search': 'Aufgaben, Dokumente, Teammitglieder durchsuchen…',
+  'layout.searchTeammates': 'Teammitglieder nach Namen oder Rolle suchen…',
   'layout.section.onboarding': 'Onboarding',
   'layout.tagline': 'Ihr Weg beginnt hier',
   'notifications.empty.body': 'Neue Aktivitäten erscheinen hier.',
@@ -118,6 +123,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'gestern',
   'planUpdated.message': 'Alles ist bereit.',
   'planUpdated.preparing': 'Ihr Tarif wird aktualisiert…',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.documentsLabel': 'Dokumente',
   'pricing.onboardingsLabel': 'Onboardings',
   'pricing.tasksLabel': 'Aufgaben',

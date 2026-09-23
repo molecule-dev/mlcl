@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Ìtàn wa',
   'aiSuggestionPanel.title': 'Olùdarí Alágbàṣe Signet',
   'analytics.col.open': 'Oṣuwọn ṣiṣi',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'Bíbẹ̀rẹ̀ sí í san owó…',
   'billing.subheading': 'Yan ètò tó bá bí o ṣe ń fi ránṣẹ́ mu.',
   'billing.unavailable': 'Kan si awọn tita',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'compose.adjustingTone': 'Àtúnkọ ní ohùn tí a yàn…',
   'compose.aiPromptPlaceholder':
     'Fún àpẹẹrẹ "Àtẹ̀lé pẹ̀lú ìwà rere lẹ́yìn tí kò sí ìdáhùn fún ọ̀sẹ̀ méjì, jẹ́ kí ó kúrú."',
@@ -58,6 +61,7 @@ export const ui: UiTranslations = {
     'Ṣé o fẹ́ fi nǹkan kan ránṣẹ́? Signet lè ní ìwé àṣẹ láti ṣe àtúnṣe láàárín ìṣẹ́jú àáyá.',
   'dashboard.composeCtaLabel': 'Ṣíṣe àkọsílẹ̀ kíákíá',
   'dashboard.heading': 'Ọ̀sẹ̀ rẹ, tí a kọ',
+  'dashboard.loadFailed': 'Kò le gbé ojú-ọ̀nà rẹ sókè.',
   'dashboard.manageLibrary': 'Ṣàkóso ìkàwé →',
   'dashboard.recentEmpty': 'Kò sí ìfiránṣẹ́ kankan — àwọn ìmeeli tí o fi ránṣẹ́ yóò farahàn níbí.',
   'dashboard.recentHeading': 'Àwọn ìfiránṣẹ́ tuntun',
@@ -136,6 +140,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'Ohùn aiyipada',
   'settings.toneSubheading': 'Signet lo ohùn yìí àyàfi tí o bá yípadà sí ìkọ̀wé náà.',
   'signetLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
+  'signetLayout.toggleMenu': 'Yí àtòjọ-àtòjọ padà',
   'signup.emailLabel': 'Adirẹsi imeeli',
   'signup.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'signup.tagline': 'Fi imeeli akọkọ rẹ ti o ṣe apẹrẹ nipasẹ AI ranṣẹ ni iṣẹju kan.',

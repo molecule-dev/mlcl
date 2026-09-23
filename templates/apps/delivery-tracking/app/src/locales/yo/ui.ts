@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
   'alerts.acknowledgeLabel': 'Gba',
   'alerts.customerLabel': 'Onibara: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'N sopọ̀ mọ́…',
   'carriers.requiredError': 'Orúkọ àti kódù ni a nílò.',
   'carriers.subheading': '{{count}} ti a ṣepọ',
+  'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'Ní ìrìnàjò + tí a fi àmì sí',
   'dashboard.activeShipmentsSubtitle': '{{count}} Awọn gbigbe nilo akiyesi tabi wọn wa lori gbigbe',
@@ -98,6 +101,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'awọn gbigbe',
   'pricing.trackingLabel': 'àwọn ìṣẹ̀lẹ̀ títẹ̀lé',
   'profile.dangerZone.title': 'Agbègbè ewu',
+  'profile.devices.signingOut': 'Ń jáde…',
+  'profile.devices.unnamed': 'Ẹ̀rọ tí a kò dárúkọ',
+  'profile.security.disable2fa': 'Mu 2FA kuro',
   'profile.security.enable2fa': 'Mu 2FA ṣiṣẹ',
   'profile.security.pwChanged': 'Ọ̀rọ̀ìpamọ́ ti yípadà ní àṣeyọrí.',
   'profile.security.pwCurrent': 'Ọ̀rọ̀ìpamọ́ lọ́wọ́lọ́wọ́',
@@ -107,10 +113,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA ti n ṣiṣẹ',
   'profile.security.twoFaCode': 'Kóòdù nọ́mbà mẹ́fà',
   'profile.security.twoFaDisable': 'Mu ṣiṣẹ',
+  'profile.security.twoFaDisabling': 'N mu pipaarẹ…',
   'profile.security.twoFaFailed': 'Kò le ṣàyẹ̀wò kódì náà.',
   'profile.security.twoFaIntro':
     'Ṣe ìwòye kóòdù QR nínú àpù olùjẹ́rìí rẹ, lẹ́yìn náà tẹ kóòdù oní-nọ́mbà mẹ́fà sí ìsàlẹ̀ láti jẹ́rìí sí i.',
   'profile.security.twoFaOn': 'A ti mu ìfàṣẹsí ìfàṣẹsí méjì ṣiṣẹ́ lórí àkọọ́lẹ̀ yìí.',
+  'profile.security.twoFaQrAlt': 'Kóòdù QR ọ̀nà méjì',
   'profile.security.twoFaVerify': 'Ṣàyẹ̀wò kí o sì mú un ṣiṣẹ́',
   'profile.security.twoFaVerifying': 'N fìdí rẹ̀ múlẹ̀…',
   'profile.subheading': 'Àkójọ ìdánimọ̀ àti ààbò fún ibi iṣẹ́ yìí.',
@@ -129,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Fi àṣírí yìí pamọ́ — a kò ní fi í hàn mọ́.',
   'settings.api.webhookSecret': 'Àṣírí ìfọwọ́sí Webhook',
   'settings.appearance.description': 'Yipada laarin ipo ina ati ipo dudu.',
+  'settings.deleteAccountConfirm': 'Ṣé ó dá ọ lójú? A kò le ṣe àtúnṣe ìgbésẹ̀ yìí.',
   'settings.notifications.exceptions': 'Fi imeeli ranṣẹ si mi nigbati iyasoto gbigbe ba waye',
   'settings.notifications.heading': 'Àwọn ìfitónilétí',
   'settings.notifications.saveFailed': 'Kò le fi àwọn ohun tí a fẹ́ pamọ́.',
@@ -143,6 +152,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'A ko ri gbigbe.',
   'shipmentDetail.originHeading': 'Ìpilẹ̀ṣẹ̀',
   'shipmentDetail.shippedOn': 'Ti firanṣẹ {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Kò sí ìṣẹ̀lẹ̀ ìtẹ̀lé tí ó ṣẹlẹ̀ — àwọn àtúnṣe tuntun farahàn níbí bí olùgbé ọjà náà ṣe ń wo ẹrù náà.',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': 'Olùgbé',
   'shipments.col.eta': 'ETA',
@@ -171,6 +182,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Wọle',
   'signup.submit': 'Se akanti fun ra re',
   'team.emailError': 'Àdírẹ́sì ìmeeli tó wúlò ni a nílò.',
+  'team.empty':
+    'Kò sí àwọn ọmọ ẹgbẹ́ kankan síbẹ̀. Pe ẹgbẹ́ kan láti ṣiṣẹ́ pọ̀ lórí àwọn ẹrù tí a ń kó.',
   'team.eyebrow': 'Àwọn ọmọ ẹgbẹ́ & àwọn àṣẹ',
   'team.inviteDialog.cancel': 'Fagilee',
   'team.inviteDialog.heading': 'Pe ẹlẹgbẹ kan',
@@ -193,6 +206,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Orin',
   'waypointLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'webhooks.createFailed': 'Kò le ṣẹ̀dá ìparí wẹ́ẹ̀bù.',
+  'webhooks.endpointsEmpty':
+    'Kò sí àwọn ibi ìparí webhook kankan. Ṣẹ̀dá ọ̀kan láti gba àwọn ìpè ìpadàsẹ̀yìn ipò gbigbe.',
   'webhooks.endpointsHeading': 'Àwọn ìparí',
   'webhooks.eventCount': '{{count}} awọn iṣẹlẹ',
   'webhooks.eventsHeading': 'Àwọn ìfijiṣẹ́ tuntun',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
   'alerts.acknowledgeLabel': 'Anerkende',
   'alerts.customerLabel': 'Kunde: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': 'Forbinder…',
   'carriers.requiredError': 'Navn og kode skal angives.',
   'carriers.subheading': '{{count}} integreret',
+  'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
+  'common.retry': 'Prøv igen',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': 'I transit + markeret med flag',
   'dashboard.activeShipmentsSubtitle': '{{count}} forsendelser kræver opmærksomhed eller er på vej',
@@ -98,6 +101,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': 'forsendelser',
   'pricing.trackingLabel': 'sporingshændelser',
   'profile.dangerZone.title': 'Farezone',
+  'profile.devices.signingOut': 'Logger ud…',
+  'profile.devices.unnamed': 'Enhed uden navn',
+  'profile.security.disable2fa': 'Deaktiver 2FA',
   'profile.security.enable2fa': 'Aktivér 2FA',
   'profile.security.pwChanged': 'Adgangskoden er ændret.',
   'profile.security.pwCurrent': 'Nuværende adgangskode',
@@ -107,10 +113,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA aktiv',
   'profile.security.twoFaCode': '6-cifret kode',
   'profile.security.twoFaDisable': 'Deaktivér',
+  'profile.security.twoFaDisabling': 'Deaktiverer…',
   'profile.security.twoFaFailed': 'Koden kunne ikke bekræftes.',
   'profile.security.twoFaIntro':
     'Scan QR-koden i din autentificeringsapp, og indtast derefter den 6-cifrede kode nedenfor for at bekræfte.',
   'profile.security.twoFaOn': 'Tofaktorgodkendelse er aktiveret på denne konto.',
+  'profile.security.twoFaQrAlt': 'To-faktor QR-kode',
   'profile.security.twoFaVerify': 'Bekræft og aktiver',
   'profile.security.twoFaVerifying': 'Bekræfter…',
   'profile.subheading': 'Identitets- og sikkerhedsindstillinger for dette arbejdsområde.',
@@ -129,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'Gem denne hemmelighed – den vil ikke blive vist igen.',
   'settings.api.webhookSecret': 'Hemmeligheden ved webhook-signering',
   'settings.appearance.description': 'Skift mellem lys og mørk tilstand.',
+  'settings.deleteAccountConfirm': 'Er du sikker? Denne handling kan ikke fortrydes.',
   'settings.notifications.exceptions':
     'Send mig en e-mail, når der opstår en undtagelse fra en forsendelse',
   'settings.notifications.heading': 'Notifikationer',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': 'Forsendelse ikke fundet.',
   'shipmentDetail.originHeading': 'Oprindelse',
   'shipmentDetail.shippedOn': 'Sendt {{date}}',
+  'shipmentDetail.timelineEmpty':
+    'Der er endnu ingen sporingsoplysninger — opdateringer vises her, når transportøren scanner pakken.',
   'shipmentDetail.weightLabel': '{{weight}} pund',
   'shipments.col.carrier': 'Transportør',
   'shipments.col.eta': 'Anslået ankomsttid',
@@ -173,6 +184,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'Log ind',
   'signup.submit': 'Opret konto',
   'team.emailError': 'En gyldig e-mailadresse er påkrævet.',
+  'team.empty':
+    'Der er endnu ingen teammedlemmer. Inviter en teamkammerat til at samarbejde om forsendelser.',
   'team.eyebrow': 'Medlemmer og tilladelser',
   'team.inviteDialog.cancel': 'Annuller',
   'team.inviteDialog.heading': 'Inviter en holdkammerat',
@@ -195,6 +208,8 @@ export const ui: UiTranslations = {
   'tracking.track': 'Spore',
   'waypointLayout.primaryNavLabel': 'Primær navigation',
   'webhooks.createFailed': 'Kunne ikke oprette webhook-slutpunktet.',
+  'webhooks.endpointsEmpty':
+    'Der er endnu ingen webhook-endpoints. Opret en for at modtage tilbagekald om forsendelsesstatus.',
   'webhooks.endpointsHeading': 'Endpoints',
   'webhooks.eventCount': '{{count}} begivenheder',
   'webhooks.eventsHeading': 'Seneste leverancer',

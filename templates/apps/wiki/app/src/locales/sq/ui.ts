@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Duke zgjidhur…',
   'comments.subtitle':
     'I/E/Të/Të {{count}} temat ende duke pritur një përgjigje ose një zgjidhje. Të renditura sipas moshës — më të vjetrit fillimisht, kështu që asgjë nuk kalbet.',
+  'common.goToDashboard': 'Shko te paneli',
   'forgotPassword.sentTo': 'Lidhja e rivendosjes u dërgua te {{email}}',
   'forgotPassword.successSubheading':
     'Kontrolloni kutinë tuaj postare — sapo dërguam një lidhje rivendosjeje. Skadon pas 30 minutash.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Faqe e re',
   'pageTreeSidebar.workspaceHeader': 'Hapësira e punës',
   'pageView.breadcrumb': 'Thërrime buke',
+  'pageView.confirmTrash': 'Ta hedh në plehra?',
   'pageView.home': 'Shtëpi',
   'pageView.lastEdited': 'Përditësuar {{when}}',
   'pageView.loading': 'Duke ngarkuar faqen…',
@@ -77,6 +79,8 @@ export const ui: UiTranslations = {
   'pageView.summaryUnavailable':
     'Përmbledhja e inteligjencës artificiale nuk është konfiguruar për këtë hapësirë pune.',
   'pageView.tocTitle': 'Në këtë faqe',
+  'pageView.trash': 'Mbeturina',
+  'pageView.trashing': 'Duke hedhur në kosh…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Distinktivët',
   'profile.owned.title': 'Faqet e zotëruara',
@@ -102,6 +106,7 @@ export const ui: UiTranslations = {
     'Hapësira e punës, profili, njoftimet, integrimet — të gjitha në një guaskë të qetë.',
   'settingsPage.workspace.defaultLanding': 'Ekrani i parazgjedhur i uljes',
   'settingsPage.workspace.landingHome': 'Shtëpi',
+  'settingsPage.workspace.landingSpaces': 'Hapësira',
   'settingsPage.workspace.subdomainLabel': 'Nëndomen',
   'settingsPage.workspace.title': 'Hapësira e punës',
   'signup.eyebrow': 'Filloni një hapësirë pune të re',
@@ -130,6 +135,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Filloni një faqe nga një shabllon, jo nga një kanavacë bosh. Çdo shabllon e kodon formën në mënyrë që të mund të përqendroheni te substanca.',
+  'trash.confirmPurge': 'Të pastrohet përgjithmonë?',
+  'trash.confirmPurgeAria': 'Konfirmo: fshij përgjithmonë {{title}}',
   'trash.daysUntilPurge': '{{days}} ditë të mbetura',
   'trash.empty.body': 'Faqet e fshira do të shfaqen këtu për 30 ditë para se të pastrohen.',
   'trash.empty.title': 'Koshi i mbeturinave është bosh.',
@@ -150,5 +157,8 @@ export const ui: UiTranslations = {
   'versionHistory.subtitle':
     '{{count}} versione · zgjidhni një rresht për të inspektuar ndryshimin',
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Mbyll navigimin',
+  'wikiLayout.menu': 'Navigimi',
+  'wikiLayout.openMenu': 'Hap navigimin',
   'wikiLayout.searchPlaceholder': 'Kërko në Cairn — faqe, komente…',
 }

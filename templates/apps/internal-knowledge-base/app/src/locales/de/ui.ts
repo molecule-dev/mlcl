@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'article.notFound': 'Artikel nicht gefunden',
   'articleEditor.bodyPlaceholder':
     'Tippen Sie / für Blöcke, oder fangen Sie einfach an zu schreiben.',
+  'articleEditor.loadFailed': 'Artikel konnte nicht geladen werden',
   'articleEditor.publishing': 'Wird veröffentlicht…',
   'articleEditor.saveFailed': 'Speichern fehlgeschlagen',
   'articleEditor.saving': 'Wird gespeichert…',
@@ -16,6 +19,7 @@ export const ui: UiTranslations = {
   'articleView.bookmarkOff': 'Lesezeichen',
   'articleView.bookmarkOn': 'Lesezeichen gesetzt',
   'articleView.edit': 'Artikel bearbeiten',
+  'articleView.loading': 'Ich öffne diesen Artikel…',
   'articleView.readTime': '{{minutes}} Min. Lesezeit',
   'articleView.spaces': 'Bereiche',
   'articleView.tocHeading': 'Auf dieser Seite',
@@ -40,8 +44,10 @@ export const ui: UiTranslations = {
   'cairnTrailHero.subtitle':
     'Letzte Bearbeitungen, Lesungen und Entwürfe, die Ihr Team gerade aufnimmt.',
   'cairnTrailHero.updated': 'Aktualisierte Artikel',
+  'common.goToDashboard': 'Zum Dashboard',
   'drafts.eyebrow': 'Ihre unvollendete Arbeit',
   'drafts.heading': 'Entwürfe',
+  'drafts.loadFailed': 'Ihre Entwürfe konnten nicht geladen werden.',
   'drafts.subtitle':
     'Artikel, die Sie begonnen, aber noch nicht veröffentlicht haben. Nehmen Sie einen wieder auf und machen Sie weiter.',
   'forgotPassword.sentBody':
@@ -64,6 +70,7 @@ export const ui: UiTranslations = {
   'home.spacesEmpty': 'Noch keine Bereiche. Öffnen Sie einen, um Artikel zu sammeln.',
   'home.spacesHeading': 'Ihre Bereiche',
   'home.subtitle': 'Aktuelle Artikel, Ihre Lesezeichen und was das Team gerade schreibt.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Erstellt mit Molecule.',
   'landing.ctaBody':
     'Kostenlos für Einzelautoren. Team-Pläne für verteilte Teams, die Runbooks, Entscheidungen und Onboarding-Prozesse erstellen.',
   'landing.ctaHeading': 'Legen Sie heute den ersten Stein.',
@@ -85,7 +92,11 @@ export const ui: UiTranslations = {
   'login.signUp': 'Bereich erstellen',
   'login.submitting': 'Wird angemeldet…',
   'login.subtitle': 'Nehmen Sie den Pfad da auf, wo Sie ihn verlassen haben.',
+  'mobileNav.closeMenu': 'Navigationsmenü schließen',
+  'mobileNav.openMenu': 'Navigationsmenü öffnen',
+  'newSpace.colorAria': 'Farbe auswählen {{color}}',
   'newSpace.colorLabel': 'Akzentfarbe',
+  'newSpace.createFailed': 'Es konnte kein Speicherplatz erstellt werden.',
   'newSpace.descriptionPlaceholder': 'Runbooks, On-Call-Playbooks, Post-mortems…',
   'newSpace.eyebrow': 'Wissensbereich öffnen',
   'newSpace.heading': 'Neuer Bereich',
@@ -108,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Wird geladen…',
   'notifications.subtitle':
     '{{count}} ungelesen — Erwähnungen, Kommentare, Seitenänderungen und Review-Anfragen.',
+  'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.articles': 'Artikel',
   'pricing.spaces': 'Bereiche',
   'profile.eyebrow': 'Autorenprofil',
@@ -127,6 +139,7 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Neues Passwort eingeben',
   'resetPassword.subtitle': 'Wählen Sie ein starkes Passwort — mindestens 12 Zeichen.',
   'searchResults.eyebrow': 'Bereichssuche',
+  'searchResults.filter.all': 'Alle Räume',
   'searchResults.heading': 'Artikel suchen',
   'searchResults.placeholder': 'Runbooks, RFCs, Richtlinien, Entscheidungen suchen…',
   'searchResults.summary': '{{count}} Ergebnisse für „{{query}}“',
@@ -135,14 +148,21 @@ export const ui: UiTranslations = {
   'settings.danger.confirm':
     'Dies löscht Ihr Konto und jeden Artikel, den Sie verfasst haben. Geben Sie DELETE ein, um zu bestätigen.',
   'settings.danger.confirmInvalid': 'Geben Sie DELETE ein, um zu bestätigen.',
+  'settings.danger.deleteFailed': 'Konto konnte nicht gelöscht werden',
   'settings.danger.deleting': 'Wird gelöscht…',
   'settings.danger.description':
     'Das Löschen Ihres Bereichs entfernt alle Artikel, Kommentare und Versionsverläufe. Es gibt keine Wiederherstellung.',
   'settings.danger.title': 'Gefahrenzone',
+  'settings.email.confirm': 'E-Mail aktualisieren',
+  'settings.email.confirmTitle': 'E-Mail-Änderung bestätigen',
   'settings.email.saved': 'E-Mail aktualisiert.',
+  'settings.email.updateFailed': 'E-Mail-Adresse konnte nicht aktualisiert werden',
   'settings.language.title': 'Sprache',
   'settings.name': 'Name',
+  'settings.name.saved': 'Name aktualisiert.',
+  'settings.name.updateFailed': 'Name konnte nicht aktualisiert werden',
   'settings.notifications.description': 'Wählen Sie, was Ihren Posteingang erreicht.',
+  'settings.password.changeFailed': 'Passwort konnte nicht geändert werden',
   'settings.password.current': 'Aktuelles Passwort',
   'settings.password.new': 'Neues Passwort',
   'settings.password.saving': 'Wird aktualisiert…',
@@ -150,10 +170,15 @@ export const ui: UiTranslations = {
   'settings.reading.description': 'Wie Artikel für Sie dargestellt werden.',
   'settings.reading.title': 'Lesen & Schreiben',
   'settings.subtitle': 'Stellen Sie Benachrichtigungen, die Leseansicht und Ihr Konto ein.',
+  'settings.twofa.code': 'Authentifizierungscode',
   'settings.twofa.disable': 'Deaktivieren',
   'settings.twofa.disabled': 'Deaktiviert',
   'settings.twofa.enable': 'Aktivieren',
   'settings.twofa.enabled': 'Aktiviert',
+  'settings.twofa.invalidCode': 'Ungültiger Code',
+  'settings.twofa.unavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
+  'settings.twofa.verify': 'Überprüfen & aktivieren',
   'signup.brandQuote':
     '„Es aufzuschreiben ist das erste Versprechen, das wir der nächsten Person geben, die es braucht.“',
   'signup.eyebrow': 'Bereich öffnen',

@@ -1,10 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.title': 'Пра {{app}}',
   'auth.login.noAccount': 'Упершыню карыстаецеся Sparq?',
   'auth.login.or': 'або працягвайце з',
   'auth.signup.or': 'або зарэгіструйцеся з',
+  'common.confirm': 'Пацвердзіць',
+  'common.goToDashboard': 'Перайсці да панэлі',
+  'common.loadError': 'Нешта пайшло не так падчас загрузкі гэтага кантэнту.',
+  'common.retry': 'Паўтарыць',
   'discover.collections.title': 'Прагляд па катэгорыях',
   'discover.collections.viewAll': 'Глядзіце сваю бібліятэку →',
   'discover.empty.body': 'Паспрабуйце іншую катэгорыю або ачысціце пошук.',
@@ -66,6 +72,7 @@ export const ui: UiTranslations = {
   'login.subhead':
     'Увайдзіце, каб падтрымліваць сваю серыю поспехаў, праводзіць гульні ў прамым эфіры і падымацца ў табліцы лідэраў.',
   'myQuizzes.createButton': 'Новая віктарына',
+  'myQuizzes.deleteConfirm': 'Выдаліць назаўсёды?',
   'myQuizzes.empty.createCta': 'Стварыце сваю першую віктарыну →',
   'myQuizzes.empty.created': 'Вы яшчэ не стварылі віктарыну.',
   'myQuizzes.empty.played': 'Пакуль няма апублікаваных віктарын.',
@@ -81,7 +88,9 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Загрузка…',
   'notifications.subhead':
     '{{count}} непрачытаныя іскры. Запрашэнні, перамяшчэнні ў табліцы лідэраў і дасягненні — усё ў адным патоку.',
+  'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.checkoutError': 'Не атрымалася пачаць афармленне замовы. Паўтарыце спробу.',
+  'pricing.heading': 'Выберыце свой план {{app}}',
   'pricing.included': 'Уключана',
   'pricing.loadError': 'Не атрымалася загрузіць планы.',
   'pricing.maxQuizzes': '{{count}} віктарыны',
@@ -102,11 +111,13 @@ export const ui: UiTranslations = {
   'profile.noPublished': 'Пакуль нічога не апублікавана.',
   'profile.startBuilding': 'Пачаць будаўніцтва →',
   'profile.tier': 'Прайгравальнік Sparq',
+  'quizBuilder.addFailed': 'Не атрымалася дадаць пытанне. Паспрабуйце яшчэ раз.',
   'quizBuilder.addQuestion': 'Дадаць пытанне',
   'quizBuilder.answerPlaceholder': 'Увядзіце варыянт…',
   'quizBuilder.answersLabel': 'Варыянты адказаў',
   'quizBuilder.back': 'Вярнуцца да маіх віктарын',
   'quizBuilder.delete': 'Выдаліць пытанне',
+  'quizBuilder.deleteFailed': 'Не атрымалася выдаліць пытанне.',
   'quizBuilder.firstQuestion': 'Дадайце сваё першае пытанне, каб пачаць.',
   'quizBuilder.idLabel': 'Ідэнтыфікатар віктарыны: {{id}}',
   'quizBuilder.loadError': 'Не атрымалася загрузіць тэст.',
@@ -120,6 +131,7 @@ export const ui: UiTranslations = {
   'quizBuilder.publishIncomplete':
     'Дадайце як мінімум два варыянты адказу і абярыце правільны {{count}} пытанне(-і) перад публікацыяй.',
   'quizBuilder.questionsTitle': 'Пытанні',
+  'quizBuilder.saveFailed': 'Не атрымалася захаваць назву. Паспрабуйце яшчэ раз.',
   'quizBuilder.statusDraft': 'Чарнавік',
   'quizBuilder.subhead':
     'Адрэдагуйце загаловак, дадайце пытанні, усталюйце варыянты і правільны адказ. Змены захоўваюцца аўтаматычна.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'quizDetail.duration': '~ {{minutes}} мін',
   'quizDetail.hostMultiplayer': 'Прыём мультыплэера',
   'quizDetail.leaderboardEmpty': 'Пакуль няма плэйсаў — будзьце першымі, хто паставіць лік.',
+  'quizDetail.loadError': 'Не атрымалася загрузіць гэты тэст.',
   'quizDetail.loading': 'Загрузка тэсту…',
   'quizDetail.plays': "{{count}} п'есы",
   'quizDetail.playSolo': 'Гуляць сола',

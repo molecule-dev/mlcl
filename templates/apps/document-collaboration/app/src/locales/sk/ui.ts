@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.title': 'O aplikácii {{app}}',
   'comments.addFailed': 'Komentár sa nepodarilo odoslať.',
   'comments.backToDoc': 'Späť k rukopisu',
   'comments.deleteFailed': 'Nepodarilo sa odstrániť.',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'comments.resolve': 'Vyriešiť',
   'comments.resolveFailed': 'Nepodarilo sa vyriešiť.',
   'comments.subtitle': '{{open}} otvorené · problém s adresou {{resolved}} vyriešený',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.activityHeading': 'Čo sa deje',
   'dashboard.createFailed': 'Dokument sa nepodarilo vytvoriť.',
   'dashboard.empty':
@@ -55,11 +58,14 @@ export const ui: UiTranslations = {
   'editor.trashFailed': 'Nepodarilo sa presunúť do koša.',
   'editor.unpublish': 'Zrušiť zverejnenie',
   'editor.untitled': 'Dokument bez názvu',
+  'editor.updatedElsewhere':
+    'Tento dokument aktualizoval niekto iný – pre zobrazenie najnovších aktualizácií ho znova načítajte.',
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ak existuje účet s adresou {{email}}, odkaz na obnovenie hesla je na ceste.',
   'forgotPassword.subtitle': 'Pošleme vám e-mailom odkaz na obnovenie hesla.',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Vytvorené pomocou Molecule.',
   'landing.ctaHeading': 'Otvorte stránku. Nech sa kurzor pohne.',
   'landing.ctaPrimary': 'Otvorenie ateliéru',
   'landing.eyebrow': 'Pre autorov, redaktorov a tímy',
@@ -108,6 +114,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.edited': 'upravené{{when}}',
   'quillonDocumentCard.open': 'Otvoriť →',
   'quillonKpiCard.trend': 'Súčasný trend',
+  'quillonLayout.menu': 'Ponuka',
   'quillonLayout.primaryNavLabel': 'Hlavná navigácia',
   'quillonStudioHero.collab': 'Spolupracovníci',
   'quillonStudioHero.docs': 'Dokumenty, s ktorými sa pracovalo',
@@ -158,9 +165,11 @@ export const ui: UiTranslations = {
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'práve teraz',
+  'trash.confirmDelete': 'Potvrdiť vymazanie',
   'trash.deleteFailed': 'Nepodarilo sa odstrániť.',
   'trash.deleteForever': 'Trvalo odstrániť',
   'trash.empty': 'Nie je čo obnoviť.',
+  'trash.emptyAll': 'Vysypať kôš',
   'trash.eyebrow': 'Štúdio',
   'trash.heading': 'Koš',
   'trash.loadFailed': 'Nepodarilo sa načítať koš.',

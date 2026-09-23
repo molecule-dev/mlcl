@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'ជ្រើសរើសពេលវេលា',
   'booking.title': 'កក់ការណាត់ជួប',
   'clinicalNotesEditorial.empty': 'គ្មានអ្នកជំងឺដើម្បីបង្ហាញទេ។',
+  'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'consult.backLink': 'ការណាត់ជួបទាំងអស់',
   'consult.captions': 'ចំណងជើង',
   'consult.connected': 'បានភ្ជាប់ · 720p · មានស្ថេរភាព',
@@ -126,6 +127,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'អ្នកជំងឺ',
   'patientVitalsHero.scripts': 'បញ្ជី​ទទួល​ប្រាក់​បើក​ហើយ',
   'patientVitalsHero.subline': '{{count}} ពិគ្រោះយោបល់លើកាលវិភាគរបស់អ្នកនៅថ្ងៃនេះ',
+  'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'prescriptions.empty': 'គ្មានវេជ្ជបញ្ជាណាដែលត្រូវគ្នាទេ។',
   'prescriptions.eyebrow': 'ការចេញវេជ្ជបញ្ជាតាមប្រព័ន្ធអេឡិចត្រូនិក',
   'prescriptions.heading': 'វេជ្ជបញ្ជា',
@@ -141,6 +143,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'សេចក្តីជូនដំណឹងអំពីភាពឯកជន',
   'privacy.use.body':
     'ដើម្បីផ្តល់ការថែទាំ សូមផ្ញើការរំលឹកការណាត់ជួប ចេញវេជ្ជបញ្ជា និងបង្កើនភាពជឿជាក់នៃសេវាកម្ម។ យើងមិនដែលលក់ទិន្នន័យរបស់អ្នក ហើយក៏មិនដែលចែករំលែកព័ត៌មានគ្លីនិកជាមួយអ្នកផ្សាយពាណិជ្ជកម្មដែរ។',
+  'providers.allSpecialties': 'ជំនាញពិសេសទាំងអស់',
+  'providers.loadError': 'មិនអាចផ្ទុកអ្នកផ្តល់សេវាបានទេ។',
+  'providers.loading': 'កំពុងផ្ទុក…',
   'providers.noResults': 'រកមិនឃើញអ្នកផ្តល់សេវាទេ។',
   'providers.searchPlaceholder': 'ស្វែងរកតាមឈ្មោះ ជំនាញ...',
   'providers.title': 'ស្វែងរកអ្នកផ្តល់សេវា',
@@ -160,6 +165,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'ការចាប់ផ្តើមថ្ងៃ',
   'settings.availability.heading': 'ភាពអាចរកបាន',
   'settings.devices.thisDevice': 'ឧបករណ៍នេះ',
+  'settings.devices.unnamed': 'ឧបករណ៍​ដែល​មិន​មាន​ឈ្មោះ',
   'settings.eyebrow': 'ការអនុវត្ត និងគណនី',
   'settings.loadError': 'មិនអាចផ្ទុកប្រវត្តិរូបរបស់អ្នកបានទេ។',
   'settings.notifications.emailMessages': 'ផ្ញើអ៊ីមែលមកខ្ញុំនៅពេលដែលក្រុមថែទាំរបស់ខ្ញុំឆ្លើយតប',
@@ -173,6 +179,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'បិទ',
   'settings.security.twoFactor.enable': 'បើកដំណើរការ',
   'settings.security.twoFactor.heading': 'ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.security.twoFactor.invalidCode': 'លេខកូដនោះមិនត្រូវគ្នាទេ។ សូមព្យាយាមម្តងទៀត។',
+  'settings.security.twoFactor.setupFailed':
+    'មិនអាចចាប់ផ្តើមការដំឡើងពីរកត្តាបានទេ។ សូមព្យាយាមម្តងទៀត។',
+  'settings.security.twoFactor.statusOn': 'កត្តាពីរត្រូវបានបើក',
   'settings.signOutDevice': 'ចាកចេញ',
   'settings.subheading': 'ប្រវត្តិរូបអ្នកផ្តល់សេវា ច្បាប់អនុវត្ត និងការជូនដំណឹងផ្នែកគ្លីនិក។',
   'signup.emailLabel': 'អ៊ីមែល',
@@ -183,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'បង្កើតគណនី',
   'signupFooter.hipaa': 'អនុលោមតាម HIPAA',
   'solaceLayout.primaryNavLabel': 'ការរុករកចម្បង',
+  'solaceLayout.toggleMenu': 'បិទ/បើកម៉ឺនុយ',
   'terms.eligibility.body':
     'អ្នកត្រូវតែមានអាយុយ៉ាងតិចដប់ប្រាំបីឆ្នាំ ឬជាឪពុកម្តាយ ឬអាណាព្យាបាលស្របច្បាប់របស់អនីតិជនដែលអ្នកកំពុងស្វែងរកការថែទាំ ហើយមានទីលំនៅពិតប្រាកដនៅក្នុងរដ្ឋសហរដ្ឋអាមេរិក ដែលគ្រូពេទ្យរបស់យើងមានអាជ្ញាប័ណ្ណ។',
   'terms.payment.body':

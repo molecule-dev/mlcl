@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تحدث إلينا',
   'about.eyebrow': 'قصتنا',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'معدل الفتح',
@@ -22,6 +23,8 @@ export const ui: UiTranslations = {
   'billing.starting': 'بدء الدفع…',
   'billing.subheading': 'اختر الخطة التي تناسب أسلوب إرسالك.',
   'billing.unavailable': 'تواصل مع المبيعات',
+  'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
+  'common.retry': 'إعادة المحاولة',
   'compose.adjustingTone': 'إعادة الصياغة بالنبرة المختارة…',
   'compose.aiPromptPlaceholder': 'مثال: "متابعة مهذبة بعد أسبوعين دون رد، باختصار."',
   'compose.aiReady': 'المسودة جاهزة — راجعها وأرسلها عندما تكون راضياً.',
@@ -55,6 +58,7 @@ export const ui: UiTranslations = {
   'dashboard.composeCtaHeading': 'بحاجة لإرسال شيء؟ يمكن لـ Signet إعداد مسودة في ثوانٍ.',
   'dashboard.composeCtaLabel': 'تأليف سريع',
   'dashboard.heading': 'أسبوعك، مُؤلَّف',
+  'dashboard.loadFailed': 'تعذر تحميل لوحة المعلومات الخاصة بك.',
   'dashboard.manageLibrary': 'إدارة المكتبة ←',
   'dashboard.recentEmpty': 'لا إرسالات حتى الآن — ستظهر رسائلك المرسلة هنا.',
   'dashboard.recentHeading': 'آخر الإرسالات',
@@ -131,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.toneHeading': 'النبرة الافتراضية',
   'settings.toneSubheading': 'يستخدم Signet هذه النبرة ما لم تتجاوزها في المسودة.',
   'signetLayout.primaryNavLabel': 'التنقل الأساسي',
+  'signetLayout.toggleMenu': 'تبديل القائمة',
   'signup.emailLabel': 'عنوان البريد الإلكتروني',
   'signup.showPassword': 'إظهار كلمة المرور',
   'signup.tagline': 'أرسل أول بريد إلكتروني مكتوب بالذكاء الاصطناعي في أقل من دقيقة.',

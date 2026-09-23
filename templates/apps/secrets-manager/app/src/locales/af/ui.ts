@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
   'about.tagline': 'Geheime sterf in die openbaar.',
   'apiTokens.col.actions': '',
@@ -17,6 +18,7 @@ export const ui: UiTranslations = {
   'apiTokens.form.submit': 'Skep teken',
   'apiTokens.kicker': 'API-tokens',
   'apiTokens.loading': 'Laai tans tokens…',
+  'apiTokens.new': 'Nuwe teken',
   'apiTokens.revoke': 'Herroep teken',
   'apiTokens.subheading':
     'Persoonlike en dienstokens vir die Arcanum CLI en SDK. Gewone teks word een keer tydens skepping getoon.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'authShell.ssoSupported': 'SSO + Wagwoord',
   'authShell.zeroKnowledge': 'Nulkennis-enkripsie',
   'common.connecting': 'Verbind…',
+  'common.goToDashboard': 'Gaan na Dashboard',
   'common.inviting': 'Uitnodiging…',
   'forgotPassword.checkInbox':
     "Indien {email} geregistreer is, sal 'n getekende herstelskakel binne 'n minuut aankom.",
@@ -76,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.subheading':
     'Rotasiestatus, anomalie-waarskuwings en goedkeuringsversoeke oor elke kluis.',
   'notifications.unreadEmpty': 'Inboks nul — alles ingehaal.',
+  'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.heading': 'geheime',
   'pricing.limits.accessPolicies': 'toegangsbeleide',
   'pricing.limits.auditLog': 'ouditlogboekinskrywings',
@@ -84,9 +88,12 @@ export const ui: UiTranslations = {
   'profile.kicker': 'Persoonlike rekening',
   'profile.plan.description': 'Bestuur jou intekening, sien limiete en gradeer op.',
   'profile.subheading': 'Identiteit, tweedefaktortoestelle en aktiewe sessies.',
+  'profile.twoFactor.code': 'Verifikasiekode',
   'profile.twoFactor.disable': 'Deaktiveer',
   'profile.twoFactor.enable': 'Aktiveer',
+  'profile.twoFactor.invalidCode': 'Ongeldige kode',
   'profile.twoFactor.kicker': 'Twee-faktor-verifikasie',
+  'profile.twoFactor.off': 'Nie geaktiveer nie',
   'profile.twoFactor.on': 'Geaktiveer',
   'resetPassword.email': 'Rekening-e-posadres',
   'resetPassword.heading': 'Stel nuwe geloofsbriewe',
@@ -132,6 +139,7 @@ export const ui: UiTranslations = {
   'secretsManagerLayout.commands': 'bevele',
   'secretsManagerLayout.encrypted': 'AES-256 · GEËNKRIPTEER',
   'secretsManagerLayout.newVault': 'Nuwe kluis',
+  'secretsManagerLayout.newVaultShort': 'Nuut',
   'secretsManagerLayout.rotations': 'Rotasies',
   'secretsManagerLayout.search': 'soek',
   'secretsManagerLayout.searchPlaceholder': 'Soek geheime volgens sleutel, pad of etiket…',
@@ -169,6 +177,7 @@ export const ui: UiTranslations = {
   'vaultCard.secrets': 'Geheime',
   'vaultCard.vaultLabel': 'Kluis',
   'vaultDetail.addSecret': 'Voeg geheim by',
+  'vaultDetail.back': 'Alle kluise',
   'vaultDetail.col.key': 'Sleutel',
   'vaultDetail.col.rotated': 'Gedraai',
   'vaultDetail.col.value': 'Waarde',

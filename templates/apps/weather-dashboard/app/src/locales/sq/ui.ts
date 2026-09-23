@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Aktualisht jeni në {{plan}} plan.',
   'billing.switch': 'Ndërro',
   'billing.upgraded': 'Përditësuar në {{plan}} — kufizimet zbatohen menjëherë.',
+  'common.goToDashboard': 'Shko te paneli',
   'compare.activityHeading': 'Verdikte aktiviteti',
   'compare.empty.title': 'Shtoni të paktën dy vendndodhje për krahasim',
   'compare.eyebrow': 'Krah për krah',
@@ -138,5 +139,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'I lartë',
   'trends.summary.low.label': 'I ulët',
   'trends.summary.points.label': 'Ditët',
+  'weatherDashboardLayout.primaryNavLabel': 'Navigimi kryesor',
   'weatherHeroCard.updated': 'Përditësuar {{time}}',
 }

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'ພວກເຮົາເປັນທີມງານນັກອອກແບບ ແລະ ວິສະວະກອນທີ່ກະຈາຍຕົວ ເຊິ່ງເຄີຍໃຊ້ເວລາຫຼາຍຊົ່ວໂມງໃນແຕ່ລະມື້ຢູ່ໃນກ່ອງຈົດໝາຍທີ່ມີສຽງດັງ. Courier ແມ່ນກ່ອງຈົດໝາຍທີ່ພວກເຮົາຕ້ອງການໃຊ້ດ້ວຍຕົນເອງ.',
   'about.title': 'ອີເມວສຳລັບວຽກທີ່ມີຈຸດສຸມ',
+  'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'help.cta.about': 'ກ່ຽວກັບເມຣິເດຍນ',
   'help.cta.pricing': 'ເບິ່ງລາຄາ',
   'help.eyebrow': 'ສູນຊ່ວຍເຫຼືອ',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'ຄຳຕອບສັ້ນໆຕໍ່ຄຳຖາມທີ່ພວກເຮົາໄດ້ຍິນຫຼາຍທີ່ສຸດ. ມີຫຍັງຂາດຫາຍໄປບໍ? ເປີດການຕັ້ງຄ່າ ແລະ ໃຊ້ແບບຟອມຄຳຕິຊົມໃນແອັບ, ຫຼື ຂຽນຫາ support@courier.example.',
   'help.title': 'ພວກເຮົາສາມາດຊ່ວຍໄດ້ແນວໃດ?',
   'landing.brand.scrollTop': 'ກັບໄປທາງເທິງ',
+  'landing.copyright': '© {{year}} {{appName}} — ສ້າງຂຶ້ນເພື່ອຈຸດສຸມ.',
   'landing.ctaBody': 'ເຂົ້າຮ່ວມກັບຜູ້ຊ່ຽວຊານຫຼາຍພັນຄົນທີ່ຂຽນຈົດໝາຍຂອງເຂົາເຈົ້າສຳເລັດກ່ອນອາຫານທ່ຽງ.',
   'landing.ctaTitle': 'ປະມວນຜົນຫຼາຍຂຶ້ນ, ຕອບສະໜອງໜ້ອຍລົງ.',
   'landing.eyebrow': 'ອີເມວສຳລັບວຽກທີ່ມີຈຸດສຸມ',
@@ -77,6 +79,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'ຮ່າງ',
   'meridian.folder.count': '{{count}} ຂໍ້ຄວາມຕ່າງໆ',
+  'meridian.folder.delete': 'ລຶບ',
   'meridian.folder.deleteForever': 'ລຶບອອກຢ່າງຖາວອນ',
   'meridian.folder.restore': 'ຍ້າຍໄປທີ່ກ່ອງຈົດໝາຍ',
   'meridian.forgot.subtitle':
@@ -85,7 +88,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'ຍັງບໍ່ມີຂໍ້ຄວາມຢູ່ບ່ອນນີ້ເທື່ອ.',
   'meridian.inbox.loading': 'ກຳລັງໂຫຼດ…',
   'meridian.inbox.next': 'ຕໍ່ໄປ',
+  'meridian.inbox.noSender': '(ບໍ່ມີຜູ້ສົ່ງ)',
   'meridian.inbox.noSubject': '(ບໍ່ມີຫົວຂໍ້)',
+  'meridian.inbox.ofTotal': '{{current}} ຈາກທັງໝົດ {{total}}',
   'meridian.inbox.openCompose': 'ເປີດການຂຽນ',
   'meridian.inbox.previous': 'ກ່ອນໜ້ານີ້',
   'meridian.inbox.replyFailed': 'ບັນທຶກການຕອບກັບໄວ້ແລ້ວແຕ່ການສົ່ງບໍ່ສຳເລັດ: {{error}}',
@@ -98,6 +103,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'ຍັງບໍ່ມີບັນຊີບໍ?',
   'meridian.login.showPassword': 'ສະແດງລະຫັດຜ່ານ',
   'meridian.message.toLine': 'ໄປຫາ {{recipients}}',
+  'meridian.notFound.body':
+    'ບໍ່ພົບໜ້າເວັບທີ່ທ່ານກຳລັງຊອກຫາ. ກັບໄປທີ່ກ່ອງຈົດໝາຍຂອງທ່ານ {{appName}} ແລະພວກເຮົາຈະຊ່ວຍທ່ານໄດ້.',
   'meridian.notFound.eyebrow': 'ຄວາມຜິດພາດ 404',
   'meridian.notFound.title': 'ຫົວຂໍ້ນີ້ຖືກເກັບໄວ້ແລ້ວ.',
   'meridian.notFound.toInbox': 'ເປີດກ່ອງຈົດໝາຍຂອງຂ້ອຍ',
@@ -133,18 +140,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'ເພີ່ມດາວ',
   'meridian.thread.unstar': 'ລຶບດາວອອກ',
   'meridian.time.yesterday': 'ມື້ວານນີ້',
+  'meridian.topBar.openMenu': 'ເປີດເມນູນຳທາງ',
   'meridian.topBar.searchPlaceholder': 'ຄົ້ນຫາອີເມວ',
   'meridian.trash.empty': 'ຖັງຂີ້ເຫຍື້ອຫວ່າງເປົ່າ.',
   'meridian.trash.title': 'ຂີ້ເຫຍື້ອ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'planUpdated.description':
     'ການສະໝັກໃຊ້ຂອງທ່ານເປີດໃຊ້ງານແລ້ວ ແລະ ການຮຽກເກັບເງິນຂອງທ່ານໄດ້ຖືກອັບເດດແລ້ວ. ຍິນດີຕ້ອນຮັບສູ່ກ່ອງຈົດໝາຍ Courier ທີ່ໄດ້ຮັບການປັບປຸງໃໝ່ຂອງທ່ານ.',
+  'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.heading': 'ຮ່າງ',
   'pricing.limit.emails': 'ອີເມວ',
   'pricing.limit.folders': 'ໂຟນເດີ',
   'pricing.limit.labels': 'ປ້າຍ',
   'privacy.collect.account':
     'ຂໍ້ມູນບັນຊີ: ຊື່, ທີ່ຢູ່ອີເມວ, ລະຫັດຜ່ານທີ່ຖືກແຮັກ ແລະ ວັນທີທີ່ທ່ານລົງທະບຽນ.',
+  'privacy.contact': 'ມີຄຳຖາມບໍ? ສົ່ງອີເມວຫາ privacy@courier.example.',
   'privacy.intro':
     'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວນີ້ອະທິບາຍວ່າຂໍ້ມູນທີ່ Courier ເກັບກຳ, ເປັນຫຍັງພວກເຮົາຈຶ່ງເກັບກຳມັນ, ວິທີທີ່ພວກເຮົາຮັກສາມັນໃຫ້ປອດໄພ, ແລະທ່ານມີທາງເລືອກຫຍັງແດ່ກ່ຽວກັບມັນ. ພວກເຮົາມີຈຸດປະສົງເພື່ອໃຫ້ມີຄວາມຊັດເຈນແທນທີ່ຈະເປັນການປະຕິບັດຕາມກົດໝາຍ; ຖ້າມີສິ່ງໃດບໍ່ຊັດເຈນ, ໃຫ້ຂຽນຫາ privacy@courier.example.',
   'privacy.lastUpdated': 'ອັບເດດຫຼ້າສຸດ: ວັນທີ 1 ເມສາ 2026',
@@ -164,6 +174,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'ເງື່ອນໄຂເຫຼົ່ານີ້ຄວບຄຸມການນຳໃຊ້ Courier ຂອງທ່ານ. ໂດຍການສ້າງບັນຊີ ຫຼື ການສົ່ງອີເມວຜ່ານພວກເຮົາ ທ່ານຕົກລົງທີ່ຈະຜູກມັດໂດຍເງື່ອນໄຂເຫຼົ່ານັ້ນ. ພວກເຮົາພະຍາຍາມຂຽນກົດລະບຽບທີ່ບຸກຄົນສາມາດປະຕິບັດຕາມໄດ້.',
   'terms.lastUpdated': 'ມີຜົນບັງຄັບໃຊ້: ວັນທີ 1 ເມສາ 2026',
+  'terms.linkPrivacy': 'ອ່ານນະໂຍບາຍຄວາມເປັນສ່ວນຕົວຂອງພວກເຮົາ →',
   'terms.termination.body':
     'ທ່ານອາດຈະລຶບບັນຊີຂອງທ່ານໄດ້ທຸກເວລາ. ພວກເຮົາອາດຈະລະງັບບັນຊີທີ່ລະເມີດເງື່ອນໄຂເຫຼົ່ານີ້; ຖ້າພວກເຮົາເຮັດ, ພວກເຮົາຈະອະທິບາຍເຫດຜົນ ແລະ ອະນຸຍາດໃຫ້ທ່ານສົ່ງອອກຂໍ້ມູນຂອງທ່ານກ່ອນ.',
   'terms.warranty.body':

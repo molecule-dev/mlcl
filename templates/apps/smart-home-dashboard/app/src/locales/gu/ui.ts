@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.pageTitle': '{{app}} વિશે',
   'activity.empty': 'હજુ સુધી કોઈ પ્રવૃત્તિ નથી — ઉપકરણને ફ્લિપ કરો અથવા દ્રશ્ય સક્રિય કરો.',
   'activity.eyebrow': 'સમયરેખા',
   'activity.loadError': 'પ્રવૃત્તિ ફીડ લોડ કરી શકાયું નથી.',
   'activity.subheading': 'દરેક ઉપકરણ, ઓટોમેશન અને સુરક્ષા ઘટના કાલક્રમિક ક્રમમાં.',
+  'addDevice.error.failed': 'ઉપકરણ ઉમેરી શકાયું નથી. ફરી પ્રયાસ કરો.',
   'addDevice.error.nameRequired': 'ચાલુ રાખવા માટે આ ઉપકરણને એક નામ આપો.',
   'addDevice.field.firmware': 'ફર્મવેર વર્ઝન',
   'addDevice.field.manufacturer': 'ઉત્પાદક',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'પરીક્ષણ...',
   'automationEditor.testNew': 'ઓટોમેશનનું પરીક્ષણ કરવા માટે પહેલા તેને સાચવો.',
   'automationRow.lastRun': 'છેલ્લા {{date}} · {{count}} દોડવું',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'દોડો {{name}} હવે',
   'automations.empty': 'હજુ સુધી કોઈ ઓટોમેશન નથી — તમારું પહેલું રૂટિન બનાવો.',
   'automations.eyebrow': 'દિનચર્યાઓ',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'ઓટોમેશન લોડ થઈ રહ્યું છે…',
   'automations.newAutomation': '+ નવું',
   'automations.subheading': 'જ્યારે આવું થાય, ત્યારે તે કરો - YAML વિના.',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ઉપકરણ લોડ કરવામાં નિષ્ફળ.',
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'કામ કરી રહ્યું છે...',
   'deviceDetail.unnamed': 'ઉપકરણ',
   'deviceStatusRow.on': 'ચાલુ',
+  'deviceStatusRow.turnOff': 'બંધ કરો',
+  'deviceStatusRow.turnOn': 'ચાલુ કરો',
   'deviceStatusRow.watts': '{{watts}} વ',
   'energy.eyebrow': 'શક્તિ',
   'energy.heading': 'ઊર્જા',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'યોજનાઓ જુઓ',
   'settings.security.heading': 'સુરક્ષા',
   'settings.subheading': 'યોજના, હબ અને એકાઉન્ટ પસંદગીઓ.',
+  'smartHomeDashboardLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
+  'smartHomeDashboardLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
 }

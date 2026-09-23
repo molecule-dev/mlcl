@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.pageTitle': 'Apie {{app}}',
   'authShell.statusLabel': 'bėgikai internete',
   'collections.createError': 'Nepavyko sukurti kolekcijos.',
   'collections.defaultName': 'Be pavadinimo kolekcija {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'Nauja kolekcija',
   'collections.subheading':
     'Grupuokite užklausas, bendrinkite jas su savo komanda ir paleiskite jas kaip rinkinį.',
+  'common.goToDashboard': 'Eiti į suvestinę',
   'environmentCard.inactive': 'Neveikimo režimas',
   'environmentCard.more': 'daugiau',
   'environmentCard.variables': 'Kintamieji',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Atsisiųsti nemokamai',
   'landing.heroSubtitle':
     'Žaibiškai greitas API testavimo darbastalis, sukurtas inžinieriams, gyvenantiems terminaluose.',
+  'landing.heroTitleAccent': 'Gaisras',
+  'landing.heroTitleLine2': 'ugdyti pasitikėjimą.',
+  'landing.heroTitleRest': 'prašymai,',
   'landing.kicker': '$ pylon siųsti --žiūrėti',
   'landing.pricingEyebrow': '// $ kainos --paprastas',
   'landing.pricingHeading': 'Paprasta ir aiški kainodara',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Naujokas čia?',
   'login.showPassword': 'Rodyti slaptažodį',
   'login.subtitle': 'Eikite į savo „Pylon“ darbo sritį.',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'mocks.createError': 'Nepavyko sukurti imitacijos.',
   'mocks.defaultName': 'Be pavadinimo imitacija {{n}}',
   'mocks.deleteError': 'Nepavyko ištrinti imitacijos.',
@@ -115,6 +123,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'Atgal į darbo vietą',
   'notFound.eyebrow': '$ pylon sprendimas --strict',
   'notFound.title': 'Maršrutas nerastas',
+  'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'privacy.collect.account':
     'Paskyra: jūsų el. pašto adresas, maišos būdu gautas slaptažodis, rodomas vardas ir paskutinio prisijungimo laiko žyma.',
   'privacy.rights.body':
@@ -140,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Tik skaitymui skirtas šios paskyros šiuo metu valdomų duomenų rodinys.',
   'settings.unset': 'nenustatyta',
   'signup.identityHint': 'pvz., Aleksas',
+  'signup.statusLabel': 'nemokamas paketas · nereikia kredito kortelės',
   'signup.subtitle': 'Pradėkite siųsti užklausas per kelias minutes.',
   'terms.account.body':
     'Jūs esate atsakingi už savo slaptažodžio apsaugą. Vienos paskyros bendrinimas su keliais žmonėmis neleidžiamas naudojantis „Free“ arba „Pro“ planais – įsigykite „Team“ prenumeratą, skirtą bendrinamoms darbo vietoms.',
@@ -150,6 +160,7 @@ export const ui: UiTranslations = {
     'Nenaudokite „Pylon“ užklausoms siųsti į paslaugas, kurios jums nepriklauso arba kurių testavimui neturite aiškaus leidimo. Nenaudokite „Pylon“ greičio apribojimams apeiti ar sukčiauti.',
   'terms.warranty.body':
     '„Pylon“ teikiamas „toks, koks yra“, be jokios garantijos. Siekiame 99,9 % veikimo laiko, tačiau to negarantuojame pagal „Free“ ar „Pro“ planus.',
+  'testRunner.assertionsCount': '{{count}} tvirtinimai',
   'testRunner.createError': 'Nepavyko sukurti testo.',
   'testRunner.cron': 'Teiginiai vertinami pagal naujausią šio testo susietos užklausos vykdymą.',
   'testRunner.defaultName': 'Be pavadinimo testas {{n}}',
@@ -171,11 +182,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'Rinkinio rezultatai, teiginių skirtumai ir paskutiniai 50 paleidimų.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Prisijungta kaip',
+  'workspace.auth.keyName': 'Antraštės pavadinimas',
+  'workspace.auth.keyValue': 'Pagrindinė reikšmė',
+  'workspace.auth.password': 'Slaptažodis',
+  'workspace.auth.username': 'Vartotojo vardas',
+  'workspace.authOption.apikey': 'API raktas',
+  'workspace.authOption.basic': 'Pagrindinis autentifikavimas',
+  'workspace.authOption.bearer': 'Tokenas, išduodamas savininkui',
+  'workspace.authOption.none': 'Nėra',
+  'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipas',
   'workspace.authTypeLabel': 'Aut. tipas',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'Nėra',
+  'workspace.body.text': 'Neapdorotas tekstas',
+  'workspace.body.type': 'Tipas',
   'workspace.environment': 'Nėra aplinkos',
   'workspace.envVar': 'aplinkos kintamasis',
   'workspace.eyebrow': '$ pylon darbo sritis --pane padalinta',
+  'workspace.kv.addHeader': 'Pridėti antraštę',
+  'workspace.kv.addParam': 'Pridėti parametrą',
+  'workspace.kv.headerKey': 'Antraštės pavadinimas',
+  'workspace.kv.headerValue': 'Antraštės reikšmė',
+  'workspace.kv.key': 'Raktas',
+  'workspace.kv.paramKey': 'Užklausos parametro raktas',
+  'workspace.kv.paramValue': 'Užklausos parametro reikšmė',
+  'workspace.kv.removeRow': 'Pašalinti eilutę',
+  'workspace.kv.value': 'Vertė',
   'workspace.methodLabel': 'HTTP metodas',
   'workspace.metric.latency': 'Vėlavimas',
   'workspace.metric.latencyCaption': 'Kelionė pirmyn ir atgal iš šio maršruto',
@@ -193,6 +226,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Užklausa išpildyta – žr. atsakymą toliau.',
   'workspace.subheading':
     'Sukurkite užklausą, ją vykdykite, tada pateikite atsakymą – visa tai vienoje srityje.',
+  'workspace.testResults': 'Tyrimų rezultatai',
   'workspace.token': 'Žetonas',
   'workspace.tokenHint':
     'Išsiųsta kaip įgaliojimas: Turėtojas<token> kiekvienam šios kolekcijos prašymui.',

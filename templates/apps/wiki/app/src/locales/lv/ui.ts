@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Notiek risināšana…',
   'comments.subtitle':
     'The {{count}} Diskusijas, kas joprojām gaida atbildi vai risinājumu. Kārtotas pēc vecuma — vispirms vecākās, lai nekas nepūstu.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'forgotPassword.sentTo': 'Atiestatīt saiti, kas nosūtīta uz {{email}}',
   'forgotPassword.successSubheading':
     'Pārbaudiet savu iesūtni — mēs tikko nosūtījām atiestatīšanas saiti. Tā beigsies pēc 30 minūtēm.',
@@ -68,6 +69,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Jauna lapa',
   'pageTreeSidebar.workspaceHeader': 'Darba vieta',
   'pageView.breadcrumb': 'Navigācija',
+  'pageView.confirmTrash': 'Izmest to miskastē?',
   'pageView.home': 'Sākums',
   'pageView.lastEdited': 'Atjaunināts {{when}}',
   'pageView.loading': 'Notiek lapas ielāde…',
@@ -76,6 +78,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Apkopojot…',
   'pageView.summaryUnavailable': 'Šai darbvietai nav konfigurēts mākslīgā intelekta kopsavilkums.',
   'pageView.tocTitle': 'Šajā lapā',
+  'pageView.trash': 'Atkritumi',
+  'pageView.trashing': 'Izmešana miskastē…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Nozīmītes',
   'profile.owned.title': 'Īpašumā esošās lapas',
@@ -101,6 +105,7 @@ export const ui: UiTranslations = {
     'Darba vide, profils, paziņojumi, integrācijas — viss vienā mierīgā apvalkā.',
   'settingsPage.workspace.defaultLanding': 'Noklusējuma nosēšanās ekrāns',
   'settingsPage.workspace.landingHome': 'Sākums',
+  'settingsPage.workspace.landingSpaces': 'Telpas',
   'settingsPage.workspace.subdomainLabel': 'Apakšdomēns',
   'settingsPage.workspace.title': 'Darba vieta',
   'signup.eyebrow': 'Sākt jaunu darbvietu',
@@ -129,6 +134,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min',
   'templates.subtitle':
     'Sāciet lapu no trafareta, nevis tukšas audekla. Katra veidne stingri iekodē formu, lai jūs varētu koncentrēties uz saturu.',
+  'trash.confirmPurge': 'Attīrīties uz visiem laikiem?',
+  'trash.confirmPurgeAria': 'Apstiprināt: neatgriezeniski dzēst {{title}}',
   'trash.daysUntilPurge': '{{days}} atlikušās dienas',
   'trash.empty.body': 'Dzēstās lapas šeit parādīsies 30 dienas, pirms tās tiks dzēstas.',
   'trash.empty.title': 'Atkritumu grozs ir tukšs.',
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Atjaunošana…',
   'versionHistory.subtitle': '{{count}} versijas · atlasiet rindu, lai pārbaudītu atšķirības',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Aizvērt navigāciju',
+  'wikiLayout.menu': 'Navigācija',
+  'wikiLayout.openMenu': 'Atvērt navigāciju',
   'wikiLayout.searchPlaceholder': 'Meklēt Cairn — lapas, komentāri…',
 }

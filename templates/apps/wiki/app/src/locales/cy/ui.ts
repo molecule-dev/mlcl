@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Yn datrys…',
   'comments.subtitle':
     "Y {{count}} Edau yn dal i aros am ateb neu benderfyniad. Wedi'u trefnu yn ôl oedran — yr hynaf yn gyntaf, felly does dim byd yn pydru.",
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'forgotPassword.sentTo': 'Ailosod dolen a anfonwyd at {{email}}',
   'forgotPassword.successSubheading':
     "Gwiriwch eich mewnflwch — rydym newydd anfon dolen ailosod. Mae'n dod i ben ymhen 30 munud.",
@@ -67,6 +68,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Tudalen newydd',
   'pageTreeSidebar.workspaceHeader': 'Gweithle',
   'pageView.breadcrumb': 'Briwsionyn Bara',
+  'pageView.confirmTrash': 'Ei sbwriel?',
   'pageView.home': 'Cartref',
   'pageView.lastEdited': "Wedi'i ddiweddaru {{when}}",
   'pageView.loading': "Wrthi'n llwytho tudalen…",
@@ -75,6 +77,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Crynhoi…',
   'pageView.summaryUnavailable': "Nid yw crynodeb AI wedi'i ffurfweddu ar gyfer y gweithle hwn.",
   'pageView.tocTitle': 'Ar y dudalen hon',
+  'pageView.trash': 'Sbwriel',
+  'pageView.trashing': 'Sbwriel…',
   'pageView.versionBadge': 'v{{version}}',
   'profile.badges.title': 'Bathodynnau',
   'profile.owned.title': "Tudalennau sy'n eiddo i mi",
@@ -100,6 +104,7 @@ export const ui: UiTranslations = {
     'Gweithle, proffil, hysbysiadau, integreiddiadau — i gyd mewn un gragen dawel.',
   'settingsPage.workspace.defaultLanding': 'Sgrin lanio ddiofyn',
   'settingsPage.workspace.landingHome': 'Cartref',
+  'settingsPage.workspace.landingSpaces': 'Mannau',
   'settingsPage.workspace.subdomainLabel': 'Is-barth',
   'settingsPage.workspace.title': 'Gweithle',
   'signup.eyebrow': 'Dechrau gweithle newydd',
@@ -128,6 +133,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} munud',
   'templates.subtitle':
     "Dechreuwch dudalen o stensil, nid cynfas gwag. Mae pob templed yn codio'r siâp yn galed fel y gallwch ganolbwyntio ar y sylwedd.",
+  'trash.confirmPurge': 'Glanhau am byth?',
+  'trash.confirmPurgeAria': 'Cadarnhau: dileu {{title}} yn barhaol',
   'trash.daysUntilPurge': '{{days}} dyddiau ar ôl',
   'trash.empty.body':
     "Bydd tudalennau sydd wedi'u dileu yn ymddangos yma am 30 diwrnod cyn cael eu clirio.",
@@ -148,5 +155,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Yn adfer…',
   'versionHistory.subtitle': "{{count}} fersiynau · dewiswch res i archwilio'r gwahaniaeth",
   'versionHistory.versionLabel': 'v{{v}}',
+  'wikiLayout.closeMenu': 'Cau llywio',
+  'wikiLayout.menu': 'Mordwyo',
+  'wikiLayout.openMenu': 'Agor llywio',
   'wikiLayout.searchPlaceholder': 'Chwiliwch am Cairn — tudalennau, sylwadau…',
 }

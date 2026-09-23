@@ -31,6 +31,7 @@ export const ui: UiTranslations = {
   'auctionDetail.watching': 'ウォッチ中',
   'auctionDetail.watchRemoved': 'ウォッチリストから削除しました。',
   'auctionDetail.watchRemoveLabel': 'ウォッチリストから削除',
+  'auctionPlatformLayout.primaryNavLabel': 'メインナビゲーション',
   'authShell.brandBody':
     '希少な時計、ファインアート、唯一無二のスペシャリティアイテムにリアルタイムで入札。ガベルは数秒で落ちます。',
   'authShell.brandEyebrow': 'ライブ中 · 1,420件のオークション',
@@ -49,6 +50,7 @@ export const ui: UiTranslations = {
   'browseAuctions.sortLabel': '並べ替え',
   'browseAuctions.subheading':
     'カテゴリで絞り込み、重要な順に並べ替え、ガベルが落ちる前に入札しましょう。',
+  'common.goToDashboard': 'ダッシュボードへ',
   'countdownTimer.ended': '終了',
   'countdownTimer.endingSoon': '終了間近',
   'forgotPassword.checkEmailBody':
@@ -111,6 +113,8 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'パスワードを非表示',
   'login.showPassword': 'パスワードを表示',
   'login.subtext': 'オークションを追跡し続け、ガベルが落ちる前に入札しましょう。',
+  'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
+  'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'myBids.bidAgain': '再入札',
   'myBids.browseCta': 'ライブオークションを見る →',
   'myBids.checkoutCta': '今すぐ支払う',
@@ -138,6 +142,7 @@ export const ui: UiTranslations = {
   'notificationsPage.empty': '通知はまだありません。',
   'notificationsPage.eyebrow': 'アクティビティセンター',
   'notificationsPage.subheading': '{{count}}件未読 · オークションが動くたびにライブ更新',
+  'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.bidsLabel': '入札',
   'pricing.listingsLabel': '出品',
   'pricing.watchlistLabel': 'ウォッチリスト',

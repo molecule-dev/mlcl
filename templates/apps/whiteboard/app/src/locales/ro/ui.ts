@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'authShell.brandHeading': 'Pânze multiplayer pentru echipe de design care gândesc cu voce tare.',
   'billing.canceled': 'Abonament anulat.',
   'billing.cancelPlan': 'Anulează planul',
@@ -72,6 +73,7 @@ export const ui: UiTranslations = {
   'boards.startFromTemplate': 'Începeți de la șablon',
   'boards.title': 'Tabelele tale',
   'collaboratorStack.overflow': '+ {{count}}',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'forgot.emailPlaceholder': 'mira@studio.com',
   'forgot.subheading':
     'Introdu adresa de e-mail legată de spațiul tău de lucru și îți vom trimite un link de resetare.',
@@ -83,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.demoBoard.title': 'Atelier T1 · Vocea Brandului',
   'landing.featuresEyebrow': 'Ce face ca Slate să fie mozaic',
   'landing.featuresTitle': 'Feedback rapid. Pânze frumoase. Zero frecare.',
+  'landing.hero.body':
+    '{{appName}} este o tablă albă multiplayer pentru echipele de design, facilitatorii de ateliere și educatorii care organizează brainstorming-uri live și au nevoie ca ideile să convergă într-un singur loc.',
   'landing.hero.primaryCta': 'Începeți o tablă gratuit',
   'landing.hero.socialProof': 'Încredere acordată de {{count}} echipe de design din întreaga lume',
   'landing.hero.title': 'O pânză la fel de rapidă ca gândurile tale',
@@ -93,6 +97,9 @@ export const ui: UiTranslations = {
   'login.signupCta': 'Creați un spațiu de lucru liber',
   'login.subheading':
     'Reluați atelierul de unde a rămas — tablele, notițele autoadezive și cursoarele se sincronizează în timp real.',
+  'mobileNav.closeMenu': 'Închide meniul de navigare',
+  'mobileNav.new': 'Nou',
+  'mobileNav.openMenu': 'Deschide meniul de navigare',
   'notifications.editTitle': 'Modificări la „ {{board}} "',
   'notifications.empty.body':
     'Invitațiile, salvările de instantanee și modificările recente ale panoului vor apărea aici pe măsură ce se întâmplă.',
@@ -174,6 +181,7 @@ export const ui: UiTranslations = {
   'versionHistory.title': 'Istoric versiuni',
   'versionHistory.untitledSnapshot': 'Instantaneu fără titlu',
   'whiteboardLayout.newBoard': 'Noua tablă',
+  'whiteboardLayout.primaryNav': 'Navigare principală',
   'workspace.boardLabel': 'Bord',
   'workspace.eyebrow': '{{name}} · spațiu de lucru',
   'workspace.invite': 'Invită colaboratori',

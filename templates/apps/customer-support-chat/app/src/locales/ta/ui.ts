@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
   'authShell.samplePreview':
     'ஹே டீம், புதிய டாஷ்போர்டு மிகவும் அழகாக இருக்கிறது — எங்களுக்குத் தேவையானது இதுதான்!',
@@ -23,8 +24,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': 'குறுக்குவழி',
   'automations.subheading':
     'விதிகள், முன் தயாரிக்கப்பட்ட பதில்கள் மற்றும் சாட்பாட்கள் — உங்கள் குழு கடினமான பணிகளில் கவனம் செலுத்தும் போது, பணியிடத்தை சுறுசுறுப்பாக இயங்க வைக்கின்றன.',
+  'automations.trigger.inboundMessage': 'உள்வரும் செய்தி',
   'automations.triggerLabel': 'தூண்டுதல்',
   'chatBubble.internalNoteLabel': 'உள் குறிப்புகள்',
+  'common.confirmDelete': 'நீக்குவதை உறுதிப்படுத்துக',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'contactDetail.backToContacts': 'அனைத்து தொடர்புகளும்',
   'contactDetail.contactFallback': 'தொடர்பு',
   'contactDetail.conversationFallback': 'உரையாடல்',
@@ -42,6 +46,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'கடைசியாக காணப்பட்டது',
   'contacts.empty': 'இன்னும் தொடர்புகள் இல்லை. உங்கள் முதல் தொடர்பை மேலே சேர்க்கவும்.',
   'contacts.eyebrow': 'வாடிக்கையாளர் கோப்பகம்',
+  'contacts.form.nameOrEmailRequired': 'குறைந்தபட்சம் ஒரு பெயர் அல்லது மின்னஞ்சலை வழங்கவும்.',
   'contacts.form.save': 'தொடர்பைச் சேமிக்கவும்',
   'contacts.heading': 'தொடர்புகள்',
   'contacts.loading': 'தொடர்புகளை ஏற்றுகிறது…',
@@ -56,6 +61,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'குறிப்பைச் சேமிக்கவும்',
   'conversationDetail.tab.note': 'உள் குறிப்புகள்',
   'conversationDetail.threadAria': 'உரையாடல் செய்திகள்',
+  'conversationDetail.visitorFallback': 'பார்வையாளர்',
   'customerProfilePanel.csatLabel': 'CSAT',
   'customerProfilePanel.propertiesTitle': 'வாடிக்கையாளர் விவரங்கள்',
   'customerProfilePanel.recentTitle': 'சமீபத்திய உரையாடல்கள்',
@@ -74,6 +80,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'வாடிக்கையாளர்கள் தங்களின் முதல் பதிலைப் பெறுகிறார்கள் {{time}} சராசரியாக — இந்தத் தாளக்கட்டைத் தொடரவும்.',
   'inboxHeroCard.title': 'செயலில் உள்ள உரையாடல்கள்',
+  'inboxLayout.navDrawerLabel': 'வழிசெலுத்தல்',
+  'inboxLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'inboxOverview.eyebrow': 'இன்றைய ஒரு பார்வை',
   'inboxOverview.heroChange': '{{count}} திறந்த',
   'inboxOverview.kpiClosedTrend': 'எல்லா காலத்திலும்',
@@ -119,10 +127,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'முகப்புப் பக்கத்தைப் பார்வையிடவும்',
   'notifications.subheading':
     'பணிகள், @குறிப்புகள், SLA இடர்கள், CSAT பின்னூட்டம் மற்றும் குழுச் செயல்பாடு — புதியவை முதலில் வரும்படி வரிசைப்படுத்தப்பட்டுள்ளன.',
+  'notifications.subjectFallback': 'ஒரு உரையாடல்',
+  'notifications.visitorFallback': 'ஒரு பார்வையாளர்',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'உயர்',
   'priority.low': 'குறைந்த',
+  'priority.normal': 'சாதாரண',
   'priority.urgent': 'அவசரம்',
   'privacy.title': 'தனியுரிமைக் கொள்கை',
   'reports.agentFallback': 'முகவர்',

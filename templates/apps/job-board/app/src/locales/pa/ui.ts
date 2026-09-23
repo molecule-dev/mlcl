@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਸਾਡੇ ਬਾਰੇ',
   'applications.empty': 'ਹਾਲੇ ਕੋਈ ਅਰਜ਼ੀ ਨਹੀਂ ਹੈ \\u2014 ਸਹੀ ਭੂਮਿਕਾ ਸਿਰਫ਼ ਇੱਕ ਅਰਜ਼ੀ ਦੂਰ ਹੈ।',
   'applications.eyebrow': 'ਤੁਹਾਡੀ ਪਾਈਪਲਾਈਨ',
@@ -10,7 +11,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'ਹਰ ਭੂਮਿਕਾ ਜਿਸ ’ਤੇ ਤੁਸੀਂ ਲਾਗੂ ਕੀਤਾ ਹੈ, ਗਤੀਸ਼ੀਲ ਹੈ। ਫੋਕਸ ਕਰਨ ਲਈ ਸਟੇਜ ਅਨੁਸਾਰ ਫਿਲਟਰ ਕਰੋ।',
   'applications.untitledRole': 'ਭੂਮਿਕਾ # {{id}}',
+  'auth.legalConsent': 'ਜਾਰੀ ਰੱਖ ਕੇ, ਤੁਸੀਂ ਸਾਡੇ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'common.and': 'ਅਤੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'companies.empty': 'ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਕੋਈ ਕੰਪਨੀ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ \\u2014 ਕੋਈ ਵੱਖਰਾ ਸ਼ਬਦ ਅਜ਼ਮਾਓ।',
   'companies.eyebrow': 'ਵਿਸ਼ੇਸ਼ ਰੁਜ਼ਗਾਰਦਾਤਾ',
   'companies.searchPlaceholder': 'ਨਾਮ, ਉਦਯੋਗ, ਸਥਾਨ ਦੁਆਰਾ ਖੋਜ ਕਰੋ',
@@ -48,6 +51,9 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'ਇਸ ਅਹੁਦੇ ਲਈ ਅਜੇ ਤੱਕ ਕੋਈ ਅਰਜ਼ੀ ਨਹੀਂ ਆਈ।',
   'jobApplicants.eyebrow': 'ਮਾਲਕ ਦਾ ਦ੍ਰਿਸ਼',
   'jobApplicants.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
+  'jobApplicants.statusUpdateFailed': 'ਉਸ ਪੜਾਅ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ — ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+  'jobApplicants.subheading':
+    'ਰੈਜ਼ਿਊਮੇ ਦੀ ਸਮੀਖਿਆ ਕਰੋ, ਉਮੀਦਵਾਰਾਂ ਨੂੰ ਅੱਗੇ ਵਧਾਓ, ਪੇਸ਼ਕਸ਼ਾਂ ਭੇਜੋ \\u2014 {{count}} ਚਾਲੂ।',
   'jobDetail.applicantCount': '{{count}} ਹੁਣ ਤੱਕ ਬਿਨੈਕਾਰ',
   'jobDetail.applied': 'ਅਰਜ਼ੀ ਭੇਜੀ ਗਈ',
   'jobDetail.apply': 'ਹੁਣੇ ਅਪਲਾਈ ਕਰੋ',
@@ -81,12 +87,14 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'ਖੁੱਲ੍ਹੀਆਂ ਭੂਮਿਕਾਵਾਂ ਬ੍ਰਾਊਜ਼ ਕਰੋ \\u2192',
   'landing.pricingEyebrow': 'ਕੀਮਤ',
   'landing.pricingHeading': 'ਹਰੇਕ ਟੀਮ ਦੇ ਆਕਾਰ ਲਈ ਸਰਲ ਯੋਜਨਾਵਾਂ।',
+  'login.eyebrow': '{{app}} ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ',
   'login.heading': 'ਆਪਣੇ ਖਾਤੇ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ',
   'login.noAccount': 'ਨੋਸ਼ ਲਈ ਨਵੇਂ ਹੋ?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.remember': 'ਮੈਨੂੰ 30 ਦਿਨਾਂ ਲਈ ਯਾਦ ਰੱਖੋ',
   'login.signingIn': 'ਸਾਈਨ ਇਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\\u2026',
   'login.subheading': 'ਆਪਣੀ ਖੋਜ ਸ਼ੁਰੂ ਕਰੋ, ਆਪਣੀਆਂ ਅਰਜ਼ੀਆਂ ਨੂੰ ਅੱਗੇ ਵਧਾਓ, ਤੇਜ਼ੀ ਨਾਲ ਜਵਾਬ ਦਿਓ।',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . ਟੀਮਾਂ ਨੂੰ ਭਰਤੀ ਕਰਨ ਲਈ ਬਣਾਇਆ ਗਿਆ।',
   'loginBrandPanel.headline': 'ਜਿੱਥੇ ਪ੍ਰਤਿਭਾ ਮਿਲਦੀ ਹੈ',
   'loginBrandPanel.headlineLine2': 'ਗਤੀ',
   'loginBrandPanel.listing.recruiter': 'ਪ੍ਰਤਿਭਾ ਸਾਥੀ',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subheading': 'ਅਰਜ਼ੀ ਅੱਪਡੇਟ, ਇੰਟਰਵਿਊ ਸੱਦੇ, ਤਾਜ਼ੇ ਮੈਚ \\u2014 ਸਭ ਤੋਂ ਪਹਿਲਾਂ।',
   'opportunitiesHero.delta': '{{sign}} {{amount}} ਇਸ ਹਫ਼ਤੇ',
   'opportunitiesHero.eyebrow': 'ਅੱਜ ਖੁੱਲ੍ਹਾ ਹੈ',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'postJob.addNewCompany': '+ ਇੱਕ ਨਵੀਂ ਕੰਪਨੀ ਸ਼ਾਮਲ ਕਰੋ',
   'postJob.companyCreateFailed': 'ਕੰਪਨੀ ਨਹੀਂ ਬਣਾ ਸਕਿਆ — ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'postJob.companyNameLabel': 'ਤੁਹਾਡੀ ਕੰਪਨੀ ਦਾ ਨਾਮ',
@@ -160,9 +169,11 @@ export const ui: UiTranslations = {
   'signup.creating': 'ਖਾਤਾ ਬਣਾਇਆ ਜਾ ਰਿਹਾ ਹੈ\\u2026',
   'signup.ctaEmployer': 'ਰੁਜ਼ਗਾਰਦਾਤਾ ਖਾਤਾ ਬਣਾਓ',
   'signup.firstNamePlaceholder': 'ਮਾਇਆ',
+  'signup.lastNamePlaceholder': 'ਚੇਨ',
   'signup.passwordMismatch': 'ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ।',
   'signup.subheading': 'ਚਾਹਵਾਨਾਂ ਲਈ ਹਮੇਸ਼ਾ ਲਈ ਮੁਫ਼ਤ। ਮਾਲਕ 30-ਦਿਨਾਂ ਦੀ ਪਰਖ ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦੇ ਹਨ।',
   'timeAgo.days': '{{count}} ਦਿਨ ਪਹਿਲਾਂ',
   'timeAgo.hours': '{{count}} ਘੰਟਾ ਪਹਿਲਾਂ',
   'timeAgo.justNow': 'ਹੁਣੇ ਹੀ',
+  'timeAgo.weeks': '{{count}} ਹਫ਼ਤਾ ਪਹਿਲਾਂ',
 }

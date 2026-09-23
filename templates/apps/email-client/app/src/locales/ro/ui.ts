@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Suntem o echipă dispersată de designeri și ingineri care, odată, petreceau prea multe ore pe zi într-o căsuță poștală zgomotoasă. Courier este căsuța de e-mail pe care ne-am dorit să o folosim noi înșine.',
   'about.title': 'E-mail pentru concentrare la muncă',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'help.cta.about': 'Despre Courier',
   'help.cta.pricing': 'Vizualizați prețurile',
   'help.eyebrow': 'Centru de ajutor',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Răspunsuri rapide la cele mai frecvente întrebări. Lipsește ceva? Deschideți secțiunea Setări și folosiți formularul de feedback din aplicație sau scrieți la support@courier.example.',
   'help.title': 'Cum putem ajuta?',
   'landing.brand.scrollTop': 'Înapoi sus',
+  'landing.copyright': '© {{year}} {{appName}} — Creat pentru concentrare.',
   'landing.ctaBody':
     'Alătură-te miilor de profesioniști care și-au rezolvat toate mesajele din căsuța de e-mail înainte de prânz.',
   'landing.ctaTitle': 'Acționează mai mult, reacționează mai puțin.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Vizionați demo',
   'landing.heroSubtitle':
     'Courier este o căsuță de e-mail simplă, cu trei panouri, concepută pentru profesioniștii din domeniul cunoașterii care doresc să proceseze informațiile, nu doar să reacționeze la ele.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Alegerea echipelor specializate din întreaga lume',
   'landing.signIn': 'Autentificați-vă',
   'meridian.archive.empty': 'Arhiva este goală.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'Către',
   'meridian.drafts.watermark': 'Ciornă',
   'meridian.folder.count': '{{count}} mesaje',
+  'meridian.folder.delete': 'Ștergeți',
   'meridian.folder.deleteForever': 'Șterge definitiv',
   'meridian.folder.restore': 'Mutați în inbox',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Nu există încă mesaje aici.',
   'meridian.inbox.loading': 'Se încarcă…',
   'meridian.inbox.next': 'Următorul',
+  'meridian.inbox.noSender': '(fără expeditor)',
   'meridian.inbox.noSubject': '(fără subiect)',
+  'meridian.inbox.ofTotal': '{{current}} din {{total}}',
   'meridian.inbox.openCompose': 'Deschide fereastra de redactare',
   'meridian.inbox.previous': 'Anteriorul',
   'meridian.inbox.replyFailed': 'Răspunsul a fost salvat, dar livrarea a eșuat: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Nu aveți cont?',
   'meridian.login.showPassword': 'Afișați parola',
   'meridian.message.toLine': 'către {{recipients}}',
+  'meridian.notFound.body':
+    'Pagina pe care o căutați nu a fost găsită. Reveniți la căsuța poștală {{appName}} și vă vom ajuta să mergeți pe drumul cel bun.',
   'meridian.notFound.eyebrow': 'Eroare 404',
   'meridian.notFound.title': 'Acest fir de discuție a fost arhivat.',
   'meridian.notFound.toInbox': 'Deschide-mi căsuța de e-mail',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Adaugă la favorite',
   'meridian.thread.unstar': 'Elimină steaua',
   'meridian.time.yesterday': 'Ieri',
+  'meridian.topBar.openMenu': 'Deschide meniul de navigare',
   'meridian.topBar.searchPlaceholder': 'Căutare în e-mail',
   'meridian.trash.empty': 'Coșul de gunoi este gol.',
   'meridian.trash.title': 'Coș de gunoi',
   'nav.legal': 'Legal',
   'planUpdated.description':
     'Abonamentul dumneavoastră este acum activ, iar datele de facturare au fost actualizate. Bine ați venit în căsuța de e-mail Courier, cu un aspect reînnoit.',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.heading': 'ciorne',
   'pricing.limit.emails': 'e-mailuri',
   'pricing.limit.folders': 'dosare',
   'pricing.limit.labels': 'etichete',
   'privacy.collect.account':
     'Datele contului: numele, adresa de e-mail, parola criptată și data înscrierii.',
+  'privacy.contact': 'Întrebări? Trimiteți un e-mail la privacy@courier.example.',
   'privacy.intro':
     'Prezenta politică de confidențialitate explică ce date colectează Courier, de ce le colectăm, cum le protejăm și ce opțiuni aveți în legătură cu acestea. Ne propunem să fim clari, nu să folosim un limbaj juridic; dacă ceva nu este clar, scrieți-ne la privacy@courier.example.',
   'privacy.lastUpdated': 'Ultima actualizare: 1 aprilie 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Aceste condiții reglementează utilizarea serviciului Courier. Prin crearea unui cont sau prin trimiterea unui e-mail prin intermediul nostru, sunteți de acord să respectați aceste condiții. Ne străduim să elaborăm reguli pe care utilizatorii le pot respecta cu adevărat.',
   'terms.lastUpdated': 'Intră în vigoare la 1 aprilie 2026',
+  'terms.linkPrivacy': 'Citiți Politica noastră de confidențialitate →',
   'terms.termination.body':
     'Îți poți șterge contul în orice moment. Ne rezervăm dreptul de a suspenda un cont care încalcă acești termeni; în acest caz, îți vom explica motivul și îți vom permite să îți exportezi datele înainte de a face acest lucru.',
   'terms.warranty.body':

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com પર જાઓ',
   'auth.forgotPassword.heading': 'તમારો પાસવર્ડ રીસેટ કરો.',
@@ -35,6 +36,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'કાર્ય પૂર્ણ થયું તરીકે ચિહ્નિત કરો',
   'checklistTaskCard.markIncomplete': 'કાર્ય અધૂરું તરીકે ચિહ્નિત કરો',
   'checklistTaskCard.openLabel': 'કાર્ય ખોલો',
+  'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'તમે બધા વાંચી લીધા છે',
@@ -51,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'ટ્રેક પર',
   'dashboard.timelineHeading': '૩૦/૬૦/૯૦ માઇલસ્ટોન્સ',
   'dashboard.viewAllTasks': 'બધા કાર્યો જુઓ',
+  'dashboard.weekOne': 'અઠવાડિયું ૧',
   'dashboard.yourCohort': 'તમારી ટીમ',
   'documents.empty.body': 'તમારી ટીમ દ્વારા ઉમેરવામાં આવેલા દસ્તાવેજો અહીં દેખાશે.',
   'documents.empty.title': 'હજુ સુધી કોઈ દસ્તાવેજો નથી',
@@ -105,7 +108,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '૧૪-દિવસની મફત અજમાયશ',
   'landing.subhead':
     'એમ્બાર્ક દરેક નવા સાથીને તેમના પહેલા 90 દિવસોમાં માર્ગદર્શન આપે છે - કાગળકામ, તાલીમ, સીમાચિહ્નો અને અર્થપૂર્ણ પરિચય, બધું એક શાંત, આત્મવિશ્વાસપૂર્ણ જગ્યાએ.',
+  'layout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'layout.search': 'કાર્યો, દસ્તાવેજો, ટીમના સાથીઓ શોધો...',
+  'layout.searchTeammates': 'નામ અથવા ભૂમિકા દ્વારા ટીમના સાથીઓને શોધો...',
   'layout.section.onboarding': 'ઓનબોર્ડિંગ',
   'layout.tagline': 'તમારી યાત્રા અહીંથી શરૂ થાય છે',
   'notifications.empty.body': 'નવી પ્રવૃત્તિ અહીં દેખાશે.',
@@ -114,6 +119,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ગઈકાલે',
   'planUpdated.message': 'તમે બધું તૈયાર છો.',
   'planUpdated.preparing': 'તમારો પ્લાન અપડેટ કરી રહ્યાં છીએ…',
+  'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.documentsLabel': 'દસ્તાવેજો',
   'pricing.onboardingsLabel': 'ઓનબોર્ડિંગ',
   'pricing.tasksLabel': 'કાર્યો',

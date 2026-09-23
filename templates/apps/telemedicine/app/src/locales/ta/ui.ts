@@ -39,6 +39,7 @@ export const ui: UiTranslations = {
   'booking.title': 'முன்பதிவு',
   'clinicalNotesEditorial.demo': '{{age}} {{sex}}',
   'clinicalNotesEditorial.empty': 'காண்பிக்க நோயாளிகள் இல்லை.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'consult.backLink': 'அனைத்து சந்திப்புகளும்',
   'consult.captions': 'தலைப்புகள்',
   'consult.connected': 'இணைக்கப்பட்டது · 720p · நிலையானது',
@@ -129,6 +130,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'நோயாளிகள்',
   'patientVitalsHero.scripts': 'மருந்து சீட்டு திறந்துள்ளது',
   'patientVitalsHero.subline': '{{count}} இன்றே உங்கள் வசதிக்கேற்ப ஆலோசனைகள்',
+  'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'prescriptions.empty': 'மருந்துச் சீட்டுகள் எதுவும் பொருந்தவில்லை.',
   'prescriptions.eyebrow': 'மின்னணு மருந்துச்சீட்டு',
   'prescriptions.heading': 'மருந்துச்சீட்டுகள்',
@@ -144,6 +146,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'தனியுரிமைக் கொள்கை',
   'privacy.use.body':
     'பராமரிப்பை வழங்கவும், சந்திப்பு நினைவூட்டல்களை அனுப்பவும், மருந்துச் சீட்டுகளை உரிய முறையில் அனுப்பவும், சேவையின் நம்பகத்தன்மையை மேம்படுத்தவும். நாங்கள் உங்கள் தரவை ஒருபோதும் விற்பதில்லை, மேலும் மருத்துவத் தகவல்களை விளம்பரதாரர்களுடன் ஒருபோதும் பகிர்வதில்லை.',
+  'providers.allSpecialties': 'அனைத்து சிறப்புகளும்',
+  'providers.loadError': 'வழங்குநர்களை ஏற்ற முடியவில்லை.',
+  'providers.loading': 'ஏற்றப்படுகிறது…',
   'providers.noResults': 'வழங்குநர்கள் யாரும் காணப்படவில்லை.',
   'providers.searchPlaceholder': 'பெயர், சிறப்புத் துறை ஆகியவற்றின் அடிப்படையில் தேடவும்...',
   'providers.title': 'ஒரு வழங்குநரைக் கண்டறியவும்',
@@ -163,6 +168,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'நாள் தொடக்கம்',
   'settings.availability.heading': 'கிடைக்கும் தன்மை',
   'settings.devices.thisDevice': 'இந்த சாதனம்',
+  'settings.devices.unnamed': 'பெயரிடப்படாத சாதனம்',
   'settings.eyebrow': 'பயிற்சி மற்றும் கணக்கு',
   'settings.loadError': 'உங்கள் சுயவிவரத்தை ஏற்ற முடியவில்லை.',
   'settings.notifications.emailMessages':
@@ -178,6 +184,11 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'முடக்கு',
   'settings.security.twoFactor.enable': 'இயக்கு',
   'settings.security.twoFactor.heading': 'இரு காரணி அங்கீகாரம்',
+  'settings.security.twoFactor.invalidCode':
+    'அந்தக் குறியீடு பொருந்தவில்லை. மீண்டும் முயற்சிக்கவும்.',
+  'settings.security.twoFactor.setupFailed':
+    'இரு காரணி அங்கீகாரத்தைத் தொடங்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
+  'settings.security.twoFactor.statusOn': 'இரு காரணி அங்கீகாரம் இயக்கத்தில் உள்ளது',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.subheading': 'வழங்குநர் சுயவிவரம், நடைமுறை விதிகள் மற்றும் மருத்துவ எச்சரிக்கைகள்.',
   'signup.emailLabel': 'மின்னஞ்சல்',
@@ -188,6 +199,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'கணக்கை உருவாக்கு',
   'signupFooter.hipaa': 'HIPAA இணக்கமானது',
   'solaceLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'solaceLayout.toggleMenu': 'மெனுவை மாற்று',
   'terms.eligibility.body':
     'உங்களுக்குக் குறைந்தபட்சம் பதினெட்டு வயது நிரம்பியிருக்க வேண்டும், அல்லது நீங்கள் சிகிச்சை நாடும் ஒரு சிறுவரின் பெற்றோர் அல்லது சட்டப்பூர்வ பாதுகாவலராக இருக்க வேண்டும், மேலும் எங்கள் மருத்துவர்கள் உரிமம் பெற்ற அமெரிக்க மாகாணம் ஒன்றில் நீங்கள் வசிப்பவராக இருக்க வேண்டும்.',
   'terms.payment.body':

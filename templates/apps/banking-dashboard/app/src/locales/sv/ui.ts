@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
   'accountDetail.activeBadge': 'Aktiv',
   'accountDetail.availableLabel': '{{amount}} tillgängligt',
@@ -14,6 +15,7 @@ export const ui: UiTranslations = {
   'accounts.heading': 'Konton',
   'accounts.loadError': 'Kunde inte ladda kontona.',
   'accounts.status.closed': 'Stängt',
+  'accounts.status.frozen': 'Fryst',
   'accounts.totalBalance': '{{amount}} totalt',
   'audit.empty': 'Inga händelser ännu.',
   'audit.eyebrow': 'Säkerhet & åtkomst',
@@ -25,6 +27,7 @@ export const ui: UiTranslations = {
   'cashCreditCard.cashLabel': 'Tillgänglig kontant',
   'cashCreditCard.creditLabel': 'Använd kredit',
   'cashCreditCard.title': 'Kontant & Kredit',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.accountsHeading': 'Konton',
   'dashboard.heading': 'Översikt',
   'dashboard.recentEmpty': 'Inga transaktioner ännu.',
@@ -43,10 +46,12 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Visa lösenord',
   'login.signUp': 'Registrera',
   'login.submit': 'Logga in',
+  'meridianLayout.menu': 'Meny',
   'meridianLayout.primaryNavLabel': 'Huvudnavigering',
   'nav.legal': 'Juridiskt',
   'notifications.emptyHeading': 'Du är ikapp',
   'notifications.subheading': 'Realtidsaviseringar för transaktioner, säkerhet och kontoutdrag.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'privacy.dataWeShare':
     'Personliga bankuppgifter säljs aldrig. Vi delar information med betaltjänster, kortnätverk och tillsynsmyndigheter endast i den utsträckning som krävs för att slutföra transaktioner eller uppfylla rättsliga skyldigheter.',
   'privacy.dataWeStore':
@@ -78,10 +83,14 @@ export const ui: UiTranslations = {
   'settings.security.twoFactorBlurb':
     'Tvåfaktorsautentisering lägger till en engångskod från en autentiseringsapp vid varje inloggning.',
   'settings.security.twoFactorCta': 'Hantera tvåfaktorsautentisering',
+  'settings.security.twoFactorOff': 'Tvåfaktorsautentisering är inaktiverad',
   'settings.signOutDevice': 'Logga ut',
   'settings.subheading': 'Profil, säkerhet och aviseringar.',
+  'settings.twoFactorCode': 'Autentiseringskod',
   'settings.twoFactorDisable': 'Inaktivera',
   'settings.twoFactorEnable': 'Aktivera',
+  'settings.twoFactorInvalidCode': 'Ogiltig kod',
+  'settings.twoFactorVerify': 'Kontrollera och aktivera',
   'signup.emailLabel': 'E-postadress',
   'signup.fullName': 'Hur ska vi tilltala dig?',
   'signup.showPassword': 'Visa lösenord',
@@ -103,7 +112,9 @@ export const ui: UiTranslations = {
   'transactions.empty': 'Inga transaktioner ännu.',
   'transactions.endDate': 'Slutdatum',
   'transactions.eyebrow': 'Aktivitet',
+  'transactions.loadError': 'Det gick inte att läsa in transaktionerna.',
   'transactions.merchant': 'Handlare',
+  'transactions.subheading': 'Alla genomförda och väntande transaktioner på alla dina konton.',
   'transfers.availableHint': '{{amount}} tillgängligt',
   'transfers.errorGeneric': 'Det gick inte att skicka överföringen.',
   'transfers.errorMissingFields': 'Välj ett källkonto och en mottagare.',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'billing.canceled':
     'സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കി. കാലയളവിന്റെ അവസാനം നിങ്ങൾ സൗജന്യമായി പുനഃസ്ഥാപിക്കപ്പെടും.',
   'billing.contactSales': 'വിൽപ്പന വിഭാഗവുമായി ബന്ധപ്പെടുക',
@@ -25,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'നിലനിർത്തൽ പരിധിയില്ല',
   'billing.upgradeHint': 'വിപുലമായ AI സവിശേഷതകൾ അൺലോക്ക് ചെയ്യാൻ അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'billing.yearly': 'Yearly',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.activityEmpty':
     'ഇതുവരെ പ്രവർത്തനമൊന്നുമില്ല — ഈ ഫീഡ് പൂരിപ്പിക്കുന്നതിന് ഒരു പ്രോജക്റ്റ് ആരംഭിക്കുക.',
   'dashboard.eyebrow': 'അവലോകനം',
@@ -114,6 +116,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'എല്ലാ പ്രോജക്റ്റിലും പഴയ വിവർത്തനങ്ങൾ പുനരുപയോഗിക്കുക. ഉയർന്ന പൊരുത്ത സ്കോർ → പുനർനിർമ്മാണം കുറയ്ക്കുക.',
   'memory.title': 'മെമ്മറി ബാങ്ക്',
+  'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'nav.legal': 'നിയമപരമായ',
   'newProject.addLanguage': 'ലക്ഷ്യം ചേർക്കുക',
   'newProject.create': 'പ്രോജക്റ്റ് സൃഷ്ടിക്കുക',
@@ -143,6 +147,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'അടയാളപ്പെടുത്തി {{count}} വായിച്ചതുപോലെ അറിയിപ്പുകൾ.',
   'notifications.subtitle':
     'നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സുകളിൽ നിന്നുള്ള പരാമർശങ്ങൾ, അവലോകന അഭ്യർത്ഥനകൾ, AI ഇവന്റുകൾ.',
+  'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'privacy.collection.account': 'നിങ്ങളുടെ അക്കൗണ്ട് ഇമെയിലും പ്രദർശന നാമവും',
   'privacy.deletion.body':
     'നിങ്ങൾക്ക് ഒരു പ്രോജക്റ്റ്, സെഗ്‌മെന്റ്, ഗ്ലോസറി ടേം അല്ലെങ്കിൽ മെമ്മറി എൻട്രി എന്നിവ എപ്പോൾ വേണമെങ്കിലും പ്രസക്തമായ പേജിൽ നിന്ന് ഇല്ലാതാക്കാം. ക്രമീകരണങ്ങളിൽ നിന്ന് നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കുന്നത് ഞങ്ങളുടെ ഡാറ്റാബേസിൽ നിന്ന് വർക്ക്‌സ്‌പെയ്‌സ്-സ്കോപ്പ് ചെയ്‌ത എല്ലാ വരികളും ശുദ്ധീകരിക്കുന്നു.',
@@ -179,6 +184,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'പ്രോജക്റ്റുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'projects.loading': 'പ്രോജക്റ്റുകൾ ലോഡ് ചെയ്യുന്നു...',
   'projects.subtitle': 'എല്ലാ പ്രദേശങ്ങളിലുമുള്ള എല്ലാ സജീവ പദ്ധതികളും.',
+  'renditionLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'reset.backToLogin': '\\u2190 സൈൻ ഇൻ എന്നതിലേക്ക് മടങ്ങുക',
   'reset.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'review.activeEyebrow': 'സെഗ്മെന്റ് {{number}}',

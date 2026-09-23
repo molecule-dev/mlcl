@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fala connosco',
   'announcementsFeed.empty': 'Aínda non hai anuncios.',
   'announcementsFeed.eyebrow': '{{count}} actualizacións',
   'announcementsFeed.title': 'Últimos anuncios',
@@ -23,6 +24,7 @@ export const ui: UiTranslations = {
   'assignments.empty': 'Nada aquí',
   'assignments.emptyBody': 'Cambia os filtros de arriba para ver as tarefas nun estado diferente.',
   'assignments.eyebrow': 'Todos os cursos · Este trimestre',
+  'assignments.loadError': 'Non se puideron cargar as tarefas.',
   'assignments.loading': 'Cargando tarefas…',
   'assignments.subtitle':
     'Filtra por estado para ver o que está pendente, o que está entregado, o que está cualificado ou o que falta.',
@@ -31,6 +33,7 @@ export const ui: UiTranslations = {
   'attendance.col.note': 'Nota',
   'attendance.empty': 'Aínda non hai rexistros de asistencia.',
   'attendance.eyebrow': 'Trimestre de primavera · Últimas 4 semanas',
+  'attendance.loadError': 'Non se puideron cargar os rexistros de asistencia.',
   'attendance.loading': 'Cargando asistencia…',
   'attendance.noNote': '—',
   'attendance.subtitle':
@@ -44,7 +47,9 @@ export const ui: UiTranslations = {
   'calendar.subtitle':
     'Datas de entrega das tarefas representadas nunha cuadrícula mensual: os exames destacan en vermello.',
   'calendar.title': '{{month}} eventos',
+  'common.goToDashboard': 'Ir ao panel',
   'common.no': '—',
+  'common.retry': 'Téntao de novo',
   'common.yes': '✓',
   'courseDetail.backLink': 'Graos',
   'courseDetail.currentGrade': 'Grao actual',
@@ -73,11 +78,13 @@ export const ui: UiTranslations = {
   'grades.col.trend': 'Tendencia',
   'grades.empty': 'Aínda non se publicaron cualificacións.',
   'grades.eyebrow': 'Libro de cualificacións',
+  'grades.loadError': 'Non se puideron cargar as túas cualificacións.',
   'grades.loading': 'Cargando cualificacións…',
   'grades.subtitle':
     'Cualificacións en directo con letras e porcentaxes. As frechas de tendencia mostran se estás a subir, nivelarte ou baixar.',
   'grades.title': 'As túas cualificacións, curso a curso',
   'grades.trendStable': 'Estable',
+  'landing.copyright': '© {{year}} {{app}} . Feito para estudantes, feito para familias.',
   'landing.ctaHeading': 'Un día escolar máis tranquilo comeza en minutos',
   'landing.eyebrow': 'Para estudantes de secundaria e bacharelato',
   'landing.featuresHeading': 'Unha xornada escolar organizada arredor do estudante',
@@ -112,12 +119,16 @@ export const ui: UiTranslations = {
   'nav.assignments': 'Tarefas',
   'nav.attendance': 'Asistencia',
   'nav.calendar': 'Calendario',
+  'nav.closeMenu': 'Pechar o menú de navegación',
   'nav.grades': 'Graos',
+  'nav.openMenu': 'Abrir menú de navegación',
   'nav.statusEyebrow': 'Media xeral do trimestre',
   'nav.statusSubtext': 'Lista de honra · Trimestre de primavera',
+  'nav.unreadMessages': 'Mensaxes sen ler',
   'notifications.eyebrow': '{{count}} actualizacións',
   'notifications.subtitle':
     'Cualificacións, recordatorios, mensaxes e anuncios do centro. Axusta os canais que usa cada notificación en Configuración.',
+  'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.attendanceLabel': 'asistencia',
   'pricing.gradesLabel': 'cualificacións',
   'pricing.heading': 'anuncios',

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
   'about.pageTitle': 'பற்றி {{name}}',
   'auth.footer.about': 'பற்றி {{name}}',
   'authHeader.subtitle': 'உங்கள் புள்ளிவிவரங்களைச் சரிபார்க்க உள்நுழையுங்கள்.',
   'automations.action.email': 'மின்னஞ்சல்',
+  'automations.action.noop': 'செயல்பாடற்ற',
   'automations.action.webhook': 'வலை கொக்கி',
   'automations.confirmDelete': 'நீக்கு {{name}} ?',
   'automations.empty.headline': 'இன்னும் தானியக்கங்கள் இல்லை',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'ஒவ்வொரு பணிப்புத்தகத்திலும் உள்ள தூண்டல்கள் மற்றும் செயல்பாடுகள். ஒவ்வொரு இயக்கமும் ஒரு வரிசையைப் பதிவு செய்கிறது, அதை நீங்கள் பின்னர் தணிக்கை செய்யலாம்.',
   'automations.toggle': 'நிலைமாற்று {{name}}',
+  'automations.trigger.dailySchedule': 'தினசரி அட்டவணை',
+  'automations.trigger.rowCreated': 'வரிசை உருவாக்கு',
+  'automations.trigger.rowUpdated': 'வரிசை புதுப்பிக்கப்பட்டது',
   'billing.empty': 'திட்டங்கள் எதுவும் கிடைக்கவில்லை.',
   'billing.error.priceMissing':
     'இந்த அடுக்குக்கு ஸ்ட்ரைப் விலை எதுவும் உள்ளமைக்கப்படவில்லை. STRIPE_*_PRICE_ID சூழல் மாறிகளை அமைக்கவும்.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'விளக்கப்படங்கள்',
   'charts.kpi.totalCharts': 'மொத்த விளக்கப்படங்கள்',
   'charts.list.empty': 'இன்னும் வரைபடங்கள் இல்லை.',
+  'charts.namePlaceholder': 'வருவாய் போக்கு',
   'charts.newChart': 'புதிய விளக்கப்படம்',
   'charts.primary.eyebrow': 'வகை வாரியான விளக்கப்படங்கள்',
   'charts.primary.headline': 'பணிச்சூழல் கண்ணோட்டம்',
   'charts.subhead':
     'உங்கள் கட்டத்துடன் இணைக்கப்பட்ட நேரலைக் காட்சிப்படுத்தல்கள் — ஒவ்வொரு கட்டத் திருத்தத்தின்போதும் மீண்டும் உருவாக்கப்படும்.',
+  'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'editor.addColumn': 'நெடுவரிசையைச் சேர்க்கவும்',
+  'editor.addDialogTitle': 'நெடுவரிசையைச் சேர்க்கவும்',
   'editor.addRow': 'வரிசையைச் சேர்க்கவும்',
   'editor.addSheet': 'தாளைச் சேர்க்கவும்',
   'editor.back': 'பணிப்புத்தகங்களுக்குத் திரும்பு',
@@ -102,7 +110,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} கால்சைட் என்பது, ஆய்வாளர்களும் நிதிக் குழுக்களும் முதலில் நாடும், சூத்திரங்களுக்கு முதன்மை அளிக்கும், பன்முகப் பார்வையை வழங்கும், நிகழ்நேரக் கட்டமைப்பு ஆகும்.',
   'landing.nav.formulas': 'சூத்திரங்கள்',
+  'login.noAccount': '{{name}} க்குப் புதியவரா?',
+  'login.signIn': '{{name}} இல் உள்நுழையவும்',
   'login.signUp': 'ஒரு பணியிடத்தை உருவாக்கவும்',
+  'nav.menu': 'மெனு',
+  'nav.openMenu': 'மெனுவைத் திறக்கவும்',
   'notFound.cellRef': 'குறிப்பு!',
   'notFound.formula': '=தேடல்(கோரிக்கை.url, "வழித்தடங்கள்", "பக்கம்")',
   'notFound.headline': 'இந்த வரிசை இருந்ததே இல்லை.',
@@ -132,6 +144,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'உள்ளமைந்த தானியக்கங்கள் · வெப்ஹூக் மற்றும் க்ரான் தூண்டல்கள்',
   'signup.creating': 'பணியிடத்தை அமைத்தல்…',
   'signup.cta': 'எனது பணியிடத்தை உருவாக்கு',
+  'signup.haveAccount': 'ஏற்கனவே {{name}} இல் இருக்கிறீர்களா?',
   'signup.namePlaceholder': 'ஏவரி சென்',
   'signup.tagline': '30 வினாடிகளில் உங்கள் முதல் பணிப்புத்தகத்தை உருவாக்குங்கள்.',
   'team.col.activity': 'அழைக்கப்பட்ட',

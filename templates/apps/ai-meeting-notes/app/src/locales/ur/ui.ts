@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'ہمارے بارے میں',
   'actions.empty': 'کوئی ایکشن آئٹم مماثل نہیں ہے۔',
   'actions.heading': 'ایکشن آئٹمز',
@@ -16,8 +17,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'پچھلا مہینہ',
   'calendar.recent': 'حالیہ',
   'common.daysAgo': '{{count}} ڈی پہلے',
+  'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.hoursAgo': '{{count}} گھنٹہ پہلے',
   'common.no': '—',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} کارروائی اشیاء',
   'dashboard.empty.body':
@@ -39,9 +42,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'ری سیٹ لنک کے لیے اپنا ان باکس چیک کریں۔',
   'forgot.subheading': 'اپنا ای میل درج کریں اور ہم ایک ری سیٹ لنک بھیجیں گے۔',
   'integrations.disconnected': 'منقطع',
+  'integrations.loadError': 'انٹیگریشنز لوڈ کرنے میں ناکام۔',
   'integrations.notConnectedTag': 'منسلک نہیں',
   'integrations.subheading':
     'کیلنڈرز اور ویڈیو پلیٹ فارمز کو مربوط کریں تاکہ مرمر خود بخود شامل ہو جائے۔',
+  'integrations.updateError': 'اپ ڈیٹ ناکام ہوا۔',
   'landing.ctaButton': 'شروع کریں — یہ مفت ہے۔',
   'landing.ctaHeading': 'نوٹ لینا بند کریں۔ فیصلے کرنا شروع کریں۔',
   'landing.demo.aiLabel': 'AI کا خلاصہ، لائیو ڈرافٹ کیا گیا۔',
@@ -60,7 +65,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'فالو اپس',
   'meetingDetail.loadError': 'میٹنگ لوڈ کرنے میں ناکام۔',
   'meetingDetail.noActions': 'کوئی ایکشن آئٹم نہیں ملا۔',
+  'meetingDetail.none': 'کوئی نہیں۔',
   'meetingDetail.notFound': 'میٹنگ نہیں ملی۔',
+  'meetingDetail.speakerFallback': 'اسپیکر {{id}}',
   'meetingDetail.summaryHeading': 'AI کا خلاصہ',
   'meetingDetail.transcriptHeading': 'نقل',
   'meetings.empty.body':
@@ -69,6 +76,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'ملاقاتیں',
   'meetings.loadError': 'میٹنگز لوڈ کرنے میں ناکام۔',
   'meetings.subheading': 'ہر ریکارڈ شدہ، اپ لوڈ کردہ، اور مطابقت پذیر میٹنگ۔',
+  'murmurLayout.openMenu': 'نیویگیشن مینو کھولیں۔',
   'murmurLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'nav.legal': 'قانونی',
   'notifications.loadError': 'اطلاعات لوڈ کرنے میں ناکام۔',
@@ -99,6 +107,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'آپ مرمر کے اندر کیسے دکھائی دیتے ہیں۔',
   'record.error.empty': 'کوئی آڈیو کیپچر نہیں کیا گیا۔',
   'record.error.permission': 'مائیکروفون کی اجازت مسترد کر دی گئی۔',
+  'record.error.recorder': 'ریکارڈر کی خرابی۔',
   'record.error.unsupported':
     'آپ کا براؤزر ریکارڈنگ کو سپورٹ نہیں کرتا ہے۔ کروم، ایج، یا سفاری کو آزمائیں۔',
   'record.error.upload': 'اپ لوڈ ناکام ہو گیا۔ دوبارہ کوشش کریں۔',
@@ -113,6 +122,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'نیا پاس ورڈ',
   'reset.subheading': 'ایسا پاس ورڈ منتخب کریں جسے آپ کہیں اور استعمال نہیں کرتے ہیں۔',
   'search.empty': 'نقلیں تلاش کرنے کے لیے ٹائپ کریں۔',
+  'search.loadError': 'تلاش ناکام ہوگئی۔ دوبارہ کوشش کریں۔',
   'search.noResults': 'کے لیے کوئی نتیجہ نہیں نکلا۔ {{q}} "',
   'settings.appearance.description': 'لائٹ اور ڈارک موڈ کے درمیان ٹوگل کریں۔',
   'settings.appearance.title': 'ظاہری شکل',
@@ -121,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.loadError': 'ترتیبات لوڈ کرنے میں ناکام۔',
   'settings.loading': 'لوڈ ہو رہا ہے…',
   'settings.push.heading': 'پش اطلاعات',
+  'settings.push.subheading': 'ذکر، ایکشن آئٹمز اور خلاصوں کے لیے براؤزر الرٹس حاصل کریں۔',
   'settings.retention.audio': 'کے لیے آڈیو رکھیں',
   'settings.retention.heading': 'برقرار رکھنا',
   'settings.retention.transcript': 'کے لیے نقلیں رکھیں',
@@ -138,6 +149,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'منٹوں میں میٹنگ کے نوٹس کیپچر کرنا شروع کریں۔',
   'signup.terms':
     'ایک اکاؤنٹ بنا کر آپ ہماری سروس کی شرائط اور رازداری کی پالیسی سے اتفاق کرتے ہیں۔',
+  'signup.termsPrefix': 'ایک اکاؤنٹ بنا کر آپ ہماری بات سے اتفاق کرتے ہیں۔',
   'team.inviteCta': 'ٹیم کے ساتھی کو مدعو کریں۔',
   'team.invitedAs': 'بطور مدعو کیا گیا۔ {{role}}',
   'team.inviteFailed': 'دعوت نامہ نہیں بھیج سکا۔',

@@ -1,9 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.title': 'Κάθε μπουκιά, ισορροπημένη',
   'auth.hidePassword': 'Απόκρυψη κωδικού',
   'auth.showPassword': 'Εμφάνιση κωδικού',
+  'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'nav.legal': 'Νομικά',
+  'nosh.auth.legalPrefix': 'Συνεχίζοντας, συμφωνείτε με τους',
   'nosh.foodDetail.add': 'Προσθήκη στο ημερολόγιο',
   'nosh.foodDetail.added': 'Προστέθηκε στο {{meal}}.',
   'nosh.foodDetail.addError': 'Αδύνατη η προσθήκη στο ημερολόγιο.',
@@ -19,6 +22,7 @@ export const ui: UiTranslations = {
   'nosh.foodDetail.micros.fiber': 'Φυτικές ίνες',
   'nosh.foodDetail.micros.sodium': 'Νάτριο',
   'nosh.foodDetail.micros.sugar': 'Ζάχαρη',
+  'nosh.foodDetail.percentDv': '{{pct}}% της συνιστώμενης ημερήσιας πρόσληψης',
   'nosh.foodDetail.protein': 'Πρωτεΐνη',
   'nosh.foodDetail.serving.count': 'Μερίδες',
   'nosh.foodDetail.serving.meal': 'Προσθήκη σε',
@@ -49,6 +53,7 @@ export const ui: UiTranslations = {
   'nosh.landing.cta.title': 'Ξεκινήστε να τρώτε πιο έξυπνα',
   'nosh.landing.features.heading': 'Όλα όσα χρειάζεστε, τίποτα παραπάνω',
   'nosh.landing.features.smartRing.title': 'Smart Calorie Ring',
+  'nosh.landing.footer.tagline': '© {{app}} — {{tagline}}.',
   'nosh.landing.hero.body':
     'Ένα φιλικό ημερολόγιο τροφίμων που σας βοηθά να επιτύχετε τους στόχους σας χωρίς ενοχές. Εστιάστε στη διατροφή, όχι μόνο στους αριθμούς.',
   'nosh.landing.hero.eyebrow': 'Φιλική καταγραφή θερμίδων',
@@ -84,6 +89,7 @@ export const ui: UiTranslations = {
   'nosh.onboarding.activity.heading': 'Πόσο δραστήριοι είστε;',
   'nosh.onboarding.back': 'Πίσω',
   'nosh.onboarding.macros.heading': 'Εδώ είναι ο ημερήσιος στόχος σας',
+  'nosh.onboarding.saveError': 'Δεν ήταν δυνατή η αποθήκευση των στόχων σας.',
   'nosh.onboarding.start': 'Ας ξεκινήσουμε',
   'nosh.progress.calorieChart.title': 'Θερμίδες ανά ημέρα',
   'nosh.progress.empty':
@@ -147,6 +153,7 @@ export const ui: UiTranslations = {
   'nosh.settings.danger.confirmCta': 'Μόνιμη διαγραφή',
   'nosh.settings.deleteError': 'Αδύνατη η διαγραφή λογαριασμού.',
   'nosh.settings.export.cta': 'Λήψη CSV',
+  'nosh.settings.export.description': 'Κατεβάστε το πλήρες ημερολόγιο διατροφής σας σε μορφή CSV.',
   'nosh.settings.export.label': 'Εξαγωγή δεδομένων',
   'nosh.settings.export.preparing': 'Προετοιμασία…',
   'nosh.settings.eyebrow': 'Λογαριασμός · Ειδοποιήσεις · Απόρρητο',
@@ -158,6 +165,8 @@ export const ui: UiTranslations = {
   'nosh.signup.subheading': 'Φιλική παρακολούθηση, μηδέν ενοχές.',
   'nosh.today.${mealKey}Empty': 'Πατήστε για να συνδεθείτε',
   'nosh.today.addFood': 'Προσθήκη τροφίμου',
+  'nosh.today.backToToday': 'Πίσω στο σήμερα',
+  'nosh.today.dateNavLabel': 'Αλλαγή ημέρας ημερολογίου',
   'nosh.today.loadError': 'Αδύνατη η φόρτωση δεδομένων σήμερα.',
   'nosh.today.macros.carbs': 'Υδατάνθρακες',
   'nosh.today.macros.fat': 'Λίπος',
@@ -165,6 +174,9 @@ export const ui: UiTranslations = {
   'nosh.today.macros.protein': 'Πρωτεΐνη',
   'nosh.today.macroTitle': 'Μακροθρεπτικά',
   'nosh.today.meal.${mealKey}': 'θερμίδες',
+  'nosh.today.nextDay': 'Την επόμενη μέρα',
+  'nosh.today.pastPill': 'Χθες',
+  'nosh.today.prevDay': 'Προηγούμενη ημέρα',
   'nosh.today.quickAddError': 'Αδύνατη η καταγραφή γρήγορου στοιχείου.',
   'nosh.today.remaining': 'θερμίδες απομένουν',
   'nosh.today.streakHeadline': 'Σερί {{count}} ημερών',

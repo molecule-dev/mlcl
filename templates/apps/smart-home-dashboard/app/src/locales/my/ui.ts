@@ -1,13 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.pageTitle': '{{app}} အကြောင်း',
   'activity.empty':
     'လုပ်ဆောင်ချက် မရှိသေးပါ — စက်ပစ္စည်းတစ်ခုကို လှန်ပါ သို့မဟုတ် မြင်ကွင်းတစ်ခုကို အသက်သွင်းပါ။',
   'activity.eyebrow': 'အချိန်ဇယား',
   'activity.loadError': 'လုပ်ဆောင်ချက်ဖိဒ်ကို တင်၍မရပါ။',
   'activity.subheading':
     'စက်ပစ္စည်းတိုင်း၊ အလိုအလျောက်လုပ်ဆောင်ခြင်းနှင့် လုံခြုံရေးဆိုင်ရာ ဖြစ်ရပ်တိုင်းကို အချိန်အလိုက် အစီအစဉ်အတိုင်း ပြသထားသည်။',
+  'addDevice.error.failed': 'စက်ပစ္စည်းကို ထည့်သွင်း၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'addDevice.error.nameRequired': 'ဆက်လုပ်ရန် ဤစက်ကို အမည်ပေးပါ။',
   'addDevice.field.firmware': 'ဖာမ်းဝဲဗားရှင်း',
   'addDevice.field.manufacturer': 'ထုတ်လုပ်သူ',
@@ -47,6 +50,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'စမ်းသပ်နေသည်…',
   'automationEditor.testNew': 'စမ်းသပ်ဖို့အတွက် အလိုအလျောက်စနစ်ကို အရင်သိမ်းဆည်းပါ။',
   'automationRow.lastRun': 'နောက်ဆုံး {{date}} · {{count}} ပြေးခြင်း',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'ပြေးပါ {{name}} အခု',
   'automations.empty': 'အလိုအလျောက်စနစ်များ မရှိသေးပါ — သင့်ပထမဆုံး လုပ်ရိုးလုပ်စဉ်ကို ဖန်တီးပါ။',
   'automations.eyebrow': 'ပုံမှန်လုပ်ရိုးလုပ်စဉ်များ',
@@ -54,6 +58,7 @@ export const ui: UiTranslations = {
   'automations.loading': 'အလိုအလျောက်စနစ်များ တင်နေသည်…',
   'automations.newAutomation': '+ အသစ်',
   'automations.subheading': 'ဒီလိုဖြစ်လာတဲ့အခါ YAML မပါဘဲ လုပ်ပါ။',
+  'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'စက်ပစ္စည်းကို တင်၍မရပါ။',
@@ -74,6 +79,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'အလုပ်လုပ်နေသည်…',
   'deviceDetail.unnamed': 'ကိရိယာ',
   'deviceStatusRow.on': 'ဖွင့်ထားသည်',
+  'deviceStatusRow.turnOff': 'ပိတ်ရန်',
+  'deviceStatusRow.turnOn': 'ဖွင့်သည်',
   'deviceStatusRow.watts': '{{watts}} W',
   'energy.eyebrow': 'ပါဝါ',
   'energy.heading': 'စွမ်းအင်',
@@ -183,4 +190,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'အစီအစဉ်များကိုကြည့်ပါ',
   'settings.security.heading': 'လုံခြုံရေး',
   'settings.subheading': 'အစီအစဉ်၊ hubs နှင့် အကောင့် ဦးစားပေးမှုများ။',
+  'smartHomeDashboardLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'smartHomeDashboardLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
 }

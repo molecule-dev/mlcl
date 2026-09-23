@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Contactați-ne',
   'about.eyebrow': 'Despre',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.connectRepoCta': 'Conectați repozitoriul',
   'dashboard.empty': 'Încă niciun pull request — conectați un repozitoriu pentru a începe.',
   'dashboard.eyebrow': 'Refract · coadă de recenzii',
@@ -78,6 +79,8 @@ export const ui: UiTranslations = {
   'pullRequestHero.uptimeLabel': 'Timp activ',
   'pullRequestRow.files': '{{count}} f',
   'pullRequestRow.scoreAria': 'Scor de calitate AI {{score}} / 10',
+  'refractLayout.closeMenu': 'Închide meniul',
+  'refractLayout.openMenu': 'Deschideți meniul',
   'refractLayout.primaryNavLabel': 'Navigație primară',
   'reports.cumulativeScoreLabel': 'Scor cumulativ',
   'reports.cumulativeScoreSubtitle': 'toate repo-urile · {{days}}z',
@@ -178,11 +181,14 @@ export const ui: UiTranslations = {
   'search.loadError': 'Nu s-a putut încărca indexul de căutare.',
   'settings.apiKeys.description':
     'Gestionați cheile API personale din meniul utilizator din dreapta sus.',
+  'settings.apiKeys.integrationsNote':
+    'Tokenurile de acces ale furnizorilor sunt gestionate în secțiunea „Integrări” de mai sus.',
   'settings.connectError': 'Nu s-a putut conecta furnizorul.',
   'settings.disconnectError': 'Nu s-a putut deconecta furnizorul.',
   'settings.eyebrow': 'Refract · spațiu de lucru',
   'settings.integration.${provider}.label': 'Se salvează…',
   'settings.loadError': 'Nu s-au putut încărca setările.',
+  'settings.notificationCenter': 'Centrul de notificări',
   'settings.notifications.description':
     'Vizitați pagina de notificări pentru a vedea și gestiona preferințele de livrare.',
   'settings.section.account': 'Cont și securitate',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}}-ийн тухай',
   'analytics.back': 'Судалгааны тойм',
   'analytics.kpiNps': 'NPS оноо',
   'analytics.kpiNpsTrend': 'Сурталчлагчид {{p}} % · Шүүмжлэгчид {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Үл хөдлөх хөрөнгө',
   'builder.questionNumber': 'Q {{num}}',
   'builder.surveyTitle': 'Судалгааны гарчиг',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'forgotPassword.failed': 'Дахин тохируулах имэйл илгээж чадсангүй. Дахин оролдоно уу.',
   'forgotPassword.subheading': 'Имэйл хаягаа оруулна уу, бид танд сэргээх холбоос илгээх болно.',
   'forgotPassword.successBody':
     'Хэрэв данс таарч байвал {{email}} , дахин тохируулах холбоос гарч байна. Ирсэн имэйл болон спам хавтаснуудаа шалгана уу.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Бүх саналыг хүлээн авна уу.',
   'landing.footer.startTrial': 'Туршилтыг эхлүүлэх',
   'landing.hero.badge':
     'Судалгаа, Үндэсний Үйлчилгээний Төв болон санал хүсэлтийг нэг дороос авах боломжтой',
@@ -50,6 +53,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Үнэ',
   'landing.pricing.perMonth': '/сар',
   'landing.pricing.popular': 'Хамгийн алдартай',
+  'landing.pricing.subtitle':
+    'Төлөвлөгөө бүрт судалгаа үүсгэгч, олон нийтэд хуваалцах холбоосууд болон NPS аналитик багтсан болно. Эхлүүлэхийн тулд зээлийн карт шаардлагагүй.',
+  'landing.pricing.title': 'Үнэгүй эхэлж, хийх үедээ хэмжээгээ нэмэгдүүлээрэй.',
   'landing.sample.eyebrow': 'NPS-ийг товчхон авч үзье',
   'landing.sample.title': 'Шүүмжлэгчид, идэвхгүй хүмүүс, сурталчлагчид — шууд уншигдах боломжтой.',
   'login.failed': 'Нэвтрэх амжилтгүй боллоо. Дахин оролдоно уу.',
@@ -57,6 +63,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.signUpLink': 'Үнэгүй туршилтыг эхлүүлэх',
   'login.subheading': 'Үзэгчдээ үргэлжлүүлэн сонсохын тулд нэвтэрнэ үү.',
+  'notFound.body': 'Таны хайж буй хуудас {{app}} дээр байхгүй байна. Таны судалгаа руу буцаж оръё.',
   'notFound.cta': 'Судалгаа руу буцах',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Энэ судалгаа дарааллаас гарсан.',
@@ -74,6 +81,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Идэвхгүй 7–8',
   'npsDistributionBar.promoter': 'Сурталчлагч 9–10',
   'profile.identity.description': 'Танай баг болон таны зохиосон судалгаануудад нийтэд нээлттэй.',
+  'profile.identity.emailRequired': 'Имэйл хаяг оруулна уу.',
   'profile.identity.saveCta': 'Нэрийг хадгалах',
   'profile.password.current': 'Одоогийн нууц үг',
   'profile.password.fillFields': 'Одоогийн болон шинэ нууц үгээ оруулна уу.',
@@ -181,6 +189,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} асуултууд',
   'templates.subheading':
     'Тулаанд туршигдсан эхлэгчийг сонгоорой — загвар бүр нь ухаалаг анхдагч тохиргоо, жишээ логик, цэвэр гар утасны зохион байгуулалттайгаар урьдчилан тохируулагдсан байдаг.',
+  'thankYou.body':
+    'Таны хариултыг бүртгэсэн. {{app}} үүнийг дараагийн аналитик шинэчлэлтэд оруулах болно.',
   'thankYou.eyebrow': 'Хариу хүлээн авсан',
   'thankYou.heading': 'Баярлалаа - таны дуу хоолой чухал.',
   'thankYou.home': 'Мурмурт зочлоорой',

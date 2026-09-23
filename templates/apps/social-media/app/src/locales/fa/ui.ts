@@ -1,7 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.pageTitle': 'درباره {{app}}',
+  'common.goToDashboard': 'رفتن به داشبورد',
+  'common.retry': 'دوباره امتحان کنید',
   'compose.cancel': 'لغو',
   'compose.captionPlaceholder': 'چی تو ذهنته؟',
   'compose.heading': 'لحظه ای را به اشتراک بگذارید',
@@ -97,6 +101,8 @@ export const ui: UiTranslations = {
   'profileHeaderCard.verifiedAria': 'حساب تأیید شده',
   'resetPassword.newPassword': 'رمز عبور جدید',
   'resetPassword.subheading': 'چیزی قوی انتخاب کنید - حداقل ۱۲ کاراکتر.',
+  'search.clearAria': 'پاک کردن',
+  'search.error': 'جستجو ناموفق بود. دوباره امتحان کنید.',
   'search.noPeople':
     'هیچ سازنده‌ای مطابقت ندارد " {{q}} «. (یا: "باورم نمی‌شود که آدم‌ها اشتباه می‌کنند.")',
   'search.noPosts':
@@ -127,6 +133,9 @@ export const ui: UiTranslations = {
   'signup.hidePassword': 'مخفی کردن رمز عبور',
   'signup.showPassword': 'نمایش رمز عبور',
   'signup.subheading': 'برای شروع اشتراک‌گذاری، یک حساب کاربری ایجاد کنید.',
+  'socialMediaLayout.closeMenu': 'بستن منوی ناوبری',
+  'socialMediaLayout.openMenu': 'منوی ناوبری را باز کنید',
+  'socialMediaLayout.primaryNavLabel': 'ناوبری اولیه',
   'storyRail.heading': 'داستان‌ها',
   'storyRail.label': 'داستان‌ها',
   'storyRail.openAria': 'باز {{handle}} داستان',

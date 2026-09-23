@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'about.pageTitle': 'ගැන {{appName}}',
   'analytics.empty': 'මෙහි නියැලීම දැකීමට ඔබේ පළමු ක්ලිප් එක පටිගත කරන්න.',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ක්ලිප්',
   'billing.usage.views': 'දසුන්',
   'billing.usage.views.unit': 'අදහස්',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'landing.cta.title': 'වඩා හොඳ ප්‍රතිපෝෂණ යවන්න. ග්ලින්ට් සමඟ ආරම්භ කරන්න.',
   'landing.feature.capture.body':
     'මයික්‍රෆෝනය, කැමරාව සහ ඇඳීම සමඟ බ්‍රව්සරය, ඩෙස්ක්ටොප් සහ ජංගම පටිගත කිරීම්.',
   'landing.feature.capture.title': 'එක්-තට්ටු ග්‍රහණය',
+  'landing.footer.copy': '© {{year}} {{appName}} . අසමමුහුර්ත, දීප්තිමත් කර ඇත.',
   'landing.hero.cardCaption': 'නියැදි වැඩබිම් දළ විශ්ලේෂණය - එය නොමිලේ උත්සාහ කරන්න.',
   'landing.hero.primaryCta': 'නොමිලේ පටිගත කිරීම ආරම්භ කරන්න',
   'landing.hero.proof.free': 'සදහටම නිදහස් ස්ථරය',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'පටිගත කිරීම් සොයන්න',
   'library.searchPlaceholder': 'පටිගත කිරීම් සොයන්න...',
   'library.weeklyChange': '{{value}} % එදිරිව පසුගිය සතිය',
+  'nav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'nav.record': 'වාර්තාව',
   'nav.shared': 'මා සමඟ බෙදාගත්',
   'nav.startRecording': 'පටිගත කිරීම ආරම්භ කරන්න',

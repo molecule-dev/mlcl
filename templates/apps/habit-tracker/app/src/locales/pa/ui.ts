@@ -1,10 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.pageTitle': '{{app}} ਬਾਰੇ',
   'achievementBadgeCard.unlockedOn': 'ਅਨਲੌਕ ਕੀਤਾ ਗਿਆ {{date}}',
   'achievements.loadError': 'ਪ੍ਰਾਪਤੀਆਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'achievements.subheading': '{{unlocked}} ਦੇ {{total}} ਅਨਲੌਕ ਕੀਤਾ ਗਿਆ',
   'achievements.unlockedOn': 'ਅਨਲੌਕ ਕੀਤਾ ਗਿਆ {{date}}',
+  'auth.legalConsent': 'ਜਾਰੀ ਰੱਖ ਕੇ, ਤੁਸੀਂ ਸਾਡੇ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'calendar.empty': 'ਆਪਣਾ ਕੈਲੰਡਰ ਦੇਖਣ ਦੀ ਆਦਤ ਪਾਓ।',
   'calendar.eyebrow': '{{month}}',
   'calendar.habitColumn': 'ਆਦਤ',
@@ -20,6 +23,7 @@ export const ui: UiTranslations = {
   'calendar.viewLabel': 'ਆਦਤ ਗਰਿੱਡ',
   'category.${c.category}': '{{ਗਿਣਤੀ}} ਆਦਤਾਂ',
   'common.and': 'ਅਤੇ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'consistencyHeatmap.ariaLabel': 'ਰੋਜ਼ਾਨਾ ਇਕਸਾਰਤਾ ਹੀਟਮੈਪ',
   'consistencyHeatmap.caption': 'ਆਖਰੀ {{weeks}} ਹਫ਼ਤੇ',
   'consistencyHeatmap.lessLabel': 'ਘੱਟ',
@@ -80,6 +84,7 @@ export const ui: UiTranslations = {
   'landing.heroCtaSecondary': 'ਇਸਨੂੰ ਲਾਈਵ ਦੇਖੋ',
   'landing.heroSubtitle':
     'ਆਦਤਾਂ ਨੂੰ ਉਸੇ ਤਰ੍ਹਾਂ ਬਣਾਓ ਜਿਵੇਂ ਉਹ ਅਸਲ ਵਿੱਚ ਜੁੜੀਆਂ ਹੁੰਦੀਆਂ ਹਨ: ਛੋਟੀਆਂ ਵਚਨਬੱਧਤਾਵਾਂ, ਰੋਜ਼ਾਨਾ ਦੀਆਂ ਲਕੀਰਾਂ, ਅਤੇ ਇੱਕ ਲੰਬੀ ਅਟੁੱਟ ਲੜੀ ਦਾ ਅੰਦਰੂਨੀ ਅਨੰਦ।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.previewLabel': 'ਸਟ੍ਰੀਕ ਦੇ ਅੰਦਰ ਇੱਕ ਝਾਤ',
   'landing.previewMotivation': 'ਨੌਂ ਲਕੀਰਾਂ ਜ਼ਿੰਦਾ। ਉਨ੍ਹਾਂ ਸਾਰਿਆਂ ਨੂੰ ਨਿੱਘਾ ਰੱਖੋ।',
   'login.eyebrow': 'ਚੇਨ ਚੁੱਕੋ',
@@ -97,7 +102,9 @@ export const ui: UiTranslations = {
   'newHabit.subheading': 'ਇਸਨੂੰ ਛੋਟਾ ਬਣਾਓ। ਇਸਨੂੰ ਖਾਸ ਬਣਾਓ। ਕੱਲ੍ਹ ਆਓ।',
   'newHabit.timeLabel': 'ਯਾਦ-ਪੱਤਰ ਸਮਾਂ',
   'notifications.markError': 'ਸਾਰੇ ਪੜ੍ਹੇ ਹੋਏ ਵਜੋਂ ਨਿਸ਼ਾਨਦੇਹੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
+  'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.entries': '{{count}} ਇੰਦਰਾਜ਼',
+  'pricing.heading': 'ਆਪਣੀ {{app}} ਯੋਜਨਾ ਚੁਣੋ',
   'profile.action.plan': 'ਗਾਹਕੀ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ',
   'profile.action.settings': 'ਖਾਤਾ ਯੋਜਨਾ',
   'profile.bioEmpty': 'ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਆਪਣੀ ਜਾਣ-ਪਛਾਣ ਕਰਵਾਉਣ ਲਈ ਇੱਕ ਛੋਟੀ ਜਿਹੀ ਜੀਵਨੀ ਸ਼ਾਮਲ ਕਰੋ।',
@@ -125,6 +132,8 @@ export const ui: UiTranslations = {
   'settings.reminders.daily': 'ਰੋਜ਼ਾਨਾ ਸਵੇਰ ਦਾ ਪ੍ਰੋਂਪਟ (ਸਵੇਰੇ 8:00 ਵਜੇ)',
   'settings.reminders.heading': 'ਰੀਮਾਈਂਡਰ',
   'settings.reminders.weekly': 'ਹਫ਼ਤਾਵਾਰੀ ਸਾਰ (ਐਤਵਾਰ ਸ਼ਾਮ)',
+  'settings.revokeDeviceWarning':
+    'ਇਸ ਡਿਵਾਈਸ ਦੀ ਪਹੁੰਚ ਜਲਦੀ ਹੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ। ਇਸਨੂੰ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ?',
   'settings.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
   'settings.streaks.freezesPerWeek': 'ਪ੍ਰਤੀ ਹਫ਼ਤਾ ਫ੍ਰੀਜ਼',
   'settings.streaks.gracePeriod': 'ਅੱਧੀ ਰਾਤ ਤੋਂ ਬਾਅਦ 6 ਘੰਟੇ ਦੀ ਗ੍ਰੇਸ ਪੀਰੀਅਡ',
@@ -151,5 +160,7 @@ export const ui: UiTranslations = {
   'streakHeroCard.activeBadge': '{{count}} ਕਿਰਿਆਸ਼ੀਲ',
   'streakHeroCard.daysSuffix': 'ਦਿਨ',
   'streakHeroCard.title': 'ਸਭ ਤੋਂ ਲੰਮੀ ਕਿਰਿਆਸ਼ੀਲ ਸਟ੍ਰੀਕ',
+  'streakLayout.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
+  'streakLayout.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'streakLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
 }

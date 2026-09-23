@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'మీ పాస్‌వర్డ్‌ను రీసెట్ చేసుకోండి.',
@@ -36,6 +37,7 @@ export const ui: UiTranslations = {
   'checklistTaskCard.markComplete': 'పని పూర్తయినట్లు గుర్తించండి',
   'checklistTaskCard.markIncomplete': 'పనిని అసంపూర్ణంగా గుర్తించండి',
   'checklistTaskCard.openLabel': 'ఓపెన్ టాస్క్',
+  'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.allCaughtUp': 'మీరు అంతా తెలుసుకున్నారు',
@@ -52,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.stat.todayTrend': 'సరైన మార్గంలో',
   'dashboard.timelineHeading': '30/60/90 మైలురాళ్లు',
   'dashboard.viewAllTasks': 'అన్ని పనులను వీక్షించండి',
+  'dashboard.weekOne': 'వారం 1',
   'dashboard.yourCohort': 'మీ బృందం',
   'documents.empty.body': 'మీ బృందం జోడించిన పత్రాలు ఇక్కడ కనిపిస్తాయి.',
   'documents.empty.title': 'ఇంకా పత్రాలు లేవు',
@@ -108,7 +111,9 @@ export const ui: UiTranslations = {
   'landing.proof.time': '14 రోజుల ఉచిత ట్రయల్',
   'landing.subhead':
     'ఎంబార్క్ ప్రతి కొత్త టీమ్‌మేట్‌కు వారి మొదటి 90 రోజుల పాటు — పత్రాల పని, శిక్షణ, మైలురాళ్లు మరియు అర్థవంతమైన పరిచయాలు — అన్నింటినీ ఒకే ప్రశాంతమైన, నమ్మకమైన ప్రదేశంలో మార్గనిర్దేశం చేస్తుంది.',
+  'layout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'layout.search': 'పనులు, పత్రాలు, సహచరులను వెతకండి…',
+  'layout.searchTeammates': 'పేరు లేదా పాత్ర ద్వారా సహచరులను శోధించండి…',
   'layout.section.onboarding': 'ఆన్‌బోర్డింగ్',
   'layout.tagline': 'మీ ప్రయాణం ఇక్కడ మొదలవుతుంది',
   'notifications.empty.body': 'కొత్త కార్యకలాపం ఇక్కడ కనిపిస్తుంది.',
@@ -117,6 +122,7 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'నిన్న',
   'planUpdated.message': 'మీరు సిద్ధంగా ఉన్నారు.',
   'planUpdated.preparing': 'మీ ప్లాన్‌ను అప్‌డేట్ చేస్తోంది…',
+  'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.documentsLabel': 'పత్రాలు',
   'pricing.onboardingsLabel': 'ఆన్‌బోర్డింగ్‌లు',
   'pricing.tasksLabel': 'పనులు',

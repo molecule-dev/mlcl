@@ -1,11 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маеце водгук, запыт на новую функцыю ці знайшлі памылку? Звяжыцеся з камандай {{app}} праз спасылку падтрымкі ў меню вашага ўліковага запісу — кожнае паведамленне дасылаецца рэальнаму чалавеку.',
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
   'agentDetail.back': 'Усе агенты',
   'agentDetail.capabilities': 'Магчымасці',
   'agentDetail.delete': 'Выдаліць персанажа',
   'agentDetail.deleteConfirm': 'Выдаліць гэты персанаж? Гэта нельга адмяніць.',
+  'agentDetail.deleteError': 'Не атрымалася выдаліць персанажа.',
   'agentDetail.eyebrow': 'Персона',
   'agentDetail.fetchError': 'Не атрымалася загрузіць персанажа.',
   'agentDetail.save': 'Захаваць персанажа',
@@ -45,6 +49,9 @@ export const ui: UiTranslations = {
   'billing.switching': 'Пераключэнне…',
   'billing.updateError': 'Не атрымалася пачаць абнаўленне.',
   'billing.usageHeading': 'Выкарыстанне голасу ў гэтым цыкле',
+  'chatBubble.source.text': 'тэкст',
+  'chatBubble.source.voice': 'голас',
+  'common.goToDashboard': 'Перайсці да панэлі',
   'conversation.defaultTitle': 'Новая размова',
   'conversation.empty':
     'Пакуль няма паведамленняў. Пачніце з таго, каб нешта сказаць або напісаць тэкст ніжэй.',
@@ -95,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.featuresTitle': 'Інтэлект, які гаворыць.',
   'landing.heroSubtitle':
     'Галасавы памочнік са штучным інтэлектам, які разумее ваш натуральны рытм. Размаўляйце, думайце і камандуйце — без праблем.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.listening': 'Слухаю…',
   'landing.naturallyBody':
     'Ніякіх слоў-трыгераў. Ніякіх жорсткіх каманд. Лексіканская мова разумее кантэкст, перапынкі і нюансы чалавечай мовы — як размова з калегам.',
@@ -113,6 +121,8 @@ export const ui: UiTranslations = {
   'notFound.goTalk': 'Адкрыць сеанс',
   'notFound.home': 'Вяртанне дадому',
   'notFound.title': 'Мы не змаглі пачуць гэтую старонку.',
+  'parlanceLayout.closeMenu': 'Закрыць меню',
+  'parlanceLayout.openMenu': 'Адкрыць меню навігацыі',
   'parlanceLayout.primaryNavLabel': 'Асноўная навігацыя',
   'pricing.conversations': '{{count}} размовы',
   'pricing.cta.startFree': 'Пачніце бясплатна',
@@ -151,6 +161,7 @@ export const ui: UiTranslations = {
   'search.emptyTitle': 'Няма супадзенняў',
   'search.eyebrow': 'Палітра каманд',
   'search.fetchError': 'Не атрымалася загрузіць пошукавы індэкс.',
+  'search.static.profile.preview': 'Імя, нік, біяграфія',
   'search.static.voice.title': 'Голас',
   'search.title': 'Пошук па тэрміналогіі',
   'search.transcriptPreview': 'Адкрыць стэнаграму',

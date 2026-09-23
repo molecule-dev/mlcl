@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
   'about.pageTitle': 'O nás {{name}}',
   'auth.footer.about': 'O nás {{name}}',
   'authHeader.subtitle': 'Prihláste sa, aby vaše čísla zostali pravdivé.',
   'automations.action.email': 'E-mail',
+  'automations.action.noop': 'Bez operácie',
   'automations.action.webhook': 'Webhook',
   'automations.confirmDelete': 'Odstrániť " {{name}} "?',
   'automations.empty.headline': 'Zatiaľ žiadne automatizácie',
@@ -25,6 +27,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Spúšťače a akcie v každom zošite. Každé spustenie zaznamená riadok, ktorý môžete neskôr auditovať.',
   'automations.toggle': 'Prepnúť {{name}}',
+  'automations.trigger.dailySchedule': 'Denný rozvrh',
+  'automations.trigger.rowCreated': 'Riadok vytvorený',
+  'automations.trigger.rowUpdated': 'Riadok aktualizovaný',
   'billing.empty': 'Nie sú k dispozícii žiadne plány.',
   'billing.error.priceMissing':
     'Pre túto úroveň nie je nakonfigurovaná žiadna cena Stripe. Nastavte premenné prostredia STRIPE_*_PRICE_ID.',
@@ -43,12 +48,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Grafy',
   'charts.kpi.totalCharts': 'Celkové grafy',
   'charts.list.empty': 'Zatiaľ žiadne grafy.',
+  'charts.namePlaceholder': 'Trend príjmov',
   'charts.newChart': 'Nový graf',
   'charts.primary.eyebrow': 'Grafy podľa typu',
   'charts.primary.headline': 'Prehľad pracovného priestoru',
   'charts.subhead':
     'Živé vizualizácie viazané na vašu mriežku – opätovné vykreslenie pri každej úprave bunky.',
+  'common.goToDashboard': 'Prejsť na prehľad',
   'editor.addColumn': 'Pridať stĺpec',
+  'editor.addDialogTitle': 'Pridať stĺpec',
   'editor.addRow': 'Pridať riadok',
   'editor.addSheet': 'Pridať hárok',
   'editor.back': 'Späť k pracovným zošitom',
@@ -101,7 +109,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Calcite je prvý analytik mriežok s viacerými pohľadmi v reálnom čase, ktorý využíva vzorce a finančné tímy siahajú po ňom ako prví.',
   'landing.nav.formulas': 'Vzorce',
+  'login.noAccount': 'Ste v {{name}} noví?',
+  'login.signIn': 'Prihláste sa do {{name}}',
   'login.signUp': 'Vytvorte pracovný priestor',
+  'nav.menu': 'Ponuka',
+  'nav.openMenu': 'Otvoriť ponuku',
   'notFound.cellRef': '#ROZHOD!',
   'notFound.formula': '=LOOKUP(ŽIADOSŤ.url; "trasy"; "stránka")',
   'notFound.headline': 'Tento riadok nikdy neexistoval.',
@@ -130,6 +142,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Natívne automatizácie · spúšťače webhookov a cron',
   'signup.creating': 'Zriaďovanie pracovného priestoru…',
   'signup.cta': 'Vytvoriť môj pracovný priestor',
+  'signup.haveAccount': 'Už používate {{name}} ?',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.tagline': 'Vytvorte si prvý zošit za 30 sekúnd',
   'team.col.activity': 'Pozvaný/á',

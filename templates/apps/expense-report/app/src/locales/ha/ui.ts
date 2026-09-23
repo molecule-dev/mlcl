@@ -4,6 +4,7 @@ export const ui: UiTranslations = {
   'about.eyebrow': 'Game da',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Ana amincewa da…',
+  'approvals.confirmReject': 'Tabbatar da ƙin amincewa',
   'approvals.eyebrow': 'Layin mai sarrafawa',
   'approvals.kpi.flaggedLabel': 'An yiwa manufar alama',
   'approvals.kpi.totalLabel': 'Ƙimar da ake jira',
@@ -15,6 +16,7 @@ export const ui: UiTranslations = {
   'approvals.review': 'Sharhi',
   'approvals.title': 'Ana jiran amincewa',
   'approvalTimeline.actor': 'ta hanyar {{actor}}',
+  'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
   'common.yes': '✓',
   'dashboard.addExpense': 'Sabbin kuɗaɗe',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
     'An bayar da tallafin kuɗi a cikin makonni 12 da suka gabata a cikin rahotanni 17 da aka amince da su.',
   'landing.sampleCardLabel': 'An dawo da kuɗin fansho · Kwata na 2',
   'landing.socialProof': 'Ƙungiyoyin kuɗi sun amince da shi a',
+  'layout.openMenu': 'Buɗe menu na kewayawa',
   'layout.workspace': 'Wurin Aiki na Kuɗi',
   'login.hidePassword': 'Ɓoye kalmar sirri',
   'login.noAccount': 'Sabo ne a Maido da Mu?',
@@ -76,6 +79,8 @@ export const ui: UiTranslations = {
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Kuɗaɗen da ake da su',
   'newReport.createFailed': 'Ba za a iya ƙirƙirar rahoto ba. Da fatan za a sake gwadawa.',
+  'newReport.draftsFallback':
+    'Jerin kuɗin kai tsaye ba ya samuwa — yana nuna bayanan gwaji da aka tsara.',
   'newReport.includedCount': '{{count}} an haɗa',
   'newReport.purposeLabel': 'Manufar kasuwanci',
   'newReport.purposePlaceholder':
@@ -88,6 +93,7 @@ export const ui: UiTranslations = {
     '{{count}} An haɗa da kuɗaɗen da aka kashe. Ta hanyar amincewa ta hanyar manajan ku, sannan kuɗaɗen kuɗi.',
   'newReport.title': 'Sabon rahoton kashe kuɗi',
   'newReport.titleLabel': 'Taken rahoton',
+  'newReport.titlePlaceholder': 'Tallace-tallace a Berlin a waje',
   'newReport.toggleAria': 'A haɗa {{merchant}}',
   'notifications.eyebrow': 'Aikin wurin aiki',
   'notifications.feedFallback':
@@ -129,10 +135,13 @@ export const ui: UiTranslations = {
   'settings.policies.cap': 'Iyakar yau da kullun',
   'settings.policies.empty': 'Babu wasu manufofi tukuna.',
   'settings.policies.error': 'Ba za a iya loda manufofi ba — gwada sabuntawa.',
+  'settings.policies.managerApproval': 'Amincewar mai sarrafawa',
   'settings.policies.receipt': 'Ana buƙatar rasit akan',
   'settings.policies.scope': 'Faɗin wurin aiki · masu gudanarwa kawai',
   'settings.policies.title': 'Manufofin amincewa',
   'settings.policies.unnamed': 'Manufofi',
+  'settings.prefsSaveFailed':
+    'Ba za a iya adana abubuwan da aka fi so ba. Da fatan a sake gwadawa.',
   'settings.profile.saved': 'An adana ✓',
   'settings.profileSaveFailed':
     'Ba za a iya sabunta bayanin martaba ba. Da fatan za a sake gwadawa.',

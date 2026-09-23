@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'analytics.channels.empty': 'ഇതുവരെ ചാനൽ ഡാറ്റയൊന്നുമില്ല.',
   'analytics.channels.title': 'ചാനൽ പ്രകാരം',
   'analytics.empty':
@@ -18,11 +19,13 @@ export const ui: UiTranslations = {
   'analytics.trend.title': 'ഒരു ദിവസത്തെ സംഭാഷണങ്ങൾ',
   'chatBubble.avatarAlt': '{{speaker}} അവതാർ',
   'common.appName': 'ബന്ധം',
+  'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'confidenceMeter.label': 'ആത്മവിശ്വാസം',
   'conversationDetail.agentName': 'ഏജന്റ്',
   'conversationDetail.aiReplyButton': 'ബോട്ട് മറുപടി',
   'conversationDetail.aiReplyError': 'AI മറുപടി സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'conversationDetail.aiReplyLoading': 'ഡ്രാഫ്റ്റിംഗ്…',
+  'conversationDetail.aiReplySourceFallback': 'ഫാൾബാക്ക് (AI കീ ഇല്ല)',
   'conversationDetail.backAria': 'സംഭാഷണങ്ങളിലേക്ക് മടങ്ങുക',
   'conversationDetail.composerPlaceholder': 'ഉപഭോക്താവിന് മറുപടി നൽകുക...',
   'conversationDetail.context.channel': 'ചാനൽ',
@@ -156,8 +159,12 @@ export const ui: UiTranslations = {
   'resetPassword.subtitle': 'നിങ്ങളുടെ അക്കൗണ്ടിനായി ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുക',
   'resetPassword.toggleConfirm': 'പാസ്‌വേഡ് ദൃശ്യപരത സ്ഥിരീകരിക്കുക ടോഗിൾ ചെയ്യുക',
   'resetPassword.togglePassword': 'പാസ്‌വേഡ് ദൃശ്യപരത മാറ്റുക',
+  'settings.account.emailError': 'ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു',
   'settings.account.emailLabel': 'ഇമെയിൽ വിലാസം',
+  'settings.account.emailSaved': 'ഇമെയിൽ അപ്ഡേറ്റ് ചെയ്തു',
+  'settings.account.nameError': 'പേര് അപ്ഡേറ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു',
   'settings.account.nameLabel': 'പ്രദർശന നാമം',
+  'settings.account.nameSaved': 'പേര് അപ്ഡേറ്റ് ചെയ്തു',
   'settings.account.title': 'അക്കൗണ്ട്',
   'settings.api.createCta': 'ടോക്കൺ സൃഷ്ടിക്കുക',
   'settings.api.description':
@@ -170,10 +177,19 @@ export const ui: UiTranslations = {
   'settings.bot.autoEscalateLabel': 'വികാരം കുറയുമ്പോൾ യാന്ത്രികമായി വർദ്ധിപ്പിക്കുക',
   'settings.bot.greetingLabel': 'ആദ്യ സന്ദേശ ആശംസ',
   'settings.bot.title': 'ബോട്ട് കോൺഫിഗറേഷൻ',
+  'settings.bot.toneFormal': 'ഔപചാരികമായ',
   'settings.bot.toneLabel': 'ശബ്ദവും സ്വരവും',
   'settings.danger.deleteAccount': 'അക്കൗണ്ട് ഇല്ലാതാക്കുക',
+  'settings.danger.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാനായില്ല',
+  'settings.danger.deleteWarning':
+    'ഇത് നിങ്ങളുടെ അക്കൗണ്ടും അനുബന്ധ ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കുന്നു. ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'settings.danger.deleting': 'ഇല്ലാതാക്കുന്നു...',
+  'settings.danger.passwordLabel': 'നിങ്ങളുടെ പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക',
   'settings.danger.title': 'അപകട മേഖല',
+  'settings.devices.empty': 'ഉപകരണങ്ങളൊന്നും രജിസ്റ്റർ ചെയ്തിട്ടില്ല.',
+  'settings.devices.revokeWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
+  'settings.devices.signingOut': 'സൈൻ ഔട്ട് ചെയ്യുന്നു…',
   'settings.devices.signOut': 'സൈൻ ഔട്ട്',
   'settings.devices.thisDevice': 'ഈ ഉപകരണം',
   'settings.devices.title': 'ഉപകരണങ്ങൾ',
@@ -186,9 +202,12 @@ export const ui: UiTranslations = {
   'settings.security.changePasswordError': 'പാസ്‌വേഡ് മാറ്റുന്നതിൽ പരാജയപ്പെട്ടു',
   'settings.security.currentPassword': 'നിലവിലെ പാസ്വേഡ്',
   'settings.security.newPassword': 'പുതിയ പാസ്വേഡ്',
+  'settings.security.oauthManaged':
+    'നിങ്ങളുടെ പാസ്‌വേഡ് കൈകാര്യം ചെയ്യുന്നത് നിങ്ങളുടെ സൈൻ-ഇൻ ദാതാവാണ്.',
   'settings.security.title': 'സുരക്ഷ',
   'settings.security.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'settings.security.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.security.twoFactorInvalid': 'കോഡ് അസാധുവാണ്',
   'settings.subtitle':
     'റാപ്പോർട്ടിന്റെ ശബ്‌ദം, വിജ്ഞാന സ്രോതസ്സുകൾ, അത് സംസാരിക്കുന്ന ഉപകരണങ്ങൾ എന്നിവ ട്യൂൺ ചെയ്യുക.',
   'settings.tokenCreateError': 'ടോക്കൺ സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു',

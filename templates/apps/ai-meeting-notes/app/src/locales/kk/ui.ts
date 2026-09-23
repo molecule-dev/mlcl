@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Біз туралы',
   'actions.empty': 'Ешқандай әрекет элементтері сәйкес келмейді.',
   'actions.heading': 'Әрекет элементтері',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Алдыңғы ай',
   'calendar.recent': 'Жақында',
   'common.daysAgo': '{{count}} күн бұрын',
+  'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.hoursAgo': '{{count}} сағат бұрын',
   'common.no': '—',
+  'common.retry': 'Қайталап көру',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} әрекет элементтері',
   'dashboard.empty.body':
@@ -42,9 +45,11 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Электрондық поштаңызды енгізіңіз, біз қалпына келтіру сілтемесін жібереміз.',
   'integrations.disconnected': 'Ажыратылған',
+  'integrations.loadError': 'Интеграциялар жүктелмеді.',
   'integrations.notConnectedTag': 'Қосылған жоқ',
   'integrations.subheading':
     'Murmur автоматты түрде қосылуы үшін күнтізбелер мен бейне платформаларды қосыңыз.',
+  'integrations.updateError': 'Жаңарту сәтсіз аяқталды.',
   'landing.ctaButton': 'Бастаңыз — бұл тегін',
   'landing.ctaHeading': 'Жазбалар жазуды тоқтатыңыз. Шешім қабылдай бастаңыз.',
   'landing.demo.aiLabel': 'Жасанды интеллект туралы қысқаша ақпарат, тікелей эфирде жасалған нұсқа',
@@ -63,7 +68,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Кейінгі әрекеттер',
   'meetingDetail.loadError': 'Кездесу жүктелмеді.',
   'meetingDetail.noActions': 'Ешқандай әрекет элементтері анықталмады.',
+  'meetingDetail.none': 'Жоқ.',
   'meetingDetail.notFound': 'Кездесу табылмады.',
+  'meetingDetail.speakerFallback': 'Спикер {{id}}',
   'meetingDetail.summaryHeading': 'Жасанды интеллект туралы қысқаша ақпарат',
   'meetingDetail.transcriptHeading': 'Транскрипт',
   'meetings.empty.body':
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Кездесулер',
   'meetings.loadError': 'Кездесулер жүктелмеді.',
   'meetings.subheading': 'Әрбір жазылған, жүктелген және синхрондалған кездесу.',
+  'murmurLayout.openMenu': 'Навигация мәзірін ашу',
   'murmurLayout.primaryNavLabel': 'Негізгі навигация',
   'nav.legal': 'Заңды',
   'notifications.loadError': 'Хабарландырулар жүктелмеді.',
@@ -104,6 +112,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Murmur ішінде қалай көрінесіз.',
   'record.error.empty': 'Аудио жазылмады.',
   'record.error.permission': 'Микрофонға рұқсат берілмеді.',
+  'record.error.recorder': 'Жазу құрылғысындағы қате',
   'record.error.unsupported':
     'Браузеріңіз жазуды қолдамайды. Chrome, Edge немесе Safari браузерлерін қолданып көріңіз.',
   'record.error.upload': 'Жүктеу сәтсіз аяқталды. Қайталап көріңіз.',
@@ -119,6 +128,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Жаңа құпия сөз',
   'reset.subheading': 'Басқа жерде пайдаланбайтын құпия сөзді таңдаңыз.',
   'search.empty': 'Транскрипттерді іздеу үшін теріңіз.',
+  'search.loadError': 'Іздеу сәтсіз аяқталды. Қайталап көріңіз.',
   'search.noResults': '«» бойынша нәтижелер жоқ {{q}} «.',
   'settings.appearance.description': 'Жарық және қараңғы режимдер арасында ауысу.',
   'settings.appearance.title': 'Сыртқы түрі',
@@ -127,6 +137,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Параметрлерді жүктеу сәтсіз аяқталды.',
   'settings.loading': 'Жүктелуде…',
   'settings.push.heading': 'Push хабарландырулары',
+  'settings.push.subheading':
+    'Ескертулер, әрекет элементтері және қорытындылар туралы браузер ескертулерін алыңыз.',
   'settings.retention.audio': 'Аудионы сақтау',
   'settings.retention.heading': 'Сақтау',
   'settings.retention.transcript': 'Транскрипттерді сақтау',
@@ -144,6 +156,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Бірнеше минут ішінде кездесу жазбаларын жазып бастаңыз',
   'signup.terms':
     'Тіркелгі жасау арқылы сіз біздің Қызмет көрсету шарттары мен Құпиялылық саясатымызға келісесіз.',
+  'signup.termsPrefix': 'Тіркелгі жасау арқылы сіз біздің келісімімізді аласыз',
   'team.inviteCta': 'Командаласты шақыру',
   'team.invitedAs': 'Шақырылған {{role}}',
   'team.inviteFailed': 'Шақыру жіберілмеді.',

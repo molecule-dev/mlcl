@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
   'about.pageTitle': 'ਬਾਰੇ {{appName}}',
   'analytics.empty': 'ਇੱਥੇ ਮੰਗਣੀ ਦੇਖਣ ਲਈ ਆਪਣੀ ਪਹਿਲੀ ਕਲਿੱਪ ਰਿਕਾਰਡ ਕਰੋ।',
@@ -39,10 +40,12 @@ export const ui: UiTranslations = {
   'billing.usage.recordings.unit': 'ਕਲਿੱਪ',
   'billing.usage.views': 'ਦ੍ਰਿਸ਼',
   'billing.usage.views.unit': 'ਵਿਚਾਰ',
+  'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'landing.cta.title': 'ਬਿਹਤਰ ਫੀਡਬੈਕ ਭੇਜੋ। Glint ਨਾਲ ਸ਼ੁਰੂਆਤ ਕਰੋ।',
   'landing.feature.capture.body':
     'ਮਾਈਕ, ਕੈਮ ਅਤੇ ਡਰਾਇੰਗ ਨਾਲ ਬ੍ਰਾਊਜ਼ਰ, ਡੈਸਕਟਾਪ ਅਤੇ ਮੋਬਾਈਲ ਰਿਕਾਰਡਿੰਗ।',
   'landing.feature.capture.title': 'ਇੱਕ-ਟੈਪ ਕੈਪਚਰ',
+  'landing.footer.copy': '© {{year}} {{appName}} . ਅਸਿੰਕਰੋਨਾਈਜ਼ਡ, ਚਮਕਦਾਰ ਬਣਾਇਆ ਗਿਆ।',
   'landing.hero.cardCaption': 'ਨਮੂਨਾ ਵਰਕਸਪੇਸ ਸੰਖੇਪ ਜਾਣਕਾਰੀ — ਇਸਨੂੰ ਮੁਫ਼ਤ ਵਿੱਚ ਅਜ਼ਮਾਓ।',
   'landing.hero.primaryCta': 'ਮੁਫ਼ਤ ਰਿਕਾਰਡਿੰਗ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.hero.proof.free': 'ਮੁਫ਼ਤ ਹਮੇਸ਼ਾ ਲਈ ਟੀਅਰ',
@@ -62,6 +65,7 @@ export const ui: UiTranslations = {
   'library.search.aria': 'ਰਿਕਾਰਡਿੰਗਾਂ ਖੋਜੋ',
   'library.searchPlaceholder': 'ਰਿਕਾਰਡਿੰਗਾਂ ਖੋਜੋ…',
   'library.weeklyChange': '{{value}} ਪਿਛਲੇ ਹਫ਼ਤੇ ਦੇ ਮੁਕਾਬਲੇ %',
+  'nav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'nav.record': 'ਰਿਕਾਰਡ',
   'nav.shared': 'ਮੇਰੇ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਗਿਆ',
   'nav.startRecording': 'ਰਿਕਾਰਡਿੰਗ ਸ਼ੁਰੂ ਕਰੋ',

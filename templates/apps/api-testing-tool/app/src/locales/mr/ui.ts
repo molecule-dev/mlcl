@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.pageTitle': '{{app}} बद्दल',
   'authShell.statusLabel': 'धावपटू ऑनलाइन',
   'collections.createError': 'संग्रह तयार करता आला नाही.',
   'collections.defaultName': 'शीर्षक नसलेला संग्रह {{n}}',
@@ -16,6 +18,7 @@ export const ui: UiTranslations = {
   'collections.newCollection': 'नवीन संग्रह',
   'collections.subheading':
     'विनंत्या गटबद्ध करा, तुमच्या टीमसोबत शेअर करा आणि त्या एकत्रितपणे चालवा.',
+  'common.goToDashboard': 'डॅशबोर्डवर जा',
   'environmentCard.inactive': 'निष्क्रिय',
   'environmentCard.more': 'अधिक',
   'environmentCard.variables': 'चल',
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'मोफत डाउनलोड करा',
   'landing.heroSubtitle':
     'टर्मिनलमध्ये सतत काम करणाऱ्या अभियंत्यांसाठी तयार केलेले, अतिशय वेगवान API टेस्टिंग वर्कबेंच.',
+  'landing.heroTitleAccent': 'आग',
+  'landing.heroTitleLine2': 'आत्मविश्वास निर्माण करा.',
+  'landing.heroTitleRest': 'विनंत्या,',
   'landing.kicker': '$ pylon send --watch',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'साधी, अंदाज लावता येण्याजोगी किंमत',
@@ -58,6 +64,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'तुम्ही इथे नवीन आहात का?',
   'login.showPassword': 'पासवर्ड दाखवा',
   'login.subtitle': 'तुमच्या पायलन वर्कस्पेसवर पुढे जा.',
+  'mobileNav.closeMenu': 'नेव्हिगेशन मेनू बंद करा',
+  'mobileNav.openMenu': 'नेव्हिगेशन मेनू उघडा',
   'mocks.createError': 'मॉक तयार करता आला नाही.',
   'mocks.defaultName': 'शीर्षक नसलेला नमुना {{n}}',
   'mocks.deleteError': 'मॉक हटवता आला नाही.',
@@ -114,6 +122,7 @@ export const ui: UiTranslations = {
   'notFound.backToWorkspace': 'कार्यक्षेत्रात परत जा',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'मार्ग सापडला नाही',
+  'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'privacy.collect.account':
     'खाते: तुमचा ईमेल, हॅश केलेला पासवर्ड, दिसणारे नाव आणि तुमच्या शेवटच्या साइन-इनची वेळ.',
   'privacy.rights.body':
@@ -138,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'या खात्याच्या मालकीच्या डेटाचे केवळ वाचता येण्याजोगे दृश्य.',
   'settings.unset': 'सेट केलेले नाही',
   'signup.identityHint': 'उदा. ॲलेक्स',
+  'signup.statusLabel': 'मोफत स्तर · क्रेडिट कार्डची आवश्यकता नाही',
   'signup.subtitle': 'काही मिनिटांतच विनंत्या पाठवायला सुरुवात करा.',
   'terms.account.body':
     'तुमच्या पासवर्डचे संरक्षण करण्याची जबाबदारी तुमची आहे. फ्री किंवा प्रो प्लॅनवर एकापेक्षा जास्त व्यक्तींसोबत एकच खाते वापरण्याची परवानगी नाही — सामायिक कार्यक्षेत्रांसाठी टीम सबस्क्रिप्शन खरेदी करा.',
@@ -148,6 +158,7 @@ export const ui: UiTranslations = {
     'ज्या सेवांची मालकी तुमच्याकडे नाही किंवा ज्यांची चाचणी करण्याची स्पष्ट परवानगी तुमच्याकडे नाही, अशा सेवांवर विनंत्या पाठवण्यासाठी पायलॉनचा वापर करू नका. दर मर्यादा टाळण्यासाठी किंवा फसवणूक करण्यासाठी पायलॉनचा वापर करू नका.',
   'terms.warranty.body':
     "पायलॉन कोणत्याही प्रकारच्या वॉरंटीशिवाय 'जसे आहे तसे' पुरवले जाते. आमचे ध्येय ९९.९% अपटाइमचे आहे, परंतु आम्ही फ्री किंवा प्रो प्लॅनवर त्याची हमी देत नाही.",
+  'testRunner.assertionsCount': '{{count}} प्रतिपादन',
   'testRunner.createError': 'चाचणी तयार करता आली नाही.',
   'testRunner.cron':
     'या चाचणीच्या संबंधित विनंतीच्या सर्वात अलीकडील रनच्या आधारे असर्शनचे मूल्यांकन केले जाते.',
@@ -170,11 +181,33 @@ export const ui: UiTranslations = {
   'testRunner.subheading': 'सूटचे निकाल, असर्शनमधील फरक आणि शेवटच्या ५० रन्स.',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'म्हणून साइन इन केले',
+  'workspace.auth.keyName': 'हेडरचे नाव',
+  'workspace.auth.keyValue': 'मुख्य मूल्य',
+  'workspace.auth.password': 'पासवर्ड',
+  'workspace.auth.username': 'वापरकर्तानाव',
+  'workspace.authOption.apikey': 'एपीआय की',
+  'workspace.authOption.basic': 'बेसिक ऑथ',
+  'workspace.authOption.bearer': 'बेअरर टोकन',
+  'workspace.authOption.none': 'काहीही नाही',
+  'workspace.authOption.oauth': 'ओऑथ २.०',
   'workspace.authType': 'प्रकार',
   'workspace.authTypeLabel': 'ऑथ प्रकार',
+  'workspace.body.json': 'JSON',
+  'workspace.body.none': 'काहीही नाही',
+  'workspace.body.text': 'मूळ मजकूर',
+  'workspace.body.type': 'प्रकार',
   'workspace.environment': 'कोणतेही पर्यावरण नाही',
   'workspace.envVar': 'पर्यावरण चल',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.kv.addHeader': 'हेडर जोडा',
+  'workspace.kv.addParam': 'पॅरामीटर जोडा',
+  'workspace.kv.headerKey': 'हेडरचे नाव',
+  'workspace.kv.headerValue': 'हेडर मूल्य',
+  'workspace.kv.key': 'मुख्य',
+  'workspace.kv.paramKey': 'क्वेरी पॅराम की',
+  'workspace.kv.paramValue': 'क्वेरी पॅरामीटर मूल्य',
+  'workspace.kv.removeRow': 'ओळ काढून टाका',
+  'workspace.kv.value': 'मूल्य',
   'workspace.methodLabel': 'HTTP पद्धत',
   'workspace.metric.latency': 'विलंब',
   'workspace.metric.latencyCaption': 'या धावण्यापासून येण्या-जाण्याचा प्रवास',
@@ -191,6 +224,7 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'विनंती पाठवली गेली आहे — प्रतिसाद खाली पहा.',
   'workspace.subheading':
     'विनंती तयार करा, ती पाठवा, आणि मग प्रतिसादाची पडताळणी करा — हे सर्व एकाच पॅनेलमध्ये.',
+  'workspace.testResults': 'चाचणी निकाल',
   'workspace.token': 'टोकन',
   'workspace.tokenHint': 'अधिकृतता म्हणून पाठवले: धारक<token> या संग्रहातील प्रत्येक विनंतीवर.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',

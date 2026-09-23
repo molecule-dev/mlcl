@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับเรา',
   'authShell.samplePreview':
     '“สวัสดีทีมงานทุกท่าน แดชบอร์ดใหม่สวยงามมาก — ตรงตามที่เราต้องการเลย!”',
@@ -22,8 +23,11 @@ export const ui: UiTranslations = {
   'automations.shortcut': '/ทางลัด',
   'automations.subheading':
     'กฎระเบียบ คำตอบสำเร็จรูป และแชทบอท ช่วยให้พื้นที่ทำงานดำเนินไปอย่างราบรื่น ในขณะที่ทีมของคุณมุ่งเน้นไปที่งานที่ยากขึ้น',
+  'automations.trigger.inboundMessage': 'ข้อความขาเข้า',
   'automations.triggerLabel': 'สิ่งกระตุ้น',
   'chatBubble.internalNoteLabel': 'หมายเหตุภายใน',
+  'common.confirmDelete': 'ยืนยันการลบ',
+  'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'contactDetail.backToContacts': 'รายชื่อติดต่อทั้งหมด',
   'contactDetail.contactFallback': 'ติดต่อ',
   'contactDetail.conversationFallback': 'การสนทนา',
@@ -41,6 +45,7 @@ export const ui: UiTranslations = {
   'contacts.col.lastSeen': 'พบเห็นครั้งล่าสุด',
   'contacts.empty': 'ยังไม่มีรายชื่อผู้ติดต่อ โปรดเพิ่มรายชื่อผู้ติดต่อแรกของคุณด้านบน',
   'contacts.eyebrow': 'รายชื่อลูกค้า',
+  'contacts.form.nameOrEmailRequired': 'โปรดระบุอย่างน้อยชื่อหรืออีเมล',
   'contacts.form.save': 'บันทึกข้อมูลติดต่อ',
   'contacts.heading': 'การติดต่อ',
   'contacts.loading': 'กำลังโหลดรายชื่อผู้ติดต่อ…',
@@ -55,6 +60,7 @@ export const ui: UiTranslations = {
   'conversationDetail.saveNote': 'บันทึกข้อความ',
   'conversationDetail.tab.note': 'หมายเหตุภายใน',
   'conversationDetail.threadAria': 'ข้อความสนทนา',
+  'conversationDetail.visitorFallback': 'ผู้เยี่ยมชม',
   'customerProfilePanel.csatLabel': 'ซีเอสเอที',
   'customerProfilePanel.propertiesTitle': 'รายละเอียดลูกค้า',
   'customerProfilePanel.recentTitle': 'บทสนทนาล่าสุด',
@@ -71,6 +77,8 @@ export const ui: UiTranslations = {
   'inboxHeroCard.subtitle':
     'ลูกค้าจะได้รับการตอบกลับครั้งแรกภายในเวลาไม่นาน {{time}} โดยเฉลี่ยแล้ว — รักษาจังหวะให้คงที่',
   'inboxHeroCard.title': 'การสนทนาอย่างกระตือรือร้น',
+  'inboxLayout.navDrawerLabel': 'การนำทาง',
+  'inboxLayout.openMenu': 'เปิดเมนูนำทาง',
   'inboxOverview.eyebrow': 'ภาพรวมของวันนี้',
   'inboxOverview.heroChange': '{{count}} เปิด',
   'inboxOverview.kpiClosedTrend': 'ตลอดกาล',
@@ -116,10 +124,13 @@ export const ui: UiTranslations = {
   'notFound.home': 'เยี่ยมชมหน้าแรก',
   'notifications.subheading':
     'การมอบหมายงาน การกล่าวถึง (@mentions) ความเสี่ยงด้าน SLA ผลตอบรับ CSAT และกิจกรรมของทีม — เรียงลำดับจากใหม่ล่าสุดก่อน',
+  'notifications.subjectFallback': 'การสนทนา',
+  'notifications.visitorFallback': 'ผู้มาเยือน',
   'pricing.limits.no': '—',
   'pricing.limits.yes': '✓',
   'priority.high': 'สูง',
   'priority.low': 'ต่ำ',
+  'priority.normal': 'ปกติ',
   'priority.urgent': 'ด่วน',
   'privacy.title': 'นโยบายความเป็นส่วนตัว',
   'reports.agentFallback': 'ตัวแทน',

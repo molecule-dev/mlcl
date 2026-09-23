@@ -1,6 +1,8 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktieren Sie uns',
+  'about.eyebrow': 'Über {{app}}',
   'about.pageTitle': 'Jede Strecke, eine Suche.',
   'booking.backToDetail': 'Zurück zu den Flugdetails',
   'booking.continue': 'Weiter zur Zahlung',
@@ -32,6 +34,7 @@ export const ui: UiTranslations = {
   'booking.summary.taxes': 'Steuern & Gebühren',
   'booking.summary.travelers': 'Reisende',
   'common.about': 'Über',
+  'common.goToDashboard': 'Zum Dashboard',
   'flightDetail.backToResults': 'Zurück zu den Ergebnissen',
   'flightDetail.baseFare': 'Basistarif',
   'flightDetail.book': 'Weiter zur Buchung',
@@ -53,12 +56,14 @@ export const ui: UiTranslations = {
   'flightResultCard.oneStop': '1 Zwischenstopp',
   'flightResultCard.select': 'Auswählen',
   'flightResultCard.totalLabel': 'Gesamtzeit',
+  'flightSearchLayout.primaryNavLabel': 'Hauptnavigation',
   'forgotPassword.subheading':
     'Geben Sie die E-Mail-Adresse Ihres Skylark-Kontos ein, und wir senden Ihnen einen sicheren Link zum Zurücksetzen.',
   'forgotPassword.successBody':
     'Prüfen Sie {{email}} auf einen Link zum Festlegen eines neuen Passworts. Der Link verfällt nach 30 Minuten.',
   'forgotPassword.successHeading': 'Reset-Link gesendet',
   'landing.cta.explore': 'Suche ausprobieren',
+  'landing.cta.eyebrow': '{{app}} Pro',
   'landing.cta.heading': 'Finden Sie den nächsten Top-Tarif vor allen anderen.',
   'landing.cta.signup': 'Tarife verfolgen',
   'landing.features.eyebrow': 'Warum Skylark',
@@ -82,6 +87,7 @@ export const ui: UiTranslations = {
   'priceAlerts.addAlert': 'Alarm hinzufügen',
   'priceAlerts.deleteConfirm': 'Diesen Alarm entfernen?',
   'priceAlerts.empty': 'Noch keine beobachteten Strecken.',
+  'priceAlerts.emptyCta': 'Suche eine Route zum Verfolgen',
   'priceAlerts.errorMessage': 'Alarme konnten nicht geladen werden.',
   'priceAlerts.eyebrow': 'Skylark-Beobachtungsliste',
   'priceAlerts.form.createError': 'Alarm konnte nicht erstellt werden.',
@@ -111,6 +117,7 @@ export const ui: UiTranslations = {
   'results.multiEyebrow': 'Multi-City-Routenplan',
   'results.multiLegHeading': 'Strecke {{n}} · {{from}} → {{to}} · {{date}}',
   'results.multiSummary': '{{count}} Strecken · {{passengers}} Reisender',
+  'results.sortAriaLabel': 'Ergebnisse sortieren nach',
   'results.sortLabel': 'Sortieren',
   'results.summary': '{{count}} Flüge · {{passengers}} Reisender',
   'settings.language.title': 'Sprache',

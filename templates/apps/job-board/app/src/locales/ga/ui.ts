@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
   'applications.empty':
     'Gan aon iarratais fós \\u2014 níl ach iarratas amháin uait chun an ról ceart a fháil.',
@@ -11,7 +12,9 @@ export const ui: UiTranslations = {
   'applications.subheading':
     'Gach ról ar chuir tú isteach air, i mbun gluaiseachta. Scag de réir céime le díriú.',
   'applications.untitledRole': 'Ról # {{id}}',
+  'auth.legalConsent': 'Trí leanúint ar aghaidh, aontaíonn tú lenár',
   'common.and': 'agus',
+  'common.goToDashboard': 'Téigh chuig an Deais',
   'companies.empty':
     'Ní oireann aon chuideachta do do chuardach \\u2014 bain triail as téarma difriúil.',
   'companies.eyebrow': 'Fostóirí aitheanta',
@@ -53,6 +56,10 @@ export const ui: UiTranslations = {
   'jobApplicants.empty': 'Níl aon iarratais déanta don ról seo go fóill.',
   'jobApplicants.eyebrow': 'Tuairim an fhostóra',
   'jobApplicants.loading': 'Ag luchtú\\u2026',
+  'jobApplicants.statusUpdateFailed':
+    'Níorbh fhéidir an chéim sin a nuashonrú — déan iarracht arís.',
+  'jobApplicants.subheading':
+    'Athbhreithnigh CVanna, cuir iarrthóirí chun cinn, seol tairiscintí \\u2014 {{count}} i mbun oibre.',
   'jobDetail.applicantCount': '{{count}} iarratasóirí go dtí seo',
   'jobDetail.applied': 'Iarratas seolta',
   'jobDetail.apply': 'Cuir isteach anois',
@@ -86,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Brabhsáil róil oscailte \\u2192',
   'landing.pricingEyebrow': 'Praghsáil',
   'landing.pricingHeading': 'Pleananna simplí do gach méid foirne.',
+  'login.eyebrow': 'Fáilte ar ais go {{app}}',
   'login.heading': 'Sínigh isteach i do chuntas',
   'login.noAccount': 'Nua le Nosh?',
   'login.passwordPlaceholder': '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -93,6 +101,7 @@ export const ui: UiTranslations = {
   'login.signingIn': 'Ag síniú isteach\\u2026',
   'login.subheading':
     'Tóg do chuardach, cuir d’iarratais ar aghaidh, agus faigh freagra níos tapúla.',
+  'loginBrandPanel.copyright': '© {{year}} {{app}} . Tógtha le haghaidh foirne earcaíochta.',
   'loginBrandPanel.headline': 'An áit a mbuaileann tallann le chéile',
   'loginBrandPanel.headlineLine2': 'móiminteam.',
   'loginBrandPanel.listing.recruiter': 'Comhpháirtí Tallann',
@@ -109,6 +118,7 @@ export const ui: UiTranslations = {
     'Nuashonruithe ar iarratais, cuireadh agallaimh, cluichí úra agus na cinn is nuaí ar dtús.',
   'opportunitiesHero.delta': '{{sign}} {{amount}} an tseachtain seo',
   'opportunitiesHero.eyebrow': 'Oscailte inniu',
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'postJob.addNewCompany': '+ Cuir cuideachta nua leis',
   'postJob.companyCreateFailed': 'Níorbh fhéidir cuideachta a chruthú — déan iarracht arís.',
   'postJob.companyNameLabel': 'Ainm do chuideachta',
@@ -167,10 +177,12 @@ export const ui: UiTranslations = {
   'signup.creating': 'Ag cruthú cuntais\\u2026',
   'signup.ctaEmployer': 'Cruthaigh cuntas fostóra',
   'signup.firstNamePlaceholder': 'Maigh',
+  'signup.lastNamePlaceholder': 'Chen',
   'signup.passwordMismatch': 'Ní hionann na pasfhocail.',
   'signup.subheading':
     'Saor in aisce do chuardaitheoirí, go deo. Tosaíonn fostóirí le triail 30 lá.',
   'timeAgo.days': '{{count}} lá ó shin',
   'timeAgo.hours': '{{count}} uair an chloig ó shin',
   'timeAgo.justNow': 'díreach anois',
+  'timeAgo.weeks': '{{count}} seachtain ó shin',
 }

@@ -35,6 +35,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'በአሁኑ ጊዜ በ ላይ ነዎት {{plan}} እቅድ።',
   'billing.switch': 'ማብሪያና ማጥፊያ',
   'billing.upgraded': 'ተዘምኗል ወደ {{plan}} - ገደቦች ወዲያውኑ ይተገበራሉ።',
+  'common.goToDashboard': 'ወደ ዳሽቦርድ ሂድ',
   'compare.activityHeading': 'የእንቅስቃሴ ፍርዶች',
   'compare.empty.title': 'ለማነፃፀር ቢያንስ ሁለት ቦታዎችን ያክሉ',
   'compare.eyebrow': 'ጎን ለጎን',
@@ -130,5 +131,6 @@ export const ui: UiTranslations = {
   'trends.summary.high.label': 'ከፍተኛ',
   'trends.summary.low.label': 'ዝቅተኛ',
   'trends.summary.points.label': 'ቀናት',
+  'weatherDashboardLayout.primaryNavLabel': 'ዋና አሰሳ',
   'weatherHeroCard.updated': 'ተዘምኗል {{time}}',
 }

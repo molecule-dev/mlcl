@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.pageTitle': 'Ynghylch {{app}}',
   'activity.empty': 'Dim gweithgaredd eto — trowch ddyfais neu actifadu golygfa.',
   'activity.eyebrow': 'Amserlen',
   'activity.loadError': 'Methu llwytho porthiant gweithgaredd.',
   'activity.subheading': 'Pob dyfais, awtomeiddio, a digwyddiad diogelwch mewn trefn gronolegol.',
+  'addDevice.error.failed': "Methwyd ychwanegu'r ddyfais. Rhowch gynnig arall arni.",
   'addDevice.error.nameRequired': "Rhowch enw i'r ddyfais hon i barhau.",
   'addDevice.field.firmware': 'Fersiwn cadarnwedd',
   'addDevice.field.manufacturer': 'Gwneuthurwr',
@@ -44,6 +47,7 @@ export const ui: UiTranslations = {
   'automationEditor.testing': 'Profi…',
   'automationEditor.testNew': "Cadwch yr awtomeiddio yn gyntaf i'w brofi.",
   'automationRow.lastRun': 'Diwethaf {{date}} · {{count}} rhedeg',
+  'automationRow.on': 'On',
   'automationRow.runNowAria': 'Rhedeg {{name}} nawr',
   'automations.empty': 'Dim awtomeiddio eto — crëwch eich trefn gyntaf.',
   'automations.eyebrow': 'Trefniadau',
@@ -51,6 +55,7 @@ export const ui: UiTranslations = {
   'automations.loading': "Wrthi'n llwytho awtomeiddio…",
   'automations.newAutomation': '+ Newydd',
   'automations.subheading': 'Pan fydd hyn yn digwydd, gwnewch hynny - heb y YAML.',
+  'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': "Methwyd llwytho'r ddyfais.",
@@ -70,6 +75,8 @@ export const ui: UiTranslations = {
   'deviceDetail.toggling': 'Yn gweithio…',
   'deviceDetail.unnamed': 'Dyfais',
   'deviceStatusRow.on': 'Ymlaen',
+  'deviceStatusRow.turnOff': 'Diffoddwch',
+  'deviceStatusRow.turnOn': 'Troi ymlaen',
   'deviceStatusRow.watts': '{{watts}} Gorllewin',
   'energy.eyebrow': 'Pŵer',
   'energy.heading': 'Ynni',
@@ -174,4 +181,6 @@ export const ui: UiTranslations = {
   'settings.plan.upgrade': 'Gweler cynlluniau',
   'settings.security.heading': 'Diogelwch',
   'settings.subheading': 'Cynllun, hybiau, a dewisiadau cyfrif.',
+  'smartHomeDashboardLayout.openMenu': 'Agor y ddewislen lywio',
+  'smartHomeDashboardLayout.primaryNavLabel': 'Prif lywio',
 }

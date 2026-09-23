@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.eyebrow': '// despre {{app}}',
+  'about.pageTitle': 'Planul de control webhook',
+  'about.plansTitle': 'Planuri pentru fiecare etapă',
   'apiKeys.bestPractices': 'Cele mai bune practici',
   'apiKeys.body':
     'Jetoane de acces programatic. Tratați-le ca parole — stocați-le în variabile de mediu, nu le confirmați niciodată.',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
   'billing.usageHealthy': 'în cadrul planului',
   'billing.usageWarning': 'aproape de capac',
   'billing.yearly': 'Anual',
+  'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.body':
     'Randament în timp real, reîncercări în zbor și punctele finale care tocmai au avut probleme - în fiecare spațiu de lucru în care operați.',
   'dashboard.endpointsEmpty': 'Încă nu există puncte finale.',
@@ -112,6 +116,7 @@ export const ui: UiTranslations = {
   'endpointDetail.crumbEndpoints': 'puncte finale',
   'endpointDetail.deliveryTrendSub': 'livrări / oră, cântar logaritmic',
   'endpointDetail.hideSecret': 'Ascunde secretul',
+  'endpointDetail.loading': 'Se încarcă punctul final…',
   'endpointDetail.metric.delivered': 'Livrat în 24 de ore',
   'endpointDetail.metric.deliveredCaption': 'din {{count}} tipuri de evenimente',
   'endpointDetail.metric.failuresCaption': 'reîncercări: {{retries}}',
@@ -217,6 +222,7 @@ export const ui: UiTranslations = {
   'notifications.metric.critical': 'Critic · 24h',
   'notifications.metric.totalCaption': 'căsuța poștală din toate timpurile',
   'payloadViewer.payload': '// sarcină utilă',
+  'planUpdated.verifying': 'Se confirmă plata…',
   'profile.avatarHeader': 'Avatar',
   'profile.avatarHint': 'Inițialele afișate — încărcările vor apărea odată cu următoarea versiune.',
   'profile.body': 'Contul dvs., preferințele și sesiunile active.',
@@ -232,6 +238,8 @@ export const ui: UiTranslations = {
   'profile.sessionsEmpty':
     'Doar sesiunea curentă este activă. Niciun alt dispozitiv nu este conectat.',
   'profile.toggle': 'Comutare {{label}}',
+  'pylonShell.closeMenu': 'Închide meniul de navigare',
+  'pylonShell.openMenu': 'Deschide meniul de navigare',
   'pylonShell.primaryNavLabel': 'Navigare principală',
   'resetPassword.subtitle': 'Alegeți o parolă puternică pe care nu ați mai folosit-o.',
   'resetPassword.tokenPlaceholder': 'lipiți din e-mail',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
   'alerts.acknowledgeLabel': '確認しました',
   'alerts.customerLabel': '顧客: {{customer}}',
@@ -45,7 +46,9 @@ export const ui: UiTranslations = {
   'carriers.newDialog.submitting': '接続中…',
   'carriers.requiredError': '名前とコードは必須です。',
   'carriers.subheading': '{{count}} 件連携済み',
+  'common.goToDashboard': 'ダッシュボードへ',
   'common.no': '—',
+  'common.retry': '再試行',
   'common.yes': '✓',
   'dashboard.activeShipmentsHeading': '輸送中 + 要対応',
   'dashboard.activeShipmentsSubtitle': '{{count}} 件の出荷が要対応または移動中です',
@@ -99,6 +102,9 @@ export const ui: UiTranslations = {
   'pricing.shipmentsLabel': '件の出荷',
   'pricing.trackingLabel': '件の追跡イベント',
   'profile.dangerZone.title': '危険ゾーン',
+  'profile.devices.signingOut': 'サインアウト中…',
+  'profile.devices.unnamed': '名前のないデバイス',
+  'profile.security.disable2fa': '2段階認証を無効にする',
   'profile.security.enable2fa': '2FA を有効化',
   'profile.security.pwChanged': 'パスワードを変更しました。',
   'profile.security.pwCurrent': '現在のパスワード',
@@ -108,10 +114,12 @@ export const ui: UiTranslations = {
   'profile.security.twoFaActive': '2FA 有効',
   'profile.security.twoFaCode': '6桁のコード',
   'profile.security.twoFaDisable': '無効化',
+  'profile.security.twoFaDisabling': '無効化中…',
   'profile.security.twoFaFailed': 'コードを検証できませんでした。',
   'profile.security.twoFaIntro':
     '認証アプリで QR コードをスキャンし、下に6桁のコードを入力して認証してください。',
   'profile.security.twoFaOn': 'このアカウントでは二要素認証が有効です。',
+  'profile.security.twoFaQrAlt': '二要素認証QRコード',
   'profile.security.twoFaVerify': '認証して有効化',
   'profile.security.twoFaVerifying': '認証中…',
   'profile.subheading': 'このワークスペースの本人情報とセキュリティ設定です。',
@@ -130,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.api.secretShownOnce': 'このシークレットを保存してください。再表示はされません。',
   'settings.api.webhookSecret': 'Webhook 署名シークレット',
   'settings.appearance.description': 'ライトモードとダークモードを切り替えます。',
+  'settings.deleteAccountConfirm': '本当にいいですか？この操作は元に戻せません。',
   'settings.notifications.exceptions': '出荷の例外が発生したらメールで通知',
   'settings.notifications.heading': '通知',
   'settings.notifications.saveFailed': '設定を保存できませんでした。',
@@ -144,6 +153,8 @@ export const ui: UiTranslations = {
   'shipmentDetail.notFound': '出荷が見つかりません。',
   'shipmentDetail.originHeading': '発送元',
   'shipmentDetail.shippedOn': '{{date}} に発送',
+  'shipmentDetail.timelineEmpty':
+    'まだ追跡情報はありません。配送業者が荷物をスキャンすると、ここに最新情報が表示されます。',
   'shipmentDetail.weightLabel': '{{weight}} lb',
   'shipments.col.carrier': '配送業者',
   'shipments.col.eta': '到着予定',
@@ -172,6 +183,8 @@ export const ui: UiTranslations = {
   'signup.signIn': 'サインイン',
   'signup.submit': 'アカウントを作成',
   'team.emailError': '有効なメールアドレスを入力してください。',
+  'team.empty':
+    'まだチームメンバーはいません。出荷業務の共同作業を行うために、チームメンバーを招待してください。',
   'team.eyebrow': 'メンバーと権限',
   'team.inviteDialog.cancel': 'キャンセル',
   'team.inviteDialog.heading': 'メンバーを招待',
@@ -194,6 +207,8 @@ export const ui: UiTranslations = {
   'tracking.track': '追跡',
   'waypointLayout.primaryNavLabel': 'メイン ナビゲーション',
   'webhooks.createFailed': 'Webhook エンドポイントを作成できませんでした。',
+  'webhooks.endpointsEmpty':
+    'まだWebhookエンドポイントがありません。出荷状況のコールバックを受け取るために、エンドポイントを作成してください。',
   'webhooks.endpointsHeading': 'エンドポイント',
   'webhooks.eventCount': '{{count}} 件のイベント',
   'webhooks.eventsHeading': '最近の配信',

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
   'analytics.col.quorum': 'Quoruma',
   'analytics.col.votes': 'Botoak',
@@ -41,6 +42,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'Ez dago galderarik izapidetzen oraindik.',
   'audienceQa.onStageEyebrow': 'Orain eszenatokian.',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'Sustatu',
   'audienceQa.queued': 'ilaran',
   'audienceQa.queueEyebrow': 'Ilara',
   'ballot.eyebrow': 'Eman zure botoa',
@@ -80,6 +82,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'Une honetan zaude {{plan}} plana.',
   'billing.switch': 'Aldatu',
   'billing.upgraded': 'Eguneratua honetara {{plan}} — mugak berehala aplikatu ziren.',
+  'common.goToDashboard': 'Joan aginte-panelera',
   'createPoll.addOption': 'Gehitu aukera',
   'createPoll.anonymousHint':
     'Boto-emaileen izenak auditoria-erregistroan ezkutatuta; zenbaketak autentifikatuta jarraitzen dute.',
@@ -162,6 +165,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'Berria zara Nosh-en?',
   'login.remember': 'Gogoratu nazazu 30 egunez',
   'login.subheading': 'Ireki solairua, arakatu gela eta ziurtatu emaitza.',
+  'mobileNav.closeMenu': 'Itxi nabigazio menua',
+  'mobileNav.openMenu': 'Ireki nabigazio menua',
   'notFound.body':
     'Iritsi nahi izan duzun orrialdea itxi edo mugitu egin da. Itzuli kontrol-panelera edo ireki inkesta berri bat.',
   'notFound.eyebrow': 'Ez dago quorumik ibilbide honetan',
@@ -188,6 +193,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'Ezin izan da inkesta hau kargatu.',
   'pollDetail.loading': 'Inkesta kargatzen…',
   'pollDetail.notFound': 'Ez da inkesta aurkitu.',
+  'pollDetail.openBallot': 'Bozketa irekia',
   'pollDetail.openLive': 'Zuzeneko emaitzak',
   'pollDetail.pollId': 'inkesta · {{id}}',
   'pollDetail.published': 'Inkesta argitaratu da — hautesleek botoa eman dezakete orain.',
@@ -267,4 +273,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'Bilatu posta elektronikoz…',
   'voters.subheading':
     'Hautatu hautagai diren boto-zerrenda. Taldekatu hautesleak erakundearen arabera boto-paper haztatuak lortzeko.',
+  'votingPollingLayout.nav.analytics': 'Analitika',
+  'votingPollingLayout.nav.billing': 'Fakturazioa',
+  'votingPollingLayout.nav.createPoll': 'Inkesta berria',
+  'votingPollingLayout.nav.dashboard': 'Aginte-panela',
+  'votingPollingLayout.nav.notifications': 'Jakinarazpenak',
+  'votingPollingLayout.nav.settings': 'Ezarpenak',
+  'votingPollingLayout.nav.team': 'Taldea',
+  'votingPollingLayout.nav.voters': 'Bozkatzaileak',
+  'votingPollingLayout.primaryNavLabel': 'Nabigazio nagusia',
 }

@@ -1,11 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
   'about.pageTitle': 'Тухай {{name}}',
   'auth.footer.about': 'Тухай {{name}}',
   'authHeader.subtitle': 'Тоо баримтаа үнэн зөв байлгахын тулд нэвтэрнэ үү.',
   'automations.action.email': 'И-мэйл',
+  'automations.action.noop': 'Операци хийхгүй',
   'automations.action.webhook': 'Вэбхук',
   'automations.confirmDelete': 'Устгах " {{name}} "?',
   'automations.empty.headline': 'Автоматжуулалт хараахан байхгүй байна',
@@ -24,6 +26,9 @@ export const ui: UiTranslations = {
   'automations.subhead':
     'Ажлын дэвтэр бүрийн триггер болон үйлдлүүд. Ажиллуулах бүр нь дараа нь аудит хийх боломжтой мөрийг бүртгэдэг.',
   'automations.toggle': 'Асаах/унтраах {{name}}',
+  'automations.trigger.dailySchedule': 'Өдөр тутмын хуваарь',
+  'automations.trigger.rowCreated': 'Мөр үүсгэсэн',
+  'automations.trigger.rowUpdated': 'Мөр шинэчлэгдсэн',
   'billing.empty': 'Төлөвлөгөө байхгүй байна.',
   'billing.error.priceMissing':
     'Энэ түвшинд тохируулсан Stripe үнэ байхгүй байна. STRIPE_*_PRICE_ID орчны хувьсагчийг тохируулна уу.',
@@ -42,12 +47,15 @@ export const ui: UiTranslations = {
   'charts.headline': 'Диаграммууд',
   'charts.kpi.totalCharts': 'Нийт графикууд',
   'charts.list.empty': 'Одоогоор график алга байна.',
+  'charts.namePlaceholder': 'Орлогын чиг хандлага',
   'charts.newChart': 'Шинэ график',
   'charts.primary.eyebrow': 'Төрлөөр нь харуулсан графикууд',
   'charts.primary.headline': 'Ажлын талбарын тойм',
   'charts.subhead':
     'Таны сүлжээнд холбогдсон шууд дүрслэлүүд — нүдийг засварлах бүрт дахин дүрслэнэ.',
+  'common.goToDashboard': 'Хянах самбар руу очих',
   'editor.addColumn': 'Багана нэмэх',
+  'editor.addDialogTitle': 'Багана нэмэх',
   'editor.addRow': 'Мөр нэмэх',
   'editor.addSheet': 'Хуудас нэмэх',
   'editor.back': 'Ажлын дэвтэр рүү буцах',
@@ -99,7 +107,11 @@ export const ui: UiTranslations = {
   'landing.hero.subhead':
     '{{name}} Кальцит бол томъёо бөгөөд эхлээд олон харагдацтай, бодит цагийн сүлжээний шинжээчид болон санхүүгийн багууд эхлээд ажилладаг.',
   'landing.nav.formulas': 'Томъёо',
+  'login.noAccount': '{{name}} д шинээр орж байна уу?',
+  'login.signIn': '{{name}} руу нэвтрэх',
   'login.signUp': 'Ажлын талбар үүсгэх',
+  'nav.menu': 'Цэс',
+  'nav.openMenu': 'Цэсийг нээх',
   'notFound.cellRef': '#ЛАВЛАГ!',
   'notFound.formula': '=LOOKUP(REQUEST.url, "замууд", "хуудас")',
   'notFound.headline': 'Энэ мөр хэзээ ч байгаагүй.',
@@ -128,6 +140,7 @@ export const ui: UiTranslations = {
   'signup.benefit3': 'Уугуул автоматжуулалт · вэбхук болон крон триггерүүд',
   'signup.creating': 'Ажлын талбарыг хангаж байна...',
   'signup.cta': 'Ажлын талбараа үүсгэх',
+  'signup.haveAccount': '{{name}} дээр аль хэдийн байна уу?',
   'signup.namePlaceholder': 'Авери Чен',
   'signup.tagline': 'Эхний ажлын дэвтрээ 30 секундын дотор эргүүлээрэй',
   'team.col.activity': 'Уригдсан',

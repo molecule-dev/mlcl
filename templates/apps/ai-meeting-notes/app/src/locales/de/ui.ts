@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über uns',
   'actions.empty': 'Keine Aktionspunkte entsprechen.',
   'actions.heading': 'Aktionspunkte',
@@ -17,8 +18,10 @@ export const ui: UiTranslations = {
   'calendar.previousMonth': 'Vorheriger Monat',
   'calendar.recent': 'Zuletzt',
   'common.daysAgo': 'vor {{count}} T',
+  'common.goToDashboard': 'Zum Dashboard',
   'common.hoursAgo': 'vor {{count}} Std',
   'common.no': '—',
+  'common.retry': 'Erneut versuchen',
   'common.yes': '✓',
   'dashboard.actionCount': '{{count}} Aktionspunkte',
   'dashboard.empty.body':
@@ -41,9 +44,11 @@ export const ui: UiTranslations = {
   'forgot.sentSubheading': 'Überprüfen Sie Ihren Posteingang auf den Zurücksetzungslink.',
   'forgot.subheading': 'Geben Sie Ihre E-Mail ein und wir senden einen Zurücksetzungslink.',
   'integrations.disconnected': 'Getrennt',
+  'integrations.loadError': 'Das Laden der Integrationen ist fehlgeschlagen.',
   'integrations.notConnectedTag': 'Nicht verbunden',
   'integrations.subheading':
     'Verbinden Sie Kalender und Videoplattformen, damit Murmur automatisch beitritt.',
+  'integrations.updateError': 'Aktualisierung fehlgeschlagen.',
   'landing.ctaButton': 'Loslegen — es ist kostenlos',
   'landing.ctaHeading': 'Schluss mit Notizen. Treffen Sie Entscheidungen.',
   'landing.demo.aiLabel': 'KI-Zusammenfassung, live verfasst',
@@ -62,7 +67,9 @@ export const ui: UiTranslations = {
   'meetingDetail.followupsHeading': 'Folgeaktionen',
   'meetingDetail.loadError': 'Meeting konnte nicht geladen werden.',
   'meetingDetail.noActions': 'Keine Aktionspunkte erkannt.',
+  'meetingDetail.none': 'Keine.',
   'meetingDetail.notFound': 'Meeting nicht gefunden.',
+  'meetingDetail.speakerFallback': 'Referent{{id}}',
   'meetingDetail.summaryHeading': 'KI-Zusammenfassung',
   'meetingDetail.transcriptHeading': 'Transkript',
   'meetings.empty.body':
@@ -71,6 +78,7 @@ export const ui: UiTranslations = {
   'meetings.heading': 'Meetings',
   'meetings.loadError': 'Meetings konnten nicht geladen werden.',
   'meetings.subheading': 'Alle aufgenommenen, hochgeladenen und synchronisierten Meetings.',
+  'murmurLayout.openMenu': 'Navigationsmenü öffnen',
   'murmurLayout.primaryNavLabel': 'Hauptnavigation',
   'nav.legal': 'Rechtliches',
   'notifications.loadError': 'Benachrichtigungen konnten nicht geladen werden.',
@@ -102,6 +110,7 @@ export const ui: UiTranslations = {
   'profile.subheading': 'Wie Sie in Murmur erscheinen.',
   'record.error.empty': 'Es wurde kein Audio aufgenommen.',
   'record.error.permission': 'Mikrofonberechtigung verweigert.',
+  'record.error.recorder': 'Aufzeichnungsfehler',
   'record.error.unsupported':
     'Ihr Browser unterstützt keine Aufnahmen. Versuchen Sie Chrome, Edge oder Safari.',
   'record.error.upload': 'Hochladen fehlgeschlagen. Bitte erneut versuchen.',
@@ -117,6 +126,7 @@ export const ui: UiTranslations = {
   'reset.newPassword': 'Neues Passwort',
   'reset.subheading': 'Wählen Sie ein Passwort, das Sie nirgendwo sonst verwenden.',
   'search.empty': 'Tippen Sie, um Transkripte zu durchsuchen.',
+  'search.loadError': 'Die Suche ist fehlgeschlagen. Bitte versuchen Sie es erneut.',
   'search.noResults': 'Keine Ergebnisse für \\u201e{{q}}\\u201c.',
   'settings.appearance.description': 'Zwischen hellem und dunklem Modus umschalten.',
   'settings.appearance.title': 'Erscheinungsbild',
@@ -125,6 +135,8 @@ export const ui: UiTranslations = {
   'settings.loadError': 'Einstellungen konnten nicht geladen werden.',
   'settings.loading': 'Wird geladen…',
   'settings.push.heading': 'Push-Benachrichtigungen',
+  'settings.push.subheading':
+    'Erhalten Sie Browser-Benachrichtigungen zu Erwähnungen, zu erledigenden Aufgaben und Zusammenfassungen.',
   'settings.retention.audio': 'Audio aufbewahren für',
   'settings.retention.heading': 'Aufbewahrung',
   'settings.retention.transcript': 'Transkripte aufbewahren für',
@@ -142,6 +154,7 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Beginnen Sie in wenigen Minuten, Meeting-Notizen zu erfassen',
   'signup.terms':
     'Mit der Erstellung eines Kontos stimmen Sie unseren Nutzungsbedingungen und der Datenschutzerklärung zu.',
+  'signup.termsPrefix': 'Mit der Erstellung eines Kontos erklären Sie sich mit unseren',
   'team.inviteCta': 'Teammitglied einladen',
   'team.invitedAs': 'Eingeladen als {{role}}',
   'team.inviteFailed': 'Einladung konnte nicht gesendet werden.',

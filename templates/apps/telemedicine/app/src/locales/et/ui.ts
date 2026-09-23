@@ -38,6 +38,7 @@ export const ui: UiTranslations = {
   'booking.selectTime': 'Valige aeg',
   'booking.title': 'Broneeri aeg',
   'clinicalNotesEditorial.empty': 'Patsiente pole näidata.',
+  'common.goToDashboard': 'Mine töölauani',
   'consult.backLink': 'Kõik kohtumised',
   'consult.captions': 'Subtiitrid',
   'consult.connected': 'Ühendatud · 720p · stabiilne',
@@ -125,6 +126,7 @@ export const ui: UiTranslations = {
   'patientVitalsHero.patients': 'Patsiendid',
   'patientVitalsHero.scripts': 'Retsept avatud',
   'patientVitalsHero.subline': '{{count}} konsultatsioonid teie tänase ajakava alusel',
+  'planUpdated.verifying': 'Kinnitan makse…',
   'prescriptions.empty': 'Ükski retsept ei sobi kokku.',
   'prescriptions.eyebrow': 'E-retsept',
   'prescriptions.heading': 'Retseptid',
@@ -140,6 +142,9 @@ export const ui: UiTranslations = {
   'privacy.title': 'Privaatsusteatis',
   'privacy.use.body':
     'Ravi osutamiseks, kohtumiste meeldetuletuste saatmiseks, retseptide suunamiseks ja teenuse usaldusväärsuse parandamiseks. Me ei müü kunagi teie andmeid ega jaga kunagi kliinilist teavet reklaamijatega.',
+  'providers.allSpecialties': 'Kõik erialad',
+  'providers.loadError': 'Pakkujate laadimine ebaõnnestus.',
+  'providers.loading': 'Laadimine…',
   'providers.noResults': 'Pakkujaid ei leitud.',
   'providers.searchPlaceholder': 'Otsi nime, eriala järgi...',
   'providers.title': 'Leia teenusepakkuja',
@@ -159,6 +164,7 @@ export const ui: UiTranslations = {
   'settings.availability.dayStart': 'Päeva algus',
   'settings.availability.heading': 'Saadavus',
   'settings.devices.thisDevice': 'See seade',
+  'settings.devices.unnamed': 'Nimetu seade',
   'settings.eyebrow': 'Harjutamine ja konto',
   'settings.loadError': 'Sinu profiili ei õnnestunud laadida.',
   'settings.notifications.emailMessages': 'Saada mulle e-kiri, kui mu hooldusmeeskond vastab',
@@ -173,6 +179,10 @@ export const ui: UiTranslations = {
   'settings.security.twoFactor.disable': 'Keela',
   'settings.security.twoFactor.enable': 'Luba',
   'settings.security.twoFactor.heading': 'Kahefaktoriline autentimine',
+  'settings.security.twoFactor.invalidCode': 'See kood ei sobinud. Proovi uuesti.',
+  'settings.security.twoFactor.setupFailed':
+    'Kaheastmelise seadistamise alustamine ebaõnnestus. Proovige uuesti.',
+  'settings.security.twoFactor.statusOn': 'Kahefaktoriline on sisse lülitatud',
   'settings.signOutDevice': 'Logi välja',
   'settings.subheading': 'Teenuseosutaja profiil, praktikareeglid ja kliinilised hoiatused.',
   'signup.emailLabel': 'E-KIRI',
@@ -183,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.submit': 'Loo konto',
   'signupFooter.hipaa': 'HIPAA-nõuetele vastav',
   'solaceLayout.primaryNavLabel': 'Peamine navigeerimine',
+  'solaceLayout.toggleMenu': 'Menüü avamine/sulgemine',
   'terms.eligibility.body':
     'Te peate olema vähemalt kaheksateist aastat vana või alaealise lapse vanem või seaduslik eestkostja, kelle jaoks te hooldust otsite, ning füüsiliselt asuma USA osariigis, kus meie arstidel on litsents.',
   'terms.payment.body':

@@ -19,6 +19,7 @@ export const ui: UiTranslations = {
   'about.team.body':
     'Siyiqembu elisabalele labaklami nonjiniyela ababeke bachitha amahora amaningi kakhulu nsuku zonke ebhokisini leposi elinomsindo. I-Courier yibhokisi lokungenayo esasifuna ukulisebenzisa thina.',
   'about.title': 'I-imeyili yomsebenzi ogxile',
+  'common.goToDashboard': 'Yiya ku-Dashboard',
   'help.cta.about': 'Mayelana neCourier',
   'help.cta.pricing': 'Buka amanani',
   'help.eyebrow': 'Isikhungo sosizo',
@@ -39,6 +40,7 @@ export const ui: UiTranslations = {
     'Izimpendulo ezisheshayo zemibuzo esiyizwa kakhulu. Kukhona okungekho? Vula izilungiselelo bese usebenzisa ifomu lempendulo elingaphakathi nohlelo lokusebenza, noma ubhalele ku-support@courier.example.',
   'help.title': 'Singasiza kanjani?',
   'landing.brand.scrollTop': 'Buyela phezulu',
+  'landing.copyright': '© {{year}} {{appName}} — Yakhelwe ukugxila.',
   'landing.ctaBody':
     'Joyina izinkulungwane zochwepheshe abaqedele ibhokisi labo lokungenayo ngaphambi kwesidlo sasemini.',
   'landing.ctaTitle': 'Cubungula kakhulu, sabela kancane.',
@@ -49,6 +51,7 @@ export const ui: UiTranslations = {
   'landing.heroDemo': 'Bukela idemo',
   'landing.heroSubtitle':
     'I-Courier iyibhokisi lokungenayo elizolile elinamafasitela amathathu elakhelwe izisebenzi zolwazi ezifuna ukucubungula ulwazi, hhayi ukusabela kulo.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof': 'Kuthenjwe amaqembu agxile emhlabeni wonke',
   'landing.signIn': 'Ngena ngemvume',
   'meridian.archive.empty': 'Ingobo yomlando ayinalutho.',
@@ -77,6 +80,7 @@ export const ui: UiTranslations = {
   'meridian.drafts.to': 'To',
   'meridian.drafts.watermark': 'Okusalungiswa',
   'meridian.folder.count': '{{count}} imiyalezo',
+  'meridian.folder.delete': 'Susa',
   'meridian.folder.deleteForever': 'Susa unomphela',
   'meridian.folder.restore': 'Hambisa ebhokisini lokungenayo',
   'meridian.forgot.subtitle':
@@ -86,7 +90,9 @@ export const ui: UiTranslations = {
   'meridian.inbox.empty': 'Akukho miyalezo lapha okwamanje.',
   'meridian.inbox.loading': 'Iyalayisha…',
   'meridian.inbox.next': 'Olandelayo',
+  'meridian.inbox.noSender': '(akekho umthumeli)',
   'meridian.inbox.noSubject': '(akukho sihloko)',
+  'meridian.inbox.ofTotal': '{{current}} kwengu- {{total}}',
   'meridian.inbox.openCompose': 'Vula ukubhala',
   'meridian.inbox.previous': 'Okwangaphambilini',
   'meridian.inbox.replyFailed': 'Impendulo ilondoloziwe kodwa ukulethwa kwehlulekile: {{error}}',
@@ -99,6 +105,8 @@ export const ui: UiTranslations = {
   'meridian.login.noAccount': 'Awunayo i-akhawunti?',
   'meridian.login.showPassword': 'Bonisa iphasiwedi',
   'meridian.message.toLine': 'ku- {{recipients}}',
+  'meridian.notFound.body':
+    'Ikhasi olifunayo alitholakalanga. Buyela emuva ebhokisini lakho lokungenayo le {{appName}} futhi sizokuyisa endleleni efanele.',
   'meridian.notFound.eyebrow': 'Iphutha 404',
   'meridian.notFound.title': 'Le ngxoxo igcinwe kungobo yomlando.',
   'meridian.notFound.toInbox': 'Vula ibhokisi lami lokungenayo',
@@ -134,18 +142,21 @@ export const ui: UiTranslations = {
   'meridian.thread.star': 'Engeza inkanyezi',
   'meridian.thread.unstar': 'Susa inkanyezi',
   'meridian.time.yesterday': 'Izolo',
+  'meridian.topBar.openMenu': 'Vula imenyu yokuzulazula',
   'meridian.topBar.searchPlaceholder': 'Sesha i-imeyili',
   'meridian.trash.empty': 'Udoti awunalutho.',
   'meridian.trash.title': 'Udoti',
   'nav.legal': 'Ezomthetho',
   'planUpdated.description':
     'Okubhalisele kwakho sekuyasebenza manje futhi inkokhelo yakho ibuyekeziwe. Siyakwamukela ebhokisini lakho lokungenayo le-Courier elivuselelwe.',
+  'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.heading': 'okusalungiswa',
   'pricing.limit.emails': 'ama-imeyili',
   'pricing.limit.folders': 'amafolda',
   'pricing.limit.labels': 'amalebula',
   'privacy.collect.account':
     'Idatha ye-akhawunti: igama, ikheli le-imeyili, iphasiwedi esheshisiwe, kanye nosuku obhalise ngalo.',
+  'privacy.contact': 'Unemibuzo? Thumela i-imeyili ku-privacy@courier.example.',
   'privacy.intro':
     'Le nqubomgomo yobumfihlo ichaza ukuthi yiluphi ulwazi oluqoqwa yi-Courier, ukuthi kungani siluqoqa, ukuthi silugcina kanjani luphephile, nokuthi yiziphi izinketho onazo ngalo. Sihlose ukucacisa esikhundleni sokunamathela emthethweni; uma kukhona okungacacile, bhalela ku-privacy@courier.example.',
   'privacy.lastUpdated': 'Kugcine ukubuyekezwa: Ephreli 1, 2026',
@@ -165,6 +176,7 @@ export const ui: UiTranslations = {
   'terms.intro':
     'Le migomo ilawula ukusebenzisa kwakho i-Courier. Ngokudala i-akhawunti noma ukuthumela i-imeyili ngathi uyavuma ukuboshwa yiyo. Sizama ukubhala imithetho umuntu angayilandela ngempela.',
   'terms.lastUpdated': 'Kusebenza kusukela: Ephreli 1, 2026',
+  'terms.linkPrivacy': 'Funda Inqubomgomo Yethu Yobumfihlo →',
   'terms.termination.body':
     'Ungasusa i-akhawunti yakho nganoma yisiphi isikhathi. Singase simise okwesikhashana i-akhawunti ephula le migomo; uma senza kanjalo, sizochaza isizathu futhi sikuvumele ukuthi uthumele idatha yakho kuqala.',
   'terms.warranty.body':

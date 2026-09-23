@@ -1,6 +1,9 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': '{{app}} के बारे में',
+  'appNav.mobileLabel': 'प्राथमिक नेविगेशन',
+  'appNav.primaryLabel': 'प्राथमिक नेविगेशन',
   'billing.actions.confirmCancel':
     'क्या आप अपनी सदस्यता रद्द करना चाहते हैं? आप कभी भी पुनः सदस्यता ले सकते हैं।',
   'billing.actions.paused': 'सदस्यता रोक दी गई।',
@@ -45,6 +48,7 @@ export const ui: UiTranslations = {
   'boxes.subtitle':
     'हर टियर एक छोटे-बैच की कहानी है। एक को अपनी कतार में जोड़ें या अगले महीने में बदल दें।',
   'boxThemeCard.perMonth': '/ माह',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'customize.eyebrow': 'इसे अपना बनाएँ',
   'customize.heading': 'अपना अगला Crate कस्टमाइज़ करें',
   'customize.items.exclude': 'इसे छोड़ें',
@@ -95,6 +99,7 @@ export const ui: UiTranslations = {
   'landing.editions.eyebrow': 'इस मौसम',
   'landing.editions.heading': 'जिन संस्करणों को हमारे क्यूरेटर पसंद कर रहे हैं',
   'landing.footer.contact': 'किसी क्यूरेटर से बात करें',
+  'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'अपना बॉक्स शुरू करें →',
   'landing.hero.ctaSecondary': 'टियर देखें',
   'landing.hero.eyebrow': 'मासिक रूप से क्यूरेटेड। हमेशा व्यक्तिगत।',
@@ -112,6 +117,8 @@ export const ui: UiTranslations = {
   'nextBoxHeroCard.eyebrow': 'आपका अगला CRATE',
   'nextBoxHeroCard.itemsLabel': 'क्यूरेटेड वस्तुएँ',
   'nextBoxHeroCard.shipsOnLabel': 'इस तिथि को भेजा जाएगा',
+  'notFound.body':
+    'हमें {{app}} संग्रह में वह पृष्ठ नहीं मिला। हो सकता है कि उसे हटा दिया गया हो या उसमें कोई टाइपिंग त्रुटि हो।',
   'notFound.cta.dashboard': 'डैशबोर्ड पर जाएँ',
   'notFound.eyebrow': 'खाली बॉक्स',
   'notFound.heading': 'यह शेल्फ खाली है',

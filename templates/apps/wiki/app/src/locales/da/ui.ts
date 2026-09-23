@@ -23,6 +23,7 @@ export const ui: UiTranslations = {
   'comments.resolving': 'Løser…',
   'comments.subtitle':
     'De {{count}} Tråde venter stadig på et svar eller en løsning. Sorteret efter alder — ældste først, så intet rådner.',
+  'common.goToDashboard': 'Gå til Dashboard',
   'forgotPassword.sentTo': 'Nulstil link sendt til {{email}}',
   'forgotPassword.successSubheading':
     'Tjek din indbakke – vi har lige sendt et nulstillingslink. Det udløber om 30 minutter.',
@@ -66,6 +67,7 @@ export const ui: UiTranslations = {
   'pageTreeSidebar.newPage': 'Ny side',
   'pageTreeSidebar.workspaceHeader': 'Arbejdsområde',
   'pageView.breadcrumb': 'Brødkrumme',
+  'pageView.confirmTrash': 'Skal det smides ud?',
   'pageView.home': 'Hjem',
   'pageView.lastEdited': 'Opdateret {{when}}',
   'pageView.loading': 'Indlæser side…',
@@ -74,6 +76,8 @@ export const ui: UiTranslations = {
   'pageView.summarizing': 'Opsummerer…',
   'pageView.summaryUnavailable': 'AI-oversigten er ikke konfigureret til dette arbejdsområde.',
   'pageView.tocTitle': 'På denne side',
+  'pageView.trash': 'Papirkurv',
+  'pageView.trashing': 'Skrald…',
   'pageView.versionBadge': 'en{{version}}',
   'profile.badges.title': 'Mærker',
   'profile.owned.title': 'Ejede sider',
@@ -98,6 +102,7 @@ export const ui: UiTranslations = {
     'Arbejdsområde, profil, notifikationer, integrationer – alt i én rolig skal.',
   'settingsPage.workspace.defaultLanding': 'Standard landingsskærm',
   'settingsPage.workspace.landingHome': 'Hjem',
+  'settingsPage.workspace.landingSpaces': 'Mellemrum',
   'settingsPage.workspace.subdomainLabel': 'Underdomæne',
   'settingsPage.workspace.title': 'Arbejdsområde',
   'signup.eyebrow': 'Start et nyt arbejdsområde',
@@ -125,6 +130,8 @@ export const ui: UiTranslations = {
   'templates.readingTime': '~{{min}} min.',
   'templates.subtitle':
     'Start en side fra en stencil, ikke et blankt lærred. Hver skabelon fastlægger formen, så du kan fokusere på indholdet.',
+  'trash.confirmPurge': 'Udrensning for altid?',
+  'trash.confirmPurgeAria': 'Bekræft: slet {{title}} permanent',
   'trash.daysUntilPurge': '{{days}} dage tilbage',
   'trash.empty.body': 'Slettede sider vises her i 30 dage, før de bliver fjernet.',
   'trash.empty.title': 'Papirkurven er tom.',
@@ -144,5 +151,8 @@ export const ui: UiTranslations = {
   'versionHistory.restoring': 'Gendanner…',
   'versionHistory.subtitle': '{{count}} versioner · vælg en række for at inspicere forskellen',
   'versionHistory.versionLabel': 'v {{v}}',
+  'wikiLayout.closeMenu': 'Luk navigation',
+  'wikiLayout.menu': 'Navigation',
+  'wikiLayout.openMenu': 'Åbn navigation',
   'wikiLayout.searchPlaceholder': 'Søg i Cairn — sider, kommentarer…',
 }

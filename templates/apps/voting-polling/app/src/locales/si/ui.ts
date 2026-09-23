@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
   'analytics.col.quorum': 'ගණපූරණය',
   'analytics.col.votes': 'ඡන්ද',
@@ -40,6 +41,7 @@ export const ui: UiTranslations = {
   'audienceQa.noPending': 'තවමත් පොරොත්තු ප්‍රශ්න නොමැත.',
   'audienceQa.onStageEyebrow': 'දැන් වේදිකාවේ',
   'audienceQa.pollId': 'qa · {{id}}',
+  'audienceQa.promote': 'ප්‍රවර්ධනය කරන්න',
   'audienceQa.queued': 'පෝලිමේ ඇත',
   'audienceQa.queueEyebrow': 'පෝලිම',
   'ballot.eyebrow': 'ඔබේ ඡන්දය ප්‍රකාශ කරන්න',
@@ -78,6 +80,7 @@ export const ui: UiTranslations = {
   'billing.subheading': 'ඔබ දැනට සිටින්නේ {{plan}} සැලැස්ම.',
   'billing.switch': 'මාරු කරන්න',
   'billing.upgraded': 'යාවත්කාලීන කරන ලද්දේ {{plan}} — සීමාවන් වහාම අදාළ වේ.',
+  'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'createPoll.addOption': 'විකල්පය එක් කරන්න',
   'createPoll.anonymousHint':
     'විගණන ලොගයේ ඡන්දදායකයින්ගේ නම් සඟවා ඇත; ගණනය කිරීම් සත්‍යාපනය කර ඇත.',
@@ -159,6 +162,8 @@ export const ui: UiTranslations = {
   'login.noAccount': 'නොෂ් වලට අලුත්ද?',
   'login.remember': 'මාව දවස් 30ක් මතක තියාගන්න.',
   'login.subheading': 'බිම විවෘත කරන්න, කාමරය පරීක්ෂා කර ප්‍රතිඵලය සහතික කරන්න.',
+  'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
+  'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'notFound.body':
     'ඔබ ළඟා වීමට උත්සාහ කළ පිටුව වසා දමා හෝ ගෙන ගොස් ඇත. උපකරණ පුවරුවට ආපසු යන්න හෝ නව මත විමසුමක් විවෘත කරන්න.',
   'notFound.eyebrow': 'මෙම මාර්ගයේ ගණපූරණය නොමැත.',
@@ -185,6 +190,7 @@ export const ui: UiTranslations = {
   'pollDetail.loadError': 'මෙම මත විමසුම පූරණය කළ නොහැකි විය.',
   'pollDetail.loading': 'මත විමසුම පූරණය වෙමින්…',
   'pollDetail.notFound': 'මත විමසුම හමු නොවීය.',
+  'pollDetail.openBallot': 'විවෘත ඡන්ද පත්‍රිකාව',
   'pollDetail.openLive': 'සජීවී ප්‍රතිඵල',
   'pollDetail.pollId': 'මත විමසුම · {{id}}',
   'pollDetail.published':
@@ -265,4 +271,13 @@ export const ui: UiTranslations = {
   'voters.searchPlaceholder': 'විද්‍යුත් තැපෑලෙන් සොයන්න...',
   'voters.subheading':
     'සුදුසුකම් ලත් ඡන්ද පත්‍රිකා ලැයිස්තුව සකස් කරන්න. බර තැබූ ඡන්ද පත්‍රිකා සඳහා සංවිධානය අනුව ඡන්දදායකයින් කාණ්ඩ කරන්න.',
+  'votingPollingLayout.nav.analytics': 'විශ්ලේෂණ',
+  'votingPollingLayout.nav.billing': 'බිල්පත් කිරීම',
+  'votingPollingLayout.nav.createPoll': 'නව මත විමසුම',
+  'votingPollingLayout.nav.dashboard': 'උපකරණ පුවරුව',
+  'votingPollingLayout.nav.notifications': 'දැනුම්දීම්',
+  'votingPollingLayout.nav.settings': 'සැකසීම්',
+  'votingPollingLayout.nav.team': 'කණ්ඩායම',
+  'votingPollingLayout.nav.voters': 'ඡන්දදායකයින්',
+  'votingPollingLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
 }

@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'accountSettings.confirmEmailLabel': 'Įveskite DELETE, kad patvirtintumėte',
   'accountSettings.deleteError': 'Nepavyko ištrinti paskyros.',
   'accountSettings.passwordError': 'Nepavyko pakeisti slaptažodžio.',
@@ -53,6 +54,7 @@ export const ui: UiTranslations = {
   'dashboard.upcomingEmpty': 'Nėra artėjančių terminų.',
   'dashboard.upcomingTitle': 'Būsimi terminai',
   'deviceSettings.unknownDevice': 'Nežinomas įrenginys',
+  'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Pagalba',
   'forgotPassword.error': 'Nepavyko išsiųsti nustatymo iš naujo nuorodos.',
   'forgotPassword.subtitle':
@@ -68,6 +70,9 @@ export const ui: UiTranslations = {
   'login.error': 'Neteisingas el. pašto adresas arba slaptažodis.',
   'login.pageTitle': 'Prisijungti',
   'login.signIn': 'Prisijunkite prie „Forge“',
+  'login.subtitle': 'Prisijunkite, kad jūsų projektai vyktų sklandžiai',
+  'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
+  'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'nav.calendar': 'Kalendorius',
   'nav.legal': 'Teisinis',
   'nav.myTasks': 'My Tasks',

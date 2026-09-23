@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.pageTitle': 'O aplikaci {{app}}',
   'analytics.back': 'Přehled průzkumu',
   'analytics.kpiNps': 'Skóre NPS',
   'analytics.kpiNpsTrend': 'Promotéři {{p}} % · Kritici {{d}} %',
@@ -30,10 +31,12 @@ export const ui: UiTranslations = {
   'builder.propsTitle': 'Nemovitosti',
   'builder.questionNumber': 'Otázka {{num}}',
   'builder.surveyTitle': 'Název průzkumu',
+  'common.goToDashboard': 'Přejít na Dashboard',
   'forgotPassword.failed': 'E-mail pro obnovení hesla se nepodařilo odeslat. Zkuste to znovu.',
   'forgotPassword.subheading': 'Zadejte svůj e-mail a my vám zašleme odkaz pro obnovení účtu.',
   'forgotPassword.successBody':
     'Pokud se účet shoduje {{email}} , odkaz pro reset je na cestě. Zkontrolujte si doručenou poštu a složky s nevyžádanou poštou.',
+  'landing.footer.copyright': '© {{year}} {{app}} . Všechny hlasy jsou vítány.',
   'landing.footer.startTrial': 'Zahájit zkušební verzi',
   'landing.hero.badge': 'Průzkumy, NPS a zpětná vazba na jednom místě',
   'landing.hero.subtitle':
@@ -49,6 +52,9 @@ export const ui: UiTranslations = {
   'landing.pricing.eyebrow': 'Ceny',
   'landing.pricing.perMonth': '/měs.',
   'landing.pricing.popular': 'Nejoblíbenější',
+  'landing.pricing.subtitle':
+    'Každý plán zahrnuje nástroj pro tvorbu průzkumů, odkazy pro veřejné sdílení a analýzu NPS. Pro zahájení není nutná kreditní karta.',
+  'landing.pricing.title': 'Začněte zdarma, škálujte, když potřebujete.',
   'landing.sample.eyebrow': 'NPS v kostce',
   'landing.sample.title': 'Kritici, pasivní zastánci, propagátoři – okamžitě čitelné.',
   'login.failed': 'Přihlášení se nezdařilo. Zkuste to prosím znovu.',
@@ -56,6 +62,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Zobrazit heslo',
   'login.signUpLink': 'Vyzkoušejte si bezplatnou zkušební verzi',
   'login.subheading': 'Přihlaste se a naslouchejte svému publiku.',
+  'notFound.body': 'Stránka, kterou hledáte, v {{app}} neexistuje. Vraťme se k vašim průzkumům.',
   'notFound.cta': 'Zpět k průzkumům',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Tento průzkum se vytratil z fronty.',
@@ -72,6 +79,7 @@ export const ui: UiTranslations = {
   'npsDistributionBar.passive': 'Pasivní 7–8',
   'npsDistributionBar.promoter': 'Promotér 9–10',
   'profile.identity.description': 'Veřejné pro váš tým a v průzkumech, které vytváříte.',
+  'profile.identity.emailRequired': 'Zadejte e-mailovou adresu.',
   'profile.identity.saveCta': 'Uložit název',
   'profile.password.current': 'Aktuální heslo',
   'profile.password.fillFields': 'Zadejte aktuální i nové heslo.',
@@ -178,6 +186,8 @@ export const ui: UiTranslations = {
   'templates.questions': '{{count}} otázky',
   'templates.subheading':
     'Vyberte si osvědčenou šablonu – každá šablona je přednastavena s rozumnými výchozími nastaveními, vzorovou logikou a čistým mobilním rozvržením.',
+  'thankYou.body':
+    'Vaše odpověď byla zaznamenána. {{app}} ji zahrne do příští aktualizace analytických dat.',
   'thankYou.eyebrow': 'Odpověď přijata',
   'thankYou.heading': 'Děkujeme – na vašem hlase záleží.',
   'thankYou.home': 'Navštivte Gauge',

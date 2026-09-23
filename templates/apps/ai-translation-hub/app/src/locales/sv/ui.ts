@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'billing.canceled': 'Prenumerationen är uppsagd. Du återgår till Free i slutet av perioden.',
   'billing.contactSales': 'Kontakta säljteamet',
   'billing.free.1': '5 översättningar',
@@ -24,6 +25,7 @@ export const ui: UiTranslations = {
   'billing.team.3': 'Ingen lagringsgräns',
   'billing.upgradeHint': 'Uppgradera för att låsa upp avancerade AI-funktioner.',
   'billing.yearly': 'Årligt',
+  'common.goToDashboard': 'Gå till översikt',
   'dashboard.activityEmpty':
     'Ingen aktivitet ännu — starta ett projekt för att fylla det här flödet.',
   'dashboard.eyebrow': 'Översikt',
@@ -110,6 +112,8 @@ export const ui: UiTranslations = {
   'memory.subtitle':
     'Återanvänd tidigare översättningar över alla projekt. Högre matchningspoäng → mindre omarbete.',
   'memory.title': 'Minnesbank',
+  'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
+  'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'nav.legal': 'Juridiskt',
   'newProject.addLanguage': 'Lägg till mål',
   'newProject.create': 'Skapa projekt',
@@ -139,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.markedAllRead': 'Markerade {{count}} aviseringar som lästa.',
   'notifications.subtitle':
     'Omnämnanden, granskningsförfrågningar och AI-händelser från alla dina arbetsytor.',
+  'planUpdated.verifying': 'Bekräftar din betalning…',
   'privacy.collection.account': 'Din kontomejl och visningsnamn',
   'privacy.deletion.body':
     'Du kan när som helst ta bort ett projekt, segment, ordlistterm eller minnespost från den relevanta sidan. Att ta bort ditt konto från Inställningar raderar varje arbetsyte-omfattad rad från vår databas.',
@@ -173,6 +178,7 @@ export const ui: UiTranslations = {
   'projects.loadError': 'Det gick inte att ladda projekt.',
   'projects.loading': 'Laddar projekt…',
   'projects.subtitle': 'Varje aktivt projekt över alla språk.',
+  'renditionLayout.primaryNavLabel': 'Huvudnavigering',
   'reset.backToLogin': '\\u2190 Tillbaka till inloggning',
   'reset.passwordLabel': 'Nytt lösenord',
   'review.activeEyebrow': 'Segment {{number}}',

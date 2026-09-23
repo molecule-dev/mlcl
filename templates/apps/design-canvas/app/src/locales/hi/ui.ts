@@ -1,11 +1,14 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
   'authShell.brandHeading': 'साथ मिलकर शिप करने वाली डिज़ाइन टीमों के लिए पिक्सेल-परफ़ेक्ट कैनवस।',
   'canvas.redirecting': 'एडिटर खोला जा रहा है…',
   'collaboratorStack.overflow': '+{{count}}',
   'common.and': 'और',
+  'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.retry': 'पुनः प्रयास करें',
   'dashboard.activityEmpty':
     'अभी तक कोई हालिया गतिविधि नहीं — शुरू करने के लिए किसी साथी को आमंत्रित करें।',
   'dashboard.activityTitle': 'आज क्या बदला',
@@ -17,12 +20,14 @@ export const ui: UiTranslations = {
   'dashboard.eyebrow': 'वर्कस्पेस · Northwind Studio',
   'dashboard.foldersLabel': 'फ़ोल्डर',
   'dashboard.gridTitle': '{{count}} परियोजनाएँ',
+  'dashboard.heroActiveTool': 'कलम के उपकरण',
   'dashboard.loadingTitle': 'परियोजनाएँ लोड हो रही हैं…',
   'dashboard.searchPlaceholder': 'परियोजनाएँ खोजें',
   'dashboard.startFromTemplate': 'टेम्पलेट से शुरू करें',
   'dashboard.title': 'आपकी परियोजनाएँ',
   'dashboard.untitledProject': 'बिना शीर्षक की परियोजना',
   'designCanvasLayout.newProject': 'नई परियोजना',
+  'designCanvasLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
   'editor.backToProjects': 'परियोजनाओं पर वापस जाएँ',
   'editor.deleteShape': 'आकृति हटाएँ',
   'editor.errorBody': 'हम यह परियोजना नहीं खोल सके।',
@@ -62,6 +67,7 @@ export const ui: UiTranslations = {
   'landing.hero.title': 'ऐसे डिज़ाइन टूल जो आपके हाथों की गति से चलते हैं',
   'library.empty': 'इस अनुभाग में अभी तक कोई टोकन नहीं।',
   'library.eyebrow': 'वर्कस्पेस · Atelier Design System',
+  'library.loadFailed': 'डिजाइन टोकन लोड नहीं हो सके।',
   'library.systemMeta': 'सिस्टम स्वास्थ्य',
   'library.systemSummary': '{{tokens}} टोकन · {{components}} कंपोनेंट · {{effects}} इफ़ेक्ट',
   'login.emailPlaceholder': 'mara@studio.com',

@@ -1,7 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.tagline': 'Katra vienība zem viena jumta.',
+  'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.addProperty': 'Pievienot īpašumu',
   'dashboard.empty.body':
     'Kad esat ieguvis īpašumus, vienības un īres maksājumus, šis informācijas panelis aizpildās ar portfeļa ieskatiem.',
@@ -44,6 +47,8 @@ export const ui: UiTranslations = {
   'leases.new.tenantPlaceholder': 'Izvēlieties īrnieku…',
   'leases.new.unit': 'Vienība',
   'leases.new.unitPlaceholder': 'Izvēlieties vienību…',
+  'leases.subheading':
+    '{{count}} aktīvi nomas līgumi · {{expiring}} drīz beigsies · {{monthly}} / mēn. kopā',
   'login.emailLabel': 'E-pasta adrese',
   'login.noAccount': 'Jauns Hearthstone spēlētājs?',
   'login.passwordPlaceholder': '••••••••',
@@ -86,6 +91,8 @@ export const ui: UiTranslations = {
   'maintenanceQueueList.meta': '{{īpašums}} · Vienība {{vienība}} · datums',
   'maintenanceQueueList.subtitle': '{{count}} atvērtie darba pasūtījumi, sakārtoti pēc prioritātes',
   'maintenanceQueueList.title': 'Apkopes rinda',
+  'nav.closeMenu': 'Aizvērt izvēlni',
+  'nav.openMenu': 'Atvērt izvēlni',
   'notFound.body': 'Lapa, kuru meklējāt, ir pārvietota, arhivēta vai nekad nav pastāvējusi.',
   'notFound.title': 'Tās durvis neatveras',
   'notifications.empty.body':

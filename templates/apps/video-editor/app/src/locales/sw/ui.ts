@@ -1,6 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Umepata hitilafu, una ombi la kipengele, au unataka kutuambia kuhusu filamu uliyokata? Kila ujumbe unamfikia mtu halisi kwenye timu — wasiliana nasi wakati wowote kutoka kwa mipangilio ya akaunti yako.',
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.eyebrow': '// studio iliyo nyuma ya kata',
   'about.pageTitle': 'Kuhusu {{appName}}',
   'assetDetail.back': 'Rudi kwenye maktaba',
   'assetDetail.confirmDelete': 'Futa " {{name}} "? Hili haliwezi kutenduliwa.',
@@ -27,6 +31,7 @@ export const ui: UiTranslations = {
     '{{count}} klipu, vitanda vya sauti, na michoro tayari kuachiliwa kwenye ratiba ya matukio.',
   'assetLibrary.title': 'Mali',
   'assetLibrary.upload': 'Ongeza kipengee',
+  'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.browseTemplates': 'Vinjari violezo →',
   'dashboard.loading': 'Inapakia miradi…',
   'dashboard.noProjects': 'Hakuna miradi bado — tengeneza moja ya kuanza.',
@@ -162,7 +167,10 @@ export const ui: UiTranslations = {
   'resetPassword.subheading': 'Chagua kitu ambacho ungekumbuka pekee.',
   'rushesAuthShell.footer.copyright': '© Studio ya Rushes',
   'rushesAuthShell.footer.privacy': 'Faragha',
+  'rushesLayout.closeMenu': 'Funga urambazaji',
   'rushesLayout.guest': 'Mhariri',
+  'rushesLayout.navDialog': 'Urambazaji',
+  'rushesLayout.openMenu': 'Fungua urambazaji',
   'rushesLayout.planFree': 'Mpango wa bure',
   'rushesLayout.tagline': 'Ratiba ya sinema',
   'settings.billing.confirmCancel': 'Ghairi usajili mwishoni mwa kipindi?',

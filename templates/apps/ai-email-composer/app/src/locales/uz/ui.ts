@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Bizning hikoyamiz',
   'aiSuggestionPanel.title': 'Signet Copilot',
   'analytics.col.open': 'Ochilish darajasi',
@@ -25,6 +26,8 @@ export const ui: UiTranslations = {
   'billing.starting': "To'lov boshlanmoqda…",
   'billing.subheading': 'Yuborish usuliga mos keladigan rejani tanlang.',
   'billing.unavailable': "Savdo bilan bog'laning",
+  'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.retry': 'Qayta urinish',
   'compose.adjustingTone': 'Tanlangan ohangda qayta yozilmoqda…',
   'compose.aiPromptPlaceholder':
     'masalan, "Ikki hafta davomida javob bo\'lmaganidan keyin xushmuomalalik bilan kuzatuv, uni qisqa tuting."',
@@ -61,6 +64,7 @@ export const ui: UiTranslations = {
     "Biror narsa yuborishingiz kerakmi? Signet bir necha soniya ichida qoralamani tayyorlab qo'yishi mumkin.",
   'dashboard.composeCtaLabel': 'Tez yozish',
   'dashboard.heading': 'Sizning haftangiz, yozma',
+  'dashboard.loadFailed': "Boshqaruv panelini yuklab bo'lmadi.",
   'dashboard.manageLibrary': 'Kutubxonani boshqarish →',
   'dashboard.recentEmpty':
     "Hali yuborilgan xabarlar yo'q — yuborilgan elektron pochta xabarlaringiz shu yerda ko'rinadi.",
@@ -147,6 +151,7 @@ export const ui: UiTranslations = {
   'settings.toneSubheading':
     "Agar siz qoralamada o'zgartirmasangiz, Signet bu ohangdan foydalanadi.",
   'signetLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'signetLayout.toggleMenu': "Menyuni ochish/o'chirish",
   'signup.emailLabel': 'E-pochta manzili',
   'signup.showPassword': "Parolni ko'rsatish",
   'signup.tagline':
