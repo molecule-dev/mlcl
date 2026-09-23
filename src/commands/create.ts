@@ -142,6 +142,13 @@ export default class Create extends Command {
       }
     }
 
+    // What the caller asked for, before a template fills the flags in — the
+    // template fast path copies the template as built, so a framework or extra
+    // packages the caller named are reported rather than silently dropped.
+    const requestedFramework = flags.framework
+    const requestedPackages = flags.packages
+    let templateFramework: string | undefined
+
     // Template resolution: --template populates --type, --packages, and --no-interactive.
     //
     // Prefer the per-app `templates/apps/<slug>/template.json` over the
@@ -207,7 +214,8 @@ export default class Create extends Command {
         if (!flags.type) flags.type = template.type || 'full-stack'
         // The template carries its framework — asking the user (or requiring
         // --framework) for a fully-baked template would be noise.
-        if (!flags.framework) flags.framework = template.framework || 'react'
+        templateFramework = template.framework || 'react'
+        if (!flags.framework) flags.framework = templateFramework
         if (!flags.packages) flags.packages = (template.packages || []).join(',')
         else flags.packages = flags.packages + ',' + (template.packages || []).join(',')
         flags['no-interactive'] = true
@@ -292,6 +300,16 @@ export default class Create extends Command {
         await copyTemplateInstance(templateInstanceDir, projectPath, projectName)
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
+        if (requestedFramework && requestedFramework !== templateFramework) {
+          this.warn(
+            `The ${flags.template} template is built with ${templateFramework ?? 'its own framework'}; --framework ${requestedFramework} was not applied. For another framework, create a custom app: mlcl create <name> --type ${flags.type ?? 'full-stack'} --framework ${requestedFramework}.`,
+          )
+        }
+        if (requestedPackages) {
+          this.warn(
+            `The template was copied as built; --packages ${requestedPackages} were not added. Add them now with: mlcl add <package> --inject`,
+          )
+        }
         say(
           `${ui.check('Scaffolded')} ${ui.id(flags.template)} ${ui.dim('→')} ${ui.id(projectPath)}`,
         )
