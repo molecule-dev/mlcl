@@ -71,6 +71,14 @@ test.describe('/login', () => {
   })
 
   test('Bogus credentials show an error and keep the user on /login', async ({ page }) => {
+    // The expected 403 from POST /api/users/log-in logs a benign
+    // "Failed to load resource" console error, and the login page's own
+    // structured logger mirrors the rejection (`login.submit I18nError…`).
+    // Both are the expected invalid-credentials path — allow them explicitly.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403|login\\.submit',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/Email address/i).fill(uniqueEmail('nobody'))
     await page.getByLabel(/^Password$/i).fill('NotAPassword!')

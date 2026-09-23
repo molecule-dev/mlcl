@@ -84,7 +84,12 @@ test.describe('/dashboard', () => {
   })
 
   test('Day-streak heading renders for a fresh user', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: /\d+-day streak/i, level: 3 })).toBeVisible()
+    // The hero card renders immediately (0-day defaults, not fetch-gated),
+    // but on a contended runner the authed route boot itself can eat most of
+    // the default 5s window — tolerate a slow paint rather than flake.
+    await expect(page.getByRole('heading', { name: /\d+-day streak/i, level: 3 })).toBeVisible({
+      timeout: 15_000,
+    })
   })
 
   test('Sidebar lists all 8 primary navigation links', async ({ page }) => {

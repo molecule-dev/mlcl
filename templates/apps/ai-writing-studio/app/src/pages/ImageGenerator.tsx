@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -45,6 +46,10 @@ export function ImageGeneratorPage({ documentId }: ImageGeneratorPageProps) {
       })
       const data = response.data as GenerateResponse
       setImages((prev) => [{ url: data.url, revisedPrompt: data.revisedPrompt }, ...prev])
+      track({
+        name: 'image.generated',
+        properties: { documentId: documentId ?? undefined, saved: Boolean(documentId) },
+      })
       setPrompt('')
     } catch (err) {
       const e = err as AxiosLikeError

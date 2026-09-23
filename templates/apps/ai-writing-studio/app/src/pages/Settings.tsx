@@ -145,13 +145,13 @@ export function Settings() {
   async function handleSignOut() {
     try {
       // [M1-1] The persistent credential is the httpOnly `token` cookie. The
-      // auth client's logout() only POSTs to the logout route when it still
-      // holds the in-memory bearer token — which is gone after any full page
-      // load (in-memory storage resets; the cookie alone restores the session).
-      // So clear the cookie server-side explicitly via the bonded, credentialed
-      // HTTP client; otherwise the cookie survives sign-out and silently
-      // re-authenticates on the next load. The route is `POST /users/logout`.
-      await http.post('/users/logout').catch(() => undefined)
+      // auth client's logout() POSTs to `POST /users/logout` with
+      // `credentials: 'include'` whenever a session may exist (in-memory
+      // bearer OR restored-from-cookie authenticated state), so this single
+      // call revokes the device server-side AND clears the cookie. Do NOT
+      // also fire a manual `http.post('/users/logout')` first — it consumes
+      // the cookie, and the client's own POST then goes out unauthenticated
+      // and lands a 401 in the console on every sign-out.
       await logout()
     } finally {
       navigate('/login')

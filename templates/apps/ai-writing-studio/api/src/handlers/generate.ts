@@ -13,6 +13,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, findMany } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { AiWritingStudioLimits } from '../tiers.js'
@@ -144,7 +145,7 @@ router.post(
         usage: { inputTokens: result.inputTokens, outputTokens: result.outputTokens },
       })
     } catch (error) {
-      console.error('generate/content failed:', error)
+      logger.error('generate.content', error)
       res.status(500).json({
         error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
       })
@@ -195,7 +196,7 @@ router.post(
         usage: { inputTokens: result.inputTokens, outputTokens: result.outputTokens },
       })
     } catch (error) {
-      console.error('generate/rewrite failed:', error)
+      logger.error('generate.rewrite', error)
       res.status(500).json({
         error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
       })
@@ -238,7 +239,7 @@ router.post(
       )
       res.json({ summary: result.text })
     } catch (error) {
-      console.error('generate/summarize failed:', error)
+      logger.error('generate.summarize', error)
       res.status(500).json({
         error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
       })
@@ -272,7 +273,7 @@ router.post(
       const titles = parseTitlesPayload(result.text)
       res.json({ titles })
     } catch (error) {
-      console.error('generate/titles failed:', error)
+      logger.error('generate.titles', error)
       res.status(500).json({
         error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
       })
@@ -316,7 +317,7 @@ router.post(
       )
       res.json(seo)
     } catch (error) {
-      console.error('generate/seo failed:', error)
+      logger.error('generate.seo', error)
       res.status(500).json({
         error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
       })

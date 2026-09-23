@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -84,6 +85,7 @@ export function SEOAnalysis() {
     setRunning(true)
     try {
       await http.post(`/seo/documents/${id}/analyze`, { target_keywords: [] })
+      track({ name: 'seo.analysis_completed', properties: { documentId: id } })
       fetchAnalyses()
     } catch (error) {
       logError('seoAnalysis.run', error)

@@ -3,14 +3,23 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
+import { PlumeMobileShell } from './PlumeMobileShell.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
  * Plume sidebar shell for all signed-in pages.
  *
- * Wraps @molecule/app-sidebar-layout-react with Plume's editorial nav
- * (Dashboard, Documents, Templates, Analytics, Settings, Profile, Billing).
+ * Desktop (>= 768px): wraps @molecule/app-sidebar-layout-react with Plume's
+ * editorial nav (Dashboard, Documents, Templates, Analytics, Settings,
+ * Profile, Billing).
+ *
+ * Mobile (< 768px): the shared sidebar has no collapse, so a fixed rail would
+ * crush a phone's content column to ~150px. A template-local PlumeMobileShell
+ * (sticky top bar + slide-in drawer) takes over instead — conditionally
+ * RENDERED via matchMedia, never CSS-hidden, so nav `data-mol-id`s are never
+ * duplicated in the DOM.
  *
  * Translated from banking-dashboard's MeridianLayout.tsx.
  */
@@ -28,12 +37,18 @@ const NAV_KEYS = [
 export function PlumeSidebarLayout() {
   const { t } = useTranslation()
   const cm = getClassMap()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`plumeSidebarLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+
+  if (isMobile) {
+    return <PlumeMobileShell navItems={navItems} />
+  }
+
   return (
     <SidebarLayout
       appName={APP_NAME}

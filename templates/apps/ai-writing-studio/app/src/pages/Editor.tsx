@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -9,6 +10,11 @@ import { APP_NAME } from '../branding.js'
 import { AISuggestionCard } from '../components/AISuggestionCard.js'
 import { type DocumentStatus, DocumentStatusPill } from '../components/DocumentStatusPill.js'
 import { SeoScoreRing } from '../components/SeoScoreRing.js'
+
+/** True below the `md` breakpoint — phones get the AI panel collapsed. */
+function isPhoneWidth(): boolean {
+  return typeof window !== 'undefined' && window.matchMedia('(max-width: 767.98px)').matches
+}
 
 interface DocumentRow {
   id: string
@@ -82,7 +88,11 @@ export function Editor() {
   const { id } = useParams<{ id: string }>()
   const [searchParams] = useSearchParams()
   const templateId = searchParams.get('template')
-  const [aiPanelOpen, setAiPanelOpen] = useState(true)
+  // Desktop: the AI rail is the editor's signature — open by default.
+  // Mobile: the panel stacks BELOW the (taller) writing surface, so opening
+  // it by default would bury it below the fold anyway; start collapsed and
+  // let the sparkle toggle reveal it.
+  const [aiPanelOpen, setAiPanelOpen] = useState(() => !isPhoneWidth())
   const [doc, setDoc] = useState<DocumentRow | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -147,6 +157,10 @@ export function Editor() {
           // StrictMode effect run was "cancelled" (dev-only remount). The
           // server row exists; the URL must reflect it so the second mount
           // loads the real document instead of looping on /documents/new.
+          track({
+            name: 'document.created',
+            properties: { documentId: createdId, fromTemplate: templateId ?? undefined },
+          })
           navigate(`/documents/${createdId}`, { replace: true })
         } catch (error) {
           logError('editor.create', error)
@@ -256,6 +270,10 @@ export function Editor() {
       setStatusMessage(t('editor.publishedToast', {}, { defaultValue: 'Document published.' }))
       setSavingState('saved')
       setSavedAt(new Date())
+      track({
+        name: 'document.published',
+        properties: { documentId: doc.id, wordCount },
+      })
     } catch (error) {
       logError('editor.publish', error)
       setStatusMessage(t('editor.publishFailed', {}, { defaultValue: 'Publish failed.' }))
@@ -320,6 +338,41 @@ export function Editor() {
       return next
     })
     setSuggestions((prev) => prev.slice(1))
+    track({ name: 'ai.suggestion_accepted', properties: { documentId: doc?.id } })
+  }
+
+  /** Download the current draft as Markdown or plain text (client-side). */
+  function handleExport(format: 'md' | 'txt') {
+    if (!doc) return
+    const heading =
+      title.trim() || t('editor.titlePlaceholder', {}, { defaultValue: 'Untitled document' })
+    const body = format === 'md' ? `# ${heading}\n\n${content}\n` : `${heading}\n\n${content}\n`
+    const blob = new Blob([body], {
+      type: format === 'md' ? 'text/markdown;charset=utf-8' : 'text/plain;charset=utf-8',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    const slug =
+      heading
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '') || 'document'
+    anchor.download = `${slug}.${format}`
+    document.body.appendChild(anchor)
+    anchor.click()
+    anchor.remove()
+    URL.revokeObjectURL(url)
+    setStatusMessage(
+      t(
+        'editor.exported',
+        { format: format === 'md' ? 'Markdown' : 'TXT' },
+        {
+          defaultValue: 'Exported as {{format}}.',
+        },
+      ),
+    )
+    track({ name: 'export.completed', properties: { documentId: doc.id, format } })
   }
 
   function handleDiscardSuggestion(idToDrop: string) {
@@ -336,7 +389,7 @@ export function Editor() {
           'border-b border-outline-variant bg-surface',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-1')}>
           <Link
             to="/documents"
             className={cm.cn(
@@ -344,7 +397,7 @@ export function Editor() {
               cm.textSize('sm'),
               cm.fontWeight('medium'),
               cm.textMuted,
-              'hover:text-on-surface transition-colors',
+              'hover:text-on-surface transition-colors shrink-0',
             )}
           >
             <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
@@ -352,25 +405,36 @@ export function Editor() {
             </span>
             {t('editor.backToDocuments', {}, { defaultValue: 'All documents' })}
           </Link>
-          <span className={cm.cn('h-6 w-px bg-outline-variant')} aria-hidden="true" />
-          <h1 className={cm.cn(cm.fontWeight('bold'), 'font-serif text-lg text-on-surface')}>
+          <span
+            className={cm.cn('h-6 w-px bg-outline-variant hidden sm:block')}
+            aria-hidden="true"
+          />
+          <h1
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              'font-serif text-lg text-on-surface min-w-0 truncate',
+            )}
+          >
             {doc
               ? title.trim() ||
                 t('editor.titlePlaceholder', {}, { defaultValue: 'Untitled document' })
               : t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </h1>
-          {doc ? <DocumentStatusPill status={statusFor(doc.status)} /> : null}
+          {doc ? (
+            <span className="hidden sm:inline-flex">
+              <DocumentStatusPill status={statusFor(doc.status)} />
+            </span>
+          ) : null}
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
           <Link
             to={`/documents/${doc?.id ?? id ?? 'new'}/seo`}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('px', 3),
-              cm.sp('py', 2),
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
-              'rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors',
+              'h-10 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors',
             )}
           >
             <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
@@ -383,11 +447,11 @@ export function Editor() {
             onClick={handlePublish}
             disabled={savingState === 'saving' || isNew}
             className={cm.cn(
+              cm.flex({ align: 'center' }),
               cm.sp('px', 4),
-              cm.sp('py', 2),
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
-              'rounded-full bg-primary text-white hover:bg-primary-dark transition-colors shadow-sm disabled:opacity-60',
+              'h-10 rounded-full bg-primary text-white hover:bg-primary-dark transition-colors shadow-sm disabled:opacity-60',
             )}
           >
             {savingState === 'saving'
@@ -400,9 +464,9 @@ export function Editor() {
             aria-pressed={aiPanelOpen}
             aria-label={t('editor.toggleAiPanel', {}, { defaultValue: 'Toggle AI panel' })}
             className={cm.cn(
-              cm.sp('p', 2),
+              cm.flex({ align: 'center', justify: 'center' }),
               cm.roundedFull,
-              'border border-outline-variant text-on-surface-variant hover:text-primary hover:border-primary/30 transition-colors',
+              'h-10 w-10 border border-outline-variant text-on-surface-variant hover:text-primary hover:border-primary/30 transition-colors',
             )}
           >
             <span className="material-symbols-outlined" aria-hidden="true">
@@ -414,35 +478,69 @@ export function Editor() {
 
       <div
         className={cm.cn(
-          cm.flex({ align: 'center', gap: 'md' }),
-          cm.sp('px', 6),
+          cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
+          cm.sp('px', 4),
           cm.sp('py', 2),
           'border-b border-outline-variant bg-surface',
         )}
       >
-        {TOOLBAR_GROUPS.map((tg, gi) => (
-          <div key={gi} className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-            {tg.group.map((tool) => (
-              <button
-                key={tool.icon}
-                type="button"
-                onClick={() => handleToolbar(tool.wrap)}
-                aria-label={t(`editor.tool.${tool.icon}`, {}, { defaultValue: tool.defaultLabel })}
-                className={cm.cn(
-                  cm.sp('p', 2),
-                  'rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors',
-                )}
-              >
-                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                  {tool.icon}
-                </span>
-              </button>
-            ))}
-            {gi < TOOLBAR_GROUPS.length - 1 ? (
-              <span className={cm.cn('h-4 w-px bg-outline-variant mx-2')} aria-hidden="true" />
-            ) : null}
-          </div>
-        ))}
+        <div className={cm.cn(cm.flex({ align: 'center', wrap: 'wrap', gap: 'xs' }))}>
+          {TOOLBAR_GROUPS.map((tg, gi) => (
+            <div key={gi} className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+              {tg.group.map((tool) => (
+                <button
+                  key={tool.icon}
+                  type="button"
+                  onClick={() => handleToolbar(tool.wrap)}
+                  aria-label={t(
+                    `editor.tool.${tool.icon}`,
+                    {},
+                    { defaultValue: tool.defaultLabel },
+                  )}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'h-10 w-10 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                    {tool.icon}
+                  </span>
+                </button>
+              ))}
+              {gi < TOOLBAR_GROUPS.length - 1 ? (
+                <span className={cm.cn('h-4 w-px bg-outline-variant mx-2')} aria-hidden="true" />
+              ) : null}
+            </div>
+          ))}
+        </div>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+          {(['md', 'txt'] as const).map((fmt) => (
+            <button
+              key={fmt}
+              type="button"
+              onClick={() => handleExport(fmt)}
+              disabled={!doc}
+              aria-label={t(
+                'editor.exportAriaLabel',
+                { format: fmt.toUpperCase() },
+                { defaultValue: `Export as ${fmt.toUpperCase()}` },
+              )}
+              className={cm.cn(
+                cm.flex({ align: 'center' }),
+                cm.sp('px', 3),
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.roundedFull,
+                'h-10 uppercase tracking-widest border border-outline-variant text-on-surface-variant hover:border-primary/30 hover:text-primary transition-colors disabled:opacity-50',
+              )}
+            >
+              {fmt.toUpperCase()}
+            </button>
+          ))}
+          <span className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('px', 1))}>
+            {t('editor.exportLabel', {}, { defaultValue: 'Export' })}
+          </span>
+        </div>
       </div>
 
       {error ? (
@@ -470,8 +568,10 @@ export function Editor() {
         </div>
       ) : null}
 
-      <div className={cm.cn(cm.flex1, cm.flex({ direction: 'row' }), 'overflow-hidden')}>
-        <main className={cm.cn(cm.flex1, 'overflow-y-auto')}>
+      <div
+        className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'overflow-hidden md:flex-row')}
+      >
+        <main className={cm.cn(cm.flex1, 'overflow-y-auto min-w-0')}>
           <article className={cm.cn(cm.mxAuto, cm.sp('px', 8), cm.sp('py', 12), 'max-w-[720px]')}>
             {doc ? (
               <input
@@ -527,13 +627,13 @@ export function Editor() {
           </article>
           <div
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between' }),
-              cm.sp('px', 6),
+              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+              cm.sp('px', 4),
               cm.sp('py', 3),
               'border-t border-outline-variant bg-surface text-xs text-on-surface-variant font-mono',
             )}
           >
-            <div className={cm.cn(cm.flex({ gap: 'lg' }))}>
+            <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'md' }))}>
               <span>
                 {t('common.countWords', { count: wordCount }, { defaultValue: '{{count}} words' })}
               </span>
@@ -580,7 +680,9 @@ export function Editor() {
             className={cm.cn(
               cm.sp('p', 5),
               cm.flex({ direction: 'col', gap: 'md' }),
-              'w-[380px] border-l border-outline-variant bg-surface-container-low overflow-y-auto',
+              // Mobile: stacks BELOW the writing surface (order-first would
+              // push the prose off-screen); desktop: fixed 380px side rail.
+              'w-full border-t border-outline-variant md:w-[380px] md:border-t-0 md:border-l max-h-[45vh] md:max-h-none overflow-y-auto',
             )}
             style={{
               // Theme token defined in theme.css (light + dark variants).
@@ -609,8 +711,8 @@ export function Editor() {
                 onClick={() => setAiPanelOpen(false)}
                 aria-label={t('editor.closeAiPanel', {}, { defaultValue: 'Close AI panel' })}
                 className={cm.cn(
-                  cm.sp('p', 1),
-                  'rounded-md text-on-surface-variant hover:text-primary',
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-9 w-9 rounded-md text-on-surface-variant hover:text-primary',
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
@@ -630,12 +732,12 @@ export function Editor() {
               type="button"
               onClick={loadSuggestions}
               className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
                 cm.sp('px', 3),
-                cm.sp('py', 2),
-                cm.fontWeight('semibold'),
                 cm.textSize('xs'),
+                cm.fontWeight('semibold'),
                 cm.roundedFull,
-                'uppercase tracking-widest border border-primary/30 text-primary hover:bg-primary/10 transition-colors',
+                'min-h-10 uppercase tracking-widest border border-primary/30 text-primary hover:bg-primary/10 transition-colors',
               )}
             >
               {t('editor.requestSuggestion', {}, { defaultValue: 'Request a refinement' })}

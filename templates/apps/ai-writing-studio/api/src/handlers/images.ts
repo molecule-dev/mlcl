@@ -110,6 +110,7 @@ router.post(
       })
     } catch (error) {
       const status = error instanceof ImageProviderUnavailableError ? 503 : 502
+      logger.error('images.generate', error)
       res.status(status).json({
         error:
           error instanceof Error
@@ -170,6 +171,7 @@ router.post(
       })
     } catch (error) {
       const status = error instanceof ImageProviderUnavailableError ? 503 : 502
+      logger.error('images.generateAndSave', error)
       res.status(status).json({
         error:
           error instanceof Error
