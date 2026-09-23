@@ -41,6 +41,12 @@ test('login returns to a protected page after sign-in', async ({ page, browser }
 })
 
 test('wrong password keeps user on /login and surfaces an error', async ({ page, browser }) => {
+  // The 403 from /api/users/log-in is the EXPECTED outcome here; the browser
+  // still logs it as a console error, so allow exactly that.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 403/,
+  })
   const email = uniqueEmail('badlogin')
   const ctx = await browser.newContext()
   const p = await ctx.newPage()

@@ -135,10 +135,14 @@ router.get('/me', async (_req: Request, res: Response) => {
     const tutor = await findOne<Record<string, unknown>>('tutor_profiles', [
       { field: 'user_id', operator: '=', value: userId },
     ])
+    // No profile is the NORMAL answer for a signed-in user who has never
+    // applied as a tutor — the dashboard treats a falsy body as its
+    // "become a tutor" state. Respond 200 + null instead of 404: every
+    // post-signup dashboard visit otherwise logs a browser console error for
+    // a routine, expected outcome (and the e2e console-error fixture fails
+    // the whole test on it).
     if (!tutor) {
-      res.status(404).json({
-        error: t('tutors.notFound', undefined, { defaultValue: 'Tutor profile not found' }),
-      })
+      res.json(null)
       return
     }
     res.json(tutor)

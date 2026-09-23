@@ -139,7 +139,9 @@ test('Notification toggle persists across reload', async ({ page }) => {
     await page.getByRole('button', { name: /save preferences/i }).click()
     await page.waitForTimeout(1500)
   })
-  const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/users\/me/.test(r.url))
+  // Preferences persist through the app-owned server-side settings channel
+  // (oauthData never reads back off /users/me — see routes/settings.ts).
+  const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/settings/.test(r.url))
   expect(patch?.status).toBe(200)
   await page.reload()
   await page.waitForLoadState('networkidle', { timeout: 15_000 })
@@ -168,7 +170,9 @@ test('Role tab persists active role across reload', async ({ page }) => {
     await tutorBtn.click()
     await page.waitForTimeout(1200)
   })
-  const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/users\/me/.test(r.url))
+  // The role persists through the app-owned server-side settings channel
+  // (oauthData never reads back off /users/me — see routes/settings.ts).
+  const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/settings/.test(r.url))
   expect(patch?.status).toBe(200)
   await page.reload()
   await page.waitForLoadState('networkidle', { timeout: 15_000 })
@@ -176,9 +180,12 @@ test('Role tab persists active role across reload', async ({ page }) => {
     .getByRole('button', { name: /^role$/i })
     .first()
     .click()
+  // Match the Tutor card by its EXACT title text: a hasText /tutor/i filter
+  // also matches the Learner card, whose body copy says "Search tutors, …"
+  // — that false positive once passed this test while persistence was broken.
   const tutorPressed = await page
     .locator('button[aria-pressed="true"]')
-    .filter({ hasText: /tutor/i })
+    .filter({ has: page.getByText('Tutor', { exact: true }) })
     .count()
   expect(tutorPressed).toBe(1)
 })

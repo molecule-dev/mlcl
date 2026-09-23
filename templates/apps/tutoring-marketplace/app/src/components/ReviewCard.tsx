@@ -40,7 +40,15 @@ export function ReviewCard({
         'bg-surface-container-lowest rounded-xl border border-outline-variant/20 shadow-sm transition-all hover:shadow-md',
       )}
     >
-      <header className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      <header
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          // Stars are one rigid run; in narrow cards (e.g. 3-up testimonial
+          // grids at tablet) let them wrap below the name instead of pushing
+          // the card past the viewport.
+          'flex-wrap',
+        )}
+      >
         <div
           className={cm.cn(
             'rounded-full overflow-hidden ring-2 ring-surface-container-lowest shadow-sm shrink-0',
@@ -53,8 +61,10 @@ export function ReviewCard({
             className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
           />
         </div>
-        <div className={cm.flex1}>
-          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>{reviewerName}</p>
+        <div className={cm.cn(cm.flex1, 'min-w-0')}>
+          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'truncate')}>
+            {reviewerName}
+          </p>
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
             {subject
               ? t(
@@ -65,7 +75,7 @@ export function ReviewCard({
               : t('reviewCard.headline', { ago: postedAgo }, { defaultValue: '{{ago}}' })}
           </p>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
           {Array.from({ length: 5 }).map((_, i) => (
             <span
               key={i}

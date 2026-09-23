@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -28,6 +29,7 @@ router.get('/', validateQuery(listSubjectsSchema), async (req: Request, res: Res
     })
     res.json(subjects)
   } catch (_err) {
+    logger.error?.('subjects.list', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -47,6 +49,7 @@ router.get('/:slug/tutors', async (req: Request, res: Response) => {
     })
     res.json(tutors)
   } catch (_err) {
+    logger.error?.('subjects.tutorsBySlug', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

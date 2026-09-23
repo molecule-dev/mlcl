@@ -18,6 +18,12 @@ import {
 } from './_helpers.js'
 
 test('cannot review a tutor with a non-completed booking', async ({ page }) => {
+  // The 4xx here is the assertion target; the browser still logs it as a
+  // console error, so allow exactly that.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 400/,
+  })
   await signup(page, uniqueEmail('student'))
   const tutor = await pickTutor(page)
   const bookingId = await createBookingViaApi(page, tutor.id)

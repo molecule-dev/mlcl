@@ -47,6 +47,12 @@ test('become-tutor form creates a tutor_profiles row + redirects to /tutor/:id',
 })
 
 test('cannot create a second tutor profile for the same user', async ({ page }) => {
+  // The 409 on the second attempt is the assertion target; the browser still
+  // logs it as a console error, so allow exactly that.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 409/,
+  })
   await signup(page, uniqueEmail('dup-tutor'))
   // First creation
   const a = await apiFetch(page, 'POST', '/tutors', {

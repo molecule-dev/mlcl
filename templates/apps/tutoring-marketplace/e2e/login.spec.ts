@@ -101,6 +101,12 @@ test.describe('/login', () => {
   })
 
   test('wrong password keeps user on /login', async ({ page, browser }) => {
+    // The 403 is the assertion target; the browser still logs it as a console
+    // error, so allow exactly that.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 403/,
+    })
     const email = uniqueEmail('badlogin-page')
     const ctx = await browser.newContext()
     const p = await ctx.newPage()

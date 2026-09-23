@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -188,6 +189,11 @@ export function Booking() {
         setSubmitting(false)
         return
       }
+      // Conversion event: the booking request committed.
+      void track({
+        name: 'session.booked',
+        properties: { bookingId, tutorId, subject, durationMinutes: duration },
+      })
       navigate(`/book/${tutorId}/confirm?bookingId=${bookingId}`)
     } catch (err) {
       setErrorMessage(
@@ -234,7 +240,7 @@ export function Booking() {
       </header>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }))}>
-        <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-8')}>
+        <div className={cm.cn(cm.stack(8), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-8')}>
           <section
             className={cm.cn(
               cm.sp('p', 6),
@@ -419,7 +425,7 @@ export function Booking() {
           </section>
         </div>
 
-        <aside className={cm.cn('col-span-12 lg:col-span-4')}>
+        <aside className={cm.cn('col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-4')}>
           <div
             className={cm.cn(
               cm.sp('p', 6),

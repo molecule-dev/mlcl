@@ -270,7 +270,7 @@ export function BookingConfirmation() {
       </header>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }))}>
-        <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-7')}>
+        <div className={cm.cn(cm.stack(8), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-7')}>
           <section
             className={cm.cn(
               cm.sp('p', 6),
@@ -378,7 +378,7 @@ export function BookingConfirmation() {
           </section>
         </div>
 
-        <aside className={cm.cn('col-span-12 lg:col-span-5')}>
+        <aside className={cm.cn('col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-5')}>
           <div
             className={cm.cn(
               cm.sp('p', 6),

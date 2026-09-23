@@ -113,6 +113,12 @@ test('End session moves session to completed + booking to completed', async ({ p
 })
 
 test('non-owner cannot view a booking detail page', async ({ page, browser }) => {
+  // The 404 for a non-owner is the assertion target; the browser still logs it
+  // as a console error, so allow exactly that.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 40[34]/,
+  })
   // create booking as user A
   const ctxA = await browser.newContext()
   const pa = await ctxA.newPage()

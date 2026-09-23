@@ -41,6 +41,12 @@ test.describe('/reset-password', () => {
   })
 
   test('full lifecycle: forgot → reset → login with new password', async ({ page, browser }) => {
+    // The bad-token 4xx is the assertion target; the browser still logs it
+    // as a console error, so allow exactly that.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 4/,
+    })
     const email = uniqueEmail('reset-lifecycle')
     const password = 'OldPass123!'
     const newPassword = 'BrandNewPass456!'

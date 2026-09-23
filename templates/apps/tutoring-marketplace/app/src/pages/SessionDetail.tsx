@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -240,6 +241,14 @@ export function SessionDetail() {
         setFeedback(
           t('sessionDetail.reviewSubmitted', {}, { defaultValue: 'Thanks for the rating!' }),
         )
+        void track({
+          name: 'review.added',
+          properties: {
+            bookingId: booking.id,
+            tutorId: booking.tutor_id,
+            rating: reviewDraftRating,
+          },
+        })
       } else {
         setReviewError(
           t('sessionDetail.reviewError', {}, { defaultValue: 'Could not submit review.' }),
@@ -326,6 +335,10 @@ export function SessionDetail() {
       await http.put(`/api/bookings/${booking.id}/cancel`, {})
       setBooking({ ...booking, status: 'cancelled' })
       setFeedback(t('sessionDetail.cancelledFeedback', {}, { defaultValue: 'Booking cancelled.' }))
+      void track({
+        name: 'session.cancelled',
+        properties: { bookingId: booking.id, tutorId: booking.tutor_id },
+      })
     } catch (err) {
       setFeedback(
         (err as { message?: string }).message ??
@@ -660,7 +673,7 @@ export function SessionDetail() {
       )}
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }))}>
-        <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-8')}>
+        <div className={cm.cn(cm.stack(8), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-8')}>
           <section
             className={cm.cn(
               cm.sp('p', 6),
@@ -690,7 +703,7 @@ export function SessionDetail() {
           </section>
         </div>
 
-        <aside className={cm.cn('col-span-12 lg:col-span-4')}>
+        <aside className={cm.cn('col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-4')}>
           <div
             className={cm.cn(
               cm.sp('p', 6),

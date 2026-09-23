@@ -79,6 +79,12 @@ test.describe('/signup', () => {
   })
 
   test('weak password (too short) is rejected by the API', async ({ page }) => {
+    // The 4xx here is the assertion target; the browser still logs it as a
+    // console error, so allow exactly that.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 4/,
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/signup')
       await page

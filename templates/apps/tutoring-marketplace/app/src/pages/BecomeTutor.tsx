@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -79,6 +80,10 @@ export function BecomeTutor() {
       })) as { data?: TutorRow | null }
       if (response.data?.id) {
         setSubmitted(true)
+        void track({
+          name: 'tutor.profile_created',
+          properties: { tutorId: response.data.id },
+        })
         setTimeout(() => navigate(`/tutor/${response.data!.id}`), 1200)
       } else {
         setErrorMessage(

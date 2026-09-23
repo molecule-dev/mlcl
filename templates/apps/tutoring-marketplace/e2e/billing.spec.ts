@@ -80,18 +80,33 @@ test('upgrade to Pro fires POST /api/billing/checkout and yields a Stripe URL', 
 })
 
 test('checkout with an unknown priceId returns 400', async ({ page }) => {
+  // The 400 is the assertion target; the browser logs it as a console error.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 400/,
+  })
   await signup(page)
   const r = await apiFetch(page, 'POST', '/billing/checkout', { priceId: 'price_does_not_exist' })
   expect(r.status).toBe(400)
 })
 
 test('GET /api/billing/* without auth fails 401', async ({ page }) => {
+  // The 401 is the assertion target; the browser logs it as a console error.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 401/,
+  })
   await page.goto(APP_BASE + '/')
   const r = await apiFetch(page, 'GET', '/billing/status')
   expect(r.status).toBe(401)
 })
 
 test('cancel without an active subscription returns 400', async ({ page }) => {
+  // The 400 is the assertion target; the browser logs it as a console error.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 400/,
+  })
   await signup(page)
   const r = await apiFetch(page, 'POST', '/billing/cancel')
   // A fresh user has no Stripe subscription, so cancel should fail clean.

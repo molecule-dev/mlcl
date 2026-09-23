@@ -30,9 +30,13 @@ type UserMeResponse = {
     id?: string
     name?: string | null
     email?: string | null
-    oauthData?: { notifications?: NotificationPrefs; activeRole?: RoleKey } | null
   } | null
   plan?: { title?: string; planKey?: string; description?: string } | null
+}
+
+type AppSettings = {
+  notifications?: NotificationPrefs
+  activeRole?: RoleKey
 }
 
 type BillingStatus = {
@@ -76,6 +80,10 @@ export function Account() {
   const [roleFeedback, setRoleFeedback] = useState<string | null>(null)
 
   // Pull canonical user data from /api/users/me (auth user object is light)
+  // and the app's preference slice from the server-side /api/settings
+  // channel. Preferences live in the user row's oauthData blob, which the
+  // platform NEVER returns on self-reads — so they must round-trip through
+  // the app-owned settings route, never through users/me.
   useEffect(() => {
     let active = true
     http
@@ -87,10 +95,6 @@ export function Account() {
         setMeData(props)
         setDisplayName(props?.name ?? user?.name ?? '')
         setEmail(props?.email ?? user?.email ?? '')
-        const prefs = props?.oauthData?.notifications ?? {}
-        setNotifPrefs({ ...NOTIFICATION_DEFAULTS, ...prefs })
-        const persistedRole = props?.oauthData?.activeRole
-        if (persistedRole === 'tutor' || persistedRole === 'student') setRole(persistedRole)
       })
       .catch(() => {
         if (active) {
@@ -98,6 +102,20 @@ export function Account() {
           setEmail(user?.email ?? '')
         }
       })
+    http
+      .get<AppSettings>('/api/settings')
+      .then((res) => {
+        if (!active) return
+        const settings = (res as { data?: AppSettings | null }).data
+        if (!settings) return
+        if (settings.notifications) {
+          setNotifPrefs({ ...NOTIFICATION_DEFAULTS, ...settings.notifications })
+        }
+        if (settings.activeRole === 'tutor' || settings.activeRole === 'student') {
+          setRole(settings.activeRole)
+        }
+      })
+      .catch(() => {})
     http
       .get<BillingStatus>('/api/billing/status')
       .then((res) => {
@@ -152,12 +170,12 @@ export function Account() {
     setNotifSaving(true)
     setNotifFeedback(null)
     try {
-      const nextOauth = { ...(meData?.oauthData ?? {}), notifications: notifPrefs }
-      await http.patch('/api/users/me', { oauthData: nextOauth })
-      // Re-pull
-      const refetch = await http.get<UserMeResponse>('/api/users/me')
-      const data = (refetch as { data?: UserMeResponse | null }).data
-      setMeData(data?.props ?? null)
+      const saved = (await http.patch<AppSettings>('/api/settings', {
+        notifications: notifPrefs,
+      })) as { data?: AppSettings | null }
+      if (saved.data?.notifications) {
+        setNotifPrefs({ ...NOTIFICATION_DEFAULTS, ...saved.data.notifications })
+      }
       setNotifFeedback(t('account.notifications.saved', {}, { defaultValue: 'Preferences saved.' }))
     } catch (err) {
       setNotifFeedback(
@@ -180,11 +198,10 @@ export function Account() {
     setRoleSaving(true)
     setRoleFeedback(null)
     try {
-      const nextOauth = { ...(meData?.oauthData ?? {}), activeRole: next }
-      await http.patch('/api/users/me', { oauthData: nextOauth })
-      const refetch = await http.get<UserMeResponse>('/api/users/me')
-      const data = (refetch as { data?: UserMeResponse | null }).data
-      setMeData(data?.props ?? null)
+      const saved = (await http.patch<AppSettings>('/api/settings', {
+        activeRole: next,
+      })) as { data?: AppSettings | null }
+      if (saved.data?.activeRole) setRole(saved.data.activeRole)
       setRoleFeedback(
         next === 'tutor'
           ? t('account.role.savedTutor', {}, { defaultValue: 'Active mode: Tutor.' })
@@ -223,7 +240,7 @@ export function Account() {
       </header>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }))}>
-        <aside className={cm.cn('col-span-12 lg:col-span-3')}>
+        <aside className={cm.cn('col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-3')}>
           <nav
             className={cm.cn(
               cm.stack(1),
@@ -263,7 +280,9 @@ export function Account() {
           </nav>
         </aside>
 
-        <section className={cm.cn(cm.stack(6), 'col-span-12 lg:col-span-9')}>
+        <section
+          className={cm.cn(cm.stack(6), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-9')}
+        >
           {activeTab === 'profile' && (
             <form
               onSubmit={saveProfile}

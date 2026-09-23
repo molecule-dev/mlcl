@@ -96,6 +96,12 @@ test('sent message is visible after a reload (read-after-write)', async ({ page,
 })
 
 test('non-participant cannot fetch a thread by id', async ({ page, browser }) => {
+  // The 4xx here is the assertion target; the browser still logs it as a
+  // console error, so allow exactly that.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 40[34]/,
+  })
   // user A starts a thread with peer
   const peer = await createPeer(browser)
   const ctxA = await browser.newContext()
@@ -116,6 +122,12 @@ test('non-participant cannot fetch a thread by id', async ({ page, browser }) =>
 })
 
 test('cannot start a thread with yourself', async ({ page }) => {
+  // The 4xx here is the assertion target; the browser still logs it as a
+  // console error, so allow exactly that.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 400/,
+  })
   await signup(page)
   // get my id from JWT
   const jwt = await getAccessToken(page)

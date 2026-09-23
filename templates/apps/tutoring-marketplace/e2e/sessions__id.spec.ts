@@ -178,9 +178,11 @@ test.describe('/sessions/:id', () => {
       .catch(() => undefined)
     await page.waitForTimeout(2_500)
 
-    // Initially: no review -> 404
+    // Initially: no review -> 200 with a null body (the page polls this in
+    // its normal flow, so "not yet" must not be an error response)
     const before = await apiFetch(page, 'GET', `/reviews/booking/${bookingId}`)
-    expect(before.status).toBe(404)
+    expect(before.status).toBe(200)
+    expect(before.body ?? null).toBeNull()
 
     // Post a review for this booking
     const booking = await apiFetch<any>(page, 'GET', `/bookings/${bookingId}`)
@@ -202,6 +204,12 @@ test.describe('/sessions/:id', () => {
   })
 
   test('non-owner cannot view a booking detail page', async ({ page, browser }) => {
+    // The 403/404 is the assertion target; the browser still logs it as a
+    // console error, so allow exactly that.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 40[34]/,
+    })
     // user A creates a booking
     const ctx = await browser.newContext()
     const aP = await ctx.newPage()

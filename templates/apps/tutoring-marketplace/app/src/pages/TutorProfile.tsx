@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -125,6 +126,8 @@ export function TutorProfile() {
         const slots = (availRes as { data?: AvailabilityRow[] | null }).data
         setTutor(data && Object.keys(data).length > 0 ? data : FALLBACK_TUTOR)
         setAvailability(Array.isArray(slots) ? slots : [])
+        // Funnel event: a tutor profile rendered with real catalog data.
+        if (data?.id) void track({ name: 'tutor.viewed', properties: { tutorId: data.id } })
       })
       .catch(() => {
         if (!active) return
@@ -354,7 +357,7 @@ export function TutorProfile() {
       </header>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }))}>
-        <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-8')}>
+        <div className={cm.cn(cm.stack(8), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-8')}>
           <section className={cm.stack(3)}>
             <h2
               className={cm.cn(
@@ -442,7 +445,7 @@ export function TutorProfile() {
           </section>
         </div>
 
-        <aside className={cm.cn('col-span-12 lg:col-span-4')}>
+        <aside className={cm.cn('col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-4')}>
           <div
             className={cm.cn(
               cm.sp('p', 6),
@@ -508,7 +511,8 @@ export function TutorProfile() {
                           className={cm.cn(
                             cm.textSize('xs'),
                             cm.fontWeight('semibold'),
-                            'rounded-full px-3 py-1 transition-colors',
+                            // 36px compact tap target (cm.touchTargetCompact floor)
+                            'rounded-full px-3 py-2 min-h-[36px] inline-flex items-center transition-colors',
                           )}
                           style={{
                             backgroundColor: 'var(--chalk-available-light)',

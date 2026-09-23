@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, findById, findMany, findOne, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -36,6 +37,7 @@ router.get('/tutor/:tutorId', async (req: Request, res: Response) => {
     })
     res.json(reviews)
   } catch (_err) {
+    logger.error?.('reviews.listByTutor', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -68,16 +70,17 @@ router.get('/booking/:bookingId', async (req: Request, res: Response) => {
       limit: 1,
     })
     const review = reviews?.[0]
+    // "No review yet" is the NORMAL answer while the SessionDetail page polls
+    // a completed booking (it renders the rating form on a falsy body), so
+    // respond 200 + null instead of 404 — a 404 here logged a browser console
+    // error on every post-session visit.
     if (!review) {
-      res.status(404).json({
-        error: t('reviews.notFound', undefined, {
-          defaultValue: 'No review found for this booking.',
-        }),
-      })
+      res.json(null)
       return
     }
     res.json(review)
   } catch (_err) {
+    logger.error?.('reviews.getByBooking', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -215,6 +218,7 @@ router.post('/', validateBody(createReviewSchema), async (req: Request, res: Res
 
     res.status(201).json(review)
   } catch (_err) {
+    logger.error?.('reviews.create', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
@@ -83,6 +84,7 @@ export function Messages() {
     ;(async () => {
       try {
         let list = await fetchThreads()
+        if (!active) return
         if (withUser) {
           const existing = list.find(
             (th) =>
@@ -94,8 +96,10 @@ export function Messages() {
             const created = (await http.post<ThreadRow>('/api/messages/threads', {
               recipient_id: withUser,
             })) as { data?: ThreadRow | null }
+            if (!active) return
             if (created.data?.id) {
               list = await fetchThreads()
+              if (!active) return
               setActiveId(created.data.id)
             }
           }
@@ -213,8 +217,11 @@ export function Messages() {
       })) as { data?: MessageRow | null }
       const newMsg = response.data
       if (newMsg?.id) {
-        setMessages((prev) => [...prev, newMsg])
+        // The server broadcasts `new-message` BEFORE it answers this POST, so
+        // the realtime echo can already be in the list — dedupe, never blind-append.
+        setMessages((prev) => (prev.some((m) => m.id === newMsg.id) ? prev : [...prev, newMsg]))
         setDraft('')
+        void track({ name: 'message.sent', properties: { threadId: activeId } })
         // Bump thread's last_message_at to now in the sidebar
         setThreads((prev) =>
           prev.map((th) =>

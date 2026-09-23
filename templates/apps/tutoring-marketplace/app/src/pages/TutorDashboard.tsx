@@ -261,7 +261,7 @@ export function TutorDashboard() {
       />
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }), 'items-start')}>
-        <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-8')}>
+        <div className={cm.cn(cm.stack(8), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-8')}>
           <StatTriad
             items={[
               {
@@ -362,7 +362,9 @@ export function TutorDashboard() {
           </section>
         </div>
 
-        <aside className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-4')}>
+        <aside
+          className={cm.cn(cm.stack(8), 'col-span-1 sm:col-span-2 lg:col-span-6 xl:col-span-4')}
+        >
           <section className={cm.stack(4)}>
             <h2
               className={cm.cn(
