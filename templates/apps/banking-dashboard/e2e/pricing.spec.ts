@@ -86,6 +86,10 @@ test.describe('pricing page', () => {
 
   test('paid tier price renders with /mo (monthly period)', async ({ page }) => {
     await page.goto(APP_BASE + '/pricing')
-    await expect(page.locator('body')).toContainText(/\$\d+\/mo/i, { timeout: 10000 })
+    // 25s: under a loaded dev box the SPA's first mount (bundle execute +
+    // tiers fetch + render) has exceeded 10s — the default expect timeout
+    // turned that into a flake. A genuinely broken tiers payload still fails
+    // here, just slower.
+    await expect(page.locator('body')).toContainText(/\$\d+\/mo/i, { timeout: 25_000 })
   })
 })
